@@ -1,14 +1,11 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### Loading Time...
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+The idea for my clock is to have several loading bars in the style
+of the Windows 95 GUI, with each loading bar representing hours,
+minutes, seconds and with the date stored at the top of the window.
+Two buttons at the bottom indicate whether it is am or pm. The bars
+progress as time progresses. For my sketch I used PhotoShop as I
+thought it would more accurately reflect the final product (compared
+with a sketch on paper).
