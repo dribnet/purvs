@@ -2,10 +2,29 @@
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
 function draw_clock(hour, minute, second, millis, alarm) {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+	
+	angleMode(DEGREES);
+  	background(0); // light gray background
+  	translate(320, 170);
+  	fill(0,255,0);
+  	textAlign(CENTER);
+  	textSize(70);
+  	rotate(-175.5);
+  	var red = 20;
+  	var green = 255;
+  	var blue = 200;
+  	var opacity = 10;
+  	for(var i = 15; i <=36; i++)
+  	{
+  		rotate(8);
+  		fill(red, green, blue, opacity);
+  		text("2:08:" + i + "PM", 0, 0);
+  		translate(-20, 15);
+  		red += 12;
+  		green -= 7;
+  		blue -= 3;
+  		opacity +=10;
+  	}
+  	fill(255);
+  	text("2:08:" + 37 + "PM", 0, 0);
 }
