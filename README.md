@@ -3,6 +3,7 @@
 ### Outrageous clock
 
 NEED TO DO THIS BY NEXT CLASS...
+(Just checking I can repoen the file and upload again.)
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
