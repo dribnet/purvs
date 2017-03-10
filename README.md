@@ -2,7 +2,7 @@
 
 ### Outrageous clock
 
-This is just a quick test to make sure the files are being updated correctly.
+NEED TO DO THIS BY NEXT CLASS...
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
