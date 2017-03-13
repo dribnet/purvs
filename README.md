@@ -1,17 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### Mechanical Era
 
 NEED TO DO THIS BY NEXT CLASS...
 (Just checking I can repoen the file and upload again.)
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+I will base my clock off the standard clock face. However, I will be replacing the traditional numbers and hands with a display representing rows of diodes. To show the time, the small lights will act as the hand by illuminating accordingly. The clock will function as tho it were a mechanical clock in the inside but with modern era design on the outside.
