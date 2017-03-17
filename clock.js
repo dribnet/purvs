@@ -3,71 +3,108 @@
  */ 
 
 function draw_clock(hour, minute, second, millis, alarm) {
-  	background(0);
+    angleMode(DEGREES)
+    var millis_count = map(millis,0,1000,0,360);
+    var second_count = map(second,0,60,0,360)-90;
+    var minute_count = map(minute,0,60,0,360)-90;
+    var hour_count = map(hour,0,12,0,360)-90;
+
+  	background(255);
     strokeWeight(0);
+    translate(480,250)
+    fill(0);
+    ellipse(0,0,450);
 
-    fill(250);
-    plop1(170,60);
-    scale(0.3);
-    fill(140);
-    plop2(1500,650);
-    plop3(1500,650);
+    fill(50);
+    ellipse(0,0,410)
+
+    fill(80);
+    ellipse(0,0,350)
+
+    second_background();
+    minute_background();
+    hour_background();
+    if(alarm < 0){
+        fill(50);
+    } else if(alarm == 0){
+        fill(0);
+    } else {
+        fill(100);
+    }
+    ellipse(0,0,100);
+
+    push();
+    millisecond_fun(millis_count);
+    pop();
+
+    push();
+    second_fun(second_count);
+    pop();
+
+    minute_fun(minute_count);
+    hour_fun(hour_count);
+
 };
 
-function plop1(xp,yp){
-    rect(150+xp,100+yp,30,30);
-    rect(150+xp,130+yp,30,30);
-    rect(150+xp,160+yp,30,30);
-    rect(150+xp,190+yp,30,30);
-    rect(150+xp,220+yp,30,30);
-    rect(150+xp,250+yp,30,30);
-    rect(150+xp,280+yp,30,30);
+//Background Attributes
 
-    rect(120+xp,130+yp,30,30);
-    rect(90+xp,160+yp,30,30);
-    rect(60+xp,190+yp,30,30);
-    rect(60+xp,220+yp,30,30);
-
-    rect(90+xp,220+yp,30,30);
-    rect(120+xp,220+yp,30,30);
-    rect(180+xp,220+yp,30,30);
+function second_background(){
+    fill(0);
+    var i = 0;
+    for (; i < 60; i++) {
+         ellipse(195,0,8);
+         rotate(6);
+    };
 };
 
-function plop2(xp,yp){
-    rect(500+xp,100+yp,30,30);
-    rect(470+xp,100+yp,30,30);
-    rect(530+xp,100+yp,30,30);
-
-    rect(440+xp,130+yp,30,30);
-    rect(440+xp,160+yp,30,30);
-    rect(440+xp,190+yp,30,30);
-    rect(440+xp,220+yp,30,30);
-    rect(440+xp,250+yp,30,30);
-
-    rect(560+xp,130+yp,30,30);
-    rect(560+xp,160+yp,30,30);
-    rect(560+xp,190+yp,30,30);
-    rect(560+xp,220+yp,30,30);
-    rect(560+xp,250+yp,30,30);
-
-    rect(500+xp,280+yp,30,30);
-    rect(470+xp,280+yp,30,30);
-    rect(530+xp,280+yp,30,30);
+function minute_background(){
+    fill(0);
+    var i = 0;
+    for (; i < 60; i++) {
+         ellipse(150,0,10);
+         rotate(6);
+    };
 };
 
-function plop3(xp,yp){
-    rect(740+xp,100+yp,30,30);
-    rect(680+xp,100+yp,30,30);
-    rect(650+xp,100+yp,30,30);
-    rect(710+xp,100+yp,30,30);
-    rect(620+xp,100+yp,30,30);
+function hour_background(){
+    fill(0);
+    var i = 0;
+    for (; i < 12; i++) {
+         ellipse(120,0,20);
+         rotate(30);
+    };
+};
 
-    rect(740+xp,130+yp,30,30);
-    rect(740+xp,160+yp,30,30);
+//Counters
 
-    rect(710+xp,190+yp,30,30);
-    rect(680+xp,220+yp,30,30);
+function millisecond_fun(millis_count){
+	rotate(millis_count);
+	fill('rgb(235, 68, 96)');
+   	ellipse(0,-215,5);
 
-    rect(680+xp,250+yp,30,30);
-    rect(680+xp,280+yp,30,30);
+};
+
+function second_fun(second_count){
+    xp= map(sin(second_count),-1,1,-195,195);
+    yp = map(cos(second_count),-1,1,-195,195);
+    fill('rgb(235, 68, 96)');
+    var i = 0;
+    for (; i < 13*3; i++) {
+         ellipse(yp,xp,8);
+         rotate(-0.5);
+    };
+};
+
+function minute_fun(minute_count){
+    xp= map(sin(minute_count),-1,1,-150,150);
+    yp = map(cos(minute_count),-1,1,-150,150);
+    fill('rgb(66, 134, 244)');
+    ellipse(yp,xp,10);
+};
+
+function hour_fun(hour_count){
+    xp= map(sin(hour_count),-1,1,-120,120);
+    yp = map(cos(hour_count),-1,1,-120,120);
+    fill('rgb(66, 134, 244)');
+    ellipse(yp,xp,20);
 };

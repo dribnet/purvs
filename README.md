@@ -1,9 +1,17 @@
 ## PS1 MDDN 242 2017
 
-### Task 2 - Clock Replication
+### Outrageous clock
 
-The clock that I have replicated is the following...
+NEED TO DO THIS BY NEXT CLASS...
+(Just checking I can repoen the file and upload again.)
 
-http://cmuems.com/2016/60212/wp-content/uploads/2016/09/maeda-08.gif
+Describe the idea for your clock here - replacing this text.
+Be sure to use complete sentences, and you can reference your 
+image above. You can also include
+[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
+to other pages that support your ideas.  The explanation should
+be short but compete, no more than [100 words](https://wordcounter.net/).
 
-I have not made any changed to the deisgn.
+Replace the "Outrageous clock" title above with the name of
+your clock. Also update both images keeping their original sizes:
+preview.jpg (960x500) and thumbnail.png (230x120).
