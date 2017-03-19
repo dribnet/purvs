@@ -2,23 +2,27 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": " 00000",
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
-      "name": "clock_alarm"
+      "sha": " 9f36df076028d4cca5a85ce5625f9e96",
+      "name": "third draft"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
-      "name": "original_clock"
+      "sha": "9f36df076028d4cca5a85ce5625f9e96",
+      "name": "second draft"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "9f36df076028d4cca5a85ce5625f9e96",
+      "name": "first draft"
+    },
+    {
+      "sha": "9f36df076028d4cca5a85ce5625f9e96",
       "name": "maeda_clock"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "9f36df076028d4cca5a85ce5625f9e96",
       "name": "sketch"
     }
   ]
