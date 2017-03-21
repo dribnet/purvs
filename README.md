@@ -1,6 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Windows 95 Clock With Alarm
+### Final Windows 95 Clock
 
-I updated my clock to have an alarm, and made other changes such as having a method to make buttons and the windows. The X in the top right corner when pressed now also results in a pop up window. I also fixed the justification of numbers in the loading bars when they are double-digit. I updated the text at the top of the main window to reflect the status of the alarm. When the alarm goes of the display is filled with “Alarm!” windows.
-
+I mostly made aesthetic changes today. I added more comments to improve the readability of my code, I created a new function that draws a pixelated hourglass on the left side of the window, I improved the borders around the windows, X, loading bars and buttons, and improved the way in which the active and inactive buttons appear to appear closer to the Windows 95 look. I also made a slight change to how the alarm appears when the windows pop up. If I had more time I would perhaps look into improving the font used (the ideal font is MS Sans Serif with no anti-aliasing - something I don’t think it would be possible to achieve with P5.js without considerable effort), having the hourglass rotating slowly, and having the buttons react to being clicked by becoming indented briefly.

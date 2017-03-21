@@ -1,14 +1,8 @@
 /*
- * us p5.js to draw a clock on a 960x500 canvas
+ * use p5.js to draw a clock on a 960x500 canvas
  */
 
-/*****TODO*****/
-//Make more things functions
-//Make buttons respond to being clicked
-//Alarm function
-//Make everything more windows-y (microsoft sans serif font, window borders)
-
-var clicked = 0;
+var clicked = 0; //Whether or not the user has clicked on the X
 
 function draw_clock(hour, minute, second, millis, alarm) {
 	
@@ -108,17 +102,24 @@ function draw_clock(hour, minute, second, millis, alarm) {
 
   /******BORDERS FOR BARS*****/
   noFill();
-  stroke(0);
   for (var i = 153; i <= 273; i += 40)
   {
+    stroke(128);
     rect(348, i, 333, 33);
-
+    stroke(255);
+    line(681, i, 681, i+33);
+    line(682, i, 682, i+33);
+    line(348, i+33, 681, i+33);
+    line(348, i+34, 681, i+34);
   }
 
   /*****AM/PM BUTTONS*****/
 
   button("am", 365, 360, am);
   button("pm", 495, 360, pm);
+
+  /*****DRAW HOURGLASS*****/
+  hourglass(270, 197);
 
   /*****USER PRESSES THE X*****/
   if (clicked == 1)
@@ -131,46 +132,66 @@ function draw_clock(hour, minute, second, millis, alarm) {
     button("OK", 425, 220, 1);
   }
 
-  if (alarm == 0)
+  if (alarm == 0) //If alarm is active
   {
     for (var x = 0; x <=5; x++)
     {
       for (var y = 0; y <= 15; y++)
       {
-        drawBox(x*200, y*35-10, 200, 50, "Alarm!");
+        drawBox(x*200-10, y*35-10, 200, 50, "Alarm!"); //Draw windows all over the screen
       }
     }
   }
 }
 
+/*****CREATES A BUTTON*****/
 function button(string, x, y, active)
 {
-  noFill();
-  stroke(0);
-  if (active == 0)
-  {
-    stroke(110)
-  }
-  rect(x, y, 100, 30);
   noStroke();
-  fill(0);
-  if (active == 0)
-  {
-    fill(110)
-  }
   textAlign(CENTER);
-  text(string, x+50, y+20);
+  if (active == 0) //If button is inactive, draw it greyed out
+  {
+    fill(0);
+    rect(x, y, 100, 30);
+    fill(255);
+    rect(x,y,99, 29);
+    fill(128);
+    rect(x+1, y+1, 98, 28);
+    fill(223);
+    rect(x+1, y+1, 97, 27);
+    fill(192);
+    rect(x+2, y+2, 96, 26);
+    fill(255);
+    text(string, x+51, y+20);
+    fill(128);
+    text(string, x+50, y+19);
+  }
+  else //If button is active, give it strong black lines
+  {
+    fill(0);
+    rect(x, y, 100, 30);
+    fill(255);
+    rect(x+1,y+1,97, 27);
+    fill(128);
+    rect(x+2, y+2, 96, 26);
+    fill(223);
+    rect(x+2, y+2, 95, 25);
+    fill(192);
+    rect(x+3, y+3, 94, 24);
+    fill(0);
+    text(string, x+50, y+19);
+  }
   textAlign(LEFT);
 }
 
 /******USER CLICKS X*****/
 function mouseReleased()
 {
-  if (mouseX >= 706 && mouseX <= 725 && mouseY >= 80 && mouseY <= 99)
+  if (mouseX >= 706 && mouseX <= 725 && mouseY >= 80 && mouseY <= 99) //If on the X
   {
     clicked = 1;
   }
-  else if (clicked == 1)
+  else if (clicked == 1) //Exits the error message window if the user clicks anywhere
   {
     clicked = 0;
   }
@@ -179,6 +200,20 @@ function mouseReleased()
 /******BOX*****/
 function drawBox(x, y, width, height, barText)
 {
+  //Border
+  fill(255);
+  rect(x-3, y-3, width+5, height+5);
+
+  fill(128);
+  rect(x-1, y-1, width+3, height+3);
+
+  fill(0);
+  rect(x,y,width+2, height+2);
+
+  fill(128);
+  rect(x-1, y-1, width+2, height+2);
+  
+
   //Grey box
   fill(192);
   noStroke();
@@ -190,19 +225,81 @@ function drawBox(x, y, width, height, barText)
   fill(255);
   text(barText, x+8, y+20);
 
-  //X
-  fill(192);
+  //X box and border
+  fill(0);
   rect(x+width-24, y+5, 19, 19);
+  fill(255);
+  rect(x+width-24, y+5, 18, 18);
+  fill(128);
+  rect(x+width-23, y+6, 17, 17);
+  fill(223);
+  rect(x+width-23, y+6, 16, 16);
+  fill(192);
+  rect(x+width-22, y+7, 15, 15);
   
+  //X
   textSize(18);
   fill(0);
-  text("X", x+width-20, y+21);
+  text("X", x+width-21, y+21);
   textSize(15);
+}
 
-  noFill();
-  stroke(255);
-  rect(x-1,y-1,width+1,height+1);
-  noStroke();
+/*****HOURGLASS*****/
+function hourglass(x,y)
+{
+  x = x/3;
+  y = y/3;
+
+  scale(3);
+
+  //Draws the hourglass with rectangles for the pixels
+  fill(0);
+  rect(x,y,13,3);
+  rect(x+1,y+3,11,5);
+  rect(x+1,y+14,11,5);
+  rect(x,y+19,13,3);
+  rect(x+2,y+8,9,1);
+  rect(x+2,y+13,9,1);
+  rect(x+3,y+9,7,1);
+  rect(x+3,y+12,7,1);
+  rect(x+4,y+10,5,1);
+  rect(x+4,y+11,5,1);
+
+  fill(255);
+  rect(x+2, y+1, 9, 1);
+  rect(x+2, y+20, 9, 1);
+  rect(x+2, y+3, 9, 4);
+  rect(x+2, y+15, 9, 4);
+  rect(x+3, y+7, 7, 1);
+  rect(x+3, y+14, 7, 1);
+  rect(x+4, y+8, 5, 1);
+  rect(x+4, y+13, 5, 1);
+  rect(x+5, y+9, 3, 1);
+  rect(x+5, y+12, 3, 1);
+  rect(x+6, y+5, 1, 10);
+
+  fill(0);
+  rect(x+4, y+5, 1, 1);
+  rect(x+6, y+5, 1, 1);
+  rect(x+8, y+5, 1, 1);
+  rect(x+5, y+6, 1, 1);
+  rect(x+7, y+6, 1, 1);
+  rect(x+6, y+7, 1, 1);
+  rect(x+6, y+9, 1, 1);
+
+  rect(x+6, y+13, 1, 1);
+  rect(x+6, y+15, 1, 1);
+  rect(x+5, y+16, 1, 1);
+  rect(x+7, y+16, 1, 1);
+  rect(x+4, y+17, 1, 1);
+  rect(x+6, y+17, 1, 1);
+  rect(x+8, y+17, 1, 1);
+  rect(x+3, y+18, 1, 1);
+  rect(x+5, y+18, 1, 1);
+  rect(x+7, y+18, 1, 1);
+  rect(x+9, y+18, 1, 1);
+
+  resetMatrix();
 }
 
 
