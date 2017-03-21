@@ -1,9 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Task 2 - Clock Replication
+### Organic Time
 
-The clock that I have replicated is the following...
-
-http://cmuems.com/2016/60212/wp-content/uploads/2016/09/maeda-08.gif
-
-I have only changed the original white tone colours to a more vibrant set.
+This is my coded concept of Organic Design. I think it resembles my original concept quite well as it has fluid movement that showcases the organic flow of nature.
