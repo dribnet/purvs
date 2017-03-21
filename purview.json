@@ -1,36 +1,25 @@
 {
   "commits": [
     {
-      "sha": "78644b3fa435d58e22956e5b7d38a510da97222e",
+      "sha": "6ba3ae9cdd960a300ae4f5b5c8fee43794a30424",
       "name": "final"
     },
     {
-      "sha": "79d437dad42ad510fb18acfdf016addb4eac6ca4",
-      "name": "interpolates"
+      "sha": "81faabb3cbd0ec09c6b679f7ebd1b976f71e7657",
+      "name": "clock_alarm"
     },
     {
-      "sha": "6a2ad67bb58767a145bf2743f6af439bbd713586",
-      "name": "runs"
+      "sha": "f6385037d67d4331c7990098dd74fbdb4c37648f",
+      "name": "original_clock"
     },
     {
-      "sha": "da6e80c0f15ea440a248a4ba1de0a7061872aa7a",
-      "name": "clock_font"
+      "sha": "b2011029f770342ff34c0041ef0a53aa6c14fa24",
+      "name": "maeda_clock"
     },
     {
-      "sha": "cb4158e373e42e22fd328bb1bd6a34a05b79628f",
-      "name": "functions"
-    },
-    {
-      "sha": "417b699368f3809ade4277ebd71345ef78fccb6c",
-      "name": "interpolate"
-    },
-    {
-      "sha": "e18bfeac2656252d9a87afe53f742cb97c9c5698",
-      "name": "clock_api"
-    },
-    {
-      "sha": "6bb8649fc1c81d045112340b360f21ab63bd8adf",
-      "name": "initial_sketch"
+      "sha": "3becfec6a77cfeffe18d298ae21080b5d7eb5dbf",
+      "name": "sketch"
     }
   ]
 }
+
