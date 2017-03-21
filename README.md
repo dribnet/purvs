@@ -2,5 +2,5 @@
 
 ### Tree clock
 
-I have added a for loop so that an ellipse is created each second for 60 seconds to represent the rings of the tree trunk. Then once 60 seconds have passed the rings dissapear and the rings then start counting again. To then show the minutes passing I have added arcs which will represent the trunk that is created over time, one for the minutes and one for the hour. Once 60s passes and the largest ellipse is created the arc changes shape to represent the minutes passing and hence after an hour the larger arc will also change shape. 
-I am now changing the minute and hour arcs so that they move around more accurately to represent the time. 
+I have been working on my alarm to make it more interesting. I thought it would be cool if there is an ellipse that grows from the centre of the screen in the lead up to the alarm and then once it reaches the edges the background changes colour as the alarm goes off. In the debug setting if you select debug and alarm then change minutes and hours lines are created at each minute/hour which looks really cool, I'm just not too sure how to implement this into my design when the alarm isnt going off.
+I am having trouble with Git in that I am trying to edit the old versions of the files but its not working. 
