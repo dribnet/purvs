@@ -51,13 +51,13 @@ function second_hand(alarm,second_count,pulse,pulse_blob){
         fill('rgb(255, 152, 112)');
     } else if(alarm == 0){
         fill('rgb(255, 87, 122)');
-        pulseAdditive = random(0,20);
+        pulseAdditive = random(0,5);
     } else {
         fill('rgb(25, 178, 151)');
         pulseAdditive = 0;
     };
     ellipse(0,pulse*8-220,pulse_blob+pulseAdditive);
-    ellipse(0,pulse*8-240,pulse*4);
+    ellipse(0,pulse*8-240,pulse*4+pulseAdditive);
 };
 
 function minute_hand(minute_count,pulse){
