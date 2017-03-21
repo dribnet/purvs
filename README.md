@@ -1,9 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Task 2 - Clock Replication
+### Organic Time
 
-The clock that I have replicated is the following...
-
-http://cmuems.com/2016/60212/wp-content/uploads/2016/09/maeda-08.gif
-
-I have only changed the original white tone colours to a more vibrant set.
+Organic Time will be a combination of organic movement and the innovation from a mechanical era. The design will capture the structure of nature and combine it with the mechanics and functionality of a traditional clock. The alarm function will resemble the violent abilities of the natural world.
