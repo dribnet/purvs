@@ -29,22 +29,24 @@ function draw_shape(column, row, size, cur_color) {
   else if (row === 1) {
     // saturation
     var rect_width = map(column, 0, 4, 10, 80);
-    rect(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
+    ellipse(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
+    rect(half_size-rect_width/2, half_size-20, rect_width, 20,10);
   }
   else {
     // lightness
     var fill_col = map(column, 0, 4, 30, 90);
     fill(fill_col);
     rect(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
+    ellipse(50, 20, 30, 10);
   }
 }
 
 // some examples of how to specify a base color
-// var my_color = "#d24632"
+ var my_color = "#c895c4"
 // var my_color = "rgb(245, 225, 50)"
-var my_color = "rgb(20%, 47%, 67%)"
+//var my_color = "rgb(20%, 47%, 67%)"
 
-var shapes_should_draw = false;
+var shapes_should_draw = true;
 
 // draw five colors and then five glyphs
 function draw () {
