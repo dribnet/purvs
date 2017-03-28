@@ -2,11 +2,4 @@
 
 ### Color Glyphs
 
-Describe your choice of color here and the shapes below them that
-are meant to represent the color (replacing this text).
-Be sure to use complete sentences, and you can reference your 
-image above. The explanation should be short but compete,
-no more than [100 words](https://wordcounter.net/).
-
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+To represent red I decided to use angualar shapes to make up a diamond shape, to convey the powerful and passionate colour red. To represent yellow I chose to make a symbol that is inspired by a sunflower or sun since yellow is happier colour. I chose to represent blue through ellipses that represent water and peace. For green I decided to convey a more natural symbol that is inspired by leaves falling 
