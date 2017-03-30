@@ -24,20 +24,45 @@ function draw_shape(column, row, size, cur_color) {
     // hue
     var stroke_w = map(column, 0, 4, 1, 3);
     strokeWeight(stroke_w);
-    rect(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
+    ellipse(60, 60, 10,10);
+    ellipse(60, 30, 10, 10);
+    ellipse(60, 90, 10, 10);
+    ellipse(30, 60, 10,10);
+    ellipse(90, 60, 10,10);
+    ellipse(20, 20, 10,10);
+    ellipse(100, 20, 10,10);
+     ellipse(100, 100, 10,10);
+     ellipse(20, 100, 10,10);
+    //ellipse(60, 60, 10,50);
+    //ellipse(60, 90, 10,50);
   }
   else if (row === 1) {
     // saturation
     var rect_width = map(column, 0, 4, 10, 80);
-    ellipse(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
-    rect(half_size-rect_width/2, half_size-20, rect_width, 20,10);
+    noStroke();
+    ellipse(half_size-rect_width/80, half_size-0, rect_width, 10, 10);
+    ellipse(half_size-rect_width/80, half_size-50, rect_width, 10,10);
+    ellipse(half_size-rect_width/80, half_size+50, rect_width, 10,10);
+    ellipse(half_size-rect_width/80, half_size+0, rect_width, 10,10);
+     ellipse(90, 60, 10,10);
+       ellipse(30, 60, 10,10);
+
   }
   else {
     // lightness
     var fill_col = map(column, 0, 4, 30, 90);
     fill(fill_col);
-    rect(half_size-rect_width/2, half_size-20, rect_width, 40, 20);
-    ellipse(50, 20, 30, 10);
+    noStroke();
+
+   ellipse(60, 60, 10,10);
+    ellipse(60, 30, 10, 10);
+    ellipse(60, 90, 10, 10);
+    ellipse(30, 60, 10,10);
+    ellipse(90, 60, 10,10);
+    ellipse(20, 20, 10,10);
+    ellipse(100, 20, 10,10);
+     ellipse(100, 100, 10,10);
+     ellipse(20, 100, 10,10);
   }
 }
 
