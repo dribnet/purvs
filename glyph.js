@@ -6,25 +6,30 @@
 function gray_glyph(values, size) {
   // replace this with your own version
 
-  // map brightness to large circle shade
-  var color1 = map(values[2], 0, 100, 10, 70)
+var sat = values[1];
+var fill_color = map(sat, 0, 100, 0, 255);
+  fill(fill_color)
+  noStroke();
+
+//brightness
+var color1 = map(values[2], 0, 100, 10, 255)
   stroke(color1);
-  fill(color1)
   var s2 = size/2;
-  ellipse(s2, s2, size);
+   noStroke();
 
-  // inner size is set to 30%
-  var inner_size = 0.2 + 0.4 * 0.3;
-  var s3 = size * inner_size;
+//Shape change 
+var color2 = map(values[0], 10, 10)
 
-  // inner color based on saturation
-  var color2 = map(values[1], 0, 100, color1+20, 240)
-  fill(color2);
-  stroke(color2);
+//shape 
+push();
+translate(s2 , s2);
+for (var i = 0; i < 10; i ++) {
+rect(s2/4, s2/4, 3*color1/40, size/10);
+rotate(PI/4);
+} 
+pop();
 
-  // hue controls left/right shift
-  var shift_frac = (values[0] - 180.0) / 180.0;
-  var max_shift = 0.5 * (size - s3);
-  var x_shift = shift_frac * max_shift;
-  ellipse(s2 + x_shift, s2, s3);  
+noStroke();
+
+
 }
