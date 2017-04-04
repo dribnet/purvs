@@ -25,26 +25,38 @@ function GrayGlyph() {
   this.draw = function(values, size) {
     // replace this with your own version
 
-    // map brightness to large circle shade
-    var color1 = map(values[2], 0, 100, 10, 70)
-    stroke(color1);
-    fill(color1)
-    var s2 = size/2;
-    ellipse(s2, s2, size);
+var sat = values[1];
+//code this for the background 
+//var fill_color = map(sat, 0, 100, 0, 255);
+//if(sat < 25){
+  //sat = 0;
+//}else if(sat > 26 && sat < 50){
+  //sat = 25;
 
-    // inner size is set to 30%
-    var inner_size = 0.2 + 0.4 * 0.3;
-    var s3 = size * inner_size;
+  fill(sat)
 
-    // inner color based on saturation
-    var color2 = map(values[1], 0, 100, color1+20, 240)
-    fill(color2);
-    stroke(color2);
+  noStroke();
 
-    // hue controls left/right shift
-    var shift_frac = (values[0] - 180.0) / 180.0;
-    var max_shift = 0.5 * (size - s3);
-    var x_shift = shift_frac * max_shift;
-    ellipse(s2 + x_shift, s2, s3);  
+//brightness
+var color1 = map(values[2], 0, 100, 10, 255)
+  stroke(color1);
+  var s2 = size/2;
+   noStroke();
+
+//Shape change 
+var color2 = map(values[0], 10, 10)
+
+//shape 
+var hue = values[0];
+push();
+translate(s2 , s2);
+rotate(PI);
+for (var i = 0; i < 8; i ++) {
+rect(s2/4, s2/3, 3*color1/60, size/8);
+rotate(PI/(4+(hue/200)));
+} 
+pop();
+
+noStroke(); 
   }  
 }
