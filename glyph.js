@@ -21,11 +21,12 @@ var color1 = map(values[2], 0, 100, 10, 255)
 var color2 = map(values[0], 10, 10)
 
 //shape 
+var hue = values[0];
 push();
 translate(s2 , s2);
 for (var i = 0; i < 10; i ++) {
-rect(s2/4, s2/4, 3*color1/40, size/10);
-rotate(PI/4);
+rect(s2/4, s2/3, 3*color1/50, size/8);
+rotate(PI/(4+(hue/100)));
 } 
 pop();
 
