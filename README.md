@@ -2,4 +2,4 @@
 
 ### Color Glyphs
 
-I have been working on making my glyph system out of rotated rectangles. I would like the rectangles to become lighter with the change in saturation and for them to become larger with a larger brightness. For the hue I have made the shape rotate which looks quite cool. 
+I have been working on my glyph system so that you can see the images more clearly and that the oddball is more clear. I am having a bit of trouble achieving this but I'm getting there!'
