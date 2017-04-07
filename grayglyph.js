@@ -28,7 +28,16 @@ function GrayGlyph() {
    // fill(0, 100, 50);
 	//rect(0,0, size, size);
 
+// original version
 var sat = values[1];
+
+if (sat < 50) {
+	sat = map(sat,0,50,0,45);
+}
+else {
+	sat = map(sat,50,100,55,100);
+}
+
 //code this for the background 
 
 //brightness
@@ -67,7 +76,7 @@ ellipse(s2, s2, size);
 var color2 = map(values[0], 10, 10)
 
 //shape 
-var hue = map(values[0], 0, 100, 0, 100);
+var hue = map(values[0], 0, 100,  0, 100);
 var inversesat = 100 - sat;
 fill(inversesat);
 stroke(sat)
@@ -77,13 +86,13 @@ push();
 translate(s2 , s2);
 rotate(PI);
 for (var i = 0; i < 8; i ++) {
-rect(s2/4, s2/3, 3*color1/100, size/8);
+rect(s2/4, s2/3, 2*color1/100, size/8);
 rotate(PI/(4+(hue/100)));
 } 
 pop();
 
 //noStroke(); 
-var circlesize = map(values[2], 0, 100, 0, 15);
+var circlesize = map(values[2], 0, 100, 4, 15);
 ellipse(size/2, size/2, circlesize);
 
   }  
