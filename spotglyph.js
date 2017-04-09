@@ -42,5 +42,44 @@ function SpotGlyph() {
     }
     translate(halfSize, halfSize);
     rect(-sqSize/2, -sqSize/2, sqSize, sqSize);
+
+    // circle color to brightness
+var sat = values[1];
+if (sat < 50) {
+  sat = map(sat,0,50,0,45);
+}
+else {
+  sat = map(sat,50,100,55,100);
+}
+
+//brightness
+var color1 = map(values[2], 0, 100, 0, 255)
+  stroke(color1);
+  var s2 = size/2;
+  fill(sat)
+  noStroke();
+  ellipse(s2, s2, size);
+   
+//saturation effecting colour of circle and rectangles
+
+var inversesat = 100 - sat;
+fill(inversesat);
+stroke(sat)
+
+//hue effecting rotation
+var hue = map(values[0], 0, 100,  10, 200);
+push();
+translate(s2 , s2);
+rotate(PI);
+for (var i = 0; i < 8; i ++) {
+rect(s2/4, s2/3, 2+2*color1/100, size/8);
+rotate(PI/(4+(hue/100)));
+} 
+pop();
+
+//size of inner circle effected by brightness
+var circlesize = map(values[2], 0, 100, 4, 20);
+ellipse(size/2, size/2, circlesize);
+
   }
 }

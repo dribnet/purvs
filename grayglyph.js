@@ -23,14 +23,9 @@ function GrayGlyph() {
    *       - stroke(0, 0, 100); //
    */ 
  this.draw = function(values, size) {
-    // replace this with your own version
-    //stroke(50, 100,100);
-   // fill(0, 100, 50);
-	//rect(0,0, size, size);
-
-// original version
+ 
+// circle color to brightness
 var sat = values[1];
-
 if (sat < 50) {
 	sat = map(sat,0,50,0,45);
 }
@@ -38,61 +33,33 @@ else {
 	sat = map(sat,50,100,55,100);
 }
 
-//code this for the background 
-
 //brightness
 var color1 = map(values[2], 0, 100, 0, 255)
   stroke(color1);
   var s2 = size/2;
-
-//var fill_color = map(sat, 0, 100, 0, 255);
-//if(sat < 25){
-  //sat = 0;
-//}else if(sat > 26 && sat < 50){
-  //sat = 25;
-//}else if(sat > 50 && sat < 75){
-  //sat = 50;
-//}else if(sat > 75 && sat < 100){
-  //sat = 75
-//}else if(sat >= 100){
-  //sat = 100;
-//}
-
-//ellipse(s2,s2,size);
-//fill(color1);
-
-//ellipse
-// fill(100); 
-//var sat = values[1];
   fill(sat)
   noStroke();
-ellipse(s2, s2, size);
+  ellipse(s2, s2, size);
    
-//var color1 = map(values[2], 0, 100, 10, 255)
-  //stroke(color1);
-//llipse(s2, s2, size);
+//saturation effecting colour of circle and rectangles
 
-//Shape change 
-var color2 = map(values[0], 10, 10)
-
-//shape 
-var hue = map(values[0], 0, 100,  0, 100);
 var inversesat = 100 - sat;
 fill(inversesat);
 stroke(sat)
 
-
+//hue effecting rotation
+var hue = map(values[0], 0, 100,  10, 200);
 push();
 translate(s2 , s2);
 rotate(PI);
 for (var i = 0; i < 8; i ++) {
-rect(s2/4, s2/3, 2*color1/100, size/8);
+rect(s2/4, s2/3, 2+2*color1/100, size/8);
 rotate(PI/(4+(hue/100)));
 } 
 pop();
 
-//noStroke(); 
-var circlesize = map(values[2], 0, 100, 4, 15);
+//size of inner circle effected by brightness
+var circlesize = map(values[2], 0, 100, 4, 20);
 ellipse(size/2, size/2, circlesize);
 
   }  
