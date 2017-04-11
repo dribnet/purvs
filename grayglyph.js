@@ -32,8 +32,6 @@ if (sat < 50) {
 else {
 	sat = map(sat,50,100,55,100);
 }
-
-//brightness
 var color1 = map(values[2], 0, 100, 0, 255)
   stroke(color1);
   var s2 = size/2;
@@ -42,12 +40,11 @@ var color1 = map(values[2], 0, 100, 0, 255)
   ellipse(s2, s2, size);
    
 //saturation effecting colour of circle and rectangles
-
 var inversesat = 100 - sat;
 fill(inversesat);
 stroke(sat)
 
-//hue effecting rotation
+//hue effecting rotation + brightness effecting the size of the rectangles
 var hue = map(values[0], 0, 100,  10, 200);
 push();
 translate(s2 , s2);
