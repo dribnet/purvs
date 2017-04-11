@@ -1,5 +1,5 @@
 function SpotGlyph() {
-  this.spot_hue = 200;
+  this.spot_hue = 38;
 
   /*
    * values is an array of 3 numbers: [hue, saturation, brightness]
@@ -40,19 +40,15 @@ function SpotGlyph() {
     else {
       fill(this.spot_hue, 0, brt);
     }
-    translate(halfSize, halfSize);
-    rect(-sqSize/2, -sqSize/2, sqSize, sqSize);
-
-    // circle color to brightness
+ 
+  // background colour of circle mapped to saturation
 var sat = values[1];
 if (sat < 50) {
-  sat = map(sat,0,50,0,45);
+	sat = map(sat,0,50,0,45);
 }
 else {
-  sat = map(sat,50,100,55,100);
+	sat = map(sat,50,100,55,100);
 }
-
-//brightness
 var color1 = map(values[2], 0, 100, 0, 255)
   stroke(color1);
   var s2 = size/2;
@@ -60,13 +56,22 @@ var color1 = map(values[2], 0, 100, 0, 255)
   noStroke();
   ellipse(s2, s2, size);
    
-//saturation effecting colour of circle and rectangles
+//hue the circle and rectangles to make them yellow when the hue is 38
+var circlesize = map(values[2], 0, 100, size/6, size/3);
+if(hue > this.spot_hue - 40 && hue < this.spot_hue + 40) {
+      fill(this.spot_hue, 100, 90);
+      
+      //circle size growing bigger when within the hue range 
+      var circlesize = map(values[2], 0, 100, size/4, size/2);
+    }
+    else {
+      fill(this.spot_hue, 0, brt);
+    }
 
-var inversesat = 100 - sat;
-fill(inversesat);
+//stroke changing with saturation
 stroke(sat)
 
-//hue effecting rotation
+//hue effecting rotation + brightness effecting the size of the rectangles
 var hue = map(values[0], 0, 100,  10, 200);
 push();
 translate(s2 , s2);
@@ -77,9 +82,9 @@ rotate(PI/(4+(hue/100)));
 } 
 pop();
 
-//size of inner circle effected by brightness
-var circlesize = map(values[2], 0, 100, 4, 20);
+//inner circle size that changes size with the hue
 ellipse(size/2, size/2, circlesize);
+
 
   }
 }

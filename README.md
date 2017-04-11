@@ -2,6 +2,8 @@
 
 ### Color Glyphs
 
-I have been working on my glyph system to make it more visually effective. I have changed the rotation so that it is more dramatic and I have also allowed the inner circle to become bigger. I think this makes it look even more like a flower shape. I like the contrast that this causes and also the contrast that the inverse colours cause. I think this makes the images look a lot more effective and you can make out the shapes more clearly which is good. 
+For my spot system I have decided to make the sun shape change to orange since this further expresses that it is a sun. This colour is also strong and vibrant which adds to my vibrant glyph. 
 
-I am happy with my glyph system since you can make out the images a lot more clearly than before when I didn't have the background circle which has helped. I also think that the increased rotation and larger circle size change makes the gradient more effective also. 
+I have been changing the colour spot part of the code so that it picks up the yellow in the pictures and shows a vibrant orange colour. The orange colour was also showing up when green colours are present however I have changed the range to make it smaller. I have changed it so that the brightness is full whenever the orange comes up to make it more vibrant. I also wanted the orange suns to show up in the background when it is black to make each image vibrant even when there is no orange present. This also gives the appearance that there are stars in the background - which is what the sun is obviously. 
+
+I also wanted the suns to look even more vibrant when the orange is present, therefore I have made the inner circles grow bigger when the orange is present. This makes them look even more like a sun. 

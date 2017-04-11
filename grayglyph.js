@@ -27,7 +27,7 @@ function GrayGlyph() {
 // circle color to brightness
 var sat = values[1];
 if (sat < 50) {
-	sat = map(sat,0,50,0,45);
+	sat = map(sat,0,50,10,45);
 }
 else {
 	sat = map(sat,50,100,55,100);
@@ -59,7 +59,7 @@ rotate(PI/(4+(hue/100)));
 pop();
 
 //size of inner circle effected by brightness
-var circlesize = map(values[2], 0, 100, 4, 20);
+var circlesize = map(values[2], 0, 100, size/6, size/2);
 ellipse(size/2, size/2, circlesize);
 
   }  
