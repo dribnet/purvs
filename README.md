@@ -1,5 +1,7 @@
 ## PS1 MDDN 342 2017
 
+change colors
+
 This README should be updated as the code changes. Replace
 this placeholder text and use this
 README as a design journal to record your process.
