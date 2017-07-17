@@ -13,69 +13,113 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
+var bg_color = "#white";
 var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#c78a5b";
+var skin_tone = "#ffe3d8";
+var nose_tone = "#fcdbcf";
+var blush_color = "#f9ab90";
+var hat_color_green = "#7bbc60";
+var hat_color_red = "#ce4a4a";
+var eye_color = "#83cbff";
 
 function draw () {
-  render();
-}
-
-
-function render () {
   // background color
   background(bg_color);
-
   // stroke color
-  stroke(stroke_color)
+  stroke(bg_color)
+  ellipse();
+  head(hat_color_red,960/4,500/2,0);
+  head(hat_color_green,2.5*960/4,500/2,30);
+}
 
-  // move to position1, rotate, draw "head" ellipse
+
+function head(hatCol,xoff,yoff,rot) { //(color, xOffset, yOffset, rotation)
+
   push();
-  translate(960/4, 500/2);
-  rotate(4);
-  fill(fg_color1);
-  ellipse(0, 0, 300, 400);
+  //move to position, rotate
+  translate(xoff, yoff);
+  rotate(rot);
+  
+  //hat base
+  stroke(hatCol);
+  fill(hatCol);
+  ellipse(0,-115,200,110);
 
-  // set fill to match background color
+  //face
+  stroke(blush_color)
+  fill(skin_tone);
+  ellipse(0, 0, 220, 250);
+
+  //set fill to match background color
   fill(bg_color);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  ellipse(-35, -25, 60, 80);
+  ellipse( 35, -25, 60, 80);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  //set fill back to foreground for eyeballs
+  noStroke();
+  fill(eye_color);
+  ellipse(-35, -10, 35, 45);
+  ellipse( 35, -10, 35, 45);
+  fill("black");
+  ellipse(-35, -10, 22, 32);
+  ellipse( 35, -10, 22, 32);
 
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+ //nose with blush color
+ stroke(blush_color);
+  fill(nose_tone);
+  ellipse( 0, 15, 65, 55);
+
+  //hat brim
+  stroke(bg_color);
+  fill(hatCol);
+  ellipse(0,-102,150,45);
+  fill("white");
+  ellipse(0,-140,40,40);
+
+  //bounding box
+  fill(255,0);
+  stroke(blush_color);
+  rect(-160,-160,300,300);
+  moustache_6(140,45);
   pop();
 
-  // move to position2, rotate, draw "head" ellipse
-  push();
-  translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 400);
+  
+}
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+function moustache_6(wid, yOff){
+  push()
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  var y;
+  for(var i = 0; i < 6; i++){
+    
+    y = (i % 2)*wid/2;
 
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+    switch(i){
+      case 5 :
+      y = 0;
+      break;
+      case 4 : 
+      y = wid/24;
+      break;
+      case 3 : 
+      y = 2 * wid/24;
+    }
+
+  x = i - 2.5;
+
+    fill("brown");
+    noStroke();
+    ellipse(x * wid/6, y+yOff, 12 * wid/60);
+    console.log(y)
+  }
   pop();
 }
+
+
+function moustache_2(){}
 
 function keyTyped() {
   if (key == '!') {
