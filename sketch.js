@@ -13,10 +13,10 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var bg_color = "#161E60";
+var fg_color1 = "#2D3CBF";
+var fg_color2 = "#BFB02D";
+var stroke_color = "#161E60";
 
 function draw () {
   // background color
@@ -35,8 +35,8 @@ function draw () {
   // set fill to match background color
   fill(bg_color);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  ellipse(-50, -80, 50, 60);
+  ellipse( 50, -80, 50, 60);
 
   // set fill back to foreground for eyeballs
   fill(fg_color1);
@@ -45,7 +45,7 @@ function draw () {
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  ellipse( 0, 70, 150, 100);
   pop();
 
   // move to position2, rotate, draw "head" ellipse
@@ -53,7 +53,7 @@ function draw () {
   translate(3*960/4, 500/2);
   rotate(30);
   fill(fg_color2);
-  ellipse(0, 0, 300, 400);
+  ellipse(0, 0, 300, 450);
 
   // set fill to match background color
   fill(bg_color);
@@ -63,8 +63,8 @@ function draw () {
 
   // set fill back to foreground for eyeballs
   fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  ellipse(-60, -80, 20, 10);
+  ellipse( 40, -80, 20, 10);
 
   // mouth-hole with background color
   fill(bg_color);

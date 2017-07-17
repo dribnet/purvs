@@ -1,4 +1,7 @@
 ## PS1 MDDN 342 2017
+Colour and Shape Changes
+
+I have updated the colours of the faces and changed the shapes of the eyes to be more surprised.
 
 This README should be updated as the code changes. Replace
 this placeholder text and use this
