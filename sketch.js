@@ -13,10 +13,12 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
+var bg_color = "#c78a5b";//"#c6bdab";
+var pupil_color1 = "#000000"
+var eye_color1 = "#FFFFFF";
+var fg_color1 = "#FFF968";
 var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var stroke_color = "#000000";
 
 function draw () {
   // background color
@@ -33,15 +35,19 @@ function draw () {
   ellipse(0, 0, 300, 400);
 
   // set fill to match background color
-  fill(bg_color);
+  fill(eye_color1);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  ellipse(-50, -80, 80, 80);
+  ellipse( 50, -80, 80, 80);
 
   // set fill back to foreground for eyeballs
-  fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  fill(pupil_color1);
+  ellipse(-60, -80, 40, 40);
+  ellipse( 40, -80, 40, 40);
+
+  // facial hair
+  fill(fg_color2);
+  ellipse(0, 70, 200, 150);
 
   // mouth-hole with background color
   fill(bg_color);
