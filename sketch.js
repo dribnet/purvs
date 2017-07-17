@@ -13,10 +13,14 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
+var bg_color = "#000000";
 var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var stroke_color = "#000000";
+var face_1 = "#e82c0c";
+var face_2 = "#ffe333";
+var hair = "#32cbff"
+var eyes = "#f8fff7"
 
 function draw () {
   // background color
@@ -29,46 +33,63 @@ function draw () {
   push();
   translate(960/4, 500/2);
   rotate(4);
-  fill(fg_color1);
+  fill(face_1);
   ellipse(0, 0, 300, 400);
 
   // set fill to match background color
   fill(bg_color);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  //ellipse(-50, -80, 50, 30);
+  //ellipse( 50, -80, 50, 30);
+  triangle(-140, -160, -10, -20, -160, 8);
+  triangle(150, -100, 20, 20, 86, 75);
+  //triangle(30, 75, 58, 20, 86, 75);
+  //quad(-110, -100, -40, -40, -150, 10, -100, -76);
+  //quad(110, 100, 80, 40, 150, -10, 100, 76);
 
   // set fill back to foreground for eyeballs
   fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  //ellipse(-60, -80, 20, 20);
+  //ellipse( 40, -80, 20, 20);
+  //quad(-60, -80, 86, 20, 69, 63, 30, 76);
 
   // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  //fill(bg_color);
+  //ellipse( 0, 70, 150, 20);
   pop();
 
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
+  rotate(0);
+  fill(face_2);
   ellipse(0, 0, 300, 400);
 
   // set fill to match background color
   fill(bg_color);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  //ellipse(-50, -80, 50, 30);
+  //ellipse( 50, -80, 50, 30);
+
+  //hair
+  fill(hair);
+  rect(-180, -500, 350, 400, 100);
 
   // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  fill(eyes);
+  ellipse(-50, -30, 100, 100);
+  ellipse( 50, -30, 100, 100);
+  line(-100, -85, -80, -72);
+  line(-75, -90, -70, -78);
+  line(-60, -95, -60, -80);
+
+  line(100, -85, 80, -72);
+  line(75, -90, 70, -78);
+  line(60, -95, 60, -80);
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  //ellipse( 0, 70, 150, 20);
   pop();
 }
 
