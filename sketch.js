@@ -62,10 +62,10 @@ function draw () {
 
   // mouth-hole with background color
   fill(mouth);
-  ellipse(0, 65, 220, 30);
+  ellipse(0, 60, 230, 30);
 
   fill(ernie_nose)
-  ellipse(0, 6, 60, 70);
+  ellipse(0, 0, 66, 73);
   pop();
 
 
