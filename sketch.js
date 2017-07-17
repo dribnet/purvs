@@ -20,6 +20,7 @@ var fg_color2 = "#7b611a";
 var stroke_color = "#000000";
 var white = "#FFFFFF";
 var blueGray = "#363f5a";
+var mortyHair = "#7c5937";
 
 function draw () {
   // background color
@@ -44,24 +45,36 @@ function drawMorty(){
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 100);
+  rotate(0);
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  //hair
+    fill(mortyHair);
+    ellipse(0, -50, 350, 350);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
 
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+
+//face
+  fill(bags_face);
+  ellipse(0, 0, 300, 300);
+
+  //eye
+    fill(white);
+    ellipse(-60, -30, 95, 95);
+        ellipse(60, -30, 95, 95);
+   //pupils
+   fill(stroke_color);
+    ellipse(-60, -30, 10, 10);
+    ellipse(60, -30, 10, 10);
+
+    //nose
+    fill(bags_face);
+      bezier(0,0,70,30,0,50,-10,20);
+
+      //mouth
+      fill(bags_face);
+        bezier(30,70,20,120,0,100,-10,70);
+
+
   pop();
 }
 
