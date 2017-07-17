@@ -17,6 +17,8 @@ var bg_color = "#c6bdab";
 var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#c78a5b";
+var face_colour = "ffffff";
+var star_colour = "000000";
 
 function draw () {
   // background color
@@ -27,11 +29,13 @@ function draw () {
 
   // move to position1, rotate, draw "head" ellipse
   push();
+	stroke(face_colour);
   translate(960/4, 500/2);
   rotate(4);
-  fill(fg_color1);
+  fill(face_colour);
   ellipse(0, 0, 300, 400);
 
+	stroke(stroke_colour);
   // set fill to match background color
   fill(bg_color);
   // draw two eyes
@@ -45,16 +49,18 @@ function draw () {
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  ellipse( 0, 70, 150, 50);
   pop();
 
   // move to position2, rotate, draw "head" ellipse
   push();
+	stroke(face_colour);
   translate(3*960/4, 500/2);
   rotate(30);
-  fill(fg_color2);
+  fill(face_colour);
   ellipse(0, 0, 300, 400);
-
+	
+	stroke(stroke_color);
   // set fill to match background color
   fill(bg_color);
   // draw two eyes
@@ -68,7 +74,7 @@ function draw () {
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  ellipse( 0, 70, 150, 50);
   pop();
 }
 
@@ -79,4 +85,11 @@ function keyTyped() {
   else if (key == '@') {
     saveBlocksImages(true);
   }
+}
+function facestar(){
+	fill();
+	
+	
+	
+	
 }
