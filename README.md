@@ -1,11 +1,3 @@
 ## PS1 MDDN 342 2017
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+Basic sketch of Jules (from Pulp Fiction). His facial hair is generated relative to a few scalar parameters and a small number of manually determined points. These are the four corners of his head and the elevated sections of the handlebar. The sideburns are generated entirely from these and two length parameters.
