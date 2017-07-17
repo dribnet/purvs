@@ -49,6 +49,13 @@ function draw () {
   fill(ernie_face);
   ellipse(0, 0, 290, 230);
 
+  // mouth-hole with background color
+  fill(mouth);
+  ellipse(0, 30, 230, 120);
+  //cut out top of ernie's mouth with another ellipse to make him super smiley
+  fill(ernie_face)
+  ellipse(0, 10, 285, 95)
+
   // set fill to match background color
   fill("white");
   // draw two eyes
@@ -59,10 +66,6 @@ function draw () {
   fill("black");
   ellipse(-30, -40, 20, 20);
   ellipse( 30, -40, 20, 20);
-
-  // mouth-hole with background color
-  fill(mouth);
-  ellipse(0, 60, 230, 30);
 
   fill(ernie_nose)
   ellipse(0, 0, 66, 73);
@@ -75,7 +78,7 @@ function draw () {
   translate(2.8*960/4, 500/2);
   rotate(20);
   fill(bert_face);
-  ellipse(0, 0, 280, 400);
+  ellipse(0, 0, 270, 400);
 
   translate(0, 30)
 
@@ -94,9 +97,13 @@ function draw () {
   fill("black")
   rect(0, -130, 180, 20)
 
+  var bert_mouth_h = 54;
   // mouth-hole with background color
   fill(mouth);
-  ellipse(0, 70, 170, 30);
+  ellipse(0, 60, 200, bert_mouth_h*2);
+  //cut off top
+  fill(bert_face)
+  rect(0, 60-bert_mouth_h/2, 200, bert_mouth_h)
 
   fill(bert_nose);
   ellipse(0, -10, 80, 110)
