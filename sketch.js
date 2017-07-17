@@ -19,6 +19,11 @@ var fg_color2 = "#7b611a";
 var stroke_color = "#c78a5b";
 
 function draw () {
+  render();
+}
+
+
+function render () {
   // background color
   background(bg_color);
 
