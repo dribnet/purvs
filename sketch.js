@@ -53,7 +53,8 @@ function draw () {
   translate(3*960/4, 500/2);
   rotate(30);
   fill(fg_color2);
-  ellipse(0, 0, 300, 400);
+  rectMode (CENTER);
+  rect(0, 0, 300, 400);
 
   // set fill to match background color
   fill(bg_color);
@@ -68,7 +69,7 @@ function draw () {
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  triangle( 0, 70, 150, 20, 90, -90);
   pop();
 }
 
