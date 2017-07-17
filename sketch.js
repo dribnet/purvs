@@ -29,7 +29,7 @@ function draw () {
   push();
   translate(960/4, 500/2);
   rotate(4);
-  fill(200);
+  fill(255,245,243);
   ellipse (-60,-100, 50, 150);
   ellipse (68,-100, 50, 150);
   ellipse(0, 0, 200, 200);
@@ -60,7 +60,7 @@ function draw () {
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
-  fill(210);
+  fill(255,251,244);
   rectMode (CENTER);
   rotate (25);
   rect (-80,-50, 100, 100, 7);
