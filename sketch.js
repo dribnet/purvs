@@ -13,63 +13,155 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var bg_color = "#fff";
+var face_color1 = "#ffc2a9";
+var face_color2 = "#ed926b";
+var face_color3 = "#a45338";
+var eye_color1 = "#737141";
+var eye_color2 = "#000";
+var stroke_color = "#000";
 
 function draw () {
   // background color
   background(bg_color);
 
-  // stroke color
-  stroke(stroke_color)
+  //noStroke();
 
   // move to position1, rotate, draw "head" ellipse
   push();
-  translate(960/4, 500/2);
-  rotate(4);
-  fill(fg_color1);
-  ellipse(0, 0, 300, 400);
+  translate(960/4, 200);
+  fill(face_color1);
+    noStroke();
+  // ellipse(0, 0, 380, 400);
+  // triangle(-125, 150, 0, 260, 125, 150);
 
-  // set fill to match background color
-  fill(bg_color);
+    beginShape();
+
+       curveVertex(20, 30);
+    curveVertex(100, 0);
+    curveVertex(180, 30);
+    curveVertex(200, 110);
+    curveVertex(165, 215);
+    curveVertex(100, 255);
+    curveVertex(35, 215);
+    curveVertex(0, 110);
+    curveVertex(20, 30);
+    curveVertex(100, 0);
+    curveVertex(180, 30);
+    endShape();
+
+  // stroke color
+
+  
+
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+fill(eye_color2);
+push();
+translate(-2, -5);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+      beginShape();
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    curveVertex(45, 88);
+    curveVertex(65, 95);
+    curveVertex(75, 110);
+    curveVertex(65, 125);
+    curveVertex(45, 130);
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    endShape();
+    pop();
+
+   fill(bg_color);
+   stroke(eye_color2);
+    beginShape();
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    curveVertex(45, 88);
+    curveVertex(65, 95);
+    curveVertex(75, 110);
+    curveVertex(65, 125);
+    curveVertex(45, 130);
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    endShape();
+noStroke();
+    fill(eye_color1);
+    ellipse(46, 113, 36, 36);
+      fill(eye_color2);
+    ellipse(46, 113, 20, 20);
+    
+
+
+    push();
+      translate(100, 0);
+    fill(eye_color2);
+push();
+translate(2, -5);
+
+      beginShape();
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    curveVertex(45, 88);
+    curveVertex(65, 95);
+    curveVertex(75, 110);
+    curveVertex(65, 125);
+    curveVertex(45, 130);
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    endShape();
+    pop();
+     fill(bg_color);
+   stroke(eye_color2);
+    beginShape();
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    curveVertex(45, 88);
+    curveVertex(65, 95);
+    curveVertex(75, 110);
+    curveVertex(65, 125);
+    curveVertex(45, 130);
+    curveVertex(25, 125);
+    curveVertex(15, 110);
+    curveVertex(25, 95);
+    endShape();
+noStroke();
+    fill(eye_color1);
+    ellipse(43, 113, 36, 36);
+    fill(eye_color2);
+    ellipse(43, 113, 20, 20);
+    pop();
+
+  // draw nose
+  noStroke();
+  fill(face_color2);
+  beginShape();
+   curveVertex(85, 170);
+    curveVertex(102, 145);
+    curveVertex(120, 170);
+    curveVertex(100, 175);
+    curveVertex(85, 170);
+    curveVertex(102, 145);
+    curveVertex(120, 170);
+    endShape();
+
+  fill(face_color3);
+  ellipse(95, 172, 12, 8);
+  ellipse(110, 172, 12, 8);
 
   // mouth-hole with background color
   fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+
   pop();
 
-  // move to position2, rotate, draw "head" ellipse
-  push();
-  translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 400);
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
-
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
-  pop();
 }
 
 function keyTyped() {
