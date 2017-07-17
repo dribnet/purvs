@@ -88,7 +88,7 @@ fill(white);
   vertex(00,20);
   bezierVertex(100,70,120,50,160,20);
   bezierVertex(160,50,110,140,00,50);
-  vertex(00,50)
+  vertex(00,50);
   bezierVertex(00,50,-110,160,-160,30);
  bezierVertex(-160,10,-120,100,00,20);
  vertex(00,20);
@@ -96,8 +96,7 @@ fill(white);
   //vertex(00,40);
   endShape(CLOSE);
 
-fill(stroke_color);
-rect(-150,-180,320,50);
+
 
 fill(bags_face);
   bezier(0,-20,70,30,-15,40,0,20);
@@ -110,9 +109,15 @@ fill(bags_face);
   // mouth-hole with background color
   fill(stroke_color);
   ellipse( 0, 70, 20, 20);
+
+
+//hat
+  beginShape();
+  vertex(-160,0);
+  bezierVertex(-100,-0,-50,-400,150,-100);
+  endShape(CLOSE);
+
   pop();
-
-
 
 
 }
