@@ -14,41 +14,19 @@ function setup () {
 
 // global variables for colors
 var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
 
 function draw () {
   // background color
   background(bg_color);
 
-  
+  // stroke color
+  stroke(0);
+
+  strokeWeight(2);
   drawDoraemon();
 
-  // move to position2, rotate, draw "head" ellipse
-  push();
-  translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 400);
-
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
-
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
-  pop();
-
-  
+  strokeWeight(2);
+  drawBender();
 }
 
 function keyTyped() {
@@ -61,10 +39,6 @@ function keyTyped() {
 }
 
 function drawDoraemon(){
-  // stroke color
-  stroke(0);
-  strokeWeight(2);
-
   push();
   translate(960/4, 500/2);
   //head
@@ -114,4 +88,54 @@ function drawDoraemon(){
   ellipse(-4,-54, 15, 15);
 
   pop();
+}
+
+function drawBender(){
+  // move to position2, rotate, draw "head" ellipse
+  push();
+  translate(3*960/4, 500/2);
+
+  fill(183, 194, 200);
+  rectMode(CENTER);
+  //antenna
+  triangle(-20, -20, 0, -230, 20, -20)
+  ellipse(0, -150, 40, 40);
+  ellipse(0, -220, 20, 20);
+
+  //head
+  rect(0, 58, 220, 240);
+  arc(0, -60, 220, 180, 180, 360, OPEN);
+  arc(0, 177, 220, 50, 360, 180, OPEN);
+  
+  //eyes
+  rect(0, 0, 260, 100, 45, 45, 45, 45);
+  fill(0);
+  rect(0, 0, 240, 80, 45, 45, 45, 45);
+  //left eye
+  fill(249, 249, 149);
+  ellipse(-50, 0, 80, 80);
+  fill(0);
+  rect(-55, 0, 15, 15);
+  //right eye
+  fill(249, 249, 149);
+  ellipse(50, 0, 80, 80);
+  fill(0);
+  rect(55, 0, 15, 15);
+
+  //mouth
+  fill(249, 249, 149);
+  rect(0, 120, 200, 80, 45, 45, 35, 35);
+  arc(0, 137, 196, 65, 360, 180, OPEN);
+  //teeth
+  line(-80, 85, -80, 155);
+  line(-40, 80, -40, 165);
+  line(0, 80, 0, 170);
+  line(40, 80, 40, 165);
+  line(80, 85, 80, 155);
+  noFill();
+  curve(40, 40, -95, 100, 95, 100, 40, 40);
+  curve(80, 40, -100, 130, 100, 130, 80, 40);
+
+  pop();
+
 }
