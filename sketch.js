@@ -10,65 +10,113 @@ function setup () {
 
   // rotation in degrees
   angleMode(DEGREES);
+
+  // rectangle drawing mode uses centre
+  rectMode(CENTER);
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var bg_color = "#785e8a";
+var fg_color1 = "#8cc240";
+var fg_color2 = "#55bdd4";
+var misc_color = "#4b2685";
 
 function draw () {
   // background color
   background(bg_color);
 
   // stroke color
-  stroke(stroke_color)
+  noStroke();
 
   // move to position1, rotate, draw "head" ellipse
   push();
   translate(960/4, 500/2);
-  rotate(4);
   fill(fg_color1);
-  ellipse(0, 0, 300, 400);
+  ellipse(0, 0, 300, 300);
 
   // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  fill("#fefeff");
+  // draw eye
+  ellipse(0, -20, 200, 200);
 
-  // set fill back to foreground for eyeballs
+  // draw eyeball
+  fill(misc_color);
+  ellipse(0, -20, 40, 40);
+
+  // draw horns
   fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  push();
+  rotate(-50);
+  triangle(0, -140, 20, -180, 40, -140);
+  pop();
+  push();
+  scale(-1, 1);
+  rotate(-50);
+  triangle(0, -140, 20, -180, 40, -140);
+  pop();
   pop();
 
-  // move to position2, rotate, draw "head" ellipse
+  // move to position2
   push();
   translate(3*960/4, 500/2);
-  rotate(30);
+
+  // draw horns
+  fill("#e5e5e6");
+  push();
+  rotate(-50);
+  beginShape();
+   vertex(0, -140);
+   vertex(10, -190);
+   vertex(40, -220);
+   vertex(100, -210);
+   vertex(55, -195);
+   vertex(50, -180);
+   vertex(55, -140);
+  endShape(CLOSE);
+  pop();
+  push();
+  scale(-1, 1);
+  rotate(-50);
+  beginShape();
+   vertex(0, -140);
+   vertex(10, -190);
+   vertex(40, -220);
+   vertex(100, -210);
+   vertex(55, -195);
+   vertex(50, -180);
+   vertex(55, -140);
+  endShape(CLOSE);
+  pop();
+
+  // draw face
   fill(fg_color2);
-  ellipse(0, 0, 300, 400);
+  ellipse(0, 0, 300, 350);
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  // draw mouth
+  fill("#e5e5e6");
+  arc(0, 80, 150, 60, 180, 360);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
+  // draw teeth
+  fill("#fefeff");
+  push();
+  beginShape();
+   vertex(-70, 80);
+   vertex(-65, 50);
+   vertex(-45, 20);
+   vertex(-50, 55);
+   vertex(-45, 80);
+  endShape(CLOSE);
+  pop();
+  push();
+  scale(-1, 1);
+  beginShape();
+   vertex(-70, 80);
+   vertex(-65, 50);
+   vertex(-45, 20);
+   vertex(-50, 55);
+   vertex(-45, 80);
+  endShape(CLOSE);
+  pop();
   pop();
 }
 
