@@ -19,13 +19,28 @@ var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#000000";
 var white = "#FFFFFF";
+var blueGray = "#363f5a";
 
 function draw () {
   // background color
   background(bg_color);
 
   drawMonopoly();
-  
+  drawMorty();
+
+
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
+}
+
+function drawMorty(){
+
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
@@ -50,13 +65,7 @@ function draw () {
   pop();
 }
 
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+
 }
 
 
@@ -72,6 +81,11 @@ strokeWeight(2)
   translate(280, 250);
   rotate(0);
 
+  fill(blueGray);
+    //top hat
+    rect(-160,-400,300,400);
+
+
 //ear
 fill(bags_face);
   ellipse(-160, -0, 50, 60, 90 );
@@ -80,9 +94,11 @@ fill(bags_face);
   fill(bags_face);
   ellipse(0, 0, 300, 300);
 
-  
+  // mouth-hole with background color
+  fill(stroke_color);
+  ellipse( 0, 50, 30, 50);
 
-  //moustache 
+  //moustache
 fill(white);
   beginShape();
   vertex(00,20);
@@ -106,18 +122,26 @@ fill(bags_face);
   ellipse(-60, -50, 25, 25);
   ellipse( 50, -50, 25, 25);
 
-  // mouth-hole with background color
-  fill(stroke_color);
-  ellipse( 0, 70, 20, 20);
 
 
-//hat
+
+
+fill(blueGray);
+//hat brim
   beginShape();
   vertex(-160,0);
-  bezierVertex(-100,-0,-50,-400,150,-100);
+  bezierVertex(-100,-0,-350,-280,50,-150);
+  bezierVertex(180,-180,180,-150,180,-130);
+  vertex(180,-130);
+  bezierVertex(50,-100,-80,-100,-130,-160);
+  bezierVertex(-180,-120,-100,-250,-160,0);
+    vertex(-160,0);
   endShape(CLOSE);
 
+
   pop();
+
+
 
 
 }
