@@ -71,22 +71,36 @@ strokeWeight(2)
   push();
   translate(280, 250);
   rotate(0);
+
+//ear
+fill(bags_face);
+  ellipse(-160, -0, 50, 60, 90 );
+
+
   fill(bags_face);
   ellipse(0, 0, 300, 300);
 
-  //ear
-  ellipse(-170, -0, 50, 60);
+  
 
   //moustache 
 fill(white);
   beginShape();
   vertex(00,20);
   bezierVertex(100,70,120,50,160,20);
-  bezierVertex(160,50,110,80,100,100);
-  bezierVertex(-100,70,-120,50,-160,20);
+  bezierVertex(160,50,110,140,00,50);
+  vertex(00,50)
+  bezierVertex(00,50,-110,160,-160,30);
+ bezierVertex(-160,10,-120,100,00,20);
+ vertex(00,20);
 
   //vertex(00,40);
   endShape(CLOSE);
+
+fill(stroke_color);
+rect(-150,-180,320,50);
+
+fill(bags_face);
+  bezier(0,-20,70,30,-15,40,0,20);
 
   // set fill back to foreground for eyeballs
   fill(stroke_color);
