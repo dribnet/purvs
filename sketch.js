@@ -13,10 +13,10 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var bg_color = "#ffffff";
+var fg_color1 = "#ff0000";
+var fg_color2 = "#0000ff";
+var stroke_color = "#ffffff";
 
 function draw () {
   // background color
