@@ -1,11 +1,12 @@
 ## PS1 MDDN 342 2017
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+### Cartoon Robots
 
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+I have chosen to draw portraits of two different robots:
+
+ * Doraemon  - https://en.wikipedia.org/wiki/Doraemon 
+ * Bender       - https://en.wikipedia.org/wiki/Bender_(Futurama)   
+
+I choose these characters as I am inspired by robots, animation and the future.  Both of these robots are from the distant future.
+
+The portraits were relatively easy to create as the characters are mostly made from basic shapes. The challenging part of this project was implementing the finer details which couldn't be created with basic shapes.  For these details I had to use curves and beziers which I have not used before so this was a good learning experience. 
