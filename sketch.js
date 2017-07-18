@@ -41,6 +41,9 @@ function keyTyped() {
 function drawDoraemon(){
   push();
   translate(960/4, 500/2);
+  //collar
+  fill(209, 4, 41);
+  arc(0, 85, 220, 120, 360, 180, OPEN);
   //head
   fill(3, 166, 215);
   ellipse(0,0, 300, 255);
@@ -55,9 +58,11 @@ function drawDoraemon(){
   fill(255);
   bezier(0, 20, -20, 60, -190, 40, -115, -2);
   bezier(0, 20, 20, 60, 190, 40, 115, -2);
+  arc(110, 10, 50, 50, 247.5, 67.5, OPEN);
+  arc(-110, 10, 50, 50, 112.5, 292.5, OPEN);
   fill(244, 83, 2);
-  bezier(-40, 104, -65, 80, -10, 70, 0, 90);
-  bezier(40, 104, 65, 80, 10, 70, 0, 90);
+  bezier(-40, 104, -66, 80, -10, 70, 0, 90);
+  bezier(40, 104, 66, 80, 10, 70, 0, 90);
   //left eye
   fill(255, 255, 255);
   ellipse(-25 ,-90, 50, 70);
@@ -73,20 +78,28 @@ function drawDoraemon(){
   fill(255, 255, 255);
   ellipse(15 ,-84, 7, 11);
   //left whiskers
-  line(-20,-25, -80, -30);
-  line(-20,-15, -80, -15);
-  line(-20,-5, -80, -0);
+  line(-30,-15, -100, -25);
+  line(-30,-5, -100, -5);
+  line(-30,5, -100, 15);
   //right whiskers
-  line(20,-25, 80, -30);
-  line(20,-15, 80, -15);
-  line(20,-5, 80, -0);
+  line(30,-15, 100, -25);
+  line(30,-5, 100, -5);
+  line(30,5, 100, 15);
   //nose
   fill(209, 4, 41);
   ellipse(0,-50, 40, 40);
   fill(255, 255, 255);
   strokeWeight(0);
   ellipse(-4,-54, 15, 15);
-
+  //bell
+  strokeWeight(2);
+  fill(249, 224, 54);
+  ellipse(0,160, 50, 50);
+  curve(0,190,-25, 155, 25, 155, 0, 190);
+  curve(0,190,-25, 160, 25, 160, 0, 190);
+  fill(131, 116, 103);
+  ellipse(0,170, 10, 10);
+  line(0, 175, 0, 185); 
   pop();
 }
 
