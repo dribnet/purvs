@@ -40,21 +40,41 @@ function makeVerts(vertexArray) {
     }
 }
 
-function drawJules() {
-    var face = [[-1, 0], [1, 0], [0.5, 1.8], [-0.5, 1.8]];  // face verts
+function lerpVertex(from, to, percent) {
+    return [
+        lerp(from[0], to[0], percent),
+        lerp(from[1], to[1], percent)
+    ];
+}
 
-    // HEAD
+function drawJules() {
+    // AFRO
+    fill(0);
+    noStroke();
+    ellipseMode(RADIUS);
+    ellipse(0, 0.45, 0.95, 0.95);
+
+    // FACE
+    var fringeLeft    = [-0.7, 0.4];
+    var fringeRight   = [0.7, 0.4];
+    var cheekBoneLeft  = [-0.7, 0.8];
+    var cheekBoneRight  = [0.7, 0.8];
+    var chinLeft        = [-0.5, 1.8];
+    var chinRight       = [0.5, 1.8];
+
     fill(julesSkin);
     noStroke();
     beginShape();
-    makeVerts(face);
+    makeVerts([
+        fringeLeft,
+        [0, 0.3],
+        fringeRight,
+        cheekBoneRight,
+        chinRight,
+        chinLeft,
+        cheekBoneLeft,
+    ]);
     endShape(CLOSE);
-
-    // // HAIR
-    // fill(0);
-    // noStroke();
-    // ellipseMode(CORNERS);
-    // ellipse(-1.1, -1, 1.1, 0.5);
 
     // FACIAL HAIR
     noFill();
@@ -63,7 +83,13 @@ function drawJules() {
     strokeCap(SQUARE);
 
     // MOUSTACHE
-    var handlebar = [face[3], [-0.25, 1.3], [0.25, 1.3], face[2]];
+    var handlebar = [
+        lerpVertex(chinLeft, chinRight, 0.2),
+        [-0.25, 1.35],
+        [0, 1.3],
+        [0.25, 1.35],
+        lerpVertex(chinRight, chinLeft, 0.2),
+    ];
     beginShape()
     makeVerts(handlebar);
     endShape();
@@ -72,39 +98,29 @@ function drawJules() {
     var burnLeft;
     var burnRight;
     {
-        var burnJawLen = 0.6;      // % of jules jaw to span
+        var burnJawLen = 0.45;      // % of jules jaw to span
         var burnCheekLen = 0.3;    // length of cheek hair
 
         var burnLeft = [
-            face[0],
-            [
-                lerp(face[0][0], face[3][0], burnJawLen),
-                lerp(face[0][1], face[3][1], burnJawLen)
-            ]
+            cheekBoneLeft,
+            lerpVertex(cheekBoneLeft, chinLeft, burnJawLen)
         ];
-        burnLeft[2] = [
-            lerp(burnLeft[1][0], handlebar[1][0], burnCheekLen),
-            lerp(burnLeft[1][1], handlebar[1][1], burnCheekLen)
-        ]
+        burnLeft[2] = lerpVertex(burnLeft[1], handlebar[0], burnCheekLen);
 
         var burnRight = [
-            face[1],
-            [
-                lerp(face[1][0], face[2][0], burnJawLen),
-                lerp(face[1][1], face[2][1], burnJawLen)
-            ]
+            cheekBoneRight,
+            lerpVertex(cheekBoneRight, chinRight, burnJawLen)
         ];
-        burnRight[2] = [
-            lerp(burnRight[1][0], handlebar[2][0], burnCheekLen),
-            lerp(burnRight[1][1], handlebar[2][1], burnCheekLen)
-        ]
+        burnRight[2] = lerpVertex(burnRight[1], handlebar[4], burnCheekLen);
     }
 
     beginShape();
+    vertex(-0.7, 0.1);
     makeVerts(burnLeft);
     endShape();
 
     beginShape();
+    vertex(0.7, 0.);
     makeVerts(burnRight);
     endShape();
 }

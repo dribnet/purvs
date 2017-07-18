@@ -1,3 +1,5 @@
 ## PS1 MDDN 342 2017
 
-Basic sketch of Jules (from Pulp Fiction). His facial hair is generated relative to a few scalar parameters and a small number of manually determined points. These are the four corners of his head and the elevated sections of the handlebar. The sideburns are generated entirely from these and two length parameters.
+Basic sketch of Jules (from Pulp Fiction). The face has no features other than its shape and hair. I think this is an interesting (perhaps contrived) style; currently the sketch attempts to illicit facial recognition with the minimal detail possible. An interesting test of this will be to differentiate similar faces.
+
+His facial hair is generated relative to a few scalar parameters and a small number of manually determined points. The only hard-coded points are seven corners of the face, the position of the hair, and the elevated sections of the moustache.
