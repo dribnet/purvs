@@ -1,11 +1,9 @@
 ## PS1 MDDN 342 2017
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+So far I have followed all the steps in the Getting Started
+instructions. I had to clone via SSH not HTTPS though, as my
+Github account requires two-factor authentication due to my
+workplace. After a slight hiccup where I initially cloned via
+HTTPS, I followed the rest of the steps and have now updated
+the README, and optimized the preview and thumbnail images
+using two tools called ImageAlpha and ImageOptim.
