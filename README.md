@@ -1,6 +1,5 @@
 ## PS1 MDDN 342 2017
-
-change colors
+It is a low poly fox face. Firstly, I use triangle() and quad() to create half a face, then use scale() to flip another half face. 
 
 This README should be updated as the code changes. Replace
 this placeholder text and use this
