@@ -32,9 +32,23 @@ function draw () {
     //rotate(4);
     drawJules();
     pop();
+
+    push();
+    translate(960*3/4, 500/2-100);
+    scale(150, 150);
+    //rotate(4);
+    drawPrince();
+    pop();
 }
 
-function makeVerts(vertexArray) {
+function addVectors(vectorA, vectorB) {
+    return [
+        vectorA[0] + vectorB[0],
+        vectorA[1] + vectorB[1]
+    ];
+}
+
+function makeVertices(vertexArray) {
     for (var i = 0; i < vertexArray.length; i++) {
         vertex(vertexArray[i][0], vertexArray[i][1]);
     }
@@ -65,7 +79,7 @@ function drawJules() {
     fill(julesSkin);
     noStroke();
     beginShape();
-    makeVerts([
+    makeVertices([
         fringeLeft,
         [0, 0.3],
         fringeRight,
@@ -91,7 +105,7 @@ function drawJules() {
         lerpVertex(chinRight, chinLeft, 0.2),
     ];
     beginShape()
-    makeVerts(handlebar);
+    makeVertices(handlebar);
     endShape();
 
     // SIDEBURNS
@@ -102,26 +116,75 @@ function drawJules() {
         var burnCheekLen = 0.3;    // length of cheek hair
 
         var burnLeft = [
+            fringeLeft,
             cheekBoneLeft,
             lerpVertex(cheekBoneLeft, chinLeft, burnJawLen)
         ];
-        burnLeft[2] = lerpVertex(burnLeft[1], handlebar[0], burnCheekLen);
+        burnLeft[3] = lerpVertex(burnLeft[2], handlebar[0], burnCheekLen);
 
         var burnRight = [
+            fringeRight,
             cheekBoneRight,
             lerpVertex(cheekBoneRight, chinRight, burnJawLen)
         ];
-        burnRight[2] = lerpVertex(burnRight[1], handlebar[4], burnCheekLen);
+        burnRight[3] = lerpVertex(burnRight[2], handlebar[4], burnCheekLen);
     }
 
     beginShape();
-    vertex(-0.7, 0.1);
-    makeVerts(burnLeft);
+    makeVertices(burnLeft);
     endShape();
 
     beginShape();
-    vertex(0.7, 0.);
-    makeVerts(burnRight);
+    makeVertices(burnRight);
+    endShape();
+}
+
+function drawPrince() {
+    // AFRO
+    fill(0);
+    noStroke();
+    ellipseMode(RADIUS);
+    ellipse(0, 0.5, 1.1, 1.1);
+
+    // FACE
+    var fringeLeft    = [-0.5, 0.5];
+    var fringeRight   = [0.5, 0.5];
+    var cheekBoneLeft  = [-0.45, 1.5];
+    var cheekBoneRight  = [0.45, 1.5];
+    var chinLeft        = [-0.3, 1.9];
+    var chinRight       = [0.3, 1.9];
+
+    fill(julesSkin);
+    noStroke();
+    beginShape();
+    makeVertices([
+        fringeLeft,
+        [-0.4, 0.3],
+        [0.4, 0.3],
+        fringeRight,
+        cheekBoneRight,
+        chinRight,
+        chinLeft,
+        cheekBoneLeft,
+    ]);
+    endShape(CLOSE);
+
+    // FACIAL HAIR
+    noFill();
+    stroke(0);
+    strokeWeight(0.075);
+    strokeCap(SQUARE);
+
+    // MOUSTACHE
+    var handlebar = [
+        lerpVertex(chinLeft, chinRight, 0.2),
+        [-0.25, 1.35],
+        [0, 1.3],
+        [0.25, 1.35],
+        lerpVertex(chinRight, chinLeft, 0.2),
+    ];
+    beginShape()
+    makeVertices(handlebar);
     endShape();
 }
 
