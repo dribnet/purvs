@@ -13,7 +13,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#000000";
+var bg_color = "#f8fff7";
 var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#000000";
@@ -32,7 +32,7 @@ function draw () {
   // move to position1, rotate, draw "head" ellipse
   push();
   translate(960/4, 500/2);
-  rotate(4);
+  rotate(0);
   fill(face_1);
   ellipse(0, 0, 300, 400);
 
@@ -43,6 +43,11 @@ function draw () {
   //ellipse( 50, -80, 50, 30);
   triangle(-140, -160, -0, -5, -160, 8);
   triangle(140, -160, 0, -5, 160, 8);
+  line(0, -200, 0, 200);
+  line(-10, -200, 10, 200);
+  line(-20, -200, 20, 200);
+  line(20, -200, -20, 200);
+  line(10, -200, -10, 200);
   //triangle(30, 75, 58, 20, 86, 75);
   //quad(-110, -100, -40, -40, -150, 10, -100, -76);
   //quad(110, 100, 80, 40, 150, -10, 100, 76);
@@ -77,15 +82,15 @@ function draw () {
 
   // set fill back to foreground for eyeballs
   fill(eyes);
-  ellipse(-50, -30, 100, 100);
-  ellipse( 50, -30, 100, 100);
-  line(-100, -85, -80, -72);
-  line(-75, -90, -70, -78);
-  line(-60, -95, -60, -80);
+  ellipse(-50, -30, 110, 110);
+  ellipse( 50, -30, 110, 110);
+  line(-100, -90, -80, -76);
+  line(-75, -90, -70, -82);
+  line(-60, -95, -60, -85);
 
-  line(100, -85, 80, -72);
-  line(75, -90, 70, -78);
-  line(60, -95, 60, -80);
+  line(100, -85, 80, -76);
+  line(75, -90, 70, -82);
+  line(60, -95, 60, -85);
 
   // mouth-hole with background color
   fill(bg_color);
