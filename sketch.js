@@ -22,7 +22,7 @@ var star_colour = "000000";
 
 function draw () {
   // background color
-  background(bg_color);
+  background(star_colour);
 
   // stroke color
   stroke(stroke_color)
