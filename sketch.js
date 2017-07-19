@@ -2,29 +2,24 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 
 function setup () {
-  // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
+    // create the drawing canvas, save the canvas element
+    main_canvas = createCanvas(canvasWidth, canvasHeight);
 
-  // position each element on the page
-  main_canvas.parent('canvasContainer');
+    // position each element on the page
+    main_canvas.parent('canvasContainer');
 
-  // rotation in degrees
-  angleMode(DEGREES);
-}
+    // rotation in degrees
+    angleMode(DEGREES);
 
-// global variables for colors
-var bg_color = "#c6bdab";
-var julesSkin = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+    // BACKGROUND
+    noStroke();
+    fill(julesBackground);
+    rect(0, 0, canvasWidth/2, canvasHeight);
 
-function draw () {
-    // background color
-    background(bg_color);
+    fill(princeBackground);
+    rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
 
-    // stroke color
-    stroke(stroke_color)
-
+    // FACES
     // move to position1, rotate, draw "head" ellipse
     push();
     translate(960/4, 500/2-100);
@@ -40,6 +35,17 @@ function draw () {
     drawPrince();
     pop();
 }
+
+// global variables for colors
+var neutralBackround = "#c6bdab";
+var princeBackground = "#4e215b";
+var julesBackground = "#ffd703";
+
+var julesSkin = "#442d1b";
+var princeSkin = "#775034";
+
+var fg_color2 = "#7b611a";
+var stroke_color = "#c78a5b";
 
 function addVectors(vectorA, vectorB) {
     return [
@@ -144,17 +150,17 @@ function drawPrince() {
     fill(0);
     noStroke();
     ellipseMode(RADIUS);
-    ellipse(0, 0.5, 1.1, 1.1);
+    ellipse(0, 0.5, 1.05, 1.05);
 
     // FACE
     var fringeLeft    = [-0.45, 0.5];
     var fringeRight   = [0.45, 0.5];
-    var cheekBoneLeft  = [-0.45, 1.5];
-    var cheekBoneRight  = [0.45, 1.5];
-    var chinLeft        = [-0.2, 1.9];
-    var chinRight       = [0.2, 1.9];
+    var cheekBoneLeft  = [-0.465, 1.45];
+    var cheekBoneRight  = [0.465, 1.45];
+    var chinLeft        = [-0.2, 1.8];
+    var chinRight       = [0.2, 1.8];
 
-    fill(julesSkin);
+    fill(princeSkin);
     noStroke();
     beginShape();
     makeVertices([
@@ -169,49 +175,77 @@ function drawPrince() {
     ]);
     endShape(CLOSE);
 
-    // FACIAL HAIR
-    noFill();
-    stroke(0);
-    strokeWeight(0.05);
-    strokeCap(SQUARE);
+    // EYEBROWS
+    noStroke();
+    fill(0);
 
-    // MOUSTACHE
-    var stasheBaseHeight = 0.35;
-    var stasheCentreHeightOffset = 0.05;
-    var stasheApexHeightOffset = 0.075;
-    var stasheTailHorizontal = 0.03;
-    var stasheTailVertical = 0.075;
-    var stasheInsetPercent = 0.125;
-
-    var stasheBaseLeft = addVectors(
-        lerpVertex(chinLeft, chinRight, stasheInsetPercent),
-        [0, -stasheBaseHeight]
-    );
-    var stasheBaseRight = addVectors(
-       lerpVertex(chinRight, chinLeft, stasheInsetPercent),
-       [0, -stasheBaseHeight]
-    );
-    var stasheCentrePoint = addVectors(
-        lerpVertex(stasheBaseLeft, stasheBaseRight, 0.5),
-        [0, -stasheCentreHeightOffset]
-    );
-
-    var stashe = [
-        addVectors(stasheBaseLeft, [-stasheTailHorizontal, stasheTailVertical]),
-        stasheBaseLeft,
-        stasheCentrePoint,
-        stasheBaseRight,
-        addVectors(stasheBaseRight, [stasheTailHorizontal, stasheTailVertical]),
+    var eyeBrow = [
+        [0.075, 0.65],
+        //[0.2, 0.62],
+        [0.3, 0.61],
+        [0.4, 0.65],
+        [0.4, 0.67],
+        [0.3, 0.64],
+        [0.2, 0.67],
+        [0.07, 0.76]
     ];
 
     beginShape()
-    makeVertices(stashe);
+    makeVertices(eyeBrow);
+    endShape(CLOSE);
+
+    for (var i = 0; i < eyeBrow.length; i++) {
+        eyeBrow[i] = [-eyeBrow[i][0], eyeBrow[i][1]];
+    }
+
+    beginShape()
+    makeVertices(eyeBrow);
     endShape();
 
+    // FACIAL HAIR
+    noFill();
+    stroke(0.0);
+    strokeWeight(0.025);
+    strokeCap(SQUARE);
+
+    // MOUSTACHE
+    var stacheBaseHeight = 0.35;
+    var stacheCentreHeightOffset = 0.05;
+    var stacheApexHeightOffset = 0.05;
+    var stacheTailHorizontal = 0.03;
+    var stacheTailVertical = 0.075;
+    var stacheInsetPercent = 0.125;
+
+    var stacheBaseLeft = addVectors(
+        lerpVertex(chinLeft, chinRight, stacheInsetPercent),
+        [0, -stacheBaseHeight]
+    );
+    var stacheBaseRight = addVectors(
+       lerpVertex(chinRight, chinLeft, stacheInsetPercent),
+       [0, -stacheBaseHeight]
+    );
+    var stacheCentrePoint = addVectors(
+        lerpVertex(stacheBaseLeft, stacheBaseRight, 0.5),
+        [0, -stacheCentreHeightOffset]
+    );
+
+    var stache = [
+        addVectors(stacheBaseLeft, [-stacheTailHorizontal, stacheTailVertical]),
+        stacheBaseLeft,
+        stacheCentrePoint,
+        stacheBaseRight,
+        addVectors(stacheBaseRight, [stacheTailHorizontal, stacheTailVertical]),
+    ];
+
+    beginShape()
+    makeVertices(stache);
+    endShape();
+
+    strokeWeight(0.04);
     beginShape();
     makeVertices([
-        stasheCentrePoint,
-        addVectors(stasheCentrePoint, [0, -stasheApexHeightOffset])
+        stacheCentrePoint,
+        addVectors(stacheCentrePoint, [0, -stacheApexHeightOffset])
     ]);
     endShape();
 }
