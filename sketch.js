@@ -19,6 +19,7 @@ var fg_color2 = "#7b611a";
 var stroke_color = "#c78a5b";
 var face_colour = "ffffff";
 var star_colour = "000000";
+var red_colour = "ff0000";
 
 function draw () {
   // background color
@@ -37,18 +38,18 @@ function draw () {
   
   stroke(stroke_colour);
   // set fill to match background color
-  fill(star_colour);
+  fill(red_colour);
   // draw two eyes
   ellipse(-50, -80, 50, 30);
   ellipse( 50, -80, 50, 30);
 
   // set fill back to foreground for eyeballs
-  fill(fg_color1);
+  fill(face_colour);
   ellipse(-60, -80, 20, 20);
   ellipse( 40, -80, 20, 20);
 
   // mouth-hole with background color
-  fill(bg_color);
+  fill(face_colour);
   ellipse( 0, 70, 150, 50);
   pop();
 
@@ -62,18 +63,18 @@ function draw () {
 	
 	stroke(stroke_color);
   // set fill to match background color
-  fill(star_colour);
+  fill(red_colour);
   // draw two eyes
   ellipse(-50, -80, 50, 30);
   ellipse( 50, -80, 50, 30);
 
   // set fill back to foreground for eyeballs
-  fill(fg_color2);
+  fill(face_colour);
   ellipse(-60, -80, 20, 20);
   ellipse( 40, -80, 20, 20);
 
   // mouth-hole with background color
-  fill(bg_color);
+  fill(face_colour);
   ellipse( 0, 70, 150, 50);
   pop();
 }
@@ -87,9 +88,9 @@ function keyTyped() {
   }
 }
 function facestar(){
-	fill();
-	
-	
+	fill(star_colour);
+	stroke(star_colour);
+	triangle(-50,-80,0,-50,-25,150);
 	
 	
 }
