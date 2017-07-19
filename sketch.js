@@ -97,7 +97,7 @@ function drawJules() {
     strokeCap(SQUARE);
 
     // MOUSTACHE
-    var handlebar = [
+    var horseshoe = [
         lerpVertex(chinLeft, chinRight, 0.2),
         [-0.25, 1.35],
         [0, 1.3],
@@ -105,7 +105,7 @@ function drawJules() {
         lerpVertex(chinRight, chinLeft, 0.2),
     ];
     beginShape()
-    makeVertices(handlebar);
+    makeVertices(horseshoe);
     endShape();
 
     // SIDEBURNS
@@ -120,14 +120,14 @@ function drawJules() {
             cheekBoneLeft,
             lerpVertex(cheekBoneLeft, chinLeft, burnJawLen)
         ];
-        burnLeft[3] = lerpVertex(burnLeft[2], handlebar[0], burnCheekLen);
+        burnLeft[3] = lerpVertex(burnLeft[2], horseshoe[0], burnCheekLen);
 
         var burnRight = [
             fringeRight,
             cheekBoneRight,
             lerpVertex(cheekBoneRight, chinRight, burnJawLen)
         ];
-        burnRight[3] = lerpVertex(burnRight[2], handlebar[4], burnCheekLen);
+        burnRight[3] = lerpVertex(burnRight[2], horseshoe[4], burnCheekLen);
     }
 
     beginShape();
@@ -147,20 +147,20 @@ function drawPrince() {
     ellipse(0, 0.5, 1.1, 1.1);
 
     // FACE
-    var fringeLeft    = [-0.5, 0.5];
-    var fringeRight   = [0.5, 0.5];
+    var fringeLeft    = [-0.45, 0.5];
+    var fringeRight   = [0.45, 0.5];
     var cheekBoneLeft  = [-0.45, 1.5];
     var cheekBoneRight  = [0.45, 1.5];
-    var chinLeft        = [-0.3, 1.9];
-    var chinRight       = [0.3, 1.9];
+    var chinLeft        = [-0.2, 1.9];
+    var chinRight       = [0.2, 1.9];
 
     fill(julesSkin);
     noStroke();
     beginShape();
     makeVertices([
         fringeLeft,
-        [-0.4, 0.3],
-        [0.4, 0.3],
+        [-0.35, 0.3],
+        [0.35, 0.3],
         fringeRight,
         cheekBoneRight,
         chinRight,
@@ -172,19 +172,47 @@ function drawPrince() {
     // FACIAL HAIR
     noFill();
     stroke(0);
-    strokeWeight(0.075);
+    strokeWeight(0.05);
     strokeCap(SQUARE);
 
     // MOUSTACHE
-    var handlebar = [
-        lerpVertex(chinLeft, chinRight, 0.2),
-        [-0.25, 1.35],
-        [0, 1.3],
-        [0.25, 1.35],
-        lerpVertex(chinRight, chinLeft, 0.2),
+    var stasheBaseHeight = 0.35;
+    var stasheCentreHeightOffset = 0.05;
+    var stasheApexHeightOffset = 0.075;
+    var stasheTailHorizontal = 0.03;
+    var stasheTailVertical = 0.075;
+    var stasheInsetPercent = 0.125;
+
+    var stasheBaseLeft = addVectors(
+        lerpVertex(chinLeft, chinRight, stasheInsetPercent),
+        [0, -stasheBaseHeight]
+    );
+    var stasheBaseRight = addVectors(
+       lerpVertex(chinRight, chinLeft, stasheInsetPercent),
+       [0, -stasheBaseHeight]
+    );
+    var stasheCentrePoint = addVectors(
+        lerpVertex(stasheBaseLeft, stasheBaseRight, 0.5),
+        [0, -stasheCentreHeightOffset]
+    );
+
+    var stashe = [
+        addVectors(stasheBaseLeft, [-stasheTailHorizontal, stasheTailVertical]),
+        stasheBaseLeft,
+        stasheCentrePoint,
+        stasheBaseRight,
+        addVectors(stasheBaseRight, [stasheTailHorizontal, stasheTailVertical]),
     ];
+
     beginShape()
-    makeVertices(handlebar);
+    makeVertices(stashe);
+    endShape();
+
+    beginShape();
+    makeVertices([
+        stasheCentrePoint,
+        addVectors(stasheCentrePoint, [0, -stasheApexHeightOffset])
+    ]);
     endShape();
 }
 
