@@ -28,16 +28,16 @@ function draw () {
   stroke(stroke_color)
 
   // move to position1, rotate, draw "head" ellipse
+  stroke(face_colour);
   push();
-	stroke(face_colour);
   translate(960/4, 500/2);
   rotate(4);
   fill(face_colour);
   ellipse(0, 0, 300, 400);
-
-	stroke(stroke_colour);
+  
+  stroke(stroke_colour);
   // set fill to match background color
-  fill(bg_color);
+  fill(star_colour);
   // draw two eyes
   ellipse(-50, -80, 50, 30);
   ellipse( 50, -80, 50, 30);
@@ -54,7 +54,7 @@ function draw () {
 
   // move to position2, rotate, draw "head" ellipse
   push();
-	stroke(face_colour);
+  stroke(face_colour);
   translate(3*960/4, 500/2);
   rotate(30);
   fill(face_colour);
@@ -62,7 +62,7 @@ function draw () {
 	
 	stroke(stroke_color);
   // set fill to match background color
-  fill(bg_color);
+  fill(star_colour);
   // draw two eyes
   ellipse(-50, -80, 50, 30);
   ellipse( 50, -80, 50, 30);
