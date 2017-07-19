@@ -122,14 +122,14 @@ function drawJules() {
         var burnCheekLen = 0.3;    // length of cheek hair
 
         var burnLeft = [
-            fringeLeft,
+            addVectors(fringeLeft, [0, -0.1]),
             cheekBoneLeft,
             lerpVertex(cheekBoneLeft, chinLeft, burnJawLen)
         ];
         burnLeft[3] = lerpVertex(burnLeft[2], horseshoe[0], burnCheekLen);
 
         var burnRight = [
-            fringeRight,
+            addVectors(fringeRight, [0, -0.1]),
             cheekBoneRight,
             lerpVertex(cheekBoneRight, chinRight, burnJawLen)
         ];
@@ -142,6 +142,31 @@ function drawJules() {
 
     beginShape();
     makeVertices(burnRight);
+    endShape();
+
+    // EYEBROWS
+    noStroke();
+    fill(0);
+
+    var eyebrow = [
+        [0.12, 0.52],
+        [0.4, 0.47],
+        [0.55, 0.52],
+        [0.55, 0.57],
+        [0.4, 0.53],
+        [0.12, 0.6]
+    ];
+
+    beginShape()
+    makeVertices(eyebrow);
+    endShape(CLOSE);
+
+    for (var i = 0; i < eyebrow.length; i++) {
+        eyebrow[i] = [-eyebrow[i][0], eyebrow[i][1]];
+    }
+
+    beginShape()
+    makeVertices(eyebrow);
     endShape();
 }
 
@@ -179,7 +204,7 @@ function drawPrince() {
     noStroke();
     fill(0);
 
-    var eyeBrow = [
+    var eyebrow = [
         [0.075, 0.65],
         //[0.2, 0.62],
         [0.3, 0.61],
@@ -191,15 +216,15 @@ function drawPrince() {
     ];
 
     beginShape()
-    makeVertices(eyeBrow);
+    makeVertices(eyebrow);
     endShape(CLOSE);
 
-    for (var i = 0; i < eyeBrow.length; i++) {
-        eyeBrow[i] = [-eyeBrow[i][0], eyeBrow[i][1]];
+    for (var i = 0; i < eyebrow.length; i++) {
+        eyebrow[i] = [-eyebrow[i][0], eyebrow[i][1]];
     }
 
     beginShape()
-    makeVertices(eyeBrow);
+    makeVertices(eyebrow);
     endShape();
 
     // FACIAL HAIR
@@ -209,7 +234,7 @@ function drawPrince() {
     strokeCap(SQUARE);
 
     // MOUSTACHE
-    var stacheBaseHeight = 0.35;
+    var stacheBaseHeight = 0.4;
     var stacheCentreHeightOffset = 0.05;
     var stacheApexHeightOffset = 0.05;
     var stacheTailHorizontal = 0.03;
