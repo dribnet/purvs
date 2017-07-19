@@ -13,10 +13,10 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color = "#c6bdab";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
+var bg_color = "#3a4251";
+var fg_color1 = "#fce9e0";
+var fg_color2 = "#2b6308";
+var stroke_color = "#f8f8f8";
 
 function draw () {
   // background color
@@ -25,51 +25,101 @@ function draw () {
   // stroke color
   stroke(stroke_color)
 
-  // move to position1, rotate, draw "head" ellipse
+ 
+  //PRINCESS LEIA 
   push();
   translate(960/4, 500/2);
   rotate(4);
   fill(fg_color1);
-  ellipse(0, 0, 300, 400);
+    
+    ellipse(40,0,250,300);
+    fill(94, 57, 10);
+    noStroke();
+     beginShape();
+  vertex(40,-100);
+  vertex(-100, 10);
+    vertex(-100, -50);
+    vertex(-80, -90);
+    vertex(-60, -110);
+     vertex(-10, -150);
+    vertex(40, -160);
+    vertex(40,-100);
+   endShape();
+    
+     beginShape();
+    vertex(40, -160);
+    vertex(43,-100);
+    vertex(90,-80);
+    vertex(160,-50);
+    vertex(160,-80);
+    vertex(120,-140);
+    vertex(40, -160);
+    
+   endShape();
+    
+fill(109, 67, 13);
+noStroke();
+    
+    beginShape();
+  vertex(-125,-80);
+  vertex(-80, -90);
+  vertex(-65, -60);
+ vertex (-65,100);
+vertex (-80,130);
+    vertex(-115, 120);
+    vertex(-130,-60);
+vertex(-125,-80);
+  endShape();
+    
+push();
+    translate(1050/4, -40/2);
+  beginShape();
+  vertex(-125,-80);
+  vertex(-80, -90);
+  vertex(-65, -60);
+ vertex (-65,100);
+vertex (-80,130);
+    vertex(-115, 120);
+    vertex(-130,-60);
+vertex(-125,-80);
+  endShape();
+pop();
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color1);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
   pop();
 
-  // move to position2, rotate, draw "head" ellipse
-  push();
+  // YODA
+      push();
   translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 400);
+    fill(fg_color2);
+    noStroke();
+ellipse(0,0,250,250);
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+    beginShape();
+  vertex(-110,-30);
+  vertex(-150, -25);
+  vertex(-230, -35);
+  vertex(-175, 0);
+    vertex(-150, 10);
+    vertex(-112, 20);
+      endShape();
+    push();
+    
+    translate(0); 
+     scale(-1.0,1.0); 
+     beginShape();
+  vertex(-110,-30);
+  vertex(-150, -25);
+  vertex(-230, -35);
+  vertex(-175, 0);
+    vertex(-150, 10);
+    vertex(-112, 20);
 
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
+  endShape();
+    pop();
+    pop();
+      
 
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
-  pop();
 }
 
 function keyTyped() {
