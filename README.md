@@ -2,8 +2,8 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+I enjoy some randomness in my work, so I've gone and created a slider to control just that. The first sketchy face is reminiscent of my style of drawing
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+Second face was just me fiddling around with alpha sliders
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+third face is gonna also be sketchy
