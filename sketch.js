@@ -28,20 +28,28 @@ function draw () {
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
+  //rotate(30);
+  fill(fg_color1);
   ellipse(0, 0, 300, 400);
 
   // set fill to match background color
-  fill(bg_color);
+  fill(eye_color1);
   // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
+  ellipse(-40, -80, 80, 80);
+  ellipse( 40, -80, 80, 80);
 
   // set fill back to foreground for eyeballs
   fill(fg_color2);
   ellipse(-60, -80, 20, 20);
   ellipse( 40, -80, 20, 20);
+
+  fill(fg_color1);
+  stroke(fg_color1);
+  quad(-35, -60, 5, -60, 5, -20,  -35, -20);
+  stroke(stroke_color);
+  line(-35, -60, 5, -60);
+  line(5, -20,  -35, -20);
+  arc(-35, -40, 40, 40, 90, 270, OPEN);
 
   // mouth-hole with background color
   fill(bg_color);
