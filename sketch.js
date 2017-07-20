@@ -60,7 +60,7 @@ var fg_color2 = "#d3af7d";
 var stroke_color = "#000000";
 var teeth_color = "#FFFFFF";
 
-function drawFace1(x, y, w, h, mouth_value, eye_value, last_value) {
+function drawFace1(x, y, w, h, mouth_value, eye_value, background_value) {
   push();
   translate(x, y);
   //rotate(tilt_value);
@@ -101,8 +101,12 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, last_value) {
   // pop();
 
   // background color
-  background(bg_color);
-
+  if(background_value == 0)
+    background(bg_color);
+  else if(background_value == 1)
+    background(bg_color1)
+  else if(background_value == 2)
+    background(bg_color2);
   // stroke color
   stroke(stroke_color)
 
@@ -306,13 +310,13 @@ function draw () {
     // draw 1st face
     fill(bg_color1);
     rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, 10, 55);
-    var mouth_value = map(s3, 0, 100, 0, 200);
+    var mouth_value = map(s1, 0, 100, 10, 55);
+    var background_value = Math.floor(map(s3, 0, 100, 0, 2));
     var eye_value = map(s2, 0, 100, -20, 20);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, mouth_value, eye_value, background_value);    
   }
 
   if (mode == '2' || mode == 'all') {
