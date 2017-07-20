@@ -1,6 +1,6 @@
-## PS1 MDDN 342 2017
+# PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+This README explains the three different paramaterized faces for part2.
 
 In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
 

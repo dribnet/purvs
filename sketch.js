@@ -63,31 +63,31 @@ fill(faceColor);
 //face
 beginShape();
 //lefttop
-vertex(width*0.3-(faceWidth),height*0.35);
+vertex(width*0.3-(faceWidth),height*0.35-(faceHeight));
 //top
-vertex(width*0.5,height*0.1);
+vertex(width*0.5,height*0.1-(faceHeight));
 //righttop
-vertex(width*0.7+faceWidth,height*0.35);
+vertex(width*0.7+faceWidth,height*0.35-(faceHeight));
 //rightbottom
-vertex(width*0.75+faceWidth,height*0.7);
+vertex(width*0.75+faceWidth,height*0.7+(faceHeight));
 //bottom
-vertex(width*0.5,height*0.9);
+vertex(width*0.5,height*0.9+(faceHeight));
 //leftbottom
-vertex(width*0.25-(faceWidth),height*0.7);
+vertex(width*0.25-(faceWidth),height*0.7+(faceHeight));
 
 endShape();
 
 var eyeSize = 43;
 //draw eyes
 //first 2
-drawEye(width*0.4-faceWidth,height*0.4,eyeSize);
-drawEye(width*0.6+faceWidth,height*0.4,eyeSize);
+drawEye(width*0.4-faceWidth,height*0.4-faceHeight,eyeSize);
+drawEye(width*0.6+faceWidth,height*0.4-faceHeight,eyeSize);
 //second 2
-drawEye(width*0.45-(faceWidth*0.5),height*0.35,eyeSize);
-drawEye(width*0.55+(faceWidth*0.5),height*0.35,eyeSize);
+drawEye(width*0.45-(faceWidth*0.5),height*0.35-(faceHeight*0.5),eyeSize);
+drawEye(width*0.55+(faceWidth*0.5),height*0.35-(faceHeight*0.5),eyeSize);
 //third 2
-drawEye(width*0.45-(faceWidth*0.6),height*0.45,eyeSize);
-drawEye(width*0.55+(faceWidth*0.6),height*0.45,eyeSize);
+drawEye(width*0.45-(faceWidth*0.6),height*0.45-(faceHeight*0.6),eyeSize);
+drawEye(width*0.55+(faceWidth*0.6),height*0.45-(faceHeight*0.6),eyeSize);
 
 
 
@@ -270,10 +270,10 @@ function draw () {
     fill(bg_color1);
 
     var faceWidth = map(s1, 0, 100, -30, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
+    var faceHeight = map(s2, 0, 100, -30, 30);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
 
-    drawMainFace(faceWidth,1,1);
+    drawMainFace(faceWidth,faceHeight,1);
 
     //drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);
 
