@@ -63,7 +63,23 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   var scale = extent / 220.0;
 
   fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  //ellipse(0, 0, 300 * scale, 400 * scale);
+  beginShape();
+  vertex(0, -125);
+  bezierVertex(-84, -122,-130, -31, -128, 46);
+  bezierVertex(-127, 105, -75, 131, 0, 130);
+  bezierVertex(75, 131,127, 105,128, 46);
+  bezierVertex(130, -31,84, -122,0, -125);
+  endShape();
+
+  fill('#FFFFFF');
+  beginShape();
+  vertex(0, 20);
+  bezierVertex(-22, 20, -64, 49, -63, 88);
+  bezierVertex(-65, 104, -36, 128, 0, 128);
+  bezierVertex(36, 128,65, 104,63, 88);
+  bezierVertex(64, 49,22, 20,0, 20);
+  endShape();
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
@@ -85,7 +101,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 
   // mouth
   fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  //ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
   pop();
 }
 
@@ -233,8 +249,10 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    var eyeCol_value = map(s4, 0, 100, 0, 200);
+    var suit_value = map(s5, 0, 100, 0, 200);
     if (mode == 'all') {
       face_x = width / 6;
     }
