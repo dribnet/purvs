@@ -248,10 +248,12 @@ function draw () {
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    var width_value = map(s1, 0, 100, 0, 100);
+    var color_scheme = Math.floor(map(s2, 0, 100, 1, 4));
+    var face_shape = s3;
+    var mouth_style = map(s4, 0, 100, 250, -150);
+    var eye_distance = map(s5, 0, 100, 50, 0);
+    drawRobot(face_x, face_y, face_w, face_h, width_value, color_scheme, face_shape, mouth_style, eye_distance);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -265,8 +267,53 @@ function draw () {
     var color_scheme = Math.floor(map(s2, 0, 100, 1, 4));
     var mouth_value = map(s3, 0, 100, 0, 200);
     drawBearFace(face_x, face_y, face_w, face_h, width_value, color_scheme, mouth_value);
+    //drawFace3(face_x, face_y, face_w, face_h, width_value, color_scheme, mouth_value);
   }
 }
+
+function drawRobot(x, y, w, h, width_value, eye_value, face_shape, mouth_style, eye_distance) {
+  push();
+  rectMode(CENTER);
+  translate(x, y);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+  stroke(stroke_color2)
+  fill(fg_color2);
+  rect(0, 0, (300 + width_value) * scale, 400 * scale, face_shape, face_shape);
+
+  //left eye
+  fill(255, 255, 255);
+  ellipse(-(25 + eye_distance), -60, 50, 55);
+  fill(0, 0, 0);
+  ellipse(-(18 + eye_distance), -55, 15, 21);
+  fill(255, 255, 255);
+  ellipse(-(16 + eye_distance), -54, 7, 11);
+
+  //right eye
+  fill(255, 255, 255);
+  ellipse(25 + eye_distance, -60, 50, 55);
+  fill(0, 0, 0);
+  ellipse(18 + eye_distance, -55, 15, 21);
+  fill(255, 255, 255);
+  ellipse(16 + eye_distance, -54, 7, 11);
+
+  // mouth
+  noFill();
+  strokeWeight(10);
+  curve(0, mouth_style, -50, 40, 50, 40, 0, mouth_style);
+
+  rectMode(CORNER);
+  pop();
+}
+
 
 var bearColorSchemes = {
     1: {
