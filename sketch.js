@@ -16,44 +16,15 @@ function setup () {
 var bg_color = "#c78a5b";//"#c6bdab";
 var pupil_color1 = "#000000"
 var eye_color1 = "#FFFFFF";
-var fg_color1 = "#FFF968";
-var fg_color2 = "#7b611a";
+var fg_color1 = "#fed41e";
+var facial_color = "#d3af7d";
+var fg_color2 = "#d3af7d";
 var stroke_color = "#000000";
+var teeth_color = "#FFFFFF";
 
 function draw () {
-  // background color
-  background(bg_color);
 
-  // stroke color
-  stroke(stroke_color)
-
-  // move to position1, rotate, draw "head" ellipse
-  push();
-  translate(960/4, 500/2);
-  rotate(4);
-  fill(fg_color1);
-  ellipse(0, 0, 300, 400);
-
-  // set fill to match background color
-  fill(eye_color1);
-  // draw two eyes
-  ellipse(-50, -80, 80, 80);
-  ellipse( 50, -80, 80, 80);
-
-  // set fill back to foreground for eyeballs
-  fill(pupil_color1);
-  ellipse(-60, -80, 40, 40);
-  ellipse( 40, -80, 40, 40);
-
-  // facial hair
-  fill(fg_color2);
-  ellipse(0, 70, 200, 150);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
-  pop();
-
+  drawHomer();	
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(3*960/4, 500/2);
@@ -75,6 +46,69 @@ function draw () {
   // mouth-hole with background color
   fill(bg_color);
   ellipse( 0, 70, 150, 20);
+  pop();
+}
+
+function drawHomer(){
+	 // background color
+  background(bg_color);
+
+  // stroke color
+  stroke(stroke_color)
+
+  // move to position1, rotate, draw "head" ellipse
+  push();
+  translate(960/4, 500/2);
+  rotate(4);
+  fill(fg_color1);
+  ellipse(0, 0, 260, 350);
+
+  // set fill to match background color
+  fill(eye_color1);
+  // draw two eyes
+  ellipse(-80, -80, 80, 80);
+  ellipse( 0, -80, 80, 80);
+
+  // set fill back to foreground for eyeballs
+  fill(pupil_color1);
+  ellipse(-90, -80, 10, 10);
+  ellipse( -10, -80, 10, 10);
+
+  // facial hair
+  fill(fg_color2);
+  ellipse(-40, 80, 220, 200);
+
+  // mouth-hole with background color
+  fill(stroke_color);
+  stroke(stroke_color);
+  ellipse( -60, 100, 50, 50);
+  
+  //nose
+  fill(fg_color1);
+  stroke(fg_color1);
+  quad(-75, -60, -35, -60, -35, -20,  -75, -20);
+  stroke(stroke_color);
+  line(-75, -60, -35, -60);
+  line(-35, -20,  -75, -20);
+  arc(-75, -40, 40, 40, 90, 270, OPEN);
+ 
+  // ear
+  fill(fg_color1);
+  stroke(stroke_color);
+  arc(130, -10, 50, 70, 220, 120, OPEN);
+  
+
+  //hair
+  
+ // nofill();
+  stroke(stroke_color);
+  //arc(0, -160, 110, 50, 180, 0);
+  fill(stroke_color);
+  line(60,-100,70,-130);
+  line(80,-100,70,-130);
+  line(80,-100,90,-130);
+  line(100,-100,90,-130);
+  
   pop();
 }
 
