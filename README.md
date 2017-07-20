@@ -1,6 +1,8 @@
 ## PS1 MDDN 342 2017
 
-Words are cool.
+The characters are famous cartoon characters Miffy and Hello Kitty
+
+fun fact, Miffy is actually Dutch and apart from line styles and high merch sales in Japan, has no correlation to the Sanrio characters.
 
 
 Also update both images keeping their original sizes:
