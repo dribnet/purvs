@@ -1,11 +1,9 @@
 ## PS1 MDDN 342 2017
 
-Hannah Dockerty MDDN 342
+This README explains the three different paramaterized faces for part2. 
 
-Face Sketches
+In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
 
-Sketch two recognisable faces using P5.js
+In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
 
-Face #1 is Rapunzel from Disney's tangled. I used a technique borrowed from Lewis Brewer, which basically involved plotting points on photoshop and using the co-ordinates to draw custom shapes. 
-
-Face #2 is Ariel from Disney's little mermaid. I decided to stick within the same general theme for the two faces, and although I used similar techniques for both, I created two fairly different variations on the original characters. I think Ariel is the more successful of the two, as the personality of the character is a little clearer. 
+In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
