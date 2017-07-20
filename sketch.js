@@ -1,7 +1,7 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
+//var faceSelector;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -21,6 +21,7 @@ function setup () {
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
 
+/*
   faceSelector = createSelect();
   faceSelector.option('1');
   faceSelector.option('2');
@@ -28,15 +29,18 @@ function setup () {
   faceSelector.option('all')
   faceSelector.value('all');
   faceSelector.parent('selector1Container');
+  */
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [242, 58, 107];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
+
+var faceColor = [243,100,242];
 
 var fg_color1 = [151, 102, 52];
 var fg_color2 = [56, 91, 194];
@@ -47,6 +51,30 @@ var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
+
+function drawMainFace(){
+
+fill(faceColor);
+//face
+beginShape();
+//lefttop
+vertex(width*0.3,height*0.35);
+//top
+vertex(width*0.5,height*0.1);
+//righttop
+vertex(width*0.7,height*0.35);
+//rightbottom
+vertex(width*0.75,height*0.7);
+//bottom
+vertex(width*0.5,height*0.9);
+//leftbottom
+vertex(width*0.25,height*0.7);
+
+endShape();
+
+
+
+}
 
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
@@ -202,25 +230,14 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 function draw () {
   noStroke();
 
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
-
+    background(bg_color1);
   var s1 = slider1.value();
   var s2 = slider2.value();
   var s3 = slider3.value();
   var s4 = slider4.value();
   var s5 = slider5.value();
+
+  drawMainFace();
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
@@ -228,44 +245,36 @@ function draw () {
   var face_y = height / 2;
   var face_x = width / 2;
 
-  if (mode == '1' || mode == 'all') {
+
     // draw 1st face
     fill(bg_color1);
-    rect(0, 0, width/3, height);
+
     var tilt_value = map(s1, 0, 100, -90, 90);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
-  }
 
-  if (mode == '2' || mode == 'all') {
+    //drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);
+
+
+
     // draw 2nd face
     fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
+
     var hair_value = map(s1, 0, 100, 2, 90);
     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
     var eye_value = map(s2, 0, 100, -15, 15);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
-  }
 
-  if (mode == '3' || mode == 'all') {
+    //drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+
+
+
     // draw 3nd face
     fill(bg_color3);
-    rect(2*width/3, 0, width, height);
+
     var width_value = map(s1, 0, 100, 0, 100);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
-  }
+
 }
 
 function keyTyped() {
