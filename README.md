@@ -1,6 +1,9 @@
 ## PS1 MDDN 342 2017
-Colour and Shape Changes
 
-I have updated the colours of the faces and changed the shapes of the eyes to resemble the cartoon character "Pingu" and his friend, "Robby the Seal"
+This README explains the three different paramaterized faces for part2. 
 
-I have updated colours, added ellipses and vertex shapes and altered rotations from the initial file.
+In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+
+In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+
+In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
