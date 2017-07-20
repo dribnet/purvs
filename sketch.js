@@ -48,7 +48,7 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, chin_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -63,24 +63,36 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   var scale = extent / 220.0;
 
   fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+
+  var mid_value = 25;
+
+  beginShape();
+  vertex(-50 - chin_value, 100); //bot
+  vertex(50 + chin_value, 100);
+  vertex(100, mid_value);//mid
+  vertex(100, -125); //top
+  vertex(-100, -125);
+  vertex(-100, mid_value); //mid
+  endShape(CLOSE);
+
+  //ellipse(0, 0, 300 * scale, 400 * scale);
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
+    ellipse( 0, -80 * scale, 50 * scale, 50 * scale);
     fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+    ellipse(0 * scale, -80 * scale, 20 * scale, 20 * scale);
   }
 
   if (eye_value >= 2) {
     fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+    ellipse(-50 * scale, -80 * scale, 50 * scale, 50 * scale);
+    ellipse( 50 * scale, -80 * scale, 50 * scale, 50 * scale);
 
     fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+    ellipse(-50 * scale, -80 * scale, 20 * scale, 20 * scale);
+    ellipse( 50 * scale, -80 * scale, 20 * scale, 20 * scale);
   }
 
   // mouth
@@ -235,10 +247,11 @@ function draw () {
     var tilt_value = map(s1, 0, 100, -90, 90);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var chin_value = map(s4, 0, 100, 0, 100);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value, chin_value);    
   }
 
   if (mode == '2' || mode == 'all') {
