@@ -226,7 +226,7 @@ function draw () {
   var s5 = slider5.value();
 	
   var changing_colour = map(s4, 0, 100, 0, 255);
-  print(red_color);
+  
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
