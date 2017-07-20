@@ -241,7 +241,7 @@ function draw () {
     
   // draw spots
   fill(ch2_detail); 
-  arc(0, 30, 260, 300, 115, 139, CHORD); 
+  arc(0, 30, 260, 300, 115, 140, CHORD); 
   arc(-80, 140, 60, 60, 219, 50, CHORD); 
   arc(0, 30, 260, 300, 99, 112, CHORD); 
   arc(-40, 175, 35, 35, 210, 370, CHORD);
