@@ -14,6 +14,7 @@ var blush_color = "#f9ab90";
 var hat_color_green = "#7bbc60";
 var hat_color_red = "#ce4a4a";
 var eye_color = "#83cbff";
+var stache_color = "#593510"
 
 function setup() {
     // create the drawing canvas, save the canvas element
@@ -24,9 +25,9 @@ function setup() {
 
     // rotation in degrees
     angleMode(DEGREES);
-    skin_tone_highlght = c = color('rgba(255, 227, 216, 0.8)');
-}
 
+    skin_tone_highlght = color('rgba(255, 227, 216, 0.8)');
+}
 
 function draw() {
     // background color
@@ -38,7 +39,6 @@ function draw() {
     head(hat_color_green, 2.5 * 960 / 4, 500 / 2, 30);
 }
 
-
 function head(hatCol, xoff, yoff, rot) { //(color, xOffset, yOffset, rotation)
 
     push();
@@ -47,34 +47,33 @@ function head(hatCol, xoff, yoff, rot) { //(color, xOffset, yOffset, rotation)
     rotate(rot);
 
     //hat base
-    stroke(hatCol);
+    noStroke();
     fill(hatCol);
-    ellipse(0, -100, 150, 110);
+    ellipse(0, -85, 150, 100);
 
     //face
-    noStroke();
     fill(skin_tone);
     ellipse(0, 0, 160, 220);
-    ellipse(-30,30, 150, 150);
-    ellipse(30,30, 150, 150);
+    ellipse(-22, 23, 150, 150); //cheeks
+    ellipse(22, 23, 150, 150);
+    fill(hatCol);
+    ellipse(0, -83, 150, 60); // hat mask
 
+    moustache_6(140, 45, 15, 14);
 
-    // draw two eyes
+    //eyes
     fill("white");
     ellipse(-35, -25, 60, 80);
     ellipse(35, -25, 60, 80);
 
-    //set fill back to foreground for eyeballs
+    //puils
     noStroke();
     fill(eye_color);
-    ellipse(-35, -10, 35, 45);
-    ellipse(35, -10, 35, 45);
+    ellipse(-35, -13, 35, 45);
+    ellipse(35, -13, 35, 45);
     fill("black");
-    ellipse(-35, -10, 22, 32);
-    ellipse(35, -10, 22, 32);
-
-    //moustache
-    moustache_6(140, 45, 15, 14);
+    ellipse(-35, -13, 22, 32);
+    ellipse(35, -13, 22, 32);
 
     //nose
     stroke(blush_color);
@@ -84,23 +83,20 @@ function head(hatCol, xoff, yoff, rot) { //(color, xOffset, yOffset, rotation)
     fill(skin_tone_highlght);
     ellipse(0,16,58,48);
 
-    //hat brim
-    noStroke();
-    fill(hatCol);
-    ellipse(0, -92, 115, 40);
-    stroke(bg_color);
-    ellipse(0, -77, 115, 30);
+    // logo
     fill("white");
-    ellipse(0, -115, 40, 40);
+    ellipse(0, -100, 40, 40); 
+    stroke(hatCol);
+    strokeWeight(2.5);
+    ellipse(0, -100, 30, 30); 
+    strokeWeight(1.1); 
 
-    //bounding box
-    fill(255, 0);
-    stroke(blush_color);
-    rect(-160, -160, 300, 300);
+    //hat brim
+    fill(hatCol);
+    stroke(bg_color);
+    ellipse(0, -62, 135, 22);
 
     pop();
-
-
 }
 
 function moustache_6(wid, yOff, bush, slant) { //moustache is a series of O's arranged in a curve
@@ -129,7 +125,7 @@ push();
                 break;
         }
         //draw a dot
-        fill("brown");
+        fill(stache_color);
         noStroke();
         ellipse(x * wid / 6, y + yOff, b * wid / 60);
 
@@ -138,7 +134,10 @@ pop();
 }
 
 
-function moustache_2() {}
+function moustache_2() { // black 2-segmented moustache for luigi
+
+
+}
 
 function keyTyped() {
     if (key == '!') {
