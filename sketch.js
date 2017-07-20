@@ -20,6 +20,7 @@ var stroke_color = "#c78a5b";
 var face_colour = "#ffffff";
 var star_colour = "#000000";
 var red_colour = "#d80202";
+var tongue_colour = "#ffc7c1";
 
 function draw () {
   // background color
@@ -35,6 +36,9 @@ function draw () {
   rotate(4);
   fill(face_colour);
   ellipse(0, 0, 300, 400);
+	
+  //star for face
+  facestar();
   
   stroke(star_colour);
   // set fill to match background color
@@ -49,8 +53,16 @@ function draw () {
   ellipse( 40, -80, 20, 20);
 
   // mouth-hole with background color
-  fill(face_colour);
+  fill(star_colour);
   ellipse( 0, 70, 150, 50);
+	
+
+  //tongue
+  fill(tongue_colour);
+  stroke(tongue_colour);
+  rect(-25,70,25,20);
+  ellipse(0,100,50,60);
+	
   pop();
 
   // move to position2, rotate, draw "head" ellipse
@@ -90,7 +102,9 @@ function keyTyped() {
 function facestar(){
 	fill(star_colour);
 	stroke(star_colour);
-	triangle(-50,-80,0,-50,-25,150);
+	//triangle(-50,-80,0,-50,-25,-150); //downwards
+	//triangle(-50,-80,0,-50,-25,20);   //upwards
+	//triangle(-50);
 	
 	
 }
