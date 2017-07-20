@@ -1,9 +1,8 @@
-## PS1 MDDN 342 2017
+PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+For face number one I wanted to explore how far basic features could be pushed without losing the objective beauty of the face. If I take this idea further, I would like to look more into the golden ratio and what variances can be allowed within it without distorting the features beyond recognition as a face. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+Research: 
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+https://www.goldennumber.net/beauty/
+https://design.tutsplus.com/tutorials/human-anatomy-fundamentals-basics-of-the-face--cms-20417
