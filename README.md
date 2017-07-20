@@ -1,4 +1,4 @@
-## PS1 MDDN 342 2017
+## PS1B MDDN 342 2017 Title
 
 This README explains the three different paramaterized faces for part2. 
 
