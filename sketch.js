@@ -48,13 +48,13 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-var changing_colour;
+var changing_colour = [20,20,20];
 
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawFace1(x, y, w, h,eye_value, mouth_value, changing_colour) {
   push();
   translate(x, y);
-  rotate(tilt_value);
+  rotate(0);
 
   var extent = 0;
   if(h < w) {
@@ -64,31 +64,41 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
     extent = w / 2;
   }
   var scale = extent / 220.0;
-
+	
+  // For the face, as I'm focusing on not eye detail but sharpness, I am going to have the face be from side-on.
+  // In this section, the face sharpness will also be edited to get setup for the other features.
+  // At this stage I am thinking about using arcs for the chin but I don't know how it will react exactly yet.
   fill(changing_colour);
   ellipse(0, 0, 300 * scale, 400 * scale);
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
     fill(bg_color1);
     ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+    //ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
     fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
+    //ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
+    //ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+  
+	
+  //draw nose section
+	
+  // This section will be where the bridge will be the arc parameter, with the base being flat.
+	
+	
+  // mouth(this has been edited so it is a line of a side view)
   fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  //ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  line(0,0,50,50);
+	   //ERROR HERE RN
+	
+  //draw hair section
+  
+  // For this section, there will be 3 different curves that occur at setting 1,2 and 3.
+  // For the inital setup of it, I want the hair to be straight with an arc at the end.
+  // With each increased arc, the hair should have more arcs, probably 2 so that the hair is set back on straight course for the next arc.
+  
+  
   pop();
 }
 
@@ -225,7 +235,7 @@ function draw () {
   var s4 = slider4.value();
   var s5 = slider5.value();
 	
-  var changing_colour = map(s4, 0, 100, 0, 255);
+  
   
 
   // use same size / y_pos for all faces
@@ -238,20 +248,32 @@ function draw () {
     // draw 1st face
     fill(bg_color1);
     rect(0, 0, width/3, height);
-	
-    var tilt_value = map(s1, 0, 100, -90, 90);
+	// new variables  
+	var hair_curve = Math.floor(s1,0,100,0,2);
+	var face_sharpness = map(s2,0,100,0,90);
+	var nose_curve = map(s3,0,100,0,90);
+	var changing_colour = map(s4, 0, 100, 0, 255);
+	  
+	//base variables
+    //var tilt_value = map(s1, 0, 100, -90, 90);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, eye_value, mouth_value,changing_colour);    
   }
 
   if (mode == '2' || mode == 'all') {
     // draw 2nd face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
+	// new variables
+	var face_definition = map(s1,0,100,1,5);
+	var face_contrast = map(s2,0,100,0,100);
+	var eye_detail = Math.floor(map(s3,0,100,10));
+	  
+	//base variables
     var hair_value = map(s1, 0, 100, 2, 90);
     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
     var eye_value = map(s2, 0, 100, -15, 15);
@@ -265,6 +287,12 @@ function draw () {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
+	//new variables
+	var amount_of_colours = Math.floor(map(s1,0,100,1,5));
+	var amount_of_polys = Math.floor(map(s2,0,100,1,4));
+	var amount_of_features = Math.floor(map(s3,0,100,2,6));
+	  
+	//base variables
     var width_value = map(s1, 0, 100, 0, 100);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
