@@ -48,7 +48,7 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawFace1(x, y, w, h, tilt_value, eye_value, chain_value) {
   push();
   translate(x, y);
   translate(0,-70);
@@ -113,11 +113,26 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   vertex(0,300);
   endShape();
 
+
   fill('#c1c1c1');
   beginShape();
   vertex(60,155);
   vertex(0,170);
   vertex(-60,155);
+  vertex(0,map(eye_value,0,100,170,300));
+  endShape();
+
+  fill('#440044');
+  beginShape();
+  vertex(60,155);
+  vertex(0,170);
+  vertex(-60,155);
+  vertex(0,map(eye_value,0,100,170,200));
+  endShape();
+  beginShape();
+  vertex(20,map(eye_value,0,100,170,255));
+  vertex(0,map(eye_value,0,100,170,180));
+  vertex(-20,map(eye_value,0,100,170,255));
   vertex(0,map(eye_value,0,100,170,300));
   endShape();
 
@@ -132,6 +147,20 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   vertex(map(tilt_value,0,100,-45,-32),220);
   vertex(0,170);
   endShape();
+
+  // chain
+  fill(map(tilt_value,100,0,247,100),map(eye_value,0,100,193,100),map(eye_value,0,100,61,100));
+  ellipse(55,133,chain_value,chain_value);
+  ellipse(47,154,chain_value,chain_value);
+  ellipse(35,172,chain_value,chain_value);
+  ellipse(22,185,chain_value,chain_value);
+  ellipse(11,195,chain_value,chain_value);
+  ellipse(0,200,chain_value,chain_value);
+  ellipse(-11,195,chain_value,chain_value);
+  ellipse(-22,185,chain_value,chain_value);
+  ellipse(-35,172,chain_value,chain_value);
+  ellipse(-47,154,chain_value,chain_value);
+  ellipse(-55,133,chain_value,chain_value);
 
   // eyes
   translate(-60,-10);
@@ -170,8 +199,15 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   ellipse(-3,14,11,17);
   rotate(10);
   translate(-60,10);
-  // mouth
-  fill(bg_color1);
+
+  //glasses
+  fill(0,0,0,chain_value*10);
+  strokeWeight(chain_value/2);
+  stroke(map(tilt_value,100,0,247,100),map(eye_value,0,100,193,100),map(eye_value,0,100,61,100));
+  rect(30,10,50,20);
+  rect(-30,10,-50,20);
+  line(-30,20,30,20);
+  noStroke();
   pop();
 }
 
@@ -319,13 +355,13 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s2, 0, 100, 0, 200);
+    var chain_value = map(s2, 0, 100, 0, 12);
     var eyeCol_value = map(s3, 0, 100, 0, 100);
     var suit_value = map(s5, 0, 100, 0, 200);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eyeCol_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eyeCol_value, chain_value);    
   }
 
   if (mode == '2' || mode == 'all') {
