@@ -96,26 +96,31 @@ endShape(CLOSE);
   translate(3*960/4, 500/2);
       translate(-40, 0);
   //rotate(30);
-  fill(fg_color2);
-    
+  
      //ears
+      fill(0);  
     push();
  push();
     rotate(-40);
+   
     ellipse(-20,-180, 70,200);
-    pop();
-    fill(0);
-    arc(50, 50, 80, 80, 0, 45, CHORD);
     fill(fg_color2);
+     ellipse(-20,-170, 70,170);
+    pop();
+          
 push();
 translate(0);
     scale(-1.0,1.0)
  push();
     rotate(-40);
     ellipse(-20,-180, 70,200);
+     fill(fg_color2);
+     ellipse(-20,-170, 70,170);
     pop();
  pop();
     pop();
+    //head
+    fill(fg_color2);
  ellipse(0, 0, 300, 240);
 
   // set fill to match background color
@@ -144,15 +149,27 @@ fill(255);
     push();
     translate(0,-5);
 curve(0, -40, -40, 40, 0, 45, 0, -20);
-    
-    
+    //black of ear
+        //fill(0);
+//    beginShape();
+//vertex(-180, -130);
+//vertex(-130, -180);
+//vertex(-240, -240);
+////vertex(-260, -240);
+////vertex(60, 60);
+////vertex(20, 60);
+//endShape(CLOSE);
+    //arc(-100, -100, -70, -70, -250, 0, CHORD);
+    //noFill();
 push();
 translate(0);
 scale(-1.0,1.0);
 curve(0, -40, -40, 40, 0, 45, 0, -20);
-    
+     fill(0);
+    //arc(50, 50, 80, 80, 0, 75, CHORD);
+    noFill();
  pop();
-//    arc(50, 50, 80, 80, 0, 75, CHORD);
+    
     pop();
   pop();
     
