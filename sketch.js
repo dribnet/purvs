@@ -102,8 +102,8 @@ function keyTyped() {
 function facestar(){
 	fill(star_colour);
 	stroke(star_colour);
-	//triangle(-50,-80,0,-50,-25,-150); //downwards
-	//triangle(-50,-80,0,-50,-25,20);   //upwards
+	triangle(-25,-65,0,-25,-25,-150); //downwards
+	triangle(-25,-65,0,-25,-25,20);   //upwards
 	//triangle(-50);
 	
 	
