@@ -1,3 +1,3 @@
-## PS1 MDDN 342 2017
+## Part 1
 
-I changed the colours and some shape dimensions. 
+I generated 2 sketches which represent Harry Potter and Pikachu. 
