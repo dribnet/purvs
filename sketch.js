@@ -44,6 +44,8 @@ var eye_color102 = [0, 255, 255];
 var eye_color103 = [0, 50, 80, 200];
 var eye_color104 = [0, 0, 0];
 
+var hair_color1 = [120, 40, 20];
+
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
@@ -72,8 +74,15 @@ function drawFace1(x, y, w, h, irisColor_value, eye_value, faceWidth_value, chin
   var chin_width = face_width/chin_multiplier * scale;
   var chin_length = 260 * scale;
 
-  fill(face_color1);
+  fill(hair_color1);
+  push();
+  translate(20, 40);
+  rotate(-30);
+  ellipse(0, 0, 550 * scale, 700*scale);
+  pop();
 
+  fill(face_color1);
+  noStroke();
   ellipse(0, 0, face_width * scale, face_width * scale);
   quad(
     (-chin_width*chin_multiplier + face_width/9) * scale, face_width/4 * scale, 
@@ -82,60 +91,63 @@ function drawFace1(x, y, w, h, irisColor_value, eye_value, faceWidth_value, chin
     -chin_width, chin_length
     );
 
-// //guidelines
- stroke(255, 255, 255, 200);
+  push();
+  translate(0, chin_length - 1);
 
-   line(0, -face_width, 0, face_width);
-  line(-face_width, 0, face_width, 0);
-
+arc(0, 0, chin_width*2, chin_width, 0, 180, CHORD);
+pop();
 
   //eyes
+  var eye_scale = scale * eye_value;
+  var eye_position = -70 * eye_scale;
 
-  var scale = scale * eye_value;
-  var eye_position = -70 * scale;
-
-
- 
-    push();
-    translate(eye_position, 0);
+  push();
+    translate(eye_position, 20);
     stroke(eye_color104)
     strokeWeight(0.3);
     fill(eye_color104);
-    ellipse(-3, -4 * scale, 100 * scale, 80 * scale);
+    ellipse(-3, -4 * eye_scale, 100 * eye_scale, 80 * eye_scale);
     fill(eye_color101);
-    ellipse(0, 0 * scale, 100 * scale, 80 * scale);
+    ellipse(0, 0 * eye_scale, 100 * eye_scale, 80 * eye_scale);
     fill(40, irisColor_value, 70);
     stroke(eye_color103)
     strokeWeight(0.5);
-    ellipse(5 * scale, -8 * scale, 60 * scale, 60 * scale);
+    ellipse(5 * eye_scale, -8 * eye_scale, 60 * eye_scale, 60 * eye_scale);
     fill(eye_color104);
-    ellipse(5 * scale, -8 * scale, 40 * scale, 40 * scale);
+    ellipse(5 * eye_scale, -8 * eye_scale, 40 * eye_scale, 40 * eye_scale);
     fill(eye_color101);
     noStroke();
     rotate(20);
-    ellipse(-10 * scale, -10 * scale, 8 * scale, 15 * scale);
-    ellipse(-6 * scale, -20 * scale, 6 * scale, 6 * scale);
+    ellipse(-10 * eye_scale, -10 * eye_scale, 8 * eye_scale, 15 * eye_scale);
+    ellipse(-6 * eye_scale, -20 * eye_scale, 6 * eye_scale, 6 * eye_scale);
 pop();
     push();
-    translate(-eye_position, 0);
+    translate(-eye_position, 20);
     stroke(eye_color104)
     strokeWeight(0.3);
         fill(eye_color104);
-    ellipse(3, -4 * scale, 100 * scale, 80 * scale);
+    ellipse(3, -4 * eye_scale, 100 * eye_scale, 80 * eye_scale);
     fill(eye_color101);
-    ellipse(0, 0 * scale, 100 * scale, 80 * scale);
+    ellipse(0, 0 * eye_scale, 100 * eye_scale, 80 * eye_scale);
     fill(40, irisColor_value, 70);
     stroke(eye_color103)
     strokeWeight(0.5);
-    ellipse(5 * scale, -8 * scale, 60 * scale, 60 * scale);
+    ellipse(5 * eye_scale, -8 * eye_scale, 60 * eye_scale, 60 * eye_scale);
     fill(eye_color104);
-    ellipse(5 * scale, -8 * scale, 40 * scale, 40 * scale);
+    ellipse(5 * eye_scale, -8 * eye_scale, 40 * eye_scale, 40 * eye_scale);
     fill(eye_color101);
     noStroke();
     rotate(20);
-    ellipse(-10 * scale, -10 * scale, 8 * scale, 15 * scale);
-    ellipse(-6 * scale, -20 * scale, 6 * scale, 6 * scale);
+    ellipse(-10 * eye_scale, -10 * eye_scale, 8 * eye_scale, 15 * eye_scale);
+    ellipse(-6 * eye_scale, -20 * eye_scale, 6 * eye_scale, 6 * eye_scale);
 pop();
+
+  fill(hair_color1);
+  push();
+  translate(-50, -80);
+  rotate(-40);
+  ellipse(0, 0, 350 * scale, 250* scale);
+  pop();
 
   pop();
 }
@@ -284,7 +296,7 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var irisColor_value = map(s1, 0, 100, 100, 200);
-    var faceWidth_value = map(s3, 0, 100, 0, 200);
+    var faceWidth_value = map(s3, 0, 100, 350, 450);
     var eye_value = map(s2, 0, 100, 1, 1.5);
     var chinShape_value = map(s4, 0, 100, 5, 20);
     if (mode == 'all') {
