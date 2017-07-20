@@ -18,7 +18,8 @@ var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#000000";
 var face_1 = "#e82c0c";
-var face_2 = "#ffe333";
+var face__1 = "#a49023";
+var face_2 = "#ecd033";
 var hair = "#32cbff"
 var eyes = "#f8fff7"
 
@@ -35,6 +36,7 @@ function draw () {
   rotate(0);
   fill(face_1);
   ellipse(0, 0, 300, 400);
+  
 
   // set fill to match background color
   fill(bg_color);
@@ -46,8 +48,11 @@ function draw () {
   line(0, -200, 0, 200);
   line(-10, -200, 10, 200);
   line(-20, -200, 20, 200);
+  line(-60, -182, 60, 182);
   line(20, -200, -20, 200);
   line(10, -200, -10, 200);
+  line(60, -182, -60, 182);
+  
   //triangle(30, 75, 58, 20, 86, 75);
   //quad(-110, -100, -40, -40, -150, 10, -100, -76);
   //quad(110, 100, 80, 40, 150, -10, 100, 76);
@@ -67,7 +72,7 @@ function draw () {
   push();
   translate(3*960/4, 500/2);
   rotate(0);
-  fill(face_2);
+    fill(face_2);
   ellipse(0, 0, 300, 400);
 
   // set fill to match background color
@@ -79,6 +84,8 @@ function draw () {
   //hair
   fill(hair);
   rect(-180, -500, 350, 400, 100);
+
+  
 
   // set fill back to foreground for eyeballs
   fill(eyes);
