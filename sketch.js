@@ -17,9 +17,9 @@ var bg_color = "#c6bdab";
 var fg_color1 = "#5b412a";
 var fg_color2 = "#7b611a";
 var stroke_color = "#c78a5b";
-var face_colour = "ffffff";
-var star_colour = "000000";
-var red_colour = "ff0000";
+var face_colour = "#ffffff";
+var star_colour = "#000000";
+var red_colour = "#d80202";
 
 function draw () {
   // background color
@@ -36,7 +36,7 @@ function draw () {
   fill(face_colour);
   ellipse(0, 0, 300, 400);
   
-  stroke(stroke_colour);
+  stroke(star_colour);
   // set fill to match background color
   fill(red_colour);
   // draw two eyes
@@ -61,7 +61,7 @@ function draw () {
   fill(face_colour);
   ellipse(0, 0, 300, 400);
 	
-	stroke(stroke_color);
+  stroke(stroke_color);
   // set fill to match background color
   fill(red_colour);
   // draw two eyes
