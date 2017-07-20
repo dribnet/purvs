@@ -34,11 +34,16 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [120, 150, 200];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
-var fg_color1 = [151, 102, 52];
+var face_color1 = [225, 206, 187];
+var eye_color101 = [255, 255, 255];
+var eye_color102 = [0, 255, 255];
+var eye_color103 = [0, 50, 80, 200];
+var eye_color104 = [0, 0, 0];
+
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
@@ -48,10 +53,10 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawFace1(x, y, w, h, irisColor_value, eye_value, faceWidth_value, chinShape_value) {
   push();
   translate(x, y);
-  rotate(tilt_value);
+
 
   var extent = 0;
   if(h < w) {
@@ -62,30 +67,76 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  var face_width = faceWidth_value;
+  var chin_multiplier = chinShape_value;
+  var chin_width = face_width/chin_multiplier * scale;
+  var chin_length = 260 * scale;
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  fill(face_color1);
 
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+  ellipse(0, 0, face_width * scale, face_width * scale);
+  quad(
+    (-chin_width*chin_multiplier + face_width/9) * scale, face_width/4 * scale, 
+    (chin_width*chin_multiplier - face_width/9) * scale, face_width/4 * scale, 
+    chin_width, chin_length, 
+    -chin_width, chin_length
+    );
 
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+// //guidelines
+ stroke(255, 255, 255, 200);
 
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+   line(0, -face_width, 0, face_width);
+  line(-face_width, 0, face_width, 0);
+
+
+  //eyes
+
+  var scale = scale * eye_value;
+  var eye_position = -70 * scale;
+
+
+ 
+    push();
+    translate(eye_position, 0);
+    stroke(eye_color104)
+    strokeWeight(0.3);
+    fill(eye_color104);
+    ellipse(-3, -4 * scale, 100 * scale, 80 * scale);
+    fill(eye_color101);
+    ellipse(0, 0 * scale, 100 * scale, 80 * scale);
+    fill(40, irisColor_value, 70);
+    stroke(eye_color103)
+    strokeWeight(0.5);
+    ellipse(5 * scale, -8 * scale, 60 * scale, 60 * scale);
+    fill(eye_color104);
+    ellipse(5 * scale, -8 * scale, 40 * scale, 40 * scale);
+    fill(eye_color101);
+    noStroke();
+    rotate(20);
+    ellipse(-10 * scale, -10 * scale, 8 * scale, 15 * scale);
+    ellipse(-6 * scale, -20 * scale, 6 * scale, 6 * scale);
+pop();
+    push();
+    translate(-eye_position, 0);
+    stroke(eye_color104)
+    strokeWeight(0.3);
+        fill(eye_color104);
+    ellipse(3, -4 * scale, 100 * scale, 80 * scale);
+    fill(eye_color101);
+    ellipse(0, 0 * scale, 100 * scale, 80 * scale);
+    fill(40, irisColor_value, 70);
+    stroke(eye_color103)
+    strokeWeight(0.5);
+    ellipse(5 * scale, -8 * scale, 60 * scale, 60 * scale);
+    fill(eye_color104);
+    ellipse(5 * scale, -8 * scale, 40 * scale, 40 * scale);
+    fill(eye_color101);
+    noStroke();
+    rotate(20);
+    ellipse(-10 * scale, -10 * scale, 8 * scale, 15 * scale);
+    ellipse(-6 * scale, -20 * scale, 6 * scale, 6 * scale);
+pop();
+
   pop();
 }
 
@@ -232,13 +283,14 @@ function draw () {
     // draw 1st face
     fill(bg_color1);
     rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var irisColor_value = map(s1, 0, 100, 100, 200);
+    var faceWidth_value = map(s3, 0, 100, 0, 200);
+    var eye_value = map(s2, 0, 100, 1, 1.5);
+    var chinShape_value = map(s4, 0, 100, 5, 20);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, irisColor_value, eye_value, faceWidth_value, chinShape_value);    
   }
 
   if (mode == '2' || mode == 'all') {
