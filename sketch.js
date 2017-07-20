@@ -120,7 +120,7 @@ function draw () {
   for (i=-90; i<100; i+=15){
     rect(i, 65, 5, 30);
   }
-  
+
   pop();
 
   // move to position2, draw "head" ellipse
