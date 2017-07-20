@@ -232,12 +232,12 @@ function draw () {
     // draw 1st face
     fill(bg_color1);
     rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
+    var tilt_value = map(s1, 0, 100, -90, 90);
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
     drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
   }
 
@@ -245,12 +245,12 @@ function draw () {
     // draw 2nd face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
+    var hair_value = map(s1, 0, 100, 2, 90);
+    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
+    var eye_value = map(s2, 0, 100, -15, 15);
     drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
   }
 
@@ -258,15 +258,108 @@ function draw () {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    var width_value = map(s1, 0, 100, 0, 100);
+    var color_scheme = Math.floor(map(s2, 0, 100, 1, 4));
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    drawBearFace(face_x, face_y, face_w, face_h, width_value, color_scheme, mouth_value);
   }
 }
+
+var bearColorSchemes = {
+    1: {
+        'stroke' : '#080303',
+        'face' : '#080303',
+        'eyes' : '#ffffff',
+        'mouth' : '#ffffff',
+        'outer-ear' : '#080303',
+        'inner-ear' : '#ffffff',
+        'nose' : '#080303',
+        'cheeks' : '#f11a1d',
+    },
+    2: {
+        'stroke' : '#553624',
+        'face' : '#c78314',
+        'eyes' : '#553624',
+        'mouth' : '#ffffff',
+        'outer-ear' : '#c78314',
+        'inner-ear' : '#fed104',
+        'nose' : '#553624',
+        'cheeks' : '#c78314',
+    },
+    3: {
+        'stroke' : '#0d0908',
+        'face' : '#faa610',
+        'eyes' : '#0d0908',
+        'mouth' : '#ac0316',
+        'outer-ear' : '#faa610',
+        'inner-ear' : '#0d0908',
+        'nose' : '#0d0908',
+        'cheeks' : '#faa610',
+    },
+    4: {
+        'stroke' : '#020202',
+        'face' : '#926a2d',
+        'eyes' : '#ffffff',
+        'mouth' : '#f9d98d',
+        'outer-ear' : '#926a2d',
+        'inner-ear' : '#020202',
+        'nose' : '#020202',
+        'cheeks' : '#f9d98d',
+    }
+}
+
+
+function drawBearFace(x, y, w, h, width_value, color_scheme, mouth_value) {
+  push();
+  translate(x, y);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+  stroke(bearColorSchemes[color_scheme]['stroke'])
+  
+  //left ear
+  fill(bearColorSchemes[color_scheme]['outer-ear']);
+  ellipse(-70, -70, (125 + width_value) * scale, (125 + width_value) * scale);
+  fill(bearColorSchemes[color_scheme]['inner-ear']);
+  ellipse(-65, -65, (50 + width_value) * scale, (50 + width_value) * scale);
+  //right ear
+  fill(bearColorSchemes[color_scheme]['outer-ear']);
+  ellipse(70, -70, (125 + width_value) * scale, (125 + width_value) * scale);
+  fill(bearColorSchemes[color_scheme]['inner-ear']);
+  ellipse(65, -65, (50 + width_value) * scale, (50 + width_value) * scale);
+
+  //face
+  fill(bearColorSchemes[color_scheme]['face']);
+  ellipse(0, 0, (300 + width_value) * scale, (300 + width_value) * scale);
+
+  //eyes
+  fill(bearColorSchemes[color_scheme]['eyes']);
+  ellipse(-20, -20, 15, 15);
+  ellipse(20, -20, 15, 15);
+
+  //mouth
+  fill(bearColorSchemes[color_scheme]['mouth']);
+  ellipse(0, 15, 45, 45);
+
+  //nose
+  fill(bearColorSchemes[color_scheme]['nose']);
+  ellipse(0, 5, 10, 10);
+
+  fill(89, 49, 39,  0);
+  arc(0, 10, 30, 30, QUARTER_PI, PI);
+
+  pop();
+}  
 
 function keyTyped() {
   if (key == '!') {
