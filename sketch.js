@@ -48,6 +48,9 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
+
+
+
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
@@ -62,7 +65,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
+  fill(changing_colour);
   ellipse(0, 0, 300 * scale, 400 * scale);
 
   // eyes
@@ -221,6 +224,9 @@ function draw () {
   var s3 = slider3.value();
   var s4 = slider4.value();
   var s5 = slider5.value();
+	
+  var changing_colour = map(s4, 0, 100, 0, 255);
+  print(red_color);
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
@@ -232,6 +238,7 @@ function draw () {
     // draw 1st face
     fill(bg_color1);
     rect(0, 0, width/3, height);
+	
     var tilt_value = map(s1, 0, 100, -90, 90);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
