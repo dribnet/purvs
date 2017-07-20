@@ -41,6 +41,8 @@ var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
 var faceColor = [243,100,242];
+var white = [255,255,255];
+var lightGray = [220,220,220];
 
 var fg_color1 = [151, 102, 52];
 var fg_color2 = [56, 91, 194];
@@ -52,27 +54,51 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawMainFace(){
+
+function drawMainFace(faceWidth,faceHeight,eyeNum){
+
+  //faceWidth = 5;
 
 fill(faceColor);
 //face
 beginShape();
 //lefttop
-vertex(width*0.3,height*0.35);
+vertex(width*0.3-(faceWidth),height*0.35);
 //top
 vertex(width*0.5,height*0.1);
 //righttop
-vertex(width*0.7,height*0.35);
+vertex(width*0.7+faceWidth,height*0.35);
 //rightbottom
-vertex(width*0.75,height*0.7);
+vertex(width*0.75+faceWidth,height*0.7);
 //bottom
 vertex(width*0.5,height*0.9);
 //leftbottom
-vertex(width*0.25,height*0.7);
+vertex(width*0.25-(faceWidth),height*0.7);
 
 endShape();
 
+var eyeSize = 43;
+//draw eyes
+//first 2
+drawEye(width*0.4-faceWidth,height*0.4,eyeSize);
+drawEye(width*0.6+faceWidth,height*0.4,eyeSize);
+//second 2
+drawEye(width*0.45-(faceWidth*0.5),height*0.35,eyeSize);
+drawEye(width*0.55+(faceWidth*0.5),height*0.35,eyeSize);
+//third 2
+drawEye(width*0.45-(faceWidth*0.6),height*0.45,eyeSize);
+drawEye(width*0.55+(faceWidth*0.6),height*0.45,eyeSize);
 
+
+
+}
+
+function drawEye(x,y,size){
+
+fill(white);
+ellipse(x,y,size,size);
+fill(lightGray);
+ellipse(x+(size*0.1),y-(size*0.1),size*0.6,size*0.6);
 
 }
 
@@ -237,21 +263,17 @@ function draw () {
   var s4 = slider4.value();
   var s5 = slider5.value();
 
-  drawMainFace();
 
-  // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
 
 
     // draw 1st face
     fill(bg_color1);
 
-    var tilt_value = map(s1, 0, 100, -90, 90);
+    var faceWidth = map(s1, 0, 100, -30, 100);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+
+    drawMainFace(faceWidth,1,1);
 
     //drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);
 
