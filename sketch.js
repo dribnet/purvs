@@ -51,6 +51,7 @@ var colorHair = [20, 20, 0];
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
+  translate(0,-70);
   //rotate(tilt_value);
 
   var extent = 0;
@@ -117,18 +118,18 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   vertex(60,155);
   vertex(0,170);
   vertex(-60,155);
-  vertex(0,300);
+  vertex(0,map(eye_value,0,100,170,300));
   endShape();
 
-  fill('#ffffff');
+  fill(map(tilt_value,0,100,255,193),map(eye_value,0,100,255,193),map(eye_value,0,100,255,193));
   beginShape();
-  vertex(45,220);
+  vertex(map(tilt_value,0,100,45,32),220);
   vertex(60,155);
   vertex(50,126);
   vertex(0,170);
   vertex(-50,126);
   vertex(-60,155);
-  vertex(-45,220);
+  vertex(map(tilt_value,0,100,-45,-32),220);
   vertex(0,170);
   endShape();
 
