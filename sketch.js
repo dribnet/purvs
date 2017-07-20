@@ -54,7 +54,7 @@ function draw () {
 	
   // mouth-hole with background color
   fill(star_colour);
-  ellipse( 0, 70, 150, 50);
+  ellipse( 0, 70, 150, 75);
 	
 
   //tongue
@@ -87,7 +87,7 @@ function draw () {
 
   // mouth-hole with background color
   fill(face_colour);
-  ellipse( 0, 70, 150, 50);
+  ellipse( 0, 70, 150, 75);
   pop();
 }
 
