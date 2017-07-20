@@ -1,6 +1,6 @@
 ## PS1 MDDN 342 2017
 
-This README should be updated as the code changes. Replace
+practicing updating the readme This README should be updated as the code changes. Replace
 this placeholder text and use this
 README as a design journal to record your process.
 Be sure to use complete sentences,
