@@ -48,7 +48,7 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-
+var changing_colour;
 
 
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
