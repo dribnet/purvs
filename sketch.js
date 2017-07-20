@@ -249,11 +249,12 @@ function draw () {
       face_x = 3 * width / 6;
     }
     var width_value = map(s1, 0, 100, 0, 100);
-    var color_scheme = Math.floor(map(s2, 0, 100, 1, 4));
+    var hue = map(s1, 0, 100, 0, 360);
+    var num_antennas = Math.floor(map(s2, 0, 100, 1, 4));
     var face_shape = s3;
     var mouth_style = map(s4, 0, 100, 250, -150);
     var eye_distance = map(s5, 0, 100, 50, 0);
-    drawRobot(face_x, face_y, face_w, face_h, width_value, color_scheme, face_shape, mouth_style, eye_distance);
+    drawRobot(face_x, face_y, face_w, face_h, width_value, hue, num_antennas, face_shape, mouth_style, eye_distance);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -271,10 +272,11 @@ function draw () {
   }
 }
 
-function drawRobot(x, y, w, h, width_value, eye_value, face_shape, mouth_style, eye_distance) {
+function drawRobot(x, y, w, h, width_value, hue, num_antennas, face_shape, mouth_style, eye_distance) {
   push();
   rectMode(CENTER);
   translate(x, y);
+  
 
   var extent = 0;
   if(h < w) {
@@ -285,31 +287,38 @@ function drawRobot(x, y, w, h, width_value, eye_value, face_shape, mouth_style, 
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color2)
-  fill(fg_color2);
+  stroke(stroke_color2);
+  
+  colorMode(HSB);
+  stroke(hue, 50, 90);
+  fill(hue, 90, 50);
   rect(0, 0, (300 + width_value) * scale, 400 * scale, face_shape, face_shape);
 
+  
+  stroke(0);
   //left eye
-  fill(255, 255, 255);
+  fill(0, 0, 100);
   ellipse(-(25 + eye_distance), -60, 50, 55);
-  fill(0, 0, 0);
+  fill(0);
   ellipse(-(18 + eye_distance), -55, 15, 21);
-  fill(255, 255, 255);
+  fill(hue, 50, 90);
   ellipse(-(16 + eye_distance), -54, 7, 11);
 
   //right eye
-  fill(255, 255, 255);
+  fill(0, 0, 100);
   ellipse(25 + eye_distance, -60, 50, 55);
-  fill(0, 0, 0);
+  fill(0);
   ellipse(18 + eye_distance, -55, 15, 21);
-  fill(255, 255, 255);
+  fill(hue, 50, 90);
   ellipse(16 + eye_distance, -54, 7, 11);
-
-  // mouth
+  
+   // mouth
   noFill();
+  stroke(hue, 50, 90);
   strokeWeight(10);
   curve(0, mouth_style, -50, 40, 50, 40, 0, mouth_style);
 
+  colorMode(RGB);
   rectMode(CORNER);
   pop();
 }
