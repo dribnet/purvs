@@ -63,7 +63,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   var scale = extent / 220.0;
 
   fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  ellipse(0, 0, 300 * scale, 300 * scale);
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
@@ -85,7 +85,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 
   // mouth
   fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  ellipse(0 * scale, 30 * scale, 150 * scale, mouth_value * scale);
   pop();
 }
 
