@@ -34,7 +34,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [0, 0, 0];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
@@ -51,7 +51,7 @@ var colorHair = [20, 20, 0];
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
-  rotate(tilt_value);
+  //rotate(tilt_value);
 
   var extent = 0;
   if(h < w) {
@@ -62,8 +62,9 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
+  bg_color1 = [map(tilt_value,0,100,91,150),map(eye_value,0,100,45,65),map(eye_value,0,100,12,120)];
   //ellipse(0, 0, 300 * scale, 400 * scale);
+  fill('#896c4e');
   beginShape();
   vertex(0, -125);
   bezierVertex(-84, -122,-130, -31, -128, 46);
@@ -72,7 +73,19 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   bezierVertex(130, -31,84, -122,0, -125);
   endShape();
 
-  fill('#FFFFFF');
+  beginShape();
+  vertex(80,100);
+  vertex(-80,100);
+  vertex(0,170);
+  endShape();
+
+  ellipse(-95,-105,60,60);
+  ellipse(95,-105,60,60);
+  fill('#a58e65');
+  ellipse(-97,-105,48,48);
+  ellipse(97,-105,48,48);
+  fill('#d3bfb4');
+
   beginShape();
   vertex(0, 20);
   bezierVertex(-22, 20, -64, 49, -63, 88);
@@ -81,27 +94,83 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   bezierVertex(64, 49,22, 20,0, 20);
   endShape();
 
+  fill('#5f4c2c');
+  beginShape();
+  vertex(-14, 37);
+  bezierVertex(-14, 39, -6, 47, 0, 48);
+  bezierVertex(6, 47, 14, 39, 14, 37);
+  vertex(0,34);
+  endShape();
+
+  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,0),map(eye_value,0,100,61,0));
+  beginShape();
+  vertex(90,165);
+  vertex(50,126);
+  vertex(0,170);
+  vertex(-50,126);
+  vertex(-90,165);
+  vertex(0,300);
+  endShape();
+
+  fill('#c1c1c1');
+  beginShape();
+  vertex(60,155);
+  vertex(0,170);
+  vertex(-60,155);
+  vertex(0,300);
+  endShape();
+
+  fill('#ffffff');
+  beginShape();
+  vertex(45,220);
+  vertex(60,155);
+  vertex(50,126);
+  vertex(0,170);
+  vertex(-50,126);
+  vertex(-60,155);
+  vertex(-45,220);
+  vertex(0,170);
+  endShape();
+
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
+  translate(-60,-10);
+  rotate(10);
+  //EYE1
+  fill('#ffffff');
+  ellipse(0,0,60,120);
+  //PUPIL1
+  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,0),map(eye_value,0,100,61,0));
+  ellipse(5,-9,35,75);
+  fill(map(tilt_value,0,100,0,208),map(eye_value,0,100,0,29),map(eye_value,0,100,0,95));
+  ellipse(5,-4,30,60);
+  fill(map(tilt_value,0,100,255,244),map(eye_value,0,100,255,241),map(eye_value,0,100,255,88));
+  rotate(-20);
+  ellipse(4,-19,13,21);
+  fill('#FFFFFF');
+  ellipse(7,-6,6,12);
+  fill('#FFFFFF');
+  ellipse(7,14,11,17);
+  rotate(10);
+  translate(120,0);
+  rotate(-10);
+  //EYE2
+  fill('#ffffff');
+  ellipse(0,0,60,120);
+  //PUPIL2
+  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,161),map(eye_value,0,100,61,186));
+  ellipse(-5,-9,35,75);
+  fill('#000000');
+  ellipse(-5,-4,30,60);
+  fill(map(tilt_value,0,100,255,212),map(eye_value,0,100,255,29),map(eye_value,0,100,255,96));
+  ellipse(-8,-21,13,21);
+  fill('#ffffff');
+  ellipse(-6,-8,6,12);
+  fill(map(tilt_value,0,100,255,244),map(eye_value,0,100,255,241),map(eye_value,0,100,255,88));
+  ellipse(-3,14,11,17);
+  rotate(10);
+  translate(-60,10);
   // mouth
   fill(bg_color1);
-  //ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
   pop();
 }
 
@@ -249,14 +318,13 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eyeCol_value = map(s4, 0, 100, 0, 200);
+    var mouth_value = map(s2, 0, 100, 0, 200);
+    var eyeCol_value = map(s3, 0, 100, 0, 100);
     var suit_value = map(s5, 0, 100, 0, 200);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eyeCol_value, mouth_value);    
   }
 
   if (mode == '2' || mode == 'all') {
