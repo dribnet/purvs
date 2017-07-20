@@ -6,6 +6,7 @@ var faceSelector;
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
+
   main_canvas.parent('canvasContainer');
 
   // create sliders
@@ -15,7 +16,7 @@ function setup () {
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
 
-  slider1.parent('slider1Container');
+slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
@@ -48,6 +49,11 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
+var mouthcolor = [255,255,255];
+var cheeks = [213,132,151];
+var ears = [122,82,42];
+var eyes = [0,0,0];
+
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
@@ -62,30 +68,49 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 300 * scale);
+fill(fg_color1);
+  ellipse(0, 0, 400 * scale, 400 * scale);
+
+  //cheeks
+  fill(cheeks);
+  ellipse(70,-10,mouth_value * scale,10);
+
+  ellipse(-75,-10,mouth_value * scale,10);
+
+  //eyes
+  fill(eyes);
+  ellipse(-30, -40, 20, 5);
+  ellipse(30, -40, 20, 5);
+  
+  //ears
+  fill(ears);
+  triangle(30, -115, 90, -80, 45, -50);
+  triangle(-30, -115, -90, -80, -45, -50);
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  // if (eye_value === 1 || eye_value == 3) {
+  //   fill(bg_color1);
+  //   ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
+  //   fill(fg_color1);
+  //   ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+  // }
 
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+  // if (eye_value >= 2) {
+  //   fill(bg_color1);
+  //   ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
+  //   ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  //   fill(fg_color1);
+  //   ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
+  //   ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+  // }
 
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 30 * scale, 150 * scale, mouth_value * scale);
+  // nose
+  fill(ears);
+  ellipse(0 * scale, 30 * scale, mouth_value * scale, 100 * scale);
+  fill(eyes);
+  ellipse(-10, 10, 5, 5);
+  ellipse(10, 10, 5, 5);
   pop();
 }
 
