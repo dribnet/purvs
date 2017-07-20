@@ -48,7 +48,118 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
+var bolt_color = "#C1C1BF",
+    face_color1 = "#9ECB3D",
+    eye_color1 = "#F7F7EB",
+    pupil_color1 = "#20211E",
+    hair_color1 = "#20211E",
+    mouth_color1 = "#64B244";
+
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+  noStroke();
+  push();
+  translate(x, y);
+  rotate(tilt_value);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+  // set fill to bolt color
+  fill(bolt_color);
+  // left bolt
+  rotate(-4);
+  beginShape();
+  vertex(-170 * scale, 80 * scale);
+  vertex(-150 * scale, 80 * scale);
+  vertex(-150 * scale, 90 * scale);
+  vertex(-100 * scale, 90 * scale);
+  vertex(-100 * scale, 110 * scale);
+  vertex(-150 * scale, 110 * scale);
+  vertex(-150 * scale, 120 * scale);
+  vertex(-170 * scale, 120 * scale);
+  endShape();
+  // right bolt
+  rotate(8);
+  beginShape();
+  vertex(170 * scale, 80 * scale);
+  vertex(150 * scale, 80 * scale);
+  vertex(150 * scale, 90 * scale);
+  vertex(100 * scale, 90 * scale);
+  vertex(100 * scale, 110 * scale);
+  vertex(150 * scale, 110 * scale);
+  vertex(150 * scale, 120 * scale);
+  vertex(170 * scale, 120 * scale);
+  endShape();
+
+
+  // set fill to face color
+  fill(face_color1);
+  // head
+  rotate(-4);
+  quad(-150 * scale, -150 * scale, 150 * scale, -175 * scale, 125 * scale, 180 * scale, -125 * scale, 180  * scale);
+
+  // set fill to eye color
+  fill(eye_color1);
+  // eyes
+  ellipse(-40 * scale, 0, 70 * scale, 70 * scale);
+  ellipse(40 * scale, 0, 60 * scale, 60 * scale);
+
+  // set fill back to pupil color
+  fill(pupil_color1);
+  // pupils
+  ellipse(-30  * scale, 0, 10 * eye_value * scale, 10 * eye_value* scale);
+  ellipse(30  * scale, 2  * scale, 10 * eye_value * scale, 10 * eye_value* scale);
+
+  // set fill to hair/eyebrow color
+  fill(hair_color1);
+  // hair
+  beginShape();
+  vertex(-155 * scale, -155 * scale);
+  vertex(155 * scale, -180 * scale);
+  vertex(155 * scale, -70 * scale);
+  vertex(130 * scale, -70 * scale);
+  vertex(125 * scale, -90 * scale);
+  vertex(115 * scale, -70 * scale);
+  vertex(90 * scale, -70 * scale);
+  vertex(85 * scale, -100 * scale);
+  vertex(80 * scale, -70 * scale);
+  vertex(60 * scale, -70 * scale);
+  vertex(50 * scale, -90 * scale);
+  vertex(40 * scale, -70 * scale);
+  vertex(5 * scale, -70 * scale);
+  vertex(0 * scale, -100 * scale);
+  vertex(-10 * scale, -70 * scale);
+  vertex(-60 * scale, -70 * scale);
+  vertex(-65 * scale, -90 * scale);
+  vertex(-75 * scale, -70 * scale);
+  vertex(-100 * scale, -70 * scale);
+  vertex(-110 * scale, -95 * scale);
+  vertex(-120 * scale, -70 * scale);
+  vertex(-155 * scale, -70 * scale);
+  endShape();
+
+  // eyebrows
+  quad(-80 * scale, -35 * scale, 0, -45 * scale, 0 * scale, -30 * scale, -80 * scale, -20 * scale);
+  quad(10 * scale, -40 * scale, 70 * scale, -30 * scale, 70 * scale, -15 * scale, 10 * scale, -25 * scale);
+
+  // mouth
+  fill(mouth_color1);
+  var r = (mouth_value/10);
+  rect(-100 * scale, 75 * scale, 200 * scale, 10 * scale + r);
+  for (i=-90; i<100; i+=15){
+    rect(i * scale, 65 * scale, 5 * scale, 30 * scale + r);
+  }
+
+  pop();
+}
+
+function drawFace(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -238,7 +349,7 @@ function draw () {
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);
   }
 
   if (mode == '2' || mode == 'all') {
