@@ -1,12 +1,9 @@
 ## PS1 MDDN 342 2017
 
-### Cartoon Robots
+This README explains the three different paramaterized faces for part2. 
 
-I have chosen to draw portraits of two different robots:
+In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
 
- * Doraemon  - https://en.wikipedia.org/wiki/Doraemon 
- * Bender       - https://en.wikipedia.org/wiki/Bender_(Futurama)   
+In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
 
-I choose these characters as I am inspired by robots, animation and the future.  Both of these robots are from the distant future.
-
-The portraits were relatively easy to create as the characters are mostly made from basic shapes. The challenging part of this project was implementing the finer details which couldn't be created with basic shapes.  For these details I had to use curves and beziers which I have not used before so this was a good learning experience. 
+In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
