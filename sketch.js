@@ -1,6 +1,6 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
+var radio, slider1, slider2, slider3, slider4;
 var faceSelector;
 
 function setup () {
@@ -8,25 +8,31 @@ function setup () {
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
+  // create radio
+  radio = createRadio();
+  radio.option(1);
+  radio.option(2);
+  radio.option(3);
+  radio.option(4);
+  radio.value(1);
+  radio.parent('radio1Container');
 
+  // create sliders
+  slider1 = createSlider(0, 100, 0);
+  slider2 = createSlider(0, 100, 50);
+  slider3 = createSlider(0, 100, 60);
+  slider4 = createSlider(0, 100, 0);
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
 
   faceSelector = createSelect();
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
   faceSelector.option('all')
-  faceSelector.value('all');
+  faceSelector.value('3');
   faceSelector.parent('selector1Container');
 
   // rotation in degrees
@@ -274,11 +280,12 @@ function draw () {
     }
   }
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
+  var s1 = radio.value();
+  var s2 = slider1.value();
+  var s3 = slider2.value();
+  var s4 = slider3.value();
+  var s5 = slider4.value();
+
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
@@ -329,7 +336,7 @@ function draw () {
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    var color_scheme = Math.floor(map(s1, 0, 100, 1, 4));
+    var color_scheme = s1;
     var face_size = map(s2, 0, 100, 0, 100);
     var mouth_size = map(s3, 0, 100, 60, 130);
     var eye_x = map(s4, 0, 100, 50, 20);
