@@ -229,7 +229,6 @@ function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, e
   //face
   fill(bearColorSchemes[color_scheme]['face']);
   ellipse(0, 0, (300 + face_size) * scale, (300 + face_size) * scale);
-  print(scale);
 
   //outer mouth
   fill(bearColorSchemes[color_scheme]['mouth']);
