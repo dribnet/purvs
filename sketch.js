@@ -2,6 +2,8 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
+var slids;
+var dolly;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -14,6 +16,8 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
+  slids = new SliderValues(slider1,slider2,slider3,slider4,slider5);
+   dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -50,8 +54,14 @@ var colorHair = [20, 20, 0];
 
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
+   
+//instructs the doll object to draw itself onto a graphics object
+var doll = dolly.drawFace();
+
+
+
   translate(x, y);
-  rotate(tilt_value);
+  //rotate(tilt_value);
 
   var extent = 0;
   if(h < w) {
@@ -62,30 +72,10 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+ // ellipse(0, 0, 300 * scale, 400 * scale);
+ //draws the graphics object onto the main canvas in the desired position
+ image(doll,w ,h);
+image(doll,0-w/2,0-h/2,w,h);
   pop();
 }
 
@@ -223,8 +213,8 @@ function draw () {
   var s5 = slider5.value();
 
   // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
+  var face_w = canvasWidth / 3;
+  var face_h = canvasHeight;
   var face_y = height / 2;
   var face_x = width / 2;
 
@@ -266,6 +256,8 @@ function draw () {
     }
     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
   }
+  
+
 }
 
 function keyTyped() {
