@@ -1,9 +1,13 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+### Cartoon Bears
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+For my first parameterized face I have decided to use cartoon bears.  I have used four cartoon bears as the basis for my design:
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+1. Kumamon: https://en.wikipedia.org/wiki/Kumamon
+2. Rilakkuma: https://en.wikipedia.org/wiki/Rilakkuma
+3. Yogi Bear: https://en.wikipedia.org/wiki/Yogi_Bear
+4. Winnie the Pooh: https://en.wikipedia.org/wiki/Winnie-the-Pooh
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+My idea was the set up the controls in such a way that it would be possible to create a representation of each of the above bears. This has worked quite well for the first two bears as they are made from basic shapes.  However Yogi Bear and Winnie the Pooh aren't as simple so they are not as recognizable.  The idea still works very well though as there are many possible bear faces that can be created.
+ 
