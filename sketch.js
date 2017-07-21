@@ -268,3 +268,69 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
+
+//a rag doll, capable of modifying and drawing itself 
+function RagDoll(w, h, sliders){
+	//the dimensions of the graphics object to be drawn
+this.w = w;
+this.h = h;
+//the slider object 
+this.sliders = sliders;
+//the graphics object this image will be drawn to
+this.canvas = createGraphics(w,h);
+
+//returns the graphics object with the new face drawn on it
+this.drawFace = function(){
+	
+	this.canvas.clear();
+	this.canvas.background(0,0,0);
+
+	this.canvas.ellipseMode(CENTER);
+
+	this.canvas.push();
+	this.canvas.translate(w/4,h/4);
+	this.canvas.fill(this.sliders.scaleSliders(4,0,255,true),this.sliders.scaleSliders(2,0,255,true),this.sliders.scaleSliders(3,0,255,true));
+		var meep = this.sliders.scaleSliders(1,-100,100,false);
+	this.canvas.ellipse(meep,meep,w/3,w/3);
+	this.canvas.pop();
+	
+
+
+	return this.canvas;
+}
+}
+
+
+//An object that contains references to all the sliders, and returns mapped values on a selected slider
+function SliderValues(s1,s2,s3,s4,s5){
+	this.s1 = s1;
+	this.s2=s2;
+	this.s3=s3;
+	this.s4=s4;
+	this.s5=s5;
+	this.val = 0;
+	this.rounded = false;
+
+	//takes integer arguments detailing which slider is required, and how it is to be mapped
+	//also takes a boolean stating whether it should be rounded to the nearest whole number
+	this.scaleSliders = function(slide, min, max, rounded){
+	this.rounded = rounded;
+		//checks which slider value is required
+		if (slide == 1){this.val = this.s1.value();}
+		else if (slide == 2){this.val = this.s2.value();}
+		 else if (slide == 3){this.val = this.s3.value();}
+		else if (slide == 4){this.val = this.s4.value();}
+		else{this.val = this.s5.value();}
+	
+		
+
+//calculates and returns the correct value
+		if(this.rounded){
+			return Math.floor(map(this.val, 0, 100, min, max));
+		}
+		else{
+			return map(this.val, 0, 100, min, max);
+		}
+
+	}}
