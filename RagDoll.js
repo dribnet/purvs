@@ -18,9 +18,12 @@ this.drawFace = function(){
 	this.canvas.ellipseMode(CENTER);
 	this.canvas.push();
 	this.canvas.translate(w/4,h/4);
-	//eyes
+	//eyes and face
 	this.drawEyes();
+	//mouth
 	this.drawMouth();
+	//hair
+	this.drawHair();
 	this.canvas.pop();
 	return this.canvas;
 }
@@ -29,14 +32,24 @@ this.drawEyes = function(){
 	//the measurements and positions of the eyes and eye embelishments
 	this.eyeX = 20;
 	this.eyeY = sliders.scaleSliders(2,0,-15,true);
-	this.eyeSize = 20;
+	this.eyeSize = sliders.scaleSliders(4,30,15,true);
 	this.i = this.eyeSize/2;
 	this.eyeType = this.sliders.scaleSliders(1,0,100,true);
 
 		//normal face and eyes
 		if(this.eyeType<52){
-			this.canvas.fill(151, 102, 52);
+			if (this.eyeType<20){
+				this.canvas.fill(151, 102, 52);
+			}
+			else if(this.eyeType<35){
+				this.canvas.fill(165,128,104);
+
+			}
+			else{this.canvas.fill(244, 222, 216);}
+			
+			//face
 			this.canvas.ellipse(0,0,w/3,w/3);
+			this.cheeks();
 			this.canvas.fill(255);
 		}
 		//creepy face and eyes
@@ -49,6 +62,11 @@ this.canvas.fill(this.sliders.scaleSliders(4,50,200,true),254/2,254/2);
 		this.canvas.push();
 		this.canvas.translate(this.eyeX, this.eyeY);
 		this.canvas.ellipse(0,0,this.eyeSize, this.eyeSize);
+		//normal eyeball
+		if(this.eyeType<52){
+			this.cuteEye(this.i,this.i);
+		}
+
 		//creepy x dissapeers later than the other eye
 		if (this.eyeType>=52 && this.eyeType < 90){
 		this.drawX(this.i,this.i);
@@ -64,6 +82,9 @@ this.canvas.fill(this.sliders.scaleSliders(4,50,200,true),254/2,254/2);
 		if (this.eyeType>=52 && this.eyeType < 75){
 		this.drawX(this.i,this.i);
 	}
+	if(this.eyeType<52){
+			this.cuteEye(this.i,this.i);
+		}
 		this.canvas.pop();
 
 		
@@ -153,4 +174,88 @@ this.canvas.line(-this.xX,-this.xY, this.xX,this.xY);
 this.canvas.line(-this.xX,this.xY, this.xX,-this.xY);
 this.canvas.pop();
 }
+
+this.drawHair = function(){
+	this.bowWidth =25;
+	this.bowHeight = 15;
+	this.canvas.fill(44);
+	//left top hair
+	this.canvas.push();
+	this.canvas.translate(-w/10,-w/10);
+	this.canvas.rotate(15);
+	this.canvas.ellipse(0,0,80,30);
+	this.canvas.pop();
+
+	//right top hair
+this.canvas.push();
+	this.canvas.translate(w/10,-w/9);
+	this.canvas.rotate(-15);
+	this.canvas.ellipse(0,0,87,35);
+	this.canvas.pop();
+
+	//draw the leftside bow
+	this.canvas.push();
+	this.canvas.translate(-w/5.8,-w/80);
+	this.canvas.fill(255,0,0);
+	this.bow(this.bowWidth,this.bowHeight);
+	this.canvas.pop();
+
+	//draw the rightside bow
+	this.canvas.push();
+	this.canvas.translate(w/5.8,-w/80);
+	this.canvas.rotate(16);
+	this.canvas.fill(255,0,0);
+	this.bow(this.bowWidth,this.bowHeight);
+	this.canvas.pop();
+
+
+
+	
+}
+//draws a bow of the desired width and height at point 0,0
+this.bow = function(tW,tH){
+this.tX = tW/2;
+this.tY = tH/2;
+this.canvas.triangle(-this.tX, -this.tY, -this.tX, this.tY, 0,0);
+this.canvas.triangle(this.tX, -this.tY, this.tX, this.tY, 0,0);
+
+}
+
+this.cheeks = function(){
+	//set up colours
+	this.canvas.push();
+	this.cheekBright = this.sliders.scaleSliders(3,0,200,true);
+	this.canvas.fill(255,0,0,this.cheekBright);
+	this.canvas.noStroke();
+
+//draw the left cheek
+	this.canvas.push();
+	this.canvas.translate(-w/10, w/24);
+	this.canvas.ellipse(0,0,25,25);
+	this.canvas.pop();
+	
+
+	//draw right cheek
+	this.canvas.push();
+	this.canvas.translate(w/10, w/24);
+	this.canvas.ellipse(0,0,25,25);
+	this.canvas.pop();
+this.canvas.pop();
+}
+
+this.cuteEye = function(eW, eH){
+	this.irisS = eW + (eW/1.9);
+	this.pupilS = eW - (eW/5);
+	this.canvas.push();
+	this.canvas.translate(eW/5.7,eW/6);
+	this.canvas.fill(111,111,225);
+	this.canvas.noStroke();
+	this.canvas.ellipse(0,0,this.irisS,this.irisS);
+	this.canvas.fill(0);
+	this.canvas.ellipse(0,0,this.pupilS,this.pupilS);
+	this.canvas.fill(255);
+	this.canvas.ellipse(-this.pupilS/5,-this.pupilS/5,this.pupilS/4,this.pupilS/4);
+	this.canvas.pop();
+}
+
 }
