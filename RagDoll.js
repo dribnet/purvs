@@ -71,31 +71,68 @@ this.canvas.fill(this.sliders.scaleSliders(4,50,200,true),254/2,254/2);
 //controls the drawing of the mouth
 this.drawMouth = function(){
 	this.canvas.push();
-	this.mouthY = 40;
-	this.mouthW = 50;
-	this.stitches = sliders.scaleSliders(3,1,10,true);
+	this.mouthY = this.sliders.scaleSliders(5,30,40,true);
+	this.mouthW = this.sliders.scaleSliders(3,35,40,true);
+	
+	this.smileH = this.sliders.scaleSliders(5,0,30,true);
+	this.stitches = this.sliders.scaleSliders(3,1,10,true);
+	//adds the value of slider 5 to mouth width as well
+	//if the mouth is smiling make it wider
+	if(this.stitches>2){
+	this.mouthW = this.sliders.scaleSliders(5,this.mouthW,this.mouthW+40,true);
+}
 	this.canvas.translate(0,this.mouthY);
-	this.drawSmile(this.mouthW,100, this.stitches);
+	this.drawSmile(this.mouthW,this.smileH, this.stitches);
 	this.canvas.pop();
 }
 
 
 //draws a mouth at the of the required width and smile, at 0,0
-this.drawSmile = function(mW,mS, stitch){
-	//calculates number of stitches + number of spaces
-	this.canvas.strokeWeight(4);
+this.drawSmile = function(mW,mH, stitch){
+	if(this.stitch == 1){this.mH = 0;}
+	else{this.mH = mH;}
+	this.canvas.strokeWeight(2);
+	//number of stitches + spaces
 	this.stitch = stitch+(stitch-1);
+	//width of a stitch
 	this.stitchW = mW/this.stitch;
+	//half the width of the mouth
 	this.mX = mW/2;
+	//do we draw a stitch or a space
+	this.isStitch = true;
+	//stitch count
 	this.c = 1;
-	while(this.c <= this.stitch){
-		//this.canvas.line((this.stitchW*this.c)-this.mX, 0, (this.stitchW*(this.c+1)-this.mX, 0));
-		
+
+	//every second time through the loop draw a stitch
+	//the x coordinates are calculated using mapping, the number of stitches within the coordinates
+	while(this.c <=this.stitch){
+		if(this.isStitch){
 		//stitch + 1 is the number of x coordinates needed
 		//-mX to mX is the left and right coordinates of the edge of the mouth
-		this.meep = map(this.c, 1, this.stitch, -this.mX, this.mX);
-		this.meep2 = map(this.c, 2, this.stitch, -this.mX, this.mX);
-this.canvas.line(this.meep, 0, this.meep2,0);
+		this.s1x = map(this.c, 1, this.stitch+1, -this.mX, this.mX);
+		this.s2x = map(this.c+1, 1, this.stitch+1, -this.mX, this.mX);
+//is this the first half of the mouth
+		if (this.c<this.stitch/2){
+			this.s1y = map(this.c, 1, (this.stitch+1)/2, -this.mH, 0);
+			this.s2y = map(this.c+1, 1, (this.stitch+1)/2, -this.mH, 0);
+
+		}
+		//or the second half
+		else{
+			this.s1y = map(this.c, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+			this.s2y = map(this.c+1, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+
+		}
+		if(this.stitch<4){
+			this.s1y=0;
+			this.s2y=0;
+		}
+
+this.canvas.line(this.s1x, this.s1y, this.s2x,this.s2y);
+this.isStitch = false;}
+else{
+	this.isStitch=true;
+}
 		this.c++;
 
 	}
