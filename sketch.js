@@ -40,7 +40,7 @@ var bg_color3 = [70, 70, 120];
 
 
 //Lennon colours
-var lenFaceCol = [237, 203, 163];
+var potterFaceCol = [237, 203, 163];
 var glassesStroke = [0, 0, 0];
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
@@ -56,7 +56,7 @@ var colorHair = [20, 20, 0];
 
 
 // draws the first face 
-function drawLennon(x, y, w, h, tilt_value, eye_value, glasses_value) {
+function drawPotter(x, y, w, h, tilt_value, eye_value, glasses_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -70,8 +70,8 @@ function drawLennon(x, y, w, h, tilt_value, eye_value, glasses_value) {
   }
   var scale = extent / 220.0;
 
-  fill(lenFaceCol);
-  ellipse(0, 0, 375 * scale, 450 * scale);
+  fill(potterFaceCol);
+  ellipse(0, 0, 280 * scale, 375 * scale);
 
   // eye
   if (eye_value === 1 || eye_value == 3) {
@@ -86,15 +86,20 @@ function drawLennon(x, y, w, h, tilt_value, eye_value, glasses_value) {
     ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
     ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
-    fill(lenFaceCol);
+    fill(potterFaceCol);
     ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
     ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
   }
 
   // glasses
-  noFill();
   stroke(glassesStroke);
-  ellipse(0 * scale, -70 * scale, 150 * scale, glasses_value * scale);
+  strokeWeight(2);
+  fill(potterFaceCol);
+  line(-20, -23, 30, -23)
+  ellipse(-50 * scale, -40 * scale, glasses_value * scale, glasses_value * scale);
+  ellipse(50 * scale, -40 * scale, glasses_value * scale, glasses_value * scale);
+  //line(-43, -25, -72, -35)
+  //line(44, -25, 72, -35)
   pop();
 }
 
@@ -252,16 +257,16 @@ function draw () {
 
 
   if (mode == '1' || mode == 'all') {
-    // draw John Lennon
+    // draw Harry Potter
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var glasses_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var glasses_value = map(s3, 0, 120, 40, 90);
+    var eye_value = Math.floor(map(s2, 0, -100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawLennon(face_x, face_y, face_w, face_h, tilt_value, eye_value, glasses_value);    
+    drawPotter(face_x, face_y, face_w, face_h, tilt_value, eye_value, glasses_value);    
   }
 
   if (mode == '2' || mode == 'all') {
