@@ -34,21 +34,29 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [20, 71, 105];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
-var fg_color1 = [151, 102, 52];
+
+//Lennon colours
+var lenFaceCol = [237, 203, 163];
+var glassesStroke = [0, 0, 0];
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
-var stroke_color1 = [95, 52, 8];
 var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+
+
+
+
+
+// draws the first face 
+function drawLennon(x, y, w, h, tilt_value, eye_value, glasses_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -62,14 +70,14 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  fill(lenFaceCol);
+  ellipse(0, 0, 375 * scale, 450 * scale);
 
-  // eyes
+  // eye
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color1);
     ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
+    fill(lenFaceCol);
     ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
   }
 
@@ -78,16 +86,21 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
     ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
     ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
-    fill(fg_color1);
+    fill(lenFaceCol);
     ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
     ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
   }
 
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  // glasses
+  noFill();
+  stroke(glassesStroke);
+  ellipse(0 * scale, -70 * scale, 150 * scale, glasses_value * scale);
   pop();
 }
+
+
+
+
 
 function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   rectMode(CENTER);
@@ -155,6 +168,10 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   resetMatrix();
 }
 
+
+
+
+
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   push();
   rectMode(CENTER);
@@ -199,6 +216,11 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   pop();
 }
 
+
+
+
+
+
 function draw () {
   noStroke();
 
@@ -228,17 +250,18 @@ function draw () {
   var face_y = height / 2;
   var face_x = width / 2;
 
+
   if (mode == '1' || mode == 'all') {
-    // draw 1st face
+    // draw John Lennon
     fill(bg_color1);
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
+    var glasses_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawLennon(face_x, face_y, face_w, face_h, tilt_value, eye_value, glasses_value);    
   }
 
   if (mode == '2' || mode == 'all') {
