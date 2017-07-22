@@ -39,9 +39,11 @@ var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
 
-//Lennon colours
+//Potter colours
 var potterFaceCol = [237, 203, 163];
 var glassesStroke = [0, 0, 0];
+var scarColor = [235, 153, 237];
+
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
@@ -56,10 +58,9 @@ var colorHair = [20, 20, 0];
 
 
 // draws the first face 
-function drawPotter(x, y, w, h, tilt_value, eye_value, glasses_value) {
+function drawPotter(x, y, w, h, scar_value, glasses_value) {
   push();
   translate(x, y);
-  rotate(tilt_value);
 
   var extent = 0;
   if(h < w) {
@@ -73,23 +74,6 @@ function drawPotter(x, y, w, h, tilt_value, eye_value, glasses_value) {
   fill(potterFaceCol);
   ellipse(0, 0, 280 * scale, 375 * scale);
 
-  // eye
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(lenFaceCol);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(potterFaceCol);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
 
   // glasses
   stroke(glassesStroke);
@@ -100,6 +84,16 @@ function drawPotter(x, y, w, h, tilt_value, eye_value, glasses_value) {
   ellipse(50 * scale, -40 * scale, glasses_value * scale, glasses_value * scale);
   //line(-43, -25, -72, -35)
   //line(44, -25, 72, -35)
+
+  //scar
+  rotate(scar_value);
+  stroke(scarColor);
+  beginShape();
+  vertex(-15, -60);
+  vertex(-5, -50);
+  vertex(-15, -50);
+  vertex(-5, -40);
+  endShape();
   pop();
 }
 
@@ -260,13 +254,12 @@ function draw () {
     // draw Harry Potter
     fill(bg_color1);
     rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
+    var scar_value = map(s1, 0, 100, -10, 27);
     var glasses_value = map(s3, 0, 120, 40, 90);
-    var eye_value = Math.floor(map(s2, 0, -100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawPotter(face_x, face_y, face_w, face_h, tilt_value, eye_value, glasses_value);    
+    drawPotter(face_x, face_y, face_w, face_h, scar_value, glasses_value);    
   }
 
   if (mode == '2' || mode == 'all') {
