@@ -120,10 +120,15 @@ function drawMonsterFace(x, y, shape, hue, eye_value, mouth_value, scale) {
 	var degree = map(i, 0, 720, 0, 360);
 	rotate(i);
 	if(shape == 1){
-		bezier(40, 40, 0, 0, randomLength[i] * scale, 0, 50, 50);
+		var j = 0;
+		while(j < (randomLength[i] * scale)) {
+		  rect(j, j % 4, 2, 2);
+		  j++;
+		}
+		//rect(randomLength[i] * scale, 0, 15, 15, 5, 5, 5, 5);
 	}
 	else if(shape == 2){
-		ellipse(randomLength[i] * scale, 0, 20, 20);
+		ellipse(randomLength[i] * scale, 0, 15, 15);
 	}
 	else if(shape == 3){
 		rect(0, 0, randomLength[i] * scale, 2);
