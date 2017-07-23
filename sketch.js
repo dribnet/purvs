@@ -194,7 +194,7 @@ pop();
 
 
 
-function drawCircleFace(x, y, w, h, face_value) {
+function drawCircleFace(x, y, w, h, face_value, eye_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -211,6 +211,7 @@ function drawCircleFace(x, y, w, h, face_value) {
   stroke(cricleFaceCol);
   noFill()
   
+  // circles for the face
   if (face_value === 0) {
 	ellipse(0, 0, 300 * scale, 300 * scale);
   }
@@ -234,6 +235,50 @@ function drawCircleFace(x, y, w, h, face_value) {
  if (face_value === 0 || face_value == 1 || face_value == 2 || face_value == 3 || face_value == 4 || face_value == 5) {
 	ellipse(5, -5, 310 * scale, 300 * scale);
   }
+
+  // eyes
+
+ if (eye_value == 0) {
+ 	ellipse(20, -30, 10, 10);
+ 	ellipse(-30, -35, 10, 10);
+ 	ellipse(23, -33, 10, 10);
+ 	ellipse(-33, -33, 10, 10);
+ 	ellipse(23, -33, 10, 10);
+ 	ellipse(-35, -35, 10, 10);
+ 	ellipse(23, -33, 14, 14);
+ 	ellipse(-33, -33, 14, 14);
+ 	line(-42, -43, -20, -47);
+ 	line(35, -43, 18, -47);
+
+ }
+
+  if (eye_value == 1) {
+ 	ellipse(20, -30, 10, 10);
+ 	ellipse(-30, -35, 10, 10);
+ 	ellipse(23, -30, 10, 10);
+ 	ellipse(-33, -35, 10, 10);
+ 	ellipse(23, -33, 10, 10);
+ 	ellipse(-33, -33, 10, 10);
+ 	ellipse(23, -33, 14, 14);
+ 	ellipse(-33, -33, 14, 14);
+ }
+
+  if (eye_value == 2) {
+ 	ellipse(20, -30, 10, 10);
+ 	ellipse(-30, -35, 10, 10);
+ 	ellipse(23, -30, 10, 10);
+ 	ellipse(-33, -35, 10, 10);
+ 	ellipse(23, -28, 14, 10);
+ 	ellipse(-33, -31, 14, 10);
+ 	ellipse(23, -33, 10, 10);
+ 	ellipse(-33, -33, 10, 10);
+ 	line(-42, -45, -20, -40);
+ 	line(35, -45, 18, -40);
+ }
+
+
+
+
 
  
 
@@ -344,11 +389,12 @@ function draw () {
     // draw circle face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var face_value = Math.floor(map(s3, 0, 100, 0, 5));
+    var face_value = Math.floor(map(s3, 0, 100, 0, 5))
+    var eye_value = Math.floor(map(s2, 0, 100, 0, 2));
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawCircleFace(face_x, face_y, face_w, face_h, face_value);
+    drawCircleFace(face_x, face_y, face_w, face_h, face_value, eye_value);
   }
 
   if (mode == '3' || mode == 'all') {
