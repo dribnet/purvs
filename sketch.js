@@ -191,10 +191,7 @@ pop();
 }
 
 
-
-
-
-function drawCircleFace(x, y, w, h, face_value, eye_value) {
+function drawCircleFace(x, y, w, h, face_value, eye_value, head_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -209,6 +206,7 @@ function drawCircleFace(x, y, w, h, face_value, eye_value) {
   var scale = extent / 220.0;
 
   stroke(cricleFaceCol);
+  strokeWeight(.2 * head_value);
   noFill()
   
   // circles for the face
@@ -276,11 +274,22 @@ function drawCircleFace(x, y, w, h, face_value, eye_value) {
  	line(35, -45, 18, -40);
  }
 
+// mouth
+ line(-30, 35, 18, 35);
+ line(-30, 32, 20, 35);
+ line(-40, 34, 25, 30);
+ line(0, 34, 35, 25);
+ line(10, 34, 35, 25);
 
-
-
-
- 
+ //nose
+ beginShape();
+ vertex(5, -5);
+ vertex(13, 7);
+ vertex(-5, -5);
+ vertex(-13, 7);
+ vertex(0, 0);
+ vertex(13, 7);
+ endShape();
 
   noStroke();
   rectMode(CORNER);
@@ -389,12 +398,13 @@ function draw () {
     // draw circle face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var face_value = Math.floor(map(s3, 0, 100, 0, 5))
+    var face_value = Math.floor(map(s3, 0, 100, 0, 5));
     var eye_value = Math.floor(map(s2, 0, 100, 0, 2));
+    var head_value = map(s1, 0, 100, 1, 10);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawCircleFace(face_x, face_y, face_w, face_h, face_value, eye_value);
+    drawCircleFace(face_x, face_y, face_w, face_h, face_value, eye_value, head_value);
   }
 
   if (mode == '3' || mode == 'all') {
