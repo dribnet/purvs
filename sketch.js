@@ -1,12 +1,33 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
+var slider1, slider2, slider3, slider4, slider5;
+var faceSelector;
 
 function setup () {
   // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
-
-  // position each element on the page
+  var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+
+  // create sliders
+  slider1 = createSlider(0, 100, 50);
+  slider2 = createSlider(0, 100, 50);
+  slider3 = createSlider(0, 100, 50);
+  slider4 = createSlider(0, 100, 50);
+  slider5 = createSlider(0, 100, 50);
+
+  slider1.parent('slider1Container');
+  slider2.parent('slider2Container');
+  slider3.parent('slider3Container');
+  slider4.parent('slider4Container');
+  slider5.parent('slider5Container');
+
+  faceSelector = createSelect();
+  faceSelector.option('1');
+  faceSelector.option('2');
+  faceSelector.option('3');
+  faceSelector.option('all')
+  faceSelector.value('all');
+  faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -16,7 +37,7 @@ function setup () {
 
 // global variables for colors
 //fox colors
-var bg_color = "#00bfff";
+var bg_color1 = "#00bfff";
 var eye_color = "#1a0000";
 var headTop_color = "#ff471a";
 var headQuad_color = "#cc2900";
@@ -31,105 +52,129 @@ var noseTop_color = "#b32400";
 var nose_color = "#1a0500";
 
 //mask colors
-var bg2_color = "#f2e6d9";
+var bg_color2 = "#f2e6d9";
 var skin_color = "#001a33";
 var forehead_color = "#ffcc00";
 var eyeBall_color = "#000000";
 var mouth_color = "#990000";
 var sun_color = "#e60000";
 
-//another colors
-var bg3_color = "#008060";
+//face3 colors
+var bg_color3 = "#008060";
 
-function draw () {
-
+function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   noStroke();
+  //right face
+  push();  
+  translate(x, y);
+  scale(size);
   
-  // background color
-  fill(bg_color);
-  rect(0, 0, canvasWidth/3, canvasHeight);
-
-  push();
-  translate(canvasWidth/6, canvasHeight/2);
-  scale(3);
-  //construct right face
+  //head-top
   fill(headTop_color);
-  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300)); //head-top
+  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300));
 
+  //head-quad
   fill(headQuad_color);
-  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75)); //head-quad
+  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75));
 
+  //outside-ear
   fill(outEar_color);
-  triangle(10, -sqrt(300), 20, -3, 25, -35); //outside-ear
+  triangle(10, -sqrt(300), 20, -3, 25 * ear_value, -35);
 
+  //inside-ear
   fill(inEar_color);
-  triangle(10, -sqrt(300), 20, -3, 20, -25); //inside-ear
+  triangle(10, -sqrt(300), 20, -3, 20 * ear_value, -25);
 
+  //face-top
   fill(faceTop_color);
-  triangle(20, -3, 7, sqrt(75), 17, 15); //face-top
+  triangle(20, -3, 7, sqrt(75), 17, 15);
 
+  //face-bottom
   fill(faceBot_color);
-  triangle(7, sqrt(75), 7, 30, 17, 15); //face-bottom
+  triangle(7, sqrt(75), 7, 30 * nose_value, 17, 15);
 
+  //face-side
   fill(faceSide_color);
-  triangle(20, -3, 17, 15, 40, 18); //face-side
+  triangle(20, -3, 17, 15, 40, 18);
 
+  //neck-top
   fill(neck1_color);
-  triangle(17, 15, 40, 18, 19, 19); //neck
+  triangle(17, 15, 40, 18, 19, 19);
 
+  //neck-bottom
   fill(neck2_color);
-  triangle(7, 30, 17, 15, 19, 19); //neck
+  triangle(7, 30 * nose_value, 17, 15, 19, 19);
 
+  //nose-top
   fill(noseTop_color);
-  quad(0, 0, 0, 30, 7, 30, 7, sqrt(75)); //nose-top
+  quad(0, 0, 0, 30 * nose_value, 7, 30 * nose_value, 7, sqrt(75)); 
   
+  //nose
   fill(nose_color);
-  triangle(0, 30, 0, 35, 7, 30); //nose
+  triangle(0, 30 * nose_value, 0, 35 * nose_value, 7, 30 * nose_value); 
 
+  //eye
   fill(eye_color);
-  triangle(7, sqrt(75), 7, 12, 14, 5); //eye
+  triangle(7, sqrt(75) * eye_value, 7, 12, 14, 5); 
   pop();
 
-  push();
-  translate(canvasWidth/6, canvasHeight/2);
-  scale(-3, 3);
-  //construct left face
-  fill(headTop_color);
-  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300)); //head-top
 
-  fill(headQuad_color);
-  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75)); //head-quad
-
-  fill(outEar_color);
-  triangle(10, -sqrt(300), 20, -3, 25, -35); //outside-ear
-
-  fill(inEar_color);
-  triangle(10, -sqrt(300), 20, -3, 20, -25); //inside-ear
-
-  fill(faceTop_color);
-  triangle(20, -3, 7, sqrt(75), 17, 15); //face-top
-
-  fill(faceBot_color);
-  triangle(7, sqrt(75), 7, 30, 17, 15); //face-bottom
-
-  fill(faceSide_color);
-  triangle(20, -3, 17, 15, 40, 18); //face-side
-
-  fill(neck1_color);
-  triangle(17, 15, 40, 18, 19, 19); //neck
-
-  fill(neck2_color);
-  triangle(7, 30, 17, 15, 19, 19); //neck
-
-  fill(noseTop_color);
-  quad(0, 0, 0, 30, 7, 30, 7, sqrt(75)); //nose-top
+  //left face
+  push();  
+  translate(x, y);
+  scale(-size, size);
   
-  fill(nose_color);
-  triangle(0, 30, 0, 35, 7, 30); //nose
+  //head-top
+  fill(headTop_color);
+  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300));
 
+  //head-quad
+  fill(headQuad_color);
+  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75));
+
+  //outside-ear
+  fill(outEar_color);
+  triangle(10, -sqrt(300), 20, -3, 25 * ear_value, -35);
+
+  //inside-ear
+  fill(inEar_color);
+  triangle(10, -sqrt(300), 20, -3, 20 * ear_value, -25);
+
+  //face-top
+  fill(faceTop_color);
+  triangle(20, -3, 7, sqrt(75), 17, 15);
+
+  //face-bottom
+  fill(faceBot_color);
+  triangle(7, sqrt(75), 7, 30 * nose_value, 17, 15);
+
+  //face-side
+  fill(faceSide_color);
+  triangle(20, -3, 17, 15, 40, 18);
+
+  //neck-top
+  fill(neck1_color);
+  triangle(17, 15, 40, 18, 19, 19);
+
+  //neck-bottom
+  fill(neck2_color);
+  triangle(7, 30 * nose_value, 17, 15, 19, 19);
+
+  //nose-top
+  fill(noseTop_color);
+  quad(0, 0, 0, 30 * nose_value, 7, 30 * nose_value, 7, sqrt(75)); 
+  
+  //nose
+  fill(nose_color);
+  triangle(0, 30 * nose_value, 0, 35 * nose_value, 7, 30 * nose_value); 
+
+  //eye
   fill(eye_color);
-  triangle(7, sqrt(75), 7, 12, 14, 5); //eye
+  triangle(7, sqrt(75) * eye_value, 7, 12, 14, 5); 
   pop();
+}
+
+/* function draw () {
 
   //draw mask
   // background color
@@ -286,12 +331,77 @@ function draw () {
   ellipse(0, -25, 10);
   pop();
   
+} */
 
-  //another face
-  // background color
-  fill(bg3_color);
-  rect(2*canvasWidth/3, 0, canvasWidth/3, canvasHeight);
-}
+ function draw () {
+  noStroke();
+
+  var mode = faceSelector.value();
+
+  if (mode != 'all') {
+    if (mode == '1') {
+      background(bg_color1);
+    }
+    else if (mode == '2') {
+      background(bg_color2);
+    }
+    else if (mode == '3') {
+      background(bg_color3);
+    }
+  }
+
+  var s1 = slider1.value();
+  var s2 = slider2.value();
+  var s3 = slider3.value();
+  var s4 = slider4.value();
+  var s5 = slider5.value();
+
+  // use same size / y_pos for all faces
+  var face_w = canvasWidth / 4;
+  var face_h = face_w;
+  var face_y = height / 2;
+  var face_x = width / 2;
+  var size = 3;
+
+  if (mode == '1' || mode == 'all') {
+    // draw 1st face
+    fill(bg_color1);
+    rect(0, 0, width/3, height);
+    var ear_value = map(s1, 0, 100, 0.7, 1.5);
+    var eye_value = map(s2, 0, 100, 1, 1.8);
+    var nose_value = map(s3, 0, 100, 0.8, 1.1);
+    if (mode == 'all') {
+      face_x = width / 6;
+    }
+    drawFace1(face_x, face_y, size, ear_value, eye_value, nose_value);    
+  }
+
+/*   if (mode == '2' || mode == 'all') {
+    // draw 2nd face
+    fill(bg_color2);
+    rect(width/3, 0, 2*width/3, height);
+    var hair_value = map(s1, 0, 100, 2, 90);
+    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
+    var eye_value = map(s2, 0, 100, -15, 15);
+    if (mode == 'all') {
+      face_x = 3 * width / 6;
+    }
+    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+  }
+
+  if (mode == '3' || mode == 'all') {
+    // draw 3nd face
+    fill(bg_color3);
+    rect(2*width/3, 0, width, height);
+    var width_value = map(s1, 0, 100, 0, 100);
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    if (mode == 'all') {
+      face_x = 5 * width / 6;
+    }
+    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+  } */
+} 
 
 function keyTyped() {
   if (key == '!') {
