@@ -58,6 +58,10 @@ var alienFaceCol = [104, 194, 63];
 var alienFaceCol2 = [26, 229, 225];
 var alienFaceCol3 = [166, 113, 229];
 var alienEyeCol = [0, 0, 0];
+var alienStrokeCol = [100, 100, 100];
+var alienEyeCol1 = [232, 232, 237];
+var alienEyeCol2 = [51, 110, 232];
+
 // draws the first face 
 function drawPotter(x, y, w, h, scar_value, glasses_value, scarOff_value) {
   push();
@@ -291,7 +295,7 @@ function drawCircleFace(x, y, w, h, face_value, eye_value, head_value) {
 
 }
 
-function drawAlien(x, y, w, h, head_colour) {
+function drawAlien(x, y, w, h, head_colour, antenna_value, eye_value) {
   push();
   noStroke();
   rectMode(CENTER);
@@ -305,28 +309,37 @@ function drawAlien(x, y, w, h, head_colour) {
     extent = w / 2;
   }
   var scale = extent / 220.0;
+  stroke(alienFaceCol);
   fill(alienFaceCol);
   ellipse(0, 0, 170 * scale, 325 * scale);
   ellipse(0, -20, 250 * scale, 325 * scale);
 
   // face
-  if (head_colour <= 0) {
+  if (head_colour == 0) {
   fill(alienFaceCol2);
+  stroke(alienFaceCol2);
   ellipse(0, 0, 170 * scale, 325 * scale);
   ellipse(0, -20, 250 * scale, 325 * scale);
   }
 
-  if (head_colour === 1) {
+ if (head_colour == 1) {
   fill(alienFaceCol);
+  stroke(alienFaceCol);
   ellipse(0, 0, 170 * scale, 325 * scale);
   ellipse(0, -20, 250 * scale, 325 * scale);
   }
 
-  if (head_colour >= 2) {
+  if (head_colour == 2) {
   fill(alienFaceCol3);
+  stroke(alienFaceCol3);
   ellipse(0, 0, 170 * scale, 325 * scale);
   ellipse(0, -20, 250 * scale, 325 * scale);
   }
+
+  // antenna
+  strokeWeight(4);
+  line(0, -109, 0, -125 * antenna_value);
+  strokeWeight(2);
 
   // eyes
   fill(alienEyeCol);
@@ -342,6 +355,39 @@ function drawAlien(x, y, w, h, head_colour) {
   ellipse(-30, -10, 40, 40);
   ellipse(-30, -15, 40, 40);
   pop();
+
+  if (eye_value == 0){
+  fill(alienEyeCol1);
+  	  // right
+  push();
+  rotate(40);
+  ellipse(30, -10, 40, 40);
+  ellipse(30, -15, 40, 40);
+  pop();
+  // left
+  push();
+  rotate(-40);
+  ellipse(-30, -10, 40, 40);
+  ellipse(-30, -15, 40, 40);
+  pop();
+  }
+
+  if (eye_value == 2){
+  fill(alienEyeCol2);
+  	  // right
+  push();
+  rotate(40);
+  ellipse(30, -10, 40, 40);
+  ellipse(30, -15, 40, 40);
+  pop();
+  // left
+  push();
+  rotate(-40);
+  ellipse(-30, -10, 40, 40);
+  ellipse(-30, -15, 40, 40);
+  pop();
+  }
+
 
 
 
@@ -408,11 +454,13 @@ function draw () {
     // draw alien
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
-    var head_colour = map(s1, 0, 100, 0, 2);
+    var head_colour = Math.floor(map(s1, 0, 100, 0, 2));
+    var antenna_value = map(s2, 0, 600, 1, 2);
+    var eye_value = Math.floor(map(s3, 0, 100, 0, 2));
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawAlien(face_x, face_y, face_w, face_h, head_colour);
+    drawAlien(face_x, face_y, face_w, face_h, head_colour, antenna_value, eye_value);
   }
 }
 
