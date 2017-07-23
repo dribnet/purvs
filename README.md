@@ -1,13 +1,9 @@
 ## PS1 MDDN 342 2017
 
-### Cartoon Bears
+### Robots
 
-For my first parameterized face I have decided to use cartoon bears.  I have used four cartoon bears as the basis for my design:
+For my second parameterized face I have decided to create robot faces. Initially I didn't plan to use an existing character as inspiration for my designs.  However I did do an image search for "cartoon robots" to get the creative juices flowing. 
 
-1. Kumamon: https://en.wikipedia.org/wiki/Kumamon
-2. Rilakkuma: https://en.wikipedia.org/wiki/Rilakkuma
-3. Yogi Bear: https://en.wikipedia.org/wiki/Yogi_Bear
-4. Winnie the Pooh: https://en.wikipedia.org/wiki/Winnie-the-Pooh
+I did use parts of my code from the bender portraits I created in part one of the problem set. As a result, benders influence is definitely present in the design.  Initially I also used the eyes from Doraemon however I felt they didn't look robotic enough.
 
-My idea was the set up the controls in such a way that it would be possible to create a representation of each of the above bears. This has worked quite well for the first two bears as they are made from basic shapes.  However Yogi Bear and Winnie the Pooh aren't as simple so they are not as recognizable.  The idea still works very well though as there are many possible bear faces that can be created.
- 
+I think this face is quite effective in providing numerous different possibilities.
