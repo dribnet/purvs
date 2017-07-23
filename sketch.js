@@ -34,13 +34,16 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
-var bg_color3 = [70, 70, 120];
+var bg_color1 = [28, 58, 100];
+var bg_color2 = [102, 58, 0];
+var bg_color2 = 0;
+var bg_color3 = [28, 58, 100];
 
 var fg_color1 = [151, 102, 52];
 var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
+
+var fg_color3 = [0, 131, 178];
+var fg_color3_spots = [255, 150];
 
 var stroke_color1 = [95, 52, 8];
 var stroke_color2 = [210, 219, 189];
@@ -75,6 +78,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 
   if (eye_value >= 2) {
     fill(bg_color1);
+  
     ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
     ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
@@ -89,11 +93,13 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
+function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, roundness, size, size2, spotsAmount, tiltValue, grayness) {
   rectMode(CENTER);
+        noStroke();
   push();
   translate(x, y);
-
+    push();
+    rotate(tiltValue);
   var extent = 0;
   if(h < w) {
     extent = h / 2;
@@ -103,54 +109,45 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color3);
+    var fg_color3 = [0, 131, 178];
   fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
+    
+    //bigRect
+  rect(0, 0, size * scale, size * scale, roundness);
+    fill(200, grayness);
+    rect(0, 0, size * scale, size * scale, roundness);
+    //spots
+    fill(fg_color3_spots);
+     if (spotsAmount > 0) {
+  rect(45,-50,size2/6* scale, size2/6 * scale, roundness/3);       }
+      if (spotsAmount > 1) {
+    rect(-40,30,size2/5* scale, size2/5 * scale, roundness/3);
+         }
+      if (spotsAmount > 2) {
+    rect(46,46,size2/4* scale, size2/4 * scale, roundness/2);
+          }
+     if (spotsAmount > 3) {
+    rect(-30,-54,size2/4* scale, size2/4 * scale, roundness/2);
+          }
+     if (spotsAmount > 4) {
+rect(5,5,size2/7* scale, size2/7 * scale, roundness/2);
+          }
+  pop();
+  stroke(stroke_color3);
+    //eyes
+    fill(0);
+    ellipse(-55 * scale, 30 * scale, 45 * scale, 45 * scale);
+    ellipse( 55 * scale, 30 * scale, 45 * scale, 45 * scale);
+    
+    //mouth
+    ellipse( 0 * scale, 70 * scale, 20 * scale, 15 * scale);
+    
+    //white of eyes
+    fill(255);
+    translate(5, -5);
+    ellipse(-55 * scale, 30 * scale, 15 * scale, 15 * scale);
+    ellipse( 55 * scale, 30 * scale, 15 * scale, 15 * scale);
   resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  }
   rectMode(CORNER);
   resetMatrix();
 }
@@ -248,10 +245,16 @@ function draw () {
     var hair_value = map(s1, 0, 100, 2, 90);
     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
     var eye_value = map(s2, 0, 100, -15, 15);
+    var roundness = map(s1, 0, 100, 0, 120);
+    var size = map(s1, 0, 100, 270, 330); 
+    var size2 = 270;
+    var spotsAmount = Math.floor(map(s2, 0, 100, 0, 5));
+      var tiltValue = map(s3, 0, 100, 0, 360);
+      var grayness = map(s4, 0, 100, 0, 200);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, roundness, size, size2, spotsAmount, tiltValue, grayness);
   }
 
   if (mode == '3' || mode == 'all') {
