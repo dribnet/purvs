@@ -3,21 +3,20 @@ function RagDoll(w, h, sliders){
 	//the dimensions of the graphics object to be drawn
 	this.w = w;
 	this.h = h;
-//the slider object 
-this.sliders = sliders;
-//the graphics object this image will be drawn to
-this.canvas = createGraphics(w,h);
-//variables for storing the calculated values from a slider
-this.scaler = 1;
+	//the slider object 
+	this.sliders = sliders;
+	//the graphics object this image will be drawn to
+	this.canvas = createGraphics(w,h);
+	//variables for storing the calculated values from a slider
+	this.scaler = 1;
 
 //returns the graphics object with the new face drawn on it
 this.drawFace = function(){
-	
+	//basic canvas setup
 	this.canvas.clear();
-	//this.canvas.background(0,0,0);
 	this.canvas.ellipseMode(CENTER);
 	this.canvas.push();
-	this.canvas.translate(w/4,h/4);
+	this.canvas.translate(w/4,h/5);
 	//eyes and face
 	this.drawEyes();
 	//mouth

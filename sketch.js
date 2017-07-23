@@ -4,6 +4,7 @@ var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
 var slids;
 var dolly;
+var cartoon;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -18,6 +19,7 @@ function setup () {
   slider5 = createSlider(0, 100, 50);
   slids = new SliderValues(slider1,slider2,slider3,slider4,slider5);
   dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
+  cartoon = new CartoonFace(canvasWidth/3,canvasHeight,slids);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -39,7 +41,7 @@ function setup () {
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
+var bg_color2 = [109, 101, 148];
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [151, 102, 52];
@@ -69,67 +71,14 @@ translate(x, y);
 function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 	rectMode(CENTER);
 	push();
+	var toon = cartoon.drawFace();
 	translate(x, y);
-
-	var extent = 0;
-	if(h < w) {
-		extent = h / 2;
-	}
-	else {
-		extent = w / 2;
-	}
-	var scale = extent / 220.0;
-
-	stroke(stroke_color3);
-	fill(fg_color3);
-	ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-  	fill(bg_color3);
-  	ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  	ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-  	fill(bg_color3);
-  	ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-  	ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-  	fill(fg_color3);
-  	ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  	ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-  [346,138],
-  [391,120],
-  [391,67],
-  [439,76],
-  [463,42],
-  [487,18],
-  [481,101],
-  [520,102],
-  [520,78],
-  [533,54],
-  [560,108],
-  [580,76],
-  [596,124],
-  [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-  	ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  }
-  rectMode(CORNER);
-  resetMatrix();
+	//draws the graphics object onto the main canvas in the desired position
+ image(toon,w ,h);
+ image(toon,0-w/2,0-h/2,w,h);
+ pop();
+	rectMode(CORNER);
+	resetMatrix();
 }
 
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {

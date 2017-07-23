@@ -1,6 +1,5 @@
 ## PS1 MDDN 342 2017
 
 This README explains the three different paramaterized faces for part2. 
-I have finished the doll hair and paramatised the hairbows
-I have decided to start work on the cartoon style face now. It will be somewhat inspired by the lecture example of hand-drawn styles of cartoon, although I do not want a hand drawn look I intend to focus on line shape rather than colour. And a cartoon style where features easily replaced. 
-I realised that, to get a good range of customisation, I would need to plan my slider use very carefully. At this stage I have planned what I am going to do within the comments of my new object CartoonFace
+I have started work on the cartoon face. At this stage I am not sure how I will keep the lines within the face shape or from overlapping, or if I will even choose to do that, because it might actually work really well and create a nice doodle-like style.
+At this point I have borrowed a lot of my setup code from the rag doll object and tweaked it a little. I have an example working of how the sliders and functions will work which is why I am uploading
