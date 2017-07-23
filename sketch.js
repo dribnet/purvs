@@ -1,6 +1,6 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
+var slider1, slider2, slider3;
 var faceSelector;
 
 function setup () {
@@ -12,14 +12,10 @@ function setup () {
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(0, 100, 50);
   slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
 
   faceSelector = createSelect();
   faceSelector.option('1');
@@ -387,10 +383,6 @@ function drawAlien(x, y, w, h, head_colour, antenna_value, eye_value) {
   ellipse(-30, -15, 40, 40);
   pop();
   }
-
-
-
-
   pop();
 }
 
@@ -414,8 +406,6 @@ function draw () {
   var s1 = slider1.value();
   var s2 = slider2.value();
   var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
