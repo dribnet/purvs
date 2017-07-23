@@ -43,6 +43,7 @@ var bg_color3 = [70, 70, 120];
 var potterFaceCol = [237, 203, 163];
 var glassesStroke = [0, 0, 0];
 var scarColor = [235, 153, 237];
+var potterHairCol = [76, 58, 24];
 
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
@@ -71,9 +72,28 @@ function drawPotter(x, y, w, h, scar_value, glasses_value) {
   }
   var scale = extent / 220.0;
 
+  // face
   fill(potterFaceCol);
-  ellipse(0, 0, 280 * scale, 375 * scale);
+  ellipse(0, 0, 280 * scale, 325 * scale);
 
+  // hair
+  fill(potterHairCol);
+  ellipse(0, -15, 280 * scale, 280 * scale);
+
+  fill(potterFaceCol);
+  beginShape();
+  vertex(-78, -15);
+  vertex(-10, -70);
+  vertex(78, -15);
+  vertex(76, 5);
+  vertex(70, 25);
+  vertex(15, 75);
+  vertex(-15, 75);
+  vertex(-25, 75);
+  vertex(-50, 55);
+  vertex(-55, 55);
+  vertex(-75, 15);
+  endShape();
 
   // glasses
   stroke(glassesStroke);
@@ -85,9 +105,11 @@ function drawPotter(x, y, w, h, scar_value, glasses_value) {
   //line(-43, -25, -72, -35)
   //line(44, -25, 72, -35)
 
-  //scar
+  // scar
   rotate(scar_value);
   stroke(scarColor);
+  strokeWeight(3);
+  noFill();
   beginShape();
   vertex(-15, -60);
   vertex(-5, -50);
