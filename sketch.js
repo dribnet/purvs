@@ -12,6 +12,11 @@ var fg_color1 = [151, 102, 52];
 
 var stroke_color1 = [95, 52, 8];
 
+var randomHue = [];
+var randomSaturation = [];
+var randomBrightness = [];
+var randomLength = [];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -41,8 +46,16 @@ function setup () {
   faceSelector.option('2');
   faceSelector.option('3');
   faceSelector.option('all')
-  faceSelector.value('2');
+  faceSelector.value('1');
   faceSelector.parent('selector1Container');
+  
+  //setup arrays required for random saturation and brightness values used in the monster face
+  for(var i=0; i<1440; i++){
+	randomHue[i] = random(0, 360);
+	randomSaturation[i] = random(25, 75);
+	randomBrightness[i] = random(50, 100);
+	randomLength[i] = random(0, 250);
+ }
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -86,6 +99,41 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   // mouth
   fill(bg_color1);
   ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  pop();
+}
+
+function drawMonsterFace(x, y, shape, hue, eye_value, mouth_value, scale) {
+  push();
+  translate(x-107, y);
+  colorMode(HSB);
+  
+  for(var i=0; i<1440; i++){
+	//create a random fill colour
+	if(i % 5 == 0){
+		fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
+	}
+	else {
+		fill(hue, randomSaturation[i], randomBrightness[i]);
+	}
+	push();
+	translate(112, 10);
+	var degree = map(i, 0, 720, 0, 360);
+	rotate(i);
+	if(shape == 1){
+		bezier(40, 40, 0, 0, randomLength[i] * scale, 0, 50, 50);
+	}
+	else if(shape == 2){
+		ellipse(randomLength[i] * scale, 0, 20, 20);
+	}
+	else if(shape == 3){
+		rect(0, 0, randomLength[i] * scale, 2);
+	}
+	else if(shape == 4){
+		triangle(randomLength[i] * scale - 10, 15, randomLength[i] * scale, 0, randomLength[i] * scale + 10, 15);
+	}
+	pop();	
+ }
+  
   pop();
 }
 
@@ -360,10 +408,11 @@ function draw () {
     if (mode == 'all') {
       face_x = width / 6;
     }
-    var tilt_value = map(s1, 0, 100, -90, 90);
+    var shape = s1;
+	var hue = map(s2, 0, 100, 350, 0);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);
+    drawMonsterFace(face_x, face_y, shape, hue, eye_value, mouth_value, scale);
   }
 
   if (mode == '2' || mode == 'all') {
