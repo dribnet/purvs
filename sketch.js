@@ -27,10 +27,10 @@ function setup () {
   radio.parent('radio1Container');
 
   // create sliders
-  slider1 = createSlider(0, 100, 0);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 60);
-  slider4 = createSlider(0, 100, 0);
+  slider1 = createSlider(0, 100, 35);
+  slider2 = createSlider(0, 100, 0);
+  slider3 = createSlider(0, 100, 80);
+  slider4 = createSlider(0, 100, 20);
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
@@ -154,28 +154,40 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
 	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
   }
  
-  //eyes holder
-  print(eye_distance);
-  rect(0, -40, 120 + (eye_distance*2), 65, 45, 45, 45, 45);
-  fill(0);
-  rect(0, -40, 110 + (eye_distance*2), 55, 45, 45, 45, 45);
   
+  
+  
+  //eyes 
+  var i=40;
+  var fillObj = {
+	40: [0, 0, 100],
+	16: [0, 0, 0],
+	8: [hue, 50, 90]
+  }
+  var xPos=(25 + eye_distance), yPos=-40;
+  //eyes holder
+  rect(0, yPos, 110 + (eye_distance*2), 60, 45, 45, 45, 45);
+  fill(0);
+  rect(0, yPos, 100 + (eye_distance*2), 50, 45, 45, 45, 45);
   stroke(0);
-  //left eye
-  fill(0, 0, 100);
-  ellipse(-(25 + eye_distance), -40, 50, 50);
-  fill(0);
-  ellipse(-(25 + eye_distance), -40, 16, 16);
-  fill(hue, 50, 90);
-  rect(-(25 + eye_distance), -40, 8, 8);
-
-  //right eye
-  fill(0, 0, 100);
-  ellipse(25 + eye_distance, -40, 50, 50);
-  fill(0);
-  ellipse(25 + eye_distance, -40, 16, 16);
-  fill(hue, 50, 90);
-  rect(25 + eye_distance, -40, 8, 8);
+  
+  while(i>=8){
+	if(i == 40 || i == 16){
+		fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
+		//left eye
+		ellipse(-xPos, yPos, i, i);
+		//right_eye
+		ellipse(xPos, yPos, i, i);
+	}
+	if(i == 8){
+		fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
+		//left eye
+		rect(-xPos, yPos, i, i);
+		//right_eye
+		rect(xPos, yPos, i, i);
+	}
+	i=i-8;
+  }
 
   // mouth
   noFill();
