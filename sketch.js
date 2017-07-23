@@ -36,7 +36,7 @@ function setup () {
 // global variables for colors
 var bg_color1 = [214, 176, 0];
 var bg_color2 = [45, 86, 145];
-var bg_color3 = [0, 0, 0];
+var bg_color3 = [196, 99, 34];
 
 
 //Potter colours
@@ -53,16 +53,11 @@ var potterHairCol = [76, 58, 24];
 //Circle face colours
 var cricleFaceCol = [255, 224, 204];
 
-var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
-
-var stroke_color2 = [210, 219, 189];
-var stroke_color3 = [50, 50, 50];
-
-var colorHair = [20, 20, 0];
-
-
-
+//Alien colours
+var alienFaceCol = [104, 194, 63];
+var alienFaceCol2 = [26, 229, 225];
+var alienFaceCol3 = [166, 113, 229];
+var alienEyeCol = [0, 0, 0];
 // draws the first face 
 function drawPotter(x, y, w, h, scar_value, glasses_value, scarOff_value) {
   push();
@@ -190,7 +185,6 @@ function drawPotter(x, y, w, h, scar_value, glasses_value, scarOff_value) {
 pop();
 }
 
-
 function drawCircleFace(x, y, w, h, face_value, eye_value, head_value) {
   rectMode(CENTER);
   push();
@@ -297,16 +291,11 @@ function drawCircleFace(x, y, w, h, face_value, eye_value, head_value) {
 
 }
 
-
-
-
-
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawAlien(x, y, w, h, head_colour) {
   push();
   noStroke();
   rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
 
   var extent = 0;
   if(h < w) {
@@ -316,40 +305,48 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
     extent = w / 2;
   }
   var scale = extent / 220.0;
+  fill(alienFaceCol);
+  ellipse(0, 0, 170 * scale, 325 * scale);
+  ellipse(0, -20, 250 * scale, 325 * scale);
 
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+  // face
+  if (head_colour <= 0) {
+  fill(alienFaceCol2);
+  ellipse(0, 0, 170 * scale, 325 * scale);
+  ellipse(0, -20, 250 * scale, 325 * scale);
+  }
+
+  if (head_colour === 1) {
+  fill(alienFaceCol);
+  ellipse(0, 0, 170 * scale, 325 * scale);
+  ellipse(0, -20, 250 * scale, 325 * scale);
+  }
+
+  if (head_colour >= 2) {
+  fill(alienFaceCol3);
+  ellipse(0, 0, 170 * scale, 325 * scale);
+  ellipse(0, -20, 250 * scale, 325 * scale);
+  }
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  fill(alienEyeCol);
+  // right
+  push();
+  rotate(40);
+  ellipse(30, -10, 40, 40);
+  ellipse(30, -15, 40, 40);
+  pop();
+  // left
+  push();
+  rotate(-40);
+  ellipse(-30, -10, 40, 40);
+  ellipse(-30, -15, 40, 40);
+  pop();
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
 
-  // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
   pop();
 }
-
-
-
-
-
 
 function draw () {
   noStroke();
@@ -408,16 +405,14 @@ function draw () {
   }
 
   if (mode == '3' || mode == 'all') {
-    // draw 3nd face
+    // draw alien
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var head_colour = map(s1, 0, 100, 0, 2);
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawAlien(face_x, face_y, face_w, face_h, head_colour);
   }
 }
 
