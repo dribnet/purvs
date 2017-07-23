@@ -98,18 +98,43 @@ this.drawMouth = function(){
 	this.smileH = this.sliders.scaleSliders(5,0,30,true);
 	this.stitches = this.sliders.scaleSliders(3,1,10,true);
 	//adds the value of slider 5 to mouth width as well
-	//if the mouth is smiling make it wider
+	//if the mouth has more than too stitches and is smiling make it wider
 	if(this.stitches>2){
 		this.mouthW = this.sliders.scaleSliders(5,this.mouthW,this.mouthW+40,true);
 	}
 	this.canvas.translate(0,this.mouthY);
-	this.drawSmile(this.mouthW,this.smileH, this.stitches);
+	this.mouthType = this.sliders.scaleSliders(1,0,100,true);
+	//draw a normal mouth
+	if(this.mouthType<52){
+		this.normalMouth();
+	}
+		//draw creepy mouth
+		else{
+			this.drawSmile(this.mouthW,this.smileH, this.stitches);
+		}
 	this.canvas.pop();
 }
 
+//draws the normal mouth
+this.normalMouth = function(){
+	this.canvas.push();
+	this.canvas.noFill();
+	this.canvas.strokeWeight(2);
 
+	this.mouthY = this.sliders.scaleSliders(3,10,15,true);
+	this.mouthW = this.sliders.scaleSliders(3,35,40,true);
+	this.smileH = this.sliders.scaleSliders(5,0,10,true);
+	//smile curve
+	this.smileC = this.sliders.scaleSliders(5,0,20,true);
+	//make the mouth wider if it is smiling
+this.mouthY = this.sliders.scaleSliders(5,this.mouthY,this.mouthY+15,true);
+	//this.canvas.bezier(-20+this.smileC-this.mouthX,4,-this.mouthX,0,this.mouthX,0, (20+this.mouthX)-this.smileC,0);
+this.canvas.bezier(-this.mouthY,-this.smileC,-(this.mouthY-10),this.smileH,this.mouthY-10,this.smileH,this.mouthY,-this.smileC);
 
-//draws the stitches of  the mouth.
+this.canvas.pop();
+}
+
+//draws the stitches of  the creepy mouth.
 //calculates the position of each stitch line based on 
 //the width of the mouth, the height distance between the corners and the center of the mouth, 
 //and the number of stitches

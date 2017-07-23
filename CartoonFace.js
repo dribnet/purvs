@@ -44,44 +44,55 @@ this.drawFace = function(){
 }
 
 this.drawWithWeight = function(){
-this.wNum = this.sliders.scaleSliders(1,1,4,true);
+this.wNum = this.sliders.scaleSliders(1,1,11,true);
 	if(this.wNum == 1){
-this.c.push();
-	this.c.strokeWeight(1);
-	this.head();
-	this.c.strokeWeight(3);
-	this.mouth();
-	this.c.strokeWeight(2);
-	this.nose();
-	this.c.pop();
+		this.weighting(1,3,2,1,5);
 
 }
 else if (this.wNum == 2){
-	this.c.push();
-	this.c.strokeWeight(4);
-	this.head();
-	this.c.strokeWeight(1);
-	this.mouth();
-	this.c.strokeWeight(2);
-	this.nose();
-	this.c.pop();
+	this.weighting(4,1,2,3,4);
 }
 else if (this.wNum == 3){
-	this.c.push();
-	this.c.strokeWeight(1);
-	this.head();
-	this.c.strokeWeight(3);
-	this.mouth();
-	this.c.strokeWeight(5);
-	this.nose();
-	this.c.pop();
+	this.weighting(1,3,5,2,4);
 }
 else if (this.wNum == 4){
+	this.weighting(15,1,4,6,4);
 	
 }
 else if (this.wNum == 5){
-	
+	this.weighting(1,6,1,1,2);
 }
+else if (this.wNum == 6){
+	this.weighting(1,3,3,3,2);
+}
+else if (this.wNum == 7){
+	this.weighting(20,1,7,1,2);
+}
+else if (this.wNum == 8){
+	this.weighting(3,4,2,1,2);
+}
+else if (this.wNum == 9){
+	this.weighting(7,3,1,3,5);
+}
+else if (this.wNum >=10){
+	this.weighting(2,8,5,8,2);
+}
+}
+
+//takes arguments for line weights 
+//draws the facial features at those weights
+this.weighting = function(b1,b2,b3,b4,b5){
+this.c.push();
+	this.c.strokeWeight(b1);
+	this.head();
+	this.c.strokeWeight(b2);
+	this.mouth();
+	this.c.strokeWeight(b3);
+	this.nose();
+	this.c.strokeWeight(b4);
+	this.eyes();
+	this.c.pop();
+
 }
 
 //translates the canvas based on slider 2
@@ -173,12 +184,39 @@ else if (this.nNum == 3){
 	this.pointyNose();
 }
 else if (this.nNum == 4){
-	
+	this.wigglyNose();
 }
 else if (this.nNum == 5){
-	
+	this.normalNose();
 }
 this.c.pop();
+}
+this.normalNose = function(){
+	this.c.beginShape();
+	this.nX = this.sliders.scaleSliders(2,0,4,true);
+	this.c.curveVertex(10,-15);
+	this.c.curveVertex(0,-10);
+	this.c.curveVertex(0,-5);
+	this.c.curveVertex(this.nX,0);
+	this.c.curveVertex(8,5);
+	this.c.curveVertex(8,10);
+
+	this.c.curveVertex(0,15);
+
+	this.c.curveVertex(-10,15);
+	this.c.endShape();
+}
+this.wigglyNose = function(){
+this.c.beginShape();
+	this.nX = this.sliders.scaleSliders(2,14,19,true);
+	this.c.curveVertex(-10,10);
+	this.c.curveVertex(0,5);
+	this.c.curveVertex(11,5);
+	this.c.curveVertex(this.nX,-6);
+	this.c.curveVertex(11,-10);
+	this.c.curveVertex(0,-5);
+	this.c.curveVertex(-10,-10);
+	this.c.endShape();
 }
 
 this.bulbNose = function(){
@@ -236,6 +274,79 @@ else if (this.hNum == 4){
 else if (this.hNum == 5){
 	//no head
 }
+this.c.pop();
+}
+
+
+
+
+this.eyes = function(){
+//works out which eyes to draw
+//this number is large so that each set of eyes can be drawn in combination with each different head, on the same slider
+this.mNum = this.sliders.scaleSliders(3,1,31,true);
+//the higher the eyes get, the closer together they get
+this.eyeY = this.sliders.scaleSliders(1,0,-30,false);
+this.eyeX = this.sliders.scaleSliders(1,40,15,false);
+
+
+this.c.push();
+
+//draws eyes depending on the number it has
+
+if(this.mNum == 1 || this.mNum == 7 || this.mNum == 13 ||this.mNum== 19 || this. mNum == 25){
+	//round eye with pupil
+this.c.ellipse(-this.eyeX,this.eyeY,15,15);
+this.c.fill(0);
+this.c.ellipse(2-this.eyeX,2+this.eyeY,6,6);
+this.c.noFill();
+this.c.ellipse(this.eyeX,this.eyeY,15,15);
+this.c.fill(0);
+this.c.ellipse(2+this.eyeX,2+this.eyeY,6,6);
+this.c.noFill();
+}
+else if (this.mNum == 2 || this.mNum == 8 || this.mNum == 14 ||this.mNum== 20 || this. mNum == 26){
+//round eye with pupil
+this.c.ellipse(-this.eyeX,this.eyeY,15,22);
+this.c.fill(0);
+this.c.ellipse(2-this.eyeX,2+this.eyeY,6,6);
+this.c.noFill();
+this.c.ellipse(this.eyeX,this.eyeY,15,22);
+this.c.fill(0);
+this.c.ellipse(2+this.eyeX,2+this.eyeY,6,6);
+this.c.noFill();
+
+}
+else if (this.mNum == 3 || this.mNum == 9 || this.mNum == 15 ||this.mNum== 21 || this. mNum == 27){
+	//draws arched eyes with lines under them
+	this.mX = this.sliders.scaleSliders(2,10,20,true);
+	//left eye line
+	this.c.line(-10-this.eyeX,this.eyeY+10,5-this.eyeX,this.eyeY+10);
+	//right eye line
+	this.c.line(-5+this.eyeX,this.eyeY+10,15+this.eyeX,this.eyeY+10);
+	//left eye curve
+	this.c.bezier(-this.eyeX-(this.eyeX/6), 10+this.eyeY, -this.eyeX, this.eyeY-10, 9-this.eyeX, this.eyeY-10, 9-this.eyeX-(this.eyeX/6),10+this.eyeY);
+	//right eye curve
+	this.c.bezier(6+this.eyeX-(this.eyeX/6), 10+this.eyeY, this.eyeX, this.eyeY-10, 9+this.eyeX, this.eyeY-10, 7+this.eyeX+(this.eyeX/6),10+this.eyeY);
+//this.c.bezier(-this.eyeX-(this.eyeX/6), 10+this.eyeY, -this.eyeX, this.eyeY-10, this.eyeX, this.eyeY-10, this.eyeX+(this.eyeX/6),10+this.eyeY);
+}
+
+else if (this.mNum == 4 || this.mNum == 10 || this.mNum == 16 ||this.mNum== 22 || this. mNum == 28){
+	//draws sleeping eyes
+	this.c.bezier(-this.eyeX-(this.eyeX/4), this.eyeY-5, -this.eyeX, this.eyeY+5, 9-this.eyeX, this.eyeY+5, 9-this.eyeX+(this.eyeX/4),this.eyeY-5);
+	this.c.bezier(this.eyeX-(this.eyeX/4), this.eyeY-5, this.eyeX, this.eyeY+5, 6+this.eyeX, this.eyeY+5, 6+this.eyeX+(this.eyeX/4),this.eyeY-5);	
+}
+else if (this.mNum == 5 || this.mNum == 11 || this.mNum == 17 ||this.mNum== 23 || this. mNum == 29){
+	//left eye
+	this.c.line(-5-this.eyeX,this.eyeY,5-this.eyeX,this.eyeY);
+	//right eye
+	this.c.line(this.eyeX-5,this.eyeY,this.eyeX+5,this.eyeY);
+}
+else if (this.mNum == 6 || this.mNum == 12 || this.mNum == 18 ||this.mNum== 24 || this. mNum > 29){
+	this.c.fill(0);
+	this.c.ellipse(this.eyeX,this.eyeY,13,13);
+	this.c.ellipse(-this.eyeX,this.eyeY,15,15);
+	this.c.noFill();
+	}
 this.c.pop();
 }
 
