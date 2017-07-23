@@ -60,7 +60,7 @@ var colorHair = [20, 20, 0];
 
 
 
-function drawMainFace(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monsterHeight){
+function drawM1(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monsterHeight){
 
   push();
 
@@ -68,10 +68,7 @@ function drawMainFace(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monst
 
   translate(mX,mY);
 
-  // global variables for colors
-  var bg_color1 = [242, 58, 107+blueColor];
-  var bg_color2 = [47, 59, 64+blueColor];
-  var bg_color3 = [70, 70, 120+blueColor];
+
 
   var faceColor = [243,100,180+blueColor];
   var white = [255,255,255];
@@ -102,17 +99,17 @@ endShape();
 var eyeSize = monsterWidth*0.066;
 //draw eyes
 //first 2
-drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize);
-drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize);
+drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize,white,lightGray);
+drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize,white,lightGray);
 //second 2
 if(eyeNum>=2){
-drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize);
-drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize);
+drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,white,lightGray);
+drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,white,lightGray);
 }
 //third 2
 if(eyeNum>=3){
-drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize);
-drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize);
+drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,lightGray);
+drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,lightGray);
 }
 
 
@@ -195,16 +192,149 @@ triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
 pop();
 }
 
+function drawM2(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,addColor,monsterHeight){
+
+  push();
 
 
-function drawEye(x,y,size){
+
+
+  var monsterWidth = monsterHeight*1.92;
+
+
+
+  translate(mX,mY);
+
+  var faceColor = [166,166+addColor,243];
+  var white = [255,255,255];
+  var blue = [97,97,235];
+  var noseColor = [133,133,238+addColor];
+  var mouthColor = [97,97,235+addColor];
+
+  //faceWidth = 5;
+
+rectMode(CORNER);
+  fill(white);
+  //rect(0,0,monsterWidth,monsterHeight);
+
+fill(faceColor);
+//face
+beginShape();
+//lefttop1
+vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.25-(faceHeight));
+//lefttop2
+vertex(monsterWidth*0.35-(faceWidth),monsterHeight*0.1-(faceHeight));
+//righttop1
+vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.1-(faceHeight));
+//righttop2
+vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.25-(faceHeight));
+//right
+vertex(monsterWidth*0.74+(faceWidth),monsterHeight*0.5+(faceHeight));
+//bottomright
+vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.9+(faceHeight));
+//bottomleft
+vertex(monsterWidth*0.35-(faceWidth),monsterHeight*0.9+(faceHeight));
+//left
+vertex(monsterWidth*0.26-(faceWidth),monsterHeight*0.5+(faceHeight));
+
+endShape();
+
+fill(white);
+//draw nose
+var noseX1 = monsterWidth*0.35-(faceWidth);
+var noseY1 = monsterHeight*0.9+(faceHeight);
+var noseX2 = monsterWidth*0.5;
+var noseY2 = monsterHeight*0.8+(faceHeight);
+var noseX3 = monsterWidth*0.65+(faceWidth);
+var noseY3 = monsterHeight*0.9+(faceHeight);
+
+triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
+
+
+
+var eyeSize = monsterWidth*0.075;
+//draw eyes
+//first 3
+drawEye(monsterWidth*0.5,monsterHeight*0.35-faceHeight,eyeSize,white,blue);
+drawEye(monsterWidth*0.35-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue);
+drawEye(monsterWidth*0.65+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue);
+//second 3
+if(eyeNum>=2){
+drawEye(monsterWidth*0.38-(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue);
+drawEye(monsterWidth*0.62+(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue);
+}
+//third 3
+if(eyeNum>=3){
+drawEye(monsterWidth*0.5,monsterHeight*0.6-faceHeight,eyeSize,white,blue);
+  drawEye(monsterWidth*0.5,monsterHeight*0.2-faceHeight,eyeSize,white,blue);
+}
+
+
+//horns right
+
+fill(blue);
+beginShape();
+//1
+vertex(monsterWidth*0.7+(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+//2
+vertex(monsterWidth*0.9+(faceWidth)+hornSize,monsterHeight*0.15-(faceHeight));
+//3
+vertex(monsterWidth*1+(faceWidth)+hornSize,monsterHeight*0.35-(faceHeight));
+//4
+vertex(monsterWidth*0.95+(faceWidth)+hornSize,monsterHeight*0.5-(faceHeight));
+//5
+vertex(monsterWidth*1.05+(faceWidth)+hornSize,monsterHeight*0.38-(faceHeight));
+//6
+vertex(monsterWidth*1.08+(faceWidth)+hornSize,monsterHeight*0.18-(faceHeight));
+//7
+vertex(monsterWidth*0.92+(faceWidth)+hornSize,monsterHeight*-0.1-(faceHeight));
+//8
+vertex(monsterWidth*0.6+(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
+endShape();
+
+
+//horns left
+
+fill(blue);
+beginShape();
+//1
+vertex(monsterWidth*0.3-(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+//2
+vertex(monsterWidth*0.1-(faceWidth)-hornSize,monsterHeight*0.15-(faceHeight));
+//3
+vertex(monsterWidth*0-(faceWidth)-hornSize,monsterHeight*0.35-(faceHeight));
+//4
+vertex(monsterWidth*0.15-(faceWidth)-hornSize,monsterHeight*0.5-(faceHeight));
+//5
+vertex(monsterWidth*0-(monsterWidth*0.05)-(faceWidth)-hornSize,monsterHeight*0.38-(faceHeight));
+//6
+vertex(monsterWidth*0-(monsterWidth*0.08)-(faceWidth)-hornSize,monsterHeight*0.18-(faceHeight));
+//7
+vertex(monsterWidth*0.08-(faceWidth)-hornSize,monsterHeight*-0.1-(faceHeight));
+//8
+vertex(monsterWidth*0.4-(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
+endShape();
+
+
+
+
+
+pop();
+
+}
+
+
+
+
+
+function drawEye(x,y,size,color1,color2){
 
   mouseXPos = map(mouseX,0,width,-size/7,size/7);
   mouseYPos = map(mouseY,0,height,-size/7,size/7);
 
-fill(white);
+fill(color1);
 ellipse(x,y,size,size);
-fill(lightGray);
+fill(color2);
 ellipse(x+mouseXPos,y+mouseYPos,size*0.6,size*0.6);
 
 }
@@ -237,7 +367,16 @@ function draw () {
     var hornSize = map(s4,0,100,-(m1Height/10),(m1Height/10));
     var blueColor = map(s5,0,100,-50,0);
 
-    drawMainFace(m1X,m1Y,faceWidth,faceHeight,eye_value,hornSize,blueColor,m1Height);
+    //var m2X = -(width/10);
+    var m2X = width*0.06;
+    var m2Y = height/5;
+    var m2Height = 250;
+
+
+      drawM2(m2X,m2Y,faceWidth,faceHeight,eye_value,hornSize,blueColor,m2Height);
+    drawM1(m1X,m1Y,faceWidth,faceHeight,eye_value,hornSize,blueColor,m1Height);
+
+
     //drawMainFace(0,m1Y,faceWidth,faceHeight,eye_value,hornSize,blueColor,m1Height);
     //drawMainFace(width/2,m1Y,faceWidth,faceHeight,eye_value,hornSize,blueColor,m1Height);
 
