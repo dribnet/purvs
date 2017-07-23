@@ -109,7 +109,11 @@ this.drawMouth = function(){
 }
 
 
-//draws a mouth at the of the required width and smile, at 0,0
+
+//draws the stitches of  the mouth.
+//calculates the position of each stitch line based on 
+//the width of the mouth, the height distance between the corners and the center of the mouth, 
+//and the number of stitches
 this.drawSmile = function(mW,mH, stitch){
 	if(this.stitch == 1){this.mH = 0;}
 	else{this.mH = mH;}
@@ -159,9 +163,7 @@ if (this.c<this.stitch/2){
 }
 }
 
-
 //draws a white x with the required dimensions at the current 0,0 point of the canvas
-
 this.drawX = function (w,h){
 	this.xX = w/2;
 	this.xY = h/2;
@@ -175,8 +177,9 @@ this.drawX = function (w,h){
 }
 
 this.drawHair = function(){
-	this.bowWidth =25;
-	this.bowHeight = 15;
+	//maps the dimensions of the bows to slider 2
+	this.bowWidth =this.sliders.scaleSliders(2,18,30,true);
+	this.bowHeight = this.sliders.scaleSliders(2,18,22,true);
 	this.canvas.fill(44);
 	//left top hair
 	this.canvas.push();
@@ -192,26 +195,41 @@ this.drawHair = function(){
 	this.canvas.ellipse(0,0,87,35);
 	this.canvas.pop();
 
-	//draw the leftside bow
+	
+
+	//draw the left side ponytail
+	this.leftPony();
+	//draw the right side ponytail
+	this.rightPony();
+
+	//draw the left side bow
 	this.canvas.push();
 	this.canvas.translate(-w/5.8,-w/80);
 	this.canvas.fill(255,0,0);
 	this.bow(this.bowWidth,this.bowHeight);
 	this.canvas.pop();
 
-	//draw the left side ponytail
+	//draw the right side bow
+	this.canvas.push();
+	this.canvas.translate(w/5.8,-w/80);
+	this.canvas.rotate(16);
+	this.canvas.fill(255,0,0);
+	this.bow(this.bowWidth,this.bowHeight);
+	this.canvas.pop();
+}
+
+//draw the left side ponytail
+this.leftPony = function(){
 	this.canvas.push();
 	this.canvas.translate(-w/5.8,-w/80);
 	this.canvas.beginShape();
 	this.canvas.curveVertex(5,-10);
 	this.canvas.curveVertex(-3,0);
-	this.canvas.curveVertex(-10,15);
-	this.canvas.curveVertex(-10,25);
-	this.canvas.curveVertex(-5,40);
+	this.canvas.curveVertex(-12,10);
+	this.canvas.curveVertex(-15,30);
+	this.canvas.curveVertex(-10,40);
 	this.canvas.curveVertex(0,60);
-	this.canvas.curveVertex(-5,80);
-	//this.canvas.curveVertex(-11,85);
-	this.canvas.curveVertex(-5,95);
+	this.canvas.curveVertex(-3,80);
 	this.canvas.curveVertex(5,100);
 	this.canvas.curveVertex(8,105);
 	this.canvas.curveVertex(0,112);
@@ -230,35 +248,42 @@ this.drawHair = function(){
 
 
 	//the curvy strand that starts at the right at the top
-
-	this.canvas.noFill();
-	this.canvas.strokeWeight(3);
-	this.canvas.stroke(0,0,255);
 	this.canvas.beginShape();
+	//going down
 	this.canvas.curveVertex(-5,-6);
-	this.canvas.curveVertex(0,0);
-	this.canvas.curveVertex(3,5);
+	this.canvas.curveVertex(3,0);
+	this.canvas.curveVertex(5,5);
 	this.canvas.curveVertex(7,15);
 	this.canvas.curveVertex(14,30);
-	this.canvas.curveVertex(-10,50);
-	this.canvas.curveVertex(-10,70);
+	this.canvas.curveVertex(-10,44);
+	this.canvas.curveVertex(-20,70);
+	this.canvas.curveVertex(-15,85);
+	this.canvas.curveVertex(-20,95);
+	this.canvas.curveVertex(-18,105);
+	this.canvas.curveVertex(-11,110);
+	this.canvas.curveVertex(-5,105);
+
+	//going back up
+	this.canvas.curveVertex(-5,105);
+	this.canvas.curveVertex(-9,110);
+	this.canvas.curveVertex(-10,105);
+	this.canvas.curveVertex(-10,95);
+	this.canvas.curveVertex(-4,80);
+	this.canvas.curveVertex(-5,70);
+	this.canvas.curveVertex(-3,50);
+	//the two lines of the shape cross here
+	//this is now the left side
+	this.canvas.curveVertex(0,34);
+	this.canvas.curveVertex(5,30);
+	this.canvas.curveVertex(3,15);
+	this.canvas.curveVertex(1,5);
+	this.canvas.curveVertex(-2,0);
+	this.canvas.curveVertex(-5,-6);
 	this.canvas.endShape();
-	this.canvas.pop();
-
-
-	//draw the right side ponytail
-	this.rightPony();
-
-	//draw the rightside bow
-	this.canvas.push();
-	this.canvas.translate(w/5.8,-w/80);
-	this.canvas.rotate(16);
-	this.canvas.fill(255,0,0);
-	this.bow(this.bowWidth,this.bowHeight);
 	this.canvas.pop();
 }
 
-//draw the right ponytail
+//draws the right side ponytail
 this.rightPony = function(){
 	this.canvas.push();
 	this.canvas.translate(w/5.8,-w/80);
@@ -280,7 +305,7 @@ this.rightPony = function(){
 	this.canvas.curveVertex(5,45);
 	this.canvas.curveVertex(0,60);
 	this.canvas.curveVertex(-4,80);
-	this.canvas.curveVertex(-12,100);
+	this.canvas.curveVertex(-12,107);
 	this.canvas.curveVertex(5,125);
 	this.canvas.endShape();
 
@@ -300,7 +325,7 @@ this.rightPony = function(){
 	this.canvas.curveVertex(-15,85);
 	this.canvas.curveVertex(-12,70);
 	this.canvas.curveVertex(-15,60);
-	this.canvas.curveVertex(-5,45);
+	this.canvas.curveVertex(-10,45);
 	this.canvas.curveVertex(-9,25);
 	this.canvas.endShape();
 	this.canvas.pop();
@@ -314,6 +339,8 @@ this.bow = function(tW,tH){
 	this.canvas.triangle(this.tX, -this.tY, this.tX, this.tY, 0,0);
 }
 
+//draws the red cheek circles 
+//opacity specified by slider 3
 this.cheeks = function(){
 	//set up colours
 	this.canvas.push();
@@ -334,6 +361,8 @@ this.cheeks = function(){
 	this.canvas.pop();
 }
 
+//draws one normal eyeball at point 0,0
+//takes width and height arguments
 this.cuteEye = function(eW, eH){
 	this.irisS = eW + (eW/1.9);
 	this.pupilS = eW - (eW/5);
