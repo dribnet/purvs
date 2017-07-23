@@ -35,8 +35,8 @@ function setup () {
 
 // global variables for colors
 var bg_color1 = [214, 176, 0];
-var bg_color2 = [47, 59, 64];
-var bg_color3 = [70, 70, 120];
+var bg_color2 = [45, 86, 145];
+var bg_color3 = [0, 0, 0];
 
 
 //Potter colours
@@ -50,6 +50,9 @@ var scarColor4 = [181, 58, 36];
 var scarColor5 = [122, 39, 24];
 var potterHairCol = [76, 58, 24];
 
+//Circle face colours
+var cricleFaceCol = [255, 224, 204];
+
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
@@ -57,9 +60,6 @@ var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
-
-
-
 
 
 
@@ -194,7 +194,7 @@ pop();
 
 
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
+function drawCircleFace(x, y, w, h, face_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -208,56 +208,39 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color3);
-  fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
+  stroke(cricleFaceCol);
+  noFill()
+  
+  if (face_value === 0) {
+	ellipse(0, 0, 300 * scale, 300 * scale);
   }
 
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
+  if (face_value === 0 || face_value == 1) {
+	ellipse(-5, -15, 305 * scale, 315 * scale);
   }
+
+  if (face_value === 0 || face_value == 1 || face_value == 2) {
+	ellipse(-5, 0, 305 * scale, 315 * scale);
+  }
+
+ if (face_value === 0 || face_value == 1 || face_value == 2 || face_value == 3) {
+	ellipse(0, -5, 315 * scale, 310 * scale);
+  }
+
+ if (face_value === 0 || face_value == 1 || face_value == 2 || face_value == 3 || face_value == 4) {
+	ellipse(-5, 5, 310 * scale, 300 * scale);
+  }
+
+ if (face_value === 0 || face_value == 1 || face_value == 2 || face_value == 3 || face_value == 4 || face_value == 5) {
+	ellipse(5, -5, 310 * scale, 300 * scale);
+  }
+
+ 
+
+  noStroke();
   rectMode(CORNER);
   resetMatrix();
+
 }
 
 
@@ -266,6 +249,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   push();
+  noStroke();
   rectMode(CENTER);
   translate(x, y);
   // rotate(width_value);
@@ -357,16 +341,14 @@ function draw () {
   }
 
   if (mode == '2' || mode == 'all') {
-    // draw 2nd face
+    // draw circle face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
+    var face_value = Math.floor(map(s3, 0, 100, 0, 5));
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawCircleFace(face_x, face_y, face_w, face_h, face_value);
   }
 
   if (mode == '3' || mode == 'all') {
