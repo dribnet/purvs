@@ -34,7 +34,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [20, 71, 105];
+var bg_color1 = [214, 176, 0];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
@@ -42,7 +42,12 @@ var bg_color3 = [70, 70, 120];
 //Potter colours
 var potterFaceCol = [237, 203, 163];
 var glassesStroke = [0, 0, 0];
-var scarColor = [235, 153, 237];
+var scarColor0 = [237, 175, 149];
+var scarColor1 = [237, 146, 149];
+var scarColor2 = [214, 109, 126];
+var scarColor3 = [214, 68, 42];
+var scarColor4 = [181, 58, 36];
+var scarColor5 = [122, 39, 24];
 var potterHairCol = [76, 58, 24];
 
 var fg_color2 = [56, 91, 194];
@@ -59,7 +64,7 @@ var colorHair = [20, 20, 0];
 
 
 // draws the first face 
-function drawPotter(x, y, w, h, scar_value, glasses_value) {
+function drawPotter(x, y, w, h, scar_value, glasses_value, scarOff_value) {
   push();
   translate(x, y);
 
@@ -82,9 +87,9 @@ function drawPotter(x, y, w, h, scar_value, glasses_value) {
 
   fill(potterFaceCol);
   beginShape();
-  vertex(-78, -15);
+  vertex(-77, -15);
   vertex(-10, -70);
-  vertex(78, -15);
+  vertex(77, -15);
   vertex(76, 5);
   vertex(70, 25);
   vertex(15, 75);
@@ -99,24 +104,90 @@ function drawPotter(x, y, w, h, scar_value, glasses_value) {
   stroke(glassesStroke);
   strokeWeight(2);
   fill(potterFaceCol);
-  line(-20, -23, 30, -23)
-  ellipse(-50 * scale, -40 * scale, glasses_value * scale, glasses_value * scale);
-  ellipse(50 * scale, -40 * scale, glasses_value * scale, glasses_value * scale);
+  line(-20, -10, 30, -10)
+  ellipse(-50 * scale, -15 * scale, glasses_value * scale, glasses_value * scale);
+  ellipse(50 * scale, -15 * scale, glasses_value * scale, glasses_value * scale);
   //line(-43, -25, -72, -35)
   //line(44, -25, 72, -35)
 
   // scar
-  rotate(scar_value);
-  stroke(scarColor);
-  strokeWeight(3);
-  noFill();
-  beginShape();
-  vertex(-15, -60);
-  vertex(-5, -50);
-  vertex(-15, -50);
-  vertex(-5, -40);
-  endShape();
-  pop();
+   if (scarOff_value === 0) {
+	  rotate(scar_value);
+	  stroke(scarColor0);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+  if (scarOff_value === 1) {
+	  rotate(scar_value);
+	  stroke(scarColor1);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+
+  if (scarOff_value == 2) {
+	  rotate(scar_value);
+	  stroke(scarColor2);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+
+  if (scarOff_value == 3) {
+	  rotate(scar_value);
+	  stroke(scarColor3);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+
+  if (scarOff_value == 4) {
+	  rotate(scar_value);
+	  stroke(scarColor4);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+
+  if (scarOff_value == 5) {
+	  rotate(scar_value);
+	  stroke(scarColor4);
+	  strokeWeight(3);
+	  noFill();
+	  beginShape();
+	  vertex(-15, -45);
+	  vertex(-5, -35);
+	  vertex(-15, -35);
+	  vertex(-5, -25);
+	  endShape();
+  }
+pop();
 }
 
 
@@ -276,12 +347,13 @@ function draw () {
     // draw Harry Potter
     fill(bg_color1);
     rect(0, 0, width/3, height);
-    var scar_value = map(s1, 0, 100, -10, 27);
+    var scar_value = map(s1, 0, 100, -10, 37);
     var glasses_value = map(s3, 0, 120, 40, 90);
+    var scarOff_value = Math.floor(map(s2, 0, 100, 0, 5));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawPotter(face_x, face_y, face_w, face_h, scar_value, glasses_value);    
+    drawPotter(face_x, face_y, face_w, face_h, scar_value, glasses_value, scarOff_value);    
   }
 
   if (mode == '2' || mode == 'all') {
