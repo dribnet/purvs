@@ -32,7 +32,7 @@ function setup () {
   faceSelector.option('2');
   faceSelector.option('3');
   faceSelector.option('all')
-  faceSelector.value('3');
+  faceSelector.value('2');
   faceSelector.parent('selector1Container');
 
   // rotation in degrees
@@ -41,7 +41,7 @@ function setup () {
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
+var bg_color2 = [238, 238, 238];
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [151, 102, 52];
@@ -319,13 +319,14 @@ function draw () {
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    var width_value = map(s1, 0, 100, 0, 100);
-    var hue = map(s1, 0, 100, 0, 360);
-    var num_antennas = Math.floor(map(s2, 0, 100, 1, 4));
-    var face_shape = s3;
-    var mouth_style = map(s4, 0, 100, 250, -150);
+    var num_antennas = s1;
+	var face_height = map(s2, 0, 100, 0, 200);
+    var hue = map(s2, 0, 100, 0, 350);
+		
+    var face_shape = map(s3, 0, 100, 0, 200);
+    var mouth_style = map(s4, 0, 100, 50, 10);
     var eye_distance = map(s5, 0, 100, 50, 0);
-    drawRobotFace(face_x, face_y, face_w, face_h, width_value, hue, num_antennas, face_shape, mouth_style, eye_distance);
+    drawRobotFace(face_x, face_y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -347,51 +348,105 @@ function draw () {
   }
 }
 
-function drawRobotFace(x, y, w, h, width_value, hue, num_antennas, face_shape, mouth_style, eye_distance) {
+function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale) {
   push();
   rectMode(CENTER);
   translate(x, y);
-
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color2);
-
   colorMode(HSB);
+  
   stroke(hue, 50, 90);
   fill(hue, 90, 50);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale, face_shape, face_shape);
-
-
+  
+  //antenna
+  var yVariation = ((300 + face_height) * scale) /2;
+  var xVariation = (300 * scale) /2;
+  if(num_antennas == 1 || num_antennas == 3){
+	  triangle(-20, -20, 0, -50 - yVariation, 20, -20);
+	  ellipse(0, 10 - yVariation, 40, 40);
+	  ellipse(0, -50 - yVariation, 15, 15);
+  }
+  if(num_antennas == 2 || num_antennas == 4){
+	triangle(-10, -10, -70, -45 - yVariation, 10, -10);
+	ellipse(-70, -45 - yVariation, 10, 10);
+	triangle(-10, -10, 70, -45 - yVariation, 10, -10);
+	ellipse(70, -45 - yVariation, 10, 10);
+  }
+  if(num_antennas == 3 || num_antennas == 4){
+	//left antenna
+	stroke(hue, 90, 50);
+	fill(hue, 50, 90);
+	strokeWeight(0);
+	rect(-xVariation, -40, 130, 5);
+	noFill();
+	strokeWeight(4);
+	ellipse(-xVariation - 40, -40, 12, 50);
+	ellipse(-xVariation - 60, -40, 8, 30);
+	
+	//right antenna
+	stroke(hue, 90, 50);
+	fill(hue, 50, 90);
+	strokeWeight(0);
+	rect(xVariation, -40, 130, 5, 20, 20);
+	noFill();
+	strokeWeight(4);
+	ellipse(xVariation + 40, -40, 12, 50);
+	ellipse(xVariation + 60, -40, 8, 30);
+  }
+  
+  stroke(hue, 50, 90);
+  strokeWeight(1);
+  fill(hue, 90, 50);
+	  
+  //head
+  var bottomCorners = face_shape - 50;
+  bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
+  if(face_shape <= 100) {
+	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
+  }
+  else {
+	bottomCorners = bottomCorners - ((face_shape - 100) * 2);
+	bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
+	if(face_shape >= 150){
+		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
+		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
+	}
+	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
+  }
+ 
   stroke(0);
   //left eye
   fill(0, 0, 100);
-  ellipse(-(25 + eye_distance), -60, 50, 55);
+  ellipse(-(25 + eye_distance), -50, 50, 50);
   fill(0);
-  ellipse(-(18 + eye_distance), -55, 15, 21);
+  ellipse(-(25 + eye_distance), -50, 15, 21);
   fill(hue, 50, 90);
-  ellipse(-(16 + eye_distance), -54, 7, 11);
+  ellipse(-(25 + eye_distance), -50, 7, 11);
 
   //right eye
   fill(0, 0, 100);
-  ellipse(25 + eye_distance, -60, 50, 55);
+  ellipse(25 + eye_distance, -50, 50, 50);
   fill(0);
-  ellipse(18 + eye_distance, -55, 15, 21);
+  ellipse(25 + eye_distance, -50, 15, 21);
   fill(hue, 50, 90);
-  ellipse(16 + eye_distance, -54, 7, 11);
+  ellipse(25 + eye_distance, -50, 7, 11);
 
-   // mouth
+  // mouth
   noFill();
   stroke(hue, 50, 90);
-  strokeWeight(10);
-  curve(0, mouth_style, -50, 40, 50, 40, 0, mouth_style);
+  strokeWeight(2);
+  var i=35; 
+  while(i<=45){
+	line(-mouth_style, i, mouth_style, i);
+	if(mouth_style < 30){
+		line(-50, i, -35, i);
+		line(50, i, 35, i);
+	}
+	if(mouth_style < 20){
+		line(-30, i, -mouth_style - 5, i);
+		line(30, i, mouth_style + 5, i);
+	}
+	i = i + 5;
+  }
 
   colorMode(RGB);
   rectMode(CORNER);
