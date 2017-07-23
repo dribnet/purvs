@@ -3,6 +3,15 @@ var canvasHeight = 500;
 var radio, slider1, slider2, slider3, slider4;
 var faceSelector;
 
+// global variables for colors
+var bg_color1 = [225, 206, 187];
+var bg_color2 = [238, 238, 238];
+var bg_color3 = [70, 70, 120];
+
+var fg_color1 = [151, 102, 52];
+
+var stroke_color1 = [95, 52, 8];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -14,7 +23,7 @@ function setup () {
   radio.option(2);
   radio.option(3);
   radio.option(4);
-  radio.value(1);
+  radio.value(3);
   radio.parent('radio1Container');
 
   // create sliders
@@ -38,21 +47,6 @@ function setup () {
   // rotation in degrees
   angleMode(DEGREES);
 }
-
-// global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [238, 238, 238];
-var bg_color3 = [70, 70, 120];
-
-var fg_color1 = [151, 102, 52];
-var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
-
-var stroke_color1 = [95, 52, 8];
-var stroke_color2 = [210, 219, 189];
-var stroke_color3 = [50, 50, 50];
-
-var colorHair = [20, 20, 0];
 
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
@@ -95,70 +89,118 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  rectMode(CENTER);
+function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale) {
   push();
+  rectMode(CENTER);
   translate(x, y);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
+  colorMode(HSB);
+  
+  stroke(hue, 50, 90);
+  fill(hue, 90, 50);
+  
+  //antenna
+  var yVariation = ((300 + face_height) * scale) /2;
+  var xVariation = (300 * scale) /2;
+  if(num_antennas == 1 || num_antennas == 3){
+	  triangle(-20, -20, 0, -50 - yVariation, 20, -20);
+	  ellipse(0, 10 - yVariation, 40, 40);
+	  ellipse(0, -50 - yVariation, 15, 15);
+  }
+  if(num_antennas == 2 || num_antennas == 4){
+	triangle(-10, -10, -70, -45 - yVariation, 10, -10);
+	ellipse(-70, -45 - yVariation, 10, 10);
+	triangle(-10, -10, 70, -45 - yVariation, 10, -10);
+	ellipse(70, -45 - yVariation, 10, 10);
+  }
+  if(num_antennas == 3 || num_antennas == 4){
+	//left antenna
+	stroke(hue, 90, 50);
+	fill(hue, 50, 90);
+	strokeWeight(0);
+	rect(-xVariation, -40, 130, 5);
+	noFill();
+	strokeWeight(4);
+	ellipse(-xVariation - 40, -40, 12, 50);
+	ellipse(-xVariation - 60, -40, 8, 30);
+	
+	//right antenna
+	stroke(hue, 90, 50);
+	fill(hue, 50, 90);
+	strokeWeight(0);
+	rect(xVariation, -40, 130, 5, 20, 20);
+	noFill();
+	strokeWeight(4);
+	ellipse(xVariation + 40, -40, 12, 50);
+	ellipse(xVariation + 60, -40, 8, 30);
+  }
+  
+  stroke(hue, 50, 90);
+  strokeWeight(1);
+  fill(hue, 90, 50);
+	  
+  //head
+  var bottomCorners = face_shape - 50;
+  bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
+  if(face_shape <= 100) {
+	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
   }
   else {
-    extent = w / 2;
+	bottomCorners = bottomCorners - ((face_shape - 100) * 2);
+	bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
+	if(face_shape >= 150){
+		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
+		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
+	}
+	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
   }
-  var scale = extent / 220.0;
+ 
+  //eyes holder
+  print(eye_distance);
+  rect(0, -40, 120 + (eye_distance*2), 65, 45, 45, 45, 45);
+  fill(0);
+  rect(0, -40, 110 + (eye_distance*2), 55, 45, 45, 45, 45);
+  
+  stroke(0);
+  //left eye
+  fill(0, 0, 100);
+  ellipse(-(25 + eye_distance), -40, 50, 50);
+  fill(0);
+  ellipse(-(25 + eye_distance), -40, 16, 16);
+  fill(hue, 50, 90);
+  rect(-(25 + eye_distance), -40, 8, 8);
 
-  stroke(stroke_color3);
-  fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  //right eye
+  fill(0, 0, 100);
+  ellipse(25 + eye_distance, -40, 50, 50);
+  fill(0);
+  ellipse(25 + eye_distance, -40, 16, 16);
+  fill(hue, 50, 90);
+  rect(25 + eye_distance, -40, 8, 8);
 
   // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
+  noFill();
+  stroke(hue, 30, 90);
+  strokeWeight(2);
+  var i=40, j=50; 
+  if(mouth_style <= 20){
+	i=35, j=55; 
   }
+  while(i<=j){
+	line(-mouth_style, i, mouth_style, i);
+	if(mouth_style < 30){
+		line(-50, i, -35, i);
+		line(50, i, 35, i);
+	}
+	if(mouth_style < 20){
+		line(-30, i, -mouth_style - 5, i);
+		line(30, i, mouth_style + 5, i);
+	}
+	i = i + 5;
+  }
+
+  colorMode(RGB);
   rectMode(CORNER);
-  resetMatrix();
+  pop();
 }
 
 /* JSON Object to the define the four possible color schemes for the bear face */
@@ -348,110 +390,6 @@ function draw () {
   }
 }
 
-function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale) {
-  push();
-  rectMode(CENTER);
-  translate(x, y);
-  colorMode(HSB);
-  
-  stroke(hue, 50, 90);
-  fill(hue, 90, 50);
-  
-  //antenna
-  var yVariation = ((300 + face_height) * scale) /2;
-  var xVariation = (300 * scale) /2;
-  if(num_antennas == 1 || num_antennas == 3){
-	  triangle(-20, -20, 0, -50 - yVariation, 20, -20);
-	  ellipse(0, 10 - yVariation, 40, 40);
-	  ellipse(0, -50 - yVariation, 15, 15);
-  }
-  if(num_antennas == 2 || num_antennas == 4){
-	triangle(-10, -10, -70, -45 - yVariation, 10, -10);
-	ellipse(-70, -45 - yVariation, 10, 10);
-	triangle(-10, -10, 70, -45 - yVariation, 10, -10);
-	ellipse(70, -45 - yVariation, 10, 10);
-  }
-  if(num_antennas == 3 || num_antennas == 4){
-	//left antenna
-	stroke(hue, 90, 50);
-	fill(hue, 50, 90);
-	strokeWeight(0);
-	rect(-xVariation, -40, 130, 5);
-	noFill();
-	strokeWeight(4);
-	ellipse(-xVariation - 40, -40, 12, 50);
-	ellipse(-xVariation - 60, -40, 8, 30);
-	
-	//right antenna
-	stroke(hue, 90, 50);
-	fill(hue, 50, 90);
-	strokeWeight(0);
-	rect(xVariation, -40, 130, 5, 20, 20);
-	noFill();
-	strokeWeight(4);
-	ellipse(xVariation + 40, -40, 12, 50);
-	ellipse(xVariation + 60, -40, 8, 30);
-  }
-  
-  stroke(hue, 50, 90);
-  strokeWeight(1);
-  fill(hue, 90, 50);
-	  
-  //head
-  var bottomCorners = face_shape - 50;
-  bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
-  if(face_shape <= 100) {
-	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
-  }
-  else {
-	bottomCorners = bottomCorners - ((face_shape - 100) * 2);
-	bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
-	if(face_shape >= 150){
-		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
-		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
-	}
-	rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
-  }
- 
-  stroke(0);
-  //left eye
-  fill(0, 0, 100);
-  ellipse(-(25 + eye_distance), -50, 50, 50);
-  fill(0);
-  ellipse(-(25 + eye_distance), -50, 15, 21);
-  fill(hue, 50, 90);
-  ellipse(-(25 + eye_distance), -50, 7, 11);
-
-  //right eye
-  fill(0, 0, 100);
-  ellipse(25 + eye_distance, -50, 50, 50);
-  fill(0);
-  ellipse(25 + eye_distance, -50, 15, 21);
-  fill(hue, 50, 90);
-  ellipse(25 + eye_distance, -50, 7, 11);
-
-  // mouth
-  noFill();
-  stroke(hue, 50, 90);
-  strokeWeight(2);
-  var i=35; 
-  while(i<=45){
-	line(-mouth_style, i, mouth_style, i);
-	if(mouth_style < 30){
-		line(-50, i, -35, i);
-		line(50, i, 35, i);
-	}
-	if(mouth_style < 20){
-		line(-30, i, -mouth_style - 5, i);
-		line(30, i, mouth_style + 5, i);
-	}
-	i = i + 5;
-  }
-
-  colorMode(RGB);
-  rectMode(CORNER);
-  pop();
-}
 
 function keyTyped() {
   if (key == '!') {
