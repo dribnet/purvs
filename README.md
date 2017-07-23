@@ -2,8 +2,11 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+In my case, in each of my faces I use 4 or 5 sliders. For the first face I used my previous solution but added controls for the height, position of eye ball, hair, mouth shape, and number of eyes.
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+In the second version, I focused more on the look than expression. 
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+In the third face I tried out a mummy idea. It always keep a funny face.
+
+
+Action Kamen
