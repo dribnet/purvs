@@ -241,19 +241,19 @@ var smile_origin = createVector([x], [y]);
 
 
 
-//guidelines
-stroke("#000");
-line(0, 0, 0, 360); //vertical centre
-line(-125, 180, 125, 180); //horizontal centre, eye line
+// //guidelines
+// stroke("#000");
+// line(0, 0, 0, 360); //vertical centre
+// line(-125, 180, 125, 180); //horizontal centre, eye line
 
-stroke("#cccccc");
-line(35, 0, 35, 360); //eye start
-line(65, 0, 65, 360); //eye center
-// line(-125, 216, 125, 216); //horizontal 1
-line(-125, 252, 125, 252); //horizontal 2 nose
-line(-125, 288, 125, 288); //horizontal 3 mouth
-// line(-125, 324, 125, 324); //horizontal 4
-line(-125, 360, 125, 360); //horizontal 5 lower limit
+// stroke("#cccccc");
+// line(35, 0, 35, 360); //eye start
+// line(65, 0, 65, 360); //eye center
+// // line(-125, 216, 125, 216); //horizontal 1
+// line(-125, 252, 125, 252); //horizontal 2 nose
+// line(-125, 288, 125, 288); //horizontal 3 mouth
+// // line(-125, 324, 125, 324); //horizontal 4
+// line(-125, 360, 125, 360); //horizontal 5 lower limit
 
 
 pop();
