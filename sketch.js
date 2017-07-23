@@ -12,9 +12,11 @@ var skin_tone = "#ffe3d8";
 var nose_tone = "#ffc8bf";
 var blush_color = "#f9ab90";
 var hat_color_green = "#7bbc60";
+var hat_stroke_red = "#a32525"
 var hat_color_red = "#ce4a4a";
 var eye_color = "#83cbff";
 var stache_color = "#593510";
+var drool_color = "#99c0ff";
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
@@ -118,226 +120,266 @@ function draw() {
             face_x = 3 * width / 6;
         }
 
-        drawFace2(face_x, face_y, face_w, face_h, stache_slant_value, stache_bush_value, cheek_chub_value,dilation_value);
+        drawFace2(face_x, face_y, face_w, face_h, stache_slant_value, stache_bush_value, cheek_chub_value, dilation_value);
     }
-    // face 3 : robot
+    // face 3 : babby
     if (mode == '3' || mode == 'all') {
 
         fill(bg_color3);
-        rect(2 * width / 3, 0, width, height);
-        var width_value = map(s1, 0, 100, 0, 100);
-        var mouth_value = map(s3, 0, 100, 0, 200);
-        var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+        rect(2 * width / 3, 0, 2 * width / 3, height);
+        var hair_volume_value = map(s1, 100, 0, 0.8, 1.8);
+        var nose_size_value = map(s2, 0, 100, 0.6, 1.4);
+        var mouth_gape_value = map(s3, 0, 100, 0.9, 1.4);
+        var cheek_chub_value = map(s4, 0, 100, 0.9, 1.1);
+        var drool_drip_value = map(s5, 0, 100, 0.9, 1.45);
         if (mode == 'all') {
             face_x = 5 * width / 6;
         }
 
-        drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
-    }
-}
-
-
-//_______________DRAW FUNCTIONS______________//
-
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
-
-    push();
-    translate(x, y);
-    rotate(tilt_value);
-
-    var extent = 0;
-    if (h < w) {
-        extent = h / 2;
-    } else {
-        extent = w / 2;
-    }
-    var scale = extent / 220.0;
-
-    fill(fg_color1);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-
-    // eyes
-    if (eye_value === 1 || eye_value == 3) {
-        fill(bg_color1);
-        ellipse(0, -80 * scale, 50 * scale, 30 * scale);
-        fill(fg_color1);
-        ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+        drawFace3(face_x, face_y, face_w, face_h, hair_volume_value, mouth_gape_value, cheek_chub_value, nose_size_value, drool_drip_value);
     }
 
-    if (eye_value >= 2) {
-        fill(bg_color1);
-        ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-        ellipse(50 * scale, -80 * scale, 50 * scale, 30 * scale);
+
+    //_______________DRAW FUNCTIONS______________//
+
+    function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+
+        push();
+        translate(x, y);
+        rotate(tilt_value);
+
+        var extent = 0;
+        if (h < w) {
+            extent = h / 2;
+        } else {
+            extent = w / 2;
+        }
+        var scale = extent / 220.0;
 
         fill(fg_color1);
-        ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-        ellipse(40 * scale, -80 * scale, 20 * scale, 20 * scale);
+        ellipse(0, 0, 300 * scale, 400 * scale);
+
+        // eyes
+        if (eye_value === 1 || eye_value == 3) {
+            fill(bg_color1);
+            ellipse(0, -80 * scale, 50 * scale, 30 * scale);
+            fill(fg_color1);
+            ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+        }
+
+        if (eye_value >= 2) {
+            fill(bg_color1);
+            ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
+            ellipse(50 * scale, -80 * scale, 50 * scale, 30 * scale);
+
+            fill(fg_color1);
+            ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
+            ellipse(40 * scale, -80 * scale, 20 * scale, 20 * scale);
+        }
+
+        // mouth
+        fill(bg_color1);
+        ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+        pop();
+
     }
 
-    // mouth
-    fill(bg_color1);
-    ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-    pop();
+    function drawFace2(x, y, w, h, stache_slant, stache_bush, cheek_chub, dilation) {
 
+        push();
+        //move to position,
+        translate(x, y);
+
+
+        //hat base
+        noStroke();
+        fill(hat_color_red);
+        ellipse(0, -85, 150, 100);
+
+        //face
+        var chin_offset = (cheek_chub - 1) * 0.15 + 1; // allow scaling of chin w/o changing position of forehead
+        chin_offset *= 220;
+        fill(skin_tone);
+        ellipse(0, chin_offset / 2 - 110, 160, chin_offset);
+        ellipse(-22, 23, 150 * cheek_chub, 150 * cheek_chub); //cheeks
+        ellipse(22, 23, 150 * cheek_chub, 150 * cheek_chub);
+        fill(hat_color_red);
+        ellipse(0, -81, 150, 60); // hat mask
+
+        //blush
+        fill(blush_color);
+        ellipse(68 * cheek_chub, 24, 25 * cheek_chub, 20 * cheek_chub);
+        ellipse(-68 * cheek_chub, 24, 25 * cheek_chub, 20 * cheek_chub);
+
+        //stache
+        moustache_6(100 * stache_bush, 45, 15 * stache_bush, 14 * stache_slant);
+
+
+        //eyes
+        fill("white");
+        ellipse(-35, -25, 60, 80); //whites 
+        ellipse(35, -25, 60, 80);
+        noStroke();
+        fill(eye_color);
+        ellipse(-35, -13, 35, 45); //irises
+        ellipse(35, -13, 35, 45);
+        fill("black");
+        ellipse(-35, -13, 23 * dilation, 31 * dilation); //pupils
+        ellipse(35, -13, 23 * dilation, 31 * dilation);
+
+        //nose
+        var nose_size_mod = (stache_bush - 1) * 0.2 + 1 //slight scaling of nose base with stache bushiness
+        stroke(blush_color);
+        fill(nose_tone);
+        ellipse(0, 20, 75 * nose_size_mod, 62 * nose_size_mod); //nose base
+        noStroke();
+        fill(color('rgba(255, 227, 216,0.7)'));
+        ellipse(0, 16, 60 * nose_size_mod, 50 * nose_size_mod); //highlight
+
+        // logo
+        fill("white");
+        ellipse(0, -100, 40, 40);
+        stroke(hat_color_red);
+        strokeWeight(2.5);
+        ellipse(0, -100, 30, 30);
+        strokeWeight(1.1);
+
+        //hat brim
+        fill(hat_color_red);
+        stroke(color(40, 40));
+        ellipse(0, -62, 135, 22);
+
+        pop();
+
+    }
+
+    function drawFace3(x, y, w, h, hair_volume, mouth_size, cheek_chub, nose_size, drool_drip) {
+        //BABYFACE
+        push();
+        //move to position,
+        translate(x, y);
+
+        //face
+        fill(skin_tone);
+        ellipse(0, 0, 170, 180);
+        ellipse(-32, 20, 110 * cheek_chub, 120 * cheek_chub); //cheeks
+        ellipse(32, 20, 110 * cheek_chub, 120 * cheek_chub);
+        fill(hat_color_red);
+        //ellipse(0, -81, 150, 60); // hat mask
+
+        //blush
+        fill(blush_color);
+        ellipse(45 * cheek_chub, 18, 25 * cheek_chub, 20 * cheek_chub);
+        ellipse(-45 * cheek_chub, 18, 25 * cheek_chub, 20 * cheek_chub);
+
+        //eyes
+        fill("white");
+        ellipse(-26, -18, 32, 35); //whites 
+        ellipse(26, -18, 32, 35);
+        noStroke();
+        fill("black");
+        ellipse(-26, -26 + 8 * drool_drip_value, 6, 6); //pupils
+        ellipse(26, -26 + 8 * drool_drip_value, 6, 6);
+
+        //nose
+        var nose_size_mod = (nose_size - 1) * 0.8 + 1 //slight scaling of nose base with stache bushiness
+        stroke(blush_color);
+        fill(nose_tone);
+        ellipse(0, 20, 28 * nose_size_mod, 22 * nose_size_mod); //nose base
+        noStroke();
+        fill(color('rgba(255, 227, 216,0.6)'));
+        ellipse(0, 19, 24 * nose_size_mod, 20 * nose_size_mod); //highlight
+
+        //mouth
+        var mouth_size_mod = mouth_size;
+        var drool_drip_mod;
+        fill('black');
+        ellipse(0, 55, 30 * mouth_size_mod, 25 * mouth_size_mod);
+        fill(blush_color);
+        ellipse(2 * mouth_size_mod, 62 + (2.5 * mouth_size_mod), 15 * mouth_size_mod, 10 * mouth_size_mod);
+        noFill();
+        stroke(skin_tone);
+        strokeWeight(7);
+        ellipse(0, 55, 30 * mouth_size_mod, 25 * mouth_size_mod);
+
+        //drool        
+        noStroke();
+        if (drool_drip > 1 && drool_drip < 1.25) { // one droplet of drool drips down face and grows in size
+            fill(drool_color);
+            var drool_height = 3 * ampLify(drool_drip, 7);
+            var drool_y = 12 * mouth_size_mod + 21 + drool_height + drool_drip * 24
+            ellipse(9 * mouth_size_mod, drool_y, 5, drool_height);
+        }
+        if (drool_drip > 1.25) { // second droplet is rendered once first reaches length cap
+            fill(drool_color);
+            var drool_height = 3 * ampLify(1.25, 7);
+            var drool_y = 12 * mouth_size_mod + 21 + drool_height + drool_drip * 24
+            ellipse(9 * mouth_size_mod, drool_y, 5, drool_height);
+            ellipse(9 * mouth_size_mod, drool_y - drool_height * 1.1, 5, drool_height);
+        }
+
+        //sleepy mask
+        rectMode(CENTER);
+        fill(skin_tone);
+        rect(0, -72 + 20 * drool_drip, 100, 35);
+        pop();
+
+    }
+
+
+
+
+
+    //___________LEVEL 2 FUNCTIONS__________\\
+    //used by render functions
+
+    function moustache_6(wid, yOff, bush, slant) { //moustache is a series of O's arranged in a curve
+        push();
+        var b;
+        var y; // y holds the value for each circle used to render the stache
+        for (var i = 0; i < 5; i++) {
+            b = bush;
+            x = i - 2;
+            y = (i % 3) * wid / slant;
+            switch (i) {
+                case 0:
+                    y = -0.5 * wid / slant;
+                    b *= 0.85;
+                    break;
+                case 2:
+                    y = 1.8 * wid / slant;
+                    b *= 1.1;
+                    break;
+                case 3:
+                    y = wid / slant;
+                    break;
+                case 4:
+                    y = -0.5 * wid / slant;
+                    b *= 0.85;
+                    break;
+            }
+            //draw a dot
+            fill(stache_color);
+            noStroke();
+            ellipse(x * wid / 6, y + yOff, b * wid / 60);
+
+        }
+        pop();
+    }
+
+    function ampLify(inp, ampChange) { // multiply multiplier value as if negative values began at #1	
+        var v = (inp - 1) * ampChange;
+        v += 1;
+        return v;
+
+    }
 }
-
-function drawFace2(x, y, w, h, stache_slant, stache_bush, cheek_chub, dilation) {
-
-    // function head(hatCol, xoff, yoff, rot) { //(color, xOffset, yOffset, rotation)
-
-    push();
-    //move to position,
-    translate(x, y);
-
-
-    //hat base
-    noStroke();
-    fill(hat_color_red);
-    ellipse(0, -85, 150, 100);
-
-    //face
-    var chin_offset = (cheek_chub - 1) * 0.15 + 1; // allow scaling of chin w/o changing position of forehead
-    chin_offset *= 220;
-    fill(skin_tone);
-    ellipse(0, chin_offset / 2 - 110, 160, chin_offset);
-    ellipse(-22, 23, 150 * cheek_chub, 150 * cheek_chub); //cheeks
-    ellipse(22, 23, 150 * cheek_chub, 150 * cheek_chub);
-    fill(hat_color_red);
-    ellipse(0, -81, 150, 60); // hat mask
-
-    //blush
-    fill(blush_color);
-    ellipse(68*cheek_chub,24,25*cheek_chub,20*cheek_chub);
-    ellipse(-68*cheek_chub,24,25*cheek_chub,20*cheek_chub);
-
-    //stache
-    moustache_6(100 * stache_bush, 45, 15 * stache_bush, 14 * stache_slant);
-
-
-    //eyes
-    fill("white");
-    ellipse(-35, -25, 60, 80); //whites 
-    ellipse(35, -25, 60, 80);
-    noStroke();
-    fill(eye_color);
-    ellipse(-35, -13, 35, 45); //irises
-    ellipse(35, -13, 35, 45);
-    fill("black");
-    ellipse(-35, -13, 23 * dilation, 31 * dilation); //pupils
-    ellipse(35, -13, 23 * dilation, 31 * dilation);
-
-    //nose
-    var nose_size_mod = (stache_bush-1)*0.2 +1//slight scaling of nose base with stache bushiness
-    var highlight_alpha = ((dilation-1)*2.5+1)*0.6;
-    stroke(blush_color);
-    fill(nose_tone);
-    ellipse(0, 20, 75*nose_size_mod, 62*nose_size_mod); //nose base
-    noStroke();
-    fill(color('rgba(255, 227, 216,'+highlight_alpha+')'));
-    ellipse(0, 16, 60*nose_size_mod, 50*nose_size_mod); //highlight
-
-    // logo
-    fill("white");
-    ellipse(0, -100, 40, 40);
-    stroke(hat_color_red);
-    strokeWeight(2.5);
-    ellipse(0, -100, 30, 30);
-    strokeWeight(1.1);
-
-    //hat brim
-    fill(hat_color_red);
-    stroke(bg_color);
-    ellipse(0, -62, 135, 22);
-
-    pop();
-
-}
-
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
-    push();
-    rectMode(CENTER);
-    translate(x, y);
-    // rotate(width_value);
-
-    var extent = 0;
-    if (h < w) {
-        extent = h / 2;
-    } else {
-        extent = w / 2;
-    }
-    var scale = extent / 220.0;
-
-    stroke(stroke_color2)
-    fill(fg_color2);
-    rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-    // eyes
-    if (eye_value === 1 || eye_value == 3) {
-        fill(bg_color2);
-        rect(0, -80 * scale, 50 * scale, 30 * scale);
-        fill(fg_color2);
-        ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    if (eye_value >= 2) {
-        fill(bg_color2);
-        rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-        rect(60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-        fill(fg_color2);
-        ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-        ellipse(60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    // mouth
-    fill(bg_color2);
-    rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-    rectMode(CORNER);
-    pop();
-}
-
 
 function keyTyped() {
     if (key == '!') {
         saveBlocksImages();
     } else if (key == '@') {
         saveBlocksImages(true);
+        console.log("printing")
     }
-}
-
-
-//_________________LEVEL 2 FUNCTIONS__________\\
-
-function moustache_6(wid, yOff, bush, slant) { //moustache is a series of O's arranged in a curve
-    push();
-    var b;
-    var y; // y holds the value for each circle used to render the stache
-    for (var i = 0; i < 5; i++) {
-        b = bush;
-        x = i - 2;
-        y = (i % 3) * wid / slant;
-        switch (i) {
-            case 0:
-                y = -0.5 * wid / slant;
-                b *= 0.85;
-                break;
-            case 2:
-                y = 1.8 * wid / slant;
-                b *= 1.1;
-                break;
-            case 3:
-                y = wid / slant;
-                break;
-            case 4:
-                y = -0.5 * wid / slant;
-                b *= 0.85;
-                break;
-        }
-        //draw a dot
-        fill(stache_color);
-        noStroke();
-        ellipse(x * wid / 6, y + yOff, b * wid / 60);
-
-    }
-    pop()
 }

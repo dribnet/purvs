@@ -2,8 +2,16 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+The second face is a version of the Mario & Luigi sketch I made earlier. This version casts luigi aside (don't worry, he's used to it!) and draws our sewer-spelunking hero with some features mapped to four of the sliders:
+	- Mousache slant
+	- Pupil dilation
+	- Moustache bushiness: modulates the size of the individual ellipses that make up the moustache. also modulates the size of mario's nose
+	- Cheek chubbiness
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+I liked the art style that my Mario. I thought that his cheeks made him look like a baby so I decided to make my next face that of a baby. I used 4 sliders for this onel giving control over:
+	- nose size
+	- cheek chub
+	- mouth openness
+	- 'alertness' when baby is tired he starts to drool and has trouble keeping his eyes open
 
 In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
