@@ -51,7 +51,7 @@ var eye_color = [255,255,255];
 var black_color = [0,0,0];
 
 //Spongebob Variables
-var sponge_color = "#fef46e";
+//var sponge_color = "#fef46e";
 var outline_color = "#929303";
 var eyelash_color = "#000000";
 var iris_color = "#43c6f2";
@@ -67,7 +67,7 @@ var m_eye_size = 55;
 var skin_color = "#f7cdad";
 var hair_color = "#82491d";
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_value, curves_number) {
+function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_color, curves_number) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -83,6 +83,9 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_value, cu
     // stroke color
   stroke(fg_color1)
 
+  sponge_color = [254, 244 - head_color, 110 + head_color];
+  outline_color = [146, 147 - head_color/2, 3 + head_color];
+ 
   // move to position1, rotate, start drawing spongebob
   push();
   translate(960/4, 500/2);
@@ -410,11 +413,11 @@ function draw () {
     var hole_value = Math.floor(map(s3, 0, 100, 1, 5));
     var eye_value = map(s2, 0, 100, -25, 25);
     var curve_number = Math.floor(map(s4, 0, 100, 1, 7));
-    var head_value = map(s5, 0, 100, 0, 100);
+    var head_color = map(s5, 0, 100, 0, 100);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, hole_value, head_value, curve_number);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, hole_value, head_color, curve_number);    
   }
 
   if (mode == '2' || mode == 'all') {
