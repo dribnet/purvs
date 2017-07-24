@@ -131,9 +131,9 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   fill(176, 36, 26);
   ellipse(-80 * scale, -80 * scale, 100 * scale, 100 * scale);
   ellipse( 80 * scale, -80 * scale, 100 * scale, 100 * scale);
-  fill)_
-  ellipse(-80 * scale, -80 * scale, 100 * scale, 100 * scale);
-  ellipse( 80 * scale, -80 * scale, 100 * scale, 100 * scale);
+  fill(240,82,67);
+  ellipse(-80 * scale, -80 * scale, 90 * scale, 90 * scale);
+  ellipse( 80 * scale, -80 * scale, 90 * scale, 90 * scale);
 
   fill(fg_color3);
   ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
