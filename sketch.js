@@ -188,22 +188,11 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   rect(0, 0, (300 + width_value) * scale, 400 * scale);
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
     fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+    //rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
+    //rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+    var a = (50*scale + -60 * scale);
+  	triangle(-60 * scale, -80 * scale, a,-80*scale,a -(a-(-60*scale))); 
 
   // mouth
   fill(bg_color2);
