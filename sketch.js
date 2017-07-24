@@ -260,47 +260,126 @@ pop();
 
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, pupil_value, lowerEye_value, blink_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
+function drawEye (flip, highlightPosition_x){
+//draw White of eye
+push();
+translate(flip*(x/6), 0);
+scale(0.8)
+  fill('#fff');
+  beginShape();
+  curveVertex(36, 44);
+  curveVertex(0, 25);
+  curveVertex(25, 6);
+  curveVertex(60, 0);
+  curveVertex(87, 5);
+  curveVertex(111, 24);
+  curveVertex(121, 39);
+  curveVertex(118, 44);
+  curveVertex(106, 42);
+  curveVertex(84, 46);
+  curveVertex(36, 44);
+  curveVertex(0, 25);
+  curveVertex(25, 6);
+  endShape();
+
+
+  //draw iris
+  fill(irisDark);
+  ellipse(64, 18, 45, 45);
+
+  // draw pupil
+  fill("#000");
+  ellipse(64, 18, 11*pupil_value, 11*pupil_value);
+
+  //draw highlights
+  var j = 15;
+  var k = 6;
+  for (var i = 15; i < 255; i += 5){
+  	fill(255, 255, 255, i);
+  	j -= 0.5;
+  	k -= 0.2;
+  ellipse(highlightPosition_x, 18, j, j);
+  ellipse(highlightPosition_x + (5*(-flip)), 10, k, k);
   }
-  else {
-    extent = w / 2;
+
+
+  //draw shape overlay for eyelid
+    function drawEyelid(){
+  var lowerLimit;
+  if((blink_value*(blink_value/15)) < 48){
+  	lowerLimit = blink_value*(blink_value/15)
   }
-  var scale = extent / 220.0;
+  else(lowerLimit = 48);
 
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+  var midLimit;
+  if((blink_value*(blink_value/20)) < 37){
+  	midLimit = blink_value*(blink_value/20)
   }
+  else(midLimit = 38);
+  beginShape();
+   curveVertex(0, 3);
+  curveVertex(0, 25);
+  curveVertex(25, 6 + midLimit);
+  curveVertex(60, 0 + lowerLimit);
+  curveVertex(87, 5 + midLimit + (midLimit/10));
+  curveVertex(115, 25 + (blink_value/1.5));
+  curveVertex(124, 39);
+  curveVertex(122, 27);
+  curveVertex(112, 6);
+  curveVertex(92, -5);
+  curveVertex(60, -10);
+  curveVertex(25, -8);
+  curveVertex(0, 3);
+  curveVertex(-15, 17);
+  curveVertex(0, 25);
+  endShape();
+}
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+  for(i = 0; i < 8; i+= 0.1){
+  	  push();
+  translate(0, i);
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+    fill(0, 0, 0, 6);
+	drawEyelid();
+	  pop();
+	}
 
-  // mouth
   fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
+  drawEyelid();
+
+    //draw shape overlay for lower eye
+  fill(bg_color3);
+  beginShape();
+  curveVertex(106, 60);
+  curveVertex(25, 60);
+
+  curveVertex(-20, 15);
+    curveVertex(-5, 25);
+  curveVertex(36, lowerEye_value);
+  curveVertex(106, 40);
+  curveVertex(106, 60);
+  curveVertex(25, 60);
+  curveVertex(0, 25);
+  endShape();
+
+fill("#000");
+// ellipse(-5, 30, 3, 3);
+pop();
+}
+
+
+
+drawEye(-1, 54);
+push();
+scale(-1, 1);
+translate(-(x/3), 0);
+drawEye(1, 72);
+pop();
   pop();
 }
 
@@ -366,13 +445,13 @@ function draw () {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var pupil_value = Math.floor(map(s1, 0, 100, 1, 3));
+    var blink_value = map(s3, 0, 100, 0, 24);
+    var lowerEye_value = map(s2, 0, 100, 25, 50);
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, pupil_value, lowerEye_value, blink_value);
   }
 }
 
