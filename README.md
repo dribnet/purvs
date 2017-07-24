@@ -2,8 +2,12 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+In my case, in each of my faces I use all 5 sliders. For the these faces I have created monstors using basic shapes and colours.
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+In my first face, I have created shapes that can be altered to change his emotions. You can change between square eyes or round eyes or have all of them. You can change his mouth shape and rotate him slightly.
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+The second face can grow facial hair, move his eyes to look at his fellow monstors to each side of himw and blink.
+
+The third can alter the side of his face, as well as have circular or square eyes, and the shape of his mouth/teeth can be altered.
+
+For all of them, I added the ability to become transparent and change colour, as all good monstors should.
