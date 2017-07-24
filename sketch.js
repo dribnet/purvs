@@ -2,6 +2,7 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
+var curRandomSeed;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -80,6 +81,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, nose_value) {
   push();
   translate(x, y);
   rotate(-tilt_value/2);
+  scale(0.5);
   //squeeze ernie
   fill(ernie_face);
   ellipse(0, 0, 290, 230);
@@ -112,6 +114,7 @@ function drawFace2(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
   rotate(tilt_value/2);
+  scale(0.5);
   fill(bert_face);
   ellipse(0, 0, 270, 400);
 
@@ -151,6 +154,7 @@ function drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
+  scale(0.5);
   //squeeze oscar
   fill(oscar_face);
   ellipse(0, 0, 290, 200);
@@ -181,66 +185,36 @@ function drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value) {
 }
 
 function draw () {
+  resetFocusedRandom(curRandomSeed);
+
   noStroke();
-
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
   background('white');
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
-
   // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
+  // var face_w = canvasWidth / 4;
+  // var face_h = face_w;
+  // var face_y = height / 2;
+  // var face_x = width / 2;
 
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    //rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, s2, s3);    
-  }
+  // draw 1st face
+  fill(bg_color1);
 
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    //rect(width/3, 0, 2*width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, tilt_value, s2, s3);
-  }
+  tilt_value = focusedRandom(10, 50);
+  eye_value = Math.floor(focusedRandom(1, 3));
+  mouth_value = focusedRandom(30, 140);
 
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    //rect(2*width/3, 0, width, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
+  var w = canvasWidth / 5;
+  var h = canvasHeight / 3;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var face = [drawFace1, drawFace2, drawFace3][floor(random()*3)];
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;
+      tilt_value = focusedRandom(-90, 90);
+      eye_value = int(focusedRandom(0, 100));
+      mouth_value = focusedRandom(0, 100);
+      face(x, y, w, h, tilt_value, eye_value, mouth_value);
     }
-    drawFace3(face_x, face_y, face_w, face_h, tilt_value, s2, s3);
   }
 }
 
