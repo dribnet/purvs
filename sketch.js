@@ -1,37 +1,25 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
+var button;
+var curRandomSeed;
 
-function setup() {
-	// create the drawing canvas, save the canvas element
-	var main_canvas = createCanvas(canvasWidth, canvasHeight);
-	main_canvas.parent('canvasContainer');
+function setup () {
+  // create the drawing canvas, save the canvas element
+  var main_canvas = createCanvas(canvasWidth, canvasHeight);
+  main_canvas.parent('canvasContainer');
 
-	// create sliders
-	slider1 = createSlider(0, 100, 50);
-	slider2 = createSlider(0, 100, 50);
-	slider3 = createSlider(0, 100, 50);
-	slider4 = createSlider(0, 100, 50);
-	slider5 = createSlider(0, 100, 50);
+  curRandomSeed = int(focusedRandom(0, 100));
 
-	slider1.parent('slider1Container');
-	slider2.parent('slider2Container');
-	slider3.parent('slider3Container');
-	slider4.parent('slider4Container');
-	slider5.parent('slider5Container');
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
-	faceSelector = createSelect();
-	faceSelector.option('1');
-	faceSelector.option('2');
-	faceSelector.option('3');
-	faceSelector.option('all')
-	faceSelector.value('all');
-	faceSelector.parent('selector1Container');
+  // rotation in degrees
+  angleMode(DEGREES);
+}
 
-	// rotation in degrees
-	angleMode(DEGREES);
-
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
 }
 
 // global variables for colors
@@ -233,85 +221,51 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value,eyebrows) {
 	
 	ellipse(0,100* scale,mouth_value* scale,mouth_value* scale);
 	
-	
 	pop();
 }
 
-function draw() {
-	noStroke();
+function draw () {
+  resetFocusedRandom(curRandomSeed);
 
-	var mode = faceSelector.value();
+  noStroke();
+  background(bg_color1);
 
-	if (mode != 'all') {
-		if (mode == '1') {
-			background(bg_color1);
-		} else if (mode == '2') {
-			background(bg_color2);
-		} else if (mode == '3') {
-			background(bg_color3);
-		}
-	}
+  // use same size / y_pos for all faces
+  // var face_w = canvasWidth / 4;
+  // var face_h = face_w;
+  // var face_y = height / 2;
+  // var face_x = width / 2;
 
-	var s1 = slider1.value();
-	var s2 = slider2.value();
-	var s3 = slider3.value();
-	var s4 = slider4.value();
-	var s5 = slider5.value();
+  // draw 1st face
+  fill(bg_color1);
 
-	// use same size / y_pos for all faces
-	var face_w = canvasWidth / 4;
-	var face_h = face_w;
-	var face_y = height / 2;
-	var face_x = width / 2;
+  tilt_value = focusedRandom(10, 50);
+  eye_value = Math.floor(focusedRandom(1, 3));
+  mouth_value = focusedRandom(30, 140);
 
-	if (mode == '1' || mode == 'all') {
-		// draw 1st face
-		fill(bg_color1);
-		rect(0, 0, width / 3, height);
-		var height_value = map(s1, 0, 100, -20, 20);
-		var mouth_value = map(s3, 0, 100, -10, 10);
-		var eye_value = map(s2, 0, 100, -25, 25);
-		var hair_value = map(s4, 0, 100, 0, 6);
-		var eyeNumber_value = Math.floor(map(s5, 0, 100, 1, 2.9));
-		if (mode == 'all') {
-			face_x = width / 6;
-		}
-		drawFace1(face_x, face_y, face_w, face_h, height_value, eye_value, mouth_value, hair_value, eyeNumber_value);
-	}
+  var w = canvasWidth / 5;
+  var h = canvasHeight / 3;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;
+      var height_value = focusedRandom(-20, 20);
+		var mouth_value = focusedRandom(-10, 10);
+		var eye_value = focusedRandom(-25, 25);
+		var hair_value = focusedRandom(0, 6);
+		var eyeNumber_value = int(focusedRandom(1, 2.9));
+      drawFace1(x, y, w, h, height_value, eye_value, mouth_value, hair_value, eyeNumber_value);
+    }
+  }
 
-	if (mode == '2' || mode == 'all') {
-		// draw 2nd face
-		fill(bg_color2);
-		rect(width / 3, 0, 2 * width / 3, height);
-		var redTop_value = map(s1, 0, 100, -150, -90);
-		var mouth_value = map(s3, 0, 100, 10, 90);
-		var eye_value = map(s2, 0, 100, 25, 35);
-		var color_value = map(s4, 0, 100, 0, 1);
-		if (mode == 'all') {
-			face_x = 3 * width / 6;
-		}
-		drawFace2(face_x, face_y, face_w, face_h, redTop_value, eye_value, mouth_value,color_value);
-	}
-
-	if (mode == '3' || mode == 'all') {
-		// draw 3nd face
-		fill(bg_color3);
-		rect(2 * width / 3, 0, width, height);
-		var width_value = map(s1, 0, 100, 0, 100);
-		var mouth_value = map(s3, 0, 100, 0, 100);
-		var eye_value = map(s2, 0, 100, 10, 40);
-		var eyebrows = map(s4, 0, 100, 70, 130);
-		if (mode == 'all') {
-			face_x = 5 * width / 6;
-		}
-		drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value,eyebrows);
-	}
+  // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
 }
 
 function keyTyped() {
-	if (key == '!') {
-		saveBlocksImages();
-	} else if (key == '@') {
-		saveBlocksImages(true);
-	}
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
 }
