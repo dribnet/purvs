@@ -5,12 +5,9 @@ var faceSelector;
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color2 = [238, 238, 238];
-var bg_color3 = [70, 70, 120];
+var bg_color2 = [70, 70, 120];
+var bg_color3 = [238, 238, 238];
 
-var fg_color1 = [151, 102, 52];
-
-var stroke_color1 = [95, 52, 8];
 
 var randomHue = [];
 var randomSaturation = [];
@@ -35,7 +32,7 @@ function setup () {
   slider1 = createSlider(0, 100, 65);
   slider2 = createSlider(0, 100, 30);
   slider3 = createSlider(0, 100, 30);
-  slider4 = createSlider(0, 100, 20);
+  slider4 = createSlider(0, 100, 100);
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
@@ -61,39 +58,45 @@ function setup () {
   angleMode(DEGREES);
 }
 
-function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, scale) {
-  //used to keep the face in the centre if its space
-  var xAdjuster = 107;
+function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer) {
   //positions of the four eyes
   var eyePositions = {
     0: {
-      'x': -120,
-      'y': -110
+      'x': 0,
+      'y': 0
     },
     1: {
-      'x': 25,
-      'y': -15
-    },
-    2: {
       'x': -30,
       'y': 0
+    },
+    2: {
+      'x': -120,
+      'y': -110
     },
     3: {
       'x': 50,
       'y': -150
     }
   }
-  
+  if(num_of_eyes > 1){
+    eyePositions[0] = {'x': 25,'y': -15}
+  }
+  //used to keep the face in the centre if its space
+  var xAdjuster = 107;
   push();
   translate(x-xAdjuster, y);
   colorMode(HSB);
 
+  scale(size_adjuster);
+
   //eye necks for first and forth faces - needs to drawn before the face
   strokeWeight(7);
   stroke(hue,80,40);
-  line(xAdjuster, 0, xAdjuster + eyePositions[0]['x'], eyePositions[0]['y']);
-  if(num_of_eyes == 4){
-    
+  if(num_of_eyes > 2){
+    line(xAdjuster, 0, xAdjuster + eyePositions[2]['x'], eyePositions[2]['y']);
+  }
+  if(num_of_eyes > 3){
+    line(xAdjuster, 0, xAdjuster + eyePositions[3]['x'], eyePositions[3]['y']);
   }
   
   noStroke();
@@ -111,7 +114,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, 
   	var degree = map(i, 0, 720, 0, 360);
   	rotate(i);
   		var j = 0;
-  		while(j < (randomLength[i] * scale)) {
+  		while(j < (randomLength[i] * minimizer)) {
         var yPos = j % zigzag;
         if(yPos > (zigzag/2)){
           yPos = -yPos + (zigzag/2);
@@ -128,7 +131,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, 
     strokeWeight(7);
     stroke(hue,80,40);
     fill(hue,80,40);
-    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size+2, eye_size+2);
+    ellipse((xAdjuster+eyePositions[i]['x']), eyePositions[i]['y'], eye_size+2, eye_size+2);
     stroke(hue, 40, 80);
     strokeWeight(3);
     fill(0,0,100);
@@ -188,7 +191,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, 
 
 }
 
-function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale) {
+function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer) {
   push();
   rectMode(CENTER);
   translate(x, y);
@@ -198,8 +201,8 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   fill(hue, 90, 50);
   
   //antenna
-  var yVariation = ((300 + face_height) * scale) /2;
-  var xVariation = (300 * scale) /2;
+  var yVariation = ((300 + face_height) * minimizer) /2;
+  var xVariation = (300 * minimizer) /2;
   if(num_antennas == 1 || num_antennas == 3){
 	  triangle(-20, -20, 0, -50 - yVariation, 20, -20);
 	  ellipse(0, 10 - yVariation, 40, 40);
@@ -241,7 +244,7 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   var bottomCorners = face_shape - 50;
   bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
   if(face_shape <= 100) {
-	 rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
+	 rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
   }
   else {
   	bottomCorners = bottomCorners - ((face_shape - 100) * 2);
@@ -250,7 +253,7 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
   		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
   	}
-	   rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
+	   rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
   }
  
   //eyes 
@@ -359,7 +362,7 @@ var bearColorSchemes = {
     }
 }
 
-function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, scale) {
+function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, minimizer) {
   push();
   translate(x, y);
 
@@ -367,18 +370,18 @@ function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, e
 
   //left ear
   fill(bearColorSchemes[color_scheme]['outer-ear']);
-  ellipse(-70, -70, (125 + face_size) * scale, (125 + face_size) * scale);
+  ellipse(-70, -70, (125 + face_size) * minimizer, (125 + face_size) * minimizer);
   fill(bearColorSchemes[color_scheme]['inner-ear']);
-  ellipse(-inner_ear_x, -inner_ear_y, (50 + face_size) * scale, (50 + face_size) * scale);
+  ellipse(-inner_ear_x, -inner_ear_y, (50 + face_size) * minimizer, (50 + face_size) * minimizer);
   //right ear
   fill(bearColorSchemes[color_scheme]['outer-ear']);
-  ellipse(70, -70, (125 + face_size) * scale, (125 + face_size) * scale);
+  ellipse(70, -70, (125 + face_size) * minimizer, (125 + face_size) * minimizer);
   fill(bearColorSchemes[color_scheme]['inner-ear']);
-  ellipse(inner_ear_x, -inner_ear_y, (50 + face_size) * scale, (50 + face_size) * scale);
+  ellipse(inner_ear_x, -inner_ear_y, (50 + face_size) * minimizer, (50 + face_size) * minimizer);
 
   //face
   fill(bearColorSchemes[color_scheme]['face']);
-  ellipse(0, 0, (300 + face_size) * scale, (300 + face_size) * scale);
+  ellipse(0, 0, (300 + face_size) * minimizer, (300 + face_size) * minimizer);
 
   //outer mouth
   fill(bearColorSchemes[color_scheme]['mouth']);
@@ -448,7 +451,7 @@ function draw () {
   else {
     extent = face_w / 2;
   }
-  var scale = extent / 220.0;
+  var minimizer = extent / 220.0;
   if (mode == '1' || mode == 'all') {
     // draw 1st face
     fill(bg_color1);
@@ -460,8 +463,8 @@ function draw () {
     var eye_size = map(s2, 0, 100, 30, 60);
 	  var hue = map(s3, 0, 100, 350, 0);
     var zigzag = map(s4, 0, 100, 1, 20);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    drawMonsterFace(face_x, face_y, num_of_eyes, eye_size, hue, zigzag, eye_value, scale);
+    var size_adjuster = map(s5, 0, 100, 0.5, 1);
+    drawMonsterFace(face_x, face_y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer);
   }
 
   if (mode == '2' || mode == 'all') {
@@ -478,7 +481,7 @@ function draw () {
     var face_shape = map(s3, 0, 100, 0, 200);
     var mouth_style = map(s4, 0, 100, 50, 10);
     var eye_distance = map(s5, 0, 100, 50, 0);
-    drawRobotFace(face_x, face_y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale);
+    drawRobotFace(face_x, face_y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -496,7 +499,7 @@ function draw () {
     var eye_size = map(s4, 0, 100, 20, 40);
     var inner_ear_x = map(s5, 0, 100, 63, 83);
     var inner_ear_y = map(s5, 0, 100, 63, 54);
-    drawBearFace(face_x, face_y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, scale);
+    drawBearFace(face_x, face_y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, minimizer);
   }
 }
 
