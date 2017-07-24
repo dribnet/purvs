@@ -4,6 +4,7 @@ var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
 var slids;
 var dolly;
+var patterned;
 var cartoon;
 
 function setup () {
@@ -17,16 +18,17 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
-  slids = new SliderValues(slider1,slider2,slider3,slider4,slider5);
-  dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
-  cartoon = new CartoonFace(canvasWidth/3,canvasHeight,slids);
-
+  
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
-
+//create the other objects
+  slids = new SliderValues(slider1,slider2,slider3,slider4,slider5);
+  dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
+  cartoon = new CartoonFace(canvasWidth/3,canvasHeight,slids);
+patterned = new PatternFace(canvasWidth/3,canvasHeight,slids);
   faceSelector = createSelect();
   faceSelector.option('1');
   faceSelector.option('2');
@@ -40,8 +42,8 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [109, 101, 148];
+var bg_color1 = [156, 159, 213];
+var bg_color2 = [244, 249, 229];
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [151, 102, 52];
@@ -83,44 +85,13 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 	push();
+	//instructs the patternFace object to draw itself onto a graphics object
+	var pat = patterned.drawFace();
 	rectMode(CENTER);
 	translate(x, y);
-  // rotate(width_value);
-
-  var extent = 0;
-  if(h < w) {
-  	extent = h / 2;
-  }
-  else {
-  	extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-  	fill(bg_color2);
-  	rect( 0, -80 * scale, 50 * scale, 30 * scale);
-  	fill(fg_color2);
-  	ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-  	fill(bg_color2);
-  	rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-  	rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-  	fill(fg_color2);
-  	ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  	ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+//draws the graphics object onto the main canvas in the desired position
+ image(pat,w ,h);
+ image(pat,0-w/2,0-h/2,w,h);
   rectMode(CORNER);
   pop();
 }

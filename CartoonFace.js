@@ -186,7 +186,7 @@ else if (this.nNum == 3){
 else if (this.nNum == 4){
 	this.wigglyNose();
 }
-else if (this.nNum == 5){
+else if (this.nNum >= 5){
 	this.normalNose();
 }
 this.c.pop();
