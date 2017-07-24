@@ -53,10 +53,9 @@ var nose_color = "#1a0500";
 
 //mask colors
 var bg_color2 = "#f2e6d9";
-var skin_color = "#001a33";
-var forehead_color = "#ffcc00";
 var eyeBall_color = "#000000";
 var mouth_color = "#990000";
+var tri_color = "#ffdb4d";
 var sun_color = "#e60000";
 
 //face3 colors
@@ -174,20 +173,14 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   pop();
 }
 
-/* function draw () {
-
-  //draw mask
-  // background color
-  fill(bg2_color);
-  rect(canvasWidth/3, 0, canvasWidth/3, canvasHeight);
-  
+function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value) {
   //right face
   push();
-  translate(canvasWidth/2, canvasHeight/2);
-  scale(3);
+  translate(x, y);
+  scale(size);
   
   //whole skin
-  fill(skin_color);
+  fill(skinColor_value);
   beginShape();
   vertex(0, -40);
   bezierVertex(20, -40, 25, -20, 20, 0);
@@ -196,35 +189,35 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   endShape();
 
   //forehead
-  fill(forehead_color);
+  fill(foreColor_value);
   strokeWeight(0.5);
   stroke("#ffffff");
   beginShape();
-  vertex(15, -34);
-  bezierVertex(15, -25, 9, -12, 6, -7);
+  vertex(15 * forehead_value, -34 * forehead_value);
+  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
   vertex(6, -7);
-  bezierVertex(10, -10, 15, -10, 20, -20);
+  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
   vertex(20, -20);
-  bezierVertex(18, -20, 15, -20, 15, -34);
+  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
   endShape();
 
   //eye rim
   fill("#000000");
   beginShape();
   vertex(6, -7);
-  bezierVertex(1, -5, 2, -4, 1, 1);
+  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
   vertex(1, 1);
-  bezierVertex(4, -5, 10, 10, 20, 0);
+  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
   vertex(20, 0);
-  bezierVertex(15, -5, 18, -8, 22, -12);
+  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
   endShape();
   //eye hole
-  fill(bg2_color);
+  fill(bg_color2);
   noStroke();  
   ellipse(9, -5, 8, 4);
   //eye ball
   fill(eyeBall_color);
-  ellipse(8.5, -5, 4.5);
+  ellipse(8.5 * eye_value, -5, 4.5);
 
   //nose
   push();
@@ -236,11 +229,11 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   //jaw
   fill("#000000");
   beginShape();
-  vertex(0, 15)
-  bezierVertex(20, 5, 16, 20, 14, 27)
+  vertex(0 * mouth_value, 15 * mouth_value)
+  bezierVertex(20 * mouth_value, 5 * mouth_value, 16, 20, 14, 27)
   endShape();
 
-  fill(bg2_color);
+  fill(bg_color2);
   beginShape();
   vertex(0, 15);
   bezierVertex(13, 16, 13, 20, 14, 27);
@@ -250,16 +243,16 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
 
   //mouth
   fill(mouth_color);
-  quad(0, 17, 5, 17, 2, 20, 0, 20);
+  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
   pop();
-  
+
   //left face
   push();
-  translate(canvasWidth/2, canvasHeight/2);
-  scale(-3, 3);
-
+  translate(x, y);
+  scale(-size, size);
+  
   //whole skin
-  fill(skin_color);
+  fill(skinColor_value);
   beginShape();
   vertex(0, -40);
   bezierVertex(20, -40, 25, -20, 20, 0);
@@ -268,35 +261,35 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   endShape();
 
   //forehead
-  fill(forehead_color);
+  fill(foreColor_value);
   strokeWeight(0.5);
   stroke("#ffffff");
   beginShape();
-  vertex(15, -34);
-  bezierVertex(15, -25, 9, -12, 6, -7);
+  vertex(15 * forehead_value, -34 * forehead_value);
+  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
   vertex(6, -7);
-  bezierVertex(10, -10, 15, -10, 20, -20);
+  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
   vertex(20, -20);
-  bezierVertex(18, -20, 15, -20, 15, -34);
+  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
   endShape();
 
   //eye rim
   fill("#000000");
   beginShape();
   vertex(6, -7);
-  bezierVertex(1, -5, 2, -4, 1, 1);
+  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
   vertex(1, 1);
-  bezierVertex(4, -5, 10, 10, 20, 0);
+  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
   vertex(20, 0);
-  bezierVertex(15, -5, 18, -8, 22, -12);
+  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
   endShape();
   //eye hole
-  fill(bg2_color);
+  fill(bg_color2);
   noStroke();  
   ellipse(9, -5, 8, 4);
   //eye ball
   fill(eyeBall_color);
-  ellipse(8.5, -5, 4.5);
+  ellipse(8.5 * eye_value, -5, 4.5);
 
   //nose
   push();
@@ -308,11 +301,11 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   //jaw
   fill("#000000");
   beginShape();
-  vertex(0, 15)
-  bezierVertex(20, 5, 16, 20, 14, 27)
+  vertex(0 * mouth_value, 15 * mouth_value)
+  bezierVertex(20 * mouth_value, 5 * mouth_value, 16, 20, 14, 27)
   endShape();
 
-  fill(bg2_color);
+  fill(bg_color2);
   beginShape();
   vertex(0, 15);
   bezierVertex(13, 16, 13, 20, 14, 27);
@@ -322,7 +315,12 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
 
   //mouth
   fill(mouth_color);
-  quad(0, 17, 5, 17, 2, 20, 0, 20);
+  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
+
+  //triangle
+  fill(tri_color);
+  triangle(5, -25, -5, -25, 0, 10 * tri1_value);
+  triangle(5, -25, -5, -25, 0, -50 * tri2_value);
 
   //middle sun
   fill(sun_color);
@@ -330,11 +328,12 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   strokeWeight(1);
   ellipse(0, -25, 10);
   pop();
-  
-} */
+}
 
- function draw () {
-  noStroke();
+/* function drawFace1(x, y, size, ear_value, eye_value, nose_value) {} */
+
+
+function draw () {
 
   var mode = faceSelector.value();
 
@@ -376,20 +375,25 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
     drawFace1(face_x, face_y, size, ear_value, eye_value, nose_value);    
   }
 
-/*   if (mode == '2' || mode == 'all') {
+   if (mode == '2' || mode == 'all') {
     // draw 2nd face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
+    var forehead_value = map(s1, 0, 100, 0.5, 1.8);
+    var foreColor_value = [Math.floor(map(s1, 0, 100, 102, 255)), Math.floor(map(s1, 0, 100, 255, 51)), 51];
+    var eye_value = map(s2, 0, 100, 0.9, 1.2);
+    var eyeRim_value = map(s2, 0, 100, 0.5, 3);
+    var mouth_value = map(s4, 0, 100, 1, 1.3);
+    var skinColor_value = [Math.floor(map(s5, 0, 100, 0, 100)), Math.floor(map(s5, 0, 100, 80, 0)), Math.floor(map(s5, 0, 100, 100, 0))];
+    var tri1_value = map(s3, 0, 100, -5, 1);
+    var tri2_value = map(s3, 0, 100, 0, 1);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value);
   }
 
-  if (mode == '3' || mode == 'all') {
+/*   if (mode == '3' || mode == 'all') {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
@@ -400,7 +404,7 @@ function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
       face_x = 5 * width / 6;
     }
     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
-  } */
+  } */ 
 } 
 
 function keyTyped() {
