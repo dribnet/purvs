@@ -1,9 +1,7 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+The first face represents an ogre type character. This utilised in part code for the Mike Wazowski character from part1. There are slide controls for; eyebrow height, pupil size, drowziness, mouth type, and face rotation.
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+With the second face I was looking to create different iterations through changes in hair styles. The slide controls change; afro size, mullet length, fringe length, beard size, and mouth type.
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+The third face was inspired in combination by 1920's cartoon styles and the former street artist duo BMD. There are slide controls for; ear length, number of eyes, look direction, mouth size, and face orientation.
