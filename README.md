@@ -2,4 +2,4 @@
 
 This README explains the grid of random faces of faces for part3.
 
-In my case, I chose just one of my faces from the previous section: Minions.
+In my case, I chose just one of my faces from the previous section: mummy.
