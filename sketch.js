@@ -280,8 +280,6 @@ function draw () {
       drawFace3(x, y, w, h, width_value, eye_value, mouth_value,eyebrows);
     }
   }
-
-
    
 }
 
