@@ -171,7 +171,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, nose_rotate, nose_value, m
   //pop();
 }
 
-function drawFace3(x, y, w, h, scale_value, eye_spacing, mouth_value) {
+function drawFace3(x, y, w, h, scale_value, eye_spacing, chin_value, head_value, bat_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
@@ -197,21 +197,22 @@ function drawFace3(x, y, w, h, scale_value, eye_spacing, mouth_value) {
   vertex(-70, -30);
   vertex(-70, -30);//left side of head
   vertex(-65, 30);
-  vertex(-50, 80); //chin start
-  vertex(0, 110);
-  vertex(50, 80); //chin end
+  vertex(-50 - head_value, 80); //chin start
+  vertex(-chin_value, 110);
+  vertex(chin_value, 110);//chin end
+  vertex(50 + head_value, 80); 
   vertex(70, 30); //Right side of head
   vertex(70, -30);
-  vertex(50, -80);
+  vertex(60, -80);
   vertex(0, -100);
-  vertex(-50, -80);
+  vertex(-60, -80);
   endShape(CLOSE);
 
     //left bat
   beginShape();
   vertex(-70, -30);
   vertex(-70, -30);
-  vertex(-70, -140);
+  vertex(-70, -110 - bat_value);
   vertex(-30, -40);
   endShape(CLOSE);
 
@@ -219,7 +220,7 @@ function drawFace3(x, y, w, h, scale_value, eye_spacing, mouth_value) {
   beginShape();
   vertex(70, 30);
   vertex(70, 30);
-  vertex(75, -140);
+  vertex(75, -110 - bat_value);
   vertex(30, -40);
   endShape(CLOSE);
 
@@ -272,7 +273,8 @@ function drawFace3(x, y, w, h, scale_value, eye_spacing, mouth_value) {
   vertex(-55, 10);
   vertex(-55, 10);
   vertex(-40, 80); //chin start
-  vertex(0, 100);
+  vertex(-chin_value, 100);
+  vertex(chin_value, 100);
   vertex(40, 80); //chin end
   vertex(60, 10); //Right side of head
   vertex(0, 49);
@@ -341,7 +343,7 @@ function draw () {
     var hair_value = map(s1, 0, 100, -30, 70);
     var nose_rotate = map(s3, 0, 100, 0, 360);
     var eye_value = map(s2, 0, 100, 0, 100);
-    var nose_value = map(s4, 0, 100, 0, 100);
+    var nose_value = map(s4, 0, 100, 0, 30);
     var mouth_value = map(s5, 0, 100, -250, 250);
     if (mode == 'all') {
       face_x = 3 * width / 6;
@@ -354,12 +356,14 @@ function draw () {
       fill(bg_color3);
       rect(2.5* width / 3, 0, width / 3, height*2);
     var scale_value = map(s1, 0, 100, 0, 1);
-    var mouth_value = map(s3, 0, 100, 0, 200);
+    var chin_value = map(s3, 0, 100, 0, 35);
     var eye_spacing = map(s2, 0, 100, 0, 20);
+	var head_value = map(s4, 0, 100, 0, 30);
+	var bat_value = map(s5, 0, 100, 0, 30)
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, scale_value, eye_spacing, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, scale_value, eye_spacing, chin_value, head_value, bat_value);
   }
 }
 
