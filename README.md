@@ -1,1 +1,1 @@
-For the fox face, I change the movement of ears, the blink of eyes and the length of nose.
+I add random value to ear to change its movement and color, random value for eye size and color, random value for nose length and color, random value for the width of face.
