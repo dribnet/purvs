@@ -62,6 +62,68 @@ function Mike(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
     extent = w / 2;
   }
   var scale = extent / 220.0;
+  // Horns light color
+  fill("#AEB8AC");
+  triangle(-120  * scale,-90 * scale,-80 * scale,-110 * scale,-100 * scale,-160 * scale);
+  triangle(120 * scale,-90 * scale,80 * scale,-110 * scale,100 * scale,-160 * scale);
+
+  //Horn dark color
+  fill("#727871");
+  triangle(-108 * scale,-135 * scale,-90 * scale,-135 * scale,-100 * scale,-160 * scale);
+  triangle(110 * scale,-120 * scale,90 * scale,-135 * scale,100 * scale,-160 * scale);
+ 
+  fill(fg_color1);
+  quad(115 * scale,100 * scale,0 * scale,150 * scale, 0 * scale,0 * scale,150 * scale,0 * scale);
+  quad(115 * scale,-100 * scale,0 * scale,-150 * scale, 0 * scale,0 * scale,150 * scale,0 * scale); 
+  quad(-115 * scale,100 * scale,0 * scale,150 * scale, 0 * scale,0 * scale,-150 * scale,0 * scale);
+  quad(-115 * scale,-100 * scale,0 * scale,-150 * scale, 0 * scale,0 * scale,-150 * scale,0 * scale);
+
+  // Eye  
+  fill(bg_color1);
+  quad(0 * scale, -120 * scale, -80 * scale, -40 * scale, 0 * scale, 40 * scale, 80 * scale, -40 * scale);
+
+  // set fill back to foreground for eyeballs
+  fill(fg_color1);
+  quad(eye_LeftRight * scale, eye_UpDown -100 * scale, eye_LeftRight -60 * scale,eye_UpDown -40 * scale, eye_LeftRight * scale, eye_UpDown + 20 * scale,eye_LeftRight +60 * scale, eye_UpDown -40 * scale);
+
+  //pupils
+  fill("#000000");
+  quad(eye_LeftRight * scale, eye_UpDown -80 * scale, eye_LeftRight -40 * scale,eye_UpDown -40 * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight +40 * scale, eye_UpDown -40 * scale);
+
+  //mouth
+
+  fill("#ffffff");
+  quad(-100 * scale,50 * scale,0 * scale,mouth_value * scale, 100 * scale, 50 * scale,0 * scale,100 * scale);
+  
+
+
+
+  pop();
+}
+
+function drawFace2(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
+push();
+  translate(x, y);
+  noStroke();
+  rotate(tilt_value);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+  // Horns light color
+  fill("#AEB8AC");
+  triangle(-120  * scale,-90 * scale,-80 * scale,-110 * scale,-100 * scale,-160 * scale);
+  triangle(120 * scale,-90 * scale,80 * scale,-110 * scale,100 * scale,-160 * scale);
+
+  //Horn dark color
+  fill("#727871");
+  triangle(-108 * scale,-135 * scale,-90 * scale,-135 * scale,-100 * scale,-160 * scale);
+  triangle(110 * scale,-120 * scale,90 * scale,-135 * scale,100 * scale,-160 * scale);
 
   fill(fg_color1);
   ellipse(0, 0, 300 * scale, 300 * scale);
@@ -84,81 +146,7 @@ function Mike(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
   fill("#000000");
   ellipse(eye_LeftRight * scale, -eye_UpDown * scale, 60 * scale, 60 * scale);
 
-  // Horns light color
-  fill("#AEB8AC");
-  triangle(-120  * scale,-90 * scale,-85 * scale,-123 * scale,-150 * scale,-150 * scale);
-  triangle(120 * scale,-90 * scale,85 * scale,-123 * scale,150 * scale,-150 * scale);
-  //Horn dark color
-  fill("#727871");
-  triangle(-142 * scale,-135 * scale,-115 * scale,-135 * scale,-150 * scale,-150 * scale);
-  triangle(135 * scale,-120 * scale,115 * scale,-135 * scale,150 * scale,-150 * scale);
   pop();
-}
-
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  rectMode(CENTER);
-  push();
-  translate(x, y);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color3);
-  fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 50) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  }
-  rectMode(CORNER);
-  resetMatrix();
 }
 
 function sully(x, y, w, h, width_value, eye_value, mouth_value) {
@@ -244,9 +232,9 @@ function draw () {
     rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
     //var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    var eye_UpDown = map(s3, 0, 100, 20, 60);
-    var eye_LeftRight = map(s4, 0, 100, -40, 40);
-    var mouth_value = map(s2, 0, 100, 45, 80);
+    var eye_UpDown = map(s3, 0, 100, 20, -20);
+    var eye_LeftRight = map(s4, 0, 100, -20, 20);
+    var mouth_value = map(s2, 0, 100, 50, 90);
     if (mode == 'all') {
       face_x = width / 6;
     }
@@ -257,13 +245,15 @@ function draw () {
     // draw 2nd face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 100));
-    var eye_value = map(s2, 0, 100, -15, 15);
+var tilt_value = map(s1, 0, 100, -90, 90);
+    //var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var eye_UpDown = map(s3, 0, 100, 20, 60);
+    var eye_LeftRight = map(s4, 0, 100, -40, 40);
+    var mouth_value = map(s2, 0, 100, 50, 80);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight);
   }
 
   if (mode == '3' || mode == 'all') {
