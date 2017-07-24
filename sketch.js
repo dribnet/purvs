@@ -58,8 +58,6 @@ var mouth_color = "#990000";
 var tri_color = "#ffdb4d";
 var sun_color = "#e60000";
 
-//face3 colors
-var bg_color3 = "#008060";
 
 function drawFace1(x, y, size, ear_value, eye_value, nose_value) {
   noStroke();
@@ -329,9 +327,6 @@ function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_va
   ellipse(0, -25, 10);
   pop();
 }
-
-/* function drawFace1(x, y, size, ear_value, eye_value, nose_value) {} */
-
 
 function draw () {
 
