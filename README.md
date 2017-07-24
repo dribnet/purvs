@@ -1,9 +1,7 @@
 ## PS1B MDDN 342 2017 Title
 
-This README explains the three different paramaterized faces for part2. 
+For Spongebob I was experimenting with the shape of his body/face and his eyes. I used discrete values here to alter the for loop i used to draw his curves
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+For Morty I was experimenting with curves for his nose and mouth. His hair is also changeable.
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+For Batman I created his face using vertices and gave them parameters so his actual face structure can be changed. 

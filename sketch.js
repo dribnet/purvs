@@ -50,12 +50,24 @@ var colorHair = [20, 20, 0];
 var eye_color = [255,255,255];
 var black_color = [0,0,0];
 
+//Spongebob Variables
+var sponge_color = "#fef46e";
+var outline_color = "#929303";
+var eyelash_color = "#000000";
+var iris_color = "#43c6f2";
+var pupil_color = "#000000";
+
+var eyelash_size = 8;
+var eye_size = 110;
+var iris_size = 50;
+var pupil_size = 20;
+
 //Morty Variables
 var m_eye_size = 55;
 var skin_color = "#f7cdad";
 var hair_color = "#82491d";
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, head_value, chin_value) {
+function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_value, curves_number) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -67,46 +79,115 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, head_value, c
   else {
     extent = w / 2;
   }
-  var scale = extent / 220.0;
 
-  fill(fg_color1);
+    // stroke color
+  stroke(fg_color1)
 
-  var mid_value = 25;
+  // move to position1, rotate, start drawing spongebob
+  push();
+  translate(960/4, 500/2);
+  translate(-240, -250);
+  scale(0.75, .75);
+  fill(sponge_color);
+  strokeWeight(0);
+  rect(-175, -187, 350, 375);
+	
+  strokeWeight(5);	
+  fill(sponge_color);
+  stroke(outline_color);
 
-  beginShape();
-  vertex(-50 - chin_value, 100); //bot
-  vertex(50 + chin_value, 100); //bot
-  vertex(100, mid_value);//mid
-  vertex(100, -80); //top
-  vertex(25 + head_value, -150); //top top
-  vertex(-25 - head_value, -150); //top top
-  vertex(-100, -80); //top
-  vertex(-100, mid_value); //mid
-  endShape(CLOSE);
-
-  //ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(eye_color);
-    ellipse( 0, -80 * scale, 50 * scale, 50 * scale);
-    fill(fg_color1);
-    ellipse(0 * scale, -80 * scale, 20 * scale, 20 * scale);
+  for(var i = 0; i < curves_number; i++){
+	  curve(-75, -297 + ((374/curves_number) * i),  -175, -187+ ((374/curves_number) * i),  -175, -187 + ((374/curves_number) * (i+1)), -205, -187 + ((374/curves_number) * (i+1)));
+	  
+	  curve(75, -297 + ((374/curves_number) * i),  175, -187+ ((374/curves_number) * i),  175, -187 + ((374/curves_number) * (i+1)), 205, -187 + ((374/curves_number) * (i+1)));
+	  
+	  curve(-275 + ((350/curves_number) * i), -87, -175 + ((350/curves_number) * i), -187, -175 + ((350/curves_number) * (i+1)), -187, -75+ ((350/curves_number) * i), -200);
+	  
+	  curve(-275 + ((350/curves_number) * i), 0, -175 + ((350/curves_number) * i), 187, -175 + ((350/curves_number) * (i+1)), 187, -175+ ((350/curves_number) * i), 200);
   }
+  
+  //Draw the holes
+	fill(outline_color);
+	if(hole_value > 1){
+    	ellipse(-140,-140,44,35);
+		ellipse(140,-120,40,37);
+	}
+	if(hole_value > 2){
+	ellipse(100,-150,25,18);
+	ellipse(-110,120,40,50);
+	}
+	if(hole_value > 3)
+		ellipse(100,140,33,44);
+	if(hole_value > 4){
+	ellipse(50,120,20,25);
+	ellipse(-60,150,20,15);
+	}
+	
+  //Draw the eye lashes
+  /*fill(eyelash_color);
+  rect(-50 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+  rect(50 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+	
+  push();
+	rotate(25);
+  rect(0 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+  //rect(-30 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+  rect(70 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+	
+  pop();
+	
+  rect(-70 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+  rect(30 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
+  */
+	
+  // set fill to match background color
+  fill(eye_color);
+  stroke(black_color);
+  // draw two eyes
+  ellipse(-50 - eye_value/2, -80, eye_size + eye_value, eye_size + eye_value);
+  ellipse( 50 + eye_value/2, -80, eye_size + eye_value, eye_size + eye_value);
 
-  if (eye_value >= 2) {
-    fill(eye_color);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 50 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 50 * scale);
+  // set fill back to foreground for eyeballs
+  fill(iris_color);
+  ellipse(-50, -80, iris_size + eye_value, iris_size + eye_value);
+  ellipse( 50, -80, iris_size + eye_value, iris_size + eye_value);
 
-    fill(fg_color1);
-    ellipse(-50 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 50 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+// set fill back to foreground for pupils
+  fill(pupil_color);
+  ellipse(-50 + eye_value/10, -80, pupil_size, pupil_size);
+  ellipse( 50 - eye_value/10, -80, pupil_size, pupil_size);
 
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+// nose with skin color
+  fill(sponge_color);
+  ellipse(0, -30, 45, 45);
+
+  //Cheeks
+  fill(sponge_color);
+  stroke(outline_color);
+  curve(-20, 180, -120, -5, -90, -5, -250, 80);
+  //curve(110, 80, 110, 0, 80, 0, 80, 80);
+  curve(220, 180, 80, -5, 110, -5, -70, 80);
+  fill(outline_color);
+  strokeWeight(1);
+  ellipse(-110,-10,3,3);
+  ellipse(-100,-10,3,3);
+  ellipse(-105,-15,3,3);
+  ellipse(100,-10,3,3);
+  ellipse(90,-10,3,3);
+  ellipse(95,-15,3,3);
+	
+  // mouth-hole with background color
+  translate(-105, -100);
+  strokeWeight(5);
+  stroke(black_color)
+  fill(eye_color);
+  rect(115,130,30,35);
+  rect(65,130,30,35);
+  fill(sponge_color);
+  curve(150,-200, 200,100,0,100,50,-200);
+  pop();
+	
+	
   pop();
 }
 
@@ -326,14 +407,14 @@ function draw () {
       fill(bg_color1);
       rect(0, 0, 2 * width, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    var chin_value = map(s4, 0, 100, 0, 100);
+    var hole_value = Math.floor(map(s3, 0, 100, 1, 5));
+    var eye_value = map(s2, 0, 100, -25, 25);
+    var curve_number = Math.floor(map(s4, 0, 100, 1, 7));
     var head_value = map(s5, 0, 100, 0, 100);
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value, head_value, chin_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, hole_value, head_value, curve_number);    
   }
 
   if (mode == '2' || mode == 'all') {
