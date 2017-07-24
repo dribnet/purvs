@@ -31,7 +31,34 @@ function setup () {
 
   // rotation in degrees
   angleMode(DEGREES);
+  rectMode(CENTER);
+  colorMode(HSB);
+  noStroke();
+
+  bert_face = color(45, 85, 95)
+  bert_nose = color(29, 96, 94)
+
+  ernie_face = color(35, 90, 92)
+
+  mouth = color(351, 100, 55)
+
+  oscar_face = color(75, 80, 50)
+  oscar_brow = color(23, 80, 30)
 }
+
+// global variables for colors
+var bg_color = "#ffffff";
+var stroke_color = "#c78a5b";
+
+var bert_face //yellow
+var bert_nose //orange
+
+var ernie_face = "rgb(217, 118, 37)" //orange
+var ernie_nose = "rgb(218, 10, 31)" //red
+
+var oscar_face;
+var oscar_brow;
+
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
@@ -48,154 +75,108 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawFace1(x, y, w, h, tilt_value, eye_value, nose_value) {
+  // move to position1, rotate, draw "head" ellipse
   push();
   translate(x, y);
-  rotate(tilt_value);
+  rotate(-tilt_value/2);
+  //squeeze ernie
+  fill(ernie_face);
+  ellipse(0, 0, 290, 230);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
+  // mouth-hole with background color
+  fill(mouth);
+  ellipse(0, 30, 230, 120);
+  //cut out top of ernie's mouth with another ellipse to make him super smiley
+  fill(ernie_face)
+  ellipse(0, 10, 285, 95)
 
-  fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  // set fill to match background color
+  fill("white");
+  // draw two eyes
+  ellipse(-40, -40, 60, 45);
+  ellipse( 40, -40, 60, 45);
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  // set fill back to black for eyeballs
+  fill("black");
+  ellipse(-30-eye_value/100*20, -40, 20, 20);
+  ellipse( 30+eye_value/100*20, -40, 20, 20);
 
-  if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  fill(ernie_nose)
+  ellipse(0, 0, 30 + 36*nose_value/100, 40 + 33*nose_value/100);
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  rectMode(CENTER);
+function drawFace2(x, y, w, h, tilt_value, eye_value, mouth_value) {
+  // move to position2, rotate, draw "head" ellipse
   push();
   translate(x, y);
+  rotate(tilt_value/2);
+  fill(bert_face);
+  ellipse(0, 0, 270, 400);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
+  translate(0, 30)
 
-  stroke(stroke_color3);
-  fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  var bert_mouth_h = 54;
+  // mouth-hole with background color
+  fill(mouth);
+  ellipse(0, 40+20*mouth_value/100, 200, bert_mouth_h*2);
+  //cut off top
+  fill(bert_face)
+  rect(0, 0, 200, bert_mouth_h*2)
 
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
+  // set fill to match background color
+  var diff = map(eye_value, 0, 100, 0, 10);
+  fill("white");
+  // draw two eyes
+  ellipse(-50, -80+diff, 70, 70);
+  ellipse( 50, -80+diff, 70, 70);
 
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  // set fill back to foreground for eyeballs
+  fill("black");
+  ellipse(-40, -80+diff, 30, 30);
+  ellipse( 40, -80+diff, 30, 30);
 
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
+  //bert eyebrows
+  fill("black")
+  rect(0, -130, 180, 10+eye_value/100*20)
 
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  }
-  rectMode(CORNER);
-  resetMatrix();
+  fill(bert_nose);
+  ellipse(0, -10, 80, 110)
+  pop();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value) {
+  // move to position1, rotate, draw "head" ellipse
   push();
-  rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
+  rotate(tilt_value);
+  //squeeze oscar
+  fill(oscar_face);
+  ellipse(0, 0, 290, 200);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
+  // mouth-hole with background color
+  fill('black');
+  ellipse(0, 20, 250, 20+70*mouth_value/100);
+  //cut out top of oscar's mouth with another ellipse to make him super smiley
+  fill(oscar_face)
+  rect(0, -5, 260, 50)
 
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+  // set fill to match background color
+  fill("white");
+  // draw two eyes
+  ellipse(-40, -20, 60, 45);
+  ellipse( 40, -20, 60, 45);
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  // set fill back to black for eyeballs
+  fill("black");
+  ellipse(-40, -20, 30, 30);
+  ellipse( 40, -20, 30, 30);
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+  //oscar eyebrows
+  fill(oscar_brow)
+  rect(0, map(eye_value, 0, 100, -65, -40), 180, 20)
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
   pop();
 }
 
@@ -215,6 +196,7 @@ function draw () {
       background(bg_color3);
     }
   }
+  background('white');
 
   var s1 = slider1.value();
   var s2 = slider2.value();
@@ -231,40 +213,34 @@ function draw () {
   if (mode == '1' || mode == 'all') {
     // draw 1st face
     fill(bg_color1);
-    rect(0, 0, width/3, height);
+    //rect(0, 0, width/3, height);
     var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, s2, s3);    
   }
 
   if (mode == '2' || mode == 'all') {
     // draw 2nd face
     fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
+    //rect(width/3, 0, 2*width/3, height);
+    var tilt_value = map(s1, 0, 100, -90, 90);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h, tilt_value, s2, s3);
   }
 
   if (mode == '3' || mode == 'all') {
     // draw 3nd face
     fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    //rect(2*width/3, 0, width, height);
+    var tilt_value = map(s1, 0, 100, -90, 90);
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, tilt_value, s2, s3);
   }
 }
 
