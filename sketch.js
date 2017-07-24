@@ -189,25 +189,25 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
   fill (bg_color3);
   stroke (0);
 
-  bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
-  bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
+  bezier (-95* scale, -110* scale, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95* scale, -110* scale);
+  bezier (-95* scale, -110* scale, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
 
 
+  bezier (-95* scale, -110* scale, 0, random (-110, -110+randome), 0, random (-110, -110+randome), -95* scale, 110* scale);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), -95, 110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), -95, 110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), -95, 110);
-  bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), -95, 110);
 
 
+  bezier (-95* scale, 110* scale, 0, random (-110+mouth_value, -110+randome+mouth_value), 0, random (-110+mouth_value, -110+randome+mouth_value), 95* scale, 110* scale);
   bezier (-95, 110, 0, random (-110+mouth_value, -110+randome+mouth_value), 0, random (-110+mouth_value, -110+randome+mouth_value), 95, 110);
   bezier (-95, 110, 0, random (-110+mouth_value, -110+randome+mouth_value), 0, random (-110+mouth_value, -110+randome+mouth_value), 95, 110);
   bezier (-95, 110, 0, random (-110+mouth_value, -110+randome+mouth_value), 0, random (-110+mouth_value, -110+randome+mouth_value), 95, 110);
-  bezier (-95, 110, 0, random (-110+mouth_value, -110+randome+mouth_value), 0, random (-110+mouth_value, -110+randome+mouth_value), 95, 110);
 
 
-  bezier (95, 110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
+  bezier (95* scale, 110* scale, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95* scale, -110* scale);
   bezier (95, 110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (95, 110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (95, 110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
