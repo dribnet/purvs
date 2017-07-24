@@ -1,13 +1,9 @@
-## PS1 MDDN 342 2017
+## PS1B MDDN 342 2017 Title
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+This README explains the three different paramaterized faces for part2. 
 
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
 
-Commit one
+In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+
+In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
