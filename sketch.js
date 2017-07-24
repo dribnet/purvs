@@ -282,15 +282,20 @@ scale(0.8)
   curveVertex(118, 44);
   curveVertex(106, 42);
   curveVertex(84, 46);
-  curveVertex(36, 44);
+  curveVertex(36, lowerEye_value);
   curveVertex(0, 25);
   curveVertex(25, 6);
   endShape();
 
 
   //draw iris
-  fill(irisDark);
+  fill(20, 50, 80);
   ellipse(64, 18, 45, 45);
+  fill(230, 250, 200, 20);
+
+  for (var i = 38; i > 10; i -= 2){
+  	  ellipse(64, 18, i, i);
+  }
 
   // draw pupil
   fill("#000");
@@ -311,16 +316,16 @@ scale(0.8)
   //draw shape overlay for eyelid
     function drawEyelid(){
   var lowerLimit;
-  if((blink_value*(blink_value/15)) < 48){
+  if((blink_value*(blink_value/15)) < 50){
   	lowerLimit = blink_value*(blink_value/15)
   }
-  else(lowerLimit = 48);
+  else(lowerLimit = 50);
 
   var midLimit;
-  if((blink_value*(blink_value/20)) < 37){
+  if((blink_value*(blink_value/20)) < 40){
   	midLimit = blink_value*(blink_value/20)
   }
-  else(midLimit = 38);
+  else(midLimit = 40);
   beginShape();
    curveVertex(0, 3);
   curveVertex(0, 25);
@@ -352,20 +357,34 @@ scale(0.8)
   fill(bg_color2);
   drawEyelid();
 
-    //draw shape overlay for lower eye
-  fill(bg_color3);
+
+    function drawLowerLid() {
+
   beginShape();
   curveVertex(106, 60);
   curveVertex(25, 60);
 
   curveVertex(-20, 15);
-    curveVertex(-5, 25);
+  curveVertex(-5, 25);
   curveVertex(36, lowerEye_value);
   curveVertex(106, 40);
   curveVertex(106, 60);
   curveVertex(25, 60);
   curveVertex(0, 25);
   endShape();
+}
+
+ //draw shape overlay for lower eye
+for (var i = 0; i > -3; i-=0.2){
+	fill(0, 0, 0, 8);	
+	push();
+	translate(0, i);
+	drawLowerLid();
+	pop();
+}
+fill(bg_color3);
+drawLowerLid();
+
 
 fill("#000");
 // ellipse(-5, 30, 3, 3);
@@ -447,7 +466,7 @@ function draw () {
     rect(2*width/3, 0, width, height);
     var pupil_value = Math.floor(map(s1, 0, 100, 1, 3));
     var blink_value = map(s3, 0, 100, 0, 24);
-    var lowerEye_value = map(s2, 0, 100, 25, 50);
+    var lowerEye_value = map(s2, 0, 100, 25, 40);
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
