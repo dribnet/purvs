@@ -1,89 +1,366 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
+var slider1, slider2, slider3, slider4, slider5;
+var faceSelector;
 
 function setup () {
   // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
-
-  // position each element on the page
+  var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+
+  // create sliders
+  slider1 = createSlider(0, 100, 50);
+  slider2 = createSlider(0, 100, 50);
+  slider3 = createSlider(0, 100, 50);
+  slider4 = createSlider(0, 100, 50);
+  slider5 = createSlider(0, 100, 50);
+
+  slider1.parent('slider1Container');
+  slider2.parent('slider2Container');
+  slider3.parent('slider3Container');
+  slider4.parent('slider4Container');
+  slider5.parent('slider5Container');
+
+  faceSelector = createSelect();
+  faceSelector.option('1');
+  faceSelector.option('2');
+  faceSelector.option('3');
+  faceSelector.option('all')
+  faceSelector.value('all');
+  faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
 // global variables for colors
-var bg_color = "#ffffff";
-var fg_color1 = "#fef46e";
-var fg_color2 = "#fef46e";
-var stroke_color = "#000000";
+var bg_color1 = [225, 206, 187];
+var bg_color2 = [47, 59, 64];
+var bg_color3 = [70, 70, 120];
 
-var eye_color = "#43c6f2";
-var pupil_color = "#000000";
+var fg_color1 = [135, 153, 79];
+var fg_color2 = [56, 91, 194];
+var fg_color3 = [206, 207, 180];
+
+var stroke_color1 = [95, 52, 8];
+var stroke_color2 = [210, 219, 189];
+var stroke_color3 = [50, 50, 50];
+
+var colorHair = [20, 20, 0];
+var eye_color = [255,255,255];
+var black_color = [0,0,0];
+
+//Morty Variables
+var m_eye_size = 55;
+var skin_color = "#f7cdad";
+var hair_color = "#82491d";
+
+function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, head_value, chin_value) {
+  push();
+  translate(x, y);
+  rotate(tilt_value);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+  fill(fg_color1);
+
+  var mid_value = 25;
+
+  beginShape();
+  vertex(-50 - chin_value, 100); //bot
+  vertex(50 + chin_value, 100); //bot
+  vertex(100, mid_value);//mid
+  vertex(100, -80); //top
+  vertex(25 + head_value, -150); //top top
+  vertex(-25 - head_value, -150); //top top
+  vertex(-100, -80); //top
+  vertex(-100, mid_value); //mid
+  endShape(CLOSE);
+
+  //ellipse(0, 0, 300 * scale, 400 * scale);
+
+  // eyes
+  if (eye_value === 1 || eye_value == 3) {
+    fill(eye_color);
+    ellipse( 0, -80 * scale, 50 * scale, 50 * scale);
+    fill(fg_color1);
+    ellipse(0 * scale, -80 * scale, 20 * scale, 20 * scale);
+  }
+
+  if (eye_value >= 2) {
+    fill(eye_color);
+    ellipse(-50 * scale, -80 * scale, 50 * scale, 50 * scale);
+    ellipse( 50 * scale, -80 * scale, 50 * scale, 50 * scale);
+
+    fill(fg_color1);
+    ellipse(-50 * scale, -80 * scale, 20 * scale, 20 * scale);
+    ellipse( 50 * scale, -80 * scale, 20 * scale, 20 * scale);
+  }
+
+  // mouth
+  fill(bg_color1);
+  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  pop();
+}
+
+function drawFace2(x, y, w, h, hair_value, eye_value, nose_rotate, nose_value, mouth_value) {
+    rectMode(CENTER);
+  push();
+  translate(x, y);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+	strokeWeight(2);
+	stroke(black_color);
+
+  //hair
+  fill(hair_color);
+  ellipse(0, -50, 250 + hair_value, 250 + hair_value);
+	
+  //Ears
+  fill(skin_color);
+  arc(-115,0, 75, 75, 90, 270, OPEN);	
+  arc(115,0, 75, 75, -90, -270, OPEN);
+	
+  //head
+  fill(skin_color);
+  ellipse(0, 0, 270, 270);
+
+  // set fill to match background color
+  fill(eye_color);
+  // draw two eyes
+  ellipse(-60, -60, m_eye_size + eye_value, m_eye_size + eye_value);
+  ellipse( 60, -60, m_eye_size + eye_value, m_eye_size + eye_value);
+
+  // draw pupils
+  fill(black_color);
+  ellipse(-60, -60, 20 * eye_value/100 + 5, 20 * eye_value/100 + 5);
+  ellipse( 60, -60, 20 * eye_value/100 + 5, 20 * eye_value/100 + 5);
+
+  //Nose
+  translate(0, 20);
+  var nose_y = 15; 
+  fill(skin_color);
+  push();
+  rotate(nose_rotate);
+  curve(-250,nose_y + nose_value, 0, nose_y + nose_value, 0, -nose_y - nose_value, -250, -nose_y - nose_value);
+  pop();
+	
+  // mouth-hole with background color
+  var mouth_y = 70;
+  if(mouth_value < 0){
+		mouth_y -= mouth_value/10;  
+  }
+  curve(-100 - mouth_value,0 - mouth_value, -70, mouth_y, 70, mouth_y, 70 + mouth_value, 100 - mouth_value);
+  pop();
+  
+  //pop();
+}
+
+function drawFace3(x, y, w, h, scale_value, eye_spacing, mouth_value) {
+  push();
+  rectMode(CENTER);
+  translate(x, y);
+    // rotate(width_value);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  //var scale = extent / 220.0;
+
+  stroke(black_color)
+  strokeWeight(0);
+  
+  scale(1 + scale_value, 1 + scale_value);
+
+  fill(black_color);
+
+  beginShape();
+  vertex(-70, -30);
+  vertex(-70, -30);//left side of head
+  vertex(-65, 30);
+  vertex(-50, 80); //chin start
+  vertex(0, 110);
+  vertex(50, 80); //chin end
+  vertex(70, 30); //Right side of head
+  vertex(70, -30);
+  vertex(50, -80);
+  vertex(0, -100);
+  vertex(-50, -80);
+  endShape(CLOSE);
+
+    //left bat
+  beginShape();
+  vertex(-70, -30);
+  vertex(-70, -30);
+  vertex(-70, -140);
+  vertex(-30, -40);
+  endShape(CLOSE);
+
+    //right bat
+  beginShape();
+  vertex(70, 30);
+  vertex(70, 30);
+  vertex(75, -140);
+  vertex(30, -40);
+  endShape(CLOSE);
+
+
+
+    //Left Eye
+  push();
+  translate(-35 - eye_spacing, -15);
+  fill(eye_color);
+
+  beginShape();
+  vertex(-5, 0);
+  vertex(-5, 0);
+  vertex(30, 20);
+  vertex(0, 15);
+  vertex(0, 15);
+  endShape(CLOSE);
+
+  pop();
+
+    //Right Eye
+  push();
+  translate(35 + eye_spacing, -15);
+  fill(eye_color);
+
+  beginShape();
+  vertex(5, 0);
+  vertex(5, 0);
+  vertex(-30, 20);
+  vertex(0, 15);
+  vertex(0, 15);
+  endShape(CLOSE);
+
+  pop();
+
+    //Nose
+  fill(black_color);
+  beginShape();
+  vertex(0, 0);
+  vertex(0, 0);
+  vertex(0, 50);
+  vertex(15, 45);
+  vertex(15, 45);
+  endShape(CLOSE);
+
+    //Mouth area
+  fill(skin_color);
+
+  beginShape();
+  vertex(-55, 10);
+  vertex(-55, 10);
+  vertex(-40, 80); //chin start
+  vertex(0, 100);
+  vertex(40, 80); //chin end
+  vertex(60, 10); //Right side of head
+  vertex(0, 49);
+  endShape(CLOSE);
+
+  pop();
+}
 
 function draw () {
-  // background color
-  background(bg_color);
+  noStroke();
 
-  // stroke color
-  stroke(stroke_color)
+  var mode = faceSelector.value();
 
-  // move to position1, rotate, draw "head" ellipse
-  push();
-  translate(960/4, 500/2);
-  rotate(4);
-  fill(fg_color1);
+  if (mode != 'all') {
+    if (mode == '1') {
+      background(bg_color1);
+    }
+    else if (mode == '2') {
+      background(bg_color2);
+    }
+    else if (mode == '3') {
+      background(bg_color3);
+    }
+  }
 
-  ellipse(0, 0, 300, 300);
+  var s1 = slider1.value();
+  var s2 = slider2.value();
+  var s3 = slider3.value();
+  var s4 = slider4.value();
+  var s5 = slider5.value();
 
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 80, 80);
-  ellipse( 50, -80, 80, 80);
+  // use same size / y_pos for all faces
+  var face_w = canvasWidth / 4;
+  var face_h = face_w;
+  var face_y = height / 2;
+  var face_x = width / 2; var m_eye_size = 110;
 
-  // set fill back to foreground for eyeballs
-  fill(eye_color);
-  ellipse(-50, -80, 30, 30);
-  ellipse( 50, -80, 30, 30);
+    //Draw BGs
+  rectMode(CORNER);
+    //BG1
+  
+    //BG2
+  
+    //BG3
+  
 
-// set fill back to foreground for pupils
-  fill(pupil_color);
-  ellipse(-50, -80, 15, 15);
-  ellipse( 50, -80, 15, 15);
+  if (mode == '1' || mode == 'all') {
+    // draw 1st face
+      fill(bg_color1);
+      rect(0, 0, 2 * width, height);
+    var tilt_value = map(s1, 0, 100, -90, 90);
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var chin_value = map(s4, 0, 100, 0, 100);
+    var head_value = map(s5, 0, 100, 0, 100);
+    if (mode == 'all') {
+      face_x = width / 6;
+    }
+    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value, head_value, chin_value);    
+  }
 
-// nose with skin color
-  fill(fg_color1);
-  ellipse(0, -30, 45, 45);
+  if (mode == '2' || mode == 'all') {
+      // draw 2nd face
+      fill(bg_color2);
+      rect(width / 3, 0, 2 * width / 3, height);
+    var hair_value = map(s1, 0, 100, -30, 70);
+    var nose_rotate = map(s3, 0, 100, 0, 360);
+    var eye_value = map(s2, 0, 100, 0, 100);
+    var nose_value = map(s4, 0, 100, 0, 100);
+    var mouth_value = map(s5, 0, 100, -250, 250);
+    if (mode == 'all') {
+      face_x = 3 * width / 6;
+    }
+    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, nose_rotate, nose_value, mouth_value);
+  }
 
-  // mouth-hole with background color
-  fill(fg_color1);
-  translate(-105, -100);
-  curve(150,-200, 200,100,0,100,50,-200);
-  pop();
-
-  // move to position2, rotate, draw "head" ellipse
-  push();
-  translate(3*960/4, 500/2);
-  rotate(30);
-  fill(fg_color2);
-  ellipse(0, 0, 300, 400);
-
-  // set fill to match background color
-  fill(bg_color);
-  // draw two eyes
-  ellipse(-50, -80, 50, 30);
-  ellipse( 50, -80, 50, 30);
-
-  // set fill back to foreground for eyeballs
-  fill(fg_color2);
-  ellipse(-60, -80, 20, 20);
-  ellipse( 40, -80, 20, 20);
-
-  // mouth-hole with background color
-  fill(bg_color);
-  ellipse( 0, 70, 150, 20);
-  pop();
+  if (mode == '3' || mode == 'all') {
+      // draw 3nd face
+      fill(bg_color3);
+      rect(2.5* width / 3, 0, width / 3, height*2);
+    var scale_value = map(s1, 0, 100, 0, 1);
+    var mouth_value = map(s3, 0, 100, 0, 200);
+    var eye_spacing = map(s2, 0, 100, 0, 20);
+    if (mode == 'all') {
+      face_x = 5 * width / 6;
+    }
+    drawFace3(face_x, face_y, face_w, face_h, scale_value, eye_spacing, mouth_value);
+  }
 }
 
 function keyTyped() {
