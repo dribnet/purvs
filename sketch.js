@@ -66,49 +66,48 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome) {
   else {
     extent = w / 2;
   }
-  var scale = extent / 220.0;
+  var scales = extent / 220.0;
 
   fill(fg_color1);
-  ellipse(0, 0, 30 * scale, 400 * scale);
+  ellipse(0, 0, 30 * scales, 400 * scales);
   fill (0,0);
   stroke (stroke_color1);
-  ellipse(0, 0, random (30,30+randome) * scale, random(390, 390+randome) * scale);
-  ellipse(0, 0, random (30,30+randome) * scale, random(390, 390+randome) * scale);
+  ellipse(0, 0, random (30,30+randome) * scales, random(390, 390+randome) * scales);
+  ellipse(0, 0, random (30,30+randome) * scales, random(390, 390+randome) * scales);
 
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
 
-    ellipse(0 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale);
+    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
 
-    ellipse(0 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale);
-    ellipse(0 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome)* scale);
+    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
+    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
   }
 
   if (eye_value >= 2) {
 
-    ellipse(-60 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale); 
-    ellipse(-60 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale);
-    ellipse(-60 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome)* scale);
+    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales); 
+    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
+    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
 
-    ellipse( 40 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale);
-    ellipse(40 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome) * scale);
-    ellipse(40 * scale, -80 * scale, random (10, 10+randome) * scale, random(10, 10+randome)* scale);
+    ellipse( 40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
+    ellipse(40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
+    ellipse(40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
   }
 
   // mouth
   fill(bg_color1);
   noStroke();
-  ellipse(0 * scale, 70 * scale, 150 * scale, (mouth_value+5) * scale);
+  ellipse(0 * scales, 70 * scales, 150 * scales, (mouth_value+5) * scales);
   fill (0,0);
   stroke (stroke_color1);
-  ellipse(0, 0, random (30,(30+randome)) * scale, random(390, (390+randome)) * scale);
-  ellipse(0, 0, random (30,(30+randome)) * scale, random(390, (390+randome)) * scale);
-  sleep (100);
+  ellipse(0, 0, random (30,(30+randome)) * scales, random(390, (390+randome)) * scales);
+  ellipse(0, 0, random (30,(30+randome)) * scales, random(390, (390+randome)) * scales);
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, different) {
+function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, different, alpha) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -120,45 +119,72 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, different) {
   else {
     extent = w / 2;
   }
-  var scale = extent / 220.0;
+  var scales = extent / 220.0;
 
   stroke(stroke_color3);
   fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  ellipse(0, 0, 300 * scales, 400 * scales);
   fill (200, different);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  ellipse(0, 0, 300 * scales, 400 * scales);
 
   // eyes. first check for blinking
  
-   fill (0,0);
-   strokeWeight(5);
-   stroke (1, different);
-   bezier(30*scale, -80*scale, 35, -30, 35, -40, 70*scale, -80*scale);
-   bezier(-30*scale, -80*scale, -35, -30, -35, -40, -70*scale, -80*scale);
-   noStroke();
-   fill(bg_color3);
-   strokeWeight (1);
-   ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-   ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
+  fill (0,0);
+  strokeWeight(5);
+  stroke (1, different);
+  bezier(30*scales, -80*scales, 35, -30, 35, -40, 70*scales, -80*scales);
+  bezier(-30*scales, -80*scales, -35, -30, -35, -40, -70*scales, -80*scales);
+  noStroke();
+  fill(bg_color3);
+  strokeWeight (1);
+  ellipse(-50 * scales, -80 * scales, 50 * scales, 18 * scales);
+  ellipse( 50 * scales, -80 * scales, 50 * scales, 18 * scales);
 
-   fill(fg_color3);
-   ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-   ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
+  fill(fg_color3);
+  ellipse((-50 + eye_value) * scales, -80 * scales, 20 * scales, 20 * scales);
+  ellipse(( 50 + eye_value) * scales, -80 * scales, 20 * scales, 20 * scales);
   
-
 
   // mouth
   fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
+  ellipse(0 * scales, 70 * scales, 150 * scales, 20 * scales);
 
   //cheeks
   fill(bg_color2);
   noStroke();
   ellipse (90, 60, different/2.5, 150);
   ellipse (-90, 60, different/2.5, 150);
+
+  // Sun
+  fill (fg_color3)
+  ellipse (-100, -180, 40, 40);
+  fill (bg_color2);
+
+  scale (different/2.5);
+  ellipse (-80, -170, 40, 40);
+  scale (-(different/2.5));
+
+  stroke (206, 207, 180, alpha);
+  translate (-100, -180);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+  rotate (45);
+  line (30,20, 45,30);
+
+  noStroke();
   rectMode(CORNER);
- resetMatrix();
-  print(different);
+  resetMatrix();
 }
 
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
@@ -174,7 +200,11 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
   else {
     extent = w / 2;
   }
-  var scale = extent / 220.0;
+  var scales = extent / 220.0;
+
+
+
+  
 
   rotate (-width_value);
   fill(fg_color2);
@@ -187,11 +217,12 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
   
   strokeWeight(1);
   fill (bg_color3);
-  stroke (0);
+
 
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
+  print (randome);
   bezier (-95, -110, 0, random (-110, -110+randome), 0, random (-110, -110+randome), 95, -110);
 
 
@@ -217,22 +248,22 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
     // eyes
   if (eye_value >= 1){
   	fill(bg_color2);
-  	rect( 0, -120 * scale, 50 * scale, 30 * scale);
+  	rect( 0, -120 * scales, 50 * scales, 30 * scales);
   }
 
    if (eye_value == 2) {
    	fill(fg_color2);
-    triangle(-21 * scale + (mouseX / 90), -120 * scale + (mouseY/90), -5 * scale+ (mouseX / 90), -115 * scale+ (mouseY/90), -6*scale+ (mouseX / 90), -129*scale+ (mouseY/90));
+    triangle(-21 * scales + (mouseX / 90), -120 * scales + (mouseY/90), -5 * scales+ (mouseX / 90), -115 * scales+ (mouseY/90), -6*scales+ (mouseX / 90), -129*scales+ (mouseY/90));
   }
 
   if (eye_value === 1) {
     fill(fg_color2);
-    ellipse(-10 * scale + (mouseX / 90), -125 * scale + (mouseY/90), 20 * scale, 20 * scale);
+    ellipse(-10 * scales + (mouseX / 90), -125 * scales + (mouseY/90), 20 * scales, 20 * scales);
   }
 
   if (eye_value == 3){
   	fill(fg_color2);
-  	rect (-15 * scale + (mouseX / 90), -125 * scale + (mouseY/90), 20 * scale, 20 * scale);
+  	rect (-15 * scales + (mouseX / 90), -125 * scales + (mouseY/90), 20 * scales, 20 * scales);
   }
   pop();
 }
@@ -288,10 +319,11 @@ function draw () {
     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
     var eye_value = map(s2, 0, 100, -15, 15);
     var different = map(s1, 0, 100, 0, 255);
+    var alpha = map (s4, 0, 100, 0, 500);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, different);
+    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, different, alpha);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -301,11 +333,13 @@ function draw () {
     var width_value = map(s1, 0, 100, 0, 100);
     var mouth_value = map(s3, 0, 100, 0, 200);
     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var randome = map(s4,0,100,0,15);
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, randome);
   }
+  sleep (50);
 }
 
 function keyTyped() {
