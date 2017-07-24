@@ -16,7 +16,6 @@ var randomHue = [];
 var randomSaturation = [];
 var randomBrightness = [];
 var randomLength = [];
-var randomEyePositions = [];
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -33,9 +32,9 @@ function setup () {
   radio.parent('radio1Container');
 
   // create sliders
-  slider1 = createSlider(0, 100, 35);
-  slider2 = createSlider(0, 100, 0);
-  slider3 = createSlider(0, 100, 80);
+  slider1 = createSlider(0, 100, 65);
+  slider2 = createSlider(0, 100, 30);
+  slider3 = createSlider(0, 100, 30);
   slider4 = createSlider(0, 100, 20);
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -58,12 +57,6 @@ function setup () {
   	randomLength[i] = random(0, 250);
   }
   
-  var xRanges = [-80, -40, 0, 40, 80]
-  for(var i=0; i<4; i++){
-    var randY = random(-90, 0);
-    var randX = random(xRanges[i], xRanges[i+1]);
-    randomEyePositions[i] = {'x': randX, 'y': randY}
-  }
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -71,13 +64,43 @@ function setup () {
 function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, scale) {
   //used to keep the face in the centre if its space
   var xAdjuster = 107;
+  //positions of the four eyes
+  var eyePositions = {
+    0: {
+      'x': -120,
+      'y': -110
+    },
+    1: {
+      'x': 25,
+      'y': -15
+    },
+    2: {
+      'x': -30,
+      'y': 0
+    },
+    3: {
+      'x': 50,
+      'y': -150
+    }
+  }
+  
   push();
   translate(x-xAdjuster, y);
   colorMode(HSB);
+
+  //eye necks for first and forth faces - needs to drawn before the face
+  strokeWeight(7);
+  stroke(hue,80,40);
+  line(xAdjuster, 0, xAdjuster + eyePositions[0]['x'], eyePositions[0]['y']);
+  if(num_of_eyes == 4){
+    
+  }
   
+  noStroke();
+  //face
   for(var i=0; i<1080; i++){
   	//create a random fill colour
-  	if(i % 5 == 0){
+  	if(i % 10 == 0){
   		fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
   	}
   	else {
@@ -99,20 +122,70 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, mouth_value, 
   	pop();	
   }
 
-  stroke(hue, 40, 80);
+  //eyes
+  
   for(var i=0; i<num_of_eyes; i++){
+    strokeWeight(7);
+    stroke(hue,80,40);
+    fill(hue,80,40);
+    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size+2, eye_size+2);
+    stroke(hue, 40, 80);
     strokeWeight(3);
     fill(0,0,100);
-    ellipse(xAdjuster+randomEyePositions[i]['x'], randomEyePositions[i]['y'], eye_size, eye_size);
+    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size, eye_size);
     strokeWeight(0);
     fill(hue,80,40);
-    ellipse(xAdjuster+randomEyePositions[i]['x'], randomEyePositions[i]['y'], eye_size/2, eye_size/2 );
+    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size/2, eye_size/2 );
     fill(0,0,100);
-    ellipse(xAdjuster+randomEyePositions[i]['x'] + eye_size/6, randomEyePositions[i]['y'], eye_size/8, eye_size/8 );
+    ellipse(xAdjuster+eyePositions[i]['x'] + eye_size/6, eyePositions[i]['y'], eye_size/8, eye_size/8 );
   }
 
-  
+  translate(-10, 20);
+  rotate(-11);
+  //mouth
+  fill(0,100,0);
+  beginShape();
+  vertex(70, 40);
+  vertex(120, 50);
+  vertex(170, 40);
+  vertex(180, 60);
+  vertex(165, 90);
+  vertex(120, 85);
+  vertex(75, 95);
+  vertex(65, 75);
+  vertex(60, 65);
+  endShape(CLOSE);
+
+  //teeth
+  fill(0,0,100);
+  //top-left
+  beginShape();
+  vertex(90, 44);
+  vertex(110, 48);
+  vertex(100, 65);
+  endShape(CLOSE);
+  //top-right
+  beginShape();
+  vertex(140, 46);
+  vertex(160, 42);
+  vertex(147, 71);
+  endShape(CLOSE);
+  //bottom-left
+  beginShape();
+  vertex(90, 92);
+  vertex(110, 87);
+  vertex(97, 74);
+  endShape(CLOSE);
+  //bottom-right
+  beginShape();
+  vertex(133, 87);
+  vertex(155, 89);
+  vertex(141, 74);
+  endShape(CLOSE);
+
   pop();
+
+
 }
 
 function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, scale) {
@@ -177,7 +250,7 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
   		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
   	}
-	   randomect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
+	   rect(0, 0, 300 * scale, (300 + face_height) * scale, face_shape, face_shape, bottomCorners, bottomCorners);
   }
  
   //eyes 
