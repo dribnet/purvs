@@ -50,6 +50,12 @@ var colorHair = [20, 20, 0];
 
 var changing_colour = [20,20,20];
 
+var redc = [178 ,34 ,34];
+var bluec = [30 ,144 ,255];
+var greenc = [50 ,205, 50];
+var yellowc = [255 ,255, 0];
+var purplec = [147 ,112 ,219];
+
 
 function drawFace1(x, y, w, h,eye_value, mouth_value, changing_colour) {
   push();
@@ -140,6 +146,9 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   fill(bg_color3);
   ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
 
+var a = [1,2, 3, 4]
+
+
   // TODO: paramaterize hair
   var follicles = [
     [346,138],
@@ -168,35 +177,75 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, amount_of_colours, amount_of_polys, amount_of_features) {
   push();
-  rectMode(CENTER);
+  //rectMode(CENTER);
   translate(x, y);
   // rotate(width_value);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
 
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+  
+
+  if(amount_of_colours == 1){
+  fill(redc);
+  triangle(-100, -100, 150 , 60 ,-100,150);
+}
+ else if(amount_of_colours == 2){
+  fill(bluec);
+  rect(-100, -100, 100 , 250 );
+  fill(yellowc);
+  rect(0,-100,100,250);
+}
+else if(amount_of_colours == 3){
+  fill(greenc);
+  rect(-100, -100, 200/3 , 250 );
+  fill(redc);
+  rect(-100 + 200/3,-100,200/3,250);
+  fill(bluec);
+  rect(-100 + 400/3,-100,200/3,250);
+}
+else if(amount_of_colours == 4){
+  fill(bluec);
+  triangle(-100,-80,-120,170,10,40);
+  fill(greenc);
+  triangle(-130,-140,100,-100,0,70);
+  fill(redc);
+  triangle(-100,150,0,5,100,150);
+  fill(yellowc);
+  triangle(0,55,100,150,120,-100);
+}
+else if(amount_of_colours == 5){
+ fill(redc);
+ triangle(100,100,150,-100,0,0);
+ fill(bluec);
+ triangle(10,30,-100,-150,30,-100);
+ fill(greenc);
+ triangle(-120,50,-50,-60,70,100);
+ fill(yellowc);
+ triangle(-40,150,-150,70,140,-80);
+ fill(purplec);
+ triangle(150,20,-50,-100,-140,0);
+}
+
+
+
+
 
   // eyes
-    fill(bg_color2);
+    fill(yellowc);
     //rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
     //rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    var a = (50*scale + -60 * scale);
-  	triangle(-60 * scale, -80 * scale, a,-80*scale,a -(a-(-60*scale))); 
+    
+  	triangle(-50,-40,-30,-10,-10,-40);
+
+  	//nose
+  	fill(redc);
+  	triangle(-60,50,-30,50,-30,0);
 
   // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  fill(greenc);
+  //rect(-63 , 70, 75 , 50);
+  triangle(-63,70,10,70,-55,125);
   rectMode(CORNER);
   pop();
 }
@@ -225,7 +274,7 @@ function draw () {
   var s5 = slider5.value();
 	
   
-  
+  // bg_color[0] = s1;
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
@@ -281,14 +330,12 @@ function draw () {
 	var amount_of_polys = Math.floor(map(s2,0,100,1,4));
 	var amount_of_features = Math.floor(map(s3,0,100,2,6));
 	  
-	//base variables
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+	
+   
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, amount_of_colours,amount_of_polys,amount_of_features);
   }
 }
 
