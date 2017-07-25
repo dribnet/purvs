@@ -8,7 +8,7 @@ The second face is a version of the Mario & Luigi sketch I made earlier. This ve
 	- Moustache bushiness: modulates the size of the individual ellipses that make up the moustache. also modulates the size of mario's nose
 	- Cheek chubbiness
 
-I liked the art style that my Mario. I thought that his cheeks made him look like a baby so I decided to make my next face that of a baby. I used 4 sliders for this onel giving control over:
+I liked the art style that i used for my Mario. I thought that his cheeks made him look like a baby so I decided to make my next face that of a baby. I used 4 sliders for this onel giving control over:
 	- nose size
 	- cheek chub
 	- mouth openness
