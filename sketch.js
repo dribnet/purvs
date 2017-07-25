@@ -61,7 +61,7 @@ function setup() {
     faceSelector.option('2');
     faceSelector.option('3');
     faceSelector.option('all')
-    faceSelector.value('1');
+    faceSelector.value('all');
     faceSelector.parent('selector1Container');
 
     // rotation in degrees
