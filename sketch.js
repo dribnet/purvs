@@ -35,7 +35,7 @@ function setup () {
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
+var bg_color2 = "#f5f5f5";
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [151, 102, 52];
@@ -200,8 +200,78 @@ function drawFace(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
+
 function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  rectMode(CENTER);
+  // rectMode(CENTER);
+  push();
+  translate(x, y);
+
+  var extent = 0;
+  if(h < w) {
+    extent = h / 2;
+  }
+  else {
+    extent = w / 2;
+  }
+  var scale = extent / 220.0;
+
+  // cheeks
+  fill('#C74762');
+  rotate(-30);
+  ellipse(-160 * scale, 40 * scale, 60 * scale, 100 * scale);
+
+  rotate(50);
+  ellipse(100 * scale, 30 * scale, 50 * scale, 90 * scale)
+
+  // reset for main face shapes
+  rotate(-20);
+  stroke('#1e1e1e');
+  noFill();
+
+  // face shapes
+  beginShape();
+  vertex(-100*scale,-200*scale);
+  vertex(75*scale,-250*scale);
+  vertex(175*scale,50*scale);
+  vertex(-75*scale,125*scale);
+  vertex(-100*scale,-200*scale);
+  endShape();
+
+  beginShape();
+  vertex(-20*scale,-80*scale);
+  vertex(150*scale,50*scale);
+  vertex(75*scale,275*scale);
+  vertex(-50*scale,275*scale);
+  vertex(-125*scale,20*scale);
+  vertex(-20*scale,-80*scale);
+  endShape();
+
+  // nose
+  triangle(-10*scale, 85*scale, 5*scale, 20*scale, 30*scale, 85*scale);
+
+  // mouth
+  triangle(-15*scale, 150*scale, 10*scale, 140*scale, 35*scale, 150*scale);
+
+  // chin
+  quad(0*scale, 200*scale, 10*scale, 190*scale, 25*scale, 210*scale, 10*scale, 225*scale);
+
+  // eye sockets
+  fill(bg_color2);
+  quad(-140*scale, -140*scale, -80*scale, -145*scale, -55*scale, -105*scale, -135*scale, -100*scale);
+  quad(60*scale, -100*scale, 140*scale, -110*scale, 135*scale, -60*scale, 75*scale, -55*scale);
+
+  // eye
+  fill('#1e1e1e');
+  triangle(-137*scale, 120*scale, -110*scale, );
+
+  // eyelid
+
+  pop();
+}
+
+
+function drawFacee(x, y, w, h, hair_value, eye_value, blink_value) {
+  // rectMode(CENTER);
   push();
   translate(x, y);
 
@@ -310,7 +380,7 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   pop();
 }
 
-function draw () {
+function draw() {
   noStroke();
 
   var mode = faceSelector.value();
