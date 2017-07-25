@@ -25,180 +25,118 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
+var bg_color3 = "#660033";
+var head_color = "#8585ad";
+var jaw_color = "#f0f0f5";
+var Seye_color = "#000000";
+var Snose_color = "#1f1f2e";
+var tooth_color = "#ffff00";
 
-//mask colors
-var bg_color2 = "#f2e6d9";
-var eyeBall_color = "#000000";
-var mouth_color = "#990000";
-var tri_color = "#ffdb4d";
-var sun_color = "#e60000";
-
-function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value) {
-  //right face
+function drawFace3(x, y, size, reflection_value, beard_value, mouth_value, tooth_value, jaw_value, head_value){
   push();
   translate(x, y);
   scale(size);
-  
-  //whole skin
-  fill(skinColor_value);
-  beginShape();
-  vertex(0, -40);
-  bezierVertex(20, -40, 25, -20, 20, 0);
-  vertex(20, 0);
-  bezierVertex(20, 15, 20, 32, 0, 30);
-  endShape();
-
-  //forehead
-  fill(foreColor_value);
-  strokeWeight(1.5);
-  stroke("#ffffff");
-  beginShape();
-  vertex(15 * forehead_value, -34 * forehead_value);
-  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
-  vertex(6, -7);
-  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
-  vertex(20, -20);
-  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
-  endShape();
-
-  //eye rim
-  fill("#000000");
-  strokeWeight(0.7);
-  beginShape();
-  vertex(6, -7);
-  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
-  vertex(1, 1);
-  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
-  vertex(20, 0);
-  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
-  endShape();
-  //eye hole
-  fill(bg_color2);
-  noStroke();  
-  ellipse(9, -5, 8, 4);
-  //eye ball
-  fill(eyeBall_color);
-  ellipse(8.5 * eye_value, -5, 4.5);
-
-  //nose
-  push();
-  fill("#000000");
-  rotate(-25);
-  ellipse(0, 10, 5, 2);
-  pop();
 
   //jaw
-  fill("#000000");
-  beginShape();
-  vertex(0 * mouth_value, 15 * mouth_value)
-  bezierVertex(20 * mouth_value, 5 * mouth_value, 16, 20, 14, 27)
-  endShape();
+  fill(jaw_color);
+  quad(15, 10, 8, 28, -8, 28, -15, 10);
 
-  fill(bg_color2);
-  beginShape();
-  vertex(0, 15);
-  bezierVertex(13, 16, 13, 20, 14, 27);
-  vertex(14, 27);
-  bezierVertex(12, 30, 10, 35, 0, 30);
-  endShape();
+  //head
+  fill(head_color);
+  quad(15, -25, 27 * head_value, 10 * head_value, 0, 10, 0, -25);
+  quad(-15, -25, -27 * head_value, 10 * head_value, 0, 10, 0, -25);
 
-  //mouth
-  fill(mouth_color);
-  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
-  pop();
+  //eye line
+  fill(head_color);
+  rect(-15, -30, 30, 2, 10);
 
-  //left face
+  //eyes
   push();
-  translate(x, y);
-  scale(-size, size);
-  
-  //whole skin
-  fill(skinColor_value);
-  beginShape();
-  vertex(0, -40);
-  bezierVertex(20, -40, 25, -20, 20, 0);
-  vertex(20, 0);
-  bezierVertex(20, 15, 20, 32, 0, 30);
-  endShape();
-
-  //forehead
-  fill(foreColor_value);
-  strokeWeight(1.5);
-  stroke("#ffffff");
-  beginShape();
-  vertex(15 * forehead_value, -34 * forehead_value);
-  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
-  vertex(6, -7);
-  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
-  vertex(20, -20);
-  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
-  endShape();
-
-  //eye rim
-  fill("#000000");
-  strokeWeight(0.7);
-  beginShape();
-  vertex(6, -7);
-  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
-  vertex(1, 1);
-  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
-  vertex(20, 0);
-  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
-  endShape();
-  //eye hole
-  fill(bg_color2);
-  noStroke();  
-  ellipse(9, -5, 8, 4);
-  //eye ball
-  fill(eyeBall_color);
-  ellipse(8.5 * eye_value, -5, 4.5);
-
+  fill(Seye_color);
+  stroke(head_color);
+  rotate(5);
+  ellipse(13, -28, 8, 13);
+  rotate(-10);
+  ellipse(-13, -28, 8, 13);
+  pop();
+  //reflection
+  stroke(tooth_color);
+  noFill();
+  strokeWeight(1 * reflection_value);
+  bezier(15, -31 * reflection_value, 18 * reflection_value, -30, 18, -27 * reflection_value, 16 * reflection_value, -25 * reflection_value);
+  bezier(-15, -31 * reflection_value, -18 * reflection_value, -30, -18, -27 * reflection_value, -16 * reflection_value, -25 * reflection_value);
+ 
   //nose
-  push();
-  fill("#000000");
-  rotate(-25);
-  ellipse(0, 10, 5, 2);
-  pop();
+  fill(Snose_color);
+  noStroke();
+  triangle(0, -3, 4, -18, -4, -18);
 
-  //jaw
-  fill("#000000");
-  beginShape();
-  vertex(0 * mouth_value, 15 * mouth_value)
-  bezierVertex(20 * mouth_value, 5 * mouth_value, 16, 20, 14, 27)
+  //beard
+  stroke(Snose_color);
+  strokeWeight(0.8 * beard_value);
+  line(10, -7, 15 * beard_value, -14 * beard_value);
+  line(12, -1, 17 * beard_value, -7 * beard_value);
+  line(15, 5, 20 * beard_value, -1 * beard_value);
+
+  line(-10, -7, -15 * beard_value, -14 * beard_value);
+  line(-12, -1, -17 * beard_value, -7 * beard_value);
+  line(-15, 5, -20 * beard_value, -1 * beard_value);
+
+  //tooth
+  var y1 = 12.6 * tooth_value;
+  var y2 = 7.4;
+   
+  fill(bg_color3);
+  stroke(tooth_color);
+  strokeWeight(0.2);
+  beginShape(TRIANGLE_STRIP);
+  vertex(-9.5, y2);
+
+  vertex(-8, y1);
+  vertex(-6.5, y2);
+  vertex(-5, y1);  
+
+  vertex(-3.5, y2);
+  vertex(-2, y1);
+  vertex(-0.5, y2);
+
+  vertex(1, y1);
+  vertex(2.5, y2);
+  vertex(4, y1);
+
+  vertex(5.5, y2);
+  vertex(7, y1);
+  vertex(8.5, y2);
+
+  vertex(9.5, y1);
   endShape();
 
-  fill(bg_color2);
+  //lips
+  noFill();
+  stroke(Snose_color);
+  strokeWeight(2.5);
   beginShape();
-  vertex(0, 15);
-  bezierVertex(13, 16, 13, 20, 14, 27);
-  vertex(14, 27);
-  bezierVertex(12, 30, 10, 35, 0, 30);
+  vertex(-11, 10);
+  bezierVertex(-5, 5, 5, 5, 11, 10);
+  vertex(11, 10);
+  bezierVertex(5 * mouth_value, 15 * mouth_value, -5 * mouth_value, 15 * mouth_value, -11, 10);
   endShape();
 
-  //mouth
-  fill(mouth_color);
-  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
+  //jaw lines
+  stroke(Snose_color);
+  strokeWeight(0.9);
+  bezier(-5, 18, -1 * jaw_value, 20 * jaw_value, 1 * jaw_value, 20 * jaw_value, 5, 18);
+  line(0, 20 * jaw_value, 0, 25);
 
-  //triangle
-  fill(tri_color);
-  triangle(5, -25, -5, -25, 0, 10 * tri1_value);
-  triangle(5, -25, -5, -25, 0, -50 * tri2_value);
-
-  //middle sun
-  fill(sun_color);
-  stroke("#ffffff");
-  strokeWeight(1.7);
-  ellipse(0, -25, 10);
   pop();
 }
-
 
 function draw () {
   
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
-  background(bg_color2);
+  background(bg_color3);
 
   var w = width / 5;
   var h = height / 3;
@@ -207,17 +145,15 @@ function draw () {
     for(var j=0; j<5; j++){
       var x = w/2 + w*j;
       var y = h/2 + h*i;
-      var size = 1.5;
+      var size = 1.6;
 
-      var forehead_value = focusedRandom(0.5, 1.8);
-      var foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];
-      var eye_value = focusedRandom(0.9, 1.2);
-      var eyeRim_value = focusedRandom(0.5, 3);
-      var mouth_value = focusedRandom(1, 1.3);
-      var skinColor_value = [Math.floor(focusedRandom(0, 100)), Math.floor(focusedRandom(80, 0)), Math.floor(focusedRandom(100, 0))];
-      var tri1_value = focusedRandom(-5, 1);
-      var tri2_value = focusedRandom(0, 1);
-      drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value);
+      var reflection_value = focusedRandom(0.9, 1.3);
+      var beard_value = focusedRandom(0, 2);
+      var head_value = focusedRandom(0.5, 1.5);
+      var mouth_value = focusedRandom(0.9, 1.15);
+      var tooth_value = focusedRandom(0.95, 1.12);
+      var jaw_value = focusedRandom(0.95, 1.1);
+      drawFace3(x, y, size, reflection_value, beard_value, mouth_value, tooth_value, jaw_value, head_value);
     }
   } 
 } 
