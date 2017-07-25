@@ -20,7 +20,7 @@ var drool_color = "#99c0ff";
 var spot_color = "#c18672";
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [183, 214, 182];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
@@ -167,7 +167,7 @@ function drawFace1(x, y, w, h, ears, eyes, smile,frown,spots) {
     ellipse(-10, 84, 25, 25); // butt chin left
     ellipse(10, 84, 25, 25); //butt chin right
 
-    fill('white');
+    fill(215+10*spots);
     push();
     translate(-63, -40);
     rotate(23);
@@ -318,7 +318,7 @@ function drawFace2(x, y, w, h, stache_slant, stache_bush, cheek_chub, dilation) 
     fill(nose_tone);
     ellipse(0, 20, 70 * nose_size_mod, 58 * nose_size_mod); //nose base
     noStroke();
-    fill(color('rgba(255, 227, 216,0.7)'));
+    fill(editAlpha(skin_tone,0.7));
     ellipse(0, 16, 58 * nose_size_mod, 48 * nose_size_mod); //highlight
 
     // logo
