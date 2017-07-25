@@ -70,13 +70,14 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
       'y': 0
     },
     2: {
+      'x': 50,
+      'y': -150
+    },
+	3: {
       'x': -120,
       'y': -110
     },
-    3: {
-      'x': 50,
-      'y': -150
-    }
+    
   }
   if(num_of_eyes > 1){
     eyePositions[0] = {'x': 25,'y': -15}
@@ -144,45 +145,48 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   }
 
   translate(-10, 20);
-  rotate(-11);
+  rotate(-12);
+  strokeWeight(5);
+  stroke(hue,80,40);
   //mouth
   fill(0,100,0);
   beginShape();
-  vertex(70, 40);
+  vertex(70, 45);
   vertex(120, 50);
-  vertex(170, 40);
+  vertex(170, 35);
   vertex(180, 60);
   vertex(165, 90);
   vertex(120, 85);
-  vertex(75, 95);
-  vertex(65, 75);
-  vertex(60, 65);
+  vertex(80, 100);
+  vertex(65, 80);
+  vertex(60, 70);
   endShape(CLOSE);
 
+  noStroke();
   //teeth
   fill(0,0,100);
   //top-left
   beginShape();
-  vertex(90, 44);
-  vertex(110, 48);
+  vertex(90, 50);
+  vertex(110, 52);
   vertex(100, 65);
   endShape(CLOSE);
   //top-right
   beginShape();
-  vertex(140, 46);
-  vertex(160, 42);
+  vertex(140, 47);
+  vertex(160, 41);
   vertex(147, 71);
   endShape(CLOSE);
   //bottom-left
   beginShape();
   vertex(90, 92);
-  vertex(110, 87);
+  vertex(110, 85);
   vertex(97, 74);
   endShape(CLOSE);
   //bottom-right
   beginShape();
-  vertex(133, 87);
-  vertex(155, 89);
+  vertex(133, 84);
+  vertex(155, 86);
   vertex(141, 74);
   endShape(CLOSE);
 
