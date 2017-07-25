@@ -1,10 +1,9 @@
 # PS1 MDDN 342 2017
 
-This parametric toy uses height, width and eyes as parameters on alien faces to
-play around with. You can also change the horn width and the color of the
-faces.
+This parametric toy creates a grid of 5x3 monsters,
+that have randomly generated features such as color, height, facetype, nose,
+mouth, and horn size.
 
-Use the slider on the left-top hand of the sketch to play around with
-parameters.
+Click anywhere on the canvas to generate a new set of monsters.
 
 Have fun!

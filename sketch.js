@@ -12,9 +12,11 @@ function setup () {
 
 curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+  //randButton = createButton('randomize');
+  //randButton.mousePressed(changeRandomSeed);
+  //randButton.parent('selector1Container');
+
+
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -43,24 +45,37 @@ var scheme5 = [[255,222,107],[255,180,107],[255,128,73],[255,255,255],[248,157,1
 var schemes = [scheme2,scheme3,scheme4,scheme5];
 
 
-function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monsterHeight,colorScheme){
+function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monsterHeight,colorScheme,face){
 
   push();
   var monsterWidth = monsterHeight*1.92;
 
   translate(mX,mY);
 
-  drawFace(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
+  if(face == 1){
+  drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
+}else{
+
+  drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
+}
   var eyeSize = monsterWidth*0.066;
   drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2]);
-  drawHorns(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
-  drawNose(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+  if(face == 1){
+  drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+}
+  else{
+  drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+
+}
+  if(face==1){
   drawMouth(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
+}
 
 pop();
 }
 
-function drawFace(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
   //face
@@ -79,6 +94,34 @@ function drawFace(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
   vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.7+(faceHeight));
 
   endShape();
+
+}
+
+function drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop1
+  vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.25-(faceHeight));
+  //lefttop2
+  vertex(monsterWidth*0.4-(faceWidth),monsterHeight*0.1-(faceHeight));
+  //righttop1
+  vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.1-(faceHeight));
+  //righttop2
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.25-(faceHeight));
+  //right
+  vertex(monsterWidth*0.69+(faceWidth),monsterHeight*0.5+(faceHeight));
+  //bottomright
+  vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //bottomleft
+  vertex(monsterWidth*0.4-(faceWidth),monsterHeight*0.8+(faceHeight));
+  //left
+  vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.5+(faceHeight));
+
+  endShape();
+
+
 
 }
 
@@ -103,7 +146,7 @@ function drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum
 }
 
 
-function drawHorns(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
+function drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
 
   fill(color);
   beginShape();
@@ -143,8 +186,58 @@ function drawHorns(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colo
 
 }
 
+function drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
 
-function drawNose(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+  //horns right
+
+  fill(color);
+  beginShape();
+  //1
+  vertex(monsterWidth*0.7+(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+  //2
+  vertex(monsterWidth*0.9+(faceWidth)+hornSize,monsterHeight*0.15-(faceHeight));
+  //3
+  vertex(monsterWidth*1+(faceWidth)+hornSize,monsterHeight*0.35-(faceHeight));
+  //4
+  vertex(monsterWidth*0.95+(faceWidth)+hornSize,monsterHeight*0.5-(faceHeight));
+  //5
+  vertex(monsterWidth*1.05+(faceWidth)+hornSize,monsterHeight*0.38-(faceHeight));
+  //6
+  vertex(monsterWidth*1.08+(faceWidth)+hornSize,monsterHeight*0.18-(faceHeight));
+  //7
+  vertex(monsterWidth*0.92+(faceWidth)+hornSize,monsterHeight*-0.1-(faceHeight));
+  //8
+  vertex(monsterWidth*0.6+(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
+  endShape();
+
+
+  //horns left
+
+  fill(color);
+  beginShape();
+  //1
+  vertex(monsterWidth*0.3-(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+  //2
+  vertex(monsterWidth*0.1-(faceWidth)-hornSize,monsterHeight*0.15-(faceHeight));
+  //3
+  vertex(monsterWidth*0-(faceWidth)-hornSize,monsterHeight*0.35-(faceHeight));
+  //4
+  vertex(monsterWidth*0.15-(faceWidth)-hornSize,monsterHeight*0.5-(faceHeight));
+  //5
+  vertex(monsterWidth*0-(monsterWidth*0.05)-(faceWidth)-hornSize,monsterHeight*0.38-(faceHeight));
+  //6
+  vertex(monsterWidth*0-(monsterWidth*0.08)-(faceWidth)-hornSize,monsterHeight*0.18-(faceHeight));
+  //7
+  vertex(monsterWidth*0.08-(faceWidth)-hornSize,monsterHeight*-0.1-(faceHeight));
+  //8
+  vertex(monsterWidth*0.4-(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
+  endShape();
+
+
+}
+
+
+function drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
 
@@ -156,6 +249,22 @@ function drawNose(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   ellipse(noseX,noseY,noseWidth,noseHeight/2);
   ellipse(noseX,noseY+noseHeight/4,noseWidth/4,noseHeight);
+
+}
+
+
+function drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+  fill(color);
+  //draw nose
+  var noseX1 = monsterWidth*0.4-(faceWidth);
+  var noseY1 = monsterHeight*0.8+(faceHeight);
+  var noseX2 = monsterWidth*0.5;
+  var noseY2 = monsterHeight*0.7+(faceHeight);
+  var noseX3 = monsterWidth*0.6+(faceWidth);
+  var noseY3 = monsterHeight*0.8+(faceHeight);
+
+  triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
 
 }
 
@@ -358,11 +467,17 @@ function draw () {
      var eye_value = Math.floor(focusedRandom(1,4));
      var hornSize = focusedRandom(-(h/5),(h/20));
      var colorChange = focusedRandom(-50,0);
+     var face = Math.floor(focusedRandom(1,3));
 
-     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,hornSize,colorChange,h,scheme);
+     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,hornSize,colorChange,h,scheme,face);
    }
  }
 
+
+}
+
+function mouseClicked(){
+  changeRandomSeed();
 
 }
 
