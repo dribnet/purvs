@@ -38,7 +38,8 @@ this.drawFace = function(){
 
 	return this.c;
 }
-
+//note for some reason the background() function does not work properly on bgC and mC
+//instead ellipses  larger than the canvas are used to create the background
 this.mainDraw = function(){
 	this.mC.translate(w/2, h/2);
 	this.bgC.translate(w/2, h/2);
@@ -53,6 +54,7 @@ this.mainDraw = function(){
 	this.basicMask(this.mC,this.bgC);
 }
 
+//this function allows you to create any shape you want with any pattern on it, using masking
 //bgC the pattern canvas you want the shape made of 
 //the bgC canvas must not contain an R value of either 0 or 255. Instead 1 or 254 are the closest allowed
 // mC the mask canvas, an image in color(0) and color(255,0,0)
@@ -71,6 +73,12 @@ if(mC.pixels[this.i] == red(this.mask)) {
 
  mC.updatePixels();
  bgC.image(mC,-w/2,-h/2,w, h);
+bgC.loadPixels(); 
+ for (this.i = 0; this.i < this.halfImage; this.i+=4){
+if(bgC.pixels[this.i] ==0) {
+	bgC.pixels[this.i+3] = 0;
+}}
+bgC.updatePixels();
  this.c.image(bgC,-w/2,-h/2,w, h);
 
 

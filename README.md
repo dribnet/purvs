@@ -3,6 +3,7 @@
 This README explains the three different paramaterized faces for part2. 
 
 PATTERN FACE (face 3)
+I have further modified my masking function so that it will cut out any given basic shape out of almost any given patterned background.
 It is a little rough, but I have created a function for masking basic shapes. Here it is in a basic version before I start doing other things to it. I had seen a couple of people mention online that masking could be achieved using the array of pixels in the image. I used the documentation for pixels, guessed a few things, and figured it out. It is a little temperamental, but on the whole it works
 
 I was going to use patterns and colours to create the basic shapes of the face, and I was going to achieve this with masking. I am going to need to ask for help with this though as I  can't get the masking working
