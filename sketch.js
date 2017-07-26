@@ -1,13 +1,12 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var radio, slider1, slider2, slider3, slider4;
-var faceSelector;
+var button;
+var curRandomSeed;
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
 var bg_color2 = [238, 238, 238];
 var bg_color3 = [70, 70, 120];
-
 
 var randomHue = [];
 var randomSaturation = [];
@@ -18,33 +17,12 @@ function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+  noLoop();
+  curRandomSeed = int(focusedRandom(0, 100));
 
-  // create radio
-  radio = createRadio();
-  radio.option(1);
-  radio.option(2);
-  radio.option(3);
-  radio.option(4);
-  radio.value(3);
-  radio.parent('radio1Container');
-
-  // create sliders
-  slider1 = createSlider(0, 100, 65);
-  slider2 = createSlider(0, 100, 30);
-  slider3 = createSlider(0, 100, 30);
-  slider4 = createSlider(0, 100, 100);
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
   //setup arrays required for random saturation and brightness values used in the monster face
   for(var i=0; i<1080; i++){
@@ -58,7 +36,12 @@ function setup () {
   angleMode(DEGREES);
 }
 
-function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer) {
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  redraw();
+}
+
+function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value, minimizer) {
   //positions of the four eyes
   var eyePositions = {
     0: {
@@ -87,6 +70,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   push();
   translate(x-xAdjuster * size_adjuster, y);
   colorMode(HSB);
+  rotate(tilt_value);
 
   scale(size_adjuster);
 
@@ -422,90 +406,31 @@ function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, e
 }
 
 function draw () {
+  resetFocusedRandom(curRandomSeed);
+
   noStroke();
+  background(bg_color1);
 
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
+  var num_of_eyes = Math.floor(focusedRandom(1, 5));
+  var eye_size = focusedRandom(30, 60);
+  var hue = focusedRandom(350, 0);
+  var zigzag = focusedRandom(1, 20);
+  var size_adjuster = focusedRandom(0.3, 06);
+  var tilt_value = focusedRandom(-60, 60);
+  var w = canvasWidth / 5;
+  var h = canvasHeight / 3;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;
+      num_of_eyes = Math.floor(focusedRandom(1, 5));
+      eye_size = focusedRandom(30, 60);
+      hue = focusedRandom(350, 0);
+      zigzag = focusedRandom(1, 20);
+      size_adjuster = focusedRandom(0.3, 0.6);
+      tilt_value = focusedRandom(-60, 60);
+      drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster,tilt_value, 0.5);
     }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
-
-  var s1 = radio.value();
-  var s2 = slider1.value();
-  var s3 = slider2.value();
-  var s4 = slider3.value();
-  var s5 = slider4.value();
-
-
-  // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
-  var extent = 0;
-  if(face_h < face_w) {
-    extent = face_h / 2;
-  }
-  else {
-    extent = face_w / 2;
-  }
-  var minimizer = extent / 220.0;
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    var num_of_eyes = s1;
-    var eye_size = map(s2, 0, 100, 30, 60);
-      var hue = map(s3, 0, 100, 350, 0);
-    var zigzag = map(s4, 0, 100, 1, 20);
-    var size_adjuster = map(s5, 0, 100, 0.5, 1);
-    drawMonsterFace(face_x, face_y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer);
-  }
-
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    var num_antennas = s1;
-      var face_height = map(s2, 0, 100, 0, 200);
-    var hue = map(s2, 0, 100, 0, 350);
-
-    var face_shape = map(s3, 0, 100, 0, 200);
-    var mouth_style = map(s4, 0, 100, 50, 10);
-    var eye_distance = map(s5, 0, 100, 50, 0);
-    drawRobotFace(face_x, face_y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer);
-  }
-
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    var color_scheme = s1;
-    var face_size = map(s2, 0, 100, 0, 100);
-    var mouth_size = map(s3, 0, 100, 60, 130);
-    var eye_x = map(s4, 0, 100, 50, 20);
-    var eye_y = map(s4, 0, 100, 0, -40);
-    var eye_size = map(s4, 0, 100, 20, 40);
-    var inner_ear_x = map(s5, 0, 100, 63, 83);
-    var inner_ear_y = map(s5, 0, 100, 63, 54);
-    drawBearFace(face_x, face_y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, minimizer);
   }
 }
 
