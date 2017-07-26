@@ -1,9 +1,11 @@
 ## PS1 MDDN 342 2017
 
-### Robots
+### Monster Face
 
-For my second parameterized face I have decided to create robot faces. Initially I didn't plan to use an existing character as inspiration for my designs.  However I did do an image search for "cartoon robots" to get the creative juices flowing. 
+For my final parameterized face I have decided to create monster faces.
 
-I did use parts of my code from the bender portraits I created in part one of the problem set. As a result, benders influence is definitely present in the design.  Initially I also used the eyes from Doraemon however I felt they didn't look robotic enough.
+For this face I wanted to do something interesting with the face shape. I have created a randomized pattern for the face shape and added a control that determines the level of zig zag present in the pattern.  This has produced very interesting results.
 
-I think this face is quite effective in providing numerous different possibilities.
+The colour of face pattern is determined mainly by a controllable hue. However I also added a splattering of random colours into the pattern to make it a little bit more interesting.  
+
+Creating the mouth was interesting as it was the first time I had created custom shapes using vertex's which work very well.

@@ -2,19 +2,19 @@
   "commits": [
     {
         "sha": "35bb3fa58f61a9f8e7cd404cba2265e1908bac33",
-        "name": "drawing_styles_3_in_progress"
+        "name": "drawing_styles_3"
     },
-	{
+    {
         "sha": "539e2602788caf9f3b128804c52b12b4593c3e0a",
         "name": "drawing_styles_2"
     },
-	{
+    {
         "sha": "4c7dd40dcb12c73bb71b02a83b7840586d035d47",
         "name": "drawing_styles_1"
     },
     {
         "sha": "85cc0acaf72e6db9f40d92a7bd1ce291d55100aa",
-        "name": "self_portrait"
+        "name": "portraits"
     }
   ]
 }
