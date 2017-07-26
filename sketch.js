@@ -45,15 +45,15 @@ function setup () {
   faceSelector.option('all')
   faceSelector.value('1');
   faceSelector.parent('selector1Container');
-  
+
   //setup arrays required for random saturation and brightness values used in the monster face
   for(var i=0; i<1080; i++){
-  	randomHue[i] = random(0, 360);
-  	randomSaturation[i] = random(25, 75);
-  	randomBrightness[i] = random(50, 100);
-  	randomLength[i] = random(0, 250);
+      randomHue[i] = random(0, 360);
+      randomSaturation[i] = random(25, 75);
+      randomBrightness[i] = random(50, 100);
+      randomLength[i] = random(0, 250);
   }
-  
+
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -70,16 +70,16 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
       'y': 0
     },
     2: {
-      'x': 50,
-      'y': -150
+      'x': 45,
+      'y': -155
     },
-	3: {
+    3: {
       'x': -120,
-      'y': -110
+      'y': -105
     },
-    
+
   }
-  if(num_of_eyes > 1){
+  if(num_of_eyes == 2 || num_of_eyes == 4){
     eyePositions[0] = {'x': 25,'y': -15}
   }
   //used to keep the face in the centre if its space
@@ -95,53 +95,55 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   stroke(hue,80,40);
   if(num_of_eyes > 2){
     line(xAdjuster, 0, xAdjuster + eyePositions[2]['x'], eyePositions[2]['y']);
-  }
-  if(num_of_eyes > 3){
     line(xAdjuster, 0, xAdjuster + eyePositions[3]['x'], eyePositions[3]['y']);
   }
-  
+
   noStroke();
   //face
   for(var i=0; i<1080; i++){
-  	//create a random fill colour
-  	if(i % 10 == 0){
-  		fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
-  	}
-  	else {
-  		fill(hue, randomSaturation[i], randomBrightness[i]);
-  	}
-  	push();
-  	translate(112, 10);
-  	var degree = map(i, 0, 720, 0, 360);
-  	rotate(i);
-  		var j = 0;
-  		while(j < (randomLength[i] * minimizer)) {
+      //create a random fill colour
+      if(i % 10 == 0){
+          fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
+      }
+      else {
+          fill(hue, randomSaturation[i], randomBrightness[i]);
+      }
+      push();
+      translate(112, 10);
+      var degree = map(i, 0, 720, 0, 360);
+      rotate(i);
+          var j = 0;
+          while(j < (randomLength[i] * minimizer)) {
         var yPos = j % zigzag;
         if(yPos > (zigzag/2)){
           yPos = -yPos + (zigzag/2);
         }
-  		  ellipse(j, yPos, 2, 2);
-  		  j++;
-  		}
-  	pop();	
+            ellipse(j, yPos, 2, 2);
+            j++;
+          }
+      pop();
   }
 
   //eyes
-  
+
   for(var i=0; i<num_of_eyes; i++){
+    var arrayPointer = i;
+    if(num_of_eyes == 3 && i == 1){
+        arrayPointer = 3;
+    }
     strokeWeight(7);
     stroke(hue,80,40);
     fill(hue,80,40);
-    ellipse((xAdjuster+eyePositions[i]['x']), eyePositions[i]['y'], eye_size+2, eye_size+2);
+    ellipse((xAdjuster+eyePositions[arrayPointer]['x']), eyePositions[arrayPointer]['y'], eye_size+2, eye_size+2);
     stroke(hue, 40, 80);
     strokeWeight(3);
     fill(0,0,100);
-    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size, eye_size);
+    ellipse(xAdjuster+eyePositions[arrayPointer]['x'], eyePositions[arrayPointer]['y'], eye_size, eye_size);
     strokeWeight(0);
     fill(hue,80,40);
-    ellipse(xAdjuster+eyePositions[i]['x'], eyePositions[i]['y'], eye_size/2, eye_size/2 );
+    ellipse(xAdjuster+eyePositions[arrayPointer]['x'], eyePositions[arrayPointer]['y'], eye_size/2, eye_size/2 );
     fill(0,0,100);
-    ellipse(xAdjuster+eyePositions[i]['x'] + eye_size/6, eyePositions[i]['y'], eye_size/8, eye_size/8 );
+    ellipse(xAdjuster+eyePositions[arrayPointer]['x'] + eye_size/6, eyePositions[arrayPointer]['y'], eye_size/8, eye_size/8 );
   }
 
   translate(-10, 20);
@@ -200,72 +202,72 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   rectMode(CENTER);
   translate(x, y);
   colorMode(HSB);
-  
+
   stroke(hue, 50, 90);
   fill(hue, 90, 50);
-  
+
   //antenna
   var yVariation = ((300 + face_height) * minimizer) /2;
   var xVariation = (300 * minimizer) /2;
   if(num_antennas == 1 || num_antennas == 3){
-	  triangle(-20, -20, 0, -50 - yVariation, 20, -20);
-	  ellipse(0, 10 - yVariation, 40, 40);
-	  ellipse(0, -50 - yVariation, 15, 15);
+      triangle(-20, -20, 0, -50 - yVariation, 20, -20);
+      ellipse(0, 10 - yVariation, 40, 40);
+      ellipse(0, -50 - yVariation, 15, 15);
   }
   if(num_antennas == 2 || num_antennas == 4){
-  	triangle(-10, -10, -70, -45 - yVariation, 10, -10);
-  	ellipse(-70, -45 - yVariation, 10, 10);
-  	triangle(-10, -10, 70, -45 - yVariation, 10, -10);
-  	ellipse(70, -45 - yVariation, 10, 10);
+      triangle(-10, -10, -70, -45 - yVariation, 10, -10);
+      ellipse(-70, -45 - yVariation, 10, 10);
+      triangle(-10, -10, 70, -45 - yVariation, 10, -10);
+      ellipse(70, -45 - yVariation, 10, 10);
   }
   if(num_antennas == 3 || num_antennas == 4){
-	   //left antenna
-  	stroke(hue, 90, 50);
-  	fill(hue, 50, 90);
-  	strokeWeight(0);
-  	rect(-xVariation, -40, 130, 5);
-  	noFill();
-  	strokeWeight(4);
-  	ellipse(-xVariation - 40, -40, 12, 50);
-  	ellipse(-xVariation - 60, -40, 8, 30);
-  	
-  	//right antenna
-  	stroke(hue, 90, 50);
-  	fill(hue, 50, 90);
-  	strokeWeight(0);
-  	rect(xVariation, -40, 130, 5, 20, 20);
-  	noFill();
-  	strokeWeight(4);
-  	ellipse(xVariation + 40, -40, 12, 50);
-  	ellipse(xVariation + 60, -40, 8, 30);
+       //left antenna
+      stroke(hue, 90, 50);
+      fill(hue, 50, 90);
+      strokeWeight(0);
+      rect(-xVariation, -40, 130, 5);
+      noFill();
+      strokeWeight(4);
+      ellipse(-xVariation - 40, -40, 12, 50);
+      ellipse(-xVariation - 60, -40, 8, 30);
+
+      //right antenna
+      stroke(hue, 90, 50);
+      fill(hue, 50, 90);
+      strokeWeight(0);
+      rect(xVariation, -40, 130, 5, 20, 20);
+      noFill();
+      strokeWeight(4);
+      ellipse(xVariation + 40, -40, 12, 50);
+      ellipse(xVariation + 60, -40, 8, 30);
   }
-  
+
   stroke(hue, 50, 90);
   strokeWeight(1);
   fill(hue, 90, 50);
-	  
+
   //head
   var bottomCorners = face_shape - 50;
   bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
   if(face_shape <= 100) {
-	 rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
+     rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
   }
   else {
-  	bottomCorners = bottomCorners - ((face_shape - 100) * 2);
-  	bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
-  	if(face_shape >= 150){
-  		quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5); 
-  		quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5); 
-  	}
-	   rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
+      bottomCorners = bottomCorners - ((face_shape - 100) * 2);
+      bottomCorners = bottomCorners > 0 ? bottomCorners : 0;
+      if(face_shape >= 150){
+          quad(xVariation - 5, yVariation*0.25, xVariation  + ((face_shape - 150) / 10), yVariation*0.25, xVariation + (face_shape - 150), yVariation - 5, xVariation - 5, yVariation - 5);
+          quad(-xVariation - 1, yVariation*0.25, -xVariation - 1 - ((face_shape - 150) / 10), yVariation*0.25, -xVariation - (face_shape - 150), yVariation - 5, -xVariation + 1, yVariation - 5);
+      }
+       rect(0, 0, 300 * minimizer, (300 + face_height) * minimizer, face_shape, face_shape, bottomCorners, bottomCorners);
   }
- 
-  //eyes 
+
+  //eyes
   var i=40;
   var fillObj = {
-  	40: [0, 0, 100],
-  	16: [0, 0, 0],
-  	8: [hue, 50, 90]
+      40: [0, 0, 100],
+      16: [0, 0, 0],
+      8: [hue, 50, 90]
   }
   var xPos=(25 + eye_distance), yPos=-40;
   //eyes holder
@@ -273,44 +275,44 @@ function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_s
   fill(0);
   rect(0, yPos, 100 + (eye_distance*2), 50, 45, 45, 45, 45);
   stroke(0);
-  
+
   while(i>=8){
-  	if(i == 40 || i == 16){
-  		fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
-  		//left eye
-  		ellipse(-xPos, yPos, i, i);
-  		//right_eye
-  		ellipse(xPos, yPos, i, i);
-  	}
-  	if(i == 8){
-  		fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
-  		//left eye
-  		rect(-xPos, yPos, i, i);
-  		//right_eye
-  		rect(xPos, yPos, i, i);
-  	}
-  	i=i-8;
+      if(i == 40 || i == 16){
+          fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
+          //left eye
+          ellipse(-xPos, yPos, i, i);
+          //right_eye
+          ellipse(xPos, yPos, i, i);
+      }
+      if(i == 8){
+          fill(fillObj[i][0], fillObj[i][1],fillObj[i][2]);
+          //left eye
+          rect(-xPos, yPos, i, i);
+          //right_eye
+          rect(xPos, yPos, i, i);
+      }
+      i=i-8;
   }
 
   // mouth
   noFill();
   stroke(hue, 30, 90);
   strokeWeight(2);
-  var i=40, j=50; 
+  var i=40, j=50;
   if(mouth_style <= 20){
-	   i=35, j=55; 
+       i=35, j=55;
   }
   while(i<=j){
-	 line(-mouth_style, i, mouth_style, i);
-  	if(mouth_style < 30){
-  		line(-50, i, -35, i);
-  		line(50, i, 35, i);
-  	}
-  	if(mouth_style < 20){
-  		line(-30, i, -mouth_style - 5, i);
-  		line(30, i, mouth_style + 5, i);
-  	}
-  	i = i + 5;
+     line(-mouth_style, i, mouth_style, i);
+      if(mouth_style < 30){
+          line(-50, i, -35, i);
+          line(50, i, 35, i);
+      }
+      if(mouth_style < 20){
+          line(-30, i, -mouth_style - 5, i);
+          line(30, i, mouth_style + 5, i);
+      }
+      i = i + 5;
   }
 
   colorMode(RGB);
@@ -465,7 +467,7 @@ function draw () {
     }
     var num_of_eyes = s1;
     var eye_size = map(s2, 0, 100, 30, 60);
-	  var hue = map(s3, 0, 100, 350, 0);
+      var hue = map(s3, 0, 100, 350, 0);
     var zigzag = map(s4, 0, 100, 1, 20);
     var size_adjuster = map(s5, 0, 100, 0.5, 1);
     drawMonsterFace(face_x, face_y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer);
@@ -479,9 +481,9 @@ function draw () {
       face_x = 3 * width / 6;
     }
     var num_antennas = s1;
-	  var face_height = map(s2, 0, 100, 0, 200);
+      var face_height = map(s2, 0, 100, 0, 200);
     var hue = map(s2, 0, 100, 0, 350);
-		
+
     var face_shape = map(s3, 0, 100, 0, 200);
     var mouth_style = map(s4, 0, 100, 50, 10);
     var eye_distance = map(s5, 0, 100, 50, 0);
