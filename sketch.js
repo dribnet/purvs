@@ -5,8 +5,8 @@ var faceSelector;
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color2 = [70, 70, 120];
-var bg_color3 = [238, 238, 238];
+var bg_color2 = [238, 238, 238];
+var bg_color3 = [70, 70, 120];
 
 
 var randomHue = [];
@@ -43,7 +43,7 @@ function setup () {
   faceSelector.option('2');
   faceSelector.option('3');
   faceSelector.option('all')
-  faceSelector.value('1');
+  faceSelector.value('all');
   faceSelector.parent('selector1Container');
 
   //setup arrays required for random saturation and brightness values used in the monster face
