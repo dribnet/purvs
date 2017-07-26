@@ -14,20 +14,17 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
+  slider6 = createSlider(0, 100, 50);
+  slider7 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
+ slider6.parent('slider6Container');
+  slider7.parent('slider7Container');
 
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -59,104 +56,8 @@ var stroke_color1 = [95, 52, 8];
 var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
-var colorHair = [20, 20, 0];
-
-function drawFace1(x, y, w, h, irisColor_value, eye_value, faceWidth_value, chinShape_value) {
-  push();
-  translate(x, y);
 
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  var face_width = faceWidth_value;
-  var chin_multiplier = chinShape_value;
-  var chin_width = face_width/chin_multiplier * scale;
-  var chin_length = 260 * scale;
-
-  fill(hair_color1);
-  push();
-  translate(20, 40);
-  rotate(-30);
-  ellipse(0, 0, 550 * scale, 700*scale);
-  pop();
-
-  fill(face_color1);
-  noStroke();
-  ellipse(0, 0, face_width * scale, face_width * scale);
-  quad(
-    (-chin_width*chin_multiplier + face_width/9) * scale, face_width/4 * scale, 
-    (chin_width*chin_multiplier - face_width/9) * scale, face_width/4 * scale, 
-    chin_width, chin_length, 
-    -chin_width, chin_length
-    );
-
-  push();
-  translate(0, chin_length - 1);
-
-arc(0, 0, chin_width*2, chin_width, 0, 180, CHORD);
-pop();
-
-  //eyes
-  var eye_scale = scale * eye_value;
-  var eye_position = -70 * eye_scale;
-
-  push();
-    translate(eye_position, 20);
-    stroke(eye_color104)
-    strokeWeight(0.3);
-    fill(eye_color104);
-    ellipse(-3, -4 * eye_scale, 100 * eye_scale, 80 * eye_scale);
-    fill(eye_color101);
-    ellipse(0, 0 * eye_scale, 100 * eye_scale, 80 * eye_scale);
-    fill(irisColor[irisColor_value]);
-    stroke(eye_color103)
-    strokeWeight(0.5);
-    ellipse(5 * eye_scale, -8 * eye_scale, 60 * eye_scale, 60 * eye_scale);
-    fill(eye_color104);
-    ellipse(5 * eye_scale, -8 * eye_scale, 40 * eye_scale, 40 * eye_scale);
-    fill(eye_color101);
-    noStroke();
-    rotate(20);
-    ellipse(-10 * eye_scale, -10 * eye_scale, 8 * eye_scale, 15 * eye_scale);
-    ellipse(-6 * eye_scale, -20 * eye_scale, 6 * eye_scale, 6 * eye_scale);
-pop();
-    push();
-    translate(-eye_position, 20);
-    stroke(eye_color104)
-    strokeWeight(0.3);
-        fill(eye_color104);
-    ellipse(3, -4 * eye_scale, 100 * eye_scale, 80 * eye_scale);
-    fill(eye_color101);
-    ellipse(0, 0 * eye_scale, 100 * eye_scale, 80 * eye_scale);
-    fill(irisColor[irisColor_value]);
-    stroke(eye_color103)
-    strokeWeight(0.5);
-    ellipse(5 * eye_scale, -8 * eye_scale, 60 * eye_scale, 60 * eye_scale);
-    fill(eye_color104);
-    ellipse(5 * eye_scale, -8 * eye_scale, 40 * eye_scale, 40 * eye_scale);
-    fill(eye_color101);
-    noStroke();
-    rotate(20);
-    ellipse(-10 * eye_scale, -10 * eye_scale, 8 * eye_scale, 15 * eye_scale);
-    ellipse(-6 * eye_scale, -20 * eye_scale, 6 * eye_scale, 6 * eye_scale);
-pop();
-
-  fill(hair_color1);
-  push();
-  translate(-50, -80);
-  rotate(-40);
-  ellipse(0, 0, 350 * scale, 250* scale);
-  pop();
-
-  pop();
-}
 
 function drawFace2(x, y, w, h, smile_value, lowerEye_value, brow_value, browRaise_value) {
 
@@ -399,31 +300,20 @@ scale(-1, 1);
 translate(-(x/3), 0);
 drawEye(1, 72);
 pop();
-  pop();
+pop();
 }
 
 function draw () {
   noStroke();
 
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
 
   var s1 = slider1.value();
   var s2 = slider2.value();
   var s3 = slider3.value();
   var s4 = slider4.value();
   var s5 = slider5.value();
+    var s6 = slider7.value();
+  var s6 = slider7.value();
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
@@ -431,47 +321,34 @@ function draw () {
   var face_y = height / 2;
   var face_x = width / 2;
 
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    var irisColor_value = Math.floor(map(s1, 0, 100, 0, 2.9));
-    var faceWidth_value = map(s3, 0, 100, 350, 450);
-    var eye_value = map(s2, 0, 100, 1, 1.5);
-    var chinShape_value = map(s4, 0, 100, 5, 20);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, irisColor_value, eye_value, faceWidth_value, chinShape_value);    
-  }
 
-  if (mode == '2' || mode == 'all') {
+  
     // draw 2nd face
     fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
+    rect(0, 0, 2*width/2, height);
     var smile_value = map(s1, 100, 0, 0, 25);
     var brow_value = map(s3, 0, 100, -15, 15);
     var lowerEye_value = map(s2, 0, 100, -5, 15);
     var browRaise_value = Math.floor(map(s4, 0, 100, -3, 3));
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
+
+      face_x = 1 * width / 4;
+
     drawFace2(face_x, face_y, face_w, face_h, smile_value, lowerEye_value, brow_value, browRaise_value);
 
-  }
 
-  if (mode == '3' || mode == 'all') {
+
+
     // draw 3nd face
     fill(bg_color3);
-    rect(2*width/3, 0, width, height);
+    rect(width/2, 0, width, height);
     var pupil_value = Math.floor(map(s1, 0, 100, 1, 3));
-    var blink_value = map(s3, 0, 100, 0, 24);
+    var blink_value = map(s5, 0, 100, 0, 24);
     var lowerEye_value = map(s2, 0, 100, 25, 40);
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
+
+      face_x = 3 * width / 4;
+
     drawFace3(face_x, face_y, face_w, face_h, pupil_value, lowerEye_value, blink_value);
-  }
+ 
 }
 
 function keyTyped() {
