@@ -2,7 +2,12 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-RAG DOLL FACE
+PATTERN FACE (face 3)
+It is a little rough, but I have created a function for masking basic shapes. Here it is in a basic version before I start doing other things to it. I had seen a couple of people mention online that masking could be achieved using the array of pixels in the image. I used the documentation for pixels, guessed a few things, and figured it out. It is a little temperamental, but on the whole it works
+
+I was going to use patterns and colours to create the basic shapes of the face, and I was going to achieve this with masking. I am going to need to ask for help with this though as I  can't get the masking working
+
+RAG DOLL FACE (face 1)
 I have, for now at least, completed the rag doll face, except for selecting a background colour. I have chosen to add a smooth bezier smile option for the normal doll, to contrast against the sharp lines and unsettling stitches of the creepy doll.
 The sliders are interdependant. Many features are effected by more than one slider, and most sliders control more than one feature.
 Dimenstions and dynamic movement have been considered too, for example, when the smile (creepy or normal) becomes deeper, it also stretches wider, when this happens it also moves down the face, so that the mouth is  spaced evenly above and below the original midpoint. 

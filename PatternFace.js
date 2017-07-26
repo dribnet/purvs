@@ -16,8 +16,8 @@ this.sliders = sliders;
 //the graphics object this image will be drawn to
 this.c = createGraphics(w,h);
 //2 more graphics objects for masking
-this.c1 = createGraphics(w,h);
-this.c2 = createGraphics(w,h);
+this.bgC = createGraphics(w*2,h*2);
+this.mC = createGraphics(w*2,h*2);
 
 //returns the graphics object with the new face drawn on it
 this.drawFace = function(){
@@ -40,9 +40,39 @@ this.drawFace = function(){
 }
 
 this.mainDraw = function(){
+	this.mC.translate(w/2, h/2);
+	this.bgC.translate(w/2, h/2);
+	this.mC.clear();
+	this.bgC.fill(200,0,200);
+	this.bgC.ellipse(0,0,w,w);
+	this.mC.fill(0);
+	this.mC.ellipse(0,0,w,w);
+	this.mC.fill(255,0,0);
+	this.mC.ellipse(0,0,111,333);
+	//this.bgC.background(200,0,200);
+	this.basicMask(this.mC,this.bgC);
+}
 
-	this.c.ellipse(0,0,w/2,w/2);
-//this.img = loadImage(this.c1,w ,h);
- //this.c.image(this.img,0-w/2,0-h/2,w,h);
+//bgC the pattern canvas you want the shape made of 
+//the bgC canvas must not contain an R value of either 0 or 255. Instead 1 or 254 are the closest allowed
+// mC the mask canvas, an image in color(0) and color(255,0,0)
+//what is originally black will be clear, and what is red will be the pattern
+this.basicMask = function(mC, bgC){
+
+mC.loadPixels(); 
+
+this.mask = color(255, 0, 0);
+this.d =pixelDensity();
+this.halfImage = 4 * (w*4 * this.d) * (h/2 * this.d);
+for (this.i = 0; this.i < this.halfImage; this.i+=4){
+if(mC.pixels[this.i] == red(this.mask)) {
+	mC.pixels[this.i+3] = 0;
+}}
+
+ mC.updatePixels();
+ bgC.image(mC,-w/2,-h/2,w, h);
+ this.c.image(bgC,-w/2,-h/2,w, h);
+
+
 }
 }
