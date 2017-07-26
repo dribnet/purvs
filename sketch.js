@@ -16,7 +16,7 @@ function setup () {
   randButton.mousePressed(changeRandomSeed);
   randButton.parent('selector1Container');
 
-  img_nose1 = loadImage("https://www.hannahdockerty.com/342-image-hosting/nose1"); 
+  img_nose1 = loadImage("img/nose1.png"); 
 
   // rotation in degrees
   angleMode(DEGREES);
