@@ -47,9 +47,14 @@ this.mainDraw = function(){
 	this.bgC.fill(200,0,200);
 	this.bgC.ellipse(0,0,w,w);
 	this.mC.fill(0);
+	this.mC.noStroke();
 	this.mC.ellipse(0,0,w,w);
 	this.mC.fill(255,0,0);
-	this.mC.ellipse(0,0,111,333);
+
+	//the head shape
+	this.mC.ellipse(0,-23,100,90);
+	this.mC.ellipse(0,-6,100,130);
+	this.mC.ellipse(0,0,80,140);
 	//this.bgC.background(200,0,200);
 	this.basicMask(this.mC,this.bgC);
 }
