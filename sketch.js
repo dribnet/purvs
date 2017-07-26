@@ -201,10 +201,9 @@ function drawFace(x, y, w, h, tilt_value, eye_value, mouth_value) {
 }
 
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  // rectMode(CENTER);
+function drawFace2(x, y, w, h, face_value, mouth_value, eye_value) {
   push();
-  translate(x, y);
+  translate(x/1.2, y/2);
 
   var extent = 0;
   if(h < w) {
@@ -217,11 +216,12 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
   // cheeks
   fill('#C74762');
-  rotate(-30);
-  ellipse(-160 * scale, 40 * scale, 60 * scale, 100 * scale);
 
-  rotate(50);
-  ellipse(100 * scale, 30 * scale, 50 * scale, 90 * scale)
+  rotate(-35);
+  ellipse(-145*scale,270*scale,60*scale,90*scale);
+
+  rotate(55);
+  ellipse(300*scale,180*scale,50*scale,80*scale)
 
   // reset for main face shapes
   rotate(-20);
@@ -230,41 +230,55 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
   // face shapes
   beginShape();
-  vertex(-100*scale,-200*scale);
-  vertex(75*scale,-250*scale);
-  vertex(175*scale,50*scale);
-  vertex(-75*scale,125*scale);
-  vertex(-100*scale,-200*scale);
+  vertex(49*scale+(face_value*2),48*scale);
+  vertex(82*scale-(face_value*2),326*scale+(face_value*2));
+  vertex(295*scale+(face_value*2),254*scale-(face_value*2));
+  vertex(183*scale-(face_value*2),0);
+  vertex(49*scale+(face_value*2),48*scale);
   endShape();
 
   beginShape();
-  vertex(-20*scale,-80*scale);
-  vertex(150*scale,50*scale);
-  vertex(75*scale,275*scale);
-  vertex(-50*scale,275*scale);
-  vertex(-125*scale,20*scale);
-  vertex(-20*scale,-80*scale);
+  vertex(115*scale-(face_value*2),133*scale);
+  vertex(32*scale+(face_value*2),219*scale-(face_value*2));
+  vertex(93*scale-(face_value*2),433*scale);
+  vertex(187*scale+(face_value*2),433*scale);
+  vertex(280*scale-(face_value*2),249*scale+(face_value*2));
+  vertex(115*scale-(face_value*2),133*scale);
   endShape();
 
+
   // nose
-  triangle(-10*scale, 85*scale, 5*scale, 20*scale, 30*scale, 85*scale);
+  fill('#f5f5f5');
+  triangle(145*scale,233*scale,130*scale,291*scale,172*scale,291*scale);
 
   // mouth
-  triangle(-15*scale, 150*scale, 10*scale, 140*scale, 35*scale, 150*scale);
+  triangle(148*scale,340*scale-mouth_value,121*scale,339*scale+mouth_value,167*scale,339*scale+mouth_value);
 
   // chin
-  quad(0*scale, 200*scale, 10*scale, 190*scale, 25*scale, 210*scale, 10*scale, 225*scale);
+  quad(144*scale,374*scale,134*scale,380*scale,142*scale,402*scale,156*scale,391*scale);
 
   // eye sockets
   fill(bg_color2);
-  quad(-140*scale, -140*scale, -80*scale, -145*scale, -55*scale, -105*scale, -135*scale, -100*scale);
-  quad(60*scale, -100*scale, 140*scale, -110*scale, 135*scale, -60*scale, 75*scale, -55*scale);
+  quad(183*scale,122*scale,192*scale,156*scale,244*scale,152*scale,239*scale,111*scale);
+  quad(9*scale,94*scale,14*scale,137*scale,94*scale,129*scale,68*scale,89*scale,9*scale,94*scale);
 
-  // eye
+  // eyes
   fill('#1e1e1e');
-  triangle(-137*scale, 120*scale, -110*scale, );
+  triangle(187*scale,138*scale,218*scale,154*scale,243*scale,140*scale);
+  triangle(14*scale,122*scale,56*scale,132*scale,86*scale,117*scale);
 
-  // eyelid
+  fill('#f5f5f5');
+  ellipse(52*scale,123*scale,22*scale,14*scale);
+  ellipse(213*scale,143*scale,17*scale,12*scale);
+
+  fill('#1e1e1e');
+  ellipse(52*scale+eye_value,122*scale,8*scale,8*scale);
+  ellipse(213*scale+eye_value,142*scale,6*scale,6*scale);
+
+  // eyelids
+  fill('#f5f5f5');
+  triangle(14*scale,122*scale,56*scale,96*scale,86*scale,118*scale);
+  triangle(188*scale,138*scale,201*scale,124*scale,241*scale,140*scale);
 
   pop();
 }
@@ -426,13 +440,13 @@ function draw() {
     // draw 2nd face
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
+    var face_value = Math.floor(map(s1, 0, 100, -5, 5));
+    var mouth_value = map(s3, 0, 100, -6, 6);
+    var eye_value = map(s2, 0, 100, -3, 3);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h, face_value, mouth_value, eye_value);
   }
 
   if (mode == '3' || mode == 'all') {
