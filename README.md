@@ -1,4 +1,5 @@
 ## PS1 MDDN 342 2017
 
-I have drawn Yoda's face and have added controls that changes his eyebrows, pupil direction and his smile. 
-I wanted to make his ears move but couldn't get it work. 
+I have drawn Princess Leia from Star Wars for the first face. The features that are changeable are her eyebrows, eyes and mouth. Her expression changes from being angry to bring sad. 
+
+I have also changed the colours for Yoda.
