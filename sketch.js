@@ -85,7 +85,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   //used to keep the face in the centre if its space
   var xAdjuster = 107;
   push();
-  translate(x-xAdjuster, y);
+  translate(x-xAdjuster * size_adjuster, y);
   colorMode(HSB);
 
   scale(size_adjuster);
