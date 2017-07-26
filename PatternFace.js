@@ -15,9 +15,12 @@ this.h = h;
 this.sliders = sliders;
 //the graphics object this image will be drawn to
 this.c = createGraphics(w,h);
-//2 more graphics objects for masking
+//more graphics objects for masking 
+//once they have been used, sadly they cannot be reused for a new mask
 this.bgC = createGraphics(w*2,h*2);
 this.mC = createGraphics(w*2,h*2);
+this.bg1 = createGraphics(w*2,h*2);
+this.m1 = createGraphics(w*2,h*2);
 
 //returns the graphics object with the new face drawn on it
 this.drawFace = function(){
@@ -41,13 +44,31 @@ this.drawFace = function(){
 //note for some reason the background() function does not work properly on bgC and mC
 //instead ellipses  larger than the canvas are used to create the background
 this.mainDraw = function(){
+	//setup ready for drawing (once for each canvas)
 	this.mC.translate(w/2, h/2);
 	this.bgC.translate(w/2, h/2);
+	this.mC.noStroke();
+	this.m1.translate(w/2, h/2);
+	this.bg1.translate(w/2, h/2);
+	this.m1.noStroke();
+
+	//setup for drawing the hair shape
+	this.m1.clear();
+	this.bg1.fill(155,155,255);
+	this.bg1.ellipse(0,0,w,w);
+	this.m1.fill(0);
+	this.m1.ellipse(0,0,w,w);
+	this.m1.fill(255,0,0);
+	//hair
+	this.m1.ellipse(0,-20,140,130);
+//mask the shape
+	this.basicMask(this.m1,this.bg1);
+
+	//setup for drawing the face shape
 	this.mC.clear();
 	this.bgC.fill(200,0,200);
 	this.bgC.ellipse(0,0,w,w);
 	this.mC.fill(0);
-	this.mC.noStroke();
 	this.mC.ellipse(0,0,w,w);
 	this.mC.fill(255,0,0);
 
@@ -55,7 +76,10 @@ this.mainDraw = function(){
 	this.mC.ellipse(0,-23,100,90);
 	this.mC.ellipse(0,-6,100,130);
 	this.mC.ellipse(0,0,80,140);
-	//this.bgC.background(200,0,200);
+	//fringe
+	this.mC.fill(0);
+	this.mC.ellipse(0,-55,110,40);
+	//mask the shape
 	this.basicMask(this.mC,this.bgC);
 }
 
