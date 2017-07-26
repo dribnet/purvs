@@ -3,6 +3,8 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 
+var img_nose1;
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -13,6 +15,8 @@ function setup () {
   randButton = createButton('randomize');
   randButton.mousePressed(changeRandomSeed);
   randButton.parent('selector1Container');
+
+  img_nose1 = loadImage("https://www.hannahdockerty.com/342-image-hosting/nose1"); 
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -78,7 +82,7 @@ function drawLowerLid(lowerEye_value) {
 }
 
 function drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyeballOffset_value) {
-	console.log(eyeballOffset_value);
+
 	//draw White of eye
 
 	fill('#fff');
@@ -174,13 +178,18 @@ function drawFace2_shape(face_width){
 		curveVertex(125, 20);
 		endShape();
 
+
+
 	}
 
 function drawEyebrow(browRaise_value, brow_value){
-
+	var brow_scale = 1;
+	for (var i = 0; i < 10; i++){
+		brow_scale -= 0.01;
 		push();
 		translate(-5, browRaise_value*5)
-		fill("#000");
+		scale(brow_scale, 1);
+		fill(0, 0, 0, 30);
 		beginShape();
 		vertex(27, 156);
 		vertex(40, 142);
@@ -192,6 +201,7 @@ function drawEyebrow(browRaise_value, brow_value){
 		vertex(27, 156);			
 		endShape();
 		pop();
+		}
 }
 
 function drawFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value ,l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value) {
@@ -216,7 +226,7 @@ function drawFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value ,
 	drawEyebrow(r_browRaise_value, r_brow_value);
 	pop();
 
-
+	  image(img_nose1, 125, 0);
 
 	// //guidelines
 	// stroke("#000");
@@ -259,10 +269,18 @@ function draw () {
 			var l_browRaise_value = focusedRandom(-2, 1.5);
 			var pupil_value = Math.floor(focusedRandom(1, 3));
 			var blink_value = focusedRandom(0, 24);
+			if (blink_value > 15){
+				var check = random(1);
+				if (check > 0.5){
+					blink_value = 0;
+				} else{
+					blink_value = 24;
+				}
+			}
 			var lowerEye_value = focusedRandom(25, 40);
 			var r_browRaise_value = l_browRaise_value+(focusedRandom(-0.3, 0.3));
 			if (brow_symmetry < 2){
-				var r_brow_value = l_brow_value+(focusedRandom(-15, 15));
+				var r_brow_value = l_brow_value+(focusedRandom(-10, 10));
 			} else {
 				var r_brow_value = l_brow_value;
 			}
