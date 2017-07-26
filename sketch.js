@@ -278,14 +278,11 @@ function draw () {
 	var s9 = slider9.value();
 	var s10 = slider10.value();
 
-	// use same size / y_pos for all faces
-	// var face_scale = 0.4;
-	// var face_y = height/1.2;
-	// var face_x = width/2;
 
-	var face_scale = 1;
-	var face_y = height/2;
+	var face_scale = 0.4;
+	var face_y = height/1.2;
 	var face_x = width/2;
+
 
 	// draw face
 	fill(bg_color);
@@ -300,14 +297,13 @@ function draw () {
 	var r_brow_value = map(s8, 0, 100, -15, 15);
 	var eyeballOffset_value = map(s6, 0, 100, -25, 25);
 
-	// for (var i = 0; i < 5; i++){
-	// 	for(var j = 0; j < 3; j++){
-	// 		drawFace(230+(face_x*i), 180+(face_y*j), face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value);
-	// 	}
-	// }
+	for (var i = 0; i < 5; i++){
+		for(var j = 0; j < 3; j++){
+			drawFace(230+(face_x*i), 180+(face_y*j), face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value);
+		}
+	}
 	
-	drawFace(face_x, face_y, face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value);
-
+	
 }
 
 function keyTyped() {
