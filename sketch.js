@@ -6,11 +6,20 @@ var slids;
 var dolly;
 var patterned;
 var cartoon;
+var curRandomSeed;
+var button;
 
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+
+  curRandomSeed = int(focusedRandom(0, 100));
+
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
+
 
   // create sliders
   slider1 = createSlider(0, 100, 50);
@@ -18,7 +27,7 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
-  
+ 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
@@ -26,6 +35,7 @@ function setup () {
   slider5.parent('slider5Container');
 //create the other objects
   slids = new SliderValues(slider1,slider2,slider3,slider4,slider5);
+   slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
   cartoon = new CartoonFace(canvasWidth/3,canvasHeight,slids);
 patterned = new PatternFace(canvasWidth/3,canvasHeight,slids);
@@ -39,6 +49,11 @@ patterned = new PatternFace(canvasWidth/3,canvasHeight,slids);
 
   // rotation in degrees
   angleMode(DEGREES);
+}
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+   slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
 }
 
 // global variables for colors
@@ -97,6 +112,7 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 }
 
 function draw () {
+   resetFocusedRandom(curRandomSeed);
 	noStroke();
 
 	var mode = faceSelector.value();

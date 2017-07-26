@@ -2,6 +2,8 @@
 
 This README explains the three different paramaterized faces for part2. 
 
+set it to random by adding the random numbers to the slider class when the seed is reset. Setting it to randoms within the sliders class meant I lost all the relationships I had between values
+
 PATTERN FACE (face 3)
 I have the masking working fairly nicely now. I have created basic face and hair cutouts, but not the patterns they will be cut out from. Intend to add eyes. I intend to add hair of variable length.
 I have further modified my masking function so that it will cut out any given basic shape out of almost any given patterned background.
