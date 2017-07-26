@@ -187,7 +187,7 @@ function drawFace2(x, y, w, h, redTop_value, eye_value, mouth_value,color_value)
 	pop();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value,eyebrows) {
+function drawFace3(x, y, w, h, width_value, eye_value, mouth_value_W, mouth_value_H,eyebrows,eyebrowsAngle) {
 	push();
 	rectMode(CENTER);
 	translate(x, y);
@@ -212,15 +212,19 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value,eyebrows) {
 	
 	//eyes
 	fill(0);
-	ellipse(width_value* scale,-30* scale,eye_value* scale,eye_value* scale);
-	ellipse( - width_value* scale,-30* scale,eye_value* scale,eye_value* scale);
+	var eyeDistance = map(width_value,0,100,20,80);
+	ellipse(eyeDistance* scale,-30* scale,eye_value* scale,eye_value* scale);
+	ellipse( - eyeDistance* scale,-30* scale,eye_value* scale,eye_value* scale);
 	
-	rect(width_value* scale,-eyebrows* scale,eye_value*3* scale,20* scale);
-	rect( - width_value* scale,-eyebrows* scale,eye_value*3* scale,20* scale);
+	//eyebrows
+	rotate(eyebrowsAngle);
+	rect(eyeDistance* scale,-eyebrows* scale,eyeDistance* scale,15* scale);
+	rotate(-eyebrowsAngle*2);
+	rect( - eyeDistance* scale,-eyebrows* scale,eyeDistance* scale,15* scale);
+	rotate(eyebrowsAngle);
+	
 	//mouth
-	
-	ellipse(0,100* scale,mouth_value* scale,mouth_value* scale);
-	
+	ellipse(0,100* scale,mouth_value_W* scale, mouth_value_H* scale);
 	pop();
 }
 
@@ -259,13 +263,16 @@ function draw () {
       drawFace1(x, y, w, h, height_value, eye_value, mouth_value, hair_value, eyeNumber_value);
     }
   }*/
+	
   // draw 3rd face
   fill(bg_color3);
 
 		var width_value =focusedRandom(0, 100);
-		var mouth_value = focusedRandom( 0, 100);
+		var mouth_value_W = focusedRandom( 30, 100);
+	    var mouth_value_H = focusedRandom( 0, 50);
 		var eye_value = focusedRandom (10, 40);
 		var eyebrows = focusedRandom(70, 130);
+	    var eyebrowsAngle = focusedRandom(-15, 15);
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
@@ -273,11 +280,14 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      width_value =focusedRandom(0, 100);
-	  mouth_value = focusedRandom( 0, 100);
+      width_value = focusedRandom(0, 100);
+	  mouth_value_W = focusedRandom( 30, 100);
+	  mouth_value_H = focusedRandom( 20, 50);
+		
 	  eye_value = focusedRandom (10, 40);
 	  eyebrows = focusedRandom(70, 130);
-      drawFace3(x, y, w, h, width_value, eye_value, mouth_value,eyebrows);
+	  eyebrowsAngle = focusedRandom(-15, 15);
+      drawFace3(x, y, w, h, width_value, eye_value, mouth_value_W, mouth_value_H,eyebrows,eyebrowsAngle);
     }
   }
    
