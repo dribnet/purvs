@@ -1,1 +1,3 @@
-For the Chinese mask, I randomize its eyebrow value to change shape and color, eye value to change the shape of eyes, mouth value to open mouth, skin value to change skin color, and triangle value to generate triangles, additionally, increase the strokeWeight for eye rim and forehead.
+left face is a low poly fox face. Firstly, I use triangle() and quad() to create half a face, then use scale() to flip another half face.
+
+right face is from angry birds, I use triangle(), quad() and ellipse() to create it.
