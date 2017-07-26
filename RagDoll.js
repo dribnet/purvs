@@ -219,6 +219,9 @@ this.drawHair = function(){
 	this.canvas.ellipse(0,0,87,35);
 	this.canvas.pop();
 
+	//randomise the hair length with a number to divide it by
+	this.hs = this.sliders.scaleSliders(6,0.6, 1.8,false);
+
 	
 
 	//draw the left side ponytail
@@ -249,23 +252,23 @@ this.leftPony = function(){
 	this.canvas.beginShape();
 	this.canvas.curveVertex(5,-10);
 	this.canvas.curveVertex(-3,0);
-	this.canvas.curveVertex(-12,10);
-	this.canvas.curveVertex(-15,30);
-	this.canvas.curveVertex(-10,40);
-	this.canvas.curveVertex(0,60);
-	this.canvas.curveVertex(-3,80);
-	this.canvas.curveVertex(5,100);
-	this.canvas.curveVertex(8,105);
-	this.canvas.curveVertex(0,112);
+	this.canvas.curveVertex(-12,10/this.hs);
+	this.canvas.curveVertex(-15,30/this.hs);
+	this.canvas.curveVertex(-10,40/this.hs);
+	this.canvas.curveVertex(0,60/this.hs);
+	this.canvas.curveVertex(-3,80/this.hs);
+	this.canvas.curveVertex(5,100/this.hs);
+	this.canvas.curveVertex(8,105/this.hs);
+	this.canvas.curveVertex(0,112/this.hs);
 	
 	//going back up the right side
-	this.canvas.curveVertex(9,105);
-	this.canvas.curveVertex(10,95);
-	this.canvas.curveVertex(11,85);
-	this.canvas.curveVertex(16,70);
-	this.canvas.curveVertex(8,60);
-	this.canvas.curveVertex(10,40);
-	this.canvas.curveVertex(0,25);
+	this.canvas.curveVertex(9,105/this.hs);
+	this.canvas.curveVertex(10,95/this.hs);
+	this.canvas.curveVertex(11,85/this.hs);
+	this.canvas.curveVertex(16,70/this.hs);
+	this.canvas.curveVertex(8,60/this.hs);
+	this.canvas.curveVertex(10,40/this.hs);
+	this.canvas.curveVertex(0,25/this.hs);
 	this.canvas.curveVertex(5,15);
 	this.canvas.curveVertex(-3,0);
 	this.canvas.endShape();
@@ -276,31 +279,31 @@ this.leftPony = function(){
 	//going down
 	this.canvas.curveVertex(-5,-6);
 	this.canvas.curveVertex(3,0);
-	this.canvas.curveVertex(5,5);
-	this.canvas.curveVertex(7,15);
-	this.canvas.curveVertex(14,30);
-	this.canvas.curveVertex(-10,44);
-	this.canvas.curveVertex(-20,70);
-	this.canvas.curveVertex(-15,85);
-	this.canvas.curveVertex(-20,95);
-	this.canvas.curveVertex(-18,105);
-	this.canvas.curveVertex(-11,110);
-	this.canvas.curveVertex(-5,105);
+	this.canvas.curveVertex(5,5/this.hs);
+	this.canvas.curveVertex(7,15/this.hs);
+	this.canvas.curveVertex(14,30/this.hs);
+	this.canvas.curveVertex(-10,44/this.hs);
+	this.canvas.curveVertex(-20,70/this.hs);
+	this.canvas.curveVertex(-15,85/this.hs);
+	this.canvas.curveVertex(-20,95/this.hs);
+	this.canvas.curveVertex(-18,105/this.hs);
+	this.canvas.curveVertex(-11,110/this.hs);
+	this.canvas.curveVertex(-5,105/this.hs);
 
 	//going back up
-	this.canvas.curveVertex(-5,105);
-	this.canvas.curveVertex(-9,110);
-	this.canvas.curveVertex(-10,105);
-	this.canvas.curveVertex(-10,95);
-	this.canvas.curveVertex(-4,80);
-	this.canvas.curveVertex(-5,70);
-	this.canvas.curveVertex(-3,50);
+	this.canvas.curveVertex(-5,105/this.hs);
+	this.canvas.curveVertex(-9,110/this.hs);
+	this.canvas.curveVertex(-10,105/this.hs);
+	this.canvas.curveVertex(-10,95/this.hs);
+	this.canvas.curveVertex(-4,80/this.hs);
+	this.canvas.curveVertex(-5,70/this.hs);
+	this.canvas.curveVertex(-3,50/this.hs);
 	//the two lines of the shape cross here
 	//this is now the left side
-	this.canvas.curveVertex(0,34);
-	this.canvas.curveVertex(5,30);
-	this.canvas.curveVertex(3,15);
-	this.canvas.curveVertex(1,5);
+	this.canvas.curveVertex(0,34/this.hs);
+	this.canvas.curveVertex(5,30/this.hs);
+	this.canvas.curveVertex(3,15/this.hs);
+	this.canvas.curveVertex(1,5/this.hs);
 	this.canvas.curveVertex(-2,0);
 	this.canvas.curveVertex(-5,-6);
 	this.canvas.endShape();
@@ -315,42 +318,42 @@ this.rightPony = function(){
 	this.canvas.beginShape();
 	this.canvas.curveVertex(15,-20);
 	this.canvas.curveVertex(-5,-0);
-	this.canvas.curveVertex(-9,25);
-	this.canvas.curveVertex(-5,45);
-	this.canvas.curveVertex(0,60);
-	this.canvas.curveVertex(10,80);
-	this.canvas.curveVertex(12,105);
-	this.canvas.curveVertex(-5,120);
+	this.canvas.curveVertex(-9,25/this.hs);
+	this.canvas.curveVertex(-5,45/this.hs);
+	this.canvas.curveVertex(0,60/this.hs);
+	this.canvas.curveVertex(10,80/this.hs);
+	this.canvas.curveVertex(12,105/this.hs);
+	this.canvas.curveVertex(-5,120/this.hs);
 	this.canvas.endShape();
 	this.canvas.beginShape();
 	this.canvas.curveVertex(-15,-20);
 	this.canvas.curveVertex(0,-0);
-	this.canvas.curveVertex(14,25);
-	this.canvas.curveVertex(5,45);
-	this.canvas.curveVertex(0,60);
-	this.canvas.curveVertex(-4,80);
-	this.canvas.curveVertex(-12,107);
-	this.canvas.curveVertex(5,125);
+	this.canvas.curveVertex(14,25/this.hs);
+	this.canvas.curveVertex(5,45/this.hs);
+	this.canvas.curveVertex(0,60/this.hs);
+	this.canvas.curveVertex(-4,80/this.hs);
+	this.canvas.curveVertex(-12,107/this.hs);
+	this.canvas.curveVertex(5,125/this.hs);
 	this.canvas.endShape();
 
 	//left strand
 	this.canvas.beginShape();
 	this.canvas.curveVertex(15,-20);
 	this.canvas.curveVertex(0,-0);
-	this.canvas.curveVertex(-9,25);
-	this.canvas.curveVertex(-25,45);
-	this.canvas.curveVertex(-20,60);
-	this.canvas.curveVertex(-30,80);
-	this.canvas.curveVertex(-25,90);
-	this.canvas.curveVertex(-20,100);
-	this.canvas.curveVertex(-16,110);
-	//this.canvas.curveVertex(-33,120);
-	this.canvas.curveVertex(-20,105);
-	this.canvas.curveVertex(-15,85);
-	this.canvas.curveVertex(-12,70);
-	this.canvas.curveVertex(-15,60);
-	this.canvas.curveVertex(-10,45);
-	this.canvas.curveVertex(-9,25);
+	this.canvas.curveVertex(-9,25/this.hs);
+	this.canvas.curveVertex(-25,45/this.hs);
+	this.canvas.curveVertex(-20,60/this.hs);
+	this.canvas.curveVertex(-30,80/this.hs);
+	this.canvas.curveVertex(-25,90/this.hs);
+	this.canvas.curveVertex(-20,100/this.hs);
+	this.canvas.curveVertex(-16,110/this.hs);
+	//this.canvas.curveVertex(-33,120/this.hs);
+	this.canvas.curveVertex(-20,105/this.hs);
+	this.canvas.curveVertex(-15,85/this.hs);
+	this.canvas.curveVertex(-12,70/this.hs);
+	this.canvas.curveVertex(-15,60/this.hs);
+	this.canvas.curveVertex(-10,45/this.hs);
+	this.canvas.curveVertex(-9,25/this.hs);
 	this.canvas.endShape();
 	this.canvas.pop();
 }

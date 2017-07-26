@@ -1,10 +1,12 @@
 //An object that contains references to all the sliders, and returns mapped values on a selected slider
-function SliderValues(s1,s2,s3,s4,s5){
+function SliderValues(s1,s2,s3,s4,s5,s6,s7){
 	this.r1 =1;
 	this.r2 =1;
 	this.r3 =1;
 	this.r4 =1;
 	this.r5 =1;
+	this.r6 =1;
+	this.r7 =1;
 
 	this.s1 = s1;
 	this.s2=s2;
@@ -15,12 +17,14 @@ function SliderValues(s1,s2,s3,s4,s5){
 	this.rounded = false;
 
 //takes random numbers in place of sliders
-this.randomSliders = function(n1, n2, n3, n4, n5){
+this.randomSliders = function(n1, n2, n3, n4, n5,n6,n7){
 	this.r1 =n1;
 	this.r2 = n2;
 	this.r3 = n3;
 	this.r4 = n4;
 	this.r5 =n5;
+	this.r6 = n6;
+	this.r7 =n7;
 }
 
 	//takes integer arguments detailing which slider is required, and how it is to be mapped
@@ -32,7 +36,9 @@ this.randomSliders = function(n1, n2, n3, n4, n5){
 		else if (slide == 2){this.val = this.r2;}
 		 else if (slide == 3){this.val = this.r3;}
 		else if (slide == 4){this.val = this.r4;}
-		else{this.val = this.r5;}
+		else if (slide == 5){this.val = this.r5;}
+		else if (slide == 6){this.val = this.r6;}
+		else{this.val = this.r7;}
 	
 		
 
