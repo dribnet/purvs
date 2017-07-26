@@ -17,29 +17,6 @@ function setup () {
   // rotation in degrees
   angleMode(DEGREES);
 
-// create sliders
-slider1 = createSlider(0, 100, 50);
-slider2 = createSlider(0, 100, 50);
-slider3 = createSlider(0, 100, 50);
-slider4 = createSlider(0, 100, 50);
-slider5 = createSlider(0, 100, 50);
-slider6 = createSlider(0, 100, 50);
-slider7 = createSlider(0, 100, 50);
-slider8 = createSlider(0, 100, 50);
-slider9 = createSlider(0, 100, 50);
-slider10 = createSlider(0, 100, 50);
-
-slider1.parent('slider1Container');
-slider2.parent('slider2Container');
-slider3.parent('slider3Container');
-slider4.parent('slider4Container');
-slider5.parent('slider5Container');
-slider6.parent('slider6Container');
-slider7.parent('slider7Container');
-slider8.parent('slider8Container');
-slider9.parent('slider9Container');
-slider10.parent('slider10Container');
-
 }
 
 function changeRandomSeed() {
@@ -266,19 +243,6 @@ function draw () {
 
 	noStroke();
 
-
-	var s1 = slider1.value();
-	var s2 = slider2.value();
-	var s3 = slider3.value();
-	var s4 = slider4.value();
-	var s5 = slider5.value();
-	var s6 = slider6.value();
-	var s7 = slider7.value();
-	var s8 = slider8.value();
-	var s9 = slider9.value();
-	var s10 = slider10.value();
-
-
 	var face_scale = 0.4;
 	var face_y = height/1.2;
 	var face_x = width/2;
@@ -287,18 +251,23 @@ function draw () {
 	// draw face
 	fill(bg_color);
 	rect(0, 0, width, height);
-	var l_brow_value = map(s3, 0, 100, -15, 15);
-	var l_browRaise_value = map(s4, 0, 100, -2, 2);
-	var pupil_value = Math.floor(map(s1, 0, 100, 1, 3));
-	var blink_value = map(s5, 0, 100, 0, 24);
-	var lowerEye_value = map(s2, 0, 100, 25, 40);
-
-	var r_browRaise_value = map(s7, 0, 100, -2, 2);
-	var r_brow_value = map(s8, 0, 100, -15, 15);
-	var eyeballOffset_value = map(s6, 0, 100, -25, 25);
 
 	for (var i = 0; i < 5; i++){
 		for(var j = 0; j < 3; j++){
+			var brow_symmetry = Math.floor(focusedRandom(0, 3));
+			var l_brow_value = focusedRandom(-15, 15);
+			var l_browRaise_value = focusedRandom(-2, 1.5);
+			var pupil_value = Math.floor(focusedRandom(1, 3));
+			var blink_value = focusedRandom(0, 24);
+			var lowerEye_value = focusedRandom(25, 40);
+			var r_browRaise_value = l_browRaise_value+(focusedRandom(-0.3, 0.3));
+			if (brow_symmetry < 2){
+				var r_brow_value = l_brow_value+(focusedRandom(-15, 15));
+			} else {
+				var r_brow_value = l_brow_value;
+			}
+			var eyeballOffset_value = focusedRandom(-25, 25);
+
 			drawFace(230+(face_x*i), 180+(face_y*j), face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value);
 		}
 	}
