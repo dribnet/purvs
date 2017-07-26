@@ -3,6 +3,7 @@ var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
 
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -34,11 +35,11 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
-var bg_color3 = [70, 70, 120];
+var bg_color1 = ["#ffffff"];
+var bg_color2 = ["#ffffff"];
+var bg_color3 = ["#ffffff"];
 
-var fg_color1 = [151, 102, 52];
+var fg_color1 = ["#f9e3ce"];
 var fg_color2 = [56, 91, 194];
 var fg_color3 = [206, 207, 180];
 
@@ -62,34 +63,60 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
+  //cat face
   fill(fg_color1);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  rect(-(400 * scale)/2, -(300 * scale/2), 400 * scale, 300 * scale, 80, 80, 80, 80);
+
+  //ears
+  push();
+  rotate(-7);
+  ellipse(-65 , -25, 70, 180);
+  pop();
+
+  push();
+  rotate(7);
+  ellipse(65, -25, 70, 180);
+  pop();
+
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color1);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+  if (eye_value === 1) {
+    push();
+    stroke(stroke_color1);
+    strokeWeight(5);
+    noFill();
+    translate(-45, 20);
+    rotate(-90);
+    arc(0, 0, 30, 30, -40, 40);
+    pop();
+
+    push();
+    stroke(stroke_color1);
+    strokeWeight(5);
+    noFill();
+    translate(45, 20);
+    rotate(-90);
+    arc(0, 0, 30, 30, -40, 40);
+    pop();
+
+
   }
 
   if (eye_value >= 2) {
-    fill(bg_color1);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color1);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+    fill("#5a2304");
+    ellipse(-80 * scale, 15 * scale, 25 * scale, 40 * scale);
+    ellipse( 80 * scale, 15 * scale, 25 * scale, 40 * scale);
+  
   }
+
 
   // mouth
   fill(bg_color1);
-  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  //ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
+function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, glow_value, number_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -103,59 +130,62 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color3);
-  fill(fg_color3);
+  noStroke();
+  var a = 160;
+  var aminus = glow_value;
+  fill(68, 14, 98,);
   ellipse(0, 0, 300 * scale, 400 * scale);
+  for(i=1; i<=4; i++){
+    fill(68, 14, 98, a);
+    ellipse(0, 0, 300 * scale+(i*30), 400 * scale+(i*30));
+    a-=aminus;
+  }
 
   // eyes. first check for blinking
   if(blink_value > 0) {
     fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
+    ellipse(0, -80 * scale, 100 * scale, 2 * scale);
+    
   }
   else {
     fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
+    ellipse(0, -80 * scale, 100 * scale, 100 * scale);
+    
 
     fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
+    ellipse((eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
+    
   }
 
   // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
+  
   // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
+  var follicles = [];
+
+  for (var i = 1; i < number_value; i++) {
+    randomSeed(i*i*900);
+    append(follicles, [random(100, 800), random(-200, 700)]);
+  }
+
 
   resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
+  var alpha = 150;
+  var radius = hair_value * scale/2;
   for(var i=0; i<follicles.length; i++) {
+    fill(255, 242, 0, 50);
     ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
+    for(var x=1; x<5; x++){
+      fill(255, 242, 0, alpha);
+      ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius*x/1.5, radius*x/1.5);
+      alpha-=20;
+    }
+    alpha = 150;
   }
   rectMode(CORNER);
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, seed_value, twig_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
@@ -170,32 +200,160 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+  stroke("#000000");
+  strokeWeight(0.5);
+  
+  randomSeed(seed_value);
+  //noiseSeed(5)
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+  
+
+  //leaves
+  for(var i=1; i<70; i++){
+    leaf(random(-90, 90), random(60, 90), "#00673f", "#219d23", random(0, 359));
   }
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+  for(var i=1; i<100; i++){
+    leaf(random(-140, 140), random(-30, 30), "#00673f", "#219d23", random(0, 359));
+  }
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
+  for(var i=1; i<100; i++){
+    leaf(random(-90, 90), random(-100, 0), "#00673f", "#219d23", random(0, 359));
+  }
+  
+
+
+  //face
+  noStroke();
+  //strokeWeight(0.1);
+  for(var i=1; i<=5; i++){
+      noStroke();
+      fill(213,236,187, 20+(i*50));
+      ellipse(0, 0, 550*scale-(i*10), 500*scale-(i*10));
+    }
+  //fill(213,236,187, 200);
+  //ellipse(0, 0, 500 * scale, 450 * scale);
+
+
+
+  noFill();
+  stroke("#5d2c27");
+  strokeWeight(4);
+
+  //twigs
+  for(var i=0; i<=twig_value; i++){
+    twig(random(-70, 70), random(-100, -20),"#5d4423", random(-30, 30));
+  }
+  
+  //twig(0, 0, "#5d4423", -5);
+  
+
+
+  stroke("#000000");
+  strokeWeight(1);
+
+  if(mouth_value ===1){
+    push();
+    translate(-5, 70);
+    rotate(90);
+    arc(0, 0, 10, 10, -70, 70);
+    pop();
+
+    push();
+    translate(5, 70);
+    rotate(90);
+    arc(0, 0, 10, 10, -70, 70);
+    pop();
+
+
+  }
+  if(mouth_value >=2){
+
+    push();
+    fill("#ef7fbe");
+    translate(0, 75.5);
+    rotate(90);
+    ellipse(0,0, 5, 5);
+    arc(0, 0, 10, 10, -100, 100, OPEN);
+    pop();
+
+    push();
+    translate(-5, 70);
+    rotate(90);
+    arc(0, 0, 10, 10, -70, 70);
+    pop();
+
+    push();
+    translate(5, 70);
+    rotate(90);
+    arc(0, 0, 10, 10, -70, 70);
+    pop();
+
+    
+
+  }
+
+  // eyes
+  if (eye_value ===1) {
+    push();
+    noFill();
+    translate(-40, 40);
+    rotate(90);
+    arc(0, 0, 25, 25, -40, 40);
+    pop();
+
+    push();
+    noFill();
+    translate(40, 40);
+    rotate(90);
+    arc(0, 0, 25, 25, -40, 40);
+    pop();
+    
+  }
+
+  if(eye_value >=2){
+    for(var i=1; i<=5; i++){
+      noStroke();
+      fill(98, 183, 88, 10+(i*50));
+      ellipse(-40, 45, 60*scale-(i*5), 70*scale-(i*5));
+      ellipse(40, 45, 60*scale-(i*5), 70*scale-(i*5) );
+    }
+    fill("#000000")
+    ellipse(-40, 45, 20*scale, 30*scale);
+    ellipse(40, 45, 20*scale, 30*scale);
   }
 
   // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
+
+  pop();
+}
+
+function leaf(x, y, colour1, colour2, rotation){
+  stroke("#000000");
+  strokeWeight(1);
+  push();
+  translate(x, y);
+  rotate(rotation);
+  fill(colour1);
+  curve(-75, 5, 0, 0, 0, 50, -75, 50);
+  fill(colour2);
+  curve(75, 5, 0, 0, 0, 50, 75, 50);
+  line(0, 0, 0, 50);
+  pop();
+}
+
+function twig(x, y, colour, rotation){
+  push();
+  translate(x, y);
+  rotate(rotation);
+  line(0, 0, 0, -100);
+  line(0, -20, 10, -30);
+  line(0, -30, -20, -50);
+  line(0, -40, 20, -60);
+  line(0, -60, 15, -75);
+  line(0, -60, -15, -75);
+  line(0, -80, -10, -90);
+  line(0, -80, 10, -90);
   pop();
 }
 
@@ -247,11 +405,13 @@ function draw () {
     rect(width/3, 0, 2*width/3, height);
     var hair_value = map(s1, 0, 100, 2, 90);
     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
+    var glow_value = map(s4, 0, 100, 10, 90);
     var eye_value = map(s2, 0, 100, -15, 15);
+    var number_value = Math.floor(map(s5, 0, 100, 10, 40));
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, glow_value, number_value);
   }
 
   if (mode == '3' || mode == 'all') {
@@ -259,12 +419,14 @@ function draw () {
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
     var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var mouth_value = Math.floor(map(s1, 0, 100, 1, 3));
+    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+    var seed_value = Math.floor(map(s3, 0, 100, 1, 50));
+    var twig_value = Math.floor(map(s4, 0, 100, 0, 5));
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, seed_value, twig_value);
   }
 }
 
