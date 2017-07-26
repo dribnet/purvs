@@ -59,7 +59,7 @@ function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monste
   drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
 }
   var eyeSize = monsterWidth*0.066;
-  drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2]);
+  drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2],mX,mY);
   drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
   if(face == 1){
   drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
@@ -125,21 +125,21 @@ function drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
-function drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,color1,color2){
+function drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,color1,color2,x,y){
 
   //draw eyes
   //first 2
-  drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2);
-  drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2);
+  drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
+  drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
   //second 2
   if(eyeNum>=2){
-  drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2);
-  drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2);
+  drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
+  drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
   }
   //third 2
   if(eyeNum>=3){
-  drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2);
-  drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2);
+  drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
+  drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
   }
 
 
@@ -356,18 +356,18 @@ triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
 var eyeSize = monsterWidth*0.075;
 //draw eyes
 //first 3
-drawEye(monsterWidth*0.5,monsterHeight*0.35-faceHeight,eyeSize,white,blue);
-drawEye(monsterWidth*0.35-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue);
-drawEye(monsterWidth*0.65+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue);
+drawEye(monsterWidth*0.5,monsterHeight*0.35-faceHeight,eyeSize,white,blue,x,y);
+drawEye(monsterWidth*0.35-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue,x,y);
+drawEye(monsterWidth*0.65+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,white,blue,x,y);
 //second 3
 if(eyeNum>=2){
-drawEye(monsterWidth*0.38-(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue);
-drawEye(monsterWidth*0.62+(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue);
+drawEye(monsterWidth*0.38-(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue,x,y);
+drawEye(monsterWidth*0.62+(faceWidth*0.5),monsterHeight*0.32-(faceHeight),eyeSize,white,blue,x,y);
 }
 //third 3
 if(eyeNum>=3){
-drawEye(monsterWidth*0.5,monsterHeight*0.6-faceHeight,eyeSize,white,blue);
-  drawEye(monsterWidth*0.5,monsterHeight*0.2-faceHeight,eyeSize,white,blue);
+drawEye(monsterWidth*0.5,monsterHeight*0.6-faceHeight,eyeSize,white,blue,x,y);
+  drawEye(monsterWidth*0.5,monsterHeight*0.2-faceHeight,eyeSize,white,blue,x,y);
 }
 
 
@@ -428,10 +428,10 @@ pop();
 
 
 
-function drawEye(x,y,size,color1,color2){
+function drawEye(x,y,size,color1,color2,x2,y2){
 
-  mouseXPos = map(mouseX,0,width,-size/7,size/7);
-  mouseYPos = map(mouseY,0,height,-size/7,size/7);
+  mouseXPos = map(mouseX-x2+x,0,width,-size/7,size/7);
+  mouseYPos = map(mouseY-y2+y,0,height,-size/7,size/7);
 
 fill(color1);
 ellipse(x,y,size,size);
