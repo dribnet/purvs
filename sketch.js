@@ -161,6 +161,7 @@ function drawEye (x, y, highlightPosition_x, lowerEye_value, pupil_value, blink_
 
 	fill("#000");
 	pop();
+	//hello
 }
 
 function drawFace2_shape(face_width){
