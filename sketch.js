@@ -72,16 +72,25 @@ function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,
   // In this section, the face sharpness will also be edited to get setup for the other features.
   // At this stage I am thinking about using arcs for the chin but I don't know how it will react exactly yet.
   fill(bluec);
-  ellipse(0, 0, 300 , 400 );
+
+  
   if(face_sharpness == 1){
+  	rectMode(CENTER);
+  	ellipse(0, 0, 300 , 400 );
   	fill(bluec);
+  	rectMode(CORNER);
   rect(-145,-20,165,218);
 
   }
   if(face_sharpness == 2){
+  	ellipse(0,0,300,400);
   	fill(bluec);
   	quad(0,200,-100,200,-140,140,-115,120);
 
+  }
+
+  if(face_sharpness == 3){
+  	ellipse(0,0,300,400);
   }
   // eyes
     fill(bg_color1);
@@ -132,15 +141,21 @@ line(-95,-20,-90,-50);
   rotate(-30);
   fill(colorHair);
   stroke(colorHair);
-  rect(70,-150,40,200);
-  rect(15,-150,40,50);
-  //if(hair_curve == 1){
-  	push();
-  	rotate(180);
+  if(hair_curve == 1){
+  	
+  	line(70,-150,120,100);
+  	line(90,-150,140,100);
+  	line(110,-150,160,100);
 
-  	arc(-65,140,100,100,360,180);
-  	pop();
-  //} 
+  }
+  if(hair_curve == 2){
+
+  	bezier(70,-150,90,-175,105,25,120,100);
+  	bezier(90,-150,110,-175,125,25,140,100);
+  	bezier(110,-150,130,-175,145,25,160,100);
+
+
+  }
 
   pop();
   // For this section, there will be 3 different curves that occur at setting 1,2 and 3.
@@ -378,7 +393,7 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
 	// new variables  
-	var hair_curve = Math.floor(map(s1,0,100,1,3));
+	var hair_curve = Math.floor(map(s1,0,100,1,2));
 	var face_sharpness = Math.floor(map(s2,0,100,1,3));
 	var nose_curve = Math.floor(map(s3,0,100,1,3));
 	var changing_colour = map(s4, 0, 100, 0, 255);
