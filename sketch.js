@@ -182,26 +182,37 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
   stroke(stroke_color3);
   fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
+  //ellipse(0, 0, 300 * scale, 400 * scale);
+
+
+  rect(0,20,150,250);
+
+ var i = -10;
+  while(i<15){
+  	ellipse(70,i*10,10,10);
+  	ellipse(-70,i*10,10,10);
+  	i++;
+  }
+
+  var w = -6;
+	while(w<8){
+  	ellipse(w*10,-100,10,10);
+  	ellipse(w*10,140,10,10);
+  	w++;
+  	}
+
 
   // eyes. first check for blinking
  
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
- 
+  
     fill(bg_color3);
     ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
 
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
+
  
 
   // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
+ 
 
 var a = [1,2, 3, 4]
 
@@ -217,7 +228,7 @@ var a = [1,2, 3, 4]
 }
 
 function drawFace3(x, y, w, h, amount_of_colours, amount_of_polys, amount_of_features) {
-  
+  noStroke();
  randomSeed(129);
   push();
   //rectMode(CENTER);
