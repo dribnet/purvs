@@ -1,6 +1,10 @@
 ## PS1 MDDN 342 2017
 
-For for my two faces I have three sliders.
-The first face uses these sliders as controls for the rotation of the entire face, mouth openness, and the size of the pupils.
-The second faces uses these as controls for the size/shape/positioning of the two face shapes, eye direction, and openness/emotion of the mouth.
-I have yet to do a third face, but I am pretty set on this second style for the next part of the project.
+I have decided on the face style I wish to continue with for this project.
+It's an abstraction of a particular tattoo artist's style I really enjoy:
+
+![picture](example.png)
+
+I have now set up my 3x5 grid, and started using the focusedRandom() method to achieve more variety in my faces.
+So far, I have randomised the face shapes, mouth 'curvature', and pupil direction.
+As I'm slowly becoming more comfortable with the idea of randomising parameters, I will continue to randomise different features of my faces.
