@@ -1,64 +1,63 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4;
-var faceSelector;
+var button;
+var curRandomSeed;
 
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
+  curRandomSeed = int(focusedRandom(0, 100));
 
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
 }
 
 // global variables for colors
-var bg_color1 = ["#67CCC2"];
+var bg_color1 = ["#78CCC5"];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
-var fg_color1 = ["#FF9AF6"];
-var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
+var fg_color1 = ["#FFE991"];
+var fg_color2 = ["#559ACC"];
+var fg_color3 = ["#7F4B31"];
 
-var stroke_color1 = ["#B25AAA"];
-var stroke_color2 = [210, 219, 189];
-var stroke_color3 = [50, 50, 50];
+var stroke_color1 = ["#FF84F5"];
+var stroke_color2 = ["#D492CD"];
+var stroke_color3 = ["#CC9378"];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome) {
+
+function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome, ezv, strakW) {
   push();
   translate(x, y);
   rotate(tilt_value);
 
+  if (ezv == 1) {
+  var foreground = fg_color1;
+  var strakC = stroke_color1;
+  }
+
+  if (ezv == 2) {
+  var foreground = fg_color2;
+  var strakC = stroke_color2;
+  }
+
+  if (ezv == 3) {
+  var foreground = fg_color3;
+  var strakC = stroke_color3;
+  }
+  
   var extent = 0;
   if(h < w) {
     extent = h / 2;
@@ -68,40 +67,40 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome) {
   }
   var scales = extent / 220.0;
 
-  fill(fg_color1);
+  fill(foreground);
   ellipse(0, 0, 30 * scales, 400 * scales);
   fill (0,0);
-  stroke (stroke_color1);
+  stroke (strakC);
   ellipse(0, 0, random (30,30+randome) * scales, random(390, 390+randome) * scales);
   ellipse(0, 0, random (30,30+randome) * scales, random(390, 390+randome) * scales);
-
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
+    strokeWeight (strakW);
+    ellipse(0 * scales, -80 * scales, random (15, 15+randome) * scales, random(15, 15+randome) * scales);
 
-    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
+    ellipse(0 * scales, -80 * scales, random (15, 15+randome) * scales, random(15, 15+randome) * scales);
+    ellipse(0 * scales, -80 * scales, random (15, 15+randome) * scales, random(15, 15+randome)* scales);
 
-    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
-    ellipse(0 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
   }
 
   if (eye_value >= 2) {
-
-    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales); 
-    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
-    ellipse(-60 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
-
-    ellipse( 40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
-    ellipse(40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome) * scales);
-    ellipse(40 * scales, -80 * scales, random (10, 10+randome) * scales, random(10, 10+randome)* scales);
+    strokeWeight (strakW);
+    ellipse(-60 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome) * scales); 
+    ellipse(-60 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome) * scales);
+    ellipse(-60 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome)* scales);
+    strokeWeight (strakW);
+    ellipse( 50 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome) * scales);
+    ellipse(50 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome) * scales);
+    ellipse(50 * scales, -80 * scales, random (20, 20+randome) * scales, random(20, 20+randome)* scales);
   }
-
   // mouth
+  strokeWeight(1);
   fill(bg_color1);
   noStroke();
   ellipse(0 * scales, 70 * scales, 150 * scales, (mouth_value+5) * scales);
   fill (0,0);
-  stroke (stroke_color1);
+  stroke (strakC);
   ellipse(0, 0, random (30,(30+randome)) * scales, random(390, (390+randome)) * scales);
   ellipse(0, 0, random (30,(30+randome)) * scales, random(390, (390+randome)) * scales);
   pop();
@@ -187,7 +186,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value, different, al
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
+function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome, ezv) {
   push();
   rectMode(CENTER);
   translate(x, y);
@@ -268,78 +267,121 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, randome) {
   pop();
 }
 
+// function draw () {
+//   noStroke();
+
+//   var mode = faceSelector.value();
+
+//   if (mode != 'all') {
+//     if (mode == '1') {
+//       background(bg_color1);
+//     }
+//     else if (mode == '2') {
+//       background(bg_color2);
+//     }
+//     else if (mode == '3') {
+//       background(bg_color3);
+//     }
+//   }
+
+//   var s1 = slider1.value();
+//   var s2 = slider2.value();
+//   var s3 = slider3.value();
+//   var s4 = slider4.value();
+
+
+//   // use same size / y_pos for all faces
+//   var face_w = canvasWidth / 4;
+//   var face_h = face_w;
+//   var face_y = height / 2;
+//   var face_x = width / 2;
+
+//   if (mode == '1' || mode == 'all') {
+//     // draw 1st face
+//     fill(bg_color1);
+//     rect(0, 0, width/3, height);
+//     var tilt_value = map(s1, 0, 100, -90, 90);
+//     var mouth_value = map(s3, 0, 100, 0, 200);
+//     var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
+//     var randome = map(s4,0,100,0,15);
+//     if (mode == 'all') {
+//       face_x = width / 6;
+//     }
+//     drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value, randome);    
+//   }
+
+//   if (mode == '2' || mode == 'all') {
+//     // draw 2nd face
+//     fill(bg_color2);
+//     rect(width/3, 0, 2*width/3, height);
+//     var hair_value = map(s1, 0, 100, 2, 90);
+//     var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
+//     var eye_value = map(s2, 0, 100, -15, 15);
+//     var different = map(s1, 0, 100, 0, 255);
+//     var alpha = map (s4, 0, 100, 0, 500);
+//     if (mode == 'all') {
+//       face_x = 3 * width / 6;
+//     }
+//     drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, different, alpha);
+//   }
+
+//   if (mode == '3' || mode == 'all') {
+//     // draw 3nd face
+//     fill(bg_color3);
+//     rect(2*width/3, 0, width, height);
+//     var width_value = map(s1, 0, 100, 0, 100);
+//     var mouth_value = map(s3, 0, 100, 0, 200);
+//     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+//     var randome = map(s4,0,100,0,15);
+//     if (mode == 'all') {
+//       face_x = 5 * width / 6;
+//     }
+//     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, randome);
+//   }
 function draw () {
+  resetFocusedRandom(curRandomSeed);
+
   noStroke();
-
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
-
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-
+  background(bg_color1);
 
   // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
+  // var face_w = canvasWidth / 4;
+  // var face_h = face_w;
+  // var face_y = height / 2;
+  // var face_x = width / 2;
 
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    var randome = map(s4,0,100,0,15);
-    if (mode == 'all') {
-      face_x = width / 6;
+  // draw 1st face
+  fill(bg_color1);
+
+  tilt_value = focusedRandom(10, 50);
+  eye_value = Math.floor(focusedRandom(1, 3));
+  mouth_value = focusedRandom(30, 140);
+
+  var w = canvasWidth / 5;
+  var h = canvasHeight / 3;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;
+      eye_value = int(random(1,4));
+      mouth_value = focusedRandom(30, 140);
+      randome = int(focusedRandom (0, 20));
+      ezv = int(focusedRandom (1, 4));
+      strakW = random (1,1.5);
+      if (ezv == 1){
+        tilt_value = focusedRandom(-40, 5);
+      }
+      if (ezv == 2){
+        tilt_value = focusedRandom(-30, 30);
+      }
+      if (ezv == 3){
+        tilt_value = focusedRandom(-10, 40);
+      }
+      drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome, ezv, strakW);
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value, randome);    
   }
 
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
-    var different = map(s1, 0, 100, 0, 255);
-    var alpha = map (s4, 0, 100, 0, 500);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, different, alpha);
-  }
-
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
-    var randome = map(s4,0,100,0,15);
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, randome);
-  }
-  sleep (50);
+  // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
 }
 
 function keyTyped() {
