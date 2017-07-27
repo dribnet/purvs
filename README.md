@@ -1,7 +1,9 @@
 ## PS1 MDDN 342 2017
 
-### Random Monsters
+### Robots vs Monsters
 
-For my initial experiment of creating a random grid, I have used the monster face.  The first aspect of the design I noticed is that it didn't look right with all the faces on the same angle.  Because of this I added an extra parameter to control the tilt value which vastly improved the design.  My faces were also a bit big so I reduced the range of values available to set the scale. 
+After my initial experiment using just the monster face I decided I wanted more variation in the results so have added the robot face as well.  
 
-I think the ranges for the other parameters work quite well and don't need to be changed. I think that the hue parameter could possibly be improved by using a lookup table with a small set of hues rather than being completely random.
+I have added tilt value to the both faces as I really like the effect that it has.  I also had to use the scale function to make sure the size of the robot faces aren't too big.  This is not variable at the moment but I may change this if my final submission consists a lot of faces. 
+
+I haven't changed the range of the parameters for the robot face as they work very well.  For the monster I needed to reduce the range of the scale parameter as there is less space available compared to the previous part of the assignment.
