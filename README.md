@@ -1,3 +1,6 @@
 ## PS1 MDDN 342 2017
 
-For my third face I decided to draw everyone's favourtie, Jar Jar Binks. The features that can be manipulated are his pupils, eyes and mouth. These come together to expressions such as shocked and surprised. 
+I have done some experimenting and have chosen to make 
+
+- Leia's eyes have two options, either being big or small (taken out third option)
+- Leia be always frowning (taken out the straight faces)
