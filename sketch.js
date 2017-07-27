@@ -74,7 +74,22 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value_W, mouth_valu
 	pop();
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
@@ -85,8 +100,8 @@ function draw () {
 
 	    var width_value =focusedRandom(0, 100, 4, 50);
 		var mouth_value_W = focusedRandom( 30, 100, 3, 50);
-	    var mouth_value_H = focusedRandom( 0, 50);
-		var eye_value = focusedRandom (10, 40, 4, 50);
+	    var mouth_value_H = focusedRandom( 0, 50,4 50);
+		var eye_value = focusedRandom (20, 40, 5, 70);
 		var eyebrows = focusedRandom(70, 130);
 	    var eyebrowsAngle = focusedRandom(-15, 15, 3, 50);
 
@@ -100,7 +115,7 @@ function draw () {
       width_value = focusedRandom(0, 100, 4, 50);
 	  mouth_value_W = focusedRandom( 30, 100, 3, 50);
 	  mouth_value_H = focusedRandom( 20, 50, 4, 50);
-	  eye_value = focusedRandom (10, 40);
+	  eye_value = focusedRandom (20, 40, 5, 70);
 	  eyebrows = focusedRandom(70, 130);
 	  eyebrowsAngle = focusedRandom(-15, 15, 3, 50);
       drawFace3(x, y, w, h, width_value, eye_value, mouth_value_W, mouth_value_H,eyebrows,eyebrowsAngle);
