@@ -59,7 +59,7 @@ var purplec = [147 ,112 ,219];
 
 var a = (focusedRandom(0,1) * 255);
 //print(a + "");
-//var back1 = [focusedRandom(0,1) *255 ,120, 82];
+var back1 = [focusedRandom(0,1) *255 ,120, 82];
 
 
 function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,hair_curve) {
@@ -173,15 +173,6 @@ function drawFace2(x, y, w, h,face_definition,face_contrast,eye_detail) {
   push();
   translate(x, y);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
   stroke(stroke_color3);
   fill(fg_color3);
   //ellipse(0, 0, 300 * scale, 400 * scale);
@@ -240,16 +231,20 @@ if(face_definition == 1	){
   // eyes. first check for blinking
  
   
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
+    fill(bg_color2);
+    ellipse(-30, -40, 50 ,eye_detail) ;
 
 
  
 
   // mouth
- 
+	var k = -50;
+	while (k < 30){
+		ellipse(10 + k,0,10,10);
+		k=k+face_contrast;
+		}
 
-var a = [1,2, 3, 4]
+
 
 
   // TODO: paramaterize hair
@@ -259,7 +254,9 @@ var a = [1,2, 3, 4]
 
  
   rectMode(CORNER);
+
   resetMatrix();
+
 }
 
 function drawFace3(x, y, w, h, amount_of_colours, amount_of_polys, amount_of_features) {
@@ -460,8 +457,8 @@ function draw () {
     rect(width/3, 0, 2*width/3, height);
 	// new variables
 	var face_definition = Math.floor(map(s1,0,100,1,2));
-	var face_contrast = map(s2,0,100,0,100);
-	var eye_detail = Math.floor(map(s3,0,100,10));
+	var face_contrast = Math.floor(map(s2,0,100,1,20));
+	var eye_detail = map(s3,0,100,1,18);
 	  
 	//base variables
     var hair_value = map(s1, 0, 100, 2, 90);
