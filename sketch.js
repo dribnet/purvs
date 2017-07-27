@@ -425,9 +425,6 @@ function draw () {
   }
 }
 
-//an array that consists of the potential values for a monsters hue
-var monsterHues = [0, 40, 65, 120, 170, 200];
-
 /* 
  * JSON object consisting of six hue ranges 
  * used to ensure each robot has a unique hue
@@ -457,14 +454,12 @@ function drawFace (x, y) {
   var discrete_setting = getRandomNumberForDiscreteSetting();
   //there will be a maximum of 12 robots on the canvas
   if(face == "monster" || robotCount >= 6){
-	//get the monsters hue from a set collection of values
-	var arrayPointer = Math.floor(random(0, 6));
-	var hue = monsterHues[arrayPointer];
+	var hue = focusedRandom(120, 330);
 	//the amount zig zig present in the pattern should lean towards a smaller value
     var zigzag = focusedRandom(1, 20, 10, 3);
     var size_adjuster = focusedRandom(0.3, 0.6);
 	//the smaller the monster is the bigger its eyes should be
-    var eye_size = focusedRandom(20, 70, 10, 100 - (size_adjuster * 100));
+    var eye_size = focusedRandom(20, 80, 10, 100 - (size_adjuster * 100));
     var tilt_value = focusedRandom(-15, 45);
     drawMonsterFace(x, y, discrete_setting, eye_size, hue, zigzag, size_adjuster, tilt_value);
   }
@@ -474,7 +469,14 @@ function drawFace (x, y) {
     var face_height = focusedRandom(0, 200, 5, 100);
 	//the hue should be focused toward the center of this robots hue range
 	var hue = focusedRandom(robotHueRanges[robotCount][0], robotHueRanges[robotCount][1], 10, robotHueRanges[robotCount][2]);
-    var face_shape = focusedRandom(0, 200);
+	//the actual range of values for face_shape is 0-200 but I want the value for face shape to be either close to 0 or 200 
+	//so I have focused the random value around a mean of 200 between a range of 100 and 300
+    var face_shape = focusedRandom(100, 300, 10, 200);
+	//and if the value ends up being greater than 200
+	if(face_shape > 200){
+		//make it closer to zero
+		face_shape = face_shape - 200;
+	}
     var mouth_style = focusedRandom(50, 10);
     var eye_distance = focusedRandom(50, 0);
     var tilt_value = focusedRandom(30, -30);
