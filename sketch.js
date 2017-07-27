@@ -339,42 +339,42 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value, randome, ezv,
 //     }
 //     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, randome);
 //   }
-function getRandomColor() {
-  random_result = focusedRandom(0, 100);
-  if(random_result < 10) {
-    return 1;
-  }
-  else if(random_result < 50) {
-    return 3;
-  }
-  else {
-    return 2;
-  }
-}
-function getRandomEye() {
-  random_result = random(0, 100);
-  if(random_result < 25) {
-    return 1;
-  }
-  else if(random_result < 40) {
-    return 3;
-  }
-  else {
-    return 2;
-  }
-}
-function getRandomWidth(){
-  random_result = random(0, 100);
-  if(random_result < 15) {
-    return random (60, 100);
-  }
-  else if(random_result < 25) {
-    return random (20, 60);
-  }
-  else {
-    return random (0, 20);
-  }
-}
+// function getRandomColor() {
+//   random_result = focusedRandom(0, 100);
+//   if(random_result < 10) {
+//     return 1;
+//   }
+//   else if(random_result < 50) {
+//     return 3;
+//   }
+//   else {
+//     return 2;
+//   }
+// }
+// function getRandomEye() {
+//   random_result = random(0, 100);
+//   if(random_result < 25) {
+//     return 1;
+//   }
+//   else if(random_result < 40) {
+//     return 3;
+//   }
+//   else {
+//     return 2;
+//   }
+// }
+// function getRandomWidth(){
+//   random_result = random(0, 100);
+//   if(random_result < 15) {
+//     return random (60, 100);
+//   }
+//   else if(random_result < 25) {
+//     return random (20, 60);
+//   }
+//   else {
+//     return random (0, 20);
+//   }
+// }
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
@@ -395,28 +395,28 @@ function draw () {
   eye_value = Math.floor(focusedRandom(1, 3));
   mouth_value = focusedRandom(30, 140);
 
-  var shift = focusedRandom(0, 500, 2, 75);
+  var shift = focusedRandom(0, 500);
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      eye_value = getRandomEye();
-      mouth_value = focusedRandom(1, 100, 1, 74);
-      ezv = getRandomColor ();
+      eye_value = int(random (1,4));
+      mouth_value = focusedRandom(1, 100);
+      ezv = int (random (1,4));
       shift = (shift + 5) % 35;
-      strakW = focusedRandom (1,1.5, 1, 32);
-      width_value = getRandomWidth();
+      strakW = focusedRandom (1,1.5);
+      width_value = focusedRandom(0,100);
       randome = 0;
       if (ezv == 1){
-        tilt_value = focusedRandom(-40, 5, 2, 50);
+        tilt_value = focusedRandom(-40, 5);
       }
       if (ezv == 2){
-        tilt_value = focusedRandom(-30, 30, 3, 50);
+        tilt_value = focusedRandom(-30, 30);
       }
       if (ezv == 3){
-        tilt_value = focusedRandom(-10, 40, 2, 50);
+        tilt_value = focusedRandom(-10, 40);
       }
 
       // randome = int(random (0, 100));
