@@ -61,7 +61,7 @@ var purplec = [147 ,112 ,219];
 var back1 = [255 ,120, 82];
 
 
-function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve) {
+function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,hair_curve) {
   push();
   translate(x, y);
   rotate(0);
@@ -128,7 +128,21 @@ line(-95,-20,-90,-50);
 	   //ERROR HERE RN
 	
   //draw hair section
-  
+  push();
+  rotate(-30);
+  fill(colorHair);
+  stroke(colorHair);
+  rect(70,-150,40,200);
+  rect(15,-150,40,50);
+  //if(hair_curve == 1){
+  	push();
+  	rotate(180);
+
+  	arc(-65,140,100,100,360,180);
+  	pop();
+  //} 
+
+  pop();
   // For this section, there will be 3 different curves that occur at setting 1,2 and 3.
   // For the inital setup of it, I want the hair to be straight with an arc at the end.
   // With each increased arc, the hair should have more arcs, probably 2 so that the hair is set back on straight course for the next arc.
@@ -364,7 +378,7 @@ function draw () {
     fill(bg_color1);
     rect(0, 0, width/3, height);
 	// new variables  
-	var hair_curve = Math.floor(s1,0,100,0,2);
+	var hair_curve = Math.floor(map(s1,0,100,1,3));
 	var face_sharpness = Math.floor(map(s2,0,100,1,3));
 	var nose_curve = Math.floor(map(s3,0,100,1,3));
 	var changing_colour = map(s4, 0, 100, 0, 255);
@@ -376,7 +390,7 @@ function draw () {
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, eye_value, mouth_value,face_sharpness,nose_curve);    
+    drawFace1(face_x, face_y, face_w, face_h, eye_value, mouth_value,face_sharpness,nose_curve,hair_curve);    
   }
 
   if (mode == '2' || mode == 'all') {
