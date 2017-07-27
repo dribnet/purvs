@@ -10,9 +10,9 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+ // randButton = createButton('randomize');
+  //randButton.mousePressed(changeRandomSeed);
+  //randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -298,7 +298,24 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
     }
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 1000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
+
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
   bg_color1[3] = Math.random() * (maxC - minC) + minC;
   bg_color1[2] = Math.random() * (maxC - minC) + minC;
