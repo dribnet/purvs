@@ -15,3 +15,8 @@ The parameters I want to try edit for this style are the face definition, meanin
 The third style is a NonRepresentational style.
 
 The parameters I want to edit is the amount of colours used in the face, the amount of polygons used in the designs in the face, which will be a discrete amount, and the amount of features as this style usually doesn't stick to regular limits in that aspect.'
+
+At this point, I have finished face 1 and 3. For Face 1, you can slide the hair variation through 2 different ones, you can slide through 3 different chins and 3 different nose shapes.
+For Face 3, you can slide through amount of face polys, number of background polys and number of face features.
+
+I am still working on face 2 at this point. I have got square outline for the face but I'm not sure how to do a ellipse outline for the dots so I think I'll do a triangle face as well.'

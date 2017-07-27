@@ -57,8 +57,9 @@ var greenc = [50 ,205, 50];
 var yellowc = [255 ,255, 0];
 var purplec = [147 ,112 ,219];
 
-//ar a = Math.floor(random(0,1) * 255);
-var back1 = [255 ,120, 82];
+var a = (focusedRandom(0,1) * 255);
+//print(a + "");
+//var back1 = [focusedRandom(0,1) *255 ,120, 82];
 
 
 function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,hair_curve) {
@@ -66,7 +67,8 @@ function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,
   translate(x, y);
   rotate(0);
 
-  
+ 
+print(a);
 	
   // For the face, as I'm focusing on not eye detail but sharpness, I am going to have the face be from side-on.
   // In this section, the face sharpness will also be edited to get setup for the other features.
