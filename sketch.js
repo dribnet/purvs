@@ -56,6 +56,9 @@ var outline_color = "#929303";
 var eyelash_color = "#000000";
 var iris_color = "#43c6f2";
 var pupil_color = "#000000";
+var mouth_color = "#773536";
+var tongue_color = "#dd9c98"
+var tongue_outine = "#ca2931";
 
 var eyelash_size = 8;
 var eye_size = 110;
@@ -67,10 +70,10 @@ var m_eye_size = 55;
 var skin_color = "#f7cdad";
 var hair_color = "#82491d";
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_color, curves_number) {
+//Spongebob
+function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curves_number) {
   push();
   translate(x, y);
-  rotate(tilt_value);
 
   var extent = 0;
   if(h < w) {
@@ -179,10 +182,37 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, hole_value, head_color, cu
   ellipse(90,-10,3,3);
   ellipse(95,-15,3,3);
 	
+  //Inside of mouth
+	translate(-105, -100);
+    strokeWeight(5);
+	fill(mouth_color);
+	stroke(black_color);
+	
+	curve(150,-200 - mouth_value, 200,100,0,100,50,-200 - mouth_value);
+	push();
+	translate(-10, mouth_value/8 - 110);
+	fill(tongue_color);
+	strokeWeight(0);
+	scale(1.2, 1.2);
+	
+	ellipse(95, 195, 52, 19);
+	
+	strokeWeight(4);
+	stroke(tongue_outine);
+	
+	curve(100,195, 67,200,90,185, 150, 185);//left tongue part
+	curve(70,235, 90,190, 120,195, 150, 285);//right tongue part
+	pop();
+	
+	strokeWeight(5);
+	fill(0,0,0, 0);
+	stroke(black_color);
+	
+	curve(150,-200 - mouth_value, 200,100,0,100,50,-200 - mouth_value);
+	
   // mouth-hole with background color
-  translate(-105, -100);
-  strokeWeight(5);
-  stroke(black_color)
+ 
+  stroke(black_color);
   fill(eye_color);
   rect(115,130,30,35);
   rect(65,130,30,35);
@@ -409,7 +439,7 @@ function draw () {
     // draw 1st face
       fill(bg_color1);
       rect(0, 0, 2 * width, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
+    var mouth_value = map(s1, 0, 100, 0, 1000);
     var hole_value = Math.floor(map(s3, 0, 100, 1, 5));
     var eye_value = map(s2, 0, 100, -25, 25);
     var curve_number = Math.floor(map(s4, 0, 100, 1, 7));
@@ -417,7 +447,7 @@ function draw () {
     if (mode == 'all') {
       face_x = width / 6;
     }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, hole_value, head_color, curve_number);    
+    drawFace1(face_x, face_y, face_w, face_h, mouth_value, eye_value, hole_value, head_color, curve_number);    
   }
 
   if (mode == '2' || mode == 'all') {
