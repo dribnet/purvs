@@ -148,10 +148,10 @@ function getRandomFaceShapes() {
   if (randomResult1 <= 33){
     face_shape1 = 1;
   }
-  else if (randomResult1 > 34 && randomResult1 <= 66){
+  else if (randomResult1 > 33 && randomResult1 <= 66){
     face_shape1 = 2;
   }
-  else if (randomResult1 > 67){
+  else if (randomResult1 > 66){
     face_shape1 = 3;
   }
 
@@ -159,10 +159,10 @@ function getRandomFaceShapes() {
   if (randomResult2 <= 33){
     face_shape2 = 1;
   }
-  else if (randomResult2 > 34 && randomResult2 <= 66){
+  else if (randomResult2 > 33 && randomResult2 <= 66){
     face_shape2 = 2;
   }
-  else if (randomResult2 > 67){
+  else if (randomResult2 > 66){
     face_shape2 = 3;
   }
 
