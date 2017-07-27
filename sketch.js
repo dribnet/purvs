@@ -4,8 +4,8 @@ var button;
 var curRandomSeed;
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [238, 238, 238];
+var bg_color1 = [238, 238, 238];
+var bg_color2 = [225, 206, 187];
 var bg_color3 = [70, 70, 120];
 
 var randomHue = [];
@@ -41,7 +41,7 @@ function changeRandomSeed() {
   redraw();
 }
 
-function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value,) {
+function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value) {
   //positions of the four eyes
   var eyePositions = {
     0: {
@@ -69,9 +69,8 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   var xAdjuster = 107;
   push();
   translate(x-xAdjuster * size_adjuster, y);
-  colorMode(HSB);
   rotate(tilt_value);
-
+  colorMode(HSB)
   scale(size_adjuster);
 
   //eye necks for first and forth faces - needs to drawn before the face
@@ -181,14 +180,16 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
 
 }
 
-function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer) {
+function drawRobotFace(x, y, num_antennas, face_height, hue, face_shape, mouth_style, eye_distance, tilt_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
+  rotate(tilt_value);
   colorMode(HSB);
-
+  scale(0.5);
   stroke(hue, 50, 90);
   fill(hue, 90, 50);
+  var minimizer = 0.5;
 
   //antenna
   var yVariation = ((300 + face_height) * minimizer) /2;
@@ -411,29 +412,38 @@ function draw () {
   noStroke();
   background(bg_color1);
 
-  var num_of_eyes = Math.floor(focusedRandom(1, 5));
-  var eye_size = focusedRandom(30, 60);
-  var hue = focusedRandom(350, 0);
-  var zigzag = focusedRandom(1, 20);
-  var size_adjuster = focusedRandom(0.3, 0.6);
-  var tilt_value = focusedRandom(-15, 45);
+  
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value);
-      num_of_eyes = Math.floor(focusedRandom(1, 5));
-      eye_size = focusedRandom(30, 60);
-      hue = focusedRandom(350, 0);
-      zigzag = focusedRandom(1, 20);
-      size_adjuster = focusedRandom(0.3, 0.6);
-      tilt_value = focusedRandom(-15, 45);
+      drawFace(x, y);
     }
   }
 }
 
+function drawFace (x, y) {
+  var face = random(['monster', 'robot']);
+  var discrete_setting = Math.floor(focusedRandom(1, 5));
+  var hue = focusedRandom(0, 350);
+  if(face == "monster"){
+    var eye_size = focusedRandom(30, 60);
+    var zigzag = focusedRandom(1, 20);
+    var size_adjuster = focusedRandom(0.3, 0.6);
+    var tilt_value = focusedRandom(-15, 45);
+    drawMonsterFace(x, y, discrete_setting, eye_size, hue, zigzag, size_adjuster, tilt_value);
+  }
+  else if(face == "robot"){
+    var face_height = focusedRandom(0, 200);
+    var face_shape = focusedRandom(0, 200);
+    var mouth_style = focusedRandom(50, 10);
+    var eye_distance = focusedRandom(50, 0);
+    var tilt_value = focusedRandom(30, -30);
+    drawRobotFace(x, y, discrete_setting, face_height, hue, face_shape, mouth_style, eye_distance, tilt_value);
+  }
+}
 
 function keyTyped() {
   if (key == '!') {
