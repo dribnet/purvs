@@ -36,7 +36,7 @@ function setup () {
 // global variables for colors
 var bg_color1 = [81,81,81];
 var bg_color2 = [193, 193, 193];
-var bg_color3 = [70, 70, 120];
+var bg_color3 = [66,66,66];
 
 var fg_color1 = [234, 209, 197];
 var fg_color2 = [119, 175, 84];
@@ -210,7 +210,7 @@ pop();
 }
 
 
-function drawFace2(x, y, w, h, hair_value, eye_value,  mouth_value) {
+function drawFace2(x, y, w, h, brow_value, eye_value,  mouth_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -275,13 +275,15 @@ function drawFace2(x, y, w, h, hair_value, eye_value,  mouth_value) {
     vertex(100, 20);
     endShape();
     pop();
-
+    
+    //eyes
       noFill();
       stroke(92, 140, 63);
       strokeWeight(2);
       
-      arc(-40, -10, hair_value, hair_value, 220, 320);
-      arc(40, -10, hair_value, hair_value, 220, 320);
+      //brow
+      arc(-40, -10, brow_value, brow_value, 220, 320);
+      arc(40, -10, brow_value, brow_value, 220, 320);
       
       arc(-40, -5, 50, 50, 220, 320);
       arc(40, -5, 50, 50, 220, 320);
@@ -297,7 +299,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value,  mouth_value) {
       arc(-40, -5, 50, 50, 220, 320);
       arc(40, -5, 50, 50, 220, 320);
       pop();
-      
+     
     noStroke();  
     fill(61,61,61);
     ellipse((-70 + eye_value) * scale, -30 * scale, 30 * scale, 30 * scale);
@@ -336,7 +338,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value,  mouth_value) {
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, pupil_value, eye_value, mouth_value) {
   push();
   translate(10,0);
   push();
@@ -353,33 +355,136 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
+
+   //ears
+    fill(149, 150, 129);
+
+     beginShape();
+     vertex(-30, -80);
+     vertex(-80, -40);
+     vertex(-90, 0);
+     vertex(-90, 100);
+     vertex(-75, 150);
+     vertex(-45, 120);
+     vertex(-40, 100);
+     vertex(-60,-30);
+    endShape();
+
+    push();
+    translate(0,0);
+
+     beginShape();
+     vertex(30, -80);
+     vertex(80, -40);
+     vertex(90, 0);
+     vertex(90, 100);
+     vertex(75, 150);
+     vertex(45, 120);
+     vertex(40, 100);
+     vertex(60,-30);
+    endShape();
+    pop();
+
+
   stroke(stroke_color3)
   fill(fg_color3);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+      //head
+    noStroke();
+     beginShape();
+    vertex(-60,-30);
+    vertex(-mouth_value -30, 40);
+    vertex(-30, 90);
+    vertex(0, 95);
+    vertex(0, -100);
+    vertex(-5, -99);
+    vertex(-40, -70);
+    vertex(-60, -50);
+    endShape();
+    
+    push();
+    translate(0,0);
+    beginShape();
+    vertex(60,-30);
+    vertex(mouth_value +30, 40);
+    vertex(30, 90);
+    vertex(0, 95);
+    vertex(0, -100);
+    vertex(5, -99);
+    vertex(40, -70);
+    vertex(60, -50);
+    endShape();
+    pop();
+    
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  
+    
+    //eyess
+     fill(fg_color3);
+    beginShape();
+     vertex(-20,-eye_value-20);
+    vertex(-35,-eye_value-30);
+    vertex(-50, -eye_value-20);
+    vertex(-50, -50);
+    vertex(-20, -65);
+    endShape();
+    
+    push();
+    translate(0,0);
+    beginShape();
+    vertex(20,-eye_value-20);
+    vertex(35,-eye_value-30);
+    vertex(50, -eye_value-20);
+    vertex(50, -50);
+    vertex(20, -65);
+    endShape();
+    pop();
+    
+    fill(255);
+    ellipse(-35,-eye_value-5,20,25);
+    ellipse(35,-eye_value-5,20,25);
+    fill(0);
+    ellipse(-35,-eye_value-5,pupil_value,15);
+    ellipse(35,-eye_value-5,pupil_value,15);
+    noFill();
+    stroke(177, 178, 155);
+    arc(-35, -eye_value-5, 30, 40, 220, 320);
+    arc(35, -eye_value-5, 30, 40, 220, 320);
+    
+    stroke(177, 178, 155);
+    push();
+    translate(0,0);
+    rotate(180);
+    arc(-35, eye_value+5, 30, 40, 220, 320);
+    arc(35, eye_value+5, 30, 40, 220, 320);
+    arc(-35, eye_value, 30, 40, 220, 320);
+    arc(35, eye_value, 30, 40, 220, 320); 
+    pop();
 
   // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
-  pop();
+ fill(61,61,61);    
+    rectMode(CENTER);
+    translate (0, 15);
+    beginShape();
+    vertex(-10,0);
+    vertex(0,-5);
+    vertex(10,0);
+    vertex(mouth_value,20);
+    vertex(10, 40);
+    vertex(0,45);
+    vertex(-10, 40);
+    vertex(-mouth_value,20);
+    vertex(-10,0);
+
+    endShape();
+
+
+    //  push();
+    // noFill();
+    //   rotate(180);
+    //   translate(0,34);
+    //   arc(0, -20, mouth_value, 90, 220, 320); 
+
+    //   pop();
   pop();
 }
 
@@ -429,27 +534,27 @@ function draw () {
     // draw 2nd face
     fill(bg_color2);
     rect((width/3)-20, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 50, 70);
+    var brow_value = map(s1, 0, 100, 50, 70);
     //var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
     var eye_value = map(s2, 0, 100, -15, 15);
     var mouth_value = map(s3, 0, 100, 50, 200);
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, mouth_value);
+    drawFace2(face_x, face_y, face_w, face_h, brow_value, eye_value, mouth_value);
   }
 
   if (mode == '3' || mode == 'all') {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3+20, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var pupil_value = map(s1, 0, 100, 15, 5);
+    var mouth_value = map(s3, 0, 100, 20, 40);
+    var eye_value = Math.floor(map(s2, 0, 100,105, 110));
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, pupil_value, eye_value, mouth_value);
   }
 }
 
