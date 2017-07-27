@@ -68,7 +68,7 @@ function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,
   rotate(0);
 
  
-print(a);
+//print(a);
 	
   // For the face, as I'm focusing on not eye detail but sharpness, I am going to have the face be from side-on.
   // In this section, the face sharpness will also be edited to get setup for the other features.
@@ -168,7 +168,7 @@ line(-95,-20,-90,-50);
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
+function drawFace2(x, y, w, h,face_definition,face_contrast,eye_detail) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -186,9 +186,8 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   fill(fg_color3);
   //ellipse(0, 0, 300 * scale, 400 * scale);
 
-
-  rect(0,20,150,250);
-
+if(face_definition == 1	){
+ rect(0,20,150,250);
  var i = -10;
   while(i<15){
   	ellipse(70,i*10,10,10);
@@ -202,6 +201,40 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   	ellipse(w*10,140,10,10);
   	w++;
   	}
+  }
+
+
+  if(face_definition == 2){
+  	triangle(-100,-100,100,0,-100,100);
+	
+
+	//line ellipses
+	var q = -10;
+  	while(q<11){
+  	
+  	ellipse(-100,q*10,10,10);
+  	q++;
+  }
+
+//x is -100 to 100
+//y is -100 to 0
+
+  var e = 0;
+  	while(e<21){
+  	
+  	ellipse(-100+(e*10),-100+(5*e),10,10);
+  	e++;
+  }
+
+
+  var z = 0;
+  while(z<21){
+  	
+  	ellipse(100-(z*10),(5*z),10,10);
+  	z++;
+  }
+
+  }
 
 
   // eyes. first check for blinking
@@ -426,7 +459,7 @@ function draw () {
     fill(bg_color2);
     rect(width/3, 0, 2*width/3, height);
 	// new variables
-	var face_definition = map(s1,0,100,1,5);
+	var face_definition = Math.floor(map(s1,0,100,1,2));
 	var face_contrast = map(s2,0,100,0,100);
 	var eye_detail = Math.floor(map(s3,0,100,10));
 	  
@@ -437,7 +470,7 @@ function draw () {
     if (mode == 'all') {
       face_x = 3 * width / 6;
     }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
+    drawFace2(face_x, face_y, face_w, face_h,face_definition,face_contrast,eye_detail);
   }
 
   if (mode == '3' || mode == 'all') {
