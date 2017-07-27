@@ -74,8 +74,7 @@ function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
     extent = w / 2;
   }
   var scale = extent / 120.0;
-push();
-    translate(-10,0);
+
   fill(fg_color1);
 
     
@@ -277,8 +276,8 @@ function drawFace2(x, y, w, h, brow_value, eye_value,  mouth_value) {
       strokeWeight(2);
       
       //brow
-      arc(-20, -20, brow_value, brow_value, 220, 320);
-      arc(20, -20, brow_value, brow_value, 220, 320);
+      arc(-20, -20, brow_value_yoda, brow_value_yoda, 220, 320);
+      arc(20, -20, brow_value_yoda, brow_value_yoda, 220, 320);
       
       arc(-20, -4, 30, 30, 220, 320);
       arc(20, -4, 30, 30, 220, 320);
@@ -297,8 +296,8 @@ function drawFace2(x, y, w, h, brow_value, eye_value,  mouth_value) {
      
     noStroke();  
     fill(61,61,61);
-    ellipse((-40 + eye_value) * scale, -18 * scale, 13 * scale, 13 * scale);
-    ellipse(( 40 + eye_value) * scale, -18 * scale, 13 * scale, 13 * scale);
+    ellipse((-40 + eye_value_yoda) * scale, -18 * scale, 13 * scale, 13 * scale);
+    ellipse(( 40 + eye_value_yoda) * scale, -18 * scale, 13 * scale, 13 * scale);
     
 
   // mouth
@@ -308,7 +307,7 @@ function drawFace2(x, y, w, h, brow_value, eye_value,  mouth_value) {
     noFill();
       rotate(180);
       translate(0,34);
-      arc(0, -35, mouth_value, 50, 220, 320); 
+      arc(0, -35, mouth_value_yoda, 50, 220, 320); 
 
       pop();
 
@@ -474,6 +473,18 @@ function drawFace3(x, y, w, h, pupil_value, eye_value, mouth_value) {
   pop();
 }
 
+//function getRandomNumberOfEyes() {
+//  random_result = focusedRandom(0, 100);
+//  if(random_result < 8) {
+//    return 1;
+//  }
+//  else if(random_result < 12) {
+//    return 3;
+//  }
+//  else {
+//    return 2;
+//  }
+//}
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
@@ -515,14 +526,22 @@ function draw () {
       eye_value = int(focusedRandom(1, 3));
       mouth_value = focusedRandom(10, 50);
 
-//       brow_value = focusedRandom(20, 40);
-//       eye_value = int(focusedRandom(-5, 15));
-//       mouth_value = focusedRandom(30, 200);
+       brow_value_yoda = focusedRandom(20, 40);
+       eye_value_yoda = int(focusedRandom(-5, 15));
+       mouth_value_yoda = focusedRandom(10, 100);
+        
+         random_result = focusedRandom(0, 100);
+        if(random_result < 8) {
+             drawFace2(x, y, w, h, brow_value_yoda, eye_value_yoda, mouth_value_yoda);
+        }
+        else {
+             drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);          
+        }
 
-
+        
 
      
-        drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);
+       // drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);
        //drawFace2(x, y, w, h, brow_value, eye_value, mouth_value);
 
     }
