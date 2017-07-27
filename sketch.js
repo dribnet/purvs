@@ -23,7 +23,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-var minC = 0;
+var minC = 100;
 var maxC = 255;
 var bg_color1 = [255, 200, 100];
 var bg_color2 = [205, 250, 100];
@@ -195,6 +195,7 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
+  rotate(tilt_value);
   noStroke();
   // rotate(width_value);
 
@@ -271,6 +272,32 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   pop();
 }
 
+  function getRandomNumberOfEyes() {
+    random_result = focusedRandom(0, 100);
+    if(random_result < 20) {
+      return 0;
+    }
+    else if(random_result < 40) {
+    return 1;
+  }
+    else {
+      return 2;
+    }
+}
+
+  function getRandomNumberOfMouth() {
+    random_result = focusedRandom(0, 100);
+    if(random_result < 60) {
+      return 40;
+    }
+    else if(random_result < 70) {
+    return 140;
+  }
+    else {
+      return 10;
+    }
+}
+
 function draw () {
   resetFocusedRandom(curRandomSeed);
   bg_color1[3] = Math.random() * (maxC - minC) + minC;
@@ -287,7 +314,7 @@ function draw () {
   // draw 1st face
   fill(bg_color1);
 
-  tilt_value = focusedRandom(10, 50);
+  tilt_value = focusedRandom(-10, 20);
   eye_value = Math.floor(focusedRandom(1, 3));
   mouth_value = focusedRandom(30, 140);
   blink_value = focusedRandom(0, 100);
@@ -300,9 +327,9 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      tilt_value = focusedRandom(-10, 50);
-      eye_value = int(focusedRandom(0, 3));
-      mouth_value = focusedRandom(-100, 140);
+      tilt_value = focusedRandom(-10, 20);
+      eye_value = getRandomNumberOfEyes();
+      mouth_value = getRandomNumberOfMouth();
       width_value = focusedRandom(0, 100);
       drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value, width_value);
     }
