@@ -15,3 +15,7 @@ I've now completed all three faces, I'm aware that my part two goes in a complet
 UPDATE
 
 I've now been working with randomizing. I've decided t start with to add all 3 of my faces, can potentially narrow it down later but wold rather take away then add for the final. I've got slight things and changes happening with each face every time you click to randomize. So far I like where the work is going, struggled a bit to get all the faces in but learned a lot.
+
+UPDATE
+
+I've now been playing around with my choices of randomness. The freckes on the panda are now planned out and you rarely get a face with all the freckles. I will for sure come back to this. 
