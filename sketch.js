@@ -305,7 +305,7 @@ function draw () {
 			var chin_value = focusedRandom(-15, 20, 4, 5);
 
 			var color_value = Math.floor(focusedRandom(0, 6));
-			var color_value = 2;
+		
 			
 
 			drawFace(230+(face_x*i), 180+(face_y*j), face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value, cheek_value, chin_value, color_value);
