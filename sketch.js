@@ -1,6 +1,6 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
+
 var curRandomSeed;
 
 function setup () {
@@ -9,11 +9,6 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   curRandomSeed = int(focusedRandom(0, 100));
-
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -100,7 +95,7 @@ function draw () {
 
 	    var width_value =focusedRandom(0, 100, 4, 50);
 		var mouth_value_W = focusedRandom( 30, 100, 3, 50);
-	    var mouth_value_H = focusedRandom( 0, 50,4 50);
+	    var mouth_value_H = focusedRandom( 0, 50,4,50);
 		var eye_value = focusedRandom (20, 40, 5, 70);
 		var eyebrows = focusedRandom(70, 130);
 	    var eyebrowsAngle = focusedRandom(-15, 15, 3, 50);
