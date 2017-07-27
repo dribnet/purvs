@@ -23,13 +23,15 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
+var minC = 0;
+var maxC = 255;
 var bg_color1 = [255, 200, 100];
 var bg_color2 = [205, 250, 100];
 var bg_color3 = [105, 255, 100];
 
-var fg_color1 = [0, 200, 250, 255];
-var fg_color2 = [50, 200, 200,200];
-var fg_color3 = [100, 200, 150,250];
+var fg_color1 = [0, 200, 250, 0];
+var fg_color2 = [10, 200, 255];
+var fg_color3 = [100, 200, 150, 0];
 
 var stroke_color1 = [95, 52, 8];
 var stroke_color2 = [210, 219, 189];
@@ -206,6 +208,8 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   var scale = extent / 220.0;
 
   noStroke()
+  fg_color2[2] = Math.random() * (maxC - minC) + minC;
+  //fg_color2[3] = Math.random() * (maxC - minC) + minC;
   fill(fg_color2);
   //fg_color3[3] =  Math.floor((slider5.value()*255)/100);
   //fg_color3[0] =  Math.floor((slider4.value()*255)/100);
@@ -232,20 +236,27 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
     ellipse( 20 + mouseX/x, -40 + mouseY/y, 40 * scale, 20 * scale);
   }
 
+  if (eye_value < 1) {
+    fill(bg_color3);
+    rect(-60 * scale, -80 * scale, 80 * scale, 10 * scale);
+    rect( 60 * scale, -80 * scale, 80 * scale, 10 * scale);
+  }
+
   // horns
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
-    triangle(-20, -30, 0, -40 - width_value * 4, 20, -30);
+    triangle(-20, -30, 0, -100 - width_value * 2, 20, -30);
 	}
    
 
   if (eye_value >= 2) {
+  	bg_color3[2] = Math.random() * (maxC - minC) + minC;
     fill(bg_color3);
-    triangle(-60, -65, -50, -150, -40, -65);
-    triangle(60, -65, 50, -150, 40, -65);
+    triangle(-40, -65, -30, -80 - width_value * 2, -20, -65);
+    triangle(40, -65, 30, -80 - width_value * 2, 20, -65);
   }
 
-//Ears
+  //Ears
   rect(-75, -65, (50 + width_value) * scale, (10 + width_value) * scale);
   rect(75, -65, (50 + width_value) * scale, (10 + width_value) * scale);
 
@@ -262,7 +273,8 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
-
+  bg_color1[3] = Math.random() * (maxC - minC) + minC;
+  bg_color1[2] = Math.random() * (maxC - minC) + minC;
   background(bg_color1);
   noStroke();
 
