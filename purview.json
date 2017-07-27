@@ -2,7 +2,7 @@
   "commits": [
     {
         "sha": "eb0409e4ea44723295cf83fd9797ee01688d8d04",
-        "name": "randomize_experiment"
+        "name": "random_monsters"
     },
     {
         "sha": "eb1752361305fc4c4a7415e918a0de268b00edf4",

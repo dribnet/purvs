@@ -25,11 +25,11 @@ function setup () {
   randButton.parent('selector1Container');
 
   //setup arrays required for random saturation and brightness values used in the monster face
-  for(var i=0; i<1080; i++){
-      randomHue[i] = random(0, 360);
+  for(var i=0; i<720; i++){
+      randomHue[i] = random(0, 350);
       randomSaturation[i] = random(25, 75);
       randomBrightness[i] = random(50, 100);
-      randomLength[i] = random(0, 250);
+      randomLength[i] = random(0, 120);
   }
 
   // rotation in degrees
@@ -41,7 +41,7 @@ function changeRandomSeed() {
   redraw();
 }
 
-function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value, minimizer) {
+function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value,) {
   //positions of the four eyes
   var eyePositions = {
     0: {
@@ -53,12 +53,12 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
       'y': 0
     },
     2: {
-      'x': 45,
-      'y': -155
+      'x': 35,
+      'y': -120
     },
     3: {
-      'x': -120,
-      'y': -105
+      'x': -95,
+      'y': -80
     },
 
   }
@@ -84,7 +84,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
 
   noStroke();
   //face
-  for(var i=0; i<1080; i++){
+  for(var i=0; i<720; i++){
       //create a random fill colour
       if(i % 10 == 0){
           fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
@@ -93,18 +93,18 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
           fill(hue, randomSaturation[i], randomBrightness[i]);
       }
       push();
-      translate(112, 10);
+      translate(110, 10);
       var degree = map(i, 0, 720, 0, 360);
       rotate(i);
-          var j = 0;
-          while(j < (randomLength[i] * minimizer)) {
+      var j = 0;
+      while(j < (randomLength[i])) {
         var yPos = j % zigzag;
         if(yPos > (zigzag/2)){
           yPos = -yPos + (zigzag/2);
         }
-            ellipse(j, yPos, 2, 2);
-            j++;
-          }
+        ellipse(j, yPos, 2, 2);
+        j++;
+      }
       pop();
   }
 
@@ -415,21 +415,21 @@ function draw () {
   var eye_size = focusedRandom(30, 60);
   var hue = focusedRandom(350, 0);
   var zigzag = focusedRandom(1, 20);
-  var size_adjuster = focusedRandom(0.3, 06);
-  var tilt_value = focusedRandom(-60, 60);
+  var size_adjuster = focusedRandom(0.3, 0.6);
+  var tilt_value = focusedRandom(-15, 45);
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
+      drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value);
       num_of_eyes = Math.floor(focusedRandom(1, 5));
       eye_size = focusedRandom(30, 60);
       hue = focusedRandom(350, 0);
       zigzag = focusedRandom(1, 20);
       size_adjuster = focusedRandom(0.3, 0.6);
-      tilt_value = focusedRandom(-60, 60);
-      drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster,tilt_value, 0.5);
+      tilt_value = focusedRandom(-15, 45);
     }
   }
 }
