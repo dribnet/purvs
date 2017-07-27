@@ -1,12 +1,9 @@
 ## PS1 MDDN 342 2017
 
-PORTRAITS:
+This README explains the three different paramaterized faces for part2. 
 
-For my work in part 1 of the assignment I have created a portrait of Squidward and Gollum.
+In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
 
-I think Squidward probably comes across better as he is naturally a cartoon where as Gollum is a CGI marvel! 
+In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
 
-For Gollum I really tried to emphasise his large eyes and so I gave them the most detail in the hope it would make him more recognisable.
-
-
-
+In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
