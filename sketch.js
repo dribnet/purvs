@@ -184,8 +184,8 @@ function FaceTwo(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight)
   // Eye  
   fill("#ffffff");
 
-  triangle(80 * scale, -80 * scale, 0 * scale, -40 * scale, 80 * scale, -0 * scale);
-  triangle(-80 * scale, -80 * scale, 0 * scale, -40 * scale, -80 * scale, -0 * scale);
+  triangle(80 * scale, -80 * scale, 0 * scale, -40 * scale, 80 * scale, 0 * scale);
+  triangle(-80 * scale, -80 * scale, 0 * scale, -40 * scale, -80 * scale, 0 * scale);
 
   triangle(80 * scale, -80 * scale, 0 * scale, -120 * scale, 0 * scale, -40 * scale);
   triangle(80 * scale, 0 * scale, 0 * scale, 40 * scale, 0 * scale, -40 * scale);
@@ -197,31 +197,31 @@ function FaceTwo(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight)
   // set fill back to foreground for eyeballs
   fill(fg_color1);
 
-  triangle(60 * scale, -70 * scale, 0 * scale, -40 * scale, 60 * scale, -10 * scale);
-  triangle(-60 * scale, -70 * scale, 0 * scale, -40 * scale, -60 * scale, -10 * scale);
+  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale, (eye_LeftRight + 60) * scale, (eye_UpDown - 10) * scale);
+  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale, (eye_LeftRight - 60) * scale, (eye_UpDown - 10) * scale);
 
-  triangle(60 * scale, -70 * scale, 0 * scale, -100 * scale, 0 * scale, -40 * scale);
-  triangle(60 * scale, -10 * scale, 0 * scale, 20 * scale, 0 * scale, -40 * scale);
+  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 100) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
+  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 10) * scale, eye_LeftRight * scale, (eye_UpDown + 20) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
 
-  triangle(-60 * scale, -70 * scale, 0 * scale, -100 * scale, 0 * scale, -40 * scale);
-  triangle(-60 * scale, -10 * scale, 0 * scale, 20 * scale, 0 * scale, -40 * scale);
+  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 100) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
+  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 10) * scale, eye_LeftRight * scale, (eye_UpDown + 20) * scale, eye_LeftRight * scale, (eye_UpDown - 40)* scale);
 
   //pupils
   fill("#000000");
-  triangle(40 * scale, -60 * scale, 40 * scale, -20 * scale, 0 * scale, -40 * scale);
-  triangle(-40 * scale, -60 * scale, -40 * scale, -20 * scale, 0 * scale, -40 * scale);
+  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 60) * scale, (eye_LeftRight + 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
+  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 60) * scale, (eye_LeftRight - 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
 
-  triangle(40 * scale, -60 * scale, 0 * scale, -80 * scale, 0 * scale, -40 * scale);
-  triangle(40 * scale, -20 * scale, 0 * scale, 0 * scale, 0 * scale, -40 * scale);
+  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 60) * scale, eye_LeftRight * scale, (eye_UpDown - 80) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
+  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
 
-  triangle(-40 * scale, -60 * scale, 0 * scale, -80 * scale, 0 * scale, -40 * scale);
-  triangle(-40 * scale, -20 * scale, 0 * scale, 0 * scale, 0 * scale, -40 * scale);
+  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 60) * scale, eye_LeftRight * scale, (eye_UpDown - 80) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
+  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
   //mouth
 
   fill("#ffffff");
-  triangle(-100 * scale, 50 * scale, -40 * scale, 60 * scale, 0 * scale, 90 * scale);
-  triangle(100 * scale, 50 * scale, 40 * scale, 60 * scale, 0 * scale, 90 * scale);
-  triangle(-40 * scale, 60 * scale, 40 * scale, 60 * scale, 0 * scale, 90 * scale);
+  triangle(-100 * scale, 50 * scale, -40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
+  triangle(100 * scale, 50 * scale, 40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
+  triangle(-40 * scale, (mouth_value - 10) * scale, 40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
   pop();
 }
 
