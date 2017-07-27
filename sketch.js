@@ -38,6 +38,7 @@ function setup () {
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  robotCount = 0;
   redraw();
 }
 
@@ -411,7 +412,7 @@ function draw () {
 
   noStroke();
   background(bg_color1);
-
+ 
   
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
@@ -424,19 +425,55 @@ function draw () {
   }
 }
 
+//an array that consists of the potential values for a monsters hue
+var monsterHues = [0, 40, 65, 120, 170, 200];
+
+/* 
+ * JSON object consisting of six hue ranges 
+ * used to ensure each robot has a unique hue
+ * the third element of each array is the midpoint of the range 
+ * which is used to set the mean value for the focusedRandom function
+ */
+var robotHueRanges = {
+	1 : [-30, 30, 0],
+	2 : [31, 90, 60],
+	3 : [91, 150, 120],
+	4 : [151, 210, 180],
+	5 : [211, 270, 240],
+	6 : [271, 330, 300]
+}
+
+var robotCount = 0;
+
+/**
+ * determines whether to draw a monster or robot face
+ * there will be a maximum of six robots and each robot will have a unique colour
+ * @param {Number} x        - x position where the face will be drawn
+ * @param {Number} y    	- y position where the face will be drawn
+ */
 function drawFace (x, y) {
   var face = random(['monster', 'robot']);
-  var discrete_setting = Math.floor(focusedRandom(1, 5));
-  var hue = focusedRandom(0, 350);
-  if(face == "monster"){
-    var eye_size = focusedRandom(30, 60);
-    var zigzag = focusedRandom(1, 20);
+  //common variable shared by both faces
+  var discrete_setting = getRandomNumberForDiscreteSetting();
+  //there will be a maximum of 12 robots on the canvas
+  if(face == "monster" || robotCount >= 6){
+	//get the monsters hue from a set collection of values
+	var arrayPointer = Math.floor(random(0, 6));
+	var hue = monsterHues[arrayPointer];
+	//the amount zig zig present in the pattern should lean towards a smaller value
+    var zigzag = focusedRandom(1, 20, 10, 3);
     var size_adjuster = focusedRandom(0.3, 0.6);
+	//the smaller the monster is the bigger its eyes should be
+    var eye_size = focusedRandom(20, 70, 10, 100 - (size_adjuster * 100));
     var tilt_value = focusedRandom(-15, 45);
     drawMonsterFace(x, y, discrete_setting, eye_size, hue, zigzag, size_adjuster, tilt_value);
   }
   else if(face == "robot"){
-    var face_height = focusedRandom(0, 200);
+	robotCount++;
+	//the face height should be closer to the center of the range
+    var face_height = focusedRandom(0, 200, 5, 100);
+	//the hue should be focused toward the center of this robots hue range
+	var hue = focusedRandom(robotHueRanges[robotCount][0], robotHueRanges[robotCount][1], 10, robotHueRanges[robotCount][2]);
     var face_shape = focusedRandom(0, 200);
     var mouth_style = focusedRandom(50, 10);
     var eye_distance = focusedRandom(50, 0);
@@ -444,6 +481,34 @@ function drawFace (x, y) {
     drawRobotFace(x, y, discrete_setting, face_height, hue, face_shape, mouth_style, eye_distance, tilt_value);
   }
 }
+
+/**
+ * This function determines what value will be used for the discrete setting of each face (eyes or antennas)
+ * @return {Number} - the value to use as the discrete setting
+ */
+function getRandomNumberForDiscreteSetting() {
+  var random_result = focusedRandom(0, 100);
+  //10% chance
+  if(random_result < 10) {
+    return 1;
+  }
+  //15% chance
+  else if(random_result < 25) {
+    return 2;
+  }
+  //50% chance
+  else if(random_result < 75) {
+	return 3;
+  }
+  //25% chance
+  else {
+    return 4;
+  }
+}
+
+
+
+
 
 function keyTyped() {
   if (key == '!') {
