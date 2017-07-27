@@ -5,15 +5,15 @@
       "name": "final"
     },
     {
+      "sha": "4c201f3884d0a8acead33ddc79c5215616a345e2",
+      "name": "refined_variation"
+    },
+    {
       "sha": "0000000000000000000000000000000000000005",
       "name": "distribution"
     },
     {
-      "sha": "4c201f3884d0a8acead33ddc79c5215616a345e2",
-      "name": "experiment"
-    },
-    {
-      "sha": "d4f5d874e0abd4e183b437e7b3c01d9ff9107047",
+      "sha": "c64fd601b79882af617645f6e1d0abdf495c0df3",
       "name": "randomize"
     },
     {

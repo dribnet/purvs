@@ -300,9 +300,9 @@ function draw () {
 				var r_brow_value = l_brow_value;
 			}
 			var eyeballOffset_value = focusedRandom(-25, 25);
-			var cheek_value = focusedRandom(-5, 25);
+			var cheek_value = focusedRandom(-5, 25, 3, 5);
 		
-			var chin_value = focusedRandom(-15, 20);
+			var chin_value = focusedRandom(-15, 20, 4, 5);
 
 			var color_value = Math.floor(focusedRandom(0, 6));
 			var color_value = 2;
