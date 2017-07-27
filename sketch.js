@@ -1,7 +1,7 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
+var drawFaceSelector;
 var curRandomSeed;
 
 function setup () {
@@ -10,25 +10,30 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
+  // slider1 = createSlider(0, 100, 50);
+  // slider2 = createSlider(0, 100, 50);
+  // slider3 = createSlider(0, 100, 50);
+  // slider4 = createSlider(0, 100, 50);
+  // slider5 = createSlider(0, 100, 50);
 
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
+  // slider1.parent('slider1Container');
+  // slider2.parent('slider2Container');
+  // slider3.parent('slider3Container');
+  // slider4.parent('slider4Container');
+  // slider5.parent('slider5Container');
 
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
+  // drawFaceSelector = createSelect();
+  // drawFaceSelector.option('1');
+  // drawFaceSelector.option('2');
+  // drawFaceSelector.option('3');
+  // drawFaceSelector.option('all')
+  // drawFaceSelector.value('all');
+  // drawFaceSelector.parent('selector1Container');
+  curRandomSeed = int(focusedRandom(0, 100));
+
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -36,28 +41,32 @@ function setup () {
   colorMode(HSB);
   noStroke();
 
-  bert_face = color(45, 85, 95)
+  bert_drawFace = color(45, 90, 95)
   bert_nose = color(29, 96, 94)
 
-  ernie_face = color(35, 90, 92)
+  ernie_drawFace = color(30, 90, 92)
 
   mouth = color(351, 100, 55)
 
-  oscar_face = color(75, 80, 50)
+  oscar_drawFace = color(75, 80, 50)
   oscar_brow = color(23, 80, 30)
+}
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
 }
 
 // global variables for colors
 var bg_color = "#ffffff";
 var stroke_color = "#c78a5b";
 
-var bert_face //yellow
+var bert_drawFace //yellow
 var bert_nose //orange
 
-var ernie_face = "rgb(217, 118, 37)" //orange
+var ernie_drawFace = "rgb(217, 118, 37)" //orange
 var ernie_nose = "rgb(218, 10, 31)" //red
 
-var oscar_face;
+var oscar_drawFace;
 var oscar_brow;
 
 
@@ -76,22 +85,17 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, nose_value) {
+function drawErnie(x, y, w, h, tilt_value, eye_value, mouth_value) {
   // move to position1, rotate, draw "head" ellipse
   push();
   translate(x, y);
   rotate(-tilt_value/2);
   scale(0.5);
   //squeeze ernie
-  fill(ernie_face);
+  fill(ernie_drawFace);
   ellipse(0, 0, 290, 230);
 
-  // mouth-hole with background color
-  fill(mouth);
-  ellipse(0, 30, 230, 120);
-  //cut out top of ernie's mouth with another ellipse to make him super smiley
-  fill(ernie_face)
-  ellipse(0, 10, 285, 95)
+  drawMouthEllipse(0, 10, 230, 40+40*mouth_value/100, 0.4 + 0.4*mouth_value/100, mouth, ernie_drawFace);
 
   // set fill to match background color
   fill("white");
@@ -105,28 +109,24 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, nose_value) {
   ellipse( 30+eye_value/100*20, -40, 20, 20);
 
   fill(ernie_nose)
-  ellipse(0, 0, 30 + 36*nose_value/100, 40 + 33*nose_value/100);
+  ellipse(0, 0, 50, 70);
   pop();
 }
 
-function drawFace2(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawBert(x, y, w, h, tilt_value, eye_value, mouth_value) {
   // move to position2, rotate, draw "head" ellipse
   push();
   translate(x, y);
   rotate(tilt_value/2);
   scale(0.5);
-  fill(bert_face);
+  fill(bert_drawFace);
   ellipse(0, 0, 270, 400);
 
   translate(0, 30)
 
   var bert_mouth_h = 54;
   // mouth-hole with background color
-  fill(mouth);
-  ellipse(0, 40+20*mouth_value/100, 200, bert_mouth_h*2);
-  //cut off top
-  fill(bert_face)
-  rect(0, 0, 200, bert_mouth_h*2)
+  drawMouthArc(0, 30, 200, 54*mouth_value/100, mouth, true);
 
   // set fill to match background color
   var diff = map(eye_value, 0, 100, 0, 10);
@@ -149,22 +149,17 @@ function drawFace2(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
-function drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawOscar(x, y, w, h, tilt_value, eye_value, mouth_value) {
   // move to position1, rotate, draw "head" ellipse
   push();
   translate(x, y);
   rotate(tilt_value);
   scale(0.5);
   //squeeze oscar
-  fill(oscar_face);
+  fill(oscar_drawFace);
   ellipse(0, 0, 290, 200);
 
-  // mouth-hole with background color
-  fill('black');
-  ellipse(0, 20, 250, 20+70*mouth_value/100);
-  //cut out top of oscar's mouth with another ellipse to make him super smiley
-  fill(oscar_face)
-  rect(0, -5, 260, 50)
+  drawMouthArc(0, 20, 260, 20+30*mouth_value/100, 'black', oscar_drawFace);
 
   // set fill to match background color
   fill("white");
@@ -184,36 +179,51 @@ function drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
+function drawMouthArc(x, y, width, height, mouthColor, faceColor, inverse){
+  //default to 0
+  inverse |= false
+
+  // if(inverse)
+  //   y += height;
+  fill(mouthColor);
+  if(inverse)
+    arc(x, y+height, width, height*2, 180, 180, CHORD)
+  else
+    arc(x, y, width, height*2, 0, 180, CHORD)
+}
+
+function drawMouthEllipse(x, y, width, height, ellipseMod, mouthColor, faceColor, inverse){
+  var ellipseHeight = height*2*ellipseMod;
+  var ellipseY = y-height+ellipseHeight/2
+  // mouth-hole with background color
+  fill(mouth);
+  ellipse(x, y, width, height*2);
+
+  //cut out mouth
+  fill(ernie_drawFace);
+  ellipse(x, ellipseY, width+1, ellipseHeight+1);
+}
+
 function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
   background('white');
 
-  // use same size / y_pos for all faces
-  // var face_w = canvasWidth / 4;
-  // var face_h = face_w;
-  // var face_y = height / 2;
-  // var face_x = width / 2;
-
-  // draw 1st face
+  // draw 1st drawFace
   fill(bg_color1);
-
-  tilt_value = focusedRandom(10, 50);
-  eye_value = Math.floor(focusedRandom(1, 3));
-  mouth_value = focusedRandom(30, 140);
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
-      var face = [drawFace1, drawFace2, drawFace3][floor(random()*3)];
+      var drawFace = [drawErnie, drawBert, drawOscar][floor(random()*3)];
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      tilt_value = focusedRandom(-90, 90);
-      eye_value = int(focusedRandom(0, 100));
-      mouth_value = focusedRandom(0, 100);
-      face(x, y, w, h, tilt_value, eye_value, mouth_value);
+      var tilt_value = focusedRandom(-90, 90);
+      var eye_value = focusedRandom(0, 100);
+      var mouth_value = constrain(focusedRandom(10, 100) + sin(360*millis()/focusedRandom(100, 1000))*50, 10, 100);
+      drawFace(x, y, w, h, tilt_value, eye_value, mouth_value);
     }
   }
 }
