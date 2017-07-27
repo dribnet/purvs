@@ -11,3 +11,7 @@ started developing a 2nd face, will still have to go back and add detail but for
 UPDATE
 
 I've now completed all three faces, I'm aware that my part two goes in a completly different direction and style to part one, however I was still thinking about what I wanted this project to consist of and am happy with the change. I've now completed the three faces and added to all the slider to create the effects i wanted. Now, I'll move on to the randomizing.
+
+UPDATE
+
+I've now been working with randomizing. I've decided t start with to add all 3 of my faces, can potentially narrow it down later but wold rather take away then add for the final. I've got slight things and changes happening with each face every time you click to randomize. So far I like where the work is going, struggled a bit to get all the faces in but learned a lot.
