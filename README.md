@@ -1,5 +1,9 @@
 ## PS1 MDDN 342 2017
 
-This README explains the grid of random faces of faces for part3.
+Part 4 is careful choices of randomness with explanations.
 
-In my case, I chose just one of my faces from the previous section: mummy. In the previous version, there are some cases the eyes and eyebrows overlapped. I have fine tuned the range of each value and added angle value for eyebrows to make the expression more dynamic.
+In my case:
+
+There are more chances to have a wide mouth than high (up and down) mouth.
+
+For most parameters there are more likely to be the avarage (middle value).
