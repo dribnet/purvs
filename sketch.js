@@ -48,7 +48,7 @@ var cheeks = [213,132,151];
 var ears = [141,89,88];
 var eyes = [0,0,0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+function drawPig(x, y, w, h, tilt_value, eye_value, mouth_value) {
   push();
   translate(x, y);
   rotate(tilt_value);
@@ -71,18 +71,8 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   ellipse(60,-10,mouth_value * scale,10);
   ellipse(-60,-10,mouth_value * scale,10);
 
-  // eyes
-  // if (eye_value === 1 || eye_value == 3) {
-  //   // fill(bg_color1);
-  //   // ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-  //   fill(eyes);
-  //   ellipse(-60,-20,scale * mouth_value,5);
-  // }
 
   if (eye_value = 2) {
-    // fill(bg_color1);
-    // ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-    // ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
 
     fill(eyes);
     ellipse(-25, -20, 20, 5);
@@ -103,7 +93,7 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value,lefttilt_value) {
+function drawMonkey(x, y, w, h, hair_value, eye_value, blink_value,lefttilt_value) {
   rectMode(CENTER);
   push();
   translate(x, y);
@@ -137,7 +127,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value,lefttilt_value
   ellipse(27, -25, 50, 50);
 
   // eyes. first check for blinking
-  if(blink_value > 0) {
+  if(blink_value > 25) {
     fill(eyes);
     ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
     ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
@@ -189,11 +179,10 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value,lefttilt_value
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, tilt_value,hair_value) {
+function drawPanda(x, y, w, h, width_value, freckle_value, mouth_value, tilt_value,hair_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
 
   var extent = 0;
   if(h < w) {
@@ -214,7 +203,6 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, tilt_value,h
 
 
   //face
-  //stroke(stroke_color2)
   fill(220,216,217);
   ellipse(0, 0, 400 * scale, 400 * scale);
 
@@ -229,21 +217,19 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, tilt_value,h
 
   //mouth
    stroke(12,0,0);
-  // strokeWeight(2);
-  // line(-20, 40, 20, 40);
    line(-0.5, 28, -0.5, 40);
    fill(eyes);
    rect(0,40,30,2);
 
   // freckles
-  if (eye_value === 1 || eye_value == 2) {
+  if (freckle_value === 1 || freckle_value == 2) {
     fill(eyes);
     ellipse(15,15,2,2);
     ellipse(-15,15,2,2);
     ellipse(-15,20,2,2);
   }
 
-  if (eye_value === 2 || eye_value == 2) {
+  if (freckle_value === 2 || freckle_value == 2) {
     
     fill(eyes);
     ellipse(10,25,2,2);
@@ -252,7 +238,7 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, tilt_value,h
 
   }
 
-  if (eye_value === 3 || eye_value == 6) {
+  if (freckle_value === 3 || freckle_value == 6) {
     
     fill(eyes);
     ellipse(15,20,2,2);
@@ -268,39 +254,67 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, tilt_value,h
   ellipse(-30, -25, 2, 2);
   ellipse(30, -25, 2, 2);
 
-
-  //fill(bg_color2);
-  //rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  //rectMode(CORNER);
   pop();
 }
 
+function getRandomNumberOfFreckles() {
+  random_result = focusedRandom(1, 6);
+  if(random_result < 2) {
+    return 2;
+  }
+  else if(random_result < 4) {
+    return 3;
+  }
+  else {
+    return 6;
+  }
+}
+
+function getRandomNumberOfFaces() {
+  random_result = focusedRandom(1, 100);
+  if(random_result < 8) {
+    return 1;
+  }
+  else if(random_result < 12) {
+    return 3;
+  }
+  else {
+    return 2;
+  }
+}
+
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
   background(bg_color1);
 
-  // use same size / y_pos for all faces
-  // var face_w = canvasWidth / 4;
-  // var face_h = face_w;
-  // var face_y = height / 2;
-  // var face_x = width / 2;
+  //draw faces
 
-  // draw 1st face
   fill(bg_color1);
 
-  tilt_value = focusedRandom(10, 50);
-  eye_value = Math.floor(focusedRandom(1, 6));
-  mouth_value = focusedRandom(30, 140);
-  lefttilt_value = focusedRandom(0,70);
-  eyes_value = focusedRandom(10,50);
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
-      var face = [drawFace1, drawFace2, drawFace3][floor(random()*3)];
+      var face = [drawPig, drawMonkey, drawPanda][floor(random()*3)];
       var y = h/2 + h*i;
       var x = w/2 + w*j;
       tilt_value = focusedRandom(0, 70);
@@ -308,12 +322,12 @@ function draw () {
       eye_value = int(focusedRandom(1, 6));
       mouth_value = focusedRandom(60, 140);
       eyes_value = focusedRandom(5,20);
-      blink_value = focusedRandom(50,600);
-      face(x, y, w, h, tilt_value, eye_value, mouth_value,lefttilt_value, eyes_value);
+      blink_value = focusedRandom(0,50);
+      freckle_value = getRandomNumberOfFreckles();
+      face(x, y, w, h, tilt_value, eye_value, mouth_value,lefttilt_value, eyes_value,freckle_value, blink_value);
     }
   }
 
-  // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
 }
 
 function keyTyped() {
