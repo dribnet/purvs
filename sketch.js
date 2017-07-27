@@ -1,36 +1,26 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
+var button;
+var curRandomSeed;
 
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
+  curRandomSeed = int(focusedRandom(0, 100));
 
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
+	
+}
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
 }
 
 // global variables for colors
@@ -65,13 +55,8 @@ var eye_size = 110;
 var iris_size = 50;
 var pupil_size = 20;
 
-//Morty Variables
-var m_eye_size = 55;
-var skin_color = "#f7cdad";
-var hair_color = "#82491d";
-
 //Spongebob
-function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curves_number) {
+function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curves_number) {
   push();
   translate(x, y);
 
@@ -146,6 +131,7 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, c
   rect(30 - eyelash_size/4, -150, eyelash_size/2, eyelash_size*2);
   */
 	
+  //Eyes	
   // set fill to match background color
   fill(eye_color);
   stroke(black_color);
@@ -167,6 +153,42 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, c
   fill(sponge_color);
   ellipse(0, -30, 45, 45);
 
+  //Eyebrows	
+  fill(sponge_color);
+  stroke(black_color);
+	
+  var eyebrow_y = -50 - eye_value/2;
+	
+  var eyebrow_angle = focusedRandom(-45, 25);
+  var eyebrow_curve = focusedRandom(0, -200);
+	
+  var ellipse_size = (eyebrow_curve*-1) / 100; 
+	
+	//LEFT
+  push();
+  translate(-60, -85);
+  rotate(eyebrow_angle);
+  strokeWeight(0);
+  //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
+  curve(0,eyebrow_y+eyebrow_curve - 25, -50,eyebrow_y - 10, 50,eyebrow_y -10, 0,eyebrow_y+eyebrow_curve - 25);
+	
+  strokeWeight(5);
+  curve(0,eyebrow_y + eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
+	
+  pop();
+	
+	//RIGHT
+  push();
+  translate(65, -85);
+  rotate(-eyebrow_angle);
+  strokeWeight(0);
+  //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
+  curve(0,eyebrow_y+eyebrow_curve - 25, -50,eyebrow_y - 10, 50,eyebrow_y - 10, 0,eyebrow_y+eyebrow_curve - 25);
+	
+  strokeWeight(5);
+  curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
+  pop();
+	
   //Cheeks
   fill(sponge_color);
   stroke(outline_color);
@@ -184,11 +206,11 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, c
 	
   //Inside of mouth
 	translate(-105, -100);
-    strokeWeight(5);
+    strokeWeight(3);
 	fill(mouth_color);
 	stroke(black_color);
 	
-	curve(150,-200 - mouth_value, 200,100,0,100,50,-200 - mouth_value);
+	curve(150,-200 - mouth_value, 200,102,0,102,50,-200 - mouth_value);
 	push();
 	translate(-10, mouth_value/8 - 110);
 	fill(tongue_color);
@@ -224,261 +246,32 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, hole_value, head_color, c
   pop();
 }
 
-function drawFace2(x, y, w, h, hair_value, eye_value, nose_rotate, nose_value, mouth_value) {
-    rectMode(CENTER);
-  push();
-  translate(x, y);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-	strokeWeight(2);
-	stroke(black_color);
-
-  //hair
-  fill(hair_color);
-  ellipse(0, -50, 250 + hair_value, 250 + hair_value);
-	
-  //Ears
-  fill(skin_color);
-  arc(-115,0, 75, 75, 90, 270, OPEN);	
-  arc(115,0, 75, 75, -90, -270, OPEN);
-	
-  //head
-  fill(skin_color);
-  ellipse(0, 0, 270, 270);
-
-  // set fill to match background color
-  fill(eye_color);
-  // draw two eyes
-  ellipse(-60, -60, m_eye_size + eye_value, m_eye_size + eye_value);
-  ellipse( 60, -60, m_eye_size + eye_value, m_eye_size + eye_value);
-
-  // draw pupils
-  fill(black_color);
-  ellipse(-60, -60, 20 * eye_value/100 + 5, 20 * eye_value/100 + 5);
-  ellipse( 60, -60, 20 * eye_value/100 + 5, 20 * eye_value/100 + 5);
-
-  //Nose
-  translate(0, 20);
-  var nose_y = 15; 
-  fill(skin_color);
-  push();
-  rotate(nose_rotate);
-  curve(-250,nose_y + nose_value, 0, nose_y + nose_value, 0, -nose_y - nose_value, -250, -nose_y - nose_value);
-  pop();
-	
-  // mouth-hole with background color
-  var mouth_y = 70;
-  if(mouth_value < 0){
-		mouth_y -= mouth_value/10;  
-  }
-  curve(-100 - mouth_value,0 - mouth_value, -70, mouth_y, 70, mouth_y, 70 + mouth_value, 100 - mouth_value);
-  pop();
-  
-  //pop();
-}
-
-function drawFace3(x, y, w, h, scale_value, eye_spacing, chin_value, head_value, bat_value) {
-  push();
-  rectMode(CENTER);
-  translate(x, y);
-    // rotate(width_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  //var scale = extent / 220.0;
-
-  stroke(black_color)
-  strokeWeight(0);
-  
-  scale(1 + scale_value, 1 + scale_value);
-
-  fill(black_color);
-
-  beginShape();
-  vertex(-70, -30);
-  vertex(-70, -30);//left side of head
-  vertex(-65, 30);
-  vertex(-50 - head_value, 80); //chin start
-  vertex(-chin_value, 110);
-  vertex(chin_value, 110);//chin end
-  vertex(50 + head_value, 80); 
-  vertex(70, 30); //Right side of head
-  vertex(70, -30);
-  vertex(60, -80);
-  vertex(0, -100);
-  vertex(-60, -80);
-  endShape(CLOSE);
-
-    //left bat
-  beginShape();
-  vertex(-70, -30);
-  vertex(-70, -30);
-  vertex(-70, -110 - bat_value);
-  vertex(-30, -40);
-  endShape(CLOSE);
-
-    //right bat
-  beginShape();
-  vertex(70, 30);
-  vertex(70, 30);
-  vertex(75, -110 - bat_value);
-  vertex(30, -40);
-  endShape(CLOSE);
-
-
-
-    //Left Eye
-  push();
-  translate(-35 - eye_spacing, -15);
-  fill(eye_color);
-
-  beginShape();
-  vertex(-5, 0);
-  vertex(-5, 0);
-  vertex(30, 20);
-  vertex(0, 15);
-  vertex(0, 15);
-  endShape(CLOSE);
-
-  pop();
-
-    //Right Eye
-  push();
-  translate(35 + eye_spacing, -15);
-  fill(eye_color);
-
-  beginShape();
-  vertex(5, 0);
-  vertex(5, 0);
-  vertex(-30, 20);
-  vertex(0, 15);
-  vertex(0, 15);
-  endShape(CLOSE);
-
-  pop();
-
-    //Nose
-  fill(black_color);
-  beginShape();
-  vertex(0, 0);
-  vertex(0, 0);
-  vertex(0, 50);
-  vertex(15, 45);
-  vertex(15, 45);
-  endShape(CLOSE);
-
-    //Mouth area
-  fill(skin_color);
-
-  beginShape();
-  vertex(-55, 10);
-  vertex(-55, 10);
-  vertex(-40, 80); //chin start
-  vertex(-chin_value, 100);
-  vertex(chin_value, 100);
-  vertex(40, 80); //chin end
-  vertex(60, 10); //Right side of head
-  vertex(0, 49);
-  endShape(CLOSE);
-
-  pop();
-}
-
 function draw () {
+  resetFocusedRandom(curRandomSeed);
+
   noStroke();
+  background(bg_color1);
 
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
+  var w = 2 *canvasWidth / 5;
+  var h = 2 *canvasHeight / 3;
+	scale(0.5, 0.5);
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;		
+	  var mouth_value = focusedRandom(0, 1000);
+      var hole_value = int(focusedRandom(1, 5));
+      var eye_value = focusedRandom(-25, 25);
+      var curve_number = int(focusedRandom(1, 7));
+      var head_color = focusedRandom(0, 100);
+		
+	  if(mouth_value < 100)
+		  mouth_value = 0;
+		
+      drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curve_number);  
     }
   }
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
-
-  // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2; var m_eye_size = 110;
-
-    //Draw BGs
-  rectMode(CORNER);
-    //BG1
-  
-    //BG2
-  
-    //BG3
-  
-
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-      fill(bg_color1);
-      rect(0, 0, 2 * width, height);
-    var mouth_value = map(s1, 0, 100, 0, 1000);
-    var hole_value = Math.floor(map(s3, 0, 100, 1, 5));
-    var eye_value = map(s2, 0, 100, -25, 25);
-    var curve_number = Math.floor(map(s4, 0, 100, 1, 7));
-    var head_color = map(s5, 0, 100, 0, 100);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, mouth_value, eye_value, hole_value, head_color, curve_number);    
-  }
-
-  if (mode == '2' || mode == 'all') {
-      // draw 2nd face
-      fill(bg_color2);
-      rect(width / 3, 0, 2 * width / 3, height);
-    var hair_value = map(s1, 0, 100, -30, 70);
-    var nose_rotate = map(s3, 0, 100, 0, 360);
-    var eye_value = map(s2, 0, 100, 0, 100);
-    var nose_value = map(s4, 0, 100, 0, 30);
-    var mouth_value = map(s5, 0, 100, -250, 250);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, nose_rotate, nose_value, mouth_value);
-  }
-
-  if (mode == '3' || mode == 'all') {
-      // draw 3nd face
-      fill(bg_color3);
-      rect(2.5* width / 3, 0, width / 3, height*2);
-    var scale_value = map(s1, 0, 100, 0, 1);
-    var chin_value = map(s3, 0, 100, 0, 35);
-    var eye_spacing = map(s2, 0, 100, 0, 20);
-	var head_value = map(s4, 0, 100, 0, 30);
-	var bat_value = map(s5, 0, 100, 0, 30)
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, scale_value, eye_spacing, chin_value, head_value, bat_value);
-  }
 }
 
 function keyTyped() {
