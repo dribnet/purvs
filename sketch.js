@@ -45,37 +45,75 @@ var scheme5 = [[255,222,107],[255,180,107],[255,128,73],[255,255,255],[248,157,1
 var schemes = [scheme2,scheme3,scheme4,scheme5];
 
 
-function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,blueColor,monsterHeight,colorScheme,face){
+function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,mouthType,noseType,hornSize,colorChange,monsterHeight,colorScheme,face){
 
   push();
   var monsterWidth = monsterHeight*1.92;
 
+
+
+
   translate(mX,mY);
 
   if(face == 1){
-  drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
-}else{
+  drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,(colorScheme[1]),colorScheme[2]);
+}else if(face == 2){
 
   drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
 }
-  var eyeSize = monsterWidth*0.066;
-  drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2],mX,mY);
-  drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
-  if(face == 1){
-  drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
-}
-  else{
-  drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+else{
 
+  drawFace3(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
 }
-  if(face==1){
-  drawMouth(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
+  var eyeSize = monsterWidth*(0.066);
+  drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2],mX,mY);
+  if(face == 3){
+    drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+  }
+  else{
+  drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+}
+  if(face!= 2){
+    if(noseType == 1){
+    drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  }
+  else{
+      drawNose3(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  }
+}
+else{
+  drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+}
+
+
+
+
+  if(face!= 2){
+    if(mouthType == 1){
+  drawMouth1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
+  }
+  else{
+  drawMouth2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
+  }
+
 }
 
 pop();
 }
 
-function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+function modifyColor(c,colorChange){
+
+  var c2 = red(c);
+  c2+=colorChange;
+
+  return (c);
+
+}
+
+
+
+function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2){
 
   fill(color);
   //face
@@ -94,6 +132,22 @@ function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
   vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.7+(faceHeight));
 
   endShape();
+
+
+/*
+  fill(color2);
+  beginShape();
+  //top
+  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
+  //righttop
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.35-(faceHeight));
+  //rightbottom
+  vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.7+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
+  endShape();
+  */
+
 
 }
 
@@ -125,19 +179,50 @@ function drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
+function drawFace3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop
+  vertex(monsterWidth*0.35-(faceWidth),monsterHeight*0.2-(faceHeight));
+  //top
+  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
+  //righttop
+  vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.2-(faceHeight));
+  //right
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.5);
+  //rightbottom
+  vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
+  //leftbottom
+  vertex(monsterWidth*0.35-(faceWidth),monsterHeight*0.8+(faceHeight));
+  //left
+  vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.5);
+
+  endShape();
+}
+
 function drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,color1,color2,x,y){
 
+  if(eyeNum==1){
+  drawEye(monsterWidth*0.5,monsterHeight*0.35-faceHeight,eyeSize,color1,color2,x,y);
+  return;
+  }
   //draw eyes
   //first 2
+  if(eyeNum>=2){
   drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
+  }
   //second 2
-  if(eyeNum>=2){
+  if(eyeNum>=3){
   drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
   }
   //third 2
-  if(eyeNum>=3){
+  if(eyeNum>=4){
   drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
   }
@@ -193,21 +278,21 @@ function drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,col
   fill(color);
   beginShape();
   //1
-  vertex(monsterWidth*0.7+(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+  vertex(monsterWidth*0.6+(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
   //2
-  vertex(monsterWidth*0.9+(faceWidth)+hornSize,monsterHeight*0.15-(faceHeight));
+  vertex(monsterWidth*0.7+(faceWidth)+hornSize,monsterHeight*0.15-(faceHeight));
   //3
-  vertex(monsterWidth*1+(faceWidth)+hornSize,monsterHeight*0.35-(faceHeight));
+  vertex(monsterWidth*0.8+(faceWidth)+hornSize,monsterHeight*0.25-(faceHeight));
   //4
-  vertex(monsterWidth*0.95+(faceWidth)+hornSize,monsterHeight*0.5-(faceHeight));
+  vertex(monsterWidth*0.82+(faceWidth)+hornSize,monsterHeight*0.4-(faceHeight));
   //5
-  vertex(monsterWidth*1.05+(faceWidth)+hornSize,monsterHeight*0.38-(faceHeight));
+  vertex(monsterWidth*0.84+(faceWidth)+hornSize,monsterHeight*0.28-(faceHeight));
   //6
-  vertex(monsterWidth*1.08+(faceWidth)+hornSize,monsterHeight*0.18-(faceHeight));
+  vertex(monsterWidth*0.78+(faceWidth)+hornSize,monsterHeight*0.12-(faceHeight));
   //7
-  vertex(monsterWidth*0.92+(faceWidth)+hornSize,monsterHeight*-0.1-(faceHeight));
+  vertex(monsterWidth*0.7+(faceWidth)+hornSize,monsterHeight*0.01-(faceHeight));
   //8
-  vertex(monsterWidth*0.6+(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
+  vertex(monsterWidth*0.53+(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
   endShape();
 
 
@@ -216,22 +301,49 @@ function drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,col
   fill(color);
   beginShape();
   //1
-  vertex(monsterWidth*0.3-(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
+  vertex(monsterWidth*0.47-(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
   //2
-  vertex(monsterWidth*0.1-(faceWidth)-hornSize,monsterHeight*0.15-(faceHeight));
+  vertex(monsterWidth*0.3-(faceWidth)-hornSize,monsterHeight*0.15-(faceHeight));
   //3
-  vertex(monsterWidth*0-(faceWidth)-hornSize,monsterHeight*0.35-(faceHeight));
+  vertex(monsterWidth*0.2-(faceWidth)-hornSize,monsterHeight*0.25-(faceHeight));
   //4
-  vertex(monsterWidth*0.15-(faceWidth)-hornSize,monsterHeight*0.5-(faceHeight));
+  vertex(monsterWidth*0.18-(faceWidth)-hornSize,monsterHeight*0.4-(faceHeight));
   //5
-  vertex(monsterWidth*0-(monsterWidth*0.05)-(faceWidth)-hornSize,monsterHeight*0.38-(faceHeight));
+  vertex(monsterWidth*0.16-(monsterWidth*0.05)-(faceWidth)-hornSize,monsterHeight*0.28-(faceHeight));
   //6
-  vertex(monsterWidth*0-(monsterWidth*0.08)-(faceWidth)-hornSize,monsterHeight*0.18-(faceHeight));
+  vertex(monsterWidth*0.22-(monsterWidth*0.08)-(faceWidth)-hornSize,monsterHeight*0.12-(faceHeight));
   //7
-  vertex(monsterWidth*0.08-(faceWidth)-hornSize,monsterHeight*-0.1-(faceHeight));
+  vertex(monsterWidth*0.3-(faceWidth)-hornSize,monsterHeight*-0.01-(faceHeight));
   //8
   vertex(monsterWidth*0.4-(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
   endShape();
+
+
+
+}
+
+function drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
+
+  fill(color);
+  beginShape();
+  //1
+  vertex(monsterWidth*0.65+(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
+  //2
+  vertex(monsterWidth*0.72+(faceWidth*0.5)+hornSize,monsterHeight*0.12-(faceHeight));
+  //7
+  vertex(monsterWidth*0.58+(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
+  endShape();
+
+
+  beginShape();
+  //1
+  vertex(monsterWidth*0.35-(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
+  //2
+  vertex(monsterWidth*0.28-(faceWidth*0.5)-hornSize,monsterHeight*0.12-(faceHeight));
+  //7
+  vertex(monsterWidth*0.42-(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
+  endShape();
+
 
 
 }
@@ -268,7 +380,26 @@ function drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
-function drawMouth(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+function drawNose3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+  fill(color);
+  //draw nose
+  var noseX1 = monsterWidth*0.45-(faceWidth/2);
+  var noseY1 = monsterHeight*0.6+(faceHeight/2);
+  var noseX2 = monsterWidth*0.5;
+  var noseY2 = monsterHeight*0.65+(faceHeight/2);
+  var noseX3 = monsterWidth*0.55+(faceWidth/2);
+  var noseY3 = monsterHeight*0.6+(faceHeight/2);
+
+  triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
+
+}
+
+
+
+
+
+function drawMouth1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 fill(color);
   //draw mouth
@@ -292,6 +423,22 @@ fill(color);
   triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
 
 }
+
+function drawMouth2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
+
+fill(color);
+  //draw mouth
+  var noseX1 = monsterWidth*0.4-(faceWidth);
+  var noseY1 = monsterHeight*0.8+(faceHeight);
+  var noseX2 = monsterWidth*0.5;
+  var noseY2 = monsterHeight*0.75+(faceHeight);
+  var noseX3 = monsterWidth*0.6+(faceWidth);
+  var noseY3 = monsterHeight*0.8+(faceHeight);
+
+  triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
+
+}
+
 
 function drawM2(mX,mY,faceWidth,faceHeight,eyeNum,hornSize,addColor,monsterHeight){
 
@@ -464,14 +611,39 @@ function draw () {
 
      var faceWidth = focusedRandom(-(h/6.66),-(h/20));
      var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
-     var eye_value = Math.floor(focusedRandom(1,4));
+     var eye_value = getEyeNum();
+     var mouthType = Math.floor(focusedRandom(1,3));
+     var noseType = Math.floor(focusedRandom(1,3));
      var hornSize = focusedRandom(-(h/5),(h/20));
-     var colorChange = focusedRandom(-50,0);
-     var face = Math.floor(focusedRandom(1,3));
+     var colorChange = focusedRandom(100,100);
+     var face = Math.floor(focusedRandom(1,4));
 
-     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,hornSize,colorChange,h,scheme,face);
+     //var face = 3;
+
+     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,colorChange,h,scheme,face);
    }
  }
+
+
+}
+
+//gets a distribution of eye numbers
+function getEyeNum(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<5){
+    return 1;
+  }
+  else if(randomNum < 30){
+return 2;
+  }
+  else if (randomNum < 80){
+    return 3;
+  }
+  else{
+    return 4;
+  }
 
 
 }
