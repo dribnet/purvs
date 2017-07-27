@@ -283,7 +283,7 @@ function draw () {
 			var l_brow_value = focusedRandom(-15, 15);
 			var l_browRaise_value = focusedRandom(-2, 1.5);
 			var pupil_value = Math.floor(focusedRandom(0, 3));
-			var blink_value = focusedRandom(0, 24);
+			var blink_value = focusedRandom(0, 24, 3, 8);
 			if (blink_value > 15){
 				var check = random(1);
 				if (check > 0.5){
