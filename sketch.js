@@ -157,7 +157,8 @@ var w = canvasWidth / 8;
       tilt_value = focusedRandom(-100, 55);
       eye_value = int(focusedRandom(1, 3));
       mouth_value = focusedRandom(30, 140);
-      drawFace1(14+x+(x/2)-q, 16+y-(y/6)-focusedRandom(-25,25), w, h, tilt_value, eye_value, mouth_value);
+      //comment to make file different
+      drawFace1(x+(x/2), y-(y/6), w, h, tilt_value, eye_value, mouth_value);
     }}
 
 
