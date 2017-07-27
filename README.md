@@ -1,11 +1,12 @@
 ## PS1 MDDN 342 2017
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+PORTRAITS:
 
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+For my work in part 1 of the assignment I have created a portrait of Squidward and Gollum.
+
+I think Squidward probably comes across better as he is naturally a cartoon where as Gollum is a CGI marvel! 
+
+For Gollum I really tried to emphasise his large eyes and so I gave them the most detail in the hope it would make him more recognisable.
+
+
+
