@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+        "sha": "16e6a335c63d367b40b1dfc277dc0f5ea68de95b",
+        "name": "randomize"
+    },
+    {
         "sha": "8303a2d88e43427795431be30c7ddc8cc2442d45",
         "name": "random_monsters"
     },
