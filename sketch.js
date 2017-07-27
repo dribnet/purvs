@@ -312,11 +312,11 @@ function draw () {
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
+  for(var i=0; i<2; i++) {
+    for(var j=0; j<4; j++) {
       var face = [drawPig, drawMonkey, drawPanda][floor(random()*3)];
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
+      var y = h*1 + h*i;
+      var x = w*1 + w*j;
       tilt_value = focusedRandom(0, 70);
       lefttilt_value = focusedRandom(0,-70);
       eye_value = int(focusedRandom(1, 6));

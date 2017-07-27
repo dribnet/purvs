@@ -19,3 +19,7 @@ I've now been working with randomizing. I've decided t start with to add all 3 o
 UPDATE
 
 I've now been playing around with my choices of randomness. The freckes on the panda are now planned out and you rarely get a face with all the freckles. I will for sure come back to this. 
+
+UPDATE
+
+I've been experimenting with the layout and how I want to present my final work. I initially tried to present them in a lot of rows, with a lot of faces but had some difficulties with that and didn't quite like how it was going to turn out, so I've now reduced the faces and centered them. I think it adds a nice effect and makes the arranging and the amount of faces dislayed limited, so in some intenses you only get one pig and lots of monkeys giving the random effect a spotlight.
