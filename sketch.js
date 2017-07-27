@@ -96,23 +96,6 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
 	  
 	  curve(-275 + ((350/curves_number) * i), 0, -175 + ((350/curves_number) * i), 187, -175 + ((350/curves_number) * (i+1)), 187, -175+ ((350/curves_number) * i), 200);
   }
-  
-  //Draw the holes
-	fill(outline_color);
-	if(hole_value > 1){
-    	ellipse(-140,-140,44,35);
-		ellipse(140,-120,40,37);
-	}
-	if(hole_value > 2){
-	ellipse(100,-150,25,18);
-	ellipse(-110,120,40,50);
-	}
-	if(hole_value > 3)
-		ellipse(100,140,33,44);
-	if(hole_value > 4){
-	ellipse(50,120,20,25);
-	ellipse(-60,150,20,15);
-	}
 	
   //Draw the eye lashes
   /*fill(eyelash_color);
@@ -164,16 +147,17 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
 	
   var ellipse_size = (eyebrow_curve*-1) / 100; 
 	
+	
+  //Draw the eyebrow inner but not the outline yet
 	//LEFT
   push();
   translate(-60, -85);
   rotate(eyebrow_angle);
   strokeWeight(0);
   //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
-  curve(0,eyebrow_y+eyebrow_curve - 25, -50,eyebrow_y - 10, 50,eyebrow_y -10, 0,eyebrow_y+eyebrow_curve - 25);
-	
-  strokeWeight(5);
-  curve(0,eyebrow_y + eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
+  for(var i = 1; i <= 3; i++){
+  	curve(0,eyebrow_y+eyebrow_curve - 70, -50,eyebrow_y - 5 * i, 50,eyebrow_y - 5 * i, 0,eyebrow_y+eyebrow_curve - 70);
+  }
 	
   pop();
 	
@@ -183,11 +167,45 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
   rotate(-eyebrow_angle);
   strokeWeight(0);
   //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
-  curve(0,eyebrow_y+eyebrow_curve - 25, -50,eyebrow_y - 10, 50,eyebrow_y - 10, 0,eyebrow_y+eyebrow_curve - 25);
+	for(var i = 1; i <= 3; i++){
+  		curve(0,eyebrow_y+eyebrow_curve - 70, -50,eyebrow_y - 5 * i, 50,eyebrow_y - 5 * i, 0,eyebrow_y+eyebrow_curve - 70);
+	}
 	
-  strokeWeight(5);
-  curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
   pop();
+	
+	  //Draw the holes
+	strokeWeight(0);
+	fill(outline_color);
+	if(hole_value > 1){
+    	ellipse(-140,-140,44,35);
+		ellipse(140,-120,40,37);
+	}
+	if(hole_value > 2){
+	ellipse(100,-150,25,18);
+	ellipse(-110,120,40,50);
+	}
+	if(hole_value > 3)
+		ellipse(100,140,33,44);
+	if(hole_value > 4){
+	ellipse(50,120,20,25);
+	ellipse(-60,150,20,15);
+	}
+	
+  //Draw the eyebrows outine so they don't get cut off
+	strokeWeight(5);
+	push();
+	translate(-60, -85);
+	rotate(eyebrow_angle);
+	fill(0, 0, 0, 0)
+    curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
+	pop();
+	
+	push();
+	translate(65, -85);
+	rotate(-eyebrow_angle);
+	fill(0,0, 0, 0)
+    curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
+	pop();
 	
   //Cheeks
   fill(sponge_color);
