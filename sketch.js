@@ -75,7 +75,7 @@ function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_va
   //eye hole
   fill(bg_color2);
   noStroke();  
-  ellipse(9, -5, 8, 4);
+  ellipse(9, -5, 8, 4 * eye_value);
   //eye ball
   fill(eyeBall_color);
   ellipse(8.5 * eye_value, -5, 4.5);
@@ -148,7 +148,7 @@ function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_va
   //eye hole
   fill(bg_color2);
   noStroke();  
-  ellipse(9, -5, 8, 4);
+  ellipse(9, -5, 8, 4 * eye_value);
   //eye ball
   fill(eyeBall_color);
   ellipse(8.5 * eye_value, -5, 4.5);
@@ -209,10 +209,10 @@ function draw () {
       var y = h/2 + h*i;
       var size = 1.5;
 
-      var forehead_value = focusedRandom(0.5, 1.8);
+      var forehead_value = focusedRandom(0.5, 1.8, 1, 1.3);
       var foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];
-      var eye_value = focusedRandom(0.9, 1.2);
-      var eyeRim_value = focusedRandom(0.5, 3);
+      var eye_value = focusedRandom(0.7, 1.4, 3, 1);
+      var eyeRim_value = focusedRandom(0.5, 3, 1, 2);
       var mouth_value = focusedRandom(0.9, 1.3);
       var jaw_value = focusedRandom(0.3, 1.7);
       var skinColor_value = [Math.floor(focusedRandom(20, 100)), Math.floor(focusedRandom(80, 20)), Math.floor(focusedRandom(100, 20))];
