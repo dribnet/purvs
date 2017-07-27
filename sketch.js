@@ -1,5 +1,7 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
+var button;
+var curRandomSeed;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -8,181 +10,217 @@ function setup () {
   // position each element on the page
   main_canvas.parent('canvasContainer');
 
+  curRandomSeed = int(focusedRandom(0, 100));
+
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
+
   // rotation in degrees
   angleMode(DEGREES);
 
   smooth();
 }
 
-// global variables for colors
-var bg_color = "#00bfff";
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+}
 
-//fox colors
-var eye_color = "#1a0000";
-var headTop_color = "#ff471a";
-var headQuad_color = "#cc2900";
-var outEar_color = "#b30000";
-var inEar_color = "#ff9980";
-var faceTop_color = "#b32400";
-var faceBot_color = "#e62e00";
-var faceSide_color = "#ff471a";
-var neck1_color = "#e60000";
-var neck2_color = "#b30000";
-var noseTop_color = "#b32400";
-var nose_color = "#1a0500";
+//mask colors
+var bg_color2 = "#f2e6d9";
+var eyeBall_color = "#000000";
+var mouth_color = "#990000";
+var tri_color = "#ffdb4d";
+var sun_color = "#e60000";
 
-//bird colors
-var head_color = "#ffff1a";
-var mouth_color = "#000000";
-
-function draw () {
-  // background color
-  background(bg_color);
-
-  // stroke color
-  noStroke();
-
-  //fox face
+function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value, jaw_value) {
+  //right face
   push();
-  translate(canvasWidth/4, canvasHeight/2);
-  scale(4);
-  //construct right face
-  fill(headTop_color);
-  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300)); //head-top
-
-  fill(headQuad_color);
-  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75)); //head-quad
-
-  fill(outEar_color);
-  triangle(10, -sqrt(300), 20, -3, 25, -35); //outside-ear
-
-  fill(inEar_color);
-  triangle(10, -sqrt(300), 20, -3, 20, -25); //inside-ear
-
-  fill(faceTop_color);
-  triangle(20, -3, 7, sqrt(75), 17, 15); //face-top
-
-  fill(faceBot_color);
-  triangle(7, sqrt(75), 7, 30, 17, 15); //face-bottom
-
-  fill(faceSide_color);
-  triangle(20, -3, 17, 15, 40, 18); //face-side
-
-  fill(neck1_color);
-  triangle(17, 15, 40, 18, 19, 19); //neck
-
-  fill(neck2_color);
-  triangle(7, 30, 17, 15, 19, 19); //neck
-
-  fill(noseTop_color);
-  quad(0, 0, 0, 30, 7, 30, 7, sqrt(75)); //nose-top
+  translate(x, y);
+  scale(size);
   
-  fill(nose_color);
-  triangle(0, 30, 0, 35, 7, 30); //nose
+  //whole skin
+  fill(skinColor_value);
+  beginShape();
+  vertex(0, -40);
+  bezierVertex(20, -40, 25, -20, 20, 0);
+  vertex(20, 0);
+  bezierVertex(20, 15, 20, 32, 0, 30);
+  endShape();
 
-  fill(eye_color);
-  triangle(7, sqrt(75), 7, 12, 14, 5); //eye
+  //forehead
+  fill(foreColor_value);
+  strokeWeight(1.5);
+  stroke("#ffffff");
+  beginShape();
+  vertex(15 * forehead_value, -34 * forehead_value);
+  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
+  vertex(6, -7);
+  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
+  vertex(20, -20);
+  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
+  endShape();
+
+  //eye rim
+  fill("#000000");
+  strokeWeight(0.7);
+  beginShape();
+  vertex(6, -7);
+  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
+  vertex(1, 1);
+  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
+  vertex(20, 0);
+  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
+  endShape();
+  //eye hole
+  fill(bg_color2);
+  noStroke();  
+  ellipse(9, -5, 8, 4);
+  //eye ball
+  fill(eyeBall_color);
+  ellipse(8.5 * eye_value, -5, 4.5);
+
+  //nose
+  push();
+  fill("#000000");
+  rotate(-25);
+  ellipse(0, 10, 5, 2);
   pop();
 
-  push();
-  translate(canvasWidth/4, canvasHeight/2);
-  scale(-4, 4);
-  //construct left face
-  fill(headTop_color);
-  triangle(0, 0, 0, -sqrt(300), 10, -sqrt(300)); //head-top
+  //jaw
+  fill("#000000");
+  beginShape();
+  vertex(0 * jaw_value, 15 * jaw_value)
+  bezierVertex(20 * jaw_value, 5 * jaw_value, 16 * jaw_value, 20 * jaw_value, 14, 27)
+  endShape();
 
-  fill(headQuad_color);
-  quad(0, 0, 10, -sqrt(300), 20, -3, 7, sqrt(75)); //head-quad
-
-  fill(outEar_color);
-  triangle(10, -sqrt(300), 20, -3, 25, -35); //outside-ear
-
-  fill(inEar_color);
-  triangle(10, -sqrt(300), 20, -3, 20, -25); //inside-ear
-
-  fill(faceTop_color);
-  triangle(20, -3, 7, sqrt(75), 17, 15); //face-top
-
-  fill(faceBot_color);
-  triangle(7, sqrt(75), 7, 30, 17, 15); //face-bottom
-
-  fill(faceSide_color);
-  triangle(20, -3, 17, 15, 40, 18); //face-side
-
-  fill(neck1_color);
-  triangle(17, 15, 40, 18, 19, 19); //neck
-
-  fill(neck2_color);
-  triangle(7, 30, 17, 15, 19, 19); //neck
-
-  fill(noseTop_color);
-  quad(0, 0, 0, 30, 7, 30, 7, sqrt(75)); //nose-top
-  
-  fill(nose_color);
-  triangle(0, 30, 0, 35, 7, 30); //nose
-
-  fill(eye_color);
-  triangle(7, sqrt(75), 7, 12, 14, 5); //eye
-  pop();
-
-  //bird face
-  push();
-  translate(canvasWidth/1.4, canvasHeight/2);
-  rotate(5);  
-  scale(3.5);
-  
-  //head
-  push();
-  fill(head_color);
-  stroke(head_color);
-  strokeWeight(0.2);
-  triangle(40, 20, -40, 20, 0, -25);
-  fill("#ffffff");
-  triangle(40, 20, -40, 20, 0, 30);
-  pop();
+  fill(bg_color2);
+  beginShape();
+  vertex(0, 15);
+  bezierVertex(13, 16, 13, 20, 14, 27);
+  vertex(14, 27);
+  bezierVertex(12, 30, 10, 35, 0, 30);
+  endShape();
 
   //mouth
   fill(mouth_color);
-  triangle(-10, 27, 10, 27, 0, 13);
-
-  //hair
-  fill(0, 0, 0, 190);
-  triangle(0, -15, -2, -33, 2, -33);
-  triangle(0, -15, 10, -26, 12, -23);
-  triangle(0, -15, -10, -26, -12, -23);
-
-  //eyebrow
-  fill(0, 0, 0, 200);
-  quad(6, -10, 5, -6, 18, -13, 15, -15);
-  quad(-6, -10, -5, -6, -18, -13, -15, -15);
-
-  //eyes
-  fill("#ffffff");
-  stroke(mouth_color);
-  strokeWeight(0.6);
-  push();
-  rotate(-20);
-  ellipse(15, 3, 15, 10);
-  rotate(40);
-  ellipse(-15, 3, 15, 10);
+  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
   pop();
 
+  //left face
   push();
-  rotate(-5);
+  translate(x, y);
+  scale(-size, size);
+  
+  //whole skin
+  fill(skinColor_value);
+  beginShape();
+  vertex(0, -40);
+  bezierVertex(20, -40, 25, -20, 20, 0);
+  vertex(20, 0);
+  bezierVertex(20, 15, 20, 32, 0, 30);
+  endShape();
+
+  //forehead
+  fill(foreColor_value);
+  strokeWeight(1.5);
+  stroke("#ffffff");
+  beginShape();
+  vertex(15 * forehead_value, -34 * forehead_value);
+  bezierVertex(15 * forehead_value, -25 * forehead_value, 9, -12, 6, -7);
+  vertex(6, -7);
+  bezierVertex(10 * forehead_value, -10 * forehead_value, 15 * forehead_value, -10 * forehead_value, 20, -20);
+  vertex(20, -20);
+  bezierVertex(18, -20, 15 * forehead_value, -20 * forehead_value, 15 * forehead_value, -34 * forehead_value);
+  endShape();
+
+  //eye rim
+  fill("#000000");
+  strokeWeight(0.7);
+  beginShape();
+  vertex(6, -7);
+  bezierVertex(1 * eyeRim_value, -5 * eyeRim_value, 2 * eyeRim_value, -4 * eyeRim_value, 1, 1);
+  vertex(1, 1);
+  bezierVertex(4 * eyeRim_value, -5 * eyeRim_value, 10 * eyeRim_value, 10 * eyeRim_value, 20, 0);
+  vertex(20, 0);
+  bezierVertex(15 * eyeRim_value, -5 * eyeRim_value, 18 + eyeRim_value, -8 + eyeRim_value, 22, -12);
+  endShape();
+  //eye hole
+  fill(bg_color2);
+  noStroke();  
+  ellipse(9, -5, 8, 4);
+  //eye ball
+  fill(eyeBall_color);
+  ellipse(8.5 * eye_value, -5, 4.5);
+
+  //nose
+  push();
+  fill("#000000");
+  rotate(-25);
+  ellipse(0, 10, 5, 2);
+  pop();
+
+  //jaw
+  fill("#000000");
+  beginShape();
+  vertex(0 * jaw_value, 15 * jaw_value)
+  bezierVertex(20 * jaw_value, 5 * jaw_value, 16 * jaw_value, 20 * jaw_value, 14, 27)
+  endShape();
+
+  fill(bg_color2);
+  beginShape();
+  vertex(0, 15);
+  bezierVertex(13, 16, 13, 20, 14, 27);
+  vertex(14, 27);
+  bezierVertex(12, 30, 10, 35, 0, 30);
+  endShape();
+
+  //mouth
   fill(mouth_color);
-  ellipse(11, 0, 3);
-  rotate(10);
-  ellipse(-11, 0, 3);
-  pop();
+  quad(0, 17, 5, 17, 2 + mouth_value, 20 * mouth_value, 0, 20 * mouth_value);
 
-  //circle
+  //triangle
+  fill(tri_color);
+  triangle(5, -25, -5, -25, 0, 10 * tri1_value);
+  triangle(5, -25, -5, -25, 0, -50 * tri2_value);
+
+  //middle sun
+  fill(sun_color);
+  stroke("#ffffff");
+  strokeWeight(1.7);
+  ellipse(0, -25, 10);
+  pop();
+}
+
+
+function draw () {
+  
+  resetFocusedRandom(curRandomSeed);
+
   noStroke();
-  fill(255, 71, 26, 220);
-  ellipse(37, 18, 15);
-  ellipse(-37, 18, 15);
+  background(bg_color2);
 
-  pop();
+  var w = width / 5;
+  var h = height / 3;
 
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++){
+      var x = w/2 + w*j;
+      var y = h/2 + h*i;
+      var size = 1.5;
+
+      var forehead_value = focusedRandom(0.5, 1.8);
+      var foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];
+      var eye_value = focusedRandom(0.9, 1.2);
+      var eyeRim_value = focusedRandom(0.5, 3);
+      var mouth_value = focusedRandom(0.9, 1.3);
+      var jaw_value = focusedRandom(0.3, 1.7);
+      var skinColor_value = [Math.floor(focusedRandom(20, 100)), Math.floor(focusedRandom(80, 20)), Math.floor(focusedRandom(100, 20))];
+      var tri1_value = focusedRandom(-5, 1);
+      var tri2_value = focusedRandom(0, 1);
+      drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value, jaw_value);
+    }
+  } 
 }
 
 function keyTyped() {
