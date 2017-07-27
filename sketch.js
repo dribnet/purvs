@@ -340,6 +340,10 @@ function draw () {
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
+
+  var w2 = w/2;
+  var h2 = h/2;
+
   for(var i=0; i<3; i++) {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
@@ -348,6 +352,17 @@ function draw () {
       eye_value = getRandomNumberOfEyes();
       mouth_value = getRandomNumberOfMouth();
       width_value = focusedRandom(0, 100);
+
+      var x, y;
+      if(mouth_value < 40) {
+        x = focusedRandom(w2, width/2, 1);
+        y = focusedRandom(h2, height-h2, 1);
+      }
+      else {
+        x =focusedRandom(2*width/3, width, 8);
+        y = focusedRandom(h2, height-h2, 2);
+      }
+
       drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value, width_value);
     }
   }

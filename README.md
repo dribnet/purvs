@@ -7,5 +7,5 @@ I have focused on my third monster, altering the colours, adding horns, and othe
 
 Unicorn monsters are less likely to appear than others, and there is controlled distribution on the size of the mouth too.
 
-They are now randomly generated every second.
+They are now randomly generated every second and this is testing out the distribution settings.
 
