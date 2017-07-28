@@ -33,12 +33,12 @@ function draw () {
   background(bg_color);
 
   // stroke color
-  stroke(stroke_color)
-  noStroke();
+  
 
     // move to position1, rotate, draw "head" ellipse
     // Creating the basic head stucture
   push();
+  noStroke();
   translate(960/4, 500/2);
   rotate(0);
   fill(ZamasuFaceColor1);
@@ -114,20 +114,46 @@ function draw () {
 
   // move to position2, rotate, draw "head" ellipse
   push();
-  translate(3*960/4, 500/2);
+  translate(3 * 960 / 4, 500 / 2);
+  noStroke();
+
   // Head Shape
-  stroke("black");
+  fill("rgb(127,156,115)");
   rect(-100, -100, 250, 235, 20);
 
   // Eyes
+  fill("rgb(52,120,169)");
   rect(-100,-10,80,60); 
   rect(70,-10,80,60); 
 
+  fill("rgb(255,255,255)");
+  rect(-100,-10,18,60);
+  rect(70,-10,18,60);
+
   // Mouth
+  fill("rgb(213,210,211)");
   rect(-20,-10,90,145); 
 
+  noFill();
+  stroke("black");
+  strokeWeight(0.2);
+  beginShape();
+	vertex(50, -10);
+	vertex(0, 20);
+	vertex(50, 50);
+	vertex(0, 80);
+	vertex(50, 110);
+	vertex(10, 135);
+  endShape();
+
   // Mandibles
-  ellipse()
+  noStroke();
+  fill("rgb(240,185,109)");
+  ellipse(-58,90,50,50);
+  ellipse(108,90,50,50);
+
+  // 
+  
 
   pop();
 }
