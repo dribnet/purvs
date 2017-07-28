@@ -1,9 +1,7 @@
-## PS1 MDDN 342 2017
+## Part 2
 
-This README explains the three different paramaterized faces for part2. 
+My first face is inspired by Calcifer the fire in Howl's Moving Castle. It's body is made of quads and slider one shows slight variation of its size. The pupil and mouth size can change to express different levels of shock. The brightness can also be altered. 
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+The second face I wanted to explore having a varying shape and amount of spots. There is also a rotation and saturation control. 
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+The last one I wanted to create a more complex shape. I chose a tiger. It has varying stripe length, head width and orange colours. The eye value is a discrete variable which determines if the eyes are open, half-closed or closed. There is also an on and off option for the whiskers. 
