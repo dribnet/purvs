@@ -399,9 +399,6 @@ function draw () {
 
 
 
-
-
-
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
