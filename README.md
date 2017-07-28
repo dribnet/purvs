@@ -1,7 +1,10 @@
 PS1 MDDN 342 2017
 
+In my personal art practice, I have been focussing on human anatomy and facial proportions. This has been a driving force behind my design. When initially presented with the brief of creating a parametric population of faces, I was drawn to the idea of using the project as an opportunity to better understand facial proportions and expressions whilst allowing the population to retain a sense of beauty or humanity. 
 
+When creating humanoid faces and forms, it is incredibly easy for them fall into the 'uncanny valley', which basically results in something not quite human, but close enough that it is terrifying. In order to avoid this, I kept the style fairly flat and also tweaked some of the proportions to make the faces look a little more cartoon-like (bigger eyes, shorter face, etc). I wanted to keep the emphasis on the eyes, as they are (in my opinion) the most emotive feature of the face, and I found that though I had initially planned to add in other features, the emotions were suggested quite well through just the eyes and eyebrows. 
 
-I removed the faces from the 3 x 5 grid, and have been trying to suggest the idea of people in a crowd. 
+I added variation to the face shapes and colour schemes in order to give the impression that each face belonged to a different person, as otherwise they just looked like a wall of masks. The variation in the cheek shape (particularly when distributed with focusedRandom) gives off the impression that the face is grinning, which reinforced my idea that other features were not necessary for the portrayal of emotion - perhaps even distracting the viewer from focussing on the key features of the face. I also found focusedRandom particularly helpful for ensuring that only a few of the faces have their eyes shut in any given population.
 
-I also added a stroke so that they wouldn't lose their form when I introduced aerial perspective. 
+In creating my final layout, I wanted to convey the idea that my population were all faces in a crowd of people. By confining their positions to a loose diagonal line across the canvas, I gave the composition some room to breathe. I also staggered the size of the faces and added in some aerial perspective in order to communicate depth and give the viewer something to focus on. 
+

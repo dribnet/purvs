@@ -27,7 +27,8 @@ var bg_color = [47, 59, 64];
 
 
 var faceColor = ["#ebcebb", "#ffd5be", "#f6cfaf", "#CAA288", "#D7A595", "#8c6652"];
-
+var eyeColor = ["#143250", "#543f14", "#3d5b27"];
+var irisColor = ["#e6fac8"];
 
 var eyelidColor = ["#d7b09d", "#e8bca9", "#e5b69c", "#b78c79", "#c19181", "#775041"];
 
@@ -79,7 +80,7 @@ function drawLowerLid(lowerEye_value) {
 	endShape();
 }
 
-function drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyeballOffset_value) {
+function drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyeballOffset_value, eye_color) {
 
 	//draw White of eye
 
@@ -100,8 +101,9 @@ function drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyebal
 	curveVertex(25, 6);
 	endShape();
 
+	
 	//draw iris
-	fill(20, 50, 80);
+	fill(eyeColor[eye_color]);
 	ellipse(64 + eyeballOffset_value, 18, 45, 45);
 	fill(230, 250, 200, 20);
 
@@ -125,13 +127,13 @@ function drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyebal
 	}
 }
 
-function drawEye (x, y, highlightPosition_x, lowerEye_value, pupil_value, blink_value, eyeballOffset_value, color_value){
+function drawEye (x, y, highlightPosition_x, lowerEye_value, pupil_value, blink_value, eyeballOffset_value, color_value, eye_color){
 	
 	push();
 	translate(37, 161.3);
 	scale(0.5)
 	rotate(-2);
-	drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyeballOffset_value);
+	drawEyeball(x, lowerEye_value, highlightPosition_x, pupil_value, eyeballOffset_value, eye_color);
 
 	//draw shape overlay for eyelid
 	for(i = 0; i < 8; i+= 0.1){
@@ -192,7 +194,7 @@ function drawFace2_shape(face_width, cheek_value, chin_value, color_value){
 		curveVertex(0, 180);
 		curveVertex(20 - cheek_value, 250 - cheek_value);
 		curveVertex(40, 280);
-		curveVertex(110 + chin_value, 335 + chin_value);
+		curveVertex(108 + chin_value, 335 + chin_value);
 		curveVertex(140, 300);
 		curveVertex(130, 100);
 		curveVertex(125, 20);
@@ -223,7 +225,6 @@ function drawEyebrow(browRaise_value, brow_value){
 		pop();
 		}
 		drawFrownLines(browRaise_value, brow_value)
-		
 }
 
 function drawFrownLines(browRaise_value, brow_value){
@@ -241,7 +242,7 @@ function drawFrownLines(browRaise_value, brow_value){
 		pop();
 }
 
-function createFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value ,l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value, cheek_value, chin_value, color_value) {
+function createFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value ,l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value, cheek_value, chin_value, color_value, eye_color) {
 
 	push();
 	scale(face_scale);
@@ -251,7 +252,7 @@ function createFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value
 	push();
 	translate(-125, 0);
 	drawFace2_shape(300, cheek_value, chin_value, color_value);
-	drawEye(x, y, -10, lowerEye_value, pupil_value, blink_value, eyeballOffset_value, color_value);
+	drawEye(x, y, -10, lowerEye_value, pupil_value, blink_value, eyeballOffset_value, color_value, eye_color);
 	drawEyebrow(l_browRaise_value, l_brow_value);
 	pop();
 
@@ -259,11 +260,12 @@ function createFace(x, y, face_scale, lowerEye_value, l_brow_value, r_brow_value
 	translate(125, 00);
 	scale(-1, 1);
 	drawFace2_shape(300, cheek_value, chin_value, color_value);
-	drawEye(x, y, 10, lowerEye_value, pupil_value, blink_value, -eyeballOffset_value, color_value);
+	drawEye(x, y, 10, lowerEye_value, pupil_value, blink_value, -eyeballOffset_value, color_value, eye_color);
 	drawEyebrow(r_browRaise_value, r_brow_value);
 	pop();
 	pop();
 	}
+
 
 function drawFace(x, y, face_scale) {
 	var brow_symmetry = Math.floor(focusedRandom(0, 10));
@@ -289,33 +291,44 @@ function drawFace(x, y, face_scale) {
 			var eyeballOffset_value = focusedRandom(-25, 25);
 			var cheek_value = focusedRandom(-5, 25, 3, 5);
 		
-			var chin_value = focusedRandom(-15, 20, 4, 5);
+			var chin_value = focusedRandom(-15, 12, 1, 8);
+			
 
 			var color_value = Math.floor(focusedRandom(0, 6));
-		
-			createFace(230+x, 180+y, face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value, cheek_value, chin_value, color_value);
+			var eye_color  = Math.floor(focusedRandom(0, 3));
+			createFace(230+x, 180+y, face_scale, lowerEye_value, l_brow_value, r_brow_value, l_browRaise_value, r_browRaise_value, pupil_value, blink_value, eyeballOffset_value, cheek_value, chin_value, color_value, eye_color);
 		
 }
+
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
-  
+  lastSwapTime = millis();
 }
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
+
 
 function generateRandomFaces(face_scale){
 	facePositions = [];
 	var face_y;
 	var face_x;
-	
+
   	for (var i = 0; i < 10; i++){
 
   	// while (facePositions.length < 1){
   		var overlapping = false;
-		 face_y  = focusedRandom(0, (canvasHeight+150)/2);
-		 face_x = focusedRandom(0, canvasWidth);
+		 face_y  = focusedRandom(0, canvasHeight/4, 8, canvasHeight/2);
+		 face_x = focusedRandom(0, canvasWidth - (canvasWidth/3));
 		var face_position = {
 			face_x,
-			face_y
+			face_y, 
+			face_scale
 			}
 		for (var j = 0; j < facePositions.length; j++){
 			var other = facePositions[j];
@@ -333,18 +346,19 @@ function generateRandomFaces(face_scale){
 		
 	}
 
+///code for face positioning taken from this tutorial: https://www.youtube.com/watch?v=XATr_jdh-44
+
 }
 
 function mouseClicked() {
   changeRandomSeed();
-  
-generateRandomFaces();
-	
-
-///code for face positioning taken from this tutorial: https://www.youtube.com/watch?v=XATr_jdh-44
 }
 
+
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
 
 	resetFocusedRandom(curRandomSeed);
 
@@ -352,32 +366,27 @@ function draw () {
 
 
 
-
 	// draw face
-	fill(bg_color);
+	fill(112, 120, 135);
 	rect(0, 0, width, height);
+	fill(150, 169, 173, 50);
 
-	var face_scale = 0.3;
-	generateRandomFaces(face_scale);
-	for (var i = 0; i < facePositions.length; i++){
-		drawFace(facePositions[i].face_x, facePositions[i].face_y, face_scale);
+	var face_scale = 0;
+	var lineHeight = 0;
+	for (var h = 0; h < 9; h++){
+		push();
+		lineHeight += 15;
+		translate(0, lineHeight - 50);
+		face_scale += 0.1;
+		generateRandomFaces(face_scale);
+
+		for (var i = 0; i < facePositions.length; i++){
+			drawFace(facePositions[i].face_x, facePositions[i].face_y, face_scale);
+		}
+		pop();
+		rect(0, 0, width, height);
 	}
 
-
-	fill(150, 150, 150, 90);
-	rect(0, 0, width, height);
-
-	var face_scale = 0.5;
-	generateRandomFaces(face_scale);
-	for (var i = 0; i < facePositions.length; i++){
-		drawFace(facePositions[i].face_x, facePositions[i].face_y, face_scale);
-	}
-	rect(0, 0, width, height);
-	var face_scale = 0.7;
-	generateRandomFaces(face_scale);
-	for (var i = 0; i < facePositions.length; i++){
-		drawFace(facePositions[i].face_x, facePositions[i].face_y, face_scale);
-	}
 	
 
 	
