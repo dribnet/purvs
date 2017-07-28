@@ -1,9 +1,18 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+UPDATED README!!
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+This is the final version of the part 2 exercise. I reused both of my previous characters as I thought they had good potential for parameterized values, and included a new character called Flabebe, which is also a Pokemon. 
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
+I wanted to experiment with giving each parameterized slider a different value to change throughout each character. The main exception to this is the discrete value with does something similar between all characters. (This was because I wanted to adjust something that wasn't an eye blink, but couldn't think of anything else)
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+The first slider changes rotation, rectangle border, and scale.
+The second slider holds all discrete variables.
+The third slider adjusts pupil scale, eye gleam position, and ear position. (The ears are asymmetrical because I found it more natural than the symmetrical version.)
+
+At this point I thought about which kind of style I would like to use and take into part 3. I decided on Zamasu because I felt like I enjoyed working on him the most, and his face has a lot of complexity and space to add more adjusting variables.
+
+I used the fourth and fifth slider to experiment with him further. 
+
+The fourth slider has a lerpColour value associated to it, which changes between the regular green, to a light pink. I wanted to see how colour changes would work. And finally the fifth slider adjusts his bottom jawline, this was to begin testing varying head shapes.
+
