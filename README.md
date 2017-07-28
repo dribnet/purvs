@@ -1,6 +1,7 @@
 ## PS1 MDDN 342 2017
 
-UPDATED README!!
+-UPDATED README!!
+-Cleaned Code!!
 
 This is the final version of the part 2 exercise. I reused both of my previous characters as I thought they had good potential for parameterized values, and included a new character called Flabebe, which is also a Pokemon. 
 

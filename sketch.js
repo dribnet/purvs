@@ -78,40 +78,6 @@ function drawFace1(x, y, w, h, tilt_value, earring_value, pupilSize_value, faceC
   var c2 = color(ShinFaceColor2)
   var faceColorBlend2 = lerpColor(c1, c2, faceColor_value);
 
-  // var extent = 0;
-  // if(h < w) {
-  //   extent = h / 2;
-  // }
-  // else {
-  //   extent = w / 2;
-  // }
-  // var scale = extent / 220.0;
-
-  // fill(fg_color1);
-  // ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // // eyes
-  // if (eye_value === 1 || eye_value == 3) {
-  //   fill(bg_color1);
-  //   ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-  //   fill(fg_color1);
-  //   ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  // }
-
-  // if (eye_value >= 2) {
-  //   fill(bg_color1);
-  //   ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-  //   ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-  //   fill(fg_color1);
-  //   ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  //   ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-  // }
-
-  // // mouth
-  // fill(bg_color1);
-  // ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-
   //Ears
   fill(faceColorBlend2);
   quad(146.5, 40, 280, -20, 160, 135, 40, 145);
@@ -214,8 +180,6 @@ function drawFace1(x, y, w, h, tilt_value, earring_value, pupilSize_value, faceC
   quad(-150, -69, -90, -2, -140, 120, -180, 100);
   triangle(-140, 120, -180, 100, -145, 190);
 
-
-
   pop();
 }
 
@@ -224,68 +188,6 @@ function drawFace2(x, y, w, h, faceCurve_value, eye_value, eyePos_value) {
   push();
   translate(x, y);
   translate(-25,0);
-
-  //var extent = 0;
-  //if(h < w) {
-  //  extent = h / 2;
-  //}
-  //else {
-  //  extent = w / 2;
-  //}
-  //var scale = extent / 220.0;
-
-  //stroke(stroke_color3);
-  //fill(fg_color3);
-  //ellipse(0, 0, 300 * scale, 400 * scale);
-
-  //// eyes. first check for blinking
-  //if(blink_value > 0) {
-  //  fill(bg_color3);
-  //  ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  //  ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  //}
-  //else {
-  //  fill(bg_color3);
-  //  ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-  //  ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-  //  fill(fg_color3);
-  //  ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  //  ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  //}
-
-
-  //// mouth
-  //fill(bg_color3);
-  //ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  //// TODO: paramaterize hair
-  //var follicles = [
-  //  [346,138],
-  //  [391,120],
-  //  [391,67],
-  //  [439,76],
-  //  [463,42],
-  //  [487,18],
-  //  [481,101],
-  //  [520,102],
-  //  [520,78],
-  //  [533,54],
-  //  [560,108],
-  //  [580,76],
-  //  [596,124],
-  //  [618,124]
-  //];
-
-  //resetMatrix();
-  //fill(colorHair);
-  //var radius = hair_value * scale;
-  //for(var i=0; i<follicles.length; i++) {
-  //  ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  //}
-  //rectMode(CORNER);
-  //resetMatrix();
-
   noStroke();
 
     // Head Shape
@@ -341,43 +243,6 @@ function drawFace3(x, y, w, h, scale_value, cheek_value, ear_value) {
   rectMode(CENTER);
   translate(x, y);
   scale(scale_value);
-  // rotate(width_value);
-
-  //var extent = 0;
-  //if(h < w) {
-  //  extent = h / 2;
-  //}
-  //else {
-  //  extent = w / 2;
-  //}
-  //var scale = extent / 220.0;
-
-  //stroke(stroke_color2)
-  //fill(fg_color2);
-  //rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-  //// eyes
-  //if (eye_value === 1 || eye_value == 3) {
-  //  fill(bg_color2);
-  //  rect( 0, -80 * scale, 50 * scale, 30 * scale);
-  //  fill(fg_color2);
-  //  ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  //}
-
-  //if (eye_value >= 2) {
-  //  fill(bg_color2);
-  //  rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-  //  rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-  //  fill(fg_color2);
-  //  ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  //  ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  //}
-
-  //// mouth
-  //fill(bg_color2);
-  //rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  //rectMode(CORNER);
 
     // Ears
   fill("rgb(243,242,238)");
