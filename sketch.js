@@ -30,7 +30,7 @@ var cheek_color = '#C74762',
     stroke_color = '#1E1E1E',
     fill_color = '#F5F5F5';
 
-function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
+function drawFace(x,y,w,h,face_shape_value,face_randomise_value,mouth_value,eye_value) {
   push();
   translate(x,y);
 
@@ -59,10 +59,20 @@ function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
 
   // face shapes
 
-  if (face_value[0] == 1) {
+  if (face_shape_value[0] == 1) {
     quad(-91*scale,-192*scale,-58*scale,86*scale,155*scale,14*scale,43*scale,-240*scale);
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    quad(-91*scale,-192*scale,-58*scale,86*scale,155*scale,14*scale,43*scale,-240*scale);
+
+    translate(-face_randomise_value*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
-  else if (face_value[0] == 2) {
+  else if (face_shape_value[0] == 2) {
     beginShape();
     vertex(89*scale,13*scale);
     vertex(-1*scale,65*scale);
@@ -71,8 +81,25 @@ function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
     vertex(99*scale,-239*scale);
     vertex(89*scale,13*scale);
     endShape();
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    beginShape();
+    vertex(89*scale,13*scale);
+    vertex(-1*scale,65*scale);
+    vertex(-129*scale,-25*scale);
+    vertex(-92*scale,-216*scale);
+    vertex(99*scale,-239*scale);
+    vertex(89*scale,13*scale);
+    endShape();
+
+    translate(-face_randomise_value*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
-  else if (face_value[0] == 3) {
+  else if (face_shape_value[0] == 3) {
     beginShape();
     vertex(-140*scale,-190*scale);
     vertex(-131*scale,-18*scale);
@@ -81,9 +108,26 @@ function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
     vertex(-60*scale,-239*scale);
     vertex(-140*scale,-190*scale);
     endShape();
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    beginShape();
+    vertex(-140*scale,-190*scale);
+    vertex(-131*scale,-18*scale);
+    vertex(34*scale,30*scale);
+    vertex(68*scale,-134*scale);
+    vertex(-60*scale,-239*scale);
+    vertex(-140*scale,-190*scale);
+    endShape();
+
+    translate(-face_randomise_value*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
 
-  if (face_value[1] == 1) {
+  if (face_shape_value[1] == 1) {
     beginShape();
     vertex(-25*scale,-107*scale);
     vertex(-108*scale,-21*scale);
@@ -92,11 +136,38 @@ function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
     vertex(140*scale,9*scale);
     vertex(-25*scale,-107*scale);
     endShape();
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    beginShape();
+    vertex(-25*scale,-107*scale);
+    vertex(-108*scale,-21*scale);
+    vertex(-47*scale,193*scale);
+    vertex(57*scale,193*scale);
+    vertex(140*scale,9*scale);
+    vertex(-25*scale,-107*scale);
+    endShape();
+
+    translate(-face_randomise_value*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
-  else if (face_value[1] == 2) {
+  else if (face_shape_value[1] == 2) {
     quad(-58*scale,-138*scale,-139*scale,125*scale,32*scale,180*scale,153*scale,-32*scale,-58*scale,-138*scale);
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    quad(-58*scale,-138*scale,-139*scale,125*scale,32*scale,180*scale,153*scale,-32*scale,-58*scale,-138*scale);
+
+    translate(-face_randomise_value*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
-  else if (face_value[1] == 3) {
+  else if (face_shape_value[1] == 3) {
     beginShape();
     vertex(25*scale,212*scale);
     vertex(-63*scale,168*scale);
@@ -105,6 +176,23 @@ function drawFace(x,y,w,h,face_value,mouth_value,eye_value) {
     vertex(99*scale,-53*scale);
     vertex(25*scale,212*scale);
     endShape();
+
+    translate(face_randomise_value*2,-face_randomise_value*2);
+    rotate(face_randomise_value);
+    strokeWeight(0.5);
+
+    beginShape();
+    vertex(25*scale,212*scale);
+    vertex(-63*scale,168*scale);
+    vertex(-105*scale,-161*scale);
+    vertex(-53*scale,-196*scale);
+    vertex(99*scale,-53*scale);
+    vertex(25*scale,212*scale);
+    endShape();
+
+    translate(-face_randomise_value*2*2,face_randomise_value*2);
+    rotate(-face_randomise_value);
+    strokeWeight(1);
   }
 
   // nose
@@ -188,12 +276,13 @@ function draw() {
       var x = w/2 + w*j;
 
       // randomising the parameters
-      var face_value = getRandomFaceShapes();
+      var face_shape_value = getRandomFaceShapes();
+      var face_randomise_value = focusedRandom(-2,2);
       var mouth_value = focusedRandom(-6,6);
       var eye_value = focusedRandom(-3,3);
 
       // drawing the face
-      drawFace(x, y, w, h, face_value, mouth_value, eye_value);
+      drawFace(x, y, w, h, face_shape_value, face_randomise_value, mouth_value, eye_value);
     }
   }
 }
