@@ -118,13 +118,13 @@ function drawFace1(x, y, w, h, brow_value, eye_value, ear_value, eye_scale, mout
   rectMode(CENTER);
   noStroke();
   fill(0);
-  rect(0, 50, (10 + mouth_width) * scale, 10 * scale);
+  rect(0, 110 * scale, (10 + mouth_width) * scale, 10 * scale);
 
   fill(gollum_tooth);
-    strokeWeight(1);
-    stroke(0);
-  triangle(5 * scale, 90 * scale, 15 * scale, 70 * scale, 25 * scale, 90 * scale);
-  triangle(-5 * scale, 90 * scale, -15 * scale, 70 * scale, -25 * scale, 90 * scale);
+  strokeWeight(1);
+  stroke(0);
+  triangle(5 * scale, 110 * scale, 15 * scale, 90 * scale, 25 * scale, 110 * scale);
+  triangle(-5 * scale, 110 * scale, -15 * scale, 90 * scale, -25 * scale, 110 * scale);
     
 
   pop();
@@ -255,11 +255,14 @@ function draw () {
   // draw 1st face
   fill(bg_color1);
 
+  // tilt_value = focusedRandom(10, 50);
+  // eye_value = Math.floor(focusedRandom(1, 3));
+  // mouth_value = focusedRandom(30, 140);
+  brow_value = focusedRandom(-90, -120);
+  eye_value = focusedRandom(-15, 15);
   ear_value = focusedRandom(100, 300);
   eye_scale = focusedRandom(10, 200);
-  mouth_width = focusedRandom(150, 200);
-  eye_value = focusedRandom(-15, 15);
-  brow_value = focusedRandom (100, -120);
+  mouth_width = focusedRandom(100, 200);
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
@@ -267,32 +270,17 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      ear_value = focusedRandom(100, 300);
-      eye_scale = focusedRandom(10, 200);
-      mouth_width = focusedRandom(150, 200);
-      eye_value = focusedRandom(-15, 15);
-      brow_value = focusedRandom (100, -120);
+        brow_value = focusedRandom(-90, -150);
+        eye_value = focusedRandom(-15, 15);
+        ear_value = focusedRandom(50, 250);
+        eye_scale = focusedRandom(10, 150);
+        mouth_width = focusedRandom(60, 200);
+      // tilt_value = focusedRandom(10, 50);
+      // eye_value = int(focusedRandom(1, 3));
+      // mouth_value = focusedRandom(30, 140);
+      drawFace1(x, y, w, h, brow_value, eye_value, ear_value, eye_scale, mouth_width);
     }
   }
-  drawFace1(face_x, face_y, face_w, face_h, brow_value, eye_value, ear_value, eye_scale, mouth_width);    
-  }
-
-  // tilt_value = focusedRandom(10, 50);
-  // eye_value = Math.floor(focusedRandom(1, 3));
-  // mouth_value = focusedRandom(30, 140);
-
-  // var w = canvasWidth / 5;
-  // var h = canvasHeight / 3;
-  // for(var i=0; i<3; i++) {
-  //   for(var j=0; j<5; j++) {
-  //     var y = h/2 + h*i;
-  //     var x = w/2 + w*j;
-  //     tilt_value = focusedRandom(10, 50);
-  //     eye_value = int(focusedRandom(1, 3));
-  //     mouth_value = focusedRandom(30, 140);
-  //     drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value);
-  //   }
-  // }
 
   // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
 }

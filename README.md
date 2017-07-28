@@ -1,13 +1,13 @@
 ## PS1 MDDN 342 2017
 
-PART 2: DRAWING STYLES
+PART 3: RANDOMISE
 
-This README explains the three different paramaterized faces for part2. 
+This README explains my changes for part 3 of assignment 1. 
 
-I have used a minimum of 3 sliders for each face, with the first face using all 5 parameters.
+I have developed face 1 from part 2 (which began as a questionable gollum look-alike in part 1).
 
-My first two faces I carried through from part 1. In part 1 they were looking at each other, so I wanted their eyes to be able to glance from left to right using the sliders.
+I chose to use face 1 as it had all 5 parameters in use for adjusting different features of the face (eye size and direction, brow height, mouth width, ear size). Therefore, I felt that this would lend the greates amount of variety for the random outputs. 
 
-My third face I wanted to develop something more human. I based this off Chucky from rugrats and went from there. You can adjust face size, glasses and ear position.
+
 
 
