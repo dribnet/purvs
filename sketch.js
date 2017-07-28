@@ -412,35 +412,41 @@ function draw () {
 
   noStroke();
   background(bg_color1);
- 
-  
-  var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
-      drawFace(x, y);
+
+
+    var w = canvasWidth / 5;
+    var h = canvasHeight / 3;
+    for(var i=0; i<3; i++) {
+        for(var j=0; j<5; j++) {
+            var y = h/2 + h*i;
+            var x = w/2 + w*j;
+            setTimeout(
+                function(x, y){
+                    return function() { drawFace(x, y) };
+                }(x, y),
+                0
+            );
+
+        }
     }
-  }
 }
 
-/* 
- * JSON object consisting of six hue ranges 
+/*
+ * JSON object consisting of six hue ranges
  * used to ensure each robot has a unique hue
- * the third element of each array is the midpoint of the range 
+ * the third element of each array is the midpoint of the range
  * which is used to set the mean value for the focusedRandom function
  */
 var robotHueRanges = {
-	1 : [-20, 20, 0],
-	2 : [21, 60, 40],
-	3 : [61, 100, 80],
-	4 : [101, 140, 120],
-	5 : [141, 180, 160],
-	6 : [181, 220, 200],
-	7 : [221, 260, 240],
-	8 : [261, 300, 280],
-	9 : [301, 340, 320]
+    1 : [-20, 20, 0],
+    2 : [21, 60, 40],
+    3 : [61, 100, 80],
+    4 : [101, 140, 120],
+    5 : [141, 180, 160],
+    6 : [181, 220, 200],
+    7 : [221, 260, 240],
+    8 : [261, 300, 280],
+    9 : [301, 340, 320]
 }
 
 var robotCount = 0;
@@ -455,33 +461,33 @@ function drawFace (x, y) {
   var face = random(['monster', 'robot']);
   //there will be a maximum of 9 robots on the canvas
   if(face == "monster" || robotCount >= 9){
-	//number of eyes
-	var num_of_eyes = getRandomNumberForDiscreteSetting('eyes');
-	var hue = focusedRandom(120, 330);
-	//the amount zig zig present in the pattern should lean towards a smaller value
+    //number of eyes
+    var num_of_eyes = getRandomNumberForDiscreteSetting('eyes');
+    var hue = focusedRandom(120, 330);
+    //the amount zig zig present in the pattern should lean towards a smaller value
     var zigzag = focusedRandom(1, 20, 10, 3);
     var size_adjuster = focusedRandom(0.3, 0.6);
-	//the smaller the monster is the bigger its eyes should be
+    //the smaller the monster is the bigger its eyes should be
     var eye_size = focusedRandom(20, 80, 10, 100 - (size_adjuster * 100));
     var tilt_value = focusedRandom(-15, 45);
     drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value);
   }
   else if(face == "robot"){
-	robotCount++;
-	//number of antennas
-	var num_of_antennas = getRandomNumberForDiscreteSetting('antennas');
-	//the face height should be closer to the center of the range
+    robotCount++;
+    //number of antennas
+    var num_of_antennas = getRandomNumberForDiscreteSetting('antennas');
+    //the face height should be closer to the center of the range
     var face_height = focusedRandom(0, 200, 5, 100);
-	//the hue should be focused toward the center of this robots hue range
-	var hue = focusedRandom(robotHueRanges[robotCount][0], robotHueRanges[robotCount][1], 10, robotHueRanges[robotCount][2]);
-	//the actual range of values for face_shape is 0-200 but I want the value for face shape to be either close to 0 or 200 
-	//so I have focused the random value around a mean of 200 between a range of 100 and 300
+    //the hue should be focused toward the center of this robots hue range
+    var hue = focusedRandom(robotHueRanges[robotCount][0], robotHueRanges[robotCount][1], 10, robotHueRanges[robotCount][2]);
+    //the actual range of values for face_shape is 0-200 but I want the value for face shape to be either close to 0 or 200
+    //so I have focused the random value around a mean of 200 between a range of 100 and 300
     var face_shape = focusedRandom(100, 300, 10, 200);
-	//and if the value ends up being greater than 200
-	if(face_shape > 200){
-		//make it closer to zero
-		face_shape = face_shape - 200;
-	}
+    //and if the value ends up being greater than 200
+    if(face_shape > 200){
+        //make it closer to zero
+        face_shape = face_shape - 200;
+    }
     var mouth_style = focusedRandom(50, 10);
     var eye_distance = focusedRandom(50, 0);
     var tilt_value = focusedRandom(30, -30);
@@ -497,8 +503,8 @@ function drawFace (x, y) {
 function getRandomNumberForDiscreteSetting(type = 'eyes') {
   //the probabilities for the two possible types
   var probs = {
-	'eyes' : [50, 60, 75],
-	'antennas' : [10, 25, 75]
+    'eyes' : [50, 60, 75],
+    'antennas' : [10, 25, 75]
   }
   var random_result = focusedRandom(0, 100);
   if(random_result < probs[type][0]) {
@@ -508,7 +514,7 @@ function getRandomNumberForDiscreteSetting(type = 'eyes') {
     return 2;
   }
   else if(random_result < probs[type][2]) {
-	return 3;
+    return 3;
   }
   else {
     return 4;
