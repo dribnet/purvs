@@ -3,6 +3,7 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -10,17 +11,14 @@ function setup () {
     
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+  // randButton = createButton('randomize');
+  // randButton.mousePressed(changeRandomSeed);
+  // randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-}
 
 // global variables for colors
 var bg_color1 = [81,81,81];
@@ -37,6 +35,7 @@ var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
 var colorHair = [221, 221, 221];
+var num_faces = 22;
 
 function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
   push();
@@ -329,152 +328,44 @@ function drawFace2(x, y, w, h, brow_value_yoda, eye_value_yoda,  mouth_value_yod
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, pupil_value, eye_value, mouth_value) {
-
-  push();
-  rectMode(CENTER);
-  translate(x, y);
-  // rotate(width_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
 
 
-   //ears
-    fill(149, 150, 129);
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
-     beginShape();
-     vertex(-30, -80);
-     vertex(-80, -40);
-     vertex(-90, 0);
-     vertex(-90, 100);
-     vertex(-75, 150);
-     vertex(-45, 120);
-     vertex(-40, 100);
-     vertex(-60,-30);
-    endShape();
-
-    push();
-    translate(0,0);
-     beginShape();
-     vertex(30, -80);
-     vertex(80, -40);
-     vertex(90, 0);
-     vertex(90, 100);
-     vertex(75, 150);
-     vertex(45, 120);
-     vertex(40, 100);
-     vertex(60,-30);
-    endShape();
-    pop();
-
-
-  stroke(stroke_color3)
-  fill(fg_color3);
-      //head
-    noStroke();
-     beginShape();
-    vertex(-60,-30);
-    vertex(-mouth_value -30, 40);
-    vertex(-30, 90);
-    vertex(0, 95);
-    vertex(0, -100);
-    vertex(-5, -99);
-    vertex(-40, -70);
-    vertex(-60, -50);
-    endShape();
-    
-    push();
-    translate(0,0);
-    beginShape();
-    vertex(60,-30);
-    vertex(mouth_value +30, 40);
-    vertex(30, 90);
-    vertex(0, 95);
-    vertex(0, -100);
-    vertex(5, -99);
-    vertex(40, -70);
-    vertex(60, -50);
-    endShape();
-    pop();
-    
-
-  
-    
-    //eyes
-     fill(fg_color3);
-    beginShape();
-     vertex(-20,-eye_value-20);
-    vertex(-35,-eye_value-30);
-    vertex(-50, -eye_value-20);
-    vertex(-50, -50);
-    vertex(-20, -65);
-    endShape();
-    
-    push();
-    translate(0,0);
-    beginShape();
-    vertex(20,-eye_value-20);
-    vertex(35,-eye_value-30);
-    vertex(50, -eye_value-20);
-    vertex(50, -50);
-    vertex(20, -65);
-    endShape();
-    pop();
-    
-    fill(255);
-    ellipse(-35,-eye_value-5,20,25);
-    ellipse(35,-eye_value-5,20,25);
-    fill(0);
-    ellipse(-35,-eye_value-5,pupil_value,15);
-    ellipse(35,-eye_value-5,pupil_value,15);
-    noFill();
-    stroke(177, 178, 155);
-    arc(-35, -eye_value-5, 30, 40, 220, 320);
-    arc(35, -eye_value-5, 30, 40, 220, 320);
-    
-    stroke(177, 178, 155);
-    push();
-    translate(0,0);
-    rotate(180);
-    arc(-35, eye_value+5, 30, 40, 220, 320);
-    arc(35, eye_value+5, 30, 40, 220, 320);
-    arc(-35, eye_value, 30, 40, 220, 320);
-    arc(35, eye_value, 30, 40, 220, 320); 
-    pop();
-
-  // mouth
- fill(61,61,61);    
-    rectMode(CENTER);
-    translate (0, 15);
-    beginShape();
-    vertex(-10,0);
-    vertex(0,-5);
-    vertex(10,0);
-    vertex(mouth_value,20);
-    vertex(10, 40);
-    vertex(0,45);
-    vertex(-10, 40);
-    vertex(-mouth_value,20);
-    vertex(-10,0);
-
-    endShape();
-
-  pop();
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
 }
 
+function mouseClicked() {
+  changeRandomSeed();
+}
+
+
+
 function draw () {
+  
+
+    if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+	
+	}
+
   clear();
   resetFocusedRandom(curRandomSeed);
   noStroke();
+  background(81,81,81);
 
-  // use same size / y_pos for all faces
+  	 var w = canvasWidth / 10;
+	  var h = canvasHeight / 6;
+	  var w2 = w/2;
+	  var h2 = h/2;
+
+
+
+
+  //use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
   var face_h = face_w;
   var face_y = height / 2;
@@ -482,40 +373,34 @@ function draw () {
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
+  var w2 = w/2;
+  var h2 = h/2;
 
-     //Leia
+	  for(var n=0; n<num_faces; n++) {
       brow_value = focusedRandom(-30, -40);
-      eye_value = int(focusedRandom(1, 3));
-      mouth_value = focusedRandom(10, 50);
-
-      //Yoda
-       brow_value_yoda = focusedRandom(20, 40);
-       eye_value_yoda = int(focusedRandom(25, 40));
-       mouth_value_yoda = focusedRandom(20, 70);
-
-  
-         random_result = focusedRandom(0, 100);
-        if(random_result < 10) {
-
-             drawFace2(x, y, w, h, brow_value_yoda, eye_value_yoda, mouth_value_yoda); 
-
-        }
-        else {
-             drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);  
-
-        }
+	   eye_value = int(focusedRandom(1, 3));
+	   mouth_value = focusedRandom(10, 50);
 
 
-
-
-    }
+      var x, y;
+      if(mouth_value < 25) {
+        x = focusedRandom(w2, width/2, 1);
+        y = focusedRandom(h2, height-h2, 1);
+      }
+      else {
+        x =focusedRandom(2*width/3, width, 8);
+        y = focusedRandom(h2, height-h2, 2);
+      }
+      drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);  
   }
 
+
 }
+
+
+
+
+
 
 function keyTyped() {
   if (key == '!') {
