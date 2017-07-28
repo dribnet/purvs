@@ -39,7 +39,7 @@ var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [255, 246, 229];
-var fg_color2 = [56, 91, 194];
+var fg_color2 = [196, 141, 106];
 var fg_color3 = [255, 231, 191];
 
 var stroke_color1 = [95, 52, 8];
@@ -73,10 +73,10 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color1);
-    ellipse( -10, -80 * scale, 50 * scale, 30 * scale);
-    fill(0,0,0);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+    fill(250, 250, 250);
+    ellipse(0 * scale, 0 * scale, 120 * scale, 80 * scale);
+    fill(232,147,0);
+    ellipse(0 * scale, 0 * scale, 40 * scale, 40 * scale);
   }
 
   if (eye_value >= 2) {
@@ -125,24 +125,59 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   ellipse(-40, -100, 100, 80);
   ellipse(40, -100, 100, 80);
 
-  //bug smile
-  // eyes
+  // tomatoes
 
   fill(176, 36, 26);
-  ellipse(-80 * scale, -80 * scale, 100 * scale, 100 * scale);
-  ellipse( 80 * scale, -80 * scale, 100 * scale, 100 * scale);
+  ellipse(-75 * scale, -100 * scale, 120 * scale, 120 * scale);
+  ellipse( 75 * scale, -100 * scale, 120 * scale, 120 * scale);
+
   fill(240,82,67);
-  ellipse(-80 * scale, -80 * scale, 90 * scale, 90 * scale);
-  ellipse( 80 * scale, -80 * scale, 90 * scale, 90 * scale);
+  ellipse(-75 * scale, -100 * scale, 110 * scale, 110 * scale);
+  ellipse( 75 * scale, -100 * scale, 110 * scale, 110 * scale);
 
+  fill(255,128,125)
+  ellipse(-75 * scale, -100 * scale, 50 * scale, 20 * scale);
+  ellipse(-75 * scale, -100 * scale, 20 * scale, 50 * scale);
+  ellipse(75 * scale, -100 * scale, 50 * scale, 20 * scale);
+  ellipse(75 * scale, -100 * scale, 20 * scale, 50 * scale);
+  push();
+  translate(-75*scale, -100*scale);
+  rotate(45);
+  ellipse(0, 0, 20 * scale, 50 * scale);
+  rotate(90);
+  ellipse(0, 0, 20 * scale, 50 * scale);
+  pop();
+  push();
+  translate(75*scale, -100*scale);
+  rotate(45);
+  ellipse(0, 0, 20 * scale, 50 * scale);
+  rotate(90);
+  ellipse(0, 0, 20 * scale, 50 * scale);
+  pop();
+
+  //seeds
+  fill(255,166,51);
+  //left
+  // ellipse( -75 * scale, -60 * scale, 10 * scale, 20 * scale);
+  // ellipse( -75 * scale, -140 * scale, 10 * scale, 20 * scale);
+  // ellipse( -115 * scale, -100 * scale, 20 * scale, 10 * scale);
+  // ellipse( -35 * scale, -100 * scale, 20 * scale, 10 * scale);
+  // //right
+  // ellipse( -75 * scale, -140 * scale, 10 * scale, 20 * scale);
+  // ellipse( 75 * scale, -140 * scale, 10 * scale, 20 * scale);
+  // ellipse( 115 * scale, -100 * scale, 20 * scale, 10 * scale);
+  // ellipse( 35 * scale, -100 * scale, 20 * scale, 10 * scale);
+
+
+  // avacado
+  fill(219, 200, 124);
+  stroke(70, 145, 31);
+  strokeWeight(2);
+  arc(0, 40, 100, 50, 180, QUARTER_PI);
+  noStroke();
   fill(fg_color3);
-  ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
+  ellipse((10 + eye_value), 45, 35, 30);
+  //ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
 
   // TODO: paramaterize hair
   // var follicles = [
@@ -168,6 +203,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   // for(var i=0; i<follicles.length; i++) {
   //   ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
   // }
+  pop();
   rectMode(CORNER);
   resetMatrix();
 }
@@ -176,7 +212,6 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
 
   var extent = 0;
   if(h < w) {
@@ -187,33 +222,45 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   }
   var scale = extent / 220.0;
 
-  stroke(stroke_color2)
+  noStroke();
   fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
+  ellipse(0, 0, 650 * scale * scale, 400 * scale);
 
   // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+    fill(0,0,0);
+    ellipse(-45 * scale, -50 * scale, 20 * (width_value/100), 20 * scale);
+    ellipse( 45 * scale, -50 * scale, 20 * (width_value/100), 20 * scale);
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+    fill(255,255,255,120);
+    stroke(0,0,0);
+    strokeWeight(3);
+    rect(-45 * scale, -50 * scale, 65 * scale, 45 * scale, 8);
+    rect( 45 * scale, -50 * scale, 65 * scale, 45 * scale, 8);
+
+    line(-5, -30, 5, -30);
+
+
+
 
   // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+  fill(bg_color3);
+  noStroke();
+  ellipse(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
   rectMode(CORNER);
+
+    //hair
+
+  fill(0,0,0);
+  rotate(30);
+  ellipse(-95,-5,30,80);
+  rotate(-60);
+  ellipse(95,-5,30,80);
+
   pop();
+
+
+
 }
 
 function draw () {
@@ -276,7 +323,7 @@ function draw () {
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
     var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
+    var mouth_value = map(s3, 0, 100, 0, 100);
     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
     if (mode == 'all') {
       face_x = 5 * width / 6;
