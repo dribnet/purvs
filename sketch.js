@@ -209,12 +209,12 @@ function draw () {
       var y = h/2 + h*i;
       var size = 1.5;
 
-      var forehead_value = focusedRandom(0.5, 1.8, 1, 1.3);
+      var forehead_value = focusedRandom(0.5, 1.8);
       var foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];
-      var eye_value = focusedRandom(0.7, 1.4, 3, 1);
-      var eyeRim_value = focusedRandom(0.5, 3, 1, 2);
+      var eye_value = focusedRandom(0.8, 1.3);
+      var eyeRim_value = focusedRandom(0.5, 3);
       var mouth_value = focusedRandom(0.9, 1.3);
-      var jaw_value = focusedRandom(0.3, 1.7);
+      var jaw_value = focusedRandom(0.3, 1.4);
       var skinColor_value = [Math.floor(focusedRandom(20, 100)), Math.floor(focusedRandom(80, 20)), Math.floor(focusedRandom(100, 20))];
       var tri1_value = focusedRandom(-5, 1);
       var tri2_value = focusedRandom(0, 1);
