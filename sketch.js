@@ -26,7 +26,7 @@ function changeRandomSeed() {
 var bg_color1 = [255, 255, 255];
 var face_stroke = [0, 0, 0];
 
-function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value) {
+function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value) {
   push();
   translate(x, y);
 
@@ -91,21 +91,30 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     ellipse(-20 + offset2, -20 + offset2, 10 + offset4, 10 + offset4);
     strokeWeight(.4);
     stroke(0, 0, 0);
-    line(-30 + offset2, -25, -15, -30);
-    line(30, -25, 15, -30 + offset2);
+      /*if (offset2 < 0){
+        line(-30, -30, 0, -30);
+        // right brow
+        line(30, -30, 10 + offset2, -30 + offset2);
+      }
+      else{
+        strokeWeight(10);
+        line(-30 + offset2, -30, 0, -30);
+        // right brow
+        line(30, -30, 10 + offset2, -30 + offset2);
+      }*/
   }
 
   if (eye_value == 2) {
     // black with under eyes
     push();
     fill(0, 0, 0);
-    ellipse(15 + offset, -15, 7, 7);
+    ellipse(15, -15, 7, 7);
     ellipse(-15, -15, 7, 7);
     noFill();
     stroke(0, 0, 0);
     strokeWeight(.3);
     ellipse(-15, -15 + offset3, 7 , 7);
-    ellipse(15 + offset, -15 + offset3, 7, 7);
+    ellipse(15, -15 + offset3, 7, 7);
     pop();
   }
 
@@ -121,24 +130,21 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     line(-20, -20 + offset3, -10, -10);
     line(-10, -20 + offset2, -20, -10);
 
-    // right brow
-    line(-32, -30, -5, -30);
-
     noStroke();
     fill(119, 156, 82, alpha_ran3);
-    ellipse(-15, -15, 10 + offset2, 10 + offset2);
-    ellipse(-46, -15, 10 + offset2, 10 + offset2);
+    ellipse(-15, -15, 10 + offset4, 10 + offset4);
+    ellipse(-46, -15, 10 + offset4, 10 + offset4);
     pop();
     noFill();
   }
 
   if (eye_value == 4) {
-  // arch eyes with circle
-  strokeWeight(.7);
-  arc(-20, -10, 10 + offset, 10 + offset, 180, PI);
-  arc(20, -10, 10 + offset, 10 + offset, 180, PI);
-  ellipse(20, -8, 5 + offset2, 5 + offset2);
-  ellipse(-20, -8, 5 + offset2, 5 + offset2);
+    // arch eyes with circle
+    strokeWeight(.7);
+    arc(-20, -10, 10 + offset, 10 + offset, 180, PI);
+    arc(20, -10, 10 + offset, 10 + offset, 180, PI);
+    ellipse(20, -8, 5 + offset2, 5 + offset2);
+    ellipse(-20, -8, 5 + offset2, 5 + offset2);
   }
 
   if (eye_value == 5) {
@@ -150,51 +156,112 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     ellipse(-20 + offset2, -20 + offset2, 10 + offset4, 10 + offset4);
     strokeWeight(.4);
     stroke(0, 0, 0);
+  }
+
+
+  // nose and brow
+  // right facing nose
+  if (nose_type_value == 1 & eye_value != 4){
+    strokeWeight(0.4);
     // left brow
     line(-30 + offset2, -30, 0, -30);
     // right brow
     line(30, -30, 10 + offset2, -30 + offset2);
+    // nose
+    line(0, -30, -10, 0 + nose_value);
+    line(-10, 0 + nose_value, 5, 0 + nose_value);
   }
 
-
-  // nose
-  if (eye_value == 5){
-  line(0, -30, -10, 0 + nose_value);
-  line(-10, 0 + nose_value, 5, 0 + nose_value);
+  // left facing nose
+  if (nose_type_value == 2 & eye_value != 4){
+    strokeWeight(0.4);
+    // right brow
+    line(30 + offset, -30 + offset2, 10, -30);
+    // left brow
+    line(-32, -30, 0, -30);
+    // nose
+    line(0, -30, 10, 0 + nose_value);
+    line(10, 0 + nose_value, 5, 0 + nose_value);
   }
 
-  if (eye_value == 3 || eye_value == 2){
-  line(0, -30, 10, 0 + nose_value);
-  line(10, 0 + nose_value, 5, 0 + nose_value);
+  // angle brows and nose
+  if (nose_type_value == 3 & eye_value != 4){
+    strokeWeight(0.4);
+    // left brow
+    line(-12, -35, -5, -20);
+    line(-12, -35, -35 + nose_value/2, -30);
+    // right brow
+    line(12, -35, 5, -20);
+    line(12, -35, 30 + nose_value/2, -20);
+    // nose
+    line(4, -15, 5, 5 + nose_value/2);
+    line(-4, -15, -5, 5 + nose_value/2);
+    // nose bottom
+    line(0, 10 + nose_value/2, -10, 5 + nose_value/2);
+    line(0, 10 + nose_value/2, 10, 5 + nose_value/2);
+  }
+
+  // straight brows, angle nose
+  if (nose_type_value == 4 & eye_value != 4){
+    strokeWeight(0.4);
+    // right brow
+    line(30, -30 + nose_value/4, 5, -30 + nose_value/4);
+    // left brow
+    line(-30, -30 + nose_value/4, -5, -30 + nose_value/4);
+    // nose
+    line(4, -15, 5, 5 + nose_value/2);
+    line(-4, -15, -5, 5 + nose_value/2);
+    // nose bottom
+    line(0, 10 + nose_value/2, -10, 5 + nose_value/2);
+    line(0, 10 + nose_value/2, 10, 5 + nose_value/2);
+  }
+
+  if (eye_value == 4 || nose_type_value ==5) {
+    // nose bottom
+    noFill();
+    strokeWeight(0.4);
+    line(-5, 10 + nose_value/2, -10, 5 + nose_value/2);
+    line(5, 10 + nose_value/2, 10, 5 + nose_value/2);
+    line(0, -15 - nose_value, 10, 5 + nose_value/2);
+    line(-5, 10 + nose_value/2, 5, 10 + nose_value/2);
+    if (eye_value != 4){
+      strokeWeight(0.4);
+      // right brow
+      line(30, -30 + nose_value/4, 5, -30 + nose_value/4);
+      // left brow
+      line(-30, -30 + nose_value/4, -5, -30 + nose_value/4);
+    }
   }
 
 
   // mouth
-  /*if (mouth_type_value == 1){
-  push();
-  noFill();
-  rotate(180);
-  strokeWeight(random(.5,1));
-  arc(0, -20 + mouth_height, 30 * mouth_value, 20 * mouth_value, 180, PI);
-  pop();
+  if (nose_type_value == 3 || nose_type_value == 4){
+    push();
+    noFill();
+    rotate(180);
+    strokeWeight(0.5);
+    arc(0, -20 - nose_value/2, 30 * mouth_value, 20 * mouth_value, 180, PI);
+    pop();
+    
+  } 
 
+  else if (mouth_value == 1) {
+    push();
+    noFill();
+    rotate(180);
+    strokeWeight(0.5);
+    ellipse(0, -20 - nose_value/1.5, 10 * mouth_value, 10 * mouth_value);
+    pop();
   }
 
-  else if (mouth_type_value == 2 & eye_value != 2){
-  push();
-  noFill();
-  rotate(180);
-  strokeWeight(random(.5,1));
-  ellipse(0, -20 + mouth_height, 10 * mouth_value, 10 * mouth_value);
-  pop();
+  else {
+    push();
+    noFill();
+    rotate(180);
+    strokeWeight(0.5);
+    ellipse(0, -20 - nose_value/1.5, 10 * mouth_value, 10 * mouth_value);
+    pop();
   }
-
-  else{
-  push();
-  strokeWeight(random(.5,1.5));
-  line(-10, 20 * mouth_value2, 10, 20 * mouth_value2);
-  pop();
-  }*/
 
   pop();
 }
@@ -237,7 +304,8 @@ function draw () {
       mouth_height = focusedRandom(-5, 15);
       mouth_type_value = Math.floor(focusedRandom(1,4));
       nose_value = focusedRandom(-5, 20);
-      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value);
+      nose_type_value = Math.floor(focusedRandom(1, 6));
+      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value);
     }
   }
 
