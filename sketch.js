@@ -52,6 +52,25 @@ function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
 
   fill(fg_color1);
 
+
+//heads rotate
+  	random_result = focusedRandom(0, 100);
+        if(random_result < 40) {
+
+               rotate(20);
+
+        }
+        if(random_result < 20) {
+
+               rotate(-25);
+
+        }
+
+        else {
+ 		rotate(0);
+
+
+        }
     
     //head
     noStroke();
@@ -80,9 +99,20 @@ function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
     endShape();
     pop();
     
+    //hair color
+  random_result = focusedRandom(0, 100);
+        if(random_result < 30) {
+
+               fill(51, 30, 5);
+        }
+
+        else {
+ 		fill(94, 57, 10);
+        }
     
+
     //hair
-    fill(94, 57, 10);
+    
     noStroke();
      beginShape();
   vertex(-30* scale,-110* scale);
@@ -104,8 +134,8 @@ function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
   vertex(50* scale, -100* scale);
    endShape();
     pop();
-    
-    
+
+
     //hair buns
        beginShape();
     vertex(-90* scale,-80* scale);
@@ -132,8 +162,21 @@ function drawFace1(x, y, w, h, brow_value, eye_value, mouth_value) {
   endShape();
 pop();
 
+//lowered eyes and higher mouth
+  	random_result = focusedRandom(0, 100);
+        if(random_result < 40) {
+				push();
+               translate(0,10);
 
-  // eyes
+                 stroke(0);
+    line(-20* scale,brow_value * scale,-45* scale,-30* scale);
+    push();
+    translate(0,0);
+    line(20* scale,brow_value * scale,40* scale,-30* scale);
+    pop();
+
+                 // eyes
+                 noStroke();
   if (eye_value === 1) {
     fill(255);
     ellipse(-30 * scale, -10 * scale, 20 * scale, 20 * scale);
@@ -151,27 +194,108 @@ pop();
     ellipse(-30 * scale, -10 * scale, 10 * scale, 10 * scale);
     ellipse( 30 * scale, -10 * scale, 10 * scale, 10 * scale);
   }
-    
-    
-    //brows 
-    stroke(0);
+
+   translate(0,-20);
+   fill(bg_color1); 
+  stroke(0);    
+    rectMode(CENTER);
+     push();
+     noFill();
+      rotate(180);
+      translate(0,34);
+    arc(0, -80, mouth_value, 20, 20, 160);
+
+      pop();
+
+
+pop();
+
+        }
+        
+
+        else {
+
+        	  stroke(0);
     line(-20* scale,brow_value * scale,-45* scale,-30* scale);
     push();
     translate(0,0);
     line(20* scale,brow_value * scale,40* scale,-30* scale);
     pop();
 
-    //mouth
-    fill(bg_color1); 
+ 		  // eyes
+ 		  noStroke();
+  if (eye_value === 1) {
+
+    fill(255);
+    ellipse(-30 * scale, -10 * scale, 20 * scale, 20 * scale);
+    ellipse( 30 * scale, -10 * scale, 20 * scale, 20 * scale);
+      fill(0);
+    ellipse(-30 * scale, -10 * scale, 5 * scale, 5 * scale);
+    ellipse( 30 * scale, -10 * scale, 5 * scale, 5 * scale);
+  }
+
+  if (eye_value >= 2) {
+    fill(255);
+    ellipse(-30 * scale, -10 * scale, 30 * scale, 30 * scale);
+    ellipse( 30 * scale, -10 * scale, 30 * scale, 30 * scale);
+     fill(0);
+    ellipse(-30 * scale, -10 * scale, 10 * scale, 10 * scale);
+    ellipse( 30 * scale, -10 * scale, 10 * scale, 10 * scale);
+  }
+  fill(bg_color1); 
   stroke(0);    
     rectMode(CENTER);
      push();
      noFill();
       rotate(180);
-      translate(0,34* scale);
-     arc(0, -70, mouth_value, 20, 20, 160);
+      translate(0,34);
+     arc(0, -80, mouth_value, 20, 20, 160);
 
       pop();
+
+
+
+        }
+
+  // eyes
+  // if (eye_value === 1) {
+  //   fill(255);
+  //   ellipse(-30 * scale, -10 * scale, 20 * scale, 20 * scale);
+  //   ellipse( 30 * scale, -10 * scale, 20 * scale, 20 * scale);
+  //     fill(0);
+  //   ellipse(-30 * scale, -10 * scale, 5 * scale, 5 * scale);
+  //   ellipse( 30 * scale, -10 * scale, 5 * scale, 5 * scale);
+  // }
+
+  // if (eye_value >= 2) {
+  //   fill(255);
+  //   ellipse(-30 * scale, -10 * scale, 30 * scale, 30 * scale);
+  //   ellipse( 30 * scale, -10 * scale, 30 * scale, 30 * scale);
+  //    fill(0);
+  //   ellipse(-30 * scale, -10 * scale, 10 * scale, 10 * scale);
+  //   ellipse( 30 * scale, -10 * scale, 10 * scale, 10 * scale);
+  // }
+    
+
+    //brows 
+    // stroke(0);
+    // line(-20* scale,brow_value * scale,-45* scale,-30* scale);
+    // push();
+    // translate(0,0);
+    // line(20* scale,brow_value * scale,40* scale,-30* scale);
+    // pop();
+
+    //mouth
+  //   fill(bg_color1); 
+  // stroke(0);    
+  //   rectMode(CENTER);
+  //    push();
+  //    noFill();
+  //     rotate(180);
+  //     translate(0,34* scale);
+  //    arc(0, -70, mouth_value, 20, 20, 160);
+
+  //     pop();
 
 
   pop();
@@ -345,28 +469,18 @@ function mouseClicked() {
 
 
 function draw () {
-  
-
-    if(millis() > lastSwapTime + millisPerSwap) {
+    
+        if(millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
 	
 	}
 
-  clear();
+ clear();
   resetFocusedRandom(curRandomSeed);
   noStroke();
-  background(81,81,81);
-
-  	 var w = canvasWidth / 10;
-	  var h = canvasHeight / 6;
-	  var w2 = w/2;
-	  var h2 = h/2;
-
-
-
-
-  //use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
+background(81,81,81);
+  // use same size / y_pos for all faces
+ var face_w = canvasWidth / 4;
   var face_h = face_w;
   var face_y = height / 2;
   var face_x = width / 2;
@@ -376,27 +490,46 @@ function draw () {
   var w2 = w/2;
   var h2 = h/2;
 
-	  for(var n=0; n<num_faces; n++) {
+	var face_w = canvasWidth / 4;
+  var face_h = face_w;
+  var face_y = height / 2;
+  var face_x = width / 2;
+
+  var w = canvasWidth / 5;
+  var h = canvasHeight / 3;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = h/2 + h*i;
+      var x = w/2 + w*j;
+
+     //Leia
       brow_value = focusedRandom(-30, -40);
-	   eye_value = int(focusedRandom(1, 3));
-	   mouth_value = focusedRandom(10, 50);
+      eye_value = int(focusedRandom(1, 3));
+      mouth_value = focusedRandom(10, 50);
+
+      //Yoda
+       brow_value_yoda = focusedRandom(20, 40);
+       eye_value_yoda = int(focusedRandom(25, 40));
+       mouth_value_yoda = focusedRandom(20, 70);
+
+  
+         random_result = focusedRandom(0, 100);
+        if(random_result < 10) {
+
+             drawFace2(x, y, w, h, brow_value_yoda, eye_value_yoda, mouth_value_yoda); 
+
+        }
+        else {
+             drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);  
+
+        }
 
 
-      var x, y;
-      if(mouth_value < 25) {
-        x = focusedRandom(w2, width/2, 1);
-        y = focusedRandom(h2, height-h2, 1);
-      }
-      else {
-        x =focusedRandom(2*width/3, width, 8);
-        y = focusedRandom(h2, height-h2, 2);
-      }
-      drawFace1(x, y, w, h, brow_value, eye_value, mouth_value);  
-  }
-
+    }
+        
 
 }
-
+}
 
 
 function keyTyped() {
