@@ -1,39 +1,108 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
+var slider1, slider2, slider3, slider4, slider5;
+var faceSelector;
 
 function setup () {
     // create the drawing canvas, save the canvas element
-    main_canvas = createCanvas(canvasWidth, canvasHeight);
-
-    // position each element on the page
+    var main_canvas = createCanvas(canvasWidth, canvasHeight);
     main_canvas.parent('canvasContainer');
 
+    // create sliders
+    slider1 = createSlider(0, 100, 50);
+    slider2 = createSlider(0, 100, 50);
+    slider3 = createSlider(0, 100, 50);
+    slider4 = createSlider(0, 100, 50);
+    slider5 = createSlider(0, 100, 50);
+
+    slider1.parent('slider1Container');
+    slider2.parent('slider2Container');
+    slider3.parent('slider3Container');
+    slider4.parent('slider4Container');
+    slider5.parent('slider5Container');
+
+    faceSelector = createSelect();
+    faceSelector.option('Jules');
+    faceSelector.option('Prince');
+    faceSelector.option('3');
+    faceSelector.option('all')
+    faceSelector.value('all');
+    faceSelector.parent('selector1Container');
+}
+
+function draw () {
     // rotation in degrees
     angleMode(DEGREES);
 
-    // BACKGROUND
     noStroke();
-    fill(julesBackground);
-    rect(0, 0, canvasWidth/2, canvasHeight);
 
-    fill(princeBackground);
-    rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
+    var mode = faceSelector.value();
+    print(mode);
 
-    // FACES
-    // move to position1, rotate, draw "head" ellipse
-    push();
-    translate(960/4, 500/2-100);
-    scale(150, 150);
-    //rotate(4);
-    drawJules();
-    pop();
+    if (mode != 'all') {
+        if (mode == 'Jules') {
+            background(julesBackground);
+        }
+        else if (mode == 'Prince') {
+            background(princeBackground);
+        }
+        else if (mode == '3') {
+            //background(bg_color3);
+        }
+    }
 
-    push();
-    translate(960*3/4, 500/2-100);
-    scale(150, 150);
-    //rotate(4);
-    drawPrince();
-    pop();
+    var s1 = slider1.value();
+    var s2 = slider2.value();
+    var s3 = slider3.value();
+    var s4 = slider4.value();
+    var s5 = slider5.value();
+
+    // use same size / y_pos for all faces
+    var face_w = canvasWidth / 4;
+    var face_h = face_w;
+    var face_y = height / 2;
+    var face_x = width / 2;
+
+    if (mode == 'Jules' || mode == 'all') {
+        // BACKGROUND
+        noStroke();
+        fill(julesBackground);
+        rect(0, 0, canvasWidth/2, canvasHeight);
+
+        // draw 1st face
+        push();
+        translate(960/4, 500/2-100);
+        scale(150, 150);
+        //rotate(4);
+        drawJules();
+        pop();
+    }
+
+    if (mode == 'Prince' || mode == 'all') {
+        noStroke();
+        fill(princeBackground);
+        rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
+
+        push();
+        translate(960*3/4, 500/2-100);
+        scale(150, 150);
+        //rotate(4);
+        drawPrince();
+        pop();
+    }
+
+    // if (mode == '3' || mode == 'all') {
+    //     // draw 3nd face
+    //     fill(bg_color3);
+    //     rect(2*width/3, 0, width, height);
+    //     var width_value = map(s1, 0, 100, 0, 100);
+    //     var mouth_value = map(s3, 0, 100, 0, 200);
+    //     var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    //     if (mode == 'all') {
+    //         face_x = 5 * width / 6;
+    //     }
+    //     drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    // }
 }
 
 // global variables for colors
@@ -246,8 +315,8 @@ function drawPrince() {
         [0, -stacheBaseHeight]
     );
     var stacheBaseRight = addVectors(
-       lerpVertex(chinRight, chinLeft, stacheInsetPercent),
-       [0, -stacheBaseHeight]
+        lerpVertex(chinRight, chinLeft, stacheInsetPercent),
+        [0, -stacheBaseHeight]
     );
     var stacheCentrePoint = addVectors(
         lerpVertex(stacheBaseLeft, stacheBaseRight, 0.5),
@@ -297,9 +366,9 @@ function drawDonald() {
 
 function keyTyped() {
     if (key == '!') {
-    saveBlocksImages();
+        saveBlocksImages();
     }
     else if (key == '@') {
-    saveBlocksImages(true);
+        saveBlocksImages(true);
     }
 }
