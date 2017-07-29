@@ -1,12 +1,13 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
-var curRandomSeed;
+var radio, slider1, slider2, slider3, slider4;
+var faceSelector;
 
 // global variables for colors
-var bg_color1 = [238, 238, 238];
-var bg_color2 = [225, 206, 187];
+var bg_color1 = [225, 206, 187];
+var bg_color2 = [238, 238, 238];
 var bg_color3 = [70, 70, 120];
+
 
 var randomHue = [];
 var randomSaturation = [];
@@ -17,32 +18,47 @@ function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-  noLoop();
-  curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+  // create radio
+  radio = createRadio();
+  radio.option(1);
+  radio.option(2);
+  radio.option(3);
+  radio.option(4);
+  radio.value(3);
+  radio.parent('radio1Container');
+
+  // create sliders
+  slider1 = createSlider(0, 100, 65);
+  slider2 = createSlider(0, 100, 30);
+  slider3 = createSlider(0, 100, 30);
+  slider4 = createSlider(0, 100, 100);
+  slider1.parent('slider1Container');
+  slider2.parent('slider2Container');
+  slider3.parent('slider3Container');
+  slider4.parent('slider4Container');
+
+  faceSelector = createSelect();
+  faceSelector.option('1');
+  faceSelector.option('2');
+  faceSelector.option('3');
+  faceSelector.option('all')
+  faceSelector.value('all');
+  faceSelector.parent('selector1Container');
 
   //setup arrays required for random saturation and brightness values used in the monster face
-  for(var i=0; i<720; i++){
-      randomHue[i] = random(0, 350);
+  for(var i=0; i<1080; i++){
+      randomHue[i] = random(0, 360);
       randomSaturation[i] = random(25, 75);
       randomBrightness[i] = random(50, 100);
-      randomLength[i] = random(0, 120);
+      randomLength[i] = random(0, 250);
   }
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-  robotCount = 0;
-  redraw();
-}
-
-function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value) {
+function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer) {
   //positions of the four eyes
   var eyePositions = {
     0: {
@@ -54,12 +70,12 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
       'y': 0
     },
     2: {
-      'x': 35,
-      'y': -120
+      'x': 45,
+      'y': -155
     },
     3: {
-      'x': -95,
-      'y': -80
+      'x': -120,
+      'y': -105
     },
 
   }
@@ -70,8 +86,8 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
   var xAdjuster = 107;
   push();
   translate(x-xAdjuster * size_adjuster, y);
-  rotate(tilt_value);
-  colorMode(HSB)
+  colorMode(HSB);
+
   scale(size_adjuster);
 
   //eye necks for first and forth faces - needs to drawn before the face
@@ -84,7 +100,7 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
 
   noStroke();
   //face
-  for(var i=0; i<720; i++){
+  for(var i=0; i<1080; i++){
       //create a random fill colour
       if(i % 10 == 0){
           fill(randomHue[i], randomSaturation[i], randomBrightness[i]);
@@ -93,18 +109,18 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
           fill(hue, randomSaturation[i], randomBrightness[i]);
       }
       push();
-      translate(110, 10);
+      translate(112, 10);
       var degree = map(i, 0, 720, 0, 360);
       rotate(i);
-      var j = 0;
-      while(j < (randomLength[i])) {
+          var j = 0;
+          while(j < (randomLength[i] * minimizer)) {
         var yPos = j % zigzag;
         if(yPos > (zigzag/2)){
           yPos = -yPos + (zigzag/2);
         }
-        ellipse(j, yPos, 2, 2);
-        j++;
-      }
+            ellipse(j, yPos, 2, 2);
+            j++;
+          }
       pop();
   }
 
@@ -181,16 +197,14 @@ function drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster
 
 }
 
-function drawRobotFace(x, y, num_antennas, face_height, hue, face_shape, mouth_style, eye_distance, tilt_value) {
+function drawRobotFace(x, y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer) {
   push();
   rectMode(CENTER);
   translate(x, y);
-  rotate(tilt_value);
   colorMode(HSB);
-  scale(0.5);
+
   stroke(hue, 50, 90);
   fill(hue, 90, 50);
-  var minimizer = 0.5;
 
   //antenna
   var yVariation = ((300 + face_height) * minimizer) /2;
@@ -408,121 +422,92 @@ function drawBearFace(x, y, color_scheme, face_size, mouth_size, eye_x, eye_y, e
 }
 
 function draw () {
-  resetFocusedRandom(curRandomSeed);
-
   noStroke();
-  background(bg_color1);
 
+  var mode = faceSelector.value();
 
-    var w = canvasWidth / 5;
-    var h = canvasHeight / 3;
-    for(var i=0; i<3; i++) {
-        for(var j=0; j<5; j++) {
-            var y = h/2 + h*i;
-            var x = w/2 + w*j;
-            setTimeout(
-                function(x, y){
-                    return function() { drawFace(x, y) };
-                }(x, y),
-                0
-            );
-
-        }
+  if (mode != 'all') {
+    if (mode == '1') {
+      background(bg_color1);
     }
-}
-
-/*
- * JSON object consisting of six hue ranges
- * used to ensure each robot has a unique hue
- * the third element of each array is the midpoint of the range
- * which is used to set the mean value for the focusedRandom function
- */
-var robotHueRanges = {
-    1 : [-20, 20, 0],
-    2 : [21, 60, 40],
-    3 : [61, 100, 80],
-    4 : [101, 140, 120],
-    5 : [141, 180, 160],
-    6 : [181, 220, 200],
-    7 : [221, 260, 240],
-    8 : [261, 300, 280],
-    9 : [301, 340, 320]
-}
-
-var robotCount = 0;
-
-/**
- * determines whether to draw a monster or robot face
- * there will be a maximum of six robots and each robot will have a unique colour
- * @param {Number} x        - x position where the face will be drawn
- * @param {Number} y    	- y position where the face will be drawn
- */
-function drawFace (x, y) {
-  var face = random(['monster', 'robot']);
-  //there will be a maximum of 9 robots on the canvas
-  if(face == "monster" || robotCount >= 9){
-    //number of eyes
-    var num_of_eyes = getRandomNumberForDiscreteSetting('eyes');
-    var hue = focusedRandom(120, 330);
-    //the amount zig zig present in the pattern should lean towards a smaller value
-    var zigzag = focusedRandom(1, 20, 10, 3);
-    var size_adjuster = focusedRandom(0.3, 0.6);
-    //the smaller the monster is the bigger its eyes should be
-    var eye_size = focusedRandom(20, 80, 100, 140 - (size_adjuster * 200));
-    var tilt_value = focusedRandom(-15, 45);
-    drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value);
-  }
-  else if(face == "robot"){
-    robotCount++;
-    //number of antennas
-    var num_of_antennas = getRandomNumberForDiscreteSetting('antennas');
-    //the face height should be closer to the center of the range
-    var face_height = focusedRandom(0, 200, 5, 100);
-    //the hue should be focused toward the center of this robots hue range
-    var hue = focusedRandom(robotHueRanges[robotCount][0], robotHueRanges[robotCount][1], 10, robotHueRanges[robotCount][2]);
-    //the actual range of values for face_shape is 0-200 but I want the value for face shape to be either close to 0 or 200
-    //so I have focused the random value around a mean of 200 between a range of 100 and 300
-    var face_shape = focusedRandom(100, 300, 10, 200);
-    //and if the value ends up being greater than 200
-    if(face_shape > 200){
-        //make it closer to zero
-        face_shape = face_shape - 200;
+    else if (mode == '2') {
+      background(bg_color2);
     }
-    var mouth_style = focusedRandom(50, 10);
-    var eye_distance = focusedRandom(50, 0);
-    var tilt_value = focusedRandom(30, -30);
-    drawRobotFace(x, y, num_of_antennas, face_height, hue, face_shape, mouth_style, eye_distance, tilt_value);
+    else if (mode == '3') {
+      background(bg_color3);
+    }
   }
-}
 
-/**
- * This function determines what value will be used for the discrete setting of each face (eyes or antennas)
- * @param  {String} type    - the type of discrete setting, possible values are 'eyes' or 'antennas'
- * @return {Number} 		- the value to use as the discrete setting
- */
-function getRandomNumberForDiscreteSetting(type = 'eyes') {
-  //the probabilities for the two possible types
-  var probs = {
-    'eyes' : [50, 60, 75],
-    'antennas' : [10, 25, 75]
-  }
-  var random_result = focusedRandom(0, 100);
-  if(random_result < probs[type][0]) {
-    return 1;
-  }
-  else if(random_result < probs[type][1]) {
-    return 2;
-  }
-  else if(random_result < probs[type][2]) {
-    return 3;
+  var s1 = radio.value();
+  var s2 = slider1.value();
+  var s3 = slider2.value();
+  var s4 = slider3.value();
+  var s5 = slider4.value();
+
+
+  // use same size / y_pos for all faces
+  var face_w = canvasWidth / 4;
+  var face_h = face_w;
+  var face_y = height / 2;
+  var face_x = width / 2;
+  var extent = 0;
+  if(face_h < face_w) {
+    extent = face_h / 2;
   }
   else {
-    return 4;
+    extent = face_w / 2;
+  }
+  var minimizer = extent / 220.0;
+  if (mode == '1' || mode == 'all') {
+    // draw 1st face
+    fill(bg_color1);
+    rect(0, 0, width/3, height);
+    if (mode == 'all') {
+      face_x = width / 6;
+    }
+    var num_of_eyes = s1;
+    var eye_size = map(s2, 0, 100, 30, 60);
+      var hue = map(s3, 0, 100, 350, 0);
+    var zigzag = map(s4, 0, 100, 1, 20);
+    var size_adjuster = map(s5, 0, 100, 0.5, 1);
+    drawMonsterFace(face_x, face_y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, minimizer);
+  }
+
+  if (mode == '2' || mode == 'all') {
+    // draw 2nd face
+    fill(bg_color2);
+    rect(width/3, 0, 2*width/3, height);
+    if (mode == 'all') {
+      face_x = 3 * width / 6;
+    }
+    var num_antennas = s1;
+      var face_height = map(s2, 0, 100, 0, 200);
+    var hue = map(s2, 0, 100, 0, 350);
+
+    var face_shape = map(s3, 0, 100, 0, 200);
+    var mouth_style = map(s4, 0, 100, 50, 10);
+    var eye_distance = map(s5, 0, 100, 50, 0);
+    drawRobotFace(face_x, face_y, face_height, hue, num_antennas, face_shape, mouth_style, eye_distance, minimizer);
+  }
+
+  if (mode == '3' || mode == 'all') {
+    // draw 3nd face
+    fill(bg_color3);
+    rect(2*width/3, 0, width, height);
+    if (mode == 'all') {
+      face_x = 5 * width / 6;
+    }
+    var color_scheme = s1;
+    var face_size = map(s2, 0, 100, 0, 100);
+    var mouth_size = map(s3, 0, 100, 60, 130);
+    var eye_x = map(s4, 0, 100, 50, 20);
+    var eye_y = map(s4, 0, 100, 0, -40);
+    var eye_size = map(s4, 0, 100, 20, 40);
+    var inner_ear_x = map(s5, 0, 100, 63, 83);
+    var inner_ear_y = map(s5, 0, 100, 63, 54);
+    drawBearFace(face_x, face_y, color_scheme, face_size, mouth_size, eye_x, eye_y, eye_size, inner_ear_x, inner_ear_y, minimizer);
   }
 }
-
-
-
 
 
 function keyTyped() {

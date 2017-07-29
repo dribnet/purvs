@@ -1,11 +1,36 @@
 ## PS1 MDDN 342 2017
 
-### Robots vs Monsters Distribution
+### Drawing Styles - Monsters, Robots and Bears
 
-For the distribution part of the project I have used both methods for controlling the distribution of traits for each face type.
+For my three drawings styles I have chosen to create faces that are heavily inspired by animation. Each face has one discrete setting and four variable settings.  
 
-I used a function for the discrete setting of each face. This is used to make it more likely that a robot will have three antennas and a monster will have one eye. 
+The discrete setting has been used to control the number of eyes (monster), number of antennas (robot) and colour scheme (bear).
 
-I used the randomFocused function to control the pattern of a monster face and their eye size. It is also it used to control the face shape and height for the robot face as well as ensuring each robot has a unique colour.
+The variable settings are as follows:
 
-The use of focus has made the population generated more likely to have the traits that I like the most.  Monsters with small faces are more likely to have bigger eyes and vice versa.  The robots are now very likely to each have a unique colour. They are also more likely have a square face or face with wings.
+#### Monster
+
+1. Eye Size
+2. Main Hue
+3. Zig Zag
+4. Scale
+
+#### Robot
+
+1. Face Height
+2. Colour
+3. Mouth Style
+4. Face Shape
+
+#### Bear
+
+1. Face Size
+2. Outer Mouth Size
+3. Eye Position/Style
+4. Inner Ear Position
+
+I had various reasons for which parameters of the faces I choose to add controls to.  For the bear my choices were driven by my goal to make it possible to create various famous cartoon bears with the controls.  
+
+The most interesting parameters I choose for the robot were the face shape, mouth style and number of antennas. I choose these parameters as they allowed me to create the most variation.
+
+The monster was driven mainly by my desire to create an interesting face pattern that is also controllable.  The Zig Zag control determines the level of Zig Zag present in the pattern. I also thought that controlling the scale could offer some interesting potential for filling the canvas with a lot of characters. 
