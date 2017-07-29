@@ -1,5 +1,5 @@
-var canvasWidth = 1100;
-var canvasHeight = 720;
+var canvasWidth = 960;
+var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
 
@@ -25,7 +25,7 @@ var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
 
-function changeRandomSeed() {
+function changeRandomSeed() { //focusedRandom now draws new random values
     curRandomSeed = curRandomSeed + 1;
     lastSwapTime = millis();
 }
@@ -35,61 +35,71 @@ function mouseClicked() {
 }
 
 function setup() {
-
     // create the drawing canvas, save the canvas element
     var main_canvas = createCanvas(canvasWidth, canvasHeight);
     main_canvas.parent('canvasContainer');
 
-
-    curRandomSeed = int(focusedRandom(0, 100));
-
-    // rotation in degrees
+    curRandomSeed = int(focusedRandom(0, 100)); //set new random seed
     angleMode(DEGREES);
 }
 
+function faceGen(x, y, w, h) { //determine face parameters, draw face
+
+    var tilt_value = focusedRandom(-30, 30, 3, 1);
+    var ear_value = focusedRandom(0.6, 1.4, 2, 0.95);
+    var smile_value = focusedRandom(-0.1, 2.1);
+    if(smile_value<1){
+    	var eye_value = focusedRandom(0.7, 1.3, 3, 1.1);	
+    }	
+    else{
+
+		var eye_value = focusedRandom(0.7, 1.3, 3, 0.9);	
+
+    }
+    var wrinkle_value = focusedRandom(-0.2, 1, 2, 0.8);
+    var spots_value = focusedRandom(0, 4, 4, 2);
+
+    drawFace1(x, y, w, h, tilt_value, ear_value, eye_value, smile_value, wrinkle_value, spots_value);
+}
+
 function draw() {
-	if(millis() > lastSwapTime + millisPerSwap) {
-    changeRandomSeed();
-  }
-
+    if (millis() > lastSwapTime + millisPerSwap) {
+        changeRandomSeed();
+    }
+    background(255);
     resetFocusedRandom(curRandomSeed);
-
     noStroke();
 
-    // use same size / y_pos for all faces
-    var w = canvasWidth / 5;
-    var h = canvasHeight / 3;
 
-    //face 1 : old
-
+    push();
+    translate(width / 2, height / 2);
     fill(bg_color1);
-    rect(0, 0, width, height);
-
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 5; j++) {
-            var y = h / 2 + h * i;
-            var x = w / 2 + w * j;
-            var tilt_value = focusedRandom(-15, 15, 4, 0);
-            var ear_value = focusedRandom(0.6, 1.4, 2, 0.95);
-            var smile_value = focusedRandom(-0.1, 2.1, 2, 1.2);
-            var eye_value = focusedRandom(0.7, 1.3);
-            var wrinkle_value = focusedRandom(0, 1, 2, 0.4);
-            var spots_value = focusedRandom(0, 3, 2, 1);
-
-            drawFace1(x, y, w, h, tilt_value, ear_value, eye_value, smile_value, wrinkle_value, spots_value);
-        }
+    ellipse(0,0,height/1.01,height/1.01)
+    fill(255,12);
+    ellipse(0,0,height/1.2,height/1.2);
+    ellipse(0,0,height/1.4,height/1.4);
+    ellipse(0,0,height/1.6,height/1.6);
+    ellipse(0,0,height/1.8,height/1.8);
+    ellipse(0,0,height/2,height/2);
+    rotate(180);
+    faceGen(0,0, height / 2, height / 2);
+    rotate(-180);
+    for (var i = 0; i < 14; i++) {
+    	rotate(360/14);
+    	faceGen(0,height/2.5,height/6,height/6);
     }
+    pop();
 
 
 }
 //_______________DRAW FUNCTIONS______________//
 
 function drawFace1(x, y, w, h, tilt, ears, eyes, smile, frown, spots) {
-    //OLD
-
+    //OLDMAN
     push();
     translate(x, y);
-    rotate(tilt);
+    rotate(tilt+180);
+    scale(w/200,h/200);
     var shadow_color = editAlpha(blush_color, 0.65);
 
     fill(skin_tone);
@@ -103,26 +113,26 @@ function drawFace1(x, y, w, h, tilt, ears, eyes, smile, frown, spots) {
     ellipse(-10, 84, 25, 25); // butt chin left
     ellipse(10, 84, 25, 25); //butt chin right
 
+    //hair
     fill(215 + 10 * spots);
     push();
     translate(-63, -40);
     rotate(23);
     ellipse(0, 0, 35, 60); //hair left
     pop();
-
     push();
     translate(63, -40);
     rotate(-23);
     ellipse(0, 0, 35, 60); // hair right
     pop();
 
-
     //mouth 
     noFill();
     stroke(blush_color);
-    strokeWeight(2+2*Math.abs(smile-1));
+    strokeWeight(2 + 2 * Math.abs(smile - 1)); //scale stroke to smile amount, between 2pt and 4pt
     curve(-40, 50 * smile, -20, 50, 20, 50, 40, 50 * smile); //curve(cpx1, cpy1, x1, y1, x2, y2, cpx2, cpy2);
     strokeWeight(3);
+
     //eyes (glasses)
     noStroke();
     fill(255, 140);
@@ -177,15 +187,15 @@ function drawFace1(x, y, w, h, tilt, ears, eyes, smile, frown, spots) {
 
     //liver spots
     var spot_color_value;
-    spot_color_value = editAlpha(spot_color, spots / 4 + 0.25);
-    if (Math.floor(spots > 0)) {
+    spot_color_value = editAlpha(spot_color, spots / 5 + 0.25);
+    if (Math.floor(spots > 1)) {
         push();
         fill(spot_color_value);
         translate(23, -63);
         ellipse(0, 0, 4, 4);
         pop();
     }
-    if (Math.floor(spots > 1)) {
+    if (Math.floor(spots > 2)) {
         push();
         fill(spot_color_value);
         translate(20, -71);
@@ -193,7 +203,7 @@ function drawFace1(x, y, w, h, tilt, ears, eyes, smile, frown, spots) {
         ellipse(0, 0, 8, 6);
         pop();
     }
-    if (Math.floor(spots > 2)) {
+    if (Math.floor(spots > 3)) {
         push();
         fill(spot_color_value);
         translate(32, -68);
@@ -209,7 +219,7 @@ function drawFace1(x, y, w, h, tilt, ears, eyes, smile, frown, spots) {
 //___________LEVEL 2 FUNCTIONS__________\\
 //used by ren
 
-function ampLify(inp, ampChange) { // multiply multiplier value as if negative values began at #1   
+function ampLify(inp, ampChange) {// used to change parameter values relative to their deviation from 1 (amplitude) 
     var v = (inp - 1) * ampChange;
     v += 1;
     return v;

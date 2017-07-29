@@ -1,20 +1,25 @@
 ## PS1 MDDN 342 2017
+#### Oldman-geddon
 
-This README describes the matrix of randomised faces completed for task 3 
+This README describes the matrix of selectively randomised faces completed for task 5 
 
-Face #1; and the design I am going to move forward with, is a parametric old man inspired by my baby face (#3).  The old man has configurable worry lines, mood, liver spots, glasses and ears. The liver spots parameter contains both scalar and discrete elements: the sketch will draw 1, 2, or 3 spots depending on the slider's value, and the spots will get progressively darker as the the value ramps up. The worry lines get darker & lighter. The man's mouth will curve up and down depending on the mouth parameter, and the size of his ears and the lenses of his glasses will change dependant on their respective variables.
+My old man was originally made with a select range of possibilities in mind. Therefore I am mostly only imposing restrictions on the *distribution* of the parameters and not the upper/lower bounds.
 
-The second face is a version of the Mario & Luigi sketch I made earlier. This version casts luigi aside (don't worry, he's used to it!) and draws our sewer-spelunking hero with some features mapped to four of the sliders:
-	- Mousache slant
-	- Pupil dilation
-	- Moustache bushiness: modulates the size of the individual ellipses that make up the moustache. also modulates the size of mario's nose
-	- Cheek chubbiness
+I chose this radial layout because I liked the idea of a group of small, geriatric disembodied heads worhsipping a much larger leader-head. In the name of absurdism, I ran with this vision. 
 
-I liked the art style that I used for my Mario. I thought that his cheeks made him look like a baby so I decided to make my next face that of a baby. I used 4 sliders for this onel giving control over:
-	- nose size
-	- cheek chub
-	- mouth openness
-	- 'alertness' when baby is tired he starts to drool and has trouble keeping his eyes open
+*Giant head is pleased with these results.*
 
+---
+		
+The forehead wrinkles are very likely to be dark, this is also linked to a higher probability of whiter hair. 
 
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+For the ears, I actually increased the range of possible sizes because I liked the goofy looking big-eared men that resulted in. I kept the distriution tight to make comically large ears a refreshing rarity. The average is on the larger size of the average however, as the ears are among the few body parts to continue growing in old age.
+
+The faces' angle parameter was only lightly clustered around an average as it has nothing to do with the characterisation of the faces. Face angle is simply a device to give variation to the population diagram.
+
+The average size of the spectacles changes depending on the state of a face's mouth is to help convey mood more consistently. The glasses are larger if the face is smiling and smaller if the face is frowning. The population is tightly clustered on the average, as very small or large glasses look quite comical and can be distracting in large numbers. 
+
+I wanted to display a wider range of emotions in a population, so the value controlling the smile of a face does not gravitate toward a mean. The mouth curve already ties into the size of the eyes, so I thought that would be enough to give the mood of each face some cohesion.
+
+Dark and numerous liver spots felt too distracting to lace a population too heavily with, so I kept the mean very tightly clustered arond the 2 spot mark. 
+
