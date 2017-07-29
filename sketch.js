@@ -10,10 +10,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -53,6 +49,8 @@ var squid_nose ="#7AA897";
 var skin ="#FFD6B3";
 var chucky_hair = "#E02B3B";
 var glasses_colour ="#7C00D7";
+
+var num_faces = 20;
 
 function drawFace1(x, y, w, h, brow_value, eye_value, ear_value, eye_scale, mouth_width) {
   push();
@@ -239,8 +237,23 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value, head_size) {
   rectMode(CORNER);
   pop();
 }
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
 
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
@@ -255,34 +268,30 @@ function draw () {
   // draw 1st face
   fill(bg_color1);
 
-  // tilt_value = focusedRandom(10, 50);
-  // eye_value = Math.floor(focusedRandom(1, 3));
-  // mouth_value = focusedRandom(30, 140);
-  brow_value = focusedRandom(-90, -120);
-  eye_value = focusedRandom(-15, 15);
-  ear_value = focusedRandom(100, 300);
-  eye_scale = focusedRandom(10, 200);
-  mouth_width = focusedRandom(100, 200);
+  var w = canvasWidth / 10;
+  var h = canvasHeight / 6;
+  var w2 = w/2;
+  var h2 = h/2;
+  for(var n=0; n<num_faces; n++) {
+      brow_value = focusedRandom(-90, -150, 1, -130);
+      eye_value = focusedRandom(-15, 15, 2, 5);
+      ear_value = focusedRandom(50, 250);
+      eye_scale = focusedRandom(10, 150, 1, 100);
+      mouth_width = focusedRandom(60, 200);
+      // eye_value = getRandomNumberOfEyes();
+      // tilt_value = focusedRandom(-70, 90, 8);
+      // mouth_value = focusedRandom(0, 50, 4, 1);
 
-  var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
-        //bias to raised eyebrows
-        brow_value = focusedRandom(-90, -150, 1, -130);
-        //slight bias to look to the right of the screen
-        eye_value = focusedRandom(-15, 15, 2, 5);
-        ear_value = focusedRandom(50, 250);
-        //bias toward large eyes with an emphasis on very large eyes
-        eye_scale = focusedRandom(10, 150, 1, 100);
-        mouth_width = focusedRandom(60, 200);
-      // tilt_value = focusedRandom(10, 50);
-      // eye_value = int(focusedRandom(1, 3));
-      // mouth_value = focusedRandom(30, 140);
+      var x, y;
+      if(eye_value < 1) {
+        x = focusedRandom(w2, width/2, 1);
+        y = focusedRandom(h2, height-h2, 1);
+      }
+      else {
+        x =focusedRandom(2*width/3, width, 8);
+        y = focusedRandom(h2, height-h2, 2);
+      }
       drawFace1(x, y, w, h, brow_value, eye_value, ear_value, eye_scale, mouth_width);
-    }
   }
 
   // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
