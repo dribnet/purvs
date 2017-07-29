@@ -26,7 +26,7 @@ function changeRandomSeed() {
 var bg_color1 = [255, 255, 255];
 var face_stroke = [0, 0, 0];
 
-function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on) {
+function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on) {
   push();
   translate(x, y);
 
@@ -290,6 +290,16 @@ function getRandomSetOfEyes() {
   }
 }
 
+function getRandomFace() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 30) {
+    return 2;
+  }
+  else {
+    return 1;
+  }
+}
+
 function draw () {
   resetFocusedRandom(curRandomSeed);
 
@@ -306,16 +316,15 @@ function draw () {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
       eye_value = getRandomSetOfEyes();
-      face_value = Math.floor(focusedRandom(1,3));
+      face_value = getRandomFace();
       mouth_value = focusedRandom(0.5, 2);
       mouth_value2 = focusedRandom(0, 2);
-      mouth_height = focusedRandom(-5, 15);
       mouth_type_value = Math.floor(focusedRandom(1,4));
       nose_value = focusedRandom(-5, 20);
       nose_type_value = Math.floor(focusedRandom(1, 6));
       cheek_value = focusedRandom(0, 10);
       cheek_value_on = focusedRandom(0, 2);
-      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on);
+      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on);
     }
   }
 

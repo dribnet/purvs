@@ -9,19 +9,15 @@
       "name": "distribution"
     },
     {
-      "sha": "0000000000000000000000000000000000000004",
-      "name": "experiment"
-    },
-    {
       "sha": "f2e0ec3596ecb374e435c4ea16bd990e",
       "name": "randomize"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
+      "sha": "f2e0ec3596ecb374e435c4ea16bd990e",
       "name": "drawing_styles"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
+      "sha": "f2e0ec3596ecb374e435c4ea16bd990e",
       "name": "portraits"
     }
   ]
