@@ -270,10 +270,13 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-        brow_value = focusedRandom(-90, -150);
-        eye_value = focusedRandom(-15, 15);
+        //bias to raised eyebrows
+        brow_value = focusedRandom(-90, -150, 1, -130);
+        //slight bias to look to the right of the screen
+        eye_value = focusedRandom(-15, 15, 2, 5);
         ear_value = focusedRandom(50, 250);
-        eye_scale = focusedRandom(10, 150);
+        //bias toward large eyes with an emphasis on very large eyes
+        eye_scale = focusedRandom(10, 150, 1, 100);
         mouth_width = focusedRandom(60, 200);
       // tilt_value = focusedRandom(10, 50);
       // eye_value = int(focusedRandom(1, 3));

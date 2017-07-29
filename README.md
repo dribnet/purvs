@@ -1,12 +1,18 @@
 ## PS1 MDDN 342 2017
 
-PART 3: RANDOMISE
+PART 4: DISTRIBUTION
 
-This README explains my changes for part 3 of assignment 1. 
+This README explains my changes for part 4 of assignment 1. 
 
-I have developed face 1 from part 2 (which began as a questionable gollum look-alike in part 1).
+I generated a distribution based on 3 facial features which all correspond with the emotion of the eyes. 
 
-I chose to use face 1 as it had all 5 parameters in use for adjusting different features of the face (eye size and direction, brow height, mouth width, ear size). Therefore, I felt that this would lend the greates amount of variety for the random outputs. 
+1) There is a bias toward having wide eyes over small eyes with an emphasis on having very large eyes most of the time.
+
+2) A higher brow height is favoured over a low brow
+
+3) There is a slight bias to look to the right of the screen rather than left or center. 
+
+ 
 
 
 
