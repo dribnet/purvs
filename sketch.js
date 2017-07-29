@@ -26,7 +26,7 @@ function changeRandomSeed() {
 var bg_color1 = [255, 255, 255];
 var face_stroke = [0, 0, 0];
 
-function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value) {
+function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on) {
   push();
   translate(x, y);
 
@@ -38,8 +38,10 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     extent = w / 2;
   }
   var alpha_ran = focusedRandom(80, 200);
+  var alpha_ran2 = focusedRandom(20, 60);
   var face_col = [247, 236, 212, alpha_ran];
   var eye_col = [119, 156, 82];
+  var cheek_col = [224, 125, 229, alpha_ran2];
 
   //random face variables
   var scale = extent / 220.0;
@@ -91,17 +93,6 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     ellipse(-20 + offset2, -20 + offset2, 10 + offset4, 10 + offset4);
     strokeWeight(.4);
     stroke(0, 0, 0);
-      /*if (offset2 < 0){
-        line(-30, -30, 0, -30);
-        // right brow
-        line(30, -30, 10 + offset2, -30 + offset2);
-      }
-      else{
-        strokeWeight(10);
-        line(-30 + offset2, -30, 0, -30);
-        // right brow
-        line(30, -30, 10 + offset2, -30 + offset2);
-      }*/
   }
 
   if (eye_value == 2) {
@@ -263,10 +254,20 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
     pop();
   }
 
+  if (cheek_value_on > 1){
+    // cheeks
+    // left
+    noStroke();
+    fill(cheek_col);
+    ellipse(-35, 0 + cheek_value, 20 + cheek_value, 20 + cheek_value);
+    // right
+    noStroke();
+    fill(cheek_col);
+    ellipse(35, 0 + cheek_value, 20 + cheek_value, 20 + cheek_value);
+  }
+
   pop();
 }
-
-
 
 /*function getRandomSetOfEyes() {
   random_result = focusedRandom(0, 100);
@@ -305,7 +306,9 @@ function draw () {
       mouth_type_value = Math.floor(focusedRandom(1,4));
       nose_value = focusedRandom(-5, 20);
       nose_type_value = Math.floor(focusedRandom(1, 6));
-      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value);
+      cheek_value = focusedRandom(0, 10);
+      cheek_value_on = focusedRandom(0, 2);
+      drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_value2, mouth_height, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on);
     }
   }
 
