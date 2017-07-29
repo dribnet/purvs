@@ -269,18 +269,26 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_va
   pop();
 }
 
-/*function getRandomSetOfEyes() {
+// distribution
+
+function getRandomSetOfEyes() {
   random_result = focusedRandom(0, 100);
-  if(random_result < 8) {
-    return 1;
+  if(random_result < 10) {
+    return 4;
   }
-  else if(random_result < 12) {
-    return 3;
-  }
-  else {
+  else if(random_result < 20) {
     return 2;
   }
-}*/
+  else if(random_result < 20) {
+    return 3;
+  }
+  else if(random_result < 30) {
+    return 4;
+  }
+  else {
+    return 5;
+  }
+}
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
@@ -297,9 +305,8 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      //eye_value = getRandomSetOfEyes();
+      eye_value = getRandomSetOfEyes();
       face_value = Math.floor(focusedRandom(1,3));
-      eye_value = Math.floor(focusedRandom(1,6));
       mouth_value = focusedRandom(0.5, 2);
       mouth_value2 = focusedRandom(0, 2);
       mouth_height = focusedRandom(-5, 15);
