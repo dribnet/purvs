@@ -1,9 +1,11 @@
 ## PS1 MDDN 342 2017
 
-### Robots vs Monsters
+### Robots vs Monsters Distribution
 
-After my initial experiment using just the monster face I decided I wanted more variation in the results so have added the robot face as well.  
+For the distribution part of the project I have used both methods for controlling the distribution of traits for each face type.
 
-I have added tilt value to the both faces as I really like the effect that it has.  I also had to use the scale function to make sure the size of the robot faces aren't too big.  This is not variable at the moment but I may change this if my final submission consists a lot of faces. 
+I used a function for the discrete setting of each face. This is used to make it more likely that a robot will have three antennas and a monster will have one eye. 
 
-I haven't changed the range of the parameters for the robot face as they work very well.  For the monster I needed to reduce the range of the scale parameter as there is less space available compared to the previous part of the assignment.
+I used the randomFocused function to control the pattern of a monster face and their eye size. It is also it used to control the face shape and height for the robot face as well as ensuring each robot has a unique colour.
+
+The use of focus has made the population generated more likely to have the traits that I like the most.  Monsters with small faces are more likely to have bigger eyes and vice versa.  The robots are now very likely to each have a unique colour. They are also more likely have a square face or face with wings.

@@ -468,7 +468,7 @@ function drawFace (x, y) {
     var zigzag = focusedRandom(1, 20, 10, 3);
     var size_adjuster = focusedRandom(0.3, 0.6);
     //the smaller the monster is the bigger its eyes should be
-    var eye_size = focusedRandom(20, 80, 10, 100 - (size_adjuster * 100));
+    var eye_size = focusedRandom(20, 80, 100, 140 - (size_adjuster * 200));
     var tilt_value = focusedRandom(-15, 45);
     drawMonsterFace(x, y, num_of_eyes, eye_size, hue, zigzag, size_adjuster, tilt_value);
   }
