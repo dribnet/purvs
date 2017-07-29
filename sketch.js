@@ -198,9 +198,9 @@ function draw() {
       // randomising the parameters
       var face_shape_value = getRandomFaceShapes(),
           face_randomise_value = focusedRandom(-2,2),
-          mouth_value = focusedRandom(-6,6),
+          mouth_value = focusedRandom(-6,6,1,3),
           nose_value = focusedRandom(-2,2),
-          eye_value = focusedRandom(-3,3),
+          eye_value = focusedRandom(-3,3,1.5,2),
           chin_value = focusedRandom(-3,3);
 
       // drawing the face

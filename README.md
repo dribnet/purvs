@@ -1,8 +1,3 @@
 ## PS1 MDDN 342 2017
 
-I have decided on the face style I wish to continue with for this project.
-It's an abstraction of a particular tattoo artist's style I really enjoy.
-
-I have now set up my 3x5 grid, and started using the focusedRandom() method to achieve more variety in my faces.
-The randomisation in this composition consists of:
-the combination of the face shapes, mouth 'curvature', pupil direction, and nose and chin sizing and positioning.
+Using the focus and mean values of the focusedRandom function, I have begun to refine some distributions in my sketch. The first facial component I decided to skew the randomness of was the pupil direction. I wanted the faces to predominantly look to the right, so added the focus and mean values accordingly. I then repeated this for the randomness of the mouth 'curvature'. I want the faces to appear mostly disdained or disinterested, so adjusted the values to favour lower mouth corners.
