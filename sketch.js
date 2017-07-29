@@ -12,18 +12,10 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 
   smooth();
-}
-
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
 }
 
 //mask colors
@@ -34,6 +26,7 @@ var tri_color = "#ffdb4d";
 var sun_color = "#e60000";
 
 function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_value, skinColor_value, foreColor_value, tri1_value, tri2_value, jaw_value) {
+  
   //right face
   push();
   translate(x, y);
@@ -192,22 +185,40 @@ function drawFace2(x, y, size, forehead_value, eye_value, eyeRim_value, mouth_va
   pop();
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime =millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
   
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
   background(bg_color2);
+  
+  var angle = 1000;
+  var scaleVal = 1;
 
-  var w = width / 5;
-  var h = height / 3;
-
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++){
-      var x = w/2 + w*j;
-      var y = h/2 + h*i;
-      var size = 1.5;
+  for(var i=30; i<width; i+= 60) {
+    for(var j=0; j<height; j+= 100){
+      var x = i;
+      var y = (j + focusedRandom(-20, 20)) + (sin(angle)* scaleVal);
+      var size = focusedRandom(0.3, 1.3, 2, 0.8);
+ 
+      angle += 1.1*PI;
+      scaleVal += 3;
 
       var forehead_value = focusedRandom(0.5, 1.8, 1, 1.3);
       var foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];

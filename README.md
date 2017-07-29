@@ -1,12 +1,9 @@
-For the distribution part, I focus on forehead_value, eye_value, eyeRim_value, jaw_value and triangle_value.
+Initially, I developed 3 different drawing styles, but I choose the Chinese mask to do more developments, because I thought it has more variations and curves to change than others.
 
-In my case:
-  There is 66% of chance that eyebrows are beyond face, 33% of chance that eyebrows are in face.
+For the drawing styles part, I parameterize its eyebrow value to change shape and color, when eyebrow extends, the face becomes strong, while when eyebrow shortens, the face becomes angry. Secondly, I parameterize eye value to change the movement of eyes and the shape of eye rims, the eye rims can retract into face as eyes focus on center, but the eye rim grow out of face as eyes split. Thirdly, I parameterize mouth value to open or close mouth and the beard follows the movement of mouth. Additionally, Add triangle value to generate triangles, when triangles and eyebrow all grow out of face, the face looks like it wears a helmet. Fianlly, skin value to change skin color from dark blue to dark cyan to dark red.
 
-  Usually eyes look at the center, rarely eyes look at left and right sides.
+For the random part, I randomize its eyebrow value to change shape and color. Eye value to change the left or right movement of eyes, when eyes focus on center, the eye hole decreases, the face looks like anger. At this stage, the beard has more larger movements as mouth open or close. Additionally, the strokeWeight of eye rim and forehead increases. Different random parameters combine with each other, which creates many new variations.
 
-  eye rims usually grow out of face, rarely grow inside the face.
+For the distribution part, I look at foreheadvalue, eyevalue, eyeRimvalue, jawvalue and triangle_value. There is 66% of chance that eyebrows are beyond face, 33% of chance that eyebrows are in face. Usually eyes look at the center, rarely eyes look at left and right sides. Eye rims usually grow out of face, rarely grow inside the face. Beard is usually higher than mouth, there is a low chance that follow the mouth curve or lower than mouth. Triangles usually show, rarely there are no triangles.
 
-  beard is usually higher than mouth, there is a low chance that follow the mouth curve or lower than mouth.
-
-  triangles usually show, rarely there are no triangles.
+For the final part, I use a sin() function to arrange faces, then randomly assign different sizes for faces, and slightly move up or down the y position of every face.
