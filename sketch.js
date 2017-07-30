@@ -328,7 +328,8 @@ function drawFace3(x, y, w, h, tilt_value, mustash_width, eye_value) {
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
-
+  fill(bg_color);
+  rect(0,0,canvasWidth,canvasHeight);
   //noStroke();
 
   var cols = 3;
@@ -349,13 +350,12 @@ function draw () {
       // else{
       //   fill(bg_color1);
       // }
-      fill(bg_color);
-     // rect(x,y,100,100);
+      
 
-     var value1 = 0;//focusedRandom(-10, 10);
-     var value2 = 10;//focusedRandom(-10, 10);
-     var value3 = 1;//Math.floor(focusedRandom(0,2));
-     var character = Math.floor(focusedRandom(0,3));
+     var value1 = focusedRandom(-10, 10);
+     var value2 = focusedRandom(-10, 10);
+     var value3 = Math.floor(focusedRandom(0,3));
+     var character = Math.floor(focusedRandom(1,3));
 
      if(character == 0){
       drawFace1(x, y, w, h, value1, value2, value3);
