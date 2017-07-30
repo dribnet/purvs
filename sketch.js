@@ -21,7 +21,8 @@ randButton.mousePressed(changeRandomSeed);
 randButton.parent('selector1Container');
 
   // create scale slider
-  slider1 = createSlider(0, 100, 0);
+  //CHANGE SLIDER VALUE HERE
+  slider1 = createSlider(0, 100, 40);
   slider1.parent('slider1Container');
   
 //create the other objects
@@ -86,13 +87,14 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 //draws a patterned face according to the positions of the sliders
 //most of the actual drawing is done within the PatternFace object
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+  //make each face different
+  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   push();
 //instructs the patternFace object to draw itself onto a graphics object
 var pat = patterned.drawFace();
 rectMode(CENTER);
 translate(x, y);
 //draws the graphics object onto the main canvas in the desired position
-image(pat,w ,h);
 image(pat,0-w/2,0-h/2,w,h);
 rectMode(CORNER);
 pop();
@@ -107,7 +109,7 @@ function draw () {
 
 //which face gets drawn
 var faceType = focusedRandom(1,10);
-if(faceType<4){
+if(false){
   background(fg_color1);
   var w = (canvasWidth / 7)*macScale;
   var h = (canvasHeight / 2.4)*macScale;
@@ -118,11 +120,11 @@ if(faceType<4){
       tilt_value = focusedRandom(10, 50);
       eye_value = int(focusedRandom(1, 3));
       mouth_value = focusedRandom(30, 140);
-      drawFace2(x+((j+2)*((w/macScale)/4)), y-(i*((h/macScale)/4)), w, h, tilt_value, eye_value, mouth_value);
+      drawFace3(x+((j+2)*((w/macScale)/4)), y-(i*((h/macScale)/4)), w, h, tilt_value, eye_value, mouth_value);
 
     }}}
     else{
-      background(bg_color1);
+      background(bg_color3);
 
       var w = (canvasWidth / 8)*macScale;
       var h = (canvasHeight / 2.7)*macScale;
@@ -136,7 +138,7 @@ if(faceType<4){
           eye_value = int(focusedRandom(1, 3));
           mouth_value = focusedRandom(30, 140);
       //comment to make file different
-      drawFace1(14+x+(x/2)-q, 16+y-(y/6)-focusedRandom(-25,25), w, h, tilt_value, eye_value, mouth_value);
+      drawFace3(14+x+(x/2)-q, 16+y-(y/6), w, h, tilt_value, eye_value, mouth_value);
     }
   }
   }
