@@ -10,18 +10,24 @@ function setup () {
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  curRandomSeed = int(focusedRandom(0, 100));
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+  
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
 function changeRandomSeed() {
-  curRandomSeed+=1;
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
 }
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 
 
 // global variables for colors
@@ -327,6 +333,9 @@ function drawFace3(x, y, w, h, tilt_value, mustash_width, eye_value) {
 }
 
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
   resetFocusedRandom(curRandomSeed);
   fill(bg_color);
   rect(0,0,canvasWidth,canvasHeight);
