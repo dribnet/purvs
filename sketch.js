@@ -84,12 +84,12 @@ function draw() {
 	fill(bg_color3);
 	var hasNose = true;
 
-	var width_value = focusedRandom(0, 100, 4, 50);
-	var mouth_value_W = focusedRandom(30, 100, 3, 50);
-	var mouth_value_H = focusedRandom(0, 50, 4, 50);
-	var eye_value = focusedRandom(20, 40, 5, 70);
-	var eyebrowsHeight = focusedRandom(70, 130,3,50);
-	var eyebrowsAngle = focusedRandom(-15, 15, 3, 50);
+	var width_value = focusedRandom(0, 100, 3, 50);
+	var mouth_value_W = focusedRandom(30, 100, 3, 65);
+	var mouth_value_H = focusedRandom(20, 50, 3, 35);
+	var eye_value = focusedRandom(20, 40, 2, 35);
+	var eyebrowsHeight = focusedRandom(70, 130,2, 100);
+	var eyebrowsAngle = focusedRandom(-15, 15, 1, 0);
 
 	var w = canvasWidth / 7;
 	var h = canvasHeight / 4;
@@ -99,12 +99,12 @@ function draw() {
 			var x = w / 2 + w * j;
 			//20% of them don't have noses
 			random(0,1) < 0.2 ? hasNose = false: hasNose = true;
-			width_value = focusedRandom(0, 100, 4, 50);
-			mouth_value_W = focusedRandom(30, 100, 3, 50);
-			mouth_value_H = focusedRandom(20, 50, 4, 50);
-			eye_value = focusedRandom(20, 40, 5, 70);
-			eyebrowsHeight = focusedRandom(70, 130,3,50);
-			eyebrowsAngle = focusedRandom(-15, 15, 3, 50);
+			width_value = focusedRandom(0, 100, 3, 50);
+			mouth_value_W = focusedRandom(30, 100, 3, 65);
+			mouth_value_H = focusedRandom(20, 50, 3, 35);
+			eye_value = focusedRandom(20, 40, 2, 35);
+			eyebrowsHeight = focusedRandom(70, 130,2,100);
+			eyebrowsAngle = focusedRandom(-15, 15, 1, 0);
 			drawFace3(x, y, w, h, width_value, eye_value, mouth_value_W, mouth_value_H, eyebrowsHeight, eyebrowsAngle,hasNose);
 		}
 	}
