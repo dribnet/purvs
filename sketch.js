@@ -3,11 +3,6 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 
-var c = ["green", "pink", "blue", "orange", "cyan"];
-var backc = ["#88ba8f", "pink", "#9c9dc8", "#ffd1a1", "#c1d4c8"];
-//var c1 = ["#6bba77", "#de91c8", "#696bc8", "#ffae5b", "#a4d4b4"];
-//var c2 = ["#467a4e", "#c4435e", "#654e91", "#cc8a88", "#94bfbe"];
-
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -35,7 +30,10 @@ function changeRandomSeed() {
 
 // global variables for colors
 
-//var bg_color1 = "pink";
+var bg_color1 = "pink";
+
+var ch3_bodyPrimary = "#cccccc";
+var ch3_bodySecondary = "#808080";
 var ch3_detailPrimary = "#000000";
 var ch3_detailSecondary = "#ffffff";
 
@@ -43,44 +41,30 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
   push();
   rectMode(CENTER);
   var scale = 0.25;
-
-//var ch3_bodyPrimary = c1[Math.floor(Math.random()*c1.length)];
-//var ch3_bodySecondary = c2[Math.floor(Math.random()*c2.length)];
-var c1 = c[Math.floor(Math.random()*c.length)];
-
-if (c1 == "green") {
-
-var ch3_bodyPrimary = "#6bba77";
-var ch3_bodySecondary = "#467a4e";
-
-} else if (c1 == "pink") {
-
-var ch3_bodyPrimary = "#de91c8";
-var ch3_bodySecondary = "#c4435e";
-
-} else if (c1 == "blue") {
-
-var ch3_bodyPrimary = "#696bc8";
-var ch3_bodySecondary = "#654e91";
-
-} else if (c1 == "orange") {
-
-var ch3_bodyPrimary = "#ffae5b";
-var ch3_bodySecondary = "#cc8a88";
-
-} else if (c1 == "cyan") {
-
-var ch3_bodyPrimary = "#a4d4b4";
-var ch3_bodySecondary = "#94bfbe";
-
-}
+  //var shadow_scale = map(y_offset, -5, 5, 200, 300);
 
     if (orientation_value == 2) {
-  translate(x - 15, y);
-    } else {
-    translate(x, y + 5);
-    }
+  translate(x - 15, y + 3);
     
+    noStroke();
+    fill(ch3_detailPrimary);
+    push();
+    //translate(0, -y_offset);
+    //ellipse(45 * scale, 250 * scale, shadow_scale * scale, 30 * scale);
+    pop();
+    } 
+    else {
+    translate(x, y + 10);
+    
+    noStroke();
+    fill(ch3_detailPrimary);
+    push();
+    //translate(0, -y_offset);
+    //ellipse(-10 * scale, 220 * scale, (shadow_scale + 100) * scale, 30 * scale);
+    pop();
+    }
+
+
     if (face_select != 1) {
     // ear (back)
   stroke(ch3_detailPrimary)
@@ -335,36 +319,38 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
-
-  var bg_color1 = backc[Math.floor(Math.random()*backc.length)];
   background(bg_color1);
   // draw face
 
   var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-
+  var h = canvasHeight / 3; 
   
     for(var i=0; i<3; i++) {
       for(var j=0; j<5; j++) {
+
+        //var wave_offset = map((i + 1) * (j + 1), 0, 15, 0, 360);
+
+        //var y_offset = Math.sin((frameCount/50) + wave_offset) * 5;
+
         var y = h/2 + h*i;
         var x = w/2 + w*j;
-        var ear_length = focusedRandom(90, 350);
-    var eye_value = Math.floor(focusedRandom(1, 4));
-    var look_direction = focusedRandom(-15, 15);
-    var teeth_value = Math.floor(focusedRandom(1, 9));
-    var orientation_value = Math.floor(focusedRandom(1, 3));
-    var pupil_size = focusedRandom(0.4, 1);
-    var eyelidTop_height = focusedRandom(0, 70);
-    var eyelidBottom_height = focusedRandom(0, 70);
-    var eyebrow_height = focusedRandom(0, -10);
-    var face_select = Math.floor(focusedRandom(1, 4));
-      
-    var eye_PosX = 110;
-    var eye_PosY = -50;
+        var ear_length = focusedRandom(90, 350, 0, 150);
+        var eye_value = Math.floor(focusedRandom(1, 4, 3, 2.5));
+        var look_direction = focusedRandom(-15, 15);
+        var teeth_value = Math.floor(focusedRandom(1, 9, 3, 1));
+        var orientation_value = Math.floor(focusedRandom(1, 3));
+        var pupil_size = focusedRandom(0.4, 1);
+        var eyelidTop_height = focusedRandom(0, 70);
+        var eyelidBottom_height = focusedRandom(0, 70);
+        var eyebrow_height = focusedRandom(0, -10);
+        var face_select = Math.floor(focusedRandom(1, 4));
+          
+        var eye_PosX = 110;
+        var eye_PosY = -50;
     
     drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidTop_height, eyelidBottom_height, eyebrow_height, eye_PosX, eye_PosY, eye_PosX + 50, eye_PosY - 25, eye_PosX + 80, eye_PosY - 20, face_select);
   }
-    }  
+    } 
 }
 
 function keyTyped() {
