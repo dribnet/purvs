@@ -37,11 +37,11 @@ this.drawEyes = function(){
 	//normal face and eyes
 	if(this.eyeType<52){
 
-		if (this.eyeType<20){
+		if (this.eyeType<13){
 			//dark skin
 			this.canvas.fill(151, 102, 52);
 		}
-		else if(this.eyeType<35){
+		else if(this.eyeType<22){
 			//medium skin
 			this.canvas.fill(165,128,104);
 
@@ -59,7 +59,7 @@ this.drawEyes = function(){
 	//creepy face and eyes
 	else{
 		//skin colour that ranges from green, through grey, to reddish-grey
-		this.canvas.fill(this.sliders.scaleSliders(4,50,200,true),254/2,254/2);
+		this.canvas.fill(Math.floor(focusedRandom(50,150,2,130)),254/2,254/2);
 		//face
 		this.canvas.ellipse(0,0,w/3,w/3);
 		this.canvas.fill(0);
@@ -68,6 +68,7 @@ this.drawEyes = function(){
 	//draw the right eye circle and any embelishments
 	this.canvas.push();
 	this.canvas.translate(this.eyeX, this.eyeY);
+
 	this.canvas.ellipse(0,0,this.eyeSize, this.eyeSize);
 	
 	//normal eyeball
@@ -83,6 +84,12 @@ this.drawEyes = function(){
 
 	//draw the left eye circle and any embelishments
 	this.canvas.push();
+	//the chance that a cute doll will have a creepy eye
+	this.oneEye = focusedRandom(1,100);
+	if(this.oneEye<5 && this.eyeType <52){
+		this.eyeType = 55;
+		this.canvas.fill(0);
+	}
 	this.canvas.translate(-this.eyeX, this.eyeY);
 	this.canvas.ellipse(0,0,this.eyeSize, this.eyeSize);
 		//creepy x
@@ -212,7 +219,21 @@ this.drawHair = function(){
 	//maps the dimensions of the bows to slider 2
 	this.bowWidth =this.sliders.scaleSliders(2,18,30,true);
 	this.bowHeight = this.sliders.scaleSliders(2,18,22,true);
-	this.canvas.fill(44);
+
+//decides the colour of the hair
+this.hairChoice = focusedRandom(0,100);
+if (this.hairChoice <5){ 
+	this.canvas.fill(155,0,0);
+}
+else if(this.hairChoice<10){
+	this.canvas.fill(255,204,6);
+}
+	else{this.canvas.fill(focusedRandom(44,90,10,20));}
+	//if the doll os creepy with black hair
+if(this.eyeType>52&& this.hairChoice>10){
+this.canvas.fill(44, focusedRandom(44,100),44);
+if(this.hairChoice>90){this.canvas.fill(44,44,focusedRandom(44,100));}
+}
 	//left top hair
 	this.canvas.push();
 	this.canvas.translate(-w/10,-w/10);
@@ -235,10 +256,22 @@ this.drawHair = function(){
 	//draw the right side ponytail
 	this.rightPony();
 
+	this.canvas.push()
+	//choose the bow colour
+	this.chooseBow = focusedRandom(0,100);
+	if(this.chooseBow<5){
+		this.canvas.fill(0,155,0);
+	}
+	else if(this.chooseBow<10){
+		this.canvas.fill(255,155,255);
+	}
+	else{
+		this.canvas.fill(255,0,0);
+	}
+
 	//draw the left side bow
 	this.canvas.push();
 	this.canvas.translate(-w/5.8,-w/80);
-	this.canvas.fill(255,0,0);
 	this.bow(this.bowWidth,this.bowHeight);
 	this.canvas.pop();
 
@@ -246,9 +279,9 @@ this.drawHair = function(){
 	this.canvas.push();
 	this.canvas.translate(w/5.8,-w/80);
 	this.canvas.rotate(16);
-	this.canvas.fill(255,0,0);
 	this.bow(this.bowWidth,this.bowHeight);
 	this.canvas.pop();
+	this.canvas.pop()
 }
 
 //draw the left side ponytail
@@ -377,7 +410,7 @@ this.bow = function(tW,tH){
 this.cheeks = function(){
 	//set up colours
 	this.canvas.push();
-	this.cheekBright = this.sliders.scaleSliders(3,0,200,true);
+	this.cheekBright = Math.round(focusedRandom(0,255,5,122));
 	this.canvas.fill(255,0,0,this.cheekBright);
 	this.canvas.noStroke();
 	//draw the left cheek

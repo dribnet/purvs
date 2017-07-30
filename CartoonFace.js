@@ -238,7 +238,7 @@ this.pointyNose =function(){
 //draws the shape of the head
 this.head = function(){
 	//gets a number to decide which head to draw
-	this.hNum = this.sliders.scaleSliders(3,1,6,true);
+	this.hNum = this.sliders.scaleSliders(3,1,16,true);
 	//positions the head
 	this.c.push();
 	this.c.rectMode(CENTER);
@@ -247,19 +247,19 @@ this.head = function(){
 		//square head
 		this.c.rect(0,0,115,115);
 	}
-	else if (this.hNum == 2){
+	else if (this.hNum < 8){
 		//oval head
 		this.c.ellipse(0,0,100,150);
 	}
-	else if (this.hNum == 3){
+	else if (this.hNum < 14){
 		//circular head
 		this.c.ellipse(0,0,115,115);
 	}
-	else if (this.hNum == 4){
+	else if (this.hNum == 15){
 		//rectangle head
 		this.c.rect(0,0,100,150);
 	}
-	else if (this.hNum == 5){
+	else if (this.hNum == 16){
 		//no head
 	}
 	this.c.pop();

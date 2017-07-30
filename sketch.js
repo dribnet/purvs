@@ -21,8 +21,7 @@ randButton.mousePressed(changeRandomSeed);
 randButton.parent('selector1Container');
 
   // create scale slider
-  //CHANGE SLIDER VALUE HERE
-  slider1 = createSlider(0, 100, 40);
+  slider1 = createSlider(0, 100, 0);
   slider1.parent('slider1Container');
   
 //create the other objects
@@ -57,7 +56,7 @@ var fg_color3 = [206, 207, 180];
 //most of the actual drawing is done within the RagDoll object
 function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 	//make each face different
-  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+  slids.randomSliders(focusedRandom(0,100,5,20), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100, 3, 20),focusedRandom(0,100),focusedRandom(0,100,2,60),focusedRandom(0,100));
   push();
 //instructs the doll object to draw itself onto a graphics object
 var doll = dolly.drawFace();
@@ -87,14 +86,13 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 //draws a patterned face according to the positions of the sliders
 //most of the actual drawing is done within the PatternFace object
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
-  //make each face different
-  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   push();
 //instructs the patternFace object to draw itself onto a graphics object
 var pat = patterned.drawFace();
 rectMode(CENTER);
 translate(x, y);
 //draws the graphics object onto the main canvas in the desired position
+image(pat,w ,h);
 image(pat,0-w/2,0-h/2,w,h);
 rectMode(CORNER);
 pop();
@@ -108,23 +106,9 @@ function draw () {
     var s1 = slider1.value();
 
 //which face gets drawn
-var faceType = focusedRandom(1,10);
-if(false){
-  background(fg_color1);
-  var w = (canvasWidth / 7)*macScale;
-  var h = (canvasHeight / 2.4)*macScale;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = (h/macScale)/2 + (h/macScale)*i;
-      var x = (w/macScale)/2 + (w/macScale)*j;
-      tilt_value = focusedRandom(10, 50);
-      eye_value = int(focusedRandom(1, 3));
-      mouth_value = focusedRandom(30, 140);
-      drawFace3(x+((j+2)*((w/macScale)/4)), y-(i*((h/macScale)/4)), w, h, tilt_value, eye_value, mouth_value);
 
-    }}}
-    else{
-      background(bg_color3);
+
+      background(bg_color1);
 
       var w = (canvasWidth / 8)*macScale;
       var h = (canvasHeight / 2.7)*macScale;
@@ -134,14 +118,16 @@ if(false){
           else{var q = -55;}
           var y = (h/macScale)/2 + (h/macScale)*i;
           var x = (w/macScale)/2 + (w/macScale)*j;
-          tilt_value = focusedRandom(-100, 55);
+
+          tilt_value = focusedRandom(-55, 55,2,0);
           eye_value = int(focusedRandom(1, 3));
           mouth_value = focusedRandom(30, 140);
       //comment to make file different
-      drawFace3(14+x+(x/2)-q, 16+y-(y/6), w, h, tilt_value, eye_value, mouth_value);
-    }
+      drawFace1(14+x+(x/2)-q, 16+y-(y/6)-focusedRandom(-25,25), w, h, tilt_value, eye_value, mouth_value);
+    
   }
   }
+
 }
 
 function keyTyped() {
