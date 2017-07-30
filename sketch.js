@@ -3,6 +3,7 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 var overallScale;
+var random_result;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -24,7 +25,7 @@ function changeRandomSeed() {
 }
 
 
-function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value) {
+function drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value) {
   //colour variables
   var leafColour1;
   var leafColour2;
@@ -43,7 +44,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
     eyeColour1 = 98; 
     eyeColour2 = 183;
     eyeColour3 = 88;
-  } else if(season_value == 3){
+  } else if(season_value == 1){
     //spring
     leafColour1 = "#d7ff72";
     leafColour2 = "#a2d400";
@@ -65,7 +66,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
     eyeColour1 = 66; 
     eyeColour2 = 112;
     eyeColour3 = 208;
-  } else {
+  } else if(season_value== 3){
     //autumn
     leafColour1 = "#c64e00";
     leafColour2 = "#ff902b";
@@ -164,7 +165,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
 
   //mouth closed
 
-  if(mouth_value ===1){
+  if(mouth_value ==0){
     push();
     translate(-10 * scale, 140 * scale);
     rotate(90);
@@ -181,7 +182,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
   }
 
   //mouth open
-  if(mouth_value >=2){
+  if(mouth_value ==1){
 
     push();
     fill("#ef7fbe");
@@ -208,7 +209,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
   }
 
   // eyes closed
-  if (eye_value ===1) {
+  if (eye_value ==0) {
     push();
     noFill();
     translate(-80 * scale, 80 * scale);
@@ -225,7 +226,7 @@ function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, se
     
   }
   //eyes open
-  if(eye_value >=2){
+  if(eye_value ==1){
     for(var i=1; i<=5; i++){
       noStroke();
       fill(eyeColour1, eyeColour2, eyeColour3, i*50);
@@ -275,25 +276,52 @@ function twig(x, y, colour, rotation){
   pop();
 }
 
+function getRandomSeason(){
+  random_result = focusedRandom(0, 100);
+  if(random_result <50) {
+    return 0;
+  }
+  if(random_result <75) {
+    return 1;
+  }
+  if(random_result <90) {
+    return 2;
+  }
+  else {
+    return 3;
+  }
+}
+
+
+
+function getRandomEyeValue(){
+  random_result = focusedRandom(0, 100);
+  if(random_result <90) {
+    return 1;
+  }
+  if(random_result >=90) {
+    return 0;
+  }
+}
+
+function getRandomMouthValue(){
+  random_result = focusedRandom(0, 100);
+  if(random_result <90) {
+    return 0;
+  }
+  if(random_result >=90) {
+    return 1;
+  }
+}
+
+
+
 
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
-
   noStroke();
   background("#ffffff");
-
-  tilt_value = int(focusedRandom(-50, 50));
-  width_value = focusedRandom(0, 100);
-  mouth_value = int(focusedRandom(1, 3));
-  eye_value = int(focusedRandom(1, 3));
-  seed_value = int(focusedRandom(1, 50));
-  leaf_value = int(focusedRandom(10, 70));
-  twig_value = int(focusedRandom(0, 3));
-  twig_value2 = int(focusedRandom(0, 5));
-  season_value = int(focusedRandom(0, 4))
-
-
   var w = canvasWidth / 6;
   var h = canvasHeight / 4;
   for(var i=0; i<4; i++) {
@@ -302,18 +330,16 @@ function draw () {
       var x = w/2 + w*j;
       tilt_value = int(focusedRandom(-50, 50));
       width_value = focusedRandom(0, 100);
-      mouth_value = int(focusedRandom(1, 3));
-      eye_value = int(focusedRandom(1, 3));
+      mouth_value = getRandomMouthValue();
+      eye_value = getRandomEyeValue();
       seed_value = int(focusedRandom(1, 50));
-      leaf_value = int(focusedRandom(10, 70));
-      twig_value = int(focusedRandom(0, 3,));
-      twig_value2 = int(focusedRandom(0, 5));
-      season_value = int(focusedRandom(0, 4))
+      leaf_value = Math.floor(focusedRandom(10, 60, 5, 60));
+      twig_value = int(focusedRandom(0, 3, 5, 3));
+      twig_value2 = int(focusedRandom(0, 5, 5, 5));
+      season_value = getRandomSeason();
       drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value);
     }
-  }
-
-   
+  }   
 }
 
 

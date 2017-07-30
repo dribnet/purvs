@@ -1,11 +1,6 @@
 ## PS1 MDDN 342 2017
 
-This README explains the randomly paramaterized faces for part3. 
 
-I chose my summer sprite to work on, as it was the most aesthetically pleasing for me, and means that I can add a lot of different parameters. 
+I've used the focusRandom() method to make sure that there are usually lots of leaves around the sprites, and usually more twigs than less.
 
-The number of leaves are randomised, along with the number of twigs growing out of it's head. The position of both the twigs and leaves are randomised also. I chose these parameters to change as they allowed for a wide range of variation.
-
-There are also 4 colour palettes that can be randomly chosen. There is a summer, an autumn, winter and spring palette.
-
-The mouth and eyes also open and close, and the faces are randomly tilted also.
+I used the other method to lean the distribution of seasons towards summer: 50% of the time the sprite is a summer sprite, 25% of the time it's spring, 15% of the time it's winter and 10% of the time it's autumn. Also 90% of the time the eyes are open and 90% of the time the mouth is closed.
