@@ -37,30 +37,30 @@ var ch3_bodySecondary = "#808080";
 var ch3_detailPrimary = "#000000";
 var ch3_detailSecondary = "#ffffff";
 
-function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidBottom_height, eyelidTop_height, eyebrow_height, eyeFront_PosX, eyeFront_PosY, eyeMiddle_PosX, eyeMiddle_PosY, eyeBack_PosX, eyeBack_PosY, face_select) {
+function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidBottom_height, eyelidTop_height, eyebrow_height, eyeFront_PosX, eyeFront_PosY, eyeMiddle_PosX, eyeMiddle_PosY, eyeBack_PosX, eyeBack_PosY, face_select, y_offset) {
   push();
   rectMode(CENTER);
   var scale = 0.25;
-  //var shadow_scale = map(y_offset, -5, 5, 200, 300);
+  var shadow_scale = map(y_offset, -5, 5, 200, 300);
 
     if (orientation_value == 2) {
-  translate(x - 15, y + 3);
+  translate(x - 15, y + 3 + y_offset);
     
     noStroke();
     fill(ch3_detailPrimary);
     push();
-    //translate(0, -y_offset);
-    //ellipse(45 * scale, 250 * scale, shadow_scale * scale, 30 * scale);
+    translate(0, -y_offset);
+    ellipse(45 * scale, 250 * scale, shadow_scale * scale, 30 * scale);
     pop();
     } 
     else {
-    translate(x, y + 10);
+    translate(x, y + 10 + y_offset);
     
     noStroke();
     fill(ch3_detailPrimary);
     push();
-    //translate(0, -y_offset);
-    //ellipse(-10 * scale, 220 * scale, (shadow_scale + 100) * scale, 30 * scale);
+    translate(0, -y_offset);
+    ellipse(-10 * scale, 220 * scale, (shadow_scale + 100) * scale, 30 * scale);
     pop();
     }
 
@@ -328,9 +328,9 @@ function draw () {
     for(var i=0; i<3; i++) {
       for(var j=0; j<5; j++) {
 
-        //var wave_offset = map((i + 1) * (j + 1), 0, 15, 0, 360);
+        var wave_offset = map((i + 1) * (j + 1), 0, 15, 0, 360);
 
-        //var y_offset = Math.sin((frameCount/50) + wave_offset) * 5;
+        var y_offset = Math.sin((frameCount/50) + wave_offset) * 5;
 
         var y = h/2 + h*i;
         var x = w/2 + w*j;
@@ -348,7 +348,7 @@ function draw () {
         var eye_PosX = 110;
         var eye_PosY = -50;
     
-    drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidTop_height, eyelidBottom_height, eyebrow_height, eye_PosX, eye_PosY, eye_PosX + 50, eye_PosY - 25, eye_PosX + 80, eye_PosY - 20, face_select);
+    drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidTop_height, eyelidBottom_height, eyebrow_height, eye_PosX, eye_PosY, eye_PosX + 50, eye_PosY - 25, eye_PosX + 80, eye_PosY - 20, face_select, y_offset);
   }
     } 
 }
