@@ -348,7 +348,7 @@ function draw () {
       for(var j=0; j<5; j++) {
         var y = h/2 + h*i;
         var x = w/2 + w*j;
-        var ear_length = focusedRandom(80, 350);
+        var ear_length = focusedRandom(90, 350);
     var eye_value = Math.floor(focusedRandom(1, 4));
     var look_direction = focusedRandom(-15, 15);
     var teeth_value = Math.floor(focusedRandom(1, 9));
