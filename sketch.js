@@ -2,6 +2,8 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 var curRandomSeed;
 var randomNum;
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -16,6 +18,7 @@ function setup () {
 //increases the seed by 1
 function changeRandomSeed() {
   curRandomSeed+=1;
+  lastSwapTime = millis();
 }
 
 // global variables for colors
@@ -762,6 +765,10 @@ ellipse(x+mouseXPos,y+mouseYPos,size*0.6,size*0.6);
 //makes a grid & randomizes each monster
 function draw () {
   resetFocusedRandom(curRandomSeed);
+
+  if(millis() > lastSwapTime + millisPerSwap) {
+  changeRandomSeed();
+  }
 
   noStroke();
 
