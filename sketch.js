@@ -343,7 +343,7 @@ function draw () {
       mouth_value = getRandomMouthValue();
       eye_value = getRandomEyeValue();
       seed_value = int(focusedRandom(1, 50));
-      leaf_value = Math.floor(focusedRandom(10, 30, 5, 30));
+      leaf_value = Math.floor(focusedRandom(5, 30, 5, 30));
       twig_value = int(focusedRandom(0, 4, 5, 4));
       twig_value2 = int(focusedRandom(0, 6, 5, 6));
       season_value = getRandomSeason();
