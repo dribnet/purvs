@@ -66,11 +66,7 @@ function drawFace1(x, y, w, h, mouth_value, mouth_width, pupilSize, chin, faceDo
     }
     push();
     scale(bodySize,bodySize);
-    if(fireColour==1){
-        fireBodyOrange(chin);
-    }
-    else{    fireBody(chin);}
-
+    fireBody(chin);
     pop();
     fill(255);
     push();
@@ -96,7 +92,7 @@ function draw () {
     faceDown = 5;
     fireOpacity = focusedRandom(50, 180);
     fireColour =getRandomColour();
-    orangeness = focusedRandom(120, 200);
+    orangeness = focusedRandom(150, 200);
     bodySize = 1;
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
@@ -105,7 +101,7 @@ function draw () {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
         fireColour =getRandomColour();
-        orangeness = focusedRandom(120, 210);
+        orangeness = focusedRandom(150, 210);
         //0=blue 1=orange 2=purple 
         if (fireColour == 0){
     mouth_value = focusedRandom(1, 10);
@@ -161,24 +157,6 @@ function fireBody(chin){
     quad(0, chin, -70, 75, -70, -30, 70, 75);
     quad(0, chin, -70, 75, 60, -50, 70, 75);
     quad(0, chin, -70, 75, -50, -80, 70, 75);
-    quad(0, chin, -70, 75, 10, -120, 70, 75);
-    pop();
-}
-function fireBodyOrange(chin){
-    push();
-    translate(0,3);
-    scale(0.6,0.58);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
-    quad(0, chin, -70, 75, -90, 10, 70, 75);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
-    quad(0, chin, -70, 75, 80, -10, 70, 75);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
-    quad(0, chin, -70, 75, -70, -30, 70, 75);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
-    quad(0, chin, -70, 75, 60, -50, 70, 75);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
-    quad(0, chin, -70, 75, -50, -80, 70, 75);
-    fill(255, focusedRandom(100, 210), 0, fireOpacity);
     quad(0, chin, -70, 75, 10, -120, 70, 75);
     pop();
 }
