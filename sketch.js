@@ -10,10 +10,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -23,7 +19,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-var bg_color1 = [255, 255, 255];
+var bg_color1 = [238, 234, 240];
 var face_stroke = [0, 0, 0];
 
 function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_type_value, nose_value, nose_type_value, cheek_value, cheek_value_on) {
@@ -289,10 +285,13 @@ function getRandomFace() {
 function getRandomNoseType() {
   random_result = focusedRandom(0, 100);
   if(random_result < 10) {
+    return 4;
+  }
+  if(random_result < 15) {
     return 3;
   }
-  if(random_result < 30) {
-    return 4;
+  if(random_result < 40) {
+    return 5;
   }
   if(random_result < 50) {
     return 2;
@@ -302,9 +301,23 @@ function getRandomNoseType() {
   }
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
 
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
@@ -313,10 +326,10 @@ function draw () {
   // draw face
   fill(bg_color1);
 
-  var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
+  var w = canvasWidth / 8.2 - 10.5;
+  var h = canvasHeight / 5;
+  for(var i=0; i<5; i++) {
+    for(var j=0; j<8.2; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
       eye_value = getRandomSetOfEyes();
