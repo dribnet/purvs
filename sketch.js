@@ -131,8 +131,8 @@ function resetCoOrdsArrayPointer(){
 var timerIsRunning = false;
 var timerId = 0;
 
-function startResetTimer(secs = 5){
-	var countDown = secs;
+function startResetTimer(){
+	var countDown = 10;
 	if(!timerIsRunning){
 		timerIsRunning = true;
 		print('timer is running with ' + countDown + ' seconds to go');
