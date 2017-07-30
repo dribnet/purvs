@@ -1,263 +1,157 @@
 var canvasWidth = 960;
-var halfWidth = canvasWidth/2;
-// the center x coordinate of each of the individual graphics objects the faces will be drawn on
-var centerX = halfWidth/2;
-//the same for y
-var centerY = canvasHeight/2;
 var canvasHeight = 500;
-var black = "#000000";
-var calvin_skin = "#f7bba1";
-var calvin_line = 3;
-var missy_skin_1 = "#efc1b2";
-var missy_skin_2 =  "#efc1b2";
-var missy_lips = "#efc1b2";
-var missy_hair_1 = "#805408";
-var missy_hair_2 = "#805408";
-var missy_hair_3 = "#490b0c";
-var white = "#ffffff";
-var missy_eyes = "#9194d4";
+var slider1;
+var faceSelector;
+var slids;
+var dolly;
+var patterned;
+var cartoon;
+var curRandomSeed;
+var button;
+var macScale;
 
 function setup () {
-  // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
-calvin = createGraphics(canvasWidth/2, canvasHeight);
-missy = createGraphics(canvasWidth/2, canvasHeight);
-  // position each element on the page
-  main_canvas.parent('canvasContainer');
+// create the drawing canvas, save the canvas element
+var main_canvas = createCanvas(canvasWidth, canvasHeight);
+main_canvas.parent('canvasContainer');
+//randomization
+curRandomSeed = int(focusedRandom(0, 100));
+randButton = createButton('randomize');
+randButton.mousePressed(changeRandomSeed);
+randButton.parent('selector1Container');
+
+  // create scale slider
+  slider1 = createSlider(0, 100, 0);
+  slider1.parent('slider1Container');
+  
+//create the other objects
+slids = new SliderValues();
+slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+dolly = new RagDoll(canvasWidth/3,canvasHeight,slids);
+cartoon = new CartoonFace(canvasWidth/3,canvasHeight,slids);
+patterned = new PatternFace(canvasWidth/3,canvasHeight,slids);
 
   // rotation in degrees
   angleMode(DEGREES);
+  //the scaling to deal with the difference between personal and lab computers
+  macScale = map(slider1.value(),0,100,1,6);
+}
+
+//changes the randomiser and sends the new numbers to the slider object
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
 }
 
 // global variables for colors
-var bg_color = "#555555";
-var fg_color1 = "#5b412a";
-var fg_color2 = "#7b611a";
-var stroke_color = "#ffffff";
+var bg_color1 = [156, 159, 213];
+var bg_color2 = [244, 249, 200];
+var bg_color3 = [70, 70, 120];
 
+var fg_color1 = [249, 231, 239];
+var fg_color2 = [175, 212, 175];
+var fg_color3 = [206, 207, 180];
+
+//draws a rag doll face according to the positions of the sliders
+//most of the actual drawing is done within the RagDoll object
+function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
+	//make each face different
+  slids.randomSliders(focusedRandom(0,100,5,20), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100, 3, 20),focusedRandom(0,100),focusedRandom(0,100,2,60),focusedRandom(0,100));
+  push();
+//instructs the doll object to draw itself onto a graphics object
+var doll = dolly.drawFace();
+translate(x, y);
+ //draws the graphics object onto the main canvas in the desired position
+ rotate(tilt_value);
+ image(doll,0-w/2,0-h/2,w,h);
+ pop();
+}
+
+//draws a cartoon face according to the positions of the sliders
+//most of the actual drawing is done within the CartoonFace object
+function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
+	//make each face different
+  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100,4,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+  rectMode(CENTER);
+  push();
+  var toon = cartoon.drawFace();
+  translate(x, y);
+//draws the graphics object onto the main canvas in the desired position
+ image(toon,0-w/2,0-h/2,w,h);
+ pop();
+ rectMode(CORNER);
+ resetMatrix();
+}
+
+//draws a patterned face according to the positions of the sliders
+//most of the actual drawing is done within the PatternFace object
+function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+  push();
+//instructs the patternFace object to draw itself onto a graphics object
+var pat = patterned.drawFace();
+rectMode(CENTER);
+translate(x, y);
+//draws the graphics object onto the main canvas in the desired position
+image(pat,w ,h);
+image(pat,0-w/2,0-h/2,w,h);
+rectMode(CORNER);
+pop();
+}
 
 function draw () {
-  // background color
- background(200,200,222);
-  // stroke color
-  stroke(stroke_color)
-  pop();
-  drawMissy();
-drawCalvin();
-stroke(0,0,0);
-strokeWeight(5); 
-line((canvasWidth/2)-40, 0, canvasWidth/2, canvasHeight);
-line((canvasWidth/2)-20, 0, (canvasWidth/2)+20, canvasHeight);
+    //the scaling to deal with the difference between personal and lab computers
+    macScale = map(slider1.value(),0,100,1,6);
+    resetFocusedRandom(curRandomSeed);
+    noStroke();
+    var s1 = slider1.value();
 
+//which face gets drawn
+var faceType = focusedRandom(1,10);
+if(true){
+  background(fg_color1);
+  var w = (canvasWidth / 7)*macScale;
+  var h = (canvasHeight / 2.4)*macScale;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = (h/macScale)/2 + (h/macScale)*i;
+      var x = (w/macScale)/2 + (w/macScale)*j;
+      tilt_value = focusedRandom(10, 50);
+      eye_value = int(focusedRandom(1, 3));
+      mouth_value = focusedRandom(30, 140);
+      drawFace2(x+((j+2)*((w/macScale)/4)), y-(i*((h/macScale)/4)), w, h, tilt_value, eye_value, mouth_value);
 
-}
+    }}}
+    else{
+      background(bg_color1);
 
-function drawCalvin(){
-	push();
-	calvin.strokeWeight(calvin_line); 
-	var calvin_hair = "#f4b613";
-	calvin.fill(calvin_skin);
-	calvin.noStroke();
-	calvin.push();
-	calvin.translate(centerX/2,100);
-	
-	drawCalvinHead();
+      var w = (canvasWidth / 8)*macScale;
+      var h = (canvasHeight / 2.7)*macScale;
+      for(var i=0; i<3; i++) {
+        for(var j=0; j<5; j++) {
+          if (i == 1){var q = 20;}
+          else{var q = -55;}
+          var y = (h/macScale)/2 + (h/macScale)*i;
+          var x = (w/macScale)/2 + (w/macScale)*j;
 
-	calvin.fill(calvin_hair);
-	drawCalvinHair();
-	drawCalvinFace();
-
-	calvin.pop();
-	
- 	image(calvin,-width/8,-height/10,canvasWidth*1.5, canvasHeight*3);
- 	pop();
-}
-
-function drawCalvinFace(){
-	calvin.noFill();
-	calvin.stroke(black);
-	
-//draw calvin's nose and ears
-
-//nose
-	calvin.ellipse(-6,15,15,12);
-	//Calvin's left ear
-	calvin.fill(calvin_skin);
-	calvin.ellipse(49,6,12,16);
-	//remove part of the ellipses for nose and ear
-	calvin.noStroke();
-	calvin.ellipse(45,7,15,12);
-	calvin.ellipse(-0, 15,15.12);
-
-	calvin.fill(calvin_skin);
-	
-	calvin.stroke(black);
-calvin.fill(255,255,255);
-	calvin.ellipse(-18,1,8,12);
-	calvin.ellipse(10,-2,8,12);
-	//draw the mouth
-	calvin.fill(black);
-	calvin.beginShape();
-	calvin.vertex(-30,30);
-	calvin.vertex(-5,55);
-	calvin.vertex(30,25);
-	calvin.vertex(0,29);
-	calvin.endShape();
+          tilt_value = focusedRandom(-55, 55,2,0);
+          eye_value = int(focusedRandom(1, 3));
+          mouth_value = focusedRandom(30, 140);
+      //comment to make file different
+      drawFace1(14+x+(x/2)-q, 16+y-(y/6)-focusedRandom(-25,25), w, h, tilt_value, eye_value, mouth_value);
+    }
+  }
+  }
 
 }
-function drawCalvinHead(){
-noStroke();
-calvin.ellipse(0,15,100,100);
-calvin.fill(bg_color);
-calvin.beginShape();
-calvin.vertex(-55,-13);
-calvin.vertex(-47, 71);
-calvin.vertex(-10, 71);
-calvin.vertex(-44,-13);
-calvin.endShape();
-calvin.fill(calvin_skin);
-calvin.stroke(black);
-calvin.beginShape();
-calvin.vertex(-44,-13);
-calvin.vertex(-37,40);
-calvin.vertex(-15,65);
-calvin,vertex(0,68);
-;calvin.vertex(25,60);
-calvin.vertex(35,55)
-calvin.vertex(45,37);
-calvin.endShape();
-//draw the shoulders
-calvin.noFill();
-	calvin.line(35,55,65, 65);
-	calvin.line(-25,55,-55,60);
-
-}
-function drawCalvinHair() {
-
-	calvin.stroke(black);
-	
-
-	calvin.beginShape();
-	calvin.vertex(-44,-13);
-	calvin.vertex(-47,-15);
-	calvin.vertex(-42,-18);
-	calvin.vertex(-45,-20);
-	//spike 1
-	calvin.vertex(-40,-22);
-	calvin.vertex(-55, -28);
-	// spike 2
-	calvin.vertex(-30,-30);
-	calvin.vertex(-60,-55);
-	calvin.vertex(-25, -45)
-	calvin.vertex(-10,-38);
-	//spike 3
-	calvin.vertex(-35, -65);
-	calvin.vertex(10,-50);
-	calvin.vertex(25,-35);
-	//spike 4
-	calvin.vertex(20,-45);
-	calvin.vertex(35,-30);
-	//spike 5
-	calvin.vertex(38,-40);
-	calvin.vertex(43,-25);
-	//bix
-	calvin.vertex(55,-25);
-	calvin.vertex(55,-15);
-	calvin.vertex(43,-13);
-	calvin.endShape();
-	calvin.noStroke();
-	calvin.rectMode(CENTER);
-	calvin.rect(-41,-2,12,17);
-	calvin.rect(-40,-8,5,10);
-
-//give a curved fringe line
-calvin.noStroke();
-calvin.fill(calvin_skin);
-calvin.ellipse(0,-10,70,35);
-}
-function drawMissy() {
-	missy.ellipseMode(CENTER);
-	
-	missy.push();
-	missy.translate(centerX/2,0);
-
-	
-drawMissyBody()
-drawMissyHair()
-drawMissyHead()
-
- drawMissyFace()
-	missy.pop();
-
-
-	
-image(missy,canvasWidth/2-(canvasWidth/8),-canvasWidth/10,canvasWidth*1.5, canvasHeight*3);
-}
-function drawMissyBody(){}
-function drawMissyHead(){
-	missy.noStroke();
-	missy.fill(missy_skin_1);
-	//main thin oval
-	//missy.ellipse(0,144,50,94);
-	missy.ellipse(0,146,50,91);
-	//jaw
-	missy.ellipse(0,165,54,40);
-//forehead
-missy.ellipse(0,125,60,50);
-//filler
-missy.ellipse(0,135,57,40);
-//cheeks
-missy.bezier(20,170,25,165,32,160,29,120);
-missy.bezier(-20,170,-25,165,-32,160,-29,120);
-//forhead wings under hair
-missy.ellipse(10,107,30,30);
-missy.ellipse(-10,110,25,25);
-
-}
-function drawMissyHair(){
-	missy.fill(missy_hair_3);
-	missy.ellipse(0,95,80,45);
-	missy.ellipse(10,115,80,55);
-	missy.ellipse(-10,120,75,45);
-	missy.ellipse(15,80,50,40);
-	missy.ellipse(-20,80,57,44);
-}
-function drawMissyFace(){
-	//eyebrows
-	missy.stroke(missy_hair_2);
-	missy.noFill();
-	missy.bezier(-20,125,-25,110,-5,125,-2,130);
-missy.bezier(20,122,25,115,7,120,4,127);
-//eyes
-missy.stroke(black);
-missy.fill(white);
-missy.bezier(22,130,20,115,7,130,9,130);
-missy.bezier(-22,130,-20,115,-7,130,-9,130);
-missy.bezier(22,130,20,115,7,130,9,130);
-missy.bezier(-22,130,-20,115,-7,130,-9,130);
-missy.fill(missy_eyes);
-missy.ellipse(17,129,4,4);
-missy.ellipse(-17,129,4,4);
-
-//lips
-missy.fill(155,0,0);
-//missy.line(0,165,15,165);
-missy.bezier(0,163,0,158,15,164,15,162);
-missy.bezier(0,163,0,158,-15,164,-15,162);
-missy.bezier(-10,164,-5,170,5,170,10,164);
-
-//nose
-//missy.ellipse(0,140,10,10);
-missy.noFill();
-missy.bezier(0,133, -10, 143, -15, 153, 0, 153);
-}
-
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+	if (key == '!') {
+		saveBlocksImages();
+	}
+	else if (key == '@') {
+		saveBlocksImages(true);
+	}
 }
+
+
+

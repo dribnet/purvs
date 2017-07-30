@@ -1,5 +1,9 @@
-I have chosen to draw Calvin from "Calvin and Hobbes" by Bill Waterson. I have also drawn Missy, played by Michelle Gomez, from Doctor who. I created both images by eye in terms of geometry, using images from a google image search of each character. I did use a colour dropper tool for some of the colours. 
+## PS1 MDDN 342 2017
 
-For Calvin I worked out how to beginShaoe() and endShape(), to get the face and the hair. I got confused by the coordinate system. For missy I decided to have all my x coordinates  in positive numbers, which was a horrible mistake (even more confusing), but I made it work through trial and error.
+This README explains the distributions experiment with the cartoon faces
+I decided to do an experiment with the distributions within the cartoon face sketches, in case I decided to use them in my final along with the rag dolls
 
-Both drawings use their own graphics objects, which means I was able to make them a little less tiny re-visiting them later, but I lost a little quality doing so.
+These faces make me think of family portraits, so I decided that some features would be very common.
+I made most of the faces oval or curcular. 
+Angular noses are more common
+round eyes are more common
