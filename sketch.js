@@ -94,12 +94,12 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 	push();
 	//instructs the patternFace object to draw itself onto a graphics object
-	var pat = patterned.drawFace();
+	//var pat = patterned.drawFace();
 	rectMode(CENTER);
 	translate(x, y);
 //draws the graphics object onto the main canvas in the desired position
 
- image(pat,0-w/2,0-h/2,w*macScale,h*macScale);
+ //image(pat,0-w/2,0-h/2,w*macScale,h*macScale);
   rectMode(CORNER);
   pop();
 }

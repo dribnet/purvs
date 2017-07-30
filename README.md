@@ -1,6 +1,12 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+This README explains the fast loading version of faces one and two
+
+THIS IS A FAST LOADING VERSION OF FACES ONE AND TWO
+For your convenience, because the third face takes time to load, this file calls only the first and second faces to be drawn. Other than that it is identical to the 3 faces version. The full ReadMe is below as well.
+
+----------------------------------------------------------------------------|
+Original ReadMe
 
 SCALING
 The scaling slider is deliberately not smooth and centred, because it is designed to combat the effects of size changes between my windows PC and the lab macs
