@@ -185,17 +185,17 @@ function fireBodyOrange(chin){
     push();
     translate(0,3);
     scale(0.6,0.58);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(90, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, -90, 10, 70, 75);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(90, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, 80, -10, 70, 75);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(90, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, -70, -30, 70, 75);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(80, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, 60, -50, 70, 75);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(90, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, -50, -80, 70, 75);
-    fill(255, focusedRandom(50, 230,4), 0, fireOpacity);
+    fill(255, focusedRandom(90, 230,4), 0, fireOpacity);
     quad(0, chin, -70, 75, 10, -120, 70, 75);
     pop();
 }
