@@ -1,6 +1,5 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
 var curRandomSeed;
 
 function setup () {
@@ -10,9 +9,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
     
   // rotation in degrees
   angleMode(DEGREES);
@@ -81,7 +77,22 @@ function drawFace1(x, y, w, h, mouth_value, mouth_width, pupilSize, chin, faceDo
   pop();
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
   resetFocusedRandom(curRandomSeed);
     
   noStroke();
@@ -100,13 +111,15 @@ function draw () {
     bodySize = 1;
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
+  var w2 = w/2;
+  var h2 = h/2;
   for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
+    for(var j=0; j<9; j++) {
+
         fireColour =getRandomColour();
         orangeness = focusedRandom(120, 210);
-        //0=blue 1=orange 2=purple 
+          var x, y;
+
         if (fireColour == 0){
     mouth_value = focusedRandom(1, 10);
     pupilSize =  focusedRandom(25, 30);
@@ -115,6 +128,9 @@ function draw () {
     fireOpacity = focusedRandom(50, 100);
             mouth_width = 100;
             bodySize = 0.9;
+            
+             x = focusedRandom(0, width,1);
+        y = focusedRandom(height-h2*2, height-h2*4,1); 
         }
         if (fireColour == 1){
             mouth_value = focusedRandom(25, 30);
@@ -124,6 +140,9 @@ function draw () {
     faceDown = 5;
     fireOpacity = focusedRandom(100, 180);
             bodySize = 1;
+
+             x = focusedRandom(0, width,1);
+        y = focusedRandom(height, height-h2*2,1);  
         }
         if (fireColour == 2){
             mouth_value = focusedRandom(10, 20);
@@ -133,6 +152,9 @@ function draw () {
             bodySize = 0.9;
     fireOpacity = focusedRandom(50, 80);
             mouth_width = 100;
+
+        x = focusedRandom(0, width,1);
+        y = focusedRandom(height-h2*4, height-h2*5,1); 
         }
 
       drawFace1(x, y, w, h, mouth_value, mouth_width, pupilSize, chin, faceDown, fireOpacity, fireColour, orangeness, bodySize);   
