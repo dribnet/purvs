@@ -1,7 +1,6 @@
 var canvasWidth = 960*2;
 var canvasHeight = 500*2;
-var slider1, slider2, slider3, slider4, slider5, button1;
-var faceSelector;
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -39,15 +38,15 @@ var colorHair = [20, 20, 0];
 
 
 
-var redc = [178 ,34 ,34,focusedRandom(0,255,102)];
-var bluec = [30 ,144 ,255,focusedRandom(0,255,200)];
-var greenc = [50 ,205, 50,focusedRandom(0,255,102)];
-var yellowc = [255 ,255, 0,focusedRandom(0,255,189)];
-var purplec = [147 ,112 ,219,focusedRandom(0,255,255)];
+var redc = [121,58,87,focusedRandom(0,255,102)];
+var bluec = [77,51,57,focusedRandom(0,255,200)];
+var greenc = [140,135,62,focusedRandom(0,255,102)];
+var yellowc = [209,197,165,focusedRandom(0,255,189)];
+var purplec = [163,138,95,focusedRandom(0,255,255)];
 
 var a = (focusedRandom(0,1) * 255);
 //print(a + "");
-var back1 = [focusedRandom(0,1) *255 ,120, 82];
+var back1 = [121,58,87,focusedRandom(0,255,102)];
 
 
 function drawFace1(x, y, w, h,eye_value, mouth_value, face_sharpness,nose_curve,hair_curve) {
@@ -249,7 +248,7 @@ if(face_definition == 1	){
 
 function drawFace3(x, y, w, h, amount_of_colours, amount_of_polys, amount_of_features) {
   noStroke();
- randomSeed(129);
+ //randomSeed(129);
   push();
   //rectMode(CENTER);
   translate(x, y);
@@ -258,59 +257,59 @@ function drawFace3(x, y, w, h, amount_of_colours, amount_of_polys, amount_of_fea
 if (amount_of_polys == 1){
 rectMode(CENTER);
 fill(back1);
-rect(0 , 0, width/3, height);
+rect(0 , 0, width/5, height/3);
 
 rectMode(CORNER);
 }
 
 if(amount_of_polys == 2){
 	fill(purplec);
-triangle((0-(width/6)),(0-(height/2))  ,(0-(width/6)),(0+(height/2))  ,(0+(width/6)),(0-(height/2)));
+triangle((0-(width/10)),(0-(height/6))  ,(0-(width/10)),(0+(height/6))  ,(0+(width/10)),(0-(height/6)));
 fill(redc);
-triangle((0+(width/6)),(0+(height/2))  ,(0-(width/6)),(0+(height/2))  ,(0+(width/6)),(0-(height/2)));
+triangle((0+(width/10)),(0+(height/6))  ,(0-(width/10)),(0+(height/6))  ,(0+(width/10)),(0-(height/6)));
 }
 
 if(amount_of_polys == 3){
 	fill(bluec);
-triangle((0-(width/6)),(0-(height/2))  ,(0-(width/6)),(0+(height/2)), 0,(0-(height/2)) );
+triangle((0-(width/10)),(0-(height/6))  ,(0-(width/10)),(0+(height/6)), 0,(0-(height/6)) );
 fill(greenc);
-triangle(0,(0-(height/2)), (0-(width/6)),(0+(height/2)),(0+(width/6)),(0+(height/2))  );
+triangle(0,(0-(height/6)), (0-(width/10)),(0+(height/6)),(0+(width/10)),(0+(height/6))  );
 fill(yellowc);
-triangle((0+(width/6)),(0+(height/2)) ,0,(0-(height/2)),(0+(width/6)),(0-(height/2))  );
+triangle((0+(width/10)),(0+(height/6)) ,0,(0-(height/6)),(0+(width/10)),(0-(height/6))  );
 }
 
 if(amount_of_polys == 4){
 	fill(yellowc);
-triangle( (0-(width/6)),(0-(height/2)) , (0-(width/6)),(0+(height/2)), 0,0);
+triangle( (0-(width/10)),(0-(height/6)) , (0-(width/10)),(0+(height/6)), 0,0);
 fill(greenc);
-triangle(0,0, (0-(width/6)),(0-(height/2)) , (0+(width/6)),(0-(height/2)));
+triangle(0,0, (0-(width/10)),(0-(height/6)) , (0+(width/10)),(0-(height/6)));
 fill(redc);
-triangle(0,0, (0+(width/6)),(0-(height/2)) , (0+(width/6)),(0+(height/2)));
+triangle(0,0, (0+(width/10)),(0-(height/6)) , (0+(width/10)),(0+(height/6)));
 fill(bluec);
-triangle(0,0, (0+(width/6)),(0+(height/2)), (0-(width/6)),(0+(height/2)));
+triangle(0,0, (0+(width/10)),(0+(height/6)), (0-(width/10)),(0+(height/6)));
 }
 
   
 
   if(amount_of_colours == 1){
   fill(redc);
-  triangle(-100, -100, 150 , random(0,1) * 60 ,-100,150);
+  triangle(-100, -100, 150 ,  60 ,-100,150);
 }
  else if(amount_of_colours == 2){
   fill(bluec);
-  triangle(-100, random(0,1) * -100, 100 , random(0,1) * 150, 130,-80 );
+  triangle(-100,  -100, 100 ,  150, 130,-80 );
   fill(yellowc);
   triangle(-100,-100,-100,150, 160,-20);
 }
 else if(amount_of_colours == 3){
   fill(yellowc);
   //rect(-100, -100, 200/3 , random(0,1) *250 );
-  triangle(-100, -100, 120 , random(0,1) *100, -120,160);
+  triangle(-100, -100, 120 , 100, -120,160);
   fill(redc);
   triangle(150,-100,-100,-140,50,80);
   //rect(-100 + 200/3,-100,200/3,250);
   fill(bluec);
-  triangle(100,-100,-100,random(0,1) * -50, 80,110);
+  triangle(100,-100,-100, -50, 80,110);
   //rect(-100 + 400/3,-100,200/3,random(0,1) *250);
 }
 else if(amount_of_colours == 4){
@@ -327,58 +326,82 @@ else if(amount_of_colours == 5){
  fill(redc);
  triangle(100,100,150,-100,0,0);
  fill(bluec);
- triangle(10,30,-100,random(0,1) * -150,30,-100);
+ triangle(10,30,-100, -150,30,-100);
  fill(greenc);
- triangle(-120,50,-50,-60,70,random(0,1) * 100);
+ triangle(-120,50,-50,-60,70, 100);
  fill(yellowc);
  triangle(-40,150,-150,70,140,-80);
  fill(purplec);
- triangle(150,20,-50,-100,random(0,1) * -140,0);
+ triangle(150,20,-50,-100, -140,0);
 }
 
 
 if(amount_of_features >= 1){
 // eyes
+    push();
+    translate(focusedRandom(-20,30),0);
+    //rotate(focusedRandom(-30,0));
     fill(yellowc);	
-  	triangle(-50,-40,-30,-10,-10,random(0,1) * -40);
-
+  	triangle(-50,-40,-30,-10,-10, -40);
+  	fill(redc);
+  	triangle(-30,-40,-40,-25,-20,-25);
+  	pop();
 }
 
 if(amount_of_features >= 2){
 //nose
+	push();
+	translate(focusedRandom(-20,30),0);
+	rotate(focusedRandom(-10,10));
   	fill(redc);
-  	triangle(-60,50,-30,random(0,1) * 50,-30,0);
+  	triangle(-60,50,-30,50,-30,0);
+  	fill(purplec);
+  	triangle(-30,50,-45,50,-30,25);
+  	pop();
 }
 
 if(amount_of_features >= 3){
 // mouth
+  push();
+  translate(focusedRandom(-20,30),0);
+  rotate(focusedRandom(-30,0));
   fill(greenc);
   //rect(-63 , 70, 75 , 50);
-  triangle(-63,70,random(0,1) * 30,70,-55,125);
+  triangle(-63,70,30,70,-55,125);
+  fill(redc);
+  triangle(-55,125,30,70,-59,100);
+  pop();
 }
 
 if(amount_of_features >=4){
+//nose2
 push();
 rotate(223);
 fill(purplec);
-triangle(0,50,73,50,0,random(0,1) * 90);
+triangle(0,50,73,50,0,90);
+fill(bluec);
+triangle(0,50,0,70,36,50);
 pop();
 }
 
 if(amount_of_features >=5){
-fill(bluec);
+	//eye2
 
+fill(bluec);
 push();
-rotate(180*random(0,1));
-triangle(-20,-40,-10,-10,10,random(0,1) * 	-40);
+translate(focusedRandom(0	,30),0);
+rotate(180);
+triangle(-20,-40,-10,-10,10,-40);
+fill(redc);
+triangle(-7	,-40,0,-26,-15,-26);
 pop();
 }
 
 if(amount_of_features >=6){
 fill(yellowc);
 push();
-rotate(-180*random(0,1));
-triangle(-63,70,random(0,1) * 30,70,-55,125)
+rotate(-180);
+triangle(-63,70,30,70,-55,125)
 pop();
 
 }
@@ -411,14 +434,17 @@ function draw () {
      // tilt_value = focusedRandom(-70, 90, 8);
       //mouth_value = focusedRandom(0, 50, 4, 1);
       //var amount_of_colours = Math.floor(map(s1,0,100,1,5));
-      var amount_of_colours = Math.floor(focusedRandom(1,5));
+      var amount_of_colours = Math.floor(focusedRandom(1,6));
 	  //var amount_of_polys = Math.floor(map(s2,0,100,1,4));
-	  var amount_of_polys = Math.floor(focusedRandom(1,4,));
+	  var amount_of_polys = Math.floor(focusedRandom(1,5));
 	  //var amount_of_features = Math.floor(map(	face_xs3,0,100,1,6));
 	  var amount_of_features = focusedRandom(1,6);
+
+	  if(amount_of_polys == 5){amount_of_polys == 4;}
+	  if(amount_of_colours == 6){amount_of_colours == 5;}
       //drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value);
       //drawFace3(x, y, w, h, amount_of_colours,amount_of_polys,amount_of_features);
-      drawFace3(x, y, w, h, amount_of_colours,0,amount_of_features);
+      drawFace3(x, y, w, h, amount_of_colours,amount_of_polys,amount_of_features);
     }
   }
 
