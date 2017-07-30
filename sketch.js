@@ -18,6 +18,8 @@ function setup () {
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
 
+var s = 0.1;
+
 // global variables for colors
 var bg_color1 = [225, 206, 187];
 var bg_color2 = [47, 59, 64];
@@ -269,6 +271,7 @@ function changeRandomSeed() {
 }
 
 function mouseClicked() {
+    s = focusedRandom(0.2, 0.6);
     changeRandomSeed();
 }
 
@@ -283,30 +286,41 @@ function draw() {
   noStroke();
   background(bg_color1);
 
-  var w = 2 *canvasWidth / 5;
-  var h = 2 *canvasHeight / 3;
-	scale(0.5, 0.5);
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;		
-	  var mouth_value = focusedRandom(0, 1000);
-      var hole_value = int(focusedRandom(1, 5, 3));
-      var eye_value = focusedRandom(-25, 30);
-      var curve_number = int(focusedRandom(1, 9, 3));
-      var head_color = focusedRandom(0, 100);
-		
-	  if(mouth_value < 100)
-	      mouth_value = 0;
+  var w = 2 * canvasWidth / 5;
+  var h = 2 * canvasHeight / 3;
+  
 
-	  if (eye_value <= -17)
-	      eye_value = -25;
+  for(var i=0; i<30; i++) {
+      for (var j = 0; j < 50; j++) {
+          push();
+
+          scale(s, s);
+
+          var y = h/2 + (h*0.9)*i - 20;
+          var x = w / 2 + (w * 0.75) * j - 50;
+
+	      var mouth_value = focusedRandom(0, 1000);
+          var hole_value = int(focusedRandom(1, 5, 3));
+          var eye_value = focusedRandom(-25, 30);
+          var curve_number = int(focusedRandom(1, 9, 3));
+          var head_color = focusedRandom(-20, 100);
+		
+	      if(mouth_value < 100)
+	          mouth_value = 0;
+
+	      if (eye_value <= -17)
+	          eye_value = -25;
 		
 
-      drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curve_number);  
-    }
+	      drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curve_number);
+	      pop();
+
+	      if (x*s > canvasWidth)
+	          break;
+      }
+      if (y * s > canvasHeight)
+          break;
   }
-
 }
 
 function keyTyped() {
