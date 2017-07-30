@@ -3,16 +3,14 @@ function RagDoll(w, h, sliders){
 	//the dimensions of the graphics object to be drawn
 	this.w = w;
 	this.h = h;
-	//the slider object 
+	//the slider-replacement object 
 	this.sliders = sliders;
 	//the graphics object this image will be drawn to
 	this.canvas = createGraphics(w,h);
-	//variables for storing the calculated values from a slider
-	this.scaler = 1;
-
+	
 //returns the graphics object with the new face drawn on it
 this.drawFace = function(){
-	//basic canvas setup
+	//basic graphics object setup
 	this.canvas.clear();
 	this.canvas.ellipseMode(CENTER);
 	this.canvas.push();
@@ -24,9 +22,11 @@ this.drawFace = function(){
 	//hair
 	this.drawHair();
 	this.canvas.pop();
+	//returns the completed drawing
 	return this.canvas;
 }
 
+//draws the doll's eyes
 this.drawEyes = function(){
 	//the measurements and positions of the eyes and eye embelishments
 	this.eyeX = 20;
@@ -36,14 +36,19 @@ this.drawEyes = function(){
 	this.eyeType = this.sliders.scaleSliders(1,0,100,true);
 	//normal face and eyes
 	if(this.eyeType<52){
+
 		if (this.eyeType<20){
+			//dark skin
 			this.canvas.fill(151, 102, 52);
 		}
 		else if(this.eyeType<35){
+			//medium skin
 			this.canvas.fill(165,128,104);
 
 		}
-		else{this.canvas.fill(244, 222, 216);
+		else{
+			//light skin
+			this.canvas.fill(244, 222, 216);
 		}
 
 		//face
@@ -53,6 +58,7 @@ this.drawEyes = function(){
 	}
 	//creepy face and eyes
 	else{
+		//skin colour that ranges from green, through grey, to reddish-grey
 		this.canvas.fill(this.sliders.scaleSliders(4,50,200,true),254/2,254/2);
 		//face
 		this.canvas.ellipse(0,0,w/3,w/3);
@@ -74,6 +80,7 @@ this.drawEyes = function(){
 		this.drawX(this.i,this.i);
 	}
 	this.canvas.pop();
+
 	//draw the left eye circle and any embelishments
 	this.canvas.push();
 	this.canvas.translate(-this.eyeX, this.eyeY);
@@ -86,32 +93,33 @@ this.drawEyes = function(){
 			this.cuteEye(this.i,this.i);
 		}
 		this.canvas.pop();
-
-		
 	}
+
 //controls the drawing of the mouth
 this.drawMouth = function(){
 	this.canvas.push();
+	//gets the variables
 	this.mouthY = this.sliders.scaleSliders(5,30,40,true);
 	this.mouthW = this.sliders.scaleSliders(3,35,40,true);
 	
 	this.smileH = this.sliders.scaleSliders(5,0,30,true);
 	this.stitches = this.sliders.scaleSliders(3,1,10,true);
 	//adds the value of slider 5 to mouth width as well
-	//if the mouth has more than too stitches and is smiling make it wider
+	//if the mouth has more than two stitches and is smiling make it wider
 	if(this.stitches>2){
 		this.mouthW = this.sliders.scaleSliders(5,this.mouthW,this.mouthW+40,true);
 	}
+	//position the mouth
 	this.canvas.translate(0,this.mouthY);
 	this.mouthType = this.sliders.scaleSliders(1,0,100,true);
 	//draw a normal mouth
 	if(this.mouthType<52){
 		this.normalMouth();
 	}
-		//draw creepy mouth
-		else{
-			this.drawSmile(this.mouthW,this.smileH, this.stitches);
-		}
+	//draw creepy mouth
+	else{
+		this.drawSmile(this.mouthW,this.smileH, this.stitches);
+	}
 	this.canvas.pop();
 }
 
@@ -120,18 +128,17 @@ this.normalMouth = function(){
 	this.canvas.push();
 	this.canvas.noFill();
 	this.canvas.strokeWeight(2);
-
+	//the measurements and position of the mouth
 	this.mouthY = this.sliders.scaleSliders(3,10,15,true);
 	this.mouthW = this.sliders.scaleSliders(3,35,40,true);
 	this.smileH = this.sliders.scaleSliders(5,0,10,true);
 	//smile curve
 	this.smileC = this.sliders.scaleSliders(5,0,20,true);
 	//make the mouth wider if it is smiling
-this.mouthY = this.sliders.scaleSliders(5,this.mouthY,this.mouthY+15,true);
+	this.mouthY = this.sliders.scaleSliders(5,this.mouthY,this.mouthY+15,true);
 	//this.canvas.bezier(-20+this.smileC-this.mouthX,4,-this.mouthX,0,this.mouthX,0, (20+this.mouthX)-this.smileC,0);
-this.canvas.bezier(-this.mouthY,-this.smileC,-(this.mouthY-10),this.smileH,this.mouthY-10,this.smileH,this.mouthY,-this.smileC);
-
-this.canvas.pop();
+	this.canvas.bezier(-this.mouthY,-this.smileC,-(this.mouthY-10),this.smileH,this.mouthY-10,this.smileH,this.mouthY,-this.smileC);
+	this.canvas.pop();
 }
 
 //draws the stitches of  the creepy mouth.
@@ -141,6 +148,7 @@ this.canvas.pop();
 this.drawSmile = function(mW,mH, stitch){
 	if(this.stitch == 1){this.mH = 0;}
 	else{this.mH = mH;}
+
 	this.canvas.strokeWeight(2);
 	//number of stitches + spaces
 	this.stitch = stitch+(stitch-1);
@@ -157,34 +165,33 @@ this.drawSmile = function(mW,mH, stitch){
 	//the x coordinates are calculated using mapping, the number of stitches within the coordinates
 	while(this.c <=this.stitch){
 		if(this.isStitch){
-		//stitch + 1 is the number of x coordinates needed
-		//-mX to mX is the left and right coordinates of the edge of the mouth
-		this.s1x = map(this.c, 1, this.stitch+1, -this.mX, this.mX);
-		this.s2x = map(this.c+1, 1, this.stitch+1, -this.mX, this.mX);
-//is this the first half of the mouth
-if (this.c<this.stitch/2){
-	this.s1y = map(this.c, 1, (this.stitch+1)/2, -this.mH, 0);
-	this.s2y = map(this.c+1, 1, (this.stitch+1)/2, -this.mH, 0);
+			//stitch + 1 is the number of x coordinates needed
+			//-mX to mX is the left and right coordinates of the edge of the mouth
+			this.s1x = map(this.c, 1, this.stitch+1, -this.mX, this.mX);
+			this.s2x = map(this.c+1, 1, this.stitch+1, -this.mX, this.mX);
+			//is this the first half of the mouth
+			if (this.c<this.stitch/2){
+				this.s1y = map(this.c, 1, (this.stitch+1)/2, -this.mH, 0);
+				this.s2y = map(this.c+1, 1, (this.stitch+1)/2, -this.mH, 0);
 
-}
-	//or the second half
-	else{
-		this.s1y = map(this.c, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
-		this.s2y = map(this.c+1, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+			}
+			//or the second half
+			else{
+				this.s1y = map(this.c, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+				this.s2y = map(this.c+1, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+			}
+		if(this.stitch<4){
+			this.s1y=0;
+			this.s2y=0;
+		}
 
+		this.canvas.line(this.s1x, this.s1y, this.s2x,this.s2y);
+		this.isStitch = false;}
+		else{
+			this.isStitch=true;
+		}
+		this.c++;
 	}
-	if(this.stitch<4){
-		this.s1y=0;
-		this.s2y=0;
-	}
-
-	this.canvas.line(this.s1x, this.s1y, this.s2x,this.s2y);
-	this.isStitch = false;}
-	else{
-		this.isStitch=true;
-	}
-	this.c++;
-}
 }
 
 //draws a white x with the required dimensions at the current 0,0 point of the canvas
@@ -200,6 +207,7 @@ this.drawX = function (w,h){
 	this.canvas.pop();
 }
 
+//draws the hair and bows
 this.drawHair = function(){
 	//maps the dimensions of the bows to slider 2
 	this.bowWidth =this.sliders.scaleSliders(2,18,30,true);
@@ -221,8 +229,6 @@ this.drawHair = function(){
 
 	//randomise the hair length with a number to divide it by
 	this.hs = this.sliders.scaleSliders(6,0.6, 1.8,false);
-
-	
 
 	//draw the left side ponytail
 	this.leftPony();
