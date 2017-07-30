@@ -1,6 +1,6 @@
 ## PS1 MDDN 342 2017
 
 
-I've used the focusRandom() method to make sure that there are usually lots of leaves around the sprites, and usually more twigs than less.
+I wasn't quite happy with the amount of distribution of randomness as the sprites were still looking quite similar. Therefore I added some randomness to the eye size along with some randomness in the twigs growing out of their heads' size. 
 
-I used the other method to lean the distribution of seasons towards summer: 50% of the time the sprite is a summer sprite, 25% of the time it's spring, 15% of the time it's winter and 10% of the time it's autumn. Also 90% of the time the eyes are open and 90% of the time the mouth is closed.
+I also added some randomness to their position on the canvas, and added some more sprites. All the html controls are gone and the canvas changes every 5 seconds or when you click the mouse. 

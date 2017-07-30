@@ -3,7 +3,8 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 var overallScale;
-var random_result;
+var twigSize_value;
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -12,20 +13,13 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-}
 
 
-function drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value) {
+function drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value, eyeSize_value, twigSize_value) {
   //colour variables
   var leafColour1;
   var leafColour2;
@@ -214,14 +208,14 @@ function drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, s
     noFill();
     translate(-80 * scale, 80 * scale);
     rotate(90);
-    arc(0, 0, 25 * scale, 25 * scale, -40, 40);
+    arc(0, 0, 25 * scale * eyeSize_value, 25 * scale * eyeSize_value, -40, 40);
     pop();
 
     push();
     noFill();
     translate(80 * scale, 80 * scale);
     rotate(90);
-    arc(0, 0, 25 * scale, 25 * scale, -40, 40);
+    arc(0, 0, 25 * scale * eyeSize_value, 25 * scale * eyeSize_value, -40, 40);
     pop();
     
   }
@@ -230,12 +224,12 @@ function drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, s
     for(var i=1; i<=5; i++){
       noStroke();
       fill(eyeColour1, eyeColour2, eyeColour3, i*50);
-      ellipse(-80 * scale, 90 * scale, 60*scale-(i*2.5), 70*scale-(i*2.5));
-      ellipse(80 * scale, 90 * scale, 60*scale-(i*2.5), 70*scale-(i*2.5) );
+      ellipse(-80 * scale , 90 * scale , eyeSize_value * 60*scale-(i*2.5), eyeSize_value *70*scale-(i*2.5));
+      ellipse(80 * scale , 90 * scale , eyeSize_value *60*scale-(i*2.5), eyeSize_value *70*scale-(i*2.5));
     }
     fill("#000000")
-    ellipse(-80 * scale, 90 * scale, 20*scale, 30*scale);
-    ellipse(80 * scale, 90 * scale, 20*scale, 30*scale);
+    ellipse(-80 * scale, 90 * scale, 20*scale * eyeSize_value, 30*scale * eyeSize_value);
+    ellipse(80 * scale, 90 * scale, 20*scale * eyeSize_value, 30*scale * eyeSize_value);
   }
 
   
@@ -260,19 +254,19 @@ function leaf(x, y, colour1, colour2, rotation){
 }
 
 function twig(x, y, colour, rotation){
-  strokeWeight(2);
+  strokeWeight(2*twigSize_value);
   stroke(colour);
   push();
   translate(x, y);
   rotate(rotation);
-  line(0, 0, 0, -100*overallScale);
-  line(0, -20*overallScale , 10*overallScale, -30*overallScale);
-  line(0, -30*overallScale , -20*overallScale, -50*overallScale);
-  line(0, -40*overallScale, 20*overallScale, -60*overallScale);
-  line(0, -60*overallScale, 15*overallScale, -75*overallScale);
-  line(0, -60*overallScale, -15*overallScale, -75*overallScale);
-  line(0, -80*overallScale, -10*overallScale, -90*overallScale);
-  line(0, -80*overallScale, 10*overallScale, -90*overallScale);
+  line(0, 0, 0, -100*overallScale*twigSize_value);
+  line(0, -20*overallScale*twigSize_value, 10*overallScale*twigSize_value, -30*overallScale*twigSize_value);
+  line(0, -30*overallScale*twigSize_value, -20*overallScale*twigSize_value, -50*overallScale*twigSize_value);
+  line(0, -40*overallScale*twigSize_value, 20*overallScale*twigSize_value, -60*overallScale*twigSize_value);
+  line(0, -60*overallScale*twigSize_value, 15*overallScale*twigSize_value, -75*overallScale*twigSize_value);
+  line(0, -60*overallScale*twigSize_value, -15*overallScale*twigSize_value, -75*overallScale*twigSize_value);
+  line(0, -80*overallScale*twigSize_value, -10*overallScale*twigSize_value, -90*overallScale*twigSize_value);
+  line(0, -80*overallScale*twigSize_value, 10*overallScale*twigSize_value, -90*overallScale*twigSize_value);
   pop();
 }
 
@@ -315,29 +309,47 @@ function getRandomMouthValue(){
 }
 
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
 
+function mouseClicked() {
+  changeRandomSeed();
+}
 
 function draw () {
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
   noStroke();
   background("#ffffff");
-  var w = canvasWidth / 6;
-  var h = canvasHeight / 4;
-  for(var i=0; i<4; i++) {
-    for(var j=0; j<6; j++) {
+  var w = canvasWidth / 7;
+  var h = canvasHeight / 5;
+  var max_shift = 0.4 * w;
+  for(var i=0; i<5; i++) {
+    for(var j=0; j<7; j++) {
       var y = h/2+ h*i;
       var x = w/2 + w*j;
+      x = x + focusedRandom(-max_shift, max_shift, 3);
+      y = y + focusedRandom(-max_shift, max_shift, 3);
       tilt_value = int(focusedRandom(-50, 50));
       width_value = focusedRandom(0, 100);
       mouth_value = getRandomMouthValue();
       eye_value = getRandomEyeValue();
       seed_value = int(focusedRandom(1, 50));
-      leaf_value = Math.floor(focusedRandom(10, 60, 5, 60));
-      twig_value = int(focusedRandom(0, 3, 5, 3));
-      twig_value2 = int(focusedRandom(0, 5, 5, 5));
+      leaf_value = Math.floor(focusedRandom(10, 30, 5, 30));
+      twig_value = int(focusedRandom(0, 4, 5, 4));
+      twig_value2 = int(focusedRandom(0, 6, 5, 6));
       season_value = getRandomSeason();
-      drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value);
+      eyeSize_value = focusedRandom(2, 4.5)/3;
+      twigSize_value = focusedRandom(2, 4.5)/3;
+      drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value, eyeSize_value, twigSize_value);
     }
   }   
 }
