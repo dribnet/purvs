@@ -23,7 +23,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-var bg_color1 = ["grey"];
+var bg_color1 = [106,109,131];
 var bg_color2 = [47, 59, 64];
 var bg_color3 = [70, 70, 120];
 
@@ -277,11 +277,25 @@ function drawFace1(x, y, w, h, tilt_value, earPoint_value, earring_value, earrin
   pop();
 }
 
+function getRandomNumberOfEarrings() {
+    random_result = focusedRandom(0, 100);
+    if (random_result < 10) {
+        return 1;
+    }
+    else if (random_result > 90) {
+        return 3;
+    }
+    else {
+        return 2;
+    }
+}
+
 function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
   background(bg_color1);
+  fill(bg_color1);
 
   // use same size / y_pos for all faces
   // var face_w = canvasWidth / 4;
@@ -290,19 +304,18 @@ function draw () {
   // var face_x = width / 2;
 
   // draw 1st face
-  fill(bg_color1);
 
   tilt_value = focusedRandom(-10,10);
-  earring_value = Math.floor(focusedRandom(1, 3.99));
+  earring_value = getRandomNumberOfEarrings();
   pupilSize_value =  focusedRandom(0, 10);
   faceColor_value = focusedRandom(0, 1);
   faceColor2_value = focusedRandom(0, 1);
   faceColor3_value = focusedRandom(0, 1);
-  jawline_value = focusedRandom(2, 18);
-  jawline2_value = focusedRandom(0, 60);
-  scale_value = focusedRandom(0.27, 0.33);
+  jawline_value = focusedRandom(2, 18, 4);
+  jawline2_value = focusedRandom(0, 80, 4, 1);
+  scale_value = focusedRandom(0.27, 0.33, 8, 1);
   earringCol_value = Math.floor(focusedRandom(1, 5.99));
-  earPoint_value = focusedRandom(-5, 15);
+  earPoint_value = focusedRandom(-5, 25, 2);
   eyebrowHeight_value = focusedRandom(-15, 15);
   eyebrowWidth_value = focusedRandom(-15, 15);
   eyebrowHeight2_value = focusedRandom(-15, 15);
@@ -330,7 +343,6 @@ function draw () {
   hairSpike8_value = Math.floor(focusedRandom(1, 2.99));
   hairSpikeSharpness_value = focusedRandom(-15, 15);
 
-
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
   for(var i=0; i<3; i++) {
@@ -339,7 +351,7 @@ function draw () {
       var x = w / 2 + w * j;
 
       tilt_value = focusedRandom(-10,10);
-      earring_value = Math.floor(focusedRandom(1, 3.99));
+      earring_value = getRandomNumberOfEarrings();
       pupilSize_value =  focusedRandom(0, 10);
       faceColor_value = focusedRandom(0, 1);
       faceColor2_value = focusedRandom(0, 1);
