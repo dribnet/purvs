@@ -206,6 +206,8 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   // Main face shape
   rect(0, 0, (350 + width_value * 2) * scale, 250 * scale * 1.5);
 
+ // Failed attempt to randomize face structure.
+
  // beginShape();
  // for (int j = 0; j <= Math.random() * (8 - 3) + 3, j++) {
  // 	point {Math.random() * (50 - - 50) - 50, Math.random() * (50 - - 50) - 50}
@@ -236,12 +238,13 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
     rect( 60 * scale, -80 * scale, 80 * scale, 10 * scale);
   }
 
-  // horns
+  // horns - Unicorn
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
     triangle(-20, -50, 0, -100 - width_value * 2, 20, -50);
 	}
    
+// horns two
 
   if (eye_value >= 2) {
   	bg_color3[2] = Math.random() * (maxC - minC) + minC;
@@ -347,6 +350,8 @@ function draw () {
       eye_value = getRandomNumberOfEyes();
       mouth_value = getRandomNumberOfMouth();
       width_value = focusedRandom(0, 100);
+
+// old random generation code
 
    //   var x, y;
    //   if(mouth_value > 90) {
