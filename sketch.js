@@ -1,6 +1,5 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
 var curRandomSeed;
 
 function setup () {
@@ -10,10 +9,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -21,6 +16,11 @@ function setup () {
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+}
+
+function mousePressed() {
+changeRandomSeed();
+
 }
 
 // global variables for colors
