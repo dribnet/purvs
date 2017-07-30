@@ -9,9 +9,9 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
+ // randButton = createButton('randomize');
+  //randButton.mousePressed(changeRandomSeed);
+  //randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -34,15 +34,16 @@ var stroke_color1 = [95, 52, 8];
 var stroke_color2 = [210, 219, 189];
 var stroke_color3 = [50, 50, 50];
 
-var colorHair = [20, 20, 0];
 
 
 
 var redc = [121,58,87,focusedRandom(0,255,102)];
-var bluec = [77,51,57,focusedRandom(0,255,200)];
+var bluec = [77,51,57,focusedRandom(0,255,102)];
 var greenc = [140,135,62,focusedRandom(0,255,102)];
-var yellowc = [209,197,165,focusedRandom(0,255,189)];
-var purplec = [163,138,95,focusedRandom(0,255,255)];
+var yellowc = [209,197,165,focusedRandom(0,255,102)];
+var purplec = [163,138,95,focusedRandom(0,255,102)];
+
+var array = [redc, bluec, greenc, yellowc, purplec];
 
 var a = (focusedRandom(0,1) * 255);
 //print(a + "");
@@ -292,46 +293,78 @@ triangle(0,0, (0+(width/10)),(0+(height/6)), (0-(width/10)),(0+(height/6)));
   
 
   if(amount_of_colours == 1){
-  fill(redc);
+  var ran = Math.floor(focusedRandom(1,5));
+  var x_colour = array[ran];
+  fill(x_colour);
   triangle(-100, -100, 150 ,  60 ,-100,150);
 }
  else if(amount_of_colours == 2){
-  fill(bluec);
+  var ran1 = Math.floor(focusedRandom(1,5));
+  var x_colour1 = array[ran1];
+  var ran2 = Math.floor(focusedRandom(1,5));
+  var x_colour2 = array[ran2];
+  fill(x_colour1);
   triangle(-100,  -100, 100 ,  150, 130,-80 );
-  fill(yellowc);
+  fill(x_colour2);
   triangle(-100,-100,-100,150, 160,-20);
 }
 else if(amount_of_colours == 3){
-  fill(yellowc);
+  var ran3 = Math.floor(focusedRandom(1,5));
+  var x_colour3 = array[ran3];
+  var ran4 = Math.floor(focusedRandom(1,5));
+  var x_colour4 = array[ran4];
+  var ran5 = Math.floor(focusedRandom(1,5));
+  var x_colour5 = array[ran5];
+  fill(x_colour3);
   //rect(-100, -100, 200/3 , random(0,1) *250 );
   triangle(-100, -100, 120 , 100, -120,160);
-  fill(redc);
+  fill(x_colour4);
   triangle(150,-100,-100,-140,50,80);
   //rect(-100 + 200/3,-100,200/3,250);
-  fill(bluec);
+  fill(x_colour5);
   triangle(100,-100,-100, -50, 80,110);
   //rect(-100 + 400/3,-100,200/3,random(0,1) *250);
 }
 else if(amount_of_colours == 4){
-  fill(bluec);
+  var ran6 = Math.floor(focusedRandom(1,5));
+  var x_colour6 = array[ran6];
+  var ran7 = Math.floor(focusedRandom(1,5));
+  var x_colour7 = array[ran7];
+  var ran8 = Math.floor(focusedRandom(1,5));
+  var x_colour8 = array[ran8];
+  var ran9 = Math.floor(focusedRandom(1,5));
+  var x_colour9 = array[ran9];
+
+  fill(x_colour6);
   triangle(-100,-80,-120,170,10,40);
-  fill(greenc);
+  fill(x_colour7);
   triangle(-130,-140,100,-100,0,70);
-  fill(redc);
+  fill(x_colour8);
   triangle(-100,150,0,5,100,150);
-  fill(yellowc);
+  fill(x_colour9);
   triangle(0,55,100,150,120,-100);
 }
 else if(amount_of_colours == 5){
- fill(redc);
+  var ran6 = Math.floor(focusedRandom(1,5));
+  var x_colour6 = array[ran6];
+  var ran7 = Math.floor(focusedRandom(1,5));
+  var x_colour7 = array[ran7];
+  var ran8 = Math.floor(focusedRandom(1,5));
+  var x_colour8 = array[ran8];
+  var ran1 = Math.floor(focusedRandom(1,5));
+  var x_colour1 = array[ran1];
+  var ran2 = Math.floor(focusedRandom(1,5));
+  var x_colour2 = array[ran2];
+
+ fill(x_colour6);
  triangle(100,100,150,-100,0,0);
- fill(bluec);
+ fill(x_colour7);
  triangle(10,30,-100, -150,30,-100);
- fill(greenc);
+ fill(x_colour8);
  triangle(-120,50,-50,-60,70, 100);
- fill(yellowc);
+ fill(x_colour1);
  triangle(-40,150,-150,70,140,-80);
- fill(purplec);
+ fill(x_colour2);
  triangle(150,20,-50,-100, -140,0);
 }
 
@@ -410,8 +443,23 @@ pop();
   pop();
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
+}
+
 function draw () {
-	resetFocusedRandom(curRandomSeed);
+   if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+  resetFocusedRandom(curRandomSeed);
   noStroke();
       background(bg_color1);
     
@@ -419,17 +467,15 @@ function draw () {
   // bg_color[0] = s1;
 
   // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
+
 
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
+  for(var i=-5; i<20; i++) {	
+    for(var j=-5; j<20; j++) {
+      var y = h/2 + ((2*h)/3)*i;
+      var x = w/2 + ((2*w)/3)*j;
+
       //eye_value = getRandomNumberOfEyes();
      // tilt_value = focusedRandom(-70, 90, 8);
       //mouth_value = focusedRandom(0, 50, 4, 1);
@@ -444,7 +490,12 @@ function draw () {
 	  if(amount_of_colours == 6){amount_of_colours == 5;}
       //drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value);
       //drawFace3(x, y, w, h, amount_of_colours,amount_of_polys,amount_of_features);
-      drawFace3(x, y, w, h, amount_of_colours,amount_of_polys,amount_of_features);
+      push();
+      translate(0,focusedRandom(-100,100));
+      drawFace3(x, y, w, h, amount_of_colours,0,amount_of_features);
+      pop();
+      rotate(focusedRandom(0,1));
+      //rotate(10);
     }
   }
 

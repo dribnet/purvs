@@ -1,15 +1,12 @@
 ## PS1 MDDN 342 2017
 
-This readme is for part 4.
+This readme is for part 5.
 
-For the distribution, I have focused parameters. These are:-
+In this final stage, I have setup the layout so it has a simple rotation to the right in rows so the faces can still be contrasted.
+I have also set focusedRandoms for the colour of the face polygons so that not all poly iterations with the same number have the same colour.
+However I have left the features colours as I want them to be seen so they need to be able to contrast.
 
--The amount of polygons in the face. These have equal % chance for each different number. The positions of these are static.
+Each face also has a custom height translation so the rows aren't static.
 
--The amount of polygons in the background. These also have an equal % chance for doing each iteration. 
-
--The amount of features in the face. These have an equal amount for each different iteration of number of them however each feature has a focusedRandom for its translation and rotation on the face. I have controlled these so they are not extremely morphed and look weird so to keep the structure and similarity but enough to have variation.
-
--Each different colour has a focusedRandom on it's Alpha value to be able to blend colours. I have picked some colours which are strong(not see-through much) and some which are almost transparent.
-
- For this iteration in my project, I changed my colour palette to one that I think is more earthy and easy on the eyes as this art style is very rigid and I want to contrast that with this choice.
+Over this project, I have learnt about parametisation in coding and how to manipulate these parameters to create recognisable visuals, in this case, faces.
+    
