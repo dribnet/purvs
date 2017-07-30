@@ -152,7 +152,7 @@ this.gapeMouth = function(){
 //draws one of the noses based on the integer nNum
 this.nose = function(){
 	//gets a number for choosing the nose
-	this.nNum = this.sliders.scaleSliders(5,1,6,true);
+	this.nNum = this.sliders.scaleSliders(5,1,12,true);
 	//positions the nose
 	this.c.push();
 	this.c.translate(0,5);
@@ -166,13 +166,13 @@ this.nose = function(){
 	this.nX = this.sliders.scaleSliders(2,20,10,true);
 	this.c.ellipse(0,0, this.nX, this.nX);
 	}
-	else if (this.nNum == 3){
+	else if (this.nNum >= 5){
 		this.pointyNose();
 	}
 	else if (this.nNum == 4){
 		this.wigglyNose();
 	}
-	else if (this.nNum >= 5){
+	else if (this.nNum ==3){
 	this.normalNose();
 	}
 	this.c.pop();
@@ -278,18 +278,8 @@ this.eyes = function(){
 
 	//draws eyes depending on the number it has
 
-	if(this.mNum == 1 || this.mNum == 7 || this.mNum == 13 ||this.mNum== 19 || this. mNum == 25){
-		//round eye with pupil
-		this.c.ellipse(-this.eyeX,this.eyeY,15,15);
-		this.c.fill(0);
-		this.c.ellipse(2-this.eyeX,2+this.eyeY,6,6);
-		this.c.noFill();
-		this.c.ellipse(this.eyeX,this.eyeY,15,15);
-		this.c.fill(0);
-		this.c.ellipse(2+this.eyeX,2+this.eyeY,6,6);
-		this.c.noFill();
-	}
-	else if (this.mNum == 2 || this.mNum == 8 || this.mNum == 14 ||this.mNum== 20 || this. mNum == 26){
+	
+	if (this.mNum == 2 || this.mNum == 8 || this.mNum == 14 ||this.mNum== 20 || this. mNum == 26){
 		//round eye with pupil
 		this.c.ellipse(-this.eyeX,this.eyeY,15,22);
 		this.c.fill(0);
@@ -325,11 +315,17 @@ this.eyes = function(){
 		//right eye
 		this.c.line(this.eyeX-5,this.eyeY,this.eyeX+5,this.eyeY);
 	}
-	else if (this.mNum == 6 || this.mNum == 12 || this.mNum == 18 ||this.mNum== 24 || this. mNum > 29){
-		this.c.fill(0);
-		this.c.ellipse(this.eyeX,this.eyeY,13,13);
+	else{
+		//round eye with pupil
 		this.c.ellipse(-this.eyeX,this.eyeY,15,15);
-		}
+		this.c.fill(0);
+		this.c.ellipse(2-this.eyeX,2+this.eyeY,6,6);
+		this.c.noFill();
+		this.c.ellipse(this.eyeX,this.eyeY,15,15);
+		this.c.fill(0);
+		this.c.ellipse(2+this.eyeX,2+this.eyeY,6,6);
+		this.c.noFill();
+	}
 	this.c.pop();
 }
 

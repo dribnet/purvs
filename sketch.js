@@ -71,7 +71,7 @@ translate(x, y);
 //most of the actual drawing is done within the CartoonFace object
 function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 	//make each face different
-  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+  slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100,4,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   rectMode(CENTER);
   push();
   var toon = cartoon.drawFace();
@@ -106,8 +106,22 @@ function draw () {
     var s1 = slider1.value();
 
 //which face gets drawn
+var faceType = focusedRandom(1,10);
+if(true){
+  background(fg_color1);
+  var w = (canvasWidth / 7)*macScale;
+  var h = (canvasHeight / 2.4)*macScale;
+  for(var i=0; i<3; i++) {
+    for(var j=0; j<5; j++) {
+      var y = (h/macScale)/2 + (h/macScale)*i;
+      var x = (w/macScale)/2 + (w/macScale)*j;
+      tilt_value = focusedRandom(10, 50);
+      eye_value = int(focusedRandom(1, 3));
+      mouth_value = focusedRandom(30, 140);
+      drawFace2(x+((j+2)*((w/macScale)/4)), y-(i*((h/macScale)/4)), w, h, tilt_value, eye_value, mouth_value);
 
-
+    }}}
+    else{
       background(bg_color1);
 
       var w = (canvasWidth / 8)*macScale;
@@ -124,7 +138,7 @@ function draw () {
           mouth_value = focusedRandom(30, 140);
       //comment to make file different
       drawFace1(14+x+(x/2)-q, 16+y-(y/6)-focusedRandom(-25,25), w, h, tilt_value, eye_value, mouth_value);
-    
+    }
   }
   }
 
