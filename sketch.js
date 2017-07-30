@@ -3,6 +3,11 @@ var canvasHeight = 500;
 var button;
 var curRandomSeed;
 
+var c = ["green", "pink", "blue", "orange", "cyan"];
+var backc = ["#88ba8f", "pink", "#9c9dc8", "#ffd1a1", "#c1d4c8"];
+//var c1 = ["#6bba77", "#de91c8", "#696bc8", "#ffae5b", "#a4d4b4"];
+//var c2 = ["#467a4e", "#c4435e", "#654e91", "#cc8a88", "#94bfbe"];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -30,10 +35,7 @@ function changeRandomSeed() {
 
 // global variables for colors
 
-var bg_color1 = "pink";
-
-var ch3_bodyPrimary = "#cccccc";
-var ch3_bodySecondary = "#808080";
+//var bg_color1 = "pink";
 var ch3_detailPrimary = "#000000";
 var ch3_detailSecondary = "#ffffff";
 
@@ -41,9 +43,40 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
   push();
   rectMode(CENTER);
   var scale = 0.25;
-    
+
+//var ch3_bodyPrimary = c1[Math.floor(Math.random()*c1.length)];
+//var ch3_bodySecondary = c2[Math.floor(Math.random()*c2.length)];
+var c1 = c[Math.floor(Math.random()*c.length)];
+
+if (c1 == "green") {
+
+var ch3_bodyPrimary = "#6bba77";
+var ch3_bodySecondary = "#467a4e";
+
+} else if (c1 == "pink") {
+
+var ch3_bodyPrimary = "#de91c8";
+var ch3_bodySecondary = "#c4435e";
+
+} else if (c1 == "blue") {
+
+var ch3_bodyPrimary = "#696bc8";
+var ch3_bodySecondary = "#654e91";
+
+} else if (c1 == "orange") {
+
+var ch3_bodyPrimary = "#ffae5b";
+var ch3_bodySecondary = "#cc8a88";
+
+} else if (c1 == "cyan") {
+
+var ch3_bodyPrimary = "#a4d4b4";
+var ch3_bodySecondary = "#94bfbe";
+
+}
+
     if (orientation_value == 2) {
-  translate(x - 25, y);
+  translate(x - 15, y);
     } else {
     translate(x, y + 5);
     }
@@ -114,7 +147,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
             // draw beak
           stroke(ch3_detailPrimary)
           strokeWeight(7 * scale);
-            fill(ch3_bodyPrimary);
+            fill(ch3_bodySecondary);
             arc(285 * scale, 0 * scale, 250 * scale, 150 * scale, 155, 205, PIE);
 
           // draw mouth
@@ -240,11 +273,13 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
             fill(ch3_bodyPrimary);
 
             rectMode(CENTER);
+            // ear
             rect(0 * scale, -150 * scale, 50 * scale, ear_length * scale, 100 * scale, 100 * scale, 0, 0);
             noStroke();
             fill(ch3_bodyPrimary);
             rectMode(CORNER);
-            rect(-35 * scale, -115 * scale, 70 * scale, (ear_length / 2) * scale);
+            //cover
+            rect(-36 * scale, -115 * scale, 70 * scale, ((ear_length / 2 + 2)) * scale);
         
     }
     
@@ -300,6 +335,8 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
+
+  var bg_color1 = backc[Math.floor(Math.random()*backc.length)];
   background(bg_color1);
   // draw face
 

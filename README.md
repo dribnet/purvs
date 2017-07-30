@@ -1,7 +1,5 @@
 ## PS1 MDDN 342 2017
 
-Chose to refine the 1920's cartoon / street art character.
+Colour experiment.
 
-Introduced two additional styles for the characters "nose". This provides more variety whilst retainging a cohesive feel. Added a dog and bird style.
-
-Added new value parameters, including; pupil size, eyelid height, eyebrow height, teeth value, and face type.
+Wanted to emulate the highly colourful and bold palette employed by street artists.
