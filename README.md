@@ -1,7 +1,7 @@
 ## PS1 MDDN 342 2017
 
-Updated the grid example for my characters.
+Chose to refine the 1920's cartoon / street art character.
 
-Currently experimenting with including two character designs, the rabbit / bear, and the blue haired character.
+Introduced two additional styles for the characters "nose". This provides more variety whilst retainging a cohesive feel. Added a dog and bird style.
 
-The varying attributes for both characters are currently the same as the adjustable values from part3.
+Added new value parameters, including; pupil size, eyelid height, eyebrow height, teeth value, and face type.
