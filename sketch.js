@@ -10,18 +10,13 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 	
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-}
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
@@ -131,6 +126,8 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
   fill(pupil_color);
   ellipse(-50 + eye_value/10, -80, pupil_size, pupil_size);
   ellipse( 50 - eye_value/10, -80, pupil_size, pupil_size);
+  //ellipse(-50, -80, pupil_size, pupil_size);
+  //ellipse(50, -80, pupil_size, pupil_size);
 
 // nose with skin color
   fill(sponge_color);
@@ -147,11 +144,12 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
 	
   var ellipse_size = (eyebrow_curve*-1) / 100; 
 	
+  var eyebrow_translate = 62;
 	
   //Draw the eyebrow inner but not the outline yet
 	//LEFT
   push();
-  translate(-60, -85);
+  translate(-eyebrow_translate, -85);
   rotate(eyebrow_angle);
   strokeWeight(0);
   //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
@@ -163,7 +161,7 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
 	
 	//RIGHT
   push();
-  translate(65, -85);
+  translate(eyebrow_translate, -85);
   rotate(-eyebrow_angle);
   strokeWeight(0);
   //ellipse(0, eyebrow_y, 85*ellipse_size, 15);
@@ -178,11 +176,12 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
 	fill(outline_color);
 	if(hole_value > 1){
     	ellipse(-140,-140,44,35);
-		ellipse(140,-120,40,37);
+    	ellipse(-110, 120, 40, 50);
 	}
 	if(hole_value > 2){
-	ellipse(100,-150,25,18);
-	ellipse(-110,120,40,50);
+	    ellipse(100, -160, 25, 18);
+	    ellipse(150, -120, 40, 37);
+	
 	}
 	if(hole_value > 3)
 		ellipse(100,140,33,44);
@@ -194,14 +193,14 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
   //Draw the eyebrows outine so they don't get cut off
 	strokeWeight(5);
 	push();
-	translate(-60, -85);
+	translate(-eyebrow_translate, -85);
 	rotate(eyebrow_angle);
 	fill(0, 0, 0, 0)
     curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
 	pop();
 	
 	push();
-	translate(65, -85);
+	translate(eyebrow_translate, -85);
 	rotate(-eyebrow_angle);
 	fill(0,0, 0, 0)
     curve(0,eyebrow_y+eyebrow_curve, -50,eyebrow_y, 50,eyebrow_y, 0,eyebrow_y+eyebrow_curve);
@@ -264,7 +263,21 @@ function drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_colo
   pop();
 }
 
-function draw () {
+function changeRandomSeed() {
+    curRandomSeed = curRandomSeed + 1;
+    lastSwapTime = millis();
+}
+
+function mouseClicked() {
+    changeRandomSeed();
+}
+
+function draw() {
+
+    if (millis() > lastSwapTime + millisPerSwap) {
+        changeRandomSeed();
+    }
+
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
@@ -278,14 +291,18 @@ function draw () {
       var y = h/2 + h*i;
       var x = w/2 + w*j;		
 	  var mouth_value = focusedRandom(0, 1000);
-      var hole_value = int(focusedRandom(1, 5));
-      var eye_value = focusedRandom(-25, 25);
-      var curve_number = int(focusedRandom(1, 7));
+      var hole_value = int(focusedRandom(1, 5, 3));
+      var eye_value = focusedRandom(-25, 30);
+      var curve_number = int(focusedRandom(1, 9, 3));
       var head_color = focusedRandom(0, 100);
 		
 	  if(mouth_value < 100)
-		  mouth_value = 0;
+	      mouth_value = 0;
+
+	  if (eye_value <= -17)
+	      eye_value = -25;
 		
+
       drawSpongebob(x, y, w, h, mouth_value, eye_value, hole_value, head_color, curve_number);  
     }
   }

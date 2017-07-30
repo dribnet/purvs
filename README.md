@@ -1,7 +1,4 @@
-## PS1B MDDN 342 2017 Title
+## PS1B MDDN 342 2017
 
-For Spongebob I was experimenting with the shape of his body/face and his eyes. I used discrete values here to alter the for loop i used to draw his curves
-
-For Morty I was experimenting with curves for his nose and mouth. His hair is also changeable.
-
-For Batman I created his face using vertices and gave them parameters so his actual face structure can be changed. 
+For the distribution I wanted to get it so every face looks different enough to those around it, and feel I've achieved that. I made it so bodies with only one curve on them are rare as are bodies with 2 curves, so most of the bodies look like spongebobs actual body. I did this with the holes as well
+so getting a plain spongebob is rare and will stand out.
