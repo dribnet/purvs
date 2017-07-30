@@ -2,6 +2,5 @@
 
 This README explains the three different paramaterized faces for part2. 
 
-Homer can move his eyes, mouth and change the number of hairs on his head
-Bart can dilate his eyes, change his hair and change the number of teeth he has
-Flanders can wiggle his mustash, change the width of his mustash and change the colour of his glasses lenses
+Creates a grid of simpsons characters by randomly generating a number and drawing the corresponding charcter,
+the code for homer broke and I can't find the bug so if it draws homer it stops.'

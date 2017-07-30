@@ -1,40 +1,28 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
-
-
-
+var button;
+var curRandomSeed;
+var randomNum;
 
 function setup () {
+  
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
+  curRandomSeed = int(focusedRandom(0, 100));
+  randButton = createButton('randomize');
+  randButton.mousePressed(changeRandomSeed);
+  randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
+
+function changeRandomSeed() {
+  curRandomSeed+=1;
+}
+
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
@@ -65,6 +53,7 @@ var mustash_color = "#664b36";
 
 function drawFace1(x, y, w, h, mouth_value, eye_value, hair_value) {
   push();
+  scale(0.4,0.4);
   translate(x, y);
 
 
@@ -137,14 +126,16 @@ function drawFace1(x, y, w, h, mouth_value, eye_value, hair_value) {
   line(80,-100,70,-130);
   line(80,-100,90,-130);
   line(100,-100,90,-130);
-  
+  //rect(0,0,100,100);
   pop();
+  //resetMatrix();
 }
 
 function drawFace2(x, y, w, h, hair_value, eye_value, teeth_value) {
   
    // move to position2, rotate, draw "head" ellipse
   push();
+  scale(0.4,0.4);
   translate(x,y);
   //rotate(30);
   fill(fg_color1);
@@ -198,7 +189,7 @@ function drawFace2(x, y, w, h, hair_value, eye_value, teeth_value) {
   arc(-55, -40, 40, 40, 90, 270, OPEN);
 
   // mouth-hole with background color
-  fill(bg_color2);
+  fill(bg_color);
   noStroke();
   //ellipse( -70, 70, 250, 50);
    arc(-70, 70, 250, 50, 195, 155, CHORD);
@@ -234,8 +225,9 @@ function drawFace2(x, y, w, h, hair_value, eye_value, teeth_value) {
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, tilt_value, eye_value, mustash_width) {
+function drawFace3(x, y, w, h, tilt_value, mustash_width, eye_value) {
   push();
+  scale(0.4,0.4);
   rectMode(CENTER);
   translate(x, y);
   stroke(stroke_color);
@@ -299,7 +291,7 @@ function drawFace3(x, y, w, h, tilt_value, eye_value, mustash_width) {
   arc(-85, 0, 40, 40, 90, 270, OPEN);
   
   // mouth-hole with background color
-  fill(bg_color3);
+  fill(bg_color);
   noStroke();
   //ellipse( -70, 70, 250, 50);
    arc(-70, 70, 250, 50, 195, 155, CHORD);
@@ -327,82 +319,57 @@ function drawFace3(x, y, w, h, tilt_value, eye_value, mustash_width) {
   // mustash
   arc(0,0,180 + mustash_width,80,180,0,CHORD);
   pop();
-  pop();
+  //pop();
     
-
-  resetMatrix();
   pop();
+  resetMatrix();
+  
 }
 
 function draw () {
-  noStroke();
+  resetFocusedRandom(curRandomSeed);
 
-  var mode = faceSelector.value();
+  //noStroke();
 
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
+  var cols = 3;
+  var rows = 5;
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
+  var w = 450;
+  var h = 400;
+  for(var i=0; i<5; i++) {
+    for(var j=0; j<3; j++) {
+      var x = (w*i) + 225;
+      var y = (h*j) + 225;
+     // randomNum = focusedRandom(0,100);
 
-  // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
+      // var backgound_color = Math.floor(focusedRandom(0,2));
+      // if(backgound_color == 0){
+      //   fill(bg_color);
+      // }
+      // else{
+      //   fill(bg_color1);
+      // }
+      fill(bg_color);
+     // rect(x,y,100,100);
 
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    var mouth_value = map(s1, 0, 100, 10, 55);
-    var background_value = Math.floor(map(s3, 0, 100, 0, 2));
-    var eye_value = map(s2, 0, 100, -20, 20);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, mouth_value, eye_value, background_value);    
-  }
+     var value1 = 0;//focusedRandom(-10, 10);
+     var value2 = 10;//focusedRandom(-10, 10);
+     var value3 = 1;//Math.floor(focusedRandom(0,2));
+     var character = Math.floor(focusedRandom(0,3));
 
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, -15, 15);
-    var teeth_value = Math.floor(map(s3, 0, 100, 0, 2));
-    var eye_value = map(s2, 0, 100, 5, 25);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, teeth_value);
-  }
-
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    var tilt_value = map(s1, 0, 100, -10, 10);
-    var mustash_value = map(s3, 0, 100, -20, 20);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 2));
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, tilt_value, eye_value, mustash_value);
+     if(character == 0){
+      drawFace1(x, y, w, h, value1, value2, value3);
+     }
+     else if(character == 1){
+      drawFace2(x, y, w, h, value1, value2, value3);
+     }
+     else if(character == 2){
+      drawFace3(x, y, w, h, value1, value2, value3);
+     }
+    
+   }
   }
 }
-
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
