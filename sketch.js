@@ -10,10 +10,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
-
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -24,7 +20,7 @@ function changeRandomSeed() {
 
 // global variables for colors
 var bg_color1 = [106,109,131];
-var bg_color2 = [47, 59, 64];
+var bg_color2 = [96, 99, 121];
 var bg_color3 = [70, 70, 120];
 
 var fg_color1 = [151, 102, 52];
@@ -58,6 +54,10 @@ var FaceColor2 = "rgb(66,127,235)";
 
 var FaceColor3 = "rgb(255,253,109)";
 var FaceColor4 = "rgb(225,223,89)";
+
+var switch1 = false;
+var switch2 = false;
+var switch3 = false;
 
 function drawFace1(x, y, w, h, tilt_value, earPoint_value, earring_value, earringCol_value, pupilSize_value, eyeShapeWidth_value, eyeShapeWidth2_value, eyeShapeWidth3_value, eyeShapeWidth4_value, eyeShapeHeight_value, eyeShapeHeight2_value, eyebrowHeight_value, eyebrowHeight2_value, eyeShapeHeight3_value, eyeShapeHeight4_value, eyebrowWidth_value, eyebrowWidth2_value, faceColor_value, faceColor2_value, faceColor3_value, jawline_value, jawline2_value, mouthHeight_value, mouthWidth_value, noseHeight_value, noseWidth_value, eyeColorBlend_value, scale_value, hairSpike1_value, hairSpike2_value, hairSpike3_value, hairSpike4_value, hairSpike5_value, hairSpike6_value, hairSpike7_value, hairSpike8_value, hairSpikeSharpness_value) {
   push();
@@ -290,18 +290,30 @@ function getRandomNumberOfEarrings() {
     }
 }
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+function changeRandomSeed() {
+    curRandomSeed = curRandomSeed + 1;
+    lastSwapTime = millis();
+}
+
+function mouseClicked() {
+    changeRandomSeed();
+}
+
 function draw () {
+    if(millis() > lastSwapTime + millisPerSwap) {
+        changeRandomSeed();
+    }
+
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
   background(bg_color1);
-  fill(bg_color1);
+  fill(bg_color2);
 
-  // use same size / y_pos for all faces
-  // var face_w = canvasWidth / 4;
-  // var face_h = face_w;
-  // var face_y = height / 2;
-  // var face_x = width / 2;
+  triangle(canvasWidth,0,canvasWidth,canvasHeight,0,canvasHeight);
 
   // draw 1st face
 
@@ -343,22 +355,68 @@ function draw () {
   hairSpike8_value = Math.floor(focusedRandom(1, 2.99));
   hairSpikeSharpness_value = focusedRandom(-15, 15);
 
-  var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
+  var rows = 4
+  var columns = 6
+
+  var h = canvasHeight / rows;
+  var w = canvasWidth / columns;
+  
+  for(var i=0; i<rows; i++) {
+    for(var j=0; j<columns; j++) {
       var y = h / 2 + h * i;
       var x = w / 2 + w * j;
+
+        // Sorting the Faces out by Color value, also If statements to check if a color value has peaked, and then sendning it in the other direction.
+
+
+      if (faceColor1_value > 0.95) {
+          switch1 = true;
+      }
+      if (switch1) {
+          var faceColor1_value = faceColor1_value - (focusedRandom(0, 0.05));
+      }
+      else {
+          var faceColor1_value = faceColor1_value + (focusedRandom(0, 0.05));
+      }
+      if (faceColor1_value > 0.05) {
+          switch1 = false;
+      }
+
+      if (faceColor2_value > 0.95) {
+          switch2 = true;
+      }
+      if (switch2) {
+          var faceColor2_value = faceColor2_value - (focusedRandom(0, 0.05));
+      }
+      else {
+          var faceColor2_value = faceColor2_value + (focusedRandom(0, 0.05));
+      }
+      if (faceColor2_value > 0.05) {
+          switch2 = false;
+      }
+
+      if (faceColor3_value > 0.95) {
+          switch3 = true;
+      }
+      if (switch3) {
+          var faceColor3_value = faceColor3_value - (focusedRandom(0, 0.05));
+      }
+      else {
+          var faceColor3_value = faceColor3_value + (focusedRandom(0, 0.05));
+      }
+      if (faceColor3_value > 0.05) {
+          switch3 = false;
+      }
 
       tilt_value = focusedRandom(-10,10);
       earring_value = getRandomNumberOfEarrings();
       pupilSize_value =  focusedRandom(0, 10);
-      faceColor_value = focusedRandom(0, 1);
-      faceColor2_value = focusedRandom(0, 1);
-      faceColor3_value = focusedRandom(0, 1);
+      //faceColor_value = focusedRandom(0, 1);
+      //faceColor2_value = focusedRandom(0, 1);
+      //faceColor3_value = focusedRandom(0, 1);
       jawline_value = focusedRandom(2, 18);
       jawline2_value = focusedRandom(15, 60);
-      scale_value = focusedRandom(0.27, 0.33);
+      scale_value = focusedRandom(0.22, 0.27);
       earringCol_value = Math.floor(focusedRandom(1, 5.99));
       earPoint_value = focusedRandom(-5, 15);
       eyebrowHeight_value = focusedRandom(-15, 15);
