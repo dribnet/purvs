@@ -23,7 +23,6 @@ this.drawFace = function(){
 	this.drawMouth();
 	//hair
 	this.drawHair();
-	//return the drawing
 	this.canvas.pop();
 	return this.canvas;
 }
@@ -128,10 +127,11 @@ this.normalMouth = function(){
 	//smile curve
 	this.smileC = this.sliders.scaleSliders(5,0,20,true);
 	//make the mouth wider if it is smiling
-	this.mouthY = this.sliders.scaleSliders(5,this.mouthY,this.mouthY+15,true);
+this.mouthY = this.sliders.scaleSliders(5,this.mouthY,this.mouthY+15,true);
 	//this.canvas.bezier(-20+this.smileC-this.mouthX,4,-this.mouthX,0,this.mouthX,0, (20+this.mouthX)-this.smileC,0);
-	this.canvas.bezier(-this.mouthY,-this.smileC,-(this.mouthY-10),this.smileH,this.mouthY-10,this.smileH,this.mouthY,-this.smileC);
-	this.canvas.pop();
+this.canvas.bezier(-this.mouthY,-this.smileC,-(this.mouthY-10),this.smileH,this.mouthY-10,this.smileH,this.mouthY,-this.smileC);
+
+this.canvas.pop();
 }
 
 //draws the stitches of  the creepy mouth.
@@ -161,28 +161,30 @@ this.drawSmile = function(mW,mH, stitch){
 		//-mX to mX is the left and right coordinates of the edge of the mouth
 		this.s1x = map(this.c, 1, this.stitch+1, -this.mX, this.mX);
 		this.s2x = map(this.c+1, 1, this.stitch+1, -this.mX, this.mX);
-		//is this the first half of the mouth
-		if (this.c<this.stitch/2){
-			this.s1y = map(this.c, 1, (this.stitch+1)/2, -this.mH, 0);
-			this.s2y = map(this.c+1, 1, (this.stitch+1)/2, -this.mH, 0);
-		}
-		//or the second half
-		else{
-			this.s1y = map(this.c, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
-			this.s2y = map(this.c+1, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
-		}
-		if(this.stitch<4){
-			this.s1y=0;
-			this.s2y=0;
-		}
-		this.canvas.line(this.s1x, this.s1y, this.s2x,this.s2y);
-		this.isStitch = false;
+//is this the first half of the mouth
+if (this.c<this.stitch/2){
+	this.s1y = map(this.c, 1, (this.stitch+1)/2, -this.mH, 0);
+	this.s2y = map(this.c+1, 1, (this.stitch+1)/2, -this.mH, 0);
+
+}
+	//or the second half
+	else{
+		this.s1y = map(this.c, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+		this.s2y = map(this.c+1, (this.stitch+1)/2, this.stitch+1, 0, -this.mH);
+
 	}
-		else{
-			this.isStitch=true;
-		}
-		this.c++;
+	if(this.stitch<4){
+		this.s1y=0;
+		this.s2y=0;
 	}
+
+	this.canvas.line(this.s1x, this.s1y, this.s2x,this.s2y);
+	this.isStitch = false;}
+	else{
+		this.isStitch=true;
+	}
+	this.c++;
+}
 }
 
 //draws a white x with the required dimensions at the current 0,0 point of the canvas
@@ -239,7 +241,6 @@ this.drawHair = function(){
 	this.bow(this.bowWidth,this.bowHeight);
 	this.canvas.pop();
 }
-
 
 //draw the left side ponytail
 this.leftPony = function(){
