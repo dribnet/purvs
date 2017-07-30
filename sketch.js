@@ -1,6 +1,5 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
 var curRandomSeed;
 var randomNum;
 
@@ -8,20 +7,13 @@ function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-  print(width,height);
-
-curRandomSeed = int(focusedRandom(0, 100));
-
-  //randButton = createButton('randomize');
-  //randButton.mousePressed(changeRandomSeed);
-  //randButton.parent('selector1Container');
-
-
+  curRandomSeed = int(focusedRandom(0, 100));
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
+//increases the seed by 1
 function changeRandomSeed() {
   curRandomSeed+=1;
 }
@@ -32,8 +24,9 @@ var lightGray = [220,220,220];
 var shadow = [0,25];
 var shadowLight = [255,65];
 
+//color schemes
+//KEY: background, face, pupil, horns, nose, mouth
 // pink
-//background, face, pupil, horns, nose, mouth
 var scheme1 = [[242,58,107],[243,100,242],[243,150,242],[255,255,255],[133,133,238],[97,97,235]];
 // light blue
 var scheme2 = [[209,222,252],[166,166,243],[97,97,235],[255,255,255],[133,133,238],[97,97,235]];
@@ -44,29 +37,31 @@ var scheme4 = [[187,238,173],[118,187,128],[255,189,173],[255,255,255],[186,186,
 //yellow
 var scheme5 = [[255,222,107],[255,180,107],[255,128,73],[255,255,255],[248,157,117],[245,105,105]];
 
+//contains all schemes
 var schemes = [scheme2,scheme3,scheme4,scheme5];
 
+//draws a monster at a specified position, with variables for
+//randomization
+function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,mouthType,noseType,hornSize,hornType,monsterHeight,colorScheme,face){
 
-function drawMonster(mX,mY,faceWidth,faceHeight,eyeNum,mouthType,noseType,hornSize,hornType,colorChange,monsterHeight,colorScheme,face){
+push();
+var monsterWidth = monsterHeight*1.92;
 
-  push();
-  var monsterWidth = monsterHeight*1.92;
+translate(mX,mY);
 
-  translate(mX,mY);
+//need to draw the teeth for the anteater monster first!
+if(face == 4){
+drawTeeth(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[3]);
+}
 
-
-  if(face == 4){
-  drawTeeth(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[3]);
-  }
-
-  if(face == 1){
-  drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,(colorScheme[1]),colorScheme[2]);
-}else if(face == 2){
-
+//determining type of face
+if(face == 1){
+  drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,(colorScheme[1]));
+}
+else if(face == 2){
   drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
 }
 else if(face == 3){
-
   drawFace3(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[1]);
 }
 else if(face == 4){
@@ -75,26 +70,30 @@ else if(face == 4){
 else{
   drawFace5(monsterWidth,monsterHeight,faceWidth,faceHeight,(colorScheme[1]));
 }
+
+//eyes are always the same size
   var eyeSize = monsterWidth*(0.066);
   drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,white,colorScheme[2],mX,mY);
 
+// face 3 always has spike horns
   if(face == 3){
-    drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+    drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
   }
-  else if(face == 4 || face == 1 || face == 2){
+//normal faces either have normal or spike horns
+  else if(face!=5){
     if(hornType == 1){
       drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
     }
     else{
-      drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+      drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
     }
   }
+  //face 5 has flat horns
 else{
-    drawHorns4(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
+    drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,colorScheme[3]);
 }
 
-
-
+// face 1 and 3 either have a dog or spike nose
   if(face==1 || face == 3){
     if(noseType == 1){
     drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
@@ -103,17 +102,21 @@ else{
       drawNose3(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
   }
 }
+// face 2 always has a nose on the bottom
 else if(face==2){
   drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
 }
+// face 5 either has a dog or polygonal nose
 else if (face == 5){
-  drawNose4(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  if(noseType == 1){
+    drawNose4(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  }
+  else{
+    drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[4]);
+  }
 }
 
-
-
-
-
+// face 1 and 3 have an ellipse mouth or a triangle mouth
   if(face== 1 || face == 3){
     if(mouthType == 1){
   drawMouth1(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
@@ -124,27 +127,21 @@ else if (face == 5){
 
 }
 
+//face 5 either has a triangle mouth or a tooth mouth
 if(face==5){
+  if(mouthType == 1){
   drawMouth3(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[3],colorScheme[4]);
+  }
+  else{
+  drawMouth2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
+  }
 }
-
 
 pop();
 }
 
-
-function modifyColor(c,colorChange){
-
-  var c2 = red(c);
-  c2+=colorChange;
-
-  return (c);
-
-}
-
-
-
-function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2){
+//faceType 1: Polygonal, weighted towards bottom
+function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
   //face
@@ -164,9 +161,7 @@ function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2)
 
   endShape();
 
-
 //shadow
-
   fill(shadow);
   beginShape();
   //top
@@ -183,10 +178,9 @@ function drawFace1(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2)
   vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.35-(faceHeight));
   endShape();
 
-
-
 }
 
+//faceType 2: similar to a deer
 function drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -211,34 +205,30 @@ function drawFace2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   endShape();
 
-
   //shadow
-
-    fill(shadow);
-    beginShape();
-    //top
-    vertex(monsterWidth*0.55+(faceWidth),monsterHeight*0.1-(faceHeight));
-    //rightTop
-    vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.1-(faceHeight));
-    //righttop2
-    vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.25-(faceHeight));
-    //right
-    vertex(monsterWidth*0.69+(faceWidth),monsterHeight*0.5+(faceHeight));
-    //bottomright
-    vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.8+(faceHeight));
-    //bottom
-    vertex(monsterWidth*0.55+(faceWidth),monsterHeight*0.8+(faceHeight));
-    //right
-    vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.5+(faceHeight));
-    //righttop2
-    vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.25-(faceHeight));
-
-
-    endShape();
-
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(monsterWidth*0.55+(faceWidth),monsterHeight*0.1-(faceHeight));
+  //rightTop
+  vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.1-(faceHeight));
+  //righttop2
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.25-(faceHeight));
+  //right
+  vertex(monsterWidth*0.69+(faceWidth),monsterHeight*0.5+(faceHeight));
+  //bottomright
+  vertex(monsterWidth*0.6+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.55+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //right
+  vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.5+(faceHeight));
+  //righttop2
+  vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.25-(faceHeight));
+  endShape();
 
 }
 
+//faceType 3: Similar to an ogre
 function drawFace3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -260,37 +250,33 @@ function drawFace3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
   vertex(monsterWidth*0.35-(faceWidth),monsterHeight*0.8+(faceHeight));
   //left
   vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.5);
-
   endShape();
 
-
   //shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
+  //righttop
+  vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.2-(faceHeight));
+  //right
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.5);
+  //rightbottom
+  vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
+  //rightbottom
+  vertex(monsterWidth*0.62+(faceWidth),monsterHeight*0.8+(faceHeight));
+  //right
+  vertex(monsterWidth*0.67+(faceWidth),monsterHeight*0.5);
+  //righttop
+  vertex(monsterWidth*0.62+(faceWidth),monsterHeight*0.2-(faceHeight));
 
-    fill(shadow);
-    beginShape();
-
-    //top
-    vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
-    //righttop
-    vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.2-(faceHeight));
-    //right
-    vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.5);
-    //rightbottom
-    vertex(monsterWidth*0.65+(faceWidth),monsterHeight*0.8+(faceHeight));
-    //bottom
-    vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
-    //rightbottom
-    vertex(monsterWidth*0.62+(faceWidth),monsterHeight*0.8+(faceHeight));
-    //right
-    vertex(monsterWidth*0.67+(faceWidth),monsterHeight*0.5);
-    //righttop
-    vertex(monsterWidth*0.62+(faceWidth),monsterHeight*0.2-(faceHeight));
-
-    endShape();
+  endShape();
 }
 
-
-function drawFace4(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2){
+//faceType 4: looks like an evil pacman / anteater
+function drawFace4(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
   //face
@@ -317,8 +303,6 @@ function drawFace4(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2)
   vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.6+(faceHeight));
 
   endShape();
-
-
 //shadow
 
   fill(shadow);
@@ -337,10 +321,9 @@ function drawFace4(monsterWidth,monsterHeight,faceWidth,faceHeight,color,color2)
   vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.35-(faceHeight));
   endShape();
 
-
-
 }
 
+//faceType 5: looks like a diamond
 function drawFace5(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -361,9 +344,7 @@ function drawFace5(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   endShape();
 
-
-//shadow
-
+  //shadow
   fill(shadow);
   beginShape();
   //top
@@ -380,42 +361,40 @@ function drawFace5(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
   vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.3-(faceHeight));
   endShape();
 
-
-
 }
 
-
-
+//method that controls getting the correct positions for eyes and
+//making sure the correct amount of eyes is displayed
 function drawEyes(monsterWidth,faceWidth,monsterHeight,faceHeight,eyeSize,eyeNum,color1,color2,x,y){
 
+  //draw eyes
+  //one eye
   if(eyeNum==1){
   drawEye(monsterWidth*0.5,monsterHeight*0.35-faceHeight,eyeSize,color1,color2,x,y);
   return;
   }
-  //draw eyes
-  //first 2
+  //2 eyes
   if(eyeNum>=2){
   drawEye(monsterWidth*0.35-faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.65+faceWidth,monsterHeight*0.4-faceHeight,eyeSize,color1,color2,x,y);
   }
-  //second 2
+  //4 eyes
   if(eyeNum>=3){
   drawEye(monsterWidth*0.42-(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.58+(faceWidth*0.5),monsterHeight*0.35-(faceHeight),eyeSize,color1,color2,x,y);
   }
-  //third 2
+  //6 eyes
   if(eyeNum>=4){
   drawEye(monsterWidth*0.42-(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
   drawEye(monsterWidth*0.58+(faceWidth*0.6),monsterHeight*0.45-(faceHeight),eyeSize,color1,color2,x,y);
   }
 
-  print("real" + monsterHeight);
-
 }
 
-
+//hornType1: normal horns
 function drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
 
+  //right horn
   fill(color);
   beginShape();
   //1
@@ -434,24 +413,24 @@ function drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,col
   vertex(monsterWidth*0.58+(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow right horn
   fill(shadow);
   beginShape();
-  //7
-  vertex(monsterWidth*0.58+(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   //1
-  vertex(monsterWidth*0.65+(faceWidth*0.8),monsterHeight*0.3-(faceHeight));
+  vertex(monsterWidth*0.58+(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   //2
-  vertex(monsterWidth*0.8+(faceWidth)+hornSize,monsterHeight*0.25-(faceHeight));
+  vertex(monsterWidth*0.65+(faceWidth*0.8),monsterHeight*0.3-(faceHeight));
   //3
-  vertex(monsterWidth*0.82+(faceWidth)+hornSize,monsterHeight*0.08-(faceHeight));
+  vertex(monsterWidth*0.8+(faceWidth)+hornSize,monsterHeight*0.25-(faceHeight));
   //4
+  vertex(monsterWidth*0.82+(faceWidth)+hornSize,monsterHeight*0.08-(faceHeight));
+  //5
   vertex(monsterWidth*0.78+(faceWidth)+hornSize,monsterHeight*0.2-(faceHeight));
-  //7
+  //6
   vertex(monsterWidth*0.64+(faceWidth*0.4),monsterHeight*0.25-(faceHeight));
   endShape();
 
-
+  //left horn
   fill(color);
   beginShape();
   //1
@@ -470,184 +449,132 @@ function drawHorns1(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,col
   vertex(monsterWidth*0.42-(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow left horn
   fill(shadow);
   beginShape();
-  //7
-  vertex(monsterWidth*0.42-(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   //1
-  vertex(monsterWidth*0.35-(faceWidth*0.8),monsterHeight*0.3-(faceHeight));
+  vertex(monsterWidth*0.42-(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   //2
-  vertex(monsterWidth*0.2-(faceWidth)-hornSize,monsterHeight*0.25-(faceHeight));
+  vertex(monsterWidth*0.35-(faceWidth*0.8),monsterHeight*0.3-(faceHeight));
   //3
-  vertex(monsterWidth*0.18-(faceWidth)-hornSize,monsterHeight*0.08-(faceHeight));
+  vertex(monsterWidth*0.2-(faceWidth)-hornSize,monsterHeight*0.25-(faceHeight));
   //4
+  vertex(monsterWidth*0.18-(faceWidth)-hornSize,monsterHeight*0.08-(faceHeight));
+  //5
   vertex(monsterWidth*0.22-(faceWidth)-hornSize,monsterHeight*0.2-(faceHeight));
-  //7
+  //6
   vertex(monsterWidth*0.36-(faceWidth*0.4),monsterHeight*0.25-(faceHeight));
   endShape();
 
 }
 
+//hornType 2: spikey
 function drawHorns2(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
 
-  //horns right
-
-  fill(color);
-  beginShape();
-  //1
-  vertex(monsterWidth*0.6+(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
-  //2
-  vertex(monsterWidth*0.7+(faceWidth)+hornSize,monsterHeight*0.15-(faceHeight));
-  //3
-  vertex(monsterWidth*0.8+(faceWidth)+hornSize,monsterHeight*0.25-(faceHeight));
-  //4
-  vertex(monsterWidth*0.82+(faceWidth)+hornSize,monsterHeight*0.4-(faceHeight));
-  //5
-  vertex(monsterWidth*0.84+(faceWidth)+hornSize,monsterHeight*0.28-(faceHeight));
-  //6
-  vertex(monsterWidth*0.78+(faceWidth)+hornSize,monsterHeight*0.12-(faceHeight));
-  //7
-  vertex(monsterWidth*0.7+(faceWidth)+hornSize,monsterHeight*0.01-(faceHeight));
-  //8
-  vertex(monsterWidth*0.53+(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
-  endShape();
-
-
-  //horns left
-
-  fill(color);
-  beginShape();
-  //1
-  vertex(monsterWidth*0.47-(faceWidth*0.8),monsterHeight*0.2-(faceHeight));
-  //2
-  vertex(monsterWidth*0.3-(faceWidth)-hornSize,monsterHeight*0.15-(faceHeight));
-  //3
-  vertex(monsterWidth*0.2-(faceWidth)-hornSize,monsterHeight*0.25-(faceHeight));
-  //4
-  vertex(monsterWidth*0.18-(faceWidth)-hornSize,monsterHeight*0.4-(faceHeight));
-  //5
-  vertex(monsterWidth*0.16-(monsterWidth*0.05)-(faceWidth)-hornSize,monsterHeight*0.28-(faceHeight));
-  //6
-  vertex(monsterWidth*0.22-(monsterWidth*0.08)-(faceWidth)-hornSize,monsterHeight*0.12-(faceHeight));
-  //7
-  vertex(monsterWidth*0.3-(faceWidth)-hornSize,monsterHeight*-0.01-(faceHeight));
-  //8
-  vertex(monsterWidth*0.4-(faceWidth*0.7),monsterHeight*0.1-(faceHeight));
-  endShape();
-
-
-
-}
-
-function drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
-
+  //right horn
   fill(color);
   beginShape();
   //1
   vertex(monsterWidth*0.65+(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.72+(faceWidth*0.5)+hornSize,monsterHeight*0.12-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.58+(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow right horn
   fill(shadow);
   beginShape();
   //1
   vertex(monsterWidth*0.65+(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.72+(faceWidth*0.5)+hornSize,monsterHeight*0.12-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.6+(faceWidth*0.4),monsterHeight*0.24-(faceHeight));
   endShape();
 
-
+  //left horn
   fill(color);
   beginShape();
   //1
   vertex(monsterWidth*0.35-(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.28-(faceWidth*0.5)-hornSize,monsterHeight*0.12-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.42-(faceWidth*0.4),monsterHeight*0.2-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow left horn
   fill(shadow);
   beginShape();
   //1
   vertex(monsterWidth*0.35-(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.28-(faceWidth*0.5)-hornSize,monsterHeight*0.12-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.4-(faceWidth*0.4),monsterHeight*0.24-(faceHeight));
   endShape();
 
-
-
 }
 
-function drawHorns4(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
+//hornType 3: flat horns
+function drawHorns3(monsterWidth,monsterHeight,faceWidth,faceHeight,hornSize,color){
 
+  //right horn
   fill(color);
   beginShape();
   //1
   vertex(monsterWidth*0.68+(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.67+(faceWidth*0.75),monsterHeight*0.2-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.63+(faceWidth*0.75),monsterHeight*0.14-(faceHeight));
-  //7
+  //4
   vertex(monsterWidth*0.58+(faceWidth*0.75),monsterHeight*0.19-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow right horn
   fill(shadow);
   beginShape();
   //1
   vertex(monsterWidth*0.68+(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.67+(faceWidth*0.75),monsterHeight*0.2-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.62+(faceWidth*0.75),monsterHeight*0.23-(faceHeight))
   endShape();
 
-
+  //left horn
   fill(color);
   beginShape();
   //1
   vertex(monsterWidth*0.32-(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.33-(faceWidth*0.75),monsterHeight*0.2-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.37-(faceWidth*0.75),monsterHeight*0.14-(faceHeight));
-  //7
+  //4
   vertex(monsterWidth*0.42-(faceWidth*0.75),monsterHeight*0.19-(faceHeight));
   endShape();
 
-  //shadow
+  //shadow left horn
   fill(shadow);
   beginShape();
   //1
   vertex(monsterWidth*0.32-(faceWidth*0.75),monsterHeight*0.3-(faceHeight));
   //2
   vertex(monsterWidth*0.33-(faceWidth*0.75),monsterHeight*0.2-(faceHeight));
-  //7
+  //3
   vertex(monsterWidth*0.38-(faceWidth*0.75),monsterHeight*0.23-(faceHeight));
   endShape();
-
-
 
 }
 
 
-
+//nose type 1: like a dog nose
 function drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
-
   //draw nose
   var noseWidth =monsterWidth*0.16+faceWidth;
   var noseHeight = monsterWidth*0.03;
@@ -659,7 +586,7 @@ function drawNose1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
-
+//nose type 2: triangle on the bottom of the face
 function drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -675,6 +602,7 @@ function drawNose2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
+//nose type 3: triangle
 function drawNose3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -690,6 +618,7 @@ function drawNose3(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
+// nose type 4: polygon thing
 function drawNose4(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
   fill(color);
@@ -710,10 +639,7 @@ function drawNose4(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 }
 
-
-
-
-
+// mouth type 1: open surprised mouth. Also draws a small tooth
 function drawMouth1(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 fill(color);
@@ -736,9 +662,9 @@ fill(color);
   var toothX3 = (mouthX-toothDiff*1.9)+toothWidth;
   var toothY3 = mouthY+toothWidth-(mouthHeight/2);
   triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
-
 }
 
+//mouth type 2: upside down triangle mouth
 function drawMouth2(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
 fill(color);
@@ -752,73 +678,74 @@ fill(color);
 
   triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
 
-
-
 }
 
+//mouth type 3: mouth that has 2 big teeth
 function drawMouth3(monsterWidth,monsterHeight,faceWidth,faceHeight,color1,color2){
 
 //left tooth
 fill(color1);
   //draw mouth
-  var noseX1 = monsterWidth*0.43-(faceWidth/2);
-  var noseY1 = monsterHeight*0.8+(faceHeight);
-  var noseX2 = monsterWidth*0.45-(faceWidth/2);
-  var noseY2 = monsterHeight*0.65+(faceHeight);
-  var noseX3 = monsterWidth*0.5;
-  var noseY3 = monsterHeight*0.8+(faceHeight);
+  var toothX1 = monsterWidth*0.43-(faceWidth/2);
+  var toothY1 = monsterHeight*0.8+(faceHeight);
+  var toothX2 = monsterWidth*0.45-(faceWidth/2);
+  var toothY2 = monsterHeight*0.65+(faceHeight);
+  var toothX3 = monsterWidth*0.5;
+  var toothY3 = monsterHeight*0.8+(faceHeight);
 
-  triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
+  triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
 
 //right tooth
   fill(color1);
     //draw mouth
-    var noseX1 = monsterWidth*0.57+(faceWidth/2);
-    var noseY1 = monsterHeight*0.8+(faceHeight);
-    var noseX2 = monsterWidth*0.55+(faceWidth/2);
-    var noseY2 = monsterHeight*0.65+(faceHeight);
-    var noseX3 = monsterWidth*0.5;
-    var noseY3 = monsterHeight*0.8+(faceHeight);
+    var toothX1 = monsterWidth*0.57+(faceWidth/2);
+    var toothY1 = monsterHeight*0.8+(faceHeight);
+    var toothX2 = monsterWidth*0.55+(faceWidth/2);
+    var toothY2 = monsterHeight*0.65+(faceHeight);
+    var toothX3 = monsterWidth*0.5;
+    var toothY3 = monsterHeight*0.8+(faceHeight);
 
-    triangle(noseX1,noseY1,noseX2,noseY2,noseX3,noseY3);
+    triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
 
+    //quad for lip
     fill(color2);
     quad(monsterWidth*0.43-(faceWidth/2),monsterHeight*0.8+(faceHeight),monsterWidth*0.57+(faceWidth/2),monsterHeight*0.8+(faceHeight),
     monsterWidth*0.57+(faceWidth/2),monsterHeight*0.82+(faceHeight),monsterWidth*0.43-(faceWidth/2),monsterHeight*0.82+(faceHeight))
 
 }
 
+//draws the set of 6 teeth required for faceType 4.
 function drawTeeth(monsterWidth,monsterHeight,faceWidth,faceHeight,color1){
 
-  print(monsterHeight);
+  drawToothLeft(monsterWidth,monsterWidth*0.42-(faceWidth),monsterHeight*0.55+faceHeight,color1);
+  drawToothRight(monsterWidth,monsterWidth*0.58+(faceWidth),monsterHeight*0.55+faceHeight,color1);
 
-  drawToothLeft(monsterWidth*0.42-(faceWidth),monsterHeight*0.55+faceHeight,color1);
-  drawToothRight(monsterWidth*0.58+(faceWidth),monsterHeight*0.55+faceHeight,color1);
+  drawToothLeft(monsterWidth,monsterWidth*0.42-(faceWidth),monsterHeight*0.63+faceHeight,color1);
+  drawToothRight(monsterWidth,monsterWidth*0.58+(faceWidth),monsterHeight*0.63+faceHeight,color1);
 
-  drawToothLeft(monsterWidth*0.42-(faceWidth),monsterHeight*0.63+faceHeight,color1);
-  drawToothRight(monsterWidth*0.58+(faceWidth),monsterHeight*0.63+faceHeight,color1);
-
-  drawToothLeft(monsterWidth*0.42-(faceWidth),monsterHeight*0.7+faceHeight,color1);
-  drawToothRight(monsterWidth*0.58+(faceWidth),monsterHeight*0.7+faceHeight,color1);
-
+  drawToothLeft(monsterWidth,monsterWidth*0.42-(faceWidth),monsterHeight*0.7+faceHeight,color1);
+  drawToothRight(monsterWidth,monsterWidth*0.58+(faceWidth),monsterHeight*0.7+faceHeight,color1);
 
 }
 
-function drawToothLeft(x,y,color1){
-
+//draws a single left tooth
+function drawToothLeft(monsterWidth,x,y,color1){
+var diff = monsterWidth*0.015
 fill(color1);
-triangle(x,y,x-15,y-5,x-15,y+5);
+triangle(x,y,x-diff*3,y-diff,x-diff*3,y+diff);
 
 }
 
-function drawToothRight(x,y,color1){
-
+//draws a single right tooth
+function drawToothRight(monsterWidth,x,y,color1){
+var diff = monsterWidth*0.015
 fill(color1);
-triangle(x,y,x+15,y-5,x+15,y+5);
+triangle(x,y,x+diff*3,y-diff,x+diff*3,y+diff);
 
 }
 
-
+//draws a single eye,
+//looks at mouse using x and y coords
 function drawEye(x,y,size,color1,color2,x2,y2){
 
   mouseXPos = map(mouseX-x2+x,0,width,-size/7,size/7);
@@ -831,8 +758,8 @@ ellipse(x+mouseXPos,y+mouseYPos,size*0.6,size*0.6);
 
 }
 
-
-
+//main draw function:
+//makes a grid & randomizes each monster
 function draw () {
   resetFocusedRandom(curRandomSeed);
 
@@ -847,82 +774,38 @@ function draw () {
     for(var col=0; col<cols; col++) {
       var x = w*col;
       var y = h*row;
-      randomNum = focusedRandom(0,100);
 
+      //random color scheme is used
       scheme = schemes[Math.floor(focusedRandom(0,schemes.length))];
       fill(scheme[0]);
+      //background rect
       rect(x,y,w,h);
-
+      //lighter inside rectangle
       backgroundShape(x,y,w,h,shadowLight);
 
-
-/*
-      if(Math.floor(focusedRandom(1,2))==1){
-      var strokeSize = 8;
-      stroke(shadowLight);
-      noFill();
-      strokeWeight(strokeSize);
-      rect(x+strokeSize/2,y+strokeSize/2,w-strokeSize,h-strokeSize);
-      noStroke();
-      }
-*/
-
-
+     //randomized variables
      var faceWidth = focusedRandom(-(h/6.66),-(h/20));
      var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
      var eye_value = getEyeNum();
      var mouthType = Math.floor(focusedRandom(1,3));
      var noseType = Math.floor(focusedRandom(1,3));
      var hornSize = focusedRandom(-(h/5),(h/20));
-     var hornType = Math.floor(focusedRandom(1,3));
-     var colorChange = focusedRandom(100,100);
-     var face = Math.floor(focusedRandom(1,6));
+     var hornType = getHornType();
+     var face = getFaceType();
 
-
-     //var face = 5;
-
-     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,colorChange,h,scheme,face);
+     drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
    }
  }
-
-
-
-
 }
 
-
+//lighter rect inside of background rect
 function backgroundShape(x,y,w,h,color){
 
   var shapeType = Math.floor(focusedRandom(1,6));
   fill(color);
-
   rectMode(CORNER);
-
   var strokeSize = focusedRandom(8,12);
-
   rect(x+strokeSize,y+strokeSize,w-strokeSize*2,h-strokeSize*2);
-
-/*
-  if(shapeType == 1){
-    triangle(x,y,x+w,y,x,y+h);
-  }
-  else if(shapeType == 2){
-    triangle(x+w,y,x,y+h,x+w,y+h);
-  }
-  else if(shapeType ==3){
-    triangle(x,y,x+w,y,x+w,y+h);
-  }
-  else if(shapeType == 4){
-    triangle(x,y,x,y+h,x+w,y+h);
-  }
-  else if(shapeType == 5){
-    //quad(x+(w/2),y,x+w,y+(h/2),x+(w/2),y+h,x,y+(h/2));
-
-  }
-  */
-
-
-
 
 }
 
@@ -935,7 +818,7 @@ function getEyeNum(){
     return 1;
   }
   else if(randomNum < 30){
-return 2;
+    return 2;
   }
   else if (randomNum < 80){
     return 3;
@@ -944,8 +827,44 @@ return 2;
     return 4;
   }
 
+}
+
+//gets a distribution of horn types
+function getHornType(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<90){
+    return 1;
+  }
+  else{
+    return 2;
+  }
+}
+
+//gets a distribution of face types
+function getFaceType(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<15){
+    return 1;
+  }
+  else if(randomNum<30){
+    return 2;
+  }
+  else if(randomNum<50){
+    return 3;
+  }
+  else if(randomNum<75){
+    return 4;
+  }
+  else{
+    return 5;
+  }
 
 }
+
 
 function mouseClicked(){
   changeRandomSeed();
