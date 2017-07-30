@@ -20,6 +20,7 @@ var coOrdsCount = 0;
 //count the monsters and robots
 var robotCount = 0;
 var monsterCount = 0;
+var totalFaceCount = 0;
 
 function keyTyped() {
   if (key == '!') {
@@ -93,7 +94,7 @@ function mousePressed() {
 }
 
 /* changes the current random seed
- * resets robot count and monster count
+ * resets robot count, monster count and total face count
  * resets coOrdsArrayPointer array
  * resets scoreboard
  * then calls redraw
@@ -102,6 +103,7 @@ function changeRandomSeed() {
 	curRandomSeed = curRandomSeed + 1;
 	robotCount = 0;
 	monsterCount = 0;
+	totalFaceCount = 0;
 	resetCoOrdsArrayPointer();
 	resetScoreBoard();
 	redraw();
@@ -119,22 +121,20 @@ function resetCoOrdsArrayPointer(){
 }
 
 
-
 function startResetTimer(){
-	var lastSwapTime = millis();
+	var countDown = 5;
+	//set up scoreboard
 	window.setInterval(
 		function(){
-			if(millis() > (lastSwapTime + 25000)) {
+			if(countDown == 0) {
 				changeRandomSeed();
 			}
+			countDown--;
 		}, 
-		5000
+		1000
 	);
+	
 }
-
-
-
-
 
 function draw () {
 	resetFocusedRandom(curRandomSeed);
@@ -157,7 +157,6 @@ function draw () {
 		);	
 	}
 	
-	startResetTimer();
 }
 /*
  * JSON object consisting of six hue ranges
@@ -535,9 +534,9 @@ function resetScoreBoard(){
 	fill(0);
 	rect(0, 465, 200, 35);
 	fill(255);
+	textSize(40);
 	image(robotImg, 0, 465);
 	image(monsterImg, 100, 465);
-	textSize(40);
 	text("00", 50, 465, 50, 50);
 	text("00", 150, 465, 50, 50);
 }
@@ -547,6 +546,7 @@ function resetScoreBoard(){
  * @param {String} faceType        - the face that has just been drawn
  */
 function updateScoreBoard(faceType){
+	totalFaceCount++;
 	if(faceType == 'monster' && monsterCount < 99){
 		monsterCount++;
 		if(monsterCount < 10){
@@ -574,5 +574,8 @@ function updateScoreBoard(faceType){
 	textSize(40);
 	text(robotString, 50, 465, 50, 50);
 	text(monsterString, 150, 465, 50, 50);
-	
+	//start the reset timer once canvas is full
+	if(totalFaceCount >= coOrdsArray.length){
+		startResetTimer();
+	}
 }
