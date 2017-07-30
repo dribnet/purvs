@@ -561,14 +561,14 @@ function resetScoreBoard(){
  */
 function updateScoreBoard(faceType){
 	totalFaceCount++;
-	var monsterString = monsterCount;
-	var robotString = robotCount;
 	if(faceType == 'monster' && monsterCount < 99){
 		monsterCount++;
 	}
 	if(faceType == 'robot'  && robotCount < 99){
 		robotCount++;
 	}
+	var monsterString = monsterCount;
+	var robotString = robotCount;
 	if(monsterCount < 10){
 		monsterString = '0' + monsterCount;
 	}
