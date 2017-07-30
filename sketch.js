@@ -23,7 +23,7 @@ function setup () {
 
     faceSelector = createSelect();
     faceSelector.option('Jules');
-    faceSelector.option('Prince');
+    faceSelector.option('Afro');
     faceSelector.option('3');
     faceSelector.option('all')
     faceSelector.value('all');
@@ -43,7 +43,7 @@ function draw () {
         if (mode == 'Jules') {
             background(julesBackground);
         }
-        else if (mode == 'Prince') {
+        else if (mode == 'Afro') {
             background(princeBackground);
         }
         else if (mode == '3') {
@@ -78,7 +78,7 @@ function draw () {
         pop();
     }
 
-    if (mode == 'Prince' || mode == 'all') {
+    if (mode == 'Afro' || mode == 'all') {
         noStroke();
         fill(princeBackground);
         rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
@@ -87,7 +87,14 @@ function draw () {
         translate(960*3/4, 500/2-100);
         scale(150, 150);
         //rotate(4);
-        drawPrince();
+        drawPrince({
+            stacheWeight:map(s1, 0, 100, 0, 8),
+            stacheBreadth:map(s2, 0, 100, 0, 9),
+            stacheLength:map(s3, 0, 100, -2, 10),
+            browShear:map(s4, 0, 100, -15, 15),
+            browWeight:map(s1, 0, 100, 0, 3),
+            afroRadius:map(s5, 0, 100, 0, 1.5),
+        });
         pop();
     }
 
@@ -121,6 +128,13 @@ function addVectors(vectorA, vectorB) {
         vectorA[0] + vectorB[0],
         vectorA[1] + vectorB[1]
     ];
+}
+
+function multScalar(vector, scalar) {
+    return [
+        vector[0]*scalar,
+        vector[1]*scalar
+    ]
 }
 
 function makeVertices(vertexArray) {
@@ -239,12 +253,12 @@ function drawJules() {
     endShape();
 }
 
-function drawPrince() {
+function drawPrince(args) {
     // AFRO
     fill(0);
     noStroke();
     ellipseMode(RADIUS);
-    ellipse(0, 0.5, 1.05, 1.05);
+    ellipse(0, 0.5, 1.05 * args.afroRadius, 1.05 * args.afroRadius);
 
     // FACE
     var fringeLeft    = [-0.45, 0.5];
@@ -283,23 +297,43 @@ function drawPrince() {
         [0.2, 0.67],
         [0.07, 0.76]
     ];
+    var browMidLine = 0.655;
 
-    beginShape()
-    makeVertices(eyebrow);
-    endShape(CLOSE);
+    push()
+    {
+        translate(0, browMidLine);
+        shearY(args.browShear);
+        if (args.browWeight > 1) {  // fatten eyebrows
+            for (var i = 0; i < eyebrow.length; i++) {
+                var offset = [0, 0.05 * (args.browWeight-1)];
+                if (eyebrow[i][1] < browMidLine) {
+                    offset = multScalar(offset, -1);
+                }
+                eyebrow[i] = addVectors(eyebrow[i], offset);
+            }
+        } else {                    // slim eyebrows
+            scale(1, args.browWeight);
+        }
+        translate(0, -0.68);
 
-    for (var i = 0; i < eyebrow.length; i++) {
-        eyebrow[i] = [-eyebrow[i][0], eyebrow[i][1]];
+        beginShape()
+        makeVertices(eyebrow);
+        endShape(CLOSE);
+
+        for (var i = 0; i < eyebrow.length; i++) {
+            eyebrow[i] = [-eyebrow[i][0], eyebrow[i][1]];
+        }
+
+        beginShape()
+        makeVertices(eyebrow);
+        endShape();
     }
-
-    beginShape()
-    makeVertices(eyebrow);
-    endShape();
+    pop()
 
     // FACIAL HAIR
     noFill();
     stroke(0.0);
-    strokeWeight(0.025);
+    strokeWeight(0.025 * args.stacheWeight);
     strokeCap(SQUARE);
 
     // MOUSTACHE
@@ -307,8 +341,12 @@ function drawPrince() {
     var stacheCentreHeightOffset = 0.05;
     var stacheApexHeightOffset = 0.05;
     var stacheTailHorizontal = 0.03;
-    var stacheTailVertical = 0.075;
-    var stacheInsetPercent = 0.125;
+    var stacheTailVertical = 0.075 * args.stacheLength;
+    var stacheInsetPercent = 0.125 * (1 - args.stacheBreadth);
+
+    if (args.stacheWeight > 1) {
+        stacheApexHeightOffset *= 1 + (args.stacheWeight - 1 )/5;
+    }
 
     var stacheBaseLeft = addVectors(
         lerpVertex(chinLeft, chinRight, stacheInsetPercent),
@@ -335,7 +373,7 @@ function drawPrince() {
     makeVertices(stache);
     endShape();
 
-    strokeWeight(0.04);
+    strokeWeight(0.04 * args.stacheWeight);
     beginShape();
     makeVertices([
         stacheCentrePoint,
