@@ -10,9 +10,6 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
- // randButton = createButton('randomize');
-  //randButton.mousePressed(changeRandomSeed);
-  //randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -52,8 +49,6 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
     extent = w / 2;
   }
   var scale = extent / 220.0;
-  //fg_color1[3] = Math.floor((slider5.value()*255)/100);
-  //fg_color1[2] =  Math.floor((slider4.value()*255)/100);
 
   // Face structure
 
@@ -75,8 +70,6 @@ function drawFace1(x, y, w, h, tilt_value, eye_value, mouth_value) {
 
   rect(-60, -60, 230 * scale, 50 * scale);
   rect(-60, -60, 180 * scale, 90 * scale);
-
-  //Beard
 
 
 
@@ -108,7 +101,6 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
 
   rectMode(CENTER);
   push();
-  //rotate(tilt_value);
   translate(x, y);
   rotate(tilt_value);
   var extent = 0;
@@ -121,8 +113,6 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   var scale = extent / 220.0;
 
   noStroke();
-  //fg_color2[3] =  Math.floor((slider5.value()*255)/100);
-  //fg_color2[1] =  Math.floor((slider4.value()*255)/100);
   fill(fg_color3);
   rect(0, 0, 300 * scale, 400 * scale);
   rect(70, -40, 100 * scale, 200 * scale);
@@ -191,13 +181,14 @@ function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
   resetMatrix();
 }
 
+
+// Face 3 is the one used for this sketch
 function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
   rotate(tilt_value);
   noStroke();
-  // rotate(width_value);
 
   var extent = 0;
   if(h < w) {
@@ -210,14 +201,16 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
 
   noStroke()
   fg_color2[2] = Math.random() * (maxC - minC) + minC;
-  //fg_color2[3] = Math.random() * (maxC - minC) + minC;
   fill(fg_color2);
-  //fg_color3[3] =  Math.floor((slider5.value()*255)/100);
-  //fg_color3[0] =  Math.floor((slider4.value()*255)/100);
+
+  // Main face shape
   rect(0, 0, (350 + width_value * 2) * scale, 250 * scale * 1.5);
 
-  
-
+ // beginShape();
+ // for (int j = 0; j <= Math.random() * (8 - 3) + 3, j++) {
+ // 	point {Math.random() * (50 - - 50) - 50, Math.random() * (50 - - 50) - 50}
+//  }
+ // endShape();
 
   // eyes
   if (eye_value === 1 || eye_value == 3) {
@@ -246,25 +239,27 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
   // horns
   if (eye_value === 1 || eye_value == 3) {
     fill(bg_color3);
-    triangle(-20, -30, 0, -100 - width_value * 2, 20, -30);
+    triangle(-20, -50, 0, -100 - width_value * 2, 20, -50);
 	}
    
 
   if (eye_value >= 2) {
   	bg_color3[2] = Math.random() * (maxC - minC) + minC;
     fill(bg_color3);
-    triangle(-40, -65, -30, -80 - width_value * 2, -20, -65);
-    triangle(40, -65, 30, -80 - width_value * 2, 20, -65);
+    triangle(-40, -65, -30 - mouth_value/4, -80 - width_value * 2, -20, -65);
+    triangle(40, -65, 30 + mouth_value/4, -80 - width_value * 2, 20, -65);
   }
 
   //Ears
   rect(-75, -65, (50 + width_value) * scale, (10 + width_value) * scale);
   rect(75, -65, (50 + width_value) * scale, (10 + width_value) * scale);
 
+
   // mouth
   fill(bg_color3);
-
   rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
+
+
   //Teeth
   rect(-20, 40, (10 + width_value) * scale, (100 + width_value) * scale);
   rect(20, 40, (10 + width_value) * scale, (100 + width_value) * scale);
@@ -291,15 +286,15 @@ function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
       return 40;
     }
     else if(random_result < 70) {
-    return 140;
+    return 10;
   }
     else {
-      return 10;
+      return 140;
     }
 }
 
 var lastSwapTime = 0;
-var millisPerSwap = 1000;
+var millisPerSwap = 5000;
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
@@ -328,7 +323,7 @@ function draw () {
   //var face_y = height / 2;
  // var face_x = width / 2;
 
-  // draw 1st face
+  // draw 3rd face
   fill(bg_color1);
 
   tilt_value = focusedRandom(-10, 20);
@@ -339,35 +334,35 @@ function draw () {
 
 
   var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
+  var h = canvasHeight / 1;
 
   var w2 = w/2;
   var h2 = h/2;
 
-  for(var i=0; i<3; i++) {
+  for(var i=0; i<2; i++) {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-      tilt_value = focusedRandom(-10, 20);
+      tilt_value = focusedRandom(-10, 30);
       eye_value = getRandomNumberOfEyes();
       mouth_value = getRandomNumberOfMouth();
       width_value = focusedRandom(0, 100);
 
-      var x, y;
-      if(mouth_value < 40) {
-        x = focusedRandom(w2, width/2, 1);
-        y = focusedRandom(h2, height-h2, 1);
-      }
-      else {
-        x =focusedRandom(2*width/3, width, 8);
-        y = focusedRandom(h2, height-h2, 2);
-      }
+   //   var x, y;
+   //   if(mouth_value > 90) {
+   //     x = focusedRandom(w2, width/10, 7);
+   //     y = focusedRandom(h2, height-h2, 1);
+   //   }
+   //   else {
+   //     x =focusedRandom(2*width/10, width-w2, 1);
+   //     y = focusedRandom(2*height/10, height-h2, 1);
+   //   }
 
-      drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value, width_value);
+      drawFace3(x, y, w, h, tilt_value, eye_value, mouth_value, width_value,blink_value);
     }
   }
 
-  // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+  
 }
 ///////////////////////
 // this was the contents of focused random. Web browser couldnt find focus random so I put it in this file - PB
