@@ -54,11 +54,14 @@ var colorHair = [20, 20, 0];
 var bg_color = "#c78a5b";//"#c6bdab";
 var pupil_color1 = "#000000"
 var eye_color1 = "#FFFFFF";
+var eye_color2 = "#4ba817";
+var eye_color3 = "#85322e";
 var fg_color1 = "#fed41e";
 var facial_color = "#d3af7d";
 var fg_color2 = "#d3af7d";
 var stroke_color = "#000000";
 var teeth_color = "#FFFFFF";
+var mustash_color = "#664b36";
 
 function drawFace1(x, y, w, h, mouth_value, eye_value, hair_value) {
   push();
@@ -231,47 +234,103 @@ function drawFace2(x, y, w, h, hair_value, eye_value, teeth_value) {
   resetMatrix();
 }
 
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
+function drawFace3(x, y, w, h, tilt_value, eye_value, mustash_width) {
   push();
   rectMode(CENTER);
   translate(x, y);
-  // rotate(width_value);
+  stroke(stroke_color);
+  //hair
+  fill(mustash_color);
+  rect(5,-100,240,155,30,60,10,10);
+  
+  // face
+  fill(fg_color1);
+  ellipse(0, 0, 260, 350);
+  //hair
+  fill(mustash_color);
+  noStroke();
+  rect(1,-134,225, 83,50,70,0,0);
+  stroke(stroke_color);
+  fill(fg_color1);
+  arc(0,-70,242,100,190,350, OPEN);
+  fill(mustash_color);
+  arc(100,-100,50,300,70,200,OPEN);
+  noStroke();
+  arc(100,-100,52,298,50,250,OPEN);
+  
+  
+  
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
+
+  stroke(stroke_color);
+  // set fill to match background color
+  if(eye_value == 1){
+    fill(eye_color1);
   }
-  else {
-    extent = w / 2;
+  else if(eye_value == 0){
+    fill(eye_color2);
   }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+  else if(eye_value == 2){
+    fill(eye_color3);
   }
+  // draw two eyes
+  ellipse(-90, -40, 80, 80);
+  ellipse( -10, -40, 80, 80);
 
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
+  // glasses
+  line(30,-40,140,-40);
+  // ear
+  fill(fg_color1);
+  stroke(stroke_color);
+  arc(130, -10, 50, 70, 220, 120, OPEN);
 
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
+  // set fill back to foreground for eyeballs
+  fill(pupil_color1);
+  ellipse(-110, -40, 10, 10);
+  ellipse( -20, -40, 10, 10);
 
-  // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
+  //nose
+  fill(fg_color1);
+  stroke(fg_color1);
+  quad(-85, -20, -45, -20, -45, 20,  -85, 20);
+  stroke(stroke_color);
+  line(-85, -20, -45, -20);
+  line(-45, 20,  -85, 20);
+  arc(-85, 0, 40, 40, 90, 270, OPEN);
+  
+  // mouth-hole with background color
+  fill(bg_color3);
+  noStroke();
+  //ellipse( -70, 70, 250, 50);
+   arc(-70, 70, 250, 50, 195, 155, CHORD);
+
+  stroke(stroke_color);
+  noFill();
+  arc(-70, 70, 250, 50, 202, 149);
+
+  stroke(stroke_color);
+  fill(eye_color1);
+  arc(-70, 70, 250, 50, 230, 115, CHORD);
+  
+  line(-87, 70, 53, 70);
+  line(-70, 45, -65, 95);
+  line(-50, 45, -45, 94);
+  line(-30, 46, -25, 93);
+  line(-10, 48, -5, 91);
+  line(10, 50, 15, 88);
+  line(30, 55, 35, 83);
+  
+  fill(mustash_color);
+  push();
+  translate(-50,60);
+  rotate(tilt_value);
+  // mustash
+  arc(0,0,180 + mustash_width,80,180,0,CHORD);
+  pop();
+  pop();
+    
+
+  resetMatrix();
   pop();
 }
 
@@ -334,13 +393,13 @@ function draw () {
     // draw 3nd face
     fill(bg_color3);
     rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
+    var tilt_value = map(s1, 0, 100, -10, 10);
+    var mustash_value = map(s3, 0, 100, -20, 20);
+    var eye_value = Math.floor(map(s2, 0, 100, 0, 2));
     if (mode == 'all') {
       face_x = 5 * width / 6;
     }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+    drawFace3(face_x, face_y, face_w, face_h, tilt_value, eye_value, mustash_value);
   }
 }
 
