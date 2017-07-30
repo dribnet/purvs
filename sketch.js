@@ -447,7 +447,7 @@ function draw () {
 
     var eye_value = focusedRandom(0, 100);
 
-    object.draw(x, y, w, h, object.tilt.getVal(time), eye_value, object.smile.getVal(time)/3 + 67*object.getHappiness());
+    object.draw(x, y, w, h, object.tilt.getVal(time), eye_value, max(object.smile.getVal(time), 100*object.getHappiness()));
   })
 }
 
