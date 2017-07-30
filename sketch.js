@@ -102,7 +102,7 @@ function draw () {
   var h = canvasHeight / 6;
       translate(-w/4,0);
  var max_shift = 0.2 * w;
-
+mostlyOrange = getRandomMostlyOrange();
   for(var i=0; i<6; i++) {
     for(var j=0; j<10; j++) {
       var y = h/2 + h*i;
@@ -118,7 +118,13 @@ function draw () {
       y = y + focusedRandom(-max_shift, max_shift, 3);
         
     tilt_value = focusedRandom(-30, 30,8);
+        
+        if(mostlyOrange == 1){
     fireColour =getRandomColour();
+        }
+        else{
+    fireColour =getRandomColour2();
+        }
     orangeness = focusedRandom(120, 200);
 
         if (fireColour == 0){
@@ -162,6 +168,27 @@ function getRandomColour() {
     return 0;
   }
   else if(random_result < 13) {
+    return 2;
+  }
+  else {
+    return 1;
+  }
+}
+function getRandomMostlyOrange(){
+    random_result = focusedRandom(0, 100);
+    if(random_result < 30) {
+    return 0;
+  }
+    else {
+    return 1;
+  }
+}
+function getRandomColour2() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 40) {
+    return 0;
+  }
+  else if(random_result < 90) {
     return 2;
   }
   else {

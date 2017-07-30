@@ -14,4 +14,4 @@ I experimented with a different layout where the colours are separated from each
 
 For my final layout I decided to go with a grid layout with some jitter and varying tilt values. This is so that the blue and purple flames will appear randomly making it more of a surprise.
 
-I also made the orange colours more closer in shade making the more yellow and red colours less common. 
+I also made the orange colours more closer in shade making the more yellow and red colours less common. Finally there is a 30% chance that the whole grid is mostly purple or blue. I added this to create a drastic change and give more emphasis on the rare colours. 
