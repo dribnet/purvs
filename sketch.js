@@ -1,6 +1,8 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 var curRandomSeed;
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -16,10 +18,11 @@ function setup () {
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
 }
 
-function mousePressed() {
-changeRandomSeed();
+function mouseClicked() {
+  changeRandomSeed();
 
 }
 
@@ -148,6 +151,10 @@ function drawFace2(x, y, w, h, bread_value, mouth_value, eye_value, colour_value
 }
 
 function draw () {
+
+  if(millis() > lastSwapTime + millisPerSwap) {
+  changeRandomSeed();
+  }
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
