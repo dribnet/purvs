@@ -1,4 +1,3 @@
-## Part 3 - Randomizer
-The colour is a discrete value of either oranges, blue or purple. Each colour has focused random variables accordingly. I wanted the orange one more eye catching with a brighter colour, bigger scale and different mouth shape. It is meant to express more shock.
+## Part 4 - Distribution 
 
-The blue is the most calm with its mouth closed. While the purple is just slightly shocked and slightly out of it/spaced out.
+This commit just shows how I tried to have multiple oranges on one flame but I might go back to simpler colours because I feel this is a bit caotic looking. 

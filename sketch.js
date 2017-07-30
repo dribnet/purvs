@@ -66,7 +66,11 @@ function drawFace1(x, y, w, h, mouth_value, mouth_width, pupilSize, chin, faceDo
     }
     push();
     scale(bodySize,bodySize);
-    fireBody(chin);
+    if(fireColour==1){
+        fireBodyOrange(chin);
+    }
+    else{    fireBody(chin);}
+
     pop();
     fill(255);
     push();
@@ -91,8 +95,8 @@ function draw () {
     chin = focusedRandom(100, 120);
     faceDown = 5;
     fireOpacity = focusedRandom(50, 180);
-    fireColour =Math.floor(focusedRandom(0, 2));
-    orangeness = focusedRandom(150, 200);
+    fireColour =getRandomColour();
+    orangeness = focusedRandom(120, 200);
     bodySize = 1;
   var w = canvasWidth / 5;
   var h = canvasHeight / 3;
@@ -100,8 +104,8 @@ function draw () {
     for(var j=0; j<5; j++) {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
-        fireColour =Math.floor(focusedRandom(0, 3));
-        orangeness = focusedRandom(150, 210);
+        fireColour =getRandomColour();
+        orangeness = focusedRandom(120, 210);
         //0=blue 1=orange 2=purple 
         if (fireColour == 0){
     mouth_value = focusedRandom(1, 10);
@@ -130,17 +134,23 @@ function draw () {
     fireOpacity = focusedRandom(50, 80);
             mouth_width = 100;
         }
-//      mouth_value = focusedRandom(1, 30);
-//    pupilSize =  focusedRandom(10, 30);
-//    chin = focusedRandom(100, 120);
-//    faceDown = focusedRandom(0, 10);
-//    fireOpacity = focusedRandom(50, 180);
-    
+
       drawFace1(x, y, w, h, mouth_value, mouth_width, pupilSize, chin, faceDown, fireOpacity, fireColour, orangeness, bodySize);   
     }
   }  
   }
-
+function getRandomColour() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 10) {
+    return 0;
+  }
+  else if(random_result < 13) {
+    return 2;
+  }
+  else {
+    return 1;
+  }
+}
 
 function fireBody(chin){
     push();
@@ -151,6 +161,24 @@ function fireBody(chin){
     quad(0, chin, -70, 75, -70, -30, 70, 75);
     quad(0, chin, -70, 75, 60, -50, 70, 75);
     quad(0, chin, -70, 75, -50, -80, 70, 75);
+    quad(0, chin, -70, 75, 10, -120, 70, 75);
+    pop();
+}
+function fireBodyOrange(chin){
+    push();
+    translate(0,3);
+    scale(0.6,0.58);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
+    quad(0, chin, -70, 75, -90, 10, 70, 75);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
+    quad(0, chin, -70, 75, 80, -10, 70, 75);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
+    quad(0, chin, -70, 75, -70, -30, 70, 75);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
+    quad(0, chin, -70, 75, 60, -50, 70, 75);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
+    quad(0, chin, -70, 75, -50, -80, 70, 75);
+    fill(255, focusedRandom(100, 210), 0, fireOpacity);
     quad(0, chin, -70, 75, 10, -120, 70, 75);
     pop();
 }
