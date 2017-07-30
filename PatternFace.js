@@ -15,7 +15,6 @@ this.bgC = createGraphics(w*2,h*2);
 this.mC = createGraphics(w*2,h*2);
 this.bg1 = createGraphics(w*2,h*2);
 this.m1 = createGraphics(w*2,h*2);
-//the individual R,G,B values of the skin colour
 this.skinRed = 0;
 this.skinGreen = 0;
 this.skinBlue = 0;
@@ -35,7 +34,6 @@ this.drawFace = function(){
 	this.bgC.push();
 	this.m1.push();
 	this.mC.push();
-
 	//basic setup for the graphics object c 
 	this.c.clear();
 	this.c.ellipseMode(CENTER);
@@ -44,24 +42,22 @@ this.drawFace = function(){
 	this.c.translate(w/4,h/4);
 	// rotation in degrees
 	this.c.angleMode(DEGREES);
-
 	//does the drawing
 	this.mainDraw();
-
 	//prepares the graphics objects for next time round.
 	this.c.pop();
 	this.bg1.pop();
 	this.bgC.pop();
 	this.mC.pop();
 	this.m1.pop();
-
 	//returns the canvas
 	return this.c;
 }
 //note for some reason the background() function does not work properly on bgC and mC
 //instead ellipses  larger than the canvas are used to create the background
 this.mainDraw = function(){
-	//setup the graphics objects ready for drawing
+	
+	//setup ready for drawing
 	this.mC.translate(w/2, h/2);
 	this.bgC.translate(w/2, h/2);
 	this.mC.noStroke();
@@ -72,14 +68,13 @@ this.mainDraw = function(){
 	//setup for drawing the hair shape
 	this.m1.clear();
 
-	//draws the hair pattern on bg1
+	
+	//draws a pattern on bg1
 	this.pattern1();
-
-	//sets up the hair masking canvas
 	this.m1.fill(0);
 	this.m1.ellipse(0,0,w,w);
 	this.m1.fill(255,0,0);
-	//draws the shape of the hair onto the masking canvas
+	//hair
 	this.hairScale = this.sliders.scaleSliders(1,-20,30,false);
 	this.m1.ellipse(0,-20,140,130);
 	this.m1.beginShape();
