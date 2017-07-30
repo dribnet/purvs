@@ -1,9 +1,5 @@
 ## PS1 MDDN 342 2017
 
-This README explains the distributions experiment with the cartoon faces
-I decided to do an experiment with the distributions within the cartoon face sketches, in case I decided to use them in my final along with the rag dolls
-
-These faces make me think of family portraits, so I decided that some features would be very common.
-I made most of the faces oval or curcular. 
-Angular noses are more common
-round eyes are more common
+This README explains the final composition
+For my final composition I decided to bring everything together, to achieve a cohesive contrast. I used the techniques I learned earlier, from patterns to colours, to create something where I pulled out all the proverbial stops. 
+I want to escelate the creepiness, by placing the disturbing dolls in a clinical, bright, opulant environment. 

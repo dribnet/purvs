@@ -47,6 +47,9 @@ this.drawFace = function(){
 
 	//does the drawing
 	this.mainDraw();
+	this.c.fill(254,236,171);
+	this.c.rectMode(CENTER);
+	this.c.rect(0,-canvasWidth/2.2,canvasWidth, canvasWidth);
 
 	//prepares the graphics objects for next time round.
 	this.c.pop();
@@ -69,43 +72,9 @@ this.mainDraw = function(){
 	this.bg1.translate(w/2, h/2);
 	this.m1.noStroke();
 
-	//setup for drawing the hair shape
-	this.m1.clear();
+	
 
-	//draws the hair pattern on bg1
-	this.pattern1();
-
-	//sets up the hair masking canvas
-	this.m1.fill(0);
-	this.m1.ellipse(0,0,w,w);
-	this.m1.fill(255,0,0);
-	//draws the shape of the hair onto the masking canvas
-	this.hairScale = this.sliders.scaleSliders(1,-20,30,false);
-	this.m1.ellipse(0,-20,140,130);
-	this.m1.beginShape();
-	//going  down the left side of the hair
-	this.m1.curveVertex(-65, -10);
-	this.m1.curveVertex(-66, 0);
-	this.m1.curveVertex(-65, 20);
-	this.m1.curveVertex(-70, 40);
-	this.m1.curveVertex(-65, 60);
-	// going accross the bottom of the hair
-	this.m1.curveVertex(-40, 55);
-	this.m1.curveVertex(0, 50);
-	this.m1.curveVertex(25, 55);
-
-	//going up the right side of the hair
-	this.m1.curveVertex(70, 60);
-	this.m1.curveVertex(65, 20);
-	this.m1.curveVertex(70, 0);
-	this.m1.curveVertex(70, -20);
-	this.m1.curveVertex(75, -30);
-
-	this.m1.endShape();
-
-	//mask the hair shape
-	this.basicMask(this.m1,this.bg1);
-
+	
 	//setup for drawing the face shape
 	this.mC.clear();
 	
@@ -125,10 +94,8 @@ this.mainDraw = function(){
 	this.mC.fill(0);
 	this.mC.ellipse(0,-55,110,40);
 
-	//mask the head shape
-	this.basicMask(this.mC,this.bgC);
 }
-//draws the face pattern onto bgC
+//draws the face pattern onto c
 this.skinPattern = function(){
 	//selects a skin color based on slider 2
 	this.check = this.sliders.scaleSliders(2,1,6,true);
@@ -158,61 +125,32 @@ this.skinPattern = function(){
 		this.skinBlue = 171;
 	}
 
-	this.bgC.fill(this.skinRed,this.skinGreen,this.skinBlue);
-	this.bgC.ellipse(0,0,w,w);
+	this.c.background(this.skinRed,this.skinGreen,this.skinBlue);
+	
 	
 
 	//draws a scattering of flowers accross the face
-		for(this.num = 0; this.num < this.sliders.scaleSliders(4,0,45,true); this.num ++){
-			this.bgC.push();
+		for(this.num = 0; this.num < 800; this.num ++){
+			this.c.push();
 			//creates a random shade of the skin tone for the flower
 			this.flowerTone = focusedRandom(-70,100);
 
-			this.bgC.fill(this.skinRed + this.flowerTone, this.skinGreen + this.flowerTone, this.skinBlue + this.flowerTone);
-			this.bgC.translate(focusedRandom(-50,40),focusedRandom(-30,65));
+			this.c.fill(this.skinRed + this.flowerTone, this.skinGreen + this.flowerTone, this.skinBlue + this.flowerTone);
+			this.c.translate(focusedRandom(-canvasWidth/2,canvasWidth/2),focusedRandom(0,canvasHeight/2));
 			this.flower(focusedRandom(2,4), focusedRandom(6,10));
 
-			this.bgC.pop();
+			this.c.pop();
 		}
 
-		//draws a large black flower on right cheeck
-		this.bgC.fill(1);
-		this.bgC.noStroke();
-		this.bgC.push();
-		this.bgC.translate(35,20);
-		this.flower(5,13);
-		this.bgC.pop();
-		//eyes
-		//whites
-		this.bgC.fill(this.skinRed+150,this.skinGreen+150,this.skinBlue+150);
-		this.bgC.push();
-		this.bgC.stroke(1);
-		this.bgC.translate(-30,-5);
-		this.bgC.ellipse(0,0, 30,20);
-		this.bgC.fill(this.skinRed-100,this.skinGreen-100,this.skinBlue-100);
-		this.bgC.ellipse(0,0,20,20);
-		this.bgC.fill(1)
-		this.bgC.ellipse(0,0,15,15);
-		this.bgC.pop();
-		//right eye
-		this.bgC.push();
-		this.bgC.stroke(1);
-		this.bgC.translate(30,-5);
-		this.bgC.ellipse(0,0, 30,20);
-		this.bgC.fill(this.skinRed-100,this.skinGreen-100,this.skinBlue-100);
-		this.bgC.ellipse(0,0,20,20);
-		this.bgC.fill(1)
-		this.bgC.ellipse(0,0,15,15);
-		this.bgC.pop();
 	}
 	//draws a flower at point 0,0 on bgC
 	this.flower = function(petalW, petalGap){
-	this.bgC.noStroke();
-	this.bgC.ellipse(0,0,petalW,petalW);
-	this.bgC.angleMode(DEGREES);
+	this.c.noStroke();
+	this.c.ellipse(0,0,petalW,petalW);
+	this.c.angleMode(DEGREES);
 	for(this.count = 0;this.count<5 ; this.count++){
-		this.bgC.rotate(360/5);
-	this.bgC.ellipse(0,-petalGap,petalW,petalW+(petalW/2));}
+		this.c.rotate(360/5);
+	this.c.ellipse(0,-petalGap,petalW,petalW+(petalW/2));}
 }
 
 //draws the hair pattern on bg1
