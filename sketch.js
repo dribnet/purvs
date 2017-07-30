@@ -22,7 +22,7 @@ function setup () {
     slider5.parent('slider5Container');
 
     faceSelector = createSelect();
-    faceSelector.option('Jules');
+    faceSelector.option('Axolotl');
     faceSelector.option('Afro');
     faceSelector.option('3');
     faceSelector.option('all')
@@ -40,7 +40,7 @@ function draw () {
     print(mode);
 
     if (mode != 'all') {
-        if (mode == 'Jules') {
+        if (mode == 'Axolotl') {
             background(julesBackground);
         }
         else if (mode == 'Afro') {
@@ -63,7 +63,7 @@ function draw () {
     var face_y = height / 2;
     var face_x = width / 2;
 
-    if (mode == 'Jules' || mode == 'all') {
+    if (mode == 'Axolotl' || mode == 'all') {
         // BACKGROUND
         noStroke();
         fill(julesBackground);
@@ -71,10 +71,15 @@ function draw () {
 
         // draw 1st face
         push();
-        translate(960/4, 500/2-100);
-        scale(150, 150);
+        translate(960/4, 500/2);
+        scale(220, 220);
         //rotate(4);
-        drawJules();
+        //drawJules();
+        drawAxolotl({
+            angleOffset:map(s1, 0, 100, -80, 20),
+            gillLength:map(s2, 0, 100, 0, 1.2),
+            smile:map(s3, 0, 100, 240, 120),
+        });
         pop();
     }
 
@@ -90,8 +95,8 @@ function draw () {
         drawPrince({
             stacheWeight:map(s1, 0, 100, 0, 8),
             stacheBreadth:map(s2, 0, 100, 0, 9),
-            stacheLength:map(s3, 0, 100, -2, 10),
-            browShear:map(s4, 0, 100, -15, 15),
+            stacheLength:map(s3, 0, 100, -1, 10),
+            browShear:map(s4, 0, 100, -20, 20),
             browWeight:map(s1, 0, 100, 0, 3),
             afroRadius:map(s5, 0, 100, 0, 1.5),
         });
@@ -115,13 +120,10 @@ function draw () {
 // global variables for colors
 var neutralBackround = "#c6bdab";
 var princeBackground = "#4e215b";
-var julesBackground = "#ffd703";
+var julesBackground = "#7FEAFF";
 
 var julesSkin = "#442d1b";
 var princeSkin = "#775034";
-
-var fg_color2 = "#7b611a";
-var stroke_color = "#c78a5b";
 
 function addVectors(vectorA, vectorB) {
     return [
@@ -130,7 +132,7 @@ function addVectors(vectorA, vectorB) {
     ];
 }
 
-function multScalar(vector, scalar) {
+function multScalar(scalar, vector) {
     return [
         vector[0]*scalar,
         vector[1]*scalar
@@ -139,8 +141,20 @@ function multScalar(vector, scalar) {
 
 function makeVertices(vertexArray) {
     for (var i = 0; i < vertexArray.length; i++) {
-        vertex(vertexArray[i][0], vertexArray[i][1]);
+        vertex2(vertexArray[i]);
     }
+}
+
+function vertex2(v) {
+    vertex(v[0], v[1]);
+}
+
+function bezierVertex2(control0, control1, anchor1) {
+    bezierVertex(
+        control0[0], control0[1],
+        control1[0], control1[1],
+        anchor1[0], anchor1[1]
+    )
 }
 
 function lerpVertex(from, to, percent) {
@@ -150,107 +164,112 @@ function lerpVertex(from, to, percent) {
     ];
 }
 
-function drawJules() {
-    // AFRO
-    fill(0);
+var axolotlSkin = '#F3CFFF';
+var axolotlMouth = '#FF70FF';
+var axolotlGills = '#CC1968';
+var axolotlEyes = '#0E257C';
+
+function drawAxolotl(args) {
+    push();
     noStroke();
-    ellipseMode(RADIUS);
-    ellipse(0, 0.45, 0.95, 0.95);
+
+    var headWidth = 0.5;
+    var headHeight = 0.32
+
+    // GILLS
+
+    fill(axolotlGills);
+
+    function gill(arcPos, normal, length, width, bendAngle, reverse) {
+        push();
+        if (reverse) {
+            arcPos *= -1;
+            bendAngle *= -1;
+            normal *= -1;
+        }
+        translate(0.9*headWidth*sin(arcPos), -0.9*headHeight*cos(arcPos));
+        rotate(normal);
+        scale(length, length);
+        drawGill(width/length, 0.5, bendAngle);
+        pop();
+    }
+
+    var gillLength = 0.6 * args.gillLength;
+    var gillWidth = 0.175;
+
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset, false);
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset, true);
+
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, false);
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, true);
+
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, false);
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, true);
 
     // FACE
-    var fringeLeft    = [-0.7, 0.4];
-    var fringeRight   = [0.7, 0.4];
-    var cheekBoneLeft  = [-0.7, 0.8];
-    var cheekBoneRight  = [0.7, 0.8];
-    var chinLeft        = [-0.5, 1.8];
-    var chinRight       = [0.5, 1.8];
 
-    fill(julesSkin);
-    noStroke();
-    beginShape();
-    makeVertices([
-        fringeLeft,
-        [0, 0.3],
-        fringeRight,
-        cheekBoneRight,
-        chinRight,
-        chinLeft,
-        cheekBoneLeft,
-    ]);
-    endShape(CLOSE);
+    fill(axolotlSkin);
+    ellipseMode(RADIUS);
+    ellipse(0, 0, headWidth, headHeight);
 
-    // FACIAL HAIR
+    fill(axolotlEyes);
+    ellipse(-headWidth/2, -headHeight/3, 0.02, 0.02);
+    ellipse(headWidth/2, -headHeight/3, 0.02, 0.02);
+
+    // MOUTH
+    var smileMagnitude = 0.15;
+    var mouth = [
+        [-headWidth/2, headHeight/3],
+        [headWidth/2, headHeight/3],
+    ]
+
     noFill();
-    stroke(0);
-    strokeWeight(0.15);
-    strokeCap(SQUARE);
-
-    // MOUSTACHE
-    var horseshoe = [
-        lerpVertex(chinLeft, chinRight, 0.2),
-        [-0.25, 1.35],
-        [0, 1.3],
-        [0.25, 1.35],
-        lerpVertex(chinRight, chinLeft, 0.2),
-    ];
-    beginShape()
-    makeVertices(horseshoe);
-    endShape();
-
-    // SIDEBURNS
-    var burnLeft;
-    var burnRight;
+    stroke(axolotlMouth);
+    strokeWeight(0.01);
+    push();
     {
-        var burnJawLen = 0.45;      // % of jules jaw to span
-        var burnCheekLen = 0.3;    // length of cheek hair
-
-        var burnLeft = [
-            addVectors(fringeLeft, [0, -0.1]),
-            cheekBoneLeft,
-            lerpVertex(cheekBoneLeft, chinLeft, burnJawLen)
-        ];
-        burnLeft[3] = lerpVertex(burnLeft[2], horseshoe[0], burnCheekLen);
-
-        var burnRight = [
-            addVectors(fringeRight, [0, -0.1]),
-            cheekBoneRight,
-            lerpVertex(cheekBoneRight, chinRight, burnJawLen)
-        ];
-        burnRight[3] = lerpVertex(burnRight[2], horseshoe[4], burnCheekLen);
+        translate(0, -smileMagnitude * sin(args.smile));
+        beginShape()
+        vertex2(mouth[0]);
+        bezierVertex2(
+            addVectors(
+                mouth[0],
+                multScalar(smileMagnitude, [-cos(args.smile), sin(args.smile)])
+            ),
+            addVectors(
+                mouth[1],
+                multScalar(smileMagnitude, [cos(args.smile), sin(args.smile)])
+            ),
+            mouth[1]
+        )
+        endShape();
     }
+    pop();
 
+    pop();
+}
+
+function drawGill(width, rigidity, bendAngle) {
+    // anchor points
+    var v1 = [-width/2, 0];
+    var v2 = [0, -1];
+    var v3 = [width/2, 0];
+    // control points (handles)
+    var c1 = lerpVertex(v1, v2, rigidity);
+    var c3 = lerpVertex(v3, v2, rigidity);
+
+    // bend v2 about centre
+    v2 = addVectors(
+        [0, -rigidity],
+        multScalar(1 - rigidity, [-sin(bendAngle), -cos(bendAngle)])
+    );
+
+    // make shape
     beginShape();
-    makeVertices(burnLeft);
-    endShape();
-
-    beginShape();
-    makeVertices(burnRight);
-    endShape();
-
-    // EYEBROWS
-    noStroke();
-    fill(0);
-
-    var eyebrow = [
-        [0.12, 0.52],
-        [0.4, 0.47],
-        [0.55, 0.52],
-        [0.55, 0.57],
-        [0.4, 0.53],
-        [0.12, 0.6]
-    ];
-
-    beginShape()
-    makeVertices(eyebrow);
+    vertex2(v1);
+    bezierVertex2(c1, v2, v2);
+    bezierVertex2(v2, c3, v3);
     endShape(CLOSE);
-
-    for (var i = 0; i < eyebrow.length; i++) {
-        eyebrow[i] = [-eyebrow[i][0], eyebrow[i][1]];
-    }
-
-    beginShape()
-    makeVertices(eyebrow);
-    endShape();
 }
 
 function drawPrince(args) {
@@ -307,7 +326,7 @@ function drawPrince(args) {
             for (var i = 0; i < eyebrow.length; i++) {
                 var offset = [0, 0.05 * (args.browWeight-1)];
                 if (eyebrow[i][1] < browMidLine) {
-                    offset = multScalar(offset, -1);
+                    offset = multScalar(-1, offset);
                 }
                 eyebrow[i] = addVectors(eyebrow[i], offset);
             }
@@ -380,26 +399,6 @@ function drawPrince(args) {
         addVectors(stacheCentrePoint, [0, -stacheApexHeightOffset])
     ]);
     endShape();
-}
-
-function drawDonald() {
-    fill(julesSkin);
-    ellipse(0, 0, 300, 400);
-
-    // set fill to match background color
-    fill(bg_color);
-    // draw two eyes
-    ellipse(-50, -80, 50, 30);
-    ellipse( 50, -80, 50, 30);
-
-    // set fill back to foreground for eyeballs
-    fill(julesSkin);
-    ellipse(-60, -80, 20, 20);
-    ellipse( 40, -80, 20, 20);
-
-    // mouth-hole with background color
-    fill(bg_color);
-    ellipse( 0, 70, 150, 20);
 }
 
 function keyTyped() {
