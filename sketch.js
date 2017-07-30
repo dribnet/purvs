@@ -2,6 +2,7 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 var button;
 var curRandomSeed;
+var overallScale;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -22,62 +23,72 @@ function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
 }
 
-/*var canvasWidth = 960;
-var canvasHeight = 500;
-var slider1, slider2, slider3, slider4, slider5;
-var faceSelector;
+
+function drawFace(x, y, w, h, width_value, tilt_value,eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value) {
+  //colour variables
+  var leafColour1;
+  var leafColour2;
+  var faceColour;
+  var twigColour;
+  var eyeColour;
+
+  if(season_value == 0){
+    //summer
+    leafColour1 = "#00673f";
+    leafColour2 = "#219d23";
+    faceColour1 = 213;
+    faceColour2 = 236;
+    faceColour3 = 187;
+    twigColour = "#005533";
+    eyeColour1 = 98; 
+    eyeColour2 = 183;
+    eyeColour3 = 88;
+  } else if(season_value == 3){
+    //spring
+    leafColour1 = "#d7ff72";
+    leafColour2 = "#a2d400";
+    faceColour1 = 252;
+    faceColour2 = 190;
+    faceColour3 = 202;
+    twigColour = "#8b6403";
+    eyeColour1 = 251; 
+    eyeColour2 = 135;
+    eyeColour3 = 157;
+  } else if(season_value == 2){
+    //winter
+    leafColour1 = "#6ebff7";
+    leafColour2 = "#1f649d";
+    faceColour1 = 192;
+    faceColour2 = 241;
+    faceColour3 = 255;
+    twigColour = "#837981";
+    eyeColour1 = 66; 
+    eyeColour2 = 112;
+    eyeColour3 = 208;
+  } else {
+    //autumn
+    leafColour1 = "#c64e00";
+    leafColour2 = "#ff902b";
+    faceColour1 = 253;
+    faceColour2 = 182;
+    faceColour3 = 89;
+    twigColour = "#722902";
+    eyeColour1 = 172; 
+    eyeColour2 = 61;
+    eyeColour3 = 0;
+  }
+
+    
 
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  var main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
-
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
-
-  // rotation in degrees
-  angleMode(DEGREES);
-}*/
-
-// global variables for colors
-var bg_color1 = ["#ffffff"];
-var bg_color2 = ["#ffffff"];
-var bg_color3 = ["#ffffff"];
-
-var fg_color1 = ["#f9e3ce"];
-var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
-
-var stroke_color1 = [95, 52, 8];
-var stroke_color2 = [210, 219, 189];
-var stroke_color3 = [50, 50, 50];
-
-var colorHair = [20, 20, 0];
+    
 
 
-function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, leaf_value) {
   push();
   rectMode(CENTER);
   translate(x, y);
+  rotate(tilt_value);
+
   // rotate(width_value);
 
   var extent = 0;
@@ -88,6 +99,7 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
     extent = w / 2;
   }
   var scale = extent / 220.0;
+  overallScale = scale;
 
   stroke("#000000");
   strokeWeight(0.5);
@@ -99,29 +111,29 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
 
   //leaves
   for(var i=1; i<leaf_value; i++){
-    leaf(random(-90 * scale, 90* scale), random(60 * scale, 90 * scale), "#00673f", "#219d23", random(0, 359));
+    leaf(random(-90 * scale, 90* scale), random(60 * scale, 90 * scale), leafColour1, leafColour2, random(0, 359));
   }
 
   for(var i=1; i<leaf_value; i++){
-    leaf(random(-140 * scale, 140 * scale), random(-30 * scale, 30 * scale), "#00673f", "#219d23", random(0, 359));
+    leaf(random(-140 * scale, 140 * scale), random(-30 * scale, 30 * scale), leafColour1, leafColour2, random(0, 359));
   }
 
   for(var i=1; i<leaf_value; i++){
-    leaf(random(-90 * scale, 90 * scale), random(-100 * scale, 0 * scale), "#00673f", "#219d23", random(0, 359));
+    leaf(random(-90 * scale, 90 * scale), random(-100 * scale, 0 * scale), leafColour1, leafColour2, random(0, 359));
   }
 
   //face
+
   noStroke();
   for(var i=1; i<=5; i++){
       noStroke();
-      fill(213,236,187, 20+(i*50));
-      ellipse(0, 0, 485*scale-(i*10), 435*scale-(i*10));
+      fill(faceColour1,faceColour2,faceColour3, 20+(i*50));
+      ellipse(0, 0, 485*scale-(i*7), 435*scale-(i*7));
     }
 
 
 
   noFill();
-  stroke("#005533");
   strokeWeight(4);
 
   //twigs
@@ -133,7 +145,7 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
     } else{
       r = random(0, z);
     }
-    twig(z, random(-60 * scale, -30 * scale),"#5d4423", r);
+    twig(z, random(-60 * scale, -30 * scale), twigColour, r);
   }
   for(var i=0; i<=twig_value; i++){
     var z =  random(-100 * scale, 100 * scale)
@@ -143,15 +155,14 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
     } else{
       r = random(0, z);
     }
-    twig(z, random(-150 * scale, -60 * scale),"#5d4423", r);
+    twig(z, random(-150 * scale, -60 * scale),twigColour, r);
   }
   
-  //twig(0, 0, "#5d4423", -5);
-  
-
 
   stroke("#000000");
   strokeWeight(1);
+
+  //mouth closed
 
   if(mouth_value ===1){
     push();
@@ -168,6 +179,8 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
 
 
   }
+
+  //mouth open
   if(mouth_value >=2){
 
     push();
@@ -194,7 +207,7 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
 
   }
 
-  // eyes
+  // eyes closed
   if (eye_value ===1) {
     push();
     noFill();
@@ -211,22 +224,24 @@ function drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, l
     pop();
     
   }
-
+  //eyes open
   if(eye_value >=2){
     for(var i=1; i<=5; i++){
       noStroke();
-      fill(98, 183, 88, 10*i*10);
-      ellipse(-80 * scale, 90 * scale, 60*scale-(i*5), 70*scale-(i*5));
-      ellipse(80 * scale, 90 * scale, 60*scale-(i*5), 70*scale-(i*5) );
+      fill(eyeColour1, eyeColour2, eyeColour3, i*50);
+      ellipse(-80 * scale, 90 * scale, 60*scale-(i*2.5), 70*scale-(i*2.5));
+      ellipse(80 * scale, 90 * scale, 60*scale-(i*2.5), 70*scale-(i*2.5) );
     }
     fill("#000000")
     ellipse(-80 * scale, 90 * scale, 20*scale, 30*scale);
     ellipse(80 * scale, 90 * scale, 20*scale, 30*scale);
   }
 
-  // mouth
+  
 
+  
   pop();
+  
 }
 
 function leaf(x, y, colour1, colour2, rotation){
@@ -236,117 +251,39 @@ function leaf(x, y, colour1, colour2, rotation){
   translate(x, y);
   rotate(rotation);
   fill(colour1);
-  curve(-75, 5, 0, 0, 0, 50, -75, 50);
+  curve(-75*overallScale*3, 5*overallScale*3, 0, 0, 0, 50*overallScale*3, -75*overallScale*3, 50*overallScale*3);
   fill(colour2);
-  curve(75, 5, 0, 0, 0, 50, 75, 50);
+  curve(75*overallScale*3, 5*overallScale*3, 0, 0, 0, 50*overallScale*3, 75*overallScale*3, 50*overallScale*3);
   //line(0, 0, 0, 100 * scale);
   pop();
 }
 
 function twig(x, y, colour, rotation){
   strokeWeight(2);
+  stroke(colour);
   push();
   translate(x, y);
   rotate(rotation);
-  line(0, 0, 0, -100/3);
-  line(0, -20/3 , 10/3, -30/3);
-  line(0, -30/3 , -20/3, -50/3);
-  line(0, -40 /3, 20/3, -60 /3);
-  line(0, -60 /3, 15 /3, -75 /3);
-  line(0, -60 /3, -15/3, -75 /3);
-  line(0, -80/3 , -10/3, -90 /3);
-  line(0, -80 /3, 10/3, -90 /3);
+  line(0, 0, 0, -100*overallScale);
+  line(0, -20*overallScale , 10*overallScale, -30*overallScale);
+  line(0, -30*overallScale , -20*overallScale, -50*overallScale);
+  line(0, -40*overallScale, 20*overallScale, -60*overallScale);
+  line(0, -60*overallScale, 15*overallScale, -75*overallScale);
+  line(0, -60*overallScale, -15*overallScale, -75*overallScale);
+  line(0, -80*overallScale, -10*overallScale, -90*overallScale);
+  line(0, -80*overallScale, 10*overallScale, -90*overallScale);
   pop();
 }
 
-/*function draw () {
-  noStroke();
 
-  var mode = faceSelector.value();
-
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
-
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
-
-  // use same size / y_pos for all faces
-  var face_w = canvasWidth / 4;
-  var face_h = face_w;
-  var face_y = height / 2;
-  var face_x = width / 2;
-
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
-  }
-
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var glow_value = map(s4, 0, 100, 10, 90);
-    var eye_value = map(s2, 0, 100, -15, 15);
-    var number_value = Math.floor(map(s5, 0, 100, 10, 40));
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value, glow_value, number_value);
-  }
-
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = Math.floor(map(s1, 0, 100, 1, 3));
-    var eye_value = Math.floor(map(s2, 0, 100, 1, 3));
-    var seed_value = Math.floor(map(s3, 0, 100, 1, 50));
-    var twig_value = Math.floor(map(s4, 0, 100, 0, 5));
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value, seed_value, twig_value);
-  }
-}*/
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
-  background(bg_color1);
+  background("#ffffff");
 
-  // use same size / y_pos for all faces
-  // var face_w = canvasWidth / 4;
-  // var face_h = face_w;
-  // var face_y = height / 2;
-  // var face_x = width / 2;
-
-  // draw 1st face
-  fill(bg_color3);
-
+  tilt_value = int(focusedRandom(-50, 50));
   width_value = focusedRandom(0, 100);
   mouth_value = int(focusedRandom(1, 3));
   eye_value = int(focusedRandom(1, 3));
@@ -354,22 +291,25 @@ function draw () {
   leaf_value = int(focusedRandom(10, 70));
   twig_value = int(focusedRandom(0, 3));
   twig_value2 = int(focusedRandom(0, 5));
+  season_value = int(focusedRandom(0, 4))
 
 
-  var w = canvasWidth / 5;
-  var h = canvasHeight / 3;
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
+  var w = canvasWidth / 6;
+  var h = canvasHeight / 4;
+  for(var i=0; i<4; i++) {
+    for(var j=0; j<6; j++) {
       var y = h/2+ h*i;
       var x = w/2 + w*j;
+      tilt_value = int(focusedRandom(-50, 50));
       width_value = focusedRandom(0, 100);
       mouth_value = int(focusedRandom(1, 3));
       eye_value = int(focusedRandom(1, 3));
       seed_value = int(focusedRandom(1, 50));
       leaf_value = int(focusedRandom(10, 70));
-      twig_value = int(focusedRandom(0, 3));
+      twig_value = int(focusedRandom(0, 3,));
       twig_value2 = int(focusedRandom(0, 5));
-      drawFace(x, y, w, h, width_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2);
+      season_value = int(focusedRandom(0, 4))
+      drawFace(x, y, w, h, width_value, tilt_value, eye_value, mouth_value, seed_value, leaf_value, twig_value, twig_value2, season_value);
     }
   }
 

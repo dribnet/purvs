@@ -6,4 +6,6 @@ I chose my summer sprite to work on, as it was the most aesthetically pleasing f
 
 The number of leaves are randomised, along with the number of twigs growing out of it's head. The position of both the twigs and leaves are randomised also. I chose these parameters to change as they allowed for a wide range of variation.
 
-The mouth and eyes also open and close. 
+There are also 4 colour palettes that can be randomly chosen. There is a summer, an autumn, winter and spring palette.
+
+The mouth and eyes also open and close, and the faces are randomly tilted also.
