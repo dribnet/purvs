@@ -80,7 +80,12 @@ function setup () {
 function mousePressed() {
 	var face = '';
 	if (mouseButton == LEFT) {
-		changeRandomSeed();
+		//the reset process can only be done once all faces have been drawn
+		if(totalFaceCount >= coOrdsArray.length){
+			changeRandomSeed();
+			clearInterval(timerId);
+			timerIsRunning = false;
+		}
 	}
 	if (mouseButton == RIGHT) {
 		face = 'robot';
@@ -100,10 +105,13 @@ function mousePressed() {
  * then calls redraw
  */
 function changeRandomSeed() {
+	//prevent double ups from faces that haven't completed being drawn yet
+	clear();
 	curRandomSeed = curRandomSeed + 1;
 	robotCount = 0;
 	monsterCount = 0;
 	totalFaceCount = 0;
+	coOrdsArrayPointer = [];
 	resetCoOrdsArrayPointer();
 	resetScoreBoard();
 	redraw();
@@ -114,26 +122,32 @@ function changeRandomSeed() {
  * this needs to done before redraw is called.
  */
 function resetCoOrdsArrayPointer(){
-	coOrdsArrayPointer = [];
 	for(var i=0; i<coOrdsCount; i++) {
 		coOrdsArrayPointer.push(i);
 	}
 }
 
+//prevent multiple timers from running
+var timerIsRunning = false;
+var timerId = 0;
 
-function startResetTimer(){
-	var countDown = 5;
-	//set up scoreboard
-	window.setInterval(
-		function(){
-			if(countDown == 0) {
-				changeRandomSeed();
-			}
-			countDown--;
-		}, 
-		1000
-	);
-	
+function startResetTimer(secs = 5){
+	var countDown = secs;
+	if(!timerIsRunning){
+		timerIsRunning = true;
+		print('timer is running with ' + countDown + ' seconds to go');
+		timerId = setInterval(
+			function(){
+				if(countDown == 0) {
+					changeRandomSeed();
+					clearInterval(timerId);
+					timerIsRunning = false;
+				}
+				countDown--;
+			}, 
+			1000
+		);
+	}
 }
 
 function draw () {
@@ -547,25 +561,20 @@ function resetScoreBoard(){
  */
 function updateScoreBoard(faceType){
 	totalFaceCount++;
+	var monsterString = monsterCount;
+	var robotString = robotCount;
 	if(faceType == 'monster' && monsterCount < 99){
 		monsterCount++;
-		if(monsterCount < 10){
-			monsterString = '0' + monsterCount;
-		}
-		else {
-			monsterString = monsterCount;
-		}
 	}
 	if(faceType == 'robot'  && robotCount < 99){
 		robotCount++;
-		if(robotCount < 10){
-			robotString = '0' + robotCount;
-		}
-		else {
-			robotString = robotCount;
-		}
 	}
-	
+	if(monsterCount < 10){
+		monsterString = '0' + monsterCount;
+	}
+	if(robotCount < 10){
+		robotString = '0' + robotCount;
+	}
 	fill(0);
 	rect(0, 465, 200, 35);
 	fill(255);
@@ -575,7 +584,7 @@ function updateScoreBoard(faceType){
 	text(robotString, 50, 465, 50, 50);
 	text(monsterString, 150, 465, 50, 50);
 	//start the reset timer once canvas is full
-	if(totalFaceCount >= coOrdsArray.length){
+	if(totalFaceCount >= coOrdsArray.length && !timerIsRunning){
 		startResetTimer();
 	}
 }
