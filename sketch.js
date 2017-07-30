@@ -211,7 +211,7 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_ty
 
 
   // mouth
-  if (nose_type_value == 3 || nose_type_value == 4){
+  if (nose_type_value == 3 || nose_type_value == 4 || mouth_type_value == 1){
     push();
     noFill();
     rotate(180);
@@ -221,16 +221,7 @@ function drawRandomFace(x, y, w, h, face_value, eye_value, mouth_value, mouth_ty
     
   } 
 
-  else if (mouth_value == 1) {
-    push();
-    noFill();
-    rotate(180);
-    strokeWeight(0.5);
-    ellipse(0, -20 - nose_value/1.5, 10 * mouth_value, 10 * mouth_value);
-    pop();
-  }
-
-  else {
+  else/* if (mouth_value == 1) */{
     push();
     noFill();
     rotate(180);
@@ -335,7 +326,7 @@ function draw () {
       eye_value = getRandomSetOfEyes();
       face_value = getRandomFace();
       mouth_value = focusedRandom(0.5, 2);
-      mouth_type_value = Math.floor(focusedRandom(1,3,6,1));
+      mouth_type_value = Math.floor(focusedRandom(1,3,1,1));
       nose_value = focusedRandom(-5, 20);
       nose_type_value = getRandomNoseType();
       cheek_value = focusedRandom(0, 8);

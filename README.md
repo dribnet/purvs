@@ -1,9 +1,8 @@
-## PS1 MDDN 342 2017
+This is the final version of my randomized faces. My initial faces for this challenge were of SpongeBob and Squidward. They came out quite blocky and the colours were very bold which is a style I don’t normally like completing work in. When it came to creating the parameterised faces I wanted to play around with a few different styles to see how easy it would be to create a different type of aesthetic. The style I liked most out of the three was the sketchy style smiley face, so I went on to create a randomised grid in a similar fashion. 
 
-This README explains the randomised faces for part3.
+The faces have 5 key features defined by parameters – the face itself, eyes, nose, mouth, and cheeks. There are 4 eye and nose types which all have randomly changeable widths and heights. Additionally, the face can either be a square or a circle (it also has a random offset which allows for the sketchy style). The cheeks can have blush or no blush with varying width, height, and alpha value. The mouth can either be a circle or an arc in different sizes. They eyes and nose have multiple variables which involve style, width, height, length, brow height and brow arch.
 
-When distributing the parameters I tried to focus on keeping the width, height, and length variables completely random, while selectively distributing the type of face.
+In terms of distribution, I wanted to leave a lot to be random in order to get a different look for every face. I tried to focus on keeping the width, height, and length variables completely random while selectively distributing the type of facial feature. For example, the face, eye, and nose types have selective percentages. There is a 30% chance the face will be square, the eyes will mainly come out blue, and noses will mainly be in the "zig zag" format. Due to the style I chose I think this was the best tactic visually. When constraining the dimensional values a lot of the features were coming out looking the same, so I decided to leave them to decide their own fate.
 
-For example, the face, eye, and nose types have selective percentages. There is a 30% chance the face will be square, the eyes will mainly come out blue, and noses will mainly be in the "zig zag" format.
-
-Due to the style I chose I think this was the best tactic visually. When constraining the dimensional values a lot of the features were coming out looking the same, so I decided to leave them to decide their own fate.  
+The layout I chose best shows the variety of faces that can occur. Since they all have varying alpha percentages I decided to do a small overlap to enhance the layout. In its most basic form it looks like a crowd of emojis from the late 80’s. I achieved my stylistic goals by not completing a block type series of faces with bold colour. I think the thin lines combined with varying offsets and angular features gives off a very sketchy style. 
+ 
