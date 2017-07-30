@@ -10,23 +10,24 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 100));
 
-  // array of 15 faces to render
-  for(var i=0; i<15; i++) {
-    faces.push(new Face(getRandomFaceShapes(),focusedRandom(-2,2),focusedRandom(-6,6,1,3),focusedRandom(-2,2),focusedRandom(-3,3,1.5,2),focusedRandom(-3,3),focusedRandom(1,5,1.5,3)));
+  // array of faces to render
+  for(var i=0; i<3; i++) {
+    faces.push(new Face(getRandomFaceShapes(),focusedRandom(-2,2),focusedRandom(-6,6,1,3),focusedRandom(-2,2),focusedRandom(-3,3,1.5,2),focusedRandom(-3,3),Math.floor(focusedRandom(1,8,2,3)),focusedRandom(1,5,1.5,3)));
   }
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-class Face{
-  constructor(face_shape_value,face_randomise_value,mouth_value,nose_value,eye_value,chin_value,opacity_timing_value){
+class Face {
+  constructor(face_shape_value,face_randomise_value,mouth_value,nose_value,eye_value,chin_value,cheek_value,opacity_timing_value){
     this.face_shape_value = face_shape_value;
     this.face_randomise_value = face_randomise_value;
     this.mouth_value = mouth_value;
     this.nose_value = nose_value;
     this.eye_value = eye_value;
     this.chin_value = chin_value;
+    this.cheek_value = cheek_value;
     this.opacity_timing_value = opacity_timing_value;
   }
 }
@@ -36,7 +37,7 @@ var duration = 5000,
     timers = [],
     animFuncs = [];
 
-class Timer{
+class Timer {
   constructor(startTime, duration, new_face){
     this.startTime = startTime;
     this.duration = duration;
@@ -57,39 +58,30 @@ function draw() {
 
   var time = millis();
 
-  var w = canvasWidth/5,
-      h = canvasHeight/3;
+  var w = canvasWidth/3,
+      h = canvasHeight;
 
-  for(var i=0; i<3; i++) {
-    for(var j=0; j<5; j++) {
-      var face_num = j;
-
-      if(i == 1){
-        face_num += 5;
-      }
-      else if (i == 2){
-        face_num += 10;
-      }
-
-      if(!timers[face_num] || 1 < timers[face_num].val(time)){
-        if(timers[face_num]) {
-          faces[face_num] = timers[face_num].new_face;
+  for(var i=0; i<1; i++) {
+    for(var j=0; j<3; j++) {
+      if(!timers[j] || 1 < timers[j].val(time)){
+        if(timers[j]) {
+          faces[j] = timers[j].new_face;
         }
         //new timer time
-        timers[face_num] = new Timer(time, duration*faces[face_num].opacity_timing_value, new Face(getRandomFaceShapes(),focusedRandom(-2,2),focusedRandom(-6,6,1,3),focusedRandom(-2,2),focusedRandom(-3,3,1.5,2),focusedRandom(-3,3),focusedRandom(1,5,1.5,3)));
+        timers[j] = new Timer(time, duration*faces[j].opacity_timing_value, new Face(getRandomFaceShapes(),focusedRandom(-2,2),focusedRandom(-6,6,1,3),focusedRandom(-2,2),focusedRandom(-3,3,1.5,2),focusedRandom(-3,3),Math.floor(focusedRandom(1,8,2,3)),focusedRandom(1,5,1.5,3)));
       }
 
       // positioning the face
       var y = h/2 + h*i,
           x = w/2 + w*j;
 
-      var timep = timers[face_num].val(time),
-          old_face = faces[face_num],
-          new_face = timers[face_num].new_face;
+      var timep = timers[j].val(time),
+          old_face = faces[j],
+          new_face = timers[j].new_face;
 
       // drawing the face
-      drawFace(x,y,w,h,old_face.face_shape_value,old_face.face_randomise_value,old_face.mouth_value,old_face.nose_value,old_face.eye_value,old_face.chin_value, map(timep*old_face.opacity_timing_value, 0, 0.5, 256, 0));
-      drawFace(x,y,w,h,new_face.face_shape_value,new_face.face_randomise_value,new_face.mouth_value,new_face.nose_value,new_face.eye_value,new_face.chin_value,map(timep*new_face.opacity_timing_value, 0.5, 1, 0, 256));
+      drawFace(x,y,w/1.3,h/1.3,old_face.face_shape_value,old_face.face_randomise_value,old_face.mouth_value,old_face.nose_value,old_face.eye_value,old_face.chin_value,old_face.cheek_value,map(timep*old_face.opacity_timing_value, 0, 0.5, 256, 0));
+      drawFace(x,y,w/1.3,h/1.3,new_face.face_shape_value,new_face.face_randomise_value,new_face.mouth_value,new_face.nose_value,new_face.eye_value,new_face.chin_value,new_face.cheek_value,map(timep*new_face.opacity_timing_value, 0.5, 1, 0, 256));
     }
   }
 }
@@ -97,10 +89,19 @@ function draw() {
 // global variables for colors
 var bg_color = [245,245,245];
 
-function drawFace(x,y,w,h,face_shape_value,face_randomise_value,mouth_value,nose_value,eye_value,chin_value,opacity) {
-  var cheek_color = [199,71,98,opacity],
+function drawFace(x,y,w,h,face_shape_value,face_randomise_value,mouth_value,nose_value,eye_value,chin_value,cheek_value,opacity) {
+  var cheek_color = [],
       stroke_color = [30,30,30,opacity],
       fill_color = [245,245,245,opacity];
+
+  cheek_color.push([224,80,111,opacity]);
+  cheek_color.push([212,76,104,opacity]);
+  cheek_color.push([199,71,98,opacity]);
+  cheek_color.push([173,62,85,opacity]);
+  cheek_color.push([135,48,67,opacity]);
+  cheek_color.push([147,54,73,opacity]);
+  cheek_color.push([83,31,41,opacity]);
+  cheek_color.push([71,26,35,opacity]);
 
   push();
   translate(x,y);
@@ -111,7 +112,7 @@ function drawFace(x,y,w,h,face_shape_value,face_randomise_value,mouth_value,nose
   var scale = extent / 250.0;
 
   // cheeks
-  fill(cheek_color);
+  fill(cheek_color[cheek_value]);
 
   rotate(-35);
   ellipse(-123*scale,-15*scale,60*scale,90*scale);
