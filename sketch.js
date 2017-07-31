@@ -1,7 +1,9 @@
-var canvasWidth = 960;
-var canvasHeight = 500;
+var canvasWidth = 1920;
+var canvasHeight = 1080;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
+var counter 
+var facesList = []; // array of objects
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -23,14 +25,24 @@ function setup () {
 
   faceSelector = createSelect();
   faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
+  faceSelector.option('1');
+  faceSelector.option('1');
+  faceSelector.option('1');
+  faceSelector.value('1');
   faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
+
+  for (var i=0; i<6; i++) {
+    facesList.push(new drawFace(i * 400-400+random(0,160),200,random(0,100),random(0,100),random(0,10)));
+  }
+  for (var i=0; i<6; i++) {
+    facesList.push(new drawFace(i * 400-400+random(0,160),540,random(0,100),random(0,100),random(0,10)));
+  }
+  for (var i=0; i<6; i++) {
+    facesList.push(new drawFace(i * 400-400+random(0,160),880,random(0,100),random(0,100),random(0,10)));
+  }
 }
 
 // global variables for colors
@@ -48,277 +60,291 @@ var stroke_color3 = [50, 50, 50];
 
 var colorHair = [20, 20, 0];
 
-function drawFace1(x, y, w, h, tilt_value, eye_value, chain_value) {
-  push();
-  translate(x, y);
-  translate(0,-70);
-  //rotate(tilt_value);
+function drawFace(x, y, tilt_value, eye_value, chain_scale) {
+  this.x = x;
+  this.y = y;
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
+  this.scale_b = 200;
+  this.tilt_value = tilt_value;
+  this.eye_value = eye_value;
+  this.chain_scale = chain_scale;
+  this.colour_random = random(-50,30);
 
-  bg_color1 = [map(tilt_value,0,100,91,150),map(eye_value,0,100,45,65),map(eye_value,0,100,12,120)];
-  //ellipse(0, 0, 300 * scale, 400 * scale);
-  fill('#896c4e');
-  beginShape();
-  vertex(0, -125);
-  bezierVertex(-84, -122,-130, -31, -128, 46);
-  bezierVertex(-127, 105, -75, 131, 0, 130);
-  bezierVertex(75, 131,127, 105,128, 46);
-  bezierVertex(130, -31,84, -122,0, -125);
-  endShape();
+  this.clothing = random(0,3);
 
-  beginShape();
-  vertex(80,100);
-  vertex(-80,100);
-  vertex(0,170);
-  endShape();
+  this.tilt_direction = false;
+  this.eye_direction = false;
+  this.chain_direction = false;
 
-  ellipse(-95,-105,60,60);
-  ellipse(95,-105,60,60);
-  fill('#a58e65');
-  ellipse(-97,-105,48,48);
-  ellipse(97,-105,48,48);
-  fill('#d3bfb4');
+  this.create = function(){
+    push();
+    this.x +=1;
+    if (this.x > 2160){
+      this.x -= 2400;
+      this.clothing = random(0,3);
+    }
+    translate(this.x, this.y);
+    translate(0,-70);
+    //rotate(tilt_value);
+    var extent = 0;
+    //map size to location
+    if (this.x < 100){
+      this.scale_b = map(this.x,0,100,1,170);
+    }else if (this.x > 1820){
+      this.scale_b = map(this.x,1820,1920,200,1);
+    }else{
+      this.scale_b = map(this.x,100,1820,170,200);
+    }
+    /*
+    if (this.tilt_value < 0){
+        this.tilt_direction = true;
+    }else if (this.tilt_value > 100){
+        this.tilt_direction = false;
+    }
+    if (this.eye_value < 0){
+        this.eye_direction = true;
+    }else if (this.eye_value > 100){
+        this.eye_direction = false;
+    }
+    if (this.chain_scale <= 0){
+        this.chain_direction = true;
+    }else if (this.chain_scale > 18){
+        this.chain_direction = false;
+    }
+    //
+    if (this.tilt_direction == true){
+      this.tilt_value += .4;
+    }else{
+      this.tilt_value -= .4;
+    }
+    if (this.eye_direction == true){
+      this.eye_value += .6;
+    }else{
+      this.eye_value -= .6;
+    }
+    if (this.chain_direction == true){
+      this.chain_scale += .1;
+    }else{
+      this.chain_scale -= .1;
+    }
+    */
+    var scale = this.scale_b / 250.0;
+    var chain_value = this.chain_scale * scale;
 
-  beginShape();
-  vertex(0, 20);
-  bezierVertex(-22, 20, -64, 49, -63, 88);
-  bezierVertex(-65, 104, -36, 128, 0, 128);
-  bezierVertex(36, 128,65, 104,63, 88);
-  bezierVertex(64, 49,22, 20,0, 20);
-  endShape();
+    bg_color1 = [map(this.tilt_value,0,100,91,150),map(this.eye_value,0,100,45,65),map(this.eye_value,0,100,12,120)];
+    //ellipse(0, 0, 300 * scale, 400 * scale);
+    fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
+    beginShape();
+    vertex(0, -125* scale);
+    bezierVertex(-84* scale, -122* scale,-130* scale, -31* scale, -128* scale, 46* scale);
+    bezierVertex(-127* scale, 105* scale, -75* scale, 131* scale, 0, 130* scale);
+    bezierVertex(75* scale, 131* scale,127* scale, 105* scale,128* scale, 46* scale);
+    bezierVertex(130* scale, -31* scale,84* scale, -122* scale,0, -125* scale);
+    endShape();
 
-  fill('#5f4c2c');
-  beginShape();
-  vertex(-14, 37);
-  bezierVertex(-14, 39, -6, 47, 0, 48);
-  bezierVertex(6, 47, 14, 39, 14, 37);
-  vertex(0,34);
-  endShape();
+    beginShape();
+    vertex(80* scale,100* scale);
+    vertex(-80* scale,100* scale);
+    vertex(0,170* scale);
+    endShape();
 
-  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,0),map(eye_value,0,100,61,0));
-  beginShape();
-  vertex(90,165);
-  vertex(50,126);
-  vertex(0,170);
-  vertex(-50,126);
-  vertex(-90,165);
-  vertex(0,300);
-  endShape();
+    ellipse(-95* scale,-105* scale,60* scale,60* scale);
+    ellipse(95* scale,-105* scale,60* scale,60* scale);
+    fill( 211 +(this.colour_random/1.5), 191+(this.colour_random/1.5), 180+(this.colour_random/1.5));
+    ellipse(-97* scale,-105* scale,48* scale,48* scale);
+    ellipse(97* scale,-105* scale,48* scale,48* scale);
+
+    beginShape();
+    vertex(0, 20* scale);
+    bezierVertex(-22* scale, 20* scale, -64* scale, 49* scale, -63* scale, 88* scale);
+    bezierVertex(-65* scale, 104* scale, -36* scale, 128* scale, 0, 128* scale);
+    bezierVertex(36* scale, 128* scale,65* scale, 104* scale,63* scale, 88* scale);
+    bezierVertex(64* scale, 49* scale,22* scale, 20* scale,0, 20* scale);
+    endShape();
+
+    fill('#5f4c2c');
+    beginShape();
+    vertex(-14* scale, 37* scale);
+    bezierVertex(-14* scale, 39* scale, -6* scale, 47* scale, 0* scale, 48* scale);
+    bezierVertex(6* scale, 47* scale, 14* scale, 39* scale, 14* scale, 37* scale);
+    vertex(0,34* scale);
+    endShape();
+
+    // eyes
+    translate(-60* scale,-10* scale);
+    rotate(10);
+    //EYE1
+    fill('#ffffff');
+    ellipse(0,0,60* scale,120* scale);
+    //PUPIL1
+    fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,0),map(this.eye_value,0,100,61,0));
+    ellipse(5* scale,-9* scale,35* scale,75* scale);
+    fill(map(this.tilt_value,0,100,0,208),map(this.eye_value,0,100,0,29),map(this.eye_value,0,100,0,95));
+    ellipse(5* scale,-4* scale,30* scale,60* scale);
+    fill(map(this.tilt_value,0,100,255,244),map(this.eye_value,0,100,255,241),map(this.eye_value,0,100,255,88));
+    rotate(-20);
+    ellipse(4* scale,-19* scale,13* scale,21* scale);
+    fill('#FFFFFF');
+    ellipse(7* scale,-6* scale,6* scale,12* scale);
+    fill('#FFFFFF');
+    ellipse(7* scale,14* scale,11* scale,17* scale);
+    rotate(10);
+    translate(120* scale,0);
+    rotate(-10);
+    //EYE2
+    fill('#ffffff');
+    ellipse(0,0,60* scale,120* scale);
+    //PUPIL2
+    fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,161),map(this.eye_value,0,100,61,186));
+    ellipse(-5* scale,-9* scale,35* scale,75* scale);
+    fill('#000000');
+    ellipse(-5* scale,-4* scale,30* scale,60* scale);
+    fill(map(this.tilt_value,0,100,255,212),map(this.eye_value,0,100,255,29),map(this.eye_value,0,100,255,96));
+    ellipse(-8* scale,-21* scale,13* scale,21* scale);
+    fill('#ffffff');
+    ellipse(-6* scale,-8* scale,6* scale,12* scale);
+    fill(map(this.tilt_value,0,100,255,244),map(this.eye_value,0,100,255,241),map(this.eye_value,0,100,255,88));
+    ellipse(-3* scale,14* scale,11* scale,17* scale);
+    rotate(10);
+    translate(-60* scale,10* scale);
+
+    //Suit
+    if(this.clothing < 1.2){
+      fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,0),map(this.eye_value,0,100,61,0));
+      beginShape();
+      vertex(90* scale,165* scale);
+      vertex(50* scale,126* scale);
+      vertex(0* scale,170* scale);
+      vertex(-50* scale,126* scale);
+      vertex(-90* scale,165* scale);
+      vertex(0,300* scale);
+      endShape();
 
 
-  fill('#c1c1c1');
-  beginShape();
-  vertex(60,155);
-  vertex(0,170);
-  vertex(-60,155);
-  vertex(0,map(eye_value,0,100,170,300));
-  endShape();
+      fill('#c1c1c1');
+      beginShape();
+      vertex(60* scale,155* scale);
+      vertex(0,170* scale);
+      vertex(-60* scale,155* scale);
+      vertex(0,map(this.eye_value,0,100,170* scale,300* scale));
+      endShape();
+      
+      fill('#440044');
+      beginShape();
+      vertex(60* scale,155* scale);
+      vertex(0,170* scale);
+      vertex(-60* scale,155* scale);
+      vertex(0,map(this.eye_value,0,100,170* scale,200* scale));
+      endShape();
+      beginShape();
+      vertex(20* scale,map(this.eye_value,0,100,170* scale,255* scale));
+      vertex(0,map(this.eye_value,0,100,170* scale,180* scale));
+      vertex(-20* scale,map(this.eye_value,0,100,170* scale,255* scale));
+      vertex(0,map(this.eye_value,0,100,170* scale,300* scale));
+      endShape();
 
-  fill('#440044');
-  beginShape();
-  vertex(60,155);
-  vertex(0,170);
-  vertex(-60,155);
-  vertex(0,map(eye_value,0,100,170,200));
-  endShape();
-  beginShape();
-  vertex(20,map(eye_value,0,100,170,255));
-  vertex(0,map(eye_value,0,100,170,180));
-  vertex(-20,map(eye_value,0,100,170,255));
-  vertex(0,map(eye_value,0,100,170,300));
-  endShape();
+      fill(map(this.tilt_value,0,100,255,193),map(this.eye_value,0,100,255,193),map(this.eye_value,0,100,255,193));
+      beginShape();
+      vertex(map(this.tilt_value,0,100,45* scale,32* scale),220* scale);
+      vertex(60* scale,155* scale);
+      vertex(50* scale,126* scale);
+      vertex(0,170* scale);
+      vertex(-50* scale,126* scale);
+      vertex(-60* scale,155* scale);
+      vertex(map(this.tilt_value,0,100,-45* scale,-32* scale),220* scale);
+      vertex(0,170* scale);
+      endShape();
 
-  fill(map(tilt_value,0,100,255,193),map(eye_value,0,100,255,193),map(eye_value,0,100,255,193));
-  beginShape();
-  vertex(map(tilt_value,0,100,45,32),220);
-  vertex(60,155);
-  vertex(50,126);
-  vertex(0,170);
-  vertex(-50,126);
-  vertex(-60,155);
-  vertex(map(tilt_value,0,100,-45,-32),220);
-  vertex(0,170);
-  endShape();
+      //glasses
+      fill(0,0,0,chain_value*10);
+      strokeWeight(chain_value/2);
+      stroke(map(this.tilt_value,100,0,247,100),map(this.eye_value,0,100,193,100),map(this.eye_value,0,100,61,100));
+      rect(30* scale,10* scale,50* scale,20* scale);
+      rect(-30* scale,10* scale,-50* scale,20* scale);
+      line(-30* scale,20* scale,30* scale,20* scale);
+      noStroke();
+    }else if (this.clothing < 2){
+      fill(map(this.tilt_value,0,100,247,0),0,map(this.tilt_value,0,100,61,0));
+      beginShape();
+      vertex(90* scale,165* scale);
+      vertex(50* scale,126* scale);
+      vertex(0* scale,170* scale);
+      vertex(-50* scale,126* scale);
+      vertex(-90* scale,165* scale);
+      vertex(0,300* scale);
+      endShape();
+      
 
-  // chain
-  fill(map(tilt_value,100,0,247,100),map(eye_value,0,100,193,100),map(eye_value,0,100,61,100));
-  ellipse(55,133,chain_value,chain_value);
-  ellipse(47,154,chain_value,chain_value);
-  ellipse(35,172,chain_value,chain_value);
-  ellipse(22,185,chain_value,chain_value);
-  ellipse(11,195,chain_value,chain_value);
-  ellipse(0,200,chain_value,chain_value);
-  ellipse(-11,195,chain_value,chain_value);
-  ellipse(-22,185,chain_value,chain_value);
-  ellipse(-35,172,chain_value,chain_value);
-  ellipse(-47,154,chain_value,chain_value);
-  ellipse(-55,133,chain_value,chain_value);
+      fill(2555,255,255);
+      beginShape();
+      vertex(50* scale,222* scale);
+      vertex(50* scale,126* scale);
+      vertex(0* scale,170* scale);
+      vertex(-50* scale,126* scale);
+      vertex(-50* scale,222* scale);
+      vertex(0,300* scale);
+      endShape();
 
-  // eyes
-  translate(-60,-10);
-  rotate(10);
-  //EYE1
-  fill('#ffffff');
-  ellipse(0,0,60,120);
-  //PUPIL1
-  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,0),map(eye_value,0,100,61,0));
-  ellipse(5,-9,35,75);
-  fill(map(tilt_value,0,100,0,208),map(eye_value,0,100,0,29),map(eye_value,0,100,0,95));
-  ellipse(5,-4,30,60);
-  fill(map(tilt_value,0,100,255,244),map(eye_value,0,100,255,241),map(eye_value,0,100,255,88));
-  rotate(-20);
-  ellipse(4,-19,13,21);
-  fill('#FFFFFF');
-  ellipse(7,-6,6,12);
-  fill('#FFFFFF');
-  ellipse(7,14,11,17);
-  rotate(10);
-  translate(120,0);
-  rotate(-10);
-  //EYE2
-  fill('#ffffff');
-  ellipse(0,0,60,120);
-  //PUPIL2
-  fill(map(tilt_value,0,100,247,0),map(eye_value,0,100,193,161),map(eye_value,0,100,61,186));
-  ellipse(-5,-9,35,75);
-  fill('#000000');
-  ellipse(-5,-4,30,60);
-  fill(map(tilt_value,0,100,255,212),map(eye_value,0,100,255,29),map(eye_value,0,100,255,96));
-  ellipse(-8,-21,13,21);
-  fill('#ffffff');
-  ellipse(-6,-8,6,12);
-  fill(map(tilt_value,0,100,255,244),map(eye_value,0,100,255,241),map(eye_value,0,100,255,88));
-  ellipse(-3,14,11,17);
-  rotate(10);
-  translate(-60,10);
+      fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
+      beginShape();
+      vertex(49* scale,126* scale);
+      vertex(0,169* scale);
+      vertex(-49* scale,126* scale);
+      vertex(0,map(this.eye_value,0,100,170* scale,300* scale));
+      endShape();
 
-  //glasses
-  fill(0,0,0,chain_value*10);
-  strokeWeight(chain_value/2);
-  stroke(map(tilt_value,100,0,247,100),map(eye_value,0,100,193,100),map(eye_value,0,100,61,100));
-  rect(30,10,50,20);
-  rect(-30,10,-50,20);
-  line(-30,20,30,20);
-  noStroke();
-  pop();
-}
+      fill(212,175,55);
+      ellipse(55* scale,133* scale,chain_value,chain_value);
+      ellipse(47* scale,154* scale,chain_value,chain_value);
+      ellipse(35* scale,172* scale,chain_value,chain_value);
+      ellipse(22* scale,185* scale,chain_value,chain_value);
+      ellipse(11* scale,195* scale,chain_value,chain_value);
+      ellipse(0,200* scale,chain_value,chain_value);
+      ellipse(-11* scale,195* scale,chain_value,chain_value);
+      ellipse(-22* scale,185* scale,chain_value,chain_value);
+      ellipse(-35* scale,172* scale,chain_value,chain_value);
+      ellipse(-47* scale,154* scale,chain_value,chain_value);
+      ellipse(-55* scale,133* scale,chain_value,chain_value);
+    }else{
+      fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,0),map(this.eye_value,0,100,61,0));
+      beginShape();
+      vertex(90* scale,165* scale);
+      vertex(50* scale,126* scale);
+      vertex(0* scale,170* scale);
+      vertex(-50* scale,126* scale);
+      vertex(-90* scale,165* scale);
+      vertex(0,300* scale);
+      endShape();
 
-function drawFace2(x, y, w, h, hair_value, eye_value, blink_value) {
-  rectMode(CENTER);
-  push();
-  translate(x, y);
+      fill('#c1c1c1');
+      beginShape();
+      vertex(60* scale,155* scale);
+      vertex(0,170* scale);
+      vertex(-60* scale,155* scale);
+      vertex(0,170* scale);
+      endShape();
+      fill(map(this.eye_value,0,100,247,0),map(this.tilt_value,0,100,193,0),map(this.eye_value,0,100,61,0));
+      beginShape();
+      vertex(0, -81* scale);
+      bezierVertex(90* scale, -81* scale,84* scale, -122* scale, 0, -125* scale);
+      endShape();
+      beginShape();
+      vertex(0, -81* scale);
+      bezierVertex(-90* scale, -81* scale,-84* scale, -122* scale, 0, -125* scale);
+      endShape();
+      fill(map(this.eye_value,0,100,247,31)-31,map(this.eye_value,0,100,193,31)-30,map(this.tilt_value,0,100,61,30)-30);
+      beginShape();
+      vertex(-65* scale,-104* scale);
+      bezierVertex(-65* scale,-104* scale,-65* scale, -150* scale, 0, -150* scale);
+      vertex(0, -150* scale);
+      bezierVertex(0, -150* scale,65* scale, -150* scale, 65* scale,-104* scale);
+      vertex(65* scale,-104* scale);
+      endShape();
+      rect(10*scale,176*scale,45*scale,25*scale);
 
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color3);
-  fill(fg_color3);
-  ellipse(0, 0, 300 * scale, 400 * scale);
-
-  // eyes. first check for blinking
-  if(blink_value > 0) {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 2 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 2 * scale);
-  }
-  else {
-    fill(bg_color3);
-    ellipse(-50 * scale, -80 * scale, 50 * scale, 18 * scale);
-    ellipse( 50 * scale, -80 * scale, 50 * scale, 18 * scale);
-
-    fill(fg_color3);
-    ellipse((-50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse(( 50 + eye_value) * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0 * scale, 70 * scale, 150 * scale, 20 * scale);
-
-  // TODO: paramaterize hair
-  var follicles = [
-    [346,138],
-    [391,120],
-    [391,67],
-    [439,76],
-    [463,42],
-    [487,18],
-    [481,101],
-    [520,102],
-    [520,78],
-    [533,54],
-    [560,108],
-    [580,76],
-    [596,124],
-    [618,124]
-  ];
-
-  resetMatrix();
-  fill(colorHair);
-  var radius = hair_value * scale;
-  for(var i=0; i<follicles.length; i++) {
-    ellipse(240+follicles[i][0]/2, 120 + (follicles[i][1]/2), radius, radius);
-  }
-  rectMode(CORNER);
-  resetMatrix();
-}
-
-function drawFace3(x, y, w, h, width_value, eye_value, mouth_value) {
-  push();
-  rectMode(CENTER);
-  translate(x, y);
-  // rotate(width_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-
-  stroke(stroke_color2)
-  fill(fg_color2);
-  rect(0, 0, (300 + width_value) * scale, 400 * scale);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color2);
-    rect( 0, -80 * scale, 50 * scale, 30 * scale);
-    fill(fg_color2);
-    ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color2);
-    rect(-60 * scale, -80 * scale, 50 * scale, 30 * scale);
-    rect( 60 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-    fill(fg_color2);
-    ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-    ellipse( 60 * scale, -80 * scale, 20 * scale, 20 * scale);
-  }
-
-  // mouth
-  fill(bg_color2);
-  rect(0 * scale, 70 * scale, 150 * scale, mouth_value * scale);
-  rectMode(CORNER);
-  pop();
+    }
+    pop();
+    }
 }
 
 function draw () {
@@ -326,17 +352,7 @@ function draw () {
 
   var mode = faceSelector.value();
 
-  if (mode != 'all') {
-    if (mode == '1') {
-      background(bg_color1);
-    }
-    else if (mode == '2') {
-      background(bg_color2);
-    }
-    else if (mode == '3') {
-      background(bg_color3);
-    }
-  }
+  background(bg_color1);
 
   var s1 = slider1.value();
   var s2 = slider2.value();
@@ -347,47 +363,16 @@ function draw () {
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
   var face_h = face_w;
-  var face_y = height / 2;
+  var face_y = height / 2 - 100;
   var face_x = width / 2;
+  var scale_b = 200;
 
-  if (mode == '1' || mode == 'all') {
-    // draw 1st face
-    fill(bg_color1);
-    rect(0, 0, width/3, height);
-    var tilt_value = map(s1, 0, 100, -90, 90);
-    var chain_value = map(s2, 0, 100, 0, 12);
-    var eyeCol_value = map(s3, 0, 100, 0, 100);
-    var suit_value = map(s5, 0, 100, 0, 200);
-    if (mode == 'all') {
-      face_x = width / 6;
-    }
-    drawFace1(face_x, face_y, face_w, face_h, tilt_value, eyeCol_value, chain_value);    
-  }
+  // draw 1st face
+  fill(bg_color1);
+  rect(0, 0, width/3, height);
 
-  if (mode == '2' || mode == 'all') {
-    // draw 2nd face
-    fill(bg_color2);
-    rect(width/3, 0, 2*width/3, height);
-    var hair_value = map(s1, 0, 100, 2, 90);
-    var blink_value = Math.floor(map(s3, 0, 100, 0, 1));
-    var eye_value = map(s2, 0, 100, -15, 15);
-    if (mode == 'all') {
-      face_x = 3 * width / 6;
-    }
-    drawFace2(face_x, face_y, face_w, face_h, hair_value, eye_value, blink_value);
-  }
-
-  if (mode == '3' || mode == 'all') {
-    // draw 3nd face
-    fill(bg_color3);
-    rect(2*width/3, 0, width, height);
-    var width_value = map(s1, 0, 100, 0, 100);
-    var mouth_value = map(s3, 0, 100, 0, 200);
-    var eye_value = Math.floor(map(s2, 0, 100, 0, 3));
-    if (mode == 'all') {
-      face_x = 5 * width / 6;
-    }
-    drawFace3(face_x, face_y, face_w, face_h, width_value, eye_value, mouth_value);
+  for (var i=0; i<facesList.length; i++) {
+    facesList[i].create();
   }
 }
 

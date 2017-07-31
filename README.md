@@ -1,9 +1,4 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
-
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
-
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+I started developing on my original bear sketch, i really liked playing around with the transitions between different stances and especially clothing, in the end I started to research about how we define faces.I stumbled onto a very interesting online talk bt Matt Rhodes (concept artist at bioware) that partly looks at how to define character from form, and how 95% of human characters are exactly the same if you strip back the details like hair and tatoos and markings. From there I kinda wanted to experiment with this and push it further.
+Starting with this blank face I moved further with creating context around the face and tried to create a bit of interest around a fairly simplistic form.
