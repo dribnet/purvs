@@ -10,26 +10,6 @@ function setup () {
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('1');
-  faceSelector.option('1');
-  faceSelector.option('1');
-  faceSelector.value('1');
-  faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
@@ -367,15 +347,8 @@ function mouseClicked(){
 function draw () {
   noStroke();
 
-  var mode = faceSelector.value();
-
   background(133,188,216);
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
 
   // use same size / y_pos for all faces
   var face_w = canvasWidth / 4;
