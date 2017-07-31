@@ -167,12 +167,21 @@ var axolotlMouth = '#FF70FF';
 var axolotlGills = '#CC1968';
 var axolotlEyes = '#0E257C';
 
-var gillWaves = [
+var waveAngles = [
     [   // left
         5, 30, 75
     ],
     [   // right
         40, 65, 90
+    ]
+];
+
+var waveFlexes = [
+    [   // left
+        13, 23, 79
+    ],
+    [   // right
+        34, 90, 55
     ]
 ];
 
@@ -187,7 +196,7 @@ function drawAxolotl(args) {
 
     fill(axolotlGills);
 
-    function gill(arcPos, normal, length, width, bendAngle, reverse) {
+    function gill(arcPos, normal, length, width, bendAngle, reverse, flexOffset) {
         push();
         if (reverse) {
             arcPos *= -1;
@@ -197,25 +206,26 @@ function drawAxolotl(args) {
         translate(0.9*headWidth*sin(arcPos), -0.9*headHeight*cos(arcPos));
         rotate(normal);
         scale(length, length);
-        drawGill(width/length, 0.5, bendAngle);
+        drawGill(width/length, 0.5 + flexOffset, bendAngle);
         pop();
     }
 
     var gillLength = 0.6 * args.gillLength;
     var gillWidth = 0.175;
 
-    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(gillWaves[0][0]), false);
-    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(gillWaves[1][0]), true);
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(waveAngles[0][0]), false,  0.07*sin(waveFlexes[0][0]));
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(waveAngles[1][0]), true,  0.07*sin(waveFlexes[1][0]));
 
-    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[0][1]), false);
-    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[1][1]), true);
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(waveAngles[0][1]), false,  0.07*sin(waveFlexes[0][1]));
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(waveAngles[1][1]), true,  0.07*sin(waveFlexes[1][1]));
 
-    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[0][2]), false);
-    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[1][2]), true);
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(waveAngles[0][2]), false,  0.07*sin(waveFlexes[0][2]));
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(waveAngles[1][2]), true,  0.07*sin(waveFlexes[1][2]));
 
     for (var i = 0; i < 2; i++) {
         for (var j = 0; j < 3; j++) {
-            gillWaves[i][j] += 1 ;
+            waveAngles[i][j] += 1.59;
+            waveFlexes[i][j] += 1.37;
         }
     }
 
