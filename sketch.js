@@ -1,5 +1,5 @@
-var canvasWidth = 1920;
-var canvasHeight = 1080;
+var canvasWidth = 960;
+var canvasHeight = 500;
 var slider1, slider2, slider3, slider4, slider5;
 var faceSelector;
 var counter 
@@ -34,14 +34,14 @@ function setup () {
   // rotation in degrees
   angleMode(DEGREES);
 
-  for (var i=0; i<6; i++) {
-    facesList.push(new drawFace(i * 400-400+random(0,160),200,random(0,100),random(0,100),random(0,10)));
+  for (var i=0; i<8; i++) {
+    facesList.push(new drawFace(i * 160-160+random(0,40),150,random(0,100),random(0,100),random(0,10)));
   }
-  for (var i=0; i<6; i++) {
-    facesList.push(new drawFace(i * 400-400+random(0,160),540,random(0,100),random(0,100),random(0,10)));
+  for (var i=0; i<8; i++) {
+    facesList.push(new drawFace(i * 160-160+random(0,40),300,random(0,100),random(0,100),random(0,10)));
   }
-  for (var i=0; i<6; i++) {
-    facesList.push(new drawFace(i * 400-400+random(0,160),880,random(0,100),random(0,100),random(0,10)));
+  for (var i=0; i<8; i++) {
+    facesList.push(new drawFace(i * 160-160+random(0,40),450,random(0,100),random(0,100),random(0,10)));
   }
 }
 
@@ -64,7 +64,7 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   this.x = x;
   this.y = y;
 
-  this.scale_b = 200;
+  this.scale_b = 100;
   this.tilt_value = tilt_value;
   this.eye_value = eye_value;
   this.chain_scale = chain_scale;
@@ -79,8 +79,8 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   this.create = function(){
     push();
     this.x +=1;
-    if (this.x > 2160){
-      this.x -= 2400;
+    if (this.x > 1120){
+      this.x -= 1280;
       this.clothing = random(0,3);
     }
     translate(this.x, this.y);
@@ -89,11 +89,11 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
     var extent = 0;
     //map size to location
     if (this.x < 100){
-      this.scale_b = map(this.x,0,100,1,170);
-    }else if (this.x > 1820){
-      this.scale_b = map(this.x,1820,1920,200,1);
+      this.scale_b = map(this.x,0,100,1,80);
+    }else if (this.x > 900){
+      this.scale_b = map(this.x,900,960,80,1);
     }else{
-      this.scale_b = map(this.x,100,1820,170,200);
+      this.scale_b = map(this.x,900,960,80,80);
     }
     /*
     if (this.tilt_value < 0){
