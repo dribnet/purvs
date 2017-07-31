@@ -1,25 +1,18 @@
 ## PS1 MDDN 342 2017
-#### Oldman-geddon
 
-This README describes the matrix of selectively randomised faces completed for task 5 
+>This README is a summation of the 5 parts in problem set 1 for MDDN342
 
-My old man was originally made with a select range of possibilities in mind. Therefore I am mostly only imposing restrictions on the *distribution* of the parameters and not the upper/lower bounds.
+### Part 1 | First Faces
+The first faces I drew for this project were those of Mario and Luigi of the Nintendo universe. We were told to draw 'Two recognisable faces' and I wanted to make mine two separate but similar faces that were individually recognisable. With a simple color change in the hat, I acheived this differentiation.
 
-I chose this radial layout because I liked the idea of a group of small, geriatric disembodied heads worhsipping a much larger leader-head. In the name of absurdism, I ran with this vision. 
+### Part 2 | Drawing Styles
 
-*Giant head is pleased with these results.*
+I thought my chubby-cheeked Mario looked ver bayish, and I the cutesy style that I had found with my first face. My second drawing became a drooling baby. My baby sparked in me a fascination with age extremes, so I flipped the coin and drew a geriatric man for my final face. I spent a long time tweaking the ranges of the parameters for these faces to make sure the interpolation between extremes was not jarring; this made part 4 (distribution) a lot easier. 
 
----
-		
-The forehead wrinkles are very likely to be dark, this is also linked to a higher probability of whiter hair. 
+### Part 3 & 4 | Randomisation + Distribution
 
-For the ears, I actually increased the range of possible sizes because I liked the goofy looking big-eared men that resulted in. I kept the distriution tight to make comically large ears a refreshing rarity. The average is on the larger size of the average however, as the ears are among the few body parts to continue growing in old age.
+Moving from sliders to generated faces was a simple transition. I had already spent time curating a parameter range in part 2, and implementing Tom's code was fairly straight forward. Since I got to eliminate two drawing styles with these stages, there was a good deal of releif in paring the sketch file down by about 40%
 
-The faces' angle parameter was only lightly clustered around an average as it has nothing to do with the characterisation of the faces. Face angle is simply a device to give variation to the population diagram.
+### Part 5 | Final
 
-The average size of the spectacles changes depending on the state of a face's mouth is to help convey mood more consistently. The glasses are larger if the face is smiling and smaller if the face is frowning. The population is tightly clustered on the average, as very small or large glasses look quite comical and can be distracting in large numbers. 
-
-I wanted to display a wider range of emotions in a population, so the value controlling the smile of a face does not gravitate toward a mean. The mouth curve already ties into the size of the eyes, so I thought that would be enough to give the mood of each face some cohesion.
-
-Dark and numerous liver spots felt too distracting to lace a population too heavily with, so I kept the mean very tightly clustered arond the 2 spot mark. 
-
+Having creative freedom with the layout of the final face population was a lot of fun. I opted for a radial design, 14 disembodied heads floating around an almighty aged leader. I imagined a cult of old heads the whole time I was coding this. Laughs were had.
