@@ -1,259 +1,106 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var numWidth = 2;
-var numHeight = 2;
-var button;
-var curRandomSeed;
 
 function setup () {
-// create the drawing canvas, save the canvas element
-  var main_canvas = createCanvas(canvasWidth, canvasHeight);
+  // create the drawing canvas, save the canvas element
+  main_canvas = createCanvas(canvasWidth, canvasHeight);
+
+  // position each element on the page
   main_canvas.parent('canvasContainer');
-
-  curRandomSeed = int(focusedRandom(0, 100));
-
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-}
-
 // global variables for colors
-var bg_color1 = [225, 206, 187];
-var bg_color2 = [47, 59, 64];
-var bg_color3 = [70, 70, 120];
-
+var bg_color = "#ffffff";
 var fg_color1 = "#57B555";
-var fg_color2 = [56, 91, 194];
-var fg_color3 = [206, 207, 180];
+var fg_color2 = "#56B0B8";
+var stroke_color = "#c78a5b";
+var pupils = "#000000";
 
-var stroke_color1 = [95, 52, 8];
-var stroke_color2 = [210, 219, 189];
-var stroke_color3 = [50, 50, 50];
+function draw () {
+  // background color
+  background(bg_color);
 
-var colorHair = [20, 20, 0];
+  // stroke color
+  noStroke();
 
-function FaceOne(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
+  // Mike
   push();
-  translate(x, y);
-  noStroke();
-  rotate(tilt_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-  // Horns light color
-
-  fill("#AEB8AC");
-  triangle(-120  * scale,-90 * scale,-80 * scale,-110 * scale,-100 * scale,-160 * scale);
-  triangle(120 * scale,-90 * scale,80 * scale,-110 * scale,100 * scale,-160 * scale);
-
-  //Horn dark color
-  fill("#727871");
-  triangle(-108 * scale,-135 * scale,-90 * scale,-135 * scale,-100 * scale,-160 * scale);
-  triangle(110 * scale,-120 * scale,90 * scale,-135 * scale,100 * scale,-160 * scale);
- 
+  translate(960/4, 500/2);
+  rotate(0);
+  // Head
   fill(fg_color1);
-  quad(115 * scale,100 * scale,0 * scale,150 * scale, 0 * scale,0 * scale,150 * scale,0 * scale);
-  quad(115 * scale,-100 * scale,0 * scale,-150 * scale, 0 * scale,0 * scale,150 * scale,0 * scale); 
-  quad(-115 * scale,100 * scale,0 * scale,150 * scale, 0 * scale,0 * scale,-150 * scale,0 * scale);
-  quad(-115 * scale,-100 * scale,0 * scale,-150 * scale, 0 * scale,0 * scale,-150 * scale,0 * scale);
-
-  // Eye  
-  fill("#ffffff");
-  quad(0 * scale, -120 * scale, -80 * scale, -40 * scale, 0 * scale, 40 * scale, 80 * scale, -40 * scale);
-
-  // set fill back to foreground for eyeballs
-  fill(fg_color1);
-  quad(eye_LeftRight * scale, eye_UpDown -100 * scale, eye_LeftRight -60 * scale,eye_UpDown -40 * scale, eye_LeftRight * scale, eye_UpDown + 20 * scale,eye_LeftRight +60 * scale, eye_UpDown -40 * scale);
-
-  //pupils
-  fill("#000000");
-  quad(eye_LeftRight * scale, eye_UpDown -80 * scale, eye_LeftRight -40 * scale,eye_UpDown -40 * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight +40 * scale, eye_UpDown -40 * scale);
-
-  //mouth
-
-  fill("#ffffff");
-  quad(-100 * scale,50 * scale,0 * scale,mouth_value * scale, 100 * scale, 50 * scale,0 * scale,100 * scale);
-  
-  pop();
-}
-
-function FaceThree(x, y, w, h, skin_color, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
-push();
-  translate(x, y);
-  noStroke();
-  rotate(tilt_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
-  // Horns light color
-  fill("#AEB8AC");
-  triangle(-120  * scale,-90 * scale,-80 * scale,-110 * scale,-100 * scale,-160 * scale);
-  triangle(120 * scale,-90 * scale,80 * scale,-110 * scale,100 * scale,-160 * scale);
-
-  //Horn dark color
-  fill("#727871");
-  triangle(-108 * scale,-135 * scale,-90 * scale,-135 * scale,-100 * scale,-160 * scale);
-  triangle(110 * scale,-120 * scale,90 * scale,-135 * scale,100 * scale,-160 * scale);
-
-  fill(skin_color);
-  ellipse(0, 0, 300 * scale, 300 * scale);
+  ellipse(0, 0, 300, 300);
 
   // Mouth 
-  fill("#ffffff");
-  ellipse(0 * scale, 55 * scale, 200 * scale, 75 * scale);
+  fill(bg_color);
+  ellipse(0, 55, 200, 75);
   // Cover for mouth ellipse
-  fill(skin_color);
-  ellipse(0 * scale, (mouth_value-20) * scale, mouth_value*3.25 * scale, mouth_value * scale);
+  fill(fg_color1);
+  ellipse(0, 40, 200, 50);
  
-  fill("#ffffff");
-  ellipse(0 * scale, -40 * scale, 160 * scale, 160 * scale);
+  fill(bg_color);
+  ellipse(0, -40, 160, 160);
 
   // set fill back to foreground for eyeballs
-  fill(skin_color);
-  ellipse(eye_LeftRight * scale, -eye_UpDown * scale , 120 * scale, 120 * scale);
+  fill(fg_color1);
+  ellipse(0, -40, 120, 120);
 
   //pupils
   fill("#000000");
-  ellipse(eye_LeftRight * scale, -eye_UpDown * scale, 60 * scale, 60 * scale);
+  ellipse(0, -40, 60, 60);
 
-  pop();
-}
-
-function FaceTwo(x, y, w, h, tilt_value, mouth_value, eye_UpDown, eye_LeftRight) {
-  push();
-  translate(x, y);
-  noStroke();
-  rotate(tilt_value);
-
-  var extent = 0;
-  if(h < w) {
-    extent = h / 2;
-  }
-  else {
-    extent = w / 2;
-  }
-  var scale = extent / 220.0;
   // Horns light color
   fill("#AEB8AC");
-  triangle(-120  * scale,-90 * scale,-80 * scale,-110 * scale,-100 * scale,-160 * scale);
-  triangle(120 * scale,-90 * scale,80 * scale,-110 * scale,100 * scale,-160 * scale);
-
+  triangle(-120,-90,-85,-123,-150,-150);
+  triangle(120,-90,85,-123,150,-150);
   //Horn dark color
   fill("#727871");
-  triangle(-108 * scale,-135 * scale,-90 * scale,-135 * scale,-100 * scale,-160 * scale);
-  triangle(110 * scale,-120 * scale,90 * scale,-135 * scale,100 * scale,-160 * scale);
- 
-  fill(fg_color1);
-  triangle(115 * scale, 100 * scale, 0 * scale, 150 * scale, 0 * scale, 0 * scale);
-  triangle(115 * scale, 100 * scale, 150 * scale, 0 * scale, 0 * scale, 0 * scale);
-  triangle(115 * scale, -100 * scale, 0 * scale, -150 * scale, 0 * scale, 0 * scale);
-  triangle(115 * scale, -100 * scale, 150 * scale, 0 * scale, 0 * scale, 0 * scale);
-  triangle(-115 * scale, 100 * scale, 0 * scale, 150 * scale, 0 * scale, 0 * scale);
-  triangle(-115 * scale, 100 * scale, -150 * scale, 0 * scale, 0 * scale, 0 * scale);
-  triangle(-115 * scale, -100 * scale, 0 * scale, -150 * scale, 0 * scale, 0 * scale);
-  triangle(-115 * scale, -100 * scale, -150 * scale, 0 * scale, 0 * scale, 0 * scale);
-
-  // Eye  
-  fill("#ffffff");
-
-  triangle(80 * scale, -80 * scale, 0 * scale, -40 * scale, 80 * scale, 0 * scale);
-  triangle(-80 * scale, -80 * scale, 0 * scale, -40 * scale, -80 * scale, 0 * scale);
-
-  triangle(80 * scale, -80 * scale, 0 * scale, -120 * scale, 0 * scale, -40 * scale);
-  triangle(80 * scale, 0 * scale, 0 * scale, 40 * scale, 0 * scale, -40 * scale);
-
-  triangle(-80 * scale, -80 * scale, 0 * scale, -120 * scale, 0 * scale, -40 * scale);
-  triangle(-80 * scale, 0 * scale, 0 * scale, 40 * scale, 0 * scale, -40 * scale);
-
-
-  // set fill back to foreground for eyeballs
-  fill(fg_color1);
-
-  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale, (eye_LeftRight + 60) * scale, (eye_UpDown - 10) * scale);
-  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale, (eye_LeftRight - 60) * scale, (eye_UpDown - 10) * scale);
-
-  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 100) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
-  triangle((eye_LeftRight + 60) * scale, (eye_UpDown - 10) * scale, eye_LeftRight * scale, (eye_UpDown + 20) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
-
-  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 70) * scale, eye_LeftRight * scale, (eye_UpDown - 100) * scale, eye_LeftRight * scale, (eye_UpDown - 40) * scale);
-  triangle((eye_LeftRight - 60) * scale, (eye_UpDown - 10) * scale, eye_LeftRight * scale, (eye_UpDown + 20) * scale, eye_LeftRight * scale, (eye_UpDown - 40)* scale);
-
-  //pupils
-  fill("#000000");
-  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 60) * scale, (eye_LeftRight + 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 60) * scale, (eye_LeftRight - 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-
-  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 60) * scale, eye_LeftRight * scale, (eye_UpDown - 80) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-  triangle((eye_LeftRight + 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-
-  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 60) * scale, eye_LeftRight * scale, (eye_UpDown - 80) * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-  triangle((eye_LeftRight - 40) * scale, (eye_UpDown - 20) * scale, eye_LeftRight * scale, eye_UpDown * scale, eye_LeftRight * scale, (eye_LeftRight - 40) * scale);
-  //mouth
-
-  fill("#ffffff");
-  triangle(-100 * scale, 50 * scale, -40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
-  triangle(100 * scale, 50 * scale, 40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
-  triangle(-40 * scale, (mouth_value - 10) * scale, 40 * scale, (mouth_value - 10) * scale, 0 * scale, 90 * scale);
+  triangle(-142,-135,-115,-135,-150,-150);
+  triangle(135,-120,115,-135,150,-150);
   pop();
-}
 
-function getRandomColor() {
-  random_result = focusedRandom(0, 100);
-  if(random_result < 10) {
-    return fg_color1 = "#96C195";
-  }
-  else if(random_result < 20) {
-    return fg_color1 = "#6E8E6E";
-  }
-  else {
-    return fg_color1 = "#57B555";
-  }
-}
+  ////////////
 
+  // move to position2, rotate, draw "head" ellipse
+  push();
+  translate(3*960/4, 500/2);
+  rotate(0);
+  fill(fg_color2);
+  rect(-150, -200, 300, 400, 120, 120, 80, 80 );
+  ellipse(0, -25, 325, 360);
 
-  function draw () {
-  resetFocusedRandom(curRandomSeed);
+  // set fill to match background color
+  fill(bg_color);
+  // draw two eyes
+  ellipse(-50, -80, 60, 60);
+  ellipse( 50, -80, 60, 60);
 
-  noStroke();
-  background(bg_color1);
+  fill(fg_color2);
+  ellipse(-60, -80, 30, 30);
+  ellipse( 40, -80, 30, 30);
+  // set fill back to foreground for eyeballs
+  fill(pupils);
+  ellipse(-60, -80, 20, 20);
+  ellipse( 40, -80, 20, 20);
 
-  fill(bg_color1);
- 
-  var w = canvasWidth / numHeight;
-  var h = canvasHeight / numWidth;
-  for(var i=0; i<numWidth; i++) {
-    for(var j=0; j<numHeight; j++) {
-      var y = h/2 + h*i;
-      var x = w/2 + w*j;
-      skin_color = getRandomColor();
-      eye_UpDown = focusedRandom(20, 60);
-      eye_LeftRight = focusedRandom(-40, 40);
-      tilt_value = focusedRandom(-20, 40);
-      mouth_value = focusedRandom(50, 80);
-      FaceTwo(x, y, w, h, skin_color, tilt_value, mouth_value, eye_UpDown, eye_LeftRight);
-    }
-  }
-
-  // drawFace1(face_x, face_y, face_w, face_h, tilt_value, eye_value, mouth_value);    
+  fill("#387378")
+  ellipse( 0, -10, 100, 50);
+  ellipse( 0, 0, 50, 50);
+  // Horns light color
+  fill("#AEB8AC");  
+  push();
+  rotate(45);
+  rect(-250, -50, 75, 50 );
+  rect(-50, -250, 50, 75 );
+  pop();
+  triangle(-177,-176,-120,-250,-125,-190);
+  triangle(177,-176,120,-250,125,-190);
+  push();
+  pop();
+  pop();
 }
 
 function keyTyped() {
