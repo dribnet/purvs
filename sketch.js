@@ -352,7 +352,7 @@ function draw () {
 
   var mode = faceSelector.value();
 
-  background(bg_color1);
+  background(133,188,216);
 
   var s1 = slider1.value();
   var s2 = slider2.value();
@@ -368,8 +368,6 @@ function draw () {
   var scale_b = 200;
 
   // draw 1st face
-  fill(bg_color1);
-  rect(0, 0, width/3, height);
 
   for (var i=0; i<facesList.length; i++) {
     facesList[i].create();
