@@ -152,9 +152,18 @@ if(false){
       var sizing = 8;
 
 //creates a pile of doll heads
+rectMode(CENTER);
+rect(canvasWidth/3, canvasHeight/3, w*2, h*1.5);
   drawFace2(canvasWidth/3, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+     rectMode(CENTER);
+      rect(canvasWidth/3+canvasWidth/3, canvasHeight/3, w*2, h*1.5);
+
        drawFace2(canvasWidth/3+canvasWidth/3, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+       rectMode(CENTER);
+      rect(canvasWidth, canvasHeight/3, w*2, h*1.5);
        drawFace2(canvasWidth, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+       rectMode(CENTER);
+      rect(0, canvasHeight/3, w*2, h*1.5);
        drawFace2(0, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
       for(var i=0; i<5; i++) {
         for(var j=0; j<5; j++) {
