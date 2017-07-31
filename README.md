@@ -1,11 +1,11 @@
 ## PS1 MDDN 342 2017
 
-For this practice sketch I opted to emulate the characters Mike Wazowski and James Sullivan from the movie Monsters Inc.
-I chose to adopt a rather minimalist style and focus on the features I felt were most key in identifying the characters.
+In this drawing styles experiment I wanted to explore relatively distinct styles to get a range of designs and then pursue the development of the one I felt worked best.
 
-For Wazowski these key features were the green rounded body, the horns, and the single large eye.
-For Sullivan the key features were the blue fur with purple spots, the teeth and the horns.
+Instead of building from the parametric design I decided to form a style I felt offered a unique appearance and build parametric features into the design.
 
-I primarily used ellipses and arcs to generate the characters, however in the case of Sullivan I used vertexes to create the more complicated shapes, such as the teeth and horns.
+The first face represents an ogre type character. This utilised in part code for the Mike Wazowski character from part1. There are slide controls for; eyebrow height, pupil size, drowziness, mouth type, and face rotation. I largely focused on establishing variety in emotion through variations in eye related values. This was successful in creating different designs that were highly emotive, however  felt that the design itself was lacking in a distinct and refined style.
 
-I opted to stylise the design with some shading. This was to bring some visual interest to the image and add a greater sense of depth.
+With the second face I was looking to create different iterations through changes in hair styles. The slide controls change; afro size, mullet length, fringe length, beard size, and mouth type.  This design offered a large potential for varied designs both in physical appearance, and in emotional state.  
+
+The third face was inspired in combination by 1920's cartoon styles and the former street artist duo known as BMD. There are slide controls for; ear length, number of eyes, look direction, mouth size, and face orientation. Like the previous character, this design again offered potential for different designs through both form, and emotion.  
