@@ -1,7 +1,7 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var numWidth = 8;
-var numHeight = 12;
+var numWidth = 4;
+var numHeight = 6;
 var button;
 var face;
 var curRandomSeed;
@@ -191,7 +191,7 @@ function getRandomColor() {
 
 function getRandomFace() {
   random_face = focusedRandom(0, 100);
-  if(random_face < 50) {
+  if(random_face < 15) {
     return face = 1;
   }
   else {
@@ -230,8 +230,7 @@ function draw () {
       var y = h/2 + h*i;
       var x = w/2 + w*j;
 
-         // shift even rows over by half a face
-      if(i%2 == 0) {;
+        if(i%2 == 0) {;
         x = x + w/2;
         y = y + h/2;
       }
@@ -239,6 +238,7 @@ function draw () {
       // also random jitter
       x = x + focusedRandom(-max_shift, max_shift, 3);
       y = y + focusedRandom(-max_shift, max_shift, 3);
+
 
       if (face == 1){       
         skin_color = getRandomColor();
