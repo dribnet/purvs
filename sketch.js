@@ -71,6 +71,7 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   this.colour_random = random(-50,30);
 
   this.clothing = random(0,3);
+  this.accessory = random(0,3);
 
   this.tilt_direction = false;
   this.eye_direction = false;
@@ -102,7 +103,7 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
     }else{
       this.scale_b = map(this.x,900,960,80,80);
     }
-    /*
+    
     if (this.tilt_value < 0){
         this.tilt_direction = true;
     }else if (this.tilt_value > 100){
@@ -134,7 +135,7 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
     }else{
       this.chain_scale -= .1;
     }
-    */
+    
     var scale = this.scale_b / 250.0;
     var chain_value = this.chain_scale * scale;
 
@@ -300,18 +301,6 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
       vertex(0,map(this.eye_value,0,100,170* scale,300* scale));
       endShape();
 
-      fill(212,175,55);
-      ellipse(55* scale,133* scale,chain_value,chain_value);
-      ellipse(47* scale,154* scale,chain_value,chain_value);
-      ellipse(35* scale,172* scale,chain_value,chain_value);
-      ellipse(22* scale,185* scale,chain_value,chain_value);
-      ellipse(11* scale,195* scale,chain_value,chain_value);
-      ellipse(0,200* scale,chain_value,chain_value);
-      ellipse(-11* scale,195* scale,chain_value,chain_value);
-      ellipse(-22* scale,185* scale,chain_value,chain_value);
-      ellipse(-35* scale,172* scale,chain_value,chain_value);
-      ellipse(-47* scale,154* scale,chain_value,chain_value);
-      ellipse(-55* scale,133* scale,chain_value,chain_value);
     }else{
       fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,0),map(this.eye_value,0,100,61,0));
       beginShape();
@@ -330,6 +319,12 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
       vertex(-60* scale,155* scale);
       vertex(0,170* scale);
       endShape();
+
+      fill(map(this.eye_value,0,100,247,31)-31,map(this.eye_value,0,100,193,31)-30,map(this.tilt_value,0,100,61,30)-30);
+      rect(10*scale,176*scale,45*scale,25*scale);
+
+    }
+    if(this.accessory < 1.2){
       fill(map(this.eye_value,0,100,247,0),map(this.tilt_value,0,100,193,0),map(this.eye_value,0,100,61,0));
       beginShape();
       vertex(0, -81* scale);
@@ -347,8 +342,19 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
       bezierVertex(0, -150* scale,65* scale, -150* scale, 65* scale,-104* scale);
       vertex(65* scale,-104* scale);
       endShape();
-      rect(10*scale,176*scale,45*scale,25*scale);
-
+    }else if(this.accessory < 2){
+      fill(212,175,55);
+      ellipse(55* scale,133* scale,chain_value,chain_value);
+      ellipse(47* scale,154* scale,chain_value,chain_value);
+      ellipse(35* scale,172* scale,chain_value,chain_value);
+      ellipse(22* scale,185* scale,chain_value,chain_value);
+      ellipse(11* scale,195* scale,chain_value,chain_value);
+      ellipse(0,200* scale,chain_value,chain_value);
+      ellipse(-11* scale,195* scale,chain_value,chain_value);
+      ellipse(-22* scale,185* scale,chain_value,chain_value);
+      ellipse(-35* scale,172* scale,chain_value,chain_value);
+      ellipse(-47* scale,154* scale,chain_value,chain_value);
+      ellipse(-55* scale,133* scale,chain_value,chain_value);
     }
     pop();
     }
