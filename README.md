@@ -22,5 +22,18 @@ I wanted to push myself in terms of code, as well as design and composition. I n
 Each of the 3 paramaterised faces I created is an object, and, instead of drawing directly to the canvas, draws to a graphics object. This also allows for the re-use of the same face  without the need to redraw it. 
 Iteration has robbed some of my function names, variable names, and even object names of their clarity, unfortunately. In the scramble to create a cohesive final image, a few things got added higgldy-piggldy but, considering the sheer quantity of code involved, it could definately be worse. I have tried to provide clear comments and explainations wherever possible, and I have mostly achieved that goal.
 
+ADDITIONAL VARIABLES AND RANDOMS USED IN THE FINAL COMPOSITION
+(for other decisions, and variables from other stages, including those detailing the features of the dolls, please see the 3 faces ReadMe)
+
+floor & frame color
+x possition of rising dolls
+hair colours (depends whether creepy or cute, uses focus)
+possitioning of dolls in pile (uses focus)
+occassional deviations in hair bow colour (focused)
+regularity of creepy vs cute
+focus on round faces and pointed noses in portraits
+
+
+
 
 
