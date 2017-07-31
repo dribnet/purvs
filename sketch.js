@@ -15,13 +15,13 @@ function setup () {
   angleMode(DEGREES);
 
   for (var i=0; i<8; i++) {
-    facesList.push(new drawFace(i * 160-160+random(0,40),150,random(0,100),random(0,100),random(0,10)));
+    facesList.push(new drawFace(i * 160-160,128,random(0,100),random(0,100),random(0,10)));
   }
   for (var i=0; i<8; i++) {
-    facesList.push(new drawFace(i * 160-160+random(0,40),300,random(0,100),random(0,100),random(0,10)));
+    facesList.push(new drawFace(i * 160-160,290,random(0,100),random(0,100),random(0,10)));
   }
   for (var i=0; i<8; i++) {
-    facesList.push(new drawFace(i * 160-160+random(0,40),450,random(0,100),random(0,100),random(0,10)));
+    facesList.push(new drawFace(i * 160-160,450,random(0,100),random(0,100),random(0,10)));
   }
 }
 
@@ -43,7 +43,6 @@ var colorHair = [20, 20, 0];
 function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   this.x = x;
   this.y = y;
-
   this.scale_b = 100;
   this.tilt_value = tilt_value;
   this.eye_value = eye_value;
@@ -65,6 +64,8 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
     this.clothing = random(0,3);
   }
   this.create = function(){
+    fill(map(this.tilt_value,0,100,91,150),map(this.eye_value,0,100,45,65),map(this.eye_value,0,100,12,120));
+    rect(this.x-80,this.y-128,160,height/3);
     push();
     this.x +=1;
     if (this.x > 1120){
