@@ -1,18 +1,24 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
 var curRandomSeed;
+
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
+// global variables for colors
+
+var bg_color1 = "pink";
+
+var ch3_bodyPrimary = "#cccccc";
+var ch3_bodySecondary = "#808080";
+var ch3_detailPrimary = "#000000";
+var ch3_detailSecondary = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
 
   curRandomSeed = int(focusedRandom(0, 100));
-
-  randButton = createButton('randomize');
-  randButton.mousePressed(changeRandomSeed);
-  randButton.parent('selector1Container');
 
   // draw strokes with rounded joints  
   strokeJoin(ROUND);
@@ -24,47 +30,53 @@ function setup () {
   angleMode(DEGREES);
 }
 
+// function to change seed
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
 }
 
-// global variables for colors
+// performs seed change function when mouse is clicked
+function mouseClicked() {
+  changeRandomSeed();
+}
 
-var bg_color1 = "pink";
-
-var ch3_bodyPrimary = "#cccccc";
-var ch3_bodySecondary = "#808080";
-var ch3_detailPrimary = "#000000";
-var ch3_detailSecondary = "#ffffff";
-
-function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidBottom_height, eyelidTop_height, eyebrow_height, eyeFront_PosX, eyeFront_PosY, eyeMiddle_PosX, eyeMiddle_PosY, eyeBack_PosX, eyeBack_PosY, face_select) {
+// draw function for the character face
+function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidBottom_height, eyelidTop_height, eyebrow_height, eyeFront_PosX, eyeFront_PosY, eyeMiddle_PosX, eyeMiddle_PosY, eyeBack_PosX, eyeBack_PosY, face_select, y_offset) {
   push();
   rectMode(CENTER);
+  // sets scale
   var scale = 0.25;
-  //var shadow_scale = map(y_offset, -5, 5, 200, 300);
+  // variable for character shadow
+  var shadow_scale = map(y_offset, -5, 5, 200, 300);
 
+    // checks orientation of character and sets translation accordingly
+    // if character vertical
     if (orientation_value == 2) {
-  translate(x - 15, y + 3);
+  translate(x - 15, y + 3 + y_offset);
     
     noStroke();
     fill(ch3_detailPrimary);
     push();
-    //translate(0, -y_offset);
-    //ellipse(45 * scale, 250 * scale, shadow_scale * scale, 30 * scale);
+    translate(0, -y_offset);
+    // draw shadow
+    ellipse(45 * scale, 250 * scale, shadow_scale * scale, 30 * scale);
     pop();
     } 
+    // if character horizontal
     else {
-    translate(x, y + 10);
+    translate(x, y + 10 + y_offset);
     
     noStroke();
     fill(ch3_detailPrimary);
     push();
-    //translate(0, -y_offset);
-    //ellipse(-10 * scale, 220 * scale, (shadow_scale + 100) * scale, 30 * scale);
+    translate(0, -y_offset);
+    // draw shadow
+    ellipse(-10 * scale, 220 * scale, (shadow_scale + 100) * scale, 30 * scale);
     pop();
     }
 
-
+    // if face style is not bird style draw back ear
     if (face_select != 1) {
     // ear (back)
   stroke(ch3_detailPrimary)
@@ -73,7 +85,8 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     rect(50 * scale, -150 * scale, 50 * scale, ear_length * scale, 100 * scale, 100 * scale, 0, 0);
     }
     
-  // eye (back)
+  // draw eye (back)
+  // check number of eyes
     if (eye_value === 2 || eye_value == 3) {
   stroke(ch3_detailPrimary)
   strokeWeight(7 * scale);
@@ -87,7 +100,9 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     strokeWeight(7 * scale);
     stroke(ch3_detailPrimary);
     fill(ch3_bodySecondary);
+    // top eyelid
     arc( eyeBack_PosX * scale, eyeBack_PosY * scale, 80 * scale, 80 * scale, 265 - eyelidTop_height, 275 + eyelidTop_height, CHORD);
+    // bottom eyelid
     arc( eyeBack_PosX * scale, eyeBack_PosY * scale, 80 * scale, 80 * scale, 85 - eyelidBottom_height, 95 + eyelidBottom_height, CHORD);
     // eyebrow
   stroke(ch3_detailPrimary)
@@ -96,6 +111,8 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     }
 
     // draw face
+    // checks orientation
+    // if horizontal
     if (orientation_value == 1) {
   stroke(ch3_detailPrimary)
   strokeWeight(10 * scale);
@@ -110,6 +127,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     fill(ch3_detailSecondary);
     ellipse(-160 * scale, 0, 30 * scale, 150 * scale);
     } 
+    // if vertical
     else {
   stroke(ch3_detailPrimary)
   strokeWeight(10 * scale);
@@ -126,6 +144,8 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     
     }
     
+    // checks face style
+    // if bird
     if (face_select == 1) {
         
             // draw beak
@@ -147,6 +167,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
           stroke(ch3_detailPrimary)
           strokeWeight(7 * scale);
           fill(ch3_detailSecondary);
+          // check teeth value
         if (teeth_value == 3 || teeth_value == 4 || teeth_value == 7 || teeth_value == 8) {
           arc(220 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
         } if (teeth_value == 5 || teeth_value == 6 || teeth_value == 7 || teeth_value == 8) {
@@ -154,7 +175,9 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
         } if (teeth_value == 1 || teeth_value == 2) {
         }
         
-    } else if (face_select == 2) {
+    } 
+    // if dog
+    else if (face_select == 2) {
         
                 // draw snout
           stroke(ch3_detailPrimary)
@@ -204,6 +227,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
           stroke(ch3_detailPrimary)
           strokeWeight(7 * scale);
           fill(ch3_detailSecondary);
+          // check teeth value
           if (teeth_value == 2 || teeth_value == 5 || teeth_value == 6 || teeth_value == 8) {
           arc(190 * scale, -5 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
           } 
@@ -217,7 +241,9 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
           }
         
     
-    } else {
+    } 
+    // if rabbit / bear
+    else {
     
             // draw mouth
           stroke(ch3_detailPrimary);
@@ -232,6 +258,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
           stroke(ch3_detailPrimary)
           strokeWeight(7 * scale);
           fill(ch3_detailSecondary);
+          // check teeth value
         if (teeth_value == 3 || teeth_value == 4 || teeth_value == 7 || teeth_value == 8) {
           arc(135 * scale, 20 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
         } if (teeth_value == 5 || teeth_value == 6 || teeth_value == 7 || teeth_value == 8) {
@@ -249,6 +276,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
          pop();
         }
     
+    // if not bird draw front ear
     if (face_select != 1) {
 
             // ear (front)
@@ -267,7 +295,8 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
         
     }
     
-    // eye middle
+    // draw eye middle
+    // check eye value
     if (eye_value === 1 || eye_value == 3) {
   stroke(ch3_detailPrimary)
   strokeWeight(7 * scale);
@@ -281,7 +310,9 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     strokeWeight(7 * scale);
     stroke(ch3_detailPrimary);
     fill(ch3_bodySecondary);
+    // top eyelid
     arc( eyeMiddle_PosX * scale, eyeMiddle_PosY * scale, 80 * scale, 80 * scale, 265 - eyelidTop_height, 275 + eyelidTop_height, CHORD);
+    // bottom eyelid
     arc( eyeMiddle_PosX * scale, eyeMiddle_PosY * scale, 80 * scale, 80 * scale, 85 - eyelidBottom_height, 95 + eyelidBottom_height, CHORD);
     // eyebrow
   stroke(ch3_detailPrimary)
@@ -290,6 +321,7 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     }
     
   // eye (front)
+  // check eye value
     if (eye_value === 2 || eye_value == 3) {
         // eye fill
     strokeWeight(7 * scale);
@@ -304,7 +336,9 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
     strokeWeight(7 * scale);
     stroke(ch3_detailPrimary);
     fill(ch3_bodySecondary);
+    // top eyelid
     arc( eyeFront_PosX * scale, eyeFront_PosY * scale, 80 * scale, 80 * scale, 265 - eyelidTop_height, 275 + eyelidTop_height, CHORD);
+    // bottom eyelid
     arc( eyeFront_PosX * scale, eyeFront_PosY * scale, 80 * scale, 80 * scale, 85 - eyelidBottom_height, 95 + eyelidBottom_height, CHORD);
     // eyebrow
   stroke(ch3_detailPrimary)
@@ -315,25 +349,34 @@ function drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_valu
   pop();
 }
 
+// main canvas draw function
 function draw () {
+
+  // timer for seed change
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
+  // draw background
   background(bg_color1);
-  // draw face
 
+  // draw face
   var w = canvasWidth / 5;
   var h = canvasHeight / 3; 
   
     for(var i=0; i<3; i++) {
       for(var j=0; j<5; j++) {
 
-        //var wave_offset = map((i + 1) * (j + 1), 0, 15, 0, 360);
-
-        //var y_offset = Math.sin((frameCount/50) + wave_offset) * 5;
+        // offset movement between characters
+        var wave_offset = map((i + 1) * (j + 1), 0, 15, 0, 360);
+        // y translation
+        var y_offset = Math.sin((frameCount/50) + wave_offset) * 5;
 
         var y = h/2 + h*i;
         var x = w/2 + w*j;
+        
         var ear_length = focusedRandom(90, 350, 0, 150);
         var eye_value = Math.floor(focusedRandom(1, 4, 3, 2.5));
         var look_direction = focusedRandom(-15, 15);
@@ -348,7 +391,7 @@ function draw () {
         var eye_PosX = 110;
         var eye_PosY = -50;
     
-    drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidTop_height, eyelidBottom_height, eyebrow_height, eye_PosX, eye_PosY, eye_PosX + 50, eye_PosY - 25, eye_PosX + 80, eye_PosY - 20, face_select);
+    drawFace1(x, y, w, h, ear_length, eye_value, look_direction, teeth_value, orientation_value, pupil_size, eyelidTop_height, eyelidBottom_height, eyebrow_height, eye_PosX, eye_PosY, eye_PosX + 50, eye_PosY - 25, eye_PosX + 80, eye_PosY - 20, face_select, y_offset);
   }
     } 
 }
