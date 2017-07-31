@@ -18,10 +18,10 @@ function setup () {
     facesList.push(new drawFace(i * 160-160,128,random(0,100),random(0,100),random(0,10)));
   }
   for (var i=0; i<8; i++) {
-    facesList.push(new drawFace(i * 160-160,290,random(0,100),random(0,100),random(0,10)));
+    facesList.push(new drawFace(i * 160-80,290,random(0,100),random(0,100),random(0,10)));
   }
   for (var i=0; i<8; i++) {
-    facesList.push(new drawFace(i * 160-160,450,random(0,100),random(0,100),random(0,10)));
+    facesList.push(new drawFace(i * 160-20,450,random(0,100),random(0,100),random(0,10)));
   }
 }
 
