@@ -1,11 +1,13 @@
 ## PS1 MDDN 342 2017
 
-In this drawing styles experiment I wanted to explore relatively distinct styles to get a range of designs and then pursue the development of the one I felt worked best.
+I chose to refine the 1920s style cartoon design. I felt this presented the most refined and unique style, whilst providing sufficient capacity for experimentation with parametric design in conveying distinct emotional states.
 
-Instead of building from the parametric design I decided to form a style I felt offered a unique appearance and build parametric features into the design.
+In the randomised set I introduced two new face styles for the character. This was to increase variety in the design and allude more strongly to my artist precedents.
 
-The first face represents an ogre type character. This utilised in part code for the Mike Wazowski character from part1. There are slide controls for; eyebrow height, pupil size, drowziness, mouth type, and face rotation. I largely focused on establishing variety in emotion through variations in eye related values. This was successful in creating different designs that were highly emotive, however  felt that the design itself was lacking in a distinct and refined style.
+I added a bird design and a dog design. These both provided new form to the style that helped break up the similar looking designs.
 
-With the second face I was looking to create different iterations through changes in hair styles. The slide controls change; afro size, mullet length, fringe length, beard size, and mouth type.  This design offered a large potential for varied designs both in physical appearance, and in emotional state.  
+I also opted for a new mouth design that I felt again more strongly suited the style and tone I was trying to convey. The changing number of teeth offered a further range of form and emotion.
 
-The third face was inspired in combination by 1920's cartoon styles and the former street artist duo known as BMD. There are slide controls for; ear length, number of eyes, look direction, mouth size, and face orientation. Like the previous character, this design again offered potential for different designs through both form, and emotion.  
+A further change I added was the inclusion of eyelids. This is largely one of the most significant inclusions in providing more emotional states in the design.
+
+I now felt that the degree of variety in form and emotion was sufficient in producing a successful output. My next task would be to look at potential iterations with colour and also distribution of certain variables. 
