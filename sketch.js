@@ -75,7 +75,14 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   this.tilt_direction = false;
   this.eye_direction = false;
   this.chain_direction = false;
-
+  this.randomised = function(){
+    this.scale_b = 100;
+    this.tilt_value = random(0,100);
+    this.eye_value = random(0,100);
+    this.chain_scale = random(0,10);
+    this.colour_random = random(-50,30);
+    this.clothing = random(0,3);
+  }
   this.create = function(){
     push();
     this.x +=1;
@@ -346,7 +353,11 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
     pop();
     }
 }
-
+function mouseClicked(){
+  for (var i=0; i<facesList.length; i++) {
+    facesList[i].randomised();
+  }
+}
 function draw () {
   noStroke();
 
