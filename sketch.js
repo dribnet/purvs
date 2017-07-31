@@ -169,10 +169,10 @@ var axolotlEyes = '#0E257C';
 
 var waveAngles = [
     [   // left
-        5, 30, 75
+        90, 30, 75
     ],
     [   // right
-        40, 65, 90
+        40, 65, 5
     ]
 ];
 
@@ -225,7 +225,7 @@ function drawAxolotl(args) {
     for (var i = 0; i < 2; i++) {
         for (var j = 0; j < 3; j++) {
             waveAngles[i][j] += 1.59;
-            waveFlexes[i][j] += 1.37;
+            waveFlexes[i][j] += 0.87;
         }
     }
 
@@ -235,9 +235,15 @@ function drawAxolotl(args) {
     ellipseMode(RADIUS);
     ellipse(0, 0, headWidth, headHeight);
 
-    fill(axolotlEyes);
-    ellipse(-headWidth/2, -headHeight/3, 0.02, 0.02);
-    ellipse(headWidth/2, -headHeight/3, 0.02, 0.02);
+    // EYES
+    push();
+    {
+        translate((mouseX-width/2)/width/10, (mouseY-height/2)/height/10);
+        fill(axolotlEyes);
+        ellipse(-headWidth/2, -headHeight/3, 0.02, 0.02);
+        ellipse(headWidth/2, -headHeight/3, 0.02, 0.02);
+    }
+    pop();
 
     // MOUTH
     var smileMagnitude = 0.15;
