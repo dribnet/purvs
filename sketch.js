@@ -65,14 +65,14 @@ function drawFace(x, y, tilt_value, eye_value, chain_scale) {
   }
   this.create = function(){
     fill(map(this.tilt_value,0,100,91,150),map(this.eye_value,0,100,45,65),map(this.eye_value,0,100,12,120));
-    rect(this.x-80,this.y-128,160,height/3);
+    rect(this.x-80,this.y-128,160,height- (this.y-128));
     push();
     this.x +=1;
     if (this.x > 1120){
       this.x -= 1280;
       this.clothing = random(0,3);
     }
-    translate(this.x, this.y);
+    translate(this.x, this.y +4);
     translate(0,-70);
     //rotate(tilt_value);
     var extent = 0;
