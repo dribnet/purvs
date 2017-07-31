@@ -65,43 +65,41 @@ function draw () {
 
     if (mode == 'Axolotl' || mode == 'all') {
         // BACKGROUND
-        noStroke();
-        fill(julesBackground);
-        rect(0, 0, canvasWidth/2, canvasHeight);
-
+        background(julesBackground);
+        var happiness = 1 - dist(width/2, height/2, mouseX, mouseY) / dist(0, 0, width/2, height/2);
         // draw 1st face
         push();
-        translate(960/4, 500/2);
-        scale(220, 220);
+        translate(width/2, height/2);
+        scale(300, 300);
         //rotate(4);
         //drawJules();
         drawAxolotl({
-            angleOffset:map(s1, 0, 100, -80, 20),
-            gillLength:map(s2, 0, 100, 0, 1.2),
-            smile:map(s3, 0, 100, 240, 120),
+            angleOffset:map(happiness, 0, 1, -80, 20),
+            gillLength:1.2,
+            smile:map(happiness, 0, 1, 240, 120),
         });
         pop();
     }
 
-    if (mode == 'Afro' || mode == 'all') {
-        noStroke();
-        fill(princeBackground);
-        rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
-
-        push();
-        translate(960*3/4, 500/2-100);
-        scale(150, 150);
-        //rotate(4);
-        drawPrince({
-            stacheWeight:map(s1, 0, 100, 0, 8),
-            stacheBreadth:map(s2, 0, 100, 0, 9),
-            stacheLength:map(s3, 0, 100, -1, 10),
-            browShear:map(s4, 0, 100, -20, 20),
-            browWeight:map(s1, 0, 100, 0, 3),
-            afroRadius:map(s5, 0, 100, 0, 1.5),
-        });
-        pop();
-    }
+    // if (mode == 'Afro' || mode == 'all') {
+    //     noStroke();
+    //     fill(princeBackground);
+    //     rect(canvasWidth/2, 0, canvasWidth/2, canvasHeight);
+    //
+    //     push();
+    //     translate(960*3/4, 500/2-100);
+    //     scale(150, 150);
+    //     //rotate(4);
+    //     drawPrince({
+    //         stacheWeight:map(s1, 0, 100, 0, 8),
+    //         stacheBreadth:map(s2, 0, 100, 0, 9),
+    //         stacheLength:map(s3, 0, 100, -1, 10),
+    //         browShear:map(s4, 0, 100, -20, 20),
+    //         browWeight:map(s1, 0, 100, 0, 3),
+    //         afroRadius:map(s5, 0, 100, 0, 1.5),
+    //     });
+    //     pop();
+    // }
 
     // if (mode == '3' || mode == 'all') {
     //     // draw 3nd face
@@ -169,6 +167,15 @@ var axolotlMouth = '#FF70FF';
 var axolotlGills = '#CC1968';
 var axolotlEyes = '#0E257C';
 
+var gillWaves = [
+    [   // left
+        5, 30, 75
+    ],
+    [   // right
+        40, 65, 90
+    ]
+];
+
 function drawAxolotl(args) {
     push();
     noStroke();
@@ -197,14 +204,20 @@ function drawAxolotl(args) {
     var gillLength = 0.6 * args.gillLength;
     var gillWidth = 0.175;
 
-    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset, false);
-    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset, true);
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(gillWaves[0][0]), false);
+    gill(50, 0 - args.angleOffset/3, gillLength, gillWidth, -45 + args.angleOffset + 10*sin(gillWaves[1][0]), true);
 
-    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, false);
-    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, true);
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[0][1]), false);
+    gill(70, 70 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[1][1]), true);
 
-    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, false);
-    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset, true);
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[0][2]), false);
+    gill(90, 90 - args.angleOffset/3, gillLength, gillWidth, 45 + args.angleOffset + 10*sin(gillWaves[1][2]), true);
+
+    for (var i = 0; i < 2; i++) {
+        for (var j = 0; j < 3; j++) {
+            gillWaves[i][j] += 1 ;
+        }
+    }
 
     // FACE
 
