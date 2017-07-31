@@ -16,6 +16,11 @@ var ghost2X = -99999;
 var ghost2Y = -999999;
 var ghost3X= -99999;
 var ghost3Y= -999999;
+var lastSwapTime = 0;
+var millisPerSwap = 20000;
+var frameR =255;
+var frameG =255;
+var frameB =255;
 
 function setup () {
 // create the drawing canvas, save the canvas element
@@ -23,13 +28,10 @@ var main_canvas = createCanvas(canvasWidth, canvasHeight);
 main_canvas.parent('canvasContainer');
 //randomization
 curRandomSeed = int(focusedRandom(0, 100));
-randButton = createButton('randomize');
-randButton.mousePressed(changeRandomSeed);
-randButton.parent('selector1Container');
 
   // create scale slider
   slider1 = createSlider(0, 100, 0);
-  slider1.parent('slider1Container');
+ 
   
 //create the other objects
 slids = new SliderValues();
@@ -48,6 +50,11 @@ patterned = new PatternFace(canvasWidth/3,canvasHeight,slids);
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+lastSwapTime = millis();
+}
+
+function mouseClicked() {
+  changeRandomSeed();
 }
 
 // global variables for colors
@@ -107,10 +114,12 @@ pop();
 }
 
 function draw () {
-
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
 //puts dolls in the ghost array
  slids.randomSliders(focusedRandom(0,100,2,80), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100, 3, 20),focusedRandom(0,100),focusedRandom(0,100,2,60),focusedRandom(0,100));
-  
+  resetFocusedRandom(curRandomSeed);
 //instructs the doll object to draw itself onto a graphics object
   var doll = dolly.drawFace();
   ghosts[2] =  doll;
@@ -151,20 +160,38 @@ if(false){
       var h = (canvasHeight / 2.7)*macScale;
       var sizing = 8;
 
-//creates a pile of doll heads
+
+//sets the frame color to match the floor
+//draws the portraits on the wall
+fill(frameR, frameG, frameB);
 rectMode(CENTER);
 rect(canvasWidth/3, canvasHeight/3, w*2, h*1.5);
+fill(255);
+rect(canvasWidth/3, canvasHeight/3, w*1.8, h*1.3);
   drawFace2(canvasWidth/3, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+     //sets the frame color to match the floor
+       fill(frameR, frameG, frameB);
      rectMode(CENTER);
       rect(canvasWidth/3+canvasWidth/3, canvasHeight/3, w*2, h*1.5);
-
+fill(255);
+rect(canvasWidth/3+canvasWidth/3, canvasHeight/3, w*1.8, h*1.3);
        drawFace2(canvasWidth/3+canvasWidth/3, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
-       rectMode(CENTER);
+       
+       //sets the frame color to match the floor
+       fill(frameR, frameG, frameB);
+        rectMode(CENTER);
       rect(canvasWidth, canvasHeight/3, w*2, h*1.5);
+      fill(255);
+rect(canvasWidth, canvasHeight/3, w*1.8, h*1.3);
        drawFace2(canvasWidth, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+       //sets the frame color to match the floor
+       fill(frameR, frameG, frameB);
        rectMode(CENTER);
       rect(0, canvasHeight/3, w*2, h*1.5);
+      fill(255);
+rect(0, canvasHeight/3, w*1.8, h*1.3);
        drawFace2(0, canvasHeight/3, w*2, h*2, tilt_value, eye_value, mouth_value);
+     //creates a pile of doll heads
       for(var i=0; i<5; i++) {
         for(var j=0; j<5; j++) {
           if (i == 1){var q = 20;}
@@ -186,10 +213,21 @@ else{
 }
   }
   }
- //sideways face in the middle at the front
+ //shadow and sideways face in the middle at the front
+  push();
+  fill(0,0,0,66);
+  ellipse(canvasWidth/3-20, canvasHeight/1.2+30, w+12,h/3);
+  pop();
   drawFace1(canvasWidth/3, canvasHeight/1.2, w, h, -80, eye_value, mouth_value);
-  //upside down face to the left
+  
+
+  //shadow and upside down face to the left
+   push();
+  fill(0,0,0,55);
+  ellipse(15+canvasWidth/18, canvasHeight/1.1, w+(w/4),h/2);
+  pop();
   drawFace1(canvasWidth/18, canvasHeight/1.2, w+(w/4), h+(h/4), 133, eye_value, mouth_value);
+ 
   movingDolls(w,h);
 
     
@@ -223,13 +261,13 @@ ghost3X = focusedRandom(30,canvasWidth-20);
 }
 image(ghosts[1],ghost1X, ghost1Y, w, h);
 //ellipse(canvasWidth/2, ghost1Y,1000,1000);
-ghost1Y-=5;
+ghost1Y-=3;
 image(ghosts[2],ghost2X, ghost2Y, w, h);
 //ellipse(canvasWidth/2, ghost1Y,1000,1000);
-ghost2Y-=3;
+ghost2Y-=2;
 image(ghosts[3],ghost3X, ghost3Y, w, h);
 //ellipse(canvasWidth/2, ghost1Y,1000,1000);
-ghost3Y-=7;
+ghost3Y-=5;
   }
   function movingDolls(w,h){
 

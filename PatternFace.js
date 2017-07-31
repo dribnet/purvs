@@ -1,7 +1,7 @@
-//Uses masking to create a face with patterns
-//a patterned face, capable of modifying and drawing itself 
+//This object has been taken over for drawing the the room, particularly the floor patterns
 
 //setup
+//now patterned floor
 function PatternFace(w, h, sliders){
 //the dimensions of the graphics object to be drawn
 this.w = w;
@@ -15,12 +15,12 @@ this.bgC = createGraphics(w*2,h*2);
 this.mC = createGraphics(w*2,h*2);
 this.bg1 = createGraphics(w*2,h*2);
 this.m1 = createGraphics(w*2,h*2);
-//the individual R,G,B values of the skin colour
+//the individual R,G,B values of what was the skin colour, now the floor
 this.skinRed = 0;
 this.skinGreen = 0;
 this.skinBlue = 0;
 
-//returns the graphics object with the new pattern face drawn on it
+//returns the graphics object with the new patterned room drawn on it
 this.drawFace = function(){
 	//clears off and resets all the masking graphics objects
 	this.bg1.clear();
@@ -47,6 +47,14 @@ this.drawFace = function(){
 
 	//does the drawing
 	this.mainDraw();
+	//draws the shadow under the main doll pile
+	this.c.fill(0,0,0,66);
+	this.c.noStroke();
+	this.c.ellipse(32, 90, 88,66);
+
+
+	//draws the wall
+
 	this.c.fill(254,236,171);
 	this.c.rectMode(CENTER);
 	this.c.rect(0,-canvasWidth/2.2,canvasWidth, canvasWidth);
@@ -78,7 +86,7 @@ this.mainDraw = function(){
 	//setup for drawing the face shape
 	this.mC.clear();
 	
-	//draws the pattern for the face onto bgC
+	//draws the pattern for the floor
 	this.skinPattern();
 	this.mC.fill(0);
 	this.mC.ellipse(0,0,w,w);
@@ -95,24 +103,27 @@ this.mainDraw = function(){
 	this.mC.ellipse(0,-55,110,40);
 
 }
-//draws the face pattern onto c
+//draws the flower pattern onto c
 this.skinPattern = function(){
-	//selects a skin color based on slider 2
+	//selects a floor color based on slider 2
 	this.check = this.sliders.scaleSliders(2,1,6,true);
+
 	if(this.check == 1){
 		this.skinRed = 167;
 		this.skinGreen = 202;
 		this.skinBlue = 219;
+
 	}
 	else if(this.check == 2){
-		this.skinRed = 151;
-		this.skinGreen = 102;
-		this.skinBlue = 52;
-	}
-	else if(this.check == 3){
+		//brown
 		this.skinRed = 200;
-		this.skinGreen = 0;
-		this.skinBlue = 200;
+		this.skinGreen = 150;
+		this.skinBlue = 100;
+	}
+	else if(this.check == 3){ 
+		this.skinRed = 155;
+		this.skinGreen = 155;
+		this.skinBlue = 225;
 	}
 	else if(this.check == 4){ 
 		this.skinRed = 244;
@@ -124,6 +135,11 @@ this.skinPattern = function(){
 		this.skinGreen = 225;
 		this.skinBlue = 171;
 	}
+
+	//sets the frame color in the main sketch to match the floor
+	frameR = this.skinRed-40;
+	frameG = this.skinGreen-40;
+	frameB = this.skinBlue-40;
 
 	this.c.background(this.skinRed,this.skinGreen,this.skinBlue);
 	
