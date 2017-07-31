@@ -1,8 +1,8 @@
 ## PS1 MDDN 342 2017
 
-The style I chose to develop over the course of this project was largely inspired by the former street artist dui, BMD. It was also heavily inspired by early 1920s cartoons and also modern adaptations of this style such as the video game Cuphead.
+The style I chose to develop over the course of this project was largely inspired by the former street artist duo, BMD. It was also heavily inspired by early 1920s cartoons and also modern adaptations of this style such as the video game Cuphead.
 
-When regarding this project I approached it with a design first perspective. I created my intial design in Illustrator. When I had created a form I felt was unique and successful I moved to working with code to re-create the design. Working design first allowed me to refine this design without the restrictions of thinking about the parameterised features. I felt this was a key factor in the refined style I was able to produce.
+When regarding this project I approached it with a design first perspective. I created my intial design in Illustrator. When I had created a form I felt was unique and successful I moved to working with code to re-create the design. Working design first allowed me to refine this concept without the restrictions of thinking about the parameterised features. I felt this was a key factor in the refined style I was able to produce.
 
 Once I had re-created the form in code I started to consider which features could be adapted into parameterised values. I looked at randomising look direction, orientation, ear length, and eye and teeth number.
 
