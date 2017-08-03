@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+      "sha": "04eddf81d60f2e7e5c08151f2fc8cdc8a50a23e7",
+      "name": "Actual size gallery"
+    },
+    {
       "sha": "d8df87039f9a1b6d5df70d1d360b313794fbb1d0",
       "name": "final"
     },
