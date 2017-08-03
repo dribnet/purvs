@@ -1,9 +1,7 @@
 ## PS1 MDDN 342 2017
 
-This README explains the three different paramaterized faces for part2. 
+For the final composition I decided to create a scene to put the faces into context. The conveyer belt felt like a natural progression as the faces seem like a thing that would be pumped out in large quantities.
 
-In my case, in each of my faces I use 3 sliders. For the first face I used my previous solution but added controls for the tilt, mouth openess, and number of eyes.
+I would have loved for the final composition to be animated but this was beyond my skill level. Having more faces generated constantly as oppoesed to changing on a click. 
 
-In the second version I was mostly thinking about eyes and hair. For the eyes, there is a true/false variable which determines if the face is blinking as well as a continuous variable for shifting the eye left and right. The hair ranges from stubble to bushy.
-
-In the third face I tried out a darker robot idea. This robot is always staring right at you and might have a wide or narrow head. His middle eye is a lazy eye.
+Overall I am happy with my composition.
