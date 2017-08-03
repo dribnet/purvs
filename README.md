@@ -26,4 +26,4 @@ I've been experimenting with the layout and how I want to present my final work.
 
 UPDATE
 
-project is now complete.
+project is now complete. I've added some styling to the background and kept a minimal amount of faces of screen. the smaller changes that you only get sometimes include the pig smiling, the monkey with his eyes open and the panda with all freckles. I kept my layout and animals very minimalistic and am happy with the result.
