@@ -24,7 +24,7 @@ function changeRandomSeed() {
 // global variables for colors
 var white = [255,255,255];
 var lightGray = [220,220,220];
-var shadow = [0,25];
+var shadow = [0,30];
 var shadowLight = [255,65];
 
 //color schemes
