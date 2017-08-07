@@ -8,11 +8,32 @@ function Face() {
   this.eye_value = 2;
   this.mouth_value = 0;
 
+
   // other variables can be in here too
   // these control the colors used
   this.bg_color = [225, 206, 187];
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
+
+  // rotation in degrees
+  angleMode(DEGREES);
+  rectMode(CENTER);
+  colorMode(HSB);
+  noStroke();
+
+  var bert_drawFace = color(45, 90, 95)
+  var bert_nose = color(29, 96, 94)
+
+  var ernie_drawFace = color(30, 90, 92)
+  var ernie_drawEars = color(30, 90, 75);
+  var ernie_nose = "rgb(218, 10, 31)" //red
+
+  var mouth = color(351, 100, 55)
+
+  var oscar_drawFace = color(75, 80, 50)
+  var oscar_brow = color(23, 80, 30)
+
+  var elmo_face_color = color(0, 100, 80);
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -28,44 +49,48 @@ function Face() {
 
     push();
     translate(x, y);
-    rotate(this.tilt_value);
+    rotate(this.tilt_value/2);
+    scale(w/350);
 
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
+    //ears
+    var rotation = -30;
+    fill(ernie_drawEars);
+    translate(-290/2, -10);
+    rotate(rotation)
+    ellipse(0, 0, 60, 70);
+    rotate(-rotation)
+    translate(290, 0);
+    rotate(-rotation)
+    ellipse(0, 0, 60, 70);
+    rotate(rotation)
+    translate(-290/2, 10);
 
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
+    fill(ernie_drawFace);
+    ellipse(0, 0, 290, 230);
 
-    // eyes
-    if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
+    drawMouthEllipse(0, 30, 230, 50, 0.8-0.4*this.mouth_value/100, mouth, ernie_drawFace);
 
-    if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+    // set fill to match background color
+    var rotation = -40;
 
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
+    fill("white");
+    // draw two eyes
+    rotate(rotation)
+    ellipse(-10, -50, 60, 50);
+    rotate(-rotation*2)
+    ellipse(10, -50, 60, 50);
+    rotate(rotation)
 
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    // set fill back to black for eyeballs
+    fill("black");
+    rotate(rotation)
+    ellipse(5-this.eye_value/100*20, -50, 25, 25);
+    rotate(-rotation*2)
+    ellipse(-5+this.eye_value/100*20, -50, 25, 25);
+    rotate(rotation)
+
+    fill(ernie_nose)
+    ellipse(0, 5, 65, 70);
     pop();
   }
 
@@ -135,6 +160,29 @@ function Face() {
     this.eye_value = getRandomNumberOfEyes();
     this.tilt_value = focusedRandom(-70, 90, 8);
     this.mouth_value = focusedRandom(0, 50, 4, 1);
+  }
+
+  function drawMouthArc(x, y, width, height, mouthColor, inverse){
+    //default to 0
+    inverse |= false
+
+    fill(mouthColor);
+    if(inverse)
+      arc(x, y+height, width, height*2, 180, 180, CHORD)
+    else
+      arc(x, y, width, height*2, 0, 180, CHORD)
+  }
+
+  function drawMouthEllipse(x, y, width, height, ellipseMod, mouthColor, faceColor){
+    var ellipseHeight = height*2*ellipseMod;
+    var ellipseY = y-height+ellipseHeight/2
+    // mouth-hole with background color
+    fill(mouth);
+    ellipse(x, y, width, height*2);
+
+    //cut out mouth
+    fill(ernie_drawFace);
+    ellipse(x, ellipseY, width*1.1, ellipseHeight*1.1);
   }
 }
 
