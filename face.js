@@ -4,14 +4,19 @@
 function Face() {
   // these are state variables for a face
   // (your variables may be different)
-  this.tilt_value = 0;
   this.eye_value = 2;
+  this.eye_size = 0;
   this.mouth_value = 0;
+  this.bread_value = 0;
+  this.colour_value = 0;
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
-  this.fg_color = [151, 102, 52];
+  this.bg_color = [47, 59, 64];
+
+  this.fg_color1 = [255, 231, 191];
+  this.fg_color2 = [224,177,120];
+  this.fg_color3 = [59, 52, 44];
   this.stroke_color = [95, 52, 8];
 
   /*
@@ -28,8 +33,7 @@ function Face() {
 
     push();
     translate(x, y);
-    rotate(this.tilt_value);
-
+    rectMode(CENTER);
     var extent = 0;
     if(h < w) {
       extent = h / 2;
@@ -39,33 +43,58 @@ function Face() {
     }
     var scale = extent / 220.0;
 
+    //crust
+    fill(136, 106, 75);
+    rect(0, 30 * scale, (335 * scale) + this.bread_value, 335 * scale, 7);
+    ellipse(-60 * scale, -130 * scale, (240 * scale) + this.bread_value, (150 * scale) + this.bread_value);
+    ellipse(60 * scale, -130 * scale, (240* scale) + this.bread_value, (150 *scale) + this.bread_value);
+
     // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
     noStroke();
 
+    if (this.colour_value <= 1){
+      fill(this.fg_color1);
+      }
+      if (this.colour_value == 2){
+        fill(this.fg_color2);
+      }
+    if (this.colour_value > 2){
+      fill(this.fg_color3);
+    }
+
+    rect(0, 30 * scale, (300 * scale) + this.bread_value, 300 * scale, 5);
+    ellipse(-60 * scale, -130 * scale, (200 * scale) + this.bread_value, (120 * scale) + this.bread_value);
+    ellipse(60 * scale, -130 * scale, (200* scale) + this.bread_value, (120 *scale) + this.bread_value);
+
+
+
+
     // eyes
-    if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+    if (this.eye_value === 1) {
+    fill(176, 36, 26);
+    ellipse(0, -70 * scale, (100 * scale) + this.eye_size, (100 * scale)+ this.eye_size);
+
+    fill(240,82,67);
+    ellipse(0, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
     }
 
     if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+    fill(176, 36, 26);
+    ellipse(-70 * scale, -70 * scale, (100 * scale)+ this.eye_size, (100 * scale)+ this.eye_size);
+    ellipse( 70 * scale, -70 * scale, (100 * scale)+ this.eye_size, (100 * scale)+ this.eye_size);
 
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+    fill(240,82,67);
+    ellipse(-70 * scale, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
+    ellipse( 70 * scale, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
     }
 
     // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    fill(219, 200, 124);
+    stroke(70, 145, 31);
+    strokeWeight(1.5);
+    arc(0, 120 *scale, 180 * scale, 100 * scale, 180 , PI);
+    noStroke();
+
     pop();
   }
 
@@ -108,7 +137,7 @@ function Face() {
 
     // head
     stroke(this.stroke_color);
-    fill(this.fg_color);
+    fill(this.fg_color1);
     ellipse(0, 0, 300 * scale, 400 * scale);
     noStroke();
 
@@ -123,7 +152,7 @@ function Face() {
     ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
 
-    fill(this.fg_color);
+    fill(this.fg_color1);
     ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
   }
@@ -131,22 +160,34 @@ function Face() {
   /*
    * Update internal state variables to a random state.
    */  
-  this.randomize = function(values, size) {
+  this.randomize = function() {
     this.eye_value = getRandomNumberOfEyes();
-    this.tilt_value = focusedRandom(-70, 90, 8);
     this.mouth_value = focusedRandom(0, 50, 4, 1);
+    this.bread_value = focusedRandom(-10, 10);
+    this.eye_size = focusedRandom(-5, 7);
+    this.colour_value = getRandomColour();
   }
 }
 
 // global functions can also be in this file below
 
-function getRandomNumberOfEyes() {
+function getRandomColour() {
   random_result = focusedRandom(0, 100);
-  if(random_result < 8) {
+  if(random_result < 30) {
     return 1;
   }
-  else if(random_result < 12) {
+  else if(random_result < 90) {
+    return 2;
+  }
+  else{
     return 3;
+  }
+}
+
+function getRandomNumberOfEyes() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 50) {
+    return 1;
   }
   else {
     return 2;

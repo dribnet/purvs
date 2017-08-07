@@ -1,8 +1,1 @@
-## PS1 MDDN 342 2017
-
-
-Final README.
-
-This should include a summary of all of the work leading up to the final version (which I am omitting in this example), so it should be longer than the other READMEs.
-
-In my final version I have used a shifted grid layout with some jitter.
+I have started copying across my code from ps1. I have had to tweak some sizing and increased the variation of the shapes. I still have some shapes to update and would like to add more features to the face such as more food.
