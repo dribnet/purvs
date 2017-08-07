@@ -1,8 +1,8 @@
-## PS1 MDDN 342 2017
+## PS2 MDDN 342 2017
 
 
-Final README.
+In this introduction to Problem Set 2 I linked my existing refined portraits style from Problem Set 1. I had to adjust the scale modifier so that the faces would sit within the determined drawing space. 
 
-This should include a summary of all of the work leading up to the final version (which I am omitting in this example), so it should be longer than the other READMEs.
+Moving forward I think I will opt to use one of my other drawing styles from Problem Set 1. I would rather use a front facing design as opposed to the side-on view of the current style. 
 
-In my final version I have used a shifted grid layout with some jitter.
+My goals for this project are to produce designs that are recognisably derivative from the photograph they come from. I felt that I would not be able to get this effect using the current stylised design, instead I think it would be better to use a more humanoid design.
