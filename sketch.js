@@ -77,7 +77,7 @@ function setup () {
 
   for(var i=0; i<faceData.length; i++) {
    var data = faceData[i];
-   data.image = loadImage(data.url) 
+   data.image = loadImage(data.url)
   }
 
   faceSelector = createSelect();
@@ -91,7 +91,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [245,245,245];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
