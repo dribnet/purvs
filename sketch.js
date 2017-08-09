@@ -92,7 +92,7 @@ function setup () {
 
 // global variables for colors
 var bg_color1 = [225, 206, 187];
-var bg_color1 = 50;
+var bg_color1 = 0;
 //var bg_color1 = focusedRandom(100,200);
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
