@@ -75,7 +75,7 @@ function Face() {
 		ellipse(0, 100 * scale, this.mouth_value_W * scale, this.mouth_value_H * scale);
 
 		//nose
-		if (this.hasNose) triangle(0, 0, -3*scale, 8*scale, 3*scale, 8*scale);
+		if (this.hasNose) triangle(0, 0, -20*scale, 60*scale, 20*scale, 60*scale);
 
 
 		pop();
