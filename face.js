@@ -10,16 +10,29 @@ function Face() {
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
-  this.fg_color = [151, 102, 52];
+  this.bg_color = [100, 100, 100];
+  this.fg_color = [100, 100, 100];
   this.stroke_color = [95, 52, 8];
+
+  this.face_width = 300;
+  this.cheek_value = 15;
+  this.chin_value = 2;
+
+  this.faceColor = ["#ebcebb", "#ffd5be", "#f6cfaf", "#CAA288", "#D7A595", "#8c6652"];
+
+
+
 
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
    */  
+
+ 	
+
   this.draw1 = function(x, y, w, h) {
     // Uncomment to see drawing area
+
     // fill(255);
     // stroke(0);
     // rect(x-w/2, y-h/2, w, h);
@@ -37,35 +50,73 @@ function Face() {
     else {
       extent = w / 2;
     }
-    var scale = extent / 220.0;
+    var size = extent / 220.0;
 
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
+    // face shape
+    this.generateFaceShape = function(){
+    push();
+    h_offset = h/10;
+  	translate(-w/4, (-h/2)+h_offset);
+  	scale(0.2, 0.2);
+	stroke(this.stroke_color);
+	fill(this.faceColor[this.color_value]);
+	beginShape();
+	curveVertex(98, 300);
+	curveVertex((this.face_width/2)-2, 25);
+	curveVertex(45, 30);
+	curveVertex(5, 110);
+	curveVertex(0, 180);
+	curveVertex(20 - this.cheek_value, 250 - this.cheek_value);
+	curveVertex(38, 280);
+	curveVertex(108 + this.chin_value, 335 + this.chin_value);
+	curveVertex(138, 300);
+	curveVertex(128, 100);
+	curveVertex(123, 20);
+	endShape();
+	noStroke();
+	beginShape();
+	curveVertex(100, w);
+	curveVertex(this.face_width/2, 25);
+	curveVertex(45, 30);
+	curveVertex(5, 110);
+	curveVertex(0, 180);
+	curveVertex(20 - this.cheek_value, 250 - this.cheek_value);
+	curveVertex(40, 280);
+	curveVertex(108 + this.chin_value, 335 + this.chin_value);
+	curveVertex(140, 300);
+	curveVertex(130, 100);
+	curveVertex(125, 20);
+	endShape();
+	pop();
+	}
+
+	this.generateFaceShape();
+	push();
+	scale(-1, 1);
+	this.generateFaceShape();
+	pop();
 
     // eyes
     if (this.eye_value === 1 || this.eye_value == 3) {
       fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
+      ellipse( 0, -80 * size, 50 * size, 30 * size);
       fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+      ellipse(-10 * size, -80 * size, 20 * size, 20 * size);
     }
 
     if (this.eye_value >= 2) {
       fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+      ellipse(-50 * size, -80 * size, 50 * size, 30 * size);
+      ellipse( 50 * size, -80 * size, 50 * size, 30 * size);
 
       fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+      ellipse(-60 * size, -80 * size, 20 * size, 20 * size);
+      ellipse( 40 * size, -80 * size, 20 * size, 20 * size);
     }
 
     // mouth
     fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    ellipse(0 * size, 70 * size, 150 * size, this.mouth_value * size);
     pop();
   }
 
@@ -74,59 +125,59 @@ function Face() {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
-  this.draw2 = function(positions) {
-    var nose_pos = average_point(positions.nose_bridge);
-    var eye1_pos = average_point(positions.left_eye);
-    var eye2_pos = average_point(positions.right_eye);
-    var half_height = positions.chin[7][1] - nose_pos[1];
-    var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+  // this.draw2 = function(positions) {
+  //   var nose_pos = average_point(positions.nose_bridge);
+  //   var eye1_pos = average_point(positions.left_eye);
+  //   var eye2_pos = average_point(positions.right_eye);
+  //   var half_height = positions.chin[7][1] - nose_pos[1];
+  //   var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
-    var x = nose_pos[0];
-    var y = nose_pos[1];
-    var w = 2 * face_width;
-    var h = 2.5 * half_height;
+  //   var x = nose_pos[0];
+  //   var y = nose_pos[1];
+  //   var w = 2 * face_width;
+  //   var h = 2.5 * half_height;
 
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
+  //   var extent = 0;
+  //   if(h < w) {
+  //     extent = h / 2;
+  //   }
+  //   else {
+  //     extent = w / 2;
+  //   }
+  //   var size = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
+  //   // Uncomment to see drawing area
+  //   // fill(255);
+  //   // stroke(0);
+  //   // rect(x-w/2, y-h/2, w, h);
+  //   // fill(0)
+  //   // ellipse(x, y, w, h);
 
-    push();
-    translate(x, y);
-    rotate(this.tilt_value);
+  //   push();
+  //   translate(x, y);
+  //   rotate(this.tilt_value);
 
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
+  //   // head
+  //   stroke(this.stroke_color);
+  //   fill(this.fg_color);
+  //   ellipse(0, 0, 300 * size, 400 * size);
+  //   noStroke();
 
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-    pop();
+  //   // mouth
+  //   fill(this.bg_color);
+  //   ellipse(0 * size, 70 * size, 150 * size, this.mouth_value * size);
+  //   pop();
 
-    noStroke();
+  //   noStroke();
 
-    fill(this.bg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
+  //   fill(this.bg_color);
+  //   ellipse(eye1_pos[0], eye1_pos[1], 50 * size, 30 * size);
+  //   ellipse(eye2_pos[0], eye2_pos[1], 50 * size, 30 * size);
 
-    fill(this.fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
-  }
+  //   fill(this.fg_color);
+  //   ellipse(eye1_pos[0], eye1_pos[1], 20 * size, 20 * size);
+  //   ellipse(eye2_pos[0], eye2_pos[1], 20 * size, 20 * size);
+  // }
 
   /*
    * Update internal state variables to a random state.
@@ -135,6 +186,8 @@ function Face() {
     this.eye_value = getRandomNumberOfEyes();
     this.tilt_value = focusedRandom(-70, 90, 8);
     this.mouth_value = focusedRandom(0, 50, 4, 1);
+
+    this.color_value = Math.floor(focusedRandom(0, 6, 4, 1));
   }
 }
 
