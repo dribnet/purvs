@@ -7,10 +7,11 @@ function Face() {
   this.tilt_value = 0;
   this.eye_value = 2;
   this.mouth_value = 0;
+  this.brow_value = -30;
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
+   this.bg_color = [61,61,61]; 
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
 
@@ -37,37 +38,214 @@ function Face() {
     else {
       extent = w / 2;
     }
-    var scale = extent / 220.0;
+    var scale = extent / 140.0;
+      
+      
+    	random_result = focusedRandom(0, 100);
+        if(random_result < 40) {
+
+               rotate(20);
+
+        }
+        if(random_result < 20) {
+
+               rotate(-25);
+
+        }
+
+        else {
+ 		rotate(0);
+
+
+        }
+      
 
     // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
-
-    // eyes
-    if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+      fill(234, 209, 197);
+    beginShape();
+    vertex(-80* scale,0);
+    vertex(-50* scale, 70* scale);
+    vertex(-40* scale, 80* scale);
+    vertex(-10* scale, 100* scale);
+     vertex(0, 100* scale);
+    vertex(0, -105* scale);
+    vertex(-40* scale, -100* scale);
+    vertex(-70* scale, -70* scale);
+    endShape();
+    
+    push();
+    translate(-0.5,0);
+    beginShape();
+    vertex(80* scale,0);
+    vertex(50* scale, 70* scale);
+    vertex(40* scale, 80* scale);
+    vertex(10* scale, 100* scale);
+    vertex(0, 100* scale);
+    vertex(0, -105* scale);
+    vertex(40* scale, -100* scale);
+    vertex(70* scale, -70* scale);
+    endShape();
     pop();
+      
+      
+        //hair
+    fill(94, 57, 10);
+    
+    noStroke();
+     beginShape();
+  vertex(-30* scale,-110* scale);
+  vertex(0,-110* scale);
+  vertex(-2* scale,-70* scale);
+  vertex(-85* scale, -10* scale);
+    vertex(-70* scale, -70* scale);
+  vertex(-50* scale, -100* scale);
+   endShape();
+    
+  push(); 
+    translate(0,0);
+   beginShape();
+  vertex(30* scale,-110* scale);
+  vertex(0,-110* scale);
+  vertex(2* scale,-70* scale);
+  vertex(85* scale, -10* scale);
+    vertex(70* scale, -70* scale);
+  vertex(50* scale, -100* scale);
+   endShape();
+    pop();
+      
+      
+      
+    //hair buns
+       beginShape();
+    vertex(-90* scale,-80* scale);
+    vertex(-80* scale, -90* scale);
+    vertex(-65* scale, -60* scale);
+    vertex (-65* scale,20* scale);
+    vertex (-80* scale,40* scale);
+    vertex(-90* scale, 30* scale);
+    vertex(-110* scale,-60* scale);
+    vertex(-95* scale,-80* scale);
+        endShape();
+    
+    push();
+    translate(0,0);
+    beginShape();
+    vertex(90* scale,-80* scale);
+    vertex(80* scale, -90* scale);
+    vertex(65* scale, -60* scale);
+    vertex (65* scale,20* scale);
+    vertex (80* scale,40* scale);
+    vertex(90* scale, 30* scale);
+    vertex(110* scale,-60* scale);
+    vertex(95* scale,-80* scale);
+  endShape();
+pop();
+      
+    // stroke(this.stroke_color);
+    // fill(this.fg_color);
+    // ellipse(0, 0, 300 * scale, 400 * scale);
+    // noStroke();
+//lowered eyes and higher mouth
+  	random_result = focusedRandom(0, 100);
+        if(random_result < 40) {
+				push();
+               translate(0,10);
+
+                 stroke(0);
+    line(-20* scale,this.brow_value * scale,-45* scale,-40* scale);
+    push();
+    translate(0,0);
+    line(20* scale,this.brow_value * scale,40* scale,-40* scale);
+    pop();
+
+                 // eyes
+                 noStroke();
+  if (this.eye_value === 1) {
+    fill(255);
+    ellipse(-30 * scale, -20 * scale, 20 * scale, 20 * scale);
+    ellipse( 30 * scale, -20 * scale, 20 * scale, 20 * scale);
+      fill(0);
+    ellipse(-30 * scale, -20 * scale, 5 * scale, 5 * scale);
+    ellipse( 30 * scale, -20 * scale, 5 * scale, 5 * scale);
   }
+
+  if (this.eye_value >= 2) {
+    fill(255);
+    ellipse(-30 * scale, -20 * scale, 30 * scale, 30 * scale);
+    ellipse( 30 * scale, -20 * scale, 30 * scale, 30 * scale);
+     fill(0);
+    ellipse(-30 * scale, -20 * scale, 10 * scale, 10 * scale);
+    ellipse( 30 * scale, -20 * scale, 10 * scale, 10 * scale);
+  }
+
+   translate(0,-20);
+   fill(bg_color1); 
+  stroke(0);    
+    rectMode(CENTER);
+     push();
+     noFill();
+      rotate(180);
+      translate(0,34);
+    arc(0, -60, this.mouth_value, 10, 20, 160);
+
+      pop();
+
+
+pop();
+
+        }
+        
+
+        else {
+
+        	  stroke(0);
+    line(-20* scale,this.brow_value * scale,-45* scale,-30* scale);
+    push();
+    translate(0,0);
+    line(20* scale,this.brow_value * scale,40* scale,-30* scale);
+    pop();
+          // eyes
+ 		  noStroke();
+  if (this.eye_value === 1) {
+
+    fill(255);
+    ellipse(-30 * scale, -10 * scale, 20 * scale, 20 * scale);
+    ellipse( 30 * scale, -10 * scale, 20 * scale, 20 * scale);
+      fill(0);
+    ellipse(-30 * scale, -10 * scale, 5 * scale, 5 * scale);
+    ellipse( 30 * scale, -10 * scale, 5 * scale, 5 * scale);
+  }
+
+  if (this.eye_value >= 2) {
+    fill(255);
+    ellipse(-30 * scale, -10 * scale, 30 * scale, 30 * scale);
+    ellipse( 30 * scale, -10 * scale, 30 * scale, 30 * scale);
+     fill(0);
+    ellipse(-30 * scale, -10 * scale, 10 * scale, 10 * scale);
+    ellipse( 30 * scale, -10 * scale, 10 * scale, 10 * scale);
+  }
+  fill(bg_color1); 
+  stroke(0);    
+    rectMode(CENTER);
+     push();
+     noFill();
+      rotate(180);
+      translate(0,34);
+     arc(0, -55, this.mouth_value, 10, 20, 160);
+
+      pop();
+
+
+
+        }
+
+      pop();
+
+
+pop();
+
+        }
+
 
   /*
    * Draw a face with position lists that include:
@@ -132,9 +310,11 @@ function Face() {
    * Update internal state variables to a random state.
    */  
   this.randomize = function(values, size) {
-    this.eye_value = getRandomNumberOfEyes();
-    this.tilt_value = focusedRandom(-70, 90, 8);
-    this.mouth_value = focusedRandom(0, 50, 4, 1);
+    this.brow_value = focusedRandom(-40, -50);
+    this.eye_value = int(focusedRandom(1, 3));
+    this.mouth_value = focusedRandom(5, 40);
+
+      
   }
 }
 
