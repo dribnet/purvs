@@ -1,1 +1,1 @@
-I have started copying across my code from ps1. I have had to tweak some sizing and increased the variation of the shapes. I still have some shapes to update and would like to add more features to the face such as more food.
+I have finished copying across my face code from ps1. I have updated the code for the tomatoes so now everything scales randomly. I have also changed the parameters for the random colours of the toast.  

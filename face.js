@@ -6,9 +6,10 @@ function Face() {
   // (your variables may be different)
   this.eye_value = 2;
   this.eye_size = 0;
-  this.mouth_value = 0;
+  this.mouth_s = 0;
   this.bread_value = 0;
   this.colour_value = 0;
+  this.mouth_value = 0;
 
   // other variables can be in here too
   // these control the colors used
@@ -76,6 +77,19 @@ function Face() {
 
     fill(240,82,67);
     ellipse(0, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
+
+    fill(255,128,125)
+
+    ellipse(0 * scale, -70 * scale, (50 * scale)+ this.eye_size, 20 * scale);
+    ellipse(0 * scale, -70 * scale, 20 * scale, (50 * scale)+ this.eye_size);
+
+    push();
+    translate(0 * scale, -70 * scale);
+    rotate(45);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    rotate(90);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    pop();
     }
 
     if (this.eye_value >= 2) {
@@ -86,7 +100,31 @@ function Face() {
     fill(240,82,67);
     ellipse(-70 * scale, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
     ellipse( 70 * scale, -70 * scale, (80 * scale)+ this.eye_size, (80 * scale)+ this.eye_size);
+
+
+    fill(255,128,125)
+    ellipse(-70 * scale, -70 * scale, (50 * scale)+ this.eye_size, 20 * scale);
+    ellipse(-70 * scale, -70 * scale, 20 * scale, (50 * scale)+ this.eye_size);
+    ellipse(70 * scale, -70 * scale, (50 * scale)+ this.eye_size, 20 * scale);
+    ellipse(70 * scale, -70 * scale, 20 * scale, (50 * scale)+ this.eye_size);
+    push();
+    translate(-70 * scale, -70 * scale);
+    rotate(45);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    rotate(90);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    pop();
+    push();
+    translate(70 * scale, -70 * scale);
+    rotate(45);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    rotate(90);
+    ellipse(0, 0, 20 * scale, (50 * scale)+ this.eye_size);
+    pop();
+
     }
+
+
 
     // mouth
     fill(219, 200, 124);
@@ -94,6 +132,18 @@ function Face() {
     strokeWeight(1.5);
     arc(0, 120 *scale, 180 * scale, 100 * scale, 180 , PI);
     noStroke();
+
+    if (this.colour_value <= 1){
+      fill(this.fg_color1);
+      }
+      if (this.colour_value == 2){
+        fill(this.fg_color2);
+      }
+    if (this.colour_value > 2){
+      fill(this.fg_color3);
+    }
+
+    ellipse((10 * scale) + this.mouth_value, 120 * scale, 60 * scale, 50 * scale);
 
     pop();
   }
@@ -143,7 +193,7 @@ function Face() {
 
     // mouth
     fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_size * scale);
     pop();
 
     noStroke();
@@ -165,6 +215,7 @@ function Face() {
     this.mouth_value = focusedRandom(0, 50, 4, 1);
     this.bread_value = focusedRandom(-10, 10);
     this.eye_size = focusedRandom(-5, 7);
+    this.mouth_value = focusedRandom(-3, 7);
     this.colour_value = getRandomColour();
   }
 }
