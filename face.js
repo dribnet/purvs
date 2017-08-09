@@ -23,6 +23,10 @@ function Face() {
   this.tri_color = "#ffdb4d";
   this.sun_color = "#e60000";
 
+  this.bg_color = [225, 206, 187];
+  this.fg_color = [151, 102, 52];
+  this.stroke_color = [95, 52, 8];
+
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
@@ -35,7 +39,7 @@ function Face() {
     // fill(0)
     // ellipse(x, y, w, h);
     
-    //right face
+    //face
     push();
     translate(x, y);
 
@@ -223,6 +227,10 @@ function Face() {
    * Update internal state variables to a random state.
    */  
   this.randomize = function(values, size) {
+    this.eye_value = getRandomNumberOfEyes();
+    this.tilt_value = focusedRandom(-70, 90, 8);
+    this.mouth_value = focusedRandom(0, 50, 4, 1);
+
     this.forehead_value = focusedRandom(0.5, 1.8, 1, 1.3);
     this.foreColor_value = [Math.floor(focusedRandom(102, 255)), Math.floor(focusedRandom(255, 51)), 51];
     this.eye_value = focusedRandom(0.8, 1.3, 3, 1);
