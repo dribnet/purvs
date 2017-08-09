@@ -1,5 +1,14 @@
 ## PS1 MDDN 342 2017
 
-For now I have added Calcifer as just an orange flame. I changed the shape so that it is more random giving more life to my character. There are variables including pupil size, base orangeness (all flames have a random orangeness and each layer of the flame is just slightly different from its base), fire's opacity, mouth height and mouth width. 
-
-I am thinking of including having the eyes look in different directions.
+Calcifer now has more variables including:
+-tilt value 
+-mouth width
+-mouth height
+-fire opacity
+-base colour (there is either a bright orange or a pastel orange base colour which is randomised each time the page is reloaded. Each base has different rare colours accordingly.)
+-face width
+-chin placement
+-flame size
+-eye placement (sometimes cross-eyed)
+-how spread out the flame is
+-emotion (discrete and shown through different eyebrow angles) 

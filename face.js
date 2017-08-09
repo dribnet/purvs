@@ -10,28 +10,34 @@ function Face() {
   this.fireOpacity = 150;
   this.fireColour=0;
   this.pupilSize=20;
-
-
+  this.faceWidth=55;
+  this.chin=110;
+    this.flameSize=1;
+this.eyeX=0;
+this.eyeY=0;
+    this.crossEyed=1;
   // other variables can be in here too
   // these control the colors used
   this.bg_color = "#1a0400"; 
   this.fg_color = [151, 102, 52];
   this.stroke_color = 0;
-  chin = 110;      
-
+this.emotion = 0;
+          this.flameSpread=50;
+   baseColour = int(focusedRandom(0,2));
+   
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
    */  
   this.draw1 = function(x, y, w, h) {
-     
+
     // Uncomment to see drawing area
 //     fill(255);
 //     stroke(0);
 //     rect(x-w/2, y-h/2, w, h);
 //     fill(0)
 //     ellipse(x, y, w, h);
-     
+//     
 
     push();
     translate(x, y);
@@ -49,7 +55,7 @@ function Face() {
     // head
     stroke(this.stroke_color);
     fill(this.fg_color);
-    //ellipse(0, 0, 300 * scale, 400 * scale);
+
         noStroke();
       //body
     push();
@@ -57,18 +63,52 @@ function Face() {
     scale(0.43,0.38);
       //v is amount of variance of the fire's placement
       v=15;
+      //d is the amount of difference the flames are from the middle.
+
+      d= this.flameSpread;
        var flameHeight = [random(-110,-110+v),random(-95,-95+v),random(-80,-80+v),random(-35,-35+v),random(-30,-30+v),random(0,0+v/2),random(0,0+v/2)]
-       var flameWidth = [random(-10,-10+v),random(35,35+v), random(-55,-55+v),random(55,55+v),random(-75,-75+v),random(75,75+v/2),random(-80,-80+v/2)]
+       var flameWidth = [random(-10,-10+v),random(35+d,35+v+d), random(-55-d,-55+v-d),random(55+d,55+v+d),random(-75-d,-75+v-d),random(75+d,75+v/2+d),random(-80-d,-80+v/2-d)]
        baseIntensity = random(70,150);
           var flameIntensity =[baseIntensity,baseIntensity+20,baseIntensity+20,baseIntensity+30,baseIntensity+40,baseIntensity+50,baseIntensity+60]
-//       var flameIntensity =[random(70,90),random(90,100),random(90,100),random(100,120),random(120,130),random(130,150),random(130,150)]
 
+if(baseColour ==0){
+    this.fireColour = mostlyOrange();
+}
+      else {
+          this.fireColour = mostlypastelOrange();
+      }
+       //this.fireColour = mostlypastelOrange();
        //flameIntensity=focusedRandom(90, 150);
-       
+
        for(var i=0; i<flameHeight.length; i++){
-         
-        fill(255, flameIntensity[i], 0, this.fireOpacity);
-        quad(0, chin, -55, 80, flameWidth[i], flameHeight[i], 55, 80);
+           if (this.fireColour==0){
+               //pretty blue
+           fill(0, flameIntensity[i], 255, this.fireOpacity/2);
+           }
+           else if (this.fireColour==1){
+               //orange
+           fill(255, flameIntensity[i], 0, this.fireOpacity);
+           }
+           else if (this.fireColour==2){
+               //pastel orange
+        fill(255, flameIntensity[i], 100, this.fireOpacity);
+           }
+           else if(this.fireColour==3){
+                //pretty purple
+        fill(200, flameIntensity[i]-60, 250, this.fireOpacity/2);
+           }
+         else if(this.fireColour==4){
+              // pretty greenish blue:
+           fill(0, flameIntensity[i], 100, this.fireOpacity);
+         }
+          else{
+              // pretty greenish yellow:
+           fill(flameIntensity[i]+100, flameIntensity[i]+200, 100, this.fireOpacity);
+          }   
+           push();
+           scale(this.flameSize);
+        quad(0, this.chin, -this.faceWidth, 80, flameWidth[i], flameHeight[i], this.faceWidth, 80);
+           pop();
        }
     pop();
       
@@ -76,32 +116,70 @@ function Face() {
     // eyes
       fill(255);
           push();
-    scale(1);
+    scale(this.flameSize);
       strokeWeight(0.1);
     stroke(0);
-    ellipse(-68 * scale2, 105 * scale2, 65 * scale2, 65 * scale2);
-    ellipse( 68 * scale2, 105 * scale2, 65 * scale2, 65 * scale2);
+    ellipse(-68 * scale2, 105 * scale2, 70 * scale2, 70 * scale2);
+    ellipse( 68 * scale2, 105 * scale2, 70 * scale2, 70 * scale2);
     
     fill(0);
-    ellipse(-68 * scale2, 105 * scale2, this.pupilSize * scale2, this.pupilSize * scale2);
-    ellipse( 68 * scale2, 105 * scale2, this.pupilSize * scale2, this.pupilSize * scale2);
-    pop();
-      
+      if(this.crossEyed == 0){
+    
+          ellipse(-68 * scale2-this.eyeX*2, 105 * scale2+this.eyeY, this.pupilSize * scale2, this.pupilSize * scale2);
+    ellipse( 68 * scale2+this.eyeX*2, 105 * scale2+this.eyeY, this.pupilSize * scale2, this.pupilSize * scale2);
+      }
+      else{
+          
+ellipse(-68 * scale2 +this.eyeX, 105 * scale2+this.eyeY, this.pupilSize * scale2, this.pupilSize * scale2);
+    ellipse( 68 * scale2+this.eyeX, 105 * scale2+this.eyeY, this.pupilSize * scale2, this.pupilSize * scale2);
+
+      }
+          pop();
       //eyebrows
-//      strokeWeight(0.5);
-//      stroke(0);
-//      line(-100* scale2, 80* scale2, -55* scale2, 60* scale2);
-//       line(100* scale2, 80* scale2, 55* scale2, 60* scale2);
+      push();
+       scale(this.flameSize);
+      strokeWeight(0.5);
+      stroke(0);
+      if(this.emotion ==0){
+          //sad
+      line(-100* scale2, 80* scale2, -60* scale2, 60* scale2);
+       line(100* scale2, 80* scale2, 60* scale2, 60* scale2);
+      }
+      else if(this.emotion ==1){
+          //slightly indifferent
+            line(-90* scale2, 70* scale2, -50* scale2, 70* scale2);
+       line(90* scale2, 70* scale2, 50* scale2, 70* scale2);
+      }
+      else if(this.emotion ==2){
+          //surprised
+            line(-90* scale2, 55* scale2, -50* scale2, 54* scale2);
+       line(90* scale2, 55* scale2, 50* scale2, 54* scale2);
+      }
+      else if(this.emotion ==3){
+          //angry
+            line(-80* scale2, 60* scale2, -40* scale2, 80* scale2);
+       line(80* scale2, 60* scale2, 40* scale2, 80* scale2);
+      }
+      else{
+          
+      }
+      
     // mouth
-push();
-    scale(1);
+   
     noStroke();
   fill(this.bg_color);
   ellipse(0 * scale2, 167 * scale2, this.mouth_width * scale2, this.mouth_height * scale2);
     pop();
       pop();
   }
-
+  //colors
+//  blue =0
+//orange =1
+//pastel orange =2
+//purple =3
+//greenish blue =4
+//yellow green =5
+  
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -172,14 +250,78 @@ push();
   this.mouth_width = focusedRandom(20, 100);
   this.mouth_height = focusedRandom(0, 50, 4,1); 
   this.fireOpacity = focusedRandom(0, 250, 5);
-  //this.fireColour=0;
+  this.baseColour=int(focusedRandom(0,2));
+  //this.fireColour =int(focusedRandom(0, 6));
   this.pupilSize = focusedRandom(15, 50);
-
-    
+     
+  this.faceWidth = focusedRandom(43,70, 4);
+      
+  this.chin = focusedRandom(100,110);
+  this.flameSize = focusedRandom(0.7,1, 3);
+      this.eyeX =focusedRandom(-1.7,1.7, 2);
+      this.eyeY =focusedRandom(-1.7,1.7, 2);
+      this.emotion =int(focusedRandom(0,6));
+      //this.eyeX=1.7;
+       //this.pupilSize = 50;
+      this.crossEyed =int(focusedRandom(0,2,10));
+      //this.crossEyed = 0;
+      this.flameSpread=focusedRandom(-50,50,6);
   }
 }
 
-
+//function getRandomBaseColour(){
+//      random_result = focusedRandom(0, 100);
+//  if(random_result < 50) {
+//    return 0;
+//  }
+//  else {
+//    return 1;
+//  }
+//  }
+  //mostle reddy orange and purple and blue
+function mostlyOrange() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 5) {
+    return 0;
+  }
+  else if(random_result < 95) {
+    return 1;
+  }
+   else if(random_result < 0) {
+    return 2;
+  }
+     else if(random_result < 100) {
+    return 3;
+  }
+     else if(random_result < 0) {
+    return 4;
+  }
+    else {
+    return 5;
+  }
+}
+    
+    function mostlypastelOrange() {
+  random_result = focusedRandom(0, 100);
+  if(random_result < 0) {
+    return 0;
+  }
+  else if(random_result <0) {
+    return 1;
+  }
+   else if(random_result < 90) {
+    return 2;
+  }
+     else if(random_result < 0) {
+    return 3;
+  }
+     else if(random_result < 95) {
+    return 4;
+  }
+    else {
+    return 5;
+  }
+}
 // given a point, return the average
 function average_point(list) {
   var sum_x = 0;
