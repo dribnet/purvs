@@ -103,59 +103,62 @@ this.draw1 = function (x,y,w,h) {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
-  // this.draw2 = function(positions) {
-  //   var nose_pos = average_point(positions.nose_bridge);
-  //   var eye1_pos = average_point(positions.left_eye);
-  //   var eye2_pos = average_point(positions.right_eye);
-  //   var half_height = positions.chin[7][1] - nose_pos[1];
-  //   var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+  this.draw2 = function(positions) {
+    var nose_pos = average_point(positions.nose_bridge);
+    var eye1_pos = average_point(positions.left_eye);
+    var eye2_pos = average_point(positions.right_eye);
+    var half_height = positions.chin[7][1] - nose_pos[1];
+    var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
-  //   var x = nose_pos[0];
-  //   var y = nose_pos[1];
-  //   var w = 2 * face_width;
-  //   var h = 2.5 * half_height;
+    var x = nose_pos[0];
+    var y = nose_pos[1];
+    var w = 2 * face_width;
+    var h = 2.5 * half_height;
 
-  //   var extent = 0;
-  //   if(h < w) {
-  //     extent = h / 2;
-  //   }
-  //   else {
-  //     extent = w / 2;
-  //   }
-  //   var scale = extent / 220.0;
+    var extent = 0;
+    if(h < w) {
+      extent = h / 2;
+    }
+    else {
+      extent = w / 2;
+    }
+    var scale = extent / 220.0;
 
-  //   // Uncomment to see drawing area
-  //   // fill(255);
-  //   // stroke(0);
-  //   // rect(x-w/2, y-h/2, w, h);
-  //   // fill(0)
-  //   // ellipse(x, y, w, h);
+    // Uncomment to see drawing area
+    // fill(255);
+    // stroke(0);
+    // rect(x-w/2, y-h/2, w, h);
+    // fill(0)
+    // ellipse(x, y, w, h);
 
-  //   push();
-  //   translate(x, y);
-  //   rotate(this.tilt_value);
+    push();
+    translate(x, y);
+    rotate(this.tilt_value);
 
-  //   // head
-  //   stroke(this.stroke_color);
-  //   fill(this.fg_color);
-  //   ellipse(0, 0, 300 * scale, 400 * scale);
-  //   noStroke();
+    // head
+   	fill (this.foreground);
+	ellipse(0, 0, 30 * scales + this.width_value, 400 * scales);
+  	stroke (this.strakC);
+  	fill (0,0);
+    ellipse(0, 0, random (30,37) * scales + this.width_value, random(390, 400) * scales);
+    ellipse(0, 0, random (30,37) * scales + this.width_value, random(390, 400) * scales);
 
-  //   // mouth
-  //   fill(this.bg_color);
-  //   ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-  //   pop();
 
-  //   noStroke();
+    // mouth
+    fill(this.bg_color);
+    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    pop();
 
-  //   fill(this.bg_color);
-  //   ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
-  //   ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
+    noStroke();
 
-  //   fill(this.fg_color);
-  //   ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
-  //   ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
-  // }
+    fill(this.bg_color);
+    ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
+
+    fill(this.fg_color);
+    ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
+  }
 
   /*
    * Update internal state variables to a random state.
