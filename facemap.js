@@ -6,7 +6,7 @@
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
+fg_color = [174, 110, 108];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
@@ -24,8 +24,8 @@ function FaceMap() {
 
     var x = nose_pos[0];
     var y = nose_pos[1];
-    var w = 2 * face_width;
-    var h = 2.5 * half_height;
+    var w = 4 * face_width;
+    var h = 4 * half_height;
 
     var extent = 0;
     if(h < w) {
@@ -81,6 +81,7 @@ function FaceMap() {
     endShape(CLOSE);
 
     // eyes
+    fill(0,0,0);
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
@@ -92,22 +93,22 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    fill(fg_color);
+    fill(221,217,218);
     ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
 
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);  
+    // fill(stroke_color);
+    // beginShape();
+    // for(var i=0; i<positions.right_eyebrow.length; i++) {
+    //   vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+    // }
+    // endShape(CLOSE);
+    // beginShape();
+    // for(var i=0; i<positions.left_eyebrow.length; i++) {
+    //   vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+    // }
+    // endShape(CLOSE);
+    // strokeWeight(1);  
   }
 }
 
