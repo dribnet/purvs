@@ -1,8 +1,7 @@
-## PS1 MDDN 342 2017
+## PS2 MDDN 342 2017
 
+### Object Oriented Face
 
-Final README.
+For the object oriented face I decided to port over the robot face I created in part 1 of the assignment.  I choose the robot face over the monster face because I think it will work well in regards to the overall goal of this assignment. 
 
-This should include a summary of all of the work leading up to the final version (which I am omitting in this example), so it should be longer than the other READMEs.
-
-In my final version I have used a shifted grid layout with some jitter.
+In the portraits part of the last assignment I thought about drawing a robot version of myself. I tried a few tools online that convert portraits into robot faces for inspiration however I wasn't very happy with the results.  For this assignment I think I will work towards creating a similar tool that can provide better results.  
