@@ -62,6 +62,7 @@ function Face() {
     var face_stroke = (0, 0, 0);
 
     if (this.head_value == 1) {
+
       fill(this.face_col);
       ellipse(0 + this.offset, 0 + this.offset, 100 + this.faceW, 100 + this.faceH);
 
@@ -321,8 +322,14 @@ function Face() {
    * Update internal state variables to a random state.
    */  
   this.randomize = function(values, size) {
-    //this.eye_value = getRandomSetOfEyes();
-    this.tilt_value = focusedRandom(-70, 90, 8);
+    this.eye_value = getRandomSetOfEyes();
+    this.head_value = getRandomHeadType();
+    this.nose_value = focusedRandom(-5, 20);
+    this.nose_type_value = getRandomNoseType();
+    this.cheek_value = focusedRandom(0, 8);
+    this.cheek_value_on = focusedRandom(0, 2);
+    this.mouth_value = focusedRandom(0.5, 2);
+    this.mouth_type_value = Math.floor(focusedRandom(1,3,1,1));
 
   }
 }
