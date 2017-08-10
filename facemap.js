@@ -7,7 +7,13 @@
 // these control the colors used
 bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
+stroke_color = [0, 0, 0];
+
+alpha_ran = focusedRandom(80, 200);
+alpha_ran2 = focusedRandom(20, 60);
+face_col = [247, 236, 212, alpha_ran];
+eye_col = [119, 156, 82];
+cheek_col = [224, 125, 229, alpha_ran2];
 
 function FaceMap() {
   /*
@@ -44,8 +50,8 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    stroke(stroke_color);
-    fill(fg_color);
+    noStroke();
+    fill(face_col);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -86,6 +92,7 @@ function FaceMap() {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
     endShape(CLOSE);
+
     beginShape();
     for(var i=0; i<positions.right_eye.length;i++) {
       vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
