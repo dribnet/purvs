@@ -6,7 +6,7 @@
 // other variables can be in here too
 // these control the colors used
 
-var ezv = 2;
+var ezv = 1;
 
 var bg_color1 = ["#55CCC0"];
 var bg_color2 = ["#578783"];
@@ -21,7 +21,9 @@ var stroke_color2 = ["#D492CD"];
 var stroke_color3 = ["#CC9378"];
 
 function FaceMap() {
-  ezv = int(random (1,4));
+
+  this.draw = function(positions) {
+    ezv = int(random (1,4));
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -44,7 +46,6 @@ function FaceMap() {
     var strakC = stroke_color3;
     var bg = bg_color3;
   }
-  this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
