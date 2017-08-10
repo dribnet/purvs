@@ -99,6 +99,7 @@ var millisPerSwap = 5000;
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
+  mainFace.changeRandomSeed();
 }
 
 function mouseClicked() {
