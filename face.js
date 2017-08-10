@@ -26,6 +26,8 @@ function Face() {
     // fill(0)
     // ellipse(x, y, w, h);
 
+    //RANDOMISE FUNCTION IN SKETCH 
+
     push();
     translate(x, y);
     rotate(this.tilt_value);
@@ -74,6 +76,8 @@ function Face() {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
+
+   // IGNORE THISSSSSSSS
   this.draw2 = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
