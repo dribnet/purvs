@@ -15,12 +15,6 @@ function Face() {
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
 
-  // rotation in degrees
-  angleMode(DEGREES);
-  rectMode(CENTER);
-  colorMode(HSB);
-  noStroke();
-
   var bert_drawFace = color(45, 90, 95)
   var bert_nose = color(29, 96, 94)
 

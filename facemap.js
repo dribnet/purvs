@@ -10,104 +10,103 @@ fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
+
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
-    var nose_pos = average_point(positions.nose_bridge);
-    var eye1_pos = average_point(positions.left_eye);
-    var eye2_pos = average_point(positions.right_eye);
-    var half_height = positions.chin[7][1] - nose_pos[1];
-    var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+    //i use my variables differently
+    angleMode(RADIANS);
+    rectMode(CENTER);
+    ellipseMode(RADIUS);
+    colorMode(HSB);
 
-    var x = nose_pos[0];
-    var y = nose_pos[1];
-    var w = 2 * face_width;
-    var h = 2.5 * half_height;
+    if(canvasWidth < positions.left_eye[0][0])
+      return;
 
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
+    drawEye(positions.left_eye);
+    drawEye(positions.right_eye);
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
+    //reset vars back to tom's defaults
+    colorMode(RGB);
+    ellipseMode(CENTER);
+    angleMode(DEGREES);
+  }
+}
 
-    // head
-    stroke(stroke_color);
-    fill(fg_color);
-    beginShape();
-    for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0], positions.chin[i][1]);
-    }
-    for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
+function drawEye(eye){
+  var pos = average_point(eye);
 
-    // mouth
-    noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
+  var rect = Rect.fromPoints(eye);
 
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
+  var ytend = rect.height*2.5;
+  var paintRect = Rect.fromMinMax(rect.minX(), rect.minY()-ytend, rect.maxX(), rect.maxY());
+  paintRect.y += rect.height*2;
+  paintRect.width *= 2
 
-    // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
+  fill(0, 0, 100, 0.7); //white
+  stroke(0, 0, 0);
+  arc(paintRect.x, paintRect.y, paintRect.width/2, paintRect.height, PI, PI, OPEN); //big eye paint
 
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+  fill(0, 100, 80); //dark red
+  noStroke();
+  ellipse(rect.x, rect.y, rect.width*0.7, rect.height); //red eye
 
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);  
+  fill(0,0,0);
+  ellipse(rect.x, rect.y, 2, 2); //black pupil
+}
+
+class Rect{
+  constructor(x, y, width, height){
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
+
+  draw(fillColor){
+    //white default
+    fill(fillColor || color(0, 0, 100));
+    rect(this.x, this.y, this.width, this.height);
+  }
+
+  minX(){
+    return this.x-this.width/2;
+  }
+
+  minY(){
+    return this.y-this.height/2;
+  }
+
+  maxX(){
+    return this.x+this.width/2;
+  }
+
+  maxY(){
+    return this.y+this.height/2;
+  }
+
+  static fromPoints(points){
+    var minX = canvasWidth;
+    var minY = canvasHeight;
+    var maxY = 0;
+    var maxX = 0;
+
+    points.forEach(point => {
+      minX = min(point[0], minX);
+      minY = min(point[1], minY);
+
+      maxX = max(point[0], maxX);
+      maxY = max(point[1], maxY);
+    });
+
+    return this.fromMinMax(minX, minY, maxX, maxY)
+  }
+
+  static fromMinMax(minX, minY, maxX, maxY){
+    return new Rect(minX+(maxX-minX)/2, minY+(maxX-minX)/2, (maxX-minX), (maxY-minY));
   }
 }
 
