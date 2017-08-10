@@ -71,17 +71,33 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    // mouth
+	//outer mouth
+	fill(this.hue, 90, 20);
+	//first conver the vertices arrays into single axis arrays
+	var xValuesLeft = convertVerticeArrayToAxisArray(positions.top_lip, 0);
+    var yValuesLeft = convertVerticeArrayToAxisArray(positions.top_lip, 1);
+    var xValuesRight = convertVerticeArrayToAxisArray(positions.bottom_lip, 0);
+    var yValuesRight = convertVerticeArrayToAxisArray(positions.bottom_lip, 1);
+	//then get the values we need to draw the visor
+    var smallestXLeft = Array.lowest(xValuesLeft);
+    var smallestYLeft = Array.lowest(yValuesLeft);
+    var biggestYLeft = Array.highest(yValuesLeft);
+    var biggestXRight = Array.highest(xValuesRight);
+    var smallestYRight = Array.lowest(yValuesRight);
+    var biggestYRight = Array.highest(yValuesRight);
+	//draw the inner mouth
+	quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    //inner mouth
     stroke(40, 44, 98);
     strokeWeight(2);  
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
-        line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale),);
+        line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale));
     }
     endShape(CLOSE);
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-		line(positions.bottom_lip[i][0], positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][0], positions.bottom_lip[i][1] + (10 * scale),);
+		line(positions.bottom_lip[i][0], positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][0], positions.bottom_lip[i][1] + (10 * scale));
     }
     endShape(CLOSE);
 	strokeWeight(0);  
@@ -116,7 +132,20 @@ function FaceMap() {
     // eyes
 	translate(0, 40 * scale);
     fill(this.hue, 50, 90);
+	//first conver the vertices arrays into single axis arrays
+	var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
+    var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
+    var xValuesRight = convertVerticeArrayToAxisArray(positions.right_eye, 0);
+    var yValuesRight = convertVerticeArrayToAxisArray(positions.right_eye, 1);
+	//then get the values we need to draw the visor
+    var smallestXLeft = Array.lowest(xValuesLeft);
+    var smallestYLeft = Array.lowest(yValuesLeft);
+    var biggestYLeft = Array.highest(yValuesLeft);
+    var biggestXRight = Array.highest(xValuesRight);
+    var smallestYRight = Array.lowest(yValuesRight);
+    var biggestYRight = Array.highest(yValuesRight);
     //quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+	//outer visor
 	beginShape();
 	curveVertex(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale));
 	curveVertex(biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale)); 
@@ -125,6 +154,7 @@ function FaceMap() {
 	endShape(CLOSE);
     fill(0);
     //quad(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale), biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale), biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale), smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+	//inner visor
 	beginShape();
 	curveVertex(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale)); 
 	curveVertex(biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale));
@@ -132,11 +162,13 @@ function FaceMap() {
 	curveVertex(smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
 	endShape(CLOSE);
     fill(0, 0, 100);
+	//left eye
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
     endShape(CLOSE);
+	//right eye
     beginShape();
     for(var i=0; i<positions.right_eye.length;i++) {
       curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
