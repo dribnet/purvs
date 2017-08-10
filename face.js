@@ -180,7 +180,7 @@ function Face() {
     var extent = 0;
     if(h < w) {
       extent = h / 2;
-    }
+    } 
     else {
       extent = w / 2;
     }
