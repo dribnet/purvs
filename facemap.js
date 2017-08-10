@@ -48,6 +48,16 @@ function FaceMap() {
     stroke(this.hue, 50, 90);
     fill(this.hue, 90, 50);
     rectMode(CENTER);
+	
+	 // nose
+    beginShape();
+    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5);
+    for(var i=0; i<positions.nose_tip.length;i++) {
+      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]  - half_height*0.5);
+    }
+    endShape(CLOSE);
+    ellipse(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5, 16 * scale, 16 * scale);
+	
     // head
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
@@ -62,27 +72,19 @@ function FaceMap() {
     endShape(CLOSE);
 
     // mouth
-    stroke(this.hue, 90, 50);
-    fill(this.hue, 50, 90);
+    stroke(40, 44, 98);
+    strokeWeight(2);  
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+        line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale),);
     }
     endShape(CLOSE);
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+		line(positions.bottom_lip[i][0], positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][0], positions.bottom_lip[i][1] + (10 * scale),);
     }
     endShape(CLOSE);
-
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]  - half_height*0.5);
-    }
-    endShape(CLOSE);
-    ellipse(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5, 16 * scale, 16 * scale);
+	strokeWeight(0);  
 
     var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
     var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
@@ -110,20 +112,34 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+	
     // eyes
+	translate(0, 40 * scale);
     fill(this.hue, 50, 90);
-    quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    //quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+	beginShape();
+	curveVertex(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale));
+	curveVertex(biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale)); 
+	curveVertex(biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale));
+	curveVertex(smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+	endShape(CLOSE);
     fill(0);
-    quad(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale), biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale), biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale), smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+    //quad(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale), biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale), biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale), smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+	beginShape();
+	curveVertex(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale)); 
+	curveVertex(biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale));
+	curveVertex(biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale)); 
+	curveVertex(smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+	endShape(CLOSE);
     fill(0, 0, 100);
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
+      curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
     endShape(CLOSE);
     beginShape();
     for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
+      curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
     }
     endShape(CLOSE);
 
@@ -131,7 +147,8 @@ function FaceMap() {
     fill(this.hue, 90, 50);
     rect(eye1_pos[0], eye1_pos[1], 6 * scale, 6 * scale);
     rect(eye2_pos[0], eye2_pos[1], 6 * scale, 6 * scale);
-
+	translate(0, -40 * scale);
+	
     strokeWeight(1);  
   }
 
