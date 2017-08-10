@@ -6,8 +6,8 @@
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
+fg_color = [254, 244, 110];
+stroke_color = [146, 147, 3];
 
 function FaceMap() {
   /*
@@ -15,6 +15,7 @@ function FaceMap() {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
+	
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -73,6 +74,9 @@ function FaceMap() {
     endShape(CLOSE);
 
     // nose
+	fill(fg_color);
+	strokeWeight(7 * scale);
+	stroke(0,0,0);
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -81,6 +85,34 @@ function FaceMap() {
     endShape(CLOSE);
 
     // eyes
+	fill(255,255,255);
+	strokeWeight(7 * scale);
+	stroke(0,0,0);
+	var eye_size = 110;
+	var iris_color = "#43c6f2";
+    var pupil_color = "#000000";
+	//Eye White
+    ellipse(eye1_pos[0], eye1_pos[1], eye_size * scale, eye_size * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], eye_size * scale, eye_size * scale);
+	  
+	//IRIS'
+	var iris_size = 50;
+    fill(iris_color);
+    ellipse(eye1_pos[0], eye1_pos[1], iris_size * scale, iris_size * scale);
+    ellipse(eye1_pos[0], eye1_pos[1], iris_size * scale, iris_size * scale);
+	  
+	ellipse(eye2_pos[0], eye2_pos[1], iris_size * scale, iris_size * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], iris_size * scale, iris_size * scale);
+
+    //PUPILS
+	var pupil_size = 20;
+    fill(pupil_color);
+    ellipse(eye1_pos[0], eye1_pos[1], pupil_size * scale, pupil_size * scale);
+    ellipse(eye1_pos[0], eye1_pos[1], pupil_size * scale, pupil_size * scale);
+	  
+	ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
+	/*
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
@@ -107,7 +139,9 @@ function FaceMap() {
       vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
+	*/
     strokeWeight(1);  
+	
   }
 }
 
