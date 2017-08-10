@@ -1,14 +1,22 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
-var button;
 var curRandomSeed;
-var mainFace;
+var randomNum;
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 var faceImages = [];
 var curFaceIndex = 0;
-var main_canvas;
 var faceSelector;
 var facelist = [];
 var NUMFACES = 6*9;
+
+var faceMapping = null;
+
+function preload () {
+  if (faceData == null) {
+    faceData = loadJSON('face_data.json');
+  }
+}
 
 var faceData = [
   {
@@ -53,131 +61,201 @@ var faceData = [
   }
 ]
 
-var faceMapping = null;
-
-function preload () {
-  if (faceData == null) {
-    faceData = loadJSON('face_data.json');
-  }
-}
-
 function setup () {
   // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
+  var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
   curRandomSeed = int(focusedRandom(0, 100));
 
   for(var i=0; i<NUMFACES; i++) {
-    var face = new Face();
-    facelist.push(face);
-  }
+  var monFace = new Face();
+  facelist.push(monFace);
+}
 
-  mainFace = new Face();
+var mainFace = new Face();
 
-  for(var i=0; i<faceData.length; i++) {
-   var data = faceData[i];
-   data.image = loadImage(data.url) 
-  }
+for(var i=0; i<faceData.length; i++) {
+  var data = faceData[i];
+  data.image = loadImage(data.url)
+ }
 
-  faceSelector = createSelect();
-  faceSelector.option('draw1');
-  faceSelector.option('draw2');
-  faceSelector.value('draw1');
-  faceSelector.parent('selector1Container');
+ faceSelector = createSelect();
+ faceSelector.option('draw1');
+ faceSelector.option('draw2');
+ faceSelector.value('draw1');
+ faceSelector.parent('selector1Container');
 
   // rotation in degrees
   angleMode(DEGREES);
 }
 
-// global variables for colors
-var bg_color1 = [225, 206, 187];
-
-var lastSwapTime = 0;
-var millisPerSwap = 5000;
-
+//increases the seed by 1
 function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
+  curRandomSeed+=1;
   lastSwapTime = millis();
 }
 
-function mouseClicked() {
-  changeRandomSeed();
-}
+// global variables for colors
+var white = [255,255,255];
+var lightGray = [220,220,220];
+var shadow = [0,30];
+var shadowLight = [255,65];
 
+//color schemes
+//KEY: background, face, pupil, horns, nose, mouth
+// pink
+var scheme1 = [[242,58,107],[243,100,242],[243,150,242],[255,255,255],[133,133,238],[97,97,235]];
+// light blue
+var scheme2 = [[191,210,251],[132,130,237],[34,28,234],[255,255,255],[83,85,227],[39,36,226]];
+//orange
+var scheme3 = [[255,209,48],[254,150,48],[255,81,0],[255,255,255],[249,118,67],[241,45,43]];
+//green
+var scheme4 = [[160,231,139],[63,161,77],[255,161,143],[255,255,255],[156,153,154],[30,84,36]];
+//red
+var scheme5 = [[248,130,78],[248,39,34],[129,105,95],[255,255,255],[126,102,91],[123,106,106]];
+
+//contains all schemes
+var schemes = [scheme2,scheme3,scheme4,scheme5];
+
+
+//main draw function:
+//makes a grid & randomizes each monster
 function draw () {
-  var data = faceData[curFaceIndex];
-  var mode = faceSelector.value();
-
-  if(millis() > lastSwapTime + millisPerSwap) {
-    lastSwapTime = millis();
-    // changeRandomSeed();
-  }
-
   resetFocusedRandom(curRandomSeed);
 
+  var data = faceData[curFaceIndex];
+ var mode = faceSelector.value();
+
+  if(millis() > lastSwapTime + millisPerSwap) {
+  changeRandomSeed();
+  }
+
   noStroke();
-  background(bg_color1);
 
-  if (mode == 'draw1') {
-    var w = canvasWidth / 10;
-    var h = canvasHeight / 6;
-    var max_shift = 0.2 * w;
-    var cur_face = 0;
-    for(var i=0; i<6; i++) {
-      for(var j=0; j<9; j++) {
-        var face = facelist[cur_face];
-        cur_face = cur_face + 1;
+  var cols = 9;
+  var rows = 5;
 
-        var y = h/2 + h*i;
-        var x = w/2 + w*j;
+  var w = canvasWidth / cols;
+  var h = canvasHeight / rows;
+  for(var row=0; row<rows; row++) {
+    for(var col=0; col<cols; col++) {
+      var x = w*col;
+      var y = h*row;
 
-        // shift even rows over by half a face
-        if(i%2 == 0) {
-          x = x + w/2;
-        }
+      //random color scheme is used
+      scheme = schemes[Math.floor(focusedRandom(0,schemes.length))];
+      fill(scheme[0]);
+      //background rect
+      rect(x,y,w,h);
+      //lighter inside rectangle
+      backgroundShape(x,y,w,h,shadowLight);
 
-        // noFill();
-        // stroke(255, 0, 0);
-        // rect(x-w/2, y-w/2, w, h);
-        face.randomize();
-        face.draw1(x, y, w, h);
-        // noStroke();
-        // fill(255, 0, 0);
-        // ellipse(x-2, y-2, 4, 4);
-      }
-    }
+     //randomized variables
+     var faceWidth = focusedRandom(-(h/6.66),-(h/20));
+     var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
+     var eye_value = getEyeNum();
+     var mouthType = Math.floor(focusedRandom(1,3));
+     var noseType = Math.floor(focusedRandom(1,3));
+     var hornSize = focusedRandom(-(h/5),(h/20));
+     var hornType = getHornType();
+     var face = getFaceType();
+
+     var monFace = new Face();
+     monFace.drawMonster(x-(w/2.5),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
+   }
+ }
+}
+
+function getNewFace(x,y,w,h){
+
+  //randomized variables
+  var faceWidth = focusedRandom(-(h/6.66),-(h/20));
+  var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
+  var eye_value = getEyeNum();
+  var mouthType = Math.floor(focusedRandom(1,3));
+  var noseType = Math.floor(focusedRandom(1,3));
+  var hornSize = focusedRandom(-(h/5),(h/20));
+  var hornType = getHornType();
+  var face = getFaceType();
+
+  var newFace = new Face();
+  monFace.drawMonster(x-(w/3),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
+
+  return newFace;
+
+}
+
+//lighter rect inside of background rect
+function backgroundShape(x,y,w,h,color){
+
+  var shapeType = Math.floor(focusedRandom(1,6));
+  fill(color);
+  rectMode(CORNER);
+  var strokeSize = focusedRandom(8,12);
+  rect(x+strokeSize,y+strokeSize,w-strokeSize*2,h-strokeSize*2);
+
+}
+
+//gets a distribution of eye numbers
+function getEyeNum(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<5){
+    return 1;
+  }
+  else if(randomNum < 30){
+    return 2;
+  }
+  else if (randomNum < 80){
+    return 3;
+  }
+  else{
+    return 4;
   }
 
-  else {
-    // Displays the image at its actual size at point (0,0)
-    var img = data.image
-    var x1 = (width/4-400/2);
-    var x2 = (3*width/4-400/2);
-    var y1 = (height/2-400/2);
-    image(img, x1, y1);
-    image(img, x2, y1);
+}
 
-    // get array of face marker positions [x, y] format
-    var positions = data.landmarks[0];
-    var shifted_positions = JSON.parse(JSON.stringify(positions))
+//gets a distribution of horn types
+function getHornType(){
 
-    noFill();
-    stroke(0);
-    Object.keys(positions).forEach(function(key) {
-      var curSection = positions[key];
-      var shiftedSection = shifted_positions[key];
-      for (var i=0; i<curSection.length; i++) {
-        ellipse(x1+curSection[i][0], y1+curSection[i][1], 4, 4);
-        // get ready for drawing the face
-        shiftedSection[i][0] = curSection[i][0] + x2;
-        shiftedSection[i][1] = curSection[i][1] + y1;
-      }
-    });
+  randomNum = focusedRandom(0,100);
 
-    mainFace.randomize();
-    mainFace.draw2(shifted_positions);
+  if(randomNum<90){
+    return 1;
   }
+  else{
+    return 2;
+  }
+}
+
+//gets a distribution of face types
+function getFaceType(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<15){
+    return 1;
+  }
+  else if(randomNum<30){
+    return 2;
+  }
+  else if(randomNum<50){
+    return 3;
+  }
+  else if(randomNum<75){
+    return 4;
+  }
+  else{
+    return 5;
+  }
+
+}
+
+
+function mouseClicked(){
+  changeRandomSeed();
+
 }
 
 function keyTyped() {
@@ -186,13 +264,5 @@ function keyTyped() {
   }
   else if (key == '@') {
     saveBlocksImages(true);
-  }
-}
-
-function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    curFaceIndex = (curFaceIndex + faceData.length - 1) % faceData.length;
-  } else if (keyCode === RIGHT_ARROW) {
-    curFaceIndex = (curFaceIndex + 1) % faceData.length;
   }
 }
