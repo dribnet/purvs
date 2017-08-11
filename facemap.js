@@ -1,7 +1,7 @@
 /*
  * FaceMap class - holds all informaiton about one mapped
  * face and is able to draw itself.
- */  
+ */
 
 // other variables can be in here too
 // these control the colors used
@@ -13,8 +13,8 @@ function FaceMap() {
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */  
+   *    bottom_lip, top_lip, nose_tip, nose_bridge,
+   */
   this.draw = function(positions) {
     this.randomize();
     var nose_pos = average_point(positions.nose_bridge);
@@ -48,8 +48,8 @@ function FaceMap() {
     stroke(this.hue, 50, 90);
     fill(this.hue, 90, 50);
     rectMode(CENTER);
-	
-	 // nose
+
+     // nose
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5);
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -57,7 +57,7 @@ function FaceMap() {
     }
     endShape(CLOSE);
     ellipse(positions.nose_bridge[0][0], positions.nose_bridge[0][1]  - half_height*0.5, 16 * scale, 16 * scale);
-	
+
     // head
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
@@ -71,36 +71,77 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-	//outer mouth
-	fill(this.hue, 90, 20);
-	//first conver the vertices arrays into single axis arrays
-	var xValuesLeft = convertVerticeArrayToAxisArray(positions.top_lip, 0);
+    //outer mouth
+    fill(this.hue, 90, 20);
+    //first conver the vertices arrays into single axis arrays
+    var xValuesLeft = convertVerticeArrayToAxisArray(positions.top_lip, 0);
     var yValuesLeft = convertVerticeArrayToAxisArray(positions.top_lip, 1);
     var xValuesRight = convertVerticeArrayToAxisArray(positions.bottom_lip, 0);
     var yValuesRight = convertVerticeArrayToAxisArray(positions.bottom_lip, 1);
-	//then get the values we need to draw the visor
+    //then get the values we need to draw the visor
     var smallestXLeft = Array.lowest(xValuesLeft);
     var smallestYLeft = Array.lowest(yValuesLeft);
     var biggestYLeft = Array.highest(yValuesLeft);
     var biggestXRight = Array.highest(xValuesRight);
     var smallestYRight = Array.lowest(yValuesRight);
     var biggestYRight = Array.highest(yValuesRight);
-	//draw the inner mouth
-	quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    //draw the inner mouth
+    quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    //quad(positions.top_lip[11][0]-ceil(20*scale), positions.top_lip[11][1]-ceil(20*scale), positions.top_lip[5][0]+ceil(20*scale), positions.top_lip[5][1]-ceil(20*scale), positions.bottom_lip[11][0]+ceil(20*scale), positions.bottom_lip[11][1]+ceil(20*scale), positions.bottom_lip[5][0]-ceil(20*scale), positions.bottom_lip[5][1]+ceil(20*scale));
     //inner mouth
-    stroke(40, 44, 98);
-    strokeWeight(2);  
+    strokeWeight(2);
+    //initialize random variables for use in the following for loops
+    var topY = 0, bottomY = 0, sat = 0, bright = 0;
+    translate(0, 5 * scale);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
-        line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale));
+        topY = random(positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][1]);
+        bottomY = random(positions.top_lip[i][1], positions.top_lip[i][1] + (10 * scale));
+        sat = random(50, 100);
+        bright = random(80, 100);
+        stroke(180, sat, bright);
+        if(i == (positions.top_lip.length - 1)){
+            line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale));
+        }
+        else {
+            line(positions.top_lip[i][0], positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][0], positions.top_lip[i][1] + (10 * scale));
+            for(var x=positions.top_lip[i][0] + 1; x < positions.top_lip[i+1][0] - 1; x++){
+                sat = random(50, 100);
+                bright = random(90, 100);
+                stroke(185, sat, bright);
+                topY = random(positions.top_lip[i][1]- (10 * scale), positions.top_lip[i][1]);
+                bottomY = random(positions.top_lip[i][1], positions.top_lip[i][1] + (10 * scale));
+                line(x, topY, x, bottomY);
+            }
+        }
     }
     endShape(CLOSE);
     beginShape();
+    translate(0, -5 * scale);
     for(var i=0; i<positions.bottom_lip.length;i++) {
-		line(positions.bottom_lip[i][0], positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][0], positions.bottom_lip[i][1] + (10 * scale));
+        // //line(positions.bottom_lip[i][0], positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][0], positions.bottom_lip[i][1] + (10 * scale));
+        // topY = random(positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][1]);
+        // bottomY = random(positions.bottom_lip[i][1], positions.bottom_lip[i][1] + (10 * scale));
+        // sat = random(50, 100);
+        // bright = random(90, 100);
+        // stroke(180, sat, bright);
+        // if(i == (positions.bottom_lip.length - 1)){
+        //     line(positions.bottom_lip[i][0], topY, positions.bottom_lip[i][0], bottomY);
+        // }
+        // else {
+        //     line(positions.bottom_lip[i][0], topY, positions.bottom_lip[i][0], bottomY);
+        //     for(var x=positions.bottom_lip[i][0] + 1; x > positions.bottom_lip[i+1][0] - 1; x--){
+        //         sat = random(50, 100);
+        //         bright = random(90, 100);
+        //         stroke(185, sat, bright);
+        //         topY = random(positions.bottom_lip[i][1]- (10 * scale), positions.bottom_lip[i][1]);
+        //         bottomY = random(positions.bottom_lip[i][1], positions.bottom_lip[i][1] + (10 * scale));
+        //         line(x, topY, x, bottomY);
+        //     }
+        // }
     }
     endShape(CLOSE);
-	strokeWeight(0);  
+    strokeWeight(0);
 
     var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
     var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
@@ -128,16 +169,16 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-	
+
     // eyes
-	translate(0, 40 * scale);
+    translate(0, 40 * scale);
     fill(this.hue, 50, 90);
-	//first conver the vertices arrays into single axis arrays
-	var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
+    //first conver the vertices arrays into single axis arrays
+    var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
     var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
     var xValuesRight = convertVerticeArrayToAxisArray(positions.right_eye, 0);
     var yValuesRight = convertVerticeArrayToAxisArray(positions.right_eye, 1);
-	//then get the values we need to draw the visor
+    //then get the values we need to draw the visor
     var smallestXLeft = Array.lowest(xValuesLeft);
     var smallestYLeft = Array.lowest(yValuesLeft);
     var biggestYLeft = Array.highest(yValuesLeft);
@@ -145,30 +186,30 @@ function FaceMap() {
     var smallestYRight = Array.lowest(yValuesRight);
     var biggestYRight = Array.highest(yValuesRight);
     //quad(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale), biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale), biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale), smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
-	//outer visor
-	beginShape();
-	curveVertex(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale));
-	curveVertex(biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale)); 
-	curveVertex(biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale));
-	curveVertex(smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
-	endShape(CLOSE);
+    //outer visor
+    beginShape();
+    curveVertex(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale));
+    curveVertex(biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale));
+    curveVertex(biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale));
+    curveVertex(smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    endShape(CLOSE);
     fill(0);
     //quad(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale), biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale), biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale), smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
-	//inner visor
-	beginShape();
-	curveVertex(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale)); 
-	curveVertex(biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale));
-	curveVertex(biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale)); 
-	curveVertex(smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
-	endShape(CLOSE);
+    //inner visor
+    beginShape();
+    curveVertex(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale));
+    curveVertex(biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale));
+    curveVertex(biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale));
+    curveVertex(smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+    endShape(CLOSE);
     fill(0, 0, 100);
-	//left eye
+    //left eye
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
     endShape(CLOSE);
-	//right eye
+    //right eye
     beginShape();
     for(var i=0; i<positions.right_eye.length;i++) {
       curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
@@ -179,14 +220,14 @@ function FaceMap() {
     fill(this.hue, 90, 50);
     rect(eye1_pos[0], eye1_pos[1], 6 * scale, 6 * scale);
     rect(eye2_pos[0], eye2_pos[1], 6 * scale, 6 * scale);
-	translate(0, -40 * scale);
-	
-    strokeWeight(1);  
+    translate(0, -40 * scale);
+
+    strokeWeight(1);
   }
 
   /*
    * Update internal state variables to a random state.
-   */  
+   */
   this.randomize = function() {
     var randomPointer = floor(random(1, 10));
     this.hue = focusedRandom(this.robotHueRanges[randomPointer][0], this.robotHueRanges[randomPointer][1], 10, this.robotHueRanges[randomPointer][2]);
@@ -252,7 +293,7 @@ function average_point(list) {
   for(var i=0; i<list.length; i++) {
     sum_x += list[i][0];
     sum_y += list[i][1];
-    num_points += 1; 
+    num_points += 1;
   }
   return [sum_x / num_points, sum_y / num_points];
 }
