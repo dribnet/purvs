@@ -91,7 +91,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [196, 196, 196];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
@@ -117,6 +117,7 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
+  colorMode(RGB);
   background(bg_color1);
 
   if (mode == 'Face') {
@@ -156,7 +157,9 @@ function draw () {
     var x2 = (3*width/4-400/2);
     var y1 = (height/2-400/2);
     image(img, x1, y1, 400, 400);
-    image(img, x2, y1, 400, 400);
+	rectMode(CORNER);
+	fill(255);
+    rect(x2, y1, 400, 400);
     var scale_x = 400.0 / img.width;
     var scale_y = 400.0 / img.height;
 

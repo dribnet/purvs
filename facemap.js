@@ -38,11 +38,10 @@ function FaceMap() {
     var scale = extent / 220.0;
 
     colorMode(HSB);
-    stroke(this.hue, 50, 90);
-    fill(this.hue, 90, 50);
     rectMode(CENTER);
 
      // nose/antenna
+	 /*
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]-ceil(20*scale)- half_height*0.5);
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -50,7 +49,44 @@ function FaceMap() {
     }
     endShape(CLOSE);
     ellipse(positions.nose_bridge[0][0], positions.nose_bridge[0][1]-ceil(20*scale)- half_height*0.5, 16 * scale, 16 * scale);
+	*/
+	
+	//static electricty between antennas
+	noFill();
+	strokeWeight(1);
+	beginShape();
+	vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale));
+	vertex(positions.left_eyebrow[0][0] + 32 * scale, positions.left_eyebrow[2][1]-ceil(60*scale));
+	var x = positions.left_eyebrow[0][0] + (32 * scale);
+	var limit = positions.right_eyebrow[4][0] - (64 * scale);
+	var averageY = ((positions.left_eyebrow[2][1]-ceil(60*scale)) + (positions.right_eyebrow[2][1]-ceil(60*scale))) / 2;
+	var yIncrement = true;
+	stroke(this.hue,100,20);
+	while( x < limit){
+		x = x + 32 * scale;
+		if(yIncrement){
+			var yValue =  averageY+(16 * scale);
+			yIncrement = false;
+		}
+		else {
+			var yValue =  averageY-(16 * scale);
+			yIncrement = true;
+		}
+		vertex(x,yValue);
+	}
+	vertex(positions.right_eyebrow[4][0] - 32 * scale, positions.right_eyebrow[2][1]-ceil(60*scale));
+	vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale));
+	endShape();
 
+	//eyebrows/antennas
+	strokeWeight(2);
+	stroke(this.hue, 50, 90);
+    fill(this.hue, 90, 50);
+	line(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1], positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale));
+	ellipse( positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale), 16 * scale, 16 * scale);
+	line(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1], positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale));
+	ellipse(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale), 16 * scale, 16 * scale);
+	
     // head
 	var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
     var chinValuesY = convertVerticeArrayToAxisArray(positions.chin, 1);
@@ -58,6 +94,7 @@ function FaceMap() {
 	var biggestX = Array.highest(chinValuesX);
 	var smallestY = Array.lowest(chinValuesY);
 	var biggestY = Array.highest(chinValuesY);
+	
 	
     beginShape();
     vertex(positions.left_eyebrow[4][0]-ceil(20*scale), positions.left_eyebrow[4][1]-ceil(20*scale));
@@ -140,21 +177,6 @@ function FaceMap() {
     var biggestXRight = Array.highest(xValuesRight);
     var smallestYRight = Array.lowest(yValuesRight);
     var biggestYRight = Array.highest(yValuesRight);
-
-    fill(stroke_color);
-    //eyebrows
-	/*
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-	*/
 
     // eyes
     translate(0, 20 * scale);
