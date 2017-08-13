@@ -54,7 +54,7 @@ function FaceMap() {
 		else {
 			yPos = yPos + (8 * scale);
 		}
-		rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, (16 * scale) * i, 8 * scale);
+		rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, (32 * scale) * i, 8 * scale);
 	}
      
 	
