@@ -22,6 +22,8 @@ function FaceMap() {
     var eye2_pos = average_point(positions.right_eye);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+	var chin_nose_diff_x = positions.chin[8][0] - positions.nose_bridge[0][0];
+	var chin_nose_diff_y = positions.chin[8][1] - positions.nose_bridge[0][1];
 
     var x = nose_pos[0];
     var y = nose_pos[1];
@@ -40,16 +42,21 @@ function FaceMap() {
     colorMode(HSB);
     rectMode(CENTER);
 
-     // nose/antenna
-	 /*
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]-ceil(20*scale)- half_height*0.5);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]-ceil(20*scale)- half_height*0.5);
-    }
-    endShape(CLOSE);
-    ellipse(positions.nose_bridge[0][0], positions.nose_bridge[0][1]-ceil(20*scale)- half_height*0.5, 16 * scale, 16 * scale);
-	*/
+	
+	// nose/neck
+	stroke(this.hue, 50, 90);
+    fill(this.hue, 90, 50);
+	var yPos = positions.nose_bridge[0][1]
+	for(var i=0; i < positions.nose_bridge.length; i++){
+		if(i == 0){
+			yPos = yPos + (8 * scale) + chin_nose_diff_y;
+		}
+		else {
+			yPos = yPos + (8 * scale);
+		}
+		rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, (16 * scale) * i, 8 * scale);
+	}
+     
 	
 	//static electricty between antennas
 	noFill();
@@ -94,7 +101,6 @@ function FaceMap() {
 	var biggestX = Array.highest(chinValuesX);
 	var smallestY = Array.lowest(chinValuesY);
 	var biggestY = Array.highest(chinValuesY);
-	
 	
     beginShape();
     vertex(positions.left_eyebrow[4][0]-ceil(20*scale), positions.left_eyebrow[4][1]-ceil(20*scale));
