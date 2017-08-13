@@ -6,8 +6,9 @@
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
+skin_color = [Math.floor(focusedRandom(20, 100)), Math.floor(focusedRandom(80, 20)), Math.floor(focusedRandom(100, 20))];
+stroke_color = [255, 255, 255];
+mouth_color = "#990000";
 
 function FaceMap() {
   /*
@@ -16,6 +17,7 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    smooth();
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
@@ -43,9 +45,9 @@ function FaceMap() {
     // fill(0)
     // ellipse(x, y, w, h);
 
-    // head
-    stroke(stroke_color);
-    fill(fg_color);
+    // whole head
+    noStroke();
+    fill(skin_color);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -60,13 +62,15 @@ function FaceMap() {
 
     // mouth
     noStroke();
-    fill(bg_color);
+    fill(mouth_color);
     beginShape();
+    //top lip
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
     }
     endShape(CLOSE);
     beginShape();
+    //bottom lip
     for(var i=0; i<positions.bottom_lip.length;i++) {
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
@@ -92,7 +96,7 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    fill(fg_color);
+    fill(skin_color);
     ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
 
