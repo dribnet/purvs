@@ -1,4 +1,6 @@
-## PS1 MDDN 342 2017
+## PS2 MDDN 342 2017
 
 
-I made my sketchy-ness work with the faces given, rather than import my own faces.
+README for part3.
+
+This is the training step.
