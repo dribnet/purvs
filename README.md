@@ -1,10 +1,7 @@
 ## PS1 MDDN 342 2017
 
 
-##Final README.
 
-##This should include a summary of all of the work leading up to the final version (which I am omitting in ##this example), so it should be longer than the other READMEs.
+I have brought the code from my last project across to start getting everything together for ps2. 
 
-##In my final version I have used a shifted grid layout with some jitter.
-
-I have brought the code from my last project across to start getting everything together for ps2.
+I am going to continue with the idea around monsters but I want to edit it to make it slightly more detailed with more shape. I am going to alter the colour scheme to be more controlled and refined and use photos of well known dictators to generate the images as I think putting a silly face over these is interesting and brings a bit more of a theme to my work.

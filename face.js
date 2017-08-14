@@ -1,5 +1,5 @@
 /*
- * Face class - holds all informaiton about one face
+ * Face class - holds all information about one face
  */  
 function Face() {
   // these are state variables for a face
