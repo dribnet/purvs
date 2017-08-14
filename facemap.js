@@ -54,9 +54,9 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // whole head
-    noStroke();
+    stroke(0, 0, 0);
     fill(skin_color);
-    beginShape();
+    beginShape(TRIANGLE_STRIP);
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
