@@ -45,8 +45,9 @@ function FaceMap() {
 	
 	// nose/neck
 	stroke(this.hue, 50, 90);
-    fill(this.hue, 90, 50);
-	var yPos = positions.nose_bridge[0][1]
+  fill(this.hue, 90, 50);
+	var yPos = positions.nose_bridge[0][1];
+  var noseWidth = (positions.nose_tip[4][0] - positions.nose_tip[0][0]) / 4;
 	for(var i=0; i < positions.nose_bridge.length; i++){
 		if(i == 0){
 			yPos = yPos + (8 * scale) + chin_nose_diff_y;
@@ -54,9 +55,8 @@ function FaceMap() {
 		else {
 			yPos = yPos + (8 * scale);
 		}
-		rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, (32 * scale) * i, 8 * scale);
+		rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, noseWidth * (i + 1), 8 * scale);
 	}
-     
 	
 	//static electricty between antennas
 	noFill();
