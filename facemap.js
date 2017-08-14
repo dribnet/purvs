@@ -23,8 +23,41 @@ function FaceMap() {
     ellipseMode(RADIUS);
     colorMode(HSB);
 
+    strokeCap(ROUND);
+    strokeJoin(BEVEL);
+
     if(canvasWidth < positions.left_eye[0][0])
       return;
+
+    //background white on whole face
+    fill(0,0,100, .7);
+    noStroke();
+    drawQuadratic(positions.left_eyebrow.concat(positions.right_eyebrow, positions.chin.reverse()));
+
+    //inside mouth
+    fill(0, 100, 40);
+    let mouthPos = average_point(positions.top_lip.concat(positions.bottom_lip));
+    let mouthRel = pos => [pos[0]-mouthPos[0], pos[1]-mouthPos[1]];
+
+    //black lips
+    fill(0, 100, 100);
+    translate(mouthPos[])
+    drawQuadratic(positions.top_lip.map(mouthRel));
+    drawQuadratic(positions.bottom_lip.map(mouthRel));
+
+    //chin border
+    noFill();
+    stroke(0, 100, 0);
+    strokeWeight(2.5)
+    drawQuadratic(positions.chin, true);
+
+    //nost
+    // noStroke();
+    // fill(0, 100, 100);
+    noFill();
+    stroke(0, 100, 100);
+    strokeWeight(5);
+    drawQuadratic(positions.nose_bridge.concat(positions.nose_tip), true);
 
     drawEye(positions.left_eye);
     drawEye(positions.right_eye);
@@ -34,6 +67,15 @@ function FaceMap() {
     ellipseMode(CENTER);
     angleMode(DEGREES);
   }
+}
+
+function drawQuadratic(points, leaveOpen){
+  beginShape();
+  vertex(points[0][0], points[0][1]);
+  for(let i = 1; i<points.length; i++){
+    quadraticVertex(points[i-1][0], points[i-1][1], points[i][0], points[i][1]);
+  }
+  endShape(leaveOpen ? null : CLOSE);
 }
 
 function drawEye(eye){
