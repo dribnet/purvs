@@ -95,7 +95,7 @@ function getJson() {
 }
 
 // global variables for colors
-var bg_color1 = [50, 50, 50];
+var bg_color1 = [196, 196, 196];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
@@ -120,6 +120,7 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
+  colorMode(RGB);
   background(bg_color1);
   var textDisplay = "unknown";
 
@@ -180,7 +181,9 @@ function draw () {
     image(img, x1, y1, 400, 400);
 
     if(!do_train) {
-      image(img, x2, y1, 400, 400);
+      	rectMode(CORNER);
+		fill(255);
+    	rect(x2, y1, 400, 400);
     }
 
     for(var i=0; i<data.landmarks.length; i++) {
