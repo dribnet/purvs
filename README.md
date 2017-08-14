@@ -1,7 +1,11 @@
 ## PS2 MDDN 342 2017
 
-### Object Oriented Face
+## PS2 MDDN 342 2017
 
-For the object oriented face I decided to port over the robot face I created in part 1 of the assignment.  I choose the robot face over the monster face because I think it will work well in regards to the overall goal of this assignment. 
+### Face Mappings
 
-In the portraits part of the last assignment I thought about drawing a robot version of myself. I tried a few tools online that convert portraits into robot faces for inspiration however I wasn't very happy with the results.  For this assignment I think I will work towards creating a similar tool that can provide better results.  
+I found this part of the assignment quite challenging because at first I wasn't sure how I could transform the provided data into my robot face.  
+
+As I delved into the code I started to understand the data better and this led me to various ideas of how I could use the data.  I have often used the data for other purposes than it was intended. For example, I have used eyebrow data to position the antennas and the nose data to position the neck.
+
+The part of the face I am most satisfied with is the mouth which I created by merging the lip data and sorting it based on the x values. I used the results of this to draw the shape of the outer mouth and create an "audio wave" styled shape for the inner mouth. I think this has worked very well to make the face look robotic. 
