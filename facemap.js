@@ -61,13 +61,13 @@ function FaceMap() {
 	
     //static electricty between antennas
     noFill();
-    strokeWeight(1);
+    strokeWeight(0.01);
     beginShape();
-    vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale));
-    vertex(positions.left_eyebrow[0][0] + 32 * scale, positions.left_eyebrow[2][1]-ceil(60*scale));
+    vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-(60*scale));
+    vertex(positions.left_eyebrow[0][0] + 32 * scale, positions.left_eyebrow[2][1]-(60*scale));
     var x = positions.left_eyebrow[0][0] + (32 * scale);
     var limit = positions.right_eyebrow[4][0] - (64 * scale);
-    var averageY = ((positions.left_eyebrow[2][1]-ceil(60*scale)) + (positions.right_eyebrow[2][1]-ceil(60*scale))) / 2;
+    var averageY = ((positions.left_eyebrow[2][1]-(60*scale)) + (positions.right_eyebrow[2][1]-(60*scale))) / 2;
     var yIncrement = true;
     stroke(this.hue,100,20);
     while( x < limit){
@@ -82,18 +82,18 @@ function FaceMap() {
     	}
     	vertex(x,yValue);
     }
-    vertex(positions.right_eyebrow[4][0] - 32 * scale, positions.right_eyebrow[2][1]-ceil(60*scale));
-    vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale));
+    vertex(positions.right_eyebrow[4][0] - 32 * scale, positions.right_eyebrow[2][1]-(60*scale));
+    vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-(60*scale));
     endShape();
 
     //eyebrows/antennas
-    strokeWeight(2);
+    strokeWeight(0.02);
     stroke(this.hue, 50, 90);
     fill(this.hue, 90, 50);
-    line(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1], positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale));
-    ellipse( positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-ceil(60*scale), 16 * scale, 16 * scale);
-    line(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1], positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale));
-    ellipse(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-ceil(60*scale), 16 * scale, 16 * scale);
+    line(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1], positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-(60*scale));
+    ellipse( positions.left_eyebrow[0][0], positions.left_eyebrow[2][1]-(60*scale), 16 * scale, 16 * scale);
+    line(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1], positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-(60*scale));
+    ellipse(positions.right_eyebrow[4][0], positions.right_eyebrow[2][1]-(60*scale), 16 * scale, 16 * scale);
 	
     // head
     var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
@@ -102,23 +102,23 @@ function FaceMap() {
   	var biggestX = Array.highest(chinValuesX);
   	var smallestY = Array.lowest(chinValuesY);
   	var biggestY = Array.highest(chinValuesY);
-	
+	 
     beginShape();
-    vertex(positions.left_eyebrow[4][0]-ceil(20*scale), positions.left_eyebrow[4][1]-ceil(20*scale));
-  	vertex(positions.left_eyebrow[0][0]-ceil(20*scale), positions.left_eyebrow[0][1]-ceil(20*scale));
+    vertex(positions.left_eyebrow[4][0]-(20*scale), positions.left_eyebrow[4][1]-(20*scale));
+  	vertex(positions.left_eyebrow[0][0]-(20*scale), positions.left_eyebrow[0][1]-(20*scale));
   	for(var i=0; i<positions.chin.length;i++) {
   		if(i < 8){
-  			vertex(positions.chin[i][0]-ceil(20*scale), positions.chin[i][1]);
+  			vertex(positions.chin[i][0]-(20*scale), positions.chin[i][1]);
   		}
   		else if(i > 8){
-  			vertex(positions.chin[i][0]+ceil(20*scale), positions.chin[i][1]);
+  			vertex(positions.chin[i][0]+(20*scale), positions.chin[i][1]);
   		}
   		else {
-  			vertex(positions.chin[i][0], positions.chin[i][1]+ceil(10*scale));
+  			vertex(positions.chin[i][0], positions.chin[i][1]+(10*scale));
   		}
     }
-  	vertex(positions.right_eyebrow[4][0]+ceil(20*scale), positions.right_eyebrow[4][1]-ceil(20*scale));
-  	vertex(positions.right_eyebrow[0][0]+ceil(20*scale), positions.right_eyebrow[0][1]-ceil(20*scale));
+  	vertex(positions.right_eyebrow[4][0]+(20*scale), positions.right_eyebrow[4][1]-(20*scale));
+  	vertex(positions.right_eyebrow[0][0]+(20*scale), positions.right_eyebrow[0][1]-(20*scale));
     endShape(CLOSE);
 
       //merge the lips arrays and then sort them on the x-axis
@@ -142,19 +142,19 @@ function FaceMap() {
     fill(this.hue, 90, 20);
   	translate(0, 5 * scale);
   	beginShape();
-    vertex(sorted_lips[0][0]-ceil(20*scale), sorted_lips[0][1]-ceil(20*scale));
-  	vertex(sorted_lips[4][0]+ceil(20*scale), smallestY-ceil(20*scale)); 
-  	vertex(sorted_lips[10][0]+ceil(20*scale), smallestY-ceil(20*scale)); 
-  	vertex(sorted_lips[23][0]+ceil(20*scale), sorted_lips[23][1]-ceil(20*scale)); 
-  	vertex(sorted_lips[23][0]+ceil(20*scale), sorted_lips[23][1]+ceil(20*scale)); 
-  	vertex(sorted_lips[10][0]+ceil(20*scale), biggestY+ceil(20*scale)); 
-  	vertex(sorted_lips[4][0]+ceil(20*scale), biggestY+ceil(20*scale)); 
-  	vertex(sorted_lips[0][0]-ceil(20*scale), sorted_lips[0][1]+ceil(20*scale));
+    vertex(sorted_lips[0][0]-(20*scale), sorted_lips[0][1]-(20*scale));
+  	vertex(sorted_lips[4][0]+(20*scale), smallestY-(20*scale)); 
+  	vertex(sorted_lips[10][0]+(20*scale), smallestY-(20*scale)); 
+  	vertex(sorted_lips[23][0]+(20*scale), sorted_lips[23][1]-(20*scale)); 
+  	vertex(sorted_lips[23][0]+(20*scale), sorted_lips[23][1]+(20*scale)); 
+  	vertex(sorted_lips[10][0]+(20*scale), biggestY+(20*scale)); 
+  	vertex(sorted_lips[4][0]+(20*scale), biggestY+(20*scale)); 
+  	vertex(sorted_lips[0][0]-(20*scale), sorted_lips[0][1]+(20*scale));
   	endShape(CLOSE);
   	translate(0, -5 * scale);
   	
   	//draw the inner mouth
-  	strokeWeight(1);
+  	strokeWeight(0.01);
     stroke(0,0, 100, 1);
     beginShape();
     for(var i=0; i<sorted_lips.length;i++) {
@@ -163,9 +163,12 @@ function FaceMap() {
         }
         else {
             curveVertex(sorted_lips[i][0],sorted_lips[i][1]);
-            for(var x=sorted_lips[i][0] + 1; x < sorted_lips[i+1][0] - 1; x++){
+            var x = sorted_lips[i][0] + 0.02;
+            var limit = sorted_lips[i+1][0] - 0.02;
+            while(x < limit){
 				      var randomY = random(smallestY, biggestY);
               curveVertex(x,randomY);
+              x = x + 0.02;
             }
         }
     }
@@ -202,18 +205,18 @@ function FaceMap() {
     var biggestYRight = Array.highest(yValuesRight);
     //outer visor
     beginShape();
-    curveVertex(smallestXLeft-ceil(20*scale), smallestYLeft-ceil(20*scale));
-    curveVertex(biggestXRight+ceil(20*scale), smallestYRight-ceil(20*scale));
-    curveVertex(biggestXRight+ceil(20*scale), biggestYRight+ceil(20*scale));
-    curveVertex(smallestXLeft-ceil(20*scale), biggestYLeft+ceil(20*scale));
+    curveVertex(smallestXLeft-(20*scale), smallestYLeft-(20*scale));
+    curveVertex(biggestXRight+(20*scale), smallestYRight-(20*scale));
+    curveVertex(biggestXRight+(20*scale), biggestYRight+(20*scale));
+    curveVertex(smallestXLeft-(20*scale), biggestYLeft+(20*scale));
     endShape(CLOSE);
     fill(0);
     //inner visor
     beginShape();
-    curveVertex(smallestXLeft-ceil(10*scale), smallestYLeft-ceil(10*scale));
-    curveVertex(biggestXRight+ceil(10*scale), smallestYRight-ceil(10*scale));
-    curveVertex(biggestXRight+ceil(10*scale), biggestYRight+ceil(10*scale));
-    curveVertex(smallestXLeft-ceil(10*scale), biggestYLeft+ceil(10*scale));
+    curveVertex(smallestXLeft-(10*scale), smallestYLeft-(10*scale));
+    curveVertex(biggestXRight+(10*scale), smallestYRight-(10*scale));
+    curveVertex(biggestXRight+(10*scale), biggestYRight+(10*scale));
+    curveVertex(smallestXLeft-(10*scale), biggestYLeft+(10*scale));
     endShape(CLOSE);
     fill(0, 0, 100);
     //left eye
@@ -235,7 +238,7 @@ function FaceMap() {
     rect(eye2_pos[0], eye2_pos[1], 6 * scale, 6 * scale);
     translate(0, -20 * scale);
 
-    strokeWeight(1);
+    strokeWeight(0.01);
   }
 
   /*
@@ -262,6 +265,16 @@ function FaceMap() {
       7 : [221, 260, 240],
       8 : [261, 300, 280],
       9 : [301, 340, 320]
+  }
+
+  /* set internal properties based on list numbers 0-100 */
+  this.setProperties = function(settings) {
+  }
+
+  /* get internal properties as list of numbers 0-100 */
+  this.getProperties = function() {
+    properties = new Array(2);
+    return properties;
   }
 
 
