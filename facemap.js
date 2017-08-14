@@ -9,7 +9,12 @@ bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
+var rand = new Math.seedrandom(focusedRandom())
+
 function FaceMap() {
+  this.hairLength = 50;
+  this.hairColor = 50;
+  this.mouthTimingRand = rand();
 
   /*
    * Draw a face with position lists that include:
@@ -34,16 +39,19 @@ function FaceMap() {
     noStroke();
     drawQuadratic(positions.left_eyebrow.concat(positions.right_eyebrow, positions.chin.reverse()));
 
-    //inside mouth
-    fill(0, 100, 40);
-    let mouthPos = average_point(positions.top_lip.concat(positions.bottom_lip));
-    let mouthRel = pos => [pos[0]-mouthPos[0], pos[1]-mouthPos[1]];
+    //lips and mouth
+    doCentered(positions.top_lip.concat(positions.bottom_lip), function(points, mapper){
+      push();
+      scale(1.8, 1.5);
+      fill(0, 80, 100);
+      drawQuadratic(convexHull(points));
+      pop();
 
-    //black lips
-    fill(0, 100, 100);
-    translate(mouthPos[])
-    drawQuadratic(positions.top_lip.map(mouthRel));
-    drawQuadratic(positions.bottom_lip.map(mouthRel));
+      scale(1, 1+.3*sin(millis()/focusedRandom(100, 600, 2, 300)*TAU));
+      fill(0, 0, 100);
+      drawQuadratic(positions.top_lip.map(mapper));
+      drawQuadratic(positions.bottom_lip.map(mapper));
+    })
 
     //chin border
     noFill();
@@ -51,22 +59,64 @@ function FaceMap() {
     strokeWeight(2.5)
     drawQuadratic(positions.chin, true);
 
-    //nost
-    // noStroke();
-    // fill(0, 100, 100);
-    noFill();
-    stroke(0, 100, 100);
-    strokeWeight(5);
-    drawQuadratic(positions.nose_bridge.concat(positions.nose_tip), true);
+    //eyes
+    [positions.left_eye, positions.right_eye].forEach(function(eye){
+      doCentered(eye, function(points, mapper){
+        scale(2);
+        noStroke();
 
-    drawEye(positions.left_eye);
-    drawEye(positions.right_eye);
+        let pointsRect = Rect.fromPoints(points.map(point => [point[0]/4, point[1]/4]));
+        
+        //white eye
+        fill(50, 98, 95);
+        drawQuadratic(convexHull(points));
+
+        // scale(0.5)
+
+        fill(0,0,0);
+        ellipse(focusedRandom(pointsRect.minX(), pointsRect.maxX(), 3, 0)*sin(millis()/focusedRandom(500, 3000)), 
+          focusedRandom(pointsRect.minY(), pointsRect.maxY(), 3, 0)*sin(millis()/focusedRandom(300, 1000)),
+            1.5, 1.5); //black pupil
+      })
+    })
+
+    //nose
+    doCentered(positions.nose_bridge.concat(positions.nose_tip), function(points){
+      rotate(sin(millis()/focusedRandom(300, 3000)*TAU)*focusedRandom(0, PI/16));
+      noFill();
+      stroke(0, 100, 100);
+      strokeWeight(4);
+      drawQuadratic(points, true);
+    })
 
     //reset vars back to tom's defaults
     colorMode(RGB);
     ellipseMode(CENTER);
     angleMode(DEGREES);
   }
+
+  /* set internal properties based on list numbers 0-100 */
+  this.setProperties = function(settings) {
+    this.hairLength = settings[0];
+    this.hairColor = settings[1];
+  }
+
+  /* get internal properties as list of numbers 0-100 */
+  this.getProperties = function() {
+    properties = new Array(2);
+    properties[0] = this.hairLength;
+    properties[1] = this.hairColor;
+    return properties;
+  }
+}
+
+function doCentered(points, func){
+  push();
+  var position = average_point(points);
+  translate(position[0], position[1]);
+  let centeredMap = point => [point[0]-position[0], point[1]-position[1]];
+  func(points.map(centeredMap), centeredMap, position);
+  pop();
 }
 
 function drawQuadratic(points, leaveOpen){
@@ -76,28 +126,6 @@ function drawQuadratic(points, leaveOpen){
     quadraticVertex(points[i-1][0], points[i-1][1], points[i][0], points[i][1]);
   }
   endShape(leaveOpen ? null : CLOSE);
-}
-
-function drawEye(eye){
-  var pos = average_point(eye);
-
-  var rect = Rect.fromPoints(eye);
-
-  var ytend = rect.height*2.5;
-  var paintRect = Rect.fromMinMax(rect.minX(), rect.minY()-ytend, rect.maxX(), rect.maxY());
-  paintRect.y += rect.height*2;
-  paintRect.width *= 2
-
-  fill(0, 0, 100, 0.7); //white
-  stroke(0, 0, 0);
-  arc(paintRect.x, paintRect.y, paintRect.width/2, paintRect.height, PI, PI, OPEN); //big eye paint
-
-  fill(0, 100, 80); //dark red
-  noStroke();
-  ellipse(rect.x, rect.y, rect.width*0.7, rect.height); //red eye
-
-  fill(0,0,0);
-  ellipse(rect.x, rect.y, 2, 2); //black pupil
 }
 
 class Rect{
@@ -150,6 +178,39 @@ class Rect{
   static fromMinMax(minX, minY, maxX, maxY){
     return new Rect(minX+(maxX-minX)/2, minY+(maxX-minX)/2, (maxX-minX), (maxY-minY));
   }
+}
+
+function cross(a, b, o) {
+   return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+}
+
+/**
+ * @param points An array of [X, Y] coordinates
+ */
+function convexHull(points) {
+   points.sort(function(a, b) {
+      return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
+   });
+
+   var lower = [];
+   for (var i = 0; i < points.length; i++) {
+      while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], points[i]) <= 0) {
+         lower.pop();
+      }
+      lower.push(points[i]);
+   }
+
+   var upper = [];
+   for (var i = points.length - 1; i >= 0; i--) {
+      while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], points[i]) <= 0) {
+         upper.pop();
+      }
+      upper.push(points[i]);
+   }
+
+   upper.pop();
+   lower.pop();
+   return lower.concat(upper);
 }
 
 // given a point, return the average
