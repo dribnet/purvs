@@ -12,6 +12,7 @@ stroke_color = [95, 52, 8];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
+  this.cheeks = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -68,7 +69,7 @@ function FaceMap() {
 
     // mouth
     noStroke();
-    fill(bg_color);
+    fill(12,0,0);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -81,8 +82,9 @@ function FaceMap() {
     endShape(CLOSE);
 
     // nose
+    fill(141,89,88);
     beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+    vertex(positions.nose_bridge[0][0], positions.nose_bridge[2][1]);
     for(var i=0; i<positions.nose_tip.length;i++) {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
     }
@@ -102,8 +104,19 @@ function FaceMap() {
     endShape(CLOSE);
 
     fill(221,217,218);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 5 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 5 * scale);
+
+ //cheeks
+    fill(213,132,151);
+    ellipse(-1,-0.1,1,0.5);
+    ellipse(1,-0.1,1,0.5);
+
+  //ears
+  // fill(141,89,88);
+  // stroke(0,0,0);
+  // triangle(5, 0, 5, 5, 5, 10);
+  // triangle(-5, -40, -35, -25, -15, -15);
 
     // fill(stroke_color);
     // beginShape();
