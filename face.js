@@ -13,7 +13,7 @@ function Face() {
   this.faceWidth=55;
   this.chin=110;
     this.flameSize=1;
-this.eyeX=0;
+this.eyeX=0; 
 this.eyeY=0;
     this.crossEyed=1;
   // other variables can be in here too
