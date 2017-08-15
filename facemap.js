@@ -13,7 +13,7 @@ function FaceMap() {
 	this.eyebrowThickness = 50;
 	this.mouthOpenLevel = 50;
 	this.eyeBrightness = 50;
-	this.includesDome = 0;
+	this.includesDome = 100;
 	  /*
 	   * Draw a face with position lists that include:
 	   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -77,9 +77,21 @@ function FaceMap() {
 			beginShape();
 			vertex(positions.left_eyebrow[4][0]-(20*scale), positions.left_eyebrow[4][1]-(20*scale));
 			vertex(positions.left_eyebrow[0][0]-(20*scale), positions.left_eyebrow[0][1]-(20*scale));
-			curveVertex(positions.nose_bridge[0][0] - 1.2, positions.nose_bridge[0][1] - 2);
+			if((positions.left_eyebrow[0][0] - positions.chin[0][0]) > 0.5){
+				vertex(positions.chin[0][0]-(20*scale), positions.chin[0][1]);
+				curveVertex(positions.nose_bridge[0][0] - 1.5, positions.nose_bridge[0][1] - 2);
+			}
+			else {
+				curveVertex(positions.nose_bridge[0][0] - 1.2, positions.nose_bridge[0][1] - 2);
+			}
 			curveVertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1] - 2.5);
-			curveVertex(positions.nose_bridge[0][0] + 1.2, positions.nose_bridge[0][1] - 2);
+			if((positions.chin[16][0] - positions.right_eyebrow[4][0]) > 0.5){
+				curveVertex(positions.nose_bridge[0][0] + 1.5, positions.nose_bridge[0][1] - 2);
+				vertex(positions.chin[16][0]+(20*scale), positions.chin[16][1]);
+			}
+			else {
+				curveVertex(positions.nose_bridge[0][0] + 1.2, positions.nose_bridge[0][1] - 2);
+			}
 			vertex(positions.right_eyebrow[4][0]+(20*scale), positions.right_eyebrow[4][1]-(20*scale));
 			vertex(positions.right_eyebrow[0][0]+(20*scale), positions.right_eyebrow[0][1]-(20*scale));
 			endShape(CLOSE);
@@ -112,9 +124,40 @@ function FaceMap() {
 		vertex(positions.right_eyebrow[rightAntennaIndex][0] - 32 * scale, positions.right_eyebrow[2][1]-(60*scale));
 		vertex(positions.right_eyebrow[rightAntennaIndex][0], positions.right_eyebrow[2][1]-(60*scale));
 		endShape();
+		
+		//hair
+		var from = color(this.hue,100,20);
+		var to = color(48,97,100);
+		for( var i =1; i <= 5 ; i++){
+			stroke(lerpColor(from, to, (.2 * i)));
+			strokeWeight(thickness/(i+1) );
+			beginShape();
+			vertex(positions.left_eyebrow[leftAntennaIndex][0] +((i*10) *scale), positions.left_eyebrow[2][1]-((60 + i*20) *scale));
+			vertex(positions.left_eyebrow[leftAntennaIndex][0] + 32 * scale, positions.left_eyebrow[2][1]-((60 + i*20)*scale));
+			var x = positions.left_eyebrow[leftAntennaIndex][0] + (32 * scale);
+			var limit = positions.right_eyebrow[rightAntennaIndex][0] - (64 * scale);
+			var averageY = ((positions.left_eyebrow[2][1]-((60 + i*20)*scale)) + (positions.right_eyebrow[2][1]-((60 + i*20)*scale))) / 2;
+			var yIncrement = true;
+			while( x < limit){
+				x = x + 32 * scale;
+				if(yIncrement){
+					var yValue =  averageY+(16 * scale);
+					yIncrement = false;
+				}
+				else {
+					var yValue =  averageY-(16 * scale);
+					yIncrement = true;
+				}
+				vertex(x,yValue);
+			}
+			vertex(positions.right_eyebrow[rightAntennaIndex][0] - 32 * scale, positions.right_eyebrow[2][1]-((60 + i*20)*scale));
+			vertex(positions.right_eyebrow[rightAntennaIndex][0] - ((i*10) *scale), positions.right_eyebrow[2][1]-((60 + i*20)*scale));
+			endShape();
+		}
 
 		//eyebrows/antennas 
 		stroke(this.hue, 90, 50);
+		strokeWeight(thickness);
 		fill(this.hue, 50, 90);
 		line(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1], positions.left_eyebrow[leftAntennaIndex][0], positions.left_eyebrow[2][1]-(60*scale));
 		ellipse( positions.left_eyebrow[leftAntennaIndex][0], positions.left_eyebrow[2][1]-(60*scale), 16 * scale, 16 * scale);
@@ -257,8 +300,8 @@ function FaceMap() {
 		curveVertex(smallestXLeft-(20*scale), biggestYLeft+(20*scale));
 		endShape(CLOSE);
 		//how bright are the eyes?
-		var brightness = map(this.eyeBrightness, 0, 100, 0.5, 1);  
-		fill(0, 0, 0, brightness);
+		var brightness = map(this.eyeBrightness, 0, 100, 50, 0);  
+		fill(0, 0, brightness);
 		//inner visor
 		beginShape();
 		curveVertex(smallestXLeft-(10*scale), smallestYLeft-(10*scale));
