@@ -5,8 +5,8 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
+skinHighlight_color = [205, 206, 187];
+skinMidtone_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
@@ -45,7 +45,7 @@ function FaceMap() {
 
     // head
     stroke(stroke_color);
-    fill(fg_color);
+    fill(skinMidtone_color);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -60,7 +60,7 @@ function FaceMap() {
 
     // mouth
     noStroke();
-    fill(bg_color);
+    fill(skinHighlight_color);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -92,7 +92,7 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    fill(fg_color);
+    fill(skinMidtone_color);
     ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
 
