@@ -11,6 +11,9 @@ stroke_color = [255, 255, 255];
 mouth_color = "#990000";
 
 function FaceMap() {
+  this.hairLength = 50;
+  this.hairColor = 50;
+
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -28,6 +31,11 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
+
+    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
+    fill(curHairColor);
+    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
+    rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -112,6 +120,20 @@ function FaceMap() {
     }
     endShape(CLOSE);
     strokeWeight(1);  
+  }
+
+  /* set internal properties based on list numbers 0-100 */
+  this.setProperties = function(settings) {
+    this.hairLength = settings[0];
+    this.hairColor = settings[1];
+  }
+
+  /* get internal properties as list of numbers 0-100 */
+  this.getProperties = function() {
+    properties = new Array(2);
+    properties[0] = this.hairLength;
+    properties[1] = this.hairColor;
+    return properties;
   }
 }
 
