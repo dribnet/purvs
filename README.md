@@ -1,4 +1,4 @@
 ## PS1 MDDN 342 2017
 
 
-I have updated the code with my ps1 final face which is a mummy created from my imagination.
+I have transferred the mummy's feature into this part. The face and eyes now can match the origin image well.
