@@ -1,29 +1,23 @@
-/*
- * FaceMap class - holds all informaiton about one mapped
- * face and is able to draw itself.
- */  
-
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
+bg_color = 0;
+//fg and body color getting less transparent
+fg_color = [[255,229,0,50],[255,229,0,100],[255,229,0,150],[255,229,0,200], [255,229,0]];
+body_color = [[255,110,0,100],[255,110,0,200], [255,110,0]];
+body_color2 = [[255,0,0,100],[255,0,0,200], [255,0,0]];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
-
+  this.eyeColor = [56, 14, 11];
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */ 
-   rect()
-    this.fireOpacity = 150;
-    baseColour = int(focusedRandom(0,2));
-      this.fireColour=0;
-    this.fireOpacity = 150;
-    this.flameSpread=50;
+    
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -32,41 +26,28 @@ function FaceMap() {
     var eyebrow2_pos = average_point(positions.right_eyebrow);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
-      //chin top left
-    var ctl = [positions.chin[0][0],positions.chin[0][1]]
-    //chin top right
-    var ctr = [positions.chin[16][0],positions.chin[16][1]]
-    //top of chins
-    var toc =[[positions.chin[0][0],positions.chin[0][1]],[positions.chin[16][0],positions.chin[16][1]]]
-    //avg top of chins
-    var atoc= average_point(toc);
-          var fire_pos=[[positions.chin[0][0],positions.chin[0][1]], 
+        var fire_pos=[[positions.chin[0][0],positions.chin[0][1]], 
                    [positions.chin[16][0],positions.chin[16][1]],
-                   [positions.chin[2][0],positions.chin[2][1]],
-                   [positions.chin[14][0],positions.chin[14][1]],
+                   [positions.chin[3][0],positions.chin[3][1]],
+                   [positions.chin[13][0],positions.chin[13][1]],
+                   [positions.chin[6][0],positions.chin[6][1]],
+                    [positions.chin[10][0],positions.chin[10][1]],
+                     [positions.chin[8][0],positions.chin[8][1]]]
+           var fire_pos2=[[positions.chin[0][0],positions.chin[0][1]], 
+                   [positions.chin[16][0],positions.chin[16][1]],
                    [positions.chin[4][0],positions.chin[4][1]],
                    [positions.chin[12][0],positions.chin[12][1]],
-                   [positions.chin[6][0],positions.chin[6][1]],
-                   [positions.chin[10][0],positions.chin[10][1]],
-                   [positions.chin[8][0],positions.chin[8][1]],
-                   [positions.chin[0][0],positions.chin[0][1]],
-                   [positions.chin[16][0],positions.chin[16][1]],
-                   [positions.chin[2][0],positions.chin[2][1]],
-                   [positions.chin[14][0],positions.chin[14][1]],
-                   [positions.chin[4][0],positions.chin[4][1]],
-                   [positions.chin[12][0],positions.chin[12][1]],
-                   [positions.chin[6][0],positions.chin[6][1]],
-                   [positions.chin[10][0],positions.chin[10][1]],
-                   [positions.chin[8][0],positions.chin[8][1]]]
+                    [positions.chin[8][0],positions.chin[8][1]]]
     var x = nose_pos[0];
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+      //For training mode later
+//    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
+//    fill(curHairColor);
+//    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
+//    rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -83,88 +64,100 @@ function FaceMap() {
 //     rect(x-w/2, y-h/2, w, h);
 //     fill(0)
 //     ellipse(x, y, w, h);
-
-     //v is amount of variance of the fire's placement
-      v=15*scale2;
-      v=0;
-      //d is the amount of difference the flames are from the middle.
-      d= this.flameSpread*scale2;
-      d=5*scale2;
-      d=0;
-//      d=0;
-      //flameHeights: 
-var fh=[-100*scale2,-100*scale2,-150*scale2, -150*scale2, -200*scale2, -200*scale2,-250*scale2, -100*scale2, -280*scale2,-100*scale2,-180*scale2,-100*scale2,-150*scale2,-150*scale2,-100*scale2,-100*scale2,-50*scale2,-50*scale2]
-      //flamewidths:     
-        var fw=[-50*scale2,50*scale2,-40*scale2,40*scale2,-30*scale2,30*scale2,-30*scale2, 30*scale2,0*scale2, 0*scale2,0*scale2, 0*scale2, 0*scale2, 0*scale2, 0*scale2, 0*scale2,0*scale2,0*scale2]
-       baseIntensity = random(70,150);
-          var flameIntensity =[baseIntensity+100,baseIntensity+100,baseIntensity+80,baseIntensity+60,baseIntensity+50,baseIntensity+40,baseIntensity+30,baseIntensity+20,baseIntensity+10,baseIntensity,baseIntensity+10,baseIntensity+20,baseIntensity+30,baseIntensity+40,baseIntensity+50,baseIntensity+60,baseIntensity+80,baseIntensity+100]
-
-         noStroke();
-    if(baseColour ==0){
-    this.fireColour = mostlyOrange();
-}
-      else {
-          this.fireColour = mostlypastelOrange();
-      }   
+ 
+      //fire1
+         var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
+        var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
+              fill(body_color2[1]);
+      push();
+      scale(1.05,1);
+      translate(0,-0.3);
       
-              push();
-      translate(0,scale2*40);
-      for(var n=0; n<positions.chin.length;n++) {
-                    
-           if (this.fireColour==0){
-               //pretty blue
-           fill(0, flameIntensity[n], 255, this.fireOpacity/2);
-           }
-           else if (this.fireColour==1){
-               //orange
-           fill(255, flameIntensity[n], 0, this.fireOpacity);
-           }
-           else if (this.fireColour==2){
-               //pastel orange
-        fill(255, flameIntensity[n], 100, this.fireOpacity);
-           }
-           else if(this.fireColour==3){
-                //pretty purple
-        fill(200, flameIntensity[n]-60, 250, this.fireOpacity/2);
-           }
-         else if(this.fireColour==4){
-              // pretty greenish blue:
-           fill(0, flameIntensity[n], 100, this.fireOpacity);
-         }
-          else{
-              // pretty greenish yellow:
-           fill(flameIntensity[n]+100, flameIntensity[n]+200, 100, this.fireOpacity);    
-       }
-          beginShape();
-    for(var i=2; i<positions.chin.length;i=i+3) {
-        translateFaceUp =-(positions.chin[i][0]/20*scale2);
-         //translateFaceUp=0;
-      vertex(positions.chin[i][0], positions.chin[i][1]+translateFaceUp);
+      for(var n=0; n<fw.length;n++) {
+   beginShape();
+      
+  for(var i=1; i<positions.chin.length-8;i++) {
+      vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
     }
-      vertex(fire_pos[n][0]+fw[n], atoc[1]+fh[n]);
-
-          endShape(CLOSE);
+      for(var i=8; i<positions.chin.length-1;i++) {
+      vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
     }
-    
-
-    // mouth
-
-             fill(0);
-       beginShape();
-      vertex(positions.top_lip[0][0], positions.top_lip[0][1]-20*scale2);
-
-      vertex(positions.top_lip[6][0], positions.top_lip[6][1]-20*scale2);
-
-      vertex(positions.bottom_lip[10][0], positions.bottom_lip[10][1]-20*scale2);
-    
-      vertex(positions.bottom_lip[9][0], positions.bottom_lip[9][1]-20*scale2);
-        vertex(positions.bottom_lip[8][0], positions.bottom_lip[8][1]-20*scale2);
+          vertex(fire_pos[n][0]+fw[n], fh[n]);
+       endShape(CLOSE);
+      }
+pop();
+      //fire2
+             var fh=[ -2,-2.2,-3,-3,-3.3]  
+        var fw=[ -0.4,0.4, -0.2,0.2,0]
+      fill(body_color[1]);
+      push();
+      translate(0,-0.3);
+      for(var n=0; n<fw.length;n++) {
+   beginShape();
+  for(var i=0; i<positions.chin.length-8;i++) {
+      vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
+    }
+      for(var i=8; i<positions.chin.length;i++) {
+      vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
+    }
+          vertex(fire_pos2[n][0]+fw[n], fh[n]);
+       endShape(CLOSE);
+      }
+pop();
       
-      
+      //face
+    push();
+      translate(0,-0.4);
+    fill(fg_color[1]);
+    beginShape();
+     // vertex(positions.chin[0][0], positions.chin[0][1]);
+    for(var i=1; i<positions.chin.length-1;i++) {
+      vertex(positions.chin[i][0], positions.chin[i][1]);
+    }
+      //vertex(positions.chin[16][0], positions.chin[16][1]);
+       vertex(positions.chin[16][0]-0.2, -0.8);
+      vertex(positions.chin[16][0]-0.5, -1.3);
+      vertex(positions.chin[16][0]-1, -1.8);
+      vertex(0, -2.3);
+      vertex(positions.chin[0][0]+1, -1.8);
+      vertex(positions.chin[0][0]+0.5, -1.3);
+       vertex(positions.chin[0][0]+0.2, -0.8);
+    
     endShape(CLOSE);
       
+      pop();
+      
+    // mouth
+    noStroke();
+    fill(fg_color[0]);
+    beginShape();
+    for(var i=0; i<positions.top_lip.length;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
+    beginShape();
+    for(var i=0; i<positions.bottom_lip.length;i++) {
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+    }
+    endShape(CLOSE);
+
+    // inside of mouth
+      //for training later
+//    var whiteness = map(this.mouthColor, 0, 100, 0, 255);
+//    fill(255, whiteness, whiteness);
+fill(bg_color);
+    beginShape();
+    for(var i=6; i<positions.bottom_lip.length;i++) {
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+    }
+    for(var i=6; i<positions.top_lip.length;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
+    fill(bg_color);
+
+      
     // nose
-      noStroke();
     beginShape();
     for(var i=0; i<positions.nose_tip.length;i++) {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
@@ -174,23 +167,40 @@ var fh=[-100*scale2,-100*scale2,-150*scale2, -150*scale2, -200*scale2, -200*scal
     // eyes
 
     fill(255);
-    ellipse(eye1_pos[0], eye1_pos[1]+scale2*40, 50 * scale2, 50 * scale2);
-    ellipse(eye2_pos[0], eye2_pos[1]+scale2*40, 50 * scale2, 50 * scale2);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.8, 0.8);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.6, 0.8, 0.8);
       //pupil
+       fill(this.eyeColor);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.6,  0.6);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.6,  0.6,  0.6);
+      
     fill(0);
-    ellipse(eye1_pos[0], eye1_pos[1]+scale2*40, 30 * scale2, 30 * scale2);
-    ellipse(eye2_pos[0], eye2_pos[1]+scale2*40, 30 * scale2, 30 * scale2);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.4,  0.4);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.6,  0.4,  0.4);
 //eyebrows
     fill(0);
-      push();
- strokeWeight(1); 
-      stroke(0);
-       line(positions.left_eyebrow[0][0]+scale2*10,eyebrow1_pos[1]+scale2*40,positions.left_eyebrow[4][0]-scale2*10, eyebrow1_pos[1]+scale2*40);
-       line(positions.right_eyebrow[0][0]+scale2*10,eyebrow2_pos[1]+scale2*40,positions.right_eyebrow[4][0]-scale2*10, eyebrow2_pos[1]+scale2*40);
-     
- 
+push();
+      translate(0,0.5);
+    beginShape();
+    for(var i=0; i<positions.right_eyebrow.length; i++) {
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+    }
+    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1]+0.08);
+    vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]+0.1); vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1]+0.11);
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.12);
+    endShape(CLOSE);
+    beginShape();
+    for(var i=0; i<positions.left_eyebrow.length; i++) {
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+    }
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.12);
+    vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1]+0.11);
+    vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]+0.1); 
+    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]+0.08);
+    endShape(CLOSE);
+pop();
     strokeWeight(1);  
-      pop();
+
       pop();
   }
   this.randomize = function(values, size) {
