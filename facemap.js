@@ -1,13 +1,37 @@
 /*
  * FaceMap class - holds all informaiton about one mapped
  * face and is able to draw itself.
- */  
+ */
 
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
+
+
+// global variables for colors
+var white = [255,255,255];
+var lightGray = [220,220,220];
+var shadow = [0,30];
+var shadowLight = [255,65];
+
+//color schemes
+//KEY: background, face, pupil, horns, nose, mouth
+// pink
+var scheme1 = [[242,58,107],[243,100,242],[243,150,242],[255,255,255],[133,133,238],[97,97,235]];
+// light blue
+var scheme2 = [[191,210,251],[132,130,237],[34,28,234],[255,255,255],[83,85,227],[39,36,226]];
+//orange
+var scheme3 = [[255,209,48],[254,150,48],[255,81,0],[255,255,255],[249,118,67],[241,45,43]];
+//green
+var scheme4 = [[160,231,139],[63,161,77],[255,161,143],[255,255,255],[156,153,154],[30,84,36]];
+//red
+var scheme5 = [[248,130,78],[248,39,34],[129,105,95],[255,255,255],[126,102,91],[123,106,106]];
+
+//contains all schemes
+var schemes = [scheme2,scheme3,scheme4,scheme5];
+
 
 function FaceMap() {
   this.hairLength = 50;
@@ -16,8 +40,8 @@ function FaceMap() {
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */  
+   *    bottom_lip, top_lip, nose_tip, nose_bridge,
+   */
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -25,10 +49,11 @@ function FaceMap() {
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
-    var x = nose_pos[0];
-    var y = nose_pos[1];
+
     var w = 2 * face_width;
     var h = 2.5 * half_height;
+    var x = nose_pos[0]-w/2;
+    var y = nose_pos[1]-h/2;
 
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
@@ -44,6 +69,48 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
+    resetFocusedRandom(curRandomSeed);
+
+var data = faceData[curFaceIndex];
+var mode = faceSelector.value();
+
+if(millis() > lastSwapTime + millisPerSwap) {
+changeRandomSeed();
+}
+
+noStroke();
+
+var cols = 9;
+var rows = 5;
+
+//var w = 1;
+//var h = 1;
+//var w = canvasWidth / cols;
+//var h = canvasHeight / rows;
+//for(var row=0; row<rows; row++) {
+  //for(var col=0; col<cols; col++) {
+    //var x = w*col;
+    //var y = h*row;
+
+    //random color scheme is used
+    scheme = schemes[Math.floor(focusedRandom(0,schemes.length))];
+    fill(scheme[0]);
+
+   //randomized variables
+   var faceWidth = focusedRandom(-(h/6.66),-(h/20));
+   var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
+   var eye_value = getEyeNum();
+   var mouthType = Math.floor(focusedRandom(1,3));
+   var noseType = Math.floor(focusedRandom(1,3));
+   var hornSize = focusedRandom(-(h/5),(h/20));
+   var hornType = getHornType();
+   var face = getFaceType();
+
+   var monFace = new Face();
+   monFace.drawMonster(x-(w/2.5),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
+ //}
+//}
+
     // Uncomment to see drawing area
     // fill(255);
     // stroke(0);
@@ -51,6 +118,7 @@ function FaceMap() {
     // fill(0)
     // ellipse(x, y, w, h);
 
+/*
     // head
     stroke(stroke_color);
     fill(fg_color);
@@ -115,8 +183,11 @@ function FaceMap() {
       vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
-    strokeWeight(1);  
+    strokeWeight(1);
+*/
   }
+
+
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
@@ -141,7 +212,64 @@ function average_point(list) {
   for(var i=0; i<list.length; i++) {
     sum_x += list[i][0];
     sum_y += list[i][1];
-    num_points += 1; 
+    num_points += 1;
   }
   return [sum_x / num_points, sum_y / num_points];
+}
+
+
+//gets a distribution of eye numbers
+function getEyeNum(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<5){
+    return 1;
+  }
+  else if(randomNum < 30){
+    return 2;
+  }
+  else if (randomNum < 80){
+    return 3;
+  }
+  else{
+    return 4;
+  }
+
+}
+
+//gets a distribution of horn types
+function getHornType(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<90){
+    return 1;
+  }
+  else{
+    return 2;
+  }
+}
+
+//gets a distribution of face types
+function getFaceType(){
+
+  randomNum = focusedRandom(0,100);
+
+  if(randomNum<15){
+    return 1;
+  }
+  else if(randomNum<30){
+    return 2;
+  }
+  else if(randomNum<50){
+    return 3;
+  }
+  else if(randomNum<75){
+    return 4;
+  }
+  else{
+    return 5;
+  }
+
 }
