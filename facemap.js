@@ -5,8 +5,8 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
+bg_color = [0,0,0];
+fg_color = [234, 209, 197];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
@@ -19,6 +19,10 @@ function FaceMap() {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
+    var eyebrow1_pos = average_point(positions.left_eyebrow);
+    var eyebrow2_pos = average_point(positions.right_eyebrow);
+    var bottom_lip_pos = average_point(positions.bottom_lip);
+    var top_lip_pos = average_point(positions.top_lip);  
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
@@ -44,7 +48,7 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    stroke(stroke_color);
+    noStroke();
     fill(fg_color);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
@@ -57,56 +61,35 @@ function FaceMap() {
       vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
+       
 
     // mouth
     noStroke();
     fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
+      stroke(0);
 
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
+      line (positions.top_lip[0][0], top_lip_pos[1], positions.top_lip[6][0], top_lip_pos[1]);
 
-    // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
+      noStroke();
 
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+    fill(255);
+    ellipse(eye1_pos[0], eye1_pos[1], 30 * scale, 30 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 30 * scale, 30 * scale);
 
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
+    fill(0);
+    ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 10 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 10 * scale);
+
+       push();
+       strokeWeight(1); 
+       stroke(0);
+       line(positions.left_eyebrow[0][0],eyebrow1_pos[1],positions.left_eyebrow[4][0], eyebrow1_pos[1]);
+      
+       line(positions.right_eyebrow[0][0],eyebrow2_pos[1],positions.right_eyebrow[4][0], eyebrow2_pos[1]);
+     
+    strokeWeight(1);  
+      pop();
+
     strokeWeight(1);  
   }
 }
