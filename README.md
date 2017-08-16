@@ -3,4 +3,4 @@
 
 README for part3.
 
-This is the training step.
+This is the training step. Part 3 update.
