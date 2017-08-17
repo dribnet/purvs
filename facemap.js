@@ -316,7 +316,7 @@ function FaceMap() {
         curveVertex(biggestXRight+(10*scale), biggestYRight+(10*scale));
         curveVertex(smallestXLeft-(10*scale), biggestYLeft+(10*scale));
         endShape(CLOSE);
-        fill(0, 0, 100);
+        fill(0, 0, 100 - brightness);
         //left eye
         beginShape();
         for(var i=0; i<positions.left_eye.length;i++) {
