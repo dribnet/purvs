@@ -1,1 +1,6 @@
-I have finished copying across my face code from ps1. I have updated the code for the tomatoes so now everything scales randomly. I have also changed the parameters for the random colours of the toast.  
+## PS2 MDDN 342 2017
+
+
+README for part3.
+
+This is the training step.
