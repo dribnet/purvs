@@ -15,6 +15,7 @@ function FaceMap() {
     this.eyeBrightness = 50;
     this.hairLength = 50;
     this.skinTone = 50;
+	this.hasEarings = 0;
       /*
        * Draw a face with position lists that include:
        *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -170,6 +171,33 @@ function FaceMap() {
         line(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1], positions.right_eyebrow[rightAntennaIndex][0], positions.right_eyebrow[2][1]-(60*scale));
         ellipse(positions.right_eyebrow[rightAntennaIndex][0], positions.right_eyebrow[2][1]-(60*scale), 16 * scale, 16 * scale);
 
+		
+		var hasEarings = map(this.hasEarings, 0, 100, 0, 1);
+
+        //if the person has no hair, give them a dome
+        if(hasEarings >= 1){
+			//earings/antennas
+			//left antenna
+			stroke(this.hue, 90, 50);
+			fill(this.hue, 50, 90);
+			strokeWeight(0);
+			rect(positions.chin[2][0]-(40*scale), positions.chin[2][1], 1, 0.05, 20, 20);
+			noFill();
+			strokeWeight(0.04);
+			ellipse(positions.chin[2][0]-(55*scale), positions.chin[2][1], 0.12, 0.5);
+			ellipse(positions.chin[2][0]-(75*scale), positions.chin[2][1], 0.08, 0.3);
+
+			//right antenna
+			stroke(this.hue, 90, 50);
+			fill(this.hue, 50, 90);
+			strokeWeight(0);
+			rect(positions.chin[14][0]+(40*scale), positions.chin[14][1], 1, 0.1,20, 20);
+			noFill();
+			strokeWeight(0.04);
+			ellipse(positions.chin[14][0]+(55*scale), positions.chin[14][1], 0.12, 0.5);
+			ellipse(positions.chin[14][0]+(75*scale), positions.chin[14][1], 0.08, 0.3);
+		}
+		
         // head
         var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
         var chinValuesY = convertVerticeArrayToAxisArray(positions.chin, 1);
@@ -198,7 +226,6 @@ function FaceMap() {
         vertex(positions.right_eyebrow[4][0]+(20*scale), positions.right_eyebrow[4][1]-(20*scale));
         vertex(positions.right_eyebrow[0][0]+(20*scale), positions.right_eyebrow[0][1]-(20*scale));
         endShape(CLOSE);
-
 
         //merge the lips arrays and then sort them on the x-axis
         var lips = positions.top_lip.concat(positions.bottom_lip);
@@ -372,6 +399,7 @@ function FaceMap() {
         this.eyeBrightness = settings[2];
         this.hairLength = settings[3];
         this.skinTone = settings[4];
+        this.hasEarings = settings[5];
     }
 
     /* get internal properties as list of numbers 0-100 */
@@ -382,6 +410,7 @@ function FaceMap() {
         properties[2] = this.eyeBrightness;
         properties[3] = this.hairLength;
         properties[4] = this.skinTone;
+        properties[5] = this.hasEarings;
         return properties;
     }
 }
