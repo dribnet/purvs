@@ -50,15 +50,16 @@ function FaceMap() {
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
 
+
     var w = 2 * face_width;
     var h = 2.5 * half_height;
     var x = nose_pos[0]-w/2;
     var y = nose_pos[1]-h/2;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    //var curHairColor = map(this.hairColor, 0, 100, 200, 20);
+    //fill(curHairColor);
+    //var curHairLength = map(this.hairLength, 0, 100, 0, 3);
+    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -83,6 +84,8 @@ noStroke();
 var cols = 9;
 var rows = 5;
 
+drawFace(positions,h);
+
 //var w = 1;
 //var h = 1;
 //var w = canvasWidth / cols;
@@ -92,6 +95,7 @@ var rows = 5;
     //var x = w*col;
     //var y = h*row;
 
+/*
     //random color scheme is used
     scheme = schemes[Math.floor(focusedRandom(0,schemes.length))];
     fill(scheme[0]);
@@ -110,6 +114,7 @@ var rows = 5;
    monFace.drawMonster(x-(w/2.5),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
  //}
 //}
+*/
 
     // Uncomment to see drawing area
     // fill(255);
@@ -188,6 +193,121 @@ var rows = 5;
   }
 
 
+function drawFace(positions,h){
+
+  var skip = 2;
+  var radius = 7;
+  var radius2 = 5;
+  var numPoints = 32;
+
+
+
+//  ellipse(0, 0, radius, radius);
+
+  var face1Coords=[3,8,13,17,24,31];
+  var face1ShadowCoords = [31,3,8,3,31,24];
+  var face1ShadowRadius = [radius,radius,radius,radius2,radius2,radius];
+  //var face1ShadowCoords2 = [31,3];
+
+  noStroke();
+    fill(132,130,237);
+  strokeWeight(0.1);
+  push();
+  translate(0,-(h*0.2));
+  beginShape();
+  for(var i=0;i<numPoints;i++)
+  {
+    var circleX = radius/2* Math.cos(2 * Math.PI * i / numPoints);
+    var circleY = radius/2* Math.sin(2 * Math.PI * i / numPoints);
+    if(face1Coords.includes(i)){
+    vertex (circleX,circleY);
+  }
+
+  ellipse(circleX,circleY,0.2,0.2);
+  }
+  endShape();
+
+  //shadow
+  fill(shadow);
+  beginShape();
+
+  var counter = 0;
+
+  for(var i=0;i<face1ShadowCoords.length;i++)
+  {
+      j = face1ShadowCoords[i];
+      fill(shadow);
+
+
+      fill(255,0,0);
+      var circleX = (face1ShadowRadius[i]/2)* Math.cos(2 * Math.PI * j / numPoints);
+      var circleY = (face1ShadowRadius[i]/2)* Math.sin(2 * Math.PI * j / numPoints);
+      ellipse(circleX,circleY,0.2,0.2);
+      vertex (circleX,circleY);
+      counter++;
+  
+
+  }
+      fill(shadow);
+  endShape();
+  pop();
+
+/*
+  for(var i=0; i<positions.chin.length;i+=skip) {
+    vertex(positions.chin[i][0], positions.chin[i][1]);
+  }
+  for(var i=positions.right_eyebrow.length-1; i>=0;i-=skip) {
+    vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+  }
+  for(var i=positions.left_eyebrow.length-1; i>=0;i-=skip) {
+    vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+  }
+  */
+
+//  endShape();
+
+/*
+  //face
+  beginShape();
+  //lefttop
+  vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.35-(faceHeight));
+  //top
+  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
+  //righttop
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.35-(faceHeight));
+  //rightbottom
+  vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.7+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
+  //leftbottom
+  vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.7+(faceHeight));
+
+  endShape();
+
+  //shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
+  //righttop
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.35-(faceHeight));
+  //rightbottom
+  vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.7+(faceHeight));
+  //bottom
+  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
+  //leftbottom
+  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.7+(faceHeight));
+  //lefttop
+  vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.35-(faceHeight));
+  endShape();
+
+*/
+
+}
+
+
+
+
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
@@ -203,6 +323,8 @@ var rows = 5;
     return properties;
   }
 }
+
+
 
 // given a point, return the average
 function average_point(list) {

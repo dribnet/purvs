@@ -104,7 +104,7 @@ function Face(){
   //faceType 1: Polygonal, weighted towards bottom
   this.drawFace1 = function(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
-    fill(color);
+    fill(132,130,237);
     //face
     beginShape();
     //lefttop
