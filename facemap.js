@@ -52,7 +52,7 @@ function FaceMap() {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge,
    */
-  this.draw = function(positions) {
+   this.draw = function(positions) {
       var curFaceType = map(this.faceType,0,100,1,5);
 
     var nose_pos = average_point(positions.nose_bridge);
@@ -63,7 +63,6 @@ function FaceMap() {
     var mouth_pos = average_point(positions.top_lip);
 
 
-
     var w = 2 * face_width;
     var h = 2.5 * half_height;
     var x = nose_pos[0]-w/2;
@@ -71,10 +70,6 @@ function FaceMap() {
 
     faceOffset = -(h*0.05);
 
-    //var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    //fill(curHairColor);
-    //var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -87,23 +82,23 @@ function FaceMap() {
 
     resetFocusedRandom(curRandomSeed);
 
-var data = faceData[curFaceIndex];
-var mode = faceSelector.value();
+    var data = faceData[curFaceIndex];
+    var mode = faceSelector.value();
 
-if(millis() > lastSwapTime + millisPerSwap) {
-changeRandomSeed();
-}
+    if(millis() > lastSwapTime + millisPerSwap) {
+    //  changeRandomSeed();
+    }
 
-noStroke();
+    noStroke();
 
-drawFace(positions,h);
+    drawFace(positions,h);
 
-drawEye(eye1_pos[0],eye1_pos[1],0.8,white,lightGray);
-drawEye(eye2_pos[0],eye1_pos[1],0.8,white,lightGray);
+    drawEye(eye1_pos[0],eye1_pos[1],0.8,white,color(34,28,234));
+    drawEye(eye2_pos[0],eye1_pos[1],0.8,white,color(34,28,234));
 
-drawNose1(nose_pos[0],nose_pos[1],w*0.15,h*0.15,color(83,85,227));
+    drawNose1(nose_pos[0],nose_pos[1],w*0.15,h*0.15,color(83,85,227));
 
-drawMouth1(mouth_pos[0],mouth_pos[1],w*0.2,h*0.1,color(97,97,235));
+    drawMouth1(mouth_pos[0],mouth_pos[1],w*0.2,h*0.1,color(97,97,235));
 
 
   }
