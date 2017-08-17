@@ -40,7 +40,6 @@ function FaceMap() {
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
 //forehead
     fill(fg_color);
-    
     noStroke();
      beginShape();
   vertex(positions.chin[0][0], positions.chin[0][1]);
@@ -56,9 +55,47 @@ function FaceMap() {
   vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1] -1 ) ;
   vertex(positions.chin[16][0], positions.chin[16][1]);
    endShape();
-    
-
-    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
+      
+      
+   //hair
+      fill(hair_color);
+      beginShape();    
+  vertex(positions.right_eyebrow[0][0] -0.1, positions.right_eyebrow[0][1] - 1.7 ) ;
+  vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1]  - 1.6) ;
+  vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1] -1.4 ) ;
+  vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1] -1.2 ) ;
+  vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1] -1 ) ;
+      vertex(positions.chin[16][0], positions.chin[16][1]);
+      vertex(positions.chin[16][0], positions.chin[16][1]);
+      vertex(positions.right_eyebrow[4][0]+0.5, positions.right_eyebrow[4][1] ) ;
+      vertex(positions.right_eyebrow[3][0]+0.7, positions.right_eyebrow[3][1] -1 ) ;
+      vertex(positions.right_eyebrow[2][0]+1, positions.right_eyebrow[2][1] -1.5 ) ;
+      vertex(positions.right_eyebrow[1][0]+1, positions.right_eyebrow[1][1] -2 ) ;
+      vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]-2.5 ) ;
+  
+       vertex(positions.left_eyebrow[4][0]+0.7, positions.left_eyebrow[4][1] -2.49 ) ;
+      vertex(positions.left_eyebrow[4][0]+0.4, positions.left_eyebrow[4][1] -2.5 ) ;
+      vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1] -2.5 ) ;
+      vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1] -2.3) ;
+      vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1] -2.1 ) ;
+  vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  -1.9) ;
+   vertex(positions.chin[0][0], positions.chin[0][1]-2);
+      vertex(positions.chin[0][0], positions.chin[0][1]);
+  vertex(positions.left_eyebrow[0][0]-0.1, positions.left_eyebrow[0][1] - 1 ) ;
+  vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  - 1.2) ;
+  vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1] -1.4 ) ;
+  vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1] -1.6 ) ;
+  vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1] -1.7 ) ;
+      vertex(positions.left_eyebrow[4][0]+0.4, positions.left_eyebrow[4][1] -1.7 ) ;
+//      
+//      
+//      vertex(positions.left_eyebrow[4][0]+1, positions.left_eyebrow[4][1] -0.5 ) ;
+//      vertex(positions.left_eyebrow[3][0]+1, positions.left_eyebrow[3][1] -1 ) ;
+//      vertex(positions.left_eyebrow[2][0]+1, positions.left_eyebrow[2][1] -1.5 ) ;
+//      vertex(positions.left_eyebrow[1][0]+1, positions.left_eyebrow[1][1] -2 ) ;
+//      vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]-2.5 ) ;
+      endShape();
+      
 
     var extent = 0;
     if(h < w) {
@@ -94,10 +131,41 @@ function FaceMap() {
 
     // mouth
     noStroke();
-    fill(bg_color);
+  // fill(bg_color);
       stroke(0);
+//      
+//    beginShape();
+//      vertex(positions.top_lip[0][0], positions.top_lip[0][1]);
+//      vertex(positions.top_lip[1][0], positions.top_lip[1][1]);
+//      vertex(positions.top_lip[2][0], positions.top_lip[2][1]);
+//      vertex(positions.top_lip[3][0], positions.top_lip[3][1]);
+//      vertex(positions.top_lip[4][0], positions.top_lip[4][1]);
+//      vertex(positions.top_lip[5][0], positions.top_lip[5][1]);
+//      vertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
+//      vertex(positions.bottom_lip[1][0], positions.bottom_lip[1][1]);
+//      vertex(positions.bottom_lip[2][0], positions.bottom_lip[2][1]);
+//      vertex(positions.bottom_lip[3][0], positions.bottom_lip[3][1]);
+//      vertex(positions.bottom_lip[4][0], positions.bottom_lip[4][1]);
+//      vertex(positions.bottom_lip[5][0], positions.bottom_lip[5][1]);
+//      vertex(positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
+//   endShape();
 
-      line (positions.top_lip[0][0], top_lip_pos[1], positions.top_lip[6][0], top_lip_pos[1]);
+       beginShape();
+      vertex(positions.top_lip[7][0], positions.top_lip[7][1]);
+      vertex(positions.top_lip[8][0], positions.top_lip[8][1]);
+      vertex(positions.top_lip[9][0], positions.top_lip[9][1]);
+      vertex(positions.top_lip[10][0], positions.top_lip[10][1]);
+      vertex(positions.top_lip[11][0], positions.top_lip[11][1]);
+      vertex(positions.bottom_lip[7][0], positions.bottom_lip[7][1]);
+      vertex(positions.bottom_lip[8][0], positions.bottom_lip[8][1]);
+      vertex(positions.bottom_lip[9][0], positions.bottom_lip[9][1]);
+      vertex(positions.bottom_lip[10][0], positions.bottom_lip[10][1]);
+      vertex(positions.bottom_lip[11][0], positions.bottom_lip[11][1]);
+      
+   endShape();
+
+
+      //line (positions.top_lip[0][0], top_lip_pos[1], positions.top_lip[6][0], top_lip_pos[1]);
 
       noStroke();
 
@@ -122,9 +190,8 @@ function FaceMap() {
      vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1]);
      vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
      vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1] + 0.09);
-     vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] + 0.09);
-
-
+      vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] + 0.09);
+    
 
    endShape();
 
@@ -141,16 +208,6 @@ function FaceMap() {
 
      
    endShape();
-
-    //    push();
-    //    strokeWeight(0.05); 
-    //    stroke(0);
-    //    line(positions.left_eyebrow[0][0],eyebrow1_pos[1],positions.left_eyebrow[4][0], eyebrow1_pos[1]);
-      
-    //    line(positions.right_eyebrow[0][0],eyebrow2_pos[1],positions.right_eyebrow[4][0], eyebrow2_pos[1]);
-     
-    // strokeWeight(1);  
-    //   pop();
 
     strokeWeight(1);  
   }

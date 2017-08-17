@@ -1,3 +1,3 @@
 ## PS2 MDDN 342 2017
  
- I have added a forehead to the face and also changed the eyebrows. My next step will be to add Leia's hair, change the mouth shape and may add a nose.
+I have changed the mouth shape so it can show more emotion. I have also tried to add in hair but for some faces it goes weird. It might get covered up when I put in the buns though.
