@@ -42,7 +42,7 @@ function FaceMap() {
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -63,7 +63,7 @@ function FaceMap() {
 
 
     //Hair
-    fill(hr_color);
+    fill(curHairColor);
     ellipseMode(CENTER);
     noStroke();
     ellipse(1 + this.hairSize/100, eye1_pos[1] - scale * this.hairSize, this.hairSize * scale * 4, this.hairSize * scale * 4);
@@ -190,14 +190,14 @@ function FaceMap() {
 
     fill(bg_color);
     noStroke();
-    ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale, 46 * scale);
+    ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale + this.hairLength/400, 46 * scale + this.hairLength/400);
     fill(fg_color);
-    ellipse(nose_pos[0]  - scale * 20, nose_pos[1] + scale * 45, 16 * scale, 16 * scale);
-    ellipse(nose_pos[0] + scale * 20, nose_pos[1] + scale * 45, 16 * scale, 16 * scale);
+    ellipse(nose_pos[0]  - scale * 20, nose_pos[1] + scale * 45, 16 * scale + this.hairLength/500, 16 * scale + this.hairLength/500);
+    ellipse(nose_pos[0] + scale * 20, nose_pos[1] + scale * 45, 16 * scale + this.hairLength/500, 16 * scale + this.hairLength/500);
 
     noFill();
     stroke(stroke_color);
-    ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale, 46 * scale);
+    ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale + this.hairLength/400, 46 * scale + this.hairLength/400);
     //ellipse(nose_pos[0]  - scale * 20, nose_pos[1] + scale * 45, 16 * scale, 16 * scale);
     //ellipse(nose_pos[0] + scale * 20, nose_pos[1] + scale * 45, 16 * scale, 16 * scale);
     noStroke();
