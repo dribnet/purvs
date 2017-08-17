@@ -8,6 +8,7 @@
 bg_color = [0,0,0];
 fg_color = [234, 209, 197];
 stroke_color = [95, 52, 8];
+hair_color = [94, 57, 10];
 
 function FaceMap() {
   this.hairLength = 50;
@@ -37,7 +38,27 @@ function FaceMap() {
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+//forehead
+    fill(fg_color);
+    
+    noStroke();
+     beginShape();
+  vertex(positions.chin[0][0], positions.chin[0][1]);
+  vertex(positions.left_eyebrow[0][0] -0.1, positions.left_eyebrow[0][1] - 1 ) ;
+  vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  - 1.2) ;
+  vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1] -1.4 ) ;
+  vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1] -1.6 ) ;
+  vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1] -1.7 ) ;
+  vertex(positions.right_eyebrow[0][0] -0.1, positions.right_eyebrow[0][1] - 1.7 ) ;
+  vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1]  - 1.6) ;
+  vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1] -1.4 ) ;
+  vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1] -1.2 ) ;
+  vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1] -1 ) ;
+  vertex(positions.chin[16][0], positions.chin[16][1]);
+   endShape();
+    
+
+    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -80,6 +101,8 @@ function FaceMap() {
 
       noStroke();
 
+      //eye
+
     fill(255);
     ellipse(eye1_pos[0], eye1_pos[1], 30 * scale, 30 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 30 * scale, 30 * scale);
@@ -88,15 +111,46 @@ function FaceMap() {
     ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 10 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 10 * scale);
 
-       push();
-       strokeWeight(1); 
-       stroke(0);
-       line(positions.left_eyebrow[0][0],eyebrow1_pos[1],positions.left_eyebrow[4][0], eyebrow1_pos[1]);
-      
-       line(positions.right_eyebrow[0][0],eyebrow2_pos[1],positions.right_eyebrow[4][0], eyebrow2_pos[1]);
+    //eyebrow
+
+    fill(hair_color);
+        noStroke();
+     beginShape();
+     vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]);
+     vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]);
+     vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]);
+     vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1]);
+     vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
+     vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1] + 0.09);
+     vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] + 0.09);
+
+
+
+   endShape();
+
+      beginShape();
+      vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1] + 0.05);
+      vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1] + 0.05);
+      vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1] + 0.09);
+     vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1] + 0.09);
+     vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
+     vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1]);
+     vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]);
+     vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1]);
+     vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+
      
-    strokeWeight(1);  
-      pop();
+   endShape();
+
+    //    push();
+    //    strokeWeight(0.05); 
+    //    stroke(0);
+    //    line(positions.left_eyebrow[0][0],eyebrow1_pos[1],positions.left_eyebrow[4][0], eyebrow1_pos[1]);
+      
+    //    line(positions.right_eyebrow[0][0],eyebrow2_pos[1],positions.right_eyebrow[4][0], eyebrow2_pos[1]);
+     
+    // strokeWeight(1);  
+    //   pop();
 
     strokeWeight(1);  
   }
