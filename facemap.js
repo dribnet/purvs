@@ -12,8 +12,7 @@ stroke_color = [95, 52, 8];
 var rand = new Math.seedrandom(focusedRandom())
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
+  this.age = 20;
   this.mouthTimingRand = rand();
 
   /*
@@ -31,63 +30,81 @@ function FaceMap() {
     strokeCap(ROUND);
     strokeJoin(BEVEL);
 
-    if(canvasWidth < positions.left_eye[0][0])
-      return;
+    let chinRect = Rect.fromPoints(positions.chin);
+
+    //bump eyebrows up
+    [positions.left_eyebrow, positions.right_eyebrow].forEach(eyebrowPos => eyebrowPos.forEach(function(pos){
+      pos[1] -= chinRect.height*0.25;
+    }));
+
+    //fro
+    fill(0, 80+focusedRandom(-10, 10)+map(this.age, 30, 100, 0, -60), 40+focusedRandom(-10, 10));
+    noStroke();
+    let topY = positions.left_eyebrow.concat(positions.right_eyebrow).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
+    let midX = chinRect.x;
+    ellipse(midX, topY, chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0), chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0));
 
     //background white on whole face
-    fill(0,0,100, .7);
-    noStroke();
-    drawQuadratic(positions.left_eyebrow.concat(positions.right_eyebrow, positions.chin.reverse()));
+    let faceList = positions.chin.concat(positions.right_eyebrow.reverse(), positions.left_eyebrow.reverse());
+    strokeWeight(0.15);
+    //makes edges curvy 'n' smooth and fills the space
+    drawCurve(faceList, 'white', true);
+
+    //chin border
+    //scale moves it nicely on the edge
+    scale(1/0.96)
+    strokeWeight(0.1)
+    drawCurve(positions.chin.slice(1, -1), 'black');
+    scale(0.96)
+
+    //brows border
+    strokeWeight(0.15);
+    translate(0, chinRect.height*0.2);
+    drawCurve(positions.left_eyebrow, 'black');
+    drawCurve(positions.right_eyebrow, 'black');
+    translate(0, -chinRect.height*0.2)
 
     //lips and mouth
+    noStroke();
     doCentered(positions.top_lip.concat(positions.bottom_lip), function(points, mapper){
       push();
-      scale(1.8, 1.5);
-      fill(0, 80, 100);
-      drawQuadratic(convexHull(points));
+      scale(1.7, 1.6);
+      strokeWeight(0.1);
+      drawCurve(hull(points, 0.7), color(0, 80, 100), true);
       pop();
 
       scale(1, 1+.3*sin(millis()/focusedRandom(100, 600, 2, 300)*TAU));
       fill(0, 0, 100);
-      drawQuadratic(positions.top_lip.map(mapper));
-      drawQuadratic(positions.bottom_lip.map(mapper));
+      drawPolygon(positions.top_lip.map(mapper), 'red');
+      drawPolygon(positions.bottom_lip.map(mapper), 'red');
     })
 
-    //chin border
-    noFill();
-    stroke(0, 100, 0);
-    strokeWeight(2.5)
-    drawQuadratic(positions.chin, true);
+    let pupilRadius = [positions.left_eye, positions.right_eye].reduce((tot, val) => tot+Rect.fromPoints(val).height, 0)/10;
 
     //eyes
     [positions.left_eye, positions.right_eye].forEach(function(eye){
       doCentered(eye, function(points, mapper){
-        scale(2);
         noStroke();
 
-        let pointsRect = Rect.fromPoints(points.map(point => [point[0]/4, point[1]/4]));
+        let pointsRect = Rect.fromPoints(points);
         
-        //white eye
-        fill(50, 98, 95);
-        drawQuadratic(convexHull(points));
+        //eyes
+        strokeWeight(0.2);
+        drawCurve(hull(points, 2), color(50, 98, 95), true);
 
-        // scale(0.5)
-
+        noStroke();
         fill(0,0,0);
-        ellipse(focusedRandom(pointsRect.minX(), pointsRect.maxX(), 3, 0)*sin(millis()/focusedRandom(500, 3000)), 
-          focusedRandom(pointsRect.minY(), pointsRect.maxY(), 3, 0)*sin(millis()/focusedRandom(300, 1000)),
-            1.5, 1.5); //black pupil
+        ellipse(focusedRandom(0, pointsRect.width*0.5, 4)*sin(millis()/focusedRandom(500, 3000)), 
+          focusedRandom(0, pointsRect.height*0.4, 3)*sin(millis()/focusedRandom(300, 1000)),
+            0.1, 0.1); //black pupil
       })
     })
 
     //nose
-    doCentered(positions.nose_bridge.concat(positions.nose_tip), function(points){
-      rotate(sin(millis()/focusedRandom(300, 3000)*TAU)*focusedRandom(0, PI/16));
-      noFill();
-      stroke(0, 100, 100);
-      strokeWeight(4);
-      drawQuadratic(points, true);
-    })
+    strokeWeight(0.05);
+    drawCurve(positions.nose_bridge, 'red');
+    strokeWeight(0.1);
+    drawCurve(positions.nose_tip, 'red')
 
     //reset vars back to tom's defaults
     colorMode(RGB);
@@ -97,15 +114,13 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
+    this.age = settings[0];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
+    properties = [];
+    properties[0] = this.age;
     return properties;
   }
 }
@@ -119,13 +134,33 @@ function doCentered(points, func){
   pop();
 }
 
-function drawQuadratic(points, leaveOpen){
-  beginShape();
-  vertex(points[0][0], points[0][1]);
-  for(let i = 1; i<points.length; i++){
-    quadraticVertex(points[i-1][0], points[i-1][1], points[i][0], points[i][1]);
+function drawCurve(points, strokeColor, doFill, fillColor){
+  let pointMod = i => points[doFill ? i.mod(points.length) : constrain(i, 0, points.length-1)];
+
+  if(doFill){
+    noStroke();
+    fill(fillColor || strokeColor);
+    drawPolygon(points);
+    noFill();
   }
-  endShape(leaveOpen ? null : CLOSE);
+
+  stroke(strokeColor);
+
+  for(let i = 0; i < points.length; i++){
+    let controlStart = pointMod(i-1);
+    let point = pointMod(i);
+    let pointNext = pointMod(i+1);
+    let controlEnd = pointMod(i+2);
+
+    if(point != pointNext)
+      curve(...controlStart, ...point, ...pointNext, ...controlEnd);
+  }
+}
+
+function drawPolygon(points){
+  beginShape();
+  points.forEach(pos => vertex(...pos));
+  endShape(CLOSE);
 }
 
 class Rect{
@@ -184,34 +219,10 @@ function cross(a, b, o) {
    return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
 }
 
-/**
- * @param points An array of [X, Y] coordinates
- */
-function convexHull(points) {
-   points.sort(function(a, b) {
-      return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
-   });
-
-   var lower = [];
-   for (var i = 0; i < points.length; i++) {
-      while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], points[i]) <= 0) {
-         lower.pop();
-      }
-      lower.push(points[i]);
-   }
-
-   var upper = [];
-   for (var i = points.length - 1; i >= 0; i--) {
-      while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], points[i]) <= 0) {
-         upper.pop();
-      }
-      upper.push(points[i]);
-   }
-
-   upper.pop();
-   lower.pop();
-   return lower.concat(upper);
-}
+//modulus
+Number.prototype.mod = function(n) {
+    return ((this%n)+n)%n;
+};
 
 // given a point, return the average
 function average_point(list) {
