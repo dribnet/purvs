@@ -53,7 +53,8 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge,
    */
    this.draw = function(positions) {
-      var curFaceType = map(this.faceType,0,100,1,5);
+
+
 
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -61,6 +62,7 @@ function FaceMap() {
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
     var mouth_pos = average_point(positions.top_lip);
+    var face = Math.floor(map(this.faceType,0,100,1,4));
 
 
     var w = 2 * face_width;
@@ -91,20 +93,44 @@ function FaceMap() {
 
     noStroke();
 
-    drawFace(positions,h);
+    drawMonster(x,y,w,h,face);
+
+    //drawFaceV1(positions,h);
+    //drawFace2((x*1.1),(y*0.9),w*1.1,h*1.1,color(132,130,237));
 
     drawEye(eye1_pos[0],eye1_pos[1],0.8,white,color(34,28,234));
     drawEye(eye2_pos[0],eye1_pos[1],0.8,white,color(34,28,234));
 
-    drawNose1(nose_pos[0],nose_pos[1],w*0.15,h*0.15,color(83,85,227));
+    drawNose1(nose_pos[0],nose_pos[1],w*0.15,h*0.1,color(83,85,227));
 
     drawMouth1(mouth_pos[0],mouth_pos[1],w*0.2,h*0.1,color(97,97,235));
 
 
   }
 
+  function drawMonster(x,y,w,h,face){
 
-function drawFace(positions,h){
+    //determining type of face
+    if(face == 1){
+      drawFace1((x),(y),w,h,color(132,130,237));
+    }
+    else if(face == 2){
+      drawFace2((x*1.1),(y*0.9),w*1.1,h*1.1,color(132,130,237));
+    }
+    else if(face == 3){
+      drawFace3((x),(y),w,h,color(132,130,237));
+    }
+    else{
+      drawFace4((x),(y),w,h,color(132,130,237));
+    }
+
+
+
+  }
+
+
+/*
+function drawFaceV1(positions,h){
 
   var skip = 2;
 
@@ -154,6 +180,203 @@ function drawFace(positions,h){
   pop();
 
 
+
+}
+*/
+
+//faceType 1: Polygonal, weighted towards bottom
+function drawFace1(x,y,faceWidth,faceHeight,color){
+
+  push();
+  translate(x,y);
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop
+  vertex(faceWidth*0.3,faceHeight*0.35);
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.1);
+  //righttop
+  vertex(faceWidth*0.7,faceHeight*0.35);
+  //rightbottom
+  vertex(faceWidth*0.75,faceHeight*0.7);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //leftbottom
+  vertex(faceWidth*0.25,faceHeight*0.7);
+
+  endShape();
+
+
+//shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.1);
+  //righttop
+  vertex(faceWidth*0.7,faceHeight*0.35);
+  //rightbottom
+  vertex(faceWidth*0.75,faceHeight*0.7);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //leftbottom
+  vertex(faceWidth*0.7,faceHeight*0.7);
+  //lefttop
+  vertex(faceWidth*0.64,faceHeight*0.35);
+  endShape();
+
+pop();
+}
+
+//faceType 2: similar to a deer
+function drawFace2(x,y,faceWidth,faceHeight,color){
+
+  push();
+  translate(x,y);
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop1
+  vertex(faceWidth*0.3,faceHeight*0.25);
+  //lefttop2
+  vertex(faceWidth*0.4,faceHeight*0.1);
+  //righttop1
+  vertex(faceWidth*0.6,faceHeight*0.1);
+  //righttop2
+  vertex(faceWidth*0.7,faceHeight*0.25);
+  //right
+  vertex(faceWidth*0.69,faceHeight*0.5);
+  //bottomright
+  vertex(faceWidth*0.6,faceHeight*0.8);
+  //bottomleft
+  vertex(faceWidth*0.4,faceHeight*0.8);
+  //left
+  vertex(faceWidth*0.3,faceHeight*0.5);
+
+  endShape();
+
+  //shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(faceWidth*0.55,faceHeight*0.1);
+  //rightTop
+  vertex(faceWidth*0.6,faceHeight*0.1);
+  //righttop2
+  vertex(faceWidth*0.7,faceHeight*0.25);
+  //right
+  vertex(faceWidth*0.69,faceHeight*0.5);
+  //bottomright
+  vertex(faceWidth*0.6,faceHeight*0.8);
+  //bottom
+  vertex(faceWidth*0.55,faceHeight*0.8);
+  //right
+  vertex(faceWidth*0.64,faceHeight*0.5);
+  //righttop2
+  vertex(faceWidth*0.64,faceHeight*0.25);
+  endShape();
+
+  pop();
+}
+
+//faceType 3: Similar to an ogre
+function drawFace3(x,y,faceWidth,faceHeight,color){
+
+  push();
+  translate(x,y);
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop
+  vertex(faceWidth*0.35,faceHeight*0.2);
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.1);
+  //righttop
+  vertex(faceWidth*0.65,faceHeight*0.2);
+  //right
+  vertex(faceWidth*0.7,faceHeight*0.5);
+  //rightbottom
+  vertex(faceWidth*0.65,faceHeight*0.8);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //leftbottom
+  vertex(faceWidth*0.35,faceHeight*0.8);
+  //left
+  vertex(faceWidth*0.3,faceHeight*0.5);
+  endShape();
+
+  //shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.1);
+  //righttop
+  vertex(faceWidth*0.65,faceHeight*0.2);
+  //right
+  vertex(faceWidth*0.7,faceHeight*0.5);
+  //rightbottom
+  vertex(faceWidth*0.65,faceHeight*0.8);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //rightbottom
+  vertex(faceWidth*0.62,faceHeight*0.8);
+  //right
+  vertex(faceWidth*0.67,faceHeight*0.5);
+  //righttop
+  vertex(faceWidth*0.62,faceHeight*0.2);
+
+  endShape();
+
+  pop();
+}
+
+
+
+//faceType 4: looks like a diamond
+function drawFace4(x,y,faceWidth,faceHeight,color){
+
+  push();
+  translate(x,y);
+
+  fill(color);
+  //face
+  beginShape();
+  //lefttop
+  vertex(faceWidth*0.3,faceHeight*0.3);
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.15);
+  //righttop
+  vertex(faceWidth*0.7,faceHeight*0.3);
+  //rightbottom
+  vertex(faceWidth*0.7,faceHeight*0.7);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //leftbottom
+  vertex(faceWidth*0.3,faceHeight*0.7);
+
+  endShape();
+
+  //shadow
+  fill(shadow);
+  beginShape();
+  //top
+  vertex(faceWidth*0.5,faceHeight*0.15);
+  //righttop
+  vertex(faceWidth*0.7,faceHeight*0.3);
+  //rightbottom
+  vertex(faceWidth*0.7,faceHeight*0.7);
+  //bottom
+  vertex(faceWidth*0.5,faceHeight*0.9);
+  //leftbottom
+  vertex(faceWidth*0.65,faceHeight*0.7);
+  //lefttop
+  vertex(faceWidth*0.64,faceHeight*0.3);
+  endShape();
+
+  pop();
 
 }
 

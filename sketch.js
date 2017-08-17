@@ -100,7 +100,7 @@ function setup () {
   faceSelector.option('FaceMap');
   faceSelector.option('Train');
   faceSelector.option('Neighbors');
-  faceSelector.value('Neighbors');
+  faceSelector.value('Train');
   faceSelector.parent('selector1Container');
 
   /* create the sliders */
