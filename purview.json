@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+      "sha": "a3bfe93a7cff1eceb7cea05a276f385975f4df06",
+      "name": "part4"
+    },
+    {
       "sha": "cd3adf25d16a8afd531add159785d14952cef4a3",
       "name": "class example3"
     },
