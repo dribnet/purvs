@@ -14,7 +14,7 @@ function Face() {
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
+  this.bg_color = [245,245,245];
   this.fg_color = [151, 102, 52];
   this.fill_color = [245,245,245];
   this.stroke_color = [30,30,30];
@@ -23,6 +23,7 @@ function Face() {
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
    */
+
   this.draw1 = function(x, y, w, h) {
     // Uncomment to see drawing area
     // fill(0);
