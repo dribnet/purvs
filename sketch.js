@@ -66,6 +66,7 @@ function setup () {
   }
 
   mainFace = new FaceMap();
+  littleFace = new FaceMap();
 
   for(var i=0; i<faceData.length; i++) {
     var data = faceData[i];
@@ -99,7 +100,7 @@ function setup () {
   faceSelector.option('FaceMap');
   faceSelector.option('Train');
   faceSelector.option('Neighbors');
-  faceSelector.value('Train');
+  faceSelector.value('Neighbors');
   faceSelector.parent('selector1Container');
 
   /* create the sliders */
@@ -435,8 +436,8 @@ function draw () {
           scale(scale_x*data_scale, scale_y*data_scale);
           rotate(degrees(data_angle));
           strokeWeight(1/data_scale);
-          mainFace.setProperties(settings);
-          mainFace.draw(shifted_positions);
+          littleFace.setProperties(settings);
+          littleFace.draw(shifted_positions);
         }
         else {
           noFill();
@@ -552,12 +553,13 @@ function updateSlidersForTraining() {
     }
   }
 
-  if(mode == 'Neighbors') {
-    interpolateCurrent();
-  }
-  else {
-    loadCurrentSettings();
-  }
+  loadCurrentSettings();
+  // if(mode == 'Neighbors') {
+  //   interpolateCurrent();
+  // }
+  // else {
+  //   loadCurrentSettings();
+  // }
 }
 
 function keyPressed() {
