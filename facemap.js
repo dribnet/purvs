@@ -12,7 +12,7 @@ stroke_color = [146, 147, 3];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
-
+  this.strokeValue = 5;
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -30,6 +30,13 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
+
+    //Sponged Variables
+    var eye_size = 90;
+    var iris_size = 40;
+    var pupil_size = 15;
+    var iris_color = "#43c6f2";
+    var pupil_color = "#000000";
 
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
@@ -82,44 +89,49 @@ function FaceMap() {
     endShape(CLOSE);
 
     // nose
-	fill(fg_color);
-	strokeWeight(7 * scale);
+	/*fill(fg_color);
+	strokeWeight(this.strokeValue * scale);
 	stroke(0,0,0);
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
     for(var i=0; i<positions.nose_tip.length;i++) {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
     }
-    endShape(CLOSE);
+    endShape(CLOSE);*/
 
-    // eyes
-	fill(255,255,255);
-	strokeWeight(7 * scale);
-	stroke(0,0,0);
-	var eye_size = 110;
-	var iris_color = "#43c6f2";
-    var pupil_color = "#000000";
-	//Eye White
-    ellipse(eye1_pos[0], eye1_pos[1], eye_size * scale, eye_size * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], eye_size * scale, eye_size * scale);
-	  
-	//IRIS'
-	var iris_size = 50;
-    fill(iris_color);
-    ellipse(eye1_pos[0], eye1_pos[1], iris_size * scale, iris_size * scale);
-    ellipse(eye1_pos[0], eye1_pos[1], iris_size * scale, iris_size * scale);
-	  
-	ellipse(eye2_pos[0], eye2_pos[1], iris_size * scale, iris_size * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], iris_size * scale, iris_size * scale);
+  
 
-    //PUPILS
-	var pupil_size = 20;
-    fill(pupil_color);
-    ellipse(eye1_pos[0], eye1_pos[1], pupil_size * scale, pupil_size * scale);
-    ellipse(eye1_pos[0], eye1_pos[1], pupil_size * scale, pupil_size * scale);
-	  
-	ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
+  //ellipse(positions.nose_tip[2][0], positions.nose_tip[2][1], 0.5,0.5);
+
+  //Eyes
+  strokeWeight(this.strokeValue * scale);
+  stroke(0,0,0);
+
+	//LEFT EYE --our left not the faces left
+  //WHITE PART
+  fill(255,255,255);
+  ellipse(eye1_pos[0], eye1_pos[1], eye_size * scale, eye_size * scale);
+  //IRIS
+  fill(iris_color);
+  ellipse(eye1_pos[0], eye1_pos[1], iris_size * scale, iris_size * scale);
+  //PUPIL
+  fill(pupil_color);
+  ellipse(eye1_pos[0], eye1_pos[1], pupil_size * scale, pupil_size * scale);
+
+  //RiGHT EYE --Our right
+  //WHITE PART
+  fill(255,255,255);
+  ellipse(eye2_pos[0], eye2_pos[1], eye_size * scale, eye_size * scale);
+  //IRIS
+  fill(iris_color);
+  ellipse(eye2_pos[0], eye2_pos[1], iris_size * scale, iris_size * scale);
+  //PUPIL
+  fill(pupil_color);
+  ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
+    
+//if(positions.nose_tip[2][0] < positions.nose_bridge[0][0])
+  drawNose(positions);
+
 	/*
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
@@ -165,6 +177,20 @@ function FaceMap() {
     properties[1] = this.hairColor;
     return properties;
   }
+}
+
+ function drawNose(positions){
+  // nose
+  fill(fg_color);
+  strokeWeight(this.strokeValue * scale);
+  stroke(0,0,0);
+  beginShape();
+  vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+  for(var i=0; i<positions.nose_tip.length;i++) {
+    vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
+  }
+  endShape(CLOSE);
+
 }
 
 // given a point, return the average
