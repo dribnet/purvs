@@ -31,12 +31,17 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
+    var smiling = false;
+
     //Sponged Variables
-    var eye_size = 90;
-    var iris_size = 40;
-    var pupil_size = 15;
+    var eye_size = 80;
+    var iris_size = 35;
+    var pupil_size = 13;
     var iris_color = "#43c6f2";
     var pupil_color = "#000000";
+    var mouth_color = "#773536";
+    var tongue_color = "#dd9c98"
+    var tongue_outine = "#ca2931";
 
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
@@ -87,6 +92,39 @@ function FaceMap() {
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
     endShape(CLOSE);
+
+  //CHEEKS
+  fill(fg_color);
+  stroke(stroke_color);
+  strokeWeight(.05);
+
+  //LEFT CHEEK
+  var x = positions.top_lip[0][0] - 0.42;
+  var y = positions.top_lip[0][1]-0.15;
+
+  if(smiling)
+    curve(x+0.5, y+2, x, y, x + .44, y, x+.44-0.4, y+2);
+
+
+  //RIGHT CHEEK
+  x = positions.top_lip[6][0] + 0.42;
+  y = positions.top_lip[6][1]-0.15;
+
+  if(smiling)
+    curve(x-0.5, y+2, x, y, x - .44, y, x-.44+0.4, y+2);
+
+  fill(stroke_color);
+  strokeWeight(0);
+  var dimble_size = 0.07;
+  //Dimbles Left
+  ellipse(positions.top_lip[0][0] - .1, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
+  ellipse(positions.top_lip[0][0] - .2, positions.top_lip[0][1] - .28, dimble_size, dimble_size);
+  ellipse(positions.top_lip[0][0] - .3, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
+
+  //Dimbles Right
+  ellipse(positions.top_lip[6][0] + .1, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
+  ellipse(positions.top_lip[6][0] + .2, positions.top_lip[6][1] - .28, dimble_size, dimble_size);
+  ellipse(positions.top_lip[6][0] + .3, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
 
     // nose
 	/*fill(fg_color);
@@ -184,6 +222,8 @@ function FaceMap() {
   fill(fg_color);
   strokeWeight(this.strokeValue * scale);
   stroke(0,0,0);
+  ellipse(positions.nose_tip[2][0], positions.nose_tip[2][1], 0.5,0.5);
+  return;
   beginShape();
   vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
   for(var i=0; i<positions.nose_tip.length;i++) {
