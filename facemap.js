@@ -33,9 +33,19 @@ var scheme5 = [[248,130,78],[248,39,34],[129,105,95],[255,255,255],[126,102,91],
 var schemes = [scheme2,scheme3,scheme4,scheme5];
 
 
+var radius = 4.5;
+var radius2 = 3;
+var faceOffset;
+
+
 function FaceMap() {
-  this.hairLength = 50;
+  this.faceType = 1;
   this.hairColor = 50;
+
+
+
+
+
 
   /*
    * Draw a face with position lists that include:
@@ -43,11 +53,14 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge,
    */
   this.draw = function(positions) {
+      var curFaceType = map(this.faceType,0,100,1,5);
+
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+    var mouth_pos = average_point(positions.top_lip);
 
 
 
@@ -55,6 +68,8 @@ function FaceMap() {
     var h = 2.5 * half_height;
     var x = nose_pos[0]-w/2;
     var y = nose_pos[1]-h/2;
+
+    faceOffset = -(h*0.05);
 
     //var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     //fill(curHairColor);
@@ -81,148 +96,43 @@ changeRandomSeed();
 
 noStroke();
 
-var cols = 9;
-var rows = 5;
-
 drawFace(positions,h);
 
-//var w = 1;
-//var h = 1;
-//var w = canvasWidth / cols;
-//var h = canvasHeight / rows;
-//for(var row=0; row<rows; row++) {
-  //for(var col=0; col<cols; col++) {
-    //var x = w*col;
-    //var y = h*row;
+drawEye(eye1_pos[0],eye1_pos[1],0.8,white,lightGray);
+drawEye(eye2_pos[0],eye1_pos[1],0.8,white,lightGray);
 
-/*
-    //random color scheme is used
-    scheme = schemes[Math.floor(focusedRandom(0,schemes.length))];
-    fill(scheme[0]);
+drawNose1(nose_pos[0],nose_pos[1],w*0.15,h*0.15,color(83,85,227));
 
-   //randomized variables
-   var faceWidth = focusedRandom(-(h/6.66),-(h/20));
-   var faceHeight = focusedRandom(-(h/16.66),(h/16.66));
-   var eye_value = getEyeNum();
-   var mouthType = Math.floor(focusedRandom(1,3));
-   var noseType = Math.floor(focusedRandom(1,3));
-   var hornSize = focusedRandom(-(h/5),(h/20));
-   var hornType = getHornType();
-   var face = getFaceType();
+drawMouth1(mouth_pos[0],mouth_pos[1],w*0.2,h*0.1,color(97,97,235));
 
-   var monFace = new Face();
-   monFace.drawMonster(x-(w/2.5),y,faceWidth,faceHeight,eye_value,mouthType,noseType,hornSize,hornType,h,scheme,face);
- //}
-//}
-*/
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
-/*
-    // head
-    stroke(stroke_color);
-    fill(fg_color);
-    beginShape();
-    for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0], positions.chin[i][1]);
-    }
-    for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-
-    // mouth
-    noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
-
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
-
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);
-*/
   }
 
 
 function drawFace(positions,h){
 
   var skip = 2;
-  var radius = 7;
-  var radius2 = 5;
+
   var numPoints = 32;
-
-
 
 //  ellipse(0, 0, radius, radius);
 
-  var face1Coords=[3,8,13,17,24,31];
-  var face1ShadowCoords = [31,3,8,3,31,24];
-  var face1ShadowRadius = [radius,radius,radius,radius2,radius2,radius];
+  var faceCoords=getFacePoints(2,1);
+  var faceShadowCoords = getFacePoints(2,2);
+  var faceShadowRadius = getFacePoints(2,3);
   //var face1ShadowCoords2 = [31,3];
 
   noStroke();
-    fill(132,130,237);
-  strokeWeight(0.1);
+  fill(132,130,237);
   push();
-  translate(0,-(h*0.2));
+  translate(0,faceOffset);
   beginShape();
-  for(var i=0;i<numPoints;i++)
+  for(var i=0;i<faceCoords.length;i++)
   {
-    var circleX = radius/2* Math.cos(2 * Math.PI * i / numPoints);
-    var circleY = radius/2* Math.sin(2 * Math.PI * i / numPoints);
-    if(face1Coords.includes(i)){
+    j = faceCoords[i];
+    var circleX = radius/2* Math.cos(2 * Math.PI * j / numPoints);
+    var circleY = radius/2* Math.sin(2 * Math.PI * j / numPoints);
     vertex (circleX,circleY);
-  }
-
   ellipse(circleX,circleY,0.2,0.2);
   }
   endShape();
@@ -233,76 +143,116 @@ function drawFace(positions,h){
 
   var counter = 0;
 
-  for(var i=0;i<face1ShadowCoords.length;i++)
+  for(var i=0;i<faceShadowCoords.length;i++)
   {
-      j = face1ShadowCoords[i];
+      j = faceShadowCoords[i];
       fill(shadow);
-
-
       fill(255,0,0);
-      var circleX = (face1ShadowRadius[i]/2)* Math.cos(2 * Math.PI * j / numPoints);
-      var circleY = (face1ShadowRadius[i]/2)* Math.sin(2 * Math.PI * j / numPoints);
+      var circleX = (faceShadowRadius[i]/2)* Math.cos(2 * Math.PI * j / numPoints);
+      var circleY = (faceShadowRadius[i]/2)* Math.sin(2 * Math.PI * j / numPoints);
       ellipse(circleX,circleY,0.2,0.2);
       vertex (circleX,circleY);
       counter++;
-  
-
   }
       fill(shadow);
   endShape();
   pop();
 
-/*
-  for(var i=0; i<positions.chin.length;i+=skip) {
-    vertex(positions.chin[i][0], positions.chin[i][1]);
-  }
-  for(var i=positions.right_eyebrow.length-1; i>=0;i-=skip) {
-    vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-  }
-  for(var i=positions.left_eyebrow.length-1; i>=0;i-=skip) {
-    vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-  }
-  */
 
-//  endShape();
 
-/*
-  //face
-  beginShape();
-  //lefttop
-  vertex(monsterWidth*0.3-(faceWidth),monsterHeight*0.35-(faceHeight));
-  //top
-  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
-  //righttop
-  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.35-(faceHeight));
-  //rightbottom
-  vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.7+(faceHeight));
-  //bottom
-  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
-  //leftbottom
-  vertex(monsterWidth*0.25-(faceWidth),monsterHeight*0.7+(faceHeight));
+}
 
-  endShape();
+function getFacePoints(faceType,pointsType){
 
-  //shadow
-  fill(shadow);
-  beginShape();
-  //top
-  vertex(monsterWidth*0.5,monsterHeight*0.1-(faceHeight));
-  //righttop
-  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.35-(faceHeight));
-  //rightbottom
-  vertex(monsterWidth*0.75+(faceWidth),monsterHeight*0.7+(faceHeight));
-  //bottom
-  vertex(monsterWidth*0.5,monsterHeight*0.9+(faceHeight));
-  //leftbottom
-  vertex(monsterWidth*0.7+(faceWidth),monsterHeight*0.7+(faceHeight));
-  //lefttop
-  vertex(monsterWidth*0.64+(faceWidth),monsterHeight*0.35-(faceHeight));
-  endShape();
+switch(faceType){
 
-*/
+  case 1:
+    if(pointsType==1){
+      return [3,8,13,17,24,31];
+    }
+    else if(pointsType==2){
+      return [31,3,8,3,31,24];
+    }
+    else{
+      return [radius,radius,radius,radius2,radius2,radius];
+    }
+    break;
 
+    case 2:
+      if(pointsType==1){
+        return [4,8,12,20,24,28];
+      }
+      else if(pointsType==2){
+        return [4,8,4,28,24,28];
+      }
+      else{
+        return [radius,radius,radius2,radius2,radius,radius];
+      }
+      break;
+
+
+
+
+}
+
+
+}
+
+//draws a single eye,
+//looks at mouse using x and y coords
+function drawEye(x,y,size,color1,color2){
+
+  mouseXPos = map(mouseX+x,0,width,-size/7,size/7);
+  mouseYPos = map(mouseY+y,0,height,-size/7,size/7);
+
+fill(color1);
+ellipse(x,y,size,size);
+fill(color2);
+ellipse(x+mouseXPos,y+mouseYPos,size*0.6,size*0.6);
+
+
+}
+
+//nose type 1: like a dog nose
+function drawNose1(x,y,faceWidth,faceHeight,color){
+
+
+  fill(color);
+
+  //draw nose
+  var noseWidth =faceWidth;
+  var noseHeight = faceHeight;
+  var noseX = x;
+  var noseY = y;
+
+  ellipse(noseX,noseY,noseWidth,noseHeight/2);
+  ellipse(noseX,noseY+noseHeight/4,noseWidth/4,noseHeight);
+
+}
+
+// mouth type 1: open surprised mouth. Also draws a small tooth
+function drawMouth1(x,y,faceWidth,faceHeight,color){
+
+fill(color);
+  //draw mouth
+  var mouthWidth = faceWidth;
+  var mouthHeight = faceHeight;
+  var mouthX = x;
+  var mouthY = y;
+  ellipse(mouthX,mouthY,mouthWidth,mouthHeight);
+
+  //tooth 1
+  fill(white);
+  rectMode(CORNER);
+  var toothWidth = faceWidth*0.1;
+  var toothDiff = faceWidth*0.15;
+  var toothX1 = (mouthX-toothDiff);
+  var toothY1 = mouthY-(mouthHeight/2);
+  var toothX2 = (mouthX-toothDiff*2)-toothWidth;
+  var toothY2 = mouthY-(mouthHeight/2.5);
+  var toothX3 = (mouthX-toothDiff*1.9)+toothWidth;
+  var toothY3 = mouthY+toothWidth-(mouthHeight/2);
+  triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
 }
 
 
@@ -311,14 +261,14 @@ function drawFace(positions,h){
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
+    this.faceType = settings[0];
     this.hairColor = settings[1];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(2);
-    properties[0] = this.hairLength;
+    properties[0] = this.faceType;
     properties[1] = this.hairColor;
     return properties;
   }
