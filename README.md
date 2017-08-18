@@ -1,3 +1,3 @@
 ## PS2 MDDN 342 2017
  
-I have changed the mouth shape so it can show more emotion. I have also tried to add in hair but for some faces it goes weird. It might get covered up when I put in the buns though.
+ I have added the buns but the hair looks kind of average so I am going to change the character to Yoda instead. I feel Yoda will be better as he doesn't have any hair and the ears would be easier to draw. Also Yoda's face is more different to a regular human face so it will create more contrast and will keep things interesting.
