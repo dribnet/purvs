@@ -1,14 +1,15 @@
 ## PS2 MDDN 342 2017
 
-PART 1:
+PART 2:
 
-I have transferred my design from PS1 over to the new code, but have also made a few small adjustments based on the feedback from my peers.
+I have added two additional landmarks into face_data.json - one for andy serkis and one with the CGI gollum. I thought it would be interesting to see how well I could try to map my gollum face - which is what I'm continuing to call it, even though nobody thinks it looks like gollum - to the real ones. 
 
-A lot of the feedback concerned either distribution or the face not looking enough like Gollum's. In addition, the lack of variance in the randomness - this in particular I have tried to address.
+I have tried to create some of the recognisable features of my face.js in the facemap.js. Specifcally, I have changed the eyebrows into a monobrow, which is still mapped to the eyebrow positions. I've also tried to add teeth in which use the position of the bottom lip and the nose tip as landmarks. I tried using the top lip rather than the nose, however, there are too many landmarks in the lips to create accurate teeth (or so I found).
 
-First, I removed the bias to look to the right. This has resulted in a greater variety of eyesight directions. 
 
-Second, I slightly increased the size of the mouth so that it is easier to notice the different widths. 
 
-Last of all, I reduced the stroke weight of the eyebrows so that you could see the individual strokes at their smaller scale. There was some criticism around the brows falling down below the eyes. However, this was intentional in the first place in order to achieve the exaggerated cartoon eye bulge effect. 
+
+
+
+
 

@@ -9,6 +9,15 @@ bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
+//gollum colours
+// bg_color = "#E02B3B";
+// fg_color = "#E02B3B";
+gollum_skin ="#CAB4A7";
+gollum_eyeskin ="#96897F";
+gollum_eyes = "#54C2FF";
+gollum_tooth ="#FFF3C2";
+gollum_lips = "#4A443F";
+
 function FaceMap() {
   /*
    * Draw a face with position lists that include:
@@ -43,71 +52,97 @@ function FaceMap() {
     // fill(0)
     // ellipse(x, y, w, h);
 
-    // head
-    stroke(stroke_color);
-    fill(fg_color);
+    //head
+    stroke(gollum_eyeskin);
+    fill(gollum_skin);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-10);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-10);
     }
+    endShape(CLOSE);
+
+    //eyebrows
+    noFill();
+    stroke(0);
+    strokeWeight(1.25);
+    beginShape();  
+    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]-3); 
+    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]-3); 
+    endShape(CLOSE);
+    beginShape();  
+    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]-1); 
+    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]-1); 
+    endShape(CLOSE);
+    strokeWeight(1);  
+    beginShape();  
+    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]+1); 
+    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]+1); 
     endShape(CLOSE);
 
     // mouth
     noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
+    fill(0);
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]-3);
     }
+    endShape(CLOSE);
+
+    // teeth
+    noStroke();
+    fill(gollum_tooth);
+    beginShape();
+    vertex(positions.bottom_lip[5][0], positions.bottom_lip[0][1]);
+    vertex(positions.nose_tip[1][0], positions.nose_tip[1][1]+16);
+    vertex(positions.bottom_lip[3][0], positions.bottom_lip[0][1]);
+    endShape(CLOSE);
+    beginShape();
+    vertex(positions.bottom_lip[2][0], positions.bottom_lip[0][1]);
+    vertex(positions.nose_tip[3][0], positions.nose_tip[1][1]+16);
+    vertex(positions.bottom_lip[1][0], positions.bottom_lip[0][1]);
     endShape(CLOSE);
 
     // nose
     beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+    fill(0);
+    
     for(var i=0; i<positions.nose_tip.length;i++) {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
     }
     endShape(CLOSE);
 
     // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
 
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+    //bags under eyes
+    fill(gollum_eyeskin);
+    ellipse(eye1_pos[0], eye1_pos[1]+5, 60 * scale, 90 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+5, 60 * scale, 90 * scale);
 
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);  
+    //eyes
+    fill(255);
+    ellipse(eye1_pos[0], eye1_pos[1]+3, 70 * scale, 90 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+3, 70 * scale, 90 * scale);
+
+    fill(gollum_eyes);
+    ellipse(eye1_pos[0]-2, eye1_pos[1]+3, 50 * scale, 70 * scale);
+    ellipse(eye2_pos[0]-2, eye2_pos[1]+3, 50 * scale, 70 * scale);
+
+    fill(0);
+    ellipse(eye1_pos[0]-6, eye1_pos[1]+3, 20 * scale, 40 * scale);
+    ellipse(eye2_pos[0]-6, eye2_pos[1]+3, 20 * scale, 40 * scale);
+
+    fill(255);
+    ellipse(eye1_pos[0]-4, eye1_pos[1]+3, 3 * scale, 3 * scale);
+    ellipse(eye2_pos[0]-4, eye2_pos[1]+3, 3 * scale, 3 * scale);
+    
+    strokeWeight(1); 
+
   }
 }
 
