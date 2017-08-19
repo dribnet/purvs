@@ -18,7 +18,7 @@ function FaceMap() {
      *    bottom_lip, top_lip, nose_tip, nose_bridge, 
      */
     this.draw = function(positions) {
-
+        var blush_color = "#e89b86"
         var skin_tone = "#ffe3d8";
 
         var nose_pos = average_point(positions.nose_bridge);
@@ -65,9 +65,9 @@ function FaceMap() {
 
         push();
         noFill();
-        stroke('red');
+        stroke(blush_color);
         fill(skin_tone);
-        strokeWeight(0.1);
+        strokeWeight(0.07);
 
         //head outline
         beginShape();
@@ -94,54 +94,6 @@ function FaceMap() {
 
         //toms_face();
 
-        //eyes
-        var l_lens_size;
-        var r_lens_size;
-        //average distance from each outer point to "eye_pos" center
-        for (var i = 0; i < positions.left_eye.length; i++) {
-            l_lens_size = distanceBetween(positions.left_eye[i], eye1_pos);
-            r_lens_size = distanceBetween(positions.right_eye[i], eye2_pos);
-        }
-
-        l_lens_size /= positions.left_eye.length;
-        r_lens_size /= positions.right_eye.length;
-        l_lens_size = 0.4 + l_lens_size * 30;
-        r_lens_size = 0.4 + r_lens_size * 30;
-        push();
-        fill(255, 0.6);
-        strokeWeight(0.1);
-        stroke('red');
-
-        ellipse(eye1_pos[0], eye1_pos[1], l_lens_size, l_lens_size);
-        ellipse(eye2_pos[0], eye2_pos[1], r_lens_size, r_lens_size);
-
-        //glasses legs (called 'temples')
-        var temple_connect_angle = -TWO_PI / 32;
-        var temple_connect_l = rim_vert(eye1_pos, l_lens_size / 2, PI - temple_connect_angle);
-        var temple_connect_r = rim_vert(eye2_pos, r_lens_size / 2, temple_connect_angle);
-
-
-        noFill();
-
-        var bridge_control_offset = distanceBetween(eye1_pos, eye2_pos) - (l_lens_size / 2) - (r_lens_size / 2);
-        //bridge_control_offset *= 0.5;
-
-        beginShape();
-        curveVertex(positions.nose_bridge[3][0] * -0.30, (positions.nose_bridge[3][1] + bridge_control_offset) / 2);
-
-        curveVertex(eye1_pos[0] + (l_lens_size / 2), eye1_pos[1]);
-        curveVertex(eye2_pos[0] - (r_lens_size / 2), eye2_pos[1]);
-
-        curveVertex(positions.nose_bridge[3][0] * -0.30, (positions.nose_bridge[3][1] + bridge_control_offset) / 2);
-        endShape();
-
-        if (temple_connect_l[0] > chin_L[0]) {
-            line(chin_L[0], chin_L[1], temple_connect_l[0], temple_connect_l[1]);
-        }
-        if (temple_connect_r[0] < chin_R[0]) {
-            line(chin_R[0], chin_R[1], temple_connect_r[0], temple_connect_r[1]);
-        }
-
         //brows 
         var brow_outer_l = positions.left_eyebrow[0];
         var brow_inner_l = positions.left_eyebrow[4];
@@ -155,29 +107,155 @@ function FaceMap() {
         var brow_width_right  = distanceBetween(brow_outer_r, brow_inner_r)*0.7;
         var brow_width_left   = distanceBetween(brow_outer_l, brow_inner_l)*0.7;
 
+        var brow_color = 200;
+        var brow_outline = 190;
         push();
+        fill(brow_color);        
+        stroke(brow_outline);
         //left brow
         translate(brow_upper_l[0], brow_upper_l[1]);
         rotate(angleBetween(brow_inner_l, brow_outer_l));
         ellipse(0, brow_height_left/4, brow_width_left, brow_height_left);
         pop();
 
-        console.log(brow_height_left);
-
         push();
         //right brow
+        fill(brow_color);
+        stroke(brow_outline);
         translate(brow_upper_r[0], brow_upper_r[1]);
         rotate(angleBetween(brow_outer_r,brow_inner_r));
         ellipse(0, brow_height_right/4, brow_width_right, brow_height_left);
         pop();
 
-        console.log(brow_height_right);
 
-        //debug
-        fill('blue');
-        noStroke();
+//eye
+    
+        var blink_weight_L = Math.abs(average_point([positions.left_eye[1],positions.left_eye[2]])[1]- average_point([positions.left_eye[4],positions.left_eye[5]])[1])/3;
+        var blink_weight_R = Math.abs(average_point([positions.right_eye[1],positions.right_eye[2]])[1]- average_point([positions.right_eye[4],positions.right_eye[5]])[1])/3;
 
-        //console.log(positions);
+        push();
+        stroke(blush_color);
+        noFill();
+        strokeWeight(blink_weight_L);
+        beginShape();
+        curveVertex(positions.left_eye[5][0],positions.left_eye[4][1]);
+        curveVertex(positions.left_eye[0][0],positions.left_eye[0][1]);
+        curveVertex(positions.left_eye[1][0],positions.left_eye[1][1]);
+        curveVertex(positions.left_eye[2][0],positions.left_eye[2][1]);
+        curveVertex(positions.left_eye[3][0],positions.left_eye[3][1]);
+        curveVertex(positions.left_eye[4][0],positions.left_eye[4][1]);
+        endShape();
+        strokeWeight(blink_weight_R);
+        beginShape();
+        curveVertex(positions.right_eye[5][0],positions.right_eye[4][1]);
+        curveVertex(positions.right_eye[0][0],positions.right_eye[0][1]);
+        curveVertex(positions.right_eye[1][0],positions.right_eye[1][1]);
+        curveVertex(positions.right_eye[2][0],positions.right_eye[2][1]);
+        curveVertex(positions.right_eye[3][0],positions.right_eye[3][1]);
+        curveVertex(positions.right_eye[4][0],positions.right_eye[4][1]);
+        endShape();
+        pop();
+
+        var l_lens_size; //average distance from each outer point to "eye_pos" center
+        var r_lens_size;
+        var frame_color = '#494c56';
+        var lens_color =   color(255,90);
+        for (var i = 0; i < positions.left_eye.length; i++) {
+            l_lens_size = distanceBetween(positions.left_eye[i], eye1_pos);
+            r_lens_size = distanceBetween(positions.right_eye[i], eye2_pos);
+        }
+
+        l_lens_size /= positions.left_eye.length;
+        r_lens_size /= positions.right_eye.length;
+        l_lens_size = 0.4 + l_lens_size * 30;
+        r_lens_size = 0.4 + r_lens_size * 30;
+
+        push();
+        fill(lens_color);
+        strokeWeight(0.095);
+        stroke(frame_color);
+        //lenses
+        ellipse(eye1_pos[0], eye1_pos[1], l_lens_size, l_lens_size);
+        ellipse(eye2_pos[0], eye2_pos[1], r_lens_size, r_lens_size);
+
+        //glasses legs (called 'temples')
+        var temple_connect_angle = -TWO_PI / 32;
+        var temple_connect_l = rim_vert(eye1_pos, l_lens_size / 2, PI - temple_connect_angle);
+        var temple_connect_r = rim_vert(eye2_pos, r_lens_size / 2, temple_connect_angle);
+
+        noFill();
+        var bridge_control_offset = distanceBetween(eye1_pos, eye2_pos) - (l_lens_size / 2) - (r_lens_size / 2);
+
+        beginShape();
+        curveVertex(positions.nose_bridge[3][0] * -0.30, (positions.nose_bridge[3][1] + bridge_control_offset) / 2);
+        curveVertex(eye1_pos[0] + (l_lens_size / 2), eye1_pos[1]);
+        curveVertex(eye2_pos[0] - (r_lens_size / 2), eye2_pos[1]);
+        curveVertex(positions.nose_bridge[3][0] * -0.30, (positions.nose_bridge[3][1] + bridge_control_offset) / 2);
+        endShape();
+
+        if (temple_connect_l[0] > chin_L[0]) {
+            line(chin_L[0], chin_L[1], temple_connect_l[0], temple_connect_l[1]);
+        }
+        if (temple_connect_r[0] < chin_R[0]) {
+            line(chin_R[0], chin_R[1], temple_connect_r[0], temple_connect_r[1]);
+        }
+
+        pop();
+//mouth
+
+    // for positions.top_lip & positions.bottom_lip: inside = 8,9,10 | outside = 2,3,4 | end = 11
+    // top_lip[0] is in left mouth corner
+    // bottom_lip[0] is in right mouth corner
+    // bottom[0] + top[6] || bottom[6] + top[0] will always intersect
+
+        var top_lip_outside = [positions.top_lip[2],positions.top_lip[3],positions.top_lip[4]];
+        var bottom_lip_outside = [positions.bottom_lip[2],positions.bottom_lip[3],positions.bottom_lip[4]];
+        var mouthCorner_LT = positions.top_lip[0]; // Left/Top
+        var mouthCorner_RB = positions.bottom_lip[0]; // Right/Bottom
+        var top_lip_inside = [positions.top_lip[8],positions.top_lip[9],positions.top_lip[10]];
+        var bottom_lip_inside = [positions.bottom_lip[8],positions.bottom_lip[9],positions.bottom_lip[10]];
+
+      //  var mouth_angle = angleBetween(positions.bottom_lip[0], positions.top_lip[0]);
+        var mouth_width = distanceBetween(positions.bottom_lip[0], positions.top_lip[0]);
+
+        var smile;
+        var lip_thickness = 0;
+        var mouth_open = 0;
+        var innverAv = [];
+
+        for (var i = 2; i > 0; i--) {
+
+           mouth_open += distanceBetween(top_lip_inside[i],bottom_lip_inside[i]);
+           lip_thickness += distanceBetween(top_lip_inside[i],top_lip_outside[i]);
+           lip_thickness += distanceBetween(bottom_lip_inside[i],bottom_lip_outside[i]);
+           innverAv.push(top_lip_inside[i]);
+           innverAv.push(bottom_lip_inside[i]);
+        }
+
+        innverAv = average_point(innverAv);
+        cornerAv = average_point([mouthCorner_LT,mouthCorner_RB]);
+        mouth_open /=3;
+        lip_thickness /=6;
+        smile = cornerAv[1]-innverAv[1];
+
+        push();
+
+        strokeWeight(lip_thickness*0.75);
+        stroke(blush_color);
+        noFill();
+
+        beginShape();
+        curveVertex(mouthCorner_LT[0]-smile,mouthCorner_LT[1]+smile*2);
+        curveVertex(mouthCorner_LT[0]+mouth_width*0.15,mouthCorner_LT[1]-smile);
+        curveVertex(mouthCorner_RB[0]-mouth_width*0.15,mouthCorner_RB[1]-smile);
+        curveVertex(mouthCorner_RB[0]-smile,mouthCorner_RB[1]+smile*2);
+        endShape();
+        pop();
+
+        fill('red');
+      //  debugShowPoints([positions.left_eye[0],positions.left_eye[5]]);
+      //  debugShowPoints([positions.right_eye[0],positions.right_eye[5]]);
+
         function toms_face() {
 
             // head
@@ -295,4 +373,18 @@ function distanceBetween(p1, p2) {
     var b = p1[1] - p2[1];
     var c = Math.abs(Math.sqrt(a * a + b * b));
     return c;
+}   
+
+function debugShowPoints(arr,txtsiz){
+    push();
+    textSize(0.25);
+    if(txtsiz){
+        textSize(txtsiz);
+    }
+    noStroke();
+    for (var i = arr.length - 1; i >= 0; i--) {
+        text(i,arr[i][0],arr[i][1]);
+    }
+
+    pop();
 }
