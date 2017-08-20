@@ -6,3 +6,5 @@ I still use bezier vertex to construct the curves, but the anchor point uses fac
 add slider to control eyebrows, eyerims, skin color and eyebrow color.
 
 add tatto, middle triangle and slider control for beard
+
+add parameters for faces from 1 to 9, add RGB slider to change skin colors.
