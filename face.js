@@ -133,13 +133,13 @@ function Face() {
     //jaw
     fill("#000000");
     beginShape();
-    vertex(0 * this.jaw_value, 15 * this.jaw_value * scale)
-    bezierVertex(20 * this.jaw_value * scale, 5 * this.jaw_value * scale, 16 * this.jaw_value * scale, 20 * this.jaw_value * scale, 14 * scale, 27 * scale)
+    vertex(0 * this.jaw_value, 15 * this.jaw_value * scale);
+    bezierVertex(20 * this.jaw_value * scale, 5 * this.jaw_value * scale, 16 * this.jaw_value * scale, 20 * this.jaw_value * scale, 14 * scale, 27 * scale);
     endShape();
 
     beginShape();
-    vertex(0 * this.jaw_value, 15 * this.jaw_value * scale)
-    bezierVertex(20 * -this.jaw_value * scale, 5 * this.jaw_value * scale, 16 * -this.jaw_value * scale, 20 * this.jaw_value * scale, 14 * -scale, 27 * scale)
+    vertex(0 * this.jaw_value, 15 * this.jaw_value * scale);
+    bezierVertex(20 * -this.jaw_value * scale, 5 * this.jaw_value * scale, 16 * -this.jaw_value * scale, 20 * this.jaw_value * scale, 14 * -scale, 27 * scale);
     endShape();
 
     fill(this.bg_color2);

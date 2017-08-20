@@ -14,10 +14,13 @@ jaw_color = "#f2e6d9";
 
 
 function FaceMap() {
+  this.background;
   this.eyerims_value;
   this.eyebrows_value;
   this.skin_color;
   this.eyebrows_color;
+  this.beard_value;
+  this.triangle;
 
   /*
    * Draw a face with position lists that include:
@@ -39,9 +42,12 @@ function FaceMap() {
     var h = 2.5 * half_height;
     
     var curEyerimValue = map(this.eyerims_value, 0, 100, 0.8, 1.2);
-    var curEyebrowValue = map(this.eyebrows_value, 0, 100, 0.9, 1.4);
+    var curEyebrowValue = map(this.eyebrows_value, 0, 100, 0.9, 1.2);
     var curSkinColor = [Math.floor(map(this.skin_color, 0, 100, 0, 100)), Math.floor(map(this.skin_color, 0, 100, 80, 0)), Math.floor(map(this.skin_color, 0, 100, 100, 0))];
     var curEyebrowColor = [255, map(this.eyebrows_color, 0, 100, 102, 255), 102];
+	var curBeardValue = map(this.beard_value, 0, 100, 0.6, 1);
+	var curBackground = map(this.background, 0, 100, 0, 6);
+	var curTriangle = map(this.triangle, 0, 100, 0, 3);
 
     var extent = 0;
     if(h < w) {
@@ -58,6 +64,21 @@ function FaceMap() {
     // rect(x-w/2, y-h/2, w, h);
     // fill(0)
     // ellipse(x, y, w, h);
+	
+	//background
+	fill(jaw_color);
+	stroke(0, 0, 0);
+	ellipse(positions.nose_bridge[3][0], positions.nose_bridge[3][1], curBackground);
+	stroke(0, 0, 0, 150);
+	ellipse(positions.nose_bridge[3][0], positions.nose_bridge[3][1], 0.7 * curBackground);
+	stroke(0, 0, 0, 80);
+	ellipse(positions.nose_bridge[3][0], positions.nose_bridge[3][1], 0.4 * curBackground);
+	
+    //triangle
+	fill(curEyebrowColor);
+    strokeWeight(0.06);
+    stroke("#ffffff");
+	triangle(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1], positions.right_eyebrow[0][0], positions.right_eyebrow[0][1], positions.nose_bridge[0][0], positions.nose_bridge[0][1] * curTriangle);
 
     // whole head
     noStroke();
@@ -80,10 +101,21 @@ function FaceMap() {
     strokeWeight(0.2);
     line(positions.nose_bridge[0][0], positions.nose_bridge[0][1], positions.nose_bridge[3][0], positions.nose_bridge[3][1]);
     pop();
+	
+	//tatto
+	stroke("#172130");
+	strokeWeight(0.02);
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[3][0], positions.chin[3][1], positions.chin[2][0], positions.chin[2][1]);
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[4][0], positions.chin[4][1], positions.chin[3][0], positions.chin[3][1]);
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[5][0], positions.chin[5][1], positions.chin[4][0], positions.chin[4][1]);
+	
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[13][0], positions.chin[13][1], positions.chin[14][0], positions.chin[14][1]);
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[12][0], positions.chin[12][1], positions.chin[13][0], positions.chin[13][1]);
+	bezier(positions.nose_bridge[2][0], positions.nose_bridge[2][1], positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.chin[11][0], positions.chin[11][1], positions.chin[12][0], positions.chin[12][1]);
 
     //eye rims
     fill(0, 0, 0, 150);
-    strokeWeight(0.03);
+    strokeWeight(0.04);
     stroke("#ffffff");
     beginShape();
     vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
@@ -106,12 +138,11 @@ function FaceMap() {
     vertex(positions.chin[15][0], positions.chin[15][1]);
     bezierVertex((positions.chin[15][0]-0.2) * curEyerimValue, (positions.chin[15][1]-0.1) * curEyerimValue, (positions.right_eyebrow[4][0]-0.4) * curEyerimValue, (positions.right_eyebrow[4][1]+0.5) * curEyerimValue, positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]+0.2);
     endShape();
-
+	
     //eyebrows
     fill(curEyebrowColor);
-    noStroke();
-    // strokeWeight(0.06);
-    // stroke("#ffffff");
+    strokeWeight(0.06);
+    stroke("#ffffff");
     beginShape();
     vertex((positions.left_eyebrow[0][0]-0.2) * curEyebrowValue, (positions.left_eyebrow[0][1]-1) * curEyebrowValue);
     bezierVertex(positions.left_eyebrow[0][0] * curEyebrowValue, (positions.left_eyebrow[0][1]-0.5) * curEyebrowValue, positions.left_eyebrow[4][0]-0.2, positions.left_eyebrow[4][1]-0.1, positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
@@ -153,25 +184,25 @@ function FaceMap() {
 
     //eye balls
     fill(0, 0, 0);
-    ellipse(eye1_pos[0], eye1_pos[1], 5 * scale, 5 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 5 * scale, 5 * scale);
+    ellipse(eye1_pos[0] * curEyerimValue, eye1_pos[1], 5 * scale, 5 * scale);
+    ellipse(eye2_pos[0] * curEyerimValue, eye2_pos[1], 5 * scale, 5 * scale);
     
 
     //beard
     fill(0);
     beginShape();
-    vertex(positions.top_lip[3][0], positions.top_lip[3][1]+0.16);
-    bezierVertex(positions.chin[3][0]-0.5, positions.chin[3][1]-0.2, positions.chin[7][0]-0.5, positions.chin[7][1], positions.chin[7][0], positions.chin[7][1]);
+    vertex(positions.top_lip[3][0] * curBeardValue, (positions.top_lip[3][1]+0.16) * curBeardValue);
+    bezierVertex((positions.chin[3][0]-0.5) * curBeardValue, (positions.chin[3][1]-0.2) * curBeardValue, (positions.chin[7][0]-0.5) * curBeardValue, positions.chin[7][1] * curBeardValue, positions.chin[7][0], positions.chin[7][1]);
     endShape();
 
     beginShape();
-    vertex(positions.top_lip[3][0], positions.top_lip[3][1]+0.16);
-    bezierVertex(positions.chin[13][0]+0.5, positions.chin[13][1]-0.2, positions.chin[9][0]+0.5, positions.chin[9][1], positions.chin[9][0], positions.chin[9][1]);
+    vertex(positions.top_lip[3][0] * curBeardValue, (positions.top_lip[3][1]+0.16) * curBeardValue);
+    bezierVertex((positions.chin[13][0]+0.5) * curBeardValue, (positions.chin[13][1]-0.2) * curBeardValue, (positions.chin[9][0]+0.5) * curBeardValue, positions.chin[9][1] * curBeardValue, positions.chin[9][0], positions.chin[9][1]);
     endShape();
 
     //jaw
     push();
-    fill(jaw_color);
+    fill(255);
     // stroke(0);
     // strokeWeight(0.05);
     beginShape();
@@ -189,7 +220,7 @@ function FaceMap() {
     push();
     fill(mouth_color);
     stroke(255);
-    strokeWeight(0.02);
+    strokeWeight(0.05);
     quad(positions.top_lip[positions.top_lip.length/4-2][0], positions.top_lip[positions.top_lip.length/4-2][1], positions.top_lip[positions.top_lip.length/4+2][0], positions.top_lip[positions.top_lip.length/4+2][1], positions.bottom_lip[positions.bottom_lip.length/4-1][0], positions.bottom_lip[positions.bottom_lip.length/4-1][1], positions.bottom_lip[positions.bottom_lip.length/4+1][0], positions.bottom_lip[positions.bottom_lip.length/4+1][1]);
     pop();   
 
@@ -206,19 +237,25 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
+	this.background = settings[11];
     this.eyebrows_value = settings[0];
     this.eyerims_value = settings[1];
     this.skin_color = settings[2];
     this.eyebrows_color = settings[3];
+	this.beard_value = settings[4];
+	this.triangle = settings[5];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(4);
+    properties = new Array(7);
     properties[0] = this.eyebrows_value;
     properties[1] = this.eyerims_value;
     properties[2] = this.skin_color;
     properties[3] = this.eyebrows_color;
+	properties[4] = this.beard_value;
+	properties[5] = this.triangle;
+	properties[11] = this.background;
     return properties;
   }
 }
