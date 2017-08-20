@@ -5,7 +5,7 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [50, 50, 50];
+bg_color = [100, 100, 100];
 fg_color = [255, 255, 255];
 stroke_color = [95, 52, 8];
 
@@ -27,10 +27,11 @@ function FaceMap() {
 			var w = 2 * face_width;
 			var h = 2.5 * half_height;
 
-			var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-			fill(curHairColor);
-			var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-			rect(-3, -2 * curHairLength, 6, 3 * curHairLength);
+			
+			var curEyeSize = map(this.eyeSize, 0, 100, 10, 30);
+			var curFaceGap = map(this.faceGap, 0, 100, 20, 8);
+		    var curNoseSize = map(this.noseSize, 0, 100, 30, 70);
+
 
 			var extent = 0;
 			if (h < w) {
@@ -52,7 +53,7 @@ function FaceMap() {
 			noFill();
 
 			var box = bounding_box(positions);
-			strokeWeight(box[3] / 16);
+			strokeWeight(box[3] / curFaceGap);
 			strokeCap(PROJECT);
 			var centreX = positions.nose_bridge[0][0];
 			for (var i = 0; i * box[2] / 8 < box[2]; i++) {
@@ -82,13 +83,22 @@ function FaceMap() {
 			endShape(CLOSE);
 
 			// nose
-			fill(255, 0, 0);
-			beginShape();
+			fill(255, 30, 10);
+		    var nosePosBridge = average_point(positions.nose_bridge);
+		    var nosePosTip = average_point(positions.nose_tip); 
+		    var nosePos = [(nosePosBridge[0] + nosePosTip[0])/2, (nosePosBridge[1] + nosePosTip[1])/2]
+		
+		    ellipse(nosePos[0], nosePos[1], curNoseSize*scale , curNoseSize*scale);
+		    fill(255,240,230);
+		    ellipse(nosePos[0], nosePos[1] + curNoseSize*scale/4, curNoseSize*scale/2 , curNoseSize*scale/5);
+		
+		
+			/*beginShape();
 			vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
 			for (var i = 0; i < positions.nose_tip.length; i++) {
 				vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
 			}
-			endShape(CLOSE);
+			endShape(CLOSE);*/
 
 			// eyes
 			fill(0);
@@ -106,8 +116,11 @@ function FaceMap() {
 			}
 
 			fill(0);
-			ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * 20 * scale, (maxHeightL - minHeightL) * 20 * scale);
-			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * 20 * scale, (maxHeightR - minHeightR) * 20 * scale);
+			ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * curEyeSize * scale, (maxHeightL - minHeightL) * curEyeSize * scale);
+			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * curEyeSize * scale, (maxHeightR - minHeightR) * curEyeSize * scale);
+		    fill(fg_color);
+		    ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * curEyeSize * scale/4, (maxHeightL - minHeightL) * curEyeSize * scale/4);
+			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * curEyeSize * scale/4, (maxHeightR - minHeightR) * curEyeSize * scale/4);
 
 			fill(0);
 			beginShape();
@@ -124,15 +137,17 @@ function FaceMap() {
 		}
 		/* set internal properties based on list numbers 0-100 */
 	this.setProperties = function (settings) {
-		this.hairLength = settings[0];
-		this.hairColor = settings[1];
+		this.eyeSize = settings[0];
+		this.faceGap = settings[1];
+		this.noseSize = settings[2];
 	}
 
 	/* get internal properties as list of numbers 0-100 */
 	this.getProperties = function () {
-		properties = new Array(2);
-		properties[0] = this.hairLength;
-		properties[1] = this.hairColor;
+		properties = new Array(3);
+		properties[0] = this.eyeSize;
+		properties[1] = this.faceGap;
+		properties[2] = this.noseSize;
 		return properties;
 	}
 }
