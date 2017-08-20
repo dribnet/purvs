@@ -91,14 +91,6 @@ function FaceMap() {
 		    ellipse(nosePos[0], nosePos[1], curNoseSize*scale , curNoseSize*scale);
 		    fill(255,240,230);
 		    ellipse(nosePos[0], nosePos[1] + curNoseSize*scale/4, curNoseSize*scale/2 , curNoseSize*scale/5);
-		
-		
-			/*beginShape();
-			vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-			for (var i = 0; i < positions.nose_tip.length; i++) {
-				vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-			}
-			endShape(CLOSE);*/
 
 			// eyes
 			fill(0);
