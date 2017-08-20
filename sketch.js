@@ -171,7 +171,7 @@ function getAllJson() {
 }
 
 // global variables for colors
-var bg_color1 = [50, 50, 50];
+var bg_color1 = [226, 226, 226];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;

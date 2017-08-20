@@ -29,7 +29,6 @@ function Face() {
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [0,0,0];
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
 
