@@ -65,7 +65,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
+var sliders = new SliderValues();
   curRandomSeed = int(focusedRandom(0, 100));
 
   for(var i=0; i<NUMFACES; i++) {

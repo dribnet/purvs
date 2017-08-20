@@ -13,6 +13,10 @@ function Face() {
   this.bg_color = [225, 206, 187];
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
+//creates the object that stores the random numbers
+    this.sliders = new SliderValues();
+    this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -29,7 +33,11 @@ function Face() {
     push();
     translate(x, y);
     rotate(this.tilt_value);
-
+    
+    //creates a new rag doll object
+    this.dolly = new RagDoll(w,h,this.sliders);
+this.img = this.dolly.drawFace();
+this.image(img,x,y,w,h);
     var extent = 0;
     if(h < w) {
       extent = h / 2;
