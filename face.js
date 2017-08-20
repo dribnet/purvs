@@ -59,7 +59,7 @@ function Face() {
     var scale = extent / 220.0;
 
     //shadow
-  fill(202,185,168); 
+  fill(36,36,36); 
   ellipse(10,10,80,80);
 
     // head

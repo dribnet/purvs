@@ -113,10 +113,10 @@ function FaceMap() {
     ellipse(1,-0.1,1,0.5);
 
   //ears
-  // fill(141,89,88);
-  // stroke(0,0,0);
-  // triangle(5, 0, 5, 5, 5, 10);
-  // triangle(-5, -40, -35, -25, -15, -15);
+  fill(141,89,88);
+  stroke(0,0,0);
+  triangle(-0.1, -2, -1.5, -1.5, -0.5, -1);
+  triangle(0.1, -2, 1.5, -1.5, 0.5, -1);
 
     // fill(stroke_color);
     // beginShape();
