@@ -64,7 +64,10 @@ function FaceMap() {
 
     // head
     var curfaceTone = map(this.faceTone, 0, 100, 180, 220);
-    var curfaceColor = map(this.faceColor, 0, 100, 100, 255)
+    var curfaceColor = map(this.faceColor, 0, 100, 100, 255);
+    var whicheyeType = map(this.eyeType, 0, 100, 0, 2);
+
+
     fill(234, 215, curfaceTone);
     noStroke();
     beginShape();
