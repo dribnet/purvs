@@ -27,6 +27,9 @@ function FaceMap() {
         if(allowRandomize){
             this.randomize();   
         }
+		else {
+			this.hue = 200;
+		}
         var nose_pos = average_point(positions.nose_bridge);
         var eye1_pos = average_point(positions.left_eye);
         var eye2_pos = average_point(positions.right_eye);
@@ -53,7 +56,7 @@ function FaceMap() {
         rectMode(CENTER);
 
         var tone = map(this.skinTone, 100, 0, 20, 60);
-        var vibrancy = map(this.lipVibrancy, 0, 100, -10, 40);
+        var vibrancy = map(this.lipVibrancy, 0, 100, 0, 80);
         var reverseTone = map(this.skinTone, 100, 0, 50, 20);
 
 
@@ -111,7 +114,7 @@ function FaceMap() {
 
         //static electricty between antennas
         noFill();
-        var thickness = map(this.eyebrowThickness, 0, 100, 0.05, 0.15);
+        var thickness = map(this.eyebrowThickness, 0, 100, 0.11, 0.21);
         stroke(staticElectricityStroke);
         strokeWeight(thickness);
         beginShape();
@@ -254,8 +257,8 @@ function FaceMap() {
 
         //draw the outer mouth
         fill(this.hue, 90, reverseTone);
-        stroke(this.hue+(vibrancy*2), tone+vibrancy, 90);
-        strokeWeight(0.05);
+        stroke(this.hue+vibrancy, tone+vibrancy, 90);
+        strokeWeight(0.05 + (vibrancy*2/1000));
         translate(0, 5 * scale);
         beginShape();
         vertex(sorted_lips[0][0]-(20*scale), sorted_lips[0][1]-(20*scale));
