@@ -13,6 +13,11 @@ function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
   this.cheeks = 50;
+  this.noselenght = 0;
+  this.eyecolor1 = 50;
+  this.eyecolor2 = 50;
+  this.eyebrowcolor = 50;
+  this.hasEyeshadow = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -31,9 +36,14 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 10, 0, 3);
+    var cheeks = map(this.cheeks, 0, 100, 0, 225);
+    var noselenght = map(this.noselenght, 0, 100, 0, 2);
+    var eyecolor1 = map(this.eyecolor1, 0, 100, 255, 0);
+    var eyecolor2 = map(this.eyecolor2, 0, 100, 0, 255);
+    var eyebrowcolor = map(this.eyebrowcolor, 0, 100, 50, 100);
+    var hasEyeshadow = map(this.hasEyeshadow, 0,100);
+    //fill(cheeks);
+    //var cheeks = map(this.cheeks, 0, 10, 0, 3);
     //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
@@ -53,7 +63,7 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    stroke(stroke_color);
+    //stroke(stroke_color);
     fill(fg_color);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
@@ -82,14 +92,14 @@ function FaceMap() {
     endShape(CLOSE);
 
     //cheeks
-    fill(213,132,151);
+    fill(213,cheeks,151);
     ellipse(eye1_pos[0], eye1_pos[1]+1, 80 * scale, 40 * scale);
     ellipse(eye2_pos[0], eye2_pos[1]+1, 80 * scale, 40 * scale);
 
     // nose
     fill(141,89,88);
     beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[2][1]);
+    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][noselenght]);
     for(var i=0; i<positions.nose_tip.length;i++) {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
     }
@@ -99,8 +109,15 @@ function FaceMap() {
     ellipse(nose_pos[0]-0.1, nose_pos[1]+0.6, 8 * scale, 4 * scale);
     ellipse(nose_pos[0]+0.1, nose_pos[1]+0.6, 8 * scale, 4 * scale);
 
+    //eyeshadow
+if(this.hasEyeshadow > 50){
+    fill(130,94,72);
+    ellipse(eye1_pos[0], eye1_pos[1]-0.1, 50 * scale, 20 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]-0.1, 50 * scale, 20 * scale);
+}
     // eyes
-    fill(0,0,0);
+
+    fill(eyecolor1);
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
@@ -112,11 +129,24 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    fill(221,217,218);
-    ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 5 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 5 * scale);
+    fill(eyecolor2);
+    ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 10 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 10 * scale);
 
- 
+    //eyebrows 95, 52, 8
+
+    fill(95, eyebrowcolor, eyebrowcolor);
+    beginShape();
+    for(var i=0; i<positions.right_eyebrow.length; i++) {
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-0.1);
+    }
+    endShape(CLOSE);
+    beginShape();
+    for(var i=0; i<positions.left_eyebrow.length; i++) {
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-0.1);
+    }
+    endShape(CLOSE);
+    
 
 
   //ears
@@ -141,15 +171,25 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
+    this.cheeks = settings[0];
+    this.noselenght = settings[1];
+    this.eyecolor1 = settings[2];
+    this.eyecolor2 = settings[3];
+    this.eyebrowcolor = settings[4];
+    this.hasEyeshadow = settings[5];
+   // this.hairColor = settings[1];
+
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
+    properties[0] = this.cheeks;
+    properties[1] = this.noselenght;  //  properties[1] = this.hairColor;
+    properties[2] = this.eyecolor1;
+    properties[3] = this.eyecolor2;
+    properties[4] = this.eyebrowcolor;
+    properties[5] = this.hasEyeshadow;
     return properties;
   }
 }
