@@ -9,7 +9,8 @@ bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [156, 106, 127];
 eye_stroke_color = [64, 102, 207];
-green_eye_stroke_color = [119, 156, 82, 150];
+green_eye_color = [119, 156, 82, 150];
+green_eye_stroke_color = [76, 104, 49];
 cheek_stroke_color = [224, 125, 187];
 mouth_stroke_color = [79, 44, 66];
 
@@ -55,7 +56,7 @@ function FaceMap() {
       extent = w / 2;
     }
     var scale = extent / 220.0;
-    var faceOffset = random(-0.1, 0.1);
+    var faceOffset = random(-0.05, -0.01);
 
     // Uncomment to see drawing area
     // fill(255);
@@ -170,41 +171,48 @@ function FaceMap() {
 
     // blue eyes (eye type 1, slider 3)
     if(this.eyeType < 33 ) {
-    push();
-    beginShape();
-    translate(faceOffset, 0.3);
-    strokeWeight(0.02);
-    stroke(eye_stroke_color);
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0]+(random(0, 4)*scale), positions.left_eye[i][1]+(random(0, 4)*scale));
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0]+(random(0, 4)*scale), positions.right_eye[i][1]+(random(0, 4)*scale));
-    }
-    endShape(CLOSE);
-    pop();
+    	// sketchy part of eyes
+	    push();
+	    beginShape();
+	    translate(faceOffset, 0.3);
+	    strokeWeight(0.02);
+	    stroke(eye_stroke_color);
+	    for(var i=0; i<positions.left_eye.length;i++) {
+	      vertex(positions.left_eye[i][0]+(random(0, 4)*scale), positions.left_eye[i][1]+(random(0, 4)*scale));
+	    }
+	    endShape(CLOSE);
+	    beginShape();
+	    for(var i=0; i<positions.right_eye.length;i++) {
+	      vertex(positions.right_eye[i][0]+(random(0, 4)*scale), positions.right_eye[i][1]+(random(0, 4)*scale));
+	    }
+	    endShape(CLOSE);
+	    pop();
+	    // eye inner ellipses
+	    noStroke();
+	    fill(eye_col);
+	    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
 
-    noStroke();
-    fill(eye_col);
-    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
-
-    noFill();
-    stroke(eye_stroke_color);
-    strokeWeight(0.02);
-    ellipse(eye1_pos[0] + faceOffset, eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	    noFill();
+	    stroke(eye_stroke_color);
+	    strokeWeight(0.02);
+	    ellipse(eye1_pos[0] + faceOffset, eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	    ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
     
 	}
 
 	// green eyes (eye type 2, slider 3)
     if(this.eyeType < 66 & this.eyeType > 33 ) {
-    noStroke();
-    fill(green_eye_stroke_color);
-    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	    noStroke();
+	    fill(green_eye_color);
+	    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+
+	    noFill();
+	    stroke(green_eye_stroke_color);
+	    strokeWeight(0.02);
+	    ellipse(eye1_pos[0] - faceOffset, eye1_pos[1]+20 * scale, 25 * scale, 25 * scale);
+	    ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 25 * scale, 25 * scale);
 	}
 
     // cheeks
@@ -214,8 +222,6 @@ function FaceMap() {
     ellipse(eye1_pos[0]-15 * scale, eye1_pos[1]+80 * scale, 50 * scale, 50 * scale);
     //right
     ellipse(eye2_pos[0]+15 * scale, eye2_pos[1]+80 * scale, 50 * scale, 50 * scale);
-	
-
 
   }
 
