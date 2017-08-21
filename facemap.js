@@ -111,7 +111,7 @@ function FaceMap() {
 
         //static electricty between antennas
         noFill();
-        var thickness = map(this.eyebrowThickness, 0, 100, 0.01, 0.11);
+        var thickness = map(this.eyebrowThickness, 0, 100, 0.05, 0.15);
         stroke(staticElectricityStroke);
         strokeWeight(thickness);
         beginShape();
