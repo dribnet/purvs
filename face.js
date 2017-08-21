@@ -104,7 +104,6 @@ function getRandomColor() {
   }
 }
 
-subl ps2/.git/config
 // given a point, return the average
 function average_point(list) {
   var sum_x = 0;

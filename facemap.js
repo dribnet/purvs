@@ -5,20 +5,27 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
+bg_color = "#ffffff";
+stroke_color = "#000000";
+fg_color = "#96C195";
+horn_color = "";
 
 function FaceMap() {
-  this.hairLength = 50;
+  this.color = 50;
   this.hairColor = 50;
-
+  this.hornHeight = 50;
+  this.pupileXaxis = 50;
+  this.pupileYaxis = 50;
+  this.hornColor = 50;
+ 
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    this.eyes_pos = positions.right_eye.concat(positions.left_eye);
+    var eye3 = average_point(this.eyes_pos);
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
@@ -30,10 +37,13 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    var hornLength = map(this.hornHeight, 0, 100, 0 , 2);
+    var rightHornHeight = map(this.rightHornHeight, 0, 100, -1 , 1);
+    var leftHornHeight = map(this.leftHornHeight, 0, 100, -1 , 1);
+    var eyeX = map(this.pupileXaxis, 0, 100, -0.4, 0.4);
+    var eyeY = map(this.pupileYaxis, 0, 100, -0.4, 0.4);
+    var colorCount = map(this.color, 0, 100, 0, 100);
+    var hornCount = map(this.hornColor, 0, 100, 0, 100);
 
     var extent = 0;
     if(h < w) {
@@ -44,6 +54,27 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
+    //skin color
+    if (colorCount < 25){
+      fg_color = "#96C195";
+    }
+    else if (colorCount <75){
+      fg_color = "#6E8E6E";
+    }
+    else{
+      fg_color = "#57B555";
+      
+    }   
+
+    //horn color
+    if (hornCount < 50){
+      horn_color = "#B2B3B0";
+    }
+    else{
+      horn_color = "#727871";
+      
+    }
+
     // Uncomment to see drawing area
     // fill(255);
     // stroke(0);
@@ -53,8 +84,14 @@ function FaceMap() {
 
     // head
     stroke(stroke_color);
-    fill(fg_color);
     beginShape();
+
+    fill(horn_color);
+    triangle (positions.right_eyebrow[0][0], positions.right_eyebrow[0][1], positions.right_eyebrow[2][0] + rightHornHeight, positions.right_eyebrow[2][1] - hornLength, positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+    triangle (positions.left_eyebrow[0][0], positions.left_eyebrow[0][1], positions.left_eyebrow[2][0] + leftHornHeight, positions.left_eyebrow[2][1] - hornLength, positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
+
+
+    fill(fg_color);
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
@@ -66,53 +103,18 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+    fill("#ffffff");
+    ellipse(eye3[0], eye3[1]/2 + scale, 128 * scale, 128 * scale);
+    fill(fg_color);
+    ellipse(eye3[0] + eyeY, eye3[1]/2 + eyeX + scale, 64 * scale, 64 * scale);
+    fill("#000000");
+    ellipse(eye3[0] + eyeY, eye3[1]/2 + eyeX + scale, 32 * scale, 32 * scale);
+
     // mouth
-    noStroke();
     fill(bg_color);
     beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
-
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
-
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]*1.25);
     }
     endShape(CLOSE);
     strokeWeight(1);  
@@ -120,15 +122,25 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
+    this.color = settings[0];
+    this.hornHeight = settings[1];
+    this.leftHornHeight = settings[2];
+    this.rightHornHeight = settings[3];
+    this.pupileXaxis = settings[4];
+    this.pupileYaxis = settings[5];
+    this.hornColor = settings[6];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
+    properties = new Array(7);
+    properties[0] = this.color
+    properties[1] = this.hornHeight;
+    properties[2] = this.leftHornHeight
+    properties[3] = this.rightHornHeight
+    properties[4] = this.pupileXaxis;
+    properties[5] = this.pupileYaxis;
+    properties[6] = this.hornColor;
     return properties;
   }
 }
