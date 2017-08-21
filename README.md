@@ -1,7 +1,12 @@
-I have updated the face code with my Toast code.
+I have finalised the form for the bread and fixed the sizing issues.
 
-I am still working on correcting the eyebrows as they do not always fit across the whole piece of toast. There is also an issue with the shape of the toast not including the forehead too as this often looks odd.
+I have also added some more variables to the sliders to create more variance in the faces.
 
-I am happy with how the eyes and mouth are working though and will just keep working with the values to get the correct sizing.
+I then trained a few of the photos and saved the data. 
 
-I would also like to include a lot more sliders to change the colours and sizes of each component.
+I would still like to add more variables to the sliders next.
+
+I will also polish the forms and colours.
+
+Lastly, I will import some photos of chefs as my chosen faces to add the toast face too.
+

@@ -10,10 +10,12 @@ fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
+  this.skinColour = 0;
+  this.hairColor = 0;
   this.eye_size = 0;
   this.colour_value = 0;
+  this.mouth_size = 0;
+  this.smile_size = 0;
 
   this.fg_color1 = [255, 231, 191];
   this.fg_color2 = [224,177,120];
@@ -26,30 +28,41 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
-    var eyebrow1_pos = average_point(positions.right_eyebrow);
-    var eyebrow2_pos = average_point(positions.left_eyebrow);
+    var eyebrow1_size = positions.right_eyebrow[4][0] - positions.right_eyebrow[0][0]
+    var eyebrow2_size = positions.left_eyebrow[4][0] - positions.right_eyebrow[0][0]
+
+
     var chin_pos = positions.chin[9];
-    var bread_pos = positions.chin[0];
+
+    var bread_pos = positions.left_eyebrow[0];
     var mouth_pos = average_point(positions.bottom_lip)
+
     var nose_pos = average_point(positions.nose_bridge);
+
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
+
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+
+
+    var top_right = bread_pos[0] + (face_width/4)
+    var top_left = bread_pos[0] + (face_width - face_width/4)
 
     var x = nose_pos[0];
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
+
+
     var mapEyeSize = map(this.eye_size, 0, 100, 0, .3);
+    var mapMouthSize = map(this.mouth_size, 0, 100, 0, .3);
+    var mapSmileSize = map(this.smile_size, 0, 100, 0, .2);
     var mapColourValue = map(this.colour_value, 0, 100, 0, 2)
 
-
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    var mapSkinColour = map(this.skinColour, 0, 100, -10, 90);
+    var mapHairColor = map(this.hairColor, 0, 100, 10, 50);
 
     var extent = 0;
     if(h < w) {
@@ -69,32 +82,22 @@ function FaceMap() {
 
     //crust
 
-    fill(136, 106, 75);
-    rect(bread_pos[0]-.1, bread_pos[1]-.1, face_width + .2, (chin_pos[1]-bread_pos[1]) + .2, .4);
+    noStroke();
+    fill(176 - (mapHairColor * 2), 137 - (mapHairColor * 1.5), 97 - mapHairColor);
+    rect(bread_pos[0]-.1, bread_pos[1]-.2, face_width + .2, (chin_pos[1]-bread_pos[1]) + .3, .2);
 
-
-    ellipse(eyebrow1_pos[0],eyebrow1_pos[1], 135 * scale, 85 * scale);
-    ellipse(eyebrow2_pos[0],eyebrow2_pos[1], 135* scale, 85 *scale);
+    ellipse(top_right,bread_pos[1], 195 * scale, 115 * scale);
+    ellipse(top_left,bread_pos[1], 195 * scale, 115 *scale);
 
     // bread
-
-    if (this.colour_value <= 1){
-      fill(this.fg_color1);
-      }
-    if (this.colour_value == 2){
-        fill(this.fg_color2);
-      }
-    if (this.colour_value > 2){
-      fill(this.fg_color3);
-    }
    
-    fill(this.fg_color2);
+    fill(214 - (mapSkinColour * 1.9),170 - (mapSkinColour * 1.5),107 - (mapSkinColour * 0.9));
 
-    rect(bread_pos[0], bread_pos[1], face_width, chin_pos[1]-bread_pos[1],.3);
+    rect(bread_pos[0], bread_pos[1], face_width, chin_pos[1]-bread_pos[1],.1);
 
 
-    ellipse(eyebrow1_pos[0],eyebrow1_pos[1], 120 * scale, 75 * scale);
-    ellipse(eyebrow2_pos[0],eyebrow2_pos[1], 120* scale, 75 *scale);
+    ellipse(top_right,bread_pos[1], 175 * scale, 100 * scale);
+    ellipse(top_left,bread_pos[1], 175* scale, 100 *scale);
 
 
 
@@ -102,23 +105,14 @@ function FaceMap() {
     angleMode(RADIANS);
     stroke(70, 145, 31);
     fill(219, 200, 124);
-    arc(mouth_pos[0], mouth_pos[1], 90 * scale, -50 * scale, 0 , PI);
+    arc(mouth_pos[0], mouth_pos[1], (90 * scale) + mapMouthSize, (50 * scale) + mapSmileSize, 0 , PI);
     angleMode(DEGREES);
 
-    if (this.colour_value <= 1){
-      fill(this.fg_color1);
-      }
-    if (this.colour_value == 2){
-        fill(this.fg_color2);
-      }
-    if (this.colour_value > 2){
-      fill(this.fg_color3);
-    }
 
     noStroke();
-    fill(this.fg_color2);
+    fill(214 - (mapSkinColour * 1.9),170 - (mapSkinColour * 1.5),107 - (mapSkinColour * 0.9));
 
-    ellipse(mouth_pos[0], mouth_pos[1], 30 * scale, 20 * scale);
+    ellipse(mouth_pos[0] + (10 * scale), mouth_pos[1], 30 * scale, 20 * scale);
 
     // eyes
 
@@ -162,19 +156,21 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
+    this.skinColour = settings[0];
     this.hairColor = settings[1];
     this.eye_size = settings[2];
-    this.colour_value = settings[3]; 
+    this.mouth_size = settings[3];
+    this.smile_size = settings[4]; 
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(2);
-    properties[0] = this.hairLength;
+    properties[0] = this.skinColour;
     properties[1] = this.hairColor;
-    properties[2] = this.eye_size
-    properties[3] = this.colour_value
+    properties[2] = this.eye_size;
+    properties[3] = this.mouth_size;
+    properties[4] = this.smile_size
     return properties;
   }
 }
