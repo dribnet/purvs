@@ -18,8 +18,6 @@ var shadowLight = [255,65];
 
 //color schemes
 //KEY: background, face, pupil, horns, nose, mouth
-// pink
-var scheme1 = [[242,58,107],[243,100,242],[243,150,242],[255,255,255],[133,133,238],[97,97,235]];
 // light blue
 var scheme2 = [[191,210,251],[132,130,237],[34,28,234],[255,255,255],[83,85,227],[39,36,226]];
 //orange
@@ -41,6 +39,7 @@ function FaceMap() {
   this.faceType = 1;
   this.eyeNum = 2;
   this.noseType = 1;
+  this.scheme = 1;
 
 
 
@@ -65,11 +64,12 @@ function FaceMap() {
     var face = Math.floor(map(this.faceType,0,100,1,4));
     var eyeNum = Math.floor(map(this.eyeNum,0,100,1,4));
     var noseType = Math.floor(map(this.noseType,0,100,1,3));
+    var scheme = schemes[Math.floor(map(this.scheme,0,100,0,schemes.length-1))];
 
 
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-    var x = nose_pos[0]-w/2;
+    var x = nose_pos[0]-(w*0.45);
     var y = nose_pos[1]-h/2;
 
     faceOffset = -(h*0.05);
@@ -93,7 +93,7 @@ function FaceMap() {
     //  changeRandomSeed();
     }
 
-    var scheme = schemes[Math.floor(random(0,schemes.length))];
+    //var scheme = schemes[Math.floor(random(0,schemes.length))];
 
     noStroke();
 
@@ -250,6 +250,7 @@ function drawFace2(x,y,faceWidth,faceHeight,color){
   push();
   translate(x,y);
 
+//fill(100,50);
   fill(color);
   //face
   beginShape();
@@ -302,6 +303,7 @@ function drawFace3(x,y,faceWidth,faceHeight,color){
   push();
   translate(x,y);
 
+  //fill(100,50);
   fill(color);
   //face
   beginShape();
@@ -591,6 +593,7 @@ fill(color);
     this.faceType = settings[0];
     this.eyeNum = settings[1];
     this.noseType = settings[2];
+    this.scheme = settings[3];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -599,6 +602,7 @@ fill(color);
     properties[0] = this.faceType;
     properties[1] = this.eyeNum;
     properties[2] = this.noseType;
+    properties[3] = this.scheme;
     return properties;
   }
 }
