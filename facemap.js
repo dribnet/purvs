@@ -25,16 +25,16 @@ function FaceMap() {
     var eye2_pos = average_point(positions.right_eye);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
-
+    
     var x = nose_pos[0];
     var y = nose_pos[1];
-    var w = 4 * face_width;
-    var h = 4 * half_height;
+    var w = 2 * face_width;
+    var h = 2.5 * half_height;
 
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    var curHairLength = map(this.hairLength, 0, 10, 0, 3);
+    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -81,6 +81,11 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+    //cheeks
+    fill(213,132,151);
+    ellipse(eye1_pos[0], eye1_pos[1]+1, 80 * scale, 40 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+1, 80 * scale, 40 * scale);
+
     // nose
     fill(141,89,88);
     beginShape();
@@ -89,6 +94,10 @@ function FaceMap() {
       vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
     }
     endShape(CLOSE);
+
+    fill(12,0,0);
+    ellipse(nose_pos[0]-0.1, nose_pos[1]+0.6, 8 * scale, 4 * scale);
+    ellipse(nose_pos[0]+0.1, nose_pos[1]+0.6, 8 * scale, 4 * scale);
 
     // eyes
     fill(0,0,0);
@@ -107,16 +116,14 @@ function FaceMap() {
     ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 5 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 5 * scale);
 
- //cheeks
-    fill(213,132,151);
-    ellipse(-1,-0.1,1,0.5);
-    ellipse(1,-0.1,1,0.5);
+ 
+
 
   //ears
   fill(141,89,88);
   stroke(0,0,0);
-  triangle(-0.1, -2, -1.5, -1.5, -0.5, -1);
-  triangle(0.1, -2, 1.5, -1.5, 0.5, -1);
+  triangle(-0.5, -3.5, -1.5, -3, -0.5, -2.5);
+  triangle(0.5, -3.5, 1.5, -3, 0.5, -2.5);
 
     // fill(stroke_color);
     // beginShape();
