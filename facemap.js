@@ -15,7 +15,9 @@ function FaceMap() {
     this.eyeBrightness = 50;
     this.hairLength = 50;
     this.skinTone = 50;
-	this.hasEarings = 0;
+    this.hasEarings = 0;
+	this.lipVibrancy = 0;
+    this.facialHair = 0;
       /*
        * Draw a face with position lists that include:
        *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -49,6 +51,7 @@ function FaceMap() {
         rectMode(CENTER);
 
         var tone = map(this.skinTone, 100, 0, 20, 60);
+        var vibrancy = map(this.lipVibrancy, 0, 100, 0, 40);
         var reverseTone = map(this.skinTone, 100, 0, 50, 20);
 
 
@@ -197,6 +200,12 @@ function FaceMap() {
 			ellipse(positions.chin[14][0]+(55*scale), positions.chin[14][1], 0.12, 0.5);
 			ellipse(positions.chin[14][0]+(75*scale), positions.chin[14][1], 0.08, 0.3);
 		}
+
+        // beard/robot wings
+        stroke(this.hue, tone, 90);
+        fill(this.hue, 90, tone);
+        quad(positions.chin[4][0], positions.chin[4][1], positions.chin[7][0], positions.chin[7][1], positions.chin[7][0] - 4.5, positions.chin[7][1], positions.chin[4][0] - 0.5, positions.chin[4][1]);
+        quad(positions.chin[12][0], positions.chin[12][1], positions.chin[9][0], positions.chin[9][1], positions.chin[9][0] + 4.5, positions.chin[9][1], positions.chin[12][0] + 0.5, positions.chin[12][1]);
 		
         // head
         var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
@@ -207,8 +216,6 @@ function FaceMap() {
         var biggestY = Array.highest(chinValuesY);
 
         strokeWeight(0.02);
-        stroke(this.hue, tone, 90);
-        fill(this.hue, 90, tone);
         beginShape();
         vertex(positions.left_eyebrow[4][0]-(20*scale), positions.left_eyebrow[4][1]-(20*scale));
         vertex(positions.left_eyebrow[0][0]-(20*scale), positions.left_eyebrow[0][1]-(20*scale));
@@ -249,6 +256,7 @@ function FaceMap() {
 
         //draw the outer mouth
         fill(this.hue, 90, reverseTone);
+        stroke(this.hue, tone+vibrancy, 90);
         strokeWeight(0.05);
         translate(0, 5 * scale);
         beginShape();
@@ -400,6 +408,8 @@ function FaceMap() {
         this.hairLength = settings[3];
         this.skinTone = settings[4];
         this.hasEarings = settings[5];
+        this.lipVibrancy = settings[6];
+        this.facialHair = settings[7];
     }
 
     /* get internal properties as list of numbers 0-100 */
@@ -411,6 +421,8 @@ function FaceMap() {
         properties[3] = this.hairLength;
         properties[4] = this.skinTone;
         properties[5] = this.hasEarings;
+        properties[6] = this.lipVibrancy;
+        properties[7] = this.facialHair;
         return properties;
     }
 }
