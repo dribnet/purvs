@@ -2,27 +2,19 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000006",
-      "name": "final"
+      "name": "Final_Version"
     },
     {
-      "sha": "0000000000000000000000000000000000000005",
-      "name": "distribution"
+      "sha": "db0f84177c661f789e1bb552cf19d9bba1191a7b",
+      "name": "Version_3"
     },
     {
-      "sha": "0000000000000000000000000000000000000004",
-      "name": "experiment"
+      "sha": "a00b886a6c35e8c5d9fb1e95356aca3515ce199c",
+      "name": "Version_2"
     },
     {
-      "sha": "0000000000000000000000000000000000000003",
-      "name": "randomize"
-    },
-    {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "drawing_styles"
-    },
-    {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "portraits"
+      "sha": "b23413add0d89e7dc1d1c3077cded12bb484e227",
+      "name": "Version_1"
     }
   ]
 }
