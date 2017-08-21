@@ -16,7 +16,7 @@ gollum_skin ="#CAB4A7";
 gollum_eyeskin ="#96897F";
 gollum_eyes = "#54C2FF";
 gollum_tooth ="#FFF3C2";
-gollum_lips = "#4A443F";
+gollum_lips = "#695F59";
 
 function FaceMap() {
   this.hairLength = 50;
@@ -68,37 +68,69 @@ function FaceMap() {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-10);
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-0.1);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-10);
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-0.1);
     }
     endShape(CLOSE);
 
-    //eyebrows
+    //left eyebrow
     noFill();
-    stroke(0);
-    strokeWeight(1.25);
+    stroke(gollum_eyeskin);
     beginShape();  
-    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]-3); 
-    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]-3); 
+    vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]); 
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]); 
     endShape(CLOSE);
     beginShape();  
-    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]-1); 
-    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]-1); 
+    vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]+0.1); 
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.1); 
     endShape(CLOSE);
-    strokeWeight(1);  
     beginShape();  
-    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]+1); 
-    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[0][1]+1); 
+    vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]+0.2); 
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.2); 
     endShape(CLOSE);
+    //right eyebrow
+    beginShape();  
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]); 
+    vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+    endShape(CLOSE);
+    beginShape();  
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.1); 
+    vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]+0.1);
+    endShape(CLOSE);
+    beginShape();  
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.2); 
+    vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]+0.2);
+    endShape(CLOSE);
+
+    //connecting brow
+    beginShape();  
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]); 
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
+    endShape(CLOSE);
+    beginShape();  
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.1); 
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.1);
+    endShape(CLOSE);
+    beginShape();  
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.2); 
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.2);
+    endShape(CLOSE);
+    
+
 
     // mouth
     noStroke();
-    fill(0);
+    fill(gollum_eyeskin);
+    beginShape();
+    for(var i=0; i<positions.top_lip.length;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]-3);
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
     endShape(CLOSE);
 
@@ -106,15 +138,16 @@ function FaceMap() {
     noStroke();
     fill(gollum_tooth);
     beginShape();
-    vertex(positions.bottom_lip[5][0], positions.bottom_lip[0][1]);
-    vertex(positions.nose_tip[1][0], positions.nose_tip[1][1]+16);
-    vertex(positions.bottom_lip[3][0], positions.bottom_lip[0][1]);
+    vertex(positions.top_lip[1][0], positions.top_lip[0][1]+0.1);
+    vertex(positions.top_lip[2][0], positions.top_lip[1][1]);
+    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+0.1);
     endShape(CLOSE);
     beginShape();
-    vertex(positions.bottom_lip[2][0], positions.bottom_lip[0][1]);
-    vertex(positions.nose_tip[3][0], positions.nose_tip[1][1]+16);
-    vertex(positions.bottom_lip[1][0], positions.bottom_lip[0][1]);
+    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+0.1);
+    vertex(positions.top_lip[4][0], positions.top_lip[1][1]);
+    vertex(positions.top_lip[5][0], positions.top_lip[0][1]+0.1);
     endShape(CLOSE);
+    noStroke();
 
     // nose
     beginShape();
@@ -129,25 +162,24 @@ function FaceMap() {
 
     //bags under eyes
     fill(gollum_eyeskin);
-    ellipse(eye1_pos[0], eye1_pos[1]+5, 60 * scale, 90 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+5, 60 * scale, 90 * scale);
-
+    ellipse(eye1_pos[0], eye1_pos[1]+0.55, 50 * scale, 70 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.55, 50 * scale, 70 * scale);
     //eyes
     fill(255);
-    ellipse(eye1_pos[0], eye1_pos[1]+3, 70 * scale, 90 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+3, 70 * scale, 90 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 50 * scale, 70 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 50 * scale, 70 * scale);
 
     fill(gollum_eyes);
-    ellipse(eye1_pos[0]-2, eye1_pos[1]+3, 50 * scale, 70 * scale);
-    ellipse(eye2_pos[0]-2, eye2_pos[1]+3, 50 * scale, 70 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 40 * scale, 50 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 40 * scale, 50 * scale);
 
     fill(0);
-    ellipse(eye1_pos[0]-6, eye1_pos[1]+3, 20 * scale, 40 * scale);
-    ellipse(eye2_pos[0]-6, eye2_pos[1]+3, 20 * scale, 40 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 20 * scale, 30 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 20 * scale, 30 * scale);
 
     fill(255);
-    ellipse(eye1_pos[0]-4, eye1_pos[1]+3, 3 * scale, 3 * scale);
-    ellipse(eye2_pos[0]-4, eye2_pos[1]+3, 3 * scale, 3 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 3 * scale, 3 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 3 * scale, 3 * scale);
     
     strokeWeight(1); 
 
