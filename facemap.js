@@ -17,13 +17,16 @@ function FaceMap() {
     this.skinTone = 50;
     this.hasEarings = 0;
 	this.lipVibrancy = 0;
+    this.allowRandomize = true;
       /*
        * Draw a face with position lists that include:
        *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
        *    bottom_lip, top_lip, nose_tip, nose_bridge,
        */
-    this.draw = function(positions) {
-        this.randomize();
+    this.draw = function(positions, allowRandomize = true) {
+        if(allowRandomize){
+            this.randomize();   
+        }
         var nose_pos = average_point(positions.nose_bridge);
         var eye1_pos = average_point(positions.left_eye);
         var eye2_pos = average_point(positions.right_eye);
@@ -251,7 +254,7 @@ function FaceMap() {
 
         //draw the outer mouth
         fill(this.hue, 90, reverseTone);
-        stroke(this.hue, tone+vibrancy, 90);
+        stroke(this.hue+(vibrancy*2), tone+vibrancy, 90);
         strokeWeight(0.05);
         translate(0, 5 * scale);
         beginShape();

@@ -186,7 +186,7 @@ function getAllJson() {
 }
 
 // global variables for colors
-var bg_color1 = [50, 50, 50];
+var bg_color1 = [255, 255, 255];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
@@ -612,7 +612,7 @@ function draw () {
         rotate(degrees(data_angle));
         strokeWeight(1/data_scale);
         littleFace.setProperties(settings);
-        littleFace.draw(shifted_positions);
+        littleFace.draw(shifted_positions, false);
         pop();
         if(quiz_done && guessed_answer == (j+1)) {          
           push();
@@ -673,7 +673,7 @@ function draw () {
   }
 
 
-  fill(255);
+  fill(0);
   textSize(32);
   textAlign(CENTER);
   text(textDisplay, width/2, height-12);
