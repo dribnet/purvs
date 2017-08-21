@@ -50,7 +50,7 @@ function FaceMap() {
         rectMode(CENTER);
 
         var tone = map(this.skinTone, 100, 0, 20, 60);
-        var vibrancy = map(this.lipVibrancy, 0, 100, 0, 40);
+        var vibrancy = map(this.lipVibrancy, 0, 100, -10, 40);
         var reverseTone = map(this.skinTone, 100, 0, 50, 20);
 
 
