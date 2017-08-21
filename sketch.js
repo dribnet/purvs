@@ -646,9 +646,14 @@ function draw () {
             var curKey = answerKeys[j];
             var nearData = trainData[curKey];      
             // Displays the image at its actual size at point (0,0)
-            var img = nearData.image
-            var x2 = (width/2 - 200 + j*100);
-            image(img, x2, y3, 80, 80);            
+            if (typeof nearData != 'undefined') {
+	            var img = nearData.image
+	            var x2 = (width/2 - 200 + j*100);
+	            image(img, x2, y3, 80, 80);            	
+            }
+            // else {
+            // 	print(curKey);
+            // }
           }
         }          
       }
