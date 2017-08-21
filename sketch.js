@@ -117,7 +117,7 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   noStroke();
-  background(bg_color1);
+  background(94, 138, 254);
 
   if (mode == 'draw1') {
     var w = canvasWidth / 10;

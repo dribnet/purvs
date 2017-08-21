@@ -7,13 +7,17 @@ function Face() {
   this.tilt_value = 0;
   this.eye_value = 2;
   this.mouth_value = 0;
-
+  this.hair_value = 2;
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
+  this.bg_color = [94, 138, 254];
   this.fg_color = [151, 102, 52];
-  this.stroke_color = [95, 52, 8];
-
+  this.stroke_color = [0,0,0];
+  this.skin_color = [254,212,30];
+  this.white_color = [255,255,255];
+  this.pupil_color = [0,0,0];
+  this.mouth_color = [0,0,0];
+  this.facial_hair_color = [211, 175, 125];
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
@@ -41,32 +45,62 @@ function Face() {
 
     // head
     stroke(this.stroke_color);
-    fill(this.fg_color);
+    fill(this.skin_color);
     ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
 
     // eyes
-    if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
+    fill(this.white_color);
+    ellipse(-75 * scale, -80 * scale, 90 * scale, 90 * scale);
+    ellipse( 15 * scale, -80 * scale, 90 * scale, 90 * scale);
 
-    if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
+    fill(this.pupil_color);
+    ellipse((-85 * scale) + this.eye_value, -80 * scale, 20 * scale, 20 * scale);
+    ellipse( (5 * scale) + this.eye_value, -80 * scale, 20 * scale, 20 * scale);
+    
+    // facial hair
+    fill(this.facial_hair_color);
+    ellipse(-40 * scale, 110 * scale, 45, 40);
 
     // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-    pop();
+    fill(this.mouth_color);
+    ellipse(-40 * scale, 110 * scale, (15 * scale) * this.mouth_value, (this.mouth_value * 15) / (scale * 50));
+    
+    // ear
+    fill(this.skin_color);
+    stroke(this.stroke_color);
+    arc(150 * scale, -10 * scale, 90 * scale , 126 * scale, 220, 120, OPEN);
+
+    push()
+    translate(0, 10 * scale);
+    // nose
+    fill(this.skin_color);
+    stroke(this.skin_color);
+    quad(-75 * scale, -60 * scale, -35 * scale, -60 * scale, -35 * scale, -20 * scale,  -75 * scale, -20 * scale);
+    stroke(this.stroke_color);
+    line(-75 * scale, -60 * scale, -35 * scale, -60 * scale);
+    line(-35 * scale, -20 * scale,  -75 * scale, -20 * scale);
+    arc(-75 * scale, -40 * scale, 40 * scale, 40 * scale, 90, 270, OPEN);
+    pop()
+
+    // hair
+    noFill();
+    stroke(this.stroke_color);
+    if(this.hair_value == 0){
+
+    }
+    else if(this.hair_value == 1){
+      arc(0 * scale, -185 * scale, 110 * scale, 60 * scale, 185, 10);
+    }
+    else if(this.hair_value == 2){
+      arc(0 * scale, -185 * scale, 110 * scale, 60 * scale, 185, 10);
+      arc(-10 * scale, -180 * scale, 110 * scale, 60 * scale, 183, 10);
+    }
+    line(80 * scale,-100 * scale,90 * scale,-130 * scale);
+    line(100 * scale,-100 * scale,90 * scale,-130 * scale);
+    line(100 * scale,-100 * scale,110 * scale,-130 * scale);
+    line(120 * scale,-100 * scale,110 * scale,-130 * scale);
+
+    pop()
   }
 
   /*
@@ -132,9 +166,10 @@ function Face() {
    * Update internal state variables to a random state.
    */  
   this.randomize = function(values, size) {
-    this.eye_value = getRandomNumberOfEyes();
+    this.eye_value = focusedRandom(-5, 5);
     this.tilt_value = focusedRandom(-70, 90, 8);
-    this.mouth_value = focusedRandom(0, 50, 4, 1);
+    this.mouth_value = focusedRandom(-10, 10);
+    this.hair_value = Math.floor(focusedRandom(0,3));
   }
 }
 
