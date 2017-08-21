@@ -21,7 +21,9 @@ gollum_lips = "#695F59";
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
-
+  this.pupilColor = 0;
+  this.eyeColor = 50;
+  this.eyeSize = 0;
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -166,14 +168,14 @@ function FaceMap() {
     ellipse(eye2_pos[0], eye2_pos[1]+0.55, 50 * scale, 70 * scale);
     //eyes
     fill(255);
-    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 50 * scale, 70 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 50 * scale, 70 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, (40 + this.eyeSize/3) * scale, 70 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, (40 + this.eyeSize/3) * scale, 70 * scale);
 
-    fill(gollum_eyes);
+    fill(84, 194, 255-this.eyeColor);
     ellipse(eye1_pos[0], eye1_pos[1]+0.45, 40 * scale, 50 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 40 * scale, 50 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 40 * scale , 50 * scale);
 
-    fill(0);
+    fill(this.pupilColor);
     ellipse(eye1_pos[0], eye1_pos[1]+0.45, 20 * scale, 30 * scale);
     ellipse(eye2_pos[0], eye2_pos[1]+0.45, 20 * scale, 30 * scale);
 
@@ -189,6 +191,9 @@ function FaceMap() {
   this.setProperties = function(settings) {
     this.hairLength = settings[0];
     this.hairColor = settings[1];
+    this.pupilColor = settings[2];
+    this.eyeColor = settings[3];
+    this.eyeSize = settings [4];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -196,6 +201,10 @@ function FaceMap() {
     properties = new Array(2);
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
+    properties[2] = this.pupilColor;
+    properties[3] = this.eyeColor;
+    properties[4] = this.eyeSize;
+
     return properties;
   }
 }
