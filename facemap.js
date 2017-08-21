@@ -13,7 +13,10 @@ horn_color = "";
 function FaceMap() {
   this.color = 50;
   this.hairColor = 50;
-  this.hornHeight = 50;
+  this.hornLeftHeight = 50;
+  this.hornRightHeight = 50;
+  this.hornLeftAngel = 50;
+  this.hornRightAngel = 50;
   this.pupileXaxis = 50;
   this.pupileYaxis = 50;
   this.hornColor = 50;
@@ -37,9 +40,10 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var hornLength = map(this.hornHeight, 0, 100, 0 , 2);
-    var rightHornHeight = map(this.rightHornHeight, 0, 100, -1 , 1);
-    var leftHornHeight = map(this.leftHornHeight, 0, 100, -1 , 1);
+    var hornLeftLength = map(this.hornLeftHeight, 0, 100, 0 , 2);
+    var hornRightLength = map(this.hornRightHeight, 0, 100, 0 , 2);
+    var rightHornAngel = map(this.rightHornAngel, 0, 100, -1 , 1);
+    var leftHornAngel = map(this.leftHornAngel, 0, 100, -1 , 1);
     var eyeX = map(this.pupileXaxis, 0, 100, -0.4, 0.4);
     var eyeY = map(this.pupileYaxis, 0, 100, -0.4, 0.4);
     var colorCount = map(this.color, 0, 100, 0, 100);
@@ -87,9 +91,9 @@ function FaceMap() {
     beginShape();
 
     fill(horn_color);
-    triangle (positions.right_eyebrow[0][0], positions.right_eyebrow[0][1], positions.right_eyebrow[2][0] + rightHornHeight, positions.right_eyebrow[2][1] - hornLength, positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
-    triangle (positions.left_eyebrow[0][0], positions.left_eyebrow[0][1], positions.left_eyebrow[2][0] + leftHornHeight, positions.left_eyebrow[2][1] - hornLength, positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
-
+    triangle (positions.right_eyebrow[0][0], positions.right_eyebrow[0][1], positions.right_eyebrow[2][0] + rightHornAngel, positions.right_eyebrow[2][1] - hornRightLength, positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+    triangle (positions.left_eyebrow[0][0], positions.left_eyebrow[0][1], positions.left_eyebrow[2][0] + leftHornAngel, positions.left_eyebrow[2][1] - hornLeftLength, positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
+    print(leftHornAngel);
 
     fill(fg_color);
     for(var i=0; i<positions.chin.length;i++) {
@@ -123,24 +127,26 @@ function FaceMap() {
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
     this.color = settings[0];
-    this.hornHeight = settings[1];
-    this.leftHornHeight = settings[2];
-    this.rightHornHeight = settings[3];
-    this.pupileXaxis = settings[4];
-    this.pupileYaxis = settings[5];
-    this.hornColor = settings[6];
+    this.hornLeftHeight = settings[1];
+    this.hornRightHeight = settings[2];
+    this.leftHornAngel = settings[3];
+    this.rightHornAngel = settings[4];
+    this.pupileXaxis = settings[5];
+    this.pupileYaxis = settings[6];
+    this.hornColor = settings[7];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(7);
+    properties = new Array(8);
     properties[0] = this.color
-    properties[1] = this.hornHeight;
-    properties[2] = this.leftHornHeight
-    properties[3] = this.rightHornHeight
-    properties[4] = this.pupileXaxis;
-    properties[5] = this.pupileYaxis;
-    properties[6] = this.hornColor;
+    properties[1] = this.hornLeftHeight;
+    properties[2] = this.hornRightHeight;
+    properties[3] = this.leftHornAngel
+    properties[4] = this.rightHornAngel
+    properties[5] = this.pupileXaxis;
+    properties[6] = this.pupileYaxis;
+    properties[7] = this.hornColor;
     return properties;
   }
 }
