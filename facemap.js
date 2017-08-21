@@ -65,7 +65,10 @@ function FaceMap() {
     var eyeNum = Math.floor(map(this.eyeNum,0,100,1,4));
     var noseType = Math.floor(map(this.noseType,0,100,1,3));
     var scheme = schemes[Math.floor(map(this.scheme,0,100,0,schemes.length-1))];
-
+    print(Math.floor(map(this.scheme,0,100,0,schemes.length-1)));
+    if(scheme == null){
+      scheme = schemes[0];
+    }
 
     var w = 2 * face_width;
     var h = 2.5 * half_height;
@@ -130,13 +133,13 @@ function FaceMap() {
     }
 
     if(noseType==1){
-      drawNose1(positions.nose_tip[0],positions.nose_tip[1],w,h,scheme[4]);
+      drawNose1(positions.nose_tip[0][0],positions.nose_tip[0][1],w,h,scheme[4]);
     }
     else if(noseType==2){
-      drawNose2(positions.nose_tip[0],positions.nose_tip[1],w,h,scheme[4]);
+      drawNose2(positions.nose_tip[0][0],positions.nose_tip[0][1],w,h,scheme[4]);
     }
     else{
-      drawNose3(positions.nose_tip[0],positions.nose_tip[1],w,h,scheme[4]);
+      drawNose3(positions.nose_tip[0][0],positions.nose_tip[0][1],w,h,scheme[4]);
     }
 
 
@@ -507,8 +510,10 @@ function drawNose1(x,y,faceWidth,faceHeight,color){
 
 }
 
-//nose type 3: triangle
+//nose type 2: triangle
 function drawNose2(x,y,faceWidth,faceHeight,color){
+
+  print ("x = " + x + "y = " + y);
 
   var noseDiff = faceWidth*0.05;
 
@@ -530,7 +535,7 @@ function drawNose2(x,y,faceWidth,faceHeight,color){
 
 }
 
-// nose type 4: polygon thing
+// nose type 3: polygon thing
 function drawNose3(x,y,faceWidth,faceHeight,color){
 
   noseWidth = (faceWidth*0.2);
