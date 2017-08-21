@@ -23,16 +23,18 @@ var stroke_color3 = ["#CC9378"];
 function FaceMap() {
 	this.eyebrowSkew = 0;
 	this.colorChoice = 1;
-	this.bottom_lipE = 0.5;
+	this.scaleA = 1;
 	this.squishY = 1;
 	this.squishX = 1;
+  this.hairLength = 1;
 
 	this.draw = function(positions) {
 		var eyeSkew = map(this.eyebrowSkew, 0, 100, -10, 10);
 		var chosenColor = int(map(this.colorChoice, 0, 100, 1, 3));
-		var bottomExist = map(this.bottom_lipE, 0, 100, 0, 1);
+		var ScA = map(this.scaleA, 0, 100, 1, 3);
 		var sqshY = map(this.squishY, 0, 100, 0.5, 1);
 		var sqshX = map(this.squishX, 0, 100, 0.5, 1.3);
+    var hairL = map (this.hairLength,0,100,-20, 400);
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -81,10 +83,27 @@ function FaceMap() {
     // rect(x-w/2, y-h/2, w, h);
     // fill(0)
     // ellipse(x, y, w, h);
-
+    scale (ScA);
     // head
     stroke(strakC);
-    fill(foreground);
+    fill(strakC);
+    //hair
+    triangle ((positions.right_eyebrow[4][0]-(positions.chin[16][0]-positions.right_eyebrow[4][0])), (positions.right_eyebrow[4][1]), positions.chin[16][0], (-200+hairL-random(4,20))*scales, positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+    triangle ((positions.chin[16][0]), (positions.chin[16][1]), positions.chin[16][0] + (positions.chin[16][0]-positions.right_eyebrow[4][0]), (-200+hairL-random(4,20))*scales, (positions.right_eyebrow[4][0]), positions.right_eyebrow[4][1]);
+    triangle (positions.right_eyebrow[4][0]+(positions.chin[16][0]-positions.right_eyebrow[4][0]), positions.right_eyebrow[4][1]+(positions.chin[16][1]-positions.right_eyebrow[4][1]), positions.right_eyebrow[4][0], (-200+hairL-random(4,50))*scales, positions.right_eyebrow[3][0], positions.right_eyebrow[3][1]);
+    triangle (positions.right_eyebrow[0][0], positions.right_eyebrow[0][1], positions.right_eyebrow[3][0], (-200+hairL-random(4,50))*scales, positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]);
+
+
+    triangle ((positions.left_eyebrow[4][0]), (positions.left_eyebrow[4][1]), positions.chin[0][0], (-200+hairL-random(4,20))*scales, positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
+    triangle ((positions.chin[0][0]), (positions.chin[0][1]), positions.chin[0][0] , (-200+hairL-random(4,20))*scales, (positions.left_eyebrow[4][0]), positions.left_eyebrow[4][1]);
+    triangle (positions.left_eyebrow[4][0], positions.left_eyebrow[4][1], positions.left_eyebrow[4][0], (-200+hairL-random(4,50))*scales, positions.left_eyebrow[3][0], positions.left_eyebrow[3][1]);
+    triangle (positions.left_eyebrow[0][0], positions.left_eyebrow[0][1], positions.left_eyebrow[3][1], (-200+hairL-random(4,50))*scales, positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]);
+
+
+
+
+
+    fill (foreground);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
     	vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -97,6 +116,13 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+    fill (strakC);
+    if (positions.chin[0][0]>=-2.61){
+      triangle ((positions.chin[16][0]), (positions.chin[16][1]), positions.chin[16][0] + (positions.chin[16][0]-positions.right_eyebrow[4][0]), (-200+hairL-random(4,20))*scales, (positions.right_eyebrow[4][0]), positions.right_eyebrow[4][1]);
+    }
+    if (positions.chin[0][0]<=2.1){
+      triangle ((positions.chin[0][0]), (positions.chin[0][1]), positions.chin[0][0] , (-200+hairL-random(4,20))*scales, (positions.left_eyebrow[0][0]), positions.left_eyebrow[0][1]);
+    }
     push();
     noFill();
     strokeWeight(2*scales);
@@ -246,19 +272,21 @@ function FaceMap() {
 this.setProperties = function(settings) {
 	this.eyebrowSkew = settings[0];
 	this.colorChoice = settings[1];
-	this.bottom_lipE = settings[2];
+	this.scaleA = settings[2];
 	this.squishY = settings[3];
 	this.squishX = settings [4];
+  this.hairLength = settings [5];
 }
 
 /* get internal properties as list of numbers 0-100 */
 this.getProperties = function() {
-	properties = new Array(5);
+	properties = new Array(12);
 	properties[0] = this.eyebrowSkew;
 	properties[1] = this.colorChoice;
-	properties[2] = this.bottom_lipE;
+	properties[2] = this.scaleA;
 	properties[3] = this.squishY;
 	properties[4] = this.squishX;
+  properties[5] = this.hairLength;
 	return properties;
 }
 
