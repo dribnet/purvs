@@ -280,7 +280,7 @@ this.setProperties = function(settings) {
 
 /* get internal properties as list of numbers 0-100 */
 this.getProperties = function() {
-	properties = new Array(12);
+	properties = new Array(6);
 	properties[0] = this.eyebrowSkew;
 	properties[1] = this.colorChoice;
 	properties[2] = this.scaleA;
