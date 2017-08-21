@@ -12,6 +12,7 @@ stroke_color = [146, 147, 3];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
+  this.toothSize = 0.2;
   this.strokeValue = .05;
   /*
    * Draw a face with position lists that include:
@@ -44,9 +45,6 @@ function FaceMap() {
     		lookingRight = true;
 	}
 
-    console.log("Tip: " + positions.nose_bridge[3][0]);
-    console.log("Bridge: " + positions.nose_bridge[0][0]);
-    console.log("Diff: " + Math.abs(positions.nose_bridge[3][0] - positions.nose_bridge[0][0]));
     //Sponged Variables
     var eye_size = 67;
     var iris_size = 27;
@@ -100,6 +98,14 @@ function FaceMap() {
     curveVertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] - head_size/2);
 
     endShape(CLOSE);
+
+  //HOLES
+    fill(stroke_color);
+  stroke(stroke_color);
+  strokeWeight(this.strokeValue);
+  var xPos = Math.random(positions.chin[0][0], positions.chin[positions.chin.length-1][0]);
+  var yPos = Math.random(positions.chin[8][1], positions.left_eyebrow[1][1]);
+  //ellipse(xPos, yPos, 0.5, 0.5);
 
   //CHEEKS
   fill(fg_color);
@@ -178,17 +184,29 @@ function FaceMap() {
   	// mouth-hole with background color
   	stroke(0,0,0);
   	fill(255,255,255);
-  	var teethX = positions.bottom_lip[6][0]  + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * 0.5);
-  	var teethY = positions.bottom_lip[6][1]  -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * 0.5);
-  	var teethX2 = positions.bottom_lip[6][0] + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * 0.7);
-  	var teethY2 = positions.bottom_lip[6][1] -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * 0.7);
+  	for(var i = 0.2; i < 0.9; i += 0.4){
+
+  	var teethX = positions.bottom_lip[6][0] + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * i);
+  	var teethY = 0;
+  	if(positions.bottom_lip[6][1] > positions.bottom_lip[0][1])
+  		teethY = positions.bottom_lip[6][1] -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * i);
+  	else
+  		teethY = positions.bottom_lip[6][1] +  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * i);
+
+  	var teethX2 = positions.bottom_lip[6][0] + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * (i+0.2));
+  	var teethY2 = 0;
+  	if(positions.bottom_lip[6][1] > positions.bottom_lip[0][1])
+  		teethY2 = positions.bottom_lip[6][1] -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * (i+0.2));
+  	else
+  		teethY2 = positions.bottom_lip[6][1] +  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * (i+0.2));
   	beginShape();
   	vertex(teethX, teethY);
   	vertex(teethX2 , teethY2);
-  	vertex(teethX2, teethY + 0.3);
-  	vertex(teethX, teethY + 0.3);
+  	vertex(teethX2, teethY2 + this.toothSize);
+  	vertex(teethX, teethY + this.toothSize);
   	vertex(teethX, teethY);
   	endShape();
+    }
   	//rect(teethX - ((teethX - positions.bottom_lip[6][0])/4) - .3, teethY,.3,.35);
   	//rect(positions.bottom_lip[6][0] + ((teethX - positions.bottom_lip[6][0])/4), teethY,.3,.35);
   	fill(fg_color);
@@ -347,6 +365,7 @@ function FaceMap() {
   this.setProperties = function(settings) {
     this.hairLength = settings[0];
     this.hairColor = settings[1];
+    this.toothSize = settings[2]/200;
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -354,6 +373,7 @@ function FaceMap() {
     properties = new Array(2);
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
+    properties[2] = this.toothSize;
     return properties;
   }
 }
