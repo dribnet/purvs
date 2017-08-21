@@ -9,6 +9,7 @@ bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [156, 106, 127];
 eye_stroke_color = [64, 102, 207];
+green_eye_stroke_color = [119, 156, 82, 150];
 cheek_stroke_color = [224, 125, 187];
 mouth_stroke_color = [79, 44, 66];
 
@@ -21,6 +22,7 @@ cheek_col = [224, 125, 229, 40];
 function FaceMap() {
   this.faceColor = 50;
   this.faceTone = 50;
+  this.eyeType = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -64,7 +66,9 @@ function FaceMap() {
 
     // head
     var curfaceTone = map(this.faceTone, 0, 100, 180, 220);
-    var curfaceColor = map(this.faceColor, 0, 100, 100, 255)
+    var curfaceColor = map(this.faceColor, 0, 100, 100, 255);
+    var whicheyeType = map(this.eyeType, 0, 100, 0, 2);
+
     fill(234, 215, curfaceTone);
     noStroke();
     beginShape();
@@ -164,7 +168,8 @@ function FaceMap() {
     endShape();
 
 
-    //blue eyes
+    // blue eyes (eye type 1, slider 3)
+    if(this.eyeType < 33 ) {
     push();
     beginShape();
     translate(faceOffset, 0.3);
@@ -191,14 +196,25 @@ function FaceMap() {
     strokeWeight(0.02);
     ellipse(eye1_pos[0] + faceOffset, eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
     ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+    
+	}
+
+	// green eyes (eye type 2, slider 3)
+    if(this.eyeType < 66 & this.eyeType > 33 ) {
     noStroke();
+    fill(green_eye_stroke_color);
+    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+	}
 
     // cheeks
+    noStroke();
     fill(cheek_col);
     //left
     ellipse(eye1_pos[0]-15 * scale, eye1_pos[1]+80 * scale, 50 * scale, 50 * scale);
     //right
     ellipse(eye2_pos[0]+15 * scale, eye2_pos[1]+80 * scale, 50 * scale, 50 * scale);
+	
 
 
   }
@@ -207,6 +223,7 @@ function FaceMap() {
   this.setProperties = function(settings) {
     this.faceColor = settings[0];
     this.faceTone = settings[1];
+    this.eyeType = settings[2];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -214,6 +231,7 @@ function FaceMap() {
     properties = new Array(2);
     properties[0] = this.faceColor;
     properties[1] = this.faceTone;
+    properties[2] = this.eyeType;
     return properties;
   }
 }
