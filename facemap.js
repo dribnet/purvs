@@ -153,45 +153,45 @@ function FaceMap() {
     strokeWeight(this.strokeValue);
 	fill(mouth_color);
 	stroke(0,0,0);
-	beginShape();
+	line(positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
+	/*beginShape();
 	curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
 	for(var i=0; i<7;i++) {
       curveVertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
     curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
     curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
-    endShape();
-	//curve(0, 0, positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1],0,0);
+    endShape();*/
 	push();
-	//translate(-10, mouth_value/8 - 110);
 	fill(tongue_color);
 	strokeWeight(0);
-	//scale(1.2, 1.2);
-	
-	ellipse(95, 195, 52, 19);
 	
 	strokeWeight(4);
 	stroke(tongue_outine);
 	
-	curve(100,195, 67,200,90,185, 150, 185);//left tongue part
-	curve(70,235, 90,190, 120,195, 150, 285);//right tongue part
 	pop();
 	
 	strokeWeight(this.strokeValue);
 	fill(0,0,0, 0);
 	stroke(0,0,0);
 	
-	//curve(150,-200 - mouth_value, 200,100,0,100,50,-200 - mouth_value);
-	
   	// mouth-hole with background color
   	stroke(0,0,0);
   	fill(255,255,255);
-  	var teethX = positions.bottom_lip[0][0];
-  	var teethY = positions.bottom_lip[0][1];
-  	rect(teethX - ((teethX - positions.bottom_lip[6][0])/4) - .3, teethY,.3,.35);
-  	rect(positions.bottom_lip[6][0] + ((teethX - positions.bottom_lip[6][0])/4), teethY,.3,.35);
+  	var teethX = positions.bottom_lip[6][0]  + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * 0.5);
+  	var teethY = positions.bottom_lip[6][1]  -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * 0.5);
+  	var teethX2 = positions.bottom_lip[6][0] + (Math.abs(positions.bottom_lip[6][0] - positions.bottom_lip[0][0]) * 0.7);
+  	var teethY2 = positions.bottom_lip[6][1] -  (Math.abs(positions.bottom_lip[6][1] - positions.bottom_lip[0][1]) * 0.7);
+  	beginShape();
+  	vertex(teethX, teethY);
+  	vertex(teethX2 , teethY2);
+  	vertex(teethX2, teethY + 0.3);
+  	vertex(teethX, teethY + 0.3);
+  	vertex(teethX, teethY);
+  	endShape();
+  	//rect(teethX - ((teethX - positions.bottom_lip[6][0])/4) - .3, teethY,.3,.35);
+  	//rect(positions.bottom_lip[6][0] + ((teethX - positions.bottom_lip[6][0])/4), teethY,.3,.35);
   	fill(fg_color);
-  	curve(150,-200, 200,100,0,100,50,-200);
 
   //Eyes
   strokeWeight(this.strokeValue);
@@ -273,7 +273,7 @@ function FaceMap() {
     for(var i = 1; i < eyebrowLength; i++){
     	curveVertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1] - offset);
 	}
-	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1] - offset);
+	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1]);
     endShape();
     //RIGHT EYEBROW
     eyebrowLength = positions.right_eyebrow.length;
@@ -289,6 +289,7 @@ function FaceMap() {
     stroke(0,0,0);
     strokeWeight(this.strokeValue);
     var eyebrowLength;
+
     noFill();
     //LEFT EYEBROW
     eyebrowLength = positions.left_eyebrow.length;
@@ -297,7 +298,8 @@ function FaceMap() {
     for(var i = 0; i < eyebrowLength; i++){
     	curveVertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
 	}
-	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1]);
+	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1] - offset);
+	
     endShape();
     //RIGHT EYEBROW
     eyebrowLength = positions.right_eyebrow.length;
