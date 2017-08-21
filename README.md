@@ -8,3 +8,5 @@ add slider to control eyebrows, eyerims, skin color and eyebrow color.
 add tatto, middle triangle and slider control for beard
 
 add parameters for faces from 1 to 9, add RGB slider to change skin colors.
+
+add my own landmarks, change mouth shapes.

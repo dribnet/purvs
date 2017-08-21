@@ -110,9 +110,9 @@ function FaceMap() {
 
     //nose bridge
     push();
-    stroke(0, 0, 0, 70);
+    stroke(jaw_color);
     strokeWeight(0.2);
-    line(positions.nose_bridge[0][0], positions.nose_bridge[0][1], positions.nose_bridge[3][0], positions.nose_bridge[3][1]);
+    line(positions.nose_bridge[1][0], positions.nose_bridge[1][1], positions.nose_bridge[3][0], positions.nose_bridge[3][1]);
     pop();
 
     //eye rims
@@ -220,10 +220,30 @@ function FaceMap() {
 
     // mouth
     push();
+    fill(jaw_color);
+    beginShape();
+    for(var i=6; i<positions.top_lip.length; i++){
+        vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    for(var j=6; j<positions.bottom_lip.length; j++){
+        vertex(positions.bottom_lip[j][0], positions.bottom_lip[j][1]);
+    }
+    endShape(CLOSE);
     fill(mouth_color);
-    stroke(255);
-    strokeWeight(0.05);
-    quad(positions.top_lip[positions.top_lip.length / 4 - 2][0], positions.top_lip[positions.top_lip.length / 4 - 2][1], positions.top_lip[positions.top_lip.length / 4 + 2][0], positions.top_lip[positions.top_lip.length / 4 + 2][1], positions.bottom_lip[positions.bottom_lip.length / 4 - 1][0], positions.bottom_lip[positions.bottom_lip.length / 4 - 1][1], positions.bottom_lip[positions.bottom_lip.length / 4 + 1][0], positions.bottom_lip[positions.bottom_lip.length / 4 + 1][1]);
+    // stroke(255);
+    // strokeWeight(0.05);
+    beginShape();
+    for(var i=0; i<positions.top_lip.length;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
+    
+    beginShape();
+    for(var i=0; i<positions.bottom_lip.length;i++) {
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+    }
+    endShape(CLOSE);
+    // quad(positions.top_lip[positions.top_lip.length / 4 - 2][0], positions.top_lip[positions.top_lip.length / 4 - 2][1], positions.top_lip[positions.top_lip.length / 4 + 2][0], positions.top_lip[positions.top_lip.length / 4 + 2][1], positions.bottom_lip[positions.bottom_lip.length / 4 - 1][0], positions.bottom_lip[positions.bottom_lip.length / 4 - 1][1], positions.bottom_lip[positions.bottom_lip.length / 4 + 1][0], positions.bottom_lip[positions.bottom_lip.length / 4 + 1][1]);
     pop();
 
     // nose
