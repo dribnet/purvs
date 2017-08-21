@@ -42,7 +42,7 @@ function FaceMap() {
     noStroke();
     let topY = positions.left_eyebrow.concat(positions.right_eyebrow).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
     let midX = chinRect.x;
-    ellipse(midX, topY, chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0), chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0));
+    ellipse(midX, topY+0.5, chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0), chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0));
 
     //background white on whole face
     let faceList = positions.chin.concat(positions.right_eyebrow.reverse(), positions.left_eyebrow.reverse());
@@ -63,20 +63,28 @@ function FaceMap() {
     drawCurve(positions.left_eyebrow, 'black');
     drawCurve(positions.right_eyebrow, 'black');
     translate(0, -chinRect.height*0.2)
-
-    //lips and mouth
-    noStroke();
-    doCentered(positions.top_lip.concat(positions.bottom_lip), function(points, mapper){
-      push();
-      scale(1.7, 1.6);
+    
+    //mouth paint
+    doCentered(positions.top_lip.concat(positions.bottom_lip), function(points){
+      scale(1.5, 1.4);
       strokeWeight(0.1);
       drawCurve(hull(points, 0.7), color(0, 80, 100), true);
-      pop();
+    });
 
-      scale(1, 1+.3*sin(millis()/focusedRandom(100, 600, 2, 300)*TAU));
-      fill(0, 0, 100);
+    //lips
+    stroke(0, 90, 85);
+    strokeWeight(0.05);
+    doCentered(positions.top_lip, function(points, mapper){
+      fill(0, 5, 100);
+      //this map pushes down the positions in the middle of the bottom lip
+      let lipRect = Rect.fromPoints(points);
+      let interval = focusedRandom(200, 1000, 3, 600);
+      drawPolygon(positions.bottom_lip.map(mapper).map(function(val){
+        val[1] += map(min(abs(val[0]-lipRect.minX()), abs(lipRect.maxX()-val[0])), 0, lipRect.width/2, 0, 0.15*sin(millis()/interval*TAU));
+        return val;
+      }), 'red');
+
       drawPolygon(positions.top_lip.map(mapper), 'red');
-      drawPolygon(positions.bottom_lip.map(mapper), 'red');
     })
 
     let pupilRadius = [positions.left_eye, positions.right_eye].reduce((tot, val) => tot+Rect.fromPoints(val).height, 0)/10;
