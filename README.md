@@ -3,4 +3,4 @@
 
 README for part4.
 
-Still working on the mouth section.
+I have fully filled the train_values for 100 faces. Now I can guest the face correctly about half of the time.
