@@ -5,9 +5,27 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [0,0,0];
+var bg_color = [225, 206, 187];
+var fg_color = [255,255,245];
 stroke_color = [95, 52, 8];
+
+var bg_color = "grey";
+var fg_color1 = "rgb(177,215,151)";
+var ZamasuFaceColor1 = "rgb(177,215,151)";
+var ZamasuFaceColor2 = "rgb(157,195,131)";
+var ZamasuFaceColor3 = "rgba(0,0,0,0.2)";
+var ZamasuFaceColor4 = "rgba(0,0,0,0.05)";
+var ZamasuHairColor1 = "rgb(232,236,236)";
+var ZamasuHairColor2 = "rgb(169,176,175)";
+var ZamasuPotEaringColor1 = "rgb(243,255,84)";
+var ZamasuPotEaringColor2 = "rgb(145,157,0)";
+var ZamasuPotEaringColor3 = "rgb(18,223,42)";
+var fg_color2 = "#999999";
+
+var stroke_color = "black";
+var eyecolor1 = "rgb(158,160,160)";
+var eyecolor2 = "rgb(15,15,15)";
+var eyecolor3 = "rgb(255,255,255)";
 
 function FaceMap() {
   this.hairLength = 50;
@@ -53,22 +71,24 @@ function FaceMap() {
 
     // head
     stroke(stroke_color);
-    fill(fg_color);
+    fill(ZamasuFaceColor1);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
+
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
       vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
     }
+
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
       vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
 
     // mouth
-    Stroke();
-    fill(bg_color);
+    noStroke();
+    fill(ZamasuFaceColor2);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -81,6 +101,8 @@ function FaceMap() {
     endShape(CLOSE);
 
     // nose
+    noStroke();
+    fill(ZamasuFaceColor2);
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -89,10 +111,13 @@ function FaceMap() {
     endShape(CLOSE);
 
     // eyes
+    noStroke();
+    fill(eyecolor3);
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
+
     endShape(CLOSE);
     beginShape();
     for(var i=0; i<positions.right_eye.length;i++) {
@@ -100,23 +125,41 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    fill(fg_color);
+    fill(eyecolor1);
     ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+    
 
-    fill(stroke_color);
+    // right eyebrow
+    noStroke();
+    fill(ZamasuHairColor1);
     beginShape();
     for(var i=0; i<positions.right_eyebrow.length; i++) {
       vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
     }
     endShape(CLOSE);
+
+
+    // left eyebrow
+    noStroke();
+    fill(ZamasuHairColor1);
     beginShape();
     for(var i=0; i<positions.left_eyebrow.length; i++) {
       vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
     strokeWeight(1);  
+
+    //test Rectangle for placing objects
+    rectMode(CENTER);
+    rect(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
+    rect(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+
   }
+
+    
+    
+    
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
