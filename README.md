@@ -16,3 +16,7 @@ UPDATE I'm still trying to figure out the code, I am struggling a bit and will r
 UPDATE
 
 I've now with some help been able to understand the code better and what needs to be done, I've started adding the sldiers and parameters for adding personality to the faces, more on that later. but, so far I have make up on/off when its a woman, nose changes, eye colour and eyebrow changes and cheek colour changes -depending on skin tone-.
+
+UPDATE 
+
+I've started testing how the face quizzes working and seeing if my inputs and ideas are being picked up properly. At the moment im trying to differenciate between male and females, fair skined tones and darker skin tones, along side eye colour, nose shape etc. I've still got a few things to change but so far I'm happy with the progress.
