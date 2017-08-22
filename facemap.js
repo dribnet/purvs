@@ -6,7 +6,7 @@
 // other variables can be in here too
 // these control the colors used
 bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
+fg_color = [0,0,0];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
@@ -67,7 +67,7 @@ function FaceMap() {
     endShape(CLOSE);
 
     // mouth
-    noStroke();
+    Stroke();
     fill(bg_color);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
