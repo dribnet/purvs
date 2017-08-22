@@ -14,10 +14,12 @@ function FaceMap() {
   this.hairColor = 50;
   this.cheeks = 50;
   this.noselenght = 0;
-  this.eyecolor1 = 50;
+  this.eyecolor1 = 0;
   this.eyecolor2 = 50;
   this.eyebrowcolor = 50;
   this.hasEyeshadow = 50;
+  this.lipcolor = 50;
+  this.facepaint = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -42,6 +44,8 @@ function FaceMap() {
     var eyecolor2 = map(this.eyecolor2, 0, 100, 0, 255);
     var eyebrowcolor = map(this.eyebrowcolor, 0, 100, 50, 100);
     var hasEyeshadow = map(this.hasEyeshadow, 0,100);
+    var lipcolor = map(this.lipcolor, 0, 100, 0, 255);
+    var facepaint = map(this.facepaint,0, 100, 0, 255);
     //fill(cheeks);
     //var cheeks = map(this.cheeks, 0, 10, 0, 3);
     //rect(-3, -2*curHairLength, 6, 3*curHairLength);
@@ -63,8 +67,8 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    //stroke(stroke_color);
-    fill(fg_color);
+    //stroke(stroke_color); 174 110 108
+    fill(174, facepaint, facepaint);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -79,7 +83,7 @@ function FaceMap() {
 
     // mouth
     noStroke();
-    fill(12,0,0);
+    fill(lipcolor,0,0);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -97,7 +101,7 @@ function FaceMap() {
     ellipse(eye2_pos[0], eye2_pos[1]+1, 80 * scale, 40 * scale);
 
     // nose
-    fill(141,89,88);
+    fill(161,facepaint,facepaint);
     beginShape();
     vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][noselenght]);
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -111,13 +115,26 @@ function FaceMap() {
 
     //eyeshadow
 if(this.hasEyeshadow > 50){
-    fill(130,94,72);
+    fill(152,103,96);
     ellipse(eye1_pos[0], eye1_pos[1]-0.1, 50 * scale, 20 * scale);
     ellipse(eye2_pos[0], eye2_pos[1]-0.1, 50 * scale, 20 * scale);
+
+    fill(0,0,0)
+    beginShape();
+    for(var i=0; i<positions.left_eye.length;i++) {
+      vertex(positions.left_eye[i][0]-0.07, positions.left_eye[i][1]-0.03);
+    }
+    endShape(CLOSE);
+    beginShape();
+    for(var i=0; i<positions.right_eye.length;i++) {
+      vertex(positions.right_eye[i][0]+0.07, positions.right_eye[i][1]);
+    }
+    endShape(CLOSE);
 }
     // eyes
 
     fill(eyecolor1);
+    stroke(0,0,0);
     beginShape();
     for(var i=0; i<positions.left_eye.length;i++) {
       vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
@@ -129,9 +146,15 @@ if(this.hasEyeshadow > 50){
     }
     endShape(CLOSE);
 
-    fill(eyecolor2);
-    ellipse(eye1_pos[0], eye1_pos[1], 10 * scale, 10 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 10 * scale, 10 * scale);
+    fill(0,eyecolor2,0);
+    noStroke();
+    ellipse(eye1_pos[0], eye1_pos[1], 15 * scale, 15 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 15 * scale, 15 * scale);
+
+    fill(0,0,0);
+    noStroke();
+    ellipse(eye1_pos[0], eye1_pos[1], 5 * scale, 5 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1], 5 * scale, 5 * scale);
 
     //eyebrows 95, 52, 8
 
@@ -150,7 +173,7 @@ if(this.hasEyeshadow > 50){
 
 
   //ears
-  fill(141,89,88);
+  fill(174, facepaint, facepaint);
   stroke(0,0,0);
   triangle(-0.5, -3.5, -1.5, -3, -0.5, -2.5);
   triangle(0.5, -3.5, 1.5, -3, 0.5, -2.5);
@@ -177,6 +200,8 @@ if(this.hasEyeshadow > 50){
     this.eyecolor2 = settings[3];
     this.eyebrowcolor = settings[4];
     this.hasEyeshadow = settings[5];
+    this.lipcolor = settings[6];
+    this.facepaint = settings[7];
    // this.hairColor = settings[1];
 
   }
@@ -190,6 +215,8 @@ if(this.hasEyeshadow > 50){
     properties[3] = this.eyecolor2;
     properties[4] = this.eyebrowcolor;
     properties[5] = this.hasEyeshadow;
+    properties[6] = this.lipcolor;
+    properties[7] = this.facepaint;
     return properties;
   }
 }
