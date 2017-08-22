@@ -8,11 +8,17 @@
 bg_color = [225, 206, 187];
 fg_color = [254, 244, 110];
 stroke_color = [146, 147, 3];
+iris_colors = ["#43c6f2","#6fa511","#cc6d6d","#ff3300","#ffff00","#7d9a68","#dadada","#ec1313","#201b1f","#6b492d", "#1ecc6f"];
 
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
   this.toothSize = 0.2;
+  this.mouthValue = 5;
+  this.eyeHeight = 5;
+  this.eyeRotation = 0;
+  this.eyeColor = 0;
+  this.cheeks = 0;
   this.strokeValue = .05;
   /*
    * Draw a face with position lists that include:
@@ -49,7 +55,7 @@ function FaceMap() {
     var eye_size = 67;
     var iris_size = 27;
     var pupil_size = 10;
-    var iris_color = "#43c6f2";
+    var iris_color = iris_colors[this.eyeColor];
     var pupil_color = "#000000";
     var mouth_color = "#773536";
     var tongue_color = "#dd9c98"
@@ -58,7 +64,7 @@ function FaceMap() {
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -116,7 +122,7 @@ function FaceMap() {
   var x = positions.top_lip[0][0] - 0.42;
   var y = positions.top_lip[0][1]-0.15;
 
-  if(smiling)
+  if(this.cheeks > 50)
     curve(x+0.5, y+2, x, y, x + .44, y, x+.44-0.4, y+2);
 
 
@@ -124,7 +130,7 @@ function FaceMap() {
   x = positions.top_lip[6][0] + 0.42;
   y = positions.top_lip[6][1]-0.15;
 
-  if(smiling)
+  if(this.cheeks > 50)
     curve(x-0.5, y+2, x, y, x - .44, y, x-.44+0.4, y+2);
 
   fill(stroke_color);
@@ -159,15 +165,8 @@ function FaceMap() {
     strokeWeight(this.strokeValue);
 	fill(mouth_color);
 	stroke(0,0,0);
-	line(positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
-	/*beginShape();
-	curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
-	for(var i=0; i<7;i++) {
-      curveVertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
-    curveVertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
-    endShape();*/
+    curve(positions.bottom_lip[0][0], positions.bottom_lip[0][1]-this.mouthValue, positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]-this.mouthValue);
+    line(positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
 	push();
 	fill(tongue_color);
 	strokeWeight(0);
@@ -218,7 +217,7 @@ function FaceMap() {
 	//LEFT EYE --our left not the faces left
   //WHITE PART
   fill(255,255,255);
-  ellipse(eye1_pos[0], eye1_pos[1], eye_size * scale, eye_size * scale);
+  ellipse(eye1_pos[0], eye1_pos[1], eye_size * scale, eye_size * scale * this.eyeHeight);
   //IRIS
   fill(iris_color);
   strokeWeight(this.strokeValue);
@@ -232,7 +231,7 @@ function FaceMap() {
   strokeWeight(this.strokeValue);
   //WHITE PART
   fill(255,255,255);
-  ellipse(eye2_pos[0], eye2_pos[1], eye_size * scale, eye_size * scale);
+  ellipse(eye2_pos[0], eye2_pos[1], eye_size * scale, eye_size * scale * this.eyeHeight);
   //IRIS
   fill(iris_color);
   strokeWeight(this.strokeValue);
@@ -363,9 +362,14 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
-    this.toothSize = settings[2]/200;
+    this.hairLength  = settings[0];
+    this.hairColor   = settings[1];
+    this.toothSize   = settings[2]/200;
+    this.mouthValue  = settings[3]/15;
+    this.eyeHeight   = ((settings[4]/100)/2)+0.5;
+    this.eyeRotation = settings[5];
+    this.eyeColor    = Math.floor(settings[6]/10);
+    this.cheeks      = settings[7];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -374,6 +378,11 @@ function FaceMap() {
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
     properties[2] = this.toothSize;
+    properties[3] = this.mouthValue;
+    properties[4] = this.eyeHeight;
+    properties[5] = this.eyeRotation;
+    properties[6] = this.eyeColor;
+    properties[7] = this.cheeks;
     return properties;
   }
 }
