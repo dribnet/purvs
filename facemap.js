@@ -27,24 +27,15 @@ function FaceMap() {
 			var w = 2 * face_width;
 			var h = 2.5 * half_height;
 
-			
 			var curEyeSize = map(this.eyeSize, 0, 100, 10, 30);
 			var curFaceGap = map(this.faceGap, 0, 100, 20, 8);
-		    var curNoseSize = map(this.noseSize, 0, 100, 30, 70);
-		    var curLipColor = map(this.lipColor, 0, 100, 0, 255);
-		    var curHairColor = map(this.hairColor, 0, 100, 0, 100);
-		    
-		
-
-
+			var curNoseSize = map(this.noseSize, 0, 100, 30, 70);
+			var curLipColor = map(this.lipColor, 0, 100, 0, 255);
+			var curHairColor = map(this.hairColor, 0, 100, 0, 100);
+			var curHat = map(this.hat, 0, 100, 0, 90);
 
 			var extent = 0;
-			if (h < w) {
-				extent = h / 2;
-			} else {
-				extent = w / 2;
-			}
-		    
+			h < w ? extent = h / 2 : extent = w / 2;
 			var scale = extent / 220.0;
 
 			// Uncomment to see drawing area
@@ -53,9 +44,8 @@ function FaceMap() {
 			// rect(x-w/2, y-h/2, w, h);
 			// fill(0)
 			// ellipse(x, y, w, h);
-		    
-		    angleMode(DEGREES);
 
+			angleMode(DEGREES);
 			// head
 			stroke(fg_color);
 			noFill();
@@ -69,12 +59,30 @@ function FaceMap() {
 			}
 			var topPosL = min_point(positions.left_eyebrow);
 			var topPosR = max_point(positions.right_eyebrow);
-		
-		    line(topPosL[0] + box[2] / 5, topPosL[1] - box[2] / 5, topPosR[0] - box[2] / 5, topPosR[1] - box[2] / 5);
-            line(topPosL[0] + box[2] / 10, topPosL[1] - box[2] / 10, topPosR[0] - box[2] / 10, topPosR[1] - box[2] / 10);
+
+			var hasHat = 50;
+			curHat < 10 ? hasHat = false : hasHat = true;
+
+			if (hasHat) {
+				colorMode(HSB);
+				noStroke();
+				fill(43, 87, curHairColor);
+				for (var x = topPosL[0] + box[2] / 10; x < topPosR[0] - box[2] / 10; x += box[2] / 10) {
+					ellipse(x, topPosL[1] - box[2] / 8, curHat * scale, curHat * scale);
+				}
+				for (var x = topPosL[0] + box[2] / 5; x < topPosR[0] - box[2] / 5; x += box[2] / 5)
+					ellipse(x, topPosR[1] - box[2] / 4, curHat * scale, curHat * scale);
+				colorMode(RGB);
+				noFill();
+				stroke(fg_color);
+			} else {
+				line(topPosL[0] + box[2] / 5, topPosL[1] - box[2] / 5, topPosR[0] - box[2] / 5, topPosR[1] - box[2] / 5);
+				line(topPosL[0] + box[2] / 10, topPosL[1] - box[2] / 10, topPosR[0] - box[2] / 10, topPosR[1] - box[2] / 10);
+			}
+
 			line(topPosL[0], topPosL[1], topPosR[0], topPosR[1]);
 			line((topPosL[0] + positions.chin[0][0]) / 2, (topPosL[1] + positions.chin[0][1]) / 2, (topPosR[0] + positions.chin[positions.chin.length - 1][0]) / 2, (topPosR[1] + positions.chin[positions.chin.length - 1][1]) / 2);
-		    
+
 			strokeWeight(1);
 
 
@@ -94,17 +102,15 @@ function FaceMap() {
 
 			// nose
 			fill(255, 30, 10);
-		    var nosePosBridge = average_point(positions.nose_bridge);
-		    var nosePosTip = average_point(positions.nose_tip); 
-		    var nosePos = [(nosePosBridge[0] + nosePosTip[0])/2, (nosePosBridge[1] + nosePosTip[1])/2]
-		
-		    ellipse(nosePos[0], nosePos[1], curNoseSize*scale , curNoseSize*scale);
-		    fill(255,240,230);
-		    ellipse(nosePos[0], nosePos[1] + curNoseSize*scale/4, curNoseSize*scale/2 , curNoseSize*scale/5);
+			var nosePosBridge = average_point(positions.nose_bridge);
+			var nosePosTip = average_point(positions.nose_tip);
+			var nosePos = [(nosePosBridge[0] + nosePosTip[0]) / 2, (nosePosBridge[1] + nosePosTip[1]) / 2]
+
+			ellipse(nosePos[0], nosePos[1], curNoseSize * scale, curNoseSize * scale);
+			fill(255, 240, 230);
+			ellipse(nosePos[0], nosePos[1] + curNoseSize * scale / 4, curNoseSize * scale / 2, curNoseSize * scale / 5);
 
 			// eyes
-		    
-			
 			var maxHeightL = 0;
 			var minHeightL = positions.left_eye[0][1];
 			for (var i = 0; i < positions.left_eye.length; i++) {
@@ -117,21 +123,21 @@ function FaceMap() {
 				if (positions.right_eye[i][1] > maxHeightR) maxHeightR = positions.right_eye[i][1];
 				if (positions.right_eye[i][1] < minHeightR) minHeightR = positions.right_eye[i][1];
 			}
-		
-		    if(scale > .5) scale = .1 //fix bug for image 0
+
+			if (scale > .5) scale = .1 //fix bug for image 0
 
 			fill(0);
 			ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * curEyeSize * scale, (maxHeightL - minHeightL) * curEyeSize * scale);
-		    
+
 			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * curEyeSize * scale, (maxHeightR - minHeightR) * curEyeSize * scale);
-		    
-		    fill(fg_color);
-		    ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * curEyeSize * scale/4, (maxHeightL - minHeightL) * curEyeSize * scale/4);
-		
-			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * curEyeSize * scale/4, (maxHeightR - minHeightR) * curEyeSize * scale/4);
-		
-		    colorMode(HSB);
-			fill(43,87,curHairColor);
+
+			fill(fg_color);
+			ellipse(eye1_pos[0], eye1_pos[1], (maxHeightL - minHeightL) * curEyeSize * scale / 4, (maxHeightL - minHeightL) * curEyeSize * scale / 4);
+
+			ellipse(eye2_pos[0], eye2_pos[1], (maxHeightR - minHeightR) * curEyeSize * scale / 4, (maxHeightR - minHeightR) * curEyeSize * scale / 4);
+
+			colorMode(HSB);
+			fill(43, 87, curHairColor);
 			beginShape();
 			for (var i = 0; i < positions.right_eyebrow.length; i++) {
 				vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
@@ -143,7 +149,7 @@ function FaceMap() {
 				vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
 			}
 			endShape(CLOSE);
-		    colorMode(RGB);
+			colorMode(RGB);
 		}
 		/* set internal properties based on list numbers 0-100 */
 	this.setProperties = function (settings) {
@@ -152,18 +158,19 @@ function FaceMap() {
 		this.noseSize = settings[2];
 		this.lipColor = settings[3];
 		this.hairColor = settings[4];
-		
+		this.hat = settings[5];
 	}
 
 	/* get internal properties as list of numbers 0-100 */
 	this.getProperties = function () {
-		properties = new Array(5);
+		properties = new Array(6);
 		properties[0] = this.eyeSize;
 		properties[1] = this.faceGap;
 		properties[2] = this.noseSize;
 		properties[3] = this.lipColor;
 		properties[4] = this.hairColor;
-		
+		properties[5] = this.hat;
+
 		return properties;
 	}
 }
