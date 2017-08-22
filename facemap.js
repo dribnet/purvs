@@ -14,6 +14,7 @@ function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
   this.jawShape = 50;
+  this.headShape = 50;
   this.mouthShape = 50;
 
   /*
@@ -137,31 +138,48 @@ function FaceMap() {
       }
     }
 
+    strokeWeight(2*scale);
 
-    // drawing head shapes
+    // drawing head shapes with fill
+    if(this.headShape < 33) {
+      noStroke();
+      fill(fill_color);
+      quad(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(50*scale),positions.right_eye[0][0],right_eye_top_y-(75*scale),chin_max_x-(20*scale),positions.chin[positions.chin.length-4][1],positions.left_eye[0][0],positions.chin[positions.chin.length-4][1]+(20*scale));
+    }
+    else if(this.headShape >= 33 && this.headShape < 66) {
+      noStroke();
+      fill(fill_color);
+      beginShape();
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      vertex(right_eye_max_x+(10*scale),left_eye_top_y-(70*scale));
+      vertex(chin_max_x-(40*scale),right_eye_bottom_y+(50*scale));
+      vertex(positions.nose_tip[0][0],positions.nose_tip[0][1]+(50*scale));
+      vertex(positions.chin[0][0]+(10*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      endShape();
+    }
+    else if(this.headShape >=67) {
+      noStroke();
+      fill(fill_color);
+      beginShape();
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      vertex(left_eye_max_x+(15*scale),left_eye_top_y-(80*scale));
+      vertex(positions.right_eye[0][0]+(25*scale),right_eye_top_y-(10*scale));
+      vertex(positions.nose_bridge[2][0]+(5*scale),positions.nose_bridge[3][1]+(30*scale));
+      vertex(positions.left_eye[0][0]-(15*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      endShape();
+    }
+
+    // drawing jaw shapes with fill
     if(this.jawShape < 33) {
       noStroke();
       fill(fill_color);
-      quad(positions.chin[0][0]+(chin_width/2)-(60*scale),positions.chin[0][1],chin_max_x,positions.chin[0][1]+(chin_height/2),positions.chin[0][0]+(chin_width/2),chin_max_y,positions.chin[0][0],positions.chin[0][1]+(chin_height/2)+(40*scale));
-
-      noFill();
-      stroke(stroke_color);
       quad(positions.chin[0][0]+(chin_width/2)-(60*scale),positions.chin[0][1],chin_max_x,positions.chin[0][1]+(chin_height/2),positions.chin[0][0]+(chin_width/2),chin_max_y,positions.chin[0][0],positions.chin[0][1]+(chin_height/2)+(40*scale));
     }
     else if(this.jawShape >= 33 && this.jawShape < 66) {
       noStroke();
       fill(fill_color);
-      beginShape();
-      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
-      vertex(chin_max_x-(30*scale),positions.chin[0][1]+(chin_height/2)+(20*scale));
-      vertex(positions.chin[0][0]+(chin_width/1.5),chin_max_y);
-      vertex(positions.chin[0][0]+(chin_width/2.5),chin_max_y);
-      vertex(positions.chin[0][0]+(40*scale),positions.chin[0][1]+(chin_height/2)+(40*scale));
-      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
-      endShape();
-
-      noFill();
-      stroke(stroke_color);
       beginShape();
       vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
       vertex(chin_max_x-(30*scale),positions.chin[0][1]+(chin_height/2)+(20*scale));
@@ -182,7 +200,130 @@ function FaceMap() {
       vertex(positions.chin[0][0]+(chin_width/4),left_eye_top_y-(25*scale));
       vertex(positions.chin[0][0]+(chin_width/2.5),left_eyebrow_max_y-(35*scale));
       endShape();
+    }
 
+    // drawing head shapes with stroke
+    if(this.headShape < 33) {
+      noFill();
+      stroke(stroke_color);
+      quad(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(50*scale),positions.right_eye[0][0],right_eye_top_y-(75*scale),chin_max_x-(20*scale),positions.chin[positions.chin.length-4][1],positions.left_eye[0][0],positions.chin[positions.chin.length-4][1]+(20*scale));
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      quad(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(50*scale),positions.right_eye[0][0],right_eye_top_y-(75*scale),chin_max_x-(20*scale),positions.chin[positions.chin.length-4][1],positions.left_eye[0][0],positions.chin[positions.chin.length-4][1]+(20*scale));
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
+    }
+    else if(this.headShape >= 33 && this.headShape < 66) {
+      noFill();
+      stroke(stroke_color);
+      beginShape();
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      vertex(right_eye_max_x+(10*scale),left_eye_top_y-(70*scale));
+      vertex(chin_max_x-(40*scale),right_eye_bottom_y+(50*scale));
+      vertex(positions.nose_tip[0][0],positions.nose_tip[0][1]+(50*scale));
+      vertex(positions.chin[0][0]+(10*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      endShape();
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      beginShape();
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      vertex(right_eye_max_x+(10*scale),left_eye_top_y-(70*scale));
+      vertex(chin_max_x-(40*scale),right_eye_bottom_y+(50*scale));
+      vertex(positions.nose_tip[0][0],positions.nose_tip[0][1]+(50*scale));
+      vertex(positions.chin[0][0]+(10*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]+(20*scale),left_eye_top_y-(70*scale));
+      endShape();
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
+    }
+    else if(this.headShape >=67) {
+      noFill();
+      stroke(stroke_color);
+      beginShape();
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      vertex(left_eye_max_x+(15*scale),left_eye_top_y-(80*scale));
+      vertex(positions.right_eye[0][0]+(25*scale),right_eye_top_y-(10*scale));
+      vertex(positions.nose_bridge[2][0]+(5*scale),positions.nose_bridge[3][1]+(30*scale));
+      vertex(positions.left_eye[0][0]-(15*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      endShape();
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      beginShape();
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      vertex(left_eye_max_x+(15*scale),left_eye_top_y-(80*scale));
+      vertex(positions.right_eye[0][0]+(25*scale),right_eye_top_y-(10*scale));
+      vertex(positions.nose_bridge[2][0]+(5*scale),positions.nose_bridge[3][1]+(30*scale));
+      vertex(positions.left_eye[0][0]-(15*scale),left_eye_bottom_y+(30*scale));
+      vertex(positions.left_eye[0][0]-(5*scale),left_eye_top_y-(30*scale));
+      endShape();
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
+    }
+
+
+    // drawing jaw shapes with stroke
+    if(this.jawShape < 33) {
+      noFill();
+      stroke(stroke_color);
+      quad(positions.chin[0][0]+(chin_width/2)-(60*scale),positions.chin[0][1],chin_max_x,positions.chin[0][1]+(chin_height/2),positions.chin[0][0]+(chin_width/2),chin_max_y,positions.chin[0][0],positions.chin[0][1]+(chin_height/2)+(40*scale));
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      quad(positions.chin[0][0]+(chin_width/2)-(60*scale),positions.chin[0][1],chin_max_x,positions.chin[0][1]+(chin_height/2),positions.chin[0][0]+(chin_width/2),chin_max_y,positions.chin[0][0],positions.chin[0][1]+(chin_height/2)+(40*scale));
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
+    }
+    else if(this.jawShape >= 33 && this.jawShape < 66) {
+      noFill();
+      stroke(stroke_color);
+      beginShape();
+      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
+      vertex(chin_max_x-(30*scale),positions.chin[0][1]+(chin_height/2)+(20*scale));
+      vertex(positions.chin[0][0]+(chin_width/1.5),chin_max_y);
+      vertex(positions.chin[0][0]+(chin_width/2.5),chin_max_y);
+      vertex(positions.chin[0][0]+(40*scale),positions.chin[0][1]+(chin_height/2)+(40*scale));
+      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
+      endShape();
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      beginShape();
+      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
+      vertex(chin_max_x-(30*scale),positions.chin[0][1]+(chin_height/2)+(20*scale));
+      vertex(positions.chin[0][0]+(chin_width/1.5),chin_max_y);
+      vertex(positions.chin[0][0]+(chin_width/2.5),chin_max_y);
+      vertex(positions.chin[0][0]+(40*scale),positions.chin[0][1]+(chin_height/2)+(40*scale));
+      vertex(positions.chin[0][0]+(chin_width/2)+(20*scale),positions.chin[0][1]+(10*scale));
+      endShape();
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
+    }
+    else if(this.jawShape >=67){
       noFill();
       stroke(stroke_color);
       beginShape();
@@ -193,6 +334,23 @@ function FaceMap() {
       vertex(positions.chin[0][0]+(chin_width/4),left_eye_top_y-(25*scale));
       vertex(positions.chin[0][0]+(chin_width/2.5),left_eyebrow_max_y-(35*scale));
       endShape();
+
+      translate(2*scale,-2*scale);
+      rotate(2);
+      strokeWeight(1*scale);
+
+      beginShape();
+      vertex(positions.chin[0][0]+(chin_width/2.5),left_eyebrow_max_y-(35*scale));
+      vertex(chin_max_x-(chin_width/4),right_eye_bottom_y+(30*scale));
+      vertex(chin_max_x-(chin_width/2.5),chin_max_y);
+      vertex(positions.chin[0][0]+(chin_width/3),chin_max_y-40*scale);
+      vertex(positions.chin[0][0]+(chin_width/4),left_eye_top_y-(25*scale));
+      vertex(positions.chin[0][0]+(chin_width/2.5),left_eyebrow_max_y-(35*scale));
+      endShape();
+
+      translate(-2*scale,2*scale);
+      rotate(-2);
+      strokeWeight(2*scale);
     }
 
     // set variables for facial components
@@ -245,7 +403,8 @@ function FaceMap() {
     this.hairLength = settings[0];
     this.hairColor = settings[1];
     this.jawShape = settings[2];
-    this.mouthShape = settings[3];
+    this.headShape = settings[3];
+    this.mouthShape = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -254,7 +413,8 @@ function FaceMap() {
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
     properties[2] = this.jawShape;
-    properties[3] = this.jawShape;
+    properties[3] = this.headShape;
+    properties[4] = this.mouthShape;
     return properties;
   }
 }
