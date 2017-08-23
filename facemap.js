@@ -8,17 +8,11 @@
 bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [156, 106, 127];
-eye_stroke_color = [64, 102, 207];
-green_eye_color = [119, 156, 82, 150];
-green_eye_stroke_color = [76, 104, 49];
 cheek_stroke_color = [224, 125, 187];
 mouth_stroke_color = [79, 44, 66];
 face_col = [234, 215, 215];
-eye_col = [120, 152, 255, 100];
 cheek_col = [224, 125, 229, 40];
 
-alpha_ran = focusedRandom(80, 200);
-alpha_ran2 = focusedRandom(40, 60);
 
 
 function FaceMap() {
@@ -26,7 +20,10 @@ function FaceMap() {
   this.faceTone = 50;
   this.eyeType = 50;
   this.eyeColor = 50;
-  this.pupilSize = 100;
+  this.pupilSize = 50;
+  this.mouthRandom = 50;
+  this.cheekSize = 50;
+  this.faceRandom = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -44,12 +41,6 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-
-    //var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    //fill(curHairColor);
-
-    //var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -74,31 +65,34 @@ function FaceMap() {
     var whicheyeType = map(this.eyeType, 0, 100, 0, 2);
     var whicheyeColor = map(this.eyeColor, 0, 100, 0, 100);
     var whatpupilSize = map(this.pupilSize, 0, 100, 8, 15);
+    var mouthRandomness = map(this.mouthRandom, 0, 100, 0, 2);
+    var whatcheekSize = map(this.cheekSize, 0, 100, 15, 35);
+    var faceRandomness = map(this.faceRandom, 0, 100, 0, 2);
 
 
     fill(234, 215, curfaceTone);
     noStroke();
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]-(random(0, 5)*scale), positions.chin[i][1]+(random(0, 5)*scale));
+      vertex(positions.chin[i][0]-(random(0, 5)*scale*faceRandomness), positions.chin[i][1]+(random(0, 5)*scale*faceRandomness));
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale), positions.right_eyebrow[i][1]-(random(0, 5)*scale));
+      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale*faceRandomness), positions.right_eyebrow[i][1]-(random(0, 5)*scale*faceRandomness));
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale), positions.left_eyebrow[i][1]-(random(0, 5)*scale));
+      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale*faceRandomness), positions.left_eyebrow[i][1]-(random(0, 5)*scale*faceRandomness));
     }
     endShape(CLOSE);
     fill(curfaceColor, curfaceColor, curfaceColor, 60);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]-(random(0, 5)*scale), positions.chin[i][1]+(random(0, 5)*scale));
+      vertex(positions.chin[i][0]-(random(0, 5)*scale*faceRandomness), positions.chin[i][1]+(random(0, 5)*scale*faceRandomness));
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale), positions.right_eyebrow[i][1]-(random(0, 5)*scale));
+      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale*faceRandomness), positions.right_eyebrow[i][1]-(random(0, 5)*scale*faceRandomness));
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale), positions.left_eyebrow[i][1]-(random(0, 5)*scale));
+      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale*faceRandomness), positions.left_eyebrow[i][1]-(random(0, 5)*scale*faceRandomness));
     }
     endShape(CLOSE);
 
@@ -108,39 +102,39 @@ function FaceMap() {
     noFill();
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]-(random(0, 5)*scale)-random(0, 0.2), positions.chin[i][1]+(random(0, 5)*scale)+random(0, 0.2));
+      vertex(positions.chin[i][0]-(random(0, 5)*scale)-random(0, 0.2)*faceRandomness, positions.chin[i][1]+(random(0, 5)*scale)+random(0, 0.2)*faceRandomness);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.1), positions.right_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.2));
+      vertex(positions.right_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.1)*faceRandomness, positions.right_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.2)*faceRandomness);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.2), positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.1));
+      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.2)*faceRandomness, positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.1)*faceRandomness);
     }
     endShape(CLOSE);
 
     // head offset 2
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]-(random(0, 5)*scale)+random(0, 0.1), positions.chin[i][1]+(random(0, 5)*scale)-random(0, 0.2));
+      vertex(positions.chin[i][0]-(random(0, 5)*scale)+random(0, 0.1)*faceRandomness, positions.chin[i][1]+(random(0, 5)*scale)-random(0, 0.2)*faceRandomness);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0]+(random(0, 5)*scale)+random(0, 0.2), positions.right_eyebrow[i][1]+(random(0, 5)*scale)+random(0, 0.1));
+      vertex(positions.right_eyebrow[i][0]+(random(0, 5)*scale)+random(0, 0.2)*faceRandomness, positions.right_eyebrow[i][1]+(random(0, 5)*scale)+random(0, 0.1)*faceRandomness);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.2), positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.2));
+      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)+random(0, 0.2)*faceRandomness, positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.2)*faceRandomness);
     }
     endShape(CLOSE);
 
     // head offset 3
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]-(random(0, 5)*scale)-random(0, 0.1), positions.chin[i][1]+(random(0, 5)*scale)+random(0, 0.2));
+      vertex(positions.chin[i][0]-(random(0, 5)*scale)-random(0, 0.1)*faceRandomness, positions.chin[i][1]+(random(0, 5)*scale)+random(0, 0.2)*faceRandomness);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0]+(random(0, 5)*scale)-random(0, 0.1), positions.right_eyebrow[i][1]+(random(0, 5)*scale)+random(0, 0.2));
+      vertex(positions.right_eyebrow[i][0]+(random(0, 5)*scale)-random(0, 0.1)*faceRandomness, positions.right_eyebrow[i][1]+(random(0, 5)*scale)+random(0, 0.2)*faceRandomness);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)-random(0, 0.2), positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.1));
+      vertex(positions.left_eyebrow[i][0]-(random(0, 5)*scale)-random(0, 0.2)*faceRandomness, positions.left_eyebrow[i][1]-(random(0, 5)*scale)+random(0, 0.1)*faceRandomness);
     }
     endShape(CLOSE);
 
@@ -148,22 +142,17 @@ function FaceMap() {
     noFill();
     stroke(mouth_stroke_color);
     strokeWeight(0.015);
-    // beginShape();
-    // for(var i=0; i<positions.top_lip.length;i++) {
-    //   vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    // }
-    //endShape();
 
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0]-(random(0, 5)*scale), positions.bottom_lip[i][1]+(random(0, 5)*scale));
+      vertex(positions.bottom_lip[i][0]-(random(0, 5)*scale*mouthRandomness), positions.bottom_lip[i][1]+(random(0, 5)*scale*mouthRandomness));
     }
     for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0]+(random(0, 5)*scale), positions.bottom_lip[i][1]-(random(0, 5)*scale));
+      vertex(positions.bottom_lip[i][0]+(random(0, 5)*scale*mouthRandomness), positions.bottom_lip[i][1]-(random(0, 5)*scale*mouthRandomness));
     }
     endShape();
 
-    // nose
+    // nose - is random with each reload
     beginShape();
     noFill();
     stroke(stroke_color);
@@ -260,13 +249,13 @@ function FaceMap() {
     }
 
 
-    // cheeks
+    // cheeks - different sizes based on sliders
     noStroke();
     fill(cheek_col);
     //left
-    ellipse(eye1_pos[0]-15 * scale, eye1_pos[1]+80 * scale, 50 * scale, 50 * scale);
+    ellipse(eye1_pos[0]-15 * scale, eye1_pos[1]+80 * scale, 2 * whatcheekSize * scale, 2 * whatcheekSize * scale);
     //right
-    ellipse(eye2_pos[0]+15 * scale, eye2_pos[1]+80 * scale, 50 * scale, 50 * scale);
+    ellipse(eye2_pos[0]+15 * scale, eye2_pos[1]+80 * scale, 2 * whatcheekSize * scale, 2 * whatcheekSize * scale);
 
 
   }
@@ -278,6 +267,9 @@ function FaceMap() {
     this.eyeType = settings[2];
     this.eyeColor = settings[3];
     this.pupilSize = settings[4];
+    this.mouthRandom = settings[5];
+    this.cheekSize = settings[6];
+    this.faceRandom = settings[7];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -288,6 +280,9 @@ function FaceMap() {
     properties[2] = this.eyeType;
     properties[3] = this.eyeColor;
     properties[4] = this.pupilSize;
+    properties[5] = this.mouthRandom;
+    properties[6] = this.cheekSize;
+    properties[7] = this.faceRandom;
     return properties;
   }
 }
