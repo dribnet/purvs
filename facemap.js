@@ -236,17 +236,18 @@ endShape(CLOSE);
 //browbone shape
         beginShape();
 
-     fill(skinHighlight_color[skin_color_value]);
+     fill(skinMidtone_color[skin_color_value]);
  		vertex((positions.left_eye[0][0]), (positions.left_eye[0][1]));  
        for(var i=0; i<4;i++) {
         var eyelid_value_y = ((positions.left_eye[i][1] + positions.left_eyebrow[i+1][1])/2.2);
         var eyelid_value_x = ((positions.left_eye[i][0] + positions.left_eyebrow[i][0])/2.3);
         curveVertex((eyelid_value_x), (eyelid_value_y));
     }
+curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2, (positions.left_eyebrow[3][1]+0.2));   
+   curveVertex((positions.left_eyebrow[1][0]+0.15), (positions.left_eyebrow[1][1])+0.1);
 
-  	for(var i=3; i>=1;i--) {
-        curveVertex((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]));   
-    }
+  	
+        
 
     endShape(CLOSE);  
      
@@ -376,33 +377,66 @@ endShape(CLOSE);
 //browbone shape
         beginShape();
 
-     fill(skinHighlight_color[skin_color_value]);
+     fill(skinMidtone_color[skin_color_value]);
        for(var i=3; i>=0;i--) {
         var eyelid_value_y = ((positions.right_eye[i][1] + positions.right_eyebrow[i][1])/2.2);
         var eyelid_value_x = ((positions.right_eye[i][0] + positions.right_eyebrow[i+1][0])/2.3);
         curveVertex((eyelid_value_x), (eyelid_value_y));
     }
-
-  	for(var i=1; i<4;i++) {
-        curveVertex((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]));   
-    }
+	curveVertex((positions.right_eyebrow[0][0]+0.15), (positions.right_eyebrow[0][1])+0.1);
+  	curveVertex((positions.right_eyebrow[1][0]+0.15), (positions.right_eyebrow[1][1])+0.1);
+        curveVertex((positions.right_eyebrow[2][0]+positions.right_eyebrow[3][0])/2, (positions.right_eyebrow[2][1]+0.2));   
+   
     endShape(CLOSE);  
 
    	pop(); 
 
    	////////////////////////////////////////eyebrows
-   	//eyebrow guide
-
-    fill("#000"); 
-    for(var i=0; i<4;i++) {
-        ellipse((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]), 0.05, 0.05);   
+   	//left eyebrow
+     	var browScale = 0.2
+    for (var j=0; j<10; j++){
+    	browScale-=0.02;
+        beginShape();
+	    
+	    fill(0, 0, 0, 30);
+	    
+    for(var i=1; i<3;i++) {
+        vertex((positions.left_eyebrow[i+1][0]), (positions.left_eyebrow[i+1][1]+0.2));   
     }
-    for(var i=1; i<4;i++) {
-        ellipse((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]), 0.05, 0.05);   
+    vertex((positions.left_eyebrow[4][0]-browScale), (positions.left_eyebrow[4][1]+0.2)-(browScale/2));  
+	vertex((positions.left_eyebrow[4][0]-browScale), (positions.left_eyebrow[4][1])-(browScale/2));   
+    for(var i=3; i>=0;i--) {
+    	if (i!=1){
+        vertex((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]));   
     }
+    }
+    endShape(CLOSE);
+}
 
 
-  }
+    //right eyebrow
+ 	var browScale = 0
+    for (var j=0; j<10; j++){
+    	browScale-=0.02;
+        beginShape();
+	    
+	
+	    vertex((positions.right_eyebrow[0][0]-browScale), (positions.right_eyebrow[0][1]+0.2)+(browScale/2));
+	    for(var i=1; i<4;i++) {
+	        vertex((positions.right_eyebrow[i-1][0]), (positions.right_eyebrow[i-1][1]+0.2));   
+	    }
+	    for(var i=4; i>=0;i--) {
+	    	if (i!= 3){
+	        vertex((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]));   
+	    }
+	    }
+	    vertex((positions.right_eyebrow[0][0]-browScale), (positions.right_eyebrow[0][1])+(browScale/2));
+
+	    endShape(CLOSE);
+	  
+	}
+}
+
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
