@@ -24,10 +24,10 @@ function Face() {
 
   // other variables can be in here too
   // these control the colors used
-  this.ch3_bodyPrimary = [204, 204, 204];
-  this.ch3_bodySecondary = [128, 128, 128];
+  this.ch3_bodyPrimary = [0, 0, 80];
+  this.ch3_bodySecondary = [0, 0, 50];
   this.ch3_detailPrimary = [0, 0, 0];
-  this.ch3_detailSecondary = [255, 255, 255];
+  this.ch3_detailSecondary = [0, 0, 100];
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -45,11 +45,11 @@ function Face() {
   angleMode(DEGREES);
 
     //Uncomment to see drawing area
-    fill(255);
-    stroke(0);
-    rect(x-w/2, y-h/2, w, h);
-    fill(0)
-    ellipse(x, y, w, h);
+    // fill(255);
+    // stroke(0);
+    // rect(x-w/2, y-h/2, w, h);
+    // fill(0)
+    // ellipse(x, y, w, h);
 
     push();
     translate(x, y);
