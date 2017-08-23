@@ -1,17 +1,16 @@
 ## PS2 MDDN 342 2017
 
 
-PART 4
+PART 5
 
-I have continued to work on the properties of my face and have created the following paramters that can be adjusted and have adjuted them to the 100 faces as follows;
+My progress so far for part 5 as I near toward the end of the project. 
 
-1) pupil shade - intensity of stare
-2) eye colour - emotion (blue being happy)
-3  teeth heigh - adjusted where needed to better sit in the mouth 
-4) wide eyes 
-5) squinting eyes
+I have included 4 of my own images; Gollum, Andy Serkis, Andy Serkis and his wife, and Bilbo Baggins (Ian Holm version).
 
-The majority of these properties are related to the expression of the eyes, however,  this was the core feature of my original PS1 face and it's random properties which I have tried to bring forward into this work.
+Although the face doesn't really look like Gollums, he was my original inspiration, and so I thought it would be interesting to try to map my face to the real Gollum. What's more, because Andy Serkis did the motion capture for Gollum - and because Bilbo had a Gollum moment in the first movie - I thought it would be cool to include them too. 
+
+I still need to make further adjustments to the properties before submitting my final work as I'm not sure all the saved values I set are right for some of the faces.
+
 
 
 
