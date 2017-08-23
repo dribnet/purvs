@@ -24,10 +24,10 @@ function Face() {
 
   // other variables can be in here too
   // these control the colors used
-  this.ch3_bodyPrimary = "#cccccc";
-  this.ch3_bodySecondary = "#808080";
-  this.ch3_detailPrimary = "#000000";
-  this.ch3_detailSecondary = "#ffffff";
+  this.ch3_bodyPrimary = [204, 204, 204];
+  this.ch3_bodySecondary = [128, 128, 128];
+  this.ch3_detailPrimary = [0, 0, 0];
+  this.ch3_detailSecondary = [255, 255, 255];
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -395,28 +395,38 @@ function Face() {
 
     push();
     translate(x, y);
-    rotate(this.tilt_value);
 
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
+    stroke(this.ch3_detailPrimary)
+  strokeWeight(10 * scale);
+  fill(this.ch3_bodyPrimary);
+  rect(45 * scale, 0 * scale, 300 * scale, 320 * scale, 200 * scale, 200 * scale, 0, 0);
+    
+    // draw dissection
+    fill(this.ch3_bodySecondary);
+    ellipse(45 * scale, 160 * scale, 300 * scale, 80 * scale);
+    // draw bone
+  strokeWeight(7 * scale);
+    fill(this.ch3_detailSecondary);
+    ellipse(45 * scale, 160 * scale, 150 * scale, 30 * scale);
 
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-    pop();
+    // // head
+    // ellipse(0, 0, 300 * scale, 400 * scale);
+    // noStroke();
 
-    noStroke();
+    // // mouth
+    // fill(this.bg_color);
+    // ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    // pop();
 
-    fill(this.bg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
+    // noStroke();
 
-    fill(this.fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
+    // fill(this.bg_color);
+    // ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
+    // ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
+
+    // fill(this.fg_color);
+    // ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
+    // ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
   }
 
   /*
