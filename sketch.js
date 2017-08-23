@@ -137,14 +137,14 @@ function draw () {
           x = x + w/2;
         }
 
-        // noFill();
-        // stroke(255, 0, 0);
-        // rect(x-w/2, y-w/2, w, h);
+         //noFill();
+         //stroke(255, 0, 0);
+         //rect(x-w/2, y-w/2, w, h);
         face.randomize();
         face.draw1(x, y, w, h);
         // noStroke();
         // fill(255, 0, 0);
-        // ellipse(x-2, y-2, 4, 4);
+         //ellipse(x-2, y-2, 4, 4);
       }
     }
   }

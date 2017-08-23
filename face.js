@@ -13,6 +13,11 @@ function Face() {
   this.bg_color = [225, 206, 187];
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
+  this.testcolour = [0,0,255];
+  this.face = [121,58,87,focusedRandom(0,255,102)];
+  this.eyes = [209,197,165,focusedRandom(0,255,102)];
+  this.innereyes = [0,0,255];
+  this.face2 = [140,135,62,focusedRandom(0,255,102)];
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -42,30 +47,50 @@ function Face() {
     // head
     stroke(this.stroke_color);
     fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
+    //ellipse(0, 0, 300 * scale, 400 * scale);
+    fill(this.face);
+    triangle(0,200*scale,300*scale,-300*scale,-200*scale,-300*scale);
+
+    fill(this.face2);
+    triangle(random()*250*scale,-150*scale,random()*150*scale,200*scale,random()*-150*scale,-320*scale);
     noStroke();
 
+    push();
+    translate(0,-15);
     // eyes
     if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+      fill(this.eyes);
+      //ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
+      triangle(-25*scale,-95*scale,0,-50*scale,25 * scale, -95 * scale);
+      fill(this.innereyes);
+      //ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+      triangle(0,-95*scale,-12*scale,-72*scale,12*scale,-72*scale);
+
     }
 
     if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+      fill(this.eyes);
+      //fill(250,2,2);
+     //ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
+     triangle(-75*scale,-95*scale,-25*scale,-95*scale,-50*scale,-50*scale);
+     fill(this.eyes);
+     //ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+     triangle(75*scale,-95*scale,25*scale,-95*scale,50*scale,-50*scale);
 
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+      fill(this.innereyes);
+      //ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
+      //ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+      triangle(-50*scale,-95*scale,-62*scale,-73*scale,-37*scale,-73*scale);
+      triangle(50*scale,-95*scale,62*scale,-73*scale,37*scale,-73*scale);
     }
-
+    pop();
     // mouth
     fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    //ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    //fill(this.testcolour);
+    //triangle(-50 , -80, 50);
+    //fill(this.testcolour);
+    triangle(-150*scale, -10*scale, 150*scale,-10*scale,-30,this.mouth_value * scale);
     pop();
   }
 
