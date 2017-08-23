@@ -19,8 +19,6 @@ gollum_tooth ="#FFF3C2";
 gollum_lips = "#695F59";
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
   this.pupilColor = 0;
   this.eyeColor = 50;
   this.eyeSize = 0;
@@ -41,10 +39,14 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    var teethHeight = map(this.teethPos, 0, 100, 0, 0.4);
+    var squinting = map(this.squint, 0, 100, 30, 90);
+    var wideEyed = map(this.surprised, 0, 100, 30, 80);
+
+    // var curHairColor = map(this.hairColor, 0, 100, 200, 20);
+    // fill(curHairColor);
+    // var curHairLength = map(this.hairLength, 0, 100, 0, 3);
+    // rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -130,26 +132,30 @@ function FaceMap() {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
     }
     endShape(CLOSE);
+
+    // teeth
+    noStroke();
+    fill(gollum_tooth);
+    beginShape();
+    vertex(positions.top_lip[1][0], positions.top_lip[0][1]+teethHeight);
+    vertex(positions.top_lip[2][0], positions.top_lip[1][1]);
+    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+teethHeight);
+    endShape(CLOSE);
+    beginShape();
+    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+teethHeight);
+    vertex(positions.top_lip[4][0], positions.top_lip[1][1]);
+    vertex(positions.top_lip[5][0], positions.top_lip[0][1]+teethHeight);
+    endShape(CLOSE);
+    noStroke();
+
+    fill(gollum_eyeskin);
     beginShape();
     for(var i=0; i<positions.bottom_lip.length;i++) {
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
     endShape(CLOSE);
 
-    // teeth
-    noStroke();
-    fill(gollum_tooth);
-    beginShape();
-    vertex(positions.top_lip[1][0], positions.top_lip[0][1]+0.1);
-    vertex(positions.top_lip[2][0], positions.top_lip[1][1]);
-    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+0.1);
-    endShape(CLOSE);
-    beginShape();
-    vertex(positions.top_lip[3][0], positions.top_lip[0][1]+0.1);
-    vertex(positions.top_lip[4][0], positions.top_lip[1][1]);
-    vertex(positions.top_lip[5][0], positions.top_lip[0][1]+0.1);
-    endShape(CLOSE);
-    noStroke();
+    
 
     // nose
     beginShape();
@@ -168,16 +174,16 @@ function FaceMap() {
     ellipse(eye2_pos[0], eye2_pos[1]+0.55, 50 * scale, 70 * scale);
     //eyes
     fill(255);
-    ellipse(eye1_pos[0], eye1_pos[1]+0.45, (40 + this.eyeSize/3) * scale, 70 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+0.45, (40 + this.eyeSize/3) * scale, 70 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, wideEyed * scale, squinting * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, wideEyed * scale, squinting * scale);
 
     fill(84, 194, 255-this.eyeColor);
-    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 40 * scale, 50 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 40 * scale , 50 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, (wideEyed -10) * scale, (squinting-10) * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, (wideEyed -10) * scale , (squinting-10) * scale);
 
     fill(this.pupilColor);
-    ellipse(eye1_pos[0], eye1_pos[1]+0.45, 20 * scale, 30 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+0.45, 20 * scale, 30 * scale);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.45, (wideEyed -25) * scale, (squinting-20) * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.45, (wideEyed -25) * scale, (squinting-20) * scale);
 
     fill(255);
     ellipse(eye1_pos[0], eye1_pos[1]+0.45, 3 * scale, 3 * scale);
@@ -189,21 +195,21 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
-    this.pupilColor = settings[2];
-    this.eyeColor = settings[3];
-    this.eyeSize = settings [4];
+    this.pupilColor = settings[0];
+    this.eyeColor = settings[1];
+    this.teethPos = settings[2];
+    this.squint = settings[3];
+    this.surprised = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
-    properties[2] = this.pupilColor;
-    properties[3] = this.eyeColor;
-    properties[4] = this.eyeSize;
+    properties[0] = this.pupilColor;
+    properties[1] = this.eyeColor;
+    properties[2] = this.teethPos;
+    properties[3] = this.squint;
+    properties[4] = this.surprised;
 
     return properties;
   }

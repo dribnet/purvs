@@ -1,15 +1,27 @@
 ## PS2 MDDN 342 2017
 
 
-PART 3
+PART 4
 
-I started part 3 by making additional improvements to the positional mappings for my facial features. I noticed in part 2 that some of the facial features weren't positioning or scaling correctly or consistently so fixing this was my first priority.
+I have continued to work on the properties of my face and have created the following paramters that can be adjusted and have adjuted them to the 100 faces as follows;
 
-One example of the changes I made was adding additional mapping of landmarks to the wrinkles/eyebrows(which ever you see it as) so that it responds more to the facial expression, rather than just being a line from point a to b.
+1) pupil shade - intensity of stare
+2) eye colour - emotion (blue being happy)
+3  teeth heigh - adjusted where needed to better sit in the mouth 
+4) wide eyes 
+5) squinting eyes
 
-I also replaced the black fill of the mouth and brows with a more natural colour to try to make it look a little more like my gollum inspiration.
+The majority of these properties are related to the expression of the eyes, however,  this was the core feature of my original PS1 face and it's random properties which I have tried to bring forward into this work.
 
-Lastly, I set up some additional properties that changes pupil shade, eye colour, and eye shape.
+
+
+
+
+
+
+
+
+
 
 
 
