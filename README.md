@@ -16,4 +16,3 @@ UPDATE I'm still trying to figure out the code, I am struggling a bit and will r
 UPDATE
 
 I've now with some help been able to understand the code better and what needs to be done, I've started adding the sldiers and parameters for adding personality to the faces, more on that later. but, so far I have make up on/off when its a woman, nose changes, eye colour and eyebrow changes and cheek colour changes -depending on skin tone-.
-
