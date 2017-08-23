@@ -39,7 +39,9 @@ function FaceMap() {
   this.faceType = 1;
   this.eyeNum = 2;
   this.noseType = 1;
-  this.scheme = 1;
+  this.mouthType = 1;
+  this.colorScheme = 2;
+
 
 
 
@@ -64,18 +66,20 @@ function FaceMap() {
     var face = Math.floor(map(this.faceType,0,100,1,4));
     var eyeNum = Math.floor(map(this.eyeNum,0,100,1,4));
     var noseType = Math.floor(map(this.noseType,0,100,1,3));
-    var scheme = schemes[Math.floor(map(this.scheme,0,100,0,schemes.length-1))];
-    print(Math.floor(map(this.scheme,0,100,0,schemes.length-1)));
+    var mouthType = Math.floor(map(this.mouthType,0,100,1,3));
+    var scheme = schemes[Math.floor(map(this.colorScheme,0,100,0,schemes.length-1))];
+    //print(Math.floor(map(this.colorScheme,0,100,0,schemes.length-1)));
     if(scheme == null){
       scheme = schemes[0];
     }
 
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-    var x = nose_pos[0]-(w*0.45);
-    var y = nose_pos[1]-h/2;
+    var x = nose_pos[0]-(w*0.5);
+    var y = nose_pos[1]-(h*0.45);
 
     faceOffset = -(h*0.05);
+
 
 
     var extent = 0;
@@ -100,7 +104,7 @@ function FaceMap() {
 
     noStroke();
 
-    drawMonster(positions,x,y,w,h,face,noseType,scheme);
+    drawMonster(positions,x,y,w,h,face,noseType,mouthType,mouth_pos,scheme);
 
     //drawFaceV1(positions,h);
     //drawFace2((x*1.1),(y*0.9),w*1.1,h*1.1,color(132,130,237));
@@ -109,21 +113,16 @@ function FaceMap() {
     //drawEye(eye2_pos[0],eye1_pos[1],0.8,white,scheme[2]);
 
     drawEyes(x,y,eye1_pos[0],eye1_pos[1],eye2_pos[0],eye1_pos[1],w,h,scheme[2],eyeNum);
-
-
-    drawMouth1(mouth_pos[0],mouth_pos[1],w*0.2,h*0.1,scheme[5]);
-
-
   }
 
-  function drawMonster(positions,x,y,w,h,face,noseType,scheme){
+  function drawMonster(positions,x,y,w,h,face,noseType,mouthType,mouth_pos,scheme){
 
     //determining type of face
     if(face == 1){
       drawFace1((x),(y),w,h,scheme[1]);
     }
     else if(face == 2){
-      drawFace2((x*1.1),(y*0.9),w*1.1,h*1.1,scheme[1]);
+      drawFace2((x),(y),w,h,scheme[1]);
     }
     else if(face == 3){
       drawFace3((x),(y),w,h,scheme[1]);
@@ -142,65 +141,20 @@ function FaceMap() {
       drawNose3(positions.nose_tip[0][0],positions.nose_tip[0][1],w,h,scheme[4]);
     }
 
+    if(mouthType == 1){
+        drawMouth1(mouth_pos[0],mouth_pos[1],w,h,scheme[5]);
+    }
+    else if(mouthType==2){
+        drawMouth2(mouth_pos[0],mouth_pos[1],w,h,scheme[5]);
+    }
+    else{
+        drawMouth3(mouth_pos[0],mouth_pos[1],w,h,scheme[3],scheme[5]);
+    }
 
 
   }
 
 
-/*
-function drawFaceV1(positions,h){
-
-  var skip = 2;
-
-  var numPoints = 32;
-
-//  ellipse(0, 0, radius, radius);
-
-  var faceCoords=getFacePoints(2,1);
-  var faceShadowCoords = getFacePoints(2,2);
-  var faceShadowRadius = getFacePoints(2,3);
-  //var face1ShadowCoords2 = [31,3];
-
-  noStroke();
-  fill(132,130,237);
-  push();
-  translate(0,faceOffset);
-  beginShape();
-  for(var i=0;i<faceCoords.length;i++)
-  {
-    j = faceCoords[i];
-    var circleX = radius/2* Math.cos(2 * Math.PI * j / numPoints);
-    var circleY = radius/2* Math.sin(2 * Math.PI * j / numPoints);
-    vertex (circleX,circleY);
-  ellipse(circleX,circleY,0.2,0.2);
-  }
-  endShape();
-
-  //shadow
-  fill(shadow);
-  beginShape();
-
-  var counter = 0;
-
-  for(var i=0;i<faceShadowCoords.length;i++)
-  {
-      j = faceShadowCoords[i];
-      fill(shadow);
-      fill(255,0,0);
-      var circleX = (faceShadowRadius[i]/2)* Math.cos(2 * Math.PI * j / numPoints);
-      var circleY = (faceShadowRadius[i]/2)* Math.sin(2 * Math.PI * j / numPoints);
-      ellipse(circleX,circleY,0.2,0.2);
-      vertex (circleX,circleY);
-      counter++;
-  }
-      fill(shadow);
-  endShape();
-  pop();
-
-
-
-}
-*/
 
 //faceType 1: Polygonal, weighted towards bottom
 function drawFace1(x,y,faceWidth,faceHeight,color){
@@ -499,6 +453,9 @@ ellipse(x+mouseXPos,y+mouseYPos,size*0.6,size*0.6);
 function drawNose1(x,y,faceWidth,faceHeight,color){
   fill(color);
 
+  push();
+  translate(x,y);
+
   //draw nose
   var noseWidth =faceWidth*0.1;
   var noseHeight = faceHeight*0.1;
@@ -508,12 +465,14 @@ function drawNose1(x,y,faceWidth,faceHeight,color){
   ellipse(0,0-noseHeight*0.3,noseWidth,noseHeight/2);
   ellipse(0,0,noseWidth/4,noseHeight);
 
+  pop();
+
 }
 
 //nose type 2: triangle
 function drawNose2(x,y,faceWidth,faceHeight,color){
 
-  print ("x = " + x + "y = " + y);
+
 
   var noseDiff = faceWidth*0.05;
 
@@ -542,7 +501,7 @@ function drawNose3(x,y,faceWidth,faceHeight,color){
   noseHeight = (faceHeight*0.2);
 
   push();
-  translate(x,y);
+  translate(x,y-noseHeight*0.24);
 
   fill(color);
   //draw nose
@@ -567,14 +526,17 @@ function drawNose3(x,y,faceWidth,faceHeight,color){
 // mouth type 1: open surprised mouth. Also draws a small tooth
 function drawMouth1(x,y,faceWidth,faceHeight,color){
 
+
+
 fill(color);
   //draw mouth
-  var mouthWidth = faceWidth;
-  var mouthHeight = faceHeight;
+  var mouthWidth = faceWidth*0.2;
+  var mouthHeight = faceHeight*0.1;
   var mouthX = x;
   var mouthY = y;
   ellipse(mouthX,mouthY,mouthWidth,mouthHeight);
 
+  /*
   //tooth 1
   fill(white);
   rectMode(CORNER);
@@ -587,6 +549,75 @@ fill(color);
   var toothX3 = (mouthX-toothDiff*1.9)+toothWidth;
   var toothY3 = mouthY+toothWidth-(mouthHeight/2);
   triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
+  */
+}
+
+//mouth type 2: upside down triangle mouth
+function drawMouth2(x,y,faceWidth,faceHeight,color){
+
+
+  mouthWidth = faceWidth*0.1;
+  mouthHeight = faceHeight*0.05;
+
+
+
+  push();
+  translate(x,y);
+
+fill(color);
+  //draw mouth
+  var mouthX1 = -mouthWidth*0.6;
+  var mouthY1 = mouthHeight*0.4;
+  var mouthX2 = 0;
+  var mouthY2 = -mouthHeight*0.5;
+  var mouthX3 = mouthWidth*0.6;
+  var mouthY3 = mouthHeight*0.4;
+
+  triangle(mouthX1,mouthY1,mouthX2,mouthY2,mouthX3,mouthY3);
+
+  pop();
+
+}
+
+//mouth type 3: mouth that has 2 big teeth
+function drawMouth3 (x,y,faceWidth,faceHeight,color1,color2){
+
+  var mouthWidth = faceWidth * 0.1;
+  var mouthHeight = faceHeight * 0.5;
+
+  push();
+  translate(x,y);
+
+//left tooth
+fill(color1);
+  //draw mouth
+  var toothX1 = -mouthWidth*0.43;
+  var toothY1 = -mouthHeight*0.1;
+  var toothX2 = -mouthWidth*0.45;
+  var toothY2 = mouthHeight*0.05;
+  var toothX3 = 0;
+  var toothY3 = mouthHeight*0.05;
+
+  triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
+
+//right tooth
+  fill(color1);
+    //draw mouth
+    var toothX1 = mouthWidth*0.57;
+    var toothY1 = -mouthHeight*0.1;
+    var toothX2 = mouthWidth*0.55;
+    var toothY2 = mouthHeight*0.05;
+    var toothX3 = 0;
+    var toothY3 = mouthHeight*0.05;
+
+    triangle(toothX1,toothY1,toothX2,toothY2,toothX3,toothY3);
+
+    //quad for lip
+    fill(color2);
+    quad(-mouthWidth*0.43,mouthHeight*0.05,mouthWidth*0.57,mouthHeight*0.05,
+    mouthWidth*0.57,mouthHeight*0.08,-mouthWidth*0.43,mouthHeight*0.08);
+
+    pop();
 }
 
 
@@ -598,16 +629,18 @@ fill(color);
     this.faceType = settings[0];
     this.eyeNum = settings[1];
     this.noseType = settings[2];
-    this.scheme = settings[3];
+    this.mouthType = settings[3]
+    this.colorScheme = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(3);
+    properties = new Array(4);
     properties[0] = this.faceType;
     properties[1] = this.eyeNum;
     properties[2] = this.noseType;
-    properties[3] = this.scheme;
+    properties[3] = this.mouthType;
+    properties[4] = this.colorScheme;
     return properties;
   }
 }
