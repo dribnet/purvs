@@ -266,6 +266,7 @@ function draw () {
     }
 
     image(img, x2, y1, 400, 400);
+    filter(GRAY);
     noStroke();
     var curSliderTintValue = sliderTint.value();
     var overlayAlpha = map(curSliderTintValue, 0, 100, 255, 0);

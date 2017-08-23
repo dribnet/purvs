@@ -119,23 +119,24 @@ function FaceMap() {
     endShape(CLOSE);
     strokeWeight(1);  
 
-    // eyes
+    ///////////////////////////////////////////left eye
+
     push();
     scale(1.4);
     translate(0.2, 0.4);
 
+    //eyeball
     beginShape();
     fill(eyeball_color)
     for(var i=0; i<positions.left_eye.length;i++) {
       curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
     }
-
     endShape(CLOSE);
 
+    //eye center
     push();
     translate((eye1_pos[0]-0.1)+(this.lookPos/500), eye1_pos[1]-0.03);
     scale(this.eyeAngle/100, 1);
-
 
        fill(iris_color);
     ellipse(0, 0, 20 * size, 20 * size);
@@ -144,35 +145,60 @@ function FaceMap() {
     for(var i=0; i<8;i++) {
       ellipse(0, 0, (12+i) * size, (12+i) * size);
     }
-        fill(pupil_color);
+     fill(pupil_color);
     ellipse(0, 0, 8 * size, 8 * size);
-
   pop();
-      fill(255, 255, 255, 5);
-    for (var i=4; i>0;i-=0.02) {
-    ellipse((eye1_pos[0]-0.1), eye1_pos[1]-0.07, i * size, i* size)
-  }
-  push();
 
-  translate(eye1_pos[0], eye1_pos[1]);
-    rotate(-20);
+  //eye highlights
+
+     fill(255, 255, 255, 5);
+    for (var i=4; i>0;i-=0.02) {
+    	ellipse((eye1_pos[0]-0.03), eye1_pos[1]-0.07, i * size, i* size)
+ 	 }
+ 	 push();
+
+ 	 translate(eye1_pos[0], eye1_pos[1]);
+    rotate(-30);
       for (var i=6; i>0;i-=0.02) {
     ellipse(0, 0, i * (size/2), i*size);
   }
   pop();
 
-//eyelids
+  //lower lid shadow
 
-    // fill("#000");
-   
-    // for(var i=0; i<4;i++) {
-    //     ellipse((positions.left_eye[i][0]), (positions.left_eye[i][1]), 0.05, 0.05);   
-    // }
-    //        for(var i=1; i<5;i++) {
-    //     ellipse((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]), 0.05, 0.05);   
-    // }
+       for(var j=0.04; j>0; j-= 0.02){
+    push();
+    translate(-0.02, -j);
+    scale(0.98, 1)
+    fill(0, 0, 0, (20/(j*30)));
+    beginShape();
+    	curveVertex(positions.left_eye[0][0], positions.left_eye[0][1]);
+  	 	for(var i=5; i>=3;i--) {
+        	curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
+    	}
+    	for(var i=3; i<=5;i++) {
+        	curveVertex(positions.left_eye[i][0], (positions.left_eye[i][1])+0.1);
+ 
+    	}
+    endShape(CLOSE);
+    pop();
+    }
 
-    // console.log(positions);
+    //lower lid shape
+
+beginShape();
+	fill(skinMidtone_color[skin_color_value]);
+    curveVertex(positions.left_eye[0][0], positions.left_eye[0][1]);
+  	 	for(var i=5; i>=3;i--) {
+        	curveVertex(positions.left_eye[i][0], positions.left_eye[i][1]);
+    	}
+    	for(var i=3; i<=5;i++) {
+        	curveVertex(positions.left_eye[i][0], (positions.left_eye[i][1])+0.15);
+ 
+    	}
+endShape(CLOSE);
+
+//eyelid shadow
     for(var j=0.01; j<0.1; j+= 0.01){
     push();
     translate(-0.02, j);
@@ -191,7 +217,7 @@ function FaceMap() {
     endShape(CLOSE);
     pop();
 }
-
+//eyelid shape
     beginShape();
 
      fill(skinLowlight_color[skin_color_value]);
@@ -207,7 +233,7 @@ function FaceMap() {
 
     endShape(CLOSE);   
 
-
+//browbone shape
         beginShape();
 
      fill(skinHighlight_color[skin_color_value]);
@@ -227,18 +253,12 @@ function FaceMap() {
    	pop(); 
 
 
-    fill("#000");
-   
-    for(var i=0; i<4;i++) {
-        ellipse((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]), 0.05, 0.05);   
-    }
-          
-
+    //////////////////////////////////////////////////right eye
     push();
     scale(1.4);
     translate(-0.2, 0.4);
 
-
+    //eyeball
     beginShape();
     fill(eyeball_color)
     for(var i=0; i<positions.right_eye.length;i++) {
@@ -251,7 +271,7 @@ function FaceMap() {
     translate((eye2_pos[0]-0.1)+(this.lookPos/500), eye2_pos[1]-0.03);
     scale(this.eyeAngle/100, 1);
 
-
+    //iris
        fill(iris_color);
     ellipse(0, 0, 20 * size, 20 * size);
 
@@ -259,35 +279,61 @@ function FaceMap() {
     for(var i=0; i<8;i++) {
       ellipse(0, 0, (12+i) * size, (12+i) * size);
     }
+    //pupil
         fill(pupil_color);
     ellipse(0, 0, 8 * size, 8 * size);
 
   pop();
+
+  //eye highlights
       fill(255, 255, 255, 5);
     for (var i=4; i>0;i-=0.02) {
-    ellipse((eye2_pos[0]-0.1), eye2_pos[1]-0.07, i * size, i* size)
+    ellipse((eye2_pos[0]-0.1)+0.07, eye2_pos[1]-0.07, i * size, i* size)
   }
   push();
 
   translate(eye2_pos[0], eye2_pos[1]);
-    rotate(-20);
-      for (var i=6; i>0;i-=0.02) {
+    rotate(-30);
+      for (var i=6; i>0;i-=0.01) {
     ellipse(0, 0, i * (size/2), i*size);
   }
   pop();
 
-//eyelids
+  //lower lid shadow
 
-    // fill("#000");
-   
-    // for(var i=0; i<3;i++) {
-    //     ellipse((positions.right_eye[i][0]), (positions.right_eye[i][1]), 0.05, 0.05);   
-    // }
-    //        for(var i=1; i<5;i++) {
-    //     ellipse((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]), 0.05, 0.05);   
-    // }
+       for(var j=0.04; j>0; j-= 0.02){
+    push();
+    translate(0.02, -j);
+    scale(0.98, 1)
+    fill(0, 0, 0, (20/(j*30)));
+    beginShape();
+    	curveVertex(positions.right_eye[0][0], positions.right_eye[0][1]);
+  	 	for(var i=5; i>=3;i--) {
+        	curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
+    	}
+    	for(var i=3; i<=5;i++) {
+        	curveVertex(positions.right_eye[i][0], (positions.right_eye[i][1])+0.1);
+ 
+    	}
+    endShape(CLOSE);
+    pop();
+    }
 
-    // console.log(positions);
+//lower lid shape
+beginShape();
+	fill(skinMidtone_color[skin_color_value]);
+    curveVertex(positions.right_eye[0][0], positions.right_eye[0][1]);
+  	 	for(var i=5; i>=3;i--) {
+        	curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
+    	}
+    	for(var i=3; i<=5;i++) {
+        	curveVertex(positions.right_eye[i][0], (positions.right_eye[i][1])+0.15);
+ 
+    	}
+endShape(CLOSE);
+
+
+//eyelid shadow
     for(var j=0.01; j<0.1; j+= 0.02){
     push();
     translate(0.02, j);
@@ -310,6 +356,7 @@ function FaceMap() {
     pop();
 }
 
+//eyelid shape
 
   beginShape();
 
@@ -326,28 +373,30 @@ function FaceMap() {
 
     endShape(CLOSE);      
 
-
+//browbone shape
         beginShape();
 
      fill(skinHighlight_color[skin_color_value]);
-       for(var i=0; i<4;i++) {
+       for(var i=3; i>=0;i--) {
         var eyelid_value_y = ((positions.right_eye[i][1] + positions.right_eyebrow[i][1])/2.2);
         var eyelid_value_x = ((positions.right_eye[i][0] + positions.right_eyebrow[i+1][0])/2.3);
         curveVertex((eyelid_value_x), (eyelid_value_y));
     }
 
-  	for(var i=4; i>0;i--) {
+  	for(var i=1; i<4;i++) {
         curveVertex((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]));   
     }
-
-
     endShape(CLOSE);  
-     
+
    	pop(); 
 
+   	////////////////////////////////////////eyebrows
+   	//eyebrow guide
 
-    fill("#000");
-   
+    fill("#000"); 
+    for(var i=0; i<4;i++) {
+        ellipse((positions.left_eyebrow[i][0]), (positions.left_eyebrow[i][1]), 0.05, 0.05);   
+    }
     for(var i=1; i<4;i++) {
         ellipse((positions.right_eyebrow[i][0]), (positions.right_eyebrow[i][1]), 0.05, 0.05);   
     }
@@ -370,27 +419,6 @@ function FaceMap() {
   }
 }
 
-function setGradient(x, y, w, h, c1, c2, axis) {
-
-  noFill();
-
-  if (axis == Y_AXIS) {  // Top to bottom gradient
-    for (var i = y; i <= y+h; i++) {
-      var inter = map(i, y, y+h, 0, 1);
-      var c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x+w, i);
-    }
-  }  
-  else if (axis == X_AXIS) {  // Left to right gradient
-    for (var i = x; i <= x+w; i++) {
-      var inter = map(i, x, x+w, 0, 1);
-      var c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(i, y, i, y+h);
-    }
-  }
-}
 // given a point, return the average
 function average_point(list) {
   var sum_x = 0;
