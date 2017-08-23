@@ -60,8 +60,8 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    var curfaceTone = map(this.faceTone, 0, 100, 180, 220);
-    var curfaceColor = map(this.faceColor, 0, 100, 100, 255);
+    var curfaceTone = map(this.faceTone, 0, 100, 180, 255);
+    var curfaceColor = map(this.faceColor, 0, 100, 200, 255);
     var whicheyeType = map(this.eyeType, 0, 100, 0, 2);
     var whicheyeColor = map(this.eyeColor, 0, 100, 0, 100);
     var whatpupilSize = map(this.pupilSize, 0, 100, 8, 15);
@@ -228,8 +228,8 @@ function FaceMap() {
       noFill();
       stroke(whichstrokeColor);
       strokeWeight(0.02);
-      ellipse(eye1_pos[0] - faceOffset, eye1_pos[1]+20 * scale, 30 * scale, 45 * scale);
-      ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 30 * scale, 45 * scale);
+      ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 30 * scale, 45 * scale);
+      ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 30 * scale, 45 * scale);
     }
 
     //eye type 3 - square
