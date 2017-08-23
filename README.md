@@ -20,3 +20,5 @@ I've now with some help been able to understand the code better and what needs t
 UPDATE 
 
 I've started plugging in the values and seeing how they respond to the code, so far its going good, I still need to add more sliders and more variables so work in progress.
+
+UPDATE I've pullged in all my variables but will hopefully add more, i feel like I'm starting to get some good identifiers and ways of seeing what characteristics of the persons face are. Further work to be done.

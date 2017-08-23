@@ -20,6 +20,7 @@ function FaceMap() {
   this.hasEyeshadow = 50;
   this.lipcolor = 50;
   this.facepaint = 50;
+  this.cheekPosition = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -46,6 +47,7 @@ function FaceMap() {
     var hasEyeshadow = map(this.hasEyeshadow, 0,100);
     var lipcolor = map(this.lipcolor, 0, 100, 0, 255);
     var facepaint = map(this.facepaint,0, 100, 0, 255);
+    var cheekPosition = map(this.cheekPosition, 0, 100, 0, 2);
     //fill(cheeks);
     //var cheeks = map(this.cheeks, 0, 10, 0, 3);
     //rect(-3, -2*curHairLength, 6, 3*curHairLength);
@@ -74,10 +76,10 @@ function FaceMap() {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-1);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-1);
     }
     endShape(CLOSE);
 
@@ -96,9 +98,16 @@ function FaceMap() {
     endShape(CLOSE);
 
     //cheeks
+   if (this.cheekPosition > 50){ 
     fill(213,cheeks,151);
     ellipse(eye1_pos[0], eye1_pos[1]+1, 80 * scale, 40 * scale);
     ellipse(eye2_pos[0], eye2_pos[1]+1, 80 * scale, 40 * scale);
+  }
+  else{
+    fill(213,cheeks,151);
+    ellipse(eye1_pos[0], eye1_pos[1]+0.7, 80 * scale, 40 * scale);
+    ellipse(eye2_pos[0], eye2_pos[1]+0.7, 80 * scale, 40 * scale);
+  }
 
     // nose
     fill(161,facepaint,facepaint);
@@ -202,6 +211,7 @@ if(this.hasEyeshadow > 50){
     this.hasEyeshadow = settings[5];
     this.lipcolor = settings[6];
     this.facepaint = settings[7];
+    this.cheekPosition = settings[8];
    // this.hairColor = settings[1];
 
   }
@@ -217,6 +227,7 @@ if(this.hasEyeshadow > 50){
     properties[5] = this.hasEyeshadow;
     properties[6] = this.lipcolor;
     properties[7] = this.facepaint;
+    properties[8] = this.cheeksPosition;
     return properties;
   }
 }
