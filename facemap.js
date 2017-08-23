@@ -12,6 +12,9 @@ stroke_color = [95, 52, 8];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
+  this.tilt_value = random(0,100);
+  this.eye_value = random(0,100);
+  this.colour_random = random(-50,30);
 
   /*
    * Draw a face with position lists that include:
@@ -30,8 +33,7 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
+    fill(map(this.tilt_value,0,100,91,150),map(this.eye_value,0,100,45,65),map(this.eye_value,0,100,12,120));
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
     rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
@@ -52,7 +54,13 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     noStroke();
-    fill(fg_color);
+    fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
+    ellipse(positions.right_eyebrow[2][0]+120*scale,positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/40,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/20)
+    ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/40,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/20)
+    fill(211,191,180);
+    ellipse(positions.right_eyebrow[2][0]+120*scale,positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/54,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/27)
+    ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/54,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/27)   
+    fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
     ellipse((positions.chin[0][0]+positions.chin[16][0])/2,
       (positions.chin[0][1]+positions.chin[16][1])/2,
       sqrt(sq(positions.chin[0][0]-positions.chin[13][0])+sq(positions.chin[0][1]-positions.chin[13][1])),
@@ -67,9 +75,6 @@ function FaceMap() {
     }
     for(var i=positions.right_eyebrow.length-1; i>=2;i--) {
       vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    for(var i=positions.left_eyebrow.length-2; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
     endShape(CLOSE);
     //map
@@ -111,23 +116,36 @@ function FaceMap() {
     curveVertex(positions.nose_tip[4][0], positions.nose_tip[4][1]);
     curveVertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
     endShape(CLOSE);
-    fill(bg_color);
     // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
 
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
- 
+
+
+    fill(255);
+    ellipse(eye1_pos[0], eye1_pos[1], 60 * (positions.left_eye[0][0]-positions.left_eye[4][0])/40, 120 * (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    ellipse(eye2_pos[0], eye2_pos[1], 60 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 120 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+    //fill1
+    fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,0),map(this.eye_value,0,100,61,0));
+    ellipse(eye1_pos[0]-(5* scale),eye1_pos[1]-(9* scale),35* (positions.left_eye[0][0]-positions.left_eye[4][0])/40,75* (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    fill(map(this.tilt_value,0,100,0,208),map(this.eye_value,0,100,0,29),map(this.eye_value,0,100,0,95));
+    ellipse(eye1_pos[0]-(5* scale),eye1_pos[1]-(4* scale),30* (positions.left_eye[0][0]-positions.left_eye[4][0])/40,60* (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    fill(map(this.tilt_value,0,100,255,244),map(this.eye_value,0,100,255,241),map(this.eye_value,0,100,255,88));
+    ellipse(eye1_pos[0]-(8* scale),eye1_pos[1]-(21* scale),13* (positions.left_eye[0][0]-positions.left_eye[4][0])/40,21* (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    fill('#FFFFFF');
+    ellipse(eye1_pos[0]-(6* scale),eye1_pos[1]-(8* scale),6* (positions.left_eye[0][0]-positions.left_eye[4][0])/40,12* (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    fill('#FFFFFF');
+    ellipse(eye1_pos[0]-(3* scale),eye1_pos[1]+(14* scale),11* (positions.left_eye[0][0]-positions.left_eye[4][0])/40,17* (positions.left_eye[5][1]-positions.left_eye[2][1])/15);
+    //fill2
+    fill(map(this.tilt_value,0,100,247,0),map(this.eye_value,0,100,193,161),map(this.eye_value,0,100,61,186));
+    ellipse(eye2_pos[0]+(5* scale), eye2_pos[1]-(9* scale), 35 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 75 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+    fill('#000000');
+    ellipse(eye2_pos[0]+(5* scale), eye2_pos[1]-(4* scale), 30 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 60 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+    fill(map(this.tilt_value,0,100,255,212),map(this.eye_value,0,100,255,29),map(this.eye_value,0,100,255,96));
+    ellipse(eye2_pos[0]+(4* scale), eye2_pos[1]-(19* scale), 13 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 21 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+    fill('#ffffff');
+    ellipse(eye2_pos[0]+(7* scale), eye2_pos[1]-(6* scale), 6 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 12 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+        fill(map(this.tilt_value,0,100,255,244),map(this.eye_value,0,100,255,241),map(this.eye_value,0,100,255,88));
+    ellipse(eye2_pos[0]+(7* scale), eye2_pos[1]+(14* scale), 11 * (positions.right_eye[0][0]-positions.right_eye[4][0])/40, 17 * (positions.right_eye[5][1]-positions.right_eye[2][1])/15); 
+
   }
 
   /* set internal properties based on list numbers 0-100 */
