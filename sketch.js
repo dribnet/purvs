@@ -480,10 +480,6 @@ function draw () {
 
     textDisplay = "Neighbors: " + trainDataKeys[curTrainIndex];
   }
-
-<<<<<<< HEAD
-  fill(50);
-=======
   else if (mode == 'TrainQuiz' || mode == 'ValidQuiz') {
     var curKey = trainDataKeys[curTrainIndex];
     var data = trainData[curKey];
@@ -517,7 +513,7 @@ function draw () {
     for(var i=0; i<4; i++) {
       // var keys = Object.keys(trainData);
       var curKey = curNeighbors[i];
-      var nearData = trainData[curKey];      
+      var nearData = trainData[curKey];
 
       // Displays the image at its actual size at point (0,0)
       var img = nearData.image
@@ -591,7 +587,7 @@ function draw () {
           // if(otherKeys.length > j+2) {
           //   while(answerKeys.indexOf(guess) == -1) {
           //     guess = int(focusedRandom(0, otherKeys.length));
-          //   }            
+          //   }
           // }
           curKey = otherKeys[guess];
         }
@@ -618,7 +614,7 @@ function draw () {
         littleFace.setProperties(settings);
         littleFace.draw(shifted_positions);
         pop();
-        if(quiz_done && guessed_answer == (j+1)) {          
+        if(quiz_done && guessed_answer == (j+1)) {
           push();
           translate(x2, y2);
           noFill();
@@ -638,23 +634,23 @@ function draw () {
           if (valid_mode && (answerSlot+1) == (j+1)) {
             for(var k=0; k<4; k++) {
               var curKey = validTrainKeys[k];
-              var nearData = trainData[curKey];      
+              var nearData = trainData[curKey];
               // Displays the image at its actual size at point (0,0)
               var img = nearData.image
               var x2 = (width/2 - 200 + j*100 + (k%2)*40);
               var y4 = y3 + (int(k/2))*40;
-              image(img, x2, y4, 40, 40);              
+              image(img, x2, y4, 40, 40);
             }
           }
           else {
             var curKey = answerKeys[j];
-            var nearData = trainData[curKey];      
+            var nearData = trainData[curKey];
             // Displays the image at its actual size at point (0,0)
             var img = nearData.image
             var x2 = (width/2 - 200 + j*100);
-            image(img, x2, y3, 80, 80);            
+            image(img, x2, y3, 80, 80);
           }
-        }          
+        }
       }
     }
 
@@ -663,7 +659,7 @@ function draw () {
         textDisplay = "ValidQuiz: hit spacebar to continue";
       }
       else {
-        textDisplay = "ValidQuiz: hit 1, 2, 3, or 4 to guess";        
+        textDisplay = "ValidQuiz: hit 1, 2, 3, or 4 to guess";
       }
     }
     else {
@@ -671,14 +667,12 @@ function draw () {
         textDisplay = "TrainQuiz: hit spacebar to continue";
       }
       else {
-        textDisplay = "TrainQuiz: hit 1, 2, 3, or 4 to guess";        
+        textDisplay = "TrainQuiz: hit 1, 2, 3, or 4 to guess";
       }
     }
   }
 
-
-  fill(255);
->>>>>>> upstream/part5
+  fill(50);
   textSize(32);
   textAlign(CENTER);
   text(textDisplay, width/2, height-12);
@@ -710,7 +704,7 @@ function keyTyped() {
     faceSelector.value('ValidQuiz');
   }
 
-  if (key == ' ' && 
+  if (key == ' ' &&
     (mode == 'TrainQuiz' || mode == 'ValidQuiz') && quiz_done) {
     quiz_done = false;
     if(mode == 'TrainQuiz') {
@@ -719,7 +713,7 @@ function keyTyped() {
     else {
         curValidIndex = (curValidIndex + 1) % validDataKeys.length;
     }
-    changeRandomSeed();    
+    changeRandomSeed();
   }
   else if ((mode == 'TrainQuiz' || mode == 'ValidQuiz') && quiz_done == false) {
     if(key >= '1' && key <= '4') {
