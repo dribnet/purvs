@@ -9,18 +9,24 @@ bg_color = [225, 206, 187];
 fg_color = [151, 102, 52];
 stroke_color = [156, 106, 127];
 eye_stroke_color = [64, 102, 207];
+green_eye_color = [119, 156, 82, 150];
+green_eye_stroke_color = [76, 104, 49];
 cheek_stroke_color = [224, 125, 187];
 mouth_stroke_color = [79, 44, 66];
-
-alpha_ran = focusedRandom(80, 200);
-alpha_ran2 = focusedRandom(40, 60);
 face_col = [234, 215, 215];
 eye_col = [120, 152, 255, 100];
 cheek_col = [224, 125, 229, 40];
 
+alpha_ran = focusedRandom(80, 200);
+alpha_ran2 = focusedRandom(40, 60);
+
+
 function FaceMap() {
   this.faceColor = 50;
   this.faceTone = 50;
+  this.eyeType = 50;
+  this.eyeColor = 50;
+  this.pupilSize = 100;
 
   /*
    * Draw a face with position lists that include:
@@ -66,6 +72,8 @@ function FaceMap() {
     var curfaceTone = map(this.faceTone, 0, 100, 180, 220);
     var curfaceColor = map(this.faceColor, 0, 100, 100, 255);
     var whicheyeType = map(this.eyeType, 0, 100, 0, 2);
+    var whicheyeColor = map(this.eyeColor, 0, 100, 0, 100);
+    var whatpupilSize = map(this.pupilSize, 0, 100, 8, 15);
 
 
     fill(234, 215, curfaceTone);
@@ -166,37 +174,94 @@ function FaceMap() {
     }
     endShape();
 
-
-    //blue eyes
-    push();
-    beginShape();
-    translate(faceOffset, 0.3);
-    strokeWeight(0.02);
-    stroke(eye_stroke_color);
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0]+(random(0, 4)*scale), positions.left_eye[i][1]+(random(0, 4)*scale));
+    //runs through the colour map and applies to all solid parts of the eyes
+    if (whicheyeColor < 20){
+        whicheyeColor = [216, 216, 58, 180];
+        whichstrokeColor = [186, 186, 50];
     }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0]+(random(0, 4)*scale), positions.right_eye[i][1]+(random(0, 4)*scale));
+    else if (whicheyeColor < 40){
+        whicheyeColor = [216, 216, 168, 180];
+        whichstrokeColor = [191, 191, 147];
     }
-    endShape(CLOSE);
-    pop();
+    else if (whicheyeColor < 60){
+        whicheyeColor = [216, 216, 255, 180];
+        whichstrokeColor = [192, 192, 226];
+    }
+    else if (whicheyeColor < 80){
+        whicheyeColor = [81, 127, 255, 180];
+        whichstrokeColor = [68, 107, 214];
+    }
+    else{
+        whicheyeColor = [175, 136, 216, 180];
+        whichstrokeColor = [148, 115, 183];
+    }
 
-    noStroke();
-    fill(eye_col);
-    ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
 
-    noFill();
-    stroke(eye_stroke_color);
-    strokeWeight(0.02);
-    ellipse(eye1_pos[0] + faceOffset, eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
-    noStroke();
+    //eye type 1 - sketchy electronic lines in middle
+    if(this.eyeType > 34 & this.eyeType < 66){
+      push();
+      beginShape();
+      translate(faceOffset, 0.3);
+      strokeWeight(0.02);
+      stroke(whichstrokeColor);
+      for(var i=0; i<positions.left_eye.length;i++) {
+        vertex(positions.left_eye[i][0]+(random(0, 4)*scale), positions.left_eye[i][1]+(random(0, 4)*scale));
+      }
+      endShape(CLOSE);
+      beginShape();
+      for(var i=0; i<positions.right_eye.length;i++) {
+        vertex(positions.right_eye[i][0]+(random(0, 4)*scale), positions.right_eye[i][1]+(random(0, 4)*scale));
+      }
+      endShape(CLOSE);
+      pop();
+
+      noStroke();
+      fill(whicheyeColor);
+      ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 3 * whatpupilSize * scale, 3 * whatpupilSize * scale);
+      ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 3 * whatpupilSize * scale, 3 * whatpupilSize * scale);
+
+      noFill();
+      stroke(whichstrokeColor);
+      strokeWeight(0.02);
+      ellipse(eye1_pos[0] + faceOffset, eye1_pos[1]+20 * scale, 35 * scale, 35 * scale);
+      ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 35 * scale, 35 * scale);
+    }
+
+
+    //eye type 2 - rounded with skewed stroke outline
+    if(this.eyeType < 33){
+      strokeWeight(0.02);
+      noStroke();
+      fill(whicheyeColor);
+      ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 3 * whatpupilSize * scale, 3 * whatpupilSize * scale);
+      ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 3 * whatpupilSize * scale, 3 * whatpupilSize * scale);
+
+      noFill();
+      stroke(whichstrokeColor);
+      strokeWeight(0.02);
+      ellipse(eye1_pos[0] - faceOffset, eye1_pos[1]+20 * scale, 30 * scale, 45 * scale);
+      ellipse(eye2_pos[0] + faceOffset, eye2_pos[1]+20 * scale, 30 * scale, 45 * scale);
+    }
+
+    //eye type 3 - square
+    if(this.eyeType > 67 & this.eyeType < 101){
+      strokeWeight(0.02);
+      noStroke();
+      fill(whicheyeColor);
+      ellipse(eye1_pos[0], eye1_pos[1]+20 * scale, 2 * whatpupilSize * scale, 2 * whatpupilSize * scale);
+      ellipse(eye2_pos[0], eye2_pos[1]+20 * scale, 2 * whatpupilSize * scale, 2 * whatpupilSize * scale);
+
+      noFill();
+      stroke(whichstrokeColor);
+      strokeWeight(0.02);
+      rectMode(CENTER);
+      rect(eye1_pos[0], eye1_pos[1]+20 * scale, 30 * scale, 30 * scale);
+      rect(eye2_pos[0], eye2_pos[1]+20 * scale, 30 * scale, 30 * scale);
+    }
+
 
     // cheeks
+    noStroke();
     fill(cheek_col);
     //left
     ellipse(eye1_pos[0]-15 * scale, eye1_pos[1]+80 * scale, 50 * scale, 50 * scale);
@@ -210,6 +275,9 @@ function FaceMap() {
   this.setProperties = function(settings) {
     this.faceColor = settings[0];
     this.faceTone = settings[1];
+    this.eyeType = settings[2];
+    this.eyeColor = settings[3];
+    this.pupilSize = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -217,6 +285,9 @@ function FaceMap() {
     properties = new Array(2);
     properties[0] = this.faceColor;
     properties[1] = this.faceTone;
+    properties[2] = this.eyeType;
+    properties[3] = this.eyeColor;
+    properties[4] = this.pupilSize;
     return properties;
   }
 }
