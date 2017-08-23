@@ -111,7 +111,7 @@ function setup () {
     sliders.push(slider);
   }
 
-  sliderTint = createSlider(0, 100, 10);
+  sliderTint = createSlider(0, 100, 20);
   sliderTint.parent("sliderTintContainer");
 
   /* and the buttons */
@@ -270,7 +270,7 @@ function draw () {
     noStroke();
     var curSliderTintValue = sliderTint.value();
     var overlayAlpha = map(curSliderTintValue, 0, 100, 255, 0);
-    fill(bg_color1[0], bg_color1[1], bg_color1[2], overlayAlpha);
+    fill(bg_color2[0], bg_color2[1], bg_color2[2], overlayAlpha);
     rect(x2, y1, 400, 400);
     stroke(0);
     fill(255);

@@ -202,6 +202,29 @@ function FaceMap() {
       endShape();
     }
 
+    // drawing cheeks
+    var cheek_color = [];
+    cheek_color.push([224,80,111]);
+    cheek_color.push([212,76,104]);
+    cheek_color.push([199,71,98]);
+    cheek_color.push([173,62,85]);
+    cheek_color.push([135,48,67]);
+    cheek_color.push([147,54,73]);
+    cheek_color.push([83,31,41]);
+    cheek_color.push([71,26,35]);
+
+    fill(cheek_color[0]);
+
+    rotate(-35);
+    ellipse(positions.chin[0][0]+(30*scale),positions.nose_tip[0][1]-(20*scale),60*scale,90*scale);
+
+    rotate(55);
+    ellipse(chin_max_x-(30*scale),positions.nose_tip[0][1]+(10*scale),50*scale,80*scale);
+
+    // reset rotation
+    rotate(-20);
+
+
     // drawing head shapes with stroke
     if(this.headShape < 33) {
       noFill();
