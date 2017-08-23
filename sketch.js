@@ -192,7 +192,7 @@ function changeRandomSeed() {
 }
 
 function mouseClicked() {
-  // changeRandomSeed();
+  changeRandomSeed();
 }
 
 var quiz_done = false;
