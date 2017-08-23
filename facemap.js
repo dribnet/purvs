@@ -13,7 +13,8 @@ mouth_color = [61,61,61];
 
 function FaceMap() {
   this.hairColor = 50;
-  this.faceColor = 0;  
+  this.faceColor = 50;
+  this.eyeColor = 0;
 
 
   /*
@@ -37,18 +38,21 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curForehead = Math.floor(map(this.forehead, 0, 100, 0, 2));
+    var forehead = Math.floor(map(this.forehead, 0, 100, 0, 2));
     var hairDots = Math.floor(map(this.hair, 0, 100, 0, 3));
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    var curFaceColor = map(this.faceColor, 0, 100, 100, 20); 
+    var hairColor = map(this.hairColor, 0, 100, 200, 20);
+    var faceColor = map(this.faceColor, 0, 100, 100, 20); 
+    var eyeColor = Math.floor(map(this.eyeColor, 0, 100, 0, 4));
     
+//faceColor = 50;
 
-176, 214, 152
       //forehead
-fill(curFaceColor+76, curFaceColor+114, curFaceColor + 52);
+fill(faceColor+76, faceColor+114, faceColor + 52);
+//fill(fg_color);
 
 noStroke();
 beginShape();
+      vertex(positions.chin[2][0], positions.chin[2][1]);
 vertex(positions.chin[0][0], positions.chin[0][1]);
 vertex(positions.left_eyebrow[0][0] -0.1, positions.left_eyebrow[0][1] - 1 ) ;
 vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  - 1.2) ;
@@ -61,11 +65,12 @@ vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1] -1.4 ) ;
 vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1] -1.2 ) ;
 vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1] -1 ) ;
 vertex(positions.chin[16][0], positions.chin[16][1]);
+ vertex(positions.chin[14][0], positions.chin[14][1]);
 endShape();
 
 
       //ears
-      fill(curFaceColor+76, curFaceColor+114, curFaceColor + 52);
+      fill(faceColor+76, faceColor+114, faceColor + 52);
       beginShape(); 
         vertex(positions.chin[16][0], positions.chin[16][1]-0.1+0.3);
         vertex(positions.chin[16][0]+0.5, positions.chin[16][1]+0.3);
@@ -108,7 +113,7 @@ endShape();
     // head
     noStroke();
     
-    fill(curFaceColor+76, curFaceColor+114, curFaceColor + 52);
+    fill(faceColor+76, faceColor+114, faceColor + 52);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
@@ -176,8 +181,21 @@ endShape();
       endShape();
       pop();
 
-
-    fill(0);
+      if (eyeColor == 0){
+        fill(0);
+    }
+    if (eyeColor == 1){
+        fill(140, 103, 32);
+    }
+      if (eyeColor == 2){
+        fill(30, 65, 122);
+    }
+      if (eyeColor == 3){
+        fill(79, 59, 20);
+    }
+      if(eyeColor == 4){
+         fill(73, 104, 37);
+      }
     noStroke();
     ellipseMode(CENTER);
     ellipse(eye1_pos[0], eye1_pos[1], 0.2, 0.2);
@@ -262,11 +280,11 @@ endShape();
       //forehead wrinkles
       stroke(stroke_color);
       noFill();
-      if(curForehead ==0){
+      if(forehead ==0){
           
       }
       
-      if (curForehead ==1){
+      if (forehead ==1){
            beginShape();
 vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  - 0.6) ;
 vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1] -0.7 ) ;
@@ -279,7 +297,7 @@ vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1] -0.6) ;
       endShape();
       }
       
-      if (curForehead ==2){
+      if (forehead ==2){
            beginShape();
 vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]  - 0.6) ;
 vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1] -0.7 ) ;
@@ -304,9 +322,10 @@ vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1] -0.5) ;
      
 
     //hair
-
-      fill(curHairColor);
-      noStroke();
+    stroke(61,61,61);
+    strokeWeight(0.01);
+      fill(hairColor);
+      
 
       if(hairDots ==0){
 
@@ -392,16 +411,18 @@ vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
   	this.forehead = settings[0];
   	this.hair = settings [1];
     this.hairColor = settings [2];
-    this.faceColor = settings [3];  
+    this.faceColor = settings [3];
+    this.eyeColor = settings [4];  
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
+    properties = new Array(5);
     properties[0] = this.forehead;
     properties[1] = this.hair;
     properties[2] = this.hairColor;
-    properties[3] = this.faceColor;  
+    properties[3] = this.faceColor;
+    properties[4] = this.eyeColor; 
       
     return properties;
   }
