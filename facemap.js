@@ -11,11 +11,10 @@ fill_color = [255,255,255];
 stroke_color = [30,30,30];
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
   this.jawShape = 50;
   this.headShape = 50;
   this.mouthShape = 50;
+  this.cheekColor = 50;
 
   /*
    * Draw a face with position lists that include:
@@ -35,12 +34,6 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    // rect(-3, -2*curHairLength, 6, 3*curHairLength);
-    var curJawShape = map(this.jawShape, 0, 100, 0, 3);
 
     var extent = 0;
     if(h < w) {
@@ -203,17 +196,14 @@ function FaceMap() {
     }
 
     // drawing cheeks
-    var cheek_color = [];
-    cheek_color.push([224,80,111]);
-    cheek_color.push([212,76,104]);
-    cheek_color.push([199,71,98]);
-    cheek_color.push([173,62,85]);
-    cheek_color.push([135,48,67]);
-    cheek_color.push([147,54,73]);
-    cheek_color.push([83,31,41]);
-    cheek_color.push([71,26,35]);
+    var cheek_color,
+        c1 = color(224,80,111),
+        c2 = color(71,26,35),
+        inter = map(this.cheekColor,0,100,0,1);
 
-    fill(cheek_color[0]);
+    cheek_color = lerpColor(c1, c2, inter);
+
+    fill(cheek_color);
 
     rotate(-35);
     ellipse(positions.chin[0][0]+(30*scale),positions.nose_tip[0][1]-(20*scale),60*scale,90*scale);
@@ -384,8 +374,7 @@ function FaceMap() {
     triangle(positions.nose_bridge[2][0],positions.nose_bridge[2][1],positions.nose_tip[0][0],positions.nose_tip[0][1],positions.nose_tip[positions.nose_tip.length-1][0],positions.nose_tip[positions.nose_tip.length-1][1]);
 
     // mouth
-    // if (top_lip_height > (bottom_lip_height*0.75)){
-    if (this.mouthShape > 50){
+    if (this.mouthShape >= 50){
       // draw indifferent mouth
       triangle(positions.top_lip[0][0],positions.top_lip[0][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1],top_lip_max_x,top_lip_max_y);
     }
@@ -423,21 +412,19 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
-    this.jawShape = settings[2];
-    this.headShape = settings[3];
-    this.mouthShape = settings[4];
+    this.headShape = settings[0];
+    this.jawShape = settings[1];
+    this.mouthShape = settings[2];
+    this.cheekColor = settings[3];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
-    properties[2] = this.jawShape;
-    properties[3] = this.headShape;
-    properties[4] = this.mouthShape;
+    properties[0] = this.headShape;
+    properties[1] = this.jawShape;
+    properties[2] = this.mouthShape;
+    properties[3] = this.cheekColor;
     return properties;
   }
 }

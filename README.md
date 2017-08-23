@@ -1,3 +1,5 @@
 ## PS2 MDDN 342 2017
 
-I've now finalised my design so that all the facial components from PS1 are being drawn using values calculated from the landmarks. This took a lot longer than expected to translate all the variables I'd meticulously calculated to using the landmarks, as I still wanted to retain similar face shapes and styles to the previous project.
+I've set up 4 properties to be adjusted using the sliders. These are 'Head Shape' (the top shape making up the face - judged on forehead height), 'Jaw Shape' (the lower shape making up the face - judged on jaw width), 'Mouth Shape' (whether the mouth is happy or sad/indifferent - judged on whether the face appears to be smiling or not), and 'Cheek Colour' (this colour lerps between two shades of pink/red where the lighter they are, the more feminine the face, and the darker the more masculine).
+
+I've now gone through all of the training faces, and adjusted all these slider properties for each face.
