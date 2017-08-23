@@ -184,8 +184,10 @@ if(this.hasEyeshadow > 50){
   //ears
   fill(174, facepaint, facepaint);
   stroke(0,0,0);
-  triangle(-0.5, -3.5, -1.5, -3, -0.5, -2.5);
-  triangle(0.5, -3.5, 1.5, -3, 0.5, -2.5);
+  triangle(-1.5, -4, -1.5, -3.1, -0.5, -3.4);
+  triangle(-1.4,-4.1,-1.8,-3.8,-1.4,-3.5);
+  triangle(1.5, -4, 1.5, -3.1, 0.5, -3.4);
+  triangle(1.4,-4.1,1.8,-3.8,1.4,-3.5);
 
     // fill(stroke_color);
     // beginShape();

@@ -21,4 +21,10 @@ UPDATE
 
 I've started plugging in the values and seeing how they respond to the code, so far its going good, I still need to add more sliders and more variables so work in progress.
 
-UPDATE I've pullged in all my variables but will hopefully add more, i feel like I'm starting to get some good identifiers and ways of seeing what characteristics of the persons face are. Further work to be done.
+UPDATE 
+
+I've plugged in all my variables but will hopefully add more, i feel like I'm starting to get some good identifiers and ways of seeing what characteristics of the persons face are. Further work to be done.
+
+UPDATE
+
+I've now added more images to the mix to see how my variables are responding, so far it looks good and now I'm taking a further look at other elements of the face, I've started changing the ears and will see what else i can do.
