@@ -55,10 +55,10 @@ function FaceMap() {
 
     noStroke();
     fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
-    ellipse(positions.right_eyebrow[2][0]+120*scale,positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/40,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/20)
+    ellipse(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/40,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/20)
     ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/40,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/20)
     fill(211,191,180);
-    ellipse(positions.right_eyebrow[2][0]+120*scale,positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/54,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/27)
+    ellipse(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/54,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/27)
     ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/54,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/27)   
     fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
     ellipse((positions.chin[0][0]+positions.chin[16][0])/2,
