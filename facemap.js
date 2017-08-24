@@ -7,7 +7,7 @@ fg_color = [[255,229,0,50],[255,229,0,100],[255,229,0,150],[255,229,0,200], [255
 body_color = [[255,110,0,100],[255,110,0,200], [255,110,0]];
 body_color2 = [[255,0,0,100],[255,0,0,200], [255,0,0]];
 stroke_color = [95, 52, 8];
-
+var fireMove = 1;
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
@@ -58,13 +58,10 @@ function FaceMap() {
     }
     var scale2 = extent / 220.0;
 
-    // Uncomment to see drawing area
-//     fill(255);
-//     stroke(0);
-//     rect(x-w/2, y-h/2, w, h);
-//     fill(0)
-//     ellipse(x, y, w, h);
- 
+      noStroke();
+         
+     fireMove = fireMove+0.05;
+function occilation(n){return Math.sin(fireMove+n)*0.1}
       //fire1
          var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
         var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
@@ -82,7 +79,7 @@ function FaceMap() {
       for(var i=8; i<positions.chin.length-1;i++) {
       vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
     }
-          vertex(fire_pos[n][0]+fw[n], fh[n]);
+          vertex(fire_pos[n][0]+fw[n]+occilation(n), fh[n]);
        endShape(CLOSE);
       }
 pop();
@@ -100,7 +97,7 @@ pop();
       for(var i=8; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
     }
-          vertex(fire_pos2[n][0]+fw[n], fh[n]);
+          vertex(fire_pos2[n][0]+fw[n]+occilation(n), fh[n]);
        endShape(CLOSE);
       }
 pop();
@@ -118,7 +115,7 @@ pop();
        vertex(positions.chin[16][0]-0.2, -0.8);
       vertex(positions.chin[16][0]-0.5, -1.3);
       vertex(positions.chin[16][0]-1, -1.8);
-      vertex(0, -2.3);
+      vertex(0+occilation(n), -2.3);
       vertex(positions.chin[0][0]+1, -1.8);
       vertex(positions.chin[0][0]+0.5, -1.3);
        vertex(positions.chin[0][0]+0.2, -0.8);
