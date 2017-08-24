@@ -1,5 +1,11 @@
 // other variables can be in here too
-// these control the colors used
+/*
+hair shade = eye brow tint and body layers opacity
+hair colour (blonde is more yellow, black is more red something like that) = body colour
+skin colour = opacity of the main body.
+eye colour = eye color
+hair length = how high the points are
+*/
 bg_color = [225, 206, 187];
 bg_color = 0;
 //fg and body color getting less transparent
@@ -7,11 +13,18 @@ fg_color = [[255,229,0,50],[255,229,0,100],[255,229,0,150],[255,229,0,200], [255
 body_color = [[255,110,0,100],[255,110,0,200], [255,110,0]];
 body_color2 = [[255,0,0,100],[255,0,0,200], [255,0,0]];
 stroke_color = [95, 52, 8];
-
+var fireMove = 1;
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
-  this.eyeColor = [56, 14, 11];
+    
+    this.hairOpacity = 50;
+    this.bodyColourR = 255;
+    this.bodyColourG = 50;
+    this.bodyColourB = 50;
+    this.skinOpacity = 50;
+    this.eyeHue = 0;
+    this.hairLength = 0;
+    this.eyeBrightness = 0;
+
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -43,12 +56,13 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-      //For training mode later
-//    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-//    fill(curHairColor);
-//    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-//    rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
+      noStroke();
+         
+     fireMove = fireMove+0.05;
+function occilation(n){return Math.sin(fireMove+n)*0.1}
+      
+      
     var extent = 0;
     if(h < w) {
       extent = h / 2;
@@ -59,16 +73,25 @@ function FaceMap() {
     var scale2 = extent / 220.0;
 
     // Uncomment to see drawing area
-//     fill(255);
-//     stroke(0);
-//     rect(x-w/2, y-h/2, w, h);
-//     fill(0)
-//     ellipse(x, y, w, h);
- 
+    // fill(255);
+    // stroke(0);
+    // rect(x-w/2, y-h/2, w, h);
+    // fill(0)
+    // ellipse(x, y, w, h);
+
+    var curHairLength = map(this.hairLength, 0, 100, -0.5, 1.5);
+
       //fire1
          var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
         var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
-              fill(body_color2[1]);
+        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 70);
+        var curRed = map(this.bodyColourR, 0, 100, 0, 255);
+      var curGreen = map(this.bodyColourG, 0, 100, 0, 150);
+      var curBlue = map(this.bodyColourB, 0, 100, 0, 150);
+
+       //var curGreen = 50;
+      //var curBlue = 100;
+              fill(curRed, curGreen, curBlue, curHairOpacity);
       push();
       scale(1.05,1);
       translate(0,-0.3);
@@ -82,14 +105,19 @@ function FaceMap() {
       for(var i=8; i<positions.chin.length-1;i++) {
       vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
     }
-          vertex(fire_pos[n][0]+fw[n], fh[n]);
+          vertex(fire_pos[n][0]+fw[n]+occilation(n), fh[n]+curHairLength);
        endShape(CLOSE);
       }
 pop();
       //fire2
              var fh=[ -2,-2.2,-3,-3,-3.3]  
         var fw=[ -0.4,0.4, -0.2,0.2,0]
-      fill(body_color[1]);
+        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 70);
+      var curRed = map(this.bodyColourR, 0, 100, 0, 255);
+      var curGreen = map(this.bodyColourG, 0, 100, 0, 220);
+      var curBlue = map(this.bodyColourB, 0, 100, 0, 220);
+        
+      fill(curRed, curGreen, curBlue, curHairOpacity);
       push();
       translate(0,-0.3);
       for(var n=0; n<fw.length;n++) {
@@ -100,7 +128,7 @@ pop();
       for(var i=8; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
     }
-          vertex(fire_pos2[n][0]+fw[n], fh[n]);
+          vertex(fire_pos2[n][0]+fw[n]+occilation(n), fh[n]+curHairLength/2);
        endShape(CLOSE);
       }
 pop();
@@ -108,7 +136,11 @@ pop();
       //face
     push();
       translate(0,-0.4);
-    fill(fg_color[1]);
+      var curSkinOpacity = map(this.skinOpacity, 0, 100, 255, 70);
+       var curRed = map(this.bodyColourR, 0, 100, 0, 255);
+      var curGreen = map(this.bodyColourG, 0, 100, 0, 255);
+      var curBlue = map(this.bodyColourB, 0, 100, 0, 255);
+    fill(curRed, curGreen, curBlue,curSkinOpacity);
     beginShape();
      // vertex(positions.chin[0][0], positions.chin[0][1]);
     for(var i=1; i<positions.chin.length-1;i++) {
@@ -118,7 +150,7 @@ pop();
        vertex(positions.chin[16][0]-0.2, -0.8);
       vertex(positions.chin[16][0]-0.5, -1.3);
       vertex(positions.chin[16][0]-1, -1.8);
-      vertex(0, -2.3);
+      vertex(0+occilation(n), -2.3);
       vertex(positions.chin[0][0]+1, -1.8);
       vertex(positions.chin[0][0]+0.5, -1.3);
        vertex(positions.chin[0][0]+0.2, -0.8);
@@ -129,7 +161,8 @@ pop();
       
     // mouth
     noStroke();
-    fill(fg_color[0]);
+    //fill(fg_color[0]);
+    fill(curRed, curGreen, curBlue,curSkinOpacity-150);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -170,15 +203,41 @@ fill(bg_color);
     ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.8, 0.8);
     ellipse(eye2_pos[0], eye2_pos[1]+0.6, 0.8, 0.8);
       //pupil
-       fill(this.eyeColor);
+       colorMode(HSB);
+    var curEyeHue = map(this.eyeHue, 0, 100, 0, 360);
+     var curEyeBrightness = map(this.eyeBrightness, 0, 100, 0, 100);
+    fill(curEyeHue,50,curEyeBrightness);
     ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.6,  0.6);
     ellipse(eye2_pos[0], eye2_pos[1]+0.6,  0.6,  0.6);
-      
+      colorMode(RGB);
     fill(0);
     ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.4,  0.4);
     ellipse(eye2_pos[0], eye2_pos[1]+0.6,  0.4,  0.4);
+    
 //eyebrows
-    fill(0);
+       fill(curRed, curGreen, curBlue, curSkinOpacity);
+push();
+      translate(0,0.5);
+    beginShape();
+    for(var i=0; i<positions.right_eyebrow.length; i++) {
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+    }
+    vertex(positions.right_eyebrow[3][0], positions.right_eyebrow[3][1]+0.08);
+    vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]+0.1); vertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1]+0.11);
+    vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]+0.12);
+    endShape(CLOSE);
+    beginShape();
+    for(var i=0; i<positions.left_eyebrow.length; i++) {
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+    }
+    vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]+0.12);
+    vertex(positions.left_eyebrow[3][0], positions.left_eyebrow[3][1]+0.11);
+    vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]+0.1); 
+    vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]+0.08);
+    endShape(CLOSE);
+pop();
+        var curHairOpacity = map(this.hairOpacity, 0, 100, 0, 255);
+    fill(0, curHairOpacity);
 push();
       translate(0,0.5);
     beginShape();
@@ -213,15 +272,29 @@ pop();
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
+    this.hairOpacity = settings[0];
+    this.bodyColourR = settings[1];
+    this.bodyColourG = settings[2];
+   this.bodyColourB = settings[3];
+   this.skinOpacity = settings[4];
+   this.eyeHue = settings[5];
+   this.eyeBrightness = settings[6];
+   this.hairLength = settings[7];
+   
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
+    properties = new Array(8);
+    properties[0] = this.hairOpacity;
+    properties[1] = this.bodyColourR;
+      properties[2] = this.bodyColourG;
+      properties[3] = this.bodyColourB;
+      properties[4] = this.skinOpacity;
+      properties[5] = this.eyeHue;
+      properties[6]= this.eyeBrightness;
+      properties[7]= this.hairLength;
+      
     return properties;
   }
 }
@@ -239,46 +312,3 @@ function average_point(list) {
   return [sum_x / num_points, sum_y / num_points];
 }
 
-function mostlyOrange() {
-  random_result = focusedRandom(0, 100);
-  if(random_result < 5) {
-    return 0;
-  }
-  else if(random_result < 95) {
-    return 1;
-  }
-   else if(random_result < 0) {
-    return 2;
-  }
-     else if(random_result < 100) {
-    return 3;
-  }
-     else if(random_result < 0) {
-    return 4;
-  }
-    else {
-    return 5;
-  }
-}
-    
-    function mostlypastelOrange() {
-  random_result = focusedRandom(0, 100);
-  if(random_result < 0) {
-    return 0;
-  }
-  else if(random_result <0) {
-    return 1;
-  }
-   else if(random_result < 90) {
-    return 2;
-  }
-     else if(random_result < 0) {
-    return 3;
-  }
-     else if(random_result < 95) {
-    return 4;
-  }
-    else {
-    return 5;
-  }
-}

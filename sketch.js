@@ -12,7 +12,7 @@ var faceSelector;
 var facelist = [];
 var NUMFACES = 6*9;
 var sliders = [];
-var NUM_SLIDERS = 12;
+var NUM_SLIDERS = 8;
 var sliderTint;
 
 var faceData = [
@@ -62,7 +62,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
+frameRate(30);
   curRandomSeed = int(focusedRandom(0, 100));
 
   for(var i=0; i<NUMFACES; i++) {
@@ -115,7 +115,7 @@ function setup () {
   faceSelector.option('Neighbors');
   faceSelector.option('TrainQuiz');
   faceSelector.option('ValidQuiz');
-  faceSelector.value('FaceMap');
+  faceSelector.value('Train');
   faceSelector.parent('selector1Container');
 
   /* create the sliders */
@@ -187,6 +187,7 @@ function getAllJson() {
 
 // global variables for colors
 var bg_color1 = [50, 50, 50];
+var bg_color1 = [20, 20, 20];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
