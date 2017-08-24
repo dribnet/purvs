@@ -241,9 +241,14 @@ function FaceMap() {
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
+    properties = new Array(7);
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
+    properties[2] = this.leftDepth;
+    properties[3] = this.rightDepth;
+    properties[4] = this.leftHeight;
+    properties[5] = this.rightHeight;
+    properties[6] = this.chinHeight;
     return properties;
   }
 }
