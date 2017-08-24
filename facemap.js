@@ -3,10 +3,7 @@
  * face and is able to draw itself.
  */  
 
-// other variables can be in here too
-// these control the colors used
-
-
+//color variables 
 
 skinMidtone_color = ["#ffd5be","#ebcebb", "#ffd5be", "#CAA288", "#8c6652"];
 skinLowlight_color = ["#f4c4b0", "#e5bbac","#e5b6a2", "#b78c79", "#775041"]
@@ -41,15 +38,10 @@ pupil_color = "#000";
 function FaceMap() {
   this.lookPos = 50;
   this.eyeAngle = 100;
-  this.skinColor = 1;
-  this.eyeColor = 1;
+  this.skinColor = 50;
+  this.eyeColor = 50;
+  this.eyeSize = 50;
  
-
-  /*
-   * Draw a face with position lists that include:
-   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */  
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -58,7 +50,8 @@ function FaceMap() {
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
     var eye_squish = map(this.eyeAngle, 0, 100, 50, 100);
     var skin_color_value = int(map(this.skinColor, 0, 100, 2, 4.9));
-    var eye_color_value = int(map(this.eyeColor, 0, 100, 0, 4.9))
+    var eye_color_value = int(map(this.eyeColor, 0, 100, 0, 4.9));
+    var eye_size = map(this.eyeSize, 0, 100, 0.7, 1.5);
 
     var x = nose_pos[0];
     var y = nose_pos[1];
@@ -153,11 +146,11 @@ function FaceMap() {
     scale(eye_squish/100, 1);
 
        fill(iris_color);
-    ellipse(0, 0, 20 * size, 20 * size);
+    ellipse(0, 0, 20 * size *eye_size, 20 * size*eye_size);
 
     fill(230, 250, 200, 20);
     for(var i=0; i<8;i++) {
-      ellipse(0, 0, (12+i) * size, (12+i) * size);
+      ellipse(0, 0, (12+i) * size*eye_size, (12+i) * size*eye_size);
     }
      fill(pupil_color);
     ellipse(0, 0, 8 * size, 8 * size);
@@ -289,15 +282,15 @@ curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (po
 
     //iris
        fill(iris_color);
-    ellipse(0, 0, 20 * size, 20 * size);
+    ellipse(0, 0, 20 * size*eye_size, 20 * size*eye_size);
 
     fill(230, 250, 200, 20);
     for(var i=0; i<8;i++) {
-      ellipse(0, 0, (12+i) * size, (12+i) * size);
+      ellipse(0, 0, (12+i) * size*eye_size, (12+i) * size*eye_size);
     }
     //pupil
         fill(pupil_color);
-    ellipse(0, 0, 8 * size, 8 * size);
+    ellipse(0, 0, 8 * size*eye_size, 8 * size*eye_size);
 
   pop();
 
@@ -515,6 +508,7 @@ noStroke();
     this.eyeAngle = settings[1];
     this.skinColor = settings[2];
     this.eyeColor = settings[3];
+    this.eyeSize = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -524,6 +518,7 @@ noStroke();
     properties[1] = this.eyeAngle;
     properties[2] = this.skinColor;
     properties[3] = this.eyeColor;
+    properties[4] = this.eyeSize;
     return properties;
   }
 }
