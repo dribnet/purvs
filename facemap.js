@@ -8,7 +8,7 @@
 bg_color = [225, 206, 187];
 fg_color = [254, 244, 110];
 stroke_color = [146, 147, 3];
-iris_colors = ["#43c6f2","#6fa511","#cc6d6d","#ff3300","#ffff00","#7d9a68","#dadada","#ec1313","#201b1f","#6b492d", "#1ecc6f"];
+
 
 function FaceMap() {
   this.hairLength = 50;
@@ -20,6 +20,7 @@ function FaceMap() {
   this.eyeColor = 0;
   this.cheeks = 0;
   this.strokeValue = .05;
+
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -38,6 +39,7 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
+    var iris_colors = ["#43c6f2","#6fa511","#cc6d6d","#ff3300","#ffff00","#7d9a68","#dadada","#ec1313","#201b1f","#6b492d", "#1ecc6f"];
     var smiling = true;
 
     var lookingLeft = false;
@@ -374,7 +376,7 @@ function FaceMap() {
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
+    properties = new Array(8);
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
     properties[2] = this.toothSize;
