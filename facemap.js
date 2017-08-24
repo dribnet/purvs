@@ -160,10 +160,57 @@ function FaceMap() {
 
     noStroke();
 
-    for(var i=0; i<5; i++){
+    /*for(var i=0; i<5; i++){
       fill(faceColour1,faceColour2,faceColour3, 40+(i*50));
       ellipse(nose_pos[0]+this.facePos/100, nose_pos[1], 5-(i/3), 5.5-(i/3));
+    }*/
+    fill(faceColour1,faceColour2,faceColour3);
+    beginShape();
+    for(var i=0; i<positions.chin.length;i++) {
+      vertex(positions.chin[i][0], positions.chin[i][1]);
     }
+    for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+    }
+    for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+    }
+    endShape(CLOSE);
+
+    for(var j = -0.8; j <=0.8; j+=0.2){
+      fill(faceColour1,faceColour2,faceColour3, 100);
+      beginShape();
+      for(var i=0; i<positions.chin.length;i++) {
+        vertex(positions.chin[i][0]+j, positions.chin[i][1]+j);
+      }
+      for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
+        vertex(positions.right_eyebrow[i][0]+j, positions.right_eyebrow[i][1]+j);
+      }
+      for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
+        vertex(positions.left_eyebrow[i][0]+j, positions.left_eyebrow[i][1]+j);
+      }
+      endShape(CLOSE);
+
+    }
+
+    for(var j = -0.8; j <=0.8; j+=0.2){
+      fill(faceColour1,faceColour2,faceColour3, 100);
+      beginShape();
+      for(var i=0; i<positions.chin.length;i++) {
+        vertex(positions.chin[i][0]-j, positions.chin[i][1]+j);
+      }
+      for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
+        vertex(positions.right_eyebrow[i][0]-j, positions.right_eyebrow[i][1]+j);
+      }
+      for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
+        vertex(positions.left_eyebrow[i][0]-j, positions.left_eyebrow[i][1]+j);
+      }
+      endShape(CLOSE);
+
+    }
+
+    
+
 
 
 //twigs
@@ -188,14 +235,25 @@ function FaceMap() {
     stroke(5);
 
     push();
-    arc(mouth_pos[0], mouth_pos[1], 0.25, 0.25, 0, 175);
-    arc(mouth_pos[0]-(0.25), mouth_pos[1], 0.25, 0.25, 0, 175);
+    noStroke();
+    fill(twigColour);
+    //arc(mouth_pos[0], mouth_pos[1], 0.25, 0.25, 0, 175);
+    //arc(mouth_pos[0]-(0.25), mouth_pos[1], 0.25, 0.25, 0, 175);
+    beginShape();
+    for(var i=0; i<7;i++) {
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+    }
+    for(var i=0; i<7;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
+  
     pop();
     pop();
 
   
     
-  //eyes open
+  //eyes 
   push();
   translate(0, this.eyePosition/100);
   for(var i=2; i<=5; i++){
