@@ -3,19 +3,19 @@
 
     {
       "sha": "2f53a81f9efa4fcea4570530e04227278f7fbad6",
-      "name": "final"
+      "name": "final_version"
     },
     {
       "sha": "745ed69d4ebc728c27001e8fedbb4904d0278e58",
-      "name": "facial_progression"
+      "name": "version_3"
     },
      {
       "sha": "b74bd8106c499ca5465388e9ca519c907977a915",
-      "name": "facial_features"
+      "name": "version_2"
     },
     {
       "sha": "169fd5831cfb6195917818c58b92aeaf392ffdbc",
-      "name": "eye_detail"
+      "name": "version_1"
     }
   ]
 }
