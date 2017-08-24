@@ -27,6 +27,8 @@ function FaceMap() {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
+    var upperLip = average_point(positions.top_lip);
+    var bottomLip = average_point(positions.bottom_lip);
     var face_pos = average_point(positions.chin);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
@@ -39,7 +41,7 @@ function FaceMap() {
     var lookingLeft = false;
     var lookingRight = false;
 
-    if(Math.abs(positions.nose_bridge[3][0] - positions.nose_bridge[0][0]) > 0.052){
+    if(Math.abs(positions.nose_bridge[3][0] - positions.nose_bridge[0][0]) > 0.03){
       if(positions.nose_bridge[3][0] < positions.nose_bridge[0][0])
         lookingLeft = true;
 
@@ -48,13 +50,6 @@ function FaceMap() {
     }
     else {
         lookingLeft = true;
-    }
-
-    if(Math.abs(positions.top_lip[9][1] - positions.bottom_lip[3][1]) > 0.05) {
-      console.log("yes boi");
-    }
-    if(Math.abs(positions.top_lip[9][1] - positions.bottom_lip[3][1]) < 0.05) {
-      console.log("no boi");
     }
 
     var gender = map(this.genderValue, 0, 100, 0, 1); 
@@ -66,7 +61,6 @@ function FaceMap() {
     var curSaturation = map(this.saturation, 0, 100, 0, 100);
     var curBrightnessPrimary = map(this.brightness, 0, 100, 50, 100);
     var curBrightnessSecondary = map(this.brightness, 0, 100, 20, 70);
-    var curTeethValue = Math.floor(map(this.teeth_value, 0, 100, 1, 8));
 
     var extent = 0;
     if(h < w) {
@@ -199,11 +193,11 @@ function FaceMap() {
           strokeWeight(7 * scale);
           fill(ch3_detailSecondary);
           // check teeth value
-        if (curTeethValue == 3 || curTeethValue == 4 || curTeethValue == 7 || curTeethValue == 8) {
+        if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
           arc(40 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if (curTeethValue == 5 || curTeethValue == 6 || curTeethValue == 7 || curTeethValue == 8) {
+        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
           arc(60 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if (curTeethValue == 1 || curTeethValue == 2) {
+        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
         }
 
         pop();
@@ -251,6 +245,18 @@ function FaceMap() {
           strokeWeight(7 * scale);
             noFill();
             arc(155 * scale, 40 * scale, 50 * scale, 50 * scale, 140, 210);
+
+            // teeth
+          stroke(ch3_detailPrimary)
+          strokeWeight(7 * scale);
+          fill(ch3_detailSecondary);
+          // check teeth value
+        if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
+          arc(70 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
+          arc(90 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
+        }
 
             pop();
     }
@@ -323,6 +329,18 @@ function FaceMap() {
     noFill();
     arc(-110 * scale, 0 * scale, 50 * scale, 50 * scale, 320, 390);
 
+        // teeth
+          stroke(ch3_detailPrimary)
+          strokeWeight(7 * scale);
+          fill(ch3_detailSecondary);
+          // check teeth value
+      if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
+          arc(-40 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
+          arc(-60 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
+        }
+
     pop();
     }
 
@@ -370,6 +388,18 @@ function FaceMap() {
             noFill();
             arc(-15 * scale, 50 * scale, 50 * scale, 50 * scale, 320, 390);
 
+            // teeth
+          stroke(ch3_detailPrimary)
+          strokeWeight(7 * scale);
+          fill(ch3_detailSecondary);
+          // check teeth value
+        if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
+          arc(40 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
+          arc(60 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
+        }
+
             pop();
     }
 
@@ -409,12 +439,11 @@ function FaceMap() {
     this.hue = settings[5];
     this.saturation = settings[6];
     this.brightness = settings[7];
-    this.teeth_value = settings[8];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(9);
+    properties = new Array(8);
     properties[0] = this.genderValue;
     properties[1] = this.hairValue;
     properties[2] = this.lookDirection;
@@ -423,7 +452,6 @@ function FaceMap() {
     properties[5] = this.hue;
     properties[6] = this.saturation;
     properties[7] = this.brightness;
-    properties[8] = this.teeth_value;
     return properties;
   }
 }
