@@ -1,144 +1,1 @@
-/*
- * FaceMap class - holds all informaiton about one mapped
- * face and is able to draw itself.
- */  
-
-// other variables can be in here too
-// these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
-
-function FaceMap() {
-  /*
-   * Draw a face with position lists that include:
-   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */  
-  this.draw = function(positions) {
-    var nose_pos = average_point(positions.nose_bridge);
-    var eye1_pos = average_point(positions.left_eye);
-    var eye2_pos = average_point(positions.right_eye);
-    var half_height = positions.chin[7][1] - nose_pos[1];
-    var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
-
-    var x = nose_pos[0];
-    var y = nose_pos[1];
-    var w = 2 * face_width;
-    var h = 2.5 * half_height;
-
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
-
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
-    // head
-    stroke(stroke_color);
-    fill(fg_color);
-    //beginShape();
-   // for(var i=0; i<positions.chin.length;i++) {
-      //vertex(positions.chin[i][0], positions.chin[i][1]);
-      //line(positions.chin[i][0],positions.chin[i][1]);
-   // }
-    //for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      //vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-   // }
-    //for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      //vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    //}
-   //endShape(CLOSE);
-   triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[8][0],positions.chin[8][1],positions.chin[16][0],positions.chin[16][1]);
-   triangle(positions.chin[4][0],positions.chin[4][1],positions.chin[12][0],positions.chin[12][1],positions.nose_bridge[0][0],positions.nose_bridge[0][1]);
-
-    // mouth
-    noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
-
-    // eyes
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
-
-    fill(fg_color);
-    //ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    triangle(eye1_pos[0] - 8*scale,eye1_pos[1] - 8*scale,eye1_pos[0]+ 8*scale, eye1_pos[1] - 8*scale, eye1_pos[0], eye1_pos[1] + 8*scale);
-    //ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
-    triangle(eye2_pos[0] - 8*scale,eye2_pos[1] - 8*scale,eye2_pos[0]+ 8*scale, eye2_pos[1] - 8*scale, eye2_pos[0], eye2_pos[1] + 8*scale);
-
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);  
-  }
-
-  /* set internal properties based on list numbers 0-100 */
-  this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
-  }
-
-  /* get internal properties as list of numbers 0-100 */
-  this.getProperties = function() {
-    properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
-    return properties;
-  }
-}
-
-// given a point, return the average
-function average_point(list) {
-  var sum_x = 0;
-  var sum_y = 0;
-  var num_points = 0;
-  for(var i=0; i<list.length; i++) {
-    sum_x += list[i][0];
-    sum_y += list[i][1];
-    num_points += 1; 
-  }
-  return [sum_x / num_points, sum_y / num_points];
-}
+﻿/* * FaceMap class - holds all informaiton about one mapped * face and is able to draw itself. */  // other variables can be in here too// these control the colors usedvar bg_color = [140,135,62,focusedRandom(0,255,102)];var fg_color = [121,58,87,focusedRandom(0,255,102)];stroke_color = [95, 52, 8];var women_colour = [121,58,87];var men_colour = [153,204,255];var nohair = [172,225,175];var somehair = [133,187,101];var lotsahair = [85,107,47];var nose = [0,0,0];function FaceMap() {  /*   * Draw a face with position lists that include:   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow   *    bottom_lip, top_lip, nose_tip, nose_bridge,    */    this.draw = function(positions) {    var nose_pos = average_point(positions.nose_bridge);    var eye1_pos = average_point(positions.left_eye);    var eye2_pos = average_point(positions.right_eye);    var half_height = positions.chin[7][1] - nose_pos[1];    var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];    var x = nose_pos[0];    var y = nose_pos[1];    var w = 2 * face_width;    var h = 2.5 * half_height;   var curHairColor = map(this.curlorstraight, 0, 100, 200, 20);    //fill(curHairColor);    //var curHairLength = map(this.hairLength, 0, 100, 0, 3);   // rect(-3, -2*curHairLength, 6, 3*curHairLength);   var fc = (map(this.facecolour, 0, 100, 30 ,225));   women_colour = [121,58,87,fc];   men_colour = [153,204,255,fc];   var face_colour = [0,0,0];   var mf = Math.floor(map(this.morf,0,100,0,2));   if(mf < 1){face_colour = women_colour;}   else {face_colour = men_colour;}   var cheekpolys = (map(this.age,0,100,2,8));      var longhairors = (map(this.longorshort,0,100,3,11));      var glass = Math.floor(map(this.glasses,0,100,0,2));   var facecol = Math.floor(map(this.facial,0,100,0,3));   if(facecol < 1){nose = nohair;}   else if(facecol >=1 && facecol <2){nose = somehair;}   else{nose = lotsahair;}    var extent = 0;    if(h < w) {      extent = h / 2;    }    else {      extent = w / 2;    }    var scale = extent / 220.0;    // Uncomment to see drawing area    // fill(255);    // stroke(0);    // rect(x-w/2, y-h/2, w, h);    // fill(0)    // ellipse(x, y, w, h);    // head    stroke(stroke_color);    fill(face_colour);    noStroke();               //forehead   if(longhairors < 4){       triangle(positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.chin[16][0],positions.chin[16][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1],positions.chin[0][0],positions.chin[0][1]);       }   if(longhairors >= 4 && longhairors < 5){        triangle(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.chin[16][0],positions.chin[16][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1],positions.chin[0][0],positions.chin[0][1]);       triangle(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1],positions.left_eyebrow[4][0],positions.left_eyebrow[4][1]);       }  if(longhairors >= 5 && longhairors < 7){      triangle(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.chin[16][0],positions.chin[16][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1],positions.chin[0][0],positions.chin[0][1]);       triangle(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);       triangle(positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1],positions.left_eyebrow[4][0],positions.left_eyebrow[4][1]);       triangle(positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);      }  if(longhairors >= 7 && longhairors < 9){        triangle(positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1],positions.right_eyebrow[3][0],positions.right_eyebrow[3][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.right_eyebrow[4][0],positions.right_eyebrow[4][1],positions.right_eyebrow[3][0],positions.right_eyebrow[3][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);                 triangle(positions.left_eyebrow[0][0],positions.left_eyebrow[0][1],positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.left_eyebrow[2][0],positions.left_eyebrow[2][1],positions.left_eyebrow[3][0],positions.left_eyebrow[3][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.left_eyebrow[3][0],positions.left_eyebrow[3][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);          triangle(positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.left_eyebrow[0][0],positions.left_eyebrow[0][1],positions.chin[0][0],positions.chin[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);    triangle(positions.chin[16][0],positions.chin[16][1],positions.right_eyebrow[4][0],positions.right_eyebrow[4][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);                  }  if(longhairors >= 9){         for(var k = 0; k<4;k++){    triangle(positions.left_eyebrow[k][0],positions.left_eyebrow[k][1], positions.left_eyebrow[k+1][0], positions.left_eyebrow[k+1][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);     }for(var k = 0; k<4;k++){    triangle(positions.right_eyebrow[k][0],positions.right_eyebrow[k][1], positions.right_eyebrow[k+1][0], positions.right_eyebrow[k+1][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);     }    triangle(positions.left_eyebrow[4][0],positions.left_eyebrow[4][1],positions.right_eyebrow[0][0],positions.right_eyebrow[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);        triangle(positions.left_eyebrow[0][0],positions.left_eyebrow[0][1],positions.chin[0][0],positions.chin[0][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);    triangle(positions.chin[16][0],positions.chin[16][1],positions.right_eyebrow[4][0],positions.right_eyebrow[4][1],positions.nose_bridge[1][0],positions.nose_bridge[1][1]);      }       //beginShape();   // for(var i=0; i<positions.chin.length;i++) {      //vertex(positions.chin[i][0], positions.chin[i][1]);      //line(positions.chin[i][0],positions.chin[i][1]);   // }    //for(var i=positions.right_eyebrow.length-1; i>=0;i--) {      //vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);   // }    //for(var i=positions.left_eyebrow.length-1; i>=0;i--) {      //vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);    //}   //endShape(CLOSE);      triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[8][0],positions.chin[8][1],positions.chin[16][0],positions.chin[16][1]);   triangle(positions.chin[4][0],positions.chin[4][1],positions.chin[12][0],positions.chin[12][1],positions.nose_bridge[0][0],positions.nose_bridge[0][1]);  if(cheekpolys < 3){    triangle(positions.chin[16][0],positions.chin[16][1],positions.chin[12][0],positions.chin[12][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[12][0],positions.chin[12][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[4][0],positions.chin[4][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[4][0],positions.chin[4][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  }  if(cheekpolys > 3 && cheekpolys < 4){    triangle(positions.chin[16][0],positions.chin[16][1],positions.chin[14][0],positions.chin[14][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[10][0],positions.chin[10][1],positions.chin[14][0],positions.chin[14][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[10][0],positions.chin[10][1],positions.chin[8][0],positions.chin[8][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[2][0],positions.chin[2][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[6][0],positions.chin[6][1],positions.chin[2][0],positions.chin[2][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[6][0],positions.chin[6][1],positions.chin[8][0],positions.chin[8][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  }  if(cheekpolys > 4 && cheekpolys < 5){    triangle(positions.chin[16][0],positions.chin[16][1],positions.chin[14][0],positions.chin[14][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[12][0],positions.chin[12][1],positions.chin[14][0],positions.chin[14][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[12][0],positions.chin[12][1],positions.chin[10][0],positions.chin[10][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[10][0],positions.chin[10][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[2][0],positions.chin[2][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[4][0],positions.chin[4][1],positions.chin[2][0],positions.chin[2][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[4][0],positions.chin[4][1],positions.chin[6][0],positions.chin[6][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[6][0],positions.chin[6][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  }  if(cheekpolys > 5 && cheekpolys < 6){    triangle(positions.chin[16][0],positions.chin[16][1],positions.chin[15][0],positions.chin[15][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[13][0],positions.chin[13][1],positions.chin[15][0],positions.chin[15][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[13][0],positions.chin[13][1],positions.chin[11][0],positions.chin[11][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[9][0],positions.chin[9][1],positions.chin[11][0],positions.chin[11][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[9][0],positions.chin[9][1],positions.chin[8][0],positions.chin[8][1],positions.top_lip[0][0],positions.top_lip[0][1]);    triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[1][0],positions.chin[1][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[3][0],positions.chin[3][1],positions.chin[1][0],positions.chin[1][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[3][0],positions.chin[3][1],positions.chin[5][0],positions.chin[5][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[7][0],positions.chin[7][1],positions.chin[5][0],positions.chin[5][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    triangle(positions.chin[7][0],positions.chin[7][1],positions.chin[8][0],positions.chin[8][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);    }  if(cheekpolys > 6 && cheekpolys < 7){  triangle(positions.chin[16][0],positions.chin[16][1],positions.chin[15][0],positions.chin[15][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[14][0],positions.chin[14][1],positions.chin[15][0],positions.chin[15][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[13][0],positions.chin[13][1],positions.chin[14][0],positions.chin[14][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[13][0],positions.chin[13][1],positions.chin[11][0],positions.chin[11][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[11][0],positions.chin[11][1],positions.chin[9][0],positions.chin[9][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[9][0],positions.chin[9][1],positions.top_lip[0][0],positions.top_lip[0][1]);  triangle(positions.chin[0][0],positions.chin[0][1],positions.chin[1][0],positions.chin[1][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  triangle(positions.chin[2][0],positions.chin[2][1],positions.chin[1][0],positions.chin[1][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  triangle(positions.chin[3][0],positions.chin[3][1],positions.chin[2][0],positions.chin[2][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  triangle(positions.chin[3][0],positions.chin[3][1],positions.chin[5][0],positions.chin[5][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  triangle(positions.chin[5][0],positions.chin[5][1],positions.chin[7][0],positions.chin[7][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  triangle(positions.chin[8][0],positions.chin[8][1],positions.chin[7][0],positions.chin[7][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]);  }    if(cheekpolys > 7){   // cheeks polygons   for(var k = 8; k<16;k++){   triangle(positions.chin[k][0],positions.chin[k][1], positions.chin[k+1][0], positions.chin[k+1][1],positions.top_lip[0][0],positions.top_lip[0][1]);  } for(var k = 0; k<8;k++){   triangle(positions.chin[k][0],positions.chin[k][1], positions.chin[k+1][0], positions.chin[k+1][1],positions.bottom_lip[0][0],positions.bottom_lip[0][1]); }}    // mouth    noStroke();    fill(nose);    //beginShape();    //for(var i=0; i<positions.top_lip.length;i++) {     // vertex(positions.top_lip[i][0], positions.top_lip[i][1]);    //}    //endShape(CLOSE);    //beginShape();    //for(var i=0; i<positions.bottom_lip.length;i++) {      //vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);    //}    //endShape(CLOSE);    triangle(positions.bottom_lip[0][0],positions.bottom_lip[0][1],positions.bottom_lip[9][0],positions.bottom_lip[9][1],positions.bottom_lip[3][0],positions.bottom_lip[3][1]);    triangle(positions.top_lip[0][0],positions.top_lip[0][1],positions.top_lip[9][0],positions.top_lip[9][1],positions.top_lip[3][0],positions.top_lip[3][1]);    triangle(positions.top_lip[0][0],positions.top_lip[0][1],positions.bottom_lip[9][0],positions.bottom_lip[9][1],positions.bottom_lip[3][0],positions.bottom_lip[3][1]);    triangle(positions.bottom_lip[0][0],positions.bottom_lip[0][1],positions.top_lip[9][0],positions.top_lip[9][1],positions.top_lip[3][0],positions.top_lip[3][1]);    // nose    //beginShape();    //vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);    //for(var i=0; i<positions.nose_tip.length;i++) {      //vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);    //}    //endShape(CLOSE);    triangle(positions.nose_bridge[0][0],positions.nose_bridge[0][1],positions.nose_tip[2][0],positions.nose_tip[2][1],positions.nose_tip[0][0],positions.nose_tip[0][1]);    triangle(positions.nose_bridge[0][0],positions.nose_bridge[0][1],positions.nose_tip[2][0],positions.nose_tip[2][1],positions.nose_tip[4][0],positions.nose_tip[4][1]);    // eyes    fill(255,215,0);    triangle(positions.left_eye[0][0],positions.left_eye[0][1], positions.left_eye[2][0],positions.left_eye[2][1],positions.left_eye[4][0],positions.left_eye[4][1]);    triangle(positions.left_eye[1][0],positions.left_eye[1][1], positions.left_eye[3][0],positions.left_eye[3][1],positions.left_eye[5][0],positions.left_eye[5][1]);        triangle(positions.right_eye[0][0],positions.right_eye[0][1], positions.right_eye[2][0],positions.right_eye[2][1],positions.right_eye[4][0],positions.right_eye[4][1]);    triangle(positions.right_eye[1][0],positions.right_eye[1][1], positions.right_eye[3][0],positions.right_eye[3][1],positions.right_eye[5][0],positions.right_eye[5][1]);        var range1 = positions.left_eye[0][0] - positions.right_eye[0][0];    if(range1<0){range1 = range1 * -1;}        var range2 = positions.left_eye[0][1] - positions.right_eye[0][1];    if(range2<0){range2 = range2 * -1;}        var range3 = positions.left_eye[2][0] - positions.right_eye[2][0];    if(range3<0){range3 = range3 * -1;}        var range4 = positions.left_eye[2][1] - positions.right_eye[2][1];    if(range4<0){range4 = range4 * -1;}        var range5 = positions.left_eye[4][0] - positions.right_eye[4][0];    if(range5<0){range5 = range5 * -1;}        var range6 = positions.left_eye[4][1] - positions.right_eye[4][1];    if(range6<0){range4 = range6 * -1;}        var eye1= eye2_pos[0] - eye1_pos[0];        var eye2 = eye2_pos[1] - eye1_pos[1];        if(eye1 < 0){eye1 = eye1 * -1;}        if(eye2 < 0){eye2 = eye2 * -1;}        if(glass >1){    triangle(positions.left_eye[0][0] + range1/2,positions.left_eye[0][1] - range2/2, positions.left_eye[2][0] + range3/2,positions.left_eye[2][1] - range4/2,positions.left_eye[4][0]  + range5/2 ,positions.left_eye[4][1] -range6/2 );        fill(fg_color);    triangle(positions.left_eye[0][0] + (range1/2) + 8*scale ,positions.left_eye[0][1] - (range2/2) - 8*scale, positions.left_eye[2][0] + range3/2 + 8*scale,positions.left_eye[2][1] - range4/2 + 8*scale,positions.left_eye[4][0]  + range5/2 - 8*scale,positions.left_eye[4][1] -range6/2 - 8*scale);        //triangle(positions.left_eye[1][0]  ,positions.left_eye[1][1]  , positions.left_eye[3][0]  ,positions.left_eye[3][1]  ,positions.left_eye[5][0]  ,positions.left_eye[5][1]  );        }    //beginShape();    //for(var i=0; i<positions.left_eye.length;i++) {      //vertex(positions.left_eye[i][0], positions.left_eye[i][1]);    //}    //endShape(CLOSE);    //beginShape();    //for(var i=0; i<positions.right_eye.length;i++) {      //vertex(positions.right_eye[i][0], positions.right_eye[i][1]);    //}    //endShape(CLOSE);    fill(fg_color);    //ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);    triangle(eye1_pos[0] - 8*scale,eye1_pos[1] - 8*scale,eye1_pos[0]+ 8*scale, eye1_pos[1] - 8*scale, eye1_pos[0], eye1_pos[1] + 8*scale);    //ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);    triangle(eye2_pos[0] - 8*scale,eye2_pos[1] - 8*scale,eye2_pos[0]+ 8*scale, eye2_pos[1] - 8*scale, eye2_pos[0], eye2_pos[1] + 8*scale);          fill(curHairColor);          beginShape();    for(var i=0; i<positions.right_eyebrow.length; i++) {      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);    }    endShape(CLOSE);    beginShape();    for(var i=0; i<positions.left_eyebrow.length; i++) {      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);    }    endShape(CLOSE);    strokeWeight(1);    }  /* set internal properties based on list numbers 0-100 */  this.setProperties = function(settings) {    this.morf = settings[0];    this.longorshort = settings[1];    this.facecolour = settings[2];    this.glasses = settings[3];    this.facial = settings[4];    this.age = settings[5];    this.curlorstraight = settings[6];  }  /* get internal properties as list of numbers 0-100 */  this.getProperties = function() {    properties = new Array(7);    properties[0] = this.morf;    properties[1] = this.longorshort;    properties[2] = this.facecolour;    properties[3] = this.glasses;    properties[4] = this.facial;    properties[5] = this.age;    properties[6] = this.curlorstraight;    return properties;  }}// given a point, return the averagefunction average_point(list) {  var sum_x = 0;  var sum_y = 0;  var num_points = 0;  for(var i=0; i<list.length; i++) {    sum_x += list[i][0];    sum_y += list[i][1];    num_points += 1;   }  return [sum_x / num_points, sum_y / num_points];}
