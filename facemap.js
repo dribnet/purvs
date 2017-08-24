@@ -13,6 +13,8 @@ var rand = new Math.seedrandom(focusedRandom())
 
 function FaceMap() {
   this.age = 20;
+  this.hair_puff = 50;
+  this.face_hardness = 50;
   this.mouthTimingRand = rand();
 
   /*
@@ -21,6 +23,8 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    var is_hard = 50 < this.face_hardness;
+    
     //i use my variables differently
     angleMode(RADIANS);
     rectMode(CENTER);
@@ -32,43 +36,46 @@ function FaceMap() {
 
     let chinRect = Rect.fromPoints(positions.chin);
 
-    //bump eyebrows up
-    [positions.left_eyebrow, positions.right_eyebrow].forEach(eyebrowPos => eyebrowPos.forEach(function(pos){
-      pos[1] -= chinRect.height*0.25;
-    }));
+    var higher = pos => [pos[0], pos[1] - chinRect.height*0.25];
+
+    positions.left_eyebrow.reverse();
+    positions.right_eyebrow.reverse();
 
     //fro
+    var hair_puffiness = (70+this.hair_puff/2)/110
     fill(0, 80+focusedRandom(-10, 10)+map(this.age, 30, 100, 0, -60), 40+focusedRandom(-10, 10));
     noStroke();
-    let topY = positions.left_eyebrow.concat(positions.right_eyebrow).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
+    let topY = positions.left_eyebrow.concat(positions.right_eyebrow).map(higher).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
     let midX = chinRect.x;
-    ellipse(midX, topY+0.5, chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0), chinRect.width*0.8+focusedRandom(-.5, .5, 1, 0));
-
+    ellipse(midX, topY+0.5, chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0), chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0));
+    
     //background white on whole face
-    let faceList = positions.chin.concat(positions.right_eyebrow.reverse(), positions.left_eyebrow.reverse());
+    let faceList = positions.chin.concat(positions.right_eyebrow.map(higher), positions.left_eyebrow.map(higher));
     strokeWeight(0.15);
     //makes edges curvy 'n' smooth and fills the space
-    drawCurve(faceList, 'white', true);
+    var faceBackground = color(0, 0, 100);
+    drawCurve(faceList, is_hard ? color(0,0,0,0) : faceBackground, true, faceBackground);
 
     //chin border
     //scale moves it nicely on the edge
-    scale(1/0.96)
-    strokeWeight(0.1)
-    drawCurve(positions.chin.slice(1, -1), 'black');
-    scale(0.96)
+    if(!is_hard){
+      scale(1/0.96)
+      strokeWeight(0.1)
+      drawCurve(positions.chin.slice(1, -1), 'black');
+      scale(0.96)
+    }
 
     //brows border
     strokeWeight(0.15);
-    translate(0, chinRect.height*0.2);
     drawCurve(positions.left_eyebrow, 'black');
     drawCurve(positions.right_eyebrow, 'black');
-    translate(0, -chinRect.height*0.2)
     
     //mouth paint
     doCentered(positions.top_lip.concat(positions.bottom_lip), function(points){
       scale(1.5, 1.4);
       strokeWeight(0.1);
-      drawCurve(hull(points, 0.7), color(0, 80, 100), true);
+      var paintColor = color(0, 80, 100);
+      drawCurve(hull(points, 0.7), is_hard ? color(0,0,0,0) : paintColor, true, paintColor);
     });
 
     //lips
@@ -98,7 +105,12 @@ function FaceMap() {
         
         //eyes
         strokeWeight(0.2);
-        drawCurve(hull(points, 2), color(50, 98, 95), true);
+        if(is_hard)
+          scale(1.5);
+        var eyeColor = color(50, 98, 95);
+        drawCurve(hull(points, 2), is_hard ? color(0,0,0,0) : eyeColor, true, eyeColor);
+        if(is_hard)
+          scale(1/1.5);
 
         noStroke();
         fill(0,0,0);
@@ -114,6 +126,9 @@ function FaceMap() {
     strokeWeight(0.1);
     drawCurve(positions.nose_tip, 'red')
 
+    //reset direction as tom reuses the lists
+    positions.left_eyebrow.reverse();
+    positions.right_eyebrow.reverse();
     //reset vars back to tom's defaults
     colorMode(RGB);
     ellipseMode(CENTER);
@@ -123,12 +138,16 @@ function FaceMap() {
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
     this.age = settings[0];
+    this.hair_puff = settings[1];
+    this.face_hardness = settings[2];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = [];
     properties[0] = this.age;
+    properties[1] = this.hair_puff;
+    properties[2] = this.face_hardness;
     return properties;
   }
 }
