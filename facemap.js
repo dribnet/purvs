@@ -465,7 +465,7 @@ function FaceMap() {
         properties[4] = this.skinTone;
         properties[5] = this.hasEarings;
         properties[6] = this.lipVibrancy;
-        properties[6] = this.facialHair;
+        properties[7] = this.facialHair;
         return properties;
     }
 }
