@@ -29,16 +29,17 @@ I found that the painted aspect of the portraits helped accentuate the quirky mo
 ------Train--------
 
 I tried to have a nice combination of tracking actual facial traits with arbitrary monster features.
+
 I narrowed it down to 2 color schemes, orange for women and blue for men. I chose this because it's
 a very obvious distinction, and I couldn't think of a good use for the other 2 color schemes.
 
-Eye number is dependent on which way the person is looking, which is arbitrary but kind of fun.
+Eye number is dependent on which way the person is looking, which is an arbitrary correlation.
 
 Nose and mouth type are supposed to represent the shape of the nose / mouth of the person. This can
 become a little tricky when the monster features are so cartoonish, but you can see the correct one
 most of the time.
 
-The horns are supposed to represent the hair of the person. The size of the horn is their hair length,
+The horns represent the hair of the person. The size of the horn is their hair length,
 and the color tracks to their hair color. I thought this was a nice unique way to abstract out the
 feature but also make sense when you viewed it.
 
