@@ -5,8 +5,6 @@
 
 // other variables can be in here too
 // these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
 stroke_color = [156, 106, 127];
 cheek_stroke_color = [224, 125, 187];
 mouth_stroke_color = [79, 44, 66];
