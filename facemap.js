@@ -178,16 +178,17 @@ function FaceMap() {
 
   function drawMainFace(positions,scheme){
 
+    var yChange = 0;
    fill(scheme);
    beginShape();
    for(var i=0; i<positions.chin.length;i+=3) {
      vertex(positions.chin[i][0], positions.chin[i][1]);
    }
    for(var i=positions.right_eyebrow.length-1; i>=0;i-=2) {
-     vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+     vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-yChange);
    }
    for(var i=positions.left_eyebrow.length-1; i>=0;i-=2) {
-     vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+     vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-yChange);
    }
    endShape(CLOSE);
   }
