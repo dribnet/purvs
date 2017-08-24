@@ -1,9 +1,7 @@
 ## PS2 MDDN 342 2017
 
-## Training Examples
+## Testing and Revising
 
-For the training examples part of this assignment I have chosen to map 5 properties of the faces.  The features I have chosen are eyebrow thickness, smile size, eye brightness, hair length and skin tone. 
+Since part 3 of the assignment I have added a further three variable parameters to the face.  I have added parameters for earrings, lip vibrancy and facial hair length.  I did this to enhance the amount of possible variations.  The earrings and facial hair length properties provide an extra level of uniqueness as these features are not always present.  
 
-I think my choice of properties to map does a good job of providing more variety in the resulting face and also makes the face look more unique for each individual.  
-
-The two properties I am most pleased with are the smile size and hair length.  I have used the smile size property to determine how high and low the peaks for the "Audio Wave" smile can be which has a very interesting effect.  I used the hair length property to determine how many waves of static electricity the robot face has which also creates a very interesting effect. If the person has no hair then they get a dome instead. 
+Once I had training data for all of the faces I did a lot of testing and made further adjustments to the training data based on the results.  I think my faces work quite well in both testing modes but I found it does take a bit of practice to consistently get the answer correct.
