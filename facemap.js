@@ -43,12 +43,11 @@ function FaceMap() {
     var hairColor = map(this.hairColor, 0, 100, 200, 20);
     var faceColor = map(this.faceColor, 0, 100, 100, 20); 
     var eyeColor = Math.floor(map(this.eyeColor, 0, 100, 0, 4));
-    
-//faceColor = 50;
+
 
       //forehead
 fill(faceColor+76, faceColor+114, faceColor + 52);
-//fill(fg_color);
+
 
 noStroke();
 beginShape();
@@ -101,14 +100,6 @@ endShape();
     else {
       extent = w / 2;
     }
-    //var scale = extent / 120.0;
-
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
 
     // head
     noStroke();
@@ -144,8 +135,6 @@ endShape();
       
    endShape();
 
-
-      //line (positions.top_lip[0][0], top_lip_pos[1], positions.top_lip[6][0], top_lip_pos[1]);
 
       noStroke();
 

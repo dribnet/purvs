@@ -1,10 +1,8 @@
 ## PS2 MDDN 342 2017
  
-As I began training the faces I noticed that the hair disappears when both hair and face color were lightest. To solve this I added a stroke to the hair dots.
+At the beginning of this project chose to use Princess Leia's face but as I got into part two I realised that it would be more interesting to do Yoda. I felt that it'll be easier to add different variables to his face. 
 
-When training the wrinkle variable I decided to add a wrinkle to the face if the person looked over 25, add two wrinkles if they looked over 50. I was judging the overall face if it was wrinkly not just specifically the forehead.
+The variables I chose to include are wrinkles (the whole face in general not just the forehead), amount of hair, hair color (light/dark), face color (light/dark), eye color. 
 
-After training all the faces I tried out the train quiz. It was kind of hard as they were all pretty similar which isn't good. I will need to add more variables or change existing ones. I feel like the hair dots isn't obvious enough. 
-
-I asked Christina to test out the train quiz and she got most of them right so it might be okay.
+I chose to pick images of older people to fit the variables. Some wrinkles don't seem to work as they appear on young children. In the future I would make the gap between having no wrinkles and having wrinkles smaller. This could be done by not making it a discreet value and instead make the line widen the older the person is. 
 

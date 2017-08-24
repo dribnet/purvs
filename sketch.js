@@ -12,7 +12,7 @@ var faceSelector;
 var facelist = [];
 var NUMFACES = 6*9;
 var sliders = [];
-var NUM_SLIDERS = 12;
+var NUM_SLIDERS = 5;
 var sliderTint;
 
 var faceData = [
