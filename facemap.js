@@ -36,12 +36,14 @@ function FaceMap() {
     positions.right_eyebrow.reverse();
 
     //fro
-    var hair_puffiness = (70+this.hair_puff/2)/110
-    fill(0, 80+focusedRandom(-10, 10)+map(this.age, 30, 100, 0, -60), 40+focusedRandom(-10, 10));
-    noStroke();
-    let topY = positions.left_eyebrow.concat(positions.right_eyebrow).map(higher).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
-    let midX = chinRect.x;
-    ellipse(midX, topY+0.5, chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0), chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0));
+    if(this.hair_puff != 0){
+      var hair_puffiness = (70+this.hair_puff/2)/110
+      fill(0, 80+focusedRandom(-10, 10)+map(this.age, 30, 100, 0, -60), 40+focusedRandom(-10, 10));
+      noStroke();
+      let topY = positions.left_eyebrow.concat(positions.right_eyebrow).map(higher).reduce((sum, pos) => min(sum, pos[1]), canvasHeight);
+      let midX = chinRect.x;
+      ellipse(midX, topY+0.5, chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0), chinRect.width*hair_puffiness+focusedRandom(-.1, .1, 1, 0));
+    }
     
     //background white on whole face
     let faceList = positions.chin.concat(positions.right_eyebrow.map(higher), positions.left_eyebrow.map(higher));
