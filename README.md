@@ -1,5 +1,7 @@
 ## PS2 MDDN 342 2017
 
-I've set up 4 properties to be adjusted using the sliders. These are 'Head Shape' (the top shape making up the face - judged on forehead height), 'Jaw Shape' (the lower shape making up the face - judged on jaw width), 'Mouth Shape' (whether the mouth is happy or sad/indifferent - judged on whether the face appears to be smiling or not), and 'Cheek Colour' (this colour lerps between two shades of pink/red where the lighter they are, the more feminine the face, and the darker the more masculine).
+I found 24 images of my own to use in Facemap mode. I created landmarks for these, and then tested them using Facemap. Most of them were correct, and the femininity/masculinity recognition was pretty on point (most of the photos are headshots of my football team, and these were recognised as being women, so were assigned a lighter pink colour for the cheeks).
 
-I've now gone through all of the training faces, and adjusted all these slider properties for each face.
+I then went through most of the images in the Neighbors mode, and used the Interpolate function to make sure that the faces are being recognised correctly and assigned the right facial components.
+
+From there I tried out both TrainQuiz and ValidQuiz, to check that I was able to correctly guess approximately 8/10 of the images. I feel I was mostly successful, however there were often two images that seemed to output a similar face that I would get confused between.

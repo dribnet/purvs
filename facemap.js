@@ -23,7 +23,7 @@ function FaceMap() {
    */
 
   this.draw = function(positions) {
-    console.log(positions);
+    //console.log(positions);
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
