@@ -3,12 +3,6 @@
  * face and is able to draw itself.
  */
 
-// other variables can be in here too
-// these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
-
 function FaceMap() {
     this.eyebrowThickness = 50;
     this.mouthOpenLevel = 50;
@@ -17,12 +11,12 @@ function FaceMap() {
     this.skinTone = 50;
     this.hasEarings = 0;
 	this.lipVibrancy = 0;
-    this.allowRandomize = true;
-      /*
-       * Draw a face with position lists that include:
-       *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-       *    bottom_lip, top_lip, nose_tip, nose_bridge,
-       */
+    this.facialHair = 0;
+    /*
+    * Draw a face with position lists that include:
+    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
+    *    bottom_lip, top_lip, nose_tip, nose_bridge,
+    */
     this.draw = function(positions, allowRandomize = true) {
         if(allowRandomize){
             this.randomize();   
@@ -181,8 +175,6 @@ function FaceMap() {
 
 		
 		var hasEarings = map(this.hasEarings, 0, 100, 0, 1);
-
-        //if the person has no hair, give them a dome
         if(hasEarings >= 1){
 			//earings/antennas
 			//left antenna
@@ -205,6 +197,12 @@ function FaceMap() {
 			ellipse(positions.chin[14][0]+(55*scale), positions.chin[14][1], 0.12, 0.5);
 			ellipse(positions.chin[14][0]+(75*scale), positions.chin[14][1], 0.08, 0.3);
 		}
+
+         // beard/robot wings
+        // stroke(this.hue, tone, 90);
+        // fill(this.hue, 90, tone);
+        // quad(positions.chin[4][0], positions.chin[4][1], positions.chin[7][0], positions.chin[7][1], positions.chin[7][0] - 3.5, positions.chin[7][1], positions.chin[4][0] - 0.5, positions.chin[4][1]);
+        // quad(positions.chin[12][0], positions.chin[12][1], positions.chin[9][0], positions.chin[9][1], positions.chin[9][0] + 3.5, positions.chin[9][1], positions.chin[12][0] + 0.5, positions.chin[12][1]);
 		
         // head
         var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
@@ -235,6 +233,13 @@ function FaceMap() {
         vertex(positions.right_eyebrow[0][0]+(20*scale), positions.right_eyebrow[0][1]-(20*scale));
         endShape(CLOSE);
 
+
+        /* the sorted lips array and following variables will be used to draw the following facial features:
+            1. beard/robot grill
+            2. lips/outer mouth
+            3. smile/audiowave
+         */
+
         //merge the lips arrays and then sort them on the x-axis
         var lips = positions.top_lip.concat(positions.bottom_lip);
         var sorted_lips = lips.map(
@@ -254,6 +259,43 @@ function FaceMap() {
         //calculate the distance and midpoint between the above y values
         var yMidPoint = (biggestY + smallestY) / 2;
         var yDistance = biggestY - smallestY;
+
+
+        if(this.facialHair){
+            // beard/robot grill
+            var facialHairLength = map(this.facialHair, 0, 100, 40, 90);
+            noFill();
+            stroke(this.hue, 30, 90);
+            strokeWeight(0.02);
+            //grill mid point
+            var midPoint = ((sorted_lips[4][0]+(20*scale)) + (sorted_lips[10][0]+(20*scale))) / 2;
+            line(midPoint, biggestY+(facialHairLength*scale), midPoint, smallestY+(20*scale));
+            //left side of grill
+            var x = midPoint - 0.02;
+            var limit = sorted_lips[0][0]-(20*scale);
+            var y = biggestY+(facialHairLength*scale);
+            var yDiff = biggestY+(facialHairLength*scale) - biggestY;
+            var numOfPoints = (x - limit) / 0.04;
+            yDiff = yDiff / numOfPoints;
+            while(x > limit){
+                line(x, y, x, smallestY+(20*scale));
+                x = x - 0.04;
+                y = y - yDiff;
+            }
+            //right side of grill
+            var x = midPoint + 0.02;
+            var yAdjuster = (1*scale);
+            var limit = sorted_lips[23][0]+(20*scale);
+            var y = biggestY+(facialHairLength*scale);
+            var yDiff = biggestY+(facialHairLength*scale) - biggestY;
+            var numOfPoints = (limit - x) / 0.04;
+            yDiff = yDiff / numOfPoints;
+            while(x < limit){
+                line(x, y, x, smallestY+(20*scale));
+                x = x + 0.04;
+                y = y - yDiff;
+            }
+        }
 
         //draw the outer mouth
         fill(this.hue, 90, reverseTone);
@@ -410,6 +452,7 @@ function FaceMap() {
         this.skinTone = settings[4];
         this.hasEarings = settings[5];
         this.lipVibrancy = settings[6];
+        this.facialHair = settings[7];
     }
 
     /* get internal properties as list of numbers 0-100 */
@@ -422,6 +465,7 @@ function FaceMap() {
         properties[4] = this.skinTone;
         properties[5] = this.hasEarings;
         properties[6] = this.lipVibrancy;
+        properties[6] = this.facialHair;
         return properties;
     }
 }

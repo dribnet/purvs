@@ -197,7 +197,7 @@ function changeRandomSeed() {
 }
 
 function mouseClicked() {
-  // changeRandomSeed();
+  changeRandomSeed();
 }
 
 var quiz_done = false;
@@ -208,7 +208,7 @@ function draw () {
 
   if(millis() > lastSwapTime + millisPerSwap) {
     lastSwapTime = millis();
-    // changeRandomSeed();
+    //changeRandomSeed();
   }
 
   resetFocusedRandom(curRandomSeed);
