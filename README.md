@@ -1,5 +1,5 @@
 ## PS2 MDDN 342 2017
-
+.
 FINAL README
 
 For this project I tried to maintain the faces I created in project 1. The key elements to the first project were the eyes (which were interchangeable), the skin tone/colour, and the sketchy random lines featured on all the faces. To translate this to project 2 I created 3 types of eyes with varying eye colours and a sketchy outline/mouth/nose, while also maintaining most of the original colour scheme.  
