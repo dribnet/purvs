@@ -27,6 +27,7 @@ function FaceMap() {
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
    *    bottom_lip, top_lip, nose_tip, nose_bridge, as well as centering the
    * 	face and altering mouth size, hair size, eye direction and adding horns.
+   *  This is to apply cartoon styled devil masks over images of people, in particular, well known dictators.
    */  
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
@@ -55,8 +56,9 @@ function FaceMap() {
 
 
 
-    //Hair
-    fill(curHairColor);
+    // Hair
+
+    fill(curHairColor); /* Hair Colour Slider */
     ellipseMode(CENTER);
     noStroke();
     ellipse(1 + this.hairSize/100, eye1_pos[1] - scale * this.hairSize, this.hairSize * scale * 4, this.hairSize * scale * 4);
@@ -72,11 +74,11 @@ function FaceMap() {
     	ellipse(0 + (random(0, 0.5)) , eye2_pos[0] - scale * this.hairSize + (random(0, 0.5)), this.hairSize * scale * 4, this.hairSize * scale * 4);
      	}
 
-    //Horns
+    // Devil Horns
 
-    //White Horns
+    //White Horns Behind
 	
-	fill(bg_color);
+	  fill(bg_color);
 
     triangle(1, -1, 0.75, -2.2 - this.hornLength/50, -0.5, -1);
     triangle(-1, -1, -0.75, -2.2 - this.hornLength/50, 0.5, -1);
@@ -85,8 +87,9 @@ function FaceMap() {
     triangle(-1, -1, -1, -2 - this.hornLength/50, 1.35, -1);
 
     //Red Horns
-	fill(stroke_color);
-	fill(220 - this.hornColor, 53, 34);
+
+	  fill(stroke_color);
+	  fill(220 - this.hornColor, 53, 34);
 
     triangle(1, -1, 0.75, -2 - this.hornLength/50, -0.5, -1);
     triangle(-1, -1, -0.75, -2 - this.hornLength/50, 0.5, -1);
@@ -94,12 +97,15 @@ function FaceMap() {
     triangle(1, -1, 1, -2 - this.hornLength/50, 0.25, -1);
     triangle(-1, -1, -1, -2 - this.hornLength/50, -0.25, -1);
 
-	ellipseMode(CENTER);
+	  ellipseMode(CENTER);
 
-    // head
+    // Head
+
     stroke(stroke_color);
     fill(fg_color);
     beginShape();
+
+    //Using original code with Random values added to create sharper, less natural edge.
 
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0]+(random(0, 0.1)), positions.chin[i][1] +(random(0, 0.1)));
@@ -114,11 +120,11 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    //Cheeks
+    // Cheeks
 
     noStroke();
     fill(255, 5);
-	ellipse(eye1_pos[0] - 0.4 * scale, eye1_pos[1] + 1, this.eyeSize * scale * 2, this.eyeSize * scale * 2);
+	  ellipse(eye1_pos[0] - 0.4 * scale, eye1_pos[1] + 1, this.eyeSize * scale * 2, this.eyeSize * scale * 2);
     fill(255, 10);
     ellipse(eye2_pos[0] + 0.4 * scale, eye2_pos[1] + 1, this.eyeSize * scale * 2, this.eyeSize * scale * 2);
 
@@ -127,7 +133,8 @@ function FaceMap() {
 
     // Mouth
     
-    //Round base
+    //Round base/Lips
+
     ellipseMode(CENTER);
     fill(bg_color);
     beginShape();
@@ -136,7 +143,7 @@ function FaceMap() {
     ellipse(0, 1.1, this.mouthSize * scale * 1.5, this.mouthSize * scale * 0.75);
     noStroke();
 
-    //Back of Mouth Triangles
+    //Back of Mouth/Tongue Triangles
 
     fill(stroke_color);
     triangle(0, 0.8, -0.5 - this.mouthSize/200, 1.2, 0.5 + this.mouthSize/200, 1.2);
@@ -154,7 +161,7 @@ function FaceMap() {
     triangle(0, 0.8, -0.05 - this.mouthSize/300, 1.2, 0.05 + this.mouthSize/300, 1.2);
     endShape(CLOSE);
 
- 	//Moustache if image is a male 
+ 	  //Moustache if image is a male 
 
     if (this.moustache > 50) {
     	fill(42, 44, 43);
@@ -164,16 +171,20 @@ function FaceMap() {
      			vertex(positions.top_lip[i][0], positions.top_lip[i][1] - 0.2);
    			}
     	endShape(CLOSE);
-	}
+	  }
 
     // Nose
+
+    //Triangle shade behind main nose ellipses
 
     fill(10, 50);
     noStroke();
     triangle(0, -1, -0.5, 0.2, 0.5, 0.2);
 
+    //Circular shapes main part of nose.
+
     fill(bg_color);
-	ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale + this.hairLength/400, 46 * scale + this.hairLength/400);
+	  ellipse(nose_pos[0] + scale, nose_pos[1] + scale * 30, 56 * scale + this.hairLength/400, 46 * scale + this.hairLength/400);
     fill(fg_color);
     ellipse(nose_pos[0]  - scale * 20, nose_pos[1] + scale * 45, 16 * scale + this.hairLength/500, 16 * scale + this.hairLength/500);
     ellipse(nose_pos[0] + scale * 20, nose_pos[1] + scale * 45, 16 * scale + this.hairLength/500, 16 * scale + this.hairLength/500);
@@ -186,10 +197,11 @@ function FaceMap() {
    
   
 
-    //Eyebrows
+    // Eyebrows
 
 
   	//White Base 
+
     fill(bg_color);
     beginShape();
     for(var i=0; i<positions.right_eyebrow.length; i++) {
@@ -221,6 +233,7 @@ function FaceMap() {
     strokeWeight(1); 
 
     //Eyebrow Inner Detail
+
     fill(stroke_color);
     beginShape();
     for(var i=0; i<positions.right_eyebrow.length; i++) {
@@ -250,7 +263,7 @@ function FaceMap() {
 
     // Eyes
 
-	fill(bg_color);
+	  fill(bg_color);
     ellipse(eye1_pos[0], eye1_pos[1], this.eyeSize * scale, this.eyeSize * scale);
     ellipse(eye2_pos[0], eye2_pos[1], this.eyeSize * scale, this.eyeSize * scale);
 
@@ -281,10 +294,10 @@ function FaceMap() {
     this.hornColor = settings[2];
     this.hornLength = settings[3];
   	this.mouthSize = settings[4];
- 	this.hairSize = settings[5];
- 	this.eyeSize = settings[6];
- 	this.moustache = settings[7];
- 	this.eyeDirection = settings[8];
+ 	  this.hairSize = settings[5];
+ 	  this.eyeSize = settings[6];
+ 	  this.moustache = settings[7];
+ 	  this.eyeDirection = settings[8];
   }
 
   /* get internal properties as list of numbers 0-100 */
