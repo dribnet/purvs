@@ -1,5 +1,6 @@
-All face forms and colours are now finalised. I have also added in some photos of chefs to fit the food theme I am using.
-The last thing to do is train all of the faces before the final commit.
+Final commit.
 
-I have also added the purview.json file and added some versions.
+I have ensured all faces have been roughly trained. I noticed the skin colour was usaually correct along with smile and eye size. However, the hair colour was often not correct.
+
+Some faces are also still forming badly due to the perspective of the photo. Another issue is the flat perspective of the bread on top of the face. It was difficult to change this though due to the square shape of a piece of bread vs the more oval shape of a face
 
