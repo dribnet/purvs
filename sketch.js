@@ -115,7 +115,7 @@ function setup () {
   faceSelector.option('Neighbors');
   faceSelector.option('TrainQuiz');
   faceSelector.option('ValidQuiz');
-  faceSelector.value('Neighbors');
+  faceSelector.value('FaceMap');
   faceSelector.parent('selector1Container');
 
   /* create the sliders */
