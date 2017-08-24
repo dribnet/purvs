@@ -32,7 +32,7 @@ function FaceMap() {
 			var curNoseSize = map(this.noseSize, 0, 100, 30, 70);
 			var curLipColor = map(this.lipColor, 0, 100, 0, 255);
 			var curHairColor = map(this.hairColor, 0, 100, 0, 100);
-			var curHat = map(this.hat, 0, 100, 0, 90);
+			var curHair = map(this.hair, 0, 100, 0, 90);
 
 			var extent = 0;
 			h < w ? extent = h / 2 : extent = w / 2;
@@ -46,10 +46,10 @@ function FaceMap() {
 			// ellipse(x, y, w, h);
 
 			angleMode(DEGREES);
+
 			// head
 			stroke(fg_color);
 			noFill();
-
 			var box = bounding_box(positions);
 			strokeWeight(box[3] / curFaceGap);
 			strokeCap(PROJECT);
@@ -60,18 +60,18 @@ function FaceMap() {
 			var topPosL = min_point(positions.left_eyebrow);
 			var topPosR = max_point(positions.right_eyebrow);
 
-			var hasHat = 50;
-			curHat < 10 ? hasHat = false : hasHat = true;
+			var hasHair = 50;
+			curHair < 10 ? hasHair = false : hasHair = true;
 
-			if (hasHat) {
+			if (hasHair) {
 				colorMode(HSB);
 				noStroke();
 				fill(43, 87, curHairColor);
 				for (var x = topPosL[0] + box[2] / 10; x < topPosR[0] - box[2] / 10; x += box[2] / 10) {
-					ellipse(x, topPosL[1] - box[2] / 8, curHat * scale, curHat * scale);
+					ellipse(x, topPosL[1] - box[2] / 8, curHair * scale, curHair * scale);
 				}
 				for (var x = topPosL[0] + box[2] / 5; x < topPosR[0] - box[2] / 5; x += box[2] / 5)
-					ellipse(x, topPosR[1] - box[2] / 4, curHat * scale, curHat * scale);
+					ellipse(x, topPosR[1] - box[2] / 4, curHair * scale, curHair * scale);
 				colorMode(RGB);
 				noFill();
 				stroke(fg_color);
@@ -158,7 +158,7 @@ function FaceMap() {
 		this.noseSize = settings[2];
 		this.lipColor = settings[3];
 		this.hairColor = settings[4];
-		this.hat = settings[5];
+		this.hair = settings[5];
 	}
 
 	/* get internal properties as list of numbers 0-100 */
@@ -169,7 +169,7 @@ function FaceMap() {
 		properties[2] = this.noseSize;
 		properties[3] = this.lipColor;
 		properties[4] = this.hairColor;
-		properties[5] = this.hat;
+		properties[5] = this.hair;
 
 		return properties;
 	}

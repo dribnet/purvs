@@ -1,8 +1,5 @@
 ## PS2 MDDN 342 2017
-
-
-README for part5.
-
+###Final readme
 
 This is a program that maps attributes of faces in images onto parameterized mummy¡¯s faces. 
 
