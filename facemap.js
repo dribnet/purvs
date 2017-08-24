@@ -12,9 +12,7 @@ stroke_color = [95, 52, 8];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
-  this.tilt_value = random(0,100);
-  this.eye_value = random(0,100);
-  this.colour_random = random(-50,30);
+
 
   /*
    * Draw a face with position lists that include:
@@ -22,6 +20,8 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    this.tilt_value = this.colour1;
+    this.eye_value = this.colour2;
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
@@ -54,13 +54,13 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     noStroke();
-    fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
-    ellipse(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/40,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/20)
-    ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/40,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/20)
+    fill(87 + this.eye_value, 58 + this.eye_value, 28 + this.eye_value);
+    ellipse(positions.right_eyebrow[4][0],positions.right_eyebrow[2][1]-130* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/40,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/20)
+    ellipse(positions.left_eyebrow[1][0],positions.left_eyebrow[3][1]-130*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/40,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/20)
     fill(211,191,180);
-    ellipse(positions.right_eyebrow[2][0],positions.right_eyebrow[2][1]-100* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/54,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/27)
-    ellipse(positions.left_eyebrow[3][0],positions.left_eyebrow[3][1]-100*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/54,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/27)   
-    fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
+    ellipse(positions.right_eyebrow[4][0],positions.right_eyebrow[2][1]-130* (positions.right_eye[5][1]-positions.right_eye[2][1])/30,160*(positions.right_eye[0][0]-positions.right_eye[4][0])/54,160* (positions.right_eye[5][1]-positions.right_eye[2][1])/27)
+    ellipse(positions.left_eyebrow[1][0],positions.left_eyebrow[3][1]-130*(positions.right_eye[5][1]-positions.left_eye[2][1])/30,160*(positions.left_eye[0][0]-positions.left_eye[4][0])/54,160* (positions.left_eye[5][1]-positions.left_eye[2][1])/27)   
+    fill(87 + this.eye_value, 58 + this.eye_value, 28 + this.eye_value);
     ellipse((positions.chin[0][0]+positions.chin[16][0])/2,
       (positions.chin[0][1]+positions.chin[16][1])/2,
       sqrt(sq(positions.chin[0][0]-positions.chin[13][0])+sq(positions.chin[0][1]-positions.chin[13][1])),
@@ -152,6 +152,9 @@ function FaceMap() {
   this.setProperties = function(settings) {
     this.hairLength = settings[0];
     this.hairColor = settings[1];
+    this.colour1 = settings[2];
+    this.colour2 = settings[3];
+    this.colour3 = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
@@ -159,6 +162,9 @@ function FaceMap() {
     properties = new Array(2);
     properties[0] = this.hairLength;
     properties[1] = this.hairColor;
+    properties[2] = this.colour1;
+    properties[3] = this.colour2;
+    properties[4] = this.colour3;
     return properties;
   }
 }
