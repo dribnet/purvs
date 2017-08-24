@@ -24,6 +24,9 @@ function Face() {
   this.mask_color = [110, 29, 13];
   this.mask_lip_color = [199, 45, 41];
   this.mask_teeth_color = [233, 209, 174];
+  this.mask_eye_brow_color = [203, 71, 35];
+  this.mask_nose_color1 = [201, 107, 22];
+  this.mask_nose_color2 = [224, 142, 26];
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
@@ -118,6 +121,8 @@ function Face() {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
+    var eye_brow1_pos = average_point(positions.left_eyebrow);
+    var eye_brow2_pos = average_point(positions.right_eyebrow);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
@@ -147,6 +152,32 @@ function Face() {
     fill(this.mask_color);
     // mask
     rect(face_middle_x -(face_width * 0.5), nose_pos[1] - half_height, face_width, half_height * 2)
+    
+    // nose
+    stroke(this.mask_nose_color1);
+    fill(this.mask_nose_color1);
+    beginShape();
+    vertex(positions.nose_bridge[0][0],positions.nose_bridge[0][1]);
+    vertex(positions.nose_bridge[1][0],positions.nose_bridge[1][1]);
+    vertex(positions.nose_bridge[2][0],positions.nose_bridge[2][1]);
+    vertex(positions.nose_bridge[3][0],positions.nose_bridge[3][1]);
+    vertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
+    vertex(positions.nose_tip[1][0], positions.nose_tip[1][1]);
+    vertex(positions.nose_tip[0][0], positions.nose_tip[0][1]);
+    endShape(CLOSE);
+
+    noStroke();
+    fill(this.mask_nose_color2);
+    beginShape();
+    vertex(positions.nose_bridge[0][0],positions.nose_bridge[0][1]);
+    vertex(positions.nose_bridge[1][0],positions.nose_bridge[1][1]);
+    vertex(positions.nose_bridge[2][0],positions.nose_bridge[2][1]);
+    vertex(positions.nose_bridge[3][0],positions.nose_bridge[3][1]);
+    vertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
+    vertex(positions.nose_tip[3][0], positions.nose_tip[3][1]);
+    vertex(positions.nose_tip[4][0], positions.nose_tip[4][1]);
+    endShape(CLOSE);
+
     // eyes
     fill(this.mask_eye_color);
     strokeWeight(5);
@@ -155,8 +186,8 @@ function Face() {
      100 * scale, 75 * scale, 30 * scale, 30 * scale, 50 * scale, 50 * scale);
     rect(eye2_pos[0] - (50 * scale), eye2_pos[1] - (37.5 * scale),
      100 * scale, 75 * scale, 30 * scale, 30 * scale, 50 * scale, 50 * scale);
+    
     // lips
-    rect(100,100, 100, 100);
     fill(this.mask_lip_color);
     stroke(this.mask_lip_color);
     strokeWeight(3);
@@ -169,10 +200,6 @@ function Face() {
     vertex(positions.top_lip[5][0], positions.top_lip[5][1]);
     vertex(positions.top_lip[6][0], positions.top_lip[6][1]);
     vertex(positions.top_lip[7][0], positions.top_lip[7][1]);
-    // vertex(positions.top_lip[8][0], positions.top_lip[8][1]);
-    // vertex(positions.top_lip[9][0], positions.top_lip[9][1]);
-    // vertex(positions.top_lip[10][0], positions.top_lip[10][1]);
-    // vertex(positions.top_lip[11][0], positions.top_lip[11][1]);
     vertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
     vertex(positions.bottom_lip[1][0], positions.bottom_lip[1][1]);
     vertex(positions.bottom_lip[2][0], positions.bottom_lip[2][1]);
@@ -182,8 +209,8 @@ function Face() {
     vertex(positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
     vertex(positions.bottom_lip[7][0], positions.bottom_lip[7][1]);
     endShape(CLOSE);
-    rect(200,200, 100, 100);
 
+    // teeth
     fill(this.mask_teeth_color);
     noStroke();
     beginShape();
@@ -196,9 +223,15 @@ function Face() {
     vertex(positions.bottom_lip[10][0], positions.bottom_lip[10][1]);
     vertex(positions.bottom_lip[11][0], positions.bottom_lip[11][1]);
     endShape(CLOSE);
+
+    // eyebrows
+    fill(this.mask_eye_brow_color);
+    rect(eye_brow1_pos[0] - (55 * scale), eye_brow1_pos[1] - (25 * scale), 110 * scale, 50 * scale);
+    rect(eye_brow2_pos[0] - (55 * scale), eye_brow2_pos[1] - (25 * scale), 110 * scale, 50 * scale);
+    
     pop();
 
-    //noStroke();
+    
 
     
   }
