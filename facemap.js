@@ -10,9 +10,6 @@ fg_color = [151, 102, 52];
 stroke_color = [95, 52, 8];
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
-
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -29,11 +26,6 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -54,17 +46,18 @@ function FaceMap() {
     // head
     stroke(stroke_color);
     fill(fg_color);
-    beginShape();
+    //beginShape();
     for(var i=0; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0], positions.chin[i][1]);
+      //vertex(positions.chin[i][0], positions.chin[i][1]);
+      //line(positions.chin[i][0],positions.chin[i][1]);
     }
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+      //vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
     }
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+      //vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
     }
-    endShape(CLOSE);
+   //endShape(CLOSE);
 
     // mouth
     noStroke();
