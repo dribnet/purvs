@@ -1,11 +1,10 @@
 ## PS2 MDDN 342 2017
 
-part 2
+Part 3
 
-Added in my own pictures faces.
 
-The first face was just a test face with the lady with a plain white background.
+The sliders that I decided to add were eye height, mouth height, face position and colour. I decided these so I could get a better match to some faces that didn't work very well with my sprite.
 
-Another is a fairy face, which I thought fit with my theme of a summer sprite quite well.
+I used the colour to match the kind of sprite to the colour palette of the portraits. There were mostly autumn ones, since most people had tans, but there were also quite a lot of winters sprites. Sadly there wasn't a lot of pink and green present, so the least prominent one is the spring sprite.'
 
-The other 2 are groups of children. They come off very playful, which I want my sprite to come off as, and my sprite is quite childlike with it's expression, so I thought it fit.
+I've saved the trained values to the train_values files, but for some strange reason they aren't showing up.'

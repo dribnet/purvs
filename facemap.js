@@ -2,7 +2,7 @@
  * FaceMap class - holds all informaiton about one mapped
  * face and is able to draw itself.
  */ 
- var overallScale; 
+
 
 // other variables can be in here too
 // these control the colors used
@@ -13,8 +13,9 @@ stroke_color = [95, 52, 8];
 function FaceMap() {
   //randomSeed(5);
 
-  this.hairLength = 50;
-  this.hairColor = 50;
+  this.mouthPosition = 50;
+  this.eyePosition = 50;
+  this.season = 1;
   
   
 
@@ -25,6 +26,16 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+
+    //map functions
+
+    this.mouthPosition = map(this.mouthPosition, 0, 100, -0.5, 0.5);
+    this.eyePosition = map(this.eyePosition, 0, 100, -0.5, 0.5);
+    this.season = map(this.season, 0, 100, 0, 4);
+    this.facePos = map(this.facePos, 0, 100, -0.5, 0.5);
+   
+
+    
     
     angleMode(DEGREES);
     randomSeed(1);
@@ -42,21 +53,15 @@ function FaceMap() {
     var faceColour2 = 236;
     var faceColour3 = 187;
 
-    tilt_value = 0;
-    eye_value = 0;
-    mouth_value = 0;
-    seed_value = 1;
-    leaf_value = 20;
-    twig_value = 5;
-    twig_value2 = 6;
-    season_value = 3;
-    eyeSize_value = 1;
-    twigSize_value = 1;
-    
+    var twigSize_value = 1;
     var twigColour = "#005533";
-    eyeColour1 = 98; 
-    eyeColour2 = 183;
-    eyeColour3 = 88;
+    var eyeColour1 = 98; 
+    var eyeColour2 = 183;
+    var eyeColour3 = 88;
+
+    
+
+
 
 
 
@@ -75,16 +80,56 @@ function FaceMap() {
       extent = w / 2;
     }
     var scale1 = extent / 220.0;
-    overallScale = scale1;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
+     if(this.season <=1){ 
+      //summer
+    leafColour1 = "#00673f";
+    leafColour2 = "#219d23";
+    faceColour1 = 213;
+    faceColour2 = 236;
+    faceColour3 = 187;
+    twigColour = "#005533";
+    eyeColour1 = 98; 
+    eyeColour2 = 183;
+    eyeColour3 = 88;
+    }else if(this.season <=2){
+      //spring
+    leafColour1 = "#d7ff72";
+    leafColour2 = "#a2d400";
+    faceColour1 = 252;
+    faceColour2 = 190;
+    faceColour3 = 202;
+    twigColour = "#8b6403";
+    eyeColour1 = 251; 
+    eyeColour2 = 135;
+    eyeColour3 = 157;
+  }else if(this.season <=3){
+    //winter
+    leafColour1 = "#6ebff7";
+    leafColour2 = "#1f649d";
+    faceColour1 = 192;
+    faceColour2 = 241;
+    faceColour3 = 255;
+    twigColour = "#837981";
+    eyeColour1 = 66; 
+    eyeColour2 = 112;
+    eyeColour3 = 208;
+  }
+  else{
+    //autumn
+    leafColour1 = "#c64e00";
+    leafColour2 = "#ff902b";
+    faceColour1 = 253;
+    faceColour2 = 182;
+    faceColour3 = 89;
+    twigColour = "#722902";
+    eyeColour1 = 172; 
+    eyeColour2 = 61;
+    eyeColour3 = 0;
+  }
 
-    // head
+    
+
 
     push();
     
@@ -97,8 +142,15 @@ function FaceMap() {
       for(var i=0; i<positions.chin.length;i++) {
       leaf(positions.chin[i][0], positions.chin[i][1], leafColour1, leafColour2, random(0, 359));
       }
-      
+      for(var i=1; i<this.leaf_value; i++){
+      this.leaf(random(-140 * scale, 140 * scale), random(-30 * scale, 30 * scale), this.leafColour1, this.leafColour2, random(0, 359));
     }
+
+    for(var i=1; i<this.leaf_value; i++){
+      this.leaf(random(-100 * scale, 100 * scale), random(-100 * scale, 0 * scale), this.leafColour1, this.leafColour2, random(0, 359));
+    }
+
+  }
     
     
 
@@ -111,8 +163,9 @@ function FaceMap() {
 
     for(var i=0; i<5; i++){
       fill(faceColour1,faceColour2,faceColour3, 40+(i*50));
-      ellipse(nose_pos[0], nose_pos[1], 5-(i/3), 4-(i/3));
+      ellipse(nose_pos[0]+this.facePos, nose_pos[1], 5-(i/3), 5.5-(i/3));
     }
+
 
 //twigs
 
@@ -121,7 +174,7 @@ function FaceMap() {
     }
 
     for(var i = 0; i<positions.left_eyebrow.length; i++){
-      twig(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1], twigColour,-40+(i*20));
+      twig(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1], twigColour, -40+(i*20));
     }
 
 
@@ -130,16 +183,22 @@ function FaceMap() {
 
     
     //mouth
-
+    push();
+    translate(0, this.mouthPosition);
     noFill();
     stroke(5);
-    arc(mouth_pos[0], mouth_pos[1]-1, 0.25, 0.25, 0, 175);
-    arc(mouth_pos[0]-(0.25), mouth_pos[1]-1, 0.25, 0.25, 0, 175);
+
+    push();
+    arc(mouth_pos[0], mouth_pos[1], 0.25, 0.25, 0, 175);
+    arc(mouth_pos[0]-(0.25), mouth_pos[1], 0.25, 0.25, 0, 175);
+    pop();
+    pop();
 
   
     
   //eyes open
-
+  push();
+  translate(0, this.eyePosition);
   for(var i=2; i<=5; i++){
     noStroke();
     fill(eyeColour1, eyeColour2, eyeColour3, i*70);
@@ -149,8 +208,10 @@ function FaceMap() {
 
 
     fill("#000000")
-    ellipse(eye1_pos[0], eye1_pos[1], 15*overallScale, 20*overallScale);
-    ellipse(eye2_pos[0], eye2_pos[1], 15*overallScale, 20*overallScale);
+    ellipse(eye1_pos[0], eye1_pos[1], 15*scale1, 20*scale1);
+    ellipse(eye2_pos[0], eye2_pos[1], 15*scale1, 20*scale1);
+
+  pop();
 
   }
 
@@ -160,15 +221,21 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
+    this.mouthPosition = settings[0];
+    this.eyePosition = settings[1];
+    this.season = settings[2];
+    this.facePos = settings[3];
   }
+  
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
+    properties = new Array(4);
+    properties[0] = this.mouthPosition;
+    properties[1] = this.mouthPosition;
+    properties[2] = this.season;
+    properties[3] = this.facePos;
+   
     return properties;
   }
 }
@@ -202,16 +269,16 @@ function leaf(x, y, colour1, colour2, rotation){
 function twig(x, y, colour, rotation){
   stroke(colour);
   push();
-  strokeWeight(0.09);
+  strokeWeight(0.1);
   translate(x, y);
   rotate(rotation);
-  line(0, 0, 0, -100*overallScale*twigSize_value);
-  line(0, -20*overallScale*twigSize_value, 10*overallScale*twigSize_value, -30*overallScale*twigSize_value);
-  line(0, -30*overallScale*twigSize_value, -20*overallScale*twigSize_value, -50*overallScale*twigSize_value);
-  line(0, -40*overallScale*twigSize_value, 20*overallScale*twigSize_value, -60*overallScale*twigSize_value);
-  line(0, -60*overallScale*twigSize_value, 15*overallScale*twigSize_value, -75*overallScale*twigSize_value);
-  line(0, -60*overallScale*twigSize_value, -15*overallScale*twigSize_value, -75*overallScale*twigSize_value);
-  line(0, -80*overallScale*twigSize_value, -10*overallScale*twigSize_value, -90*overallScale*twigSize_value);
-  line(0, -80*overallScale*twigSize_value, 10*overallScale*twigSize_value, -90*overallScale*twigSize_value);
+  line(0, 0, 0, -10.0/4);
+  line(0, -2.0/4, 1.0/4, -3.0/4);
+  line(0, -3.0/4, -2.0/4, -5.0/4);
+  line(0, -4.0/4, 2.0/4, -6.0/4);
+  line(0, -6.0/4, 1.5/4, -7.5/4);
+  line(0, -6.0/4, -1.5/4, -7.5/4);
+  line(0, -8.0/4, -1.0/4, -9.0/4);
+  line(0, -8.0/4, 1.0/4, -9.0/4);
   pop();
 }
