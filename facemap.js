@@ -44,11 +44,6 @@ function FaceMap() {
   this.colorScheme = 2;
 
 
-
-
-
-
-
   /*
    * Draw a face with position lists that include:
    *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
@@ -108,24 +103,14 @@ function FaceMap() {
 
     noStroke();
 
-    drawMainFace(positions,scheme[1]);
+    drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme);
 
-    drawMonster(positions,x,y,w,h,face,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme);
-
-    //drawFaceV1(positions,h);
-    //drawFace2((x*1.1),(y*0.9),w*1.1,h*1.1,color(132,130,237));
-
-    //drawEye(eye1_pos[0],eye1_pos[1],0.8,white,scheme[2]);
-    //drawEye(eye2_pos[0],eye1_pos[1],0.8,white,scheme[2]);
-
-    drawEyes(x,y,eye1_pos[0],eye1_pos[1],eye2_pos[0],eye1_pos[1],w,h,scheme[2],eyeNum);
-    //print(positions.left_eyebrow[0]);
-
-
-  //  drawHorns1(0,0,w,h,scheme[3]);
   }
 
-  function drawMonster(positions,x,y,w,h,face,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme){
+  function drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme){
+
+    drawMainFace(positions,scheme[1],h);
+    drawEyes(x,y,eye1_pos[0],eye1_pos[1],eye2_pos[0],eye2_pos[1],w,h,scheme[2],eyeNum);
 
     /*
     //determining type of face
@@ -176,24 +161,38 @@ function FaceMap() {
 
   }
 
-  function drawMainFace(positions,scheme){
+  function drawMainFace(positions,scheme,h){
 
-    var yChange = 0;
+    var yChange1 = h*0.06;
+    var yChange2 = h*0.15;
+    var skip1 = 3;
+    var skip2 = 2;
+
+    var centerBrowX = (positions.left_eyebrow[positions.left_eyebrow.length-1][0]+positions.right_eyebrow[0][0])/2;
+    var centerBrowY = positions.left_eyebrow[positions.left_eyebrow.length-1][1]-(yChange2);
+
+
    fill(scheme);
    beginShape();
-   for(var i=0; i<positions.chin.length;i+=3) {
+   for(var i=0; i<positions.chin.length;i+=skip1) {
      vertex(positions.chin[i][0], positions.chin[i][1]);
    }
-   for(var i=positions.right_eyebrow.length-1; i>=0;i-=2) {
-     vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-yChange);
+   for(var i=positions.right_eyebrow.length-1; i>=skip2;i-=skip2) {
+     vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]-yChange1);
    }
-   for(var i=positions.left_eyebrow.length-1; i>=0;i-=2) {
-     vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-yChange);
+     vertex(centerBrowX,centerBrowY);
+   for(var i=positions.left_eyebrow.length-1-skip2; i>=0;i-=skip2) {
+     vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-yChange1);
    }
    endShape(CLOSE);
+
+
   }
 
 
+
+
+/*
 
 //faceType 1: Polygonal, weighted towards bottom
 function drawFace1(x,y,faceWidth,faceHeight,color){
@@ -392,6 +391,8 @@ function drawFace4(x,y,faceWidth,faceHeight,color){
   pop();
 
 }
+
+*/
 
 //hornType1: normal horns
 function drawHorns1(leftX,leftY,rightX,rightY,faceWidth,faceHeight,color){
@@ -644,41 +645,7 @@ function drawRightHorn3(x,y,faceWidth,faceHeight,color){
 
 }
 
-function getFacePoints(faceType,pointsType){
 
-switch(faceType){
-
-  case 1:
-    if(pointsType==1){
-      return [3,8,13,17,24,31];
-    }
-    else if(pointsType==2){
-      return [31,3,8,3,31,24];
-    }
-    else{
-      return [radius,radius,radius,radius2,radius2,radius];
-    }
-    break;
-
-    case 2:
-      if(pointsType==1){
-        return [4,8,12,20,24,28];
-      }
-      else if(pointsType==2){
-        return [4,8,4,28,24,28];
-      }
-      else{
-        return [radius,radius,radius2,radius2,radius,radius];
-      }
-      break;
-
-
-
-
-}
-
-
-}
 
 //method that controls getting the correct positions for eyes and
 //making sure the correct amount of eyes is displayed
@@ -752,6 +719,8 @@ function drawNose1(x,y,faceWidth,faceHeight,color){
   var noseX = x;
   var noseY = y;
 
+  translate(noseWidth*0.2,-noseHeight/2);
+
   ellipse(0,0-noseHeight*0.3,noseWidth,noseHeight/2);
   ellipse(0,0,noseWidth/4,noseHeight);
 
@@ -768,6 +737,7 @@ function drawNose2(x,y,faceWidth,faceHeight,color){
 
   push();
   translate(x,y);
+  translate(noseDiff/2,0);
 
   fill(color);
   //draw nose
@@ -787,11 +757,12 @@ function drawNose2(x,y,faceWidth,faceHeight,color){
 // nose type 3: polygon thing
 function drawNose3(x,y,faceWidth,faceHeight,color){
 
-  noseWidth = (faceWidth*0.2);
-  noseHeight = (faceHeight*0.2);
+  noseWidth = (faceWidth*0.15);
+  noseHeight = (faceHeight*0.15);
 
   push();
-  translate(x,y-noseHeight*0.24);
+  translate(x,y);
+  translate(noseWidth*0.2,-noseHeight*0.4);
 
   fill(color);
   //draw nose
