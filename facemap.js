@@ -100,7 +100,7 @@ function FaceMap() {
       for(var i=0; i<6;i++) {
     		if (i!=3 && i!=9){
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
- 	}
+ 	  }
     }
     endShape(CLOSE);
 
@@ -145,7 +145,7 @@ function FaceMap() {
     translate((eye1_pos[0]-0.1)+(this.lookPos/500), eye1_pos[1]-0.03);
     scale(eye_squish/100, 1);
 
-       fill(iris_color);
+    fill(iris_color);
 
     ellipse(0, 0, 20 * size *eye_size, 20 * size*eye_size);
 
@@ -174,9 +174,9 @@ function FaceMap() {
 
  	 translate(eye1_pos[0], eye1_pos[1]);
     rotate(-30);
-      for (var i=6; i>0;i-=0.02) {
-    ellipse(0, 0, i * (size/2), i*size);
-  }
+    for (var i=6; i>0;i-=0.02) {
+      ellipse(0, 0, i * (size/2), i*size);
+    }
   pop();
 
   //lower lid shadow
