@@ -107,6 +107,10 @@ function FaceMap() {
 
   }
 
+  this.getColors=function(){
+    return schemes;
+  }
+
   function drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme){
 
     drawMainFace(positions,scheme[1],h);

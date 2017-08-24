@@ -4,7 +4,7 @@ function Face(){
   //draws a monster at a specified position, with variables for
   //randomization
    this.drawMonster = function(mX,mY,faceWidth,faceHeight,eyeNum,mouthType,noseType,hornSize,hornType,monsterHeight,colorScheme,face){
-
+ print("after" + colorScheme);
   push();
   var monsterWidth = monsterHeight*1.92;
 
@@ -31,6 +31,8 @@ function Face(){
   else{
     this.drawFace5(monsterWidth,monsterHeight,faceWidth,faceHeight,(colorScheme[1]));
   }
+
+
 
   //eyes are always the same size
     var eyeSize = monsterWidth*(0.066);
@@ -97,14 +99,15 @@ function Face(){
     this.drawMouth2(monsterWidth,monsterHeight,faceWidth,faceHeight,colorScheme[5]);
     }
   }
-
+  
   pop();
+
   }
 
   //faceType 1: Polygonal, weighted towards bottom
   this.drawFace1 = function(monsterWidth,monsterHeight,faceWidth,faceHeight,color){
 
-    fill(132,130,237);
+    fill(color);
     //face
     beginShape();
     //lefttop
