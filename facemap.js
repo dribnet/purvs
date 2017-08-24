@@ -197,13 +197,7 @@ function FaceMap() {
 			ellipse(positions.chin[14][0]+(55*scale), positions.chin[14][1], 0.12, 0.5);
 			ellipse(positions.chin[14][0]+(75*scale), positions.chin[14][1], 0.08, 0.3);
 		}
-
-         // beard/robot wings
-        // stroke(this.hue, tone, 90);
-        // fill(this.hue, 90, tone);
-        // quad(positions.chin[4][0], positions.chin[4][1], positions.chin[7][0], positions.chin[7][1], positions.chin[7][0] - 3.5, positions.chin[7][1], positions.chin[4][0] - 0.5, positions.chin[4][1]);
-        // quad(positions.chin[12][0], positions.chin[12][1], positions.chin[9][0], positions.chin[9][1], positions.chin[9][0] + 3.5, positions.chin[9][1], positions.chin[12][0] + 0.5, positions.chin[12][1]);
-		
+	
         // head
         var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
         var chinValuesY = convertVerticeArrayToAxisArray(positions.chin, 1);
