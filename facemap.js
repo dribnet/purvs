@@ -25,6 +25,8 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    
+    angleMode(DEGREES);
     randomSeed(1);
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -51,7 +53,7 @@ function FaceMap() {
     eyeSize_value = 1;
     twigSize_value = 1;
     
-    twigColour = "#005533";
+    var twigColour = "#005533";
     eyeColour1 = 98; 
     eyeColour2 = 183;
     eyeColour3 = 88;
@@ -110,53 +112,64 @@ function FaceMap() {
 
     pop();
 
+
+    //face
+
     noStroke();
 
     for(var i=0; i<5; i++){
       fill(faceColour1,faceColour2,faceColour3, 40+(i*50));
-      ellipse(nose_pos[0], nose_pos[1], 150-(i*10), 150-(i*10));
+      ellipse(nose_pos[0], nose_pos[1], 450*overallScale-(i*10), 400*overallScale-(i*10));
     }
+
+//twigs
+
+    for(var i = 0; i<positions.right_eyebrow.length; i++){
+      twig(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1], twigColour, -40+(i*20));
+    }
+
+    for(var i = 0; i<positions.left_eyebrow.length; i++){
+      twig(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1], twigColour,-40+(i*20));
+    }
+
+
 
 
 
     
-    
+    //mouth
 
-    // mouth
-    /*noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);
+    noFill();
+    stroke(5);
+    arc(mouth_pos[0], mouth_pos[1]-10, 15*overallScale, 15*overallScale, 0, 175);
+    arc(mouth_pos[0]-(15*overallScale), mouth_pos[1]-10, 15*overallScale, 15*overallScale, 0, 175);
 
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
-*/
+  
     
   //eyes open
-  
-    for(var i=1; i<=5; i++){
-      noStroke();
-      fill(eyeColour1, eyeColour2, eyeColour3, i*70);
-      ellipse(eye1_pos[0], eye1_pos[1], 25-(i*5), 30-(i*5));
-      ellipse(eye2_pos[0], eye2_pos[1], 25-(i*5), 30-(i*5));
-      }
-      fill("#000000")
-      ellipse(eye1_pos[0], eye1_pos[1], 7, 10);
-      ellipse(eye2_pos[0], eye2_pos[1], 7, 10);
+
+  for(var i=1; i<=5; i++){
+    noStroke();
+    fill(eyeColour1, eyeColour2, eyeColour3, i*70);
+    ellipse(eye1_pos[0], eye1_pos[1], 60*overallScale-(i*5), 70*overallScale-(i*5));
+    ellipse(eye2_pos[0], eye2_pos[1], 60*overallScale-(i*5), 70*overallScale-(i*5));
     }
+
+
+    fill("#000000")
+    ellipse(eye1_pos[0], eye1_pos[1], 15*overallScale, 20*overallScale);
+    ellipse(eye2_pos[0], eye2_pos[1], 15*overallScale, 20*overallScale);
+
+  }
+
+
+    
+
+
+
+   
+
+    
   
 
   /* set internal properties based on list numbers 0-100 */
@@ -200,9 +213,9 @@ function leaf(x, y, colour1, colour2, rotation){
 }
 
 function twig(x, y, colour, rotation){
-  //strokeWeight(2*twigSize_value);
-  stroke(colour);
+  stroke(2);
   push();
+  strokeWeight(2);
   translate(x, y);
   rotate(rotation);
   line(0, 0, 0, -100*overallScale*twigSize_value);

@@ -3,4 +3,4 @@
 
 Part 2
 
-Starting to update my face. Added in the leaves, eyes and face. I'll probably add in the twigs in form of eyebrows.
+Added in all my face! I took away all the randomisation aspects to make the process easier. I also made the twigs in the form of eyebrows, and gave them some rotation to add more variation.
