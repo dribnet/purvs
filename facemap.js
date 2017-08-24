@@ -79,12 +79,6 @@ function FaceMap() {
       
     }
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
 
     // head
     stroke(stroke_color);
@@ -107,6 +101,7 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+    //eye
     fill("#ffffff");
     ellipse(eye3[0], eye3[1]/2 + scale, 128 * scale, 128 * scale);
     fill(fg_color);

@@ -12,3 +12,7 @@ Added some train values.
 ----
 
 finished properties, added a new one spliting horn height into left and right to better differentiate the from eachother, and adding values to the provided faces then added the values to train_data.jason file.
+
+----
+
+Added own images with the voice actors for the characters and a group shot of some random people.
