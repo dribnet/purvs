@@ -28,7 +28,10 @@ var scheme4 = [[160,231,139],[63,161,77],[255,161,143],[255,255,255],[156,153,15
 var scheme5 = [[248,130,78],[248,39,34],[129,105,95],[255,255,255],[126,102,91],[123,106,106]];
 
 //contains all schemes
-var schemes = [scheme2,scheme3,scheme4,scheme5];
+var schemes = [scheme2,scheme3];
+
+
+var hornColors = [[255,255,255],[209,209,209],[150,150,150]];
 
 
 var radius = 4.5;
@@ -36,12 +39,13 @@ var radius2 = 3;
 var faceOffset;
 
 function FaceMap() {
-  this.faceType = 1;
+  this.colorScheme = 2;
   this.eyeNum = 2;
   this.noseType = 1;
   this.mouthType = 1;
   this.hornType = 1;
-  this.colorScheme = 2;
+  this.hornColor = 1;
+
 
 
   /*
@@ -66,6 +70,7 @@ function FaceMap() {
     var noseType = Math.floor(map(this.noseType,0,100,1,3));
     var mouthType = Math.floor(map(this.mouthType,0,100,1,3));
     var hornType = Math.floor(map(this.hornType,0,100,1,3));
+    var hornColorNum = Math.floor(map(this.hornColor,0,100,0,hornColors.length-1));
     var scheme = schemes[Math.floor(map(this.colorScheme,0,100,0,schemes.length-1))];
     //print(Math.floor(map(this.colorScheme,0,100,0,schemes.length-1)));
     if(scheme == null){
@@ -103,7 +108,7 @@ function FaceMap() {
 
     noStroke();
 
-    drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme);
+    drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,hornColorNum,scheme);
 
   }
 
@@ -111,26 +116,10 @@ function FaceMap() {
     return schemes;
   }
 
-  function drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,scheme){
+  function drawMonster(positions,x,y,w,h,face,eyeNum,eye1_pos,eye2_pos,noseType,mouthType,hornType,mouth_pos,leftBrow,rightBrow,hornColorNum,scheme){
 
     drawMainFace(positions,scheme[1],h);
     drawEyes(x,y,eye1_pos[0],eye1_pos[1],eye2_pos[0],eye2_pos[1],w,h,scheme[2],eyeNum);
-
-    /*
-    //determining type of face
-    if(face == 1){
-      drawFace1((x),(y),w,h,scheme[1]);
-    }
-    else if(face == 2){
-      drawFace2((x),(y),w,h,scheme[1]);
-    }
-    else if(face == 3){
-      drawFace3((x),(y),w,h,scheme[1]);
-    }
-    else{
-      drawFace4((x),(y),w,h,scheme[1]);
-    }
-    */
 
     if(noseType==1){
       drawNose1(positions.nose_tip[0][0],positions.nose_tip[0][1],w,h,scheme[4]);
@@ -152,14 +141,19 @@ function FaceMap() {
         drawMouth3(mouth_pos[0],mouth_pos[1],w,h,scheme[3],scheme[5]);
     }
 
+    var hColor = hornColors[hornColorNum];
+    if(hColor == undefined){
+      hColor = color(255);
+    }
+
     if(hornType == 1){
-      drawHorns1(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,scheme[3]);
+      drawHorns1(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,hColor);
     }
     else if(hornType == 2){
-      drawHorns2(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,scheme[3]);
+     drawHorns2(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,hColor);
     }
     else{
-      drawHorns3(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,scheme[3]);
+      drawHorns3(leftBrow[0],leftBrow[1],rightBrow[0],rightBrow[1],w,h,hColor);
     }
 
 
@@ -795,8 +789,8 @@ function drawMouth1(x,y,faceWidth,faceHeight,color){
 
 fill(color);
   //draw mouth
-  var mouthWidth = faceWidth*0.2;
-  var mouthHeight = faceHeight*0.1;
+  var mouthWidth = faceWidth*0.15;
+  var mouthHeight = faceHeight*0.07;
   var mouthX = x;
   var mouthY = y;
   ellipse(mouthX,mouthY,mouthWidth,mouthHeight);
@@ -891,23 +885,24 @@ fill(color1);
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.faceType = settings[0];
+      this.colorScheme = settings[0];
     this.eyeNum = settings[1];
     this.noseType = settings[2];
-    this.mouthType = settings[3]
-    this.hornType = settings[4]
-    this.colorScheme = settings[5];
+    this.mouthType = settings[3];
+    this.hornType = settings[4];
+    this.hornColor = settings[5];
+
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(5);
-    properties[0] = this.faceType;
+    properties = new Array(6);
+    properties[0] = this.colorScheme;
     properties[1] = this.eyeNum;
     properties[2] = this.noseType;
     properties[3] = this.mouthType;
     properties[4] = this.hornType;
-    properties[5] = this.colorScheme;
+    properties[5] = this.hornColor;
     return properties;
   }
 }
