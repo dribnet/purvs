@@ -13,8 +13,8 @@ var bg_color = "grey";
 var fg_color1 = "rgb(177,215,151)";
 var ZamasuFaceColor1 = "rgb(177,215,151)";
 var ZamasuFaceColor2 = "rgb(157,195,131)";
-var ZamasuFaceColor3 = "rgba(0,0,0,0.2)";
-var ZamasuFaceColor4 = "rgba(0,0,0,0.05)";
+var ZamasuFaceColor3 = "rgba(0,0,0, 0.2)";
+var ZamasuFaceColor4 = "rgba(0,0,0,0.1)";
 var ZamasuHairColor1 = "rgb(232,236,236)";
 var ZamasuHairColor2 = "rgb(169,176,175)";
 var ZamasuPotEaringColor1 = "rgb(243,255,84)";
@@ -37,11 +37,25 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
+
+	var eyebrowLeft_pos = average_point(positions.left_eyebrow);
+    var eyebrowRight_pos = average_point(positions.right_eyebrow);
+
+    var mouthTop_pos = average_point(positions.bottom_lip);
+	var mouthBottom_pos = average_point(positions.top_lip);
+
+	var noseTip_pos = average_point(positions.nose_tip);
+	var noseBridge_pos = average_point(positions.nose_bridge);
+
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
+
+    var leftEarLength = positions.left_eye[0][0] - positions.chin[0][0];
+    var rightEarLength = positions.right_eye[3][0] - positions.chin[16][0];
 
     var x = nose_pos[0];
     var y = nose_pos[1];
@@ -69,22 +83,119 @@ function FaceMap() {
     // fill(0)
     // ellipse(x, y, w, h);
 
+
+    // Ears
+    noStroke();
+    fill(ZamasuFaceColor2);
+
+    // Left Ear
+    beginShape();
+    	vertex(positions.chin[1][0] + (2 * scale), positions.chin[1][1]);
+    	vertex(positions.chin[3][0] + (2 * scale), positions.chin[3][1]);
+    	vertex(positions.chin[2][0] - (25 * scale * leftEarLength), positions.chin[3][1] - (6 * scale * leftEarLength));
+    	vertex(positions.chin[1][0] - (80 * scale * leftEarLength), positions.chin[1][1] - (20 * scale * leftEarLength));
+    endShape();
+
+    // Right Ear
+    beginShape();
+    	vertex(positions.chin[15][0] - (2 * scale), positions.chin[15][1]);
+    	vertex(positions.chin[13][0] - (2 * scale), positions.chin[13][1]);
+    	vertex(positions.chin[14][0] + (25 * scale * -rightEarLength), positions.chin[13][1] + (6 * scale * rightEarLength));
+    	vertex(positions.chin[15][0] + (80 * scale * -rightEarLength), positions.chin[15][1] + (20 * scale * rightEarLength));
+    endShape();
+
+
+    // Ear Shading
+    noStroke();
+    fill(ZamasuFaceColor4);
+
+    if (leftEarLength < -rightEarLength) {
+	    // Left Ear
+	    beginShape();
+	    	vertex(positions.chin[1][0] + (2 * scale), positions.chin[1][1]);
+	    	vertex(positions.chin[3][0] + (2 * scale), positions.chin[3][1]);
+	    	vertex(positions.chin[2][0] - (25 * scale * leftEarLength), positions.chin[3][1] - (6 * scale * leftEarLength));
+	    	vertex(positions.chin[1][0] - (80 * scale * leftEarLength), positions.chin[1][1] - (20 * scale * leftEarLength));
+	    endShape();
+	}
+
+	if (-rightEarLength < leftEarLength) {
+	    // Right Ear
+	    beginShape();
+	    	vertex(positions.chin[15][0] - (2 * scale), positions.chin[15][1]);
+	    	vertex(positions.chin[13][0] - (2 * scale), positions.chin[13][1]);
+	    	vertex(positions.chin[14][0] + (25 * scale * -rightEarLength), positions.chin[13][1] + (6 * scale * rightEarLength));
+	    	vertex(positions.chin[15][0] + (80 * scale * -rightEarLength), positions.chin[15][1] + (20 * scale * rightEarLength));
+	    endShape();
+	}
+
+	// Potara Earrings
+
+	fill(ZamasuPotEaringColor1);
+    ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] + 0.1 - (6 * scale * leftEarLength), 8 * scale, 8 * scale);
+    fill(ZamasuPotEaringColor3);
+    ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] + 0.2 - (6 * scale * leftEarLength), 15 * scale, 15 * scale);
+    fill(ZamasuPotEaringColor1);
+    ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] - (6 * scale * leftEarLength), 10 * scale, 10 * scale);
+
+    fill(ZamasuPotEaringColor1);
+    ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] + 0.1 - (6 * scale * -rightEarLength), 8 * scale, 8 * scale);
+    fill(ZamasuPotEaringColor3);
+    ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] + 0.2 - (6 * scale * -rightEarLength), 15 * scale, 15 * scale);
+    fill(ZamasuPotEaringColor1);
+    ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] - (6 * scale * -rightEarLength), 10 * scale, 10 * scale);
+
+    // Potara Earring Shading
+    noStroke();
+    fill(ZamasuFaceColor4);
+
+    if (leftEarLength < -rightEarLength) {
+        ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] + 0.1 - (6 * scale * leftEarLength), 8 * scale, 8 * scale);
+        ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] + 0.2 - (6 * scale * leftEarLength), 15 * scale, 15 * scale);
+        ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] - (6 * scale * leftEarLength), 10 * scale, 10 * scale);
+    }
+
+    if (-rightEarLength < leftEarLength) {
+        ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] + 0.1 - (6 * scale * -rightEarLength), 8 * scale, 8 * scale);
+        ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] + 0.2 - (6 * scale * -rightEarLength), 15 * scale, 15 * scale);
+        ellipse(positions.chin[14][0] - 0.1 + (10 * scale * -rightEarLength), positions.chin[13][1] - (6 * scale * -rightEarLength), 10 * scale, 10 * scale);
+    }
+    // fill(ZamasuFaceColor3);
+    // ellipse(135, 152, 10, 10);
+    // ellipse(135, 170, 30, 30);
+    // ellipse(135, 140, 17, 17);
+
+    // fill(ZamasuPotEaringColor1);
+    // ellipse(-135, 152, 10, 10);
+    // fill(ZamasuPotEaringColor3);
+    // ellipse(-135, 170, 30, 30);
+    // fill(ZamasuPotEaringColor1);
+    // ellipse(-135, 140, 17, 17); 
+
     // head
-    stroke(stroke_color);
+    noStroke();
     fill(ZamasuFaceColor1);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
 
+    // for(var i=positions.chin.length-1; i>=0;i--) {
+    //   vertex(positions.chin[i][0], -positions.chin[i][1]- (100 * scale));
+    // }
+
     for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
+      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1] - (50 * scale));
     }
 
+    vertex(positions.right_eyebrow[0][0] - (20 * scale), positions.right_eyebrow[0][1] - (45 * scale));
+
     for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
+      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1] - (50 * scale));
     }
     endShape(CLOSE);
+
+
 
     // mouth
     noStroke();
@@ -100,65 +211,115 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
+
+
     // nose
     noStroke();
     fill(ZamasuFaceColor2);
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
+    // beginShape();
+    // vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+    // for(var i=0; i<positions.nose_tip.length;i++) {
+    //   vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
+    // }
+    // endShape(CLOSE);
+    if (-rightEarLength < leftEarLength) {
+        beginShape();
+            vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+            vertex(positions.nose_tip[4][0], positions.nose_tip[4][1]);
+            vertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
+        endShape(CLOSE);
     }
-    endShape(CLOSE);
+
+    if (leftEarLength < -rightEarLength) {
+        beginShape();
+            vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
+            vertex(positions.nose_tip[0][0], positions.nose_tip[0][1]);
+            vertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
+        endShape(CLOSE);
+    }
+
+
+    beginShape();
+        vertex(positions.nose_tip[4][0], positions.nose_tip[4][1]);
+        vertex(positions.nose_tip[2][0], positions.nose_tip[2][1]);
+        vertex(positions.nose_tip[0][0], positions.nose_tip[0][1]);
+        vertex(positions.nose_bridge[3][0], positions.nose_bridge[3][1]);
+    endShape();
+
+
 
     // eyes
     noStroke();
     fill(eyecolor3);
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
 
-    endShape(CLOSE);
+    // Left eye
     beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
+        vertex(positions.left_eye[0][0] - (10 * scale), positions.left_eye[0][1] - (10 * scale));
+        vertex(positions.left_eye[2][0], positions.left_eye[2][1] - (10 * scale));
+        vertex(positions.left_eye[3][0] + (10 * scale), positions.left_eye[3][1]);
+        vertex(positions.left_eye[5][0], positions.left_eye[5][1]);
+    endShape();
+
+    // beginShape();
+    // for(var i=0; i<positions.right_eye.length;i++) {
+    //   vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
+    // }
+    // endShape(CLOSE);
+
+    // Right eye
+    beginShape();
+        vertex(positions.right_eye[0][0] - (10 * scale), positions.right_eye[0][1]);
+        vertex(positions.right_eye[1][0], positions.right_eye[1][1] - (10 * scale));
+        vertex(positions.right_eye[3][0] + (10 * scale), positions.right_eye[3][1] - (10 * scale));
+        vertex(positions.right_eye[4][0], positions.right_eye[4][1]);
+    endShape();
 
     fill(eyecolor1);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
-    
+    ellipse(eye1_pos[0] + (5 * scale), eye1_pos[1] - (5 * scale), 19 * scale, 19 * scale);
+    ellipse(eye2_pos[0] - (5 * scale), eye2_pos[1] - (5 * scale), 19 * scale, 19 * scale);
 
     // right eyebrow
     noStroke();
     fill(ZamasuHairColor1);
     beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
+    	vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
+    	vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]);
+    	vertex(positions.right_eyebrow[4][0], positions.right_eyebrow[4][1]);
+    	vertex(positions.right_eyebrow[2][0], positions.right_eyebrow[2][1]+ 8 * scale);
     endShape(CLOSE);
-
 
     // left eyebrow
     noStroke();
     fill(ZamasuHairColor1);
     beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
+    	vertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]);
+    	vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]);
+    	vertex(positions.left_eyebrow[4][0], positions.left_eyebrow[4][1]);
+    	vertex(positions.left_eyebrow[2][0], positions.left_eyebrow[2][1]+ 8 * scale);
     endShape(CLOSE);
     strokeWeight(1);  
 
-    //test Rectangle for placing objects
+    
+
+    //test Section
+
+    // noStroke();
+    // fill(eyecolor3);
+    // beginShape();
+    //     vertex(positions.right_eye[0][0], positions.right_eye[0][1]);
+    //     vertex(positions.right_eye[1][0], positions.right_eye[1][1]);
+    //     vertex(positions.right_eye[2][0], positions.right_eye[2][1]);
+    //     vertex(positions.right_eye[3][0], positions.right_eye[3][1] + (20 * scale));
+    //     vertex(positions.right_eye[4][0], positions.right_eye[4][1]);
+    //     vertex(positions.right_eye[5][0], positions.right_eye[5][1]);
+    // endShape();
+
     rectMode(CENTER);
-    rect(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    rect(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
+    fill('black');
+    rect(mouthBottom_pos[0], mouthBottom_pos[1] + 20, 16 * scale * 2, 16 * scale * 2);
 
   }
 
-    
-    
     
 
   /* set internal properties based on list numbers 0-100 */
