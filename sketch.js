@@ -186,7 +186,8 @@ function getAllJson() {
 }
 
 // global variables for colors
-var bg_color1 = [350, 25, 100];
+// colour set in RGB
+var bg_color1 = [255, 191, 202];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
@@ -213,8 +214,10 @@ function draw () {
 
   resetFocusedRandom(curRandomSeed);
 
+  colorMode(RGB);
   noStroke();
   background(bg_color1);
+  colorMode(HSB);
   var textDisplay = "unknown";
 
   var params = [];
@@ -283,6 +286,7 @@ function draw () {
       ellipse(x1+400/2, y1+400+15, 10, 10);      
     }
 
+    colorMode(RGB);
     image(img, x2, y1, 400, 400);
     noStroke();
     var curSliderTintValue = sliderTint.value();
@@ -291,6 +295,7 @@ function draw () {
     rect(x2, y1, 400, 400);
     stroke(0);
     fill(255);
+    colorMode(HSB);
 
     for(var i=0; i<data.landmarks.length; i++) {
       // get array of face marker positions [x, y] format

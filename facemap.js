@@ -3,7 +3,6 @@
  * face and is able to draw itself.
  */  
 
-// other variables can be in here too
 // these control the colors used
 
   ch3_bodyPrimary = [204, 204, 204];
@@ -16,6 +15,7 @@ function FaceMap() {
   // draw strokes with rounded joints  
   strokeJoin(ROUND);
 
+  // set colour mode to HSB
   colorMode(HSB);
 
   /*
@@ -24,6 +24,7 @@ function FaceMap() {
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw = function(positions) {
+    // variables of facial structure
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
@@ -38,20 +39,23 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
+    // bolleans for whether face is looking left or right
     var lookingLeft = false;
     var lookingRight = false;
 
+    // compare nose landmarks to check if looking left or right
     if(Math.abs(positions.nose_bridge[3][0] - positions.nose_bridge[0][0]) > 0.03){
       if(positions.nose_bridge[3][0] < positions.nose_bridge[0][0])
         lookingLeft = true;
 
       if(positions.nose_bridge[3][0] > positions.nose_bridge[0][0])
         lookingRight = true;
-    }
+    } 
     else {
         lookingLeft = true;
     }
 
+    // adjustable variables of character identity
     var gender = map(this.genderValue, 0, 100, 0, 1); 
     var hair = map(this.hairValue, 0, 100, 80, 200);
     var curlookDirection = map(this.lookDirection, 0, 100, -15, 15);
@@ -62,6 +66,7 @@ function FaceMap() {
     var curBrightnessPrimary = map(this.brightness, 0, 100, 50, 100);
     var curBrightnessSecondary = map(this.brightness, 0, 100, 20, 70);
 
+    // sets object scale
     var extent = 0;
     if(h < w) {
       extent = h / 2;
@@ -71,53 +76,52 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
     // draw left ear if male
-
+    // draw rectangle from a centre point
     rectMode(CENTER)
 
+    // if male face and is looking left
     if(gender == 1 & lookingLeft == true) { 
+      // draw ear
       stroke(ch3_detailPrimary)
       strokeWeight(10 * scale);
       fill(curHue, curSaturation, curBrightnessPrimary);
       rect(face_pos[0] - (10 * scale), eye2_pos[1] - (100 * scale), 50 * scale, hair * scale, 100 * scale, 100 * scale, 0, 0);
-      }
+    }
 
+    // if male and is looking right
     if(gender == 1 & lookingRight == true) { 
+      // draw ear
       stroke(ch3_detailPrimary)
       strokeWeight(10 * scale);
       fill(curHue, curSaturation, curBrightnessPrimary);
       rect(face_pos[0] + (10 * scale), eye1_pos[1] - (100 * scale), 50 * scale, hair * scale, 100 * scale, 100 * scale, 0, 0);
-      }
+    }
 
     // head
-
+    // draw rectangle from a centre point
     rectMode(CENTER);
 
+    // draw face
     stroke(ch3_detailPrimary)
-  strokeWeight(10 * scale);
-  fill(curHue, curSaturation, curBrightnessPrimary);
-  rect(face_pos[0], face_pos[1] - (70 * scale), 300 * scale, 320 * scale, 200 * scale, 200 * scale, 0, 0);
+    strokeWeight(10 * scale);
+    fill(curHue, curSaturation, curBrightnessPrimary);
+    rect(face_pos[0], face_pos[1] - (70 * scale), 300 * scale, 320 * scale, 200 * scale, 200 * scale, 0, 0);
     
     // draw dissection
     fill(curHue, curSaturation, curBrightnessSecondary);
     ellipse(face_pos[0], face_pos[1] + (90 * scale), 300 * scale, 80 * scale);
     // draw bone
-  strokeWeight(7 * scale);
+    strokeWeight(7 * scale);
     fill(ch3_detailSecondary);
     ellipse(face_pos[0], face_pos[1] + (90 * scale), 150 * scale, 30 * scale);
 
     // draw right ear if male
-
     rectMode(CENTER);
 
+    // if male and looking left
     if(gender == 1 & lookingLeft == true) { 
+      // draw ear
       stroke(ch3_detailPrimary)
       strokeWeight(10 * scale);
       fill(curHue, curSaturation, curBrightnessPrimary);
@@ -130,7 +134,9 @@ function FaceMap() {
       rect(face_pos[0] + (30 * scale), eye2_pos[1] - (5 * scale), 70 * scale, 150 * scale);
       }
 
+    // if male and looking right
     if(gender == 1 & lookingRight == true) { 
+      // draw ear
       stroke(ch3_detailPrimary)
       strokeWeight(10 * scale);
       fill(curHue, curSaturation, curBrightnessPrimary);
@@ -143,56 +149,59 @@ function FaceMap() {
       rect(face_pos[0] - (30 * scale), eye1_pos[1] - (5 * scale), 70 * scale, 150 * scale);
       }
     
+    // features for when looking left
     if(lookingLeft == true) {
 
-          // left eye
+      // left eye
 
-          stroke(ch3_detailPrimary);
-          strokeWeight(7 * scale);
-          fill(ch3_detailSecondary);
-          ellipse(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale);
-          // pupil
-          noStroke();
-          fill(ch3_detailPrimary);
-          arc(eye1_pos[0] + curlookDirection * scale, eye1_pos[1], (30) * scale, (50) * scale, 20, 340, PIE);
-          // eyelid
-          strokeWeight(7 * scale);
-          stroke(ch3_detailPrimary);
-          fill(curHue, curSaturation, curBrightnessSecondary);
-          // top eyelid
-          arc(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale, 265 - curEyelidTop_height, 275 + curEyelidTop_height, CHORD);
-          // bottom eyelid
-          arc(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale, 85 - curEyelidBottom_height, 95 + curEyelidBottom_height, CHORD);
-          // eyebrow
-          stroke(ch3_detailPrimary)
-          noFill();
-          arc(eye1_pos[0], (eye1_pos[1]), 130 * scale, 110 * scale, 240, 300);
+      stroke(ch3_detailPrimary);
+      strokeWeight(7 * scale);
+      fill(ch3_detailSecondary);
+      ellipse(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale);
+      // pupil
+      noStroke();
+      fill(ch3_detailPrimary);
+      arc(eye1_pos[0] + curlookDirection * scale, eye1_pos[1], (30) * scale, (50) * scale, 20, 340, PIE);
+      // eyelid
+      strokeWeight(7 * scale);
+      stroke(ch3_detailPrimary);
+      fill(curHue, curSaturation, curBrightnessSecondary);
+      // top eyelid
+      arc(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale, 265 - curEyelidTop_height, 275 + curEyelidTop_height, CHORD);
+      // bottom eyelid
+      arc(eye1_pos[0], eye1_pos[1], 80 * scale, 80 * scale, 85 - curEyelidBottom_height, 95 + curEyelidBottom_height, CHORD);
+      // eyebrow
+      stroke(ch3_detailPrimary)
+      noFill();
+      arc(eye1_pos[0], (eye1_pos[1]), 130 * scale, 110 * scale, 240, 300);
 
-          // nose
-          if(gender < 1) {
-          push();
-          translate(face_pos[0] - (100 * scale), face_pos[1] - (70 * scale));
+      // nose
+      // if female draw bird style
+      if(gender < 1) {
+        // translate to an offset of the centre of the face
+        push();
+        translate(face_pos[0] - (100 * scale), face_pos[1] - (70 * scale));
 
-          // draw beak
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          fill(curHue, curSaturation, curBrightnessSecondary);
-          arc(0, 0, 250 * scale, 150 * scale, 335, 385, PIE);
+        // draw beak
+        stroke(ch3_detailPrimary)
+        strokeWeight(7 * scale);
+        fill(curHue, curSaturation, curBrightnessSecondary);
+        arc(0, 0, 250 * scale, 150 * scale, 335, 385, PIE);
 
-          // draw mouth
-          stroke(ch3_detailPrimary);
-          strokeWeight(7 * scale);
-          line(5 * scale, 0 * scale, 80 * scale, 0 * scale);
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          noFill();
-          arc(110 * scale, 0 * scale, 50 * scale, 50 * scale, 140, 210);
+        // draw mouth
+        stroke(ch3_detailPrimary);
+        strokeWeight(7 * scale);
+        line(5 * scale, 0 * scale, 80 * scale, 0 * scale);
+        stroke(ch3_detailPrimary)
+        strokeWeight(7 * scale);
+        noFill();
+        arc(110 * scale, 0 * scale, 50 * scale, 50 * scale, 140, 210);
 
         // teeth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          fill(ch3_detailSecondary);
-          // check teeth value
+        stroke(ch3_detailPrimary)
+        strokeWeight(7 * scale);
+        fill(ch3_detailSecondary);
+        // check teeth value
         if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
           arc(40 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
         } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
@@ -201,56 +210,53 @@ function FaceMap() {
         }
 
         pop();
-        }
-    if(gender == 1) {
+      }
 
-          push();
-          translate(face_pos[0] - (130 * scale), face_pos[1] - (100 * scale));
+      // if male draw dog style
+      if(gender == 1) { 
+        // translate to an offset of centre of the face
 
-            // draw snout
-          stroke(ch3_detailPrimary)
-          strokeWeight(10 * scale);
-          fill(curHue, curSaturation, curBrightnessPrimary);
-            // top snout
-            rectMode(CORNER);
-          rect(0, 0, 140 * scale, 45 * scale, 18 * scale, 0, 0, 18 * scale);
+        push();
+        translate(face_pos[0] - (130 * scale), face_pos[1] - (100 * scale));
 
-            // re-fill / cover
-            // noStroke();
-            // fill(ch3_bodyPrimary);
-            // arc(0 * scale, 0 * scale, 290 * scale, 290 * scale, 180, 360);
-            
+        // draw snout
+        stroke(ch3_detailPrimary)
+        strokeWeight(10 * scale);
+        fill(curHue, curSaturation, curBrightnessPrimary);
+        // top snout
+        rectMode(CORNER);
+        rect(0, 0, 140 * scale, 45 * scale, 18 * scale, 0, 0, 18 * scale);
 
-          stroke(ch3_detailPrimary)
-          strokeWeight(10 * scale);
-          fill(curHue, curSaturation, curBrightnessPrimary);
-           // bottom snout
-          rect(30 * scale, 45 * scale, 110 * scale, 35 * scale, 14 * scale, 0, 0, 14 * scale);
+        stroke(ch3_detailPrimary)
+        strokeWeight(10 * scale);
+        fill(curHue, curSaturation, curBrightnessPrimary);
+        // bottom snout
+        rect(30 * scale, 45 * scale, 110 * scale, 35 * scale, 14 * scale, 0, 0, 14 * scale);
 
-            noStroke();
-            fill(curHue, curSaturation, curBrightnessPrimary);
-            // re-fill / cover
-            rect(130 * scale, -7 * scale, 60 * scale, 100 * scale);
+        noStroke();
+        fill(curHue, curSaturation, curBrightnessPrimary);
+        // re-fill / cover
+        rect(130 * scale, -7 * scale, 60 * scale, 100 * scale);
 
-            // draw nose
-            noStroke();
-            fill(ch3_detailPrimary);
-            push();
-            rotate(10);
-            ellipse(0 * scale, 0 * scale, 40 * scale, 28 * scale);
-            pop();
+        // draw nose
+        noStroke();
+        fill(ch3_detailPrimary);
+        push();
+        rotate(10);
+        ellipse(0 * scale, 0 * scale, 40 * scale, 28 * scale);
+        pop();
 
-          // mouth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-            noFill();
-            arc(155 * scale, 40 * scale, 50 * scale, 50 * scale, 140, 210);
+        // mouth
+        stroke(ch3_detailPrimary)
+        strokeWeight(7 * scale);
+        noFill();
+        arc(155 * scale, 40 * scale, 50 * scale, 50 * scale, 140, 210);
 
-            // teeth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          fill(ch3_detailSecondary);
-          // check teeth value
+        // teeth
+        stroke(ch3_detailPrimary)
+        strokeWeight(7 * scale);
+        fill(ch3_detailSecondary);
+        // check teeth value
         if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
           arc(70 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
         } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
@@ -258,33 +264,35 @@ function FaceMap() {
         } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
         }
 
-            pop();
+        pop();
+      }
+
+      // right eye
+      // eye
+      stroke(ch3_detailPrimary);
+      strokeWeight(7 * scale);
+      fill(ch3_detailSecondary);
+      ellipse(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale);
+      // pupil
+      noStroke();
+      fill(ch3_detailPrimary);
+      arc(eye2_pos[0] + curlookDirection * scale, eye2_pos[1], (30) * scale, (50) * scale, 20, 340, PIE);
+      // eyelid
+      strokeWeight(7 * scale);
+      stroke(ch3_detailPrimary);
+      fill(curHue, curSaturation, curBrightnessSecondary);
+      // top eyelid
+      arc(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale, 265 - curEyelidTop_height, 275 + curEyelidTop_height, CHORD);
+      // bottom eyelid
+      arc(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale, 85 - curEyelidBottom_height, 95 + curEyelidBottom_height, CHORD);
+      // eyebrow
+      stroke(ch3_detailPrimary)
+      noFill();
+      arc(eye2_pos[0], (eye2_pos[1]), 130 * scale, 110 * scale, 240, 300);
+
     }
-    // right eye
 
-    stroke(ch3_detailPrimary);
-    strokeWeight(7 * scale);
-    fill(ch3_detailSecondary);
-    ellipse(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale);
-    // pupil
-    noStroke();
-    fill(ch3_detailPrimary);
-    arc(eye2_pos[0] + curlookDirection * scale, eye2_pos[1], (30) * scale, (50) * scale, 20, 340, PIE);
-    // eyelid
-    strokeWeight(7 * scale);
-    stroke(ch3_detailPrimary);
-    fill(curHue, curSaturation, curBrightnessSecondary);
-    // top eyelid
-    arc(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale, 265 - curEyelidTop_height, 275 + curEyelidTop_height, CHORD);
-    // bottom eyelid
-    arc(eye2_pos[0], eye2_pos[1], 80 * scale, 80 * scale, 85 - curEyelidBottom_height, 95 + curEyelidBottom_height, CHORD);
-    // eyebrow
-    stroke(ch3_detailPrimary)
-    noFill();
-    arc(eye2_pos[0], (eye2_pos[1]), 130 * scale, 110 * scale, 240, 300);
-
-  }
-
+  // facial feature if looking right  
   if(lookingRight == true) {
 
      // right eye
@@ -312,95 +320,94 @@ function FaceMap() {
 
     
     // nose
+    // if female draw bird style
     if(gender < 1) {
-    push();
-    translate(face_pos[0] + (120 * scale), face_pos[1] - (70 * scale));
+      // translate to an offset of the centre of the face
+      push();
+      translate(face_pos[0] + (120 * scale), face_pos[1] - (70 * scale));
 
-    stroke(ch3_detailPrimary)
-    strokeWeight(7 * scale);
-    fill(curHue, curSaturation, curBrightnessSecondary);
-    arc(0, 0, 250 * scale, 150 * scale, 155, 205, PIE);
+      // draw beak
+      stroke(ch3_detailPrimary)
+      strokeWeight(7 * scale);
+      fill(curHue, curSaturation, curBrightnessSecondary);
+      arc(0, 0, 250 * scale, 150 * scale, 155, 205, PIE);
 
-    stroke(ch3_detailPrimary);
-    strokeWeight(7 * scale);
-    line(-5 * scale, 0 * scale, -80 * scale, 0 * scale);
-    stroke(ch3_detailPrimary)
-    strokeWeight(7 * scale);
-    noFill();
-    arc(-110 * scale, 0 * scale, 50 * scale, 50 * scale, 320, 390);
+      // draw mouth
+      stroke(ch3_detailPrimary);
+      strokeWeight(7 * scale);
+      line(-5 * scale, 0 * scale, -80 * scale, 0 * scale);
+      stroke(ch3_detailPrimary)
+      strokeWeight(7 * scale);
+      noFill();
+      arc(-110 * scale, 0 * scale, 50 * scale, 50 * scale, 320, 390);
 
-        // teeth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          fill(ch3_detailSecondary);
-          // check teeth value
+      // teeth
+      stroke(ch3_detailPrimary)
+      strokeWeight(7 * scale);
+      fill(ch3_detailSecondary);
+      // check teeth value
       if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
-          arc(-40 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
-          arc(-60 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
-        }
+        arc(-40 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+      } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
+        arc(-60 * scale, 0 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+      } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
+      }
 
-    pop();
+      pop();
     }
 
+    // if male draw dog style
     if(gender == 1) {
-
+      // translate to an offset of the centre of the face
       push();
       translate(face_pos[0], face_pos[1] - (100 * scale));
 
-            // draw snout
-          stroke(ch3_detailPrimary)
-          strokeWeight(10 * scale);
-          fill(curHue, curSaturation, curBrightnessPrimary);
-            // top snout
-            rectMode(CORNER);
-          rect(0, 0, 140 * scale, 45 * scale, 0, 18 * scale, 18 * scale, 0);
+      // draw snout
+      stroke(ch3_detailPrimary)
+      strokeWeight(10 * scale);
+      fill(curHue, curSaturation, curBrightnessPrimary);
+      // top snout
+      rectMode(CORNER);
+      rect(0, 0, 140 * scale, 45 * scale, 0, 18 * scale, 18 * scale, 0);
 
-            // re-fill / cover
-            // noStroke();
-            // fill(ch3_bodyPrimary);
-            // arc(0 * scale, 0 * scale, 290 * scale, 290 * scale, 180, 360);
-            
+      stroke(ch3_detailPrimary)
+      strokeWeight(10 * scale);
+      fill(curHue, curSaturation, curBrightnessPrimary);
+       // bottom snout
+      rect(0 * scale, 45 * scale, 110 * scale, 35 * scale, 0, 14 * scale, 14 * scale, 0);
 
-          stroke(ch3_detailPrimary)
-          strokeWeight(10 * scale);
-          fill(curHue, curSaturation, curBrightnessPrimary);
-           // bottom snout
-          rect(0 * scale, 45 * scale, 110 * scale, 35 * scale, 0, 14 * scale, 14 * scale, 0);
+      noStroke();
+      fill(curHue, curSaturation, curBrightnessPrimary);
+      // re-fill / cover
+      rect(-50 * scale, -7 * scale, 60 * scale, 100 * scale);
 
-            noStroke();
-            fill(curHue, curSaturation, curBrightnessPrimary);
-            // re-fill / cover
-            rect(-50 * scale, -7 * scale, 60 * scale, 100 * scale);
+      // draw nose
+      noStroke();
+      fill(ch3_detailPrimary);
+      push();
+      rotate(-10);
+      ellipse(140 * scale, 30 * scale, 40 * scale, 28 * scale);
+      pop();
 
-            // draw nose
-            noStroke();
-            fill(ch3_detailPrimary);
-            push();
-            rotate(-10);
-            ellipse(140 * scale, 30 * scale, 40 * scale, 28 * scale);
-            pop();
+      // mouth
+      stroke(ch3_detailPrimary)
+      strokeWeight(7 * scale);
+      noFill();
+      arc(-15 * scale, 50 * scale, 50 * scale, 50 * scale, 320, 390);
 
-          // mouth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-            noFill();
-            arc(-15 * scale, 50 * scale, 50 * scale, 50 * scale, 320, 390);
-
-            // teeth
-          stroke(ch3_detailPrimary)
-          strokeWeight(7 * scale);
-          fill(ch3_detailSecondary);
-          // check teeth value
-        if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
-          arc(40 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
+      // teeth
+      stroke(ch3_detailPrimary)
+      strokeWeight(7 * scale);
+      fill(ch3_detailSecondary);
+      // check teeth value
+      if(Math.abs(upperLip[1] - bottomLip[1]) > 0.28) {
+        arc(40 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
+      } if(Math.abs(upperLip[1] - bottomLip[1]) > 0.2) {
           arc(60 * scale, 45 * scale, 20 * scale, 40 * scale, 0, 180, CHORD);
-        } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
-        }
+      } if(Math.abs(upperLip[1] - bottomLip[1]) < 0.2) {
+      }
 
-            pop();
+      pop();
     }
 
     // left eye
