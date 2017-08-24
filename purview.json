@@ -1,16 +1,16 @@
 {
   "commits": [
     {
-      "sha": "62addd5389890d990779b4d0151fb64e6bd41bc9",
-      "name": "final_version”
+        "sha": "064affd82102a9496ccaef88da088a8063fa5235",
+        "name": "final_version"
     },
     {
-      "sha": "4c578c351d14c1f7384c32daa4c0b0873b473091",
-      "name": "version_2"
+        "sha": "4c578c351d14c1f7384c32daa4c0b0873b473091",
+        "name": "version_2"
     },
     {
-      "sha": "aa630f00f3e577c8c03b7fc4ef3e4988d23ef622",
-      "name": "version_1"
+        "sha": "aa630f00f3e577c8c03b7fc4ef3e4988d23ef622",
+        "name": "version_1"
     }
   ]
 }
