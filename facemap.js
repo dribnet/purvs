@@ -31,7 +31,7 @@ lowerLip_color = ["#db9d9d", "#ebbdbb", "#ffc9be", "#ca9588", "#8c5c52"];
 
 teeth_color = ["#fcfaf4", "#fff", "#f2ece3", "#f7f2ea",  "#efe6da"];
 
-eye_color = ["#22323d", "#224740", "#3d4722", "#543f14", "#493127"];
+eye_color = ["#22323d", "#224740", "#3d4722", "#543f14", "#493127", "#000"];
 
 pupil_color = "#000";
 
@@ -50,7 +50,7 @@ function FaceMap() {
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
     var eye_squish = map(this.eyeAngle, 0, 100, 50, 100);
     var skin_color_value = int(map(this.skinColor, 0, 100, 2, 4.9));
-    var eye_color_value = int(map(this.eyeColor, 0, 100, 0, 4.9));
+    var eye_color_value = int(map(this.eyeColor, 0, 100, 0, 5.9));
     var eye_size = map(this.eyeSize, 0, 100, 0.7, 1.5);
 
     var x = nose_pos[0];
@@ -146,14 +146,22 @@ function FaceMap() {
     scale(eye_squish/100, 1);
 
        fill(iris_color);
+
     ellipse(0, 0, 20 * size *eye_size, 20 * size*eye_size);
 
-    fill(230, 250, 200, 20);
+    
+    if (eye_color_value == 5){
+    	 fill(255, 144, 96, 20);
+    } else if (eye_color_value == 4){
+    	 fill(255, 183, 96, 20);
+    }else {
+    	fill(230, 250, 200, 20);
+    }
     for(var i=0; i<8;i++) {
       ellipse(0, 0, (12+i) * size*eye_size, (12+i) * size*eye_size);
     }
      fill(pupil_color);
-    ellipse(0, 0, 8 * size, 8 * size);
+    ellipse(0, 0, 8 * size*eye_size, 8 * size*eye_size);
   pop();
 
   //eye highlights
@@ -284,7 +292,13 @@ curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (po
        fill(iris_color);
     ellipse(0, 0, 20 * size*eye_size, 20 * size*eye_size);
 
-    fill(230, 250, 200, 20);
+        if (eye_color_value == 5){
+    	 fill(255, 144, 96, 20);
+    } else if (eye_color_value == 4){
+    	 fill(255, 183, 96, 20);
+    }else {
+    	fill(230, 250, 200, 20);
+    }
     for(var i=0; i<8;i++) {
       ellipse(0, 0, (12+i) * size*eye_size, (12+i) * size*eye_size);
     }
