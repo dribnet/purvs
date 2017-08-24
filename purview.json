@@ -1,6 +1,5 @@
 {
   "commits": [
-
     {
       "sha": "2f53a81f9efa4fcea4570530e04227278f7fbad6",
       "name": "final_version"
@@ -9,7 +8,7 @@
       "sha": "745ed69d4ebc728c27001e8fedbb4904d0278e58",
       "name": "version_3"
     },
-     {
+    {
       "sha": "b74bd8106c499ca5465388e9ca519c907977a915",
       "name": "version_2"
     },
