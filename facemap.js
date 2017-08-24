@@ -16,10 +16,6 @@ function FaceMap() {
   this.colour_value = 0;
   this.mouth_size = 0;
   this.smile_size = 0;
-
-  this.fg_color1 = [255, 231, 191];
-  this.fg_color2 = [224,177,120];
-  this.fg_color3 = [59, 52, 44];
   this.stroke_color = [95, 52, 8];
 
   /*
@@ -34,7 +30,8 @@ function FaceMap() {
 
     var chin_pos = positions.chin[9];
 
-    var bread_pos = positions.left_eyebrow[0];
+    var bread_pos = positions.chin[0];
+    var bread_height = positions.right_eyebrow[0]
     var mouth_pos = average_point(positions.bottom_lip)
 
     var nose_pos = average_point(positions.nose_bridge);
@@ -45,9 +42,9 @@ function FaceMap() {
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
-
     var top_right = bread_pos[0] + (face_width/4)
     var top_left = bread_pos[0] + (face_width - face_width/4)
+
 
     var x = nose_pos[0];
     var y = nose_pos[1];
@@ -73,35 +70,28 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
-    //crust
+    // Hair Crust
 
     noStroke();
     fill(176 - (mapHairColor * 2), 137 - (mapHairColor * 1.5), 97 - mapHairColor);
-    rect(bread_pos[0]-.1, bread_pos[1]-.2, face_width + .2, (chin_pos[1]-bread_pos[1]) + .3, .2);
+    rect(bread_pos[0], bread_height[1], face_width, chin_pos[1] - bread_height[1], .2);
 
-    ellipse(top_right,bread_pos[1], 195 * scale, 115 * scale);
-    ellipse(top_left,bread_pos[1], 195 * scale, 115 *scale);
+    ellipse(top_right,bread_pos[1], 195 * scale, 135 * scale);
+    ellipse(top_left,bread_pos[1], 195 * scale, 135 *scale);
 
-    // bread
+    // Face Bread
    
-    fill(214 - (mapSkinColour * 1.9),170 - (mapSkinColour * 1.5),107 - (mapSkinColour * 0.9));
+     fill(214 - (mapSkinColour * 1.9),170 - (mapSkinColour * 1.5),107 - (mapSkinColour * 0.9));
 
-    rect(bread_pos[0], bread_pos[1], face_width, chin_pos[1]-bread_pos[1],.1);
-
-
-    ellipse(top_right,bread_pos[1], 175 * scale, 100 * scale);
-    ellipse(top_left,bread_pos[1], 175* scale, 100 *scale);
+     rect(bread_pos[0] + .2, bread_height[1] + .2, face_width - .4, (chin_pos[1] - bread_height[1] - .4), .1);
 
 
+     ellipse(top_right,bread_pos[1], 170 * scale, 110 * scale);
+     ellipse(top_left,bread_pos[1], 170* scale, 110 *scale);
 
-    // mouth
+
+
+    // Avocado Mouth
     angleMode(RADIANS);
     stroke(70, 145, 31);
     fill(219, 200, 124);
@@ -114,7 +104,7 @@ function FaceMap() {
 
     ellipse(mouth_pos[0] + (10 * scale), mouth_pos[1], 30 * scale, 20 * scale);
 
-    // eyes
+    // Tomato Eyes
 
     noStroke();
 
@@ -150,6 +140,15 @@ function FaceMap() {
     ellipse(0, 0, 10 * scale, (20 * scale)+ mapEyeSize);
     pop();
     strokeWeight(1);  
+
+
+    // Cheese Nose, not in use
+
+    // fill(204,194,74);
+    // triangle(positions.nose_bridge[0][0], positions.nose_bridge[0][1], positions.nose_tip[0][0],positions.nose_tip[0][1], positions.nose_tip[4][0],positions.nose_tip[4][1]);
+    // fill(222,206,140);
+    // triangle(positions.nose_bridge[0][0], positions.nose_bridge[0][1]+(15*scale), positions.nose_tip[0][0]+(5*scale),positions.nose_tip[0][1]-(5*scale), positions.nose_tip[4][0]-(5*scale),positions.nose_tip[4][1]-(5*scale));
+
 
 
   }
