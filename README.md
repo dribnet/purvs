@@ -1,35 +1,21 @@
 ## PS2 MDDN 342 2017
 
-Part 1 :
-I've updated my little pig face onto the new code and hope to move on now.
 
-Part 2:
+FINAL 
 
-I've updtaed and merged the code from part 2 and I've also picked my faces, since its a pig, I've gone with 'Frank Oz' who is the voice of Ms. Piggy, 'Christina Ricci' who plays Penelope in Penelope - where she has a snoot for a nose - and finally Christine Cavanaugh who voices Babe.
+What I wanted to do with this problem set is give the idea of a persons face painted as a pig, all of my variables depend on the persons skin tone, eye colour, face shape, gender and bone structure to determine how that face would look with face paint on.
 
-Part 3:
+For my final update I've got 9 variables that can be changed to give the face identity. this is how it works:
+	-Depending on the persons skintone the shade of their cheeks changes, the lighter the skin tone the pinker the cheeks, the darker the skintone, the yellower the cheeks.
+	-Depending on the gender the nose changes, Men tend to have stronger noses while the females have smaller noses.
+	-Depending on the skin tone and eye colour the whites of the eyes change, the lighter the skintone, the whiter the eyes.
+	-Eye colour changes to match the persons.
+	-Colour of the eyebrows change to match the hair colour, the darker the hair the darker the brows.
+	-If its a female they posses make up, if they are males they dont.
+	-Females have red-er lips while the males have blacker lips.
+	-The darker the skin tone the red-er the 'face paint'.
+	-Depending on the persons smile and cheek bones the cheeks change possition.
 
-Part 1, 2 and 3 have now been added to the sketch, I am now working on developing the faces.
+ For my images I have Frank Oz who was the original voice of Ms. Piggy, Christina Ricci who playes Penelope in Penelope the Film, Christina Cavanaugh who voices Babe. I also have a shot from the Muppets film featuring Ms Piggy and a crowd of people, Dakota Fanning in Charlottes Web, Actors from Charlotts Web and Ricky Gervais with Ms Piggy at the Muppets premiere. I've chosen all these photos since the star of my project is the Pig, so picking actors who voiced pigs or acted along side them seemed like the best way to display my work.
 
-UPDATE 
-
-I'm still trying to figure out the code, I am struggling a bit and will rpobably need some help to achive what I am aiming for with this project. I've added the ears and started playing around with other factors, my goal at the moment is to make it look like each person has face paint on.
-
-Part 4:
-
-I've now with some help been able to understand the code better and what needs to be done, I've started adding the sldiers and parameters for adding personality to the faces, more on that later. but, so far I have make up on/off when its a woman, nose changes, eye colour and eyebrow changes and cheek colour changes -depending on skin tone-.
-
-Part 5:
-
-I've started plugging in the values and seeing how they respond to the code, so far its going good, I still need to add more sliders and more variables so work in progress.
-
-UPDATE 
-
-I've plugged in all my variables but will hopefully add more, i feel like I'm starting to get some good identifiers and ways of seeing what characteristics of the persons face are. Further work to be done.
-
-UPDATE
-
-I've now added more images to the mix to see how my variables are responding, so far it looks good and now I'm taking a further look at other elements of the face, I've started changing the ears and will see what else i can do.
-
-UPDATE 
-last commit wasnt working quite right due to some errors i had in my face_data.json, however that's now fixed and I'll get back to development.
+ Overall I think I've achieved what I wanted with this project and have been able to portray the idea of face paint onto people.
