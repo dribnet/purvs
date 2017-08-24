@@ -14,17 +14,9 @@ function Face() {
   this.fg_color = [151, 102, 52];
   this.stroke_color = [95, 52, 8];
 
-  /*
-   * Draw a face centered at x,y with an allowed
-   * width and height of w,h.
-   */  
+
   this.draw1 = function(x, y, w, h) {
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
+
 
     push();
     translate(x, y);
@@ -40,7 +32,6 @@ function Face() {
     var scale = extent / 220.0;
 
     bg_color1 = [map(this.tilt_value,0,100,91,150),map(this.eye_value,0,100,45,65),map(this.eye_value,0,100,12,120)];
-    //ellipse(0, 0, 300 * scale, 400 * scale);
     fill(137 + this.colour_random, 108 + this.colour_random, 78 + this.colour_random);
     beginShape();
     vertex(0, -125* scale);
