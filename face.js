@@ -22,6 +22,8 @@ function Face() {
   this.mask_eye_color = [255, 249, 199];
   this.mask_eye_stroke = [94, 102, 21];
   this.mask_color = [110, 29, 13];
+  this.mask_lip_color = [199, 45, 41];
+  this.mask_teeth_color = [233, 209, 174];
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
@@ -154,14 +156,46 @@ function Face() {
     rect(eye2_pos[0] - (50 * scale), eye2_pos[1] - (37.5 * scale),
      100 * scale, 75 * scale, 30 * scale, 30 * scale, 50 * scale, 50 * scale);
     // lips
-    //rect(100,100, 100, 100);
-    // beginShape();
-    // vertex(top_lip[0], top_lip[1]);
-    // vertex(top_lip[2], top_lip[3]);
-    // vertex(top_lip[4], top_lip[5]);
-    // vertex(top_lip[6], top_lip[8]);
-    // endShape(CLOSE);
+    rect(100,100, 100, 100);
+    fill(this.mask_lip_color);
+    stroke(this.mask_lip_color);
+    strokeWeight(3);
+    beginShape();
+    vertex(positions.top_lip[0][0], positions.top_lip[0][1]);
+    vertex(positions.top_lip[1][0], positions.top_lip[1][1]);
+    vertex(positions.top_lip[2][0], positions.top_lip[2][1]);
+    vertex(positions.top_lip[3][0], positions.top_lip[3][1]);
+    vertex(positions.top_lip[4][0], positions.top_lip[4][1]);
+    vertex(positions.top_lip[5][0], positions.top_lip[5][1]);
+    vertex(positions.top_lip[6][0], positions.top_lip[6][1]);
+    vertex(positions.top_lip[7][0], positions.top_lip[7][1]);
+    // vertex(positions.top_lip[8][0], positions.top_lip[8][1]);
+    // vertex(positions.top_lip[9][0], positions.top_lip[9][1]);
+    // vertex(positions.top_lip[10][0], positions.top_lip[10][1]);
+    // vertex(positions.top_lip[11][0], positions.top_lip[11][1]);
+    vertex(positions.bottom_lip[0][0], positions.bottom_lip[0][1]);
+    vertex(positions.bottom_lip[1][0], positions.bottom_lip[1][1]);
+    vertex(positions.bottom_lip[2][0], positions.bottom_lip[2][1]);
+    vertex(positions.bottom_lip[3][0], positions.bottom_lip[3][1]);
+    vertex(positions.bottom_lip[4][0], positions.bottom_lip[4][1]);
+    vertex(positions.bottom_lip[5][0], positions.bottom_lip[5][1]);
+    vertex(positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
+    vertex(positions.bottom_lip[7][0], positions.bottom_lip[7][1]);
+    endShape(CLOSE);
+    rect(200,200, 100, 100);
 
+    fill(this.mask_teeth_color);
+    noStroke();
+    beginShape();
+    vertex(positions.top_lip[8][0], positions.top_lip[8][1]);
+    vertex(positions.top_lip[9][0], positions.top_lip[9][1]);
+    vertex(positions.top_lip[10][0], positions.top_lip[10][1]);
+    vertex(positions.top_lip[11][0], positions.top_lip[11][1]);
+    vertex(positions.bottom_lip[8][0], positions.bottom_lip[8][1]);
+    vertex(positions.bottom_lip[9][0], positions.bottom_lip[9][1]);
+    vertex(positions.bottom_lip[10][0], positions.bottom_lip[10][1]);
+    vertex(positions.bottom_lip[11][0], positions.bottom_lip[11][1]);
+    endShape(CLOSE);
     pop();
 
     //noStroke();
