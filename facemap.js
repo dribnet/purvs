@@ -16,9 +16,14 @@ skinLowlight_color = ["#ebcebb", "#f4c4b0","#ba9584"]
 
 mid= [244, 200, 176, 50];
 noseColor = ["#ebcebb", mid,"#ba9584"]
-skinShadow_color = ["#ebcebb", "#e0b4a1","#ba9584"]
+skinShadow_color = ["#ebcebb", "#d6a995","#ba9584"]
 stroke_color = [skinLowlight_color[1]];
 
+upperLip_color = ["#ba8080", "#ba8080", "#ba7878", "#ba7878"]; // 1 longer than the rest for stroke
+lowerLip_color = ["#ce9090", "#db9d9d", "#ce9090"];
+
+innerMouth_color = ["#724e4e", "#5e3d3d", "#724e4e"];
+teeth_color = ["#fcfaf4", "#fcfaf4", "#fcfaf4"];
 
 eyeball_color = "#fff";
 iris_color = "#22323d";
@@ -42,17 +47,12 @@ function FaceMap() {
     var eye2_pos = average_point(positions.right_eye);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
-
+    var eye_squish = map(this.eyeAngle, 0, 100, 50, 100);
 
     var x = nose_pos[0];
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-
-    // var cureyeAngle = map(this.eyeAngle, 0, 100, 200, 20);
-    // fill(cureyeAngle);
-    // var curlookPos = map(this.lookPos, 0, 100, 0, 3);
-    // rect(-3, -2*curlookPos, 6, 3*curlookPos);
 
     var extent = 0;
     if(h < w) {
@@ -63,12 +63,6 @@ function FaceMap() {
     }
     var size = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
 
     // head
     stroke(0, 0, 0, 100);
@@ -90,18 +84,53 @@ function FaceMap() {
     endShape(CLOSE);
 
     /////////////////////////////////////////// mouth
-    noStroke();
-    fill(skinHighlight_color[skin_color_value]);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
+    //inner mouth
+    stroke(upperLip_color[skin_color_value+1]);
+    strokeWeight(0.01);
+
+    fill(innerMouth_color[skin_color_value]);
+     beginShape();
+     for(var i=0; i<positions.top_lip.length/2;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
     }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
+      for(var i=0; i<6;i++) {
+    		if (i!=3 && i!=9){
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+ 	}
     }
     endShape(CLOSE);
+    //teeth
+    fill(teeth_color[skin_color_value]);
+     beginShape();
+     for(var i=0; i<positions.top_lip.length/2;i++) {
+      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+      for(var i=0; i<6;i++) {
+    		if (i!=3 && i!=9){
+      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+ 	}
+    }
+    endShape(CLOSE);
+
+
+
+    //lips
+    fill(upperLip_color[skin_color_value]);
+    beginShape();
+     for(var i=0; i<positions.top_lip.length;i++) {
+      curveVertex(positions.top_lip[i][0], positions.top_lip[i][1]);
+    }
+    endShape(CLOSE);
+
+        fill(lowerLip_color[skin_color_value]);
+    beginShape();
+           for(var i=0; i<positions.bottom_lip.length;i++) {
+    	if (i!=3 && i!=9){
+      curveVertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
+  }
+    }
+    endShape(CLOSE);
+    noStroke();
 
 
 
@@ -122,7 +151,7 @@ function FaceMap() {
     //eye center
     push();
     translate((eye1_pos[0]-0.1)+(this.lookPos/500), eye1_pos[1]-0.03);
-    scale(this.eyeAngle/100, 1);
+    scale(eye_squish/100, 1);
 
        fill(iris_color);
     ellipse(0, 0, 20 * size, 20 * size);
@@ -229,7 +258,7 @@ endShape(CLOSE);
         var eyelid_value_x = ((positions.left_eye[i][0] + positions.left_eyebrow[i][0])/2.3);
         curveVertex((eyelid_value_x), (eyelid_value_y));
     }
-curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (positions.left_eyebrow[3][1]+0.15)); 
+curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (positions.left_eyebrow[3][1]+0.2)); 
 
    curveVertex((positions.left_eyebrow[1][0]+0.2), (positions.left_eyebrow[1][1])+0.1);
 
@@ -257,7 +286,7 @@ curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (po
 
     push();
     translate((eye2_pos[0]-0.1)+(this.lookPos/500), eye2_pos[1]-0.03);
-    scale(this.eyeAngle/100, 1);
+    scale(eye_squish/100, 1);
 
     //iris
        fill(iris_color);
