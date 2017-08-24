@@ -135,22 +135,14 @@ function FaceMap() {
     //MOUTH
     //Inside of mouth
     strokeWeight(this.strokeValue);
-	fill(mouth_color);
-	stroke(0,0,0);
+	  fill(mouth_color);
+	  stroke(0,0,0);
     curve(positions.bottom_lip[0][0], positions.bottom_lip[0][1]-this.mouthValue, positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]-this.mouthValue);
     line(positions.bottom_lip[0][0], positions.bottom_lip[0][1], positions.bottom_lip[6][0], positions.bottom_lip[6][1]);
-	push();
-	fill(tongue_color);
-	strokeWeight(0);
-	
-	strokeWeight(4);
-	stroke(tongue_outine);
-	
-	pop();
-	
-	strokeWeight(this.strokeValue);
-	fill(0,0,0, 0);
-	stroke(0,0,0);
+	 
+	  strokeWeight(this.strokeValue);
+	  fill(0,0,0, 0);
+	  stroke(0,0,0);
 	
   	// mouth-hole with background color
   	stroke(0,0,0);
@@ -228,7 +220,7 @@ function FaceMap() {
     curveVertex(positions.nose_bridge[1][0], eye1_pos[1] + eye_size * scale / 2);
 
     curveVertex(positions.nose_bridge[1][0] - (0.25 * nose_dir), eye1_pos[1] + eye_size * scale / 2);
-	curveVertex(positions.nose_bridge[1][0] - (1 * nose_dir), eye1_pos[1] + eye_size * scale / 2 - 0.05);
+	  curveVertex(positions.nose_bridge[1][0] - (1 * nose_dir), eye1_pos[1] + eye_size * scale / 2 - 0.05);
 
     curveVertex(positions.nose_bridge[1][0] - (1.5 * nose_dir), eye1_pos[1] + eye_size * scale / 2 - 0.15);
     curveVertex(positions.nose_bridge[1][0] - (1.4 * nose_dir), eye1_pos[1] + eye_size * scale / 2 + nose_size - 0.05);
@@ -248,7 +240,7 @@ function FaceMap() {
 		curve(positions.nose_bridge[1][0]+4,noseY+3, positions.nose_bridge[1][0] - 0.15, noseY - 0.1, positions.nose_bridge[1][0] + 0.15, noseY, positions.nose_bridge[1][0] - 4,noseY+4)
 
 	}
-    //EYEBROWS
+    //EYEBROWS Yellow Outline
     stroke(fg_color);
     strokeWeight(this.strokeValue*4);
     var eyebrowLength;
@@ -290,7 +282,7 @@ function FaceMap() {
 
     
 
-        //EYEBROWS
+    //EYEBROWS black outline
     stroke(0,0,0);
     strokeWeight(this.strokeValue);
     var eyebrowLength;
@@ -326,14 +318,11 @@ function FaceMap() {
 	}
     for(var i = 1; i < eyebrowLength; i++){
     	curveVertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-	}
+	} 
 	curveVertex(positions.right_eyebrow[eyebrowLength-1][0], positions.right_eyebrow[eyebrowLength-1][1]);
-    endShape();
+  endShape();
 
-	stroke(0,0,0);
-	fill(0,0,0);
-	//ellipse(positions.chin[12][0], positions.chin[12][1], .1, .1);
-    strokeWeight(1);  
+  strokeWeight(1);  
 	
   }
 
