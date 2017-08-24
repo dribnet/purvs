@@ -12,6 +12,11 @@ skin_color_value = 1;
 skinHighlight_color = ["#ffe2cc", "#ffe2cc", "#ffe2cc"];
 skinMidtone_color = ["#ebcebb", "#ffd5be","#e2bea1", "#CAA288", "#D7A595", "#8c6652"];
 skinLowlight_color = ["#ebcebb", "#f4c4b0","#ba9584"]
+
+
+mid= [244, 200, 176, 50];
+noseColor = ["#ebcebb", mid,"#ba9584"]
+skinShadow_color = ["#ebcebb", "#e0b4a1","#ba9584"]
 stroke_color = [skinLowlight_color[1]];
 
 
@@ -66,7 +71,7 @@ function FaceMap() {
     // ellipse(x, y, w, h);
 
     // head
-    stroke(stroke_color);
+    stroke(0, 0, 0, 100);
     fill(skinMidtone_color[skin_color_value]);
     beginShape();
     curveVertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]);
@@ -84,7 +89,7 @@ function FaceMap() {
 
     endShape(CLOSE);
 
-    // mouth
+    /////////////////////////////////////////// mouth
     noStroke();
     fill(skinHighlight_color[skin_color_value]);
     beginShape();
@@ -98,26 +103,7 @@ function FaceMap() {
     }
     endShape(CLOSE);
 
-    // nose
-    beginShape();
-    vertex(positions.nose_bridge[0][0], positions.nose_bridge[0][1]);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    endShape(CLOSE);
 
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    strokeWeight(1);  
 
     ///////////////////////////////////////////left eye
 
@@ -243,8 +229,9 @@ endShape(CLOSE);
         var eyelid_value_x = ((positions.left_eye[i][0] + positions.left_eyebrow[i][0])/2.3);
         curveVertex((eyelid_value_x), (eyelid_value_y));
     }
-curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2, (positions.left_eyebrow[3][1]+0.2));   
-   curveVertex((positions.left_eyebrow[1][0]+0.15), (positions.left_eyebrow[1][1])+0.1);
+curveVertex((positions.left_eyebrow[4][0]+positions.left_eyebrow[3][0])/2.5, (positions.left_eyebrow[3][1]+0.15)); 
+
+   curveVertex((positions.left_eyebrow[1][0]+0.2), (positions.left_eyebrow[1][1])+0.1);
 
   	
         
@@ -385,7 +372,7 @@ endShape(CLOSE);
     }
 	curveVertex((positions.right_eyebrow[0][0]+0.15), (positions.right_eyebrow[0][1])+0.1);
   	curveVertex((positions.right_eyebrow[1][0]+0.15), (positions.right_eyebrow[1][1])+0.1);
-        curveVertex((positions.right_eyebrow[2][0]+positions.right_eyebrow[3][0])/2, (positions.right_eyebrow[2][1]+0.2));   
+        curveVertex((positions.right_eyebrow[2][0]+positions.right_eyebrow[3][0])/2.5, (positions.right_eyebrow[2][1]+0.15));   
    
     endShape(CLOSE);  
 
@@ -435,6 +422,58 @@ endShape(CLOSE);
 	    endShape(CLOSE);
 	  
 	}
+
+	    ////////////////////////////////////////////// nose
+
+    beginShape();
+    fill(skinShadow_color[skin_color_value]);
+    stroke(0, 0, 0, 80)
+    strokeWeight(0.02);
+    vertex(positions.nose_tip[positions.nose_tip.length-1][0], positions.nose_tip[positions.nose_tip.length-1][1]);
+     vertex(positions.nose_bridge[positions.nose_bridge.length-1][0], positions.nose_bridge[positions.nose_bridge.length-1][1]);
+    for(var i=0; i<positions.nose_tip.length;i++) {
+      vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
+    }
+	vertex(positions.nose_bridge[positions.nose_bridge.length-1][0], positions.nose_bridge[positions.nose_bridge.length-1][1]);
+    endShape(CLOSE);
+
+noStroke();
+    fill(skinMidtone_color[skin_color_value]);
+    beginShape();
+    vertex(((positions.nose_bridge[0][0]+positions.right_eye[4][0])/2)-0.3, positions.nose_bridge[0][1]);
+    vertex(((positions.nose_bridge[0][0]+positions.left_eye[4][0])/2)+0.3, positions.nose_bridge[0][1]);
+	vertex(positions.nose_tip[0][0], positions.nose_tip[0][1]);
+	vertex(positions.nose_tip[2][0], positions.nose_bridge[positions.nose_bridge.length-1][1]+0.3);
+     vertex(positions.nose_tip[4][0], positions.nose_tip[4][1]);
+    endShape(CLOSE);
+     
+    fill(noseColor[skin_color_value]);
+    var noseWidth = 0;
+    for (var j=0; j<20; j++){
+    	noseWidth+=0.02
+    beginShape();
+    vertex(((positions.nose_bridge[0][0]+positions.right_eye[4][0])/2)-0.3, positions.nose_bridge[0][1]+noseWidth);
+    vertex(((positions.nose_bridge[0][0]+positions.left_eye[4][0])/2)+0.3, positions.nose_bridge[0][1]+noseWidth);
+	vertex(positions.nose_tip[0][0]+noseWidth, positions.nose_tip[0][1]);
+	vertex(positions.nose_tip[2][0], positions.nose_bridge[positions.nose_bridge.length-1][1]+0.3);
+     vertex(positions.nose_tip[4][0]-noseWidth, positions.nose_tip[4][1]);
+    endShape(CLOSE);
+}
+
+
+     fill(255, 235, 226, 10);
+     var highlightWidth = 0.2;
+     for (var j=0; j<20; j++){
+     	highlightWidth -= 0.01;
+    beginShape();
+  vertex(((positions.nose_bridge[1][0]+positions.right_eye[4][0])/2)-0.4, positions.nose_bridge[1][1]+highlightWidth);
+    vertex(((positions.nose_bridge[1][0]+positions.left_eye[4][0])/2)+0.4, positions.nose_bridge[1][1]+highlightWidth);
+  vertex(positions.nose_tip[1][0]+highlightWidth, positions.nose_bridge[positions.nose_bridge.length-1][1]+0.2);
+        vertex(positions.nose_tip[2][0], positions.nose_bridge[positions.nose_bridge.length-1][1]+0.3);
+      
+      vertex(positions.nose_tip[3][0]-highlightWidth, positions.nose_bridge[positions.nose_bridge.length-1][1]+0.2);
+    endShape(CLOSE);
+}
 }
 
 

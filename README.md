@@ -3,12 +3,8 @@
 
 Hannah Dockerty PS2, Face Mapping
 
-As with PS1, I've spent quite a lot of my time working on the eyes, and making sure that they have a fairly significant amount of detail. 
+I've added a filter on the background image so that the color scheme isn't too overwhelming. This enables me to keep a consistent aesthetic throughout each image. It also gives the effect of the person in the image wearing a coloured mask, which I find quite intriguing.  
 
-A challenge surrounding this has been the lack of data that the landmarks give - there are no points for the eyelids, so I had to create my own values for them using the points from the eyes and eyebrows. 
+I've also added in eyebrows using a very similar technique to PS1. I'm disappointed at how much less expressive they are when using data from real people. 
 
-In order to carry through a consistent visual from ps1, I needed to re-scale the eyes so that they were slightly too large for the face. This matrix transformation has confused my variables, and has resulted in the browbone protruding above the eyebrow. Hopefully I'll find a way to fix this issue.
-
-Although I have not yet finished mapping my features, I have begun to add some parameters for the eyes in order that faces that the eyes remain in correct perspective, even on faces that are in partial profile. I have not yet 'trained' this value. I have also added in a parameter for the direction the eyes are looking in. 
-
-It has also been challenging to get much emotion portrayed through these mapped faces, as most of the images are not particularly expressive. As a result, my design cannot be carried on the eyes alone - I will have to add in other facial features in order to create an interesting outcome. 
+In order to compensate for a lack of expression, I've begun to add in other features, beginning with the nose. I've tried to pay attention to making sure that it looks passable in profile as well as head on. 
