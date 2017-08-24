@@ -16,6 +16,7 @@ function FaceMap() {
   this.mouthPosition = 50;
   this.eyePosition = 50;
   this.season = 1;
+  this.facePos = 1;
   
   
 
@@ -29,11 +30,9 @@ function FaceMap() {
 
     //map functions
 
-    this.mouthPosition = map(this.mouthPosition, 0, 100, -0.5, 0.5);
-    this.eyePosition = map(this.eyePosition, 0, 100, -0.5, 0.5);
-    this.season = map(this.season, 0, 100, 0, 4);
-    this.facePos = map(this.facePos, 0, 100, -0.5, 0.5);
-   
+    
+    
+
 
     
     
@@ -81,7 +80,7 @@ function FaceMap() {
     }
     var scale1 = extent / 220.0;
 
-     if(this.season <=1){ 
+     if(this.season <=25){ 
       //summer
     leafColour1 = "#00673f";
     leafColour2 = "#219d23";
@@ -92,7 +91,7 @@ function FaceMap() {
     eyeColour1 = 98; 
     eyeColour2 = 183;
     eyeColour3 = 88;
-    }else if(this.season <=2){
+    }else if(this.season <=50){
       //spring
     leafColour1 = "#d7ff72";
     leafColour2 = "#a2d400";
@@ -103,7 +102,7 @@ function FaceMap() {
     eyeColour1 = 251; 
     eyeColour2 = 135;
     eyeColour3 = 157;
-  }else if(this.season <=3){
+  }else if(this.season <=75){
     //winter
     leafColour1 = "#6ebff7";
     leafColour2 = "#1f649d";
@@ -143,11 +142,11 @@ function FaceMap() {
       leaf(positions.chin[i][0], positions.chin[i][1], leafColour1, leafColour2, random(0, 359));
       }
       for(var i=1; i<this.leaf_value; i++){
-      this.leaf(random(-140 * scale, 140 * scale), random(-30 * scale, 30 * scale), this.leafColour1, this.leafColour2, random(0, 359));
+      leaf(random(-140 * scale, 140 * scale), random(-30 * scale, 30 * scale), this.leafColour1, this.leafColour2, random(0, 359));
     }
 
     for(var i=1; i<this.leaf_value; i++){
-      this.leaf(random(-100 * scale, 100 * scale), random(-100 * scale, 0 * scale), this.leafColour1, this.leafColour2, random(0, 359));
+      leaf(random(-100 * scale, 100 * scale), random(-100 * scale, 0 * scale), this.leafColour1, this.leafColour2, random(0, 359));
     }
 
   }
@@ -163,7 +162,7 @@ function FaceMap() {
 
     for(var i=0; i<5; i++){
       fill(faceColour1,faceColour2,faceColour3, 40+(i*50));
-      ellipse(nose_pos[0]+this.facePos, nose_pos[1], 5-(i/3), 5.5-(i/3));
+      ellipse(nose_pos[0]+this.facePos/100, nose_pos[1], 5-(i/3), 5.5-(i/3));
     }
 
 
@@ -184,7 +183,7 @@ function FaceMap() {
     
     //mouth
     push();
-    translate(0, this.mouthPosition);
+    translate(0, this.mouthPosition/100);
     noFill();
     stroke(5);
 
@@ -198,7 +197,7 @@ function FaceMap() {
     
   //eyes open
   push();
-  translate(0, this.eyePosition);
+  translate(0, this.eyePosition/100);
   for(var i=2; i<=5; i++){
     noStroke();
     fill(eyeColour1, eyeColour2, eyeColour3, i*70);
@@ -235,7 +234,7 @@ function FaceMap() {
     properties[1] = this.mouthPosition;
     properties[2] = this.season;
     properties[3] = this.facePos;
-   
+    
     return properties;
   }
 }
