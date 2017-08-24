@@ -1,6 +1,3 @@
 ## PS2 MDDN 342 2017
 
-I have added variables to my fire face. 
-Depending on the hair lightness the opacity of the back fire layers and the blackness of the eyebrows will map accordingly. 
-The front layer will map its opacity to the skin colour shade.
-Then the colour of the fire can be altered as well as the colour of the eyes. 
+I have done some training on my faces. Some are identifiable. However, I did the quiz and I found it quite difficult. Which is a pity because the training took so long. I think I need try make the variables more obvious. At the moment I am trying to map the hair colour to the whole fire body colour. That is confusing me because sometimes when I train it I fieel like I need to map the skin colour to the fire body colour. I need more clarity. 

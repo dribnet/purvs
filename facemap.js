@@ -84,7 +84,7 @@ function occilation(n){return Math.sin(fireMove+n)*0.1}
       //fire1
          var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
         var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
-        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 70);
+        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
         var curRed = map(this.bodyColourR, 0, 100, 0, 255);
       var curGreen = map(this.bodyColourG, 0, 100, 0, 150);
       var curBlue = map(this.bodyColourB, 0, 100, 0, 150);
@@ -112,7 +112,7 @@ pop();
       //fire2
              var fh=[ -2,-2.2,-3,-3,-3.3]  
         var fw=[ -0.4,0.4, -0.2,0.2,0]
-        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 70);
+        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
       var curRed = map(this.bodyColourR, 0, 100, 0, 255);
       var curGreen = map(this.bodyColourG, 0, 100, 0, 220);
       var curBlue = map(this.bodyColourB, 0, 100, 0, 220);
@@ -136,7 +136,7 @@ pop();
       //face
     push();
       translate(0,-0.4);
-      var curSkinOpacity = map(this.skinOpacity, 0, 100, 255, 70);
+      var curSkinOpacity = map(this.skinOpacity, 0, 100, 255, 50);
        var curRed = map(this.bodyColourR, 0, 100, 0, 255);
       var curGreen = map(this.bodyColourG, 0, 100, 0, 255);
       var curBlue = map(this.bodyColourB, 0, 100, 0, 255);
@@ -213,6 +213,9 @@ fill(bg_color);
     fill(0);
     ellipse(eye1_pos[0], eye1_pos[1]+0.6, 0.4,  0.4);
     ellipse(eye2_pos[0], eye2_pos[1]+0.6,  0.4,  0.4);
+     fill(255);
+    ellipse(eye1_pos[0]+0.17, eye1_pos[1]+0.53, 0.15,  0.14);
+    ellipse(eye2_pos[0]+0.17, eye2_pos[1]+0.53,  0.15,  0.14);
     
 //eyebrows
        fill(curRed, curGreen, curBlue, curSkinOpacity);
