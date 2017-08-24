@@ -1,32 +1,13 @@
 {
   "commits": [
+
     {
-      "sha": "de62ec401683765b2c050842826a734f21eb4a5e",
-      "name": "presentation"
+      "sha": "56df10bb80dffa710a00c521fc2d6cf8b9d7be9d",
+      "name": "version_1"
     },
     {
-      "sha": "686a384bdcbe2b7efd040735a71889c6aa9c1f19",
-      "name": "final"
-    },
-    {
-      "sha": "c89f3e5a38307cc0f81779de07b3383f5994f1b9",
-      "name": "distribution"
-    },
-    {
-      "sha": "18083b8a233361f4529b6a97bfa3a1f4eb1515b6",
-      "name": "experiment"
-    },
-    {
-      "sha": "176cd872764fd7133b2bc759f84d5d16dbdd32c9",
-      "name": "randomize"
-    },
-    {
-      "sha": "9cdf4fdcbfa151b3a1ccafcba8c583bb41304f90",
-      "name": "drawing_styles"
-    },
-    {
-      "sha": "c88443c1ed07afb4c47ed5eb621636dc24931c35",
-      "name": "portraits"
+      "sha": "c0740deafcba4da32dff9d1da863a02d90fd68a9",
+      "name": "version_2"
     }
   ]
 }
