@@ -1,6 +1,14 @@
 {
   "commits": [
     {
+      "sha": "80b30177f52f757e6e6242d0b6424f048b195ca4",
+      "name": "final_version"
+    },
+	{
+      "sha": "d023278637856dc8a75907668a67d26417e24724",
+      "name": "version_2"
+    }, 
+	{
       "sha": "19b201e68306595ef31d5ef1ec4bd60aefe3b3a0",
       "name": "training_examples"
     },
