@@ -5,36 +5,45 @@
 
 // other variables can be in here too
 // these control the colors used
-skin_color_value = 1;
 
 
 
-skinHighlight_color = ["#ffe2cc", "#ffe2cc", "#ffe2cc"];
-skinMidtone_color = ["#ebcebb", "#ffd5be","#e2bea1", "#CAA288", "#D7A595", "#8c6652"];
-skinLowlight_color = ["#ebcebb", "#f4c4b0","#ba9584"]
+skinMidtone_color = ["#ffd5be","#ebcebb", "#ffd5be", "#CAA288", "#8c6652"];
+skinLowlight_color = ["#f4c4b0", "#e5bbac","#e5b6a2", "#b78c79", "#775041"]
 
 
-mid= [244, 200, 176, 50];
-noseColor = ["#ebcebb", mid,"#ba9584"]
-skinShadow_color = ["#ebcebb", "#d6a995","#ba9584"]
+n1= [244, 200, 176, 50];
+n2= [229, 187, 172, 50];
+n3 = [232, 188, 169, 40];
+n4 = [188, 149, 126, 50];
+n5 = [124, 84, 68, 50];
+noseColor = [n1, n2,n3, n4, n5];
+
+h1= [255, 255, 255, 10];
+h2= [249, 245, 239, 10];
+h3 = [249, 245, 239, 10];
+h4 = [255, 231, 216, 10];
+h5 = [255, 231, 216, 10];
+
+noseHighlight = [h1, h2, h3, h4, h5];
+skinShadow_color = ["#d6a995", "#d6a995","#ba9584", "#9b7768", "#725241"]
 stroke_color = [skinLowlight_color[1]];
 
-upperLip_color = ["#ba8080", "#ba8080", "#ba7878", "#ba7878"]; // 1 longer than the rest for stroke
-lowerLip_color = ["#ce9090", "#db9d9d", "#ce9090"];
+upperLip_color = ["#ba8080", "#d1a3a1", "#dba69b", "#a5776b","#6d453d", "#54322b"]; // 1 longer than the rest for stroke
+lowerLip_color = ["#db9d9d", "#ebbdbb", "#ffc9be", "#ca9588", "#8c5c52"];
 
-innerMouth_color = ["#724e4e", "#5e3d3d", "#724e4e"];
-teeth_color = ["#fcfaf4", "#fcfaf4", "#fcfaf4"];
+teeth_color = ["#fcfaf4", "#fff", "#f2ece3", "#f7f2ea",  "#efe6da"];
 
-eyeball_color = "#fff";
-iris_color = "#22323d";
+eye_color = ["#22323d", "#224740", "#3d4722", "#543f14", "#493127"];
+
 pupil_color = "#000";
 
 function FaceMap() {
   this.lookPos = 50;
   this.eyeAngle = 100;
-
+  this.skinColor = 1;
+  this.eyeColor = 1;
  
-
 
   /*
    * Draw a face with position lists that include:
@@ -48,6 +57,8 @@ function FaceMap() {
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
     var eye_squish = map(this.eyeAngle, 0, 100, 50, 100);
+    var skin_color_value = int(map(this.skinColor, 0, 100, 2, 4.9));
+    var eye_color_value = int(map(this.eyeColor, 0, 100, 0, 4.9))
 
     var x = nose_pos[0];
     var y = nose_pos[1];
@@ -86,7 +97,7 @@ function FaceMap() {
     /////////////////////////////////////////// mouth
     //inner mouth
     stroke(upperLip_color[skin_color_value+1]);
-    strokeWeight(0.01);
+    strokeWeight(0.005);
 
     fill(teeth_color[skin_color_value]);
      beginShape();
@@ -99,10 +110,6 @@ function FaceMap() {
  	}
     }
     endShape(CLOSE);
-
-
-
-
 
     //lips
     fill(upperLip_color[skin_color_value]);
@@ -117,7 +124,7 @@ function FaceMap() {
            for(var i=0; i<positions.bottom_lip.length;i++) {
     	if (i!=3 && i!=9){
       curveVertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-  }
+  	}
     }
     endShape(CLOSE);
     noStroke();
@@ -125,6 +132,8 @@ function FaceMap() {
 
 
     ///////////////////////////////////////////left eye
+    eyeball_color = teeth_color[skin_color_value];
+    iris_color = eye_color[eye_color_value];
 
     push();
     scale(1.4);
@@ -444,6 +453,8 @@ endShape(CLOSE);
 
 	    ////////////////////////////////////////////// nose
 
+	 //bottom of nose
+
     beginShape();
     fill(skinShadow_color[skin_color_value]);
     stroke(0, 0, 0, 80)
@@ -455,6 +466,8 @@ endShape(CLOSE);
     }
 	vertex(positions.nose_bridge[positions.nose_bridge.length-1][0], positions.nose_bridge[positions.nose_bridge.length-1][1]);
     endShape(CLOSE);
+
+    //nose bridge
 
 noStroke();
     fill(skinMidtone_color[skin_color_value]);
@@ -479,8 +492,8 @@ noStroke();
     endShape(CLOSE);
 }
 
-
-     fill(255, 235, 226, 10);
+	//nose highlight
+     fill(noseHighlight[skin_color_value]);
      var highlightWidth = 0.2;
      for (var j=0; j<20; j++){
      	highlightWidth -= 0.01;
@@ -500,13 +513,17 @@ noStroke();
   this.setProperties = function(settings) {
     this.lookPos = settings[0];
     this.eyeAngle = settings[1];
+    this.skinColor = settings[2];
+    this.eyeColor = settings[3];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(2);
+    properties = new Array(4);
     properties[0] = this.lookPos;
     properties[1] = this.eyeAngle;
+    properties[2] = this.skinColor;
+    properties[3] = this.eyeColor;
     return properties;
   }
 }
