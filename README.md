@@ -15,4 +15,5 @@ Part 4 and 5 involved the training and guessing. This was a bit hard as I feel m
 
 To further improve this project I think I would like to have a lot more slider values, so there can be a lot more uniqueness to each face. This includes rare values such as hats, as I noticed a few faces had hats on them but all I could do to show that was hiding all the hair.
 
+
 Aesthetically I am happy I managed to pull off the clean and rigid look, with simple colours and slight exaggerations of features. I initially thought it would look very ridiculous or out of place with real face landmarks.
