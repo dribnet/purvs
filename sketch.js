@@ -91,7 +91,7 @@ function setup () {
 }
 
 // global variables for colors
-var bg_color1 = [225, 206, 187];
+var bg_color1 = [250, 250, 250];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;
