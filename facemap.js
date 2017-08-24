@@ -1,14 +1,10 @@
-/*
- * FaceMap class - holds all informaiton about one mapped
- * face and is able to draw itself.
- */  
-
-// other variables can be in here too
-// these control the colors used
+// color variables
 bg_color = [225, 206, 187];
 fg_color = [174, 110, 108];
 stroke_color = [95, 52, 8];
 
+
+//functions
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
@@ -22,11 +18,7 @@ function FaceMap() {
   this.facepaint = 50;
   this.cheekPosition = 50;
 
-  /*
-   * Draw a face with position lists that include:
-   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */  
+ //draw variables
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
@@ -61,15 +53,9 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
-    // head
-    //stroke(stroke_color); 174 110 108
+  
+    // face
+    
     fill(174, facepaint, facepaint);
     beginShape();
     for(var i=0; i<positions.chin.length;i++) {
@@ -165,7 +151,7 @@ if(this.hasEyeshadow > 50){
     ellipse(eye1_pos[0], eye1_pos[1], 5 * scale, 5 * scale);
     ellipse(eye2_pos[0], eye2_pos[1], 5 * scale, 5 * scale);
 
-    //eyebrows 95, 52, 8
+    //eyebrows 
 
     fill(95, eyebrowcolor, eyebrowcolor);
     beginShape();
@@ -189,18 +175,7 @@ if(this.hasEyeshadow > 50){
   triangle(1.5, -4, 1.5, -3.1, 0.5, -3.4);
   triangle(1.4,-4.1,1.8,-3.8,1.4,-3.5);
 
-    // fill(stroke_color);
-    // beginShape();
-    // for(var i=0; i<positions.right_eyebrow.length; i++) {
-    //   vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    // }
-    // endShape(CLOSE);
-    // beginShape();
-    // for(var i=0; i<positions.left_eyebrow.length; i++) {
-    //   vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    // }
-    // endShape(CLOSE);
-    // strokeWeight(1);  
+   
   }
 
   /* set internal properties based on list numbers 0-100 */
@@ -214,7 +189,6 @@ if(this.hasEyeshadow > 50){
     this.lipcolor = settings[6];
     this.facepaint = settings[7];
     this.cheekPosition = settings[8];
-   // this.hairColor = settings[1];
 
   }
 
@@ -222,7 +196,7 @@ if(this.hasEyeshadow > 50){
   this.getProperties = function() {
     properties = new Array(2);
     properties[0] = this.cheeks;
-    properties[1] = this.noselenght;  //  properties[1] = this.hairColor;
+    properties[1] = this.noselenght;  
     properties[2] = this.eyecolor1;
     properties[3] = this.eyecolor2;
     properties[4] = this.eyebrowcolor;
