@@ -1,6 +1,6 @@
 ## PS2 MDDN 342 2017
 
 
-I have applied my code to the facemap code. My robots face was made up of very basic geometry and so
-when mapping the face to pictures of real people a lot of the detail is simplified. I felt that the face
-was too simple and so I decided to explore adding the 3d effect of the robot face like I had in ps1.
+Using the sliders I have refined the control of the 3D effect on the face. The sliders provide control
+for the left and right side of the face spereately to more accurately protary the faces. I have updated
+the data for all 100 faces, giving each a more unique face.
