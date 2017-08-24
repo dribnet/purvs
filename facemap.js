@@ -11,8 +11,8 @@ stroke_color = [146, 147, 3];
 
 
 function FaceMap() {
-  this.hairLength = 50;
-  this.hairColor = 50;
+  this.headHeight = 20;
+  this.headWidth = 10;
   this.toothSize = 0.2;
   this.mouthValue = 5;
   this.eyeHeight = 5;
@@ -66,7 +66,6 @@ function FaceMap() {
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    //rect(-3, -2*curHairLength, 6, 3*curHairLength);
 
     var extent = 0;
     if(h < w) {
@@ -77,13 +76,6 @@ function FaceMap() {
     }
     var scale = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
     // head
     var head_size = 1;
     stroke(stroke_color);
@@ -93,27 +85,13 @@ function FaceMap() {
     for(var i=0; i<positions.chin.length;i++) {
       curveVertex(positions.chin[i][0], positions.chin[i][1]);
     }
-    /*for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }*/
-    curveVertex(positions.right_eyebrow[positions.right_eyebrow.length-1][0], positions.right_eyebrow[positions.right_eyebrow.length-1][1] - head_size/2);
-    curveVertex(positions.right_eyebrow[1][0], positions.right_eyebrow[1][1] - head_size);
+    curveVertex(positions.chin[positions.chin.length-1][0], positions.chin[positions.chin.length-1][1]);
+    endShape();
 
-    curveVertex(positions.left_eyebrow[positions.left_eyebrow.length-1][0], positions.left_eyebrow[positions.left_eyebrow.length-1][1] - head_size);
-    curveVertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] - head_size/2);
-
-    endShape(CLOSE);
-
-  //HOLES
-    fill(stroke_color);
-  stroke(stroke_color);
-  strokeWeight(this.strokeValue);
-  var xPos = Math.random(positions.chin[0][0], positions.chin[positions.chin.length-1][0]);
-  var yPos = Math.random(positions.chin[8][1], positions.left_eyebrow[1][1]);
-  //ellipse(xPos, yPos, 0.5, 0.5);
+    curve(positions.chin[0][0]+this.headWidth, positions.chin[0][1]+.05+this.headHeight, 
+    	  positions.chin[0][0], positions.chin[0][1]+.05, 
+    	  positions.chin[positions.chin.length-1][0], positions.chin[positions.chin.length-1][1]+.05, 
+    	  positions.chin[positions.chin.length-1][0]-this.headWidth, positions.chin[positions.chin.length-1][1]+.05 + this.headHeight);
 
   //CHEEKS
   fill(fg_color);
@@ -124,7 +102,7 @@ function FaceMap() {
   var x = positions.top_lip[0][0] - 0.42;
   var y = positions.top_lip[0][1]-0.15;
 
-  if(this.cheeks > 50)
+  if(this.cheeks > 50 && positions.top_lip[0][0] - .3 > positions.chin[4][0])
     curve(x+0.5, y+2, x, y, x + .44, y, x+.44-0.4, y+2);
 
 
@@ -132,35 +110,27 @@ function FaceMap() {
   x = positions.top_lip[6][0] + 0.42;
   y = positions.top_lip[6][1]-0.15;
 
-  if(this.cheeks > 50)
+  if(this.cheeks > 50 && positions.top_lip[6][0] + .3 < positions.chin[12][0])
     curve(x-0.5, y+2, x, y, x - .44, y, x-.44+0.4, y+2);
 
   fill(stroke_color);
   strokeWeight(0);
   var dimble_size = 0.07;
   //Dimbles Left
-  ellipse(positions.top_lip[0][0] - .1, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
-  ellipse(positions.top_lip[0][0] - .2, positions.top_lip[0][1] - .28, dimble_size, dimble_size);
-  ellipse(positions.top_lip[0][0] - .3, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
+  if(positions.top_lip[0][0] - .1 > positions.chin[4][0])
+     ellipse(positions.top_lip[0][0] - .1, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
+  if(positions.top_lip[0][0] - .2 > positions.chin[4][0])
+     ellipse(positions.top_lip[0][0] - .2, positions.top_lip[0][1] - .28, dimble_size, dimble_size);
+  if(positions.top_lip[0][0] - .3 > positions.chin[4][0])
+     ellipse(positions.top_lip[0][0] - .3, positions.top_lip[0][1] - .18, dimble_size, dimble_size);
 
   //Dimbles Right
-  ellipse(positions.top_lip[6][0] + .1, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
-  ellipse(positions.top_lip[6][0] + .2, positions.top_lip[6][1] - .28, dimble_size, dimble_size);
-  ellipse(positions.top_lip[6][0] + .3, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
-
-    // mouth
-    /*noStroke();
-    fill(bg_color);
-    beginShape();
-    for(var i=0; i<positions.top_lip.length;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.bottom_lip.length;i++) {
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
-    }
-    endShape(CLOSE);*/
+  if(positions.top_lip[6][0] + .1 < positions.chin[12][0])
+  	ellipse(positions.top_lip[6][0] + .1, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
+  if(positions.top_lip[6][0] + .2 < positions.chin[12][0])
+  	ellipse(positions.top_lip[6][0] + .2, positions.top_lip[6][1] - .28, dimble_size, dimble_size);
+  if(positions.top_lip[6][0] + .3 < positions.chin[12][0])
+  	ellipse(positions.top_lip[6][0] + .3, positions.top_lip[6][1] - .18, dimble_size, dimble_size);
 
     //MOUTH
     //Inside of mouth
@@ -208,8 +178,7 @@ function FaceMap() {
   	vertex(teethX, teethY);
   	endShape();
     }
-  	//rect(teethX - ((teethX - positions.bottom_lip[6][0])/4) - .3, teethY,.3,.35);
-  	//rect(positions.bottom_lip[6][0] + ((teethX - positions.bottom_lip[6][0])/4), teethY,.3,.35);
+
   	fill(fg_color);
 
   //Eyes
@@ -243,7 +212,7 @@ function FaceMap() {
   strokeWeight(this.strokeValue);
   ellipse(eye2_pos[0], eye2_pos[1], pupil_size * scale, pupil_size * scale);
     
-//if(positions.nose_tip[2][0] < positions.nose_bridge[0][0])
+
     // nose
     var nose_size = 0.25;
     var nose_dir = 1;
@@ -288,21 +257,38 @@ function FaceMap() {
     //LEFT EYEBROW
     eyebrowLength = positions.left_eyebrow.length;
     beginShape();
-    curveVertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1] - offset);
-    for(var i = 1; i < eyebrowLength; i++){
+    curveVertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1] - offset);
+    for(var i = 0; i < eyebrowLength-1; i++){
     	curveVertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1] - offset);
 	}
-	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1]);
+
+	if(eye1_pos[0] + (eye_size*scale)/2 > positions.left_eyebrow[positions.left_eyebrow.length-1][0]){
+    	curveVertex(eye1_pos[0] + (eye_size*scale)/2, positions.left_eyebrow[positions.left_eyebrow.length-1][1] - offset);
+    	curveVertex(eye1_pos[0] + (eye_size*scale)/2, positions.left_eyebrow[positions.left_eyebrow.length-1][1] - offset);
+	}
+	else{
+    	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1] - offset);
+    	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1] - offset);
+	}
     endShape();
     //RIGHT EYEBROW
     eyebrowLength = positions.right_eyebrow.length;
     beginShape();
-    curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[1][1] - offset);
-    for(var i = 0; i < eyebrowLength-1; i++){
+    if(eye2_pos[0] - (eye_size*scale)/2 < positions.right_eyebrow[0][0]){
+    	curveVertex(eye2_pos[0] - (eye_size*scale)/2, positions.right_eyebrow[0][1] - offset);
+    	curveVertex(eye2_pos[0] - (eye_size*scale)/2, positions.right_eyebrow[0][1] - offset);
+	}
+	else{
+    	curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1] - offset);
+    	curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1] - offset);
+	}
+    for(var i = 1; i < eyebrowLength; i++){
     	curveVertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1] - offset);
 	}
-	curveVertex(positions.right_eyebrow[eyebrowLength-2][0], positions.right_eyebrow[eyebrowLength-2][1] - offset);
+	curveVertex(positions.right_eyebrow[eyebrowLength-1][0], positions.right_eyebrow[eyebrowLength-1][1] - offset);
     endShape();
+
+    
 
         //EYEBROWS
     stroke(0,0,0);
@@ -314,77 +300,64 @@ function FaceMap() {
     eyebrowLength = positions.left_eyebrow.length;
     beginShape();
     curveVertex(positions.left_eyebrow[0][0], positions.left_eyebrow[0][1]);
-    for(var i = 0; i < eyebrowLength; i++){
+    for(var i = 0; i < eyebrowLength-1; i++){
     	curveVertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
 	}
-	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1] - offset);
-	
+
+	if(eye1_pos[0] + (eye_size*scale)/2 > positions.left_eyebrow[positions.left_eyebrow.length-1][0]){
+    	curveVertex(eye1_pos[0] + (eye_size*scale)/2, positions.left_eyebrow[positions.left_eyebrow.length-1][1]);
+    	curveVertex(eye1_pos[0] + (eye_size*scale)/2, positions.left_eyebrow[positions.left_eyebrow.length-1][1]);
+	}
+	else{
+    	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1]);
+    	curveVertex(positions.left_eyebrow[eyebrowLength-1][0], positions.left_eyebrow[eyebrowLength-1][1]);
+	}
     endShape();
     //RIGHT EYEBROW
     eyebrowLength = positions.right_eyebrow.length;
     beginShape();
-    curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
-    for(var i = 0; i < eyebrowLength; i++){
+    if(eye2_pos[0] - (eye_size*scale)/2 < positions.right_eyebrow[0][0]){
+    	curveVertex(eye2_pos[0] - (eye_size*scale)/2, positions.right_eyebrow[0][1]);
+    	curveVertex(eye2_pos[0] - (eye_size*scale)/2, positions.right_eyebrow[0][1]);
+	}
+	else{
+    	curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
+    	curveVertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1]);
+	}
+    for(var i = 1; i < eyebrowLength; i++){
     	curveVertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
 	}
 	curveVertex(positions.right_eyebrow[eyebrowLength-1][0], positions.right_eyebrow[eyebrowLength-1][1]);
     endShape();
 
-	/*
-    beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      vertex(positions.left_eye[i][0], positions.left_eye[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      vertex(positions.right_eye[i][0], positions.right_eye[i][1]);
-    }
-    endShape(CLOSE);
-
-    fill(fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 16 * scale, 16 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 16 * scale, 16 * scale);
-
-    fill(stroke_color);
-    beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      vertex(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-    beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      vertex(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]);
-    }
-    endShape(CLOSE);
-	*/
+	stroke(0,0,0);
+	fill(0,0,0);
+	//ellipse(positions.chin[12][0], positions.chin[12][1], .1, .1);
     strokeWeight(1);  
 	
   }
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength  = settings[0];
-    this.hairColor   = settings[1];
+    this.headHeight  = settings[0]/10 + 10;
+    this.headWidth   = settings[1]/10;
     this.toothSize   = settings[2]/200;
     this.mouthValue  = settings[3]/15;
     this.eyeHeight   = ((settings[4]/100)/2)+0.5;
-    this.eyeRotation = settings[5];
-    this.eyeColor    = Math.floor(settings[6]/10);
-    this.cheeks      = settings[7];
+    this.eyeColor    = Math.floor(settings[5]/10);
+    this.cheeks      = settings[6];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
     properties = new Array(8);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
-    properties[2] = this.toothSize;
-    properties[3] = this.mouthValue;
-    properties[4] = this.eyeHeight;
-    properties[5] = this.eyeRotation;
-    properties[6] = this.eyeColor;
-    properties[7] = this.cheeks;
+    properties[0] = this.headHeight*10 - 100;
+    properties[1] = this.headWidth*10;
+    properties[2] = this.toothSize*200;
+    properties[3] = this.mouthValue*15;
+    properties[4] = ((this.eyeHeight-0.5)*2)*100;
+    properties[5] = this.eyeColor*10;
+    properties[6] = this.cheeks;
     return properties;
   }
 }
