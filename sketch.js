@@ -12,7 +12,7 @@ var faceSelector;
 var facelist = [];
 var NUMFACES = 6*9;
 var sliders = [];
-var NUM_SLIDERS = 8;
+var NUM_SLIDERS = 9;
 var sliderTint;
 
 var faceData = [
@@ -115,7 +115,7 @@ frameRate(30);
   faceSelector.option('Neighbors');
   faceSelector.option('TrainQuiz');
   faceSelector.option('ValidQuiz');
-  faceSelector.value('Train');
+  faceSelector.value('FaceMap');
   faceSelector.parent('selector1Container');
 
   /* create the sliders */
@@ -126,7 +126,7 @@ frameRate(30);
     sliders.push(slider);
   }
 
-  sliderTint = createSlider(0, 100, 10);
+  sliderTint = createSlider(0, 100, 40);
   sliderTint.parent("sliderTintContainer");
 
   /* and the buttons */
@@ -187,7 +187,7 @@ function getAllJson() {
 
 // global variables for colors
 var bg_color1 = [50, 50, 50];
-var bg_color1 = [20, 20, 20];
+var bg_color1 = [40, 20, 20];
 
 var lastSwapTime = 0;
 var millisPerSwap = 5000;

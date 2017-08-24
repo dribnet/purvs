@@ -1,18 +1,4 @@
-// other variables can be in here too
-/*
-hair shade = eye brow tint and body layers opacity
-hair colour (blonde is more yellow, black is more red something like that) = body colour
-skin colour = opacity of the main body.
-eye colour = eye color
-hair length = how high the points are
-*/
-bg_color = [225, 206, 187];
 bg_color = 0;
-//fg and body color getting less transparent
-fg_color = [[255,229,0,50],[255,229,0,100],[255,229,0,150],[255,229,0,200], [255,229,0]];
-body_color = [[255,110,0,100],[255,110,0,200], [255,110,0]];
-body_color2 = [[255,0,0,100],[255,0,0,200], [255,0,0]];
-stroke_color = [95, 52, 8];
 var fireMove = 1;
 function FaceMap() {
     
@@ -24,12 +10,7 @@ function FaceMap() {
     this.eyeHue = 0;
     this.hairLength = 0;
     this.eyeBrightness = 0;
-
-  /*
-   * Draw a face with position lists that include:
-   *    chin, right_eye, left_eye, right_eyebrow, left_eyebrow
-   *    bottom_lip, top_lip, nose_tip, nose_bridge, 
-   */ 
+    this.skinSaturation = 50;
     
   this.draw = function(positions) {
     var nose_pos = average_point(positions.nose_bridge);
@@ -39,14 +20,14 @@ function FaceMap() {
     var eyebrow2_pos = average_point(positions.right_eyebrow);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
-        var fire_pos=[[positions.chin[0][0],positions.chin[0][1]], 
+    var fire_pos=[[positions.chin[0][0],positions.chin[0][1]], 
                    [positions.chin[16][0],positions.chin[16][1]],
                    [positions.chin[3][0],positions.chin[3][1]],
                    [positions.chin[13][0],positions.chin[13][1]],
                    [positions.chin[6][0],positions.chin[6][1]],
                     [positions.chin[10][0],positions.chin[10][1]],
                      [positions.chin[8][0],positions.chin[8][1]]]
-           var fire_pos2=[[positions.chin[0][0],positions.chin[0][1]], 
+    var fire_pos2=[[positions.chin[0][0],positions.chin[0][1]], 
                    [positions.chin[16][0],positions.chin[16][1]],
                    [positions.chin[4][0],positions.chin[4][1]],
                    [positions.chin[12][0],positions.chin[12][1]],
@@ -57,8 +38,8 @@ function FaceMap() {
     var h = 2.5 * half_height;
 
 
-      noStroke();
-         
+    noStroke();
+         //make fire animate
      fireMove = fireMove+0.05;
 function occilation(n){return Math.sin(fireMove+n)*0.1}
       
@@ -72,88 +53,77 @@ function occilation(n){return Math.sin(fireMove+n)*0.1}
     }
     var scale2 = extent / 220.0;
 
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
     var curHairLength = map(this.hairLength, 0, 100, -0.5, 1.5);
 
-      //fire1
-         var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
-        var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
-        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
-        var curRed = map(this.bodyColourR, 0, 100, 0, 255);
-      var curGreen = map(this.bodyColourG, 0, 100, 0, 150);
-      var curBlue = map(this.bodyColourB, 0, 100, 0, 150);
+      //fire1 (back layer of fire it is like the hair)
+    var fh=[-2, -2.2, -3.2,-3.2,-3.9,-3.8,-4.5]  
+    var fw=[-0.6, 0.6, -0.4,0.4, -0.2,0.2,0]
+    var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
+    var curRed = map(this.bodyColourR, 0, 100, 0, 255);
+    var curGreen = map(this.bodyColourG, 0, 100, 0, 180);
+    var curBlue = map(this.bodyColourB, 0, 100, 0, 180);
 
-       //var curGreen = 50;
-      //var curBlue = 100;
-              fill(curRed, curGreen, curBlue, curHairOpacity);
-      push();
-      scale(1.05,1);
-      translate(0,-0.3);
+    fill(curRed, curGreen, curBlue, curHairOpacity);
+    push();
+    scale(1.05,1);
+    translate(0,-0.3);
       
-      for(var n=0; n<fw.length;n++) {
-   beginShape();
+    for(var n=0; n<fw.length;n++) {
+        beginShape();
       
-  for(var i=1; i<positions.chin.length-8;i++) {
-      vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
-    }
-      for(var i=8; i<positions.chin.length-1;i++) {
-      vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
-    }
-          vertex(fire_pos[n][0]+fw[n]+occilation(n), fh[n]+curHairLength);
-       endShape(CLOSE);
+        for(var i=1; i<positions.chin.length-8;i++) {
+            vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
+        }
+        for(var i=8; i<positions.chin.length-1;i++) {
+            vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
+        }
+        vertex(fire_pos[n][0]+fw[n]+occilation(n), fh[n]+curHairLength);
+        endShape(CLOSE);
       }
-pop();
+    pop();
       //fire2
-             var fh=[ -2,-2.2,-3,-3,-3.3]  
-        var fw=[ -0.4,0.4, -0.2,0.2,0]
-        var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
-      var curRed = map(this.bodyColourR, 0, 100, 0, 255);
-      var curGreen = map(this.bodyColourG, 0, 100, 0, 220);
-      var curBlue = map(this.bodyColourB, 0, 100, 0, 220);
-        
-      fill(curRed, curGreen, curBlue, curHairOpacity);
-      push();
-      translate(0,-0.3);
-      for(var n=0; n<fw.length;n++) {
-   beginShape();
-  for(var i=0; i<positions.chin.length-8;i++) {
-      vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
-    }
-      for(var i=8; i<positions.chin.length;i++) {
-      vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
-    }
-          vertex(fire_pos2[n][0]+fw[n]+occilation(n), fh[n]+curHairLength/2);
-       endShape(CLOSE);
-      }
+    var fh=[ -2,-2.2,-3,-3,-3.3]  
+    var fw=[ -0.4,0.4, -0.2,0.2,0]
+    var curHairOpacity = map(this.hairOpacity, 0, 100, 180, 30);
+    var curRed = map(this.bodyColourR, 0, 100, 0, 255);
+    var curGreen = map(this.bodyColourG, 0, 100, 0, 230);
+    var curBlue = map(this.bodyColourB, 0, 100, 0, 230);
+
+    fill(curRed, curGreen, curBlue, curHairOpacity);
+    push();
+    translate(0,-0.3);
+    for(var n=0; n<fw.length;n++) {
+            beginShape();
+        for(var i=0; i<positions.chin.length-8;i++) {
+              vertex(positions.chin[i][0]-0.15, positions.chin[i][1]);
+        }
+         for(var i=8; i<positions.chin.length;i++) {
+              vertex(positions.chin[i][0]+0.15, positions.chin[i][1]);
+        }
+            vertex(fire_pos2[n][0]+fw[n]+occilation(n), fh[n]+curHairLength/2);
+           endShape(CLOSE);
+          }
 pop();
       
-      //face
+      //face 
     push();
       translate(0,-0.4);
-      var curSkinOpacity = map(this.skinOpacity, 0, 100, 255, 50);
-       var curRed = map(this.bodyColourR, 0, 100, 0, 255);
-      var curGreen = map(this.bodyColourG, 0, 100, 0, 255);
-      var curBlue = map(this.bodyColourB, 0, 100, 0, 255);
-    fill(curRed, curGreen, curBlue,curSkinOpacity);
+      var curSkinOpacity = map(this.skinOpacity, 0, 100, 1, 0);
+      var curSkinSaturation = map(this.skinSaturation, 0, 100, 0,100);
+  
+      colorMode(HSB);
+      fill(34, curSkinSaturation, 100, curSkinOpacity);
     beginShape();
-     // vertex(positions.chin[0][0], positions.chin[0][1]);
     for(var i=1; i<positions.chin.length-1;i++) {
       vertex(positions.chin[i][0], positions.chin[i][1]);
     }
-      //vertex(positions.chin[16][0], positions.chin[16][1]);
-       vertex(positions.chin[16][0]-0.2, -0.8);
-      vertex(positions.chin[16][0]-0.5, -1.3);
-      vertex(positions.chin[16][0]-1, -1.8);
-      vertex(0+occilation(n), -2.3);
-      vertex(positions.chin[0][0]+1, -1.8);
-      vertex(positions.chin[0][0]+0.5, -1.3);
-       vertex(positions.chin[0][0]+0.2, -0.8);
+        vertex(positions.chin[16][0]-0.2, -0.8);
+        vertex(positions.chin[16][0]-0.5, -1.3);
+        vertex(positions.chin[16][0]-1, -1.8);
+        vertex(0+occilation(n), -2.3);
+        vertex(positions.chin[0][0]+1, -1.8);
+        vertex(positions.chin[0][0]+0.5, -1.3);
+        vertex(positions.chin[0][0]+0.2, -0.8);
     
     endShape(CLOSE);
       
@@ -161,8 +131,7 @@ pop();
       
     // mouth
     noStroke();
-    //fill(fg_color[0]);
-    fill(curRed, curGreen, curBlue,curSkinOpacity-150);
+    fill(34, curSkinSaturation,100,curSkinOpacity);
     beginShape();
     for(var i=0; i<positions.top_lip.length;i++) {
       vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
@@ -173,11 +142,8 @@ pop();
       vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
     }
     endShape(CLOSE);
-
+ colorMode(RGB);
     // inside of mouth
-      //for training later
-//    var whiteness = map(this.mouthColor, 0, 100, 0, 255);
-//    fill(255, whiteness, whiteness);
 fill(bg_color);
     beginShape();
     for(var i=6; i<positions.bottom_lip.length;i++) {
@@ -189,7 +155,6 @@ fill(bg_color);
     endShape(CLOSE);
     fill(bg_color);
 
-      
     // nose
     beginShape();
     for(var i=0; i<positions.nose_tip.length;i++) {
@@ -218,7 +183,8 @@ fill(bg_color);
     ellipse(eye2_pos[0]+0.17, eye2_pos[1]+0.53,  0.15,  0.14);
     
 //eyebrows
-       fill(curRed, curGreen, curBlue, curSkinOpacity);
+      colorMode(HSB);
+      fill(34, curSkinSaturation, 100, curSkinOpacity);
 push();
       translate(0,0.5);
     beginShape();
@@ -239,6 +205,7 @@ push();
     vertex(positions.left_eyebrow[1][0], positions.left_eyebrow[1][1]+0.08);
     endShape(CLOSE);
 pop();
+      colorMode(RGB);
         var curHairOpacity = map(this.hairOpacity, 0, 100, 0, 255);
     fill(0, curHairOpacity);
 push();
@@ -283,6 +250,7 @@ pop();
    this.eyeHue = settings[5];
    this.eyeBrightness = settings[6];
    this.hairLength = settings[7];
+ this.skinSaturation  = settings[8];
    
   }
 
@@ -297,7 +265,7 @@ pop();
       properties[5] = this.eyeHue;
       properties[6]= this.eyeBrightness;
       properties[7]= this.hairLength;
-      
+      properties[8]= this.skinSaturation;
     return properties;
   }
 }
