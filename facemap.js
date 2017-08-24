@@ -172,6 +172,7 @@ function FaceMap() {
     fill(this.mask_feather4_color);
     ellipse(face_middle_x + (75 * scale),nose_pos[1] - half_height -((this.hairLength * 0.96) * scale), 40* scale, (this.hairLength * 2) * scale);
 
+    noStroke();
     // beard
     fill(74, 255 -(2 * this.hairColor), 19);
     ellipse(face_middle_x, (nose_pos[1] + half_height) + (30 * scale), face_width * (scale * 30), half_height * (scale * 60));
