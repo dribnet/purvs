@@ -12,7 +12,6 @@ I spent a fair amount of time testing the output using the "TrainQuiz" and "Vali
 
 There are couple of rules you can be considered that will assist in picking the correct face:
 
-`
 * No hair or wearing a hat  | Robot will have a glass dome
 * Wearing earrings          | Robot will have side antennas as well as antennas on the top
 * Hair length               | The longer the hair the more static electricity above the robots head
@@ -21,6 +20,5 @@ There are couple of rules you can be considered that will assist in picking the 
 * Skin tone                 | Darker skin tone results in a darker robot
 * Lip vibrancy              | The outer mouth of the robot will be brighter the more vibrant the lips are
 * Eye brightness            | The brighter the eyes are the easier it will be to see the robots eyes
-`
 
 For the final submission I have not altered the code except to clean it up and improve the commenting. I have replaced all the previous images I had for the face map mode with new ones.  My previous images were images related to sci-fi themes which well with my robot face. However I decided that since I needed to update the images anyway I would choose another theme.  I have chosen to use DJ'ing as the theme which I think also works well with the robot face as it involves creating sound using mechanical means.  
