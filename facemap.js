@@ -31,7 +31,7 @@ lowerLip_color = ["#db9d9d", "#ebbdbb", "#ffc9be", "#ca9588", "#8c5c52"];
 
 teeth_color = ["#fcfaf4", "#fff", "#f2ece3", "#f7f2ea",  "#efe6da"];
 
-eye_color = ["#22323d", "#224740", "#3d4722", "#543f14", "#493127", "#000"];
+eye_color = ["#3e7191", "#22323d", "#3d4722", "#543f14", "#493127", "#000"];
 
 pupil_color = "#000";
 
