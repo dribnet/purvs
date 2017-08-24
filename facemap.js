@@ -65,10 +65,7 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
+    
 
     var extent = 0;
     if(h < w) {
@@ -100,12 +97,7 @@ function FaceMap() {
       for(var i=0; i<positions.chin.length;i++) {
       leaf(positions.chin[i][0], positions.chin[i][1], leafColour1, leafColour2, random(0, 359));
       }
-      for(var i=positions.right_eyebrow.length-1; i>=0;i--) {
-        leaf(positions.right_eyebrow[i][0], positions.right_eyebrow[i][1], leafColour1, leafColour2, random(0, 359));
-      }
-      for(var i=positions.left_eyebrow.length-1; i>=0;i--) {
-        leaf(positions.left_eyebrow[i][0], positions.left_eyebrow[i][1]-40, leafColour1, leafColour2, random(0, 359));
-      }
+      
     }
     
     
@@ -119,7 +111,7 @@ function FaceMap() {
 
     for(var i=0; i<5; i++){
       fill(faceColour1,faceColour2,faceColour3, 40+(i*50));
-      ellipse(nose_pos[0], nose_pos[1], 450*overallScale-(i*10), 400*overallScale-(i*10));
+      ellipse(nose_pos[0], nose_pos[1], 5-(i/3), 4-(i/3));
     }
 
 //twigs
@@ -141,18 +133,18 @@ function FaceMap() {
 
     noFill();
     stroke(5);
-    arc(mouth_pos[0], mouth_pos[1]-10, 15*overallScale, 15*overallScale, 0, 175);
-    arc(mouth_pos[0]-(15*overallScale), mouth_pos[1]-10, 15*overallScale, 15*overallScale, 0, 175);
+    arc(mouth_pos[0], mouth_pos[1]-1, 0.25, 0.25, 0, 175);
+    arc(mouth_pos[0]-(0.25), mouth_pos[1]-1, 0.25, 0.25, 0, 175);
 
   
     
   //eyes open
 
-  for(var i=1; i<=5; i++){
+  for(var i=2; i<=5; i++){
     noStroke();
     fill(eyeColour1, eyeColour2, eyeColour3, i*70);
-    ellipse(eye1_pos[0], eye1_pos[1], 60*overallScale-(i*5), 70*overallScale-(i*5));
-    ellipse(eye2_pos[0], eye2_pos[1], 60*overallScale-(i*5), 70*overallScale-(i*5));
+    ellipse(eye1_pos[0], eye1_pos[1], 1-(i/6), 1-(i/6));
+    ellipse(eye2_pos[0], eye2_pos[1], 1-(i/6), 1-(i/6));
     }
 
 
@@ -163,13 +155,7 @@ function FaceMap() {
   }
 
 
-    
 
-
-
-   
-
-    
   
 
   /* set internal properties based on list numbers 0-100 */
@@ -203,19 +189,20 @@ function average_point(list) {
 
 function leaf(x, y, colour1, colour2, rotation){
   push();
+  scale(.5);
   translate(x, y);
   rotate(rotation);
   fill(colour1);
-  curve(-75*overallScale*3, 5*overallScale*3, 0, 0, 0, 50*overallScale*3, -75*overallScale*3, 50*overallScale*3);
+  curve(-7.5, .5, 0, 0, 0, 5.0, -7.5, 5.0);
   fill(colour2);
-  curve(75*overallScale*3, 5*overallScale*3, 0, 0, 0, 50*overallScale*3, 75*overallScale*3, 50*overallScale*3);
+  curve(7.5, .5, 0, 0, 0, 5.0, 7.5, 5.0);
   pop();
 }
 
 function twig(x, y, colour, rotation){
-  stroke(2);
+  stroke(colour);
   push();
-  strokeWeight(2);
+  strokeWeight(0.09);
   translate(x, y);
   rotate(rotation);
   line(0, 0, 0, -100*overallScale*twigSize_value);
