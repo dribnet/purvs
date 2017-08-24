@@ -60,29 +60,19 @@ function FaceMap() {
     // Creating the lerp colours for sliders.
     var c1 = color(ZamasuFaceColor1);
     var c2 = color(ShinFaceColor1);
-    this.faceColor_value = map(this.faceColor_value, 0, 100, 0, 1);
-    var faceColorBlend = lerpColor(c1, c2, this.faceColor_value);
+    var faceColorBlend = lerpColor(c1, c2, this.faceColor_value/100);
 
     var c3 = color(ZamasuFaceColor2);
     var c4 = color(ShinFaceColor2);
-    var faceColorBlend2 = lerpColor(c3, c4, this.faceColor_value);
+    var faceColorBlend2 = lerpColor(c3, c4, this.faceColor_value/100);
 
     var c9 = color(eyecolor1);
     var c10 = color(eyecolor4);
-    this.faceColor2_value = map(this.faceColor2_value, 0, 100, 0, 1);
-    var eyeColorBlend = lerpColor(c9, c10, this.faceColor2_value);
+    var eyeColorBlend = lerpColor(c9, c10, this.faceColor2_value/100);
 
     var c11 = color(ZamasuHairColor3);
     var c12 = color(ZamasuHairColor4);
-    this.hairColor_value = map(this.hairColor_value, 0, 100, 0, 1);
-    var hairColorBlend = lerpColor(c11, c12, this.hairColor_value);
-
-
-    //map functions
-    this.earring_value = map(this.earring_value, 0, 100, 1, 3);
-    this.hairSegment1_value = map(this.hairSegment1_value, 0, 100, 1, 3);
-    this.hairSegment2_value = map(this.hairSegment2_value, 0, 100, 1, 3);
-    this.hairSegment3_value = map(this.hairSegment3_value, 0, 100, 1, 3);
+    var hairColorBlend = lerpColor(c11, c12, this.hairColor_value/100);
 
 
     // Average positions of facial feature points
@@ -110,11 +100,6 @@ function FaceMap() {
     var w = 2 * face_width;
     var h = 2.5 * half_height;
 
-    // var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    // fill(curHairColor);
-    // var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    // rect(-3, -2*curHairLength, 6, 3*curHairLength);
-
     var extent = 0;
     if(h < w) {
       extent = h / 2;
@@ -123,13 +108,6 @@ function FaceMap() {
       extent = w / 2;
     }
     var scale = extent / 220.0;
-
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
 
 
     // Ears
@@ -180,7 +158,7 @@ function FaceMap() {
 	// Potara Earrings
 
 
-    if (this.earring_value <= 2) {
+    if (this.earring_value <= 50) {
     	fill(ZamasuPotEaringColor1);
         ellipse(positions.chin[2][0] + 0.1 - (10 * scale * leftEarLength), positions.chin[3][1] + 0.1 - (6 * scale * leftEarLength), 8 * scale, 8 * scale);
         fill(ZamasuPotEaringColor3);
@@ -345,7 +323,7 @@ function FaceMap() {
     fill(hairColorBlend);
 
     // Middle left segment
-    if (this.hairSegment2_value <= 2) {
+    if (this.hairSegment2_value <= 50) {
         beginShape();
             vertex(positions.right_eyebrow[0][0] - (20 * scale), positions.right_eyebrow[0][1] - (45 * scale));
             vertex(positions.left_eyebrow[4][0] - (10 * scale), positions.left_eyebrow[4][1] - (90 * scale));
@@ -356,7 +334,7 @@ function FaceMap() {
         endShape();
     }
     // Primary left segment
-    if (this.hairSegment1_value <= 2) {
+    if (this.hairSegment1_value <= 50) {
         beginShape();
             vertex(positions.right_eyebrow[0][0] - (20 * scale), positions.right_eyebrow[0][1] - (45 * scale));
             vertex(positions.left_eyebrow[4][0] - (10 * scale), positions.left_eyebrow[4][1] - (60 * scale));
@@ -369,7 +347,7 @@ function FaceMap() {
     }
 
     // middle segment
-    if (this.hairSegment3_value <= 2) {
+    if (this.hairSegment3_value <= 50) {
         beginShape();
             vertex(positions.right_eyebrow[0][0], positions.right_eyebrow[0][1] - (50 * scale));
             vertex(positions.right_eyebrow[0][0] - (20 * scale), positions.right_eyebrow[0][1] - (45 * scale));
@@ -384,45 +362,6 @@ function FaceMap() {
             vertex(positions.right_eyebrow[0][0] - (75 * scale), positions.right_eyebrow[0][1] - (155 * scale));
         endShape();
     }
-
-
-    // noStroke();
-    // fill(255,255,255);
-    // beginShape();
-    // // for(var i=0; i<positions.top_lip.length;i++) {
-    // //   vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    // // }
-
-    // vertex(positions.top_lip[0][0], positions.top_lip[0][1]);
-    // vertex(positions.top_lip[1][0], positions.top_lip[1][1]);
-    // vertex(positions.top_lip[2][0], positions.top_lip[2][1]);
-    // vertex(positions.top_lip[3][0], positions.top_lip[3][1]);
-    // vertex(positions.top_lip[4][0], positions.top_lip[4][1]);
-    // vertex(positions.top_lip[5][0], positions.top_lip[5][1]);
-    // vertex(positions.top_lip[6][0], positions.top_lip[6][1]);
-    // vertex(positions.top_lip[7][0], positions.top_lip[7][1]);
-    // vertex(positions.top_lip[8][0], positions.top_lip[8][1]);
-    // vertex(positions.top_lip[9][0], positions.top_lip[9][1]);
-    // vertex(positions.top_lip[10][0], positions.top_lip[10][1]);
-    // vertex(positions.top_lip[11][0], positions.top_lip[11][1] + (10 * scale));
-    // endShape(CLOSE);
-
-    
-
-    // noStroke();
-    // fill(eyecolor3);
-    // beginShape();
-    //     vertex(positions.right_eye[0][0], positions.right_eye[0][1]);
-    //     vertex(positions.right_eye[1][0], positions.right_eye[1][1]);
-    //     vertex(positions.right_eye[2][0], positions.right_eye[2][1]);
-    //     vertex(positions.right_eye[3][0], positions.right_eye[3][1] + (20 * scale));
-    //     vertex(positions.right_eye[4][0], positions.right_eye[4][1]);
-    //     vertex(positions.right_eye[5][0], positions.right_eye[5][1]);
-    // endShape();
-
-    // rectMode(CENTER);
-    // fill('black');
-    // rect(mouthBottom_pos[0], mouthBottom_pos[1] + 20, 16 * scale * 2, 16 * scale * 2);
 
   }
 
