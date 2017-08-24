@@ -1,16 +1,16 @@
 {
   "commits": [
     {
-        "sha": "19b201e68306595ef31d5ef1ec4bd60aefe3b3a0",
-        "name": "training_examples"
+      "sha": "19b201e68306595ef31d5ef1ec4bd60aefe3b3a0",
+      "name": "training_examples"
     },
     {
-        "sha": "dfeadbe7d4b9dd85c59971e69eee3559c7587a9b",
-        "name": "mapping_landmarks"
+      "sha": "dfeadbe7d4b9dd85c59971e69eee3559c7587a9b",
+      "name": "version_1"
     },
     {
-        "sha": "0fbd94f40384cfa9429262e214a823adae4d8bf0",
-        "name": "object_oriented_face"
+      "sha": "0fbd94f40384cfa9429262e214a823adae4d8bf0",
+      "name": "object_oriented_face"
     }
   ]
 }
