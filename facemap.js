@@ -4,6 +4,7 @@
  */
 
 function FaceMap() {
+	//variables that can be set by the sliders
     this.eyebrowThickness = 50;
     this.mouthOpenLevel = 50;
     this.eyeBrightness = 50;
@@ -18,7 +19,11 @@ function FaceMap() {
     *    bottom_lip, top_lip, nose_tip, nose_bridge,
     */
     this.draw = function(positions, allowRandomize = true) {
-        if(allowRandomize){
+        /* most of time a random hue will be used 
+		 * however for the TrainQuiz and ValidQuiz modes the hue will be the same 
+		 * so that it easier to tell the differences in the four small faces.
+		 */
+		if(allowRandomize){
             this.randomize();   
         }
 		else {
@@ -49,12 +54,15 @@ function FaceMap() {
         colorMode(HSB);
         rectMode(CENTER);
 
+		//set some variables that will be used throughout the face 
         var tone = map(this.skinTone, 100, 0, 20, 60);
         var vibrancy = map(this.lipVibrancy, 0, 100, 0, 80);
         var reverseTone = map(this.skinTone, 100, 0, 50, 20);
 
 
-        // nose/neck
+        /**************************************************/
+		/***     draw the neck using the nose data      ***/
+		/**************************************************/
         stroke(this.hue, tone, 90);
         fill(this.hue, 90, tone);
         var yPos = positions.nose_bridge[0][1];
@@ -69,12 +77,15 @@ function FaceMap() {
             rect(positions.nose_bridge[i][0] + chin_nose_diff_x, yPos, noseWidth * (i + 1), 8 * scale);
         }
 
+		//set some variables that used to draw the robots antennas and static electricity
         var leftAntennaIndex = 0;
         var rightAntennaIndex = 4;
         var staticElectricityStroke = [this.hue,100,reverseTone];
         var hair = map(this.hairLength, 0, 100, 0, 5);
 
-        //if the person has no hair, give them a dome
+		/****************************************************/
+		/*** if the person has no hair, give them a dome  ***/
+		/****************************************************/
         if(!hair){
             leftAntennaIndex = 2;
             rightAntennaIndex = 2;
@@ -106,7 +117,9 @@ function FaceMap() {
             endShape(CLOSE);
         }
 
-        //static electricty between antennas
+		/****************************************************/
+		/***      static electricty between antennas      ***/
+		/****************************************************/
         noFill();
         var thickness = map(this.eyebrowThickness, 0, 100, 0.11, 0.21);
         stroke(staticElectricityStroke);
@@ -134,37 +147,44 @@ function FaceMap() {
         vertex(positions.right_eyebrow[rightAntennaIndex][0], positions.right_eyebrow[2][1]-(60*scale));
         endShape();
 
-        //hair length
-        var from = color(this.hue,100,reverseTone);
-        var to = color(48,97,100);
-        for( var i=1; i <= hair ; i++){
-            stroke(lerpColor(from, to, (.2 * i)));
-            strokeWeight(thickness/(i+1) );
-            beginShape();
-            vertex(positions.left_eyebrow[leftAntennaIndex][0] +((i*10) *scale), positions.left_eyebrow[2][1]-((60 + i*20) *scale));
-            vertex(positions.left_eyebrow[leftAntennaIndex][0] + 32 * scale, positions.left_eyebrow[2][1]-((60 + i*20)*scale));
-            var x = positions.left_eyebrow[leftAntennaIndex][0] + (32 * scale);
-            var limit = positions.right_eyebrow[rightAntennaIndex][0] - (64 * scale);
-            var averageY = ((positions.left_eyebrow[2][1]-((60 + i*20)*scale)) + (positions.right_eyebrow[2][1]-((60 + i*20)*scale))) / 2;
-            var yIncrement = true;
-            while( x < limit){
-                x = x + 32 * scale;
-                if(yIncrement){
-                    var yValue =  averageY+(16 * scale);
-                    yIncrement = false;
-                }
-                else {
-                    var yValue =  averageY-(16 * scale);
-                    yIncrement = true;
-                }
-                vertex(x,yValue);
-            }
-            vertex(positions.right_eyebrow[rightAntennaIndex][0] - 32 * scale, positions.right_eyebrow[2][1]-((60 + i*20)*scale));
-            vertex(positions.right_eyebrow[rightAntennaIndex][0] - ((i*10) *scale), positions.right_eyebrow[2][1]-((60 + i*20)*scale));
-            endShape();
-        }
+        /****************************************************/
+		/*** static electricity is used to represent hair ***/
+		/***     the length of hair determines how much   ***/
+		/****************************************************/
+		if(hair){
+			var from = color(this.hue,100,reverseTone);
+			var to = color(48,97,100);
+			for( var i=1; i <= hair ; i++){
+				stroke(lerpColor(from, to, (.2 * i)));
+				strokeWeight(thickness/(i+1) );
+				beginShape();
+				vertex(positions.left_eyebrow[leftAntennaIndex][0] +((i*10) *scale), positions.left_eyebrow[2][1]-((60 + i*20) *scale));
+				vertex(positions.left_eyebrow[leftAntennaIndex][0] + 32 * scale, positions.left_eyebrow[2][1]-((60 + i*20)*scale));
+				var x = positions.left_eyebrow[leftAntennaIndex][0] + (32 * scale);
+				var limit = positions.right_eyebrow[rightAntennaIndex][0] - (64 * scale);
+				var averageY = ((positions.left_eyebrow[2][1]-((60 + i*20)*scale)) + (positions.right_eyebrow[2][1]-((60 + i*20)*scale))) / 2;
+				var yIncrement = true;
+				while( x < limit){
+					x = x + 32 * scale;
+					if(yIncrement){
+						var yValue =  averageY+(16 * scale);
+						yIncrement = false;
+					}
+					else {
+						var yValue =  averageY-(16 * scale);
+						yIncrement = true;
+					}
+					vertex(x,yValue);
+				}
+				vertex(positions.right_eyebrow[rightAntennaIndex][0] - 32 * scale, positions.right_eyebrow[2][1]-((60 + i*20)*scale));
+				vertex(positions.right_eyebrow[rightAntennaIndex][0] - ((i*10) *scale), positions.right_eyebrow[2][1]-((60 + i*20)*scale));
+				endShape();
+			}
+		}
 
-        //eyebrows/antennas
+        /**************************************************/
+		/*** draw the antennas using the eyebrow data   ***/
+		/**************************************************/
         stroke(this.hue, 90, tone);
         strokeWeight(thickness);
         fill(this.hue, tone, 90);
@@ -174,10 +194,13 @@ function FaceMap() {
         ellipse(positions.right_eyebrow[rightAntennaIndex][0], positions.right_eyebrow[2][1]-(60*scale), 16 * scale, 16 * scale);
 
 		
+		/***************************************************/
+		/*** extra antennas for faces that have earrings ***/
+		/***************************************************/
 		var hasEarings = map(this.hasEarings, 0, 100, 0, 1);
         if(hasEarings >= 1){
-			//earings/antennas
-			//left antenna
+
+			//left earings/antenna
 			stroke(this.hue, 90, 50);
 			fill(this.hue, 50, 90);
 			strokeWeight(0);
@@ -187,7 +210,7 @@ function FaceMap() {
 			ellipse(positions.chin[2][0]-(55*scale), positions.chin[2][1], 0.12, 0.5);
 			ellipse(positions.chin[2][0]-(75*scale), positions.chin[2][1], 0.08, 0.3);
 
-			//right antenna
+			//right earings/antenna
 			stroke(this.hue, 90, 50);
 			fill(this.hue, 50, 90);
 			strokeWeight(0);
@@ -198,7 +221,7 @@ function FaceMap() {
 			ellipse(positions.chin[14][0]+(75*scale), positions.chin[14][1], 0.08, 0.3);
 		}
 	
-        // head
+        // prepare some values that will be used to draw the head
         var chinValuesX = convertVerticeArrayToAxisArray(positions.chin, 0);
         var chinValuesY = convertVerticeArrayToAxisArray(positions.chin, 1);
         var smallestX = Array.lowest(chinValuesX);
@@ -206,6 +229,9 @@ function FaceMap() {
         var smallestY = Array.lowest(chinValuesY);
         var biggestY = Array.highest(chinValuesY);
 
+		/**********************************************************/
+		/*** THE HEAD - drawn a bit larger than the actual head ***/
+		/**********************************************************/
         strokeWeight(0.02);
         stroke(this.hue, tone, 90);
         fill(this.hue, 90, tone);
@@ -214,12 +240,15 @@ function FaceMap() {
         vertex(positions.left_eyebrow[0][0]-(20*scale), positions.left_eyebrow[0][1]-(20*scale));
         for(var i=0; i<positions.chin.length;i++) {
             if(i < 8){
+				//left side of the head
                 vertex(positions.chin[i][0]-(20*scale), positions.chin[i][1]);
             }
             else if(i > 8){
+				//right side of the head
                 vertex(positions.chin[i][0]+(20*scale), positions.chin[i][1]);
             }
             else {
+				//middle of the chin
                 vertex(positions.chin[i][0], positions.chin[i][1]+(10*scale));
             }
         }
@@ -228,12 +257,12 @@ function FaceMap() {
         endShape(CLOSE);
 
 
-        /* the sorted lips array and following variables will be used to draw the following facial features:
-            1. beard/robot grill
-            2. lips/outer mouth
-            3. smile/audiowave
+        /* the sorted lips array and following variables will be used to help draw the following facial features:
+         *  1. beard/robot grill
+         *  2. lips/outer mouth
+         *  3. smile/audiowave
          */
-
+		 
         //merge the lips arrays and then sort them on the x-axis
         var lips = positions.top_lip.concat(positions.bottom_lip);
         var sorted_lips = lips.map(
@@ -246,7 +275,7 @@ function FaceMap() {
             }
         );
 
-        //calculate the smallest and biggest y values
+        //calculate the smallest and biggest y values in sorted_lips array
         var yValues = convertVerticeArrayToAxisArray(sorted_lips, 1);
         var smallestY = Array.lowest(yValues);
         var biggestY = Array.highest(yValues);
@@ -255,15 +284,20 @@ function FaceMap() {
         var yDistance = biggestY - smallestY;
 
 
+		/**********************************************************/
+		/*** if the person has facial hair, draw a robot grill  ***/
+		/**********************************************************/
         if(this.facialHair){
-            // beard/robot grill
-            var facialHairLength = map(this.facialHair, 0, 100, 40, 90);
+
             noFill();
             stroke(this.hue, 30, 90);
             strokeWeight(0.02);
+			var facialHairLength = map(this.facialHair, 0, 100, 40, 90);
+			
             //grill mid point
             var midPoint = ((sorted_lips[4][0]+(20*scale)) + (sorted_lips[10][0]+(20*scale))) / 2;
             line(midPoint, biggestY+(facialHairLength*scale), midPoint, smallestY+(20*scale));
+			
             //left side of grill
             var x = midPoint - 0.02;
             var limit = sorted_lips[0][0]-(20*scale);
@@ -276,6 +310,7 @@ function FaceMap() {
                 x = x - 0.04;
                 y = y - yDiff;
             }
+			
             //right side of grill
             var x = midPoint + 0.02;
             var yAdjuster = (1*scale);
@@ -291,7 +326,9 @@ function FaceMap() {
             }
         }
 
-        //draw the outer mouth
+        /*********************************/
+		/*** outer shape of the mouth  ***/
+		/*********************************/
         fill(this.hue, 90, reverseTone);
         stroke(this.hue+vibrancy, tone+vibrancy, 90);
         strokeWeight(0.05 + (vibrancy*2/1000));
@@ -308,10 +345,14 @@ function FaceMap() {
         endShape(CLOSE);
         translate(0, -5 * scale);
 
+		//set up some variables that determine how big the smile will be
         var openLevel = map(this.mouthOpenLevel, 0, 100, 0.9, 0);
         smallestY = smallestY + (yDistance/2 * openLevel);
         biggestY = biggestY - (yDistance/2 * openLevel);
-        //draw the inner mouth
+		
+        /***********************************/
+		/***      audio wave / smile     ***/
+		/***********************************/
         strokeWeight(0.01);
         stroke(0,0, 100, 1);
         noFill();
@@ -343,6 +384,7 @@ function FaceMap() {
         endShape();
         strokeWeight(0);
 
+		//set up some variables that will be used to draw the eyes
         var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
         var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
         var xValuesRight = convertVerticeArrayToAxisArray(positions.right_eye, 0);
@@ -356,9 +398,6 @@ function FaceMap() {
         var smallestYRight = Array.lowest(yValuesRight);
         var biggestYRight = Array.highest(yValuesRight);
 
-        // eyes
-        translate(0, 20 * scale);
-        fill(this.hue, tone, 90);
         //first conver the vertices arrays into single axis arrays
         var xValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 0);
         var yValuesLeft = convertVerticeArrayToAxisArray(positions.left_eye, 1);
@@ -371,6 +410,13 @@ function FaceMap() {
         var biggestXRight = Array.highest(xValuesRight);
         var smallestYRight = Array.lowest(yValuesRight);
         var biggestYRight = Array.highest(yValuesRight);
+		
+		translate(0, 20 * scale);
+        fill(this.hue, tone, 90);
+		
+		/****************************/
+		/***      outer visor     ***/
+		/****************************/
         //outer visor
         beginShape();
         curveVertex(smallestXLeft-(20*scale), smallestYLeft-(20*scale));
@@ -378,16 +424,25 @@ function FaceMap() {
         curveVertex(biggestXRight+(20*scale), biggestYRight+(20*scale));
         curveVertex(smallestXLeft-(20*scale), biggestYLeft+(20*scale));
         endShape(CLOSE);
+		
+		
         //how bright are the eyes?
         var brightness = map(this.eyeBrightness, 0, 100, 50, 0);
         fill(0, 0, brightness);
-        //inner visor
+		
+		/****************************/
+		/***      inner visor     ***/
+		/****************************/
         beginShape();
         curveVertex(smallestXLeft-(10*scale), smallestYLeft-(10*scale));
         curveVertex(biggestXRight+(10*scale), smallestYRight-(10*scale));
         curveVertex(biggestXRight+(10*scale), biggestYRight+(10*scale));
         curveVertex(smallestXLeft-(10*scale), biggestYLeft+(10*scale));
         endShape(CLOSE);
+		
+		/*********************/
+		/***      EYES     ***/
+		/*********************/
         fill(0, 0, 100 - brightness);
         //left eye
         beginShape();
@@ -401,19 +456,19 @@ function FaceMap() {
           curveVertex(positions.right_eye[i][0], positions.right_eye[i][1]);
         }
         endShape(CLOSE);
-
         //irises
         fill(this.hue, 90, tone);
         rect(eye1_pos[0], eye1_pos[1], 6 * scale, 6 * scale);
         rect(eye2_pos[0], eye2_pos[1], 6 * scale, 6 * scale);
         translate(0, -20 * scale);
 
+		//face is now finished drawing
         strokeWeight(0.01);
     }
 
     /*
-    * Update internal state variables to a random state.
-    */
+	 * randomize function - used to choose a different hue everytime the page is loaded or the mouse is clicked
+     */
     this.randomize = function() {
         var randomPointer = floor(random(1, 10));
         this.hue = focusedRandom(this.robotHueRanges[randomPointer][0], this.robotHueRanges[randomPointer][1], 10, this.robotHueRanges[randomPointer][2]);
