@@ -516,7 +516,7 @@ noStroke();
 }
 
 
-  /* set internal properties based on list numbers 0-100 */
+  /*// set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
     this.lookPos = settings[0];
     this.eyeAngle = settings[1];
