@@ -88,18 +88,6 @@ function FaceMap() {
     stroke(upperLip_color[skin_color_value+1]);
     strokeWeight(0.01);
 
-    fill(innerMouth_color[skin_color_value]);
-     beginShape();
-     for(var i=0; i<positions.top_lip.length/2;i++) {
-      vertex(positions.top_lip[i][0], positions.top_lip[i][1]);
-    }
-      for(var i=0; i<6;i++) {
-    		if (i!=3 && i!=9){
-      vertex(positions.bottom_lip[i][0], positions.bottom_lip[i][1]);
- 	}
-    }
-    endShape(CLOSE);
-    //teeth
     fill(teeth_color[skin_color_value]);
      beginShape();
      for(var i=0; i<positions.top_lip.length/2;i++) {
@@ -111,6 +99,8 @@ function FaceMap() {
  	}
     }
     endShape(CLOSE);
+
+
 
 
 
