@@ -10,8 +10,6 @@ fg_color = [151, 102, 52];
 stroke_color = [0, 0, 0];
 
 function FaceMap() {
-  this.hairLength = 0;
-  this.hairColor = 0;
   this.leftDepth = 50;
   this.rightDepth = 50;
   this.leftHeight = 50;
@@ -230,25 +228,21 @@ function FaceMap() {
 
   /* set internal properties based on list numbers 0-100 */
   this.setProperties = function(settings) {
-    this.hairLength = settings[0];
-    this.hairColor = settings[1];
-    this.leftDepth = settings[2];
-    this.rightDepth = settings[3];
-    this.leftHeight = settings[4];
-    this.rightHeight = settings[5];
-    this.chinHeight = settings[6];
+    this.leftDepth = settings[0];
+    this.rightDepth = settings[1];
+    this.leftHeight = settings[2];
+    this.rightHeight = settings[3];
+    this.chinHeight = settings[4];
   }
 
   /* get internal properties as list of numbers 0-100 */
   this.getProperties = function() {
-    properties = new Array(7);
-    properties[0] = this.hairLength;
-    properties[1] = this.hairColor;
-    properties[2] = this.leftDepth;
-    properties[3] = this.rightDepth;
-    properties[4] = this.leftHeight;
-    properties[5] = this.rightHeight;
-    properties[6] = this.chinHeight;
+    properties = new Array(5);
+    properties[0] = this.leftDepth;
+    properties[1] = this.rightDepth;
+    properties[2] = this.leftHeight;
+    properties[3] = this.rightHeight;
+    properties[4] = this.chinHeight;
     return properties;
   }
 }
