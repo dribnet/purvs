@@ -27,6 +27,10 @@ function Face() {
   this.mask_eye_brow_color = [203, 71, 35];
   this.mask_nose_color1 = [201, 107, 22];
   this.mask_nose_color2 = [224, 142, 26];
+  this.mask_feather1_color = [53, 33, 110];
+  this.mask_feather2_color = [223, 188, 23];
+  this.mask_feather3_color = [221, 109, 21];
+  this.mask_feather4_color = [206, 25, 117];
   /*
    * Draw a face centered at x,y with an allowed
    * width and height of w,h.
@@ -148,10 +152,15 @@ function Face() {
     // rect(x-w/2, y-h/2, w, h);
     // fill(0)
     // ellipse(x, y, w, h);
+    translate(face_middle_x, nose_pos[1]);
+    rotate(this.tilt_value);
+    translate(-face_middle_x, - nose_pos[1]);
     push();
+
     fill(this.mask_color);
     // mask
-    rect(face_middle_x -(face_width * 0.5), nose_pos[1] - half_height, face_width, half_height * 2)
+    rect(face_middle_x -(face_width * 0.5), nose_pos[1] - half_height, face_width, half_height * 2,
+      30 * scale, 30 * scale, 100 * scale, 100 * scale);
     
     // nose
     stroke(this.mask_nose_color1);
@@ -228,7 +237,17 @@ function Face() {
     fill(this.mask_eye_brow_color);
     rect(eye_brow1_pos[0] - (55 * scale), eye_brow1_pos[1] - (25 * scale), 110 * scale, 50 * scale);
     rect(eye_brow2_pos[0] - (55 * scale), eye_brow2_pos[1] - (25 * scale), 110 * scale, 50 * scale);
-    
+
+    // feathers
+    fill(this.mask_feather1_color);
+    ellipse(face_middle_x - (75 * scale),nose_pos[1] - half_height -(70 * scale), 40* scale, 150 * scale);
+    fill(this.mask_feather2_color);
+    ellipse(face_middle_x - (25 * scale),nose_pos[1] - half_height -(70 * scale), 40* scale, 150 * scale);
+    fill(this.mask_feather3_color);
+    ellipse(face_middle_x + (25 * scale),nose_pos[1] - half_height -(70 * scale), 40* scale, 150 * scale);
+    fill(this.mask_feather4_color);
+    ellipse(face_middle_x + (75 * scale),nose_pos[1] - half_height -(70 * scale), 40* scale, 150 * scale);
+
     pop();
 
     
