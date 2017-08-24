@@ -126,7 +126,7 @@ function setup () {
     sliders.push(slider);
   }
 
-  sliderTint = createSlider(0, 100, 10);
+  sliderTint = createSlider(0, 100, 35);
   sliderTint.parent("sliderTintContainer");
 
   /* and the buttons */
