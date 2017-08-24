@@ -3,12 +3,6 @@
  * face and is able to draw itself.
  */  
 
-// other variables can be in here too
-// these control the colors used
-bg_color = [225, 206, 187];
-fg_color = [151, 102, 52];
-stroke_color = [95, 52, 8];
-
 var rand = new Math.seedrandom(focusedRandom())
 
 function FaceMap() {
