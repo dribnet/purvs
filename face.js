@@ -19,7 +19,7 @@ function Face() {
 
 
     push();
-    translate(x, y);
+    translate(x/2, y/2);
     rotate(this.tilt_value);
 
     var extent = 0;
@@ -155,8 +155,8 @@ function Face() {
       endShape();
 
       //glasses
-      fill(0,0,0,chain_value*10);
-      strokeWeight(chain_value/2);
+      fill(0,0,0,.2*10);
+      strokeWeight(.2/2);
       stroke(map(this.tilt_value,100,0,247,100),map(this.eye_value,0,100,193,100),map(this.eye_value,0,100,61,100));
       rect(30* scale,10* scale,50* scale,20* scale);
       rect(-30* scale,10* scale,-50* scale,20* scale);
@@ -235,17 +235,17 @@ function Face() {
       endShape();
     }else if(this.accessory < 2){
       fill(212,175,55);
-      ellipse(55* scale,133* scale,chain_value,chain_value);
-      ellipse(47* scale,154* scale,chain_value,chain_value);
-      ellipse(35* scale,172* scale,chain_value,chain_value);
-      ellipse(22* scale,185* scale,chain_value,chain_value);
-      ellipse(11* scale,195* scale,chain_value,chain_value);
-      ellipse(0,200* scale,chain_value,chain_value);
-      ellipse(-11* scale,195* scale,chain_value,chain_value);
-      ellipse(-22* scale,185* scale,chain_value,chain_value);
-      ellipse(-35* scale,172* scale,chain_value,chain_value);
-      ellipse(-47* scale,154* scale,chain_value,chain_value);
-      ellipse(-55* scale,133* scale,chain_value,chain_value);
+      ellipse(55* scale,133* scale,.2,.2);
+      ellipse(47* scale,154* scale,.2,.2);
+      ellipse(35* scale,172* scale,.2,.2);
+      ellipse(22* scale,185* scale,.2,.2);
+      ellipse(11* scale,195* scale,.2,.2);
+      ellipse(0,200* scale,.2,.2);
+      ellipse(-11* scale,195* scale,.2,.2);
+      ellipse(-22* scale,185* scale,.2,.2);
+      ellipse(-35* scale,172* scale,.2,.2);
+      ellipse(-47* scale,154* scale,.2,.2);
+      ellipse(-55* scale,133* scale,.2,.2);
     }
   }
   /*
