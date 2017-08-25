@@ -200,10 +200,6 @@ var guessed_answer = 0;
 function draw () {
   var mode = faceSelector.value();
 
-  if(millis() > lastSwapTime + millisPerSwap) {
-    lastSwapTime = millis();
-     changeRandomSeed();
-  }
 
   resetFocusedRandom(curRandomSeed);
 
@@ -217,6 +213,12 @@ function draw () {
   }
 
   if (mode == 'Face') {
+      if(millis() > lastSwapTime + millisPerSwap) {
+          lastSwapTime = millis();
+          changeRandomSeed();
+      }
+
+
     var cols = 5;
   var rows = 3;
 
