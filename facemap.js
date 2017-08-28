@@ -12,6 +12,9 @@ stroke_color = [95, 52, 8];
 function FaceMap() {
   this.hairLength = 50;
   this.hairColor = 50;
+  this.slids = new SliderValues();
+ this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+this.patFace = new PatternFace(333,333,this.slids);
 
   /*
    * Draw a face with position lists that include:
@@ -29,7 +32,7 @@ function FaceMap() {
     var y = nose_pos[1];
     var w = 2 * face_width;
     var h = 2.5 * half_height;
-
+    
     var curHairColor = map(this.hairColor, 0, 100, 200, 20);
     fill(curHairColor);
     var curHairLength = map(this.hairLength, 0, 100, 0, 3);
@@ -116,6 +119,21 @@ function FaceMap() {
     }
     endShape(CLOSE);
     strokeWeight(1);  
+    this.img = this.patFace.drawFace();
+    imageMode(CENTER);
+    image(this.img,0,0,w,h);
+
+
+
+
+
+
+
+
+
+
+  
+
   }
 
   /* set internal properties based on list numbers 0-100 */

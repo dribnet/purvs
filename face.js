@@ -7,6 +7,8 @@ function Face() {
   this.tilt_value = 0;
   this.eye_value = 2;
   this.mouth_value = 0;
+  this.slids = new SliderValues();
+  this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
 
   // other variables can be in here too
   // these control the colors used
@@ -15,7 +17,7 @@ function Face() {
   this.stroke_color = [95, 52, 8];
 //creates the object that stores the random numbers
     this.sliders = new SliderValues();
-    this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+    this.sliders.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
 
 
   /*
@@ -29,52 +31,10 @@ function Face() {
     // rect(x-w/2, y-h/2, w, h);
     // fill(0)
     // ellipse(x, y, w, h);
-
-    push();
-    translate(x, y);
-    rotate(this.tilt_value);
-    
-    //creates a new rag doll object
-    this.dolly = new RagDoll(w,h,this.sliders);
-this.img = this.dolly.drawFace();
-this.image(img,x,y,w,h);
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
-
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
-
-    // eyes
-    if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
-      fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
-
-      fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
-    }
-
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-    pop();
+    //creates and draws a rag doll head
+   this.dolly = new RagDoll(w*3.5,80+h*3.5,this.slids);
+   this.img = this.dolly.drawFace();
+   image(this.img,x-w/4,y-h/3,w,h);
   }
 
   /*
@@ -83,57 +43,14 @@ this.image(img,x,y,w,h);
    *    bottom_lip, top_lip, nose_tip, nose_bridge, 
    */  
   this.draw2 = function(positions) {
+    this.dolly = new RagDoll(w,h,this.sliders);
+this.img = this.dolly.drawFace();
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
     var half_height = positions.chin[7][1] - nose_pos[1];
     var face_width = positions.chin[positions.chin.length-1][0] - positions.chin[0][0];
 
-    var x = nose_pos[0];
-    var y = nose_pos[1];
-    var w = 2 * face_width;
-    var h = 2.5 * half_height;
-
-    var extent = 0;
-    if(h < w) {
-      extent = h / 2;
-    }
-    else {
-      extent = w / 2;
-    }
-    var scale = extent / 220.0;
-
-    // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
-
-    push();
-    translate(x, y);
-    rotate(this.tilt_value);
-
-    // head
-    stroke(this.stroke_color);
-    fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
-    noStroke();
-
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
-    pop();
-
-    noStroke();
-
-    fill(this.bg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 50 * scale, 30 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 50 * scale, 30 * scale);
-
-    fill(this.fg_color);
-    ellipse(eye1_pos[0], eye1_pos[1], 20 * scale, 20 * scale);
-    ellipse(eye2_pos[0], eye2_pos[1], 20 * scale, 20 * scale);
   }
 
   /*
@@ -143,6 +60,8 @@ this.image(img,x,y,w,h);
     this.eye_value = getRandomNumberOfEyes();
     this.tilt_value = focusedRandom(-70, 90, 8);
     this.mouth_value = focusedRandom(0, 50, 4, 1);
+    //provides a new set of random numbers to the SliderValues object that gets passed to the rag doll
+    this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   }
 }
 
