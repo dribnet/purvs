@@ -25,7 +25,6 @@ this.drawFace = function(){
 	
 	this.mC.clear();
 	this.bgC.clear();
-this.bg1.loadPixels();
 	this.bgC.resetMatrix();
 
 	this.mC.resetMatrix();
@@ -214,40 +213,39 @@ this.pattern1 = function(){
 		}
 	}
 
-//this function allows you to create any shape you want with any pattern on it, using masking
-//bgC the pattern canvas you want the shape made of 
-//the bgC canvas must not contain an R value of either 0 or 255. Instead 1 or 254 are the closest allowed
-// mC the mask canvas, an image in color(0) and color(255,0,0)
-//what is originally black will be clear, and what is red will be the pattern
+	//takes 2 canvases a  mask canvas mC
+	//a patterned canvas bgC
+	//draws the shape of the mask, in the patten, onto the main canvas c
+
 this.basicMask = function(mC, bgC){
-	//loads the pixels of the mask into an array
+	//loads the pixels of the mask and background into arrays
 	mC.loadPixels(); 
+	bgC.loadPixels();
+	//the colour of the mask shape
 	this.mask = color(255, 0, 0);
+	//calculates the length of the array
 	this.d =pixelDensity();
 	this.halfImage = 4 * (w*4 * this.d) * (h/2 * this.d);
-	//if the pixel is red, set it to clear
+	//if the pixel is the mask colour, set it to the rgb value of the corresponding patterned pixel
 	for (this.i = 0; this.i < this.halfImage; this.i+=4){
-		if(mC.pixels[this.i] == red(this.mask)) {
+		//the red value of the pixel
+		this.checkVal = mC.pixels[this.i];
+		//check for if the red value matches the mask value
+		if( this.checkVal== red(this.mask)) {
+			//take the colour values from the pattern array
+			//put them in the mask array
+			mC.pixels[this.i] = bgC.pixels[this.i];
+			mC.pixels[this.i+1] = bgC.pixels[this.i+1];
+			mC.pixels[this.i+2] = bgC.pixels[this.i+2];
+		}
+		//if not one of the mask values being searched for, set the pixel to clear
+		else{
 			mC.pixels[this.i+3] = 0;
 		}
 	}
+	//draw the patterned shape onto the canvas
 	mC.updatePixels();
-	//draw the mask onto the pattern
-	bgC.image(mC,-w/2,-h/2,w, h);
-	//load the masked pattern into an array
-	bgC.loadPixels(); 
-	//check each pixel, if it is black, make it clear
-	for (this.i = 0; this.i < this.halfImage; this.i+=4){
-		if(bgC.pixels[this.i] ==0) {
-			bgC.pixels[this.i+3] = 0;
-		}
-	}
-	bgC.updatePixels();
-	//draw the cut out pattern onto the main graphics object
-	 this.c.image(bgC,-w/2,-h/2,w, h);
+	 this.c.image(mC,-w/2,-h/2,w, h);
 
-	 //test
-	 this.c.fill(155,155,0);
-	 this.c.ellipse(0,0,1,1);
 	}
 }
