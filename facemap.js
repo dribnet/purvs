@@ -11,6 +11,7 @@ bg_color = [225, 206, 187];
 fg_color = [255,0,0];
 stroke_color = [95, 52, 8];
 mC = null;
+hairC = null
 bgC = null;
 function FaceMap(slids) {
 
@@ -28,8 +29,10 @@ this.skinBlue = 0;
   this.gW = 400;
   mC = createGraphics(this.gW,this.gW);
 bgC = createGraphics(this.gW,this.gW);
+hairC = createGraphics(this.gW,this.gW);
 mC.translate(100,100);
 bgC.translate(100,100);
+hairC.translate(100,100);
  this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
 
   /*
@@ -40,6 +43,16 @@ bgC.translate(100,100);
   this.draw = function(positions) {
     mC.background(0,0,155);
     bgC.background(0,155,0);
+    hairC.background(0,155,0);
+    hairC.strokeWeight(3);
+    hairC.stroke(122,0,200);
+    //hair colour
+    this.hCol=slids.scaleSliders(10,50,200,true);
+    hairC.fill(this.hCol,0,this.hCol);
+
+    for(this.count = 0; this.count<200; this.count++){
+     hairC.bezier(focusedRandom(-95,95),focusedRandom(-90,100),focusedRandom(-95,95),focusedRandom(-90,100),focusedRandom(-95,95),focusedRandom(-90,100),focusedRandom(-95,95),focusedRandom(-90,100));}
+    
     var nose_pos = average_point(positions.nose_bridge);
     var eye1_pos = average_point(positions.left_eye);
     var eye2_pos = average_point(positions.right_eye);
@@ -69,7 +82,18 @@ bgC.translate(100,100);
 
     // head
     mC.stroke(stroke_color);
+    mC.fill(254,0,0);
+    //hair
+    this.dotScale= slids.scaleSliders(7,0.5,1.5);
+    this.hairDot = slids.scaleSliders(6,10,120,true);
+    for(this.i = 0;this.i<this.hairDot;this.i++){
+      mC.ellipse(focusedRandom(-80,80,3,-10), focusedRandom(-80,80,2,-60),focusedRandom(20,40)*this.dotScale,focusedRandom(20,50)*this.dotScale);
+
+    }
     mC.fill(fg_color);
+mC.noStroke();
+
+
     mC.beginShape();
     for(var i=0; i<positions.chin.length;i++) {
       mC.vertex((positions.chin[i][0])*times, (positions.chin[i][1])*times);
@@ -106,7 +130,7 @@ bgC.translate(100,100);
     mC.fill(255,0,0);
     mC.ellipse(0,0,1.2,0.2);
     this.skinPattern(bgC);
-    this.basicMask(mC,bgC);
+    this.basicMask(mC,bgC,hairC);
    image(mC,0,0,10,10);
 
 
@@ -219,12 +243,14 @@ this.skinPattern = function(skinC){
   //a patterned canvas bgC
   //draws the shape of the mask, in the patten, onto the main canvas c
 
-this.basicMask = function(shape, pattern){
+this.basicMask = function(shape, pattern,hairPat){
   //loads the pixels of the mask and background into arrays
   shape.loadPixels(); 
   pattern.loadPixels();
+  hairPat.loadPixels();
   //the colour of the mask shape
   this.mask = color(255, 0, 0);
+  this.mask2 = color(254, 0, 0);
   //calculates the length of the array
   this.d =pixelDensity();
   this.halfImage = 4 * (this.gW*4 * this.d) * (this.gW/2 * this.d);
@@ -239,6 +265,15 @@ this.basicMask = function(shape, pattern){
       shape.pixels[this.i] = pattern.pixels[this.i];
       shape.pixels[this.i+1] = pattern.pixels[this.i+1];
       shape.pixels[this.i+2] = pattern.pixels[this.i+2];
+    
+    //if not one of the mask values being searched for, set the pixel to clear
+    }
+    else   if( this.checkVal== red(this.mask2)) {
+      //take the colour values from the pattern array
+      //put them in the mask array
+      shape.pixels[this.i] = pattern.pixels[this.i];
+      shape.pixels[this.i+1] = hairPat.pixels[this.i+1];
+      shape.pixels[this.i+2] = hairPat.pixels[this.i+2];
     
     //if not one of the mask values being searched for, set the pixel to clear
     }
