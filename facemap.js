@@ -6,13 +6,13 @@
 // other variables can be in here too
 // these control the colors used
 //times
-  times = 20;
+  times = 30;
 bg_color = [225, 206, 187];
 fg_color = [255,0,0];
 stroke_color = [95, 52, 8];
 mC = null;
 bgC = null;
-function FaceMap() {
+function FaceMap(slids) {
 
   this.hairLength = 50*times;
   this.hairColor = 50*times;
@@ -21,7 +21,8 @@ function FaceMap() {
   this.skinRed = 0;
 this.skinGreen = 0;
 this.skinBlue = 0;
-  this.slids = new SliderValues();
+  this.slids = slids;
+
   //set up the graphics objects for masking
   //graphics width
   this.gW = 400;
@@ -30,7 +31,6 @@ bgC = createGraphics(this.gW,this.gW);
 mC.translate(100,100);
 bgC.translate(100,100);
  this.slids.randomSliders(focusedRandom(0,100), focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
-this.patFace = new PatternFace(333,333,this.slids);
 
   /*
    * Draw a face with position lists that include:
@@ -51,11 +51,6 @@ this.patFace = new PatternFace(333,333,this.slids);
     var w = 2 * face_width;
     var h = 2.5 * half_height;
  
-    var curHairColor = map(this.hairColor, 0, 100, 200, 20);
-    fill(curHairColor);
-    var curHairLength = map(this.hairLength, 0, 100, 0, 3);
-    rect(-3, -2*curHairLength, 6, 3*curHairLength);
-
     var extent = 0;
     if(h < w) {
       extent = h / 2;
@@ -101,43 +96,8 @@ this.patFace = new PatternFace(333,333,this.slids);
     }
     mC.endShape(CLOSE);
 
-    // nose
-    mC.beginShape();
-    mC.vertex((positions.nose_bridge[0][0])*times, (positions.nose_bridge[0][1])*times);
-    for(var i=0; i<positions.nose_tip.length;i++) {
-      mC.vertex(positions.nose_tip[i][0], positions.nose_tip[i][1]);
-    }
-    mC.endShape(CLOSE);
-
-    // eyes
-    mC.beginShape();
-    for(var i=0; i<positions.left_eye.length;i++) {
-      mC.vertex((positions.left_eye[i][0])*times, (positions.left_eye[i][1])*times);
-    }
-    mC.endShape(CLOSE);
-    mC.beginShape();
-    for(var i=0; i<positions.right_eye.length;i++) {
-      mC.vertex((positions.right_eye[i][0])*times, (positions.right_eye[i][1])*times);
-    }
-    mC.endShape(CLOSE);
-
-    mC.fill(fg_color);
-    mC.ellipse(eye1_pos[0], eye1_pos[1], (16 * scale)*times, (16 * scale)*times);
-    mC.ellipse(eye2_pos[0], eye2_pos[1], (16 * scale)*times, (16 * scale)*times);
-
-    mC.fill(stroke_color);
-    mC.beginShape();
-    for(var i=0; i<positions.right_eyebrow.length; i++) {
-      mC.vertex((positions.right_eyebrow[i][0])*times, (positions.right_eyebrow[i][1])*times);
-    }
-    mC.endShape(CLOSE);
-    mC.beginShape();
-    for(var i=0; i<positions.left_eyebrow.length; i++) {
-      mC.vertex((positions.left_eyebrow[i][0])*times, (positions.left_eyebrow[i][1])*times);
-    }
-    mC.endShape(CLOSE);
     mC.strokeWeight(1);  
-    //this.img = this.patFace.drawFace();
+
     imageMode(CENTER);
    //image(this.img,0,0,w,h);
 
@@ -164,28 +124,32 @@ this.patFace = new PatternFace(333,333,this.slids);
   }
 
 this.skinPattern = function(skinC){
+  
   //selects a skin color based on slider 2
-  this.check = this.slids.scaleSliders(2,1,6,true);
-  if(this.check == 1){
+  this.check = this.slids.scaleSliders(2,1,5,true);
+  if(this.check == 3){
     this.skinRed = 167;
     this.skinGreen = 202;
     this.skinBlue = 219;
   }
-  else if(this.check == 2){
+  
+  else if(this.check == 4){
     this.skinRed = 151;
     this.skinGreen = 102;
     this.skinBlue = 52;
   }
-  else if(this.check == 3){
-    this.skinRed = 200;
-    this.skinGreen = 0;
-    this.skinBlue = 200;
-  }
-  else if(this.check == 4){ 
+  //else if(this.check == 3){
+   // this.skinRed = 200;
+  //  this.skinGreen = 0;
+  //  this.skinBlue = 200;
+ // }
+
+  else if(this.check == 1){ 
     this.skinRed = 244;
     this.skinGreen = 222;
     this.skinBlue = 216;
   }
+
   else{
     this.skinRed = 171;
     this.skinGreen = 225;
@@ -197,7 +161,7 @@ this.skinPattern = function(skinC){
   
 
   //draws a scattering of flowers accross the face
-    for(this.num = 0; this.num < this.slids.scaleSliders(4,0,45,true); this.num ++){
+    for(this.num = 0; this.num < this.slids.scaleSliders(4,0,70,true); this.num ++){
      skinC.push();
       //creates a random shade of the skin tone for the flower
       this.flowerTone = focusedRandom(-70,100);
@@ -221,22 +185,22 @@ this.skinPattern = function(skinC){
     skinC.fill(this.skinRed+150,this.skinGreen+150,this.skinBlue+150);
     skinC.push();
     skinC.stroke(1);
-    skinC.translate(-30,-5);
-    skinC.ellipse(0,0, 30,20);
+    skinC.translate(-25,-15);
+    skinC.ellipse(0,0, 35,25);
     skinC.fill(this.skinRed-100,this.skinGreen-100,this.skinBlue-100);
-    skinC.ellipse(0,0,20,20);
+    skinC.ellipse(0,0,25,25);
     skinC.fill(1)
-    skinC.ellipse(0,0,15,15);
+    skinC.ellipse(0,0,20,20);
     skinC.pop();
     //right eye
     skinC.push();
     skinC.stroke(1);
-    skinC.translate(30,-5);
-    skinC.ellipse(0,0, 30,20);
+    skinC.translate(25,-15);
+    skinC.ellipse(0,0, 35,25);
     skinC.fill(this.skinRed-100,this.skinGreen-100,this.skinBlue-100);
-    skinC.ellipse(0,0,20,20);
+    skinC.ellipse(0,0,25,25);
     skinC.fill(1)
-    skinC.ellipse(0,0,15,15);
+    skinC.ellipse(0,0,20,20);
     skinC.pop();
   }
   //draws a flower at point 0,0 on bgC
