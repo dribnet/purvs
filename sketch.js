@@ -1,22 +1,23 @@
 //globle variables
-var startX = 0, startY = 0, radio, slider1, slider2, slider3, slider4;
+var startX = 0, startY = 0, radio, shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], slider1, slider2, slider3, slider4;
 
 function setup () {
-  var main_canvas = createCanvas(960, 500);
-  main_canvas.parent('canvas-container');
-  
-  // create radio
-  radio = createRadio();
-  radio.option('rect');
-  radio.option('ellipse');
-  radio.option('hexa');
-  radio.option('octa');
-  radio.value('rect');
-  radio.parent('shape-selector-holder');
-  radio.changed(randomizeTranslationValue);
-  
-  randomizeTranslationValue();
-  frameRate(1);
+	var main_canvas = createCanvas(960, 500);
+	main_canvas.parent('canvas-container');
+	background(0);
+	noFill();
+
+	// create radio
+	radio = createRadio();
+	for(var i=0; i < shapeOptions.length; i++){
+		radio.option(shapeOptions[i]);
+	}
+	radio.value(random(shapeOptions));
+	radio.parent('shape-selector-holder');
+	radio.changed(randomizeTranslationValue);
+
+	randomizeTranslationValue();
+	frameRate(3);
 }
 
 function draw () {
@@ -24,10 +25,7 @@ function draw () {
   var to = color('#f5ec25');
   var from = color('#1878B3');
   
-  //angleMode(DEGREES);
-  fill(255, 255, 255, 1);
-  
-  strokeWeight(0.1);
+  strokeWeight(0.01);
   translate(startX, startY);  
   // /print(width/12);
   var x = 0;
@@ -35,18 +33,31 @@ function draw () {
   var shape = radio.value();
   while(x < width){
     var colour = lerpColor(from, to, count);
-    stroke(colour);
     for (var i = 0; i < 16; i ++) {
-      var rand = random(0,100);
-      if(rand < 20){
-        stroke(random(255), random(255), random(255));
-      }
-      window[shape](x, 20, 10, 1 * x);
-      rotate(PI/8);
+		for (var j = -2; j <=2; j++) {
+			stroke(colour, random(15, 127));
+			var rand = random(0,100);
+			if(rand < 0){
+				stroke(random(255), random(255), random(255), random(15, 127));
+			}
+			//call the function as detemined by the variable shape
+			//rect and ellipse are built in p5.js
+			//tri,hexa & octa are defined in this file
+			window[shape](x, 20, 10 + (j*2), 10 + (j*2));
+			//window[shape](x, 20, 10 + j, (1 * x) + j);
+		}
+		rotate(PI/8);
     }
     x = x + width/24;
     count = count + 0.05;
   }
+}
+
+function mousePressed() {
+	if (mouseButton == LEFT){
+		radio.value(random(shapeOptions));
+		randomizeTranslationValue();
+	}
 }
 
 function randomizeTranslationValue(){
@@ -54,10 +65,27 @@ function randomizeTranslationValue(){
   startY = random(0, height);
 }
 
+
+/*
+ * function to draw an equilateral triangle with a set width
+ * based on x, y co-oridinates that are the center of the triangle
+ * @param {Number} x        - x-coordinate that is at the center of triangle
+ * @param {Number} y      	- y-coordinate that is at the center of triangle
+ * @param {Number} width    - radius of the hexagon
+ */
+function equilateral(x, y, width) {
+  var x1 = x - (width/2);
+  var y1 = y + (width/2);
+  var x2 = x;
+  var y2 = y - (width/2);
+  var x3 = x + (width/2);
+  var y3 = y + (width/2);
+  triangle(x1,y1,x2,y2,x3,y3);
+}
+
 /*
  * function to draw a hexagon shape
  * adapted from: https://p5js.org/examples/form-regular-polygon.html
- * not included in the above object as it is a function that should be available globally
  * @param {Number} x        - x-coordinate of the hexagon
  * @param {Number} y      - y-coordinate of the hexagon
  * @param {Number} radius   - radius of the hexagon
