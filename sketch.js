@@ -3,13 +3,27 @@ function setup () {
 }
 
 function draw () {
+  var Click = (PI+QUARTER_PI);
   if (mouseIsPressed) {
-    fill(0);
+    Click = -Click;
+  arc(mouseX+80, mouseY, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+
+  arc(mouseX+80-mouseY/10, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+
+  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+
+  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+
+  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+
+  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
   }
   else {
-    fill(255);
+    Click = Click;
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  fill (255, mouseY*0.4);
+  strokeWeight (mouseY/150);
+  arc(mouseX, mouseY, 80-mouseY, 80-mouseY, Click, TWO_PI - mouseX);
 }
 
 function keyTyped() {
