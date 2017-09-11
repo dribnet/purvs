@@ -1,3 +1,1 @@
-17.2.MDDN342 PS3
-
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+I have started creating my wallpaper pattern. I wanted it to have a sci-fi feel so decided to persue Hexagon grids. I couldn't quite figure out how to get a full grid with them spaced correctly so will continue to improve this. I chose a dark background colour with a monocramtic fill and a bright blue stroke. This to me seemed appropriate to the Sci-fi asthetic.
