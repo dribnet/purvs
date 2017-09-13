@@ -1,11 +1,11 @@
 //default values for MODE and lastChange time
-var MODE = 'auto', lastChange = 0;
+var MODE = 'auto', lastChange = 0, changeFrequency = 10;
 //random variables variables
 var startX = 0, startY = 0, fromColour, toColour;
-//shape options
-var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'];
+//control options
+var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 //user control variables
-var selector1, selector2, slider1, resetButton;
+var selector1, selector2, slider1, radio, resetButton;
 
 function setup () {
     //set up the canvas
@@ -22,6 +22,13 @@ function setup () {
 
     slider1 = createSlider(5, 20, 10);
     slider1.parent("slider-1-holder");
+
+    radio = createRadio();
+    for(var i=0; i < rotationOptions.length; i++){
+        radio.option(rotationOptions[i]);
+    }
+    radio.value(random(rotationOptions));
+    radio.parent("radio-holder");
 
     selector2 = createSelect();
     selector2.option('auto');
@@ -47,9 +54,12 @@ function setup () {
 
 
 function draw () {
-    if(MODE === 'auto' && millis() > (lastChange + 10000)){
+    //if the mode is auto the pattern will change every 10 seconds
+    if(MODE === 'auto' && millis() > (lastChange + (changeFrequency * 1000))){
         lastChange = millis();
+        changeFrequency = random(5, 10);
         selector1.value(random(shapeOptions));
+        radio.value(random(rotationOptions));
         randomizeGlobalValues();
     }
     var to = color('#EF4623');
@@ -62,9 +72,10 @@ function draw () {
     var lerpAmount = 0;
     var shape = selector1.value();
     var shapeSize =  slider1.value();
+    var numOfRotations = radio.value();
     var colour = lerpColor(fromColour, toColour, lerpAmount);
     while(x < width){
-        for (var i = 0; i < 20; i ++) {
+        for (var i = 0; i < (numOfRotations * 2); i ++) {
             for (var j = -2; j <=2; j++) {
                 stroke(colour, 181 - (j * 16));
                 //call the function as detemined by the variable shape
@@ -72,16 +83,17 @@ function draw () {
                 //tri,hexa & octa are defined in this file
                 window[shape](x, 20, shapeSize + (j*3), shapeSize + (j*3));
             }
-            rotate(PI/10);
+            rotate(PI/numOfRotations);
         }
         x = x + width/6;
-        lerpAmount = lerpAmount + 0.25;
+        lerpAmount = lerpAmount + (1/numOfRotations);
         colour = lerpColor(fromColour, toColour, lerpAmount);
     }
 }
 
 function mousePressed() {
     if (mouseButton == LEFT && mouseY <= 500){
+        lastChange = millis();
         randomizeGlobalValues(mouseX, mouseY);
     }
 }
@@ -115,6 +127,7 @@ function randomizeGlobalValues(setX = false, setY = false){
     if(randomPointer > 6){
         randomPointer = randomPointer -6;
     }
+    var randomPointer = floor(random(1, 7));
     h = focusedRandom(hueRanges[randomPointer][0], hueRanges[randomPointer][1], 10, hueRanges[randomPointer][2]);
     toColour = color(h, 100, 100);
 
