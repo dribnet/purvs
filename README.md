@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+This is a basic beginning to my pattern. I want a gatsby style pattern. I am still exploring and sketching my ideas at the moment. 
