@@ -1,33 +1,45 @@
 function setup () {
-  createCanvas(960, 500);
+	createCanvas(1500, 1000);
 }
+var value = 0;
+
 
 function draw () {
-  var Click = (PI+QUARTER_PI);
-  if (mouseIsPressed) {
-    Click = -Click;
-  arc(mouseX+80, mouseY, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+	if (value == 0){
+		noStroke();
+		fill(41, 4, 33);
+		rect (0, 0, width, height);
+		
+		for (j=5; j< height; j=j+20){
+			
+			for (i=0; i< width; i=i+20){
 
-  arc(mouseX+80-mouseY/10, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
+				stroke(232, 12, 163, 100);
+				noFill();
+				arc(i-200, j, i, height-100, 5, TWO_PI);
+			}
+			for (i=width; i>0; i=i-20){
+				stroke(0, 152, 155, 100);
+				noFill();
+				arc(i-200, j, i, height-100, 0.2, 2);
+			}
+		}
+		value = 1;
+	}
+	
+}
 
-  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
-
-  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
-
-  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
-
-  arc(mouseX+80-mouseY/50, mouseY+80-mouseY/50, 40-mouseY, 40-mouseY, Click, TWO_PI - mouseX);
-  }
-  else {
-    Click = Click;
-  }
-  fill (255, mouseY*0.4);
-  strokeWeight (mouseY/150);
-  arc(mouseX, mouseY, 80-mouseY, 80-mouseY, Click, TWO_PI - mouseX);
+function mouseClicked() {
+	if (value == 1) {
+		value = 0;
+	}
+	else {
+		value =1;
+	}
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
+	if (key == '!') {
+		saveBlocksImages();
+	}
 }
