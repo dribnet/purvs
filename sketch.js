@@ -15,23 +15,23 @@ function setup () {
 function draw () {
   resetFocusedRandom(curRandomSeed);
   background(0);
-  noFill();
-  stroke(col1)
-  strokeWeight(5);
-  for(var y = 0; y<width/16; y++){
-    for(var x  = 0; x <width/10; x++){
-      stroke(lerpColor(col1,col2,map(x,0,16,0,1)));
-      if(y%2 == 0){
-        drawHex(x*60,y*52-10,30,30);
-      }
-      else{
-        drawHex(x*60+30,y*52-10,30,30);
+  fill(col1);
+  stroke(col1);
 
-      }
-      stroke(col2);
-      //drawHex(x*60+30,y*52,25,0);
-    }
+  var hex = recordHex(width/2,height/2,120,0);
+  drawHex(width/2,height/2,120,0);
+  for(var i = 0;i<hex.length;i++){
+    var point = hex[i];
   }
+
+  var tips = [];
+  tips.push(triOnEdge(hex[0],hex[1],-120,-20));
+  tips.push(triOnEdge(hex[2],hex[3],-120,-20));
+  tips.push(triOnEdge(hex[4],hex[5],-120,-20));
+
+  fill(col2);
+  
+
 }
 
 function mousePressed(){
@@ -60,18 +60,39 @@ function drawHex(x,y,rad,rot){
   endShape();
 }
 
+function recordHex(x,y,rad,rot){
+  orig = [x,y];
+  var ret = [];
+  for(var s=0; s<6; s++){
+    ret.push(findNewPoint(orig,60*s+rot,rad));
+      }
+  return ret;
+}
+
 function triOnEdge(p1,p2,B,C){ // returns a point given two other points and an angle relative to each
 	//lower case == angles
 	//upper case == side lengths
-	if(B+C < 180){
+  //       /\
+  //      / A\
+  //     /    \
+  //    c      b
+  //   /        \
+  //  /B____a___C\
+
 		var a = distanceBetween(p1,p2);
 		var A = 180 - B - C;
 		var b = (a*sinOf(B))/sinOf(A);
 		var c = (a*sinOf(C))/sinOf(A);
-		console.log(findNewPoint(p2,B,c));
-		console.log(findNewPoint(p2,C,b));
-		return findNewPoint(p1,B,c);
-	}
+    B+=angleBetween(p1,p2)
+		var ret = findNewPoint(p1,B,c);
+    beginShape();
+    vertex(p1[0],p1[1]);
+    vertex(p2[0],p2[1]);
+    vertex(ret[0],ret[1]);
+    vertex(p1[0],p1[1]);
+    endShape();
+    return ret;
+
 }
 
 function distanceBetween(p1, p2) {
@@ -106,4 +127,11 @@ function debugShowPoints(arr, txtsiz) {
     }
 
     pop();
+}
+
+function angleBetween(p1, p2) {
+    //angle given with reference to horizon line 
+    var c;
+    c = Math.atan2(p2[1] - p1[1], p2[0] - p1[0]) * 180 / Math.PI;
+    return c;
 }
