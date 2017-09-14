@@ -2,4 +2,4 @@
 
 Initial trial code to tile.
 
-This is just a quick sketch to try get an idea together. To zoom out from this and create a pattern like a spider web could have potential.
+This is just a quick sketch to try get an idea together. I am trying to work towards making my pattern like a spider web, with lots of detail going on but also connections that continue when it is tiled.
