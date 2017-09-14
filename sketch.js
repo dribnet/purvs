@@ -46,7 +46,7 @@ function setup () {
     noFill();
     rectMode(CENTER);
     colorMode(HSB);
-    frameRate(5);
+    frameRate(8);
 
     randomizeGlobalValues();
 }
@@ -59,12 +59,10 @@ function draw () {
         lastChange = millis();
         changeFrequency = random(5, 10);
         selector1.value(random(shapeOptions));
+        slider1.value(random(5, 20));
         radio.value(random(rotationOptions));
         randomizeGlobalValues();
     }
-    var to = color('#EF4623');
-    var to = color('#f5ec25');
-    var from = color('#1878B3');
 
     strokeWeight(0.01);
     translate(startX, startY);
@@ -85,8 +83,8 @@ function draw () {
             }
             rotate(PI/numOfRotations);
         }
-        x = x + width/6;
-        lerpAmount = lerpAmount + (1/numOfRotations);
+        x = x + width/3;
+        lerpAmount = lerpAmount + (1/3);
         colour = lerpColor(fromColour, toColour, lerpAmount);
     }
 }
@@ -120,15 +118,15 @@ var hueRanges = {
 
 function randomizeGlobalValues(setX = false, setY = false){
     //set the from and to colours
-    var randomPointer = floor(random(1, 7));
-    var h = focusedRandom(hueRanges[randomPointer][0], hueRanges[randomPointer][1], 10, hueRanges[randomPointer][2]);
+    var randomPointer1 = floor(random(1, 7));
+    var h = focusedRandom(hueRanges[randomPointer1][0], hueRanges[randomPointer1][1], 10, hueRanges[randomPointer1][2]);
     fromColour = color(h, 100, 100);
-    randomPointer = randomPointer + 3;
-    if(randomPointer > 6){
-        randomPointer = randomPointer -6;
+    var randomPointer2 = floor(random(1, 7));
+    //this is used to make sure the second random pointer is not the same as the first one
+    while(randomPointer2 == randomPointer1) {
+        randomPointer2 = floor(random(1, 7));
     }
-    var randomPointer = floor(random(1, 7));
-    h = focusedRandom(hueRanges[randomPointer][0], hueRanges[randomPointer][1], 10, hueRanges[randomPointer][2]);
+    h = focusedRandom(hueRanges[randomPointer2][0], hueRanges[randomPointer2][1], 10, hueRanges[randomPointer2][2]);
     toColour = color(h, 100, 100);
 
     //set the start position of next pattern
