@@ -1,17 +1,17 @@
 function setup() {
   createCanvas(960, 500);
-  background(57, 33, 21);
+  background(248, 198, 207);
   smooth();
 
-  var xstart = random(100),
+  var xstart = random(0),
       xnoise = xstart,
-      ynoise = random(100);
+      ynoise = random(0);
 
   for (var y = 0; y <= height; y+=5) {
-    ynoise += 0.1;
+    ynoise += 1;
     xnoise  = xstart;
     for (var x = 0; x <= width; x+=5) {
-      xnoise += 0.1;
+      xnoise += 0.01;
       drawPoint(x, y, noise(xnoise, ynoise));
     }
   }
@@ -19,26 +19,29 @@ function setup() {
 
 function draw (){
 
-  fill(57, 33, 21, 20);
+  fill(248, 198, 207, 30);
   noStroke();
-  ellipse(120, 120, 200, 200);
+  ellipse(100, 100, 170, 170);
+  ellipse(260, 210, 20, 20);
   
-  fill(57, 33, 21, 40);
-  ellipse(200, 180, 150, 150);
+  fill(248, 198, 207, 50);
+  ellipse(180, 160, 130, 130);
+  ellipse(280, 110, 10, 10);
   
   noFill();
-  stroke(191, 100, 27);
-  //strokeWeight(2);
-  ellipse(150, 230, 150, 150);
-  ellipse(220, 110, 50, 50);
+  stroke(255, 255, 255);
+  strokeWeight(2);
+  ellipse(130, 210, 120, 120);
+  ellipse(200, 90, 20, 20);
+  ellipse(210, 250, 5, 5);
+  arc(50, 50, 80, 80, 50, PI+QUARTER_PI);
 }
 
 function drawPoint(x, y, noiseFactor) {
   push();
   translate(x, y);
   rotate(noiseFactor * radians(360));
-  //colorMode(HSB);
-  stroke(x*0.1 + 191, 100, 27, 90);
+  stroke(x*0.1 + 255, 255, 255, 90);
   line(0, 0, 7, 0);
   pop();
 }

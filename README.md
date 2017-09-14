@@ -5,3 +5,7 @@ Going into this project my first step has been to do some research and start thi
 UPDATE
 
 I've started looking further at the style and shapes to use for this project. I really like the idea of layering complex shapes under simplers ones so I'm currently trying to make progress with that.
+
+UPDATE
+
+I'm trying out a second concept and playing around with possibilities, I've been exploring what my background code can do, what I can do with the colour scheme and the shapes over top.
