@@ -42,7 +42,7 @@ function generateShape(){
   }
   endShape(CLOSE);
 
-  stroke(219, 237, 154);
+  stroke(219, 237, 154, 255);
 
   for (var i = 0; i < 50; i++) {
         var ang = map(i, 0, 50, 0, TWO_PI);
