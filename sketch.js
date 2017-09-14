@@ -1,45 +1,56 @@
 
-var curRandomSeed;
+var nSeed;
 
-function setup () {
-  curRandomSeed = int(focusedRandom(0, 100));
+function setup() {
   createCanvas(960, 500);
+
+  nSeed = 0;
+ 
 }
 
-function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
+
+
+function generateShape(){
+
+    beginShape();
+  fill(69, 91, 52);
+  strokeWeight(0.5);
+  for (var i = 0; i < 50; i++) {
+    var ang = map(i, 0, 50, 0, TWO_PI);
+    var rad = 200 * noise(i * 0.01, i*0.01);
+    var x = rad * cos(ang);
+    var y = rad * sin(ang);
+    curveVertex(x, y);
+
+    line(0, 0, x, y);
+  }
+  endShape(CLOSE);
+ 
+  
 }
 
-function draw () {
-  // if (mouseIsPressed) {
-  //   fill(0);
-  // }
-  // else {
-  //   fill(255);
-  // }
-  // ellipse(mouseX, mouseY, 80, 80);
+function draw() {
+  background(199, 219, 249);
 
-  background(255);
+  push();
+  translate(width/2, height/2);
+  generateShape();
+  pop();
 
-  if (mouseIsPressed) {
-    changeRandomSeed();
-  }
-  resetFocusedRandom(curRandomSeed);
+  
 
-  var x_steps = width / 30;
-  var y_steps = height / 30;
+}
 
-  // for(var i=0;i<x_steps;i+=2) {
-  //   var shift = focusedRandom(-20, 20, 6);
-  //   var cur_x = i * 30 + shift;
-  //   line(cur_x, 0, cur_x, height);
-  // }
 
-  for(var j=0;j<y_steps;j+=2) {
-    var shift = focusedRandom(-10, 10, 6);
-    var cur_y = j * 30 + shift;
-    line(0, cur_y, width, cur_y);
-  }
+
+function refreshNoise(){
+  nSeed += 1;
+   noiseSeed(nSeed);
+   console.log(nSeed);
+}
+
+function mousePressed(){
+  refreshNoise();
 }
 
 function keyTyped() {
@@ -47,3 +58,6 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+
+//code based on : http://genekogan.com/code/p5js-perlin-noise/
