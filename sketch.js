@@ -14,22 +14,25 @@ function setup () {
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
+  background(0);
+  noFill();
+  stroke(col1)
+  strokeWeight(5);
+  for(var y = 0; y<width/16; y++){
+    for(var x  = 0; x <width/10; x++){
+      stroke(lerpColor(col1,col2,map(x,0,16,0,1)));
+      if(y%2 == 0){
+        drawHex(x*60,y*52-10,30,30);
+      }
+      else{
+        drawHex(x*60+30,y*52-10,30,30);
 
-  background(225);
-  noStroke();
-  var steps = 40;
-  for(var i = steps; i>0; i--){
-   curCol = lerpColor(col1,col2,map(i,0,steps,0,1));
-   fill(curCol);
-   curCol = lerpColor(col2,col1,map(i,0,steps,0.4,0.6));
-   stroke(curCol);
-   if (i%4 >0){noStroke();}
-   drawHex(width/2,height/2,40+15*i,-14*i);
+      }
+      stroke(col2);
+      //drawHex(x*60+30,y*52,25,0);
+    }
   }
 }
-
-
-
 
 function mousePressed(){
 changeRandomSeed();
