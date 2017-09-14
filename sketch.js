@@ -1,39 +1,52 @@
-function setup () {
-  createCanvas(960, 500);
-  smooth();
+var curRandomSeed;
+
+function setup (){
+    curRandomSeed = int(focusedRandom(0, 100));
+    createCanvas(960, 500);
 }
 
-function draw () {
-
-drawPattern();
-
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
 }
 
-function drawPattern(){
-    stroke(0);
-    strokeWeight(1);
+
+function draw (){
+    resetFocusedRandom(curRandomSeed);
+
+    var x = 0;
+    var y = 0;
+
+rotate(radians(-45))
+for (var i = 0; i < 2060; i = i+80) { 
+  for (var j = 0; j < 1500; j = j+80) {
+    push();
+    translate(x, y);
+    rotate(radians(90));
     noFill();
-    scale(2.0);
-
-    beginShape();
-    vertex(57.5, -10); // top point
-    vertex(102, 20);   // right point
-    vertex(57.5, 55); // bottom point
-    vertex(32, 20);   // left point
-    vertex(57.5, -10); // top point
-    endShape();
-
-    beginShape();
-    vertex(57.5, 25); // top point
-    vertex(92, 50);   // right point
-    vertex(57.5, 85); // bottom point
-    vertex(22, 50);   // left point
-    vertex(57.5, 25); // top point
-    endShape();
+    stroke(0);
+    rect(x, y, focusedRandom(80, 85), focusedRandom(80, 85));
+    pop();
+    x += 160;
+    }
+x=0;
+y += 80; 
 
 }
 
-function keyTyped() {
+    //line(30, 0, 30, 60);
+    // beginShape();
+    // vertex(30, 0); // top point
+    // vertex(60, 30);   // right point
+    // vertex(30, 60); // bottom point
+    // vertex(0, 30);   // left point
+    // vertex(30, 0); // top point
+    // endShape();
+
+}
+
+
+
+function keyTyped(){
   if (key == '!') {
     saveBlocksImages();
   }
