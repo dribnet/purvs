@@ -10,15 +10,15 @@ function draw () {
 		fill(41, 4, 33);
 		rect (0, 0, width, height);
 		
-		for (j=5; j< height; j=j+20){
+		for (j=5; j< height; j=j+random(20, 50)){
 			
-			for (i=0; i< width; i=i+20){
+			for (i=0; i< width; i=i+random(10, 25)){
 
 				stroke(232, 12, 163, 100);
 				noFill();
 				arc(i-200, j, i, height-100, 5, TWO_PI);
 			}
-			for (i=width; i>0; i=i-20){
+			for (i=width; i>0; i=i-random(10, 25)){
 				stroke(0, 152, 155, 100);
 				noFill();
 				arc(i-200, j, i, height-100, 0.2, 2);
