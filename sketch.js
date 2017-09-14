@@ -4,6 +4,8 @@ var MODE = 'auto', lastChange = 0, changeFrequency = 10;
 var startX = 0, startY = 0, fromColour, toColour;
 //control options
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12], iterationOptions = [1, 3,4,6,8,12,24,48];
+
+iterationOptions = [1,2,3,4];
 //user control variables
 var selector1, selector2, slider1, radio, resetButton;
 
