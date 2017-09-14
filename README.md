@@ -1,3 +1,21 @@
 17.2.MDDN342 PS3
 
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+# Penrose Garden
+
+The Penrose tiling has always been of interest to me, and this project seemed like a good oppportunity to explore it. The most notable feature of the Penrose tiling is that it is aperiodic, meaning there are no translationally repeating units.
+
+Currently, the sketch only runs a simple algorithm to produce a finite-sized tiling, which is then coloured.
+
+There are several properties of the tiling I want to explore. As the tiling has rotational symmetry, it produces a flower-like singularity at its centre. An interesting consequence of this is that you are able to trace ornate walks around it, using only a simple stepping rule.
+
+I would also like to experiment with multiple tilings. As it is nonperiodic, adjacent tilings will collide with eachother, which is an interesting effect that has analogues in nature.
+
+There are several different Penrose tilings as well (think of it as a slightly different pattern in its centre.) Ideally, my sketch should be able to produce these variations too. Finally, there exist 'imperfect' tilings, which eventually come to a contradiction. These could be interesting to include.
+
+I have been doing a lot of research - some resources I have enjoyed:
+
+[http://preshing.com/20110831/penrose-tiling-explained/]() - currently using this algorithm  
+[http://www.ams.org/samplings/feature-column/fcarc-ribbons]() - example of bad tiling  
+[http://www.stephencollins.net/penrose/]() - example of the aforementioned 'walks'; introduction to de Brujin's pentagrid  
+[http://www.mathpages.com/home/kmath621/kmath621.htm]() - more on pentagrid  
+[http://www.cs.williams.edu/~bailey/06le.pdf]() - beyond the scope of this project but formally explains much of de Brujin's work
