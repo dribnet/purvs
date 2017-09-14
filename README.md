@@ -1,5 +1,5 @@
 17.2.MDDN342 PS3
 
-Experimentation 01.
+Experimentation 02.
 
-(coordinates and color drawn with the mouse)
+randomseed color values
