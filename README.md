@@ -1,1 +1,2 @@
-A bit of a 70's feel using circles that will endlessly go
+Played arround with the general shap and look of the project color was changed to blue as I dont liek orange
+there are 2 grids of circles drawing on slightly off center from the first to colver the white gaps in the grid. theres also a smaller circle being drawn in the center of the circles having a 50% chance of showing up.
