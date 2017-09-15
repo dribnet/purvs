@@ -9,3 +9,7 @@ I've started looking further at the style and shapes to use for this project. I 
 UPDATE
 
 I'm trying out a second concept and playing around with possibilities, I've been exploring what my background code can do, what I can do with the colour scheme and the shapes over top.
+
+UPDATE 
+
+Still trying to decide what path I want to go down with this projet, still trying out new things and bits of code but really enjoying the layering, still not certain on the colour scheme.
