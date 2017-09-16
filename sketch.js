@@ -3,9 +3,20 @@ var MODE = 'auto', lastChange = 0, changeFrequency = 10;
 //random variables variables
 var startX = 0, startY = 0, fromColour, toColour;
 //control options
-var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12], iterationOptions = [1,2,3,4];
+var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
 var selector1, selector2, slider1, radio, resetButton;
+
+var bigHex = [
+				[200, 200], [280, 200], [280, 280], [200, 280], 
+				[120, 120], [200, 120], [280, 120], [360, 120], 
+				[360, 200], [360, 280], [360, 360], [280, 360], 
+				[200, 360], [120, 360], [120, 280], [120, 200], 
+				[200, 40], [280,40], [440, 200], [440, 280], 
+				[280,440], [200,440], [40, 280], [40, 200]
+			];
+			
+
 
 function setup () {
     //set up the canvas
@@ -45,20 +56,16 @@ function setup () {
     radio1.value(random(rotationOptions));
     radio1.parent("radio-1-holder");
 
-    radio2 = createRadio();
-    for(var i=0; i < iterationOptions.length; i++){
-        radio2.option(iterationOptions[i]);
-    }
-    radio2.value(random(iterationOptions));
-    radio2.parent("radio-2-holder");
 
+	
     //set up some of the global options for p5.js
     background(0);
     noFill();
-    strokeWeight(0.01);
+    strokeWeight(0.2);
     rectMode(CENTER);
     colorMode(HSB);
-    frameRate(5);
+    frameRate(60);
+	noLoop();
 
     randomizeGlobalValues();
 }
@@ -83,29 +90,42 @@ function mousePressed() {
 }
 
 function drawPattern(){
-    translate(startX, startY);
+	translate(-480, -310);
     var x = 0;
     var lerpAmount = 0;
     var shape = selector1.value();
     var shapeSize =  slider1.value();
     var numOfRotations = radio1.value();
-    var numOfIterations = radio2.value();
-    var colour = lerpColor(fromColour, toColour, lerpAmount);
-    while(x < width){
-        for (var i = 0; i < (numOfRotations * 2); i ++) {
-            for (var j = -2; j <=2; j++) {
-                stroke(colour, 181 - (j * 16));
-                //call the function as detemined by the variable shape
-                //rect and ellipse are built in p5.js
-                //tri,hexa & octa are defined in this file
-                window[shape](x, 20, shapeSize + (j*3), shapeSize + (j*3));
-            }
-            rotate(PI/numOfRotations);
-        }
-        x = x + width/numOfIterations;
-        lerpAmount = lerpAmount + (1/numOfIterations/2);
-        colour = lerpColor(fromColour, toColour, lerpAmount);
-    }
+
+	for(var a = 0; a < 9; a++){		
+		for (var pos = 0; pos < bigHex.length; pos++) {
+			translate(bigHex[pos][0], bigHex[pos][1]);
+			numOfRotations = random(rotationOptions);
+			shape = random(shapeOptions);
+			randomizeGlobalValues();
+			var lerpAmount = 0;
+			var colour = lerpColor(fromColour, toColour, lerpAmount);
+			for (var i = 0; i < (numOfRotations * 2); i ++) {
+				for (var j = 0; j <=5; j++) {
+					stroke(colour, 255 - (8*j));
+					//call the function as detemined by the variable shape
+					//rect and ellipse are built in p5.js
+					//tri,hexa & octa are defined in this file
+					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
+				}
+				rotate(PI/numOfRotations);
+				lerpAmount = lerpAmount + (1/numOfRotations/2);
+				colour = lerpColor(fromColour, toColour, lerpAmount);
+			}
+			translate(-bigHex[pos][0], -bigHex[pos][1]);
+		}
+		translate(480, 0);
+		if(a == 2 || a == 5){
+			translate(-1200, 320);
+		}
+	}
+	lerpAmount = lerpAmount + (1/2);
+	colour = lerpColor(fromColour, toColour, lerpAmount);
 }
 
 
@@ -171,7 +191,6 @@ function randomizeGlobalValues(setX = false, setY = false){
         selector1.value(random(shapeOptions));
         slider1.value(random(5, 20));
         radio1.value(random(rotationOptions));
-        radio2.value(random(iterationOptions));
     }
 
     var hueRanges = {
