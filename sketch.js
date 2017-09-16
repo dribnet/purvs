@@ -9,12 +9,13 @@ var selector1, selector2, slider1, radio, resetButton;
 
 var bigHex = [
 				[200, 200], [280, 200], [280, 280], [200, 280], 
-				[120, 120], [200, 120], [280, 120], [360, 120], 
-				[360, 200], [360, 280], [360, 360], [280, 360], 
-				[200, 360], [120, 360], [120, 280], [120, 200], 
+				[200, 120], [280, 120], [360, 200], [360, 280],
+				[280, 360], [200, 360],  [120, 280], [120, 200], 
+				[120, 120],[360, 120],[360, 360],[120, 360],
 				[200, 40], [280,40], [440, 200], [440, 280], 
 				[280,440], [200,440], [40, 280], [40, 200]
 			];
+			
 			
 
 
@@ -61,7 +62,6 @@ function setup () {
     //set up some of the global options for p5.js
     background(0);
     noFill();
-    strokeWeight(0.2);
     rectMode(CENTER);
     colorMode(HSB);
     frameRate(60);
@@ -89,6 +89,18 @@ function mousePressed() {
     }
 }
 
+var hueRanges = {
+        1 : [-20, 20, 0],
+        2 : [21, 60, 40],
+        3 : [61, 100, 80],
+        4 : [101, 140, 120],
+        5 : [141, 180, 160],
+        6 : [181, 220, 200],
+        7 : [221, 260, 240],
+        8 : [261, 300, 280],
+        9 : [301, 340, 320]
+    }
+
 function drawPattern(){
 	translate(-480, -310);
     var x = 0;
@@ -97,15 +109,26 @@ function drawPattern(){
     var shapeSize =  slider1.value();
     var numOfRotations = radio1.value();
 
-	for(var a = 0; a < 9; a++){		
+	for(var a = 1; a <= 9; a++){		
+		var h = focusedRandom(hueRanges[a][0], hueRanges[a][1], 10, hueRanges[a][2]);
+		fromColour = color(h, 100, 100);
+		var toPointer = a +5;
+		if(toPointer > 9){
+			toPointer = toPointer - 9;
+		}
+		h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
+		toColour = color(h, 100, 100);
+		var colour = lerpColor(fromColour, toColour, lerpAmount);
+		strokeWeight(0.3);
+		var lerpAmount = 0;
 		for (var pos = 0; pos < bigHex.length; pos++) {
 			translate(bigHex[pos][0], bigHex[pos][1]);
 			numOfRotations = random(rotationOptions);
 			shape = random(shapeOptions);
-			randomizeGlobalValues();
-			var lerpAmount = 0;
-			var colour = lerpColor(fromColour, toColour, lerpAmount);
+			colour = lerpColor(fromColour, toColour, lerpAmount);
+			var lerpStep = 0.3333 / numOfRotations / 2;
 			for (var i = 0; i < (numOfRotations * 2); i ++) {
+				print(lerpAmount);
 				for (var j = 0; j <=5; j++) {
 					stroke(colour, 255 - (8*j));
 					//call the function as detemined by the variable shape
@@ -114,13 +137,28 @@ function drawPattern(){
 					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
 				}
 				rotate(PI/numOfRotations);
-				lerpAmount = lerpAmount + (1/numOfRotations/2);
-				colour = lerpColor(fromColour, toColour, lerpAmount);
+				//lerpAmount = lerpAmount + lerpStep;
+				
 			}
+			if(pos == 3){
+				lerpAmount = 0.3333;
+				lerpAmount = 0.5;
+			}
+			if(pos == 11){
+				lerpAmount = 0.6666;
+				lerpAmount = 1;
+			}
+			
 			translate(-bigHex[pos][0], -bigHex[pos][1]);
 		}
+		strokeWeight(2);
+		beginShape();
+		for (var pos = 16; pos < bigHex.length; pos++) {
+			vertex(bigHex[pos][0], bigHex[pos][1]);
+		}
+		endShape(CLOSE);
 		translate(480, 0);
-		if(a == 2 || a == 5){
+		if(a == 3 || a == 6){
 			translate(-1200, 320);
 		}
 	}
@@ -186,6 +224,7 @@ function octa(x, y, radius) {
     endShape(CLOSE);
 }
 
+	
 function randomizeGlobalValues(setX = false, setY = false){
     if(MODE === 'auto'){
         selector1.value(random(shapeOptions));
@@ -193,14 +232,7 @@ function randomizeGlobalValues(setX = false, setY = false){
         radio1.value(random(rotationOptions));
     }
 
-    var hueRanges = {
-        1 : [-30, 30, 0],
-        2 : [31, 90, 60],
-        3 : [91, 150, 120],
-        4 : [151, 210, 180],
-        5 : [211, 270, 240],
-        6 : [271, 330, 300]
-    }
+    
 
     //set the from and to colours
     var randomPointer1 = floor(random(1, 7));
