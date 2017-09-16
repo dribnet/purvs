@@ -60,6 +60,16 @@ function setup () {
 
 function draw () {
 
+  //var mouseCol = round(mouseX/colWidth);
+//  var mouseRow = round(mouseY/rowWidth);
+
+  //drawShape(mouseRow,mouseCol,100,shapeTypes);
+  //drawShape(mouseRow,mouseCol,100,shapeTypes2);
+//  drawShape(mouseRow,mouseCol,100,shapeTypes3);
+
+
+
+
 }
 
 function keyTyped() {
@@ -92,7 +102,7 @@ function randomizeValues(){
       g[row][col] = random(0,255);
       b[row][col] = random(0,255);
       shapeSize[row][col] = (colWidth/2)* round(random(1,3));
-      shapeRotate[row][col] = random(-10,10);
+      shapeRotate[row][col] = random(-2,1);
       //shapeSize[row][col]
 
     }
@@ -106,6 +116,7 @@ function drawWallpaper(){
 
   //background(255);
   background(237, 245, 255);
+  background(29, 18, 45);
 
   drawLayer(30,shapeTypes);
   drawLayer(80,shapeTypes2);
@@ -123,56 +134,66 @@ function drawLayer(opac,types){
     for(var row = 0; row< rows-1; row++){
       for(var col = 0; col< cols-1; col++){
 
-          push();
-          fill(r[row][col],g[row][col],255,opac*0.3);
-          stroke(r[row][col],g[row][col],255,opac);
-          strokeWeight(1);
-
-          sSize = shapeSize[row][col];
-          sRotate = shapeRotate[row][col];
-
-          rotate(radians(sRotate));
-
-          var shapeType = types[row][col];
-          var leftX = col*colWidth;
-          var rightX = (col+1)*colWidth;
-          var topY = row*rowWidth;
-          var bottomY = (row+1)*rowWidth;
-
-
-          if(shapeType == 1){
-            rect(leftX+(colWidth/2),topY+(rowWidth/2),sSize,sSize);
-          }
-          else if(shapeType == 2){
-            //noFill();
-            rect(leftX,topY,sSize,sSize);
-          }
-          else if(shapeType == 3){
-
-            //ellipse(col*colWidth,row*rowWidth,sSize,sSize);
-            line(leftX+(colWidth/2),topY+(rowWidth/2),rightX+(colWidth/2),bottomY+(rowWidth/2));
-            line(rightX+(colWidth/2),topY+(rowWidth/2),leftX+(colWidth/2),bottomY+(rowWidth/2));
-          }
-          else if(shapeType == 4){
-              ellipse(leftX,topY,sSize,sSize);
-          }
-          else if (shapeType== 5){
-            line(leftX,topY+(rowWidth/2),rightX,topY+(rowWidth/2));
-          }
-          else if(shapeType==6){
-            quad(leftX,topY+(rowWidth/2),leftX+(colWidth/2),topY,rightX,topY+(rowWidth/2),leftX+(colWidth/2),bottomY);
-          }
-          else if(shapeType==7){
-            line(leftX+(colWidth/2),topY+(rowWidth/2),rightX+(colWidth/2),bottomY+(rowWidth/2));
-          }
-
-
-          pop();
+          drawShape(row,col,opac,types);
 
       }
 
     }
 
+}
+
+function drawShape(row,col,opac,types){
+
+  var darkness = 20;
+
+  push();
+  fill(r[row][col],g[row][col],255,opac*0.3);
+  stroke(r[row][col]-darkness,g[row][col]-darkness,255-darkness,opac);
+  strokeWeight(1);
+
+  sSize = shapeSize[row][col];
+  sRotate = shapeRotate[row][col];
+
+  rotate(radians(sRotate));
+
+  var shapeType = types[row][col];
+  var leftX = col*colWidth;
+  var rightX = (col+1)*colWidth;
+  var topY = row*rowWidth;
+  var bottomY = (row+1)*rowWidth;
+
+
+  if(shapeType == 1){
+    rect(leftX+(colWidth/2),topY+(rowWidth/2),sSize,sSize);
+    rect(leftX+(colWidth/2)+sSize/4,topY+(rowWidth/2)+sSize/4,sSize/2,sSize/2);
+  }
+  else if(shapeType == 2){
+    //noFill();
+    rect(leftX,topY,sSize,sSize);
+    rect(leftX+sSize/4,topY+sSize/4,sSize/2,sSize/2);
+  }
+  else if(shapeType == 3){
+
+    //ellipse(col*colWidth,row*rowWidth,sSize,sSize);
+    line(leftX+(colWidth/2),topY+(rowWidth/2),rightX+(colWidth/2),bottomY+(rowWidth/2));
+    line(rightX+(colWidth/2),topY+(rowWidth/2),leftX+(colWidth/2),bottomY+(rowWidth/2));
+  }
+  else if(shapeType == 4){
+      ellipse(leftX,topY,sSize,sSize);
+      ellipse(leftX,topY,sSize/2,sSize/2);
+  }
+  else if (shapeType== 5){
+    line(leftX,topY+(rowWidth/2),rightX,topY+(rowWidth/2));
+  }
+  else if(shapeType==6){
+    quad(leftX,topY+(rowWidth/2),leftX+(colWidth/2),topY,rightX,topY+(rowWidth/2),leftX+(colWidth/2),bottomY);
+  }
+  else if(shapeType==7){
+    line(leftX+(colWidth/2),topY+(rowWidth/2),rightX+(colWidth/2),bottomY+(rowWidth/2));
+  }
+
+
+  pop();
 
 
 
