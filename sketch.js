@@ -24,7 +24,6 @@ function draw (){
     line(678.5, 0, 678.5, height);
 
 
-
 // draws rows
 rotate(radians(-45))
 for (var i = 0; i < 560; i = i+80) { 
@@ -39,9 +38,18 @@ for (var i = 0; i < 560; i = i+80) {
     stroke(0);
     strokeWeight(0.5);
 
-    // diamonds that are seperated
+    // arcs in the midground
+    push();
+    noStroke();
+    fill(255, 242, 145);
+    arc(x, y, 80, 80, -QUARTER_PI, QUARTER_PI);
+    arc(x, y, 80, 80, PI, QUARTER_PI);
+    pop();
+
+    // diamonds in the foreground
     rect(x, y, dimensions, dimensions);
 
+    // diamonds in the background
     push();
     stroke(200);
     strokeWeight(0.1);
