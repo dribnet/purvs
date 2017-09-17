@@ -1,4 +1,5 @@
 var curRandomSeed;
+var colours;
 
 
 function setup (){
@@ -16,6 +17,8 @@ function draw (){
 
     var x = 0;
     var y = 0;
+    colours = ["255, 240, 112","139, 186, 179"];
+    colours = random(colours);
 
 // draws lines behind the diamonds
     strokeWeight(0.5);
@@ -29,6 +32,7 @@ rotate(radians(-45))
 for (var i = 0; i < 560; i = i+80) { 
   for (var j = 0; j < 500; j = j+80) {
     var dimensions = random(100, 150, 50);
+    var dimensionsArc = random(50, 200);
     var doubleDots = random(50, 100);
 
     push();
@@ -36,15 +40,15 @@ for (var i = 0; i < 560; i = i+80) {
     rotate(radians(90));
     noFill();
     stroke(0);
-    strokeWeight(0.5);
+    strokeWeight(random(0.2, 1));
 
     // arcs in the midground
     push();
     noStroke();
-    fill(255, 242, 145);
-    arc(x, y, 80, 80, -QUARTER_PI, QUARTER_PI);
-    arc(x, y, 80, 80, PI, QUARTER_PI);
+    fill(colours);
+    arc(x, y, dimensionsArc, dimensionsArc, -0.8, radians(135));
     pop();
+
 
     // diamonds in the foreground
     rect(x, y, dimensions, dimensions);
