@@ -1,4 +1,6 @@
 
+//import processing.opengl.*;
+
 var rows = 40;
 var cols = 70;
 var colWidth;
@@ -7,14 +9,17 @@ var randomNum;
 var shapeNum;
 var shapeTypes;
 var shapeColors;
+var thingSize = 1;
+var specialNum = 150;
 
 
 function setup () {
-  createCanvas(960, 500);
+  createCanvas(960, 500,P2D);
   background(255);
+  background(237, 245, 255);
   colWidth = width/cols;
   rowWidth = height/rows;
-  shapeNum = 10;
+  shapeNum = 18;
 
   shapeTypes = new Array(rows);
   shapeTypes2 = new Array(rows);
@@ -25,6 +30,9 @@ function setup () {
   b = new Array(rows);
   shapeSize = new Array(rows);
   shapeRotate = new Array(rows);
+  shapeLayers = new Array(rows);
+  specialShapeRow = new Array(specialNum);
+  specialShapeCol = new Array(specialNum);
 
 
   for(var row = 0; row< rows; row++){
@@ -37,6 +45,8 @@ function setup () {
       b[row] = new Array(cols);
       shapeSize[row]=new Array(cols);
       shapeRotate[row]=new Array(cols);
+      shapeLayers[row]=new Array(cols);
+
     for(var col = 0; col< cols; col++){
 
       shapeTypes[row][col] = 0;
@@ -48,9 +58,12 @@ function setup () {
       b[row][col] = 0;
       shapeSize[row][col] = 0;
       shapeRotate[row][col] = 0;
+      shapeLayers[row][col] = 0;
 
     }
   }
+
+
 
   randomizeValues();
   drawWallpaper();
@@ -60,13 +73,46 @@ function setup () {
 
 function draw () {
 
-  //var mouseCol = round(mouseX/colWidth);
-//  var mouseRow = round(mouseY/rowWidth);
+  //drawWallpaper();
 
-  //drawShape(mouseRow,mouseCol,100,shapeTypes);
-  //drawShape(mouseRow,mouseCol,100,shapeTypes2);
-//  drawShape(mouseRow,mouseCol,100,shapeTypes3);
+//  for(var i = 0; i< specialNum; i++){
 
+
+  //  row = specialShapeRow[i];
+  //  col = specialShapeCol[i];
+  //  shapeSize[row][col]=shapeSize[row][col]+1;
+  //  drawShape(row,col,30,shapeTypes3);
+
+//  }
+
+  var mouseCol = round(mouseX/colWidth);
+ var mouseRow = round(mouseY/rowWidth);
+
+ if (mouseCol==0 || mouseRow == 0){
+   return;
+ }
+
+  var type = round(random(0,shapeNum));
+
+  //var sType = types[row][col];
+
+  var r = random(0,255);
+  var g = random(0,255);
+
+  var sColor = color(r,g,255,150*0.3);
+  var lineColor = color(r,g,255-30,150*0.95);
+  var sSize = (colWidth/2)* round(random(1,3));
+  var sRotate = random(-2,1);
+
+
+  drawShape(mouseRow,mouseCol,sColor,lineColor,150,type,sSize,sRotate);
+ //sShape = shapeTypes[mouseRow][mouseCol-1];
+//  drawShape(mouseRow,mouseCol-1,100,sShape);
+//  sShape = shapeTypes[mouseRow][mouseCol+1];
+//  drawShape(mouseRow,mouseCol+1,100,sShape);
+
+
+  //drawShape(round(random(0,rows-1)),round(random(0,cols-1)),150,shapeTypes3);
 
 
 
@@ -81,10 +127,18 @@ function keyTyped() {
 
 function mouseClicked(){
 
-    randomizeValues();
-    drawWallpaper();
+    if(mouseButton == LEFT){
+      randomizeValues();
+      drawWallpaper();
+   }
+   if(mouseButton == RIGHT){
+    // background(255);
+   }
+  //  drawWallpaper();
 
 }
+
+
 
 function randomizeValues(){
 
@@ -103,24 +157,39 @@ function randomizeValues(){
       b[row][col] = random(0,255);
       shapeSize[row][col] = (colWidth/2)* round(random(1,3));
       shapeRotate[row][col] = random(-2,1);
+      shapeLayers[row][col] = round(random(1,5));
       //shapeSize[row][col]
 
     }
 
   }
 
+  for(var i = 0; i<specialNum; i++){
+
+      specialShapeRow[i]=round(random(0,rows));
+      specialShapeCol[i]=round(random(0,cols));
+
+
+  }
+
+
+
 }
 
 
 function drawWallpaper(){
 
-  //background(255);
-  background(237, 245, 255);
-  background(29, 18, 45);
+
+
+  background(255);
+  //background(29, 18, 45);
 
   drawLayer(30,shapeTypes);
   drawLayer(80,shapeTypes2);
   drawLayer(150,shapeTypes3);
+
+//  drawLayer2();
+
 
 
 }
@@ -130,11 +199,18 @@ function drawLayer(opac,types){
 
 
   strokeWeight(1);
+  var darkness = 20;
 
     for(var row = 0; row< rows-1; row++){
       for(var col = 0; col< cols-1; col++){
 
-          drawShape(row,col,opac,types);
+          var sType = types[row][col];
+          var sColor = color(r[row][col],g[row][col],255,opac*0.3);
+          var lineColor = color(r[row][col],g[row][col],255-darkness,opac*0.95);
+          var sSize = shapeSize[row][col];
+          var sRotate = shapeRotate[row][col];
+
+          drawShape(row,col,sColor,lineColor,opac,sType,sSize,sRotate);
 
       }
 
@@ -142,25 +218,32 @@ function drawLayer(opac,types){
 
 }
 
-function drawShape(row,col,opac,types){
+function drawLayer2(){
 
-  var darkness = 20;
+   drawShape(round(random(0,rows-1)),round(random(0,cols-1)),150,shapeTypes3);
+
+
+}
+
+function drawShape(row,col,sColor,lineColor,opac,type,sSize,sRotate){
+
+
 
   push();
-  fill(r[row][col],g[row][col],255,opac*0.3);
-  stroke(r[row][col]-darkness,g[row][col]-darkness,255-darkness,opac);
+  fill(sColor);
+  stroke(lineColor);
   strokeWeight(1);
 
-  sSize = shapeSize[row][col];
-  sRotate = shapeRotate[row][col];
 
   rotate(radians(sRotate));
 
-  var shapeType = types[row][col];
+  var shapeType = type;
   var leftX = col*colWidth;
   var rightX = (col+1)*colWidth;
   var topY = row*rowWidth;
   var bottomY = (row+1)*rowWidth;
+
+
 
 
   if(shapeType == 1){
@@ -190,6 +273,20 @@ function drawShape(row,col,opac,types){
   }
   else if(shapeType==7){
     line(leftX+(colWidth/2),topY+(rowWidth/2),rightX+(colWidth/2),bottomY+(rowWidth/2));
+  }
+  else if(shapeType==8){
+
+    rect(leftX+colWidth/2,topY-rowWidth,sSize/2,sSize/2);
+    rect(rightX+colWidth,topY+rowWidth/2,sSize/2,sSize/2);
+    rect(leftX+colWidth/2,bottomY+rowWidth,sSize/2,sSize/2);
+    rect(leftX-colWidth,topY+rowWidth/2,sSize/2,sSize/2);
+
+  }
+  else if (shapeType == 9){
+    ellipse(leftX+colWidth/2,topY-rowWidth,sSize/2,sSize/2);
+    ellipse(rightX+colWidth,topY+rowWidth/2,sSize/2,sSize/2);
+    ellipse(leftX+colWidth/2,bottomY+rowWidth,sSize/2,sSize/2);
+    ellipse(leftX-colWidth,topY+rowWidth/2,sSize/2,sSize/2);
   }
 
 
