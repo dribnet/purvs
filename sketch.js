@@ -14,6 +14,11 @@ function draw () {
       drawShape((i * 100), (j * 100), 100);
     }
   }
+  for(var i = 0; i < 10; i++){
+    for(var j = 0; j < 10; j++){
+      drawShape((i * 100) +50, (j * 100) + 50, 100);
+    }
+  }
 }
 
 function keyTyped() {
