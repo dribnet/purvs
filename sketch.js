@@ -2,7 +2,7 @@ var col1;
 var col2;
 var curCol;
 var curRandomSeed;
-
+var radical;
 
 function setup() {
     createCanvas(960, 500);
@@ -14,7 +14,7 @@ function setup() {
     curCol = color('#f4eb42');
 
     curRandomSeed = int(focusedRandom(0, 100));
-
+    radical = radialArrange(width / 2, height / 2, 3, 20, 30);
 }
 
 function draw() {
@@ -22,12 +22,35 @@ function draw() {
     background(col1);
     noFill();
     stroke(col2);
-    strokeWeight(3);
-    drawShuriken(width / 2, height / 2, 80, 0);
 
-    fill(col2);
+    for (var i = radical.length - 1; i >= 0; i--) {
+        debugPoint(radical[i], 12);
+    }
+
 }
 
+
+function radialArrange(x, y, seed, steps, stepSeed) {
+
+    var all = [
+        [x, y]
+    ];
+	var angle;
+   var points_in_ring = seed;
+    for (var step = 1; step <+ steps; step++) {
+    	points_in_ring = step*seed;
+        var current_radius = step*stepSeed;
+        console.log(current_radius);
+        	for (var g = 1; g <= points_in_ring; g++) {
+            	angle = (360 / points_in_ring) * g;
+            	angle += step*(360/seed/steps);
+            	all.push(findNewPoint([x,y], angle, current_radius));
+        	}
+    	console.log(step);
+        current_radius += stepSeed;
+    }
+    return all;
+}
 
 
 function drawShuriken(x, y, rad, rot) {
