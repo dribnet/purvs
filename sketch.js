@@ -73,30 +73,41 @@ var hueRanges = [
                 ];
 
 function drawPattern(){
-    translate(-480, -310);
+    var colour = "", xAxis = 0, yAxis = 0;
     hueRanges = shuffleArray(hueRanges);
-    var xAxis = 0, yAxis = 0;
+    //iniitial translation to get the pattern started in the place
+    translate(-480, -310);
+    //loop through the y axis
     while(yAxis < canvasSize){
+        //loop through the x axis
         while(xAxis < canvasSize){
-        	for(var a = 0; a <= 8; a++){		
-        		var h = focusedRandom(hueRanges[a][0], hueRanges[a][1], 10, hueRanges[a][2]);
+            //this loop is used to draw a hexagon shaped collection of glyphs for every array in the hueRanges array
+        	for(var hueIterator = 0; hueIterator <= 8; hueIterator++){		
+                //find the values of fromColour and toColour for this iteration
+        		var h = focusedRandom(hueRanges[hueIterator][0], hueRanges[hueIterator][1], 10, hueRanges[hueIterator][2]);
         		var fromColour = color(h, 100, 100);
-        		var toPointer = a + 5;
+        		var toPointer = hueIterator + 5;
         		if(toPointer > 8){
         			toPointer = toPointer - 9;
         		}
         		h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
         		var toColour = color(h, 100, 100);
-        		var colour = "";
-        		strokeWeight(0.3);
+        		
+                strokeWeight(0.3);
         		var lerpAmount = 0;
+
+                //loop through the positions of the bigHex array
         		for (var pos = 0; pos < bigHex.length; pos++) {
+                    //translate to the co-ordinates where the glyph will be drawn
         			translate(bigHex[pos][0], bigHex[pos][1]);
+                    //set the shape, number of rotations and colour
+                    shape = random(shapeOptions);
         			numOfRotations = random(rotationOptions);
-        			shape = random(shapeOptions);
         			colour = lerpColor(fromColour, toColour, lerpAmount);
-        			var lerpStep = 0.3333 / numOfRotations / 2;
+
+                    //this is where the glyph is created
         			for (var i = 0; i < (numOfRotations * 2); i ++) {
+                        //the shape is draw five times with different levels of opacity to create interesting textures
         				for (var j = 0; j <=5; j++) {
         					stroke(colour, 255 - (8*j));
         					//call the function as detemined by the variable shape
@@ -107,34 +118,41 @@ function drawPattern(){
         				rotate(PI/numOfRotations);
         				
         			}
+
+                    //change the lerpAmount at certain points of the iteration
         			if(pos == 3){
-        				lerpAmount = 0.3333;
         				lerpAmount = 0.5;
         			}
         			if(pos == 11){
-        				lerpAmount = 0.6666;
         				lerpAmount = 1;
         			}
-        			
+        			//reset the translation from the beginnig of the loop
         			translate(-bigHex[pos][0], -bigHex[pos][1]);
         		}
-        		strokeWeight(2);
+
+        		//draw the hexagon outline that groups all the glyphs together
         		beginShape();
+                strokeWeight(2);
         		for (var pos = 16; pos < bigHex.length; pos++) {
         			vertex(bigHex[pos][0], bigHex[pos][1]);
         		}
         		endShape(CLOSE);
+
+
+                //translations required to draw the next iteration in the right place
                 translate(480, 0);
-        		if(a == 2 || a == 5){
+        		if(hueIterator == 2 || hueIterator == 5){
         			translate(-1200, 320);
-                    if(a == 5){
+                    if(hueIterator == 5){
                         translate(-480, 0);
                     }
         		}
         	}
+            //translations required to draw the next iteration in the right place
             translate(0, -640);
             xAxis++;
         }
+        //translations required to draw the next iteration in the right place
         if(canvasSize == 2){
             translate(-3120, 960);    
         }
