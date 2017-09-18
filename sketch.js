@@ -18,7 +18,7 @@ function draw () {
  background(200);
   //rotateX(frameCount * 0.01);
   //rotateY(frameCount * 0.01);
-  //oceanwave();
+  oceanwave();
   islands();
   
 }
@@ -67,9 +67,9 @@ fill(153,76,0);
   var i = 0;
   
   	w = 0;
-	while(w < 100){
+	while(w < 30){
 		i = 0;
-  		while(i < 100){
+  		while(i < 30){
   		push();
   		
   		translate(i*15 - 100 + ((i+w) * curRandomSeed/20),w*20 - 50);
