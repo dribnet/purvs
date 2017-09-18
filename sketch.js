@@ -81,7 +81,10 @@ function mousePressed() {
     //vertex(x1 + 40, y1 + 40);
       //rotate(PI/Math.random());
       triangle(x1 + k, y1 + k, x2, y2 , x1, y1);
-      //triangle(x1 - k, y1 - k, x2, y2 , x1, y1);
+      triangle(x1 + k, y1 + k, x1, y1 , x2, y1);
+      //triangle(x2+ k,  y1+ k, x1, y1, x1 + k, y2 + k);
+
+
       endShape();
       //rotate(PI/0.3)
     } 
