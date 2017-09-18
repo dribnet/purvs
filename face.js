@@ -7,12 +7,14 @@ function Face() {
   this.tilt_value = 0;
   this.eye_value = 2;
   this.mouth_value = 0;
+  
 
   // other variables can be in here too
   // these control the colors used
-  this.bg_color = [225, 206, 187];
-  this.fg_color = [151, 102, 52];
-  this.stroke_color = [95, 52, 8];
+  this.bg_color = "#9caebd";
+  this.bg_color1 = "#cb1722";
+  this.fg_color = "#091016";
+  this.stroke_color = "#0fff";
 
   /*
    * Draw a face centered at x,y with an allowed
@@ -20,11 +22,11 @@ function Face() {
    */  
   this.draw1 = function(x, y, w, h) {
     // Uncomment to see drawing area
-    // fill(255);
-    // stroke(0);
-    // rect(x-w/2, y-h/2, w, h);
-    // fill(0)
-    // ellipse(x, y, w, h);
+     //fill(this.bg_color);
+     //stroke(0);
+     //rect(x-w/2, y-h/2, w, h);
+     //fill(0)
+     //ellipse(x, y, w, h);
 
     push();
     translate(x, y);
@@ -37,35 +39,43 @@ function Face() {
     else {
       extent = w / 2;
     }
-    var scale = extent / 220.0;
+    var scale = extent / 200;
 
     // head
-    stroke(this.stroke_color);
+    //stroke(this.stroke_color);
     fill(this.fg_color);
-    ellipse(0, 0, 300 * scale, 400 * scale);
+    ellipse(0, 0, 250 * scale, 225 * scale);
     noStroke();
 
     // eyes
     if (this.eye_value === 1 || this.eye_value == 3) {
-      fill(this.bg_color);
-      ellipse( 0, -80 * scale, 50 * scale, 30 * scale);
+      fill(this.stroke_color);
+      ellipse( 0, -20 * scale, 50 * scale, 50 * scale);
       fill(this.fg_color);
-      ellipse(-10 * scale, -80 * scale, 20 * scale, 20 * scale);
+      ellipse(-10 * scale, -20 * scale, 30 * scale, 30 * scale);
+      // mouth
+      fill(this.bg_color1);
+      ellipse(150 * scale, 40 * scale, 200 * scale, 80 * scale);
+      fill(this.fg_color);
+      ellipse(200 * scale, 40 * scale, 80 * scale, 50 * scale);
     }
 
-    if (this.eye_value >= 2) {
-      fill(this.bg_color);
-      ellipse(-50 * scale, -80 * scale, 50 * scale, 30 * scale);
-      ellipse( 50 * scale, -80 * scale, 50 * scale, 30 * scale);
+    if (this.eye_value == 2) {
+      fill(this.stroke_color);
+      ellipse(-55 * scale, -20 * scale, 50 * scale, 50 * scale);
+      ellipse( 55 * scale, -20 * scale, 30 * scale, 30 * scale);
 
       fill(this.fg_color);
-      ellipse(-60 * scale, -80 * scale, 20 * scale, 20 * scale);
-      ellipse( 40 * scale, -80 * scale, 20 * scale, 20 * scale);
+      ellipse(-55 * scale, -20 * scale, 20 * scale, 20 * scale);
+      ellipse( 55 * scale, -20 * scale, 20 * scale, 20 * scale);
+      // mouth
+      fill(this.bg_color1);
+      ellipse(0 * scale, 40 * scale, this.mouth_value * scale, this.mouth_value * scale);
+      fill(this.fg_color);
+      ellipse(0 * scale, 40 * scale, (this.mouth_value * scale)-5, (this.mouth_value * scale)-5);
     }
 
-    // mouth
-    fill(this.bg_color);
-    ellipse(0 * scale, 70 * scale, 150 * scale, this.mouth_value * scale);
+    
     pop();
   }
 
@@ -134,7 +144,8 @@ function Face() {
   this.randomize = function(values, size) {
     this.eye_value = getRandomNumberOfEyes();
     this.tilt_value = focusedRandom(-70, 90, 8);
-    this.mouth_value = focusedRandom(0, 50, 4, 1);
+    this.mouth_value = focusedRandom(50, 95, 4, 1);
+	
   }
 }
 
