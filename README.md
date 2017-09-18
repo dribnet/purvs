@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+Starting off experimenting with the starting code I have decided to explroe adding an element of random. Instead of drawing ellipses, I have used tall strokes that are quite sketch like. To strengthen this theme I have added a text book texture to the background of the workspace. 

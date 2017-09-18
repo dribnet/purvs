@@ -1,5 +1,7 @@
 function setup () {
   createCanvas(960, 500);
+
+
 }
 
 function draw () {
@@ -7,9 +9,16 @@ function draw () {
     fill(0);
   }
   else {
-    fill(255);
+    noFill();
   }
-  ellipse(mouseX, mouseY, 80, 80);
+
+  beginShape();
+  vertex(mouseX, mouseY);
+  vertex(mouseX + random(5), mouseY + random(50));
+  vertex(mouseX + random(5), mouseY + random(50));
+  vertex(mouseX - random(10), mouseY - random(100));
+  vertex(mouseX, mouseY);
+  endShape();
 }
 
 function keyTyped() {
