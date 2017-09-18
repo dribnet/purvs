@@ -1,8 +1,9 @@
 function setup() {
-curRandomSeed = int(focusedRandom(0, 100));
+  curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
   background(0); 
   noStroke(); 
+  rectMode(CORNERS);
 
   var gridSize = 10;
 
@@ -23,16 +24,35 @@ function changeRandomSeed() {
 
 function mousePressed() {
     changeRandomSeed();
+    background(0);
 }
 
-  function draw () {
+function colorFromValue(v) {
+  if (v < 0.3) {
+    return color(55, 103, 255);
+  }
+  if (v < 0.5) {
+    return color(116, 131, 178);
+  }
+  else if (v < 0.7) {
+    return color(178, 130, 0);
+  }
+  else {
+    return color(255, 193, 29);
+  }
+}
 
+
+  function draw () {
+  //resetFocusedRandom(curRandomSeed);
+  noiseSeed(curRandomSeed);
+  //resetFocusedRandom(curRandomSeed);
 
   var x_steps = 1 + Math.floor(width / 30);
   var y_steps = 1 + Math.floor(height / 30);
 
 
-  resetFocusedRandom(curRandomSeed);
+  //resetFocusedRandom(curRandomSeed);
 
   var x_grid_locations = new Array(x_steps);
   var y_grid_locations = new Array(y_steps);
@@ -51,8 +71,13 @@ function mousePressed() {
 
   for(var i=0;i<x_steps-1;i++) {
     for(var j=0;j<y_steps-1;j++) {
+      var x_noise = i / 10.0;
+      var y_noise = j / 10.0;
+      var noiseVal = noise(x_noise, y_noise);
+      var shade = colorFromValue(noiseVal);
+      fill(shade);
       //boxes being drawn
-      fill(focusedRandom(0, 255, 3));
+      //fill(focusedRandom(0, 255, 3));
       var x1 = x_grid_locations[i];
       var x2 = x_grid_locations[i+1];
       var y1 = y_grid_locations[j];
@@ -70,6 +95,7 @@ function mousePressed() {
      //for(var k = 0; k <= 10; k++){
       beginShape();
       fill(focusedRandom(200,0,0));
+      fill(shade);
       vertex(x1, y1);
       var foo = Math.random() * (6 - 3) + 3   
       for(var k = 0;k < foo;k++){
@@ -80,8 +106,10 @@ function mousePressed() {
     //vertex(x1 + 30 , y2 + 30);
     //vertex(x1 + 40, y1 + 40);
       //rotate(PI/Math.random());
+      //rotate(PI/0.5);
       triangle(x1 + k, y1 + k, x2, y2 , x1, y1);
-      triangle(x1 + k, y1 + k, x1, y1 , x2, y1);
+      //triangle(x1 + 5, y1 + 5, x2, y2 , x1, y1);
+      //triangle(x1 + k, y1 + k, x1, y1 , x2, y1);
       //triangle(x2+ k,  y1+ k, x1, y1, x1 + k, y2 + k);
 
 
