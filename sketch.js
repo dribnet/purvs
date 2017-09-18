@@ -63,7 +63,7 @@ function mousePressed() {
      
       //noStroke();
      // fill (120);
-     // rectMode(CENTER);
+     /// rectMode(CENTER);
       //translate(width, height);
       // /rotate(PI/0.9);
   
