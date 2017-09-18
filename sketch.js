@@ -6,13 +6,12 @@ curRandomSeed = int(focusedRandom(0, 100));
 
   var gridSize = 10;
 
-<<<<<<< HEAD
   // henriFunShape = createShape();
   // henriFunShape.beginShape();
-  // 	//All vertexs go here
-  // 	star.vertex(10,40);
-  // 	star.vertex(20,60);
-  // 	star.vertex(30,30);
+  //  //All vertexs go here
+  //  star.vertex(10,40);
+  //  star.vertex(20,60);
+  //  star.vertex(30,30);
   // henriFunShape.endShape(CLOSE);
 
 
@@ -49,55 +48,10 @@ function mousePressed() {
     var cur_y = j * 30 + shift;
     y_grid_locations[j] = cur_y;
   }
-=======
- function draw () {
-   
- }
-
- function keyTyped() {
-  	if (key == '!') {
-    saveBlocksImages();
- 	}  
- }
-
-  for (var x = gridSize; x <= width + gridSize; x += gridSize) {
-    for (var y = gridSize; y <= height - gridSize; y += gridSize) {
-      translate (width/4, height/4);
-      noStroke();
-      fill (120);
-      rectMode(CENTER);
-      translate(width/3.8, height/0.9);
-      rotate(PI/0.9);
-      //rect (480, 250, 10, 50);
-      translate(width/4, height/4);
-      rotate(PI/2.0);
-      rect (240, 250, 5, 55);
-      translate(width/4, height/4);
-      rotate(PI/3.0);
-      //rect (180, 250, 25, 25);
-      translate(width/4, height/4);
-      rotate(PI/4.0);
-      //rect (320, 250, 55, 55);
-      translate(width/4, height/4);
-      rotate(PI/5.0);
-      rect (320, 250, 10, 50);
-
-      fill(255);
-      rotate(PI/3.0);
-      rect(x+2, y-5, 3, 10);
-      rotate(PI/3.0);
-      rect(x-2, y-2, 10, 3);
-      stroke(255, 50);
-      line(x, y, width/2, height/2);
-    }
-
-
-}
->>>>>>> 317f67443865deb6e98f0413ac3cabfcfed907eb
 
   for(var i=0;i<x_steps-1;i++) {
     for(var j=0;j<y_steps-1;j++) {
-    	//boxes being drawn
+      //boxes being drawn
       fill(focusedRandom(0, 255, 3));
       var x1 = x_grid_locations[i];
       var x2 = x_grid_locations[i+1];
@@ -114,25 +68,25 @@ function mousePressed() {
       // /rotate(PI/0.9);
   
      //for(var k = 0; k <= 10; k++){
-     	beginShape();
-     	fill(focusedRandom(200,0,0));
-     	vertex(x1, y1);
-     	var foo = Math.random() * (6 - 3) + 3   
-     	for(var k = 0;k < foo;k++){
-     		vertex(x1 + 1*k, y1 + 1*k);
-     		}
-		//vertex(x2, y2);
-		//vertex(x2 - 50, y2 - 50);
-		//vertex(x1 + 30 , y2 + 30);
-		//vertex(x1 + 40, y1 + 40);
-     	//rotate(PI/Math.random());
-     	triangle(x1 + k, y1 + k, x2, y2 , x1, y1);
-     	//triangle(x1 - k, y1 - k, x2, y2 , x1, y1);
-     	endShape();
-     	//rotate(PI/0.3)
- 		}	
+      beginShape();
+      fill(focusedRandom(200,0,0));
+      vertex(x1, y1);
+      var foo = Math.random() * (6 - 3) + 3   
+      for(var k = 0;k < foo;k++){
+        vertex(x1 + 1*k, y1 + 1*k);
+        }
+    //vertex(x2, y2);
+    //vertex(x2 - 50, y2 - 50);
+    //vertex(x1 + 30 , y2 + 30);
+    //vertex(x1 + 40, y1 + 40);
+      //rotate(PI/Math.random());
+      triangle(x1 + k, y1 + k, x2, y2 , x1, y1);
+      //triangle(x1 - k, y1 - k, x2, y2 , x1, y1);
+      endShape();
+      //rotate(PI/0.3)
+    } 
 
-  	  //rotate(PI/2.0);
+      //rotate(PI/2.0);
       // rotate(PI/3.0);
       //rotate(PI/4.0);
       //ellipse (480, 250, 5, 15);
@@ -145,8 +99,8 @@ function mousePressed() {
       // stroke(255, 50);
       // line(x1, y1, width/2, height/2);
 
-    	}
-  	//}
+      }
+    //}
 // void display () {
 //   pushMatrix();
 //   translate(x, y);
