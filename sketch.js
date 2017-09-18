@@ -3,12 +3,12 @@ var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationO
 var main_canvas , canvasSize = 1, canvasSelector;
 
 var bigHex = [
-				[200, 200], [280, 200], [280, 280], [200, 280], 
-				[200, 120], [280, 120], [360, 200], [360, 280],
-				[280, 360], [200, 360],  [120, 280], [120, 200], 
-				[120, 120],[360, 120],[360, 360],[120, 360],
-				[200, 40], [280,40], [440, 200], [440, 280], 
-				[280,440], [200,440], [40, 280], [40, 200]
+				[280, 200], [280, 280], [200, 280], [200, 200], 
+				[280, 120], [360, 200], [360, 280], [280, 360], 
+                [200, 360], [120, 280], [120, 200], [200, 120], 
+				[280,40], [360, 120],[440, 200], [440, 280], 
+                [360, 360], [280,440],[200,440], [120, 360],
+				[40, 280], [40, 200], [120, 120], [200, 40]
 			];
 
 function setup () {
@@ -121,22 +121,29 @@ function drawPattern(){
 
                     //change the lerpAmount at certain points of the iteration
         			if(pos == 3){
-        				lerpAmount = 0.5;
+        				//lerpAmount = 0.5;
         			}
         			if(pos == 11){
-        				lerpAmount = 1;
+        				//lerpAmount = 1;
         			}
+                    lerpAmount = lerpAmount + 0.05;
         			//reset the translation from the beginnig of the loop
         			translate(-bigHex[pos][0], -bigHex[pos][1]);
         		}
 
         		//draw the hexagon outline that groups all the glyphs together
-        		beginShape();
+        		//beginShape();
                 strokeWeight(2);
-        		for (var pos = 16; pos < bigHex.length; pos++) {
-        			vertex(bigHex[pos][0], bigHex[pos][1]);
+        		for (var pos = 0; pos < bigHex.length; pos++) {
+                    colour = lerpColor(fromColour, toColour, (pos * 0.05));
+                    stroke(colour);
+
+                    if(pos < (bigHex.length - 1)){
+                        line(bigHex[pos][0], bigHex[pos][1], bigHex[pos + 1][0], bigHex[pos + 1][1]);    
+                    }
+        			//vertex(bigHex[pos][0], bigHex[pos][1]);
         		}
-        		endShape(CLOSE);
+        		//endShape(CLOSE);
 
 
                 //translations required to draw the next iteration in the right place
