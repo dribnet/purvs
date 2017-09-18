@@ -1,10 +1,11 @@
 function setup () {
   createCanvas(960, 500);
-
-
+  background(loadImage("background.jpg"));
+  
 }
 
 function draw () {
+
   if (mouseIsPressed) {
     fill(0);
   }
