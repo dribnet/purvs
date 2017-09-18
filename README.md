@@ -13,3 +13,7 @@ I'm trying out a second concept and playing around with possibilities, I've been
 UPDATE 
 
 Still trying to decide what path I want to go down with this projet, still trying out new things and bits of code but really enjoying the layering, still not certain on the colour scheme.
+
+UPDATE
+
+I've think I've come to a colour scheme that I really like, as with my shapes I wanted to have a bit more layering with it, so added the bluer shade to background, so my layers become blue (background), pink(horizontal noise lines), white(dots), pink(circles) and white (circles outlines) again. I'll now move on to starting my landscape. Still deciding on ideas for that so I'll see where that takes me.

@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(960, 500);
-  background(248, 198, 207);
+  background(146, 179, 205);
   smooth();
 
   var xstart = random(10),
@@ -30,7 +30,7 @@ function draw () {
   ellipse(100, 100, 160, 160);
   ellipse(260, 210, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(180, 160, 130, 130);
   ellipse(280, 110, 10, 10);
   
@@ -49,7 +49,7 @@ function draw () {
   ellipse(400, 100, 160, 160);
   ellipse(560, 210, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(480, 160, 130, 130);
   ellipse(580, 110, 10, 10);
   
@@ -68,7 +68,7 @@ function draw () {
   ellipse(700, 100, 160, 160);
   ellipse(860, 210, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(780, 160, 130, 130);
   ellipse(880, 110, 10, 10);
   
@@ -87,7 +87,7 @@ function draw () {
   ellipse(300, 300, 160, 160);
   ellipse(460, 410, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(380, 360, 130, 130);
   ellipse(480, 310, 10, 10);
   
@@ -106,7 +106,7 @@ function draw () {
   ellipse(600, 300, 160, 160);
   ellipse(760, 410, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(680, 360, 130, 130);
   ellipse(780, 310, 10, 10);
   
@@ -125,7 +125,7 @@ function draw () {
   ellipse(900, 300, 160, 160);
   ellipse(1060, 410, 20, 20);
   
-  fill(248, 198, 207, 50);
+  fill(248, 198, 207, 30);
   ellipse(980, 360, 130, 130);
   ellipse(1080, 310, 10, 10);
   
@@ -167,7 +167,7 @@ function drawPoint(x, y, noiseFactor) {
   push();
   translate(x, y);
   rotate(noiseFactor * radians(360));
-  stroke(x*0.1 + 255, 255, 255, 90);
+  stroke(y*0.1 + 248, 198, 207, 95);
   line(0, 0, 7, 0);
   pop();
 }
