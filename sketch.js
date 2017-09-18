@@ -1,5 +1,7 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
+var main_canvas , canvasSize = 1, canvasSelector;
+
 var bigHex = [
 				[200, 200], [280, 200], [280, 280], [200, 280], 
 				[200, 120], [280, 120], [360, 200], [360, 280],
@@ -11,8 +13,16 @@ var bigHex = [
 
 function setup () {
     //set up the canvas
-    var main_canvas = createCanvas(960, 500);
+    main_canvas = createCanvas(960, 500);
     main_canvas.parent('canvas-container');
+
+    canvasSelector = createSelect();
+    canvasSelector.option(1);
+    canvasSelector.option(2);
+    canvasSelector.option(3);
+    canvasSelector.value(1);
+    canvasSelector.parent('canvas-selector-holder');
+    canvasSelector.changed(changeCanvasSize);
 	
     //set up some of the global options for p5.js
     noLoop();
@@ -34,6 +44,22 @@ function mousePressed() {
     redraw();
 }
 
+function changeCanvasSize(){
+    canvasSize = canvasSelector.value();
+    if(canvasSize == 2){
+        main_canvas = resizeCanvas(1920, 1000);
+    }
+    else if(canvasSize == 3){
+        main_canvas = resizeCanvas(3840, 2000);  
+    }
+    else {
+        main_canvas = resizeCanvas(960, 500);
+    }
+    clear();
+    background(0);
+    redraw();
+}
+
 var hueRanges = [
                     [-20, 20, 0],
                     [21, 60, 40],
@@ -49,57 +75,75 @@ var hueRanges = [
 function drawPattern(){
     translate(-480, -310);
     hueRanges = shuffleArray(hueRanges);
-	for(var a = 0; a <= 8; a++){		
-		var h = focusedRandom(hueRanges[a][0], hueRanges[a][1], 10, hueRanges[a][2]);
-		var fromColour = color(h, 100, 100);
-		var toPointer = a + 5;
-		if(toPointer > 8){
-			toPointer = toPointer - 9;
-		}
-		h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
-		var toColour = color(h, 100, 100);
-		var colour = "";
-		strokeWeight(0.3);
-		var lerpAmount = 0;
-		for (var pos = 0; pos < bigHex.length; pos++) {
-			translate(bigHex[pos][0], bigHex[pos][1]);
-			numOfRotations = random(rotationOptions);
-			shape = random(shapeOptions);
-			colour = lerpColor(fromColour, toColour, lerpAmount);
-			var lerpStep = 0.3333 / numOfRotations / 2;
-			for (var i = 0; i < (numOfRotations * 2); i ++) {
-				for (var j = 0; j <=5; j++) {
-					stroke(colour, 255 - (8*j));
-					//call the function as detemined by the variable shape
-					//rect and ellipse are built in p5.js
-					//tri,hexa & octa are defined in this file
-					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
-				}
-				rotate(PI/numOfRotations);
-				
-			}
-			if(pos == 3){
-				lerpAmount = 0.3333;
-				lerpAmount = 0.5;
-			}
-			if(pos == 11){
-				lerpAmount = 0.6666;
-				lerpAmount = 1;
-			}
-			
-			translate(-bigHex[pos][0], -bigHex[pos][1]);
-		}
-		strokeWeight(2);
-		beginShape();
-		for (var pos = 16; pos < bigHex.length; pos++) {
-			vertex(bigHex[pos][0], bigHex[pos][1]);
-		}
-		endShape(CLOSE);
-		translate(480, 0);
-		if(a == 2 || a == 5){
-			translate(-1200, 320);
-		}
-	}
+    var xAxis = 0, yAxis = 0;
+    while(yAxis < canvasSize){
+        while(xAxis < canvasSize){
+        	for(var a = 0; a <= 8; a++){		
+        		var h = focusedRandom(hueRanges[a][0], hueRanges[a][1], 10, hueRanges[a][2]);
+        		var fromColour = color(h, 100, 100);
+        		var toPointer = a + 5;
+        		if(toPointer > 8){
+        			toPointer = toPointer - 9;
+        		}
+        		h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
+        		var toColour = color(h, 100, 100);
+        		var colour = "";
+        		strokeWeight(0.3);
+        		var lerpAmount = 0;
+        		for (var pos = 0; pos < bigHex.length; pos++) {
+        			translate(bigHex[pos][0], bigHex[pos][1]);
+        			numOfRotations = random(rotationOptions);
+        			shape = random(shapeOptions);
+        			colour = lerpColor(fromColour, toColour, lerpAmount);
+        			var lerpStep = 0.3333 / numOfRotations / 2;
+        			for (var i = 0; i < (numOfRotations * 2); i ++) {
+        				for (var j = 0; j <=5; j++) {
+        					stroke(colour, 255 - (8*j));
+        					//call the function as detemined by the variable shape
+        					//rect and ellipse are built in p5.js
+        					//tri,hexa & octa are defined in this file
+        					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
+        				}
+        				rotate(PI/numOfRotations);
+        				
+        			}
+        			if(pos == 3){
+        				lerpAmount = 0.3333;
+        				lerpAmount = 0.5;
+        			}
+        			if(pos == 11){
+        				lerpAmount = 0.6666;
+        				lerpAmount = 1;
+        			}
+        			
+        			translate(-bigHex[pos][0], -bigHex[pos][1]);
+        		}
+        		strokeWeight(2);
+        		beginShape();
+        		for (var pos = 16; pos < bigHex.length; pos++) {
+        			vertex(bigHex[pos][0], bigHex[pos][1]);
+        		}
+        		endShape(CLOSE);
+                translate(480, 0);
+        		if(a == 2 || a == 5){
+        			translate(-1200, 320);
+                    if(a == 5){
+                        translate(-480, 0);
+                    }
+        		}
+        	}
+            translate(0, -640);
+            xAxis++;
+        }
+        if(canvasSize == 2){
+            translate(-3120, 960);    
+        }
+        if(canvasSize == 3){
+            translate(-4080, 960);    
+        }
+        xAxis = 0;
+        yAxis++;
+    }
 }
 
 

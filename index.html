@@ -14,12 +14,13 @@
         #controls {
             font: 300 12px "Helvetica Neue";
             padding: 10px;
-            /*margin: 5;*/
+            opacity: 0;
             background: #f0f0f0;
-            top: 500px;
-            right: 960px;
+            top: 0;
             left: 0;
-            width: 480px;
+        }
+        #controls:hover {
+            opacity: 1;
         }
     </style>
 </head>
@@ -28,6 +29,14 @@
     <div class="outer">
         <div class="inner">
             <div id="canvas-container"></div>
+        </div>
+        <div class="inner" id="controls" height="500px">
+            <table>
+                <tr>
+                    <td>Canvas Size</td>
+                    <td id="canvas-selector-holder"></td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
