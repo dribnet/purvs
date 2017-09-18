@@ -24,7 +24,7 @@ function changeRandomSeed() {
 
 function mousePressed() {
     changeRandomSeed();
-    background(0);
+    //background(0);
 }
 
 function colorFromValue(v) {
@@ -44,7 +44,7 @@ function colorFromValue(v) {
 
 
   function draw () {
-  //resetFocusedRandom(curRandomSeed);
+  resetFocusedRandom(curRandomSeed);
   noiseSeed(curRandomSeed);
   //resetFocusedRandom(curRandomSeed);
 
