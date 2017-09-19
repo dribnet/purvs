@@ -1,6 +1,6 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
-var main_canvas , canvasSize = 1, canvasSelector;
+var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'landscape', modeSelector;
 
 var bigHex = [
 				[280, 200], [280, 280], [200, 280], [200, 200], 
@@ -24,18 +24,30 @@ function setup () {
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
 	
+	modeSelector = createSelect();
+	modeSelector.option('wallpaper');
+	modeSelector.option('landscape');
+	modeSelector.value('landscape');
+	modeSelector.parent('mode-selector-holder');
+	modeSelector.changed(changeMode);
+	
     //set up some of the global options for p5.js
     noLoop();
     colorMode(HSB);
     background(0);
-    noFill();
     rectMode(CENTER);
 }
 
 
 
 function draw () {
-    drawPattern();
+    if(drawingMode === 'wallpaper'){
+		noFill();
+		drawPattern();
+	}
+	else if(drawingMode === 'landscape'){
+		drawLandscape();
+	}
 }
 
 function mousePressed() {
@@ -45,19 +57,28 @@ function mousePressed() {
 }
 
 function changeCanvasSize(){
-    canvasSize = canvasSelector.value();
-    if(canvasSize == 2){
-        main_canvas = resizeCanvas(1920, 1000);
-    }
-    else if(canvasSize == 3){
-        main_canvas = resizeCanvas(2880, 1500);  
-    }
-    else {
-        main_canvas = resizeCanvas(960, 500);
-    }
-    clear();
-    background(0);
-    redraw();
+	if(drawingMode === 'wallpaper'){
+		canvasSize = canvasSelector.value();
+		if(canvasSize == 2){
+			main_canvas = resizeCanvas(1920, 1000);
+		}
+		else if(canvasSize == 3){
+			main_canvas = resizeCanvas(2880, 1500);  
+		}
+		else {
+			main_canvas = resizeCanvas(960, 500);
+		}
+		clear();
+		background(0);
+		redraw();
+	}
+}
+
+function changeMode(){
+	drawingMode = modeSelector.value();
+	clear();
+	background(0);
+	redraw();
 }
 
 var hueRanges = [
@@ -162,6 +183,38 @@ function drawPattern(){
         xAxis = 0;
         yAxis++;
     }
+}
+
+function drawLandscape() {
+	//sky
+	fill(200, 200, 200);
+	rect(480, 90, 960, 200);
+	
+	fill(211);
+	stroke(0);
+	translate(40, 120);
+	var xLimit = 11;
+	for(var y=0; y<=14; y++){
+		for(var x=0; x<=xLimit; x++){
+			//top
+			fill(120, 100, 70);
+			quad(0, 20, 40, 40, 0, 60, -40, 40);
+			//left side
+			fill(23, 82, 85);
+			quad(-40, 40, 0, 60, 0, 100, -40, 80);
+			//right side
+			fill(23, 82, 85);
+			quad(40, 40, 0, 60, 0, 100, 40, 80);
+			translate(80, 0);
+		}
+		if((y % 2) == 0){
+			xLimit = 12;
+		}
+		else {
+			xLimit = 11;
+		}
+		translate(-1000, 20);
+	}
 }
 
 
