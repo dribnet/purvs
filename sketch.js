@@ -50,7 +50,7 @@ function changeCanvasSize(){
         main_canvas = resizeCanvas(1920, 1000);
     }
     else if(canvasSize == 3){
-        main_canvas = resizeCanvas(3840, 2000);  
+        main_canvas = resizeCanvas(2880, 1500);  
     }
     else {
         main_canvas = resizeCanvas(960, 500);
@@ -86,7 +86,7 @@ function drawPattern(){
                 //find the values of fromColour and toColour for this iteration
         		var h = focusedRandom(hueRanges[hueIterator][0], hueRanges[hueIterator][1], 10, hueRanges[hueIterator][2]);
         		var fromColour = color(h, 100, 100);
-        		var toPointer = hueIterator + 5;
+        		var toPointer = hueIterator + 6;
         		if(toPointer > 8){
         			toPointer = toPointer - 9;
         		}
@@ -94,7 +94,7 @@ function drawPattern(){
         		var toColour = color(h, 100, 100);
         		
                 strokeWeight(0.3);
-        		var lerpAmount = 0;
+        		var lerpAmount = 0.3333;
 
                 //loop through the positions of the bigHex array
         		for (var pos = 0; pos < bigHex.length; pos++) {
@@ -116,34 +116,27 @@ function drawPattern(){
         					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
         				}
         				rotate(PI/numOfRotations);
-        				
         			}
 
                     //change the lerpAmount at certain points of the iteration
         			if(pos == 3){
-        				//lerpAmount = 0.5;
+        				lerpAmount = 0.6666;
         			}
         			if(pos == 11){
-        				//lerpAmount = 1;
+        				lerpAmount = 1;
         			}
-                    lerpAmount = lerpAmount + 0.05;
         			//reset the translation from the beginnig of the loop
         			translate(-bigHex[pos][0], -bigHex[pos][1]);
         		}
 
         		//draw the hexagon outline that groups all the glyphs together
-        		//beginShape();
+        		beginShape();
                 strokeWeight(2);
-        		for (var pos = 0; pos < bigHex.length; pos++) {
-                    colour = lerpColor(fromColour, toColour, (pos * 0.05));
-                    stroke(colour);
-
-                    if(pos < (bigHex.length - 1)){
-                        line(bigHex[pos][0], bigHex[pos][1], bigHex[pos + 1][0], bigHex[pos + 1][1]);    
-                    }
-        			//vertex(bigHex[pos][0], bigHex[pos][1]);
+				stroke(colour, 255);
+        		for (var pos = 12; pos < bigHex.length; pos++) {
+        			vertex(bigHex[pos][0], bigHex[pos][1]);
         		}
-        		//endShape(CLOSE);
+        		endShape(CLOSE);
 
 
                 //translations required to draw the next iteration in the right place
