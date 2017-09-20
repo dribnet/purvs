@@ -1,5 +1,5 @@
 17.2.MDDN342 PS3
 
-I have made the pattern more centred and also changed the colours of the triangles to red.
+I have experimented with different shapes and decided to change it to ellipses. I have also added a stroke to seperate the ones that overlap. 
 
-Christina helped me try to make the triangles move by trying out her code from her previous projects. This didn't quite work but it did roatate the triangles in some way which made the pattern more tidy.
+The size of the ellipses are randomized which gives the pattern some variation but not too much as there's still a distinct pattern. 

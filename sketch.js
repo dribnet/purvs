@@ -18,7 +18,8 @@ function mousePressed() {
 }
 
 function draw () {
-  background(255);
+//  background (165, 206, 183);
+    background (181, 219, 179);
   resetFocusedRandom(curRandomSeed);
 
   var x_steps = 1 + Math.floor(width / 20);
@@ -46,17 +47,27 @@ function draw () {
     for(var j=0;j<y_steps;j++) {
       var loc = grid_locations[i][j];
       var shade = focusedRandom(60, 150, 3);
-        //strokeWeight(5);
+      var size = focusedRandom(15, 25);
+
+        stroke(255);
+        strokeWeight(1);
       fill(shade,50,50);
-      noStroke();
+      
        push();
        	scale(0.8);
-        translate(loc[0]-130, loc[1]+15);
+        translate(loc[0]-250, loc[1]+15);
         rotate(50 + move, 250);
-        triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
+        
+       
+        ellipse(loc[0]+15, loc[1]+20,size,size);
+        
+      // triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
+         
+        fill(shade,50,50);
         rotate(100,5);
-        triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
-        pop();      
+        //triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);  
+        ellipse(loc[0]+15, loc[1]+20,size,size);
+        pop(); 
     }
   }
  
