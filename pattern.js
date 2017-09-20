@@ -57,6 +57,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
 
         randomNum = round(random(0,shapeNum));
         shapeTypes[row][col] = randomNum;
+
         if(red == -1){
           r[row][col] = random(0,255);
         }
@@ -75,6 +76,8 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
         else{
           b[row][col] = blue;
         }
+
+    
         shapeSize[row][col] = (colWidth/2)* round(random(1,3));
         shapeRotate[row][col] = random(-2,1);
 
@@ -93,15 +96,15 @@ this.randomizeValues();
 
 //goes through all the rows and cols and determines
 // the shape type
-  this.drawPattern = function (min,max){
+  this.drawPattern = function (){
 
 
 
     strokeWeight(1);
     var darkness = 20;
 
-      for(var row = min; row< max-1; row++){
-        for(var col = 0; col< cols-1; col++){
+      for(var row = 0; row< rows; row++){
+        for(var col = 0; col< cols; col++){
 
             var sType = shapeTypes[row][col];
             var sColor = color(r[row][col],g[row][col],b[row][col],opac*0.3);
@@ -125,11 +128,12 @@ this.randomizeValues();
 
   this.drawEnvironment = function(){
 
-    for(var row = min; row< max-1; row++){
-      for(var col = 0; col< cols-1; col++){
+    for(var row = 0; row< rows; row++){
+      for(var col = 0; col< cols; col++){
 
         var sColor = color(0,0);
         var sType = shapeTypes[row][col];
+        var sSize = shapeSize[row][col];
 
         this.drawShape(row,col,sColor,0,sType,2,0);
 
@@ -189,10 +193,10 @@ this.randomizeValues();
       line(leftX,topY+(rowHeight/2),rightX,topY+(rowHeight/2));
     }
     else if(shapeType==6){
-      quad(leftX,topY+(rowHeight/2),leftX+(colWidth/2),topY,rightX,topY+(rowHeight/2),leftX+(colWidth/2),bottomY);
+      triangle(leftX,topY+(rowHeight/2),leftX+(colWidth/2),topY,rightX,topY+(rowHeight/2));
     }
     else if(shapeType==7){
-      line(leftX+(colWidth/2),topY+(rowHeight/2),rightX+(colWidth/2),bottomY+(rowHeight/2));
+      line(leftX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
     }
     else if(shapeType==8){
 
