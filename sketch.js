@@ -3,15 +3,25 @@ var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationO
 var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'landscape', modeSelector;
 
 var bigHex = [
-				[280, 200], [280, 280], [200, 280], [200, 200], 
-				[280, 120], [360, 200], [360, 280], [280, 360], 
-                [200, 360], [120, 280], [120, 200], [200, 120], 
-				[280,40], [360, 120],[440, 200], [440, 280], 
+                [280, 200], [280, 280], [200, 280], [200, 200],
+                [280, 120], [360, 200], [360, 280], [280, 360],
+                [200, 360], [120, 280], [120, 200], [200, 120],
+                [280,40], [360, 120],[440, 200], [440, 280],
                 [360, 360], [280,440],[200,440], [120, 360],
-				[40, 280], [40, 200], [120, 120], [200, 40]
-			];
+                [40, 280], [40, 200], [120, 120], [200, 40]
+            ];
+
+var curRandomSeed;
+
+//landscape related variables
+var currentHour = 0, lastMillis = 0;
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+}
 
 function setup () {
+    curRandomSeed = int(focusedRandom(0, 100));
     //set up the canvas
     main_canvas = createCanvas(960, 500);
     main_canvas.parent('canvas-container');
@@ -23,18 +33,16 @@ function setup () {
     canvasSelector.value(1);
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
-	
-	modeSelector = createSelect();
-	modeSelector.option('wallpaper');
-	modeSelector.option('landscape');
-	modeSelector.value('landscape');
-	modeSelector.parent('mode-selector-holder');
-	modeSelector.changed(changeMode);
-	
+
+    modeSelector = createSelect();
+    modeSelector.option('wallpaper');
+    modeSelector.option('landscape');
+    modeSelector.value('landscape');
+    modeSelector.parent('mode-selector-holder');
+    modeSelector.changed(changeMode);
+
     //set up some of the global options for p5.js
-    noLoop();
     colorMode(HSB);
-    background(0);
     rectMode(CENTER);
 }
 
@@ -42,43 +50,61 @@ function setup () {
 
 function draw () {
     if(drawingMode === 'wallpaper'){
-		noFill();
-		drawPattern();
-	}
-	else if(drawingMode === 'landscape'){
-		drawLandscape();
-	}
+        noFill();
+        drawPattern();
+    }
+    else if(drawingMode === 'landscape'){
+        if(millis() > (lastMillis + 1000)){
+            lastMillis = millis();
+            if(currentHour == 23){
+                currentHour = 0;
+            }
+            else {
+                currentHour++;
+            }
+        }
+        noiseSeed(curRandomSeed);
+        strokeWeight(1);
+        drawLandscape();
+    }
 }
 
 function mousePressed() {
+    changeRandomSeed();
     clear();
     background(0);
     redraw();
 }
 
 function changeCanvasSize(){
-	if(drawingMode === 'wallpaper'){
-		canvasSize = canvasSelector.value();
-		if(canvasSize == 2){
-			main_canvas = resizeCanvas(1920, 1000);
-		}
-		else if(canvasSize == 3){
-			main_canvas = resizeCanvas(2880, 1500);  
-		}
-		else {
-			main_canvas = resizeCanvas(960, 500);
-		}
-		clear();
-		background(0);
-		redraw();
-	}
+    if(drawingMode === 'wallpaper'){
+        canvasSize = canvasSelector.value();
+        if(canvasSize == 2){
+            main_canvas = resizeCanvas(1920, 1000);
+        }
+        else if(canvasSize == 3){
+            main_canvas = resizeCanvas(2880, 1500);
+        }
+        else {
+            main_canvas = resizeCanvas(960, 500);
+        }
+        clear();
+        background(0);
+        redraw();
+    }
 }
 
 function changeMode(){
-	drawingMode = modeSelector.value();
-	clear();
-	background(0);
-	redraw();
+    drawingMode = modeSelector.value();
+    if(drawingMode === 'wallpaper'){
+        noLoop();
+    }
+    else if(drawingMode === 'landscape'){
+        loop();
+    }
+    clear();
+    background(0);
+    redraw();
 }
 
 var hueRanges = [
@@ -96,6 +122,7 @@ var hueRanges = [
 function drawPattern(){
     var colour = "", xAxis = 0, yAxis = 0;
     hueRanges = shuffleArray(hueRanges);
+    background(0);
     //iniitial translation to get the pattern started in the place
     translate(-480, -310);
     //loop through the y axis
@@ -103,118 +130,186 @@ function drawPattern(){
         //loop through the x axis
         while(xAxis < canvasSize){
             //this loop is used to draw a hexagon shaped collection of glyphs for every array in the hueRanges array
-        	for(var hueIterator = 0; hueIterator <= 8; hueIterator++){		
+            for(var hueIterator = 0; hueIterator <= 8; hueIterator++){
                 //find the values of fromColour and toColour for this iteration
-        		var h = focusedRandom(hueRanges[hueIterator][0], hueRanges[hueIterator][1], 10, hueRanges[hueIterator][2]);
-        		var fromColour = color(h, 100, 100);
-        		var toPointer = hueIterator + 6;
-        		if(toPointer > 8){
-        			toPointer = toPointer - 9;
-        		}
-        		h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
-        		var toColour = color(h, 100, 100);
-        		
-                strokeWeight(0.3);
-        		var lerpAmount = 0.3333;
+                var h = focusedRandom(hueRanges[hueIterator][0], hueRanges[hueIterator][1], 10, hueRanges[hueIterator][2]);
+                var fromColour = color(h, 100, 100);
+                var toPointer = hueIterator + 6;
+                if(toPointer > 8){
+                    toPointer = toPointer - 9;
+                }
+                h = focusedRandom(hueRanges[toPointer][0], hueRanges[toPointer][1], 10, hueRanges[toPointer][2]);
+                var toColour = color(h, 100, 100);
+
+                var lerpAmount = 0.25;
 
                 //loop through the positions of the bigHex array
-        		for (var pos = 0; pos < bigHex.length; pos++) {
+                for (var pos = 0; pos < bigHex.length; pos++) {
                     //translate to the co-ordinates where the glyph will be drawn
-        			translate(bigHex[pos][0], bigHex[pos][1]);
+                    translate(bigHex[pos][0], bigHex[pos][1]);
                     //set the shape, number of rotations and colour
                     shape = random(shapeOptions);
-        			numOfRotations = random(rotationOptions);
-        			colour = lerpColor(fromColour, toColour, lerpAmount);
+                    numOfRotations = random(rotationOptions);
+                    colour = lerpColor(fromColour, toColour, lerpAmount);
 
-                    //this is where the glyph is created
-        			for (var i = 0; i < (numOfRotations * 2); i ++) {
-                        //the shape is draw five times with different levels of opacity to create interesting textures
-        				for (var j = 0; j <=5; j++) {
-        					stroke(colour, 255 - (8*j));
-        					//call the function as detemined by the variable shape
-        					//rect and ellipse are built in p5.js
-        					//tri,hexa & octa are defined in this file
-        					window[shape](0, 20, 20 + (j*3), 20 + (j*3));
-        				}
-        				rotate(PI/numOfRotations);
-        			}
+                    drawGlyph(colour, numOfRotations, shape, 1);
 
                     //change the lerpAmount at certain points of the iteration
-        			if(pos == 3){
-        				lerpAmount = 0.6666;
-        			}
-        			if(pos == 11){
-        				lerpAmount = 1;
-        			}
-        			//reset the translation from the beginnig of the loop
-        			translate(-bigHex[pos][0], -bigHex[pos][1]);
-        		}
+                    if(pos == 3){
+                        lerpAmount = 0.5;
+                    }
+                    if(pos == 11){
+                        lerpAmount = 1;
+                    }
+                    //reset the translation from the beginnig of the loop
+                    translate(-bigHex[pos][0], -bigHex[pos][1]);
+                }
 
-        		//draw the hexagon outline that groups all the glyphs together
-        		beginShape();
+                //draw the hexagon outline that groups all the glyphs together
+                beginShape();
                 strokeWeight(2);
-				stroke(colour, 255);
-        		for (var pos = 12; pos < bigHex.length; pos++) {
-        			vertex(bigHex[pos][0], bigHex[pos][1]);
-        		}
-        		endShape(CLOSE);
+                stroke(colour, 255);
+                for (var pos = 12; pos < bigHex.length; pos++) {
+                    vertex(bigHex[pos][0], bigHex[pos][1]);
+                }
+                endShape(CLOSE);
 
 
                 //translations required to draw the next iteration in the right place
                 translate(480, 0);
-        		if(hueIterator == 2 || hueIterator == 5){
-        			translate(-1200, 320);
+                if(hueIterator == 2 || hueIterator == 5){
+                    translate(-1200, 320);
                     if(hueIterator == 5){
                         translate(-480, 0);
                     }
-        		}
-        	}
+                }
+            }
             //translations required to draw the next iteration in the right place
             translate(0, -640);
             xAxis++;
         }
         //translations required to draw the next iteration in the right place
         if(canvasSize == 2){
-            translate(-3120, 960);    
+            translate(-3120, 960);
         }
         if(canvasSize == 3){
-            translate(-4080, 960);    
+            translate(-4080, 960);
         }
         xAxis = 0;
         yAxis++;
     }
 }
 
+
+function drawGlyph(colour, numOfRotations, shape, size){
+    scale(size);
+    //this is where the glyph is created
+    strokeWeight(0.3);
+    for (var i = 0; i < (numOfRotations * 2); i ++) {
+        //the shape is draw five times with different levels of opacity to create interesting textures
+        for (var j = 0; j <=5; j++) {
+            stroke(colour, 255 - (8*j));
+            //call the function as detemined by the variable shape
+            //rect and ellipse are built in p5.js
+            //tri,hexa & octa are defined in this file
+            window[shape](0, 20, 20 + (j*3), 20 + (j*3));
+        }
+        rotate(PI/numOfRotations);
+    }
+}
+
 function drawLandscape() {
-	//sky
-	fill(200, 200, 200);
-	rect(480, 90, 960, 200);
-	
-	fill(211);
-	stroke(0);
-	translate(40, 120);
-	var xLimit = 11;
-	for(var y=0; y<=14; y++){
-		for(var x=0; x<=xLimit; x++){
-			//top
-			fill(120, 100, 70);
-			quad(0, 20, 40, 40, 0, 60, -40, 40);
-			//left side
-			fill(23, 82, 85);
-			quad(-40, 40, 0, 60, 0, 100, -40, 80);
-			//right side
-			fill(23, 82, 85);
-			quad(40, 40, 0, 60, 0, 100, 40, 80);
-			translate(80, 0);
-		}
-		if((y % 2) == 0){
-			xLimit = 12;
-		}
-		else {
-			xLimit = 11;
-		}
-		translate(-1000, 20);
-	}
+    //sky
+    var day = color(200, 200, 200);
+    var night = color(0, 0, 0);
+    //var colour = lerpColor(day, night, ((currentHour/100) * 8));
+    if(currentHour > 6 && currentHour < 18){
+        var colour = day;
+    }
+    else {
+        var colour = night;
+    }
+    fill(colour);
+    rect(480, 90, 960, 200);
+
+    stroke(0);
+    translate(40, 120);
+    var xLimit = 11;
+    for(var y=0; y<=15; y++){
+        for(var x=0; x<=xLimit; x++){
+            var noiseValue = noise(x, y);
+            drawLandscapeTile(noiseValue);
+            translate(80, 0);
+        }
+        if((y % 2) == 0){
+            xLimit = 12;
+        }
+        else {
+            xLimit = 11;
+        }
+        translate(-1000, 20);
+    }
+}
+
+function drawLandscapeTile(v){
+    var top, sides;
+    if (v < 0.2) {
+        top = color(184, 100, 98);
+        sides = color(23, 82, 85);
+        translate(0, 10);
+    }
+    else if (v < 0.75) {
+        top = color(120, 100, 70);
+        sides = color(23, 82, 85);
+    }
+    else {
+        top = color(120, 100, 70);
+        sides = color(23, 82, 85);
+        if (v > 0.85) {
+            top = color(0, 0, 100);
+            sides = color(23, 82, 85);
+        }
+        translate(0, -(v * 40));
+    }
+
+
+    //regular cube
+    if (v < 0.75) {
+        fill(top)
+        //top
+        quad(0, 20, 40, 40, 0, 60, -40, 40);
+        fill(sides);
+        //left side
+        quad(-40, 40, 0, 60, 0, 100, -40, 80);
+        //right side
+        quad(40, 40, 0, 60, 0, 100, 40, 80);
+
+    }
+    //mountain
+    else {
+        fill(sides);
+        //left side
+        quad(0, 20, 0, 60, 0, 100, -40, 80);
+        //right side
+        quad(0, 20, 0, 60, 0, 100, 40, 80);
+        fill(top)
+        //top
+        quad(0, 20, 27, 60, 0, 73, 0, 73);
+        quad(0, 20, 0, 73, 0, 73, -27, 60);
+    }
+
+
+
+    //reset any translations
+    if (v < 0.2) {
+        translate(0, -10);
+    }
+    else if (v < 0.75) {
+        //do nothing
+    }
+    else {
+        translate(0, +(v * 40));
+    }
 }
 
 
