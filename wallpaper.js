@@ -5,9 +5,9 @@ top of eachother.
 
 function Wallpaper(rows,cols,rowHeight,colWidth){
 
-  var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,-1,-1,255);
-  var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,-1,-1,255);
-  var pattern3 = new Pattern(rows,cols,rowHeight,colWidth,150,-1,-1,255);
+  var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,255,255,-1);
+  var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,255,255,-1);
+  var pattern3 = new Pattern(rows,cols,rowHeight,colWidth,150,255,255,-1);
 
 
   this.drawWallpaper = function(){

@@ -1,9 +1,6 @@
 17.2.MDDN342 PS3
 
-(Note - For this iteration I have refactored a lot of the code to allow for a more
-  dynamic usage of the shape generator. You can now get each layer of shapes to
-  draw only in certain areas and in different colors. Through this I will use it
-  to create a "sea" in my landscape by layering the pattern on top of itself.)
+
 
 This program draws either a wallpaper, or a landscape.
 You can press the spacebar to switch between the modes.
@@ -20,4 +17,6 @@ a complex pattern.
 
 --Landscape--
 
-TBD
+This is the start of an ocean landscape. I was planning on using the pretty glowing
+shapes as a 'bubble' effect for the ocean. However I don't intend on using this idea
+to continue at the moment, as I feel I could go in a more original direction.

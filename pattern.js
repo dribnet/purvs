@@ -93,13 +93,14 @@ this.randomizeValues();
 
 //goes through all the rows and cols and determines
 // the shape type
-  this.drawPattern = function (){
+  this.drawPattern = function (min,max){
+
 
 
     strokeWeight(1);
     var darkness = 20;
 
-      for(var row = 0; row< rows-1; row++){
+      for(var row = min; row< max-1; row++){
         for(var col = 0; col< cols-1; col++){
 
             var sType = shapeTypes[row][col];
@@ -118,6 +119,26 @@ this.randomizeValues();
         }
 
       }
+
+
+  }
+
+  this.drawEnvironment = function(){
+
+    for(var row = min; row< max-1; row++){
+      for(var col = 0; col< cols-1; col++){
+
+        var sColor = color(0,0);
+        var sType = shapeTypes[row][col];
+
+        this.drawShape(row,col,sColor,0,sType,2,0);
+
+      }
+
+    }
+
+
+
 
 
   }

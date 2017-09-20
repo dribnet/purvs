@@ -11,6 +11,7 @@ This class controls keyboard input, and other high level variables.
 
 var wallpaperMode;
 var wallpaper;
+var landscape;
 var rows = 40;
 var cols = 70;
 var colWidth;
@@ -18,8 +19,8 @@ var rowHeight;
 
 
 function setup () {
-  createCanvas(960, 500, P2D);
-  wallpaperMode = true;
+  createCanvas(650, 500, P2D);
+  wallpaperMode = false;
   colWidth = width/cols;
   rowHeight = height/rows;
   shapeNum = 18;
@@ -35,7 +36,7 @@ function drawCanvas(){
   drawWallpaper();
   }
   else{
-    background(0);
+  drawLandscape();
   }
 
 
@@ -111,5 +112,14 @@ function drawWallpaper(){
 
   wallpaper = new Wallpaper(rows,cols,rowHeight,colWidth);
   wallpaper.drawWallpaper();
+
+}
+
+
+//creates a new landscape and draws it
+function drawLandscape(){
+
+  landscape = new Landscape(rows,cols,rowHeight,colWidth);
+  landscape.drawLandscape();
 
 }
