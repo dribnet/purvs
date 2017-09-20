@@ -1,3 +1,5 @@
 17.2.MDDN342 PS3
 
-I wanted to make a pattern using triangles so I just played around with rotating them and it created this spiral effect.
+I have made the pattern more centred and also changed the colours of the triangles to red.
+
+Christina helped me try to make the triangles move by trying out her code from her previous projects. This didn't quite work but it did roatate the triangles in some way which made the pattern more tidy.

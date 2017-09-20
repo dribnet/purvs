@@ -1,10 +1,12 @@
 var curRandomSeed;
+var triangleMove = 1;
 
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
     var w = 960;
     var h = 500;
+
 }
 
 function changeRandomSeed() {
@@ -19,8 +21,8 @@ function draw () {
   background(255);
   resetFocusedRandom(curRandomSeed);
 
-  var x_steps = 1 + Math.floor(width / 40);
-  var y_steps = 1 + Math.floor(height / 40);
+  var x_steps = 1 + Math.floor(width / 20);
+  var y_steps = 1 + Math.floor(height / 20);
 
   // save grid locations
   var grid_locations = new Array(x_steps);
@@ -37,27 +39,23 @@ function draw () {
   }
 
   // draw a circle at each location
-     
+     triangleMove = triangleMove + 0.5;
+     function move (i){return Math.sin(triangleMove + i )* 10}
+
   for(var i=0;i<x_steps;i++) {
     for(var j=0;j<y_steps;j++) {
       var loc = grid_locations[i][j];
       var shade = focusedRandom(60, 150, 3);
         //strokeWeight(5);
-      fill(shade);
+      fill(shade,50,50);
       noStroke();
-     // ellipse(loc[0]+20, loc[1]+20, 40);
        push();
-        //triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
-        translate(loc[0]+15, loc[1]+15);
-        rotate(50, 250);
-        //scale(0.7);
+       	scale(0.8);
+        translate(loc[0]-130, loc[1]+15);
+        rotate(50 + move, 250);
         triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
         rotate(100,5);
-         //scale(0.7);
         triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
-        //rotate(100,5);
-        //scale(0.5);
-        //triangle (loc[0]+15, loc[1], loc[0]+30, loc[1]+30,loc[0], loc[1]+30);
         pop();      
     }
   }
