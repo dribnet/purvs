@@ -115,9 +115,9 @@ function colorFromValue(v) {
 	      //boxes being drawn
 	      //fill(focusedRandom(0, 255, 3));
 	      var x1 = x_grid_locations[i];
-	      var x2 = x_grid_locations[i+1];
+	      var x2 = x_grid_locations[i+1]+ j*20;
 	      var y1 = y_grid_locations[j];
-	      var y2 = y_grid_locations[j+1] + j*10;
+	      var y2 = y_grid_locations[j+1] + j*20;
 
 	      //rect(x1, y1, x2, y2);
 	      //henriFunShape.display();
@@ -152,10 +152,9 @@ function colorFromValue(v) {
 
 	      endShape();
           fill(0)
-	      triangle(0, 0, 200, 0, 0, 500);
-		  triangle(400, 0, 560, 0, 480, 500);
-	      triangle(960, 0, 960, 500, 760, 0);
-	      //rotate(PI/0.3)
+	      //triangle(0, 0, 200, 0, 0, 500);
+		  //triangle(400, 0, 560, 0, 480, 500);
+	      //triangle(960, 0, 960, 500, 760, 0);
 	    } 
 
 	      //rotate(PI/2.0);
@@ -301,10 +300,7 @@ function drawPattern () {
 
       endShape();
     } 
-
       }
-
-
 }
 
 function keyTyped() {
