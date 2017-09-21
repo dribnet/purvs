@@ -1,48 +1,66 @@
-//This code was modified from flemin's original sketch 'pattern' found on OpenProcessing - https://www.openprocessing.org/sketch/386139
+//This code was modified from the example Hexagon grid code give by Tom White.
 
 
 //Global Variables
 
-var Num = focusedRandom(15, 25);
 
-function setup() {
-    createCanvas(960, 500);
+var curRandomSeed;
+
+function setup () {
+  curRandomSeed = int(focusedRandom(0, 100));
+  createCanvas(960, 500);
+}
+
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+}
+
+function mousePressed() {
+    changeRandomSeed();
 }
 
 function draw () {
-    background(20, 20, 20);
+  background(255);
+  resetFocusedRandom(curRandomSeed);
 
-    var w = width;
-    var h = height;
+  var x_steps = 1 + Math.floor(width / 80);
+  var y_steps = 1 + Math.floor(height / 80);
 
-    for (k = 0; k < 5; k += 1) {
-
-        translate(0, h/4);
-
-        for (j = 0; j < 5; j += 1) {
-
-            translate(w / 6, 0);
-
-            for (i = 0; i < 360; i += 7) {
-
-                var r = 100 * sin(radians(Num));
-                var x = sin(radians(i)) * r;
-                var y = cos(radians(i)) * r;
-
-                push();
-                translate(x, y);
-                rotate(radians(-2 * i + Num / 2));
-
-                noFill();
-                stroke(50, 157, 234, 200);
-                ellipse(-y, x, 8, 8);
-                ellipse(y, -x, 8, 8);
-
-                pop();
-
-            }
-        }
+  // save grid locations
+  var grid_locations = new Array(x_steps);
+    for(var i=0;i<x_steps;i++) {
+    grid_locations[i] = new Array(y_steps);
+    for (var j = 0; j < y_steps; j++) {
+      x_pos = i * 80;
+      y_pos = j * 70;
+      if((j % 2) == 0){
+        x_pos = x_pos + 40;
+      }
+      grid_locations[i][j] = [x_pos, y_pos];
     }
+  }
+
+  // draw a circle at each location
+  for(var i=0;i<x_steps;i++) {
+    for(var j=0;j<y_steps;j++) {
+      var loc = grid_locations[i][j];
+      var shade = focusedRandom(60, 150, 3);
+      fill(shade);
+      ellipse(loc[0]+40, loc[1]+40, 80);
+    }
+  }
+
+  // draw a few random connections
+  // for(var i=0; i<10; i++) {
+  //   var rand_x = Math.floor(focusedRandom(0, x_steps));
+  //   var rand_y = Math.floor(focusedRandom(0, y_steps));
+  //   var loc1 = grid_locations[rand_x][rand_y];
+  //   var loc2 = grid_locations[rand_x][rand_y];
+  //   var shade = focusedRandom(200, 230, 2);
+  //   fill(shade);
+  //   line(loc1[0], loc1[1],loc2[0], loc2[1]);
+  // }
+
 }
 
 function keyTyped() {
