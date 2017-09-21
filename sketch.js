@@ -1,8 +1,8 @@
 
 
+var circles = [];
 
-var rad = 0;
-
+var circle;
 
 var ponds = [];
 
@@ -10,50 +10,75 @@ function setup() {
   createCanvas(960, 500);
 
   noiseSeed(random(1000));
+
+
   for (var i = 0; i < 4; i++){
-  		var newPond = new generatePondSet(i*width/5, height/2);
+  		var newPond = new Pondset(i*width/5, height/2);
   		ponds.push(newPond);
 	}
+
+
 }
+
+//sampling code from https://github.com/CodingTrain/Rainbow-Code/blob/master/Tutorials/P5JS/p5.js/9.5_p5.js_uniform_random_sampling/sketch.js
 
 
 function draw() {
 	background(199, 219, 249);
+
 
 	for (var i = 0; i < 4; i++){
   		ponds[i].display();
 	}
 }
 
-function generatePondSet(x, y){
+
+
+
+function Pondset(x, y){
 	
 
 	this.xOff = random(1000);
    this.rand = random(25, 35);
+   this.angle = Math.random()*Math.PI*2;
 
-  this.lotusX = random(rad-100, rad+100);
-  this.lotusY = random(rad-100, rad+100);
+
+
+  this.rad = 0;
 
 	this.leafX = x;
   this.leafY = y;
+  this.randS =  random(0.5, 0.9);
+  this.showLotus = Math.floor(random(0, 2));
+
+  this.lotusScale = random(0.5, 1.2);
 
   this.display = function() {
+  	push();
 
   	this.generateLeafShape(this.leafX, this.leafY);
-  	this.generateLotusShape(this.leafX + this.lotusX, this.leafY + this.lotusY, 10);
+
+  this.lotusX = Math.cos(this.angle)*this.rad;
+this.lotusY = Math.sin(this.angle)*this.rad;
+
+
+  	this.generateLotusShape(this.leafX + this.lotusX, this.leafY + this.lotusY, this.lotusScale, this.showLotus);
+  	pop();
   }
   this.generateLeafShape=function(x, y){
 	push();
 	translate(x, y)
-	scale(0.8);
+	
     beginShape();
 	fill(69, 91, 52);
 	strokeWeight(0.5);
+
 	for (var i = 0; i < 50; i++) {
 	    var ang = map(i, 0, 50, 0, TWO_PI);
-	    var rad = 200 * noise(i * 0.01+this.xOff, i*0.01);
-	    var x = rad * cos(ang);
-	    var y = rad * sin(ang);
+	    this.rad = 200 * noise(i * 0.01+this.xOff, i*0.01);
+	    var x = this.rad * cos(ang);
+	    var y = this.rad * sin(ang);
+	
 
 	     if (i < 11 && i > 0){
 	      x+= this.rand+((i/3)-15);
@@ -69,8 +94,12 @@ function generatePondSet(x, y){
 	      x-=5;
 	    }
     	curveVertex(x, y);
+
   	}
+
   	endShape(CLOSE);
+  	fill(255, 255, 255, 0);
+  	ellipse(0, 0, this.rad*2, this.rad*2);
 
   	//lines
 
@@ -78,9 +107,9 @@ function generatePondSet(x, y){
 
   	for (var i = 0; i < 50; i++) {
         var ang = map(i, 0, 50, 0, TWO_PI);
-	    rad = 200 * noise(i * 0.01+this.xOff, i*0.01);
-	    var x = rad * cos(ang);
-	    var y = rad * sin(ang);
+	    this.rad = 200 * noise(i * 0.01+this.xOff, i*0.01);
+	    var x = this.rad * cos(ang);
+	    var y = this.rad * sin(ang);
 
         if (i < 11 && i > 0){
       		x+= this.rand+((i/3)-15);
@@ -100,12 +129,13 @@ function generatePondSet(x, y){
   }
 
  
-  this.generateLotusShape = function(x, y, s){
+  this.generateLotusShape = function(x, y, s, v){
+  	if (v==1){
 
-  	this.generatePetalShape = function(ang, size){
+  	this.generatePetalShape = function(ang, s){
 	  	push();
 		rotate(ang);
-		scale(size, size);
+		scale(s, s);
 		beginShape();
 		curveVertex(20, 5);
 		curveVertex(0, 0);
@@ -124,14 +154,13 @@ function generatePondSet(x, y){
 	strokeWeight(0.5);
 	//draw petals
 	angl = 0;
-	size = 1;
+	
+	
 	for (var i = 0; i < 40; i++){
 		if (i >=20){
-			size = 0.7;
-		} else {
-			size = 1;
-		}
-		this.generatePetalShape(angl, size);
+			s= this.randS;
+		} 
+		this.generatePetalShape(angl, s);
 		angl += 15;
 	}
 
@@ -145,28 +174,24 @@ function generatePondSet(x, y){
 	fill(250, 200, 100, 50);
 
 
-	radius = 7.5;
+	this.radius = 7.5;
 	numPoints = 20;
 	angle = TWO_PI/numPoints;
 
 	for (var i = 0; i < numPoints; i++){
 		push();
 		rotate(360/numPoints*i);
-		ellipse(radius*sin(angle*i), radius*cos(angle*i), 5, 3);
-		radius = 6;
+		ellipse(this.radius*sin(angle*i), this.radius*cos(angle*i), 5, 3);
+		this.radius = 6;
 		scale(0.6);
-		ellipse(radius*sin(angle*i), radius*cos(angle*i), 5, 3);
+		ellipse(this.radius*sin(angle*i), this.radius*cos(angle*i), 5, 3);
 		pop();
 	}
 	pop();
 }
+}
 
 //code borrowed from: https://processing.org/discourse/beta/num_1207766233.html 
-
-
-
-
-
 
 }
 
@@ -175,9 +200,9 @@ function generatePondSet(x, y){
 
 function refreshPattern(){
 	ponds = [];
+ 
   for (var i = 0; i < 4; i++){
-
-  		var newPond = new generatePondSet(i*width/5, height/2);
+  		var newPond = new Pondset(i*width/5, height/2);
   		ponds.push(newPond);
 	}
 
