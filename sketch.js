@@ -1,6 +1,6 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
-var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'landscape', modeSelector;
+var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'wallpaper', modeSelector;
 
 var bigHex = [
                 [280, 200], [280, 280], [200, 280], [200, 200],
@@ -37,9 +37,10 @@ function setup () {
     modeSelector = createSelect();
     modeSelector.option('wallpaper');
     modeSelector.option('landscape');
-    modeSelector.value('landscape');
+    modeSelector.value('wallpaper');
     modeSelector.parent('mode-selector-holder');
     modeSelector.changed(changeMode);
+    changeMode();
 
     //set up some of the global options for p5.js
     colorMode(HSB);
@@ -166,14 +167,9 @@ function drawPattern(){
                 }
 
                 //draw the hexagon outline that groups all the glyphs together
-                beginShape();
-                strokeWeight(2);
-                stroke(colour, 255);
-                for (var pos = 12; pos < bigHex.length; pos++) {
-                    vertex(bigHex[pos][0], bigHex[pos][1]);
+                for (var adjuster = -2; adjuster <= 2; adjuster++) {
+                    drawHexOutline(colour, adjuster * 2);
                 }
-                endShape(CLOSE);
-
 
                 //translations required to draw the next iteration in the right place
                 translate(480, 0);
@@ -208,7 +204,7 @@ function drawGlyph(colour, numOfRotations, shape, size){
     for (var i = 0; i < (numOfRotations * 2); i ++) {
         //the shape is draw five times with different levels of opacity to create interesting textures
         for (var j = 0; j <=5; j++) {
-            stroke(colour, 255 - (8*j));
+            stroke(colour);
             //call the function as detemined by the variable shape
             //rect and ellipse are built in p5.js
             //tri,hexa & octa are defined in this file
@@ -216,6 +212,33 @@ function drawGlyph(colour, numOfRotations, shape, size){
         }
         rotate(PI/numOfRotations);
     }
+}
+
+function drawHexOutline(colour, adjuster = 0){
+    //draw the hexagon outline that groups all the glyphs together
+    beginShape();
+    strokeWeight(2);
+    colour._array[3] = 1 - (0.2 * abs(adjuster));
+    stroke(colour);
+    var xPos, yPos;
+    for (var pos = 12; pos < bigHex.length; pos++) {
+        var xPos = bigHex[pos][0];
+        var yPos = bigHex[pos][1];
+        if(xPos > 240){
+            xPos = xPos + adjuster;
+        }
+        else {
+            xPos = xPos - adjuster;   
+        }
+        if(yPos > 240){
+            yPos = yPos + adjuster;
+        }
+        else {
+            yPos = yPos - adjuster;   
+        }
+        vertex(xPos, yPos);
+    }
+    endShape(CLOSE);
 }
 
 function drawLandscape() {
