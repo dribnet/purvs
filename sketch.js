@@ -18,8 +18,8 @@ function mousePressed() {
 }
 
 function draw () {
-//  background (165, 206, 183);
-    background (181, 219, 179);
+  background (214,183,85);
+   // background (181, 219, 179);
   resetFocusedRandom(curRandomSeed);
 
   var x_steps = 1 + Math.floor(width / 20);
