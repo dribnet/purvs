@@ -19,7 +19,7 @@ function mouseClicked(){
 function drawShapes(){
 	clear();
 	noStroke();
-	background(55,55,55);
+	background(230,230,230);
 
 	translate(shapeSize/2, shapeSize/2);
 
@@ -73,12 +73,13 @@ function createPatternSpiral(x, y, r){
 
 	var amount = 10;
 	var type = random(0, 1);
+	var r2 = 0;
 
 	for(var j = 0; j < amount; j++){
 		push();
-		rotate(random(0,360));
+		rotate(random(0,300));
 
-		var r2 = j*random(4, 10);
+		r2 += random(2, 10);
 		var yr = 1 + j * 5
 	
 		arc(x,y, r2, r2, 0, random(15,360));
