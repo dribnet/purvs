@@ -13,17 +13,18 @@ var wallpaperMode;
 var wallpaper;
 var landscape;
 var rows = 40;
-var cols = 70;
+var cols = 80;
 var colWidth;
 var rowHeight;
 
 
 function setup () {
-  createCanvas(650, 500, P2D);
+  createCanvas(960, 500, P2D);
   wallpaperMode = false;
   colWidth = width/cols;
   rowHeight = height/rows;
   shapeNum = 18;
+  //translate(width/3,0);
   //wallpaper = new Wallpaper(rows,cols,rowHeight,colWidth);
   drawCanvas();
 

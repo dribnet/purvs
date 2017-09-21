@@ -14,6 +14,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
 
   var randomNum;
   var shapeNum = 18;
+  var totalPopulation;
 
 
   var shapeTypes = new Array(rows);
@@ -47,6 +48,56 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
   }
 
 
+  this.initPopulations = function(row,col){
+
+    var empty = 25;
+    var bigRect = 1;
+    var smallRect = 1;
+    var grass = 5;
+    var bigCircle = 1;
+    var flatLine = 5;
+    var rock = 5;
+    var tree = 10;
+    var rect4 = 1;
+    var circle4 = 1;
+
+
+    var populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4];
+    var totalPopulation = 0;
+
+    for(var i = 0; i < populations.length; i++){
+        totalPopulation = totalPopulation + populations[i];
+    }
+
+    var total = 0;
+    var shape;
+
+    var rand = (round(random(0,totalPopulation-1)));
+
+    for(var i = 0; i < populations.length; i++){
+
+
+      total=total+populations[i];
+      if(total > rand){
+        shape = i;
+        break;
+      }
+
+
+    }
+
+
+
+
+    print(" shape = " + shape);
+
+    return shape;
+
+
+
+  }
+
+
 
   // randomize all values for drawing the shapes
   this.randomizeValues = function (){
@@ -55,8 +106,9 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
     for(var row = 0; row< rows-1; row++){
       for(var col = 0; col< cols-1; col++){
 
-        randomNum = round(random(0,shapeNum));
-        shapeTypes[row][col] = randomNum;
+        //randomNum = round(random(0,shapeNum));
+        //shapeTypes[row][col] = randomNum;
+        shapeTypes[row][col] = this.initPopulations(row,col);
 
         if(red == -1){
           r[row][col] = random(0,255);
@@ -77,7 +129,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
           b[row][col] = blue;
         }
 
-    
+
         shapeSize[row][col] = (colWidth/2)* round(random(1,3));
         shapeRotate[row][col] = random(-2,1);
 
@@ -131,7 +183,7 @@ this.randomizeValues();
     for(var row = 0; row< rows; row++){
       for(var col = 0; col< cols; col++){
 
-        var sColor = color(0,0);
+        var sColor = color(255);
         var sType = shapeTypes[row][col];
         var sSize = shapeSize[row][col];
 
@@ -171,8 +223,8 @@ this.randomizeValues();
 
 
     if(shapeType == 1){
-      rect(leftX+(colWidth/2),topY+(rowHeight/2),sSize,sSize);
-      rect(leftX+(colWidth/2)+sSize/4,topY+(rowHeight/2)+sSize/4,sSize/2,sSize/2);
+      rect(leftX,topY,sSize,sSize);
+      rect(leftX+sSize/4,topY+sSize/4,sSize/2,sSize/2);
     }
     else if(shapeType == 2){
       //noFill();
@@ -181,9 +233,9 @@ this.randomizeValues();
     }
     else if(shapeType == 3){
 
-      //ellipse(col*colWidth,row*rowWidth,sSize,sSize);
-      line(leftX+(colWidth/2),topY+(rowHeight/2),rightX+(colWidth/2),bottomY+(rowHeight/2));
-      line(rightX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
+      line(leftX,bottomY-(rowHeight/5),leftX,bottomY);
+      line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
+      line(rightX,bottomY-(rowHeight/5),rightX,bottomY);
     }
     else if(shapeType == 4){
         ellipse(leftX,topY,sSize,sSize);
@@ -197,6 +249,9 @@ this.randomizeValues();
     }
     else if(shapeType==7){
       line(leftX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
+      fill(sColor);
+      triangle(leftX,topY+(rowHeight),leftX+(colWidth/2),topY,rightX,topY+(rowHeight));
+
     }
     else if(shapeType==8){
 
