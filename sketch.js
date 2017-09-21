@@ -3,6 +3,7 @@ var col2;
 var curCol;
 var curRandomSeed;
 var radical;
+var glyphsize = 15  ;
 
 function setup() {
     createCanvas(960, 500);
@@ -10,43 +11,148 @@ function setup() {
     //background(245);
 
     col1 = color('#f8ff9e');
-    col2 = color('#ff4f4f');
+    col2 = color('#4286f4');
+    col3 = color('#f4fbff');
+    col4 = color('#ff6d74');
     curCol = color('#f4eb42');
 
     curRandomSeed = int(focusedRandom(0, 100));
-    radical = radialArrange(width / 2, height / 2, 3, 20, 30);
+    radical = radialArrange(width / 2, height / 2, 3, 30, 28);
 }
 
 function draw() {
     resetFocusedRandom(curRandomSeed);
     background(col1);
-    noFill();
+    stroke(col2);
+    fill(col2);
     stroke(col2);
 
     for (var i = radical.length - 1; i >= 0; i--) {
-        debugPoint(radical[i], 12);
+       // var anchsize = focusedRandom(0, 10);
+        if(i%3 == 0){
+            drawBoat(radical[i][0], radical[i][1], glyphsize,col2,col3,col4);
+        }
+        else if (i%3 == 1) {
+            drawWheel(radical[i][0], radical[i][1], glyphsize,col2,col4);
+        }
+        else{
+            drawAnchor(radical[i][0], radical[i][1], glyphsize*0.75 ,col2)
+        }
     }
 
+}
+
+
+function drawBoat(x, y, siz,c1,c2,c3) {
+    push();
+    translate(x,y);
+    strokeWeight(siz*0.1);
+    fill(c1);
+    sailCol = focusedRandom(0,1);
+
+    arc(0,0,siz,siz,40,140,CHORD);
+    line(0,siz*0.25,0,-siz*0.45);
+
+    
+    stroke(c1);
+    fill(c2);
+    strokeWeight(siz*0.0025);
+    if(sailCol>9.995){
+        push();
+        fill(c3);
+        triangle(-0.1*siz,-0.4*siz,-0.4*siz,0.1*siz,-0.1*siz,0.1*siz);
+        triangle(0.1*siz,-0.4*siz,0.4*siz,0.1*siz,0.1*siz,0.1*siz);
+        pop();
+    }
+    else if(sailCol < 0.15){
+        push();
+        fill(c3);
+        triangle(-0.1*siz,-0.4*siz,-0.4*siz,0.1*siz,-0.1*siz,0.1*siz);
+        pop();
+        triangle(0.1*siz,-0.4*siz,0.4*siz,0.1*siz,0.1*siz,0.1*siz);
+
+    }
+
+    else if(sailCol < 0.3){
+        push();
+        triangle(-0.1*siz,-0.4*siz,-0.4*siz,0.1*siz,-0.1*siz,0.1*siz);
+        fill(c3);
+        triangle(0.1*siz,-0.4*siz,0.4*siz,0.1*siz,0.1*siz,0.1*siz);
+        pop();
+
+    }
+    else{
+        triangle(-0.1*siz,-0.4*siz,-0.4*siz,0.1*siz,-0.1*siz,0.1*siz);
+        triangle(0.1*siz,-0.4*siz,0.4*siz,0.1*siz,0.1*siz,0.1*siz);
+    }
+
+    pop();
+}
+
+function drawWheel(x, y, siz,c1,c2) {
+    push();
+    noFill();
+    strokeWeight(siz * 0.06);
+    translate(x, y);
+    stroke(c1);
+    var ringCol = focusedRandom(0,1);
+
+    push()
+    if(ringCol <0.){stroke(c2);}
+    ellipse(0, 0, siz * 0.85, siz * 0.85);
+    pop();
+
+    push();
+    if(ringCol>0.8){stroke(c2);}
+    ellipse(0, 0, siz * 0.5, siz * 0.5);
+    pop();
+
+    strokeWeight(siz*0.075);
+          for (var i = 0; i < 8; i++) {
+        var p = findNewPoint([0, 0], (360 / 8) * i, siz / 2);
+        line(0, 0, p[0], p[1]);
+    }
+
+
+    pop();
+}
+
+function drawAnchor(x, y, siz,c1) {
+    push();
+    strokeWeight((siz+ siz / 2) * 0.1);
+    translate(x, y);
+    noFill();
+    line(0, -siz* 0.3, 0, siz/ 2);
+
+    ellipse(0, -siz* 0.45, (siz+ siz / 2) * 0.2, (siz+ siz / 2) * 0.2);
+
+    noFill();
+    beginShape();
+    curveVertex(0, -siz* 0.5);
+    curveVertex(-siz * 0.4, siz* 0.1);
+    curveVertex(0, siz* 0.5);
+    curveVertex(siz * 0.4, siz* 0.1);
+    curveVertex(0, -siz* 0.5);
+    endShape();
+
+    pop();
 }
 
 
 function radialArrange(x, y, seed, steps, stepSeed) {
 
     var all = [
-        [x, y]
     ];
-	var angle;
-   var points_in_ring = seed;
-    for (var step = 1; step <+ steps; step++) {
-    	points_in_ring = step*seed;
-        var current_radius = step*stepSeed;
-        console.log(current_radius);
-        	for (var g = 1; g <= points_in_ring; g++) {
-            	angle = (360 / points_in_ring) * g;
-            	angle += step*(360/seed/steps);
-            	all.push(findNewPoint([x,y], angle, current_radius));
-        	}
-    	console.log(step);
+    var angle;
+    var points_in_ring = seed;
+    for (var step = 1; step < +steps; step++) {
+        points_in_ring = step * seed;
+        var current_radius = step * stepSeed;
+        for (var g = 1; g <= points_in_ring; g++) {
+            angle = (360 / points_in_ring) * g;
+            angle += step * (360 / seed / steps);
+            all.push(findNewPoint([x, y], angle, current_radius));
+        }
         current_radius += stepSeed;
     }
     return all;
