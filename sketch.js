@@ -144,6 +144,7 @@ function colorFromValue(v) {
 	      //rotate(PI/Math.random());
 	      //rotate(PI/0.5);
 	      triangle(x1 + k, y1 + k, x2, y2 , x1, y1);
+	      //triangle(x1 + k/2, y1 + k/2, x2/2, y2/2 , x1/2, y1/2);
 	      //triangle(x1 + 5, y1 + 5, x2, y2 , x1, y1);
 	      //triangle(x1 + k, y1 + k, x1, y1 , x2, y1);
 	      //triangle(x2+ k,  y1+ k, x1, y1, x1 + k, y2 + k);
