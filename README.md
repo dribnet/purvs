@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-Did some experimenting with the work I did on Tuesday, so playing around with values (gap, size, rotation). Added in a function that draws the shape, so I can make it a complex shape with ease. This means I can draw a much more complex shape anywhere on screen without having to rewrite the code out everytime.
+Decided to take ideas from my old version, but wanted to start on a fresh design. Still using a repeating shape, but now playing around with positive and negative spaces. I'm using bezier curves overlayed on circles to try and create an interesting pattern. I feel its too random and will try to make it less so later on.

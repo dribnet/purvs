@@ -1,76 +1,110 @@
-gap = 50;
-sizeReduce = 3;
-rotation = 0;
+var shapeSize = 80; 
+var gap = 20;
 
 function setup () {
   createCanvas(960, 500);
+  drawShapes();
 }
 
 function draw () {
-	clear();
-	rectMode(CENTER);
-	translate(width/2,height/2);
 	
-	rotate(rotation);
-	size = 50;
-	//gap += Math.random()* 0.1;
-
-	drawAtTop(0, 0, size);
-	drawAtBot(0, 0, size);
 }
 
 function mouseClicked(){
-	gap = 10 + Math.random()*45;
-	rotation = Math.random()*360;
+	drawShapes();
+	shapeSize = random(80,120);
 }
 
-function drawAtTop(x, y, size) {
 
-	if(y > -height/2){
-		drawAtTop(x, y - gap, size-sizeReduce);
-		drawAtLeft(x, y, size-5);
-		drawAtRight(x, y, size-5);
+function drawShapes(){
+	clear();
+	noStroke();
+	background(55,55,55);
+
+	translate(shapeSize/2, shapeSize/2);
+
+	for(var i = 0; i * (shapeSize+gap) < width; i++){
+
+		for(var j = 0; j * (shapeSize+gap) < height*2; j++){
+
+			shape(0,0, shapeSize);
+
+			translate(shapeSize+gap, 0);
+		}
+
+		translate(-(shapeSize+gap)*j, (shapeSize+gap));
 	}
-
 }
 
-function drawAtBot(x, y, size) {
+function shape(x, y, r){
+	fill(230,230,230);
+	ellipse(x,y,r, r);
 
-	if(y < height/2){
-		drawAtBot(x, y + gap, size-sizeReduce);
-		drawAtLeft(x, y, size-5);
-		drawAtRight(x, y, size-5);
+	createPatternSpiral(x,y,r);
+}
+
+function createPattern(x, y, r){
+
+	fill(55,55,55);
+
+	var amount = random(1, 10);
+	beginShape();
+	for(var j = 0; j < amount; j++){
+		
+		for(var i = 0; i < 5; i++){
+			
+			var xr = random(x-r/2, x+r/2);
+			var yr = random(y-r/2, y+r/2);
+			var xr2 = random(x-r/2, x+r/2);
+			var yr2 = random(y-r/2, y+r/2);
+			curveVertex(xr2,yr2);
+		}
+		
 	}
+	endShape();
 }
 
-function drawAtLeft(x, y, size) {
+function createPatternSpiral(x, y, r){
 
-	shape(x, y, size, size);
+	fill(55,55,55);
+	stroke(55,55,55);
+	strokeWeight(4);
+	noFill();
+	bezier(x-random(0,r), y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+random(0,r), y+r/2,);
+	push();
+	//rotate(45);
+	translate(25,0);
+	bezier(x-r/2, y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+r/2, y+r/2,);
 
-	if(x < width/2)
-		drawAtLeft(x + gap, y, size-sizeReduce);
-}
+	translate(-50,0);
+	bezier(x-r/2, y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+r/2, y+r/2,);
 
-function drawAtRight(x, y, size) {
+	pop();
+	
 
-	shape(x, y, size, size);
+	var amount = random(5, 20);
+	var type = random(0, 1);
 
-	if(x > -width/2)
-		drawAtRight(x - gap, y, size-sizeReduce);
-}
+	for(var j = 0; j < amount; j++){
+		push();
+		rotate(random(0,360));
 
-function shape(x, y, w, h){
-	fill(0,0,0);
-	rect(x,y,w,h);
+		beginShape();
+		var xr = random(x-r/2, x+r);
+		var yr = random(y-r/2, y+r/2);
+	
 
-	fill(255,255,255);
-	rect(x,y,w/1.01,h/1.01);
-
-	fill(0,0,0);
-	rect(x,y,w/1.5,h/1.5);
-
-	fill(255,255,255);
-	rect(x,y,w/1.8,h/1.8);
+		if(type > 0.5){
+			vertex(x-r/2,y-r/2);
+			bezierVertex(xr, y-r/2, xr, y+r/2, x-r/2, y+r/2);
+		}
+		else{
+			vertex(x+r/2,y-r/2);
+			bezierVertex(xr, y-r/2, xr, y+r/2, x+r/2, y+r/2);		
+		}
+		endShape();
+		pop();
+	}
 }
 
 function keyTyped() {
