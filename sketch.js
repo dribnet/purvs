@@ -41,7 +41,6 @@ function draw () {
 }
 
 function changeMode(){
-
 	drawingMode = modeSelector.value();
 	clear();
 	background(0);
@@ -79,7 +78,7 @@ function colorFromValue(v) {
 
 
   function drawLandscape () {
-	  //resed.getFocusedRandom(curRandomSeed);
+
 	  noiseSeed(curRandomSeed);
 	  resetFocusedRandom(curRandomSeed);
 
@@ -115,9 +114,9 @@ function colorFromValue(v) {
 	      //boxes being drawn
 	      //fill(focusedRandom(0, 255, 3));
 	      var x1 = x_grid_locations[i];
-	      var x2 = x_grid_locations[i+1]+ j*20;
+	      var x2 = x_grid_locations[i+1];
 	      var y1 = y_grid_locations[j];
-	      var y2 = y_grid_locations[j+1] + j*20;
+	      var y2 = y_grid_locations[j] + j*20;
 
 	      //rect(x1, y1, x2, y2);
 	      //henriFunShape.display();
@@ -306,5 +305,24 @@ function drawPattern () {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  if (key == 'a') {
+  	if(drawingMode === 'wallpaper'){
+  		drawingMode = modeSelector.value();
+		noFill();
+		clear();
+		background(0);
+		redraw();
+		changeMode();
+		drawLandscape();
+	}
+	if(drawingMode === 'landscape'){
+		drawingMode = modeSelector.value();
+		clear();
+		background(0);
+		redraw();
+		changeMode();
+		drawPattern();
+	}
   }
 }
