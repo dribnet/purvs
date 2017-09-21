@@ -1,3 +1,5 @@
+var noiseVal = 0.0;
+var noiseValY = 10.0;
 function setup () {
   createCanvas(960, 500);
   fill(0);
@@ -14,6 +16,19 @@ function draw () {
 //The white lines are generated randomly
 function generate(){
 	fill(0);
+    rect(0,0,960,500);
+	fill(229,126,167);
+	//noStroke();
+	for(var i = 0; i < 15000; i++){
+	noiseVal += .01;
+	noiseValY += .01;
+	var posX = noise(noiseVal) * 960*1.5 - 240;
+	var posY = noise(noiseValY) * 500 *1.5 - 125;
+	ellipse(posX, posY, 30, 30);
+    }
+
+
+	/*fill(0);
     rect(0,0,960,500);
 	for (var i=0; i<20; i++) {
     for (var j=0; j<10; j++) {
@@ -46,7 +61,7 @@ function generate(){
       }
       this.shape(50*i, 25+50*j, 25);
     }
-  }
+  }*/
 }
 
 function shape(posX, posY, size){
