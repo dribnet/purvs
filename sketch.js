@@ -12,7 +12,7 @@ function draw () {
 
 function mouseClicked(){
 	drawShapes();
-	shapeSize = random(80,120);
+	shapeSize = random(80,80);
 }
 
 
@@ -68,41 +68,21 @@ function createPatternSpiral(x, y, r){
 
 	fill(55,55,55);
 	stroke(55,55,55);
-	strokeWeight(4);
+	strokeWeight(1);
 	noFill();
-	bezier(x-random(0,r), y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+random(0,r), y+r/2,);
-	push();
-	//rotate(45);
-	translate(25,0);
-	bezier(x-r/2, y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+r/2, y+r/2,);
 
-	translate(-50,0);
-	bezier(x-r/2, y-r/2, x+r/2, y-r/2, x-r/2, y+r/2, x+r/2, y+r/2,);
-
-	pop();
-	
-
-	var amount = random(5, 20);
+	var amount = 10;
 	var type = random(0, 1);
 
 	for(var j = 0; j < amount; j++){
 		push();
 		rotate(random(0,360));
 
-		beginShape();
-		var xr = random(x-r/2, x+r);
-		var yr = random(y-r/2, y+r/2);
+		var r2 = j*random(4, 10);
+		var yr = 1 + j * 5
 	
+		arc(x,y, r2, r2, 0, random(15,360));
 
-		if(type > 0.5){
-			vertex(x-r/2,y-r/2);
-			bezierVertex(xr, y-r/2, xr, y+r/2, x-r/2, y+r/2);
-		}
-		else{
-			vertex(x+r/2,y-r/2);
-			bezierVertex(xr, y-r/2, xr, y+r/2, x+r/2, y+r/2);		
-		}
-		endShape();
 		pop();
 	}
 }
