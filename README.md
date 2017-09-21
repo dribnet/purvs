@@ -16,6 +16,7 @@ a complex pattern.
 
 --Landscape--
 
-I changed the landscape to be a black and white, minimalist map. In the future I
-intend to add more shapes to make it seem more like an actual environment, such as
-trees and rivers. 
+The landscape uses a similar minimalist aesthetic to the wallpaper, but is this time
+black and white and focused on conveying symbols that represent a top-down environment.
+It uses simple shapes to represent things like trees and rocks. Each type of terrain
+has its own probability of spawning, which is changed each time 
