@@ -1,2 +1,4 @@
-Played arround with the general shap and look of the project color was changed to blue as I dont liek orange
-there are 2 grids of circles drawing on slightly off center from the first to colver the white gaps in the grid. theres also a smaller circle being drawn in the center of the circles having a 50% chance of showing up.
+"W" Key now switches to wall paper
+"L" key now switches to landscape
+
+I have made a new wall paper and moved my old one to the land scape area I still have no idea what to do for my land scape one so i will have to look in to that a bit more i have a general idea but i have no idea on how to execute it code wise so stuck at the drawing board for a bit. 
