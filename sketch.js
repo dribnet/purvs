@@ -6,6 +6,7 @@
 
 var curRandomSeed;
 
+
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
@@ -23,8 +24,8 @@ function draw () {
   background(255);
   resetFocusedRandom(curRandomSeed);
 
-  var x_steps = 1 + Math.floor(width / 80);
-  var y_steps = 1 + Math.floor(height / 80);
+  var x_steps = 1 + Math.floor(width / 50);
+  var y_steps = 1 + Math.floor(height / 50);
 
   // save grid locations
   var grid_locations = new Array(x_steps);
@@ -44,13 +45,16 @@ function draw () {
   for(var i=0;i<x_steps;i++) {
     for(var j=0;j<y_steps;j++) {
       var loc = grid_locations[i][j];
-      var shade = focusedRandom(60, 150, 3);
-      fill(shade);
-      ellipse(loc[0]+40, loc[1]+40, 80);
+
+      var rCol = focusedRandom(0,90);
+      fill(rCol,rCol,rCol,100);
+      stroke(20);
+      noStroke();
+      ellipse(loc[0]-60, loc[1]-60, 200);
     }
   }
 
-  // draw a few random connections
+  // //draw a few random connections
   // for(var i=0; i<10; i++) {
   //   var rand_x = Math.floor(focusedRandom(0, x_steps));
   //   var rand_y = Math.floor(focusedRandom(0, y_steps));
