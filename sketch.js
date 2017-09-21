@@ -3,7 +3,6 @@ var curRandomSeed;
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
-  ellipseMode(CORNERS);
 }
 
 function changeRandomSeed() {
@@ -14,56 +13,60 @@ function mousePressed() {
     changeRandomSeed();
 }
 
-function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
 function draw () {
   background(255);
   resetFocusedRandom(curRandomSeed);
 
   var x_steps = 1 + Math.floor(width / 30);
-  var y_steps = 1 + Math.floor(height / 30);
+  var y_steps = 1 + Math.floor(height / 80);
 
-  var x_grid_locations = new Array(x_steps);
-  var y_grid_locations = new Array(y_steps);
-  for(var i=0;i<x_steps;i++) {
-    var shift = focusedRandom(-10, 10, 2);
-    var cur_x = i * 30 + shift;
-    x_grid_locations[i] = cur_x;
-  }
-
-  for(var j=0;j<y_steps;j++) {
-    var shift = focusedRandom(-10, 10, 2);
-    var cur_y = j * 30 + shift;
-    y_grid_locations[j] = cur_y;
-  }
-
-  var shapes_to_draw = [];
-  for(var i=0;i<x_steps-1;i++) {
-    for(var j=0;j<y_steps-1;j++) {
-      var x1 = x_grid_locations[i];
-      var x2 = x_grid_locations[i+1];
-      var y1 = y_grid_locations[j];
-      var y2 = y_grid_locations[j+1];
-      var growth = focusedRandom(3, 7, 4);
-      shapes_to_draw.push([x1-growth, y1-growth, x2+growth, y2+growth])
+  // save grid locations
+  var grid_locations = new Array(x_steps);
+    for(var i=0;i<x_steps;i++) {
+    grid_locations[i] = new Array(y_steps);
+    for (var j = 0; j < y_steps; j++) {
+      x_pos = i * 80;
+      y_pos = j * 70;
+      if((j % 2) == 0){
+        x_pos = x_pos + 40;
+      }
+      grid_locations[i][j] = [x_pos, y_pos];
     }
   }
 
-  shuffleArray(shapes_to_draw);
-  for(var i=0; i<shapes_to_draw.length; i++) {
-    var cur_shape = shapes_to_draw[i];
-	var a = (focusedRandom(50, 255, 3));
+  // draw a circle at each location
+  for(var i=0;i<x_steps;i++) {
+    for(var j=0;j<y_steps;j++) {
+      var loc = grid_locations[i][j];
+
+    var a = (focusedRandom(50, 255, 3));
  	var b = (focusedRandom(50, 200, 10));
 	var c = (focusedRandom(3, 150, 30));
 	fill(a,b,c);
-   rect(cur_shape[0], cur_shape[1], cur_shape[2], cur_shape[3]);
+   // rect(cur_shape[0], cur_shape[1], cur_shape[2], cur_shape[3]);
+      //var shade = focusedRandom(60, 150, 3);
+      //fill(shade);
+     // ellipse(loc[0]+40, loc[1]+40, 80);
+      triangle(loc[0]+22, loc[1]+110, loc[0]+36, loc[1]+110, loc[0]+55, loc[1]+140);
+      triangle(loc[0]+22, loc[1]+120, loc[0]+36, loc[1]+120, loc[0]+55, loc[1]+170);
+      triangle(loc[0]+20, loc[1]+50, loc[0]+40, loc[1]+50, loc[0]+30, loc[1]+800);
+//triangle(loc[0]+22, loc[1]+120, loc[0]+36, loc[1]+120, loc[0]+55, loc[1]+170);
+
+      //triangle(loc[1]+0, loc[0]+100, loc[1]+120, loc[0]+100, loc[1]+100, loc[0]+80);
+    } //triangle(loc[2]+0, loc[0]+100, loc[2]+120, loc[0]+100, loc[2]+100, loc[0]+80);
   }
+
+  // draw a few random connections
+  // for(var i=0; i<10; i++) {
+  //   var rand_x = Math.floor(focusedRandom(0, x_steps));
+  //   var rand_y = Math.floor(focusedRandom(0, y_steps));
+  //   var loc1 = grid_locations[rand_x][rand_y];
+  //   var loc2 = grid_locations[rand_x][rand_y];
+  //   var shade = focusedRandom(200, 230, 2);
+  //   fill(shade);
+  //   line(loc1[0], loc1[1],loc2[0], loc2[1]);
+  // }
+
 }
 
 function keyTyped() {

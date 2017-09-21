@@ -1,6 +1,6 @@
 17.2.MDDN342 PS3
 
-Experimentation 03.
+Experimentation 04.
 
-randomseed color values
-shuffled rectangles instead of ellipses - a dramatic change!
+I made BAMBOO
+using randomised color, triangles in hex grid. shapes are over lapping so technically not a tessilation. 
