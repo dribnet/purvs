@@ -20,8 +20,8 @@ function cloudCurve (x, y, size, degrees) {
 	translate(x, y);
 	scale(size);
 	rotate(degrees);
-	fill(0);
-	stroke(255);
+	fill(0, 0, 0);
+	stroke(0, 0, 100);
 	strokeJoin(ROUND);
 	strokeWeight(0.5);
 	
@@ -49,51 +49,90 @@ function cloudCurve (x, y, size, degrees) {
 	pop();
 }
 
+function middleClouds (x, y, size, degrees, hue) {
+  push();
+  translate(x, y);
+  scale(size);
+  rotate(degrees);
+  fill(hue, 100, 75);
+  stroke(0, 0, 100);
+  strokeJoin(ROUND);
+  strokeWeight(0.5);
+
+  beginShape();
+  vertex(0, 0);
+  bezierVertex(3, 2, 7, 2, 10, 0);
+
+  vertex(10, 0);
+  bezierVertex(10, -3, 12, -6, 15, -4);
+
+  vertex(15, -4);
+  bezierVertex(19, 0, 15, 4, 12.5, 2);
+
+  endShape();
+  pop();
+}
+
 function draw () {
-  background(0);
+  background(0, 0, 0);
   resetFocusedRandom(curRandomSeed);
 
-  for(i=0; i<width; i+=20){
-    for(j=0; j<height; j+=25){
+  for(i=0; i<width; i+=25){
+    for(j=0; j<height; j+=30){
       var size = focusedRandom(-3, 4);
-      var degrees = focusedRandom(0, 360);
+      var degrees = focusedRandom(-90, 90);
       cloudCurve(i, j, size, degrees);
     }
   }
 
   push();
-  fill(0, 0, 0);
-  blendMode(SOFT_LIGHT);
+  fill(0, 0, 0);  
   noStroke();
-  ellipse(width/2, height/2, width*1.5);
+  blendMode(SOFT_LIGHT);
+  ellipse(width/2, height/2, width*1.3);
   pop();
 
   push();
-  fill(0, 0, 25);
-  noStroke();
+  noFill();
+  stroke(60, 100, 55);
+  strokeWeight(60);
   blendMode(SOFT_LIGHT);
   ellipse(width/2, height/2, width);
   pop();
 
   push();
-  fill(0, 0, 50);
-  noStroke();
+  noFill();
+  stroke(60, 100, 55);
+  strokeWeight(40);
   blendMode(SOFT_LIGHT);
-  ellipse(width/2, height/2, width/1.5);
+  ellipse(width/2, height/2, width/1.3);
   pop();
 
   push();
   noFill();
-  stroke(0, 0, 0);
-  strokeWeight(3);
-  ellipse(width/2, height/2, width/2.5);
+  stroke(60, 100, 55);
+  strokeWeight(20);
+  blendMode(SOFT_LIGHT);
+  ellipse(width/2, height/2, width/2.2);
   pop();
   
   push();
-  fill(0, 0, 100);
+  fill(0, 0, 0);
   noStroke();
   ellipse(width/2, height/2, width/3);
   pop();
+
+  // for(d=0; d<width/3; d+=20) {
+  //   for(f=0; f<height/3; f+=20){
+  //     var size = 10;
+  //     var degrees = 0;
+  //     var hue = focusedRandom(0, 345);
+
+  //     middleClouds(d, f, size, degrees, hue);
+  //   }
+  // }
+
+  middleClouds(width/2, height/2, 8, 0, 0);
 	
 
 }
