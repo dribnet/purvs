@@ -1,6 +1,7 @@
- var  drawingMode = 'wallpaper', modeSelector;
+ var  drawingMode;
 
 function setup() {
+drawingMode = 'wallpaper';
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
   background(0); 
@@ -8,16 +9,8 @@ function setup() {
   rectMode(CORNERS);
 
   var gridSize = 10;
-	
-  modeSelector = createSelect();
-  modeSelector.option('wallpaper');
-  modeSelector.option('landscape');
-  modeSelector.value('wallpaper');
-  modeSelector.parent('mode-selector-holder');
-  modeSelector.changed(changeMode);
-
-    noLoop();
-    background(0);
+  //   noLoop();
+  //   background(0);
     rectMode(CENTER);
 
 }
@@ -31,21 +24,24 @@ function setup() {
   // henriFunShape.endShape(CLOSE);
 
 function draw () {
+	background(0);
     if(drawingMode === 'wallpaper'){
 		noFill();
 		drawPattern();
+		//drawLandscape();
 	}
 	else if(drawingMode === 'landscape'){
+    	print("landscape")
 		drawLandscape();
 	}
 }
 
-function changeMode(){
-	drawingMode = modeSelector.value();
-	clear();
-	background(0);
-	redraw();
-}
+// function changeMode(){
+// 	drawingMode = modeSelector.value();
+// 	clear();
+// 	background(0);
+// 	redraw();
+// }
 
 
 
@@ -78,6 +74,8 @@ function colorFromValue(v) {
 
 
   function drawLandscape () {
+  	fill(0);
+  	rect(0, 0, 2000, 2000);
 
 	  noiseSeed(curRandomSeed);
 	  resetFocusedRandom(curRandomSeed);
@@ -306,23 +304,17 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
-  if (key == 'a') {
-  	if(drawingMode === 'wallpaper'){
-  		drawingMode = modeSelector.value();
-		noFill();
-		clear();
-		background(0);
-		redraw();
-		changeMode();
-		drawLandscape();
+if (key == ' ') {
+	
+  if(drawingMode === 'wallpaper') {
+			drawingMode = 'landscape';
+			//console.log("SPACE");
 	}
-	if(drawingMode === 'landscape'){
-		drawingMode = modeSelector.value();
-		clear();
-		background(0);
-		redraw();
-		changeMode();
-		drawPattern();
+  else if(drawingMode === 'landscape'){  		
+  			drawingMode = 'wallpaper';
+  			
+  		}
+		
 	}
-  }
+  
 }
