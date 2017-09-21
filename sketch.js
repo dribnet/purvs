@@ -3,26 +3,56 @@ var w = 960;
 var h = 500;
 var curRandomSeed;
 var strandColours;
+var sliders = [];
+var NUM_SLIDERS = 7;
+var vals;
+ var wobbleCol;
+
 
 //setup
 function setup () {
+  //sliders and selecters are based on code from earlier projects by Tom
+   faceSelector = createSelect();
+  faceSelector.option('Pattern1');
+  faceSelector.option('Pattern2');
+  faceSelector.option('Pattern3');
+  faceSelector.option('Landscape');
+  faceSelector.value('Landscape');
+  faceSelector.parent('selector1Container');
+    /* create the sliders */
+  for(i=1; i<=NUM_SLIDERS; i++) {
+    var slider = createSlider(0, 100, 50);
+    var parentStr = 'slider' + i + 'Container';
+    slider.parent(parentStr);
+    sliders.push(slider);
+  }
+
+  //creates a new value scaler and adds the sliders to it
+  vals = new ValueScaler();
+  vals.setSliders(sliders[0],sliders[1],sliders[2],sliders[3],sliders[4],sliders[5],sliders[6]);
+
+//basic canvas setup
   angleMode(DEGREES);
   createCanvas(w, h);
   strandColours = [[156,16,18],[179,14,19],[187,16,18],[206,16,62]];
   curRandomSeed = int(focusedRandom(0, 100));
+
+  //setup the randoms in the sliders
+  resetFocusedRandom(curRandomSeed);
+  vals.setFocusableRandoms(focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+  vals.setUnfocusedRandoms();
 }
 
 
 function draw () {
-
   resetFocusedRandom(curRandomSeed);
+
    background(100);
   centrePattern(w,h);
-
-
 }
 
 function centrePattern(xW,yH){
+  wobbleCol = vals.scaleVals(21,1,2,true);
   push();
   translate(xW/2,yH/2);
   rotate(100);
@@ -138,7 +168,10 @@ pop();
 
 //creates a line that deviates on only the y plane
 function wobblyXYLine(xW, yH){
-  var col = strandColours[0];
+var col = null;
+  if(wobbleCol == 2){col = [0,0,0]}
+    else{
+  col = strandColours[0];
   var colCheck = focusedRandom(0,100);
   if(colCheck > 25 && colCheck < 50){
 col = strandColours[1];
@@ -148,7 +181,7 @@ col = strandColours[1];
   }
    else if(colCheck>74){
     col = strandColours[3];
-  }
+  }}
   fill(col[0],col[1],col[2]);
   stroke(col[0],col[1],col[2]);
   beginShape();
@@ -253,6 +286,9 @@ function mouseClicked() {
 }
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  resetFocusedRandom(curRandomSeed);
+  vals.setFocusableRandoms(focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
+  vals.setUnfocusedRandoms();
   //lastSwapTime = millis();
 }
 
