@@ -1,3 +1,5 @@
 17.2.MDDN342 PS3
 
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+This is the first commit towards my pattern. This was modified from flemin's original sketch 'pattern' found on OpenProcessing - https://www.openprocessing.org/sketch/386139.
+
+I found the sketch interesting with the different shapes the ellipses made as the framecount went higher, So I replaced the framecount value with another variable to experiment with the patterns that could be created. I began seeing how tiling would look and will be experimenting with colour and opacity in the upcoming future too.
