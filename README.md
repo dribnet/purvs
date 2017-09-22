@@ -1,18 +1,17 @@
 17.2.MDDN342 PS3
+ The radialArrange() method is the heart of this pattern. The pattern's radial arrangement is based off fibbonacci spirals, specifically those found in  the seed arrangement of sunflowers ![](sunflower.jpg)
 
-*This is a test for PS3 to test different tessellations. I am exploring the theory of wallpaper groups. 
-All possible permutations of patterns can be mathematically defined by 17 sets of rules called Wallpaper groups. In my experimentation I want to define a wallpaper group to work within before I make the design.*
+ I think the most visually impressive part of the design is the spiral arms made by the radial arrangement. To emphasize this, I chose to include a large amount of negative space in the design. I chose the nautical theme for the glyphs after making these decisions because the 'wavy' effect that the arrangement creates. I was also inspired by wallpapers like this ![](nauty-wall.jpg)
+ I think the swirling repetition here is a refreshing take on th simple diamond tessellation I have seen on a lot of pale, ocean themed wallpapers.
 
+radialArrange() can be used to create a range of different patterns depending on the 'seed' - the number of nodes in the first ring of the pattern. At lower seed numbers, the fibbonacci spiral arms are bold, and effective. This effect decreases with higher seeds and, after a seed of around 6, the method will generate an arrangement that looks more like a series of rings than the churning eddies seen here.
 
-#### Wallpaper Groups
-A table with descriptions and diagrams of the wallpaper groups can be found [on wikipedia](https://commons.wikimedia.org/wiki/Wallpaper_group_diagrams)
-Clark University has a less mathematical explaination. [here](http://www2.clarku.edu/~djoyce/wallpaper/seventeen.html)
+At a seed of one, the pattern looks quite disordered.  ![](debug1.jpg)
 
-A repeating pattern can always be defined by a quadrilateral polygon in which all opposite sides are parallel. ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Wallpaper_group_diagram_pgg.svg/150px-Wallpaper_group_diagram_pgg.svg.png)
+A seed of two creates a very bold, and interesting arrangement which I really like, and want to re-use in my landscape generator. ![](debug2.jpg)
 
-Translation, rotation, reflection, and *gliding* (translation+reflection) of elements wihin this space is what characterises the 17 wallpaper groups.
+I almost settled on this 3-seeded pattern, but felt that a seed of 4 played a little more nicely with the square canvas. ![](pattern3.jpg)
 
+The color scheme and drawing style of the glyphs is simplistic and a little childish. This style, combined with the 
 
-#### The Sketch
-The first test will be based on the 'p1' group: one with no rotation, reflection, or glides. 
-I want to try to write re-usable code when creating the p1 wallpaper. p1 is the simplest wallpaper group, and this exercise is and opportunity to make a flexible method of tiling an arbitrary quadrilateral poygon.
+ I imagine this pattern as a wallpaper for a bathroom at a nice waterfront café or a child's room in a modern oriental bay home.
