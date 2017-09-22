@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-To try and get a better effect, I'm now using arcs instead of curves and beziers. I like the effect I got by rotating diffrent shaped arcs around the screen. I might try to refine this idea further.
+Another experiment, for this I just went full randomization and thought the end result was quite nice. This design allows people to see what they choose to see, and reminded me of the Rorschach patterns. 

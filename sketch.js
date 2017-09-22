@@ -6,10 +6,6 @@ function setup () {
   drawShapes();
 }
 
-function draw () {
-	
-}
-
 function mouseClicked(){
 	drawShapes();
 	shapeSize = random(80,80);
@@ -19,7 +15,7 @@ function mouseClicked(){
 function drawShapes(){
 	clear();
 	noStroke();
-	background(230,230,230);
+	background(55,55,55);
 
 	translate(shapeSize/2, shapeSize/2);
 
@@ -40,7 +36,7 @@ function shape(x, y, r){
 	fill(230,230,230);
 	ellipse(x,y,r, r);
 
-	createPatternSpiral(x,y,r);
+	createPattern(x,y,r);
 }
 
 function createPattern(x, y, r){
