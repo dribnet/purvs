@@ -79,18 +79,34 @@ var cell = function(xpos, ypos, xindex, yindex) {
     this.pos = [xpos, ypos];
     this.index = [xindex, yindex];
     this.value = noise(xpos*noiseAmp,ypos*noiseAmp);
-    this.color = lerpColor(col1,col2,this.value);
+    this.color = lerpColor(col2,col1,this.value);
 
     this.draw = function(){
         push();
         textSize(11);
         fill(this.color);
-        polygon(this.x,this.y,cellRadius, 6);
+        polygon(this.x, this.y, cellRadius, 6);
+        this.refresh();
         pop();
+
     }
+
+    this.colorCalc = function(){
+        if(this.value <0.53){
+            this.color = lerpColor(col2,col1,map(this.value,0,0.5,0,0.3));
+        }
+        else if(this.value > 0.47){
+            this.color = lerpColor(col2,col1,map(this.value,0.5,1,0.7,1));
+
+        } else{
+            this.color = lerpColor(col2,col1,map(this.value,0.47,0.53,0.4,0.6));      
+              }
+    }
+    this.colorCalc();
+
     this.refresh = function(){
         this.value = noise(xpos*noiseAmp,ypos*noiseAmp);
-        this.color = lerpColor(col1,col2,this.value);        
+        this.colorCalc();        
     }
 }
 
@@ -107,7 +123,6 @@ function radialArrange(x, y, seed, stepSeed, spin) {
             angle += step * (360 / seed / spin);
             hold.push(findNewPoint([x, y], angle, current_radius));
         }
-
     }
     return hold;
 }
