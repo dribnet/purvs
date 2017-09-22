@@ -5,6 +5,7 @@ var circles = [];
 var circle;
 
 var ponds = [];
+var shift = random(20, 80);
 
 function setup() {
   createCanvas(960, 500);
@@ -12,63 +13,86 @@ function setup() {
   noiseSeed(random(1000));
 
 
-  for (var i = 0; i < 4; i++){
-  		var newPond = new Pondset(i*width/5, height/2);
+  for (var i = 0; i < 200; i++){
+  		var newPond = new Pondset();
   		ponds.push(newPond);
 	}
 
 
 }
 
-//sampling code from https://github.com/CodingTrain/Rainbow-Code/blob/master/Tutorials/P5JS/p5.js/9.5_p5.js_uniform_random_sampling/sketch.js
 
 
 function draw() {
 	background(199, 219, 249);
 
+  // draw a pondset at each location
+  var index = 0;
 
-	for (var i = 0; i < 4; i++){
-  		ponds[i].display();
-	}
+  for(var i=0;i<11;i++) {
+    for(var j=0;j<5;j++) {
+      push();
+    if (j%2==1){
+    	translate(shift, 0);
+    }
+      ponds[index].display(280*i, 280*j);
+
+      index++;
+      pop();
+    }
+  }
 }
 
 
 
 
-function Pondset(x, y){
+function Pondset(){
 	
 
 	this.xOff = random(1000);
    this.rand = random(25, 35);
    this.angle = Math.random()*Math.PI*2;
 
-
+  this.showCheck = Math.floor(random(0, 3));
 
   this.rad = 0;
 
-	this.leafX = x;
-  this.leafY = y;
+	this.leafX ;
+  this.leafY;
   this.randS =  random(0.5, 0.9);
   this.showLotus = Math.floor(random(0, 2));
-
+this.rot = random(TWO_PI);
   this.lotusScale = random(0.5, 1.2);
 
-  this.display = function() {
-  	push();
 
+  this.display = function(x, y) {
+  	if (this.showCheck == 1){
+  	push();
+  	scale(0.4);
+this.leafX = x;
+this.leafY = y;
   	this.generateLeafShape(this.leafX, this.leafY);
 
   this.lotusX = Math.cos(this.angle)*this.rad;
 this.lotusY = Math.sin(this.angle)*this.rad;
+// circle circumference code from: https://stackoverflow.com/questions/9879258/how-can-i-generate-random-points-on-a-circles-circumference-in-javascript
+
 
 
   	this.generateLotusShape(this.leafX + this.lotusX, this.leafY + this.lotusY, this.lotusScale, this.showLotus);
   	pop();
   }
+  }
   this.generateLeafShape=function(x, y){
 	push();
-	translate(x, y)
-	
+	translate(x, y);
+	rotate(this.rot);
+	fill(255, 255, 255, 0);
+	//draw ripples
+	ellipse(0, 0.1, this.rad*1.9, this.rad*1.9);
+  	ellipse(0, 0.2, this.rad*2.1, this.rad*2.1);
+  	ellipse(0, 0.3, this.rad*2.2, this.rad*2.3);
+
     beginShape();
 	fill(69, 91, 52);
 	strokeWeight(0.5);
@@ -98,8 +122,6 @@ this.lotusY = Math.sin(this.angle)*this.rad;
   	}
 
   	endShape(CLOSE);
-  	fill(255, 255, 255, 0);
-  	ellipse(0, 0, this.rad*2, this.rad*2);
 
   	//lines
 
@@ -201,10 +223,11 @@ this.lotusY = Math.sin(this.angle)*this.rad;
 function refreshPattern(){
 	ponds = [];
  
-  for (var i = 0; i < 4; i++){
-  		var newPond = new Pondset(i*width/5, height/2);
+  for (var i = 0; i < 200; i++){
+  		var newPond = new Pondset();
   		ponds.push(newPond);
 	}
+	shift = random(20, 80);
 
 }
 
