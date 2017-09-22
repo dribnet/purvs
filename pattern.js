@@ -7,14 +7,30 @@ wallpaper and the landscape.
 */
 
 
-function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
+function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
-  var wallpaperMode;
-  var wallpaper;
 
   var randomNum;
   var shapeNum = 18;
   var totalPopulation;
+
+  var empty;
+  var bigRect;
+  var smallRect;
+  var grass;
+  var bigCircle;
+  var flatLine;
+  var rock;
+  var tree;
+  var rect4;
+  var circle4;
+  var house;
+  var person;
+  var flower;
+
+  var populations;
+
+
 
 
   var shapeTypes = new Array(rows);
@@ -47,39 +63,73 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
     }
   }
 
+  this.initPopulations = function(){
 
-  this.initPopulations = function(row,col){
+    if(mode == true){
+      empty = 45 + round(random(-30,80));
+      bigRect = 0;
+      smallRect = 0;
+      grass = 10+ round(random(-5,15));
+      bigCircle = 0;
+      flatLine = 8+ round(random(-4,5));
+      rock = 5 + round(random(-4,15));
+      tree = 20 + round(random(-5,20));
+      rect4 = 0;
+      circle4 = 0;
+      house = 1 + round(random(-1,2));
+      person = 1;
+      flower = 5;
+    }
+  else{
+    empty = 45;
+    bigRect = 20;
+    smallRect = 10;
+    grass = 0;
+    bigCircle = 20;
+    flatLine = 10
+    rock = 10;
+    tree = 0;
+    rect4 = 20;
+    circle4 = 20;
+    house = 0;
+    person = 0;
+    flower = 0;
 
-    var empty = 25;
-    var bigRect = 1;
-    var smallRect = 1;
-    var grass = 5;
-    var bigCircle = 1;
-    var flatLine = 5;
-    var rock = 5;
-    var tree = 10;
-    var rect4 = 1;
-    var circle4 = 1;
+  }
 
-
-    var populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4];
-    var totalPopulation = 0;
+    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,person,flower];
+    totalPopulation = 0;
 
     for(var i = 0; i < populations.length; i++){
         totalPopulation = totalPopulation + populations[i];
     }
 
+
+  }
+
+
+
+
+  this.getShape = function(row,col){
+
+
+
     var total = 0;
     var shape;
 
-    var rand = (round(random(0,totalPopulation-1)));
+
+    var rand = (round(random(0,totalPopulation)));
+
+    //print("rand = " + rand);
 
     for(var i = 0; i < populations.length; i++){
 
-
+      //print("populations" + i + " = " + populations[i]);
       total=total+populations[i];
+      //print("total = " + total);
       if(total > rand){
         shape = i;
+        //print("got! i = " + i);
         break;
       }
 
@@ -87,13 +137,9 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
     }
 
 
-
-
-    print(" shape = " + shape);
+    //print("shape = " + shape);
 
     return shape;
-
-
 
   }
 
@@ -102,13 +148,15 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue){
   // randomize all values for drawing the shapes
   this.randomizeValues = function (){
 
+    this.initPopulations();
+
 
     for(var row = 0; row< rows-1; row++){
       for(var col = 0; col< cols-1; col++){
 
         //randomNum = round(random(0,shapeNum));
         //shapeTypes[row][col] = randomNum;
-        shapeTypes[row][col] = this.initPopulations(row,col);
+        shapeTypes[row][col] = this.getShape(row,col);
 
         if(red == -1){
           r[row][col] = random(0,255);
@@ -193,8 +241,26 @@ this.randomizeValues();
 
     }
 
+    stroke(0);
+    fill(255);
+    rect(width*0.1,height*0.1,width*0.15,height*0.3);
 
+    textAlign(CENTER);
+    fill(0);
+    noStroke();
+    var lineHeight = height*0.02;
+    text("POPULATIONS", width*0.178,height*0.15);
 
+    text("Space = " + round(populations[0]),width*0.178,height*0.15+(lineHeight*2));
+    text("Grass = " + round(populations[3]),width*0.178,height*0.15+(lineHeight*3));
+    text("Rock = " + round(populations[6]),width*0.178,height*0.15+(lineHeight*4));
+    text("Tree = " + round(populations[7]),width*0.178,height*0.15+(lineHeight*5));
+    text("House = " + round(populations[10]),width*0.178,height*0.15+(lineHeight*6));
+    text("Person = " + round(populations[11]),width*0.178,height*0.15+(lineHeight*7));
+    text("Flower = " + round(populations[12]),width*0.178,height*0.15+(lineHeight*8));
+    //for(var i = 0; i<populations.length; i++){
+    //  text(round(populations[i]),width*0.12,height*0.15+(i*height*0.02));
+    //}
 
 
   }
@@ -266,6 +332,27 @@ this.randomizeValues();
       ellipse(rightX+colWidth,topY+rowHeight/2,sSize/2,sSize/2);
       ellipse(leftX+colWidth/2,bottomY+rowHeight,sSize/2,sSize/2);
       ellipse(leftX-colWidth,topY+rowHeight/2,sSize/2,sSize/2);
+    }
+    else if (shapeType == 10){
+
+      fill(sColor);
+      rect(leftX,topY,colWidth,rowHeight);
+      rect(leftX+colWidth/3,topY+rowHeight/4,colWidth/3,rowHeight/4);
+      triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
+      rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
+
+    }
+    else if (shapeType == 11){
+
+      ellipse(leftX,topY,colWidth/4,rowHeight/2);
+      ellipse(leftX,topY+rowHeight/3,colWidth/4,rowHeight/2);
+
+    }
+    else if (shapeType == 12){
+
+      line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
+      ellipse(leftX+(colWidth/1.9),bottomY-(rowHeight/3),colWidth/4,rowHeight/4);
+
     }
 
 

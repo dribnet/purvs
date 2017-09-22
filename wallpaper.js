@@ -10,6 +10,8 @@ function Wallpaper(rows,cols,rowHeight,colWidth){
   var blue = 0;
 
   var rand = round(random(0,3));
+  //rand = 2;
+  print(rand);
 
   if(rand==1){
     red = 255;
@@ -29,14 +31,22 @@ function Wallpaper(rows,cols,rowHeight,colWidth){
 
 
 
-  var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,red,green,blue);
-  var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,red,green,blue);
-  var pattern3 = new Pattern(rows,cols,rowHeight,colWidth,150,red,green,blue);
+  var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,red,green,blue,false);
+  var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,red,green,blue,false);
+  var pattern3 = new Pattern(rows,cols,rowHeight,colWidth,150,red,green,blue,false);
 
 
   this.drawWallpaper = function(){
 
-    background(255);
+    if(rand == 3){
+      background(109, 150, 112);
+    }
+    else if(rand == 1){
+      background(183, 91, 108);
+    }
+    else{
+      background(58, 83, 140);
+    }
     pattern1.drawPattern();
     pattern2.drawPattern();
     pattern3.drawPattern();

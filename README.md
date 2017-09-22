@@ -19,4 +19,6 @@ a complex pattern.
 The landscape uses a similar minimalist aesthetic to the wallpaper, but is this time
 black and white and focused on conveying symbols that represent a top-down environment.
 It uses simple shapes to represent things like trees and rocks. Each type of terrain
-has its own probability of spawning, which is changed each time 
+has its own probability of spawning, which is changed each time a new landscape is generated.
+
+The chances of each terrain type spawning is displayed on the left.
