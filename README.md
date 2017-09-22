@@ -1,4 +1,9 @@
 17.2.MDDN342 PS3
+
+####22 SEPT 17
+I am beginning work on my landscape today
+
+#### 22 SEPT 17
  The radialArrange() method is the heart of this pattern. The pattern's radial arrangement is based off fibbonacci spirals, specifically those found in  the seed arrangement of sunflowers ![](sunflower.jpg)
 
  I think the most visually impressive part of the design is the spiral arms made by the radial arrangement. To emphasize this, I chose to include a large amount of negative space in the design. I chose the nautical theme for the glyphs after making these decisions because the 'wavy' effect that the arrangement creates. I was also inspired by wallpapers like this ![](nauty-wall.jpg)
