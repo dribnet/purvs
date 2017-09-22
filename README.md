@@ -12,6 +12,4 @@ A seed of two creates a very bold, and interesting arrangement which I really li
 
 I almost settled on this 3-seeded pattern, but felt that a seed of 4 played a little more nicely with the square canvas. ![](pattern3.jpg)
 
-The color scheme and drawing style of the glyphs is simplistic and a little childish. This style, combined with the 
-
- I imagine this pattern as a wallpaper for a bathroom at a nice waterfront café or a child's room in a modern oriental bay home.
+The color scheme and drawing style of the glyphs is simplistic and a little childish, which I think gives a tenor of [seafaring whimsy](https://www.youtube.com/watch?v=cmt-MlMuPzg) I imagine this pattern being used as a wallpaper for a bathroom at a nice waterfront café or a child's room in a modern oriental bay home.
