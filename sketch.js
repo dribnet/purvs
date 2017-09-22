@@ -43,6 +43,8 @@ function draw () {
     line(i, -50, -width/2 + i, height+50);   
   }
 
+  noLoop();
+
 }
 
 function keyTyped() {
