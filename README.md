@@ -1,5 +1,3 @@
 17.2.MDDN342 PS3
 
-I was just experimenting with my values and moved the flowers closer together to create this visually pleasing effect.
-
-This gives me an idea that I could possibly create sliders to move the flowers around to create different patterns. I could also use different shapes instead of a square, and see how that turns out. 
+I've added in some variation to the pattern so it's more interesting to the eye, and if you zoom out the pattern isn't completely the same. The positions of the shapes stay the same, but using focusedRandom() the shapes can either be a square repeating or a triangle repeating. 
