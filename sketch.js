@@ -1,6 +1,6 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
-var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'wallpaper', modeSelector;
+var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'wallpaper';
 
 var bigHex = [
                 [280, 200], [280, 280], [200, 280], [200, 200],
@@ -34,12 +34,6 @@ function setup () {
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
 
-    modeSelector = createSelect();
-    modeSelector.option('wallpaper');
-    modeSelector.option('landscape');
-    modeSelector.value('wallpaper');
-    modeSelector.parent('mode-selector-holder');
-    modeSelector.changed(changeMode);
     changeMode();
 
     //set up some of the global options for p5.js
@@ -96,7 +90,6 @@ function changeCanvasSize(){
 }
 
 function changeMode(){
-    drawingMode = modeSelector.value();
     if(drawingMode === 'wallpaper'){
         noLoop();
     }
@@ -256,7 +249,7 @@ function drawLandscape() {
     rect(480, 90, 960, 200);
 
     stroke(0);
-    translate(40, 120);
+    translate(40, 140);
     var xLimit = 11;
     for(var y=0; y<=15; y++){
         for(var x=0; x<=xLimit; x++){
