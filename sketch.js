@@ -16,6 +16,9 @@ var curRandomSeed;
 //landscape related variables
 var currentHour = 0, lastMillis = 0;
 
+//landscape images 
+var city, trees;
+
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
 }
@@ -34,11 +37,16 @@ function setup () {
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
 
+	//load images
+	city = loadImage("city.png"); 
+	trees = loadImage("trees.png"); 
+	
     changeMode();
 
     //set up some of the global options for p5.js
     colorMode(HSB);
     rectMode(CENTER);
+	imageMode(CENTER);
 }
 
 
@@ -60,6 +68,12 @@ function draw () {
         }
         noiseSeed(curRandomSeed);
         strokeWeight(1);
+		if(canvasSize == 2){
+			scale(2);
+		}
+		else if(canvasSize == 3){
+			scale(3);
+		}
         drawLandscape();
     }
 }
@@ -71,22 +85,20 @@ function mousePressed() {
     redraw();
 }
 
-function changeCanvasSize(){
-    if(drawingMode === 'wallpaper'){
-        canvasSize = canvasSelector.value();
-        if(canvasSize == 2){
-            main_canvas = resizeCanvas(1920, 1000);
-        }
-        else if(canvasSize == 3){
-            main_canvas = resizeCanvas(2880, 1500);
-        }
-        else {
-            main_canvas = resizeCanvas(960, 500);
-        }
-        clear();
-        background(0);
-        redraw();
-    }
+function changeCanvasSize(){    
+	canvasSize = canvasSelector.value();
+	if(canvasSize == 2){
+		main_canvas = resizeCanvas(1920, 1000);
+	}
+	else if(canvasSize == 3){
+		main_canvas = resizeCanvas(2880, 1500);
+	}
+	else {
+		main_canvas = resizeCanvas(960, 500);
+	}
+	clear();
+	background(0);
+	redraw();
 }
 
 function changeMode(){
@@ -235,7 +247,7 @@ function drawHexOutline(colour, adjuster = 0){
 }
 
 //used to keep track of the noise values for each landscape tile
-var noiseTracker = [];
+var noiseTracker = [], noiseTracker2 = [];
 
 function drawLandscape() {
 
@@ -277,12 +289,14 @@ function createNoiseTrackerArray(){
 	var xLimit = 11;
 	for(var y=0; y<=15; y++){
 		noiseTracker[y] = [];
+		noiseTracker2[y] = [];
         for(var x=0; x<=xLimit; x++){
 			var noiseValue = noise(x, y);
 			if(y == 0 || y == 15){
 				noiseValue = 0.5;
 			}
 			noiseTracker[y][x] = noiseValue;
+			noiseTracker2[y][x] = noise(x * y);
 		}
 		if((y % 2) == 0){
             xLimit = 12;
@@ -317,8 +331,8 @@ function isThereWaterNearby(x, y){
 		tileB = noiseTracker[y-1][x+posXShift];
 	}
 	if(y < 15){
-		var tileC = noiseTracker[y+1][x-negXShift];
-		var tileD = noiseTracker[y+1][x+posXShift];
+		tileC = noiseTracker[y+1][x-negXShift];
+		tileD = noiseTracker[y+1][x+posXShift];
 	}
 	if (tileA  < 0.2 || tileB  < 0.2 || tileC  < 0.2 || tileD  < 0.2) {
 		return true;
@@ -327,7 +341,8 @@ function isThereWaterNearby(x, y){
 }
 
 function drawLandscapeTile(v, x, y){
-    var top, sides, isTown = false;
+    var top, sides, nearWater = false;
+	var v2 = noiseTracker2[y][x];
     if (v < 0.2) {
         top = color(184, 100, 98);
         sides = color(23, 82, 85);
@@ -336,9 +351,9 @@ function drawLandscapeTile(v, x, y){
     else if (v < 0.75) {
         top = color(120, 100, 70);
         sides = color(23, 82, 85);
-		isTown = isThereWaterNearby(x, y);
-		if(isTown){
-			top = color(213, 6, 77);
+		nearWater = isThereWaterNearby(x, y);
+		if(nearWater && v2 > 0.5){
+			top = color(86, 4, 74);
 		}
     }
     else {
@@ -348,7 +363,7 @@ function drawLandscapeTile(v, x, y){
             top = color(0, 0, 100);
             sides = color(23, 82, 85);
         }
-        translate(0, -(v * 40));
+        translate(0, -40);
     }
 
 
@@ -362,11 +377,11 @@ function drawLandscapeTile(v, x, y){
         quad(-40, 40, 0, 60, 0, 100, -40, 80);
         //right side
         quad(40, 40, 0, 60, 0, 100, 40, 80);
-		if(isTown){
-			fill(191, 43, 83);
-			rect(0,30, 15, 30);
-			fill(223, 73, 60);
-			rect(10,35, 12, 24);
+		if(nearWater && v2 > 0.5){
+			image(city, 0, 32.5, 40, 40);
+		}
+		else if(v > 0.2 && v2 > 0.7){
+			image(trees, 0, 32.5, 40, 40);
 		}
     }
     //mountain
@@ -392,7 +407,7 @@ function drawLandscapeTile(v, x, y){
         //do nothing
     }
     else {
-        translate(0, +(v * 40));
+        translate(0, 40);
     }
 }
 
