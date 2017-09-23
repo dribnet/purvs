@@ -6,8 +6,8 @@ var strandColours;
 var sliders = [];
 var NUM_SLIDERS = 7;
 var vals;
- var wobbleCol;
-
+var wobbleCol;
+var land;
 
 //setup
 function setup () {
@@ -41,15 +41,25 @@ function setup () {
   resetFocusedRandom(curRandomSeed);
   vals.setFocusableRandoms(focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100),focusedRandom(0,100));
   vals.setUnfocusedRandoms();
+
+//setup for the Landscape object
+land =  new Landscape();
+land.setupLand(vals);
 }
 
 
 function draw () {
   resetFocusedRandom(curRandomSeed);
-
-   background(100);
-  centrePattern(w,h);
-}
+  
+    var mode = faceSelector.value();
+    if (mode == 'Pattern1'){
+       background(100);
+       centrePattern(w,h);
+     }
+     else if (mode == 'Landscape'){
+      land.drawLand();
+    }
+  }
 
 function centrePattern(xW,yH){
   wobbleCol = vals.scaleVals(21,1,2,true);
