@@ -23,6 +23,7 @@ function draw (){
 	        push();
 	        translate(posx, posy);
 	        rotate(i);
+          rect(0, 0, i, i);
 	        if(shape == "square"){
 	        	rect(0, 0, i, i);
 	        }
