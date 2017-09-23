@@ -10,6 +10,8 @@ var dotMargin = 5;
 
 var curRandomSeed;
 
+var c =["#9effb8", "#89aee1", "#d46ce7", "#e9f259", "#7cf4d3"];
+
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(canvasWidth, canvasHeight);
@@ -37,18 +39,19 @@ function setup () {
 
   angleMode(DEGREES);
   rectMode(CENTER);
+
 }
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  c.sort(function(a, b){return 0.5 - Math.random()});
 }
 
 function mousePressed() {
-    changeRandomSeed();
+  changeRandomSeed();
 }
 
 function draw () {
-  background(255);
   resetFocusedRandom(curRandomSeed);
 
   var s1 = slider1.value();
@@ -58,8 +61,20 @@ function draw () {
   var s5 = slider5.value();
 
   var lineWeight = map(s1, 0, 100, 4, 8);
-  var numRows = Math.floor(map(s2, 0, 100, 6, 10));
-  var numCols = Math.floor(map(s3, 0, 100, 15, 20));
+  var numRows = Math.floor(map(s2, 0, 100, 8, 12));
+  var numCols = Math.floor(map(s3, 0, 100, 18, 20));
+  var lineLength = Math.floor(map(s4, 0, 100, 30, 80));
+  var color =  Math.floor(map(s5, 0, 100, 0, 2));
+
+  if (color < 1) {
+    bg_color = 255;
+    squiggle_color = 0;
+  } else {
+    bg_color = c[0];
+    squiggle_color = c[1];
+  }
+
+  background(bg_color);
 
   var dotWidth = ((canvasWidth - (2 * dotMargin)) / numCols) - dotMargin;
   var dotHeight = ((canvasHeight - (2 * dotMargin)) / numRows) - dotMargin;
@@ -81,19 +96,27 @@ function draw () {
     for(var j=0;j<numCols;j++) {
       var x = (j * (dotDiameter + xMargin)) + dotMargin + (xMargin / 2) + dotRadius;
       var y = (i * (dotDiameter + yMargin)) + dotMargin + (yMargin / 2) + dotRadius;
-      //var shade = focusedRandom(60, 150, 3);
-      stroke(0);
-      strokeWeight(lineWeight);
-      drawDot(x, y, dotRadius, color);
+      drawDot(x, y, dotRadius, color, lineWeight, squiggle_color, lineLength);
     }
   }
 
 }
 
-function drawDot(x, y, radius, color) {
-  noFill();
+function drawDot(x, y, radius, color, lineWeight, squiggleColor, lineLength) {
   var randAng = random(360);
-  arc(x , y , radius, radius, randAng, randAng + 40);
+  var xPos = x + random(-10, 10);
+  var yPos = y + random(-10, 10);
+
+  strokeWeight(lineWeight);
+
+  if (color >= 1) {
+    stroke(0);
+    arc(xPos + 3, yPos + 3, radius, radius, randAng, randAng + lineLength);
+  }
+
+  noFill();
+  stroke(squiggleColor);
+  arc(xPos, yPos, radius, radius, randAng, randAng + lineLength);
 }
 
 function keyTyped() {
