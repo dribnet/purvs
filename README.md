@@ -17,3 +17,7 @@ Still trying to decide what path I want to go down with this projet, still tryin
 UPDATE
 
 I've think I've come to a colour scheme that I really like, as with my shapes I wanted to have a bit more layering with it, so added the bluer shade to background, so my layers become blue (background), pink(horizontal noise lines), white(dots), pink(circles) and white (circles outlines) again. I'll now move on to starting my landscape. Still deciding on ideas for that so I'll see where that takes me.
+
+UPDATE
+
+I've been working on my landscape and finalizing the patter, some changes had to be done since bringing all the code together into one js file created some clashes. So far so good though. I've been inspired by a lot of work online and been grabbing bits of code that i could change, adapt and learn from. All of which are commented on my code. I plan to still add some last minute changes but the assignment is almost complete.
