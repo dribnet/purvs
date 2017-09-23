@@ -1,3 +1,5 @@
 17.2.MDDN342 PS3
 
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+I've spent quite a lot of time trying to get a uniform random distribution, but I've run into some issues. I have to run the random sampling code before I draw the lilypads, but the width of them is randomly set within the lilypad object. This puts me in a bit of a tricky spot, as I need the width to accurately run the sampling pattern. 
+
+I've been following along with this tutorial: https://www.youtube.com/watch?v=flQgnCUxHlw
