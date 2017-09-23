@@ -1,5 +1,3 @@
 17.2.MDDN342 PS3
 
-This version contains the final state for my pattern sketch. The result is quite an interesting grid that features random diamonds with dots relative to their size. Since the last state I've refined the line weight, colours and opacity to make the pattern a well rounded, intentional design. 
-
-I've also added in the beginnings of my transition to the landscape state with the spacebar acting as the trigger button. 
+This version shows the beginnings of my landscape. I've refined the starter code given in class to work for the aesthetic I'm going for and match my pattern style. I've removed the polygons and started to add in some statements that generate shapes randomly. I'm now working on replacing those shapes with landscape features that vary in density and size. 

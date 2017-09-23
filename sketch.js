@@ -1,6 +1,6 @@
 var curRandomSeed;
 var colours;
-var inMapMode = true;
+var inPatternMode = true;
 
 
 function setup (){
@@ -19,14 +19,31 @@ function mousePressed() {
 function draw (){
 	background(246, 242, 252);
     resetFocusedRandom(curRandomSeed);
+    noiseSeed(curRandomSeed);
 
     var x = 0;
     var y = 0;
+    var x_steps = 1 + Math.floor(width / 38);
+  	var y_steps = 1 + Math.floor(height / 28);
     colours = ["255, 240, 112","139, 186, 179"];
     colours = random(colours);
 
- 	if(!inMapMode){
+    // save grid locations
+	var grid_locations = new Array(x_steps);
+		for(var i=0;i<x_steps;i++) {
+	    	grid_locations[i] = new Array(y_steps);
+	    	for (var j = 0; j < y_steps; j++) {
+	      		x_pos = i * 38;
+	      		y_pos = j * 28;
+	      		if((j % 2) == 0){
+	        		x_pos = x_pos + 20;
+	    	}
+	    grid_locations[i][j] = [x_pos, y_pos];
+	  	}
+	}
 
+ 	if(inPatternMode){
+ 	// draws the pattern
 	// draws lines behind the diamonds
 	    strokeWeight(0.5);
 	    line(226.5, 0, 226.5, height);
@@ -100,7 +117,33 @@ function draw (){
 	}
 
 	else{
-		rect(100,100,100,100);
+		//draws the map
+		for(var i=0;i<x_steps-1;i++) {
+	      for(var j=0;j<y_steps-1;j++) {
+	        // var shade = map(noiseVal, 0, 1, 0, 255)
+	        var loc = grid_locations[i][j];
+	        var x1 = loc[0];
+	        var y1 = loc[1]
+
+	        var x_noise = x1/100.0;
+	        var y_noise = y1/100.0;
+	        var noiseVal = noise(x_noise, y_noise);
+
+	        //generates a random number for a plot to be drawn
+			var randomPlot = random(0, 150);
+			noFill();
+			if(randomPlot < 50){
+				rect(x1+random(5, 20), y1+20, 10, 10);
+			}
+			if(randomPlot > 51 & randomPlot < 100){
+				ellipse(x1+random(5, 20), y1+20, 10, 10);
+			}
+			if(randomPlot > 100 & randomPlot < 150){
+				fill(0);
+				ellipse(x1+random(5, 20), y1+20, 10, 10);
+			}
+	      }
+	    }    
 	}
 
 }
@@ -112,6 +155,6 @@ function keyTyped(){
     saveBlocksImages();
   }
     else if (key == ' ') {
-    inMapMode = !inMapMode;
+    inPatternMode = !inPatternMode;
   }
 }
