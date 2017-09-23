@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-This is a simply experiment of the wallpaper version of this project. By using the noise function, it creates a interesting continued movement in specific example. In my case, it looks like a infinite bug.
+This is a experiment of the landscape of the distribution of vegetation. I changed the code from the noise landscape example. The color and shape still need to be modified.
