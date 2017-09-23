@@ -20,14 +20,13 @@ function draw () {
 
   let modX = gridSize*2*t(2000)
   let modY = gridSize*2*t(5000)
-  let fX = makeMap(-gridSize*4, windowWidth+gridSize*4);
-  let fY = makeMap(-gridSize*4, windowHeight+gridSize*4);
+  let fX = makeMap(-gridSize*4, width+gridSize*4);
+  let fY = makeMap(-gridSize*4, height+gridSize*4);
 
   background(bgColor)
-  let i = Math.floor(millis()/2000)+Math.floor(millis()/5000);
-  for(let x = modX-gridSize*4; x < windowWidth+gridSize*4+modX; x+= gridSize*2){
-    i++;
-    for(let y = modY-gridSize*4; y < windowHeight+gridSize*4+modY; y += gridSize*2){
+  let i = Math.floor(millis()/5000)+Math.floor(millis()/2000)
+  for(let x = modX-gridSize*4; x < width+gridSize*4+modX; x+= gridSize*2){
+    for(let y = modY-gridSize*4; y < height+gridSize*4+modY; y += gridSize*2){
       i++;
 
       let fx = fX(x)
@@ -48,7 +47,7 @@ function draw () {
       }
 
       drawCircle(radius, 
-        genWaveMap(1+Math.floor(t(heightI*2)*4), 0.3*st(heightI)), 
+        genWaveMap(1+Math.floor(t(heightI*2)*4), 0.25*st(heightI)), 
         t(heightI*4)*TWO_PI)
 
       translate(-x, -y)
@@ -71,7 +70,7 @@ function drawCircle(radius, waveMap, offset){
   waveMap = waveMap || (x => x)
   offset = offset || 0
 
-  let points = 20
+  let points = 24
 
   let circle = fillArray(points, radius)
   //wavy offset
