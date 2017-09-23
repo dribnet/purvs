@@ -262,12 +262,13 @@ function drawLandscape() {
     else {
         var colour = night;
 		var colour2 = color(206, 100, 30);
+		var colour2 = color(108, 39, 85);
     }
 	drawSky(0,0,960, 180, colour, colour2);
 	
 	createNoiseTrackerArray();
 	
-    stroke(0);
+    stroke(189, 64, 95);
     translate(40, 140);
     var xLimit = 11;
     for(var y=0; y<=15; y++){
@@ -345,12 +346,15 @@ function drawLandscapeTile(v, x, y){
 	var v2 = noiseTracker2[y][x];
     if (v < 0.2) {
         top = color(184, 100, 98);
+        //top = color(132, 28, 96);
         sides = color(23, 82, 85);
+        sides = color(215, 56, 60);
         translate(0, 10);
     }
     else if (v < 0.75) {
-        top = color(120, 100, 70);
+        top = color(255, 74, 43);
         sides = color(23, 82, 85);
+		sides = color(215, 56, 60);
 		nearWater = isThereWaterNearby(x, y);
 		if(nearWater && v2 > 0.5){
 			top = color(86, 4, 74);
@@ -359,9 +363,9 @@ function drawLandscapeTile(v, x, y){
     else {
         top = color(120, 100, 70);
         sides = color(23, 82, 85);
+		sides = color(276, 66, 62);
         if (v > 0.85) {
             top = color(0, 0, 100);
-            sides = color(23, 82, 85);
         }
         translate(0, -40);
     }
@@ -386,15 +390,16 @@ function drawLandscapeTile(v, x, y){
     }
     //mountain
     else {
-        fill(sides);
-        //left side
+        fill(317, 97, 80);
+		//left side
         quad(0, 20, 0, 60, 0, 100, -40, 80);
+		fill(sides);
         //right side
         quad(0, 20, 0, 60, 0, 100, 40, 80);
         fill(top)
         //top
-        quad(0, 20, 27, 60, 0, 73, 0, 73);
-        quad(0, 20, 0, 73, 0, 73, -27, 60);
+        //quad(0, 20, 27, 60, 0, 73, 0, 73);
+        //quad(0, 20, 0, 73, 0, 73, -27, 60);
     }
 
 
