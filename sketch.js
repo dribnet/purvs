@@ -3,7 +3,7 @@ var faceSelector;
 
 var mode;
 
-var drawing = false;
+var switchedMode = false;
 
 var curRandomSeed = 0;
 
@@ -20,6 +20,10 @@ var landChance = 0.5;
 var treeChance = 0.8;
 
 var grid_locations;
+
+//Wallpaper Variables
+var shapeSize = 81; 
+var gap = 20;
 
 function setup () {
   createCanvas(960, 500);
@@ -41,11 +45,10 @@ function setup () {
   faceSelector.value('LandScape');
   faceSelector.parent('selector1Container');
 
-  drawing = true;
   draw();
 
   setupGrid();
-  drawShapes();
+  drawLandscape();
 }
 
 function changeRandomSeed() {
@@ -53,14 +56,14 @@ function changeRandomSeed() {
 }
 
 function mouseClicked(){
-
-	if(!drawing){
-
-		drawing = true;
+	if(mode == 'LandScape'){
 		setupGrid();
-		drawShapes();
-		shapeSize = random(80,80);
+		drawLandscape();
 	}
+	else {
+  	    changeRandomSeed();
+		drawShapes();
+  }
 }
 
 function colorFromValue(v) {
@@ -79,13 +82,12 @@ function colorFromValue(v) {
   else {
     color1 = color(128, 128, 128);
     color2 = color(255);    
-    c = lerpColor(color1, color2, map(v,waterChance + (landChance/3), 1, 0, 1)); //times v to be between 1 and 0
+    c = lerpColor(color1, color2, map(v,waterChance + (landChance/5), 1, 0, 1)); //times v to be between 1 and 0
     return c;
   }
 }
 
 function setupGrid(){
-
 	resetFocusedRandom(curRandomSeed);
 	noiseSeed(curRandomSeed);
 
@@ -139,12 +141,12 @@ function getNoiseValue(y, x){
     return noise(x_noise, y_noise);
 }
 
-function drawShapes(){
+function drawLandscape(){
 	clear();
 	noStroke();
 	background(125,210,233);
 
-	translate(width/2, 80);
+	translate(width/2, 25);
 
 	var rowSize = 0;
 	var startPos = 0;
@@ -194,14 +196,16 @@ function drawShapes(){
 		rowSize--;
 	}
 
-	drawing = false;
 }
 
 function drawWaterTile(x, y, noiseVal){
 
 	var shade = colorFromValue(noiseVal);
 
-	dy = -5;
+	var dy = -5;
+
+	if(tileDepth < 5)
+		dy = - tileDepth
 
 	//Draw Dirt underneath
 
@@ -261,7 +265,12 @@ function drawGroundTile(x, y, noiseVal){
 	//Get height from noiseVal
 	var dy2 = map(noiseVal,waterChance, 1, 0, 1);
 
+	var boardS = boardSize/10;
+
 	dy = (80*dy2*maxHeight) - boardSize/10;
+
+	if(dy < 1)
+		dy = 1;
 
 	//Draw Dirt underneath
 
@@ -407,36 +416,114 @@ function draw(){
     var s3 = slider3.value();
     var s4 = slider4.value();
 
+    if(mode == "Wallpaper" && switchedMode){
+    	
+    	switchedMode = false;
+    	drawShapes();
+    }
+    else if(mode == "LandScape") { 
+
+	switchedMode = true;
+
     //Board Size Changes
-	tileWidth = map(s1, 0, 100, 15, 100);
+	tileWidth = map(s1, 0, 100, 10, 100);
 	tileHeight = tileWidth/2;
-	boardSize = Math.round(80/tileWidth * 8);
+	boardSize = Math.round(100/tileWidth * 9);
 	tileDepth = 30 - boardSize/2;
 
 	if(tileDepth < 1)
-		tileDepth = 1;
+		tileDepth = 2;
 	
 	//Terrian Variety
 	waterChance = map(s2, 0, 100, 0.33, 0.66);
 	landChance = 1 - waterChance;
 	treeChance = map(s3, 0, 100, 0, 1);
 
-	maxHeight = map(s4, 0, 100, 0, 1.5);
+	maxHeight = map(s4, 0, 100, 0, 1.8);
 
 	//Continue to update landscape if board isn't too big (To avoid lag)
 	if(boardSize < 20)
 		mouseClicked();
+
+	}
+}
+
+// ------------------------ Wallpaper methods ------------------------
+
+function drawShapes(){
+	clear();
+	noStroke();
+	background(230,230,230);
+
+	resetFocusedRandom(curRandomSeed);
+
+	push();
+	translate(shapeSize/2, shapeSize/2);
+	
+	stroke(55,55,55);
+	strokeWeight(1);
+	fill(230,230,230);
+	ellipse(0,0,shapeSize, shapeSize);
+
+	for(var i = 0; i * (shapeSize+gap) < width; i++){
+
+		for(var j = 0; j * (shapeSize+gap) < height*2; j++){
+
+			shape(0,0, shapeSize);
+
+			translate(shapeSize+gap, 0);
+		}
+
+		translate(-(shapeSize+gap)*j, (shapeSize+gap));
+	}
+	pop();
+
+	switchedMode = false;
+}
+
+function shape(x, y, r){
+	fill(230,230,230);
+
+	ellipse(x,y,r, r);
+
+	createPatternSpiral(x,y,r);
+}
+
+function createPatternSpiral(x, y, r){
+
+	stroke(55,55,55);
+	strokeWeight(1);
+	noFill();
+
+	var amount = 10;
+	var r2 = 0;
+
+	for(var j = 0; j < amount; j++){
+		push();
+		rotate(focusedRandom(0,300));
+
+		r2 += focusedRandom(2, 10);
+		var yr = 1 + j * 5
+	
+		arc(x,y, r2, r2, 0, focusedRandom(15,360));
+
+		pop();
+	}
 }
 
 function keyTyped() {
   if (key == '!') {
       saveBlocksImages();
   }
-  if(key == ' ' && !drawing){
-  	    drawing = true;
+  if(key == ' ' && mode == 'LandScape') {
   	    changeRandomSeed();
 	    setupGrid();
-	    drawShapes();
+	    drawLandscape();
 	    shapeSize = random(80,80);
+  }
+
+  if(key == ' ' && mode == 'Wallpaper') {
+  	    changeRandomSeed();
+		drawShapes();
   }
 }

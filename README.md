@@ -1,11 +1,9 @@
 17.2.MDDN342 PS3
 
-Started working on my landscape. For my inspiration I searched up isometric island, and based my design off what I saw, as I was wanting to do a floating island and thought isometric tile based would be the best option. 
+Use space to generate a new landscape, or left click to regenerate the same landscape but update it for the slider values. Use the selector option to change between Wallpaper and LandScape modes. The landscape will update slider changes instantly for smaller landscapes, but won't for bigger ones.
 
-I have a function that draws a tile, and by creating more functions I will be able to add a lot of variety into my landscape. I also added a random variable to affect the height of each tile , to give the landscape more of a realistic look.
+For my wallpaper I wanted to do a simple modern design, so I choose only two colors and created a really simple and clean pattern with arcs, that reminded me of a vinyl record. I chose the light grey background as it looks like paper, and gives the design almost a hand drawn look, which I really liked.
 
-Tidied up the different heights, so the ground is always at the same spot, to give a cleaner look to the landscape. Started working on adding more to the landscape, by adding water. Also added sliders to control the size and variety of the landscape.
+For my landscape I wanted to create an isometric floating island, thats tile based. I wanted to play around with perlin noise to create the various heights of a terrian. In the end I ditched the floating aspect, as originally I was planning to have clouds, and waterfalls running off the island. I instead created a chunk of a landscape and displayed the same as I would have for a floating island. 
 
-Added in the perlin noise code from toms example and changed it to work with my code. Writing out the grid was hard to get it to align with my isometric layout, but got it working in the end. Made it so the height is based off the noise value, and lerped the mountain color.
-
-Added trees to the mix, just to add some more to the landscape, as it was a bit bare before. I like the look of the landscape now, and don't think I'll add more items to it. I also added some more variety to the grass by lerping its color, similar to the water and mountains.
+I created 4 sliders to go with the landscape, to really help add more variety to each landscape. I used a seed so changing the sliders will let you see the same landscape change to the new values. I also animated these changes (although it only animates for smaller landscape due to lag) so you can see the changes smoothly, and I think it looks really nice. 
