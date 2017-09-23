@@ -1,6 +1,6 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
-var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'wallpaper';
+var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'landscape';
 
 var bigHex = [
                 [280, 200], [280, 280], [200, 280], [200, 200],
@@ -234,27 +234,33 @@ function drawHexOutline(colour, adjuster = 0){
     endShape(CLOSE);
 }
 
+//used to keep track of the noise values for each landscape tile
+var noiseTracker = [];
+
 function drawLandscape() {
+
     //sky
-    var day = color(200, 200, 200);
-    var night = color(0, 0, 0);
+    var day = color(216, 100, 62);
+    var night = color(240, 63,  6);
     //var colour = lerpColor(day, night, ((currentHour/100) * 8));
     if(currentHour > 6 && currentHour < 18){
         var colour = day;
+		var colour2 = color(212, 42, 98);
     }
     else {
         var colour = night;
+		var colour2 = color(206, 100, 30);
     }
-    fill(colour);
-    rect(480, 90, 960, 200);
-
+	drawSky(0,0,960, 180, colour, colour2);
+	
+	createNoiseTrackerArray();
+	
     stroke(0);
     translate(40, 140);
     var xLimit = 11;
     for(var y=0; y<=15; y++){
         for(var x=0; x<=xLimit; x++){
-            var noiseValue = noise(x, y);
-            drawLandscapeTile(noiseValue);
+            drawLandscapeTile(noiseTracker[y][x], x, y);
             translate(80, 0);
         }
         if((y % 2) == 0){
@@ -267,8 +273,61 @@ function drawLandscape() {
     }
 }
 
-function drawLandscapeTile(v){
-    var top, sides;
+function createNoiseTrackerArray(){
+	var xLimit = 11;
+	for(var y=0; y<=15; y++){
+		noiseTracker[y] = [];
+        for(var x=0; x<=xLimit; x++){
+			var noiseValue = noise(x, y);
+			if(y == 0 || y == 15){
+				noiseValue = 0.5;
+			}
+			noiseTracker[y][x] = noiseValue;
+		}
+		if((y % 2) == 0){
+            xLimit = 12;
+        }
+        else {
+            xLimit = 11;
+        }
+	}
+}
+
+function drawSky(x, y, w, h, c1, c2) {
+	noFill();
+	for (var i = y; i <= y+h; i++) {
+	  var inter = map(i, y, y+h, 0, 1);
+	  var c = lerpColor(c1, c2, inter);
+	  stroke(c);
+	  line(x, i, x+w, i);
+	}
+} 
+
+//checks to see if any of the four tiles connected to the current tile are a water tile
+function isThereWaterNearby(x, y){
+	var tileA = 1, tileB = 1, tileC = 1, tileD = 1, posXShift = 1, negXShift = 1;
+	if((y % 2) != 0){
+		posXShift = 0;	
+	}
+	else {
+		negXShift = 0;
+	}
+	if(y > 0){
+		tileA = noiseTracker[y-1][x-negXShift];
+		tileB = noiseTracker[y-1][x+posXShift];
+	}
+	if(y < 15){
+		var tileC = noiseTracker[y+1][x-negXShift];
+		var tileD = noiseTracker[y+1][x+posXShift];
+	}
+	if (tileA  < 0.2 || tileB  < 0.2 || tileC  < 0.2 || tileD  < 0.2) {
+		return true;
+	}
+	return false;
+}
+
+function drawLandscapeTile(v, x, y){
+    var top, sides, isTown = false;
     if (v < 0.2) {
         top = color(184, 100, 98);
         sides = color(23, 82, 85);
@@ -277,6 +336,10 @@ function drawLandscapeTile(v){
     else if (v < 0.75) {
         top = color(120, 100, 70);
         sides = color(23, 82, 85);
+		isTown = isThereWaterNearby(x, y);
+		if(isTown){
+			top = color(213, 6, 77);
+		}
     }
     else {
         top = color(120, 100, 70);
@@ -291,7 +354,7 @@ function drawLandscapeTile(v){
 
     //regular cube
     if (v < 0.75) {
-        fill(top)
+        fill(top);
         //top
         quad(0, 20, 40, 40, 0, 60, -40, 40);
         fill(sides);
@@ -299,7 +362,12 @@ function drawLandscapeTile(v){
         quad(-40, 40, 0, 60, 0, 100, -40, 80);
         //right side
         quad(40, 40, 0, 60, 0, 100, 40, 80);
-
+		if(isTown){
+			fill(191, 43, 83);
+			rect(0,30, 15, 30);
+			fill(223, 73, 60);
+			rect(10,35, 12, 24);
+		}
     }
     //mountain
     else {
@@ -416,5 +484,14 @@ function shuffleArray(array) {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  else if (key == ' ') {
+    if(drawingMode === 'wallpaper'){
+        drawingMode = 'landscape';
+    }
+    else if(drawingMode === 'landscape'){
+        drawingMode = 'wallpaper';
+    }
+	changeMode();
   }
 }
