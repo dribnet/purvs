@@ -1,5 +1,9 @@
-var shapeSize = 80; 
-var gap = 20;
+var tileWidth = 80;
+var tileHeight = tileWidth/2;
+var boardSize = 7;
+
+//Tile Variables
+var tileDepth = 30;
 
 function setup () {
   createCanvas(960, 500);
@@ -15,73 +19,75 @@ function mouseClicked(){
 function drawShapes(){
 	clear();
 	noStroke();
-	background(55,55,55);
+	background(125,210,233);
 
-	translate(shapeSize/2, shapeSize/2);
+	translate(width/2, tileHeight*2);
 
-	for(var i = 0; i * (shapeSize+gap) < width; i++){
+	var rowSize = 0;
+	var startPos = 0;
+	drawGroundTile(0, 0);
 
-		for(var j = 0; j * (shapeSize+gap) < height*2; j++){
+	//Draw first half of board
+	for(var y = 0; y < boardSize; y++){
+		for(var x = 0; x <= rowSize; x++){
 
-			shape(0,0, shapeSize);
+			drawGroundTile(startPos + x*tileWidth, y*tileHeight/2 + random(0,5));
 
-			translate(shapeSize+gap, 0);
 		}
+		startPos -= tileWidth/2;
+		rowSize++;
+	}
 
-		translate(-(shapeSize+gap)*j, (shapeSize+gap));
+	//Draw second half of board
+	for(var y = boardSize; y <= boardSize*2; y++){
+		for(var x = 0; x <= rowSize; x++){
+
+			drawGroundTile(startPos + x*tileWidth, y*tileHeight/2 + random(0,5));
+		}
+		startPos += tileWidth/2;
+		rowSize--;
 	}
 }
 
-function shape(x, y, r){
-	fill(230,230,230);
-	ellipse(x,y,r, r);
+function drawGroundTile(x, y){
 
-	createPattern(x,y,r);
-}
+	//Draw Dirt underneath
+	fill(206,104,64);
 
-function createPattern(x, y, r){
-
-	fill(55,55,55);
-
-	var amount = random(1, 10);
 	beginShape();
-	for(var j = 0; j < amount; j++){
-		
-		for(var i = 0; i < 5; i++){
-			
-			var xr = random(x-r/2, x+r/2);
-			var yr = random(y-r/2, y+r/2);
-			var xr2 = random(x-r/2, x+r/2);
-			var yr2 = random(y-r/2, y+r/2);
-			curveVertex(xr2,yr2);
-		}
-		
-	}
+
+	vertex(x - tileWidth/2, y);
+
+	vertex(x - tileWidth/2, y + tileDepth);
+	vertex(x, y + tileHeight/2 + tileDepth);
+
+	vertex(x, y);
+
 	endShape();
-}
 
-function createPatternSpiral(x, y, r){
+	beginShape();
 
-	fill(55,55,55);
-	stroke(55,55,55);
-	strokeWeight(1);
-	noFill();
+	vertex(x + tileWidth/2, y);
 
-	var amount = 10;
-	var type = random(0, 1);
-	var r2 = 0;
+	vertex(x + tileWidth/2, y + tileDepth);
+	vertex(x, y + tileHeight/2 + tileDepth);
 
-	for(var j = 0; j < amount; j++){
-		push();
-		rotate(random(0,300));
+	vertex(x, y);
 
-		r2 += random(2, 10);
-		var yr = 1 + j * 5
+	endShape();
+
+	//Draw Grass
+	fill(100,169,74);
 	
-		arc(x,y, r2, r2, 0, random(15,360));
+	beginShape();
 
-		pop();
-	}
+	vertex(x - tileWidth/2 , y);
+	vertex(x , y - tileHeight/2);
+	vertex(x + tileWidth/2 , y);
+	vertex(x , y + tileHeight/2);
+	vertex(x - tileWidth/2 , y);
+
+	endShape();
 }
 
 function keyTyped() {
