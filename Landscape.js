@@ -17,7 +17,42 @@ this.drawLand = function(){
 	background(110);
 	this.sky();
 	this.midground();
+	this.foreground();
 }
+
+this.foreground = function(){
+	this.rock(this.w/2, this.h/3*2, 150,60);
+}
+
+//draws from the top left corner
+this.rock =  function(x,y,width,height){
+	//ellipse(x,y,width,height);
+	beginShape();
+	vertex(x+width/20,y+height);
+	vertex(x,y+height-focusedRandom(height/40, height/3));
+	vertex(x+width/15,y+height/2);
+	vertex(x+(width/5), y+focusedRandom(0, height/2.5));
+	//middle
+	vertex(x+(width/2), y+height/15);
+	
+	vertex(x+(width/2+width/5), y);
+	vertex(x+width-width/15,y+height/2);
+	vertex(x+width-(focusedRandom(0,width/15)),y+height-focusedRandom(height/20,height/4));
+	vertex(x+width-width/20,y+height);
+	endShape();
+}
+
+this.towerRoof =  function(x,y,width,height){
+	//ellipse(x,y,width,height);
+	beginShape();
+	vertex(x+width/20,y+height);
+	vertex(x,y+height-height/20)
+	vertex(x+(width/2), y);
+	vertex(x+width,y+height-height/20);
+	vertex(x+width-width/20,y+height);
+	endShape();
+}
+
 
 
 this.sky = function(){
