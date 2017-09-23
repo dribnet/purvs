@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-This version shows the beginnings of my landscape. I've refined the starter code given in class to work for the aesthetic I'm going for and match my pattern style. I've removed the polygons and started to add in some statements that generate shapes randomly. I'm now working on replacing those shapes with landscape features that vary in density and size. 
+I've started to flesh out the forest part of my generative landscape. I'm happy with how it looks at the moment but once I've fleshed out the rest of my landscape (possibly a river and some cityscape) I will begin refining it. Each tree type generates randomly at a random spot, all with equal chances of appearing. In the future I might refine it so a certain type of tree spawns more than others at a given time. 
