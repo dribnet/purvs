@@ -5,14 +5,6 @@ var sketchMode = 1;
 var circle;
 var ponds = [];
 
-//poisson-disc vars
-var r = 100;
-var k = 30;
-var grid = [];
-var w = r / Math.sqrt(2);
-var active = [];
-var cols, rows;
-var locations = [];
 
 
 
@@ -26,24 +18,6 @@ function setup() {
   		var newPond = new Pondset();
   		ponds.push(newPond);
 	}
-
-	
-	 // Poisson-disc STEP 0
-  cols = floor(width / w);
-  rows = floor(height / w);
-  for (var i = 0; i < cols * rows; i++) {
-    grid[i] = undefined;
-  }
-
-  // STEP 1
-  var x = width / 2;
-  var y = height/2;
-  var i = floor(x / w);
-  var j = floor(y / w);
-  var pos = createVector(x, y);
-  grid[i + j * cols] = pos;
-  active.push(pos);
-  //frameRate(1);
 
 }
 
@@ -61,77 +35,36 @@ function draw() {
 }
 
 function drawLandscape(){
-	// push();
-
-	// var index = 0;
-	// for (var i=0; i<locs.length; i++){
-	// 	ponds[index].display(locs[i].x, locs[i].y);
-	// 	index++
-	// }
-	// pop();
-	findPoissonPoints();
-	var index = 0;
-	for (var i=0; i<locations.length; i++){
+// draw a pondset at each location
+  	var index = 0;
+  	var nY = 10;
+  	var nX = 11;
+  	var spacing = 150;
+  	for(var i=0;i<nX;i++) {
+	    for(var j=0;j<nY;j++) {
+		    push();
+		    translate(0, height/10);
+		   
+		    if (j%2==1){
+		    	translate(ponds[index].shift, 0);
+		    }
+		   	var pondSize = j/3;
 	
-		ponds[index].display(locations[i].x, locations[i].y);
-		index++;
-	}
-	console.log(locations);
+		     scale(pondSize);
+		     ponds[index].perspective = j/(nY*1.5);
+		     
+		     //ponds[index].lotuxY = ponds[index].perspective*ponds[index].lotuxY;
+
+		    ponds[index].display(spacing*i, spacing*(pondSize*ponds[index].perspective));
+		  
+		    stroke(0);
+		       index++;
+		    pop();
+	    }
+		
+  	}
 }
 
-function findPoissonPoints(){
-
-	
-
-    while (active.length > 0) {
-      var randIndex = floor(random(active.length));
-      var pos = active[randIndex];
-      var found = false;
-      for (var n = 0; n < k; n++) {
-        var sample = p5.Vector.random2D();
-        var m = random(r, 2 * r);
-        sample.setMag(m);
-        sample.add(pos);
-
-        var col = floor(sample.x / w);
-        var row = floor(sample.y / w);
-
-        if (col > -1 && row > -1 && col < cols && row < rows && !grid[col + row * cols]) {
-          var ok = true;
-          for (var i = -1; i <= 1; i++) {
-            for (var j = -1; j <= 1; j++) {
-              var index = (col + i) + (row + j) * cols;
-              var neighbor = grid[index];
-              if (neighbor) {
-                var d = p5.Vector.dist(sample, neighbor);
-                if (d < r) {
-                  ok = false;
-                }
-              }
-            }
-          }
-          if (ok) {
-            found = true;
-            grid[col + row * cols] = sample;
-            active.push(sample);
-            locations.push(sample);
-
-            break;
-          }
-        }
-      }
-
-      if (!found) {
-        active.splice(randIndex, 1);
-      }
-    }
-}
-
-function refreshPoissonPoints(){
-	active = [];
-	locations=[];
-	findPoissonPoints();
-}
 
 function drawWallpaper(){
 
@@ -142,9 +75,9 @@ function drawWallpaper(){
 	    for(var j=0;j<5;j++) {
 		    push();
 		    if (j%2==1){
-		    	translate(shift, 0);
+		    	translate(ponds[index].shift, 0);
 		    }
-		    ponds[index].display(280*i, 280*j);
+		    ponds[index].display(120*i, 120*j);
 
 		    index++;
 		    pop();
@@ -154,7 +87,7 @@ function drawWallpaper(){
 
 
 function Pondset(){
-	this.scale = 0.5;
+	this.scale = 0.4;
 	this.shift = random(20, 80);
 	this.xOff = random(1000);
   	this.rand = random(25, 35);
@@ -167,7 +100,7 @@ function Pondset(){
   	this.showLotus = Math.floor(random(0, 2));
 	this.rot = random(TWO_PI);
   	this.lotusScale = random(1*this.scale, 1.8*this.scale);
-
+  	this.perspective = 0.5;
 
 	  this.display = function(x, y) {
 	  	if (this.showCheck == 1){
@@ -181,10 +114,11 @@ function Pondset(){
 
 		  	this.generateLeafShape(this.leafX, this.leafY, this.scale);
 
-		  	this.lotusX = (Math.cos(this.angle)*this.rad)*this.scale;
-			this.lotusY = (Math.sin(this.angle)*this.rad)*this.scale;
+		  	this.lotusX = this.leafX + (Math.cos(this.angle)*this.rad)*this.scale;
+			this.lotusY = this.leafY + (Math.sin(this.angle)*this.rad)*this.scale*this.perspective;
 
-			this.generateLotusShape(this.leafX + this.lotusX, this.leafY + this.lotusY, this.lotusScale, this.showLotus);
+	
+			this.generateLotusShape(this.lotusX, this.lotusY, this.lotusScale, this.showLotus);
 		  	pop();
 	  	}
 	  }
@@ -193,8 +127,9 @@ function Pondset(){
 	  this.generateLeafShape=function(x, y){
 		push();
 		translate(x, y);
-		rotate(this.rot);
-		scale(this.scale);
+	
+		scale(this.scale, this.scale*this.perspective);
+			rotate(this.rot);
 	  	fill(255, 255, 255, 0);
 
 	
@@ -232,7 +167,7 @@ function Pondset(){
 	  	}
 
 	  	endShape(CLOSE);
-
+ 
 	  	//lines
 
 	  	stroke(219, 237, 154, 50);
@@ -281,6 +216,7 @@ function Pondset(){
 		  	}
 
 			push();
+
 			translate(x, y);
 			fill(255, 200, 190);
 			strokeWeight(0.5);
@@ -329,7 +265,6 @@ function Pondset(){
 
 function refreshPattern(){
 
-	refreshPoissonPoints();
 	ponds = [];
  
   for (var i = 0; i < 200; i++){

@@ -1,5 +1,5 @@
 17.2.MDDN342 PS3
 
-I've spent quite a lot of time trying to get a uniform random distribution, but I've run into some issues. I have to run the random sampling code before I draw the lilypads, but the width of them is randomly set within the lilypad object. This puts me in a bit of a tricky spot, as I need the width to accurately run the sampling pattern. 
+After ditching the poisson-disc sampling technique, I reverted back to using my makeshift grid with random variations. I also implemented a sense of perspective using scaleY (based on which row of the grid each object is placed on). I had some issues getting the flowers to conform to this, but then realised I had to multiply their angle of rotation by the scale ofset I added for the perspective. 
 
-I've been following along with this tutorial: https://www.youtube.com/watch?v=flQgnCUxHlw
+Next up: I need to make a few different 'views' of the lilies, as well as work on the aesthetic of the water (including ripples and the water itself. I'm considering using perlin noise to achieve slight tonal variation).
