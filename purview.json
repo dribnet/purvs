@@ -1,28 +1,16 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000006",
-      "name": "final"
+      "sha": "351d146d72f6c5a68cfb3cca09ab1cba8c05c859",
+      "name": "Development_3"
     },
     {
-      "sha": "e58299ef4a212354faecb6e5e82aab5c374ba0d0",
-      "name": "distribution"
+      "sha": "a4dca57c37194d5f782683dae41f124390830f20",
+      "name": "Development_2"
     },
     {
-      "sha": "aed9c732cbdbe0d00b1fa12f6a603a309ccdf717",
-      "name": "experiment"
-    },
-    {
-      "sha": "3efec553d42df14df1b6ddf4488eb44bd1feca7b",
-      "name": "randomize"
-    },
-    {
-      "sha": "bf3428c2ff13e37943a0a28386dced0b51562abc",
-      "name": "drawing_styles"
-    },
-    {
-      "sha": "459891b99d7bb659f9870097c90b944d57b726c3",
-      "name": "portraits"
+      "sha": "e6f71a88c87ae57978239ab639d69cb87ad49071",
+      "name": "Development_1"
     }
   ]
 }

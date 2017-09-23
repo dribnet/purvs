@@ -21,3 +21,7 @@ I've think I've come to a colour scheme that I really like, as with my shapes I 
 UPDATE
 
 I've been working on my landscape and finalizing the patter, some changes had to be done since bringing all the code together into one js file created some clashes. So far so good though. I've been inspired by a lot of work online and been grabbing bits of code that i could change, adapt and learn from. All of which are commented on my code. I plan to still add some last minute changes but the assignment is almost complete.
+
+UPDATE
+
+I've been working on finalizing both the pattern and the landscape for this project. Still working on the code I want to use but getting to a finalized stage.

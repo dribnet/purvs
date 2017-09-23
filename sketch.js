@@ -110,7 +110,33 @@ function draw () {
 
         ellipse(x1+10, y1+10, 12, 6);
       }
-    }  
+    } 
+
+  noFill();
+  stroke(248, 198, 207);
+  ellipse(100, 100, 60, 60);
+  ellipse(120, 120, 10, 10);
+  ellipse(90, 130, 40, 40);
+  ellipse(130, 100, 20, 20);
+  ellipse(80, 80, 40, 40);
+
+  ellipse(200, 400, 60, 60);
+  ellipse(220, 420, 10, 10);
+  ellipse(180, 390, 40, 40);
+  ellipse(230, 400, 20, 20);
+  ellipse(240, 430, 40, 40);
+
+  ellipse(700, 100, 60, 60);
+  ellipse(730, 90, 10, 10);
+  ellipse(750, 130, 40, 40);
+  ellipse(730, 120, 20, 20);
+  ellipse(750, 80, 40, 40);
+
+  ellipse(750, 300, 60, 60);
+  ellipse(750, 370, 10, 10);
+  ellipse(790, 330, 40, 40);
+  ellipse(780, 320, 20, 20);
+  ellipse(770, 360, 40, 40); 
   
   // dots  
   for (i = 0; i < width; i+=spacer) {
@@ -160,7 +186,7 @@ function draw () {
 //translate(width/2, height/2);
   for (var i = 0; i < width; i++) {
     var circleAngle = random(0, TWO_PI);
-    var circleRadius = 100 * sqrt(random(0,1));
+    var circleRadius = 100 * sqrt(random(0,100));
     // Set colors
     var palette = ["#F8C6CF","#f6dce1","#eddde0 ","#f8dbe0","#92b3cd"];
     // Set dot sizes and position
@@ -194,7 +220,7 @@ function draw () {
   translate(width/2, height/2);
   for (var i = 0; i < width; i++) {
     var circleAngle = random(0, TWO_PI);
-    var circleRadius = 100 * sqrt(random(0,1));
+    var circleRadius = 100 * sqrt(random(0,100));
     // Set colors
     var palette = ["#F8C6CF","#f6dce1","#eddde0 ","#f8dbe0","#92b3cd"];
     // Set dot sizes and position
@@ -207,7 +233,6 @@ function draw () {
     stroke(palette[color]);
     ellipse(x,y,d);
   }
-
 
 
   }
@@ -238,14 +263,14 @@ function draw () {
 
 
 for (var i = locs.length - 1; i >= 0; i--) {
-    var h = calcVec( locs[i].x, locs[i].y );
+    var h = calcVec( locs[i].x - mouseX, locs[i].y - mouseY);
     strokeWeight(1);
     stroke(248, 198, 207);
     line(
       locs[i].x, 
       locs[i].y, 
-      locs[i].x + 150, 
-      locs[i].y + 50
+      locs[i].x + 150*cos(h.heading()), 
+      locs[i].y + 50*sin(h.heading())
     );
   };
 
