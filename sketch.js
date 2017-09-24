@@ -1,9 +1,21 @@
 var slider1, slider2, slider3;
-var inc = 0.01;
+var inc = 0.50;
+var scl = 40;
+var cols, rows;
+var zoff = 0;
+
+var mode = true;
+
+var particles = [];
+var flowfield;
 
 function setup () {
   createCanvas(960, 500);
+  cols = floor(width / scl);
+  rows = floor(height / scl);
   pixelDensity(1);
+
+  flowfield = new Array(cols * rows);
 
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(10, 50, 25);
@@ -12,9 +24,24 @@ function setup () {
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
+
+  for (var i = 0; i < 500; i++){
+    particles[i] = new Particle();
+  }
+
+  background(0);
 }
 
-function draw () {
+function draw() {
+  if (mode == true){ 
+    Landscape();
+  }
+  else if (mode == false){
+    Wallpaper();
+  }
+}
+
+function Wallpaper() {
 
   //WALLPAPER
 
@@ -61,26 +88,36 @@ function draw () {
   }
 
   // noLoop();
+}
 
+function Landscape () {
   //GENERATIVE LANDSCAPE
-  //Code based on tutorials from The Coding Train
-
-  // var yoff = 0;
-
-  // loadPixels();
-  // for (var y = 0; y < height; y++) {
-  //   var xoff = 0;
-  //   for (var x = 0; x < width; x++) {
-  //     var index = (x + y * width) * 4;
-  //     var r = noise(xoff, yoff) * 255;
-  //     pixels[index + 0] = r;
-  //     pixels[index + 1] = r;
-  //     pixels[index + 2] = r;
-  //     pixels[index + 4] = r;
-  //   }
-  // }
-
+  //Code based on tutorials from The Coding Train by Daniel Shiffman https://www.patreon.com/codingtrain
   
+  var yoff = 0;
+
+  for (var y = 0; y < rows; y++) {
+    var xoff = 0;
+    for (var x = 0; x < cols; x++) {
+      var index = x + y * cols;
+      var angle = noise(xoff, yoff, zoff) * (TWO_PI * 4);
+      var v = p5.Vector.fromAngle(angle);
+      v.setMag(5);
+      flowfield[index] = v;
+      xoff += inc;
+      stroke(0, 50);
+    }
+    yoff += inc;
+    zoff += 0.0003;
+  }  
+
+  for (var i = 0; i <particles.length; i++) {
+    particles[i].follow(flowfield);
+    particles[i].update();
+    particles[i].edges();
+    particles[i].show();
+    
+  }
 
 }
 
@@ -88,4 +125,16 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+
+  if (key == 'l'){
+    background(0);
+    mode = true;
+  }
+
+  else if (key == 'w'){
+    background(255);
+    mode = false;
+  }
+
+
 }
