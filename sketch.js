@@ -74,12 +74,23 @@ function draw (){
       }
 
 
+      for(var stars = 0; stars < random(500, 1000); stars++){ //stars
+        //ellipse(posiX, posiY, 2, 2);
+        fill(255, 255, 255, 90);
+        noStroke();
+        var size = random(0, 1.5);
+        ellipse(random(0, width), random(0, height), 1+size, 1+size);
+
+      }
+
+      planet();
+
+
 
       noStroke();
-      console.log(randomSize);
 
       fill(255, 231, 69, 20); //back sun layer
-      ellipse(width/2, height-height/3, 130 + randomSize +randomSize/3, 130+ randomSize +randomSize/3);
+      ellipse(width/2, height-height/3 , 130 + randomSize +randomSize/3, 130+ randomSize +randomSize/3);
 
       fill(255, 231, 69, 30);
       ellipse(width/2, height-height/3, 115+ randomSize +randomSize/5, 115+ randomSize +randomSize/5);
@@ -155,6 +166,24 @@ function changeRandomSeed() {
 
 function mousePressed() {
     changeRandomSeed();
+}
+
+
+function planet(){
+  push();
+  fill(255, 255, 255);
+  translate(width/3, height/3)
+  ellipse(0, 0, 10, 10);
+  fill(255, 255, 255, 90);
+  ellipse(0, 0, 12, 12);
+  noFill();
+  strokeWeight(1);
+  stroke(255, 255, 255, 100);
+  rotate(random(0, 180));
+  ellipse(0, 0, 40, 5);
+  rotate(random(0, 180));
+  ellipse(0, 0, 50, 6);
+  pop();
 }
 
 
