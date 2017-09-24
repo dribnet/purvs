@@ -6,13 +6,9 @@ wallpaper and the landscape.
 
 */
 
-
 function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
-
-
   var randomNum;
-  var shapeNum = 18;
   var totalPopulation;
 
   noiseSeed(random(0,1000));
@@ -20,6 +16,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
   var snowChance;
 
+  //population variables
   var empty;
   var bigRect;
   var smallRect;
@@ -49,14 +46,13 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
 
 
-
+  //initializing arrays
   var shapeTypes = new Array(rows);
   var r = new Array(rows);
   var g = new Array(rows);
   var b = new Array(rows);
   var shapeSize = new Array(rows);
   var shapeRotate = new Array(rows);
-
 
 
   for(var row = 0; row< rows; row++){
@@ -80,6 +76,14 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     }
   }
 
+
+  /**
+
+  Each shape piece has its own chance of spawning, which is randomized each time
+  a new pattern is created. This method initializes all of those shapes. It has different
+  populations depending on whether it's drawing the landscape or wallpaper.
+
+  */
   this.initPopulations = function(){
 
     if(mode == true){
@@ -101,9 +105,9 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       smallTree = 10 + round(random(-10,20));
       rect4 = 0;
       circle4 = 0;
-      house = 1 + round(random(-1,6));
+      house = 1 + round(random(-1,4));
       obelisk = 1 + round(random(0,6));
-      flower = 15 + round(random(1,15)) ;
+      flower = 5 + round(random(1,15)) ;
       cave = 20 + round(random(-4,5));
     }
   else{
@@ -139,14 +143,15 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
 
 
+  /**
 
+  Gets an individual shape using perlin noise to decide which one it will return
+
+  **/
   this.getShape = function(row,col){
-
-
 
     var total = 0;
     var shape;
-
 
     //var rand = (round(random(0,totalPopulation)));
     var rand = (round(noise(row,col)*totalPopulation));
@@ -167,9 +172,6 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
     }
 
-
-    //print("shape = " + shape);
-
     return shape;
 
   }
@@ -180,7 +182,6 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   this.randomizeValues = function (){
 
     this.initPopulations();
-
 
     for(var row = 0; row< rows-1; row++){
       for(var col = 0; col< cols-1; col++){
@@ -207,7 +208,6 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
         else{
           b[row][col] = blue;
         }
-
 
         shapeSize[row][col] = (colWidth/2)* round(random(1,3));
         shapeRotate[row][col] = random(-2,1);
@@ -349,21 +349,18 @@ this.randomizeValues();
 
   }
 
+
+
+//method used to draw a rectangle with text about populations. Not used
+// in final program
   this.drawPopulations = function (){
 
-
-
-
-
-    stroke(53,74,42);
 
     noStroke();
     fill(255,50)
     rect(minXPop*colWidth,minYPop*rowHeight,xDiff*colWidth,yDiff*rowHeight);
     fill(255);
     rect(minXPop*colWidth,minYPop*rowHeight,xDiff*colWidth,rowHeight*3);
-
-
 
     textAlign(CENTER);
     fill(42, 71, 49);
@@ -383,6 +380,8 @@ this.randomizeValues();
     text("Flower = " + round(populations[12]),xPos,yPos+(lineHeight*11));
   }
 
+
+//prints all populations out to console
   this.printPopulations = function(){
 
     print("Space = " + round(populations[0]));

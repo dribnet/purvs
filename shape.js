@@ -1,10 +1,18 @@
-function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,perl,lakeChance,snowChance,treeColOffset){
 
+
+/**
+
+Draws an individual shape. It could be part of the landscape or the
+wallpaper. Uses the mode to determine the color of the shapes.
+
+*/
+
+
+function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,perl,lakeChance,snowChance,treeColOffset){
 
   var tileType;
 
-
-
+  //need to set all environment pieces to their proper colors here
   if(shapeType == 3 && mode == true){
     lineColor = color(123,182,91);
     }
@@ -53,32 +61,33 @@ var perlMult = perl*100;
 
   this.createShape = function(){
 
-
-    //print(perl);
-
     if(mode == true){
+
+      //grass / snow
       noStroke();
       fill(169+perlMult, 234+perlMult, 156+perlMult);
       rect(leftX,topY,colWidth,rowHeight);
 
-
+      //lake
       if(tileType == "lake"){
         fill(193+perl*20, 217+perl*20, 255+perl*20);
         rect(leftX,topY,colWidth,rowHeight);
       }
-
 
     }
 
     fill(sColor);
     stroke(lineColor);
 
-    perl = 0;
 
-
+    //don't want to draw shapes on top of lake tiles
     if(tileType == "lake"){
       return;
     }
+
+
+    //giant list of shapes. in future these could be
+    //seperated out into their own classes.
 
 
     //bigrect

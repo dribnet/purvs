@@ -1,6 +1,6 @@
 /**
 Draws a basic wallpaper by creating 3 layers of the pattern on
-top of eachother.
+top of eachother. Swaps between 3 color schemes.
 **/
 
 function Wallpaper(rows,cols,rowHeight,colWidth){
@@ -35,8 +35,6 @@ function Wallpaper(rows,cols,rowHeight,colWidth){
     green = 255;
   }
 
-
-
   var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,red,green,blue,false);
   var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,red,green,blue,false);
   var pattern3 = new Pattern(rows,cols,rowHeight,colWidth,150,red,green,blue,false);
@@ -58,8 +56,5 @@ function Wallpaper(rows,cols,rowHeight,colWidth){
     pattern3.drawPattern();
 
   }
-
-
-
 
 }
