@@ -7,7 +7,7 @@ var colour_blue = [0,0,255];
 var colour_tree = [0, 200, 0];
 var colour_tree_trunk = [139,69,19];
 
-var colour_house_light = [130,69,19];
+var colour_house_light = [110,69,19];
 var colour_house_dark = [159,69,19];
 
 var trees_xpos = new Array();
@@ -124,21 +124,39 @@ function drawHouse(xpos, ypos, size){
   translate(xpos, ypos);
   fill(colour_house_dark);
   stroke(colour_house_dark);
-  ellipse(24,4,size, size);
+
+  rect(10,42,25,8);
+  rect(10,26,25,8);
+  rect(13,10,20,8);
+
+  fill(colour_house_light);
+  stroke(colour_house_light);
+
+  rect(10,34,25,8);
+  rect(10,18,25,8);
+  rect(20,2,6,8);
+
+  fill(colour_house_dark);
+  stroke(colour_house_dark);
+
+  ellipse(6, 22, size, size);
   ellipse(18, 10, size, size);
-  ellipse(12, 16, size, size);
   ellipse(6, 22, size, size);
   ellipse(30, 10, size, size);
-  ellipse(36, 16, size, size);
   ellipse(42, 22, size, size);
-  ellipse(12, 22, size, size);
-  ellipse(12, 30, size, size);
   ellipse(12, 38, size, size);
-  ellipse(12, 46, size, size);
-  ellipse(36, 22, size, size);
-  ellipse(36, 30, size, size);
   ellipse(36, 38, size, size);
+  ellipse(12, 22, size, size);
+  ellipse(36, 22, size, size);
+  fill(colour_house_light);
+  stroke(colour_house_light);
+  ellipse(12, 30, size, size);
+  ellipse(12, 46, size, size);
+  ellipse(36, 30, size, size);
   ellipse(36, 46, size, size);
+  ellipse(12, 16, size, size);
+  ellipse(36, 16, size, size);
+  ellipse(24,4,size, size);
   pop();
 }
 
