@@ -250,10 +250,10 @@ function draw (){
 			}
 
 			if(randomPlot > 120){
-				if(y1 > (185 - maxHillHeight)){
+				if(y1 > (250 - maxHillHeight)){
     				fill(treeColours);
-					rect(x1+10+focusedRandom(0, 30), y1+focusedRandom(0, 5), 1, 3+(random(0,5)));
-					rect(x1-10-focusedRandom(0, 30), y1+focusedRandom(0, 5), 1, 3+(random(0,5)));
+					rect(x1+10+focusedRandom(0, 30), y1-focusedRandom(0, 30), 1, 3+(random(0,5)));
+					rect(x1-10-focusedRandom(0, 30), y1-focusedRandom(0, 45), 1, 3+(random(0,5)));
 				}		
 			}
 			
