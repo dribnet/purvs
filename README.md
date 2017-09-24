@@ -1,4 +1,3 @@
-17.2.MDDN342 PS3
 This is a program that generates an iterative wallpaper and a generative landscape.Using "space" key to switch between modes and mouse click to change the pattern of landscape.
 
 ###Iterative Pattern
