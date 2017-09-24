@@ -1,18 +1,25 @@
-
+var canvasWidth = 960;
+var canvasHeight = 500;
 
 var circles = [];
 var sketchMode = 1;
 var circle;
 var ponds = [];
 
-
+var modeSelector;
 
 
 function setup() {
-  createCanvas(960, 500);
+   var main_canvas = createCanvas(canvasWidth, canvasHeight);
+  main_canvas.parent('canvasContainer');
 
   noiseSeed(random(1000));
   randomSeed(random(1000));
+
+  modeSelector = createSelect();
+  modeSelector.option('wallpaper');
+  modeSelector.option('landscape');
+  modeSelector.parent('selector1Container');
 
   for (var i = 0; i < 200; i++){
   		var newPond = new Pondset();
@@ -24,12 +31,16 @@ function setup() {
 
 
 function draw() {
+	sketchMode = modeSelector.value();
+
 	background(199, 219, 249);
-	if(sketchMode ==0){
+	if(sketchMode =='wallpaper'){
 		drawWallpaper();
 	}
-	else if (sketchMode ==1){
+	else if (sketchMode =='landscape'){
 		drawLandscape();
+		
+
 	}
 	
 }
@@ -37,10 +48,10 @@ function draw() {
 function drawLandscape(){
 // draw a pondset at each location
   	var index = 0;
-  	var nY = 10;
-  	var nX = 11;
-  	var spacing = 150;
-  	for(var i=0;i<nX;i++) {
+  	var nY = 15;
+  	var nX = 13;
+  	var spacing = 120;
+  	for(var i=nX;i>=0;i--) {
 	    for(var j=0;j<nY;j++) {
 		    push();
 		    translate(0, height/10);
@@ -53,16 +64,16 @@ function drawLandscape(){
 		     scale(pondSize);
 		     ponds[index].perspective = j/(nY*1.5);
 		     
-		     //ponds[index].lotuxY = ponds[index].perspective*ponds[index].lotuxY;
-
 		    ponds[index].display(spacing*i, spacing*(pondSize*ponds[index].perspective));
 		  
-		    stroke(0);
-		       index++;
+		
+		    index++;
 		    pop();
 	    }
-		
+	    fill(255, 255, 255, 30-(i*2));
+		rect(0, 0, canvasWidth, canvasHeight);	
   	}
+
 }
 
 
@@ -70,10 +81,18 @@ function drawWallpaper(){
 
 // draw a pondset at each location
   	var index = 0;
+  	for(var i=0;i<55;i++) {
+		ponds[index].perspective = 1;
+		ponds[index].flowerMode = 0;
+		index++;		
+	}
 
+	index = 0;
   	for(var i=0;i<11;i++) {
 	    for(var j=0;j<5;j++) {
 		    push();
+
+
 		    if (j%2==1){
 		    	translate(ponds[index].shift, 0);
 		    }
@@ -100,7 +119,8 @@ function Pondset(){
   	this.showLotus = Math.floor(random(0, 2));
 	this.rot = random(TWO_PI);
   	this.lotusScale = random(1*this.scale, 1.8*this.scale);
-  	this.perspective = 0.5;
+  	this.perspective = 1;
+  	this.flowerMode = 0;
 
 	  this.display = function(x, y) {
 	  	if (this.showCheck == 1){
@@ -197,7 +217,7 @@ function Pondset(){
 
  
 	  this.generateLotusShape = function(x, y, s, v){
-	  	if (v==1){
+	  	if (v==1 && this.flowerMode ==0){
 
 		  	this.generatePetalShape = function(ang, s){
 			  	push();
@@ -254,6 +274,8 @@ function Pondset(){
 				pop();
 			}
 			pop();
+		} else if (v==1 && this.flowerMode ==1){
+
 		}
 	}
 
