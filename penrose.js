@@ -74,6 +74,8 @@ const penrose = {};
         // for these splitting functions, it helps to think that
         // true = point A; false = point B; for the Edges
 
+        this.splitInto = this.acute ? splitAcute : splitObtuse;
+
         function splitAcute(fringe) {    // split into a acute and a obtuse
             this.left.edge.splitEdge(false == this.left.ab);
 
@@ -150,22 +152,31 @@ const penrose = {};
                 { edge:apexCrossEdge,   ab:true  }
             ));
         }
-
-        this.splitInto = this.acute ? splitAcute : splitObtuse;
     }
 
     exports.generate = function(iterations) {
         //console.log(createVector(1, 0));
         let apex = createVector(0, 0);
         let leftBase = createVector(1, 0);
-        let rightBase = leftBase.copy().rotate(acute);
+        let rightBase = leftBase.copy().rotate(obtuse);
+        let otherApex = leftBase.copy().add(rightBase);
 
-        let tris = [new Tri(
-            acute,
-            { edge: new Edge(leftBase, rightBase),  ab: true },
-            { edge: new Edge(apex, leftBase),       ab: true },
-            { edge: new Edge(apex, rightBase),      ab: true }
-        )];
+        let sharedEdge = new Edge(leftBase, rightBase);
+
+        let tris = [
+            new Tri(
+                obtuse,
+                { edge: sharedEdge,                     ab: true },
+                { edge: new Edge(apex, leftBase),       ab: true },
+                { edge: new Edge(apex, rightBase),      ab: true }
+            ),
+            new Tri(
+                obtuse,
+                { edge: sharedEdge,                     ab: true },
+                { edge: new Edge(otherApex, leftBase),  ab: true },
+                { edge: new Edge(otherApex, rightBase), ab: true }
+            )
+        ];
 
         for (let i = 0; i < iterations; i++) {
             let fringe = [];

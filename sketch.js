@@ -6,8 +6,8 @@ function setup () {
     tiles = penrose.generate(9);
     push();
     {
-        translate(0, 0)
-        scale(850, 850);
+        translate(200, 0)
+        scale(510, 510);
         //noStroke();
         strokeWeight(0.001);
 
