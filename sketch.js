@@ -1,5 +1,6 @@
-var inMapMode = false;
+var inMapMode = true;
 var seed = 0.0;
+
 
 function setup() {
 	createCanvas(960, 500);
@@ -17,7 +18,7 @@ function draw() {
 //The white lines are generated randomly
 function generate() {
 	if (inMapMode) {
-		fill(0);
+		/*fill(0);
 		rect(0, 0, 960, 500);
 		push();
 		translate(25, 25);
@@ -50,37 +51,87 @@ function generate() {
 				this.shape(50 * i, 50 * j, 25);
 			}
 		}
-		pop();
+		pop();*/
+		var posY;
+		var posX;
+		var sz; //size of the shape
+		var dis = 25; //the changing distance each time
+		var len = 0; //the distance from original position
+
+		fill(229,175,0);
+		rect(0,0,960,500);
+		noStroke();
+		for (var i = -1; i < 5; i++) {
+			for (var n = 0; n < 28; n++) {
+				len = len + dis;
+				posX = n * 50 - 75;
+				posX = pow(-1, i) * 80 + posX; //derangement
+				posY = i * 130 + 120 + len;
+				fill(10);
+				sz = 25;
+				if (n % 4 == 0) {
+					dis = dis * (-1);
+					fill(255, 60, 40);
+					sz = sz * 1.5;
+					this.polygons2(posX, posY, sz);
+				} else {
+					this.polygons(posX, posY, sz);
+				}
+			}
+		}
+
+
+
+
 	} else {
-		fill(0);
+		fill(0, 0, 30);
 		rect(0, 0, 960, 500);
 		noStroke();
 		for (var i = 0; i < 35; i++) {
 			for (var j = 0; j < 20; j++) {
-				var distance = 30;
-				var posX = distance * i + random(-distance/2, distance/2);
-				var posY = distance * j + random(-distance/2, distance/2);
+				var distance = 40;
+				var posX = distance * i + random(-distance / 2, distance / 2);
+				var posY = distance * j + random(-distance / 2, distance / 2);
 				var noiseVal = noise(posX / 100, posY / 100);
-				var size = noiseVal * 35;
-				this.setColor(noiseVal);
-				ellipse(posX, posY, size, size);
+				this.drawLanscape(noiseVal, posX, posY);
 			}
 		}
 	}
 }
 
-function setColor(v) {
-	if (v < 0.5) {
-		color1 = color(0, 0, 100);
-		color2 = color(100, 100, 220);
-		c = lerpColor(color1, color2, v * 2);
+function drawLanscape(v, posX, posY) {
+	var size = v * 15;
+
+	if (v < 0.4) {
+
+	} else if (v < .5) {
+		var grey = random(150, 200);
+		fill(0, 0, random(0, 30), 150);
+		ellipse(posX + random(-20, 20), posY + random(-10, 10), size * random(20, 40), size * random(20, 40));
+
+	} else if (v < 0.6) {
+		color1 = color(0, 0, 30);
+		color2 = color(255, 255, 150);
+		c = lerpColor(color1, color2, map(v, 0.5, 0.6, 0, 1));
 		fill(c);
+		var bokehSize = size * map(v, 0.5, 0.6, 1, .2);
+		ellipse(posX, posY, bokehSize, bokehSize);
+
 	} else if (v < 0.7) {
-		fill(0, 128, 0);
-	} else if (v < 0.8) {
-		fill(128, 128, 128);
-	} else {
-        fill(255);
+		fill(255, 255, 150);
+		ellipse(posX, posY, size / 6, size);
+		ellipse(posX, posY, size, size / 6);
+
+	} else if (v < .8) {
+
+	} else if (v < .9) {
+		var meteorLengthX, meteorLengthY;
+		random(0, 1) < .5 ? meteorLengthX = -random(size, size * 1.5) / 2 : meteorLengthX = random(size, size * 1.5) / 2;
+		random(0, 1) < .5 ? meteorLengthY = -random(size, size * 1.5) / 2 : meteorLengthY = random(size, size * 1.5) / 2;
+		stroke(255, 255, 180);
+		strokeWeight(2);
+		line(posX - meteorLengthX, posY - meteorLengthY, posX + meteorLengthX, posY + meteorLengthY);
+		noStroke();
 	}
 }
 
@@ -88,6 +139,28 @@ function shape(posX, posY, size) {
 	ellipse(posX, posY, size, size);
 	fill(0);
 	ellipse(posX, posY, size / 2, size / 2);
+}
+
+function polygons(posX, posY, size) {
+	beginShape();
+	posX = posX - size;
+	posY = posY + size;
+	vertex(posX, posY);
+	vertex(posX + size, posY - 2 * size);
+	vertex(posX + 2 * size, posY);
+	vertex(posX + size, posY - size);
+	endShape(CLOSE);
+}
+
+function polygons2(posX, posY, size) {
+	beginShape();
+	posX = posX - size;
+	posY = posY + size;
+	vertex(posX, posY - 2 * size);
+	vertex(posX + size, posY);
+	vertex(posX + 2 * size, posY - 2 * size);
+	vertex(posX + size, posY - size);
+	endShape(CLOSE);
 }
 
 function keyTyped() {
