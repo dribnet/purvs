@@ -7,6 +7,9 @@ var colour_blue = [0,0,255];
 var colour_tree = [0, 200, 0];
 var colour_tree_trunk = [139,69,19];
 
+var colour_house_light = [130,69,19];
+var colour_house_dark = [159,69,19];
+
 var trees_xpos = new Array();
 var trees_ypos = new Array();
 var houses_xpos = new Array();
@@ -44,18 +47,25 @@ function draw () {
   else{
     rect(10, 10, 10, 10);
     //var perlin_noise = noise(96, 50);
+    for(var i = 0; i < 200; i++){
+      for(var j = 0; j < 100; j++){
+        fill((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        stroke((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        //fill(255,0,0);
+        rect(i * 5, j * 5, 5, 5);
+      }
+    }
     for(var i = 0; i < 20; i++){
       for(var j = 0; j < 10; j++){
-        console.log(noise(i,j));
-        fill((255 * noise(i, j)), 0, 0);
-        stroke((255 * noise(i, j)), 0, 0);
-        //fill(255,0,0);
-        rect(i * 50, j * 50, 50, 50);
-        if(noise(i,j) > 0.5){
+        // fill((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        // stroke((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        // //fill(255,0,0);
+        // rect(i * 50, j * 50, 50, 50);
+        if(noise(i,j) > 0.7){
           drawTree((i*50) +20, j*50, 10);
         }
-        else{
-          drawHouse(i*50, j*50, 0.2);
+        else if(noise(i,j) < 0.5){
+          drawHouse(i*50, j*50, 8);
         }
       }
     }
@@ -96,19 +106,37 @@ function drawShape(xpos, ypos, size){
 }
 
 function drawHouse(xpos, ypos, size){
+  // push();
+  // translate(xpos, ypos);
+  // stroke(0,0,0);
+  // fill(255, 255, 255);
+  // rect(5 * size, 45 * size, 145 * size, 85 * size, 10, 10, 10, 10);
+  // fill(colour_red);
+  // stroke(colour_red);
+  // rect(0, 0, 155 * size, 55 * size, 20, 20, 10, 10);
+  // fill(colour_blue);
+  // stroke(colour_blue);
+  // rect(77 * size, 80 * size, 30 * size, 50 * size, 5, 5, 0, 0);
+  // pop();
   push();
   translate(xpos, ypos);
-  stroke(0,0,0);
-  fill(255, 255, 255);
-  rect(5 * size, 45 * size, 145 * size, 85 * size, 10, 10, 10, 10);
-  fill(colour_red);
-  stroke(colour_red);
-  rect(0, 0, 155 * size, 55 * size, 20, 20, 10, 10);
-  fill(colour_blue);
-  stroke(colour_blue);
-  rect(77 * size, 80 * size, 30 * size, 50 * size, 5, 5, 0, 0);
-  pop();
-  push();
+  fill(colour_house_dark);
+  stroke(colour_house_light);
+  ellipse(24,4,size, size);
+  ellipse(18, 10, size, size);
+  ellipse(12, 16, size, size);
+  ellipse(6, 22, size, size);
+  ellipse(30, 10, size, size);
+  ellipse(36, 16, size, size);
+  ellipse(42, 22, size, size);
+  ellipse(12, 22, size, size);
+  ellipse(12, 30, size, size);
+  ellipse(12, 38, size, size);
+  ellipse(12, 46, size, size);
+  ellipse(36, 22, size, size);
+  ellipse(36, 30, size, size);
+  ellipse(36, 38, size, size);
+  ellipse(36, 46, size, size);
   pop();
 }
 
