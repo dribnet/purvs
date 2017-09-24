@@ -1,8 +1,10 @@
 var curRandomSeed;
+var inMapMode = true;
 
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(960, 500);
+  rectMode(CORNERS);
 }
 
 function changeRandomSeed() {
@@ -13,64 +15,115 @@ function mousePressed() {
     changeRandomSeed();
 }
 
+function colorFromValue(v) {
+  if (v < 0.5) {
+    color1 = color(240,139,175); //coral 
+    color2 = color(6,255,255); //turquoise
+    c = lerpColor(color1, color2, v*2); 
+    return c;
+  }
+  else if(v<0.7) {
+    color3 = color(4,248,215); //tealish
+    color4 = color(240,139,175); //coral
+    c1 = lerpColor(color3,color4);
+    return c1;
+  }
+  else if(v<0.8) {
+    return color(6,196,249); //blue
+  }
+  else {
+    return color(235,93,244); //pink
+  }
+}
+
+
 function draw () {
   background(255);
   resetFocusedRandom(curRandomSeed);
+  noiseSeed(curRandomSeed);
 
-  var x_steps = 1 + Math.floor(width / 30);
-  var y_steps = 1 + Math.floor(height / 80);
+  var x_steps = 1 + Math.floor(width / 10);
+  var y_steps = 1 + Math.floor(height / 10);
 
   // save grid locations
   var grid_locations = new Array(x_steps);
     for(var i=0;i<x_steps;i++) {
     grid_locations[i] = new Array(y_steps);
     for (var j = 0; j < y_steps; j++) {
-      x_pos = i * 80;
-      y_pos = j * 70;
+      x_pos = i * 20;
+      y_pos = j * 18;
       if((j % 2) == 0){
-        x_pos = x_pos + 40;
+        x_pos = x_pos + 10;
       }
       grid_locations[i][j] = [x_pos, y_pos];
     }
   }
 
-  // draw a circle at each location
-  for(var i=0;i<x_steps;i++) {
-    for(var j=0;j<y_steps;j++) {
-      var loc = grid_locations[i][j];
+  noStroke();
 
-    var a = (focusedRandom(50, 255, 3));
- 	var b = (focusedRandom(50, 200, 10));
-	var c = (focusedRandom(3, 150, 30));
-	fill(a,b,c);
-   // rect(cur_shape[0], cur_shape[1], cur_shape[2], cur_shape[3]);
-      //var shade = focusedRandom(60, 150, 3);
-      //fill(shade);
-     // ellipse(loc[0]+40, loc[1]+40, 80);
-      triangle(loc[0]+22, loc[1]+110, loc[0]+36, loc[1]+110, loc[0]+55, loc[1]+140);
-      triangle(loc[0]+22, loc[1]+120, loc[0]+36, loc[1]+120, loc[0]+55, loc[1]+170);
-      triangle(loc[0]+20, loc[1]+50, loc[0]+40, loc[1]+50, loc[0]+30, loc[1]+800);
-//triangle(loc[0]+22, loc[1]+120, loc[0]+36, loc[1]+120, loc[0]+55, loc[1]+170);
+  if(inMapMode) {
+    // draw the landscape
+    for(var i=0;i<x_steps-1;i++) {
+      for(var j=0;j<y_steps-1;j++) {
+      
+        var loc = grid_locations[i][j];
+        var x1 = loc[0];
+        var y1 = loc[1]
 
-      //triangle(loc[1]+0, loc[0]+100, loc[1]+120, loc[0]+100, loc[1]+100, loc[0]+80);
-    } //triangle(loc[2]+0, loc[0]+100, loc[2]+120, loc[0]+100, loc[2]+100, loc[0]+80);
+        var x_noise = x1/200.0;
+        var y_noise = y1/500.0;
+        var noiseVal = noise(x_noise, y_noise);
+        var shade = colorFromValue(noiseVal);
+        fill(shade);
+     
+        ellipse(x1, y1, 20);
+        
+      }
+    }    
   }
+  else {
+    background(240,139,175);
+    k = int(focusedRandom(50,0));
+    // draw a pattern
+    for(var j=0;j<y_steps-1;j++) {
+      for(var i=0;i<x_steps-1;i++) {
+       
+        var loc = grid_locations[i][j];
+        var x1 = loc[0];
+        var y1 = loc[1]
 
-  // draw a few random connections
-  // for(var i=0; i<10; i++) {
-  //   var rand_x = Math.floor(focusedRandom(0, x_steps));
-  //   var rand_y = Math.floor(focusedRandom(0, y_steps));
-  //   var loc1 = grid_locations[rand_x][rand_y];
-  //   var loc2 = grid_locations[rand_x][rand_y];
-  //   var shade = focusedRandom(200, 230, 2);
-  //   fill(shade);
-  //   line(loc1[0], loc1[1],loc2[0], loc2[1]);
-  // }
+        var spot = (i+j+k) % 15;
+        if(spot == 0 || spot == 3) {
+          fill(4,248,215);
+        }
+        else if(spot == 8 || spot == 1) {
+          fill(6,255,255); 
+        }
+        else if(spot == 11 || spot == 12) {
+          fill(240,139,175); 
+        }
+        else if(spot == 7 ) {
+          fill(235,93,244);
+        }
+        else { 
+       var a = (focusedRandom(4,248,215));
+       var b = (focusedRandom(240,139,175));
+       var c = (focusedRandom(248,215));
+       fill(a,b,c);  
 
+        }
+        //ellipse(x1, y1, 20);
+       triangle(loc[0]-10, loc[1]+0, loc[0]+10, loc[1]+0, loc[0]+20, loc[1]+50);    
+      }
+    }    
+  }
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  else if (key == ' ') {
+    inMapMode = !inMapMode;
   }
 }
