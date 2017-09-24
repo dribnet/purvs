@@ -1,0 +1,6 @@
+[user]
+  name = Zach Thompson
+  email = the_schwa@hotmail.com
+
+[core]
+  editor = subl --wait
