@@ -1,5 +1,7 @@
 let size = 100;
 
+var curRandomSeed;
+
 var colour_red = [255,0,0];
 var colour_green = [0,255,0];
 var colour_blue = [0,0,255];
@@ -12,8 +14,6 @@ var colour_house_dark = [159,69,19];
 
 var trees_xpos = new Array();
 var trees_ypos = new Array();
-var houses_xpos = new Array();
-var houses_ypos = new Array();
 
 let randomColourNum = 0;
 let drawMode = 0;
@@ -25,7 +25,18 @@ function setup () {
   noiseDetail(6,0.75);
 }
 
+function changeRandomSeed() {
+  curRandomSeed = curRandomSeed + 1;
+}
+
 function draw () {
+
+
+  if (mouseIsPressed) {
+    changeRandomSeed();
+  }
+  resetFocusedRandom(curRandomSeed);
+
   if(drawMode == 1){
     if(mouseIsPressed){
       randomColourNum = focusedRandom(0,3);
@@ -162,7 +173,9 @@ function drawHouse(xpos, ypos, size){
 
 function drawTree(xpos, ypos, size){
   push();
-  translate(xpos, ypos);
+  var shiftX = focusedRandom(-40, 40, 6);
+  var shiftY = focusedRandom(-40, 40, 6);
+  translate(xpos + shiftX, ypos + shiftY);
   fill(colour_tree);
   stroke(colour_tree);
   triangle((size*0.5), 0, 0, (size * 2), size, (size * 2) );
