@@ -2,7 +2,7 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 
 var circles = [];
-var sketchMode = 1;
+var sketchMode = "landscape";
 var circle;
 var ponds = [];
 
@@ -12,8 +12,8 @@ var waterColor = [179, 199, 229];
 
 
 function setup() {
-   var main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
+  createCanvas(canvasWidth, canvasHeight);
+
 
   noiseSeed(random(1000));
   randomSeed(random(1000));
