@@ -1,3 +1,2 @@
-17.2.MDDN342 PS3
-
-This is the starter README for PS3. As you update your code, replace this text with information on your progress. Also be sure to periodically update your preview.jpg and thumbnail.png files.
+The wallpaper is generated on an offset grid, the shapes are drawn completely with straight lines.
+Clicking causes the colours to change. By using overlapping straight lines it looks like there are curves. The positioning of the grid causes circles to be formed by the shapes.
