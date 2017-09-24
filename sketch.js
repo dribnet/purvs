@@ -49,21 +49,25 @@ function draw () {
       var rCol = focusedRandom(0,20);
 
       var rCol2 = focusedRandom(0,255, 2);
-      var rCol3 = focusedRandom(0,100, 1);
-      var rCol4 = focusedRandom(0,255, 2);
+      var rCol3 = focusedRandom(0,50, 1);
+      var rCol4 = focusedRandom(0,155, 2);
 
       //fill(rCol,rCol,rCol,60);
 
-      fill(rCol2,rCol3,rCol4,60);
+      fill(rCol2,rCol3,rCol4,40);
 
       strokeWeight(0.5);
       stroke(20);
-      //noStroke();
+      noStroke();
 
-      ellipse(loc[0]-60, loc[1]-60, 200);
+      ellipse(loc[0]-60, loc[1]-60, focusedRandom(100,300));
 
       fill(200);
       rect(loc[0]-60, loc[1]-60, 20, 600);
+
+
+      fill(20);
+      rect(loc[0]-60, loc[1]-60, 200, 58);
 
     }
   }
