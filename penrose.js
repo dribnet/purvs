@@ -162,9 +162,9 @@ const penrose = {};
         }
     }
 
-    exports.generate = function() {
+    exports.generate = function(scale) {
         let apex = createVector(0, 0);
-        let leftBase = createVector(1, 0);
+        let leftBase = createVector(scale, 0);
         let rightBase = leftBase.copy().rotate(obtuse);
         let corner = leftBase.copy().add(rightBase);
 
@@ -191,10 +191,12 @@ const penrose = {};
             )
         ];
 
-        return {tris:tris, edges:edges};
+        return {tris, edges};
     }
 
     exports.subdivide = function(data, iterations, prune) {
+        if (prune == null) prune = () => false;
+
         for (let i = 0; i < iterations; i++) {
             let fringe = { tris:[], edges:[] };
             data.tris.forEach(function(tri) {

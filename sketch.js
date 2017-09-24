@@ -1,20 +1,26 @@
 let data;
 
+let iterations = 1;
+let maxIterations = 26;
+let zoom = 2500;
+
 function setup () {
     createCanvas(960, 500);
+    viewPos = createVector(Math.random(0.65) * width, Math.random(0.8) * height);
     angleMode(DEGREES);
-    data = penrose.generate(0);
+    data = penrose.generate(960);
 }
 
-let iterations = 0;
 function draw () {
-    if (iterations > 9) return;
+    if (++iterations > maxIterations) return;
     let {tris} = data;
     push();
     {
         //clear()
-        translate(200, 0)
-        scale(510, 510);
+        //scale(width/viewWidth, width/viewWidth);
+        //rotate(random(72))  
+        translate(-viewPos.x, -viewPos.y);
+        scale(zoom, zoom);
 
         tris.forEach((tri) => {
             if (tri.acute) {
@@ -30,7 +36,7 @@ function draw () {
                 vertex(tri.points[2].x, tri.points[2].y);
             endShape(CLOSE);
 
-            strokeWeight(0.001);
+            strokeWeight(0.00001);
             stroke(0);
             line(tri.left.edge.a.x, tri.left.edge.a.y, tri.left.edge.b.x, tri.left.edge.b.y);
             line(tri.right.edge.a.x, tri.right.edge.a.y, tri.right.edge.b.x, tri.right.edge.b.y);
@@ -38,14 +44,20 @@ function draw () {
         })
     }
     pop();
+
+    data = penrose.subdivide(data, 1, penrose.pruneAABB(
+        viewPos.copy().div(zoom),
+        viewPos.copy().div(zoom).add(createVector(width/zoom, height/zoom))
+    ));
+
+    if (iterations == maxIterations) console.log("done");
+
     // if (mouseIsPressed) {
     //     fill(0);
     // } else {
     //     fill(255);
     // }
     // ellipse(mouseX, mouseY, 80, 80);
-    data = penrose.subdivide(data, 1, penrose.pruneAABB(createVector(0.25, 0.25), createVector(0.55, 0.35)));
-    iterations++;
 }
 
 function keyTyped() {
