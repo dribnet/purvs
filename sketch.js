@@ -21,20 +21,20 @@ function mousePressed() {
 
 //Tile Colours
 function colorFromValue(v) {
-  if (v < 0.5) {
-    color1 = color(0, 0, 100, 40); 
+  if (v < 0.35) {
+      color1 = color(0, 160, 176, 40);
     color2 = color(100, 100, 220, 40);
     c = lerpColor(color1, color2, v*2);
     return c;
   }
-  else if(v<0.7) {
-    return color(0, 128, 0, 40);
+  else if(v<0.55) {
+      return color(237, 201, 81, 40);
   }
-  else if(v<0.8) {
-    return color(128, 128, 128 , 40);
+  else if(v<0.7) {
+      return color(106, 74, 60, 40);
   }
   else {
-    return color(255 , 40);    
+      return color(204, 51, 63, 40);
   }
 }
 
@@ -97,7 +97,9 @@ function draw () {
     //   }
     // } 
 
-    // GRID RECT LANDSCAPE
+      // GRID RECT LANDSCAPE
+      background(0);
+
     var x_steps = 1 + Math.floor(width / 20);
     var y_steps = 1 + Math.floor(height / 20);
 
@@ -167,13 +169,23 @@ function draw () {
             stroke(20);
             noStroke();
 
-            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 150));
+            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 100));
 
             fill(shade);
             rect(loc[0] - 60, loc[1] - 60, 20, 600);
 
-            fill(shade);
+            fill(20);
             rect(loc[0] - 60, loc[1] - 60, 200, 58);
+
+            fill(shade);
+
+            strokeWeight(0.5);
+            stroke(20);
+            noStroke();
+
+            translate(15, 30);
+            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 100));
+            translate(-15, -30);
 
         }
     }
