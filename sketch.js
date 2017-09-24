@@ -48,7 +48,9 @@ function setup () {
 	}
 	
 	//load images
+	//retrieved from: https://openclipart.org/detail/205276/futuristic-island-city
 	city = loadImage("city.png"); 
+	//retrieved from: https://openclipart.org/detail/3719/iram-alien-tree
 	trees = loadImage("trees.png"); 
 	
     changeMode();
