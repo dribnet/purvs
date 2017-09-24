@@ -35,31 +35,33 @@ function keyTyped() {
 }
 
 function mousePressed(){
-  noiseC += random()*100;
   extraTime = -500000+random()*1000000
 }
 
-let noiseC = 0;
+let extraTime = 0;
 
 let layers = 10;
 let points = 100;
 
 function drawLandscape(){
+  let time = millis()+extraTime;
+
   background('white')
   let singleH = height/layers
   noStroke()
   let y = 0;
   while(y < (height)){
     let yP = y/height;
-    let singleH = map(y, height, 0, height*0.2, height*0.001)*4
+    let singleH = map(y, height, 0, height*0.2, height*0.001)*2
     fill(0, 0, 100-yP*100)
 
     beginShape()
     for(let x = -2; x < points+2; x++){
       let xP = x/points;
+      let xScale = (7-6.99*cos(time/100000*TWO_PI))
         
       curveVertex(map(x, 0, points, 0, width),
-        y + singleH/2 - singleH*noise(xP*10, yP*6, noiseC+millis()/7000))
+        y + singleH/2 - singleH*noise(xScale/2-xP*xScale, yP*4, time/10000))
     }
     curveVertex(width, height)
     curveVertex(0, height)
@@ -76,7 +78,6 @@ function drawLandscape(){
 let size = 1;
 let gridSize = 40;
 
-let extraTime = 0;
 
 function drawWallpaper () {
   fill(0,0,0,0)
