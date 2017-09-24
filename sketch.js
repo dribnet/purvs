@@ -3,7 +3,9 @@ let size = 100;
 var colour_red = [255,0,0];
 var colour_green = [0,255,0];
 var colour_blue = [0,0,255];
+
 let randomColourNum = 0;
+let drawMode = 0;
 
 function setup () {
   createCanvas(960, 500);
@@ -11,48 +13,40 @@ function setup () {
 }
 
 function draw () {
+  if(drawMode == 1){
+    if(mouseIsPressed){
+      randomColourNum = focusedRandom(0,3);
+    }
 
-  if(mouseIsPressed){
-    randomColourNum = focusedRandom(0,3);
-  }
+    background(255,255,225);
 
-  background(255,255,225);
-
-  for(var i = 0; i < 10; i++){
-    for(var j = 0; j < 10; j++){
-      drawShape((i * 100), (j * 100), 100);
+    for(var i = 0; i < 10; i++){
+      for(var j = 0; j < 10; j++){
+        drawShape((i * 100), (j * 100), 100);
+      }
+    }
+    for(var i = 0; i < 10; i++){
+      for(var j = 0; j < 10; j++){
+        drawShape((i * 100) +50, (j * 100) + 50, 100);
+      }
     }
   }
-  for(var i = 0; i < 10; i++){
-    for(var j = 0; j < 10; j++){
-      drawShape((i * 100) +50, (j * 100) + 50, 100);
-    }
+  else{
+    background(255,255,255);
+    drawHouse(30, 20, 2);
+    drawTree(200, 100, 40);
   }
-  // for(var i = 0; i < 10; i++){
-  //   for(var j = 0; j < 10; j++){
-  //     drawShape((i * 100) +25, (j * 100) + 25, 100);
-  //   }
-  // }
-  // for(var i = 0; i < 10; i++){
-  //   for(var j = 0; j < 10; j++){
-  //     drawShape((i * 100) +75, (j * 100) + 75, 100);
-  //   }
-  // }
-  // for(var i = 0; i < 10; i++){
-  //   for(var j = 0; j < 10; j++){
-  //     drawShape((i * 100) +25, (j * 100) + 75, 100);
-  //   }
-  // }
-  // for(var i = 0; i < 10; i++){
-  //   for(var j = 0; j < 10; j++){
-  //     drawShape((i * 100) +75, (j * 100) + 25, 100);
-  //   }
-  // }
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  else if(key == 'L' || key == 'l'){
+    drawMode = 0;
+  }
+  else if(key == 'W' || key == 'w'){
+    drawMode = 1;
   }
 }
 
@@ -71,6 +65,37 @@ function drawShape(xpos, ypos, size){
     line(middle, size - (i * step), middle - (step*i), middle);
     line(middle, size - (i * step), middle + (step*i), middle);
   }
+  pop();
+}
+
+function drawHouse(xpos, ypos, size){
+  push();
+  translate(xpos, ypos);
+  stroke(0,0,0);
+  fill(255, 255, 255);
+  rect(5 * size, 45 * size, 145 * size, 85 * size, 10, 10, 10, 10);
+  fill(colour_red);
+  stroke(colour_red);
+  rect(0, 0, 155 * size, 55 * size, 20, 20, 10, 10);
+  fill(colour_blue);
+  stroke(colour_blue);
+  rect(77 * size, 80 * size, 30 * size, 50 * size, 5, 5, 0, 0);
+  pop();
+}
+
+function drawTree(xpos, ypos, size){
+  push();
+  translate(xpos, ypos);
+  fill(colour_green);
+  stroke(colour_green);
+  triangle((size*0.5), 0, 0, (size * 2), size, (size * 2) );
+  translate(0, size);
+  triangle((size*0.5), 0, 0, (size * 2), size, (size * 2) );
+  translate(0, size);
+  triangle((size*0.5), 0, 0, (size * 2), size, (size * 2) );
+  fill(colour_red);
+  stroke(colour_red);
+  rect(size * 0.35,size*2,size * 0.3,size);
   pop();
 }
 
