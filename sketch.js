@@ -1,8 +1,106 @@
 var curRandomSeed;
 var slider1, slider2, slider3, slider4, slider5;
+var inMapMode = true;
 //var faceSelector;
 
-
+//function colorFromValue(v) {
+//  if (v < 0.5) {
+//    color1 = color(0, 0, 100); 
+//    color2 = color(100, 100, 220);
+//          color1 = color(255,180,70,50);
+//    color2 = color(220,200,80,100);
+//      
+//    c = lerpColor(color1, color2, v*2);
+//    return c;
+//  }
+//  else if(v<0.7) {
+//    return color(50,50);
+//  }
+//  else if(v<0.8) {
+//    return color(100,50);
+//  }
+//  else {
+//    return color(255,50);    
+//  }
+//}
+//function colorFromValue(v) {
+//  if (v < 0.5) {
+//    color1 = color(0, 0, 100); 
+//    color2 = color(100, 100, 220);
+//          color1 = color(240,150,70,50);
+//    color2 = color(220,200,80,100);
+//      
+//    c = lerpColor(color1, color2, v*2);
+//    return c;
+//  }
+//  else if(v<0.6) {
+//    return color(100,50);
+//  }
+//  else if(v<0.8) {
+//    return color(150,100);
+//  }
+//  else {
+//    return color(255,100);    
+//  }
+//}
+function opacityFromValue(v){
+    if (v < 0.5) {
+    color1 = color(0, 0, 100); 
+    color2 = color(100, 100, 220);
+          color1 = color(240,150,70,50);
+    color2 = color(220,200,80,100);
+      color1 = color(0,50);
+    color2 = color(50,50);
+        color1 = color(0,50);
+    color2 = color(200,50);
+    c = lerpColor(color1, color2, v*2);
+    return c;
+  }
+  else if(v<0.6) {
+   // return color(220,200,80,50);
+      return color(240,150,70,5);
+  }
+  else if(v<0.8) {
+    return color(230,175,75,25);
+  }
+  else {
+   // return color(240,150,70,5);
+      return color(220,200,80,50);
+  }
+}
+function colorFromValue(v) {
+  if (v < 0.5) {
+    color1 = color(0, 0, 100); 
+    color2 = color(100, 100, 220);
+          color1 = color(240,150,70,50);
+    color2 = color(220,200,80,100);
+      color1 = color(0,50);
+    color2 = color(150,50);
+    c = lerpColor(color1, color2, v*2);
+    return c;
+  }
+  else if(v<0.6) {
+    //return color(220,200,80,100);
+       return color(240,150,70,50);
+  }
+  else if(v<0.8) {
+    return color(230,175,75,75);
+  }
+  else {
+    //return color(240,150,70,50);
+      return color(220,200,80,100);
+  }
+}
+function polygon(x, y, radius, npoints) {
+  var angle = TWO_PI / npoints;
+  beginShape();
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a+PI/6) * radius;
+    var sy = y + sin(a+PI/6) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
 function setup () {
  curRandomSeed = int(focusedRandom(0, 100));
  createCanvas(960, 500);
@@ -20,12 +118,6 @@ function setup () {
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
-
-//  faceSelector = createSelect();
-//  faceSelector.option('Pattern');
-//  faceSelector.option('Landscape');
-//  faceSelector.value('Pattern');
-//  faceSelector.parent('selector1Container');
 }
 
 function changeRandomSeed() {
@@ -37,9 +129,10 @@ function mousePressed() {
 }
 
 function draw () {
-   translate(-10,-10);
+    resetFocusedRandom(curRandomSeed);
+  noiseSeed(curRandomSeed);
+     translate(-10,-10);
 background(0);
-   resetFocusedRandom(curRandomSeed);
     
   var s1 = slider1.value();
   var s2 = slider2.value();
@@ -47,8 +140,8 @@ background(0);
   var s4 = slider4.value();
   var s5 = slider5.value();
     
- var x_steps = 1 + Math.floor(width / 10);
- var y_steps = 1 + Math.floor(height /10);
+ var x_steps = 1 + Math.floor(width / 6);
+ var y_steps = 1 + Math.floor(height /9);
 
  var x_grid_locations = new Array(x_steps);
  var y_grid_locations = new Array(y_steps);
@@ -65,6 +158,50 @@ background(0);
    y_grid_locations[j] = cur_y;
  }
    angleMode(DEGREES);
+    
+    
+    if(inMapMode) {
+        background(0);
+   for(var i=0;i<x_steps-1;i++) {
+   for(var j=0;j<y_steps-1;j++) {
+     fill(focusedRandom(0, 50, 3),100);
+       noFill();
+     stroke(220,200,80,focusedRandom(opacity));
+     var x1 = x_grid_locations[i];
+     var x2 = x_grid_locations[i+1];
+     var y1 = y_grid_locations[j];
+     var y2 = y_grid_locations[j+2];
+           push();
+          // rotate(angle);
+      //translate(0,y);
+     // strokeWeight(strokeWidth);
+        //   scale(scale2);
+           var x_noise = x1/100.0;
+        var y_noise = y1/100.0;
+        var noiseVal = noise(x_noise, y_noise);
+        var shade = colorFromValue(noiseVal);
+        var opacity = opacityFromValue(noiseVal)
+        stroke(shade);
+       fill(opacity);
+       //noFill();
+     rect(x1/2, y1/2, x2/2, y2/2, focusedRandom(0,10,2)); 
+       //push();
+       fill(255,focusedRandom(0,50));
+       //stroke(0);
+noStroke();
+       push();
+       //translate(300,0);
+       //rect(x1/3, y1/3, x2/3, y2/3, focusedRandom(0,5,2));
+       pop();
+           pop();
+   }
+ }
+          
+    }
+        
+        
+    else{
+  
     var rectangle = 0;
     var circle = 1;
     var opacity = map(s1, 0, 100, 100, 200);
@@ -84,11 +221,8 @@ background(0);
 rectangles(rectangle,3,3,0,1,-1000,0);
          }
     
-    
    
-//    rectangles(circle,1,1,0,1,0,100);
-//    rectangles(rectangle,3,3,0,1,-1000,0);
-//    rectangles(circle,1,1,0,1,0);
+
  
    function rectangles(shape, size, scale2, angle, strokeWidth,y,maxDarkness){
  for(var i=0;i<x_steps-1;i++) {
@@ -126,59 +260,7 @@ rectangles(rectangle,3,3,0,1,-1000,0);
    }
  }
    }
- for(var i=0;i<x_steps-1;i++) {
-   for(var j=0;j<y_steps-1;j++) {
-     fill(focusedRandom(0, 50, 3),100);
-     stroke(220,200,80,focusedRandom(0, 100));
-     noStroke();
-     var x1 = x_grid_locations[i];
-     var x2 = x_grid_locations[i+1];
-     var y1 = y_grid_locations[j];
-     var y2 = y_grid_locations[j+2];
-        var ellipseW = focusedRandom(30,60,2);
-       var ellipseH = focusedRandom(30, 60,2);
-        var ellipseS = focusedRandom(10,60,2);
-    fill(0,focusedRandom(0,100));
-// fill(0);
-//fill(255,0,0);
-      //ellipse(x1*3,y1*3,ellipseS*2,ellipseS*2);
-       push();
-       translate(-100,-70);
-       //fill(255);
-       fill(0,focusedRandom(0,150,3));
-      //ellipse(x1*3,y1*3,ellipseS*3,ellipseS*3);
-      pop();
-      push();
-      scale(2);
-      //rect(x1*2, y1*2, x2*2, y2*2, focusedRandom(0,30,2)); 
-      pop();
-      push();
-      rotate(90);
-      translate(0,-1000);
-      strokeWeight(3);
-     stroke(220,200,80,focusedRandom(100, 200));
-//rect(x1*3, y1*3, x2*3, y2*3, focusedRandom(0,30,2)); 
-       strokeWeight(1);
-       push();
-       translate(-5,-5);
-       
-       //stroke(240,0,0,focusedRandom(100, 200));
-       //rect(x1*3, y1*3, x2*3, y2*3, focusedRandom(0,30,2)); 
-       pop();
-       push();
-       translate(5,5);
-       //rect(x1*3, y1*3, x2*3, y2*3, focusedRandom(0,30,2)); 
-       pop();
-    noStroke();
-       fill(0,focusedRandom(0,50,3));
-     // ellipse(x1*3,y1*3,ellipseS*3,ellipseS*3);
-       stroke(220,200,80,focusedRandom(200, 255));
-       strokeWeight(4);
-       //rect(x1*4, y1*4, x2*4, y2*4, focusedRandom(0,30,2)); 
-pop();
-       
-   }
- }
+    }
 }
 
 
@@ -189,6 +271,9 @@ function keyTyped() {
      else if (key == '@') {
    saveBlocksImages(true);
  }
+    else if (key == ' ') {
+    inMapMode = !inMapMode;
+  }
 }
 
 
