@@ -81,7 +81,7 @@ function draw () {
     }
   }		
 
-if (patternMode){
+if (!patternMode){
     
      if (colour < 1) {
          background(214,183,85);
