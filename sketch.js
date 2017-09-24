@@ -1,9 +1,13 @@
+var LineList = [];
 var Xaxis = 0;
 var Yaxis = 0;
 var num = 0;
 var color1 = 56;
 var color2 = 103;
 var color3 = 200;
+var x1;
+var numOld;
+var density = 0;
 var land = false;
 var curRandomSeed;
 
@@ -25,99 +29,115 @@ function mousePressed(){
     rect(0,0,1000,1000);
   }
     else{
-    fill(255);
+    fill(0);
     rect(0,0,1000,1000);
   }
+      Yaxis = 0;
   Xaxis = 0;
-}
-
-function colorFromValue(v) {
-  if (v < 0.3) {
-    return color(0, 0, 128);
-  }
-  if (v < 0.5) {
-    return color(0, 0, 255);
-  }
-  else if (v < 0.7) {
-    return color(0, 255, 0);
-  }
-  else {
-    return color(255, 255, 255);
-  }
+  density = 0;
 }
 
 function draw () {
-  noStroke();
  // //WallPapper
-  if (land == false){
-      while (Xaxis < 1040){
+    if (land == false){
+	var ran = focusedRandom(1,10);
+		if (ran < 2){
+			stroke(1);
+		} else { 
+			noStroke();
+			   }
+	 color1 = 56;
+	 color2 = 103;
+	 color3 = 200;
+    while(Xaxis < 1040){
       while(Yaxis < 580){
 
         num = focusedRandom(0,100);
-        if(num < 0.5){
-            fill(177,184,83);
-          }else if(num < 2.5){
-            fill(184,106,59);
-          }else if(num < 5){
-            fill(68,130,194);
-          }else{
-        fill(20 , 30, 56);}
-        triangle(Xaxis, Yaxis, Xaxis, Yaxis + 20, Xaxis + 20, Yaxis + 10);
+        alpha = focusedRandom(0,120);
+        fill(color1 , color2, color3, alpha);
+        ellipse(Xaxis, Yaxis, 20, 20);
 
         num = focusedRandom(0,100);
-        if(num < 0.5){
-            fill(184,106,59);
-          }else if(num < 2.5){
-            fill(177,184,83);
-          }else if(num < 5){
-            fill(68,130,194);
-          }else{
-        fill(20 , 30, 56);}
-        triangle(Xaxis + 20, Yaxis+ 20, Xaxis + 20 , Yaxis + 40, Xaxis , Yaxis+30 );
+        alpha = focusedRandom(0,120);
+        fill(color1 , color2 , color3 , alpha);
+        ellipse(Xaxis - 10, Yaxis - 10, 20, 20);
 
-        Yaxis += 40;
+        num = focusedRandom(0,100);
+        if (num < 50){
+        num = focusedRandom(0,100);
+        alpha = focusedRandom(50,120);
+        fill(color1 + num, color2 + num, color3 + num, alpha);
+        ellipse(Xaxis, Yaxis, 10, 10);
       }
-      Yaxis = 0
-      Xaxis += 40;
+
+        num = focusedRandom(0,100);
+        if (num < 50){
+        num = focusedRandom(0,100);
+        alpha = focusedRandom(50,120);
+        fill(color1 + num, color2 + num, color3 + num, alpha);
+        ellipse(Xaxis - 10, Yaxis - 10, 10, 10);
+      }
+        Yaxis += 20;
+      }
+
+      Yaxis = 0;
+      Xaxis+= 20;
     }
   } 
-  else { 
+  else {  
+    Yaxis = 600
+    while(Xaxis < 1040){
+      noStroke();
+		var Hight;
+		if (Xaxis > 300 && Xaxis < 620){
+			Hight = focusedRandom(200,300);
+		} else {
+			Hight = focusedRandom(50,200);
+		}
+      while(Yaxis > Hight){
+	  
+      var snow = focusedRandom (125,175);
+      var rock = focusedRandom (225,275);
+      var dirt = focusedRandom (325,375);
+      var grass = focusedRandom (425,475);
+      if (Yaxis < snow){
+          color1 = 184;
+          color2 = 184;
+          color3 = 175;
+		} else if (Yaxis < rock){
+          color1 = 98;
+          color2 = 98;
+          color3 = 93;
+		
+        } else if (Yaxis < grass){
+          color1 = 58;
+          color2 = 120;
+          color3 = 56;
+        } else {
+         color1 = 56;
+         color2 = 103;
+         color3 = 200;
+        }
+        alpha = focusedRandom(60,120);
+        fill(color1 , color2, color3, alpha);
+        ellipse(Xaxis,Yaxis,Yaxis/30,Yaxis/30);
+        alpha = focusedRandom(60,120);
+        fill(color1 , color2, color3, alpha);
+        ellipse(Xaxis- 10,Yaxis,Yaxis/30,Yaxis/30);
+        alpha = focusedRandom(60,120);
+        fill(color1 , color2, color3, alpha);
+        ellipse(Xaxis,Yaxis-10,Yaxis/30,Yaxis/30);
+        alpha = focusedRandom(60,120);
+        fill(color1 , color2, color3, alpha);
+        ellipse(Xaxis- 10,Yaxis-10,Yaxis/30,Yaxis/30);
+        Yaxis -= 20;
+      }
+      Yaxis = 600;
+      Xaxis+= 20;
 
-  while(Xaxis < 1040){
-    while(Yaxis < 580){
+      }
 
-      num = focusedRandom(0,100);
-      alpha = focusedRandom(0,120);
-      fill(color1 , color2, color3, alpha);
-      ellipse(Xaxis, Yaxis, 20, 20);
-
-      num = focusedRandom(0,100);
-      alpha = focusedRandom(0,120);
-      fill(color1 , color2 , color3 , alpha);
-      ellipse(Xaxis - 10, Yaxis - 10, 20, 20);
-
-      num = focusedRandom(0,100);
-      if (num < 50){
-      num = focusedRandom(0,100);
-      alpha = focusedRandom(50,120);
-      fill(color1 + num, color2 + num, color3 + num, alpha);
-      ellipse(Xaxis, Yaxis, 10, 10);
-    }
-
-      num = focusedRandom(0,100);
-      if (num < 50){
-      num = focusedRandom(0,100);
-      alpha = focusedRandom(50,120);
-      fill(color1 + num, color2 + num, color3 + num, alpha);
-      ellipse(Xaxis - 10, Yaxis - 10, 10, 10);
-    }
-      Yaxis += 20;
-    }
-
-    Yaxis = 0;
-    Xaxis+= 20;
-  }
-  }
+  }  
 }
 
 function keyTyped() {
