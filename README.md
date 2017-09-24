@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-I've started to flesh out the forest part of my generative landscape. I'm happy with how it looks at the moment but once I've fleshed out the rest of my landscape (possibly a river and some cityscape) I will begin refining it. Each tree type generates randomly at a random spot, all with equal chances of appearing. In the future I might refine it so a certain type of tree spawns more than others at a given time. 
+As I progressed through my generative landscape I decided to make it appear as if it were a landscape for a 2D adventure game. I've refined the randomness of my trees, added some houses, and a mountain range in the background. I plan to mask the landscape so it appears within a circle but I am having trouble using this function in p5.js.  

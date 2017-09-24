@@ -5,11 +5,17 @@ var treeColours;
 var treeRandomX;
 
 var inPatternMode = true;
+var noiseScale;
+
 
 function setup (){
     curRandomSeed = int(focusedRandom(0, 100));
     createCanvas(907, 500);
     treeRandomX = focusedRandom(10, 30);
+    noiseScale = 0.001;
+    noiseScaleMid = 0.002;
+    noiseScaleBack = 0.003;
+
 }
 
 function changeRandomSeed() {
@@ -38,8 +44,8 @@ function draw (){
     noiseSeed(curRandomSeed);
     var x = 0;
     var y = 0;
-    var x_steps = 1 + Math.floor((width - 20) / 38);
-  	var y_steps = 1 + Math.floor((height - 20) / 48);
+    var x_steps = 1 + Math.floor((width - 20) / 28);
+  	var y_steps = 1 + Math.floor((height - 70) / 38);
 
     colours = ["255, 240, 112","139, 186, 179"];
     colours = random(colours);
@@ -49,8 +55,8 @@ function draw (){
 		for(var i=0;i<x_steps;i++) {
 	    	grid_locations[i] = new Array(y_steps);
 	    	for (var j = 0; j < y_steps; j++) {
-	      		x_pos = i * 38 - random(0, 40);
-	      		y_pos = j * 48 - random(0, 40);
+	      		x_pos = i * 28 - random(0, 20);
+	      		y_pos = j * 48 - random(0, 20);
 	      		if((j % 2) == 0){
 	        		x_pos = x_pos + 20;
 	    	}
@@ -133,6 +139,24 @@ function draw (){
 	}
 
 	else{
+		background(175, 224, 222);
+		// generates land
+		for (var x=0; x < width; x++) {
+			strokeWeight(10);
+			// back mountain
+			var noiseVal = noise((1000+x)*noiseScaleBack, 1000*noiseScaleBack);	
+    		stroke(247, 255, 234);
+    		line(x, 50+noiseVal*100, x, height);
+    		// mid mountain
+   			var noiseVal = noise((1000+x)*noiseScaleMid, 1000*noiseScaleMid);	
+    		stroke(237, 249, 217);
+    		line(x, 125+noiseVal*100, x, height);
+    		// front mountain
+    		var noiseVal = noise((1000+x)*noiseScale, 1000*noiseScale);
+    		stroke(223, 239, 198);
+    		line(x, 165+noiseVal*100, x, height);
+
+  		}
 		// draws the map
 		for(var i=0;i<x_steps-1;i++) {
 	      for(var j=0;j<y_steps-1;j++) {
@@ -146,71 +170,101 @@ function draw (){
 	        var noiseVal = noise(x_noise, y_noise);
 
 	        // generates a random number for a plot to be drawn
-			var randomPlot = random(0, 100);
+			var randomPlot = random(0, 200);
 
 			noFill();
 			noStroke();
-			treeColours = ["#b3d12f", "#d1a630", "#78b53b"];
+			treeColours = ["#b3d12f", "#d1a630", "#78b53b", "#a1c677", "#d2b9a8", "#d1aaa8"];
     		treeColours = random(treeColours);
-    		fill(treeColours);
-
-    		if(randomPlot < 100 & y1 < 100){
-				rect(x1+30+focusedRandom(0, 5), y1+47, 1, 5);
-				rect(x1-30-focusedRandom(0, 5), y1+47, 1, 5);
-			}	
 
 			// gap in landscape
-			if(randomPlot < 5){
-				//do nothing
+			if(randomPlot < 1){
+				// ADD RANDOM LAKE
+				// HOT AIR BALLOONS IN SKY'
+				// houses
+				if(y1 > 175){
+					fill(0);
+					rect(x1+32, y1+43, 1, 10);
+					rect(x1+43, y1+43, 1, 10);
+					polygon(x1+38, y1+38, 10, 3);
+				}
 			}
-			// round trees
-			if(randomPlot > 6 & randomPlot < 20 & y1 < 100){
-				ellipse(x1+38, y1+38, 20, 20+focusedRandom(0, 10, 1));
-				fill(0);
-				rect(x1+38, y1+38, 1, 15+focusedRandom(0, 5, 1));
+
+			if(randomPlot > 6 & randomPlot < 20){
+				// round trees
+				if(y1 > 175){
+					fill(treeColours);
+					ellipse(x1+38, y1+38, 20, 20+focusedRandom(0, 10, 1));
+					fill(0);
+					rect(x1+38, y1+38, 1, 15+focusedRandom(0, 5, 1));
+				}
 			}
-			// traingle trees
-			if(randomPlot > 21 & randomPlot < 40 & y1 < 100){
-				polygon(x1+38, y1+38, 10+focusedRandom(0, 5, 1), 3);
-				fill(0);
-				rect(x1+38, y1+38, 1, 7+focusedRandom(0, 5, 1));
-				
+			
+			if(randomPlot > 21 & randomPlot < 30){
+				if(y1 > 175){
+					fill(0);
+					ellipse(x1+38, y1+38, 1.5, 1.5);
+				}
 			}
-			// 3x triangle trees
-			if(randomPlot > 41 & randomPlot < 60 & y1 < 100){
-				// bottom
-				polygon(x1+38, y1+38, 15, 3);
-				// middle
-				polygon(x1+38, y1+29, 10, 3);
-				// top
-				polygon(x1+38, y1+23, 7, 3);
-				fill(0);
-				rect(x1+38, y1+38, 1, 7+focusedRandom(0, 5));
+			
+			if(randomPlot > 41 & randomPlot < 60){
+				// 3x triangle trees
+				if(y1 > 175){
+					fill(treeColours);
+					polygon(x1+38, y1+38, 15, 3);
+					polygon(x1+38, y1+29, 10, 3);
+					if(randomPlot > 50){
+						polygon(x1+38, y1+23, 7, 3);
+						fill(0);
+						rect(x1+38, y1+38, 1, 7+focusedRandom(0, 5));
+					}
+					fill(0);
+					rect(x1+38, y1+38, 1, 7+focusedRandom(0, 5));
+				}
 				
 			}
 
-			// stick trees
-			if(randomPlot > 61 & randomPlot < 80 & y1 < 100){
-				fill(0);
-				rect(x1+38, y1+38, 1, 7+focusedRandom(0, 15, 7));
-				if(randomPlot > 70){
-					rect(x1+30+focusedRandom(0, 5), y1+47, 1, 5);
+			
+			if(randomPlot > 61 & randomPlot < 80){
+				// stick trees
+				if(y1 > 175){
+					fill(0);
+					rect(x1+38, y1+38, 1, 7+focusedRandom(0, 15, 7));
+						if(randomPlot > 70){
+							rect(x1+30+focusedRandom(0, 5), y1+47, 1, 5);
+						}
 				}	
 			}
 
-			// 2x circle trees
-			if(randomPlot > 81 & randomPlot < 100 & y1 < 100){
-				ellipse(x1+38, y1+38, 20, 20);
-				ellipse(x1+38, y1+29, 20, 20);
-				fill(0);
-				rect(x1+38, y1+38, 1, 15+focusedRandom(0, 5, 1));
-				
+			
+			if(randomPlot > 81 & randomPlot < 100){
+				// 2x circle trees
+				if(y1 > 175){
+					fill(treeColours);
+					ellipse(x1+38, y1+38, 20, 20);
+					ellipse(x1+38, y1+29, 20, 20);
+					fill(0);
+					rect(x1+38, y1+38, 1, 15+focusedRandom(0, 5, 1));
+				}
 			}
+
+			if(randomPlot > 175){
+				if(y1 > 175){
+    				fill(treeColours);
+					rect(x1+10+focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
+					rect(x1-10-focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
+					rect(x1+10+focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
+				}	
 
 				
 			}
+
+			
+			}
 	      }
-	    }    
+
+	    }   
+
 	}
 
 
