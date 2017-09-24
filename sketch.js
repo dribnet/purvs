@@ -22,19 +22,19 @@ function mousePressed() {
 //Tile Colours
 function colorFromValue(v) {
   if (v < 0.5) {
-    color1 = color(0, 0, 100); 
-    color2 = color(100, 100, 220);
+    color1 = color(0, 0, 100, 40); 
+    color2 = color(100, 100, 220, 40);
     c = lerpColor(color1, color2, v*2);
     return c;
   }
   else if(v<0.7) {
-    return color(0, 128, 0);
+    return color(0, 128, 0, 40);
   }
   else if(v<0.8) {
-    return color(128, 128, 128);
+    return color(128, 128, 128 , 40);
   }
   else {
-    return color(255);    
+    return color(255 , 40);    
   }
 }
 
@@ -61,40 +61,123 @@ function draw () {
   //Landscape
   if(inMapMode) {
 
+    // var x_steps = 1 + Math.floor(width / 20);
+    // var y_steps = 1 + Math.floor(height / 20);
+
+    // HEXAGON LANDSCAPE
+    // // save grid locations
+    // var grid_locations = new Array(x_steps);
+    //   for(var i=0;i<x_steps;i++) {
+    //   grid_locations[i] = new Array(y_steps);
+    //   for (var j = 0; j < y_steps; j++) {
+    //     x_pos = i * 20;
+    //     y_pos = j * 18;
+    //     if((j % 2) == 0){
+    //       x_pos = x_pos + 10;
+    //     }
+    //     grid_locations[i][j] = [x_pos, y_pos];
+    //   }
+    // }
+
+    // // draw the map
+    // for(var i=0;i<x_steps-1;i++) {
+    //   for(var j=0;j<y_steps-1;j++) {
+    //     // var shade = map(noiseVal, 0, 1, 0, 255)
+    //     var loc = grid_locations[i][j];
+    //     var x1 = loc[0];
+    //     var y1 = loc[1]
+
+    //     var x_noise = x1/100.0;
+    //     var y_noise = y1/100.0;
+    //     var noiseVal = noise(x_noise, y_noise);
+    //     var shade = colorFromValue(noiseVal);
+    //     fill(shade);
+
+    //     polygon(x1+10, y1+10, 12, 6);
+    //   }
+    // } 
+
+    // GRID RECT LANDSCAPE
     var x_steps = 1 + Math.floor(width / 20);
     var y_steps = 1 + Math.floor(height / 20);
 
-    // save grid locations
     var grid_locations = new Array(x_steps);
-      for(var i=0;i<x_steps;i++) {
-      grid_locations[i] = new Array(y_steps);
-      for (var j = 0; j < y_steps; j++) {
-        x_pos = i * 20;
-        y_pos = j * 18;
-        if((j % 2) == 0){
-          x_pos = x_pos + 10;
+    for (var i = 0; i < x_steps; i++) {
+        grid_locations[i] = new Array(y_steps);
+        for (var j = 0; j < y_steps; j++) {
+            x_pos = i * 80;
+            y_pos = j * 70;
+            if ((j % 2) == 0) {
+                x_pos = x_pos + 40;
+            }
+            grid_locations[i][j] = [x_pos, y_pos];
         }
-        grid_locations[i][j] = [x_pos, y_pos];
-      }
     }
 
-    // draw the map
-    for(var i=0;i<x_steps-1;i++) {
-      for(var j=0;j<y_steps-1;j++) {
-        // var shade = map(noiseVal, 0, 1, 0, 255)
-        var loc = grid_locations[i][j];
-        var x1 = loc[0];
-        var y1 = loc[1]
+    var x_grid_locations = new Array(x_steps);
+    var y_grid_locations = new Array(y_steps);
+    for(var i=0;i<x_steps;i++) {
+      var cur_x = i * 20;
+      x_grid_locations[i] = cur_x;
+    }
 
-        var x_noise = x1/100.0;
-        var y_noise = y1/100.0;
-        var noiseVal = noise(x_noise, y_noise);
-        var shade = colorFromValue(noiseVal);
-        fill(shade);
+    for(var j=0;j<y_steps;j++) {
+      var cur_y = j * 20;
+      y_grid_locations[j] = cur_y;
+    }
 
-        polygon(x1+10, y1+10, 12, 6);
-      }
-    } 
+    //for(var i=0;i<x_steps-1;i++) {
+
+    //  for(var j=0;j<y_steps-1;j++) {
+    //    var x_noise = i / 10.0;
+    //    var y_noise = j / 10.0;
+    //    var noiseVal = noise(x_noise, y_noise);
+    //    var shade = colorFromValue(noiseVal);
+
+
+    //    fill(shade);
+    //    var x1 = x_grid_locations[i];
+    //    var x2 = x_grid_locations[i+1];
+    //    var y1 = y_grid_locations[j];
+    //    var y2 = y_grid_locations[j+1];
+    //    rect(x1, y1, x2, y2);
+    //  }
+    //}
+
+    for (var i = 0; i < x_steps; i++) {
+        for (var j = 0; j < y_steps; j++) {
+            var x_noise = i / 10.0;
+            var y_noise = j / 10.0;
+            var noiseVal = noise(x_noise, y_noise);
+            var shade = colorFromValue(noiseVal);
+
+            var loc = grid_locations[i][j];
+
+            var rCol = focusedRandom(0, 20);
+
+            var rCol2 = focusedRandom(0, 255, 2);
+            var rCol3 = focusedRandom(0, 50, 1);
+            var rCol4 = focusedRandom(0, 155, 2);
+
+            //fill(rCol,rCol,rCol,60);
+
+            fill(shade);
+
+            strokeWeight(0.5);
+            stroke(20);
+            noStroke();
+
+            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 150));
+
+            fill(shade);
+            rect(loc[0] - 60, loc[1] - 60, 20, 600);
+
+            fill(shade);
+            rect(loc[0] - 60, loc[1] - 60, 200, 58);
+
+        }
+    }
+
   }
 
   //Wallpaper Design
