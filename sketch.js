@@ -68,7 +68,7 @@ function centrePattern(xW,yH){
   rotate(100);
   translate(-xW/2,-yH/2);
   rectMode(CORNER);
-  fill(200);
+  fill(117,0,15);
   //fill(strandColours[0][0],strandColours[0][1],strandColours[0][2]);
   //fill(239,235,202);
   noStroke();
