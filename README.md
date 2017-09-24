@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-Originally I wanted to put actual cacti to populate the desert but I felt this didn't correlate to the abstract style, therefore I kept the ellipses from the wallpaper pattern to represent cacti. '
+By adding in stars in the night scene, this helps give it more detail and can be distinguished from the day scene easily.

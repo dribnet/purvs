@@ -67,7 +67,7 @@ function draw () {
   var x_steps = 1 + Math.floor(width / 20);
   var y_steps = 1 + Math.floor(height / 20);
 
-  // save grid locations
+  //grid locations
   var grid_locations = new Array(x_steps);
     for(var i=0;i<x_steps;i++) {
     grid_locations[i] = new Array(y_steps);
@@ -79,10 +79,12 @@ function draw () {
       }
       grid_locations[i][j] = [x_pos, y_pos];
     }
-  }		
+  }	
 
-if (!patternMode){
+//Wallpaper Pattern
+if (patternMode){
     
+
      if (colour < 1) {
          background(214,183,85);
     fill (110,31,31);
@@ -128,7 +130,7 @@ if (!patternMode){
   }
 
 }
-
+//Landscape
     else{
         
         var yoff = 0.0;  
@@ -144,19 +146,54 @@ if (!patternMode){
 
   
  stroke(255);
-        
+       //Day
    random_result = focusedRandom(0, 100);
         if(random_result < 50) {
             background(61);
               fill(214,183,85);
             
         }
+
+        //Night
          else{
              background(44, 52, 58);
              fill(73, 69, 55);
+
+                 // draws the map
+		for(var i=0;i<x_steps-1;i++) {
+	      for(var j=0;j<y_steps-1;j++) {
+	        var loc = grid_locations[i][j];
+	        var x1 = loc[0];
+	        var y1 = loc[1];
+
+	        var x_noise = x1/100.0;
+	        var y_noise = y1/100.0;
+	        var noiseVal = noise(x_noise, y_noise);
+
+
+                   random_result = focusedRandom(0, 100);
+        if(random_result <40) {
+            if(randomPlot < 200){
+            if(y1 < sand_1){
+               line(x1,y1,x1+1,y1+1);
+            }
+                
+               
+                
+            }
+        }
+        else  {
+
+        }    
+
+
+
+
+    }
+}
+
          }
-        
-  //fill(214,183,85);
+// Sand Dunes
   beginShape(); 
        var xoff = yoff; 
        for (var x = 0; x <= width; x += 10) {
@@ -236,6 +273,7 @@ if (!patternMode){
 	        var y_noise = y1/100.0;
 	        var noiseVal = noise(x_noise, y_noise);
 
+	      //cacti 
         random_result = focusedRandom(0, 100);
         if(random_result <= 20) {
             if(randomPlot < 50){
@@ -378,9 +416,7 @@ if (!patternMode){
         else  {
 
         }      
-              
-              
-              
+    
               
               
           }
@@ -399,6 +435,6 @@ function keyTyped() {
     saveBlocksImages();
   }
      else if (key == ' ') {
-    patternMode = patternMode;
+    patternMode = !patternMode;
   }
 }
