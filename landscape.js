@@ -2,7 +2,7 @@
 
 function Landscape(rows,cols,rowHeight,colWidth){
 
-  var rand = round(random(-5,20));
+  var rand = round(random(-20,10));
   rows = round(rows+rand/2);
   cols = cols+rand;
   colWidth = width/cols;

@@ -28,14 +28,17 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   var flatLine;
   var rock;
   var tree;
+  var smallTree;
   var rect4;
   var circle4;
   var house;
   var person;
   var flower;
-  var lake;
+  var cave;
 
   var populations;
+
+  var treeColOffset;
 
   var minXPop;
   var minYPop;
@@ -83,9 +86,10 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
       snowChance = random(0,0.8);
       lakeChance = snowChance+ random(0,0.4);
+      treeColOffset = random(-25,25);
 
       //empty = 45 + round(random(-30,80));
-      empty = 25 + round(random(0,50));
+      empty = 45 + round(random(0,70));
       bigRect = 0;
       smallRect = 0;
       grass = 10+ round(random(-5,15));
@@ -94,12 +98,13 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       flatLine = 0;
       rock = 5 + round(random(-4,15));
       tree = 20 + round(random(-5,20));
+      smallTree = 10 + round(random(-10,20));
       rect4 = 0;
       circle4 = 0;
       house = 1 + round(random(-1,6));
       obelisk = 1 + round(random(0,6));
-      flower = 1 + round(random(1,8)) ;
-      lake = 7;
+      flower = 15 + round(random(1,15)) ;
+      cave = 20 + round(random(-4,5));
     }
   else{
 
@@ -112,16 +117,17 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     flatLine = 10
     rock = 10;
     tree = 0;
+    smallTree = 3;
     rect4 = 20;
     circle4 = 20;
     house = 0;
     obelisk = 4;
     flower = 4;
-    lake = 0;
+    cave = 0;
 
   }
 
-    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,obelisk,flower,lake];
+    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,smallTree,rect4,circle4,house,obelisk,flower,cave];
     totalPopulation = 0;
 
     for(var i = 0; i < populations.length; i++){
@@ -325,7 +331,8 @@ this.randomizeValues();
 
     var perl = noise(row,col);
     var lakeChance = random(0,0.25);
-    var snowChance = random(0.5,0.9);
+    var snowChance = random(0.2,0.9);
+
 
     var shapeType = sType;
     var leftX = col*colWidth;
@@ -334,7 +341,7 @@ this.randomizeValues();
     var bottomY = (row+1)*rowHeight;
 
 
-    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,perl,lakeChance,snowChance);
+    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,perl,lakeChance,snowChance,treeColOffset);
     shape.createShape();
 
     pop();
@@ -373,6 +380,7 @@ this.randomizeValues();
     text("House = " + round(populations[10]),xPos,yPos+(lineHeight*9));
     text("Obelisk = " + round(populations[11]),xPos,yPos+(lineHeight*10));
     text("Flower = " + round(populations[12]),xPos,yPos+(lineHeight*11));
+    text("Flower = " + round(populations[12]),xPos,yPos+(lineHeight*11));
   }
 
   this.printPopulations = function(){
@@ -381,9 +389,11 @@ this.randomizeValues();
     print("Grass = " + round(populations[3]));
     print("Rock = " + round(populations[6]));
     print("Tree = " + round(populations[7]));
-    print("House = " + round(populations[10]));
-    print("Obelisk = " + round(populations[11]));
-    print("Flower = " + round(populations[12]));
+    print("SmallTree = " + round(populations[8]));
+    print("House = " + round(populations[11]));
+    print("Obelisk = " + round(populations[12]));
+    print("Flower = " + round(populations[13]));
+    print("Cave = " + round(populations[14]));
 
   }
 
