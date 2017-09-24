@@ -1,5 +1,7 @@
 17.2.MDDN342 PS3
 
-After ditching the poisson-disc sampling technique, I reverted back to using my makeshift grid with random variations. I also implemented a sense of perspective using scaleY (based on which row of the grid each object is placed on). I had some issues getting the flowers to conform to this, but then realised I had to multiply their angle of rotation by the scale ofset I added for the perspective. 
+In designing my wallpaper and landscape sketches, I wanted a consistent aesthetic and content across both. I decided to use a pond as my subject matter, as there is room for some interesting patterns and variations without straying too far into the realm of abstraction.
 
-Next up: I need to make a few different 'views' of the lilies, as well as work on the aesthetic of the water (including ripples and the water itself. I'm considering using perlin noise to achieve slight tonal variation).
+In my wallpaper design, I created a grid, then shifted and removed some of the lilypads in order to create some random variation. 
+
+My landscape design draws inspiration from Monet's waterlily paintings. I wanted to evoke a sense of depth and atmosphere, so added perspective and reflections to the original wallpaper design. 

@@ -8,6 +8,8 @@ var ponds = [];
 
 var modeSelector;
 
+var waterColor = [179, 199, 229];
+
 
 function setup() {
    var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -33,29 +35,45 @@ function setup() {
 function draw() {
 	sketchMode = modeSelector.value();
 
-	background(199, 219, 249);
+	background(waterColor[0], waterColor[1], waterColor[2]);
 	if(sketchMode =='wallpaper'){
 		drawWallpaper();
 	}
 	else if (sketchMode =='landscape'){
-		drawLandscape();
+		background(waterColor[0]-40, waterColor[1]-25, waterColor[2]-40);
+
+		
+
+		drawLandscape(1);
+		
+
+		drawLandscape(0);
+
+	
 		
 
 	}
 	
 }
 
-function drawLandscape(){
+function drawLandscape(reflect){
+
+	
 // draw a pondset at each location
   	var index = 0;
-  	var nY = 15;
-  	var nX = 13;
+  	var nY = 10;
+  	var nX = 6;
   	var spacing = 120;
-  	for(var i=nX;i>=0;i--) {
+
+  	for(var i=nX;i>0;i--) {
 	    for(var j=0;j<nY;j++) {
 		    push();
+		    ponds[index].flowerMode = 1;
 		    translate(0, height/10);
-		   
+		   	if (reflect==1){
+		   		translate(0, j*2);
+		   		
+		   	}
 		    if (j%2==1){
 		    	translate(ponds[index].shift, 0);
 		    }
@@ -63,22 +81,28 @@ function drawLandscape(){
 	
 		     scale(pondSize);
 		     ponds[index].perspective = j/(nY*1.5);
-		     
+		    ponds[index].perspFlower = 1.2;
+		;
 		    ponds[index].display(spacing*i, spacing*(pondSize*ponds[index].perspective));
 		  
-		
-		    index++;
+		    stroke(0);
+		       index++;
 		    pop();
+
+		    if (j % 5 ==1 && reflect == 0){
+		    	noStroke();
+		    	fill(waterColor[0]+30, waterColor[1]+20, waterColor[2]+30, 55- (i*4))
+	    		rect(0, 0, canvasWidth, canvasHeight);	
+		    } 
 	    }
-	    fill(255, 255, 255, 30-(i*2));
-		rect(0, 0, canvasWidth, canvasHeight);	
+
   	}
 
 }
 
 
 function drawWallpaper(){
-
+noStroke();
 // draw a pondset at each location
   	var index = 0;
   	for(var i=0;i<55;i++) {
@@ -116,11 +140,13 @@ function Pondset(){
 	this.leafX ;
   	this.leafY;
   	this.randS =  random(0.8*this.scale, 1.1*this.scale);
-  	this.showLotus = Math.floor(random(0, 2));
+  	this.showLotus = Math.floor(random(0, 3));
 	this.rot = random(TWO_PI);
   	this.lotusScale = random(1*this.scale, 1.8*this.scale);
   	this.perspective = 1;
   	this.flowerMode = 0;
+  	this.perspPetal = random(1.2,1.8);
+  	this.perspFlower = 1.3;
 
 	  this.display = function(x, y) {
 	  	if (this.showCheck == 1){
@@ -143,6 +169,30 @@ function Pondset(){
 	  	}
 	  }
 
+	  this.drawRipples = function(){
+
+	  	var strokeValue = 25;
+	  	var strokeAlpha = 0;
+	  	var strokeColor = 40;
+	  	//draw ripples
+	  
+	  	for (var i=0; i<10; i++){
+	  		strokeWeight(strokeValue);
+	  		stroke(waterColor[0]-strokeColor, waterColor[1]-strokeColor*1.5, waterColor[2]-strokeColor, strokeAlpha);
+			ellipse(0, 0.1, this.rad*1.9, this.rad*1.9);
+	  		ellipse(0, 0.2, this.rad*2.1, this.rad*2.1);
+	  		ellipse(0, 0.3, this.rad*2.2, this.rad*2.3);
+	  		strokeValue -=3;
+	  		strokeAlpha+=3;
+	  	}
+	  	strokeWeight(0.8);
+	  	stroke(255);
+	  	ellipse(0, 0.1, this.rad*1.9, this.rad*1.9);
+	  	ellipse(0, 0.2, this.rad*2.1, this.rad*2.1);
+	  	ellipse(0, 0.3, this.rad*2.2, this.rad*2.3);
+
+	  }
+
 
 	  this.generateLeafShape=function(x, y){
 		push();
@@ -152,15 +202,12 @@ function Pondset(){
 			rotate(this.rot);
 	  	fill(255, 255, 255, 0);
 
-	
-		//draw ripples
-		ellipse(0, 0.1, this.rad*1.9, this.rad*1.9);
-	  	ellipse(0, 0.2, this.rad*2.1, this.rad*2.1);
-	  	ellipse(0, 0.3, this.rad*2.2, this.rad*2.3);
-
+		this.drawRipples();
+		
 	    beginShape();
 		fill(69, 91, 52);
 		strokeWeight(0.5);
+
 
 		for (var i = 0; i < 50; i++) {
 		    var ang = map(i, 0, 50, 0, TWO_PI);
@@ -217,33 +264,30 @@ function Pondset(){
 
  
 	  this.generateLotusShape = function(x, y, s, v){
+
+	  	this.generatePetalShape = function(ang, s){
+		  	push();
+		  		stroke(0);
+			rotate(ang);
+			scale(s, s);
+			beginShape();
+			curveVertex(20, 5);
+			curveVertex(0, 0);
+			curveVertex(20, -5);
+			curveVertex(40, 0);
+			curveVertex(20, 5);
+			curveVertex(0, 0);
+			curveVertex(20, -5);
+			endShape();
+			pop();
+	  	}
 	  	if (v==1 && this.flowerMode ==0){
-
-		  	this.generatePetalShape = function(ang, s){
-			  	push();
-				rotate(ang);
-				scale(s, s);
-				beginShape();
-				curveVertex(20, 5);
-				curveVertex(0, 0);
-				curveVertex(20, -5);
-				curveVertex(40, 0);
-				curveVertex(20, 5);
-				curveVertex(0, 0);
-				curveVertex(20, -5);
-				endShape();
-				pop();
-		  	}
-
 			push();
-
 			translate(x, y);
 			fill(255, 200, 190);
 			strokeWeight(0.5);
 			//draw petals
 			angl = 0;
-			
-			
 			for (var i = 0; i < 40; i++){
 				if (i >=20){
 					s= this.randS;
@@ -275,7 +319,33 @@ function Pondset(){
 			}
 			pop();
 		} else if (v==1 && this.flowerMode ==1){
+	
+			push();
+			translate(x, y);
+			rotate(radians(-8));
+			fill(255, 200, 190);
+			strokeWeight(0.5);
+			//draw petals
+			angl = 180;
+			for (var i = 0; i < 5; i++){
+				this.generatePetalShape(angl, s);
+				angl += 0.4;
+			}
 
+				angl = 180;
+			for (var i = 0; i < 5; i++){
+				this.generatePetalShape(angl, s/this.perspPetal);
+				angl += 0.4;
+			}
+
+			fill(235, 160, 150);
+
+			angl=179.7;
+			for (var i = 0; i < 5; i++){
+				this.generatePetalShape(angl, s/this.perspFlower);
+				angl += 0.55;
+			}
+			pop();
 		}
 	}
 
@@ -302,14 +372,24 @@ function mousePressed(){
   refreshPattern();
 }
 
+
+
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+
+  	if (key == ' ') {
+		if (sketchMode == 'wallpaper'){
+			sketchMode = 'landscape';
+		} else{
+			sketchMode = 'wallpaper';
+		}
+	}
 }
 
 
-//lilypd code based on : http://genekogan.com/code/p5js-perlin-noise/
+//lilypad code based on : http://genekogan.com/code/p5js-perlin-noise/
 //code borrowed from: https://processing.org/discourse/beta/num_1207766233.html 
 // circle circumference code from: https://stackoverflow.com/questions/9879258/how-can-i-generate-random-points-on-a-circles-circumference-in-javascript
 //poisson disc random sampling video: https://www.youtube.com/watch?v=flQgnCUxHlw
