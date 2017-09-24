@@ -1,7 +1,6 @@
 var curRandomSeed;
 var circleMove = 1;
 var slider1, slider2, slider3, slider4;
-var faceSelector;
 var patternMode = true;
 var noiseScale;
 
@@ -24,13 +23,6 @@ function setup () {
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
 
-  faceSelector = createSelect();
-  faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
-  faceSelector.parent('selector1Container');
 
   angleMode(DEGREES);
   rectMode(CENTER);
@@ -44,12 +36,16 @@ function mousePressed() {
     changeRandomSeed();
 }
 
+function cactus (x1,y1,size,size){
+    noFill();
+    stroke(255);
+    ellipse(x1,y1,10,10);
+    ellipse(x1,y1,5,5);
+}
+
 
 
 function draw () {
-
-    
-    
 
     resetFocusedRandom(curRandomSeed);
     noiseSeed(curRandomSeed);
@@ -65,6 +61,7 @@ function draw () {
   var shift = map(s2, 0, 100,50, 90);
   var rotation = map(s3, 0, 100,-3,9);
   var colour =  Math.floor(map(s4, 0, 100, 0, 1));
+     
  
     
   var x_steps = 1 + Math.floor(width / 20);
@@ -141,12 +138,25 @@ if (patternMode){
         var sand_4 = random(370, 400);
         var sand_5 = random(600, 650);
         var randomPlot = random(0, 200);
-
-  background(61);
- stroke(255);
+        
+    
         
 
-  fill(214,183,85);
+  
+ stroke(255);
+        
+   random_result = focusedRandom(0, 100);
+        if(random_result < 50) {
+            background(61);
+              fill(214,183,85);
+            
+        }
+         else{
+             background(44, 52, 58);
+             fill(73, 69, 55);
+         }
+        
+  //fill(214,183,85);
   beginShape(); 
        var xoff = yoff; 
        for (var x = 0; x <= width; x += 10) {
@@ -214,47 +224,168 @@ if (patternMode){
   vertex(0, height);
   endShape(CLOSE);
     
-//    noStroke();
-//    
-//    fill(100,31,31);
-//    push();
-//    scale(0.6);
-//    translate(100,400);
-//beginShape();
-//vertex(50, 20);
-//vertex(65, 20);
-//vertex(65, 60);    
-//vertex(80,60); 
-//vertex (80,40);
-//vertex(95,40);
-//vertex (95,80);    
-//vertex(80,80);
-//vertex(65,80);    
-//vertex(65, 130);
-//vertex(50, 130);
-//endShape(CLOSE);
-//    pop();
-//    
-//    
-//      fill(100,31,31);
-//    push();
-//    scale(0.6);
-//    translate(200,400);
-//beginShape();
-//vertex(-50, 20);
-//vertex(-65, 20);
-//vertex(-65, 50);    
-//vertex(-80,50); 
-//vertex(-80,35);
-//vertex(-95,35);
-//vertex(-95,70);    
-//vertex(-80,70);
-//vertex(-65,70);    
-//vertex(-65, 130);
-//vertex(-50, 130);
-//endShape(CLOSE);
-//    pop();
 
+        // draws the map
+		for(var i=0;i<x_steps-1;i++) {
+	      for(var j=0;j<y_steps-1;j++) {
+	        var loc = grid_locations[i][j];
+	        var x1 = loc[0];
+	        var y1 = loc[1];
+
+	        var x_noise = x1/100.0;
+	        var y_noise = y1/100.0;
+	        var noiseVal = noise(x_noise, y_noise);
+
+        random_result = focusedRandom(0, 100);
+        if(random_result <= 20) {
+            if(randomPlot < 50){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,10,10);
+            }
+                
+            }
+        }
+        else  {
+
+        }
+              
+              random_result = focusedRandom(0, 100);
+        if(random_result <= 40 && random_result > 20) {
+            if(randomPlot < 20){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,10,10);
+            }
+                
+            }
+        }
+        else  {
+
+        }
+              
+              
+              
+          random_result = focusedRandom(0, 100);
+        if(random_result <= 60 && random_result > 40) {
+            if(randomPlot < 50 && randomPlot > 20){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,10,10);
+            }
+                
+            }
+        }
+        else  {
+
+        }
+              
+                      random_result = focusedRandom(0, 100);
+        if(random_result <= 60 && random_result > 40) {
+            if(randomPlot < 80 && randomPlot > 50){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,10,10);
+            }
+                
+            }
+        }
+        else  {
+
+        }
+              
+              
+                    random_result = focusedRandom(0, 100);
+        if(random_result <= 80 && random_result > 60) {
+            if(randomPlot < 150 && randomPlot > 80){
+            if(y1 > sand_1 && y1 < sand_4){
+               cactus(x1,y1,10,10);
+            }
+            
+                
+                if(y1 > sand_4){
+                noFill();
+                stroke(61);
+               ellipse(x1,y1,15,15);
+            }
+                
+            }
+        }
+        else  {
+
+        }  
+              
+              
+                    random_result = focusedRandom(0, 100);
+        if(random_result <= 80 && random_result > 60) {
+            if(randomPlot < 200 && randomPlot > 150){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+      
+                
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,10,10);
+            }
+                
+                
+            }
+        }
+        else  {
+
+        }
+              
+              
+                random_result = focusedRandom(0, 100);
+        if(random_result <= 100 && random_result > 80) {
+            if(randomPlot == 200){
+            if(y1 > sand_1){
+               cactus(x1,y1,10,10);
+            }
+                
+                if(y1 > sand_3){
+                noFill();
+                stroke(100,31,31);
+               ellipse(x1,y1,focusedRandom(5, 10),focusedRandom(5, 10));
+            }
+                
+            }
+        }
+        else  {
+
+        }      
+              
+              
+              
+              
+              
+          }
+        }
+        
         
         
         
@@ -268,6 +399,6 @@ function keyTyped() {
     saveBlocksImages();
   }
      else if (key == ' ') {
-    patternMode = !patternMode;
+    patternMode = patternMode;
   }
 }
