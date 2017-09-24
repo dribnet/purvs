@@ -11,12 +11,13 @@ const penrose = {};
     const acute = 36;
     const obtuse = 108;
 
-    function Edge(a, b) {
+    function Edge(a, b, isBase) {
         // list of (up to 2) Tris
         this.adjacent = [];
 
         this.a = a;
         this.b = b;
+        this.isBase = isBase != null;
 
         // get point A or B
         this.vert = function(isA) {
@@ -51,9 +52,10 @@ const penrose = {};
 
         // returns a single copy of the edge to use for new generations
         let copy
-        this.clone = function() {
+        this.clone = function(fringe, isBase) {
             if (copy == null) {
-                copy = new Edge(a, b);
+                copy = new Edge(a, b,);
+                fringe.edges.push(copy);
             }
             return copy;
         }
@@ -79,7 +81,7 @@ const penrose = {};
         this.splitInto = this.acute ? splitAcute : splitObtuse;
 
         function splitAcute(fringe) {    // split into a acute and a obtuse
-            this.left.edge.splitEdge(false == this.left.ab);
+            this.left.edge.splitEdge(false == this.left.ab, fringe);
 
             // get new Edges
             let leftUpperEdge = this.left.edge.subEdge(true == this.left.ab);
@@ -90,18 +92,18 @@ const penrose = {};
                 this.right.edge.vert(false == this.right.ab)
             );
 
-            let base = this.base.edge.clone();
-            let right = this.right.edge.clone();
+            let base = this.base.edge.clone(fringe);
+            let right = this.right.edge.clone(fringe);
 
             // build Tris
-            fringe.push(new Tri(
+            fringe.tris.push(new Tri(
                 acute,
                 { edge:leftLowerEdge,   ab:true  == this.left.ab },
                 { edge:crossEdge,       ab:false },
                 { edge:base,            ab:false == this.base.ab }
             ));
 
-            fringe.push(new Tri(
+            fringe.tris.push(new Tri(
                 obtuse,
                 { edge:right,           ab:false == this.right.ab },
                 { edge:crossEdge,       ab:true },
@@ -110,8 +112,8 @@ const penrose = {};
         }
 
         function splitObtuse(fringe) {
-            this.left.edge.splitEdge(true  == this.left.ab);
-            this.base.edge.splitEdge(false == this.base.ab);
+            this.left.edge.splitEdge(true  == this.left.ab, fringe);
+            this.base.edge.splitEdge(false == this.base.ab, fringe);
 
             // get new Edges
             let leftUpperEdge = this.left.edge.subEdge(true == this.left.ab);
@@ -130,24 +132,24 @@ const penrose = {};
                 leftUpperEdge.vert(true == this.left.ab)
             )
 
-            let right = this.right.edge.clone();
+            let right = this.right.edge.clone(fringe);
 
             // build Tris
-            fringe.push(new Tri(
+            fringe.tris.push(new Tri(
                 obtuse,
                 { edge:baseLeftEdge,    ab:false == this.base.ab },
                 { edge:leftCrossEdge,   ab:true },
                 { edge:leftLowerEdge,   ab:true  == this.left.ab }
             ));
 
-            fringe.push(new Tri(
+            fringe.tris.push(new Tri(
                 acute,
                 { edge:leftUpperEdge,   ab:false == this.left.ab },
                 { edge:leftCrossEdge,   ab:false },
                 { edge:apexCrossEdge,   ab:true  }
             ));
 
-            fringe.push(new Tri(
+            fringe.tris.push(new Tri(
                 obtuse,
                 { edge:right,           ab:false == this.right.ab },
                 { edge:baseRightEdge,   ab:true  == this.base.ab },
@@ -157,38 +159,46 @@ const penrose = {};
     }
 
     exports.generate = function(iterations) {
-        //console.log(createVector(1, 0));
         let apex = createVector(0, 0);
         let leftBase = createVector(1, 0);
         let rightBase = leftBase.copy().rotate(obtuse);
-        let otherApex = leftBase.copy().add(rightBase);
+        let corner = leftBase.copy().add(rightBase);
 
-        let sharedEdge = new Edge(leftBase, rightBase);
+        let edges = [
+            new Edge(leftBase, rightBase),
+            new Edge(apex, leftBase),
+            new Edge(apex, rightBase),
+            new Edge(corner, leftBase),
+            new Edge(corner, rightBase),
+        ]
 
         let tris = [
             new Tri(
                 obtuse,
-                { edge: sharedEdge,                     ab: true },
-                { edge: new Edge(apex, leftBase),       ab: true },
-                { edge: new Edge(apex, rightBase),      ab: true }
+                { edge: edges[0], ab: true },
+                { edge: edges[1], ab: true },
+                { edge: edges[2], ab: true }
             ),
             new Tri(
                 obtuse,
-                { edge: sharedEdge,                     ab: true },
-                { edge: new Edge(otherApex, leftBase),  ab: true },
-                { edge: new Edge(otherApex, rightBase), ab: true }
+                { edge: edges[0], ab: true },
+                { edge: edges[3], ab: true },
+                { edge: edges[4], ab: true }
             )
         ];
 
+        return exports.subdivide({tris:tris, edges:edges}, iterations);
+    }
+
+    exports.subdivide = function(data, iterations) {
         for (let i = 0; i < iterations; i++) {
-            let fringe = [];
-            tris.forEach(function(tri) {
-                //console.log(tri);
+            let fringe = { tris:[], edges:[] };
+            data.tris.forEach(function(tri) {
                 tri.splitInto(fringe);
             })
-            tris = fringe;
+            data = fringe;
         }
-        return tris;
+        return data;
     }
 
 })(penrose);

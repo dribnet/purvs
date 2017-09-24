@@ -1,15 +1,22 @@
-let tiles;
+let data;
 
 function setup () {
     createCanvas(960, 500);
     angleMode(DEGREES);
-    tiles = penrose.generate(8);
+    data = penrose.generate(0);
+}
+
+let iterations = 0;
+function draw () {
+    if (iterations > 8) return;
+    let {tris} = data;
     push();
     {
+        clear()
         translate(200, 0)
         scale(510, 510);
 
-        tiles.forEach((tri) => {
+        tris.forEach((tri) => {
             if (tri.acute) {
                 fill('#FFFE99');
             } else {
@@ -31,15 +38,14 @@ function setup () {
         })
     }
     pop();
-}
-
-function draw () {
     // if (mouseIsPressed) {
     //     fill(0);
     // } else {
     //     fill(255);
     // }
     // ellipse(mouseX, mouseY, 80, 80);
+    data = penrose.subdivide(data, 1);
+    iterations++;
 }
 
 function keyTyped() {
