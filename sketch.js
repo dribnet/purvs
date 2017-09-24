@@ -47,18 +47,20 @@ function draw () {
   else{
     rect(10, 10, 10, 10);
     //var perlin_noise = noise(96, 50);
+    
     for(var i = 0; i < 200; i++){
       for(var j = 0; j < 100; j++){
-        fill((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
-        stroke((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        fill(255, 255, (105 * noise(i, j)) + 100);
+        stroke(255,255, (105 * noise(i, j)) + 100);
         //fill(255,0,0);
         rect(i * 5, j * 5, 5, 5);
       }
     }
+
     for(var i = 0; i < 20; i++){
       for(var j = 0; j < 10; j++){
-        // fill((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
-        // stroke((255 * noise(i, j)), (255 * noise(i, j)), (175 * noise(i, j)));
+        // fill(255, 255, (105 * noise(i, j)) + 100);
+        // stroke(255,255, (105 * noise(i, j)) + 100);
         // //fill(255,0,0);
         // rect(i * 50, j * 50, 50, 50);
         if(noise(i,j) > 0.7){
@@ -121,7 +123,7 @@ function drawHouse(xpos, ypos, size){
   push();
   translate(xpos, ypos);
   fill(colour_house_dark);
-  stroke(colour_house_light);
+  stroke(colour_house_dark);
   ellipse(24,4,size, size);
   ellipse(18, 10, size, size);
   ellipse(12, 16, size, size);
