@@ -70,7 +70,11 @@ const penrose = {};
         this.left = left;       left.edge.adjacent.push(this);
         this.right = right;     right.edge.adjacent.push(this);
 
-        this.apex = this.left.edge.vert(true == this.left.ab)
+        this.points = [     // left base, apex, right base
+            this.left.edge.vert(false == this.left.ab),
+            this.left.edge.vert(true == this.left.ab),
+            this.right.edge.vert(false == this.right.ab),
+        ]
 
         this.acute = Math.abs(angle) == acute;
         this.obtuse = Math.abs(angle) == obtuse;
@@ -158,7 +162,7 @@ const penrose = {};
         }
     }
 
-    exports.generate = function(iterations) {
+    exports.generate = function() {
         let apex = createVector(0, 0);
         let leftBase = createVector(1, 0);
         let rightBase = leftBase.copy().rotate(obtuse);
@@ -187,7 +191,7 @@ const penrose = {};
             )
         ];
 
-        return exports.subdivide({tris:tris, edges:edges}, iterations);
+        return {tris:tris, edges:edges};
     }
 
     exports.subdivide = function(data, iterations) {

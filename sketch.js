@@ -25,9 +25,9 @@ function draw () {
 
             noStroke();
             beginShape();
-                vertex(tri.base.edge.a.x, tri.base.edge.a.y);
-                vertex(tri.base.edge.b.x, tri.base.edge.b.y);
-                vertex(tri.apex.x,        tri.apex.y);
+                vertex(tri.points[0].x, tri.points[0].y);
+                vertex(tri.points[1].x, tri.points[1].y);
+                vertex(tri.points[2].x, tri.points[2].y);
             endShape(CLOSE);
 
             strokeWeight(0.001);
