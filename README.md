@@ -1,3 +1,5 @@
 17.2.MDDN342 PS3
 
-Adjustments made to the hexagon example code. Experiments with overlaping and transparency to generate patterns. Possible Colour Experimentations to follow instead of just Black and White. Additionally some more complex shapes can be added for more interesting patterns.
+I experimented with triangles, quads and custom shapes, but found what worked best with ellipses were standard rectangles. there are a lot of different types of small patterns you can find within the overall wallpaper. this includes small hexagonal spaced diamonds, and waves. 
+
+I also began experimenting with colour to giev the wallpaper more life, as I was finding black and white very dull. the hues of red and blue mixed together create some good blending with the transparency. 

@@ -46,11 +46,33 @@ function draw () {
     for(var j=0;j<y_steps;j++) {
       var loc = grid_locations[i][j];
 
-      var rCol = focusedRandom(0,90);
-      fill(rCol,rCol,rCol,100);
-      stroke(20);
+      var rCol = focusedRandom(0,20);
+
+      var rCol2 = focusedRandom(0,255);
+      var rCol3 = focusedRandom(0,255);
+      var rCol4 = focusedRandom(0,255);
+
+      //fill(rCol,rCol,rCol,60);
+
+      fill(rCol2,rCol3,rCol4,60);
+
+      //stroke(20);
       noStroke();
       ellipse(loc[0]-60, loc[1]-60, 200);
+
+      fill(200);
+      rect(loc[0]-60, loc[1]-60, 20, 600);
+    }
+  }
+
+
+  
+
+  for(var i2=0;i2<x_steps;i2++) {
+    for(var j2=0;j2<y_steps;j2++) {
+
+   	  fill(255);
+      rect(loc[0]-60, loc[1]-60, 20, 600);
     }
   }
 
