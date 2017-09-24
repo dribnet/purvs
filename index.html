@@ -6,8 +6,35 @@
     <script language="javascript" type="text/javascript" src=".focused_random.js"></script>
     <script language="javascript" type="text/javascript" src=".purview_helper.js"></script>
     <script language="javascript" type="text/javascript" src="sketch.js"></script>
-    <style> body {padding: 0; margin: 0;} </style>
+    <style>
+        body   { padding: 0; margin: 0; }
+        .inner { position: absolute; }
+        #controls {
+            font: 300 12px "Helvetica Neue";
+            padding: 5;
+            margin: 5;
+            background: #ffffff;
+            opacity: 0.0;
+            -webkit-transition: opacity 0.2s ease;
+            -moz-transition: opacity 0.2s ease;
+            -o-transition: opacity 0.2s ease;
+            -ms-transition: opacity 0.2s ease;
+        }
+        #controls:hover { opacity: 0.9; }
+    </style>
 </head>
 
 <body style="background-color:white">
+  <div class="outer">
+    <div class="inner" id="controls" height="500">
+      <table>
+        <tr>
+          <td>Gap Size</td>
+          <td id="slider1Container"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="canvasContainer"></div>
 </body>
