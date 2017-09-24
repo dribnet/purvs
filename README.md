@@ -15,8 +15,4 @@ I was thinking I want to create a representation of this area with the side view
 
 This style I'm kinda thinking about is Classical oil landscape paintings but I have to think about how abstract how I might want to be.
 
-The first pattern I have created is a bezier geometric pattern but also functions as a visual effect where the focus on one point, the others move.
-
-The second pattern uses quads in a similar way to the way I used bezier except creating of a more rigid pattern. Different colours used as well of course.
-
-The latest commit should show them both on the same page and how they look beside each other.
+This commit should show my first landscape. I think it's progressing alright but I'm having problems with layering e.g.(boats on land etc.). I've been trying to put limits so this wouldn't happen but they still seem to spawn on the main island, no matter the islands. I might use this commit as my landscape as my main commit for part2.'
