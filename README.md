@@ -25,3 +25,7 @@ I've been working on my landscape and finalizing the patter, some changes had to
 UPDATE
 
 I've been working on finalizing both the pattern and the landscape for this project. Still working on the code I want to use but getting to a finalized stage.
+
+FINAL
+
+Fo this project I wanted to create a pattern and a landscape that reflected eachother but were obviously different. I developed code that we were given and also other examples online (commented on code) to create a pattern that moved and changed, as you move the mouse over it, small dots chnage and the background lines move. I also wanted a static element, to make the pattern more real. With my landscape I wanted to take my pattern and create a world of bubbles, with every click a slightly diffeent landscape apears with still the element of moving dots and the same colourscheme to tie both the pattern and landscape together.
