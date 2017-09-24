@@ -13,6 +13,7 @@ Picture: https://s-media-cache-ak0.pinimg.com/originals/bc/3a/7a/bc3a7af266bc19e
 
 I was thinking I want to create a representation of this area with the side view idea with inspirations to the style coming from the era when these ports would have been at their prime.
 
-This style I'm kinda thinking about is Classical oil landscape paintings but I have to think about how abstract how I might want to be.
+Here is the final program.
+The first setting is the landscape, spacebar switches it to the patterns and spacebar to go back to landscape.
+Click to change the seed, please be aware that it will take its time so please be patient. 
 
-This commit should show my first landscape. I think it's progressing alright but I'm having problems with layering e.g.(boats on land etc.). I've been trying to put limits so this wouldn't happen but they still seem to spawn on the main island, no matter the islands. I might use this commit as my landscape as my main commit for part2.'

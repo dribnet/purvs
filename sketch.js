@@ -23,6 +23,13 @@ function setup () {
   fishely3 = 0;
   shipx = 0;
   shipy = 0;
+  sharkx = 0;
+  sharky = 0;
+  sharkper = 0;
+
+
+  patMode = 0;
+
 }
 
 function changeRandomSeed() {
@@ -37,12 +44,15 @@ function draw () {
    // fill(255);
   //}
  // ellipse(mouseX, mouseY, 80, 80);
+
  background(200);
 
  height = 1000;
  length = 2000;
   //rotateX(frameCount * 0.01);
   //rotateY(frameCount * 0.01);
+
+  if(patMode == 0){
   oceanwave();
   startisland();
   building(210,10,3);
@@ -198,13 +208,41 @@ if(shipy == 0){
   	shipx == 1740;
   }
  ship(shipx,shipy);
-  
+
+ if(sharky == 0){
+  	sharky = random(0,1) * height;
+  }
+  if(sharkx == 0){
+  	sharkx = random(0,1) * length;
+  }
+  if(sharkx < 1500 && sharky < 900){
+  	sharkx == 1740;
+
+  	if(sharkper == 0){sharkper = random(0,1 * 100);}
+  if(sharkper > 80){
+ shark(sharkx,sharky);}
+  }
+}
+  else if(patMode == 1){
+  	oceanwave();
+  	islandpattern();
+  }
+
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+  else 	if(key == " "){
+  if(patMode == 0){
+  	patMode = 1;
+  	print(patMode);
+  	draw();}
+	else{patMode = 0;
+		print(patMode);
+		draw();}
+	}
 }
 
 function oceanwave(){
@@ -412,3 +450,73 @@ function fern(x,y){
 	
 
 }
+
+function islandpattern() {
+	fill(153,76,0);
+	stroke(76,153,0);
+	strokeWeight(4);
+
+	var w = 0;
+  var i = 0;
+  
+  	w = 0;
+	while(w < 60){
+		i = 0;
+  		while(i < 60){
+  		push();
+  		
+  		translate(i*15 - 100 + ((i+w) * 1),w*20 - 50);
+  		rotate(frameCount * 0,01);
+  		//ellipsoid(50,50,50);
+  		quad(0,25,50,55,65,35,100,100);
+  		pop();
+  		i++;
+		}
+		
+		w = w + 1;
+		//pop();
+	}
+
+}
+
+function shark(x,y){
+stroke(255);
+fill(102,178,255);
+ellipse(x,y,60,50);
+ellipse(x-10,y-10,10,10);
+ellipse(x+10,y-10,10,10);
+ellipse(x,y,40,10);
+line(x-10,y+5,x,y-5);
+line(x+10,y+5,x,y-5);
+}
+
+function mousePressed(){
+	isleheight = 0;
+  islespot = 0;
+  isleheight1 = 0;
+  islespot1 = 0;
+  isleheight2 = 0;
+  islespot2 = 0;
+  isleheight3 = 0;
+  islespot3 = 0;
+  fisherx = 0;
+  fishery = 0;
+  fisherx2 = 0;
+  fishery2 = 0;
+  fisherx3 = 0;
+  fishery3 = 0;
+  fishelx = 0;
+  fishely = 0;
+  fishelx2 = 0;
+  fishely2 = 0;
+  fishelx3 = 0;
+  fishely3 = 0;
+  shipx = 0;
+  shipy = 0;
+   sharkx = 0;
+  sharky = 0;
+  sharkper =0
+  draw();
+}
+
+
