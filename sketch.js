@@ -1,6 +1,5 @@
 var curRandomSeed;
 var inMapMode = true;
-
 var locs = [];
 
 function setup () {
@@ -12,6 +11,9 @@ function setup () {
   var countX = ceil(width/res) + 1;
   var countY = ceil(height/res) + 1;
 
+
+// code adapted from https://codepen.io/winkerVSbecks/pen/GCulK
+// pattern background lines
   for (var j = 0; j < countY; j++) {
     for (var i = 0; i < countX; i++) {
       locs.push( new p5.Vector(res*i, res*j) );
@@ -26,6 +28,7 @@ function setup () {
 var counter = 1000;
 var spacer = 50;
 
+//random factor, landscape
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
 }
@@ -34,9 +37,7 @@ function mousePressed() {
     changeRandomSeed();
 }
 
-
-//
-//background colours
+//background colours, landscape
 function colorFromValue(v) {
   if (v < 0.5) {
     color1 = color(248, 198, 207); 
@@ -54,7 +55,8 @@ function colorFromValue(v) {
     return color(255, 255, 255, 20);    
   }
 }
-//noise shapes
+
+//noise shapes, landscape
 function ellipse(x, y, radius, npoints) {
   var angle = TWO_PI / npoints;
   beginShape();
@@ -66,18 +68,19 @@ function ellipse(x, y, radius, npoints) {
   endShape(CLOSE);
 }
 
+
+
+
 function draw () {
   background(146, 179, 205);
   resetFocusedRandom(curRandomSeed);
   noiseSeed(curRandomSeed);
 
 
-
-
+// grid of noise shapes, landscape
   var x_steps = 1 + Math.floor(width / 20);
   var y_steps = 1 + Math.floor(height / 18);
 
-  // grid of shapes
   var grid_locations = new Array(x_steps);
     for(var i=0;i<x_steps;i++) {
     grid_locations[i] = new Array(y_steps);
@@ -95,9 +98,9 @@ function draw () {
 
   if(inMapMode) {
     
+    //background noise shapes
     for(var i=0;i<x_steps-1;i++) {
       for(var j=0;j<y_steps-1;j++) {
-        // var shade = map(noiseVal, 0, 1, 0, 255)
         var loc = grid_locations[i][j];
         var x1 = loc[0];
         var y1 = loc[1]
@@ -111,7 +114,7 @@ function draw () {
         ellipse(x1+10, y1+10, 12, 6);
       }
     } 
-
+//top left bubbles
   noFill();
   stroke(248, 198, 207);
   ellipse(100, 100, 60, 60);
@@ -120,25 +123,28 @@ function draw () {
   ellipse(130, 100, 20, 20);
   ellipse(80, 80, 40, 40);
 
+//bottom left bubbles
   ellipse(200, 400, 60, 60);
   ellipse(220, 420, 10, 10);
   ellipse(180, 390, 40, 40);
   ellipse(230, 400, 20, 20);
   ellipse(240, 430, 40, 40);
 
+// top right bubbles
   ellipse(700, 100, 60, 60);
   ellipse(730, 90, 10, 10);
   ellipse(750, 130, 40, 40);
   ellipse(730, 120, 20, 20);
   ellipse(750, 80, 40, 40);
 
+// bottom right bubbles
   ellipse(750, 300, 60, 60);
   ellipse(750, 370, 10, 10);
   ellipse(790, 330, 40, 40);
   ellipse(780, 320, 20, 20);
   ellipse(770, 360, 40, 40); 
   
-  // dots  
+  // dots , code inspired by codepen found at https://codepen.io/amritmazumder/pen/ZYRPNz. 
   for (i = 0; i < width; i+=spacer) {
     for (j = 0; j < height; j+=spacer) {
       
@@ -159,7 +165,7 @@ function draw () {
 
     }
   }
-// dots again, code inspired by codepen found at https://codepen.io/amritmazumder/pen/ZYRPNz.
+// dots again, 
   for (i = 20; i < width; i+=spacer) {
     for (j = 50; j < height; j+=spacer) {
       
@@ -182,8 +188,7 @@ function draw () {
   }
 
   ////////////
-
-//translate(width/2, height/2);
+// clutter of bubbles, code adapted from https://codepen.io/achokey/pen/KNwoJQ
   for (var i = 0; i < width; i++) {
     var circleAngle = random(0, TWO_PI);
     var circleRadius = 100 * sqrt(random(0,100));
@@ -200,6 +205,7 @@ function draw () {
     ellipse(x,y,d);
   }
 
+// spreads of changing bubbles
   translate(width/2, height/2);
   for (var i = 0; i < width; i++) {
     var circleAngle = random(0, TWO_PI);
@@ -261,7 +267,7 @@ function draw () {
   arc(50, 50, 80, 80, 50, PI+QUARTER_PI);
 //
 
-
+// background lines
 for (var i = locs.length - 1; i >= 0; i--) {
     var h = calcVec( locs[i].x - mouseX, locs[i].y - mouseY);
     strokeWeight(1);
@@ -388,8 +394,7 @@ for (var i = locs.length - 1; i >= 0; i--) {
   ellipse(1010, 450, 5, 5);
   arc(850, 250, 80, 80, 50, PI+QUARTER_PI);
 
-//
-
+// dots
 for (i = 50; i < width; i+=spacer) {
     for (j = 50; j < height; j+=spacer) {
       
