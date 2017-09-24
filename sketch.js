@@ -1,41 +1,37 @@
-var mode = true;
-var size = 100;
+var mode = false;
 
-var cClouds;
-var cFade;
-var cFurther;
-var cCloser;
-var cMist;
-
+var cFade, cFurther, cCloser, cMist;
 function setup(){
   createCanvas(800,600);
   smooth();
   noiseSeed(1);
 
+  smooth();
 
-  cClouds = color(255, 255, 255);
   cFade = color(255, 77, 0);
   cFurther = color(255, 77, 0);
   cCloser = color(0, 0, 0);
   cMist = color(255,255,255);
 
+
+
 }
 function draw() {
   if (mode == true){ 
-    Landscape();
+    landscape();
   }
   else if (mode == false){
-    Wallpaper();
+    wallpaper();
   }
+  noLoop();
 }
-function Landscape () {
-  noLoop(); 
+function landscape () {
   background(255, 77, 0);
     
   fade(cFade);
   fill(255, 149, 0);
   ellipse(400,200,250,250);
-  clouds(cClouds);
+  clouds();
   mountains(cCloser, cFurther, cMist);
 }
 function keyTyped() {
@@ -55,8 +51,7 @@ function keyTyped() {
 function mousePressed(){
   loop();
 }
-function fade(fadeColor) 
-{
+function fade(fadeColor){
   for(var i = 0; i < height/3; i++) 
   {
     var alpha = map(i, 0, height/3, 255, 0);
@@ -65,10 +60,9 @@ function fade(fadeColor)
     stroke(fadeColor, alpha);
     line(0, i, width, i);
   }
-
 }
 
-function clouds(cloudColor){  
+function clouds(){  
   var begin = random(50);
   
   var i = 0; 
@@ -94,8 +88,7 @@ function clouds(cloudColor){
   }
 }
 
-function mountains(closerColor, furtherColor, mistColor)
-{
+function mountains(closerColor, furtherColor, mistColor){
   //REFERENCE HEIGHT:
   var y0 = width - 500;
   var i0 = 30; 
@@ -144,4 +137,38 @@ function mountains(closerColor, furtherColor, mistColor)
       line(0, i, width, i);
     } 
   }
+}
+
+function wallpaper () {
+  background(255);
+  var base = color( random(255), random(255), random(255));
+  drawBox(8, 0, 0, width, height, base);
+}
+function drawBox(n, x, y, w, h, col) 
+{
+  if (n==0) {
+    stroke(0);
+    fill(col);
+    rect(x, y, w, h);
+  }
+  else {
+    var t = random(1);
+    var ncol1 = sortColor(col, n, n*2, n*3);
+    var ncol2 = sortColor(col, n, n*2, n*3);  
+    var horiz = random(1) > 0.5 ? true : false;
+    if (horiz) {
+      drawBox(n-1, x, y, w, h*t, ncol1);
+      drawBox(n-1, x, y+h*t, w, h*(1-t), ncol2);  
+    } else {
+      drawBox(n-1, x, y, w*t, h, ncol1);
+      drawBox(n-1, x+w*t, y, w*(1-t), h, ncol2);  
+    }      
+  }
+}
+
+function sortColor(col, h, s, b) {
+  var h2 = floor(hue(col) + random(-h, h) + 255) % 255;
+  var s2 = floor(saturation(col) + random(-s, s) + 255) % 255;
+  var b2 = floor(brightness(col) + random(-b, b) + 255) % 255;
+  return color(h2, s2, b2);
 }
