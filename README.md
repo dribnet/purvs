@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-I have changed the background colour to yellow as the green didn't quite fit the aesthetic I was going for.'
+I have added sliders to my wallpaper pattern which will give some variation. These include circle size, shifting, rotating and colour. In my opinion I feel like the rotation element changes it up the most. This makes the pattern more interesting but also keeps within the pattern itself. 
