@@ -8,11 +8,11 @@ function setup () {
 
 let iterations = 0;
 function draw () {
-    if (iterations > 8) return;
+    if (iterations > 9) return;
     let {tris} = data;
     push();
     {
-        clear()
+        //clear()
         translate(200, 0)
         scale(510, 510);
 
@@ -44,7 +44,7 @@ function draw () {
     //     fill(255);
     // }
     // ellipse(mouseX, mouseY, 80, 80);
-    data = penrose.subdivide(data, 1);
+    data = penrose.subdivide(data, 1, penrose.pruneAABB(createVector(0.25, 0.25), createVector(0.55, 0.35)));
     iterations++;
 }
 

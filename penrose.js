@@ -194,15 +194,38 @@ const penrose = {};
         return {tris:tris, edges:edges};
     }
 
-    exports.subdivide = function(data, iterations) {
+    exports.subdivide = function(data, iterations, prune) {
         for (let i = 0; i < iterations; i++) {
             let fringe = { tris:[], edges:[] };
             data.tris.forEach(function(tri) {
-                tri.splitInto(fringe);
+                if (!prune(tri)) {
+                    tri.splitInto(fringe);
+                }
             })
             data = fringe;
         }
         return data;
+    }
+
+    exports.pruneAABB = function(a, b) {
+        let minX = Math.min(a.x, b.x);
+        let maxX = Math.max(a.x, b.x);
+        let minY = Math.min(a.y, b.y);
+        let maxY = Math.max(a.y, b.y);
+
+        function checkPoints(tri, cond) {
+            for (let i = 0; i < 3; i++) {
+                if (!cond(tri.points[i])) return false;
+            }
+            return true;
+        }
+
+        return function(tri) {
+            return checkPoints(tri, p => p.x < minX)
+                || checkPoints(tri, p => p.x > maxX)
+                || checkPoints(tri, p => p.y < minY)
+                || checkPoints(tri, p => p.y > maxY);
+        }
     }
 
 })(penrose);
