@@ -8,3 +8,4 @@ For my landscape design I wanted to continue on the same style as my pattern so 
 
 For my pattern design I included layering similar to that shown in Art deco. My design is more rounded and organic compared to the typical Gatsby / Art Deco works. Here I wanted to show a nice depth of field to give my pattern a more 3d look. That way the pattern is considered to be different as you zoom in or out.
 
+In the future I would like to include more variety in colours, like blue for instance which would appear rarely to make my designs more interesting. I would also explore adding more depth of field to my landscape design. 
