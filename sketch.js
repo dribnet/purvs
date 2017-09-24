@@ -1,9 +1,13 @@
 var curRandomSeed;
+var colorValue = 0.0;
+var positionX = 0.0;
 
 function setup () {
   createCanvas(960, 500);
+  frameRate(60);
   curRandomSeed = int(focusedRandom(0, 100));
   smooth();
+  angleMode(DEGREES);
   colorMode(HSL);
 }
 
@@ -49,15 +53,15 @@ function cloudCurve (x, y, size, degrees) {
 	pop();
 }
 
-function middleClouds (x, y, size, degrees, hue) {
+function middleClouds (x, y, size, degrees) {
   push();
   translate(x, y);
   scale(size);
   rotate(degrees);
-  fill(hue, 100, 75);
-  stroke(0, 0, 100);
+  noStroke();
+  stroke(0, 0, 100, 0.8);
   strokeJoin(ROUND);
-  strokeWeight(0.5);
+  strokeWeight(0.3);
 
   beginShape();
   vertex(0, 0);
@@ -68,6 +72,36 @@ function middleClouds (x, y, size, degrees, hue) {
 
   vertex(15, -4);
   bezierVertex(19, 0, 15, 4, 12.5, 2);
+
+  vertex(12.5, 2);
+  bezierVertex(17, 5, 21, -1, 18, -6);
+
+  vertex(18, -6);
+  bezierVertex(20, -7, 21, -7, 23, -5);
+
+  vertex(23, -5);
+  bezierVertex(28, -5, 29, -5, 30, 0);
+
+  vertex(30, 0);
+  bezierVertex(34, -2, 36, 6, 40, 4);
+
+  vertex(40, 4);
+  bezierVertex(37, 6, 35, 7, 32, 6);
+
+  vertex(32, 6);
+  bezierVertex(32, 6, 33, 12, 26, 12);
+
+  vertex(26, 12);
+  bezierVertex(20, 10, 23, 2, 27, 5);
+
+  vertex(27, 5);
+  bezierVertex(23, 0, 17, 7, 20, 11);
+
+  vertex(20, 11);
+  bezierVertex(13, 13, 11, 8, 9, 6);
+
+  vertex(9, 6);
+  bezierVertex(3, 5, 3, 4, 0, 0);
 
   endShape();
   pop();
@@ -80,7 +114,7 @@ function draw () {
   for(i=0; i<width; i+=25){
     for(j=0; j<height; j+=30){
       var size = focusedRandom(-3, 4);
-      var degrees = focusedRandom(-90, 90);
+      var degrees = focusedRandom(0, 360);
       cloudCurve(i, j, size, degrees);
     }
   }
@@ -117,23 +151,57 @@ function draw () {
   pop();
   
   push();
-  fill(0, 0, 0);
+  fill(0, 0, 100);
   noStroke();
   ellipse(width/2, height/2, width/3);
   pop();
 
-  // for(d=0; d<width/3; d+=20) {
-  //   for(f=0; f<height/3; f+=20){
-  //     var size = 10;
-  //     var degrees = 0;
-  //     var hue = focusedRandom(0, 345);
+  push();
+  var size1 = focusedRandom(5, 6);
+  var size2 = focusedRandom(3, 4);
+  var size3 = focusedRandom(-5, -4);
+  var size4 = focusedRandom(2, 3);
 
-  //     middleClouds(d, f, size, degrees, hue);
-  //   }
-  // }
+  var fromColor0 = color(105, 100, 80, 0.9);
+  var toColor0 = color(285, 100, 80, 0.9);
 
-  middleClouds(width/2, height/2, 8, 0, 0);
-	
+  var fromColor1 = color(0, 100, 80, 0.9);
+  var toColor1 = color(345, 100, 80, 0.9);
+  
+  var fromColor2 = color(270, 100, 80, 0.9);
+  var toColor2 = color(60, 100, 80, 0.9);
+
+  var fromColor3 = color(165, 100, 80, 0.9);
+  var toColor3 = color(0, 100, 80, 0.9);
+
+  colorValue = colorValue + 0.02;
+  if (colorValue >= 1.0) {
+    colorValue = 0.0;
+  }
+
+  var colorTransit0 = lerpColor(fromColor0, toColor0, colorValue); 
+  var colorTransit1 = lerpColor(fromColor1, toColor1, colorValue);
+  var colorTransit2 = lerpColor(fromColor2, toColor2, colorValue);
+  var colorTransit3 = lerpColor(fromColor3, toColor3, colorValue); 
+  
+  positionX = positionX + .01;
+  var noiseX = noise(positionX) * width;
+  var consX1 = constrain(noiseX, width/3, width/1.9);
+  var consX2 = constrain(noiseX, width/1.9, width/1.6);
+  
+
+  fill(colorTransit3);
+  middleClouds(consX1, height/2.1, size4, -3);
+
+  fill(colorTransit2);
+  middleClouds(width/2.5, height/3, size2, 8);
+
+  fill(colorTransit1);
+  middleClouds(width/2.8, height/2.1, size1, 0);
+
+  fill(colorTransit0);
+  middleClouds(consX2, height/1.5, size3, 1);
+	pop();
 
 }
 
