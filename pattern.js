@@ -77,8 +77,8 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       rect4 = 0;
       circle4 = 0;
       house = 1 + round(random(-1,2));
-      person = 1;
-      flower = 5;
+      obelisk = 1 + round(random(0,2));
+      flower = 1 + round(random(1,2)) ;
     }
   else{
     empty = 45;
@@ -92,12 +92,12 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     rect4 = 20;
     circle4 = 20;
     house = 0;
-    person = 0;
+    obelisk = 0;
     flower = 0;
 
   }
 
-    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,person,flower];
+    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,obelisk,flower];
     totalPopulation = 0;
 
     for(var i = 0; i < populations.length; i++){
@@ -256,7 +256,7 @@ this.randomizeValues();
     text("Rock = " + round(populations[6]),width*0.178,height*0.15+(lineHeight*4));
     text("Tree = " + round(populations[7]),width*0.178,height*0.15+(lineHeight*5));
     text("House = " + round(populations[10]),width*0.178,height*0.15+(lineHeight*6));
-    text("Person = " + round(populations[11]),width*0.178,height*0.15+(lineHeight*7));
+    text("Obelisk = " + round(populations[11]),width*0.178,height*0.15+(lineHeight*7));
     text("Flower = " + round(populations[12]),width*0.178,height*0.15+(lineHeight*8));
     //for(var i = 0; i<populations.length; i++){
     //  text(round(populations[i]),width*0.12,height*0.15+(i*height*0.02));
@@ -264,7 +264,6 @@ this.randomizeValues();
 
 
   }
-
 
 
 
@@ -287,74 +286,8 @@ this.randomizeValues();
     var bottomY = (row+1)*rowHeight;
 
 
-
-    if(shapeType == 1){
-      rect(leftX,topY,sSize,sSize);
-      rect(leftX+sSize/4,topY+sSize/4,sSize/2,sSize/2);
-    }
-    else if(shapeType == 2){
-      //noFill();
-      rect(leftX,topY,sSize,sSize);
-      rect(leftX+sSize/4,topY+sSize/4,sSize/2,sSize/2);
-    }
-    else if(shapeType == 3){
-
-      line(leftX,bottomY-(rowHeight/5),leftX,bottomY);
-      line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
-      line(rightX,bottomY-(rowHeight/5),rightX,bottomY);
-    }
-    else if(shapeType == 4){
-        ellipse(leftX,topY,sSize,sSize);
-        ellipse(leftX,topY,sSize/2,sSize/2);
-    }
-    else if (shapeType== 5){
-      line(leftX,topY+(rowHeight/2),rightX,topY+(rowHeight/2));
-    }
-    else if(shapeType==6){
-      triangle(leftX,topY+(rowHeight/2),leftX+(colWidth/2),topY,rightX,topY+(rowHeight/2));
-    }
-    else if(shapeType==7){
-      line(leftX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
-      fill(sColor);
-      triangle(leftX,topY+(rowHeight),leftX+(colWidth/2),topY,rightX,topY+(rowHeight));
-
-    }
-    else if(shapeType==8){
-
-      rect(leftX+colWidth/2,topY-rowHeight,sSize/2,sSize/2);
-      rect(rightX+colWidth,topY+rowHeight/2,sSize/2,sSize/2);
-      rect(leftX+colWidth/2,bottomY+rowHeight,sSize/2,sSize/2);
-      rect(leftX-colWidth,topY+rowHeight/2,sSize/2,sSize/2);
-
-    }
-    else if (shapeType == 9){
-      ellipse(leftX+colWidth/2,topY-rowHeight,sSize/2,sSize/2);
-      ellipse(rightX+colWidth,topY+rowHeight/2,sSize/2,sSize/2);
-      ellipse(leftX+colWidth/2,bottomY+rowHeight,sSize/2,sSize/2);
-      ellipse(leftX-colWidth,topY+rowHeight/2,sSize/2,sSize/2);
-    }
-    else if (shapeType == 10){
-
-      fill(sColor);
-      rect(leftX,topY,colWidth,rowHeight);
-      rect(leftX+colWidth/3,topY+rowHeight/4,colWidth/3,rowHeight/4);
-      triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
-      rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
-
-    }
-    else if (shapeType == 11){
-
-      ellipse(leftX,topY,colWidth/4,rowHeight/2);
-      ellipse(leftX,topY+rowHeight/3,colWidth/4,rowHeight/2);
-
-    }
-    else if (shapeType == 12){
-
-      line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
-      ellipse(leftX+(colWidth/1.9),bottomY-(rowHeight/3),colWidth/4,rowHeight/4);
-
-    }
-
+    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode);
+    shape.createShape();
 
     pop();
 

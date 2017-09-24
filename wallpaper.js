@@ -5,11 +5,17 @@ top of eachother.
 
 function Wallpaper(rows,cols,rowHeight,colWidth){
 
+  var rand = round(random(-20,0));
+  rows = round(rows+rand/2);
+  cols = cols+rand;
+  colWidth = width/cols;
+  rowHeight = height/rows;
+
   var red = 0;
   var green = 0;
   var blue = 0;
 
-  var rand = round(random(0,3));
+  var rand = round(random(1,3));
   //rand = 2;
   print(rand);
 

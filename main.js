@@ -26,6 +26,8 @@ function setup () {
   shapeNum = 18;
   //translate(width/3,0);
   //wallpaper = new Wallpaper(rows,cols,rowHeight,colWidth);
+
+
   drawCanvas();
 
 }
@@ -111,6 +113,7 @@ function mouseClicked(){
 //creates a new wallpaper and draws it
 function drawWallpaper(){
 
+
   wallpaper = new Wallpaper(rows,cols,rowHeight,colWidth);
   wallpaper.drawWallpaper();
 
@@ -119,6 +122,7 @@ function drawWallpaper(){
 
 //creates a new landscape and draws it
 function drawLandscape(){
+
 
   landscape = new Landscape(rows,cols,rowHeight,colWidth);
   landscape.drawLandscape();
