@@ -42,7 +42,7 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
   noiseSeed(curRandomSeed);
 
-  var x_steps = 1 + Math.floor(width / 10);
+  var x_steps = 1 + Math.floor(width / 10); 
   var y_steps = 1 + Math.floor(height / 10);
 
   // save grid locations
@@ -62,6 +62,17 @@ function draw () {
   noStroke();
 
   if(inMapMode) {
+    for(var i=0;i<x_steps;i++) {
+    grid_locations[i] = new Array(y_steps);
+    for (var j = 0; j < y_steps; j++) {
+      x_pos = i * 20;
+      y_pos = j * 18;
+      if((j % 2) == 0){
+        x_pos = x_pos + 5;
+      }
+      grid_locations[i][j] = [x_pos, y_pos];
+    }
+  }
     // draw the landscape
     for(var i=0;i<x_steps-1;i++) {
       for(var j=0;j<y_steps-1;j++) {
@@ -104,6 +115,7 @@ function draw () {
         }
         else if(spot == 7 ) {
           fill(235,93,244);
+          rotate()
         }
         else { 
        var a = (focusedRandom(4,248,215));

@@ -2,10 +2,10 @@
 
 landscape - abstract sea corals
 
-An organic composition.
-linear strand like structures growing with a purpose, are landmarks within a fluid landscpe.
+It is an organic composition.
+Linear 'strand like' structures growing with a purpose, -landmarks in the fluid landscpe.
 
 
 Pattern - corol color theme
 
-there is enough repition to create a patern, however, much of the colors are randomised.
+There is enough repition to create a pattern, however, many of the colors are randomised. 
