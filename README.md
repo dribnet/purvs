@@ -5,9 +5,9 @@
 ####Iterative Pattern
 My iterative pattern was inspired by experimenting with drawing patterns using shapes, rotation and the lerpColor function.  At first I was creating a pattern that had a high level of randomization and was also quite interactive.  This approach definitely produced some interesting results, for example
 
-* http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/50434c5b7461e8b4187c6415ddecdc7709089785/preview.jpg
-* http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/03fe1e6599096563286a5900a6f9ddbd71eedf84/preview.jpg
-* http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/402d94072b01b6465bed85116964e3bdb93b0479/preview.jpg
+* <a href="http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/50434c5b7461e8b4187c6415ddecdc7709089785/preview.jpg">Preview 1</a>
+* <a href="http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/03fe1e6599096563286a5900a6f9ddbd71eedf84/preview.jpg">Preview 2</a>
+* <a href="http://bl.ocks.org/LABCAT/raw/0967de91df065231fd429b5fedb517d6/402d94072b01b6465bed85116964e3bdb93b0479/preview.jpg">Preview 3</a>
 
 However I wasn't completely satisfied so I decided to change my approach a create a more static based pattern.  My new direction was inspired by thinking about how the pattern could look on different canvas sizes and still maintain the viewers interest.  
 
