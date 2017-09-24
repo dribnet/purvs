@@ -7,6 +7,7 @@ let zoom = 2500;
 function setup () {
     createCanvas(960, 500);
     viewPos = createVector(Math.random(0.65) * width, Math.random(0.8) * height);
+    console.log(viewPos);
     angleMode(DEGREES);
     data = penrose.generate(960);
 }
@@ -18,7 +19,7 @@ function draw () {
     {
         //clear()
         //scale(width/viewWidth, width/viewWidth);
-        //rotate(random(72))  
+        //rotate(random(72))
         translate(-viewPos.x, -viewPos.y);
         scale(zoom, zoom);
 
@@ -36,7 +37,7 @@ function draw () {
                 vertex(tri.points[2].x, tri.points[2].y);
             endShape(CLOSE);
 
-            strokeWeight(0.00001);
+            strokeWeight(0.0000003 * zoom);
             stroke(0);
             line(tri.left.edge.a.x, tri.left.edge.a.y, tri.left.edge.b.x, tri.left.edge.b.y);
             line(tri.right.edge.a.x, tri.right.edge.a.y, tri.right.edge.b.x, tri.right.edge.b.y);
