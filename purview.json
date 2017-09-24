@@ -1,0 +1,16 @@
+{
+  "commits": [
+    {
+      "sha": "8687fb72d22d22cf76532907d47328db0e8da6ad",
+      "name": "final_version"
+    },
+    {
+      "sha": "8687fb72d22d22cf76532907d47328db0e8da6ad",
+      "name": "With sliders"
+    },
+    {
+      "sha": "bb6c86f0858e25fa3a787e84580d74484e1db1f1",
+      "name": "Alternative layout"
+    }
+  ]
+}
