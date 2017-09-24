@@ -4,7 +4,7 @@
 
 The Penrose tiling has always been of interest to me, and this project seemed like a good oppportunity to explore it. The most notable feature of the Penrose tiling is that it is aperiodic, meaning there are no translationally repeating units.
 
-Currently, the sketch only runs a simple algorithm to produce a finite-sized tiling, which is then coloured.
+The sketch uses an algorithm to recursively subdivide a small set of inital tiles into a larger tiling. The algorithm also calculates tile adjacencies, to form a graph structure. This will allow for intuitive traversals of the tiling.
 
 There are several properties of the tiling I want to explore. As the tiling has rotational symmetry, it produces a flower-like singularity at its centre. An interesting consequence of this is that you are able to trace ornate walks around it, using only a simple stepping rule.
 
