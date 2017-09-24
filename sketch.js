@@ -42,13 +42,10 @@ function setup () {
   faceSelector = createSelect();
   faceSelector.option('Wallpaper');
   faceSelector.option('LandScape');
-  faceSelector.value('LandScape');
+  faceSelector.value('Wallpaper');
   faceSelector.parent('selector1Container');
 
-  draw();
-
-  setupGrid();
-  drawLandscape();
+  drawShapes();
 }
 
 function changeRandomSeed() {
@@ -146,7 +143,7 @@ function drawLandscape(){
 	noStroke();
 	background(125,210,233);
 
-	translate(width/2, 25);
+	translate(width/2, 75);
 
 	var rowSize = 0;
 	var startPos = 0;
@@ -428,14 +425,14 @@ function draw(){
     //Board Size Changes
 	tileWidth = map(s1, 0, 100, 10, 100);
 	tileHeight = tileWidth/2;
-	boardSize = Math.round(100/tileWidth * 9);
+	boardSize = Math.round(100/tileWidth * 8);
 	tileDepth = 30 - boardSize/2;
 
 	if(tileDepth < 1)
 		tileDepth = 2;
 	
 	//Terrian Variety
-	waterChance = map(s2, 0, 100, 0.33, 0.66);
+	waterChance = map(s2, 0, 100, 0.25, 0.6);
 	landChance = 1 - waterChance;
 	treeChance = map(s3, 0, 100, 0, 1);
 
