@@ -1,36 +1,61 @@
-function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode){
+function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,snowBlock){
 
 
-  if(shapeType == 3){
+
+
+
+  if(shapeType == 3 && mode == true){
     lineColor = color(123,182,91);
     }
-  if(shapeType == 6){
+  if(shapeType == 6 && mode == true){
     sColor = color(200+random(-20,55));
     lineColor = color(60);
   }
-  if(shapeType == 7){
+  if(shapeType == 7 && mode == true){
       sColor = color(123,182,91+random(-20,55));
-      lineColor = color(42, 71, 49);
+      lineColor = color(42, 71, 49+ random(-20,55) );
   }
-  if(shapeType == 10){
-    sColor = color(186, 178, 147);
-    lineColor = color(66, 53, 43);
+  if(shapeType == 10 && mode == true){
+    sColor = color(186+ random(-10,10), 178, 147+ random(-10,10));
+    lineColor = color(66, 53, 43+ random(-20,55));
   }
-  if(shapeType == 11){
+  if(shapeType == 11 && mode == true){
     sColor = color(150);
     lineColor = color(50);
   }
-  if(shapeType == 12){
+  if(shapeType == 12 && mode == true){
     sColor = color(240, 242, 147);
     lineColor = color (165, 155, 119);
   }
 
 
 
+
+
+
+
   this.createShape = function(){
+
+
+
+    if(mode == true){
+      noStroke();
+      fill(169, 234+random(-15,25), 156+random(-5,15));
+      rect(leftX,bottomY,colWidth,rowHeight);
+
+      if(snowBlock == true){
+        fill(255,random(100,255));
+        rect(leftX,bottomY,colWidth,rowHeight);
+      }
+
+
+    }
 
     fill(sColor);
     stroke(lineColor);
+
+
+
 
     //bigrect
     if(shapeType == 1){
@@ -67,8 +92,16 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     //tree
     else if(shapeType==7){
 
+
+
       line(leftX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
       triangle(leftX,topY+(rowHeight),leftX+(colWidth/2),topY,rightX,topY+(rowHeight));
+
+      if(snowBlock == true){
+        fill(255);
+        //noStroke();
+        triangle(leftX+(colWidth*0.15),topY+(rowHeight*0.75),leftX+(colWidth/2),topY,rightX-(colWidth*0.15),topY+(rowHeight*0.75));
+      }
 
     }
     //rect4
@@ -91,6 +124,7 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     else if (shapeType == 10){
 
       rect(leftX,topY,colWidth,rowHeight);
+      fill(183, 156, 126+random(-20,20));
       rect(leftX+colWidth/3,topY+rowHeight/4,colWidth/3,rowHeight/4);
       triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
       rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
@@ -118,6 +152,15 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
 
       line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
       ellipse(leftX+(colWidth/1.9),bottomY-(rowHeight/3),colWidth/4,rowHeight/4);
+
+    }
+
+    //lake
+    else if(shapeType == 13){
+
+      //fill(193, 217, 255);
+      //noStroke();
+      //rect(leftX,topY,colWidth,rowHeight);
 
     }
 

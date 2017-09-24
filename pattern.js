@@ -14,6 +14,8 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   var shapeNum = 18;
   var totalPopulation;
 
+  var snowChance;
+
   var empty;
   var bigRect;
   var smallRect;
@@ -27,6 +29,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   var house;
   var person;
   var flower;
+  var lake;
 
   var populations;
 
@@ -66,6 +69,9 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   this.initPopulations = function(){
 
     if(mode == true){
+
+      snowChance = random(0,0.8);
+
       empty = 45 + round(random(-30,80));
       bigRect = 0;
       smallRect = 0;
@@ -79,12 +85,15 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       house = 1 + round(random(-1,2));
       obelisk = 1 + round(random(0,2));
       flower = 1 + round(random(1,2)) ;
+      lake = 7;
     }
   else{
+
+    snowChance = 0;
     empty = 45;
     bigRect = 20;
     smallRect = 10;
-    grass = 0;
+    grass = 4;
     bigCircle = 20;
     flatLine = 10
     rock = 10;
@@ -92,12 +101,13 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     rect4 = 20;
     circle4 = 20;
     house = 0;
-    obelisk = 0;
-    flower = 0;
+    obelisk = 4;
+    flower = 4;
+    lake = 0;
 
   }
 
-    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,obelisk,flower];
+    populations = [empty,bigRect,smallRect,grass,bigCircle,flatLine,rock,tree,rect4,circle4,house,obelisk,flower,lake];
     totalPopulation = 0;
 
     for(var i = 0; i < populations.length; i++){
@@ -241,12 +251,13 @@ this.randomizeValues();
 
     }
 
-    stroke(0);
-    fill(255);
+    stroke(53,74,42);
+
+    fill(123,182,91);
     rect(width*0.1,height*0.1,width*0.15,height*0.3);
 
     textAlign(CENTER);
-    fill(0);
+    fill(53,74,42);
     noStroke();
     var lineHeight = height*0.02;
     text("POPULATIONS", width*0.178,height*0.15);
@@ -279,6 +290,15 @@ this.randomizeValues();
 
     rotate(radians(sRotate));
 
+    var snow;
+
+    if(random(0,1)<= snowChance){
+      snow = true;
+    }
+    else{
+      snow = false;
+    }
+
     var shapeType = sType;
     var leftX = col*colWidth;
     var rightX = (col+1)*colWidth;
@@ -286,7 +306,7 @@ this.randomizeValues();
     var bottomY = (row+1)*rowHeight;
 
 
-    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode);
+    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,snow);
     shape.createShape();
 
     pop();

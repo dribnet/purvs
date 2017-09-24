@@ -17,7 +17,8 @@ a complex pattern.
 --Landscape--
 
 The landscape uses a similar minimalist aesthetic to the wallpaper, but is this time
-black and white and focused on conveying symbols that represent a top-down environment.
+more representative of an actual environment, and is focused on conveying symbols that represent
+it from a top-down view.
 It uses simple shapes to represent things like trees and rocks. Each type of terrain
 has its own probability of spawning, which is changed each time a new landscape is generated.
 
