@@ -1,6 +1,6 @@
 var shapeOptions = ['rect', 'ellipse', 'equilateral', 'hexa', 'octa'], rotationOptions = [3,4,6,8,12];
 
-var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'landscape';
+var main_canvas , canvasSize = 1, canvasSelector, drawingMode = 'wallpaper';
 
 var bigHex = [
                 [280, 200], [280, 280], [200, 280], [200, 200],
@@ -38,20 +38,20 @@ function setup () {
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
 
+	//build the stars array used to draw the stars in the night sky for landscape mode
 	var numOfStars = random(100, 300);
-
 	var x = 0, y = 0;
 	for(var i=0; i<numOfStars; i ++){
 		x = random(5, 955);
 		y  = random(5, 135);
 		stars[i] = [x, y];
 	}
+	
 	//load images
 	city = loadImage("city.png"); 
 	trees = loadImage("trees.png"); 
 	
     changeMode();
-
     //set up some of the global options for p5.js
     colorMode(HSB);
     rectMode(CENTER);
@@ -63,9 +63,11 @@ function setup () {
 function draw () {
     if(drawingMode === 'wallpaper'){
         noFill();
+		
         drawPattern();
     }
     else if(drawingMode === 'landscape'){
+		//change current hour and day number when required
         if(millis() > (lastMillis + 1000)){
             lastMillis = millis();
             if(currentHour == 23){
@@ -76,18 +78,22 @@ function draw () {
                 currentHour++;
             }
         }
+		
         noiseSeed(curRandomSeed);
         strokeWeight(1);
+		//scale the drawing based on the canvas size
 		if(canvasSize == 2){
 			scale(2);
 		}
 		else if(canvasSize == 3){
 			scale(3);
 		}
+		
         drawLandscape();
     }
 }
 
+//change random seed and redraw
 function mousePressed() {
     changeRandomSeed();
     clear();
@@ -95,6 +101,7 @@ function mousePressed() {
     redraw();
 }
 
+//resizes the canvas when the value of the canvas selector is changed 
 function changeCanvasSize(){    
 	canvasSize = canvasSelector.value();
 	if(canvasSize == 2){
@@ -111,6 +118,7 @@ function changeCanvasSize(){
 	redraw();
 }
 
+//changes the mode - triggered by the space bar
 function changeMode(){
     if(drawingMode === 'wallpaper'){
         noLoop();
@@ -123,6 +131,7 @@ function changeMode(){
     redraw();
 }
 
+//array of hue ranges used for selecting colours in the wallpaper mode
 var hueRanges = [
                     [-20, 20, 0],
                     [21, 60, 40],
@@ -135,6 +144,7 @@ var hueRanges = [
                     [301, 340, 320]
                 ];
 
+//draws the wallpaper pattern
 function drawPattern(){
     var colour = "", xAxis = 0, yAxis = 0;
     hueRanges = shuffleArray(hueRanges);
@@ -168,7 +178,7 @@ function drawPattern(){
                     numOfRotations = random(rotationOptions);
                     colour = lerpColor(fromColour, toColour, lerpAmount);
 
-                    drawGlyph(colour, numOfRotations, shape, 1);
+                    drawGlyph(colour, numOfRotations, shape);
 
                     //change the lerpAmount at certain points of the iteration
                     if(pos == 3){
@@ -211,9 +221,8 @@ function drawPattern(){
     }
 }
 
-
-function drawGlyph(colour, numOfRotations, shape, size){
-    scale(size);
+//glyphs used to create the wallpaper patterns
+function drawGlyph(colour, numOfRotations, shape){
     //this is where the glyph is created
     strokeWeight(0.3);
     for (var i = 0; i < (numOfRotations * 2); i ++) {
@@ -229,6 +238,7 @@ function drawGlyph(colour, numOfRotations, shape, size){
     }
 }
 
+//draws the lines that connects the hexagons together
 function drawHexOutline(colour, adjuster = 0){
     //draw the hexagon outline that groups all the glyphs together
     beginShape();
@@ -259,6 +269,30 @@ function drawHexOutline(colour, adjuster = 0){
 //used to keep track of the noise values for each landscape tile
 var noiseTracker = [], noiseTracker2 = [];
 
+//loads values into the noiseTracker arrays so they can be used for neighbour based comparisons
+function createNoiseTrackerArray(){
+	var xLimit = 11;
+	for(var y=0; y<=15; y++){
+		noiseTracker[y] = [];
+		noiseTracker2[y] = [];
+        for(var x=0; x<=xLimit; x++){
+			var noiseValue = noise(x, y);
+			if(y == 0 || y == 15){
+				noiseValue = 0.5;
+			}
+			noiseTracker[y][x] = noiseValue;
+			noiseTracker2[y][x] = noise(x * y);
+		}
+		if((y % 2) == 0){
+            xLimit = 12;
+        }
+        else {
+            xLimit = 11;
+        }
+	}
+}
+
+//draws the landscape
 function drawLandscape() {
     //sky
     var dayFrom = color(216, 100, 62);
@@ -313,76 +347,7 @@ function drawLandscape() {
     }
 }
 
-function createNoiseTrackerArray(){
-	var xLimit = 11;
-	for(var y=0; y<=15; y++){
-		noiseTracker[y] = [];
-		noiseTracker2[y] = [];
-        for(var x=0; x<=xLimit; x++){
-			var noiseValue = noise(x, y);
-			if(y == 0 || y == 15){
-				noiseValue = 0.5;
-			}
-			noiseTracker[y][x] = noiseValue;
-			noiseTracker2[y][x] = noise(x * y);
-		}
-		if((y % 2) == 0){
-            xLimit = 12;
-        }
-        else {
-            xLimit = 11;
-        }
-	}
-}
-
-function drawSky(x, y, w, h, c1, c2) {
-	noFill();
-	for (var i = y; i <= y+h; i++) {
-	  var inter = map(i, y, y+h, 0, 1);
-	  var c = lerpColor(c1, c2, inter);
-	  stroke(c);
-	  line(x, i, x+w, i);
-	}
-} 
-
-function drawStars(){
-	for(var i=0; i<stars.length; i++){
-		stroke(0, 0 , 100);
-		//dusk
-		if(currentHour > 17  && currentHour < 20){
-			stroke(0, 0 , 100, (0.1 * (currentHour - 15)));
-		}
-		//dawn
-		if(currentHour > 0  && currentHour < 7){
-			stroke(0, 0 , 100, 1 - (0.15 * currentHour));
-		}
-		ellipse(stars[i][0], stars[i][1] , 2, 2);
-	}
-}
-
-//checks to see if any of the four tiles connected to the current tile are a water tile
-function isThereWaterNearby(x, y){
-	var tileA = 1, tileB = 1, tileC = 1, tileD = 1, posXShift = 1, negXShift = 1;
-	if((y % 2) != 0){
-		posXShift = 0;	
-	}
-	else {
-		negXShift = 0;
-	}
-	if(y > 0){
-		tileA = noiseTracker[y-1][x-negXShift];
-		tileB = noiseTracker[y-1][x+posXShift];
-	}
-	if(y < 15){
-		tileC = noiseTracker[y+1][x-negXShift];
-		tileD = noiseTracker[y+1][x+posXShift];
-	}
-	if (tileA  < 0.2 || tileB  < 0.2 || tileC  < 0.2 || tileD  < 0.2) {
-		return true;
-	}
-	return false;
-}
-
+//draws the invidual landscape tile
 function drawLandscapeTile(v, x, y){
     var top, sides, nearWater = false;
 	var v2 = noiseTracker2[y][x];
@@ -414,17 +379,17 @@ function drawLandscapeTile(v, x, y){
         quad(40, 40, 0, 60, 0, 100, 40, 80);
 		
 		nearWater = isThereWaterNearby(x, y);
-		if(v > 0.2){	
+		if(v > 0.19){	
 			if(nearWater && v2 > 0.5){
 				image(city, 0, 30, 50, 50);
 			}
 			else if(v2 > 0.7){
 				//calculations to give the trees varying sizes and allow to grow each day
 				var treeSize = ((v2 * 100) - 50) + (dayNumber * 5);
-				if(treeSize > 60){
-					treeSize = 60;
+				if(treeSize > 50){
+					treeSize = 50;
 				}
-				image(trees, 0, 32.5, treeSize, treeSize);
+				image(trees, 0, 30, treeSize, treeSize);
 			}
 		}
 		
@@ -454,6 +419,56 @@ function drawLandscapeTile(v, x, y){
     }
 }
 
+//draws the sky
+function drawSky(x, y, w, h, c1, c2) {
+	noFill();
+	for (var i = y; i <= y+h; i++) {
+	  var inter = map(i, y, y+h, 0, 1);
+	  var c = lerpColor(c1, c2, inter);
+	  stroke(c);
+	  line(x, i, x+w, i);
+	}
+} 
+
+//draws the stars when it is nightime
+function drawStars(){
+	for(var i=0; i<stars.length; i++){
+		stroke(0, 0 , 100);
+		//dusk
+		if(currentHour > 17  && currentHour < 20){
+			stroke(0, 0 , 100, (0.1 * (currentHour - 15)));
+		}
+		//dawn
+		if(currentHour > 0  && currentHour < 7){
+			stroke(0, 0 , 100, 1 - (0.15 * currentHour));
+		}
+		ellipse(stars[i][0], stars[i][1] , 2, 2);
+	}
+}
+
+
+//checks to see if any of the four tiles connected to the current tile are a water tile
+function isThereWaterNearby(x, y){
+	var tileA = 1, tileB = 1, tileC = 1, tileD = 1, posXShift = 1, negXShift = 1;
+	if((y % 2) != 0){
+		posXShift = 0;	
+	}
+	else {
+		negXShift = 0;
+	}
+	if(y > 0){
+		tileA = noiseTracker[y-1][x-negXShift];
+		tileB = noiseTracker[y-1][x+posXShift];
+	}
+	if(y < 15){
+		tileC = noiseTracker[y+1][x-negXShift];
+		tileD = noiseTracker[y+1][x+posXShift];
+	}
+	if (tileA  < 0.2 || tileB  < 0.2 || tileC  < 0.2 || tileD  < 0.2) {
+		return true;
+	}
+	return false;
+}
 
 /*
  * function to draw an equilateral triangle with a set width
