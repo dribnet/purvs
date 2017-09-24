@@ -1,7 +1,6 @@
 var inMapMode = true;
 var seed = 0.0;
 
-
 function setup() {
 	createCanvas(960, 500);
 	this.generate();
@@ -15,29 +14,19 @@ function draw() {
 	}
 }
 
-//The white lines are generated randomly
 function generate() {
-	if (inMapMode) {
-		/*fill(0);
+	if (!inMapMode) {
+		fill(30);
 		rect(0, 0, 960, 500);
 		push();
 		translate(25, 25);
 		for (var i = 0; i < 20; i++) {
 			for (var j = 0; j < 11; j++) {
 				stroke(255);
-				strokeWeight(3);
-				if (random(5) < 1) {
-					line(50 * i, 50 * j, 50 + 50 * i, 50 * j);
-				}
-				if (random(5) < 1) {
-					line(50 * i, 50 * j, 50 + 50 * i, 50 + 50 * j);
-				}
-				if (random(5) < 1) {
-					line(50 * i, 50 * j, 50 * i, 50 + 50 * j);
-				}
-				if (random(5) < 1) {
-					line(50 * i, 50 * j, 50 + 50 * i, -50 + 50 * j);
-				}
+				strokeWeight(2);
+				line(50 * i, 50 * j, 50 + 50 * i, 50 + 50 * j);
+				line(50 * i, 50 * j, 50 + 50 * i, -50 + 50 * j);
+
 				noStroke();
 				if (j % 2 == 1 && i % 2 == 1) {
 					fill(255, 255, 255);
@@ -51,40 +40,10 @@ function generate() {
 				this.shape(50 * i, 50 * j, 25);
 			}
 		}
-		pop();*/
-		var posY;
-		var posX;
-		var sz; //size of the shape
-		var dis = 25; //the changing distance each time
-		var len = 0; //the distance from original position
-
-		fill(229,175,0);
-		rect(0,0,960,500);
-		noStroke();
-		for (var i = -1; i < 5; i++) {
-			for (var n = 0; n < 28; n++) {
-				len = len + dis;
-				posX = n * 50 - 75;
-				posX = pow(-1, i) * 80 + posX; //derangement
-				posY = i * 130 + 120 + len;
-				fill(10);
-				sz = 25;
-				if (n % 4 == 0) {
-					dis = dis * (-1);
-					fill(255, 60, 40);
-					sz = sz * 1.5;
-					this.polygons2(posX, posY, sz);
-				} else {
-					this.polygons(posX, posY, sz);
-				}
-			}
-		}
-
-
-
+		pop();
 
 	} else {
-		fill(0, 0, 30);
+		fill(10,10,40);
 		rect(0, 0, 960, 500);
 		noStroke();
 		for (var i = 0; i < 35; i++) {
@@ -101,13 +60,10 @@ function generate() {
 
 function drawLanscape(v, posX, posY) {
 	var size = v * 15;
-
 	if (v < 0.4) {
-
-	} else if (v < .5) {
-		var grey = random(150, 200);
-		fill(0, 0, random(0, 30), 150);
-		ellipse(posX + random(-20, 20), posY + random(-10, 10), size * random(20, 40), size * random(20, 40));
+	} else if (v < .5) { //clouds
+		fill(10, 10, random(10, 40), 100);
+		ellipse(posX + random(-20, 20), posY + random(-10, 10), size * random(20,40), size * random(20,40));
 
 	} else if (v < 0.6) {
 		color1 = color(0, 0, 30);
@@ -117,7 +73,7 @@ function drawLanscape(v, posX, posY) {
 		var bokehSize = size * map(v, 0.5, 0.6, 1, .2);
 		ellipse(posX, posY, bokehSize, bokehSize);
 
-	} else if (v < 0.7) {
+	} else if (v < 0.7) { //stars
 		fill(255, 255, 150);
 		ellipse(posX, posY, size / 6, size);
 		ellipse(posX, posY, size, size / 6);
@@ -139,28 +95,6 @@ function shape(posX, posY, size) {
 	ellipse(posX, posY, size, size);
 	fill(0);
 	ellipse(posX, posY, size / 2, size / 2);
-}
-
-function polygons(posX, posY, size) {
-	beginShape();
-	posX = posX - size;
-	posY = posY + size;
-	vertex(posX, posY);
-	vertex(posX + size, posY - 2 * size);
-	vertex(posX + 2 * size, posY);
-	vertex(posX + size, posY - size);
-	endShape(CLOSE);
-}
-
-function polygons2(posX, posY, size) {
-	beginShape();
-	posX = posX - size;
-	posY = posY + size;
-	vertex(posX, posY - 2 * size);
-	vertex(posX + size, posY);
-	vertex(posX + 2 * size, posY - 2 * size);
-	vertex(posX + size, posY - size);
-	endShape(CLOSE);
 }
 
 function keyTyped() {
