@@ -1,6 +1,7 @@
 
 var inMapMode = true;
 var curRandomSeed;
+var planetColours = new Array();
 
 function setup () {
   createCanvas(960, 500);
@@ -16,6 +17,15 @@ function setup () {
   noiseScaleMid = 0.005;
   noiseScaleMidFront = 0.007;
   noiseScaleFront = 0.009;
+  angleMode(DEGREES);
+  var c1 = color(249, 113, 4); //orange
+  var c2 = color(255, 35, 109); //pink
+  var c3 = color(234, 4, 249); //purple
+  append(planetColours, c1);
+  append(planetColours, c2);
+  append(planetColours, c3);
+
+  
 
 }
 
@@ -83,7 +93,18 @@ function draw (){
 
       }
 
-      planet();
+      var numPlanets = howManyPlanets(); //planets
+      for(var planets = 0; planets<numPlanets; planets++ ){
+        planet(random(0, width), random(0, height-height/3), random(-5, 20));
+      }
+
+
+      for(var shootingStars = 0; shootingStars<random(0, 5); shootingStars++){
+        shootingStar(random(0, width), random(0, height-height/3), random(0.1, 1.5));
+      }
+
+      
+      
 
 
 
@@ -168,21 +189,95 @@ function mousePressed() {
     changeRandomSeed();
 }
 
+function howManyPlanets(){
+  var howMany = random(0, 100)
+    if(howMany<10){
+      return(0);
+    }else if(howMany<30){
+      return(1);
+    }else if(howMany<40){
+      return(2);
+    }else if(howMany<70){
+      return(3);
+    }else if(howMany<90){
+      return(4);
+    }else{
+      return(5);
+    }
 
-function planet(){
+  }
+
+
+function planet(x, y, sz){
   push();
-  fill(255, 255, 255);
-  translate(width/3, height/3)
-  ellipse(0, 0, 10, 10);
+  var planetCol = random(planetColours);
+  console.log(planetCol);
+  
+
+
+  translate(x, y);
+
+  fill(255, 255, 255, 50);
+  ellipse(0, 0, 12.5 + sz, 12.5 + sz); //glow
+
+
+  fill(planetCol);
+  ellipse(0, 0, 10 + sz, 10 + sz); //planet
+  
+
   fill(255, 255, 255, 90);
-  ellipse(0, 0, 12, 12);
+  //arc(0, 0, 10+ sz, 10+ sz, 0, 180); //bottom half
+  
+
   noFill();
-  strokeWeight(1);
-  stroke(255, 255, 255, 100);
-  rotate(random(0, 180));
-  ellipse(0, 0, 40, 5);
-  rotate(random(0, 180));
-  ellipse(0, 0, 50, 6);
+  strokeWeight(1 + sz/20);
+  
+  stroke(planetCol, 100);
+
+  var howManyRings = random(0, 100);
+  if(howManyRings<20){
+
+  }else if(howManyRings<50){
+    push();
+    rotate(random(0, 180)); //ring one
+    ellipse(0, 0, 40+ sz*1.25, 5+ sz/2);
+    pop();
+  }else if(howManyRings<80){
+    push();
+    rotate(random(0, 180)); //ring one
+    ellipse(0, 0, 40+ sz*1.25, 5+ sz/2);
+    rotate(random(0, 180)); //ring two
+    ellipse(0, 0, 40+ sz*1.25, 5+ sz/2);
+    pop();
+
+  }else{
+    push();
+    rotate(random(0, 180)); //ring one
+    ellipse(0, 0, 40+ sz*1.25, 5+ sz/2);
+    rotate(random(0, 180)); //ring two
+    ellipse(0, 0, 40+ sz*1.25, 5+ sz/2);
+    pop();
+    rotate(random(0, 180)); //ring three
+    ellipse(0, 0, 50+ sz*1.25, 6+ sz/2);
+  }
+
+  pop();
+}
+
+function shootingStar(x, y, s){
+  noStroke();
+  push();
+  translate(x, y);
+  scale(s);
+  rotate(random(0, 360));
+  var alp = 100;
+  fill(255, 186, 69);
+    ellipse(0, 0, 15, 15);
+  
+  for(var tail = 0; tail<40; tail+=1.5){
+    fill(255, 186, 69, alp-(tail*3));
+    ellipse(0-tail, 0-tail, 20-(tail/2), 20-(tail/2));
+  }
   pop();
 }
 
