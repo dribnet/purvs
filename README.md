@@ -1,11 +1,13 @@
 17.2.MDDN342 PS3
 
-landscape - abstract sea corals
+Final: abstract see coral
+
+landscape
 
 It is an organic composition.
-Linear 'strand like' structures growing with a purpose, -landmarks in the fluid landscpe.
+Linear 'strand like' structures growing with a purpose, -landmarks in a fluid landscpe.
 
 
-Pattern - corol color theme
+Pattern
 
 There is enough repition to create a pattern, however, many of the colors are randomised. 
