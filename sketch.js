@@ -17,7 +17,7 @@ var curRandomSeed;
 var currentHour = 0, lastMillis = 0, dayNumber = 0;
 
 //landscape images 
-var city, trees;
+var city, trees, stars = [];
 
 function changeRandomSeed() {
 	dayNumber = 0;
@@ -38,6 +38,14 @@ function setup () {
     canvasSelector.parent('canvas-selector-holder');
     canvasSelector.changed(changeCanvasSize);
 
+	var numOfStars = random(100, 300);
+
+	var x = 0, y = 0;
+	for(var i=0; i<numOfStars; i ++){
+		x = random(5, 955);
+		y  = random(5, 135);
+		stars[i] = [x, y];
+	}
 	//load images
 	city = loadImage("city.png"); 
 	trees = loadImage("trees.png"); 
@@ -62,6 +70,7 @@ function draw () {
             lastMillis = millis();
             if(currentHour == 23){
                 currentHour = 0;
+				dayNumber++;
             }
             else {
                 currentHour++;
@@ -251,22 +260,37 @@ function drawHexOutline(colour, adjuster = 0){
 var noiseTracker = [], noiseTracker2 = [];
 
 function drawLandscape() {
-
     //sky
-    var day = color(216, 100, 62);
-    var night = color(240, 63,  6);
-    //var colour = lerpColor(day, night, ((currentHour/100) * 8));
+    var dayFrom = color(216, 100, 62);
+    var nightFrom = color(240, 63,  6);
+	var dayTo = color(212, 42, 98);
+    var nightTo = color(108, 39, 85);
+    
     if(currentHour > 6 && currentHour < 18){
-        var colour = day;
-		var colour2 = color(212, 42, 98);
-		drawSky(0,0,960, 160, colour, colour2);
+		//day time 
+        var fromColour = dayFrom;
+		var toColour = dayTo;
+		//dusk 
+		if(currentHour > 12  && currentHour < 18){
+			fromColour = lerpColor(dayFrom, nightFrom, (0.1 * (currentHour -12)));
+			toColour = lerpColor(dayTo, nightTo, (0.1 * (currentHour -12)));
+		}
     }
     else {
-        var colour = night;
-		var colour2 = color(108, 39, 85);
-		drawSky(0,0,960, 160, colour, colour2);
-		drawStars();
+		//night time
+        var fromColour = nightFrom;
+		var toColour = nightTo;
+		//dawn
+		if(currentHour > 0  && currentHour < 7){
+			fromColour = lerpColor(nightFrom, dayFrom, (0.1 * currentHour));
+			toColour = lerpColor(nightTo, dayTo, (0.1 * currentHour));
+		}
     }
+	
+	drawSky(0,0,960, 160, fromColour, toColour);
+	if(currentHour <= 6 || currentHour >= 18){
+		drawStars();
+	}
 	
 	
 	createNoiseTrackerArray();
@@ -322,7 +346,18 @@ function drawSky(x, y, w, h, c1, c2) {
 } 
 
 function drawStars(){
-	
+	for(var i=0; i<stars.length; i++){
+		stroke(0, 0 , 100);
+		//dusk
+		if(currentHour > 17  && currentHour < 20){
+			stroke(0, 0 , 100, (0.1 * (currentHour - 15)));
+		}
+		//dawn
+		if(currentHour > 0  && currentHour < 7){
+			stroke(0, 0 , 100, 1 - (0.15 * currentHour));
+		}
+		ellipse(stars[i][0], stars[i][1] , 2, 2);
+	}
 }
 
 //checks to see if any of the four tiles connected to the current tile are a water tile
@@ -379,14 +414,20 @@ function drawLandscapeTile(v, x, y){
         quad(40, 40, 0, 60, 0, 100, 40, 80);
 		
 		nearWater = isThereWaterNearby(x, y);
-		if(v > 0.2){
+		if(v > 0.2){	
 			if(nearWater && v2 > 0.5){
-				image(city, 0, 32.5, 40, 40);
+				image(city, 0, 30, 50, 50);
 			}
 			else if(v2 > 0.7){
-				image(trees, 0, 32.5, 40, 40);
+				//calculations to give the trees varying sizes and allow to grow each day
+				var treeSize = ((v2 * 100) - 50) + (dayNumber * 5);
+				if(treeSize > 60){
+					treeSize = 60;
+				}
+				image(trees, 0, 32.5, treeSize, treeSize);
 			}
 		}
+		
     }
     //mountain
     else {
@@ -396,10 +437,7 @@ function drawLandscapeTile(v, x, y){
 		fill(sides);
         //right side
         quad(0, 20, 0, 60, 0, 100, 40, 80);
-        fill(top)
-        //top
-        //quad(0, 20, 27, 60, 0, 73, 0, 73);
-        //quad(0, 20, 0, 73, 0, 73, -27, 60);
+        fill(top);
     }
 
 
