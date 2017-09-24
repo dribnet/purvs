@@ -1,6 +1,7 @@
-function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,snowBlock){
+function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,perl,lakeChance){
 
 
+  var tileType;
 
 
 
@@ -29,23 +30,34 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
   }
 
 
-
+ if(perl>0.6){
+   tileType = "snow";
+ }
+ else if(perl<lakeChance){
+   tileType = "lake";
+ }
+ else{
+   tileType = "grass";
+ }
 
 
 
 
   this.createShape = function(){
 
+    var perlMult = 150 * perl;
 
+    //print(perl);
 
     if(mode == true){
       noStroke();
-      fill(169, 234+random(-15,25), 156+random(-5,15));
-      rect(leftX,bottomY,colWidth,rowHeight);
+      fill(169+perlMult, 234+perlMult, 156+perlMult);
+      rect(leftX,topY,colWidth,rowHeight);
 
-      if(snowBlock == true){
-        fill(255,random(100,255));
-        rect(leftX,bottomY,colWidth,rowHeight);
+
+      if(tileType == "lake"){
+        fill(193-perlMult, 217-perlMult, 255-perlMult, 255-perlMult);
+        rect(leftX,topY,colWidth,rowHeight);
       }
 
 
@@ -54,7 +66,12 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     fill(sColor);
     stroke(lineColor);
 
+    perl = 0;
 
+
+    if(tileType == "lake"){
+      return;
+    }
 
 
     //bigrect
@@ -92,15 +109,13 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     //tree
     else if(shapeType==7){
 
+      line(leftX+(colWidth/2),topY+rowHeight/2,leftX+(colWidth/2),bottomY);
+      triangle(leftX,topY+(rowHeight/2),leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY+(rowHeight/2));
 
-
-      line(leftX+(colWidth/2),topY+(rowHeight/2),leftX+(colWidth/2),bottomY+(rowHeight/2));
-      triangle(leftX,topY+(rowHeight),leftX+(colWidth/2),topY,rightX,topY+(rowHeight));
-
-      if(snowBlock == true){
+      if(tileType == "snow"){
         fill(255);
         //noStroke();
-        triangle(leftX+(colWidth*0.15),topY+(rowHeight*0.75),leftX+(colWidth/2),topY,rightX-(colWidth*0.15),topY+(rowHeight*0.75));
+        triangle(leftX+(colWidth*0.15),topY+(rowHeight*0.3),leftX+(colWidth/2),topY-(rowHeight/2),rightX-(colWidth*0.15),topY+(rowHeight*0.3));
       }
 
     }
@@ -123,7 +138,7 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     //house
     else if (shapeType == 10){
 
-      rect(leftX,topY,colWidth,rowHeight);
+      rect(leftX,topY,colWidth-1,rowHeight-1);
       fill(183, 156, 126+random(-20,20));
       rect(leftX+colWidth/3,topY+rowHeight/4,colWidth/3,rowHeight/4);
       triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);

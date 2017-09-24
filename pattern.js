@@ -10,9 +10,13 @@ wallpaper and the landscape.
 function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
 
 
+
   var randomNum;
   var shapeNum = 18;
   var totalPopulation;
+
+  noiseSeed(random(0,1000));
+  noiseDetail(4);
 
   var snowChance;
 
@@ -71,20 +75,23 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     if(mode == true){
 
       snowChance = random(0,0.8);
+      lakeChance = snowChance+ random(0,0.4);
 
-      empty = 45 + round(random(-30,80));
+      //empty = 45 + round(random(-30,80));
+      empty = 25 + round(random(0,50));
       bigRect = 0;
       smallRect = 0;
       grass = 10+ round(random(-5,15));
       bigCircle = 0;
-      flatLine = 8+ round(random(-4,5));
+      //flatLine = 8+ round(random(-4,5));
+      flatLine = 0;
       rock = 5 + round(random(-4,15));
       tree = 20 + round(random(-5,20));
       rect4 = 0;
       circle4 = 0;
-      house = 1 + round(random(-1,2));
-      obelisk = 1 + round(random(0,2));
-      flower = 1 + round(random(1,2)) ;
+      house = 1 + round(random(-1,6));
+      obelisk = 1 + round(random(0,6));
+      flower = 1 + round(random(1,6)) ;
       lake = 7;
     }
   else{
@@ -128,9 +135,10 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     var shape;
 
 
-    var rand = (round(random(0,totalPopulation)));
+    //var rand = (round(random(0,totalPopulation)));
+    var rand = (round(noise(row,col)*totalPopulation));
 
-    //print("rand = " + rand);
+    print("rand = " + rand);
 
     for(var i = 0; i < populations.length; i++){
 
@@ -290,14 +298,9 @@ this.randomizeValues();
 
     rotate(radians(sRotate));
 
-    var snow;
+    var perl = noise(row,col);
+    var lakeChance = random(0,0.25);
 
-    if(random(0,1)<= snowChance){
-      snow = true;
-    }
-    else{
-      snow = false;
-    }
 
     var shapeType = sType;
     var leftX = col*colWidth;
@@ -306,7 +309,7 @@ this.randomizeValues();
     var bottomY = (row+1)*rowHeight;
 
 
-    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,snow);
+    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,perl,lakeChance);
     shape.createShape();
 
     pop();
