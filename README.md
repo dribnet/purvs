@@ -1,5 +1,11 @@
 17.2.MDDN342 PS3
 
+FINAL
+
+Fo this project I wanted to create a pattern and a landscape that reflected eachother but were obviously different. I developed code that we were given and also other examples online (commented on code) to create a pattern and landscape that moved and changed. The first thing you see is my landscape, once the spacebar is pressed my pattern comes up. With the pattern as you move the mouse over it, small dots appear and fade, and the background lines move. I also wanted a static element, to make the pattern more real and to give it the grid element. With my landscape I wanted to take my pattern and create a world of bubbles, with every click a slightly different landscape apears with still the element of moving dots and the same colourscheme to tie both the pattern and landscape together. With this project and the concept of patterns and landscape I wanted to explore the ideas of turning a pattern into a landscape. Bringign similar elements into a code to create something different was a great challenge.
+
+Bellow are are my updates through out this process.
+
 Going into this project my first step has been to do some research and start thinking of patterns and color schemes. So far, I've been inspired by the works of Holger Lippmann and the colour schemes used in his work. Next step is to keep developing the color scheme and start looking at patterns and shapes.
 
 UPDATE
@@ -26,6 +32,3 @@ UPDATE
 
 I've been working on finalizing both the pattern and the landscape for this project. Still working on the code I want to use but getting to a finalized stage.
 
-FINAL
-
-Fo this project I wanted to create a pattern and a landscape that reflected eachother but were obviously different. I developed code that we were given and also other examples online (commented on code) to create a pattern that moved and changed, as you move the mouse over it, small dots chnage and the background lines move. I also wanted a static element, to make the pattern more real. With my landscape I wanted to take my pattern and create a world of bubbles, with every click a slightly diffeent landscape apears with still the element of moving dots and the same colourscheme to tie both the pattern and landscape together.
