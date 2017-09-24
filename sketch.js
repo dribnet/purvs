@@ -1,48 +1,7 @@
 var curRandomSeed;
 var slider1, slider2, slider3, slider4, slider5;
 var inMapMode = true;
-//var faceSelector;
 
-//function colorFromValue(v) {
-//  if (v < 0.5) {
-//    color1 = color(0, 0, 100); 
-//    color2 = color(100, 100, 220);
-//          color1 = color(255,180,70,50);
-//    color2 = color(220,200,80,100);
-//      
-//    c = lerpColor(color1, color2, v*2);
-//    return c;
-//  }
-//  else if(v<0.7) {
-//    return color(50,50);
-//  }
-//  else if(v<0.8) {
-//    return color(100,50);
-//  }
-//  else {
-//    return color(255,50);    
-//  }
-//}
-//function colorFromValue(v) {
-//  if (v < 0.5) {
-//    color1 = color(0, 0, 100); 
-//    color2 = color(100, 100, 220);
-//          color1 = color(240,150,70,50);
-//    color2 = color(220,200,80,100);
-//      
-//    c = lerpColor(color1, color2, v*2);
-//    return c;
-//  }
-//  else if(v<0.6) {
-//    return color(100,50);
-//  }
-//  else if(v<0.8) {
-//    return color(150,100);
-//  }
-//  else {
-//    return color(255,100);    
-//  }
-//}
 function opacityFromValue(v){
     if (v < 0.5) {
     color1 = color(0, 0, 100); 
@@ -57,14 +16,12 @@ function opacityFromValue(v){
     return c;
   }
   else if(v<0.6) {
-   // return color(220,200,80,50);
       return color(240,150,70,5);
   }
   else if(v<0.8) {
     return color(230,175,75,25);
   }
   else {
-   // return color(240,150,70,5);
       return color(220,200,80,50);
   }
 }
@@ -80,27 +37,16 @@ function colorFromValue(v) {
     return c;
   }
   else if(v<0.6) {
-    //return color(220,200,80,100);
        return color(240,150,70,50);
   }
   else if(v<0.8) {
     return color(230,175,75,75);
   }
   else {
-    //return color(240,150,70,50);
       return color(220,200,80,100);
   }
 }
-function polygon(x, y, radius, npoints) {
-  var angle = TWO_PI / npoints;
-  beginShape();
-  for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a+PI/6) * radius;
-    var sy = y + sin(a+PI/6) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
-}
+
 function setup () {
  curRandomSeed = int(focusedRandom(0, 100));
  createCanvas(960, 500);
@@ -140,8 +86,8 @@ background(0);
   var s4 = slider4.value();
   var s5 = slider5.value();
     
- var x_steps = 1 + Math.floor(width / 6);
- var y_steps = 1 + Math.floor(height /9);
+ var x_steps = 1 + Math.floor(width / 19);
+ var y_steps = 1 + Math.floor(height /20);
 
  var x_grid_locations = new Array(x_steps);
  var y_grid_locations = new Array(y_steps);
@@ -161,6 +107,8 @@ background(0);
     
     
     if(inMapMode) {
+        push();
+    scale(2);
         background(0);
    for(var i=0;i<x_steps-1;i++) {
    for(var j=0;j<y_steps-1;j++) {
@@ -196,7 +144,7 @@ noStroke();
            pop();
    }
  }
-          
+          pop();
     }
         
         
@@ -275,7 +223,6 @@ function keyTyped() {
     inMapMode = !inMapMode;
   }
 }
-
 
 
 
