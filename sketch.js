@@ -68,9 +68,24 @@ background(0);
     var rectangle = 0;
     var circle = 1;
     var opacity = map(s1, 0, 100, 100, 200);
-    rectangles(rectangle,1,1,0,1,0,0);
-//    rectangles(circle,1,1,0,1,0,150);
-//    rectangles(rectangle,2,1,90,2,-1000,0);
+    var layersAmount = Math.floor(map(s2, 0, 100, 0, 5));
+         if (layersAmount > 0) {
+         rectangles(rectangle,1,1,0,1,0,0);
+         }
+      if (layersAmount > 1) {
+          rectangles(circle,1,1,0,1,0,150);
+         }
+      if (layersAmount > 2) {
+         rectangles(rectangle,2,1,90,2,-1000,0);          }
+     if (layersAmount > 3) {
+     rectangles(circle,1,1,0,1,0,100);
+          }
+     if (layersAmount > 4) {
+rectangles(rectangle,3,3,0,1,-1000,0);
+         }
+    
+    
+   
 //    rectangles(circle,1,1,0,1,0,100);
 //    rectangles(rectangle,3,3,0,1,-1000,0);
 //    rectangles(circle,1,1,0,1,0);
