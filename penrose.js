@@ -68,6 +68,8 @@ const penrose = {};
         this.left = left;       left.edge.adjacent.push(this);
         this.right = right;     right.edge.adjacent.push(this);
 
+        this.apex = this.left.edge.vert(true == this.left.ab)
+
         this.acute = Math.abs(angle) == acute;
         this.obtuse = Math.abs(angle) == obtuse;
 
