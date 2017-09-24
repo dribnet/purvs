@@ -1,0 +1,17 @@
+{
+  "commits": [
+    {
+      "sha": "cf1cc0bfbdff14d3e5e67cf85b15ad2cd5ad3d68",
+      "name": "final"
+    },
+    {
+      "sha": "6eff9932af555d911b8fe34344ed5c97955da044",
+      "name": "Pattern_Iteration"
+    },
+    {
+      "sha": "ab0e4829641c5897dc541040ee23fec5d2db3618",
+      "name": "experiment"
+    }
+  ]
+  //this is just so that I can push the updated purview rather than Purview
+}
