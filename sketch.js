@@ -21,20 +21,20 @@ function mousePressed() {
 
 //Tile Colours
 function colorFromValue(v) {
-  if (v < 0.35) {
-      color1 = color(0, 160, 176, 40);
+  if (v < 0.5) {
+    color1 = color(0, 160, 176, 50);
     color2 = color(100, 100, 220, 40);
-    c = lerpColor(color1, color2, v*2);
+    c = lerpColor(color2, color1, v*2);
     return c;
   }
-  else if(v<0.55) {
-      return color(237, 201, 81, 40);
+  else if(v<0.6) {
+      return color(232, 221, 203, 60);
   }
   else if(v<0.7) {
-      return color(106, 74, 60, 40);
+      return color(106, 74, 60, 70);
   }
   else {
-      return color(204, 51, 63, 40);
+      return color(204, 51, 63, 80);
   }
 }
 
@@ -151,6 +151,7 @@ function draw () {
             var x_noise = i / 10.0;
             var y_noise = j / 10.0;
             var noiseVal = noise(x_noise, y_noise);
+
             var shade = colorFromValue(noiseVal);
 
             var loc = grid_locations[i][j];
@@ -165,13 +166,13 @@ function draw () {
 
             fill(shade);
 
-            strokeWeight(0.5);
-            stroke(20);
-            noStroke();
+            strokeWeight(noiseVal * 4);
+            stroke(shade);
+            //noStroke();
 
-            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 100));
+            ellipse(loc[0] - 60, loc[1] - 60, 100 * (noiseVal));
 
-            fill(shade);
+            fill(40);
             rect(loc[0] - 60, loc[1] - 60, 20, 600);
 
             fill(20);
@@ -184,8 +185,12 @@ function draw () {
             noStroke();
 
             translate(15, 30);
-            ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(50, 100));
+            ellipse(loc[0] - 60, loc[1] - 60, 100 * noiseVal);
             translate(-15, -30);
+
+            translate(-15, 30);
+            ellipse(loc[0] - 60, loc[1] - 60, 100 * noiseVal);
+            translate(15, -30);
 
         }
     }
