@@ -140,21 +140,22 @@ function draw (){
 
 	else{
 		background(175, 224, 222);
+		var maxHillHeight = random(0, 100);
 		// generates land
 		for (var x=0; x < width; x++) {
 			strokeWeight(10);
 			// back mountain
 			var noiseVal = noise((1000+x)*noiseScaleBack, 1000*noiseScaleBack);	
     		stroke(247, 255, 234);
-    		line(x, 50+noiseVal*100, x, height);
+    		line(x, 70-maxHillHeight+noiseVal*100, x, height);
     		// mid mountain
    			var noiseVal = noise((1000+x)*noiseScaleMid, 1000*noiseScaleMid);	
     		stroke(237, 249, 217);
-    		line(x, 125+noiseVal*100, x, height);
+    		line(x, 125-maxHillHeight+noiseVal*100, x, height);
     		// front mountain
     		var noiseVal = noise((1000+x)*noiseScale, 1000*noiseScale);
     		stroke(223, 239, 198);
-    		line(x, 165+noiseVal*100, x, height);
+    		line(x, 165-maxHillHeight+noiseVal*100, x, height);
 
   		}
 		// draws the map
@@ -182,8 +183,8 @@ function draw (){
 				// ADD RANDOM LAKE
 				// HOT AIR BALLOONS IN SKY'
 				// houses
-				if(y1 > 175){
-					fill(0);
+				if(y1 > 185){
+					fill(100);
 					rect(x1+32, y1+43, 1, 10);
 					rect(x1+43, y1+43, 1, 10);
 					polygon(x1+38, y1+38, 10, 3);
@@ -192,7 +193,7 @@ function draw (){
 
 			if(randomPlot > 6 & randomPlot < 20){
 				// round trees
-				if(y1 > 175){
+				if(y1 > (185 - maxHillHeight)){
 					fill(treeColours);
 					ellipse(x1+38, y1+38, 20, 20+focusedRandom(0, 10, 1));
 					fill(0);
@@ -201,7 +202,7 @@ function draw (){
 			}
 			
 			if(randomPlot > 21 & randomPlot < 30){
-				if(y1 > 175){
+				if(y1 > (185 - maxHillHeight)){
 					fill(0);
 					ellipse(x1+38, y1+38, 1.5, 1.5);
 				}
@@ -209,7 +210,7 @@ function draw (){
 			
 			if(randomPlot > 41 & randomPlot < 60){
 				// 3x triangle trees
-				if(y1 > 175){
+				if(y1 > (185 - maxHillHeight)){
 					fill(treeColours);
 					polygon(x1+38, y1+38, 15, 3);
 					polygon(x1+38, y1+29, 10, 3);
@@ -227,7 +228,7 @@ function draw (){
 			
 			if(randomPlot > 61 & randomPlot < 80){
 				// stick trees
-				if(y1 > 175){
+				if(y1 > (185 - maxHillHeight)){
 					fill(0);
 					rect(x1+38, y1+38, 1, 7+focusedRandom(0, 15, 7));
 						if(randomPlot > 70){
@@ -239,7 +240,7 @@ function draw (){
 			
 			if(randomPlot > 81 & randomPlot < 100){
 				// 2x circle trees
-				if(y1 > 175){
+				if(y1 > (185 - maxHillHeight)){
 					fill(treeColours);
 					ellipse(x1+38, y1+38, 20, 20);
 					ellipse(x1+38, y1+29, 20, 20);
@@ -248,21 +249,22 @@ function draw (){
 				}
 			}
 
-			if(randomPlot > 175){
-				if(y1 > 175){
+			if(randomPlot > 120){
+				if(y1 > (185 - maxHillHeight)){
     				fill(treeColours);
-					rect(x1+10+focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
-					rect(x1-10-focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
-					rect(x1+10+focusedRandom(0, 30), y1+47+focusedRandom(0, 30), 1, 3+(random(0,5)));
-				}	
-
-				
+					rect(x1+10+focusedRandom(0, 30), y1+focusedRandom(0, 5), 1, 3+(random(0,5)));
+					rect(x1-10-focusedRandom(0, 30), y1+focusedRandom(0, 5), 1, 3+(random(0,5)));
+				}		
 			}
-
 			
 			}
 	      }
-
+	      	if(randomPlot < 30){
+	        timeOfDayColours = [0, 50, 150, 200];
+    		timeOfDayColours = random(timeOfDayColours);
+	      	fill(timeOfDayColours, 100, 100, 70);
+			rect(0, 0, width, height);
+		}
 	    }   
 
 	}
