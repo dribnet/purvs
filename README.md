@@ -1,3 +1,3 @@
 17.2.MDDN342 PS3
 
-Here I tried using an entirely different grid while trying to keep the aesthetic similar to its original to optimise the speed it runs.
+For now I have decided I want to go with my original design. It is more organic in that it has more thought out random widths and heights of the shape. I also added a grey colour option. 
