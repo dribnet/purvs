@@ -14,13 +14,14 @@ var bigHex = [
 var curRandomSeed;
 
 //landscape related variables
-var currentHour = 0, lastMillis = 0;
+var currentHour = 0, lastMillis = 0, dayNumber = 0;
 
 //landscape images 
 var city, trees;
 
 function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
+	dayNumber = 0;
+	curRandomSeed = curRandomSeed + 1;
 }
 
 function setup () {
@@ -258,18 +259,20 @@ function drawLandscape() {
     if(currentHour > 6 && currentHour < 18){
         var colour = day;
 		var colour2 = color(212, 42, 98);
+		drawSky(0,0,960, 160, colour, colour2);
     }
     else {
         var colour = night;
-		var colour2 = color(206, 100, 30);
 		var colour2 = color(108, 39, 85);
+		drawSky(0,0,960, 160, colour, colour2);
+		drawStars();
     }
-	drawSky(0,0,960, 180, colour, colour2);
+	
 	
 	createNoiseTrackerArray();
 	
     stroke(189, 64, 95);
-    translate(40, 140);
+    translate(40, 120);
     var xLimit = 11;
     for(var y=0; y<=15; y++){
         for(var x=0; x<=xLimit; x++){
@@ -318,6 +321,10 @@ function drawSky(x, y, w, h, c1, c2) {
 	}
 } 
 
+function drawStars(){
+	
+}
+
 //checks to see if any of the four tiles connected to the current tile are a water tile
 function isThereWaterNearby(x, y){
 	var tileA = 1, tileB = 1, tileC = 1, tileD = 1, posXShift = 1, negXShift = 1;
@@ -346,27 +353,16 @@ function drawLandscapeTile(v, x, y){
 	var v2 = noiseTracker2[y][x];
     if (v < 0.2) {
         top = color(184, 100, 98);
-        //top = color(132, 28, 96);
-        sides = color(23, 82, 85);
         sides = color(215, 56, 60);
         translate(0, 10);
     }
     else if (v < 0.75) {
         top = color(255, 74, 43);
-        sides = color(23, 82, 85);
 		sides = color(215, 56, 60);
-		nearWater = isThereWaterNearby(x, y);
-		if(nearWater && v2 > 0.5){
-			top = color(86, 4, 74);
-		}
     }
     else {
         top = color(120, 100, 70);
-        sides = color(23, 82, 85);
 		sides = color(276, 66, 62);
-        if (v > 0.85) {
-            top = color(0, 0, 100);
-        }
         translate(0, -40);
     }
 
@@ -381,11 +377,15 @@ function drawLandscapeTile(v, x, y){
         quad(-40, 40, 0, 60, 0, 100, -40, 80);
         //right side
         quad(40, 40, 0, 60, 0, 100, 40, 80);
-		if(nearWater && v2 > 0.5){
-			image(city, 0, 32.5, 40, 40);
-		}
-		else if(v > 0.2 && v2 > 0.7){
-			image(trees, 0, 32.5, 40, 40);
+		
+		nearWater = isThereWaterNearby(x, y);
+		if(v > 0.2){
+			if(nearWater && v2 > 0.5){
+				image(city, 0, 32.5, 40, 40);
+			}
+			else if(v2 > 0.7){
+				image(trees, 0, 32.5, 40, 40);
+			}
 		}
     }
     //mountain

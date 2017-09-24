@@ -1,10 +1,6 @@
 ##17.2.MDDN342 PS3
 
-###Iterative Wallpaper 2
-I decided to make quite a big change to the appearance of my wallpaper pattern. The reason I decided to do this is because I was thinking about how the pattern would look when expanded onto a bigger canvas.  
+###Generative Landscape
+My goal for this part of the project was to create a representation of a world that you would see in a video game. At first I was using a colour scheme that you would expect to see for an earth based world.  However I decided that it wasn't very interesting so I changed the colour scheme and the landscape is now representative of an alien planet. 
 
-My previous pattern would have had a similar appearance regardless of the canvas size. For this pattern I have thought very carefully about how the pattern would work when viewed at different scales.
-
-At the core of the pattern there is hexagon shaped pattern made from three groups of glyphs.  Each group has a different colour and the outer group is connected to each other by glowing lines through the center of the glyphs.  This hexagon pattern is then used to create a 3x3 grid with each using a different colour set. The 3x3 grid is then repeated both horizontally and vertically depending on the canvas size.
-
-I think this pattern works very well on a large scale. It has a simple but interesting pattern to view from a distance and when viewed from close up there are lots intricate details to maintain interest.
+The grid I have used to create the landscape is made of cubes as I wanted it to appear three dimensional.  The noise value for each tile is stored in an array and used to determine whether a tile will be land, mountain or water.  There is a second array of noise values which is used to determine if a land tile can host a city or forest.  For a land tile to host a city it also needs to be near water and I have created a function which checks to make sure this is the case.
