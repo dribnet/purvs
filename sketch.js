@@ -4,13 +4,81 @@ function setup () {
   angleMode(RADIANS)
   colorMode(HSB)
 
+  view = createSelect()
+  view.parent('view')
+  view.option('wallpaper')
+  view.option('landscape')
+  view.value('landscape')
+
   bgColor = color(0, 0, 0, 1)
 }
+
+let view;
+
+function draw(){
+  if(view.value() == 'wallpaper')
+    drawWallpaper()
+  else
+    drawLandscape()
+}
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  if(key == ' '){
+    if(view.value() == 'wallpaper')
+      view.value('landscape')
+    else
+      view.value('wallpaper')
+  }
+}
+
+function mousePressed(){
+  noiseC += random()*100;
+  extraTime = -500000+random()*1000000
+}
+
+let noiseC = 0;
+
+let layers = 10;
+let points = 100;
+
+function drawLandscape(){
+  background('white')
+  let singleH = height/layers
+  noStroke()
+  let y = 0;
+  while(y < (height)){
+    let yP = y/height;
+    let singleH = map(y, height, 0, height*0.2, height*0.001)*4
+    fill(0, 0, 100-yP*100)
+
+    beginShape()
+    for(let x = -2; x < points+2; x++){
+      let xP = x/points;
+        
+      curveVertex(map(x, 0, points, 0, width),
+        y + singleH/2 - singleH*noise(xP*10, yP*6, noiseC+millis()/7000))
+    }
+    curveVertex(width, height)
+    curveVertex(0, height)
+    curveVertex(-100, height)
+    curveVertex(-200, height)
+
+    endShape()
+
+    y += map(y, height, 0, height*0.2, height*0.001)
+  }
+}
+  
 
 let size = 1;
 let gridSize = 40;
 
-function draw () {
+let extraTime = 0;
+
+function drawWallpaper () {
   fill(0,0,0,0)
   stroke(0,0,0)
   strokeWeight(0.4)
@@ -23,16 +91,17 @@ function draw () {
   let fX = makeMap(-gridSize*4, width+gridSize*4);
   let fY = makeMap(-gridSize*4, height+gridSize*4);
 
+  let time = millis()+extraTime;
+
   background(bgColor)
-  let i = Math.floor(millis()/5000)+Math.floor(millis()/2000)
+  let i = Math.floor(time/5000)+Math.floor(time/2000)
   for(let x = modX-gridSize*4; x < width+gridSize*4+modX; x+= gridSize*2){
     for(let y = modY-gridSize*4; y < height+gridSize*4+modY; y += gridSize*2){
       i++;
 
       let fx = fX(x)
       let fy = fY(y)
-      if(1 < fx)
-        console.log(fx)
+      
       translate(x, y)
       let heightI = 8000+fx*3000
       // let heightI = 5000
@@ -85,7 +154,7 @@ function drawCircle(radius, waveMap, offset){
 }
 
 function t(period){
-  return millis().mod(period)/period
+  return (millis()+extraTime).mod(period)/period
 }
 
 function st(period){
@@ -114,12 +183,6 @@ function drawCurve(points){
     curveVertex(point.x, point.y)
   }
   endShape()
-}
-
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
 }
 
 function fillArray(n, val){
