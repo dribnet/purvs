@@ -82,7 +82,7 @@ function draw () {
   }	
 
 //Wallpaper Pattern
-if (patternMode){
+if (!patternMode){
     
 
      if (colour < 1) {
@@ -435,6 +435,6 @@ function keyTyped() {
     saveBlocksImages();
   }
      else if (key == ' ') {
-    patternMode = !patternMode;
+    patternMode = patternMode;
   }
 }
