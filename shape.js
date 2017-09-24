@@ -1,4 +1,4 @@
-function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,perl,lakeChance){
+function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight ,mode,perl,lakeChance,snowChance){
 
 
   var tileType;
@@ -13,7 +13,7 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
     lineColor = color(60);
   }
   if(shapeType == 7 && mode == true){
-      sColor = color(123,182,91+random(-20,55));
+      sColor = color(123,182,91+perl*80);
       lineColor = color(42, 71, 49+ random(-20,55) );
   }
   if(shapeType == 10 && mode == true){
@@ -30,7 +30,7 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
   }
 
 
- if(perl>0.6){
+ if(perl>snowChance){
    tileType = "snow";
  }
  else if(perl<lakeChance){
@@ -41,11 +41,10 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
  }
 
 
-
+var perlMult = snowChance*100;
 
   this.createShape = function(){
 
-    var perlMult = 150 * perl;
 
     //print(perl);
 
@@ -56,7 +55,7 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
 
 
       if(tileType == "lake"){
-        fill(193-perlMult, 217-perlMult, 255-perlMult, 255-perlMult);
+        fill(193+perl*20, 217+perl*20, 255+perl*20);
         rect(leftX,topY,colWidth,rowHeight);
       }
 

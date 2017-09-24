@@ -47,9 +47,7 @@ function drawCanvas(){
 
 function draw () {
 
-  if(wallpaperMode == false){
-    return;
-  }
+  landscape.drawBlock();
 /*
 
   var mouseCol = round(mouseX/colWidth);

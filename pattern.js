@@ -16,7 +16,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   var totalPopulation;
 
   noiseSeed(random(0,1000));
-  noiseDetail(4);
+  noiseDetail(4,0.5);
 
   var snowChance;
 
@@ -36,6 +36,13 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
   var lake;
 
   var populations;
+
+  var minXPop;
+  var minYPop;
+  var maxXPop;
+  var maxYPop;
+  var xDiff;
+  var yDiff;
 
 
 
@@ -91,7 +98,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       circle4 = 0;
       house = 1 + round(random(-1,6));
       obelisk = 1 + round(random(0,6));
-      flower = 1 + round(random(1,6)) ;
+      flower = 1 + round(random(1,8)) ;
       lake = 7;
     }
   else{
@@ -138,7 +145,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     //var rand = (round(random(0,totalPopulation)));
     var rand = (round(noise(row,col)*totalPopulation));
 
-    print("rand = " + rand);
+    //print("rand = " + rand);
 
     for(var i = 0; i < populations.length; i++){
 
@@ -204,6 +211,41 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
     }
 
 
+    /*
+    if(mode == true){
+
+
+      var offsetY = round(random(0,rows*0.3));
+      var offsetX = round(random(0,cols*0.6));
+
+
+      minYPop = round(rows*0.1)+offsetY;
+      minXPop = round(cols*0.1)+offsetX;
+      maxYPop = round(rows*0.4)+offsetY;
+      maxXPop = round(cols*0.25)+offsetX;
+
+      xDiff = maxXPop-minXPop;
+      yDiff = maxYPop-minYPop;
+
+      for(var row = minYPop; row< maxYPop; row++){
+        for(var col = minXPop; col< maxXPop; col++){
+
+          shapeTypes[row][col] = 0;
+
+        }
+
+      }
+
+      //var half = round(minXPop+xDiff/2);
+
+      //print(half);
+      //shapeTypes[half][4] = 10;
+
+
+    }
+    */
+
+
 
   }
 
@@ -259,24 +301,7 @@ this.randomizeValues();
 
     }
 
-    stroke(53,74,42);
 
-    fill(123,182,91);
-    rect(width*0.1,height*0.1,width*0.15,height*0.3);
-
-    textAlign(CENTER);
-    fill(53,74,42);
-    noStroke();
-    var lineHeight = height*0.02;
-    text("POPULATIONS", width*0.178,height*0.15);
-
-    text("Space = " + round(populations[0]),width*0.178,height*0.15+(lineHeight*2));
-    text("Grass = " + round(populations[3]),width*0.178,height*0.15+(lineHeight*3));
-    text("Rock = " + round(populations[6]),width*0.178,height*0.15+(lineHeight*4));
-    text("Tree = " + round(populations[7]),width*0.178,height*0.15+(lineHeight*5));
-    text("House = " + round(populations[10]),width*0.178,height*0.15+(lineHeight*6));
-    text("Obelisk = " + round(populations[11]),width*0.178,height*0.15+(lineHeight*7));
-    text("Flower = " + round(populations[12]),width*0.178,height*0.15+(lineHeight*8));
     //for(var i = 0; i<populations.length; i++){
     //  text(round(populations[i]),width*0.12,height*0.15+(i*height*0.02));
     //}
@@ -300,7 +325,7 @@ this.randomizeValues();
 
     var perl = noise(row,col);
     var lakeChance = random(0,0.25);
-
+    var snowChance = random(0.5,0.9);
 
     var shapeType = sType;
     var leftX = col*colWidth;
@@ -309,11 +334,56 @@ this.randomizeValues();
     var bottomY = (row+1)*rowHeight;
 
 
-    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,perl,lakeChance);
+    var shape = new Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWidth,rowHeight,mode,perl,lakeChance,snowChance);
     shape.createShape();
 
     pop();
 
+
+  }
+
+  this.drawPopulations = function (){
+
+
+
+
+
+    stroke(53,74,42);
+
+    noStroke();
+    fill(255,50)
+    rect(minXPop*colWidth,minYPop*rowHeight,xDiff*colWidth,yDiff*rowHeight);
+    fill(255);
+    rect(minXPop*colWidth,minYPop*rowHeight,xDiff*colWidth,rowHeight*3);
+
+
+
+    textAlign(CENTER);
+    fill(42, 71, 49);
+    noStroke();
+    var lineHeight = rowHeight;
+    var xPos = (minXPop+xDiff/2)*colWidth;
+    var yPos = (minYPop*rowHeight);
+    text("POPULATIONS:", xPos,yPos+lineHeight*2);
+
+    text("Space = " + round(populations[0]),xPos,yPos+(lineHeight*5));
+    text("Grass = " + round(populations[3]),xPos,yPos+(lineHeight*6));
+    text("Rock = " + round(populations[6]),xPos,yPos+(lineHeight*7));
+    text("Tree = " + round(populations[7]),xPos,yPos+(lineHeight*8));
+    text("House = " + round(populations[10]),xPos,yPos+(lineHeight*9));
+    text("Obelisk = " + round(populations[11]),xPos,yPos+(lineHeight*10));
+    text("Flower = " + round(populations[12]),xPos,yPos+(lineHeight*11));
+  }
+
+  this.printPopulations = function(){
+
+    print("Space = " + round(populations[0]));
+    print("Grass = " + round(populations[3]));
+    print("Rock = " + round(populations[6]));
+    print("Tree = " + round(populations[7]));
+    print("House = " + round(populations[10]));
+    print("Obelisk = " + round(populations[11]));
+    print("Flower = " + round(populations[12]));
 
   }
 

@@ -8,6 +8,9 @@ function Landscape(rows,cols,rowHeight,colWidth){
   colWidth = width/cols;
   rowHeight = height/rows;
 
+  var popOpac = 0;
+  var opacIncrease = 2;
+
 
   var pattern1 = new Pattern(rows,cols,rowHeight,colWidth,30,-1,-1,255,true);
   var pattern2 = new Pattern(rows,cols,rowHeight,colWidth,50,255,255,255,true);
@@ -25,7 +28,15 @@ function Landscape(rows,cols,rowHeight,colWidth){
     //pattern1.drawPattern();
 
     pattern1.drawEnvironment();
-  //  pattern3.drawPattern();
+    pattern1.printPopulations();
+    //pattern1.drawPopulations();
+
+  }
+
+  this.drawBlock = function(){
+
+
+
 
   }
 
