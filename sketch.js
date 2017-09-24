@@ -49,7 +49,7 @@ function draw () {
       var rCol = focusedRandom(0,20);
 
       var rCol2 = focusedRandom(0,255);
-      var rCol3 = focusedRandom(0,255);
+      var rCol3 = focusedRandom(0,100);
       var rCol4 = focusedRandom(0,255);
 
       //fill(rCol,rCol,rCol,60);
