@@ -1,7 +1,4 @@
 var curRandomSeed;
-var slider1, slider2, slider3;
-//    slider4, slider5
-
 var inMapMode = true;
 
 
@@ -10,19 +7,6 @@ function setup () {
  curRandomSeed = int(focusedRandom(0, 100));
  createCanvas(960, 500);
  rectMode(CORNERS);
-    
-     // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-//  slider4 = createSlider(0, 100, 50);
-//  slider5 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-//  slider4.parent('slider4Container');
-//  slider5.parent('slider5Container');
 }
 
 function changeRandomSeed() {
@@ -38,13 +22,8 @@ function draw () {
   noiseSeed(curRandomSeed);
      translate(-10,-10);
 background(0);
-       
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();    
-//  var s4 = slider4.value();
-//  var s5 = slider5.value();
-     var colour = Math.floor(map(s3, 0, 100, 0, 1));
+
+     colour = int(focusedRandom(0,2));
  var x_steps = 1 + Math.floor(width / 19);
  var y_steps = 1 + Math.floor(height /20);
 
@@ -67,7 +46,7 @@ background(0);
     
     if(inMapMode) {
         push();
-    scale(2);
+    scale(focusedRandom(2,4));
         background(0);
    for(var i=0;i<x_steps-1;i++) {
    for(var j=0;j<y_steps-1;j++) {
@@ -93,13 +72,14 @@ background(0);
        if(colour==0){
            var shade = colorFromValue(noiseVal);
            var opacity = opacityFromValue(noiseVal);
+          
        }
       else if(colour==1){
           var shade = colorFromValueGrey(noiseVal);
         var opacity = opacityFromValueGrey(noiseVal);}
        
-       
         stroke(shade);
+        
        fill(opacity);
 
      rect(x1/2, y1/2, x2/2, y2/2, focusedRandom(0,roundness,2)); 
@@ -115,8 +95,10 @@ background(0);
   
     var rectangle = 0;
     var circle = 1;
-    var opacity = map(s1, 0, 100, 100, 200);
-    var layersAmount = Math.floor(map(s2, 0, 100, 0, 5));
+
+         var opacity = focusedRandom(100, 200);
+
+        var layersAmount = int(focusedRandom(1,6));
          if (layersAmount > 0) {
          rectangles(rectangle,1,1,0,1,0,0);
          }
@@ -200,7 +182,8 @@ function opacityFromValueGrey(v){
     
         color1 = color(0,50);
     color2 = color(200,50);
-        
+//        color1 =  color(240,150,70,10);
+//    color2 =  color(220,200,80,30);
     c = lerpColor(color1, color2, v*2);
     return c;
   }
@@ -214,6 +197,8 @@ function opacityFromValueGrey(v){
       return color(255,50);
   }
 }
+
+//stroke colour
 function colorFromValue(v) {
   if (v < 0.5) {
       color1 = color(0,50);
@@ -233,13 +218,16 @@ function colorFromValue(v) {
 }
 function colorFromValueGrey(v) {
   if (v < 0.5) {
-      color1 = color(0,50);
-    color2 = color(150,50);
+      color1 = color(0,20);
+    color2 = color(200,20);
+      
+       
     c = lerpColor(color1, color2, v*2);
     return c;
   }
   else if(v<0.6) {
        return color(255,50);
+       
   }
   else if(v<0.8) {
     return color(255,75);
