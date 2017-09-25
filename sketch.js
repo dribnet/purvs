@@ -11,6 +11,7 @@ var modeSelector;
 var waterColor = [179, 199, 229];
 
 
+
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
 
@@ -147,6 +148,10 @@ function Pondset(){
   	this.flowerMode = 0;
   	this.perspPetal = random(1.2,1.8);
   	this.perspFlower = 1.3;
+  	this.leafColor = random(80, 100);
+  	this.leafRed = random(60, 80);
+  	this.petalColor = random (215, 255);
+  	this.petalBlue = random (180, 225);
 
 	  this.display = function(x, y) {
 	  	if (this.showCheck == 1){
@@ -200,12 +205,12 @@ function Pondset(){
 	
 		scale(this.scale, this.scale*this.perspective);
 			rotate(this.rot);
-	  	fill(255, 255, 255, 0);
-
+	  	
+			fill(255, 255, 255, 0);
 		this.drawRipples();
 		
 	    beginShape();
-		fill(69, 91, 52);
+		fill(this.leafRed, this.leafColor, 52);
 		strokeWeight(0.5);
 
 
@@ -284,7 +289,7 @@ function Pondset(){
 	  	if (v==1 && this.flowerMode ==0){
 			push();
 			translate(x, y);
-			fill(255, 200, 190);
+			fill(this.petalColor, this.petalColor-40, this.petalBlue);
 			strokeWeight(0.5);
 			//draw petals
 			angl = 0;
@@ -323,7 +328,7 @@ function Pondset(){
 			push();
 			translate(x, y);
 			rotate(radians(-8));
-			fill(255, 200, 190);
+			fill(this.petalColor, this.petalColor-40, this.petalBlue);
 			strokeWeight(0.5);
 			//draw petals
 			angl = 180;
@@ -338,7 +343,7 @@ function Pondset(){
 				angl += 0.4;
 			}
 
-			fill(235, 160, 150);
+			fill(this.petalColor-30, this.petalColor-90, this.petalBlue-50);
 
 			angl=179.7;
 			for (var i = 0; i < 5; i++){
