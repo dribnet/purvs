@@ -1,5 +1,5 @@
 function setup () {
-  createCanvas(960, 500);
+  createCanvas(windowWidth, windowHeight);
 
   angleMode(RADIANS)
   colorMode(HSB)
@@ -80,7 +80,7 @@ function drawLandscape(){
   
 
 let size = 1;
-let gridSize = 40;
+let gridSize = 40*1920/1000;
 
 
 function drawWallpaper () {
