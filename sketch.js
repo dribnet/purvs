@@ -84,21 +84,6 @@ function draw () {
 
             if (++iterations == maxIterations) {
                 console.log("done");
-                for (let i = 0; i < 10; i++) {
-                    let flower = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left]);
-
-                    vines.push(flower);
-                    vines.push(flower.twin());
-                }
-                for (let i = 0; i < 5; i++) {
-                    let ribbon = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left, vine.Dir.base, vine.Dir.right]);
-                    vines.push(ribbon);
-                    ribbon.ribbon = true;
-
-                    let twin = ribbon.twin();
-                    twin.ribbon = true;
-                    vines.push(twin);
-                }
             }
         } else {
             vines.forEach(vine => {
@@ -128,5 +113,21 @@ function mouseClicked() {
 function keyTyped() {
     if (key == '!') {
         saveBlocksImages();
+    } else if (key == ' ' && iterations >= maxIterations) {
+        for (let i = 0; i < 2; i++) {
+            let flower = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left]);
+
+            vines.push(flower);
+            vines.push(flower.twin());
+        }
+        for (let i = 0; i < 3; i++) {
+            let ribbon = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left, vine.Dir.base, vine.Dir.right]);
+            vines.push(ribbon);
+            ribbon.ribbon = true;
+
+            let twin = ribbon.twin();
+            twin.ribbon = true;
+            vines.push(twin);
+        }
     }
 }
