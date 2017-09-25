@@ -1,4 +1,4 @@
-var mode = false;
+var mode = true;
 
 var cFade, cFurther, cCloser, cMist;
 function setup(){
