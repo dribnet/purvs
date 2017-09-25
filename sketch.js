@@ -2,17 +2,20 @@
 var inMapMode = true;
 var col1, col2, col3, col4;
 var curRandomSeed;
+
 //Wallpaper
 var wallpaperPoints = [];
 var glyphSize = 26;
+
 //Map
-var cellRadius = 30;
+var cellRadius = 45;
 var cellCountY, cellCountX;
 var cell_yOff = sinOf(60) * cellRadius;
 var cell_width = cellRadius * 2;
 var cell_height = cell_yOff * 2;
-var cells = [];
-var noiseAmp = 0.01;
+
+var cells = [[]]; //2D array holding all cells in grid
+var noiseAmp = focusedRandom(0.0025,0.015,2);
 
 function setup() {
     createCanvas(960, 500);
@@ -24,25 +27,20 @@ function setup() {
     col3 = color('white');
     col4 = color('#ff6d74');
 
-    cellCountX = Math.ceil(width / cell_width) + 1;
-    cellCountY = Math.ceil(height / cell_height) * 2 + 1;
-    console.log([cellCountX, cellCountY]);
+    cellCountX = Math.ceil(width / cell_width) *1.5+ 6;
+    cellCountY = Math.ceil(height / cell_height) * 1 + 6;
+
     curRandomSeed = int(focusedRandom(0, 100));
 
+    console.log("landmass smoothness = "+ map(noiseAmp,0.0025,0.0175,1,0));
+    console.log("Grid: "+[cellCountX, cellCountY]);
 
-    for (var y = 0; y < cellCountY; y++) {
-        for (var x = 0; x < cellCountX; x++) {
-            if (y % 2 == 0) {
-                cells.push(new cell(x * cellRadius * 3, y * cell_yOff, x, y));
-            } else {
-                cells.push(new cell((x - 0.5) * cellRadius * 3, y * cell_yOff, x, y));
+    load_cells();
 
-            }
-        }
-
-    }
     //wallpaperPoints = radialArrange(width / 2, height / 2, 4, 45, 1.066);
 }
+
+
 
 function draw() {
     resetFocusedRandom(curRandomSeed);
@@ -53,11 +51,12 @@ function draw() {
     stroke(col3);
     strokeWeight(3);
 
-
     if (inMapMode == true) {
+    	translate(-3*cell_width,-3*cell_height);
         for (var i = cells.length - 1; i >= 0; i--) {
-            var c = cells[i];
-            c.draw()
+            for (var o = cells[i].length - 1; o >= 0; o--) {
+            	cells[i][o].draw();
+            }
         }
     }
     if (inMapMode == false) {
@@ -73,43 +72,155 @@ function draw() {
     }
 }
 
-var cell = function(xpos, ypos, xindex, yindex) {
+//___________< LANDSCAPE FUNCTIONS >_________\\
+
+
+var Cell = function(xpos, ypos, xindex, yindex) {
+	this.state = "not_set";
+
     this.x = xpos;
     this.y = ypos;
-    this.pos = [xpos, ypos];
     this.index = [xindex, yindex];
     this.value = noise(xpos*noiseAmp,ypos*noiseAmp);
-    this.color = lerpColor(col2,col1,this.value);
+    this.color = color('green');
+    this.isOnEdge = false;
+    this.isAssimilated = false;
+
+    if(this.index[0] <2||this.index[1]<2||this.index[0]>cellCountX-2 ||this.index[1]>cellCountY-2 ){
+    	this.isOnEdge = true;
+    }
 
     this.draw = function(){
         push();
         textSize(11);
         fill(this.color);
+        strokeWeight(cellRadius/20);
         polygon(this.x, this.y, cellRadius, 6);
-        this.refresh();
+       // text(this.index,this.x,this.y);
         pop();
-
     }
 
     this.colorCalc = function(){
-        if(this.value <0.53){
-            this.color = lerpColor(col2,col1,map(this.value,0,0.5,0,0.3));
-        }
-        else if(this.value > 0.47){
-            this.color = lerpColor(col2,col1,map(this.value,0.5,1,0.7,1));
+        if(this.state == "water"){
+            this.color = lerpColor(col2,col1,map(this.value,0,0.6,0,0.4));
 
-        } else{
-            this.color = lerpColor(col2,col1,map(this.value,0.47,0.53,0.4,0.6));      
+        }
+        if (this.state == "land"){
+           	this.color = lerpColor(col2,col4,map(this.value,0.6,1,0.5,0.75));
               }
     }
-    this.colorCalc();
 
+    this.stateCalc = function(){
+    	if(this.value < 0.6){
+    		this.state = "water";
+    	}
+    	else{
+    		this.state = "land";
+    	}
+    }
     this.refresh = function(){
-        this.value = noise(xpos*noiseAmp,ypos*noiseAmp);
-        this.colorCalc();        
+        this.value = noise(this.x*noiseAmp,this.y*noiseAmp);
+        this.stateCalc();      
+        this.colorCalc();  
+        if(this.isOnEdge != true){
+        	//this.getNeighbors();
+	    }
+    }
+
+    this.colorCalc();
+    this.stateCalc();
+    this.refresh();
+    this.getNeighbors = function(){
+        var ix = this.index[0];
+        var iy = this.index[1];
+       
+        var topY = 0;
+        var botY = 1;
+
+        if(ix%2 == 0){
+        //relative y index of left&right neighbors 
+        //change depending on whether original y index is even or odd
+            topY = -1;
+            botY = 0;
+        }
+        var ret = [];
+        var hold = [
+        //relative indices for neighbors
+        //hold[0] is the neighbor above, the indexes move clockwise from there
+          [ix,iy-1],
+          [ix+1,iy+topY],
+          [ix+1,iy+botY],
+          [ix,iy+1],
+          [ix-1,iy+botY],
+          [ix-1,iy+topY]
+
+        ];
+        for(var i = 0;i<hold.length;i++){
+            ret[i] = cells[hold[i][0]][hold[i][1]];
+        }
+        this.neighbors = ret;
+        return ret;
+    }
+
+    this.creep = function(){
+     	var hold = [this];
+     	var ret = []; 
+
+     	for(var i = 0;i<hold.length;i++){
+     		var c = hold[i];
+     		c.getNeighbors();
+     			if(c.isOnEdge!=true && c.state == this.state && c.isAssimilated != true){
+ 					for(var o = 0;o<c.neighbors.length;o++){
+ 						hold.push(c.neighbors[o]);
+ 					}
+ 					console.log(hold);
+ 					c.isAssimilated = true;
+ 					ret.push(c);
+     			}
+     			else{
+     				c.isAssimilated = true;
+     			}
+     		}
+
+     	return ret;
     }
 }
 
+function load_cells(){ //declutter function to populate 'cells' array
+    for (var x = 0; x < cellCountX; x++) {
+    	cells[x]=[];
+    	cells[x+1] = [];
+
+        for (var y = 0; y < cellCountY; y++) {
+            cells[x][y] = new Cell(x * cellRadius * 1.5, y * cell_height, x, y);
+            cells[x+1][y] = new Cell((x+1) * cellRadius * 1.5, y * cell_height + cell_yOff , x+1, y);
+        }
+        x++;
+    }
+}
+
+//___________< SECONDARY P5 FUNCTIONS >_________\\
+function keyTyped() {
+    if (key == '!') {
+        saveBlocksImages();
+    } else if (key == ' ') {
+        inMapMode = !inMapMode;
+    }
+}
+
+
+function mousePressed() {
+    changeRandomSeed();
+    //noiseSeed(random(0,100));
+        for (var i = cells.length - 1; i >= 0; i--) {
+            for (var o = cells[i].length - 1; o >= 0; o--) {
+                cells[i][o].refresh();
+            }
+        }
+}
+
+
+//___________< WALLPAPER FUNCTIONS >_________\\
 function radialArrange(x, y, seed, stepSeed, spin) {
     var steps = (width + height / 4) / stepSeed;
     var hold = [];
@@ -217,21 +328,48 @@ function Anchor(x, y, siz, c1) {
     pop();
 }
 
-function mousePressed() {
-    changeRandomSeed();
-        for (var i = cells.length - 1; i >= 0; i--) {
-            var c = cells[i];
-            c.refresh()
-        }
-}
 
-function keyTyped() {
-    if (key == '!') {
-        saveBlocksImages();
-    } else if (key == ' ') {
-        inMapMode = !inMapMode;
+//___________< GEOMETRY FUNCTIONS >_________\\
+function distanceBetween(p1, p2) {
+    var a = p1[0] - p2[0];
+    var b = p1[1] - p2[1];
+    var c = Math.abs(Math.sqrt(a * a + b * b));
+    return c;
+}
+function findNewPoint(point, angle, distance) {
+    angle %= 360;
+    var result = [];
+    result[0] = Math.round(Math.cos(angle * Math.PI / 180) * distance + point[0]);
+    result[1] = Math.round(Math.sin(angle * Math.PI / 180) * distance + point[1]);
+    return result;
+}
+function sinOf(degrees) {
+    return Math.sin(degrees * Math.PI / 180);
+}
+function drawGroup(arr) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+        arr[i].draw();
     }
 }
+function vert(point) {
+    vertex(point[0], point[1]);
+}
+function angleBetween(p1, p2) {
+    var c;
+    c = Math.atan2(p2[1] - p1[1], p2[0] - p1[0]) * 180 / Math.PI;
+    return c;
+}
+function polygon(x, y, radius, npoints) {
+    var angle = 360 / npoints;
+    beginShape();
+    for (var a = 0; a < 360; a += angle) {
+        var p = findNewPoint([x, y], a, radius);
+        vertex(p[0], p[1]);
+    }
+    endShape(CLOSE);
+}
+
+//___________< MISC & DEBUG FUNCTIONS >_________\\
 
 function changeRandomSeed() {
     curRandomSeed = curRandomSeed + 1;
@@ -247,42 +385,6 @@ function debugCircumfrences() {
         pop();
     }
 }
-
-function distanceBetween(p1, p2) {
-    var a = p1[0] - p2[0];
-    var b = p1[1] - p2[1];
-    var c = Math.abs(Math.sqrt(a * a + b * b));
-    return c;
-}
-
-function findNewPoint(point, angle, distance) {
-    angle %= 360;
-    var result = [];
-    result[0] = Math.round(Math.cos(angle * Math.PI / 180) * distance + point[0]);
-    result[1] = Math.round(Math.sin(angle * Math.PI / 180) * distance + point[1]);
-    return result;
-}
-
-function sinOf(degrees) {
-    return Math.sin(degrees * Math.PI / 180);
-}
-
-function drawGroup(arr) {
-    for (var i = arr.length - 1; i >= 0; i--) {
-        arr[i].draw();
-    }
-}
-
-function vert(point) {
-    vertex(point[0], point[1]);
-}
-
-function angleBetween(p1, p2) {
-    var c;
-    c = Math.atan2(p2[1] - p1[1], p2[0] - p1[0]) * 180 / Math.PI;
-    return c;
-}
-
 function debugPoint(point, size) {
     ellipse(point[0], point[1], size, size);
 }
@@ -298,14 +400,4 @@ function debugShowPoints(arr, txtsiz) {
         text(i, arr[i][0], arr[i][1]);
     }
     pop();
-}
-
-function polygon(x, y, radius, npoints) {
-    var angle = 360 / npoints;
-    beginShape();
-    for (var a = 0; a < 360; a += angle) {
-        var p = findNewPoint([x, y], a, radius);
-        vertex(p[0], p[1]);
-    }
-    endShape(CLOSE);
 }
