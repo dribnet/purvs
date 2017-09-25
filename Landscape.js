@@ -25,6 +25,42 @@ this.buildPalettes();
 this.buildPalettes = function(){
 	//this.p = [[70,69,67][153,186,231],[206,228,242],[154,129,100],[199,190,161],[65,76,60],[129,151,112],[214,214,220],[218,210,164],[134,112,54],[210,194,145],[140,122,60],[177,155,106],[74,85,68],[109,127,101],[75,97,95],[112,132,120],[151,163,123],[194,202,189],[],[,,,],[,,,],[,,,],];
 	//this.p = [[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],[,,,],];
+	this.black = [20,2,2];
+	this.sky1 = [202,206,222];
+	this.sky2 = [156,14,5];
+	this.sky3=[134,97,118];
+	this.sky4 = [196,33,36];
+	this.hills1 = [19,1,1];
+	this.hills2 = [73,6,8];
+	this.hills3 = [5,28,29];
+	this.hills4 = [110,13,15];
+	this.background1 = [0,0,0];
+	this.background2 = [0,0,0];
+	this.ground1 = [50,50,50];
+	this.ground2 = [50,50,50];
+	this.trunk1=[55,7,10];
+	this.trunk2 = [55,7,10];
+	this.tree1 = [40,59,61];
+	this.tree2 = [40,59,61];
+	this.tree3 = [38,44,48];
+	this.tree4 = [38,44,48];
+	this.tree5 = [8,20,21];
+	this.tree6 = [8,20,21];
+	this.tower1 = [202,97,130];
+	this.tower2 = [166,30,20];
+	this.tower3 = [77,73,78];
+	this.tower4 = [0,15,14];
+	this.rock1 = [109,126,144];
+	this.rock2 = [47,52,60];
+	this.hills5 = [19,1,1];
+	this.hills6 = [73,6,8];
+	this.hills7 = [5,28,29];
+	this.hills8 = [110,13,15];
+
+
+this.p = [this.black,this.sky1,this.sky2,this.sky3,this.sky4,this.hills1,this.hills2,this.hills3,this.hills4,this.background1,this.background2,this.ground1,this.ground2,this.trunk1,this.trunk2,this.tree1,this.tree2,this.tree3,this.tree4,this.tree5,this.tree6,this.tower1,this.tower2,this.tower3,this.tower4,this.rock1,this.rock2,this.hills5,this.hills6,this.hills7,this.hills8];
+
+
 	this.black = [64,70,68];
 	this.sky1 = [143,177,223];
 	this.sky2 = [181,205,233];
@@ -57,7 +93,10 @@ this.buildPalettes = function(){
 	this.hills7 = [104,124,99];
 	this.hills8 = [172,190,164];
 
-	this.p = [this.black,this.sky1,this.sky2,this.sky3,this.sky4,this.hills1,this.hills2,this.hills3,this.hills4,this.background1,this.background2,this.ground1,this.ground2,this.trunk1,this.trunk2,this.tree1,this.tree2,this.tree3,this.tree4,this.tree5,this.tree6,this.tower1,this.tower2,this.tower3,this.tower4,this.rock1,this.rock2,this.hills5,this.hills6,this.hills7,this.hills8];
+if(focusedRandom(0,100)>37){
+this.p = [this.black,this.sky1,this.sky2,this.sky3,this.sky4,this.hills1,this.hills2,this.hills3,this.hills4,this.background1,this.background2,this.ground1,this.ground2,this.trunk1,this.trunk2,this.tree1,this.tree2,this.tree3,this.tree4,this.tree5,this.tree6,this.tower1,this.tower2,this.tower3,this.tower4,this.rock1,this.rock2,this.hills5,this.hills6,this.hills7,this.hills8];
+}
+	
 
 }
 /*extracts all the colors being used from the selected pallet
