@@ -93,7 +93,7 @@ this.p = [this.black,this.sky1,this.sky2,this.sky3,this.sky4,this.hills1,this.hi
 	this.hills7 = [104,124,99];
 	this.hills8 = [172,190,164];
 
-if(focusedRandom(0,100)>37){
+if(focusedRandom(0,100)>17){
 this.p = [this.black,this.sky1,this.sky2,this.sky3,this.sky4,this.hills1,this.hills2,this.hills3,this.hills4,this.background1,this.background2,this.ground1,this.ground2,this.trunk1,this.trunk2,this.tree1,this.tree2,this.tree3,this.tree4,this.tree5,this.tree6,this.tower1,this.tower2,this.tower3,this.tower4,this.rock1,this.rock2,this.hills5,this.hills6,this.hills7,this.hills8];
 }
 	
@@ -153,6 +153,7 @@ this.setupColors = function(){
 }
 
 this.drawLand = function(){
+	this.buildPalettes();
 	this.setupColors();
 	if(focusedRandom(0,100<50)){
 	background(this.background1[0],this.background1[1],this.background1[2]);
