@@ -68,14 +68,14 @@ function colorFromValue3(v) {
         c = lerpColor(color2, color1, v * 2);
         return c;
     }
-    else if (v < 0.7) {
-        return color(255, 119, 61, 50);
+    else if (v < 0.65) {
+        return color(143, 190, 0, 130);
     }
-    else if (v < 0.80) {
-        return color(251, 107, 65, 200);
+    else if (v < 0.75) {
+        return color(181, 172, 1, 100);
     }
     else {
-        return color(251, 107, 65, 255);
+        return color(0, 51, 63, 180);
     }
 }
 
