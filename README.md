@@ -1,7 +1,7 @@
 17.2.MDDN342 PS3
 
 ## Overall
-In my two works, I wanted to show how inorganic functions can create organic and lifelike movement in the time domain. They change over time with different values and can always suprise the viewer through behaviour at a higher scale view in time. It was important of course for it to also be interesting to view at a low level, so the interactions between different objects are made to compliment each other, such as with the large shapes in the wallpaper becoming transparent. The design i went for both of these is very minimal, just showing the algorithms in their element.
+In my two works, I wanted to show how inorganic functions can create organic and lifelike movement in the time domain. They change over time with different values and can always suprise the viewer through behaviour at a higher scale view in time. It was important of course for it to also be interesting to view at a low level, so the interactions between different objects are made to compliment each other, such as with the large shapes in the wallpaper becoming transparent.
 
 ## Wallpaper
 I am quite interested in how sin/cos waves work through interference etc, and different ways that we can use it to show more organic and reactive movement over time in designs.

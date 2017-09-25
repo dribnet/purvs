@@ -10,10 +10,14 @@ function setup () {
   view.option('landscape')
   view.value('landscape')
 
+  mirror = createCheckbox('Mirrored', false)
+  mirror.parent('mirror')
+
   bgColor = color(0, 0, 0, 1)
 }
 
 let view;
+let mirror;
 
 function draw(){
   if(view.value() == 'wallpaper')
@@ -61,7 +65,7 @@ function drawLandscape(){
       let xScale = (7-6.99*cos(time/100000*TWO_PI))
         
       curveVertex(map(x, 0, points, 0, width),
-        y + singleH/2 - singleH*noise(xScale/2-xP*xScale, yP*4, time/10000))
+        y + singleH/2 - singleH*noise((mirror.checked() ? 0 : 100000)+xScale/2-xP*xScale, yP*4, time/10000))
     }
     curveVertex(width, height)
     curveVertex(0, height)
