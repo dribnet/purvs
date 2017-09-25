@@ -9,7 +9,7 @@ var drawMode = 'wallpaper', modeSelector;
 
 
 function setup () {
-  createCanvas(960, 500);
+  createCanvas(1500, 1500);
   hexHeight = sqrt(3) / 2 * hexWidth;
   curRandomSeed = int(focusedRandom(0, 100));
   rectMode(CENTER);
@@ -62,29 +62,29 @@ function drawLandscape(){
   fill(a_colour, a_colour, a_colour + 10);
 
   for (var x = 0; x < a_amount; x++){
-    var x_size = focusedRandom(60,100,1);
-    var y_size = focusedRandom(60,100,1);
+    var x_size = focusedRandom(120,200,1);
+    var y_size = focusedRandom(120,200,1);
     rect(focusedRandom(0, width-60, 1),focusedRandom(0, height-60, 1),x_size,y_size,2);
   }
 
   fill(b_colour, b_colour, b_colour + 20);
 
   for (var x = 0; x < b_amount; x++){
-    var x_size = focusedRandom(40,80,2);
-    var y_size = focusedRandom(40,80,2);
+    var x_size = focusedRandom(80,160,2);
+    var y_size = focusedRandom(80,160,2);
     rect(focusedRandom(20, width-40, 2),focusedRandom(20, height-40, 2),x_size,y_size,random(2,4));
   }
 
   fill(c_colour, c_colour, c_colour + 20);
 
   for (var x = 0; x < c_amount; x++){
-    var x_size = focusedRandom(20,50,2);
-    var y_size = focusedRandom(20,50,2);
+    var x_size = focusedRandom(40,100,2);
+    var y_size = focusedRandom(40,100,2);
     rect(focusedRandom(40, width-40, 3),focusedRandom(40, height-40, 3),x_size,y_size,random(3,5));
   }
   for (var x = 0; x < d_amount; x++){
-    var x_size = focusedRandom(20,25,2);
-    var y_size = focusedRandom(20,25,2);
+    var x_size = focusedRandom(40,50,2);
+    var y_size = focusedRandom(40,50,2);
     ellipse(focusedRandom(40, width - 40, 5), focusedRandom(40, height-40, 5), x_size, y_size);
   }
 }
