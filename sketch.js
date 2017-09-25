@@ -85,12 +85,19 @@ function draw () {
             if (++iterations == maxIterations) {
                 console.log("done");
                 for (let i = 0; i < 10; i++) {
-                    vines.push(new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left]));
+                    let flower = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left]);
+
+                    vines.push(flower);
+                    vines.push(flower.twin());
                 }
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 5; i++) {
                     let ribbon = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left, vine.Dir.base, vine.Dir.right]);
                     vines.push(ribbon);
                     ribbon.ribbon = true;
+
+                    let twin = ribbon.twin();
+                    twin.ribbon = true;
+                    vines.push(twin);
                 }
             }
         } else {
@@ -105,7 +112,7 @@ function draw () {
                 if (vine.ribbon) {
                     strokeWeight(0.002);
                 } else {
-                    strokeWeight(0.004);
+                    strokeWeight(0.005);
                 }
                 line(oldPos.midBase.x, oldPos.midBase.y, vine.pos.midBase.x, vine.pos.midBase.y);
             })

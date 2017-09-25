@@ -47,6 +47,17 @@ const vine = {};
                 // }
             }
         }
+
+        this.twin = function() {
+            let backwardsSequence = [];
+            for (let i = edgeSequence.length-1; i >= 0 ; i--) {
+                let next = edgeSequence[i];
+                // if (next == 1) next = 2;
+                // else if (next == 2) next = 1;
+                backwardsSequence.push(next);
+            }
+            return new exports.Vine(startPos, backwardsSequence);
+        }
     }
 
 })(vine);
