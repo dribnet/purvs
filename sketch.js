@@ -37,15 +37,18 @@ function landscape () {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+
   }
    if (key == 'l'){
     background(0);
     mode = true;
+    landscape();
   }
 
   else if (key == 'w'){
     background(255);
     mode = false;
+    wallpaper();
   }
 }
 function mousePressed(){
@@ -81,7 +84,7 @@ function clouds(){
       fill(180, 180, 180, alpha);
       ellipse(x, y, 2, 2);
       
-      j += 0.06; //Scale y
+      j += 0.04; //Scale y
     }
     
     i += 0.01;
