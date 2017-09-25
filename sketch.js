@@ -8,15 +8,15 @@ var wallpaperPoints = [];
 var glyphSize = 26;
 
 //Map
-var cellRadius = 45;
+var cellRadius = 20;
 var cellCountY, cellCountX;
 var cell_yOff = sinOf(60) * cellRadius;
 var cell_width = cellRadius * 2;
 var cell_height = cell_yOff * 2;
 
-var cells = [[]]; //2D array holding all cells in grid
-var noiseAmp = focusedRandom(0.0025,0.015,2);
-
+var cells = []; //2D array holding all cells in grid
+var noiseAmp = focusedRandom(0.0025, 0.01, 2);
+var lands = [];
 function setup() {
     createCanvas(960, 500);
     angleMode(DEGREES);
@@ -27,15 +27,16 @@ function setup() {
     col3 = color('white');
     col4 = color('#ff6d74');
 
-    cellCountX = Math.ceil(width / cell_width) *1.5+ 6;
+    cellCountX = Math.ceil((width / cell_width) * 1.5) + 6;
     cellCountY = Math.ceil(height / cell_height) * 1 + 6;
 
     curRandomSeed = int(focusedRandom(0, 100));
 
-    console.log("landmass smoothness = "+ map(noiseAmp,0.0025,0.0175,1,0));
-    console.log("Grid: "+[cellCountX, cellCountY]);
+    console.log("landmass smoothness = " + map(noiseAmp, 0.0025, 0.0175, 1, 0));
+    console.log("Grid: " + [cellCountX, cellCountY]);
 
     load_cells();
+    load_lands();
 
     //wallpaperPoints = radialArrange(width / 2, height / 2, 4, 45, 1.066);
 }
@@ -44,7 +45,7 @@ function setup() {
 
 function draw() {
     resetFocusedRandom(curRandomSeed);
-    noiseSeed(int(focusedRandom(0,100)));
+    noiseSeed(int(focusedRandom(0, 100)));
     background(col1);
     stroke(col2);
     fill(col2);
@@ -52,12 +53,13 @@ function draw() {
     strokeWeight(3);
 
     if (inMapMode == true) {
-    	translate(-3*cell_width,-3*cell_height);
+        translate(-3 * cell_width, -3 * cell_height);
         for (var i = cells.length - 1; i >= 0; i--) {
             for (var o = cells[i].length - 1; o >= 0; o--) {
-            	cells[i][o].draw();
+                cells[i][o].draw();
             }
         }
+    	outlineMass(lands[0]);
     }
     if (inMapMode == false) {
         for (var i = wallpaperPoints.length - 1; i >= 0; i--) {
@@ -76,127 +78,190 @@ function draw() {
 
 
 var Cell = function(xpos, ypos, xindex, yindex) {
-	this.state = "not_set";
+    this.state = "not_set";
 
     this.x = xpos;
     this.y = ypos;
     this.index = [xindex, yindex];
-    this.value = noise(xpos*noiseAmp,ypos*noiseAmp);
+    this.value = noise(xpos * noiseAmp, ypos * noiseAmp);
     this.color = color('green');
     this.isOnEdge = false;
     this.isAssimilated = false;
-
-    if(this.index[0] <2||this.index[1]<2||this.index[0]>cellCountX-2 ||this.index[1]>cellCountY-2 ){
-    	this.isOnEdge = true;
+    this.points = polygon_points(this.x,this.y,cellRadius,6);
+    if (this.index[0] < 2 || this.index[1] < 2 || this.index[0] > cellCountX - 2 || this.index[1] > cellCountY - 2) {
+        this.isOnEdge = true;
     }
 
-    this.draw = function(){
+    this.draw = function() {
         push();
-        textSize(11);
+        textSize(16);
         fill(this.color);
-        strokeWeight(cellRadius/20);
+        strokeWeight(cellRadius / 20);
         polygon(this.x, this.y, cellRadius, 6);
-       // text(this.index,this.x,this.y);
+        noStroke();
+        fill('white');
+        //text(this.index,this.x-15,this.y+10);
         pop();
     }
 
-    this.colorCalc = function(){
-        if(this.state == "water"){
-            this.color = lerpColor(col2,col1,map(this.value,0,0.6,0,0.4));
+    this.colorCalc = function() {
+        if (this.state == "water") {
+            this.color = lerpColor(col2, col1, map(this.value, 0, 0.6, 0, 0.4));
 
         }
-        if (this.state == "land"){
-           	this.color = lerpColor(col2,col4,map(this.value,0.6,1,0.5,0.75));
-              }
+        if (this.state == "land") {
+            this.color = lerpColor(col2, col4, map(this.value, 0.6, 1, 0.5, 0.75));
+        }
     }
 
-    this.stateCalc = function(){
-    	if(this.value < 0.6){
-    		this.state = "water";
-    	}
-    	else{
-    		this.state = "land";
-    	}
-    }
-    this.refresh = function(){
-        this.value = noise(this.x*noiseAmp,this.y*noiseAmp);
-        this.stateCalc();      
-        this.colorCalc();  
-        if(this.isOnEdge != true){
-        	//this.getNeighbors();
-	    }
+    this.stateCalc = function() {
+        if (this.value < 0.6) {
+            this.state = "water";
+        } else {
+            this.state = "land";
+        }
     }
 
-    this.colorCalc();
-    this.stateCalc();
-    this.refresh();
-    this.getNeighbors = function(){
+    this.getNeighbors = function() { // find the cell indexes of each of the six adjacent tiles
         var ix = this.index[0];
         var iy = this.index[1];
-       
+
         var topY = 0;
         var botY = 1;
 
-        if(ix%2 == 0){
-        //relative y index of left&right neighbors 
-        //change depending on whether original y index is even or odd
+        if (ix % 2 == 0) {
+            //relative y index of left&right neighbors 
+            //change depending on whether original y index is even or odd
             topY = -1;
             botY = 0;
         }
         var ret = [];
         var hold = [
-        //relative indices for neighbors
-        //hold[0] is the neighbor above, the indexes move clockwise from there
-          [ix,iy-1],
-          [ix+1,iy+topY],
-          [ix+1,iy+botY],
-          [ix,iy+1],
-          [ix-1,iy+botY],
-          [ix-1,iy+topY]
+            //relative indices for neighbors
+            //hold[0] is the neighbor above, the indexes move clockwise from there
+            [ix, iy - 1],
+            [ix + 1, iy + topY],
+            [ix + 1, iy + botY],
+            [ix, iy + 1],
+            [ix - 1, iy + botY],
+            [ix - 1, iy + topY]
 
         ];
-        for(var i = 0;i<hold.length;i++){
+        for (var i = 0; i < hold.length; i++) {
             ret[i] = cells[hold[i][0]][hold[i][1]];
         }
         this.neighbors = ret;
         return ret;
     }
-
-    this.creep = function(){
-     	var hold = [this];
-     	var ret = []; 
-
-     	for(var i = 0;i<hold.length;i++){
-     		var c = hold[i];
-     		c.getNeighbors();
-     			if(c.isOnEdge!=true && c.state == this.state && c.isAssimilated != true){
- 					for(var o = 0;o<c.neighbors.length;o++){
- 						hold.push(c.neighbors[o]);
- 					}
- 					console.log(hold);
- 					c.isAssimilated = true;
- 					ret.push(c);
-     			}
-     			else{
-     				c.isAssimilated = true;
-     			}
-     		}
-
-     	return ret;
+    this.enemies = function(){
+    	var ret = [];
+        for (var i = 0; i < this.neighbors.length; i++) {
+            if (this.neighbors[i].state != this.state) {
+                ret.push(i);
+            }
+        }
+        return ret;
     }
+    this.friends = function() {
+    	var ret = [];
+        for (var i = 0; i < this.neighbors.length; i++) {
+            if (this.neighbors[i].state == this.state) {
+                ret.push(i);
+            }
+        }
+        return ret;
+    }
+
+    this.outerPoints = function(){ //return points on cell borders
+    	var outer_angles = this.enemies();
+    	var lastpoint;
+    	var ret=[];
+    	for(var i= 0;i<outer_angles.length;i++){
+    		var p = findNewPoint([this.x,this.y],(outer_angles[i]*60)-60,cellRadius);
+    		var p2 = findNewPoint([this.x,this.y],((outer_angles[i]-1)*60)-60,cellRadius);
+    		
+    		if(p2!=ret[i-1]){
+    			ret.push(p2);
+    		}
+
+    		ret.push(p);
+    		
+    	}
+    return ret;
+    }
+    this.creep = function() {
+        var hold = [this];
+        var ret = [];
+
+        for (var i = 0; i < hold.length; i++) {
+            var c = hold[i];
+            c.getNeighbors();
+            if (c.isOnEdge ==false && c.state == this.state && c.isAssimilated != true) {
+                for (var o = 0; o < c.neighbors.length; o++) {
+                    hold.push(c.neighbors[o]);
+                }
+                c.isAssimilated = true;
+                ret.push(c);
+            } else {
+                c.isAssimilated = true;
+            }
+        }
+
+        return ret;
+    }
+
+    this.refresh = function() {
+        this.value = noise(this.x * noiseAmp, this.y * noiseAmp);
+        this.stateCalc();
+        this.colorCalc();
+        if (this.isOnEdge != true) {
+            //this.getNeighbors();
+        }
+    }
+
+    this.colorCalc();
+    this.stateCalc();
+    this.refresh();
 }
 
-function load_cells(){ //declutter function to populate 'cells' array
+function load_cells() { //declutter function to populate 'cells' array
     for (var x = 0; x < cellCountX; x++) {
-    	cells[x]=[];
-    	cells[x+1] = [];
+        cells[x] = [];
+        cells[x + 1] = [];
 
         for (var y = 0; y < cellCountY; y++) {
             cells[x][y] = new Cell(x * cellRadius * 1.5, y * cell_height, x, y);
-            cells[x+1][y] = new Cell((x+1) * cellRadius * 1.5, y * cell_height + cell_yOff , x+1, y);
+            cells[x + 1][y] = new Cell((x + 1) * cellRadius * 1.5, y * cell_height + cell_yOff, x + 1, y);
         }
         x++;
     }
+}
+
+function load_lands() {
+    for (var i = cells.length - 1; i >= 0; i--) {
+        for (var o = cells[i].length - 1; o >= 0; o--) {
+            var c = cells[i][o];
+            if (c.isOnEdge == false) {
+                c.getNeighbors();
+                if(c.isAssimilated ==false){
+                	if(c.state == "land"){
+            	lands.push(c.creep());}
+ 	           }
+            }
+        }
+    }
+}
+
+function outlineMass(arr){
+	for(var i= 0 ; i<arr.length; i++){
+		r = arr[i].outerPoints();
+	//	console.log(r);
+		for(var o = 0 ; o< r.length;o++){
+			push();
+			ellipse(r[o][0],r[o][1],10,10);
+			pop();
+		}
+	}	
 }
 
 //___________< SECONDARY P5 FUNCTIONS >_________\\
@@ -212,11 +277,12 @@ function keyTyped() {
 function mousePressed() {
     changeRandomSeed();
     //noiseSeed(random(0,100));
-        for (var i = cells.length - 1; i >= 0; i--) {
-            for (var o = cells[i].length - 1; o >= 0; o--) {
-                cells[i][o].refresh();
-            }
+    load_lands();
+    for (var i = cells.length - 1; i >= 0; i--) {
+        for (var o = cells[i].length - 1; o >= 0; o--) {
+            cells[i][o].refresh();
         }
+    }
 }
 
 
@@ -336,6 +402,7 @@ function distanceBetween(p1, p2) {
     var c = Math.abs(Math.sqrt(a * a + b * b));
     return c;
 }
+
 function findNewPoint(point, angle, distance) {
     angle %= 360;
     var result = [];
@@ -343,22 +410,27 @@ function findNewPoint(point, angle, distance) {
     result[1] = Math.round(Math.sin(angle * Math.PI / 180) * distance + point[1]);
     return result;
 }
+
 function sinOf(degrees) {
     return Math.sin(degrees * Math.PI / 180);
 }
+
 function drawGroup(arr) {
     for (var i = arr.length - 1; i >= 0; i--) {
         arr[i].draw();
     }
 }
+
 function vert(point) {
     vertex(point[0], point[1]);
 }
+
 function angleBetween(p1, p2) {
     var c;
     c = Math.atan2(p2[1] - p1[1], p2[0] - p1[0]) * 180 / Math.PI;
     return c;
 }
+
 function polygon(x, y, radius, npoints) {
     var angle = 360 / npoints;
     beginShape();
@@ -369,6 +441,15 @@ function polygon(x, y, radius, npoints) {
     endShape(CLOSE);
 }
 
+function polygon_points(x, y, radius, npoints) {
+    var angle = 360 / npoints;
+    var ret = [];
+    for (var a = 0; a < 360; a += angle) {
+        var p = findNewPoint([x, y], a, radius);
+        ret.push(p);
+    }
+    return ret;
+}
 //___________< MISC & DEBUG FUNCTIONS >_________\\
 
 function changeRandomSeed() {
@@ -385,19 +466,16 @@ function debugCircumfrences() {
         pop();
     }
 }
+
 function debugPoint(point, size) {
     ellipse(point[0], point[1], size, size);
 }
 
-function debugShowPoints(arr, txtsiz) {
+function debugShowPoints(arr, siz) {
     push();
-    textSize(0.25);
-    if (txtsiz) {
-        textSize(txtsiz);
-    }
     noStroke();
     for (var i = arr.length - 1; i >= 0; i--) {
-        text(i, arr[i][0], arr[i][1]);
+        ellipse(arr[i][0], arr[i][1],siz,siz);
     }
     pop();
 }
