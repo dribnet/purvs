@@ -272,7 +272,7 @@ function Pondset(){
 
 	  	this.generatePetalShape = function(ang, s){
 		  	push();
-		  		stroke(0);
+		  		stroke(this.petalColor-100, this.petalColor-130, this.petalBlue-90);
 			rotate(ang);
 			scale(s, s);
 			beginShape();
