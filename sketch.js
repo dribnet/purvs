@@ -1,5 +1,7 @@
 function setup () {
-  createCanvas(windowWidth, windowHeight);
+  let container = document.getElementById('canvas')
+  let canvas = createCanvas(container.offsetWidth, container.offsetHeight);
+  canvas.parent('canvas')
 
   angleMode(RADIANS)
   colorMode(HSB)
@@ -12,6 +14,8 @@ function setup () {
 
   mirror = createCheckbox('Mirrored', false)
   mirror.parent('mirror')
+
+
 
   bgColor = color(0, 0, 0, 1)
 }
@@ -80,7 +84,6 @@ function drawLandscape(){
   
 
 let size = 1;
-let gridSize = 40*1920/1000;
 
 
 function drawWallpaper () {
@@ -88,6 +91,8 @@ function drawWallpaper () {
   stroke(0,0,0)
   strokeWeight(0.4)
   noStroke();
+  
+  let gridSize = 40*width/500;
 
   // let gridSize = 25+5*st(10007+st(2023)+st(4061))
 
@@ -99,7 +104,7 @@ function drawWallpaper () {
   let time = millis()+extraTime;
 
   background(bgColor)
-  let i = Math.floor(time/5000)+Math.floor(time/2000)
+  let i = Math.floor(time/5000)//+Math.floor(time/2000)
   for(let x = modX-gridSize*4; x < width+gridSize*4+modX; x+= gridSize*2){
     for(let y = modY-gridSize*4; y < height+gridSize*4+modY; y += gridSize*2){
       i++;
