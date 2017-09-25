@@ -27,15 +27,56 @@ function colorFromValue(v) {
     c = lerpColor(color2, color1, v*2);
     return c;
   }
-  else if(v<0.6) {
-      return color(232, 221, 203, 60);
+  else if (v < 0.65) {
+      color3 = color(249, 212, 35, 70);
+      color4 = color(232, 221, 203, 60);
+      c2 = lerpColor(color4, color3, v);
+      return c2;
   }
-  else if(v<0.7) {
-      return color(106, 74, 60, 70);
+  else if(v<0.70) {
+      return color(255, 119, 61, 40);
   }
   else {
       return color(204, 51, 63, 80);
   }
+}
+
+//Alternate Special Colours
+function colorFromValue2(v) {
+    if (v < 0.5) {
+        color1 = color(205, 205, 205, 100);
+        color2 = color(249, 242, 231, 150);
+        c = lerpColor(color2, color1, v * 2);
+        return c;
+    }
+    else if (v < 0.65) {
+        return color(143, 190, 0, 130);
+    }
+    else if (v < 0.75) {
+        return color(181, 172, 1, 100);
+    }
+    else {
+        return color(0, 51, 63, 180);
+    }
+}
+
+//Very Rare Alternate Colours
+function colorFromValue3(v) {
+    if (v < 0.5) {
+        color1 = color(75, 17, 57, 200);
+        color2 = color(59, 64, 88, 250);
+        c = lerpColor(color2, color1, v * 2);
+        return c;
+    }
+    else if (v < 0.7) {
+        return color(255, 119, 61, 50);
+    }
+    else if (v < 0.80) {
+        return color(251, 107, 65, 200);
+    }
+    else {
+        return color(251, 107, 65, 255);
+    }
 }
 
 //Hexagon Tiles
@@ -60,42 +101,6 @@ function draw () {
   
   //Landscape
   if(inMapMode) {
-
-    // var x_steps = 1 + Math.floor(width / 20);
-    // var y_steps = 1 + Math.floor(height / 20);
-
-    // HEXAGON LANDSCAPE
-    // // save grid locations
-    // var grid_locations = new Array(x_steps);
-    //   for(var i=0;i<x_steps;i++) {
-    //   grid_locations[i] = new Array(y_steps);
-    //   for (var j = 0; j < y_steps; j++) {
-    //     x_pos = i * 20;
-    //     y_pos = j * 18;
-    //     if((j % 2) == 0){
-    //       x_pos = x_pos + 10;
-    //     }
-    //     grid_locations[i][j] = [x_pos, y_pos];
-    //   }
-    // }
-
-    // // draw the map
-    // for(var i=0;i<x_steps-1;i++) {
-    //   for(var j=0;j<y_steps-1;j++) {
-    //     // var shade = map(noiseVal, 0, 1, 0, 255)
-    //     var loc = grid_locations[i][j];
-    //     var x1 = loc[0];
-    //     var y1 = loc[1]
-
-    //     var x_noise = x1/100.0;
-    //     var y_noise = y1/100.0;
-    //     var noiseVal = noise(x_noise, y_noise);
-    //     var shade = colorFromValue(noiseVal);
-    //     fill(shade);
-
-    //     polygon(x1+10, y1+10, 12, 6);
-    //   }
-    // } 
 
       // GRID RECT LANDSCAPE
       background(0);
@@ -128,24 +133,6 @@ function draw () {
       y_grid_locations[j] = cur_y;
     }
 
-    //for(var i=0;i<x_steps-1;i++) {
-
-    //  for(var j=0;j<y_steps-1;j++) {
-    //    var x_noise = i / 10.0;
-    //    var y_noise = j / 10.0;
-    //    var noiseVal = noise(x_noise, y_noise);
-    //    var shade = colorFromValue(noiseVal);
-
-
-    //    fill(shade);
-    //    var x1 = x_grid_locations[i];
-    //    var x2 = x_grid_locations[i+1];
-    //    var y1 = y_grid_locations[j];
-    //    var y2 = y_grid_locations[j+1];
-    //    rect(x1, y1, x2, y2);
-    //  }
-    //}
-
     for (var i = 0; i < x_steps; i++) {
         for (var j = 0; j < y_steps; j++) {
             var x_noise = i / 10.0;
@@ -153,44 +140,118 @@ function draw () {
             var noiseVal = noise(x_noise, y_noise);
 
             var shade = colorFromValue(noiseVal);
+            var shade2 = colorFromValue2(noiseVal);
+            var shade3 = colorFromValue3(noiseVal);
+
+            var ColType = focusedRandom(0, 100);
+            var ColType2 = focusedRandom(0, 100);
+            var ColType3 = focusedRandom(0, 100);
+            var ColType4 = focusedRandom(0, 100);
+            var ColType5 = focusedRandom(0, 100);
+            var ColType6 = focusedRandom(0, 100);
+
+            var AlternateChance = 97;
+            var AlternateChance2 = 99;
 
             var loc = grid_locations[i][j];
 
-            var rCol = focusedRandom(0, 20);
-
-            var rCol2 = focusedRandom(0, 255, 2);
-            var rCol3 = focusedRandom(0, 50, 1);
-            var rCol4 = focusedRandom(0, 155, 2);
-
-            //fill(rCol,rCol,rCol,60);
-
-            fill(shade);
-
-            strokeWeight(noiseVal * 4);
-            stroke(shade);
+            strokeWeight(noiseVal * 2);
+            //stroke(shade);
             //noStroke();
 
-            ellipse(loc[0] - 60, loc[1] - 60, 100 * (noiseVal));
+            if (ColType < AlternateChance) {
+                fill(shade);
+                noStroke();
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * (noiseVal));
+            }
 
-            fill(40);
+
+            else{
+                fill(shade2);
+                stroke(shade2);
+                strokeWeight(noiseVal * 5);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(35, 85) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(15, 65) * noiseVal);
+            }
+
+            if (ColType4 > AlternateChance2) {
+                fill(shade3);
+                noStroke();
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(85, 125) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(65, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(45, 85) * noiseVal);
+            }
+      
+            noStroke();
+            fill(shade);
+            stroke(shade);
             rect(loc[0] - 60, loc[1] - 60, 20, 600);
 
             fill(20);
             rect(loc[0] - 60, loc[1] - 60, 200, 58);
 
-            fill(shade);
 
-            strokeWeight(0.5);
-            stroke(20);
-            noStroke();
+            if (ColType2 <= AlternateChance) {
+                fill(shade);
+                noStroke();
+                translate(15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * noiseVal);
+                translate(-15, -30);
+            }
 
-            translate(15, 30);
-            ellipse(loc[0] - 60, loc[1] - 60, 100 * noiseVal);
-            translate(-15, -30);
+            else{
+                fill(shade2);
+                stroke(shade2);
+                strokeWeight(noiseVal * 5);
+                translate(15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(35, 85) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(15, 65) * noiseVal);
+                translate(-15, -30);
+            }
 
-            translate(-15, 30);
-            ellipse(loc[0] - 60, loc[1] - 60, 100 * noiseVal);
-            translate(15, -30);
+            if (ColType5 > AlternateChance2) {
+                fill(shade3);
+                noStroke();
+                translate(15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(85, 125) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(65, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(45, 85) * noiseVal);
+                translate(-15, -30);
+            }
+            
+
+            if (ColType3 <= AlternateChance) {
+                fill(shade);
+                noStroke();
+                translate(-15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * noiseVal);
+                translate(15, -30);
+            }
+
+            else{
+                fill(shade2);
+                stroke(shade2);
+                strokeWeight(noiseVal*5);
+                translate(-15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(55, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(35, 85) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(15, 65) * noiseVal);
+                translate(15, -30);
+            }
+
+            if (ColType6 > AlternateChance2) {
+                fill(shade3);
+                noStroke();
+                translate(-15, 30);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(85, 125) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(65, 105) * noiseVal);
+                ellipse(loc[0] - 60, loc[1] - 60, focusedRandom(45, 85) * noiseVal);
+                translate(15, -30);
+            }
+
+            
 
         }
     }
@@ -227,8 +288,6 @@ function draw () {
         var rCol2 = focusedRandom(0,255, 2);
         var rCol3 = focusedRandom(0,50, 1);
         var rCol4 = focusedRandom(0,155, 2);
-
-        //fill(rCol,rCol,rCol,60);
 
         fill(rCol2,rCol3,rCol4,40);
 
