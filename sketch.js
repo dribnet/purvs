@@ -1,7 +1,6 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 
-var slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8;
 var faceSelector;
 var button;
 
@@ -10,37 +9,22 @@ var shapeMargin = 20;
 
 var curRandomSeed;
 
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
+
 var c =["#9effb8", "#89aee1", "#d46ce7", "#e9f259", "#7cf4d3"];
+var Y_AXIS = 1;
+var X_AXIS = 2;
+var b1, b2;
 
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(canvasWidth, canvasHeight);
 
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
-  slider6 = createSlider(0, 100, 50);
-  slider7 = createSlider(0, 100, 50);
-  slider8 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-  slider6.parent('slider6Container');
-  slider7.parent('slider7Container');
-  slider8.parent('slider8Container');
-
   faceSelector = createSelect();
   faceSelector.option('1');
   faceSelector.option('2');
-  faceSelector.option('3');
-  faceSelector.option('all')
-  faceSelector.value('all');
+  faceSelector.value('2');
   faceSelector.parent('selector1Container');
 
   randButton = createButton('randomize');
@@ -48,106 +32,217 @@ function setup () {
   randButton.parent('selector1Container');
 
   angleMode(DEGREES);
-  rectMode(CENTER);
 
+  // Define colors
+  b1 = color(0);
+  b2 = color(97, 39, 132);
 }
 
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
+  lastSwapTime = millis();
   c.sort(function(a, b){return 0.5 - Math.random()});
 }
 
 function draw () {
+  var mode = faceSelector.value();
+
+  // timer for seed change
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
+
   resetFocusedRandom(curRandomSeed);
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
-  var s6 = slider6.value();
-  var s7 = slider7.value();
-  var s8 = slider8.value();
+  if (mode == '1') {
+    rectMode(CENTER);
 
-  var lineWeight = map(s1, 0, 100, 4, 8);
-  var numSquiggleRows = Math.floor(map(s2, 0, 100, 8, 12));
-  var numSquiggleCols = Math.floor(map(s3, 0, 100, 18, 20));
-  var lineLength = Math.floor(map(s4, 0, 100, 30, 80));
-  var color =  Math.floor(map(s5, 0, 100, 0, 1));
-  var numShapeRows = Math.floor(map(s6, 0, 100, 5, 8));
-  var numShapeCols =  Math.floor(map(s7, 0, 100, 6, 10));
-  var contentType =  Math.floor(map(s8, 0, 100, 0, 1));
+    var lineWeight = focusedRandom(5, 7);
+    var numSquiggleRows = Math.floor(focusedRandom(8, 12));
+    var numSquiggleCols = Math.floor(focusedRandom(18, 20));
+    var lineLength = Math.floor(focusedRandom(50, 90));
+    var color =  Math.floor(focusedRandom(0, 3));
+    var numShapeRows = Math.floor(focusedRandom(6, 8));
+    var numShapeCols =  Math.floor(focusedRandom(6, 10));
+    var contentType =  Math.floor(focusedRandom(0, 2));
 
-  if (color < 1) {
-    bg_color = 255;
-    squiggle_color = 0;
-  } else {
-    bg_color = c[0];
-    squiggle_color = c[1];
-  }
+    if (color < 1) {
+      bg_color = 255;
+      squiggle_color = 0;
+    } else {
+      bg_color = c[0];
+      squiggle_color = c[1];
+    }
 
-  background(bg_color);
+    background(bg_color);
 
-  var circleFill = c[2];
-  var squareFill = c[3];
-  var zigzagFill = c[4];
+    var circleFill = c[2];
+    var squareFill = c[3];
+    var zigzagFill = c[4];
 
-  var dotWidth = ((canvasWidth - (2 * squiggleMargin)) / numSquiggleCols) - squiggleMargin;
-  var dotHeight = ((canvasHeight - (2 * squiggleMargin)) / numSquiggleRows) - squiggleMargin;
+    var dotWidth = ((canvasWidth - (2 * squiggleMargin)) / numSquiggleCols) - squiggleMargin;
+    var dotHeight = ((canvasHeight - (2 * squiggleMargin)) / numSquiggleRows) - squiggleMargin;
 
-  var shapeWidth = ((canvasWidth - (2 * shapeMargin)) / numShapeCols) - shapeMargin;
-  var shapeHeight = ((canvasHeight - (2 * shapeMargin)) / numShapeRows) - shapeMargin;
+    var shapeWidth = ((canvasWidth - (2 * shapeMargin)) / numShapeCols) - shapeMargin;
+    var shapeHeight = ((canvasHeight - (2 * shapeMargin)) / numShapeRows) - shapeMargin;
 
-  if( dotWidth > dotHeight ) {
-    var dotDiameter = dotHeight;
-    var xMargin = (canvasWidth - ((2 * squiggleMargin) + (numSquiggleCols * dotDiameter))) / numSquiggleCols;
-    var yMargin = squiggleMargin;
-  } else {
-    var dotDiameter = dotWidth;
-    var xMargin = squiggleMargin;
-    var yMargin = (canvasHeight - ((2 * squiggleMargin) + (numSquiggleRows * dotDiameter))) / numSquiggleRows;
-  }
+    if( dotWidth > dotHeight ) {
+      var dotDiameter = dotHeight;
+      var xMargin = (canvasWidth - ((2 * squiggleMargin) + (numSquiggleCols * dotDiameter))) / numSquiggleCols;
+      var yMargin = squiggleMargin;
+    } else {
+      var dotDiameter = dotWidth;
+      var xMargin = squiggleMargin;
+      var yMargin = (canvasHeight - ((2 * squiggleMargin) + (numSquiggleRows * dotDiameter))) / numSquiggleRows;
+    }
 
-  if( shapeWidth > shapeHeight ) {
-    var shapeDiameter = shapeHeight;
-    var shapeMarginX = (canvasWidth - ((2 * shapeMargin) + (numShapeCols * shapeDiameter))) / numShapeCols;
-    var shapeMarginY = shapeMargin;
-  } else {
-    var shapeDiameter = shapeWidth;
-    var shapeMarginX = shapeMargin;
-    var shapeMarginY = (canvasHeight - ((2 * shapeMargin) + (numShapeRows * shapeDiameter))) / numShapeRows;
-  }
+    if( shapeWidth > shapeHeight ) {
+      var shapeDiameter = shapeHeight;
+      var shapeMarginX = (canvasWidth - ((2 * shapeMargin) + (numShapeCols * shapeDiameter))) / numShapeCols;
+      var shapeMarginY = shapeMargin;
+    } else {
+      var shapeDiameter = shapeWidth;
+      var shapeMarginX = shapeMargin;
+      var shapeMarginY = (canvasHeight - ((2 * shapeMargin) + (numShapeRows * shapeDiameter))) / numShapeRows;
+    }
 
-  var dotRadius = dotDiameter * 0.5;
+    var dotRadius = dotDiameter * 0.5;
 
-  var shapeRadius = shapeDiameter * 0.5;
+    var shapeRadius = shapeDiameter * 0.5;
 
-  // draw a squiggle at each location
-  for(var i=0;i<numSquiggleRows;i++) {
-    for(var j=0;j<numSquiggleCols;j++) {
-      var x = (j * (dotDiameter + xMargin)) + squiggleMargin + (xMargin / 2) + dotRadius;
-      var y = (i * (dotDiameter + yMargin)) + squiggleMargin + (yMargin / 2) + dotRadius;
-      strokeCap(ROUND);
-      drawSquiggle(x, y, dotRadius, color, lineWeight, squiggle_color, lineLength);
+    // draw a squiggle at each location
+    for(var i = 0; i < numSquiggleRows; i++) {
+      for(var j = 0; j < numSquiggleCols; j++) {
+        var x = (j * (dotDiameter + xMargin)) + squiggleMargin + (xMargin / 2) + dotRadius;
+        var y = (i * (dotDiameter + yMargin)) + squiggleMargin + (yMargin / 2) + dotRadius;
+        strokeCap(ROUND);
+        drawSquiggle(x, y, dotRadius, color, lineWeight, squiggle_color, lineLength);
+      }
+    }
+
+    if (contentType >= 1) {
+      for(var i = 0; i < numShapeRows; i++) {
+        for(var j = 0; j < numShapeCols; j++) {
+          var shapeX = (j * (shapeDiameter + shapeMarginX)) + shapeMargin + (shapeMarginX / 2) + shapeRadius;
+          var shapeY = (i * (shapeDiameter + shapeMarginY)) + shapeMargin + (shapeMarginY / 2) + shapeRadius;
+          
+          if(i%2 == 0) {
+            shapeX = shapeX + shapeMarginX / 2;
+          }
+          else {
+            shapeX = shapeX - shapeMarginX / 2;
+          }
+
+          drawShape(shapeX, shapeY, shapeRadius, circleFill, squareFill, zigzagFill);
+
+        }
+      }
     }
   }
 
-  if (contentType == 1) {
-    for(var i=0;i<numShapeRows;i++) {
-      for(var j=0;j<numShapeCols;j++) {
-        var shapeX = (j * (shapeDiameter + shapeMarginX)) + shapeMargin + (shapeMarginX / 2) + shapeRadius;
-        var shapeY = (i * (shapeDiameter + shapeMarginY)) + shapeMargin + (shapeMarginY / 2) + shapeRadius;
-        
-        if(i%2 == 0) {
-          shapeX = shapeX + shapeMarginX / 2;
-        }
-        else {
-          shapeX = shapeX - shapeMarginX / 2;
-        }
+  else {
 
-        drawShape(shapeX, shapeY, shapeRadius, circleFill, squareFill, zigzagFill);
+    // draw background
+    setGradient(0, 0, width, height, b1, b2, Y_AXIS);
 
+    // variables for stars
+    var starGap = 5;
+
+    // draw stars
+    for (var starX = 0; starX < canvasWidth; starX += starGap) {
+        strokeWeight(1.0);
+        stroke(random(100, 220));
+        point(starX, random(canvasHeight));
       }
+
+    // draw sun  
+    noStroke();
+    fill(208, 84, 151);  
+    ellipse(width/2, height/2, 200, 200);
+
+    // variables for mountains  
+    var mountainStart = 350; // sets y value of mountain base
+    var mountainHeight = 200; // sets y value of mountain peaks
+    var totalMountains = 1; // sets total number of mountains
+    var mountainDiff = 20; // sets difference in height of each mountain
+
+    var mountainAlpha = 300 / totalMountains;
+
+    stroke(0, mountainAlpha);
+    noFill();
+
+    // draw mountains
+    for (var numMountains = 1; numMountains <= totalMountains; numMountains++) {
+      noiseSeed(int(random(50000)))
+      for (x = 0; x < canvasWidth; x++) {
+        line(x, mountainStart, x, mountainHeight + 100 * noise(x/100));
+      }
+      mountainHeight += mountainDiff; // decreases peak height of each new mountain iteration
+      mountainAlpha += mountainAlpha;
+      stroke(0, mountainAlpha);
+    }
+
+    // variables for waves
+    var waveStart = mountainStart; // makes waves start at base of mountains
+    var totalWaves = 5; // sets total number of waves
+    var waveDiff = (canvasHeight - waveStart) / totalWaves; // sets difference in space between waves
+    var waveHeight = waveStart + waveDiff; // sets initial wave length
+
+    // draw dark grey rect below waves
+    noStroke()
+    fill(30)
+    rectMode(CORNER);
+    rect(0, waveStart, width, height)
+
+    // draw waves
+    for (var numWaves = 1; numWaves <= totalWaves; numWaves++) {
+      noiseSeed(int(random(50000)))
+      for (x = 0; x < width; x++) {
+        stroke(153, 50, 204, 20);
+        line(x, waveStart, x, waveHeight + 30 *-noise(x / 100));
+      }
+      waveHeight += waveDiff; // increases depth of each new wave iteration
+    }
+
+    // variables for vertical lines
+    var numVertLines = 31;
+    var vertLineGap = canvasWidth / numVertLines;
+
+    var startSlant = 1000;
+    var slantOffset = startSlant / (numVertLines / 2);
+
+    stroke(153, 50, 204, 80);
+
+    // draw vertical lines
+    for (x = 0; x <= canvasWidth; x += vertLineGap) {
+      if (x <= canvasWidth / 2) {
+        line(x, mountainStart, x - startSlant, canvasHeight);
+        startSlant -= slantOffset;
+      }
+      else if (x >= canvasWidth / 2) {
+        line(x, mountainStart, x - startSlant, canvasHeight);
+        startSlant -= slantOffset;
+      }
+    }
+
+    // variables for horizontal lines
+    var numHorizLines = 10;
+    var horizLineGap = (canvasHeight - mountainStart) / numHorizLines;
+
+    // draw horizontal lines
+    for (horizLineY = mountainStart; horizLineY < canvasHeight; horizLineY += horizLineGap) {   
+        stroke(153, 50, 204, 20)
+        line(0, horizLineY, canvasWidth, horizLineY)
+    }
+    
+    // varaibles for mist      
+    var mistAlpha = 0;
+
+    // draw mist
+    for (var mistHeight = 310; mistHeight <= 350; mistHeight++) {
+        stroke(153, 50, 204, mistAlpha);
+        line(0, mistHeight, canvasWidth, mistHeight);
+        mistAlpha += 3;
     }
   }
 
@@ -220,6 +315,28 @@ function drawZigZag(xPos, yPos, radius) {
     vertex(xPos + radius / 4, yPos);
     vertex(xPos + radius / 4, yPos + radius / 1.5);
     endShape();
+}
+
+function setGradient(x, y, w, h, c1, c2, axis) {
+
+  noFill();
+
+  if (axis == Y_AXIS) {  // Top to bottom gradient
+    for (var i = y; i <= y+h; i++) {
+      var inter = map(i, y, y+h, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }
+  }  
+  else if (axis == X_AXIS) {  // Left to right gradient
+    for (var i = x; i <= x+w; i++) {
+      var inter = map(i, x, x+w, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(i, y, i, y+h);
+    }
+  }
 }
 
 function keyTyped() {
