@@ -120,7 +120,7 @@ function keyTyped() {
             vines.push(flower);
             vines.push(flower.twin());
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             let ribbon = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left, vine.Dir.base, vine.Dir.right]);
             vines.push(ribbon);
             ribbon.ribbon = true;
