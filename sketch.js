@@ -87,6 +87,11 @@ function draw () {
                 for (let i = 0; i < 10; i++) {
                     vines.push(new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left]));
                 }
+                for (let i = 0; i < 10; i++) {
+                    let ribbon = new vine.Vine(data.tris[floor(random(data.tris.length))], [vine.Dir.base, vine.Dir.left, vine.Dir.base, vine.Dir.right]);
+                    vines.push(ribbon);
+                    ribbon.ribbon = true;
+                }
             }
         } else {
             vines.forEach(vine => {
@@ -97,8 +102,12 @@ function draw () {
                 if (vine.pos == null) return;
 
                 stroke(palette[1]);
-                strokeWeight(0.005)
-                line(oldPos.points[1].x, oldPos.points[1].y, vine.pos.points[1].x, vine.pos.points[1].y);
+                if (vine.ribbon) {
+                    strokeWeight(0.002);
+                } else {
+                    strokeWeight(0.004);
+                }
+                line(oldPos.midBase.x, oldPos.midBase.y, vine.pos.midBase.x, vine.pos.midBase.y);
             })
         }
     }

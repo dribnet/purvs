@@ -76,6 +76,8 @@ const penrose = {};
             this.right.edge.vert(false == this.right.ab),
         ]
 
+        this.midBase = this.base.edge.a.copy().add(this.base.edge.b).div(2);
+
         this.acute = Math.abs(angle) == acute;
         this.obtuse = Math.abs(angle) == obtuse;
 
