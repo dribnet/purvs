@@ -46,18 +46,18 @@ function Shape(shapeType,sColor,lineColor,sSize,leftX,rightX,topY,bottomY,colWid
   }
 
 
- if(perl>snowChance){
-   tileType = "snow";
- }
- else if(perl<lakeChance){
+ if(perl<lakeChance){
    tileType = "lake";
+ }
+ else if(perl>snowChance){
+   tileType = "snow";
  }
  else{
    tileType = "grass";
  }
 
 
-var perlMult = perl*100;
+var perlMult = perl*180;
 
   this.createShape = function(){
 
@@ -65,7 +65,7 @@ var perlMult = perl*100;
 
       //grass / snow
       noStroke();
-      fill(169+perlMult, 234+perlMult, 156+perlMult);
+      fill(169+(perlMult), 234+(perlMult), 156+(perlMult));
       rect(leftX,topY,colWidth,rowHeight);
 
       //lake

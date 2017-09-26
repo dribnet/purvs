@@ -108,7 +108,7 @@ function Pattern (rows,cols,rowHeight,colWidth,opac,red,green,blue,mode){
       house = 1 + round(random(-1,4));
       obelisk = 1 + round(random(0,6));
       flower = 5 + round(random(1,15)) ;
-      cave = 20 + round(random(-4,5));
+      cave = 8 + round(random(-4,5));
     }
   else{
 
@@ -329,9 +329,11 @@ this.randomizeValues();
 
     rotate(radians(sRotate));
 
+    noiseSeed(random(0,1000));
+    noiseDetail(random(0,6),0.5);
     var perl = noise(row,col);
-    var lakeChance = random(0,0.25);
-    var snowChance = random(0.2,0.9);
+    var lakeChance = random(0,0.05);
+    var snowChance = random(0.2,0.75);
 
 
     var shapeType = sType;
