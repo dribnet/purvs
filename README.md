@@ -18,3 +18,8 @@ There is now an array of colour palettes randomly chosen each time the wallpaper
 ### 26/09
 I've now started work on the landscape part of this assignment - again I've taken inspiration from Monument Valley with the colours and shapes used. The scene is made up of a gradient sky, stars, mountains and eventually a column/columns in the center front of the landscape. I set about creating the gradient sky first which was quite a simple lerpColor() between two colours, and then drawing the stars in a grid with a random X and Y offset. Then I began drawing the mountains, which are essentially just layered triangles darkening in colour the closer they get to the front of the scene.
 The stars and mountains both have random variables that change how they are drawn each time the mouser is clicked.
+
+### 27/09
+For the columns I took my cube code and reworked it to create these 'infinite' columns that appear to be rising up from the ground thousands of meters below.
+I also created functionality for drawing a center column with a number of smaller columns randomly drawn surrounding it using x, y, and scale offsets.
+The colouring of the columns also changes (lerps) based on the y offset. The result is a really pleasant piece to look at with several different elements that draw the eye's attention.

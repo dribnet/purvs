@@ -301,6 +301,13 @@ function drawLandscape() {
       mtColor5 = [0,120,125],
       mtColor6 = [1,111,120];
 
+  var columnLeftColor = color(235,137,107),
+      columnRightColor = color(232,114,112),
+      columnTopColor = color(248,172,142),
+      columnLeftColor2 = color(83,130,137),
+      columnRightColor2 = color(89,123,136),
+      columnTopColor2 = color(239,155,133);
+
   smooth();
   noStroke();
   fill(bgColor);
@@ -384,6 +391,79 @@ function drawLandscape() {
   triangle(mtX,mtY,mtX-width/3.75,height*1.25,mtX+width/3.75,height*1.25);
   triangle(width-mtX,mtY,width-mtX-width/3.75,height*1.25,width-mtX+width/3.75,height*1.25);
 
+
+  // columns
+  for(var i=0; i<focusedRandom(3,6); i++) {
+    for (var j=0; j<focusedRandom(3,6); j++) {
+      var xOffset = focusedRandom(-200,200),
+          yOffset = focusedRandom(75,150),
+          scaleOffset = focusedRandom(.2,.5),
+          colorChange = map(yOffset,75,150,0,1);
+
+      var leftColor = lerpColor(columnLeftColor,columnLeftColor2,colorChange),
+          rightColor = lerpColor(columnRightColor,columnRightColor2,colorChange),
+          topColor = lerpColor(columnTopColor,columnTopColor2,colorChange);
+
+      push();
+      translate(width/2+xOffset,height/2+yOffset);
+      drawColumn(xOffset,yOffset,scaleOffset,w,h,leftColor,rightColor,topColor);
+      pop();
+    }
+  }
+
+  push();
+  translate(width/2,height/2);
+  drawColumn(0,0,1,w,h,columnLeftColor,columnRightColor,columnTopColor);
+  pop();
+}
+
+function drawColumn(xOffset,yOffset,scaleOffset,w,h,columnLeftColor,columnRightColor,columnTopColor) {
+  push();
+
+  var extent = 0;
+  if (h < w){ extent = h / 2; }
+  else { extent = w / 2; }
+  var scale = extent / 100.0 * scaleOffset;
+
+  // draw base hexagon
+  push();
+  translate(0,(height/2)-focusedRandom(100,200));
+  rotate(PI/6.0);
+
+  // top square
+  stroke(columnTopColor);
+  fill(columnTopColor);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI)*200*scale,sin(PI)*200*scale);
+  vertex(cos(PI*4/3)*200*scale,sin(PI*4/3)*200*scale);
+  vertex(cos(PI*5/3)*200*scale,sin(PI*5/3)*200*scale);
+  endShape(CLOSE);
+
+  // left square
+  stroke(columnLeftColor);
+  fill(columnLeftColor);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI*1/3)*7500*scale,sin(PI*1/3)*7500*scale);
+  vertex(cos(PI)*200*scale,sin(PI)*200*scale);
+  endShape(CLOSE);
+
+  // right square
+  stroke(columnRightColor);
+  fill(columnRightColor);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI*5/3)*200*scale,sin(PI*5/3)*200*scale);
+  vertex(cos(PI*1/3)*7500*scale,sin(PI*1/3)*7500*scale);
+  endShape(CLOSE);
+
+  pop();
+
+  pop();
 }
 
 
