@@ -1,10 +1,12 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 
-var slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8, slider9, slider10, slider11, slider12;
 var button;
 
 var curRandomSeed;
+
+var lastSwapTime = 0;
+var millisPerSwap = 5000;
 
 var Y_AXIS = 1;
 var X_AXIS = 2;
@@ -13,33 +15,6 @@ var sunColour, b1, b2, strokeColour, strokeAlpha;
 function setup () {
   curRandomSeed = int(focusedRandom(0, 100));
   createCanvas(canvasWidth, canvasHeight);
-
-  // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
-  slider6 = createSlider(0, 100, 50);
-  slider7 = createSlider(0, 100, 50);
-  slider8 = createSlider(0, 100, 50);
-  slider9 = createSlider(0, 100, 50);
-  slider10 = createSlider(0, 100, 50);
-  slider11 = createSlider(0, 100, 50);
-  slider12 = createSlider(0, 100, 50);
-
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
-  slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
-  slider6.parent('slider6Container');
-  slider7.parent('slider7Container');
-  slider8.parent('slider8Container');
-  slider9.parent('slider9Container');
-  slider10.parent('slider10Container');
-  slider11.parent('slider11Container');
-  slider12.parent('slider12Container');
 
   randButton = createButton('randomize');
   randButton.mousePressed(changeRandomSeed);
@@ -51,31 +26,22 @@ function setup () {
 function changeRandomSeed() {
   curRandomSeed = curRandomSeed + 1;
   lastSwapTime = millis();
-  c.sort(function(a, b){return 0.5 - Math.random()});
 }
 
 function draw () {
 
-  var s1 = slider1.value();
-  var s2 = slider2.value();
-  var s3 = slider3.value();
-  var s4 = slider4.value();
-  var s5 = slider5.value();
-  var s6 = slider6.value();
-  var s7 = slider7.value();
-  var s8 = slider8.value();
-  var s9 = slider9.value();
-  var s10 = slider10.value();
-  var s11 = slider11.value();
-  var s12 = slider12.value();
+  // timer for seed change
+  if(millis() > lastSwapTime + millisPerSwap) {
+    changeRandomSeed();
+  }
 
   resetFocusedRandom(curRandomSeed);
 
     background(0);
 
-    var horizonLine = map(s1, 0, 100, 350, 450);
-    var colourSelect = Math.floor(map(s7, 0, 100, 0, 3));
-    var isStars = Math.floor(map(s12, 0, 100, 0, 1));
+    var horizonLine = focusedRandom(350, 450);
+    var colourSelect = Math.floor(focusedRandom(0, 4));
+    var isStars = Math.floor(focusedRandom(0, 2));
 
     // Define colors
     if (colourSelect == 0) {
@@ -108,7 +74,7 @@ function draw () {
     setGradient(0, 0, canvasWidth, horizonLine, b1, b2, Y_AXIS);
 
     // variables for stars
-    var starGap = map(s11, 0, 100, 2, 15);
+    var starGap = focusedRandom(2, 15);
 
     // draw stars
     if (isStars == 1) {
@@ -125,9 +91,9 @@ function draw () {
     strokeWeight(2);
 
     // sun variables
-    var sunRadius = Math.floor(map(s10, 0, 100, 150, 300));
-    var sunX = Math.floor(map(s8, 0, 100, canvasWidth / 3, 2 * (canvasWidth / 3)));
-    var sunY = Math.floor(map(s9, 0, 100, height / 3, height / 2));
+    var sunRadius = Math.floor(focusedRandom(150, 300));
+    var sunX = Math.floor(focusedRandom(canvasWidth / 3, 2 * (canvasWidth / 3)));
+    var sunY = Math.floor(focusedRandom(height / 3, height / 2));
 
     // draw sun  
     noStroke();
@@ -136,9 +102,9 @@ function draw () {
 
     // variables for mountains  
     var mountainStart = horizonLine; // sets y value of mountain base
-    var mountainPeak = map(s5, 0, 100, 120, 180);
+    var mountainPeak = focusedRandom(120, 180);
     var mountainHeight = mountainStart - mountainPeak; // sets y value of mountain peaks
-    var totalMountains = Math.floor(map(s4, 0, 100, 1, 3)); // sets total number of mountains
+    var totalMountains = Math.floor(focusedRandom(1, 4)); // sets total number of mountains
     var mountainDiff = 20; // sets difference in height of each mountain
 
     var startShade = 50;
@@ -167,7 +133,7 @@ function draw () {
 
     // variables for waves
     var waveStart = horizonLine; // makes waves start at base of mountains
-    var totalWaves = Math.floor(map(s6, 0, 100, 2, 5)); // sets total number of waves
+    var totalWaves = Math.floor(focusedRandom(2, 5)); // sets total number of waves
     var waveDiff = (canvasHeight - waveStart) / totalWaves; // sets difference in space between waves
     var waveHeight = waveStart + waveDiff; // sets initial wave length
 
@@ -189,7 +155,7 @@ function draw () {
     }
 
     // variables for vertical lines
-    var numVertLines = Math.floor(map(s2, 0, 100, 20, 60));
+    var numVertLines = Math.floor(focusedRandom(20, 60));
     if (numVertLines%2 == 0) {
       numVertLines += 1;
     }
@@ -214,7 +180,7 @@ function draw () {
     }
 
     // variables for horizontal lines
-    var numHorizLines = Math.floor(map(s3, 0, 100, 4, 10));
+    var numHorizLines = Math.floor(focusedRandom(4, 10));
     var horizLineGap = (canvasHeight - horizonLine) / numHorizLines;
 
     // draw horizontal lines
