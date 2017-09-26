@@ -1,5 +1,7 @@
 17.2.MDDN342 PS3
 
+"Spacebar to change draw mode"
+
 When approaching this problem set I wanted to look closely into a style or theme to help guide the art direction in both the iterative pattern and the generative landscape. I wanted a underlying theme for both designs to help create a sense of cohesiveness in the problem set.
 
 I had in mind to look at 90's styled pattern designs. I felt this was a great starting point as the designs are colourful and fun. I looked primarily at the creation of a grid based geomtric design. I implemented an underlying pattern layer of squiggles as I found this was a prevalent element in many 90's styled patterns. I complemented this with a grid of randomly assigned geometric shapes.
