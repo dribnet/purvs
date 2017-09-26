@@ -1,4 +1,4 @@
-17.2.MDDN342 PS3
+## 17.2.MDDN342 PS3
 
 ### 22/09
 When looking into this first part of the assignment, I was really interested in using geometric shapes to create a tiling pattern.
@@ -11,3 +11,6 @@ I've now slightly changed the slider controls - the first turns on/off the rando
 I've also reduced the number of cubes drawn, as I feel they are quite an intricate shape, so less is more, especially as bigger cubes allow you to see the detail more easily.
 
 When refining this design I began to think about how I could make the design easier to look at. I knew colour would make a huge difference, but the way I'd draw the cube was a bit hacky, so this didn't work as I had originally drawn them. So, I decided to spend several hours reworking how I drew the 'supporting beams' of the cube so that I could use fills and have a shape I could use colour with! It's looking great now, and I'm hoping to try out some cool combinations/randomised colour palettes when I pick up on this again tomorrow.
+
+### 25/09
+There is now an array of colour palettes randomly chosen each time the wallpaper is rendered/clicked, this is a (technically 3-dimensional) array of 8 colour palettes each containing three colours - a background, stroke and cube fill colour. The palette is chosen through using focusedRandom().

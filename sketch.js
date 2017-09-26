@@ -4,9 +4,15 @@ var curRandomSeed;
 
 var slider1, slider2;
 
-var bgColor = [246,104,85],
-    strokeColor = [52,93,116],
-    cubeColor = [255,169,79];
+var colors = [];
+colors.push([[246,104,85],[52,93,116],[255,169,79]]);
+colors.push([[71,194,166],[103,43,74],[200,205,0]]);
+colors.push([[109,197,227],[198,61,141],[58,61,122]]);
+colors.push([[255,131,111],[244,81,64],[137,191,168]]);
+colors.push([[27,46,61],[254,125,143],[52,107,137]]);
+colors.push([[251,179,107],[119,150,168],[243,209,128]]);
+colors.push([[255,181,170],[127,110,116],[255,221,199]]);
+colors.push([[178,192,179],[166,185,63],[74,68,84]]);
 
 function setup() {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -40,6 +46,16 @@ function mouseClicked(){
 
 function draw() {
   resetFocusedRandom(curRandomSeed);
+  drawWallpaper();
+  drawLandscape();
+}
+
+function drawWallpaper() {
+  var colorPalette = colors[focusedRandom(0,7).toFixed(0)];
+
+  var bgColor = colorPalette[0],
+      strokeColor = colorPalette[1],
+      cubeColor = colorPalette[2];
 
   // set up background
   noStroke();
@@ -55,7 +71,8 @@ function draw() {
   var w = width/6,
       h = height/3;
 
-  // drawCube(width/2,height/2,width,height,rotationState);
+  // draw singular cube (for testing)
+  // drawCube(width/2,height/2,width,height,rotationState,bgColor,strokeColor,cubeColor);
 
   for(var i=0; i<4; i++) {
     for(var j=0; j<6; j++) {
@@ -64,12 +81,12 @@ function draw() {
           x = w/2 + w*j;
 
       // drawing the cube
-      drawCube(x,y,w*cubeSize,h*cubeSize,rotationState);
+      drawCube(x,y,w*cubeSize,h*cubeSize,rotationState,bgColor,strokeColor,cubeColor);
     }
   }
 }
 
-function drawCube(x,y,w,h,rotationState) {
+function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   push();
   translate(x,y);
 
@@ -79,7 +96,6 @@ function drawCube(x,y,w,h,rotationState) {
   var scale = extent / 250.0;
 
   // drawing style
-  // noFill();
   strokeWeight(4*scale);
   stroke(strokeColor);
 
@@ -272,6 +288,11 @@ function drawCube(x,y,w,h,rotationState) {
   pop();
 
   pop();
+}
+
+
+function drawLandscape() {
+
 }
 
 
