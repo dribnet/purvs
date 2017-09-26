@@ -1,6 +1,7 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 var curRandomSeed;
+var mode = false;
 
 var slider1, slider2;
 
@@ -34,20 +35,16 @@ function changeRandomSeed() {
 }
 
 function mouseClicked(){
-	// if(mode == 'LandScape'){
-	// 	setupGrid();
-	// 	drawLandscape();
-	// }
-	// else {
-  	changeRandomSeed();
-	// 	drawShapes();
-  // }
+	changeRandomSeed();
 }
 
 function draw() {
   resetFocusedRandom(curRandomSeed);
-  drawWallpaper();
-  drawLandscape();
+  if(mode) {
+    drawWallpaper();
+  } else {
+    drawLandscape();
+  }
 }
 
 function drawWallpaper() {
@@ -292,6 +289,100 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
 
 
 function drawLandscape() {
+  var bgColor = [225,225,225],
+      bgColorTop = color(217,138,121),
+      bgColorBottom = color(50,201,182),
+      starColor = [250,250,250];
+
+  var mtColor1 = [47,175,173],
+      mtColor2 = [43,168,167],
+      mtColor3 = [6,160,163],
+      mtColor4 = [3,135,142],
+      mtColor5 = [0,120,125],
+      mtColor6 = [1,111,120];
+
+  smooth();
+  noStroke();
+  fill(bgColor);
+  rect(0,0,width,height);
+
+  // gradient sky
+  for (var i=0; i<=height/1.25; i++) {
+    var inter = map(i, 0, height/2, 0, 1);
+    var c = lerpColor(bgColorTop, bgColorBottom, inter);
+    stroke(c);
+    line(0, i, width, i);
+  }
+
+  noStroke();
+
+  var w = width/10,
+      h = height/8;
+
+  // stars
+  for (var i=0; i<5; i++) {
+    for (var j=0; j<10; j++) {
+      // positioning the stars
+      var starX = w/2 + w*j,
+          starY = h/2 + h*i,
+          starSize = focusedRandom(2,4),
+          positionRandX = focusedRandom(-40,40),
+          positionRandY = focusedRandom(-40,40);
+
+      fill(starColor);
+      ellipse(starX+positionRandX,starY+positionRandY,starSize,starSize);
+    }
+  }
+
+  // mountains
+
+  // mts 1
+  var mtX = focusedRandom(150,250);
+  var mtY = height/2.5;
+
+  fill(mtColor1);
+  triangle(mtX,mtY,mtX-width/2,height,mtX+width/2,height);
+  triangle(width-mtX,mtY,width-mtX-width/2,height,width-mtX+width/2,height);
+
+  // mts 2
+  mtX = focusedRandom(100,200);
+  mtY += focusedRandom(25,50);
+
+  fill(mtColor2);
+  triangle(mtX,mtY,mtX-width/2.75,height*1.25,mtX+width/2.75,height*1.25);
+  triangle(width-mtX,mtY,width-mtX-width/2.75,height*1.25,width-mtX+width/2.75,height*1.25);
+
+  // mts 3
+  mtX = focusedRandom(0,50);
+  mtY += focusedRandom(25,50);
+
+  fill(mtColor3);
+  triangle(mtX,mtY,mtX-width/2.5,height*1.25,mtX+width/2.5,height*1.25);
+  triangle(width-mtX,mtY,width-mtX-width/2.5,height*1.25,width-mtX+width/2.5,height*1.25);
+
+  // mts 4
+  mtX = focusedRandom(50,100);
+  mtY += focusedRandom(25,50);
+
+  fill(mtColor4);
+  triangle(mtX,mtY,mtX-width/3,height*1.25,mtX+width/3,height*1.25);
+  triangle(width-mtX,mtY,width-mtX-width/3,height*1.25,width-mtX+width/3,height*1.25);
+
+  // mts 5
+  mtX = focusedRandom(0,50);
+  mtY += focusedRandom(25,50);
+
+  fill(mtColor5);
+  triangle(mtX,mtY,mtX-width/3.5,height*1.25,mtX+width/3.5,height*1.25);
+  triangle(width-mtX,mtY,width-mtX-width/3.5,height*1.25,width-mtX+width/3.5,height*1.25);
+
+  // mts 6
+  mtX = focusedRandom(50,100);
+  mtY += focusedRandom(25,50);
+
+  fill(mtColor6);
+  triangle(mtX,mtY,mtX-width/3.75,height*1.25,mtX+width/3.75,height*1.25);
+  triangle(width-mtX,mtY,width-mtX-width/3.75,height*1.25,width-mtX+width/3.75,height*1.25);
 
 }
 
@@ -299,5 +390,8 @@ function drawLandscape() {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  if (key == ' ') {
+    mode = !mode;
   }
 }

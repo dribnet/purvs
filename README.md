@@ -14,3 +14,7 @@ When refining this design I began to think about how I could make the design eas
 
 ### 25/09
 There is now an array of colour palettes randomly chosen each time the wallpaper is rendered/clicked, this is a (technically 3-dimensional) array of 8 colour palettes each containing three colours - a background, stroke and cube fill colour. The palette is chosen through using focusedRandom().
+
+### 26/09
+I've now started work on the landscape part of this assignment - again I've taken inspiration from Monument Valley with the colours and shapes used. The scene is made up of a gradient sky, stars, mountains and eventually a column/columns in the center front of the landscape. I set about creating the gradient sky first which was quite a simple lerpColor() between two colours, and then drawing the stars in a grid with a random X and Y offset. Then I began drawing the mountains, which are essentially just layered triangles darkening in colour the closer they get to the front of the scene.
+The stars and mountains both have random variables that change how they are drawn each time the mouser is clicked.
