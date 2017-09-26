@@ -1,5 +1,3 @@
 17.2.MDDN342 PS3
 
-I adapted all the slider varaibles to random values to allow for a completely generative landscape. The scene changes every 5 seconds or a button can be pressed ro randomize the scene as well.
-
-This mode showcases the variation possible with the design and helps to create combinations that manual adusting may fail to show.
+I felt that a key element to the 90s styled patterns I was trying to emulate is the range of colours and variations. To help enforce this idea I set up a sketch to randomize certain variables every 5 seconds. This helps to show the viewer a wide range of variations and combinations of the base elements.
