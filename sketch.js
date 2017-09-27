@@ -106,7 +106,7 @@ function draw() {
     if (inMapMode == false) {
         push();
         stroke(col2);
-        background(col3);
+        background(beachCol);
         for (var i = wallpaperPoints.length - 1; i >= 0; i--) {
             if (i % 4 == 0) {
                 Boat(wallpaperPoints[i][0], wallpaperPoints[i][1], glyphSize, col2, col3, col4);
