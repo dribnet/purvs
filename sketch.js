@@ -1,6 +1,6 @@
 //Global
 var inMapMode = true;
-var col1, col2, col3, col4;
+var col1, col2, col3, col4,grassCol,sandCol,shallowsCol,waveCol,cliffsCol,cliffsLineCol,superShallowCol,beachBorderCol,mountainCol;
 var curRandomSeed;
 
 //Wallpaper
@@ -8,60 +8,105 @@ var wallpaperPoints = [];
 var glyphSize = 26;
 
 //Map
-var cellRadius = 20;
+var cellRadius = 10;
 var cellCountY, cellCountX;
 var cell_yOff = sinOf(60) * cellRadius;
 var cell_width = cellRadius * 2;
 var cell_height = cell_yOff * 2;
 
 var cells = []; //2D array holding all cells in grid
-var noiseAmp = focusedRandom(0.0025, 0.01, 2);
-var lands = [];
+var seatexturePoints = [];
+var noiseAmp = focusedRandom(0.005, 0.01, 2);
+var waves = [];
+var isFirstLoop = false;
+
+
 function setup() {
     createCanvas(960, 500);
     angleMode(DEGREES);
     rectMode(CENTER);
+    noiseSeed(int(focusedRandom(0, 100)));
 
     col1 = color('#fffcbc');
     col2 = color('#66a0ff');
     col3 = color('white');
     col4 = color('#ff6d74');
-
-    cellCountX = Math.ceil((width / cell_width) * 1.5) + 6;
-    cellCountY = Math.ceil(height / cell_height) * 1 + 6;
+    grassCol = color('#bcd6a9');
+    waterCol = color("#6d93a8");
+    sandCol = color('#fffad6');
+    waveCol = color('#8bbbd6');
+    cliffsBorderCol = color("#a5a393");
+    cliffsCol = color("#d1ccc4");
+    beachCol = color('#fffae2'); 
+    shallowBorderCol = color("#b1e5f9");
+    shallowCol = color("#b6dbd9");
+    superShallowCol = color("#d7f1f7");
+    beachBorderCol = color("#ffee8e");
+    mountainCol = color("#a5a393");
+    landBeachBorderCol = color("#dde5bc");
+    cellCountX = Math.ceil((width / cell_width) * 1.5) + 7;
+    cellCountY = Math.ceil(height / cell_height) * 1 + 7;
 
     curRandomSeed = int(focusedRandom(0, 100));
+    noiseSeed(curRandomSeed);
+    cells = load_cells();
 
-    console.log("landmass smoothness = " + map(noiseAmp, 0.0025, 0.0175, 1, 0));
+    console.log("landmass smoothness = " + map(noiseAmp, 0.005, 0.01, 0, 1));
     console.log("Grid: " + [cellCountX, cellCountY]);
-
-    load_cells();
-    load_lands();
-
-    //wallpaperPoints = radialArrange(width / 2, height / 2, 4, 45, 1.066);
+    waves = load_waves();
+    wallpaperPoints = radialArrange(width / 2, height / 2, 4, 45, 1.066);
+    //  seatexturePoints = radialArrange(focusedRandom(width*0.25,width*0.75), focusedRandom(height*-0.75,height*0.75), 2, 8, 1.077);
+    isFirstLoop = true;
 }
 
 
 
 function draw() {
+
     resetFocusedRandom(curRandomSeed);
-    noiseSeed(int(focusedRandom(0, 100)));
-    background(col1);
-    stroke(col2);
+    noiseSeed(curRandomSeed);
+    background(0);
+    stroke(col3);
     fill(col2);
     stroke(col3);
-    strokeWeight(3);
+    strokeWeight(1.5);
 
     if (inMapMode == true) {
-        translate(-3 * cell_width, -3 * cell_height);
-        for (var i = cells.length - 1; i >= 0; i--) {
-            for (var o = cells[i].length - 1; o >= 0; o--) {
-                cells[i][o].draw();
-            }
+        if(isFirstLoop == true){
+        mousePressed();
         }
-    	outlineMass(lands[0]);
+
+        translate(-3 * cell_width, -3 * cell_height);
+  
+        drawCellType("water");
+        stroke(col2);
+        draw_waves();
+
+        drawCellType("shallows");
+        drawCellType("land");
+        drawCellType("beach");
+
+        drawAllFeatures();
+
+        stroke(shallowBorderCol);
+        drawOutline("water","shallows",);
+        stroke(cliffsBorderCol);    
+        drawOutline("land","water");
+        stroke(beachBorderCol);
+       // drawOutline("beach","shallows");
+        drawOutline("beach","water");
+              //  drawOutline("land","beach");
+
+        stroke(landBeachBorderCol);
+        //drawOutline("land","shallows");
+        isFirstLoop = false;
+
     }
+
     if (inMapMode == false) {
+        push();
+        stroke(col2);
+        background(col3);
         for (var i = wallpaperPoints.length - 1; i >= 0; i--) {
             if (i % 4 == 0) {
                 Boat(wallpaperPoints[i][0], wallpaperPoints[i][1], glyphSize, col2, col3, col4);
@@ -72,199 +117,99 @@ function draw() {
             }
         }
     }
+    pop();
 }
 
 //___________< LANDSCAPE FUNCTIONS >_________\\
 
-
-var Cell = function(xpos, ypos, xindex, yindex) {
-    this.state = "not_set";
-
-    this.x = xpos;
-    this.y = ypos;
-    this.index = [xindex, yindex];
-    this.value = noise(xpos * noiseAmp, ypos * noiseAmp);
-    this.color = color('green');
-    this.isOnEdge = false;
-    this.isAssimilated = false;
-    this.points = polygon_points(this.x,this.y,cellRadius,6);
-    if (this.index[0] < 2 || this.index[1] < 2 || this.index[0] > cellCountX - 2 || this.index[1] > cellCountY - 2) {
-        this.isOnEdge = true;
-    }
-
-    this.draw = function() {
-        push();
-        textSize(16);
-        fill(this.color);
-        strokeWeight(cellRadius / 20);
-        polygon(this.x, this.y, cellRadius, 6);
-        noStroke();
-        fill('white');
-        //text(this.index,this.x-15,this.y+10);
-        pop();
-    }
-
-    this.colorCalc = function() {
-        if (this.state == "water") {
-            this.color = lerpColor(col2, col1, map(this.value, 0, 0.6, 0, 0.4));
-
-        }
-        if (this.state == "land") {
-            this.color = lerpColor(col2, col4, map(this.value, 0.6, 1, 0.5, 0.75));
-        }
-    }
-
-    this.stateCalc = function() {
-        if (this.value < 0.6) {
-            this.state = "water";
-        } else {
-            this.state = "land";
-        }
-    }
-
-    this.getNeighbors = function() { // find the cell indexes of each of the six adjacent tiles
-        var ix = this.index[0];
-        var iy = this.index[1];
-
-        var topY = 0;
-        var botY = 1;
-
-        if (ix % 2 == 0) {
-            //relative y index of left&right neighbors 
-            //change depending on whether original y index is even or odd
-            topY = -1;
-            botY = 0;
-        }
-        var ret = [];
-        var hold = [
-            //relative indices for neighbors
-            //hold[0] is the neighbor above, the indexes move clockwise from there
-            [ix, iy - 1],
-            [ix + 1, iy + topY],
-            [ix + 1, iy + botY],
-            [ix, iy + 1],
-            [ix - 1, iy + botY],
-            [ix - 1, iy + topY]
-
-        ];
-        for (var i = 0; i < hold.length; i++) {
-            ret[i] = cells[hold[i][0]][hold[i][1]];
-        }
-        this.neighbors = ret;
-        return ret;
-    }
-    this.enemies = function(){
-    	var ret = [];
-        for (var i = 0; i < this.neighbors.length; i++) {
-            if (this.neighbors[i].state != this.state) {
-                ret.push(i);
-            }
-        }
-        return ret;
-    }
-    this.friends = function() {
-    	var ret = [];
-        for (var i = 0; i < this.neighbors.length; i++) {
-            if (this.neighbors[i].state == this.state) {
-                ret.push(i);
-            }
-        }
-        return ret;
-    }
-
-    this.outerPoints = function(){ //return points on cell borders
-    	var outer_angles = this.enemies();
-    	var lastpoint;
-    	var ret=[];
-    	for(var i= 0;i<outer_angles.length;i++){
-    		var p = findNewPoint([this.x,this.y],(outer_angles[i]*60)-60,cellRadius);
-    		var p2 = findNewPoint([this.x,this.y],((outer_angles[i]-1)*60)-60,cellRadius);
-    		
-    		if(p2!=ret[i-1]){
-    			ret.push(p2);
-    		}
-
-    		ret.push(p);
-    		
-    	}
-    return ret;
-    }
-    this.creep = function() {
-        var hold = [this];
-        var ret = [];
-
-        for (var i = 0; i < hold.length; i++) {
-            var c = hold[i];
-            c.getNeighbors();
-            if (c.isOnEdge ==false && c.state == this.state && c.isAssimilated != true) {
-                for (var o = 0; o < c.neighbors.length; o++) {
-                    hold.push(c.neighbors[o]);
-                }
-                c.isAssimilated = true;
-                ret.push(c);
-            } else {
-                c.isAssimilated = true;
-            }
-        }
-
-        return ret;
-    }
-
-    this.refresh = function() {
-        this.value = noise(this.x * noiseAmp, this.y * noiseAmp);
-        this.stateCalc();
-        this.colorCalc();
-        if (this.isOnEdge != true) {
-            //this.getNeighbors();
-        }
-    }
-
-    this.colorCalc();
-    this.stateCalc();
-    this.refresh();
-}
-
-function load_cells() { //declutter function to populate 'cells' array
+function load_cells() { //create array of cell objects
+    var hold = [];
     for (var x = 0; x < cellCountX; x++) {
-        cells[x] = [];
-        cells[x + 1] = [];
+        hold[x] = [];
+        hold[x + 1] = [];
 
         for (var y = 0; y < cellCountY; y++) {
-            cells[x][y] = new Cell(x * cellRadius * 1.5, y * cell_height, x, y);
-            cells[x + 1][y] = new Cell((x + 1) * cellRadius * 1.5, y * cell_height + cell_yOff, x + 1, y);
+            hold[x][y] = new Cell(x * cellRadius * 1.5, y * cell_height, x, y);
+            hold[x + 1][y] = new Cell((x + 1) * cellRadius * 1.5, y * cell_height + cell_yOff, x + 1, y);
         }
         x++;
     }
+    return hold;
 }
 
-function load_lands() {
-    for (var i = cells.length - 1; i >= 0; i--) {
-        for (var o = cells[i].length - 1; o >= 0; o--) {
-            var c = cells[i][o];
-            if (c.isOnEdge == false) {
-                c.getNeighbors();
-                if(c.isAssimilated ==false){
-                	if(c.state == "land"){
-            	lands.push(c.creep());}
- 	           }
+function load_waves(){
+    console.log("loading waves");
+    var hold = [];
+    var y  = -height*0.2;
+    var x  = -width*0.2;
+    var yOff;
+    var loops = 0;
+    while( y < height*1.2){
+        while(x < width*1.2){
+         var w = new Wave(x,y);
+         w.calc();
+         hold.push(w);
+         x+=cellRadius*w.value*10;
+         x+=cellRadius*3.5;
+
+        }
+     y+=cell_height*1.2 ; 
+     x=-width*0.2;
+     if(loops%2 == 0){
+        x+=cell_width*3;
+     }
+     loops++;
+    }       
+    return hold;
+}
+
+function draw_waves(){
+    for(var i = 0; i < waves.length;i++){
+        if(waves[i].value < 0.31 && waves[i].value>0.1){
+        waves[i].draw();}
+    }
+}
+function waveCalc() {
+        for(var i = 0; i < waves.length;i++){
+        waves[i].calc();
+    }
+}
+function drawCellType(type) {
+    for (var i = cells.length - 3; i >= 3; i--) {
+        for (var o = cells[i].length - 3; o >= 3; o--) {
+            if (cells[i][o].state == type) {
+                cells[i][o].draw();
             }
         }
     }
 }
-
-function outlineMass(arr){
-	for(var i= 0 ; i<arr.length; i++){
-		r = arr[i].outerPoints();
-	//	console.log(r);
-		for(var o = 0 ; o< r.length;o++){
-			push();
-			ellipse(r[o][0],r[o][1],10,10);
-			pop();
-		}
-	}	
+function drawAllFeatures(){
+        for (var i = cells.length - 3; i >= 3; i--) {
+        for (var o = cells[i].length - 3; o >= 3; o--) {
+                cells[i][o].drawFeatures();
+            
+        }
+    }
 }
 
-//___________< SECONDARY P5 FUNCTIONS >_________\\
+function drawOutline(target, enemy) {
+
+    for (var i = cells.length - 3; i >= 3; i--) {
+        for (var o = cells[i].length - 3; o >= 3; o--) {    
+            if (cells[i][o].state == target) {
+                cells[i][o].outline(enemy);
+
+            }   
+        }
+    }
+}
+
+
+
+function cellAtPos(x,y){ //return cell given a position
+
+}
+//___________<P5 FUNCTIONS >_________\\
 function keyTyped() {
     if (key == '!') {
         saveBlocksImages();
@@ -276,12 +221,16 @@ function keyTyped() {
 
 function mousePressed() {
     changeRandomSeed();
-    //noiseSeed(random(0,100));
-    load_lands();
+    if(inMapMode == true ){
     for (var i = cells.length - 1; i >= 0; i--) {
         for (var o = cells[i].length - 1; o >= 0; o--) {
             cells[i][o].refresh();
         }
+    }
+    waves = [];
+   waves = load_waves();
+    waveCalc();
+    console.log("refreshed!");
     }
 }
 
@@ -415,11 +364,6 @@ function sinOf(degrees) {
     return Math.sin(degrees * Math.PI / 180);
 }
 
-function drawGroup(arr) {
-    for (var i = arr.length - 1; i >= 0; i--) {
-        arr[i].draw();
-    }
-}
 
 function vert(point) {
     vertex(point[0], point[1]);
@@ -430,7 +374,9 @@ function angleBetween(p1, p2) {
     c = Math.atan2(p2[1] - p1[1], p2[0] - p1[0]) * 180 / Math.PI;
     return c;
 }
-
+function midpoint(p1,p2){
+    return [(p1[0]+p2[0])/2,(p1[1]+p2[1])/2];
+}
 function polygon(x, y, radius, npoints) {
     var angle = 360 / npoints;
     beginShape();
@@ -449,6 +395,9 @@ function polygon_points(x, y, radius, npoints) {
         ret.push(p);
     }
     return ret;
+}  
+function average(n1,n2){
+    return(n1+n2)/2;
 }
 //___________< MISC & DEBUG FUNCTIONS >_________\\
 
@@ -475,7 +424,7 @@ function debugShowPoints(arr, siz) {
     push();
     noStroke();
     for (var i = arr.length - 1; i >= 0; i--) {
-        ellipse(arr[i][0], arr[i][1],siz,siz);
+        ellipse(arr[i][0], arr[i][1], siz, siz);
     }
     pop();
 }
