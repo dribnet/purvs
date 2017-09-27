@@ -1,19 +1,24 @@
 var canvasWidth = 960;
 var canvasHeight = 500;
 var curRandomSeed;
-var mode = false;
+var mode = true;
 
 var slider1, slider2;
 
 var colors = [];
-colors.push([[246,104,85],[52,93,116],[255,169,79]]);
-colors.push([[71,194,166],[103,43,74],[200,205,0]]);
-colors.push([[109,197,227],[198,61,141],[58,61,122]]);
-colors.push([[255,131,111],[244,81,64],[137,191,168]]);
-colors.push([[27,46,61],[254,125,143],[52,107,137]]);
-colors.push([[251,179,107],[119,150,168],[243,209,128]]);
-colors.push([[255,181,170],[127,110,116],[255,221,199]]);
-colors.push([[178,192,179],[166,185,63],[74,68,84]]);
+// colors.push(background, top, left, right);
+colors.push([[236,253,243],[193,213,80],[94,85,102],[171,177,173]]);
+colors.push([[188,210,207],[252,210,194],[175,155,148],[255,173,159]]);
+colors.push([[1,41,66],[183,207,211],[16,113,145],[80,169,173]]);
+colors.push([[89,191,180],[255,165,159],[255,250,190],[210,139,169]]);
+colors.push([[58,61,122],[194,227,160],[109,198,227],[135,129,192]]);
+colors.push([[30,56,76],[255,234,149],[255,169,79],[247,105,85]]);
+colors.push([[205,239,255],[249,217,193],[204,168,207],[111,151,197]]);
+colors.push([[140,83,119],[131,171,152],[73,95,94],[21,74,88]]);
+colors.push([[22,22,22],[162,246,246],[53,64,65],[134,142,153]]);
+colors.push([[201,232,253],[208,227,202],[186,179,204],[165,105,136]]);
+colors.push([[58,111,45],[239,253,217],[151,137,120],[164,192,181]]);
+colors.push([[255,221,109],[219,236,217],[93,193,236],[0,108,185]]);
 
 function setup() {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -48,11 +53,12 @@ function draw() {
 }
 
 function drawWallpaper() {
-  var colorPalette = colors[focusedRandom(0,7).toFixed(0)];
+  var colorPalette = colors[random(0,11).toFixed(0)];
 
   var bgColor = colorPalette[0],
-      strokeColor = colorPalette[1],
-      cubeColor = colorPalette[2];
+      cubeColorTop = colorPalette[1],
+      cubeColorLeft = colorPalette[2],
+      cubeColorRight = colorPalette[3];
 
   // set up background
   noStroke();
@@ -69,7 +75,7 @@ function drawWallpaper() {
       h = height/3;
 
   // draw singular cube (for testing)
-  // drawCube(width/2,height/2,width,height,rotationState,bgColor,strokeColor,cubeColor);
+  // drawCube(width/2,height/2,width,height,rotationState,bgColor,cubeColorTop,cubeColorLeft,cubeColorRight);
 
   for(var i=0; i<4; i++) {
     for(var j=0; j<6; j++) {
@@ -78,12 +84,12 @@ function drawWallpaper() {
           x = w/2 + w*j;
 
       // drawing the cube
-      drawCube(x,y,w*cubeSize,h*cubeSize,rotationState,bgColor,strokeColor,cubeColor);
+      drawCube(x,y,w*cubeSize,h*cubeSize,rotationState,bgColor,cubeColorTop,cubeColorLeft,cubeColorRight);
     }
   }
 }
 
-function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
+function drawCube(x,y,w,h,rotationState,bgColor,cubeColorTop,cubeColorLeft,cubeColorRight) {
   push();
   translate(x,y);
 
@@ -92,11 +98,6 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   else { extent = w / 2; }
   var scale = extent / 250.0;
 
-  // drawing style
-  strokeWeight(4*scale);
-  stroke(strokeColor);
-
-  // draw base hexagon
   var cubeRotation = focusedRandom(0,100)*rotationState;
   if (cubeRotation == 0) {
     rotate(PI/6.0);
@@ -104,24 +105,39 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
     rotate(PI/6.0*cubeRotation);
   }
 
+  // draw outer squares
   push();
-  fill(cubeColor);
-  beginShape();
-  for(var i=0; i<6; i++) {
-    push();
-    var angle = PI*i/3;
-    vertex(cos(angle)*200*scale,sin(angle)*200*scale);
-    pop();
-  }
-  endShape(CLOSE);
-  pop();
 
-  // draw inner lines to make cube
-  push();
-  for(var i=1; i<6; i+=2) {
-    var angle = PI*i/3;
-    line(0,0,cos(angle)*200*scale,sin(angle)*200*scale);
-  }
+  // top square
+  fill(cubeColorTop);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI)*200*scale,sin(PI)*200*scale);
+  vertex(cos(PI*4/3)*200*scale,sin(PI*4/3)*200*scale);
+  vertex(cos(PI*5/3)*200*scale,sin(PI*5/3)*200*scale);
+  endShape(CLOSE);
+
+  // left square
+  fill(cubeColorLeft);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI*1/3)*200*scale,sin(PI*1/3)*200*scale);
+  vertex(cos(PI*2/3)*200*scale,sin(PI*2/3)*200*scale);
+  vertex(cos(PI)*200*scale,sin(PI)*200*scale);
+  endShape(CLOSE);
+
+  // right square
+  fill(cubeColorRight);
+
+  beginShape();
+  vertex(0,0);
+  vertex(cos(PI*5/3)*200*scale,sin(PI*5/3)*200*scale);
+  vertex(cos(PI*6/3)*200*scale,sin(PI*6/3)*200*scale);
+  vertex(cos(PI*1/3)*200*scale,sin(PI*1/3)*200*scale);
+  endShape(CLOSE);
+
   pop();
 
   // draw left cube face inner
@@ -141,9 +157,10 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   vertex(0,0);
   endShape(CLOSE);
 
-  fill(cubeColor);
 
   // outer top
+  fill(cubeColorRight);
+
   beginShape();
   vertex(cos(PI)*120*scale,sin(PI)*120*scale);
   vertex(cos(PI)*145*scale,sin(PI)*145*scale);
@@ -152,6 +169,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // outer bottom
+  fill(cubeColorTop);
+
   beginShape();
   vertex(cos(PI*2/3)*145*scale,sin(PI*2/3)*145*scale);
   vertex(cos(PI*2/3)*120*scale,sin(PI*2/3)*120*scale);
@@ -160,6 +179,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner top
+  fill(cubeColorTop);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI)*25*scale,sin(PI)*25*scale);
@@ -168,6 +189,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner bottom
+  fill(cubeColorRight);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI*1/3)*25*scale,sin(PI*1/3)*25*scale);
@@ -195,9 +218,10 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   vertex(0,0);
   endShape(CLOSE);
 
-  fill(cubeColor);
 
   // outer left
+  fill(cubeColorRight);
+
   beginShape();
   vertex(cos(PI)*120*scale,sin(PI)*120*scale);
   vertex(cos(PI)*145*scale,sin(PI)*145*scale);
@@ -206,6 +230,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // outer right
+  fill(cubeColorLeft);
+
   beginShape();
   vertex(cos(PI*4/3)*145*scale,sin(PI*4/3)*145*scale);
   vertex(cos(PI*4/3)*120*scale,sin(PI*4/3)*120*scale);
@@ -214,6 +240,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner left
+  fill(cubeColorLeft);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI)*25*scale,sin(PI)*25*scale);
@@ -222,6 +250,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner right
+  fill(cubeColorRight);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI*5/3)*25*scale,sin(PI*5/3)*25*scale);
@@ -248,9 +278,9 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   vertex(0,0);
   endShape(CLOSE);
 
-  fill(cubeColor);
-
   // outer top
+  fill(cubeColorLeft);
+
   beginShape();
   vertex(cos(PI*5/3)*120*scale,sin(PI*5/3)*120*scale);
   vertex(cos(PI*5/3)*145*scale,sin(PI*5/3)*145*scale);
@@ -259,6 +289,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // outer bottom
+  fill(cubeColorTop);
+
   beginShape();
   vertex(cos(PI*6/3)*145*scale,sin(PI*6/3)*145*scale);
   vertex(cos(PI*6/3)*120*scale,sin(PI*6/3)*120*scale);
@@ -267,6 +299,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner top
+  fill(cubeColorTop);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI*5/3)*25*scale,sin(PI*5/3)*25*scale);
@@ -275,6 +309,8 @@ function drawCube(x,y,w,h,rotationState,bgColor,strokeColor,cubeColor) {
   endShape(CLOSE);
 
   // inner bottom
+  fill(cubeColorLeft);
+
   beginShape();
   vertex(0,0);
   vertex(cos(PI*1/3)*25*scale,sin(PI*1/3)*25*scale);

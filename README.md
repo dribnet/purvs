@@ -23,3 +23,7 @@ The stars and mountains both have random variables that change how they are draw
 For the columns I took my cube code and reworked it to create these 'infinite' columns that appear to be rising up from the ground thousands of meters below.
 I also created functionality for drawing a center column with a number of smaller columns randomly drawn surrounding it using x, y, and scale offsets.
 The colouring of the columns also changes (lerps) based on the y offset. The result is a really pleasant piece to look at with several different elements that draw the eye's attention.
+
+I've gone back and refactored my wallpaper pattern - now that I know how to draw the cubes in a less hacky way, I was able to fill each face of the cube a different colour.
+By doing this and taking out the stroke, I believe the cubes look a lot more interesting, and the design is much cleaner.
+I also went back and redid the colour palettes so that it worked for this method. 
