@@ -16,36 +16,119 @@ function mousePressed() {
 }
 
 function draw () {
-
 	background(234, 192, 156);
-
 	resetFocusedRandom(curRandomSeed);
   	noiseSeed(curRandomSeed);
 
-	strokeWeight(3);
-	stroke(0, 88, 98);
+  	stroke(0, 88, 98);
     noFill();
 
-  		
-    for(j = 100; j < height; j = j + 100){
-  		for(i = 96; i < width; i = i + 96){
+  
 
-  			var random1 = Math.floor(random(5));
+  		var random1 = Math.floor(random(5));
 
-  			var random2 = Math.floor(random(5));
+  		var random2 = Math.floor(random(5));
 
+  		if (random2 == random1){
+  		random2 = Math.floor(random(5));
+  		}
 
-  			var random3 = Math.floor(random(5));;
+  		var random3 = Math.floor(random(5));;
 
+  		if (random3 == random1 || random3 == random2){
+  		random3 = Math.floor(random(5));
+  		}
 
-  		strokeWeight(1);
-  		drawShape(i, j, 40, random1);
-  		drawShape(i, j, 40, random2);
-  		drawShape(i, j, 40, random3);
+  			//middle shapes
 
-  	}
-  }
+  		strokeWeight(3);
+  		drawShape(width/2, height/2, 200, random1);
+  		drawShape(width/2, height/2, 200, random2);
+  		drawShape(width/2, height/2, 200, random3);
 
+  		random1 = Math.floor(random(5));
+
+  		random2 = Math.floor(random(5));
+
+  		if (random2 == random1){
+  		random2 = Math.floor(random(5));
+  		}
+
+  		random3 = Math.floor(random(5));;
+
+  		if (random3 == random1 || random3 == random2){
+  		random3 = Math.floor(random(5));
+  		}
+
+  			//left shapes1
+
+  		strokeWeight(2);	
+  		drawShape(width/4, height/2, 100, random1);
+  		drawShape(width/4, height/2, 100, random2);
+  		drawShape(width/4, height/2, 100, random3);
+
+  		random1 = Math.floor(random(5));
+
+  		random2 = Math.floor(random(5));
+
+  		if (random2 == random1){
+  		random2 = Math.floor(random(5));
+  		}
+
+  		random3 = Math.floor(random(5));;
+
+  		if (random3 == random1 || random3 == random2){
+  		random3 = Math.floor(random(5));
+  		}
+
+  			//right shapes1
+
+  		strokeWeight(2);
+  		drawShape(width * 3/4, height/2, 100, random1);
+  		drawShape(width * 3/4, height/2, 100, random2);
+  		drawShape(width * 3/4, height/2, 100, random3);
+
+  		random1 = Math.floor(random(5));
+
+  		random2 = Math.floor(random(5));
+
+  		if (random2 == random1){
+  		random2 = Math.floor(random(5));
+  		}
+
+  		random3 = Math.floor(random(5));;
+
+  		if (random3 == random1 || random3 == random2){
+  		random3 = Math.floor(random(5));
+  		}
+
+  			//left shapes2
+
+  		strokeWeight(0.5);
+  		drawShape(width/10, height/2, 30, random1);
+  		drawShape(width/10, height/2, 30, random2);
+  		drawShape(width/10, height/2, 30, random3);
+
+  		random1 = Math.floor(random(5));
+
+  		random2 = Math.floor(random(5));
+
+  		if (random2 == random1){
+  		random2 = Math.floor(random(5));
+  		}
+
+  		random3 = Math.floor(random(5));;
+
+  		if (random3 == random1 || random3 == random2){
+  		random3 = Math.floor(random(5));
+  		}
+
+  			//right shapes2
+
+  		strokeWeight(0.5);
+  		drawShape(width * 0.9, height/2, 30, random1);
+  		drawShape(width * 0.9, height/2, 30, random2);
+  		drawShape(width * 0.9, height/2, 30, random3);
 
   
 
