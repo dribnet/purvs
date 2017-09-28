@@ -2,6 +2,7 @@
 var inMapMode = true;
 var col1, col2, col3, col4,grassCol,sandCol,shallowsCol,waveCol,cliffsCol,cliffsLineCol,superShallowCol,beachBorderCol,mountainCol;
 var curRandomSeed;
+var slider1, slider2, slider3, slider4;
 
 //Wallpaper
 var wallpaperPoints = [];
@@ -16,16 +17,25 @@ var cell_height = cell_yOff * 2;
 
 var cells = []; //2D array holding all cells in grid
 var seatexturePoints = [];
-var noiseAmp = focusedRandom(0.005, 0.01, 2);
+var noiseAmp = focusedRandom(0.005, 0.01);
 var waves = [];
 var isFirstLoop = false;
-
 
 function setup() {
     createCanvas(960, 500);
     angleMode(DEGREES);
     rectMode(CENTER);
     noiseSeed(int(focusedRandom(0, 100)));
+
+    slider1 = createSlider(0, 100, 45);
+    slider2 = createSlider(2, 8, 4);
+    slider3 = createSlider(1.0, 1.132, 1.066);
+    //slider4 = createSlider(0, 100, 50);
+
+    slider1.parent('slider1Container');
+    slider2.parent('slider2Container');
+    slider3.parent('slider3Container');
+   // slider4.parent('slider4Container');
 
     col1 = color('#fffcbc');
     col2 = color('#66a0ff');
@@ -55,6 +65,7 @@ function setup() {
     console.log("Grid: " + [cellCountX, cellCountY]);
     waves = load_waves();
     wallpaperPoints = radialArrange(width / 2, height / 2, 4, 45, 1.066);
+
     //  seatexturePoints = radialArrange(focusedRandom(width*0.25,width*0.75), focusedRandom(height*-0.75,height*0.75), 2, 8, 1.077);
     isFirstLoop = true;
 }
@@ -70,6 +81,12 @@ function draw() {
     fill(col2);
     stroke(col3);
     strokeWeight(1.5);
+
+
+    var s1 = slider1.value();
+    var s2 = Math.floor(slider2.value());
+    var s3 = slider3.value();
+   // var s4 = slider4.value();
 
     if (inMapMode == true) {
         if(isFirstLoop == true){
@@ -104,6 +121,8 @@ function draw() {
     }
 
     if (inMapMode == false) {
+        wallpaperPoints = radialArrange(width / 2, height / 2, s2, s1, s3);
+
         push();
         stroke(col2);
         background(beachCol);
@@ -138,7 +157,6 @@ function load_cells() { //create array of cell objects
 }
 
 function load_waves(){
-    console.log("loading waves");
     var hold = [];
     var y  = -height*0.2;
     var x  = -width*0.2;
@@ -256,6 +274,7 @@ function radialArrange(x, y, seed, stepSeed, spin) {
 function Boat(x, y, siz, c1, c2, c3) {
     push();
     translate(x, y);
+    //rotate(focusedRandom(-12,12));
     strokeWeight(siz * 0.1);
     fill(c1);
     sailCol = focusedRandom(0, 1)
@@ -295,6 +314,8 @@ function Wheel(x, y, siz, c1, c2) {
     noFill();
     strokeWeight(siz * 0.06);
     translate(x, y);
+    //rotate(focusedRandom(-12,12));
+
     stroke(c1);
     var ringCol = focusedRandom(0, 1);
     push()
@@ -329,6 +350,8 @@ function Anchor(x, y, siz, c1) {
     push();
     strokeWeight((siz + siz / 2) * 0.07);
     translate(x, y);
+    //rotate(focusedRandom(-14,14));
+
     noFill();
     line(0, -siz * 0.3, 0, 0.49 * siz);
     ellipse(0, -siz * 0.45, (siz + siz / 2) * 0.2, (siz + siz / 2) * 0.2);
@@ -478,7 +501,6 @@ var Cell = function(xpos, ypos, xindex, yindex) {
     this.colorCalc = function() { //constructor + refresh function. determines this.color based on state & value 
         if (this.state == "water") {
             this.color = lerpColor(waterCol, color(col3), map(this.value, 0, 0.6, 0.5, 0.7));
-            console.log(this);
 
         }
         if (this.state == "shallows") {
