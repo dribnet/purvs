@@ -95,7 +95,7 @@ function draw() {
         stroke(beachBorderCol);
        // drawOutline("beach","shallows");
         drawOutline("beach","water");
-              //  drawOutline("land","beach");
+      //  drawOutline("land","beach");
 
         stroke(landBeachBorderCol);
         //drawOutline("land","shallows");
