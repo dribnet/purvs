@@ -13,7 +13,7 @@ This method is more powerful than just this though! It could be used to make man
 	- grey, rocky cliffs where deep sea and land cell neighbor.
 	- features like towns & forests in the middle of otherwise uninteresting plains of land cells
 
-In the future I want to 
+In the future I want to develop the style of the map to make it look more hand-drawn @ old timey. I liked the aesthetic of my wallpaper, and want to channel that for the next iteration of the landscape.
  
 
 ---
