@@ -428,3 +428,266 @@ function debugShowPoints(arr, siz) {
     }
     pop();
 }
+
+var Cell = function(xpos, ypos, xindex, yindex) {
+    this.state = "not_set";
+
+    this.x = xpos;
+    this.y = ypos;
+    this.index = [xindex, yindex];
+    this.value = noise(xpos * noiseAmp, ypos * noiseAmp);
+    this.color = color('green');
+
+    this.isOnEdge = false;
+    this.isAssimilated = false;
+    this.isMountain = false;
+    this.isBeach = false;
+
+    this.points = polygon_points(this.x, this.y, cellRadius, 6);
+    if (this.index[0] < 2 || this.index[1] < 2 || this.index[0] > cellCountX - 2 || this.index[1] > cellCountY - 2) {
+        //     this.isOnEdge = true;
+    }
+
+    this.draw = function() {
+        push();
+        textSize(16);
+        fill(this.color);
+        strokeWeight(1);
+        stroke(this.color);
+        polygon(this.x, this.y, cellRadius, 6);
+        noStroke();
+        fill('white');
+        //text(this.index,this.x-15,this.y+10);
+        pop();
+
+    }
+
+    this.drawFeatures = function(){
+        if(this.isMountain == true){
+            push();
+            stroke(mountainCol);
+            fill(this.color);
+            translate(this.x+cellRadius/6, this.y);
+            triangle(0,-2*cellRadius/3,-cellRadius/3,0,cellRadius/3,0);
+            translate(-cellRadius/3,cellRadius/3);
+            triangle(0,-2*cellRadius/3,-cellRadius/3,0,cellRadius/3,0);
+            pop();
+        }
+    }
+
+    this.colorCalc = function() { //constructor + refresh function. determines this.color based on state & value 
+        if (this.state == "water") {
+            this.color = lerpColor(waterCol, color(col3), map(this.value, 0, 0.6, 0.5, 0.7));
+            console.log(this);
+
+        }
+        if (this.state == "shallows") {
+            this.color = lerpColor(waterCol, superShallowCol, map(this.value, 0.5, 0.545, 0.7, 0.8));
+        }
+        
+        if (this.state == "land") {
+            this.color = lerpColor(grassCol,color(240), map(this.value, 0.6, 0.8, 0.3, 0.7));
+
+        }
+            if(this.state == "beach"){
+                this.color = lerpColor(beachCol, grassCol, map(this.value, 0.54, 0.61, 0.2, 0.6));
+            }
+            if (this.isMountain == true){
+                this.color = lerpColor(grassCol,color(240), map(this.value, 0.6, 0.8, 0.6, 0.8));
+
+            }
+    }
+
+    this.stateCalc = function() { // setup + refresh function. Categorises cells based on noise value
+        //TODO: define states as array of objects holding upper bound of Value, and corresponding state
+        if (this.value < 0.54) {
+            this.state = "water";
+            if (this.value > 0.501) {
+                this.state = "shallows";
+            }
+        } else {
+
+            this.state = "land";
+
+             if (0.54 <this.value && this.value < 0.565) {
+                this.state = "beach";
+
+            }
+            if (this.value > 0.785  ) {
+                this.isMountain = true;
+            }
+
+            // if(isFirstLoop == false && this.friends("water").length > 0){
+            //     this.state = "cliff";
+            // }
+        }
+    }
+
+    this.getNeighbors = function() { // find the cell indexes of each of the six adjacent tiles
+        var ix = this.index[0];
+        var iy = this.index[1];
+
+        var topY = 0;
+        var botY = 1;
+
+        if (ix % 2 == 0) {
+            //relative y index of left&right neighbors 
+            //change depending on whether original y index is even or odd
+            topY = -1;
+            botY = 0;
+        }
+        var ret = [];
+        var hold = [
+            //relative indices for neighbors
+            //hold[0] is the neighbor above, the indexes move clockwise from there
+            [ix, iy - 1],
+            [ix + 1, iy + topY],
+            [ix + 1, iy + botY],
+            [ix, iy + 1],
+            [ix - 1, iy + botY],
+            [ix - 1, iy + topY]
+        ];
+        for (var i = 0; i < hold.length; i++) {
+            if (cells[hold[i][0]][hold[i][1]] != undefined) {
+
+                ret[i] = cells[hold[i][0]][hold[i][1]];
+            } else {
+                ret[i] = this;
+            }
+
+        }
+        this.neighbors = ret;
+        return ret;
+    }
+    this.enemies = function() { //neighboring cells with different state
+        var ret = [];
+        if (!this.neighbors) {
+            this.getNeighbors();
+        }
+        for (var i = 0; i < this.neighbors.length; i++) {
+            if (this.neighbors[i].state != this.state) {
+                ret.push(i);
+            }
+        }
+        return ret;
+    }
+
+    this.friends = function(borderState) { //neighboring cells with specific state
+        var ret = [];
+        if (!this.neighbors) {
+            this.getNeighbors();
+        }
+
+        for (var i = 0; i < this.neighbors.length; i++) {
+            if (this.neighbors[i].state == borderState) {
+                ret.push(i);
+            }
+        }
+        return ret;
+    }
+
+    this.outerPoints = function() { //return points on cell borders
+        var outer_angles = this.enemies();
+        var lastpoint;
+        var ret = [];
+        for (var i = 0; i < outer_angles.length; i++) {
+            var p = findNewPoint([this.x, this.y], (outer_angles[i] * 60) - 60, cellRadius);
+            var p2 = findNewPoint([this.x, this.y], ((outer_angles[i] - 1) * 60) - 60, cellRadius);
+
+            if (p2 != ret[i - 1]) {
+                ret.push(p2);
+            }
+            ret.push(p);
+        }
+        return ret;
+    }
+
+    this.outline = function(borderState) { //draw a line on borders with different cell types 
+        var outer_angles = this.friends(borderState);
+        for (var i = 0; i < outer_angles.length; i++) {
+            var p = findNewPoint([this.x, this.y], (outer_angles[i] * 60) - 60, cellRadius);
+            var p2 = findNewPoint([this.x, this.y], ((outer_angles[i] - 1) * 60) - 60, cellRadius);
+            push();
+            strokeWeight(cellRadius/8);
+            line(p[0], p[1], p2[0], p2[1]);
+            pop();
+        }
+    
+    }
+
+    this.creep = function() { //return array of references to all cells in this cell's cluster 
+        var hold = [this];
+        var ret = [];
+
+        for (var i = 0; i < hold.length; i++) {
+            var c = hold[i];
+            c.getNeighbors();
+            if (c.isOnEdge == false && c.state == this.state && c.isAssimilated != true) {
+                for (var o = 0; o < c.neighbors.length; o++) {
+                    hold.push(c.neighbors[o]);
+                }
+                c.isAssimilated = true;
+                ret.push(c);
+            } else {
+                c.isAssimilated = true;
+            }
+        }
+        return ret;
+    }
+
+    this.refresh = function() { // called whenever a grid is refreshed. recalculates cell values to accommodate new noise map
+        this.isMountain = false;
+        this.isAssimilated = false;
+        this.isBeach = false;
+        this.value = noise(this.x * noiseAmp, this.y * noiseAmp);
+        this.stateCalc();
+        this.colorCalc();
+
+    }
+}
+
+var Wave = function(x,y) {
+    this.x = x;
+    this.y = y;
+    this.value = noise(this.x * noiseAmp, this.y * noiseAmp);
+    this.w = (1/this.value)*cellRadius*0.5; // Width of entire wave
+    this.resolution = 24;
+    this.xspacing = this.w / this.resolution; // Distance between each horizontal location
+
+    this.period = this.w/map(this.value,0,0.35,4.5,1.5); // How many pixels before the wave repeats`
+    this.amplitude = this.w/20; // Height of wave
+    this.dx = (360 / this.period) * this.xspacing; // Value for incrementing x`
+    this.theta = focusedRandom(0,100); // Start angle at 0
+    
+    this.yvalues = new Array(floor(this.w / this.xspacing)); // Using an array to store height values for the wave`
+
+    this.calc = function() {
+        // Increment theta (try different values for 
+        // 'angular velocity' here)
+
+        // For every x value, calculate a y value with sine function
+        var x = this.theta;
+        for (var i = 0; i < this.yvalues.length; i++) {
+            this.yvalues[i] = sin(x)*this.amplitude;
+            x += this.dx;
+        }
+    }
+
+    this.draw = function() {
+        noStroke();
+        // A simple way to draw the wave with an ellipse at each location
+        push();
+        translate(this.x, this.y);
+        noFill();
+        stroke(waveCol);
+        //ellipse(0,0,10,10);
+        strokeWeight(this.w*(cellRadius/150));
+        beginShape();
+        for (var x = 0; x < this.yvalues.length; x++) {
+            curveVertex((x * this.xspacing)-this.w/2, this.yvalues[x]);
+        }
+        endShape();
+
+        pop();
+    }
+}
