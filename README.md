@@ -1,4 +1,5 @@
 17.2.MDDN342 PS3
+
 #### LANDSCAPE
 
 My landscape was incepted as a tool to generate world maps for Dungeons & Dragons. The map is made up of tessellated hexagonal cells. Each cell is a javascript object which is initialised at a co-ordinate position. Each cell will generate a value for itself based on it's position an 2D perlin noise. This value determines the "State" of the cell:" whether it is land, sea, shallows, beach, or mountain. Once a cell knows it's value and state, it can calculate it's color.
