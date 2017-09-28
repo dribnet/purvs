@@ -1,8 +1,10 @@
-  var slider1, slider2, slider3, slider4, slider5;
+  var slider1, slider2, slider3;
+  var curRandomSeed;
+  var inMapMode = true;
 
 function setup () {
 	curRandomSeed = int(focusedRandom(0, 100));
-  	var main_canvas = createCanvas(960, 500);
+  var main_canvas = createCanvas(960, 500);
  	main_canvas.parent('canvasContainer');
 
 
@@ -31,9 +33,13 @@ function mousePressed() {
 
 function draw () {
 
+  console.log(curRandomSeed);
+
+  if(inMapMode){
+
 	var s1 = slider1.value();
  	var s2 = slider2.value();
-  	var s3 = slider3.value();
+  var s3 = slider3.value();
 
 	background(0);
 
@@ -107,15 +113,135 @@ function draw () {
   	var scale = random(50, 350);
   	ellipse(random(width), random(height), scale, scale);
 
-  	fill(random(200), random(123), random(40));
+  	fill(random(200)+ s3, random(123)+ s3, random(40)+ s3);
   	var scale = random(20, 200);
   	ellipse(random(width), random(height), scale, scale);
 
-  	fill(random(200, 250), random(123), random(40));
+  	fill(random(200, 250)+ s3, random(123)+ s3, random(40)+ s3);
   	var scale = random(40, 400);
   	ellipse(random(width), random(height), scale, scale);
 
+
   }
+}
+
+if(!inMapMode){
+
+  background(234, 192, 156);
+  resetFocusedRandom(curRandomSeed);
+    noiseSeed(curRandomSeed);
+
+    stroke(0, 88, 98);
+    noFill();
+
+  
+
+      var random1 = Math.floor(random(5));
+
+      var random2 = Math.floor(random(5));
+
+      if (random2 == random1){
+      random2 = Math.floor(random(5));
+      }
+
+      var random3 = Math.floor(random(5));;
+
+      if (random3 == random1 || random3 == random2){
+      random3 = Math.floor(random(5));
+      }
+
+        //middle shapes
+
+      strokeWeight(3);
+      drawShape(width/2, height/2, 200, random1);
+      drawShape(width/2, height/2, 200, random2);
+      drawShape(width/2, height/2, 200, random3);
+
+      random1 = Math.floor(random(5));
+
+      random2 = Math.floor(random(5));
+
+      if (random2 == random1){
+      random2 = Math.floor(random(5));
+      }
+
+      random3 = Math.floor(random(5));;
+
+      if (random3 == random1 || random3 == random2){
+      random3 = Math.floor(random(5));
+      }
+
+        //left shapes1
+
+      strokeWeight(2);  
+      drawShape(width/4, height/2, 100, random1);
+      drawShape(width/4, height/2, 100, random2);
+      drawShape(width/4, height/2, 100, random3);
+
+      random1 = Math.floor(random(5));
+
+      random2 = Math.floor(random(5));
+
+      if (random2 == random1){
+      random2 = Math.floor(random(5));
+      }
+
+      random3 = Math.floor(random(5));;
+
+      if (random3 == random1 || random3 == random2){
+      random3 = Math.floor(random(5));
+      }
+
+        //right shapes1
+
+      strokeWeight(2);
+      drawShape(width * 3/4, height/2, 100, random1);
+      drawShape(width * 3/4, height/2, 100, random2);
+      drawShape(width * 3/4, height/2, 100, random3);
+
+      random1 = Math.floor(random(5));
+
+      random2 = Math.floor(random(5));
+
+      if (random2 == random1){
+      random2 = Math.floor(random(5));
+      }
+
+      random3 = Math.floor(random(5));;
+
+      if (random3 == random1 || random3 == random2){
+      random3 = Math.floor(random(5));
+      }
+
+        //left shapes2
+
+      strokeWeight(0.5);
+      drawShape(width/10, height/2, 30, random1);
+      drawShape(width/10, height/2, 30, random2);
+      drawShape(width/10, height/2, 30, random3);
+
+      random1 = Math.floor(random(5));
+
+      random2 = Math.floor(random(5));
+
+      if (random2 == random1){
+      random2 = Math.floor(random(5));
+      }
+
+      random3 = Math.floor(random(5));;
+
+      if (random3 == random1 || random3 == random2){
+      random3 = Math.floor(random(5));
+      }
+
+        //right shapes2
+
+      strokeWeight(0.5);
+      drawShape(width * 0.9, height/2, 30, random1);
+      drawShape(width * 0.9, height/2, 30, random2);
+      drawShape(width * 0.9, height/2, 30, random3);
+
+}
 
 
   
@@ -170,5 +296,8 @@ function drawShape(x, y, scale, shape){
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
+  }
+  else if (key == ' ') {
+    inMapMode = !inMapMode;
   }
 }
