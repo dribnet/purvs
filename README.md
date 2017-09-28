@@ -1,8 +1,5 @@
 17.2.MDDN342 PS3
 
-My final iteration of my wallpaper. I have decided to go with this layout which gives the design a nice symmetry which ties together the varied symbols nicely. The colour pallet was chosen to produce a calm scene with the dark colour of the symbols forming the primary focus. The symbols have a nice balance with the background, without being lost.
+Starting work on my landscape I have decided to explore a spacescape. The number of stars that forms the background can be varied from a lot of stars, to very little. The layout of the stars is determined by a nested for loop, with random variation in placement to create an organice feel. The opacity of the stars is alos generated randomly to create a more realistic backdrop.
 
-“If a man does not have sauce, then he is lost. But the same man can get lost in the sauce.”
-
-
-― Gucci Mane
+The foreground is going to be made up of planets with varied size and colour.
