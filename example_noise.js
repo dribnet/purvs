@@ -1,5 +1,5 @@
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  var noiseScale=0.02; 
+  var noiseScale=0.02;
   p5.noiseDetail(8,0.5);
   p5.noStroke();
   for(var i=0; i<16; i++) {
@@ -12,8 +12,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.rect(i*16, j*16, 16, 16);
     }
   }
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  //debug - show border
+  p5.noFill();
+  p5.stroke(255, 0, 0)
+  p5.rect(0, 0, 255, 255);
 }
