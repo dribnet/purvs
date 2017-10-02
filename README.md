@@ -1,18 +1,11 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+sketching ideas (part 1)
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+I want it to feel like you are traveling deeper, through the strands.
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+Color gradients are key to creating shapes in my landscape. 
+Color lerp strands juxtoposed with the very solid looking strands, already help add a new dimension. 
+
+When the user zooms in, they will be 'unlocking' layers of color, and learning about how the structure grew over time.
+
