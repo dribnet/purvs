@@ -1,18 +1,5 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
-
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+This is my first experiment: extending the hex grid code I used in ps3. I liked the kind of tiling that a hex grid allowed for, but wasn't sold on how flat my final product looked in ps3. For inspiration, I printed myself some dot paper from [incompetech](http://incompetech.com/graphpaper/trianglehex.html) and started doodling.
+ What I came out with was a classic isometric, stacked cubes design !(https://i.pinimg.com/736x/81/51/a5/8151a5c12ce5a0dbda93d07e00c3a390--parquetry-motifs.jpg).
+ I like the dimensionality that this design has, but I dont think it lends itself as well to creating clusters in the way that my mapo generator did.
