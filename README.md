@@ -1,3 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-I am going to start with a Mayan/Aztec design of triangles and hexagons. As it zooms in, the coloured portions are revealed to be randomly noise animated lines of the same colour. This continues through to whatever coloured area it's being focused on. At the point where the lines are visible, a small triangle in the center appears as well. zooming in on the triangle reveals a manufactured version of the 80's 'retro sunset' in the mayan theme, with the top of the first shape being the sky and the striped colour being the road. Zooming further into the triangle gives a sort of recursive black/orange triangle view like the White Stripe's 'Seven Nation Army' music video.
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
+
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
