@@ -1,18 +1,5 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+My sketch has been made using screen shots from the pattern I created for problem set three. I choose the pattern as I had already put a lot of thought into how it would look on different canvas sizes. Therefore it already has different levels of when viewed from different zoom levels.
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+At the widest zoom level there is a repeating pattern created by 3x3 set of different coloured hexagons. When zooming into the mid level, a single hexagon is made from 24 glyph patterns. The glyph patterns are organized into three groups each with a different colour. At the most detailed zoom level you see the finer details of the glyph pattern.  A glyph pattern is created using a randomly selected shape and randomly selected number of rotations.  This creates a wide variety of interesting patterns.
