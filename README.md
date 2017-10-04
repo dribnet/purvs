@@ -1,3 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-For problem set 4 I will use part of my pattern from problem set 3. I want to keep it simple and still focus on mid-century modern abstraction. The most zoomed out section (seen in top image) will be basic and almost show a 3D depth to it. As the user zooms in (seen in middle image) they come to what my last hand in was for problem set 3 and then the final zoomed state is a more intense mid-century pattern which resembles a map.
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
+
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
