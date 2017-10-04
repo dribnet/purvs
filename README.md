@@ -1,18 +1,5 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
-
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+I am exploring a different grid layout based on both my landscape and pattern designs I created in the previous project. 
+I am thinking of an idea where it begins with a lot of squares. Then as you zoom in there are rounder shapes.
+Or I could look at beginning with circles to symbolise the clouds then as you zoom in there are squares which would symbolise a cityscape. 
