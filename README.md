@@ -1,8 +1,5 @@
 ## Powers of 10 PRINT
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
+Part 2:
 
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+Im slowly starting to understand how this code works and how to change it, havent quite made too many changes yet but more will come as I analyse the code further. However, i have been able to take it to a point that I like and i feels that I am managing to integrate the code and aesthetic I used for ps3.

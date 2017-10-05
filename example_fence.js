@@ -1,6 +1,6 @@
 var max_thickness = 64;
 var max_movement = 32;
-var ball_radius = 32;
+var ball_radius = 40;
 var line_width = 8;
 var grid_size = 64;
 
@@ -44,26 +44,26 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
-  p5.fill(0, 0, 128);
+  p5.background(146, 179, 205);
+  p5.fill(248, 198, 207);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
-      p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 0, 128);
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+      // p5.strokeWeight(cur_line_width);
+      // p5.stroke(0, 0, 128);
+      // var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
+      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      p5.stroke(0, 128, 0);
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+      // p5.stroke(0, 128, 0);
+      // var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
+      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
