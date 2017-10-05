@@ -5,10 +5,17 @@ var light_blue = "#0088FF"
 
 function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
   var noiseScale=1/16.0;
+<<<<<<< HEAD
   var startx = slashsize * Math.floor(x1/slashsize) - 1;
   var starty = slashsize * Math.floor(y1/slashsize) - 1;
   var endx = slashsize * (1 + Math.floor(x2/slashsize)) + 1;
   var endy = slashsize * (1 + Math.floor(y2/slashsize)) + 1;
+=======
+  var startx = slashsize * (Math.floor(x1/slashsize) - 1);
+  var starty = slashsize * (Math.floor(y1/slashsize) - 1);
+  var endx = slashsize * (Math.floor(x2/slashsize) + 1);
+  var endy = slashsize * (Math.floor(y2/slashsize) + 1);
+>>>>>>> upstream/part2
 
   var char_width = 256 / ((x2-x1)/slashsize);
   var char_height = 256 / ((y2-y1)/slashsize);
@@ -35,9 +42,16 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noiseDetail(8,0.5);
+<<<<<<< HEAD
   p5.background(0,0,133);
   p5.stroke(light_blue);
   p5.fill(light_blue);
   p5.ellipse(x1,y1,x2-x1,y2-y1);
   //drawLayer(p5, 16, x1, x2, y1, y2, z);
 }
+=======
+  p5.background(blue);
+  p5.stroke(light_blue);
+  drawLayer(p5, 16, x1, x2, y1, y2, z);
+}
+>>>>>>> upstream/part2
