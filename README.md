@@ -1,3 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-For this project I want to expand from what I created on our ps3, my map will consist of details, I want it to be interesting regardless of how zoomed in or out you are. The map would show you an abstract version of different 'countries' the closer you zoom in the more you see, I want all my elements to be made up of circles, and elements that looked like lines zoomed out are actually circles close up and so on, the colour palette will be kept pretty simple, with more sublt shades are you come closer.
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
+
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
