@@ -59,10 +59,29 @@ tiles.createTile = function(coords) {
 
   myp5._start();
   var tile = myp5.canvas;
+  tile.p5 = myp5
   L.DomUtil.addClass(tile, 'leaflet-tile');
 
   return tile;
 }
+
+// tiles.on('tileload', function(e){
+//   /** @type {HTMLCanvasElement} */
+//   var tile = e.tile
+//   /** @type {p5} */
+//   var p5 = tile.p5;
+
+//   if(p5){
+//     console.log(e)
+//     p5.redraw()
+//   }
+// })
+
+// setInterval(function(){
+//   if(!tiles.isLoading()){
+//     tiles.redraw()
+//   }
+// }, 1000)
 
 tiles.addTo(worldMap)
 
