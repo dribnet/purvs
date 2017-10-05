@@ -64,13 +64,28 @@ tiles.createTile = function(coords) {
   // calculate geographic coordinates of top left tile pixel
   myp5._L_nw = worldMap.unproject(myp5._L_nwPoint, coords.z)
 
-  myp5._start();
   var tile = myp5.canvas;
+  tile.rendering = true;
+
+  function doAnimate(){
+    if(tile.rendering){
+      myp5.redraw()
+      requestAnimationFrame(doAnimate)
+    }
+  }
+
+  setTimeout(doAnimate, myp5.random(100))
+
+  myp5._start();
   tile.p5 = myp5
   L.DomUtil.addClass(tile, 'leaflet-tile');
 
   return tile;
 }
+
+tiles.on('tileunload', function(e){
+  e.tile.rendering = false;
+})
 
 // tiles.on('tileload', function(e){
 //   /** @type {HTMLCanvasElement} */
