@@ -67,14 +67,12 @@ tiles.createTile = function(coords) {
   var tile = myp5.canvas;
   tile.rendering = true;
 
-  function doAnimate(){
+  (function doAnimate(){
     if(tile.rendering){
       myp5.redraw()
       requestAnimationFrame(doAnimate)
     }
-  }
-
-  setTimeout(doAnimate, myp5.random(100))
+  })()
 
   myp5._start();
   tile.p5 = myp5
