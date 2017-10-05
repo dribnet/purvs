@@ -1,14 +1,14 @@
 /* This is an example of 10print translated into the PS4 framework */
 
-var blue = "#0000AA"
-var light_blue = "#0088FF"
+var blue = "#0000AA";
+var light_blue = "#0088FF";
 
 function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
   var noiseScale=1/16.0;
-  var startx = slashsize * (Math.floor(x1/slashsize) - 1);
-  var starty = slashsize * (Math.floor(y1/slashsize) - 1);
-  var endx = slashsize * (Math.floor(x2/slashsize) + 1);
-  var endy = slashsize * (Math.floor(y2/slashsize) + 1);
+  var startx = slashsize * Math.floor(x1/slashsize) - 1;
+  var starty = slashsize * Math.floor(y1/slashsize) - 1;
+  var endx = slashsize * (1 + Math.floor(x2/slashsize)) + 1;
+  var endy = slashsize * (1 + Math.floor(y2/slashsize)) + 1;
 
   var char_width = 256 / ((x2-x1)/slashsize);
   var char_height = 256 / ((y2-y1)/slashsize);
@@ -23,7 +23,7 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
       var n_y = y / slashsize;
       var y_pos = p5.map(y, y1, y2, 0, 256);
       var noiseValue = p5.noise(x * noiseScale, y * noiseScale, z);
-      if (noiseValue < 0.5) {
+      if (noiseValue < 0.7) {
         p5.line(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
       }
       else {
