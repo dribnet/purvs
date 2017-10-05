@@ -12,7 +12,11 @@
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
+
+
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
   console.log(y1, y2);
   p5.background(255);
   p5.rectMode(p5.CORNERS);
@@ -46,4 +50,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cx2 = p5.map(412+50, x1, x2, 0, 256);
   p5.fill(0, 255, 0);
   p5.ellipse(cx, cy, (cx2-cx));
+
 }
+
+function drawShape () {
+  p5.fill(255);
+  p5.ellipse(cx, cy, (cx2-cx));
+}
+
+drawShape();

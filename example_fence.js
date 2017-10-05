@@ -66,6 +66,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
       p5.noStroke();
+
+      /////////////////
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
