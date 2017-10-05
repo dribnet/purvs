@@ -22,11 +22,11 @@ var maxLevel = 1;
  * @param {Number} z 
  * @param {Number} zoom 
  */
-function drawGrid(p, x1, x2, y1, y2, z, zoom, levels) {
-  levels = levels || 0
+function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
+  level = level || 0
   zoom = zoom || 0
 
-  if(levels == 0){
+  if(level == 0){
     p.background(0,0,0)
     p.noFill();
     p.colorMode(p.HSB)
@@ -35,17 +35,18 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, levels) {
     p.strokeCap(p.ROUND)
   }
   
-  if(levels < maxLevel){
+  if(level < maxLevel){
     for(let x = 0; x < 2; x++){
       for(let y = 0; y < 2; y++){
         p.push()
         p.translate(255*x/2, 255*y/2)
         p.scale(0.5)
-        drawGrid(p, p.map(x, 0, 2, x1, x2),
+        drawGrid(p,
+          p.map(x, 0, 2, x1, x2),
           p.map(x+1, 0, 2, x1, x2),
           p.map(y, 0, 2, y1, y2),
           p.map(y+1, 0, 2, y1, y2),
-          z, zoom+1, levels+1)
+          z, zoom+1, level+1)
         p.translate(-255*x/2, -255*y/2)
         p.pop()
       }
@@ -58,32 +59,33 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, levels) {
 
   let scale = (x2-x1)/255
 
-  var padding= 5;
+  var padding = level == 0 ? 5 : 1;
   let min = padding;
   let max = 255-padding;
-
-  let padded = (val) => padding+(255-padding*2)*(val)
 
   let points = drawSine(p.createVector(min, min), p.createVector(max, max))
   let points2 = drawSine(p.createVector(min, max), p.createVector(max, min))
 
-  p.stroke((zoom/3*360).mod(360), 90, 100-levels/maxLevel*40)
+  p.stroke((zoom/3*360).mod(360), 90, 100-level/maxLevel*40)
   p.strokeWeight(10)
 
   drawCurve(points)
   drawCurve(points2)
 
   function drawSine(start, end){
-    var offDir = p5.Vector.fromAngle(start.angleBetween(end)+p.PI)
+    var offDir = p5.Vector.fromAngle(start.angleBetween(end)+p.PI/2)
     offDir.mult(80)
   
     return fillArray(10, 0).map((val, i, arr) => {
       let prog = (-1+i)/(arr.length-3);
       let v = p5.Vector.lerp(start, end, prog)
       let offset = (-1 + 2*p.noise(
-        (x1 + scale*prog*255)*noiseScale, 
-        (y1 + scale*prog*255)*noiseScale, 
-        p.millis()/2000)) * p.sin(prog*p.PI)
+        (x1 + v.x*scale)*noiseScale, 
+        (y1 + v.y*scale)*noiseScale, 
+        p.millis()/2000))
+
+      //neutralize at edges
+      offset *= p.sin(prog*p.PI)
 
       // let offset = 80 * p.sin(x1*y1 + scale*prog*p.TWO_PI + scale*p.millis()/5000*p.TWO_PI)
       v.add(p5.Vector.mult(offDir, offset));
