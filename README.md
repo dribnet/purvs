@@ -1,8 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-I'm going to be using my sky from my landscape as inspiration for this project.
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
 
-At the highest level of the sketch, you will only see bright spheres, like stars. As you zoom in, you can see that some of them are planets, with simple rings around them. When you zoom in again, you can see details on the planets, and that the rings are made up of mulitple rings, along with some smaller spheres being comets. When you zoom in again, you see many little stars in the background, some in clusters.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
