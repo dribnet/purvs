@@ -1,18 +1,7 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+In my example, I want to take elements from ps3 and bring them into this one. I intend to make these curved star shaped objects, and place them on the infinitite map using noise as a way to place them. 
+When zoomed into, the triangles from my last project will appear. As they are zoomed into further, a texture will start to emerge, similar to seeing the atoms of an object, for example.
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+## Also update both images keeping their original sizes:
+## preview.png (960x500) and thumbnail.png (230x120).
