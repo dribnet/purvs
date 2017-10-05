@@ -1,18 +1,6 @@
 ## PS4 MDDN 342 2017
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose additional levels of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+I've decided to continue in the aesthetic I developed for ps3, and so am going to develop my lily pond environment further and make it more suited to this new brief. 
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+The first zoom level (top left quarter) will simply look like an abstract dot pattern. The detail of the pond is revealed at level 2 (top right). At zoom level 3 (bottom right), forms under the water start to emerge, and details are cleared in the lilies. Finally, at the final zoom level, the water becomes clearer, and fish and rocks appear under the surface. 
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
