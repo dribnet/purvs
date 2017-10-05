@@ -5,8 +5,10 @@ var light_blue = "#0088FF"
 
 function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
   var noiseScale=1/16.0;
+  // figure out top left and top right square then - 1 off grid
   var startx = slashsize * (Math.floor(x1/slashsize) - 1);
   var starty = slashsize * (Math.floor(y1/slashsize) - 1);
+  // figure out where the slash should be
   var endx = slashsize * (Math.floor(x2/slashsize) + 1);
   var endy = slashsize * (Math.floor(y2/slashsize) + 1);
 

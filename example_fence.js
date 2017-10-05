@@ -11,9 +11,13 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
                         y * noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
-  return [x+offsetX, y+offsetY]
+
+  // gives offset
+  //return [x+offsetX, y+offsetY]
+  return [x, y]
 }
 
+// finds the closest point that it maps to
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
@@ -67,6 +71,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      
     }
   }
 }
