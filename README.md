@@ -1,7 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-In my example, I want to take elements from ps3 and bring them into this one. I intend to make these curved star shaped objects, and place them on the infinitite map using noise as a way to place them. 
-When zoomed into, the triangles from my last project will appear. As they are zoomed into further, a texture will start to emerge, similar to seeing the atoms of an object, for example.
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
 
-## Also update both images keeping their original sizes:
-## preview.png (960x500) and thumbnail.png (230x120).
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
