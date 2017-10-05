@@ -112,18 +112,30 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, colour, adjuster) 
     for (var pos = 12; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
         var yPos = bigHex[pos][1];
-		if(xPos > 0){
+		if(xPos > 60){
+            xPos = xPos + (adjuster * 2);
+        }
+		else if(xPos > 0){
             xPos = xPos + adjuster;
         }
-        else {
-            xPos = xPos - adjuster;   
+		else if(xPos > -60){
+            xPos = xPos - adjuster;
         }
-        if(yPos > 0){
+        else {
+            xPos = xPos - (adjuster * 2);   
+        }
+		if(yPos > 90){
+			yPos = yPos + (adjuster * 2);
+		}
+        else if(yPos > 0){
             yPos = yPos + adjuster;
         }
-        else {
+        else if(yPos > -120){
             yPos = yPos - adjuster;   
         }
+		else {
+			yPos = yPos - (adjuster * 2);   
+		}
         cx = p5.map(centerX + xPos, x1, x2, 0, 256);
         cy = p5.map(centerY + yPos, y1, y2, 0, 256);
         p5.vertex(cx, cy);
