@@ -1,6 +1,8 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
-I've decided to continue in the aesthetic I developed for ps3, and so am going to develop my lily pond environment further and make it more suited to this new brief. 
+A daydream of what might be hidden within the C64 10print maze
+using p5.js and leaflet.
 
-The first zoom level (top left quarter) will simply look like an abstract dot pattern. The detail of the pond is revealed at level 2 (top right). At zoom level 3 (bottom right), forms under the water start to emerge, and details are cleared in the lilies. Finally, at the final zoom level, the water becomes clearer, and fish and rocks appear under the surface. 
-
+You can also use the Open link at right to open this app in a full screen
+window which additionally supports stateful URLs so
+you can bookmark favorite found locations.
