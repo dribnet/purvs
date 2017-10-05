@@ -1,11 +1,14 @@
 //for debugging
 var debug = false;
 
-var line_width = 2;
+//global vars
+var line_width = 2, noiseScale=1/16.0;
  
 //array of hue ranges used for selecting colour of the hex outline
 var huesArray = [0,30,60,90,120,150,180,210,240,270,300,330];
-				
+
+//array of co-ordinates used to draw the hexagon pattern at the highest zoom level
+//each co-ordinate is the center of a hexagon
 var highLevelCoOrdinates = [
 	[272, 512],
 	[512, 332],
@@ -48,23 +51,19 @@ var highLevelCoOrdinates = [
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  p5.background(0);
-  p5.colorMode(p5.HSB);
-  p5.rectMode(p5.CORNERS);
+	p5.background(0);
+	p5.colorMode(p5.HSB);
+	p5.rectMode(p5.CENTER);
 
-  if(debug){
-	drawFrame(p5, x1, x2, y1, y2,);
-  }
-
-  // The second black rectangle is inset to form a frame inset by 20 units
-  cx = p5.map(512-956/2, x1, x2, 0, 256);
-  cy = p5.map(512-716/2, y1, y2, 0, 256);
-  cx2 = p5.map(512+956/2, x1, x2, 0, 256);
-  cy2 = p5.map(512+716/2, y1, y2, 0, 256);
-  p5.fill(0);
-  p5.rect(cx, cy, cx2, cy2);
-
+	if(debug){
+		drawFrame(p5, x1, x2, y1, y2,);
+	}
+  
 	var centerX = 512, centerY = 512;
+	
+	var c_p00 = p5.map(0, x1, x2, 0, 256);
+	var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+	var weight = c_plwidth - c_p00;
 
     for(var i=0; i < highLevelCoOrdinates.length; i++){
 		centerX = highLevelCoOrdinates[i][0];
@@ -72,16 +71,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		var colour = p5.color(huesArray[(i % 12)], 100, 100);
 		//draw the hexagon outline that groups all the glyphs together
 		for (var adjuster = -2; adjuster <= 2; adjuster++) {
-			drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, colour, adjuster * 2);
+			drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
 		}
-		p5.strokeWeight(1);
-		for (var pos = 0; pos < bigHex.length; pos++) {
-			var xPos = bigHex[pos][0];
-			var yPos = bigHex[pos][1];
-			cx = p5.map(centerX + xPos, x1, x2, 0, 256);
-			cy = p5.map(centerY+ yPos, y1, y2, 0, 256);
-			p5.ellipse(cx, cy, 50);
-		}
+		drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight);
     }
 }
 
@@ -98,17 +90,15 @@ var bigHex = [
 
 
 //draws the lines that connects the hexagons together
-function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, colour, adjuster) {
-    p5.noFill();
-    p5.beginShape();
-    
+function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster) {
     var xPos, yPos, cx, cy;
-	var c_p00 = p5.map(0, x1, x2, 0, 256);
-	var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-	var cur_line_width = c_plwidth - c_p00;
-	p5.strokeWeight(cur_line_width);
+	//adjust the opacity of the colour
 	colour._array[3] = 1 - (0.2 * Math.abs(adjuster));
+	
     p5.stroke(colour);
+	p5.strokeWeight(weight);
+	p5.noFill();
+	p5.beginShape();
     for (var pos = 12; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
         var yPos = bigHex[pos][1];
@@ -143,6 +133,35 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, colour, adjuster) 
     p5.endShape(p5.CLOSE);
 }
 
+function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight){
+	var glyphWidth = 256 / ((x2-x1)/48);
+	var innerShapeSize = glyphWidth / 2;
+	p5.strokeWeight(weight * 2);
+	for (var pos = 0; pos < bigHex.length; pos++) {
+		var xPos = bigHex[pos][0];
+		var yPos = bigHex[pos][1];
+		cx = p5.map(centerX + xPos, x1, x2, 0, 256);
+		cy = p5.map(centerY + yPos, y1, y2, 0, 256);
+		p5.ellipse(cx, cy, glyphWidth);
+		
+		var noiseValue = p5.noise(centerX + xPos * noiseScale, centerY + yPos * noiseScale, z);
+		if (noiseValue < 0.2) {
+			p5.ellipse(cx, cy, innerShapeSize, innerShapeSize);
+		}
+		else if (noiseValue < 0.4) {
+			p5.rect(cx, cy, innerShapeSize, innerShapeSize);
+		}
+		else if (noiseValue < 0.6) {
+			octagon(p5, cx, cy, innerShapeSize);
+		}
+		else if (noiseValue < 0.8) {
+			equilateral(p5, cx, cy, innerShapeSize);
+		}
+		else {
+			hexagon(p5,cx, cy, innerShapeSize);
+		}
+	}
+}
 
 /*
  * function to draw an equilateral triangle with a set width
