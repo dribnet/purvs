@@ -1,4 +1,4 @@
-## PS4 MDDN 342 2017
+## Powers of 10 PRINT
 
 In my project, I am wanting to show how colors mix together by each level being the color of multiple colors in the lower level, using [Additive Color](https://en.wikipedia.org/wiki/Additive_color).
 
