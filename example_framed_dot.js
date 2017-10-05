@@ -10,40 +10,117 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
+var tileWidth = 40;
+var tileHeight = tileWidth/2;
+var grid_locations;
+var gen = false;
+
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   console.log(y1, y2);
-  p5.background(255);
+  p5.background(125,210,233);
   p5.rectMode(p5.CORNERS);
+  p5.noStroke();
 
-  // The first red rectangle fills the entire space
-  var cx = p5.map(512-960/2, x1, x2, 0, 256);
-  var cy = p5.map(512-720/2, y1, y2, 0, 256);
-  var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-  var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  p5.fill(255, 0, 0);
-  p5.rect(cx, cy, cx2, cy2);
+  if(!gen){
+    generateArray(p5);
+    gen = true;
+  }
 
-  // The second black rectangle is inset to form a frame inset by 20 units
-  cx = p5.map(512-940/2, x1, x2, 0, 256);
-  cy = p5.map(512-700/2, y1, y2, 0, 256);
-  cx2 = p5.map(512+940/2, x1, x2, 0, 256);
-  cy2 = p5.map(512+700/2, y1, y2, 0, 256);
-  p5.fill(0);
-  p5.rect(cx, cy, cx2, cy2);
+  var xOffset = 0;
+  //0-960 is the size of the overall canvas, have to map that to the size of the view square (x1,y1,x2,y2)
+  for(var j = 0; j < 5; j++){
+    for(var i = 0; i < 5; i++){
 
-  // Two ellipses with a radius of 50 units are then added.
-  var cx = p5.map(512, x1, x2, 0, 256);
-  var cy = p5.map(512, y1, y2, 0, 256);
-  var cx2 = p5.map(512+50, x1, x2, 0, 256);
-  p5.fill(0, 0, 255);
-  p5.ellipse(cx, cy, (cx2-cx));
+      var cy = p5.map(212 + (tileHeight/2 * j), y1, y2, 0, 256);
+      var cx = p5.map(tileWidth + (tileWidth * i) + xOffset, x1, x2, 0, 256);
+      var cx2 = p5.map(tileWidth + (tileWidth * (i+1)) + xOffset, x1, x2, 0, 256);
+      var dy = p5.map(212 + (tileHeight/2 * j) + grid_locations[j][i], y1, y2, 0, 256);
 
-  // The second green ellipse is above and to the left of the first one.
-  var cx = p5.map(412, x1, x2, 0, 256);
-  var cy = p5.map(412, y1, y2, 0, 256);
-  var cx2 = p5.map(412+50, x1, x2, 0, 256);
-  p5.fill(0, 255, 0);
-  p5.ellipse(cx, cy, (cx2-cx));
+      //Terrian Variables
+      var tileW = (cx2-cx)+1; //Get relative width (+1 so you can't see the grid)
+      var tileH = tileW/2;
+
+      drawGroundTile(p5, cx, cy, (dy - cy), tileW, tileH);
+    }
+
+    xOffset += tileWidth/2;
+
+    if(xOffset == tileWidth)
+      xOffset = 0;
+
+  }
+}
+
+function generateArray(p5)
+{
+    grid_locations = new Array(5);
+  for(var j = 0; j < 5; j++){
+
+    grid_locations[j] = new Array(5);
+
+    for(var i = 0; i < 5; i++){
+
+      grid_locations[j][i] = p5.random(20);
+
+    }
+  }
+}
+
+function drawGroundTile(p5, x, y, dy, w, h){
+
+  var shade = p5.color(100,169,74);
+  var tileDepth = h/2;
+
+  //Draw bottom left side
+  p5.fill(p5.red(shade) - 10, p5.green(shade) - 10, p5.blue(shade) - 10);
+
+  p5.beginShape();
+
+  p5.vertex(x - w/2, y-dy);
+
+  p5.vertex(x - w/2, y + tileDepth);
+  p5.vertex(x, y + h/2 + tileDepth);
+
+  p5.vertex(x, y-dy);
+
+  p5.endShape();
+
+
+  //draw bottom right side
+  p5.fill(p5.red(shade) - 25, p5.green(shade) - 25, p5.blue(shade) - 25);
+
+  p5.beginShape();
+
+  p5.vertex(x + w/2, y-dy);
+
+  p5.vertex(x + w/2, y + tileDepth);
+  p5.vertex(x, y + h/2 + tileDepth);
+
+  p5.vertex(x, y-dy);
+
+  p5.endShape();
+
+
+  p5.push();
+
+  //Translate grass to adjust for random height
+  p5.translate(0, -dy);
+
+  //Draw Grass
+  p5.fill(shade);
+  
+  p5.beginShape();
+
+  p5.vertex(x - w/2 , y);
+  p5.vertex(x , y - h/2);
+  p5.vertex(x + w/2 , y);
+  p5.vertex(x , y + h/2);
+  p5.vertex(x - w/2 , y);
+
+  p5.endShape(); 
+
+  p5.pop();
+
 }
