@@ -124,7 +124,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var c_p00 = p5.map(0, x1, x2, 0, 256);
     var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
     var weight = c_plwidth - c_p00;
-
     for(var i=0; i < highLevelCoOrdinates.length; i++){
         centerX = highLevelCoOrdinates[i][0];
         centerY = highLevelCoOrdinates[i][1];
@@ -133,7 +132,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         for (var adjuster = -2; adjuster <= 2; adjuster++) {
             drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
         }
-        colour._array[3] = 0.2;
+        colour._array[3] = 0.4;
         p5.stroke(colour);
         drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight);
     }
@@ -152,25 +151,25 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, ad
     for (var pos = 12; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
         var yPos = bigHex[pos][1];
-        if(xPos > 60){
+        if(xPos > 30){
             xPos = xPos + (adjuster * 2);
         }
         else if(xPos > 0){
             xPos = xPos + adjuster;
         }
-        else if(xPos > -60){
+        else if(xPos > -30){
             xPos = xPos - adjuster;
         }
         else {
             xPos = xPos - (adjuster * 2);
         }
-        if(yPos > 90){
+        if(yPos > 45){
             yPos = yPos + (adjuster * 2);
         }
         else if(yPos > 0){
             yPos = yPos + adjuster;
         }
-        else if(yPos > -120){
+        else if(yPos > -60){
             yPos = yPos - adjuster;
         }
         else {
@@ -185,9 +184,9 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, ad
 }
 
 function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight){
-    var glyphWidth = 256 / ((x2-x1)/96);
+    var glyphWidth = 256 / ((x2-x1)/24);
     var innerShapeSize = glyphWidth / 2;
-    p5.strokeWeight(weight * 2);
+    p5.strokeWeight(weight);
     for (var pos = 0; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
         var yPos = bigHex[pos][1];
