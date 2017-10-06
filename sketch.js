@@ -1,9 +1,13 @@
 //for debugging
 var debug = true;
 //global vars
-var line_width = 2, noiseScale=1/16.0;
+var line_width = 2, noiseScale=1;
+
 //array of hue ranges used for selecting colour of the hex outline
 var huesArray = [0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,265,270,285,300,315,330,345];
+
+//
+var lucasNumbers = [1,3,4,7,11,18,29,47];
 
 //array of co-ordinates used to draw the hexagon pattern at the highest zoom level
 //each co-ordinate is the center of a hexagon
@@ -95,7 +99,7 @@ var bigHex = [
 ];
 
 
-  /*
+/*
  * This is the funciton to implement to make your own abstract design.
  *
  * arguments:
@@ -106,9 +110,6 @@ var bigHex = [
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.background(0);
     p5.colorMode(p5.HSB);
@@ -128,16 +129,29 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         centerX = highLevelCoOrdinates[i][0];
         centerY = highLevelCoOrdinates[i][1];
         var colour = p5.color(huesArray[(i % huesArray.length)], 100, 100);
-        //draw the hexagon outline that groups all the glyphs together
-        for (var adjuster = -2; adjuster <= 2; adjuster++) {
-            drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
-        }
-        colour._array[3] = 0.4;
-        p5.stroke(colour);
-        drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight);
+		//this is used to draw each hexagon one at a time 
+		//this greatly improves performance of the drawing functionality
+		setTimeout(
+			function(p5js, cX, cY, leftX, rightX, topY, bottomY, sW, c){
+				return function() { drawHexagonZone(p5, cX, cY, leftX, rightX, topY, bottomY, sW, c); };
+			}(p5, centerX, centerY, x1, x2, y1, y2, weight, colour) ,
+			0
+		);
     }
+	
+	
+	
 }
 
+//this function draws every that is contained within a single hexagon zone
+function drawHexagonZone(p5, centerX, centerY, x1, x2, y1, y2, weight, colour) {
+	for (var adjuster = -2; adjuster <= 2; adjuster++) {
+		drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
+	}
+	colour._array[3] = 0.4;
+	p5.stroke(colour);
+	drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight);
+}
 
 //draws the lines that connects the hexagons together
 function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster) {
@@ -183,9 +197,9 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, ad
 
 }
 
-function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight){
+function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight){
     var glyphWidth = 256 / ((x2-x1)/24);
-    var innerShapeSize = glyphWidth / 2;
+    var innerShapeSize = glyphWidth / 4;
     p5.strokeWeight(weight);
     for (var pos = 0; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
@@ -194,81 +208,42 @@ function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight){
         cy = p5.map(centerY + yPos, y1, y2, 0, 256);
         p5.ellipse(cx, cy, glyphWidth);
 
-        var noiseValue = p5.noise(centerX + xPos * noiseScale, centerY + yPos * noiseScale, z);
-        if (noiseValue < 0.2) {
-            p5.ellipse(cx, cy, innerShapeSize, innerShapeSize);
-        }
-        else if (noiseValue < 0.4) {
-            p5.rect(cx, cy, innerShapeSize, innerShapeSize);
-        }
-        else if (noiseValue < 0.6) {
-            octagon(p5, cx, cy, innerShapeSize);
-        }
-        else if (noiseValue < 0.8) {
-            equilateral(p5, cx, cy, innerShapeSize);
-        }
-        else {
-            hexagon(p5,cx, cy, innerShapeSize);
-        }
+        var noiseValue = p5.noise(centerX + xPos , centerY + yPos);
+		var lucasSum = 0;
+		for(var i in lucasNumbers){
+			lucasSum+=lucasNumbers[i];
+			if(noiseValue < (lucasSum/100)){
+					console.log('noiseValue '+noiseValue);
+					console.log('lucasSum '+ (lucasSum/100));
+					console.log(lucasNumbers[lucasNumbers.length - i]);
+				polygon(p5, cx, cy, innerShapeSize, lucasNumbers[lucasNumbers.length - i]);
+				break;
+			}
+		}
     }
 }
 
 /*
- * function to draw an equilateral triangle with a set width
- * based on x, y co-oridinates that are the center of the triangle
- * @param {Number} x        - x-coordinate that is at the center of triangle
- * @param {Number} y        - y-coordinate that is at the center of triangle
- * @param {Number} width    - radius of the hexagon
- */
-function equilateral(p5, x, y, width) {
-  var x1 = x - (width/2);
-  var y1 = y + (width/2);
-  var x2 = x;
-  var y2 = y - (width/2);
-  var x3 = x + (width/2);
-  var y3 = y + (width/2);
-  p5.triangle(x1,y1,x2,y2,x3,y3);
-}
-
-/*
- * function to draw a hexagon shape
+ * function to draw a polygon shape
  * adapted from: https://p5js.org/examples/form-regular-polygon.html
- * @param {Number} x        - x-coordinate of the hexagon
- * @param {Number} y      - y-coordinate of the hexagon
- * @param {Number} radius   - radius of the hexagon
+ * @param {Object} p5       - the p5.js object 
+ * @param {Number} x        - x-coordinate of the polygon
+ * @param {Number} y      	- y-coordinate of the polygon
+ * @param {Number} radius   - radius of the polygon
+ * @param {Number} npoints  - number of sides the polygon has
  */
-function hexagon(p5, x, y, radius) {
-    radius = radius / 2;
-    p5.angleMode(p5.RADIANS);
-    var angle = p5.TWO_PI / 6;
-    p5.beginShape();
-    for (var a = p5.TWO_PI/12; a < p5.TWO_PI + p5.TWO_PI/12; a += angle) {
-        var sx = x + p5.cos(a) * radius;
-        var sy = y + p5.sin(a) * radius;
-        p5.vertex(sx, sy);
-    }
-    p5.endShape(p5.CLOSE);
+function polygon(p5, x, y, radius, npoints) {
+  var angle = p5.TWO_PI / npoints;
+  p5.angleMode(p5.RADIANS);
+  p5.beginShape();
+  for (var a = p5.TWO_PI/(npoints*2); a < p5.TWO_PI + p5.TWO_PI/(npoints*2); a += angle) {
+    var sx = x + p5.cos(a) * radius;
+    var sy = y + p5.sin(a) * radius;
+    p5.vertex(sx, sy);
+  }
+  p5.endShape(p5.CLOSE);
 }
 
-/*
- * function to draw a octagon shape
- * adapted from: https://p5js.org/examples/form-regular-polygon.html
- * @param {Number} x        - x-coordinate of the octagon
- * @param {Number} y      - y-coordinate of the octagon
- * @param {Number} radius   - radius of the octagon
- */
-function octagon(p5, x, y, radius) {
-    radius = radius / 2;
-    p5.angleMode(p5.RADIANS);
-    var angle = p5.TWO_PI / 8;
-    p5.beginShape();
-    for (var a = p5.TWO_PI/16; a < p5.TWO_PI + p5.TWO_PI/16; a += angle) {
-        var sx = x + p5.cos(a) * radius;
-        var sy = y + p5.sin(a) * radius;
-        p5.vertex(sx, sy);
-    }
-    p5.endShape(p5.CLOSE);
-}
 
 
 //red rectangle drawn to show the frame
