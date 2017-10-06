@@ -1,40 +1,99 @@
 //for debugging
-var debug = false;
-
+var debug = true;
 //global vars
 var line_width = 2, noiseScale=1/16.0;
- 
 //array of hue ranges used for selecting colour of the hex outline
-var huesArray = [0,30,60,90,120,150,180,210,240,270,300,330];
+var huesArray = [0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,265,270,285,300,315,330,345];
 
 //array of co-ordinates used to draw the hexagon pattern at the highest zoom level
 //each co-ordinate is the center of a hexagon
 var highLevelCoOrdinates = [
-	[272, 512],
-	[512, 332],
-	[752, 512],
-	[512, 692],
-	[272, 872],
-	[32, 692],
-	[32, 332],
-	[272, 152],
-	[752, 152],
-	[992, 332],
-	[992, 692],
-	[752, 872],
-	[512, 1052],
-	[992, 1052],
-	[1232, 872],
-	[1232, 512],
-	[1232, 152],
-	[992, -28],
-	[512, -28],
-	[32, -28],
-	[-208, 152],
-	[-208, 512],
-	[-208, 872],
-	[32, 1052]
+    [392, 512],
+    [512, 422],
+    [632, 512],
+    [512, 602],
+    [392, 692],
+    [272, 602],
+    [152, 512],
+    [272, 422],
+    [392, 332],
+    [512, 242],
+    [632, 332],
+    [752, 422],
+    [872, 512],
+    [752, 602],
+    [632, 692],
+    [512, 782],
+    [392, 872],
+    [272, 782],
+    [152, 692],
+    [32, 602],
+    [-92, 512],
+    [32, 422],
+    [152, 332],
+    [272, 242],
+    [392, 152],
+    [512, 62],
+    [632, 152],
+    [752, 242],
+    [872, 332],
+    [992, 422],
+    [1112, 512],
+    [992, 602],
+    [872, 692],
+    [752, 782],
+    [632, 872],
+    [512, 962],
+    [392, 1052],
+    [272, 962],
+    [152, 872],
+    [32, 782],
+    [-92, 692],
+    [-212, 602],
+    [-332, 512],
+    [-212, 422],
+    [-92, 332],
+    [32, 242],
+    [152, 152],
+    [272, 62],
+    [392, -32],
+    [512, -122],
+    [632, -32],
+    [752, 62],
+    [872, 152],
+    [992, 242],
+    [1112, 332],
+    [1232, 422],
+    [1352, 512],
+    [1232, 602],
+    [1112, 692],
+    [992, 782],
+    [872, 872],
+    [752, 962],
+    [632, 1052],
+    [512, 1142],
 ];
+
+//co-ordinates for each glyph within the hexagon
+//drawn from the center to the outside - the last twelve co-ordinates can be used to draw the hexagon outline
+// var bigHex = [
+//     [30, -30], [30, 30], [-30, 30], [-30, -30],
+//     [30, -90], [90, -30], [90, 30], [30, 90],
+//     [-30, 90], [-90, 30], [-90, -30], [-30, -90],
+//     [30,-150], [90, -90],[150, -30], [150, 30],
+//     [90, 90], [30,150],[-30,150], [-90, 90],
+//     [-150, 30], [-150, -30], [-90, -90], [-30, -150]
+// ];
+//
+var bigHex = [
+    [15, -15], [15, 15], [-15, 15], [-15, -15],
+    [15, -45], [45, -15], [45, 15], [15, 45],
+    [-15, 45], [-45, 15], [-45, -15], [-15, -45],
+    [15,-75], [45, -45],[75, -15], [75, 15],
+    [45, 45], [15,75],[-15,75], [-45, 45],
+    [-75, 15], [-75, -15], [-45, -45], [-15, -75]
+];
+
 
   /*
  * This is the funciton to implement to make your own abstract design.
@@ -51,116 +110,108 @@ var highLevelCoOrdinates = [
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-	p5.background(0);
-	p5.colorMode(p5.HSB);
-	p5.rectMode(p5.CENTER);
+    p5.background(0);
+    p5.colorMode(p5.HSB);
+    p5.rectMode(p5.CORNERS);
+    p5.noFill();
+    if(debug){
+        drawFrame(p5, x1, x2, y1, y2);
+    }
+    p5.rectMode(p5.CENTER);
 
-	if(debug){
-		drawFrame(p5, x1, x2, y1, y2,);
-	}
-  
-	var centerX = 512, centerY = 512;
-	
-	var c_p00 = p5.map(0, x1, x2, 0, 256);
-	var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-	var weight = c_plwidth - c_p00;
+    var centerX = 512, centerY = 512;
+
+    var c_p00 = p5.map(0, x1, x2, 0, 256);
+    var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+    var weight = c_plwidth - c_p00;
 
     for(var i=0; i < highLevelCoOrdinates.length; i++){
-		centerX = highLevelCoOrdinates[i][0];
-		centerY = highLevelCoOrdinates[i][1];
-		var colour = p5.color(huesArray[(i % 12)], 100, 100);
-		//draw the hexagon outline that groups all the glyphs together
-		for (var adjuster = -2; adjuster <= 2; adjuster++) {
-			drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
-		}
-		drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight);
+        centerX = highLevelCoOrdinates[i][0];
+        centerY = highLevelCoOrdinates[i][1];
+        var colour = p5.color(huesArray[(i % huesArray.length)], 100, 100);
+        //draw the hexagon outline that groups all the glyphs together
+        for (var adjuster = -2; adjuster <= 2; adjuster++) {
+            drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster * 2);
+        }
+        colour._array[3] = 0.2;
+        p5.stroke(colour);
+        drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight);
     }
 }
-
-var bigHex = [
-                
-                [30, -30], [30, 30], [-30, 30], [-30, -30],
-                [30, -90], [90, -30], [90, 30], [30, 90],
-                [-30, 90], [-90, 30], [-90, -30], [-30, -90],
-                [30,-150], [90, -90],[150, -30], [150, 30],
-                [90, 90], [30,150],[-30,150], [-90, 90],
-                [-150, 30], [-150, -30], [-90, -90], [-30, -150]
-            ];
-
 
 
 //draws the lines that connects the hexagons together
 function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster) {
     var xPos, yPos, cx, cy;
-	//adjust the opacity of the colour
-	colour._array[3] = 1 - (0.2 * Math.abs(adjuster));
-	
+    //adjust the opacity of the colour
+    colour._array[3] = 1 - (0.2 * Math.abs(adjuster));
+
     p5.stroke(colour);
-	p5.strokeWeight(weight);
-	p5.noFill();
-	p5.beginShape();
+    p5.strokeWeight(weight);
+    p5.beginShape();
     for (var pos = 12; pos < bigHex.length; pos++) {
         var xPos = bigHex[pos][0];
         var yPos = bigHex[pos][1];
-		if(xPos > 60){
+        if(xPos > 60){
             xPos = xPos + (adjuster * 2);
         }
-		else if(xPos > 0){
+        else if(xPos > 0){
             xPos = xPos + adjuster;
         }
-		else if(xPos > -60){
+        else if(xPos > -60){
             xPos = xPos - adjuster;
         }
         else {
-            xPos = xPos - (adjuster * 2);   
+            xPos = xPos - (adjuster * 2);
         }
-		if(yPos > 90){
-			yPos = yPos + (adjuster * 2);
-		}
+        if(yPos > 90){
+            yPos = yPos + (adjuster * 2);
+        }
         else if(yPos > 0){
             yPos = yPos + adjuster;
         }
         else if(yPos > -120){
-            yPos = yPos - adjuster;   
+            yPos = yPos - adjuster;
         }
-		else {
-			yPos = yPos - (adjuster * 2);   
-		}
+        else {
+            yPos = yPos - (adjuster * 2);
+        }
         cx = p5.map(centerX + xPos, x1, x2, 0, 256);
         cy = p5.map(centerY + yPos, y1, y2, 0, 256);
         p5.vertex(cx, cy);
     }
     p5.endShape(p5.CLOSE);
+
 }
 
 function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, z, weight){
-	var glyphWidth = 256 / ((x2-x1)/48);
-	var innerShapeSize = glyphWidth / 2;
-	p5.strokeWeight(weight * 2);
-	for (var pos = 0; pos < bigHex.length; pos++) {
-		var xPos = bigHex[pos][0];
-		var yPos = bigHex[pos][1];
-		cx = p5.map(centerX + xPos, x1, x2, 0, 256);
-		cy = p5.map(centerY + yPos, y1, y2, 0, 256);
-		p5.ellipse(cx, cy, glyphWidth);
-		
-		var noiseValue = p5.noise(centerX + xPos * noiseScale, centerY + yPos * noiseScale, z);
-		if (noiseValue < 0.2) {
-			p5.ellipse(cx, cy, innerShapeSize, innerShapeSize);
-		}
-		else if (noiseValue < 0.4) {
-			p5.rect(cx, cy, innerShapeSize, innerShapeSize);
-		}
-		else if (noiseValue < 0.6) {
-			octagon(p5, cx, cy, innerShapeSize);
-		}
-		else if (noiseValue < 0.8) {
-			equilateral(p5, cx, cy, innerShapeSize);
-		}
-		else {
-			hexagon(p5,cx, cy, innerShapeSize);
-		}
-	}
+    var glyphWidth = 256 / ((x2-x1)/96);
+    var innerShapeSize = glyphWidth / 2;
+    p5.strokeWeight(weight * 2);
+    for (var pos = 0; pos < bigHex.length; pos++) {
+        var xPos = bigHex[pos][0];
+        var yPos = bigHex[pos][1];
+        cx = p5.map(centerX + xPos, x1, x2, 0, 256);
+        cy = p5.map(centerY + yPos, y1, y2, 0, 256);
+        p5.ellipse(cx, cy, glyphWidth);
+
+        var noiseValue = p5.noise(centerX + xPos * noiseScale, centerY + yPos * noiseScale, z);
+        if (noiseValue < 0.2) {
+            p5.ellipse(cx, cy, innerShapeSize, innerShapeSize);
+        }
+        else if (noiseValue < 0.4) {
+            p5.rect(cx, cy, innerShapeSize, innerShapeSize);
+        }
+        else if (noiseValue < 0.6) {
+            octagon(p5, cx, cy, innerShapeSize);
+        }
+        else if (noiseValue < 0.8) {
+            equilateral(p5, cx, cy, innerShapeSize);
+        }
+        else {
+            hexagon(p5,cx, cy, innerShapeSize);
+        }
+    }
 }
 
 /*
@@ -221,12 +272,12 @@ function octagon(p5, x, y, radius) {
 }
 
 
-//red rectangle drawn to show the frame 
+//red rectangle drawn to show the frame
 function drawFrame(p5, x1, x2, y1, y2,){
-	var cx = p5.map(512-960/2, x1, x2, 0, 256);
-	var cy = p5.map(512-720/2, y1, y2, 0, 256);
-	var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-	var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-	p5.fill(0, 100, 100);
-	p5.rect(cx, cy, cx2, cy2);
-}	 
+    var cx = p5.map(512-960/2, x1, x2, 0, 256);
+    var cy = p5.map(512-720/2, y1, y2, 0, 256);
+    var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
+    var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
+    p5.stroke(0, 100, 100);
+    p5.rect(cx, cy, cx2, cy2);
+}
