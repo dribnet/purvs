@@ -1,94 +1,15 @@
 //for debugging
-var debug = true;
+var debug = false;
 //global vars
 var line_width = 2, noiseScale=1;
 
 //array of hue ranges used for selecting colour of the hex outline
 var huesArray = [0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,265,270,285,300,315,330,345];
 
-//
 var lucasNumbers = [1,3,4,7,11,18,29,47];
-
-//array of co-ordinates used to draw the hexagon pattern at the highest zoom level
-//each co-ordinate is the center of a hexagon
-var highLevelCoOrdinates = [
-    [392, 512],
-    [512, 422],
-    [632, 512],
-    [512, 602],
-    [392, 692],
-    [272, 602],
-    [152, 512],
-    [272, 422],
-    [392, 332],
-    [512, 242],
-    [632, 332],
-    [752, 422],
-    [872, 512],
-    [752, 602],
-    [632, 692],
-    [512, 782],
-    [392, 872],
-    [272, 782],
-    [152, 692],
-    [32, 602],
-    [-92, 512],
-    [32, 422],
-    [152, 332],
-    [272, 242],
-    [392, 152],
-    [512, 62],
-    [632, 152],
-    [752, 242],
-    [872, 332],
-    [992, 422],
-    [1112, 512],
-    [992, 602],
-    [872, 692],
-    [752, 782],
-    [632, 872],
-    [512, 962],
-    [392, 1052],
-    [272, 962],
-    [152, 872],
-    [32, 782],
-    [-92, 692],
-    [-212, 602],
-    [-332, 512],
-    [-212, 422],
-    [-92, 332],
-    [32, 242],
-    [152, 152],
-    [272, 62],
-    [392, -32],
-    [512, -122],
-    [632, -32],
-    [752, 62],
-    [872, 152],
-    [992, 242],
-    [1112, 332],
-    [1232, 422],
-    [1352, 512],
-    [1232, 602],
-    [1112, 692],
-    [992, 782],
-    [872, 872],
-    [752, 962],
-    [632, 1052],
-    [512, 1142],
-];
 
 //co-ordinates for each glyph within the hexagon
 //drawn from the center to the outside - the last twelve co-ordinates can be used to draw the hexagon outline
-// var bigHex = [
-//     [30, -30], [30, 30], [-30, 30], [-30, -30],
-//     [30, -90], [90, -30], [90, 30], [30, 90],
-//     [-30, 90], [-90, 30], [-90, -30], [-30, -90],
-//     [30,-150], [90, -90],[150, -30], [150, 30],
-//     [90, 90], [30,150],[-30,150], [-90, 90],
-//     [-150, 30], [-150, -30], [-90, -90], [-30, -150]
-// ];
-//
 var bigHex = [
     [15, -15], [15, 15], [-15, 15], [-15, -15],
     [15, -45], [45, -15], [45, 15], [15, 45],
@@ -120,17 +41,62 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     }
     p5.rectMode(p5.CENTER);
 
-    var centerX = 512, centerY = 512;
-
     var c_p00 = p5.map(0, x1, x2, 0, 256);
     var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
     var weight = c_plwidth - c_p00;
+	
+	var zoneCount = 0, endPointer = 4, visibleInBrowser = true, centerX = 512, centerY = 602, xStep = 120, yStep = 90, direction = 'left';
+	while(visibleInBrowser){
+	
+		for(var zone=1; zone <= endPointer; zone++){
+			var colour = p5.color(huesArray[(zoneCount % huesArray.length)], 100, 100);
+			
+			if(direction == 'left'){
+				centerX -= xStep;
+				centerY -= yStep;
+			}
+			else if(direction == 'up'){
+				centerX += xStep;
+				centerY -= yStep;
+			}
+			else if(direction == 'right'){
+				centerX += xStep;
+				centerY += yStep;
+			}
+			else if(direction == 'down'){
+				centerX -= xStep;
+				centerY += yStep;
+			}
+			
+			//this is used to pass control back to the browser after drawing each hexagon zone
+			//this greatly improves performance of the drawing functionality
+			setTimeout(
+				function(p5js, cX, cY, leftX, rightX, topY, bottomY, sW, c){
+					return function() { drawHexagonZone(p5, cX, cY, leftX, rightX, topY, bottomY, sW, c); };
+				}(p5, centerX, centerY, x1, x2, y1, y2, weight, colour) ,
+				0
+			);
+			
+			if( (zone % (endPointer/4) ) == 0){
+				direction = changeDirection(direction);
+			}
+			
+			zoneCount++;
+		}
+		
+		centerY += (yStep *2);
+		endPointer += 8;
+		if(endPointer > 100){
+			visibleInBrowser = false;
+		}
+	}
+	
+	/*
     for(var i=0; i < highLevelCoOrdinates.length; i++){
         centerX = highLevelCoOrdinates[i][0];
         centerY = highLevelCoOrdinates[i][1];
         var colour = p5.color(huesArray[(i % huesArray.length)], 100, 100);
-		//this is used to draw each hexagon one at a time 
-		//this greatly improves performance of the drawing functionality
+		
 		setTimeout(
 			function(p5js, cX, cY, leftX, rightX, topY, bottomY, sW, c){
 				return function() { drawHexagonZone(p5, cX, cY, leftX, rightX, topY, bottomY, sW, c); };
@@ -138,9 +104,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			0
 		);
     }
+	*/
 	
 	
-	
+}
+
+function changeDirection(currentDirection){
+	var nextDirection = '';
+	switch (currentDirection) {
+		case "left":
+			nextDirection = "up";
+			break;
+		case "up":
+			nextDirection = "right";
+			break;
+		case "right":
+			nextDirection = "down";
+			break;
+		case "down":
+			nextDirection = "left";
+			break;
+	}
+	return nextDirection;
 }
 
 //this function draws every that is contained within a single hexagon zone
@@ -213,9 +198,11 @@ function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight){
 		for(var i in lucasNumbers){
 			lucasSum+=lucasNumbers[i];
 			if(noiseValue < (lucasSum/100)){
+				if(debug){
 					console.log('noiseValue '+noiseValue);
 					console.log('lucasSum '+ (lucasSum/100));
 					console.log(lucasNumbers[lucasNumbers.length - i]);
+				}
 				polygon(p5, cx, cy, innerShapeSize, lucasNumbers[lucasNumbers.length - i]);
 				break;
 			}
