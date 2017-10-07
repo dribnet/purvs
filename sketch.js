@@ -2,57 +2,80 @@
 var debug = false;
 
 //this object is used to store all possible locations for hexagon zones
-var hexagonZones = {
+var hexagonZone = {
+
+	//width and height of a hexagon zone
+	zoneSize: 90,
+	
+	//co-ordinates for each glyph within the hexagon zone
+	//drawn from the center to the outside - the last twelve co-ordinates can be used to draw the hexagon outline
+	innerCoordinates: [],
+	
+	
+	
+	
+	
+	createInnerCoordinates: function(){
+		var multiplier = this.zoneSize /12;
+		this.innerCoordinates = [
+			[+multiplier*1, -multiplier*1], [+multiplier*1, +multiplier*1], [-multiplier*1, +multiplier*1], [-multiplier*1, -multiplier*1],
+			[+multiplier*1, -multiplier*3], [+multiplier*3, -multiplier*1], [+multiplier*3, +multiplier*1], [+multiplier*1, +multiplier*3],
+			[-multiplier*1, +multiplier*3], [-multiplier*3, +multiplier*1], [-multiplier*3, -multiplier*1], [-multiplier*1, -multiplier*3],
+			[+multiplier*1, -multiplier*5], [+multiplier*3, -multiplier*3], [+multiplier*5, -multiplier*1], [+multiplier*5, +multiplier*1],
+			[+multiplier*3, +multiplier*3], [+multiplier*1, +multiplier*5], [-multiplier*1, +multiplier*5], [-multiplier*3, +multiplier*3],
+			[-multiplier*5, +multiplier*1], [-multiplier*5, -multiplier*1], [-multiplier*3, -multiplier*3], [-multiplier*1, -multiplier*5]
+		];
+	},
 	
 	//array of all possible zone locations 
 	locations: [],
-	
-	xStep: 120, 
-	
-	yStep: 90, 
 	
 	createLocations: function(){
 		//keeping track of performance
 		var start = performance.now();
 		//set up initial values required for while loop
 		var endPointer = 4, centerX = 512, centerY = 602, direction = 'left';
+		//calculate the step sizes
+		var multiplier = this.zoneSize/12, xStep = multiplier*8, yStep = multiplier*6;
 		
-		while(endPointer < 10000){
+		while(endPointer < 5000){
 		
 			for(var zone=1; zone <= endPointer; zone++){
 				
 				if(direction == 'left'){
-					centerX -= this.xStep;
-					centerY -= this.yStep;
+					centerX -= xStep;
+					centerY -= yStep;
 				}
 				else if(direction == 'up'){
-					centerX += this.xStep;
-					centerY -= this.yStep;
+					centerX += xStep;
+					centerY -= yStep;
 				}
 				else if(direction == 'right'){
-					centerX += this.xStep;
-					centerY += this.yStep;
+					centerX += xStep;
+					centerY += yStep;
 				}
 				else if(direction == 'down'){
-					centerX -= this.xStep;
-					centerY += this.yStep;
+					centerX -= xStep;
+					centerY += yStep;
 				}
 				
 				//load the zone into the locations array
 				this.locations.push([centerX, centerY]);
 				
 				if( (zone % (endPointer/4) ) == 0){
-					direction = hexagonZones.changeDirection(direction);
+					direction = hexagonZone.changeDirection(direction);
 				}
 				
 			}
 			
-			centerY += (this.yStep *2);
+			centerY += (yStep *2);
 			endPointer += 8;
 		}
 		
 		var end = performance.now();
-		console.log('zone locations loaded in ', (end - start).toFixed(4), ' milliseconds');
+		if(debug){
+			console.log('zone locations loaded in ', (end - start).toFixed(4), ' milliseconds');
+		}
 	},
 	
 	/*
@@ -79,27 +102,14 @@ var hexagonZones = {
 		return nextDirection;
 	}
 }
-//load values into the hexagonZones.locations array
-hexagonZones.createLocations();
+
+//load values into the hexagonZone arrays
+hexagonZone.createInnerCoordinates();
+hexagonZone.createLocations();
 
 //global vars
 var line_width = 2, noiseScale=1;
-
-//array of hue ranges used for selecting colour of the hex outline
-var huesArray = [0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,265,270,285,300,315,330,345];
-
 var lucasNumbers = [1,3,4,7,11,18,29,47];
-
-//co-ordinates for each glyph within the hexagon
-//drawn from the center to the outside - the last twelve co-ordinates can be used to draw the hexagon outline
-var bigHex = [
-    [15, -15], [15, 15], [-15, 15], [-15, -15],
-    [15, -45], [45, -15], [45, 15], [15, 45],
-    [-15, 45], [-45, 15], [-45, -15], [-15, -45],
-    [15,-75], [45, -45],[75, -15], [75, 15],
-    [45, 45], [15,75],[-15,75], [-45, 45],
-    [-75, 15], [-75, -15], [-45, -45], [-15, -75]
-];
 
 
 /*
@@ -114,7 +124,8 @@ var bigHex = [
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-	var tileKey = x1 + '-' + y1 + '-' + x2 + '-' + y2;
+	var tileKey = x1 + '-' + x2 + '-' + y1 + '-' + y2;
+	console.log(tileKey);
     p5.background(0);
     p5.colorMode(p5.HSB);
     p5.rectMode(p5.CORNERS);
@@ -131,10 +142,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	var hue = 0;
 	var colour = p5.color(0, 100, 100);
 	var zoneX = 0, zoneY = 0, isVisible = false;
-	console.log(hexagonZones.locations.length);
-	for (var i = 0, len = hexagonZones.locations.length; i < len; i++) {
-		zoneX = hexagonZones.locations[i][0];
-		zoneY = hexagonZones.locations[i][1];
+	for (var i = 0, len = hexagonZone.locations.length; i < len; i++) {
+		zoneX = hexagonZone.locations[i][0];
+		zoneY = hexagonZone.locations[i][1];
 		isVisible = isZoneWithinTile(zoneX, zoneY, x1, x2, y1, y2);
 		if(isVisible){
 			hue = (i % 24) * 15;
@@ -184,9 +194,9 @@ function drawHexOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, ad
     p5.stroke(colour);
     p5.strokeWeight(weight);
     p5.beginShape();
-    for (var pos = 12; pos < bigHex.length; pos++) {
-        var xPos = bigHex[pos][0];
-        var yPos = bigHex[pos][1];
+    for (var pos = 12; pos < hexagonZone.innerCoordinates.length; pos++) {
+        var xPos = hexagonZone.innerCoordinates[pos][0];
+        var yPos = hexagonZone.innerCoordinates[pos][1];
         if(xPos > 30){
             xPos = xPos + (adjuster * 2);
         }
@@ -223,9 +233,9 @@ function drawHexGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight){
     var glyphWidth = 256 / ((x2-x1)/24);
     var innerShapeSize = glyphWidth / 4;
     p5.strokeWeight(weight);
-    for (var pos = 0; pos < bigHex.length; pos++) {
-        var xPos = bigHex[pos][0];
-        var yPos = bigHex[pos][1];
+    for (var pos = 0; pos < hexagonZone.innerCoordinates.length; pos++) {
+        var xPos = hexagonZone.innerCoordinates[pos][0];
+        var yPos = hexagonZone.innerCoordinates[pos][1];
         cx = p5.map(centerX + xPos, x1, x2, 0, 256);
         cy = p5.map(centerY + yPos, y1, y2, 0, 256);
         p5.ellipse(cx, cy, glyphWidth);
