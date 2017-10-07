@@ -1,5 +1,87 @@
 //for debugging
 var debug = false;
+
+//this object is used to store all possible locations for hexagon zones
+var hexagonZones = {
+	
+	//array of all possible zone locations 
+	locations: [],
+	
+	xStep: 120, 
+	
+	yStep: 90, 
+	
+	createLocations: function(){
+		//keeping track of performance
+		var start = performance.now();
+		//set up initial values required for while loop
+		var endPointer = 4, centerX = 512, centerY = 602, direction = 'left';
+		
+		while(endPointer < 10000){
+		
+			for(var zone=1; zone <= endPointer; zone++){
+				
+				if(direction == 'left'){
+					centerX -= this.xStep;
+					centerY -= this.yStep;
+				}
+				else if(direction == 'up'){
+					centerX += this.xStep;
+					centerY -= this.yStep;
+				}
+				else if(direction == 'right'){
+					centerX += this.xStep;
+					centerY += this.yStep;
+				}
+				else if(direction == 'down'){
+					centerX -= this.xStep;
+					centerY += this.yStep;
+				}
+				
+				//load the zone into the locations array
+				this.locations.push([centerX, centerY]);
+				
+				if( (zone % (endPointer/4) ) == 0){
+					direction = hexagonZones.changeDirection(direction);
+				}
+				
+			}
+			
+			centerY += (this.yStep *2);
+			endPointer += 8;
+		}
+		
+		var end = performance.now();
+		console.log('zone locations loaded in ', (end - start).toFixed(4), ' milliseconds');
+	},
+	
+	/*
+	 * direction is used to determine how the centerX and centerY values in createLocations function will be mutated
+	 * @param  {String} currentDirection   - eg left, right
+	 * @return {String} nextDirection  	   - eg left, right
+	 */
+	changeDirection: function(currentDirection){
+		var nextDirection = '';
+		switch (currentDirection) {
+			case "left":
+				nextDirection = "up";
+				break;
+			case "up":
+				nextDirection = "right";
+				break;
+			case "right":
+				nextDirection = "down";
+				break;
+			case "down":
+				nextDirection = "left";
+				break;
+		}
+		return nextDirection;
+	}
+}
+//load values into the hexagonZones.locations array
+hexagonZones.createLocations();
+
 //global vars
 var line_width = 2, noiseScale=1;
 
@@ -32,12 +114,13 @@ var bigHex = [
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+	var tileKey = x1 + '-' + y1 + '-' + x2 + '-' + y2;
     p5.background(0);
     p5.colorMode(p5.HSB);
     p5.rectMode(p5.CORNERS);
     p5.noFill();
     if(debug){
-        drawFrame(p5, x1, x2, y1, y2);
+        drawDebugFrame(p5, x1, x2, y1, y2);
     }
     p5.rectMode(p5.CENTER);
 
@@ -45,87 +128,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
     var weight = c_plwidth - c_p00;
 	
-	var zoneCount = 0, endPointer = 4, visibleInBrowser = true, centerX = 512, centerY = 602, xStep = 120, yStep = 90, direction = 'left';
-	while(visibleInBrowser){
-	
-		for(var zone=1; zone <= endPointer; zone++){
-			var colour = p5.color(huesArray[(zoneCount % huesArray.length)], 100, 100);
-			
-			if(direction == 'left'){
-				centerX -= xStep;
-				centerY -= yStep;
-			}
-			else if(direction == 'up'){
-				centerX += xStep;
-				centerY -= yStep;
-			}
-			else if(direction == 'right'){
-				centerX += xStep;
-				centerY += yStep;
-			}
-			else if(direction == 'down'){
-				centerX -= xStep;
-				centerY += yStep;
-			}
-			
-			//this is used to pass control back to the browser after drawing each hexagon zone
-			//this greatly improves performance of the drawing functionality
+	var hue = 0;
+	var colour = p5.color(0, 100, 100);
+	var zoneX = 0, zoneY = 0, isVisible = false;
+	console.log(hexagonZones.locations.length);
+	for (var i = 0, len = hexagonZones.locations.length; i < len; i++) {
+		zoneX = hexagonZones.locations[i][0];
+		zoneY = hexagonZones.locations[i][1];
+		isVisible = isZoneWithinTile(zoneX, zoneY, x1, x2, y1, y2);
+		if(isVisible){
+			hue = (i % 24) * 15;
+			colour = p5.color(hue, 100, 100);
 			setTimeout(
 				function(p5js, cX, cY, leftX, rightX, topY, bottomY, sW, c){
 					return function() { drawHexagonZone(p5, cX, cY, leftX, rightX, topY, bottomY, sW, c); };
-				}(p5, centerX, centerY, x1, x2, y1, y2, weight, colour) ,
+				}(p5, zoneX, zoneY, x1, x2, y1, y2, weight, colour) ,
 				0
 			);
-			
-			if( (zone % (endPointer/4) ) == 0){
-				direction = changeDirection(direction);
-			}
-			
-			zoneCount++;
-		}
-		
-		centerY += (yStep *2);
-		endPointer += 8;
-		if(endPointer > 100){
-			visibleInBrowser = false;
 		}
 	}
-	
-	/*
-    for(var i=0; i < highLevelCoOrdinates.length; i++){
-        centerX = highLevelCoOrdinates[i][0];
-        centerY = highLevelCoOrdinates[i][1];
-        var colour = p5.color(huesArray[(i % huesArray.length)], 100, 100);
-		
-		setTimeout(
-			function(p5js, cX, cY, leftX, rightX, topY, bottomY, sW, c){
-				return function() { drawHexagonZone(p5, cX, cY, leftX, rightX, topY, bottomY, sW, c); };
-			}(p5, centerX, centerY, x1, x2, y1, y2, weight, colour) ,
-			0
-		);
-    }
-	*/
-	
-	
 }
 
-function changeDirection(currentDirection){
-	var nextDirection = '';
-	switch (currentDirection) {
-		case "left":
-			nextDirection = "up";
-			break;
-		case "up":
-			nextDirection = "right";
-			break;
-		case "right":
-			nextDirection = "down";
-			break;
-		case "down":
-			nextDirection = "left";
-			break;
+function isZoneWithinTile(zoneX, zoneY, x1, x2, y1, y2){
+	if((zoneX + 90) <= x1){
+		return false;
 	}
-	return nextDirection;
+	if((zoneX - 90) >= x2){
+		return false;
+	}
+	if((zoneY + 90) <= y1){
+		return false;
+	}
+	if((zoneY - 90) >= y2){
+		return false;
+	}
+	return true;
 }
 
 //this function draws every that is contained within a single hexagon zone
@@ -233,8 +270,16 @@ function polygon(p5, x, y, radius, npoints) {
 
 
 
-//red rectangle drawn to show the frame
-function drawFrame(p5, x1, x2, y1, y2,){
+//
+/*
+ * function to draw a red rectangle to show how big the frame used on blocks.org is
+ * @param {Object} p5       - the p5.js object 
+ * @param {Number} x1       
+ * @param {Number} x2
+ * @param {Number} y1 
+ * @param {Number} y2
+ */
+function drawDebugFrame(p5, x1, x2, y1, y2){
     var cx = p5.map(512-960/2, x1, x2, 0, 256);
     var cy = p5.map(512-720/2, y1, y2, 0, 256);
     var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
