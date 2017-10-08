@@ -170,17 +170,38 @@ var hexagonZone = {
 		for (var pos = 12; pos < hexagonZone.innerCoordinates.length; pos++) {
 			var xPos = hexagonZone.innerCoordinates[pos][0];
 			var yPos = hexagonZone.innerCoordinates[pos][1];
+			
 			if(xPos > 0){
-				xPos += adjuster;
+				if(xPos == this.multiplier || xPos == (this.multiplier * 3)){
+					xPos += adjuster/2;
+				}
+				else {
+					xPos += adjuster;
+				}
 			}
 			else {
-				xPos -= adjuster;
+				if(xPos == -this.multiplier || xPos == (-this.multiplier * 3)){
+					xPos -= adjuster/2;
+				}
+				else {
+					xPos -= adjuster;
+				}
 			}
 			if(yPos > 0){
-				yPos += adjuster;
+				if(yPos == this.multiplier){
+					yPos += adjuster/2;
+				}
+				else {
+					yPos += adjuster;
+				}
 			}
 			else {
-				yPos -= adjuster;
+				if(yPos == -this.multiplier){
+					yPos -= adjuster/2;
+				}
+				else {
+					yPos -= adjuster;
+				}
 			}
 			cx = p5.map(centerX + xPos, x1, x2, 0, 256);
 			cy = p5.map(centerY + yPos, y1, y2, 0, 256);
@@ -257,6 +278,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.rectMode(p5.CORNERS);
     p5.noFill();
     if(debug){
+		console.log(tileKey);
         drawDebugFrame(p5, x1, x2, y1, y2);
     }
     p5.rectMode(p5.CENTER);
@@ -264,7 +286,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	var hue = 0;
 	var colour = p5.color(0, 100, 100);
 	var zoneX = 0, zoneY = 0, isVisible = false;
-	
 	for (var i = 0, len = hexagonZone.locations.length; i < len; i++) {
 	
 		zoneX = hexagonZone.locations[i][0];
