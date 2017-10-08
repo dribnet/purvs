@@ -43,6 +43,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cx2 = p5.map(512+50, x1, x2, 0, 256);
   p5.fill(0, 0, 255);
   p5.ellipse(cx, cy, (cx2-cx));
+  p5.stroke(255);
+  p5.strokeWeight(cx/cy);
+  p5.noFill();
+  p5.bezier(cx, cy, cx - 130, cy + 30, cx - 360, cy - 30, cx - 490, cy + 30);
+  p5.bezier(cx, cy, cx - 130, cy - 30, cx - 360, cy - 60, cx - 490, cy - 30);
+  p5.bezier(x1, y1, x1 + 60, y1 - 100, x1 + 120, y1 + 120, x1 + 220, y1 - 200);
+
 
   // The second green ellipse is above and to the left of the first one.
   var cx = p5.map(412, x1, x2, 0, 256);
@@ -53,9 +60,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 }
 
-function drawShape () {
-  p5.fill(255);
-  p5.ellipse(cx, cy, (cx2-cx));
-}
+// function drawShape () {
+//   p5.fill(255);
+//   p5.ellipse(cx, cy, (cx2-cx));
+// }
 
-drawShape();
+// drawShape();
