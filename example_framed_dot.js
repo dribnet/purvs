@@ -13,17 +13,9 @@
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  console.log(y1, y2);
+
   p5.background(255);
   p5.rectMode(p5.CORNERS);
-
-  // The first red rectangle fills the entire space
-  var cx = p5.map(512-960/2, x1, x2, 0, 256);
-  var cy = p5.map(512-720/2, y1, y2, 0, 256);
-  var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-  var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  p5.fill(255, 0, 0);
-  p5.rect(cx, cy, cx2, cy2);
 
   // The second black rectangle is inset to form a frame inset by 20 units
   cx = p5.map(512-940/2, x1, x2, 0, 256);
