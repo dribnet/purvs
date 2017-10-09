@@ -1,6 +1,6 @@
 var max_thickness = 64;
 var max_movement = 32;
-var ball_radius = 40;
+var ball_radius = 30;
 var line_width = 8;
 var grid_size = 64;
 
@@ -30,6 +30,8 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+
   // debug - show border
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -45,10 +47,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_ball_radius = c_pball - c_p00;
 
   p5.background(146, 179, 205);
-  p5.fill(248, 198, 207);
+ 
+//noise background
+  var noiseScale=2; 
+  p5.noiseDetail(8,0.5);
+  p5.noStroke();
+  for(var i=0; i<30; i++) {
+    var n_x = p5.map(i, 0, 16, x1, x2);
+    for(var j=0; j<30; j++) {
+      var n_y = p5.map(j, 0, 16, y1, y2);
+      var noiseVal = p5.noise(n_x * noiseScale,
+                              n_y * noiseScale, z);
+      p5.fill(noiseVal*248, 198, 207);
+      p5.ellipse(i*16, j*16, 16, 16);
+    }
+  }
+//
+
+// if(zoom ==3) {
+//  p5.background(0);
+// }
+  p5.fill(255, 214, 223);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+      var shift_point = getOffsetPoint(p5, x, y, z, 1);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
@@ -67,6 +89,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      
+//       if (zoom >=3) {
+//         p5.fill(0);
+// }
+// else {
+//   p5.fill(255);
+// }
     }
   }
 }

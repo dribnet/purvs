@@ -8,7 +8,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var n_y = p5.map(j, 0, 16, y1, y2);
       var noiseVal = p5.noise(n_x * noiseScale,
                               n_y * noiseScale, z);
-      p5.fill(noiseVal*255);
+      p5.fill(noiseVal*248, 198, 207);
       p5.rect(i*16, j*16, 16, 16);
     }
   }
