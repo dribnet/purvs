@@ -1,8 +1,3 @@
-## Powers of 10 PRINT
+## PS4 Infinite LandScape Part 1
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
-
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+Just took images of my problem set 3, which will be the what I base my ps4 off. I want to extend what I did in ps3 into the infinite landscape, I will do this by making it when you zoom in, it reveals details such as vegatation and trees and maybe some other objects if lag permits. I really liked the isometric view point, and hope it will translate well to the framework we will be using for ps4. 
