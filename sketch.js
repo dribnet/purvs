@@ -1,27 +1,27 @@
 //for debugging
 var debug = false;
 
-//this object is used to store all possible locations for hexagon zones
-var hexagonZone = {
+//this object is used to store all possible locations for octagon zones
+var octagonZone = {
 
-	//width and height of a hexagon zone
+	//width and height of a octagon zone
 	zoneSize: 60,
 	
 	//multiplier - used for many calculations related to this object
 	multiplier: 0,
 	
-	//co-ordinates for each glyph within the hexagon zone
-	//drawn from the center to the outside - the last twelve co-ordinates can be used to draw the hexagon outline
+	//co-ordinates for each glyph within the octagon zone
+	//drawn from the center to the outside - the last twelve co-ordinates can be used to draw the octagon outline
 	innerCoordinates: [],
 	
 	/*
-	 * initilizes the hexagonZone
+	 * initilizes the octagonZone
 	 * sets the value of the mulitplier and load values into the innerCoordinates and locations arrays
 	 */
 	init: function() {
 		this.multiplier = this.zoneSize /12;
-		hexagonZone.createInnerCoordinates();
-		hexagonZone.createLocations();
+		octagonZone.createInnerCoordinates();
+		octagonZone.createLocations();
 	},
 	
 	/*
@@ -44,7 +44,7 @@ var hexagonZone = {
 	
 	/*
 	 * this function sets the values of the locations array
-	 * determining every possible location for a hexagon zone
+	 * determining every possible location for a octagon zone
 	 */
 	createLocations: function(){
 		//keeping track of performance
@@ -79,7 +79,7 @@ var hexagonZone = {
 				this.locations.push([centerX, centerY]);
 				
 				if( (zone % (endPointer/4) ) == 0){
-					direction = hexagonZone.changeDirection(direction);
+					direction = octagonZone.changeDirection(direction);
 				}
 				
 			}
@@ -122,8 +122,8 @@ var hexagonZone = {
 	 * this function determines what stroke weight should be used
 	 * then calls the other functions required to draw everything container within this zone
 	 * @param {Object} p5       - the p5.js object 
-	 * @param {Number} centerX  - center of the x-axis for the current hexagon zone 
-	 * @param {Number} centerY  - center of the y-axis for the current hexagon zone 
+	 * @param {Number} centerX  - center of the x-axis for the current octagon zone 
+	 * @param {Number} centerY  - center of the y-axis for the current octagon zone 
 	 * @param {Number} x1       - left side of a map tile
 	 * @param {Number} x2		- right side of a map tile
 	 * @param {Number} y1 		- top side of a map tile
@@ -139,16 +139,16 @@ var hexagonZone = {
 			this.drawOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster);
 		}
 		
-		colour._array[3] = 0.4;
+		colour._array[3] = 1;
 		p5.stroke(colour);
 		this.drawGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight);
 	},
 	
 	/*
-	 * draws the outline that connects the outer points of a hexagon zone together
+	 * draws the outline that connects the outer points of a octagon zone together
 	 * @param {Object} p5       - the p5.js object 
-	 * @param {Number} centerX  - center of the x-axis for the current hexagon zone 
-	 * @param {Number} centerY  - center of the y-axis for the current hexagon zone 
+	 * @param {Number} centerX  - center of the x-axis for the current octagon zone 
+	 * @param {Number} centerY  - center of the y-axis for the current octagon zone 
 	 * @param {Number} x1       - left side of a map tile
 	 * @param {Number} x2		- right side of a map tile
 	 * @param {Number} y1 		- top side of a map tile
@@ -167,9 +167,9 @@ var hexagonZone = {
 		p5.strokeWeight(weight);
 		
 		p5.beginShape();
-		for (var pos = 12; pos < hexagonZone.innerCoordinates.length; pos++) {
-			var xPos = hexagonZone.innerCoordinates[pos][0];
-			var yPos = hexagonZone.innerCoordinates[pos][1];
+		for (var pos = 12; pos < octagonZone.innerCoordinates.length; pos++) {
+			var xPos = octagonZone.innerCoordinates[pos][0];
+			var yPos = octagonZone.innerCoordinates[pos][1];
 			
 			if(xPos > 0){
 				if(xPos == this.multiplier || xPos == (this.multiplier * 3)){
@@ -215,10 +215,10 @@ var hexagonZone = {
 	lucasNumbers: [1,3,4,7,11,18,29,47],
 	
 	/*
-	 * draws each of the glyphs contained within a hexagon zone
+	 * draws each of the glyphs contained within a octagon zone
 	 * @param {Object} p5       - the p5.js object 
-	 * @param {Number} centerX  - center of the x-axis for the current hexagon zone 
-	 * @param {Number} centerY  - center of the y-axis for the current hexagon zone 
+	 * @param {Number} centerX  - center of the x-axis for the current octagon zone 
+	 * @param {Number} centerY  - center of the y-axis for the current octagon zone 
 	 * @param {Number} x1       - left side of a map tile
 	 * @param {Number} x2		- right side of a map tile
 	 * @param {Number} y1 		- top side of a map tile
@@ -230,10 +230,10 @@ var hexagonZone = {
 		var innerShapeSize = glyphWidth / 4;
 		p5.strokeWeight(weight);
 		
-		for (var pos = 0; pos < hexagonZone.innerCoordinates.length; pos++) {
+		for (var pos = 0; pos < octagonZone.innerCoordinates.length; pos++) {
 		
-			var xPos = hexagonZone.innerCoordinates[pos][0];
-			var yPos = hexagonZone.innerCoordinates[pos][1];
+			var xPos = octagonZone.innerCoordinates[pos][0];
+			var yPos = octagonZone.innerCoordinates[pos][1];
 			
 			cx = p5.map(centerX + xPos, x1, x2, 0, 256);
 			cy = p5.map(centerY + yPos, y1, y2, 0, 256);
@@ -241,24 +241,27 @@ var hexagonZone = {
 			p5.ellipse(cx, cy, glyphWidth);
 
 			var noiseValue = p5.noise(centerX + xPos , centerY + yPos);
+			//reverse and stretch the noiseValue out a bit so there is a higher change a circle will be drawn
+			noiseValue = p5.map(noiseValue, 0.8, 0.2, 0.0, 1.0);
 			var lucasSum = 0;
 			
 			for(var i in this.lucasNumbers){
 				lucasSum += this.lucasNumbers[i];
-				if(noiseValue < (lucasSum/100)){
+				if(noiseValue <= (lucasSum/100)){
 					if(debug){
 						console.log('noiseValue '+noiseValue);
 						console.log('lucasSum '+ (lucasSum/100));
-						console.log(this.lucasNumbers[this.lucasNumbers.length - i]);
+						console.log('i = ' + i);
+						console.log(this.lucasNumbers[this.lucasNumbers.length - i - 	1]);
 					}
-					polygon(p5, cx, cy, innerShapeSize, this.lucasNumbers[this.lucasNumbers.length - i]);
+					polygon(p5, cx, cy, innerShapeSize, this.lucasNumbers[this.lucasNumbers.length - i - 1]);
 					break;
 				}
 			}
 		}
 	}
 }
-hexagonZone.init();
+octagonZone.init();
  
  /*
  * draws the contents a map tile
@@ -286,10 +289,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	var hue = 0;
 	var colour = p5.color(0, 100, 100);
 	var zoneX = 0, zoneY = 0, isVisible = false;
-	for (var i = 0, len = hexagonZone.locations.length; i < len; i++) {
+	for (var i = 0, len = octagonZone.locations.length; i < len; i++) {
 	
-		zoneX = hexagonZone.locations[i][0];
-		zoneY = hexagonZone.locations[i][1];
+		zoneX = octagonZone.locations[i][0];
+		zoneY = octagonZone.locations[i][1];
 		isVisible = isZoneWithinTile(zoneX, zoneY, x1, x2, y1, y2);
 		
 		if(isVisible){
@@ -299,7 +302,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			
 			setTimeout(
 				function(p5js, cX, cY, leftX, rightX, topY, bottomY, c){
-					return function() { hexagonZone.drawZone(p5, cX, cY, leftX, rightX, topY, bottomY, c); };
+					return function() { octagonZone.drawZone(p5, cX, cY, leftX, rightX, topY, bottomY, c); };
 				}(p5, zoneX, zoneY, x1, x2, y1, y2,  colour) ,
 				0
 			);
@@ -312,15 +315,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 /*
  * determines if a zone exists within the current tile 
  * if it can't be seen within the current tile then there is no need to draw it
- * @param {Number} centerX  - center of the x-axis for the current hexagon zone 
- * @param {Number} centerY  - center of the y-axis for the current hexagon zone 
+ * @param {Number} centerX  - center of the x-axis for the current octagon zone 
+ * @param {Number} centerY  - center of the y-axis for the current octagon zone 
  * @param {Number} x1       - left side of a map tile
  * @param {Number} x2		- right side of a map tile
  * @param {Number} y1 		- top side of a map tile
  * @param {Number} y2		- bottom side of a map tile
  */
 function isZoneWithinTile(centerX, centerY, x1, x2, y1, y2){
-	var zoneEdge = hexagonZone.zoneSize / 2;
+	var zoneEdge = octagonZone.zoneSize / 2;
 	if((centerX + zoneEdge) <= x1){
 		return false;
 	}
