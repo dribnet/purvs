@@ -1,3 +1,3 @@
-## PS4 Infinite LandScape Part 1
+## PS4 Infinite LandScape Part 2
 
-Just took images of my problem set 3, which will be the what I base my ps4 off. I want to extend what I did in ps3 into the infinite landscape, I will do this by making it when you zoom in, it reveals details such as vegatation and trees and maybe some other objects if lag permits. I really liked the isometric view point, and hope it will translate well to the framework we will be using for ps4. 
+Got my landscape drawing infinitely with some noise going on, took a bit of playing around and had to steal some of the example code but its working. From here I want to start adding in more details to different zoom levels and add some more variety to the landscape in general (thinking biomes). I'll try and add some waters and trees next before moving onto mountains. Lag doesn't seem to be too bad at the moment, so I won't worry about that now, but will keep it in mind moving forward. 
