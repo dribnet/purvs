@@ -79,27 +79,27 @@ linkPath = [
   "#0/0/512/512/0",  // home
   "#0/1/512/512/0",  // home
   "#0/2/512/512/1",  // home
-]
+  ]
 
-function clickHome() {
-  curLinkIndex = 0
-  location.hash = linkPath[0]
-  hash.update()
-}
+  function clickHome() {
+    curLinkIndex = 0
+    location.hash = linkPath[0]
+    hash.update()
+  }
 
-function clickDemo() {
-  curLinkIndex = (curLinkIndex + 1) % linkPath.length
-  location.hash = linkPath[curLinkIndex]
-  hash.update()
-}
+  function clickDemo() {
+    curLinkIndex = (curLinkIndex + 1) % linkPath.length
+    location.hash = linkPath[curLinkIndex]
+    hash.update()
+  }
 
-function clickReset() {
-  window.location.reload();
-}
+  function clickReset() {
+    window.location.reload();
+  }
 
-attrib = new L.Control.Attribution
-attrib.setPrefix("")
-attrStr = '<a href="#" onclick="javascript:clickHome();">home</a> | '
+  attrib = new L.Control.Attribution
+  attrib.setPrefix("")
+  attrStr = '<a href="#" onclick="javascript:clickHome();">home</a> | '
 // attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a> | '
 attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a>'
 attrib.addAttribution(attrStr)

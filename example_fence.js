@@ -44,7 +44,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  if(zoom == 0) {
+    p5.background(255);
+  }
+  else {
+    p5.background(0);    
+  }
   p5.fill(0, 0, 128);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
@@ -66,7 +71,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
       p5.noStroke();
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      p5.triangle(x_pos-20, y_pos-20, x_pos+20, y_pos-20, x_pos, y_pos + 40);
+      // p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
 }
