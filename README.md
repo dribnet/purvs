@@ -1,5 +1,3 @@
 ## PS4 MDDN 342 2017
 
-I am exploring a different grid layout based on both my landscape and pattern designs I created in the previous project. 
-I am thinking of an idea where it begins with a lot of squares. Then as you zoom in there are rounder shapes.
-Or I could look at beginning with circles to symbolise the clouds then as you zoom in there are squares which would symbolise a cityscape. 
+For my idea I am thinking of expanding from my Art Deco inspired design from PS3. The design is an abstract representation of a city with clouds over it. As you zoom in you can see more of the buildings. It also reveals another layer of rectangles at a different angle. I did this to show more variation in the design.  
