@@ -1,8 +1,8 @@
 var max_thickness = 64;
 var max_movement = 32;
-var ball_radius = 32;
-var line_width = 8;
-var grid_size = 64;
+var ball_radius = 16;
+var line_width = 4;
+var grid_size =64;
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
