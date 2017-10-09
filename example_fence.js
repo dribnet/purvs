@@ -1,6 +1,6 @@
 var max_thickness = 64;
 var max_movement = 150;
-var ball_radius = 3;
+var ball_radius = 2;
 var line_width = 8;
 var grid_size = 50;
 var planetColours = new Array();
@@ -76,7 +76,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
-      var t = p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 5));
+      var t = p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 6));
       p5.fill(planetColours[t]);
       //console.log(t);
 
@@ -96,6 +96,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+      if(zoom >= 2){
+
+        //p5.rotate(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 120)));
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))<1){
+          p5.ellipse(x_pos, y_pos, cur_ball_radius+(cur_ball_radius), cur_ball_radius-(cur_ball_radius/2));
+        }
+        
+      }
+
+      if(zoom >=4){
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+          p5.ellipse(x_pos-cur_ball_radius*2, y_pos, cur_ball_radius/6);
+        }
+      }
     }
   }
 }
