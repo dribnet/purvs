@@ -1,8 +1,3 @@
-## Powers of 10 PRINT
+Greeble City
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
-
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+I have adapted some of my code from ps3 into this new sketch. I am getting similar looking results but shown as a larger scale city with districts. I am happy with this however will need to do some more refinement in order to create more visual interest. I also need to find a way to generate the districts without them being redrawn when zoomed.

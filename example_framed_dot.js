@@ -15,35 +15,49 @@
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   console.log(y1, y2);
   p5.background(255);
-  p5.rectMode(p5.CORNERS);
+  p5.rectMode(p5.CENTRE);
 
   // The first red rectangle fills the entire space
   var cx = p5.map(512-960/2, x1, x2, 0, 256);
   var cy = p5.map(512-720/2, y1, y2, 0, 256);
-  var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-  var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  p5.fill(255, 0, 0);
-  p5.rect(cx, cy, cx2, cy2);
+  // var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
+  // var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
+  // p5.fill(255, 0, 0);
+  // p5.rect(cx, cy, cx2, cy2);
 
   // The second black rectangle is inset to form a frame inset by 20 units
-  cx = p5.map(512-940/2, x1, x2, 0, 256);
-  cy = p5.map(512-700/2, y1, y2, 0, 256);
-  cx2 = p5.map(512+940/2, x1, x2, 0, 256);
-  cy2 = p5.map(512+700/2, y1, y2, 0, 256);
+  // cx = p5.map(512-940/2, x1, x2, 50, 100);
+  // cy = p5.map(512-700/2, y1, y2, 50, 100);
+  // cx2 = p5.map(512+940/2, x1, x2, 0, 256);
+  // cy2 = p5.map(512+700/2, y1, y2, 0, 256);
+  // p5.fill(0);
+  // p5.rect(cx, cy, cx2, cy2);
+  var x1_size = p5.random(50,100);
+  var y1_size = p5.random(50,100);
+  var x2_size = p5.random(30,60);
+  var y2_size = p5.random(30,60);
+  p5.noStroke();
   p5.fill(0);
-  p5.rect(cx, cy, cx2, cy2);
+  for (var x = 0; x <20; x++){
+  p5.rect(p5.random(0, 150),p5.random(0, 150),x1_size,y1_size);
+  }
+
+  p5.fill(100);
+  for (var x = 0; x <10; x++){
+  p5.rect(p5.random(30, 120),p5.random(30, 120),x2_size,y2_size);
+  }
 
   // Two ellipses with a radius of 50 units are then added.
-  var cx = p5.map(512, x1, x2, 0, 256);
-  var cy = p5.map(512, y1, y2, 0, 256);
-  var cx2 = p5.map(512+50, x1, x2, 0, 256);
-  p5.fill(0, 0, 255);
-  p5.ellipse(cx, cy, (cx2-cx));
+  // var cx = p5.map(512, x1, x2, 0, 256);
+  // var cy = p5.map(512, y1, y2, 0, 256);
+  // var cx2 = p5.map(512+50, x1, x2, 0, 256);
+  // p5.fill(0, 0, 255);
+  // p5.ellipse(cx, cy, (cx2-cx));
 
   // The second green ellipse is above and to the left of the first one.
-  var cx = p5.map(412, x1, x2, 0, 256);
-  var cy = p5.map(412, y1, y2, 0, 256);
-  var cx2 = p5.map(412+50, x1, x2, 0, 256);
-  p5.fill(0, 255, 0);
-  p5.ellipse(cx, cy, (cx2-cx));
+//   var cx = p5.map(412, x1, x2, 0, 256);
+//   var cy = p5.map(412, y1, y2, 0, 256);
+//   var cx2 = p5.map(412+50, x1, x2, 0, 256);
+//   p5.fill(0, 255, 0);
+//   p5.ellipse(cx, cy, (cx2-cx));`
 }
