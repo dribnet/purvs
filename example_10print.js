@@ -1,7 +1,11 @@
 /* This is an example of 10print translated into the PS4 framework */
 
-var blue = "#0000AA"
-var light_blue = "#0088FF"
+// var blue = "#0000AA"
+// var light_blue = "#0088FF"
+
+var bgcolour = "#FFAA4B"
+var fgcolour = "#FFAA4B"
+var blockFill = "#001538"
 
 function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
   var noiseScale=1/16.0;
@@ -15,6 +19,8 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
   var pixel_width = char_width / 8;
   var pixel_height = char_height / 8;
   p5.strokeWeight(pixel_width);
+  p5.fill(blockFill);
+
 
   for(var x=startx; x<endx; x+=slashsize) {
     var n_x = x / slashsize;
@@ -24,10 +30,10 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
       var y_pos = p5.map(y, y1, y2, 0, 256);
       var noiseValue = p5.noise(x * noiseScale, y * noiseScale, z);
       if (noiseValue < 0.5) {
-        p5.line(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
+        p5.rect(x_pos, y_pos, x_pos*char_width, y_pos*char_height);
       }
       else {
-        p5.line(x_pos, y_pos+char_height, x_pos+char_width, y_pos);
+        p5.rect(x_pos, y_pos/char_height, x_pos/char_width, y_pos);
       }
     }
   }
@@ -35,7 +41,7 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noiseDetail(8,0.5);
-  p5.background(blue);
-  p5.stroke(light_blue);
+  p5.background(0);
+  p5.stroke(255, 170, 75, 50);
   drawLayer(p5, 16, x1, x2, y1, y2, z);
 }
