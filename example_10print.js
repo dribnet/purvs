@@ -30,10 +30,10 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
       var y_pos = p5.map(y, y1, y2, 0, 256);
       var noiseValue = p5.noise(x * noiseScale, y * noiseScale, z);
       if (noiseValue < 0.5) {
-        p5.rect(x_pos, y_pos, x_pos*char_width, y_pos*char_height);
+        p5.rect(x_pos, y_pos, x_pos+char_width, y_pos-char_height);
       }
       else {
-        p5.rect(x_pos, y_pos/char_height, x_pos/char_width, y_pos);
+        p5.rect(x_pos, y_pos+char_height, x_pos-char_width, y_pos);
       }
     }
   }
@@ -42,6 +42,6 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noiseDetail(8,0.5);
   p5.background(0);
-  p5.stroke(255, 170, 75, 50);
+  p5.stroke(255, 170, 75);
   drawLayer(p5, 16, x1, x2, y1, y2, z);
 }
