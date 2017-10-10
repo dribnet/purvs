@@ -1,8 +1,3 @@
-## Powers of 10 PRINT
+## Ps4 part2
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
-
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+I have transfered the code from my ps3 to make this infinite stary sky. The zooming and panning works well but the scale and colours of elements need to be changed.
