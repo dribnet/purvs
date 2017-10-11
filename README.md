@@ -1,8 +1,8 @@
 ## Powers of 10 PRINT
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
+I started doing just the bases of 3 zoom layers. 
+The first one is a grid and I'm planning to make each square be either yellow, red or grey. This will be randomly chosen.  
 
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+The second zoom layer will have ellipses and the third layer will be inside one of the ellipses.
+
+I have noticed when zooming in a grid layout it won't zoom closer, it stays the same. But zooming into the single dot, it works. I'm not sure why that is.
