@@ -48,7 +48,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.fill(0, 0, 128);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+      var shift_point = getOffsetPoint(p5, x, y, z, 0);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
