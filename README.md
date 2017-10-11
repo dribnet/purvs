@@ -9,6 +9,9 @@ In the previous assignment the pattern was created by repeating a 3x3 grid of oc
 The colour for each zone is based the HSB colour spectrum using 24 different hues. The modulo operation is used to determine the hue value for each zone. The result is the creation of a gigantic diamond shape with a repeating rainbow pattern which spirals from the initial zone to the outer edges.  
 
 Here is a small collection of interesting areas:
-* <a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#232/0/-1654.500000000000/-2081.500000000000/0.000000000000" target="_blank">Area 1</a>
-* <a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#232/0/-36602.500000000000/536.500000000000/0.000000000000" target="_blank">Area 2</a>
-* <a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#304/2/502.625000000000/511.875000000000/0.000000000000" target="_blank">Area 3</a>
+
+<a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#232/0/-1654.500000000000/-2081.500000000000/0.000000000000" target="_blank">Area 1</a>
+
+<a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#232/0/-36602.500000000000/536.500000000000/0.000000000000" target="_blank">Area 2</a>
+
+<a href="http://bl.ocks.org/LABCAT/raw/4c4938558bbac696976deaff221f75a1/4e4c2e8f5e53caeec7851fff19dcf5134fea26e5/#304/2/502.625000000000/511.875000000000/0.000000000000" target="_blank">Area 3</a>
