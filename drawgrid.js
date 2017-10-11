@@ -29,16 +29,16 @@ var totalPopulation;
 function initPopulations(p5){
 
 
-  empty = 45 + p5.round(p5.random(0,70));
-  grass = 10+ p5.round(p5.random(-5,15));
+  empty = 45 + p5.round(70);
+  grass = 10+ p5.round(15);
   flatLine = 0;
-  rock = 5 + p5.round(p5.random(-4,15));
-  tree = 20 + p5.round(p5.random(-5,20));
-  smallTree = 10 + p5.round(p5.random(-10,20));
-  house = 1 + p5.round(p5.random(-1,4));
-  obelisk = 1 + p5.round(p5.random(0,6));
-  flower = 5 + p5.round(p5.random(1,15)) ;
-  cave = 8 + p5.round(p5.random(-4,5));
+  rock = 5 + p5.round(15);
+  tree = 20 + p5.round(20);
+  smallTree = 10 + p5.round(20);
+  house = 1 + p5.round(4);
+  obelisk = 1 + p5.round(6);
+  flower = 5 + p5.round(15) ;
+  cave = 8 + p5.round(5);
 
 
   populations = [empty,grass,flatLine,rock,tree,smallTree,house,obelisk,flower,cave];
@@ -106,7 +106,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var bottomY = p5.map(y+gridSize, y1, y2, 0, 256);
       var colWidth = p5.map(gridSize,x1,x2,0,256);
       var rowHeight = p5.map(gridSize,y1,y2,0,256);
-      var perl = p5.noise(x,y);
+      var perl = p5.noise(x+z,y+z);
 
       var tileType;
       var lakeChance = 0.15;
@@ -142,8 +142,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.stroke(0, 0, 0);
 
       //var bottomY = p5.map(y, y1, y2, 0, 256);
-      p5.line(leftX, topY, rightX, topY);
-      p5.line(leftX, topY, leftX, bottomY);
+      //p5.line(leftX, topY, rightX, topY);
+      //p5.line(leftX, topY, leftX, bottomY);
 
       var midPoint = p5.map(y-(gridSize/2),y1,y2,0,256);
 
@@ -162,7 +162,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
       else if(shapeType == 3){
 
+        p5.fill(200);
+        p5.stroke(60);
         p5.triangle(leftX,mapY(y+(gridSize/2)),mapX(x+(gridSize/2)),topY,rightX,mapY(y+(gridSize/2)));
+
+      }
+      //tree
+      else if(shapeType==4){
+
+        p5.fill(123,182,91);
+        p5.stroke(42, 71, 49);
+
+        p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
+        p5.triangle(leftX,mapY(y+gridSize/2),mapX(x+(gridSize/2)),mapY(y-gridSize/2),rightX,mapY(y+gridSize/2));
+
+        if(tileType == "snow"){
+          p5.fill(255);
+          //noStroke();
+          p5.triangle(leftX+(colWidth*0.15),topY+(rowHeight*0.3),leftX+(colWidth/2),topY-(rowHeight/2),rightX-(colWidth*0.15),topY+(rowHeight*0.3));
+        }
 
       }
 
