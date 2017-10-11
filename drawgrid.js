@@ -32,7 +32,7 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	//console.log(y1, y2);
-	p5.background(10, 10, 40);
+	p5.background(10, 10, 30);
 	p5.noStroke();
 	p5.noiseSeed(99);
 	var max_shift = max_thickness + max_movement;
@@ -63,12 +63,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function drawLanscape(v, posX, posY) {
 		var size = v * 15;
 		if (v < 0.4) {} else if (v < .5) { //clouds
-			p5.fill(30, 30, 55, 100);
+			p5.fill(40, 40, 60, 20);
 			var pos = getDrawPosition(posX, posY, size * (1 - v) * 70, size *(1-v) *70);
-			p5.ellipse(pos[0], pos[1], pos[2], pos[3]);
+			if(zoom < 3) {
+				for(var i = 1; i < 5; i +=.5){
+					p5.ellipse(pos[0], pos[1], pos[2]/i, pos[3]/i);
+				}
+			}
 
 		} else if (v < 0.6) {
-			var color1 = p5.color(30, 30, 65);
+			var color1 = p5.color(40, 40, 60);
 			var color2 = p5.color(255, 255, 150);
 			var c = p5.lerpColor(color1, color2, p5.map(v, 0.5, 0.6, 0, 1));
 			p5.fill(c);
