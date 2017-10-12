@@ -232,8 +232,8 @@ var octagonZone = {
      * @param {Number} zm		- current zoom level on the map
      */
     drawGlyphs: function(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm){
-        var glyphWidth = 256 / ((x2-x1)/ (this.multiplier * 1.6));
-        var innerShapeSize = glyphWidth / 4;
+        var glyphWidth = 256 / ((x2-x1)/ (this.multiplier * 1.6)) / 2;
+        var innerShapeSize = glyphWidth / 2;
 
         //work out which colours will be used
         var toHue = hue >= 180 ? hue - 180 : hue + 180;
@@ -252,8 +252,8 @@ var octagonZone = {
             colour = p5.lerpColor(fromColour, toColour, lerpAmount);
             p5.stroke(colour);
             p5.strokeWeight(weight);
-            if(zm < 4){
-                p5.ellipse(cx, cy, glyphWidth);
+            if(zm < 1){
+                p5.ellipse(cx, cy, glyphWidth*2);
             }
 
             var noiseValue = p5.noise(centerX + xPos , centerY + yPos);
@@ -266,7 +266,13 @@ var octagonZone = {
                 if(noiseValue <= (lucasSum/100)){
                     var drawn = false;
                     if(zm < 4){
+                        if(zm > 0){
+                            p5.strokeWeight(weight/2);
+                        }
                         polygon(p5, cx, cy, innerShapeSize, this.lucasNumbers[this.lucasNumbers.length - i - 1]);
+                        if(zm > 0){
+                            polygon(p5, cx, cy, glyphWidth, this.lucasNumbers[this.lucasNumbers.length - i - 1]);
+                        }
                     }
                     else {
                         this.drawGlyphPattern(p5, cx, cy, innerShapeSize*1.5, this.lucasNumbers[this.lucasNumbers.length - i - 1], weight, zm);
