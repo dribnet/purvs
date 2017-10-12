@@ -58,6 +58,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   }
 
+  var actualScale = (x2-x1)/255;
+
   var max_shift = max_thickness + max_movement;
 
   var min_x = snap_to_grid(x1 - max_shift, tileWidth);
@@ -82,7 +84,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var cx2 = p5.map(tileWidth + x + xOffset, x1, x2, 0, 256); //Used to get size of tile 
 
       var bio_val = 0;//getNoiseValue(p5, snap_to_grid(y, tileHeight) + biomeOffset, snap_to_grid(x, tileWidth) + biomeOffset);
-      var noise_val = getNoiseValue(p5, (y/tileHeight)*(4-zoom), (x/tileWidth)*(4-zoom));
+      var noise_val = getNoiseValue(p5, (y*0.1), (x*0.1));
 
       var dy;
 
