@@ -75,22 +75,40 @@ tiles.addTo(worldMap)
 
 var curLinkIndex = 0;
 
-linkPath = [
-  "#0/0/512/512/0",  // home
-  "#0/1/512/512/0",  // home
-  "#0/2/512/512/1",  // home
-]
+linkHome = "#0/0/512/512/0"
+
+if (typeof tourPath === 'undefined') {
+  var tourPath = [
+    [2, 512, 512],
+    [4, 512, 512],
+    [6, 512, 512],
+    [8, 512, 512]
+  ]
+}
+tourPath.unshift([0, 512, 512]);
+
+if (typeof tourSeed === 'undefined') {
+  var tourSeed = 0;
+}
 
 function clickHome() {
-  curLinkIndex = 0
-  location.hash = linkPath[0]
-  hash.update()
+  worldMap.flyTo([tourPath[0][1], tourPath[0][2]], tourPath[0][0]);
 }
 
 function clickDemo() {
-  curLinkIndex = (curLinkIndex + 1) % linkPath.length
-  location.hash = linkPath[curLinkIndex]
-  hash.update()
+  if(worldMap._p5_seed != tourSeed) {
+    var center = worldMap.getCenter();
+    var zoom = worldMap.getZoom();
+    worldMap._p5_seed = tourSeed;
+    tiles.redraw();
+    // worldMap.setView(center, zoom, {reset: true});
+    curLinkIndex = 0;
+  }
+  else {
+    curLinkIndex = (curLinkIndex + 1) % tourPath.length
+  }
+  var curDest = tourPath[curLinkIndex]
+  worldMap.flyTo([curDest[1], curDest[2]], curDest[0]);
 }
 
 function clickReset() {
@@ -100,8 +118,8 @@ function clickReset() {
 attrib = new L.Control.Attribution
 attrib.setPrefix("")
 attrStr = '<a href="#" onclick="javascript:clickHome();">home</a> | '
-// attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a> | '
-attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a>'
+attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a> | '
+attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a>'
 attrib.addAttribution(attrStr)
 worldMap.addControl(attrib)
 
