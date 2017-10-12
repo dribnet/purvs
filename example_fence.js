@@ -4,6 +4,17 @@ var ball_radius = 64;
 var line_width = 8;
 var grid_size = 256;
 
+var tourSeed = 301;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 385.250000000000, 158.000000000000],
+  [1, 385.250000000000, 158.000000000000],
+  [2, 385.250000000000, 158.000000000000],
+  [3, 281.937500000000, 206.500000000000],
+  [5, 281.453125000000, 210.843750000000],
+  [2, 236.625000000000, 1041.250000000000]
+]
+
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   //curRandomSeed = p5.int(p5.focusedRandom(0, 100));
   var noiseX = p5.noise(x * noiseScale,
@@ -21,7 +32,7 @@ function snap_to_grid(num, gsize) {
 }
 
 /*
- * This is the funciton to implement to make your own abstract design.
+ * This is the function to implement to make your own abstract design.
  *
  * arguments:
  * p5: the p5.js object - all draw commands should be prefixed with this object
@@ -108,7 +119,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 
       ////////////////
 
-	  p5.strokeWeight(cur_line_width/* + 0.1 * shift_point[1]*/);
+	    p5.strokeWeight(cur_line_width);
       p5.stroke(5, 53, 76);
       p5.noFill();
       p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
@@ -116,6 +127,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
     
       p5.noStroke();
+
+      if (zoom > 2) {
+        p5.strokeWeight(cur_line_width/2);
+        p5.stroke(33, 83, 72, 60 + zoom*5);
+        p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
+        p5.bezier(x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
+        p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
+
+      }
+
+      if (zoom > 3) {
+        p5.strokeWeight(cur_line_width/4);
+        p5.stroke(33, 83, 72, 30 + zoom*5);
+        p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
+        p5.bezier(x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
+        p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
+
+      }
 
       /////////////////
      
@@ -156,7 +185,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      // p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 
 	      ////////////////
 
-		  p5.strokeWeight(cur_line_width/5/* + 0.1 * shift_point[1]*/);
+		    p5.strokeWeight(cur_line_width/5);
 	      p5.stroke(5, 53, 76);
 	      p5.noFill();
 	      p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
@@ -265,7 +294,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(5, 53, 76, 50 + zoom*15);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-
+      // inner most light circle always being drawn regarless of zoom 
       p5.fill(200, 50 + zoom*15);
       p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6);
 
@@ -341,22 +370,31 @@ if (zoom > 2) {
 	   	min_y = snap_to_grid(y1 - max_shift, grid_size);
 	   	max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-	   	var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+	   	var shift_point = getOffsetPoint(p5, x, y, z, 100);
 	    var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
 	    var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-	    var x_pos3 = p5.map(shift_x, x1, x2, 0, 256);
-	    var y_pos3 = p5.map(shift_y, y1, y2, 0, 256);
-	    var x_pos4 = p5.map(shift_x, x1, x2, 0, 256);
-	    var y_pos4 = p5.map(shift_y, y1, y2, 0, 256);
-	    var x_pos5 = p5.map(shift_x, x1, x2, 0, 256);
-	    var y_pos5 = p5.map(shift_y, y1, y2, 0, 256);
+
+	    var x_pos3 = p5.map(shift_x/2, x1, x2, 0, 256);
+	    var y_pos3 = p5.map(shift_y/2, y1, y2, 0, 256);
+	    var x_pos4 = p5.map(shift_x/2, x1, x2, 0, 256);
+	    var y_pos4 = p5.map(shift_y/2, y1, y2, 0, 256);
+	    var x_pos5 = p5.map(shift_x/2, x1, x2, 0, 256);
+	    var y_pos5 = p5.map(shift_y/2, y1, y2, 0, 256);
  		
- 		p5.strokeWeight(0.5);
+ 		  p5.strokeWeight(0.5);
 	    p5.noFill();
 	    p5.stroke(255);
-	    p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos, y_pos);
-	    p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
-	    p5.bezier(x_pos, y_pos, x_pos5, y_pos5, x_pos3, y_pos3, x_pos, y_pos);
+      //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
+
+      //p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6); 
+  
+
+	    p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos5, y_pos5);
+
+
+
+	    //p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
+	    //p5.bezier(x_pos, y_pos, x_pos5, y_pos5, x_pos3, y_pos3, x_pos, y_pos);
 		}
 	}
 }
