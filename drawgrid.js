@@ -11,7 +11,7 @@
  */
 
 var amount = 1;
-var maxLevel = 1;
+var maxLevel = 2;
 
 /**
  * @param {p5} p 
@@ -35,6 +35,7 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
     p.strokeCap(p.ROUND)
   }
   
+  //render lower levels
   if(level < maxLevel){
     for(let x = 0; x < 2; x++){
       for(let y = 0; y < 2; y++){
@@ -63,14 +64,36 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
   let min = padding;
   let max = 255-padding;
 
-  let points = drawSine(p.createVector(min, min), p.createVector(max, max))
-  let points2 = drawSine(p.createVector(min, max), p.createVector(max, min))
+  function padMap(p){
+    return min + p*(max-min)
+  }
 
   p.stroke((zoom/3*360).mod(360), 90, 100-level/maxLevel*40)
   p.strokeWeight(10)
 
-  drawCurve(points)
-  drawCurve(points2)
+  function drawCurves(lines){
+    let positions = [
+      [0, 0], [0, 0.5], [0, 1], [0.5, 1], [1, 1], [1, 0.5], [1, 0], [0.5, 0]
+    ].map(function(pos){
+      pos = pos.map(padMap)
+      return p.createVector(pos[0], pos[1])
+    })
+
+    for(let i = 0; i < lines; i++){
+      let typeNoise = p.noise(5123+x1*noiseScale, 126+y1*noiseScale, i)
+
+      let posI = p.floor(typeNoise*positions.length)
+      let pos = positions[posI];
+      positions.splice(posI, 1);
+
+      //draw from center to point
+      drawCurve(drawSine(p.createVector(padMap(0.5), padMap(0.5)), pos))
+    }
+  }
+
+  let linesNoise = p.noise(x1*noiseScale, y1*noiseScale);
+
+  drawCurves(p.floor(linesNoise*4))
 
   function drawSine(start, end){
     var offDir = p5.Vector.fromAngle(start.angleBetween(end)+p.PI/2)
