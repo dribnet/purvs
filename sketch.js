@@ -137,8 +137,14 @@ var octagonZone = {
         var weight = maxWidth - zero;
         var colour = p5.color(hue, 100, 100);
 
+        if(zm >= 2){
+            weight = weight/2;
+        }
         var loopLimits = 2;
-        if(zm >= 5){
+        if(zm >= 4){
+            loopLimits = 1;
+        }
+        if(zm >= 8){
             loopLimits = 0;
         }
         for (var adjuster = -loopLimits; adjuster <= loopLimits; adjuster++) {
@@ -214,9 +220,9 @@ var octagonZone = {
         p5.endShape(p5.CLOSE);
     },
 
-    //a small collection of numbers based on the lucas series: https://en.wikipedia.org/wiki/Lucas_number
-    //used to determine what shapes within each glyph drawn within the drawGlyph functoin
-    lucasNumbers: [1,3,4,7,11,18,29,47],
+    //a small collection of numbers represent different shapes
+    //used to determine what shapes within each glyph drawn within the drawGlyph function
+    shapeSelector: [1,3,4,5,6,7,8,9,10,11],
 
     /*
      * draws each of the glyphs contained within a octagon zone
@@ -237,8 +243,8 @@ var octagonZone = {
 
         //work out which colours will be used
         var toHue = hue >= 180 ? hue - 180 : hue + 180;
-        var fromColour = p5.color(hue, 100, 100, 1 - (zm/10));
-        var toColour = p5.color(toHue, 100, 100, 1 - (zm/10));
+        var fromColour = p5.color(hue, 100, 100, 1 - (zm/20));
+        var toColour = p5.color(toHue, 100, 100, 1 - (zm/20));
         var colour = "", lerpAmount = zm >= 3 ? 1 : 0;
 
         for (var pos = 0; pos < octagonZone.innerCoordinates.length; pos++) {
@@ -258,34 +264,39 @@ var octagonZone = {
 
             var noiseValue = p5.noise(centerX + xPos , centerY + yPos);
             //reverse and stretch the noiseValue out a bit so there is a higher change a circle will be drawn
-            noiseValue = p5.map(noiseValue, 0.8, 0.2, 0.0, 1.0);
+            noiseValue = p5.map(noiseValue, 0.2, 0.8, 0.0, 1.0);
 
-            var lucasSum = 0;
-            for(var i in this.lucasNumbers){
-                lucasSum += this.lucasNumbers[i];
-                if(noiseValue <= (lucasSum/100)){
-                    var drawn = false;
-                    if(zm < 4){
-                        if(zm > 0){
-                            p5.strokeWeight(weight/2);
-                        }
-                        polygon(p5, cx, cy, innerShapeSize, this.lucasNumbers[this.lucasNumbers.length - i - 1]);
-                        if(zm > 0){
-                            polygon(p5, cx, cy, glyphWidth, this.lucasNumbers[this.lucasNumbers.length - i - 1]);
-                        }
-                    }
-                    else {
-                        this.drawGlyphPattern(p5, cx, cy, innerShapeSize*1.5, this.lucasNumbers[this.lucasNumbers.length - i - 1], weight, zm);
-                        drawn = true;
-                    }
-                    if(debug){
-                        console.log('noiseValue '+noiseValue);
-                        console.log('lucasSum '+ (lucasSum/100));
-                        console.log('i = ' + i);
-                        console.log(this.lucasNumbers[this.lucasNumbers.length - i - 1]);
-                    }
+            var shapeSelectorSum = 0, shapeFound = false, shapeSides = 0;
+            for(var i in this.shapeSelector){
+                shapeSelectorSum += this.shapeSelector[i];
+                if(noiseValue <= (shapeSelectorSum/100)){
+                    shapeSides = this.shapeSelector[this.shapeSelector.length - i - 1];
+                    shapeFound = true;
                     break;
                 }
+                if(debug){
+                    console.log('noiseValue '+noiseValue);
+                    console.log('lucasSum '+ (shapeSelectorSum/100));
+                    console.log('i = ' + i);
+                    console.log(this.shapeSelector[this.shapeSelector.length - i - 1]);
+                }
+            }
+
+            if(zm < 4){
+                if(zm > 0){
+                    p5.strokeWeight(weight/2);
+                }
+                polygon(p5, cx, cy, innerShapeSize, shapeSides);
+                if(zm > 0){
+                    polygon(p5, cx, cy, glyphWidth, shapeSides);
+                }
+            }
+            else {
+                var shapeSize = glyphWidth;
+                if(zm >= 7){
+                    shapeSize = shapeSize * 1.2;
+                }
+                this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, weight, zm);
             }
 
             if(zm >= 3){
@@ -300,13 +311,26 @@ var octagonZone = {
         }
     },
 
+    /*
+     * draws a pattern by rotating a shape several times
+     * @param {Object} p5           - the p5.js object
+     * @param {Number} x            - center of the x-axis for the current glyph
+     * @param {Number} y            - center of the y-axis for the current glyph
+     * @param {Number} shapeSize    - size of the shape
+     * @param {Number} numOfSides   - how many sides the shape has
+     * @param {Number} weight       - stroke weight of the shape to be drawn
+     * @param {Number} zm           - current zoom level on the map
+     */
     drawGlyphPattern: function(p5, x, y, shapeSize, numOfSides, weight, zm){
         p5.translate(x, y);
-        p5.strokeWeight((12/4) * zm);
+        p5.strokeWeight((8/4) * zm);
         var rotationOptions = [2,3,4,6,8,12,15,18];
         var numOfRotations = zm <= 10 ? rotationOptions[zm-4] : rotationOptions[6];
         for (var i = 0; i < (numOfRotations * 2); i ++) {
-            polygon(p5, 0, 20, shapeSize, numOfSides);
+            for (var j = 0; j <=0; j++) {
+                polygon(p5, 0, shapeSize/2 + (j*3), shapeSize/2 + (j*3), numOfSides);
+            }
+
             p5.rotate(p5.PI/numOfRotations);
         }
         p5.translate(-x, -y);
@@ -325,14 +349,14 @@ octagonZone.init();
  * @param {Number} zoom		- current zoom level (starts at 0), useful to decide how much detail to draw
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-    //unique key for the tile
+    //unique key for the tile - useful for debugging
     var tileKey = x1 + '-' + x2 + '-' + y1 + '-' + y2;
     p5.background(0);
     p5.colorMode(p5.HSB);
     p5.rectMode(p5.CORNERS);
     p5.noFill();
     if(debug){
-        console.log(tileKey);
+        console.log(tileKey);    
         drawDebugFrame(p5, x1, x2, y1, y2);
     }
     p5.rectMode(p5.CENTER);
@@ -358,7 +382,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
             );
 
         }
-
     }
 }
 
