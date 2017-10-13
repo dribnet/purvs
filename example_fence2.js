@@ -1,6 +1,6 @@
 var max_thickness = 64;
 var max_movement = 32;
-var ball_radius = 32;
+var ball_radius = 64;
 var line_width = 8;
 var grid_size = 64;
 
@@ -30,30 +30,103 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
-  var offsets = [
-    [0, 1],
-    [1, 0],
-    [0, -1],
-    [-1, 0]
-  ]
-  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
-  var pixel_radius = pixel_posx2 - pixel_posx1;
-  for(var i=0; i<offsets.length; i++) {
-    var offset = offsets[i];
-    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
-  }
-}
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
+
+function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares) {
   var offsets = [
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1]
+      
+      //red grid
+      [0.5,0.5],
+      [1.5,0.5],
+      [2.5,0.5],
+      [3.5,0.5],
+      [4.5,0.5],
+      [5.5,0.5],
+      
+      [0.5,1.5],
+      [1.5,1.5],
+      [2.5,1.5],
+      [3.5,1.5],
+      [4.5,1.5],
+      [5.5,1.5],
+      
+      [0.5,2.5],
+      [1.5,2.5],
+      [2.5,2.5],
+      [3.5,2.5],
+      [4.5,2.5],
+      [5.5,2.5],
+      
+      [0.5,3.5],
+      [1.5,3.5],
+      [2.5,3.5],
+      [3.5,3.5],
+      [4.5,3.5],
+      [5.5,3.5],
+      
+      [0.5,4.5],
+      [1.5,4.5],
+      [2.5,4.5],
+      [3.5,4.5],
+      [4.5,4.5],
+      [5.5,4.5],
+      
+      [0.5,5.5],
+      [1.5,5.5],
+      [2.5,5.5],
+      [3.5,5.5],
+      [4.5,5.5],
+      [5.5,5.5],
+      
+
+      //black grid
+      [0.5,0.5],
+      [1.6,0.9],
+      [2.1,0.2],
+      [3 ,0.9],
+      [4.1,0.2],
+      [5.1,0.9],
+      
+      [0.9,1.6],
+      [2.3,1.6],
+      [3.7,1.6],
+      [5.2,1.6],
+      
+      [0.2,2.3],
+      [1.6,2.3],
+      [3,2.3],
+      [4.4,2.3],
+      [5.8,2.3],
+      
+      //center
+      
+      [0.7,3],
+      [2.3,3],
+      [3.7,3],
+      [5.3,3],
+      
+      //center
+      
+      [0.2,3.7],
+      [1.7,3.7],
+      [3,3.7],
+      [4.4,3.7],
+      [5.8,3.7],
+      
+      [0.9,4.4],
+      [2.3,4.4],
+      [3.7,4.4],
+      [5.1,4.4],
+      
+      [1.7,5.2],
+      [3,5.2],
+      [4.3,5.2],
+      
+      [0.5,5.5],
+      [2.1,5.8],
+      [3.9,5.8],
+      [5.5,5.5],
+      
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
@@ -62,17 +135,101 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.strokeWeight(0);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
-    if(drawLines) {
+    p5.strokeWeight(1);
+    p5.stroke(255);  
+      
+    p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
+    if(drawSquares) {
       p5.strokeWeight(pixel_radius / 20);
-      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
       p5.strokeWeight(0);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
     }  
   }
 }
+
+
+function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares) {
+  var offsets = [
+      
+
+      //black grid
+      [0.5,0.5],
+      [1.6,0.9],
+      [2.1,0.2],
+      [3 ,0.9],
+      [4.1,0.2],
+      [5.1,0.9],
+      
+      [0.9,1.6],
+      [2.3,1.6],
+      [3.7,1.6],
+      [5.2,1.6],
+      
+      [0.2,2.3],
+      [1.6,2.3],
+      [3,2.3],
+      [4.4,2.3],
+      [5.8,2.3],
+      
+      //center
+      
+      [0.7,3],
+      [2.3,3],
+      [3.7,3],
+      [5.3,3],
+      
+      //center
+      
+      [0.2,3.7],
+      [1.7,3.7],
+      [3,3.7],
+      [4.4,3.7],
+      [5.8,3.7],
+      
+      [0.9,4.4],
+      [2.3,4.4],
+      [3.7,4.4],
+      [5.1,4.4],
+      
+      [1.7,5.2],
+      [3,5.2],
+      [4.3,5.2],
+      
+      [0.5,5.5],
+      [2.1,5.8],
+      [3.9,5.8],
+      [5.5,5.5],
+      
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+      
+    var pixel_x2 = p5.map(pos_x*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y2 = p5.map(pos_y*rad1*offset[1], y1, y2, 0, 256);  
+      
+    p5.strokeWeight(1);
+    p5.stroke(255);  
+      
+    p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
+      p5.ellipse(pixel_x, pixel_y, pixel_radius/5);
+      
+    if(drawSquares) {
+      p5.strokeWeight(pixel_radius / 100);
+      p5.rect(pixel_x, pixel_y, 5,5);
+         p5.rect(pixel_x2, pixel_y2, 5,5);
+      p5.strokeWeight(0);
+    }  
+      
+
+      
+  }
+}
+
+
 
 /*
  * This is the funciton to implement to make your own abstract design.
@@ -103,42 +260,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.background(255);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+      var shift_point = getOffsetPoint(p5, x, y, z, 0);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
       p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 128, 0);
+      
+        
+         // draw ellipse
+       
+      p5.fill(214,183,85);
+    p5.stroke(255);   
+        p5.strokeWeight(1);  
+      p5.rect(x_pos, y_pos, cur_ball_radius,cur_ball_radius); 
 
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
-
-      p5.noStroke();
-      // if zoomed: first, draw petals *behind* the ellipse
       if(zoom >= 3) {
-        p5.fill(0, 0, 255);
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
-      }
-      // draw ellipse
-      p5.fill(0, 0, 128);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        var drawSquares = false;
+          
+       
+      // Detail in circle pattern
+        if (zoom >= 5) drawSquares = true;
 
-      // if zoomed: last draw stamens *in front of* the ellipse
-      if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
-        var drawLines = false;
-        if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
-        p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        p5.fill(110,31,31);
+        p5.strokeWeight(3);
+        p5.stroke(255);  
+          
+        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawSquares);
+        p5.strokeWeight(3);
+          
+           p5.fill(0);
+
+          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawSquares);
       }
+        
+
 
 
     }
