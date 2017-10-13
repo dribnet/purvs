@@ -1,3 +1,3 @@
-## Ps4 
+## Ps4 Paramaterised Map  
 
-I have transfered the code from my ps3 to create this infinite stary sky. The zooming and panning work well but the colour and scale of elements need to be changed in the next version.
+I spent most time to work on the colour scheme and the layout of the clouds. Now the texture is more reliable comparing to my last verion. The more details of the clouds and stars will be drawn after zoom in.

@@ -12,9 +12,8 @@
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 var max_thickness = 64;
-var max_movement = 90;
+var max_movement = 150;
 var grid_size = 64;
-
 
 function snap_to_grid(num, gsize) {
 	return (num - (num % gsize));
@@ -31,8 +30,7 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-	//console.log(y1, y2);
-	p5.background(10, 10, 30);
+	p5.background(25, 25, 50);
 	p5.noStroke();
 	p5.noiseSeed(99);
 	var max_shift = max_thickness + max_movement;
@@ -52,6 +50,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		}
 	}
 	//inner function
+	
+	/*This function will transfer the value current position and size to the value of map position and size */
 	function getDrawPosition(posX, posY, sizeX, sizeY) {
 		var cx = p5.map(posX, x1, x2, 0, 256);
 		var cy = p5.map(posY, y1, y2, 0, 256);
@@ -62,38 +62,72 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	function drawLanscape(v, posX, posY) {
 		var size = v * 15;
-		if (v < 0.4) {} else if (v < .5) { //clouds
-			p5.fill(40, 40, 60, 20);
+		
+		/* Drawing Clouds
+		 * The "negative space" (dark blue) will be drawn if v is greater than 0.35
+		 * When the zoom parameter is greater than 3, a smooth drawing will be used but the render will be much slower.
+		 * If the less v is, the darker negative space will be drawn, black is possible but rare.
+		 */
+		
+		if (v < .2) {} else if (v < .5) { 
 			var pos = getDrawPosition(posX, posY, size * (1 - v) * 70, size *(1-v) *70);
-			if(zoom < 3) {
-				for(var i = 1; i < 5; i +=.5){
-					p5.ellipse(pos[0], pos[1], pos[2]/i, pos[3]/i);
+			
+			if(zoom < 2) {
+				v > .35 ? p5.fill(20, 20, 40 * p5.map(v,.35,.5,1,.5), 10) : p5.fill(90, 90, 100, 10);
+				for(var i = 1; i < 5; i += .5)
+					p5.ellipse(pos[0], pos[1],pos[2]/i, pos[3]/i);
+				
+			}
+			else{
+				v > .35 ? p5.fill(20, 20, 40 * p5.map(v,.35,.5,1,.5), 10) : p5.fill(120, 120, 140, 10);
+				for(var i = 1; i < 4; i += .1)
+					p5.ellipse(pos[0], pos[1],pos[2]/i, pos[3]/i);
+			}
+			
+
+		} else if (v < 0.6) { //stars
+			var scale = p5.map(v,.5,.6,.5,1);
+			size *= scale;
+			
+			/*The shape of stars will become rounder as zoom in and stars will become circles after zoom in two times*/
+			var shape = 1;
+			zoom > 1 ? shape = p5.sqrt(6) : shape = zoom + 1;
+			
+			var pos = getDrawPosition(posX, posY,  size / 6 * shape, size / shape);
+			
+			if(zoom < 2){
+				p5.fill(255, 255, 200, 5);
+				for(var i = pos[3] * 5; i > pos[3]; i -= pos[3])
+			        p5.ellipse(pos[0], pos[1], i, i);
+				
+			}
+			else if (zoom < 4){
+				p5.fill(255, 255, 230, 10);
+				for(var i = pos[3] * 5; i > pos[3]; i -= pos[3]/2){
+			        p5.ellipse(pos[0], pos[1], i, i);
 				}
 			}
-
-		} else if (v < 0.6) {
-			var color1 = p5.color(40, 40, 60);
-			var color2 = p5.color(255, 255, 150);
-			var c = p5.lerpColor(color1, color2, p5.map(v, 0.5, 0.6, 0, 1));
-			p5.fill(c);
-			var bokehSize = size * p5.map(v, 0.5, 0.6, 1, .2);
-			var pos = getDrawPosition(posX, posY, bokehSize, bokehSize);
-			p5.ellipse(pos[0], pos[1], pos[2], pos[3]);
-
-		} else if (v < 0.7) { //stars
+			else {
+				p5.fill(255, 255, 255, 15);
+				for(var i = pos[3] * 5; i > pos[3]; i -= pos[3]/4){
+			        p5.ellipse(pos[0], pos[1], i, i);
+				}
+			}
+			
+			
+			
 			p5.fill(255, 255, 150);
-			var pos = getDrawPosition(posX, posY, size / 6, size);
 			p5.ellipse(pos[0], pos[1], pos[2], pos[3]);
 			p5.ellipse(pos[0], pos[1], pos[3], pos[2]);
 
 		} else if (v < .8) {
 
-		} else if (v < .9) {
+		} else if (v < .85) {
 			var meteorLengthX, meteorLengthY;
-			p5.random(0, 1) < .5 ? meteorLengthX = -p5.random(size, size * 1.5) / 2 : meteorLengthX = p5.random(size, size * 1.5) / 2;
-			p5.random(0, 1) < .5 ? meteorLengthY = -p5.random(size, size * 1.5) / 2 : meteorLengthY = p5.random(size, size * 1.5) / 2;
+			meteorLengthX = size * 1.5 / 2;
+			meteorLengthY = -size * 1.5 / 2;
 			p5.stroke(255, 255, 180);
-			p5.strokeWeight(2);
+			p5.strokeWeight(zoom/2 + 1);
 			var pos = getDrawPosition(posX - meteorLengthX, posY - meteorLengthY, 0, 0);
 			var pos2 = getDrawPosition(posX + meteorLengthX, posY + meteorLengthY, 0, 0);
 			p5.line(pos[0], pos[1], pos2[0], pos2[1]);
