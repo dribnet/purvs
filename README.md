@@ -1,8 +1,3 @@
-## Powers of 10 PRINT
+## Clouds
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
-
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+By referring to the noise example code I tried recreating in the style of my abstract clouds I created in the last project. After making small iterations I am satisfied with this layout so far. There is a lot of variation in cloud sizes and amount of empty spaces that I feel the urge to pan around to explore more. 
