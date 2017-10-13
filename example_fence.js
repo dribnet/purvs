@@ -1,8 +1,20 @@
 var max_thickness = 64;
-var max_movement = 32;
-var ball_radius = 30;
+var max_movement = 150;
+var ball_radius = 16;
 var line_width = 8;
 var grid_size = 64;
+
+/* the random number seed for the tour */
+var tourSeed = 301;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [1, 356.500000000000, 665.750000000000],
+  [3, 353.250000000000, 668.187500000000],
+  [4, 322.562500000000, 645.093750000000],
+  [5, 322.562500000000, 645.109375000000],
+  [7, 317.984375000000, 643.636718750000],
+  [3, 317.984375000000, 643.636718750000]
+]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
@@ -18,6 +30,48 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
+function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+    [0, 1],
+    [0.5, -0.1],
+    //[0, -1],
+    //[-1, 0],
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+  }
+}
+
+function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
+  var offsets = [
+    [0, 0],
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.strokeWeight(0);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius-10);
+    
+    if(drawLines) {
+      p5.strokeWeight(pixel_radius / 20);
+      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
+      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
+      p5.strokeWeight(0);
+      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
+    }  
+  }
+}
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -90,12 +144,33 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
       
+      // draw ellipse
+      p5.fill(255, 214, 223);
+      p5.ellipse(x_pos, y_pos, cur_ball_radius);
 //       if (zoom >=3) {
 //         p5.fill(0);
 // }
 // else {
 //   p5.fill(255);
-// }
+// }// if zoomed: first, draw petals *behind* the ellipse
+      if(zoom >= 3) {
+        p5.noFill();
+        p5.stroke(232, 192, 201);
+        p5.strokeWeight(2);
+        drawPetals(p5, x1, x2, y1, y2, shift_point[0]+6, shift_point[1], ball_radius, line_width);
+      }
+      
+
+      // if zoomed: last draw stamens *in front of* the ellipse
+      if(zoom >= 3) {
+        // now if we are super zoomed, draw lines in the stamen
+        var drawLines = false;
+        
+        if (zoom >= 5) drawLines = true;
+        p5.fill(232, 192, 201);
+        p5.stroke(0, 0, 128);
+        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+      }
     }
   }
 }
