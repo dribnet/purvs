@@ -1,16 +1,16 @@
 /* This is an example of 10print translated into the PS4 framework */
 
-var blue = "#0000AA"
-var light_blue = "#0088FF"
+var blue = "#0000AA";
+var light_blue = "#0088FF";
 
 function drawLayer(p5, x1, x2, y1, y2, z,zoom) {
   var noiseScale=1/64.0;
-  var hex_per = 9;
+  var hex_per = 2;
 
   var seg_size = x2-x1;
   var hex_width = 256/hex_per * Math.pow(zoom+1,2);
   var hex_height =  Math.sqrt(3/2)*2; //center to edge
-  console.log(seg_size%(hex_height+hex_width)/4);
+  console.log(seg_size%(hex_height+hex_width));
   var startx = hex_width * (Math.floor(x1/hex_width));
   var starty = hex_height * (Math.floor(y1/hex_height-8));
   var endx   = hex_width * (Math.floor(x2/hex_width)+8);
@@ -25,7 +25,7 @@ function drawLayer(p5, x1, x2, y1, y2, z,zoom) {
     }
 
     for(var y=starty; y<endy; y+=hex_height/2) {
-      var y_pos = mapY(y);
+      var y_pos = p5.map(y, y1, y2, 0, 256);
       var noiseValue = p5.noise(x * noiseScale + 100000, (y+yOff) * noiseScale + 100000, z);
       var fillValue = 255*(noiseValue);
       p5.noStroke();
@@ -36,18 +36,7 @@ function drawLayer(p5, x1, x2, y1, y2, z,zoom) {
     }
 
     p5.fill("red");
-    p5.ellipse(256/2,256/2,15);
-
-
-  function mapX(nx){
-      return p5.map(nx, x1, x2, 0, 256);
-    }
-
-  function mapY(ny){
-      return p5.map(ny, y1, y2, 0, 256);
-    }
-
-    
+    p5.ellipse(256/2,256/2,15);    
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
