@@ -144,7 +144,7 @@ var octagonZone = {
         if(zm >= 4){
             loopLimits = 1;
         }
-        if(zm >= 8){
+        if(zm >= 7){
             loopLimits = 0;
         }
         for (var adjuster = -loopLimits; adjuster <= loopLimits; adjuster++) {
@@ -262,25 +262,9 @@ var octagonZone = {
                 p5.ellipse(cx, cy, glyphWidth*2);
             }
 
-            var noiseValue = p5.noise(centerX + xPos , centerY + yPos);
-            //reverse and stretch the noiseValue out a bit so there is a higher change a circle will be drawn
-            noiseValue = p5.map(noiseValue, 0.2, 0.8, 0.0, 1.0);
 
-            var shapeSelectorSum = 0, shapeFound = false, shapeSides = 0;
-            for(var i in this.shapeSelector){
-                shapeSelectorSum += this.shapeSelector[i];
-                if(noiseValue <= (shapeSelectorSum/100)){
-                    shapeSides = this.shapeSelector[this.shapeSelector.length - i - 1];
-                    shapeFound = true;
-                    break;
-                }
-                if(debug){
-                    console.log('noiseValue '+noiseValue);
-                    console.log('lucasSum '+ (shapeSelectorSum/100));
-                    console.log('i = ' + i);
-                    console.log(this.shapeSelector[this.shapeSelector.length - i - 1]);
-                }
-            }
+            var shapeSides = this.getNumberOfSides(p5, centerX + xPos, centerY + yPos);
+
 
             if(zm < 4){
                 if(zm > 0){
@@ -292,11 +276,22 @@ var octagonZone = {
                 }
             }
             else {
-                var shapeSize = glyphWidth;
-                if(zm >= 7){
-                    shapeSize = shapeSize * 1.2;
+                var shapeSize = innerShapeSize;
+                if(zm < 7){
+                    this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, zm);
                 }
-                this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, weight, zm);
+                else {
+                    shapeSize = shapeSize * 1.2;
+                    var splitShapes = [
+                                        [cx - shapeSize, cy - shapeSize],
+                                        [cx + shapeSize, cy - shapeSize],
+                                        [cx - shapeSize, cy + shapeSize],
+                                        [cx + shapeSize, cy + shapeSize]
+                                      ];
+                    for(var i = 0; i < splitShapes.length; i++){
+                        this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/2, shapeSides, zm);
+                    }
+                }
             }
 
             if(zm >= 3){
@@ -312,23 +307,61 @@ var octagonZone = {
     },
 
     /*
+     * Determines the number of sides a shape should have based on the center x and center y co-ordinates for the shape
+     * @param {Object} p5           - the p5.js object
+     * @param {Number} x            - center x co-ordinates for a shape
+     * @param {Number} y            - center y co-ordinates for a shape
+     * @return{Number} shapeSides   - how many sides the shape will have
+     */
+    getNumberOfSides: function(p5, x, y){
+        var noiseValue = p5.noise(x, y);
+        //reverse and stretch the noiseValue out a bit so there is a higher change a circle will be drawn
+        noiseValue = p5.map(noiseValue, 0.2, 0.8, 0.0, 1.0);
+
+        var shapeSelectorSum = 0, shapeFound = false, shapeSides = 0;
+        for(var i in this.shapeSelector){
+            shapeSelectorSum += this.shapeSelector[i];
+            if(noiseValue <= (shapeSelectorSum/100)){
+                shapeSides = this.shapeSelector[this.shapeSelector.length - i - 1];
+                shapeFound = true;
+                break;
+            }
+            if(debug){
+                console.log('noiseValue '+noiseValue);
+                console.log('lucasSum '+ (shapeSelectorSum/100));
+                console.log('i = ' + i);
+                console.log(this.shapeSelector[this.shapeSelector.length - i - 1]);
+            }
+        }
+        if(!shapeFound){
+            shapeSides = 12;
+        }
+        return shapeSides;
+    },
+
+    glyphPatternStrokeWeights: [8, 4, 2, 2],
+    /*
      * draws a pattern by rotating a shape several times
      * @param {Object} p5           - the p5.js object
      * @param {Number} x            - center of the x-axis for the current glyph
      * @param {Number} y            - center of the y-axis for the current glyph
      * @param {Number} shapeSize    - size of the shape
      * @param {Number} numOfSides   - how many sides the shape has
-     * @param {Number} weight       - stroke weight of the shape to be drawn
      * @param {Number} zm           - current zoom level on the map
      */
-    drawGlyphPattern: function(p5, x, y, shapeSize, numOfSides, weight, zm){
-        p5.translate(x, y);
-        p5.strokeWeight((8/4) * zm);
+    drawGlyphPattern: function(p5, x, y, shapeSize, numOfSides, zm){
         var rotationOptions = [2,3,4,6,8,12,15,18];
         var numOfRotations = zm <= 10 ? rotationOptions[zm-4] : rotationOptions[6];
+        var shapeLoopLimit = zm - 4;
+        var weight = this.glyphPatternStrokeWeights[shapeLoopLimit];
+        p5.translate(x, y);
+        if(shapeLoopLimit >= 4){
+          weight = 1;
+        }
+        p5.strokeWeight(weight);
         for (var i = 0; i < (numOfRotations * 2); i ++) {
-            for (var j = 0; j <=0; j++) {
-                polygon(p5, 0, shapeSize/2 + (j*3), shapeSize/2 + (j*3), numOfSides);
+            for (var j = 0; j <=shapeLoopLimit; j++) {
+                polygon(p5, 0, shapeSize + (j*3), shapeSize + (j*3), numOfSides);
             }
 
             p5.rotate(p5.PI/numOfRotations);
@@ -356,7 +389,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.rectMode(p5.CORNERS);
     p5.noFill();
     if(debug){
-        console.log(tileKey);    
+        console.log(tileKey);
         drawDebugFrame(p5, x1, x2, y1, y2);
     }
     p5.rectMode(p5.CENTER);
@@ -394,6 +427,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
  * @param {Number} x2		- right side of a map tile
  * @param {Number} y1 		- top side of a map tile
  * @param {Number} y2		- bottom side of a map tile
+ * @return{Boolean}   	    - whether or not the zone is within the tile
  */
 function isZoneWithinTile(centerX, centerY, x1, x2, y1, y2){
     var zoneEdge = octagonZone.zoneSize / 2;
