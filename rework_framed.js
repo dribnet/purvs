@@ -9,14 +9,16 @@ function drawLayer(p5, x1, x2, y1, y2, z,zoom) {
 
   var seg_size = x2-x1;
   var hex_width = 256/hex_per * Math.pow(zoom+1,2);
-  var hex_height =  Math.sqrt(3/2)*2; //center to edge
+
+  var hex_height =  Math.sqrt(3/2)*hex_width; //center to edge
   console.log(seg_size%(hex_height+hex_width));
   var startx = hex_width * (Math.floor(x1/hex_width));
-  var starty = hex_height * (Math.floor(y1/hex_height-8));
-  var endx   = hex_width * (Math.floor(x2/hex_width)+8);
-  var endy   = hex_height * (Math.floor(y2/hex_height)+8);
+  var starty = hex_height * (Math.floor(y1/hex_height));
+  var endx   = hex_width * (Math.floor(x2/hex_width));
+  var endy   = hex_height * (Math.floor(y2/hex_height));
 
   var loopCountX = 0;
+  var loopCountY = 0;
   for(var x=startx; x<endx; x+= hex_width/2+hex_width/4) {
     var x_pos = p5.map(x, x1, x2, 0, 256);
     var yOff = 0;
@@ -31,7 +33,10 @@ function drawLayer(p5, x1, x2, y1, y2, z,zoom) {
       p5.noStroke();
       p5.fill(fillValue*0.9,fillValue*0.9,230);
       hex(x_pos, y_pos+yOff, hex_width/2,p5);
+      loopCountY++;
       }
+      console.log(loopCountY);
+      loopCountY = 0;
     loopCountX ++;
     }
 
