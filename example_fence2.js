@@ -8,12 +8,15 @@ var grid_size = 64;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
-  [3, 353.250000000000, 668.187500000000],
-  [4, 322.562500000000, 645.093750000000],
-  [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
-  [3, 317.984375000000, 643.636718750000]
+//  [1, 356.500000000000, 665.750000000000],
+//  [3, 353.250000000000, 668.187500000000],
+//  [4, 322.562500000000, 645.093750000000],
+//  [5, 322.562500000000, 645.109375000000],
+//  [7, 317.984375000000, 643.636718750000],
+//  [3, 317.984375000000, 643.636718750000]
+    [3,328.187500000000,462.375000000000],
+    [6,324.117187500000,456.515625000000],
+    [7,322.480468750000,459.195312500000],
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -132,17 +135,31 @@ function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares)
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
   var pixel_radius = pixel_posx2 - pixel_posx1;
   for(var i=0; i<offsets.length; i++) {
-    var offset = offsets[i];
+   var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+      
+    var pixel_x2 = p5.map(pos_x+0.6*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y2 = p5.map(pos_y+0.6*rad1*offset[1], y1, y2, 0, 256); 
+      
+    var pixel_x3 = p5.map(pos_x+0.4*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y3 = p5.map(pos_y+0.4*rad1*offset[1], y1, y2, 0, 256); 
+   
     p5.strokeWeight(1);
     p5.stroke(255);  
       
     p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
-    if(drawSquares) {
-      p5.strokeWeight(pixel_radius / 20);
-      p5.strokeWeight(0);
-    }  
+      
+       if(drawSquares) {
+      //p5.strokeWeight(pixel_radius / 100);
+           
+//      p5.stroke(255);
+//      p5.strokeWeight(1);   
+
+      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
+
+           
+    }   
   }
 }
 
@@ -208,8 +225,12 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquare
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
       
-    var pixel_x2 = p5.map(pos_x*rad1*offset[0], x1, x2, 0, 256);
-    var pixel_y2 = p5.map(pos_y*rad1*offset[1], y1, y2, 0, 256);  
+    var pixel_x2 = p5.map(pos_x+0.6*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y2 = p5.map(pos_y+0.6*rad1*offset[1], y1, y2, 0, 256); 
+      
+    var pixel_x3 = p5.map(pos_x+0.4*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y3 = p5.map(pos_y+0.4*rad1*offset[1], y1, y2, 0, 256); 
+   
       
     p5.strokeWeight(1);
     p5.stroke(255);  
@@ -218,10 +239,15 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquare
       p5.ellipse(pixel_x, pixel_y, pixel_radius/5);
       
     if(drawSquares) {
-      p5.strokeWeight(pixel_radius / 100);
-      p5.rect(pixel_x, pixel_y, 5,5);
-         p5.rect(pixel_x2, pixel_y2, 5,5);
-      p5.strokeWeight(0);
+      //p5.strokeWeight(pixel_radius / 100);
+      p5.noFill();
+      p5.stroke(255);
+      p5.strokeWeight(1);    
+      p5.ellipse(pixel_x, pixel_y, 5);
+      p5.ellipse(pixel_x2, pixel_y2, 5);
+      p5.ellipse(pixel_x3, pixel_y3, 5);
+   
+        p5.fill(0);
     }  
       
 
@@ -266,20 +292,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.strokeWeight(cur_line_width);
       
-        
-         // draw ellipse
-       
-      p5.fill(214,183,85);
-    p5.stroke(255);   
+    
+        //array of grid colors
+       var square_colors = ['#d6b755', '#6d4141','#cecece'];
+       var square = p5.random(square_colors);  // select random color
+          
+        p5.fill(square);
+        p5.stroke(255);   
         p5.strokeWeight(1);  
       p5.rect(x_pos, y_pos, cur_ball_radius,cur_ball_radius); 
+  
+
 
 
       if(zoom >= 3) {
         var drawSquares = false;
-          
-       
+          p5.fill(61);
       // Detail in circle pattern
+          if (zoom >= 4) drawSquares = true;
         if (zoom >= 5) drawSquares = true;
 
         p5.fill(110,31,31);
@@ -290,8 +320,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.strokeWeight(3);
           
            p5.fill(0);
-
           drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawSquares);
+          
+          if(zoom >=7){
+              
+             
+          }
       }
         
 
