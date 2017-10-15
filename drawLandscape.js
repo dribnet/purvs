@@ -11,13 +11,23 @@
  */
  
  //Tile Variables
-var tileWidth = 100;
+var tileWidth = 50;
 var tileHeight = tileWidth/2;
+
+var tileDepth = 100;
 
 //Tile Type Chances
 var biomeOffset = 40000;
-var waterChance = 0.4;
+var waterChance = 0.2;
+var coastChance = waterChance + 0.025;
 var landChance = 0.7;
+
+var desertChance = 0.2;
+var fieldChance = 0.4;
+var forestChance = 0.6;
+var beachChance = 0.63;
+var oceanChance = 1;
+
 
 var max_thickness = 64;
 var max_movement = 32;
@@ -44,14 +54,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     if(zoomLevel < zoom){
 
       zoomLevel++;
-      tileWidth /= 2;
+      tileWidth /= 1.3;
       tileHeight = tileWidth/2;
 
     }
     else if (zoomLevel > zoom){
 
       zoomLevel--;
-      tileWidth *= 2;
+      tileWidth *= 1.3;
       tileHeight = tileWidth/2;
 
     }
@@ -73,7 +83,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var mid_x = snap_to_grid((max_x - min_x) + min_x, tileWidth);
   var mid_y = snap_to_grid((max_y - min_y) + min_y, tileHeight);
 
-  
 
   //0-960 is the size of the overall canvas, have to map that to the size of the view square (x1,y1,x2,y2)
   for(var y = min_y; y < max_y; y += tileHeight/2) {
@@ -83,15 +92,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var cx = p5.map(x + xOffset, x1, x2, 0, 256); //X pos of tile
       var cx2 = p5.map(tileWidth + x + xOffset, x1, x2, 0, 256); //Used to get size of tile 
 
-      var bio_val = 0;//getNoiseValue(p5, snap_to_grid(y, tileHeight) + biomeOffset, snap_to_grid(x, tileWidth) + biomeOffset);
+      //var bio_val = 0;//getNoiseValue(p5, snap_to_grid(y, tileHeight) + biomeOffset, snap_to_grid(x, tileWidth) + biomeOffset);
       var noise_val = getNoiseValue(p5, (y*0.1), (x*0.1));
+      var bio_val = getNoiseValue(p5, (y*0.1) + 10000, (x*0.1) + 10000);
 
       var dy;
 
       //Different heights for different tile types
-      if(noise_val > waterChance){
+      if(noise_val > waterChance && bio_val < forestChance){
         //Height of the land Tile
-        dy = p5.map(y+ p5.map(noise_val, waterChance, 1, 0, 300), y1, y2, 0, 256); 
+        dy = p5.map(y+ p5.map(noise_val, waterChance, 1, 0, tileDepth), y1, y2, 0, 256); 
+      }
+      else if((noise_val < waterChance && bio_val < desertChance) || (bio_val < beachChance && bio_val > forestChance)){
+        //Height of the land Tile
+        dy = p5.map(y+ p5.map(noise_val, 0, 1, 0, 15), y1, y2, 0, 256); 
       }
       else{
         //Height of the water tile (which is always zero)
@@ -99,7 +113,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
  
       //console.log("x1: " + x1 + " x2: " + x2 + " size: " + (x2 / (x2 - x1)) );
-      console.log("noise: " + noise_val);
+      //console.log("noise: " + noise_val);
 
       //Terrian Variables
       var tileW = (cx2-cx)+1; //Get relative width (+1 so you can't see the grid)
@@ -107,8 +121,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
  
       var shade = colorFromValue(p5, noise_val, bio_val);
 
-      if(noise_val > waterChance || bio_val > 0.5)
-        drawGroundTile(p5, cx, cy, (dy - cy), tileW, tileH, shade);
+      if(noise_val > waterChance || bio_val < desertChance) //If its a land tile or we are in a desert draw a ground tile
+        drawGroundTile(p5, cx, cy, (dy - cy), tileW, tileH, shade, noise_val, bio_val);
       else
         drawWaterTile(p5, cx, cy, (dy - cy), tileW, tileH, shade);
     }
@@ -135,37 +149,62 @@ function getNoiseValue(p5, y, x){
 
 function colorFromValue(p5, v, bv){
 
-  if(v < waterChance){
-    //WATER SHADE
-    color1 = p5.color(28,58,103);
-    color2 = p5.color(71,126,207); 
-    c = p5.lerpColor(color1, color2, p5.map(v,0, waterChance, 0, 1)); 
-    return c;
-  }
-  else if(v < waterChance + 0.025){
+  if(bv < desertChance){
     //SAND SHADE
     color1 = p5.color(203,202,115);
     color2 = p5.color(144,143,86); 
     c = p5.lerpColor(color1, color2, p5.map(v,waterChance, 1, 0, 1)); 
     return c;
   }
-  else if(v < landChance){
-    //GRASS SHADE
-    color1 = p5.color(100,169,74);
-    color2 = p5.color(74,101,45); 
-    c = p5.lerpColor(color1, color2, p5.map(v,waterChance, landChance, 0, 1)); 
-    return c;
+  else if(bv < forestChance){
+    //GRASS AREA
+    if(v < waterChance){
+      //WATER SHADE
+      color1 = p5.color(28,58,103);
+      color2 = p5.color(71,126,207); 
+      c = p5.lerpColor(color1, color2, p5.map(v,0, waterChance, 0, 1)); 
+      return c;
+    }
+    if(v < landChance){
+      //GRASS SHADE
+      color1 = p5.color(100,169,74);
+      color2 = p5.color(74,101,45); 
+      c = p5.lerpColor(color1, color2, p5.map(v,waterChance, landChance, 0, 1)); 
+      return c;
+    }
+    else{
+      //Mountain SHADE
+      color1 = p5.color(122,122,122);
+      color2 = p5.color(233,233,233); 
+      c = p5.lerpColor(color1, color2, p5.map(v,landChance, 1, 0, 1)); 
+      return c;
+    }
   }
   else{
-    //Mountain SHADE
-    color1 = p5.color(122,122,122);
-    color2 = p5.color(233,233,233); 
-    c = p5.lerpColor(color1, color2, p5.map(v,landChance, 1, 0, 1)); 
-    return c;
+    if(bv < beachChance){
+      //BEACH SHADE
+      color1 = p5.color(203,202,115);
+      color2 = p5.color(178,177,105); 
+      c = p5.lerpColor(color1, color2, p5.map(bv,forestChance, beachChance, 0, 0.6)); 
+      return c;
+    }
+    else{
+      //WATER SHADE
+      color2 = p5.color(28,58,103);
+      color1 = p5.color(71,126,207); 
+      c = p5.lerpColor(color1, color2, p5.map(bv,beachChance, oceanChance, 0, 2)); 
+      return c;
+    }
   }
 }
+
+function isForest(bv){
+
+  return bv < forestChance && bv > fieldChance;
+
+}
  
-function drawGroundTile(p5, x, y, dy, w, h, shade){
+function drawGroundTile(p5, x, y, dy, w, h, shade, v, bv){
  
   var tileDepth = h/2;
  
@@ -216,9 +255,80 @@ function drawGroundTile(p5, x, y, dy, w, h, shade){
   p5.vertex(x - w/2 , y);
  
   p5.endShape(); 
+
+  if(v > coastChance && v < landChance - 0.1 && isForest(bv))
+    drawTree(p5, x, y, w, h, v);
  
   p5.pop();
  
+}
+
+function drawTree(p5, x, y, w, h, val){
+
+  var treeWidth = w*0.8;
+  var treeHeight = w/2;
+  var trunkWidth = w/4;
+  var trunkHeight = trunkWidth/2;
+  var trunkDepth = trunkHeight;
+  var treeDepth = trunkDepth*4;
+  var v = 0;
+
+  //Draw trunk left side
+  p5.fill(122,72,60);
+
+  p5.beginShape();
+
+  p5.vertex(x - trunkWidth/2, y);
+  p5.vertex(x, y + trunkHeight/2);
+  p5.vertex(x, y - trunkHeight/2 - trunkDepth);
+  p5.vertex(x - trunkWidth/2, y - trunkHeight - trunkDepth);
+  p5.vertex(x - trunkWidth/2, y);
+
+  p5.endShape();
+
+  //draw trunk right side
+  p5.fill(86,54,40);
+
+  p5.beginShape();
+
+  p5.vertex(x + trunkWidth/2, y);
+  p5.vertex(x, y + trunkHeight/2);
+  p5.vertex(x, y - trunkHeight/2 - trunkDepth);
+  p5.vertex(x + trunkWidth/2, y - trunkHeight - trunkDepth);
+  p5.vertex(x + trunkWidth/2, y);
+  
+  p5.endShape();
+
+  p5.push();
+  p5.translate(0, -trunkDepth*2);
+
+  //draw Tree left side
+  //p5.fill(0 + p5.random(0,10),142 + p5.random(-10,10),82 + p5.random(-10,10));
+  p5.fill(0 + (10*v),132 + (20*v),72 + (20*v));
+
+  p5.beginShape();
+
+  p5.vertex(x - treeWidth/2, y);
+  p5.vertex(x, y + treeHeight/2);
+  p5.vertex(x, y - treeHeight/2 - treeDepth);
+  p5.vertex(x - treeWidth/2, y);
+  
+  p5.endShape();
+
+  //draw Tree right side
+  //p5.fill(0 + p5.random(0,10),128 + p5.random(-10,10),74 + p5.random(-10,10));
+  p5.fill(0 + (10*v),118 + (20*v),64 + (20*v));
+
+  p5.beginShape();
+
+  p5.vertex(x + treeWidth/2, y);
+  p5.vertex(x, y + treeHeight/2);
+  p5.vertex(x, y - treeHeight/2 - treeDepth);
+  p5.vertex(x + treeWidth/2, y);
+  
+  p5.endShape();
+
+  p5.pop();
 }
 
 function drawWaterTile(p5, x, y, dy, w, h, shade){
