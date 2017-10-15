@@ -12,3 +12,15 @@ CONT.
 
 In part 3 I have removed the stroke transparency and tried to bring a bit more clarity back to the city grid appearance. Now, the black in between the blocks looks like large main highways. Unfortunately, the rest of the grids begin to make less sense now, therefore further iteration is needed.
 
+CONT...
+
+I have added back in the stroke transparency to give the glow effect of city lights. I've also made further adjustments to create more distinct city grids by reducing the noise. That being said, I decided to leave some noise in there so that there was some variance between the different blocks. 
+
+Zooming in creates mini city blocks within the larger one, and this feeds back into the idea of the block within a block concept I mentioned at the start.
+
+The grid is lost once the zoom has reached a certain level, around 5 or 6, and loses context, but I'm not sure that the abstraction is such an issue. I would like to see what it will look like once landmarks are added in.
+
+
+
+
+
