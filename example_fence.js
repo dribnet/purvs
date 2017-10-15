@@ -30,15 +30,33 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
+function drawInception(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+     [1, 1],
+     
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius-200);    
+  }
+
+}
+
 function drawsmallCircles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
-    [0, 1],
-    [0.5, 1.2],
-    [0.5, 0.9],
+     [3, 1],
+     [2.5, 3],
+     [4.5, 2.5],
+    // [0.5, 0.9],
 
-    [-1.2, -1.3],
-    [-1.7, -1.5],
-    [-1.7, -1.2],
+    // [-1.2, -1.3],
+    // [-1.7, -1.5],
+    // [-1.7, -1.2],
     //[-1, 0],
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
@@ -48,7 +66,7 @@ function drawsmallCircles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius-800);    
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
   }
 
 }
@@ -179,31 +197,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
       
 
-      // if zoomed: last draw stamens *in front of* the ellipse
-      if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
-        
-        
-        if (zoom >= 5) 
-        p5.fill(232, 192, 201);
-        p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
-      }
-
       if(zoom >=5) {
         p5.fill(232, 192, 201);
         p5.ellipse(x_pos, y_pos, cur_ball_radius);
         p5.fill(255, 214, 223);
         p5.stroke(0, 0, 128);
         drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+           //p5.fill(0);
+        //drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
 
       }
 
       if(zoom >=7) {
         p5.fill(255);
-        drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
+        drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
         p5.fill(255, 214, 223,50);
         p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      }
+
+       if (zoom >=8) {
+      p5.fill(186, 148, 157);
+        drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+
       }
     }
   }
