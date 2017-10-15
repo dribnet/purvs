@@ -16,14 +16,14 @@ var tourPath = [
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
-  //curRandomSeed = p5.int(p5.focusedRandom(0, 100));
+
   var noiseX = p5.noise(x * noiseScale,
                         y * noiseScale, z);
   var noiseY = p5.noise(x * noiseScale,
                         y * noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
-  //console.log(noiseY); 
+
   return [x+offsetX, y+offsetY]
 }
 
@@ -62,7 +62,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
     p5.background(4, 21, 31);
-
+//////noise green circles
   if (zoom > 1) 
   	{
 	  var noiseScale=0.02; 
@@ -74,7 +74,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      var n_y = p5.map(j, 0, 16, y1, y2);
 	      var noiseVal = p5.noise(n_x * noiseScale,
 	                              n_y * noiseScale, z);
-	      //p5.blendMode(DARKEN);
+
 	      p5.fill(33, 83, 72, noiseVal*120 + zoom * 100);
 	      p5.ellipse(i*16, j*16, 16 - noiseVal*40, 16 - noiseVal*40);
 	    }
@@ -109,17 +109,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      //p5.line(x_pos, y_pos, x_pos2, y_pos2);
+
 
 
       p5.noStroke();
       p5.fill(255, 10 + zoom*5);
       
       ///////////// Triangles in back
-      // p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 
+      if (zoom > 2) {
+      	p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 	
+      }
+      
       ////////////////
-
-	    p5.strokeWeight(cur_line_width);
+////////// lines large
+	  p5.strokeWeight(cur_line_width);
       p5.stroke(5, 53, 76);
       p5.noFill();
       p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
@@ -128,6 +131,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     
       p5.noStroke();
 
+//////lines inner details
       if (zoom > 2) {
         p5.strokeWeight(cur_line_width/2);
         p5.stroke(33, 83, 72, 60 + zoom*5);
@@ -145,15 +149,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
 
       }
-
-      /////////////////
-     
-
-
     }
   }
 
-  //////Small Curved Lines
+  //////Small Curved Lines when zoomed in
   if (zoom > 0){
 	  for(var x=min_x; x<max_x; x+=grid_size) {
 	    for(var y=min_y; y<max_y; y+=grid_size) {
@@ -197,57 +196,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   }
 }
 
-///////////////Little circles
-  for(var x=min_x; x<max_x; x+=grid_size) {
-    for(var y=min_y; y<max_y; y+=grid_size) {
 
-    max_shift = max_thickness + max_movement;
-    min_x = snap_to_grid(x1 - max_shift, grid_size);
-    max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
-    min_y = snap_to_grid(y1 - max_shift, grid_size);
-    max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
-
-
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-      var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-      var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-
-      p5.noStroke();
-      var x_pos2 = p5.map(shift_x/2, x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_y/2, y1, y2, 0, 256);
-      var x_pos3 = p5.map(shift_x/2, x1, x2, 0, 256);
-      var y_pos3 = p5.map(shift_y/2, y1, y2, 0, 256);
-      var x_pos4 = p5.map(shift_x/2, x1, x2, 0, 256);
-      var y_pos4 = p5.map(shift_y/2, y1, y2, 0, 256);
-      var x_pos5 = p5.map(shift_x/2, x1, x2, 0, 256);
-      var y_pos5 = p5.map(shift_y/2, y1, y2, 0, 256);
-
-
-      // if (zoom > 1) { 
-
-      //   p5.fill(33, 83, 72);
-      // }
-
-      // else {
-      // 	p5.fill(33, 83, 72, 50);
-      // }
-
-
-      // p5.ellipse(x_pos4, y_pos4, cur_ball_radius/2);
-      // p5.ellipse(x_pos2, y_pos2, cur_ball_radius/4);
-
-      p5.fill(33, 83, 72);
-      // p5.ellipse(x_pos/2, y_pos/2, cur_ball_radius);
-      // p5.ellipse(x_pos2/2, y_pos2/2, cur_ball_radius/15);
-      // p5.ellipse(x_pos3/2, y_pos3/2, cur_ball_radius/25);
-      // p5.ellipse(x_pos4/2, y_pos4/2, cur_ball_radius/20);
-      // p5.ellipse(x_pos3/4, y_pos3/4, cur_ball_radius/15);
-  
-    }
-  }
-
-
-///// Main Circles
+///// Main Circles always present
    for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
 
@@ -294,19 +244,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(5, 53, 76, 50 + zoom*15);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-      // inner most light circle always being drawn regarless of zoom 
+      // inner most light circle always being drawn regardless of zoom 
       p5.fill(200, 50 + zoom*15);
       p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6);
 
       p5.fill(33, 83, 72, 50 + zoom*15);
+
       // p5.ellipse(x_pos, y_pos, cur_ball_radius*0.5);
-      
-
-      // p5.ellipse(x_pos5, y_pos5, cur_ball_radius/2);
-      // p5.ellipse(x_pos4, y_pos4, cur_ball_radius*0.2);
-      // p5.ellipse(x_pos3, y_pos3, cur_ball_radius*0.7);
-      // p5.ellipse(x_pos2, y_pos2, cur_ball_radius*0.5);
-
+      //p5.ellipse(x_pos5, y_pos5, cur_ball_radius/2);
       
 
     }
@@ -314,7 +259,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
    ///// Main Circles Inner detail
-   if (zoom > 3) {
+   if (zoom > 2) {
 
 	   for(var x=min_x; x<max_x; x+=grid_size) {
 	    for(var y=min_y; y<max_y; y+=grid_size) {
@@ -335,6 +280,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	    var x_pos5 = p5.map(shift_x, x1, x2, 0, 256);
 	    var y_pos5 = p5.map(shift_y, y1, y2, 0, 256);
 
+	    p5.fill(7, 41, 51, 50);
+	    p5.noStroke();
 	    p5.ellipse(x_pos, y_pos, cur_ball_radius*0.7);
 
 	    p5.fill(33, 83, 72, 100);
@@ -355,116 +302,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	    p5.fill(200, 50);
 	    p5.ellipse(x_pos, y_pos, cur_ball_radius*0.1);
-    	 }
-   		}
-	}
 
-if (zoom > 2) {
-
-	   for(var x=min_x; x<max_x; x+=grid_size) {
-	    for(var y=min_y; y<max_y; y+=grid_size) {
-
-	   	max_shift = max_thickness + max_movement;
-	   	min_x = snap_to_grid(x1 - max_shift, grid_size);
-	   	max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
-	   	min_y = snap_to_grid(y1 - max_shift, grid_size);
-	   	max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
-
-	   	var shift_point = getOffsetPoint(p5, x, y, z, 100);
-	    var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-	    var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-
-	    var x_pos3 = p5.map(shift_x/2, x1, x2, 0, 256);
-	    var y_pos3 = p5.map(shift_y/2, y1, y2, 0, 256);
-	    var x_pos4 = p5.map(shift_x/2, x1, x2, 0, 256);
-	    var y_pos4 = p5.map(shift_y/2, y1, y2, 0, 256);
-	    var x_pos5 = p5.map(shift_x/2, x1, x2, 0, 256);
-	    var y_pos5 = p5.map(shift_y/2, y1, y2, 0, 256);
- 		
- 		  p5.strokeWeight(0.5);
+	    p5.strokeWeight(0.5);
 	    p5.noFill();
 	    p5.stroke(255);
       //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
-      //p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6); 
-  
+      	p5.ellipse(x_pos + cur_ball_radius/8, y_pos, cur_ball_radius*0.3); 
+      	p5.ellipse(x_pos  - cur_ball_radius/8, y_pos, cur_ball_radius*0.3);
+      	p5.ellipse(x_pos, y_pos  + cur_ball_radius/8, cur_ball_radius*0.3);
+      	p5.ellipse(x_pos, y_pos  - cur_ball_radius/8, cur_ball_radius*0.3);
+    	
+    	p5.ellipse(x_pos + cur_ball_radius/16, y_pos + cur_ball_radius/16, cur_ball_radius*0.3); 
+      	p5.ellipse(x_pos  - cur_ball_radius/16, y_pos - cur_ball_radius/16, cur_ball_radius*0.3);
+      	p5.ellipse(x_pos - cur_ball_radius/16, y_pos  + cur_ball_radius/16, cur_ball_radius*0.3);
+      	p5.ellipse(x_pos + cur_ball_radius/16, y_pos  - cur_ball_radius/16, cur_ball_radius*0.3);
 
-	    p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos5, y_pos5);
+      	if (zoom > 3) {
+	      	p5.strokeWeight(0.5);
+		    p5.fill(7, 41, 51, 50);
+		    p5.stroke(255);
+	      //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
-
-
-	    //p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
-	    //p5.bezier(x_pos, y_pos, x_pos5, y_pos5, x_pos3, y_pos3, x_pos, y_pos);
-		}
+	      	p5.ellipse(x_pos + cur_ball_radius/20, y_pos, cur_ball_radius*0.1); 
+	      	p5.ellipse(x_pos  - cur_ball_radius/20, y_pos, cur_ball_radius*0.1);
+	      	p5.ellipse(x_pos, y_pos  + cur_ball_radius/20, cur_ball_radius*0.1);
+	      	p5.ellipse(x_pos, y_pos  - cur_ball_radius/20, cur_ball_radius*0.1);
+	    	
+	    	p5.ellipse(x_pos + cur_ball_radius/32, y_pos + cur_ball_radius/32, cur_ball_radius*0.1); 
+	      	p5.ellipse(x_pos  - cur_ball_radius/32, y_pos - cur_ball_radius/32, cur_ball_radius*0.1);
+	      	p5.ellipse(x_pos - cur_ball_radius/32, y_pos  + cur_ball_radius/32, cur_ball_radius*0.1);
+	      	p5.ellipse(x_pos + cur_ball_radius/32, y_pos  - cur_ball_radius/32, cur_ball_radius*0.1);
+	    }	
+    	 }
+   		}
 	}
-}
-
-// function drawPattern () {
-
-//   for(var x=min_x; x<max_x; x+=grid_size) {
-//     for(var y=min_y; y<max_y; y+=grid_size) {
-
-//       p5.noLoop();
-//       var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-//       var shift_x = shift_point[0];
-//       var shift_y = shift_point[1];
-
-//       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-//       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-//       var x_pos3 = p5.map(shift_x-300, x1, x2, 0, 256);
-//       var y_pos3 = p5.map(shift_y+300, y1, y2, 0, 256);
-//       var x_pos4 = p5.map(shift_x-450, x1, x2, 0, 256);
-//       var y_pos4 = p5.map(shift_y+150, y1, y2, 0, 256);
-//       var x_pos5 = p5.map(shift_x+700, x1, x2, 0, 256);
-//       var y_pos5 = p5.map(shift_y+700, y1, y2, 0, 256);
-
-      
-//       var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-//       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-//       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256)
-
-//       triangle(x_pos, y_pos,x_pos2, y_pos2, x_pos3, x_pos3);
-
-
-
-//       endShape();
-//     } 
-//    }
-//	}
-
-
-
-
-
-
-
-   // for(var x=min_x; x<max_x; x+=grid_size) {
-   //  for(var y=min_y; y<max_y; y+=grid_size) {
-
-   // 	max_shift = max_thickness + max_movement;
-   // 	min_x = snap_to_grid(x1 - max_shift, grid_size);
-   // 	max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
-   // 	min_y = snap_to_grid(y1 - max_shift, grid_size);
-   // 	max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
-
-   // 	  var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-   //    var x_pos = p5.map(shift_point[0], x1, x2, 0, 128);
-   //    var y_pos = p5.map(shift_point[1], y1, y2, 0, 128);
-   //    var x_pos3 = p5.map(shift_x, x1, x2, 0, 128);
-   //    var y_pos3 = p5.map(shift_y, y1, y2, 0, 128);
-   //    var x_pos4 = p5.map(shift_x, x1, x2, 0, 128);
-   //    var y_pos4 = p5.map(shift_y, y1, y2, 0, 128);
-  
-
-
-  	//   p5.fill(255, 17);
-   //    p5.triangle(x_pos3, y_pos3, x_pos2, y_pos2, x_pos4, y_pos4); 
-   //  	}
-   // 	}
-
-
-	  
-
 
 
 
