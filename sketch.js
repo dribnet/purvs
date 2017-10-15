@@ -250,11 +250,11 @@ var octagonZone = {
         var isVisible = false;
         for (var pos = 0; pos < octagonZone.innerCoordinates.length; pos++) {
 
-            var xPos = octagonZone.innerCoordinates[pos][0];
-            var yPos = octagonZone.innerCoordinates[pos][1];
+            var xPos = centerX + octagonZone.innerCoordinates[pos][0];
+            var yPos = centerY + octagonZone.innerCoordinates[pos][1];
 
-            cx = p5.map(centerX + xPos, x1, x2, 0, 256);
-            cy = p5.map(centerY + yPos, y1, y2, 0, 256);
+            cx = p5.map(xPos, x1, x2, 0, 256);
+            cy = p5.map(yPos, y1, y2, 0, 256);
 
             colour = p5.lerpColor(fromColour, toColour, lerpAmount);
             p5.stroke(colour);
@@ -264,7 +264,7 @@ var octagonZone = {
             }
 
 
-            var shapeSides = this.getNumberOfSides(p5, centerX + xPos, centerY + yPos);
+            var shapeSides = this.getNumberOfSides(p5, xPos, yPos);
             if(zm < 4){
                 if(zm > 0){
                     p5.strokeWeight(weight/2);
@@ -276,28 +276,21 @@ var octagonZone = {
             }
             else {
 
-                isVisible = isShapeWithinTile(centerX + xPos, centerY + yPos, x1, x2, y1, y2, octagonZone.multiplier);
+                isVisible = isShapeWithinTile(xPos, yPos, x1, x2, y1, y2, octagonZone.multiplier);
                 if(isVisible){
                     var shapeSize = innerShapeSize;
                     if(zm < 7){
                         this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, zm);
                     }
                     else {
-                        shapeSize = shapeSize * 1.2;
-                        var splitShapes = [
-                                            [cx - shapeSize, cy - shapeSize],
-                                            [cx + shapeSize, cy - shapeSize],
-                                            [cx - shapeSize, cy + shapeSize],
-                                            [cx + shapeSize, cy + shapeSize]
-                                          ];
+                        shapeSize = shapeSize * 1.25;
+                        var splitShapes = this.splitShapeIntoFour(cx, cy, shapeSize, zm);
+                        var sizeDivider = (zm - 6) * 2;
                         for(var i = 0; i < splitShapes.length; i++){
-                            if(debug){
-                                console.log(centerX + xPos  - shapeSize);
-                                console.log(centerY + yPos);
-                                console.log(isVisible);
-                            }
                             this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/2, shapeSides, zm);
                         }
+                        p5.strokeWeight(16);
+                        polygon(p5, cx, cy, glyphWidth/4, shapeSides);
                     }
                 }
             }
@@ -314,6 +307,15 @@ var octagonZone = {
         }
     },
 
+    splitShapeIntoFour: function(cx, xy, shapeSize, zm){
+        var newShapes = [
+            [cx - shapeSize, cy - shapeSize],
+            [cx + shapeSize, cy - shapeSize],
+            [cx - shapeSize, cy + shapeSize],
+            [cx + shapeSize, cy + shapeSize]
+        ];
+        return newShapes;
+    },
     /*
      * Determines the number of sides a shape should have based on the center x and center y co-ordinates for the shape
      * @param {Object} p5           - the p5.js object
