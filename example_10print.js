@@ -22,13 +22,8 @@ function drawLayer(p5, slashsize, x1, x2, y1, y2, z) {
     for(var y=starty; y<endy; y+=slashsize) {
       var n_y = y / slashsize;
       var y_pos = p5.map(y, y1, y2, 0, 256);
-      var noiseValue = p5.noise(x * noiseScale, y * noiseScale, z);
-      if (noiseValue < 0.5) {
-        p5.line(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
-      }
-      else {
-        p5.line(x_pos, y_pos+char_height, x_pos+char_width, y_pos);
-      }
+      p5.ellipse(x_pos, y_pos*2,30, 30);
+      
     }
   }
 }
