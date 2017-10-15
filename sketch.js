@@ -130,8 +130,9 @@ var octagonZone = {
      * @param {Number} y2		- bottom side of a map tile
      * @param {Number} hue      - used to create p5.js color objects
      * @param {Number} zm		- current zoom level on the map
+     * @param {String} tileKey	- unique key of the tile currently being drawn
      */
-    drawZone: function(p5, centerX, centerY, x1, x2, y1, y2, hue, zm) {
+    drawZone: function(p5, centerX, centerY, x1, x2, y1, y2, hue, zm, tileKey) {
         var zero = p5.map(0, x1, x2, 0, 256);
         var maxWidth = p5.map(this.multiplier*0.2, x1, x2, 0, 256);
         var weight = maxWidth - zero;
@@ -151,7 +152,7 @@ var octagonZone = {
             this.drawOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, adjuster);
         }
 
-        this.drawGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm);
+        this.drawGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm, tileKey);
     },
 
     /*
@@ -236,17 +237,17 @@ var octagonZone = {
      * @param {Number} weight	- stroke weight of the shape to be drawn
      * @param {Number} hue      - used to create p5.js color objects
      * @param {Number} zm		- current zoom level on the map
+     * @param {String} tileKey	- unique key of the tile currently being drawn
      */
-    drawGlyphs: function(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm){
+    drawGlyphs: function(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm, tileKey){
         var glyphWidth = 256 / ((x2-x1)/ (this.multiplier * 1.6)) / 2;
         var innerShapeSize = glyphWidth / 2;
-
         //work out which colours will be used
         var toHue = hue >= 180 ? hue - 180 : hue + 180;
         var fromColour = p5.color(hue, 100, 100, 1 - (zm/20));
         var toColour = p5.color(toHue, 100, 100, 1 - (zm/20));
         var colour = "", lerpAmount = zm >= 3 ? 1 : 0;
-
+        var isVisible = false;
         for (var pos = 0; pos < octagonZone.innerCoordinates.length; pos++) {
 
             var xPos = octagonZone.innerCoordinates[pos][0];
@@ -264,8 +265,6 @@ var octagonZone = {
 
 
             var shapeSides = this.getNumberOfSides(p5, centerX + xPos, centerY + yPos);
-
-
             if(zm < 4){
                 if(zm > 0){
                     p5.strokeWeight(weight/2);
@@ -276,20 +275,29 @@ var octagonZone = {
                 }
             }
             else {
-                var shapeSize = innerShapeSize;
-                if(zm < 7){
-                    this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, zm);
-                }
-                else {
-                    shapeSize = shapeSize * 1.2;
-                    var splitShapes = [
-                                        [cx - shapeSize, cy - shapeSize],
-                                        [cx + shapeSize, cy - shapeSize],
-                                        [cx - shapeSize, cy + shapeSize],
-                                        [cx + shapeSize, cy + shapeSize]
-                                      ];
-                    for(var i = 0; i < splitShapes.length; i++){
-                        this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/2, shapeSides, zm);
+
+                isVisible = isShapeWithinTile(centerX + xPos, centerY + yPos, x1, x2, y1, y2, octagonZone.multiplier);
+                if(isVisible){
+                    var shapeSize = innerShapeSize;
+                    if(zm < 7){
+                        this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, zm);
+                    }
+                    else {
+                        shapeSize = shapeSize * 1.2;
+                        var splitShapes = [
+                                            [cx - shapeSize, cy - shapeSize],
+                                            [cx + shapeSize, cy - shapeSize],
+                                            [cx - shapeSize, cy + shapeSize],
+                                            [cx + shapeSize, cy + shapeSize]
+                                          ];
+                        for(var i = 0; i < splitShapes.length; i++){
+                            if(debug){
+                                console.log(centerX + xPos  - shapeSize);
+                                console.log(centerY + yPos);
+                                console.log(isVisible);
+                            }
+                            this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/2, shapeSides, zm);
+                        }
                     }
                 }
             }
@@ -328,7 +336,7 @@ var octagonZone = {
             }
             if(debug){
                 console.log('noiseValue '+noiseValue);
-                console.log('lucasSum '+ (shapeSelectorSum/100));
+                console.log('shapeSelectorSum '+ (shapeSelectorSum/100));
                 console.log('i = ' + i);
                 console.log(this.shapeSelector[this.shapeSelector.length - i - 1]);
             }
@@ -339,6 +347,7 @@ var octagonZone = {
         return shapeSides;
     },
 
+    //stroke weights used for the glyph pattern at various zoom levels
     glyphPatternStrokeWeights: [8, 4, 2, 2],
     /*
      * draws a pattern by rotating a shape several times
@@ -401,16 +410,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
         zoneX = octagonZone.locations[i][0];
         zoneY = octagonZone.locations[i][1];
-        isVisible = isZoneWithinTile(zoneX, zoneY, x1, x2, y1, y2);
-
+        isVisible = isShapeWithinTile(zoneX, zoneY, x1, x2, y1, y2, octagonZone.zoneSize/2);
         if(isVisible){
 
             hue = (i % 24) * 15;
 
             setTimeout(
-                function(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm){
-                    return function() { octagonZone.drawZone(p5, cX, cY, leftX, rightX, topY, bottomY, h, zm); };
-                }(p5, zoneX, zoneY, x1, x2, y1, y2, hue, zoom) ,
+                function(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk){
+                    return function() { octagonZone.drawZone(p5, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk); };
+                }(p5, zoneX, zoneY, x1, x2, y1, y2, hue, zoom, tileKey),
                 0
             );
 
@@ -419,28 +427,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 }
 
 /*
- * determines if a zone exists within the current tile
+ * determines if a shape exists within the current tile
  * if it can't be seen within the current tile then there is no need to draw it
- * @param {Number} centerX  - center of the x-axis for the current octagon zone
- * @param {Number} centerY  - center of the y-axis for the current octagon zone
- * @param {Number} x1       - left side of a map tile
- * @param {Number} x2		- right side of a map tile
- * @param {Number} y1 		- top side of a map tile
- * @param {Number} y2		- bottom side of a map tile
- * @return{Boolean}   	    - whether or not the zone is within the tile
+ * @param {Number} centerX      - center of the x-axis for the current octagon zone
+ * @param {Number} centerY      - center of the y-axis for the current octagon zone
+ * @param {Number} x1           - left side of a map tile
+ * @param {Number} x2		    - right side of a map tile
+ * @param {Number} y1 		    - top side of a map tile
+ * @param {Number} y2		    - bottom side of a map tile
+ * @param {Number} shapeEdge	- distance from the center to the edge of the shape
+ * @return{Boolean}   	        - whether or not the zone is within the tile
  */
-function isZoneWithinTile(centerX, centerY, x1, x2, y1, y2){
-    var zoneEdge = octagonZone.zoneSize / 2;
-    if((centerX + zoneEdge) <= x1){
+function isShapeWithinTile(centerX, centerY, x1, x2, y1, y2, shapeEdge){
+    if((centerX + shapeEdge) <= x1){
         return false;
     }
-    if((centerX - zoneEdge) >= x2){
+    if((centerX - shapeEdge) >= x2){
         return false;
     }
-    if((centerY + zoneEdge) <= y1){
+    if((centerY + shapeEdge) <= y1){
         return false;
     }
-    if((centerY - zoneEdge) >= y2){
+    if((centerY - shapeEdge) >= y2){
         return false;
     }
     return true;
