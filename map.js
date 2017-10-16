@@ -10,7 +10,7 @@ if (typeof initialZoomLevel === 'undefined') {
 }
 
 if (typeof maxZoomLevel === 'undefined') {
-  var maxZoomLevel = 16;
+  var maxZoomLevel = 11;
 }
 
 var worldMap = new L.Map('map', {  
@@ -87,10 +87,13 @@ linkHome = "#0/0/512/512/0"
 
 if (typeof tourPath === 'undefined') {
   var tourPath = [
-    [2, 512, 512],
-    [4, 512, 512],
-    [6, 512, 512],
-    [8, 512, 512]
+    [0, 512, 512],
+    [2, 653, -12],
+    [3, 500, 512],
+    [7, 500, 513],
+    [9, 29.490234375000,-31.004882812500],
+    [11, 512, 512]
+
   ]
 }
 tourPath.unshift([initialZoomLevel, 512, 512]);
