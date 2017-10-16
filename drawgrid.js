@@ -24,9 +24,18 @@ function showCheck(p5, x, y, z, noiseScale) {
 }
 
 function getRotation(p5, x, y, z, noiseScale) {
-  var rot = 5*p5.noise(x * noiseScale, y * noiseScale, z+1);
- 
-  return (rot)
+  var rot = p5.noise(x * noiseScale, y * noiseScale, z+2);
+
+ var mapRot =	p5.map(rot, 0, 0.8, 0, 360);
+
+  return (mapRot)
+}
+
+function getSize(p5, x, y, z, noiseScale) {
+  var s = p5.noise(x * noiseScale, y * noiseScale, z+3);
+  
+  var mapS = p5.map(s, 0.1, 0.75, 0.6, 1.3);
+  return (mapS)
 }
 
 function colorPalette(p5, x, y, z, noiseScale) {
@@ -59,19 +68,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	var min_y = snap_to_grid(y1 - max_shift, grid_size);
   	var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  	var c_p00 = p5.map(0, x1, x2, 0, 350);
-  	var c_pball = p5.map(ball_radius, x1, x2, 0, 350);
+  	var c_p00 = p5.map(0, x1, x2, 0, 50);
+  	var c_pball = p5.map(ball_radius, x1, x2, 0, 50);
 
   	
   	p5.background(255);
   	p5.fill(0, 0, 128);
-  	for(var x=min_x; x<max_x; x+=grid_size) {
-    	for(var y=min_y; y<max_y; y+=grid_size) {   		
+
+  	var multiplier = 2;
+  	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
+    	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
- 			 LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
-    		
+ 			LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
+    	
    		}	
    	}
+   	//draw debug grid
+   	// p5.stroke(255, 0, 0);
+   	// p5.noFill();
+   	// p5.rect(0, 0, 255, 255);
 }
 
 
@@ -81,16 +96,23 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
   	this.drawLeaf = function(){
 	p5.push();
 	p5.translate(this.x_pos, this.y_pos);
-	// p5.rotate(this.rotation);
+	p5.rotate(this.rotation);
+
 	p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
-	var rad = this.cur_ball_radius/2.5;
+
 
 		p5.beginShape();
+		var bumpiNoise = p5.noise(x, y, 100);
+		var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.5);
 		for (var a=0; a<=p5.TWO_PI; a+=p5.TWO_PI/resolution) {
-		
-			var nVal = p5.map(p5.noise(p5.cos(a)*this.leafShape+1, p5.sin(a)*this.leafShape+1), 0.0, 1.0, 1.4, 1.0); 
-			var Vertx = p5.cos(a)*rad *nVal;
-			var Verty = p5.sin(a)*rad *nVal;
+			
+			// var nVal = p5.map(p5.noise(p5.cos(a)*this.leafShape+1, p5.sin(a)*this.leafShape+1), 0.0, 1.0, 1.4, 1.0); 
+			var rVal = p5.noise(x, y, 100+a*bumpiNess);
+			// console.log(rVal);
+			var nVal = this.size*p5.map(rVal, 0.0, 1.0, 1.4, 1.0); 
+			// var nVal = 1.4;
+			var Vertx = p5.cos(a)*this.cur_ball_radius *nVal;
+			var Verty = p5.sin(a)*this.cur_ball_radius *nVal;
 
 
 		//add lilypad inset
@@ -115,15 +137,15 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 	var noiseScaleL = 1.0;
 	this.show_leaf = showCheck(p5, x, y, z, 0.4);
 
-		this.x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+	this.x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
   	this.y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
   	this.leafColor = colorPalette(p5, x, y, z, 0.4);
   	this.leafShape = 0.9; 
   	this.cur_ball_radius = c_ball_radius;
 
-  	var rot = getRotation(p5, x1, y1, z+2, 0.1)
-  	this.rotation = p5.map(rot, 0.4, 3.6, 0, 360);
-  	console.log(this.rotation);
+  	this.rotation = getRotation(p5, x, y, z, 0.1);
+  	this.size = getSize(p5, x, y, z, 0.1);
+  
 
 	p5.noStroke();
 
