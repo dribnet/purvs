@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var white = "#ffffff"
-var blue = "#a4c6fc"
-var green = "#50ad4c"
-var lightGrey = "#d3dae5"
-var grey = "#bcc6d6"
-=======
 //Solution based on Toms 10 print example code
 
 var white = "#ffffff";
@@ -19,7 +12,6 @@ var whiteSky = "rgba(232, 236, 242, 0.5)";
 var alphaOverlay = "rgba(255, 255, 255, 0.1)";
 var varSkyCol = darkSkyGrey;
 
->>>>>>> 1096706379785e1083f9141f9da845b70457d8c4
 var noiseScale = 1/16.0;
 var noiseScale2 = 1/26.0;
 
@@ -51,14 +43,13 @@ function drawCloudLayer(p5, slashsize, x1, x2, y1, y2, z) {
 	        p5.fill(varSkyCol);
 	        p5.rect(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
 		  }
-<<<<<<< HEAD
-=======
+
       if (noiseValue < 0.3 & noiseValue > 0.1) {
           p5.noStroke();
           p5.fill(varSkyCol);
           p5.rect(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
       }
->>>>>>> 1096706379785e1083f9141f9da845b70457d8c4
+
 	   }
   }
 
@@ -139,19 +130,6 @@ function drawLandLayer(p5, slashsize, x1, x2, y1, y2, z) {
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-<<<<<<< HEAD
-  if(zoom >= 0){
-    p5.noiseDetail(8,0.5);
-    p5.background(lightGrey);
-    drawCloudLayer(p5, 6, x1, x2, y1, y2, z);
-  }
-
-  if(zoom >= 1){
-    p5.noiseDetail(8,0.5);
-    p5.background(green);
-    drawMapLayer(p5, 2, x1, x2, y1, y2, z);
-    drawCloudLayer(p5, 6, x1, x2, y1, y2, z);
-=======
 
   // view of clouds only
   if(zoom >= 0) {
@@ -180,9 +158,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     varSkyCol = whiteSky;
     drawMapLayer(p5, 2, x1, x2, y1, y2, z);
     drawCloudLayer(p5, 13, x1, x2, y1, y2, z);
-
->>>>>>> 1096706379785e1083f9141f9da845b70457d8c4
-  }
+}
   
   // zoomed out view of land
   if(zoom >= 3) {
@@ -214,7 +190,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   if(zoom >= 6) {
     p5.noiseDetail(8,0.5);
     drawMapLayer(p5, 2, x1, x2, y1, y2, z);
-
 
 
   }
