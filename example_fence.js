@@ -9,11 +9,15 @@ var tourSeed = 301;
 var tourPath = [
   [0, 512.000000000000, 512.000000000000],
   [1, 410.750000000000, 669.250000000000],
-  [2, 303.375000000000, 694.625000000000],
-  [3, 301.187500000000, 696.937500000000],
-  [4, 298.843750000000, 697.281250000000],
-  [7, 300.066406250000, 697.105468750000]
+  [2, 221.625000000000, 656.625000000000],
+  [3, 208.062500000000, 646.312500000000],
+  [4, 207.718750000000, 644.781250000000],
+  [7, 207.718750000000, 644.781250000000]
 ]
+
+var initialZoomLevel = 0;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 9;
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
 
@@ -62,7 +66,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
     p5.background(4, 21, 31);
-//////noise green circles
+//////noise generated green circles
   if (zoom > 1) 
   	{
 	  var noiseScale=0.02; 
@@ -88,7 +92,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   	p5.fill(33, 83, 72);
 
-  	/////Curved Lines
+  	/////Main Curved Lines generating code
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       p5.noLoop();
@@ -115,13 +119,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.noStroke();
       p5.fill(255, 10 + zoom*5);
       
-      ///////////// Triangles in back
+      ///////////// Triangles in back not too visible
       if (zoom > 2) {
       	p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 	
       }
       
       ////////////////
-////////// lines large
+////////// lines large main
 	  p5.strokeWeight(cur_line_width);
       p5.stroke(5, 53, 76);
       p5.noFill();
@@ -131,7 +135,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     
       p5.noStroke();
 
-//////lines inner details
+//////lines inner details green colour
       if (zoom > 2) {
         p5.strokeWeight(cur_line_width/2);
         p5.stroke(33, 83, 72, 60 + zoom*5);
@@ -152,7 +156,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     }
   }
 
-  //////Small Curved Lines when zoomed in
+  //////Small Curved Lines when zoomed in, blue colour, less strokeweight than main
   if (zoom > 0){
 	  for(var x=min_x; x<max_x; x+=grid_size) {
 	    for(var y=min_y; y<max_y; y+=grid_size) {
@@ -180,9 +184,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      p5.noStroke();
 	      p5.fill(255, 10 + zoom*5);
 	      
-	      ///////////// Triangles in back
-	      // p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 
-	      ////////////////
 
 		    p5.strokeWeight(cur_line_width/5);
 	      p5.stroke(5, 53, 76);
