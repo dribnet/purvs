@@ -15,6 +15,29 @@ var max_thickness = 64;
 var max_movement = 150;
 var grid_size = 64;
 
+
+/* TOUR VARIABLES (required)
+/* the random number seed for the tour */
+var tourSeed = 100;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 438, -804],
+  [1, 419, -827],
+  [2, 508.5, -872],
+  [3, 563.75, -913],
+  [4,682.5625,-1194.5625],
+  [6,679.2109375,-1176.34375],
+  [8,-1885.123046875,-2185.90234375],
+  [2,-1388.625,-1711.25],
+  [0,-1792.5,-1798]
+]
+
+/* OPTIONAL VARIABLES */
+/* what is the initial zoom level (defaults to 0) */
+var initialZoomLevel = 0;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 10;
+
 function snap_to_grid(num, gsize) {
 	return (num - (num % gsize));
 }
@@ -95,7 +118,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			var pos = getDrawPosition(posX, posY, size / 6 * shape, size / shape);
 			
 			// colour and style of planet will be different depending on the noise value
-			var colorZone = p5.map(v, .5, .6, 250, 40);
+			var colorZone = p5.map(v, .5, .6, 0, 220);
 			var style = p5.floor(colorZone) % 4;
 			
 			p5.push();
@@ -123,7 +146,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 				p5.colorMode(p5.HSB);
 
-				p5.fill(colorZone, zoom * 10, 100, 70);
+				p5.fill(colorZone, zoom * 10, 70);
 				p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 
 
@@ -132,19 +155,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.fill(0, 0, 100);
 					p5.ellipse(0, 0, pos[2] * .8, pos[3] * 1.5);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0, 0, pos[2] * .8, pos[3] * 1.3);
 
 					p5.fill(0, 0, 100);
 					p5.ellipse(0, 0, pos[2] * .3, pos[3] * .3);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(pos[3] * .1,0, pos[2] * .1, pos[3] * .1);
 					
 				} else if (style == 1) {
-					p5.fill(0, 0, 100);
+					p5.colorMode(p5.RGB);
+					p5.fill(255, 255, 255, 130);
 					p5.ellipse(0, 0, pos[2] * 2.5, pos[3] * .5);
-					p5.fill(colorZone, zoom * 10, 100);
+					p5.colorMode(p5.HSB);
+					p5.fill(colorZone, zoom * 10, 70);
 					p5.ellipse(0, - pos[3] * .1, pos[2] * 1.5, pos[3] * .4);
 
 				} else if (style == 3) {
@@ -162,29 +187,31 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 				p5.colorMode(p5.HSB);
 				
-				p5.fill(colorZone, zoom * 5, 100, 70);
+				p5.fill(colorZone, zoom * 5, 70);
 				p5.ellipse(0, 0, pos[2] * 2, pos[3] * 2);
 				
 				if (style == 2) {
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 2);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 1.8);
 
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * .8, pos[3] * .6);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0,0, pos[2] * .6, pos[3] * .6);
 					
 					p5.fill(0, 0, 100);
 					p5.ellipse(pos[3] * .1, 0, pos[2] * .1, pos[3] * .1);
 					p5.pop();
 				} else if (style == 1) {
-					p5.fill(0, 0, 100);
+					p5.colorMode(p5.RGB);
+					p5.fill(255, 255, 255, 130);
 					p5.ellipse(0, 0, pos[2] * 10/3, pos[3]  * 2 / 3);
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.colorMode(p5.HSB);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0, - pos[3] * .2, pos[2] * 2, pos[3] * .4);
 					
 
@@ -204,30 +231,33 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 				p5.colorMode(p5.HSB);
 				
-				p5.fill(colorZone, zoom * 5, 100, 70);
+				p5.fill(colorZone, zoom * 5, 70);
 				p5.ellipse(0,0, pos[2] * 2, pos[3] * 2);
 				
 				if (style == 2) {
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 2);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 1.8);
 
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * .8, pos[3] * .6);
 
-					p5.fill(colorZone, zoom * 5, 100);
+					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0,0, pos[2] * .6, pos[3] * .6);
 					
 					p5.fill(0, 0, 100);
 					p5.ellipse(pos[3] * .1,0, pos[2] * .1, pos[3] * .1);
 					
 				} else if (style == 1) {
-					p5.fill(0, 0, 100);
-					p5.ellipse(0, 0, pos[2] * 10/3, pos[3]  * 2 / 3);
-					p5.fill(colorZone, zoom * 5, 100);
-					p5.ellipse(0, - pos[3] * .2, pos[2] * 2, pos[3] * .4);
+					p5.colorMode(p5.RGB);
+					p5.fill(255, 255, 255, 130);
+				    p5.ellipse(0, 0, pos[2] * 10/3, pos[2] * 2/3);
+					
+					p5.colorMode(p5.HSB);
+					p5.fill(colorZone, zoom * 5, 70);
+					p5.ellipse(0, - pos[3] * .2, pos[2] * 1.95, pos[3] * .4);
 					
 				} else if (style == 3) {
 
