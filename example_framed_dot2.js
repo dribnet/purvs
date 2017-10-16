@@ -10,15 +10,22 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
+/* TOUR VARIABLES (required)
 /* the random number seed for the tour */
 var tourSeed = 100;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 466, 471],
-  [3, 512, 515],
   [5, 510, 507],
-  [7, 507, 506]
+  [7, 507, 506],
+  [3, 512, 515],
+  [1, 512, 512]
 ]
+
+/* OPTIONAL VARIABLES */
+/* what is the initial zoom level (defaults to 0) */
+var initialZoomLevel = 3;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 12;
 
 function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
