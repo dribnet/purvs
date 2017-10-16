@@ -3,7 +3,8 @@ var max_thickness = 0;
 var max_movement = 0;
 var ball_radius = 0;
 var line_width = 1;
-var gridSize = 0.25;
+var gridSize;
+
 
 //population variables
 var empty;
@@ -30,24 +31,24 @@ var totalPopulation;
 /* what is the initial zoom level (defaults to 0) */
 var initialZoomLevel = 6;
 /* what is the maximum zoom level (make this at least 10. defaults to 16) */
-var maxZoomLevel = 12;
+var maxZoomLevel = 9;
 
 function initPopulations(p5){
 
 
-  empty = 45 + p5.round(70);
-  grass = 10+ p5.round(15);
+  empty = 115;
+  grass = 25;
   flatLine = 0;
-  rock = 5 + p5.round(15);
-  tree = 20 + p5.round(20);
-  smallTree = 10 + p5.round(20);
-  house = 20 + p5.round(4);
-  obelisk = 1 + p5.round(6);
-  flower = 5 + p5.round(15) ;
-  cave = 8 + p5.round(5);
+  rock = 7;
+  tree = 60;
+  smallTree = 20;
+  house = 24;
+  obelisk = 7;
+  flower = 20 ;
+  cave = 13;
 
 
-  populations = [empty,grass,flatLine,rock,tree,smallTree,house,obelisk,flower,cave];
+  populations = [empty,grass,flatLine,rock,smallTree,tree,house,obelisk,flower,cave];
   totalPopulation = 0;
 
   for(var i = 0; i < populations.length; i++){
@@ -86,10 +87,20 @@ function snap_to_grid(num, gsize) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
 
+
+
+
   initPopulations(p5);
 
-  if(zoom < 6){
-    return;
+  if(zoom < 5){
+    gridSize = 1;
+  }
+
+  else if(zoom < 6){
+    gridSize = 0.5;
+  }
+  else{
+    gridSize = 0.25;
   }
 
   //var minX = x1;
@@ -104,7 +115,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var lineWidth = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  var noiseScale = 0.1;
+  var noiseScale = 0.8;
 
   p5.background(255);
   p5.fill(0, 0, 0);
@@ -116,6 +127,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var bottomY = p5.map(y+gridSize, y1, y2, 0, 256);
       var colWidth = p5.map(gridSize,x1,x2,0,256) - p5.map(0, x1, x2, 0, 256);
       var rowHeight = p5.map(gridSize,y1,y2,0,256) - p5.map(0, y1, y2, 0, 256);
+      var colWidthThird = p5.map(gridSize/3,x1,x2,0,256) - p5.map(0, x1, x2, 0, 256);
+      var rowHeightThird = p5.map(gridSize/3,y1,y2,0,256) - p5.map(0, y1, y2, 0, 256);
       var perl = p5.noise(x*noiseScale, y*noiseScale);
 
       var tileType;
@@ -150,7 +163,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       //p5.strokeWeight(lineWidth);
       p5. strokeWeight(1);
-      p5.stroke(0, 0, 0);
+      p5.stroke(0);
 
       //var bottomY = p5.map(y, y1, y2, 0, 256);
       //p5.line(leftX, topY, rightX, topY);
@@ -158,10 +171,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       var midPoint = p5.map(y-(gridSize/2),y1,y2,0,256);
 
+
+
+
       var shapeType = getShape(x*noiseScale, y*noiseScale);
 
       if(zoom > 5){
         drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType);
+      }
+      else{
+        //p5.stroke(0);
+        //p5.point(leftX,topY);
       }
 
   }
@@ -221,7 +241,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     //grass
     if(shapeType == 1){
-      //p5.strokeWeight(lineWidth*2);
+      p5.strokeWeight(2);
       p5.stroke(123,182,91);
       p5.line(leftX,mapY(y+gridSize-(gridSize/5)),leftX,bottomY);
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize/2)),bottomY);
@@ -246,13 +266,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.stroke(42, 71, 49);
 
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
-      p5.triangle(leftX,mapY(y+gridSize/2),mapX(x+(gridSize/2)),mapY(y-gridSize/2),rightX,mapY(y+gridSize/2));
+      p5.triangle(mapX(x+(gridSize*0.2)),mapY(y+(gridSize/2)),mapX(x+(gridSize/2)),mapY(y-(gridSize*0.1)),mapX(x+gridSize-(gridSize*0.2)),mapY(y+(gridSize/2)));
 
-      if(tileType == "snow"){
-        p5.fill(255);
-        //noStroke();
-        p5.triangle(mapX(x+(gridSize*0.13)),mapY(y+(gridSize*0.3)),mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),mapX(x+gridSize-(gridSize*0.13)),mapY(y+(gridSize*0.3)));
-      }
 
     }
     //smalltree
@@ -262,7 +277,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.stroke(42, 71, 49);
 
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
-      p5.triangle(mapX(x+(gridSize*0.2)),mapY(y+(gridSize/2)),mapX(x+(gridSize/2)),mapY(y-(gridSize*0.1)),mapX(x+gridSize-(gridSize*0.2)),mapY(y+(gridSize/2)));
+      p5.triangle(leftX,mapY(y+gridSize/2),mapX(x+(gridSize/2)),mapY(y-gridSize/2),rightX,mapY(y+gridSize/2));
+
+      if(tileType == "snow"){
+        p5.fill(255);
+        //noStroke();
+        p5.triangle(mapX(x+(gridSize*0.13)),mapY(y+(gridSize*0.3)),mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),mapX(x+gridSize-(gridSize*0.13)),mapY(y+(gridSize*0.3)));
+      }
+
 
     }
 
@@ -275,9 +297,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //p5.rect(leftX,topY,p5.map(gridSize,x1,x2,0,256),mapY(gridSize-10));
       p5.rect(leftX,topY,colWidth,rowHeight);
       p5.fill(183, 156, 126);
-      p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/3),colWidth,rowHeight);
-      //triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
-      //rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
+      p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/3),colWidthThird,rowHeightThird);
+      p5.triangle(leftX,topY,mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),rightX,topY);
+      p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/1.5),colWidthThird,rowHeightThird);
 
     }
 
