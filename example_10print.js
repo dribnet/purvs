@@ -1,6 +1,7 @@
 var white = "#ffffff"
 var blue = "#a4c6fc"
 var green = "#50ad4c"
+var lightGrey = "#d3dae5"
 var grey = "#bcc6d6"
 var noiseScale = 1/16.0;
 var noiseScale2 = 1/26.0;
@@ -33,8 +34,8 @@ function drawCloudLayer(p5, slashsize, x1, x2, y1, y2, z) {
 	        p5.noStroke();
 	        p5.fill(grey);
 	        p5.rect(x_pos, y_pos, x_pos+char_width, y_pos+char_height);
-		}
-	}
+		  }
+	   }
   }
 
 }
@@ -80,9 +81,18 @@ function drawLandLayer(p5, slashsize, x1, x2, y1, y2, z) {
 
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  p5.noiseDetail(8,0.5);
-  p5.background(white);
-  drawCloudLayer(p5, 6, x1, x2, y1, y2, z);
+  if(zoom >= 0){
+    p5.noiseDetail(8,0.5);
+    p5.background(lightGrey);
+    drawCloudLayer(p5, 6, x1, x2, y1, y2, z);
+  }
+
+  if(zoom >= 1){
+    p5.noiseDetail(8,0.5);
+    p5.background(green);
+    drawMapLayer(p5, 2, x1, x2, y1, y2, z);
+    drawCloudLayer(p5, 6, x1, x2, y1, y2, z);
+  }
   
   if(zoom >= 3) {
     p5.background(green);
