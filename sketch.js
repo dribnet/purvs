@@ -219,6 +219,7 @@ var octagonZone = {
             p5.vertex(cx, cy);
         }
         p5.endShape(p5.CLOSE);
+
     },
 
     //a small collection of numbers represent different shapes
@@ -426,6 +427,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
         }
     }
+
+    if(zoom >= 7){
+        //drawRedRepresentation(p5,x1, x2, y1, y2);
+    }
 }
 
 /*
@@ -497,4 +502,45 @@ function drawDebugFrame(p5, x1, x2, y1, y2){
     var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
     p5.stroke(0, 100, 100);
     p5.rect(cx, cy, cx2, cy2);
+}
+
+function drawRedRepresentation(p5,x1, x2, y1, y2){
+    
+    var cx = p5.map(512, x1, x2, 0, 256);
+    var cy = p5.map(512, y1, y2, 0, 256);
+    
+    //x and y positions for the 16 triangles
+    var positions = {
+        'x1': [-87.5, -37.5, 12.5, 62.5, 100, 100, 100, 100, 162.5, 112.5, 62.5, 12.5, 0, 0, 0, 0], 
+        'x3': [-63.5, -12.5, 37.5, 87.5, 100, 100, 100, 100, 187.5, 137.5, 87.5, 37.5, 0, 0, 0, 0],
+        'y1': [0, 0, 0, 0, 12.5, 62.5, 112.5, 162.5, 100, 100, 100, 100, 162.5, 112.5, 62.5, 12.5],
+        'y3': [0, 0, 0, 0, 37.5, 87.5, 137.5, 187.5, 100, 100, 100, 100, 187.5, 137.5, 87.5, 37.5 ]
+    }
+    p5.noStroke();
+    p5.fill(0, 0, 100, 0.75);
+    p5.ellipse(cx, cy, 30, 30);
+    p5.fill(0, 0, 100);
+    
+    
+    //draw circle in the center
+    p5.ellipse(cx, cy, 20, 20);
+    
+    p5.fill(0);
+    p5.ellipse(cx, cy, 5, 5);
+    
+    p5.fill(0, 0, 100, 0.625);
+    
+    //draw 16 triangles from the center of the square to the edge 
+    for($i = 0; $i < 16; $i++){
+        p5.triangle(
+            cx + positions['x1'][$i], 
+            cy + positions['y1'][$i],
+            cx, 
+            cy, 
+            cx + positions['x3'][$i], 
+            cy + positions['y3'][$i]
+        );
+    }
+    p5.noFill();
+
 }
