@@ -160,8 +160,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.stroke(0, 0, 128);
         drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
       }
-
-
     }
   }
 }
