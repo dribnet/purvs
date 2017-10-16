@@ -293,11 +293,11 @@ var octagonZone = {
                         this.drawGlyphPattern(p5, cx, cy, shapeSize, shapeSides, zm);
                     }
                     else {
-                        shapeSize = shapeSize * 1.25;
-                        var splitShapes = this.splitShapeIntoFour(cx, cy, shapeSize, zm);
+                        shapeSize = shapeSize * 1.5;
+                        var splitShapes = this.splitShape(cx, cy, shapeSize, zm);
                         var sizeDivider = (zm - 6) * 2;
                         for(var i = 0; i < splitShapes.length; i++){
-                            this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/2, shapeSides, zm);
+                            this.drawGlyphPattern(p5, splitShapes[i][0], splitShapes[i][1], innerShapeSize/4, shapeSides, zm);
                         }
                         p5.strokeWeight(16);
                         polygon(p5, cx, cy, glyphWidth/4, shapeSides);
@@ -317,15 +317,45 @@ var octagonZone = {
         }
     },
 
-    splitShapeIntoFour: function(cx, xy, shapeSize, zm){
+    /*
+     * takes the center co-ordinates of a shape and splits it into a new set of shapeSides
+     * at zoom level 7 a shape is split into 4
+     * at zoom level 8 and above it is split into 16 shapes
+     * @param {Number} cx            - center x co-ordinates for a shape
+     * @param {Number} cy            - center y co-ordinates for a shape
+     * @param {Number} shapeSize     - the size of the shape being split
+     * @param {Number} zm            - the current zoom level
+     */
+    splitShape: function(cx, cy, shapeSize, zm){
         var newShapes = [
             [cx - shapeSize, cy - shapeSize],
             [cx + shapeSize, cy - shapeSize],
             [cx - shapeSize, cy + shapeSize],
             [cx + shapeSize, cy + shapeSize]
         ];
+        if(zm >= 8){
+            newShapes = [
+                [cx - shapeSize*0.5, cy - shapeSize*0.5],
+                [cx - shapeSize*0.5, cy + shapeSize*0.5],
+                [cx - shapeSize*0.5, cy - shapeSize*1.25],
+                [cx - shapeSize*0.5, cy + shapeSize*1.25],
+                [cx - shapeSize*1.25, cy - shapeSize*0.5],
+                [cx - shapeSize*1.25, cy + shapeSize*0.5],
+                [cx - shapeSize*1.25, cy - shapeSize*1.25],
+                [cx - shapeSize*1.25, cy + shapeSize*1.25],
+                [cx + shapeSize*0.5, cy - shapeSize*0.5],
+                [cx + shapeSize*0.5, cy + shapeSize*0.5],
+                [cx + shapeSize*0.5, cy - shapeSize*1.25],
+                [cx + shapeSize*0.5, cy + shapeSize*1.25],
+                [cx + shapeSize*1.25, cy - shapeSize*0.5],
+                [cx + shapeSize*1.25, cy + shapeSize*0.5],
+                [cx + shapeSize*1.25, cy - shapeSize*1.25],
+                [cx + shapeSize*1.25, cy + shapeSize*1.25]
+            ];
+        }
         return newShapes;
     },
+
     /*
      * Determines the number of sides a shape should have based on the center x and center y co-ordinates for the shape
      * @param {Object} p5           - the p5.js object
@@ -435,11 +465,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
             setTimeout(
                 function(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk){
-                    return function() { octagonZone.drawZone(p5, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk); };
+                    return function() { octagonZone.drawZone(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk); };
                 }(p5, zoneX, zoneY, x1, x2, y1, y2, hue, zoom, tileKey),
                 0
             );
-
+            if(i < 4){
+                drawCenterOfTheUniverse(p5, x1, x2, y1, y2, zoom);
+            }
         }
     }
 
@@ -497,6 +529,26 @@ function polygon(p5, x, y, radius, npoints) {
     else {
         p5.ellipse(x, y, radius * 2);
     }
+}
+/*
+ * function to draw a octagon that represent the center of this universe
+ * this octagon is made from 24 different hues - one for each octagon zone present within this universe
+ * @param {Object} p5       - the p5.js object
+ * @param {Number} x1       - left side of a map tile
+ * @param {Number} x2		- right side of a map tile
+ * @param {Number} y1 		- top side of a map tile
+ * @param {Number} y2		- bottom side of a map tile
+ * @param {Number} zm		- current zoom level
+ */
+function drawCenterOfTheUniverse(p5, x1, x2, y1, y2, zm){
+    var cx = p5.map(512, x1, x2, 0, 256);
+    var cy = p5.map(512, y1, y2, 0, 256);
+    for(var i = 0; i < 24; i++){
+        hue = (i % 24) * 15;
+        p5.fill(hue, 100, 100);
+        polygon(p5, cx, cy, (24 * zm)  - (i* zm), 8);
+    }
+    p5.noFill();
 }
 
 /*
