@@ -29,7 +29,6 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // debug - show border
   var max_shift = max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
   var max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -44,58 +43,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   p5.background(bgColor);
 
-  // for(var x=min_x; x<max_x; x+=mt_size) {
-  //   for(var y=min_y; y<max_y; y+=mt_size) {
-  //     var shift_point = getOffsetPoint(p5, x, y, z, 5);
-  //     var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-  //     var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-  //
-  //     var c_p00 = p5.map(0, x1, x2, 0, 256);
-  //     var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  //     var cur_line_width = c_plwidth - c_p00;
-  //
-  //     // draw mosaic mountains
-  //     var mtVal = p5.noise(x,y,z+10);
-  //     var mtColor = p5.lerpColor(mtColor1,mtColor2,mtVal);
-  //     p5.stroke(mtColor);
-  //     p5.strokeWeight(cur_line_width);
-  //
-  //     p5.fill(mtColor);
-  //
-  //     // if(zoom >= 3) {
-  //       var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 5);
-  //       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-  //       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-  //       p5.line(x_pos, y_pos, x_pos2, y_pos2);
-  //
-  //       var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 5);
-  //       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-  //       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-  //       p5.line(x_pos, y_pos, x_pos2, y_pos2);
-  //
-  //       // p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos3, y_pos3);
-  //     // }
-  //
-  //   }
-  // }
+  var vertices = [];
 
-  ///////////////////////////////////////////
+  // if(zoom >= 2) {
+    for(var x=min_x; x<max_x; x+=grid_size) {
+      for(var y=min_y; y<max_y; y+=grid_size) {
+        var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+        var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+        var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+        vertices.push([x_pos,y_pos]);
 
-  if(zoom >= 3) {
-    // randomly generate vertices
-    var vertices = d3.range(100).map(function(d) {
-      return [p5.random(0,256), p5.random(0,256)];
-    });
+        // using d3.js voronoi layout to calculate voronoi polygons
+        var voronoi = d3.geom.voronoi()
+        .clipExtent([
+          [0, 0],
+          [256, 256]
+        ]);
 
-    // using d3.js voronoi layout to calculate voronoi polygons
-    var voronoi = d3.geom.voronoi()
-      .clipExtent([
-        [0, 0],
-        [256, 256]
-      ]);
+        // create polygons using d3.js voronoi diagram
+        var polygons = voronoi(vertices);
 
-    // create polygons using d3.js voronoi diagram
-    var polygons = voronoi(vertices);
+      }
+    }
 
     // draw polygons
     for(var j=0; j<polygons.length; j++) {
@@ -115,10 +84,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
       p5.endShape(p5.CLOSE);
     }
-  }
-
-  ///////////////////////////////////////////
-
+  // }
 
   // draw stars
   for(var x=min_x; x<max_x; x+=grid_size) {
@@ -138,7 +104,4 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
-
-
-
 }
