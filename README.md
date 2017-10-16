@@ -1,5 +1,11 @@
 ## Powers of 10 PRINT
 
-I have figured out how to put random fill for each square. But it randomizes everytime you zoom which isn't really what I want. Therefore I might just change my design to something else. Also the grid colors aren't really exactly in line. 
+I have got my layers and zoom levels sorted:
 
-More detail has also been added into the third zoom layer/zone.
+0,1 Grid
+2,3 Small dots appear
+4,5 Bigger dots
+6,7 Small white dots appear in background
+8,9 Detail in red and black dots appear
+
+I've noticed that it takes ages to load the page everytime it zooms in. Not sure if it's just mine or it's just what it is.

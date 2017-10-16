@@ -8,15 +8,13 @@ var grid_size = 64;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-//  [1, 356.500000000000, 665.750000000000],
-//  [3, 353.250000000000, 668.187500000000],
-//  [4, 322.562500000000, 645.093750000000],
-//  [5, 322.562500000000, 645.109375000000],
-//  [7, 317.984375000000, 643.636718750000],
-//  [3, 317.984375000000, 643.636718750000]
     [3,328.187500000000,462.375000000000],
     [6,324.117187500000,456.515625000000],
-    [7,322.480468750000,459.195312500000],
+    [7,321.402343750000,463.023437500000],
+
+
+    [8,509.572265625000,511.597656250000]
+    [8,513.916015625000,512.691406250000]
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -35,7 +33,7 @@ function snap_to_grid(num, gsize) {
 
 
 
-function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares) {
+function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
   var offsets = [
       
       //red grid
@@ -81,56 +79,11 @@ function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares)
       [4.5,5.5],
       [5.5,5.5],
       
-
-      //black grid
-      [0.5,0.5],
-      [1.6,0.9],
-      [2.1,0.2],
-      [3 ,0.9],
-      [4.1,0.2],
-      [5.1,0.9],
-      
-      [0.9,1.6],
-      [2.3,1.6],
-      [3.7,1.6],
-      [5.2,1.6],
-      
-      [0.2,2.3],
-      [1.6,2.3],
-      [3,2.3],
-      [4.4,2.3],
-      [5.8,2.3],
-      
-      //center
-      
-      [0.7,3],
-      [2.3,3],
-      [3.7,3],
-      [5.3,3],
-      
-      //center
-      
-      [0.2,3.7],
-      [1.7,3.7],
-      [3,3.7],
-      [4.4,3.7],
-      [5.8,3.7],
-      
-      [0.9,4.4],
-      [2.3,4.4],
-      [3.7,4.4],
-      [5.1,4.4],
-      
-      [1.7,5.2],
-      [3,5.2],
-      [4.3,5.2],
-      
-      [0.5,5.5],
-      [2.1,5.8],
-      [3.9,5.8],
-      [5.5,5.5],
       
   ]
+
+
+
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
   var pixel_radius = pixel_posx2 - pixel_posx1;
@@ -149,22 +102,27 @@ function drawDots_red(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares)
     p5.stroke(255);  
       
     p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
-      
-       if(drawSquares) {
-      //p5.strokeWeight(pixel_radius / 100);
-           
-//      p5.stroke(255);
-//      p5.strokeWeight(1);   
 
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
 
-           
-    }   
-  }
+
+       if(drawLines) {
+ 
+    p5.strokeWeight(3);
+        p5.line(pixel_x-50, pixel_y-140, pixel_x+5, pixel_y+140);
+        p5.line(pixel_x+50, pixel_y-140, pixel_x-5, pixel_y+140);
+
+        p5.line(pixel_x, pixel_y-140, pixel_x-50, pixel_y+140);
+        p5.line(pixel_x+50, pixel_y+140, pixel_x-5, pixel_y-140);
+
+		
+  	}
+
+
+      }
 }
 
 
-function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquares) {
+function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6) {
   var offsets = [
       
 
@@ -173,7 +131,7 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquare
       [1.6,0.9],
       [2.1,0.2],
       [3 ,0.9],
-      [4.1,0.2],
+      [3.9,0.2],
       [5.1,0.9],
       
       [0.9,1.6],
@@ -232,24 +190,56 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawSquare
     var pixel_y3 = p5.map(pos_y+0.4*rad1*offset[1], y1, y2, 0, 256); 
    
       
+   
     p5.strokeWeight(1);
     p5.stroke(255);  
       
     p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius/5);
-      
-    if(drawSquares) {
+
+
+    if(drawEllipses) {
       //p5.strokeWeight(pixel_radius / 100);
       p5.noFill();
       p5.stroke(255);
       p5.strokeWeight(1);    
-      p5.ellipse(pixel_x, pixel_y, 5);
-      p5.ellipse(pixel_x2, pixel_y2, 5);
-      p5.ellipse(pixel_x3, pixel_y3, 5);
+      p5.ellipse(pixel_x, pixel_y,110);
+      p5.strokeWeight(1);
+      p5.ellipse(pixel_x2, pixel_y2, 10);
+      p5.ellipse(pixel_x3, pixel_y3, 10);
+   
+        p5.fill(0);
+    } 
+
+     if(drawEllipses_6) {
+      //p5.strokeWeight(pixel_radius / 100);
+      p5.noFill();
+      p5.stroke(255);
+      p5.strokeWeight(1);    
+      p5.ellipse(pixel_x, pixel_y,50);
+      p5.strokeWeight(1);
+      p5.ellipse(pixel_x2, pixel_y2, 10);
+      p5.ellipse(pixel_x3, pixel_y3, 10);
    
         p5.fill(0);
     }  
+
+     if(drawEllipses_8) {
+      //p5.strokeWeight(pixel_radius / 100);
+      p5.noFill();
+      p5.stroke(255);
+      p5.strokeWeight(3);    
+      p5.ellipse(pixel_x, pixel_y,250);
+       p5.fill(0);
+    }  
       
+     if(drawEllipses_4) {
+      //p5.strokeWeight(pixel_radius / 100);
+      p5.noFill();
+      p5.stroke(255);
+      p5.strokeWeight(1);    
+      p5.ellipse(pixel_x, pixel_y,10);
+       p5.fill(0);
+    }   
 
       
   }
@@ -283,6 +273,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
+       var drawEllipses = false;
+       var drawEllipses_4 = false;
+       var drawEllipses_6 = false;
+       var drawEllipses_8 = false;
+        var drawLines = false;
+        var drawDetail = false;
+
+
+  	//grid
   p5.background(255);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
@@ -291,42 +290,99 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
       p5.strokeWeight(cur_line_width);
-      
-    
-        //array of grid colors
-       var square_colors = ['#d6b755', '#6d4141','#cecece'];
-       var square = p5.random(square_colors);  // select random color
           
-        p5.fill(square);
+        p5.fill(214, 183, 85);
         p5.stroke(255);   
         p5.strokeWeight(1);  
       p5.rect(x_pos, y_pos, cur_ball_radius,cur_ball_radius); 
-  
 
-
-
-      if(zoom >= 3) {
-        var drawSquares = false;
-          p5.fill(61);
-      // Detail in circle pattern
-          if (zoom >= 4) drawSquares = true;
-        if (zoom >= 5) drawSquares = true;
-
-        p5.fill(110,31,31);
+  		//subtle circle pattern
+      if(zoom == 2 || zoom == 3) {
+      	p5.push();
+      	p5.scale(0.4);
+      	drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
         p5.strokeWeight(3);
+          
+        p5.fill(0);
+        drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+        p5.pop();
+      }
+
+
+      //circle pattern
+
+      if(zoom == 4 || zoom == 5) {
+   
+          p5.fill(61);
+
+           p5.fill(110,31,31);
+        p5.strokeWeight(4);
         p5.stroke(255);  
           
-        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawSquares);
-        p5.strokeWeight(3);
+        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        p5.strokeWeight(4);
           
            p5.fill(0);
-          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawSquares);
-          
-          if(zoom >=7){
-              
-             
-          }
+          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses, drawEllipses_4,drawEllipses_8,drawEllipses_6);
+ 		drawEllipses = false;
+    	drawLines = false;
+    	drawDetail = false;
+    	drawEllipses_8 = false;
+    	drawEllipses_4 = true;
+    	
+       
       }
+      // Circle pattern + White Circles
+          if (zoom == 6 || zoom == 7)   {
+           p5.fill(110,31,31);
+        p5.strokeWeight(5);
+        p5.stroke(255);  
+          
+        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        p5.strokeWeight(5);
+          
+           p5.fill(0);
+          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+
+          p5.strokeWeight(5);
+          p5.stroke(255);  
+
+             
+        drawEllipses = false;
+    	drawLines = false;
+    	drawDetail = false;
+    	drawEllipses_8 = false;
+    	drawEllipses_6 = true;
+    	drawEllipses_4 = false;
+    	}
+
+
+    	//Circle pattern + Lines + White Circles
+
+        if (zoom == 8 || zoom == 9) {
+        	 p5.fill(110,31,31);
+        p5.strokeWeight(6);
+        p5.stroke(255);  
+          
+   
+    p5.strokeWeight(5);
+        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        p5.strokeWeight(6);
+          
+           p5.fill(0);
+          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+          
+
+
+        drawEllipses = true;
+        drawEllipses_8 = true;
+        drawEllipses_4 = false;
+   		drawLines = true;
+   		drawDetail = true;
+   	}
+
+       
+      
         
 
 
