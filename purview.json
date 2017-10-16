@@ -1,11 +1,23 @@
 {
   "commits": [
     {
-      "sha": "3fe2a3f36a3b2cef15b952a5a3093acd079f375e",
-      "name": "zoom_and_pan"
+      "sha": "",
+      "name": "final_version"
     },
     {
-      "sha": "8b32d80cc99ccd7a0e60e9d87cdb3f3b3b4991fc",
+      "sha": "6cd2ed74cb7da54cbaa2ee8a6b4aab03f7e1ac3b",
+      "name": "layering_details"
+    },
+    {
+      "sha": "3fe2a3f36a3b2cef15b952a5a3093acd079f375e",
+      "name": "infinite_zoomable_sketch"
+    },
+    {
+      "sha": "30a66bd84e44c83d6ba4bd6243cdd9c1083866df",
+      "name": "failed_experiment"
+    },
+    {
+      "sha": "35710f99add255cdf4748a571b50f07828219239",
       "name": "sketch"
     }
   ]
