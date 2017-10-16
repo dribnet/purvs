@@ -7,12 +7,12 @@ var grid_size = 256;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 385.250000000000, 158.000000000000],
-  [1, 385.250000000000, 158.000000000000],
-  [2, 385.250000000000, 158.000000000000],
-  [3, 281.937500000000, 206.500000000000],
-  [5, 281.453125000000, 210.843750000000],
-  [2, 236.625000000000, 1041.250000000000]
+  [0, 512.000000000000, 512.000000000000],
+  [1, 410.750000000000, 669.250000000000],
+  [2, 303.375000000000, 694.625000000000],
+  [3, 301.187500000000, 696.937500000000],
+  [4, 298.843750000000, 697.281250000000],
+  [7, 300.066406250000, 697.105468750000]
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -218,15 +218,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var y_pos5 = p5.map(shift_y + 100, y1, y2, 0, 256);
 
 
-    if (zoom > 4) { 
-		p5.fill(4, 21, 31, 30);
-    }
-
-    	else {
-      p5.fill(200, 60);
-    	}
-
-      //p5.fill(200, 60);
       p5.ellipse(x_pos, y_pos, cur_ball_radius*3.1);
 
       p5.fill(33, 83, 72, 100);
@@ -308,20 +299,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	    p5.stroke(255);
       //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
+
+///////////Outer Nucleus
       	p5.ellipse(x_pos + cur_ball_radius/8, y_pos, cur_ball_radius*0.3); 
       	p5.ellipse(x_pos  - cur_ball_radius/8, y_pos, cur_ball_radius*0.3);
       	p5.ellipse(x_pos, y_pos  + cur_ball_radius/8, cur_ball_radius*0.3);
       	p5.ellipse(x_pos, y_pos  - cur_ball_radius/8, cur_ball_radius*0.3);
     	
-    	p5.ellipse(x_pos + cur_ball_radius/16, y_pos + cur_ball_radius/16, cur_ball_radius*0.3); 
+    	  p5.ellipse(x_pos + cur_ball_radius/16, y_pos + cur_ball_radius/16, cur_ball_radius*0.3); 
       	p5.ellipse(x_pos  - cur_ball_radius/16, y_pos - cur_ball_radius/16, cur_ball_radius*0.3);
       	p5.ellipse(x_pos - cur_ball_radius/16, y_pos  + cur_ball_radius/16, cur_ball_radius*0.3);
       	p5.ellipse(x_pos + cur_ball_radius/16, y_pos  - cur_ball_radius/16, cur_ball_radius*0.3);
 
-      	if (zoom > 3) {
+      	
+////Inner Nucleus
+        if (zoom > 3) {
 	      	p5.strokeWeight(0.5);
-		    p5.fill(7, 41, 51, 50);
-		    p5.stroke(255);
+		      p5.fill(7, 41, 51, 50);
+		      p5.stroke(255);
 	      //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
 	      	p5.ellipse(x_pos + cur_ball_radius/20, y_pos, cur_ball_radius*0.1); 
@@ -329,10 +324,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      	p5.ellipse(x_pos, y_pos  + cur_ball_radius/20, cur_ball_radius*0.1);
 	      	p5.ellipse(x_pos, y_pos  - cur_ball_radius/20, cur_ball_radius*0.1);
 	    	
-	    	p5.ellipse(x_pos + cur_ball_radius/32, y_pos + cur_ball_radius/32, cur_ball_radius*0.1); 
+	    	  p5.ellipse(x_pos + cur_ball_radius/32, y_pos + cur_ball_radius/32, cur_ball_radius*0.1); 
 	      	p5.ellipse(x_pos  - cur_ball_radius/32, y_pos - cur_ball_radius/32, cur_ball_radius*0.1);
 	      	p5.ellipse(x_pos - cur_ball_radius/32, y_pos  + cur_ball_radius/32, cur_ball_radius*0.1);
 	      	p5.ellipse(x_pos + cur_ball_radius/32, y_pos  - cur_ball_radius/32, cur_ball_radius*0.1);
+
+
+          p5.fill(255, 50);
+
+          p5.ellipse(x_pos + cur_ball_radius/280, y_pos, cur_ball_radius*0.01); 
+          p5.ellipse(x_pos  - cur_ball_radius/280, y_pos, cur_ball_radius*0.01);
+          p5.ellipse(x_pos, y_pos  + cur_ball_radius/280, cur_ball_radius*0.01);
+          p5.ellipse(x_pos, y_pos  - cur_ball_radius/280, cur_ball_radius*0.01);
+        
+          p5.ellipse(x_pos + cur_ball_radius/364, y_pos + cur_ball_radius/364, cur_ball_radius*0.01); 
+          p5.ellipse(x_pos  - cur_ball_radius/364, y_pos - cur_ball_radius/364, cur_ball_radius*0.01);
+          p5.ellipse(x_pos - cur_ball_radius/364, y_pos  + cur_ball_radius/364, cur_ball_radius*0.01);
+          p5.ellipse(x_pos + cur_ball_radius/364, y_pos  - cur_ball_radius/364, cur_ball_radius*0.01);
 	    }	
     	 }
    		}
