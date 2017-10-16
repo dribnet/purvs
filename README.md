@@ -12,3 +12,7 @@ UPDATE
 
 I;ve started adding more details as i get more confortable with the code, the idea is finding worlds insode these bubbles, so ill be building lots of levels, thees still a lot of depth that i want to add.
 
+UPDATE
+
+I've been adding more and more layers as I've gone along, I'm now concentrating on the details when you are quite zoomed in and looking at adding more and more depth to the work.
+

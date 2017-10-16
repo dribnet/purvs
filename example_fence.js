@@ -30,34 +30,55 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
+// Bubbles insinde pink bubbles
+
 function drawInception(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
      [1, 1],
+     [2 ,1],
      
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  //var bubble_scale = p5.map(pos_x, x1, , 200);
   var pixel_radius = pixel_posx2 - pixel_posx1;
   for(var i=0; i<offsets.length; i++) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius-200);    
+    p5.ellipse(10,10,20,20,);    
   }
 
 }
+
+// White Bubbles insinde pink bubbles
+
+function drawInception2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+     [1, 1],
+     [2 ,1],
+     
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  //var bubble_scale = p5.map(pos_x, x1, , 200);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(15,15,20,20,);    
+  }
+
+}
+
+// White bubbles
 
 function drawsmallCircles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
      [3, 1],
      [2.5, 3],
      [4.5, 2.5],
-    // [0.5, 0.9],
-
-    // [-1.2, -1.3],
-    // [-1.7, -1.5],
-    // [-1.7, -1.2],
-    //[-1, 0],
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
@@ -66,12 +87,15 @@ function drawsmallCircles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+    p5.ellipse(pixel_x, pixel_y, pixel_radius); 
+
   }
 
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+
+//Outline Bubbles
+function drawBubbleOutline(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [0, 1],
     [0.5, -0.1],
@@ -89,7 +113,9 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   }
 }
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+
+// Corner Bubble
+function drawCornerBubble(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [-2, -2],
   ]
@@ -153,28 +179,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   }
 //
 
-// if(zoom ==3) {
-//  p5.background(0);
-// }
   p5.fill(255, 214, 223);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       var shift_point = getOffsetPoint(p5, x, y, z, 1);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
-
-      // p5.strokeWeight(cur_line_width);
-      // p5.stroke(0, 0, 128);
-      // var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
-
-      // p5.stroke(0, 128, 0);
-      // var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
@@ -183,17 +193,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(255, 214, 223);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-//       if (zoom >=3) {
-//         p5.fill(0);
-// }
-// else {
-//   p5.fill(255);
-// }// if zoomed: first, draw petals *behind* the ellipse
+
       if(zoom >= 3) {
         p5.noFill();
         p5.stroke(232, 192, 201);
         p5.strokeWeight(2);
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0]+6, shift_point[1], ball_radius, line_width);
+        drawBubbleOutline(p5, x1, x2, y1, y2, shift_point[0]+6, shift_point[1], ball_radius, line_width);
       }
       
 
@@ -202,10 +207,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.ellipse(x_pos, y_pos, cur_ball_radius);
         p5.fill(255, 214, 223);
         p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
-           //p5.fill(0);
-        //drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
-
+        drawCornerBubble(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+           
       }
 
       if(zoom >=7) {
@@ -218,7 +221,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
        if (zoom >=8) {
       p5.fill(186, 148, 157);
         drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
-
+        p5.fill(255);
+        drawInception2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
       }
     }
   }
