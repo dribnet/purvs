@@ -14,7 +14,7 @@
 var tileWidth = 50;
 var tileHeight = tileWidth/2;
 
-var tileDepth = 100;
+var tileDepth = 300;
 
 //Tile Type Chances
 var biomeOffset = 40000;
@@ -22,14 +22,16 @@ var waterChance = 0.2;
 var coastChance = waterChance + 0.025;
 var landChance = 0.7;
 
-var desertChance = 0.2;
+var desertChance = 0;
+var snowChance = 0.15;
+var mountainChance = 0.3;
 var fieldChance = 0.4;
 var forestChance = 0.6;
 var beachChance = 0.63;
 var oceanChance = 1;
 
 
-var max_thickness = 64;
+var max_thickness = 256;
 var max_movement = 32;
 
 //Array Variables
@@ -49,40 +51,40 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var gridX = (x2 / (x2 - x1)); //no of grid being drawn
   var gridY = (y2 / (y2 - y1)); //amount of grids
 
-  if(zoomLevel != zoom){
+  // if(zoomLevel != zoom){
 
-    if(zoomLevel < zoom){
+  //   if(zoomLevel < zoom){
 
-      zoomLevel++;
-      tileWidth /= 1.3;
-      tileHeight = tileWidth/2;
+  //     zoomLevel++;
+  //     tileWidth /= 1.3;
+  //     tileHeight = tileWidth/2;
 
-    }
-    else if (zoomLevel > zoom){
+  //   }
+  //   else if (zoomLevel > zoom){
 
-      zoomLevel--;
-      tileWidth *= 1.3;
-      tileHeight = tileWidth/2;
+  //     zoomLevel--;
+  //     tileWidth *= 1.3;
+  //     tileHeight = tileWidth/2;
 
-    }
+  //   }
 
-  }
+  // }
 
   var actualScale = (x2-x1)/255;
 
-  var max_shift = max_thickness + max_movement;
+  var max_shift1 = 48;
+  var max_shift2 = max_thickness + max_movement;
 
-  var min_x = snap_to_grid(x1 - max_shift, tileWidth);
-  var max_x = snap_to_grid(x2 + max_shift + tileWidth, tileWidth);
-  var min_y = snap_to_grid(y1 - max_shift, tileHeight);
-  var max_y = snap_to_grid(y2 + max_shift + tileHeight, tileHeight);
+  var min_x = snap_to_grid(x1 - max_shift1, tileWidth);
+  var max_x = snap_to_grid(x2 + max_shift1 + tileWidth, tileWidth);
+  var min_y = snap_to_grid(y1 - max_shift1, tileHeight);
+  var max_y = snap_to_grid(y2 + max_shift2 + tileHeight, tileHeight);
 
   var xOffset = 0;
 
   //Get grid squaer biome
   var mid_x = snap_to_grid((max_x - min_x) + min_x, tileWidth);
   var mid_y = snap_to_grid((max_y - min_y) + min_y, tileHeight);
-
 
   //0-960 is the size of the overall canvas, have to map that to the size of the view square (x1,y1,x2,y2)
   for(var y = min_y; y < max_y; y += tileHeight/2) {
@@ -99,11 +101,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var dy;
 
       //Different heights for different tile types
-      if(noise_val > waterChance && bio_val < forestChance){
+      if(noise_val > waterChance && bio_val < beachChance){
         //Height of the land Tile
-        dy = p5.map(y+ p5.map(noise_val, waterChance, 1, 0, tileDepth), y1, y2, 0, 256); 
+        dy = p5.map(y+ p5.map(bio_val, beachChance, 0, 0, tileDepth), y1, y2, 0, 256); 
       }
-      else if((noise_val < waterChance && bio_val < desertChance) || (bio_val < beachChance && bio_val > forestChance)){
+      else if(noise_val < waterChance && bio_val < beachChance){
         //Height of the land Tile
         dy = p5.map(y+ p5.map(noise_val, 0, 1, 0, 15), y1, y2, 0, 256); 
       }
@@ -112,7 +114,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         dy = p5.map(y+ 0, y1, y2, 0, 256); 
       }
  
-      //console.log("x1: " + x1 + " x2: " + x2 + " size: " + (x2 / (x2 - x1)) );
+      console.log("x1: " + x1 + " x2: " + x2 + " size: " + (x2 / (x2 - x1)) );
       //console.log("noise: " + noise_val);
 
       //Terrian Variables
@@ -133,6 +135,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       xOffset = 0;
  
   }
+
 }
 
 function snap_to_grid(num, gsize) {
@@ -148,14 +151,22 @@ function getNoiseValue(p5, y, x){
 }
 
 function colorFromValue(p5, v, bv){
-
-  if(bv < desertChance){
-    //SAND SHADE
-    color1 = p5.color(203,202,115);
-    color2 = p5.color(144,143,86); 
+  if(bv < snowChance){
+    //SNOW SHADE
+    // color1 = p5.color(203,202,115);
+    // color2 = p5.color(144,143,86); 
+    color1 = p5.color(233,233,233);
+    color2 = p5.color(188,188,188);
     c = p5.lerpColor(color1, color2, p5.map(v,waterChance, 1, 0, 1)); 
     return c;
   }
+  else if(bv < mountainChance) {
+      //Mountain SHADE
+      color1 = p5.color(122,122,122);
+      color2 = p5.color(233,233,233); 
+      c = p5.lerpColor(color1, color2, p5.map(v,landChance, 1, 0, 1)); 
+      return c;
+    }
   else if(bv < forestChance){
     //GRASS AREA
     if(v < waterChance){
@@ -165,18 +176,11 @@ function colorFromValue(p5, v, bv){
       c = p5.lerpColor(color1, color2, p5.map(v,0, waterChance, 0, 1)); 
       return c;
     }
-    if(v < landChance){
+    else {
       //GRASS SHADE
       color1 = p5.color(100,169,74);
       color2 = p5.color(74,101,45); 
       c = p5.lerpColor(color1, color2, p5.map(v,waterChance, landChance, 0, 1)); 
-      return c;
-    }
-    else{
-      //Mountain SHADE
-      color1 = p5.color(122,122,122);
-      color2 = p5.color(233,233,233); 
-      c = p5.lerpColor(color1, color2, p5.map(v,landChance, 1, 0, 1)); 
       return c;
     }
   }
