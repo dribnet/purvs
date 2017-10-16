@@ -68,14 +68,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	var min_y = snap_to_grid(y1 - max_shift, grid_size);
   	var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  	var c_p00 = p5.map(0, x1, x2, 0, 50);
-  	var c_pball = p5.map(ball_radius, x1, x2, 0, 50);
+  	var multiplier = 5;
+  	var size = 20;
+
+  	var c_p00 = p5.map(0, x1, x2, 0, size);
+  	var c_pball = p5.map(ball_radius, x1, x2, 0, size);
 
   	
   	p5.background(255);
   	p5.fill(0, 0, 128);
 
-  	var multiplier = 2;
   	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
@@ -103,7 +105,13 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 		p5.beginShape();
 		var bumpiNoise = p5.noise(x, y, 100);
-		var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.5);
+		var inset = false;
+
+		if (zoom > 1){
+			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.5);
+			var inset = true;
+		}
+
 		for (var a=0; a<=p5.TWO_PI; a+=p5.TWO_PI/resolution) {
 			
 			// var nVal = p5.map(p5.noise(p5.cos(a)*this.leafShape+1, p5.sin(a)*this.leafShape+1), 0.0, 1.0, 1.4, 1.0); 
@@ -114,14 +122,15 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			var Vertx = p5.cos(a)*this.cur_ball_radius *nVal;
 			var Verty = p5.sin(a)*this.cur_ball_radius *nVal;
 
-
-		//add lilypad inset
-		if(a == 0){
-			Vertx = 0;
-			Verty = 0;
-		} else if (a == p5.TWO_PI/resolution){
-			Vertx = Vertx/2;
-			Verty = Verty/2;
+		if (inset == true){
+			//add lilypad inset
+			if(a == 0){
+				Vertx = 0;
+				Verty = 0;
+			} else if (a == p5.TWO_PI/resolution){
+				Vertx = Vertx/2;
+				Verty = Verty/2;
+			}
 		}
 
 		p5.vertex(Vertx, Verty);

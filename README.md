@@ -1,10 +1,5 @@
-## Powers of 10 PRINT
+The top zoom level of my design is an assortment of randomised dots. I don't want the viewer to be able to figure out what they're looking at until a little further into the zoom layers. 
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
+At zoom level 2, the forms of the lily pads becomes discernable. 
 
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
-
-perlin noise circle: https://www.openprocessing.org/sketch/112858
+In order to get the lily pads to look like more than just circles, I added perlin noise to the vertices of the shape. I used the code from this link as a starting point: https://www.openprocessing.org/sketch/112858
