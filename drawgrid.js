@@ -3,7 +3,7 @@ var max_thickness = 0;
 var max_movement = 0;
 var ball_radius = 0;
 var line_width = 1;
-var gridSize = 32;
+var gridSize = 0.25;
 
 //population variables
 var empty;
@@ -25,6 +25,12 @@ var cave;
 var populations;
 
 var totalPopulation;
+
+/* OPTIONAL VARIABLES */
+/* what is the initial zoom level (defaults to 0) */
+var initialZoomLevel = 6;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 12;
 
 function initPopulations(p5){
 
@@ -82,6 +88,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   initPopulations(p5);
 
+  if(zoom < 6){
+    return;
+  }
+
   //var minX = x1;
   var minX = snap_to_grid(x1, gridSize);
   var maxX = snap_to_grid(x2 + gridSize, gridSize);
@@ -104,8 +114,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var topY = p5.map(y, y1, y2, 0, 256);
       var rightX = p5.map(x+gridSize, x1, x2, 0, 256);
       var bottomY = p5.map(y+gridSize, y1, y2, 0, 256);
-      var colWidth = p5.map(gridSize,x1,x2,0,256);
-      var rowHeight = p5.map(gridSize,y1,y2,0,256);
+      var colWidth = p5.map(gridSize,x1,x2,0,256) - p5.map(0, x1, x2, 0, 256);
+      var rowHeight = p5.map(gridSize,y1,y2,0,256) - p5.map(0, y1, y2, 0, 256);
       var perl = p5.noise(x*noiseScale, y*noiseScale);
 
       var tileType;
@@ -138,7 +148,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-      p5.strokeWeight(lineWidth);
+      //p5.strokeWeight(lineWidth);
+      p5. strokeWeight(1);
       p5.stroke(0, 0, 0);
 
       //var bottomY = p5.map(y, y1, y2, 0, 256);
@@ -149,7 +160,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       var shapeType = getShape(x*noiseScale, y*noiseScale);
 
-      drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType);
+      if(zoom > 5){
+        drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType);
+      }
 
   }
 
@@ -208,7 +221,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     //grass
     if(shapeType == 1){
-      p5.strokeWeight(lineWidth*2);
+      //p5.strokeWeight(lineWidth*2);
       p5.stroke(123,182,91);
       p5.line(leftX,mapY(y+gridSize-(gridSize/5)),leftX,bottomY);
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize/2)),bottomY);
@@ -260,9 +273,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.stroke(66, 53, 43);
 
       //p5.rect(leftX,topY,p5.map(gridSize,x1,x2,0,256),mapY(gridSize-10));
-      p5.rect(leftX,topY,p5.map(gridSize-1,x1,x2,0,5.5),p5.map(gridSize-1,x1,x2,0,5.5));
+      p5.rect(leftX,topY,colWidth,rowHeight);
       p5.fill(183, 156, 126);
-      p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/3),p5.map(gridSize-1,x1,x2,0,2.2),p5.map(gridSize-1,x1,x2,0,2.2));
+      p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/3),colWidth,rowHeight);
       //triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
       //rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
 

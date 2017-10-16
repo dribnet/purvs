@@ -44,7 +44,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);
   }
 }
 
@@ -70,7 +70,7 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
       p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
       p5.strokeWeight(0);
       p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
-    }  
+    }
   }
 }
 
