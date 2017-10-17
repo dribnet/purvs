@@ -2,8 +2,8 @@ var max_thickness = 64;
 var max_movement = 32;
 var ball_radius = 16;
 var line_width = 4;
-var grid_size =64;
-
+var grid_size =50;
+var hex_size;
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
                         y * noiseScale, z);
@@ -11,7 +11,7 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
                         y * noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
-  return [x+offsetX, y+offsetY]
+  return [x, y]
 }
 
 function snap_to_grid(num, gsize) {
@@ -69,4 +69,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
+  p5.noFill();
+  p5.stroke("red");
+  p5.strokeWeight(1);
+  p5.rect(0,0,255,255);
 }

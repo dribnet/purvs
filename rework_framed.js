@@ -1,25 +1,22 @@
 /* This is an example of 10print translated into the PS4 framework */
 var blue = "#0000AA";
 var light_blue = "#0088FF";
-var noiseScale = 1 /200.0;
+var noiseScale = 1 /100.0;
+var tourSeed = 301;
 
 function drawLayer(p5, x1, x2, y1, y2, z, zoom) {
-    var seg_size = x2 - x1;
+    var grid_size = getCurGridSize(zoom);
 
-    var grid_size = 3*(10*zoom); //must be odd number >1
-    var grid_size = 3;
+    var hex_size = 256/(grid_size *2); 
+    //noiseScale = p5.map(x2-x1,0,256,0,1/100);
 
-    var hex_size = seg_size/(3*2);
-    console.log(hex_size);
-    var index = new Index(0, 0, grid_size+2*zoom,grid_size*1.5, hex_size, p5,x1,y1,z);
+    var index = new Index(x1,x2,y1,y2, hex_size, p5,z);
     index.draw();
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.noiseDetail(8, 0.5);
-    p5.ellipseMode(p5.CENTER);
-    //p5.background(light_blue);
-    //p5.stroke(light_blue);
+    p5.background(light_blue);
     p5.noStroke();
     drawLayer(p5, x1, x2, y1, y2, z, zoom);
     p5.noFill();
@@ -27,27 +24,39 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.rect(0, 0, 255, 255);
 }
 
-var Index = function(x, y, g_width, g_height, hexSize, p5,x1,y1,z) {
-    this.x = x;
-    this.y = y;
+function getCurGridSize(zoom){ // 
+    var sizes = [3,6];
+    return sizes[sizes.length-1-zoom] 
+}
 
-    this.zVal = z;
+//______________[INDEX]______________\\
+
+var Index = function(x1,x2,y1, y2, hex_size, p5,z) {
+
+    this.x1 = x1;
+    this.x2 = x2;
+    this.y1 = y1;
+    this.y2 = y2;
+    this.z = z;
+    this.p5 = p5;
     this.store = {};
     this.keys = [];
-    this.global_x = x1;
-    this.global_y = y1;
-    this.hexSize = hexSize;
-    this.hexHeight = hexSize * 2;
-    this.hexWidth = hexSize * 2;
-    this.regWidth = Math.sqrt(3) / 2 * this.hexHeight;
-    this.p5 = p5;
-    this.gridHeight = g_height;
-    this.gridWidth = g_width;
+
+    this.hexSize = hex_size;
+    this.hexHeight = hex_size * 2;
+    this.hexWidth = hex_size * 2;
+    this.regWidth = Math.sqrt(3) / 2 * this.hexHeight; //width of a regular hexagon before horiz. stretch     
+    
+    var grid_size = 256/(2*hex_size);
+    this.gridHeight = grid_size*1.5;
+    this.gridWidth = grid_size+1;
 
     this.draw = function() {
         for (var i = 0; i < this.keys.length; i++) {
             var hx = this.store[this.keys[i]];
+            if(hx.noiseVal >0.55){
             hx.drawHex(p5);
+            }
         }
     };
 
@@ -87,36 +96,59 @@ var Index = function(x, y, g_width, g_height, hexSize, p5,x1,y1,z) {
 
 };
 
+
+
+//______________[HEXAGON]______________\\
+
+
+
 var Hexagon = function(q, r, index) { //pointed top hexes in an axial co-ordinate system
 
     this.parent = index;
+    var p5 = index.p5;
     var size = index.hexSize; //long radius
 
     this.q = q; //column ref : cols are on a diagonal left->right top->bottom
     this.r = r; //row ref : rows are parallel to x axis
     this.s = -q - r;
 
-    this.y = index.y + (size * 3 / 2 * r);
-    this.x = index.x + (size * 2 * (q + r / 2));
+    this.x = (size * 2 * (q + r / 2));
+    this.y = (size * 3 / 2 * r);
+    
+//    var noiseX = p5.map(this.x,index.x1,index.x2,0,256);
+//    var noiseY = p5.map(this.y,index.y1,index.y2,0,256);
+    var noiseX = this.x+index.x1;
+    var noiseY = this.y+index.y1;
 
-    var global_x = this.parent.global_x+this.x;
-    var global_y = this.parent.global_y+this.y;
-    var p5 = index.p5;
-    this.noiseVal = p5.noise(global_x * noiseScale ,global_y * noiseScale ,index.zVal);
-    this.color = p5.lerpColor(p5.color(0,0,255),p5.color(255),this.noiseVal);
+
+    this.noiseVal = p5.noise( noiseX * noiseScale , noiseY * noiseScale,this.parent.z);
+    this.color = p5.lerpColor(p5.color(0,0,255),p5.color(255),this.noiseVal) ;
 
 
     this.drawHex = function(p5) {
         p5.push();
         p5.stroke(blue);
         p5.beginShape();
-        p5.fill(this.color);
         p5.strokeWeight(1);
+        if (this.q === 2 && this.r ===4){
+            this.color = p5.color("red");
+
+        }
+        p5.fill(this.color);
         for (var i = 0; i < 6; i++) {
             var point = this.corner(i);
+            var mx = this.x //p5.map(this.x,this.parent.x1,this.parent.x2,0,256);
+            var my = this.y //p5.map(this.y,this.parent.y1,this.parent.y2,0,256);
             p5.vertex(point[0], point[1]);
         }
         p5.endShape(p5.CLOSE);
+        p5.stroke("white");
+        p5.fill("red");
+        p5.textSize(15);
+        //if (this.q == 3 && this.r ==3 ){
+          //p5.text((this.x+this.parent.x1)+"_"+(this.y+this.parent.y1),this.x-40,this.y,);  
+        //}
+        
         p5.pop();
         
 
