@@ -133,7 +133,10 @@ var octagonZone = {
      */
     drawZone: function(p5, centerX, centerY, x1, x2, y1, y2, hue, zm) {
         var zero = p5.map(0, x1, x2, 0, 256);
-        var maxWidth = p5.map(this.multiplier*0.2 + (zm/4), x1, x2, 0, 256);
+        var maxWidth = p5.map(this.multiplier*0.2, x1, x2, 0, 256);
+        if(zm < 5){
+            maxWidth = p5.map(this.multiplier*0.2 + (zm/5), x1, x2, 0, 256);
+        }
         var weight = maxWidth - zero;
         var colour = p5.color(hue, 100, 100);
 
@@ -280,6 +283,7 @@ var octagonZone = {
                 }
             }
             else {
+
                 isVisible = isShapeWithinTile(xPos, yPos, x1, x2, y1, y2, octagonZone.multiplier);
                 if(isVisible){
                     var shapeSize = innerShapeSize;
@@ -414,8 +418,36 @@ octagonZone.init();
 var tourSeed = 100;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [10, 752.110351562500, 632.408203125000],
+  [1, 460, 956],
+  [2, 460, 956],
+  [5, 232, 487],
+  [7, 120, 192],
+  [0, -36750, 536],
+  [0, -1654, -2081],
+  [0, 512, 50232],
+  [1, 512, 50232],
+  [2, 512, 50232],
+  [3, 512, 50232],
+  [4, 512, 50232],
+  [5, 512, 50232],
+  [6, 512, 50232],
+  [7, 512, 50232],
+  [8, 512, 50232],
+  [9, 512, 50232],
+  [10, 512, 50232],
+  [0, 512, 512],
+  [1, 512, 512],
+  [2, 512, 512],
+  [3, 512, 512],
+  [4, 512, 512],
+  [5, 512, 512],
+  [6, 512, 512],
+  [7, 512, 512],
+  [8, 512, 512],
+  [9, 512, 512],
+  [10, 512, 512]
 ];
+
 
 /* what is the initial zoom level (defaults to 0) */
 var initialZoomLevel = 0;
@@ -539,7 +571,7 @@ function polygon(p5, x, y, radius, npoints) {
  */
 function drawGrayGlyph(p5, hsb, centerX, centerY, x1, x2, y1, y2, zm, spot_hue = 360) {
     var colorGlpyhSizes = [12.5, 50, 200, 400, 800, 1600];
-    var sizePointer = zm >= 5 ? zm - 5 : 0;
+    var sizePointer = zm < 5 ? 0 : zm - 5;
     var glyph = new GrayGlyph();
     glyph.draw(hsb, colorGlpyhSizes[sizePointer], p5, centerX, centerY, x1, x2, y1, y2, spot_hue);
 }
