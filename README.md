@@ -20,3 +20,7 @@ UPDATE
 
 I've been really adding to all the layers amd making sure that every time you zoom in you get a different zone and different elements of interest. I'm going to try add as much more as I can and also move on to fixing the 'tour.'
 
+UPDATE
+
+I've now done the tour, I've added a location for each level to really capture the details of all of this the way I wanted. Will still take more time to add more details and elements.
+

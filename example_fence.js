@@ -5,18 +5,20 @@ var line_width = 8;
 var grid_size = 64;
 
 // /* the random number seed for the tour */
-// var tourSeed = 944;
+ var tourSeed = 391;
 // /* triplets of locations: zoom, x, y */
-// var tourPath = [
-//   [0, 528.000000000000, 558.000000000000],
-//   [1, 528.000000000000, 558.000000000000],
-//   [3, 477.625000000000, 742.000000000000],
-//   [4, 418.562500000000, 556.687500000000],
-//   [5, 431.187500000000, 536.921875000000],
-//   [6, 426.343750000000, 559.781250000000],
-//   [7, 531.414062500000, 560.394531250000],
-//   [8, 531.414062500000, 560.396484375000],
-// ]
+ var tourPath = [
+   [0, 646.000000000000, 511.000000000000],
+   [2, 491.000000000000, 632.625000000000],
+   [3, 429.250000000000, 548.000000000000],
+   [5, 431.312500000000, 559.656250000000],
+   [6, 434.234375000000, 563.171875000000],
+   [7, 434.765625000000, 567.054687500000],
+   [8, 422.863281250000, 552.699218750000],
+   [9, 423.494140625000, 552.466796875000],
+   [10, 423.576171875000, 552.553710937500],
+   [11, 423.897949218750, 552.244140625000]
+ ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
@@ -159,9 +161,17 @@ function drawBubbleOutline(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
 function drawBubbleOutline2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [-40, -40],
-    [-42, -38],
+    [-40.5, -40],
+    [-42,-30],
+    [-42.5,-30],
+    [-42,-38],
+    [-42.5,-38],
+    // []
     [-40, -36],
+    [-40.5, -36],
     [-42, -34],
+    [-42.5, -34],
+    // [-40, -35],
 
     //[0, -1],
     //[-1, 0],
@@ -282,10 +292,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
       if (zoom >=2) {
-        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+        //if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+          p5.fill(255);
           p5.ellipse(x_pos-cur_ball_radius, y_pos, cur_ball_radius/6);
+          p5.ellipse(x_pos+cur_ball_radius, y_pos, cur_ball_radius/6);
 
-      }
+      //}
 
       if(zoom >= 3) {
         p5.noFill();
@@ -315,15 +327,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         drawInnerBubbles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
       }
 
-       if (zoom >=8) {
-      p5.fill(186, 148, 157);
-        drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
-        // p5.fill(255);
-        // drawInception2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+      if (zoom >=7) {
         p5.noFill();
         p5.stroke(255);
         p5.strokeWeight(1);
         drawBubbleOutline2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/50, line_width/10);
+        p5.fill(127, 198, 206,80);
+        drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/15);
+        drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3.2, line_width/30);
+
+      }
+
+       if (zoom >=8) {
+      p5.fill(186, 148, 157);
+      p5.noStroke();
+        drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+        // p5.fill(255);
+        // drawInception2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
       }
 
       if (zoom >=9) {
