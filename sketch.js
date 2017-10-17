@@ -130,11 +130,10 @@ var octagonZone = {
      * @param {Number} y2		- bottom side of a map tile
      * @param {Number} hue      - used to create p5.js color objects
      * @param {Number} zm		- current zoom level on the map
-     * @param {String} tileKey	- unique key of the tile currently being drawn
      */
-    drawZone: function(p5, centerX, centerY, x1, x2, y1, y2, hue, zm, tileKey) {
+    drawZone: function(p5, centerX, centerY, x1, x2, y1, y2, hue, zm) {
         var zero = p5.map(0, x1, x2, 0, 256);
-        var maxWidth = p5.map(this.multiplier*0.2, x1, x2, 0, 256);
+        var maxWidth = p5.map(this.multiplier*0.2 + (zm/4), x1, x2, 0, 256);
         var weight = maxWidth - zero;
         var colour = p5.color(hue, 100, 100);
 
@@ -152,7 +151,13 @@ var octagonZone = {
             this.drawOutline(p5, centerX, centerY, x1, x2, y1, y2, weight, colour, zm, adjuster);
         }
 
-        this.drawGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm, tileKey);
+        //at zoom level 5 or greater
+        //a special glpyh is introduced at the center of the octagon zone
+        if(zm >= 5){
+            drawGrayGlyph(p5, [hue, 0, 50], centerX, centerY, x1, x2, y1, y2, zm, hue);
+        }
+
+        this.drawGlyphs(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm);
     },
 
     /*
@@ -220,15 +225,6 @@ var octagonZone = {
             p5.vertex(cx, cy);
         }
         p5.endShape(p5.CLOSE);
-
-        var colorGlpyhSizes = [12.5, 50, 200, 400, 800, 1600];
-        //at zoom level 5 or greater
-        //a special glpyh is introduced at the center of the octagon zone
-        if(zm >= 5){
-            var sizePointer = zm - 5;
-            var glyph = new GrayGlyph();
-            glyph.draw([colour._getHue(), 0, 50], colorGlpyhSizes[sizePointer], p5, centerX, centerY, x1, x2, y1, y2, colour._getHue());
-        }
     },
 
     //a small collection of numbers represent different shapes
@@ -247,9 +243,8 @@ var octagonZone = {
      * @param {Number} weight	- stroke weight of the shape to be drawn
      * @param {Number} hue      - used to create p5.js color objects
      * @param {Number} zm		- current zoom level on the map
-     * @param {String} tileKey	- unique key of the tile currently being drawn
      */
-    drawGlyphs: function(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm, tileKey){
+    drawGlyphs: function(p5, centerX, centerY, x1, x2, y1, y2, weight, hue, zm){
         var glyphWidth = 256 / ((x2-x1)/ (this.multiplier * 1.6)) / 2;
         var innerShapeSize = glyphWidth / 2;
         //work out which colours will be used
@@ -285,7 +280,6 @@ var octagonZone = {
                 }
             }
             else {
-
                 isVisible = isShapeWithinTile(xPos, yPos, x1, x2, y1, y2, octagonZone.multiplier);
                 if(isVisible){
                     var shapeSize = innerShapeSize;
@@ -376,12 +370,6 @@ var octagonZone = {
                 shapeFound = true;
                 break;
             }
-            if(debug){
-                console.log('noiseValue '+noiseValue);
-                console.log('shapeSelectorSum '+ (shapeSelectorSum/100));
-                console.log('i = ' + i);
-                console.log(this.shapeSelector[this.shapeSelector.length - i - 1]);
-            }
         }
         if(!shapeFound){
             shapeSides = 12;
@@ -422,6 +410,12 @@ var octagonZone = {
 }
 octagonZone.init();
 
+/* the random number seed for the tour */
+var tourSeed = 100;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [10, 752.110351562500, 632.408203125000],
+];
 
 /* what is the initial zoom level (defaults to 0) */
 var initialZoomLevel = 0;
@@ -464,17 +458,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
             hue = (i % 24) * 15;
 
             setTimeout(
-                function(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk){
-                    return function() { octagonZone.drawZone(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm, tk); };
-                }(p5, zoneX, zoneY, x1, x2, y1, y2, hue, zoom, tileKey),
+                function(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm){
+                    return function() { octagonZone.drawZone(p5js, cX, cY, leftX, rightX, topY, bottomY, h, zm); };
+                }(p5, zoneX, zoneY, x1, x2, y1, y2, hue, zoom),
                 0
             );
-            if(i < 4){
-                drawCenterOfTheUniverse(p5, x1, x2, y1, y2, zoom);
+            if(i < 4 && zoom >= 5){
+                drawGrayGlyph(p5, [350, 100, 75], 512, 512, x1, x2, y1, y2, zoom);
             }
         }
     }
-
 }
 
 /*
@@ -530,26 +523,27 @@ function polygon(p5, x, y, radius, npoints) {
         p5.ellipse(x, y, radius * 2);
     }
 }
+
 /*
- * function to draw a octagon that represent the center of this universe
- * this octagon is made from 24 different hues - one for each octagon zone present within this universe
+ * creates a news GrayGlyph object and then draws it with a size depending on the current zoom level
  * @param {Object} p5       - the p5.js object
+ * @param {Array} hsb       - array of values representing a colour in HSB mode
+ * @param {Number} centerX  - center of the x-axis for the current octagon zone
+ * @param {Number} centerY  - center of the y-axis for the current octagon zone
  * @param {Number} x1       - left side of a map tile
  * @param {Number} x2		- right side of a map tile
  * @param {Number} y1 		- top side of a map tile
  * @param {Number} y2		- bottom side of a map tile
- * @param {Number} zm		- current zoom level
+ * @param {Number} zm		- current zoom level on the map
+ * @param {Number} spot_hue - value of the hue - a number between 0 and 359
  */
-function drawCenterOfTheUniverse(p5, x1, x2, y1, y2, zm){
-    var cx = p5.map(512, x1, x2, 0, 256);
-    var cy = p5.map(512, y1, y2, 0, 256);
-    for(var i = 0; i < 24; i++){
-        hue = (i % 24) * 15;
-        p5.fill(hue, 100, 100);
-        polygon(p5, cx, cy, (24 * zm)  - (i* zm), 8);
-    }
-    p5.noFill();
+function drawGrayGlyph(p5, hsb, centerX, centerY, x1, x2, y1, y2, zm, spot_hue = 360) {
+    var colorGlpyhSizes = [12.5, 50, 200, 400, 800, 1600];
+    var sizePointer = zm >= 5 ? zm - 5 : 0;
+    var glyph = new GrayGlyph();
+    glyph.draw(hsb, colorGlpyhSizes[sizePointer], p5, centerX, centerY, x1, x2, y1, y2, spot_hue);
 }
+
 
 /*
  * function to draw a red rectangle to show how big the frame used on blocks.org is

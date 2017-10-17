@@ -40,7 +40,7 @@ function GrayGlyph() {
    * @param {Number}  spotMin    	 - minimum hue value that determines whether or not to use the spot_hue - a number between 0 and 359
    * @param {Number}  spotMax   	 - maximum hue value that determines whether or not to use the spot_hue - a number between 0 and 359
    */
-  this.draw = function(values, size, p5, centerX, centerY, x1, x2, y1, y2, spot_hue = 0, spotMin = 0, spotMax = 0) {
+  this.draw = function(values, size, p5, centerX, centerY, x1, x2, y1, y2, spot_hue = 360, spotMin = 0, spotMax = 0) {
     //determine the center of the circle
     var center = size/2;
 
@@ -163,8 +163,12 @@ function GrayGlyph() {
 	}
 
     //draw the hexagon that represents the brightness dimension
-    p5.fill(spot_hue, 100, 100, brightnessTrans);
-    octagon(p5, center, center, size/2);
+    var oct_sat = 0;
+    if(spot_hue < 360){
+        oct_sat = 100;
+    }
+    p5.fill(spot_hue, oct_sat, 100, brightnessTrans);
+    octagon(p5, center, center, size/3);
 
 	//draw the stars that represent the hue dimension
     p5.noStroke();
@@ -172,10 +176,11 @@ function GrayGlyph() {
     p5.translate(center, center);
     p5.rotate(hueDegree);
 
-	var hsba = Array(spot_hue, 100, 100, hueTrans);
-
-
-	drawStar(p5, hsba, positions, 3);
+	var hsba = Array(spot_hue, 0, 100, hueTrans);
+    if(spot_hue < 360){
+        hsba[1] = 100;
+    }
+    drawStar(p5, hsba, positions, 3);
     p5.rotate(-hueDegree);
     p5.translate(-center, -center);
     hsba = Array(spot_hue, 100, 100, hueTrans);
