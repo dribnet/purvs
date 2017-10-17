@@ -4,19 +4,19 @@ var ball_radius = 16;
 var line_width = 8;
 var grid_size = 64;
 
-/* the random number seed for the tour */
-var tourSeed = 944;
-/* triplets of locations: zoom, x, y */
-var tourPath = [
-  [0, 528.000000000000, 558.000000000000],
-  [1, 528.000000000000, 558.000000000000],
-  [3, 477.625000000000, 742.000000000000],
-  [4, 418.562500000000, 556.687500000000],
-  [5, 431.187500000000, 536.921875000000],
-  [6, 426.343750000000, 559.781250000000],
-  [7, 531.414062500000, 560.394531250000],
-  [8, 531.414062500000, 560.396484375000],
-]
+// /* the random number seed for the tour */
+// var tourSeed = 944;
+// /* triplets of locations: zoom, x, y */
+// var tourPath = [
+//   [0, 528.000000000000, 558.000000000000],
+//   [1, 528.000000000000, 558.000000000000],
+//   [3, 477.625000000000, 742.000000000000],
+//   [4, 418.562500000000, 556.687500000000],
+//   [5, 431.187500000000, 536.921875000000],
+//   [6, 426.343750000000, 559.781250000000],
+//   [7, 531.414062500000, 560.394531250000],
+//   [8, 531.414062500000, 560.396484375000],
+// ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
@@ -69,10 +69,51 @@ function drawInception2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(15,15,20,20,);    
+    p5.ellipse(15,15,10,10,);    
   }
 
 }
+
+// white bottom bubbles - zoom 10
+function drawInception3(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+     [1, 1],
+     [2 ,1],
+     
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  //var bubble_scale = p5.map(pos_x, x1, , 200);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(15,35,10,10,);    
+  }
+
+}
+
+// white bottom bubbles - zoom 11
+function drawInception4(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+     [1, 1],
+     [2 ,1],
+     
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  //var bubble_scale = p5.map(pos_x, x1, , 200);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(30,20,10,10);    
+  }
+
+}
+
 
 // White bubbles
 
@@ -115,11 +156,33 @@ function drawBubbleOutline(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   }
 }
 
+function drawBubbleOutline2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+    [-40, -40],
+    [-42, -38],
+    [-40, -36],
+    [-42, -34],
+
+    //[0, -1],
+    //[-1, 0],
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+  }
+}
+
 
 // Corner Bubble
 function drawCornerBubble(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [-2, -2],
+
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
@@ -131,6 +194,28 @@ function drawCornerBubble(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
     p5.strokeWeight(0);
     p5.ellipse(pixel_x, pixel_y, pixel_radius+50);
+    
+    
+  }
+}
+
+function drawInnerBubbles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+  var offsets = [
+    [-1, -2],
+    [-0.3, -2.3],
+    [-2.1, -0.8]
+    
+  ]
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_radius = pixel_posx2 - pixel_posx1;
+  
+  for(var i=0; i<offsets.length; i++) {
+    var offset = offsets[i];
+    var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    p5.strokeWeight(0);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius-100);
     
     
   }
@@ -165,6 +250,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   p5.background(146, 179, 205);
  
+
 //noise background
   var noiseScale=2; 
   p5.noiseDetail(8,0.5);
@@ -195,12 +281,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(255, 214, 223);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
+      if (zoom >=2) {
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+          p5.ellipse(x_pos-cur_ball_radius, y_pos, cur_ball_radius/6);
+
+      }
 
       if(zoom >= 3) {
         p5.noFill();
         p5.stroke(232, 192, 201);
         p5.strokeWeight(2);
         drawBubbleOutline(p5, x1, x2, y1, y2, shift_point[0]+6, shift_point[1], ball_radius, line_width);
+        
+        }
       }
       
 
@@ -213,18 +306,42 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
            
       }
 
-      if(zoom >=7) {
+      if(zoom >=6) {
         p5.fill(255);
         drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
         p5.fill(255, 214, 223,50);
         p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.fill(255, 214, 223);
+        drawInnerBubbles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
       }
 
        if (zoom >=8) {
       p5.fill(186, 148, 157);
         drawInception(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+        // p5.fill(255);
+        // drawInception2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+        p5.noFill();
+        p5.stroke(255);
+        p5.strokeWeight(1);
+        drawBubbleOutline2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/50, line_width/10);
+      }
+
+      if (zoom >=9) {
         p5.fill(255);
         drawInception2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+
+      }
+
+      if (zoom >=10) {
+        p5.fill(255);
+        drawInception3(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+
+      }
+
+      if (zoom >=11) {
+        p5.fill(127, 198, 206);
+        drawInception4(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+
       }
     }
   }

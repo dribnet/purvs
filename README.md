@@ -16,3 +16,7 @@ UPDATE
 
 I've been adding more and more layers as I've gone along, I'm now concentrating on the details when you are quite zoomed in and looking at adding more and more depth to the work.
 
+UPDATE 
+
+I've been really adding to all the layers amd making sure that every time you zoom in you get a different zone and different elements of interest. I'm going to try add as much more as I can and also move on to fixing the 'tour.'
+
