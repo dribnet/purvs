@@ -1,9 +1,9 @@
 ## Rainbow Spiral Map
 
-### Layering Details
+The rainbow spiral map is a gigantic diamond shape consisting of approximately 1.5 million octagon zones.  Each octagon zone is placed on the map in a specific order with the first zone located slightly to the left of the maps center.  Every following zone is placed on the map based on the location of the zone that precedes it.
 
-My aim for this part of the assignment has been to treat the zooming functionality as an experience.  I have taken this approach because I feel that "zooming in" is the most likely action a viewer would do initially. 
+The colour palette of the map uses the HSB colour mode.  Beginning from the first octagon zone, there is a repeating pattern consisting of 24 colours used to determine the colour of each zone.  This creates the rainbow spiral effect present at the highest zoom level.
 
-My aim has been to make it feel like the design reveals more details every time the plus button is clicked. This works very well and the design has a lot of variety for each level of zoom.  
+Each octagon zone also consists of a set of 24 glyphs. At the higher zoom levels the glyphs consist of a simple shape.  This shape is chosen using the perlin noise value obtained from the x and y co-ordinates of the glyphs center.  As you zoom into the map the glyphs start transforming into intricate patterns made by rotating the shape around it's center.
 
-At the earlier zoom levels the variation is provided due to the octagon zones getting larger and revealing more of themselves.  In the latter zoom levels, the variation is provided by the glyphs contained within the octagon zones.  Each glyphs starts as a simple shape and as you zoom in the glyphs appear to split and multiply.  The glyphs gradually morph from simple shapes into intricate patterns the deeper you zoom into the canvas.  
+The zooming functionality of each octagon zone has been designed to be an interesting and constantly evolving experience.  If you start from the center of a zone at the highest level and then zoom into the deepest level you will see more details become visible the deeper you get. At the center of a zone there is also glyph that represents the primary colour of the zone.  This glyph only becomes visible at the deepest zoom levels and further adds to the zooming experience.
