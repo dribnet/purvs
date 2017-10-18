@@ -1,3 +1,3 @@
 PART 3
 
-I've added in some trees which gives me 7 layers of zoom and 3 graphical changes. The final stages will be changing into earth view where I'll incorporate some browns into the greens to give the last layers an earthy feel. The code has been challenging to wrap my head around but I've powered through it. 
+This version shows the completed levels of zoom over 10 layers. Some of the colours are still in debugging mode which is something I will change in the coming versions. I've chosen a very similar methid for generation of each layer, however I think they vary enough graphically to be considered seperate. I also added the max zoom level and tour function in but am yet to focus it toward my code.
