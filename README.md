@@ -22,10 +22,10 @@ Lake:  Lots of water, with seaweed and rocks.
 
 Because this kind of terrain generation has been done quite a lot before, I tried to focus on retaining my
 "cute" style from the last sketch, and keeping the style distinctive. Following my previous project, I tried
-to not change too much about the "ascii retro top down game" aesthetic..
+to not change too much about the "ascii retro top down game" aesthetic.
 
 Randomness was also something I tried to focus on, like in my last project, and with the addition of the
-biomes, I feel a good amount of detail is obtained.
+biomes I feel like there's lots of interesting sections to look at.
 
 --Extension--
 
@@ -33,4 +33,4 @@ Again there are lots of things I would have like to extended in this design. I w
 more terrain pieces, and hidden objects.
 
 I would have also like to have the most zoomed-out view be more distinctive, by adding some biome indicators
-at this level. I also only put in 5 zoom levels, and adding some more could have helped extend this design. 
+at this level. I also only put in 5 zoom levels, and adding some more could have helped extend this design.
