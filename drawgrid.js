@@ -13,6 +13,20 @@
 var amount = 1;
 var maxLevel = 2;
 
+var colors = [
+  "#ff71ce",
+  "#01cdfe",
+  "#05ffa1",
+  "#b967ff",
+  "#8694E7"
+]
+shuffle(colors)
+
+var vaporWords = [
+  "jazz cabbage", "JAZZ", "vapor", "euphoria", "pepsi c r y s t a l", "無用漢字", "A E S T H E T I C", "wave", "情報デスク", "VIRTUAL",
+  "AOL", "Netscape", "TOKYO", "Windows95", "ultra", ".js"
+]
+
 /**
  * @param {p5} p 
  * @param {Number} x1 
@@ -27,12 +41,14 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
   zoom = zoom || 0
 
   if(level == 0){
-    p.background(0,0,0)
+    p.background(0, 0, 100, 0.1)
     p.noFill();
     p.colorMode(p.HSB)
     p.ellipseMode(p.CORNER)
     p.rectMode(p.CORNER)
     p.strokeCap(p.ROUND)
+    p.textAlign(p.CENTER)
+    p.textFont("ArialBlack")
   }
   
   //render lower levels
@@ -55,7 +71,6 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
   }
 
   // debug - show border
-  var color = tinycolor()
   var noiseScale=0.02; 
 
   let scale = (x2-x1)/255
@@ -68,7 +83,10 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
     return min + p*(max-min)
   }
 
-  p.stroke((zoom/3*360).mod(360), 90, 100-level/maxLevel*40)
+  let depth = level/maxLevel;
+  let color = p.color(colors[zoom%colors.length])
+  color.a = 1-depth*0.9;
+  p.stroke(color)
   p.strokeWeight(10)
 
   function drawCurves(lines){
@@ -93,13 +111,27 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
 
   let linesNoise = p.noise(x1*noiseScale, y1*noiseScale);
 
-  drawCurves(p.floor(linesNoise*4))
+  drawCurves(p.floor(linesNoise*linesNoise*8))
+
+  let jazzNoise = p.noise(x1, y1);
+  if(jazzNoise < p.min(0.03*zoom, 0.2)){
+    p.push();
+    p.fill(0,0,0)
+    p.textSize(10 + 20*p.noise(x1*123, y1*451))
+    p.noStroke()
+    p.textStyle(p.noise(x1*99, y1*1001) < 0.5 ? p.NORMAL : p.ITALIC)
+    p.translate(255/2, 255/2);
+    p.rotate((p.noise(x1*1564123, y1*673212) < 0.2) ? p.millis()/10000*p.TWO_PI : 0);
+    let word = vaporWords[p.floor(p.noise(x1*100, y1*100)*vaporWords.length)];
+    p.text(word, 0, 0);
+    p.pop();
+  }
 
   function drawSine(start, end){
-    var offDir = p5.Vector.fromAngle(start.angleBetween(end)+p.PI/2)
+    var offDir = p5.Vector.fromAngle(start.angleBetween(end))
     offDir.mult(80)
   
-    return fillArray(10, 0).map((val, i, arr) => {
+    return fillArray(8-4*depth, 0).map((val, i, arr) => {
       let prog = (-1+i)/(arr.length-3);
       let v = p5.Vector.lerp(start, end, prog)
       let offset = (-1 + 2*p.noise(
@@ -108,7 +140,7 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
         p.millis()/2000))
 
       //neutralize at edges
-      offset *= p.sin(prog*p.PI)
+      offset *= p.sin(v.x/255*v.x/255*p.PI) * p.sin(v.y/255*v.y/255*p.PI)
 
       // let offset = 80 * p.sin(x1*y1 + scale*prog*p.TWO_PI + scale*p.millis()/5000*p.TWO_PI)
       v.add(p5.Vector.mult(offDir, offset));
@@ -145,4 +177,18 @@ function fillArray(n, val){
 //mod helper
 Number.prototype.mod = function(y){
   return this - y * Math.floor(this / y)
+}
+
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
 }
