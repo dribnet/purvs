@@ -174,7 +174,15 @@ function drawBubbleOutline2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
     [-40, -36],
     [-40.5, -36],
     [-42, -34],
-    [-42.5, -34]
+    [-42.5, -34],
+    [-38, -42],
+    [-38.5, -42],
+    [-36, -43],
+    [-36.5, -43],
+    [-34, -43.5],
+    [-34.5, -43.5],
+    [-31, -43],
+    [-31.5, -43]
   ]
 
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
@@ -352,8 +360,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       if (zoom >=7) {
         p5.noFill();
-        p5.stroke(255);
-        p5.strokeWeight(1);
+        p5.stroke(225, 186, 196,90);
+        p5.strokeWeight(2);
         drawBubbleOutline2(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/50, line_width/10);
         p5.fill(127, 198, 206,80);
         drawsmallCircles(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/15);

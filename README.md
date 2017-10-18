@@ -1,5 +1,11 @@
 ## Powers of 10 PRINT
 
+FINAL 
+
+This code was challenging, we hadnt yet worked with something like this before and the structure is different to what I'm used to. However, it was nice to have a challenge and find a new way of coding. The parameters of this code allowed me to be creative and develop the world I had in mind. I wanted to take what I had done in PS3 in really expand it. I started focusing on the details, as personally the most fascinating feature was the zoom. I decided that in my little universe of bubbles and circles could also be protrayed as molecules. I wanted there to be layers of information and diffeent elements. I created 11 Levels, each introduces a new element that conplements the previous one. My tour is the best way to se how I planend out my levels.The scale of everything as you zoom in is easy to feel by the new elements appearing, as you get closer they are more detailed and specific, I also decided that the closer you get the more structured it is. I kept my initial layer more carefree and random, as you get closer the layout is more grid like, as the elements got smaller I thought this looked best. I stuck with the same colourscheme as I feel it is quite effective, my aesthetic is bubbly and happy, It is also something I believe would work as a large format print, it has enough layers and randomness to it for it to be a landscape/universe but continuous enough to look effective as a print. I did wan thtis work to be abstract and different, instead of copying an already existing map. Overall I found this PS challenging but exciting, and learned a lot from working with this code. 
+
+Bellow are my previous updates.
+
 UPDATE
 
 Im slowly starting to understand how this code works and how to change it, havent quite made too many changes yet but more will come as I analyse the code further. However, i have been able to take it to a point that I like and i feels that I am managing to integrate the code and aesthetic I used for ps3.
