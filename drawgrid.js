@@ -1,17 +1,19 @@
 var max_thickness = 64;
 var max_movement = 32;
-var ball_radius = 40;
+var rectWidth = 20;
+var rectWidth1 = 40;
+var rectWidth2 = 60;
 var line_width = 1;
+var line_width2 = 0.8;
 var grid_size = 64;
 var grid_size = 20;
 var curve_edge_amount =10;
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
-    
-  var noiseX = p5.noise(x * noiseScale,
-                        y * noiseScale, z);
-  var noiseY = p5.noise(x * noiseScale,
-                        y * noiseScale, z+50);
+  var noiseX = p5.noise(x*noiseScale,
+                       y*noiseScale, z);
+  var noiseY = p5.noise(x*noiseScale,
+                        y*noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
   return [x+offsetX, y+offsetY]
@@ -33,39 +35,15 @@ function snap_to_grid(num, gsize) {
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.background(0);
-//noise
   var noiseScale=0.02; 
-    var noiseScale=0.01; 
-    //the higher the less grouped.
-    var noiseScale=0.01; 
+//the higher the less grouped.
+  var noiseScale=0.01; 
   p5.noiseDetail(8,0.5);
-    p5.noiseDetail(1,0.9);
+  p5.noiseDetail(1,0.9);
   p5.noStroke();
-//  for(var i=0; i<16; i++) {
-//    var n_x = p5.map(i, 0, 16, x1, x2);
-//    for(var j=0; j<16; j++) {
-//      var n_y = p5.map(j, 0, 16, y1, y2);
-//      var noiseVal = p5.noise(n_x * noiseScale,
-//                              n_y * noiseScale, z);
-//         console.log(noiseVal);
-//        if(noiseVal > 0.3){
-//      p5.fill(noiseVal*255);
-//        }
-//        else {
-//           // p5.fill(0); 
-//            p5.noFill();
-//        }
-//      p5.rect(i*16, j*16, 16, 16);
-//    }
-//  }
+          p5.rectMode(p5.CENTER);
     
-    //redsquares
-//  p5.noFill();
-//  p5.stroke(255, 0, 0)
-//  p5.rect(0, 0, 255, 255);
-    
-    
-////grid
+
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
   var max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -73,94 +51,90 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
    
-  var c_p00 = p5.map(0, x1, x2, 0, 256);
-  var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  var c_pball = p5.map(ball_radius, x1, x2, 0, 256);
-  var c_edge = p5.map(curve_edge_amount, x1, x2, 0, 256);
-  var cur_line_width = c_plwidth - c_p00;
-  var cur_ball_radius = c_pball - c_p00;
-  var rect_detail = c_edge - c_p00;
+////the size of things   
+    var c_p00 = p5.map(0, x1, x2, 0, 256);
+    var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+    var c_plwidth2 = p5.map(line_width2, x1, x2, 0, 256);
+    var c_prect = p5.map(rectWidth, x1, x2, 0, 256);
+    var c_prect1 = p5.map(rectWidth1, x1, x2, 0, 256);
+    var c_prect2 = p5.map(rectWidth2, x1, x2, 0, 256);
+    var c_edge = p5.map(curve_edge_amount, x1, x2, 0, 256);
+    var cur_line_width = c_plwidth - c_p00;
+    var cur_line_width2 = c_plwidth2 - c_p00;
+    var cur_rectWidth = c_prect - c_p00; 
+    var cur_rectWidth1 = c_prect1 - c_p00; 
+    var cur_rectWidth2 = c_prect2 - c_p00;
+    var rect_detail = c_edge - c_p00;
 
-  p5.background(255,100);
-    p5.background(0);
   p5.fill(0, 0, 128);
+    //clouds
+    rectangles(true);
+    rectangles(false);
+    
+    function rectangles(buildings){
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-      var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-      var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+        //clouds:
+        var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+        var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+        var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
         
-var noiseValue = p5.noise(x * noiseScale, y * noiseScale);
-         //if(noiseValue > 0.1){
-      p5.fill(noiseValue*200,noiseValue*200);
-        p5.fill(noiseValue*200,noiseValue*255);
-        p5.fill(noiseValue*200,noiseValue*230);
-         p5.stroke(noiseValue*200,noiseValue*255);
-        p5.strokeWeight(0.1);
-             var cloudSize = noiseValue*2;
-      //  }
-//        else {
-//           // p5.fill(0); 
-//            p5.noFill();
-//            var cloudSize = 0;
-//        }
-      p5.strokeWeight(cur_line_width);
-     // p5.stroke(0, 0, 128);
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      //p5.line(x_pos, y_pos, x_pos2, y_pos2);
+        var noiseValue = p5.noise(x * noiseScale,y*noiseScale);
 
-      //p5.stroke(0, 128, 0);
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-     // p5.line(x_pos, y_pos, x_pos2, y_pos2);
+        p5.fill(noiseValue*180,noiseValue*255*1.5);
+        p5.stroke(noiseValue*200,noiseValue*255);
+        p5.fill(noiseValue*230,noiseValue*255*1.5);
+        p5.stroke(noiseValue*255,noiseValue*255);
+        p5.strokeWeight(cur_line_width);
+         var rectSize = noiseValue*2;
+              
 
-    //  p5.noStroke();
-        p5.rectMode(p5.CENTER);
-      //p5.ellipse(x_pos, y_pos, cur_ball_radius);
-        p5.rect(x_pos, y_pos, cur_ball_radius*cloudSize, cur_ball_radius/1.5*cloudSize, rect_detail);
+        if (buildings == true){
+            var x_pos = p5.map(x, x1, x2, 0, 256);
+            var y_pos = p5.map(y, y1, y2, 0, 256);
+            var rectSize = 1;
+            var noiseValue = p5.noise(x,y);
+            //looks cool
+            //console.log(noiseValue);
+            brightness=0.5;
+             if(noiseValue<0.1) {
+       p5.stroke(240,150,70,50*brightness);
+  }
+  else if(noiseValue<0.25) {
+    p5.stroke(230,175,75,75*brightness);
+  }
+  else {
+      p5.stroke(220,190,80,20*brightness);
+  }
+
+             //p5.stroke(240,150,70,50);
+            //p5.fill(noiseValue*230); 
+            p5.noFill();
+            // p5.fill(p5.random(0,200),p5.random(0,200)); 
+            //p5.stroke(noiseValue*200,noiseValue*255*2);
+            var noiseValue = p5.noise(x,y);
+            //p5.stroke(noiseValue*100,noiseValue*255*2);
+            p5.strokeWeight(cur_line_width2);
+            // p5.stroke(220,200,80,50);
+           // var rect_detail=0;
+            
+             //p5.rect(x_pos, y_pos, cur_rectWidth/4*rectSize, cur_rectWidth*rectSize, rect_detail/3);
+            p5.rect(x_pos, y_pos, cur_rectWidth*rectSize, cur_rectWidth1*rectSize, rect_detail/2);
+        }
+        else{
+             p5.rect(x_pos, y_pos, cur_rectWidth2*rectSize, cur_rectWidth1*rectSize, rect_detail);
+        }
+      
     }
   }
-    
-    
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
-//  p5.noStroke();
-//  console.log(y1, y2);
-//  p5.background(255);
-//  p5.rectMode(p5.CORNERS);
-//
-//  // The first red rectangle fills the entire space
-//  var cx = p5.map(512-960/2, x1, x2, 0, 256);
-//  var cy = p5.map(512-720/2, y1, y2, 0, 256);
-//  var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-//  var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-//  p5.fill(255, 0, 0);
-//  p5.rect(cx, cy, cx2, cy2);
-//
-//  // The second black rectangle is inset to form a frame inset by 20 units
-//  cx = p5.map(512-940/2, x1, x2, 0, 256);
-//  cy = p5.map(512-700/2, y1, y2, 0, 256);
-//  cx2 = p5.map(512+940/2, x1, x2, 0, 256);
-//  cy2 = p5.map(512+700/2, y1, y2, 0, 256);
-//  p5.fill(0);
-//  p5.rect(cx, cy, cx2, cy2);
-//
-//  // Two ellipses with a radius of 50 units are then added.
-//  var cx = p5.map(512, x1, x2, 0, 256);
-//  var cy = p5.map(512, y1, y2, 0, 256);
-//  var cx2 = p5.map(512+50, x1, x2, 0, 256);
-//  p5.fill(0, 0, 255);
-//  p5.ellipse(cx, cy, (cx2-cx));
-//
-//  // The second green ellipse is above and to the left of the first one.
-//  var cx = p5.map(412, x1, x2, 0, 256);
-//  var cy = p5.map(412, y1, y2, 0, 256);
-//  var cx2 = p5.map(412+50, x1, x2, 0, 256);
-//  p5.fill(0, 255, 0);
-//  p5.ellipse(cx, cy, (cx2-cx));
-
+  }
+//    
+//    p5.fill(255,0,0);
+//    p5.rect(x1,x2, c_p00, c_p00);
+//p5.rect(x1,x2, 200, 200);
+    //debug - show border
+//   p5.noFill();
+//   p5.stroke(255, 0, 0)
+//   p5.rect(0, 0, 255, 255);
 }
 
