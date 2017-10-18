@@ -1,7 +1,5 @@
-## PS4 Infinite LandScape Part 3
+## PS4 Infinite LandScape Final
 
-Got my landscape drawing infinitely with some noise going on, took a bit of playing around and had to steal some of the example code but its working. From here I want to start adding in more details to different zoom levels and add some more variety to the landscape in general (thinking biomes). I'll try and add some waters and trees next before moving onto mountains. Lag doesn't seem to be too bad at the moment, so I won't worry about that now, but will keep it in mind moving forward. 
+Due to the framework, there is a bit of lag (especially at the more zoomed at levels) so please keep in mind it may take a little bit before you see anything start to render.
 
-Added in water and mountains, although getting clipping issues with mountains tiles if they go outside their grid. I had to change the noise value i was using as it was jumping to far between two tiles and didn't look like a proper terrian because of this. I will look into making it have bigger jumps between two tiles noise value the more zoomed out you are.
-
-Had to tone down the height of the map to avoid the clipping issue, but this really takes away from the terrian and adds a lot less variety so I'm not happy with this change. I'm also now using a second noise value to set what biome the tile is in, which is either: desert, field, forest, beach, or ocean.
+For my landscape I wanted to explore more of a 3D space, rather than a 2D space (which is more common for the framework we are using). I thought an infinite landscape would pair well with a 3D world, as with noise I could play around with height as well as color to create a more appealing and interesting landscape. It was a challenge to think of what to add at more zoomed in levels, as my landscape is at its best the further zoomed out you are, and if it wasn't so laggy I would have taken the zoom further back. I decided to add little rare sights to the landscape, so if you zoom in you might come across one such sight and I feel like not having these everywhere adds to the satisfaction of finally finding one. 

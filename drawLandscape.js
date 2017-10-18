@@ -35,6 +35,12 @@ var oceanChance = 1;
 var max_thickness = 256;
 var max_movement = 32;
 
+/* OPTIONAL VARIABLES */
+/* what is the initial zoom level (defaults to 0) */
+var initialZoomLevel = 1;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 10;
+
 //Array Variables
 var boardSize = 5;
 var grid_locations;
@@ -43,35 +49,26 @@ var gen = false;
 var zoomLevel = 0;
  
 
+/* the random number seed for the tour */
+var tourSeed = 0;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 5421.000000000000, -2806.500000000000], //Water formation
+  [2, 793.250000000000, -156.250000000000], //Camp site
+  [3, 5185.125000000000, -2107.437500000000], //Rocks
+  [2, 4895.500000000000, -3988.125000000000], //Graveyard
+  [1, 3100.000000000000, -7540.750000000000] //snow top mountain
+]
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.background(125,210,233);
   p5.rectMode(p5.CORNERS);
   p5.noStroke();
   
-  //p5.floor((x2 - x1) / tileWidth) = tiles per grid
   var gridX = (x2 / (x2 - x1)); //no of grid being drawn
   var gridY = (y2 / (y2 - y1)); //amount of grids
 
   zoomLevel = zoom;
-
-  // if(zoomLevel != zoom){
-
-  //   if(zoomLevel < zoom){
-
-  //     zoomLevel++;
-  //     tileWidth /= 1.3;
-  //     tileHeight = tileWidth/2;
-
-  //   }
-  //   else if (zoomLevel > zoom){
-
-  //     zoomLevel--;
-  //     tileWidth *= 1.3;
-  //     tileHeight = tileWidth/2;
-
-  //   }
-
-  // }
 
   var actualScale = (x2-x1)/255;
 
@@ -100,9 +97,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var cx = p5.map(x + xOffset, x1, x2, 0, 256); //X pos of tile
       var cx2 = p5.map(tileWidth + x + xOffset, x1, x2, 0, 256); //Used to get size of tile 
 
-      //var bio_val = 0;//getNoiseValue(p5, snap_to_grid(y, tileHeight) + biomeOffset, snap_to_grid(x, tileWidth) + biomeOffset);
-      var noise_val = getNoiseValue(p5, (y*0.1), (x*0.1));
-      var bio_val = getNoiseValue(p5, (y*noise_step) + 10000, (x*noise_step) + 10000);
+      var noise_val = getNoiseValue(p5, (y*0.1), (x*0.1)); //Determines random factors
+      var bio_val = getNoiseValue(p5, (y*noise_step) + 10000, (x*noise_step) + 10000); //Determines the biome
 
       var dy;
 
@@ -120,13 +116,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         dy = p5.map(y+ 0, y1, y2, 0, 256); 
       }
  
-      //console.log("x1: " + x1 + " x2: " + x2 + " size: " + (x2 / (x2 - x1)) );
-      //console.log("noise: " + noise_val);
 
       //Terrian Variables
       var tileW = (cx2-cx); //Get relative width (+1 so you can't see the grid)
       var tileH = tileW/2;
-      //console.log("biome: " + bio_val);
+
       var shade = colorFromValue(p5, noise_val, bio_val);
 
       if(bio_val < beachChance) //If its a land tile or we are in a desert draw a ground tile
@@ -176,8 +170,15 @@ function colorFromValue(p5, v, bv){
       
     }
   else if(bv < forestChance){
+    //Forest tile with no tree on it needs to be different from normal grass
+    if(v > 0.5 && isForest(bv) && zoomLevel == 0){
+      color2 = p5.color(32,116,42);
+      color1 = p5.color(19,72,25); 
+      c = p5.lerpColor(color1, color2, p5.map(bv,mountainChance, forestChance, 0, 1)); 
+      return c;
+    }
     //GRASS SHADE
-    if(v > desertChance){
+    else if(v > desertChance){
       color2 = p5.color(100,169,74);
       color1 = p5.color(74,101,45); 
       c = p5.lerpColor(color1, color2, p5.map(bv,mountainChance, forestChance, 0, 1)); 
@@ -273,13 +274,13 @@ function drawGroundTile(p5, x, y, dy, w, h, shade, v, bv){
  
   p5.endShape(); 
 
-  if(v > 0.5 && isForest(bv))
+  if(v > 0.5 && isForest(bv) && zoomLevel > 0)
     drawTree(p5, x, y, w, h, bv);
   else if(v > 0.5 && isField(bv) && zoomLevel >= 3)
     drawGrass(p5, x, y, w, h, bv, shade);
   else if(v < 0.5 && v > 0.499 && isField(bv) && zoomLevel >= 2)
     drawTent(p5, x, y, w, h, bv);
-  else if(v < desertChance && zoomLevel >= 0 && v < 0.15)
+  else if(v < desertChance && zoomLevel >= 2 && v < 0.15)
     drawGrave(p5, x, y, w, h, bv);
  
   p5.pop();
@@ -291,15 +292,12 @@ function drawGrass(p5, x, y, w, h, val, shade){
   var treeWidth = w*0.2;
   var treeHeight = w/2;
 
-  //var v1 = getNoiseValue(p5, x*x, y*y) * 2;
   var v1 = p5.map(val, mountainChance, fieldChance, 0, 40);
   var v2 = p5.map(val, mountainChance, fieldChance, 40, 0);
-  //var v2 = getNoiseValue(p5, x*x*x*1000, y*y*y*1000)*2;
-  //var v3 = getNoiseValue(p5, x*x*x*x, y*y*y*y)*2;
   var v3 = p5.map(val, mountainChance, fieldChance, 40, 0);
 
   //draw Tree right side
-  //p5.fill(0 + p5.random(0,10),128 + p5.random(-10,10),74 + p5.random(-10,10));
+
   p5.fill(p5.red(shade) - v1, p5.green(shade) - v2, p5.blue(shade) - v3);
 
   p5.beginShape();
@@ -418,7 +416,7 @@ function drawGrave(p5, x, y, w, h, val){
   graveHeight = w;
 
   p5.push();
-  p5.translate(0, -graveHeight/3.4);
+  p5.translate(w/4, -graveHeight);
 
   //Draw bottom left side
   p5.fill(122,122,122);
@@ -550,11 +548,8 @@ function drawTree(p5, x, y, w, h, val){
   var trunkDepth = trunkHeight;
   var treeDepth = trunkDepth*4;
 
-  //var v1 = getNoiseValue(p5, x*x, y*y) * 2;
   var v1 = p5.map(val, fieldChance, forestChance, 0, 40);
   var v2 = p5.map(val, fieldChance, forestChance, 0, 20);
-  //var v2 = getNoiseValue(p5, x*x*x*1000, y*y*y*1000)*2;
-  //var v3 = getNoiseValue(p5, x*x*x*x, y*y*y*y)*2;
   var v3 = p5.map(val, fieldChance, forestChance, 0, 20);
 
   //Draw trunk left side
@@ -587,7 +582,6 @@ function drawTree(p5, x, y, w, h, val){
   p5.translate(0, -trunkDepth*2);
 
   //draw Tree left side
-  //p5.fill(0 + p5.random(0,10),142 + p5.random(-10,10),82 + p5.random(-10,10));
   p5.fill(0 + (v1),112 + (v2),52 + (v3));
 
   p5.beginShape();
@@ -600,7 +594,6 @@ function drawTree(p5, x, y, w, h, val){
   p5.endShape();
 
   //draw Tree right side
-  //p5.fill(0 + p5.random(0,10),128 + p5.random(-10,10),74 + p5.random(-10,10));
   p5.fill(0 + (v1),98 + (v2),44 + (v3));
 
   p5.beginShape();
@@ -668,7 +661,7 @@ function drawWaterTile(p5, x, y, dy, w, h, shade, v, bv){
  
   p5.pop();
 
-  if(v > desertChance && bv > beachChance && bv < beachChance + 0.01)
+  if(v > desertChance && bv > beachChance && bv < beachChance + 0.01 && zoomLevel > 2)
     drawRock(p5, x, y, w, h, bv);
  
 }
