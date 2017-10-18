@@ -1,11 +1,9 @@
 ## Powers of 10 PRINT
 
-Since I had the foundation of the math behind the pattern working I decided to begin creating the graphics for the computer desk scene.
+I created additional graphical assets for the computer desk scene. I wanted to further enforce the atmosphere of a cluttered work desk. 
 
-I overlayed a numbered grid over my illustrator design to help me to determine the coordinate space of the p5 sketch.
+To help the zone transitioning appear smoother and make more sense I decided to create a targeted bounding box for the pattern to appear in. This zone is dependant on the grid lines so this meant I had to adjust the computer screen design to accomodate the grid size and position. I gave a small boundary from the edges of the computer screen to where the pattern starts. This was to softern the shift in visual weight between these elements. Unfortunately the grid does not align perfectly with the computer screen bounds at higher levels of zoom.
 
-With the aesthetic of this project I wanted to push my understanding of the art style that was achievable within p5. I opted to implement a smooth vector art style to challenge myself to create a design that challenged the traditional design produced using code.
+When looking at creating further zone levels and more variation I decided to draw additional pattern elements on top of the existing lines. I felt this was appropriate to the idea of components of the computer being made up of smaller and smaller components.
 
-Once I had my top level scene established I looked into mapping my dot pattern into the infinte space. This proved quite challenging, but with Tom's help I was able to reproduce the design in the movable canvas.
-
-Currently the switch between the zones is quite jarring so I will look to implement a smoother method for this.
+I also looked into experimenting with the colour palette. In this example I've looked into a greyscale palette. This was to complement the screen colour better and reduce the contrast between the computer design and the pattern design.

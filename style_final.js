@@ -75,9 +75,14 @@ clockOuter = "#4E403E";
 clockHands = "#4E403E";
 clockHightlight = "#F2F2F2";
 
+dotOverlay = (0);
+dotOverlayShade = (50);
+
+// greyscale
 colourList = ["#C6C4C1", "#ADACA6", "#7C7B77", "#5E5D58"];
 
-otherColourList = ["#1798C4", "#6DCF00", "#FA3F00", "#F8FF00"];
+// coloured
+// colourList = ["#1798C4", "#6DCF00", "#FA3F00", "#F8FF00"]; 
 
 bg = "#FFF8E1";
 
@@ -1054,22 +1059,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
             var cx = p5.map(x, x1, x2, 0, 256);
             var cx2 = p5.map(x + objWidth, x1, x2, 0, 256); // width 
             var xWidth = cx2 - cx;
-            p5.strokeWeight(3*xWidth / 4);
+            p5.strokeWeight(4*xWidth / 5);
 
             var y = starty;
 
             while (y < endy) {
 
-               var noiseScale2 = 1;
-               var i = p5.noise(x * noiseScale2, y * noiseScale2, z+5);
+               var probablityNoiseScale1 = 1;
+               var probablityNoise1 = p5.noise(x * probablityNoiseScale1, y * probablityNoiseScale1, z+5);
 
                var marginStep;
 
-               if (i < 0.5) {
+               if (probablityNoise1 < 0.5) {
                   yEndPos = y;
                   marginStep = margin/2;
                }
-               else if (i < 0.7) {
+               else if (probablityNoise1 < 0.7) {
                   yEndPos = y + margin/2;
                   marginStep = margin;
                }
@@ -1082,15 +1087,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                var cy = p5.map(y, y1, y2, 0, 256);
                var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
-               var noiseScale1 = 1;
-               var noise1 = p5.noise(x * noiseScale1, y * noiseScale1, z);
-               var noise1Mapped = p5.map(noise1, 0.3, 0.7, 0, 1);
+               var colourNoiseScale = 1;
+               var colourNoise = p5.noise(x * colourNoiseScale, y * colourNoiseScale, z);
+               var colourNoiseMapped = p5.map(colourNoise, 0.3, 0.7, 0, 1);
 
-               if (noise1Mapped > 1 || noise1Mapped <= 0) {
-                  noise1Mapped = 0.9;
+               if (colourNoiseMapped > 1 || colourNoiseMapped <= 0) {
+                  colourNoiseMapped = 0.9;
                }
 
-               var colourIndex = Math.floor(noise1Mapped*colourList.length);
+               var colourIndex = Math.floor(colourNoiseMapped*colourList.length);
                var c = colourList[colourIndex];
 
                p5.stroke(c);
@@ -1098,47 +1103,46 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
                if (zoom >= 4) {
 
-                  if (i < 0.5) {
+                  if (probablityNoise1 < 0.5) {
                   }
 
-                  else if (i < 0.7) { // if small line draw additional dots
+                  else if (probablityNoise1 < 0.7) { // if small line draw additional dots
 
                      // bottom secondary dot
-                     var noiseScale6 = 1;
-                     var otherverynewi = p5.noise(x * noiseScale6, y * noiseScale6, z+20);
-                     console.log(otherverynewi);
+                     var probablityNoiseScale2 = 1;
+                     var probablityNoise2 = p5.noise(x * probablityNoiseScale2, y * probablityNoiseScale2, z+20);
 
-                     if (otherverynewi < 0.45) { // draw dot
+                     if (probablityNoise2 < 0.45) { // draw dot
                      
                         var cy = p5.map(y, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw dot at top
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy);
                      }
 
-                     else if (otherverynewi < 0.55) { // draw dot
+                     else if (probablityNoise2 < 0.55) { // draw dot
                      
                         var cy = p5.map(y, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw dot at bottom
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy2, cx, cy2);
                      }
 
-                     else if (otherverynewi < 0.65) { // draw dot
+                     else if (probablityNoise2 < 0.65) { // draw dot
                      
                         var cy = p5.map(y, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw dot at top
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy);
 
                         // draw dot at botom
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy2, cx, cy2);
                      }
 
@@ -1150,48 +1154,48 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                   else { // if longest line then draw additional dots
 
                      // bottom secondary dot
-                     var noiseScale5 = 1;
-                     var verynewi = p5.noise(x * noiseScale5, y * noiseScale5, z+15);
+                     var probablityNoiseScale3 = 1;
+                     var probablityNoise3 = p5.noise(x * probablityNoiseScale3, y * probablityNoiseScale3, z+15);
 
-                     if (verynewi < 0.45) { // draw dot
+                     if (probablityNoise3 < 0.45) { // draw dot
                      
                         var cy = p5.map(yEndPos, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw dot
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
                      }
 
-                     else if (verynewi > 0.55) { // draw line
+                     else if (probablityNoise3 > 0.55) { // draw line
                      
                         var cy = p5.map(y + margin, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw line
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
 
-                        if (verynewi < 0.6) { // draw at top
+                        if (probablityNoise3 < 0.6) { // draw at top
 
                            // draw dot at top
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
                         }
-                        else if (newi < 0.72) { // draw at bottom
+                        else if (probablityNoise3 < 0.72) { // draw at bottom
 
                            // draw dot at bottom
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
                         }
                         else { // draw at both
 
                            // draw dot at top
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
 
                            // draw dot at bottom
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
                         }
                      }
@@ -1201,21 +1205,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                      }
 
                      // top secondary dot
-                     var noiseScale4 = 1;
-                     var newi = p5.noise(x * noiseScale4, y * noiseScale4, z+10);
+                     var probablityNoiseScale4 = 1;
+                     var probablityNoise4 = p5.noise(x * probablityNoiseScale4, y * probablityNoiseScale4, z+10);
 
-                     if (newi < 0.45) { // draw dot
+                     if (probablityNoise4 < 0.45) { // draw dot
                         yEndPos = y;
                      
                         var cy = p5.map(y, y1, y2, 0, 256);
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw dot
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
                      }
 
-                     else if (newi > 0.55) { // draw line
+                     else if (probablityNoise4 > 0.55) { // draw line
 
                         yEndPos = y + margin/2;
                      
@@ -1223,29 +1227,29 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         var cy2 = p5.map(yEndPos, y1, y2, 0, 256);
 
                         // draw line
-                        p5.stroke(0, 100);
+                        p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
 
-                        if (newi < 0.6) { // draw at top
+                        if (probablityNoise4 < 0.6) { // draw at top
                            
                            // draw dot at top
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
                         }
-                        else if (newi < 0.72) { // draw at bottom
+                        else if (probablityNoise4 < 0.72) { // draw at bottom
                            
                            // draw dot at bottom
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
                         }
                         else { // draw at both
 
                            // draw dot at top
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
 
                            // draw dot at bottom
-                           p5.stroke(0, 100);
+                           p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
                         }
                      }
