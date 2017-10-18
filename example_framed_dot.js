@@ -12,12 +12,7 @@
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
-colourList = ["#1798C4", "#6DCF00", "#FA3F00", "#F8FF00"];
-
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-
-  p5.noLoop();
-
   p5.background(255);
   p5.rectMode(p5.CORNERS);
 
@@ -26,46 +21,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cy = p5.map(512-720/2, y1, y2, 0, 256);
   var cx2 = p5.map(512+960/2, x1, x2, 0, 256);
   var cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  p5.fill(50);
-  p5.noStroke();
+  p5.fill(255, 0, 0);
   p5.rect(cx, cy, cx2, cy2);
 
-  var xPos = 0;
+  // The second black rectangle is inset to form a frame inset by 20 units
+  cx = p5.map(512-940/2, x1, x2, 0, 256);
+  cy = p5.map(512-700/2, y1, y2, 0, 256);
+  cx2 = p5.map(512+940/2, x1, x2, 0, 256);
+  cy2 = p5.map(512+700/2, y1, y2, 0, 256);
+  p5.fill(0);
+  p5.rect(cx, cy, cx2, cy2);
 
-  var cx = p5.map(512 - (865 - xPos) / 2, x1, x2, 0, 256);
-  var cx2 = p5.map((512 - 865 / 2 ) + 50, x1, x2, 0, 256);
-  p5.strokeWeight(cx2 - cx);
+  // Two ellipses with a radius of 50 units are then added.
+  var cx = p5.map(512, x1, x2, 0, 256);
+  var cy = p5.map(512, y1, y2, 0, 256);
+  var cx2 = p5.map(512+50, x1, x2, 0, 256);
+  p5.fill(0, 0, 255);
+  p5.ellipse(cx, cy, (cx2-cx));
 
-  
-
-  for (xPos = 0; xPos < 1800; xPos += 150) {
-
-    var yStartPos = 0;
-    var yEndPos = 0;
-    var cx = p5.map(512 - (865 - xPos) / 2, x1, x2, 0, 256);
-
-    for (n = 0; n < 5; n ++) {
-
-      var i = p5.random(1);
-
-      if (i < 0.33) {
-        yEndPos = yStartPos;
-      }
-      else if (i < 0.66) {
-        yEndPos = yStartPos + 125;
-      }
-      else  {
-        yEndPos = yStartPos + 325;
-      }
-
-      var cy = p5.map(512 - (625 - yStartPos) / 2, y1, y2, 0, 256);
-      var cy2 = p5.map(512 - (625 - yEndPos) / 2, y1, y2, 0, 256);
-
-      var c = colourList[Math.floor(Math.random()*colourList.length)];
-      p5.stroke(c);
-      p5.line(cx, cy, cx, cy2);
-      yStartPos = yEndPos + 150;
-
-    }
-  }
+  // The second green ellipse is above and to the left of the first one.
+  var cx = p5.map(412, x1, x2, 0, 256);
+  var cy = p5.map(412, y1, y2, 0, 256);
+  var cx2 = p5.map(412+50, x1, x2, 0, 256);
+  p5.fill(0, 255, 0);
+  p5.ellipse(cx, cy, (cx2-cx));
 }

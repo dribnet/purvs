@@ -1,8 +1,11 @@
 ## Powers of 10 PRINT
 
-A daydream of what might be hidden within the C64 10print maze
-using p5.js and leaflet.
+For my pattern I wanted to allude to the idea of lines of code and wiring, making up the foundation of the computer.
 
-You can also use the Open link at right to open this app in a full screen
-window which additionally supports stateful URLs so
-you can bookmark favorite found locations.
+I adopted an abstract style to help influence a more appealing aesthtic. I pursued a bold and simple geometric style, using repetitive variation to create a visually interesting image.
+
+I chose to have three different dot / line lengths as I felt this offered enough variety, while still remaining structured.
+
+The colours were chosen to be bold and vivid, aluuding to the idea of various networks of wires and code.
+
+Moving forward I will need to adapt this pattern into the infinite space.
