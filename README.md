@@ -23,3 +23,8 @@ I still have a lot to fiddle around with, especially cause I'm still trying to g
 
 I've now got the Voronoi diagram drawing properly - the clipping was affecting how the cells were being drawn at a higher zoom level, and am now passing the world_vertices of the cell polygon points through, so that the same colours are used across the different grids.
 I've also added in code for redrawing the 'stars' as 'cities'. This is not quite working properly, as I believe I'm passing in the wrong variable, which causes them to be redrawn each time I zoom in. Currently working on fixing this.
+
+### Part 3 cont. cont.
+
+I knew the issue with my buildings redrawing each time was because I was passing in the computed size of the city/star.
+But I was struggling with how to fix this, so I had to go back and look at where I mapped it to the grid space, and took the variable starSize before it was mapped, and passed this in to my drawClusters() function. Now the size and number of buildings drawn around the central building are relative to the initial size of the star/city. I also mapped the maximum distance the buildings can be drawn from the main building relative to the initial city size.
