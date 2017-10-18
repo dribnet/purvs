@@ -56,6 +56,7 @@ function set_grid_size(zoom){
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   console.log(zoom);
   set_grid_size(zoom);
+  p5.strokeWeight(10);
   // debug - show border
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -78,8 +79,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var x_pos = p5.map(x, x1, x2, 0, 256);
       var y_pos = p5.map(y, y1, y2, 0, 256);
 
-      //p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 0, 0);
+      
+      //p5.stroke(0, 0, 0);
       var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
@@ -91,7 +92,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      console.log(y_pos2 - y_pos);
+      
 
       //p5.noStroke();
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
