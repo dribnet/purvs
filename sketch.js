@@ -317,7 +317,7 @@ var octagonZone = {
 
     /*
      * takes the center co-ordinates of a shape and splits it into a new set of shapeSides
-     * at zoom level 7 a shape is split into 4
+     * at zoom level 7 a shape is split into 8
      * at zoom level 8 and above it is split into 16 shapes
      * @param {Number} cx            - center x co-ordinates for a shape
      * @param {Number} cy            - center y co-ordinates for a shape
@@ -329,7 +329,11 @@ var octagonZone = {
             [cx - shapeSize, cy - shapeSize],
             [cx + shapeSize, cy - shapeSize],
             [cx - shapeSize, cy + shapeSize],
-            [cx + shapeSize, cy + shapeSize]
+            [cx + shapeSize, cy + shapeSize],
+            [cx, cy - shapeSize],
+            [cx, cy + shapeSize],
+            [cx - shapeSize, cy],
+            [cx + shapeSize, cy]
         ];
         if(zm >= 8){
             newShapes = [
