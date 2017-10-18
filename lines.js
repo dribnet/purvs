@@ -111,11 +111,27 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 }
 
 function drawShape(p5,xpos, ypos, size){
-  //p5.ellipse(xpos, ypos, size);
-  // p5.ellipse(xpos + size, ypos, size/2);
-  // p5.ellipse(xpos - size, ypos, size/2);
-  // p5.ellipse(xpos, ypos + size, size/2);
-  // p5.ellipse(xpos, ypos - size, size/2);
+  p5.fill(255,0,0);
+  p5.noStroke();
+  p5.ellipse(xpos, ypos, size/4);
+  p5.fill(0,255,0);
+  p5.ellipse(xpos + size/5.3, ypos, size/8);
+  p5.ellipse(xpos - size/5.3, ypos, size/8);
+  p5.ellipse(xpos, ypos + size/5.3, size/8);
+  p5.ellipse(xpos, ypos - size/5.3, size/8);
+  p5.ellipse(xpos + size/7.5, ypos + size/7.5, size/8);
+  p5.ellipse(xpos - size/7.5, ypos + size/7.5, size/8);
+  p5.ellipse(xpos + size/7.5, ypos - size/7.5, size/8);
+  p5.ellipse(xpos - size/7.5, ypos - size/7.5, size/8);
+  p5.fill(0,0,255);
+  p5.ellipse(xpos + size/3.4, ypos, size/12);
+  p5.ellipse(xpos - size/3.4, ypos, size/12);
+  p5.ellipse(xpos, ypos + size/3.4, size/12);
+  p5.ellipse(xpos, ypos - size/3.4, size/12);
+  p5.ellipse(xpos + size/4.8, ypos + size/4.8, size/12);
+  p5.ellipse(xpos - size/4.8, ypos + size/4.8, size/12);
+  p5.ellipse(xpos + size/4.8, ypos - size/4.8, size/12);
+  p5.ellipse(xpos - size/4.8, ypos - size/4.8, size/12);
   p5.stroke(0);
   // p5.push();
   // //print("Draw shape was called at: " + xpos + " , " + ypos);

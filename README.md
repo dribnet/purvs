@@ -1,5 +1,7 @@
 ## Powers of 10 PRINT
 
+I added a third layer whch gets revealed as you zoom in. I made a circle of circles which is drawn under the main shape. This allows colour to be seen underneath the shape and as you zoom in you can see that is a circle of circles. I used red, green and blue as I feel these go well with the sharp contrast of black on white.
+
 I offset a second grid, I believe this creates a more interesting pattern at the top level. In my next commits I will add the third layer of detail.
 
 I have made the grid work for panning and zooming up to 6x (I will make it zoom further in my next commits).
