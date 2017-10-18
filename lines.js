@@ -3,6 +3,7 @@ var max_movement = 32;
 var ball_radius = 32;
 var line_width = 8;
 var grid_size = 100;
+var gap_size = 100;
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
@@ -19,6 +20,28 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
+
+function set_grid_size(zoom){
+  if(zoom == 0){
+    gap_size = 100;
+  }
+  else if(zoom == 1){
+    gap_size =200;
+  }
+  else if(zoom == 2){
+    gap_size =400;
+  }
+  else if(zoom == 3){
+    gap_size =800;
+  }
+  else if(zoom == 4){
+    gap_size =1600;
+  }
+  else if(zoom == 5){
+    gap_size =3200;
+  }
+  console.log(gap_size);
+}
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -31,6 +54,8 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  console.log(zoom);
+  set_grid_size(zoom);
   // debug - show border
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -58,27 +83,29 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+    //  p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
      // p5.stroke(0, 128, 0);
       var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
       var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
       var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+     // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      p5.noStroke();
+      console.log(y_pos2 - y_pos);
+
+      //p5.noStroke();
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
-      drawShape(p5, x_pos, y_pos, grid_size/2);
+      drawShape(p5, x_pos, y_pos, gap_size/2);
     }
   }
 }
 
 function drawShape(p5,xpos, ypos, size){
-  p5.ellipse(xpos, ypos, size);
-  p5.ellipse(xpos + size, ypos, size/2);
-  p5.ellipse(xpos - size, ypos, size/2);
-  p5.ellipse(xpos, ypos + size, size/2);
-  p5.ellipse(xpos, ypos - size, size/2);
+  //p5.ellipse(xpos, ypos, size);
+  // p5.ellipse(xpos + size, ypos, size/2);
+  // p5.ellipse(xpos - size, ypos, size/2);
+  // p5.ellipse(xpos, ypos + size, size/2);
+  // p5.ellipse(xpos, ypos - size, size/2);
 
   // p5.push();
   // //print("Draw shape was called at: " + xpos + " , " + ypos);
@@ -87,11 +114,16 @@ function drawShape(p5,xpos, ypos, size){
   // p5.line(0, size*0.5, size, size*0.5);
   // let middle = size * 0.5;
   // let step = size * 0.05;
-  // for(i = 0; i < 10; i++){
-  //   p5.line(middle, i * step, middle - (step*i), middle); 
-  //   p5.line(middle, i * step, middle + (step*i), middle);
-  //   p5.line(middle, size - (i * step), middle - (step*i), middle);
-  //   p5.line(middle, size - (i * step), middle + (step*i), middle);
-  // }
+  let top = ypos - size;
+  let right = xpos + size;
+  let left = xpos - size;
+  let bottom = ypos + size;
+  let step = size / 10;
+  for(i = 0; i <= 10; i++){
+    p5.line(xpos, top + (step*i), xpos + (step*i), ypos);
+    p5.line(xpos, bottom - (step*i), xpos + (step*i), ypos);
+    p5.line(xpos, top + (step*i), xpos - (step*i), ypos);
+    p5.line(xpos, bottom - (step*i), xpos - (step*i), ypos);
+  }
   // p5.pop();
 }
