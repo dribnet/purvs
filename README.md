@@ -1,11 +1,11 @@
 ## Powers of 10 PRINT
 
-For my pattern I wanted to allude to the idea of lines of code and wiring, making up the foundation of the computer.
+Since I had the foundation of the math behind the pattern working I decided to begin creating the graphics for the computer desk scene.
 
-I adopted an abstract style to help influence a more appealing aesthtic. I pursued a bold and simple geometric style, using repetitive variation to create a visually interesting image.
+I overlayed a numbered grid over my illustrator design to help me to determine the coordinate space of the p5 sketch.
 
-I chose to have three different dot / line lengths as I felt this offered enough variety, while still remaining structured.
+With the aesthetic of this project I wanted to push my understanding of the art style that was achievable within p5. I opted to implement a smooth vector art style to challenge myself to create a design that challenged the traditional design produced using code.
 
-The colours were chosen to be bold and vivid, aluuding to the idea of various networks of wires and code.
+Once I had my top level scene established I looked into mapping my dot pattern into the infinte space. This proved quite challenging, but with Tom's help I was able to reproduce the design in the movable canvas.
 
-Moving forward I will need to adapt this pattern into the infinite space.
+Currently the switch between the zones is quite jarring so I will look to implement a smoother method for this.
