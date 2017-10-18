@@ -4,7 +4,6 @@ var gridSize;
 
 var biome;
 
-
 //population variables
 var lake;
 var empty;
@@ -22,13 +21,38 @@ var populations;
 
 var totalPopulation;
 
+/* TOUR VARIABLES (required)
+/* the random number seed for the tour */
+var tourSeed = 100;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [2, 512, 512],
+  [3, 512, 512],
+  [4, 512, 512],
+  [4, 436, 762],
+  [3, 436, 762],
+  [3, 558, 654],
+  [3, 539, 4]
+
+]
+
 /* OPTIONAL VARIABLES */
 /* what is the initial zoom level (defaults to 0) */
 var initialZoomLevel = 1;
 /* what is the maximum zoom level (make this at least 10. defaults to 16) */
-var maxZoomLevel = 4;
+var maxZoomLevel = 5;
 
 
+/**
+
+Each shape piece has its own chance of spawning, which is randomized each time
+a new pattern is created. This method initializes all of those shapes.
+
+The way it's done in this program is a little odd. I took the base "tiaga" population,
+and then used it to change what that means for each biome. This is a little convoluted,
+but works okay.
+
+*/
 function initPopulations(p5,x,y){
 
   lake = 1;
@@ -41,7 +65,7 @@ function initPopulations(p5,x,y){
   house = 14;
   obelisk = 0.1;
   flower = 1 ;
-  cave = 13;
+  cave = 10;
 
   populations = [lake,empty,flower,grass,rock,smallTree,obelisk,tree,snowyTree,house];
   totalPopulation = 0;
@@ -75,31 +99,31 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
 
 
+  //sets different grid sizes according to the
+  // zoom amount.
   if(zoom <= 0){
     gridSize = 8;
   }
   else if(zoom == 1){
     gridSize = 4;
   }
-  else if(zoom < 2){
-    gridSize = 2;
-  }
   else{
     gridSize = 2;
   }
 
+  //used for grid
   var minX = snap_to_grid(x1, gridSize);
   var maxX = snap_to_grid(x2 + gridSize, gridSize);
   var minY = snap_to_grid(y1, gridSize);
   var maxY = snap_to_grid(y2 + gridSize, gridSize);
 
-  var noiseScale = 0.03;
+  var noiseScale = 0.04;
   //p5.noiseDetail(2,0.5);
 
   for(var x=minX; x<maxX; x+=gridSize) {
     for(var y=minY; y<maxY; y+=gridSize) {
 
-      var biomeMult = 0.01;
+      var biomeMult = 0.005;
       var biomeSelect = p5.noise(y*biomeMult,x*biomeMult);
 
       if(biomeSelect > 0.55){
@@ -120,6 +144,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       initPopulations(p5,x,y);
 
+      //coordinates
       var leftX = p5.map(x, x1, x2, 0, 256);
       var topY = p5.map(y, y1, y2, 0, 256);
       var rightX = p5.map(x+gridSize, x1, x2, 0, 256);
@@ -128,8 +153,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var rowHeight = p5.map(gridSize,y1,y2,0,256) - p5.map(0, y1, y2, 0, 256);
       var colWidthThird = p5.map(gridSize/3,x1,x2,0,256) - p5.map(0, x1, x2, 0, 256);
       var rowHeightThird = p5.map(gridSize/3,y1,y2,0,256) - p5.map(0, y1, y2, 0, 256);
-
-      var perl = p5.noise(x*noiseScale, y*noiseScale);
 
       //p5.strokeWeight(lineWidth);
       p5. strokeWeight(1);
@@ -148,7 +171,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
       // only show less than 1/5th of shapes at this zoom level
       else if (zoom > 1){
-        if(p5.noise(x,y) > 0.8 ){
+        if(p5.noise(y,x) > 0.8 ){
           shape = true;
         }
       }
@@ -156,6 +179,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       }
 
+      //calls for different populations
       if(biome == "tiaga"){
         tiaga(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
       }
@@ -196,21 +220,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   }
 
+  //generic mapping function
   function mapX (point){
       return p5.map(point,x1,x2,0,256);
   }
 
+  //generic mapping function
   function mapY (point){
     return p5.map(point,y1,y2,0,256);
   }
 
-
-  function drawHeight(p5, x, y, shapeType){
-    var perlHeight = p5.noise(x1,y1)
-    p5.noStroke();
-  }
-
-
+  /*
+  // Gets the terrain pieces for the tiaga biome. Tiaga biome contains
+  // snowy trees and houses.
+  */
   function tiaga(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
     var shapeString;
@@ -252,6 +275,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     drawShape(p5, x1, x2, y1, y2, z, zoom, shapeString, shape)
   }
 
+
+
+  /*
+  // Gets the terrain pieces for the forest biome.
+  // Forest biome has lots of trees.
+  */
   function forest(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
 
@@ -296,7 +325,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   }
 
-
+  /*
+  // Gets the terrain pieces for the lake biome. Lake biome contains
+  // lots of water, seaweed, and rocks.
+  */
   function lake(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
 
@@ -340,6 +372,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   }
 
+  /*
+  // Gets the terrain pieces for the autumn biome. Autumn biome contains
+  // Reddish trees, flowers,  and caves
+  */
   function autumn(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
     var shapeString;
@@ -384,16 +420,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
+  /*
+  * Draws an individual shape. "Shape" contains the tile behind a terrain piece,
+  // and the terrain piece. Uses lots of randomization to get values.
+  */
   function drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
+    // only have gridlines at this zoom level
     if(zoom > 2){
-    p5.noStroke();
+      p5.noStroke();
     }
     else{
       p5.stroke(0,80);
     }
 
-
+    //offsets for colours for more randomization
     var tileOffset = p5.round(p5.map(p5.noise(x,y),0,1,0,50));
     var lakeOffset = p5.round(p5.map(p5.noise(x,y),0,1,-10,10));
     var treeOffset = p5.round(p5.map(p5.noise(x,y),0,1,-40,40));
@@ -413,20 +454,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
       p5.rect(leftX,topY,colWidth,rowHeight);
     }
+    //seaweed
     else if(shapeType == "seaweed"){
 
       if(biome == "tiaga"){
         p5.fill(193+tileOffset, 217+tileOffset, 255+tileOffset);
       }
-
-      p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
+      else{
+        p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
+      }
       p5.rect(leftX,topY,colWidth,rowHeight);
-
 
       if(shape == false){
         return;
       }
-
 
       p5.strokeWeight(2);
       p5.stroke(80, 175, 112);
@@ -434,9 +475,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize/2)),bottomY);
       p5.line(rightX,mapY(y+gridSize-(gridSize/5)),rightX,bottomY);
 
-
     }
-
     else if(shapeType == "fish"){
 
       if(biome == "tiaga"){
@@ -453,7 +492,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(193+rockOffset,217+rockOffset,255+rockOffset);
       p5.stroke(60+rockOffset);
       p5.triangle(mapX(x+gridSize/3),mapY(y+(gridSize/2)),mapX(x+(gridSize/2)),mapY(y+(gridSize/4)),mapX(x+gridSize-(gridSize/3)),mapY(y+(gridSize/2)));
-
 
     }
     //empty
@@ -702,15 +740,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
       p5.rect(leftX,topY,colWidth,rowHeight);
 
+      }
     }
-
-
-
-
   }
-
-
-
-  }
-
 }
