@@ -1,11 +1,7 @@
 ## Powers of 10 PRINT
 
-I have got my layers and zoom levels sorted:
+I have noticed that when it is really zoomed in, it gets a bit boring as the background is very plain. Therefore I have added a corner shape pattern at zoom 7 and onwards. This helps keep it interesting. 
 
-0,1 Grid
-2,3 Small dots appear
-4,5 Bigger dots
-6,7 Small white dots appear in background
-8,9 Detail in red and black dots appear
+But I also have a problem as it's showing up in front of the dots which isn't what I want. I'm not sure why it's doing this as I have put it before the dots in the code. 
 
-I've noticed that it takes ages to load the page everytime it zooms in. Not sure if it's just mine or it's just what it is.
+I have also got the tour coordinates done. It goes to zoom level 3, 6, 7 & 8 which I feel are the most important layers.

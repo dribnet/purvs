@@ -10,11 +10,8 @@ var tourSeed = 301;
 var tourPath = [
     [3,328.187500000000,462.375000000000],
     [6,324.117187500000,456.515625000000],
-    [7,321.402343750000,463.023437500000],
-
-
-    [8,509.572265625000,511.597656250000]
-    [8,513.916015625000,512.691406250000]
+    [7,322.519531250000,464.156250000000],
+    [8,322.322265625000,464.109375000000]    
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -175,6 +172,7 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawEllips
       [5.5,5.5],
       
   ]
+  
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
   var pixel_radius = pixel_posx2 - pixel_posx1;
@@ -188,17 +186,12 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawEllips
       
     var pixel_x3 = p5.map(pos_x+0.4*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y3 = p5.map(pos_y+0.4*rad1*offset[1], y1, y2, 0, 256); 
-   
-      
-   
+
     p5.strokeWeight(1);
-    p5.stroke(255);  
-      
+    p5.stroke(255);   
     p5.ellipse(pixel_x, pixel_y, pixel_radius/3);
 
-
     if(drawEllipses) {
-      //p5.strokeWeight(pixel_radius / 100);
       p5.noFill();
       p5.stroke(255);
       p5.strokeWeight(1);    
@@ -206,12 +199,20 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawEllips
       p5.strokeWeight(1);
       p5.ellipse(pixel_x2, pixel_y2, 10);
       p5.ellipse(pixel_x3, pixel_y3, 10);
-   
-        p5.fill(0);
+      p5.fill(0);
     } 
-
+ 
+      //zoom 4 circle in black dot
+     if(drawEllipses_4) {
+      p5.noFill();
+      p5.stroke(255);
+      p5.strokeWeight(1);    
+      p5.ellipse(pixel_x, pixel_y,10);
+      p5.fill(0);
+    }   
+      
+      //zoom 6 circle in black dot
      if(drawEllipses_6) {
-      //p5.strokeWeight(pixel_radius / 100);
       p5.noFill();
       p5.stroke(255);
       p5.strokeWeight(1);    
@@ -219,47 +220,45 @@ function drawDots_black(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawEllips
       p5.strokeWeight(1);
       p5.ellipse(pixel_x2, pixel_y2, 10);
       p5.ellipse(pixel_x3, pixel_y3, 10);
-   
-        p5.fill(0);
+      p5.fill(0);
     }  
-
+      //zoom 8 circle in black dot
      if(drawEllipses_8) {
-      //p5.strokeWeight(pixel_radius / 100);
       p5.noFill();
       p5.stroke(255);
       p5.strokeWeight(3);    
       p5.ellipse(pixel_x, pixel_y,250);
        p5.fill(0);
     }  
-      
-     if(drawEllipses_4) {
-      //p5.strokeWeight(pixel_radius / 100);
-      p5.noFill();
-      p5.stroke(255);
-      p5.strokeWeight(1);    
-      p5.ellipse(pixel_x, pixel_y,10);
-       p5.fill(0);
-    }   
 
       
   }
 }
 
 
+function Shapes(p5, x1, x2, y1, y2, z, zoom) {
+    var noiseScale=0.02; 
+    p5.noiseDetail(8,0.5);
+    p5.noStroke();
+    
+  for(var i=0; i<8; i++) {
+    var n_x = p5.map(i, 0, 16, x1, x2);
+    for(var j=0; j<8; j++) {
+      var n_y = p5.map(j, 0, 16, y1, y2);
+      var noiseVal = p5.noise(n_x * noiseScale,
+                              n_y * noiseScale, z);
+      p5.stroke(214, 183, 85);
+      p5.rect(i*0.5, j*0.5, 0.5, 0.5);
+      p5.stroke(61);
+      p5.rect(i, j, 0.5, 0.5);    
+    }
+  }
+}
 
-/*
- * This is the funciton to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
+
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // debug - show border
+
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
   var max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -273,113 +272,150 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-       var drawEllipses = false;
-       var drawEllipses_4 = false;
-       var drawEllipses_6 = false;
-       var drawEllipses_8 = false;
-        var drawLines = false;
-        var drawDetail = false;
+  var drawEllipses = false;
+  var drawEllipses_4 = false;
+  var drawEllipses_6 = false;
+  var drawEllipses_8 = false;
+  var drawLines = false;
+  var drawDetail = false;
 
 
-  	//grid
-  p5.background(255);
-  for(var x=min_x; x<max_x; x+=grid_size) {
+  	        //grid
+            p5.background(255);
+    
+    for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0);
-      var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-      var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+        var shift_point = getOffsetPoint(p5, x, y, z, 0);
+        var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+        var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
-      p5.strokeWeight(cur_line_width);
-          
-        p5.fill(214, 183, 85);
-        p5.stroke(255);   
-        p5.strokeWeight(1);  
-      p5.rect(x_pos, y_pos, cur_ball_radius,cur_ball_radius); 
+            p5.strokeWeight(cur_line_width);
 
-  		//subtle circle pattern
-      if(zoom == 2 || zoom == 3) {
-      	p5.push();
-      	p5.scale(0.4);
-      	drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-        p5.strokeWeight(3);
-          
-        p5.fill(0);
-        drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
-        p5.pop();
-      }
+            p5.fill(214, 183, 85);
+            p5.stroke(255);   
+            p5.strokeWeight(1);  
+            p5.rect(x_pos, y_pos, cur_ball_radius,cur_ball_radius); 
+        
+
+            //subtle circle pattern
+          if(zoom == 2 || zoom == 3) {
+            p5.push();
+              
+            p5.scale(0.4);
+              
+            drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+              
+            p5.strokeWeight(3);
+              
+            p5.fill(0);
+              
+            drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+            p5.pop();
+          }
 
 
-      //circle pattern
+      //Circle pattern
 
       if(zoom == 4 || zoom == 5) {
-   
-          p5.fill(61);
+            p5.fill(61);
+            p5.fill(110,31,31);
+            p5.strokeWeight(4);
+            p5.stroke(255);  
 
-           p5.fill(110,31,31);
-        p5.strokeWeight(4);
-        p5.stroke(255);  
-          
-        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-        p5.strokeWeight(4);
-          
-           p5.fill(0);
-          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses, drawEllipses_4,drawEllipses_8,drawEllipses_6);
- 		drawEllipses = false;
-    	drawLines = false;
-    	drawDetail = false;
-    	drawEllipses_8 = false;
-    	drawEllipses_4 = true;
-    	
-       
-      }
+            drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+            p5.strokeWeight(4);
+
+            p5.fill(0);
+
+            drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses, drawEllipses_4,drawEllipses_8,drawEllipses_6);
+
+            drawEllipses = false;
+            drawLines = false;
+            drawDetail = false;
+            drawEllipses_8 = false;
+            drawEllipses_4 = true;
+    	}
+        
       // Circle pattern + White Circles
-          if (zoom == 6 || zoom == 7)   {
-           p5.fill(110,31,31);
-        p5.strokeWeight(5);
-        p5.stroke(255);  
-          
-        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-        p5.strokeWeight(5);
-          
-           p5.fill(0);
-          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+        if (zoom == 6)   {
+            p5.fill(110,31,31);
+            p5.strokeWeight(5);
+            p5.stroke(255);      
 
-          p5.strokeWeight(5);
-          p5.stroke(255);  
+            drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+            p5.strokeWeight(5);
 
+            p5.fill(0);
+
+            drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+
+            p5.strokeWeight(5);
+            p5.stroke(255);  
+
+
+            drawEllipses = false;
+            drawLines = false;
+            drawDetail = false;
+            drawEllipses_8 = false;
+            drawEllipses_6 = true;
+            drawEllipses_4 = false;
+    	}
+
+        
+         if (zoom == 7)   {
              
-        drawEllipses = false;
-    	drawLines = false;
-    	drawDetail = false;
-    	drawEllipses_8 = false;
-    	drawEllipses_6 = true;
-    	drawEllipses_4 = false;
+            Shapes(p5,x1, x2, y1, y2); 
+            p5.fill(110,31,31);
+            p5.strokeWeight(5);
+            p5.stroke(255);      
+
+            drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+            p5.strokeWeight(5);
+
+            p5.fill(0);
+
+            drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, 
+            drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+
+            p5.strokeWeight(5);
+            p5.stroke(255);  
+
+
+            drawEllipses = false;
+            drawLines = false;
+            drawDetail = false;
+            drawEllipses_8 = false;
+            drawEllipses_6 = true;
+            drawEllipses_4 = false;
     	}
 
 
-    	//Circle pattern + Lines + White Circles
+    	//Circle pattern + Lines + White Circles + Shape Pattern
 
         if (zoom == 8 || zoom == 9) {
-        	 p5.fill(110,31,31);
-        p5.strokeWeight(6);
-        p5.stroke(255);  
-          
-   
-    p5.strokeWeight(5);
-        drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-        p5.strokeWeight(6);
-          
-           p5.fill(0);
-          drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
-          
+            
+            Shapes(p5,x1, x2, y1, y2);
 
+            p5.fill(110,31,31);
+            p5.strokeWeight(6);
+            p5.stroke(255);  
 
-        drawEllipses = true;
-        drawEllipses_8 = true;
-        drawEllipses_4 = false;
-   		drawLines = true;
-   		drawDetail = true;
-   	}
+            p5.strokeWeight(5);
+            drawDots_red(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+            p5.strokeWeight(6);
+
+            p5.fill(0);
+            drawDots_black(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawEllipses,drawEllipses_4,drawEllipses_8,drawEllipses_6);
+
+            drawEllipses = true;
+            drawEllipses_8 = true;
+            drawEllipses_4 = false;
+            drawLines = true;
+            drawDetail = true;
+        
+        }
+        
+        
 
        
       
