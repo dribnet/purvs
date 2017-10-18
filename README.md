@@ -24,3 +24,7 @@ UPDATE
 
 I've now done the tour, I've added a location for each level to really capture the details of all of this the way I wanted. Will still take more time to add more details and elements.
 
+UPDATE
+
+I've now added all the details I wanted and I'm happy with the way the tour is going, I will jsut add a few more details if I have time.
+
