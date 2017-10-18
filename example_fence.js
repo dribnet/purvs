@@ -5,7 +5,7 @@ var line_width = 8;
 var grid_size = 256;
 
 var tourSeed = 301;
-/* triplets of locations: zoom, x, y */
+/* triplets of locations: zoom, x, y  the tour zooms into one cell, showing all the stages of design development*/
 var tourPath = [
   [0, 512.000000000000, 512.000000000000],
   [1, 410.750000000000, 669.250000000000],
@@ -46,8 +46,9 @@ function snap_to_grid(num, gsize) {
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
+ 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // debug - show border
+
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
   var max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -62,11 +63,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_ball_radius = c_pball - c_p00;
 
   
-
-
-
     p5.background(4, 21, 31);
-//////noise generated green circles
+
+////// Noise generated green circles, showing energy in design. Reduce in size as zoomed into.
+
   if (zoom > 1) 
   	{
 	  var noiseScale=0.02; 
@@ -92,7 +92,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   	p5.fill(33, 83, 72);
 
-  	/////Main Curved Lines generating code
+
+/////    Main Curved Lines connecting cells generating code
+
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       p5.noLoop();
@@ -119,23 +121,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.noStroke();
       p5.fill(255, 10 + zoom*5);
       
-      ///////////// Triangles in back not too visible
+///////////// Triangles in back not too visible
       if (zoom > 2) {
       	p5.triangle(x_pos, y_pos, x_pos2, y_pos2, x_pos4, y_pos4); 	
       }
       
-      ////////////////
-////////// lines large main
-	  p5.strokeWeight(cur_line_width);
+////////// Lines large main part, always visible
+
+
+	    p5.strokeWeight(cur_line_width);
       p5.stroke(5, 53, 76);
       p5.noFill();
       p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
       p5.bezier(x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
       p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
-    
       p5.noStroke();
 
-//////lines inner details green colour
+////// Lines inner details green colour when zoomed into.
+
       if (zoom > 2) {
         p5.strokeWeight(cur_line_width/2);
         p5.stroke(33, 83, 72, 60 + zoom*5);
@@ -156,7 +159,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     }
   }
 
-  //////Small Curved Lines when zoomed in, blue colour, less strokeweight than main
+////// Smaller Curved Lines when zoomed into, blue colour, less strokeweight than main lines.
+
+
   if (zoom > 0){
 	  for(var x=min_x; x<max_x; x+=grid_size) {
 	    for(var y=min_y; y<max_y; y+=grid_size) {
@@ -178,16 +183,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
 	      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
 	      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-	      //p5.line(x_pos, y_pos, x_pos2, y_pos2);
-
 
 	      p5.noStroke();
-	      p5.fill(255, 10 + zoom*5);
 	      
-
 		    p5.strokeWeight(cur_line_width/5);
 	      p5.stroke(5, 53, 76);
 	      p5.noFill();
+
 	      p5.bezier(x_pos, y_pos, x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2);
 	      p5.bezier(x_pos3, y_pos3, x_pos4, y_pos4, x_pos2, y_pos2, x_pos, y_pos);
 	      p5.bezier(x_pos, y_pos, x_pos4, y_pos4, x_pos2, y_pos2, x_pos3, y_pos3);
@@ -197,8 +199,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   }
 }
 
+///// Main circles/cells, always present
 
-///// Main Circles always present
    for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
 
@@ -219,38 +221,35 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var y_pos5 = p5.map(shift_y + 100, y1, y2, 0, 256);
 
 
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*3.1);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*3.1);
 
-      p5.fill(33, 83, 72, 100);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*3);
+    p5.fill(33, 83, 72, 100);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*3);
       
-      p5.fill(150, 100 - zoom*5);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*2.1);
+    p5.fill(150, 100 - zoom*5);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*2.1);
 
-      p5.fill(7, 41, 51, 100 - zoom*5);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*2);
+    p5.fill(7, 41, 51, 100 - zoom*5);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*2);
 
-      p5.fill(150, 50 + zoom*15);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*1.1);
+    p5.fill(150, 50 + zoom*15);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*1.1);
 
-      p5.fill(5, 53, 76, 50 + zoom*15);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+    p5.fill(5, 53, 76, 50 + zoom*15);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-      // inner most light circle always being drawn regardless of zoom 
-      p5.fill(200, 50 + zoom*15);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6);
 
-      p5.fill(33, 83, 72, 50 + zoom*15);
+    p5.fill(200, 50 + zoom*15);
+    p5.ellipse(x_pos, y_pos, cur_ball_radius*0.6);
 
-      // p5.ellipse(x_pos, y_pos, cur_ball_radius*0.5);
-      //p5.ellipse(x_pos5, y_pos5, cur_ball_radius/2);
-      
-
+    p5.fill(33, 83, 72, 50 + zoom*15);
     }
    }
 
 
-   ///// Main Circles Inner detail
+///// Main Circles Inner detail
+
+
    if (zoom > 2) {
 
 	   for(var x=min_x; x<max_x; x+=grid_size) {
@@ -271,6 +270,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	    var y_pos4 = p5.map(shift_y, y1, y2, 0, 256);
 	    var x_pos5 = p5.map(shift_x, x1, x2, 0, 256);
 	    var y_pos5 = p5.map(shift_y, y1, y2, 0, 256);
+
+/// Rings of the inner part of cells.
 
 	    p5.fill(7, 41, 51, 50);
 	    p5.noStroke();
@@ -298,27 +299,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	    p5.strokeWeight(0.5);
 	    p5.noFill();
 	    p5.stroke(255);
-      //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
 
-///////////Outer Nucleus
-      	p5.ellipse(x_pos + cur_ball_radius/8, y_pos, cur_ball_radius*0.3); 
-      	p5.ellipse(x_pos  - cur_ball_radius/8, y_pos, cur_ball_radius*0.3);
-      	p5.ellipse(x_pos, y_pos  + cur_ball_radius/8, cur_ball_radius*0.3);
-      	p5.ellipse(x_pos, y_pos  - cur_ball_radius/8, cur_ball_radius*0.3);
+
+//// Outer Nucleus white lines
+
+      p5.ellipse(x_pos + cur_ball_radius/8, y_pos, cur_ball_radius*0.3); 
+      p5.ellipse(x_pos  - cur_ball_radius/8, y_pos, cur_ball_radius*0.3);
+      p5.ellipse(x_pos, y_pos  + cur_ball_radius/8, cur_ball_radius*0.3);
+      p5.ellipse(x_pos, y_pos  - cur_ball_radius/8, cur_ball_radius*0.3);
     	
-    	  p5.ellipse(x_pos + cur_ball_radius/16, y_pos + cur_ball_radius/16, cur_ball_radius*0.3); 
-      	p5.ellipse(x_pos  - cur_ball_radius/16, y_pos - cur_ball_radius/16, cur_ball_radius*0.3);
-      	p5.ellipse(x_pos - cur_ball_radius/16, y_pos  + cur_ball_radius/16, cur_ball_radius*0.3);
-      	p5.ellipse(x_pos + cur_ball_radius/16, y_pos  - cur_ball_radius/16, cur_ball_radius*0.3);
+    	p5.ellipse(x_pos + cur_ball_radius/16, y_pos + cur_ball_radius/16, cur_ball_radius*0.3); 
+      p5.ellipse(x_pos  - cur_ball_radius/16, y_pos - cur_ball_radius/16, cur_ball_radius*0.3);
+      p5.ellipse(x_pos - cur_ball_radius/16, y_pos  + cur_ball_radius/16, cur_ball_radius*0.3);
+      p5.ellipse(x_pos + cur_ball_radius/16, y_pos  - cur_ball_radius/16, cur_ball_radius*0.3);
 
       	
-////Inner Nucleus
-        if (zoom > 3) {
+//// Inner Nucleus white lines and nucleus
+
+      if (zoom > 3) {
 	      	p5.strokeWeight(0.5);
 		      p5.fill(7, 41, 51, 50);
 		      p5.stroke(255);
-	      //p5.triangle(x_pos, y_pos, x_pos4, y_pos4, x_pos3, x_pos3);
 
 	      	p5.ellipse(x_pos + cur_ball_radius/20, y_pos, cur_ball_radius*0.1); 
 	      	p5.ellipse(x_pos  - cur_ball_radius/20, y_pos, cur_ball_radius*0.1);
@@ -343,19 +345,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           p5.ellipse(x_pos - cur_ball_radius/364, y_pos  + cur_ball_radius/364, cur_ball_radius*0.01);
           p5.ellipse(x_pos + cur_ball_radius/364, y_pos  - cur_ball_radius/364, cur_ball_radius*0.01);
 	    }	
-    	 }
+    	}
    		}
 	}
-
-
-
-  // debug - show border
-  // p5.noFill();
-  // p5.strokeWeight(1.0);
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
-
-
-
-
 }
