@@ -1,6 +1,6 @@
 var max_thickness = 64;
 var hex_size = 16;
-var noiseScale = 1/250;
+var noiseScale = 1/450;
 
 var biome_normal = [
 [0,"#94b9d1","deepsea"], 
@@ -9,11 +9,10 @@ var biome_normal = [
 [0.56,"#DBE7C4","dunes"],
 [0.562,"#b8d8b3","grass"],
 [0.675,"#cde5c9","plains"],
-[0.71,"#9ac189","forest"],
-[0.69,"#b8d8b3","grass"],// out of order lower value will lerp only, not draw 
-[0.73,"#cde5c9","plains"],
-[0.75,"#c9d8c3","mountain"],
-[0.84,"#fafafd","snow"],
+[0.73,"#8db57c","forest"],
+[0.785,"#d7dbc9","crags"],
+[0.885,"#969178","mountain"],
+[0.92,"#fafafd","snow"],
 [1,"#ffffff","end"]
 ];
 
@@ -35,12 +34,12 @@ var biome_islands = [
 [0.525,"#bed6e5","shallows"],
 [0.655,"#bcedf2","tropical_fords"],
 [0.6815,"#ffffed","beach"],
-[0.6835,"#ede3c2","rocks"],
-[0.6855,"#e1f4be","vegetation"],
+[0.683,"#ede3c2","rocks"],
+[0.685,"#e1f4be","vegetation"],
 [0.7,"#ffffed","beach"],
-[0.7525,"#fcf3cf","desert"],
-[0.815,"#e1f4be","vegetation"],
-[0.855,"#bcedf2","tropical_fords"],
+[0.7675,"#fcf3cf","desert"],
+[0.835,"#e1f4be","vegetation"],
+[0.8675,"#bcedf2","tropical_fords"],
 [1,"#bed6e5","shallows"]
 ];
 
@@ -59,7 +58,7 @@ var biome_mountains = [
 ];
 
   function bioNoise(p5,x,y){
-    return p5.noise(x * noiseScale/11+10000, y*noiseScale/11+10000, 15); 
+    return p5.noise(x * noiseScale/10+10000, y*noiseScale/10+10000, 15); 
 }
 
 function noiseVal(p5,x,y) {
@@ -77,13 +76,13 @@ function getHexColor(p5, x, y) {
     if(bioNoiseval>0.0){
         biome = biome_islands;
     }
-    if(bioNoiseval>0.475){
+    if(bioNoiseval>0.4){
         biome = biome_normal;
     }
-    if(bioNoiseval>0.575){
+    if(bioNoiseval>0.55){
         biome = biome_mountains;
     }
-    if(bioNoiseval>0.8){
+    if(bioNoiseval>0.675){
         biome = biome_desert;
     }
     for (arraypos = 0; arraypos < biome.length; arraypos++) {
