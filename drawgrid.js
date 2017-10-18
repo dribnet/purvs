@@ -18,19 +18,19 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function showCheck(p5, x, y, z, noiseScale) {
+function showCheck(p5, x, y, z, noiseScale) { //decides whether to make lilypad visible or not
   var showLeaf = Math.floor(5*p5.noise(x * noiseScale, y * noiseScale, z+1));
  
   return (showLeaf)
 }
 
-function getLinePos(p5, x, y, z, noiseScale) {
+function getLinePos(p5, x, y, z, noiseScale) { //gets offset for leaf veins on lilypad
   var line_pos = p5.noise(x * noiseScale, y * noiseScale, z+6);
  
   return (line_pos)
 }
 
-function showFlower(p5, x, y, z, noiseScale) {
+function showFlower(p5, x, y, z, noiseScale) { //decides whether or not a lilypad has a flower attached
   var probability = Math.floor(10*p5.noise(x * noiseScale, y * noiseScale, z+4));
  	var flower = false;
  	if (probability%2==0){
@@ -39,7 +39,7 @@ function showFlower(p5, x, y, z, noiseScale) {
   return (flower)
 }
 
-function getRotation(p5, x, y, z, noiseScale) {
+function getRotation(p5, x, y, z, noiseScale) { //generates a rotation value (degrees)
   var rot = p5.noise(x * noiseScale, y * noiseScale, z+2);
 
  var mapRot =	p5.map(rot, 0, 0.8, 0, 360);
@@ -47,14 +47,14 @@ function getRotation(p5, x, y, z, noiseScale) {
   return (mapRot)
 }
 
-function getSize(p5, x, y, z, noiseScale) {
+function getSize(p5, x, y, z, noiseScale) { //generates size variables
   var s = p5.noise(x * noiseScale, y * noiseScale, z+3);
   
   var mapS = p5.map(s, 0.1, 0.75, 0.6, 1.3);
   return (mapS)
 }
 
-function getFlowerPosition(p5, x, y, z, noiseScale, rad) {
+function getFlowerPosition(p5, x, y, z, noiseScale, rad) { //generated a 'random' offset for the flower position
   var noiseX = p5.noise(x * noiseScale, y * noiseScale, z+55);
   var noiseY = p5.noise(x * noiseScale, y * noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -rad, rad);
@@ -62,19 +62,19 @@ function getFlowerPosition(p5, x, y, z, noiseScale, rad) {
   return [offsetX, offsetY]
 }
 
-function getRippleCount(p5, x, y, z, noiseScale, maxRipples) {
+function getRippleCount(p5, x, y, z, noiseScale, maxRipples) { //decides how many ripples will be concentric
   var n = p5.noise(x * noiseScale, y * noiseScale, z+8);
   
   numRipples = Math.floor(p5.map(n, 0.1, 0.75, 4, maxRipples));
   return (numRipples)
 }
 
-function getNoiseValue (p5, x, y, z, noiseScale) {
+function getNoiseValue (p5, x, y, z, noiseScale) { //gets noise value for water texture
   var noiseVal = p5.noise(x * noiseScale, y * noiseScale, z);
   return (noiseVal);
 }
 
-function colorPalette(p5, x, y, z, noiseScale) {
+function colorPalette(p5, x, y, z, noiseScale) { //generates color palette for lily pads
 	var r = 255*p5.noise(x * noiseScale, y * noiseScale, z+20);
   	var g = 255*p5.noise(x * noiseScale, y * noiseScale, z+30);
   	var b= 255*p5.noise(x * noiseScale, y * noiseScale, z+40);
@@ -87,7 +87,7 @@ function colorPalette(p5, x, y, z, noiseScale) {
   	return [red, green, blue]
 }
 
-function getKoiVisibility(p5, x, y, z, noiseScale){
+function getKoiVisibility(p5, x, y, z, noiseScale){ //decides whether or not to show a koi
 	var showKoi = p5.noise(x * noiseScale, y * noiseScale, z+8);
 
 	var showK = Math.floor(p5.map(showKoi, 0.1, 0.75, 0, 21));
@@ -101,7 +101,7 @@ function getKoiVisibility(p5, x, y, z, noiseScale){
 	return(show)
 }
 
-function flowerColor(p5, x, y, z, noiseScale){
+function flowerColor(p5, x, y, z, noiseScale){ //generates colors for the flowers
 	var r = 255*p5.noise(x * noiseScale, y * noiseScale, z+100);
   	var g = 255*p5.noise(x * noiseScale, y * noiseScale, z+101);
   	var b= 255*p5.noise(x * noiseScale, y * noiseScale, z+102);
@@ -114,12 +114,12 @@ function flowerColor(p5, x, y, z, noiseScale){
 	return[red, green, blue];
 }
 
-function snap_to_grid(num, gsize) {
+function snap_to_grid(num, gsize) { 
   return (num - (num % gsize));
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-	var waterColor = p5.color(200, 225, 255); //color of background water
+
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -138,14 +138,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	var min_y = snap_to_grid(y1 - max_shift, grid_size);
   	var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  	var multiplier = 7;
-  	var size = 20;
+  	var multiplier = 7; //increase for a higher population density
+  	var size = 20; //decrease for smaller element sizes
 
   	var c_p00 = p5.map(0, x1, x2, 0, size);
   	var c_pball = p5.map(ball_radius, x1, x2, 0, size);
 
   	
-  	p5.background(waterColor);
+  	p5.background(200, 225, 255);
 
 
 
@@ -153,7 +153,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
     		if (zoom > 1){
-  			Water(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
+  				Water(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y); //draw under the water's surface
   			}
 
     	
@@ -164,7 +164,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
     		if (zoom > 1){
-  			Ripple(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
+  				Ripple(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y); //draw on the water's surface
   			}
 
     	
@@ -176,32 +176,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
     
- 			LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
+ 			LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y); //draw above the water's surface
     	
    		}	
    	}
-   	// draw debug grid
-   	// p5.stroke(255, 0, 0);
-   	// p5.noFill();
-   	// p5.rect(0, 0, 255, 255);
 }
 
-//background water object
+
 function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 	var shift_point = getOffsetPoint(p5, x, y, z, 0.4);
 	this.cur_ball_radius = c_ball_radius;
 	this.x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
   	this.y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
   	this.showKoi = getKoiVisibility(p5, x, y, z, 0.4);
-  	this.koiRotate = getRotation(p5, x, y, z+60, 0.4)
+  	this.koiRotate = getRotation(p5, x, y, z+60, 0.4);
+  	
 
-	//draw koi
-	this.drawKoiShape = function(opacity, size){
-	
-		
-	
-		p5.noStroke();
-		p5.fill(150, 175, 205, opacity);
+
+	this.drawKoiShape = function(opacity, size){	//create single koi silhouette
 			p5.beginShape();
 			p5.curveVertex(this.cur_ball_radius*0.4*size, this.cur_ball_radius*0.1*size);
 			p5.curveVertex(0, this.cur_ball_radius*0.25*size);
@@ -213,50 +205,146 @@ function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			p5.curveVertex(0, this.cur_ball_radius*0.25*size);
 			p5.curveVertex(this.cur_ball_radius*0.4*size, -this.cur_ball_radius*0.1*size);
 			p5.endShape();
-		
 	}
 
-	this.drawKoi = function(){
+		this.drawKoiTail = function(opacity, size){	//create single koi silhouette
+			
+			//draw tail
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*0.1*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*0*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.02*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.02*size, this.cur_ball_radius*0.55*size);
+				p5.curveVertex(this.cur_ball_radius*0.1*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*0*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+			p5.endShape();
+
+
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*-0.01*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*-0.04*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.01*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.04*size, this.cur_ball_radius*0.65*size);
+				p5.curveVertex(this.cur_ball_radius*0.01*size, this.cur_ball_radius*0.85*size);
+				p5.curveVertex(this.cur_ball_radius*-0.04*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.01*size, this.cur_ball_radius*0.55*size);
+			p5.endShape();
+
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.01*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.04*size, this.cur_ball_radius*0.65*size);
+				p5.curveVertex(this.cur_ball_radius*0.03*size, this.cur_ball_radius*0.75*size);
+				p5.curveVertex(this.cur_ball_radius*0.025*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*-0.02*size, this.cur_ball_radius*0.6*size);
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*-0.02*size, this.cur_ball_radius*0.9*size);
+				p5.curveVertex(this.cur_ball_radius*-0.1*size, this.cur_ball_radius*0.6*size);
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.01*size, this.cur_ball_radius*0.4*size);
+			p5.endShape();
+
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.7*size);
+				p5.curveVertex(this.cur_ball_radius*-0.02*size, this.cur_ball_radius*0.9*size);
+				p5.curveVertex(this.cur_ball_radius*-0.12*size, this.cur_ball_radius*0.8*size);
+				p5.curveVertex(this.cur_ball_radius*-0.1*size, this.cur_ball_radius*0.6*size);
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.4*size);
+				p5.curveVertex(this.cur_ball_radius*0.05*size, this.cur_ball_radius*0.25*size);
+				p5.curveVertex(this.cur_ball_radius*-0.05*size, this.cur_ball_radius*0.7*size);
+			p5.endShape();
+
+			
+			p5.push();
+
+			//draw fins
+			p5.fill(10, 5, 10, 5);
+			p5.translate(-this.cur_ball_radius*0.16*size, this.cur_ball_radius*0.12*size);
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*-0.19*size);
+				p5.curveVertex(this.cur_ball_radius*0.3*size, this.cur_ball_radius*-0.18*size);
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*-0.25*size);
+				p5.curveVertex(this.cur_ball_radius*0.65*size, this.cur_ball_radius*-0.2*size);
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*-0.19*size);
+				p5.curveVertex(this.cur_ball_radius*0.3*size, this.cur_ball_radius*-0.18*size);
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*-0.25*size);
+			p5.endShape();
+			
+
+			p5.rotate(-0.5);
+			p5.translate(-this.cur_ball_radius*0.1*size, this.cur_ball_radius*0.41*size);
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*0.28*size);
+				p5.curveVertex(this.cur_ball_radius*0.74*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.85*size, this.cur_ball_radius*0.02*size);
+				p5.curveVertex(this.cur_ball_radius*0.8*size, this.cur_ball_radius*0.0*size);
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.74*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.85*size, this.cur_ball_radius*0.02*size);
+			p5.endShape();
+
+			p5.beginShape();
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*0.28*size);
+				p5.curveVertex(this.cur_ball_radius*0.74*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.85*size, this.cur_ball_radius*0.02*size);
+				p5.curveVertex(this.cur_ball_radius*0.8*size, this.cur_ball_radius*0.0*size);
+				p5.curveVertex(this.cur_ball_radius*0.5*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.74*size, this.cur_ball_radius*0.1*size);
+				p5.curveVertex(this.cur_ball_radius*0.85*size, this.cur_ball_radius*0.02*size);
+			p5.endShape();
+
+			p5.pop();
+	}
+
+	this.drawKoi = function(){ //create blurred fish
+
 	
 		var koiOpacity = 5;
-		if (zoom > 4){
-	
+		var koiDetail = 0;
+		var koiColor = [150, 175, 205];
+		var koiInc = 0.05
+		if (zoom > 3){
+
 			var koiSize = 1.8;
 			
 			if (zoom>5){
-				koiOpacity = 20;
+				koiOpacity = 10;
+				koiDetail = 5;
+				koiColor = [0, 0, 0];
+				koiInc = 0.025
 			}
-			for (var i=0; i<20; i++){
+			for (var i=koiDetail; i<20; i++){ //adds blur to edges of the fish by making a bunch of koi shapes with low opacity
 				p5.push();
 			
-				p5.translate(koiSize*-cur_ball_radius*0.3, koiSize*-cur_ball_radius*0.3);
+				p5.translate(koiSize, koiSize*-1.2);
+				p5.noStroke();
+				p5.fill(koiColor[0], koiColor[1],koiColor[2], koiOpacity);
 				this.drawKoiShape(koiOpacity, koiSize);
+				if (zoom > 5){
+					p5.noStroke();
+					p5.fill(koiColor[0], koiColor[1],koiColor[2], koiOpacity/4);
+					p5.translate(koiSize*6, -koiSize*12);
+					this.drawKoiTail(koiOpacity, koiSize);
+				}
 				p5.pop();
-				koiSize-=0.05;
+				koiSize-=koiInc;
 			}
+					p5.noStroke();
+					p5.fill(koiColor[0], koiColor[1],koiColor[2], koiOpacity*4);
+
 		}
 	}
 
 
- //  	if (zoom >3){
- //  		// draw noise background (fix grid thing)
-	//   	var noiseSize = 10;
-	//   	for(var i=0; i<256/noiseSize; i++) {
-	//    		var nx = p5.map(i, 0, noiseSize, x1, x2);
-	//     	for(var j=0; j<256/noiseSize; j++) {
-	//       		var ny = p5.map(j, 0, noiseSize, y1, y2);
-	//     		p5.noiseDetail();
-	//       		var noiseVal = (getNoiseValue(p5, nx, ny, z, 0.5)*0.5);
-	//       		p5.noStroke();
-	//       		p5.fill(0, 0, 0, noiseVal*100);
-	//       		p5.rect(i*noiseSize, j*noiseSize, noiseSize, noiseSize);
-	//     	}
-	//   	}
-	// }
-
-
+	//draw the koi
 	p5.push();
-
 	p5.translate(this.x_pos, this.y_pos);
 	p5.rotate(this.koiRotate);
 	if(this.showKoi){
@@ -268,18 +356,17 @@ function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 }
 
-//ripple object
 function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
-	this.ripples = function(){
+	this.ripples = function(){ //generate ripples
 
 
 		p5.fill(0, 0, 0, 10);
 
 		var ripple_max = 9;
 		var rippleCount = getRippleCount(p5, x, y, z, 0.4, ripple_max);
-		var ripple_inc = 0.1;
-		var ripple_rad = 1;
+		var ripple_inc = 0;
+		var ripple_rad = 0.5;
 
 
 		p5.strokeWeight(ripple_width);
@@ -287,16 +374,16 @@ function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 		//p5.ellipse(0, 0, this.cur_ball_radius*ripple_min*this.size);
 
 
-		for (var i=0; i<rippleCount; i+=1){
+		for (var i=0; i<rippleCount; i+=1){ //create each ring
 			var ripple_width =cur_ball_radius/3;
 			var ripple_weight=0;
 			if(zoom>3){
-				ripple_weight=5;
+				ripple_weight=10;
 			}
-			ripple_inc+=0.1;
 			ripple_rad+=ripple_inc;
+			ripple_inc+=0.25;
 
-			for(var j=0; j<6; j+=1){
+			for(var j=0; j<6; j+=1){ //create each ripple within each ring (detail)
 				if(zoom < 4){
 					p5.noFill();
 				}else{
@@ -307,8 +394,15 @@ function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 				p5.ellipse(0, 0, this.cur_ball_radius*ripple_rad*this.size);
 
-				ripple_width-=cur_ball_radius/10;
-				ripple_weight+=5;
+				
+				if(zoom>3){
+					ripple_width-=cur_ball_radius/15;
+					ripple_weight+=10;
+				} else{
+					ripple_width-=cur_ball_radius/10;
+					ripple_weight+=10;
+				}
+				
 			}
 		}
 	};
@@ -322,11 +416,10 @@ function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
   	this.cur_ball_radius = c_ball_radius;
   	this.size = getSize(p5, x, y, z, 0.1);
 
-
+  	//draw the ripples
 	p5.push();
-
 	p5.translate(this.x_pos, this.y_pos);
-	if (this.show == 3 || this.show == 0){
+	if (this.show == 3 || this.show == 0){ //only draw if there's a lilypad on top
 		this.ripples();
 	}
 	p5.pop();
@@ -334,15 +427,13 @@ function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 }
 
 
-//pond object
+
 function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
-  	//draw the leaf
+  	//create the lilypad
   	this.drawLeaf = function(){
 	p5.push();	
 	p5.rotate(this.rotation);
-	p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
-	p5.stroke(this.leafColor[0]-30, this.leafColor[1]-30, this.leafColor[2]-30);
 	p5.strokeWeight(0.5);
 
 	var bumpiNoise = p5.noise(x, y, 100);
@@ -351,9 +442,9 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 
 		if (zoom > 1){
-			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.2);
-			var inset = true;
-			this.flowerZoom = true;
+			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.2); //add noise to lilypad edges
+			var inset = true; //add lilypad 'pacman' shape
+			this.flowerZoom = true; 
 		} else{
 			var inset = false;
 			this.flowerZoom = false;
@@ -374,39 +465,55 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			this.flowerDetail_2 = false;
 		}
 
-		p5.beginShape();
+		this.drawLilyPadLeaf = function(expand){
 
-		for (var a=0; a<=p5.TWO_PI; a+=p5.TWO_PI/resolution) {
-			
-			var rVal = p5.noise(x, y, 100+a*bumpiNess);
-			var nVal = this.size*p5.map(rVal, 0.0, 1.0, 1.4, 1.0); 
-			var Vertx = p5.cos(a)*this.cur_ball_radius *nVal;
-			var Verty = p5.sin(a)*this.cur_ball_radius *nVal;
+			p5.beginShape();
+
+			for (var a=0; a<=p5.TWO_PI; a+=p5.TWO_PI/resolution) {
+				
+				var rVal = p5.noise(x, y, 100+a*bumpiNess);
+				var nVal = this.size*expand*p5.map(rVal, 0.0, 1.0, 1.4, 1.0); 
+				var Vertx = p5.cos(a)*this.cur_ball_radius *nVal;
+				var Verty = p5.sin(a)*this.cur_ball_radius *nVal;
 
 
-		if (inset == true){
-			//add lilypad inset
-			if(a == 0){
-				Vertx = 0;
-				Verty = 0;
-			} else if (a == p5.TWO_PI/resolution){
-				Vertx = Vertx/2;
-				Verty = Verty/2;
+			if (inset == true && expand ==1){
+				//add lilypad inset
+				if(a == 0){
+					Vertx = 0;
+					Verty = 0;
+				} else if (a == p5.TWO_PI/resolution){
+					Vertx = Vertx/2;
+					Verty = Verty/2;
+				}
+
+			}
+			if(a!==0 ){
+				p5.vertex(Vertx, Verty);
 			}
 
-		}
-		if(a!==0 ){
-			p5.vertex(Vertx, Verty);
-		}
-
-		var verts = {
-				outerX: Vertx,
-				outerY: Verty
+			var verts = {
+					outerX: Vertx,
+					outerY: Verty
+				}
+				leafLines.push(verts);
 			}
-			leafLines.push(verts);
+			p5.endShape(p5.CLOSE);
 		}
-		p5.endShape(p5.CLOSE);
-
+		if (zoom > 3){
+			//draw shadow
+			p5.fill(0, 0, 0, 10);
+			p5.noStroke();
+			var shadowSize = 1;
+			for(var i=0; i<10; i++){
+				shadowSize+=0.01;
+				this.drawLilyPadLeaf(shadowSize);
+			}
+		}
+		//draw leaf
+		p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
+		p5.stroke(this.leafColor[0]-30, this.leafColor[1]-30, this.leafColor[2]-30);
+		this.drawLilyPadLeaf(1);
 
 		if (leafDetail == true){
 			//lines
