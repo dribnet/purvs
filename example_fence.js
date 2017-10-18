@@ -2,8 +2,9 @@ var max_thickness = 64;
 var max_movement = 150;
 var ball_radius = 2;
 var line_width = 8;
-var grid_size = 50;
+var grid_size = 30;
 var planetColours = new Array();
+
 
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -77,7 +78,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
       var t = p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 6));
-      p5.fill(planetColours[t]);
+    
       //console.log(t);
 
       /*p5.strokeWeight(cur_line_width);
@@ -95,22 +96,62 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
       p5.noStroke();
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      p5.fill(planetColours[t]);
+      
 
       if(zoom >= 2){
 
         //p5.rotate(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 120)));
-        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))<1){
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 5))<3){
           p5.ellipse(x_pos, y_pos, cur_ball_radius+(cur_ball_radius), cur_ball_radius-(cur_ball_radius/2));
+        }
+
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), y_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), cur_ball_radius/6);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 7)), y_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 7)), cur_ball_radius/7);
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 6)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), cur_ball_radius/8);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 10)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 3)), cur_ball_radius/5);
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 3)), cur_ball_radius/4);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), cur_ball_radius/9);
+        
         }
         
       }
 
-      if(zoom >=4){
-        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
-          p5.ellipse(x_pos-cur_ball_radius*2, y_pos, cur_ball_radius/6);
-        }
+
+      if(zoom >=3){
+        p5.fill(255, 100);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius*1.1);
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 5))<3){
+        p5.ellipse(x_pos, y_pos, cur_ball_radius+(cur_ball_radius)*1.2, cur_ball_radius-(cur_ball_radius/2.5));}
+        p5.fill(255, 50);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius*1.2);
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 5))<3){
+        p5.ellipse(x_pos, y_pos, cur_ball_radius+(cur_ball_radius)*1.4, cur_ball_radius-(cur_ball_radius/2.8));}
       }
+
+      if(zoom >=4){
+        p5.fill(255, 100);
+        if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))>=1){
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), y_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), cur_ball_radius/5);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 7)), y_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 7)), cur_ball_radius/6);
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 6)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), cur_ball_radius/7);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 10)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 3)), cur_ball_radius/4);
+          p5.ellipse(x_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 3)), cur_ball_radius/3);
+          p5.ellipse(x_pos+cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 5)), y_pos-cur_ball_radius*(p5.map(p5.noise(x_pos, y_pos), 0, 1, 0, 2)), cur_ball_radius/8);
+        
+        }
+
+
+      }
+
+      if(zoom >=6){
+        
+
+      }
+
+      p5.fill(planetColours[t]);
+      p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
 }

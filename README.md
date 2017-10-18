@@ -1,12 +1,8 @@
 Part 3
 
-Beginning to implement more detail appearing with the zoom.
+Changed the amount of detail appearing at different zoom levels so it isn't so awkward. I've also added a glow around the planets and rings and moons at zoom level 3 and 4. I've also given the planets more moons, and allowed some of the planets with rings moons also to give more visual interest. 
 
-At zoom level 2, rings appear around some planets.
-
-At zoom level 4, the planets without rings gain a moon. I'm going to have to figure out how to randomize the position of it using the noise, and also give it some random colour also.
-
-I'm going to try to add some comets also, along with more stars appearing in deeper zoom levels. Will possibly have to do that with another smaller grid?'
+Next up I'll add some comets, and maybe some more colour to the planets when you zoom in more. 
 
 
 
