@@ -24,8 +24,28 @@ shuffle(colors)
 
 var vaporWords = [
   "jazz cabbage", "JAZZ", "vapor", "euphoria", "pepsi c r y s t a l", "無用漢字", "A E S T H E T I C", "wave", "情報デスク", "VIRTUAL",
-  "AOL", "Netscape", "TOKYO", "Windows95", "ultra", ".js"
+  "AOL", "Netscape", "TOKYO", "Windows95", "ultra", ".js", "Explorer"
 ]
+
+/* TOUR VARIABLES (required)
+/* the random number seed for the tour */
+var tourSeed = 99;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 631, 3872],
+  [1, 637, 3858],
+  [2, 590, 3786],
+  [3, 602, 3755],
+  [4, 599, 3755],
+  [5, 597, 3756],
+  [10, 594, 3758]
+]
+
+/* OPTIONAL VARIABLES */
+/* what is the initial zoom level (defaults to 0) */
+// var initialZoomLevel = 3;
+/* what is the maximum zoom level (make this at least 10. defaults to 16) */
+var maxZoomLevel = 10;
 
 /**
  * @param {p5} p 
