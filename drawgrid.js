@@ -131,8 +131,10 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
 
   let linesNoise = p.noise(x1*noiseScale, y1*noiseScale);
 
+  //draw the generated lines
   drawCurves(p.floor(linesNoise*linesNoise*8))
 
+  //draw the text
   let jazzNoise = p.noise(x1*zoom*123566.8, y1*zoom*123096);
   if(jazzNoise < p.min(0.03*zoom, 0.2)){
     p.push();
@@ -147,6 +149,7 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
     p.pop();
   }
 
+  //generate the sine save over points
   function drawSine(start, end){
     var offDir = p5.Vector.fromAngle(start.angleBetween(end))
     offDir.mult(80)
@@ -169,6 +172,7 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
     })
   }
 
+  //draw a list of points to a curve
   function drawCurve(points){
     p.beginShape() 
     for(let i = 0; i < points.length; i++){
