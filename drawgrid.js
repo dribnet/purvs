@@ -2,12 +2,16 @@
 var line_width = 1;
 var gridSize;
 
+var biome;
+
 
 //population variables
+var lake;
 var empty;
 var grass;
 var rock;
 var tree;
+var snowyTree;
 var smallTree;
 var house;
 var person;
@@ -20,23 +24,26 @@ var totalPopulation;
 
 /* OPTIONAL VARIABLES */
 /* what is the initial zoom level (defaults to 0) */
-var initialZoomLevel = 6;
+var initialZoomLevel = 1;
 /* what is the maximum zoom level (make this at least 10. defaults to 16) */
-var maxZoomLevel = 9;
+var maxZoomLevel = 5;
 
-function initPopulations(p5, x1){
 
-  empty = 40;
-  grass = 25;
-  rock = 7;
-  tree = 60;
-  smallTree = 20;
+function initPopulations(p5,x,y){
+
+  lake = 1;
+  empty = 40 + p5.round(p5.noise(y,x)*20);
+  grass = 25 + p5.round(p5.noise(y,x)*10);
+  rock = 7 + p5.round(p5.noise(y,x)*10);
+  tree = 20 + p5.round(p5.noise(y,x)*20);
+  snowyTree = 80 + p5.round(p5.noise(y,x)*20);
+  smallTree = 20 + p5.round(p5.noise(y,x)*10);
   house = 14;
   obelisk = 0.1;
   flower = 1 ;
   cave = 13;
 
-  populations = [empty,flower,grass,rock,smallTree,obelisk,tree,house];
+  populations = [lake,empty,flower,grass,rock,smallTree,obelisk,tree,snowyTree,house];
   totalPopulation = 0;
 
   for(var i = 0; i < populations.length; i++){
@@ -45,6 +52,8 @@ function initPopulations(p5, x1){
 
 
 }
+
+
 
 
 function snap_to_grid(num, gsize) {
@@ -65,36 +74,46 @@ function snap_to_grid(num, gsize) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
 
-  initPopulations(p5, x1);
+gridSize2 = 8;
 
-  if(zoom < 3){
+  if(zoom <= 1){
     gridSize = 4;
   }
-  else if(zoom < 4){
+  else if(zoom < 3){
     gridSize = 2;
   }
-  else if(zoom < 5){
+  else{
     gridSize = 1;
   }
-  else if(zoom < 6){
-    gridSize = 0.5;
-  }
-  else{
-    gridSize = 0.5;
-  }
 
-  //var minX = x1;
   var minX = snap_to_grid(x1, gridSize);
   var maxX = snap_to_grid(x2 + gridSize, gridSize);
   var minY = snap_to_grid(y1, gridSize);
   var maxY = snap_to_grid(y2 + gridSize, gridSize);
 
+  var minX2 = snap_to_grid(x1, gridSize2);
+  var maxX2 = snap_to_grid(x2 + gridSize2, gridSize2);
+  var minY2 = snap_to_grid(y1, gridSize2);
+  var maxY2 = snap_to_grid(y2 + gridSize2, gridSize2);
 
   var noiseScale = 0.1;
   //p5.noiseDetail(2,0.5);
 
   for(var x=minX; x<maxX; x+=gridSize) {
     for(var y=minY; y<maxY; y+=gridSize) {
+
+      var biomeMult = 0.01;
+      var biomeSelect = p5.noise(y*biomeMult,x*biomeMult);
+
+      if(biomeSelect > 0.5){
+        biome = "tiaga";
+      }
+      else{
+        biome = "forest";
+      }
+
+      initPopulations(p5,x,y);
+
       var leftX = p5.map(x, x1, x2, 0, 256);
       var topY = p5.map(y, y1, y2, 0, 256);
       var rightX = p5.map(x+gridSize, x1, x2, 0, 256);
@@ -106,60 +125,34 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       var perl = p5.noise(x*noiseScale, y*noiseScale);
 
-      //var tileType;
-      //var lakeChance = 0.15*noiseScale;
-      //var snowChance = 0.75*noiseScale;
-
-      //if(perl<lakeChance){
-      //  tileType = "lake";
-      //}
-      //else if(perl>snowChance){
-      //  tileType = "snow";
-      //}
-      //else{
-      //  tileType = "grass";
-      //}
-
-
-      var perlMult = perl*180;
-
-      //grass / snow
-      //p5.noStroke();
-      //p5.fill(169+(perlMult), 234+(perlMult), 156+(perlMult));
-      //p5.rect(leftX,topY,colWidth,rowHeight);
-
-      //lake
-      //if(tileType == "lake"){
-      //  p5.fill(193+perl*20, 217+perl*20, 255+perl*20);
-      //  p5.rect(leftX,topY,colWidth,rowHeight);
-      //  }
-
-
-
       //p5.strokeWeight(lineWidth);
       p5. strokeWeight(1);
       p5.stroke(0);
-
-      //var bottomY = p5.map(y, y1, y2, 0, 256);
-      //p5.line(leftX, topY, rightX, topY);
-      //p5.line(leftX, topY, leftX, bottomY);
-
-      var midPoint = p5.map(y-(gridSize/2),y1,y2,0,256);
-
-
-      //p5.noiseSeed(5);
-      var perlM = p5.noise(x,y);
-      var perl = p5.noise(x*noiseScale, y*noiseScale);
 
       var shapeType = getShape(x*noiseScale, y*noiseScale);
 
       let shape = false;
 
-      if(zoom > 4){
-        shape = true;
+      // only show half of the shapes at this zoom level
+      if(zoom > 3){
+        if(p5.noise(y,x) > 0.5){
+              shape = true;
+        }
+
+      }
+      // only show less than 1/5th of shapes at this zoom level
+      else if (zoom > 2){
+        if(p5.noise(x,y) > 0.8 ){
+          shape = true;
+        }
       }
 
-        drawShape(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
+      if(biome == "tiaga"){
+        tiaga(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
+      }
+      else{
+        forest(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
+      }
 
   }
 
@@ -173,66 +166,131 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var total = 0;
     var shape;
 
-    //var rand = (round(random(0,totalPopulation)));
     var rand = (p5.round(p5.noise(row,col)*totalPopulation));
 
-    //print("rand = " + rand);
 
     for(var i = 0; i < populations.length; i++){
-
-      //print("populations" + i + " = " + populations[i]);
       total=total+populations[i];
-      //print("total = " + total);
       if(total > rand){
         shape = i;
-        //print("got! i = " + i);
         break;
       }
-
-
     }
 
     return shape;
 
   }
 
-
   function mapX (point){
-
       return p5.map(point,x1,x2,0,256);
-
-
   }
-
-
-
 
   function mapY (point){
-
     return p5.map(point,y1,y2,0,256);
-
   }
+
 
   function drawHeight(p5, x, y, shapeType){
-
     var perlHeight = p5.noise(x1,y1)
-
     p5.noStroke();
+  }
 
 
+  function tiaga(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
+
+    var shapeString;
+
+    if(shapeType == 0 ){
+      shapeString = "lake";
+    }
+    else if(shapeType == 1){
+      shapeString = "empty";
+    }
+    else if(shapeType == 2){
+      shapeString = "flower";
+    }
+    else if(shapeType == 3){
+      shapeString = "grass";
+    }
+    else if(shapeType == 4){
+      shapeString = "rock";
+    }
+    else if(shapeType == 5){
+      shapeString = "smallTree";
+    }
+    else if(shapeType == 6){
+      shapeString = "obelisk";
+    }
+    else if(shapeType == 7){
+      shapeString = "tree";
+    }
+    else if(shapeType == 8){
+      shapeString = "snowyTree";
+    }
+    else if(shapeType == 9){
+      shapeString = "house";
+    }
+    else{
+      shapeString = "empty";
+    }
+
+    drawShape(p5, x1, x2, y1, y2, z, zoom, shapeString, shape)
+  }
+
+  function forest(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
+
+
+    var shapeString;
+
+    if(shapeType == 0 ){
+      shapeString = "lake";
+    }
+    else if(shapeType == 1){
+      shapeString = "empty";
+    }
+    else if(shapeType == 2){
+      shapeString = "flower";
+    }
+    else if(shapeType == 3){
+      shapeString = "grass";
+    }
+    else if(shapeType == 4){
+      shapeString = "grass";
+    }
+    else if(shapeType == 5){
+      shapeString = "rock";
+    }
+    else if(shapeType == 6){
+      shapeString = "smallTree";
+    }
+    else if(shapeType == 7){
+      shapeString = "smallTree";
+    }
+    else if(shapeType == 8){
+      shapeString = "tree";
+    }
+    else if(shapeType == 9){
+      shapeString = "tree";
+    }
+    else{
+      shapeString = "empty";
+    }
+
+    drawShape(p5, x1, x2, y1, y2, z, zoom, shapeString, shape)
 
 
   }
+
 
 
   function drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
-
+    if(zoom > 3){
     p5.noStroke();
-
-
-
-
+    }
+    else{
+      p5.stroke(0,80);
+    }
 
 
     var tileOffset = p5.round(p5.map(p5.noise(x,y),0,1,0,50));
@@ -240,8 +298,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var rockOffset = p5.round(p5.map(p5.noise(x,y),0,1,-50,50));
 
 
+    //lake
+    if(shapeType == "lake"){
+
+      p5.fill(193, 217, 255);
+      p5.rect(leftX,topY,colWidth,rowHeight);
+    }
+    //empty
+    else if(shapeType == "empty"){
+
+        p5.fill(198 , 255, 203);
+
+      p5.rect(leftX,topY,colWidth,rowHeight);
+    }
     //flower
-    if (shapeType == 1){
+    else if (shapeType == "flower"){
 
       p5.fill(190+tileOffset, 239+tileOffset, 186+tileOffset);
       p5.rect(leftX,topY,colWidth,rowHeight);
@@ -261,7 +332,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     }
 
     //grass
-    else if(shapeType == 2){
+    else if(shapeType == "grass"){
 
       p5.fill(190+tileOffset, 239+tileOffset, 186+tileOffset);
       p5.rect(leftX,topY,colWidth,rowHeight);
@@ -277,9 +348,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.line(rightX,mapY(y+gridSize-(gridSize/5)),rightX,bottomY);
     }
     //rock
-    else if(shapeType == 3){
+    else if(shapeType == "rock"){
 
-      p5.fill(200+tileOffset);
+      if(biome == "forest"){
+        p5.fill(180+tileOffset);
+      }
+      else{
+        p5.fill(200+tileOffset);
+      }
       p5.rect(leftX,topY,colWidth,rowHeight);
 
       if(shape == false){
@@ -292,9 +368,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     }
     //smalltree
-    else if(shapeType==4){
+    else if(shapeType== "smallTree"){
 
-      p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+      if(biome == "forest"){
+        p5.fill(110+tileOffset, 168+tileOffset, 79+tileOffset);
+      }
+      else{
+        p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+      }
       //p5.fill(255);
       p5.rect(leftX,topY,colWidth,rowHeight);
 
@@ -302,7 +383,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         return;
       }
 
-      p5.fill(123,182,91);
+      p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
       p5.stroke(42, 71, 49);
 
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
@@ -311,7 +392,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     }
     //obelisk
-    else if(shapeType == 5){
+    else if(shapeType == "obelisk"){
 
       p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
       //p5.fill(255);
@@ -331,18 +412,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.vertex(mapX(x+(gridSize*0.5)),mapY(y-(gridSize*0.2)));
       p5.vertex(mapX(x+(gridSize*0.35)),topY);
 
-      p5.endShape();
+      p5.endShape(p5.CLOSE);
 
     }
     //tree
-    else if(shapeType==6){
+    else if(shapeType== "tree"){
 
-      p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+      if(biome == "forest"){
+        p5.fill(110+tileOffset, 168+tileOffset, 79+tileOffset);
+      }
+      else{
+        p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+      }
       //p5.fill(255);
       p5.rect(leftX,topY,colWidth,rowHeight);
 
-      p5.fill(255,p5.round(p5.map(p5.noise(x,y),0,1,0,255)));
-      p5.rect(leftX,topY,colWidth,rowHeight);
+
 
       if(shape == false){
         return;
@@ -355,17 +440,40 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
       p5.triangle(leftX,mapY(y+gridSize/2),mapX(x+(gridSize/2)),mapY(y-gridSize/2),rightX,mapY(y+gridSize/2));
 
-    //  if(tileType == "snow"){
-    //    p5.fill(255);
-        //noStroke();
-    //    p5.triangle(mapX(x+(gridSize*0.13)),mapY(y+(gridSize*0.3)),mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),mapX(x+gridSize-(gridSize*0.13)),mapY(y+(gridSize*0.3)));
-    //  }
+
 
 
     }
+    //snowyTree
+      else if(shapeType=="snowyTree"){
+
+        p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+        //p5.fill(255);
+        p5.rect(leftX,topY,colWidth,rowHeight);
+
+        p5.fill(255,p5.round(p5.map(p5.noise(x,y),0,1,0,255)));
+        p5.rect(leftX,topY,colWidth,rowHeight);
+
+        if(shape == false){
+          return;
+        }
+
+
+        p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
+        p5.stroke(42+treeOffset, 71+treeOffset, 49+treeOffset);
+
+        p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
+        p5.triangle(leftX,mapY(y+gridSize/2),mapX(x+(gridSize/2)),mapY(y-gridSize/2),rightX,mapY(y+gridSize/2));
+
+      //  if(tileType == "snow"){
+          p5.fill(255);
+
+          p5.triangle(mapX(x+(gridSize*0.13)),mapY(y+(gridSize*0.3)),mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),mapX(x+gridSize-(gridSize*0.13)),mapY(y+(gridSize*0.3)));
+      //  }
+      }
 
     //house
-    else if (shapeType == 7){
+    else if (shapeType == "house"){
 
       p5.fill(186+tileOffset, 178+tileOffset, 147+tileOffset);
       p5.stroke(66, 53, 43);
@@ -384,13 +492,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     }
     else {
 
-      p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
-
+      if(biome == "forest"){
+        p5.fill(119, 211, 114);
+      }
+      else{
+        p5.fill(198 , 255, 203);
+      }
       p5.rect(leftX,topY,colWidth,rowHeight);
 
-      p5.fill(198 , 255, 203);
-      p5.rect(leftX,topY,colWidth,rowHeight);
     }
+
+
 
 
   }
