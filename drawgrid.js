@@ -26,7 +26,7 @@ var totalPopulation;
 /* what is the initial zoom level (defaults to 0) */
 var initialZoomLevel = 1;
 /* what is the maximum zoom level (make this at least 10. defaults to 16) */
-var maxZoomLevel = 5;
+var maxZoomLevel = 4;
 
 
 function initPopulations(p5,x,y){
@@ -74,7 +74,6 @@ function snap_to_grid(num, gsize) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
 
-gridSize2 = 8;
 
   if(zoom <= 0){
     gridSize = 8;
@@ -82,11 +81,11 @@ gridSize2 = 8;
   else if(zoom == 1){
     gridSize = 4;
   }
-  else if(zoom < 3){
+  else if(zoom < 2){
     gridSize = 2;
   }
   else{
-    gridSize = 1;
+    gridSize = 2;
   }
 
   var minX = snap_to_grid(x1, gridSize);
@@ -94,12 +93,7 @@ gridSize2 = 8;
   var minY = snap_to_grid(y1, gridSize);
   var maxY = snap_to_grid(y2 + gridSize, gridSize);
 
-  var minX2 = snap_to_grid(x1, gridSize2);
-  var maxX2 = snap_to_grid(x2 + gridSize2, gridSize2);
-  var minY2 = snap_to_grid(y1, gridSize2);
-  var maxY2 = snap_to_grid(y2 + gridSize2, gridSize2);
-
-  var noiseScale = 0.1;
+  var noiseScale = 0.03;
   //p5.noiseDetail(2,0.5);
 
   for(var x=minX; x<maxX; x+=gridSize) {
@@ -117,7 +111,7 @@ gridSize2 = 8;
       else if(biomeSelect > 0.4){
         biome = "autumn";
       }
-      else if(biomeSelect > 0.35){
+      else if(biomeSelect > 0.3){
         biome = "forest";
       }
       else{
@@ -146,17 +140,20 @@ gridSize2 = 8;
       let shape = false;
 
       // only show half of the shapes at this zoom level
-      if(zoom > 3){
+      if(zoom > 2){
         if(p5.noise(y,x) > 0.5){
               shape = true;
         }
 
       }
       // only show less than 1/5th of shapes at this zoom level
-      else if (zoom > 2){
+      else if (zoom > 1){
         if(p5.noise(x,y) > 0.8 ){
           shape = true;
         }
+      }
+      else{
+
       }
 
       if(biome == "tiaga"){
@@ -312,7 +309,7 @@ gridSize2 = 8;
       shapeString = "lake";
     }
     else if(shapeType == 2){
-      shapeString = "lake";
+      shapeString = "fish";
     }
     else if(shapeType == 3){
       shapeString = "lake";
@@ -324,7 +321,7 @@ gridSize2 = 8;
       shapeString = "lake";
     }
     else if(shapeType == 6){
-      shapeString = "lake";
+      shapeString = "seaweed";
     }
     else if(shapeType == 7){
       shapeString = "empty";
@@ -389,7 +386,7 @@ gridSize2 = 8;
 
   function drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
-    if(zoom > 3){
+    if(zoom > 2){
     p5.noStroke();
     }
     else{
@@ -415,6 +412,49 @@ gridSize2 = 8;
 
       p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
       p5.rect(leftX,topY,colWidth,rowHeight);
+    }
+    else if(shapeType == "seaweed"){
+
+      if(biome == "tiaga"){
+        p5.fill(193+tileOffset, 217+tileOffset, 255+tileOffset);
+      }
+
+      p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
+      p5.rect(leftX,topY,colWidth,rowHeight);
+
+
+      if(shape == false){
+        return;
+      }
+
+
+      p5.strokeWeight(2);
+      p5.stroke(80, 175, 112);
+      p5.line(leftX,mapY(y+gridSize-(gridSize/5)),leftX,bottomY);
+      p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize/2)),bottomY);
+      p5.line(rightX,mapY(y+gridSize-(gridSize/5)),rightX,bottomY);
+
+
+    }
+
+    else if(shapeType == "fish"){
+
+      if(biome == "tiaga"){
+        p5.fill(193+tileOffset, 217+tileOffset, 255+tileOffset);
+      }
+
+      p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
+      p5.rect(leftX,topY,colWidth,rowHeight);
+
+      if(shape == false){
+        return;
+      }
+
+      p5.fill(193+rockOffset,217+rockOffset,255+rockOffset);
+      p5.stroke(60+rockOffset);
+      p5.triangle(mapX(x+gridSize/3),mapY(y+(gridSize/2)),mapX(x+(gridSize/2)),mapY(y+(gridSize/4)),mapX(x+gridSize-(gridSize/3)),mapY(y+(gridSize/2)));
+
+
     }
     //empty
     else if(shapeType == "empty"){
@@ -627,9 +667,24 @@ gridSize2 = 8;
     }
     else if (shapeType == "cave"){
 
+      if(biome == "forest"){
+        p5.fill(110+tileOffset, 168+tileOffset, 79+tileOffset);
+      }
+      else if(biome == "autumn"){
+        p5.fill(130+autumnOffsetR+tileOffset, 168+tileOffset, 79+tileOffset);
+      }
+      else{
+        p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
+      }
+      //p5.fill(255);
+      p5.rect(leftX,topY,colWidth,rowHeight);
+
       p5.fill(200);
       p5.stroke(60);
 
+      if(shape == false){
+        return;
+      }
 
       p5.quad(mapX(x-gridSize),bottomY-1,mapX(x-(gridSize*0.3)),mapY(y-gridSize/2),mapX(x+gridSize-(gridSize*0.7)),mapY(y-gridSize/2),rightX,bottomY-1);
 
@@ -659,99 +714,3 @@ gridSize2 = 8;
   }
 
 }
-
-
-
-
-/*
-  p5.stroke(0);
-  p5.fill(255);
-  // debug - show border
-
-    //grass
-    if(shapeType == 1){
-      p5.strokeWeight(2);
-      p5.line(leftX,bottomY-(rowHeight/5),leftX,bottomY);
-      p5.line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
-      p5.line(rightX,bottomY-(rowHeight/5),rightX,bottomY);
-    }
-    //flatline
-    else if (shapeType== 2){
-      p5.line(leftX,topY+(rowHeight/2),rightX,topY+(rowHeight/2));
-    }
-    //rock
-    else if(shapeType==3){
-
-      p5.triangle(leftX,topY+(sSize/2),leftX+(sSize/2),topY,rightX,topY+(sSize/2));
-    }
-
-    //tree
-    else if(shapeType==4){
-
-
-      p5.line(leftX+(colWidth/2),topY+rowHeight/2,leftX+(colWidth/2),bottomY);
-      p5.triangle(leftX,topY+(rowHeight/2),leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY+(rowHeight/2));
-
-      if(tileType == "snow"){
-        p5.fill(255);
-        //noStroke();
-        p5.triangle(leftX+(colWidth*0.15),topY+(rowHeight*0.3),leftX+(colWidth/2),topY-(rowHeight/2),rightX-(colWidth*0.15),topY+(rowHeight*0.3));
-      }
-
-    }
-    //smalltree
-    else if(shapeType == 5){
-
-      p5.line(leftX+(colWidth/2),topY+rowHeight/2,leftX+(colWidth/2),bottomY);
-      p5.triangle(leftX+(colWidth*0.2),topY+(rowHeight/2),leftX+(colWidth/2),topY-(rowHeight*0.1),rightX-(colWidth*0.2),topY+(rowHeight/2));
-
-
-
-
-    }
-
-    //house
-    else if (shapeType == 6){
-
-      p5.rect(leftX,topY,colWidth-1,rowHeight-1);
-      p5.fill(183, 156, 126+p5.random(-20,20));
-      p5.rect(leftX+colWidth/3,topY+rowHeight/4,colWidth/3,rowHeight/4);
-      p5.triangle(leftX,topY,leftX+(colWidth/2),topY-(rowHeight/2),rightX,topY);
-      p5.rect(leftX+colWidth/3,topY+rowHeight/1.5,colWidth/3,rowHeight/3);
-
-    }
-    //obelisk
-    else if (shapeType == 7){
-
-
-      p5.beginShape();
-      p5.vertex(leftX+(colWidth*0.35),bottomY);
-      p5.vertex(leftX+(colWidth*0.65),bottomY);
-      p5.vertex(leftX+(colWidth*0.65),topY);
-      p5.vertex(leftX+(colWidth*0.5),topY-(rowHeight*0.2));
-      p5.vertex(leftX+(colWidth*0.35),topY);
-
-      p5.endShape(CLOSE);
-
-    }
-    //flower
-    else if (shapeType == 8){
-
-      p5.line(leftX+(colWidth/2),bottomY-(rowHeight/3),leftX+(colWidth/2),bottomY);
-      p5.ellipse(leftX+(colWidth/1.9),bottomY-(rowHeight/3),colWidth/4,rowHeight/4);
-
-    }
-
-    //cave
-    else if(shapeType == 9){
-
-
-      p5.quad(leftX-colWidth,bottomY-1,leftX-(colWidth*0.3),topY-rowHeight/2,rightX-(colWidth*0.7),topY-rowHeight/2,rightX,bottomY-1);
-
-      p5.fill(120);
-      p5.triangle(leftX-(colWidth*0.3),bottomY-1,leftX,topY+rowHeight/3,leftX+(colWidth*0.3),bottomY-1);
-
-
-
-    }
-*/
