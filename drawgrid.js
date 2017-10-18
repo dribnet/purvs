@@ -54,11 +54,24 @@ function getSize(p5, x, y, z, noiseScale) {
   return (mapS)
 }
 
+function getFlowerPosition(p5, x, y, z, noiseScale, rad) {
+  var noiseX = p5.noise(x * noiseScale, y * noiseScale, z+55);
+  var noiseY = p5.noise(x * noiseScale, y * noiseScale, z+50);
+  var offsetX = p5.map(noiseX, 0, 1, -rad, rad);
+  var offsetY = p5.map(noiseY, 0, 1, -rad, rad);
+  return [offsetX, offsetY]
+}
+
 function getRippleCount(p5, x, y, z, noiseScale, maxRipples) {
   var n = p5.noise(x * noiseScale, y * noiseScale, z+8);
   
   numRipples = Math.floor(p5.map(n, 0.1, 0.75, 4, maxRipples));
   return (numRipples)
+}
+
+function getNoiseValue (p5, x, y, z, noiseScale) {
+  var noiseVal = p5.noise(x * noiseScale, y * noiseScale, z);
+  return (noiseVal);
 }
 
 function colorPalette(p5, x, y, z, noiseScale) {
@@ -72,6 +85,20 @@ function colorPalette(p5, x, y, z, noiseScale) {
 
 
   	return [red, green, blue]
+}
+
+function getKoiVisibility(p5, x, y, z, noiseScale){
+	var showKoi = p5.noise(x * noiseScale, y * noiseScale, z+8);
+
+	var showK = Math.floor(p5.map(showKoi, 0.1, 0.75, 0, 21));
+
+	if(showK % 10==0){
+		var show = true;
+
+	}else{
+		var show = false;
+	}
+	return(show)
 }
 
 function flowerColor(p5, x, y, z, noiseScale){
@@ -111,7 +138,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	var min_y = snap_to_grid(y1 - max_shift, grid_size);
   	var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  	var multiplier = 5;
+  	var multiplier = 7;
   	var size = 20;
 
   	var c_p00 = p5.map(0, x1, x2, 0, size);
@@ -119,9 +146,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   	
   	p5.background(waterColor);
-  
 
-  	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
+
+
+  for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
     		if (zoom > 1){
@@ -132,7 +160,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
    		}	
    	}
 
-   	  	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
+  	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
+    	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
+  
+    		if (zoom > 1){
+  			Ripple(p5, x1, x2, y1, y2, z, zoom, c_pball - c_p00, x, y);
+  			}
+
+    	
+   		}	
+   	}
+
+
+   	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
   
     
@@ -146,19 +186,101 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
    	// p5.rect(0, 0, 255, 255);
 }
 
-//ripple object
+//background water object
 function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
-	//draw background
+	var shift_point = getOffsetPoint(p5, x, y, z, 0.4);
+	this.cur_ball_radius = c_ball_radius;
+	this.x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+  	this.y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+  	this.showKoi = getKoiVisibility(p5, x, y, z, 0.4);
+  	this.koiRotate = getRotation(p5, x, y, z+60, 0.4)
+
+	//draw koi
+	this.drawKoiShape = function(opacity, size){
+	
+		
+	
+		p5.noStroke();
+		p5.fill(150, 175, 205, opacity);
+			p5.beginShape();
+			p5.curveVertex(this.cur_ball_radius*0.4*size, this.cur_ball_radius*0.1*size);
+			p5.curveVertex(0, this.cur_ball_radius*0.25*size);
+			p5.curveVertex(this.cur_ball_radius*0.4*size, -this.cur_ball_radius*0.1*size);
+			p5.curveVertex(this.cur_ball_radius*0.65*size, -this.cur_ball_radius*0.2*size);
+			p5.curveVertex(this.cur_ball_radius*0.95*size, -this.cur_ball_radius*0.15*size);
+			p5.curveVertex(this.cur_ball_radius*1.0*size, 0);
+			p5.curveVertex(this.cur_ball_radius*0.4*size, this.cur_ball_radius*0.1*size);
+			p5.curveVertex(0, this.cur_ball_radius*0.25*size);
+			p5.curveVertex(this.cur_ball_radius*0.4*size, -this.cur_ball_radius*0.1*size);
+			p5.endShape();
+		
+	}
+
+	this.drawKoi = function(){
+	
+		var koiOpacity = 5;
+		if (zoom > 4){
+	
+			var koiSize = 1.8;
+			
+			if (zoom>5){
+				koiOpacity = 20;
+			}
+			for (var i=0; i<20; i++){
+				p5.push();
+			
+				p5.translate(koiSize*-cur_ball_radius*0.3, koiSize*-cur_ball_radius*0.3);
+				this.drawKoiShape(koiOpacity, koiSize);
+				p5.pop();
+				koiSize-=0.05;
+			}
+		}
+	}
+
+
+ //  	if (zoom >3){
+ //  		// draw noise background (fix grid thing)
+	//   	var noiseSize = 10;
+	//   	for(var i=0; i<256/noiseSize; i++) {
+	//    		var nx = p5.map(i, 0, noiseSize, x1, x2);
+	//     	for(var j=0; j<256/noiseSize; j++) {
+	//       		var ny = p5.map(j, 0, noiseSize, y1, y2);
+	//     		p5.noiseDetail();
+	//       		var noiseVal = (getNoiseValue(p5, nx, ny, z, 0.5)*0.5);
+	//       		p5.noStroke();
+	//       		p5.fill(0, 0, 0, noiseVal*100);
+	//       		p5.rect(i*noiseSize, j*noiseSize, noiseSize, noiseSize);
+	//     	}
+	//   	}
+	// }
+
+
+	p5.push();
+
+	p5.translate(this.x_pos, this.y_pos);
+	p5.rotate(this.koiRotate);
+	if(this.showKoi){
+		this.drawKoi();
+
+	}
+	
+	p5.pop();
+
+}
+
+//ripple object
+function Ripple(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 	this.ripples = function(){
 
 
-		p5.fill(0, 0, 0, 30);
+		p5.fill(0, 0, 0, 10);
 
 		var ripple_max = 9;
 		var rippleCount = getRippleCount(p5, x, y, z, 0.4, ripple_max);
 		var ripple_inc = 0.1;
 		var ripple_rad = 1;
+
 
 		p5.strokeWeight(ripple_width);
 		p5.stroke(0, 0, 0, ripple_weight);
@@ -169,7 +291,7 @@ function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			var ripple_width =cur_ball_radius/3;
 			var ripple_weight=0;
 			if(zoom>3){
-				ripple_weight=10;
+				ripple_weight=5;
 			}
 			ripple_inc+=0.1;
 			ripple_rad+=ripple_inc;
@@ -180,7 +302,7 @@ function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 				}else{
 					p5.fill(0, 0, 0, 1);
 				}
-				p5.stroke(255, 255, 255, ripple_weight);
+				p5.stroke(235, 245, 250, ripple_weight);
 				p5.strokeWeight(ripple_width);
 
 				p5.ellipse(0, 0, this.cur_ball_radius*ripple_rad*this.size);
@@ -202,8 +324,9 @@ function Water(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 
 	p5.push();
+
 	p5.translate(this.x_pos, this.y_pos);
-	if (this.show == 3 || this.show_leaf == 0){
+	if (this.show == 3 || this.show == 0){
 		this.ripples();
 	}
 	p5.pop();
@@ -219,6 +342,8 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 	p5.push();	
 	p5.rotate(this.rotation);
 	p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
+	p5.stroke(this.leafColor[0]-30, this.leafColor[1]-30, this.leafColor[2]-30);
+	p5.strokeWeight(0.5);
 
 	var bumpiNoise = p5.noise(x, y, 100);
 	var leafLines = [];
@@ -226,7 +351,7 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 
 		if (zoom > 1){
-			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.5);
+			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.2);
 			var inset = true;
 			this.flowerZoom = true;
 		} else{
@@ -300,9 +425,10 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
 
 	this.drawFlower = function(){
+	
 		this.generatePetalShape = function(ang){
 			//drawPetal
-			//p5.ellipse(0, 0, this.cur_ball_radius);
+		
 			p5.push();
 			p5.rotate(ang);
 			p5.beginShape();
@@ -381,6 +507,8 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			p5.fill(this.flower_color[0]+40, this.flower_color[1]+40, this.flower_color[2]+40, 100);
 			p5.ellipse(0, 0, this.cur_ball_radius/2);
 		} 
+		
+
 	};
 
 
@@ -396,12 +524,15 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
   	this.leafShape = 0.9; 
   	this.cur_ball_radius = c_ball_radius;
 
+
   	this.rotation = getRotation(p5, x, y, z, 0.1);
   	this.size = getSize(p5, x, y, z, 0.1);
   		this.linePos = getLinePos(p5, x, y, z, 0.1);
 
   	this.flowerZoom = false;
   	this.flower_color = flowerColor(p5, x, y, z, 0.4);
+  	this.flowerOffset = getFlowerPosition(p5, x, y, z+10, 0.4, this.cur_ball_radius*2.5);
+
   
 
 	p5.noStroke();
@@ -412,6 +543,7 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 	if (this.show_leaf == 3 || this.show_leaf == 0){
 		this.drawLeaf();
 		if(this.show_flower == true){
+			p5.translate(this.flowerOffset[0], this.flowerOffset[1]);
 			this.drawFlower();
 		}
 	}
