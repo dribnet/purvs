@@ -15,7 +15,6 @@ var max_thickness = 64;
 var max_movement = 150;
 var grid_size = 64;
 
-
 /* TOUR VARIABLES (required)
 /* the random number seed for the tour */
 var tourSeed = 100;
@@ -41,7 +40,6 @@ var maxZoomLevel = 10;
 function snap_to_grid(num, gsize) {
 	return (num - (num % gsize));
 }
-
 function getOffsetPoint(p5, x, y, z, noiseScale) {
 	var noiseX = p5.noise(x * noiseScale,
 		y * noiseScale, z);
@@ -85,7 +83,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	function drawLanscape(v, posX, posY) {
 		var size = v * 15;
-
 		/* Drawing Clouds
 		 * The "negative space" (dark blue) will be drawn if v is greater than 0.35
 		 * When the zoom parameter is greater than 3, a smooth drawing will be used but the render will be much slower.
@@ -94,7 +91,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 		if (v < .2) {} else if (v < .5) {
 			var pos = getDrawPosition(posX, posY, size * (1 - v) * 70, size * (1 - v) * 70);
-
 			if (zoom < 2) {
 				v > .35 ? p5.fill(20, 20, 40 * p5.map(v, .35, .5, 1, .5), 10) : p5.fill(90, 90, 100, 10);
 				for (var i = 1; i < 5; i += .5)
@@ -105,7 +101,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				for (var i = 1; i < 4; i += .1)
 					p5.ellipse(pos[0], pos[1], pos[2] / i, pos[3] / i);
 			}
-
 
 		} else if (v < 0.6) { //stars
 			var scale = p5.map(v, .5, .6, .5, 1.5);
@@ -141,16 +136,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				for (var i = pos[3] * 3.5; i > pos[3]; i -= pos[3] / 4) {
 					p5.ellipse(0,0, i, i);
 				}
-
-				p5.fill(255, 255, 150);
-				p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 				p5.colorMode(p5.HSB);
-
-				p5.fill(colorZone, zoom * 10, 70);
-				p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 
 
 				if (style == 2) {
+					p5.fill(colorZone, zoom * 10, 70);
+				    p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 1.5);
+					
+					p5.fill(colorZone, zoom * 10, 70);
+					
+				    p5.ellipse(0,0, pos[2] * .8, pos[3] * 1.5);
 					
 					p5.fill(0, 0, 100);
 					p5.ellipse(0, 0, pos[2] * .8, pos[3] * 1.5);
@@ -165,6 +160,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.ellipse(pos[3] * .1,0, pos[2] * .1, pos[3] * .1);
 					
 				} else if (style == 1) {
+					p5.fill(colorZone, zoom * 10, 70);
+				    p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 					p5.colorMode(p5.RGB);
 					p5.fill(255, 255, 255, 130);
 					p5.ellipse(0, 0, pos[2] * 2.5, pos[3] * .5);
@@ -172,8 +169,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.fill(colorZone, zoom * 10, 70);
 					p5.ellipse(0, - pos[3] * .1, pos[2] * 1.5, pos[3] * .4);
 
-				} else if (style == 3) {
-
+				} else{
+					p5.fill(colorZone, zoom * 10, 70);
+				    p5.ellipse(0,0, pos[2] * 1.5, pos[3] * 1.5);
 				}
 
 				p5.colorMode(p5.RGB);
@@ -182,15 +180,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				for (var i = pos[3] * 2.8; i > pos[3]; i -= pos[3] / 16) {
 					p5.ellipse(0, 0, i, i);
 				}
-				p5.fill(255, 255, 150);
-				p5.ellipse(0, 0, pos[2] * 2, pos[3] * 2);
-
 				p5.colorMode(p5.HSB);
 				
-				p5.fill(colorZone, zoom * 5, 70);
-				p5.ellipse(0, 0, pos[2] * 2, pos[3] * 2);
-				
 				if (style == 2) {
+					p5.fill(colorZone, zoom * 5, 70);
+				    p5.ellipse(0, 0, pos[2] * 1.8, pos[3] * 2);
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 2);
 
@@ -207,18 +201,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.ellipse(pos[3] * .1, 0, pos[2] * .1, pos[3] * .1);
 					p5.pop();
 				} else if (style == 1) {
+					p5.fill(colorZone, zoom * 5, 70);
+				    p5.ellipse(0, 0, pos[2] * 2, pos[3] * 2);
 					p5.colorMode(p5.RGB);
 					p5.fill(255, 255, 255, 130);
 					p5.ellipse(0, 0, pos[2] * 10/3, pos[3]  * 2 / 3);
 					p5.colorMode(p5.HSB);
 					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0, - pos[3] * .2, pos[2] * 2, pos[3] * .4);
-					
 
-				} else if (style == 3) {
+				} else{
+					p5.fill(colorZone, zoom * 5, 70);
+				    p5.ellipse(0, 0, pos[2] * 2, pos[3] * 2);
 
 				}
-				
 				p5.colorMode(p5.RGB);
 
 			} else {
@@ -226,15 +222,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				for (var i = pos[3] * 2.4; i > pos[3]; i -= pos[3] / 64) {
 					p5.ellipse(0,0, i, i);
 				}
-				p5.fill(255, 255, 150);
-				p5.ellipse(0,0, pos[2] * 2, pos[3] * 2);
-
 				p5.colorMode(p5.HSB);
 				
-				p5.fill(colorZone, zoom * 5, 70);
-				p5.ellipse(0,0, pos[2] * 2, pos[3] * 2);
-				
 				if (style == 2) {
+					p5.fill(colorZone, zoom * 5, 70);
+				    p5.ellipse(0,0, pos[2] * 1.8, pos[3] * 2);
 					p5.fill(0, 0, 100);
 					p5.ellipse(0,0, pos[2] * 1.3, pos[3] * 2);
 
@@ -251,6 +243,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.ellipse(pos[3] * .1,0, pos[2] * .1, pos[3] * .1);
 					
 				} else if (style == 1) {
+					p5.fill(colorZone, zoom * 5, 70);
+				    p5.ellipse(0,0, pos[2] * 2, pos[3] * 2);
+					
 					p5.colorMode(p5.RGB);
 					p5.fill(255, 255, 255, 130);
 				    p5.ellipse(0, 0, pos[2] * 10/3, pos[2] * 2/3);
@@ -259,28 +254,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					p5.fill(colorZone, zoom * 5, 70);
 					p5.ellipse(0, - pos[3] * .2, pos[2] * 1.95, pos[3] * .4);
 					
-				} else if (style == 3) {
-
+					p5.colorMode(p5.RGB);
+					p5.fill(255, 255, 255, 12);
+					for(var i = pos[2] * .25; i > pos[2] * .15; i -= pos[2] * .01){
+						p5.ellipse(pos[2]*5/3, 0, i, i);
+					}
+					p5.colorMode(p5.HSB);
+					
+					p5.fill(15, zoom * 5, 90);
+					p5.ellipse(pos[2]*5/3, 0, pos[2] * .15, pos[3] * .15);
+					
+				} else{
+                p5.fill(colorZone, zoom * 5, 70);
+				p5.ellipse(0,0, pos[2] * 2, pos[3] * 2);
 				}
-				
-				
 				p5.colorMode(p5.RGB);
 			}
 			p5.pop();
 
 
-		} else if (v < .8) {
-
-		} else if (v < .85) {
-			var meteorLengthX, meteorLengthY;
-			meteorLengthX = size * 1.5 / 2;
-			meteorLengthY = -size * 1.5 / 2;
-			p5.stroke(255, 255, 180);
-			p5.strokeWeight(zoom + 1);
-			var pos = getDrawPosition(posX - meteorLengthX, posY - meteorLengthY, 0, 0);
-			var pos2 = getDrawPosition(posX + meteorLengthX, posY + meteorLengthY, 0, 0);
-			p5.line(pos[0], pos[1], pos2[0], pos2[1]);
-			p5.noStroke();
 		}
 	}
 }
