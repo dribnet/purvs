@@ -7,6 +7,7 @@ var grid_size = 64;
 var resolution = 100; // how many points in the circle
 
 
+
 function getOffsetPoint(p5, x, y, z, noiseScale) {
   var noiseX = p5.noise(x * noiseScale,
                         y * noiseScale, z);
@@ -21,6 +22,21 @@ function showCheck(p5, x, y, z, noiseScale) {
   var showLeaf = Math.floor(5*p5.noise(x * noiseScale, y * noiseScale, z+1));
  
   return (showLeaf)
+}
+
+function getLinePos(p5, x, y, z, noiseScale) {
+  var line_pos = p5.noise(x * noiseScale, y * noiseScale, z+6);
+ 
+  return (line_pos)
+}
+
+function showFlower(p5, x, y, z, noiseScale) {
+  var probability = Math.floor(10*p5.noise(x * noiseScale, y * noiseScale, z+4));
+ 	var flower = false;
+ 	if (probability%2==0){
+ 		flower = true;
+ 	}
+  return (flower)
 }
 
 function getRotation(p5, x, y, z, noiseScale) {
@@ -39,9 +55,15 @@ function getSize(p5, x, y, z, noiseScale) {
 }
 
 function colorPalette(p5, x, y, z, noiseScale) {
-	var red = Math.floor(255*p5.noise(x * noiseScale, y * noiseScale, z+20));
-  	var green = Math.floor(255*p5.noise(x * noiseScale, y * noiseScale, z+30));
-  	var blue = Math.floor(255*p5.noise(x * noiseScale, y * noiseScale, z+40));
+	var r = 255*p5.noise(x * noiseScale, y * noiseScale, z+20);
+  	var g = 255*p5.noise(x * noiseScale, y * noiseScale, z+30);
+  	var b= 255*p5.noise(x * noiseScale, y * noiseScale, z+40);
+
+  	var red = Math.floor(p5.map(r, 60, 190, 50, 200));
+  	var green = Math.floor(p5.map(g, 60, 190, 100, 200));
+  	var blue = Math.floor(p5.map(b, 60, 190, 50, 130));
+
+
   	return [red, green, blue]
 }
 
@@ -50,6 +72,7 @@ function snap_to_grid(num, gsize) {
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+	var waterColor = p5.color(200, 225, 255); //color of background water
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -75,8 +98,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	var c_pball = p5.map(ball_radius, x1, x2, 0, size);
 
   	
-  	p5.background(255);
-  	p5.fill(0, 0, 128);
+  	p5.background(waterColor);
+  
 
   	for(var x=min_x; x<max_x; x+=grid_size/multiplier) {
     	for(var y=min_y; y<max_y; y+=grid_size/multiplier) {   		
@@ -96,21 +119,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
   	//draw the leaf
   	this.drawLeaf = function(){
-	p5.push();
-	p5.translate(this.x_pos, this.y_pos);
+	p5.push();	
 	p5.rotate(this.rotation);
-
 	p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
 
-
-		p5.beginShape();
-		var bumpiNoise = p5.noise(x, y, 100);
-		var inset = false;
+	var bumpiNoise = p5.noise(x, y, 100);
+	var leafLines = [];
 
 		if (zoom > 1){
 			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.5);
 			var inset = true;
 		}
+
+		if (zoom > 3){
+			var leafDetail = true;
+		}
+
+		p5.beginShape();
 
 		for (var a=0; a<=p5.TWO_PI; a+=p5.TWO_PI/resolution) {
 			
@@ -122,6 +147,7 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			var Vertx = p5.cos(a)*this.cur_ball_radius *nVal;
 			var Verty = p5.sin(a)*this.cur_ball_radius *nVal;
 
+
 		if (inset == true){
 			//add lilypad inset
 			if(a == 0){
@@ -131,20 +157,64 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 				Vertx = Vertx/2;
 				Verty = Verty/2;
 			}
+
+		}
+		if(a!==0 ){
+			p5.vertex(Vertx, Verty);
 		}
 
-		p5.vertex(Vertx, Verty);
+		var verts = {
+				outerX: Vertx,
+				outerY: Verty
+			}
+			leafLines.push(verts);
 		}
 		p5.endShape(p5.CLOSE);
+
+
+		if (leafDetail == true){
+			//lines
+			
+	  		p5.stroke(this.leafColor[0]+55, this.leafColor[1]+75, this.leafColor[2]+55, 50);
+			for (var l=3; l<leafLines.length-1; l+=1){
+				if(l%2==0){
+				
+	  				p5.line(20*this.linePos, 1, leafLines[l].outerX, leafLines[l].outerY);
+	  			}
+	  		}
+		}
+
 		p5.pop();
 	};
 
+
+	this.drawFlower = function(){
+		p5.fill(0);
+
+		this.generatePetalShape = function(){
+			//drawPetal
+			//p5.ellipse(0, 0, this.cur_ball_radius);
+			p5.fill(255);
+			p5.beginShape();
+			p5.curveVertex(this.cur_ball_radius/4, this.cur_ball_radius/16);
+				p5.curveVertex(0, 0);
+				p5.curveVertex(this.cur_ball_radius/4, this.cur_ball_radius/-16);
+				p5.curveVertex(this.cur_ball_radius/2, 0);
+			p5.curveVertex(this.cur_ball_radius/4, this.cur_ball_radius/16);
+			p5.curveVertex(0, 0);
+			p5.curveVertex(this.cur_ball_radius/4, this.cur_ball_radius/-16);
+			p5.endShape();
+		};
+		
+		this.generatePetalShape();
+	};
 
 
 	var shift_point = getOffsetPoint(p5, x, y, z, 0.4);
 
 	var noiseScaleL = 1.0;
 	this.show_leaf = showCheck(p5, x, y, z, 0.4);
+	this.show_flower = showFlower(p5, x, y, z, 0.6);
 
 	this.x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
   	this.y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
@@ -154,16 +224,21 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 
   	this.rotation = getRotation(p5, x, y, z, 0.1);
   	this.size = getSize(p5, x, y, z, 0.1);
+  		this.linePos = getLinePos(p5, x, y, z, 0.1);
   
 
 	p5.noStroke();
 
 
-
-		if (this.show_leaf == 3 || this.show_leaf == 0){
-			this.drawLeaf();
-	
+	p5.push();
+	p5.translate(this.x_pos, this.y_pos);
+	if (this.show_leaf == 3 || this.show_leaf == 0){
+		this.drawLeaf();
+		if(this.show_flower == true){
+			drawFlower();
+		}
 	}
+	p5.pop();
 
 }
 
