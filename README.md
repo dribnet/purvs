@@ -1,7 +1,5 @@
-## Powers of 10 PRINT
+## Vapor Pipes
 
-In my project, I am wanting to show how colors mix together by each level being the color of multiple colors in the lower level, using [Additive Color](https://en.wikipedia.org/wiki/Additive_color).
+In this work, I was trying to go for a similar aesthetic to the classic windows 95 screensavers, such as pipes. It was a requirement for this wallpaper to have some kind of ambient animation, so I changed the rendering code to allow the individual p5 canvases to update. While experimenting with things moving across the screen, I came to a point where I could represent the perlin noise that we were exploring through detail changing it's representation at different levels. This was especially represented through my animations, where at close levels you can see the noise moving across the elements over time. It was at this point that I came to the realisation that I was very much going towards a vaporwave style, a style deep in nostalgia for the 90s and the experience of the internet back then. 
 
-This is inspired by classical color newspaper printing, by using dots of primary colors together to generate a different color when seen from far away.
-
-My second idea is to make a weird web of movements using perlin noise
+From there, I decided to replace my palette with colors that are often found in this genre (vaporwave is also a music genre) and started playing around with using some of the text assets often seen in vaporwave music videos at the closest levels.

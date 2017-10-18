@@ -113,7 +113,7 @@ function drawGrid(p, x1, x2, y1, y2, z, zoom, level) {
 
   drawCurves(p.floor(linesNoise*linesNoise*8))
 
-  let jazzNoise = p.noise(x1, y1);
+  let jazzNoise = p.noise(x1*zoom*123566.8, y1*zoom*123096);
   if(jazzNoise < p.min(0.03*zoom, 0.2)){
     p.push();
     p.fill(0,0,0)
