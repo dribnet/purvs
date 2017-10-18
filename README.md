@@ -1,3 +1,3 @@
-## Infinite	Zoomable Sketch
+## Part	3:	Layering Details
 
-I included a grid layout under the clouds. 
+"Buildings" get brighter till zoom 3 and clouds leave
