@@ -120,17 +120,16 @@ function snap_to_grid(num, gsize) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
-/*
- * This is the function to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
+	/* the random number seed for the tour */
+	var tourSeed = 200;
+	/* triplets of locations: zoom, x, y */
+	var tourPath = [
+	  [0, 64.500000000000, 928.000000000000],
+	  [2, -210.437500000000, 850.375000000000],
+	  [4, -1262.781250000000, 1706.250000000000],
+	  [5, 634.859375000000, 743.843750000000],
+	  [6, -1036.765625000000, 3687.437500000000]
+	]
 
 	var max_shift = max_thickness + max_movement;
   	var min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -439,32 +438,6 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 	var bumpiNoise = p5.noise(x, y, 100);
 	var leafLines = [];
 
-
-
-		if (zoom > 1){
-			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.2); //add noise to lilypad edges
-			var inset = true; //add lilypad 'pacman' shape
-			this.flowerZoom = true; 
-		} else{
-			var inset = false;
-			this.flowerZoom = false;
-		}
-
-		if (zoom > 3){
-			var leafDetail = true;
-			this.flowerDetail_1 = true;
-		}else{
-			var leafDetail = false;
-			this.flowerDetail_1 = false;
-		}
-		if (zoom > 3){
-	
-			this.flowerDetail_2 = true;
-		}else{
-		
-			this.flowerDetail_2 = false;
-		}
-
 		this.drawLilyPadLeaf = function(expand){
 
 			p5.beginShape();
@@ -500,8 +473,17 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 			}
 			p5.endShape(p5.CLOSE);
 		}
+		if (zoom > 1){
+			var bumpiNess = p5.map(bumpiNoise, 0, 1, 0.1, 1.2); //add noise to lilypad edges
+			var inset = true; //add lilypad 'pacman' shape
+			this.flowerZoom = true; 
+		} else{
+			var inset = false;
+			this.flowerZoom = false;
+		}
 		if (zoom > 3){
 			//draw shadow
+			var leafDetail = false;
 			p5.fill(0, 0, 0, 10);
 			p5.noStroke();
 			var shadowSize = 1;
@@ -510,6 +492,23 @@ function LilypadSet(p5, x1, x2, y1, y2, z, zoom, c_ball_radius, x, y){
 				this.drawLilyPadLeaf(shadowSize);
 			}
 		}
+
+
+		if (zoom > 3){
+			var leafDetail = true;
+			this.flowerDetail_1 = true;
+		}else{
+			var leafDetail = false;
+			this.flowerDetail_1 = false;
+		}
+		if (zoom > 3){
+	
+			this.flowerDetail_2 = true;
+		}else{
+		
+			this.flowerDetail_2 = false;
+		}
+
 		//draw leaf
 		p5.fill(this.leafColor[0], this.leafColor[1], this.leafColor[2]);
 		p5.stroke(this.leafColor[0]-30, this.leafColor[1]-30, this.leafColor[2]-30);
