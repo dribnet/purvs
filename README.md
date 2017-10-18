@@ -1,5 +1,9 @@
 ## Powers of 10 PRINT
 
+EXPERIMENT
+
+I offset the shapes using a nosie function to make them appear more randomly placed. I inverted the colours to make it look like a night sky with stars. I think the scene is too crowded so with continue with a grid for now.
+
 I have made the grid work for panning and zooming up to 6x (I will make it zoom further in my next commits).
 
 I have experiemneted with stroke weights, this allows for different levels of detail to only become vissable at different zoom levels, as the lines with no longer overlap and cancel each other out. I plan to experiement with offsetting the grid using a noise function as I believe I can achieve a night sky look in the further out zoomed levels if I invert the colour scheme.

@@ -2,7 +2,7 @@ var max_thickness = 64;
 var max_movement = 32;
 var ball_radius = 32;
 var line_width = 8;
-var grid_size = 100;
+var grid_size = 150;
 var gap_size = 100;
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -12,8 +12,8 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
                         y * noiseScale, z+50);
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
-  //return [x+offsetX, y+offsetY]
-  return [x,y];
+  return [x+offsetX, y+offsetY]
+  //return [x,y];
 }
 
 function snap_to_grid(num, gsize) {
@@ -71,13 +71,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(0);
   p5.fill(0, 0, 128);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
-      //var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-      var x_pos = p5.map(x, x1, x2, 0, 256);
-      var y_pos = p5.map(y, y1, y2, 0, 256);
+      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+      var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+      var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
       
       //p5.stroke(0, 0, 0);
@@ -107,7 +107,7 @@ function drawShape(p5,xpos, ypos, size){
   // p5.ellipse(xpos - size, ypos, size/2);
   // p5.ellipse(xpos, ypos + size, size/2);
   // p5.ellipse(xpos, ypos - size, size/2);
-
+  p5.stroke(255);
   // p5.push();
   // //print("Draw shape was called at: " + xpos + " , " + ypos);
   // p5.translate(xpos - (size * 0.5), ypos - (size * 0.5));
