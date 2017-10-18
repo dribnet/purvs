@@ -1,14 +1,15 @@
-var max_thickness = 64;
-var max_movement = 32;
+var max_thickness = 256;
+var max_movement = 600;
 var ball_radius = 32;
 var line_width = 8;
-var grid_size = 64;
+var grid_size = 256;
+
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
-  var noiseX = p5.noise(x * noiseScale,
-                        y * noiseScale, z);
-  var noiseY = p5.noise(x * noiseScale,
-                        y * noiseScale, z+50);
+    var noiseX = p5.noise(x * noiseScale, y * noiseScale, z);
+
+    var noiseY = p5.noise(x * noiseScale, y * noiseScale, z + 50);
+
   var offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
   var offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
   return [x+offsetX, y+offsetY]
@@ -30,6 +31,7 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
   // debug - show border
   var max_shift = max_thickness + max_movement;
   var min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -38,35 +40,133 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
 
-  var c_p00 = p5.map(0, x1, x2, 0, 256);
+  
   var c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  var c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   var cur_line_width = c_plwidth - c_p00;
-  var cur_ball_radius = c_pball - c_p00;
+  
 
-  p5.background(255);
-  p5.fill(0, 0, 128);
-  for(var x=min_x; x<max_x; x+=grid_size) {
-    for(var y=min_y; y<max_y; y+=grid_size) {
-      var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
-      var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
-      var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+  //p5.background(255);
+  //p5.fill(0, 0, 128);
+  //for(var x=min_x; x<max_x; x+=grid_size) {
+  //  for(var y=min_y; y<max_y; y+=grid_size) {
+  //    var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+  //    var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+  //    var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
 
-      p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 0, 128);
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+  //    p5.strokeweight(cur_line_width);
+  //    p5.stroke(0, 0, 128);
+  //    var shift_point2 = getoffsetpoint(p5, x+grid_size, y, z, 0.1);
+  //    var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+  //    var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+  //    p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      p5.stroke(0, 128, 0);
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+  //    p5.stroke(0, 128, 0);
+  //    var shift_point2 = getoffsetpoint(p5, x, y+grid_size, z, 0.1);
+  //    var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+  //    var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+  //    p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      p5.noStroke();
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
-    }
+  //    p5.noStroke();
+  //    p5.ellipse(x_pos, y_pos, cur_ball_radius);
+  //  }
+    //}
+
+
+
+  var noiseScale = 0.02;
+
+  p5.background(5, 28, 38);
+  p5.noiseDetail(8, 0.5);
+  p5.noStroke();
+
+
+  for (var i = 0; i < 16; i++) {
+      var n_x = p5.map(i, 0, 16, x1, x2);
+
+      for (var j = 0; j < 16; j++) {
+          var n_y = p5.map(j, 0, 16, y1, y2);
+
+          var noiseVal = p5.noise(n_x * noiseScale, n_y * noiseScale, z);
+          p5.fill(35,114,147);
+          p5.fill(noiseVal * 35 + (2 * zoom), noiseVal * 114 + (13 * zoom), noiseVal * 147 + (20 * zoom), 5 + (10 * zoom));
+
+          p5.rect(i * 16, j * 16, 16, 16);
+      }
   }
+
+
+  var cx = p5.map(512, x1, x2, 0, 256);
+  var cy = p5.map(512, y1, y2, 0, 256);
+  var cx2 = p5.map(512 + 20, x1, x2, 0, 256);
+
+
+  
+  //p5.ellipse(cx, cy, (cx2 - cx));
+
+  //p5.ellipse(cx, cy, (cx2 - cx));
+  //p5.ellipse(cx + cx2, cy + cx2, (cx2 - cx));
+
+  for (var x = min_x; x < max_x; x += grid_size) {
+      for (var y = min_y; y < max_y; y += grid_size) {
+
+          var c_p00 = p5.map(0, x1, x2, 0, 256);
+          var starScaleOffset = p5.noise(x, y, z + 100);
+          var starScale = p5.map(starScaleOffset, 0, 1, 3, 10);
+          var c_pball = p5.map(starScale, x1, x2, 0, 256);
+          var cur_ball_radius = c_pball - c_p00;
+
+          var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+          var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+          var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+
+          var connectionLineChance = (p5.noise(x * noiseScale, y * noiseScale, z + 10));
+          var cl = p5.map(connectionLineChance, 0, 1, 1, 100);
+
+          var connectionLineChance2 = (p5.noise(x * noiseScale, y * noiseScale, z + 5));
+          var cl2 = p5.map(connectionLineChance2, 0, 1, 1, 100);
+
+          //console.log(cl);
+
+          p5.strokeWeight(cur_line_width);
+          p5.noStroke();
+          if (cl >= 62) {
+              p5.stroke(62, 160, 198, 200);
+              var cl = p5.map(connectionLineChance, 0, 1, 1, 100);
+          }
+
+          else {
+              p5.noStroke();
+          }
+
+          var shift_point2 = getOffsetPoint(p5, x + grid_size, y, z, 0.1);
+          var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+          var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+          p5.line(x_pos, y_pos, x_pos2, y_pos2);
+
+          if (cl2 >= 72, cl2 < 80) {
+              p5.stroke(62, 160, 198, 200);
+              var cl2 = p5.map(connectionLineChance2, 0, 1, 1, 100);
+          }
+
+          if (cl2 >= 80) {
+              p5.stroke(255, 160, 198, 200);
+              console.log('pink');
+              var cl2 = p5.map(connectionLineChance2, 0, 1, 1, 100);
+          }
+
+          else {
+              p5.noStroke();
+          }
+
+          var shift_point2 = getOffsetPoint(p5, x, y + grid_size, z, 0.1);
+          var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+          var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+          p5.line(x_pos, y_pos, x_pos2, y_pos2);
+
+          p5.noStroke();
+          p5.fill(117,238,251);
+          p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      }
+  }
+
 }
