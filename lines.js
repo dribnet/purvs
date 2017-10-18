@@ -49,6 +49,9 @@ function set_grid_size(zoom){
   else if(zoom == 8){
     gap_size =25600;
   }
+  else if(zoom == 9){
+    gap_size =51200;
+  }
 }
 /*
  * This is the funciton to implement to make your own abstract design.

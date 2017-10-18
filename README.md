@@ -1,4 +1,6 @@
-## Powers of 10 PRINT
+The tour takes you through each stage of detail in the design, first you see the pattern which appears to be made of curves. Next you see the colour coming through the gaps as you zoom in, next you see the colour is actually made up of a circle of circles. Finally you see that the whole desing is made up entirely of straight lines, and the the colour is just circles.
+
+I wanted to create a design, which woould allow the user to find more information on how it was contructed the deeper the looked into the work. I think I have achieved this through layering the design so it is only possibe to see sertain details when at the coorect zoom level.
 
 I added a third layer whch gets revealed as you zoom in. I made a circle of circles which is drawn under the main shape. This allows colour to be seen underneath the shape and as you zoom in you can see that is a circle of circles. I used red, green and blue as I feel these go well with the sharp contrast of black on white.
 
