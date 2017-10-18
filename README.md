@@ -1,8 +1,6 @@
 ## Powers of 10 PRINT
 
-EXPERIMENT
-
-I offset the shapes using a nosie function to make them appear more randomly placed. I inverted the colours to make it look like a night sky with stars. I think the scene is too crowded so with continue with a grid for now.
+I offset a second grid, I believe this creates a more interesting pattern at the top level. In my next commits I will add the third layer of detail.
 
 I have made the grid work for panning and zooming up to 6x (I will make it zoom further in my next commits).
 
