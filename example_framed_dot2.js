@@ -1,4 +1,4 @@
-/*
+ /*
  * This is the funciton to implement to make your own abstract design.
  *
  * arguments:
@@ -107,7 +107,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cy = p5.map(512, y1, y2, 0, 256);
   var cx2 = p5.map(512+50, x1, x2, 0, 256);
   p5.fill(0, 0, 255);
-  p5.ellipse(cx, cy, (cx2-cx));
+  polygon(p5, cx, cy, (cx2-cx), 6);
 
   // if zoomed: last draw stamens *in front of* the ellipse
   if(zoom >= 3) {
@@ -127,3 +127,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.fill(0, 255, 0);
   p5.ellipse(cx, cy, (cx2-cx));
 }
+
+function polygon(p5, x, y, radius, npoints){
+  var angle = p5.TWO_PI / npoints;
+  p5.beginShape();
+  for (var a = 0; a < p5.TWO_PI; a += angle){
+    var sx = x + p5.cos(a) * radius;
+    var sy = y + p5.sin(a) * radius;
+    p5.vertex(sx, sy);
+  }
+  p5.endShape(p5.CLOSE);
+}
+
+

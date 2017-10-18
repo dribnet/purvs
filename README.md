@@ -1,3 +1,3 @@
-Greeble City
+Security Zone
 
-I have adapted some of my code from ps3 into this new sketch. I am getting similar looking results but shown as a larger scale city with districts. I am happy with this however will need to do some more refinement in order to create more visual interest. I also need to find a way to generate the districts without them being redrawn when zoomed.
+I have decided to switch back to my wallpaper asthetic from ps3. There I use hexagons to create a sc-fi themed wall. I have kept to tat theme and created a hive community of security bots. From a far this swarm is not detailed. As you get closer the form of each individual drone is more noticable. On closer inspection each drone has green lights, acting like eye. If the user gets too close these lights turn red as if the drones have switch to a more aggresive security mode.

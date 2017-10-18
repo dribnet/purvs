@@ -1,14 +1,14 @@
-var max_thickness = 64;
+var max_thickness = 20;
 var max_movement = 32;
-var ball_radius = 32;
-var line_width = 8;
+var ball_radius = 10;
+var line_width =2;
 var grid_size = 64;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
+  [2, 356.500000000000, 665.750000000000],
   [3, 353.250000000000, 668.187500000000],
   [4, 322.562500000000, 645.093750000000],
   [5, 322.562500000000, 645.109375000000],
@@ -32,28 +32,31 @@ function snap_to_grid(num, gsize) {
 
 function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
-    [0, 1],
-    [1, 0],
-    [0, -1],
-    [-1, 0]
+    [2, 0],
+    [-2, 0]
   ]
-  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 512);
+  var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 512);
   var pixel_radius = pixel_posx2 - pixel_posx1;
   for(var i=0; i<offsets.length; i++) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+    p5.fill(40);
+    polygon(p5,pixel_x, pixel_y, pixel_radius+5,6);    
+    p5.fill(70);
+    polygon(p5,pixel_x, pixel_y, pixel_radius,6); 
   }
 }
 
 function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
   var offsets = [
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1]
+    [0,0],
+    [1.5, 1.5],
+    [1.5, -1.5],
+    [-1.5, 1.5],
+    [-1.5, -1.5]
+
   ]
   var pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   var pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
@@ -62,15 +65,9 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
     var offset = offsets[i];
     var pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     var pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.strokeWeight(0);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
-    if(drawLines) {
-      p5.strokeWeight(pixel_radius / 20);
-      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
-      p5.strokeWeight(0);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
-    }  
+    p5.stroke(0);
+    p5.strokeWeight(2);
+    polygon(p5, pixel_x, pixel_y, pixel_radius, 6);
   }
 }
 
@@ -100,47 +97,74 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(150);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
       var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
       var y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+      var x_con = p5.map(shift_point[0], x1, x2, 0, 256);
+      var y_con = p5.map(shift_point[1], y1, y2, 0, 256);
 
       p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 128, 0);
+      p5.stroke(0);
 
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+      // var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
+      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
+      // var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
+      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+      // var x_con2 = p5.map(shift_point2[0], x1, x2, 0, 256);
+      // var y_con2 = p5.map(shift_point2[1], y1, y2, 0, 256);
+      // p5.map(shift_point[0], x1, x2, 0, 256);
+      // p5.noFill();
+      // p5.curve(x_con, y_con, x_pos, y_pos, x_pos2, y_pos2, x_con2, y_con2);
+
+      // if zoomed: first, draw petals *behind* the ellipse
+            // draw polygons
 
       p5.noStroke();
-      // if zoomed: first, draw petals *behind* the ellipse
-      if(zoom >= 3) {
-        p5.fill(0, 0, 255);
+      p5.fill(26, 28, 31);
+      polygon(p5, x_pos, y_pos, cur_ball_radius+10, 6);
+
+
+      if(zoom >= 2) {
+        p5.fill(36, 38, 41);
+        polygon(p5, x_pos, y_pos, cur_ball_radius+10, 6);
+        p5.fill(56, 58, 61);
+        polygon(p5, x_pos, y_pos, cur_ball_radius, 6);
         drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
+
       }
-      // draw ellipse
-      p5.fill(0, 0, 128);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
 
       // if zoomed: last draw stamens *in front of* the ellipse
       if(zoom >= 3) {
+        p5.fill(0,255,0);
+        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
         // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
-        if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
+      if (zoom >= 5){
+        p5.fill(255,0,0);
         p5.stroke(0, 0, 128);
         drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
       }
+    }
 
 
     }
   }
+}
+function polygon(p5, x, y, radius, npoints){
+  var angle = p5.TWO_PI / npoints;
+  p5.beginShape();
+  for (var a = 0; a < p5.TWO_PI; a += angle){
+    var sx = x + p5.cos(a) * radius;
+    var sy = y + p5.sin(a) * radius;
+    p5.vertex(sx, sy);
+  }
+  p5.endShape(p5.CLOSE);
 }
