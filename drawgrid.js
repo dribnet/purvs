@@ -76,7 +76,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 gridSize2 = 8;
 
-  if(zoom <= 1){
+  if(zoom <= 0){
+    gridSize = 8;
+  }
+  else if(zoom == 1){
     gridSize = 4;
   }
   else if(zoom < 3){
@@ -105,11 +108,20 @@ gridSize2 = 8;
       var biomeMult = 0.01;
       var biomeSelect = p5.noise(y*biomeMult,x*biomeMult);
 
-      if(biomeSelect > 0.5){
+      if(biomeSelect > 0.55){
         biome = "tiaga";
       }
-      else{
+      else if (biomeSelect > 0.45){
         biome = "forest";
+      }
+      else if(biomeSelect > 0.4){
+        biome = "autumn";
+      }
+      else if(biomeSelect > 0.35){
+        biome = "forest";
+      }
+      else{
+        biome = "lake";
       }
 
       initPopulations(p5,x,y);
@@ -149,6 +161,12 @@ gridSize2 = 8;
 
       if(biome == "tiaga"){
         tiaga(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
+      }
+      else if (biome == "lake"){
+        lake(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
+      }
+      else if(biome == "autumn"){
+        autumn(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
       }
       else{
         forest(p5, x1 , y1, x2, y2, z, zoom,  shapeType+p5.round(p5.map(p5.noise(x,y),0,1,-1,1)), shape);
@@ -222,7 +240,7 @@ gridSize2 = 8;
       shapeString = "obelisk";
     }
     else if(shapeType == 7){
-      shapeString = "tree";
+      shapeString = "snowyTree";
     }
     else if(shapeType == 8){
       shapeString = "snowyTree";
@@ -282,6 +300,92 @@ gridSize2 = 8;
   }
 
 
+  function lake(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
+
+
+    var shapeString;
+
+    if(shapeType == 0 ){
+      shapeString = "lake";
+    }
+    else if(shapeType == 1){
+      shapeString = "lake";
+    }
+    else if(shapeType == 2){
+      shapeString = "lake";
+    }
+    else if(shapeType == 3){
+      shapeString = "lake";
+    }
+    else if(shapeType == 4){
+      shapeString = "lake";
+    }
+    else if(shapeType == 5){
+      shapeString = "lake";
+    }
+    else if(shapeType == 6){
+      shapeString = "lake";
+    }
+    else if(shapeType == 7){
+      shapeString = "empty";
+    }
+    else if(shapeType == 8){
+      shapeString = "grass";
+    }
+    else if(shapeType == 9){
+      shapeString = "smallTree";
+    }
+    else{
+      shapeString = "empty";
+    }
+
+    drawShape(p5, x1, x2, y1, y2, z, zoom, shapeString, shape);
+
+  }
+
+  function autumn(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
+
+    var shapeString;
+
+    if(shapeType == 0 ){
+      shapeString = "grass";
+    }
+    else if(shapeType == 1){
+      shapeString = "grass";
+    }
+    else if(shapeType == 2){
+      shapeString = "grass";
+    }
+    else if(shapeType == 3){
+      shapeString = "smallTree";
+    }
+    else if(shapeType == 4){
+      shapeString = "smallTree";
+    }
+    else if(shapeType == 5){
+      shapeString = "flower";
+    }
+    else if(shapeType == 6){
+      shapeString = "tree";
+    }
+    else if(shapeType == 7){
+      shapeString = "tree";
+    }
+    else if(shapeType == 8){
+      shapeString = "tree";
+    }
+    else if(shapeType == 9){
+      shapeString = "cave";
+    }
+    else{
+      shapeString = "empty";
+    }
+
+      drawShape(p5, x1, x2, y1, y2, z, zoom, shapeString, shape);
+
+  }
+
+
 
   function drawShape(p5, x1, x2, y1, y2, z, zoom, shapeType, shape){
 
@@ -294,14 +398,22 @@ gridSize2 = 8;
 
 
     var tileOffset = p5.round(p5.map(p5.noise(x,y),0,1,0,50));
+    var lakeOffset = p5.round(p5.map(p5.noise(x,y),0,1,-10,10));
     var treeOffset = p5.round(p5.map(p5.noise(x,y),0,1,-40,40));
     var rockOffset = p5.round(p5.map(p5.noise(x,y),0,1,-50,50));
+    var autumnOffsetR = p5.round(p5.map(p5.noise(x,y),0,1,-10,10));
+    var autumnOffsetG = p5.round(p5.map(p5.noise(y,x),0,1,-10,10));
+    var autumnOffsetB = p5.round(p5.map(p5.noise(y,x),0,1,-10,10));
 
 
     //lake
     if(shapeType == "lake"){
 
-      p5.fill(193, 217, 255);
+      if(biome == "tiaga"){
+        p5.fill(193+tileOffset, 217+tileOffset, 255+tileOffset);
+      }
+
+      p5.fill(193+lakeOffset, 217+lakeOffset, 255+lakeOffset);
       p5.rect(leftX,topY,colWidth,rowHeight);
     }
     //empty
@@ -314,20 +426,28 @@ gridSize2 = 8;
     //flower
     else if (shapeType == "flower"){
 
-      p5.fill(190+tileOffset, 239+tileOffset, 186+tileOffset);
+      if(biome == "autumn"){
+        p5.fill(120+tileOffset+autumnOffsetR*2, 168+tileOffset, 79+tileOffset);
+      }
+      else{
+        p5.fill(190+tileOffset, 239+tileOffset, 186+tileOffset);
+     }
       p5.rect(leftX,topY,colWidth,rowHeight);
 
       if(shape == false){
         return;
       }
 
-      p5.fill(240, 242, 147);
+      if(biome == "autumn"){
+        p5.fill(247+autumnOffsetR*10, 186+autumnOffsetG*3, 136);
+      }
+      else{
+        p5.fill(240, 242, 147);
+      }
       p5.stroke(165, 155, 119);
 
       p5.line(mapX(x+gridSize/2),mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize/2)),mapY(y+gridSize));
       p5.ellipse(mapX(x+(gridSize/1.9)),mapY(y+gridSize-(gridSize/3)),colWidthThird,rowHeightThird);
-
-
 
     }
 
@@ -373,6 +493,9 @@ gridSize2 = 8;
       if(biome == "forest"){
         p5.fill(110+tileOffset, 168+tileOffset, 79+tileOffset);
       }
+      else if(biome == "autumn"){
+        p5.fill(120+tileOffset+autumnOffsetR*2, 168+tileOffset, 79+tileOffset);
+      }
       else{
         p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
       }
@@ -383,7 +506,12 @@ gridSize2 = 8;
         return;
       }
 
-      p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
+      if(biome == "autumn"){
+        p5.fill(143+autumnOffsetR*4,172+autumnOffsetG,101);
+      }
+      else{
+        p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
+      }
       p5.stroke(42, 71, 49);
 
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
@@ -421,6 +549,9 @@ gridSize2 = 8;
       if(biome == "forest"){
         p5.fill(110+tileOffset, 168+tileOffset, 79+tileOffset);
       }
+      else if(biome == "autumn"){
+        p5.fill(130+autumnOffsetR+tileOffset, 168+tileOffset, 79+tileOffset);
+      }
       else{
         p5.fill(123+tileOffset,182+tileOffset,91+tileOffset);
       }
@@ -433,8 +564,12 @@ gridSize2 = 8;
         return;
       }
 
-
-      p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
+      if(biome == "autumn"){
+          p5.fill(143+autumnOffsetR*4,172+autumnOffsetG,101);
+      }
+      else{
+        p5.fill(123+treeOffset,182+treeOffset,91+treeOffset);
+      }
       p5.stroke(42+treeOffset, 71+treeOffset, 49+treeOffset);
 
       p5.line(mapX(x+(gridSize/2)),mapY(y+gridSize/2),mapX(x+(gridSize/2)),bottomY);
@@ -488,6 +623,18 @@ gridSize2 = 8;
       p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/3),colWidthThird,rowHeightThird);
       p5.triangle(leftX,topY,mapX(x+(gridSize/2)),mapY(y-(gridSize/2)),rightX,topY);
       p5.rect(mapX(x+gridSize/3),mapY(y+gridSize/1.5),colWidthThird,rowHeightThird);
+
+    }
+    else if (shapeType == "cave"){
+
+      p5.fill(200);
+      p5.stroke(60);
+
+
+      p5.quad(mapX(x-gridSize),bottomY-1,mapX(x-(gridSize*0.3)),mapY(y-gridSize/2),mapX(x+gridSize-(gridSize*0.7)),mapY(y-gridSize/2),rightX,bottomY-1);
+
+      p5.fill(120);
+      p5.triangle(mapX(x-(gridSize*0.3)),bottomY-1,leftX,mapY(y+gridSize-(gridSize/3)),mapX(x+(gridSize*0.3)),bottomY-1);
 
     }
     else {
