@@ -6,6 +6,18 @@ var line_width = 8;
 var grid_size = 256;
 var grid_size2 = 24;
 
+
+/* the random number seed for the tour */
+var tourSeed = 48;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 2377.000000000000, 2492.500000000000],
+  [2, 2295.750000000000, 2579.875000000000],
+  [4, 2664.187500000000, 3134.843750000000],
+  [5, 4615.468750000000, 8359.328125000000],
+  [6, 4613.953125000000, 8357.695312500000]
+]
+
 function getOffsetPoint(p5, x, y, z, noiseScale) {
     var noiseX = p5.noise(x * noiseScale, y * noiseScale, z);
 
