@@ -1,7 +1,11 @@
 ## Powers of 10 PRINT
 
-I have noticed that when it is really zoomed in, it gets a bit boring as the background is very plain. Therefore I have added a corner shape pattern at zoom 7 and onwards. This helps keep it interesting. 
+My original idea was a grid where each square is a different colour, being selected at random. As you zoom into one specific square, it reveals the dot pattern and gets more detailed the deeper you go.
 
-But I also have a problem as it's showing up in front of the dots which isn't what I want. I'm not sure why it's doing this as I have put it before the dots in the code. 
+I had to make some changes to the grid layout as I experimented with the random idea but it didn't work out the way I wanted. Therefore I changed this by making all the squares one colour and as you zoom in the same happens, a circle pattern appears and gets more detailed as you go closer. 
 
-I have also got the tour coordinates done. It goes to zoom level 3, 6, 7 & 8 which I feel are the most important layers.
+As you zoom in closer, the background becomes boring as there's no texture. Therefore I decided to add in some white circles and later on, a shape pattern. This is to keep it more interesting.
+
+At the last zoom level, there's two rings that appear on the black dots and a cross hatch pattern that appears on the red dot. 
+
+
