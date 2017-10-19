@@ -4,6 +4,17 @@ var ball_radius = 2;
 var line_width = 8;
 var grid_size = 30;
 var planetColours = new Array();
+/* the random number seed for the tour */
+var tourSeed = 301;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 356.500000000000, 665.750000000000],
+  [2, 505.500000000000, 769.375000000000],
+  [4, 495.312500000000, 905.906250000000],
+  [5, 554.625000000000, 936.921875000000],
+  [6, 610.187500000000, 810.523437500000],
+  [7, 663.390625000000, 781.441406250000]
+]
 
 
 
@@ -79,20 +90,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       var t = p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 5));
     
-      //console.log(t);
-
-      /*p5.strokeWeight(cur_line_width);
-      p5.stroke(0, 0, 128);
-      var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);
-
-      p5.stroke(0, 128, 0);
-      var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      p5.line(x_pos, y_pos, x_pos2, y_pos2);*/
 
 
       p5.noStroke();
@@ -185,7 +182,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
 
 
-      if(zoom >=8){
+      if(zoom >=7){
         if(p5.floor(p5.map(p5.noise(x, y), 0, 1, 0, 2))<=1){
           p5.fill(0, 40);
           p5.ellipse(x_pos-cur_ball_radius/3, y_pos-cur_ball_radius/4, cur_ball_radius/15)
