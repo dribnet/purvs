@@ -1,0 +1,16 @@
+{
+  "commits": [
+    {
+      "sha": "9af8ec7ea99609b07b6efde5b00d9802ec45cb2d",
+      "name": "final"
+    },
+      {
+      "sha": "eb65d5c38f7d3c85e5ad62b7b8c185d81ae092cc",
+      "name": "changed idea"
+    },  
+    {
+      "sha": "dfa4b20dd2aa283cc3c01aa80898350d3f083914",
+      "name": "inital idea"
+    }
+  ]
+}
