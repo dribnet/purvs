@@ -1,3 +1,3 @@
 ## Part	3:	Layering Details
 
-"Buildings" get brighter till zoom 3 and clouds leave
+There are three distinct zones now. Each zone gets more abstract. There is a cloud zone at first then it focuses onto the "buildings", finally there is a focus on more of a circular pattern in contrast. 
