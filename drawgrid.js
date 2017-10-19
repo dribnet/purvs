@@ -87,7 +87,7 @@ function colorPalette(p5, x, y, z, noiseScale) { //generates color palette for l
   	return [red, green, blue]
 }
 
-function getKoiVisibility(p5, x, y, z, noiseScale){ //decides whether or not to show a koi
+function getKoiVisibility(p5, x, y, z, noiseScale){ //decides whether or not to show a koi/
 	var showKoi = p5.noise(x * noiseScale, y * noiseScale, z+8);
 
 	var showK = Math.floor(p5.map(showKoi, 0.1, 0.75, 0, 21));
