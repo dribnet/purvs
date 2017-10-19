@@ -1,9 +1,13 @@
+Disclaimer: this is super slow to load, but does work! Make a cup of tea or something.
+
 In designing this environment map, I wanted the viewer to start with an abstract representation of the lily pond, then as they zoom in, the environment will be revealed to them in more detail, with more depth becoming apparent the further in they venture. 
 
-I wanted to push my color scheme a little from PS3, so am using noise to generate random r,g, & b values, and am then mapping them to a more refined color range. I have intentionally allowed a broader range of greens, (occasionally venturing into reds and blues), in order to add interest and variety, particularly in the zoomed-out areas. 
+At zoom level 0, the environment appears as an abstract polka-do pattern.
 
-I want to push the idea of a journey from abstract into reality, so am using stylistic elements such as strokes to create a simple, playful aesthetic in the first few layers. 
+Level 2 begins to show a little more detail, with the shapes of the lily pads coming apparent.
 
-The elements themselves remain much the same as in PS3, however in porting them over, I have cleaned up and simplified the code a bit. I added in the shadows of some fish in the higher zoom levels, and intend to continue adding detail into the water and environment until tomorrow's handin. 
+At Level 4, the detailing and shading of the scene comes into focus, and the ripples become an important design feature. 
+
+Level 5 shows the shadows of fish beneath the water's surface, and at level 6, the form of the fish becomes clear.
 
 In order to get the lily pads to look like more than just circles, I added perlin noise to the vertices of the shape. I used the code from this link as a starting point: https://www.openprocessing.org/sketch/112858
