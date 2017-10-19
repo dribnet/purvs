@@ -1,6 +1,20 @@
 var max_thickness = 64;
-var hex_size = 16;
-var noiseScale = 1/450;
+var hex_size = 6;
+var noiseScale = 1/150;
+
+var initialZoomLevel = 3;
+var maxZoomLevel = 12;
+
+/* TOUR VARIABLES (required)
+/* the random number seed for the tour */
+var tourSeed = 100;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [5, 510, 507],
+  [7, 507, 506],
+  [3, 512, 515],
+  [1, 512, 512]
+]
 
 var biome_normal = [
 [0,"#94b9d1","deepsea"], 
@@ -9,8 +23,8 @@ var biome_normal = [
 [0.56,"#DBE7C4","dunes"],
 [0.562,"#b8d8b3","grass"],
 [0.675,"#cde5c9","plains"],
-[0.73,"#8db57c","forest"],
-[0.785,"#d7dbc9","crags"],
+[0.75,"#82af7c","forest"],
+[0.825,"#d7dbc9","crags"],
 [0.885,"#969178","mountain"],
 [0.92,"#fafafd","snow"],
 [1,"#ffffff","end"]
@@ -21,11 +35,12 @@ var biome_desert = [
 [0.62,"#BDDCDF","shallows"],
 [0.6385,"#ffffed","beach"],
 [0.695,"#fcf3cf","desert"], 
-[0.735,"#efe9d5","foothills"],
-[0.75,"#d4e0ba","scrub"],
-[0.76,"#f4dfd2","cliffs"],
-[0.85,"#e3eeef","grey_peaks"],
-[0.9,"#ffffed","white_peaks"],
+[0.795,"#efe9d5","foothills"],
+[0.81,"#efe9d5","foothills"],
+[0.835,"#d4e0ba","scrub"],
+[0.84,"#f4dfd2","cliffs"],
+[0.88,"#e3eeef","grey_peaks"],
+[0.95,"#ffffed","white_peaks"],
 [1,"#A0A0A0","name"]
 ];
 
@@ -49,19 +64,21 @@ var biome_mountains = [
 [0.53,"#f7f7d7","dunes"],
 [0.58,"#b7d6b3","grass"],
 [0.63,"#b6c9a3","plains"],
-[0.655,"#6aa06a","forest"],
+[0.655,"#8db57c","forest"], 
 [0.68,"#b6c9a3","plains"],
 [0.72,"#d8d3c3","cliffs"],
 [0.78,"#b7b3b7","mountain"],
-[0.825,"#fafafd","snow"],
+[0.86,"#fafafd","snow"],
 [1,"#ffffff","end"]
 ];
 
   function bioNoise(p5,x,y){
-    return p5.noise(x * noiseScale/10+10000, y*noiseScale/10+10000, 15); 
+   // p5.noiseDetail(10,0.5);
+    return p5.noise(x * noiseScale/11+10000, y*noiseScale/11+10000, 15); 
 }
 
 function noiseVal(p5,x,y) {
+   //p5.noiseDetail(5,0.45);
     return p5.noise(x * noiseScale +1000000, y * noiseScale +1000000);
 }
 
@@ -92,7 +109,7 @@ function getHexColor(p5, x, y) {
             break;
         }
     }
-    var col = p5.lerpColor(col1, col2, p5.map(noise,biome[arraypos][0],biome[arraypos+1][0 ],0,1));
+    var col = p5.lerpColor(col1, col2, p5.map(noise,biome[arraypos][0],biome[arraypos+1][0],0,1));
     return col;
 }
 
@@ -102,7 +119,7 @@ function snap_to_grid(num, gsize) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     // global noise setting
-    p5.noiseDetail(8,0.5);
+    p5.noiseDetail(8,0.45);
 
     var hex_sizey = 3 * hex_size / 4;
 
@@ -130,6 +147,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
             var hex_color = getHexColor(p5, hex_pos[0], hex_pos[1]);
             var rad = p5.map(hex_size / 2, 0, x2 - x1, 0, 256);
             drawHex(p5, x_pos, y_pos, hex_color, rad);
+            if(zoom >=6) {
+                // drawSettlements(p5, x1, x2, y1, y2, z, zoom);
+                p5.fill(255, 0, 0);
+                p5.ellipse(x_pos-rad/10.0, y_pos, rad/20.0);
+                p5.ellipse(x_pos+rad/10.0, y_pos, rad/20.0);
+            }
         }
         rowCount++;
     }
