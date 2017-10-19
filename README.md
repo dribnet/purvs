@@ -1,3 +1,3 @@
-Security Zone
+Security Zone, Final
 
-I have decided to switch back to my wallpaper asthetic from ps3. There I use hexagons to create a sc-fi themed wall. I have kept to tat theme and created a hive community of security bots. From a far this swarm is not detailed. As you get closer the form of each individual drone is more noticable. On closer inspection each drone has green lights, acting like eye. If the user gets too close these lights turn red as if the drones have switch to a more aggresive security mode.
+I use hexagons to create a sc-fi themed wall. I have kept to that theme and created a hive community of security bots. From a far this swarm is not detailed. As you get closer the form of each individual drone is more noticable. On closer inspection each drone has green lights, acting like eyes/sensors. If the user gets too close these lights turn red as if the drones have switch to a more aggresive security mode. The glow in the background also turns read to alert the user to back away. The tour shows this interaction by closing in on the drones then backing out when they turn red.

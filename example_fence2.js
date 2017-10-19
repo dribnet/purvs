@@ -12,7 +12,6 @@ var tourPath = [
   [3, 353.250000000000, 668.187500000000],
   [4, 322.562500000000, 645.093750000000],
   [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
   [3, 317.984375000000, 643.636718750000]
 ]
 
@@ -30,7 +29,7 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+function drawWings(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [2, 0],
     [-2, 0]
@@ -49,7 +48,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   }
 }
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
+function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   var offsets = [
     [0,0],
     [1.5, 1.5],
@@ -98,6 +97,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_ball_radius = c_pball - c_p00;
 
   p5.background(150);
+  if (zoom >= 5)
+    p5.background(255,0,0,50);
+
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
@@ -109,22 +111,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.strokeWeight(cur_line_width);
       p5.stroke(0);
 
-      // var shift_point2 = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
-      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
-
-      // var shift_point2 = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
-      // var x_pos2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      // var y_pos2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      // var x_con2 = p5.map(shift_point2[0], x1, x2, 0, 256);
-      // var y_con2 = p5.map(shift_point2[1], y1, y2, 0, 256);
-      // p5.map(shift_point[0], x1, x2, 0, 256);
-      // p5.noFill();
-      // p5.curve(x_con, y_con, x_pos, y_pos, x_pos2, y_pos2, x_con2, y_con2);
-
-      // if zoomed: first, draw petals *behind* the ellipse
-            // draw polygons
+      // if zoomed: first, draw wings
+      // draw body
 
       p5.noStroke();
       p5.fill(26, 28, 31);
@@ -136,21 +124,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         polygon(p5, x_pos, y_pos, cur_ball_radius+10, 6);
         p5.fill(56, 58, 61);
         polygon(p5, x_pos, y_pos, cur_ball_radius, 6);
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
+        drawWings(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
 
       }
 
 
-      // if zoomed: last draw stamens *in front of* the ellipse
+      // if zoomed: last draw lights
       if(zoom >= 3) {
         p5.fill(0,255,0);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-        // now if we are super zoomed, draw lines in the stamen
+        drawLights(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
+        // now if we are super zoomed, change light colour
         var drawLines = false;
       if (zoom >= 5){
         p5.fill(255,0,0);
         p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        drawLights(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2);
       }
     }
 
