@@ -28,3 +28,7 @@ I've also added in code for redrawing the 'stars' as 'cities'. This is not quite
 
 I knew the issue with my buildings redrawing each time was because I was passing in the computed size of the city/star.
 But I was struggling with how to fix this, so I had to go back and look at where I mapped it to the grid space, and took the variable starSize before it was mapped, and passed this in to my drawClusters() function. Now the size and number of buildings drawn around the central building are relative to the initial size of the star/city. I also mapped the maximum distance the buildings can be drawn from the main building relative to the initial city size.
+
+### Part 4
+
+I have now added some tour path variables to allow the user to navigate through my map. These variables are specific points I found interesting, and take the user on a journey through the landscape I have created.

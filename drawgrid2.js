@@ -21,8 +21,9 @@ function drawCluster(p5, x1, x2, y1, y2, z, zoom, x_c, y_c, size, starSize) {
 // function drawCluster(p5, x1, x2, y1, y2, z, zoom, x_c, y_c, size, citySize) {
   var bldgColor1 = p5.color(246,172,145),
       bldgColor2 = p5.color(233,137,111),
-      bldgColor3 = p5.color(230,115,114);
-
+      bldgColor3 = p5.color(230,115,114),
+      patternColor1 = p5.color(83,130,137),
+      patternColor2 = p5.color(89,123,136);
 
   var noiseScale = 0.5;
   var noise_num_clusters = p5.noise(x_c * noiseScale, y_c * noiseScale, z+101);
@@ -48,11 +49,21 @@ function drawCluster(p5, x1, x2, y1, y2, z, zoom, x_c, y_c, size, starSize) {
     p5.fill(bldgColor);
     p5.rect(x_pos, y_pos, sizeBldg, sizeBldg);
 
-    // if(zoom >=8) {
-    //   p5.fill(0, 0, 100);
-    //   p5.rect(x_pos - sizeBldg*0.2, y_pos, sizeBldg*0.1, sizeBldg*0.1);
-    //   p5.rect(x_pos + sizeBldg*0.2, y_pos, sizeBldg*0.1, sizeBldg*0.1);
-    // }
+    if(zoom >= 6) {
+      var patternColor = p5.lerpColor(patternColor1, bldgColor2, noiseBldg);
+      p5.fill(patternColor);
+      p5.rect(x_pos, y_pos, sizeBldg*0.75, sizeBldg*0.75);
+      p5.fill(bldgColor);
+      p5.rect(x_pos, y_pos, sizeBldg*0.5, sizeBldg*0.5);
+    }
+
+    if(zoom >= 8) {
+      var patternColor = p5.lerpColor(patternColor2, bldgColor3, noiseBldg);
+      p5.fill(patternColor);
+      p5.rect(x_pos, y_pos, sizeBldg*0.25, sizeBldg*0.25);
+      // p5.fill(bldgColor);
+      // p5.rect(x_pos, y_pos, sizeBldg*0.5, sizeBldg*0.5);
+    }
   }
 }
 
@@ -81,6 +92,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       mtColor2 = p5.color(23,111,118),
       cityColor1 = p5.color(248,172,142),
       cityColor2 = p5.color(239,155,133),
+      bldgColor2 = p5.color(233,137,111),
+      bldgColor3 = p5.color(230,115,114),
+      patternColor1 = p5.color(83,130,137),
+      patternColor2 = p5.color(89,123,136),
       bgColor = p5.lerpColor(mtColor1,mtColor2,0.5);
 
   p5.background(bgColor);
@@ -147,14 +162,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.noStroke();
       // stars
-      if(zoom < 3.9){
+      if(zoom < 4){
         p5.fill(ellipseColor);
         p5.ellipse(x_pos, y_pos, cur_ball_radius);
       }
 
       // cities
       p5.rectMode(p5.RADIUS);
-      if (zoom > 3.9){
+      if (zoom >= 4){
         var cityVal = p5.map(cur_ball_radius, 40, 80, 0, 1);
         if(cityVal < 0) {
           cityVal = 0;
@@ -168,6 +183,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         drawCluster(p5, x1, x2, y1, y2, z, zoom, shift_point[0], shift_point[1], citySize, starSize);
         p5.fill(cityColor);
         p5.rect(x_pos, y_pos, citySize, citySize);
+
+        if(zoom >= 6) {
+          var patternColor = p5.lerpColor(patternColor1, bldgColor3, starSize);
+          p5.fill(patternColor);
+          p5.rect(x_pos, y_pos, citySize*0.75, citySize*0.75);
+          p5.fill(cityColor);
+          p5.rect(x_pos, y_pos, citySize*0.5, citySize*0.5);
+        }
+
+        if(zoom >= 8) {
+          var patternColor = p5.lerpColor(patternColor2, bldgColor2, starSize);
+          p5.fill(patternColor);
+          p5.rect(x_pos, y_pos, citySize*0.25, citySize*0.25);
+        }
       }
     }
   }

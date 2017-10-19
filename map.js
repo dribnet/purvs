@@ -13,13 +13,13 @@ if (typeof maxZoomLevel === 'undefined') {
   var maxZoomLevel = 16;
 }
 
-var worldMap = new L.Map('map', {  
-  continuousWorld:true, 
+var worldMap = new L.Map('map', {
+  continuousWorld:true,
   minZoom: 0,
   maxZoom: maxZoomLevel,
   crs: myCRS,
   attributionControl: false,
-  center: [512, 512], 
+  center: [512, 512],
   zoom: initialZoomLevel});
 
 worldMap._p5_seed = Math.floor(Math.random() * 1000);
@@ -68,7 +68,7 @@ tiles.createTile = function(coords) {
   // calculate projection coordinates of top left tile pixel
   myp5._L_nwPoint = coords.scaleBy(size);
   myp5._L_size = 256.0 / Math.pow(2, coords.z)
-  
+
   // calculate geographic coordinates of top left tile pixel
   myp5._L_nw = worldMap.unproject(myp5._L_nwPoint, coords.z)
 
@@ -87,10 +87,12 @@ linkHome = "#0/0/512/512/0"
 
 if (typeof tourPath === 'undefined') {
   var tourPath = [
-    [2, 512, 512],
-    [4, 512, 512],
-    [6, 512, 512],
-    [8, 512, 512]
+    [2, 563.84375, 514.75],
+    [3, 563.84375, 514.75],
+    [4, 563.84375, 514.75],
+    [5, 567.0234375, 529.09375],
+    [6, 567.0234375, 529.09375],
+    [8, 567.0234375, 529.09375]
   ]
 }
 tourPath.unshift([initialZoomLevel, 512, 512]);
@@ -130,4 +132,3 @@ attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a> | '
 attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a>'
 attrib.addAttribution(attrStr)
 worldMap.addControl(attrib)
-
