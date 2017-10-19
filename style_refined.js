@@ -10,19 +10,8 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
-/* the random number seed for the tour */
-var tourSeed = 301;
-/* triplets of locations: zoom, x, y */
-var tourPath = [
-  [0, 512, 512],
-  [1, 512, 512],
-  [3, 512, 512],
-  [3, 424, 478],
-  [5, 424, 478],
-  [7, 424, 478],
-  [8, 424, 478]
-]
-
+// This version draws two rectangles and two ellipses.
+// The rectangles are 960x720 and centered at 512,512.
 deskPrimary = "#4E403E";
 deskLight = "#5C4B49";
 deskDark = "#403433";
@@ -1114,39 +1103,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
                if (zoom >= 4) {
 
-                  var probablityNoiseScale6 = 1;
-                  var probablityNoise6 = p5.noise(x * probablityNoiseScale6, y * probablityNoiseScale6, z+35);
-
                   if (probablityNoise1 < 0.5) {
-
-                     if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                   }
 
                   else if (probablityNoise1 < 0.7) { // if small line draw additional dots
@@ -1163,35 +1120,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         // draw dot at top
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy);
-
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                      }
 
                      else if (probablityNoise2 < 0.55) { // draw dot
@@ -1202,35 +1130,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         // draw dot at bottom
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy2, cx, cy2);
-
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                      }
 
                      else if (probablityNoise2 < 0.65) { // draw dot
@@ -1242,67 +1141,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy);
 
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // draw inner arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
-
                         // draw dot at botom
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy2, cx, cy2);
-
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // draw inner arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                      }
 
                      else { // draw nothing
@@ -1324,36 +1165,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         // draw dot
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
-
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
-
                      }
 
                      else if (probablityNoise3 > 0.55) { // draw line
@@ -1370,70 +1181,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                            // draw dot at top
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
-
-                           if (zoom >= 6) { // draw arc
-                              if (probablityNoise6 < 0.6) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 15);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                              if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                           }
                         }
                         else if (probablityNoise3 < 0.72) { // draw at bottom
 
                            // draw dot at bottom
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
-
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                         }
                         else { // draw at both
 
@@ -1441,67 +1194,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
 
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
-
                            // draw dot at bottom
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
-
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                         }
                      }
 
@@ -1522,35 +1217,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         // draw dot
                         p5.stroke(dotOverlay, dotOverlayShade);
                         p5.line(cx, cy, cx, cy2);
-
-                        if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                      }
 
                      else if (probablityNoise4 > 0.55) { // draw line
@@ -1569,70 +1235,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                            // draw dot at top
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
-
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                         }
                         else if (probablityNoise4 < 0.72) { // draw at bottom
                            
                            // draw dot at bottom
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
-
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                         }
                         else { // draw at both
 
@@ -1640,67 +1248,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy, cx, cy);
 
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
-
                            // draw dot at bottom
                            p5.stroke(dotOverlay, dotOverlayShade);
                            p5.line(cx, cy2, cx, cy2);
-
-                           if (zoom >= 6) { // draw arc
-                           if (probablityNoise6 < 0.6) {
-                              var startArcNoiseScale = 1;
-                              var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                              var endArcNoiseScale = 1;
-                              var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                              p5.noFill();
-                              p5.stroke(dotOverlay, dotOverlayShade);
-                              var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                              p5.strokeWeight((cx3 - cx) / 15);
-                              p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                              p5.strokeWeight(4*xWidth / 5);
-                           }
-                           if (zoom >= 8) { // inner draw arc
-                              if (probablityNoise6 < 0.45) {
-                                 var startArcNoiseScale = 1;
-                                 var startArcNoise = p5.noise(x * startArcNoiseScale, y * startArcNoiseScale, z+25);
-                                 var endArcNoiseScale = 1;
-                                 var endArcNoise = p5.noise(x * endArcNoiseScale, y * endArcNoiseScale, z+30);
-                                 p5.noFill();
-                                 p5.stroke(dotOverlay, dotOverlayShade);
-                                 var cx3 = p5.map(x + objWidth*2, x1, x2, 0, 256);
-                                 p5.strokeWeight((cx3 - cx) / 35);
-                                 p5.arc(cx, cy2, (cx3 - cx) / 5, (cx3 - cx) / 5, (360 * endArcNoise), (360 * startArcNoise));
-                                 p5.strokeWeight(4*xWidth / 5);
-                              }
-                           }
-                        }
                         }
                      }
 
@@ -1708,6 +1258,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
                      }
                         
+                  }
+
+                  if (zoom >= 6) {
+                     
                   }
                
                }

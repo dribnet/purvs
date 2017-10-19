@@ -10,7 +10,7 @@ if (typeof initialZoomLevel === 'undefined') {
 }
 
 if (typeof maxZoomLevel === 'undefined') {
-  var maxZoomLevel = 16;
+  var maxZoomLevel = 10;
 }
 
 var worldMap = new L.Map('map', {  
