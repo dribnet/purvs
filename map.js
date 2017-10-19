@@ -5,14 +5,22 @@ var myCRS = L.extend({}, L.CRS.Simple, {
     0)
 });
 
+if (typeof initialZoomLevel === 'undefined') {
+  var initialZoomLevel = 0;
+}
+
+if (typeof maxZoomLevel === 'undefined') {
+  var maxZoomLevel = 16;
+}
+
 var worldMap = new L.Map('map', {  
   continuousWorld:true, 
   minZoom: 0,
-  maxZoom: 45,
+  maxZoom: maxZoomLevel,
   crs: myCRS,
   attributionControl: false,
   center: [512, 512], 
-  zoom: 0});
+  zoom: initialZoomLevel});
 
 worldMap._p5_seed = Math.floor(Math.random() * 1000);
 worldMap._p5_depth = 0.0;
@@ -85,7 +93,7 @@ if (typeof tourPath === 'undefined') {
     [8, 512, 512]
   ]
 }
-tourPath.unshift([0, 512, 512]);
+tourPath.unshift([initialZoomLevel, 512, 512]);
 
 if (typeof tourSeed === 'undefined') {
   var tourSeed = 0;
@@ -122,4 +130,3 @@ attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a> | '
 attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a>'
 attrib.addAttribution(attrStr)
 worldMap.addControl(attrib)
-
