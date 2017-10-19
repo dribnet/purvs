@@ -1,3 +1,5 @@
-## Powers of 10 PRINT
+## PS4
 
-I started by setting up the noise background to scale with zoom, experimenting with blur filter effects. However I ran into issues isolating the effect so I may try loading images for the star blur effect in the future. 
+This is my star layout enhanced with varying self made flare images added. The blur effect on each star is something I thought was too important to the visuals to leave out. The ellipse bases have switch to a rare occurrence as well, with some star bases being orange/pinkish coloured.
+
+Sometimes there is a bug with the images not loading, however after refreshing the page they seem to return.
