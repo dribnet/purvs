@@ -126,6 +126,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           var starScale = p5.map(starScaleOffset, 0, 1, 3, 10);
           var c_pball = p5.map(starScale, x1, x2, 0, 256);
           var cur_ball_radius = c_pball - c_p00;
+          var shipOffset = p5.map(cur_ball_radius, 0, 256, -10, 10);
 
           var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
           var x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
@@ -176,6 +177,46 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
           p5.noStroke();
 
+
+          if (zoom >= 5) {
+
+
+              p5.strokeWeight(2 + zoom/1.5);
+
+              if (cl >= 50) {
+                  p5.stroke(162, 255, 238, 200);
+                  
+                  p5.fill(50, 100);
+              }
+
+              else {
+                  p5.stroke(62, 255, 198, 200);
+                  p5.fill(50, 200);
+              }
+              
+
+              if (cl2 >= 35) {
+                  p5.ellipse(x_pos + (cur_ball_radius * 60 * noiseScale), y_pos + (cur_ball_radius * 60 * noiseScale), cur_ball_radius * 9 * noiseScale);
+                  p5.line(x_pos, y_pos, x_pos + (cur_ball_radius * 60 * noiseScale), y_pos + (cur_ball_radius * 60 * noiseScale));
+              }
+
+              if (cl2 >= 45) {
+                  p5.ellipse(x_pos + (-cur_ball_radius * 60 * noiseScale), y_pos + (cur_ball_radius * 60 * noiseScale), cur_ball_radius * 9 * noiseScale);
+                  p5.line(x_pos, y_pos, x_pos + (-cur_ball_radius * 60 * noiseScale), y_pos + (cur_ball_radius * 60 * noiseScale));
+              }
+
+              if (cl2 >= 55) {
+                  p5.ellipse(x_pos + (-cur_ball_radius * 60 * noiseScale), y_pos + (-cur_ball_radius * 60 * noiseScale), cur_ball_radius * 9 * noiseScale);
+                  p5.line(x_pos, y_pos, x_pos + (-cur_ball_radius * 60 * noiseScale), y_pos + (-cur_ball_radius * 60 * noiseScale));
+              }
+
+              if (cl2 >= 65) {
+                  p5.ellipse(x_pos + (cur_ball_radius * 60 * noiseScale), y_pos + (-cur_ball_radius * 60 * noiseScale), cur_ball_radius * 9 * noiseScale);
+                  p5.line(x_pos, y_pos, x_pos + (cur_ball_radius * 60 * noiseScale), y_pos + (-cur_ball_radius * 60 * noiseScale));
+              }
+          }
+
+
           if (zoom >= 3) {
               p5.strokeWeight(3 + (0.1 * zoom));
               p5.stroke(255);
@@ -184,6 +225,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
               if (cl >= 45) {
                   p5.ellipse(x_pos, y_pos, cur_ball_radius * 90 * noiseScale);
+                  
               }
 
               if (cl >= 60) {
@@ -194,7 +236,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                   p5.ellipse(x_pos, y_pos, cur_ball_radius * 150 * noiseScale * noiseVal);
               }
 
+              
+
           }
+
+
 
           if (cl >= 50) {
               p5.fill(117, 238, 251,200);
@@ -209,7 +255,28 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           p5.imageMode(p5.CENTER);
           p5.image(img, x_pos, y_pos, cur_ball_radius * 4, cur_ball_radius * 4);
 
+          //if (zoom >= 4) {
+          p5.push();
+          //p5.translate(cl);
+              //p5.rotate(cur_ball_radius);
+              //var shift_point2 = getOffsetPoint2(p5, x, y, z, 0.1);
+              //var x_pos = p5.map(shift_point2[0], x1, x2, 0, 256);
+              //var y_pos = p5.map(shift_point2[1], y1, y2, 0, 256);
 
+              //p5.fill(40, 30, 20);
+              //p5.rect(x_pos, y_pos, cur_ball_radius / 4, cur_ball_radius / 4);
+
+              //p5.fill(170, 150, 130);
+              //p5.rect(x_pos, y_pos, cur_ball_radius / 6, cur_ball_radius / 6);
+
+              //p5.rect(x_pos, y_pos, cur_ball_radius / 1, cur_ball_radius / 9);
+
+
+                
+
+              p5.pop();
+
+          //}
 
       }
   }

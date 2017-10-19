@@ -1,7 +1,7 @@
 ## PS4
 
-The first layer of zoom detail was added at zoom level of 3 or higher. The detail features white rings circulating the outside of the star. This is an abstract way of showing information such as orbits. 
+For my final layer of progress I tried very hard to get an additional layer of detail with spaceships flying around, to show an abstract idea of flight paths or something similar. However I ran into the clipping issue again and it was a very big downside this time around. The clipping would cut my spaceships and throw the pieces in very weird locations. I spent a long time trying to fix this but with no success. 
 
-The standard amount of rings is two, but the possibility for a single ring, three rings, and even four rings is available. The spacing between the rings is also based on noise so each star will have unique orbits around them.
+Due to time constraints I switched the final layer of detail to a sort of information pop up that appears when you zoom in to stars. Some stars might not have any, but others can have up to four at a time. This is another feature that I think works well enough to make each star more unique and interesting. 
 
-I have run into a slight clipping effect that happens on some star rings the closer you get. Sometimes this is an issue with odd visuals, but additionally sometimes it produces very interesting visuals on the rings with various arcs of different lengths. I spent some time trying to fix it with no success, but I do not think it is too big of an issue.
+There is a portion of stroke weight enhancing with zoom, and alternate stroke and fill colours to again, make the information pop up seem more unique. 
