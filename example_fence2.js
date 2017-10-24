@@ -100,7 +100,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   var cur_line_width = c_plwidth - c_p00;
   var cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(0);
   for(var x=min_x; x<max_x; x+=grid_size) {
     for(var y=min_y; y<max_y; y+=grid_size) {
       var shift_point = getOffsetPoint(p5, x, y, z, 0.1);
@@ -123,11 +123,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.noStroke();
       // if zoomed: first, draw petals *behind* the ellipse
       if(zoom >= 3) {
-        p5.fill(0, 0, 255);
+        p5.fill(0, 255, 255);
         drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, line_width);
       }
       // draw ellipse
-      p5.fill(0, 0, 128);
+      p5.fill(0, 200, 200);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
       // if zoomed: last draw stamens *in front of* the ellipse
