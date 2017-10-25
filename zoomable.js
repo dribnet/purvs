@@ -46,10 +46,10 @@ var biome_mountains = [
 var biome_desert = [
     [0, "#84afcc", "deepsea"],
     [0.515, "#bed6e5", "shallows"],
-    [0.54, "#fcf3cf", "beach"],
-    [0.585, "#ffffed", "dry_desert"],
-    [0.76, "#f9eec0", "desert"],
-    [0.8, "#ffddb5", "red_desert"],
+    [0.54, "#fcf3cf", "dry_beach"],
+    [0.585, "#f4f4de", "dry_desert"],
+    [0.73, "#f9eec0", "desert"],
+    [0.8, "#f7e1c0", "red_desert"],
     [0.845, "#f9eec0", "desert"],
     [0.85, "#d4e0ba", "scrub"],
     [0.85, "#d4e0ba", "scrub"],
@@ -66,7 +66,7 @@ var biome_islands = [
     [0.684, "#ede3c2", "rocks"],
     [0.685, "#e1f4be", "vegetation"],
     [0.7, "#ffffed", "beach"],
-    [0.7675, "#fcf3cf", "desert"],
+    [0.7675, "#fcf3cf", "bright_sand"],
     [0.835, "#e1f4be", "vegetation"],
     [0.8675, "#bcedf2", "tropical_fords"],
     [1, "#bed6e5", "shallows"]
@@ -118,7 +118,7 @@ function getBiome(val) {
     if (val > 0.675) {
         biome = biome_islands;
     }
-    biome = biome_mountains;
+    biome = biome_desert;
     return biome;
 }
 
@@ -142,7 +142,7 @@ function snap_to_grid(num, gsize) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     // global noise setting
     p5.noiseDetail(16, 0.5);
-
+    console.log(p5.random(0,1))
     var hex_sizey = 3 * hex_size / 4;
     var max_shift = hex_size;
     var min_x = snap_to_grid(x1 - max_shift, hex_size);
@@ -206,6 +206,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                 }
             }
 
+            if (zoom>=2 &&curHexState == "dry_desert"|| zoom>=2 && curHexState =="dry_beach"){
+                if(curHexNoise>0.5675&&curHexNoise<0.615 && scatterNoise >0.85){
+                    drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
+                }
+                if(curHexNoise>0.5675&&curHexNoise<0.615 && scatterNoise <0.15 ){
+                    drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
+                }
+            }
+
             if (curHexState == "mountain") {
                 if (zoom > 1) {
                     if(scatterNoise >0.65){
@@ -231,7 +240,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
             }
             if (curHexState == "cliffs") {
-                if (zoom > 1 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.475) {
+                if (zoom > 1 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.595) {
                     drawMountain(p5, x_pos, y_pos, rad, hex_color);
                 }
             }
@@ -279,12 +288,12 @@ function drawWave(p5, xpos, ypos, x1, x2, y1, y2, rad) {
 
     var res = 32;
     var amp = 21; //higher val == shorter waves
-    var period = 20; // lower val == more waves
+    var period = 18.2; // lower val == more waves
     period *= w;
     amp = w / amp;
     var xspace = w / res;
     var dx = (360 / period) * xspace; // Value for incrementing x
-    var theta = x1+xpos;
+    var theta = 0;//x1+xpos;
     var store = new Array(Math.floor(w / xspace)); // y values
 
     var x = theta;
@@ -478,7 +487,91 @@ function drawMountainPeak(p5,xpos,ypos,rad,hex_color){
 
 }
 
+function drawSkelly(p5,xpos, ypos, rad, hex_color) {
+    var w = rad*2;
+    var line = rad/50;
+    var strokeCol = p5.lerpColor(hex_color,p5.color("#dbc357"),0.5);
 
+    p5.push();
+    p5.fill(strokeCol);
+    p5.strokeWeight(line);
+    p5.stroke(hex_color);
+    p5.stroke(strokeCol);
+    var ypos = ypos - rad / 2
+    var xpos = xpos - rad / 8
+    var tip_thick = rad * 0.02;
+
+    var b1_thick = rad * 0.35;
+    var b1_tip_thick = b1_thick / 6;
+    var b1 = [xpos, ypos + w / 2];
+    var b1_tip = [xpos - w * 7 / 32, ypos + w * 3 / 32];
+    var b1_mid_thick = p5.lerp(b1_thick, b1_tip_thick, 0.5);
+    var b1_mid = midpoint(b1, b1_tip);
+
+    var b2_thick = rad * 0.25;
+    var b2_tip_thick = b2_thick / 6;
+    var b2 = [xpos + w * 1 / 4, ypos + w * 10 / 32];
+    var b2_tip = [xpos + w * 1 / 32, ypos + w * 1 / 32];
+    var b2_mid_thick = p5.lerp(b2_thick, b2_tip_thick, 0.5);
+    var b2_mid = midpoint(b2, b2_tip);
+
+    var b3_thick = rad * 0.15;
+    var b3_tip_thick = b3_thick / 6;
+    var b3 = [xpos + w * 13 / 32, ypos + w * 6 / 32];
+    var b3_tip = [xpos + w * 8.5 / 32, ypos - 5 / 32];
+    var b3_mid_thick = p5.lerp(b3_thick, b3_tip_thick, 0.5);
+    var b3_mid = midpoint(b3, b3_tip);
+    p5.strokeWeight(line);
+    p5. ellipse( b1[0] - b1_thick*0.4 ,b1[1] - b1_thick * 0, b1_thick * 1.65 ,b1_thick * 1.2 );
+    p5. ellipse( b2[0] - b2_thick*0.4 ,b2[1] - b2_thick * 0, b2_thick * 1.65 ,b2_thick * 1.2 );
+    p5. ellipse( b3[0] - b3_thick*0.4 ,b3[1] - b3_thick * 0, b3_thick * 1.65 ,b3_thick * 1.2 );
+
+
+    p5.fill("white")
+
+    p5.beginShape();
+    p5.curveVertex(b1_tip[0] - b1_tip_thick / 2, b1_tip[1]); //L tip
+    p5.curveVertex(b1_mid[0] + b1_mid_thick * 1 / 8, b1_mid[1] + b1_tip_thick / 2); //mid L
+    p5.curveVertex(b1[0] - b1_thick / 2, b1[1] + b1_thick / 4); //left
+    p5.curveVertex(b1[0] + b1_thick / 8, b1[1] + b1_thick *0.55); //bottom
+    p5.curveVertex(b1[0] + b1_thick / 2, b1[1]); //right 
+    p5.curveVertex(b1_mid[0] + b1_mid_thick, b1_mid[1] - b1_tip_thick); // mid R
+    p5.curveVertex(b1_tip[0] + b1_tip_thick, b1_tip[1] - b1_tip_thick / 4); //R tip
+    p5.curveVertex(b1_tip[0] - b1_tip_thick / 2, b1_tip[1]); //L tip
+    p5.curveVertex(b1_mid[0] + b1_mid_thick * 1 / 8, b1_mid[1] + b1_tip_thick / 2); //mid L
+    p5.curveVertex(b1[0] - b1_thick / 2, b1[1] + b1_thick / 4); //left
+    p5.endShape();
+
+    p5.beginShape();
+    p5.curveVertex(b2_tip[0] - b2_tip_thick / 2, b2_tip[1]); //L tip
+    p5.curveVertex(b2_mid[0] + b2_mid_thick * 1 / 8, b2_mid[1] + b2_tip_thick / 2); //mid L
+    p5.curveVertex(b2[0] - b2_thick / 2, b2[1] + b2_thick / 4); //left
+    p5.curveVertex(b2[0] + b2_thick / 8, b2[1] + b2_thick *0.55); //bottom
+    p5.curveVertex(b2[0] + b2_thick / 2, b2[1]); //right 
+    p5.curveVertex(b2_mid[0] + b2_mid_thick, b2_mid[1] - b2_tip_thick); // mid R
+    p5.curveVertex(b2_tip[0] + b2_tip_thick, b2_tip[1] - b2_tip_thick / 4); //R tip
+    p5.curveVertex(b2_tip[0] - b2_tip_thick / 2, b2_tip[1]); //L tip
+    p5.curveVertex(b2_mid[0] + b2_mid_thick * 1 / 8, b2_mid[1] + b2_tip_thick / 2); //mid L
+    p5.curveVertex(b2[0] - b2_thick / 2, b2[1] + b2_thick / 4); //left
+    p5.endShape();
+    p5.strokeWeight(line*5/6);
+
+    p5.beginShape();
+    p5.curveVertex(b3_tip[0] - b3_tip_thick / 2, b3_tip[1]); //L tip
+    p5.curveVertex(b3_mid[0] + b3_mid_thick * 1 / 8, b3_mid[1] + b3_tip_thick / 2); //mid L
+    p5.curveVertex(b3[0] - b3_thick / 2, b3[1] + b3_thick / 4); //left
+    p5.curveVertex(b3[0] + b3_thick / 8, b3[1] + b3_thick * 0.55); //bottom
+    p5.curveVertex(b3[0] + b3_thick / 2, b3[1]); //right 
+    p5.curveVertex(b3_mid[0] + b3_mid_thick, b3_mid[1] - b3_tip_thick); // mid R
+    p5.curveVertex(b3_tip[0] + b3_tip_thick, b3_tip[1] - b3_tip_thick / 4); //R tip
+    p5.curveVertex(b3_tip[0] - b3_tip_thick / 2, b3_tip[1]); //L tip
+    p5.curveVertex(b3_mid[0] + b3_mid_thick * 1 / 8, b3_mid[1] + b3_tip_thick / 2); //mid L
+    p5.curveVertex(b3[0] - b3_thick / 2, b3[1] + b3_thick / 4); //left
+    p5.endShape();
+    p5.strokeWeight(line*4/6);
+
+    p5.pop();
+}
 // Converts from degrees to radians.
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
@@ -487,4 +580,7 @@ Math.radians = function(degrees) {
 // Converts from radians to degrees.
 Math.degrees = function(radians) {
     return radians * 180 / Math.PI;
+};
+function midpoint(p1, p2) {
+    return [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
 };
