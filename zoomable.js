@@ -1,7 +1,13 @@
-var max_thickness = 64;
-var hex_size = 5;
+// Map generator with biomes, landmarks, and contextual markings
+// Code adapted from Red Blob Games' guide to hexagonal grids
+//      https://www.redblobgames.com/grids/hexagons/
+// 
+
+
+var hex_size = 3;// width/height of each hex cell in pixels
 var noiseScale = 1 / 150;
-var scatterNoiseScale = 1/3;
+var scatterNoiseScale = 1/2;
+var stepNoiseScale = 1/25;
 var initialZoomLevel = 3;
 var maxZoomLevel = 12;
 
@@ -118,7 +124,7 @@ function getBiome(val) {
     if (val > 0.675) {
         biome = biome_islands;
     }
-    biome = biome_desert;
+   biome = biome_desert;
     return biome;
 }
 
@@ -142,7 +148,6 @@ function snap_to_grid(num, gsize) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     // global noise setting
     p5.noiseDetail(16, 0.5);
-    console.log(p5.random(0,1))
     var hex_sizey = 3 * hex_size / 4;
     var max_shift = hex_size;
     var min_x = snap_to_grid(x1 - max_shift, hex_size);
@@ -175,13 +180,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     //Draw Features
     rowCount = Math.floor(min_y / hex_sizey);
    if(zoom>0){
-    for (var y = min_y; y < max_y; y += hex_sizey) {
+    for (var y = min_y-hex_sizey; y < max_y+hex_sizey; y += hex_sizey) {
         if (rowCount % 2 === 0) {
             offset = hex_size / 2;
         } else {
             offset = 0;
         }
-        for (var x = min_x; x < max_x; x += hex_size) {
+        for (var x = min_x-hex_size; x < max_x+hex_size; x += hex_size) {
             var hex_pos = [x + offset, y - hex_size]; //global
             var x_pos = p5.map(hex_pos[0], x1, x2, 0, 256); //local
             var y_pos = p5.map(hex_pos[1], y1, y2, 0, 256); //local
@@ -193,29 +198,85 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
             var scatterNoise = p5.noise(hex_pos[0] * scatterNoiseScale, hex_pos[1] * scatterNoiseScale, 800);
             var glyphOffset_x = rad / 2 * (p5.noise(hex_pos[0], hex_pos[1], 40) - 0.5);
             var glyphOffset_y = rad / 2 * (p5.noise(hex_pos[0], hex_pos[1], 50) - 0.5);
-            // console.log(curHexState);
-
-            //Glyph conditions
-
+            
+            var q = Math.floor(hex_pos[0] / (hex_size) ); // qolumn
+            var r = Math.floor(hex_pos[1] / (hex_sizey) ); // row 
+            //Glyph drawing conditions
+            //console.log(q,r);
             if (curHexNoise < 0.3) { //waves in deeper sea
-                if (scatterNoise > 0.45 && zoom >= 2 && (hex_pos[0] / (hex_size / 2)) % 3 == 0 && (hex_pos[1] / (hex_size / 3) % 1.25) % 1 == 0) {
+                if (scatterNoise > 0.45 && zoom >= 2 && q % 3 == 0 && r % 2 == 0) {
+                    x_pos += r%6*rad*2.25;
                     drawWave(p5, x_pos, y_pos + glyphOffset_y, x1, x2, y1, y2, rad);
+                    x_pos -= r%6*rad*2.25;
                 }
-                if (scatterNoise > 0.5 && zoom == 1 && (hex_pos[0] / (hex_size / 2)) % 3 == 0 && (hex_pos[1] / (hex_size / 3) % 1.25) % 1 == 0) {
+                if (scatterNoise > 0.5 && zoom == 1 && q % 3 == 0 && r % 2 == 0) {
+                    x_pos += r%6*rad*2.25;
                     drawWave(p5, x_pos, y_pos + glyphOffset_y, x1, x2, y1, y2, rad);
+                    x_pos -= r%6*rad*2.25; 
+                }
+            }
+            if(curHexState == "dry_desert"|| curHexState =="dry_beach"){
+                if(zoom>0){
+                    if(curHexNoise>0.5675 && curHexNoise<0.615){
+                        if(scatterNoise <0.15 ){
+                            drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
+                        }
+                        if(scatterNoise >0.85){
+                            drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
+                        }
+                        if(0.2<scatterNoise&&scatterNoise < 0.21){
+                            drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
+                        }
+
+                    }
                 }
             }
 
-            if (zoom>=2 &&curHexState == "dry_desert"|| zoom>=2 && curHexState =="dry_beach"){
-                if(curHexNoise>0.5675&&curHexNoise<0.615 && scatterNoise >0.85){
-                    drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
-                }
-                if(curHexNoise>0.5675&&curHexNoise<0.615 && scatterNoise <0.15 ){
-                    drawSkelly(p5, x_pos, y_pos, rad*2, hex_color);
-                }
+            else if(curHexState == "red_desert" || curHexState == "desert") {
+                if (zoom > 1) {
+
+                    var steplayer1 = 0.425;
+                    var steplayer2 = 0.575;
+                    var zoomDetail_mod = zoom*0.15
+                    if(curHexNoise<0.8 && scatterNoise < curHexNoise/(2.85- zoomDetail_mod) ){
+                       var stepNoise = p5.noise(hex_pos[0] * stepNoiseScale, hex_pos[1] * stepNoiseScale, 320);
+
+                       if (stepNoise < steplayer1 ) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, -1);
+                        } else if (stepNoise >  steplayer1 && stepNoise < steplayer2) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 0);
+                        } else {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 1);
+                        }
+                    }
+                    if(curHexNoise>0.8 &&curHexNoise<0.855 && scatterNoise < curHexNoise/(2.85 - zoomDetail_mod*2)){
+                       var stepNoise = p5.noise(hex_pos[0] * stepNoiseScale, hex_pos[1] * stepNoiseScale, 320);
+
+                        if (stepNoise < steplayer1 ) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, -1);
+                        } else if (stepNoise >  steplayer1 && stepNoise < steplayer2) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 0);
+                        } else {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 1);
+                        }
+                    }
+                    
+                    if(curHexNoise>0.855 &&curHexNoise<0.8625 && scatterNoise < curHexNoise/(2.85-zoomDetail_mod*4)){
+                       var stepNoise = p5.noise(hex_pos[0] * stepNoiseScale, hex_pos[1] * stepNoiseScale, 320);
+
+                        if (stepNoise < steplayer1 ) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, -1);
+                        } else if (stepNoise <  steplayer1 && stepNoise>steplayer2) {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 0);
+                        } else {
+                            drawSteps(p5, x_pos, y_pos, rad*2, hex_color, 1);
+                        }
+                    }
+
+               }
             }
 
-            if (curHexState == "mountain") {
+            else if(curHexState == "mountain") {
                 if (zoom > 1) {
                     if(scatterNoise >0.65){
                     drawMountainPeak(p5, x_pos, y_pos, rad, hex_color);
@@ -239,13 +300,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                 }
 
             }
-            if (curHexState == "cliffs") {
+            else if(curHexState == "cliffs") {
                 if (zoom > 1 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.595) {
                     drawMountain(p5, x_pos, y_pos, rad, hex_color);
                 }
             }
 
-            if (curHexState == "forest" || curHexState == "deep_forest") {
+            else if(curHexState == "forest" || curHexState == "deep_forest") {
                 if (zoom > 2) {
                     if (zoom > 3 && scatterNoise > 0.425 && curHexNoise < 0.79) { //tiny trees
                         drawForest(p5, x_pos + glyphOffset_x, y_pos - rad / 2 + glyphOffset_y, rad * 0.4, hex_color);
@@ -256,14 +317,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                         drawForest(p5, x_pos + rad / 2 + glyphOffset_x, y_pos + rad / 3 + glyphOffset_y, rad * 0.5, hex_color);
                     }
                 }
-                if (curHexState == "deep_forest" && zoom > 2 && curHexNoise > 0.8 && curHexNoise<0.82) { //big boi
+                if(curHexState == "deep_forest" && zoom > 2 && curHexNoise > 0.8 && curHexNoise<0.82) { //big boi
                     glyphOffset_x = rad * (p5.noise(hex_pos[0], hex_pos[1], 80) - 0.5);
                     glyphOffset_y = rad * (p5.noise(hex_pos[0], hex_pos[1], 90) - 0.5);
                     drawForest(p5, x_pos - rad / 4 + glyphOffset_x, y_pos + glyphOffset_y, rad * 0.7, hex_color);
                 }
-                if (curHexState == "deep_forest" && zoom >0) { // larger forests glyphs in overworld
+                if(curHexState == "deep_forest" && zoom >0) { // larger forests glyphs in overworld
                 //large icons in overview
-                if (zoom >=2 && curHexNoise < 0.9 && curHexNoise > 0.82 && scatterNoise > 0.45) {
+                if(zoom >=2 && curHexNoise < 0.9 && curHexNoise > 0.82 && scatterNoise > 0.45) {
                     drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 1.5, hex_color);
                 }else if(zoom == 1 && curHexNoise < 0.9 && curHexNoise > 0.825 && scatterNoise > 0.55) {
                     drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2, hex_color);
@@ -377,7 +438,7 @@ function drawForest(p5, x, y, bottom_size, hex_color) {
 
 function drawMountain(p5,xpos,ypos,rad,hex_color){
     var w  = rad;
-    var line = rad/16
+    var line = rad/13
 
     p5.push();
     p5.fill(hex_color);  
@@ -418,7 +479,7 @@ function drawMountain(p5,xpos,ypos,rad,hex_color){
 
 function drawSnowyPeak(p5,xpos,ypos,rad,hex_color){
     var w  = rad;
-    var line = rad/8
+    var line = rad/7
     p5.noFill();
 
     p5.push();
@@ -440,7 +501,6 @@ function drawSnowyPeak(p5,xpos,ypos,rad,hex_color){
     p5.endShape(p5.CLOSE);
 
     p5.noFill();  
-    //p5.stroke("red");
     p5.strokeWeight(line);
 
     p5.beginShape();
@@ -462,7 +522,7 @@ function drawSnowyPeak(p5,xpos,ypos,rad,hex_color){
 
 function drawMountainPeak(p5,xpos,ypos,rad,hex_color){
     var w  = rad;
-    var line = rad/10
+    var line = rad/9
 
     p5.noFill();
     p5.push();
@@ -572,6 +632,33 @@ function drawSkelly(p5,xpos, ypos, rad, hex_color) {
 
     p5.pop();
 }
+
+function drawSteps(p5,xpos, ypos, rad, hex_color,mode){
+    var w = rad*2;
+    var col = p5.color("#dbc357")
+    var strokeCol = p5.lerpColor(hex_color,col,0.65);
+    var stepSize = w/10;
+    var p1_index = Math.abs(mode+3)%5;
+    var p1 =[0,0+w/2]; 
+    var p2 =[0,0-w/2];
+    p5.push();
+    p5.stroke(strokeCol);
+    p5.fill(strokeCol);
+    p5.translate(xpos,ypos);
+    p5.rotate(p5.radians(mode*63.435));
+    for(var y = p1[1]-stepSize*7/3;y>p2[1]+stepSize*2;y-=stepSize){
+        stepno = Math.floor((y-p2[1])/stepSize);
+        if(stepno%2 == 0){
+            p5.ellipse(p1[0]-stepSize/3,y,w/25,w/16);
+        }else{
+            p5.ellipse(p1[0]+stepSize/3,y,w/25,w/16);
+        }
+    }
+
+    p5.pop();
+}
+
+
 // Converts from degrees to radians.
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
