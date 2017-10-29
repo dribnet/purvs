@@ -1,6 +1,6 @@
 Final
 
-For this assignment I wanted to carry on from the work I did on PS#. The space landscape was a good starting point and so i went to work on making a nice layout of stars.
+For this assignment I wanted to carry on from the work I did on PS3. The space landscape was a good starting point and so i went to work on making a nice layout of stars.
 The stars on PS3 were not very efficient and the drawing ran very slowly so I wanted to fix that for this project. Instead of using a for loop to generate the stars, I 
 used the sample code provided in class, which went through a set of coordinates to make a unique layout.I further tweaked the layout using the noise funtion. The final 
 result is a really nice layout of stars.
