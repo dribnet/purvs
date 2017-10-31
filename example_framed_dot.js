@@ -32,14 +32,16 @@ var sky1 = [202,206,222];
 function drawGrid(p5, tempX1, tempX2, tempY1, tempY2, z, zoom) {
  //create global variables
 
+
  p = p5;
- currentRandom = Math.floor(p.noise(0,0, 60)*100);
- resetFocusedRandom(curRandomSeed);
+ //var currentRandom = Math.floor(p.noise(0,0, 60)*100);
+ //Math.seededrandom(4);
  x1 = tempX1;
  x2 = tempX2;
  y1 = tempY1;
  y2 =  tempY2;
-  console.log(y1, y2);
+  Math.seed = 0;
+  console.log(Math.random());
   p5.background(255);
   p5.rectMode(p5.CORNERS);
 
@@ -65,35 +67,22 @@ function drawGrid(p5, tempX1, tempX2, tempY1, tempY2, z, zoom) {
   var cx2 = p5.map(200+300, x1, x2, 0, 256);
   p5.fill(0, 0, 255);
   p5.ellipse(cx, cy, (cx2-cx));
+  var dep = 10;
   for (var a = 0; a <5;a++){
 
    for (var i = 0; i<height/20; i++){
   var cx =xCalc(x0+a*20);
   var cy = yCalc(y0+i*20);
   var noiseX = p5.noise(a,
-                        i, 10);
+                        i, dep);
   var cx2 = p5.map(0+50*noiseX, x1, x2, 0, 256);
   p5.fill(0, 255, 0);
   p5.ellipse(cx, cy, (cx2-cx));
+  dep = dep + 10;
    }
  }
-  // The second green ellipse is above and to the left of the first one.
-  var cx = p5.map(0, x1, x2, 0, 256);
-  var cy = p5.map(412, y1, y2, 0, 256);
-  var noiseX = p5.noise(0,
-                        412, 10);
-  var cx2 = p5.map(0+50*noiseX, x1, x2, 0, 256);
-  p5.fill(0, 255, 0);
-  p5.ellipse(cx, cy, (cx2-cx));
+  
 
-    // The second green ellipse is above and to the left of the first one.
-  var cx = p5.map(100, x1, x2, 0, 256);
-  var cy = p5.map(412, y1, y2, 0, 256);
-  var noiseX = p5.noise(100,
-                        412, 100);
-  var cx2 = p5.map(100+50*noiseX, x1, x2, 0, 256);
-  p5.fill(0, 255, 0);
-  p5.ellipse(cx, cy, (cx2-cx));
 }
 //this.skyWash = function(xMin, yMin, xMax, yMax){
 ////sets a color with a lerp value based on random number one, and an opacity based on random number two	
@@ -113,11 +102,12 @@ function drawGrid(p5, tempX1, tempX2, tempY1, tempY2, z, zoom) {
 //}
 //}
 //takes the x coordinate to be mapped and returns the new value
+
 function xCalc(val){
 return p.map(val, x1, x2, 0, 256);
 }
 //takes the y coordinate to be mapped and returns the new value
 function yCalc(val){
-	currentRandom = Math.floor(p.noise(0,0, 60)*100);
+
 return p.map(val, y1, y2, 0, 256);
 }
