@@ -87,6 +87,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                 var r = Math.floor(hex_pos[1] / (hex_sizey)); // row index
                 
                 var rad = p5.map(hex_size / 2, 0, x2 - x1, 0, 256);
+                x_pos-=rad;
                 var hex_color = getHexColor(p5, hex_pos[0], hex_pos[1]);
 
                 var curHexState = getHexState(p5, hex_pos[0], hex_pos[1]);
@@ -112,11 +113,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
                 }
 
-
-// Logic for drawing glyphs
-
                 if (curHexState == "dry_desert" || curHexState == "dry_beach") {
-                    if (zoom >= 1) {
+                    if (zoom > 1) {
                         if (curHexNoise > 0.5675 && curHexNoise < 0.615) {
                             if (scatterNoise < 0.125) {
                                 drawSkelly(p5, x_pos, y_pos, rad * 2, hex_color);
@@ -135,8 +133,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
                         var steplayer1 = 0.425;
                         var steplayer2 = 0.575;
-                        var scatterThresh = 3;
-                        var zoomDetail_mod = zoom * 0.25;
+                        var scatterThresh = 4;
+                        var zoomDetail_mod = zoom * 0.45;
                         zoomDetail_mod = scatterThresh-zoomDetail_mod;
                         if(zoomDetail_mod < 1){
                             zoomDetail_mod = 1;
@@ -192,8 +190,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
 
                     if (zoom >= 2) {
-                        if (scatterNoise > 0.55) {
-                            drawSnowyMountain(p5, x_pos, y_pos, rad, hex_color);
+                        if (scatterNoise > 0.55) {  
                         }
                         if (curHexNoise > 0.855 && scatterNoise > 0.25) {
                             drawSnowyMountain(p5, x_pos, y_pos, rad, hex_color);
@@ -201,9 +198,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
 
                 } else if (curHexState == "cliffs") {
-                    if (zoom > 1 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.595) {
+                    if (zoom > 1 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.795) {
                         drawHill(p5, x_pos, y_pos, rad, hex_color);
                     }
+                    if (zoom > 2 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.695) {
+                        drawHill(p5, x_pos, y_pos, rad, hex_color);
+                    }
+                    if (zoom > 2 && curHexNoise > 0.72 && curHexNoise < 0.775 && scatterNoise > 0.625) {
+                        drawHill(p5, x_pos, y_pos, rad, hex_color);
+                    }
+
                 } else if (curHexState == "forest" || curHexState == "deep_forest") {
                     if (zoom > 2) {
                         if (zoom > 3 && scatterNoise > 0.425 && curHexNoise < 0.79) { // tiny trees
@@ -218,17 +222,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     if (curHexState == "deep_forest" && zoom > 2 && curHexNoise > 0.8 && curHexNoise < 0.82) { // big boi
                         glyphOffset_x = rad * (p5.noise(hex_pos[0], hex_pos[1], 80) - 0.5);
                         glyphOffset_y = rad * (p5.noise(hex_pos[0], hex_pos[1], 90) - 0.5);
+                        console.log("Big_bois");
                         drawForest(p5, x_pos - rad / 4 + glyphOffset_x, y_pos + glyphOffset_y, rad * 0.7, hex_color);
                     }
                     if (curHexState == "deep_forest") {
                         // large icons in overview
-                        if (zoom == 1 && q % 3 == 0 && r % 5 == 0) {
+                        if (zoom === 2 && q % 3 == 0 && r % 4 == 0 && scatterNoise >0.45) {
+                            drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2.666, hex_color);
+                        }
+                        if (zoom === 1 && q % 3 == 0 && r % 4 == 0 ) {
                             drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2, hex_color);
                         }
 
                     }
-
-
                 }
                 rowCount++;
             }
@@ -238,41 +244,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.noFill();
 }
 
-
-
-function drawWave(p5, xpos, ypos, x1, x2, y1, y2, rad) {
-    var w = rad * 4;
-    xpos += rad / 32
-
-    var res = 32;
-    var amp = 21; // higher val == shorter waves
-    var period = 18.2; // lower val == more waves
-    period *= w;
-    amp = w / amp;
-    var xspace = w / res;
-    var dx = (360 / period) * xspace; // Value for incrementing x
-    var theta = 0; // x1+xpos;
-    var store = new Array(Math.floor(w / xspace)); // y values
-
-    var x = theta;
-    for (var i = 0; i < store.length; i++) {
-        store[i] = Math.cos(x) * amp;
-        x += dx;
-    }
-
-    p5.push();
-    p5.noFill();
-    p5.stroke("white");
-    p5.strokeWeight(rad / 6);
-    p5.beginShape();
-
-    for (var x = 0; x < store.length; x++) {
-        p5.curveVertex(xpos + (x * xspace) - w / 2, ypos + store[x]);
-    }
-
-    p5.endShape();
-    p5.pop();
-}
 
 function drawHex(p5, x, y, hex_color, rad) { //draw hex tile
     p5.push();

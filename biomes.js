@@ -1,16 +1,16 @@
 function getBiome(val) {
     var biome;
     if (val > 0.0) {
+        biome = biome_islands;
+    }
+    if (val > 0.385) {
+        biome = biome_plains;
+    }
+    if (val > 0.5) {
         biome = biome_mountains;
     }
-    if (val > 0.425) {
-        biome = biome_plains
-    }
-    if (val > 0.575) {
+    if (val > 0.615) {
         biome = biome_desert;
-    }
-    if (val > 0.7) {
-        biome = biome_islands;
     }
     //biome = biome_desert;
     return biome;
@@ -18,7 +18,7 @@ function getBiome(val) {
 
 function bioNoise(p5, x, y) {
     // p5.noiseDetail(10,0.5);
-    return 1 - p5.noise(x * noiseScale / 13 + 10000, y * noiseScale / 13 + 10000, 8);
+    return 1 - p5.noise(x * noiseScale/13 + 10000, y * noiseScale/13 + 10000, 8);
 }
 
 var biome_plains = [ // lush, grassy plains surrounding deep forests

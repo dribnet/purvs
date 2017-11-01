@@ -243,3 +243,40 @@ function drawForest(p5, x, y, bottom_size, hex_color) { //tree glyph to mark for
 
     p5.pop();
 }
+
+
+
+function drawWave(p5, xpos, ypos, x1, x2, y1, y2, rad) {
+    var w = rad * 4;
+    xpos += rad / 32
+
+    var res = 32;
+    var amp = 21; // higher val == shorter waves
+    var period = 18.2; // lower val == more waves
+    period *= w;
+    amp = w / amp;
+    var xspace = w / res;
+    var dx = (360 / period) * xspace; // Value for incrementing x
+    var theta = 0; // x1+xpos;
+    var store = new Array(Math.floor(w / xspace)); // y values
+
+    var x = theta;
+    for (var i = 0; i < store.length; i++) {
+        store[i] = Math.cos(x) * amp;
+        x += dx;
+    }
+
+    p5.push();
+    p5.noFill();
+    p5.stroke("white");
+    p5.strokeWeight(rad / 6);
+    p5.beginShape();
+
+    for (var x = 0; x < store.length; x++) {
+        p5.curveVertex(xpos + (x * xspace) - w / 2, ypos + store[x]);
+    }
+
+    p5.endShape();
+    p5.pop();
+}
+
