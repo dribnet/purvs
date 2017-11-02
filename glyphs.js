@@ -161,7 +161,7 @@ function drawMountain(p5,xpos,ypos,rad,hex_color){ //moutain outline with sharp 
 
     p5.noFill();
     p5.push();
-    p5.fill(hex_color);  
+    //p5.fill(hex_color);  
     p5.stroke("white");
     p5.strokeWeight(line);
 

@@ -3,13 +3,13 @@ function getBiome(val) {
     if (val > 0.0) {
         biome = biome_islands;
     }
-    if (val > 0.385) {
+    if (val > 0.375) {
         biome = biome_plains;
     }
     if (val > 0.5) {
         biome = biome_mountains;
     }
-    if (val > 0.615) {
+    if (val > 0.625) {
         biome = biome_desert;
     }
     //biome = biome_desert;
@@ -18,7 +18,9 @@ function getBiome(val) {
 
 function bioNoise(p5, x, y) {
     // p5.noiseDetail(10,0.5);
-    return 1 - p5.noise(x * noiseScale/13 + 10000, y * noiseScale/13 + 10000, 8);
+    var n =( 1 - p5.noise(x * noiseScale/11 + 10000, y * noiseScale/11 + 10000, 8));
+       // if(n<0.4){console.log("island")}
+    return n;
 }
 
 var biome_plains = [ // lush, grassy plains surrounding deep forests
@@ -28,10 +30,10 @@ var biome_plains = [ // lush, grassy plains surrounding deep forests
     [0.59, "#b8d8b3", "grass"],
     [0.7, "#d2edc7", "plains"],
     [0.76, "#82af7c", "forest"],
-    [0.8, "#689363", "deep_forest"],
-    [0.835, "#689363", "deep_forest"],
-    [0.91, "#d2edc7", "plains"],
-    [1, "#d7dbc9", "crags"]
+    [0.78, "#689363", "deep_forest"],
+    [0.82, "#689363", "deep_forest"],
+    [0.91, "#3f663c", "deep_forest"],
+    [1, "#2d512a", "crags"]
 ];
 var biome_mountains = [ // drier & colder than the forests, 
     [0, "#84afcc", "deepsea"],

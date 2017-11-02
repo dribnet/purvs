@@ -2,24 +2,39 @@
 // Code adapted from Red Blob Games' guide to hexagonal grids
 //      https:// www.redblobgames.com/grids/hexagons/
 
-var hex_size_static = 4 ; // width/height of each hex tile in pixels
+var hex_size_static = 4; // width/height of each hex tile in pixels
 var hex_size = hex_size_static;
-var noiseScale = 1 / 100    ;
+var noiseScale = 1 / 175;
 var scatterNoiseScale = 200;
 var stepNoiseScale = 1 / 25;
 
-var initialZoomLevel = 2;
+var initialZoomLevel = 1;
 var maxZoomLevel = 5;
 
 /* TOUR VARIABLES (required)
 /* the random number seed for the tour */
-var tourSeed = 442;
+var tourSeed = 306;
 /* triplets of locations: zoom, x, y */
 
 var tourPath = [ 
-    [1, -1206, 2967],
-    [1, -563, 4614],
-    [1, 512, 512]
+    [0, 1530, 818],
+    [1, 1375, 552],
+    [2, 1375, 567],
+    [3, 1414, 532],
+    [1, 1584, 234],
+    [0, 1584, 234],
+    [2, 1832, 310],
+    [3, 1861, 369],
+    [2, 1984, 387],
+    [2, 2090, 510],
+    [3, 2088, 504],
+    [0, 3745, 1076],
+    [1, 3851, 1360],
+    [2, 3832, 1423],
+    [3, 3828, 1406],
+    [4, 3808, 1397],
+
+
 ];
 
 function noiseVal(p5, x, y) { // get noise at main noiseScae;
@@ -32,15 +47,21 @@ function snap_to_grid(num, gsize) {
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     var hex_size = hex_size_static;
+
     if (zoom === 0) {
         hex_size *= 4;
     }
     if (zoom === 1) {
+        hex_size *= 4;
+    }
+    if (zoom === 2) {
+         hex_size *= 2;
+    }
+    if(zoom == 3){
         hex_size *= 2;
-
     }
    
-    p5.noiseDetail(80 , 0.475);  // global noise setting
+    p5.noiseDetail(40, 0.45);  // global noise setting
     var hex_sizey = 3 * hex_size / 4;
     var max_shift = hex_size;
     var min_x = snap_to_grid(x1 - max_shift, hex_size);
@@ -181,7 +202,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
 
                     if (zoom >= 1) {
-                        if (scatterNoise > 0.7) {
+                        if (scatterNoise > 0.725) {
                             drawMountain(p5, x_pos, y_pos, rad, hex_color);
                         }
                         if (curHexNoise > 0.87) {
@@ -190,10 +211,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
 
                     if (zoom >= 2) {
-                        if (scatterNoise > 0.55) {  
-                        }
-                        if (curHexNoise > 0.855 && scatterNoise > 0.25) {
-                            drawSnowyMountain(p5, x_pos, y_pos, rad, hex_color);
+                        if (scatterNoise > 0.65) {  
+                            drawMountain(p5, x_pos, y_pos, rad, hex_color);
                         }
                     }
 
@@ -209,8 +228,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     }
 
                 } else if (curHexState == "forest" || curHexState == "deep_forest") {
-                    if (zoom > 2) {
-                        if (zoom > 3 && scatterNoise > 0.425 && curHexNoise < 0.79) { // tiny trees
+                    if (zoom >= 2) {
+                        if (zoom >=3 && scatterNoise > 0.425 ) { // tiny trees
                             drawForest(p5, x_pos + glyphOffset_x, y_pos - rad / 2 + glyphOffset_y, rad * 0.4, hex_color);
                         }
                         if (curHexNoise > 0.78 && scatterNoise < 0.625 && curHexNoise < 0.815) { // medium forest
@@ -222,15 +241,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
                     if (curHexState == "deep_forest" && zoom > 2 && curHexNoise > 0.8 && curHexNoise < 0.82) { // big boi
                         glyphOffset_x = rad * (p5.noise(hex_pos[0], hex_pos[1], 80) - 0.5);
                         glyphOffset_y = rad * (p5.noise(hex_pos[0], hex_pos[1], 90) - 0.5);
-                        console.log("Big_bois");
                         drawForest(p5, x_pos - rad / 4 + glyphOffset_x, y_pos + glyphOffset_y, rad * 0.7, hex_color);
                     }
                     if (curHexState == "deep_forest") {
                         // large icons in overview
+                        if (zoom >= 3 && q % 3 == 0 && r % 4 == 0 && scatterNoise >0.45) {
+                            //drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2.333, hex_color);
+                        }
                         if (zoom === 2 && q % 3 == 0 && r % 4 == 0 && scatterNoise >0.45) {
                             drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2.666, hex_color);
                         }
-                        if (zoom === 1 && q % 3 == 0 && r % 4 == 0 ) {
+                         if (zoom === 1 && q % 3 == 0 && r % 4 == 0 ) {
                             drawForest(p5, x_pos + glyphOffset_x, y_pos + glyphOffset_y, rad * 2, hex_color);
                         }
 
