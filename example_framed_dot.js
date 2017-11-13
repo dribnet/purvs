@@ -10,9 +10,12 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
  //global variables
+
+ 
  //the width and height of the drawing area
  var width = 960;
  var height = 720;
+ var zoom;
  //the zero point of the canvas
 var x0 =512-width/2;
 var y0 = 512 - height/2;
@@ -34,18 +37,19 @@ var sky1 = [202,206,222];
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, tempX1, tempX2, tempY1, tempY2, z, zoom) {
  //create global variables
+ this.zoom = zoom;
+ p5.background(0);
 
 
  p = p5;
- //var currentRandom = Math.floor(p.noise(0,0, 60)*100);
- //Math.seededrandom(4);
+
  x1 = tempX1;
  x2 = tempX2;
  y1 = tempY1;
  y2 =  tempY2;
   Math.seed = 0;
-  console.log(Math.random());
-  p5.background(255);
+
+  p5.background(0);
   p5.rectMode(p5.CORNERS);
 
   // The first red rectangle fills the entire space
@@ -63,35 +67,93 @@ function drawGrid(p5, tempX1, tempX2, tempY1, tempY2, z, zoom) {
   cy2 = p5.map(y0+height-20, y1, y2, 0, 256);
   p5.fill(30,1, 150);
   p5.rect(cx, cy, cx2, cy2);
+  p5.fill(5,111,5);
+  p5.rect(xCalc(x0+20),yCalc(y0-1+height/1.3), xCalc(x0+width-20), yCalc(y0+height-20));
 
-  // Two ellipses with a radius of 50 units are then added.
-  // var cx = p5.map(x0+width, x1, x2, 0, 256);
-  // var cy = p5.map(200, y1, y2, 0, 256);
-  // var cx2 = p5.map(200+300, x1, x2, 0, 256);
-  // p5.fill(0, 0, 255);
-  // p5.ellipse(cx, cy, (cx2-cx));
-  // var dep = 10;
-  //loops arround making the green ellipses
-  // for (var a = 0; a <5;a++){
-  	// for (var i = 0; i<height/20; i++){
-  		// var cx =xCalc(x0+width/2);
-  		// var cy = yCalc(y0+20);
-  		// var noiseX = p5.noise(a, i, dep);
-  		// var cx2 = p5.map(0+4, x1, x2, 0, 256);
-  		// p5.fill(0, 255, 0);
-  		// p5.ellipse(cx, cy, (cx2-cx));
-  		// dep = dep + 10;
-  	// }
-  // }
 
-  tree(x0+width, y0+20, height-40);
-    tree(x0+width/2, y0+20, height-40);
-      tree(x0+width/4, y0+20, height-40);
-      leaf(x0+width/2, y0+width/2, 100, 11);
-  //p.ellipseMode(p.CORNERS);		
-  cx2 = p5.map(50, x1, x2, 0, 256);
- //p.ellipse(xCalc(x0+width/2),yCalc(y0+height/2),cx2,cx2 );
+
+      p.fill(0,200,0);
+      //determines if zoomed enough to see
+      if (zoom > 2 && zoom <5){
+
+      	for (var a = 0; a <59;a++){
+  	 for (var i = 0; i<613; i++){
+  	 	var xpos = 20+x0+i*1.5;
+  	 	var ypos = y0-1+height/1.3+a*2.5;
+  	 	var n = p.noise(xpos, ypos);
+  	 	if (n<0.6){
+  	 		linePat(xpos, ypos, 1.25, 1.25);
+  	 	}
+  	 
+      
+  		}}
+
+
+      }
+      	
+
+     
+      else if(zoom >4){
+    for (var a = 0; a <59;a++){
+  	 for (var i = 0; i<613; i++){
+  	 	var xpos = 20+x0+i*1.5;
+  	 	var ypos = y0-1+height/1.3+a*2.5;
+  	 	var n = p.noise(xpos, ypos);
+  	 	if (n<0.4){
+  	 		aPat(xpos, ypos, 1.25, 1.25);
+  	 	}
+  	 	else if (n< 0.6){
+  	 		vPat(xpos, ypos, 1.25, 1.25);
+  	 	}
+ 	}
+      
+  		}
+
+  	}
+	
+  	 tree(x0+width/2, y0+50, height-111);
+      border();
+  
 }
+
+//draws a v pattern at given coordijates and dimensions
+function vPat(x,y,w,h){
+	p.fill(0,200,0);
+
+	p.beginShape();
+	p.vertex(xCalc(x),yCalc(y));
+	p.vertex(xCalc(x+w/2), yCalc(y+h));
+	p.vertex(xCalc(x+w),  yCalc(y));
+	p.endShape();
+}
+
+//draws a line block pattern at given coordijates and dimensions
+function linePat(x,y,w,h){
+	p.fill(0,200,0);
+	p.stroke(0,200,0);
+	p.beginShape();
+	p.vertex(xCalc(x-w/2),yCalc(y));
+	p.vertex(xCalc(x+w/2+w), yCalc(y));
+	p.vertex(xCalc(x+w/2+w),  yCalc(y+h));
+	p.vertex(xCalc(x-w/2),  yCalc(y+h));
+	p.vertex(xCalc(x-w/2),yCalc(y));
+	p.endShape();
+	p.stroke(0);
+}
+
+//draws an A pattern at given coordijates and dimensions
+function aPat(x,y,w,h){
+	p.fill(0,200,0);
+	p.beginShape();
+	p.vertex(xCalc(x),yCalc(y+h));
+	p.vertex(xCalc(x+w/2), yCalc(y));
+	p.vertex(xCalc(x+w),  yCalc(y+h));
+	p.endShape();
+}
+
+
+
+
 
 
 //draws a leaf centered on lx and ly and with a width of wid
@@ -104,7 +166,7 @@ function leaf(lx, ly, wid, rot){
 	p.beginShape();
 	//left hand point
 	//left control point, about to go upwards
-	p.fill(222,0,0);
+	
 	p.curveVertex(xCalc(lx-wid/1.7), yCalc(ly+h/2));
 	p.curveVertex(xCalc(lx-wid/2), yCalc(ly));
 	p.curveVertex(xCalc(lx), yCalc(ly-h/2));
@@ -122,6 +184,49 @@ function leaf(lx, ly, wid, rot){
 	p.pop();
 
 }
+//draws a leaf centered on lx and ly and with a width of wid
+function leaf2(lx, ly, wid, rot){
+	p.angleMode(p.DEGREES);
+	p.push();
+	//p.translate(xCalc(lx),yCalc(ly));
+	//p.rotate(-11);
+	var h = wid/2;
+	p.beginShape();
+	//left hand point
+	//left control point, about to go upwards
+	
+	p.curveVertex(xCalc(lx-wid/1.7), yCalc(ly+h/2));
+	p.curveVertex(xCalc(lx-wid/2), yCalc(ly));
+	p.curveVertex(xCalc(lx), yCalc(ly-h/2));
+	p.curveVertex(xCalc(lx+wid/2), yCalc(ly));
+	p.curveVertex(xCalc(lx+wid*1.7), yCalc(ly+h/2));
+	p.endShape();
+
+	p.beginShape();
+	p.curveVertex(xCalc(lx-wid/1.7), yCalc(ly-h/2));
+	p.curveVertex(xCalc(lx-wid/2), yCalc(ly));
+	p.curveVertex(xCalc(lx), yCalc(ly+h/2));
+	p.curveVertex(xCalc(lx+wid/2), yCalc(ly));
+	p.curveVertex(xCalc(lx+wid*1.7), yCalc(ly-h/2));
+	p.endShape();
+
+	p.noFill();
+	if(zoom>5){
+	p.beginShape();
+	p.vertex(xCalc(lx), yCalc(ly));
+	p.vertex(xCalc(lx+wid), yCalc(ly));
+	p.endShape();
+	}
+	if (zoom>3 && wid>50){
+		leaf2(lx,ly,wid/1.5,2);
+	}
+	if (zoom>5&&wid>20){
+		leaf2(lx,ly,wid/2,2);
+	}
+
+	p.pop();
+
+}
 //draws a tree
 //draws from centre top
 function tree(centreX, yt, h){
@@ -130,8 +235,9 @@ function tree(centreX, yt, h){
 	var wid = halfW*2;
  /*bottom righthand half of the tree, has to be behind, so gets drawn first*/
 	var offset = 0;
+	p.fill(145,94,2);
 	p.beginShape();
-	//top right edge off the trunk, hidden behind rightmost branch
+	//top right edge of the trunk, hidden behind rightmost branch
 	p.curveVertex(xCalc(x+wid/2+wid/6), yCalc(yt+h/3.4));
 	p.vertex(xCalc(x+wid/2+wid/7), yCalc(yt+h/2.7));
 	p.vertex(xCalc(x+wid/2+wid/6), yCalc(yt+h-h/8));
@@ -209,7 +315,7 @@ function tree(centreX, yt, h){
 
 
 	/* draws the leaves */
-	canopy(x, yt, width, h/5, 100);
+	canopy(x-wid/10, yt, width, h/2.2, 100);
 	
 
 
@@ -221,20 +327,54 @@ function tree(centreX, yt, h){
 //draws a canopy of leaves at can x and can y with a canopy width of wid, 
 // canopy height of h and leaf widtjh of lwid
 function canopy(canx, cany, wid, h, lwid){
-	leaf(canx+wid/2, cany, 100, 11);
+	p.fill(10,110,4);
 	var divNum = 20;
 	var spacing  = wid/divNum;
 	var layers = 4;
 	var yspace = h/layers;
 	for(var i = 0; i<layers+1; i++){
 		for(var a = 0; a<divNum+1; a++){
-		leaf(canx+spacing*a, cany+ yspace*i, 100, 11);
+			var n = p.noise(canx+spacing*a, cany+ yspace*i,10);
+			var n2 = p.noise(canx+spacing*a, cany+ yspace*i,20);
+		var n3 =p.noise(canx+spacing*a, cany+ yspace*i,30);
+		leaf2(canx+wid/2.5+n*(wid/1.5), cany+ h*n2, 10+n3*90, 10);
+		n = p.noise(canx+spacing*a, cany+ yspace*i);
+		leaf2(canx+wid/1.5-n*(wid/1.2), cany+ h*n2, 10+n3*90, 40);
+
 		}
 	}
 
 }
 	
 	
+// draws a border pattern around the image at top and bottom
+function border(){
+	p.fill(200,0,0);
+
+
+	var divNum = width/2.5;
+	if(zoom>2){
+
+
+// draws the top border background pattern
+	for(var i = 0; i<9; i++){
+		for(var a = 0; a<divNum+1; a++){
+		leaf(x0+2.5*a, y0+ 2.5*i, 5, 11);
+		}
+	}
+
+	// draws the bottom border background pattern
+	for(var i = 0; i<9; i++){
+		for(var a = divNum; a>0; a--){
+		leaf(x0+2.5*a, y0+height- 2.5*i, 5, 11);
+		}
+	}
+}
+}
+	
+	
+
+
 
 //takes the x coordinate to be mapped and returns the new value
 
