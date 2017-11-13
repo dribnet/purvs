@@ -29,3 +29,5 @@ I have taken the leaf motif and tied it intp the border of the image, using the 
 I have also added detail to the leaves as zoom increases, adding some subtle lines to abstract the basicx leaves into a pattern. 
 The tree leaves themselves I have decidd to leave all a single colour, however I have moved them about based on noise and created a more randomised, varied population of leaves.
 
+Sorry for the lack of previews and thumbnails, my computer won't dp them on this style of drawing, it doesn't recognise it as an image
+
