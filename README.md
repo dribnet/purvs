@@ -2,15 +2,9 @@
 
 ### Is it Time?
 
-*Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but complete, no more than [100 words](https://wordcounter.net/).*
-
-With my clock I want to take the wide appeal of the popular binary clock[isitwednesday.org](http://isitwednesday.org/) and expand the concept to a universally relevant application.
-**IsItTime** is a handy tool, useful when you need to check whether the linear continuum of instants has ceased.
+With my clock I want to take the wide appeal of the popular binary state clock[isitwednesday.org](http://isitwednesday.org/) and expand its concept to a universally relevant application.
+**IsItTime** is a handy tool, useful when you need to check whether the constant of time has collapsed on itself.
+The clock will use large, bold, red text for readability and clarity. It will display "YES" if linear time continues to function. If this is not the case, the physics that govern the universe around us will disintegrate. 
 
 - [ ] Considering renaming to "IsTime"
 - [ ] Pick a font
