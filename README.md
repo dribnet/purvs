@@ -1,1 +1,1 @@
-This will be the dirst edition of the clock.
+This will be the first edition of the clock.
