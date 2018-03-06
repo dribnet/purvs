@@ -2,13 +2,7 @@
 
 ### Old clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+For my clock idea i am taking inspiratio form clocks from the past. The ideas I have currently revolve around a sundial, wth the sun moving and the time chamgig like that. 
+A candle slowly getting smaller, with the wax falling and changing the time as it falls over it.
+A grandfather clock with the pendulum swinging.
+Or an hourglass with the sand covering the time so it changes.
