@@ -1,6 +1,7 @@
 ## PS1 MDDN 242 2017
 
 ### Outrageous clock
+This seams to not be showing up
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
