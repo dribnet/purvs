@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### clock
+###  clock
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
@@ -13,9 +13,3 @@ Replace the "Outrageous clock" title above with the name of
 your clock. Also update both images keeping their original sizes:
 preview.jpg (960x500) and thumbnail.png (230x120).
 
-<head>
-    <style> body {padding: 0; margin: 0;} </style>
-</head>
-<body style="background-color:black">
-<img src="preview.jpg" width="960" height="500"/>
-</body>
