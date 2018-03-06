@@ -1,6 +1,8 @@
 ## PS1 MDDN 242 2017
 
 ### Outrageous clock
+I have a graet idea for a clock!
+
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
