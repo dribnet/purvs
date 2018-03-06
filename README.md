@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Test clock
+### This might work clock
 
 Describe the idea for your clock here - replacing this text.
 Be sure to use complete sentences, and you can reference your 
