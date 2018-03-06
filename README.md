@@ -1,0 +1,1 @@
+This will be my First Idea for the Clock
