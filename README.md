@@ -1,8 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### worm clock
 
-Describe the idea for your clock here - replacing this text.
+I just want to show my style of clock in a movement of the worm.
 Be sure to use complete sentences, and you can reference your 
 image above. You can also include
 [web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
