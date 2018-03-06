@@ -2,13 +2,12 @@
 
 ### Outrageous clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+This is my first version of my clock, it is a moving faded ellipse that could be contains the numbers.
+And the ellipses may move around on the Center point.  And the time would be show at Four Corners and 
+inside of ellipses as well. 
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+This the concept from tumblr, I got inspiration from this GIF. But for other section , I would change it 
+such as colour, shapes and transparence. 
+[web link] http://spio.tumblr.com/post/12785041257
+
+
