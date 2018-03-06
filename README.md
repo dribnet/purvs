@@ -12,3 +12,10 @@ be short but compete, no more than [100 words](https://wordcounter.net/).
 Replace the "Outrageous clock" title above with the name of
 your clock. Also update both images keeping their original sizes:
 preview.jpg (960x500) and thumbnail.png (230x120).
+
+<head>
+    <style> body {padding: 0; margin: 0;} </style>
+</head>
+<body style="background-color:black">
+<img src="preview.jpg" width="960" height="500"/>
+</body>
