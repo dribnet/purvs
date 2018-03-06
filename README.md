@@ -1,12 +1,9 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### Dominoes clock
 
 
-Piano clock - Have the black keys pressed to show every second. Similar to this barcode clock idea
-[web links](http://www.barcodeart.com/art/clock/clock.html)
-
-
+Dominos will form a circle and it will depict the seconds. The dominoes will be falling onto each other every second  - domino effect. In the middle will be three single dominoes that have the correct number to show the correct time and as the time changes, the dominoes will flip and change. 
 
 
 Describe the idea for your clock here - replacing this text.
