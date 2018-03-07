@@ -1,14 +1,9 @@
-## PS1 MDDN 242 2017
+## PS1 MDDN 242 2018
 
-### Outrageous clock
+### Moon Clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+The idea behind this clock is the cycles of the moon.
+The amount of the moon showing is related to the time.
+As the day progresses less of the moon is shown. So the full moon is 12:00am and no moon is 12:00pm.
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+This was my inspiration: https://en.wikipedia.org/wiki/Lunar_phase
