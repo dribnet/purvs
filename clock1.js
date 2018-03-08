@@ -117,7 +117,7 @@ function runClock(){
     push();
     noFill();
     noStroke();
-    int y = stackStartHeight - ((aMinRem-1) * 41);
+    var y = stackStartHeight - ((aMinRem-1) * 41);
     if(aMinRem>0){
       fill('#ffff00');
       rect(310-3,y,5,40);
@@ -174,7 +174,7 @@ function backgrnd(stkH, xPos){
   push();
   fill('#FFFFFF');
   noStroke();
-  for(int i=0; i<stkH; i++){ 
+  for(var i=0; i<stkH; i++){ 
       rect(xPos,y,70,40);        
       y = y-41;
   } 
