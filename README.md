@@ -1,8 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### worm clock
+### The concept of clock
 
-I just want to show my style of clock in a movement of the worm.
+I just want to show my concept of my clock. I was inspired by the traditional philosophy. That means the time is equitable for anyone so that it keeps the balance in the world. I just want to give the sense of constract to show the balance.
 Be sure to use complete sentences, and you can reference your 
 image above. You can also include
 [web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
