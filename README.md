@@ -2,12 +2,8 @@
 
 ### Outrageous clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+My clock will consist of various circular/spherical colour gradients that will act as an analog time format. Each shape corresponds to seconds, minutes and hours to evoke familiar timetelling for the user.
+The inspiration of my clock is fundamentally a person's ability to tell time through music. With the thought of music in mind, the clockwork-like instrumental of Drake's "Hotline Bling" gave me an ideal feel and aesthetic (via James Turrell's abstract visual sets).
 
 Replace the "Outrageous clock" title above with the name of
 your clock. Also update both images keeping their original sizes:
