@@ -1,13 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Unsure of clock name at the moment. hmmm?
+### The Wellbeing Clock.
 
 
-Not sure of an idea. I am thinking.
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+My idea is to have a clock based off Circadian rhythm. However, in this case I want to look at the emotional wellbeing of a human during the day. Tracking sleep, energy levels, the weather (which effects mood), and general mood. This will be shown through several different loops around the clock in the center. There will also be an emoji kind of face that is the clock which will demonstrate the changes of emotion. I would also like to put in alarms for each of the things that are being monitored, so you could remind yourself that you need to get more sleep etc...
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
