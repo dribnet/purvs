@@ -10,13 +10,13 @@ function saveBlocksImages(doZoom) {
   // generate 960x500 preview.jpg of entire canvas
   // TODO: should this be recycled?
   var offscreenCanvas = document.createElement('canvas');
-  offscreenCanvas.width = 960;
-  offscreenCanvas.height = 500;
+  offscreenCanvas.width = 700;
+  offscreenCanvas.height = 700;
   var context = offscreenCanvas.getContext('2d');
   // background is flat white
   context.fillStyle="#FFFFFF";
-  context.fillRect(0, 0, 960, 500);
-  context.drawImage(this.canvas, 0, 0, 960, 500);
+  context.fillRect(0, 0, 700, 700);
+  context.drawImage(this.canvas, 0, 0, 700, 700);
   // save to browser
   var downloadMime = 'image/octet-stream';
   var imageData = offscreenCanvas.toDataURL('image/jpeg');
