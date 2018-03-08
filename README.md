@@ -1,12 +1,12 @@
-## PS1 MDDN 242 2017
+## PS1 MDDN 242 2018
 
-### Outrageous clock
+### Water/chemical reagent clock
 
-water clock:
+water clock link:
 [web links](https://en.wikipedia.org/wiki/Water_clock)
-to other pages that support your ideas.  The explanation should
+
+The explanation should
 be short but compete, no more than [100 words](https://wordcounter.net/).
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
+Also update both images keeping their original sizes:
 preview.jpg (960x500) and thumbnail.png (230x120).
