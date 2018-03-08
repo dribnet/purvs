@@ -3,28 +3,28 @@ const CANVAS_HEIGHT = 700;
 
 //Time variables
 
-int initialH;
-int initialM;
-int initialS;
+var initialH;
+var initialM;
+var initialS;
 
-int hour;
-int minTen;
-int minRem;
-int sec;
-int secTen; 
-bool pm = false;
+var hour;
+var minTen;
+var minRem;
+var sec;
+var secTen; 
+var pm = false;
 
 //Alarm variables
 
-bool alarmMode = false;
-int alarmHour = 0;
-int alarmMinute = 0;
-int aMinRem = 0;
-int aMinTen = 0;
-bool alarmSet = false;
+var alarmMode = false;
+var alarmHour = 0;
+var alarmMinute = 0;
+var aMinRem = 0;
+var aMinTen = 0;
+var alarmSet = false;
 
 //Misc variables
-int stackStartHeight = 600;
+var stackStartHeight = 600;
 
 
 function setup () {
@@ -51,7 +51,7 @@ function draw () {
 
 function runClock(){
   //Draw in background
-  background(#f0f0f0);
+  background('#f0f0f0');
   //Check if time for alarm to go off
   checkAlarm();
   //Draw silhouette of stacks
@@ -97,15 +97,15 @@ function runClock(){
 
   //DRAW TIME STACKS
   if(pm){
-    stackDraw(115, stackStartHeight, hour, #0f1221);
+    stackDraw(115, stackStartHeight, hour, '#0f1221');
   }else{
-    stackDraw(115, stackStartHeight, hour, #4570b4);
+    stackDraw(115, stackStartHeight, hour, '#4570b4');
   }
 
-  stackDraw(215, stackStartHeight, minTen, #ffbf00);
-  stackDraw(315, stackStartHeight, minRem, #ffff00);
-  stackDraw(415, stackStartHeight, secTen, #ffee75);
-  stackDraw(515, stackStartHeight, sec, #ef9b0f);
+  stackDraw(215, stackStartHeight, minTen, '#ffbf00');
+  stackDraw(315, stackStartHeight, minRem, '#ffff00');
+  stackDraw(415, stackStartHeight, secTen, '#ffee75');
+  stackDraw(515, stackStartHeight, sec, '#ef9b0f');
 
   
   //ALARM
@@ -119,20 +119,20 @@ function runClock(){
     noStroke();
     int y = stackStartHeight - ((aMinRem-1) * 41);
     if(aMinRem>0){
-      fill(#ffff00);
+      fill('#ffff00');
       rect(310-3,y,5,40);
     }
     y = stackStartHeight - ((aMinTen-1) * 41);
     if(aMinTen>0){
-      fill(#ffbf00);
+      fill('#ffbf00');
       rect(210-3,y,5,40);
     }
     y = stackStartHeight - ((alarmHour-1) * 41);
     if(alarmHour>0){
       if(pm){
-        fill(#0f1221);
+        fill('#0f1221');
       }else{
-        fill(#4570b4);
+        fill('#4570b4');
       }
       rect(110-3,y,5,40);
     }
@@ -169,10 +169,10 @@ function mousePressed() {
   }
 }
 
-function backgrnd(int stkH, int xPos){
-  int y = stackStartHeight;
+function backgrnd(stkH, xPos){
+  var y = stackStartHeight;
   push();
-  fill(#FFFFFF);
+  fill('#FFFFFF');
   noStroke();
   for(int i=0; i<stkH; i++){ 
       rect(xPos,y,70,40);        
@@ -183,12 +183,12 @@ function backgrnd(int stkH, int xPos){
 
 //*************** STACK DRAW FUNCTION ******************//
 
-function stackDraw(int aX, int aY, int aAmount, color aColor){
+function stackDraw(aX, aY, aAmount, aColor){
   
-  int y =0;
-  int x =0;
-  int amount =0;
-  color c = color(0);
+  var y =0;
+  var x =0;
+  var amount =0;
+  var c = color(0);
   
   x = aX;
   y = aY;
@@ -199,9 +199,9 @@ function stackDraw(int aX, int aY, int aAmount, color aColor){
   noStroke();
   fill(c);
   rect(x,y+43,70,3);
-  for(int i=0; i<amount; i++){ 
+  for(var i=0; i<amount; i++){ 
     //opacity is changing
-    float a = map(693-y, 0, 700, 255, 0);
+    var a = map(693-y, 0, 700, 255, 0);
     //       map(changing value, how quick (lower=quicler) fade out is, dark, light) 
     //       so could swap last two for light to dark
     fill(c, a);
@@ -220,16 +220,16 @@ function drawSettingAlarm() {
     push();
     noStroke();    
     image(alarmins,0,0,700,700);
-    int alarmPosHour = ceil(map(mouseX, 100, 600, 1, 12));
-    int alarmPosMinute = floor(map(mouseY, 650, 100, 0, 59));
-    int aPosTen = alarmPosMinute /10;
-    int aPosRem = alarmPosMinute %10;
+    var alarmPosHour = ceil(map(mouseX, 100, 600, 1, 12));
+    var alarmPosMinute = floor(map(mouseY, 650, 100, 0, 59));
+    var aPosTen = alarmPosMinute /10;
+    var aPosRem = alarmPosMinute %10;
     
-    int y = stackStartHeight - ((aPosRem-1) * 41);
+    var y = stackStartHeight - ((aPosRem-1) * 41);
     if(alarmPosMinute>=59){
       y = stackStartHeight - (8 * 41);
     }
-    fill(#ffff00);
+    fill('#ffff00');
     if(aPosRem>0){
       rect(310-3,y,5,40);
     }
@@ -241,7 +241,7 @@ function drawSettingAlarm() {
     }else if(aPosTen<0){
       y = stackStartHeight;
     }
-    fill(#ffbf00);
+    fill('#ffbf00');
     if(aPosTen>0){
       rect(210-3,y,5,40);
     }
@@ -253,9 +253,9 @@ function drawSettingAlarm() {
       y = stackStartHeight;
     }
     if(pm){
-      fill(#0f1221);
+      fill('#0f1221');
     }else{
-      fill(#4570b4);
+      fill('#4570b4');
     }
     rect(110-3,y,5,40);
     
@@ -263,7 +263,7 @@ function drawSettingAlarm() {
 }
 
 function checkAlarm() {
-  boolean alarmRinging = false;
+  var alarmRinging = false;
   if (alarmSet) {
     alarmRinging = (minute() == alarmMinute);    
     if (alarmRinging) {
@@ -277,9 +277,9 @@ function drawAlarmGoingOff() {
   push();
   noStroke();
   if(pm){
-        fill(#0f1221);
+        fill('#0f1221');
       }else{
-        fill(#4570b4);
+        fill('#4570b4');
       }
   rect(115, stackStartHeight+50, 470, 125);
   pop();
