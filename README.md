@@ -1,8 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### In this assignment I will be looking at different styles of clocks and seeing which ones work best when looking/ glancing at them and I will be seeing which 
-ones are more visually pleasing to come up with a final design.
-
+### Spiral Clock
 Sketch-1: I started off with some basic and strange concepts of clocks. These clocks were going to display the second hours and minutes in different ways like 
 flashing lights or using faster and slower rotations to show the difference between hours, minutes and seconds. I also looked at the different inspiration ideas given by the lecturer,
 but I found that most of the ideas i came up with wouldnt work for me so I stuck to one of my origional ideas which was the spiral shape.
