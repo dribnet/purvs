@@ -7,7 +7,7 @@ var initialH;
 var initialM;
 var initialS;
 
-var hour;
+var hourNum;
 var minTen;
 var minRem;
 var sec;
@@ -63,15 +63,15 @@ function runClock(){
 
   //HOUR
   if(hour() == 0){
-    hour = 12;
+    hourNum = 12;
     pm = false;
   }else if(hour() == 12){
     pm = true;
   }else if(hour() > 12){
-    hour = hour() -12;
+    hourNum = hour() -12;
     pm = true;
   }else{
-    hour = hour();
+    hourNum = hour();
     pm = false;
   }
 
@@ -97,9 +97,9 @@ function runClock(){
 
   //DRAW TIME STACKS
   if(pm){
-    stackDraw(115, stackStartHeight, hour, '#0f1221');
+    stackDraw(115, stackStartHeight, hourNum, '#0f1221');
   }else{
-    stackDraw(115, stackStartHeight, hour, '#4570b4');
+    stackDraw(115, stackStartHeight, hourNum, '#4570b4');
   }
 
   stackDraw(215, stackStartHeight, minTen, '#ffbf00');
@@ -205,7 +205,8 @@ function runClock(){
       var a = map(693-y, 0, 700, 255, 0);
       //       map(changing value, how quick (lower=quicler) fade out is, dark, light) 
       //       so could swap last two for light to dark
-      fill(c, a);
+      // fill(c, a); //For gradient change
+      fill(c);
       rect(x,y,70,40);        
       y = y-41;
     } 
