@@ -1,14 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### circle and square
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+My idea is to use some regular graphics to generate my clock like this picture that is constiuted from nine circles and I also make these circles to become a square. There is a reason that is a sentence from my country which is nothing can be accomplished without norms or sandards and in my opinion, the rules is from the circles and square. 
+[web link]http://www.bharat-bazaar.com/wall-clock
