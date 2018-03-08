@@ -142,7 +142,7 @@ function runClock(){
 
   //TESTING IF HAVING INSIDE LOOP WORKS ------------------------- START
 
-  function mousePressed() {
+  function mouseIsPressed() {
     if (alarmMode) {
       alarmSet = !alarmSet; 
       if (alarmSet) {
@@ -207,10 +207,10 @@ function runClock(){
       //       so could swap last two for light to dark
       // fill(c, a); //For gradient change need to do the rgba format so this has to be edited
 
-      hex = c.replace('#','');
-      r = parseInt(hex.substring(0,2), 16);
-      g = parseInt(hex.substring(2,4), 16);
-      b = parseInt(hex.substring(4,6), 16);
+      hexCon = c.replace('#','');
+      r = parseInt(hexCon.substring(0,2), 16);
+      g = parseInt(hexCon.substring(2,4), 16);
+      b = parseInt(hexCon.substring(4,6), 16);
 
       fill(r,g,b,a);    
       // fill(c);
@@ -294,7 +294,7 @@ function runClock(){
     pop();
   }
 
-  function keyPressed() {
+  function keyIsPressed() {
     if (key == 'a') {
       alarmMode = !alarmMode; 
     }
