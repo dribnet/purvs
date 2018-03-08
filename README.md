@@ -1,1 +1,1 @@
-"The first version of the clock"
+﻿Circles that stay locked in orbit to one another in a semi minimalist style. The lines in the circles stay rotation locked, pointing like tradition clock hands in a way, while the circles rotate around keeping time.
