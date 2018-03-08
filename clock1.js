@@ -139,155 +139,158 @@ function runClock(){
     pop();   
   }
 
-}
 
-function mousePressed() {
-  if (alarmMode) {
-    alarmSet = !alarmSet; 
-    if (alarmSet) {
-      //set the alarm based on the current mouse pos x axis for hours y axis for mins
-      alarmHour = ceil(map(mouseX, 100, 600, 1, 12));
-      if(alarmHour<1){
-        alarmHour = 1;
-      }else if(alarmHour>12){
-        alarmHour = 12;
+  //TESTING IF HAVING INSIDE LOOP WORKS ------------------------- START
+
+  function mousePressed() {
+    if (alarmMode) {
+      alarmSet = !alarmSet; 
+      if (alarmSet) {
+        //set the alarm based on the current mouse pos x axis for hours y axis for mins
+        alarmHour = ceil(map(mouseX, 100, 600, 1, 12));
+        if(alarmHour<1){
+          alarmHour = 1;
+        }else if(alarmHour>12){
+          alarmHour = 12;
+        }
+        alarmMinute = floor(map(mouseY, 650, 100, 0, 59));
+        if(alarmMinute<0){
+          alarmMinute = 0;
+        }else if(alarmMinute>59){
+          alarmMinute = 59;
+        }
+        
+        aMinTen = alarmMinute /10;
+        aMinRem = alarmMinute %10;
+        println("Alarm is set to " + alarmHour + ":" + alarmMinute);
+        
+        //turn off alarm mode once set
+        alarmMode=false;
       }
-      alarmMinute = floor(map(mouseY, 650, 100, 0, 59));
-      if(alarmMinute<0){
-        alarmMinute = 0;
-      }else if(alarmMinute>59){
-        alarmMinute = 59;
-      }
-      
-      aMinTen = alarmMinute /10;
-      aMinRem = alarmMinute %10;
-      println("Alarm is set to " + alarmHour + ":" + alarmMinute);
-      
-      //turn off alarm mode once set
-      alarmMode=false;
     }
   }
-}
 
-function backgrnd(stkH, xPos){
-  var y = stackStartHeight;
-  push();
-  fill('#FFFFFF');
-  noStroke();
-  for(var i=0; i<stkH; i++){ 
-      rect(xPos,y,70,40);        
-      y = y-41;
-  } 
-  pop();
-}
-
-//*************** STACK DRAW FUNCTION ******************//
-
-function stackDraw(aX, aY, aAmount, aColor){
-  
-  var y =0;
-  var x =0;
-  var amount =0;
-  var c = color(0);
-  
-  x = aX;
-  y = aY;
-  amount = aAmount;
-  c = aColor;
-  
-  push();
-  noStroke();
-  fill(c);
-  rect(x,y+43,70,3);
-  for(var i=0; i<amount; i++){ 
-    //opacity is changing
-    var a = map(693-y, 0, 700, 255, 0);
-    //       map(changing value, how quick (lower=quicler) fade out is, dark, light) 
-    //       so could swap last two for light to dark
-    fill(c, a);
-    rect(x,y,70,40);        
-    y = y-41;
-  } 
-  pop();
-  
-}
-
-
-//*************** ALARM SECTION ******************//
-
-function drawSettingAlarm() {
-    //DISPLAY ALARM POS WHILST SETTING ALARM
+  function backgrnd(stkH, xPos){
+    var y = stackStartHeight;
     push();
-    noStroke();    
-    image(alarmins,0,0,700,700);
-    var alarmPosHour = ceil(map(mouseX, 100, 600, 1, 12));
-    var alarmPosMinute = floor(map(mouseY, 650, 100, 0, 59));
-    var aPosTen = alarmPosMinute /10;
-    var aPosRem = alarmPosMinute %10;
-    
-    var y = stackStartHeight - ((aPosRem-1) * 41);
-    if(alarmPosMinute>=59){
-      y = stackStartHeight - (8 * 41);
-    }
-    fill('#ffff00');
-    if(aPosRem>0){
-      rect(310-3,y,5,40);
-    }
-    
-    
-    y = stackStartHeight - ((aPosTen-1) * 41);
-    if(aPosTen>5){
-      y = stackStartHeight - (4 * 41);
-    }else if(aPosTen<0){
-      y = stackStartHeight;
-    }
-    fill('#ffbf00');
-    if(aPosTen>0){
-      rect(210-3,y,5,40);
-    }
-    
-    y = stackStartHeight - ((alarmPosHour-1) * 41);
-    if(alarmPosHour>=12){
-      y = stackStartHeight - (11 * 41);
-    }else if(alarmPosHour<1){
-      y = stackStartHeight;
-    }
-    if(pm){
-      fill('#0f1221');
-    }else{
-      fill('#4570b4');
-    }
-    rect(110-3,y,5,40);
-    
-    pop();    
-}
-
-function checkAlarm() {
-  var alarmRinging = false;
-  if (alarmSet) {
-    alarmRinging = (minute() == alarmMinute);    
-    if (alarmRinging) {
-      drawAlarmGoingOff();
+    fill('#FFFFFF');
+    noStroke();
+    for(var i=0; i<stkH; i++){ 
+        rect(xPos,y,70,40);        
+        y = y-41;
     } 
+    pop();
   }
-}
 
-function drawAlarmGoingOff() {
-  translate(0,-125);
-  push();
-  noStroke();
-  if(pm){
+  //*************** STACK DRAW FUNCTION ******************//
+
+  function stackDraw(aX, aY, aAmount, aColor){
+    
+    var y =0;
+    var x =0;
+    var amount =0;
+    var c = color(0);
+    
+    x = aX;
+    y = aY;
+    amount = aAmount;
+    c = aColor;
+    
+    push();
+    noStroke();
+    fill(c);
+    rect(x,y+43,70,3);
+    for(var i=0; i<amount; i++){ 
+      //opacity is changing
+      var a = map(693-y, 0, 700, 255, 0);
+      //       map(changing value, how quick (lower=quicler) fade out is, dark, light) 
+      //       so could swap last two for light to dark
+      fill(c, a);
+      rect(x,y,70,40);        
+      y = y-41;
+    } 
+    pop();
+    
+  }
+
+
+  //*************** ALARM SECTION ******************//
+
+  function drawSettingAlarm() {
+      //DISPLAY ALARM POS WHILST SETTING ALARM
+      push();
+      noStroke();    
+      image(alarmins,0,0,700,700);
+      var alarmPosHour = ceil(map(mouseX, 100, 600, 1, 12));
+      var alarmPosMinute = floor(map(mouseY, 650, 100, 0, 59));
+      var aPosTen = alarmPosMinute /10;
+      var aPosRem = alarmPosMinute %10;
+      
+      var y = stackStartHeight - ((aPosRem-1) * 41);
+      if(alarmPosMinute>=59){
+        y = stackStartHeight - (8 * 41);
+      }
+      fill('#ffff00');
+      if(aPosRem>0){
+        rect(310-3,y,5,40);
+      }
+      
+      
+      y = stackStartHeight - ((aPosTen-1) * 41);
+      if(aPosTen>5){
+        y = stackStartHeight - (4 * 41);
+      }else if(aPosTen<0){
+        y = stackStartHeight;
+      }
+      fill('#ffbf00');
+      if(aPosTen>0){
+        rect(210-3,y,5,40);
+      }
+      
+      y = stackStartHeight - ((alarmPosHour-1) * 41);
+      if(alarmPosHour>=12){
+        y = stackStartHeight - (11 * 41);
+      }else if(alarmPosHour<1){
+        y = stackStartHeight;
+      }
+      if(pm){
         fill('#0f1221');
       }else{
         fill('#4570b4');
       }
-  rect(115, stackStartHeight+50, 470, 125);
-  pop();
-}
-
-function keyPressed() {
-  if (key == 'a') {
-    alarmMode = !alarmMode; 
+      rect(110-3,y,5,40);
+      
+      pop();    
   }
-  // runKeyPressed();
+
+  function checkAlarm() {
+    var alarmRinging = false;
+    if (alarmSet) {
+      alarmRinging = (minute() == alarmMinute);    
+      if (alarmRinging) {
+        drawAlarmGoingOff();
+      } 
+    }
+  }
+
+  function drawAlarmGoingOff() {
+    translate(0,-125);
+    push();
+    noStroke();
+    if(pm){
+          fill('#0f1221');
+        }else{
+          fill('#4570b4');
+        }
+    rect(115, stackStartHeight+50, 470, 125);
+    pop();
+  }
+
+  function keyPressed() {
+    if (key == 'a') {
+      alarmMode = !alarmMode; 
+    }
+    // runKeyPressed();
+  }
+  //TESTING IF HAVING INSIDE LOOP WORKS ------------------------- END
 }
