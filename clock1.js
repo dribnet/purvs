@@ -19,6 +19,7 @@ function draw () {
   background(204); // light gray background
   strokeWeight(6); // Stroke weight to 8 pixels
   stroke(58, 71, 89);
+  noStroke();
   fill(58, 71, 89);
   ellipse(mainx-20*xoutfactor, mainy, 350, 400);
   rect(mainx-20*xoutfactor,mainy-200,20*xoutfactor,400);
