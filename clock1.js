@@ -4,7 +4,6 @@ const CANVAS_HEIGHT = 500;
 const cellSize = 20;
 var w, h;
 var cells = [];
-var newCells = [];
 var cellColour;
 var textColour;
 var backgroundColour;
@@ -23,16 +22,15 @@ function setup() {
 	for (let i = 0; i < w; i++) {
 		var line = [];
 		for (let j = 0; j < h; j++) {
-			line.push(random(1) < 0.1 ? true : false);
+			line.push(random(1) < 0.25 ? true : false);
 		}
 		cells.push(line);
 	}
 	strokeWeight(1);
 
-	updateLife(25);
+	//updateLife(25);
 }
 
-// Update this function to draw you own maeda clock
 function draw() {
 	translate(-0.5, -0.5);
 	background(0xBB); // nice grey background
@@ -44,15 +42,16 @@ function draw() {
 			rect(i * cellSize, j * cellSize, w, h);
 		}
 	}
-	// if (frameCount % 60 === 0) {
-	// 	updateLife(1);
-	// }
+	if (frameCount % 2 === 0) {
+		updateLife(1);
+	}
 }
 
 function updateLife(generationNum) {
-	newCells = cells.slice(0);
+	let newCells = [];
 	for (let i = 0; i < generationNum; i++) {
 		for (let x = 0; x < w; x++) {
+			let line = [];
 			for (let y = 0; y < h; y++) {
 				let neighbourCount = 0;
 				for (let xLocal = -1; xLocal <= 1; xLocal++) {
@@ -63,11 +62,12 @@ function updateLife(generationNum) {
 						neighbourCount += (cells[(x + xLocal + w) % w][(y + yLocal + h) % h] ? 1 : 0);
 					}
 				}
-				newCells[x][y] = ((neighbourCount === 2) ? cells[x][y] : (neighbourCount === 3));
+				line.push ((neighbourCount === 2) ? cells[x][y] : (neighbourCount === 3));
 			}
+			newCells.push(line);
 		}
 	}
-	cells = newCells.slice(0);
+	cells = newCells;
 }
 
 // do not alter or remove this function
