@@ -1,6 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### circle and square
+### The clock is recreated from Maeda
 
-My idea is to use some regular graphics to generate my clock like this picture that is constiuted from nine circles and I also make these circles to become a square. There is a reason that is a sentence from my country which is nothing can be accomplished without norms or sandards and in my opinion, the rules is from the circles and square. 
-[web link]http://www.bharat-bazaar.com/wall-clock
+I created this clock is refering Maeda's clock. However, I change the middle part from 'PM' to number because it is more direct and the other parts is same as Maeda's clock. 
