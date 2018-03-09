@@ -12,16 +12,31 @@ function setup () {
 // Update this function to draw you own maeda clock
 function draw () {
   background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
-  triangle(347,54,392,9,392,66)
-  //rect(50,50,80,80)
-  //ellipse(50,50,80,80);
-  //arc(90,60,80,80,0, HALF_PI);
-  arc(90,60,80,80,0,radians(90))
+  fill(20, 20, 20, 160);
+  strokeWeight(0.5)
+  stroke(255)
+  //quad(width/2, 200, width/2, 400, 330, 350, 330, 150)
+  //quad(width/2, 200, width/2, 400, 630, 350, 630, 150)
+  //quad(width/2, 200, 630, 150,width/2, 100, 330, 150)
+
+  ellipse(300, 250, 20)
+  ellipse(320, 250, 20)
+  ellipse(340, 230, 20)
+  ellipse(340, 210, 20)
+  ellipse(300, 190, 20)
+  ellipse(320, 190, 20)
+  ellipse(280, 190, 20)
+  ellipse(260, 210, 20)
+  ellipse(340, 270, 20)
+  ellipse(340, 290, 20)
+  ellipse(320, 310, 20)
+  ellipse(300, 310, 20)
+  ellipse(280, 310, 20)
+  ellipse(260, 290, 20)
+//3
+  ellipse(380, 210, 20)
+  ellipse(380, 290, 20)
+//:
 }
 
 // do not alter or remove this function
