@@ -1,9 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Tree of Growth Clock
+### MAEDA Growing Shrinking Clock
 
-This clock has three rows for second, minute and hour. A tree grows each second til there are sixty, where a tree in the minute row will grow. After there are sixty in the minute row, a tree in the hour row will grow. 
-After a row is full, it falls down to start again. 
+Maedas Clock that I chose was the one that has the minutes and hours growing and shrinking on inverse waves. I decided to change it slightly to have each of the numbers smaller than the last, instead of having the minutes and the hours being the same. 
 
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
