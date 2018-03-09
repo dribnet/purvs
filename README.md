@@ -1,9 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Block Clock
+### Maeda Clock Inspiration
 
-The initial idea I had for my clock was a simple geometric digital clock. With each unit being located on its own cube, the cubes would tip over to show the change in time, with this motion reflecting a ticking motion commonly associated with analog clocks.
-
-I plan to have the motion for this clock similar to that of the gif linked below.
-
-https://ibb.co/dvi9v7
+The clock I have coded takes inspiration from the Maeda clock shown below
+http://cmuems.com/2016/60212/wp-content/uploads/2016/09/maeda-01.gif
+I wanted to extend the radius of each units motion to form a representation of an analog clock however with the units being represented in digital medium.
