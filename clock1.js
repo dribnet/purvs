@@ -14,8 +14,11 @@ function draw () {
   background(60); // light gray background
   noFill ();
   strokeWeight(3);
-  stroke (255, 0, 0); // Stroke weight to 8 pixels
+  stroke (255, 0, 0);
 
+  //for (let i = -100; i <= 100; i = i+50) {
+    //ellipse(width/2, height/2+i. 40, 40);
+     //}
   //red 4
   
   ellipse(480, 100, 25, 25);
