@@ -11,7 +11,7 @@ function setup () {
 
 // Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
+  background(0); // light gray background
   strokeWeight(2); // Stroke weight to 8 pixels
  
 
