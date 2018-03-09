@@ -13,24 +13,13 @@ function setup () {
 function draw () {
   background(0);
   rectMode(CENTER);
-  // light gray background
-  // strokeWeight(8); // Stroke weight to 8 pixels
-  // ellipse(480, 250, 190, 190);
-  // // The rectangle draws on top of the ellipse
-  // // because it comes after in the code
-  // push();
-  // strokeWeight(5);
-  // fill(23,235,65);
-  // rect(500, 280, 260, 20);
-  // pop();
   noStroke();
-  push();
+
   fill(255);
   rect(300,250,40,200);
   rect(260,210,40,40);
   rect(340,330,40,40);
   rect(260,330,40,40);
-  pop();
 
   noStroke();
   fill(150);
