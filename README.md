@@ -1,14 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### Overflow Clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+The core idea of the 'Overflow Clock' is a simple cascading endless list of random numbers with the numbers of the correct time to be in a varrying color. In the center the two dots on a digital clock with varry depending on the time of the day.
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+Once the alarm is struck......
