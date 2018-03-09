@@ -1,14 +1,15 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### CMYK Brail Clock
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+The idea for this clock is to confront the visual aspect of 
+a clock by being written in brail which is predominantly a
+language for the blind. On the inverse however as it is a
+digitally visable clock it is also inaccessable to the blind,
+rendering it fairly useless for telling the time. Complexity 
+is added via the overlapping of the seconds, minutes and hours
+symbols, each layer represented by a colour but if a dot is used
+twice it fuses the colours eg yellow and cyan will make a green.
+In this way you will theoritcally be able to tell what the time is
+if your brain can figure all these things out fast enough but otherwise
+it is fairly useless.
