@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Unsure-Yet clock
+### John Maeda Clock Copy
 
-I don't have a proper concept for my clock yet, but just started by drawing out different time pieces I could think of and doing some research into different time telling devices.
+I picked the 9th clock to imitate, I made functions for the numbers and then called the functions in the draw function and scaled/translated them so they were big and centred in the screen.
