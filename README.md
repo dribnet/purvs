@@ -1,16 +1,10 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
-I have a graet idea for a clock!
+### Times of Life
 
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+My idea for the clock is to have a traditional clock face in the centre and then have other "clocks" on the outside exept they won't be showing the real time they will be showing how of something happens in the world e.g. how often a baby is born which is every 14 seconds. I am yet to think of an idea for an alarm, but maybe something like the clocks shaking or rattling.
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+
+
+
