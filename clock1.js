@@ -1,4 +1,4 @@
-const CANVAS_WIDTH = 760;
+const CANVAS_WIDTH = 900;
 const CANVAS_HEIGHT = 500;
 
 function setup () {
