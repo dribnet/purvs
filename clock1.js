@@ -30,8 +30,12 @@ function draw () {
   rect(x+200,y+30,50,50);//middle dots
   rect(x+200,y+130,50,50);
 
+   fill(100);
+
   rect(x+300,y,40,100);//right 1
   rect(x+300,y+100,40,100);
+
+
 
   rect(x+400,y,40,100);//right 0 left
   rect(x+400,y+100,40,100);
