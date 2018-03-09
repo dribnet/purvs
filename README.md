@@ -1,7 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Geometric Clock
+### Maeda Clock #2
 
-My idea for a clock is a geometric form which gradually shifts and transforms as time passes. The three points of the form represent seconds, minutes and hours. The thickest lines represent the hour, the medium lines represent the minutes and the thinnest represent the seconds. An alarm function could be integrated into this clock by coding a "pulsing" function, which causes the geometric shape to move in and out in a sine function until the alarm is over. It would then return to its original form.
-
-I was influenced by Yen-Wen Tseng's "Hand-in-Hand" design when designing this clock. It can be found here: https://www.dezeen.com/2010/03/26/hand-in-hand-clock-yen-wen-tseng/.
+I chose to recreate clock #2 from Maeda's 12 clocks as I liked the simplicity and aesthetic of the visual. I ellipses to code this clock, changing the colour and weight of the stroke to suit the style of the original. To take this further I could experiment with filling certain ellipses with colour, as well as playing with the stroke weight. The random or noise function could be useful in achieving this.
