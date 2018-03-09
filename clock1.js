@@ -9,14 +9,139 @@ function setup () {
   // you can optionally add your own code here if you also have setup code
 }
 
-// Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+
+  background(10);
+ 
+  //letters();
+
+
+  numbers();
+  
+
+
+}
+function letters (){
+// p start
+
+/*  const esize = esize;
+  for(let i =0;i<esize;i++ ){
+    ellipse(width/2, height/2+esize*i, esize, esize);
+  }
+*/
+
+  ellipse(width/2, height/2, 7, 7);
+  ellipse(width/2+7, height/2, 7, 7);
+  ellipse(width/2+7+7, height/2, 7, 7);
+  ellipse(width/2+7+7+7, height/2, 7, 7);
+  ellipse(width/2+7+7+7+7, height/2+7, 7, 7);
+  ellipse(width/2+7+7+7+7, height/2+7+7, 7, 7);
+  ellipse(width/2+7, height/2+7+7+7, 7, 7);
+  ellipse(width/2+7+7, height/2+7+7+7, 7, 7);
+  ellipse(width/2+7+7+7, height/2+7+7+7, 7, 7);
+  ellipse(width/2, height/2+7, 7, 7);
+  ellipse(width/2, height/2+7+7, 7, 7);
+  ellipse(width/2, height/2+7+7+7, 7, 7);
+  ellipse(width/2, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2, height/2+7+7+7+7+7+7, 7, 7);
+// p finish
+
+// m start
+  ellipse(width/2+45, height/2, 7, 7);
+  ellipse(width/2+45, height/2+7, 7, 7);
+  ellipse(width/2+45, height/2+7+7, 7, 7);
+  ellipse(width/2+45, height/2+7+7+7, 7, 7);
+  ellipse(width/2+45, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2+45, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2+45, height/2+7+7+7+7+7+7, 7, 7);
+    ellipse(width/2+45+7, height/2+7, 7, 7);
+    ellipse(width/2+45+7+7, height/2+7+7, 7, 7);
+    ellipse(width/2+45+7+7, height/2+7+7, 7, 7);
+    ellipse(width/2+45+7+7+7, height/2+7, 7, 7);
+
+
+  ellipse(width/2+45+7+7+7+7, height/2, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7+7, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7+7+7, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2+45+7+7+7+7, height/2+7+7+7+7+7+7, 7, 7);
+
+// m finish
+
+}
+
+
+function numbers (){
+// 4 start
+  ellipse(width/2-28-28, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2-28-28, height/2+7+7+7+7+7, 7, 7);
+
+      ellipse(width/2-28-28-7, height/2+7, 7, 7);
+      ellipse(width/2-28-28-7-7, height/2+7+7, 7, 7);
+      ellipse(width/2-28-28-7-7-7, height/2+7+7+7, 7, 7);
+    ellipse(width/2-28-28-7-7-7, height/2+7+7+7+7, 7, 7);
+    ellipse(width/2-28-28-7-7, height/2+7+7+7+7, 7, 7);
+    ellipse(width/2-28-28-7, height/2+7+7+7+7, 7, 7);
+
+  ellipse(width/2-28-28, height/2+7+7+7+7, 7, 7);
+
+    ellipse(width/2-28-21, height/2+7+7+7+7, 7, 7);
+
+  ellipse(width/2-28-28, height/2+7+7+7, 7, 7);
+  ellipse(width/2-28-28, height/2+7+7, 7, 7);
+  ellipse(width/2-28-28, height/2+7, 7, 7);
+  ellipse(width/2-28-28, height/2, 7, 7);
+// 4 finish
+
+// : start
+  ellipse(width/2-28, height/2+7, 7, 7);
+  ellipse(width/2-28, height/2+35, 7, 7);
+// : finish
+
+// 0 start
+  ellipse(width/2, height/2, 7, 7);
+  ellipse(width/2+7, height/2, 7, 7);
+  ellipse(width/2+14, height/2, 7, 7);
+  
+  ellipse(width/2+21, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2+21, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2+21, height/2+7+7+7, 7, 7);
+  ellipse(width/2+21, height/2+7+7, 7, 7);
+  ellipse(width/2+21, height/2+7, 7, 7);
+
+  ellipse(width/2-7, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2-7, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2-7, height/2+7+7+7, 7, 7);
+  ellipse(width/2-7, height/2+7+7, 7, 7);
+  ellipse(width/2-7, height/2+7, 7, 7);
+
+  ellipse(width/2, height/2+42, 7, 7);
+  ellipse(width/2+7, height/2+42, 7, 7);
+  ellipse(width/2+14, height/2+42, 7, 7);
+// 0 finish
+
+// 2 start
+  ellipse(width/2+35, height/2+7, 7, 7);
+  ellipse(width/2+35+7, height/2, 7, 7);
+  ellipse(width/2+35+7+7, height/2, 7, 7);
+  ellipse(width/2+35+7+7+7, height/2, 7, 7);
+  ellipse(width/2+35+7+7+7+7, height/2+7, 7, 7);
+
+  ellipse(width/2+35+7+7+7+7, height/2+7+7, 7, 7);
+  ellipse(width/2+35+7+7+7, height/2+7+7+7, 7, 7);
+  ellipse(width/2+35+7+7, height/2+7+7+7+7, 7, 7);
+  ellipse(width/2+35+7, height/2+7+7+7+7+7, 7, 7);
+
+  ellipse(width/2+35, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2+35+7, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2+35+7+7, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2+35+7+7+7, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2+35+7+7+7+7, height/2+7+7+7+7+7+7, 7, 7);
+// 2 finish
+ 
 }
 
 // do not alter or remove this function
