@@ -1,3 +1,7 @@
+Added experimental clock design.
+
+Based on timekeeping by people who have no way to track the date or the time.
+
 ## PS1 MDDN 242 2017
 
 ### Outrageous clock
