@@ -12,87 +12,30 @@ function setup () {
 // Update this function to draw you own maeda clock
 function draw () {
   background(40); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
+  strokeWeight(4); // Stroke weight to 8 pixels
 
-
-  //color
-  fill("blue");
-  rect(65, 285, 25, 25);
-  rect(65, 265, 25, 25);
-  rect(65, 245, 25, 25);
-  rect(65, 225, 25, 25);
-  rect(65, 205, 25, 25);
-  rect(65, 185, 25, 25);
-  rect(65, 165, 25, 25);
-  rect(65, 145, 25, 25);
-  rect(65, 125, 25, 25);
-  rect(65,105,25,25);
-  rect(65, 85, 25, 25);
-
-  fill("green");
-  rect(215, 285, 25, 25);
-  rect(215, 265, 25, 25);
-  rect(215, 245, 25, 25);
-  rect(215, 225, 25, 25);
-  rect(215, 205, 25, 25);
-  rect(215, 185, 25, 25);
-  rect(215, 165, 25, 25);
-  rect(215, 145, 25, 25);
-  rect(215, 125, 25, 25);
-  rect(215,105,25,25);
-  rect(215, 85, 25, 25);
-
-  fill("yellow");
-  rect(385, 285, 25, 25);
-  rect(410, 285, 25, 25);
-  rect(435, 285, 25, 25);
-  rect(465, 260, 25, 25);
-  rect(355, 290, 25, 25);
-  rect(355, 265, 25, 25);
-  rect(355, 240, 25, 25);
-  rect(355, 215, 25, 25);
-  rect(355, 190, 25, 25);
-  rect(355, 165, 25, 25);
-  rect(465, 265, 25, 25);
-  rect(465, 240, 25, 25);
-  rect(465, 215, 25, 25);
-  rect(465, 190, 25, 25);
-  rect(465, 165, 25, 25);
-  rect(385, 105, 25, 25);
-  rect(410, 105, 25, 25);
-  rect(435, 105, 25, 25);
-
-
-
-  fill("white");
+  noFill();
+  strokeWeight(4);
   // The rectangle draws on top of the ellipse because it comes after in the code
   //first digit
-  rect(50, 300, 25, 25);
-  rect(50, 275, 25, 25);
-  rect(50, 250, 25, 25);
-  rect(50, 225, 25, 25);
-  rect(50, 200, 25, 25);
-  rect(50, 175, 25, 25);
-  rect(50, 150, 25, 25);
-  rect(50, 125, 25, 25);
-  rect(50, 100, 25, 25);
-
+  stroke("#ccffff");
+  for(let ypos =300;ypos>100;ypos-=25){
+    rect(50, ypos, 25, 25);  
+  }  
+  
   //second digit
-  rect(200, 300, 25, 25);
-  rect(200, 275, 25, 25);
-  rect(200, 250, 25, 25);
-  rect(200, 225, 25, 25);
-  rect(200, 200, 25, 25);
-  rect(200, 175, 25, 25);
-  rect(200, 150, 25, 25);
-  rect(200, 125, 25, 25);
-  rect(200, 100, 25, 25);
+  stroke("#b3ffcc");
+  for(let ypos = 300;ypos>100;ypos-=25){
+    rect(200, ypos, 25, 25);
+  }
 
   //Divider
+  stroke("#ddff99");
   rect(270, 150, 25, 25);
   rect(270, 250, 25, 25);
 
   //third digit
+  stroke("#ffd480");
   rect(370, 300, 25, 25);
   rect(395, 300, 25, 25);
   rect(420, 300, 25, 25);
@@ -113,6 +56,7 @@ function draw () {
   rect(420, 120, 25, 25);
 
   //fourth digit
+  stroke("#ff944d");
   rect(520, 300, 25, 25);
   rect(545, 300, 25, 25);
   rect(570, 300, 25, 25);
@@ -133,10 +77,12 @@ function draw () {
   rect(570, 120, 25, 25);
 
   //Second divider
+  stroke("#ff80bf");
   rect(670, 150, 25, 25);
   rect(670, 250, 25, 25);
 
   //fith number
+  stroke("#99bbff");
   rect(770, 300, 25, 25);
   rect(795, 300, 25, 25);
   rect(820, 300, 25, 25);
