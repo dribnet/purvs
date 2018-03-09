@@ -32,7 +32,7 @@ function draw () {
 
   fill(150);
   rect(640, 230, 20, 40);
-  rect(660, 210, 80, 20);  //this section is the eight
+  rect(660, 210, 80, 20);  //this section is the five
   rect(660, 270, 60, 20);
   rect(640, 310, 20, 20);
   rect(660, 330, 60, 20);
