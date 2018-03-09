@@ -17,6 +17,7 @@ function draw () {
   // The rectangle draws on top of the ellipse
   // because it comes after in the code
   rect(500, 280, 260, 20);
+  arc(390, 160, 120, 120, QUARTER_PI, PI+QUARTER_PI)
 }
 
 // do not alter or remove this function
