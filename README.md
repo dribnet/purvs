@@ -1,9 +1,8 @@
-## PS1 MDDN 242 2017
+## PS1 MDDN 242 2018
 
-### Outrageous clock
+### Blocky clock
 
-My second idea is to have a normal digital clock but with a pill-like eclipse as the background underneath it. The "pill" with be divided in two sides, left and right. One side for displaying the hour and one for minute. The way this clock displays second is by changing the colour of 2 sides of the pill into eachother's current colour per sec. For the alarm funcition, I want the display of the hour and minute to keep enlarging and getting smaller repeatedly and nonstopply until someone clicks the clock to stop or snooze it.
-I think this clock idea is the most doable but still can be a cool design.
+My very first idea is this digital clock forms with blocks. Just like the hourglass, the minutes display on the clock is formed by many bits of blocks. It takes 60sec for the 2 blocks at the top to reach eachother and as soon as they touch eachother than 1 block will appear at the minute display section. This works the same for the hour display.
 
 [web links](https://en.wikipedia.org/wiki/Hourglass)
 
