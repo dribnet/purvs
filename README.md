@@ -1,6 +1,6 @@
-Added experimental clock design.
+Added new interpretation of maeda clock.
 
-Based on timekeeping by people who have no way to track the date or the time.
+I based the design on the 9th clock shown, however i decided to experiment with the colour used and replaced the edge with pink. This creates a more neon glow effect which i think makes it look more a little more vivid.
 
 ## PS1 MDDN 242 2017
 
