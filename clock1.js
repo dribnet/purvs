@@ -14,14 +14,14 @@ function draw () {
   rectMode(CENTER);
   noStroke();
 
-  fill(255);
+  fill(0,226,255);
   rect(300,250,40,200);
   rect(260,210,40,40);
   rect(340,330,40,40);
   rect(260,330,40,40);
 
   noStroke();
-  fill(150);
+  fill(255,78,0);
   rect(600,250,10,40);
   rect(635,250,10,40);
   rect(618,225,25,10);
