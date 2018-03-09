@@ -1,8 +1,9 @@
 ## PS1 MDDN 242 2017
 
-### Bubble clock
+### John Maeda's Clock
 
-I am thinking of creating a digital clock in which each number is displayed by a coloured circle that interacts with eachother in a chain reaction in a playful manner. This concept is open to change and is not set in stone
+I recreated one of John Maedas clock however i tried adding a twist in which the colours would change on the RBG scale over a sin wave.
+However i couldnt exactly get it to work but never the less it still changes colours.
 
 Replace the "Outrageous clock" title above with the name of
 your clock. Also update both images keeping their original sizes:
