@@ -1,9 +1,9 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
-var mainx=480;
-var mainy=250;
-var xoutfactor=1;
+var h = hour();
+var m = minute();
+var s = second();
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -15,31 +15,31 @@ function setup () {
 
 // Update this function to draw you own maeda clock
 function draw () {
-  xoutfactor=map(mouseX,0,900,-2,2);
-  background(204); // light gray background
-  strokeWeight(6); // Stroke weight to 8 pixels
-  stroke(58, 71, 89);
-  noStroke();
-  fill(58, 71, 89);
-  ellipse(mainx-20*xoutfactor, mainy, 350, 400);
-  rect(mainx-20*xoutfactor,mainy-200,20*xoutfactor,400);
-  fill(63, 87, 124);
-  ellipse(mainx, mainy, 350, 400);
-  fill(58, 71, 89);
-  ellipse(mainx, mainy, 262.5, 300);
-  rect(mainx,mainy-150,20*xoutfactor,300);
-  fill(85, 129, 198);
-  ellipse(mainx+20*xoutfactor, mainy, 262.5, 300);
-  fill(58, 71, 89);
-  ellipse(mainx+20*xoutfactor, mainy, 175, 200);
-  rect(mainx+20*xoutfactor,mainy-100,20*xoutfactor,200);
-  fill(125, 168, 237);
-  ellipse(mainx+40*xoutfactor, mainy, 175, 200);
-  fill(58, 71, 89);
-  ellipse(mainx+40*xoutfactor, mainy, 87.5, 100);
-  rect(mainx+40*xoutfactor,mainy-50,20*xoutfactor,100);
-  fill(168, 202, 255);
-  ellipse(mainx+60*xoutfactor, mainy, 87.5, 100);
+  rectMode(CENTER);
+  if (hour()>12) {
+    h=hour()-12;
+  } else {
+    h=hour();
+  }
+  if (minute()<10) {
+    m='0'+minute();
+  } else {
+    m=minute();
+  }
+  m = minute();
+  s = second();
+  background(127);
+
+  translate(CANVAS_WIDTH/2,CANVAS_HEIGHT/2)
+  fill(0)
+  textSize(200);
+  text(h,-50,75);
+  textSize(150);
+  fill(255)
+  text(m,-80,50);
+  textSize(100);
+  fill(255,0,0)
+  text(s,-60,30);
 }
 
 // do not alter or remove this function
