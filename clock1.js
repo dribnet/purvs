@@ -6,10 +6,9 @@ function setup () {
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
 
-  // you can optionally add your own code here if you also have setup code
 }
 
-// Update this function to draw you own maeda clock
+
 function draw () {
   background(0);
   rectMode(CENTER);
