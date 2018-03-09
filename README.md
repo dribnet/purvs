@@ -1,13 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+Two quick ideas I had for project 1. I liked the idea of a geometric 3d clock that Andreas Gysin made (https://vimeo.com/9414302). I also liked the idea of introducing colour in the way that Mike Bostock’s Polar Clock does (https://bl.ocks.org/mbostock/c150b717e18d387e1b98). I tried to combine these.
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
 
 Replace the "Outrageous clock" title above with the name of
 your clock. Also update both images keeping their original sizes:
