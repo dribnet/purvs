@@ -1,12 +1,11 @@
 ## PS1 MDDN 242 2018
 
-### Episode 0.1 testing-test
+### Episode 0.2 testing-test
 
-the following pictures are small changes i have done with
-code provided in blackboard using basic x and y manipulations
-of the rect and circle coding show above
+another small test when it comes to figuring this journal again hopefully this will be the last one before i initiate my design ideas
+for an actually clock idea.
 
-Replace the "Outrageous clock" title above with the name of
+(YOUR OWN REFERENCE FOR IMAGES BELOW)
 your clock. Also update both images keeping their original sizes:
 preview.jpg (960x500) and thumbnail.png (230x120).
 
