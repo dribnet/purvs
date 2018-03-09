@@ -6,7 +6,7 @@ let hide_Minutes = false;
 let hide_Seconds = false;
 
 function preload(){
-	pfont = loadFont('assets/prstart.ttf');
+	pfont = loadFont('prstart.ttf');
 }
 
 function setup () {
