@@ -1,5 +1,6 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
+angleMode(DEGREES);
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -11,12 +12,31 @@ function setup () {
 
 // Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+  var s = second();
+  var m = minute();
+  var h = hour();
+  //var t = h 
+  //print(s);
+  //print(h);
+  background(30); //black background
+  translate(width/2,height/2)
+  let theta = map(s, 0, 60, 360, 0);
+  rotate(theta);
+  fill(255,255,255,50)
+  textAlign(CENTER);
+  textSize(50);
+  if (h > 11){
+  text('PM', 0, 0);
+} else {
+  text('AM', 0, 0);
+}
+  textSize(50);
+  fill(255);
+  text(h, 100,0);
+  fill(255,0,0);
+  text(':',140,0);
+  fill(255);
+  text(m,180,0);
 }
 
 // do not alter or remove this function
