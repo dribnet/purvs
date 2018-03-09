@@ -1,5 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Cliffside Clock
+### Maeda Clock
 
-This clock is based on the circadian rythm of the tides. As the tide goes in and out it hits notches for the hours on the cliffside. The sky indicates am/pm, a bird flies across the sky each minuet and the waves are spaces a second apart. The alarm is a seagul flying into the secondary cliff edge and squarking. 
+This clock is a recreation of John Maeda's 8th clock. I didn't make any real changes other than numbers. I felt it was more important to focus on completing the task in order to practice using the terminal to push the updates to my gist as I was having some trouble with the system. 
+
