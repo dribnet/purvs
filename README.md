@@ -1,15 +1,11 @@
 ## PS1 MDDN 242 2017
 
-### CMYK Brail Clock
+### My Maeda Clock
 
-The idea for this clock is to confront the visual aspect of 
-a clock by being written in brail which is predominantly a
-language for the blind. On the inverse however as it is a
-digitally visable clock it is also inaccessable to the blind,
-rendering it fairly useless for telling the time. Complexity 
-is added via the overlapping of the seconds, minutes and hours
-symbols, each layer represented by a colour but if a dot is used
-twice it fuses the colours eg yellow and cyan will make a green.
-In this way you will theoritcally be able to tell what the time is
-if your brain can figure all these things out fast enough but otherwise
-it is fairly useless.
+The is the clock design I made which is a variation of John Maeda's 
+3rd Clock. Obviously its just a drawn still as asked for. However I 
+adapted my concept to fit inside the frame work of his design. The 
+Braille (Which I mispelled in my last blog post... Oops) has been 
+stretched and scaled around one point like in Maeda's with the bottom 
+of the braile heading towards the centre of the spiral. Also my first 
+when I realised how all this stuff is working =D
