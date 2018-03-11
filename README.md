@@ -1,10 +1,8 @@
 ## PS1 MDDN 242 2018
 ## Ben Spearman
 
-### Dial Clock
+### Pulsing Clock
 
-The dial clock is a clock which has three rotating
-dials which tell the second, minute, and hour.
-The drawing depicted only shows the under layer,
-but there will be a square plate on top of the 
-dials with a cut out to make reading the time easier.
+The clock I chose to recreate was the pulsing clock which alternated. Now me being me, I slighlty misread the prompt and actually made a working version, though slightly altered. As I was working on the code, I realized I could make the numbers pulse in a different way, by breaking them up by the individual blocks which made them up.
+
+I will update this later with a single still image, rather than the working version.
