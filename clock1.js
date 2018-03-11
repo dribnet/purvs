@@ -11,12 +11,53 @@ function setup () {
 
 // Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+  background(0); // light gray background
+  strokeWeight(0); // Stroke weight to 8 pixels
+  fill(200);
+  x=380;y=180;
+  ellipse(10+x,10+y,15,15);
+  ellipse(10+x,30+y,15,15);
+  ellipse(10+x,50+y,15,15);
+  ellipse(10+x,70+y,15,15);
+  ellipse(10+x,90+y,15,15);
+  ellipse(10+x,110+y,15,15);
+  ellipse(10+x,130+y,15,15);
+  ellipse(-10+x,90+y,15,15);
+  ellipse(-30+x,90+y,15,15);
+  ellipse(-50+x,90+y,15,15);
+  ellipse(30+x,90+y,15,15);
+  ellipse(-50+x,70+y,15,15);
+  ellipse(-30+x,50+y,15,15);
+  ellipse(-10+x,30+y,15,15);
+  
+  ellipse(70+x,110+y,15,15);
+  ellipse(70+x,30+y,15,15);
+  
+  ellipse(170+x,10+y,15,15);
+  ellipse(170+x,30+y,15,15);
+  ellipse(170+x,50+y,15,15);
+  ellipse(170+x,70+y,15,15);
+  ellipse(170+x,90+y,15,15);
+  ellipse(170+x,110+y,15,15);
+  ellipse(170+x,130+y,15,15);
+  
+  ellipse(270+x,10+y,15,15);
+  ellipse(290+x,10+y,15,15);
+  ellipse(230+x,10+y,15,15);
+  ellipse(250+x,10+y,15,15);
+  ellipse(270+x,70+y,15,15);
+  ellipse(290+x,70+y,15,15);
+  ellipse(230+x,70+y,15,15);
+  ellipse(250+x,70+y,15,15);
+  ellipse(270+x,130+y,15,15);
+  ellipse(290+x,130+y,15,15);
+  ellipse(230+x,130+y,15,15);
+  ellipse(250+x,130+y,15,15);
+  ellipse(230+x,30+y,15,15);
+  ellipse(230+x,50+y,15,15);
+  ellipse(290+x,90+y,15,15);
+  ellipse(290+x,110+y,15,15);
+  
 }
 
 // do not alter or remove this function
