@@ -8,8 +8,8 @@ var sy;
 var t = 0;
 var ss;
 var ssf;
-//Creating a var for time, s for scale, and standard xy
-
+//Creating a vars for standard x, standard y, time, standard size (for the blocks),
+//and a second standard for number four
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -23,16 +23,15 @@ function draw () {
   background(0); // Black background
   strokeWeight(0); // Stroke weight to 0 pixels
 
-  ss = (sin(t)+1)*40
+  ss = (sin(t)+1)*40 
   ssf = ((sin(-t)+1)*40)
+  //Creating the alternating growth of the squares
 
   four();
   zero();
   seven();
 
-
-
-  t = t +1;
+  t = t +1; //Making time count up
 }
 
 // do not alter or remove this function
@@ -55,15 +54,14 @@ function stdsqf (sx,sy) {
   rect(sx,sy,ssf,ssf);
 }
 
-function four (){
-//Creates the number 4
 
+//Creates the number 4
+function four (){
 //Creating vars for use in function
+//Standard xy, standard block distance max
 var xst = 310;
 var yst = 50;
 var st = 40;
-
-
 
 //Vertical bar
   for(i=1;i<=7;i++){
@@ -77,20 +75,16 @@ var st = 40;
   for (i=1; i<=5; i++){
     stdsqf (((xst-160)+(st*i)),(yst+200));
   }
-
-
 }
 
-
-function zero (){
 //Creates the number 0
-
+function zero (){
 //Creating vars for use in function
 var xst = 450;
 var yst = 90;
 var st = 40;
 
-beginShape();
+//For loops to draw numbers
 //Top bar
   for (i=1; i<=3; i++){
       stdsq (((xst)+(st*i)), yst);
@@ -110,30 +104,28 @@ beginShape();
     stdsq ((xst+160), (yst+(st*i)));
   }
 }
-endShape();
 
-function seven (){
 //Creates the number 7
-
+function seven (){
 //Creating vars for use in function
 var xst = 710;
 var yst = 90;
+var st = 40;
 
 //Top bar
-  stdsq (xst, yst);
-  stdsq ((xst+40), yst);
-  stdsq ((xst+80), yst);
-  stdsq ((xst+120), yst);
-  stdsq ((xst+160), yst);
+  for (i=1; i<=5; i++){
+    stdsq ((xst+(st*i)-40), yst);
+  }
 //Right bar
-  stdsq ((xst+160),(yst+40));
-  stdsq ((xst+160),(yst+80));
+  for (i=1;i<=2;i++){
+    stdsq (xst+160, yst+(st*i));
+  }
 //Lonely block :(
   stdsq ((xst+120), (yst+120));
 //Middle bar
-  stdsq ((xst+80), (yst+160));
-  stdsq ((xst+80), (yst+200));
-  stdsq ((xst+80), (yst+240));
+  for (i=1; i<=3;i++){
+    stdsq (xst+80, yst+(120+st*i));
+  }
 }
 
 
