@@ -2,22 +2,93 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
 function setup () {
-  // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
 
-  // you can optionally add your own code here if you also have setup code
 }
 
 // Update this function to draw you own maeda clock
 function draw () {
   background(0); 
-  strokeWeight(2); 
-  ellipse(480, 250, 190, 190);
   
-  
-ellipse(mouseX, mouseY, 80, 80);
+  var hr = hour();
+  var mn = minute();
+  var sc = second();
+  var a = 90;
+  var b = 45;
+  // var c = 90;
+  var s = 1;
+  var d = 2;
+ 
+
+ // if(s == 1){
+ //  Enlarge();
+ // } else {
+ //  Shrink();
+ //}
+
+fill(50, 40, 240, 250);
+noStroke();
+textAlign(CENTER);
+textSize(a);
+text(hr, 390, 250);
+
+textSize(b);
+text(mn, 500, 250);
+
+
+
+
+
+// textSize(c);
+// text(sc, 420, 250);
 }
+
+
+
+// function Enlarge (){
+// hr = hour();
+// mn = minute();
+// fill(50, 40, 240, 250);
+// noStroke();
+// textAlign(CENTER);
+// textSize(a);
+// text(hr, 390, 250);
+
+// textSize(b);
+// text(mn, 500, 250);
+
+// if(a < 90){
+//   a++;
+//   b--;
+// }
+
+// }
+
+// function Shrink () {
+// hr = hour();
+// mn = minute(); 
+// fill(50, 40, 240, 250);
+// noStroke();
+// textAlign(CENTER);
+
+// textSize(a);
+// text(hr, 390, 250);
+
+// textSize(a);
+// text(mn, 500, 250);
+
+// if(a == 90){
+//   a--;
+//   b++;
+//   }
+
+
+//}
+
+
+
+
 
 // do not alter or remove this function
 function keyTyped() {
