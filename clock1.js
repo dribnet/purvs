@@ -1,3 +1,5 @@
+///<reference path="p5.global-mode.d.ts"/>
+var Color = p5.Color;
 var CANVAS_WIDTH = 960;
 var CANVAS_HEIGHT = 500;
 var cellSize = 20;
@@ -114,9 +116,11 @@ function setup() {
     Since TypeScript doesn't like forcing an HTMLCanvasElement into
     a p5.Element (to use .parent()), I've done it manually.
     */
-    var main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-    var container = document.getElementById('canvasContainer');
-    container.appendChild(main_canvas);
+    //let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+    // let container: HTMLElement | null = document.getElementById('canvasContainer');
+    // container.appendChild(main_canvas);
+    //that didn't work either and the error messages weren't helpful. This appears to work though.
+    createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     //My own setup code
     w = CANVAS_WIDTH / cellSize;
     h = CANVAS_HEIGHT / cellSize;
@@ -126,7 +130,7 @@ function setup() {
     for (var i = 0; i < w; i++) {
         var line_1 = [];
         for (var j = 0; j < h; j++) {
-            line_1.push(random(1) < 0.25);
+            line_1.push(random(1) < 0.05);
         }
         cells.push(line_1);
     }
@@ -135,16 +139,75 @@ function setup() {
 }
 function draw() {
     translate(-0.5, -0.5);
-    background(0xBB); // nice grey background
+    background(backgroundColour); // nice grey background
+    if (frameCount % 2 === 0) {
+        updateLife(1);
+    }
     stroke(backgroundColour);
     for (var i = 0; i < w; i++) {
         for (var j = 0; j < h; j++) {
             fill(cells[i][j] ? cellColour : backgroundColour);
-            rect(i * cellSize, j * cellSize, w, h);
+            rect(i * cellSize, j * cellSize, cellSize, cellSize);
         }
     }
-    if (frameCount % 2 === 0) {
-        updateLife(1);
+    fill(textColour);
+    //TODO: make this into a function
+    var xOffset = 3;
+    var yOffset = 9;
+    //3
+    for (var i = 0; i < 35; i++) {
+        if (numbers[3][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //:
+    for (var i = 0; i < 35; i++) {
+        if (numbers[10][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //4
+    for (var i = 0; i < 35; i++) {
+        if (numbers[4][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //8
+    for (var i = 0; i < 35; i++) {
+        if (numbers[8][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //:
+    for (var i = 0; i < 35; i++) {
+        if (numbers[10][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //0
+    for (var i = 0; i < 35; i++) {
+        if (numbers[0][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
+    }
+    xOffset += 6;
+    //5
+    for (var i = 0; i < 35; i++) {
+        if (numbers[5][i] === 1) {
+            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
+            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+        }
     }
 }
 function updateLife(generationNum) {

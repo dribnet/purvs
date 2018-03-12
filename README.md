@@ -1,11 +1,11 @@
 ## PS1 MDDN 242 2017
 
-### Flaming Display Concept
+### Conway Clock Implementation
 
 --------------------------------------------------
 
-My current rough concept is simply a traditional 7-segment display clock, but the segments are emitting
-flaming particles. This would provide opportunity for a lot of nice secondary motion and physical effects.
+I elected to recreate clock #6, featuring Conway's Game of Life.
+Since getting a still frame of the automaton would be tedious, I elected to just implement it outright.
 
+I've also switched my project to TypeScript, as it's something that I've been wanting to learn.
 
-I don't think this is as strong as it could be, so I might scrap this and try for something more ambitious.

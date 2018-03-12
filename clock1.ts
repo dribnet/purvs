@@ -1,14 +1,17 @@
+///<reference path="p5.global-mode.d.ts"/>
+import Color = p5.Color;
+
 declare function saveBlocksImages(zoom);
 
-const CANVAS_WIDTH = 960;
-const CANVAS_HEIGHT = 500;
+const CANVAS_WIDTH: number = 960;
+const CANVAS_HEIGHT: number = 500;
 
-const cellSize = 20;
-let w, h;
+const cellSize: number = 20;
+let w, h: number;
 let cells = [];
-let cellColour;
-let textColour;
-let backgroundColour;
+let cellColour: Color;
+let textColour: Color;
+let backgroundColour: Color;
 
 //values for drawing the clock digits, 0-9 and :
 const numbers = [
@@ -119,9 +122,12 @@ function setup() {
 	Since TypeScript doesn't like forcing an HTMLCanvasElement into
 	a p5.Element (to use .parent()), I've done it manually.
 	*/
-	let main_canvas: HTMLCanvasElement = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-	let container = document.getElementById('canvasContainer');
-	container.appendChild(main_canvas);
+	//let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+	// let container: HTMLElement | null = document.getElementById('canvasContainer');
+	// container.appendChild(main_canvas);
+
+	//that didn't work either and the error messages weren't helpful. This appears to work though.
+	createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 
 	//My own setup code
 	w = CANVAS_WIDTH / cellSize;
@@ -132,7 +138,7 @@ function setup() {
 	for (let i = 0; i < w; i++) {
 		let line = [];
 		for (let j = 0; j < h; j++) {
-			line.push(random(1) < 0.25);
+			line.push(random(1) < 0.05);
 		}
 		cells.push(line);
 	}
@@ -143,18 +149,89 @@ function setup() {
 
 function draw() {
 	translate(-0.5, -0.5);
-	background(0xBB); // nice grey background
+	background(backgroundColour); // nice grey background
+
+	if (frameCount % 2 === 0) {
+		updateLife(1);
+	}
 
 	stroke(backgroundColour);
 	for (let i = 0; i < w; i++) {
 		for (let j = 0; j < h; j++) {
 			fill(cells[i][j] ? cellColour : backgroundColour);
-			rect(i * cellSize, j * cellSize, w, h);
+			rect(i * cellSize, j * cellSize, cellSize, cellSize);
 		}
 	}
-	if (frameCount % 2 === 0) {
-		updateLife(1);
+	fill(textColour);
+	//TODO: make this into a function
+
+	let xOffset = 3;
+	let yOffset = 9
+
+	//3
+	for (let i = 0; i < 35; i++) {
+		if (numbers[3][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
 	}
+	xOffset += 6;
+
+	//:
+	for (let i = 0; i < 35; i++) {
+		if (numbers[10][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+	xOffset += 6;
+	//4
+	for (let i = 0; i < 35; i++) {
+		if (numbers[4][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+	xOffset += 6;
+	//8
+	for (let i = 0; i < 35; i++) {
+		if (numbers[8][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+	xOffset += 6;
+	//:
+	for (let i = 0; i < 35; i++) {
+		if (numbers[10][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+	xOffset += 6;
+	//0
+	for (let i = 0; i < 35; i++) {
+		if (numbers[0][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+	xOffset += 6;
+	//5
+	for (let i = 0; i < 35; i++) {
+		if (numbers[5][i] === 1) {
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+
 }
 
 function updateLife(generationNum) {
