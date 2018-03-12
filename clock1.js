@@ -8,7 +8,10 @@ var sy;
 var t = 0;
 var ss;
 var ssf;
-//Creating a vars for standard x, standard y, time, standard size (for the blocks),
+var fillf;
+var fillo;
+
+//Creating a vars for standard x, standard y, time, fill standard size (for the blocks),
 //and a second standard for number four
 
 function setup () {
@@ -23,6 +26,9 @@ function draw () {
   background(0); // Black background
   strokeWeight(0); // Stroke weight to 0 pixels
 
+  fillf = (-(sin(t))*255);
+  fillo = ((sin(t))*255);
+  //Making the fills change over time with the growth
   ss = (sin(t)+1)*40 
   ssf = ((sin(-t)+1)*40)
   //Creating the alternating growth of the squares
@@ -57,12 +63,16 @@ function stdsqf (sx,sy) {
 
 //Creates the number 4
 function four (){
+
 //Creating vars for use in function
 //Standard xy, standard block distance max
 var xst = 310;
 var yst = 50;
 var st = 40;
 
+beginShape();
+
+fill(fillf);
 //Vertical bar
   for(i=1;i<=7;i++){
     stdsqf (xst,(yst+(i*st)));
@@ -75,10 +85,13 @@ var st = 40;
   for (i=1; i<=5; i++){
     stdsqf (((xst-160)+(st*i)),(yst+200));
   }
+endShape();
 }
 
 //Creates the number 0
 function zero (){
+
+fill(fillo);
 //Creating vars for use in function
 var xst = 450;
 var yst = 90;
