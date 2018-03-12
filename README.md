@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Sand Clock
+### Recreation of John Maeda's 12 Clocks
 
-The sandglass inspired me to make a clock with sand flowing effect. I may make a digital clock combined with sand falling dwon from the top to the buttom.
+This is my recreation of John Maeda's Clock. I changed the black-and-white colour into various colours. The mosaic squares moving on the background are very active and energetic so I choose some vivid colours. Also, I changed the text fond into more simple style so that the time could emphasized on the moving background.
