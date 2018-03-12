@@ -1,1 +1,5 @@
-﻿Circles that stay locked in orbit to one another in a semi minimalist style. The lines in the circles stay rotation locked, pointing like tradition clock hands in a way, while the circles rotate around keeping time.
+﻿Maeda's clock number 5
+
+I wanted to see how the rotational coordinate system worked so I chose this one. Instead of drawing the numbers I gave the text() function a try, to simplify the rotation as well. 
+
+There is a bit of alpha added to the numbers and color changes.
