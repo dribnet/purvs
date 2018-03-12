@@ -1,14 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### Clock Concepts
 
-Describe the idea for your clock here - replacing this text.
-Be sure to use complete sentences, and you can reference your 
-image above. You can also include
-[web links](https://en.wikipedia.org/wiki/Clock_of_the_Long_Now)
-to other pages that support your ideas.  The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
+I forgot to change the read me file for the first upload, but pretty the upload is just my initial ideas and concepts. The second upload is me getting started on the imitation clock, where i had to work out a way to not have to hard code all the squares.
 
-Replace the "Outrageous clock" title above with the name of
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
+This upload, I have refined my concepts down to ones that stem straight from my inspiration pictures on the top left and top right.
+What I have finalised is a joint idea from both concepts, although this can definately be extended further.
