@@ -1,9 +1,15 @@
+//Global Variables
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 let pfont;
+//The 3 below are used to hide the time
 let hide_Hours = false;
 let hide_Minutes = false;
 let hide_Seconds = false;
+//The 3 below are used in animated circle
+let animateCircle = 0;
+let mClickPosX = 0;
+let mClickPosY = 0;
 
 function preload(){
 	pfont = loadFont('prstart.ttf');
@@ -13,8 +19,11 @@ function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
-  // you can optionally add your own code here if you also have setup code  
-  angleMode(DEGREES);
+  angleMode(DEGREES); //Changes the mode to degrees, since I find it easier to work in
+  //Below if statement 
+  if(pfont!=null){
+	  textFont(pfont);
+  }
 }
 
 // Update this function to draw you own maeda clock
@@ -24,9 +33,7 @@ function draw () {
   let s = second();
   let text_Size = 200;
   background(150); // light gray background
-  if(pfont!=null){
-	  textFont(pfont);
-  }
+  
   //Takes the Text and rotates around the screen
   translate(CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
   textAlign(CENTER, CENTER);
@@ -56,8 +63,16 @@ function draw () {
 	fill(255,0,0);
 	textSize(text_Size*0.6);
 	text(s,0,0);
+	rotate(-(s*6));
   }
-
+  translate(-(CANVAS_WIDTH/2),-(CANVAS_HEIGHT/2));
+  
+  if(animateCircle > 0){
+	  animateCircle -= 3;
+	  tint(255, animateCircle);
+	  noFill();
+	  ellipse(mClickPosX, mClickPosY, 60-animateCircle, 60-animateCircle);
+  }  
 }
 
 function mouseClicked(){
@@ -83,6 +98,9 @@ function mouseClicked(){
 		hide_Minutes = false;
 		hide_Seconds = false;
 	}
+	mClickPosX = mouseX;
+	mClickPosY = mouseY;
+	animateCircle = 60;
 }
 
 // do not alter or remove this function
