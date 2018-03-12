@@ -1,8 +1,8 @@
 ## PS1 MDDN 242 2018
 
-### Mock clock
+### Pill clock
 
-I coded this still image of the artist precedent's clock by coding them out with rect function. I customised the background colour to make it prettier.
+This clock is inspired by the look of a pill. The colour of the two parts of the pill will flash into the opposite colour per sec. For the alarm function, the display of the hour and minute will keep enlarging and getting smaller until someone click it.
 
 
 
