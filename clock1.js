@@ -16,75 +16,68 @@ function draw () {
   var sc = second();
   var a = 90;
   var b = 45;
-  // var c = 90;
   var s = 1;
   var d = 2;
  
+  if(s == 1){
+   Enlarge();
+  } else {
+   Shrink();
+  }
 
- // if(s == 1){
- //  Enlarge();
- // } else {
- //  Shrink();
- //}
-
-fill(50, 40, 240, 250);
-noStroke();
-textAlign(CENTER);
-textSize(a);
-text(hr, 390, 250);
-
-textSize(b);
-text(mn, 500, 250);
-
-
-
-
-
-// textSize(c);
-// text(sc, 420, 250);
-}
-
-
-
-// function Enlarge (){
-// hr = hour();
-// mn = minute();
 // fill(50, 40, 240, 250);
 // noStroke();
 // textAlign(CENTER);
 // textSize(a);
 // text(hr, 390, 250);
-
 // textSize(b);
 // text(mn, 500, 250);
 
-// if(a < 90){
-//   a++;
-//   b--;
-// }
-
-// }
-
-// function Shrink () {
-// hr = hour();
-// mn = minute(); 
-// fill(50, 40, 240, 250);
-// noStroke();
-// textAlign(CENTER);
-
-// textSize(a);
-// text(hr, 390, 250);
-
-// textSize(a);
-// text(mn, 500, 250);
-
-// if(a == 90){
-//   a--;
-//   b++;
-//   }
 
 
-//}
+
+
+}
+
+
+//function below should enlarge the hour if its below textsize 90 and shrink the minutes
+function Enlarge (){
+hr = hour();
+mn = minute();
+
+  if(a < 90){
+fill(50, 40, 240, 250);
+noStroke();
+textAlign(CENTER);
+  textSize(a);
+  text(hr, 390, 250);
+    textSize(b);
+    text(mn, 500, 250);
+a++;
+b--;
+}else{
+  s = 2;
+}
+}
+
+function Shrink () {
+hr = hour();
+mn = minute(); 
+
+if(a == 90){
+  fill(50, 40, 240, 250);
+  noStroke();
+  textAlign(CENTER);
+textSize(a);
+text(hr, 390, 250);
+    textSize(a);
+    text(mn, 500, 250);
+  a--;
+  b++;
+  }else{
+    s = 1
+  }
+}
 
 
 
