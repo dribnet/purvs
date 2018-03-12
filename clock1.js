@@ -1,23 +1,45 @@
+var p1
+var p2
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
 function setup () {
   // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-  main_canvas.parent('canvasContainer');
+  createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+  //main_canvas.parent('canvasContainer');
+  p1 = loadImage("p1.png");
+  p2 = loadImage("p2.png");
 
   // you can optionally add your own code here if you also have setup code
 }
 
 // Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
-  arc(390, 160, 120, 120, QUARTER_PI, PI+QUARTER_PI)
+  background(237,237,237,240); // light gray background
+  noStroke();
+  //strokeWeight(8); // Stroke weight to 8 pixels
+  fill(0, 0, 0);
+  arc(width/2, height/2, 450, 450, PI+HALF_PI, TWO_PI+HALF_PI );
+  fill(255, 255, 255);
+  arc(width/2, height/2, 450, 450, TWO_PI+HALF_PI, PI+HALF_PI );
+  fill(255, 255, 255, 235);
+  arc(width/2, height/2, 150, 150, PI+HALF_PI, TWO_PI+HALF_PI );
+  fill(0, 0, 0, 220);
+  arc(width/2, height/2, 150, 150, TWO_PI+HALF_PI, PI+HALF_PI );
+  noFill();
+  stroke(0, 0, 0);
+  strokeWeight(7);
+  arc(width/2, height/2, 450, 450,radians(245),radians(251));
+  stroke(255, 255, 255);
+  strokeWeight(7);
+  arc(width/2, height/2, 150, 150,radians(270),radians(300));
+  image(p2, width/2-60, height/2-25, 50,50);
+  image(p1, width/2+20, height/2-28, 30,60);
+  
+  
+
+  //fill(255, 255, 255);
+  //ellipse(width/2, height/2, 450, 450);
 }
 
 // do not alter or remove this function
