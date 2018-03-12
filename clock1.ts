@@ -6,7 +6,7 @@ declare function saveBlocksImages(zoom);
 const CANVAS_WIDTH: number = 960;
 const CANVAS_HEIGHT: number = 500;
 
-const cellSize: number = 20;
+const cellSize: number = 15;
 let w, h: number;
 let cells = [];
 let cellColour: Color;
@@ -137,6 +137,7 @@ function setup() {
 }
 
 function displayClockCharacter(characterIndex, xOffset, yOffset) {
+	noStroke();
 	for (let i = 0; i < 35; i++) {
 		if (numbers[characterIndex][i] === 1) {
 			fill(backgroundColour);
@@ -166,29 +167,29 @@ function draw() {
 		}
 	}
 
-	let xOffset = 3;
-	let yOffset = 9;
+	let xOffset = 7;
+	let yOffset = 12;
 
-	//3
-	displayClockCharacter(3, xOffset, yOffset);
+	//hours
+	displayClockCharacter(floor(hour()/10), xOffset, yOffset);
+	xOffset += 6;
+	displayClockCharacter(hour()%10, xOffset, yOffset);
 	xOffset += 6;
 	//:
 	displayClockCharacter(10, xOffset, yOffset);
 	xOffset += 6;
-	//4
-	displayClockCharacter(4, xOffset, yOffset);
+	//minutes
+	displayClockCharacter(floor(minute()/10), xOffset, yOffset);
 	xOffset += 6;
-	//8
-	displayClockCharacter(8, xOffset, yOffset);
+	displayClockCharacter(minute()%10, xOffset, yOffset);
 	xOffset += 6;
 	//:
 	displayClockCharacter(10, xOffset, yOffset);
 	xOffset += 6;
-	//0
-	displayClockCharacter(0, xOffset, yOffset);
+	//seconds
+	displayClockCharacter(floor(second()/10), xOffset, yOffset);
 	xOffset += 6;
-	//5
-	displayClockCharacter(5, xOffset, yOffset);
+	displayClockCharacter(second()%10, xOffset, yOffset);
 }
 
 function updateLife(generationNum) {

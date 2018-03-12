@@ -2,7 +2,7 @@
 var Color = p5.Color;
 var CANVAS_WIDTH = 960;
 var CANVAS_HEIGHT = 500;
-var cellSize = 20;
+var cellSize = 15;
 var w, h;
 var cells = [];
 var cellColour;
@@ -128,6 +128,7 @@ function setup() {
     strokeWeight(1);
 }
 function displayClockCharacter(characterIndex, xOffset, yOffset) {
+    noStroke();
     for (var i = 0; i < 35; i++) {
         if (numbers[characterIndex][i] === 1) {
             fill(backgroundColour);
@@ -151,28 +152,28 @@ function draw() {
             rect(i * cellSize, j * cellSize, cellSize, cellSize);
         }
     }
-    var xOffset = 3;
-    var yOffset = 9;
-    //3
-    displayClockCharacter(3, xOffset, yOffset);
+    var xOffset = 7;
+    var yOffset = 12;
+    //hours
+    displayClockCharacter(floor(hour() / 10), xOffset, yOffset);
+    xOffset += 6;
+    displayClockCharacter(hour() % 10, xOffset, yOffset);
     xOffset += 6;
     //:
     displayClockCharacter(10, xOffset, yOffset);
     xOffset += 6;
-    //4
-    displayClockCharacter(4, xOffset, yOffset);
+    //minutes
+    displayClockCharacter(floor(minute() / 10), xOffset, yOffset);
     xOffset += 6;
-    //8
-    displayClockCharacter(8, xOffset, yOffset);
+    displayClockCharacter(minute() % 10, xOffset, yOffset);
     xOffset += 6;
     //:
     displayClockCharacter(10, xOffset, yOffset);
     xOffset += 6;
-    //0
-    displayClockCharacter(0, xOffset, yOffset);
+    //seconds
+    displayClockCharacter(floor(second() / 10), xOffset, yOffset);
     xOffset += 6;
-    //5
-    displayClockCharacter(5, xOffset, yOffset);
+    displayClockCharacter(second() % 10, xOffset, yOffset);
 }
 function updateLife(generationNum) {
     var newCells = [];
