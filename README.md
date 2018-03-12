@@ -2,7 +2,8 @@
 
 ### Solar System Clock
 
-For my clock i have decided to take the solar system as inspiration. 
+Maeda's clock replica
 
-As a basic concept i will have 3 planets orbiting a sun, each planet will represent a unit of time (hours, minutes, seconds, possibly all the way to years)
-and their point in the orbit will be based on their time.
+I attempted to create the 7th clock as it seemed the most interesting to me. 
+The only real difference between mine and his clock is that the minutes and hours are not aligned vertically and are 
+instead side by side
