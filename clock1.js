@@ -33,11 +33,11 @@ function draw () {
   //Hours
   if(!hide_Hours){
 	textSize(text_Size);
-	rotate(h*15);  
+	rotate(h*30);  
 	fill(0);
 	text(h,0,0);
 	//Undo Rotation on the matrix
-	rotate(-(h*15)); 
+	rotate(-(h*30)); 
   }
  
   //Minutes
