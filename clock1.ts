@@ -117,16 +117,6 @@ const numbers = [
 ];
 
 function setup() {
-	/*
-    create the drawing canvas, save the canvas element.
-	Since TypeScript doesn't like forcing an HTMLCanvasElement into
-	a p5.Element (to use .parent()), I've done it manually.
-	*/
-	//let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-	// let container: HTMLElement | null = document.getElementById('canvasContainer');
-	// container.appendChild(main_canvas);
-
-	//that didn't work either and the error messages weren't helpful. This appears to work though.
 	createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 
 	//My own setup code
@@ -144,7 +134,6 @@ function setup() {
 	}
 	strokeWeight(1);
 
-	//updateLife(25);
 }
 
 function displayClockCharacter(characterIndex, xOffset, yOffset) {
@@ -165,7 +154,7 @@ function draw() {
 	translate(-0.5, -0.5);
 	background(backgroundColour); // nice grey background
 
-	if (frameCount % 2 === 0) {
+	if (frameCount % 4 === 0) {
 		updateLife(1);
 	}
 
