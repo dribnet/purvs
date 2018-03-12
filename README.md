@@ -1,8 +1,8 @@
 ## PS1 MDDN 242 2018
 
-### Block clock
+### Origami Clock
 
-This clock is inspired by the an hourglass. Small bits add up to big bits.
+This clock is formed by basic forms like triangle. I want to create an elegant clock "folded" by paper.
 
 
 
