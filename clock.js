@@ -79,7 +79,7 @@ function draw_clock(obj) {
 
   stackDraw(380, stackStartHeight, minTen, '#ffbf00', 5);
   stackDraw(450, stackStartHeight, minRem, '#ffff00', 9);
-  stackDraw(520, stackStartHeight, secTen, '#ffee75', 5);
+  stackDraw(520, stackStartHeight, secTen, '#ffee75', 6);
   stackDraw(590, stackStartHeight, sec, '#ef9b0f', 10);
 
 }
