@@ -147,6 +147,20 @@ function setup() {
 	//updateLife(25);
 }
 
+function displayClockCharacter(characterIndex, xOffset, yOffset) {
+	for (let i = 0; i < 35; i++) {
+		if (numbers[characterIndex][i] === 1) {
+			fill(backgroundColour);
+			rect((xOffset + i % 5) * cellSize,
+				(yOffset + floor(i / 5)) * cellSize, cellSize, cellSize);
+			fill(textColour);
+			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
+				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
+			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+		}
+	}
+}
+
 function draw() {
 	translate(-0.5, -0.5);
 	background(backgroundColour); // nice grey background
@@ -162,76 +176,30 @@ function draw() {
 			rect(i * cellSize, j * cellSize, cellSize, cellSize);
 		}
 	}
-	fill(textColour);
-	//TODO: make this into a function
 
 	let xOffset = 3;
-	let yOffset = 9
+	let yOffset = 9;
 
 	//3
-	for (let i = 0; i < 35; i++) {
-		if (numbers[3][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(3, xOffset, yOffset);
 	xOffset += 6;
-
 	//:
-	for (let i = 0; i < 35; i++) {
-		if (numbers[10][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(10, xOffset, yOffset);
 	xOffset += 6;
 	//4
-	for (let i = 0; i < 35; i++) {
-		if (numbers[4][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(4, xOffset, yOffset);
 	xOffset += 6;
 	//8
-	for (let i = 0; i < 35; i++) {
-		if (numbers[8][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(8, xOffset, yOffset);
 	xOffset += 6;
 	//:
-	for (let i = 0; i < 35; i++) {
-		if (numbers[10][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(10, xOffset, yOffset);
 	xOffset += 6;
 	//0
-	for (let i = 0; i < 35; i++) {
-		if (numbers[0][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
+	displayClockCharacter(0, xOffset, yOffset);
 	xOffset += 6;
 	//5
-	for (let i = 0; i < 35; i++) {
-		if (numbers[5][i] === 1) {
-			ellipse((xOffset + i % 5) * cellSize + cellSize/2,
-				(yOffset + floor(i / 5)) * cellSize + cellSize/2, cellSize);
-			cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
-		}
-	}
-
+	displayClockCharacter(5, xOffset, yOffset);
 }
 
 function updateLife(generationNum) {
