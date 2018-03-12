@@ -1,1 +1,1 @@
-This will be the first version of the clock.
+I chose the tenth clock to recreate the colors. Transparency is a good way to show the colors with different layers. The original one utilizes the image to do the clock, while I used different transparency to enrich the colors, but not influence the visibility.
