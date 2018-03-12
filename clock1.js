@@ -17,11 +17,19 @@ function draw () {
   noStroke();
   
   var y = 450;
+<<<<<<< HEAD
   var x = 300;
   var col = 100;
   for(var i = 1; i < 100; ++i)
    {
       x = x + 60;
+=======
+  var x = 50;
+  
+  for(var i = 1; i < 100; ++i)
+   {
+      x = x + 70;
+>>>>>>> 6dadc61efd787da91ecec82c006fe2c2ac278bc0
       y = y - 75;
       
       //3
@@ -52,9 +60,14 @@ function draw () {
       rect(x+220, y, 10, 50);
       rect(x+190, y+30, 30, 10);
       rect(x+190, y+50, 30, 10);
+<<<<<<< HEAD
 	  
 	  col = col + 30;
       fill(255, 100, col);
+=======
+      
+      fill(100);
+>>>>>>> 6dadc61efd787da91ecec82c006fe2c2ac278bc0
   }
 }
 
