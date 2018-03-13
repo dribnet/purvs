@@ -1,6 +1,6 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-
+var n = 7;
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -15,7 +15,6 @@ function draw () {
  
   //letters();
 
-
   numbers();
   
 
@@ -29,6 +28,7 @@ function letters (){
     ellipse(width/2, height/2+esize*i, esize, esize);
   }
 */
+
 
   ellipse(width/2, height/2, 7, 7);
   ellipse(width/2+7, height/2, 7, 7);
@@ -130,18 +130,18 @@ function numbers (){
   ellipse(width/2+35+7+7+7, height/2, 7, 7);
   ellipse(width/2+35+7+7+7+7, height/2+7, 7, 7);
 
-  ellipse(width/2+35+7+7+7+7, height/2+7+7, 7, 7);
-  ellipse(width/2+35+7+7+7, height/2+7+7+7, 7, 7);
-  ellipse(width/2+35+7+7, height/2+7+7+7+7, 7, 7);
-  ellipse(width/2+35+7, height/2+7+7+7+7+7, 7, 7);
+  ellipse(width/2+n*9, height/2+n*2, 7, 7);
+  ellipse(width/2+n*8, height/2+n*3, 7, 7);
+  ellipse(width/2+n*7, height/2+n*4, 7, 7);
+  ellipse(width/2+n*6, height/2+n*5, 7, 7);
 
-  ellipse(width/2+35, height/2+7+7+7+7+7+7, 7, 7);
-  ellipse(width/2+35+7, height/2+7+7+7+7+7+7, 7, 7);
-  ellipse(width/2+35+7+7, height/2+7+7+7+7+7+7, 7, 7);
-  ellipse(width/2+35+7+7+7, height/2+7+7+7+7+7+7, 7, 7);
-  ellipse(width/2+35+7+7+7+7, height/2+7+7+7+7+7+7, 7, 7);
+  ellipse(width/2+n*5, height/2+n*6, 7, 7);
+  ellipse(width/2+n*6, height/2+n*6, 7, 7);
+  ellipse(width/2+n*7, height/2+n*6, 7, 7);
+  ellipse(width/2+n*8, height/2+n*6, 7, 7);
+  ellipse(width/2+n*9, height/2+n*6, 7, 7);
 // 2 finish
- 
+
 }
 
 // do not alter or remove this function
