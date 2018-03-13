@@ -6,4 +6,4 @@ Clock presents simple math problems where the solution is the current time. The 
 
 ### Maeda-Clock
 
-Snapshot of the 8th Maeda clock
+Snapshot of the 8th Maeda clock, chosen because it seemed the easiest to learn p5.js library.
