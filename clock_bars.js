@@ -6,7 +6,7 @@ function draw_clock(obj) {
     //    obj.hours goes from 0-23
     //    obj.minutes goes from 0-59
     //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
+    //    obj.millis goes from 0-999
     //    obj.seconds_until_alarm is:
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
@@ -15,7 +15,6 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(204);
 
     background(255,255,200); //  beige
     fill(128,100,100); // dark grey
@@ -50,4 +49,5 @@ function draw_clock(obj) {
     rect(0, 350, secondBarWidthChunky, 50);
     fill(120, 120, 240)
     rect(0, 400, secondBarWidthSmooth, 50);
+    text("Minute: " + secondsWithFraction, 200, 42);
 }
