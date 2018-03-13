@@ -1,6 +1,8 @@
-Added new interpretation of maeda clock.
+I based my concept on vintage maps and charts that document the sun and moons movements. 
 
-I based the design on the 9th clock shown, however i decided to experiment with the colour used and replaced the edge with pink. This creates a more neon glow effect which i think makes it look more a little more vivid.
+I animated and designed the circles so that they would travel outwards with each passing millisecond, second, minute and hour. 
+
+I plan to add more visual detail and the alarm mode, as well as rules and markers to give a numerical indication.
 
 ## PS1 MDDN 242 2017
 
