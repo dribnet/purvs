@@ -63,7 +63,11 @@ function ampm(xm, ym){
     text(h, -20+xm, 160+ym);
     }
   }else{
+    if ((h-12) < 10){
+      text('0' + (h-12), -20+xm, 160+ym);
+    }else{
     text((h-12), -20+xm, 160+ym);
+    }
   }
 
   
