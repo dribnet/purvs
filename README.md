@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Recreation of John Maeda's 12 Clocks
+### Draft of Sand Clock
 
-This is my recreation of John Maeda's Clock. I changed the black-and-white colour into various colours. The mosaic squares moving on the background are very active and energetic so I choose some vivid colours. Also, I changed the text fond into more simple style so that the time could emphasized on the moving background.
+This is my draft of the Sand Clock. I plan to use the falling sand effect as the background, and several "containers" on the screen. Some of the containers will fill the sand so that gives the numbers. I also want to create the animation of sand in containers slowly grows from the bottom to the top to express the pass of time.
