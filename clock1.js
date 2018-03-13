@@ -17,6 +17,7 @@ function draw () {
   // The rectangle draws on top of the ellipse
   // because it comes after in the code
   rect(500, 280, 260, 20);
+  rect(50, 50, 80, 80);
 }
 
 // do not alter or remove this function
