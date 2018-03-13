@@ -1,12 +1,6 @@
 ## PS1 MDDN 242 2018
 
-### Water/chemical reagent clock
+### 13/03 Assignment-Recreation
 
-water clock link:
-[web links](https://en.wikipedia.org/wiki/Water_clock)
+I chose the seventh clock from John Maeda's 12 clocks. The background colour will be changed base on the time(AM,PM).
 
-The explanation should
-be short but compete, no more than [100 words](https://wordcounter.net/).
-
-Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
