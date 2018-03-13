@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2018
 
-### Episode 0.2 testing-test
+### Episode 0.3 testing-test
 
 another small test when it comes to figuring this journal again hopefully this will be the last one before i initiate my design ideas
 for an actually clock idea.
