@@ -1,5 +1,5 @@
-const CANVAS_WIDTH = 960;
-const CANVAS_HEIGHT = 500;
+const CANVAS_WIDTH = 900;
+const CANVAS_HEIGHT = 600;
 
 const bBW = 40;
 const bBH = 40;
@@ -17,34 +17,42 @@ function setup () {
 // Update this function to draw you own maeda clock
 function draw () {
   background(0); // black background
-  strokeWeight(0); // Stroke weight to 8 pixels
+  strokeWeight(2); // Stroke weight to 8 pixels
   //first four
-  rect(200, 400, bBW, -300); //long vertical
-  rect(90, 250, 200, bBH); //long horizontal
-  rect(170, 140, bBW, bBH);
-  rect(130, 180, bBW, bBH);
-  rect(90, 220, bBW, bBH);
-
-  //dots
-  rect(470, 160, 30, 30);
-  rect(470, 260, 30, 30);
-
-  //second four
-  rect(670, 325, lBW, -120); //long vertical
-  rect(640, 245, 65, lBH); //long horizontal
-  rect(660, 215, lBW, lBH);
-  rect(650, 225, lBW, lBH);
-  rect(640, 235, lBW, lBH);
-
-  //eight
-  rect(760, 215, lBW, 35); //vertical UL
-  rect(760, 270, lBW, 35); //vertical LL
-  rect(805, 215, lBW, 35); //vertical UR
-  rect(805, 270, lBW, 35); //vertical LR
-  rect(770, 200, 35, lBH); //horizontalT
-  rect(770, 255, 35, lBH); //horizontalM
-  rect(770, 310, 35, lBH); //horizontalL
+  //rect(200, 400, bBW, -300); //long vertical
+  //one(0, 100, 100, 100);
+  rect(0,100,100,-100);
+  four(0, 100, 100, 100);
 }
+
+let one = function(sX, sY, W, H){
+	rect((sX + W/2), (sY + lBH), lBW, -H+(lBH/2));
+}
+
+let two = function(sX, sY, W, H){
+	//horizontal
+	rect((sX + lBW*1.8), (sY - lBH-(lBH * 0.5)), W-(lBW*4), lBH); //bottom width
+	rect((sX + lBW*1.8), (sY - (H/2)-lBH*0.5), W-(lBW*4), lBH); //middle width
+	rect((sX + lBW*1.8), (sY - H)+lBH/2, W-(lBW*4), lBH); //top width
+	//vertical
+	rect(sX+(0.5*lBW), sY-lBH, lBW, -(H/2-lBH)+3); //bottom height
+	rect((sX + (W-lBW*1.75)), sY-H/2, lBW, -(H/2-lBH)+3); //upper height
+}
+
+let three = function(sX, sY, W, H){
+	//horizontal
+	rect((sX + lBW), (sY - lBH-(lBH * 0.5)), W-(lBW*3.5), lBH); //bottom width
+	rect((sX + lBW), (sY - (H/2)-lBH*0.5), W-(lBW*3.5), lBH); //middle width
+	rect((sX + lBW), (sY - H)+lBH/2, W-(lBW*3.5), lBH); //top width
+	//vertical
+	rect((sX + (W-lBW*2)), sY-lBH, lBW, -(H/2-lBH)+3); //bottom height
+	rect((sX + (W-lBW*2)), sY-H/2, lBW, -(H/2-lBH)+3); //upper height
+}
+
+/*let four = function(sX, sY, W, H){
+	//horizontal
+	rect((sX + (W*0.25)), (sY ))
+}*/
 
 // do not alter or remove this function
 function keyTyped() {
