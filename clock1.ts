@@ -215,12 +215,17 @@ function updateLife(generationNum) {
 	cells = newCells;
 }
 
-// do not alter or remove this function
 function keyTyped() {
 	if (key == '!') {
 		saveBlocksImages(false);
 	}
 	else if (key == '@') {
 		saveBlocksImages(true);
+	}
+	else if (key === 'P') {
+		noLoop();
+	}
+	else if (key === 'S') {
+		loop();
 	}
 }
