@@ -152,7 +152,7 @@ function draw() {
             rect(i * cellSize, j * cellSize, cellSize, cellSize);
         }
     }
-    var xOffset = 7;
+    var xOffset = 9;
     var yOffset = 12;
     //hours
     displayClockCharacter(floor(hour() / 10), xOffset, yOffset);

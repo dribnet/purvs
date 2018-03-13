@@ -167,7 +167,7 @@ function draw() {
 		}
 	}
 
-	let xOffset = 7;
+	let xOffset = 9;
 	let yOffset = 12;
 
 	//hours
