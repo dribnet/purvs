@@ -2,24 +2,39 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
 function setup () {
-  // create the drawing canvas, save the canvas element
+
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
 
-  // you can optionally add your own code here if you also have setup code
+  
 }
 
-// Update this function to draw you own maeda clock
+
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+  background(0); 
+  noStroke();
+
+  //Number Four
+  fill(255);
+  rect(160, 280, 200, 40);
+  rect(160,240,40,40);
+  rect(200,200,40,40);
+  rect(240, 160, 40,40);
+  rect(280,120,40,280);
+
+  //Number Seven
+  fill(150);
+  rect(550, 250, 10, 50);
+  rect(560,240,30,10);
+  rect(560,300,30,10);
+  rect(590, 250,10,50);
+  rect(610,240,60,10);
+  rect(660,250,10,20);
+  rect(650,270,10,10);
+  rect(640,280,10,30);
 }
 
-// do not alter or remove this function
+
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
