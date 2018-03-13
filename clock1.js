@@ -64,7 +64,7 @@ function Shrink () {
 hr = hour();
 mn = minute(); 
 
-if(a <= 90){
+if(a = 90){
   fill(50, 40, 240, 250);
   noStroke();
   textAlign(CENTER);
