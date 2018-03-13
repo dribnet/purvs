@@ -1,11 +1,6 @@
-///<reference path="p5.global-mode.d.ts"/>
-var Color = p5.Color;
 var CANVAS_WIDTH = 960;
 var CANVAS_HEIGHT = 500;
-var cellSize = 15;
-var w, h;
-var cells = [];
-var cellColour;
+var particleGap = CANVAS_WIDTH/20;
 var textColour;
 var backgroundColour;
 //values for drawing the clock digits, 0-9 and :
@@ -127,15 +122,12 @@ function setup() {
     }
     strokeWeight(1);
 }
-function displayClockCharacter(characterIndex, xOffset, yOffset) {
+function createCharacterParticles(characterIndex, x, y) {
     noStroke();
     for (var i = 0; i < 35; i++) {
         if (numbers[characterIndex][i] === 1) {
-            fill(backgroundColour);
-            rect((xOffset + i % 5) * cellSize, (yOffset + floor(i / 5)) * cellSize, cellSize, cellSize);
             fill(textColour);
-            ellipse((xOffset + i % 5) * cellSize + cellSize / 2, (yOffset + floor(i / 5)) * cellSize + cellSize / 2, cellSize);
-            cells[xOffset + (i % 5)][yOffset + floor(i / 5)] = true;
+            rect(x + (i % 5) * particleGap, (yOffset + floor(i / 5)) * particleGap, particleGap, particleGap);
         }
     }
 }
@@ -175,28 +167,8 @@ function draw() {
     xOffset += 6;
     displayClockCharacter(second() % 10, xOffset, yOffset);
 }
-function updateLife(generationNum) {
-    var newCells = [];
-    for (var i = 0; i < generationNum; i++) {
-        for (var x = 0; x < w; x++) {
-            var line_2 = [];
-            for (var y = 0; y < h; y++) {
-                var neighbourCount = 0;
-                for (var xLocal = -1; xLocal <= 1; xLocal++) {
-                    for (var yLocal = -1; yLocal <= 1; yLocal++) {
-                        if (xLocal === 0 && yLocal === 0) {
-                            continue;
-                        }
-                        neighbourCount += (cells[(x + xLocal + w) % w][(y + yLocal + h) % h] ? 1 : 0);
-                    }
-                }
-                line_2.push((neighbourCount === 2) ? cells[x][y] : (neighbourCount === 3));
-            }
-            newCells.push(line_2);
-        }
-    }
-    cells = newCells;
-}
+
+
 function keyTyped() {
     if (key == '!') {
         saveBlocksImages(false);
