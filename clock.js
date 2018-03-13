@@ -30,7 +30,9 @@ function draw_clock(obj) {
     let secondBarWidth = map(seconds, 0, 59, 0, width);
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 
-    fill(13,242,255);
+
+	fill(13,242,255);
+   /* fill(13,242,255);
     ellipse(hours, 125, 64,64);
     fill (0);
     ellipse (minutes, 225, 64,64);
@@ -38,6 +40,29 @@ function draw_clock(obj) {
     ellipse (seconds, 325, 64,64);
     fill (163,35,158);
     ellipse (millis, 425, 64, 64);
-}
+    */
+    flower (hours, 50, 64,64);
+    fill (0);
+    flower (minutes, 150, 64,64);
+    fill (20,158,54);
+    flower (seconds, 250, 64,64);
+    fill (163,35,158);
+    flower (millis, 350, 64, 64);
 
+
+}
+function flower (x, y) {
+  push();
+  translate(x, y);
+  //stroke(0);
+  //strokeWeight(70);
+    ellipse (100,100,30,30);
+    ellipse (120,120,30,30);
+    ellipse (100,120,30,30);
+    ellipse (120,100,30,30);
+    fill(255,0,0);
+    ellipse (110,110,20,20);
+
+  pop();
+}
 
