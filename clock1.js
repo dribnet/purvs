@@ -5,11 +5,13 @@ const width = 50;
 
 
 var r = 0;
-var g = 50;
+var g = 0;
 var b = 50;
 
-
-
+var startX = 480;
+var startY = 500;
+var finishX = 960;
+var finishY = 0;
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -18,55 +20,28 @@ function setup () {
 
 }
 
+
 function draw () {
-r = map(mouseX,0,960,0,255);
+background(r,g,b);
+r = map(startY,0,960,0,255); //changes blue on left to red on right
+fill(255);
+
+
+for(var i = 0; i<finishX;i++){
+
+fill(255);
+
+ellipse(startX,startY,50,50);
+fill(0);
+text("12",startX-8,startY);
+text("58",startX-7,startY+15);
 
 
 
-  fill(255);
-  
-
-  // you can optionally add your own code here if you also have setup code
+if(startY<250){startX = 480;startY = 250;}
+else{startY = startY -0.001;}
 }
 
-// Update this function to draw you own maeda clock
-function draw () {
- // light gray background
-  //strokeWeight(2); // Stroke weight to 8 pixels
-  
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  fill(255);
-  //expand / decrease
-
-  var x = 150;
-  var y = 150;
-
-
-  background(50);
-  rect(x+100,y,40,100); //left 1
-  rect(x+100,y+100,40,100);
-
-  rect(x+200,y+30,50,50);//middle dots
-  rect(x+200,y+130,50,50);
-
-   fill(100);
-
-  rect(x+300,y,40,100);//right 1
-  rect(x+300,y+100,40,100);
-
-
-
-  rect(x+400,y,40,100);//right 0 left
-  rect(x+400,y+100,40,100);
-
-  rect(x+440,y+160,100,40);//right 0 bottom
-
-  rect(x+540,y,40,100);//right 0 right
-  rect(x+540,y+100,40,100);
-
-  rect(x+440,y,100,40);//right 0 top
-  
 
 }
 
