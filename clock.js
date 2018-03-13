@@ -40,6 +40,7 @@
     draw_Four();
     draw_Zero();
     draw_Eight();
+    draw_Three();
 }
 
 function draw_Four() {
@@ -95,6 +96,26 @@ function draw_Eight(){
 	  rect(xRel,yRel+(BS*6),BS*3 ,BS);
 	  rect(xRel-BS,yRel+BS,BS,BS*2);
 	  rect(xRel-BS,yRel+(BS*4),BS,BS*2);
+	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
+	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
+
+	}
+
+	function draw_Three(){
+	  //eight
+
+	  fill(0);
+	  let posX = 6; 
+	  let posY = 2.5;
+	  let posNo = 22*BS;
+	  let xRel = CANVAS_WIDTH/posX+posNo-BS;
+	  let yRel = CANVAS_HEIGHT/posY;
+
+
+	  rect(xRel,yRel,BS*3 ,BS);
+	  rect(xRel,yRel+(BS*3),BS*3 ,BS);
+	  rect(xRel,yRel+(BS*6),BS*3 ,BS);
+
 	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
 	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
 
