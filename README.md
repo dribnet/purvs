@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Block Snake
+### Maeda Clock
 
-For my clock idea I got inspiration from the classic snake game. How it works is that the depending on the time the snakes will show up accordingly and disappear when not needed.  
+For the John Maeda clock assignment I recreated clock number 8. I changed the time to be 4:10 as well as adding a thick white border along the numbers so it looked more interesting instead of just solid black and white. 

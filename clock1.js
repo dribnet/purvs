@@ -1,9 +1,9 @@
-const CANVAS_WIDTH = 960;
+const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
 function setup () {
   // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+  var main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
 
   // you can optionally add your own code here if you also have setup code
@@ -17,18 +17,44 @@ function draw () {
   // The rectangle draws on top of the ellipse
   // because it comes after in the code
   //rect(500, 280, 260, 20);
-  fill(255);
-  rect(150, 150, 50, 250);
-  rect(200, 100, 100, 50);
-  rect(300, 150, 50, 250);
-  rect(200, 400, 100, 50);
-
-  rect(400, 150, 50, 250);
-  rect(450, 100, 100, 50);
-  rect(550, 150, 50, 250);
-  rect(450, 400, 100, 50);
-
-  rect(250, 100, 50, 50);
+    noStroke();
+    fill(255);
+    //Number 4
+    rect (180, 155, 40, 40);
+    rect (140, 195, 40, 40);
+    rect (100, 235, 40, 80);
+    rect (140, 275, 160, 40);
+    rect (220, 115, 40, 280);
+    
+    //Number 1
+    rect (500, 60, 60, 380);
+    rect (440, 120, 60, 60);
+    
+    //Number 0
+    rect (620, 120, 60, 260);
+    rect (860, 120, 60, 260);
+    rect (680, 60, 180, 60);
+    rect (680, 380, 180, 60);
+    
+    //stroke(0);
+    fill(0);
+    //Number 4
+    rect (185, 160, 35, 30);
+    rect (145, 200, 30, 30);
+    rect (105, 240, 30, 70);
+    rect (135, 280, 160, 30);
+    rect (225, 120, 30, 270);
+    
+    //Number 1
+    rect (510, 70, 40, 360);
+    rect (450, 130, 50, 40);
+    
+    //Number 0
+    rect (630, 130, 40, 240);
+    rect (870, 130, 40, 240);
+    rect (690, 70, 160, 40);
+    rect (690, 390, 160, 40);
+    
 }
 
 // do not alter or remove this function
