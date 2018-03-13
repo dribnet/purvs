@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### changing bar clock 
+### using functions 
 
-I have made some changes to the bar clock to become more comfortable with maps. I Still do not have a solid idea of what i want to do with my clock so am just experimenting with the code.  
+I have changed the circles to quick flower like objects that I made to experiment with functions 
