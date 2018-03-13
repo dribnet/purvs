@@ -15,7 +15,7 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(204);
+   
 
     background(255,255,200); //  beige
     fill(128,100,100); // dark grey

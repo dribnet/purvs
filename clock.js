@@ -1,3 +1,5 @@
+
+var x = 100
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
@@ -11,4 +13,18 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+
+background(200, 30, 56);
+
+let seconds = obj.seconds;
+
+text("Second: " + seconds, 10, 62);
+let secondelpsze = map(seconds, 0, 59, 0, 70);
+
+
+    ellipse( width/2, height/2, secondelpsze, secondelpsze);
+   // line(width/2, height/2, x, x);
+    //x++
+ rect(100, -secondelpsze+300, 25, 100);
+
 }
