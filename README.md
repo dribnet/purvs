@@ -2,8 +2,12 @@
 
 ### Solar System Clock
 
-Maeda's clock replica
+Solar system clock first prototype
 
-I attempted to create the 7th clock as it seemed the most interesting to me. 
-The only real difference between mine and his clock is that the minutes and hours are not aligned vertically and are 
-instead side by side
+This is the first version of my coded clock, i managed to create 4 planets
+which each represent a different unit of time and follow an orbit around the sun 
+in the center. 
+
+improvements for the next iteration could be making the planets get drawn in the 
+correct order depending on whether they are at the front of their orbits or the back.
+also some aesthetic tweaking is needed.
