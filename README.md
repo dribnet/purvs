@@ -2,7 +2,6 @@
 
 ### Maeda Clock #2
 
-I chose to recreate clock #2 from Maeda's 12 clocks as I liked the simplicity and aesthetic of the visual. I ellipses to code this clock, changing the colour and weight of the stroke to suit the style of the original. To take this further I could experiment with filling certain ellipses with colour, as well as playing with the stroke weight. The random or noise function could be useful in achieving this.
-
+My original geometric clock idea beyond my coding abilities so I have chosen to iterate and develop my second idea which is a clock made from ellipses. I have put one of coded my numbers into a function and improved the position of the ellipses so they now perfectly line up when moving around the page, creating more abstract shapes rather than just a number. To further develop this I need to code the rest of my geometric numbers. I would like to map the fill of the stroke to the seconds/minutes/hours on the clock so there is a gradual shift as time passes.
 
 TESTING FROM STORAGE

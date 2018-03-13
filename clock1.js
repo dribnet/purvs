@@ -20,25 +20,27 @@ function draw () {
     //ellipse(width/2, height/2+i. 40, 40);
      //}
   //red 4
-  
-  ellipse(480, 100, 25, 25);
-  ellipse(480, 150, 25, 25);
-  ellipse(480, 200, 25, 25);
-  ellipse(480, 250, 25, 25);
-  ellipse(480, 300, 25, 25);
-  ellipse(480, 350, 25, 25);
-  ellipse(480, 400, 25, 25);
 
-  ellipse(530, 300, 25, 25);
-  ellipse(580, 300, 25, 25);
+  function four(four_x, four_y) {
+  ellipse(four_x, four_y-200, 25, 25);
+  ellipse(four_x, four_y-150, 25, 25);
+  ellipse(four_x, four_y-100, 25, 25);
+  ellipse(four_x, four_y-50, 25, 25);
+  ellipse(four_x, four_y, 25, 25);
+  ellipse(four_x, four_y+50, 25, 25);
+  ellipse(four_x, four_y+100, 25, 25);
 
-  ellipse(430, 300, 25, 25);
-  ellipse(380, 300, 25, 25);
-  ellipse(330, 300, 25, 25);
+  ellipse(four_x+50, four_y, 25, 25);
+  ellipse(four_x+100, four_y, 25, 25);
 
-  ellipse(355, 250, 25, 25);
-  ellipse(395, 200, 25, 25);
-  ellipse(435, 150, 25, 25);
+  ellipse(four_x-50, four_y, 25, 25);
+  ellipse(four_x-100, four_y, 25, 25);
+  ellipse(four_x-150, four_y, 25, 25);
+
+  ellipse(four_x-125, four_y-50, 25, 25);
+  ellipse(four_x-85, four_y-100, 25, 25);
+  ellipse(four_x-45, four_y-150, 25, 25);
+}
 
   //yellow 4
 
