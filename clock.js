@@ -21,7 +21,7 @@
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    let pulse = 3;
+    let pulse = 2;
 
 
 
@@ -46,8 +46,10 @@ function draw_Four() {
   fill(0);
   let posX = 6; 
   let posY = 2.5;
-  let xRel = CANVAS_WIDTH/posX;
+  let posNo = 0*BLOCK_SIZE;
+  let xRel = CANVAS_WIDTH/posX+posNo;
   let yRel = CANVAS_HEIGHT/posY;
+
   let loopNo = 4;
 
   rect(xRel+(BLOCK_SIZE*loopNo-BLOCK_SIZE), yRel, BLOCK_SIZE, BLOCK_SIZE*7);
