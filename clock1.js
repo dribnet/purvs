@@ -1,30 +1,59 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-
+const PIXEL_SIZE = 30;
+const START_Y = 150;
+const START_X = 300;
+const MID_X = 400;
+const LAST_X = 500;
+const SEC_GAP = 15;
+const MIN_GAP = 10;
+const HOUR_GAP = 5;
+let num;
 function setup () {
-  // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
-
-  // you can optionally add your own code here if you also have setup code
 }
-
-// Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
+	var five = [
+  	[1,1,1,0,0,1,0],
+  	[1,0,1,0,0,0,1],
+  	[1,0,1,0,0,0,1],
+  	[1,0,1,0,0,0,1],
+  	[1,0,0,1,1,1,0],
+  ];
+  	var three = [
+  	[0,1,0,0,0,1,0],
+  	[1,0,0,0,0,0,1],
+  	[1,0,0,1,0,0,1],
+  	[1,0,0,1,0,0,1],
+  	[0,1,1,0,1,1,0],
+  	];
+	background(0);
+	strokeWeight (2);
+	stroke(0,0,255);
+	noFill();
+	
+ 	//draw the first minute
+ 	var five = new Number(START_X, five, SEC_GAP);
+ 	five.draw();
+ 	var three = new Number(LAST_X, three, SEC_GAP )
+ 	three.draw();
 }
 
-// do not alter or remove this function
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+function Number(startX, number, spacing) {
+	this.x = startX;
+	this.array = number; 
+	this.gap = spacing;
+
+	this.draw = function() {
+		for (var i = 0; i < 5; i++) {
+			for (var j = 0; j < 7; j++) {
+				if (this.array[i][j] == 1) {
+					ellipse(this.x + (i*PIXEL_SIZE), START_Y + (j*PIXEL_SIZE), PIXEL_SIZE - this.gap, PIXEL_SIZE - this.gap);
+				}
+			}
+ 		}
+	}
 }
+
+
