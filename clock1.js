@@ -16,7 +16,7 @@ function setup () {
   angle4=0;
   min = 0;
 
-  frameRate(60);
+  frameRate(1);
  
 
   // you can optionally add your own code here if you also have setup code
@@ -28,16 +28,16 @@ function draw () {
   strokeWeight(8); // Stroke weight to 8 pixels
 
 fill(255);
-/*
+
 translate(width/2, height/2);
 rotate(rot);
 rect(100,100, 50, 50);
 rect(-20, -20, 40, 40);
 rot = rot + PI/60;
-*/
 
 
-  fill(255);
+
+ /* fill(255);
   xx=150*cos(radians(angle)) + width/2;
   yy=150*sin(radians(angle)) + height/2;
   ellipse(xx, yy, 15, 15);
@@ -63,7 +63,7 @@ rot = rot + PI/60;
   yy=70*sin(radians(angle4)) + height/2;
   ellipse(xx, yy, 30, 30);
   if (angle % 1296000 == 0){angle4 = angle4 + 6}
- 
+ */
 }
 
 // do not alter or remove this function
