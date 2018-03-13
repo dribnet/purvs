@@ -1,9 +1,24 @@
 ## PS1 MDDN 242 2018
 
-### Episode 0.3 testing-test
+### Episode 01 Initiating Design ideas
 
-another small test when it comes to figuring this journal again hopefully this will be the last one before i initiate my design ideas
-for an actually clock idea.
+After finally figuring out how this odd journal works we can begin the
+very first episode of this project. As shown on the picture above show the following concepts:
+
+concept one: moving timers
+-based on newtons cradle
+-the secs will be in total sink with how the ball moves in motion
+-hectic coding/might take some time
+
+concept Two: Giant Oversize Numbers
+-hand drawn numbers that changes
+-cartoonish feel, as numbers change based on time
+-hectic coding/more design/ might take some time
+
+concept Three: Time/Day clock
+-simple straightforward clock
+-background changes depending on time
+-simple straightforward/ could improve to a more complex design/ easier
 
 (YOUR OWN REFERENCE FOR IMAGES BELOW)
 your clock. Also update both images keeping their original sizes:
