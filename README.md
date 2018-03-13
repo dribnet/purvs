@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Assignment#1 recreation of 12clocks
+### My idea of project#1
 
-I had been redesign on the 12 example clocks by John Maeda. I tried to add some gradient on the background. I made ellipses as the elements of clock.
+I'm looking for some simple old fashion clock. My theme is going to be a flower, while the time is running, the enviroment around a clock will changing like a season change. The p5js coded, I may use scale(); function to animated my drawing like a fruit is growing. Also I may put images in my sketch too.
 
