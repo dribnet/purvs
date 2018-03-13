@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Heartbeat clock
+### Code Clock
 
-This will be the first version of the clock. My inspiration for my first clock idea is drawn from the workings of a heartbeat monitor. The hours, minutes and seconds will all have a seperate "beat" to tell the time.
+I picked quite a simple clock to recreate from Maeda's 12 clocks. It was the digital time made up of analog clocks. 
