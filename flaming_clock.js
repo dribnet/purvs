@@ -10,14 +10,14 @@ class FlamingClock {
 
 	constructor() {
 		// helper variables
-		let particleGap = width / 20;
-		this.textColour = color(0xFF, 0xFF, 0x00);
-		this.backgroundColour  = color(0x30);;
+		this.particleGap = width/50;
+		this.characterGap = width/8;
+		this.textColour = color(0xFF, 0x00, 0xFF);
+		this.backgroundColour  = color(0x30);
 
-		this.values = obj;
 
 		//values for the clock digits, 0-9 and :
-		let numbers = [
+		this.numbers = [
 			[
 				0, 1, 1, 1, 0,
 				1, 0, 0, 0, 1,
@@ -123,40 +123,43 @@ class FlamingClock {
 	createCharacterParticles(characterIndex, x, y) {
 		noStroke();
 		for (var i = 0; i < 35; i++) {
-			if (numbers[characterIndex][i] === 1) {
-				fill(textColour);
-				rect(x + (i % 5) * particleGap, (yOffset + floor(i / 5)) * particleGap, particleGap, particleGap);
+			if (this.numbers[characterIndex][i] === 1) {
+				fill(this.textColour);
+				rect(x + (i % 5) * this.particleGap,
+					(y + floor(i / 5)) * this.particleGap,
+					this.particleGap, this.particleGap);
 			}
 		}
 	}
 
 	update(hour, minute, second, milli, alarm) {
-		var xOffset = 9;
+		var xOffset = 0;
 		var yOffset = 12;
+		background(0x00);
 		//hours
-		createCharacterParticles(floor(hour / 10), xOffset, yOffset);
-		xOffset += 6;
-		createCharacterParticles(time.hour % 10, xOffset, yOffset);
-		xOffset += 6;
+		this.createCharacterParticles(floor(hour / 10), xOffset, yOffset);
+		xOffset += this.characterGap;
+		this.createCharacterParticles(hour % 10, xOffset, yOffset);
+		xOffset += this.characterGap;
 		//:
-		createCharacterParticles(10, xOffset, yOffset);
-		xOffset += 6;
+		this.createCharacterParticles(10, xOffset, yOffset);
+		xOffset += this.characterGap;
 		//minutes
-		createCharacterParticles(floor(minute / 10), xOffset, yOffset);
-		xOffset += 6;
-		createCharacterParticles(minute % 10, xOffset, yOffset);
-		xOffset += 6;
+		this.createCharacterParticles(floor(minute / 10), xOffset, yOffset);
+		xOffset += this.characterGap;
+		this.createCharacterParticles(minute % 10, xOffset, yOffset);
+		xOffset += this.characterGap;
 		//:
-		createCharacterParticles(10, xOffset, yOffset);
-		xOffset += 6;
+		this.createCharacterParticles(10, xOffset, yOffset);
+		xOffset += this.characterGap;
 		//seconds
-		createCharacterParticles(floor(second / 10), xOffset, yOffset);
-		xOffset += 6;
-		createCharacterParticles(second % 10, xOffset, yOffset);
+		this.createCharacterParticles(floor(second / 10), xOffset, yOffset);
+		xOffset += this.characterGap;
+		this.createCharacterParticles(second % 10, xOffset, yOffset);
 	}
 	draw() {
 		translate(-0.5, -0.5);
-		background(backgroundColour);
+		//background(this.backgroundColour);
 
 		//TODO: particle drawing code here
 	}

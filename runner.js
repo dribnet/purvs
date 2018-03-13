@@ -5,7 +5,7 @@ var prevSec;
 var millisRolloverTime;
 var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
-var currentClock;
+let currentClock;
 
 function setup() {
 	// create the drawing canvas, save the canvas element
@@ -128,10 +128,10 @@ function draw() {
 }
 
 function keyTyped() {
-	if (key == '!') {
+	if (key === '!') {
 		saveBlocksImages(false);
 	}
-	else if (key == '@') {
+	else if (key === '@') {
 		saveBlocksImages(true);
 	}
 	else if (key === 'P') {
@@ -140,5 +140,4 @@ function keyTyped() {
 	else if (key === 'S') {
 		loop();
 	}
-}
 }
