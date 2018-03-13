@@ -19,15 +19,16 @@ function draw_clock(obj) {
 
     let hourValue   = map(hours, 0, 23, 0, 255);
     let minuteValue = map(minutes, 0, 59, 0, 255);
-    let secondValue = map(seconds, 0, 59, 0, 255);
+    let secondValue = map(seconds, 0, 59, 150, 255);
     let millisValue = map(millis, 0, 1000, 0, 255);
 
     background (0);
-    stroke (255);
+    print(secondValue);
+    stroke (secondValue, 0, millisValue);
+    strokeWeight (6);
     noFill ();
     four (430, 250);
-    four (480, 250);
-    four (530, 250);
+    four (440+(seconds*5), 250);
 
 
 }
