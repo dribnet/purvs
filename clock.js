@@ -4,7 +4,7 @@
 
  const CANVAS_WIDTH = 960;
  const CANVAS_HEIGHT = 500;
- const BLOCK_SIZE = 10;
+ const BS = 10;
 
  function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -31,14 +31,15 @@
     let b = map(millis, 0, 1000, 0, 255);
     noStroke();
 
-    for (var i = 0; i < (CANVAS_WIDTH/BLOCK_SIZE); i++) {
-    	for (var j = 0; j < (CANVAS_HEIGHT/BLOCK_SIZE); j++) {
+    for (var i = 0; i < (CANVAS_WIDTH/BS); i++) {
+    	for (var j = 0; j < (CANVAS_HEIGHT/BS); j++) {
     		fill(r+(i*pulse),g+(j*pulse),b+(i+j)*pulse);
-    		rect(i*BLOCK_SIZE,j*BLOCK_SIZE,BLOCK_SIZE,BLOCK_SIZE);
+    		rect(i*BS,j*BS,BS,BS);
     	}
     }
     draw_Four();
     draw_Zero();
+    draw_Eight();
 }
 
 function draw_Four() {
@@ -46,36 +47,56 @@ function draw_Four() {
   fill(0);
   let posX = 6; 
   let posY = 2.5;
-  let posNo = 0*BLOCK_SIZE;
+  let posNo = 0*BS;
   let xRel = CANVAS_WIDTH/posX+posNo;
   let yRel = CANVAS_HEIGHT/posY;
 
   let loopNo = 4;
 
-  rect(xRel+(BLOCK_SIZE*loopNo-BLOCK_SIZE), yRel, BLOCK_SIZE, BLOCK_SIZE*7);
-  rect(xRel, yRel+(BLOCK_SIZE*loopNo), BLOCK_SIZE*5, BLOCK_SIZE);
+  rect(xRel+(BS*loopNo-BS), yRel, BS, BS*7);
+  rect(xRel, yRel+(BS*loopNo), BS*5, BS);
   for(i=0; i < loopNo; i++){
   	j=i+1;
-  	rect(xRel+(BLOCK_SIZE*i), yRel+(BLOCK_SIZE*loopNo)-(BLOCK_SIZE*j), BLOCK_SIZE, BLOCK_SIZE);  
+  	rect(xRel+(BS*i), yRel+(BS*loopNo)-(BS*j), BS, BS);  
   }
 }
 
 function draw_Zero() {
 
-  	//grey
   	fill(0);
   	let posX = 6; 
   	let posY = 2.5;
-  	let posNo = 7*BLOCK_SIZE;
+  	let posNo = 8*BS;
   	let xRel = CANVAS_WIDTH/posX+posNo;
   	let yRel = CANVAS_HEIGHT/posY;
 
 
 	//zero
-	rect(xRel,yRel,BLOCK_SIZE*3 ,BLOCK_SIZE);
-	rect(xRel,yRel+(BLOCK_SIZE*6),BLOCK_SIZE*3 ,BLOCK_SIZE);
-	rect(xRel-BLOCK_SIZE,yRel+BLOCK_SIZE,BLOCK_SIZE,BLOCK_SIZE*5);
-	rect(xRel+(BLOCK_SIZE*3),yRel+BLOCK_SIZE,BLOCK_SIZE,BLOCK_SIZE*5);
+	rect(xRel,yRel,BS*3 ,BS);
+	rect(xRel,yRel+(BS*6),BS*3 ,BS);
+	rect(xRel-BS,yRel+BS,BS,BS*5);
+	rect(xRel+(BS*3),yRel+BS,BS,BS*5);
 
 }
+
+function draw_Eight(){
+	  //eight
+
+	  fill(0);
+	  let posX = 6; 
+	  let posY = 2.5;
+	  let posNo = 15*BS;
+	  let xRel = CANVAS_WIDTH/posX+posNo;
+	  let yRel = CANVAS_HEIGHT/posY;
+
+
+	  rect(xRel,yRel,BS*3 ,BS);
+	  rect(xRel,yRel+(BS*3),BS*3 ,BS);
+	  rect(xRel,yRel+(BS*6),BS*3 ,BS);
+	  rect(xRel-BS,yRel+BS,BS,BS*2);
+	  rect(xRel-BS,yRel+(BS*4),BS,BS*2);
+	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
+	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
+
+	}
 
