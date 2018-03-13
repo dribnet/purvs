@@ -3,15 +3,18 @@ const CANVAS_HEIGHT = 500;
 const width = 50;
 
 
+
 var r = 0;
 var g = 50;
 var b = 50;
+
 
 
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
+
 
 }
 
@@ -22,6 +25,20 @@ r = map(mouseX,0,960,0,255);
 
   fill(255);
   
+
+  // you can optionally add your own code here if you also have setup code
+}
+
+// Update this function to draw you own maeda clock
+function draw () {
+ // light gray background
+  //strokeWeight(2); // Stroke weight to 8 pixels
+  
+  // The rectangle draws on top of the ellipse
+  // because it comes after in the code
+  fill(255);
+  //expand / decrease
+
   var x = 150;
   var y = 150;
 
