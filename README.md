@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### maeda's Clock 
+### changing bar clock 
 
-I have made a replica of one of the maedas clocks. however I have only used 3 numbers I plan on adding more later and maybe change the colour etc. 
+I have made some changes to the bar clock to become more comfortable with maps. I Still do not have a solid idea of what i want to do with my clock so am just experimenting with the code.  
