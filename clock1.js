@@ -5,19 +5,18 @@ function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   main_canvas.parent('canvasContainer');
+for(i=0; i<300;i++){
 
-  // you can optionally add your own code here if you also have setup code
+  rect(random(0,CANVAS_WIDTH), random(0,CANVAS_HEIGHT),20, 20)
+}
 }
 
 // Update this function to draw you own maeda clock
 function draw () {
-  background(204); // light gray background
-  fill(20, 20, 20, 160);
+  background(40);
+  fill(210, 210, 210, 160);
   strokeWeight(0.5)
-  stroke(255)
-  //quad(width/2, 200, width/2, 400, 330, 350, 330, 150)
-  //quad(width/2, 200, width/2, 400, 630, 350, 630, 150)
-  //quad(width/2, 200, 630, 150,width/2, 100, 330, 150)
+  noStroke(255)
 
   ellipse(300, 250, 20)
   ellipse(320, 250, 20)
@@ -37,6 +36,35 @@ function draw () {
   ellipse(380, 210, 20)
   ellipse(380, 290, 20)
 //:
+  ellipse(300+160, 250, 20)
+  ellipse(320+160, 250, 20)
+  ellipse(340+160, 230, 20)
+  ellipse(340+160, 210, 20)
+  ellipse(300+160, 190, 20)
+  ellipse(320+160, 190, 20)
+  ellipse(280+160, 190, 20)
+  ellipse(260+160, 210, 20)
+  ellipse(340+160, 270, 20)
+  ellipse(340+160, 290, 20)
+  ellipse(320+160, 310, 20)
+  ellipse(300+160, 310, 20)
+  ellipse(280+160, 310, 20)
+  ellipse(260+160, 290, 20)
+  
+  ellipse(300+280, 250, 20)
+  ellipse(320+280, 250, 20)
+  ellipse(340+280, 230, 20)
+  ellipse(340+280, 210, 20)
+  ellipse(300+280, 190, 20)
+  ellipse(320+280, 190, 20)
+  ellipse(280+280, 190, 20)
+  ellipse(260+280, 210, 20)
+  ellipse(340+280, 270, 20)
+  ellipse(340+280, 290, 20)
+  ellipse(320+280, 310, 20)
+  ellipse(300+280, 310, 20)
+  ellipse(280+280, 310, 20)
+  ellipse(260+280, 290, 20)
 }
 
 // do not alter or remove this function
