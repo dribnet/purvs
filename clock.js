@@ -22,8 +22,12 @@ let hours = obj.hours;
     let millis = obj.millis;
 
     let secondSun = map(seconds, 0, 59, 0, width);
+    let minuteRect = map(minutes, 0, 59, height, 0);
 
     background(130, 206, 250);
+    noStroke();
     fill(255, 255, 153);
     ellipse(secondSun, 250, 100, 100);
+    fill(10, 60);
+    rect(0, minuteRect, width, height);
 }
