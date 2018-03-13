@@ -11,4 +11,45 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+
+    let hours = obj.hours;
+    let minutes = obj.minutes;
+    let seconds = obj.seconds;
+    let millis = obj.millis;
+
+    if (obj.hours >= 12){
+        hours = hours - 12;
+    }
+    
+    
+
+    let hourRot   = map(hours, 0, 11, -90, 240);
+    let minuteRot = map(minutes, 0, 60, -90, 270);
+    let secondRot = map(seconds, 0, 60, -90, 270);
+    background(255);
+    angleMode(DEGREES);
+    noStroke();
+    
+    fill(0);
+    arc(450, 250, 400, 400, -90, hourRot); //larerg circle
+    
+    fill(85);
+    
+    arc(450, 250, 266, 266, -90, minuteRot); //middle circle
+    
+    if(seconds != 0){
+    fill(170);
+    arc(450, 250, 133, 133, -90, secondRot); // smaller circle
+    }
+
+}
+
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
 }
