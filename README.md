@@ -10,3 +10,4 @@ Since getting a still frame of the automaton would be tedious, I elected to just
 I've also switched my project to TypeScript, as it's something that I've been wanting to learn.
 
 For performance reasons, I zoomed in the view a bit more than the source gif.
+The timescale was also slowed down so you can better appreciate the automaton's activity.
