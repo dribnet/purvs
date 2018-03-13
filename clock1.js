@@ -33,6 +33,7 @@ function draw () {
   
   let x = CANVAS_WIDTH*0.65;
   let y = CANVAS_HEIGHT/2;
+  
   //zero
   rect(x,y,SMAL_BLOCK*4 ,SMAL_BLOCK);
   rect(x,y+(SMAL_BLOCK*8),SMAL_BLOCK*4 ,SMAL_BLOCK);
