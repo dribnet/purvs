@@ -8,7 +8,7 @@ function saveBlocksImages(doZoom) {
   }
 
   // generate 960x500 preview.jpg of entire canvas
-
+  // TODO: should this be recycled?
   var offscreenCanvas = document.createElement('canvas');
   offscreenCanvas.width = 960;
   offscreenCanvas.height = 500;
