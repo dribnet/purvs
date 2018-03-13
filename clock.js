@@ -16,10 +16,12 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     let millis = obj.millis;
 
-    background(120);
+    angleMode(DEGREES);
 
-     text("Second: " + seconds, 10, 62);
-     text("Hour: "   + hours, 10, 22);
+    background(120, 120, 120);
+
+    text("Second: " + seconds, 10, 62);
+    text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Millis: " + millis, 10, 82);
 
@@ -27,25 +29,47 @@ function draw_clock(obj) {
     let hourCircleRadius   = map(hours, 0, 23, 0, 100);
     let minuteCircleRadius = map(minutes, 0, 59, 0, 100);
     let millisCircleRadius = map(millis, 0, 1000, 0, 100);
+    
     let secondsWithFraction   = seconds + (millis / 1000.0);
     let secondRadiusSmooth  = map(secondsWithFraction, 0, 60, 0, 100);
+    
     let col = map(millis, 0, 1000, 0, 255);
     let colo = map(seconds, 0, 59, 0, 255);
     let color = map(hours, 0, 23, 0, 255);
 
-    noFill();
-    ellipse(480, 300, 100, 100);
-    ellipse(480, 420, 100, 100);
-    ellipse(480, 180, 100, 100);
-    ellipse(480, 60, 100, 100);
-    fill(col, 180, 200);
-    ellipse(480, 420, millisCircleRadius, millisCircleRadius);
-    fill(colo, 180, 200);
-    ellipse(480, 300, secondRadiusSmooth, secondRadiusSmooth);
-    ellipse(480, 180, minuteCircleRadius, minuteCircleRadius);
-	fill(color, 180, 200);
-    ellipse(480, 60, hourCircleRadius, hourCircleRadius);
 
+
+    noFill();
+    ellipse(150, 300, 100, 100);
+    
+    ellipse(150, 180, 100, 100);
+    ellipse(150, 60, 100, 100);
+    
+    let circlepath = map(seconds, 0, 59, -90, 270);
+    let pathcircle = map(minutes, 0, 59, -90, 270);
+    
+    push();
+    translate(width/2, height/2);
+    rotate(circlepath);
+    fill(col, 180, 200);
+    ellipse(200, 0, millisCircleRadius, millisCircleRadius);
+    noFill();
+    ellipse(200, 0, 100, 100);
+    pop();
+
+    push();
+    fill(colo, 180, 200);
+    translate(width/2, height/2);
+    rotate(pathcircle);
+    ellipse(100, 0, 50, 50);
+	pop();
+
+    fill(color, 180, 200);
+    ellipse(150, 60, hourCircleRadius, hourCircleRadius);
+
+    noFill();
+    ellipse(width/2, height/2, 200, 200);
+    ellipse(width/2, height/2, 400, 400);
 
 
 
