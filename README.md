@@ -1,19 +1,10 @@
 ## PS1 MDDN 242 2017
 
-### 4th Dimension
+### Slit Scanning
 
-Explanation of Notes from left column top to bottom then right coloumn top to bottom. 
+After talking to Tom about my idea he gave me clarity to what I should do, I don't fully understand 4D and haven't done much 3D/WEBGL stuff so he suggested to work in 2D and to try focus on getting the aspect of of slit scanning to work and how I could incorporate/show time also. 
 
-Notes on things that I wanted to implement, rotation/oscillation and how they relate to clocks. 
+He had a drawing which explained what I should try an achieve which is what i'm working on now. But in order to understand how to translate slit scanning to programming I wanted to look at the traditional methods I found a video that summed it up pretty well and interesting ways slit scanning was used then found a site(www.flong.com/texts/lists/slit-scan) how to translate it digitally and how it has been used digitally to show this passage of time(4th Dimension)
 
-Notes on how things in our world our rendered and how we are able to visually see them based on research in quantum physics or something I forgot. 
 
-A note on Slit Scanning, something that i've been interested in since summer. Essentially a 2D render of a 4D object. 
-
-Notes on Edwin Abbott Analogy of how the 4th Dimension could be seen.
-Relates to how 3D objects are seen in 2D as these slits. if a sphere passed through it would start off small incrementally grow large and once it reached its maximum x/z would reduce in size till gone.
-
-Right column is precedents for 4D stuff.
-
-What I wanted to do with 4D was have a 4D object, take a 3D slice of it since seeing a 4D object is incomprehensible and project it in 2D similiar to the game Miegakure which has a better explanation of 4D.
 
