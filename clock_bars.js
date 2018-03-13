@@ -37,17 +37,17 @@ function draw_clock(obj) {
     fill(120)
     rect(0, 200, secondBarWidth, 50);
     fill(160)
-    rect(0, 250, millisBarWidth, 50);
+    arc(width/2, height/2, millisBarWidth, 50, 0, PI);
 
     // Make a bar which *smoothly* interpolates across 1 minute.
     // We calculate a version that goes from 0...60, 
     // but with a fractional remainder:
-    let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    let secondsWithFraction   = seconds + (millis / 1000.0);
-    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
+    //let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
+    //let secondsWithFraction   = seconds + (millis / 1000.0);
+    //let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
 
-    fill(100, 100, 200)
-    rect(0, 350, secondBarWidthChunky, 50);
-    fill(120, 120, 240)
-    rect(0, 400, secondBarWidthSmooth, 50);
+    //fill(100, 100, 200)
+    //rect(0, 350, secondBarWidthChunky, 50);
+    //fill(120, 120, 240)
+    //rect(0, 400, secondBarWidthSmooth, 50);
 }
