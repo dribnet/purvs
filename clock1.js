@@ -1,30 +1,31 @@
-const CANVAS_WIDTH = 960;
-const CANVAS_HEIGHT = 500;
+//CLOCK 7
+var fr = 30;
+var xpos = 145;
+var speed = 6;
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-  main_canvas.parent('canvasContainer');
-
-  // you can optionally add your own code here if you also have setup code
+function setup() {
+createCanvas(960,500);
+frameRate(fr)
 }
 
-// Update this function to draw you own maeda clock
-function draw () {
-  background(204); // light gray background
-  strokeWeight(8); // Stroke weight to 8 pixels
-  ellipse(480, 250, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(500, 280, 260, 20);
-}
+function draw() {
 
-// do not alter or remove this function
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
+  translate(250,250);
+  background(0)
+  fill(0,0,250)
+  textSize(105)
+  textAlign(CENTER);
+  h = hour()
+  mi = minute()
+  se = second()
+  
+  xpos = xpos + speed;
+  if((xpos > 450) || (xpos < 0))
+  {
+    speed = speed * -1;
   }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+     
+  text(h + ':' + mi, xpos, 250)
+  
 }
+
