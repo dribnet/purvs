@@ -31,11 +31,11 @@ function draw_clock(obj) {
 
     noStroke();
     fill(40);
-    rect(0, 100, hourBarWidth, 50);
+    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
     fill(80);
-    rect(0, 150, minuteBarWidth, 50);
+    arc(width/2, height/4, minuteBarWidth, 50, 0, PI);
     fill(120)
-    rect(0, 200, secondBarWidth, 50);
+    arc(width/2, height/2, secondBarWidth, 50, PI, 0);
     fill(160)
     arc(width/2, height/2, millisBarWidth, 50, 0, PI);
 
