@@ -26,18 +26,22 @@ function draw_clock(obj) {
 
     let hourBarWidth   = map(hours, 0, 23, 0, width);
     let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-    let millisBarWidth = map(millis, 0, 1000, 0, width);
+    let secondBarWidth = map(seconds, 0, 59, 0, width/3);
+    let millisBarWidth = map(millis, 0, 1000, 0, width/2);
 
     noStroke();
+	fill(0);
+	ellipse(width/2, height/2, minuteBarWidth, minuteBarWidth);
     fill(255);
-    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
-    fill(0);
-    arc(width/2, height/4, minuteBarWidth, 50, 0, PI);
-    fill(0)
-    arc(width/2, height/2, secondBarWidth, 50, PI, 0);
-    fill(255)
-    arc(width/2, height/2, millisBarWidth, 50, 0, PI);
+	ellipse(width/2, height/2, millisBarWidth, millisBarWidth);
+
+//    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
+//    fill(0);
+//    arc(width/2, height/4, minuteBarWidth, 50, 0, PI);
+//    fill(0)
+//    arc(width/2, height/2, secondBarWidth, 50, PI, 0);
+//    fill(255)
+//    arc(width/2, height/2, millisBarWidth, 50, 0, PI);
 
     // Make a bar which *smoothly* interpolates across 1 minute.
     // We calculate a version that goes from 0...60, 
