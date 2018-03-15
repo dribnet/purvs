@@ -1,4 +1,4 @@
-First P5 drawing
+A working clock.
 
-Started recreating one of the clocks given as an example on blackboard
+Basically just that, I do have plans for this but getting a grasp on how to manipulate P5 elements.
 
