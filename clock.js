@@ -18,8 +18,8 @@ function draw_clock(obj) {
 
     angleMode(DEGREES);
 
-    let SecondFraction = map(seconds, 0, 60, 0, 1);
-    let MinuteFraction = map(minutes, 0, 60, 0, 1);
+    let SecondFraction = map(seconds, 0, 60, 0, 0.9);
+    let MinuteFraction = map(minutes, 0, 60, 0, 0.9);
     let SecondAngle = map(seconds+(millis/1000), 0, 60, 0, 360);
     let MinuteAngle = map(minutes+SecondFraction, 0, 60, 0, 360);
     let HourAngle = map(hours+MinuteFraction, 0, 24, 0, 720);
