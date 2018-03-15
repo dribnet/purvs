@@ -6,17 +6,63 @@ var millisRolloverTime;
 var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
 
+ /***ADDED FUNCTIONALITY***/
+
+let pfont;
+//Backgrounds
+let bg_Day;
+let bg_Night;
+//Dino
+let Dino;
+let Dino_Image;
+//Clouds
+let Cloud_Image;
+let Clouds_Array = [];
+//Weather Icons
+let currentIcon;
+let sun;
+let moon;
+
+//Function activated before setup to make sure that the font is loaded and ready to use in the rest of the program
+function preload(){
+	pfont = loadFont('prstart.ttf');
+	//Load Images
+	Cloud_Image = loadImage('Cloud.png');
+	Dino_Image = loadImage('Dino.png');
+	sun = loadImage('Sun.png');
+	moon = loadImage('Moon.png');
+	bg_Day = loadImage('bg_Day.png');
+	bg_Night = loadImage('bg_Night.png');
+}
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
 
   // this is true if debug.js is included
   if(debug_is_on) {
     debug_setup();
   }
   turn_off_alarm();
+  
+  /***ADDED FUNCTIONALITY***/
+  
+  Dino = new DinoChar(0,0,Dino_Image);
+  //Add Clouds to Array
+  var secondsRadius = (min(width, height) / 2) * 0.72;
+  for (var a = 0; a < 360; a+=30) {
+    var angle = radians(a-90);
+    var x = cos(angle) * secondsRadius;
+    var y = sin(angle) * secondsRadius;
+    Clouds_Array[(a/30)] = new Cloud(x, y, a/30, Cloud_Image);
+  }
+  //Other Setup Changes
+  textFont(pfont);
+  textAlign(CENTER,CENTER);
+  textSize(20);
+  angleMode(DEGREES);
+  
 }
 
 function turn_on_alarm() {
@@ -120,6 +166,14 @@ function draw () {
   obj.seconds = S;
   obj.millis = mils;
   obj.seconds_until_alarm = alarm;
+  //Added
+  obj.Dino = Dino;
+  obj.Clouds_Array = Clouds_Array;
+  obj.Sun = sun;
+  obj.Moon = moon;
+  obj.bg_Day = bg_Day;
+  obj.bg_Night = bg_Night;  
+  
   draw_clock(obj);
 }
 
@@ -130,4 +184,38 @@ function keyTyped() {
   else if (key == '@') {
     saveBlocksImages(true);
   }
+}
+
+//ADDED
+
+class Cloud {
+	constructor(posX, posY, num, img) {
+		this.positionX = posX;
+		this.positionY = posY;
+		this.hourNumber = num;
+		this.cloudImage = img;
+	}
+	
+	drawImage(){
+		image(this.cloudImage, this.positionX, this.positionY);
+		text(this.hourNumber,this.positionX,this.positionY);
+	}	
+}
+
+class DinoChar{
+	constructor(posX, posY, img) {
+		this.positionX = posX;
+		this.positionY = posY;
+		this.dinoImage = img;
+	}
+	
+	drawImage(){
+		image(this.dinoImage, this.positionX, this.positionY);
+	}	
+	
+	changePos(posX, posY){
+		this.positionX = posX;
+		this.positionY = posY;
+	}
+	
 }

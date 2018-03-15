@@ -1,10 +1,12 @@
 ## PS1 MDDN 242 2017
 
-### Maeda Clock
+### Current Cloud Hop Clock
 
-I decided to recreate the the 5th clock from Maedas 12 clocks. I decided to not do the static image and make it a working clock,
-because I thought that would be fun to do instead. In terms of changes made to the clock, I have added the functionality to hide 
-parts of the clock so that you can have a clearer view of certain times you are interested in. This was because I noticed that the 
-original design made it a bit harder to see something like the hours number was because it is being obscured by the other "hands".
-I also quickly added a small animated circle which expands when you click on screen. This was just so it may make it easier to 
-located the mouse and see where you clicked.
+So at this stage I have made the basic clock. The backgrounds and Icons change depending on the time, as well as Dino appearing on each cloud of the current hour. 
+
+The remaining bits to do for basic hand in are:
+	- Alarm Functionality
+	- Animations (currently None, Dino just hops pops in on each cloud, and clouds in the background need to be added)
+	- Finish/Finalize art
+	
+After these are added I can start to add in extra features.
