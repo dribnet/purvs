@@ -15,45 +15,39 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    background(204);
 
-    background(255);
-    fill(0);
-    rect(0,0,960,500);
-    fill(28,100,100);
-
+    background(255,255,200); //  beige
+    fill(128,100,100); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
 
-    //let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarPosition = map(minutes, 0, 59, 0, width);
-    let secondBarHeight = map(seconds, 0, 59, 0, height-10);
-    //let millisBarWidth = map(millis, 0, 1000, 0, width);
+    let hourBarWidth   = map(hours, 0, 23, 0, width);
+    let minuteBarWidth = map(minutes, 0, 59, 0, width);
+    let secondBarWidth = map(seconds, 0, 59, 0, width);
+    let millisBarWidth = map(millis, 0, 1000, 0, width);
 
     noStroke();
-
-    fill(255);
-    rect(minuteBarPosition, 5, 2, secondBarHeight);
-
-    fill(180);
-    rect(minuteBarPosition-14, 5, 2 , height-10);
-    rect(minuteBarPosition+14, 5, 2 , height-10);
-    
-    fill(100);
-    rect(minuteBarPosition+28, 5, 2 , height-10);
-    rect(minuteBarPosition-28, 5, 2 , height-10);
-
+    fill(40);
+    rect(0, 100, hourBarWidth, 50);
+    fill(80);
+    rect(0, 150, minuteBarWidth, 50);
+    fill(120)
+    rect(0, 200, secondBarWidth, 50);
+    fill(160)
+    rect(0, 250, millisBarWidth, 50);
 
     // Make a bar which *smoothly* interpolates across 1 minute.
     // We calculate a version that goes from 0...60, 
     // but with a fractional remainder:
-    //let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    //let secondsWithFraction   = seconds + (millis / 1000.0);
-    //let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
+    let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
+    let secondsWithFraction   = seconds + (millis / 1000.0);
+    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
 
-    //fill(100, 100, 200)
-    //rect(0, 350, secondBarWidthChunky, 50);
-    //fill(120, 120, 240)
-    //rect(0, 400, secondBarWidthSmooth, 50);
+    fill(100, 100, 200)
+    rect(0, 350, secondBarWidthChunky, 50);
+    fill(120, 120, 240)
+    rect(0, 400, secondBarWidthSmooth, 50);
 }
