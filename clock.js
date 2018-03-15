@@ -17,18 +17,94 @@ function draw_clock(obj) {
     let millis = obj.millis;
 
 
-    let hourValue   = map(hours, 0, 23, 0, 255);
-    let minuteValue = map(minutes, 0, 59, 0, 255);
-    let secondValue = map(seconds, 0, 59, 150, 255);
-    let millisValue = map(millis, 0, 1000, 0, 255);
+    let hourValue   = map(hours, 0, 23, 0, 360);
+    let minuteValue = map(minutes, 0, 59, 0, 360);
+    let secondValue = map(seconds, 0, 59, 0, 360);
+    let millisValue = map(millis, 0, 1000, 0, 360);
 
-    background (0);
+    let f = sin (frameCount/60*TWO_PI);
+    let f2 = sin (secondValue);
+    
+    let r = map(sin(frameCount/60), -1, 1, 30, 240);
+    let p = map(sin(frameCount/80), -1, 1, 30, 240);
+    let d = map(sin(frameCount/140), -1, 1, 30, 240);
+    
+    let r2 = map(cos(frameCount/60), -1, 1, 30, 180);
+    let p2 = map(cos(frameCount/80), -1, 1, 30, 180);
+    let d2 = map(cos(frameCount/140), -1, 1, 30, 180);
+    
+    var y = sin(frameCount/60);
+    y = map(y, -1, 1, -r, r);
+    var x = sin(frameCount/60);
+    x = map(x, -1, 1, r, -r);
+
+    
+
+
+    background (220, 140, 160);
     print(secondValue);
-    stroke (secondValue, 0, millisValue);
-    strokeWeight (6);
-    noFill ();
-    four (430, 250);
-    four (440+(seconds*5), 250);
+    text("Hour: "   + hours, 10, 22);
+    text("Minute: " + minutes, 10, 42);
+    text("Second: " + seconds, 10, 62);
+    text("Millis: " + millis, 10, 82);
+    
+    
+    
+    translate (width/2, height/2);
+    stroke (255);
+    noFill();
+    
+    fill (20, 0, 205, 140);
+    noStroke ();
+    push ();
+    rotate (millisValue/30);
+    beginShape();
+    vertex(0, 0);
+    vertex(0, 220);
+    vertex (r2, r);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop ();
+    
+    fill (140, 0, 245, 140);
+    noStroke ();
+    push ();
+    rotate (secondValue/30);
+    beginShape();
+    vertex(0, 0);
+    vertex(0, 220);
+    vertex (r2, r);
+    vertex(0, 0);
+    endShape(CLOSE);
+    //line (0, 0, 100, 0);
+    pop ();
+    
+    fill (0, 240, 245, 140);
+    noStroke ();
+    push ();
+    rotate (minuteValue/30);
+    beginShape();
+    vertex(0, 0);
+    vertex(0, 240);
+    vertex (p2, p);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop ();
+    
+    fill (0, 240, 205, 140);
+    noStroke ();
+    push ();
+    rotate (hourValue/30);
+    beginShape();
+    vertex(0, 0);
+    vertex(0, 240);
+    vertex (p2, d);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop ();
+    
+    //four (430, 250);
+    //four (440+(seconds*5), 250);
 
 
 }
@@ -55,10 +131,6 @@ function draw_clock(obj) {
 }
     
     //fill(128,100,100); // dark grey
-    //text("Hour: "   + hours, 10, 22);
-    //text("Minute: " + minutes, 10, 42);
-    //text("Second: " + seconds, 10, 62);
-    //text("Millis: " + millis, 10, 82);
 
     /*
     noStroke();
