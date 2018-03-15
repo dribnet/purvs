@@ -1,7 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Meada's clock
+### Dominoes clock 
 
 
-The Meada's clock that i replicated was the pixelated numbers where the hour and the minutes alternate as they  zoom in and out. 
-I didn't change anything about the clock design.
+I have started to code my dominoes clock. It is not what i sketched out previously, but i just wanted to see how the clock_bars.js code work so i was able to play around with it. I do want to further try my inital clock design, which i know while be a challenge. But i do like how this clock design turned out! 
