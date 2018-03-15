@@ -13,7 +13,7 @@ function draw() {
   translate(250,250);
   background(0)
   fill(0,0,250)
-  textSize(105)
+  textSize(110)
   textAlign(CENTER);
   h = hour()
   mi = minute()
