@@ -27,17 +27,24 @@ noStroke()
 
     let circleMoveMilli = map(millis, 0, 1000, -90, 270);
     let circleMoveSecond = map(seconds, 0, 59, -90, 270);
+    let circleMoveMinute = map(minutes, 0, 59, -90, 270);
     let circleMovehour = map(hours, 0, 23, -90, 270);
 
     push();
     translate(710, height/2);
     rotate(circleMoveMilli);
+    ellipse(50, 0, 5, 5);
+    pop();
+
+    push();
+    translate(710, height/2);
+    rotate(circleMoveSecond);
     ellipse(50, 0, 20, 20);
     pop();
 
     push();
     translate(width/2, height/2);
-    rotate(circleMoveSecond);
+    rotate(circleMoveMinute);
     ellipse(50, 0, 20, 20);
     pop();
 
@@ -47,9 +54,9 @@ noStroke()
     ellipse(50, 0, 20, 20);
     pop();
 
-    text(hours, 170, height/2+50);
-    text(minutes, 400, height/2+50);
-    text(seconds, 630, height/2+50);
+    // text(hours, 170, height/2+50);
+    // text(minutes, 400, height/2+50);
+    // text(seconds, 630, height/2+50);
     // text(millis, 10, 82);
     text(":",345,height/2+35)
     text(":",570,height/2+35)
