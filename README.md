@@ -1,12 +1,8 @@
 ## PS1 MDDN 242 2018
 
-### My Version of Maeda’s 12 clocks (Number 4)
+### Moon and Sun clock
 
+It has the sun and the moon moving in a circle as the hours go by. A full circle is 24 hours. 
+The background changes depending on the time of day (At midnight it's black while at dawn it's orange and at noon it's blue).
 
-This is a recreation of clock four.
-
-I made some changes when I recreated the clock. I found that the overlapping and partly transparent numbers were difficult to read so I didn't make mine overlap and made them solid colours.
-
-The numbers on my clock are larger than the numbers on the original to make it easier to read.
- 
-I also did not include the seconds in my clock so it was simpler to recreate.
+I would like the sun and the moon to be at the correct place for the time (For example the moon at the top at midnight) but I haven't done this yet. 
