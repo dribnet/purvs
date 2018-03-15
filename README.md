@@ -1,7 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Outrageous clock
+### John Maeda Clock #7
 
-My clock will consist of various circular/spherical colour gradients that will act as an analog time format. Each shape corresponds to seconds, minutes and hours to evoke familiar timetelling for the user.
-The inspiration of my clock is fundamentally a person's ability to tell time through music. With the thought of music in mind, the clockwork-like instrumental of Drake's "Hotline Bling" gave me an ideal feel and aesthetic (via James Turrell's abstract visual sets).
+This is my take on the swivel clock. This was a technically difficult task for me as I have not coded for the past 2 years but with the guidance of Tom and my peers I managed to produce an animated clock. I will iterate this into a better aesthetic, though not necessarily animated.
 
