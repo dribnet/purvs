@@ -10,9 +10,9 @@ class FlamingClock {
 
 	constructor() {
 		// helper variables
-		this.particleGap = width/60;
-		this.characterGap = width/10;
-		this.backgroundColour  = color(0x44);
+		this.particleGap = width / 60;
+		this.characterGap = width / 10;
+		this.backgroundColour = color(0x44);
 
 
 		//values for the clock digits, 0-9 and :
@@ -266,24 +266,27 @@ class FlamingClock {
 class Particle {
 	constructor(x, y, filled) {
 		this.loc = createVector(x, y);
-		this.vel = createVector(random(-1,1), -1);
+		this.vel = createVector(random(-1, 1), -1);
 		this.life = 45;
 		this.outlineWeight = 5;
 		this.filled = filled
 	}
+
 	update() {
 		this.loc.add(this.vel);
 		this.vel.mult(0.99);
-		this.vel.add(0, -0.015 - 0.1*noise(this.loc.x*0.2, this.loc.y*0.2)*(this.life/45)); //particles floating away
-		this.vel.add((noise(this.loc.x*0.1,this.loc.y*0.1)-0.5)*0.35, 0); //left and right sway
+		this.vel.add(0, -0.015 - 0.1 * noise(this.loc.x * 0.2, this.loc.y * 0.2) * (this.life / 45)); //particles floating away
+		this.vel.add((noise(this.loc.x * 0.1, this.loc.y * 0.1) - 0.5) * 0.35, 0); //left and right sway
 		this.life -= 1;
 	}
+
 	drawOutline() {
 		fill(0xDD);
-		ellipse(this.loc.x,this.loc.y, 40*(this.life/45));
+		ellipse(this.loc.x, this.loc.y, 40 * (this.life / 45));
 	}
+
 	drawFill() {
 		fill(0x11);
-		ellipse(this.loc.x,this.loc.y, max(0, 40*(this.life/45)-this.outlineWeight*2));
+		ellipse(this.loc.x, this.loc.y, max(0, 40 * (this.life / 45) - this.outlineWeight * 2));
 	}
 }
