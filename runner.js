@@ -124,7 +124,7 @@ function draw() {
 	// obj.millis = mils;
 	// obj.seconds_until_alarm = alarm;
 	// draw_clock(obj);
-	currentClock.draw();
+	currentClock.draw(H, M, S, mils, alarm);
 }
 
 function keyTyped() {
