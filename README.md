@@ -2,4 +2,4 @@
 
 ### Maeda Clock
 
-For the John Maeda clock assignment I recreated clock number 8. I changed the time to be 4:10 as well as adding a thick white border along the numbers so it looked more interesting instead of just solid black and white. 
+Begining stages of my clock. So far some of the squares are missing from teh 2 and 5. AS well as the number spacing is off. 
