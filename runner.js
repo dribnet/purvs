@@ -19,6 +19,8 @@ function setup() {
 		debug_setup();
 	}
 	turn_off_alarm();
+
+	frameRate(60);
 }
 
 function turn_on_alarm() {

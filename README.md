@@ -38,4 +38,5 @@ A digital display clock where the numbers are emitting flaming particles.
 
 #### Notes:
 + Currently there are around 450-550 live particles at any given point. The seven-segment display should have fewer, but up to 700.
+
 ---
