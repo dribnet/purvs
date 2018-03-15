@@ -4,7 +4,22 @@
 
 --------------------------------------------------
 
-I had the year wrong in my heading. Oops!
-So here I'm starting my clock implementation, reusing some of the values I wrote in for the Conway Clock.
+A digital display clock where the numbers are emitting flaming particles.
 
-I'm also abandoning the TypeScript thing for now. Even though it was a lot of effort to get going in the first place, it's not a good fit for the format of this class.
+___
+
+#### Changes:
++ Added particle generation
++ Added particle drawing
++ Added particle lifespans and movement
+
+#### Current Issues:
++ Framerate is horrid
++ Too many particles, too small.
++ Particles too slow
++ Outline not visible
+
+#### To Do Next:
++ Polish particle movement & lifespans
++ increase particle size and lower density to improve framerate
++ Add placeholder colour values

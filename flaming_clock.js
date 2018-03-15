@@ -118,24 +118,30 @@ class FlamingClock {
 				0, 0, 0, 0, 0
 			]
 		];
+
+		//array to hold the active particles
+		this.particles = [];
 	}
 
 	createCharacterParticles(characterIndex, x, y) {
 		noStroke();
-		for (var i = 0; i < 35; i++) {
+		for (let i = 0; i < 35; i++) {
 			if (this.numbers[characterIndex][i] === 1) {
-				fill(this.textColour);
-				ellipse(x + (i % 5) * this.particleGap,
-					y + floor(i / 5) * this.particleGap,
-					this.particleGap);
+				this.particles.push(new Particle(x + (i % 5) * this.particleGap, y + floor(i / 5) * this.particleGap, true));
+				// fill(this.textColour);
+				// ellipse(x + (i % 5) * this.particleGap,
+				// 	y + floor(i / 5) * this.particleGap,
+				// 	this.particleGap);
 			}
 		}
 	}
 
 	update(hour, minute, second, milli, alarm) {
-		var xOffset = this.particleGap+this.characterGap;
-		var yOffset = height/2;
+		let xOffset = this.particleGap + this.characterGap;
+		let yOffset = height / 2;
 		background(0x00);
+
+		//create the new particles:
 		//hours
 		this.createCharacterParticles(floor(hour / 10), xOffset, yOffset);
 		xOffset += this.characterGap;
@@ -156,14 +162,50 @@ class FlamingClock {
 		this.createCharacterParticles(floor(second / 10), xOffset, yOffset);
 		xOffset += this.characterGap;
 		this.createCharacterParticles(second % 10, xOffset, yOffset);
+
+		//update particles
+		for (let i = 0; i < this.particles.length; i++) {
+			this.particles[i].update();
+		}
+
+		//remove dead particles (any particle with life <= 0)
+		this.particles = this.particles.filter(particle => particle.life > 0);
 	}
+
 	draw() {
-		translate(-0.5, -0.5);
-		//background(this.backgroundColour);
+		//background();
 
-		//TODO: particle drawing code here
+		//draw the particle outlines
+		for (let i = 0; i < this.particles.length; i++) {
+			this.particles[i].drawOutline();
+		}
+
+		//draw the particle interiors
+		for (let i = 0; i < this.particles.length; i++) {
+			this.particles[i].drawFill();
+		}
 	}
 
+}
 
-
+class Particle {
+	constructor(x, y, filled) {
+		this.loc = createVector(x, y);
+		this.vel = createVector(random(-1,1), -1);
+		this.life = 30;
+		this.outlineWeight = 5;
+		this.filled = filled
+	}
+	update() {
+		this.loc.add(this.vel);
+		this.life--;
+	}
+	drawOutline() {
+		fill(0x00);
+		ellipse(this.loc.x,this.loc.y, 30*(this.life/30));
+	}
+	drawFill() {
+		fill(0xFF, 0x00, 0x00);
+		ellipse(this.loc.x,this.loc.y, max(0, 30*(this.life/30)-this.outlineWeight*2));
+	}
 }
