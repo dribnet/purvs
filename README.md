@@ -1,7 +1,9 @@
 ## PS1 MDDN 242 2017
 
-### Maeda Clock #2
+### Geometric Clock
 
-My original geometric clock idea beyond my coding abilities so I have chosen to iterate and develop my second idea which is a clock made from ellipses. I have put one of coded my numbers into a function and improved the position of the ellipses so they now perfectly line up when moving around the page, creating more abstract shapes rather than just a number. To further develop this I need to code the rest of my geometric numbers. I would like to map the fill of the stroke to the seconds/minutes/hours on the clock so there is a gradual shift as time passes.
+After some experimenting with the frameCount function and sin waves I have found a way to implement the geometric clock idea I had originally planned to make. The geometries shift and rotate differently depending on whether they represent the hour, minute, second, or millisecond. I have been experimenting with colour, opacity and overall shape of the geometry and am happy with what I have achieved so far. For an alarm function, I could make the geometries pulse in and out rapidly.
+
+
 
 TESTING FROM STORAGE
