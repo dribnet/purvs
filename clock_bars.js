@@ -15,10 +15,10 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(204);
+    //background(204);
 
-    background(255,255,200); //  beige
-    fill(128,100,100); // dark grey
+    background(222,222,226,100); //  beige
+    fill(17,17,17,100); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
@@ -30,13 +30,13 @@ function draw_clock(obj) {
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 
     noStroke();
-    fill(40);
+    fill(255);
     arc(width/2, height/4, hourBarWidth, 50, PI, 0);
-    fill(80);
+    fill(0);
     arc(width/2, height/4, minuteBarWidth, 50, 0, PI);
-    fill(120)
+    fill(0)
     arc(width/2, height/2, secondBarWidth, 50, PI, 0);
-    fill(160)
+    fill(255)
     arc(width/2, height/2, millisBarWidth, 50, 0, PI);
 
     // Make a bar which *smoothly* interpolates across 1 minute.
