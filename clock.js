@@ -84,6 +84,7 @@ function draw_clock(obj) {
 	  //All translations are to be done in relation to this translation
 	  translate(width/2,height/2);
 		//Draw Hands
+	  tint(255, 255);
 	  Draw_Hands(h,m,s);
 	  //Draw Icon
 	  Draw_Icon(h);
@@ -94,8 +95,9 @@ function draw_clock(obj) {
 	  }else{
 		  Dino.changePos(Clouds_Array[h].positionX, Clouds_Array[h].positionY-30);
 	  }
-	  tint(255, 255);
+	 
 	  if(obj.seconds_until_alarm == 0){
+		  //Play animation
 		  
 	  }else{
 		   Dino.drawImage();
@@ -113,6 +115,7 @@ function Draw_Clouds(){
 
 function Draw_Hands(h,m,s){
   fill(255);
+  noStroke();
   //Hours Hand
   rotate(h*30); 
   let hours_Hand = triangle(-10, 0, 0, -80, 10, 0);
@@ -129,7 +132,8 @@ function Draw_Hands(h,m,s){
 
 function Draw_Icon(h){
 	fill(0);
-	ellipse(0, 0, 40, 40);
+	tint(255,255);
+	//ellipse(0, 0, 32, 32);
 	if(h >= 5 && h < 19){
 	  image(sun, 0, 0);
     }else{
