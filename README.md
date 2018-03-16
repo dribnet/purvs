@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Maeda Clock
+### Examples of technique
 
-I chose clock #2 and I thought green was better color.
+How to use p5.js API and JavaScript bits.
