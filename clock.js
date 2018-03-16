@@ -30,35 +30,47 @@ function draw_clock(obj) {
     let r1 = map(seconds, 0, 59, 360, 0);
     let r2 = map(minutes, 0, 59, 360, 0);
     let r3 = map(hours, 0, 23, 360, 0);
+    let r4 = map(millis, 0, 1000, 360, 0);
+    noStroke();
+    //hours
     push();
-      textSize(128);
       rectMode(CENTER);
-      textAlign(CENTER,CENTER);
-      translate(width/2, height/2);
-      rotate(r3);
-      fill(0,0,255);
-      text(hours, 0,0,130,130);
+      translate(width/4, height/2);
+      //rotate(r3);
+      fill(105,200,255);
+      arc(0, 0, 280, 280,-165, r3);
+      fill(250);
+      ellipse(0,0,230,230);
     pop();
-    
+    //mins
     push();
-      textSize(64);
       rectMode(CENTER);
-      textAlign(CENTER,CENTER);
-      translate(width/2, height/2);
-      rotate(r2);
-      fill(0,255,0);
-      text(minutes, 0,0,70,70);
+      translate(width/4, height/2);
+      //rotate(r2);
+      fill(105,200,255);
+      arc(0, 0, 220, 220,-165, r2);
+      fill(250);
+      ellipse(0,0,170,170);
     pop();
-    
+    //secs
     push();
-      textSize(32);
       rectMode(CENTER);
-      textAlign(CENTER,CENTER);
-      translate(width/2, height/2);
-      rotate(r1);
-      fill(255,0,0);
-      text(seconds, 0,0,40,40);
+      translate(width/4, height/2);
+      //rotate(r1);
+      fill(105,200,255);
+      arc(0, 0, 160, 160,-165, r1);
+      fill(250);
+      ellipse(0,0,110,110);
     pop();
-    
-    
+    //millis
+    push();
+      rectMode(CENTER);
+      translate(width/4, height/2);
+      //rotate(r1);
+      fill(105,200,255);
+      arc(0, 0, 100, 100,-165, r4);
+      fill(250);
+      ellipse(0,0,50,50);
+    pop();
+
 }
