@@ -40,7 +40,7 @@ function draw_clock(obj) {
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 */
 
-	fill(13,242,255,50);
+	fill(13,242,255,80);
    /* fill(13,242,255);
     ellipse(hours, 125, 64,64);
     fill (0);
@@ -83,7 +83,7 @@ function draw_clock(obj) {
 	pop();
 
 	push(); // BOX 3
-	translate(480,0);
+	translate(470,0);
 	rotateX (seconds* 0.01);
 	rotateY(seconds * 0.01);
 	box(100);
