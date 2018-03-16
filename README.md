@@ -1,10 +1,11 @@
 ## PS1 MDDN 242 2017
 
-### Slit Scan Initials
+### Slit Scan Initials 2
 
-Created a horizontal slit scan using a video as input thanks to a tutorial from Daniel Shiffman (https://www.youtube.com/watch?v=YqVbuMPIRwY). Fixed code from last commit. 
+Different Bars using conditionals.
 
-Video input doesn't work on Chrome.
+
+Video input isn't optimized on Chrome.
 
 
 
