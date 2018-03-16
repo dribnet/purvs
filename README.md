@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Draft of Sand Clock
+### Start of Sand Clock
 
-This is my draft of the Sand Clock. I plan to use the falling sand effect as the background, and several "containers" on the screen. Some of the containers will fill the sand so that gives the numbers. I also want to create the animation of sand in containers slowly grows from the bottom to the top to express the pass of time.
+Today I start to code my clock. I take the advice from my tutor that use 'masks' to do my containers. So far I already finish all the bases of containers. In next step, I will code triangles in different locations with the same colour of background so that the containers will looks like in a thin hexagons.
