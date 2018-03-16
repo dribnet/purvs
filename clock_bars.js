@@ -23,17 +23,27 @@ function draw_clock(obj) {
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
-
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width/3);
-    let millisBarWidth = map(millis, 0, 1000, 0, width/2);
-
+//
+//    let hourBarWidth   = map(hours, 0, 23, 0, width);
+//    let minuteBarWidth = map(minutes, 0, 59, 0, width);
+//    let secondBarWidth = map(seconds, 0, 59, 0, width/3);
+//    let millisBarWidth = map(millis, 0, 1000, 0, width/2);
+	let millisValue = map(millis, 0, 1000, 0, 360); 
+    let secondsValue = map(seconds, 0, 59, 0, 360);
     noStroke();
 	fill(0);
-	ellipse(width/2, height/2, minuteBarWidth, minuteBarWidth);
+	push();
+	translate(width/2, height/2);
+    rotate(millisValue/60);
+    ellipse(0, 30, 30, 30);
+    pop();
+
+    push();
+    translate(width/2, height/2);
+    rotate(secondsValue/60);
     fill(255);
-	ellipse(width/2, height/2, millisBarWidth, millisBarWidth);
+    ellipse(0, 65, 35, 35);
+	pop();
 
 //    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
 //    fill(0);
