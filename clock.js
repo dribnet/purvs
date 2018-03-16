@@ -28,19 +28,15 @@ function draw_clock(obj) {
     var b = 50;
 
 
-    r = map(seconds,0,960,0,220); //changes blue on left to red on right
-
-    
-
-    for(let i = 0; i<seconds;i++){
+    for(let i = 0; i<5;i++){
      
         background(r,g,b);
 
-        hourLoci = map(hours,0,23,0,CANVAS_WIDTH);   
-        minLoci = map(minutes,0,59,0,CANVAS_WIDTH);   
-        secLoci = map(seconds,0,59,0,CANVAS_WIDTH);  
-        milLoci = map(millis,0,1000,0,CANVAS_WIDTH);    
-
+        hourLoci = map(hours,0,23,25,CANVAS_WIDTH-25);   
+        minLoci = map(minutes,0,59,25,CANVAS_WIDTH-25);   
+        secLoci = map(seconds,0,59,25,CANVAS_WIDTH-25);  
+        milLoci = map(millis,0,1000,25,CANVAS_WIDTH-25);    
+        r = map(hourLoci,0,960,0,220); //changes blue on left to red on right
 
         //hours
         fill(255);
@@ -69,13 +65,13 @@ function draw_clock(obj) {
         rect(0,434,CANVAS_WIDTH,25);
         ellipse(milLoci,startY+200,50,50);
         fill(0);
-        text(millis,milLoci-7,startY+200);
+        text(millis,milLoci-7,startY+210);
 
 
 
 
 
-    fill(128,100,100); // dark grey
+    fill(255); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
