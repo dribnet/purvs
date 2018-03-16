@@ -29,7 +29,7 @@
     let r= map(minutes, 0, 59, 0, 255);
     let g= map(seconds, 0, 59, 0, 255);
     let b = map(millis, 0, 1000, 0, 255);
-    noStroke();
+    //noStroke();
 
     for (var i = 0; i < (CANVAS_WIDTH/BS); i++) {
     	for (var j = 0; j < (CANVAS_HEIGHT/BS); j++) {
@@ -44,6 +44,9 @@
     draw_One();
     draw_Two();
     draw_Five();
+    draw_Six();
+    draw_Seven();
+    draw_Nine();
 }
 
 
@@ -114,13 +117,14 @@ function draw_Two() {
     let xRel = CANVAS_WIDTH/posX+posNo-BS;
     let yRel = CANVAS_HEIGHT/posY;
 
+    rect(xRel,yRel+BS,BS,BS);
+    rect(xRel+BS,yRel,BS*3 ,BS);
+    rect(xRel+BS,yRel+(BS*3),BS*3 ,BS);
+    rect(xRel+BS,yRel+(BS*6),BS*3 ,BS);
 
-    rect(xRel,yRel,BS*3 ,BS);
-    rect(xRel,yRel+(BS*3),BS*3 ,BS);
-    rect(xRel,yRel+(BS*6),BS*3 ,BS);
-
-    rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
-    rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
+    rect(xRel+(BS*4),yRel+BS,BS,BS*2);
+    rect(xRel+(BS*4),yRel+(BS*4),BS,BS*2);
+    rect(xRel,yRel+(BS*5),BS,BS);
 
   }
 
@@ -156,12 +160,48 @@ function draw_Five(){
     rect(xRel,yRel+BS,BS,BS);
     rect(xRel,yRel+(BS*2), BS*4, BS); 
     rect(xRel+BS,yRel+(BS*6),BS*3 ,BS);
-    rect(xRel,yRel+(BS*5),BS,BS*1);
+    rect(xRel,yRel+(BS*5),BS,BS);
     rect(xRel+(BS*4),yRel+(BS*3),BS,BS*3);
 
 
 }
 
+function draw_Six(){
+
+    fill(0);
+    let posX = 6; 
+    let posY = 2.5;
+    let posNo = 45*BS;
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel+BS,yRel,BS*3,BS);
+    rect(xRel,yRel+BS,BS,BS*5);
+    rect(xRel,yRel+(BS*2), BS*4, BS); 
+    rect(xRel+BS,yRel+(BS*6),BS*3 ,BS);
+    rect(xRel+(BS*4),yRel+(BS*3),BS,BS*3);
+
+
+}
+
+function draw_Seven(){
+  fill(0);
+  let posX = 6; 
+  let posY = 2.5;
+  let posNo = 52*BS;
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posY;
+
+  rect(xRel,yRel,BS*5,BS);
+  rect(xRel+BS*4,yRel+BS,BS,BS);
+  rect(xRel+BS*2, yRel+(BS*3)+BS*2, BS, BS*2);
+
+  let loopNo = 3;
+  for(i=0; i < loopNo; i++){
+    j=i+1;
+    rect(xRel+(BS*i)+BS*2, yRel+(BS*loopNo)-(BS*j)+BS*2, BS, BS);  
+  }
+}
 
 function draw_Eight(){
 	  //eight
@@ -182,7 +222,24 @@ function draw_Eight(){
 	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
 	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
 
-	}
+}
+
+function draw_Nine(){
+
+    fill(0);
+    let posX = 6; 
+    let posY = 2.5;
+    let posNo = 59*BS;
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel+BS,yRel,BS*3,BS);
+    rect(xRel+BS,yRel+BS*4,BS*3,BS);
+    rect(xRel,yRel+BS,BS,BS*3); 
+    rect(xRel+BS,yRel+(BS*6),BS*3 ,BS);
+    rect(xRel+(BS*4),yRel+(BS),BS,BS*5);
+
+}  
 
 
 
