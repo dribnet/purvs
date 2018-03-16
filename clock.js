@@ -6,6 +6,11 @@ var mainx=480;
 var mainy=250;
 var xoutfactor=1;
 
+function draw() {
+
+	draw_clock();
+}
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
