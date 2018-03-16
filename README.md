@@ -1,12 +1,16 @@
 ## PS1 MDDN 242 2018
 
-### Episode 03 About F&^%! Time
+### Episode 04 Like clockwork
 
-still sticking with the same concept of time
-I have chosen the time/day clock, idea. Which involves a transitioning number and wallpaper depending on how the day has passed. so for example the colour of the time will change as it heads into night from black to white. This also works along with the wallpaper transitioning from day to night as well depending on the time.
+Still sticking to the main idea of concept three but some changes will be made 
+in order to keep the idea witihn the clock.
 
-general layout of the clock has been made, i just need to experiment further with how i can bring the changing wallpaper idea into motion with time.
+In this cases i still need to find a way to change the background depnding on the time, as well as change the actuall digital time's colour too copensate for the alternatives of colour, due to the black background.
 
+i have yet to figure this out i hope i can do so in the following days.
+as such there will be alot of changes to how this clock will go through.
+
+a few of the planning sections are show above
 
 (YOUR OWN REFERENCE FOR IMAGES BELOW)
 your clock. Also update both images keeping their original sizes:
