@@ -15,12 +15,23 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-
+    let seconds_until_alarm = obj.seconds_until_alarm;
 
     let hourValue   = map(hours, 0, 23, 0, 360);
     let minuteValue = map(minutes, 0, 59, 0, 360);
     let secondValue = map(seconds, 0, 59, 0, 360);
     let millisValue = map(millis, 0, 1000, 0, 360);
+
+   // if(seconds_until_alarm < 0){
+        //comment
+   // }
+   // else if(seconds_until_alarm > 0){
+            //comment
+       // }
+      //  else{
+         //   let redness = map(seconds_until_alarm, 0, 20, 0, 255);
+       // }
+    //}
 
     //let f = sin (frameCount/60*TWO_PI);
     //let f2 = sin (secondValue);
@@ -30,10 +41,10 @@ function draw_clock(obj) {
     let p = map(sin(frameCount/120), -1, 1, 30, 220);
     let d = map(sin(frameCount/240), -1, 1, 30, 240);
 
-    let e2 = map(sin(frameCount/30), -1, 1, 30, 120)
-    let r2 = map(cos(frameCount/60), -1, 1, 30, 140);
-    let p2 = map(cos(frameCount/120), -1, 1, 30, 160);
-    let d2 = map(cos(frameCount/240), -1, 1, 30, 180);
+    let e2 = map(cos(frameCount/30), -1, 1, 20, 120)
+    let r2 = map(cos(frameCount/60), -1, 1, 40, 140);
+    let p2 = map(cos(frameCount/120), -1, 1, 60, 160);
+    let d2 = map(cos(frameCount/240), -1, 1, 80, 180);
 
     let c = map(sin(frameCount/30), -1, 1, 185, 205);
     let c2 = map(sin(frameCount/60), -1, 1, 205, 205);
@@ -46,6 +57,7 @@ function draw_clock(obj) {
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);  
+    text("Seconds Until Alarm: " + seconds_until_alarm, 10, 102);  
     
     translate (width/2, height/2);
     stroke (255);
@@ -57,8 +69,8 @@ function draw_clock(obj) {
     rotate (millisValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, -220);
-    vertex (e2, -e);
+    vertex(0, -200);
+    vertex (-e2, -e);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
@@ -93,7 +105,7 @@ function draw_clock(obj) {
     rotate (hourValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, 240);
+    vertex(0, 260);
     vertex (p2, d);
     vertex(0, 0);
     endShape(CLOSE);
