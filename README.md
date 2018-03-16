@@ -2,6 +2,7 @@
 
 ### Fluid Rotational Clock 
 
-I used the files from part 3 to make my 'timer' clock follow the actual time
+Rotated the clock 90 degrees counter clock wise to get so 12 is at the top
+removed guidelines and added a dotted circle that represents the numbers 1-12
 
-the clock is rotated 90 degrees clockwise for some reason which i am yet to change 
+correct the hour to 12 hour time rather than 24 hour

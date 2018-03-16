@@ -20,27 +20,30 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-     background(204);
 
-line(width/2, height, width/2,0);
-line(0, height/2, width,height/2);
 
-     fill(128,100,100); // dark grey
+
+     fill(255,255,255); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
 
 
-let secondsWithFraction = (seconds + (millis / 1000.0)) / (60/ (2 * PI)) ;
-let minutesWithFraction = (minutes + (seconds/60) + (millis / 1000.0 / 60)) / (60/ (2 * PI));
-let hoursWithFraction = (hours + (minutes/12 + (seconds/60/12 + (millis /1000 / 60 / 12)))) / (60 / (2*PI));
+let millisTT =  (seconds + (millis/1000)) / (60 / (2 * PI)) * 60 - PI/2;
+let secondsWithFraction = (seconds + (millis / 1000.0)) / (60/ (2 * PI)) - PI/2 ;
+let minutesWithFraction = (minutes + (seconds/60) + (millis / 1000.0 / 60)) / (60/ (2 * PI))- PI/2;
+let hoursWithFraction = hours/2 + (minutes/60)- PI/2;
 
 text("Secs + Millis: " + secondsWithFraction, 10, 102);
 text("degrees: " + degrees(secondsWithFraction), 10, 122);
 
- xx=165*cos(radians(degrees(secondsWithFraction*60)))  + width/2;
-  yy=165*sin(radians(degrees(secondsWithFraction*60))) + height/2;
+noStroke();
+     background(33,200,150);
+
+
+ xx=165*cos(radians(degrees(millisTT)))  + width/2;
+  yy=165*sin(radians(degrees(millisTT))) + height/2;
   ellipse(xx, yy, 15, 15);
 
 
@@ -52,13 +55,26 @@ text("degrees: " + degrees(secondsWithFraction), 10, 122);
   yy=135*sin(radians(degrees(minutesWithFraction))) + height/2;
   ellipse(xx, yy, 15, 15);
 
- xx=135*cos(radians(degrees(hoursWithFraction)))  + width/2;
-  yy=135*sin(radians(degrees(hoursWithFraction))) + height/2;
+ xx=120*cos(radians(degrees(hoursWithFraction)))  + width/2;
+  yy=120*sin(radians(degrees(hoursWithFraction))) + height/2;
   ellipse(xx, yy, 15, 15);
 
 
- 
+
+let cX = 0;
+let cY = 0;
+
+for (i = 0; i < 12; i = i+1) {
+cx=100*cos(radians(degrees(PI/6*i)))  + width/2;
+cy=100*sin(radians(degrees(PI/6*i))) + height/2;
+ellipse(cx, cy, 5, 5);
+	}
 }
+
+
+ 
+
+
 
 
 
