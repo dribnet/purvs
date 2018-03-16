@@ -25,52 +25,72 @@ function draw_clock(obj) {
     text("Minute: " + minutes, 10, 42);
     text("Millis: " + millis, 10, 82);
 
-    let secondCircleRadius = map(seconds, 0, 59, 0, 100)
-    let hourCircleRadius   = map(hours, 0, 23, 0, 100);
+    let secondCircleRadius = map(seconds, 0, 60, 0, 100)
+    let hourCircleRadius   = map(hours, 0, 12, 0, 100);
     let minuteCircleRadius = map(minutes, 0, 59, 0, 100);
     let millisCircleRadius = map(millis, 0, 1000, 0, 100);
     
     let secondsWithFraction   = seconds + (millis / 1000.0);
-    let secondRadiusSmooth  = map(secondsWithFraction, 0, 60, 0, 100);
     
+    let secondRadiusSmooth  = map(secondsWithFraction, 0, 60, -90, 270);
+    let secondRadiusSmoother  = map(secondsWithFraction, 0, 60, -84, 276);
+    let secondRadiusSmoothest  = map(secondsWithFraction, 0, 60, -78, 282);
+
     let col = map(millis, 0, 1000, 0, 255);
-    let colo = map(seconds, 0, 59, 0, 255);
-    let color = map(hours, 0, 23, 0, 255);
-
-
-
-    noFill();
-    ellipse(150, 300, 100, 100);
+    let colo = map(seconds, 0, 60, 0, 255);
+    let colour = map(minutes, 0, 60, 0, 255);
+    let color = map(hours, 0, 12, 0, 255);
     
-    ellipse(150, 180, 100, 100);
-    ellipse(150, 60, 100, 100);
-    
-    let circlepath = map(seconds, 0, 59, -90, 270);
-    let pathcircle = map(minutes, 0, 59, -90, 270);
+    let circlepath = map(seconds, 0, 60, -90, 270);
+    let pathcircle = map(minutes, 0, 60, -90, 270);
+    let roundpath = map(hours, 0, 12, -90, 270);
+
+    //for(i=0; i<60; i++){
+        //let angle = (360/60)*i;
+
+        //ellipse(width/2 + cos(angle)*200, height/2 + sin(angle)*200, 20, 20);
+    //}
     
     push();
     translate(width/2, height/2);
-    rotate(circlepath);
+    rotate(secondRadiusSmooth);
     fill(col, 180, 200);
-    ellipse(200, 0, millisCircleRadius, millisCircleRadius);
-    noFill();
-    ellipse(200, 0, 100, 100);
+    ellipse(200, 0, 40, 40);
     pop();
+
+    //push();
+    //translate(width/2, height/2);
+    //rotate(secondRadiusSmoother);
+    //fill(180);
+    //ellipse(200, 0, 20, 20);
+    //pop();
+
+    //push();
+    //translate(width/2, height/2);
+    //rotate(secondRadiusSmoothest);
+    //fill(180);
+    //ellipse(200, 0, 20, 20);
+    //pop();
+
 
     push();
     fill(colo, 180, 200);
     translate(width/2, height/2);
     rotate(pathcircle);
-    ellipse(100, 0, 50, 50);
+    ellipse(120, 0, 50, 50);
 	pop();
 
-    fill(color, 180, 200);
-    ellipse(150, 60, hourCircleRadius, hourCircleRadius);
+    push();
+    fill(colour, 180, 200);
+    translate(width/2, height/2);
+    rotate(roundpath);
+    ellipse(70, 0, 30, 30);
+    pop();
 
     noFill();
-    ellipse(width/2, height/2, 200, 200);
-    ellipse(width/2, height/2, 400, 400);
-
+    ellipse(width/2, height/2, 240, 240);
+    //ellipse(width/2, height/2, 400, 400);
+    ellipse(width/2, height/2, 140, 140);
 
 
 }
