@@ -78,11 +78,10 @@ ellipse(cx, cy, 5, 5);
 
 
 
-
 // do not alter or remove this function
 function keyTyped() {
   if (key == '!') {
-    saveBlocksImages();
+    saveBlocksImages(true);
   }
   else if (key == '@') {
     saveBlocksImages(true);
