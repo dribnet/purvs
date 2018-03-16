@@ -1,23 +1,30 @@
-//var a =  0;
-//var c = 3.14;
+
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */
- 
+var starList = [];
+var starLength = 1000;
+
+var starsMade = false;
+
 function draw_clock(obj) 
 {	
-	angleMode(DEGREES);
+	if(starsMade == false)
+	{
+		stars();
+	}
 
+	angleMode(DEGREES);
 	
 	let hours = obj.hours;
-  let minutes = obj.minutes;
-  let seconds = obj.seconds;
-  let millis = obj.millis;
-  let hoursWithFraction = hours + (minutes / 60) + (seconds / 3600);
+  	let minutes = obj.minutes;
+  	let seconds = obj.seconds;
+  	let millis = obj.millis;
+  	let hoursWithFraction = hours + (minutes / 60) + (seconds / 3600);
   
-	var r = 0;
-	var g = 0;
-	var b = 0;
+	let r = 0;
+	let g = 0;
+	let b = 0;
 	
 	if(hours <= 4)
 	{
@@ -70,40 +77,42 @@ function draw_clock(obj)
 	{
 	  background(0);
 	}
-	
-
   
-	var a = map(hoursWithFraction, 0, 24, 0, 360, true);
+	let a = map(hoursWithFraction, 0, 24, 0, 360, true);
+
+	noStroke();
 	
-	var c = a + 180;
-  var rad = 200;
-	var x = width / 2 + cos(a) * rad;
-	var y = height / 2 + sin(a) * rad;
+	let s = a + 90;//where the sun is on the circle
+	let m = a + 270;//where the moon is on the circle
+  	let rad = 200;//radius of the circle
+	let x = width / 2 + cos(m) * rad;
+	let y = height / 2 + sin(m) * rad;
 
     let hourTime   = map(hours, 0, 23, 0, width);
     let minuteTime = map(minutes, 0, 60, 0, width);
     let secondTime = map(seconds, 0, 60, 0, width);
     let millisTime = map(millis, 0, 1000, 0, width);
+	 
+	if (hours < 6 || hours >19)
+	{
+		drawStars();
+	}
+	
 
-	noStroke();
-	  
 	fill(150);//grey
-	  
 	ellipse(x, y, 50, 50);//moon
 
-	text("a: " + a, 10, 22);
-
 	fill(255, 204, 0);//yellow
-	
-	x = width / 2 + cos(c) * rad;
-	y = height / 2 + sin(c) * rad;
+
+	x = width / 2 + cos(s) * rad;
+	y = height / 2 + sin(s) * rad;
 
 	ellipse(x, y, 50, 50);//sun
 
-fill(255);
+	fill(255);
 	textSize(20);
 
-  text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
+  	text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
     //    obj.minutes goes from 0-59
@@ -113,5 +122,25 @@ fill(255);
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+}
 
+function stars()
+{
+	for (let i = 0; i < starLength; i++) 
+	{	
+		let starX = random(width);
+		let starY = random(height);
+		var newStar = {x: starX, y:starY};
+		starList.push(newStar);
+	}
+	starsMade = true;
+}
+
+function drawStars()
+{
+	fill(255);
+	for (let i = 0; i < starLength; i++)
+	{
+		ellipse(starList[i].x, starList[i].y, 2, 2);
+	}
 }
