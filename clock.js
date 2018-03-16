@@ -35,10 +35,10 @@ function draw_clock(obj) {
     let p2 = map(cos(frameCount/120), -1, 1, 30, 160);
     let d2 = map(cos(frameCount/240), -1, 1, 30, 180);
 
-    let c = map(sin(frameCount/30), -1, 1, 185, 225);
-    let c2 = map(sin(frameCount/60), -1, 1, 205, 245);
-    let c3 = map(sin(frameCount/120), -1, 1, 200, 240);
-    let c4 = map(sin(frameCount/240), -1, 1, 165, 205);    
+    let c = map(sin(frameCount/30), -1, 1, 185, 205);
+    let c2 = map(sin(frameCount/60), -1, 1, 205, 205);
+    let c3 = map(sin(frameCount/120), -1, 1, 200, 220);
+    let c4 = map(sin(frameCount/240), -1, 1, 165, 185);    
 
     background (220, 140, 160);
     print(secondValue);
@@ -57,8 +57,8 @@ function draw_clock(obj) {
     rotate (millisValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, 220);
-    vertex (e2, e);
+    vertex(0, -220);
+    vertex (e2, -e);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
@@ -69,8 +69,8 @@ function draw_clock(obj) {
     rotate (secondValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, 220);
-    vertex (r2, r);
+    vertex(0, -220);
+    vertex (r2, -r);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
@@ -81,8 +81,8 @@ function draw_clock(obj) {
     rotate (minuteValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, 240);
-    vertex (p2, p);
+    vertex(0, -240);
+    vertex (p2, -p);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
