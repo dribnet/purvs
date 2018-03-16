@@ -36,7 +36,7 @@ function draw_clock(obj) {
         minLoci = map(minutes,0,59,25,CANVAS_WIDTH-25);   
         secLoci = map(seconds,0,59,25,CANVAS_WIDTH-25);  
         milLoci = map(millis,0,1000,25,CANVAS_WIDTH-25);    
-        r = map(hourLoci,0,960,0,220); //changes blue on left to red on right
+        r = map(hourLoci,0,960,255,0); //changes from red to blue (day/night)
 
         //hours
         fill(255);
@@ -65,8 +65,9 @@ function draw_clock(obj) {
         rect(0,434,CANVAS_WIDTH,25);
         ellipse(milLoci,startY+200,50,50);
         fill(0);
-        text(millis,milLoci-7,startY+210);
+        text(millis,milLoci-7,startY+205);
 
+        //day/night 
 
 
 
