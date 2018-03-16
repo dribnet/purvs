@@ -1,15 +1,12 @@
 ## PS1 MDDN 242 2018
 
-### Episode 02 Time/Day Clock
+### Episode 03 About F&^%! Time
 
-concept Three: Time/Day clock
--simple straightforward clock
--background changes depending on time
--simple straightforward/ could improve to a more complex design/ easier
-
+still sticking with the same concept of time
 I have chosen the time/day clock, idea. Which involves a transitioning number and wallpaper depending on how the day has passed. so for example the colour of the time will change as it heads into night from black to white. This also works along with the wallpaper transitioning from day to night as well depending on the time.
 
-a few of the planning sections are show above
+general layout of the clock has been made, i just need to experiment further with how i can bring the changing wallpaper idea into motion with time.
+
 
 (YOUR OWN REFERENCE FOR IMAGES BELOW)
 your clock. Also update both images keeping their original sizes:
