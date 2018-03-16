@@ -1,52 +1,99 @@
-const CANVAS_WIDTH = 960;
-const CANVAS_HEIGHT = 500;
+/*
+ * us p5.js to draw a clock on a 960x500 canvas
+ */ 
+function draw_clock(obj) {
+    // draw your own clock here based on the values of obj:
+    //    obj.hours goes from 0-23
+    //    obj.minutes goes from 0-59
+    //    obj.seconds goes from 0-59
+    //    obj.millis goes from 0-1000
+    //    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-  main_canvas.parent('canvasContainer');
+    let hours = obj.hours;
+    let minutes = obj.minutes;
+    let seconds = obj.seconds;
+    let millis = obj.millis;
 
-  // you can optionally add your own code here if you also have setup code
+    if (obj.hours >= 12){
+        hours = hours - 12;
+    }
+    
+    
+
+    let hourRot   = map(hours, 0, 12, 0, 360);
+    let minuteRot = map(minutes, 0, 60, 0, 360);
+    let secondRot = map(seconds, 0, 60, 0, 360);
+    let millisRot = map(millis, 0, 999, 0, 360);
+    angleMode(DEGREES);
+    noStroke();
+    
+    fill(0);
+    translate(width/2, height/2);
+
+    //Seconds Section
+    push();
+    push();
+    rotate(-6);
+    for(let i = 0; i < seconds; i += 1) { //draws trees up to current second
+      rotate(6);
+    ellipse(10, -100, 10, 10); 
+    }
+    pop();
+    
+    rotate(secondRot);
+    if (seconds == 0) {
+      fill(255);
+      ellipse(0, 0, 220, 220)
+      fill(0);
+    }
+    ellipse(10, -100, 10, 10);
+    pop();
+
+
+
+    //Minutes Section
+    push();
+    push();
+    rotate(-6);
+    for(let i = 0; i < minutes; i += 1) { //draws trees up to current minute
+      rotate(6);
+    ellipse(10, -140, 15, 15); 
+    }
+    pop();
+
+    rotate(minuteRot);
+    if (minutes == 0) {
+      fill(255);
+      ellipse(0, 0, 340, 340)
+      fill(0);
+    }
+    ellipse(10, -140, 15, 15); 
+    pop();
+
+
+
+
+    //Hours Section
+    push();
+    push();
+    rotate(-33);
+    for(let i = 0; i < hours; i += 1) { //draws trees up to current hour
+      rotate(30);
+    ellipse(10, -190, 40, 40); 
+    }
+    pop();
+    rotate(hourRot-3);
+    ellipse(10, -190, 40, 40);
+    pop();
+
+
+
 }
 
-// Update this function to draw you own maeda clock
-function draw () {
-  background(0); // light gray background
-  noStroke();
 
-  fill(255);
-  rect(110, 140, 40, 40);
-  rect(150, 100, 40, 40);  //this section is the one
-  rect(190, 70, 40, 240);
-  rect(110, 310, 200, 40);
-  
-  fill(200);
-  rect(380, 170, 30, 30);
-  rect(410, 140, 90, 30);
-  rect(500, 170, 30, 60); // this section is the two
-  rect(470, 230, 30, 30);
-  rect(440, 260, 30, 30);
-  rect(410, 290, 30, 30);
-  rect(380, 320, 150, 30);
-
-
-  fill(150);
-  rect(640, 230, 20, 40);
-  rect(660, 210, 80, 20);  //this section is the five
-  rect(660, 270, 60, 20);
-  rect(640, 310, 20, 20);
-  rect(660, 330, 60, 20);
-  rect(720, 290, 20, 40);
-
-  fill(85);
-  rect(780, 280, 30, 10);
-  rect(770, 290, 10, 50);
-  rect(780, 340, 30, 10); //this section is the zero
-  rect(810, 290, 10, 50);
-
-}
-
-// do not alter or remove this function
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
