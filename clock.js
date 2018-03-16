@@ -6,11 +6,6 @@ var mainx=480;
 var mainy=250;
 var xoutfactor=1;
 
-function draw() {
-
-	draw_clock();
-}
-
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -43,22 +38,32 @@ function draw_clock(obj) {
 	fill(63, 87, 124);
 	ellipse(mainx, mainy, 350, 400);
 
-
-	for (var i=0; i<=59; i+=2.5) {
-		if (seconds>=i-5&&seconds<=i+5) {
-			fill(lerpColor(color(63, 87, 124),color(255),map(abs(i-seconds),0,5,1,0)));
-		} else {
-			fill(63, 87, 124);
-		}
-		ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359))), mainy+175*sin(radians(map(i,0,59,0,359))),28,32)
-	}
-
 	//ellipse(mainx+153.125*cos(radians(map(seconds,0,59,0,359))), mainy+175*sin(radians(map(seconds,0,59,0,359))),16,32)
 	
-	//Minutes
+	//Minutes back
 	fill(58, 71, 89);
 	ellipse(mainx, mainy, 262.5, 300);
 	rect(mainx,mainy-150,20*xoutfactor,300);
+
+	//Seconds Hand
+	for (var i=0; i<=59; i+=2.5) {
+		if (seconds>=i-5&&seconds<=i+5) {
+
+			fill(58, 71, 89);
+			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359))), mainy+175*sin(radians(map(i,0,59,0,359))),28,32)
+			
+			fill(lerpColor(color(63, 87, 124),color(255),map(abs(i-seconds),0,5,1,0)));
+
+			var dista=map(abs(i-seconds),0,5,10,0)
+			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359)))+dista*xoutfactor, mainy+175*sin(radians(map(i,0,59,0,359))),28,32)
+
+		} else {
+			fill(63, 87, 124);
+			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359))), mainy+175*sin(radians(map(i,0,59,0,359))),28,32)
+		}
+	}
+
+	//Minutes front
 	fill(85, 129, 198);
 	ellipse(mainx+20*xoutfactor, mainy, 262.5, 300);
 
