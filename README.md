@@ -3,6 +3,7 @@
 ### Clock Update
 
 
-I played around with the code given to us and made an alternate version of 
-my clock that I hope to finish with. I couldn't fiugure out how to make the minutes line stay drawn across the canvas. A compromise to this was to just draw some minute lines to the left and right, there wasn't much functional use to these I just thought they looked cool.
+I have updated the clock to now show the minutes like I had originally planned, the final output will be pretty abstract but it will show time passing which is what I was going for with my clock idea. I am still undecided on the hour hands so I just have a placeholder in for now which is the little horizontal dashes that follow the minute hand. For the alarm I think I will introduce color or maybe change the orientation of the lines. 
+
+
 

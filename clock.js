@@ -1,7 +1,6 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
-
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -27,34 +26,57 @@ function draw_clock(obj) {
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
 
-    //let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarPosition = map(minutes, 0, 59, 0, width);
-    let secondBarHeight = map(seconds, 0, 59, 0, height-10);
-    //let millisBarWidth = map(millis, 0, 1000, 0, width);
+    let hourBarPosition   = map(hours, 0, 23, 0, height-5);
+    let minuteBarPosition = map(minutes, 0, 59, 15, width-15);
+    let secondBarHeight = map(seconds, 0, 59, 5, height-5);
+    let millisBarHeight = map(millis, 0, 1000, 5, height-5);
+
+    noFill();
+	strokeWeight(2);
+	stroke(255);
+	quad(2,2,958,2,958,498,2,498)
+
+    
+
 
     noStroke();
 
+   
+
+
+    let secondsWithFraction   = seconds + (millis / 1000.0);
+    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 5, height-5);
+
+
     fill(255);
-    rect(minuteBarPosition, 5, 2, secondBarHeight);
-
-    fill(180);
-    rect(minuteBarPosition-14, 5, 2 , height-10);
-    rect(minuteBarPosition+14, 5, 2 , height-10);
-    
-    fill(100);
-    rect(minuteBarPosition+28, 5, 2 , height-10);
-    rect(minuteBarPosition-28, 5, 2 , height-10);
+    rect(minuteBarPosition+5, 5, 2, secondBarWidthSmooth-5);
 
 
-    // Make a bar which *smoothly* interpolates across 1 minute.
-    // We calculate a version that goes from 0...60, 
-    // but with a fractional remainder:
-    //let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    //let secondsWithFraction   = seconds + (millis / 1000.0);
-    //let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
+//minute lines
 
-    //fill(100, 100, 200)
-    //rect(0, 350, secondBarWidthChunky, 50);
-    //fill(120, 120, 240)
-    //rect(0, 400, secondBarWidthSmooth, 50);
+for (let i = 0; i < minutes; i++) {
+	let incMinutes = minuteBarPosition/minutes;
+    rect((incMinutes*i)+5, 5, 2, height-10);
+}
+//hour lines
+
+for (let i = 0; i < hours; i++) {
+	let incHours = hourBarPosition/hours;
+    rect(minuteBarPosition, (incHours*i)+5, 12, 2);
+}
+
+
+
+
+
+// do not alter or remove this function
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
+}
+
 }
