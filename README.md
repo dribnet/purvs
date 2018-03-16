@@ -2,6 +2,5 @@
 
 ### Bubble Clock
 
-Here is the initial start to my idea. I've managed to get the bobbing and shadows done and i just started to do the text. I still need to add more animated special interactions for when the digits change etc.
-
+I've managed to give life to my idea and its starting to become what i had invisioned it to be. Theres still much more to be done like properly syncing the text and the circles as well as adding more animations and an alarm feature.
 
