@@ -1,6 +1,9 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
+
+const position = [90, 285, 525, 720];
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -36,6 +39,11 @@ function draw_clock(obj) {
     let secondBarheightSmooth  = map(secondsWithFraction, 0, 60, 0, height-100);
 
 
+    fill('#fae');
+    rect(465, 160, 30, 30);
+    rect(465, 260, 30, 30);
+
+
     // noStroke();
     // fill(40);
     // rect(90, height-(50+minutesBarHeightSmooth), 180, minutesBarHeightSmooth);
@@ -46,82 +54,86 @@ function draw_clock(obj) {
     // fill(80);
     // rect(720, height-(50+secondBarheightSmooth), 180, secondBarheightSmooth);
 
-    draw_one(secondBarheightSmooth);
+    draw_one(minutesBarHeightSmooth, position[0]);
+    draw_two(minutesBarHeightSmooth, position[1]);
+    draw_two(secondBarheightSmooth, position[2]);
+    draw_one(secondBarheightSmooth, position[3]);
+
 }
 
-function draw_one(h) {
-	strokeWeight(3);
+function draw_one(h, p) {
+	strokeWeight(2);
 	stroke(0);
 
 	fill(51);
 
 beginShape();
-	vertex(130, 330);
-	vertex(100, 330);
-	vertex(100, 390);
-	vertex(120, 410)
-	vertex(220, 390);
-	vertex(240, 350);
-	vertex(220, 330);
-	vertex(190, 330);
-	vertex(210, 80);
-	vertex(190, 60);
-	vertex(130, 60);
-	vertex(100, 90);
-	vertex(100, 130);
-	vertex(120, 150);
-	vertex(130, 130);
+	vertex(p+55, 350);
+	vertex(p+15, 350);
+	vertex(p+15, 390);
+	vertex(p+30, 410);
+	vertex(p+135, 390);
+	vertex(p+150, 370);
+	vertex(p+135, 350);
+	vertex(p+105, 350);
+	vertex(p+110, 80);
+	vertex(p+95, 60);
+	vertex(p+55, 60);
+	vertex(p+15, 90);
+	vertex(p+15, 120);
+	vertex(p+30, 140);
+	vertex(p+55, 120);
 endShape(CLOSE);
 
 	fill(255);
 
 beginShape();
-	vertex(150, 350);
-	vertex(120, 350);
-	vertex(120, 410);
-	vertex(240, 410);
-	vertex(240, 350);
-	vertex(210, 350);
-	vertex(210, 80);
-	vertex(150, 80);
-	vertex(120, 110);
-	vertex(120, 150);
-	vertex(150, 150);
+	vertex(p+70, 370);
+	vertex(p+30, 370);
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, 370);
+	vertex(p+110, 370);
+	vertex(p+110, 80);
+	vertex(p+70, 80);
+	vertex(p+30, 110);
+	vertex(p+30, 140);
+	vertex(p+70, 140);
 endShape(CLOSE);
 
 fill('#fae');
 let fillHeight = map(h, 0, height-100, 410, 80);
 
-if(h>0.0 && fillHeight>350.0){
+if(h>0.0 && fillHeight>370.0){
 beginShape();
-	vertex(120, 410);
-	vertex(240, 410);
-	vertex(240, fillHeight);
-	vertex(120, fillHeight);
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, fillHeight);
+	vertex(p+30, fillHeight);
 endShape(CLOSE);
-}else if(h>0.0 && fillHeight>150.0){
+}else if(h>0.0 && fillHeight>140.0){
 beginShape();
-	vertex(120, 410);
-	vertex(240, 410);
-	vertex(240, 350);
-	vertex(210, 350);
-	vertex(210, fillHeight);
-	vertex(150, fillHeight);
-	vertex(150, 350);
-	vertex(120, 350);
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, 370);
+	vertex(p+110, 370);
+	vertex(p+110, fillHeight);
+	vertex(p+70, fillHeight);
+	vertex(p+70, 370);
+	vertex(p+30, 370);
 endShape(CLOSE);
 }else if(h>0.0 && fillHeight>110.0){
 beginShape();
-	vertex(120, 410);
-	vertex(240, 410);
-	vertex(240, 350);
-	vertex(210, 350);
-	vertex(210, fillHeight);
-	vertex(120, fillHeight);
-	vertex(120, 150);
-	vertex(150, 150);
-	vertex(150, 350);
-	vertex(120, 350);
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, 370);
+	vertex(p+110, 370);
+	vertex(p+110, fillHeight);
+	vertex(p+30, fillHeight);
+	vertex(p+30, 140);
+	vertex(p+70, 140);
+	vertex(p+70, 370);
+	vertex(p+30, 370);
 endShape(CLOSE);
 }else if(h>0.0 && fillHeight>80.0){
 	var dig;
@@ -130,25 +142,81 @@ dig = fillHeight;
 }else{
 dig = -1;
 }
-let diagonalLine = map(dig, 110, 80, 120, 150);
+let diagonalLine = map(dig, 110, 80, p+30, p+70);
 beginShape();
-	vertex(120, 410);
-	vertex(240, 410);
-	vertex(240, 350);
-	vertex(210, 350);
-	vertex(210, fillHeight);
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, 370);
+	vertex(p+110, 370);
+	vertex(p+110, fillHeight);
 	vertex(diagonalLine, fillHeight);
-	vertex(120, 110);
-	vertex(120, 150);
-	vertex(150, 150);
-	vertex(150, 350);
-	vertex(120, 350);
+	vertex(p+30, 110);
+	vertex(p+30, 140);
+	vertex(p+70, 140);
+	vertex(p+70, 370);
+	vertex(p+30, 370);
 endShape(CLOSE);
 }
 
-	line(130, 330, 150, 350);
-	line(100, 330, 120, 350);
-	line(130, 60, 150, 80);
-	line(100, 90, 120, 110);
+	line(p+55, 350, p+70, 370);
+	line(p+15, 350, p+30, 370);
+	line(p+55, 60, p+70, 80);
+	line(p+15, 90, p+30, 110);
 }
 
+function draw_two(h, p) {
+	strokeWeight(2);
+	stroke(0);
+
+	fill(51);
+
+beginShape();
+	vertex(p+15, 390);
+	vertex(p+30, 410);
+	vertex(p+150, 380);
+	vertex(p+135, 360);
+	vertex(p+45, 360);
+	vertex(p+45, 330);
+	vertex(p+135, 130);
+	vertex(p+150, 110);
+	vertex(p+105, 60);
+	vertex(p+45, 60);
+	vertex(p+15, 90);
+	vertex(p+15, 130);
+	vertex(p+30, 150);
+	vertex(p+45, 130);
+	vertex(p+45, 100);
+	vertex(p+55, 90);
+	vertex(p+95, 90);
+	vertex(p+105, 100);
+	vertex(p+105, 130);
+	vertex(p+15, 330);
+	vertex(p+15, 360);
+endShape(CLOSE);
+
+fill('#fae');
+
+beginShape();
+	vertex(p+30, 410);
+	vertex(p+150, 410);
+	vertex(p+150, 380);
+	vertex(p+60, 380);
+	vertex(p+60, 350);
+	vertex(p+150, 150);
+	vertex(p+150, 110);
+	vertex(p+150, 110);
+	vertex(p+120, 80);
+	vertex(p+60, 80);
+	vertex(p+30, 110);
+	vertex(p+30, 150);
+	vertex(p+60, 150);
+	vertex(p+60, 120);
+	vertex(p+70, 110);
+	vertex(p+110, 110);
+	vertex(p+120, 120);
+	vertex(p+120, 150);
+	vertex(p+30, 350);
+	vertex(p+30, 380);
+endShape(CLOSE);
+
+}
