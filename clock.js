@@ -30,15 +30,34 @@ function draw_clock(obj) {
     angleMode(DEGREES);
     noStroke();
     
+
+
+
+    fill(255);
+    ellipse(450, 250, 400, 400);
     fill(0);
-    arc(450, 250, 400, 400, -90, hourRot); //larerg circle
-    
+    if(hours == 0){    
+        ellipse(450, 250, 400, 400);
+    } else {
+        arc(450, 250, 400, 400, -90, hourRot); //larerg circle
+    }
+
+
+    fill(255);
+    ellipse(450, 250, 264, 264);
+    if(minutes == 0) {
+        ellipse(450, 250, 266, 266);
+    } else {
     fill(85);
-    
     arc(450, 250, 266, 266, -90, minuteRot); //middle circle
-    
-    if(seconds != 0){
-    fill(170);
+    }
+
+    fill(255);
+    ellipse(450, 250, 131, 131);
+    fill(170);    
+    if(seconds == 0){
+        ellipse(450, 250, 133, 133);
+    } else {
     arc(450, 250, 133, 133, -90, secondRot); // smaller circle
     }
 
