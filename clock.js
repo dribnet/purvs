@@ -1,10 +1,8 @@
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */ 
+//Made by Ben Spearman for MDDN 242
+//March 2018 
 
 
 function setup () {
-	angleMode(radians);
 }
 
 function draw_clock(obj) {
@@ -20,28 +18,32 @@ function draw_clock(obj) {
     let secondsm = map (secondsf, 0, 59, 0, 59);
     let minutesf = minutes + (secondsm/60);
     let minutesm = map (minutesf, 0, 59, 0, 59);
-    let hoursf = hours + (minutes/60);
+    let hoursf = hours + (minutesm);
     let hoursm = map (hoursf, 0, 11, 0, 11);
 
+    angleMode(DEGREES);
 
     translate(480,250);
-    rotate(PI);
-
+    rotate(180);
+   	textStyle(BOLD);
+	textFont('Times New Roman');
 
 	push();
-	    rotate(-(PI/60)*secondsm);
+	    rotate(-6*secondsm);
 	    secondRing();
 	pop();
 
 	push();
-		rotate(-(PI/60)*minutesm);
+		rotate(-6*minutesm);
 	    minuteRing();
 	pop();
 
 	push();
-		rotate(-(PI/6)*hoursm);
+		rotate(-30*hoursm);
 	    hourRing();
 	pop();
+
+	line(0,0,0,250);
 }
 
 
@@ -54,39 +56,35 @@ function secondRing(){
 		ellipse(0,0,400);
 
 		//Creating divisions for time
-
-		
 		beginShape();
-			strokeWeight(2);
+			strokeWeight(3);
 			for (i=1;i<=6;i++){
-				rotate(-PI/6);
+				rotate(-30);
 				line(0,-250,0,250);
 			}
-			strokeWeight(5);
-			line(0,0,0-250);
 		endShape();
 
 		strokeWeight(1);
 		beginShape();
 			for (i=1;i<=30;i++){
-				rotate(-PI/30);
+				rotate(-6);
 				line(0,-250,0,250);
 			}
 		endShape();
 
-		beginShape();
-		j=1
+
+		//Adding in digits to read
+		rotate(182);
 		textSize(10);
-		text(j,0,-250,10,15);
-
-		// textSize(5);
-		// 	rotate(PI/14);
-		// for (j=1;j<=60;j++){
-		// 	;
-		// 	rotate(PI/6);
-		// }
-		endShape();
-
+		for (k=1;k<=9;k++){
+			text(k,0,-180,5,15);
+			rotate(6);
+		}
+		rotate(-1);
+		for (k=10;k<=60;k++){
+			text(k,0,-180,5,15);
+			rotate(6);
+		}
 	pop();
 
 }
@@ -97,12 +95,12 @@ function minuteRing(){
 	push();
 		strokeWeight (3);
 		ellipse(0,0,300);
-		
+
 		//Creating divisions for time
-		strokeWeight(2);
+		strokeWeight(3);
 		beginShape();
 			for (i=1;i<=6;i++){
-				rotate(-PI/6);
+				rotate(-30);
 				line(0,-150,0,150);
 			}
 		endShape();
@@ -110,12 +108,26 @@ function minuteRing(){
 		strokeWeight(1);
 		beginShape();
 			for (i=1;i<=30;i++){
-				rotate(-PI/30);
+				rotate(-6);
 				line(0,-150,0,150);
 			}
 			strokeWeight(5);
 			line(0,0,0-250);
 		endShape();
+
+		//Adding in digits to read
+		rotate(182);
+		textSize(8);
+		for (k=1;k<=9;k++){
+			text(k,0,-130,5,15);
+			rotate(6);
+		}
+		rotate(-1);
+		for (k=10;k<=60;k++){
+			text(k,0,-130,5,15);
+			rotate(6);
+		}
+
 	pop();
 }
 
@@ -124,31 +136,28 @@ function hourRing(){
 
 	//Creating the line divisions
 	push();
+	rotate(30);
 		strokeWeight(3);
-
 		ellipse(0,0,200);
-
 		strokeWeight(2);
 		beginShape();
 			for (i=1;i<=6;i++){
-				rotate(-PI/6);
+				rotate(-30);
 				line(0,-100,0,100);
 			}
-			strokeWeight(5);
-			line(0,0,0,100);
 		endShape();
 
 	//Putting in the numbers
 		beginShape();
+		rotate (13);
 		textSize(15);
-			rotate(-PI/11);
 		for (j=1;j<=9;j++){
 			text(j,0,-90,5,15);
-			rotate(-PI/6);
+			rotate(30);
 		}
 		for (j=1;j<=3;j++){
 			text(j+9,-5,-90,5,15);
-			rotate(-PI/6);
+			rotate(30);
 		}
 		endShape();
 	pop();
