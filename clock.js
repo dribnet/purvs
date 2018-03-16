@@ -2,13 +2,15 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */
+ let fade = 255; 
 var starList = [];
-var starLength = 1000;
+var starLength = 1000;//length of the starList array
 
 var starsMade = false;
 
 function draw_clock(obj) 
 {	
+
 	if(starsMade == false)
 	{
 		stars();
@@ -59,18 +61,25 @@ function draw_clock(obj)
 	  b = map(hoursWithFraction, 13, 18, 255, 165);
 	  background(r, g, b);
 	}
+	else	if(hours <= 18)
+	{
+	  r = map(hoursWithFraction, 18, 19, 20, 255);
+	  g = map(hoursWithFraction, 18, 19, 110, 145);
+	  b = map(hoursWithFraction, 18, 19, 165, 100);
+	  background(r, g, b);
+	}
 	else	if(hours <= 19)
 	{
-	  r = map(hoursWithFraction, 18, 20, 20, 255);
-	  g = map(hoursWithFraction, 18, 20, 110, 145);
-	  b = map(hoursWithFraction, 18, 20, 165, 100);
+	  r = map(hoursWithFraction, 19, 20, 255, 0);
+	  g = map(hoursWithFraction, 19, 20, 145, 0);
+	  b = map(hoursWithFraction, 19, 20, 100, 50);
 	  background(r, g, b);
 	}
 	else	if(hours <= 24)
 	{
-	  r = map(hoursWithFraction, 20, 22, 255, 0);
-	  g = map(hoursWithFraction, 20, 22, 145, 0);
-	  b = map(hoursWithFraction, 20, 22, 100, 0);
+	  r = map(hoursWithFraction, 20, 22, 0, 0);
+	  g = map(hoursWithFraction, 20, 22, 0, 0);
+	  b = map(hoursWithFraction, 20, 22, 50, 0);
 	  background(r, g, b);
 	}
 	else
@@ -93,7 +102,7 @@ function draw_clock(obj)
     let secondTime = map(seconds, 0, 60, 0, width);
     let millisTime = map(millis, 0, 1000, 0, width);
 	 
-	if (hours < 6 || hours >19)
+	if (hours < 8 || hours > 19)
 	{
 		drawStars();
 	}
@@ -112,6 +121,15 @@ function draw_clock(obj)
 	fill(255);
 	textSize(20);
 
+	if(seconds %2 ==0)
+	{
+
+	}
+	else
+	{
+
+	}
+
   	text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -122,6 +140,17 @@ function draw_clock(obj)
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+    
+	if (hours > 6 && hours < 20)//fade out the stars
+	{
+		fade = fade - 1;
+		fill(255, fade);
+	}
+	else if (hours > 19)//fade in the stars
+	{
+		fade = fade + 1;
+		fill(255, fade);
+	}
 }
 
 function stars()
@@ -137,8 +166,7 @@ function stars()
 }
 
 function drawStars()
-{
-	fill(255);
+{	
 	for (let i = 0; i < starLength; i++)
 	{
 		ellipse(starList[i].x, starList[i].y, 2, 2);
