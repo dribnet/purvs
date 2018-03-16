@@ -2,12 +2,8 @@
 
 ### Solar System Clock
 
-Solar system clock first prototype
+Solar system clock version 2
 
-This is the first version of my coded clock, i managed to create 4 planets
-which each represent a different unit of time and follow an orbit around the sun 
-in the center. 
-
-improvements for the next iteration could be making the planets get drawn in the 
-correct order depending on whether they are at the front of their orbits or the back.
-also some aesthetic tweaking is needed.
+today i changed my code to draw each planet and the sun in the correct order depending on where 
+on their orbits they are and cleaned up the code that was drawing the sun. I also changed some of the look by adding a glow to the sun and making 
+the inner orbit go around the sun.

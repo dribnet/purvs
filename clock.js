@@ -7,7 +7,7 @@ const height = 500;
 const orbitX = width/2; // center of the orbits
 const orbitY = height/2;
 const orbitWidth = width*0.9; // width and height of the orbits
-const orbitHeight = height*0.6;
+const orbitHeight = height*0.55;
 
 
 function draw_clock(obj) {
@@ -26,29 +26,50 @@ function draw_clock(obj) {
     noFill();
     stroke(255);
 	ellipse(orbitX, orbitY, orbitWidth, orbitHeight);
-	ellipse(orbitX, orbitY, orbitWidth-180, orbitHeight-60);
+	arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
 	ellipse(orbitX, orbitY, orbitWidth-360, orbitHeight-120);
-	ellipse(orbitX, orbitY, orbitWidth-540, orbitHeight-180);
+	ellipse(orbitX, orbitY, orbitWidth-180, orbitHeight-60);
 
-	// draws the planets
+	// draws the planets and sun
+	if(obj.hours>12 && obj.minutes>30) {
+		second_planet();
+		hour_planet();
+		minute_planet();
+		sun();
+		noFill();
+		stroke(255);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+	}
+	else if(obj.hours>12) {
+		second_planet();
+		hour_planet();
+		sun();
+		noFill();
+		stroke(255);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+		minute_planet();
+	}
+	else if(obj.minutes>30) {
+		minute_planet();
+		sun();
+		hour_planet();
+		second_planet();
+		noFill();
+		stroke(255);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+	}
+	else{
+		sun();
+		noFill();
+		stroke(255);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+		minute_planet();
+		hour_planet();
+		second_planet();
+	}
+
 	milli_planet();
-	second_planet();
-	minute_planet();
-	hour_planet();
 
-
-	// draws the sun
-	push();
-	noStroke();
-	fill(255, 250, 0);
-	ellipse(orbitX, orbitY, 120, 120);
-	fill(255, 200, 0);
-	ellipse(orbitX, orbitY, 115, 115);
-	fill(255, 150, 0);
-	ellipse(orbitX, orbitY, 110, 110);
-	fill(255, 100, 0);
-	ellipse(orbitX, orbitY, 105, 105);
-	pop();
 
 	// debugging timers
 	noStroke();
@@ -79,7 +100,7 @@ function milli_planet(){
 // in the right position around the orbit
 function second_planet(){
 	let smooth = obj.seconds + (obj.millis / 1000.0);
-	let angle = (2*Math.PI/60)*smooth;
+	let angle = (2*Math.PI/59)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-90);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-30);
@@ -96,7 +117,7 @@ function second_planet(){
 // in the right position around the orbit
 function minute_planet(){
 	let smooth = obj.minutes + (obj.seconds / 60.0);
-	let angle = (2*Math.PI/60)*smooth;
+	let angle = (2*Math.PI/59)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-270);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-90);
@@ -113,7 +134,7 @@ function minute_planet(){
 // in the right position around the orbit
 function hour_planet(){
 	let smooth = obj.hours + (obj.minutes / 60.0);
-	let angle = (2*Math.PI/60)*smooth;
+	let angle = (2*Math.PI/23)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-180);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-60);
@@ -124,4 +145,17 @@ function hour_planet(){
 	fill(0, 0, 180);
 	ellipse(0, 0, 60, 60);
 	pop();
+}
+
+function sun(){
+	noStroke();
+	fill(255, 240, 0, 5);
+	for(let i=0; i<9; i++) {
+		ellipse(orbitX, orbitY, 150 + (i*25), 150 + (i*25));
+	}
+	
+	for(let i=0; i<4; i++) {
+		fill(255, 250 - (i*50), 0)
+		ellipse(orbitX, orbitY, 125 - (i*5), 125 - (i*5));
+	}
 }
