@@ -12,4 +12,8 @@ Attempt to adjust the lighting of background, make it brighter during daytime an
 
 :)
 
+In the second Step, I coded the background effect and the waving would be changed due to hours. And then I start coding the clock outline for next step, I also change some unperfect arcs with adding some fading for each arcs. For color, I change the brightness for two color, there is a contrast for colour section. Thus we can easily see the time. Lastly, I just add the millis clock with gray colour.  
 
+And the coding and designing, I would try making digital style for my own clock. 
+
+:*)

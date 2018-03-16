@@ -15,7 +15,7 @@
   var R_hour=12;
   var R_min=60;
   var R_sec=60;
-
+  var R_mil=360
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -27,27 +27,36 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+    let hours = obj.hours;
+    let minutes = obj.minutes;
+    let seconds = obj.seconds;
+    let millis = obj.millis;
+
   	angleMode(DEGREES);
-  	rectMode(CENTER);
-    background(0);
+
+  	ellipseMode(CENTER);
+
+    rectMode(CENTER);
+    
+    background(0,30);
+
     translate(width/2,height/2);
     //Setting
-
 
     push();
     var radius=250;
   	var i = 0;
   	time=time+1;
  	 //noStroke();
-  	strokeWeight(0.1);
+  	strokeWeight(0.05);
   	while(i<1500){
     rotate(-R);
-    var s = map(cos(i*8+time),-1,1,0,190);//Changing Background AE
+    var s = map(cos(i*8+time),-1,1,0,250);//Changing Background AE
     var c = map(s,0,150,0,255);
 
     push();
     fill(s,100,100,100);// 30 = transparent
-    ellipse(i*4,c,12,radius,radius);
+    ellipse(i*5,c,hours/2,radius,radius);
     pop();
     i=i+1;
   	}
@@ -61,14 +70,14 @@ function draw_clock(obj) {
   push()
   rotate(a);
   stroke(10,100,100);
-  ellipse(0, 0, 400, 400);
+  ellipse(0, 0, 370, 370);
   arc(0, 0, 350, 350, radians(-2990), radians(1490));
   a=a-1;
   pop();
 
   push();
   rotate(b);
-  stroke(150,100,100);
+  stroke(250,100,100);
   arc(0, 0, 330, 330, radians(-9990), radians(190));
   b=b+1.1;
   pop();
@@ -82,7 +91,7 @@ function draw_clock(obj) {
 
   push();
   rotate(d);
-  stroke(150,100,100);
+  stroke(250,100,100);
   arc(0, 0, 290, 290, radians(-1990), radians(7190));
   d=d+1.3;
   pop();
@@ -91,14 +100,15 @@ function draw_clock(obj) {
   noFill();
   strokeWeight(10);
   push()
+  /*
   rotate(e);
   stroke(0);
   arc(0, 0, 350, 350, radians(-2990), radians(1490));
   e=e+1;
-
+  */
   push();
   rotate(f);
-  stroke(150,100,100);
+  stroke(250,100,100);
   arc(0, 0, 330, 330, radians(-9990), radians(190));
   f=f-1.1;
   pop();
@@ -112,7 +122,7 @@ function draw_clock(obj) {
 
   push();
   rotate(h);
-  stroke(150,100,100);
+  stroke(250,100,100);
   arc(0, 0, 290, 290, radians(-190), radians(7190));
   h=h-1.35;
   pop();
@@ -123,19 +133,15 @@ function draw_clock(obj) {
     //Lightyears
   
   push();
-  	let hours = obj.hours;
-    let minutes = obj.minutes;
-    let seconds = obj.seconds;
-    let millis = obj.millis;
     fill(300);
 
     push();
-    fill(200,100,100);
+    fill(250,100,100);
     text(hours, -30, 0);
     text(minutes, -4, 0);
     text(seconds, 30,0);
     pop();
-
+    //text
 
   push();
   var i_hour=0;
@@ -153,7 +159,7 @@ function draw_clock(obj) {
   push();
   var i_min=0;
   noStroke();
-  fill(150,100,100);
+  fill(250,100,100);
   while(i_min<R_min){
   rotate(360/R_min);
   rect(0,-90,5,10);
@@ -163,7 +169,7 @@ function draw_clock(obj) {
   //Rotation (Minute)
 
 
-    push();
+  push();
   var i_sec=0;
   noStroke();
   fill(10,100,100);
@@ -176,10 +182,22 @@ function draw_clock(obj) {
   //Rotation (Second)
 
 
+  push();
+  var i_mil=0;
+  noStroke();
+  fill(120,99);
+  while(i_mil<R_mil){
+  rotate(360/R_mil);
+  rect(0,-130,1,10);
+  i_mil = i_mil + 1;
+  }
+  pop();
+  //Rotation (Millis) _ Different rects. 
+
 
     push();
     noStroke();
-    fill(200,100,100);
+    fill(250,100,100);
     //ellipse(0,0,50,50);//Center
     rotate(30*hours);
     rect(0,-60,5,10);
@@ -194,10 +212,13 @@ function draw_clock(obj) {
 
     push();
     noStroke();
-    fill(200,100,100);
+    fill(250,100,100);
     rotate(6*seconds);
     rect(0,-120,5,10);
     pop();
+
     //Motion Needles
     pop();
+
+    //Clock
 }
