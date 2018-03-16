@@ -41,26 +41,12 @@
     draw_Zero();
     draw_Eight();
     draw_Three();
+    draw_One();
+    draw_Two();
+    draw_Five();
 }
 
-function draw_Four() {
-  //the number 4
-  fill(0);
-  let posX = 6; 
-  let posY = 2.5;
-  let posNo = 0*BS;
-  let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posY;
 
-  let loopNo = 4;
-
-  rect(xRel+(BS*loopNo-BS), yRel, BS, BS*7);
-  rect(xRel, yRel+(BS*loopNo), BS*5, BS);
-  for(i=0; i < loopNo; i++){
-  	j=i+1;
-  	rect(xRel+(BS*i), yRel+(BS*loopNo)-(BS*j), BS, BS);  
-  }
-}
 
 function draw_Zero() {
 
@@ -79,6 +65,103 @@ function draw_Zero() {
 	rect(xRel+(BS*3),yRel+BS,BS,BS*5);
 
 }
+
+function draw_One() {
+  //the number 4
+  fill(0);
+  let posX = 6; 
+  let posY = 2.5;
+  let posNo = 25*BS;
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posY;
+
+  let loopNo = 4;
+
+  rect(xRel+(BS*loopNo-BS), yRel, BS, BS*7);
+  rect(xRel+(BS*loopNo-BS)-BS, yRel+BS, BS, BS);
+}
+
+function draw_Two() {
+  //the number 4
+  fill(0);
+  let posX = 6; 
+  let posY = 2.5;
+  let posNo = 31*BS;
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posY;
+
+  let loopNo = 4;
+
+  rect(xRel+(BS*4),yRel+BS,BS,BS*2);
+  rect(xRel+BS,yRel,BS*3 ,BS);
+  rect(xRel,yRel+BS,BS,BS);
+
+
+  rect(xRel, yRel+(BS*loopNo)+BS*2, BS*5, BS);
+  for(i=0; i < loopNo; i++){
+    j=i+1;
+    rect(xRel+(BS*i)+BS, yRel+(BS*loopNo)-(BS*j)+BS*2, BS, BS);
+  }
+}
+
+  function draw_Three(){
+    //eight
+
+    fill(0);
+    let posX = 6; 
+    let posY = 2.5;
+    let posNo = 22*BS;
+    let xRel = CANVAS_WIDTH/posX+posNo-BS;
+    let yRel = CANVAS_HEIGHT/posY;
+
+
+    rect(xRel,yRel,BS*3 ,BS);
+    rect(xRel,yRel+(BS*3),BS*3 ,BS);
+    rect(xRel,yRel+(BS*6),BS*3 ,BS);
+
+    rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
+    rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
+
+  }
+
+function draw_Four() {
+  //the number 4
+  fill(0);
+  let posX = 6; 
+  let posY = 2.5;
+  let posNo = 0*BS;
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posY;
+
+  let loopNo = 4;
+
+  rect(xRel+(BS*loopNo-BS), yRel, BS, BS*7);
+  rect(xRel, yRel+(BS*loopNo), BS*5, BS);
+  for(i=0; i < loopNo; i++){
+    j=i+1;
+    rect(xRel+(BS*i), yRel+(BS*loopNo)-(BS*j), BS, BS);  
+  }
+}
+
+function draw_Five(){
+
+    fill(0);
+    let posX = 6; 
+    let posY = 2.5;
+    let posNo = 38*BS;
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel,yRel,BS*5,BS);
+    rect(xRel,yRel+BS,BS,BS);
+    rect(xRel,yRel+(BS*2), BS*4, BS); 
+    rect(xRel+BS,yRel+(BS*6),BS*3 ,BS);
+    rect(xRel,yRel+(BS*5),BS,BS*1);
+    rect(xRel+(BS*4),yRel+(BS*3),BS,BS*3);
+
+
+}
+
 
 function draw_Eight(){
 	  //eight
@@ -101,23 +184,6 @@ function draw_Eight(){
 
 	}
 
-	function draw_Three(){
-	  //eight
-
-	  fill(0);
-	  let posX = 6; 
-	  let posY = 2.5;
-	  let posNo = 22*BS;
-	  let xRel = CANVAS_WIDTH/posX+posNo-BS;
-	  let yRel = CANVAS_HEIGHT/posY;
 
 
-	  rect(xRel,yRel,BS*3 ,BS);
-	  rect(xRel,yRel+(BS*3),BS*3 ,BS);
-	  rect(xRel,yRel+(BS*6),BS*3 ,BS);
-
-	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
-	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
-
-	}
 
