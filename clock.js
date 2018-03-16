@@ -17,14 +17,63 @@ function draw_clock(obj) {
 background(200, 30, 56);
 
 let seconds = obj.seconds;
+let hours = obj.hours;
+let minutes = obj.minutes;
 
-text("Second: " + seconds, 10, 62);
-let secondelpsze = map(seconds, 0, 59, 0, 70);
+let millis = obj.millis;
 
 
-    ellipse( width/2, height/2, secondelpsze, secondelpsze);
-   // line(width/2, height/2, x, x);
-    //x++
- rect(100, -secondelpsze+300, 25, 100);
+
+text("S: " + seconds, 100, 22);
+text("H: " + hours, 10, 22);
+text("M: " + minutes, 50, 22);
+
+let secondspen = map(seconds, 0, 59, height/2+45, height-45);
+
+let hourpen = map(hours, 0, 23, height/2+45, height-45);
+
+let minutepen = map(minutes, 0, 59, height/2+45, height-45)
+
+line(width/2-30, secondspen, width/2-30, height/2);
+ line(width/2+30, hourpen, width/2+30, height/2);
+ line(width/2, minutepen, width/2, height/2);
+
+ ellipse(width/2-30, secondspen, 25, 90);
+ ellipse(width/2+30, hourpen, 25, 90);
+ ellipse(width/2, minutepen, 25, 90);
+
+ 
+
+
+ line(0, height/2, width, height/2);
+ 
+ beginShape();
+    vertex(400, 200);
+    vertex(560, 200);
+    vertex(590, 260);
+        //vertex(540, 260);
+        //vertex(540, 270);
+
+        //vertex(480, 270);
+        //vertex(420, 270);
+        //vertex(420, 260);
+    vertex(370, 260);
+endShape(CLOSE);
+
+
+beginShape();
+  vertex(540, 260);
+  vertex(530, 270);
+  vertex(430, 270);
+  vertex(420, 260);
+endShape(CLOSE);
+
+
+
+ triangle(360, 200, 600, 200, 480, 80);
+ triangle(380, 200, 580, 200, 480, 90);
+
+    ellipse(width/2, height/2-60, 100, 100);
+
 
 }
