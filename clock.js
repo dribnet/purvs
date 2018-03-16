@@ -5,7 +5,7 @@ const CANVAS_HEIGHT = 500;
 var startX = 0;
 var startY = 250;
 var finishX = 960;
-var finishY = 0;
+
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -21,59 +21,67 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(r,g,b);
+    
 
     var r = 0;
     var g = 0;
     var b = 50;
 
-    var ballHour = map(hours,0,960,0,23); 
-    var ballMin = map(minutes,0,960,0,59); 
-    var ballSec = map(seconds,0,590,960,); 
-    var ballMil = map(millis,0,960,0,1000); 
 
-    r = map(startY,0,960,0,255); //changes blue on left to red on right
+    r = map(seconds,0,960,0,220); //changes blue on left to red on right
 
+    
 
-    fill(255);
-
-
-    for(var i = 0; i<finishX;i++){
+    for(let i = 0; i<seconds;i++){
+     
         background(r,g,b);
-        //this is for the hours
+
+        hourLoci = map(hours,0,23,0,CANVAS_WIDTH);   
+        minLoci = map(minutes,0,59,0,CANVAS_WIDTH);   
+        secLoci = map(seconds,0,59,0,CANVAS_WIDTH);  
+        milLoci = map(millis,0,1000,0,CANVAS_WIDTH);    
+
+
+        //hours
         fill(255);
         rect(0,237,CANVAS_WIDTH,25);
-        ellipse(hours,startY,50,50);
+        ellipse(hourLoci,startY,50,50);
         fill(0);
-        text(hours,hours-5,startY+5);
+        text(hours,hourLoci-5,startY+5);
 
-
-        //this if for the minutes
-
+        //minutes
         fill(255);
         rect(0,300,CANVAS_WIDTH,25);
-        ellipse(minutes,startY+63,50,50);
+        ellipse(minLoci,startY+63,50,50);
         fill(0);
-        text(minutes,minutes-5,startY+67);
+        text(minutes,minLoci-7,startY+69);
 
         //seconds
         fill(255);
         rect(0,367,CANVAS_WIDTH,25);
-        ellipse(seconds,startY+126,50,50);
+        ellipse(secLoci,startY+126,50,50);
         fill(0);
-        text(seconds,seconds-5,startY+134);
+        text(seconds,secLoci-7,startY+132);
+
+       
+        //millis
+        fill(255);
+        rect(0,434,CANVAS_WIDTH,25);
+        ellipse(milLoci,startY+200,50,50);
+        fill(0);
+        text(millis,milLoci-7,startY+200);
 
 
 
 
-        fill(128,100,100); // dark grey
+
+    fill(128,100,100); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
 
-        if(startX>CANVAS_WIDTH){startX = 0;startY = 250;}
-        else{startX = startX +0.001;}
+        
     }
 
 }
