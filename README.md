@@ -1,4 +1,4 @@
 ## PS1 MDDN 242 2017
 
-### Clock Update 2
-I have updaterd my clock to work more with circles instead of numbers. I found that the previous itteration that I had done was too similar to the clocks given to is so now I have updated the clock to work with circles more. Now I want to add somethingto the clock that could evolve into an alarm system.
+### Clock Update 3
+I have added onto my clock, just fixing some small bugs with the angles not lining up and adding an alarm. When the alarm goes the clock flashes from red to blue and when its AM the clock is a light blue colour while when it is PM the clock is a grey colour. Now the circles line up to what an analog clock would look like when the hands go araound but now its made of arcs.
