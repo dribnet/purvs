@@ -19,10 +19,13 @@ function draw_clock(obj) {
 
     background(222,222,226,100); //  beige
     fill(17,17,17,100); // dark grey
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
+    //text("Second: " + seconds, 10, 62);
+    //text("Millis: " + millis, 10, 82);
+    textSize(20);
+    textStyle(BOLD);
+    text(+ hours, 200, 250);
+    text(+ minutes, 650, 250);
+
 //
 //    let hourBarWidth   = map(hours, 0, 23, 0, width);
 //    let minuteBarWidth = map(minutes, 0, 59, 0, width);
@@ -35,14 +38,14 @@ function draw_clock(obj) {
 	push();
 	translate(width/2, height/2);
     rotate(millisValue/60);
-    ellipse(0, 30, 30, 30);
+    ellipse(0, 30, 20, 20);
     pop();
 
     push();
     translate(width/2, height/2);
     rotate(secondsValue/60);
     fill(255);
-    ellipse(0, 65, 35, 35);
+    arc(0, 80, 60, 60, radians(270), radians(276));
 	pop();
 
 //    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
