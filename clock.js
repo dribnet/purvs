@@ -46,66 +46,80 @@
 
   function draw_Time(seconds,minutes,hours){
 
-    var tenSeconds = seconds.toString()[0];
-    Draw_number(tenSeconds,2);
-    var singleSeconds = seconds.toString()[1];
-    Draw_number(singleSeconds,3);
-    var tenMinutes = minutes.toString()[0];
-    Draw_number(tenMinutes,1);
-    var singleMinutes= minutes.toString()[1];
-    Draw_number(singleMinutes,0);
-  }
-
-function Draw_number(time,pos){
-    if(time==1){
-      draw_One(pos)
-    }
-    else if(time==2){
-      draw_Two(pos)
-    }
-    else if(time==3){
-      draw_Three(pos)
-    }
-    else if(time==4){
-      draw_Four(pos)
-    }
-    else if(time==5){
-      draw_Five(pos)
-    }
-    else if(time==6){
-      draw_Six(pos)
-    }
-    else if(time==7){
-      draw_Seven(pos)
-    }
-    else if(time==8){
-      draw_Eight(pos)
-    }
-    else if(time==9){
-      draw_Nine(pos)
+    if(seconds < 10) {
+      var singleSeconds = seconds.toString()[0];
+      Draw_number(singleSeconds,3);
+      Draw_number(0,2);
     }
     else {
-      draw_Zero(pos)
+      var singleSeconds = seconds.toString()[1];
+      Draw_number(singleSeconds,3);
+      tenSeconds = seconds.toString()[0];
+      Draw_number(tenSeconds,2);
     }
+    if(minutes<10){
+     var singleMinutes = minutes.toString()[0];
+     Draw_number(singleMinutes,1);
+     Draw_number(0,0);
+    }
+    else{
+     var tenMinutes = minutes.toString()[0];
+     Draw_number(tenMinutes,0);
+     var singleMinutes = minutes.toString()[1];
+     Draw_number(singleMinutes,1);
+   }
+ }
+
+ function Draw_number(time,pos){
+  if(time==1){
+    draw_One(pos)
+  }
+  else if(time==2){
+    draw_Two(pos)
+  }
+  else if(time==3){
+    draw_Three(pos)
+  }
+  else if(time==4){
+    draw_Four(pos)
+  }
+  else if(time==5){
+    draw_Five(pos)
+  }
+  else if(time==6){
+    draw_Six(pos)
+  }
+  else if(time==7){
+    draw_Seven(pos)
+  }
+  else if(time==8){
+    draw_Eight(pos)
+  }
+  else if(time==9){
+    draw_Nine(pos)
+  }
+  else {
+    draw_Zero(pos)
+  }
 
 }
 
-  
 
-  function myPosition(space){
-    if (space==0){
-      MyPos = 14*BS*-1;
-    }
-    if (space==1){
-      MyPos = 7*BS*-1;
-    }
-    if (space==2){
-      MyPos = 3*BS;
-    }
-    if (space==3){
-      MyPos = 10*BS;
-    }
-    else{
+
+function myPosition(space){
+  if (space==0){
+    MyPos = 14*BS*-1;
+  }
+  if (space==1){
+    MyPos = 7*BS*-1;
+  }
+  if (space==2){
+    MyPos = 3*BS;
+  }
+  if (space==3){
+    MyPos = 10*BS;
+  }
+  else{
       //MyPos = 0;
     }
     return(MyPos);
@@ -250,17 +264,17 @@ function draw_Seven(space){
 function draw_Eight(space){
 	  //eight
     let posNo = myPosition(space);  
-	  let xRel = CANVAS_WIDTH/posX+posNo;
-	  let yRel = CANVAS_HEIGHT/posY;
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
 
 
-	  rect(xRel,yRel,BS*3 ,BS);
-	  rect(xRel,yRel+(BS*3),BS*3 ,BS);
-	  rect(xRel,yRel+(BS*6),BS*3 ,BS);
-	  rect(xRel-BS,yRel+BS,BS,BS*2);
-	  rect(xRel-BS,yRel+(BS*4),BS,BS*2);
-	  rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
-	  rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
+    rect(xRel,yRel,BS*3 ,BS);
+    rect(xRel,yRel+(BS*3),BS*3 ,BS);
+    rect(xRel,yRel+(BS*6),BS*3 ,BS);
+    rect(xRel-BS,yRel+BS,BS,BS*2);
+    rect(xRel-BS,yRel+(BS*4),BS,BS*2);
+    rect(xRel-BS+(BS*4),yRel+BS,BS,BS*2);
+    rect(xRel-BS+(BS*4),yRel+(BS*4),BS,BS*2);
 
   }
 
