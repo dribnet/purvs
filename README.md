@@ -1,7 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Clock editing
+### Moth Progress
 
-I have made the clock now use ellipses spread horizontally across the canvas rather than rectangles spread diagonally.
+This is the progress so far of the moth I have made. I plan to add more details and edit the text. For the final clock I plan to have the wings flap downwards for every second.
 
 
