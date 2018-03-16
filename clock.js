@@ -45,7 +45,7 @@ line(width/2-30, secondspen, width/2-30, height/2);
  
 
 
- line(0, height/2, width, height/2);
+ //line(0, height/2, width, height/2);
  
  beginShape();
     vertex(400, 200);
@@ -53,7 +53,6 @@ line(width/2-30, secondspen, width/2-30, height/2);
     vertex(590, 260);
         //vertex(540, 260);
         //vertex(540, 270);
-
         //vertex(480, 270);
         //vertex(420, 270);
         //vertex(420, 260);
@@ -68,12 +67,14 @@ beginShape();
   vertex(420, 260);
 endShape(CLOSE);
 
-
-
  triangle(360, 200, 600, 200, 480, 80);
  triangle(380, 200, 580, 200, 480, 90);
 
-    ellipse(width/2, height/2-60, 100, 100);
+rect(465,  110, 30, 29);
+line(width/2, 110, width/2, 139);
 
+
+    ellipse(width/2, height/2-55, 100, 100);
+line(width/2, height/2-55, 520, 180);
 
 }
