@@ -2,6 +2,4 @@
 
 ### Outrageous clock
 
-I replicated this clock just using simple rectangles in different positions and colours.
-
-My idea for my clock is to have dials around the base of the clock itself that turn when the time changes. I plan on it being a 12hour clock but if need be i can change the idea to be a 24 hour version instead.
+I have made this time dail like clock as a run test for my intial version.
