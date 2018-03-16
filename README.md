@@ -2,7 +2,7 @@
 
 ### Slit Scan Initials
 
-First Test with slit-scanning, Just testing the video input which I will then take the slits of it and place them on the canvas.
+Created a horizontal slit scan using a video as input thanks to a tutorial from Daniel Shiffman (https://www.youtube.com/watch?v=YqVbuMPIRwY). Fixed code from last commit. 
 
 Video input doesn't work on Chrome.
 
