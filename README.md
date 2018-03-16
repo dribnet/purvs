@@ -2,7 +2,7 @@
 
 ### My clock
 
-From last class, I started to code my clock.
+Redo my project (didn't use the corret files before)
 
 
 
