@@ -22,42 +22,51 @@ function draw_clock(obj) {
     let secondValue = map(seconds, 0, 59, 0, 360);
     let millisValue = map(millis, 0, 1000, 0, 360);
 
-    let f = sin (frameCount/60*TWO_PI);
-    let f2 = sin (secondValue);
+    //let f = sin (frameCount/60*TWO_PI);
+    //let f2 = sin (secondValue);
     
-    let r = map(sin(frameCount/60), -1, 1, 30, 240);
-    let p = map(sin(frameCount/80), -1, 1, 30, 240);
-    let d = map(sin(frameCount/140), -1, 1, 30, 240);
-    
-    let r2 = map(cos(frameCount/60), -1, 1, 30, 180);
-    let p2 = map(cos(frameCount/80), -1, 1, 30, 180);
-    let d2 = map(cos(frameCount/140), -1, 1, 30, 180);
-    
-    var y = sin(frameCount/60);
-    y = map(y, -1, 1, -r, r);
-    var x = sin(frameCount/60);
-    x = map(x, -1, 1, r, -r);
+    let e = map(sin(frameCount/30), -1, 1, 30, 180);
+    let r = map(sin(frameCount/60), -1, 1, 30, 200);
+    let p = map(sin(frameCount/120), -1, 1, 30, 220);
+    let d = map(sin(frameCount/240), -1, 1, 30, 240);
 
-    
+    let e2 = map(sin(frameCount/30), -1, 1, 30, 120)
+    let r2 = map(cos(frameCount/60), -1, 1, 30, 140);
+    let p2 = map(cos(frameCount/120), -1, 1, 30, 160);
+    let d2 = map(cos(frameCount/240), -1, 1, 30, 180);
 
+    let c = map(sin(frameCount/30), -1, 1, 185, 225);
+    let c2 = map(sin(frameCount/60), -1, 1, 205, 245);
+    let c3 = map(sin(frameCount/120), -1, 1, 200, 240);
+    let c4 = map(sin(frameCount/240), -1, 1, 165, 205);    
 
     background (220, 140, 160);
     print(secondValue);
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
-    
-    
+    text("Millis: " + millis, 10, 82);  
     
     translate (width/2, height/2);
     stroke (255);
     noFill();
     
-    fill (20, 0, 205, 140);
+    fill (20, 0, c, 140);
     noStroke ();
     push ();
-    rotate (millisValue/30);
+    rotate (millisValue/60);
+    beginShape();
+    vertex(0, 0);
+    vertex(0, 220);
+    vertex (e2, e);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop ();
+    
+    fill (180, 0, c2, 140);
+    noStroke ();
+    push ();
+    rotate (secondValue/60);
     beginShape();
     vertex(0, 0);
     vertex(0, 220);
@@ -66,23 +75,10 @@ function draw_clock(obj) {
     endShape(CLOSE);
     pop ();
     
-    fill (140, 0, 245, 140);
+    fill (0, c3, 245, 140);
     noStroke ();
     push ();
-    rotate (secondValue/30);
-    beginShape();
-    vertex(0, 0);
-    vertex(0, 220);
-    vertex (r2, r);
-    vertex(0, 0);
-    endShape(CLOSE);
-    //line (0, 0, 100, 0);
-    pop ();
-    
-    fill (0, 240, 245, 140);
-    noStroke ();
-    push ();
-    rotate (minuteValue/30);
+    rotate (minuteValue/60);
     beginShape();
     vertex(0, 0);
     vertex(0, 240);
@@ -91,10 +87,10 @@ function draw_clock(obj) {
     endShape(CLOSE);
     pop ();
     
-    fill (0, 240, 205, 140);
+    fill (0, 240, c4, 140);
     noStroke ();
     push ();
-    rotate (hourValue/30);
+    rotate (hourValue/60);
     beginShape();
     vertex(0, 0);
     vertex(0, 240);
@@ -102,32 +98,7 @@ function draw_clock(obj) {
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
-    
-    //four (430, 250);
-    //four (440+(seconds*5), 250);
 
-
-}
-
-
-  function four(four_x, four_y) {
-  ellipse(four_x, four_y-150, 25, 25);
-  ellipse(four_x, four_y-100, 25, 25);
-  ellipse(four_x, four_y-50, 25, 25);
-  ellipse(four_x, four_y, 25, 25);
-  ellipse(four_x, four_y+50, 25, 25);
-  ellipse(four_x, four_y+100, 25, 25);
-
-  ellipse(four_x+50, four_y, 25, 25);
-  ellipse(four_x+100, four_y, 25, 25);
-
-  ellipse(four_x-50, four_y, 25, 25);
-  ellipse(four_x-100, four_y, 25, 25);
-  ellipse(four_x-150, four_y, 25, 25);
-
-  ellipse(four_x-100, four_y-50, 25, 25);
-
-  ellipse(four_x-50, four_y-100, 25, 25);
 }
     
     //fill(128,100,100); // dark grey

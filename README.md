@@ -1,9 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### Geometric Clock
+### Geometric Clock Progress
 
-After some experimenting with the frameCount function and sin waves I have found a way to implement the geometric clock idea I had originally planned to make. The geometries shift and rotate differently depending on whether they represent the hour, minute, second, or millisecond. I have been experimenting with colour, opacity and overall shape of the geometry and am happy with what I have achieved so far. For an alarm function, I could make the geometries pulse in and out rapidly.
-
-
+I have developed my code today in order to make it more refined. I realised I had all of my rotate functions /30 which made my clock too fast. This was an easy fix when I realised what was wrong. I adjust the movement animation of my geometry so it no longer shifts off the screen. I set their size according to their value on the clock, with hour growing the largest, and millisecond growing the smallest. I also set the timing of these movements according to these values, with hour shifting the slowest and millisecond moving the fastest. I also coded a bit of colour change today, with the colors of the geometries fading in and out, again according to their time value. My main problem now is that all if my values are upside down apart from the hour. I still haven't found a way to fix this. I also need to implement an alarm function, I have planned for this to be the geomteries pulsing in and out.
 
 TESTING FROM STORAGE
