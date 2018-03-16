@@ -29,8 +29,8 @@ function draw_clock(obj) {
     let secondBarWidth = map(seconds, 0, 59, 0, width);
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 
-    noStroke();
-    fill(40);
+    stroke(3);
+    fill(231, 213, 31);
     rect(0, 100, hourBarWidth, 50);
     fill(80);
     rect(0, 150, minuteBarWidth, 50);
