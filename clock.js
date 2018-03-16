@@ -14,38 +14,36 @@ function draw_clock(obj) {
     let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
+    let millis = obj.millis;
     let seconds_until_alarm = obj.seconds_until_alarm;
 
-    if (seconds_until_alarm < 0) {
-        background(200,200,255); //  beige
-    }
-    else if (seconds_until_alarm > 0) {
-        background(255, 200, 200); //  red        
-    }
-    else {
-        if(seconds % 2 == 0) {
-            background(255, 0, 0); //  red
-        }
-        else {
-            background(100, 100, 100); //  red
-        }
+    const BACK_COLOR=0;
+
+    background(BACK_COLOR);
+
+    const start_y = 300;
+    const end_y = 400;
+
+    fill(0, 0, 255);
+    rect(0, start_y, width, 5);
+
+    fill(0, 255, 0);
+    rect(0, end_y, width, 5);
+
+    fill(200);
+    stroke(60);
+
+    let cur_pos = map(millis, 0, 1000, start_y, end_y);
+
+    for(let x=100; x<=600; x = x + 100) {
+        rect(x, cur_pos, 50, 50);
     }
 
-    fill(128,100,100); // dark grey
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Seconds Until Alarm: " + seconds_until_alarm, 10, 82);
+    draw_ovals(200, cur_pos);
+}
 
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-
-    noStroke();
-    fill(40);
-    rect(0, 100, hourBarWidth, 50);
-    fill(80);
-    rect(0, 150, minuteBarWidth, 50);
-    fill(120)
-    rect(0, 200, secondBarWidth, 50);
+function draw_ovals(start_x, cur_y) {
+    for(let x=start_x; x<=600; x = x + 100) {
+        ellipse(x, cur_y, 50, 50);
+    }
 }
