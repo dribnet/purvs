@@ -2,9 +2,10 @@
  * Building clock: rows: hour,minutes,seconds 
  hour window = 1 hr, minute window = 5 mins, second window = 5 secs.
  */ 
- var hWindows = [];
- var mWindows = [];
- var sWindows = [];
+ // var hWindows = [];
+ // var mWindows = [];
+ // var sWindows = [];
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -16,6 +17,7 @@ function draw_clock(obj) {
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
     let hours = obj.hours;
+    hours%=12;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
@@ -32,27 +34,28 @@ noStroke();
     rect(0,450,width,30);
 fill(140);
 	rect(350,50,260,400);//building
-MakeWindows(hWindows,365,70);//hours
-MakeWindows(mWindows, 365 ,170);//minutes
-MakeWindows(sWindows,365,270);//seconds
-CheckTime(hWindows,hours);
+	let hWindows = MakeWindows(365,70);//hours
+	let mWindows = MakeWindows(365 ,170);//minutes
+	let sWindows = MakeWindows(365,270);//seconds
+hWindows[hours-1].on=true;
+DisplayWindows(hWindows);
+DisplayWindows(mWindows);
+DisplayWindows(sWindows);
+text(hWindows.length,100,100);
+}
 
-}
-function CheckTime(array, unit){
-	for(var i = 0; i<array.length; i++){
-	if (array[i].val=unit){
-		array[i].on == true;
-	}
-}
-}
-function MakeWindows(array,x,y){
+function MakeWindows(x,y){
+	array = []
 	for(var i = 0; i<6; i++){
 		array.push(new Window(x+40*i,y,i+1));
 	}
-		for(var i = 0; i<6; i++){
+	for(var i = 0; i<6; i++){
 		array.push(new Window(x+40*i,y+40,i+7));
 	}
-		for(var i =0; i<array.length; i++){
+	return array;
+}
+function DisplayWindows(array){
+			for(var i =0; i<array.length; i++){
 		array[i].display();
 	}
 }
@@ -62,11 +65,12 @@ function Window(x,y,val){
 	this.val=val;
 	this.on=false;
 	this.display = function(){
-		if(this.on==true){
-			fill(255,255,0);
+		if(this.on==false){
+			fill(255);
 		}
 		else{
-		fill(255);}
+			fill(255,255,0);
+		}
 		rect(this.x,this.y,30,30);
 	}
 }
