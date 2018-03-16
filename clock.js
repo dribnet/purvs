@@ -1,3 +1,5 @@
+const CANVAS_WIDTH = 960;
+const CANVAS_HEIGHT = 500;
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
@@ -14,44 +16,26 @@ let hr = obj.hours;
 let mn = obj.minutes;
 let sc = obj.seconds;
 let ml = obj.millis;
+let mx = mouseX;
+let my = mouseY;
+let mbg = map(mouseY, 0, 960, 50, 200);
 
-background(199, 213, 237);
-fill(0);
-textSize(20);
-text("hour: " + hr, 160, 270);
-text("Minute: " + mn, 260, 270);
-text("Second: " + sc, 380, 270);
-text("Millis: " + ml, 560, 270);
+// let x;
+// let y;
+// let easing = 0.05;
 
-let hrx = map(hr, 0, 23, 0, 50);
-let hry = map(hr, 0, 23, 0, 50);
+background(mbg, mbg, mbg);
 
-let mnx = map(mn, 0, 59, 0, 75);
-let mny = map(mn, 0, 59, 0, 75);
+fill(255);
+textSize(75);
+textAlign(CENTER);
+text(hr, mx, my);
+text(mn, mx, my);
+text(sc, mx, my);
 
-let scx = map(sc, 0, 59, 0, 100);
-let scy = map(sc, 0, 59, 0, 100);
-
-let mlx = map(ml, 0, 1000, 0, 100);
-let mly = map(ml, 0, 1000, 0, 100);
-
-let colourhr = map(hr, 0, 23, 0, 255); 
-let colourmn = map(mn, 0, 59, 0, 255);
-let coloursc = map(sc, 0, 59, 0, 255);
-let colourml = map(ml, 0, 1000, 0, 255);
-
-
-noStroke();
-fill(colourhr);
-ellipse(200, 200, hrx, hry);
-
-fill(colourmn);
-ellipse(300, 200, mnx, mny);
-
-fill(coloursc);
-ellipse(430, 200, scx, scy);
-
-fill(colourml);
-ellipse(600, 200, mlx, mly);
+// let dx = mouseX - x;
+// x+= dx * easing;
+// fill(255);
+// ellipse(x, y, 66, 66);
 }
 
