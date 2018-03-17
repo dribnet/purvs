@@ -7,26 +7,17 @@ let circle_spacing = 80;
 let	shadowWidth = 35;
 let shadowHeight = 8;
 var circleColours = [0,1,2,3,4,5,6,7];
-var circleShadows = [0,1,2,3,4,5,6,7];
 
 // Here are the RGB values for the circles in an arraylist
 circleColours [0] = [242, 95, 92];
 circleColours [1] = [112, 193, 179];
-circleColours [2] = [255, 224, 102];
+circleColours [2] = [255, 199, 102];
 circleColours [3] = [182,190,234];
 circleColours [4] = [36, 123, 160];
 circleColours [5] = [244, 162, 97];
-circleColours [6] = [125,145,85];
+circleColours [6] = [125,200,125];
 circleColours [7] = [251,195,202];
 
-circleShadows [0] = [212, 65, 62];
-circleShadows [1] = [82, 163, 149];
-circleShadows [2] = [225, 194, 72];
-circleShadows [3] = [152,160,204];
-circleShadows [4] = [6, 93, 130];
-circleShadows [5] = [214, 132, 67];
-circleShadows [6] = [95, 115, 55];
-circleShadows [7] = [221, 165, 172];
 
 
 function draw_clock(obj) {
@@ -53,7 +44,6 @@ function draw_clock(obj) {
 	minutes = minutes.toString();
 	seconds = seconds.toString();
 
-
 	for(let i =0;i<8;i++){
 		var mil = millis+(1000/8)*i;	
 		var sinWave = sin(map(mil,0,1000,0,TWO_PI));
@@ -64,12 +54,11 @@ function draw_clock(obj) {
 		//circles
 		fill(circleColours[i]);
 		ellipse(190 + circle_spacing * i, y + 30, circle_diameter);	// circles	
-		fill(circleShadows[i]);
+		fill(179,209,230);
 		ellipse(190 + circle_spacing  *i, 270, shadowWidth + bob, shadowHeight + bob)	//circle shadows.
 
 		//Testing SinWave inside for loop.
 		text(hours[0], 184, 238 + bob);
-
 	}
 
 	console.log(sinWave);
