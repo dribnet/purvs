@@ -1,6 +1,7 @@
 ## PS1 MDDN 242 2017
 
-### The concept of clock
+### The current work
+I am working on my own clock used the code from the example. I try to play around them to show my style of clock. Then, I will add the alarm to my clock.
 
 I still have the problem for updating the work from my own computer so that I can't update my work in weekend. I just chose one of the samples from Maeda's clocks. I was thinking about the connection between the number and the shape. Also I was inspired by my original idea about the clock, the black and white means the night and daytime. I create the clock to show a balance behind the time.
 
