@@ -24,30 +24,88 @@ function draw_clock(obj) {
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
 
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-    let millisBarWidth = map(millis, 0, 1000, 0, width);
+    if (obj.hours >= 12){
+        hours = hours - 12;
+    }
+    
+    
+	let h = map(hours, 0, 11, 0, 365);
+    let mi = map(minutes, 0, 60, 0, 365);
+    let s =map(seconds, 0, 60, 0, 365);
+    let m = map(millis, 0, 999, 0, 365);
+    angleMode(DEGREES);
 
-    noStroke();
-    fill(40);
-    rect(0, 100, hourBarWidth, 50);
-    fill(80);
-    rect(0, 150, minuteBarWidth, 50);
-    fill(120)
-    rect(0, 200, secondBarWidth, 50);
-    fill(160)
-    rect(0, 250, millisBarWidth, 50);
+    
+    fill(0);
+    translate(width/2, height/2);
 
-    // Make a bar which *smoothly* interpolates across 1 minute.
-    // We calculate a version that goes from 0...60, 
-    // but with a fractional remainder:
-    let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    let secondsWithFraction   = seconds + (millis / 1000.0);
-    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
+//millis
+    push();
+    
+    var i = 0
+    stroke(255, 204, 0);
 
-    fill(100, 100, 200)
-    rect(0, 350, secondBarWidthChunky, 50);
-    fill(120, 120, 240)
-    rect(0, 400, secondBarWidthSmooth, 50);
+    while( i < millis){
+    	rotate(1);
+    	line(0,-20 , 0, -50); 
+    	i = i + 1;
+    }
+    pop();
+
+    
+//second
+
+    push();
+
+    var i = 0;
+    stroke('red');
+
+    strokeWeight(4)
+    while( i < s ){
+    	rotate(1); 
+    	line(0,-90 , 0, -110); 
+    	i = i + 1;
+    }
+
+    pop();
+    
+    
+    
+//minute
+
+	push();
+
+	var i = 0;
+	stroke('blue');
+
+    strokeWeight(4)
+    
+    while(i < mi){
+    rotate(1);
+    line(0,-120 , 0, -140); 
+    
+    i = i + 1;
+    
+    }
+    pop();
+//hours
+
+    push();
+    var i = 0;
+	stroke(0);
+    strokeWeight(4)
+
+    while(i < h){
+    	rotate(1);
+    	line(0, -150, 0, -170);
+    	i = i + 1;
+    }
+    
+    pop();
+
+
+
+
 }
+
+
