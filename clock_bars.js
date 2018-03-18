@@ -33,20 +33,46 @@ function draw_clock(obj) {
 //    let millisBarWidth = map(millis, 0, 1000, 0, width/2);
 	let millisValue = map(millis, 0, 1000, 0, 360); 
     let secondsValue = map(seconds, 0, 59, 0, 360);
+    let minutesValue = map(minutes, 0, 59, 0, 360);
+    let hoursValue = map(hours,0, 11, 0, 360);
     noStroke();
 	fill(0);
 	push();
 	translate(width/2, height/2);
     rotate(millisValue/60);
+    if (millisValue > 0 && millisValue < 180) {
+        fill(0);
+    } else {fill(255);   
+    };
     ellipse(0, 30, 20, 20);
     pop();
 
     push();
     translate(width/2, height/2);
     rotate(secondsValue/60);
-    fill(255);
-    arc(0, 80, 60, 60, radians(270), radians(276));
+    if (secondsValue > 0 && secondsValue < 180) {
+      fill(255);
+    } else {fill(0);
+    };
+    ellipse(0, 60, 30, 30);
 	pop();
+    
+    push();
+    translate(width/2, height/2);
+    rotate(minutesValue/60);
+    if (minutesValue > 0 && minutesValue < 180) {
+      fill(0);
+    } else {fill(255);
+    };
+    ellipse(0, 100, 40, 40);
+    pop();
+
+    // push();
+    // translate(width/2, height/2);
+    // rotate(hoursValue/60);
+    // fill(255, 0, 0, 100);
+    // acr(0, 170, 120, 120, radians(0), radians(30));
+    // pop();
 
 //    arc(width/2, height/4, hourBarWidth, 50, PI, 0);
 //    fill(0);
