@@ -19,7 +19,6 @@ circleColours [6] = [125,200,125];
 circleColours [7] = [251,195,202];
 
 
-
 function draw_clock(obj) {
 
 	// draw your own clock here based on the values of obj:
@@ -45,7 +44,7 @@ function draw_clock(obj) {
 	seconds = seconds.toString();
 
 	for(let i =0;i<8;i++){
-		var mil = millis+(1000/8)*i;	
+		let mil = millis+(1000/8)*i;	
 		var sinWave = sin(map(mil,0,1000,0,TWO_PI));
 		let y = map(sinWave, 0, 1, 200, 203);
 		let bob = map(sinWave, 0, 1, 1, 3);
@@ -61,11 +60,9 @@ function draw_clock(obj) {
 		text(hours[0], 184, 238 + bob);
 	}
 
-	console.log(sinWave);
-
 	fill(255);
-
 	//testing sin Wave outside For loop (CURRENTLY NOT IN SYNC WITH THE CIRCLE)
+	let mil = millis+(1000/8);
 	let sinWave2 = sin(map(mil,0,1000,0,TWO_PI));
 	let textBob = map(sinWave2, 0, 1, 1, 3);	
 
@@ -105,6 +102,20 @@ function draw_clock(obj) {
     	text(seconds[0], 664, 237 + textBob);
     	text(seconds[1], 744, 237 + textBob);
     }
+
+
+//alarm code
+	
+	if(obj.seconds_until_alarm < 0){
+		noFill();
+		strokeWeight(40);
+		stroke(251,195,202);
+		ellipse(750,232,millis,millis);
+
+		stroke(242, 95, 92);
+		ellipse(190, 232, millis , millis);
+
+	}
 
 }
 
