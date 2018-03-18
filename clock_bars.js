@@ -1,62 +1,86 @@
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */ 
-function draw_clock(obj) {
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
-    let hours = obj.hours;
-    let minutes = obj.minutes;
-    let seconds = obj.seconds;
-    let millis = obj.millis;
-    background(204);
-
-    background(255,255,200); //  beige
-    fill(128,100,100); // dark grey
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
-
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-    let millisBarWidth = map(millis, 0, 1000, 0, width);
-
-    noStroke();
-    fill(40);
-    rect(0, 100, hourBarWidth, 50);
-    fill(80);
-    rect(0, 150, minuteBarWidth, 50);
-    fill(120)
-    rect(0, 200, secondBarWidth, 50);
-    fill(160)
-    rect(0, 250, millisBarWidth, 50);
-
-    // Make a bar which *smoothly* interpolates across 1 minute.
-    // We calculate a version that goes from 0...60, 
-    // but with a fractional remainder:
-    let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    let secondsWithFraction   = seconds + (millis / 1000.0);
-    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
-
-    fill(100, 100, 200)
-    rect(0, 350, secondBarWidthChunky, 50);
-    fill(120, 120, 240)
-    rect(0, 400, secondBarWidthSmooth, 50);
+function setup() {
+  createCanvas(500, 500);
+  textAlign(CENTER, CENTER);
+  strokeCap(SQUARE);
+  textFont('Futura, Avenir, Helvetica, Georgia, Sans-Serif');
 }
 
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
+function draw() {
+  translate(width / 2.0, height / 2.0);
+
+  var date = new Date(),
+    hours = date.getHours(),
+    minutes = date.getMinutes(),
+    seconds = date.getSeconds(),
+    ms = date.getMilliseconds(),
+    i,
+    v,
+    t;
+
+  background(192);
+
+  // Draw clock
+  fill(255);
+  stroke(0);
+  strokeWeight(4);
+  ellipse(0, 0, 450, 450);
+
+  // Minute Markers
+  fill(0);
+  strokeWeight(1);
+  for (i = 0; i < 60; i++) {
+    v = p5.Vector.fromAngle((i + 1) / 60.0 * TAU - HALF_PI);
+    v.mult(210);
+    if (i % 5 == 4) {
+      ellipse(v.x, v.y, 5, 5);
+    } else {
+      ellipse(v.x, v.y, 1, 1);
+    }
   }
-  else if (key == '@') {
-    saveBlocksImages(true);
+
+  // Numbers
+  textSize(36);
+  fill(0);
+  noStroke()
+  for (i = 0; i < 12; i++) {
+    v = p5.Vector.fromAngle((i + 1) / 12.0 * TAU - HALF_PI);
+    v.mult(180);
+    text(i + 1, v.x, v.y);
   }
+
+  // p5.js
+  fill(212);
+  textSize(10);
+  text("p5.js", 0, -30);
+
+  // Hour hand
+  stroke(0);
+  strokeWeight(4);
+  t = (hours + minutes / 60 + seconds / 3600) * TAU / 12 - HALF_PI;
+  v = p5.Vector.fromAngle(t);
+  v.mult(127);
+  line(0, 0, v.x, v.y);
+
+  // Minute hand
+  strokeWeight(2);
+  t = (minutes + seconds / 60 + ms / 1000 / 60) * TAU / 60 - HALF_PI;
+  v = p5.Vector.fromAngle(t);
+  v.mult(205);
+  line(0, 0, v.x, v.y);
+
+  // Second hand
+  stroke(255, 0, 0);
+  strokeWeight(1);
+  t = (seconds + ms / 1000) * TAU / 60 - HALF_PI;
+  v = p5.Vector.fromAngle(t);
+  v.mult(210);
+  line(0, 0, v.x, v.y);
+
+  // Center cap
+  fill(0);
+  stroke(0);
+  noStroke();
+  ellipse(0, 0, 20, 20);
+
+  resetMatrix();
 }
