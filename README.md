@@ -10,6 +10,7 @@ A retro-style floating island scene that reacts to the current time.
 
 #### Changes:
 + Further experimentation with the ocean test
++ Tried to limit the framerate to see if bl.ocks will behave instead of being wildly different to my local copy.
 
 #### Current Issues:
 + Not really a clock.

@@ -11,7 +11,7 @@ function setup() {
 	// create the drawing canvas, save the canvas element
 	var main_canvas = createCanvas(canvasWidth, canvasHeight);
 	main_canvas.parent('canvasContainer');
-
+	frameRate(30);
 
 	currentClock = new SuperClockLand();
 
