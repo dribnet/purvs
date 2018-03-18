@@ -1,16 +1,14 @@
-
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */
- let fade = 255; 
+let fade = 255; 
 var starList = [];
-var starLength = 1000;//length of the starList array
+var starLength = 2000;//length of the starList array
 
 var starsMade = false;
 
 function draw_clock(obj) 
 {	
-
 	if(starsMade == false)
 	{
 		stars();
@@ -23,24 +21,30 @@ function draw_clock(obj)
   	let seconds = obj.seconds;
   	let millis = obj.millis;
   	let hoursWithFraction = hours + (minutes / 60) + (seconds / 3600);
+	let alarm = obj.seconds_until_alarm;
   
 	let r = 0;
 	let g = 0;
 	let b = 0;
+	
+	let sunrise = 6;
+	let sunset = 18;
+	let day = 8;
+	let night = 19;
 	
 	if(hours <= 4)
 	{
 	  b = map(hoursWithFraction, 0, 5, 0, 50);
 	  background(0, 0, b);
 	}
-	else	if(hours <= 6)
+	else	if(hours <= sunrise)
 	{
 	  r = map(hoursWithFraction, 5, 7, 0, 255);
 	  g = map(hoursWithFraction, 5, 7, 0, 145);
 	  b = map(hoursWithFraction, 5, 7, 50, 100);
 	  background(r, g, b);
 	}
-	else	if(hours <= 8)
+	else	if(hours <= day)
 	{
 	  r = map(hoursWithFraction, 7, 9, 255, 200);
 	  g = map(hoursWithFraction, 7, 9, 145, 222);
@@ -61,14 +65,14 @@ function draw_clock(obj)
 	  b = map(hoursWithFraction, 13, 18, 255, 165);
 	  background(r, g, b);
 	}
-	else	if(hours <= 18)
+	else	if(hours <= sunset)
 	{
 	  r = map(hoursWithFraction, 18, 19, 20, 255);
 	  g = map(hoursWithFraction, 18, 19, 110, 145);
 	  b = map(hoursWithFraction, 18, 19, 165, 100);
 	  background(r, g, b);
 	}
-	else	if(hours <= 19)
+	else	if(hours <= night)
 	{
 	  r = map(hoursWithFraction, 19, 20, 255, 0);
 	  g = map(hoursWithFraction, 19, 20, 145, 0);
@@ -101,55 +105,67 @@ function draw_clock(obj)
     let minuteTime = map(minutes, 0, 60, 0, width);
     let secondTime = map(seconds, 0, 60, 0, width);
     let millisTime = map(millis, 0, 1000, 0, width);
-	 
-	if (hours < 8 || hours > 19)
-	{
-		drawStars();
-	}
 	
-
-	fill(150);//grey
-	ellipse(x, y, 50, 50);//moon
-
-	fill(255, 204, 0);//yellow
-
-	x = width / 2 + cos(s) * rad;
-	y = height / 2 + sin(s) * rad;
-
-	ellipse(x, y, 50, 50);//sun
-
-	fill(255);
-	textSize(20);
-
-	if(seconds %2 ==0)
-	{
-
-	}
-	else
-	{
-
-	}
-
-  	text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
-    
-	if (hours > 6 && hours < 20)//fade out the stars
+	if (hours > 6 && hours < 18 && fade > 0)//fade out the stars
 	{
 		fade = fade - 1;
 		fill(255, fade);
 	}
-	else if (hours > 19)//fade in the stars
+	else if (hours > 18 && fade <255)//fade in the stars
 	{
 		fade = fade + 1;
 		fill(255, fade);
+	}
+	
+	if(hours < 7 || hours > 19)//reset the fade
+	{
+		fade = 255;
+	}
+		 
+	if (hours < day || hours >= night)
+	{	
+		drawStars();
+		
+	}
+	
+	fill(150);
+	ellipse(x, y, 55, 55);//moon
+
+	fill(255, 204, 0);
+
+	x = width / 2 + cos(s) * rad;
+	y = height / 2 + sin(s) * rad;
+
+	ellipse(x, y, 55, 55);//sun
+
+	textSize(20);
+	textFont("Palatino");
+	
+	if(hours > 7)
+	{
+		fill(0);
+	}
+	if(hours < 8 || hours > 18)
+	{
+		fill(255);
+	}
+	
+	if(hours < 10)
+	{
+		text("0"+hours+":"+minutes+":"+seconds, width/2-40, height/2);
+	}
+	else
+	{
+		text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
+	}
+
+	if (alarm == 0)
+	{
+		background(0);
+	}
+	else if(alarm > 0)
+	{
+		background(255);
 	}
 }
 
@@ -159,7 +175,7 @@ function stars()
 	{	
 		let starX = random(width);
 		let starY = random(height);
-		var newStar = {x: starX, y:starY};
+		let newStar = {x: starX, y:starY};
 		starList.push(newStar);
 	}
 	starsMade = true;
@@ -169,6 +185,6 @@ function drawStars()
 {	
 	for (let i = 0; i < starLength; i++)
 	{
-		ellipse(starList[i].x, starList[i].y, 2, 2);
+		ellipse(starList[i].x, starList[i].y, 1, 1);
 	}
 }

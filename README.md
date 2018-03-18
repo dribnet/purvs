@@ -7,4 +7,6 @@ The background changes depending on the time of day (At midnight it's black whil
 
 The position of the sun and the moon represents the time (for example the moon is at the top at midnight and the sun is at the top at noon).
 
-I have changed the code so the stars fade in at night and fade out during the day. Previously, they suddenly appeared/disappeared. 
+I fixed some bugs with the stars fading in and out.
+
+Also started working on the alarm.
