@@ -15,6 +15,31 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm
+
+    if (alarm == 0) {
+    if (second % 2 == 0) {
+      background(0,0,100);      
+    }
+    else {
+      background(100,100,0);      
+    }
+  }
+  else {
+    background(50);
+  }
+
+  noStroke();
+  // is alarm going off in next 15 seconds
+  if (alarm > 0) {
+    fill(100);
+    rect(width-50, height-50, 40, 40);
+    if (alarm < 15.0) {
+      var box_w = map(alarm, 0, 15, width, 0);
+      var box_h = map(alarm, 0, 15, height, 0);
+      rect(width/2-box_w/2, height/2-box_h/2, box_w, box_h);
+    }
+  }
     //background(204);
 
     background(222,222,226,100); //  beige
@@ -23,8 +48,8 @@ function draw_clock(obj) {
     //text("Millis: " + millis, 10, 82);
     textSize(20);
     textStyle(BOLD);
-    text(+ hours, 200, 250);
-    text(+ minutes, 650, 250);
+    text( hours, 200, 250);
+    text( minutes, 650, 250);
 
 //
 //    let hourBarWidth   = map(hours, 0, 23, 0, width);
