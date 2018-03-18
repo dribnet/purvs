@@ -39,6 +39,8 @@ class SuperClockLand {
 		this.display = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
 		this.display.pixelDensity(1);
 		this.display.background(0x00);
+
+		this.initialDraw();
 	}
 
 	update(hour, minute, second, milli, alarm) {
@@ -58,6 +60,27 @@ class SuperClockLand {
 		this.particles = this.particles.filter(particle => particle.life > 0);
 	}
 
+	initialDraw() {
+		let d = this.display;
+		d.background(0x55, 0x55, 0xFF);
+		d.noStroke();
+		d.fill(0x00,0x00,0xFF);
+		d.rect(0,60,this.SCREEN_WIDTH,40);
+
+		d.fill(0xAA, 0xAA, 0xFF);
+		for (let i = 0; i < 100; i++) {
+			let distance = random(40);
+			d.rect(random(this.SCREEN_WIDTH),
+				60 + distance,
+				10 + (20 * (distance/40)),
+				1);
+		}
+		for (let i = 0; i < 60; i++) {
+			d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
+			d.rect(0,i, this.SCREEN_WIDTH, 1);
+		}
+	}
+
 	draw() {
 		//print(frameRate());
 		//background(this.backgroundColour);
@@ -68,18 +91,25 @@ class SuperClockLand {
 		d.noStroke();
 		d.noSmooth();
 
-		d.fill((this.currentHour/24*127)+128, random(this.currentSecond/60*255), (this.currentMinute/60*127)+random(128));
-		d.ellipse(random(this.SCREEN_WIDTH),
-			random(this.SCREEN_HEIGHT),
-			(this.currentSecond/60*100));
+
+		d.fill(0xAA, 0xAA, 0xFF);
+		for (let i = 0; i < 3; i++) {
+			let distance = random(40);
+			d.rect(random(this.SCREEN_WIDTH),
+				60 + distance,
+				10 + (20 * (distance/40)),
+				1);
+		}
 
 		d.loadPixels();
-		for (let i = 0; i < (this.CANVAS_WIDTH*this.CANVAS_HEIGHT); i += 4) {
-			d.pixels[i] *= random(0.4, 1);
-			d.pixels[i+1] *= 0.98;
-			d.pixels[i+2] *= 0.98;
+		for (let i = 46080; i < (this.CANVAS_WIDTH*this.CANVAS_HEIGHT); i += 4) {
+			let v = random(0.4, 1);
+			d.pixels[i] *= v;
+			d.pixels[i+1] *= v;
+			//d.pixels[i+2] *= 1.05;
 
-			d.pixels[i+4] += d.pixels[i]*0.3
+			d.pixels[i+4] += d.pixels[i]*0.4;
+			d.pixels[i+5] += d.pixels[i+1]*0.4;
 		}
 		d.updatePixels();
 
@@ -87,9 +117,9 @@ class SuperClockLand {
 		//render the pixel display to the main canvas
 		image(this.display, 0, 0, width,height);
 
-		print(frameRate());
+		//print(frameRate());
 
-		// //draw the particles
+		//draw the particles
 		// for (let i = 0; i < this.particles.length; i++) {
 		// 	this.particles[i].draw();
 		// }
