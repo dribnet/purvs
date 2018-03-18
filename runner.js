@@ -12,7 +12,8 @@ function setup() {
 	var main_canvas = createCanvas(canvasWidth, canvasHeight);
 	main_canvas.parent('canvasContainer');
 
-	currentClock = new FlamingClock();
+
+	currentClock = new SuperClockLand();
 
 	// this is true if debug.js is included
 	if (debug_is_on) {
@@ -20,7 +21,6 @@ function setup() {
 	}
 	turn_off_alarm();
 
-	frameRate(60);
 }
 
 function turn_on_alarm() {
@@ -126,7 +126,7 @@ function draw() {
 	// obj.millis = mils;
 	// obj.seconds_until_alarm = alarm;
 	// draw_clock(obj);
-	currentClock.draw(H, M, S, mils, alarm);
+	currentClock.draw();
 }
 
 function keyTyped() {
