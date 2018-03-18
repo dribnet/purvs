@@ -95,7 +95,7 @@ class SuperClockLand {
 
 
 		d.fill(0x88, 0x88, 0xFF);
-		for (let i = 0; i < 2; i++) {
+		for (let i = 0; i < 1; i++) {
 			let distance = random(40);
 			d.rect(random(this.SCREEN_WIDTH),
 				60 + distance,
@@ -104,15 +104,17 @@ class SuperClockLand {
 		}
 
 		d.loadPixels();
-		for (let i = 46080; i < (this.CANVAS_WIDTH*this.CANVAS_HEIGHT); i += 4) {
-			let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
-			d.pixels[i] *= v;
-			d.pixels[i+1] *= v;
-			//d.pixels[i+2] *= 1.05;
+		//if (frameCount%2 === 0) {
+			for (let i = 46080; i < (76800); i += 4) {
+				let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
+				d.pixels[i] *= v;
+				d.pixels[i + 1] *= v;
+				//d.pixels[i+2] *= 1.05;
 
-			d.pixels[i+4] += d.pixels[i]*0.85; //values were 0.4 to go with v = (0.4 ... 1)
-			d.pixels[i+5] += d.pixels[i+1]*0.85;
-		}
+				d.pixels[i + 4] += d.pixels[i] * 0.85; //values were 0.4 to go with v = (0.4 ... 1)
+				d.pixels[i + 5] += d.pixels[i + 1] * 0.85;
+			}
+		//}
 		d.updatePixels();
 
 
@@ -125,7 +127,10 @@ class SuperClockLand {
 		// for (let i = 0; i < this.particles.length; i++) {
 		// 	this.particles[i].draw();
 		// }
+		text("FPS: "+round(frameRate()), 10, 20);
 	}
+
+
 
 }
 
