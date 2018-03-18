@@ -3,9 +3,7 @@
  */ 
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-let secondsx = CANVAS_WIDTH/2 
-let minutesx = CANVAS_WIDTH/2
-let hoursx = CANVAS_WIDTH/2
+
 
 let x = 0
 
@@ -38,38 +36,40 @@ function draw_clock(obj) {
        let minuteBarWidth = map(minutes, 0, 59, 0, width);
        let secondBarWidth = map(seconds, 0, 59, 0, width);
        let millisBarWidth = map(millis, 0, 1000, 0, width);
+       
 
 
 
-angleMode(RADIANS);
+// seconds until alarm a red sleeve moving from the right covers the blue background
 
-    fill(75)
+    fill(75,150)
     strokeWeight(2);
-    background(0,100,200); 
-    
-    ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175, 175) //bottom ring
-    ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125, 125) //middle ring
-    ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80, 80) //top ring
+    background(0,125,200); 
+
+              push();
+                fill(75);
+                ellipse(secondBarWidth - 8, CANVAS_HEIGHT - CANVAS_HEIGHT/5 - 2, 95, 95); //movers
+                ellipse(minuteBarWidth - 9, CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 55, 55); //movers
+                ellipse(hourBarWidth - 21, CANVAS_HEIGHT/6 - 2, 35, 35); //movers
+              pop();
+
+
+      ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175, 175) //bottom ring
+      ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125, 125) //middle ring
+      ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80, 80) //top ring
+
+
       push();
       strokeWeight(2);
-      stroke(hourBarWidth,minuteBarWidth,secondBarWidth)
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175-5, 175-5) //bottom circle
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125-5, 125-5) //middle circle
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80-5, 80-5) //top circle
+      stroke(secondBarWidth,minuteBarWidth,255 - hourBarWidth)
+      
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175-5, 175-5) //bottom circle color
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125-5, 125-5) //middle circle color
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80-5, 80-5) //top circle color
       pop();
     	
-        
-// push();
-      
-//        fill(255);
-//        strokeWeight(1);
-//        push();
-         
-//     	   ellipse(secondsx, CANVAS_HEIGHT  - CANVAS_HEIGHT/5 - 85, 15, 15) //seconds
-//        pop();
-//     	 ellipse(minutesx, CANVAS_HEIGHT - CANVAS_HEIGHT/1.8 - 60, 15, 15) //minutes
-//     	 ellipse(hoursx, CANVAS_HEIGHT/6 - 37, 15, 15) //hours
-// pop()
+          
+
  	
     fill(50); // dark grey
     
@@ -77,39 +77,24 @@ angleMode(RADIANS);
       fill(255);
       textSize(75)
       text(""   + seconds, CANVAS_WIDTH/2 - 40, CANVAS_HEIGHT  - CANVAS_HEIGHT/5 + 25);
-    pop();
+    pop();                                   //seconds
     push();
       fill(255);
       textSize(40)
       text("" + minutes, CANVAS_WIDTH/2 - 43 + 20, CANVAS_HEIGHT - CANVAS_HEIGHT/1.8 + 15);
-    pop();
+    pop();                                    //minutes
     push();
       fill(255);
       textSize(25)
       text("" + hours, CANVAS_WIDTH/2 - 15, CANVAS_HEIGHT/6 + 7);
-    pop();
-    // textSize(20);
-    // text("" + millis, CANVAS_WIDTH/2, CANVAS_HEIGHT  - CANVAS_HEIGHT/5 + 55);
+    pop();                                    //hours
+    
 
-              // secondsx = secondsx + obj.seconds
-              // if(secondsx > CANVAS_WIDTH/2 + 84){
-              //   secondsx = CANVAS_WIDTH/2 - 88
-              // }
+ 
+  
 
- // pmam();
 }
 
-// function pmam(){
-//     strokeWeight(5);
-// rect(CANVAS_WIDTH - CANVAS_WIDTH/4 - 10, CANVAS_HEIGHT/2, 100, 75);  
-// rect(CANVAS_WIDTH - CANVAS_WIDTH/1.2 - 10, CANVAS_HEIGHT/2, 100, 75);  
-//   push();
-//     stroke(0,175,100)
-//     strokeWeight(2);
-//     rect(CANVAS_WIDTH - CANVAS_WIDTH/4 - 10+5.2, CANVAS_HEIGHT/2+5.2, 100-10, 75-10);  //lightblue
-//     rect(CANVAS_WIDTH - CANVAS_WIDTH/1.2 - 10+5.2, CANVAS_HEIGHT/2+5.2, 100-10, 75-10);  //lightblue
-//   pop();
-// }
 
 function keyTyped() {
   if (key == '!') {

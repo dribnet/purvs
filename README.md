@@ -1,10 +1,15 @@
-Did much development today in class. Realized that the AM & PM squares were redundant, because we can know whether it's AM or PM by looking outside.
+Added circles that are mapped to each unit of time as visual movements.
+Made each circle line up with the text so when it gets to "30", the circle perfectly encapsulates the number. 
 
-Thought about and integrated stylistic choices. 
+Changed the stationary circles opacity so that when behind them, the moving circles can be seen.
 
-Implemented the working clock text, but not sure how I will create an interesting moving visual for the clock, since the original idea of rotating circles around the bigger circles was too complicated.
+Changed the background color to be a bit lighter.
 
-Made a colored stroke around each circle and mapped the stroke's rgb to hours,minutes,seconds. 
+
+I think for the alarm I want to make a red "sleeve" coming from the right slowly cover the blue background,
+ and while the alarm is going off have the red sleeve blink off and on.
+
+
  
 
 
