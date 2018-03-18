@@ -60,6 +60,8 @@ class SuperClockLand {
 		this.particles = this.particles.filter(particle => particle.life > 0);
 	}
 
+	//TODO: break the ocean shimmer drawing into a function
+
 	initialDraw() {
 		let d = this.display;
 		d.background(0x55, 0x55, 0xFF);
@@ -87,13 +89,13 @@ class SuperClockLand {
 		//this.display.background(0x00);
 		let d = this.display;
 
-		if (frameCount % 4 != 0) { return; }
+		//if (frameCount % 4 != 0) { return; }
 		d.noStroke();
 		d.noSmooth();
 
 
-		d.fill(0xAA, 0xAA, 0xFF);
-		for (let i = 0; i < 3; i++) {
+		d.fill(0x88, 0x88, 0xFF);
+		for (let i = 0; i < 2; i++) {
 			let distance = random(40);
 			d.rect(random(this.SCREEN_WIDTH),
 				60 + distance,
@@ -103,13 +105,13 @@ class SuperClockLand {
 
 		d.loadPixels();
 		for (let i = 46080; i < (this.CANVAS_WIDTH*this.CANVAS_HEIGHT); i += 4) {
-			let v = random(0.4, 1);
+			let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
 			d.pixels[i] *= v;
 			d.pixels[i+1] *= v;
 			//d.pixels[i+2] *= 1.05;
 
-			d.pixels[i+4] += d.pixels[i]*0.4;
-			d.pixels[i+5] += d.pixels[i+1]*0.4;
+			d.pixels[i+4] += d.pixels[i]*0.85; //values were 0.4 to go with v = (0.4 ... 1)
+			d.pixels[i+5] += d.pixels[i+1]*0.85;
 		}
 		d.updatePixels();
 

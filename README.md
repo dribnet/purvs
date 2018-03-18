@@ -9,7 +9,7 @@ A retro-style floating island scene that reacts to the current time.
 ---
 
 #### Changes:
-+ Roughed together a quick water effect test
++ Further experimentation with the ocean test
 
 #### Current Issues:
 + Not really a clock.
@@ -17,9 +17,9 @@ A retro-style floating island scene that reacts to the current time.
 
 #### To Do:
 + Current vision is a floating island in the Super Game Boy style I am fond of
-+ Further refinement of water effect
++ Further refinement of water effect. Making the shimmer fade in with particles that vanish at full white would probably do the trick
 + Start actually implementing the scene
-+ Nail down the colours
++ Nail down the colours + implement palette tiles
 
 #### Notes:
 + Selective palette swapping could avoid the biggest issues with this. I should also look into taking advantage of transparency features
