@@ -17,7 +17,7 @@ function draw_clock(obj) {
     let millis = obj.millis;
     background(204);
 
-    background(255,255,200); //  beige
+    background(180,184, 179); //  beige
     fill(128,100,100); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
@@ -39,13 +39,16 @@ function draw_clock(obj) {
     fill(0);
     translate(width/2, height/2);
 
+
+
+
 //millis
     push();
     
     var i = 0
-    stroke(255, 204, 0);
+    stroke(255);
 
-    while( i < millis){
+    while( i < m){
     	rotate(1);
     	line(0,-20 , 0, -50); 
     	i = i + 1;
@@ -58,12 +61,12 @@ function draw_clock(obj) {
     push();
 
     var i = 0;
-    stroke('red');
+    stroke(146, 188, 222);
 
     strokeWeight(4)
     while( i < s ){
     	rotate(1); 
-    	line(0,-90 , 0, -110); 
+    	line(0,-65 , 0, -85); 
     	i = i + 1;
     }
 
@@ -76,13 +79,13 @@ function draw_clock(obj) {
 	push();
 
 	var i = 0;
-	stroke('blue');
+	stroke(172, 208, 180);
 
     strokeWeight(4)
     
     while(i < mi){
     rotate(1);
-    line(0,-120 , 0, -140); 
+    line(0,-95 , 0, -115); 
     
     i = i + 1;
     
@@ -92,20 +95,25 @@ function draw_clock(obj) {
 
     push();
     var i = 0;
-	stroke(0);
+	stroke(244, 96, 92);
     strokeWeight(4)
 
     while(i < h){
     	rotate(1);
-    	line(0, -150, 0, -170);
+    	line(0, -125, 0, -145);
     	i = i + 1;
     }
     
     pop();
 
 
-
+    while(i < 360){
+        stroke(255);
+        strokeWeight(2);
+        rotate(6);
+        line(0, -143, 0, -147);
+        i = i + 1;
+    }
 
 }
-
 
