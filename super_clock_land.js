@@ -128,6 +128,7 @@ class SuperClockLand {
 		// 	this.particles[i].draw();
 		// }
 		text("FPS: "+round(frameRate()), 10, 20);
+
 	}
 
 
