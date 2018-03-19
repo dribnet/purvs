@@ -1,6 +1,6 @@
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var selectedNumber = numbers[9];
-var widthHeight ={w:20,h:20};
+var widthHeight ={w:15,h:15};
 var rectColors ={r:255,g:0,b:0};
 var timeCol= {hr:'',min:'',sec:''};
 var startPoint ={x:50,y:50};
@@ -19,16 +19,26 @@ var numberRegions={
 var dimLine = {r:0,g:0,b:0};
 var brightLine ={r:255,g:0,b:0};
 function setup() {
-    createCanvas(1200,300);
+    createCanvas(500,300);
 }
-function draw() {
-    background(0);
+
+function draw_clock(obj) {
+    background(255);
+
     noStroke();
     var rectColors ={r:255,g:0,b:0};
     var d = new Date();
-    timeCol.hr = d.getHours();
-    timeCol.min = d.getMinutes();
-    timeCol.sec = d.getSeconds();
+    // timeCol.hr = d.getHours();
+    // timeCol.min = d.getMinutes();
+    // timeCol.sec = d.getSeconds();
+    timeCol.hr = obj.hours;
+    timeCol.min = obj.minutes;
+    // timeCol.sec = obj.seconds;
+    // let millis = obj.millis;
+
+    // timeCol.hr = 1;
+    // timeCol.min = 1;
+    //timeCol.sec = 0;
     
     if(typeof (''+ timeCol.hr )[1] === 'undefined'){
         timeCol.hr = '0'+ timeCol.hr;
@@ -58,15 +68,20 @@ function drawFirst(selectedNumber,xCo){
     rect(startPoint.x, startPoint.y, widthHeight.h, widthHeight.w);
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x, startPoint.y + 50, widthHeight.h, widthHeight.w);
+    fill(rectColors.r,rectColors.g,rectColors.b);
+    rect(startPoint.x, startPoint.y + 100, widthHeight.h, widthHeight.w);
+    fill(0, 0, 255);
+    rect(startPoint.x, startPoint.y + 100, widthHeight.w, widthHeight.h);
+    //return;
 
-    
 //    //vertical_left_bottom
     timeChecker(selectedNumber,'vertical_left_bottom') > -1 ?rectColors =brightLine:rectColors =dimLine;
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x, startPoint.y + 100, widthHeight.h, widthHeight.w);
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x, startPoint.y + 150, widthHeight.h, widthHeight.w);
-    
+    //fill(0,0,255);
+    //rect(startPoint.x + 200, startPoint.y + 200, widthHeight.h, widthHeight.w);
     
 //    ////horizontal_up
    timeChecker(selectedNumber,'horizontal_up') > -1?rectColors =brightLine:rectColors =dimLine;
@@ -81,11 +96,12 @@ function drawFirst(selectedNumber,xCo){
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x, startPoint.y + 100, widthHeight.w, widthHeight.h);
     fill(rectColors.r,rectColors.g,rectColors.b);
+    //fill(255, 0, 0);
     rect(startPoint.x + 50, startPoint.y + 100, widthHeight.w, widthHeight.h);
     //fill(rectColors.r,rectColors.g,rectColors.b);
-    rect(startPoint.x + 100, startPoint.y + 100, widthHeight.w, widthHeight.h);
+    
     //fill(rectColors.r,rectColors.g,rectColors.b);
-    //rect(startPoint.x + 110, startPoint.y + 100, widthHeight.w, widthHeight.h);
+    //rect(startPoint.x + 130, startPoint.y + 100, widthHeight.w, widthHeight.h);
     
 //    //horizontal_below
     timeChecker(selectedNumber,'horizontal_below') > -1?rectColors ={r:255,g:0,b:0}:rectColors =dimLine;
@@ -93,7 +109,8 @@ function drawFirst(selectedNumber,xCo){
     rect(startPoint.x, startPoint.y + 200, widthHeight.w, widthHeight.h);
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x + 50, startPoint.y + 200, widthHeight.w, widthHeight.h);
-    
+    fill(rectColors.r,rectColors.g,rectColors.b);
+    rect(startPoint.x + 50, startPoint.y + 200, widthHeight.w, widthHeight.h);
     
     
 //    //vertical_right_top
@@ -103,7 +120,7 @@ function drawFirst(selectedNumber,xCo){
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x + 100, startPoint.y + 50, widthHeight.h, widthHeight.w);
     fill(rectColors.r,rectColors.g,rectColors.b);
-    //rect(startPoint.x + 200, startPoint.y + 50, widthHeight.h, widthHeight.w);
+    rect(startPoint.x + 100, startPoint.y + 100, widthHeight.h, widthHeight.w);
     
 //    
 //    //vertical_right_bottom
@@ -115,12 +132,13 @@ function drawFirst(selectedNumber,xCo){
     fill(rectColors.r,rectColors.g,rectColors.b);
     rect(startPoint.x + 100, startPoint.y + 200, widthHeight.h, widthHeight.w);
     fill(rectColors.r,rectColors.g,rectColors.b);
-    //rect(startPoint.x + 100, startPoint.y + 180, widthHeight.h, widthHeight.w);
+    // rect(startPoint.x + 200, startPoint.y + 200, widthHeight.h, widthHeight.w);
 
 }
 
 
 function timeChecker(num,region){
-    if(!!numberRegions[num])
+    if(!!numberRegions[num]) {
         return  numberRegions[num].indexOf(region);
+    }
 }
