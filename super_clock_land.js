@@ -19,8 +19,8 @@ class SuperClockLand {
 		this.CANVAS_WIDTH = 960;
 		this.CANVAS_HEIGHT = 500;
 		//gameboy is 160x144 but the closest common divisor that gets a similar pixel count for 960x500 is 5
-		this.SCREEN_WIDTH = 192;
-		this.SCREEN_HEIGHT = 100;
+		this.SCREEN_WIDTH = 192; //24 colour regions across (8x8)
+		this.SCREEN_HEIGHT = 100; //12.5 colour regions down
 
 		// colour variables
 		this.backgroundColour = color(0x44);
@@ -67,20 +67,17 @@ class SuperClockLand {
 		d.background(0x55, 0x55, 0xFF);
 		d.noStroke();
 		d.fill(0x00,0x00,0xFF);
-		d.rect(0,60,this.SCREEN_WIDTH,40);
+		d.rect(0,64,this.SCREEN_WIDTH,36);
 
 		d.fill(0xAA, 0xAA, 0xFF);
-		for (let i = 0; i < 100; i++) {
-			let distance = random(40);
+		for (let i = 0; i < 50; i++) {
+			let distance = random(36);
 			d.rect(random(this.SCREEN_WIDTH),
-				60 + distance,
-				10 + (20 * (distance/40)),
+				64 + distance,
+				10 + (20 * (distance/36)),
 				1);
 		}
-		for (let i = 0; i < 60; i++) {
-			d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
-			d.rect(0,i, this.SCREEN_WIDTH, 1);
-		}
+
 	}
 
 	draw() {
@@ -93,35 +90,63 @@ class SuperClockLand {
 		d.noStroke();
 		d.noSmooth();
 
+		//background gradient
+		for (let i = 0; i < 64; i++) {
+			d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
+			d.rect(0,i, this.SCREEN_WIDTH, 1);
+		}
 
+		//landmass
+		d.fill(0x55);
+		d.rect(this.SCREEN_WIDTH/2-50, this.SCREEN_HEIGHT/2-10, 100, 17);
+		d.fill(0xBB);
+		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
+
+
+		//water nonsense
 		d.fill(0x88, 0x88, 0xFF);
 		for (let i = 0; i < 1; i++) {
-			let distance = random(40);
+			let distance = random(36);
 			d.rect(random(this.SCREEN_WIDTH),
-				60 + distance,
-				10 + (20 * (distance/40)),
+				64 + distance,
+				10 + (20 * (distance/36)),
 				1);
 		}
 
 		d.loadPixels();
-		//if (frameCount%2 === 0) {
-			for (let i = 46080; i < (76800); i += 4) {
-				let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
-				d.pixels[i] *= v;
-				d.pixels[i + 1] *= v;
-				//d.pixels[i+2] *= 1.05;
 
-				d.pixels[i + 4] += d.pixels[i] * 0.85; //values were 0.4 to go with v = (0.4 ... 1)
-				d.pixels[i + 5] += d.pixels[i + 1] * 0.85;
+		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
+			for (let y = 0; y < 8; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
+				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
+				// d.pixels[tileAddress] *= 0.75;
+				// d.pixels[1 + tileAddress] *= 0.75;
+				// d.pixels[2 + tileAddress] *= 0.75;
+				for (let i = 0; i < 8; i++) {
+					for (let j = 0; j < 8; j++) {
+						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
+						d.pixels[pixelAddress] = floor(d.pixels[pixelAddress]/(x+y+1)) * (x+y+1);
+						d.pixels[pixelAddress+1] = floor(d.pixels[pixelAddress+1]/(x+y+1)) * (x+y+1);
+						d.pixels[pixelAddress+2] = floor(d.pixels[pixelAddress+2]/(x+y+1)) * (x+y+1);
+					}
+				}
 			}
-		//}
+		}
+		for (let i = 49152; i < 76800; i += 4) { //49152 = 64 pixels from the top
+			let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
+			d.pixels[i] *= v;
+			d.pixels[i + 1] *= v;
+			//d.pixels[i+2] *= 1.05;
+
+			d.pixels[i + 4] += d.pixels[i] * 0.85; //values were 0.4 to go with v = (0.4 ... 1)
+			d.pixels[i + 5] += d.pixels[i + 1] * 0.85;
+		}
+
 		d.updatePixels();
 
 
 		//render the pixel display to the main canvas
 		image(this.display, 0, 0, width,height);
 
-		//print(frameRate());
 
 		//draw the particles
 		// for (let i = 0; i < this.particles.length; i++) {

@@ -9,12 +9,13 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Uploaded rough drawing of what I'm envisioning
++ Added rough implementation of palette tile functionality
 
 #### Current Issues:
 + Not really a clock.
-+ Framerate is EXTREMELY fragile. Will need to take care not to ruin it
 + Ocean currently does not use palette swapping scheme, though *technically* is still within the limitations of the SGB
++ No palettes yet
++ Antialiasing will throw off the palette swap, may be fixable by flooring to nearest valid grey shade
 
 #### To Do:
 + Current vision is a floating island in the Super Game Boy style I am fond of
