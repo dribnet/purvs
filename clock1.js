@@ -12,6 +12,7 @@ function draw_clock(obj) {
 	translate(width / 2, height / 2); 
 
 	var time = new Date();
+	// let milliseconds = floor(time.getMilliseconds() / 250) * 250; // Stepping
 	var milliseconds = time.getMilliseconds();
 	var seconds = obj.seconds = time.getSeconds() + milliseconds / clockDiv[3];
 	var minutes = obj.minutes = time.getMinutes() + seconds / clockDiv[2];
