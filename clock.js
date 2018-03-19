@@ -115,7 +115,7 @@ function Draw_BG_Clouds(){
 		if(random(0,100) >= 65){ //Now randomly decide if a cloud should spawn
 			var iWidth = Cloud_Image.width * random(0.75,2.01);
 			var iHeight = Cloud_Image.height * random(0.5,1.5);
-			bg_Clouds.push(new Cloud(0-iWidth, random(0, height), 0, Cloud_Image, iWidth, iHeight, random(150,200)));			
+			bg_Clouds.push(new Cloud(0-iWidth, random(0, height), '', Cloud_Image, iWidth, iHeight, random(150,200)));			
 			timePassed = millis();
 		}
 		timePassed = millis();
