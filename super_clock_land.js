@@ -126,11 +126,11 @@ class SuperClockLand {
 
 		//placeholder moving ellipse
 		d.fill(0x00);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(frameCount/30*TAU)-1)*15 + 3, 21.5);
+		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3, 21.5);
 		d.fill(0xFF);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(frameCount/30*TAU)-1)*15 + 3, 20);
+		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3, 20);
 		d.fill(0xEE);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4+1, this.SCREEN_HEIGHT/2 + (cos(frameCount/30*TAU)-1)*15 + 4, 17);
+		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4+1, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 4, 17);
 
 
 		//water nonsense

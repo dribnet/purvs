@@ -9,17 +9,14 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Fixed the framerate issue, seemed to be some sort of cache miss with the palettes
-+ Palette swapping mostly implemented, does not yet respect tile palettes
-+ Crude alarm function refined
-+ Added moving ball to demonstrate pixel + palette behaviour
++ Made the ball use the milliseconds for its cosine wave
 
 #### Current Issues:
 + Not really a clock yet
 
 #### To Do:
 + Start actually implementing the scene
-+ Nail down the colours + implement palette tiles
++ Nail down the colours + implement tile palettes, which are currently not respected by palette swapping
 + Implement z-ordering for scene objects
 
 #### Notes:
