@@ -1,78 +1,54 @@
 function setup() {
-
-
-  createCanvas(960, 500)
-  background(0)
-  strokeWeight(3)
-  stroke(85, 223, 33)
-
-  //5
-  rect(200, 100, 40, 40)
-  rect(250, 100, 40, 40)
-  rect(300, 100, 25, 25)
-  rect(200, 150, 40, 40)
-  rect(200, 200, 40, 40)
-  rect(250, 200, 40, 40)
-  rect(300, 200, 40, 40)
-  rect(300, 250, 40, 40)
-  rect(300, 300, 25, 25)
-  rect(250, 300, 40, 40)
-  rect(200, 300, 25, 25)
-    //Am 
-
-  rect(430, 200, 10, 10)
-  rect(440, 200, 10, 10)
-  rect(430, 220, 10, 10)
-  rect(440, 220, 10, 10)
-  rect(420, 210, 10, 10)
-  rect(420, 220, 10, 10)
-  rect(420, 230, 10, 10)
-  rect(450, 210, 10, 10)
-  rect(450, 210, 10, 10)
-  rect(450, 220, 10, 10)
-  rect(450, 230, 10, 10)
-
-  rect(470, 200, 10, 10)
-  rect(470, 210, 10, 10)
-  rect(470, 220, 10, 10)
-  rect(470, 230, 10, 10)
-  rect(480, 210, 10, 10)
-  rect(490, 220, 10, 10)
-  rect(500, 210, 10, 10)
-  rect(510, 200, 10, 10)
-  rect(510, 210, 10, 10)
-  rect(510, 220, 10, 10)
-  rect(510, 230, 10, 10)
-
-  //0
-  rect(615, 115, 25, 25)
-  rect(600, 150, 25, 25)
-  rect(600, 200, 25, 25)
-  rect(600, 250, 40, 40)
-  rect(615, 300, 25, 25)
-  rect(650, 100, 40, 40)
- 
-  rect(700, 115, 25, 25)
-  rect(700, 150, 40, 40)
-  rect(700, 200, 40, 40)
-  rect(700, 250, 40, 40)
-  rect(700, 300, 25, 25)
-  rect(650, 300, 40, 40)
-  
-  //1
-  
-rect(815, 115, 15, 15)
-rect(840, 100, 20, 20)
-rect(840, 130, 20, 20)
-rect(840, 160, 20, 20)
-rect(840, 190, 20, 20)
-
-
-
-
-
+  createCanvas(400, 400);
+  angleMode(DEGREES);
 }
 
-function draw() {
+function draw () {
+  background(0)
 
+    translate(200, 200);
+  rotate(-90)
+
+  let h = hour();
+  let m = minute();
+  let s = second();
+
+
+  noFill()
+    strokeWeight(40);
+  stroke(74, 143, 229);
+  let end3 = map (h % 12, 0, 12, 0, 360);
+  arc (0, 0, 300, 300, 0, end3); 
+
+  strokeWeight(20);
+  stroke(75, 229, 98);
+  let end2 = map (m, 0, 60, 0, 360);
+  arc (0, 0, 300, 300, 0, end2); 
+
+  strokeWeight(8);
+  stroke(234, 168, 60);
+  let end1 = map (s, 0, 60, 0, 360);
+  arc (0, 0, 300, 300, 0, end1); 
+
+  noStroke()
+  
+    fill(74, 143, 229);
+  let end33 = map (h % 12, 0, 12, 0, 360);
+  arc (0, 0, 100, 100, 0, end33); 
+  
+    fill(75, 229, 98);
+  let end22 = map (m, 0, 60, 0, 360);
+  arc (0, 0, 80, 80, 0, end22); 
+
+  fill(234, 168, 60)
+  let end11 = map (s, 0, 60, 0, 360);
+  arc (0, 0, 50, 50, 0, end11); 
+    
+
+rotate(90)
+stroke(214, 0, 0)
+strokeWeight(1)
+   fill(240);
+   textSize(25)
+   text (h + ':' + m + ':' + s, -50, 5)
 }
