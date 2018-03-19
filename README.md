@@ -1,5 +1,5 @@
-﻿Maeda's clock number 5
+﻿Binary Clock
 
-I wanted to see how the rotational coordinate system worked so I chose this one. Instead of drawing the numbers I gave the text() function a try, to simplify the rotation as well. 
+I decided to do a total redesign from my original sketch, one that would display time in a binary representation with LED-like lights. Similar functioning hardware based clocks have been made like the one here: https://www.thinkgeek.com/product/59e0/ 
 
-There is a bit of alpha added to the numbers and color changes.
+I also wanted to try the image tag from the API and see the specifics of the function and handling of image positioning.  
