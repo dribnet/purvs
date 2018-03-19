@@ -2,10 +2,15 @@
 
 ### Current Cloud Hop Clock
 
-For this update I have primarily done a lot of tweaking and have started on the animation frame work which will allow for the alarm animation to complete that part of the project. I have also basically finalized the art style for the project, this now means I can safely go ahead with the animations. The only bits of art remaining, apart from animations, are some more cloud variants. This is nearly done and I will have the first animation done, the blinking animation working by the next commit, which should give way to the remaining character animations like sleeping and the alarm. 
+This version of the clock shows an almost complete version. The Dino animations framework is complete and Dino now has 3 standby animations, blinking, turning, and sleeping. This development has also lead to the completion of another major feature. The alarm animations have finally being added to the clock and now Dino will play a saxophone when the alarm goes off :D. I may add more to the general alarm to make the alarm more obvious that it is going off, but for now it works and is a major step done. 
 
-I also added in the background animated clouds as they don't use the same framework as Dino. These clouds are different sized variants of the number clouds with different opacities that will slowly move across the screen over time. They just help the clock feel more alive
+Other updates included tidying up the code as it has been a little while since that was done. This included shuffling of functions and removal of useless variables, as well as some more comments. I have also done some small tweaks to background clouds speeds and opacities.
 
-I do also plan on having the stars in the night scene be animated, however it is not a current priority.
+I also updated Debug, which was very useful in getting the alarm animations to work.
 
-All these added features I will continue to tweak over the this week
+From here I believe that the remaining features are:
+	- Dino jumping to each cloud with a small particle effect
+	- The ability to set an alarm through dino.
+	- Some more Cloud art
+	
+As well as general polish and tweaks to the clock, as well as the code readability like before. 

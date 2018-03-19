@@ -3,11 +3,10 @@
 */ 
 
 let fts = true;
-let pfont;
 //Backgrounds
 let bg_Day;
 let bg_Night;
-let timePassed =0;
+let timePassed = 0;
 //Dino
 let Dino;
 let Dino_Image;
@@ -16,25 +15,15 @@ let Cloud_Image;
 let Clock_Clouds = [];
 let bg_Clouds = [];
 //Weather Icons
-let currentIcon;
 let sun;
 let moon;
 
 function draw_clock(obj) {
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
-	
-	if(fts == true){		 
+	if(fts){		 
 		firstTimeSetup();
 	}
 	
+	let alarm = obj.seconds_until_alarm;
 	let h = obj.hours;
 	let m = obj.minutes;
 	let s = obj.seconds;
@@ -43,15 +32,17 @@ function draw_clock(obj) {
 	for(var i = 0; i < 12; i++){
 		if(h >= 12 && h <=23){ 
 		    Clock_Clouds[i].hourNumber = i+12;
-			}else{ //Keep on day
+			Dino.changePos(Clock_Clouds[h-12].positionX, Clock_Clouds[h-12].positionY-40);
+		}else{ //Keep on day
 		    Clock_Clouds[i].hourNumber = i;
+			Dino.changePos(Clock_Clouds[h].positionX, Clock_Clouds[h].positionY-40);
 		}
 	}   	
 	imageMode(CORNER); 
 	//Change the background depending on the time of day
 	if(h >= 5 && h < 19){
 		background(bg_Day);
-		}else{
+	}else{
 		background(bg_Night);	  
 	}	
 	Draw_BG_Clouds();	
@@ -61,30 +52,25 @@ function draw_clock(obj) {
 	//Draw Hands
 	tint(255, 255);
 	Draw_Hands(h,m,s);
-	//Draw Icon
-	Draw_Icon(h);
-	//Draw Dino
-	//Get current Cloud
-	if(h >= 12){
-		Dino.changePos(Clock_Clouds[h-12].positionX, Clock_Clouds[h-12].positionY-30);
-		}else{
-		Dino.changePos(Clock_Clouds[h].positionX, Clock_Clouds[h].positionY-30);
-	}
-	Dino.drawImage(obj.seconds_until_alarm);
+	//Draw Dino	
+	Dino.drawImage(alarm);
 	//Draw Clouds
 	Draw_Clouds();  	
 }
 
 function Draw_Clouds(){
 	//Draw Clock Clouds
+	fill(0);	
 	for(var i = 0; i < 12; i++){
 		Clock_Clouds[i].drawImage();
 	}
 }
 
+/**
+Function which draws the hands of the clock as well as the icon.
+**/
 function Draw_Hands(h,m,s){
-	fill(200);
-	noStroke();
+	fill(200);	
 	//Hours Hand
 	rotate(h*30); 
 	let hours_Hand = triangle(-10, 0, 0, -80, 10, 0);
@@ -97,74 +83,78 @@ function Draw_Hands(h,m,s){
 	rotate(s*6);  
 	let seconds_Hand = triangle(-3, 0, 0, -150, 3, 0);
 	rotate(-(s*6));
-}
-
-function Draw_Icon(h){
-	fill(0);
-	tint(255,255);
+	//Draw Icon on top
 	if(h >= 5 && h < 19){
 		image(sun, 0, 0);
-		}else{
+	}else{
 		image(moon, 0, 0);	  
-	}  
+	}
 }
 
+/**
+Function which draws the animated background clouds
+**/
 function Draw_BG_Clouds(){
 	//Check if enough time has passed to create another cloud, and if the amount of clouds isn't too high
-	if(bg_Clouds.length <= 5 && timePassed + 5000 <= millis()){
-		if(random(0,100) >= 65){ //Now randomly decide if a cloud should spawn
-			var iWidth = Cloud_Image.width * random(0.75,2.01);
-			var iHeight = Cloud_Image.height * random(0.5,1.5);
-			bg_Clouds.push(new Cloud(0-iWidth, random(0, height), '', Cloud_Image, iWidth, iHeight, random(150,200)));			
-			timePassed = millis();
-		}
+	if(bg_Clouds.length < 5 && timePassed + 7000 <= millis()){		
+		var iWidth = Cloud_Image.width * random(0.75,2.01);
+		bg_Clouds.push(new Cloud(0-iWidth, random(0, height), '', Cloud_Image, iWidth, Cloud_Image.height * random(0.5,1.5), random(150,200)));			
 		timePassed = millis();
 	}
 	//Draw the clouds
 	for(var i = 0; i < bg_Clouds.length; i++){
-		bg_Clouds[i].positionX+=0.9;
+		bg_Clouds[i].positionX++;
 		if(bg_Clouds[i].positionX > width){
 			bg_Clouds.splice(0,1);
-			}else{
+		}else{
 			bg_Clouds[i].drawImage();
 		}
 	}
 }
 
+/**
+Function that is used for the first time the program is run. This should go in setup, loading images would go in preload
+**/
 function firstTimeSetup(){
-	pfont = loadFont('prstart.ttf');
+	/** File Loading Section **/
+	var pfont = loadFont('prstart.ttf');
 	//Backgrounds
 	bg_Day = loadImage('bg_Day.png');
 	bg_Night = loadImage('bg_Night.png');
-	//Dino
-	Dino;
-	Dino_Image = loadImage('Dino.png');
-	//Clouds
+	//Clock images	
 	Cloud_Image = loadImage('Cloud.png');
-	Clock_Clouds = [];
-	//Weather Icons
-	currentIcon;
 	sun = loadImage('Sun.png');
 	moon = loadImage('Moon.png');
-	
+	//Dino setup
+	Dino_Image = loadImage('Dino.png');
 	Dino = new DinoChar(0,0,Dino_Image);
-	//Add Clouds to Array
+	for(var i = 0; i < 4; i++){
+		Dino.alarmAnimation[i] = loadImage('Alarm' + (i+1) + '.png');
+		Dino.sleepingAnimation[i] = loadImage('Sleep' + (i+1) + '.png');		
+		Dino.turningAnimation[i] = loadImage('Turning.png');
+		Dino.blinkingAnimation[i] = loadImage('Blink.png');
+	}
+	//Add Numbered Clouds to Array in a circle
 	var secondsRadius = (min(width, height) / 2) * 0.72;	
 	for (var a = 0; a < 360; a+=30) {
 		var angle = radians(a-90);
 		var x = cos(angle) * secondsRadius;
 		var y = sin(angle) * secondsRadius;
-		Clock_Clouds[(a/30)] = new Cloud(x, y, a/30, Cloud_Image, 60, 42, 200);
+		Clock_Clouds[(a/30)] = new Cloud(x, y, a/30, Cloud_Image, 60, 42, 255);
 	}
 	//Other Setup Changes
+	noStroke();
 	textFont(pfont);
 	textAlign(CENTER,CENTER);
 	textSize(20);
 	angleMode(DEGREES);  
+	//Set to false to we never have to do this again
 	fts = false;
 }
 
-
+/**
+Class designed for all the clouds shown in the program
+**/
 class Cloud {
 	constructor(posX, posY, num, img, imgWidth, imgHeight, op) {
 		this.positionX = posX;
@@ -188,53 +178,67 @@ class DinoChar{
 		this.positionX = posX;
 		this.positionY = posY;
 		this.dinoImage = img;
+		//this.sleepAnimation = createImg('DinoSleep.gif');
 		//Animations
 		this.frameTime = 0;
 		this.currentFrame = 0;
 		this.animationTime = 0;
 		this.animationCoolDown = 0;
 		this.currentAnimation = [];		
-		this.binkingAnimation = [];
+		this.blinkingAnimation = [];
 		this.turningAnimation = [];
-		this.SleepingAnimation = [];
+		this.alarmAnimation = [];
+		this.sleepingAnimation = [];
 		
 	}
 	
-	drawImage(obj){
-		/*
-			if(animationTime <= millis()){ //Check if animation is over
-			if(animationTime + 5000 <= millis() && random(0,100) >= 65){ //Check if enough time has passed to play a new animation
-			//Pick a new standby animation based off of random number
-			var aniNum = random(1,100);
-			if(aniNum <= 20){ //Blinking animation
-			
-			}else if(aniNum < 80 && aniNum >= 60){ //Turning animation
-			
-			}else if(aniNum >= 80){ //Sleeping animation
-			
-			}
-			//Draw the first frame in animation
-			this.currentFrame = 0;
-			animate = millis();
-			image(this.currentAnimation[(currentFrame % currentAnimation.length)], this.positionX, this.positionY);
-			animationTime = millis() + 3000;
-			}else{ //Draw standard image
-			image(this.dinoImage, this.positionX, this.positionY);
-			}
-			}else{ //Draw a frame from the current animation
+	drawImage(alarm){
+		//Priority Goes too Alarm animation	
+		if(alarm == 0){
+			this.currentAnimation = this.alarmAnimation;
+			//this.currentFrame = 0;	
 			if(millis() >= this.frameTime + 125){
-			this.currentFrame = (this.currentFrame+1) % currentAnimation.length;  // Use % to cycle through frames
-			animate = millis();
-			}
-			image(this.currentAnimation[(currentFrame % currentAnimation.length)], this.positionX, this.positionY);
-			}	
-		*/		
+				this.currentFrame = (this.currentFrame+1) % this.currentAnimation.length;  // Use % to cycle through frames
+				this.frameTime = millis();				
+			}			
+			image(this.currentAnimation[this.currentFrame], this.positionX, this.positionY);
+			return;
+		}
+		//Normal Animation stuff
+		if(this.animationTime <= millis()){ //Check if animation is over
+			if(this.animationTime + 5000 <= millis() && random(0,100) >= 50){ //Check if enough time has passed to play a new animation
+			//Pick a new standby animation based off of random number
+				var aniNum = random(1,100);
+				if(aniNum <= 40){ //Blinking animation
+					this.currentAnimation = this.blinkingAnimation;
+					this.animationTime = millis() + 1000;
+				}else if(aniNum <= 80 && aniNum > 40){ //Turning animation
+					this.currentAnimation = this.turningAnimation;
+					this.animationTime = millis() + 1000;
+				}else if(aniNum > 80){ //Sleeping animation
+					this.currentAnimation = this.sleepingAnimation;
+					this.animationTime = millis() + 5000;
+				}
+				//Draw the first frame in animation
+				this.currentFrame = 0;				
+				image(this.currentAnimation[0], this.positionX, this.positionY);				
+				this.frameTime = millis();
+				return;
+			}		
+		}else{ //Draw a frame from the current animation
+			if(millis() >= this.frameTime + 125){
+				this.currentFrame = (this.currentFrame+1) % this.currentAnimation.length;  // Use % to cycle through frames
+				this.frameTime = millis();				
+			}		
+			image(this.currentAnimation[(this.currentFrame % this.currentAnimation.length)], this.positionX, this.positionY);
+			return;
+		}
+		//Draw standard image
 		image(this.dinoImage, this.positionX, this.positionY);
 	}	
 	
 	changePos(posX, posY){
 		this.positionX = posX;
 		this.positionY = posY;
-	}
-	
+	}	
 }
