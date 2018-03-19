@@ -30,9 +30,21 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let secsTillAlarm = obj.seconds_until_alarm;
 
     //Draw in background
     background('#f0f0f0');
+
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
+  if(secsTillAlarm == 0){
+  	if(seconds % 2 == 0){
+  		background('#f0f0f0');
+  	}else{
+  		background('#fff');
+  	}
+  }
 
     //HOUR
     if(hours == 0){
