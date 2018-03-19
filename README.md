@@ -7,6 +7,6 @@ The background changes depending on the time of day (At midnight it's black whil
 
 The position of the sun and the moon represents the time (for example the moon is at the top at midnight and the sun is at the top at noon).
 
-I fixed some bugs with the stars fading in and out.
+Added clouds (their position is random).
 
-Also started working on the alarm.
+When the alarm goes off you can see the sun rays.
