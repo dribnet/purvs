@@ -2,11 +2,10 @@
 
 ### Current Cloud Hop Clock
 
-So at this stage I have made the basic clock. The backgrounds and Icons change depending on the time, as well as Dino appearing on each cloud of the current hour. 
+For this update I have primarily done a lot of tweaking and have started on the animation frame work which will allow for the alarm animation to complete that part of the project. I have also basically finalized the art style for the project, this now means I can safely go ahead with the animations. The only bits of art remaining, apart from animations, are some more cloud variants. This is nearly done and I will have the first animation done, the blinking animation working by the next commit, which should give way to the remaining character animations like sleeping and the alarm. 
 
-The remaining bits to do for basic hand in are:
-	- Alarm Functionality
-	- Animations (currently None, Dino just hops pops in on each cloud, and clouds in the background need to be added)
-	- Finish/Finalize art
-	
-After these are added I can start to add in extra features.
+I also added in the background animated clouds as they don't use the same framework as Dino. These clouds are different sized variants of the number clouds with different opacities that will slowly move across the screen over time. They just help the clock feel more alive
+
+I do also plan on having the stars in the night scene be animated, however it is not a current priority.
+
+All these added features I will continue to tweak over the this week
