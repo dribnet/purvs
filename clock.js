@@ -1,9 +1,8 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */
-var bg;
-var t1 = 0;
-var w1 = 0;
+var tc = 0;
+var bg = 0;
 
 
 function draw_clock(obj) {
@@ -21,21 +20,20 @@ function draw_clock(obj) {
     let min = obj.minutes;
     let sec = obj.seconds;
     let mil =  obj.millis;
-    background(w1,w1,w1);
+    bg = map(sec,0, 59, 0, 255);
+    background(bg);
 
     House_wallpaper();
-    fill(t1,t1,t1); // dark grey
+    tc = map(sec,0,59,255,0);
+    fill(tc); // dark grey
     textSize(92);
     textFont('Impact');
     text(h + "   :",220, 250);
-    text(min + "   :", 420, 250);
+    text(min + "    :", 420, 250);
     text(sec + "", 620, 250);
 
-    if(min = 59){
-        t1
-    }
-    if(sec == 59) {
-        w1 = w1 + 11.5;
+    if(bg == 255){
+        bg == 0;
     }
 
     

@@ -1,19 +1,13 @@
 ## PS1 MDDN 242 2018
 
-### Episode 04 Like clockwork
+### Episode 05 day/night shift
 
-Still sticking to the main idea of concept three but some changes will be made 
-in order to keep the idea witihn the clock.
+After figuring out how to change the background colours in the previous episode. It was now time to step up the alternatives in the change of colour.
 
-In this cases i still need to find a way to change the background depnding on the time, as well as change the actuall digital time's colour too copensate for the alternatives of colour, due to the black background.
+Which was to make the colour alternate between day and night for the numbers, this way the colours for the analog time are easily desirably understood when the day/night shift colours.
 
-i have yet to figure this out i hope i can do so in the following days.
-as such there will be alot of changes to how this clock will go through.
+the current update to this is shown above. The next step is to find a way to make this more interesting than it currently is set out now.
 
-a few of the planning sections are show above
+(tip: the current change in colour is set to sec, due for testing purpose, and will be later drafted into the hourly sections soon)
 
-(YOUR OWN REFERENCE FOR IMAGES BELOW)
-your clock. Also update both images keeping their original sizes:
-preview.jpg (960x500) and thumbnail.png (230x120).
-
-TUNE IN NEXT TIME Cus.. i just realized this is due next week..
+TUNE IN FOR MORE.. clockity clock works.
