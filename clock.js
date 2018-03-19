@@ -1,13 +1,11 @@
-function setup() {
-  createCanvas(400, 400);
-  angleMode(DEGREES);
-}
+const CANVAS_WIDTH = 960;
+const CANVAS_HEIGHT = 500;
 
 function draw () {
   background(0)
 
-    translate(200, 200);
-  rotate(-90)
+  translate(200, 200);
+ rotate(-90)
 
   let h = hour();
   let m = minute();
@@ -51,4 +49,14 @@ strokeWeight(1)
    fill(240);
    textSize(25)
    text (h + ':' + m + ':' + s, -50, 5)
+}
+
+// do not alter or remove this function
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
 }
