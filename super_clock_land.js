@@ -40,6 +40,15 @@ class SuperClockLand {
 		this.display.pixelDensity(1);
 		this.display.background(0x00);
 
+		this.displayPalettes = [];
+		for (let i = 0; i < 24; i++) {
+			let x = [];
+			for (let j = 0; j < 8; j++) {
+				x.push(0);
+			}
+			this.displayPalettes.push(x);
+		}
+
 		this.initialDraw();
 	}
 
@@ -92,7 +101,8 @@ class SuperClockLand {
 
 		//background gradient
 		for (let i = 0; i < 64; i++) {
-			d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
+			//d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
+			d.fill(0x00 + 0xEE*(i/60));
 			d.rect(0,i, this.SCREEN_WIDTH, 1);
 		}
 
@@ -124,9 +134,27 @@ class SuperClockLand {
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
-						d.pixels[pixelAddress] = floor(d.pixels[pixelAddress]/(x+y+1)) * (x+y+1);
-						d.pixels[pixelAddress+1] = floor(d.pixels[pixelAddress+1]/(x+y+1)) * (x+y+1);
-						d.pixels[pixelAddress+2] = floor(d.pixels[pixelAddress+2]/(x+y+1)) * (x+y+1);
+						// d.pixels[pixelAddress] = floor(d.pixels[pixelAddress]/(x+y+1)) * (x+y+1);
+						// d.pixels[pixelAddress+1] = floor(d.pixels[pixelAddress+1]/(x+y+1)) * (x+y+1);
+						// d.pixels[pixelAddress+2] = floor(d.pixels[pixelAddress+2]/(x+y+1)) * (x+y+1);
+						let p = d.pixels[pixelAddress];
+						if (p < 0x55) { //'black'
+							d.pixels[pixelAddress] =    0x00;
+							d.pixels[pixelAddress+1] =  0x00;
+							d.pixels[pixelAddress+2] =  0x00;
+						} else if (p < 0xBB) {
+							d.pixels[pixelAddress] =    0x55;
+							d.pixels[pixelAddress+1] =  0x55;
+							d.pixels[pixelAddress+2] =  0x55;
+						} else if (p < 0xFF) {
+							d.pixels[pixelAddress] =    0xBB;
+							d.pixels[pixelAddress+1] =  0xBB;
+							d.pixels[pixelAddress+2] =  0xBB;
+						} else {
+							d.pixels[pixelAddress] =    0xFF;
+							d.pixels[pixelAddress+1] =  0xFF;
+							d.pixels[pixelAddress+2] =  0xFF;
+						}
 					}
 				}
 			}
