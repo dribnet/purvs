@@ -14,13 +14,16 @@ function draw_clock(obj) {
 	let hours = obj.hours;
 	let minutes = obj.minutes;
 	let seconds = obj.seconds;
+	let alarm = obj.seconds_until_alarm;
 	var millis = obj.millis;
 	var binary_seconds = ToBinary(seconds); 
 	var binary_minutes = ToBinary(minutes); 
-	var binary_hours = ToBinary(hours); 
+	var binary_hours = ToBinary(hours);
 
 	//loads backgound image.
 	image(bg,0,0); 
+	//Runs check on alarm seconds
+	alarm_check();	
 	//Draw Clock Rows
 	draw_led_min();
 	draw_led_hour();
@@ -28,11 +31,12 @@ function draw_clock(obj) {
 
 	fill(255);
 	translate(400, 400);
-	text("Hours: " + binary_hours ,20, 22); 
-	text("Minutes: " + binary_minutes,20, 42); 
-	text("Seconds: " + binary_seconds ,20, 62); 
-	//text("testing: " + binary_seconds.charAt(7) ,20, 76);
+	text("Hours: " + binary_hours + "  Hour: " + hours ,20, 22); 
+	text("Minutes: " + binary_minutes + "  Min: " + minutes ,20, 37); 
+	text("Seconds: " + binary_seconds + "  Sec: " + seconds ,20, 52); 
+	text("alarm: " + alarm, 20, 66); 
 
+//Draws and decides if an LED is ON or OFF, depending on each binary bit.
 function draw_led_sec() {
   for(i=0; i<=5; i++) {
     var led_state = binary_seconds.charAt(i);
@@ -46,35 +50,56 @@ function draw_led_sec() {
   }
 }
 
-function draw_led_min(){
-	for(let i=0; i<=5; i++){
-	var led_state = binary_minutes.charAt(i);
-	let pos_x = 180+(i*95);
-	if (led_state == "1"){
-	draw_blue_led(pos_x, 200);	
-	}else{
-	draw_off_led(pos_x, 200);
-	}
-	}
+function draw_led_min() {
+  for(let i=0; i<=5; i++) {
+    var led_state = binary_minutes.charAt(i);
+    let pos_x = 180+(i*95);
+    if (led_state == "1"){
+      draw_blue_led(pos_x, 200);	
+    }
+    else{
+      draw_off_led(pos_x, 200);
+    }
+  }
 }
 
-function draw_led_hour(){
-	for(let i=0; i<=5; i++){
-	var led_state = binary_hours.charAt(i);
-	let pos_x = 180+(i*95);
-	if (led_state == "1"){
-	draw_green_led(pos_x, 100);	
-	}else{
-	draw_off_led(pos_x, 100);
+function draw_led_hour() {
+  for(let i=0; i<=5; i++) {
+    var led_state = binary_hours.charAt(i);
+    let pos_x = 180+(i*95);
+    if (led_state == "1"){
+      draw_green_led(pos_x, 100);	
+    }
+    else{
+      draw_off_led(pos_x, 100);
+    }
+  }
+}
+
+function alarm_check() {
+	if (alarm > 0) {
+	noStroke();
+	//TODO Map() to rectangle length
+	fill(255, 255, 255, 140);
+	rect(179, 55, 565, 20);
+	rect(179, 410, 565, 20);
 	}
-	}
+
+	if (alarm == 0) {
+	//TODO Make flash red, in and out.
+	fill(255, 0, 0, 140);
+	rect(91, 13, 754, 468);
+        }
 }
 
 
+
 }
 
+//Image path variables.
 var red_led, green_led, blue_led, off_led, bg;
 
+//Loading images from their paths
 function preload(){
 	bg = loadImage('bg.png');
 	red_led = loadImage('red_led.png');
@@ -86,7 +111,8 @@ function preload(){
 //converts time params to a binary string.
 function ToBinary(timeUnit){
 	var n = timeUnit.toString(2);//the param '2' converts to a binary string 
-	n = "000000".substr(n.length) + n;//gets substream length and puts the proper num of '0's on the binary number.
+	//gets substream length and puts the proper num of '0's on the binary number.
+	n = "000000".substr(n.length) + n;
 	return n;
 }
 
@@ -105,4 +131,5 @@ function draw_off_led(x, y){
 function draw_green_led(x, y){
 	image(green_led, x, y);
 }
+
 
