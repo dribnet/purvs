@@ -23,7 +23,26 @@ class SuperClockLand {
 		this.SCREEN_HEIGHT = 100; //12.5 colour regions down
 
 		// colour variables
-		this.backgroundColour = color(0x44);
+		this.palettes = [
+			[   //red
+				color(0x21, 0x10, 0x10),
+				color(0xFF, 0x4A, 0x5A),
+				color(0xFF, 0xAD, 0xB5),
+				color(0xFF, 0xFF, 0xFF)
+			],
+			[   //green
+				color(0x21, 0x10, 0x10),
+				color(0x5A, 0x94, 0x00),
+				color(0xCE, 0xE7, 0x7B),
+				color(0xFF, 0xFF, 0xFF)
+			],
+			[   //blue
+				color(0x21, 0x10, 0x10),
+				color(0x5A, 0x8C, 0xD6),
+				color(0xC6, 0xD6, 0xF7),
+				color(0xFF, 0xFF, 0xFF)
+			],
+		];
 
 		//values to get at the time with
 		this.currentHour    = 0;
@@ -102,7 +121,7 @@ class SuperClockLand {
 		//background gradient
 		for (let i = 0; i < 64; i++) {
 			//d.fill(0x55 + 0x55*(i/60), 0x55 + 0x55*(i/60), 0xFF);
-			d.fill(0x00 + 0xEE*(i/60));
+			d.fill(0x55 + 0xAA*(i/60));
 			d.rect(0,i, this.SCREEN_WIDTH, 1);
 		}
 
@@ -138,22 +157,23 @@ class SuperClockLand {
 						// d.pixels[pixelAddress+1] = floor(d.pixels[pixelAddress+1]/(x+y+1)) * (x+y+1);
 						// d.pixels[pixelAddress+2] = floor(d.pixels[pixelAddress+2]/(x+y+1)) * (x+y+1);
 						let p = d.pixels[pixelAddress];
+						let pal = this.alarmState != 0 ? (x+y)%3 : frameCount%3;
 						if (p < 0x55) { //'black'
-							d.pixels[pixelAddress] =    0x00;
-							d.pixels[pixelAddress+1] =  0x00;
-							d.pixels[pixelAddress+2] =  0x00;
+							d.pixels[pixelAddress] =    red(this.palettes[pal]  [0]);
+							d.pixels[pixelAddress+1] =  green(this.palettes[pal][0]);
+							d.pixels[pixelAddress+2] =  blue(this.palettes[pal] [0]);
 						} else if (p < 0xBB) {
-							d.pixels[pixelAddress] =    0x55;
-							d.pixels[pixelAddress+1] =  0x55;
-							d.pixels[pixelAddress+2] =  0x55;
+							d.pixels[pixelAddress] =    red(this.palettes[pal]  [1]);
+							d.pixels[pixelAddress+1] =  green(this.palettes[pal][1]);
+							d.pixels[pixelAddress+2] =  blue(this.palettes[pal] [1]);
 						} else if (p < 0xFF) {
-							d.pixels[pixelAddress] =    0xBB;
-							d.pixels[pixelAddress+1] =  0xBB;
-							d.pixels[pixelAddress+2] =  0xBB;
+							d.pixels[pixelAddress] =    red(this.palettes[pal]  [2]);
+							d.pixels[pixelAddress+1] =  green(this.palettes[pal][2]);
+							d.pixels[pixelAddress+2] =  blue(this.palettes[pal] [2]);
 						} else {
-							d.pixels[pixelAddress] =    0xFF;
-							d.pixels[pixelAddress+1] =  0xFF;
-							d.pixels[pixelAddress+2] =  0xFF;
+							d.pixels[pixelAddress] =    red(this.palettes[pal]  [3]);
+							d.pixels[pixelAddress+1] =  green(this.palettes[pal][3]);
+							d.pixels[pixelAddress+2] =  blue(this.palettes[pal] [3]);
 						}
 					}
 				}
@@ -180,6 +200,8 @@ class SuperClockLand {
 		// for (let i = 0; i < this.particles.length; i++) {
 		// 	this.particles[i].draw();
 		// }
+		fill(0);
+		stroke(0xFF);
 		text("FPS: "+round(frameRate()), 10, 20);
 
 	}
