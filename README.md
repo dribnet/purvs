@@ -1,3 +1,3 @@
-I choose the fifth clock from 12 o'clock by John Maeda.
+This is how my final clock will show about the mintues and seconds.
 
-But I add the date in it.
+But the debug didn't work, I'm will change it to map later.
