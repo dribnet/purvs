@@ -9,17 +9,18 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
++ Fixed the framerate issue, seemed to be some sort of cache miss with the palettes
 + Palette swapping mostly implemented, does not yet respect tile palettes
-+ Crude alarm function added
++ Crude alarm function refined
++ Added moving ball to demonstrate pixel + palette behaviour
 
 #### Current Issues:
 + Not really a clock yet
-+ Framerate is awful and I have no idea why, the only difference is where the value is accessed from!
 
 #### To Do:
-+ Figure out what horrible curse has ruined my framerate
 + Start actually implementing the scene
 + Nail down the colours + implement palette tiles
++ Implement z-ordering for scene objects
 
 #### Notes:
-+ Ocean currently does not use palette swapping scheme, though *technically* is still within the limitations of the SGB
++ Ocean currently does not use palette swapping scheme, though *technically* is still within the limitations of the SGB. That per-pixel function was simply never used in any commercial game.
