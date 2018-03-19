@@ -1,10 +1,18 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
- var j = 0;
- var sw = 0;
- var j2 = 0;
- var sw2 = 0;
+var R=5;
+var y = 0;
+var x = 0;
+var z = 0;
+var time = 0;
+var r_hour = 12;
+var r_min = 60;
+var r_second = 60;
+var r_star = 4;
+var r_star1 = 6;
+
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -15,199 +23,239 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+    let hours = obj.hours;
+    let minutes = obj.minutes;
+    let seconds = obj.seconds;
+    let millis = obj.millis;
+    
     angleMode(DEGREES);
-    let h = obj.hours;
-	let m = obj.minutes;
-	let s = obj.seconds;
-	let l = obj.millis;
-	background(0);
-	translate(480,250);
-	stroke('white');
-	line(0,0,0,-225);
-	fill(255,204,0,60);
-	stroke(255,204,0);
-	strokeWeight(3);
-	ellipse(0,0,450,450);
-	noFill();
-	arc(0,0,370,370,TWO_PI,TWO_PI);
-	arc(0,0,290,290,TWO_PI,TWO_PI);
-	arc(0,0,289,289,TWO_PI,TWO_PI);
-	arc(0,0,210,210,TWO_PI,TWO_PI);
-	fill(255,204,0);
-	textSize(25);
-	push();
-	rotate(-30*h);
-	for(i=12;i>=1;i--){
-		text(i,-15,-115);
-		rotate(-30);
-	}
+    ellipseMode(CENTER);
+    background(120);
+    var radius=100;
+    translate(width/2,height/2);
+    strokeWeight(2);
+
+    
+    push(); 
+    strokeWeight(2);
+    time = time + 0.5;
+
+    var i = 0;
+    while(i<R){ 
+    var z=map(sin(time),-1,1,3,6);
+    rotate(360/z);
+    noFill();
+    var y=map(sin(i*4+time),-1,1,-1,100);//sin tan
+    
+    stroke(0,hours*5);
+      push();
+      ellipse(0,0,radius,radius);
+      ellipse(0,0,radius,y);
+      pop();
+      //ellipse
+      i = i + 1;
+   }
 	pop();
-	push();
-	rotate(map(m,0,59,0,-360));
-	for(i=0;i<=59;i=i+5){
-		text(i,-15,-155);
-		rotate(30);
-	}
-	pop();
-	push();
-	rotate(map(s,0,59,0,-360));
-	for(i=0;i<=59;i=i+5){
-		text(i,-15,-200);
-		rotate(30);
-	}
-	pop();
-//	line(0,0,0,-500);
-}/*
-    angleMode(DEGREES);
-	let h = obj.hours;
-	let m = obj.minutes;
-	let s = obj.seconds;
-	let l = obj.millis;
-	background(0);
-	translate(480,250);
-	
-	stroke('white');
-	line(0,0,0,-250);
+    //noLoop();
+    //Effect One
+    
+    push();
+    noFill();
+    stroke(0);
+    var i_star2 = 0;
+    while(i_star2<r_star){
+    	rotate(360/r_star);
+    	beginShape();
+    	vertex(-160,0);
+    	vertex(0,160);
+    	vertex(160,0);
+    	endShape(CLOSE);
+    	i_star2=i_star2+1;
+    }
+    pop();
+    //Star 2
 
-	let a = map(m-1,0,59,0,-360);
-	let b = map(m,0,59,0,-360);
-//----------hour
-	push();
-		if(h<12){
-			fill('white');
-			if(m==0 && l==0){
-				sw2 = 1;
-			}
-			if(sw2==1){
-				if((-30*(h-1)-j2) > (-30*h)){
-					push();
-					rotate(-30*(h-1)-j2);
-					drawhour();
-					pop();
-					j2++;
-				}else{
-					j2=0;
-					sw2=0;
-				}
-			}else{
-				push();
-				rotate(-30*h);
-				drawhour();
-				pop();
-			}
-		}else{
-			fill('black');
-			stroke('white');
-			strokeWeight(4);
-			if(m==0 && l==0){
-				sw2 = 1;
-			}
-			if(sw2==1){
-				if((-30*(h-13)-j2) > (-30*(h-12))){
-					push();
-					rotate(-30*(h-13)-j2);
-					drawhour();
-					pop();
-					j2++;
-				}else{
-					j2=0;
-					sw2=0;
-				}
-			}else{
-				push();
-				rotate(-30*(h-12));
-				drawhour();
-				pop();
-			}
-		}
-	pop();
+    push();
+    noFill();
+    strokeWeight(2.5);
+    stroke(0);
+    ellipse(0,0,200,200);
+    ellipse(0,0,320,320);
+    //
+    ellipse(0,0,380,380);
+    ellipse(0,0,400,400);
+    ellipse(0,0,420,420);
 
+    //ellipses
+    var i_star1 = 0;
+    while(i_star1<r_star1){
+    	rotate(360/r_star1);
+    	beginShape();
+    	vertex(-100,0);
+    	vertex(0,100);
+    	vertex(100,0);
+    	endShape(CLOSE);
+    	i_star1=i_star1+1;
+    }
+    pop();
+    //Star 1
 
-//---------minute
+  	push();
+  	var i_hour=0;
+    fill(120);
+  	stroke(0);
+  	while(i_hour<r_hour){
+  	rotate(360/r_hour);
+  	ellipse(0,-100,25,25);
+  	i_hour = i_hour + 1;
+  	}
+  	pop();
 
+  	push();
+  	var i_min=0;
+  	fill(255, 255, 102);
+  	while(i_min<r_min){
+  	rotate(360/r_min);
+  	ellipse(0,-200,10,10);
+  	i_min = i_min + 1;
+  	}
+  	pop();
 
+  	push();
+  	var i_second=0;
+  	fill(0,255,204);
+  	while(i_second<r_second){
+  	rotate(360/r_second);
+  	ellipse(0,-225,7,7);
+  	i_second = i_second + 1;
+  	}
+  	pop();
+  	//Rotation (Hour)
 
-	push();
-		if(s==0 && l==0){
-			sw = 1;
-		}
-		if(sw==1){
-			if(a-j > b){
-				push();
-				rotate(a-j);
-				drawminute();
-				pop();
-				j++;
-			}else{
-				j=0;
-				sw = 0;
-			}
-		}else{
-			push();
-			rotate(b);
-			drawminute();
-			pop();
-		}
-			
-	pop();
-//------------second
+  	push();
+    noStroke();
+    fill(0);
+    rotate(30*hours);
+    ellipse(0,-100,25,25);
+    pop();
+    //h
 
-	push();
-		drawsecond();
-	pop();
+    push();
+    noStroke();
+    fill(0);
+    rotate(6*minutes);
+    ellipse(0,-200,10,10);
+    pop();
+    push();
+    noFill();
+    stroke(0);
+    ellipse(0,-200,17,17);
+    ellipse(200,0,17,17);
+    ellipse(0,200,17,17);
+    ellipse(-200,0,17,17);
+    pop();
+    //m
+    push();
+    noStroke();
+    let alarm = obj.seconds_until_alarm;
+    fill('yellow');
+    if(alarm>0){
+    	fill(0);
+    }else if(alarm==0){
+    	fill(0,255,204);
+    }
+   	//alarm
 
+    rotate(6*seconds);
+    ellipse(0,-225,7,7);
+    pop();
+    push();
+    noFill();
+    stroke(0);
+    ellipse(0,-225,15,15);
+    ellipse(225,0,15,15);
+    ellipse(0,225,15,15);
+    ellipse(-225,0,15,15);
+    pop();
+    //s
+    //Motion
 
+    push();
+    rotate(0);
+    textSize(10);
+    text('XII',-5,-97);
+    pop();
 
-	fill('white');
-	function drawhour(){
-		textSize(50);
-		push();
-			for(i=12;i>=10;i--){
-				text(i,-30,-180);
-				rotate(-30);
-			}
-			for(i=9;i>=1;i--){
-				text(i,-13,-180);
-				rotate(-30);
-			}
-		pop();
-	}
-	function drawminute(){
-		textSize(40);
-		push();
-			text('00',-22,-120);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			text('15',-22,-120);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			text('30',-22,-120);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			text('45',-22,-120);
-			rotate(30);
-			ellipse(0,-130,10,10);
-			rotate(30);
-			ellipse(0,-130,10,10);
-		pop();
-	}
-	function drawsecond(){
-		push();
-			stroke('red');
-			strokeWeight(2);
-			for(i=0;i<s;i++){
-				rotate(6);
-				line(0,-60,0,-80);
-			}
-		pop();
-	}
-}*/
+    push();
+    rotate(30);
+    textSize(10);
+    text('I',-1,-97);
+    pop();
+
+    push();
+    rotate(60);
+    textSize(10);
+    text('II',-2,-97);
+    pop();
+
+    push();
+    textSize(10);
+    text('III',97,3);
+    pop();
+
+    push();
+    rotate(120);
+    textSize(10);
+    text('IV',-4,-97);
+    pop();
+
+    push();
+    rotate(150);
+    textSize(10);
+    text('V',-4,-97);
+    pop();
+
+    push();
+    textSize(10);
+    text('VI',-4,104);
+    pop();
+
+    push();
+    rotate(210);
+    textSize(10);
+    text('VII',-7,-97);
+    pop();
+
+    push();
+    rotate(240);
+    textSize(10);
+    text('VIII',-7,-97);
+    pop();
+
+    push();
+    textSize(10);
+    text('IX',-105,4);
+    pop();
+
+    push();
+    rotate(300);
+    textSize(10);
+    text('X',-4,-97);
+    pop();
+
+    push();
+    rotate(330);
+    textSize(10);
+    text('XI',-4,-97);
+    pop();
+    //罗马
+    /*
+    push();
+    for(i=12;i>=1;i--){
+    text(i,-6,-100);
+    rotate(-30);
+    }
+    pop();
+    */
+  
+}
