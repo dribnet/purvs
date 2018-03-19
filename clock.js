@@ -1,6 +1,7 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -17,7 +18,7 @@ function draw_clock(obj) {
     let millis = obj.millis;
     let seconds_until_alarm = obj.seconds_until_alarm;
 
-    let hourValue   = map(hours, 0, 23, 0, 360);
+    let hourValue   = map(hours, 0, 11, 0, 360);
     let minuteValue = map(minutes, 0, 59, 0, 360);
     let secondValue = map(seconds, 0, 59, 0, 360);
     let millisValue = map(millis, 0, 1000, 0, 360);
@@ -31,14 +32,10 @@ function draw_clock(obj) {
       //  else{
          //   let redness = map(seconds_until_alarm, 0, 20, 0, 255);
        // }
-    //}
-
-    //let f = sin (frameCount/60*TWO_PI);
-    //let f2 = sin (secondValue);
     
-    let e = map(sin(frameCount/30), -1, 1, 30, 180);
-    let r = map(sin(frameCount/60), -1, 1, 30, 200);
-    let p = map(sin(frameCount/120), -1, 1, 30, 220);
+    let e = map(sin(frameCount/30), -1, 1, 30, 120);
+    let r = map(sin(frameCount/60), -1, 1, 30, 160);
+    let p = map(sin(frameCount/120), -1, 1, 30, 200);
     let d = map(sin(frameCount/240), -1, 1, 30, 240);
 
     let e2 = map(cos(frameCount/30), -1, 1, 20, 120)
@@ -46,10 +43,12 @@ function draw_clock(obj) {
     let p2 = map(cos(frameCount/120), -1, 1, 60, 160);
     let d2 = map(cos(frameCount/240), -1, 1, 80, 180);
 
-    let c = map(sin(frameCount/30), -1, 1, 185, 205);
-    let c2 = map(sin(frameCount/60), -1, 1, 205, 205);
-    let c3 = map(sin(frameCount/120), -1, 1, 200, 220);
-    let c4 = map(sin(frameCount/240), -1, 1, 165, 185);    
+    let c = map(cos(frameCount/30), -1, 1, 0, 255);
+    let c2 = map(sin(frameCount/60), -1, 1, 0, 255);
+    let c3 = map(cos(frameCount/120), -1, 1, 0, 255);
+    let c4 = map(sin(frameCount/240), -1, 1, 0, 255);
+    
+    let a = map(sin(frameCount/30), -1, 1, 0, 1.25);
 
     background (220, 140, 160);
     print(secondValue);
@@ -62,56 +61,69 @@ function draw_clock(obj) {
     translate (width/2, height/2);
     stroke (255);
     noFill();
-    
-    fill (20, 0, c, 140);
+    fill (c, 248, 246, 140);
     noStroke ();
     push ();
+    if(seconds_until_alarm < 0){
+    scale (a);
+    }
     rotate (millisValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, -200);
-    vertex (-e2, -e);
+    vertex(0, -120);
+    vertex (e2, -e);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
     
-    fill (180, 0, c2, 140);
+    fill (c2, 206, 248, 140);
     noStroke ();
     push ();
+    if(seconds_until_alarm < 0){
+    scale (a);
+    }
     rotate (secondValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, -220);
+    vertex(0, -160);
     vertex (r2, -r);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
     
-    fill (0, c3, 245, 140);
+    fill (c3, 220, 225, 140);
     noStroke ();
     push ();
+    if(seconds_until_alarm < 0){
+    scale (a);
+    }
     rotate (minuteValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, -240);
+    vertex(0, -200);
     vertex (p2, -p);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
     
-    fill (0, 240, c4, 140);
+    fill (c4, 240, 225, 140);
     noStroke ();
     push ();
+    if(seconds_until_alarm < 0){
+    scale (a);
+    }
     rotate (hourValue/60);
     beginShape();
     vertex(0, 0);
-    vertex(0, 260);
-    vertex (p2, d);
+    vertex(0, -240);
+    vertex (p2, -d);
     vertex(0, 0);
     endShape(CLOSE);
     pop ();
 
 }
+
+
     
     //fill(128,100,100); // dark grey
 
