@@ -27,7 +27,7 @@ function preload()
 	while(ii < imageCount)
 	{
 		// imagesi[ii]=loadImage("frame"+(ii+1)+".png");
-		imagesi[ii]=loadImage("z_frame1.png");
+		imagesi[ii]=loadImage("sun.png");
 		ii =  ii + 1;
 	 }
 }
