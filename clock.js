@@ -1,41 +1,53 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */ 
-function draw_clock(obj) {
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
+let X, Y, X1, Y1, X2, Y2, XH, YH, XM, YM, XS, YS;
+ X = 0;
+ Y = 0;
+ X1 = 0;
+ Y1 = 0;
+ X2 = 0;
+ Y2 = 0;
+ XH = 0;
+ YH = 0;
+ XM = 0;
+ YM = 0;
+ XS = 0;
+ YS = 0;
 
+function draw_clock(obj) {
 
 let hr = obj.hours;
 let mn = obj.minutes;
 let sc = obj.seconds;
-let ml = obj.millis;
-let mx = mouseX;
-let my = mouseY;
-let mbg = map(mouseY, 0, 960, 50, 200);
+let ml = obj.millis;  
+let bg = map(mouseY, 0, 500,0, 200);
 
-// let x;
-// let y;
-// let easing = 0.05;
+background(50, bg, bg, 200);
+fill(250, 250, 250, 100);
 
-background(mbg, mbg, mbg);
-
-fill(255);
-textSize(75);
+textSize(90);
 textAlign(CENTER);
-text(hr, mx, my);
-text(mn, mx, my);
-text(sc, mx, my);
+text(hr, XH, YH);
+text(":", X1, Y1)
+text(mn, XM, YM);
+text(":", X2, Y2)
+text(sc, XS, YS);
 
-// let dx = mouseX - x;
-// x+= dx * easing;
-// fill(255);
-// ellipse(x, y, 66, 66);
+XH = XH+ (mouseX - XH)/5.0;
+YH = YH+ (mouseY - YH)/5.0;
+
+X1 = X1+ (mouseX - X1)/15.0;
+Y1 = Y1+ (mouseY - Y1)/15.0;
+
+XM = XM+ (mouseX - XM)/25.0;
+YM = YM+ (mouseY - YM)/25.0;
+
+X2 = X2+ (mouseX - X2)/40.0;
+Y2 = Y2+ (mouseY - Y2)/40.0;
+
+XS = XS+ (mouseX - XS)/55.0;
+YS = YS+ (mouseY - YS)/55.0;
+
+
 }
 
