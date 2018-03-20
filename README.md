@@ -1,7 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### Geometric Clock Progress
+### Geometric Clock Final
+I have created an abstract, geometric clock constructed out of shifting geometry. The shape and colour transform at variations of speed depending on whether that certain geometric shape represents the millisecond, second, minute or hour. The size of each geometry also represents the time, with hour having the longest point, and millisecond having the shortest.
 
-I have added an alarm function to my clock where the geometry pulses in and out once the alarm triggers. I have also refined some of my code so that the division between hours, minutes, seconds, and milliseconds is more clear in terms of both timing and size. I have also worked on the colours of my geometries, they now shift and change in sync with the shapes.
+These are all subtle cues , as the clock is not designed to be easy to read, the intention to intrigue the viewer to study the shifting shapes and as they spend more time looking at the clock the time becomes clearer.
 
-TESTING FROM STORAGE
+For my alarm function I wanted to keep it abstract and implement something that fit well with my concept of a geomteric clock. So I designed the alarm function to scale each geometry in and out rapidly once the alarm is triggered. I was happy with this and felt it fit well with the rest of my clock design.
