@@ -163,3 +163,16 @@ function draw_clock(obj) {
   textSize(25);
   text("VIII", -10, -180);
 }
+
+
+// do not alter or remove this function
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
+
+
+}
