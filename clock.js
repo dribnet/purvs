@@ -8,6 +8,10 @@
  var posX = 2; 
  var posY = 2.5;
  var posYTest = 1.8;
+ var MinuteMath = false;
+ var m = 0
+ var SecondMath = false;
+ var s = 0
 
  function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -41,6 +45,14 @@
     	}
     }
     fill(0);
+
+    textSize(16);
+    text('minutes ' + minutes, 10, 30);
+
+    textSize(16);
+    text('seconds ' + seconds, 10, 60);
+
+
     draw_Colon();   
     draw_Time(seconds,minutes,hours);
     draw_Alarm(obj.seconds_until_alarm);
@@ -64,7 +76,7 @@
     if(seconds_until_alarm==0){
       fill(0);
       rect(0,0,BS,BS);
-      BS = BS + 0.025
+      BS = BS + 0.01
     }
   }
 
@@ -81,20 +93,46 @@
       tenSeconds = seconds.toString()[0];
       draw_number(tenSeconds,5);
     }
-    if(minutes<10){
-     var singleMinutes = minutes.toString()[0];
-     draw_number(singleMinutes,3);
-     draw_number(0,4);
+      if(m!=minutes){
+        MinuteMath= false;
+        m = minutes;  
+      }
+      if (MinuteMath==false){
+        MinuteMath = true;
+        var singleMinutes = minutes.toString()[0];
+        NegNo = getRandomInt(1,minutes);
+        Num = minutes - NegNo;
+      }
+      
+      var numMinutes = Num.toString()[0];
+      var numMinutes2 = Num.toString()[1];
+      if (Num<10){
+        draw_number(numMinutes,4);
+        draw_number(0,3);
+      } else {
+        draw_number(numMinutes,3);
+        draw_number(numMinutes2,4);
+      }
+      draw_Plus(2);
+      var negMinutes = NegNo.toString()[0];
+      var negMinutes2 = NegNo.toString()[1];
+      if(NegNo<10){
+        draw_number(negMinutes,1);
+        draw_number(0,0);
+      }else{
+        draw_number(negMinutes,0);
+        draw_number(negMinutes2,1);
+      }
     }
-    else{
-     var tenMinutes = minutes.toString()[0];
-     draw_number(tenMinutes,3);
-     var singleMinutes = minutes.toString()[1];
-     draw_number(singleMinutes,4);
-   }
- }
 
- function draw_number(time,pos){
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+function draw_number(time,pos){
   if(time==1){
     draw_One(pos)
   }
@@ -171,50 +209,50 @@ function myPosition(space){
   }
 
   function draw_Plus(space){
-  let posNo = myPosition(space);
-  let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posY;
-  
-  rect(xRel+BS,yRel+BS,BS,BS*5);
-  rect(xRel-BS,yRel+BS*3,BS*5,BS);
+    let posNo = myPosition(space);
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel+BS,yRel+BS,BS,BS*5);
+    rect(xRel-BS,yRel+BS*3,BS*5,BS);
 
   }
 
   function draw_Minus(space){
-  let posNo = myPosition(space);
-  let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posY;
-  
-  rect(xRel-BS,yRel+BS*3,BS*5,BS);
+    let posNo = myPosition(space);
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel-BS,yRel+BS*3,BS*5,BS);
 
   }
 
   function draw_Multiply(space){
-  let posNo = myPosition(space);
-  let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posY;
+    let posNo = myPosition(space);
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
 
-  let loopNo = 5
+    let loopNo = 5
 
-  for(i=0; i < loopNo; i++){
-    j=i+1;
-    rect(xRel+(BS*i)-BS, yRel+(BS*loopNo)-(BS*j)+BS, BS, BS);
-  }
-  for(i=0; i < loopNo; i++){
-    j=i;
-    rect(xRel+(BS*3)-(BS*i),yRel+(BS*5)-(BS*j), BS, BS);
-  }
+    for(i=0; i < loopNo; i++){
+      j=i+1;
+      rect(xRel+(BS*i)-BS, yRel+(BS*loopNo)-(BS*j)+BS, BS, BS);
+    }
+    for(i=0; i < loopNo; i++){
+      j=i;
+      rect(xRel+(BS*3)-(BS*i),yRel+(BS*5)-(BS*j), BS, BS);
+    }
 
   }
 
   function draw_Division(space){
-  let posNo = myPosition(space);
-  let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posY;
-  
-  rect(xRel-BS,yRel+BS*3,BS*5,BS);
-  rect(xRel+BS,yRel+BS,BS,BS);
-  rect(xRel+BS,yRel+BS*5,BS,BS);
+    let posNo = myPosition(space);
+    let xRel = CANVAS_WIDTH/posX+posNo;
+    let yRel = CANVAS_HEIGHT/posY;
+
+    rect(xRel-BS,yRel+BS*3,BS*5,BS);
+    rect(xRel+BS,yRel+BS,BS,BS);
+    rect(xRel+BS,yRel+BS*5,BS,BS);
 
   }
 
