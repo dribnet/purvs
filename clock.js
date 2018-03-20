@@ -5,7 +5,7 @@ const CANVAS_HEIGHT = 500;
 var startX = 0;
 var startY = 250;
 var finishX = 960;
-var finishY = 0;
+var alarmCol = "#DB7093";
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -21,59 +21,80 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(r,g,b);
+    let seconds_until_alarm = obj.seconds_until_alarm;
 
     var r = 0;
     var g = 0;
     var b = 50;
 
-    var ballHour = map(hours,0,960,0,23); 
-    var ballMin = map(minutes,0,960,0,59); 
-    var ballSec = map(seconds,0,590,960,); 
-    var ballMil = map(millis,0,960,0,1000); 
-
-    r = map(startY,0,960,0,255); //changes blue on left to red on right
 
 
-    fill(255);
+    for(let i = 0; i<5;i++){
 
-
-    for(var i = 0; i<finishX;i++){
         background(r,g,b);
-        //this is for the hours
-        fill(255);
-        rect(0,237,CANVAS_WIDTH,25);
-        ellipse(hours,startY,50,50);
-        fill(0);
-        text(hours,hours-5,startY+5);
+        noStroke();
+        hourLoci = map(hours,0,23,25,CANVAS_WIDTH-25);   
+        minLoci = map(minutes,0,59,25,CANVAS_WIDTH-25);   
+        secLoci = map(seconds,0,59,25,CANVAS_WIDTH-25);  
+        milLoci = map(millis,0,1000,25,CANVAS_WIDTH-25);    
+        r = map(hourLoci,0,960,255,0); //changes from red to blue (day/night)
 
-
-        //this if for the minutes
-
-        fill(255);
-        rect(0,300,CANVAS_WIDTH,25);
-        ellipse(minutes,startY+63,50,50);
-        fill(0);
-        text(minutes,minutes-5,startY+67);
+        if(seconds == 59){seconds_until_alarm = 0;}
+        if(secLoci == minLoci){background(50);}
+        if(seconds_until_alarm == 0){ background(alarmCol);}
+    //note these are ordered like this on purpose to prevent overlapping issues
 
         //seconds
         fill(255);
-        rect(0,367,CANVAS_WIDTH,25);
-        ellipse(seconds,startY+126,50,50);
+        //rect(secLoci-12,startY+126,25,CANVAS_HEIGHT);
+        rect(0,startY+112,CANVAS_WIDTH,25);
+        rect(secLoci-12,0,25,startY+132);
+        ellipse(secLoci,startY+126,50,50);
         fill(0);
-        text(seconds,seconds-5,startY+134);
+        text(seconds,secLoci-7,startY+132);
 
+           //minutes
+        fill(255);
+       // rect(minLoci-12,startY+63,25,CANVAS_HEIGHT);
+        rect(0,startY+50,CANVAS_WIDTH,25);
+        rect(minLoci-12,0,25,startY+69);
+        ellipse(minLoci,startY+63,50,50);
+        fill(0);
+        text(minutes,minLoci-7,startY+69);
 
+        //hours
+        fill(255);
+        rect(0,237,CANVAS_WIDTH,25);
+        rect(hourLoci-12,0,25,startY);
+        //rect(hourLoci-12,startY,25,CANVAS_HEIGHT);
+        ellipse(hourLoci,startY,50,50);
+        fill(0);
+        text(hours,hourLoci-6,startY+5);
 
+       
+        //millis
+        fill(255);
+        //rect(milLoci-12,startY+200,25,CANVAS_HEIGHT);
+        rect(0,startY+175,CANVAS_WIDTH,25);
+        //rect(milLoci-12,0,25,CANVAS_HEIGHT);
+        ellipse(milLoci,startY+190,50,50);
+        fill(0);
+        text(millis,milLoci-7,startY+195);
 
-        fill(128,100,100); // dark grey
+        fill(255); 
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
-
-        if(startX>CANVAS_WIDTH){startX = 0;startY = 250;}
-        else{startX = startX +0.001;}
+    text("Alarm: " + seconds_until_alarm, 10, 102);
+        
     }
+
+}
+
+function backgroundChange(){
+
+ 
+
 
 }
