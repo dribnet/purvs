@@ -7,6 +7,7 @@ var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
 
 function setup () {
+  pixelDensity(1);
   angleMode(DEGREES);
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);

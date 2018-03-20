@@ -2,11 +2,13 @@ var movie;
 var x = 0;
 var y = 0;
 var img;
+var video//, video_slice
 
 function setup(){
+  //imageMode(CENTER)
   createCanvas(960, 500);
   img = createImage(960, 500);
-  pixelDensity(3);
+  pixelDensity(1);
   movie = createVideo('test.mp4')
   movie.size(320, 500);
   movie.play();
@@ -26,5 +28,7 @@ function draw() {
     x=0;
     y += h/4;
   }
+
   image(img, 0, 0);
+
 }
