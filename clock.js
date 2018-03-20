@@ -18,15 +18,12 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(204);
-
-    background(0); //  beige
-    fill(128,100,100); // dark grey
-    textSize(25);
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text( millis, 10, 82);
+    let alarm = obj.seconds_until_alarm;
+  
+ background(0); //  black 
+ 
+    
+      
 
     let hourBarWidth   = map(hours, 0, 23, 0, width);
     let minuteBarWidth = map(minutes, 0, 59, 0, width);
@@ -34,7 +31,7 @@ function draw_clock(obj) {
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 
 
-
+//hour
  noStroke();
   for (var i = 0; i < 100; i++) {
     fill(hourBarWidth % 255,100,155);
@@ -54,7 +51,7 @@ function draw_clock(obj) {
       10);
   }
  
-
+//min
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(minuteBarWidth % 255,100,155);
@@ -75,7 +72,7 @@ function draw_clock(obj) {
       10);
   }
  
-
+//seconds
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(secondBarWidth % 255,100,155);
@@ -97,7 +94,7 @@ function draw_clock(obj) {
   }
  
 
-    
+    ////mill
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(millisBarWidth % 255,100,155);
@@ -109,6 +106,7 @@ function draw_clock(obj) {
 
 
   }
+  
     noStroke();
   for (var i = 0; i < 100; i++) {
     fill(millisBarWidth % 255,100,155);
@@ -119,7 +117,144 @@ function draw_clock(obj) {
       10);
   }
 
- 
+ fill(128,100,100, 150); // dark grey
+    textSize(20);
+    text( "Hours:  " + hours, 10, 22);
+    text("Minutes:  " + minutes, 10, 42);
+    text( "Seconds:  " + seconds, 10, 62);
+    text( "Millis:  " + millis, 10, 82);
+
+
+//ALARM 
+
+if (alarm == 0) {
+
+  var xwidth = map(millis, 0,1000,10,20);
+    noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(millisBarWidth % 251,255,0);
+    ellipse(
+      750+(-sin(millisBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      xwidth,
+      xwidth);
+  }
+
+
+if (alarm == 0) {
+
+  var xwidth = map(millis, 0,1000,10,20);
+     noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(millisBarWidth % 251,255,0);
+    ellipse(
+      700+(sin(millisBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      xwidth,
+      xwidth);
+  }
+
+if (alarm == 0) {
+
+  var ywidth = map(seconds, 0,59,20,20);
+noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(secondBarWidth % 251,255,0);
+    ellipse(
+      550+(sin(secondBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      ywidth,
+      ywidth);
+  }
+
+if (alarm == 0) {
+
+  var ywidth = map(seconds, 0,59,20,20);
+ noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(secondBarWidth% 251,255,0);
+    ellipse(
+      600+(-sin(secondBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      ywidth,
+      ywidth);
+  }
+
+if (alarm == 0) {
+
+  var zwidth = map(minutes, 0,59,20,20);
+noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(minuteBarWidth % 251,255,0);
+    ellipse(
+      450+(-sin(minuteBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      zwidth,
+      zwidth);
+  }
+
+
+if (alarm == 0) {
+
+  var zwidth = map(minutes, 0,59,20,20);
+noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(minuteBarWidth % 251,255,0);
+    ellipse(
+      400+(sin(minuteBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      zwidth,
+      zwidth);
+  }
+
+if (alarm == 0) {
+
+  var awidth = map(hours, 0,23,20,20);
+  noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(hourBarWidth % 251,255,0);
+    ellipse(
+      250+(sin(hourBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      awidth,
+      awidth);
+  }
+
+  if (alarm == 0) {
+
+  var awidth = map(hours, 0,23,20,20);
+  noStroke();
+  for (var i = 0; i < 100; i++) {
+    fill(hourBarWidth % 251,255,0);
+    ellipse(
+      300+(-sin(hourBarWidth/(i+10))*(i+0)),
+      -250+(i*20),
+      awidth,
+      awidth);
+  }
+
+  }
+
+
+}
+
+
+  }
+
+}
+
+}
+
+}
+
+
+
+
+
+  }
+
+}
+
 
 
     
