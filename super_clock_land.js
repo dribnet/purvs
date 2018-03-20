@@ -9,10 +9,6 @@ class SuperClockLand {
 	//        > 0 --> the number of seconds until alarm should go off
 
 	constructor() {
-		//print(pixelDensity());
-		//print(displayDensity());
-
-		//pixelDensity(1);    //this fixes values on the second canvas being waaay off on hiDPI screens.
 		noSmooth();
 
 		//helper variables
@@ -59,6 +55,12 @@ class SuperClockLand {
 		this.currentMilli   = 0;
 		this.alarmState     = -1;
 
+		//array to hold the terrain pieces
+		this.terrain = [];
+		//this.terrain.push(new TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight));
+		this.terrain.push(new TerrainLine(1, 3, 10, -45, 0, 1, 45, 0, 1));
+		this.terrain.push(new TerrainLine(1, 3, 10, 0, -45, 1, 0, 45, 1));
+
 		//array to hold the active particles
 		this.particles = [];
 
@@ -67,13 +69,13 @@ class SuperClockLand {
 		this.display.pixelDensity(1);
 		this.display.background(0x00);
 
-		this.displayPalettes = [];
+		this.tilePalettes = [];
 		for (let i = 0; i < 24; i++) {
 			let x = [];
 			for (let j = 0; j < 8; j++) {
 				x.push(0);
 			}
-			this.displayPalettes.push(x);
+			this.tilePalettes.push(x);
 		}
 
 		this.initialDraw();
@@ -87,14 +89,25 @@ class SuperClockLand {
 		this.alarmState = alarm;
 
 		//zero out the tile palette arrays
-		this.displayPalettes = [];
+		this.tilePalettes = [];
 		for (let i = 0; i < 24; i++) {
 			let x = [];
 			for (let j = 0; j < 8; j++) {
 				x.push(2);
 			}
-			this.displayPalettes.push(x);
+			this.tilePalettes.push(x);
 		}
+		//set terrain component positions
+		for (let i = 0, l = this.terrain.length; i < l; i++) {
+			this.terrain[i].rotatedStartPos.set(this.terrain[i].startPos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
+			this.terrain[i].rotatedEndPos.set(this.terrain[i].endPos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
+		}
+		//order terrain components for drawing
+		function terrainDepth(terrainA, terrainB) {
+			return terrainA.rotatedStartPos.y < terrainB.rotatedStartPos.y ? -1 : terrainA.rotatedStartPos.y === terrainB.rotatedStartPos.y ? 0 : 1;
+		}
+		this.terrain.sort(terrainDepth);
+
 
 
 		//update particles
@@ -148,6 +161,26 @@ class SuperClockLand {
 		d.fill(0xBB);
 		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
 
+		//terrain drawing
+		//terrain outline drawing
+		for (let i = 0, l = this.terrain.length; i < l; i++) {
+			let t = this.terrain[i];
+			d.stroke(0x00);
+			d.strokeWeight(t.thickness+2);
+			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3),
+				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3));
+		}
+		//terrain interior drawing
+		for (let i = 0, l = this.terrain.length; i < l; i++) {
+			let t = this.terrain[i];
+			d.stroke(t.shade*0x55);
+			d.strokeWeight(t.thickness);
+			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3),
+				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3));
+		}
+		d.noStroke();
+
+
 		//placeholder moving ellipse
 		let eX = floor(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4);
 		let eY = floor(this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3);
@@ -164,11 +197,9 @@ class SuperClockLand {
 
 		for (let i = -1; i <= 1; i++) {
 			for (let j = -1; j <= 1; j++) {
-				this.displayPalettes[eX+i][eY+j] = floor(frameCount/5)%5;
+				this.tilePalettes[eX+i][eY+j] = floor(frameCount/5)%5;
 			}
 		}
-
-
 
 		//water nonsense
 		d.fill(0x88, 0x88, 0xFF);
@@ -197,7 +228,7 @@ class SuperClockLand {
 		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
 			for (let y = 0; y < 8; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
 				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
-				let tilePal = this.alarmState !== 0 ? this.displayPalettes[x][y] : floor(frameCount/15)%4;
+				let tilePal = this.alarmState !== 0 ? this.tilePalettes[x][y] : floor(frameCount/15)%4;
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
@@ -206,7 +237,7 @@ class SuperClockLand {
 							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12]);
 							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+1]);
 							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+2]);
-						} else if (p < 0xBB) {
+						} else if (p < 0xAA) {
 							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+3]);
 							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+4]);
 							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+5]);
@@ -253,6 +284,9 @@ class TerrainLine {
 		this.thickness = thickness;
 		this.palette = palette;
 		this.shade = shade;
+
+		this.rotatedStartPos = this.startPos.copy();
+		this.rotatedEndPos = this.endPos.copy();
 	}
 
 }
