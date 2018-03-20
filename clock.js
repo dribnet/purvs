@@ -7,6 +7,7 @@
  var BS = 10;
  var posX = 2; 
  var posY = 2.5;
+ var posYTest = 1.8;
 
  function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -40,9 +41,14 @@
     	}
     }
     fill(0);
-    draw_Colon();    
+    draw_Colon();
+    draw_Plus(0);
+    draw_Minus(1);
+    draw_Multiply(2);
+    draw_Division(3);    
     draw_Time(seconds,minutes,hours);
     draw_Alarm(obj.seconds_until_alarm);
+    
   }
 
   function draw_Alarm(seconds_until_alarm){
@@ -145,6 +151,54 @@ function myPosition(space){
       //MyPos = 0;
     }
     return(MyPos);
+  }
+
+  function draw_Plus(space){
+  let posNo = myPosition(space);
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posYTest;
+  
+  rect(xRel+BS,yRel+BS,BS,BS*5);
+  rect(xRel-BS,yRel+BS*3,BS*5,BS);
+
+  }
+
+  function draw_Minus(space){
+  let posNo = myPosition(space);
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posYTest;
+  
+  rect(xRel-BS,yRel+BS*3,BS*5,BS);
+
+  }
+
+  function draw_Multiply(space){
+  let posNo = myPosition(space);
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posYTest;
+
+  let loopNo = 5
+
+  for(i=0; i < loopNo; i++){
+    j=i+1;
+    rect(xRel+(BS*i)-BS, yRel+(BS*loopNo)-(BS*j)+BS, BS, BS);
+  }
+  for(i=0; i < loopNo; i++){
+    j=i;
+    rect(xRel+(BS*3)-(BS*i),yRel+(BS*5)-(BS*j), BS, BS);
+  }
+
+  }
+
+  function draw_Division(space){
+  let posNo = myPosition(space);
+  let xRel = CANVAS_WIDTH/posX+posNo;
+  let yRel = CANVAS_HEIGHT/posYTest;
+  
+  rect(xRel-BS,yRel+BS*3,BS*5,BS);
+  rect(xRel+BS,yRel+BS,BS,BS);
+  rect(xRel+BS,yRel+BS*5,BS,BS);
+
   }
 
   function draw_Colon(space){
