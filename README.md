@@ -1,4 +1,4 @@
 ## PS1 MDDN 242 2018
 
-### Start of my Final clock
-This is the start of the clock im going to take through to submission. The idea i have is that i want the clock to be an interactive bit of code. I'm going to create a following attitude to the text so its follows the mouse and the speed is determined by the time, so the seconds will quickly follow the mouse compared to the hour to follow not as quick. I want the text to over lap and stack on top of one of another, making it difficult to read, however when you move the mouse it becomes more clearer to read the time. This takes inspiration as you don't always need to know the time, and often only check the time when needed. So i thought this idea links to this reality, so you only interact with the clock when needed to read the time. As what my code is doing at this point is simply being drawed on the mouseX and mouseY. Im going to further get a following attitude next. I tried to get this folowing ease motion in class but wasn't successful.
+### Final Clock Progress
+This is the code i got the clock to work, as the numbers nicely follow the mouse around the screen, and when mouse isnt moving they stack on top one an another making it hard to read the time.
