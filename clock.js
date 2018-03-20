@@ -362,6 +362,7 @@ function draw_clock(obj) {
       if(seconds>60){
   lcol = color(255);
     rcol =color(255,105,180);
+    
          
       }
 
@@ -374,8 +375,11 @@ function draw_clock(obj) {
   inrightpill();
   inleftpill();
 
-  textSize(80);
+  textSize(50);
+  pixelfont = loadFont("Pixeled.ttf");
+  textFont("Pixeled");
   fill(0,80);
+
   text(hours + ' : ' +minutes,250,270);
   // doto();
       
