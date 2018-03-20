@@ -29,6 +29,7 @@ function draw_clock(obj) {
 	draw_led_hour();
 	draw_led_sec();
 
+	//Text display of time vs binary and alarm status.
 	fill(255);
 	translate(400, 400);
 	text("Hours: " + binary_hours + "  Hour: " + hours ,20, 22); 
@@ -38,7 +39,7 @@ function draw_clock(obj) {
 
 //Draws and decides if an LED is ON or OFF, depending on each binary bit.
 function draw_led_sec() {
-  for(i=0; i<=5; i++) {
+  for(let i=0; i<=5; i++) {
     var led_state = binary_seconds.charAt(i);
     let pos_x = 180+(i*95);
     if (led_state == "1") {
@@ -81,6 +82,7 @@ function alarm_check() {
 	noStroke();
 	//TODO Map() to rectangle length
 	fill(255, 255, 255, 140);
+//	let rect_length = map(alarm, );
 	rect(179, 55, 565, 20);
 	rect(179, 410, 565, 20);
 	}
@@ -91,7 +93,6 @@ function alarm_check() {
 	rect(91, 13, 754, 468);
         }
 }
-
 
 
 }
@@ -116,6 +117,7 @@ function ToBinary(timeUnit){
 	return n;
 }
 
+//Draws the LEDs image and position. the 4 should be combined to one function.
 function draw_red_led(x, y){
 	image(red_led, x, y);
 }
