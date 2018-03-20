@@ -9,14 +9,16 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Made the ball use the milliseconds for its cosine wave
++ Made the palette swapping pay attention to the tile palettes
++ Added some tile-colours around the test-orb
 
 #### Current Issues:
++ Smaller circular shapes really break the illusion but that's probably unavoidable
 + Not really a clock yet
 
 #### To Do:
 + Start actually implementing the scene
-+ Nail down the colours + implement tile palettes, which are currently not respected by palette swapping
++ Nail down the colours
 + Implement z-ordering for scene objects
 
 #### Notes:

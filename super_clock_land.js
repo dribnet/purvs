@@ -41,6 +41,9 @@ class SuperClockLand {
 				0x5A, 0x8C, 0xD6,
 				0xC6, 0xD6, 0xF7,
 				0xFF, 0xFF, 0xFF
+				//yellow
+				//hex values here
+
 		];
 
 		//values to get at the time with
@@ -76,6 +79,16 @@ class SuperClockLand {
 		this.currentSecond = second;
 		this.currentMilli = milli;
 		this.alarmState = alarm;
+
+		//zero out the tile palette arrays
+		this.displayPalettes = [];
+		for (let i = 0; i < 24; i++) {
+			let x = [];
+			for (let j = 0; j < 8; j++) {
+				x.push(2);
+			}
+			this.displayPalettes.push(x);
+		}
 
 
 		//update particles
@@ -125,12 +138,27 @@ class SuperClockLand {
 		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
 
 		//placeholder moving ellipse
+		let eX = floor(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4);
+		let eY = floor(this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3);
 		d.fill(0x00);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3, 21.5);
+		d.ellipse(eX, eY, 22);
 		d.fill(0xFF);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3, 20);
+		d.ellipse(eX, eY, 20);
 		d.fill(0xEE);
-		d.ellipse(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4+1, this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 4, 17);
+		d.ellipse(eX+1, eY+1, 17);
+
+
+		//print("pos: "+eX+", "+eY);
+
+		eX = floor(eX/8);
+		eY = floor(eY/8);
+
+		for (let i = -1; i <= 1; i++) {
+			for (let j = -1; j <= 1; j++) {
+				this.displayPalettes[eX+i][eY+j] = floor(frameCount/3)%3;
+			}
+		}
+
 
 
 		//water nonsense
@@ -160,27 +188,27 @@ class SuperClockLand {
 		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
 			for (let y = 0; y < 8; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
 				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
+				let tilePal = this.alarmState !== 0 ? this.displayPalettes[x][y]%3 : floor(frameCount/15)%3;
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
 						let p = d.pixels[pixelAddress];
-						let pal = this.alarmState != 0 ? (x+y+(this.alarmState != -1 ? floor(this.alarmState*this.alarmState*0.5) : 0))%3 : floor(frameCount/15)%3;
 						if (p < 0x55) { //'black'
-							d.pixels[pixelAddress] =    (this.paletteColours[pal*12]);
-							d.pixels[pixelAddress+1] =  (this.paletteColours[pal*12+1]);
-							d.pixels[pixelAddress+2] =  (this.paletteColours[pal*12+2]);
+							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12]);
+							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+1]);
+							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+2]);
 						} else if (p < 0xBB) {
-							d.pixels[pixelAddress] =    (this.paletteColours[pal*12+3]);
-							d.pixels[pixelAddress+1] =  (this.paletteColours[pal*12+4]);
-							d.pixels[pixelAddress+2] =  (this.paletteColours[pal*12+5]);
+							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+3]);
+							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+4]);
+							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+5]);
 						} else if (p < 0xFF) {
-							d.pixels[pixelAddress] =    (this.paletteColours[pal*12+6]);
-							d.pixels[pixelAddress+1] =  (this.paletteColours[pal*12+7]);
-							d.pixels[pixelAddress+2] =  (this.paletteColours[pal*12+8]);
+							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+6]);
+							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+7]);
+							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+8]);
 						} else {
-							d.pixels[pixelAddress] =    (this.paletteColours[pal*12+9]);
-							d.pixels[pixelAddress+1] =  (this.paletteColours[pal*12+10]);
-							d.pixels[pixelAddress+2] =  (this.paletteColours[pal*12+11]);
+							d.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+9]);
+							d.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+10]);
+							d.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+11]);
 						}
 					}
 				}
@@ -199,9 +227,9 @@ class SuperClockLand {
 		// 	this.particles[i].draw();
 		// }
 
-		// fill(0);
-		// stroke(0xFF);
-		//text("FPS: "+round(frameRate()), 10, 20);
+		fill(0);
+		stroke(0xFF);
+		text("FPS: "+round(frameRate()), 10, 20);
 
 	}
 
