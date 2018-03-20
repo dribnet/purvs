@@ -45,52 +45,58 @@ function draw_clock(obj) {
     let pathcircle = map(minutes, 0, 60, -90, 270);
     let roundpath = map(hours, 0, 12, -90, 270);
 
-    //for(i=0; i<60; i++){
-        //let angle = (360/60)*i;
+    fill(194, 213, 212);
+    ellipse(width/2, height/2, 400, 400);
+    noFill();
 
-        //ellipse(width/2 + cos(angle)*200, height/2 + sin(angle)*200, 20, 20);
+    ellipse(width/2, height/2, 240, 240);
+    ellipse(width/2, height/2, 140, 140);
+    ellipse(width/2, height/2, 20, 20);
+
+    //for(i=0; i<12; i++) {
+    //    let angle = (360/12)*i;
+    //
+    //    quad(width/2 + cos(angle)*150, height/2 + sin(angle)*200, width/2, height/2);
     //}
     
+    //for (i = 30; i < 360; i++) {
+        push();
+        translate(width/2, height/2);
+        quad(10, 0, 210, -30,220, 0, 210, 30);
+        pop();
+    //}
+
+
+
     push();
     translate(width/2, height/2);
     rotate(secondRadiusSmooth);
-    fill(col, 180, 200);
-    ellipse(200, 0, 40, 40);
+    fill(180);
+    quad(10, 0, 210, -20,220, 0, 210, 20);
     pop();
 
-    //push();
-    //translate(width/2, height/2);
-    //rotate(secondRadiusSmoother);
-    //fill(180);
-    //ellipse(200, 0, 20, 20);
-    //pop();
-
-    //push();
-    //translate(width/2, height/2);
-    //rotate(secondRadiusSmoothest);
-    //fill(180);
-    //ellipse(200, 0, 20, 20);
-    //pop();
-
+    push();
+    translate(width/2, height/2);
+    rotate(secondRadiusSmooth);
+    pop();
 
     push();
-    fill(colo, 180, 200);
+    fill(180);
     translate(width/2, height/2);
     rotate(pathcircle);
-    ellipse(120, 0, 50, 50);
+    triangle(10, 0, 130, -5, 130, 5);
 	pop();
 
     push();
-    fill(colour, 180, 200);
+    fill(180);
     translate(width/2, height/2);
     rotate(roundpath);
-    ellipse(70, 0, 30, 30);
+    triangle(10, 0, 80, -5, 80, 5);
     pop();
 
-    noFill();
-    ellipse(width/2, height/2, 240, 240);
-    //ellipse(width/2, height/2, 400, 400);
-    ellipse(width/2, height/2, 140, 140);
+
+
+    
 
 
 }
