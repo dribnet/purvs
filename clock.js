@@ -1,6 +1,7 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
+ var s = 0;
  
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -22,10 +23,10 @@ function draw_clock(obj) {
     //console.log(SecToAlarm);
     background(250);
     fill(0)
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
+    //text("Hour: "   + hours, 10, 22);
+    //text("Minute: " + minutes, 10, 42);
+    //text("Second: " + seconds, 10, 62);
+    //text("Millis: " + millis, 10, 82);
     
     
     let r1 = map(seconds, 0, 59, 0.01, 359.99);
@@ -39,12 +40,12 @@ function draw_clock(obj) {
     }
     let r4 = map(millis, 0, 999, 0.01, 359.99);
     noStroke();
+    translate(width/2, height/2);
+    
     
     
     //hours
     push();
-      rectMode(CENTER);
-      translate(width/4, height/2);
       fill(105,200,255);
       if (hours>12){
         fill(180);
@@ -58,16 +59,14 @@ function draw_clock(obj) {
         fill(105,200,255);
       }
     }
-      arc(0, 0, 280, 280,-90, r3-90);
+      arc(0, 0, 280+s, 280+s,-90, r3-90);
       fill(250);
-      ellipse(0,0,230,230);
+      ellipse(0,0,230+s,230+s);
     pop();
     
     
     //mins
     push();
-      rectMode(CENTER);
-      translate(width/4, height/2);
       fill(105,200,255);
       if (hours>12){
         fill(180);
@@ -81,16 +80,14 @@ function draw_clock(obj) {
         fill(105,200,255);
       }
     }
-      arc(0, 0, 220, 220,-90, r2-90);
+      arc(0, 0, 220+s, 220+s,-90, r2-90);
       fill(250);
-      ellipse(0,0,170,170);
+      ellipse(0,0,170+s,170+s);
     pop();
     
     
     //secs
     push();
-      rectMode(CENTER);
-      translate(width/4, height/2);
       fill(105,200,255);
       if (hours>12){
         fill(180);
@@ -104,16 +101,14 @@ function draw_clock(obj) {
         fill(105,200,255);
       }
     }
-      arc(0, 0, 160, 160,-90, r1-90);
+      arc(0, 0, 160+s, 160+s,-90, r1-90);
       fill(250);
-      ellipse(0,0,110,110);
+      ellipse(0,0,110+s,110+s);
     pop();
     
     
     //millis
     push();
-      rectMode(CENTER);
-      translate(width/4, height/2);
       fill(105,200,255);
       if (hours>12){
         fill(180);
@@ -127,13 +122,10 @@ function draw_clock(obj) {
             fill(105,200,255);
           }
       }
-      arc(0, 0, 100, 100,-90,r4-90);
+      arc(0, 0, 100+s, 100+s,-90,r4-90);
       fill(250);
-      ellipse(0,0,50,50);
+      ellipse(0,0,50+s,50+s);
     pop();
 
-}
 
-function mouseClicked(){
-  
 }
