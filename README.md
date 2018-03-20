@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Digital Clock
+### Diming solar clock
 
-With this clock I wanted to play around and see what I can do. Just experiencing the coding area. 
+With this diming solar clock, it displays the numbers which appears and disappears. Son once a number appears the previous number dims out. 
 
