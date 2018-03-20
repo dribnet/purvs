@@ -1,6 +1,8 @@
-let fade = 255; 
+let starFade = 255;
+let cloudFade = 0;
+
 var starList = [];
-var starLength = 2000;//length of the starList array
+var starLength =2000;//length of the starList array
 var cloudList = [];
 var cloudLength = 5;
 
@@ -12,10 +14,22 @@ var cloudImg;
 
 let spin = 0;
 
+var imagesi = [];
+var ii = 0;
+var imageCount = 13;
+var zi = 0;
+  
 function preload() 
 {
-  sunRaysImg = loadImage('sun.png');
-  cloudImg = loadImage('cloud.png');
+	cloudImg = loadImage("cloud.png");
+	sunRaysImg = loadImage('sun.png');
+  
+	while(ii < imageCount)
+	{
+		// imagesi[ii]=loadImage("frame"+(ii+1)+".png");
+		imagesi[ii]=loadImage("z_frame1.png");
+		ii =  ii + 1;
+	 }
 }
 
 function draw_clock(obj) 
@@ -48,8 +62,8 @@ function draw_clock(obj)
 	let s = a + 90;//where the sun is on the circle
 	let m = a + 270;//where the moon is on the circle
   	let rad = 200;//radius of the circle
-	let x = width / 2 + cos(m) * rad;
-	let y = height / 2 + sin(m) * rad;
+	let moonX = width / 2 + cos(m) * rad;
+	let moonY = height / 2 + sin(m) * rad;
 
     let hourTime   = map(hours, 0, 23, 0, width);
     let minuteTime = map(minutes, 0, 60, 0, width);
@@ -59,22 +73,22 @@ function draw_clock(obj)
 	drawBackground(hoursWithFraction, hours, sunrise, day, sunset, night)
 	
 	noStroke();
-	fill(255, fade);
+	fill(255, starFade);
 	
-	if (hours > 6 && hours < 18 && fade > 0)//fade out the stars
+	if (hours > sunrise && hours < 18 && starFade > 0)//fade out the stars
 	{
-		fade = fade - 1;
-		fill(255, fade);
+		starFade = starFade - 1;
+		fill(255, starFade);
 	}
-	else if (hours > 18 && fade < 255)//fade in the stars
+	else if (hours > 18 && starFade < 255)//fade in the stars
 	{
-		fade = fade + 1;
-		fill(255, fade);
+		starFade = starFade + 1;
+		fill(255, starFade);
 	}
 	
 	if (hours < 7 || hours > 19)//reset the fade
 	{
-		fade = 255;
+		starFade = 255;
 	}
 		 
 	if (hours < day || hours >= night)
@@ -82,42 +96,66 @@ function draw_clock(obj)
 		drawStars();
 		
 	}
+
+	tint(255, cloudFade);
 	
-	if (hours > sunrise+1 && hours < night)
-	{	
-		drawClouds(cloudImg );
+	if (hours > sunrise+1 && cloudFade < 255 && hours < sunset)//fade in the clouds
+	{
+		cloudFade = cloudFade + 1;
+		tint(255, cloudFade);
+	}
+	else if (hours => sunset && cloudFade > 0)//fade out the clouds
+	{
+		cloudFade = cloudFade - 1;
+		tint(255, cloudFade);
 	}
 	
-	fill(150);
-	ellipse(x, y, 60, 60);//moon
+	if (hours > day && hours < sunset)//reset the fade
+	{
+		cloudFade = 255;
+	}
 
-	x = width / 2 + cos(s) * rad;
-	y = height / 2 + sin(s) * rad;
-	
-	alarm(x, y, sunRaysImg, alarmSeconds);
+	if (hours <= sunrise+1 || hours >= night)
+	{
+		cloudFade = 0;
+	}
+
+	if (hours > sunrise+1 && hours < night)
+	{	
+		drawClouds(cloudImg);
+	}
+
+	fill(150);
+	ellipse(moonX, moonY, 60, 60);//moon
+
+	let sunX = width / 2 + cos(s) * rad;
+	let sunY = height / 2 + sin(s) * rad;
+
+	tint(255, 255);
+	alarm(sunX, sunY, moonX, moonY, sunRaysImg, alarmSeconds);
 	
 	fill(255, 204, 0);
-	ellipse(x, y, 60, 60);//sun
+	ellipse(sunX, sunY, 60, 60);//sun
 
 	textSize(20);
 	textFont("Palatino");
 	
 	if(hours > 7)
 	{
-		fill(0);
+		fill(0, 150);
 	}
 	if(hours < 8 || hours > 18)
 	{
-		fill(255);
+		fill(255, 150);
 	}
 	
 	if(hours < 10)
 	{
-		text("0"+hours+":"+minutes+":"+seconds, width/2, height/2);
+		text("0"+hours+":"+minutes+":"+seconds, width/2-40, height/2);
 	}
 	else
 	{
-		text(hours+":"+minutes+":"+seconds, width/2, height/2);
+		text(hours+":"+minutes+":"+seconds, width/2-40, height/2);
 	}
 }
 
@@ -186,24 +224,35 @@ function drawBackground(hoursWithFraction, hours, sunrise, day, sunset, night)
 	}
 }
 
-function alarm(x, y, sunRaysImg, alarmSeconds)
-{
+function alarm(sunX, sunY, moonX, moonY, sunRaysImg, alarmSeconds)
+{	
+	imageMode(CENTER);
 	if (alarmSeconds == 0)
 	{
 		fill(255, 234, 30);
 		
 		push();
 			spin = spin + 5;
-			translate(x, y);
+			translate(sunX, sunY);
 			rotate(spin);
-			imageMode(CENTER);
 			image(sunRaysImg, 0, 0);
 		pop();
 	
 	}
 	else if(alarmSeconds > 0)
 	{
-		//background(255);
+		if (zi >= imageCount-1)
+		{
+			zi = 1;
+		}
+		else
+		{
+			zi = zi+1;
+		}
+		push();
+			translate(moonX, moonY);
+			image(imagesi[zi - 1], 0, 0);
+		pop();
 	}
 }
 
@@ -241,7 +290,6 @@ function clouds()
 
 function drawClouds(cloudImg)
 {	
-	fill(255);
 	for (let i = 0; i < cloudLength; i++)
 	{
 		image(cloudImg, cloudList[i].x, cloudList[i].y);
