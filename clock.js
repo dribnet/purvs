@@ -22,16 +22,6 @@ function draw_clock(obj) {
     let minuteValue = map(minutes, 0, 59, 0, 360);
     let secondValue = map(seconds, 0, 59, 0, 360);
     let millisValue = map(millis, 0, 1000, 0, 360);
-
-   // if(seconds_until_alarm < 10){
-        background (255);
-   // }
-   // else if(seconds_until_alarm > 0){
-            //comment
-       // }
-      //  else{
-         //   let redness = map(seconds_until_alarm, 0, 20, 0, 255);
-       // }
     
     let e = map(sin(frameCount/30), -1, 1, 30, 120);
     let r = map(sin(frameCount/60), -1, 1, 30, 160);
@@ -52,11 +42,11 @@ function draw_clock(obj) {
 
     background (220, 140, 160);
     print(secondValue);
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);  
-    text("Seconds Until Alarm: " + seconds_until_alarm, 10, 102);  
+    //text("Hour: "   + hours, 10, 22);
+    //text("Minute: " + minutes, 10, 42);
+    //text("Second: " + seconds, 10, 62);
+    //text("Millis: " + millis, 10, 82);  
+    //text("Seconds Until Alarm: " + seconds_until_alarm, 10, 102);  
     
     translate (width/2, height/2);
     stroke (255);
