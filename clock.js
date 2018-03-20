@@ -34,10 +34,14 @@ function draw_clock(obj) {
   lcol = color(255);
 
 
-  let hours = obj.hours
-  let minutes = obj.minutes
-  let seconds = obj.seconds
-  let millis = obj.millis
+  let hours = obj.hours;
+  let minutes = obj.minutes;
+  let seconds = obj.seconds;
+  let millis = obj.millis;
+
+  let seconds_until_alarm = obj.seconds_until_alarm;
+
+
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
     //    obj.minutes goes from 0-59
@@ -48,20 +52,7 @@ function draw_clock(obj) {
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
 
-  background(255,182,193);
-  
-  scale(1.2);
-  noStroke();
-  leftpill();
-  rightpill();
-  inrightpill();
-  inleftpill();
 
-  textSize(80);
-  fill(0,80);
-  text(hours + ' : ' +minutes,250,270);
-  // doto();
-  
   if (seconds>1){
     push();
     rcol = color(255);
@@ -373,6 +364,20 @@ function draw_clock(obj) {
     rcol =color(255,105,180);
          
       }
+
+  background(255,182,193);
+  
+  scale(1.2);
+  noStroke();
+  leftpill();
+  rightpill();
+  inrightpill();
+  inleftpill();
+
+  textSize(80);
+  fill(0,80);
+  text(hours + ' : ' +minutes,250,270);
+  // doto();
       
 }
 function leftpill(){
