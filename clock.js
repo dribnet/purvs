@@ -15,18 +15,42 @@ let X, Y, X1, Y1, X2, Y2, XH, YH, XM, YM, XS, YS;
  YS = 0;
 
 function draw_clock(obj) {
+angleMode(DEGREES);
 
 let hr = obj.hours;
 let mn = obj.minutes;
 let sc = obj.seconds;
-let ml = obj.millis;  
-let bg = map(mouseY, 0, 500,0, 200);
+let ml = obj.millis; 
+let alarm = obj.seconds_until_alarm; 
 
-background(50, bg, bg, 200);
-fill(250, 250, 250, 100);
+let bg = map(mouseY, 0, 500,50, 200);
+let bg1 = map(mouseY, 0, 500, 100, 200);
+let alarmcolour = map(ml, 0, 999, 100, 200);
+let alarmsize = map(ml, 0, 999, 90, 280);
 
-textSize(90);
+
+let rhr = map(hr, 0, 23, 0, 360);
+let rmn = map(mn, 0, 59, 0, 360);
+let rsc = map(sc, 0, 59, 0, 360);
+print(alarm);
+
+if(alarm == 0){ //what the alarm does when time reached
+	background(alarmcolour, alarmcolour/2, alarmcolour/2, 200);
+	textSize(alarmsize);
+	 }
+// if(alarm > 0){ 
+//  textSize(alarmsize);
+// }
+else{ //alarm not on
+	background(bg1, bg, bg, 200);
+	textSize(90);
+
+}
+
+
+fill(50, 50, 50, 100);
 textAlign(CENTER);
+
 text(hr, XH, YH);
 text(":", X1, Y1)
 text(mn, XM, YM);
@@ -48,6 +72,4 @@ Y2 = Y2+ (mouseY - Y2)/40.0;
 XS = XS+ (mouseX - XS)/55.0;
 YS = YS+ (mouseY - YS)/55.0;
 
-
-}
-
+ }
