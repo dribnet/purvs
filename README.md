@@ -2,4 +2,4 @@
 
 ### Clock 
 
-I have started making my clock and experimenting with 3D. I like how simple it is and find this visually appealing however I am going to start using colour to make it easier to read the clock eg for the change in AM- PM and maybe the colour changes in the hours and minutes etc. 
+This clock has 3 boxes. I am now working on different ways to display my clock in a visually appealing way that best suits my idea and concept. I have added my alarm feature and changed the colours of my clock to match the asthetic of my clock. I like how simple this clock is visually and then when the alarm goes off it goes crazy and changes colours etc. I am going to focus on picking the best visual way to represent my clock now for example with 3 boxes or 4 (which includes the millis). 

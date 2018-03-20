@@ -1,11 +1,7 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
-hourSpinSpeed = 0.01;
-minSpinSpeed = 0.01;
-secSpinSpeed = 0.01;
-milSpinSpeed = 0.01;
-spinSpeed = 0.01;
+spinSpeed = 1;
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -23,13 +19,9 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(230);
+    background(235);
     stroke(255);
     strokeWeight (5);
-
-    if (obj.seconds_until_alarm != 0 ){
-        hourSpinSpeed = 0.01* hours; 
-    }
 
     // let colourHours = map(hours,0,23,0,255);
     // let colourMin = map(minutes,0,59,0,255);
@@ -37,21 +29,31 @@ function draw_clock(obj) {
     // let colourMillis = map(millis, 0 ,1000,0,255); 
 
     //Using 3D so translating to make location act like 2D 
-	translate(-width/2,-height/2 +60);
+	translate(-width/2,-height/2 +80);
 
 	translate (100,150);
 
     if (obj.seconds_until_alarm == 0){
-
+        background (0);
         alarmCheck();
-
+        hourss(millis);
+        minn(millis);
+        sec(millis);
+        //mill(millis);
 
     } 
 
-    hourss(hours);
-    minn(minutes);
-    sec(seconds);
-    mill(millis);
+    if (obj.seconds_until_alarm != 0) {
+        spinSpeed = 1; 
+        hourss(hours);
+        minn(minutes);
+        sec(seconds);
+        //mill(millis);
+
+    
+    }
+
+  
 
 
 
@@ -59,13 +61,13 @@ function draw_clock(obj) {
 
     function hourss (hours){
 
-        let colourHours = map(hours,0,23,0,255);
+        let colourHours = map(hours,0,60,0,255);
         fill(colourHours, 255,196,75);
 
     push(); // BOX 1 
-    translate (80,0);
-    rotateX (hours * spinSpeed);
-    rotateY(hours * spinSpeed);
+    translate (150,0);
+    rotateX (map(hours,0,59,0,360) * spinSpeed);
+    rotateY(map(hours,0,59,0,360) * spinSpeed);
     box(100);
     pop();
 
@@ -78,9 +80,9 @@ function draw_clock(obj) {
         fill(colourMin, 123,224,75);
 
     push(); //box2 
-    translate (280,0);
-    rotateX (minutes * spinSpeed);
-    rotateY(minutes * spinSpeed);
+    translate (380,0);
+    rotateX (map(minutes,0,59,0,360) * spinSpeed);
+    rotateY (map(minutes,0,59,0,360) * spinSpeed);
     box(100);
     pop();
 
@@ -92,28 +94,28 @@ function draw_clock(obj) {
         fill(colourSec,255,0,75);
 
     push(); // BOX 3
-    translate(470,0);
-    rotateX (seconds* spinSpeed);
-    rotateY(seconds * spinSpeed);
+    translate(600,0);
+    rotateX (map(seconds,0,59,0,360) * spinSpeed);
+    rotateY (map(seconds,0,59,0,360) * spinSpeed);
     box(100);
     pop();
 
     }
 
-   function mill (millis){
+    function mill (millis){
 
-    let colourMillis = map(millis, 0 ,1000,0,255); 
-    fill(colourMillis, 86,143,75);
+     let colourMillis = map(millis, 0 ,1000,0,255); 
+     fill(colourMillis, 86,143,75);
 
-    push(); //box4
-    translate (680,0);
-    rotateX (millis * spinSpeed);
-    rotateY(millis * spinSpeed);
-    box(100);
+     push(); //box4
+     translate (680,0);
+     rotateX (map(millis,0,59,0,360) * spinSpeed);
+     rotateY (map(millis,0,59,0,360) * spinSpeed);
+     box(100);
     pop();
 
 
-   }
+    }
 
 
 
@@ -130,7 +132,7 @@ function draw_clock(obj) {
 
 function alarmCheck(){
 
-    spinSpeed = 0.1; 
+    spinSpeed = 5; 
 
 
 
