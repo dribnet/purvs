@@ -2,8 +2,7 @@
 
 ### Solar System Clock
 
-Solar system clock version 2
+Solar system clock version 3
 
-today i changed my code to draw each planet and the sun in the correct order depending on where 
-on their orbits they are and cleaned up the code that was drawing the sun. I also changed some of the look by adding a glow to the sun and making 
-the inner orbit go around the sun.
+I rejigged the orbits a little bit and added a lot of code to order the planets correctly, i also did some work on the alarm
+function making it so it slowly increases the glow of the sun and chnages the background colour to white.

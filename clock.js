@@ -4,6 +4,8 @@ const height = 500;
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
 
+let bg = 0;
+let orbitColour = 255;
 const orbitX = width/2; // center of the orbits
 const orbitY = height/2;
 const orbitWidth = width*0.9; // width and height of the orbits
@@ -11,7 +13,7 @@ const orbitHeight = height*0.55;
 
 
 function draw_clock(obj) {
-	background(0);
+	background(bg);
     // draw your own clock here based on the values of obj:
     let hours = obj.hours;	//    obj.hours goes from 0-23
     let minutes = obj.minutes;	//    obj.minutes goes from 0-59
@@ -21,54 +23,270 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
+
+    // alarm
+    if(obj.seconds_until_alarm>=0) {
+    	bg = 255-map(obj.seconds_until_alarm, 20, 0, 255, 0);
+    	orbitColour = 0+map(obj.seconds_until_alarm, 20, 0, 255, 0);;
+    }
+    else if(obj.seconds_until_alarm<0) {
+    	bg = 0;
+    	orbitColour = 255;
+    }
     
-    // draws the orbits
+    // set the orbit colours
     noFill();
-    stroke(255);
-	ellipse(orbitX, orbitY, orbitWidth, orbitHeight);
-	arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
-	ellipse(orbitX, orbitY, orbitWidth-360, orbitHeight-120);
-	ellipse(orbitX, orbitY, orbitWidth-180, orbitHeight-60);
+    stroke(orbitColour);
 
-	// draws the planets and sun
-	if(obj.hours>12 && obj.minutes>30) {
-		second_planet();
-		hour_planet();
-		minute_planet();
-		sun();
-		noFill();
-		stroke(255);
-		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+	// draws the planets and orbits in the correct order
+	if(obj.hours>13 && obj.hours<22) {
+		if(obj.minutes>35 && obj.minutes<55 && obj.seconds>35 && obj.seconds<55 && obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			
+		}
+		else if(obj.minutes>35 && obj.minutes<55 && obj.seconds>35 && obj.seconds<55) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+		else if(obj.minutes>35 && obj.minutes<55 && obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else if(obj.seconds>35 && obj.seconds<55 && obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else if(obj.minutes>35 && obj.minutes<55) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+		else if(obj.seconds>35 && obj.seconds<55) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+		else if(obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
 	}
-	else if(obj.hours>12) {
-		second_planet();
-		hour_planet();
+	else if(obj.minutes>35 && obj.minutes<55) {
+		if(obj.seconds>35 && obj.seconds<55 && obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else if(obj.seconds>35 && obj.seconds<55) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+		else if(obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			minute_planet();
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+	}
+	else if(obj.seconds>35 && obj.seconds<55) {
+		if(obj.millis>550 && obj.millis<900) {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			milli_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		}
+		else {
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+			second_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
+			sun();
+			arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+			minute_planet();
+			arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
+			hour_planet();
+			arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
+			arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+			milli_planet();
+		}
+	}
+	else if(obj.seconds>35 && obj.seconds<55) {
+		arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+		milli_planet();
+		arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+		arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
 		sun();
-		noFill();
-		stroke(255);
 		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
 		minute_planet();
-	}
-	else if(obj.minutes>30) {
-		minute_planet();
-		sun();
+		arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
 		hour_planet();
+		arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
 		second_planet();
-		noFill();
-		stroke(255);
-		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
+		arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
 	}
+	// all planets front
 	else{
+		arc(orbitX, orbitY, orbitWidth, orbitHeight-90, PI, 0);
+		arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, PI, 0);
+		arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, PI, 0);
+		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, PI, 0);
 		sun();
-		noFill();
-		stroke(255);
 		arc(orbitX, orbitY, orbitWidth-540, orbitHeight-180, 0, PI);
 		minute_planet();
+		arc(orbitX, orbitY, orbitWidth-360, orbitHeight-150, 0, PI);
 		hour_planet();
+		arc(orbitX, orbitY, orbitWidth-180, orbitHeight-120, 0, PI);
 		second_planet();
+		arc(orbitX, orbitY, orbitWidth, orbitHeight-90, 0, PI);
+		milli_planet();
 	}
-
-	milli_planet();
 
 
 	// debugging timers
@@ -78,6 +296,7 @@ function draw_clock(obj) {
 	text("minutes: "+minutes, 20, 40);
 	text("seconds: "+seconds, 20, 50);
 	text("millis: "+millis, 20, 60);
+	text("seconds until alarm"+obj.seconds_until_alarm, 20, 70);
 }
 
 // function to calculate and draw the milliseconds planet 
@@ -86,7 +305,7 @@ function milli_planet(){
 	var angle = (2*Math.PI/1000)*obj.millis;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2);
-	let offsetY = orbitY + sin(angle)*(orbitHeight/2);
+	let offsetY = orbitY + sin(angle)*(orbitHeight/2-45);
 
 	push();
 	translate(offsetX, offsetY);
@@ -103,7 +322,7 @@ function second_planet(){
 	let angle = (2*Math.PI/59)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-90);
-	let offsetY = orbitY + sin(angle)*(orbitHeight/2-30);
+	let offsetY = orbitY + sin(angle)*(orbitHeight/2-60);
 
 	push();
 	translate(offsetX, offsetY);
@@ -131,13 +350,13 @@ function minute_planet(){
 }
 
 // function to calculate and draw the hours planet 
-// in the right position around the orbit
+// in the right position around the orbit 
 function hour_planet(){
 	let smooth = obj.hours + (obj.minutes / 60.0);
 	let angle = (2*Math.PI/23)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-180);
-	let offsetY = orbitY + sin(angle)*(orbitHeight/2-60);
+	let offsetY = orbitY + sin(angle)*(orbitHeight/2-75);
 
 	push();
 	translate(offsetX, offsetY);
@@ -147,7 +366,10 @@ function hour_planet(){
 	pop();
 }
 
+// function to draw the sun
 function sun(){
+	if(obj.seconds_until_alarm<0){
+	push();
 	noStroke();
 	fill(255, 240, 0, 5);
 	for(let i=0; i<9; i++) {
@@ -157,5 +379,21 @@ function sun(){
 	for(let i=0; i<4; i++) {
 		fill(255, 250 - (i*50), 0)
 		ellipse(orbitX, orbitY, 125 - (i*5), 125 - (i*5));
+	}
+	pop();
+	}
+	else if(obj.seconds_until_alarm>=0){
+		push();
+		noStroke();
+		fill(255, 240, 0, 5);
+		for(let i=0; i<20-(obj.seconds_until_alarm*0.5); i++) {
+			ellipse(orbitX, orbitY, 150 + (i*25), 150 + (i*25));
+		}
+	
+		for(let i=0; i<4; i++) {
+			fill(255, 250 - (i*50), 0)
+			ellipse(orbitX, orbitY, 125 - (i*5), 125 - (i*5));
+		}
+		pop();
 	}
 }
