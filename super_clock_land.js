@@ -57,9 +57,19 @@ class SuperClockLand {
 
 		//array to hold the terrain pieces
 		this.terrain = [];
-		//this.terrain.push(new TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight));
-		this.terrain.push(new TerrainLine(1, 3, 10, -45, 0, 1, 45, 0, 1));
-		this.terrain.push(new TerrainLine(1, 3, 10, 0, -45, 1, 0, 45, 1));
+
+		//the scene itself
+		//TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight);
+		this.terrain.push(new TerrainLine(1, 3, 3, -7, 0, 1, 7, 0, 1));
+		this.terrain.push(new TerrainLine(1, 3, 3, 0, -7, 1, 0, 7, 1));
+		let v = createVector(45, 0, 0);
+		for (let i = 0; i < 30; i++) {
+			this.terrain.push(new TerrainLine(floor(random(5)), floor(random(3) + 1), 3, v.x, v.y, v.z, v.x, v.y, v.z + 3));
+			if (i % 3 == 0) {
+				this.terrain.push(new TerrainLine(floor(random(5)), floor(random(3) + 1), 4, v.x * 1.5, v.y * 1.5, -4, v.x * 1.5, v.y * 1.5, 4));
+			}
+			v.rotate(TAU/30);
+		}
 
 		//array to hold the active particles
 		this.particles = [];
@@ -146,60 +156,65 @@ class SuperClockLand {
 
 		//background gradient
 		for (let i = 0; i < 64; i++) {
-			d.fill(0x55 + 0xAA*(i/60));
+			//d.fill(0x55 + 0xAA*(i/60));
+			d.fill(0x55);
 			d.rect(0,i, this.SCREEN_WIDTH, 1);
 		}
 
 		//landmass placeholder
-		d.fill(0x00);
-		d.rect(this.SCREEN_WIDTH/2-51, this.SCREEN_HEIGHT/2-11, 102, 19);
-		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 17);
-
-		d.fill(0x55);
-		d.rect(this.SCREEN_WIDTH/2-50, this.SCREEN_HEIGHT/2-10, 100, 17);
-
-		d.fill(0xBB);
-		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
+		// d.fill(0x00);
+		// d.rect(this.SCREEN_WIDTH/2-51, this.SCREEN_HEIGHT/2-11, 102, 19);
+		// d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 17);
+		//
+		// d.fill(0x55);
+		// d.rect(this.SCREEN_WIDTH/2-50, this.SCREEN_HEIGHT/2-10, 100, 17);
+		//
+		// d.fill(0xBB);
+		// d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
 
 		//terrain drawing
 		//terrain outline drawing
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
 			d.stroke(0x00);
-			d.strokeWeight(t.thickness+2);
-			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3),
-				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3));
+			d.strokeWeight(t.thickness+1.5);
+			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedStartPos.z),
+				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedEndPos.z));
 		}
 		//terrain interior drawing
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
 			d.stroke(t.shade*0x55);
 			d.strokeWeight(t.thickness);
-			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3),
-				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3));
+			let startX = floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2);
+			let startY = floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedStartPos.z);
+			let endX = floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2);
+			let endY = floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedEndPos.z);
+			d.line(startX, startY, endX, endY);
+			this.tilePalettes[floor(startX/8)][floor(startY/8)] = t.palette;
+			this.tilePalettes[floor(endX/8)][floor(endY/8)] = t.palette;
 		}
 		d.noStroke();
 
 
 		//placeholder moving ellipse
-		let eX = floor(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4);
-		let eY = floor(this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3);
-		d.fill(0x00);
-		d.ellipse(eX, eY, 22);
-		d.fill(0xFF);
-		d.ellipse(eX, eY, 20);
-		d.fill(0xEE);
-		d.ellipse(eX+1, eY+1, 17);
-
-
-		eX = floor(eX/8);
-		eY = floor(eY/8);
-
-		for (let i = -1; i <= 1; i++) {
-			for (let j = -1; j <= 1; j++) {
-				this.tilePalettes[eX+i][eY+j] = floor(frameCount/5)%5;
-			}
-		}
+		// let eX = floor(this.SCREEN_WIDTH/2 + sin(frameCount/120*TAU)*this.SCREEN_WIDTH/4);
+		// let eY = floor(this.SCREEN_HEIGHT/2 + (cos(this.currentMilli/1000*TAU)-1)*15 + 3);
+		// d.fill(0x00);
+		// d.ellipse(eX, eY, 22);
+		// d.fill(0xFF);
+		// d.ellipse(eX, eY, 20);
+		// d.fill(0xEE);
+		// d.ellipse(eX+1, eY+1, 17);
+		//
+		// eX = floor(eX/8);
+		// eY = floor(eY/8);
+		//
+		// for (let i = -1; i <= 1; i++) {
+		// 	for (let j = -1; j <= 1; j++) {
+		// 		this.tilePalettes[eX+i][eY+j] = floor(frameCount/5)%5;
+		// 	}
+		// }
 
 		//water nonsense
 		d.fill(0x88, 0x88, 0xFF);

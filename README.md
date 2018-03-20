@@ -9,13 +9,18 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Implemented the terrain components, it remains to be seen how the performance is.
++ Tried out a stress-test with several small terrain components arranged in a circle.
 
 #### Current Issues:
++ Small terrain components don't look great on their own but that's to be expected
 + Currently there's nothing to accommodate particle drawing being ordered correctly. I'll probably just use the order of their starting position to avoid overhead.
++ Terrain components currently do not tell the tiles what palette to use
++ I think some colour values may be wrong right now
 
 #### To Do:
++ Add the terrain palette information
 + Implement the rest of the scene
++ Make the sky nicer
 + Implement particles
 + Implement hour & minute palette switching, make sure to tend towards fun shades like blues, purples, oranges
 + Find out how dawn and dusk can actually be differentiated, I don't know anything about the sun and it's probably fake
