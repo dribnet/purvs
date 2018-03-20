@@ -2,4 +2,4 @@
 
 ### Updated clock with ellipses and current time
 
-I have synced/mapped the time with the elipses that go along the screen with the current time. I have also synced the background to the current time (Red during the day, dark blue/black during the night). Now I have to experiment with changes to produce something more abstract.
+I have improved the day/night cycles to include a mapped sun and moon go across the screen. I have also made the clock more aesthetically pleasing, a few more touch ups and I should be complete. I haven kept the movement on the hours/minutes and seconds the same to portray the movement of a grandfather clock.
