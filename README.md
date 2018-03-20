@@ -9,7 +9,8 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Tried out a stress-test with several small terrain components arranged in a circle.
++ Further stress testing
++ Experimenting with using the lightest shade in the palettes to integrate them with the background
 
 #### Current Issues:
 + Small terrain components don't look great on their own but that's to be expected

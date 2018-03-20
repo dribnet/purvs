@@ -24,27 +24,27 @@ class SuperClockLand {
 			0x21, 0x10, 0x10,
 			0xFF, 0x4A, 0x5A,
 			0xFF, 0xAD, 0xB5,
-			0xFF, 0xFF, 0xFF,
+			0x5A, 0x8C, 0xD6,
 		   //green
 			0x21, 0x10, 0x10,
 			0x5A, 0x94, 0x00,
 			0xCE, 0xE7, 0x7B,
-			0xFF, 0xFF, 0xFF,
+			0x5A, 0x8C, 0xD6,
 		   //blue
 			0x21, 0x10, 0x10,
 			0x5A, 0x8C, 0xD6,
 			0xC6, 0xD6, 0xF7,
-			0xFF, 0xFF, 0xFF,
+			0x5A, 0x8C, 0xD6,
 			//yellow
 			0x21, 0x10, 0x10,
 			0xDE, 0x94, 0x52,
 			0xFF, 0xE7, 0x42,
-			0xFF, 0xFF, 0xFF,
+			0x5A, 0x8C, 0xD6,
 			//grey
 			0x21, 0x10, 0x10,
 			0xAD, 0x94, 0x94,
 			0xDE, 0xBD, 0xBD,
-			0xFF, 0xFF, 0xFF,
+			0x5A, 0x8C, 0xD6,
 			//colours graciously donated by the Super Game Boy mode for Kirby's Dream Land 2 (1995). Thanks Kirby.
 		];
 
@@ -60,15 +60,16 @@ class SuperClockLand {
 
 		//the scene itself
 		//TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight);
-		this.terrain.push(new TerrainLine(1, 3, 3, -7, 0, 1, 7, 0, 1));
-		this.terrain.push(new TerrainLine(1, 3, 3, 0, -7, 1, 0, 7, 1));
+		this.terrain.push(new TerrainLine(1, 2, 3, -10, 0, 1, 10, 0, 1));
+		this.terrain.push(new TerrainLine(1, 2, 3, 0, -10, 1, 0, 10, 1));
 		let v = createVector(45, 0, 0);
-		for (let i = 0; i < 30; i++) {
-			this.terrain.push(new TerrainLine(floor(random(5)), floor(random(3) + 1), 3, v.x, v.y, v.z, v.x, v.y, v.z + 3));
-			if (i % 3 == 0) {
-				this.terrain.push(new TerrainLine(floor(random(5)), floor(random(3) + 1), 4, v.x * 1.5, v.y * 1.5, -4, v.x * 1.5, v.y * 1.5, 4));
-			}
-			v.rotate(TAU/30);
+		for (let i = 0; i < 60; i++) {
+			this.terrain.push(new TerrainLine(1, floor(random(2) + 1), 5, v.x, v.y, v.z, v.x, v.y, v.z + 4));
+
+				let offset = floor(random(20));
+				this.terrain.push(new TerrainLine(floor(random(5)), floor(random(2) + 1), 5, v.x * 1.5, v.y * 1.5, -4+offset, v.x * 1.5, v.y * 1.5, offset));
+
+			v.rotate(TAU/60);
 		}
 
 		//array to hold the active particles
@@ -157,7 +158,7 @@ class SuperClockLand {
 		//background gradient
 		for (let i = 0; i < 64; i++) {
 			//d.fill(0x55 + 0xAA*(i/60));
-			d.fill(0x55);
+			d.fill(0xFF);
 			d.rect(0,i, this.SCREEN_WIDTH, 1);
 		}
 
@@ -177,7 +178,7 @@ class SuperClockLand {
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
 			d.stroke(0x00);
-			d.strokeWeight(t.thickness+1.5);
+			d.strokeWeight(t.thickness+2);
 			d.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedStartPos.z),
 				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/3 - t.rotatedEndPos.z));
 		}
