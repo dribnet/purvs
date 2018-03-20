@@ -49,9 +49,9 @@ function draw_clock(obj) {
     ellipse(0, 0, 240, 240);
     ellipse(0, 0, 120, 120);
 
-    SecondAngle = map(second(), 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
-    MinuteAngle = map(minute(), 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
-    HourAngle = map(hour(), 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
+    SecondAngle = map(seconds, 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
+    MinuteAngle = map(minutes, 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
+    HourAngle = map(hours, 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
 
     second_x = cos(SecondAngle) * 165; // second x
     second_y = sin(SecondAngle) * 165; // second y
