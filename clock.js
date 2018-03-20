@@ -82,17 +82,48 @@
 
   function draw_Time(seconds,minutes,hours){
 
-    if(seconds < 10) {
-      var singleSeconds = seconds.toString()[0];
-      draw_number(singleSeconds,6);
-      draw_number(0,5);
-    }
-    else {
-      var singleSeconds = seconds.toString()[1];
-      draw_number(singleSeconds,6);
-      tenSeconds = seconds.toString()[0];
-      draw_number(tenSeconds,5);
-    }
+    // if(seconds < 10) {
+    //   var singleSeconds = seconds.toString()[0];
+    //   draw_number(singleSeconds,6);
+    //   draw_number(0,5);
+    // }
+    // else {
+    //   var singleSeconds = seconds.toString()[1];
+    //   draw_number(singleSeconds,6);
+    //   tenSeconds = seconds.toString()[0];
+    //   draw_number(tenSeconds,5);
+    // }      
+    if(s!=seconds){
+        SecondMath = false;
+        s = seconds;  
+      }
+      if (SecondMath==false){
+        SecondMath = true;
+        NegativeNumber = getRandomInt(1,seconds);
+        NumSec = seconds + NegativeNumber;
+      }
+      
+      var numSeconds = NumSec.toString()[0];
+      var numSeconds2 = NumSec.toString()[1];
+      if (NumSec<10){
+        draw_number(numSeconds,6);
+        draw_number(0,5);
+      } else {
+        draw_number(numSeconds,5);
+        draw_number(numSeconds2,6);
+      }
+      draw_Minus(7);
+      var NegativeSeconds = NegativeNumber.toString()[0];
+      var NegativeSeconds2 = NegativeNumber.toString()[1];
+      if(NegativeNumber<10){
+        draw_number(NegativeSeconds,9);
+        draw_number(0,8);
+      }else{
+        draw_number(NegativeSeconds,8);
+        draw_number(NegativeSeconds2,9);
+      }
+
+      //minute math
       if(m!=minutes){
         MinuteMath= false;
         m = minutes;  
@@ -100,13 +131,13 @@
       if (MinuteMath==false){
         MinuteMath = true;
         var singleMinutes = minutes.toString()[0];
-        NegNo = getRandomInt(1,minutes);
-        Num = minutes - NegNo;
+        PositiveNumber = getRandomInt(1,minutes);
+        NumMin = minutes - PositiveNumber;
       }
       
-      var numMinutes = Num.toString()[0];
-      var numMinutes2 = Num.toString()[1];
-      if (Num<10){
+      var numMinutes = NumMin.toString()[0];
+      var numMinutes2 = NumMin.toString()[1];
+      if (NumMin<10){
         draw_number(numMinutes,4);
         draw_number(0,3);
       } else {
@@ -114,14 +145,14 @@
         draw_number(numMinutes2,4);
       }
       draw_Plus(2);
-      var negMinutes = NegNo.toString()[0];
-      var negMinutes2 = NegNo.toString()[1];
-      if(NegNo<10){
-        draw_number(negMinutes,1);
+      var PositiveMinutes = PositiveNumber.toString()[0];
+      var PositiveMinutes2 = PositiveNumber.toString()[1];
+      if(PositiveNumber<10){
+        draw_number(PositiveMinutes,1);
         draw_number(0,0);
       }else{
-        draw_number(negMinutes,0);
-        draw_number(negMinutes2,1);
+        draw_number(PositiveMinutes,0);
+        draw_number(PositiveMinutes2,1);
       }
     }
 
