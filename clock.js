@@ -1,21 +1,6 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
-function draw_clock(obj) {
-  let hours = obj.hours
-  let minutes = obj.minutes
-  let seconds = obj.seconds
-  let millis = obj.millis
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
-}
 
 //leftpill var
 //coordinates
@@ -42,14 +27,27 @@ var x = 0;
 
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-function setup() {
+
+function draw_clock(obj) {
   background(255,182,193);
   rcol = color(255,105,180);
   lcol = color(255);
 
-}
 
-function draw() {
+  let hours = obj.hours
+  let minutes = obj.minutes
+  let seconds = obj.seconds
+  let millis = obj.millis
+    // draw your own clock here based on the values of obj:
+    //    obj.hours goes from 0-23
+    //    obj.minutes goes from 0-59
+    //    obj.seconds goes from 0-59
+    //    obj.millis goes from 0-1000
+    //    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
+
   background(255,182,193);
   
   scale(1.2);
