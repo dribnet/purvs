@@ -92,7 +92,9 @@
     //   draw_number(singleSeconds,6);
     //   tenSeconds = seconds.toString()[0];
     //   draw_number(tenSeconds,5);
-    // }      
+    // }
+
+    //second math      
     if(s!=seconds){
         SecondMath = false;
         s = seconds;  
