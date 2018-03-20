@@ -41,11 +41,7 @@
     	}
     }
     fill(0);
-    draw_Colon();
-    draw_Plus(0);
-    draw_Minus(1);
-    draw_Multiply(2);
-    draw_Division(3);    
+    draw_Colon();   
     draw_Time(seconds,minutes,hours);
     draw_Alarm(obj.seconds_until_alarm);
     
@@ -76,25 +72,25 @@
 
     if(seconds < 10) {
       var singleSeconds = seconds.toString()[0];
-      draw_number(singleSeconds,3);
-      draw_number(0,2);
+      draw_number(singleSeconds,6);
+      draw_number(0,5);
     }
     else {
       var singleSeconds = seconds.toString()[1];
-      draw_number(singleSeconds,3);
+      draw_number(singleSeconds,6);
       tenSeconds = seconds.toString()[0];
-      draw_number(tenSeconds,2);
+      draw_number(tenSeconds,5);
     }
     if(minutes<10){
      var singleMinutes = minutes.toString()[0];
-     draw_number(singleMinutes,1);
-     draw_number(0,0);
+     draw_number(singleMinutes,3);
+     draw_number(0,4);
     }
     else{
      var tenMinutes = minutes.toString()[0];
-     draw_number(tenMinutes,0);
+     draw_number(tenMinutes,3);
      var singleMinutes = minutes.toString()[1];
-     draw_number(singleMinutes,1);
+     draw_number(singleMinutes,4);
    }
  }
 
@@ -136,16 +132,37 @@
 
 function myPosition(space){
   if (space==0){
-    MyPos = 14*BS*-1;
+    MyPos = (7*5)*BS*-1;
   }
   if (space==1){
-    MyPos = 7*BS*-1;
+    MyPos = (7*4)*BS*-1;
   }
+
   if (space==2){
+    MyPos = (7*3)*BS*-1;
+  }
+
+  if (space==3){
+    MyPos = (7*2)*BS*-1;
+  }
+
+  if (space==4){
+    MyPos = (7*1)*BS*-1;
+  }
+  if (space==5){
     MyPos = 3*BS;
   }
-  if (space==3){
-    MyPos = 10*BS;
+  if (space==6){
+    MyPos = (3+(7*1))*BS;
+  }
+  if (space==7){
+    MyPos = (3+(7*2))*BS;
+  }
+  if (space==8){
+    MyPos = (3+(7*3))*BS;
+  }
+  if (space==9){
+    MyPos = (3+(7*4))*BS;
   }
   else{
       //MyPos = 0;
@@ -156,7 +173,7 @@ function myPosition(space){
   function draw_Plus(space){
   let posNo = myPosition(space);
   let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posYTest;
+  let yRel = CANVAS_HEIGHT/posY;
   
   rect(xRel+BS,yRel+BS,BS,BS*5);
   rect(xRel-BS,yRel+BS*3,BS*5,BS);
@@ -166,7 +183,7 @@ function myPosition(space){
   function draw_Minus(space){
   let posNo = myPosition(space);
   let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posYTest;
+  let yRel = CANVAS_HEIGHT/posY;
   
   rect(xRel-BS,yRel+BS*3,BS*5,BS);
 
@@ -175,7 +192,7 @@ function myPosition(space){
   function draw_Multiply(space){
   let posNo = myPosition(space);
   let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posYTest;
+  let yRel = CANVAS_HEIGHT/posY;
 
   let loopNo = 5
 
@@ -193,7 +210,7 @@ function myPosition(space){
   function draw_Division(space){
   let posNo = myPosition(space);
   let xRel = CANVAS_WIDTH/posX+posNo;
-  let yRel = CANVAS_HEIGHT/posYTest;
+  let yRel = CANVAS_HEIGHT/posY;
   
   rect(xRel-BS,yRel+BS*3,BS*5,BS);
   rect(xRel+BS,yRel+BS,BS,BS);
