@@ -2,6 +2,6 @@
 
 ### Moth Progress
 
-This is the 'base' clock before I add any alarms or animations.
+With some help from a tutor I have a prototype of the alarm.
 
 

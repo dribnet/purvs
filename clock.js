@@ -15,7 +15,7 @@ function draw_clock(obj) {
             //setting up time with computer time
 
             background(191, 216, 190); //  beige
-            stroke(1);
+            strokeWeight(0.8);
             //head
             fill(124, 112, 101);
             rect(450, 100, 50, 50);
@@ -118,32 +118,44 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     let millis = obj.millis;
 
+//    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
 
+    let secondsToAlarm = obj.seconds_until_alarm;
     
-    
+    if(secondsToAlarm == 0){
+        fill(239, 91, 91);
+        ellipse(475, 450, 400, 50);
+    }else if(secondsToAlarm > 0){
+
+        fill(0);
+        ellipse(475, 450, 10*secondsToAlarm, 50);
+
+    }
 
 
     // A MAP 
     // map(target, minOfTarget,MaxOfTarget,MinNewScale, MaxNewScale)
-    // let hourBarWidth   = map(hours, 0, 23, 0, width);
-    // let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    // let secondBarWidth = map(seconds, 0, 59, 0, width);
-    // let millisBarWidth = map(millis, 0, 1000, 0, width);
 
-    // noStroke();
-    // fill(68, 162, 186, 150);
-    // ellipse(200, 250, hourBarWidth/4);
-    // fill(102, 217, 221, 150);
-    // ellipse(400, 250, minuteBarWidth/4);
-    // fill(134, 239, 208, 150)
-    // ellipse(600, 250, secondBarWidth/4);
-    // fill(190, 249, 189, 150)
-    // ellipse(800, 250, millisBarWidth/4);
-
+       
       fill(216, 140, 101);
       ellipse(280, 150, 280, 280);
       ellipse(670, 150, 280, 280);
+    
+    let millisBarWidth = map(millis, 0, 1000, 0, width);
+      
+    //noFill();
+    //strokeWeight(7);    
+    
+    fill(165, 79, 29);
+    strokeWeight();
+    ellipse(670, 150, millisBarWidth/3.3);
+    ellipse(280, 150, millisBarWidth/3.3);
 
+
+      strokeWeight(0.8);  
       fill(99, 39, 9);
       // ellipse(215, 130, 190, 190);
       // ellipse(180, 130, 100, 100);
@@ -152,6 +164,15 @@ function draw_clock(obj) {
       ellipse(335, 185, 75, 75);
       ellipse(602, 185, 75, 75);
 
+
+      strokeWeight();
+      fill(145, 53, 0);
+      ellipse(603, 185, millisBarWidth/12.6);
+      ellipse(335, 185, millisBarWidth/12.6);
+
+   //  noFill();
+   // ellipse(600, 190, secondBarWidthSmooth/15);
+      strokeWeight(0.8);  
       fill(66, 22, 0);
       ellipse(730, 130, 200, 200);
       ellipse(215, 130, 190, 190);
@@ -174,18 +195,30 @@ function draw_clock(obj) {
       ellipse(220, 340, 50, 50);
       ellipse(730, 340, 50, 50);
 
+      fill(255, 151, 91);
+      strokeWeight();
+      ellipse(730, 340, millisBarWidth/19.4);
+      ellipse(220, 340, millisBarWidth/19.4);
+
       fill(122, 65, 13);
+      strokeWeight(0.8);
       ellipse(215, 348, 30, 30);
       ellipse(735, 348, 30, 30);
+
 
       fill(73, 35, 0)
       ellipse(265, 310, 15, 15);
       ellipse(685, 310, 15, 15);
 
 
-      fill(240);
+      
+
+ 
+
+    fill(240);
       textSize(50);
       textStyle(BOLD); //textSize and textStyle code taken from Jackie Xu at http://bl.ocks.org/Jackie2017vic/b6c6f439167135e38d7818be623f029e/d45cf211b18ff4dbc0ac7562f42e6fdd9717287d
+
     text(hours, 150, 145);
     textSize(35);
     text(minutes, 328, 195);
@@ -193,17 +226,4 @@ function draw_clock(obj) {
     textSize(50);
     text(millis, 722, 145);
 
-
-
-    // Make a bar which *smoothly* interpolates across 1 minute.
-    // We calculate a version that goes from 0...60, 
-    // but with a fractional remainder:
-    // let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    // let secondsWithFraction   = seconds + (millis / 1000.0);
-    // let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
-
-    // fill(100, 100, 200)
-    // rect(0, 350, secondBarWidthChunky, 50);
-    // fill(120, 120, 240)
-    // rect(0, 400, secondBarWidthSmooth, 50);
 }
