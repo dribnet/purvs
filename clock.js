@@ -1,11 +1,30 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
-function draw () {
-  background(0)
 
-  translate(200, 200);
- rotate(-90)
+
+
+function setup () {
+  // create the drawing canvas, save the canvas element
+  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+  main_canvas.parent('canvasContainer');
+
+  // you can optionally add your own code here if you also have setup code
+  //current hour
+  initialH = hour();
+  //current minute
+  initialM = minute();
+  //current second
+  initialS = second();
+  angleMode(DEGREES);
+}
+
+//draw clock
+function draw () {
+ background(0)
+
+    translate(200, 200);
+  rotate(-90)
 
   let h = hour();
   let m = minute();
@@ -49,7 +68,10 @@ strokeWeight(1)
    fill(240);
    textSize(25)
    text (h + ':' + m + ':' + s, -50, 5)
+
+
 }
+
 
 // do not alter or remove this function
 function keyTyped() {
