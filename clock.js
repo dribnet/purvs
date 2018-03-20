@@ -1,6 +1,12 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
+hourSpinSpeed = 0.01;
+minSpinSpeed = 0.01;
+secSpinSpeed = 0.01;
+milSpinSpeed = 0.01;
+spinSpeed = 0.01;
+
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -17,84 +23,99 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(200);
+    background(230);
+    stroke(255);
     strokeWeight (5);
+
+    if (obj.seconds_until_alarm != 0 ){
+        hourSpinSpeed = 0.01* hours; 
+    }
+
+    // let colourHours = map(hours,0,23,0,255);
+    // let colourMin = map(minutes,0,59,0,255);
+    // let colourSec = map (seconds,0,59,0,255);
+    // let colourMillis = map(millis, 0 ,1000,0,255); 
 
     //Using 3D so translating to make location act like 2D 
 	translate(-width/2,-height/2 +60);
 
 	translate (100,150);
-    // noStroke ();
 
-    //background(255,186,13); //  beige
-    /*
-    fill(0); // dark grey
-    text("Hour: "   + hours, 20, 22);
-    text("Minute: " + minutes, 20, 42);
-    text("Second: " + seconds, 20, 62);
-    text("Millis: " + millis, 20, 82);
+    if (obj.seconds_until_alarm == 0){
 
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-    let millisBarWidth = map(millis, 0, 1000, 0, width);
-*/
+        alarmCheck();
 
-	fill(13,242,255,80);
-   /* fill(13,242,255);
-    ellipse(hours, 125, 64,64);
-    fill (0);
-    ellipse (minutes, 225, 64,64);
-    fill (20,158,54);
-    ellipse (seconds, 325, 64,64);
-    fill (163,35,158);
-    ellipse (millis, 425, 64, 64);
-    */
-    /*
-    flower (hours, 50, 64,64);
-    fill (0);
-    flower (minutes, 150, 64,64);
-    fill (20,158,54);
-    flower (seconds, 250, 64,64);
-    fill (163,35,158);
-    flower (millis, 350, 64, 64);
 
-	//rotateX (frameCount * 0.01);
-	//rotateY(frameCount * 0.01);
-	//box (50); 
-	*/
+    } 
 
-	// rotateX(frameCount *0.01);
-	// rotateY(frameCount *0.01);
-	// box(50);
+    hourss(hours);
+    minn(minutes);
+    sec(seconds);
+    mill(millis);
 
-	push(); // BOX 1 
-	translate (80,0);
-	rotateX (hours * 0.01);
-	rotateY(hours * 0.01);
-	box(100);
-	pop();
 
-	push(); //box2 
-	translate (280,0);
-	rotateX (minutes * 0.01);
-	rotateY(minutes * 0.01);
-	box(100);
-	pop();
 
-	push(); // BOX 3
-	translate(470,0);
-	rotateX (seconds* 0.01);
-	rotateY(seconds * 0.01);
-	box(100);
-	pop();
+}
 
-	push(); //box4
-	translate (680,0);
-	rotateX (millis * 0.01);
-	rotateY(millis * 0.01);
-	box(100);
-	pop();
+    function hourss (hours){
+
+        let colourHours = map(hours,0,23,0,255);
+        fill(colourHours, 255,196,75);
+
+    push(); // BOX 1 
+    translate (80,0);
+    rotateX (hours * spinSpeed);
+    rotateY(hours * spinSpeed);
+    box(100);
+    pop();
+
+    }
+
+
+    function minn(minutes) {
+
+        let colourMin = map(minutes,0,59,0,255);
+        fill(colourMin, 123,224,75);
+
+    push(); //box2 
+    translate (280,0);
+    rotateX (minutes * spinSpeed);
+    rotateY(minutes * spinSpeed);
+    box(100);
+    pop();
+
+    }
+
+    function sec (seconds){
+
+        let colourSec = map (seconds,0,59,0,255);
+        fill(colourSec,255,0,75);
+
+    push(); // BOX 3
+    translate(470,0);
+    rotateX (seconds* spinSpeed);
+    rotateY(seconds * spinSpeed);
+    box(100);
+    pop();
+
+    }
+
+   function mill (millis){
+
+    let colourMillis = map(millis, 0 ,1000,0,255); 
+    fill(colourMillis, 86,143,75);
+
+    push(); //box4
+    translate (680,0);
+    rotateX (millis * spinSpeed);
+    rotateY(millis * spinSpeed);
+    box(100);
+    pop();
+
+
+   }
+
+
 
 
 	
@@ -105,23 +126,22 @@ function draw_clock(obj) {
 	// box(100);
 	// pop();
 	
+
+
+function alarmCheck(){
+
+    spinSpeed = 0.1; 
+
+
+
+
+    // obj.seconds_until_alarm
+    //          Float indicating the state of the alarm. The value will be:
+    //           < 0 if the alarm is not set
+    //           = 0 if the alarm is going off
+    //           > 0 if the alarm is set. the float value then represents the number of seconds until the alarm goes off
+
+
 }
 
-
-
-/*function flower (x, y) {
-  push();
-  translate(x, y);
-  //stroke(0);
-  //strokeWeight(70);
-    ellipse (100,100,30,30);
-    ellipse (120,120,30,30);
-    ellipse (100,120,30,30);
-    ellipse (120,100,30,30);
-    fill(255,0,0);
-    ellipse (110,110,20,20);
-
-  pop();
-}
-*/
 
