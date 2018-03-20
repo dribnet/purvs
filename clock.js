@@ -1,6 +1,3 @@
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -16,52 +13,53 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     let millis = obj.millis;
     let alarm = obj.seconds_until_alarm;
+
+    //canvas
     background(0);
     fill(0);
-    //text("Hour: "   + hours, 10, 22);
-    //text("Minute: " + minutes, 10, 42);
-    //text("Second: " + seconds, 10, 62);
-    //text("Millis: " + millis, 10, 82);
+
+    //mapping positions for lines
     let hourBarPosition = map(hours, 0, 23, 10, height - 10);
     let minuteBarPosition = map(minutes, 0, 59, 5, width - 10);
     let secondBarWidth = map(seconds, 0, 59, 5, width - 5);
     let millisBarHeight = map(millis, 0, 1000, 5, width - 5);
-    let alarmMilliesLine = map(millis, 0, 1000, 5, height - 5);
-    noStroke();
+    //let alarmMilliesLine = map(millis, 0, 1000, 5, height - 5);
+
     //Smoothlines
     let minutesWithFraction = minutes + (seconds / 60);
     let minuteBarWidthSmooth = map(minutesWithFraction, 0, 60, 5, width - 10);
+
     //hourLines
     fill(255);
+    noStroke();
     rect(5, hourBarPosition, minuteBarWidthSmooth, 2);
 
 
     for (let i = 0; i < hours; i++) {
         let incHours = hourBarPosition / hours;
         let col = 20;
-        fill(col * i, 255, 255);
+        fill(col * i, 205, 255);
         rect(5, (incHours * i) + 5, width - 10, 2);
     }
+
+    //alarm statements
     if (alarm == 0) {
-        for (let i = 0; i < 100; i++) {
-            let incAlarm = millis / hourBarPosition;
-            let col = 5;
-            fill(col * i, 255, 255);
+        for (let i = 0; i < millis/1.0001; i++) {
+            let incAlarm = hourBarPosition / millis;
+            let col = 1;
+            fill(col + i, 205, 255);
             rect(5, (incAlarm * i) + 5, width - 10, 2);
         }
-    } else {
+    }
+
+    else {
         let alarmMilliesLine = 0;
     }
+
     if (alarm > 0) {
-            fill()
+            let flash = map(millis,0,1000,255,0);
+            fill(flash);
             rect(5, hourBarPosition, minuteBarWidthSmooth, 2);
     }
-    // do not alter or remove this function
-    function keyTyped() {
-        if (key == '!') {
-            saveBlocksImages();
-        } else if (key == '@') {
-            saveBlocksImages(true);
-        }
-    }
+    
 }

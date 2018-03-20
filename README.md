@@ -3,7 +3,7 @@
 ### Clock Update
 
 
-I havve decided to iterate on my clock once again as I had an idea about how to intergrate the hours. The clock still keeps its abstract look but with now with the bars filling horizontally. The clock then fills across and down with the hour slowly filling the screen. I have also added in my alarm which flashes bars down to the current hour time I am unsure about what do for the build up as that is something I have to work on.
+This is my pretty much finished clock, I had to switch around my alarm variables so that it would fill the whole way to the bottom of the hour position as I had made a mistake in my code before. I also changed up the colors a bit as the lines on the white background didnt really stand out too much. I am overall very happy with the output.
 
 
 
