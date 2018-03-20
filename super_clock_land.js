@@ -18,32 +18,38 @@ class SuperClockLand {
 		//helper variables
 		this.CANVAS_WIDTH = 960;
 		this.CANVAS_HEIGHT = 500;
-		//gameboy is 160x144 but the closest common divisor that gets a similar pixel count for 960x500 is 5
-		this.SCREEN_WIDTH = 192; //24 colour regions across (8x8)
-		this.SCREEN_HEIGHT = 100; //12.5 colour regions down
+		//gameboy is 160x144 but the closest common divisor that gets a similar pixel density for 960x500 is 5
+		this.SCREEN_WIDTH = 192; //24 8x8 colour regions across
+		this.SCREEN_HEIGHT = 100; //12.5 8x8 colour regions down
 
 		// colour variables
 		this.paletteColours = [
-			   //red
-				0x21, 0x10, 0x10,
-				0xFF, 0x4A, 0x5A,
-				0xFF, 0xAD, 0xB5,
-				0xFF, 0xFF, 0xFF
-			,
-			   //green
-				0x21, 0x10, 0x10,
-				0x5A, 0x94, 0x00,
-				0xCE, 0xE7, 0x7B,
-				0xFF, 0xFF, 0xFF
-			,
-			   //blue
-				0x21, 0x10, 0x10,
-				0x5A, 0x8C, 0xD6,
-				0xC6, 0xD6, 0xF7,
-				0xFF, 0xFF, 0xFF
-				//yellow
-				//hex values here
-
+		   //red
+			0x21, 0x10, 0x10,
+			0xFF, 0x4A, 0x5A,
+			0xFF, 0xAD, 0xB5,
+			0xFF, 0xFF, 0xFF,
+		   //green
+			0x21, 0x10, 0x10,
+			0x5A, 0x94, 0x00,
+			0xCE, 0xE7, 0x7B,
+			0xFF, 0xFF, 0xFF,
+		   //blue
+			0x21, 0x10, 0x10,
+			0x5A, 0x8C, 0xD6,
+			0xC6, 0xD6, 0xF7,
+			0xFF, 0xFF, 0xFF,
+			//yellow
+			0x21, 0x10, 0x10,
+			0xDE, 0x94, 0x52,
+			0xFF, 0xE7, 0x42,
+			0xFF, 0xFF, 0xFF,
+			//grey
+			0x21, 0x10, 0x10,
+			0xAD, 0x94, 0x94,
+			0xDE, 0xBD, 0xBD,
+			0xFF, 0xFF, 0xFF,
+			//colours graciously donated by the Super Game Boy mode for Kirby's Dream Land 2 (1995). Thanks Kirby.
 		];
 
 		//values to get at the time with
@@ -131,9 +137,14 @@ class SuperClockLand {
 			d.rect(0,i, this.SCREEN_WIDTH, 1);
 		}
 
-		//landmass
+		//landmass placeholder
+		d.fill(0x00);
+		d.rect(this.SCREEN_WIDTH/2-51, this.SCREEN_HEIGHT/2-11, 102, 19);
+		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 17);
+
 		d.fill(0x55);
 		d.rect(this.SCREEN_WIDTH/2-50, this.SCREEN_HEIGHT/2-10, 100, 17);
+
 		d.fill(0xBB);
 		d.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2-10, 100, 15);
 
@@ -148,14 +159,12 @@ class SuperClockLand {
 		d.ellipse(eX+1, eY+1, 17);
 
 
-		//print("pos: "+eX+", "+eY);
-
 		eX = floor(eX/8);
 		eY = floor(eY/8);
 
 		for (let i = -1; i <= 1; i++) {
 			for (let j = -1; j <= 1; j++) {
-				this.displayPalettes[eX+i][eY+j] = floor(frameCount/3)%3;
+				this.displayPalettes[eX+i][eY+j] = floor(frameCount/5)%5;
 			}
 		}
 
@@ -188,7 +197,7 @@ class SuperClockLand {
 		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
 			for (let y = 0; y < 8; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
 				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
-				let tilePal = this.alarmState !== 0 ? this.displayPalettes[x][y]%3 : floor(frameCount/15)%3;
+				let tilePal = this.alarmState !== 0 ? this.displayPalettes[x][y] : floor(frameCount/15)%4;
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
@@ -234,6 +243,17 @@ class SuperClockLand {
 	}
 
 
+
+}
+
+class TerrainLine {
+	constructor(palette, shade, thickness, x1, y1, height1, x2, y2, height2) {
+		this.startPos = createVector(x1, y1, height1);
+		this.endPos = createVector(x2, y2, height2);
+		this.thickness = thickness;
+		this.palette = palette;
+		this.shade = shade;
+	}
 
 }
 
