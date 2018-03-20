@@ -1,13 +1,9 @@
 ## PS1 MDDN 242 2018
 
-### Episode 05 day/night shift
+### Episode 06 make it interestingly interesting
 
-After figuring out how to change the background colours in the previous episode. It was now time to step up the alternatives in the change of colour.
+On the previous episode The next step is to find a way to make this more interesting than it currently is set out now.
 
-Which was to make the colour alternate between day and night for the numbers, this way the colours for the analog time are easily desirably understood when the day/night shift colours.
+and in doing so i decided to change its entire layout and design. Trying to look at a more digital like feel, while also staying true to the original day/night concept i was looking.. here is the current process so far as shown.
 
-the current update to this is shown above. The next step is to find a way to make this more interesting than it currently is set out now.
-
-(tip: the current change in colour is set to sec, due for testing purpose, and will be later drafted into the hourly sections soon)
-
-TUNE IN FOR MORE.. clockity clock works.
+TUNE IN FOR MORE.. clocks.
