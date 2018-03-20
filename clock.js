@@ -37,7 +37,7 @@ ellipse(480,250,60,60);
 fill(90);
 noStroke();
 var inc = map(mls,0,1000,0,60,true);
-
+fill(230);
 ellipse(480,250,0+inc,0+inc);
 console.log(inc + "mills" + mls);
 }
