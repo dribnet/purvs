@@ -3,9 +3,10 @@
  */ 
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
-
-
 let x = 0
+let y = 0
+
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -28,14 +29,16 @@ function draw_clock(obj) {
     let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
-    let millis = obj.millis;
     let seconds_until_alarm = obj.seconds_until_alarm;
 
     
        let hourBarWidth   = map(hours, 0, 23, 0, width);
        let minuteBarWidth = map(minutes, 0, 59, 0, width);
        let secondBarWidth = map(seconds, 0, 59, 0, width);
-       let millisBarWidth = map(millis, 0, 1000, 0, width);
+       
+
+
+
        
 
 
@@ -44,15 +47,34 @@ function draw_clock(obj) {
 
     fill(75,150)
     strokeWeight(2);
-    background(0,125,200); 
+    background(0,145,200); 
+push();
+noStroke();
+    if(seconds_until_alarm > 0) {
+    	let anim_start = 20;
+    	if(seconds_until_alarm < anim_start) {
+    		let pos_x = map(seconds_until_alarm, anim_start, 0, width, 0);
+    		fill(100, 0, 0);
+	    	rect(pos_x, 0, width, height);    	    		
+    	}
+    }
+    else if(seconds_until_alarm == 0) {
+    	fill(175, 0, 0);
+    	rect(0, 0, width, height);
+    	// fill(0,145,200);
+    	// ellipse(width/2,height/2,x,y);
+    	// x = x + 2
+    	// y = y + 2
+    }
+pop();
+      push();
+        fill(75);
+        ellipse(secondBarWidth - 8, CANVAS_HEIGHT - CANVAS_HEIGHT/5 - 2, 95, 95); //movers
+        ellipse(minuteBarWidth - 9, CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 55, 55); //movers
+        ellipse(hourBarWidth - 21, CANVAS_HEIGHT/6 - 2, 35, 35); //movers
+      pop();
 
-              push();
-                fill(75);
-                ellipse(secondBarWidth - 8, CANVAS_HEIGHT - CANVAS_HEIGHT/5 - 2, 95, 95); //movers
-                ellipse(minuteBarWidth - 9, CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 55, 55); //movers
-                ellipse(hourBarWidth - 21, CANVAS_HEIGHT/6 - 2, 35, 35); //movers
-              pop();
-
+              
 
       ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175, 175) //bottom ring
       ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125, 125) //middle ring
@@ -60,15 +82,18 @@ function draw_clock(obj) {
 
 
       push();
-      strokeWeight(2);
-      stroke(secondBarWidth,minuteBarWidth,255 - hourBarWidth)
-      
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175-5, 175-5) //bottom circle color
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125-5, 125-5) //middle circle color
-        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80-5, 80-5) //top circle color
+      	strokeWeight(2);
+      	stroke(secondBarWidth,minuteBarWidth,255 - hourBarWidth)
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/5, 175-5, 175-5) //bottom stroke
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT - CANVAS_HEIGHT/1.8, 125-5, 125-5) //middle stroke
+        ellipse(CANVAS_WIDTH/2,CANVAS_HEIGHT/6, 80-5, 80-5) //top stroke
       pop();
     	
-          
+          // push();
+          // 	noFill();
+          // 	strokeWeight(50)
+          // 	ellipse(CANVAS_WIDTH/2, CANVAS_HEIGHT/2, 960+105, 960) //black border
+          // pop();
 
  	
     fill(50); // dark grey
@@ -90,8 +115,21 @@ function draw_clock(obj) {
     pop();                                    //hours
     
 
- 
-  
+
+
+function draw_rect(x,y){
+	push();    
+		noStroke();
+		fill(175,50,50)
+		rectMode(CENTER);
+		rect(CANVAS_WIDTH/2 + seconds_until_alarm,CANVAS_HEIGHT/2,CANVAS_WIDTH,CANVAS_HEIGHT)
+	pop();
+ }
+
+
+// if (seconds_until_alarm > 0){
+//     	draw_rect(seconds_until_alarm, CANVAS_HEIGHT);
+//     }   
 
 }
 
