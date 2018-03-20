@@ -1,9 +1,14 @@
 ## PS1 MDDN 242 2018
 
-### Episode 06 make it interestingly interesting
+### Episode 07 the clock thus far
 
-On the previous episode The next step is to find a way to make this more interesting than it currently is set out now.
+This is the current result of my clock creation, which will be further updated into the original concept of a changing pattern, once this is figured out i can finally start working on the alarm feature of this clock.
 
-and in doing so i decided to change its entire layout and design. Trying to look at a more digital like feel, while also staying true to the original day/night concept i was looking.. here is the current process so far as shown.
 
-TUNE IN FOR MORE.. clocks.
+(things to improve)
+-unique movement in regards to time
+-effective layout of the clock
+-unique alarm mechanism
+-make it more interesting
+
+TUNE IN FOR MORE.. p a i n
