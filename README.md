@@ -1,6 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Maeda Clock
+### Cliffside Clock
 
-This clock is a recreation of John Maeda's 8th clock. I didn't make any real changes other than numbers. I felt it was more important to focus on completing the task in order to practice using the terminal to push the updates to my gist as I was having some trouble with the system. 
-
+This is the rough code for the cliffside clock. The clock mimics the ocean tides as a way of measuring time, with a bird (black ellipse) every minute and a wave (blue triangle) each second. Currently the alarm function was just a test to make sure it worked. Ideally I want the alarm to move like the black minute ellipse, and hit the cliff face as the alarm goes off. The sea level also needs changed, currently it rises with the hours until it hits 23 then resets, whereas i want it in sets of 6 where it alternates rising and falling. Currently I am unsure how to acheiev this. Lastly, I had created assets for each part of the clock and was intending on using sound for my alarm (seagull hitting the wall). Until today I was unaware that we cannot use graphics as we used them in first year coding, so I either have to figure out a way of drawing each asset in the scene through code and forgo the sound, or need to set up a server to use images and sound.   
