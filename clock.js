@@ -4,15 +4,15 @@
 
 let wingSync = 0;
 
-let hourColourLight = [255, 51, 204];
-let hourColourDark = [200, 30, 120];
-let minuteColourLight = [180, 57, 180];
-let minuteColourDark = [102, 0, 102];
+let minuteColourLight = [255, 51, 204];
+let minuteColourDark = [200, 30, 120];
+let hourColourLight = [180, 57, 180];
+let hourColourDark = [102, 0, 102];
 let secondColourLight = [255, 50, 50];
 let secondColourDark = [200, 40, 40];
 let bodyColour = [0, 0, 0];
-let outerRingColour = [180, 180, 180];
-let innerRingColour = [200, 200, 200]
+let outerRingColour = [210, 210, 210];
+let innerRingColour = [230, 230, 230]
 let backgroundColour = [255, 255, 255];
 
 function draw_clock(obj) {
@@ -43,12 +43,11 @@ function draw_clock(obj) {
     //draw ring for butterflies to fly within
     noStroke();
     fill(outerRingColour);
-    ellipse(480, 250, 465, 465);
+    ellipse(480, 250, 490, 490);
     fill(innerRingColour);
-    ellipse(480, 250, 380, 380);
+    ellipse(480, 250, 420, 420);
     fill(backgroundColour);
     ellipse(480, 250, 100, 100);
-
     drawAlarm(obj.seconds_until_alarm, millis);
     drawSecondButterfly(seconds, millis);
     drawMinuteButterfly(seconds, minutes, millis);
@@ -88,7 +87,7 @@ function drawSecondButterfly(s, m){
 	// Start in the center and draw the circle
     translate(480, 250);
     noStroke();
-    centreButterfly = [210, 0];
+    centreButterfly = [227, 0];
     sizeButterfly = [2, 10];
     let rotationSecond = map(s, 0, 59, 0, 2*PI-(2*PI/60));
     let rotationMillis = map(m, 1, 1000, 2*PI/60/1000, 2*PI/60);
@@ -97,7 +96,7 @@ function drawSecondButterfly(s, m){
 }
 
 function drawHourButterfly(h, s, m){
-    sizeH= [2, 10];
+    sizeH= [2.6, 13];
     if(h==0){
         h = 24;
     }
@@ -108,19 +107,19 @@ function drawHourButterfly(h, s, m){
     let yPos = 0;
     //draws a butterfly for every hour going from 1 to 24
     for(i = 0; i< h; i++){
-        centreH = [70+(count*25), yPos];
+        centreH = [70+(count*30), yPos];
         createButterfly(hourColourLight, hourColourDark, centreH, sizeH, m, s);
         count++;
         if(count==5){
             count = 0;
-            rotate((2*PI/24));
+            rotate((2*PI/15));
             yPos++;
         }
     }
 }
 
 function drawMinuteButterfly(s, min, m){
-    sizeM= [2, 10];
+    sizeM= [2.3, 10];
     let rotationSecond = map(s, 0, 59, 2*PI/60, 2*PI);
     let rotationMillis = map(m, 1, 1000, 2*PI/60/1000, 2*PI/60);
     rotate(rotationMillis+rotationSecond+ HALF_PI);
@@ -128,12 +127,12 @@ function drawMinuteButterfly(s, min, m){
     let yPos = 0;
     //draws one butterfly for every minute
     for(i = 0; i< min; i++){
-        centreM = [70+(count*25), yPos];
+        centreM = [70+(count*30), yPos];
         createButterfly(minuteColourLight, minuteColourDark, centreM, sizeM, m, s);
         count++;
         if(count==5){
             count = 0;
-            rotate((2*PI/24));
+            rotate((2*PI/18));
             yPos++;
         }
     }
@@ -185,4 +184,5 @@ function createButterfly(c1, c2, cB, sB, millis, seconds){
 
     wingSync++;
 }
+
 
