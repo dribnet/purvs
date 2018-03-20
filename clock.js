@@ -4,9 +4,9 @@
 
  const CANVAS_WIDTH = 960;
  const CANVAS_HEIGHT = 500;
- const BS = 10;
- const posX = 2; 
- const posY = 2.5;
+ var BS = 10;
+ var posX = 2; 
+ var posY = 2.5;
 
  function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -42,35 +42,57 @@
     fill(0);
     draw_Colon();    
     draw_Time(seconds,minutes,hours);
+    draw_Alarm(obj.seconds_until_alarm);
+  }
+
+  function draw_Alarm(seconds_until_alarm){
+    // < 0 if no alarm is set   
+    if(seconds_until_alarm<0){
+      fill(255);
+      rect(0,0,BS,BS);
+      BS=10;
+    }
+    // > 0 --> the number of seconds until alarm should go off
+    if(seconds_until_alarm>0){
+      fill(100);
+      rect(0,0,BS,BS);
+      BS=10;
+    }
+    // = 0 if the alarm is currently going off
+    if(seconds_until_alarm==0){
+      fill(0);
+      rect(0,0,BS,BS);
+      BS = BS + 0.025
+    }
   }
 
   function draw_Time(seconds,minutes,hours){
 
     if(seconds < 10) {
       var singleSeconds = seconds.toString()[0];
-      Draw_number(singleSeconds,3);
-      Draw_number(0,2);
+      draw_number(singleSeconds,3);
+      draw_number(0,2);
     }
     else {
       var singleSeconds = seconds.toString()[1];
-      Draw_number(singleSeconds,3);
+      draw_number(singleSeconds,3);
       tenSeconds = seconds.toString()[0];
-      Draw_number(tenSeconds,2);
+      draw_number(tenSeconds,2);
     }
     if(minutes<10){
      var singleMinutes = minutes.toString()[0];
-     Draw_number(singleMinutes,1);
-     Draw_number(0,0);
+     draw_number(singleMinutes,1);
+     draw_number(0,0);
     }
     else{
      var tenMinutes = minutes.toString()[0];
-     Draw_number(tenMinutes,0);
+     draw_number(tenMinutes,0);
      var singleMinutes = minutes.toString()[1];
-     Draw_number(singleMinutes,1);
+     draw_number(singleMinutes,1);
    }
  }
 
- function Draw_number(time,pos){
+ function draw_number(time,pos){
   if(time==1){
     draw_One(pos)
   }
@@ -215,7 +237,7 @@ function draw_Three(space){
 function draw_Five(space){
 
   let posNo = myPosition(space);
-  let xRel = CANVAS_WIDTH/posX+posNo;
+  let xRel = CANVAS_WIDTH/posX+posNo-BS;
   let yRel = CANVAS_HEIGHT/posY;
 
   rect(xRel,yRel,BS*5,BS);
