@@ -1,6 +1,10 @@
 ## PS1 MDDN 242 2017
 
-### Calcu-Clock
+### Calcu-Clock - current build
+
+Colour changes with time, minutes are represented as an addition problem, seconds are represented as a subtraction problem.
+
+### Calcu-Clock - concept
 
 Clock presents simple math problems where the solution is the current time. The point of which is to let children practice their mathematic skills often. The alarm function requires the user to solve 5-10 math problems before stopping.
 
