@@ -18,97 +18,124 @@ function draw_clock(obj) {
     let mill = map(millis, 0,1000,0,360);
     let sec = map(seconds, 0,60,0,360);
     let min = map(minutes, 60,0,360,0);
-    let hou = map(hours, 0,24,0,360);
+    let hou = map(hours, 0,12,0,360);
     let secondswithfraction = seconds + (millis/1000);
     let smooth = map(secondswithfraction,0,59,0,59);
 
-    background(150);
+    background(0);
     translate(480,250);
     //rotate(180);
     angleMode(DEGREES);
 
-    push();
-    noFill();
-    ellipse(0,0,285,285);
-    ellipse(0,0,355,355);
-    ellipse(0,0,425,425);
-    pop();
+push();
+    noStroke();
 
-    push();
-    rotate(hou);
-    Hour();
-    pop();
-    
-    push();
-    rotate(min);
-    Minute();
-    pop();
-    
+    fill(0,0,150);
+    ellipse(0,0,425,425);
+
+    fill(0,0,200);
+    ellipse(0,0,355,355);
+
+    fill(0,0,250);
+    ellipse(0,0,285,285);
+pop();
+
+push();
+rotate(hou);
+Islands();
+pop();
+
     push();
     rotate(sec);
-    Second();
+    Mili();
     pop();
 
     push();
-    rotate(mill);
-    Mili();
+    Twinkle();
+    //Back();
     pop();
+
+    function Twinkle() {
+        //if milli <= 500
+        // scale = map(mii, 0,500, small, large)
+        //if milli > 500
+        //scale = map(milli, 501, 999, large, small)
+
+    //draw things
+
+    if(millis<=500){
+    scale = map(millis, 0, 500, 0.8,1);       
+    }
+    else if(millis>500){
+    scale = map(millis, 501, 999, 1,0.8);
+
+    }
+
+    fill(255,255,0);
+    ellipse(-400,-150,12*scale);
+    ellipse(250,200,10*scale);
+    fill(0,100,100);
+    ellipse(-300,100,25*scale);
+    fill(0,0,255);
+    ellipse(350,-160,15*scale);
+
+    }
+
+    function Islands() {
+
+fill(0,200,0);
+        beginShape();
+        vertex(65,80);
+        vertex(90,70);
+        vertex(105,90);
+        vertex(95,120);
+        vertex(50,110);
+        endShape(CLOSE);
+
+        beginShape();
+        vertex(-150,-100);
+        vertex(-125,-130);
+        vertex(-50,-180);
+        vertex(-20,-150);
+        vertex(0,-50);
+        vertex(-50,-25);
+        vertex(-100,-75);
+        endShape(CLOSE);
+
+        beginShape();
+        vertex(150,-110);
+        vertex(125,-95);
+        vertex(130,-70);
+        vertex(145,-80);
+        endShape(CLOSE);
+
+        beginShape();
+        vertex(10,10);
+        vertex(25,-25);
+        vertex(-25,-15);
+        vertex(-15,5);
+        endShape(CLOSE);
+    }
+
+    function Back() {
+        fill(255,255,0);
+        ellipse(-400,-150,35,35);
+        ellipse(250,200,10,10);
+        fill(0,100,100);
+        ellipse(-300,100,25,25);
+        fill(0,0,255);
+        ellipse(350,-160,30,30);
+    }
 
 
     function Mili() {
 
-
-ellipse(0,225,10,10);
-ellipse(225,0,10,10);
-ellipse(-225,0,10,10);
-ellipse(0,-225,10,10);
+fill(255);
+ellipse(0,235,25,25);
+// ellipse(225,0,10,10);
+// ellipse(-225,0,10,10);
+// ellipse(0,-225,10,10);
 
 
 }
-
-    function Second() {
-
-    beginShape();
-        vertex(0,0);
-        vertex(50,25);
-        vertex(100,0)
-        vertex(100,100);
-        vertex(0,100);
-        vertex(25,50);
-        vertex(0,0);
-    endShape(CLOSE);
-
-
-    }
-
-    function Minute() {
-
-//rect(0,0,150,150);
-beginShape();
-    vertex(0,0);
-    vertex(75,37);
-    vertex(125,0)
-    vertex(125,125);
-    vertex(0,125);
-    vertex(37,75);
-    vertex(0,0);
-endShape(CLOSE);
-
-    }
-
-    function Hour() {
-
-//rect(0,0,200,200);
-beginShape();
-vertex(0,0);
-vertex(75,37);
-vertex(150,0);
-vertex(150,150);
-vertex(0,150);
-vertex(37,75);
-vertex(0,0);
-vertex()
-endShape(CLOSE);
-
-    }
 }
