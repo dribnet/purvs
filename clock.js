@@ -23,8 +23,8 @@ function draw_clock(obj) {
     let secondValue = map(seconds, 0, 59, 0, 360);
     let millisValue = map(millis, 0, 1000, 0, 360);
 
-   // if(seconds_until_alarm < 0){
-        //comment
+   // if(seconds_until_alarm < 10){
+        background (255);
    // }
    // else if(seconds_until_alarm > 0){
             //comment
