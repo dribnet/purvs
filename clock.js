@@ -43,70 +43,62 @@ function draw_clock(obj) {
 	minutes = minutes.toString();
 	seconds = seconds.toString();
 
+	let timeStrings = [];
+
+    //if statements for the Time strings since they are in an ArrayList
+    //and the index changes between 1 and 2 from 0-9 and 10-59
+    if(hours.length <= 1) {
+    	timeStrings.push ("0");
+    	timeStrings.push (hours[0]);
+    }else{
+    	timeStrings.push (hours[0]);
+    	timeStrings.push (hours[1]);
+    }
+
+    timeStrings.push (": ");
+
+    if(minutes.length <= 1) {
+    	timeStrings.push ("0");
+    	timeStrings.push (minutes[0]);
+    }else{
+    	timeStrings.push (minutes[0]);
+    	timeStrings.push (minutes[1]);
+    }
+
+    timeStrings.push (": ");
+
+    if(seconds.length <= 1){
+    	timeStrings.push ("0");
+    	timeStrings.push (seconds[0]);
+    }else{
+    	timeStrings.push (seconds[0]);
+    	timeStrings.push (seconds[1]);
+    }
+
+
 	for(let i =0;i<8;i++){
 		let mil = millis+(1000/8)*i;	
-		var sinWave = sin(map(mil,0,1000,0,TWO_PI));
+		let sinWave = sin(map(mil,0,1000,0,TWO_PI));
 		let y = map(sinWave, 0, 1, 200, 203);
 		let bob = map(sinWave, 0, 1, 1, 3);
 		noStroke();
-		
+
+		if(obj.seconds_until_alarm > 0 ){
+
+		}	
 		//circles
 		fill(circleColours[i]);
 		ellipse(190 + circle_spacing * i, y + 30, circle_diameter);	// circles	
 		fill(179,209,230);
 		ellipse(190 + circle_spacing  *i, 270, shadowWidth + bob, shadowHeight + bob)	//circle shadows.
+		fill(255);
+		text(timeStrings[i], 183 + circle_spacing * i, y + 37 );
 
-		//Testing SinWave inside for loop.
-		text(hours[0], 184, 238 + bob);
 	}
 
-	fill(255);
-	//testing sin Wave outside For loop (CURRENTLY NOT IN SYNC WITH THE CIRCLE)
-	let mil = millis+(1000/8);
-	let sinWave2 = sin(map(mil,0,1000,0,TWO_PI));
-	let textBob = map(sinWave2, 0, 1, 1, 3);	
 
-	text("Hours : " + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
-
-    push()
-    textSize(30);
-    text(":", 345, 237 + textBob);
-    text(":", 585, 237 + textBob);
-    pop();
-
-    //if statements for the Time strings since they are in an ArrayList
-    //and the index changes between 1 and 2 from 0-9 and 10-59
-    if(hours.length = 1) {	//time is 1-9
-    	text(hours[0], 264, 237 + textBob );
-    	text("0", 184, 237 + textBob);
-    }else{
-    	text(hours[0], 184, 237 + textBob);
-    	text(hours[1], 264, 237 + textBob);
-    }
-
-    if(minutes.length <= 1) {
-    	text(minutes[0], 504, 237 + textBob);
-    	text("0", 424, 237 + textBob);
-    }else{
-    	text(minutes[0], 424, 237 + textBob);
-    	text(minutes[1], 504, 237 + textBob);
-    }
-
-    if(seconds.length <= 1){
-    	text(seconds[0], 744, 237 + textBob);
-    	text("0", 664, 237 + textBob);
-    }else{
-    	text(seconds[0], 664, 237 + textBob);
-    	text(seconds[1], 744, 237 + textBob);
-    }
-
-
-//alarm code
-	
-	if(obj.seconds_until_alarm < 0){
+//alarm going off code.
+	if(obj.seconds_until_alarm > 0){
 		noFill();
 		strokeWeight(40);
 		stroke(251,195,202);
@@ -114,7 +106,6 @@ function draw_clock(obj) {
 
 		stroke(242, 95, 92);
 		ellipse(190, 232, millis , millis);
-
 	}
 
 }
