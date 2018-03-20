@@ -1,3 +1,22 @@
+/*
+ * us p5.js to draw a clock on a 960x500 canvas
+ */ 
+function draw_clock(obj) {
+  let hours = obj.hours
+  let minutes = obj.minutes
+  let seconds = obj.seconds
+  let millis = obj.millis
+    // draw your own clock here based on the values of obj:
+    //    obj.hours goes from 0-23
+    //    obj.minutes goes from 0-59
+    //    obj.seconds goes from 0-59
+    //    obj.millis goes from 0-1000
+    //    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
+}
+
 //leftpill var
 //coordinates
 var lcol;
@@ -20,8 +39,10 @@ var rpsy = 0;
 var x = 0;
 
 
+
+const CANVAS_WIDTH = 960;
+const CANVAS_HEIGHT = 500;
 function setup() {
-  createCanvas(960,500);
   background(255,182,193);
   rcol = color(255,105,180);
   lcol = color(255);
@@ -37,321 +58,319 @@ function draw() {
   rightpill();
   inrightpill();
   inleftpill();
-   h = hour();
-  mi = minute();
-  se = second();
+
   textSize(80);
   fill(0,80);
-  text(h + ' : ' +mi,250,270);
+  text(hours + ' : ' +minutes,250,270);
   // doto();
   
-  if (se>1){
+  if (seconds>1){
     push();
     rcol = color(255);
     lcol = color(255,105,180);
     pop();
   }
-  if(se>2){
+  if(seconds>2){
     push();
     lcol = color(255);
     rcol = color(255,105,180);
     pop();
   }
-  if(se>3){
+  if(seconds>3){
     push();
     rcol = color(255);
     lcol = color(255,105,180);
     pop();
   }
- if(se>4){
+ if(seconds>4){
    push();
    lcol = color(255);
     rcol = color(255,105,180);
     pop();
  }
- if(se>5){
+ if(seconds>5){
    push();
   rcol = color(255);
     lcol = color(255,105,180);
     pop();
  }
- if(se>6){
+ if(seconds>6){
    push();
    lcol = color(255);
     rcol = color(255,105,180);
     pop();
  }
-  if(se>7){
+  if(seconds>7){
     push();
     rcol = color(255);
     lcol = color(255,105,180);
     pop();
   }
-   if(se>8){
+   if(seconds>8){
      push();
    lcol = color(255);
     rcol = color(255,105,180);
     pop();
    }
    
-    if(se>9){
+    if(seconds>9){
       push();
   rcol = color(255);
     lcol = color(255,105,180);
     pop();
     }
-    if(se>10){
+    if(seconds>10){
       push();
   lcol = color(255);
     rcol = color(255,105,180);
     pop();
     }
-      if(se>11){
+      if(seconds>11){
         push();
   rcol = color(255);
     lcol = color(255,105,180);
     pop();
       }
-      if(se>12){
-        push();
-  lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-      }
-      if(se>13){
-        push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-      }
-      if(se>14){
+      if(seconds>12){
         push();
   lcol = color(255);
     rcol = color(255,105,180);
     pop();
       }
-      if(se>15){
+      if(seconds>13){
         push();
   rcol = color(255);
     lcol = color(255,105,180);
     pop();
       }
-      if(se>16){
+      if(seconds>14){
+        push();
+  lcol = color(255);
+    rcol = color(255,105,180);
+    pop();
+      }
+      if(seconds>15){
+        push();
+  rcol = color(255);
+    lcol = color(255,105,180);
+    pop();
+      }
+      if(seconds>16){
   lcol = color(255);
     rcol = color(255,105,180);
       }
-      if(se>17){
+      if(seconds>17){
   rcol = color(255);
     lcol = color(255,105,180);
       }
-      if(se>18){
+      if(seconds>18){
   lcol = color(255);
     rcol = color(255,105,180);
       }
-      if(se>19){
+      if(seconds>19){
   rcol = color(255);
     lcol = color(255,105,180);
       }
-      if(se>20){
+      if(seconds>20){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>21){
+      if(seconds>21){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>22){
+      if(seconds>22){
   lcol = color(255);
     rcol =color(255,105,180);
          
-      }if(se>23){
+      }if(seconds>23){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>24){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(se>25){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(se>26){
+      if(seconds>24){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>27){
+      if(seconds>25){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>28){
+      if(seconds>26){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>29){
+      if(seconds>27){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>30){
+      if(seconds>28){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>31){
+      if(seconds>29){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>32){
+      if(seconds>30){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>33){
+      if(seconds>31){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>34){
+      if(seconds>32){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>35){
+      if(seconds>33){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>36){
+      if(seconds>34){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>37){
+      if(seconds>35){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>38){
+      if(seconds>36){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>39){
+      if(seconds>37){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>40){
+      if(seconds>38){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>41){
+      if(seconds>39){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>42){
+      if(seconds>40){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>43){
+      if(seconds>41){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>44){
+      if(seconds>42){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>45){
+      if(seconds>43){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>46){
+      if(seconds>44){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>47){
+      if(seconds>45){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>48){
+      if(seconds>46){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>49){
+      if(seconds>47){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>50){
+      if(seconds>48){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>51){
+      if(seconds>49){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>52){
+      if(seconds>50){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>53){
+      if(seconds>51){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>54){
+      if(seconds>52){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>55){
+      if(seconds>53){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>56){
+      if(seconds>54){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>57){
+      if(seconds>55){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>58){
+      if(seconds>56){
   lcol = color(255);
     rcol =color(255,105,180);
          
       }
-      if(se>59){
+      if(seconds>57){
   lcol = color(255,105,180);
     rcol =color(255);
          
       }
-      if(se>60){
+      if(seconds>58){
+  lcol = color(255);
+    rcol =color(255,105,180);
+         
+      }
+      if(seconds>59){
+  lcol = color(255,105,180);
+    rcol =color(255);
+         
+      }
+      if(seconds>60){
   lcol = color(255);
     rcol =color(255,105,180);
          
