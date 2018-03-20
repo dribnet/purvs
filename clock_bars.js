@@ -15,8 +15,9 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
     background(204);
-
+        //print(alarm);
     background(180,184, 179); //  beige
     fill(128,100,100); // dark grey
     text("Hour: "   + hours, 10, 22);
@@ -26,6 +27,10 @@ function draw_clock(obj) {
 
     if (obj.hours >= 12){
         hours = hours - 12;
+    }
+
+    if (alarm > 0){
+       background(0) 
     }
     
     
