@@ -6,19 +6,19 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "d7a473df6b3bbf12684fc3eeceec6bb8e0eddd80",
       "name": "clock_alarm"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "648f12a43be1d6d03a58a9db761cb2fd20c1ed56",
       "name": "original_clock"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "bbfd0581c1073065b3baec3776a3f2c6dee54c0e",
       "name": "maeda_clock"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "0e53f601bf138604c1debb39aa453c75f8d61f64",
       "name": "sketch"
     }
   ]
