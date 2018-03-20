@@ -1,24 +1,42 @@
 //canvas sizes
-const CANVAS_WIDTH = 1440;
-const CANVAS_HEIGHT = 900;
+const CANVAS_WIDTH = 900;
+const CANVAS_HEIGHT = 600;
 
 //constant width and height of the rectangles
 const lBH = 10;
 const lBW = 10;
 
 //random hour and minute value calculator fields
-let hFlip = true;
-let r = random(0,1);
+let hFlip = true; //decides between hour or minutes are generated
+let r = Math.random(0,1); //the random minute and hour value
 
 //the minimum x and y values that will be constantly changing
-let x = 0;
-let y = 0;
-let fX = (CANVAS_WIDTH / 10);
-let fY = (fX * 1.33);
+x = 0; //defining x-axis value
+let y = 0; //defining y-axis value
 
-//range modifier
+let fX = (CANVAS_WIDTH / 12); //the width of each number frame
+let fY = (fX * 1.33); //the height of each frame based on the ratio of width
 
 //Time modifiers
+let minute = 34; //the current minute
+let hour = 1; //the current hour
+
+//range modifier [minutes]
+let minUR = (minute / 60); //upper range modifier for the maximum limit
+let minLR = (minute / -1); //lower range modifier for the minimum limit
+
+let mnuMod = minUR / 60; //the rate at which the minute Upper limit is increased
+let mnlMod = minLR / 60; //the rate at which the minute lower limit is increased
+
+//range modifier [hours]
+let hourUR = (hour / 12); //the upper range modifier
+
+let hrMod = 0.0333; //the constant for lower rate
+let hruMd = hourUR / 30; //rate for upper
+
+//range rage modifier
+let minRate = 0; //increase to 60 to decrease range
+let hrRate = 0; //limit of 30 to decrease range
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -36,27 +54,49 @@ function draw () {
   dRow();
 }
 
-function dRow() {
-	 while(x < CANVAS_WIDTH){
-	 	r = random(-1. 60);
-	 	Math.round(r);
+function rNum(sX, sY, W, H){ //generates a random number within an hour and filles the 'frame' amd fills it
+	numCheck(); //checks the rate
 
-	 }
+	//increases the rate or chances of the actual time appearing by decreasing the range of the random numbers
+	hrRate++;
+	minRate++;
+
+	//determines the value of the random number via the range
+	if(hFlip == true){r = random(0+(hrMod*hrRate), 13*(hruMd*hrRate));}
+	else{r = random(-1*(mnlMod*minRate), 60*(mnuMod*minRate));};
+	Math.round(r); //rounds the float to the nearest int
+
+	//determines if the random number is the current time and changes the color
+	if(hFlip == true){
+		if(r == hour){background(255,0,0);console.log("hour");}
+		else{background(0);};
+	}
+	else{
+		if(r == minute){background(255, 0, 0); console.log("minutes");}
+		else{background(0)};
+	}
+
+	hFlip = !hFlip; //flips the hFlip value
+	
+	
 }
 
-//generates a random values and draws it
-let dRow = function(){
-	let x = 0;
-	while(x < CANVAS_WIDTH){
-		rNum(x, y, 100, 100);
+//generates a random value of time (rNum) and draws it
+function dRow() {
+	y = 0;
+	while(y < CANVAS_HEIGHT){
+		x = 0;
+		while(x < CANVAS_WIDTH){
+			rNum(x, y, fX, fY);
+			x = x+fX;
+		}
+		y = y + fY;
 	}
 }
 
-let rNum = function(sX, sY, W, H){ //generates a random number within an hour and filles the 'frame' amd fills it
-	if(hFlip == true){r = random(0, 13);}
-	else{r = random(-1, 60);}
-	hFlip = !hFlip;
-	console.log(r);
+numCheck = function(){
+	if(minRate == 60){minRate = 0;};
+	if(hrRate == 30){hrRate = 0;};
 }
 
 let one = function(sX, sY, W, H){
