@@ -34,6 +34,10 @@ let hourUR = (hour / 12); //the upper range modifier
 let hrMod = 0.0333; //the constant for lower rate
 let hruMd = hourUR / 30; //rate for upper
 
+//The two values of minutes/hours
+let fVal = 0;
+let sVal = 0;
+
 //range rage modifier
 let minRate = 0; //increase to 60 to decrease range
 let hrRate = 0; //limit of 30 to decrease range
@@ -54,9 +58,7 @@ function draw () {
   dRow();
 }
 
-function rNum(sX, sY, W, H){ //generates a random number within an hour and filles the 'frame' amd fills it
-	numCheck(); //checks the rate
-
+function nGen(){
 	//increases the rate or chances of the actual time appearing by decreasing the range of the random numbers
 	hrRate++;
 	minRate++;
@@ -64,7 +66,17 @@ function rNum(sX, sY, W, H){ //generates a random number within an hour and fill
 	//determines the value of the random number via the range
 	if(hFlip == true){r = random(0+(hrMod*hrRate), 13*(hruMd*hrRate));}
 	else{r = random(-1*(mnlMod*minRate), 60*(mnuMod*minRate));};
-	Math.round(r); //rounds the float to the nearest int
+	Math.floor(r); //rounds the float to the nearest int
+
+	//getting the two values of the current time in order to 
+	fVal = Math.floor(r/10);
+	if(!(fVal < 1)){sVal = r - fVal*10}
+	else{sVal = r};
+}
+
+function rNum(sX, sY, W, H){ //generates a random number within an hour and filles the 'frame' amd fills it
+	numCheck(); //checks the rate
+	nGen(); //creates the random number to be generated based on the range of hours and minutes
 
 	//determines if the random number is the current time and changes the color
 	if(hFlip == true){
@@ -76,9 +88,7 @@ function rNum(sX, sY, W, H){ //generates a random number within an hour and fill
 		else{background(0)};
 	}
 
-	hFlip = !hFlip; //flips the hFlip value
-	
-	
+	hFlip = !hFlip; //flips the hFlip value		
 }
 
 //generates a random value of time (rNum) and draws it
