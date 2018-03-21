@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Start of Sand Clock
+### Sand Clock
 
-Today I start to code my clock. I take the advice from my tutor that use 'masks' to do my containers. So far I already finish all the bases of containers. In next step, I will code triangles in different locations with the same colour of background so that the containers will looks like in a thin hexagons.
+So far I nearly finish my clock. I have not do the triangle masks yet but now the clock is readable. I code each hour and minute but now the shift form one number to another is not so smooth. I plan to do some effects such as fade-in or fade-out between the shift. I use the pink coulurs now but I may change them in the future. Also I plan change colours when the time past.
