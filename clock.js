@@ -2,6 +2,8 @@
 //March 2018 
 
 function draw_clock(obj) {
+
+	//Creating base vars for timekeeping
 	background(0);
     let hours = obj.hours;
     let minutes = obj.minutes;
@@ -9,35 +11,41 @@ function draw_clock(obj) {
     let millis = obj.millis;
     let seconds_until_alarm = obj.seconds_until_alarm;
 
-
+    //Creating new vars for f (fraction) and sm (smooth) versions of time
     let secondsf = seconds + (millis/1000);
     let secondsm = map (secondsf, 0, 59, 0, 59);
     let minutesf = minutes + (secondsm/60);
     let minutesm = map (minutesf, 0, 59, 0, 59);
     let hoursf = hours + (minutesm/60);
-    let hoursm = map (hoursf, 0, 60, 0, 11);
-    let fade = map (secondsm, 0, 59, 0,255);
-
-
+    let hoursm = map (hoursf, 0, 11, 0, 11);
+    
+    //seconds_until_alarm = 20;
+    //Setting to degrees for easier dev
     angleMode(DEGREES);
 
-    translate(480,250);
-    rotate(180);
+    //Setting up scene
+    translate(480,250); //Allows for central rotation
+    rotate(180); //flips clock around the right way
+    //Setting default text stylings
    	textStyle(BOLD);
 	textFont('Times New Roman');
 
-	push();
-		backdrop();
-	pop();
+	//Calling of clock dial functions and backdrop to create the clock
+	if (seconds_until_alarm>=1){
+			backdrop();
+	} else {
+		alarm();
+	}
+	
 
 		indicator();
 		
 	push();
-	    rotate(-6*secondsm);
+	    rotate(-6*secondsm); //Allows the dials to rotate in sync with time
 	    secondRing();
 	    noStroke();
-	    fill(153, 115, 0, 100);
-	    ellipse(0,0,350);
+	    fill(153, 115, 0, 100); //Choosing light brown colour for shadow
+	    ellipse(0,0,350); //Creates shadow effect
 	pop();
 
 	push();
@@ -148,7 +156,7 @@ function hourRing(){
 
 	//Creating the line divisions
 	push();
-	rotate(60);
+	rotate(30);
 	fill(255, 201, 51);
 		strokeWeight(3);
 		ellipse(0,0,200);
@@ -177,6 +185,7 @@ function hourRing(){
 	pop();
 }
 
+//Creates a border and indicator to allow for easy reading of time
 function indicator(){
 	fill(255, 201, 51);
 	beginShape();
@@ -189,24 +198,30 @@ function indicator(){
 	triangle(0,200,10,210,-10,210);
 }
 
+//Creates nice scene behind the clock, calling on the cloud functions below
 function backdrop(){
-	noStroke();
-	background(102, 163, 255);
-	fill(0, 153, 0);
-	ellipse(0,-5100,10000);
-	cloud1(200,100);
 	push();
-	scale(2);
-		cloud1(-60,15);
+		noStroke();
+		background(102, 163, 255);
+		fill(0, 153, 0);
+		ellipse(0,-5100,10000);
+		fill(255);
+		cloud1(200,100);
+		push();
+		scale(2);
+		fill(255);
+			cloud1(-60,15);
+		pop();
+		cloud2(350,30);
 	pop();
-	cloud2(0,0);
 }
 
+//Creates cloud version 1
 function cloud1(x,y){
 	push();
 		scale(2);
 		noStroke();
-		fill(255);
+		//fill(255);
 		ellipse(x,y,20);
 		ellipse(x+5,y-10,15);
 		ellipse(x+10,y-5,20);
@@ -215,11 +230,12 @@ function cloud1(x,y){
 	pop();
 }
 
+//Creates cloud version 2
 function cloud2(x,y){
 	push();
-		rotate(180);
+		//rotate(180);
 		noStroke();
-		fill(255);
+		//fill(255);
 		ellipse(x,y,20);
 		ellipse(x+5,y-10,15);
 		ellipse(x+10,y-5,20);
@@ -229,6 +245,20 @@ function cloud2(x,y){
 	pop();
 }
 
-
-//Audio clip from: http://soundbible.com/2171-Church-Bell-Chime.html
-//Downloaded, edited, and used under creative commons by Ben Spearman
+function alarm(){
+	push();
+		noStroke();
+		background(20,20,20);
+		fill(0, 65, 0);
+		ellipse(0,-5100,10000);
+		fill(200)
+		cloud1(200,100);
+		push();
+		scale(2);
+			fill(200);
+			cloud1(-60,15);
+		pop();
+		fill(200);
+		cloud2(350,30);
+	pop();
+}
