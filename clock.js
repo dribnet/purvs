@@ -13,9 +13,9 @@ function draw_clock(obj) {
     //        > 0 --> the number of seconds until alarm should go off
 
   //time data
-  var s = second();
-  var m = minute();
-  var h = hour();
+  var s = obj.seconds;
+  var m = obj.minutes;
+  var h = obj.hours;
 
   //setup
   translate(width/2,height/2)
@@ -36,7 +36,7 @@ function draw_clock(obj) {
 
   //display hour large size white
   strokeWeight(50);
-  stroke(c);
+  stroke(200);
   arc(0, 0, 420, 420, 0, arcH);
 
   //display minutes med size gray
