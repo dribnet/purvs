@@ -14,6 +14,8 @@ let bodyColour = [0, 0, 0];
 let outerRingColour = [210, 210, 210];
 let innerRingColour = [230, 230, 230]
 let backgroundColour = [255, 255, 255];
+let leafColour = [40, 170, 40];
+let vineColour = [40, 210, 40];
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -41,6 +43,7 @@ function draw_clock(obj) {
     background(backgroundColour);
 
     //draw ring for butterflies to fly within
+    drawVineBehind();
     noStroke();
     fill(outerRingColour);
     ellipse(480, 250, 490, 490);
@@ -48,11 +51,13 @@ function draw_clock(obj) {
     ellipse(480, 250, 420, 420);
     fill(backgroundColour);
     ellipse(480, 250, 100, 100);
+    push();
     drawAlarm(obj.seconds_until_alarm, millis);
     drawSecondButterfly(seconds, millis);
     drawMinuteButterfly(seconds, minutes, millis);
     drawHourButterfly(hours, seconds, millis);
-    
+    pop();
+    drawVineFront();
 
 }
 
@@ -67,6 +72,8 @@ function invertColours(){
         bodyColour[i] = 255- bodyColour[i];
         outerRingColour[i] = 255- outerRingColour[i];
         innerRingColour[i] = 255- innerRingColour[i];
+        leafColour[i] = 255 - leafColour[i];
+        vineColour[i] = 255 - vineColour[i];
     }
 }
 
@@ -93,6 +100,7 @@ function drawSecondButterfly(s, m){
     let rotationMillis = map(m, 1, 1000, 2*PI/60/1000, 2*PI/60);
     rotate(rotationMillis+rotationSecond + PI + HALF_PI);
     createButterfly(secondColourLight, secondColourDark, centreButterfly, sizeButterfly, m, s);
+
 }
 
 function drawHourButterfly(h, s, m){
@@ -184,5 +192,79 @@ function createButterfly(c1, c2, cB, sB, millis, seconds){
 
     wingSync++;
 }
+
+//draws the vines that go behind circle
+function drawVineBehind(){
+    noFill();
+    strokeWeight(8);
+    stroke(leafColour);
+    //left vine
+    ellipse(320, 210, 200, 250);
+    //right top vine
+    ellipse(600, 150, 200, 250);
+    //right bottom vine
+    ellipse(650, 300, 200, 200);
+}
+
+//draws the top layer of vines
+function drawVineFront(){
+    translate(0, 0);
+    rotate(0);
+    noFill();
+    strokeWeight(8);
+    stroke(leafColour);
+    //middle vine
+    arc(499, 203, 50, 50, QUARTER_PI-PI/7, PI);
+    //left vine
+    arc(320, 210, 200, 240, HALF_PI, PI);
+    //right top vine
+    arc(650, 135, 100, 160, 0, PI);
+    //bottom vine
+    arc(480, 470, 250, 100, PI-PI/15, 0-PI/40);
+    fill(leafColour);
+    noStroke();
+    //draw leaves
+    //bottom leaves
+    drawLeaf(337, 480, 1);
+    fill(vineColour);
+    drawLeaf(500, 441, 0.4);
+    drawLeaf(520, 401, 0);
+    drawLeaf(335, 460, 1.8);
+    fill(leafColour);
+    drawLeaf(515, 443, 0);
+    //left leaves
+    drawLeaf(335, 320, 1);
+    drawLeaf(310, 350, 0.3);
+    drawLeaf(200, 200, 1.4);
+    fill(vineColour);
+    drawLeaf(201, 180, 1.8);
+    //middle leaves
+    drawLeaf(540, 200, 1);
+    fill(leafColour);
+    drawLeaf(500, 248, 0);
+    //top right leaves
+    drawLeaf(605, 118, 0.3);
+    fill(vineColour);
+    drawLeaf(635, 232, 0.6);
+    drawLeaf(713, 125, 0.5);
+    fill(leafColour);
+    drawLeaf(715, 170, 1.5);
+    //bottom right leaves
+    drawLeaf(737, 383, 2.3);
+    fill(vineColour);
+    drawLeaf(725, 270, 1.4);
+    drawLeaf(757, 260, 0.3);
+    fill(leafColour);
+    drawLeaf(755, 350, 1.4)
+}
+
+function drawLeaf(x, y, a){
+    push();
+    translate(x, y);
+    rotate(a);
+    ellipse(0, 0, 14, 35);
+    pop();
+}
+
 
 
