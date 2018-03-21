@@ -9,17 +9,16 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Further stress testing
-+ Experimenting with using the lightest shade in the palettes to integrate them with the background
++ Split the foreground and background into separate canvases so that better graphical affects can be achieved without webgl messing it up. Previously was rendering differently on different browsers
++ Tidied up the outlining
++ Killed the framerate a bit
 
 #### Current Issues:
 + Small terrain components don't look great on their own but that's to be expected
 + Currently there's nothing to accommodate particle drawing being ordered correctly. I'll probably just use the order of their starting position to avoid overhead.
-+ Terrain components currently do not tell the tiles what palette to use
-+ I think some colour values may be wrong right now
 
 #### To Do:
-+ Add the terrain palette information
++ Make terrain components correctly cast their palette to the tile grid along their length. May investigate casting to a horizontal line of tiles based on the component thickness
 + Implement the rest of the scene
 + Make the sky nicer
 + Implement particles
