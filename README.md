@@ -9,15 +9,15 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Split the foreground and background into separate canvases so that better graphical affects can be achieved without webgl messing it up. Previously was rendering differently on different browsers
-+ Tidied up the outlining
-+ Killed the framerate a bit
++ Implemented part of the island meat
 
 #### Current Issues:
 + Small terrain components don't look great on their own but that's to be expected
 + Currently there's nothing to accommodate particle drawing being ordered correctly. I'll probably just use the order of their starting position to avoid overhead.
++ Currently nothing to accommodate stuff being drawn for the underside of the island
 
 #### To Do:
++ Add something for the underside of the island
 + Make terrain components correctly cast their palette to the tile grid along their length. May investigate casting to a horizontal line of tiles based on the component thickness
 + Implement the rest of the scene
 + Make the sky nicer

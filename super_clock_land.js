@@ -60,16 +60,14 @@ class SuperClockLand {
 
 		//the scene itself
 		//TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight);
-		this.terrain.push(new TerrainLine(1, 2, 3, -10, 0, 1, 10, 0, 1));
-		this.terrain.push(new TerrainLine(1, 2, 3, 0, -10, 1, 0, 10, 1));
-		let v = createVector(45, 0, 0);
-		for (let i = 0; i < 60; i++) {
-			this.terrain.push(new TerrainLine(1, floor(random(3) + 1), 5, v.x, v.y, v.z, v.x, v.y, v.z + 4));
-
-				let offset = floor(random(20));
-				this.terrain.push(new TerrainLine(floor(random(5)), floor(random(3) + 1), 5, v.x * 1.5, v.y * 1.5, -4+offset, v.x * 1.5, v.y * 1.5, offset));
-
-			v.rotate(TAU/60);
+		let v = createVector(42, 0, -2);
+		for (let i = 0; i < 30; i++) {
+			let dangle = floor(random(4));
+			this.terrain.push(new TerrainLine(1, 1, 5, v.x, v.y, v.z- dangle, v.x, v.y, v.z + 4 - dangle));
+			if (i%4 ==0) {
+				this.terrain.push(new TerrainLine(1, 1+floor(random(1.33)), 16, v.x*0.75, v.y*0.75, v.z+8, v.x*0.75, v.y*0.75, v.z + 16));
+			}
+			v.rotate(TAU/30);
 		}
 
 		//array to hold the active particles
@@ -193,6 +191,14 @@ class SuperClockLand {
 			fg.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedStartPos.z),
 				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedEndPos.z));
 		}
+		//terrain ellipse
+		fg.fill(0x00);
+		fg.noStroke();
+		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 92, 32);
+
+		fg.fill(0x5A, 0x94, 0x00);
+		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 90, 30);
+
 		//terrain interior
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
@@ -231,7 +237,7 @@ class SuperClockLand {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
 						let p = fg.pixels[pixelAddress];
 						//kill the alpha
-						fg.pixels[pixelAddress+3] = (fg.pixels[pixelAddress+3] > 0 ? 255 : 0);
+						fg.pixels[pixelAddress+3] = (fg.pixels[pixelAddress+3] > 127 ? 255 : 0);
 						if (p < 0x55) { //'black'
 							fg.pixels[pixelAddress] =    (this.paletteColours[tilePal*12]);
 							fg.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+1]);
