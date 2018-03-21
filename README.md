@@ -2,9 +2,7 @@
 
 ### My clock
 
-Redo my project (didn't use the corret files before)
-
-start from part3 
+I tried to draw my clock in p5js.
 
 
 
