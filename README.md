@@ -1,4 +1,4 @@
 ## PS1 MDDN 242 2018
 
-### Final Clock Progress - Alarm
-This is the start of applying my alarm into my final concept. 
+### Final Clock Progress - Alarm final state
+So this is coming close to my final end state for my clock. I managed to get a sort of fun personality when the alarm goes off, but also be practical. So my theory behind my alarm function is very similar to the whole inspiration/idea of having a very practical clock. Having the time only to be able to be read when you interact with the code, my alarm follows this sort of however it looks more into the context of my clock, that the numbers split off and bounch - making the time able to read. When a alarm goes off its often to remind someone to do something directly linked to that time, so it makes sense that when the alarm goes off the time becomes readable. Also i found that having this sort of movement makes the alarm less intense and more playful. I found these complimented each other as i did not want to have a intense alarm as such but a more subtle alarm. I also did some font experimentation and personally went with this digital bubbly style to again encourage that playful theme from all the movement personalities. 
