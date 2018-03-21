@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Code Clock
+### Heartbeat Clock
 
-I picked quite a simple clock to recreate from Maeda's 12 clocks. It was the digital time made up of analog clocks. 
+I originally wanted to make a clock that was based off the working of a EKG machine with the seconds, minutes and hours all being a seperate beat. So far this isn't clearly showing the heart beat theme of the clock so I may have change my idea and add some basic imagery.
