@@ -28,14 +28,14 @@ let bg1 = map(mouseY, 0, 500, 100, 200);
 let am = map(ml, 0, 999, 0, 5);
 
 
-let rhr = map(hr, 0, 23, 0, 360);
+let rhr = map(hr, 0, 23, 0, 360); //rotation maps for hr, mn and sc
 let rmn = map(mn, 0, 59, 0, 360);
 let rsc = map(sc, 0, 59, 0, 360);
-print(alarm);
+
+//print(alarm); //debugging
 
 if(alarm == 0){ //what the alarm does when time reached
-	// background(alarmcolour, alarmcolour/2, alarmcolour/2, 200);
-	// textSize(alarmsize);
+                //The alarm changing the cordinates to bounce up and down
 	XH = (XH+ (mouseX - XH)/10.0);
 	YH = (YH+ (mouseY - YH)/10.0) + am;
 
@@ -51,13 +51,10 @@ if(alarm == 0){ //what the alarm does when time reached
 	XS = (XS+ (mouseX - XS)/77.0);
 	YS = (YS+ (mouseY - YS)/77.0)+ am;
 	 }
-// if(alarm > 0){ 
-//  textSize(alarmsize);
-// }
-else{ //alarm not on
-	// background(bg1, bg, bg, 200);
-	textSize(90);
-	XH = XH+ (mouseX - XH)/5.0;
+
+else{ //alarm not on - Natural form of the clock
+      //the code making the text follow the mouse smoothly at different speeds
+	XH = XH+ (mouseX - XH)/5.0; 
 	YH = YH+ (mouseY - YH)/5.0;
 
 	X1 = X1+ (mouseX - X1)/15.0;
@@ -74,48 +71,43 @@ else{ //alarm not on
 }
 
 background(bg1, bg, bg, 200);
-fill(50, 50, 50, 100);
+
+fill(50, 50, 50, 100); //text formatting
+textSize(90);
 textAlign(CENTER);
 textFont('OCR A STD');
 
-if(hr < 10){
-text('0' + hr, XH, YH);	
+if(hr < 10){ //formats the hours to always be 2 digits
+	text('0' + hr, XH, YH);	
 }else{
-text(hr, XH, YH);	
+	text(hr, XH, YH);	
 }
 
-if(mn < 10){
-text('0' + mn, XM, YM);	
-}else{
-text(mn, XM, YM);	
-}
-
-if(sc < 10){
-text('0' + sc, XS, YS)	
-}else{
-text(sc, XS, YS);	
-}
-
-
-// text(hr, XH, YH);
 text(":", X1, Y1)
-// text(mn, XM, YM);
+
+if(mn < 10){ //formats the minutes to always be 2 digits
+	text('0' + mn, XM, YM);	
+}else{
+	text(mn, XM, YM);	
+}
+
 text(":", X2, Y2)
-// text(sc, XS, YS);
 
-// XH = XH+ (mouseX - XH)/5.0;
-// YH = YH+ (mouseY - YH)/5.0;
+if(sc < 10){ //formats the seconds to always be 2 digits
+	text('0' + sc, XS, YS)	
+}else{
+	text(sc, XS, YS);	
+}
 
-// X1 = X1+ (mouseX - X1)/15.0;
-// Y1 = Y1+ (mouseY - Y1)/15.0;
 
-// XM = XM+ (mouseX - XM)/25.0;
-// YM = YM+ (mouseY - YM)/25.0;
-
-// X2 = X2+ (mouseX - X2)/40.0;
-// Y2 = Y2+ (mouseY - Y2)/40.0;
-
-// XS = XS+ (mouseX - XS)/55.0;
-// YS = YS+ (mouseY - YS)/55.0;
+translate(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+push();
+fill(255);
+textSize(50);
+textAlign(CENTER);
+rotate(rsc);
+// ellipse(XH + 400, YH - 400, 50, 50);
+text(sc, XH - 480, YH -250);
+pop();
 
  }
