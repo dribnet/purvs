@@ -23,83 +23,86 @@ function draw_clock(obj) {
     let SecondAngle = map(seconds+(millis/1000), 0, 60, 0, 360);
     let MinuteAngle = map(minutes+SecondFraction, 0, 60, 0, 360);
     let HourAngle = map(hours+MinuteFraction, 0, 24, 0, 720);
+    let RotHour = map(hours+MinuteFraction, 0, 24, 0, -720);
+    let RotMinute = map(minutes+SecondFraction, 0, 60, 0, -360);
+    let RotSecond = map(seconds+(millis/1000), 0, 60, 0, -360);
     
     translate(width/2,height/2);
-
-    textSize(20);
-    text("12", 0, -220);
     
-    push();
-    rotate(30);
-    text("1", 0, -220);
-    pop();
 
-    push();
-    rotate(60);
-    text("2", 0, -220);
-    pop();
+noStroke();
+ellipse(0,0,20,20);
+triangle(-10,0,10,0,0,-70);
 
-    push();
-    rotate(90);
-    text("3", 0, -220);
-    pop();
+for(let i=1; i<=12; i=i+1){
 
-    push();
-    rotate(120);
-    text("4", 0, -220);
-    pop();
+  let num = i;
+  let deg = 0+(i*30);
+  push();
+  textSize(15);
+  rotate(deg+RotHour);
+  text(num, 0, -220);
 
-    push();
-    rotate(150);
-    text("5", 0, -220);
-    pop();
+  pop();
 
-    push();
-    rotate(180);
-    text("6", 0, -220);
-    pop();
+}
 
-    push();
-    rotate(210);
-    text("7", 0, -220);
-    pop();
+for(let i=1; i<=60; i=i+1){
 
-    push();
-    rotate(240);
-    text("8", 0, -220);
-    pop();
+  let num = i;
+  let deg = 0+(i*6);
+  push();
+  textSize(10);
+  rotate(deg+RotMinute);
+  text(num, 0, -170);
 
-    push();
-    rotate(270);
-    text("9", 0, -220);
-    pop();
+  pop();
 
-    push();
-    rotate(300);
-    text("10", 0, -220);
-    pop();
+}
+ 
+for(let i=1; i<=60; i=i+1){
 
-    push();
-    rotate(330);
-    text("11", 0, -220);
-    pop();
+  let num = i;
+  let deg = 0+(i*6);
+  push();
+  textSize(5);
+  rotate(deg+RotSecond);
+  text(num, 0, -120);
+
+  pop();
+
+}
+
 
     
     
     push();
     rotate(HourAngle);
-    rect(-8,-140, 16, 140);
+    //rect(-8,-140, 16, 140);
     pop();
     
     push();
     rotate(MinuteAngle);
-    rect(-8,-200, 16, 200);
+  //  rect(-8,-200, 16, 200);
     pop();
     
     push();
     rotate(SecondAngle);
-    rect(-5,-200, 10,200);
+   // rect(-5,-200, 10,200);
     pop();
+
+    //fill(200);
+
+
+
+      //eye = map(hours+MinuteFraction, 0, 24, 1, 50);
+
+
+
+    //ellipse(0,0,300,300);
+   // ellipse(-60,0,50,eye);
+    //ellipse(60,0,50,eye);
+
 
 
 
