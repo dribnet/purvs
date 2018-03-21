@@ -55,9 +55,10 @@ function draw () {
   background(0); // black background
   strokeWeight(2); // Stroke weight to 8 pixels
   //rect(0, 600, 960, -600);
-  dRow();
+  //dRow();
 }
 
+//Generates random value, r, and splits it into the first and second values
 function nGen(){
 	//increases the rate or chances of the actual time appearing by decreasing the range of the random numbers
 	hrRate++;
@@ -68,27 +69,10 @@ function nGen(){
 	else{r = random(-1*(mnlMod*minRate), 60*(mnuMod*minRate));};
 	Math.floor(r); //rounds the float to the nearest int
 
-	//getting the two values of the current time in order to 
+	//getting the two values of the current time in order to draw them correctly
 	fVal = Math.floor(r/10);
 	if(!(fVal < 1)){sVal = r - fVal*10}
 	else{sVal = r};
-}
-
-function rNum(sX, sY, W, H){ //generates a random number within an hour and filles the 'frame' amd fills it
-	numCheck(); //checks the rate
-	nGen(); //creates the random number to be generated based on the range of hours and minutes
-
-	//determines if the random number is the current time and changes the color
-	if(hFlip == true){
-		if(r == hour){background(255,0,0);console.log("hour");}
-		else{background(0);};
-	}
-	else{
-		if(r == minute){background(255, 0, 0); console.log("minutes");}
-		else{background(0)};
-	}
-
-	hFlip = !hFlip; //flips the hFlip value		
 }
 
 //generates a random value of time (rNum) and draws it
@@ -105,8 +89,25 @@ function dRow() {
 }
 
 numCheck = function(){
-	if(minRate == 60){minRate = 0;};
-	if(hrRate == 30){hrRate = 0;};
+	if(minRate == 61){minRate = 0;};
+	if(hrRate == 31){hrRate = 0;};
+}
+
+function rNum(sX, sY, W, H){ //generates a random number within an hour
+	numCheck(); //checks the rate
+	nGen(); //creates the random number to be generated based on the range of hours and minutes
+
+	//determines if the random number is the current time and changes the color
+	if(hFlip == true){
+		if(r == hour){background(255,0,0);console.log("hour");}
+		else{background(0);};
+	}
+	else{
+		if(r == minute){background(255, 0, 0); console.log("minutes");}
+		else{background(0)};
+	}
+
+	hFlip = !hFlip; //flips the hFlip value		
 }
 
 let one = function(sX, sY, W, H){
