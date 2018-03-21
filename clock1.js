@@ -31,7 +31,7 @@ function draw () {
 	//Creates TEMPLATE circles (WILL BE DELETED!!! Just used to help guide the actual code)
 
 	//Creates Layers for colour changes, dependant on the variable "layer"
-	for (let layer = 0; layer<3; layer++){
+	for (let layer = 0; layer<2; layer++){
 		if (layer == 0){
 			fill (cyan);
 		} else if (layer == 1){

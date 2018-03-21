@@ -1,10 +1,13 @@
 ## PS1 MDDN 242 2017
 
-### Template is Set up & Note for what to do next
+### Clock Working, No Alarm
 
-So this is the vague idea of what the clock would look like with absolutely all of the 
-dots active at once. This is obviously subject to change but the general idea is still 
-there. 
+The Code is pretty full but I couldn't think of a way around the multiple 
+conditional statements I have. But is working perfectly and the numbers are 
+all lined up properly. Not that anyone would know the difference tbh. I can 
+almost read the clock now, enough at least to know the all the numbers are 
+working correctly. 
 
-My next steps will be obviously finding a way to animate it in such a way the the braille
-numbers appear.
+Now all I need to do is make an alarm which I will need to adjust my code 
+probably pretty significantly to get it working however. So hopefully going 
+to be doing that today to get a final copy.
