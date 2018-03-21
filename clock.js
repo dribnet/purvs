@@ -21,7 +21,9 @@ var rpsy = 0;
 
 
 //timedot
+var tsX = 50;
 var x = 0;
+var eaty = 0;
 
 
 
@@ -30,7 +32,7 @@ const CANVAS_HEIGHT = 500;
 
 function draw_clock(obj) {
   background(255,182,193);
-  rcol = color(255,105,180);
+  rcol = color(255,22);
   lcol = color(255);
 
 
@@ -367,7 +369,23 @@ function draw_clock(obj) {
       }
 
   background(255,182,193);
-  
+
+  if(seconds_until_alarm>1){
+
+    background(255,182,193);
+    push();
+    scale(0.7);
+    eatme();
+    pop();
+    eaty = eaty +1;
+    tsX = tsX-1;
+    if(tsX<-40){
+    	tsX = 80;
+    }
+  }
+  if(seconds_until_alarm<1){
+  	tsX=60;
+  }
   scale(1.2);
   noStroke();
   leftpill();
@@ -375,13 +393,16 @@ function draw_clock(obj) {
   inrightpill();
   inleftpill();
 
-  textSize(50);
+  textSize(tsX);
   pixelfont = loadFont("Pixeled.ttf");
   textFont("Pixeled");
   fill(0,80);
 
-  text(hours + ' : ' +minutes,250,270);
+  text(hours,250,270);
+  text(minutes,400,270);
   // doto();
+
+  
       
 }
 function leftpill(){
@@ -1050,6 +1071,153 @@ function inleftpill(){
   
   
   
+}
+function eatme(){
+	noStroke();
+  push()
+  scale(0.5);
+  fill(0);
+  //E
+  rect(50,eaty+50,10,10);
+  rect(50,eaty+60,10,10);
+  rect(50,eaty+70,10,10);
+
+  rect(60,eaty+50,10,10);
+  rect(70,eaty+50,10,10);
+
+  rect(60,eaty+70,10,10);
+  rect(70,eaty+70,10,10);
+
+  rect(50,eaty+80,10,10);
+  rect(50,eaty+90,10,10);
+
+  rect(60,eaty+90,10,10);
+  rect(70,eaty+90,10,10);
+  //A
+  rect(90,eaty+50,10,10);
+  rect(90,eaty+60,10,10);
+  rect(90,eaty+70,10,10);
+  rect(90,eaty+80,10,10);
+  rect(90,eaty+90,10,10);
+
+  rect(100,eaty+50,10,10);
+  rect(110,eaty+50,10,10);
+  rect(110,eaty+60,10,10);
+  rect(110,eaty+70,10,10);
+  rect(110,eaty+80,10,10);
+  rect(110,eaty+90,10,10);
+
+  rect(100,eaty+70,10,10);
+
+  //T
+  rect(130,eaty+50,10,10);
+  rect(150,eaty+50,10,10);
+  rect(140,eaty+50,10,10);
+  rect(140,eaty+60,10,10);
+  rect(140,eaty+70,10,10);
+  rect(140,eaty+80,10,10);
+  rect(140,eaty+90,10,10);
+  //M
+  rect(60,eaty+120,10,10);
+  rect(60,eaty+130,10,10);
+  rect(60,eaty+140,10,10);
+  rect(60,eaty+150,10,10);
+  rect(60,eaty+160,10,10);
+
+  rect(65,eaty+130,10,10);
+  rect(70,eaty+140,10,10);
+  rect(75,eaty+150,10,10);
+  rect(80,eaty+160,10,10);
+  rect(85,eaty+150,10,10);
+  rect(90,eaty+140,10,10);
+  rect(95,eaty+130,10,10);
+  rect(100,eaty+120,10,10);
+
+  rect(100,eaty+120,10,10);
+  rect(100,eaty+130,10,10);
+  rect(100,eaty+140,10,10);
+  rect(100,eaty+150,10,10);
+  rect(100,eaty+160,10,10);
+
+  //E
+  rect(120,eaty+120,10,10);
+  rect(120,eaty+130,10,10);
+  rect(120,eaty+140,10,10);
+
+  rect(130,eaty+120,10,10);
+  rect(140,eaty+120,10,10);
+
+  rect(130,eaty+140,10,10);
+  rect(140,eaty+140,10,10);
+
+  rect(120,eaty+150,10,10);
+  rect(120,eaty+160,10,10);
+
+  rect(130,eaty+160,10,10);
+  rect(140,eaty+160,10,10);
+  pop();
+  push();
+  fill(255);
+  scale(0.5);
+  rect(30,eaty+50,10,130);
+  rect(30,eaty+40,10,10);
+  rect(40,eaty+50,10,10);
+  rect(40,eaty+40,10,10);
+  rect(40,eaty+40,10,130);
+  rect(50,eaty+40,10,10);
+  rect(60,eaty+40,10,10);
+  rect(70,eaty+40,10,10);
+  rect(80,eaty+50,10,10);
+  rect(80,eaty+40,10,10);
+  rect(90,eaty+40,10,10);
+  rect(100,eaty+40,10,10);
+  rect(110,eaty+40,10,10);
+  rect(120,eaty+50,10,10);
+  rect(120,eaty+40,10,10);
+  rect(130,eaty+40,10,10);
+  rect(140,eaty+40,10,10);
+  rect(150,eaty+40,10,10);
+  rect(160,eaty+50,10,10);
+  rect(160,eaty+40,10,10);
+  rect(170,eaty+50,10,10);
+  rect(170,eaty+40,10,10);
+  rect(170,eaty+50,10,10);
+  rect(170,eaty+60,10,120);
+  rect(160,eaty+60,10,120);
+  rect(150,eaty+60,10,120);
+  rect(80,eaty+60,10,90);
+  rect(30,eaty+170,140,10);
+  rect(120,eaty+50,10,70);
+  rect(130,eaty+60,10,60);
+  rect(140,eaty+100,10,20);
+  rect(140,eaty+130,10,10);
+  rect(130,eaty+130,10,10);
+  rect(140,eaty+150,10,10);
+  rect(130,eaty+150,10,10);
+  rect(60,eaty+60,10,10);
+  rect(70,eaty+60,10,10);
+  rect(60,eaty+80,10,10);
+  rect(70,eaty+80,10,10);
+  rect(50,eaty+100,10,10);
+  rect(60,eaty+100,10,10);
+  rect(70,eaty+100,10,10);
+  rect(50,eaty+110,10,10);
+  rect(60,eaty+110,10,10);
+  rect(70,eaty+110,10,10);
+  rect(50,eaty+120,10,10);
+  rect(70,eaty+120,10,10);
+  rect(50,eaty+130,10,50);
+  rect(100,eaty+60,10,10);
+  rect(100,eaty+80,10,40);
+  rect(90,eaty+100,10,40);
+  rect(90,eaty+150,10,20);
+  rect(110,eaty+100,10,70);
+  rect(70,eaty+150,10,20);
+  rect(70,eaty+130,10,10);
+  pop();
+}
+function capsule(){
+	rect(10,50,10,10);
 }
 // function doto(){
 //   ellipse(x,0,10,10);
