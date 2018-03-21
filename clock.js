@@ -29,6 +29,23 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     // let millis = obj.millis;
 
+    let seconds_until_alarm = obj.seconds_until_alarm;
+
+    if (seconds_until_alarm < 0) {
+        background(200,200,255); //  beige
+    }
+    else if (seconds_until_alarm > 0) {
+        background(255, 200, 200); //  red        
+    }
+    else {
+        if(seconds % 2 == 0) {
+            background(255, 0, 0); //  red
+        }
+        else {
+            background(100, 100, 100); //  red
+        }
+    }
+
     // background(204);
 
     // background(255,255,200); //  beige
@@ -38,7 +55,7 @@ function draw_clock(obj) {
     // text("Second: " + seconds, 10, 62);
     // text("Millis: " + millis, 10, 82);
 
-    background(0); //black
+    // background(0); //black
     translate(width / 2, height / 2); // origin at the middle
     // fill(240,70); // gray
     noFill();
@@ -49,9 +66,9 @@ function draw_clock(obj) {
     ellipse(0, 0, 240, 240);
     ellipse(0, 0, 120, 120);
 
-    SecondAngle = map(seconds, 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
-    MinuteAngle = map(minutes, 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
-    HourAngle = map(hours, 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
+    SecondAngle = map(second(), 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
+    MinuteAngle = map(minute(), 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
+    HourAngle = map(hour(), 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
 
     second_x = cos(SecondAngle) * 165; // second x
     second_y = sin(SecondAngle) * 165; // second y
@@ -70,6 +87,7 @@ function draw_clock(obj) {
 
     fill(color(67, 103, 140)); // blue - hour
     ellipse(hour_x,hour_y,10,10);
+
 
 
 }
