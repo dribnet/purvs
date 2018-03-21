@@ -56,10 +56,18 @@ function draw_clock(obj) {
         let alarmMilliesLine = 0;
     }
 
+
+
     if (alarm > 0) {
-            let flash = map(millis,0,1000,255,0);
-            fill(flash);
-            rect(5, hourBarPosition, minuteBarWidthSmooth, 2);
+        let incHours = 0;
+        for (let i = 0; i < hourBarPosition; i++) {
+            let incAlarm = i/millis / hourBarPosition;
+            let col = 1;
+            fill(col + i, 205, 255);
+            rect(5, (incAlarm * i) + 5, width - 10, 2);
+
+        }
     }
+
     
 }
