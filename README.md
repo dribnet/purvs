@@ -2,6 +2,9 @@
 
 ### Helix clock. 
 
-
-I have multiple ideas to what i wanted my design to look like once the alarm went off. My first idea was to have multiple random circles fill up the background and making them a bit transparent so it wasn't too strong, but i came across a few problems so i decided to change my idea and make it more simple. So i've decided to just have the ellipse grow in size and change into a brighter colour - green and yellow. i think changing the colour really had a nice effect, it really stands out especially over the black background. Also when i think of alarms, they alert you, give you some sort of a shock feeling and they catch your attention which i think the colours really help protray that feeling. 
-
+This is my final design, which i called the Helix clock. It shows the speed of the hours, minutes, seconds and milliseconds. I changed my idea a lot but i stuck with this at the end as i thought it was my strongest design. It is very simple but effective. 
+I wanted the main focus to be on the helix waves hence why the made the background black. 
+When the alarm sets off, the ellipses’ grow in size and also changes in colour. I changed the colour onto yellow and green as i wanted it to really stand out and to be somewhat in-your-face. The outcome of the alarm was really good a portrayed the feeling of an alarm going off. 
+I came across a lot of obstacles during this project and it made it harder that t i couldn’t decide on one idea. But as i looked at all my deigns and sketches, the Helix Clock stood out to me the most. 
+I disregarded the idea of actually showing the time in my clock and just to show the speed of time. 
+Im happy with how my clock turned out. Its a very simple deisgn but effective design to show the speed of time. 

@@ -21,9 +21,6 @@ function draw_clock(obj) {
     let alarm = obj.seconds_until_alarm;
   
  background(0); //  black 
- 
-    
-      
 
     let hourBarWidth   = map(hours, 0, 23, 0, width);
     let minuteBarWidth = map(minutes, 0, 59, 0, width);
@@ -31,7 +28,7 @@ function draw_clock(obj) {
     let millisBarWidth = map(millis, 0, 1000, 0, width);
 
 
-//hour
+//hour helix wave
  noStroke();
   for (var i = 0; i < 100; i++) {
     fill(hourBarWidth % 255,100,155);
@@ -41,6 +38,7 @@ function draw_clock(obj) {
       10,
       10);
   }
+ 
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(hourBarWidth % 255,100,155);
@@ -51,7 +49,7 @@ function draw_clock(obj) {
       10);
   }
  
-//min
+//mis helix wave
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(minuteBarWidth % 255,100,155);
@@ -72,7 +70,7 @@ function draw_clock(obj) {
       10);
   }
  
-//seconds
+//seconds helix wave 
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(secondBarWidth % 255,100,155);
@@ -94,7 +92,7 @@ function draw_clock(obj) {
   }
  
 
-    ////mill
+    ////milli helix wave 
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(millisBarWidth % 255,100,155);
@@ -117,7 +115,9 @@ function draw_clock(obj) {
       10);
   }
 
- fill(128,100,100, 150); // dark grey
+
+//text to show the time 
+ fill(128,100,100, 150); 
     textSize(20);
     text( "Hours:  " + hours, 10, 22);
     text("Minutes:  " + minutes, 10, 42);
@@ -125,11 +125,10 @@ function draw_clock(obj) {
     text( "Millis:  " + millis, 10, 82);
 
 
-//ALARM 
-
+//ALARM function
 if (alarm == 0) {
 
-  var xwidth = map(millis, 0,1000,10,20);
+  var xwidth = map(millis, 0,1000,10,20); //millis 
     noStroke();
   for (var i = 0; i < 100; i++) {
     fill(millisBarWidth % 251,255,0);
@@ -143,7 +142,7 @@ if (alarm == 0) {
 
 if (alarm == 0) {
 
-  var xwidth = map(millis, 0,1000,10,20);
+  var xwidth = map(millis, 0,1000,10,20); //millis
      noStroke();
   for (var i = 0; i < 100; i++) {
     fill(millisBarWidth % 251,255,0);
@@ -156,7 +155,7 @@ if (alarm == 0) {
 
 if (alarm == 0) {
 
-  var ywidth = map(seconds, 0,59,20,20);
+  var ywidth = map(seconds, 0,59,20,20); //seconds
 noStroke();
   for (var i = 0; i < 100; i++) {
     fill(secondBarWidth % 251,255,0);
@@ -169,7 +168,7 @@ noStroke();
 
 if (alarm == 0) {
 
-  var ywidth = map(seconds, 0,59,20,20);
+  var ywidth = map(seconds, 0,59,20,20); //seconds
  noStroke();
   for (var i = 0; i < 100; i++) {
     fill(secondBarWidth% 251,255,0);
@@ -182,7 +181,7 @@ if (alarm == 0) {
 
 if (alarm == 0) {
 
-  var zwidth = map(minutes, 0,59,20,20);
+  var zwidth = map(minutes, 0,59,20,20); //minutes
 noStroke();
   for (var i = 0; i < 100; i++) {
     fill(minuteBarWidth % 251,255,0);
@@ -196,7 +195,7 @@ noStroke();
 
 if (alarm == 0) {
 
-  var zwidth = map(minutes, 0,59,20,20);
+  var zwidth = map(minutes, 0,59,20,20); //minutes
 noStroke();
   for (var i = 0; i < 100; i++) {
     fill(minuteBarWidth % 251,255,0);
@@ -209,7 +208,7 @@ noStroke();
 
 if (alarm == 0) {
 
-  var awidth = map(hours, 0,23,20,20);
+  var awidth = map(hours, 0,23,20,20); //hours
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(hourBarWidth % 251,255,0);
@@ -222,7 +221,7 @@ if (alarm == 0) {
 
   if (alarm == 0) {
 
-  var awidth = map(hours, 0,23,20,20);
+  var awidth = map(hours, 0,23,20,20); //hours 
   noStroke();
   for (var i = 0; i < 100; i++) {
     fill(hourBarWidth % 251,255,0);
@@ -234,28 +233,12 @@ if (alarm == 0) {
   }
 
   }
-
-
-}
-
-
-  }
-
 }
 
 }
-
+ }
+  } 
 }
-
-
-
-
-
-  }
-
+ } 
 }
-
-
-
-    
-}
+ }
