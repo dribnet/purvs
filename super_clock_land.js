@@ -26,7 +26,7 @@ class SuperClockLand {
 			0xFF, 0xAD, 0xB5,
 			0xFF, 0xFF, 0xFF,
 		   //green
-			0x21, 0x10, 0x10,
+			0x39, 0x58, 0x00,
 			0x5A, 0x94, 0x00,
 			0xCE, 0xE7, 0x7B,
 			0xFF, 0xFF, 0xFF,
@@ -68,14 +68,14 @@ class SuperClockLand {
 		let v = createVector(42, 0,);
 		for (let i = 0; i < 30; i++) {
 			let dangle = floor(random(4));
-			this.terrain.push(new TerrainLine(1,  1, 5, v.x, v.y, dangle-3, 2, true));
+			this.terrain.push(new TerrainLine(1,  1, 5, v.x, v.y, dangle-3, 2, true, false));
 			if (random(1) < 0.25) {
-				this.terrain.push(new TerrainLine(1, 1, floor(random(6,11))*2, v.x*0.75, v.y*0.75, 4, floor(random(1,16)), true));
+				this.terrain.push(new TerrainLine(1, 1, floor(random(6,11))*2, v.x*0.75, v.y*0.75, 4, floor(random(1,16)), true, true));
 			}
 			v.rotate(TAU/30);
 		}
 		for (let i = 0; i < 40; i++) {
-			this.terrain.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false));
+			this.terrain.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false, false));
 		}
 
 		//array to hold the active particles
@@ -208,13 +208,21 @@ class SuperClockLand {
 		//terrain interior
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
-			fg.stroke(t.shade*0x55);
-			fg.strokeWeight(t.thickness);
 			let startX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
 			let startY = floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - t.startHeight);
 			let endX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
 			let endY = floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - (t.startHeight+t.endHeight));
-			fg.line(startX, startY, endX, endY);
+			if (t.drawHighlight) {
+				fg.strokeWeight(t.thickness-1);
+				fg.stroke(0x00);
+				fg.line(startX, startY-1, endX, endY-1);
+				fg.stroke(0xFF);
+				fg.line(startX, startY-1, endX, endY);
+			}
+			fg.strokeWeight(t.thickness);
+			fg.stroke(t.shade*0x55);
+			fg.line(startX, startY, endX, endY+(t.drawHighlight ? 2 : 0));
+
 			for (let vert = 0, length = startY-endY+6; vert < length; vert+= 1) {
 				for (let left = -t.thickness/2, right = t.thickness/2; left < right; left+=4)
 				this.tilePalettes[floor((startX+left)/8)][floor((startY - length*(vert/length))/8)] = t.palette;
@@ -293,7 +301,7 @@ class SuperClockLand {
 }
 
 class TerrainLine {
-	constructor(palette, shade, thickness, x, y, startHeight, endHeight, drawOutline) {
+	constructor(palette, shade, thickness, x, y, startHeight, endHeight, drawOutline, drawHighlight) {
 		this.pos = createVector(x, y);
 		this.startHeight = startHeight;
 		this.endHeight = endHeight;
@@ -301,6 +309,7 @@ class TerrainLine {
 		this.palette = palette;
 		this.shade = shade;
 		this.drawOutline = drawOutline;
+		this.drawHighlight = drawHighlight;
 
 		this.rotatedPos = this.pos.copy();
 	}

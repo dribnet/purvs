@@ -9,7 +9,7 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Implemented most of the primary island meat, and the river
++ HOPEFULLY improved the outline drawing across all possible webgl implementations. Consistency isn't attainable, but I can try to make it nice in all of the variants I can discover
 
 #### Current Issues:
 + Small terrain components don't look great on their own but that's to be expected
