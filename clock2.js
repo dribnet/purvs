@@ -1,31 +1,35 @@
 let starFade = 255;
 let cloudFade = 0;
+
 var starList = [];
-var starLength = 2000;//length of the starList array
+var starLength =2000;//length of the starList array
 var cloudList = [];
-var cloudLength = 4;
+var cloudLength = 5;
 
 var starsMade = false;
 var cloudsMade = false;
 
-let spin = 0;
-
 var sunRaysImg;
+var cloudImg;
+
+let spin = 0;
 
 var imagesi = [];
 var ii = 0;
-var imageCount = 18;
+var imageCount = 13;
 var zi = 0;
-
+  
 function preload() 
 {
-  sunRaysImg = loadImage('sun.png');
+	cloudImg = loadImage("cloud.png");
+	sunRaysImg = loadImage('sun.png');
   
-  while(ii < imageCount)
+	while(ii < imageCount)
 	{
-		imagesi[ii]=loadImage("frame"+(ii+1)+".png");
+		// imagesi[ii]=loadImage("frame"+(ii+1)+".png");
+		imagesi[ii]=loadImage("z_frame1.png");
 		ii =  ii + 1;
-	}
+	 }
 }
 
 function draw_clock(obj) 
@@ -66,7 +70,7 @@ function draw_clock(obj)
     let secondTime = map(seconds, 0, 60, 0, width);
     let millisTime = map(millis, 0, 1000, 0, width);
 		
-	drawBackground(hoursWithFraction, hours, sunrise, day, sunset, night);
+	drawBackground(hoursWithFraction, hours, sunrise, day, sunset, night)
 	
 	noStroke();
 	fill(255, starFade);
@@ -93,17 +97,17 @@ function draw_clock(obj)
 		
 	}
 
-	fill(255, cloudFade);
+	tint(255, cloudFade);
 	
 	if (hours > sunrise+1 && cloudFade < 255 && hours < sunset)//fade in the clouds
 	{
 		cloudFade = cloudFade + 1;
-		fill(255, cloudFade);
+		tint(255, cloudFade);
 	}
 	else if (hours => sunset && cloudFade > 0)//fade out the clouds
 	{
 		cloudFade = cloudFade - 1;
-		fill(255, cloudFade);
+		tint(255, cloudFade);
 	}
 	
 	if (hours > day && hours < sunset)//reset the fade
@@ -118,7 +122,7 @@ function draw_clock(obj)
 
 	if (hours > sunrise+1 && hours < night)
 	{	
-		drawClouds();
+		drawClouds(cloudImg);
 	}
 
 	fill(150);
@@ -127,6 +131,7 @@ function draw_clock(obj)
 	let sunX = width / 2 + cos(s) * rad;
 	let sunY = height / 2 + sin(s) * rad;
 
+	tint(255, 255);
 	alarm(sunX, sunY, moonX, moonY, sunRaysImg, alarmSeconds);
 	
 	fill(255, 204, 0);
@@ -224,6 +229,8 @@ function alarm(sunX, sunY, moonX, moonY, sunRaysImg, alarmSeconds)
 	imageMode(CENTER);
 	if (alarmSeconds == 0)
 	{
+		fill(255, 234, 30);
+		
 		push();
 			spin = spin + 5;
 			translate(sunX, sunY);
@@ -281,14 +288,10 @@ function clouds()
 	cloudsMade = true;
 }
 
-function drawClouds()
+function drawClouds(cloudImg)
 {	
 	for (let i = 0; i < cloudLength; i++)
 	{
-		ellipse(cloudList[i].x, cloudList[i].y, 200, 200);
-		ellipse(cloudList[i].x+90, cloudList[i].y-100+100, 100, 100);
-		ellipse(cloudList[i].x-90, cloudList[i].y-20+100, 100, 100);
-		ellipse(cloudList[i].x+130, cloudList[i].y, 150, 150);
-		ellipse(cloudList[i].x-130, cloudList[i].y, 150, 150);
+		image(cloudImg, cloudList[i].x, cloudList[i].y);
 	}
 }

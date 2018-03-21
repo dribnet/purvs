@@ -7,6 +7,5 @@ The background changes depending on the time of day (At midnight it's black whil
 
 The position of the sun and the moon represents the time (for example the moon is at the top at midnight and the sun is at the top at noon).
 
-Added clouds (their position is random).
-
-When the alarm goes off you can see the sun rays.
+When the alarm is set you see the phases of the moon and when it goes off you see the sun rays.
+The clouds now fade in and out and I made the time in the middle slighty transparent.
