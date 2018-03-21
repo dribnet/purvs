@@ -9,7 +9,7 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Implemented part of the island meat
++ Implemented most of the primary island meat, and the river
 
 #### Current Issues:
 + Small terrain components don't look great on their own but that's to be expected

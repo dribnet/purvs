@@ -45,6 +45,11 @@ class SuperClockLand {
 			0xAD, 0x94, 0x94,
 			0xDE, 0xBD, 0xBD,
 			0xFF, 0xFF, 0xFF,
+			//river
+			0x21, 0x10, 0x10,
+			0x5A, 0x94, 0x00,
+			0xC6, 0xD6, 0xF7,
+			0xFF, 0xFF, 0xFF
 			//colours graciously donated by the Super Game Boy mode for Kirby's Dream Land 2 (1995). Thanks Kirby.
 		];
 
@@ -59,15 +64,18 @@ class SuperClockLand {
 		this.terrain = [];
 
 		//the scene itself
-		//TerrainLine(palette, shade, thickness, startX, startY, startHeight, endX, endY, endHeight);
-		let v = createVector(42, 0, -2);
+		//TerrainLine(palette, shade, thickness, x1, y1, startHeight, endHeight);
+		let v = createVector(42, 0,);
 		for (let i = 0; i < 30; i++) {
 			let dangle = floor(random(4));
-			this.terrain.push(new TerrainLine(1, 1, 5, v.x, v.y, v.z- dangle, v.x, v.y, v.z + 4 - dangle));
-			if (i%4 ==0) {
-				this.terrain.push(new TerrainLine(1, 1+floor(random(1.33)), 16, v.x*0.75, v.y*0.75, v.z+8, v.x*0.75, v.y*0.75, v.z + 16));
+			this.terrain.push(new TerrainLine(1,  1, 5, v.x, v.y, dangle-3, 2, true));
+			if (random(1) < 0.25) {
+				this.terrain.push(new TerrainLine(1, 1, floor(random(6,11))*2, v.x*0.75, v.y*0.75, 4, floor(random(1,16)), true));
 			}
 			v.rotate(TAU/30);
+		}
+		for (let i = 0; i < 40; i++) {
+			this.terrain.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false));
 		}
 
 		//array to hold the active particles
@@ -87,7 +95,7 @@ class SuperClockLand {
 		for (let i = 0; i < 24; i++) {
 			let x = [];
 			for (let j = 0; j < 8; j++) {
-				x.push(0);
+				x.push(2);
 			}
 			this.tilePalettes.push(x);
 		}
@@ -113,12 +121,11 @@ class SuperClockLand {
 		}
 		//set terrain component positions
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
-			this.terrain[i].rotatedStartPos.set(this.terrain[i].startPos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
-			this.terrain[i].rotatedEndPos.set(this.terrain[i].endPos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
+			this.terrain[i].rotatedPos.set(this.terrain[i].pos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
 		}
 		//order terrain components for drawing
 		function terrainDepth(terrainA, terrainB) {
-			return terrainA.rotatedStartPos.y < terrainB.rotatedStartPos.y ? -1 : terrainA.rotatedStartPos.y === terrainB.rotatedStartPos.y ? 0 : 1;
+			return terrainA.rotatedPos.y < terrainB.rotatedPos.y ? -1 : terrainA.rotatedPos.y === terrainB.rotatedPos.y ? 0 : 1;
 		}
 		this.terrain.sort(terrainDepth);
 
@@ -164,9 +171,7 @@ class SuperClockLand {
 
 		//sky
 		for (let i = 0; i < 64; i+=8) {
-			//bg.fill(0x55 + 0xAA*(i/60));
 			bg.fill(lerpColor(color(0x5A, 0x8C, 0xD6), color(0xC6, 0xD6, 0xF7),i/60));
-			//bg.fill(0xFF);
 			bg.rect(0,i, this.SCREEN_WIDTH, 8);
 		}
 
@@ -186,10 +191,11 @@ class SuperClockLand {
 		//terrain outline
 		for (let i = 0, l = this.terrain.length; i < l; i++) {
 			let t = this.terrain[i];
+			if (!t.drawOutline) { continue; }
 			fg.stroke(0x00);
-			fg.strokeWeight(t.thickness+2);
-			fg.line(floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedStartPos.z),
-				floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedEndPos.z));
+			fg.strokeWeight(t.thickness+1.25);
+			fg.line(floor(t.rotatedPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - t.startHeight),
+				floor(t.rotatedPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - (t.startHeight+t.endHeight)));
 		}
 		//terrain ellipse
 		fg.fill(0x00);
@@ -204,13 +210,15 @@ class SuperClockLand {
 			let t = this.terrain[i];
 			fg.stroke(t.shade*0x55);
 			fg.strokeWeight(t.thickness);
-			let startX = floor(t.rotatedStartPos.x+this.SCREEN_WIDTH/2);
-			let startY = floor(t.rotatedStartPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedStartPos.z);
-			let endX = floor(t.rotatedEndPos.x+this.SCREEN_WIDTH/2);
-			let endY = floor(t.rotatedEndPos.y/3+this.SCREEN_HEIGHT/2 - t.rotatedEndPos.z);
+			let startX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
+			let startY = floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - t.startHeight);
+			let endX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
+			let endY = floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - (t.startHeight+t.endHeight));
 			fg.line(startX, startY, endX, endY);
-			this.tilePalettes[floor(startX/8)][floor(startY/8)] = t.palette;
-			this.tilePalettes[floor(endX/8)][floor(endY/8)] = t.palette;
+			for (let vert = 0, length = startY-endY+6; vert < length; vert+= 1) {
+				for (let left = -t.thickness/2, right = t.thickness/2; left < right; left+=4)
+				this.tilePalettes[floor((startX+left)/8)][floor((startY - length*(vert/length))/8)] = t.palette;
+			}
 		}
 
 		//begin faux-shader
@@ -285,15 +293,16 @@ class SuperClockLand {
 }
 
 class TerrainLine {
-	constructor(palette, shade, thickness, x1, y1, height1, x2, y2, height2) {
-		this.startPos = createVector(x1, y1, height1);
-		this.endPos = createVector(x2, y2, height2);
+	constructor(palette, shade, thickness, x, y, startHeight, endHeight, drawOutline) {
+		this.pos = createVector(x, y);
+		this.startHeight = startHeight;
+		this.endHeight = endHeight;
 		this.thickness = thickness;
 		this.palette = palette;
 		this.shade = shade;
+		this.drawOutline = drawOutline;
 
-		this.rotatedStartPos = this.startPos.copy();
-		this.rotatedEndPos = this.endPos.copy();
+		this.rotatedPos = this.pos.copy();
 	}
 
 }
