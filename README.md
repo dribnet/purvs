@@ -2,7 +2,7 @@
 
 ### Calcu-Clock - current build
 
-Colour changes with time, minutes are represented as an addition problem, seconds are represented as a subtraction problem.
+Colour changes with time, minutes are represented as an addition problem, hours are represented as a subtraction problem. Alarm is a seconds math attack.
 
 ### Calcu-Clock - concept
 
