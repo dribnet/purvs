@@ -1,3 +1,3 @@
 ## PS1 MDDN 242 2018
 
-For my maeda clock I picked to remake the hanging clock. I only changed a couple things about the original clock. I made it larger than it previously was and added some colour to make it stand out a little more.
+I wanted to make a simple yet pleasant looking clock. I used the simplistic idea by using just grey and white, as well as circles and lines. Then I added some more interest by adding a bit of colour. I've set it so that the hand that the millisecond hand has it's RGB values change depending oh the second, minute and hour that it is. I also made a slight flash of colour for the millisecond hand every 90 degrees.
