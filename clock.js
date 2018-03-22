@@ -34,7 +34,7 @@ function draw_clock(obj) {
     translate(width/2, height/2 - 25);
     rotate(45);
     rect(0, 0, 20, 20);
-    pop();
+    pop(); // lower dot of “：”
 
     push();
     rectMode(CENTER)
@@ -43,7 +43,7 @@ function draw_clock(obj) {
     translate(width/2, height/2 + 25);
     rotate(45);
     rect(0, 0, 20, 20);
-    pop(); //“：”
+    pop(); // lower dot of “：”
 
     push();
     rectMode(CENTER)
@@ -51,45 +51,45 @@ function draw_clock(obj) {
     fill(255, 227, 225);
 
     rect(190, 190, 20, 100);
-    rect(270, 190, 20, 100); //first number top
+    rect(270, 190, 20, 100); //top part of first number
 
     rect(330, 190, 20, 100);
-    rect(410, 190, 20, 100); //second number top
+    rect(410, 190, 20, 100); //top part of second number
 
     rect(550, 190, 20, 100);
-    rect(630, 190, 20, 100); //third number top
+    rect(630, 190, 20, 100); //top part of third number
 
     rect(690, 190, 20, 100);
-    rect(770, 190, 20, 100); //forth number top
+    rect(770, 190, 20, 100); //top part of forth number
 
     fill(255);
     rect(190, 310, 20, 100);
-    rect(270, 310, 20, 100); //first number bottom
+    rect(270, 310, 20, 100); //bottom part of first number
 
     rect(330, 310, 20, 100);
-    rect(410, 310, 20, 100); //second number bottom
+    rect(410, 310, 20, 100); //bottom part of second number
 
     rect(550, 310, 20, 100);
-    rect(630, 310, 20, 100); //third number bottom
+    rect(630, 310, 20, 100); //bottom part of third number
 
     rect(690, 310, 20, 100);
-    rect(770, 310, 20, 100); //forth numberbottom
+    rect(770, 310, 20, 100); //bottom part of forth number
 
     rect(230, 130, 60, 20);
     rect(230, 250, 60, 20);
-    rect(230, 370, 60, 20);
+    rect(230, 370, 60, 20); //middle part of first number
 
     rect(370, 130, 60, 20);
     rect(370, 250, 60, 20);
-    rect(370, 370, 60, 20);
+    rect(370, 370, 60, 20); //middle part of second number
 
     rect(590, 130, 60, 20);
     rect(590, 250, 60, 20);
-    rect(590, 370, 60, 20);
+    rect(590, 370, 60, 20); //middle part of third number
 
     rect(730, 130, 60, 20);
     rect(730, 250, 60, 20);
-    rect(730, 370, 60, 20);
+    rect(730, 370, 60, 20); //middle part of forth number
     pop();
 
     fill(255);
@@ -98,71 +98,71 @@ function draw_clock(obj) {
     rect(260, 140, 20, m);
 
     rect(320, 140, 20, m);
-    rect(400, 140, 20, m);
+    rect(400, 140, 20, m); //make the hours move
 
     let s = map(smoothSecond, 0, 59, 0, 99)
     rect(540, 140, 20, s);
     rect(620, 140, 20, s);
 
     rect(680, 140, 20, s);
-    rect(760, 140, 20, s);
+    rect(760, 140, 20, s); //make the minute move
 
     fill(255, 227, 225)
     beginShape();
     vertex(180, 360);
     vertex(200, 360);
     vertex(200, 360 - m);
-    vertex(180, 360 - m);
-    endShape();
+    vertex(180, 360 - m); 
+    endShape(); //make the hours move
 
     beginShape();
     vertex(260, 360);
     vertex(280, 360);
     vertex(280, 360 - m);
     vertex(260, 360 - m);
-    endShape();
+    endShape(); //make the hours move
 
     beginShape();
     vertex(320, 360);
     vertex(340, 360);
     vertex(340, 360 - m);
     vertex(320, 360 - m);
-    endShape();
+    endShape(); //make the hours move
 
     beginShape();
     vertex(400, 360);
     vertex(420, 360);
     vertex(420, 360 - m);
     vertex(400, 360 - m);
-    endShape();
+    endShape(); //make the hours move
 
     beginShape();
     vertex(540, 360);
     vertex(560, 360);
     vertex(560, 360 - s);
     vertex(540, 360 - s);
-    endShape();
+    endShape(); //make the minute move
 
     beginShape();
     vertex(620, 360);
     vertex(640, 360);
     vertex(640, 360 - s);
     vertex(620, 360 - s);
-    endShape();
+    endShape(); //make the minute move
 
     beginShape();
     vertex(680, 360);
     vertex(700, 360);
     vertex(700, 360 - s);
     vertex(680, 360 - s);
-    endShape();
+    endShape(); //make the minute move
 
     beginShape();
     vertex(760, 360);
     vertex(780, 360);
     vertex(780, 360 - s);
     vertex(760, 360 - s);
-    endShape();
+    endShape(); //make the minute move
 
     var t = 255;
     stroke(255, 197, 195);
@@ -374,7 +374,7 @@ function draw_clock(obj) {
       rect(200, 240, 60, 20);
 
       rect(340, 240, 60, 20);
-    }
+    } // using "mask" to cover some parts of the "8" to make 24 numbers for 24 hours
 
     if(minute == 0){
       fill(255, 197, 195);
@@ -895,14 +895,13 @@ function draw_clock(obj) {
       fill(255, 197, 195);
       rect(620, 140, 20, 100);
       rect(540, 260, 20, 100);
-
       rect(680, 260, 20, 100);
-    }
+    } // using "mask" to cover some parts of the "8" to make 59 numbers for 59 minutes
 
     masks(0, 0);
     masks(140, 0);
     masks(360, 0);
-    masks(500, 0);
+    masks(500, 0); // call the triangle masks to make each of the rect into hexgon
     pop();
 
     k = k + 10;
@@ -923,7 +922,7 @@ function draw_clock(obj) {
         for(var i2 = 0; i2 < 1000; i2 = i2 + 60){
           ellipse(i2 + 30, 500 - p2 + 15 + sp, 10, 10);
         }
-     }
+     } // alarming
 
   }
 
@@ -949,7 +948,7 @@ function masks(mx, my){
   triangle(260 + mx, 260, 270 + mx, 260, 260 + mx, 270);
   triangle(270 + mx, 260, 280 + mx, 260, 280 + mx, 270);
   triangle(260 + mx, 350, 260 + mx, 360, 270 + mx, 360);
-  triangle(270 + mx, 360, 280 + mx, 360, 280 + mx, 350); // "|"
+  triangle(270 + mx, 360, 280 + mx, 360, 280 + mx, 350); // triangle "masks" for "|"
 
   triangle(200 + mx, 120, 210 + mx, 120, 200 + mx, 130);
   triangle(250 + mx, 120, 260 + mx, 120, 260 + mx, 130);
@@ -964,7 +963,7 @@ function masks(mx, my){
   triangle(200 + mx, 360, 210 + mx, 360, 200 + mx, 370);
   triangle(250 + mx, 360, 260 + mx, 360, 260 + mx, 370);
   triangle(200 + mx, 370, 200 + mx, 380, 210 + mx, 380);
-  triangle(260 + mx, 370, 260 + mx, 380, 250 + mx, 380); // "-"
+  triangle(260 + mx, 370, 260 + mx, 380, 250 + mx, 380); // triangle "masks" for "-"
 
 }
 
