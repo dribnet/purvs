@@ -68,9 +68,9 @@ function draw_clock(obj) {
     }
 
     // Text displaying time 
-    text("S: " + seconds, 100, 22);
-    text("H: " + hours, 10, 22);
-    text("M: " + minutes, 50, 22);
+    // text("S: " + seconds, 100, 22);
+    // text("H: " + hours, 10, 22);
+    // text("M: " + minutes, 50, 22);
 
     // Pendulums 
     fill(218, 165, 32);
