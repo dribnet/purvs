@@ -1,3 +1,3 @@
-## PS1 MDDN 242 2018
+## Alarm
 
-I wanted to make a simple yet pleasant looking clock. I used the simplistic idea by using just grey and white, as well as circles and lines. Then I added some more interest by adding a bit of colour. I've set it so that the hand that the millisecond hand has it's RGB values change depending oh the second, minute and hour that it is. I also made a slight flash of colour for the millisecond hand every 90 degrees.
+For my alarm I wanted to make sure that it wasn't too obnoxious and/or distracting from the simple and calm feeling that my original clock felt to me. When the alarm is counting down the larger circles become red and fade until the inner circle from that one lights up red. This repeats untill the alarm goes off. When the alarm is going off, circles appear to shrink and grow untill the alarm is finished.

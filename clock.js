@@ -133,14 +133,60 @@ push();
 
         noFill()
         strokeWeight(2)
+          if(alarm > 15 && alarm < 20){
+
+        stroke(200,0,0,strokeFade1)
+        strokeFade1=strokeFade1-0.65
+            ellipse(width/2, height/2, 400, 400);
+     }
+
+          if(alarm > 10 && alarm < 15){
+
+        stroke(200,0,0,strokeFade2)
+                strokeFade2=strokeFade2-0.65
+            ellipse(width/2, height/2, 300, 300);
+     }
+
+               if(alarm > 5 && alarm < 10){
+
+        stroke(200,0,0,strokeFade3)
+                strokeFade3=strokeFade3-0.65
+            ellipse(width/2, height/2, 200, 200);
+     }
+               if(alarm > 0.0001 && alarm < 5){
+
+        stroke(200,0,0,strokeFade4)
+                strokeFade4=strokeFade4-0.65
+            ellipse(width/2, height/2, 125, 125);
+     }
+
+    if(alarm == 0){
+        stroke(255, 79, 121,120)
+strokeWeight(0.5)
+    ellipse(width/2,height/2,300,ellipse2)
+    ellipse(width/2,height/2,ellipse2,300)
+stroke(255, 180, 154,120)
+    ellipse(width/2,height/2,200,ellipse3)
+    ellipse(width/2,height/2,ellipse3,200)
+    strokeWeight(0.2)
+    stroke(178, 64, 165)
+    ellipse(width/2,height/2,400,ellipse1)
+    ellipse(width/2,height/2,ellipse1,400)
+    ellipse1=ellipse1-1.35
+    ellipse2=ellipse2-1
+    ellipse3=ellipse3-0.67
 
 
-
-
-
-
-
-     
+     }
+     if(alarm == -1){
+        ellipse1=400
+        ellipse2=300
+        ellipse3=200
+        strokeFade1=200
+        strokeFade2=200
+        strokeFade3=200
+        strokeFade4=200
+     }
 
 
 
