@@ -65,10 +65,10 @@ function draw_clock(obj) {
         fill(colourHours, 255,196,75);
 
     push(); // BOX 1 
-    translate (150,0);
+    translate (140,0);
     rotateX (map(hours,0,59,0,360) * spinSpeed);
     rotateY(map(hours,0,59,0,360) * spinSpeed);
-    box(100);
+    box(120);
     pop();
 
     }
@@ -80,10 +80,10 @@ function draw_clock(obj) {
         fill(colourMin, 123,224,75);
 
     push(); //box2 
-    translate (380,0);
+    translate (370,0);
     rotateX (map(minutes,0,59,0,360) * spinSpeed);
     rotateY (map(minutes,0,59,0,360) * spinSpeed);
-    box(100);
+    box(120);
     pop();
 
     }
@@ -97,7 +97,7 @@ function draw_clock(obj) {
     translate(600,0);
     rotateX (map(seconds,0,59,0,360) * spinSpeed);
     rotateY (map(seconds,0,59,0,360) * spinSpeed);
-    box(100);
+    box(120);
     pop();
 
     }
@@ -111,7 +111,7 @@ function draw_clock(obj) {
      translate (680,0);
      rotateX (map(millis,0,59,0,360) * spinSpeed);
      rotateY (map(millis,0,59,0,360) * spinSpeed);
-     box(100);
+     box(120);
     pop();
 
 
