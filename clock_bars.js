@@ -26,7 +26,7 @@ function draw_clock(obj) {
     let millis = obj.millis;
     background(200);
     noStroke();
-    fill('#417D80'); // dark grey
+    fill(220, 20, 60); // dark grey
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
@@ -39,28 +39,69 @@ function draw_clock(obj) {
     strokeWeight(4);
     stroke(147);
     noFill();
+
     //the stepping seconds arc
    // let endsec = map(seconds, 0, 60, 0, 360);
    // arc(0, 0, 260, 260, 0, endsec);
 
     //the smooth second arc
+
     let endsecfraction = seconds + (millis / 1000.0);
     let endsecsmooth = map (endsecfraction, 0, 60, 0, 360);
-    arc(0, 0, 260, 260, 0, endsecsmooth);
+    arc(0, 0, 200, 200, 0, endsecsmooth);
+
+    //smooth minute arc
+    // let endminfraction = minutes + (seconds / 1000.0);
+    // let endminsmooth = map (endminfraction, 0, 60, 0, 360);
+    // arc(0, 0, 280, 280, 0, endminsmooth);
 
     //the minute arc
+    stroke(220, 20, 60);
     noFill();
     let endmin = map(minutes, 0, 60, 0, 360);
-    arc(0, 0, 280, 280, 0, endmin); 
+    arc(0, 0, 220, 220, 0, endmin); 
 
     //the hour arc
+    stroke(100, 149, 237);
     noFill();
     let endhour = map(hours, 0, 12, 0, 360);
-    arc(0, 0, 300, 300, 0, endhour);  
+    arc(0, 0, 240, 240, 0, endhour);  
 
 
-    rect(400, 150, 200, 200);
+  //  rect(400, 150, 200, 200);
 
+   // let size = map (millis, 0, 1000, 3, 4);
+
+    noStroke();
+    fill(220, 20, 60);
+
+    let size = 3;
+
+    if(millis <500 ){
+        size += 0.2;
+        translate(10, -20);
+    }
+
+    if(millis >=500 ){
+        size -= 0.2;
+    }
+
+
+//heart shape
+push();
+    translate(55,-140);
+    scale(size);
+    rotate(90);
+
+   beginShape();
+   vertex(50, 15);
+   bezierVertex(50, -5, 90, 5, 50, 40)
+   vertex(50, 15);
+   bezierVertex(50, -5, 10, 5, 50, 40);
+   endShape();
+pop();
+
+  
 
   /* 
     // Make a bar which *smoothly* interpolates across 1 minute.
