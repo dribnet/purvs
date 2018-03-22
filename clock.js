@@ -42,6 +42,9 @@ function draw_clock(obj) {
     textAlign(CENTER,CENTER);
 
     //creating blocks
+    if (random() > 0.95){
+        blocks.push(new Block(0," "));
+    }
 
     if(millis > 950){
         if(drawSecBlock){
