@@ -77,7 +77,7 @@
   }
   //if the alarm isn't gonig off - show how long untl it does
   //idk why this doesn't work
-  let alarmTimer   = map(alarm, 0, 86400, 0, height);
+  let alarmTimer   = map(alarm, 0, 60, 0, height);
   fill(226,122,63);
   rect(0,height-alarmTimer,20,alarmTimer );
   
