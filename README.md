@@ -2,4 +2,4 @@
 
 ### Time Gimbal
 
-I will create a clock where the seconds, minutes and hours will correspond to each of the gimbals axis. The alarm will involve changes to the colour scheme and a feature in the center of the gimbal showing the alarm is going off.
+I recreated Maedas clock that creates a multi-colour trail as time changes. To do this I learnt how to use webGL with P5js. Using the newly learnt 3D tools I changed Maeda's clock so the text rotated in 3d space every new number, I also changed the colours to my own. A single image was only needed but I found it just as easy to make the animation and thought it wouldn't hurt too keep it.
