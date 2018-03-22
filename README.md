@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Heartbeat Clock
+### Heartbeat Clock without alarm
 
-I originally wanted to make a clock that was based off the working of a EKG machine with the seconds, minutes and hours all being a seperate beat. So far this isn't clearly showing the heart beat theme of the clock so I may have change my idea and add some basic imagery.
+This is my working heart beat clock without the alarm function. The heart gets bigger every half of a second and then gets smaller to give the effect of it beating. The circle that records the seconds moves smoothly instead of stepping as I thought it would make the heart "beat" stand out more.
