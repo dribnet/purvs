@@ -1,5 +1,6 @@
 ## PS1 MDDN 242 2018
 
-### Sun/moon Clock
+### Sun Tide Clock
 
-My initial idea for my clock is going to be showing the sun and moon movements to show time passing. 
+My Clock is based on the sun and tide, I used the sun moving to represent the minutes and the tide rising to represent the seconds. The background colour also changes to represnt the sky to represent the time of day (the colour changes with every hour). At the moment I have got the everything working and am just working on small changes and trying things out.
+
