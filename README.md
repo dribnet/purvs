@@ -3,7 +3,9 @@
 ### Times of Life
 
 
-I have altered my idea a little bit. I like the idea of my clock looking like the solar system, except the planets are the times of things that happen in the world. I'm hoping to get the to spin around the centre clock as if it is the sun but that'll depend whether or not I can figure out how to do that. I like using bright or neon colours on a dark background - it also gives that "solar system" feel to it.
+So I changed my idea again - of course right before the due date. I have created more of a traditional clock face with Inspiration of Golan Levin's clock and and old fashion clock face. In the centre circle of the clock there is the "times of life" with three mini clocks showing how often a baby is born, how often there is a marriage and how ofte there is an elderly death. This is a way of showing a "traditional" lifestyle. 
+
+I have chosen this idea becuase it gives a good perspective on how fast time goes when these life events are puut infront of you.
 
 
 
