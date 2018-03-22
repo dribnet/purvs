@@ -54,33 +54,29 @@
   //high tide: 636
   //low tide: 1012
   //high tide: 1324
-  if (minTotal < 636) {
+  if (minTotal < 636) { //first high tide of the day
   	tideLevel   = map(minTotal, 267, 636, 0, height);
   }
-  if (minTotal >= 636 && minTotal < 1012) {
+  if (minTotal >= 636 && minTotal < 1012) {//after the first high tide & before second low tide
   	tideLevel   = map(minTotal, 636, 1012, 0, height);
   }
   else if (minTotal >=1012) { //after the second low tide of the day
   	tideLevel   = map(minTotal, 1012, 1376, 0, height);
   }
-  
+  //setup for drawing alarm progress bar
   noStroke();
   fill(51,77,92);
   rect(0, height-tideLevel, width, tideLevel);
-
-
-  
-
   //if the alarm is going off
   if (alarm == 0) {
   	alarmOn = true;
   }
-  //if the alarm isn't gonig off - show how long untl it does
-  //idk why this doesn't work
+  //if the alarm isn't going off - show how long untl it does
   let alarmTimer   = map(alarm, 0, 60, 0, height);
   fill(226,122,63);
   rect(0,height-alarmTimer,20,alarmTimer );
   
+  //setup for drawing the bubbles that make up the numbers
   strokeWeight (2);
   stroke(255,255,255);
   noFill();
@@ -190,8 +186,8 @@
   	secondsTens = 50;
   }
 
-
-
+//set up how to draw each number, first figure out digit in 'tens' position, then the 'ones' position
+ //creates as number obect (called a function in javascript?)
   if (hours < 10) {
   	var hourFirst = new Number(FIRST_HOUR_START_X, zero, minutesTens);
   	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours], secondsTens);
@@ -231,7 +227,7 @@
   	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-50], secondsTens);
   }
 
-  //console.log(hours);
+//draw each number!
   hourFirst.draw();
   hourSecond.draw();
   minFirst.draw();
@@ -240,7 +236,7 @@
 
 }
 
-//elapsed
+//how the numbers are drawn
 function Number(startX, number, elapsed) {
 	this.x = startX;
 	this.array = number; 
@@ -251,21 +247,25 @@ function Number(startX, number, elapsed) {
 			for (var j = 0; j < 11; j++) {
 				if (this.array[i][j] == true) {
 					noFill();
-					
+					//move every 10 seconds
 					if  ((j-1)*10 >= (secondsTens)*2) {
 						fill(255);
 					}
+          //move one more every five seconds
 					if((j*10 >= (secondsTens)*2) && ((seconds - secondsTens) < 5)) {
 						fill(255);
 					}
+          //flash red on even seconds
 					if (alarmOn == true && (((seconds - secondsTens)%2) == 0)) {
 						stroke(239, 201,76);
 						fill(223,90,73);
 					}
+          //flash yellow on odd seconds
 					if (alarmOn == true && (((seconds - secondsTens)%2) != 0)) {
 						stroke(223,90,73);
 						fill(239, 201,76);
 					}
+          //draw the circle
 					ellipse(this.x + (i*PIXEL_SIZE), START_Y + (j*PIXEL_SIZE), PIXEL_SIZE - GAP, PIXEL_SIZE - GAP);
 				}
 			}
