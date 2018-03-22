@@ -21,6 +21,7 @@ function draw_clock(obj) {
     var alarmBar = map(secsToAlarm, 20,0,0,width);
 
     background(56, 62, 71);
+    textFont('Helvetica');
 
     rectMode(CENTER);secsToAlarm
     noStroke();
@@ -44,14 +45,14 @@ function draw_clock(obj) {
         }
     }
 
-    if(seconds == 59){
+    if(seconds == 0){
         if(drawMinBlock){
             blocks.push(new Block(2,minutes));
             drawMinBlock = false;
         }
     }
 
-    if(minutes == 59 && seconds == 59){
+    if(minutes == 0 && seconds == 0){
         if(drawHourBlock){
             blocks.push(new Block(3,hours));
             drawHourBlock = false;
@@ -63,11 +64,11 @@ function draw_clock(obj) {
         drawSecBlock = true;
     }
 
-    if(seconds == 0){
+    if(seconds == 1){
         drawMinBlock = true;
     }
 
-    if(minutes == 0){
+    if(minutes == 1){
         drawHourBlock = true;
     }
 
@@ -85,14 +86,18 @@ function draw_clock(obj) {
         if(blocks[i].y > height){
             blocks.splice(i,1);
         }
-        if(blocks[i].x > width){
+        if(blocks[i].x > width + 100){
             blocks.splice(i,1);
         }
     }
     push();
     rectMode(CORNER);
-    fill(56, 62, 71);
-    rect(0,height,alarmBar,-10);
+    fill(75, 84, 96); 
+    rect(0,0,alarmBar,10);
+    pop();
+
+    push();
+    rect(70,0,82,90);
     pop();
     
     if(secsToAlarm == 0){
@@ -111,11 +116,11 @@ function draw_clock(obj) {
 
 function Block(blockType, time) {
     if(blockType < 1){
-        this.size = random(3,5);
+        this.size = random(3,9);
         this.fill = color(247, 234, 195);
         this.textSize = this.size/2;
     } else if(blockType >= 1 && blockType < 2){
-        this.size = random(17,20);
+        this.size = random(20,25);
         this.fill = color(232, 216, 169);
         this.textSize = this.size/2;
     } else if (blockType >= 2 && blockType < 3){
@@ -169,7 +174,6 @@ function Block(blockType, time) {
         noStroke();
         textSize(this.textSize);
         text(this.blockTime,0,0);
-
         pop();
     }
 
@@ -184,10 +188,10 @@ function Ground() {
         push();
         rectMode(CORNER);
         for (var i = 0; i < this.stepNum; i++) {
-            fill(130);
+            fill(153, 148, 131);
             rect(i*width/this.stepNum, this.startingY+i*25, width/this.stepNum,500 - this.startingY+i*25);
             push();
-            stroke(0,90);
+            stroke(100);
             line(i*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+i*25);
             line((i+1)*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+(i+1)*25);
             pop();
