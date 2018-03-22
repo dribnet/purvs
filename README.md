@@ -4,4 +4,4 @@
 
 Having changed my idea slighty so that a block falls at each time (each second/minute/hour etc) so that each block will bounce down the surface.
 
-Impliemented a form of gravity so blocks bounce down the ground plane rather than straight up.
+Altered the bouncing mechanics so that with each bounce the block gains horizontal speed and its rate of rotation also increases.

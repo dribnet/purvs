@@ -108,10 +108,12 @@ function Block(blockType) {
     this.y = 0 - this.size;
     this.x = 70;
     this.r = 0;
-    this.ySpeed = 2;
-    this.xSpeed = 1;
+    this.ySpeed = 4;
+    this.xSpeed = 0;
+    this.rSpeed = 0;
 
     this.yAccel = 0.2;
+    this.rAccel = 0;
 
     this.move = function(){
         this.x += this.xSpeed;
@@ -119,11 +121,14 @@ function Block(blockType) {
         if(this.ySpeed < 5){
             this.ySpeed += this.yAccel;
         }
-        this.r += 0.5;
+        this.r += this.rSpeed;
     }
 
     this.bounce = function(){
+        this.ySpeed += 2;
         this.ySpeed = -this.ySpeed;
+        this.xSpeed += 0.7;
+        this.rSpeed += 0.7;
     }
 
     this.display = function(){
