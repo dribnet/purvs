@@ -21,7 +21,9 @@ angleMode(DEGREES);
 	let hr = obj.hours;
 	let mn = obj.minutes;
 	let sc = obj.seconds; 
+  let ml = obj.millis;
 	let alarm = obj.seconds_until_alarm;
+ 
 	
 //background gradient
 
@@ -86,21 +88,41 @@ rotate(-90);
             noFill();
           	let end1 = map(mn, 0, 60, 0, 360);
             arc(0, 0, 300, 300,0,end1);
+
+            
         
-         	
+//******************** A L A R M ********************
+
     if (alarm > 0) {
-    	noStroke();
-    	fill(360, 100,100, .2);
-    	ellipse(0,0,600,600);
+    	let bling = map(ml, 0, 1000, 300, 600);
+      strokeWeight(3);
+    	stroke(360, 100, 100);
+      noFill();
+    	ellipse(0,0, bling, bling, 0);
     }    
 
     if (alarm == 0)	{
-    	fill(360, 100,10, .9);
-    	ellipse(0,0,900, 900);
+      noStroke();
+      let call = map(ml, 0, 1000, 50, 80);
+    	fill(sc*6,85,call);
+    	rect(-175,-250,350,500,30);
+      rotate(90);
+      fill(255,100,100,1);
+      textSize(45);
+      textFont('Helvetica-Bold');
+            textAlign('center');
+
+      let qu = '0-800-ALARMISON242';
+      text(qu, 0, -110);
+      text(qu, 0, -70);
+      text(qu, 0, -30);
+      text(qu, 0, 10);
+      text(qu, 0, 50);
+      text(qu, 0, 90);
+      text(qu, 0, 130);
     }
 	}
         
-
 
 
 
