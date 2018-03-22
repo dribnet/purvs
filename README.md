@@ -2,10 +2,8 @@
 
 ### Moon and Sun clock
 
-The clock has the sun and the moon moving in a circle as the hours go by. A full circle is 24 hours. 
-The background changes depending on the time of day (At midnight it's black while at dawn it's orange and at noon it's blue).
+My clock is based on the sun and the moon. They circle around the time in the center. Their positions are related to the time, for example, at midnight the moon is at the top while at midday the sun is at the top.
 
-The position of the sun and the moon represents the time (for example the moon is at the top at midnight and the sun is at the top at noon).
+The background colour also changes based on the time. 
 
-When the alarm is set you see the phases of the moon and when it goes off you see the sun rays.
-The clouds now fade in and out and I made the time in the middle slighty transparent.
+The stars and clouds positions are randomly generated to make them unique and interesting to look at. At night stars appear and fade away at sunrise. The clouds fade in after sunrise and remain there for the day before fading out again.
