@@ -12,6 +12,10 @@ var r_second = 60;
 var r_star = 4;
 var r_star1 = 6;
 
+var yPOSITION = 0;
+var xPOSITION = 0;
+var R1 = 12; //The number of sticks;
+var r = 0;
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -27,10 +31,12 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    
+
+
     angleMode(DEGREES);
     ellipseMode(CENTER);
-    background(120);
+    rectMode(CENTER);
+    background(0);
     var radius=100;
     translate(width/2,height/2);
     strokeWeight(2);
@@ -45,23 +51,50 @@ function draw_clock(obj) {
     var z=map(sin(time),-1,1,3,6);
     rotate(360/z);
     noFill();
+    stroke(0);
+    ellipse(0,0,radius,radius);
+    // center ellipse
     var y=map(sin(i*4+time),-1,1,-1,100);//sin tan
-    
-    stroke(0,hours*5);
+    stroke(255,0,0,hours*5);//
       push();
-      ellipse(0,0,radius,radius);
       ellipse(0,0,radius,y);
       pop();
       //ellipse
       i = i + 1;
    }
 	pop();
+      //Effect One
+      /*
+    push();
+    rotate(r);
+    var i = 0;
+    while(i<R1){
+      rotate(360/R1);
+      noFill();
+      noStroke();
+
+      push();
+      colorMode(HSL);
+      c = color(seconds*3,100,10,0.2);
+      fill(c);
+      triangle(-100,100,xPOSITION/2,yPOSITION/2,xPOSITION,yPOSITION);
+      pop();
+
+      i = i + 1;
+    }
+    r=r-0.5;
+    time = time + 0.2;
+    yPOSITION=map(sin(time),-1,1,0,120);
+    xPOSITION=map(sin(time),-1,1,0,170);
     //noLoop();
-    //Effect One
-    
+    pop();
+    */
+    //Effect Background 
+
+
     push();
     noFill();
-    stroke(0);
+    stroke(100);
     var i_star2 = 0;
     while(i_star2<r_star){
     	rotate(360/r_star);
@@ -77,8 +110,8 @@ function draw_clock(obj) {
 
     push();
     noFill();
-    strokeWeight(2.5);
-    stroke(0);
+    strokeWeight(2.8);
+    stroke(100);
     ellipse(0,0,200,200);
     ellipse(0,0,320,320);
     //
@@ -102,8 +135,8 @@ function draw_clock(obj) {
 
   	push();
   	var i_hour=0;
-    fill(120);
-  	stroke(0);
+    fill(255,0,0);// same with background
+  	stroke(255,0,0);
   	while(i_hour<r_hour){
   	rotate(360/r_hour);
   	ellipse(0,-100,25,25);
@@ -113,7 +146,8 @@ function draw_clock(obj) {
 
   	push();
   	var i_min=0;
-  	fill(255, 255, 102);
+  	fill(100, 20, 200);
+    stroke(100, 20, 200);
   	while(i_min<r_min){
   	rotate(360/r_min);
   	ellipse(0,-200,10,10);
@@ -123,7 +157,8 @@ function draw_clock(obj) {
 
   	push();
   	var i_second=0;
-  	fill(0,255,204);
+  	fill('gold');
+    stroke('gold');
   	while(i_second<r_second){
   	rotate(360/r_second);
   	ellipse(0,-225,7,7);
@@ -148,7 +183,7 @@ function draw_clock(obj) {
     pop();
     push();
     noFill();
-    stroke(0);
+    stroke(100);
     ellipse(0,-200,17,17);
     ellipse(200,0,17,17);
     ellipse(0,200,17,17);
@@ -158,20 +193,19 @@ function draw_clock(obj) {
     push();
     noStroke();
     let alarm = obj.seconds_until_alarm;
-    fill('yellow');
+    fill(0);
     if(alarm>0){
-    	fill(0);
+    fill(0);
     }else if(alarm==0){
-    	fill(0,255,204);
+    fill(255,0,0);
     }
-   	//alarm
-
+    //alarm
     rotate(6*seconds);
     ellipse(0,-225,7,7);
     pop();
     push();
     noFill();
-    stroke(0);
+    stroke(100);
     ellipse(0,-225,15,15);
     ellipse(225,0,15,15);
     ellipse(0,225,15,15);
@@ -257,5 +291,18 @@ function draw_clock(obj) {
     }
     pop();
     */
-  
+    push();
+    textSize(30);
+    fill(100);
+    text(hours,-365,10);
+
+    text(seconds,335,10);
+    noFill();
+    stroke(100);
+    ellipse(350,0,100,100);
+    ellipse(-350,0,100,100);
+    ellipse(350,0,70,70);
+    ellipse(-350,0,70,70);
+    pop();
+  //
 }
