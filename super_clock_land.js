@@ -171,17 +171,19 @@ class SuperClockLand {
 
 		//sky
 		for (let i = 0; i < 64; i+=8) {
-			bg.fill(lerpColor(color(0x5A, 0x8C, 0xD6), color(0xC6, 0xD6, 0xF7),i/60));
+			bg.fill(lerpColor(color(0x5A-0x5A * this.darkenToMidnight(), 0x8C-0x8C * this.darkenToMidnight(), 0xD6-0xD6 * this.darkenToMidnight()),
+				color(0xC6 - 0xC6 * this.darkenToMidnight(), 0xD6- 0xD6* this.darkenToMidnight(), 0xF7-0xF7* this.darkenToMidnight()*0.5),
+				i/60));
 			bg.rect(0,i, this.SCREEN_WIDTH, 8);
 		}
 
 		//water
-		bg.fill(0x88, 0x88, 0xFF);
-		for (let i = 0; i < 1; i++) {
+		if (frameCount % 15 === 0) {
+			bg.fill(0x88, 0x88, 0xFF - 0x7f * this.darkenToMidnight());
 			let distance = random(36);
 			bg.rect(random(this.SCREEN_WIDTH),
 				64 + distance,
-				10 + (20 * (distance/36)),
+				10 + (20 * (distance / 36)),
 				1);
 		}
 
@@ -234,20 +236,27 @@ class SuperClockLand {
 		fg.loadPixels();
 
 		//ocean effect
-		for (let i = 49152; i < 76800; i += 4) { //49152 = 64 pixels from the top
-			let v = random(0.075, 1); // was 0.4 ... 1 to go with bleed effect's 0.4
-			bg.pixels[i] *= v;
-			bg.pixels[i + 1] *= v;
-			//d.pixels[i+2] *= 1.05;
+		if (frameCount % 2 === 0) {
+			for (let i = 49152; i < 76800; i += 4) { //49152 = 64 pixels from the top
+				let v = random(0.075, 1);
+				bg.pixels[i] *= v;  //r
+				bg.pixels[i + 1] *= v;  //g
+				//next pixel to the right:
+				bg.pixels[i + 4] += bg.pixels[i] * 0.85;    //r
+				bg.pixels[i + 5] += bg.pixels[i + 1] * 0.85;    //g
 
-			bg.pixels[i + 4] += bg.pixels[i] * 0.85; //values were 0.4 to go with v = (0.4 ... 1)
-			bg.pixels[i + 5] += bg.pixels[i + 1] * 0.85;
+				//blue component tinting with time
+				bg.pixels[i + 2] = 0xFF - 0x7F * this.darkenToMidnight();
+			}
+
 		}
+
 		//foreground palette swapping
 		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
 			for (let y = 0; y < 13; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
 				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
 				let tilePal = this.alarmState !== 0 ? this.tilePalettes[x][y] : floor(frameCount/15)%4;
+				let pal = this.paletteColours;
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
 						let pixelAddress = tileAddress + i * 4 + j * 192 * 4;
@@ -255,21 +264,21 @@ class SuperClockLand {
 						//kill the alpha
 						fg.pixels[pixelAddress+3] = (fg.pixels[pixelAddress+3] > 127 ? 255 : 0);
 						if (p < 0x55) { //'black'
-							fg.pixels[pixelAddress] =    (this.paletteColours[tilePal*12]);
-							fg.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+1]);
-							fg.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+2]);
+							fg.pixels[pixelAddress] =    pal[tilePal*12] - pal[tilePal*12] * this.darkenToMidnight() * 0.7;
+							fg.pixels[pixelAddress+1] =  pal[tilePal*12+1] - pal[tilePal*12+1] * this.darkenToMidnight() * 0.7;
+							fg.pixels[pixelAddress+2] =  pal[tilePal*12+2] - pal[tilePal*12+2] * this.darkenToMidnight() * 0.2;
 						} else if (p < 0xAA) {
-							fg.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+3]);
-							fg.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+4]);
-							fg.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+5]);
+							fg.pixels[pixelAddress] =    pal[tilePal*12+3] - pal[tilePal*12+3] * this.darkenToMidnight() * 0.6;
+							fg.pixels[pixelAddress+1] =  pal[tilePal*12+4] - pal[tilePal*12+4] * this.darkenToMidnight() * 0.7;
+							fg.pixels[pixelAddress+2] =  pal[tilePal*12+5] - pal[tilePal*12+5] * this.darkenToMidnight() * 0.2;
 						} else if (p < 0xFF) {
-							fg.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+6]);
-							fg.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+7]);
-							fg.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+8]);
+							fg.pixels[pixelAddress] =    pal[tilePal*12+6] - pal[tilePal*12+6] * this.darkenToMidnight() * 0.4;
+							fg.pixels[pixelAddress+1] =  pal[tilePal*12+7] - pal[tilePal*12+7] * this.darkenToMidnight() * 0.5;
+							fg.pixels[pixelAddress+2] =  pal[tilePal*12+8] - pal[tilePal*12+8] * this.darkenToMidnight() * 0.1;
 						} else {
-							fg.pixels[pixelAddress] =    (this.paletteColours[tilePal*12+9]);
-							fg.pixels[pixelAddress+1] =  (this.paletteColours[tilePal*12+10]);
-							fg.pixels[pixelAddress+2] =  (this.paletteColours[tilePal*12+11]);
+							fg.pixels[pixelAddress] =    pal[tilePal*12+9] -  pal[tilePal*12+9] * this.darkenToMidnight() * 0.5;
+							fg.pixels[pixelAddress+1] =  pal[tilePal*12+10] - pal[tilePal*12+10] * this.darkenToMidnight() * 0.5;
+							fg.pixels[pixelAddress+2] =  pal[tilePal*12+11] - pal[tilePal*12+11] * this.darkenToMidnight() * 0.1;
 						}
 					}
 				}
@@ -292,8 +301,11 @@ class SuperClockLand {
 
 		fill(0);
 		stroke(0xFF);
-		text("FPS: "+round(frameRate()), 10, 20);
+		//text("FPS: "+round(frameRate()), 10, 20);
+	}
 
+	darkenToMidnight() {
+		return abs((this.currentHour - 12)) / 12;
 	}
 
 
