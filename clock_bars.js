@@ -1,7 +1,6 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
-var x
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -17,34 +16,22 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     let millis = obj.millis;
     let alarm = obj.seconds_until_alarm
+    
 
     if (alarm == 0) {
-    if (second % 2 == 0) {
-      background(50, 50, 55, 100);      
+      background(50, 50, 55, 100);
     } else {
-      background(222, 223, 239, 100);      
+    background(221, 222, 220, 100);
     }
-  }
-  else {
-    background(50);
-  }
-  var x = 0;
-  var speed = 5;
-  noStroke();
-  // is alarm going off in next 15 seconds
-  if (alarm > 0 && alarm < 15.0) {
-    //rotate(millisValue/60;
-    noFill();
-    stroke(255);
-    ellipse(x, 250, 200, 200);
-    if (x > width || x < 0) {
-        speed = speed * -3
-    }
-    x = x + speed
-  }
-    //background(204);
 
-    background(222,222,226,100); //  beige
+  // is alarm going off in next 15 seconds
+    if (alarm > 0 && alarm < 20.0) {
+    background(50, 50, 55, 100);
+    strokeWeight(5);
+    stroke(255);
+  }
+
+    // background(222,222,226,100); //  beige
     fill(17,17,17,100); // dark grey
     //text("Second: " + seconds, 10, 62);
     //text("Millis: " + millis, 10, 82);
