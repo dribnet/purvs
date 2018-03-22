@@ -1,23 +1,23 @@
 {
   "commits": [
     {
-      "final": "b55a4c11527d7e299c2ef92916782742f6b476f9",
+      "sha": "b55a4c11527d7e299c2ef92916782742f6b476f9",
       "name": "final"
     },
     {
-      "clock_alarm": "1f173258be3d4eb9954304ada1f9b571ffd3d592",
+      "sha": "1f173258be3d4eb9954304ada1f9b571ffd3d592",
       "name": "clock_alarm"
     },
     {
-      "original_clock": "8ad49df45689dbbcb52d358866136a30a4e67fc9",
+      "sha": "8ad49df45689dbbcb52d358866136a30a4e67fc9",
       "name": "original_clock"
     },
     {
-      "maeda_clock": "1f380fca371c00897c4eb28c9dbcd1f3f4170e5d",
+      "sha": "1f380fca371c00897c4eb28c9dbcd1f3f4170e5d",
       "name": "maeda_clock"
     },
     {
-      "sketch": "7bcf26ab8a0b9968bce742c237c59d3a0a0c1ed6",
+      "sha": "7bcf26ab8a0b9968bce742c237c59d3a0a0c1ed6",
       "name": "sketch"
     }
   ]
