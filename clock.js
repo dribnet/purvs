@@ -186,7 +186,6 @@ function draw_dot2() {
 function draw_one(h, p) {
 
 	fill(51);
-
 	beginShape();
 		vertex(p+55, 350);
 		vertex(p+15, 350);
@@ -206,7 +205,6 @@ function draw_one(h, p) {
 	endShape(CLOSE);
 
 	fill(255);
-
 	beginShape();
 		vertex(p+70, 370);
 		vertex(p+30, 370);
@@ -223,7 +221,6 @@ function draw_one(h, p) {
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
-
 	if(h>0.0 && fillHeight>370.0){
 	beginShape();
 		vertex(p+30, 410);
@@ -332,6 +329,11 @@ function draw_two(h, p) {
 		vertex(p+120, 150);
 		vertex(p+30, 350);
 	endShape(CLOSE);
+
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+30, 350, p+15, 330);
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
@@ -522,6 +524,16 @@ function draw_three(h, p){
 		vertex(p+70, 370);
 		vertex(p+60, 360);
 	endShape(CLOSE);
+
+	line(p+30, 330, p+15, 310);
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+60, 230, p+45, 210);
+	line(p+110, 230, p+95, 210);
+	line(p+120, 220, p+105, 200);
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
@@ -908,6 +920,10 @@ function draw_four(h, p){
 		vertex(p+120, 300);
 	endShape(CLOSE);
 
+	line(p+30, 80, p+15, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+120, 270, p+105, 250);
+
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
 
@@ -1026,6 +1042,11 @@ function draw_five(h, p){
 		vertex(p+70, 370);
 		vertex(p+60, 360);
 	endShape(CLOSE);
+
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
+	line(p+30, 80, p+15, 60);
+	line(p+120, 200, p+105, 180);
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
@@ -1404,6 +1425,13 @@ function draw_six(h, p){
 		vertex(p+95, 350);
 		vertex(p+105, 340);
 	endShape(CLOSE);
+
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
+	line(p+120, 200, p+105, 180);
 } // done
 
 function draw_seven(h, p){
@@ -1434,6 +1462,9 @@ function draw_seven(h, p){
 		vertex(p+120, 110);
 		vertex(p+30, 110);
 	endShape(CLOSE);
+
+	line(p+30, 80, p+15, 60);
+	line(p+120, 120, p+107.5, 110);
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
@@ -1674,6 +1705,15 @@ function draw_eight(h, p){
 		vertex(p+95, 160);
 		vertex(p+105, 150);
 	endShape(CLOSE);
+
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
+	line(p+110, 180, p+95, 160);
+	line(p+120, 170, p+105, 150);
+	line(p+30, 220, p+15, 200);
 } // done
 
 function draw_nine(h, p){
@@ -1898,6 +1938,15 @@ function draw_nine(h, p){
 		vertex(p+95, 220);
 		vertex(p+105, 210);
 	endShape(CLOSE);
+
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
+	line(p+110, 240, p+95, 220);
+	line(p+120, 230, p+105, 210);
+	line(p+30, 330, p+15, 310);
 } // done
 
 function draw_zero(h, p){
@@ -1927,7 +1976,6 @@ function draw_zero(h, p){
 		vertex(p+60, 80);
 		vertex(p+30, 110);
 	endShape(CLOSE);
-
 
 	fill('#fae');
 	let fillHeight = map(h, 0, height-100, 410, 80);
@@ -2002,4 +2050,10 @@ function draw_zero(h, p){
 		vertex(p+95, 350);
 		vertex(p+105, 340);
 	endShape(CLOSE);
+
+	line(p+30, 110, p+15, 90);
+	line(p+60, 80, p+45, 60);
+	line(p+120, 80, p+105, 60);
+	line(p+110, 370, p+95, 350);
+	line(p+120, 360, p+105, 340);
 } // done
