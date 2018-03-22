@@ -1,3 +1,7 @@
+Smartwatch watch face
 
-My idea was inspired the smartwatch watch face such as apple watch, Samsung Gear. So I aim to design a clock which is functional and practical. It would be simple and clean in order to demonstrate a user-friendly interface.
+I design this clock for using on Smartwatch or smartphone. So I focus on the functional and practical. The geometric graphics design would make the user more easy to read. 
 
+In the centre of the clock have a little circle, it is gently changing the colour depends on the real-time millisecond. I use this colour animation to demonstrate the heartbeat effect in order to make the clock looks more humanely. 
+
+The background colour will change to dark blue after twelve o'clock. It would help the user to know morning and afternoon. 
