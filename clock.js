@@ -18,39 +18,37 @@ function draw_clock(obj) {
     let mn = obj.minutes;
     let sc = obj.seconds;
     let ml = obj.millis;
-    // let  backgroundColor = color(56,163,200);
+    let al = obj.seconds_until_alarm;
     let c = color(80,113,184);
-   //  push()
-   //  backgroundColor.setBlue(128 + 128 * sin(map(hr,0,23,0,255)));
-  	// background(backgroundColor);
-   //  pop()
    
     angleMode(DEGREES);
-    // background(c);
-    // cob();
-
     
-
     for (i = 0; i <= width; i++){
     	let col = color(47,148,199);
     	let col2 = color(108,148,199);
     	let col3 = color(69,95,127);
+    	let c1 = 0
     	if(hr>=18&&hr<=23){
     		let gc = lerpColor(col2,col3,0.01+map(hr,18,23,0.01,0.9));
-    		stroke(gc);
+    		background(gc);
     	}
+        
     	if(hr>=0&&hr<7){
     		let gc2 = lerpColor(col3,col,0.01+map( hr, 0, 7 , 0.01, 0.9));
-    		stroke(gc2);
-
+    		background(gc2);
     	}
-    	if(hr>=8&&hr<18){
+        
+    	if(hr>=7&&hr<18){
     		let gc3 = lerpColor(col,col2,0.01+map( hr, 8, 18 , 0.01, 0.9));
-    		stroke(gc3);
-
+    		background(gc3);
     	}
-    	
-    	line(i,height,i,0);
+        
+        if(al == 0){
+            let gc4 = lerpColor(color(2555,83,13),color(255,95,150),0.01+map( ml, 0, 1000 , 0.01, 0.99));
+    		background(gc4);
+        }
+
+        // alarm
     }
 
     // seconds number
@@ -58,14 +56,17 @@ function draw_clock(obj) {
     textSize(500)
     translate(width/2-290,height/2+160)
     fill(255,30);
+    if( al>0){	
+    	fill(lerpColor(color(255,222,209),color(255,102,28),0.01+map(al, 20, 0 , 0.01,0.99))); 
+    }
     if(sc<10&&sc>=0){
-    	text("0"+sc,0,0)
+    	text("0"+sc,10,0)
     }
     if(sc>=10&&sc<20){
-    	text(sc,100,0)
+    	text(sc,15,0)
     }
     if(sc<60&&sc>=20){
-    	text(sc,0,0)
+    	text(sc,15,0)
     }
     pop();
 
@@ -133,9 +134,6 @@ function draw_clock(obj) {
     noStroke();
     triangle(20, 60, 28, 10, 36, 60);
     pop();
-
-   
-
 }
 
 function mk1(){
@@ -179,19 +177,3 @@ function seconds(){
     text(i + 1, v.x, v.y);
   }
 }
-
-// function cob(){
-// 	pixelDensity(1);
-    
-//     loadPixels();
-//     for(x = 0; x<width; x ++){
-//     	for(y = 0; y< height; y++){
-//     		let index = (x+y *width)*4;
-//     		pixels[index+0] = x;
-//     		pixels[index+1] = 150;
-//     		pixels[index+2] = y;
-//     		pixels[index+3] = 190;
-//     	}
-//     }
-//     updatePixels();
-// }

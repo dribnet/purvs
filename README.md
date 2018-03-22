@@ -1,7 +1,6 @@
 ## PS1 MDDN 242 2017
 
 ### Outrageous clock
-
-this is a recreate clock
+I add the alarm for this clock 
 
 
