@@ -21,14 +21,22 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
 
   	angleMode(DEGREES);
 
   	ellipseMode(CENTER);
 
     rectMode(CENTER);
-    
+
     background(0);
+
+    if(alarm>0){
+      background(0);
+    } else if(alarm==0){
+      background(255,0,0);
+    }
+    
 
     translate(width/2,height/2);
     //Setting
