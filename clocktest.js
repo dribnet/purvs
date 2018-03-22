@@ -7,6 +7,8 @@ let secondBarHeight = 0;
 let a, b;
 let c, v;
 
+let shake = 0;
+
 //function setup(){
 //    a = width / 2;
 //    b = height;
@@ -19,6 +21,14 @@ let c, v;
       s = 120;
       n = 850;
       z = 120;
+      q = 850;
+      w = 120;
+      e = 850;
+      r = 120;
+      t = 850;
+      y = 120;
+      f = 850;
+      g = 120;
 
 function draw_clock(obj) {
     createCanvas(950, 500);
@@ -70,7 +80,17 @@ function draw_clock(obj) {
     //let secondBarWidth3 = map(seconds, 0, 59, 0, 130);
 
     background(255);
+    
+    translate(random (-shake, shake), random (-shake, shake))
+  
+    shake = shake * -0.2;
+  
+    if (alarmsec == 0) {
+    shake = 6;
+    }
 
+    fill(255, 170, 73);
+    
 //     if(seconds > 10){
 //         weirdShape(800, 400);
 //     } if(seconds == 1){
@@ -1079,7 +1099,7 @@ function draw_clock(obj) {
      fill(255);
      ellipse(a+15, b+25, 15, 15);
      ellipse(a+15, b+70, 15, 15);
-     a = a + random(-6.95, 0.2);
+     a = a + random(-5.8, 0.2);
      
      if (a < -400){
          a = 850;
@@ -1147,7 +1167,7 @@ function draw_clock(obj) {
      fill(255);
      ellipse(d+235, s+320, 15, 15);
      ellipse(d+235, s+360, 15, 15);
-   d = d + random(-6.95, 0.5);
+   d = d + random(12, 0.5);
        if(d < -600) {
            d = 900;
    }
@@ -1168,13 +1188,153 @@ function draw_clock(obj) {
      fill(255);
      ellipse(n+265, z+175, 15, 15);
      ellipse(n+265, z+225, 15, 15);
-   n = n + random(-6.95, 0.5);
+   n = n + random(-8, 0.5);
        if(n < -600) {
            n = 900;
    }
    }
 
+if(alarmsec == 0){
+     fill(255, 255, 0);
+     rect(q+250, w+150, 400, 105);
+     fill(195, 220, 145);
+     rect(q+250, w+150, 50, 105);
+     rect(q+330, w+150, 20, 105);
+     rect(q+380, w+150, 50, 105);
+     rect(q+430, w+150, 10, 105);
+     rect(q+490, w+150, 35, 105);
+     rect(q+540, w+150, 15, 105);
+     rect(q+405, w+150, 10, 105);
+     rect(q+600, w+150, 40, 105);
+     fill(255);
+     ellipse(q+265, w+175, 15, 15);
+     ellipse(q+265, w+225, 15, 15);
+   q = q + random(-8, 0.1);
+       if(q < -600) {
+           q = 900;
+   }
+}
+    
+//   if(alarmsec == 0){
+//    fill(165, 30, 0);
+//     rect(e+220, r+300, 400, 80);
+//     fill(255, 199, 0);
+//     rect(e+220, r+300, 50, 80);
+//     rect(e+300, r+300, 20, 80);
+//     //rect(e+350, r+300, 50, 80);
+//     rect(e+420, r+300, 10, 80);
+//     rect(e+460, r+300, 35, 80);
+//     rect(e+510, r+300, 15, 80);
+//     rect(e+375, r+300, 10, 80);
+//     rect(e+570, r+300, 40, 80);
+//     fill(255);
+//     ellipse(e+235, r+320, 15, 15);
+//     ellipse(e+235, r+360, 15, 15);
+//   e = e + random(-8, 0.1);
+//       if(e < -600) {
+//           e = 900;
+//   }
+//   }
+    
+   if(alarmsec == 0){
+    fill(255, 227, 73);
+     rect(t+100, y, 400, 80);
+     fill(255, 202, 89);
+     rect(t+100, y, 50, 80);
+     rect(t+180, y, 20, 80);
+     rect(t+230, y, 50, 80);
+     rect(t+300, y, 10, 80);
+     rect(t+340, y, 35, 80);
+     rect(t+390, y, 15, 80);
+     rect(t+255, y, 10, 80);
+     rect(t+450, y, 40, 80);
+     fill(255);
+     ellipse(t+115, y+20, 15, 15);
+     ellipse(t+115, y+60, 15, 15);
+   t = t + random(-7.85, 0.5);
+       if(t < -450) {
+           t = 850;
+   }
+   }
+    
+    
+     if(alarmsec == 0){
+     
+     fill(85, 140, 85);
+     rect(f, g+20, 400, 100);
+     fill(0);
+     fill(255, 225, 79);
+     rect(f, g+20, 50, 100);
+     rect(f+80, g+20, 20, 100);
+     rect(f+130, g+20, 50, 100);
+     rect(f+200, g+20, 10, 100);
+     rect(f+240, g+20, 35, 100);
+     rect(f+290, g+20, 15, 100);
+     rect(f+325, g+20, 10, 100);
+     rect(f+350, g+20, 40, 100);
+     fill(255);
+     ellipse(f+15, g+45, 15, 15);
+     ellipse(f+15, g+90, 15, 15);
+     f = f + random(-6.95, 0.2);
+     
+     if (f < -400){
+         f = 850;
+     }
+} 
+  
+//    if (alarmsec == 0) {
+//    //vert
+//    fill(255, 207, 86);
+//    rect(q-50, w-50, 40, 120);
+//    fill(255, 229, 86);
+//    rect(q+30, w-120, 40, 120);
+//    fill(255, 133, 63);
+//    rect(q+110, w-200, 40, 120);
+//    fill(255, 207, 86);
+//    rect(q+200, w-80, 40, 120);
+//    fill(255, 229, 86);
+//    rect(q+300, w-160, 40, 120);
+//    fill(255, 133, 63);
+//    rect(q+380, w-290, 40, 120);
+//    fill(255, 207, 86);
+//    rect(q+460, w-70, 40, 120);
+//    fill(255, 133, 63);
+//    rect(q+540, w-260, 40, 120);
+//    fill(255, 229, 86);
+//    rect(q+630, w-100, 40, 120);
+//    fill(255, 207, 86);
+//    rect(q+710, w-230, 40, 120);
+//    w = w - random(-1,10);
+//       
+//    if (w < -300){
+//        w = 700;
+//    }
+//    }
+//    
+//     if(alarmsec == 0){
+//     fill(255, 124, 17);
+//     rect(e-50, r-100, 150, 50);
+//     fill(255, 142, 102);
+//     rect(e-150, r, 150, 50);
+//     fill(255, 124, 17);
+//     rect(e-210, r+190, 150, 50);
+//     fill(255, 163, 147);
+//     rect(e, r+100, 150, 50);
+//     e = e + random(-6.95, -5);
+//     
+//     if (e < -400){
+//         e = 850;
+//     }
+//} 
+    
+    
+//fill(0);
+//    rect(e-50, r-100, 150, 50);
+//    rect(e-150, r, 150, 50);
+//    rect(e-210, r+190, 150, 50);
+//    rect(e, r+100, 150, 50);
 
+    
     //vert
    // fill(255, 170, 73);
    // if(alarmsec > 0){
