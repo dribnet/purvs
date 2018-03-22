@@ -1,7 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Moth Progress
+### Final Clock
 
-With some help from a tutor I have a prototype of the alarm.
-
+This is my final moth clock. I am quite happy with the outcome and have enjoyed overcoming the challenges I faced with the help from the tutors during this assessment.
 
