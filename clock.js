@@ -98,16 +98,4 @@ if(sc < 10){ //formats the seconds to always be 2 digits
 }else{
 	text(sc, XS, YS);	
 }
-
-
-translate(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-push();
-fill(255);
-textSize(50);
-textAlign(CENTER);
-rotate(rsc);
-// ellipse(XH + 400, YH - 400, 50, 50);
-text(sc, XH - 480, YH -250);
-pop();
-
  }
