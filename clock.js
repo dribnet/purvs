@@ -41,7 +41,13 @@
     let g= map(seconds, 0, 59, 0, 255);
     let b = map(millis, 0, 1000, 0, 255);
     noStroke();
-
+    
+    for (var i = 0; i < ((CANVAS_WIDTH)/BS_ORIGINAL); i++) {
+    	for (var j = 0; j < ((CANVAS_HEIGHT)/BS_ORIGINAL); j++) {
+    		fill(r+(i*pulse),g+(j*pulse),b+(i+j)*pulse);
+    		rect(i*BS_ORIGINAL,j*BS_ORIGINAL,BS_ORIGINAL,BS_ORIGINAL);
+    	}
+    }
     for (var i = 0; i < ((CANVAS_WIDTH)/BS); i++) {
     	for (var j = 0; j < ((CANVAS_HEIGHT)/BS); j++) {
     		fill(r+(i*pulse),g+(j*pulse),b+(i+j)*pulse);
