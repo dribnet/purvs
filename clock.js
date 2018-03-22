@@ -17,7 +17,6 @@ function draw_clock(obj) {
     let millis = obj.millis;
     background(40);
 
-    textAlign(LEFT);
     rectMode(CENTER);
     noStroke();
 
@@ -33,16 +32,11 @@ function draw_clock(obj) {
 
     fill(139, 155, 181);
 
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
-
     angleMode(DEGREES);
     textAlign(CENTER,CENTER);
 
     //creating blocks
-    if (random() > 0.95){
+    if (random() > 0.96){
         blocks.push(new Block(0," "));
     }
 
@@ -80,7 +74,7 @@ function draw_clock(obj) {
         drawHourBlock = true;
     }
 
-
+        ground.display();
 
     for (var i = 0; i < blocks.length; i++) {
         if(blocks[i].y + blocks[i].size >= ground.returnY(blocks[i].x)){
@@ -98,25 +92,24 @@ function draw_clock(obj) {
             blocks.splice(i,1);
         }
     }
-    ground.display();
 }
 
 function Block(blockType, time) {
     if(blockType == 0){
         this.size = random(3,6);
-        this.fill = color(110, 118, 132);
+        this.fill = color(247, 234, 195);
         this.textSize = this.size/2;
     } else if(blockType == 1){
         this.size = random(17,20);
-        this.fill = color(110, 118, 132);
+        this.fill = color(232, 216, 169);
         this.textSize = this.size/2;
     } else if (blockType == 2){
         this.size = random(40,50);
-        this.fill = color(156, 170, 193);
+        this.fill = color(216, 204, 169);
         this.textSize = this.size/2;
     } else {
         this.size = random(70,80);
-        this.fill = color(171, 195, 234);
+        this.fill = color(198, 187, 155);
         this.textSize = this.size/2;
     }
     this.y = 0 - this.size;
@@ -166,40 +159,25 @@ function Block(blockType, time) {
 }
 
 function Ground() {
-    this.x1 = 0;
-    this.x2 = width;
-    this.y1 = 350;
-    this.y2 = 450;
-    this.slope = -(this.y2 - this.y1) / (this.x2 - this.x1);
 
-    this.lineGap = 10;
-
-    this.opac = 255;
+    this.stepNum = 6;
+    this.startingY = 300;
 
     this.display = function(){
         push();
-        fill(200);
-        beginShape();
-            vertex(this.x1,this.y1);
-            vertex(this.x2,this.y2);
-            vertex(width, height);
-            vertex(0, height);
-        endShape(CLOSE);
+        rectMode(CORNER);
+        for (var i = 0; i < this.stepNum; i++) {
+            fill(100);
+            rect(i*width/this.stepNum, this.startingY+i*25, width/this.stepNum,500 - this.startingY+i*25);
+        }
         pop();
-
-        // push();
-        // for (var i = 0; i < 30; i++) {
-        //     stroke(105,this.opac);
-        //     line(this.x1,this.y1,this.x2,this.y2);
-        //     this.y1 += this.lineGap;
-        //     this.y2 += this.lineGap;
-        //     this.opac -= 5;
-        // }
-        // pop();
     }
 
     this.returnY = function(x){
-        return(500 - this.slope * x - 150);
+        for (var i = 0; i < this.stepNum; i++) {
+            if(x > i*width/this.stepNum && x < (i+1)*width/this.stepNum){
+                return(this.startingY+i*25);
+            }
+        }
     }
-
 }

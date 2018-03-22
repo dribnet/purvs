@@ -1,7 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Bouncing Blocks
+### Original Clock Idea
 
-Having changed my idea slighty so that a block falls at each time (each second/minute/hour etc) so that each block will bounce down the surface.
-
-Added smaller blocks to help create a smoother flow from block to block.
+The clock I have coded trys to recreate the original idea I had of "ticking" blocks, the code still has some bugs that I aim to sort out, but over all this I a starting point I can build on.
