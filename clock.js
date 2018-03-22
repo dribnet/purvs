@@ -15,20 +15,17 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(40);
+    let secsToAlarm = obj.seconds_until_alarm;
 
-    rectMode(CENTER);
+    var backFill = map(seconds, 0, 59, 40, 230);
+    var alarmBar = map(secsToAlarm, 20,0,0,width);
+
+    background(56, 62, 71);
+
+    rectMode(CENTER);secsToAlarm
     noStroke();
 
     var ground = new Ground();
-
-    let hourRotate   = map(sin(hours), -1, 1, 0, 90);
-    let minuteRotate = map(sin(minutes), -1, 1, 0, 90);
-    let secondRotate = map(seconds, 0, 59, 0, 90);
-
-    // let hourTranslate   = map(sin(hours), -1, 1, 0, boxSize);
-    // let minuteTranslate = map(sin(minutes), -1, 1, 0, boxSize);
-    // let secondTranslate = map(sin(seconds), -1, 1, 0, boxSize);
 
     fill(139, 155, 181);
 
@@ -36,7 +33,7 @@ function draw_clock(obj) {
     textAlign(CENTER,CENTER);
 
     //creating blocks
-    if (random() > 0.96){
+    if (random() > 0.97){
         blocks.push(new Block(0," "));
     }
 
@@ -92,18 +89,36 @@ function draw_clock(obj) {
             blocks.splice(i,1);
         }
     }
+    push();
+    rectMode(CORNER);
+    fill(56, 62, 71);
+    rect(0,height,alarmBar,-10);
+    pop();
+    
+    if(secsToAlarm == 0){
+        if(drawAlarm){
+            var alarmNum = random(25,30);
+            for (var i = 0; i < alarmNum; i++) {
+                blocks.push(new Block(random(4)," "));
+                drawAlarm = false;
+            }
+        }
+    }
+    if(secsToAlarm < 0){
+        drawAlarm = true;
+    }
 }
 
 function Block(blockType, time) {
-    if(blockType == 0){
-        this.size = random(3,6);
+    if(blockType < 1){
+        this.size = random(3,5);
         this.fill = color(247, 234, 195);
         this.textSize = this.size/2;
-    } else if(blockType == 1){
+    } else if(blockType >= 1 && blockType < 2){
         this.size = random(17,20);
         this.fill = color(232, 216, 169);
         this.textSize = this.size/2;
-    } else if (blockType == 2){
+    } else if (blockType >= 2 && blockType < 3){
         this.size = random(40,50);
         this.fill = color(216, 204, 169);
         this.textSize = this.size/2;
@@ -115,13 +130,13 @@ function Block(blockType, time) {
     this.y = 0 - this.size;
     this.x = 70;
     this.r = 0;
-    this.ySpeed = 4;
+    this.ySpeed = random(3,5);
     this.xSpeed = 0;
     this.rSpeed = 0;
 
     this.blockTime = time;
 
-    this.yAccel = 0.2;
+    this.yAccel = random(0.1,0.3);
     this.rAccel = 0;
 
     this.move = function(){
@@ -148,8 +163,10 @@ function Block(blockType, time) {
         translate(this.x,this.y);
         rotate(this.r);
         fill(this.fill);
+        stroke(0,80);
         rect(0,0,this.size,this.size);
-        fill(20);
+        fill(56, 62, 71);
+        noStroke();
         textSize(this.textSize);
         text(this.blockTime,0,0);
 
@@ -167,8 +184,13 @@ function Ground() {
         push();
         rectMode(CORNER);
         for (var i = 0; i < this.stepNum; i++) {
-            fill(100);
+            fill(130);
             rect(i*width/this.stepNum, this.startingY+i*25, width/this.stepNum,500 - this.startingY+i*25);
+            push();
+            stroke(0,90);
+            line(i*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+i*25);
+            line((i+1)*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+(i+1)*25);
+            pop();
         }
         pop();
     }

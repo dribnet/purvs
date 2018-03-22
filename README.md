@@ -4,4 +4,6 @@
 
 Having changed my idea slighty so that a block falls at each time (each second/minute/hour etc) so that each block will bounce down the surface.
 
-Replaced the smooth ground plane with stairs to better match my idea as well as creating an interesting relationship between the ground and blocks.
+Randomised the bouncing speed so each block has its own path of movement
+
+Also implmented alarm feature in which after 20 seconds after clicking a random amount of clear blocks get created and bounce down the ground.
