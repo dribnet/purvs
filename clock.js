@@ -1,4 +1,3 @@
-
 function setup() {
   createCanvas(960, 500);
   angleMode(DEGREES);
@@ -6,10 +5,21 @@ function setup() {
 
 function draw () {
   background(200);
+  push();
+  for (var i = 0; i < 960; i++) {
+  var r = random(30,40);
+  fill(180)
+ellipse(480, 250, 300, 300);
+  
+  stroke(r * 5);
+  line(0, i, 960 + r, i);
+}
+pop();
+
   noFill();
   strokeWeight(2)
-  stroke(2)
-  ellipse(480, 250, 300, 300);
+    stroke(2)
+    ellipse(480, 250, 300, 300);
   translate(480, 250);
   rotate(-90)
 
@@ -18,6 +28,8 @@ function draw () {
   let s = second();
   let d = day();
   let mi = millis(); 
+
+
 
   noFill()
     strokeWeight(40);
@@ -35,10 +47,7 @@ function draw () {
   let sa = map (s, 0, 60, 0, 360);
   arc (0, 0, 300, 300, 0, sa); 
 
-
-
-
-
+  let mia = map (mi, 0, 60, 0, 360);
 
 
   noStroke()
@@ -61,36 +70,32 @@ function draw () {
   rotate(90)
 
 
-    push();
-  fill(255, 255, 255, 45);
-  textSize(205)
-    rotate(sa1)
-    rotate(-85)
-    text (s, -6, 7)
 
-    fill(255)
-    textSize(8)
-    text (mi, -6, 4)
 
-    pop();
 
-  push();
+push();
   noStroke();
   fill(255);
+  textFont('Courier New') ;
+textSize(12)
+  text ('DATE' + ' - '+ d, -30, 90)
+
+   
 
 
-  text ('DATE' + '  -  '+ d, -30, 90)
-
-    pop();
-
-  push();
+  textFont('Courier New') ;
   noStroke()
     fill(255);
   textSize(20)
 
-    text (h + ':' + m, -25, -75)
+    text (nf(h, 2) + ':' + nf(m, 2), -30, -75)
 
     pop();
     
-    
+      rotate(sa1)
+    rotate(-85)
+    fill(255)
+    textFont('Courier New')
+    textSize(20)
+    text ('            ' + nf(s, 2), -6, 4)
 }
