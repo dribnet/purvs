@@ -1,6 +1,3 @@
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */ 
 
 //leftpill var
 //coordinates
@@ -10,15 +7,12 @@ var lpy = 0;
 var lpsx = 0;
 var lpsy = 0;
 
-
 //rightpill var
 var rcol;
 var rpx = 0;
 var rpy = 0;
 var rpsx = 0;
 var rpsy = 0;
-
-
 
 //timedot
 var tsX = 50;
@@ -45,14 +39,14 @@ var rhcol7;
 var rhcol8;
 
 var out;
-
+//
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
 function draw_clock(obj) {
-  background(255,182,193);
-  rcol = color(	255,182,193);
-  lcol = color(255);
+background(255,182,193);
+rcol = color(	255,182,193);
+lcol = color(255);
 hcol1 = color(240,248,255,70);
 hcol2 = color(240,248,255,70);
 hcol3 = color(240,248,255,70);
@@ -91,7 +85,7 @@ out = color(240,240,240);
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
 
-
+//animation second color changes
   if (seconds>1){
     push();
     rcol = color(255);
@@ -400,15 +394,12 @@ out = color(240,240,240);
       }
       if(seconds>60){
   lcol = color(255);
-    rcol =color(255,182,193);
-    
-         
+    rcol =color(255,182,193);    
       }
-
-
+//end of seconds color animation
 
   background(255,182,193);
-
+  //alarm animation for heart filling up 
   if(seconds_until_alarm>0 ){
   doto();
 
@@ -444,16 +435,10 @@ out = color(240,240,240);
   }
   if(x > 450){
   	out = color(205,92,92);
-
-  
- 
   }
-  // lcol = color(255,105,180);
-  // rcol = color(255);
-
+  //end of alarm heart animation 
   }
-
-
+  //alarm clock colour changes animation 
   if(seconds_until_alarm==0){
        if (seconds>1){
     push();
@@ -763,9 +748,10 @@ out = color(240,240,240);
       if(seconds>60){
   lcol = color(255);
     rcol =color(  205,92,92);
-    
-         
       }
+      //end of alarm colour changes
+
+      //color var 
 out = color(  205,92,92);
 hcol1 = color(  205,92,92);
 hcol2 =color(  205,92,92);
@@ -784,23 +770,21 @@ rhcol5 =color(  205,92,92);
 rhcol6=color(  205,92,92);
 rhcol7 = color(  205,92,92);
 rhcol8= color(  205,92,92);
-
-
-
   }
-  if(hours>-1 && hours<18){
+  //pill locations AM/PM aspect
+  if(hours>-1 && hours<12){
   	capsule1();
   	capsule2();
   	capsule3();
   	capsule4();
   }
-  if(hours>17 ){
+  if(hours>11 ){
   	capsule5();
   	capsule6();
   	capsule7();
   	capsule8();
   }
-
+//design
   pillbox();
   push();
   scale(0.4);
@@ -810,8 +794,7 @@ rhcol8= color(  205,92,92);
   rightpill();
   inrightpill();
   inleftpill();
-
-
+  //text
   textSize(tsX);
   pixelfont = loadFont("Pixeled.ttf");
   textFont("Pixeled");
@@ -829,16 +812,11 @@ rhcol8= color(  205,92,92);
   text('PM',100,450);
   text('PM',-350,450);
 
-pop();
+  pop();
+
+  //bits of heart animation
 noStroke();
-// reflect();
-// reflect1();
-// reflect2();
-// reflect3();
-// reflect4();
-// reflect5();
-// reflect6();
-// reflect7();
+
 push();
 translate(-95,0);
 heart();
@@ -867,7 +845,7 @@ rheartin8();
 pop();
 shadow();
   
-      
+    //end of code  
 }
 function leftpill(){
   push();
