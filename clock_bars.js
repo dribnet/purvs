@@ -24,7 +24,7 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(200);
+    background(255, 214, 215);
     noStroke();
     fill(220, 20, 60); // dark grey
     text("Hour: "   + hours, 10, 22);
@@ -45,7 +45,7 @@ function draw_clock(obj) {
    // arc(0, 0, 260, 260, 0, endsec);
 
     //the smooth second arc
-
+    stroke(250, 162, 177);
     let endsecfraction = seconds + (millis / 1000.0);
     let endsecsmooth = map (endsecfraction, 0, 60, 0, 360);
     arc(0, 0, 200, 200, 0, endsecsmooth);
@@ -56,19 +56,17 @@ function draw_clock(obj) {
     // arc(0, 0, 280, 280, 0, endminsmooth);
 
     //the minute arc
-    stroke(220, 20, 60);
+    stroke(240, 104, 127);
     noFill();
     let endmin = map(minutes, 0, 60, 0, 360);
     arc(0, 0, 220, 220, 0, endmin); 
 
     //the hour arc
-    stroke(100, 149, 237);
+    stroke(250, 26, 64);
     noFill();
     let endhour = map(hours, 0, 12, 0, 360);
     arc(0, 0, 240, 240, 0, endhour);  
 
-
-  //  rect(400, 150, 200, 200);
 
    // let size = map (millis, 0, 1000, 3, 4);
 
