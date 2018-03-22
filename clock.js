@@ -30,12 +30,12 @@ function draw_clock(obj) {
 	draw_led_sec();
 
 	//Text display of time vs binary and alarm status.
-	fill(255);
+	/*fill(255);
 	translate(400, 400);
-	text("Hours: " + binary_hours + "  Hour: " + hours ,20, 22); 
-	text("Minutes: " + binary_minutes + "  Min: " + minutes ,20, 37); 
-	text("Seconds: " + binary_seconds + "  Sec: " + seconds ,20, 52); 
-	text("alarm: " + alarm, 20, 66); 
+	text("Hours: " + binary_hours + " - Hour: " + hours ,20, 22); 
+	text("Minutes: " + binary_minutes + " -  Min: " + minutes ,20, 37); 
+	text("Seconds: " + binary_seconds + " -  Sec: " + seconds ,20, 52); 
+	text("alarm: " + alarm, 20, 66);*/ 
 
 //Draws and decides if an LED is ON or OFF, depending on each binary bit.
 function draw_led_sec() {
@@ -79,17 +79,18 @@ function draw_led_hour() {
 
 function alarm_check() {
 	if (alarm > 0) {
+	//maps and draws timing bars.
 	noStroke();
-	//TODO Map() to rectangle length
 	fill(255, 255, 255, 140);
-//	let rect_length = map(alarm, );
-	rect(179, 55, 565, 20);
-	rect(179, 410, 565, 20);
+	let rect_length = map(alarm, 0, 20, 0, 565);
+	rect(179, 55, rect_length, 20);
+	//var neg = -Math.abs(rect_length);
+	let rect_negLength = map(alarm, 0, 20, 0, -565);
+	rect(739, 410, rect_negLength, 20);
 	}
-
+	//random flashing alarm to juxtapose the controled binary.
 	if (alarm == 0) {
-	//TODO Make flash red, in and out.
-	fill(255, 0, 0, 140);
+	fill(255, 0, 0, random(175));
 	rect(91, 13, 754, 468);
         }
 }
