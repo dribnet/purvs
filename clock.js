@@ -78,6 +78,9 @@ function draw_clock(obj) {
 
 
     for (var i = 0; i < blocks.length; i++) {
+        if(blocks[i].y >= ground.returnY(blocks[i].x)){
+            blocks[i].bounce();
+        }
         blocks[i].move();
         blocks[i].display();
     }
@@ -97,10 +100,10 @@ function Block(blockType) {
         this.fill = color(255,0,0);
     } else if (blockType == 2){
         this.size = random(40,50);
-                this.fill = color(0,255,0);
+        this.fill = color(0,255,0);
     } else {
         this.size = random(70,80);
-                this.fill = color(0,0,255);
+        this.fill = color(0,0,255);
     }
     this.y = 0 - this.size;
     this.x = 70;
@@ -112,6 +115,10 @@ function Block(blockType) {
         //this.x += this.xSpeed;
         this.y += this.ySpeed;
         this.r += 0.5;
+    }
+
+    this.bounce = function(){
+        this.ySpeed = -this.ySpeed;
     }
 
     this.display = function(){
@@ -128,8 +135,9 @@ function Block(blockType) {
 function Ground() {
     this.x1 = 0;
     this.x2 = width;
-    this.y1 = height/2;
-    this.y2 = height;
+    this.y1 = 350;
+    this.y2 = 450;
+    this.slope = -(this.y2 - this.y1) / (this.x2 - this.x1);
 
     this.lineGap = 10;
 
@@ -141,7 +149,8 @@ function Ground() {
         beginShape();
             vertex(this.x1,this.y1);
             vertex(this.x2,this.y2);
-            vertex(0, width);
+            vertex(width, height);
+            vertex(0, height);
         endShape(CLOSE);
         pop();
 
@@ -154,6 +163,10 @@ function Ground() {
         //     this.opac -= 5;
         // }
         // pop();
+    }
+
+    this.returnY = function(x){
+        return(500 - this.slope * x - 150);
     }
 
 }
