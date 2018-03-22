@@ -19,22 +19,23 @@ function draw_clock(obj) {
 
     background(0); //  black
     stroke(255, 128, 0) // orange
+    strokeWeight(2);
     fill(255); // white
-    textSize (30);
+    textSize (18);
     text("Hour: "   + hours, 10, 40);
-    text("Minute: " + minutes, 10, 80);
-    text("Second: " + seconds, 10, 120);
-    text("Millis: " + millis, 10, 160);
+    text("Minute: " + minutes, 10, 60);
+    text("Second: " + seconds, 10, 80);
+    text("Millis: " + millis, 10, 100);
 
     if (obj.hours >= 12){
         hours = hours - 12;
     }
     
     
-    let hrs = map(hours, 0, 11, 0, 365);
-    let min = map(minutes, 0, 60, 0, 365);
-    let sec =map(seconds, 0, 60, 0, 365);
-    let mil = map(millis, 0, 999, 0, 365);
+    let hrs = map(hours, 0, 11, 0, 370);
+    let min = map(minutes, 0, 59, 0, 370);
+    let sec =map(seconds, 0, 59, 0, 370);
+    let mil = map(millis, 0, 1000, 0, 370);
     angleMode(DEGREES);
 
     
@@ -48,11 +49,11 @@ function draw_clock(obj) {
     push();
     
     var i = 0;
-    stroke(255, 0, 128);
+    stroke(255, 0, 128);//pink
 
     while( i < mil){
         rotate(7);
-        line(0,-20 , 0, -50); //pink
+        line(0,-20 , 0, -50); 
         i = i + 7;
     }
     pop();
@@ -111,8 +112,9 @@ function draw_clock(obj) {
         stroke(255, 255, 0); //yellow
         fill(255); //white
         strokeWeight(4);
+        fill(255,255,0);
         rotate(2550);
-        line(0, -175, 0, -220);
+        ellipse(235,5,10,10);
         i = i + 1;
     }
 

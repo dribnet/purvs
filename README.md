@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Flower Solar Clock 
+### Diming Solar
 
-With this clock I've decided to go from the diming clock to this flower clock. I thought this would be easier to code. So for this clock I got the inspiration from the Polar clock but without the date. This is my final concept. 
+With my clock I wanted to create something that was similar to the Polar clock. So therefore this Diming solar clock displays numbers where it appears and disappears or in other terms "dims" out. So once a number appears the previous number dims out. 
