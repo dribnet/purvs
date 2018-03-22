@@ -89,7 +89,6 @@ function draw_clock(obj) {
 	for(let i =0;i<8;i++){
 		let mil = millis+(1000/8)*i;	
 		let sinWave = sin(map(mil,0,1000,0,TWO_PI));
-		let sinWave2 = sin(map(mil,0,1000,0,TWO_PI)); 
 		let y = map(sinWave, 0, 1, 200, 203);
 		let bob = map(sinWave, 0, 1, 1, 3);
 		noStroke();
