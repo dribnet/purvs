@@ -4,4 +4,4 @@
 
 Having changed my idea slighty so that a block falls at each time (each second/minute/hour etc) so that each block will bounce down the surface.
 
-Altered colours, as well as added a "pipe" for the blocks to come out off.
+Altered colours further, increased text size to aid in readability.

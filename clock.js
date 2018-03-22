@@ -18,7 +18,11 @@ function draw_clock(obj) {
     let secsToAlarm = obj.seconds_until_alarm;
 
     var backFill = map(seconds, 0, 59, 40, 230);
+    if(secsToAlarm < 0){
+        alarmBar = 0;
+    } else {
     var alarmBar = map(secsToAlarm, 20,0,0,width);
+    }
 
     background(56, 62, 71);
     textFont('Helvetica');
@@ -34,7 +38,7 @@ function draw_clock(obj) {
     textAlign(CENTER,CENTER);
 
     //creating blocks
-    if (random() > 0.97){
+    if (random() > 0.96){
         blocks.push(new Block(0," "));
     }
 
@@ -119,29 +123,34 @@ function Block(blockType, time) {
         this.size = random(3,9);
         this.fill = color(247, 234, 195);
         this.textSize = this.size/2;
+            this.ySpeed = random(3,5);
+                this.yAccel = random(0.1,0.3);
     } else if(blockType >= 1 && blockType < 2){
         this.size = random(20,25);
         this.fill = color(232, 216, 169);
-        this.textSize = this.size/2;
+        this.textSize = this.size/1.7;
+            this.ySpeed = random(3,4);
+                this.yAccel = random(0.2,0.3);
     } else if (blockType >= 2 && blockType < 3){
         this.size = random(40,50);
         this.fill = color(216, 204, 169);
-        this.textSize = this.size/2;
+        this.textSize = this.size/1.7;
+            this.ySpeed = random(2,3);
+                this.yAccel = random(0.25,0.3);
     } else {
         this.size = random(70,80);
         this.fill = color(198, 187, 155);
-        this.textSize = this.size/2;
+        this.textSize = this.size/1.7;
+            this.ySpeed = random(1,2);
+                this.yAccel = random(0.3,0.4);
     }
     this.y = 0 - this.size;
     this.x = 70;
     this.r = 0;
-    this.ySpeed = random(3,5);
     this.xSpeed = 0;
     this.rSpeed = 0;
 
     this.blockTime = time;
-
-    this.yAccel = random(0.1,0.3);
     this.rAccel = 0;
 
     this.move = function(){
@@ -188,13 +197,8 @@ function Ground() {
         push();
         rectMode(CORNER);
         for (var i = 0; i < this.stepNum; i++) {
-            fill(153, 148, 131);
+            fill(153, 148, 131,255-i*5);
             rect(i*width/this.stepNum, this.startingY+i*25, width/this.stepNum,500 - this.startingY+i*25);
-            push();
-            stroke(100);
-            line(i*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+i*25);
-            line((i+1)*width/this.stepNum,this.startingY+i*25,(i+1)*width/this.stepNum,this.startingY+(i+1)*25);
-            pop();
         }
         pop();
     }
