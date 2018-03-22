@@ -10,11 +10,6 @@ function draw_clock(obj) {
 
     background(114, 203, 255); 
     fill(50); 
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
-    text("Seconds until alarm: " + alarmsecs, 10, 102);
 
     angleMode(DEGREES);
 
@@ -123,16 +118,25 @@ for(let i=1; i<=60; i=i+1){
 
 for(let i=0; i<=19; i=i+1){
   
-  if(alarmsecs > 0){
+  if(alarmsecs < 0){
   let num = i;
   let deg = 0+(i*18);
   push();
   textSize(10);
-  rotate(deg+RotAlarm);
+  rotate(deg);
   text(num, 0, -70+a);
 
   pop();
 
+}
+else{ let num= i;
+let deg = 0 +(i*18);
+push();
+textSize(10);
+rotate(deg+RotAlarm);
+text(num,0,-70+a);
+
+pop();
 }
 
 

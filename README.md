@@ -1,6 +1,11 @@
-<b>Alarm added</b>
+<b>Final Clock</b>
 
-Got an alarm function up and running, including a new wheel when the alarm is triggered that counts down until it goes off. I altered the x position of the numbers with millis to give it the affect of rapidly expanding and then contracting, however I'd like to make something a bit smoother for my final clock. This is just the best I've come up with so far.
+My final clock is basically the inverted version of a traditional hand clock. Rather than static numbers and moving arms, I've made it so my clock has a single static arm, and rotating wheels representing the hours, minutes and seconds of the current time. 
+
+In addition there's an inner wheel which is only triggered when the alarm is set, counting down 20 seconds until the alarm goes off, which is then represented by the numbers and surrounding colours expanding and retracting.
+
+For this final version of the clock I decided to give it a relatively minimal blue and orange colour scheme as these are complimentary colours and don't distract too much from the clocks function.
+
 
 
 
