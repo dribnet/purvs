@@ -1,8 +1,8 @@
 ## PS1 MDDN 242 2018
 
-### Pill Clock
+### Pill Clock Final
 
-I added the transparent pill container since I want to show the AM/PM aspect in my design rather than just showing digital time. I have added the heart filling up aspect for alarm function to show by eating your medicine on time it will level up your health. The location of the yellow and red pill will change to different column of the container(AM or PM), depending on the time of the day. I will try polishing my design with the remaining time until deadline.
+This pill container clock is inspried by my grandma since she always forgot to have her medicine. I added the pill container design as I want to incorporate the AM and PM display aspect. I think this design has shown this aspect pretty well by changing the location of the pills to different columns of the pill container. I was going to code the alarm function in a crazier way for example having a lot of capsules falling down but instead I dedcided to make a more subtle alarm with just colour changes of the seconds animation and having the empty heart leveling up animation.
 
 
 

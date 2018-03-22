@@ -409,32 +409,32 @@ out = color(240,240,240);
 
   background(255,182,193);
 
-  if(seconds_until_alarm>1){
+  if(seconds_until_alarm>0 ){
   doto();
 
     hcol1 = color(	205,92,92);
     rhcol1 = color(	205,92,92);
-  if ( x >70){
+  if ( x >100){
   	hcol2 = color(	205,92,92);
   	rhcol2 = color(	205,92,92);
   }
-  if(x > 120){
+  if(x > 150){
   	hcol3 = color(	205,92,92);
   	rhcol3 = color(	205,92,92);
   }
-  if(x > 170){
+  if(x > 200){
   	hcol4 = color(	205,92,92);
   	rhcol4 =color(	205,92,92);
   }
-  if(x > 220){
+  if(x > 250){
   	hcol5 = color(	205,92,92);
   	rhcol5 = color(	205,92,92);
   }
-  if(x > 270){
+  if(x > 300){
   	hcol6 = color(	205,92,92);
   	rhcol6 = color(	205,92,92);
   }
-  if(x > 320){
+  if(x > 350){
   	hcol7 = color(	205,92,92);
   	rhcol7 = color(	205,92,92);
   }
@@ -443,329 +443,349 @@ out = color(240,240,240);
   	rhcol8 = color(	205,92,92);
   }
   if(x > 450){
-  	out = color(178,34,34);
+  	out = color(205,92,92);
 
   
-    if (seconds>1){
-    push();
-    rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-  }
-  if(seconds>2){
-    push();
-    lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-  }
-  if(seconds>3){
-    push();
-    rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-  }
- if(seconds>4){
-   push();
-   lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
- }
- if(seconds>5){
-   push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
- }
- if(seconds>6){
-   push();
-   lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
- }
-  if(seconds>7){
-    push();
-    rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-  }
-   if(seconds>8){
-     push();
-   lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-   }
-   
-    if(seconds>9){
-      push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-    }
-    if(seconds>10){
-      push();
-  lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-    }
-      if(seconds>11){
-        push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-      }
-      if(seconds>12){
-        push();
-  lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-      }
-      if(seconds>13){
-        push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-      }
-      if(seconds>14){
-        push();
-  lcol = color(255);
-    rcol = color(255,105,180);
-    pop();
-      }
-      if(seconds>15){
-        push();
-  rcol = color(255);
-    lcol = color(255,105,180);
-    pop();
-      }
-      if(seconds>16){
-  lcol = color(255);
-    rcol = color(255,105,180);
-      }
-      if(seconds>17){
-  rcol = color(255);
-    lcol = color(255,105,180);
-      }
-      if(seconds>18){
-  lcol = color(255);
-    rcol = color(255,105,180);
-      }
-      if(seconds>19){
-  rcol = color(255);
-    lcol = color(255,105,180);
-      }
-      if(seconds>20){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>21){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>22){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }if(seconds>23){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>24){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>25){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>26){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>27){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>28){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>29){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>30){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>31){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>32){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>33){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>34){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>35){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>36){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>37){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>38){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>39){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>40){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>41){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>42){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>43){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>44){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>45){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>46){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>47){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>48){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>49){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>50){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>51){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>52){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>53){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>54){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>55){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>56){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>57){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>58){
-  lcol = color(255);
-    rcol =color(255,105,180);
-         
-      }
-      if(seconds>59){
-  lcol = color(255,105,180);
-    rcol =color(255);
-         
-      }
-      if(seconds>60){
-  lcol = color(255);
-    rcol =color(255,105,180);
-    
-         
-      }
+ 
   }
   // lcol = color(255,105,180);
   // rcol = color(255);
 
   }
 
-  if(seconds_until_alarm<1){
-  	tsX=60;
+
+  if(seconds_until_alarm==0){
+       if (seconds>1){
+    push();
+    rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+  }
+  if(seconds>2){
+    push();
+    lcol = color(255);
+    rcol =color(  205,92,92);
+    pop();
+  }
+  if(seconds>3){
+    push();
+    rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+  }
+ if(seconds>4){
+   push();
+   lcol = color(255);
+    rcol =color(  205,92,92);
+    pop();
+ }
+ if(seconds>5){
+   push();
+  rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+ }
+ if(seconds>6){
+   push();
+   lcol = color(255);
+    rcol = color(  205,92,92);
+    pop();
+ }
+  if(seconds>7){
+    push();
+    rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+  }
+   if(seconds>8){
+     push();
+   lcol = color(255);
+    rcol = color(  205,92,92);
+    pop();
+   }
+   
+    if(seconds>9){
+      push();
+  rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+    }
+    if(seconds>10){
+      push();
+  lcol = color(255);
+    rcol = color(  205,92,92);
+    pop();
+    }
+      if(seconds>11){
+        push();
+  rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+      }
+      if(seconds>12){
+        push();
+  lcol = color(255);
+    rcol =color(  205,92,92);
+    pop();
+      }
+      if(seconds>13){
+        push();
+  rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+      }
+      if(seconds>14){
+        push();
+  lcol = color(255);
+    rcol = color(  205,92,92);
+    pop();
+      }
+      if(seconds>15){
+        push();
+  rcol = color(255);
+    lcol = color(  205,92,92);
+    pop();
+      }
+      if(seconds>16){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+      }
+      if(seconds>17){
+  rcol = color(255);
+    lcol = color(  205,92,92);
+      }
+      if(seconds>18){
+  lcol = color(255);
+    rcol = color(  205,92,92);
+      }
+      if(seconds>19){
+  rcol = color(255);
+    lcol =color(  205,92,92);
+      }
+      if(seconds>20){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>21){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>22){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }if(seconds>23){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>24){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>25){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>26){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>27){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>28){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>29){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>30){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>31){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>32){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>33){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>34){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>35){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>36){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>37){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>38){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>39){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>40){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>41){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>42){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>43){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>44){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>45){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>46){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>47){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>48){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>49){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>50){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>51){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>52){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+      }
+      if(seconds>53){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>54){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>55){
+  lcol =color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>56){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>57){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>58){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+         
+      }
+      if(seconds>59){
+  lcol = color(  205,92,92);
+    rcol =color(255);
+         
+      }
+      if(seconds>60){
+  lcol = color(255);
+    rcol =color(  205,92,92);
+    
+         
+      }
+out = color(  205,92,92);
+hcol1 = color(  205,92,92);
+hcol2 =color(  205,92,92);
+hcol3 = color(  205,92,92);
+hcol4 = color(  205,92,92);
+hcol5 =color(  205,92,92);
+hcol6=color(  205,92,92);
+hcol7 = color(  205,92,92);
+hcol8= color(  205,92,92);
+
+rhcol1 = color(  205,92,92);
+rhcol2 =color(  205,92,92);
+rhcol3 = color(  205,92,92);
+rhcol4 = color(  205,92,92);
+rhcol5 =color(  205,92,92);
+rhcol6=color(  205,92,92);
+rhcol7 = color(  205,92,92);
+rhcol8= color(  205,92,92);
+
+
 
   }
   if(hours>-1 && hours<18){
@@ -1662,9 +1682,9 @@ function eatme(){
 }
 function capsule1(){
   push();
-  translate(280,230);
+  translate(280,160);
   scale(0.2);
-  rotate(PI/1.0);
+  rotate(PI/1.3);
   //right
   push();
   fill(255,0,0);
@@ -2320,9 +2340,9 @@ pop();
 }
 function capsule4(){
   push();
-  translate(750,90);
+  translate(650,150);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI/-10.0);
   //right
   push();
   fill(255,0,0);
@@ -3352,9 +3372,9 @@ x = x +1;
 }
 function capsule2(){
   push();
-  translate(380,90);
+  translate(400,90);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI+85/5.0);
   //right
   push();
   fill(255,0,0);
@@ -4010,9 +4030,9 @@ pop();
 }
 function capsule3(){
   push();
-  translate(550,90);
+  translate(635,250);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI+50/100.0);
   //right
   push();
   fill(255,0,0);
@@ -4668,9 +4688,9 @@ pop();
 }
 function capsule5(){
   push();
-  translate(180,315);
+  translate(230,475);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI+2/3.0);
   //right
   push();
   fill(255,0,0);
@@ -5326,9 +5346,9 @@ pop();
 }
 function capsule6(){
   push();
-  translate(390,290);
+  translate(490,410);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI+55/3.0);
   //right
   push();
   fill(255,0,0);
@@ -5984,9 +6004,9 @@ pop();
 }
 function capsule7(){
   push();
-  translate(560,300);
+  translate(520,350);
   scale(0.2);
-  rotate(PI/3.0);
+  rotate(PI/39.0);
   //right
   push();
   fill(255,0,0);
