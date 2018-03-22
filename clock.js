@@ -22,7 +22,6 @@ function draw_clock(obj) {
     angleMode(DEGREES);
 
     Earth();
-    AlarmPress();
 
 //The rotation of the middle Islands
     push();
@@ -47,15 +46,15 @@ function draw_clock(obj) {
     ellipse(350,-160,15*scale);
 
 //Text to show time for positioning
-// push();
-// translate(490,-170);
-// rotate(180);
-//     fill(50);
-//     text("Hours: " + hours ,20, 22); 
-//     text("Minutes: " + minutes ,20, 37); 
-//     text("Seconds: " + seconds ,20, 52); 
-//     text("alarm: " + alarm, 20, 66);
-// pop();
+push();
+translate(490,-170);
+rotate(180);
+    fill(50);
+    text("Hours: " + hours ,20, 22); 
+    text("Minutes: " + minutes ,20, 37); 
+    text("Seconds: " + seconds ,20, 52); 
+    text("alarm: " + alarm, 20, 66);
+pop();
 
 //Creating the pulsating effect for the stars
     function Twinkle() {
@@ -139,41 +138,17 @@ fill(255);
 //Function for the moon
     function Second() {
 
-fill(200);
+if(hours>7 && hours<19){
+fill(255,255,0);
 ellipse(0,235,25,25);
 
-
-
+}
+else{
+    fill(200);
+    ellipse(0,235,25,25);
 }
 
-//Creates the alarm and all effects for it
-function AlarmPress() {
 
-    if (alarm == 0){
-    Twinkle();
-       fill(0,0,150);
-        ellipse(0,0,445*scale);
 
-        fill(0,0,200);
-        ellipse(0,0,375*scale);
-
-        fill(0,0,250);
-        ellipse(0,0,305*scale);
-    }
-
-    if (alarm > 0) {
-        fill(255);
-        ellipse(250, 140, 25*scale);
-        ellipse(400, 0, 25*scale);
-        ellipse(-280, -130, 25*scale);
-        ellipse(-350, 200, 25*scale); 
-        if (alarm <10.0) {
-            fill(255,0,0);
-        ellipse(250, 140, 25*scale);
-        ellipse(400, 0, 25*scale);
-        ellipse(-280, -130, 25*scale);
-        ellipse(-350, 200, 25*scale); 
-        }
-    }    
 }
 }
