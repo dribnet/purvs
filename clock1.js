@@ -1,6 +1,7 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 500;
 
+let x = 1;
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -12,7 +13,7 @@ function setup () {
 
 // Update this function to draw you own maeda clock
 function draw() {
-
+dgsdfgfsgsgd
 //Parameters:
 //obj.hours    Integer from 0 to 23 representing the hour of the day
 //obj.minutes  Integer from 0 to 59 representing the hour of the day
@@ -25,7 +26,7 @@ function draw() {
               //> 0 if the alarm is set. the float value then represents the number of seconds until the alarm goes off  background(20);
   angleMode(DEGREES);
   translate(CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-  background(20);
+  background(x);
   rotate(-90);
 
 
@@ -35,7 +36,7 @@ function draw() {
   let sec = second();
   let mil = millis()
 
-  let x = 1;
+  // let x = 1;
 
 
 
@@ -202,8 +203,12 @@ function draw() {
  text('XI', -20, -200);
 
 
-
-
+ if (sec > 55) {
+  x = x+1
+ }
+else{
+  x = 1
+}
  
 
   // The rectangle draws on top of the ellipse
