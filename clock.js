@@ -15,6 +15,7 @@ function draw_clock(obj) {
 	var SecondAngle = 0;
 	var MinuteAngle = 0;
 	var HourAngle = 0;
+	var MillisAngle = 0;
 
 	var second_x = 0;
 	var second_y = 0;
@@ -22,17 +23,21 @@ function draw_clock(obj) {
 	var monute_y = 0;
 	var hour_x = 0;
 	var hour_y = 0;
-    
+	var millis_x = 0;
+	var millis_y = 0;
+
+    var totalPts = 100;
+	var steps = totalPts + 1;
 
   	let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
-    // let millis = obj.millis;
+    let millis = obj.millis;
 
     let seconds_until_alarm = obj.seconds_until_alarm;
 
     if (seconds_until_alarm < 0) {
-        background(200,200,255); //  beige
+        background(30); //  black
     }
     else if (seconds_until_alarm > 0) {
         background(255, 200, 200); //  red        
@@ -45,30 +50,30 @@ function draw_clock(obj) {
             background(100, 100, 100); //  red
         }
     }
-
+    //angleMODE(DEGREES);
     // background(204);
 
     // background(255,255,200); //  beige
-    // fill(128,100,100); // dark grey
-    // text("Hour: "   + hours, 10, 22);
-    // text("Minute: " + minutes, 10, 42);
-    // text("Second: " + seconds, 10, 62);
-    // text("Millis: " + millis, 10, 82);
+    fill(128,100,100); // dark grey
+    text("Hour: "   + hours, 10, 22);
+    text("Minute: " + minutes, 10, 42);
+    text("Second: " + seconds, 10, 62);
+    text("Millis: " + millis, 10, 82);
 
     // background(0); //black
     translate(width / 2, height / 2); // origin at the middle
-    // fill(240,70); // gray
     noFill();
     strokeWeight(1);
-    stroke(255);
-    // ellipse(0, 0, 400, 400); // clock
+    stroke(255,70);
+    ellipse(0, 0, 400, 400); 
     ellipse(0, 0, 333, 333);
     ellipse(0, 0, 240, 240);
     ellipse(0, 0, 120, 120);
 
-    SecondAngle = map(second(), 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
-    MinuteAngle = map(minute(), 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
-    HourAngle = map(hour(), 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
+    SecondAngle = map(seconds, 0, 59, 0, TWO_PI) - HALF_PI; // aling second to start at the top
+    MinuteAngle = map(minutes, 0, 59, 0, TWO_PI) - HALF_PI; // aling minute to start at the top
+    HourAngle = map(hours, 0, 23, 0, TWO_PI * 2) - HALF_PI; // aling hour to start at the top
+    MillisAngle = map(millis, 0, 1000, 0, TWO_PI) - HALF_PI;// aling millis to start at the top
 
     second_x = cos(SecondAngle) * 165; // second x
     second_y = sin(SecondAngle) * 165; // second y
@@ -76,19 +81,40 @@ function draw_clock(obj) {
     monute_y = sin(MinuteAngle) * 120; // minute y
     hour_x = cos(HourAngle) * 60; // hour x
     hour_y = sin(HourAngle) * 60; // hour y
+    mills_x = cos(MillisAngle) * 200; // mills x
+    mills_y = sin(MillisAngle) * 200; // mills y
 
     noStroke();
 
     fill(color(231, 76, 60)); // red - second
     ellipse(second_x,second_y,30,30);
+
  
     fill(color(46, 204, 113)); // green - minute
     ellipse(minute_x,monute_y,20,20);
+  
 
     fill(color(67, 103, 140)); // blue - hour
     ellipse(hour_x,hour_y,10,10);
 
 
+    fill(color(254, 221, 120)); // blue - millis
+    ellipse(mills_x,mills_y,15,15);
+
+ 
+
+
+	// fill(255);
+	// ellipse(random(width)- width / 2, random(height)-height / 2, 3, 3);
+
+
+	var numStars = 200;
+	translate(-width/2,-height/2);
+	for (var i = 50; i < numStars; i += random(10000,100000)) {
+	    fill(255);
+	    ellipse(random(width), random(height), 3, 3);
+	    
+	}
 
 }
 
