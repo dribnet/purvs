@@ -8,7 +8,7 @@ function draw_clock(obj) {
     let alarmsecs = obj.seconds_until_alarm
     background(204);
 
-    background(220); 
+    background(114, 203, 255); 
     fill(50); 
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
@@ -40,11 +40,47 @@ function draw_clock(obj) {
    else {
    	a = 0;
    }
+
+fill(250);
+ellipse(0,0,480+a,480+a);
+
+fill(114, 203, 255);
+ellipse(0,0,420+a,420+a);
+
+fill(250);
+ellipse(0,0,370+a,370+a);
+
+fill(114, 203, 255);
+ellipse(0,0,320+a,320+a);
+
+fill(250);
+ellipse(0,0,260+a,260+a);
+
+fill(114, 203, 255);
+ellipse(0,0,225+a,225+a);
+
+fill(250);
+ellipse(0,0,165+a,165+a);
+
+noFill();
+stroke(255, 119, 0);
+strokeWeight(2);
+ellipse(0,0,165,165);
+ellipse(0,0,225,225);
+ellipse(0,0,260,260);
+ellipse(0,0,320,320);
+ellipse(0,0,370,370);
+ellipse(0,0,420,420);
+ellipse(0,0,480,480);
+
+
+fill(0);
     
 
 noStroke();
 ellipse(0,0,20,20);
 triangle(-10,0,10,0,0,-70);
+
 
 for(let i=1; i<=12; i=i+1){
 
@@ -98,6 +134,8 @@ for(let i=0; i<=19; i=i+1){
   pop();
 
 }
+
+
 
 }
 
