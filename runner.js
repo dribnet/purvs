@@ -72,7 +72,7 @@ function draw () {
     if (nextAlarm > 0) {
       now = millis();
       var millis_offset = nextAlarm - now;
-      if (millis_offset < -10000 ){
+      if (millis_offset < -3000 ){
         // turn off alarm
         nextAlarm = -1;
         alarm = -1;

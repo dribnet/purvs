@@ -5,6 +5,9 @@
 var mainx=480;
 var mainy=250;
 var xoutfactor=1;
+var bg = 204;
+var flashstatus=0
+var alarmout=0;
 
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
@@ -21,6 +24,7 @@ function draw_clock(obj) {
     let minutes = obj.minutes+(obj.seconds/60);
     let seconds = obj.seconds+(obj.millis/1000)
     let millis = obj.millis;
+	let alarmtime = obj.seconds_until_alarm
 
 
 	if (mouseIsPressed) {
@@ -28,13 +32,26 @@ function draw_clock(obj) {
 	} else {
 	  xoutfactor=lerp(xoutfactor, map(mouseX,0,900,-2,2,1),0.6);
 	}
-	background(204); // light gray background
+	if (alarmtime<5 && alarmtime>0) { 
+		bg=lerp(bg,25,0.01)
+		alarmout=lerp(alarmout,0,0.5);
+	} else {
+		if (alarmtime<1 && alarmtime>-1) { 
+			bg=(255)
+			alarmout=lerp(alarmout,10,0.1);
+		} else {
+			bg=lerp(bg,204,0.1);
+			alarmout=lerp(alarmout,1,0.2);
+		}
+	}
+	
+	background(bg); // light gray background
 	noStroke();
-
+	
 	//Seconds
 	fill(58, 71, 89);
-	ellipse(mainx-20*xoutfactor, mainy, 350, 400);
-	rect(mainx-20*xoutfactor,mainy-200,20*xoutfactor,400);
+	ellipse(mainx-20*xoutfactor*alarmout, mainy, 350, 400);
+	rect(mainx-20*xoutfactor*alarmout,mainy-200,20*xoutfactor*alarmout,400);
 	fill(63, 87, 124);
 	ellipse(mainx, mainy, 350, 400);
 
@@ -43,7 +60,7 @@ function draw_clock(obj) {
 	//Minutes back
 	fill(58, 71, 89);
 	ellipse(mainx, mainy, 262.5, 300);
-	rect(mainx,mainy-150,20*xoutfactor,300);
+	rect(mainx,mainy-150,20*xoutfactor*alarmout,300);
 
 	//Seconds Hand
 	for (var i=0; i<=59; i+=2.5) {
@@ -51,45 +68,44 @@ function draw_clock(obj) {
 
 			fill(58, 71, 89);
 			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359)-90)), mainy+175*sin(radians(map(i,0,59,0,359)-90)),28,32)
-			
 			fill(lerpColor(color(63, 87, 124),color(255),map(abs(i-seconds),0,5,1,0)));
 
 			var dista=map(abs(i-seconds),0,5,10,0)
-			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359)-90))+dista*xoutfactor, mainy+175*sin(radians(map(i,0,59,0,359)-90)),28,32)
+			ellipse(mainx+153.125*cos(radians(map(i,0,59,0,359)-90))+dista*xoutfactor*alarmout, mainy+175*sin(radians(map(i,0,59,0,359)-90)),28,32)
 		}
 	}
 
 	//Minutes front
 	fill(85, 129, 198);
-	ellipse(mainx+20*xoutfactor, mainy, 262.5, 300);
+	ellipse(mainx+20*xoutfactor*alarmout, mainy, 262.5, 300);
 	
 	//Hours Back
 	fill(58, 71, 89);
-	ellipse(mainx+20*xoutfactor, mainy, 175, 200);
-	rect(mainx+20*xoutfactor,mainy-100,20*xoutfactor,200);
+	ellipse(mainx+20*xoutfactor*alarmout, mainy, 175, 200);
+	rect(mainx+20*xoutfactor*alarmout,mainy-100,20*xoutfactor*alarmout,200);
 	
 	//Minutes Hand
 	for (var i=0; i<=59; i+=5) {
 		if (minutes>=i-10&&minutes<=i+10) {
 
 			fill(63, 87, 124);
-			ellipse(mainx+20*xoutfactor+109.275*cos(radians(map(i,0,59,0,359)-90)), mainy+125*sin(radians(map(i,0,59,0,359)-90)),28,32)
+			ellipse(mainx+20*xoutfactor*alarmout+109.275*cos(radians(map(i,0,59,0,359)-90)), mainy+125*sin(radians(map(i,0,59,0,359)-90)),28,32)
 			
 			fill(lerpColor(color(85, 129, 198),color(255),map(abs(i-minutes),0,10,1,0)));
 
 			var dista=map(abs(i-minutes),0,10,10,0)
-			ellipse(mainx+20*xoutfactor+109.375*cos(radians(map(i,0,59,0,359)-90))+dista*xoutfactor, mainy+125*sin(radians(map(i,0,59,0,359)-90)),28,32)
+			ellipse(mainx+20*xoutfactor*alarmout+109.375*cos(radians(map(i,0,59,0,359)-90))+dista*xoutfactor*alarmout, mainy+125*sin(radians(map(i,0,59,0,359)-90)),28,32)
 		}
 	}
 	
 	//Hours Front
 	fill(125, 168, 237);
-	ellipse(mainx+40*xoutfactor, mainy, 175, 200);
+	ellipse(mainx+40*xoutfactor*alarmout, mainy, 175, 200);
 	
 	//Alarm Front
 	fill(58, 71, 89);
-	ellipse(mainx+40*xoutfactor, mainy, 87.5, 100);
-	rect(mainx+40*xoutfactor,mainy-50,20*xoutfactor,100);
+	ellipse(mainx+40*xoutfactor*alarmout, mainy, 87.5, 100);
+	rect(mainx+40*xoutfactor*alarmout,mainy-50,20*xoutfactor*alarmout,100);
 	
 	////Hours Hand
 	var hrs;
@@ -104,15 +120,16 @@ function draw_clock(obj) {
 		if (hrs>=i-3&&hrs<=i+3) {
 
 			fill(85, 129, 198);
-			ellipse(mainx+40*xoutfactor+65.625*cos(radians(map(i,0,12,0,359)-90)), mainy+75*sin(radians(map(i,0,12,0,359)-90)),28,32)
+			ellipse(mainx+40*xoutfactor*alarmout+65.625*cos(radians(map(i,0,12,0,359)-90)), mainy+75*sin(radians(map(i,0,12,0,359)-90)),28,32)
 			
 			fill(lerpColor(color(125, 168, 237),color(255),map(abs(i-hrs),0,3,1,0)));
 
 			var dista=map(abs(i-hrs),0,3,10,0)
-			ellipse(mainx+40*xoutfactor+65.625*cos(radians(map(i,0,12,0,359)-90))+dista*xoutfactor, mainy+75*sin(radians(map(i,0,12,0,359)-90)),28,32)
+			ellipse(mainx+40*xoutfactor*alarmout+65.625*cos(radians(map(i,0,12,0,359)-90))+dista*xoutfactor*alarmout, mainy+75*sin(radians(map(i,0,12,0,359)-90)),28,32)
 		}
 	}
 	
+	
 	fill(168, 202, 255);
-	ellipse(mainx+60*xoutfactor, mainy, 87.5, 100);
+	ellipse(mainx+60*xoutfactor*alarmout, mainy, 87.5, 100);
 }
