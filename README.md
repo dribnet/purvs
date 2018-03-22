@@ -1,1 +1,3 @@
-The idea of the clock was inspired by some smart watch interface design. So I want to keep the design simple and functional. 
+
+My idea was inspired the smartwatch watch face such as apple watch, Samsung Gear. So I aim to design a clock which is functional and practical. It would be simple and clean in order to demonstrate a user-friendly interface.
+
