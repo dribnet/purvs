@@ -4,7 +4,7 @@
  const CANVAS_WIDTH = 960;
  const CANVAS_HEIGHT = 500;
  const PIXEL_SIZE = 30;
- const START_Y = 150;
+ const START_Y = 100;
  const FIRST_HOUR_START_X = 120;
  const SEC_HOUR_START_X = 320;
  const FIRST_MIN_START_X = 520;
@@ -24,6 +24,7 @@
  let tideLevel;
  let minutesTens;
  let secondsTens;
+ let seconds;
 
  function draw_clock(obj) {
   // draw your own clock here based on the values of obj:
@@ -38,7 +39,7 @@
   
   let hours = obj.hours;
   let minutes = obj.minutes;
-  let seconds = obj.seconds;
+  seconds = obj.seconds;
   let minTotal = (hours * 60) + minutes; //total mintues of the day
   let alarm = obj.seconds_until_alarm;
   let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -53,13 +54,13 @@
   //low tide: 1012
   //high tide: 1324
   if (minTotal < 636) {
-    tideLevel   = map(minTotal, 267, 636, 0, height);
+  	tideLevel   = map(minTotal, 267, 636, 0, height);
   }
   if (minTotal >= 636 && minTotal < 1012) {
-    tideLevel   = map(minTotal, 636, 1012, 0, height);
+  	tideLevel   = map(minTotal, 636, 1012, 0, height);
   }
   else if (minTotal >=1012) { //after the second low tide of the day
-    tideLevel   = map(minTotal, 1012, 1376, 0, height);
+  	tideLevel   = map(minTotal, 1012, 1376, 0, height);
   }
   
   noStroke();
@@ -73,74 +74,84 @@
 
   //a 2d array of each number storing how to draw it as booleans
   zero = [
-  [0,1,1,1,1,1,0],
-  [1,0,0,0,0,0,1],
-  [1,0,0,0,0,0,1],
-  [1,0,0,0,0,0,1],
-  [0,1,1,1,1,1,0],
+  [0,0,1,1,1,1,1,1,1,0,0],
+  [0,1,0,0,0,0,0,0,0,1,0],
+  [1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,1],
+  [0,1,0,0,0,0,0,0,0,1,0],
+  [0,0,1,1,1,1,1,1,1,0,0],
   ];
   one = [
-  [0,1,0,0,0,0,1],
-  [1,0,0,0,0,0,1],
-  [1,1,1,1,1,1,1],
-  [0,0,0,0,0,0,1],
-  [0,0,0,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,0],
+  [0,0,1,0,0,0,0,0,0,0,1],
+  [0,1,0,0,0,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1],
+  [0,0,0,0,0,0,0,0,0,0,1],
+  [0,0,0,0,0,0,0,0,0,0,1],
   ];
   two = [
-  [0,1,0,0,0,0,1],
-  [1,0,0,0,0,1,1],
-  [1,0,0,0,1,0,1],
-  [1,0,0,1,0,0,1],
-  [0,1,1,0,0,0,1],
+  [0,0,1,1,0,0,0,0,1,1,1],
+  [0,1,0,0,0,0,0,1,0,0,1],
+  [1,0,0,0,0,0,1,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [0,1,0,0,1,0,0,0,0,0,1],
+  [0,0,1,1,0,0,0,0,0,0,1],
   ];
   three = [
-  [0,1,0,0,0,1,0],
-  [1,0,0,0,0,0,1],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [0,1,1,0,1,1,0],
+  [0,0,1,1,0,0,0,1,1,0,0],
+  [0,1,0,0,0,0,0,0,0,1,0],
+  [1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [0,1,0,0,1,0,1,0,0,1,0],
+  [0,0,1,1,0,0,0,1,1,0,0],
   ];
   four = [
-  [1,1,1,0,0,0,0],
-  [0,0,0,1,0,0,0],
-  [0,0,0,1,0,0,0],
-  [1,1,1,1,1,1,1],
-  [0,0,0,1,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
+  [1,0,0,0,0,0,0,0,0,0,0],
   ];
   five = [
-  [1,1,1,0,0,1,0],
-  [1,0,1,0,0,0,1],
-  [1,0,1,0,0,0,1],
-  [1,0,1,0,0,0,1],
-  [1,0,0,1,1,1,0],
+  [1,1,1,1,1,0,0,0,0,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,1,0],
+  [1,0,0,0,0,0,1,1,1,0,0],
   ];
   six = [
-  [0,1,1,1,1,1,0],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [0,1,0,0,1,1,0],
+  [0,0,1,1,1,1,1,1,1,0,0],
+  [0,1,0,0,1,0,0,0,0,1,0],
+  [1,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,1,0],
+  [1,0,0,0,0,0,1,1,1,0,0],
   ];
   seven = [
-  [1,0,0,0,0,0,0],
-  [1,0,0,0,0,1,1],
-  [1,0,0,0,1,0,0],
-  [1,0,0,1,0,0,0],
-  [1,1,1,0,0,0,0],
+  [1,0,0,0,0,0,0,0,1,1,1],
+  [1,0,0,0,0,0,0,1,0,0,0],
+  [1,0,0,0,0,0,1,0,0,0,0],
+  [1,0,0,0,0,1,0,0,0,0,0],
+  [1,0,0,0,1,0,0,0,0,0,0],
+  [1,1,1,1,0,0,0,0,0,0,0],
   ];
   eight = [
-  [0,1,1,0,1,1,0],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [0,1,1,0,1,1,0],
+  [0,0,1,1,0,0,0,1,1,0,0],
+  [0,1,0,0,1,0,1,0,0,1,0],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [0,1,0,0,1,0,1,0,0,1,0],
+  [0,0,1,1,0,0,0,1,1,0,0],
   ];
   nine = [
-  [0,1,1,0,0,1,0],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [1,0,0,1,0,0,1],
-  [0,1,1,1,1,1,0],
+  [0,0,1,1,0,0,0,0,1,0,0],
+  [0,1,0,0,1,0,0,0,0,1,0],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,1],
+  [0,1,0,0,0,1,0,0,0,1,0],
+  [0,0,1,1,1,1,1,1,1,0,0],
   ];
 
   //array of all the number arrays
@@ -148,66 +159,66 @@
 
   //figure out what number is in the 'tens' place of the seconds
   if (seconds < 10) {
-    secondsTens = 0;
+  	secondsTens = 0;
   }
   else if (seconds >=10 && seconds <20) {
-    secondsTens = 10;
+  	secondsTens = 10;
   }
   else if (seconds >=20 && seconds <30) {
-    secondsTens = 20;
+  	secondsTens = 20;
   }
   else if (seconds >=30 && seconds <40) {
-    secondsTens = 30;
+  	secondsTens = 30;
   }
   else if (seconds >=40 && seconds <50) {
-    secondsTens = 40;
+  	secondsTens = 40;
   }
   else if (seconds >=50 && seconds <60) {
-    secondsTens = 50;
+  	secondsTens = 50;
   }
 
 
 
   if (hours < 10) {
-    var hourFirst = new Number(FIRST_HOUR_START_X, zero, minutesTens);
-    var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours], secondsTens);
+  	var hourFirst = new Number(FIRST_HOUR_START_X, zero, minutesTens);
+  	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours], secondsTens);
   }
   else if (hours >= 10 && hours < 20) {
-    var hourFirst = new Number(FIRST_HOUR_START_X, one, minutesTens);
-    var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-10], secondsTens);
+  	var hourFirst = new Number(FIRST_HOUR_START_X, one, minutesTens);
+  	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-10], secondsTens);
   }
   else if (hours > 20) {
-    var hourFirst = new Number(FIRST_HOUR_START_X, two);
-    var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-20], secondsTens);
+  	var hourFirst = new Number(FIRST_HOUR_START_X, two);
+  	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-20], secondsTens);
   }
 
 
   if(minutes < 10) {
-    var minFirst = new Number(FIRST_MIN_START_X, zero, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, zero, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes], secondsTens);
   }
   else if (minutes >=10 && minutes <20) {
-    var minFirst = new Number(FIRST_MIN_START_X, one, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-10], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, one, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-10], secondsTens);
   }
   else if (minutes >=20 && minutes <30) {
-    var minFirst = new Number(FIRST_MIN_START_X, two, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-20], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, two, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-20], secondsTens);
   }
   else if (minutes >=30 && minutes <40) {
-    var minFirst = new Number(FIRST_MIN_START_X, three, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-30], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, three, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-30], secondsTens);
   }
   else if (minutes >=40 && minutes <50) {
-    var minFirst = new Number(FIRST_MIN_START_X, four, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-40], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, four, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-40], secondsTens);
   }
   else if (minutes >=50 && minutes <60) {
-    var minFirst = new Number(FIRST_MIN_START_X, five, secondsTens);
-    var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-50], secondsTens);
+  	var minFirst = new Number(FIRST_MIN_START_X, five, secondsTens);
+  	var minSecond = new Number(SEC_MIN_START_X, numbers[minutes-50], secondsTens);
   }
 
-  
+  //console.log(hours);
   hourFirst.draw();
   hourSecond.draw();
   minFirst.draw();
@@ -220,21 +231,22 @@
 function Number(startX, number, elapsed) {
 	this.x = startX;
 	this.array = number; 
-  this.done = elapsed;
+	this.done = elapsed;
 
 	this.draw = function() {
-		for (var i = 0; i < 5; i++) {
-			for (var j = 0; j < 7; j++) {
+		for (var i = 0; i < 6; i++) {
+			for (var j = 0; j < 11; j++) {
 				if (this.array[i][j] == true) {
-            if  ((j)*10 >= secondsTens+10) {
-              fill(255)
-            }
-            else{
-              noFill();
-            }
+					noFill();
+					if  ((j-1)*10 >= (secondsTens)*2) {
+						fill(255)
+					}
+					if((j*10 >= (secondsTens)*2) && ((seconds - secondsTens) < 5)) {
+						fill(255);
+					}
 					ellipse(this.x + (i*PIXEL_SIZE), START_Y + (j*PIXEL_SIZE), PIXEL_SIZE - GAP, PIXEL_SIZE - GAP);
 				}
 			}
-   }
- }
+		}
+	}
 }
