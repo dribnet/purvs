@@ -35,7 +35,8 @@ function draw_clock(obj) {
 
 
 
-  background(255, 232, 235); // real-time sky lighting for the background
+  background(214, 246, 255);
+  // background(255, 232, 235); // real-time sky lighting for the background
   //translate to the center
   translate(width/2, height/2);
   rotate(-90);
@@ -69,18 +70,20 @@ function draw_clock(obj) {
 
   ////////////////////////////////////////////////////////////////////// mid
 
-  //middersider ellipses//
-  ellipse(0, 0, 500, 500);
+  //inner - outer rings //ellipses//
+  ellipse(0, 0, 510, 510);
   ellipse(0, 0, 800, 800);
   strokeWeight(2);
   stroke(255);
   ellipse(0, 0, 600, 600);
+  ////////////////////////
 
   fill(255);
   noStroke();
   push();
   rotate(smoothSC);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -89,6 +92,7 @@ function draw_clock(obj) {
   noStroke(); 
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -98,6 +102,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -106,6 +111,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -114,6 +120,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -122,6 +129,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -130,6 +138,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -138,6 +147,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -146,6 +156,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -154,6 +165,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -162,6 +174,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -170,6 +183,7 @@ function draw_clock(obj) {
   noStroke();
   rotate(30);
   ellipse(-210, -210, 25, 25);
+  ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
@@ -429,6 +443,8 @@ function draw_clock(obj) {
   //text of clocks//
   fill(255);
   rotate(0);
+  // stroke(0);
+  // strokeWeight(0.5);
   ellipse(0, -190, 50, 50);
   fill(0);
   textSize(25);
@@ -546,9 +562,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -556,9 +574,12 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
+  
 
   stroke(255);
   strokeWeight(5);
@@ -566,9 +587,12 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
+  
 
   stroke(255);
   strokeWeight(5);
@@ -576,9 +600,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -586,9 +612,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -596,9 +624,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -606,9 +636,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -616,9 +648,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -626,9 +660,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -636,9 +672,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -646,9 +684,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
 
   stroke(255);
   strokeWeight(5);
@@ -656,9 +696,11 @@ function draw_clock(obj) {
   noFill();
   ellipse(0, -350, 50, 50);
   fill(255);
-  ellipse(-50, -350, 25, 25);
-  ellipse(50, -350, 25, 25);
+  ellipse(-50, -350, 50, 25);
+  ellipse(50, -350, 50, 25);
   ellipse(0, -400, 25, 50);
+  ellipse(0, -350, 15, 15);
+  ellipse(-100, -350, 60, 60);
   ///////////////////////////////////////////////////////////////////////
 
 }
