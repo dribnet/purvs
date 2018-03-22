@@ -22,7 +22,8 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-
+    let alarmsecs = obj.seconds_until_alarm;
+     let heartcol = color('#DC143C');
 
     background(255, 214, 215); //light pink
     noStroke();
@@ -59,9 +60,10 @@ function draw_clock(obj) {
     else if(h >= 10 && m >= 10 && s < 10){
         s = "0" + s
     }
-
+    fill(220, 20, 60);
+    textSize(12);
     textFont('Avenir Next Condensed');
-    text(h + ":" + m + ":" + s, 435, 375);
+    text(h + ":" + m + ":" + s, 430, 375);
 
 
 
@@ -97,14 +99,8 @@ function draw_clock(obj) {
     fill(220, 20, 60);
 
 
-  // for(var i=0, i<8, i++){
-  //   var xPos = (random(-200, 200));
-  //   var yPos = (random(-200, 200));
-  //   }
-
-
     
-    push();
+push();
     //beating heart movement
     let size = 3;
 
@@ -118,6 +114,7 @@ function draw_clock(obj) {
     }
 
 //heart shape
+    fill(heartcol);
     translate(55,-140);
     scale(size);
     rotate(90);
@@ -128,54 +125,60 @@ function draw_clock(obj) {
    vertex(50, 15);
    bezierVertex(50, -5, 10, 5, 50, 40);
    endShape();
-    pop();
+pop();
+
+
+//alarm
+
+
+let countX = -4;
+let countY = 19;
+let heartsX = 0;
+let heartsY = 0;
+let hx = random(-200, 200);
+let hy = random(-200, 200);
+
+    if(alarmsecs > 0){
+        fill(255);
+        rotate(90);
+        textSize(20);
+        if(alarmsecs > 9.5){
+            countX = -9;
+        }
+        text(round(alarmsecs), countX, countY);
+ 
+        }
+
+    if(alarmsecs == 0){
+        for(i=0; i<2; i++){
+        hearts(hx, hy);
+        hearts(hx, hy);
+}
+        }
+
+    if(alarmsecs < 0){
+         hx = 0;
+         hy = 0;
+        }
 
 
 }
-// push();
-//     translate(xPos, yPos);
-//     scale(1);
-//     beginShape();
-//     vertex(50, 15);
-//     bezierVertex(50, -5, 90, 5, 50, 40)
-//     vertex(50, 15);
-//     bezierVertex(50, -5, 10, 5, 50, 40);
-//     endShape();
-// pop();
 
-  //When the alarm is turned on
-  /*      if(obj.seconds_until_alarm > 0){
-            
-        }
-
-        if(obj.seconds_until_alarm = 0){
-            
-        }
-        */
+function hearts(heartsX, heartsY){
+push();
+    rotate(90);
+    translate(heartsX, heartsY);
+    scale(1);
+    beginShape();
+    vertex(50, 15);
+    bezierVertex(50, -5, 90, 5, 50, 40)
+    vertex(50, 15);
+    bezierVertex(50, -5, 10, 5, 50, 40);
+    endShape();
+pop(); 
+}
 
 
-
-
-
-// function hearts(xPos, yPos){
-//     push();
-//     if(xPos < 0 && yPos < 0){
-//         translate(xPos-=0.001, yPos-=0.001);
-//     }
-//     else if(xPos >= 0 && yPos >= 0){
-//         translate(xPos+=0.001, yPos+=0.001);
-//     }
-//     else if(xPos >= 0 && yPos < 0){
-//     translate(xPos+=0.001, yPos-=0.001);
-//     }   
-//     else{
-//        translate(xPos-=0.001, yPos+=0.001); 
-//     }
-
-//     ellipse(xPos, yPos, 20, 20);
-    
-//     pop();
-// }
 
 
 

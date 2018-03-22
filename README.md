@@ -1,5 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Heartbeat Clock without alarm
+### Final Heartbeat Clock
 
-This is my working heart beat clock without the alarm function. The heart gets bigger every half of a second and then gets smaller to give the effect of it beating. The circle that records the seconds moves smoothly instead of stepping as I thought it would make the heart "beat" stand out more.
+This is my final heart beat clock with an alaram. The heart beats in time with the seconds. The three rings are representative of the hours, minutes and seconds. When the alarm is set a countdown appears until the alarm goes off which then smaller hearts appear in random spaces.
