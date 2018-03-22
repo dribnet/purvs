@@ -5,7 +5,6 @@ var prevSec;
 var millisRolloverTime;
 var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
-
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -43,6 +42,7 @@ function mouseClicked() {
 
 // taking ideas from http://cmuems.com/2016/60212/deliverables/deliverables-02/
 function draw () {
+  
   var H, M, S, mils, alarm;
 
   if (debug_is_on && debugCheckbox.checked()) {
