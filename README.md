@@ -1,6 +1,6 @@
-## PS1 MDDN 242 2017
+## PS1 MDDN 242 2018
 
-### Outrageous clock
+### Lil' Bird
 
 Works like a generic clock, twist is has the shape of a bird and an ellipse hovering around it. The middle ellipse being its eye, and the hands being the eyelashes. The bottom purple thing is the next and the beak is the beak which I supposed to change color.
 
