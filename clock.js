@@ -2,6 +2,7 @@
  * us p5.js to draw a clock on a 960x500 canvas
  */
 function draw_clock(obj) {
+
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
     //    obj.minutes goes from 0-59
@@ -15,10 +16,57 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    
+    let myAlarm = obj.seconds_until_alarm;
+    //myFont = loadFont('HoboStd.otf');
+    //textFont(myFont);
+ 	
+
     angleMode(DEGREES);
 
-    background(204);
+    background(255);
+    let cAM = map(minutes, 0, 59, 150, 200);
+	let cPM = map(minutes, 0, 59, 96, 200);
+   
+
+    noFill();
+    
+    if (myAlarm > 0){
+	stroke(240, 0, 0);
+    rect(200, 10, 570, 460);
+    stroke(204);
+    rect(210, 20, 550, 440);
+    }else{
+    	if (myAlarm === 0){
+    		//alarmWidth = random(335, 435);
+    		
+    		if (hours < 12){
+				stroke(0);
+		    	rect(200, 10, 570, 460);
+		    	stroke(255, 0, 0);
+		    	rect(210, 20, 550, 440);
+    		}else{
+    			stroke(0);
+		    	rect(200, 10, 570, 460);
+		    	stroke(255, 0, 0);
+		    	rect(210, 20, 550, 440);
+    		
+    		}
+    		
+    		stroke(150);
+		    rect(200, 10, 570, 460);
+		    stroke(204);
+		    rect(210, 20, 550, 440);
+
+    	}else{
+    		stroke(150);
+		    rect(200, 10, 570, 460);
+		    stroke(204);
+		    rect(210, 20, 550, 440);	
+    	}
+    
+    }
+   
+
 	drawAFrame(width/2, height/2);
 	drawDropletDevice((width/2) - 100, (height/2) - 120, 1, 1);
 	push();
@@ -28,27 +76,67 @@ function draw_clock(obj) {
     pop();
 
     
+
+    textSize(36);
+    if (hours < 10){
+    	if (minutes < 10){
+    		text('0' + hours + " : " + "0" + minutes, 430, 430);
+    	}else{
+    		text('0' + hours + " : " + minutes, 430, 430);
+    	}
+    }else{
+    	text(hours + " : " + minutes, 430, 430);
+    }
+  	
+  	textSize(50);
+  	if (hours < 12){
+  		text('AM', 540, 350);
+  	}else{
+  		text('PM', 540, 350);
+  	}
+  	/*
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
+    text("Millis: " + millis, 10, 82);*/
+    //text(millis, 100, 100);
+
+    let secondSmooth1  = map(millis, 0, 1000, 176, 470);
+	let secondSmooth2  = map(millis, 0, 1000, 130, 370);
+
+	let timeHour = 0, hourHeight = 0, minuteHeight = 0;
+    let thisHour = 0, preHour = 0, flag = 1;
+    let h1 = 0, h2 = 0, h3 = 0;
+    
+	
+	if ((minutes == 59) && (seconds == 59)){
+		text("millis = " + millis, 100, 500);
+		push();
+	    scale(0.8, 1);
+	    drop(475, secondSmooth2);//hour
+	    pop();
+	}
+
+    push();
+    scale(0.6);
+    drop(967, secondSmooth1);//minute
+    pop();
 
     
-    
-    drawMinBeaker((width/2) + 100, (height/2) + 32);
-    drop((width/2)-100, 150, 0);
-    drop((width/2)+100, 130, 0);
 	//fillInHour((width/2)-100, (height/2) + 120);
-    
-    let timeHour = 0;
     if (hours >= 13){
     	timeHour = hours - 12;
     }else{
     	timeHour = hours;
     }
 	noStroke();
-	fill(255, 0, 0);
-    text("timeHour =" + timeHour, 100, 100);
+	if (hours <= 12){
+		fill(243, cAM, 0);//hour colour AM,150-220
+	}else{
+		fill(cPM, 25, 134);//hour colour PM
+	}
+	
+    
 
     if (timeHour >= 1){
     	beginShape();//1hour
@@ -59,34 +147,79 @@ function draw_clock(obj) {
 	    vertex(380  + 55, 370);
 	    endShape();
     	}
+    	hourHeight = 360;
 
 	if (timeHour >=2){
 		rect(380  - 55, 370 - 20, 120, 10);//2hour, yf -20
+		hourHeight = 350;
 	}
 
 	if (timeHour >= 3){
 		for (let l = 0, h = 32; l < (timeHour - 2); l ++){
 			rect(380  - 55, 370 - h, 120, 12);
+			hourHeight = 370 - h;
 			h = h + 12;
 		}
 	}
 
-    
+	
+   
+     //fillInMinute
+     let colourRed = map(minutes, 0, 59, 150, 255);
+
+    noStroke();
+	fill(colourRed, 0, 0);//minute colour//9 each 5minutes
+	if (minutes > 5){
+		beginShape();
+		vertex(510, 272);
+		vertex(520, 282);
+		vertex(640, 282);
+		vertex(650, 272);
+		endShape();
+
+		h2 = (minutes-5)*(1.8)
+		
+		beginShape();// 1.8 per minute
+		vertex(515 + (minutes-5), (282 - 10) - h2);
+		vertex(580 - 70, 282 - 10);
+		vertex(580 + 70, 282 - 10);
+		vertex(645 - (minutes-5), (282 - 10) - h2);
+		endShape();
+		minuteHeight = (282 - 10) - h2;
+
+		if (minutes > 45){
+			h3 = (minutes-45)*(1.8)
+
+			beginShape();
+			vertex(555, 202);
+			vertex(605, 202);
+			vertex(605, 202 - h3);
+			vertex(555, 202 - h3);
+			endShape();
+			minuteHeight = 202 - h3;
+		}
+	}else{
+		h1 = minutes*2;
+		beginShape();//2 per min
+		vertex((580 - 60) - h1, 282 - h1);
+		vertex(580 - 60, 282);
+		vertex(580 + 60, 282);
+		vertex((580 + 60) + h1, 282 - h1);
+		endShape();
+		minuteHeight = 282 - h1;
+	}
+    //drawBeaker
+
     drawHourBeaker((width/2)-100, (height/2) + 120);//380,370
+    drawMinBeaker((width/2) + 100, (height/2) + 32);//580,282
+   
 }
 
-function fillInHour(xf, yf){
-	
-	//rect(100, 100, 100, 50);
 
-	
-    
-    
-}
 
-function drop(xd, yd, c) {
+function drop(xd, yd) {
 	noStroke();
-	fill(c);
+	fill(212, 248, 246);
 	beginShape();
 
 	curveVertex(xd, yd - 25);
@@ -180,8 +313,8 @@ function drawDropletDevice(Xd, Yd, sx, sy){
 	//ellipse(Xd, Yd, 4 ,4);
 	stroke(0);
 	strokeWeight(3);
-	noFill();
-    
+	//noFill();
+    fill(212, 248, 246);//blue
     //push();
 
     scale(sx, sy);
@@ -195,6 +328,7 @@ function drawDropletDevice(Xd, Yd, sx, sy){
 	endShape();
 	ellipse(Xd, Yd, 4 ,4);
 
+	fill(204);
     beginShape();
     //curveVertex
     curveVertex(Xd - 7, Yd - 58);
@@ -206,7 +340,7 @@ function drawDropletDevice(Xd, Yd, sx, sy){
     endShape();
 
 	noStroke();
-	fill(255, 0, 0);
+	fill(0);
 	rect(Xd - 7, Yd - 61, 14, 6);
 	ellipse(Xd - 7, Yd - 58, 6 ,6);
 	ellipse(Xd + 7, Yd - 58, 6 ,6);
@@ -222,3 +356,7 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+/*
+function alarmGo(x, y, w){
+	ellipse(x, y, w, w);
+}*/
