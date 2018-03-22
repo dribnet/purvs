@@ -1,7 +1,4 @@
-/*
-	* us p5.js to draw a clock on a 960x500 canvas
-*/ 
-
+//Global Variables
 let fts = true;
 //Backgrounds
 let bg_Day;
@@ -10,34 +7,33 @@ let timePassed = 0;
 //Dino
 let Dino;
 let Dino_Image;
+let DinosOldX;
+let DinosOldY;
 //Clouds
 let Cloud_Image;
+let dCloud;
 let Clock_Clouds = [];
 let bg_Clouds = [];
 //Weather Icons
 let sun;
 let moon;
+let cOpacity;
+//Moving Transition
+let lh;
+let Disappear;
+let moving = false;
 
-function draw_clock(obj) {
-	if(fts){		 
-		firstTimeSetup();
-	}
-	
+/**
+	Main Draw Loop to consider in this particular program
+**/
+function draw_clock(obj) {	
 	let alarm = obj.seconds_until_alarm;
 	let h = obj.hours;
 	let m = obj.minutes;
 	let s = obj.seconds;
-	
-	//Change numbers to the afternoon/night cycle
-	for(var i = 0; i < 12; i++){
-		if(h >= 12 && h <=23){ 
-		    Clock_Clouds[i].hourNumber = i+12;
-			Dino.changePos(Clock_Clouds[h-12].positionX, Clock_Clouds[h-12].positionY-40);
-		}else{ //Keep on day
-		    Clock_Clouds[i].hourNumber = i;
-			Dino.changePos(Clock_Clouds[h].positionX, Clock_Clouds[h].positionY-40);
-		}
-	}   	
+	//Check for first time setup
+	if(fts){ firstTimeSetup(h); }
+	//Set Image Mode to corner for the background and the background clouds
 	imageMode(CORNER); 
 	//Change the background depending on the time of day
 	if(h >= 5 && h < 19){
@@ -47,19 +43,45 @@ function draw_clock(obj) {
 	}	
 	Draw_BG_Clouds();	
 	imageMode(CENTER); 
-	//All translations are to be done in relation to this translation
+	//Change numbers to the afternoon/night cycle if the hour has changed and change Dinos position
+	if(lh != h){ Cycle_Change(h); }
+	//Draw main clock features
 	translate(width/2,height/2);
-	//Draw Hands
 	tint(255, 255);
-	Draw_Hands(h,m,s);
-	//Draw Dino	
-	Dino.drawImage(alarm);
-	//Draw Clouds
-	Draw_Clouds();  	
+	Draw_Hands(h,m,s);	
+	Draw_Dino(alarm);
+	Draw_Clouds();  
+	//Update Last Hour
+	lh = h;
 }
 
+/**
+	Function to change numbers on clock face and dinos position	
+**/
+function Cycle_Change(h){
+	moving = true;
+	Disappear = millis() + 3000;
+	DinosOldX = Dino.positionX;
+	DinosOldY = Dino.positionY;
+	cOpacity = 45;
+	if(h >= 12 && h <=23){ 
+		Dino.changePos(Clock_Clouds[h-12]);
+	}else{
+		Dino.changePos(Clock_Clouds[h]);
+	}
+	for(var i = 0; i < 12; i++){
+		if(h >= 12 && h <=23){ 
+			Clock_Clouds[i].hourNumber = i+12;
+		}else{ //Keep on day
+			Clock_Clouds[i].hourNumber = i;
+		}
+	} 
+}
+
+/**
+	Draw Clock face Clouds
+**/
 function Draw_Clouds(){
-	//Draw Clock Clouds
 	fill(0);	
 	for(var i = 0; i < 12; i++){
 		Clock_Clouds[i].drawImage();
@@ -67,7 +89,7 @@ function Draw_Clouds(){
 }
 
 /**
-Function which draws the hands of the clock as well as the icon.
+	Function which draws the hands of the clock as well as the icon.
 **/
 function Draw_Hands(h,m,s){
 	fill(200);	
@@ -92,7 +114,7 @@ function Draw_Hands(h,m,s){
 }
 
 /**
-Function which draws the animated background clouds
+	Function which draws the animated background clouds
 **/
 function Draw_BG_Clouds(){
 	//Check if enough time has passed to create another cloud, and if the amount of clouds isn't too high
@@ -112,10 +134,35 @@ function Draw_BG_Clouds(){
 	}
 }
 
+function Draw_Dino(alarm){
+	if(moving){
+		if(Disappear <= millis()){
+			moving = false;
+		}else{	
+			tint(255,cOpacity);
+			image(dCloud, DinosOldX, DinosOldY, Cloud_Image.width, Cloud_Image.height*2);
+			image(dCloud, Dino.positionX, Dino.positionY, Cloud_Image.width, Cloud_Image.height*2);
+			if(Disappear-1500 <= millis() && Disappear >= millis()){				
+				if(cOpacity != 0){
+					cOpacity-=10;
+				}
+				tint(255,255 - cOpacity);
+				Dino.drawImage(alarm);	
+			}else{					
+				if(cOpacity != 255){
+					cOpacity+=10;
+				}					
+			}				
+		}		
+	}else{
+		Dino.drawImage(alarm);
+	}
+}
+
 /**
-Function that is used for the first time the program is run. This should go in setup, loading images would go in preload
+	Function that is used for the first time the program is run. This should go in setup, loading images would go in preload
 **/
-function firstTimeSetup(){
+function firstTimeSetup(h){
 	/** File Loading Section **/
 	var pfont = loadFont('prstart.ttf');
 	//Backgrounds
@@ -123,37 +170,49 @@ function firstTimeSetup(){
 	bg_Night = loadImage('bg_Night.png');
 	//Clock images	
 	Cloud_Image = loadImage('Cloud.png');
+	dCloud = loadImage('dCloud.png');
 	sun = loadImage('Sun.png');
 	moon = loadImage('Moon.png');
+	
+	//Add Numbered Clouds to Array in a circle
+	var secondsRadius = (min(width, height) / 2) * 0.72;	
+	for (var a = 0; a < 360; a += 30) {
+		var angle = radians(a-90);
+		var x = cos(angle) * secondsRadius;
+		var y = sin(angle) * secondsRadius;
+		var clockNum = a/30;
+		if(h >= 12 && h <=23){ clockNum = (a/30)+12; }
+		Clock_Clouds[(a/30)] = new Cloud(x, y, clockNum, Cloud_Image, 60, 42, 255);
+	}
+	
 	//Dino setup
 	Dino_Image = loadImage('Dino.png');
-	Dino = new DinoChar(0,0,Dino_Image);
+	if(h >= 12 && h <=23){ 
+		Dino = new DinoChar(Clock_Clouds[h-12].positionX, Clock_Clouds[h-12].positionY-40,Dino_Image);
+	}else{
+		Dino = new DinoChar(Clock_Clouds[h].positionX, Clock_Clouds[h].positionY-40, Dino_Image);
+	}
+	//Dino Animations
 	for(var i = 0; i < 4; i++){
 		Dino.alarmAnimation[i] = loadImage('Alarm' + (i+1) + '.png');
 		Dino.sleepingAnimation[i] = loadImage('Sleep' + (i+1) + '.png');		
 		Dino.turningAnimation[i] = loadImage('Turning.png');
 		Dino.blinkingAnimation[i] = loadImage('Blink.png');
 	}
-	//Add Numbered Clouds to Array in a circle
-	var secondsRadius = (min(width, height) / 2) * 0.72;	
-	for (var a = 0; a < 360; a+=30) {
-		var angle = radians(a-90);
-		var x = cos(angle) * secondsRadius;
-		var y = sin(angle) * secondsRadius;
-		Clock_Clouds[(a/30)] = new Cloud(x, y, a/30, Cloud_Image, 60, 42, 255);
-	}
+	
 	//Other Setup Changes
 	noStroke();
 	textFont(pfont);
 	textAlign(CENTER,CENTER);
 	textSize(20);
 	angleMode(DEGREES);  
-	//Set to false to we never have to do this again
+	lh = h;
+	//Set to false so we never have to do this again
 	fts = false;
 }
 
 /**
-Class designed for all the clouds shown in the program
+	Class designed for all the clouds shown in the program
 **/
 class Cloud {
 	constructor(posX, posY, num, img, imgWidth, imgHeight, op) {
@@ -166,6 +225,9 @@ class Cloud {
 		this.opacity = op;
 	}
 	
+	/**
+		Function used to draw the cloud and any number associated with it
+	**/
 	drawImage(){
 		tint(255, this.opacity);
 		image(this.cloudImage, this.positionX, this.positionY, this.imageWidth, this.imageHeight);
@@ -178,7 +240,6 @@ class DinoChar{
 		this.positionX = posX;
 		this.positionY = posY;
 		this.dinoImage = img;
-		//this.sleepAnimation = createImg('DinoSleep.gif');
 		//Animations
 		this.frameTime = 0;
 		this.currentFrame = 0;
@@ -192,11 +253,13 @@ class DinoChar{
 		
 	}
 	
+	/**
+		Draws Dino on screen including any animations
+	**/
 	drawImage(alarm){
 		//Priority Goes too Alarm animation	
 		if(alarm == 0){
 			this.currentAnimation = this.alarmAnimation;
-			//this.currentFrame = 0;	
 			if(millis() >= this.frameTime + 125){
 				this.currentFrame = (this.currentFrame+1) % this.currentAnimation.length;  // Use % to cycle through frames
 				this.frameTime = millis();				
@@ -237,8 +300,11 @@ class DinoChar{
 		image(this.dinoImage, this.positionX, this.positionY);
 	}	
 	
-	changePos(posX, posY){
-		this.positionX = posX;
-		this.positionY = posY;
+	/**
+		Updates Dinos position
+	**/
+	changePos(Current_Cloud){
+		this.positionX = Current_Cloud.positionX;
+		this.positionY = Current_Cloud.positionY-40;
 	}	
 }

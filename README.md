@@ -1,16 +1,19 @@
 ## PS1 MDDN 242 2017
 
-### Current Cloud Hop Clock
+### Final Cloud Hop Clock
 
-This version of the clock shows an almost complete version. The Dino animations framework is complete and Dino now has 3 standby animations, blinking, turning, and sleeping. This development has also lead to the completion of another major feature. The alarm animations have finally being added to the clock and now Dino will play a saxophone when the alarm goes off :D. I may add more to the general alarm to make the alarm more obvious that it is going off, but for now it works and is a major step done. 
+This is the final Version of the Clock. This clock follows a primarily analog look, with a Pixel art style. The clock is set in the sky amongst the clouds where the Main Character, Dino, moves from cloud to cloud on the turn of the hour, while performing small animations over time. When the alarm goes off Dino will start playing an instrument on top of the cloud he is currently on to alert the user.
 
-Other updates included tidying up the code as it has been a little while since that was done. This included shuffling of functions and removal of useless variables, as well as some more comments. I have also done some small tweaks to background clouds speeds and opacities.
+Its Main Features include:
+	- Changing Backgrounds and Icons showing a night and day cycle
+	- Animated Main character
+	- Animated background clouds
 
-I also updated Debug, which was very useful in getting the alarm animations to work.
-
-From here I believe that the remaining features are:
-	- Dino jumping to each cloud with a small particle effect
-	- The ability to set an alarm through dino.
-	- Some more Cloud art
+I choose to make this design because I thought that it could look quite dynamic and interesting, as well as my interest in pixel art styled applications.
 	
-As well as general polish and tweaks to the clock, as well as the code readability like before. 
+Things I would have liked to have added include:
+	- More artwork and animations
+	- Connection to a weather API to also show the current weather
+	- Cleaner fades and transitions between backgrounds and animations
+	
+Overall I am happy with how the clock looks in the end, given the time to create it. 
