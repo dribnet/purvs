@@ -24,7 +24,13 @@ function draw_clock(obj) {
     Earth();
     AlarmPress();
 
-//The rotation of the middle Islands
+//The rotation of the white artic island
+    push();
+    rotate(min);
+    Island();
+    pop();
+
+//The rotation of the green Islands
     push();
     rotate(hou);
     Islands();
@@ -88,6 +94,19 @@ function draw_clock(obj) {
 
 
 //Creates the islands to rotate on the Earth
+
+    function Island() {
+
+fill(255);
+        beginShape();
+        vertex(10,10);
+        vertex(25,-25);
+        vertex(-25,-15);
+        vertex(-15,5);
+        endShape(CLOSE);
+
+    }
+
     function Islands() {
 
 fill(0,200,0);
@@ -124,14 +143,6 @@ fill(0,200,0);
         vertex(-80,90);
         vertex(-120,90);
         endShape();
-
-fill(255);
-        beginShape();
-        vertex(10,10);
-        vertex(25,-25);
-        vertex(-25,-15);
-        vertex(-15,5);
-        endShape(CLOSE);
 
 
     }
