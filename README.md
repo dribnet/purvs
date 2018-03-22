@@ -2,4 +2,5 @@
 
 ### Outrageous clock
 
-I have decided to change my clock idea to one that shows map markers on an earth with the milliseconds being the moon going around it.
+I have completed my main part of my clock and now i'm in the process of adding the alarm.
+My idea for the alarm is having either the islands on my earth flash or having the earth itself start shaking like the stars.
