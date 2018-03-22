@@ -11,18 +11,19 @@ function draw_clock(obj) {
 
     translate(width / 2, height / 2); 
 
-    var time = new Date();
+    var time = new Date(); //time is new date on system
     var milliseconds = obj.millis;
-    var seconds = obj.seconds + milliseconds / clockDiv[3];
-    var minutes = obj.minutes + seconds / clockDiv[2];
+    var seconds = obj.seconds + milliseconds / clockDiv[3]; //second cyle is based on millis
+    var minutes = obj.minutes + seconds / clockDiv[2]; //minus cycle is based on second
     var hours = obj.hours;
     var alarm = obj.alarm;
-    var clock = [hours, minutes, seconds];
+    var clock = [hours, minutes, seconds]; //define clock order
 
-
+//alarm set
  let seconds_until_alarm = obj.seconds_until_alarm;
 
     if (seconds_until_alarm > 0) {
+        //draw the halo
     fill(255,255,255,5);
     noStroke();
     ellipse(20,0,960,500);
@@ -50,14 +51,11 @@ function draw_clock(obj) {
     endShape();    
     }
 
-    // if (obj.hours >= 23){
-    //     hours = hours - 23;
-    // }
-
-    // let hoursValue = map(hours,0, 23, 0, 360);
+//gold color
     var c = color(198, 156, 109);
 
- 
+
+//draw rat
 if(hours == 0 || hours==12){  
   //     center rat
     fill(255);
@@ -407,6 +405,7 @@ if (hours>17) {
     textSize(30);
     noStroke();
     text('Snake',-180,-20);}
+
 //Horse
 if (hours==6 || hours==18) {
     fill(255);
@@ -421,15 +420,7 @@ if (hours==6 || hours==18) {
     arc(-30,60, 50, 50, 130, 200);
     arc(-20, 80, 30, 30, 180, 360);
     arc(35, 95, 50, 80, 200, 300);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
-    // translate(0, 20);
-    // rotate(-60 / 2.0);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
-    // translate(0,10);
+
 
 }
 if (hours>6 && hours<18) {
@@ -447,14 +438,6 @@ if (hours>6 && hours<18) {
     arc(-30,60, 50, 50, 130, 200);
     arc(-20, 80, 30, 30, 180, 360);
     arc(35, 95, 50, 80, 200, 300);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
-    // translate(0, 20);
-    // rotate(-60 / 2.0);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
     translate(510,-90);
     scale(2.75, 2.75);
 
@@ -474,21 +457,12 @@ if (hours>18) {
     arc(-30,60, 50, 50, 130, 200);
     arc(-20, 80, 30, 30, 180, 360);
     arc(35, 95, 50, 80, 200, 300);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
-    // translate(0, 20);
-    // rotate(-60 / 2.0);
-    // curve(5, 26, -20,-170, 10, -80, 15, 65);
-    // curve(5, 26, -18,-170, 50, -130, 100,300);
-    // line(50, -130,40,-80);
-    // translate(1110,60);
     translate(510,-90);
     scale(2.75, 2.75);
 }
 
 
-
+//min and seconds cycle
 
 push();
     translate(500, 100);
