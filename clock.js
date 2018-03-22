@@ -801,7 +801,7 @@ rhcol8= color(  205,92,92);
   	capsule8();
   }
 
-    pillbox();
+  pillbox();
   push();
   scale(0.4);
   translate(830,415);
