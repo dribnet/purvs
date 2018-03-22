@@ -127,11 +127,18 @@ function draw_clock(obj) {
     
     if(secondsToAlarm == 0){
         fill(239, 91, 91);
-        ellipse(475, 450, 400, 50);
+        rect(0, 420, 960, 50);
     }else if(secondsToAlarm > 0){
 
-        fill(0);
-        ellipse(475, 450, 10*secondsToAlarm, 50);
+        strokeWeight();
+        fill(61, 25, 1);
+        rect(0, 420, 30*secondsToAlarm, 50);
+        fill(163, 94, 48);
+        rect(0, 420, 28*secondsToAlarm, 50);
+        fill(188, 119, 73);
+        rect(0, 420, 26*secondsToAlarm, 50);
+        fill(247, 168, 116);
+        rect(0, 420, 24*secondsToAlarm, 50);
 
     }
 
@@ -139,7 +146,7 @@ function draw_clock(obj) {
     // A MAP 
     // map(target, minOfTarget,MaxOfTarget,MinNewScale, MaxNewScale)
 
-       
+      strokeWeight(0.8); 
       fill(216, 140, 101);
       ellipse(280, 150, 280, 280);
       ellipse(670, 150, 280, 280);
@@ -151,8 +158,8 @@ function draw_clock(obj) {
     
     fill(165, 79, 29);
     strokeWeight();
-    ellipse(670, 150, millisBarWidth/3.3);
-    ellipse(280, 150, millisBarWidth/3.3);
+    ellipse(670, 150, millisBarWidth/3.4);
+    ellipse(280, 150, millisBarWidth/3.4);
 
 
       strokeWeight(0.8);  
@@ -167,7 +174,7 @@ function draw_clock(obj) {
 
       strokeWeight();
       fill(145, 53, 0);
-      ellipse(603, 185, millisBarWidth/12.6);
+      ellipse(602, 185, millisBarWidth/12.6);
       ellipse(335, 185, millisBarWidth/12.6);
 
    //  noFill();
