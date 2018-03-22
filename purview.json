@@ -5,12 +5,16 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "af46b5f8fd318222c94881cae3b70ab268f8727a",
       "name": "clock_alarm"
     },
     {
+      "sha": "69291b14528f7104fc9b21963fa1509715f3000f",
+      "name": "super_clock_land sketch"
+    },
+    {
       "sha": "da3e34614c1225c5945b757b80526b87055d50c6",
-      "name": "flaming_clock"
+      "name": "original_clock"
     },
     {
       "sha": "327cef6281b3ef6ef03ffe2b6396b4130ad42c70",

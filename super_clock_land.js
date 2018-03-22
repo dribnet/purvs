@@ -227,7 +227,7 @@ class SuperClockLand {
 		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 92, 32);
 
 		//ellipses interior
-		fg.fill(0x55);
+		fg.fill(0x5A, 0x94, 0x00); //this SHOULD be grey, but for some reason that exacerbates the browser outline issue
 		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 90, 30);
 
 		//fill the palette information for the middle of the island disc
