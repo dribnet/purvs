@@ -12,9 +12,8 @@ class SuperClockLand {
 		noSmooth();
 
 		//helper variables
-		this.CANVAS_WIDTH = 960;
-		this.CANVAS_HEIGHT = 500;
-		//gameboy is 160x144 but the closest common divisor that gets a similar pixel density for 960x500 is 5
+		//game boy resolution is 160x144 but the closest common divisor that
+		// gets a similar pixel density for 960x500 is 5
 		this.SCREEN_WIDTH = 192; //24 8x8 colour regions across
 		this.SCREEN_HEIGHT = 100; //12.5 8x8 colour regions down
 
@@ -63,8 +62,39 @@ class SuperClockLand {
 		//array to hold the terrain pieces
 		this.components = [];
 
-		//the scene itself
+		//generate the scene
+		this.generateIsland();
+
+		//lowfi canvas
+		this.background = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
+		this.background.pixelDensity(1);
+		this.background.background(0x00);
+		this.background.noSmooth();
+		this.foreground = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
+		this.foreground.pixelDensity(1);
+		this.foreground.background(0x00);
+		this.foreground.noSmooth();
+
+		//the palette information for the screen is held in this array.
+		// it designates the palette to use for an 8x8 screen region
+		this.tilePalettes = [];
+		for (let i = 0; i < 24; i++) {
+			let x = [];
+			for (let j = 0; j < 8; j++) {
+				x.push(2);
+			}
+			this.tilePalettes.push(x);
+		}
+
+		this.initialDraw();
+	}
+
+	//replaces the components list and regenerates the island
+	generateIsland() {
+		this.components = [];
+
 		//params are (palette, shade, thickness, x, y, startHeight, endHeight, drawOutline, drawHighlight, isParticle)
+
 		//hills and edges
 		let v = createVector(42, 0,);
 		for (let i = 0; i < 30; i++) {
@@ -79,38 +109,11 @@ class SuperClockLand {
 		for (let i = 0; i < 40; i++) {
 			this.components.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false, false, false));
 		}
-		//clouds
-		// for (let i = -40; i < 40; i+=2) {
-		// 	for (let j = -40; j < 40; j+=2) {
-		// 		if (noise((40+i)*0.1,(40+j)*0.1) < 0.7) { continue; }
-		// 		this.components.push(new TerrainLine(5, 3, 5, i*1.1, j*1.1, 23+random(-2,3), 2, false, false, false));
-		// 	}
-		// }
-
-
-		//lowfi canvas
-		this.background = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
-		this.background.pixelDensity(1);
-		this.background.background(0x00);
-		this.background.noSmooth();
-		this.foreground = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
-		this.foreground.pixelDensity(1);
-		this.foreground.background(0x00);
-		this.foreground.noSmooth();
-
-		this.tilePalettes = [];
-		for (let i = 0; i < 24; i++) {
-			let x = [];
-			for (let j = 0; j < 8; j++) {
-				x.push(2);
-			}
-			this.tilePalettes.push(x);
-		}
-
-		this.initialDraw();
 	}
 
 	update(hour, minute, second, milli, alarm) {
+		//generate a new island if the alarm is done
+		if (this.alarmState === 0 && alarm === -1) { this.generateIsland(); }
 		this.currentHour = hour;
 		this.currentMinute = minute;
 		this.currentSecond = second;
@@ -126,6 +129,7 @@ class SuperClockLand {
 			}
 			this.tilePalettes.push(x);
 		}
+
 
 		//remove dead particles (any particle with life <= 0)
 		this.components = this.components.filter(component => component.remainingLife > 0);
@@ -162,6 +166,7 @@ class SuperClockLand {
 		d.fill(0x00,0x00,0xFF);
 		d.rect(0,64,this.SCREEN_WIDTH,36);
 
+		//seed the ocean pixels with colour in the red and green channels
 		d.fill(0xAA, 0xAA, 0xFF);
 		for (let i = 0; i < 50; i++) {
 			let distance = random(36);
@@ -183,6 +188,7 @@ class SuperClockLand {
 
 		//sky
 		for (let i = 0; i < 64; i+=8) {
+			//lerps the colours for the top and bottom of the sky region. If the alarm is active, the top colour is lerp'd with alarming red
 			bg.fill(lerpColor(
 				lerpColor(color(0x5A-0x5A * this.darkenToMidnight(), 0x8C-0x8C * this.darkenToMidnight(), 0xD6-0xD6 * this.darkenToMidnight()),
 					color(0xFF, 0x4A, 0x5A), this.alarmState != -1 ? 1 - this.alarmState / 20 : 0),
@@ -190,9 +196,6 @@ class SuperClockLand {
 				i/60));
 			bg.rect(0,i, this.SCREEN_WIDTH, 8);
 		}
-
-		//color(0xFF, 0x4A, 0x5A)
-		// this.alarmState != -1 ? 1 - this.alarmState / 20 : 0
 
 		//water
 		if (frameCount % 15 === 0) {
@@ -217,13 +220,17 @@ class SuperClockLand {
 				floor(t.rotatedPos.x+this.SCREEN_WIDTH/2), floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - (t.startHeight+t.endHeight)));
 		}
 		//terrain ellipse
+
+		//ellipse outline
 		fg.fill(0x00);
 		fg.noStroke();
 		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 92, 32);
 
-		fg.fill(0x5A, 0x94, 0x00);
+		//ellipses interior
+		fg.fill(0x55);
 		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 90, 30);
 
+		//fill the palette information for the middle of the island disc
 		for (let y = 5; y < 7; y ++) {
 			for (let x = 7; x < 15; x++) {
 				this.tilePalettes[x][y] = 1;
@@ -246,9 +253,11 @@ class SuperClockLand {
 			}
 			fg.strokeWeight(t.thickness);
 			fg.stroke(t.shade*0x55);
+			//crude z-ordering for the particles when they go 'behind' the ellipse
 			if (!t.isParticle || (t.rotatedPos.y > -27)) {
 				fg.line(startX, startY, endX, endY + (t.drawHighlight ? 2 : 0));
 			}
+			//splash into the ocean if the particle's lifespan is up
 			if (t.isParticle && t.remainingLife === 0) {
 				bg.fill(0x88, 0x88, 0xFF - 0x7f * this.darkenToMidnight());
 				bg.ellipse(startX, startY, 5);
@@ -270,7 +279,7 @@ class SuperClockLand {
 				let v = random(0.075, 1);
 				bg.pixels[i] *= v;  //r
 				bg.pixels[i + 1] *= v;  //g
-				//next pixel to the right or left depending on how many minutes through the hour we are:
+				//next pixel to the right adds some red and green information from this pixel
 				bg.pixels[i + 4] += bg.pixels[i] * 0.85;    //r
 				bg.pixels[i + 5] += bg.pixels[i + 1] * 0.85;    //g
 
@@ -292,19 +301,19 @@ class SuperClockLand {
 						let p = fg.pixels[pixelAddress];
 						//kill the alpha
 						fg.pixels[pixelAddress+3] = (fg.pixels[pixelAddress+3] > 127 ? 255 : 0);
-						if (p < 0x55) { //'black'
+						if (p < 0x55) { //'black' pixels
 							fg.pixels[pixelAddress] =    pal[tilePal*12] - pal[tilePal*12] * this.darkenToMidnight() * 0.7;
 							fg.pixels[pixelAddress+1] =  pal[tilePal*12+1] - pal[tilePal*12+1] * this.darkenToMidnight() * 0.7;
 							fg.pixels[pixelAddress+2] =  pal[tilePal*12+2] - pal[tilePal*12+2] * this.darkenToMidnight() * 0.2;
-						} else if (p < 0xAA) {
+						} else if (p < 0xAA) { //'dark' pixels
 							fg.pixels[pixelAddress] =    pal[tilePal*12+3] - pal[tilePal*12+3] * this.darkenToMidnight() * 0.6;
 							fg.pixels[pixelAddress+1] =  pal[tilePal*12+4] - pal[tilePal*12+4] * this.darkenToMidnight() * 0.7;
 							fg.pixels[pixelAddress+2] =  pal[tilePal*12+5] - pal[tilePal*12+5] * this.darkenToMidnight() * 0.2;
-						} else if (p < 0xFF) {
+						} else if (p < 0xFF) { //'light' pixels
 							fg.pixels[pixelAddress] =    pal[tilePal*12+6] - pal[tilePal*12+6] * this.darkenToMidnight() * 0.4;
 							fg.pixels[pixelAddress+1] =  pal[tilePal*12+7] - pal[tilePal*12+7] * this.darkenToMidnight() * 0.5;
 							fg.pixels[pixelAddress+2] =  pal[tilePal*12+8] - pal[tilePal*12+8] * this.darkenToMidnight() * 0.1;
-						} else {
+						} else { //'white' pixels
 							fg.pixels[pixelAddress] =    pal[tilePal*12+9] -  pal[tilePal*12+9] * this.darkenToMidnight() * 0.5;
 							fg.pixels[pixelAddress+1] =  pal[tilePal*12+10] - pal[tilePal*12+10] * this.darkenToMidnight() * 0.5;
 							fg.pixels[pixelAddress+2] =  pal[tilePal*12+11] - pal[tilePal*12+11] * this.darkenToMidnight() * 0.1;
@@ -318,19 +327,9 @@ class SuperClockLand {
 		fg.updatePixels();
 
 
-		//render the pixel background to the main canvas
+		//render the pixel canvases to the main canvas
 		image(bg, 0, 0, width,height);
 		image(fg, 0, 0, width,height);
-
-
-		//draw the particles
-		// for (let i = 0; i < this.particles.length; i++) {
-		// 	this.particles[i].draw();
-		// }
-
-		fill(0);
-		stroke(0xFF);
-		//text("FPS: "+round(frameRate()), 10, 20);
 	}
 
 	darkenToMidnight() {
@@ -359,11 +358,6 @@ class TerrainLine {
 	}
 
 	updateRotation(currentMinute, currentSecond, currentMilli) {
-		// if (this.startHeight > 20) {    //stuff high in the air is a cloud.
-		// 	this.rotatedPos.set(this.pos).rotate((currentMinute+currentSecond/60)/60 * TAU);
-		// 	return;
-		// }
 		this.rotatedPos.set(this.pos).rotate((currentSecond*1000+currentMilli)/60000 * TAU);
 	}
-
 }

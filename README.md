@@ -9,17 +9,17 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Fixed a bunch of little inconsistencies including the erroneous palette information in the middle of the island
-+ Made the alarm more alarming
-+ Tidied up waterfall stuff
++ Made the alarm regenerate the island
++ Tidied up comments a bit
 
 #### Current Issues:
 
-+ 
++ Pretty much it I think
 
 #### To Do:
 
-+ Get some sleep
++ Finish up this readme
++ Update the json
 
 #### Notes:
 + I Elected not to add clouds or an underside to the island due to how they obscure the more interesting parts of the scene
