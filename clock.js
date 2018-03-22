@@ -16,22 +16,22 @@ function draw_clock(obj) {
 
   angleMode(DEGREES);
   
-  let hr = obj.hours;
-  let mn = obj.minutes;
-  let sc = obj.seconds;
-  let ml = obj.millis;
-  // let d = day();
-  // let m = month();
-  // let y = year();
+  let hours = obj.hours;
+  let minutes = obj.minutes;
+  let seconds = obj.seconds;
+  let millis = obj.millis;
+  let alarm = obj.seconds_until_alarm;
+ 
+  let hourAngle = map(hours % 12, 0, 12, 0, 360);
+  let minuteAngle = map(minutes, 0, 60, 0, 360);
+  let secondAngle = map(seconds, 0, 60, 0, 360);
+  let millisAngle = map(millis, 0, 1000, 0, 360);
 
-  let hourAngle = map(hr % 12, 0, 12, 0, 360);
-  let minuteAngle = map(mn, 0, 60, 0, 360);
-  let secondAngle = map(sc, 0, 60, 0, 360);
-  let millisAngle = map(ml, 0, 1000, 0, 360);
-
-  let smoothMillis = sc + (ml / 1000);
+  let smoothMillis = seconds + (millis / 1000);
   let smoothSC = map(smoothMillis, 0, 60, 0, 360);
   let innerRo = map(smoothMillis, 0, 60, 360, 0);
+
+  let speed = smoothSC;
 
 
 
@@ -68,6 +68,7 @@ function draw_clock(obj) {
   stroke(255, 100, 150);
   arc(0, 0, 260, 260, 0, secondAngle);
 
+
   ////////////////////////////////////////////////////////////////////// mid
 
   //inner - outer rings //ellipses//
@@ -81,12 +82,13 @@ function draw_clock(obj) {
   fill(255);
   noStroke();
   push();
-  rotate(smoothSC);
+  rotate(speed);
   ellipse(-210, -210, 25, 25);
   ellipse(-260, 150, 20, 20);
   noFill();
   stroke(255);
   ellipse(-210, -210, 50, 50);
+
 
   fill(255);
   noStroke(); 
@@ -239,6 +241,11 @@ function draw_clock(obj) {
   // textSize(25);
   // text("IX", -12, -180);
 
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
+
   noStroke();
   rotate(30);
   fill(255);
@@ -256,6 +263,11 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("X", -8, -180);
+
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -275,6 +287,11 @@ function draw_clock(obj) {
   // textSize(25);
   // text("XI", -11, -180);
 
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
+
   noStroke();
   rotate(30);
   fill(255);
@@ -292,6 +309,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("XII", -15, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -310,6 +331,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("I", -5, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -328,6 +353,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("II", -8, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -346,6 +375,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("III", -10, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -364,6 +397,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("IV", -10, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -382,6 +419,10 @@ function draw_clock(obj) {
   fill(0);
   // textSize(25);
   // text("V", -8, -180);
+  //center//petals//
+  fill(0);
+  noStroke();
+  ellipse(0, 0, 50, 20);
 
   noStroke();
   rotate(30);
@@ -437,6 +478,11 @@ function draw_clock(obj) {
   pop();
   // textSize(25);
   // text("VIII", -20, -180);
+  //center//white//flower
+  //center//petals//
+  fill(255);
+  noStroke();
+  ellipse(0, 0, 10, 10);
 
   ///////////////////////////////////////////////////////////////////////
 
@@ -702,6 +748,12 @@ function draw_clock(obj) {
   ellipse(0, -350, 15, 15);
   ellipse(-100, -350, 60, 60);
   ///////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////alarming///////////////////////////// alarm
+
+  if(alarm > 1){
+    
+  }
 
 }
 
