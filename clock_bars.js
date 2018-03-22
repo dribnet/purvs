@@ -44,7 +44,7 @@ function draw_clock(obj) {
 
 
 
-//millis
+//mil
     push();
     
     var i = 0;
@@ -58,7 +58,7 @@ function draw_clock(obj) {
     pop();
 
     
-//second
+//sec
 
     push();
 
@@ -75,7 +75,7 @@ function draw_clock(obj) {
     
     
     
-//minute
+//min
 
     push();
 
@@ -90,7 +90,8 @@ function draw_clock(obj) {
     
     }
     pop();
-//hours
+
+//hrs
 
     push();
     var i = 0;
