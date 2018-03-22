@@ -28,10 +28,12 @@ function draw_clock(obj) {
      ellipse(480, 150, 250, 250);
 
      stroke(25, 25, 60); 
-    line(0, 150, 960, 150);
-    strokeWeight(3);
-    line(0, 165, 960, 165);
-    strokeWeight(6);
+     strokeWeight(2);
+     line(0, 100, 960, 100);
+     strokeWeight(3);
+     line(0, 80, 960, 80);
+     strokeWeight(6);
+     line(0, 40, 960, 40);
     line(0, 190, 960, 190);
     line(0, 210, 960, 210);
     line(0, 240, 960, 240);
@@ -80,6 +82,12 @@ function draw_clock(obj) {
      let arc1 = map(millis, 0, 1000, 0, 360);
      arc(0, 0, 280, 280, 0, arc1);
 
+     strokeWeight(10);
+     stroke(255, 0, 255,);
+     noFill();
+     let arc2 = map(seconds, 0, 60, 0, 360);
+     arc(0, 0, 200, 200, 0, arc2); 
+
      strokeWeight(3)
 
 
@@ -98,10 +106,9 @@ function draw_clock(obj) {
     ellipse(100, 0, 30, 30);
     pop();
 
-    push();
-    rotate(hr);
-    fill(255);
-    ellipse(50, 0, 30, 30);
-    pop();
-
+    rotate(90);
+     fill(255);
+     textSize(40);
+     noStroke();
+     text(hours + ':' + minutes + ':' + seconds, -80, 10);
 }
