@@ -27,8 +27,77 @@ function draw_clock(obj) {
     drawDropletDevice((width/2) + 100, (height/2) - 120, 1, 1);
     pop();
 
-    drawHourBeaker((width/2)-100, (height/2) + 120);
+    
+    text("Hour: "   + hours, 10, 22);
+    text("Minute: " + minutes, 10, 42);
+    text("Second: " + seconds, 10, 62);
+    text("Millis: " + millis, 10, 82);
+
+    
+    
     drawMinBeaker((width/2) + 100, (height/2) + 32);
+    drop((width/2)-100, 150, 0);
+    drop((width/2)+100, 130, 0);
+	//fillInHour((width/2)-100, (height/2) + 120);
+    
+    let timeHour = 0;
+    if (hours >= 13){
+    	timeHour = hours - 12;
+    }else{
+    	timeHour = hours;
+    }
+	noStroke();
+	fill(255, 0, 0);
+    text("timeHour =" + timeHour, 100, 100);
+
+    if (timeHour >= 1){
+    	beginShape();//1hour
+		vertex(380 + 55, 370);
+		vertex(380  + 65, 370 - 10);
+		vertex(380  - 55, 370 - 10);
+	    vertex(380  - 45, 370);
+	    vertex(380  + 55, 370);
+	    endShape();
+    	}
+
+	if (timeHour >=2){
+		rect(380  - 55, 370 - 20, 120, 10);//2hour, yf -20
+	}
+
+	if (timeHour >= 3){
+		for (let l = 0, h = 32; l < (timeHour - 2); l ++){
+			rect(380  - 55, 370 - h, 120, 12);
+			h = h + 12;
+		}
+	}
+
+    
+    drawHourBeaker((width/2)-100, (height/2) + 120);//380,370
+}
+
+function fillInHour(xf, yf){
+	
+	//rect(100, 100, 100, 50);
+
+	
+    
+    
+}
+
+function drop(xd, yd, c) {
+	noStroke();
+	fill(c);
+	beginShape();
+
+	curveVertex(xd, yd - 25);
+	curveVertex(xd, yd - 25);
+
+	curveVertex(xd - 5, yd - 5);
+	curveVertex(xd + 5, yd - 5);
+
+	curveVertex(xd, yd - 25);
+	curveVertex(xd, yd - 25);
+	endShape();
 }
 
 function drawHourBeaker(Xh, Yh){
@@ -53,12 +122,17 @@ function drawHourBeaker(Xh, Yh){
 	//gradations
 	noStroke();
 	fill(0);
+	for (let j = 0, a = 24; j < 6; j ++){
+		rect(Xh + 30, Yh - a, 35, 4);
+		a = a + 24;
+	}
+	/*
 	rect(Xh + 30, Yh - 20, 35, 4);
 	rect(Xh + 30, Yh - 44, 35, 4);
 	rect(Xh + 30, Yh - 68, 35, 4);
 	rect(Xh + 30, Yh - 92, 35, 4);
 	rect(Xh + 30, Yh - 116, 35, 4);
-	rect(Xh + 30, Yh - 140, 35, 4);
+	rect(Xh + 30, Yh - 140, 35, 4);*/
 }
 
 function drawMinBeaker(Xm, Ym) {
