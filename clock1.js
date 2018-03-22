@@ -1,63 +1,61 @@
-var time = 0
-var x = 500;
-var b = 200;
-function setup() {
-  createCanvas(600, 600);
-  background(255);
-  angleMode(DEGREES);
-  circ();
-  fill(178, 59, 119);
+/*
+ * use p5.js to draw a clock on a 960x500 canvas
+ */ 
+
+ function draw_clock(obj) {
+    angleMode(DEGREES);
+    textAlign(CENTER);
+    // draw your own clock here based on the values of obj:
+    //    obj.hours goes from 0-23
+    //    obj.minutes goes from 0-59
+    //    obj.seconds goes from 0-59
+    //    obj.millis goes from 0-1000
+    //    obj.seconds_until_alarm is:
+    //        < 0 if no alarm is set
+    //        = 0 if the alarm is currently going off
+    //        > 0 --> the number of seconds until alarm should go off
+
+    let hours = obj.hours;
+    let minutes = obj.minutes;
+    let seconds = obj.seconds;
+    let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
+
+
+     //AlarmISGoing OFF!
+     if (alarm == 0){
+
+
+        
+      if(seconds % 2 == 0){
+        background(185, 47, 47);
+        alarmFace();
+
+
+      }
+      else{
+        background(198, 231, 231);
+      }
+     }
+     else{
+
+      tint(255, 126);
+      
+     }
+    
+    
+     
+
+      
   
-  saveFrames("MaryRichards_Final", "png", 10, 22);
-  
+      
+   if(alarm > 0){
+      noFill();
+      stroke(185, 47, 47);
+      strokeWeight(10);
+      let end4 = map(alarm, 0, 20, 0, 360);
+        arc(width/2, height/2, 240, 240, 0, end4);
+      
+
+ }
 }
-
-function draw() {
-  noStroke();
-  background(97, 192, 255, 50);
-
-
-  
-  var i = 0;
-  var radius = 250;
- 
-  
-  translate(width/2, height/2);
-  var sc = map(sin(time), -1, 1, 0, 1);
-  scale(sc);
-  
-  while(i < 30){
-  rotate(360/30);
-  ellipse(radius, 0, 50, 50);
-  i = i + 1;
-  
-  }
-}
-
-
-
-
-function circ(circX, circY){
-  push();
-  translate(-220, -224);
-  scale(0.2);
-fill(255, 60);
-  ellipse(circX-63, circY+95, 138, 138);
-  ellipse(circX+249, circY+95, 138, 138);
-  ellipse(circX+100, circY+242, 138, 138);
-  ellipse(circX+90, circY-60, 138, 138);
-  fill(212, 116, 81, 40);
-  ellipse(circX+96, circY-60, 233, 232);
-  ellipse(circX+250, circY+90, 233, 232);
-  ellipse(circX-60, circY+95, 233, 232);
-  ellipse(circX+98, circY+230, 233, 232);
-  ellipse(circX+201, circY+90, 233, 232);
-  ellipse(circX-15, circY+98, 233, 232);
-  ellipse(circX+91, circY-15, 233, 232);
-  ellipse(circX+98, circY+270, 233, 232);
-  pop();
-  
-
-}
-
-
