@@ -27,7 +27,7 @@ function draw_clock(obj) {
     	let col = color(47,148,199);
     	let col2 = color(108,148,199);
     	let col3 = color(69,95,127);
-    	let c1 = 0
+    	let c1 = 0 ;
     	if(hr>=18&&hr<=23){
     		let gc = lerpColor(col2,col3,0.01+map(hr,18,23,0.01,0.9));
     		background(gc);
@@ -53,21 +53,44 @@ function draw_clock(obj) {
 
     // seconds number
     push();
-    textSize(500)
-    translate(width/2-290,height/2+160)
-    fill(255,30);
+    textSize(400);
+    translate(width/2-290,height/2+160);
+    fill(255,20);
     if( al>0){	
     	fill(lerpColor(color(255,222,209),color(255,102,28),0.01+map(al, 20, 0 , 0.01,0.99))); 
     }
-    if(sc<10&&sc>=0){
-    	text("0"+sc,10,0)
+    if(mn<10&&mn>=0){
+    	text("0"+mn,310,0);
     }
-    if(sc>=10&&sc<20){
-    	text(sc,15,0)
+    if(mn>=10&&mn<20){
+    	text(mn,380,0);
     }
-    if(sc<60&&sc>=20){
-    	text(sc,15,0)
+    if(mn<60&&mn>=20){
+    	text(mn,310,0);
     }
+
+    if(hr == 0){
+        text(24,-200,0);
+    }
+
+    if(hr<10&&hr>0){
+        text("0"+hr,-200,0);
+    }
+    if(hr>=10&&hr<20){
+        text(hr,-120,0);
+    }
+    if(hr>=20){
+        text(hr,-200,0);
+    }
+    
+    if(ml>=500){
+        noStroke();
+        ellipse(300,-200,40,40);
+        ellipse(300,-100, 40, 40);
+    }else{
+
+    }
+    
     pop();
 
 
