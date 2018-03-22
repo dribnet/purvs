@@ -19,8 +19,18 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
 
-    background(221,160,221);
+
+    if (alarm < 0) {
+        background(221,160,221); 
+    }
+    else if (alarm > 0) {
+        background(255, 105, 180);        
+    }
+    else if (alarm == 0){
+        background(255,248,220);
+    }
 
     let hourBarColor = map(hours, 0, 23, 0, 51);
     let hourBarColor2 = map(hours, 0, 23, 0, 255);
