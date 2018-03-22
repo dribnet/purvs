@@ -1,19 +1,9 @@
-const CANVAS_WIDTH = 960;
-const CANVAS_HEIGHT = 500;
 
-
-
-
-function setup () {
-  // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-  main_canvas.parent('canvasContainer');
-
-
+function setup() {
+  createCanvas(960, 500);
   angleMode(DEGREES);
 }
 
-//draw clock
 function draw () {
   background(200);
   noFill();
@@ -103,16 +93,4 @@ function draw () {
     pop();
     
     
-}
-
-
-
-// do not alter or remove this function
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
 }
