@@ -2,4 +2,4 @@
 
 ### Retro Neon clock
 
-Have been updating my clock for a while now. I am basing it off the design of a retro arcade style theme
+I have been playin around with the arcs and different weights to see what looks visually appealing. I like the neon colours so im going to stick with that.

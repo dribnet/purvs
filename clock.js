@@ -16,10 +16,11 @@ function draw_clock(obj) {
 
     angleMode(DEGREES);
     ellipseMode(CENTER);
-    background(0);
+    background(25, 25, 60);
     
-    fill(25, 25, 60);
-    rect(0, 0, 960, 300);
+    fill(0);
+    noStroke();
+    rect(0, 300, 960, 300);
 
          stroke(255);
      fill(255,140,0);
@@ -66,8 +67,21 @@ function draw_clock(obj) {
     let min = map(minutes, 0, 60, 360);
     let hr = map(hours % 12, 0, 12, 0, 360);
 
+  
+
+
+
      translate(480, 150);
      rotate(-90);
+
+      strokeWeight(10);
+     stroke(0, 255, 255);
+     noFill();
+     let arc1 = map(millis, 0, 1000, 0, 360);
+     arc(0, 0, 280, 280, 0, arc1);
+
+     strokeWeight(3)
+
 
      stroke(255);
 
@@ -81,13 +95,13 @@ function draw_clock(obj) {
     push();
     rotate(sec);
     fill(255);
-    ellipse(150, 0, 30, 30);
+    ellipse(100, 0, 30, 30);
     pop();
 
     push();
     rotate(hr);
     fill(255);
-    ellipse(100, 0, 30, 30);
+    ellipse(50, 0, 30, 30);
     pop();
 
 }
