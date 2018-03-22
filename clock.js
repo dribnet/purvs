@@ -47,11 +47,11 @@ function draw_clock(obj) {
 			
 		}
 		
-<<<<<<< HEAD
+
         if(minutes >0){seconds_until_alarm = 0;}
-=======
+
         if(minutes == 47){seconds_until_alarm = 0;}
->>>>>>> 02c1b5bbdbc6e7624d226d9eb4ac2d878989ddac
+
         if(seconds_until_alarm == 0){background(pulse,50,pulse);} //when the alarms going off pulse background 
       
     	//note these are ordered like this on purpose to prevent overlapping issues
