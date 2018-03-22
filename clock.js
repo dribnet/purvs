@@ -7,7 +7,7 @@
  createCanvas(960, 500);
 
 function draw_clock(obj) {
-	
+    
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
     //    obj.minutes goes from 0-59
@@ -17,7 +17,7 @@ function draw_clock(obj) {
     //        < 0 if no alarm is set
     //        = 0 if the alarm is currently going off
     //        > 0 --> the number of seconds until alarm should go off
-	let hours = obj.hours;
+    let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
@@ -47,7 +47,7 @@ function draw_clock(obj) {
 
     }
     }else{
-        background(hourRD, hourGD, hourBD);
+        background(hourR, hourG, hourB);
         y = 250;
    }
    //alarm about to go off
@@ -80,7 +80,4 @@ function draw_clock(obj) {
 
     
 }
-
-    
-    
     
