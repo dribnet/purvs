@@ -172,7 +172,7 @@ stroke(255, 180, 154,120)
     stroke(178, 64, 165)
     ellipse(width/2,height/2,400,ellipse1)
     ellipse(width/2,height/2,ellipse1,400)
-    ellipse1=ellipse1-1.35
+    ellipse1=ellipse1-1.33
     ellipse2=ellipse2-1
     ellipse3=ellipse3-0.67
 
