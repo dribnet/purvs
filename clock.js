@@ -86,8 +86,8 @@ if (hours ==1||hours ==13) {
     fill(255);
     textSize(90);
     text('O X',-10,0);
-    arc(-60, -80, 50, 180, 130, 180 + 80);
-    arc(40, -80, 50, 180, 360-80, 50);}
+        arc(-60, -80, 80, 180, 130, 180 + 80);
+    arc(50, -80, 80, 180, 360-80, 50);}
 
 if (hours > 1 && hours < 13) {
 //left ox
@@ -193,6 +193,8 @@ if (hours == 7 || hours ==19 ) {
     textSize(90);
     noStroke();
     text('Sheep',0,0);
+            arc(-80, -80, 50, 180, 120, 180 + 80);
+    arc(80, -80, 50, 180, 360-80, 62);
 
 }
 if (hours> 7&& hours<19 ) {
@@ -216,6 +218,8 @@ if (hours == 8 || hours ==20 ) {
     textSize(80);
     noStroke();
     text('Monkey',10,0);
+            arc(-100, -75, 90, 90, 360+180, 180,OPEN);
+    arc(120, -75, 90, 90, 360+180, 180,OPEN);
 
 }
 if (hours> 8&& hours<20 ) {
@@ -390,11 +394,17 @@ if (hours>16) {
     scale(2.85, 2.85);
             translate(190,94);
 }
+
+//snack
 if (hours==5 || hours==17) {
     fill(255);
     textSize(90);
     noStroke();
-    text('Snake',0,0);}
+    text('Snake',0,0);
+    noFill();
+    stroke(255)
+    strokeWeight(10);
+    bezier(0, 40, -100, 70, 120, 100, 20, 170);}
 if (hours>5 && hours<17) {
     fill(c);
     textSize(30);
