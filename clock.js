@@ -51,8 +51,7 @@ function draw_clock(obj) {
         x = 255;
 
    }
-   //alarm about to go off
-   
+      
 
     noStroke();
     fill(66, 204, 255, 50);
