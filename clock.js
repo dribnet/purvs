@@ -15,22 +15,22 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(40);
+    background(240);
 
-    angleMode(RADIANS);
+    rectMode(CENTER);
+    noStroke();
 
-    var boxSize = 80;
+    var secCompare = seconds;
 
-    let hourRotate   = map(hours, 0, 23, 0, 90);
-    let minuteRotate = map(minutes, 0, 59, 0, 90);
-    // if(minutes % 2 == 0){
-    //     let secondRotate = map(seconds, 0, 59, 90, 0);
-    // }else{
+    let hourRotate   = map(sin(hours), -1, 1, 0, 90);
+    let minuteRotate = map(sin(minutes), -1, 1, 0, 90);
     let secondRotate = map(seconds, 0, 59, 0, 90);
-    //}
-    //let millisBarWidth = map(millis, 0, 1000, 0, -90);
 
-    fill(255);
+    // let hourTranslate   = map(sin(hours), -1, 1, 0, boxSize);
+    // let minuteTranslate = map(sin(minutes), -1, 1, 0, boxSize);
+    // let secondTranslate = map(sin(seconds), -1, 1, 0, boxSize);
+
+    fill(139, 155, 181);
 
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
@@ -39,54 +39,92 @@ function draw_clock(obj) {
 
     angleMode(DEGREES);
 
-    push();
-    translate(960/2,400);
+    //creating blocks
+    // if(!secCompare == seconds){
+    //      if(drawSecBlock){
+    //         blocks.push(new Block());
+    //         drawSecBlock = false;
+    //     }
+    // }
 
-    stroke(255);
-    line(-960/2,0,960/2,0);
+    if(millis > 950){
+        if(drawSecBlock){
+            blocks.push(new Block(1));
+            drawSecBlock = false;
+        }
+    }
 
-    //hours block
-    push();
-    translate(-200,0);
-    rotate(hourRotate);
-    rect(0,0,-boxSize,-boxSize);
-    pop();
+    if(seconds == 59){
+        if(drawMinBlock){
+            blocks.push(new Block(2));
+            drawMinBlock = false;
+        }
+    }
 
-    //minutes block
-    push();
-    translate(0,);
-    rotate(minuteRotate);
-    rect(0,0,-boxSize,-boxSize);
-    pop();
+    if(minutes == 59){
+        if(drawHourBlock){
+            blocks.push(new Block(3));
+            drawHourBlock = false;
+        }
+    }
 
-    //seconds block
-    push();
-    translate(200,0);
-    rotate(secondRotate);
-    rect(0,0,-boxSize,-boxSize);
-    pop();
+    //resetting booleans
+    if(millis < 300){
+        drawSecBlock = true;
+    }
 
-    pop();
+    if(seconds == 0){
+        drawMinBlock = true;
+    }
+
+    if(minutes == 0){
+        drawHourBlock = true;
+    }
+
+    for (var i = 0; i < blocks.length; i++) {
+        blocks[i].move();
+        blocks[i].display();
+    }
+
+    for (var i = 0; i < blocks.length; i++) {
+        if(blocks[i].y > height){
+            blocks.splice(i,1);
+        }
+    }
+
+    //line(0,height/2,width,height);
+
 }
 
-//     //seconds block
-//     push();
-//     translate(960/3,250);
-//     if(seconds == 59){
-//         runRotate();
-//     }
-//     else{
-//         rect(0,0,boxSize,boxSize);
-//     }
-//     pop();
-// }
+function Block(blockType) {
+    if(blockType == 1){
+        this.size = random(10,14);
+        this.fill = color(255,0,0);
+    } else if (blockType == 2){
+        this.size = random(40,50);
+                this.fill = color(0,255,0);
+    } else {
+        this.size = random(70,80);
+                this.fill = color(0,0,255);
+    }
+    this.y = 0 - this.size;
+    this.x = 70;
+    this.r = 0;
+    this.ySpeed = 3.5;
+    this.xSpeed = 1;
 
-// function runRotate(){
-//     var r = 0;
-//     while(r < 90){
-//         rotate(r);
-//         rect(0,0,boxSize,boxSize);
-//         r++;
-//     }
-//     r =
-// }
+    this.move = function(){
+        //this.x += this.xSpeed;
+        this.y += this.ySpeed;
+        this.r += 0.5;
+    }
+
+    this.display = function(){
+        push();
+        fill(this.fill);
+        translate(this.x,this.y);
+        rotate(this.r);
+        rect(0,0,this.size,this.size);
+        pop();
+    }
+}

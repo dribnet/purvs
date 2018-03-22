@@ -6,11 +6,15 @@ var millisRolloverTime;
 var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
 
+var blocks = [];
+var drawSecBlock = true
+var drawMinBlock = true;
+var drawHourBlock = true;
+
 function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
 
   // this is true if debug.js is included
   if(debug_is_on) {
