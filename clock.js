@@ -29,11 +29,11 @@ function draw_clock(obj) {
 
     let fracmin = minutes + (seconds / 60.0);
     let smoothmin = map(fracmin, 0, 59, height / 2 + 45, height - 75);
-
+/*
     if(seconds%2===1){
       smoothsec*=(height-75)-smoothmin;
     }
-
+*/
     let frachour = hours + (minutes / 60.0);
     let smoothhour = map(frachour, 0, 24, height / 2 + 45, height - 75);
 
@@ -57,7 +57,7 @@ function draw_clock(obj) {
     }
     if (alarm == 0) {
         if (s < 6) {
-            s = s + 0.025;
+            s = s + 0.035;
         }
     }
     if (alarm > 0) {
