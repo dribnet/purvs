@@ -9,6 +9,7 @@
       "name": "clock_alarm"
     },
     {
+<<<<<<< HEAD
       "sha": "beb6c0b1fad6e473429838c586603181/68aef86cda79c4edbaba41c3682711d0439f2459",
       "name": "original_clock"
     },
@@ -18,6 +19,17 @@
     },
     {
       "sha": "beb6c0b1fad6e473429838c586603181/7b59467d88f4a1a03fcf11e86dd72e4139f93ab2",
+=======
+      "sha": "",
+      "name": "original_clock"
+    },
+    {
+      "sha": "",
+      "name": "maeda_clock"
+    },
+    {
+      "sha": "",
+>>>>>>> 02c1b5bbdbc6e7624d226d9eb4ac2d878989ddac
       "name": "sketch"
     }
   ]
