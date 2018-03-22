@@ -101,7 +101,7 @@
     // = 0 if the alarm is currently going off
     if(seconds_until_alarm==0){
       alarm = true;
-      BS = BS + 0.03
+      BS = BS + 0.025
     }
   }
 
@@ -117,8 +117,8 @@ function draw_Time(seconds,minutes,hours){
 
     if (SecondMath==false){
       SecondMath = true;
-      NegativeNumber = getRandomInt(1,seconds);
-      LeftNumber = seconds + NegativeNumber;
+      NegativeNumberSeconds = getRandomInt(1,seconds);
+      LeftNumberSeconds = seconds + NegativeNumberSeconds;
     }
     
     //debug
@@ -126,25 +126,25 @@ function draw_Time(seconds,minutes,hours){
     //text('NegativeNumber ' + NegativeNumber, 10, 90);
     //text('LeftNumber ' + LeftNumber, 10, 110);
 
-    var LeftNumberString = LeftNumber.toString()[0];
-    var LeftNumberString2 = LeftNumber.toString()[1];
+    var LeftNumberStringSeconds = LeftNumberSeconds.toString()[0];
+    var LeftNumberStringSeconds2 = LeftNumberSeconds.toString()[1];
     if (LeftNumber<10){
       draw_number(0,3);
-      draw_number(LeftNumberString,4);
+      draw_number(LeftNumberStringSeconds,4);
     } else {
-      draw_number(LeftNumberString,3);
-      draw_number(LeftNumberString2,4);
+      draw_number(LeftNumberStringSeconds,3);
+      draw_number(LeftNumberStringSeconds2,4);
     }
 
-    var NegativeString = NegativeNumber.toString()[0];
-    var NegativeString2 = NegativeNumber.toString()[1];
+    var NegativeStringSeconds = NegativeNumberSeconds.toString()[0];
+    var NegativeStringSeconds2 = NegativeNumberSeconds.toString()[1];
 
-    if(NegativeNumber<10){
+    if(NegativeNumberSeconds<10){
       draw_number(0,6);
-      draw_number(NegativeString,7);
+      draw_number(NegativeStringSeconds,7);
     }else{
-      draw_number(NegativeString,6);
-      draw_number(NegativeString2,7);
+      draw_number(NegativeStringSeconds,6);
+      draw_number(NegativeStringSeconds2,7);
     }
 
   }else{
