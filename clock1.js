@@ -1,6 +1,7 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
+let initialY = false;
 function draw_clock(obj) {
     // draw your own clock here based on the values of obj:
     //    obj.hours goes from 0-23
@@ -21,14 +22,12 @@ function draw_clock(obj) {
     if (obj.hours >= 12){
         hours = hours - 12;
     }
-    //print(obj.hours);
 
     if ((obj.hours < 7) || (obj.hours > 19)){
         dayTime = false;
     } else {
         dayTime = true;
     }
-    print(seconds);
 
     
     let hourRot   = map(hours, 0, 12, 0, 360);
@@ -38,8 +37,8 @@ function draw_clock(obj) {
     
     angleMode(DEGREES);
 
+        //alarmcode
     if(alarm == 0){
-        print("Alarms Happnin");
         if(seconds % 2){
             dayTime = false;
         } else {
@@ -47,18 +46,22 @@ function draw_clock(obj) {
         }
     }
 
+
+    //sets background colour for day/night
     if(dayTime == true){
-        background(73, 228, 237);
+        background(92, 199, 219);
     } else{
         background(49, 92, 160);
     }   
 
+    //standard settings
     noStroke();
-    
-
     fill(0);
     translate(width/2, height/2);
 
+
+    //moon
+    //moon();
 
     //Hours Ring
     hourGround();
@@ -74,6 +77,9 @@ function draw_clock(obj) {
     hourTree();
     pop();
 
+
+
+
     //Minutes Ring
     minuteGround();
     push();
@@ -88,11 +94,14 @@ function draw_clock(obj) {
     rotate(minuteRot); //Rotates Tree Around Centre point
     if (minutes == 0) {
       fill(255);
-      ellipse(0, 0, 340, 340)
+      minuteGround();
       fill(0);
     }
     minuteTree();
     pop();
+
+    
+
 
     //Seconds Ring
     secondGround();
@@ -104,7 +113,7 @@ function draw_clock(obj) {
     secondTree();
     }
     pop();
-    
+
     rotate(secondRot); //Rotates Tree Around Centre point
     if (seconds == 0) {
       secondGround();
@@ -112,6 +121,9 @@ function draw_clock(obj) {
     secondTree();
     pop();
 
+
+
+    cloud();
 
     //day night divider
     push();
@@ -122,7 +134,9 @@ function draw_clock(obj) {
     }
     pop();
 
-    //alarm going off code.
+
+
+
 
 }
 
@@ -131,21 +145,74 @@ function draw_clock(obj) {
 
 
 function secondGround() {
-	fill(18, 165, 42);//Dark Green
-	ellipse(0, 0, 225, 225);
+    //Second Ring
+    stroke(21, 178, 47);
+    strokeWeight(2);
+    fill(13, 155, 37);
+    ellipse(0, 0, 190, 190);
+    noStroke();
+
+    //second ring Shapes 
+    fill(4, 117, 23);
+    push();
+    translate(-50, -90);
+    beginShape();
+    vertex(20, 3);
+    vertex(50, 20);
+    vertex(30, 40);
+    vertex(5, 35);
+    vertex(0, 15);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(38, -70);
+    beginShape();
+    vertex(20, 3);
+    vertex(40, 20);
+    vertex(35, 40);
+    vertex(5, 35);
+    vertex(0, 25);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(40, 20);
+    beginShape();
+    vertex(20, 3);
+    vertex(40, 15);
+    vertex(30, 40);
+    vertex(5, 35);
+    vertex(0, 15);
+    endShape(CLOSE);
+    pop();
+
+
+    push();
+    translate(-50, 50);
+    beginShape();
+    vertex(20, 3);
+    vertex(35, 20);
+    vertex(25, 40);
+    vertex(5, 30);
+    vertex(0, 15);
+    endShape(CLOSE);
+    pop();
+
+    
 	fill(114, 76, 11); //Brown
 	ellipse(0, 0, 160, 160);
 
-
+    //Wavy Line Generator
     push();
     for(let i = 0; i < 33; i += 1) {
         push();
             translate(0, -74);
             
-            stroke(27, 196, 55);
+            stroke(21, 178, 47);
             strokeWeight(2);
-            arc(0, 0, 16, 16, -130, -50);       //Createa Wavy Lines
-            noFill();
+            arc(0, 0, 16, 16, -130, -50);       
+            noFill();                           
             arc(8, -11, 11, 11, 60, 130);
             noStroke();
         pop();
@@ -153,25 +220,9 @@ function secondGround() {
     }
     pop();
 
-    push();
-    for(let i = 0; i < 45; i += 1) {
-        push();
-            translate(0, -108);
-            noFill();
-            stroke(27, 196, 55);
-            strokeWeight(2);
-            arc(0, 0, 16, 16, -130, -50);       //Createa Wavy Lines
-            arc(8, -11, 11, 11, 60, 130);
-            noStroke();
-        pop();
-        rotate(8);
-    }
-    pop();
     
-
-
-
-	fill(89, 58, 7);
+    //Brown Ring Shapes
+    fill(89, 58, 7);
 	beginShape();
 	vertex(43, 5);
 	vertex(60, 10);
@@ -201,75 +252,205 @@ function secondGround() {
 	vertex(30, 15);
 	endShape(CLOSE);
 	pop();
-
-
 }
 
 function minuteGround() {
-	fill(27, 196, 55);
-    ellipse(0, 0, 305, 305);
-    fill(18, 165, 42);
-	ellipse(0, 0, 300, 300);
-	
 
+    stroke(21, 178, 47);
+    strokeWeight(2);
+    fill(13, 153, 37);
+    ellipse(0, 0, 248, 248);
+    noStroke();
+
+
+    //minute ring Shapes 
+    fill(3, 107, 20);
+    push();
+    translate(-60, -125);
+    beginShape();
+    vertex(60, 3);
+    vertex(80, 20);
+    vertex(60, 40);
+    vertex(35, 35);
+    vertex(40, 8);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(50, -20);
+    beginShape();
+    vertex(50, 3);
+    vertex(70, 20);
+    vertex(65, 40);
+    vertex(40, 50);
+    vertex(30, 15);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(0, 70);
+    beginShape();
+    vertex(50, 3);
+    vertex(70, 15);
+    vertex(60, 30);
+    vertex(40, 30);
+    vertex(30, 15);
+    endShape(CLOSE);
+    pop();
+
+
+    push();
+    translate(-120, 40);
+    beginShape();
+    vertex(40, -2);
+    vertex(65, 20);
+    vertex(55, 28);
+    vertex(35, 30);
+    vertex(25, 8);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(-145, -50);
+    beginShape();
+    vertex(50, 3);
+    vertex(65, 20);
+    vertex(55, 40);
+    vertex(35, 30);
+    vertex(30, 15);
+    endShape(CLOSE);
+    pop();
 }
 
 function hourGround() {
-	fill(27, 196, 55);
-    ellipse(0, 0, 350, 350);
-    fill(18, 165, 42);
-	ellipse(0, 0, 345, 345);
-	
 
+    stroke(21, 178, 47);
+    strokeWeight(4);
+    fill(10, 153, 35);
+    ellipse(0, 0, 310, 310);
+    noStroke();
+
+	//hour ring Shapes 
+    fill(2, 96, 18);
+    push();
+    translate(40, -135);
+    beginShape();
+    vertex(35, 7);
+    vertex(60, 33);
+    vertex(30, 70);
+    vertex(5, 35);
+    vertex(15, 8);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(80, -50);
+    beginShape();
+    vertex(50, 0);
+    vertex(65, 10);
+    vertex(60, 30);
+    vertex(40, 34);
+    vertex(30, 15);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(80, 60);
+    beginShape();
+    vertex(20, -30);
+    vertex(40, 5);
+    vertex(35, 35);
+    vertex(5, 50);
+    vertex(-40, 15);
+    endShape(CLOSE);
+    pop();
+
+
+    push();
+    translate(-50, 105);
+    beginShape();
+    vertex(80, -2);
+    vertex(85, 20);
+    vertex(55, 38);
+    vertex(15, 30);
+    vertex(5, 8);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(-170, 10);
+    beginShape();
+    vertex(50, 3);
+    vertex(105, 20);
+    vertex(65, 80);
+    vertex(38, 53);
+    vertex(32, 12);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(-130, -120);
+    beginShape();
+    vertex(50, 3);
+    vertex(65, 20);
+    vertex(55, 40);
+    vertex(35, 30);
+    vertex(30, 15);
+    endShape(CLOSE);
+    pop();
 }
 
 function secondTree(){
+    push();
+    translate(0,-95);
+    scale(1.1);
     fill(55, 74, 59); //Dark Green
-    rect(-3, -105, 5, 1);
-    rect(-4, -104, 7, 1);
-    rect(-5, -103, 9, 1);
-    rect(-5, -102, 10, 1);
-    rect(-5, -101, 10, 1);
-    rect(-5, -100, 10, 1);
-    rect(-4, -99, 8, 1);
-    rect(-3, -98, 6, 1);
+    rect(-3, -10, 5, 1);
+    rect(-4, -8, 7, 1);
+    rect(-5, -8, 9, 1);
+    rect(-5, -7, 10, 1);
+    rect(-5, -6, 10, 1);
+    rect(-5, -5, 10, 1);
+    rect(-4, -4, 8, 1);
+    rect(-3, -3, 6, 1);
 
     fill(32, 102, 20);//Mid Green
-    rect(-1, -105, 1, 1);
-    rect(-3, -104, 3, 1);
-    rect(-4, -103, 4, 1);
-    rect(-4, -102, 6, 1);
-    rect(-3, -101, 5, 1);
-    rect(0, -100, 2, 1);
-    rect(-2, -99, 1, 1);
+    rect(-1, -10, 1, 1);
+    rect(-3, -9, 3, 1);
+    rect(-4, -8, 4, 1);
+    rect(-4, -7, 6, 1);
+    rect(-3, -6, 5, 1);
+    rect(0, -5, 2, 1);
+    rect(-2, -4, 1, 1);
 
     fill(54, 170, 34); // Light Green
-    rect(0, -104, 2, 1);
-    rect(2, -103, 1, 1);
-    rect(3, -102, 1, 1);
-    rect(2, -101, 2, 1);
+    rect(0, -9, 2, 1);
+    rect(2, -8, 1, 1);
+    rect(3, -7, 1, 1);
+    rect(2, -6, 2, 1);
 
     fill(56, 35, 9); //Dark Brown
-    rect(-3, -102, 1, 1);
-    rect(-2, -101, 1, 2);
-    rect(-1, -98, 1, 1);
-    rect(-2, -97, 2, 1);
-    rect(-3, -96, 1, 1);
+    rect(-3, -7, 1, 1);
+    rect(-2, -6, 1, 2);
+    rect(-1, -3, 1, 1);
+    rect(-2, -2, 2, 1);
+    rect(-3, -1, 1, 1);
 
     fill(102, 66, 20); //Mid Brown
-    rect(-3, -103, 1,1);
-    rect(0, -103, 2,1);
-    rect(-2, -102, 2,1);
-    rect(-1, -101, 1, 1);
-    rect(-1, -100, 1, 1);
-    rect(-1, -99, 2, 1);
-    rect(-2, -96, 3, 1);
+    rect(-3, -8, 1,1);
+    rect(0, -8, 2,1);
+    rect(-2, -7, 2,1);
+    rect(-1, -6, 1, 1);
+    rect(-1, -5, 1, 1);
+    rect(-1, -4, 2, 1);
+    rect(-2, -1, 3, 1);
 
     fill(144, 92, 25); //Light Brown
-    rect(0, -102, 1, 1);
-    rect(2, -102, 1, 1);
-    rect(0, -98, 1, 2);
-    rect(1, -96, 1, 1);
+    rect(0, -7, 1, 1);
+    rect(2, -7, 1, 1);
+    rect(0, -3, 1, 2);
+    rect(1, -1, 1, 1);
+    pop();
 }
 
 function minuteTree() {
@@ -332,7 +513,7 @@ function minuteTree() {
 
 function hourTree() {
     push();
-    translate(-20, -200);
+    translate(-20, -192);
     fill(55, 74, 59); //Dark Green
     rect(20, 1, 5, 1);
     rect(18, 2, 13, 1);
@@ -536,6 +717,85 @@ function hourTree() {
 
 }
 
+
+function cloud() {
+    push();
+
+    if (initialY == false) {
+        cloudY = random(300); //sets an initial cloudY value
+        initialY = true;
+    }
+
+    cloudX = map(obj.seconds+(obj.millis/1000), 0, 60, -230, 980);
+
+    if ((initialY == true) && (obj.seconds == 0)){
+        cloudY = random(300); //changes the cloudY value
+    }
+
+
+    translate(-(width/2), -(height/2));
+    translate(cloudX, cloudY+100);
+    scale(1.5);
+    fill(249, 249, 249, 200); //main white
+    beginShape();
+    vertex(10, 60);
+    vertex(0, 45);
+    vertex(15, 35);
+    vertex(25, 35);
+    vertex(19, 25);
+    vertex(45, 0);
+    vertex(65, 15);
+    vertex(67, 23);
+    vertex(85, 15);
+    vertex(110, 45);
+    vertex(120, 35);
+    vertex(140, 48);
+    vertex(143, 60);
+    endShape();
+
+    fill(178, 178, 178, 200);//outline grey
+    beginShape();
+    vertex(10, 60);
+    vertex(0, 45);
+    vertex(15, 35);
+    vertex(25, 35);
+    vertex(19, 25);
+    vertex(45, 0);
+    vertex(65, 15);
+    vertex(67, 23);
+    vertex(85, 15);
+    vertex(110, 45);
+    vertex(120, 35);
+    vertex(140, 48);
+    vertex(143, 60);
+    
+    vertex(140, 60);
+    vertex(135, 50);
+    vertex(119, 42);
+    vertex(110, 52);
+    vertex(82, 22);
+    vertex(67, 28);
+    vertex(61, 17);
+    vertex(47, 10);
+    vertex(24, 25);
+    vertex(30, 40);
+    vertex(17, 40);
+    vertex(5, 48);
+    vertex(17, 60);
+    endShape();
+
+    beginShape();
+    vertex(45, 50);
+    vertex(40, 42);
+    vertex(55, 30);
+    vertex(67, 40);
+    vertex(65, 52);
+    vertex(62, 42);
+    vertex(54, 37);
+    vertex(44, 44);
+    endShape();
+    pop();
+}
 
 
 
