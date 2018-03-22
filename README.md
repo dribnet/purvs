@@ -1,5 +1,5 @@
-I was inspired by the galaxy in this project. In my part 1 drawing, I found that the clock did not show the passing of time clearly, especially the differences of second, minutes and hours. And people can not recognize the change of hour through my idea of part 1. In my part 2, there is an issue about demonstrating the time like a real clock. People will lose some fun in my clock of part 2. 
+This is my final version of the clock. My initial inspiration is from galaxy. The rotation of those circles can reflect four elements of time, millisecond, second, minute and hour. 
 
-Therefore, in this part, I was thinking how to make my design more readable, thoughtful and interesting. I did the research again. And I think galaxy is a good way to show the passing of time. Different elements can be second, minute and hour. Also, the angles of rotation can reflect the second, minute and hour directly. 
+For the final version, I keep polishing my idea to make it more identifiable. The radius of most outer circle of each element will change each millisecond in order to imitate the blinking of the stars in the sky. And they will change their own color through the time. 
 
-So far, this is my initial idea. I will continue to work on my galaxy clock to make it more interesting.
+When the alarm turns on, it will show different version of the clock. I was trying to make it more comparable, like colors and the number of circles. It will become a more minimalistic look when the alarm is turning on. 
