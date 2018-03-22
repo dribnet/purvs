@@ -48,7 +48,7 @@ function draw_clock(obj) {
 		}
 		
 
-        if(minutes >0){seconds_until_alarm = 0;}
+        if(minutes ==0){seconds_until_alarm = 0;}
 
         if(minutes == 47){seconds_until_alarm = 0;}
 

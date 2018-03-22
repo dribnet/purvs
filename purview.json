@@ -5,31 +5,19 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000000",
+      "sha": "beb6c0b1fad6e473429838c586603181/4a09383f3abdf3b4ad9a309c8cd6953cca44fa66",
       "name": "clock_alarm"
     },
     {
-<<<<<<< HEAD
       "sha": "beb6c0b1fad6e473429838c586603181/68aef86cda79c4edbaba41c3682711d0439f2459",
       "name": "original_clock"
     },
     {
-      "sha": "beb6c0b1fad6e473429838c586603181/915ef2f13c9c4d4499b148f4cad2695fac12718a",
+      "sha": "beb6c0b1fad6e473429838c586603181/cb579343be9b1c635906867f3dde3c0c27df6222",
       "name": "maeda_clock"
     },
     {
       "sha": "beb6c0b1fad6e473429838c586603181/7b59467d88f4a1a03fcf11e86dd72e4139f93ab2",
-=======
-      "sha": "",
-      "name": "original_clock"
-    },
-    {
-      "sha": "",
-      "name": "maeda_clock"
-    },
-    {
-      "sha": "",
->>>>>>> 02c1b5bbdbc6e7624d226d9eb4ac2d878989ddac
       "name": "sketch"
     }
   ]
