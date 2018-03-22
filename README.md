@@ -1,14 +1,15 @@
 ## PS1 MDDN 242 2018
 
-### Episode 07 the clock thus far
+### Episode 08 Finer tuned version
 
-This is the current result of my clock creation, which will be further updated into the original concept of a changing pattern, once this is figured out i can finally start working on the alarm feature of this clock.
+jumping off from the original idea, i realized that the original concept three of the day/time change was to simple and rather plain. so i decided to remix the idea keeping the changing day/night concept's originality whilst applying a new sci-fi like digital clock design. 
 
+(things Improved)
+creating a pulse like movement in regards to time
+unique layout style compromising of the standard
+hours,minutes,secs with the am/pm
+transitioning background depending on the current time.
 
-(things to improve)
--unique movement in regards to time
--effective layout of the clock
--unique alarm mechanism
--make it more interesting
+the clock design is a reference to a 90's anime show called neon gensis evangelion, this also inspired the choice of clours used aswell
 
-TUNE IN FOR MORE.. p a i n
+TUNE IN NEXT TIME!!
