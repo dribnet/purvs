@@ -18,6 +18,7 @@ function draw_clock(obj) {
     let millis = obj.millis;
     let hours = obj.hours;
     let minutes = obj.minutes;
+    let alarm = obj.seconds_until_alarm;
 
     //Smoothing setup
     let secWFrac = seconds + (millis/1000.0);        //seconds smooth
@@ -36,6 +37,67 @@ function draw_clock(obj) {
     minY = map(sin(minSmooth/152), -1, 1, 50, 450);
     hrX = map(hours, 0, 23, 0, width);               //hours X Y
     hrY = map(sin(hrSmooth/152), -1, 1, 50, 450);
+    let alarmX = map(alarm, 20, 0, 0, width);        //map alarm ellipse X
+
+    //Horrible hard coded alarm stuff
+    fill(226, 140, 140);     //Countdown
+    if(alarm<16 && alarm>0){
+        rect(0, 0, width/4, height/2);
+    }
+    if(alarm<15 && alarm>0){
+        rect(width/4, 0, width/4, height/2);
+    }
+    if(alarm<14 && alarm>0){
+        rect(width/2, 0, width/4, height/2);
+    }
+    if(alarm<13 && alarm>0){
+        rect(width*(3/4), 0, width/4, height/2);
+    }
+    if(alarm<12 && alarm>0){
+        rect(0, height/2, width/4, height/2);
+    }
+    if(alarm<11 && alarm>0){
+        rect(width/4, height/2, width/4, height/2);
+    }
+    if(alarm<10 && alarm>0){
+        rect(width/2, height/2, width/4, height/2);
+    }
+    if(alarm<9 && alarm>0){
+        rect(width*(3/4), height/2, width/4, height/2);
+    }
+    fill(193, 77, 77);
+    if(alarm<8 && alarm>0){
+        rect(0, 0, width/4, height/2);
+    }
+    if(alarm<7 && alarm>0){
+        rect(width/4, 0, width/4, height/2);
+    }
+    if(alarm<6 && alarm>0){
+        rect(width/2, 0, width/4, height/2);
+    }
+    if(alarm<5 && alarm>0){
+        rect(width*(3/4), 0, width/4, height/2);
+    }
+    if(alarm<4 && alarm>0){
+        rect(0, height/2, width/4, height/2);
+    }
+    if(alarm<3 && alarm>0){
+        rect(width/4, height/2, width/4, height/2);
+    }
+    if(alarm<2 && alarm>0){
+        rect(width/2, height/2, width/4, height/2);
+    }
+    if(alarm<1 && alarm>0){
+        rect(width*(3/4), height/2, width/4, height/2);
+    }
+    if(alarm==0){       //Alarm flashing
+        if(millis<500){
+                background(226, 140, 140);
+        }
+        else{
+                background(178, 37, 37);
+        }
+    }
 
     //Day time clock
     if(hours>7 && hours<19){
@@ -62,6 +124,11 @@ function draw_clock(obj) {
         ellipse(minSmooth, minY, 20, 20);    //minutes ellipse
         fill(153, 130, 104);
         ellipse(secSmooth, secY, 15, 15);    //seconds ellipse
+
+        if(alarm>0){        //day alarm ellipse
+        fill(221, 125, 106)
+        ellipse(alarmX, height/2, 20, 20);
+        }
     }
     
     //Night time clock
@@ -89,6 +156,11 @@ function draw_clock(obj) {
         ellipse(minSmooth, minY, 20, 20);    //minutes ellipse  
         fill(121, 151, 198);
         ellipse(secSmooth, secY, 15, 15);    //seconds ellipse 
+
+        if(alarm>0){        //night alarm ellipse
+        fill(221, 105, 155)
+        ellipse(alarmX, height/2, 20, 20);
+        }
     }
     
 
