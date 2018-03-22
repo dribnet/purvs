@@ -19,7 +19,7 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(235);
+    background(171,171,191,40);
     stroke(255);
     strokeWeight (5);
 
@@ -116,6 +116,11 @@ function draw_clock(obj) {
 
 
     }
+
+    //lerpColor
+    //lerpValue
+    //if 
+    //if 
 
 
 
