@@ -17,7 +17,10 @@ function draw () {
   fill(210, 210, 210, 160);
   strokeWeight(0.5)
   noStroke(255)
-
+    angleMode(DEGREES);
+  push()
+  translate(150, -150);
+  rotate(30)
   ellipse(300, 250, 20)
   ellipse(320, 250, 20)
   ellipse(340, 230, 20)
@@ -65,6 +68,65 @@ function draw () {
   ellipse(300+280, 310, 20)
   ellipse(280+280, 310, 20)
   ellipse(260+280, 290, 20)
+  pop()
+  push()
+  fill(255,0,0,80)
+  translate(CANVAS_WIDTH/2,CANVAS_HEIGHT/2)
+  rotate(-30)
+  ellipse(0,0, 20)
+  ellipse(0,20,20)
+  ellipse(0,40,20)
+  ellipse(0,60,20)
+  ellipse(0,80,20)
+  ellipse(0,100,20)
+  ellipse(0,120,20)
+  ellipse(0,140,20)
+  ellipse(0,160,20)
+  ellipse(0,180,20)
+  ellipse(20,0,20)
+  ellipse(40,0,20)
+  ellipse(60,0,20)
+  ellipse(80,0,20)
+  ellipse(100,20,20)
+  ellipse(100,40,20)
+  ellipse(100,60,20)
+  ellipse(80,80,20)
+  ellipse(60,80,20)
+  ellipse(40,80,20)
+  ellipse(20,80,20)
+
+  ellipse(140,0, 20)
+  ellipse(140,20, 20)
+  ellipse(140,40, 20)
+  ellipse(140,60, 20)
+  ellipse(140,80, 20)
+  ellipse(140,100, 20)
+  ellipse(140,120, 20)
+  ellipse(140,140, 20)
+  ellipse(140,160, 20)
+  ellipse(140,180, 20)
+
+  ellipse(160,20, 20)
+  ellipse(180,40, 20)
+  ellipse(200,60, 20)
+  ellipse(220,40, 20)
+  ellipse(240,20, 20)
+
+  ellipse(260,0, 20)
+  ellipse(260,20, 20)
+  ellipse(260,40, 20)
+  ellipse(260,60, 20)
+  ellipse(260,80, 20)
+  ellipse(260,100, 20)
+  ellipse(260,120, 20)
+  ellipse(260,140, 20)
+  ellipse(260,160, 20)
+  ellipse(260,180, 20)
+
+
+
+
+  pop()
 }
 
 // do not alter or remove this function
