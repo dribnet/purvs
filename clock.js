@@ -16,18 +16,39 @@ function draw_clock(obj) {
 
     angleMode(DEGREES);
     ellipseMode(CENTER);
-    rectMode(CENTER);
     background(0);
+    
+    fill(25, 25, 60);
+    rect(0, 0, 960, 300);
 
          stroke(255);
-     noFill();
-     strokeWeight(3);
+     fill(255,140,0);
+     noStroke();
      ellipse(480, 150, 250, 250);
+
+     stroke(25, 25, 60); 
+    line(0, 150, 960, 150);
+    strokeWeight(3);
+    line(0, 165, 960, 165);
+    strokeWeight(6);
+    line(0, 190, 960, 190);
+    line(0, 210, 960, 210);
+    line(0, 240, 960, 240);
+
 
     stroke(255,0,255);
     strokeWeight(2);
     line(0, 300, 960, 300);
+    line(0, 305, 960, 305);
+    line(0, 315, 960, 315);
+    line(0, 325, 960, 325);
+    line(0, 340, 960, 340);
+    line(0, 360, 960, 360);
     strokeWeight(3);
+    line(0, 385, 960, 385);
+    line(0, 410, 960, 410);
+    line(0, 440, 960, 440);
+    strokeWeight(1.5);
     line(480, 500, 480, 300);
     line(350, 500, 400, 300);
     line(220, 500, 320, 300);
