@@ -1,7 +1,17 @@
 /*
  * us p5.js to draw a clock on a 960x500 canvas
  */ 
-  var xPOSITION = 0;
+ 	var time = 0;
+	var R=3;
+	var xPOSITION = 0;
+  var a = 0;
+  var b = 0;
+  var c = 0;
+  var d = 0;
+  var e = 0;
+  var f = 0;
+  var g = 0;
+  var h = 0;
   var R_hour=12;
   var R_min=60;
   var R_sec=60;
@@ -28,27 +38,109 @@ function draw_clock(obj) {
   	ellipseMode(CENTER);
 
     rectMode(CENTER);
-
-    background(0);
-
-    if(alarm>0){
-      background(0);
-    } else if(alarm==0){
-      background(255,0,0);
-    }
     
+    background(0,30);
 
     translate(width/2,height/2);
     //Setting
+
+    push();
+    var radius=250;
+  	var i = 0;
+  	time=time+1;
+ 	 //noStroke();
+  	strokeWeight(0.05);
+  	while(i<1500){
+    rotate(-R);
+    var s = map(cos(i*8+time),-1,1,0,250);//Changing Background AE
+    var c = map(s,0,150,0,255);
+
+    push();
+    fill(s,100,100,100);// 30 = transparent
+    ellipse(i*5,c,hours/2,radius,radius);
+    pop();
+    i=i+1;
+  	}
+    pop();
+    //Background AE
+
+  push();
+  strokeWeight(10);
+  noFill();
+
+  push()
+  rotate(a);
+  stroke(10,100,100);
+  ellipse(0, 0, 370, 370);
+  arc(0, 0, 350, 350, radians(-2990), radians(1490));
+  a=a-1;
+  pop();
+
+  push();
+  rotate(b);
+  stroke(250,100,100);
+  arc(0, 0, 330, 330, radians(-9990), radians(190));
+  b=b+1.1;
+  pop();
+
+  push();
+  rotate(c);
+  stroke(10,100,100);
+  arc(0, 0, 310, 310, radians(-990), radians(7190));
+  c=c-1.3;
+  pop();
+
+  push();
+  rotate(d);
+  stroke(250,100,100);
+  arc(0, 0, 290, 290, radians(-1990), radians(7190));
+  d=d+1.3;
+  pop();
+  //Sequence One
+  push();
+  noFill();
+  strokeWeight(10);
+  push()
+  /*
+  rotate(e);
+  stroke(0);
+  arc(0, 0, 350, 350, radians(-2990), radians(1490));
+  e=e+1;
+  */
+  push();
+  rotate(f);
+  stroke(250,100,100);
+  arc(0, 0, 330, 330, radians(-9990), radians(190));
+  f=f-1.1;
+  pop();
+
+  push();
+  rotate(g);
+  stroke(10,100,100);
+  arc(0, 0, 310, 310, radians(-990), radians(7190));
+  g=g+1.3;
+  pop();
+
+  push();
+  rotate(h);
+  stroke(250,100,100);
+  arc(0, 0, 290, 290, radians(-190), radians(7190));
+  h=h-1.35;
+  pop();
+  pop();
+  //Sequence Two 
+
+  pop();
+    //Lightyears
   
   push();
     fill(300);
 
     push();
     fill(250,100,100);
-    text(hours, -30, 0);
-    text(minutes, -4, 0);
-    text(seconds, 30,0);
+    text(hours, -30, 5);
+    text(minutes, -4, 5);
+    text(seconds, 30,5);
     pop();
     //text
 
@@ -130,4 +222,20 @@ function draw_clock(obj) {
     pop();
 
     //Clock
+
+    push();
+    strokeWeight(6);
+    noFill();
+    stroke(30);
+    ellipse(0,0,270,270);
+    if(alarm>0){
+      stroke(30);
+      ellipse(0,0,270,270);
+    }else if(alarm==0){
+      stroke(355,0,0);
+      ellipse(0,0,270,270);
+    }
+    
+    pop();
+    //ellipses and alarm;
 }
