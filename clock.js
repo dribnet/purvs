@@ -11,12 +11,14 @@ let bgB;
 let fgR = 255;
 let fgG = 255; 
 let fgB = 255;
+let ang = 0;
 
 function draw_clock(obj) {  
     let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
     
     background(bgR,bgG,bgB);        // Black Background
     ortho();                        // Force orthographic camera
@@ -44,16 +46,20 @@ function draw_clock(obj) {
 //    timeP.textSize(500);
 //    timeP.text(obj.hours+":"+obj.minutes+":"+obj.seconds,480,480);
     
+    if (alarm > 0) {
+        fgR = 255;
+        fgG = alarm*200;
+        fgB = alarm*8;
+    }
+    
 
     //Outer ring (plane)
     texture(outerP);
     outerP.clear();
-    
     outerP.fill(fgR,fgG,fgB);
     outerP.textAlign(CENTER,CENTER);
     outerP.textSize(22);
     outerP.text(obj.hours+":"+obj.minutes+":"+obj.seconds,480,480);
-    
     rotateZ(radians(hourRotate + minRotate/12));    //Add second data for more granular rotation
     outerP.fill(0,0);
     outerP.stroke(fgR,fgG,fgB);
@@ -75,6 +81,7 @@ function draw_clock(obj) {
     plane(800);
     
     //Inner ring (plane)
+    
     texture(clockP);
     clockP.clear();
     clockP.strokeWeight(0);
@@ -84,8 +91,8 @@ function draw_clock(obj) {
     clockP.strokeWeight(50);
     clockP.ellipse(480,480,180,180);
     plane(800);
-    
-    
+
+
 
     
     //Data conversion\\
