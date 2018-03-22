@@ -61,25 +61,32 @@ class SuperClockLand {
 		this.alarmState     = -1;
 
 		//array to hold the terrain pieces
-		this.terrain = [];
+		this.components = [];
 
 		//the scene itself
-		//TerrainLine(palette, shade, thickness, x1, y1, startHeight, endHeight);
+		//params are (palette, shade, thickness, x, y, startHeight, endHeight, drawOutline, drawHighlight, isParticle)
+		//hills and edges
 		let v = createVector(42, 0,);
 		for (let i = 0; i < 30; i++) {
 			let dangle = floor(random(4));
-			this.terrain.push(new TerrainLine(1,  1, 5, v.x, v.y, dangle-3, 2, true, false));
+			this.components.push(new TerrainLine(1,  1, 5, v.x, v.y, dangle-3, 2, true, false, false));
 			if (random(1) < 0.25) {
-				this.terrain.push(new TerrainLine(1, 1, floor(random(6,11))*2, v.x*0.75, v.y*0.75, 4, floor(random(1,16)), true, true));
+				this.components.push(new TerrainLine(1, 1, floor(random(6,11))*2, v.x*0.75, v.y*0.75, 4, floor(random(1,16)), true, true, false));
 			}
 			v.rotate(TAU/30);
 		}
+		//river
 		for (let i = 0; i < 40; i++) {
-			this.terrain.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false, false));
+			this.components.push(new TerrainLine(5, 3, 6, -40 + 2*i, floor(random(-5,5)-sin(i/40*TAU)*10), -1, 1, false, false, false));
 		}
+		//clouds
+		// for (let i = -40; i < 40; i+=2) {
+		// 	for (let j = -40; j < 40; j+=2) {
+		// 		if (noise((40+i)*0.1,(40+j)*0.1) < 0.7) { continue; }
+		// 		this.components.push(new TerrainLine(5, 3, 5, i*1.1, j*1.1, 23+random(-2,3), 2, false, false, false));
+		// 	}
+		// }
 
-		//array to hold the active particles
-		this.particles = [];
 
 		//lowfi canvas
 		this.background = createGraphics(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
@@ -119,25 +126,31 @@ class SuperClockLand {
 			}
 			this.tilePalettes.push(x);
 		}
+
+		//remove dead particles (any particle with life <= 0)
+		this.components = this.components.filter(component => component.remainingLife > 0);
+
+		//spawn in new particles
+		this.components.push(new TerrainLine(5, 3, 6, -41, floor(random(-5,5)), 1, 1, false, false, true));
+		this.components.push(new TerrainLine(5, 3, 6, 41, floor(random(-5,5)), 1, 1, false, false, true));
+
 		//set terrain component positions
-		for (let i = 0, l = this.terrain.length; i < l; i++) {
-			this.terrain[i].rotatedPos.set(this.terrain[i].pos).rotate((this.currentSecond*1000+this.currentMilli)/60000 * TAU);
+		for (let i = 0, l = this.components.length; i < l; i++) {
+			let c = this.components[i];
+			c.updateRotation(this.currentMinute, this.currentSecond, this.currentMilli);
+			if (c.isParticle) {
+				c.startHeight -= 1;
+				c.thickness *= 0.95;
+				c.pos.y *= 0.95;
+				c.remainingLife--;
+			}
 		}
-		//order terrain components for drawing
+		//order scene components for drawing
 		function terrainDepth(terrainA, terrainB) {
 			return terrainA.rotatedPos.y < terrainB.rotatedPos.y ? -1 : terrainA.rotatedPos.y === terrainB.rotatedPos.y ? 0 : 1;
 		}
-		this.terrain.sort(terrainDepth);
+		this.components.sort(terrainDepth);
 
-
-
-		//update particles
-		for (let i = 0; i < this.particles.length; i++) {
-			this.particles[i].update();
-		}
-
-		//remove dead particles (any particle with life <= 0)
-		this.particles = this.particles.filter(particle => particle.life > 0);
 	}
 
 	//TODO: break the ocean shimmer drawing into a function
@@ -157,7 +170,6 @@ class SuperClockLand {
 				10 + (20 * (distance/36)),
 				1);
 		}
-
 	}
 
 	draw() {
@@ -171,11 +183,16 @@ class SuperClockLand {
 
 		//sky
 		for (let i = 0; i < 64; i+=8) {
-			bg.fill(lerpColor(color(0x5A-0x5A * this.darkenToMidnight(), 0x8C-0x8C * this.darkenToMidnight(), 0xD6-0xD6 * this.darkenToMidnight()),
+			bg.fill(lerpColor(
+				lerpColor(color(0x5A-0x5A * this.darkenToMidnight(), 0x8C-0x8C * this.darkenToMidnight(), 0xD6-0xD6 * this.darkenToMidnight()),
+					color(0xFF, 0x4A, 0x5A), this.alarmState != -1 ? 1 - this.alarmState / 20 : 0),
 				color(0xC6 - 0xC6 * this.darkenToMidnight(), 0xD6- 0xD6* this.darkenToMidnight(), 0xF7-0xF7* this.darkenToMidnight()*0.5),
 				i/60));
 			bg.rect(0,i, this.SCREEN_WIDTH, 8);
 		}
+
+		//color(0xFF, 0x4A, 0x5A)
+		// this.alarmState != -1 ? 1 - this.alarmState / 20 : 0
 
 		//water
 		if (frameCount % 15 === 0) {
@@ -191,8 +208,8 @@ class SuperClockLand {
 		//foreground drawing
 
 		//terrain outline
-		for (let i = 0, l = this.terrain.length; i < l; i++) {
-			let t = this.terrain[i];
+		for (let i = 0, l = this.components.length; i < l; i++) {
+			let t = this.components[i];
 			if (!t.drawOutline) { continue; }
 			fg.stroke(0x00);
 			fg.strokeWeight(t.thickness+1.25);
@@ -207,9 +224,15 @@ class SuperClockLand {
 		fg.fill(0x5A, 0x94, 0x00);
 		fg.ellipse(this.SCREEN_WIDTH/2, this.SCREEN_HEIGHT/2, 90, 30);
 
+		for (let y = 5; y < 7; y ++) {
+			for (let x = 7; x < 15; x++) {
+				this.tilePalettes[x][y] = 1;
+			}
+		}
+
 		//terrain interior
-		for (let i = 0, l = this.terrain.length; i < l; i++) {
-			let t = this.terrain[i];
+		for (let i = 0, l = this.components.length; i < l; i++) {
+			let t = this.components[i];
 			let startX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
 			let startY = floor(t.rotatedPos.y/3+this.SCREEN_HEIGHT/2 - t.startHeight);
 			let endX = floor(t.rotatedPos.x+this.SCREEN_WIDTH/2);
@@ -223,7 +246,13 @@ class SuperClockLand {
 			}
 			fg.strokeWeight(t.thickness);
 			fg.stroke(t.shade*0x55);
-			fg.line(startX, startY, endX, endY+(t.drawHighlight ? 2 : 0));
+			if (!t.isParticle || (t.rotatedPos.y > -27)) {
+				fg.line(startX, startY, endX, endY + (t.drawHighlight ? 2 : 0));
+			}
+			if (t.isParticle && t.remainingLife === 0) {
+				bg.fill(0x88, 0x88, 0xFF - 0x7f * this.darkenToMidnight());
+				bg.ellipse(startX, startY, 5);
+			}
 
 			for (let vert = 0, length = startY-endY+6; vert < length; vert+= 1) {
 				for (let left = -t.thickness/2, right = t.thickness/2; left < right; left+=4)
@@ -235,13 +264,13 @@ class SuperClockLand {
 		bg.loadPixels();
 		fg.loadPixels();
 
-		//ocean effect
+		//ocean effect;
 		if (frameCount % 2 === 0) {
 			for (let i = 49152; i < 76800; i += 4) { //49152 = 64 pixels from the top
 				let v = random(0.075, 1);
 				bg.pixels[i] *= v;  //r
 				bg.pixels[i + 1] *= v;  //g
-				//next pixel to the right:
+				//next pixel to the right or left depending on how many minutes through the hour we are:
 				bg.pixels[i + 4] += bg.pixels[i] * 0.85;    //r
 				bg.pixels[i + 5] += bg.pixels[i + 1] * 0.85;    //g
 
@@ -255,7 +284,7 @@ class SuperClockLand {
 		for (let x = 0; x < 24; x ++) { //192 pixels across, 8 pixels per tile, 24 tiles
 			for (let y = 0; y < 13; y++) { //64 pixels down, 8 pixels per tile, 8 tiles
 				let tileAddress = x * 8 * 4 + y * 192 * 8 * 4;
-				let tilePal = this.alarmState !== 0 ? this.tilePalettes[x][y] : floor(frameCount/15)%4;
+				let tilePal = this.alarmState !== 0 ? this.tilePalettes[x][y] : floor(frameCount/6)%3;
 				let pal = this.paletteColours;
 				for (let i = 0; i < 8; i++) {
 					for (let j = 0; j < 8; j++) {
@@ -305,7 +334,7 @@ class SuperClockLand {
 	}
 
 	darkenToMidnight() {
-		return abs((this.currentHour - 12)) / 12;
+		return abs((this.currentHour + this.currentMinute/60 - 12)) / 12;
 	}
 
 
@@ -313,7 +342,7 @@ class SuperClockLand {
 }
 
 class TerrainLine {
-	constructor(palette, shade, thickness, x, y, startHeight, endHeight, drawOutline, drawHighlight) {
+	constructor(palette, shade, thickness, x, y, startHeight, endHeight, drawOutline, drawHighlight, isParticle) {
 		this.pos = createVector(x, y);
 		this.startHeight = startHeight;
 		this.endHeight = endHeight;
@@ -323,30 +352,18 @@ class TerrainLine {
 		this.drawOutline = drawOutline;
 		this.drawHighlight = drawHighlight;
 
+		this.isParticle = isParticle;
+		this.remainingLife = 30;
+
 		this.rotatedPos = this.pos.copy();
 	}
 
-}
-
-class Particle {
-	constructor(x, y, filled) {
-		this.loc = createVector(x, y);
-		this.vel = createVector(random(-1, 1), -1);
-		this.life = 45;
-		this.outlineWeight = 5;
-		this.filled = filled
+	updateRotation(currentMinute, currentSecond, currentMilli) {
+		// if (this.startHeight > 20) {    //stuff high in the air is a cloud.
+		// 	this.rotatedPos.set(this.pos).rotate((currentMinute+currentSecond/60)/60 * TAU);
+		// 	return;
+		// }
+		this.rotatedPos.set(this.pos).rotate((currentSecond*1000+currentMilli)/60000 * TAU);
 	}
 
-	update() {
-		this.loc.add(this.vel);
-		this.vel.mult(0.99);
-		this.vel.add(0, -0.015 - 0.1 * noise(this.loc.x * 0.2, this.loc.y * 0.2) * (this.life / 45)); //particles floating away
-		this.vel.add((noise(this.loc.x * 0.1, this.loc.y * 0.1) - 0.5) * 0.35, 0); //left and right sway
-		this.life -= 1;
-	}
-
-	draw() {
-		fill(0xDD);
-		ellipse(this.loc.x, this.loc.y, 40 * (this.life / 45));
-	}
 }

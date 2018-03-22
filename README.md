@@ -9,22 +9,19 @@ A retro-style floating island scene that reacts to the current time. Adhering ro
 ---
 
 #### Changes:
-+ Added the day/night cycle
-+ Murdered the framerate
++ Fixed a bunch of little inconsistencies including the erroneous palette information in the middle of the island
++ Made the alarm more alarming
++ Tidied up waterfall stuff
 
 #### Current Issues:
-+ Probably entirely unsolvable inconsistency in behaviour between browsers and devices
-+ Currently there's nothing to accommodate particle drawing being ordered correctly. I'll probably just use the order of their starting position to avoid overhead.
-+ Currently nothing to accommodate stuff being drawn for the underside of the island
+
++ 
 
 #### To Do:
-+ Add something for the underside of the island
-+ Add some default palette information for the middle of the island to prevent flickering blue squares, as aesthetic as they are
-+ Implement the underside of the island
-+ Add a moon maybe
-+ Implement particles
-+ add alarm timer red-fade palette swapping
-+ increase alarm flash speed to be more alarming
+
++ Get some sleep
 
 #### Notes:
-+ Ocean does not use palette swapping scheme, though *technically* is still within the limitations of the SGB. That per-pixel function was simply never used in any commercial game.
++ I Elected not to add clouds or an underside to the island due to how they obscure the more interesting parts of the scene
++ There's some weird inconsistency in behavior between browsers and even different computers. I don't think I can do much about that one
++ Ocean does not use palette swapping scheme, though *technically* is still within the limitations of the SGB. That per-pixel function was never really used in any commercial game
