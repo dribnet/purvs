@@ -2,6 +2,15 @@
 
 ### Outrageous clock
 
-This version of my clock I have added the alarm.
-Coming from Christchurch I decided to go with a type of earthquake like clock that doesn’t pull away from the main feature.
-Keeping with the theme, when you click to turn the alarm on more stars appear and they turn red when there is 10 seconds to go on the alarm. When the alarm goes off the Earth starts to pulsate imitating an earthquake.
+This is the final version of my clock.
+
+My process:
+I started with the idea of mainly orbiting numbers but later decided to change my idea to a more realistic type of clock like idea where you are looking at the earth from the top and watching the moon go around the Earth with stars twinkling on the outer areas. My alarm is inspired by something like an earthquake to make the Earth shudder as the alarm goes off.
+I've also got a day night cycle with the colour of the moon turning into a sun at day time.
+
+How it works:
+With the outer stars one full pulse equals one second
+One full rotation of the moon equals one full minute
+One full rotation of the white island equals one our
+One movement of the islands equals one day
+
