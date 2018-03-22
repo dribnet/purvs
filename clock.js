@@ -25,13 +25,11 @@ function draw_clock(obj) {
     //        > 0 --> the number of seconds until alarm should go off
 
     // alarm
-    if(obj.seconds_until_alarm>=0) {
-    	bg = 255-map(obj.seconds_until_alarm, 20, 0, 255, 0);
-    	orbitColour = 0+map(obj.seconds_until_alarm, 20, 0, 255, 0);;
+    if(obj.seconds_until_alarm>0) {
+
     }
-    else if(obj.seconds_until_alarm<0) {
-    	bg = 0;
-    	orbitColour = 255;
+    else if(obj.seconds_until_alarm<=0) {
+
     }
     
     // set the orbit colours
@@ -290,19 +288,25 @@ function draw_clock(obj) {
 
 
 	// debugging timers
-	noStroke();
-	fill(255);
-	text("hours: "+hours, 20, 30);
-	text("minutes: "+minutes, 20, 40);
-	text("seconds: "+seconds, 20, 50);
-	text("millis: "+millis, 20, 60);
-	text("seconds until alarm"+obj.seconds_until_alarm, 20, 70);
+	//noStroke();
+	//fill(255);
+	//text("hours: "+hours, 20, 30);
+	//text("minutes: "+minutes, 20, 40);
+	//text("seconds: "+seconds, 20, 50);
+	//text("millis: "+millis, 20, 60);
+	//text("seconds until alarm"+obj.seconds_until_alarm, 20, 70);
 }
 
 // function to calculate and draw the milliseconds planet 
 // in the right position around the orbit
 function milli_planet(){
-	var angle = (2*Math.PI/1000)*obj.millis;
+	var angle;
+	if(obj.seconds_until_alarm>0){
+		angle = (2*Math.PI/500)*obj.millis;
+	}
+	else{
+		angle = (2*Math.PI/1000)*obj.millis;
+	}
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-45);
@@ -310,16 +314,25 @@ function milli_planet(){
 	push();
 	translate(offsetX, offsetY);
 	noStroke();
-	fill(200, 0, 0);
-	ellipse(0, 0, 20, 20);
+	for(i=0; i<5; i++){
+		fill(200-(i*15), 0, 0);
+		ellipse(0, 0, 20-(i*2.5), 20-(i*2.5));
+	}
 	pop();
+	
 }
 
 // function to calculate and draw the seconds planet 
 // in the right position around the orbit
 function second_planet(){
 	let smooth = obj.seconds + (obj.millis / 1000.0);
-	let angle = (2*Math.PI/59)*smooth;
+	let angle;
+	if(obj.seconds_until_alarm>0){
+		angle = -((2*Math.PI/1)*smooth);
+	}
+	else{
+		angle = (2*Math.PI/59)*smooth;
+	}
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-90);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-60);
@@ -327,16 +340,27 @@ function second_planet(){
 	push();
 	translate(offsetX, offsetY);
 	noStroke();
-	fill(0, 180, 0);
-	ellipse(0, 0, 30, 30);
+	for(i=0; i<5; i++) {
+		fill(0, 180-(i*15), 0);
+		ellipse(0, 0, 30-(i*2), 30-(i*2));
+	}
 	pop();
+
 }
 
 // function to calculate and draw the minutes planet 
 // in the right position around the orbit
 function minute_planet(){
-	let smooth = obj.minutes + (obj.seconds / 60.0);
-	let angle = (2*Math.PI/59)*smooth;
+	let smooth;
+	let angle;
+	if(obj.seconds_until_alarm>0){
+		smooth = obj.minutes + (obj.millis / 1000);
+		angle = -((2*Math.PI/1)*smooth+(Math.PI/3));
+	}
+	else{
+		smooth = obj.minutes + (obj.seconds / 60.0);
+		angle = (2*Math.PI/59)*smooth;
+	}
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-270);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-90);
@@ -344,16 +368,27 @@ function minute_planet(){
 	push();
 	translate(offsetX, offsetY);
 	noStroke();
-	fill(0, 120, 120);
-	ellipse(0, 0, 40, 40);
+	for(i=0; i<5; i++) {
+		fill(0, 120-(i*10), 120);
+		ellipse(0, 0, 40-(i*2), 40-(i*2));
+	}
 	pop();
+	
 }
 
 // function to calculate and draw the hours planet 
 // in the right position around the orbit 
 function hour_planet(){
-	let smooth = obj.hours + (obj.minutes / 60.0);
-	let angle = (2*Math.PI/23)*smooth;
+	let smooth;
+	let angle;
+	if(obj.seconds_until_alarm>0){
+		smooth = obj.hours + (obj.millis / 1000);
+		angle = (2*Math.PI/1)*smooth+Math.PI;
+	}
+	else{
+		smooth = obj.hours + (obj.minutes / 60.0);
+		angle = (2*Math.PI/23)*smooth;
+	}
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-180);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-75);
@@ -361,35 +396,54 @@ function hour_planet(){
 	push();
 	translate(offsetX, offsetY);
 	noStroke();
-	fill(0, 0, 180);
-	ellipse(0, 0, 60, 60);
+	for(i=0; i<5; i++) {
+		fill(0, 0, 180-(i*10));
+		ellipse(0, 0, 60-(i*2), 60-(i*2));
+	}
 	pop();
+	
 }
 
 // function to draw the sun
 function sun(){
-	if(obj.seconds_until_alarm<0){
-	push();
-	noStroke();
-	fill(255, 240, 0, 5);
-	for(let i=0; i<9; i++) {
-		ellipse(orbitX, orbitY, 150 + (i*25), 150 + (i*25));
-	}
-	
-	for(let i=0; i<4; i++) {
-		fill(255, 250 - (i*50), 0)
-		ellipse(orbitX, orbitY, 125 - (i*5), 125 - (i*5));
-	}
-	pop();
-	}
-	else if(obj.seconds_until_alarm>=0){
+
+	if(obj.seconds_until_alarm==0 && obj.seconds%2==0){
 		push();
 		noStroke();
 		fill(255, 240, 0, 5);
-		for(let i=0; i<20-(obj.seconds_until_alarm*0.5); i++) {
-			ellipse(orbitX, orbitY, 150 + (i*25), 150 + (i*25));
+		for(let i=0; i<20; i++) {
+			ellipse(orbitX, orbitY, (obj.millis/3)+(i*30), (obj.millis/3)+(i*30));
 		}
 	
+		for(let i=0; i<4; i++) {
+			fill(255, 250 - (i*50), 0)
+			ellipse(orbitX, orbitY, (obj.millis/3)-(i*30), (obj.millis/3)-(i*30));
+		}
+		pop();
+	}
+	else if(obj.seconds_until_alarm==0 && obj.seconds%2==1){
+		push();
+		noStroke();
+		fill(255, 240, 0, 5);
+		for(let i=0; i<20; i++) {
+			ellipse(orbitX, orbitY, 333-((obj.millis/3)-(i*30)), 333-((obj.millis/3)-(i*30)));
+		}
+		// 300 + (i*25), 300 + (i*25)
+		// 200 - (i*15) , 200 - (i*15)
+		for(let i=0; i<4; i++) {
+			fill(255, 250 - (i*50), 0)
+			ellipse(orbitX, orbitY, 333-((obj.millis/3)+(i*30)), 333-((obj.millis/3)+(i*30)));
+		}
+		pop();
+	}
+	else{
+		push();
+		noStroke();
+		fill(255, 240, 0, 5);
+		for(let i=0; i<9; i++) {
+			ellipse(orbitX, orbitY, 150 + (i*25), 150 + (i*25));
+		}
+		
 		for(let i=0; i<4; i++) {
 			fill(255, 250 - (i*50), 0)
 			ellipse(orbitX, orbitY, 125 - (i*5), 125 - (i*5));
