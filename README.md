@@ -2,4 +2,4 @@
 
 ### Snake Clock
 
-I added some more snakes to my alarm, I tried to add more small snakes but that make it looks really messy so I just went with some large snakes instead. So far I am pretty happy with it. I'm not sure what else to add but I will think about it. 
+So for my clock I based it off the classic mobile snake game. I figured that individual square would be too hard to read, so instead I changed it just long rectangles. I think that the idea of the bar ticking is across is pretty interesting. Maybe make the ticks different colours so it would be more visually interesting.
