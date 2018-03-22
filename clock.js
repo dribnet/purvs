@@ -26,11 +26,69 @@ function draw_clock(obj) {
 	translate(0, 47);
     drawDropletDevice((width/2) + 100, (height/2) - 120, 1, 1);
     pop();
+
+    drawHourBeaker((width/2)-100, (height/2) + 120);
+    drawMinBeaker((width/2) + 100, (height/2) + 32);
 }
 
-function drawABeaker(){
+function drawHourBeaker(Xh, Yh){
+	//hourBeaker
+	stroke(0);
+	strokeWeight(5);
+	noFill();
+	beginShape();
+	vertex(Xh + 55, Yh);
+	vertex(Xh + 65, Yh - 10);
+    vertex(Xh + 65, Yh - 150);
+    vertex(Xh + 65, Yh - 150);
+    vertex(Xh + 55, Yh - 160);
+    vertex(Xh - 55, Yh - 160);
+    vertex(Xh - 70, Yh - 140);
+    vertex(Xh - 55, Yh - 140);
+    vertex(Xh - 55, Yh - 10);
+    vertex(Xh - 45, Yh);
+    vertex(Xh + 55, Yh);
+	endShape();
+
+	//gradations
+	noStroke();
+	fill(0);
+	rect(Xh + 30, Yh - 20, 35, 4);
+	rect(Xh + 30, Yh - 44, 35, 4);
+	rect(Xh + 30, Yh - 68, 35, 4);
+	rect(Xh + 30, Yh - 92, 35, 4);
+	rect(Xh + 30, Yh - 116, 35, 4);
+	rect(Xh + 30, Yh - 140, 35, 4);
+}
+
+function drawMinBeaker(Xm, Ym) {
+	//minBeaker
+	stroke(0);
+	strokeWeight(5);
+	noFill();
+	beginShape();
+	vertex(Xm - 25, Ym - 120);
+	vertex(Xm - 25, Ym -80);
+	vertex(Xm - 70, Ym - 10);
+	vertex(Xm - 60, Ym);
+	vertex(Xm + 60, Ym);
+	vertex(Xm + 70, Ym - 10);
+	vertex(Xm + 25, Ym - 80);
+	vertex(Xm + 25, Ym - 120);
+	vertex(Xm + 30, Ym - 125);
+	vertex(Xm - 30, Ym - 125);
+	vertex(Xm - 25, Ym - 120);
+	endShape();
+
+	//gradations
+	noStroke();
+	fill(0);
 	
-  
+
+	for (let i = 0, k = 9; i < 12; i = i + 1 ) {
+		rect(Xm - 8, (Ym-3) - k, 16, 2);
+		k = k + 9;
+	}
 }
 
 function drawAFrame(Xf, Yf){
@@ -47,7 +105,7 @@ function drawAFrame(Xf, Yf){
 function drawDropletDevice(Xd, Yd, sx, sy){
 	//ellipse(Xd, Yd, 4 ,4);
 	stroke(0);
-	strokeWeight(2);
+	strokeWeight(3);
 	noFill();
     
     //push();
