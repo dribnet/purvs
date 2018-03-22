@@ -20,7 +20,7 @@ function draw_clock(obj) {
     rectMode(CENTER);
     noStroke();
 
-    var secCompare = seconds;
+    var ground = new Ground();
 
     let hourRotate   = map(sin(hours), -1, 1, 0, 90);
     let minuteRotate = map(sin(minutes), -1, 1, 0, 90);
@@ -40,12 +40,6 @@ function draw_clock(obj) {
     angleMode(DEGREES);
 
     //creating blocks
-    // if(!secCompare == seconds){
-    //      if(drawSecBlock){
-    //         blocks.push(new Block());
-    //         drawSecBlock = false;
-    //     }
-    // }
 
     if(millis > 950){
         if(drawSecBlock){
@@ -61,7 +55,7 @@ function draw_clock(obj) {
         }
     }
 
-    if(minutes == 59){
+    if(minutes == 59 && seconds == 59){
         if(drawHourBlock){
             blocks.push(new Block(3));
             drawHourBlock = false;
@@ -81,6 +75,8 @@ function draw_clock(obj) {
         drawHourBlock = true;
     }
 
+
+
     for (var i = 0; i < blocks.length; i++) {
         blocks[i].move();
         blocks[i].display();
@@ -92,8 +88,7 @@ function draw_clock(obj) {
         }
     }
 
-    //line(0,height/2,width,height);
-
+    ground.display();
 }
 
 function Block(blockType) {
@@ -127,4 +122,38 @@ function Block(blockType) {
         rect(0,0,this.size,this.size);
         pop();
     }
+
+}
+
+function Ground() {
+    this.x1 = 0;
+    this.x2 = width;
+    this.y1 = height/2;
+    this.y2 = height;
+
+    this.lineGap = 10;
+
+    this.opac = 255;
+
+    this.display = function(){
+        push();
+        fill(200);
+        beginShape();
+            vertex(this.x1,this.y1);
+            vertex(this.x2,this.y2);
+            vertex(0, width);
+        endShape(CLOSE);
+        pop();
+
+        // push();
+        // for (var i = 0; i < 30; i++) {
+        //     stroke(105,this.opac);
+        //     line(this.x1,this.y1,this.x2,this.y2);
+        //     this.y1 += this.lineGap;
+        //     this.y2 += this.lineGap;
+        //     this.opac -= 5;
+        // }
+        // pop();
+    }
+
 }
