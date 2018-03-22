@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### clock final
+### astro clock
 
-This is the final iteration of my clock, the colours are no longer over powering or plain. when the alarm is activated the pattern on the clock face spins at the speed milliseconds are counted which creates a cool effect that is really hard to miss. the time is synced correctly now witht he hour hand acting as a 12 hour clock and the circle acting more as a 24 hour indicator. 
-s
+I have drawn a quick sketch of a concept for my outrageious clock. my inspiration is from the astrology clock in prague city. I plan to make it a coherant clock with a small circle inside the main clock that will rotate around the clock.
+
