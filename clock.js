@@ -31,28 +31,28 @@ function draw_clock(obj) {
     noFill();
     
     if (myAlarm > 0){
-	stroke(240, 0, 0);
+	stroke(150);
     rect(200, 10, 570, 460);
     stroke(204);
     rect(210, 20, 550, 440);
+
+    stroke(0);
+    fill(255, 241, 0);//yellow
+    triangle(270, 30, 230, 100, 310, 100);
+    fill(0);
+    beginShape();
+    vertex(265, 50);
+    vertex(275, 50);
+    vertex(273, 80);
+    vertex(267, 80);
+    vertex(265, 50);
+    endShape();
+
+    rect(267, 90, 6, 3);
     }else{
     	if (myAlarm === 0){
-    		//alarmWidth = random(335, 435);
     		
-    		if (hours < 12){
-				stroke(0);
-		    	rect(200, 10, 570, 460);
-		    	stroke(255, 0, 0);
-		    	rect(210, 20, 550, 440);
-    		}else{
-    			stroke(0);
-		    	rect(200, 10, 570, 460);
-		    	stroke(255, 0, 0);
-		    	rect(210, 20, 550, 440);
-    		
-    		}
-    		
-    		stroke(150);
+    		stroke(240, 0, 0);
 		    rect(200, 10, 570, 460);
 		    stroke(204);
 		    rect(210, 20, 550, 440);
