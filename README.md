@@ -2,4 +2,4 @@
 
 ### Coded Clock	
 
-At this point in the project, I have kept with a very standard looking clock. I need to find a way to make it more visually appealing. My last itteration used circles, but this one goes back to arrows. I want to incorporate element of both, but i want them to stand out. I will work on this before the hand in date.
+This is the final itteration of my clock. I attempted to do my initial fan idea, but ended up going from circular motions and shapes to a more traditional shape that i favoured over the fan for the simplicity. I wanted the time on my clocks to be readable very quickly, but i also wanted to have other elements to look at. My designs are simplistic.
