@@ -2,5 +2,4 @@
 
 ### Bubble Clock
 
-My project is nearly completed. I managed to fix the jumping timings as well as fix the alarm going off code. Pretty happy with everything so far however i would like to change the font of the text which is proving quite difficult. I tried creating a local server through node but that didnt end well.
- i could run it with my tutor to see if they have any idea.
+My final project has been finished. The clock runs on a for loop drawing the circles and text on top of it. There is also a sinwave that allows the balls to bob up and down. There are if statements as well as variables to allow the jump animation and the alarm going off animation.
