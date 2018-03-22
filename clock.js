@@ -1,33 +1,45 @@
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */ 
+
 function draw_clock(obj) {
 
 	let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarmsecs = obj.seconds_until_alarm
     background(204);
 
-    background(220); //  beige
-    fill(50); // dark grey
+    background(220); 
+    fill(50); 
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
+    text("Seconds until alarm: " + alarmsecs, 10, 102);
 
     angleMode(DEGREES);
 
     let SecondFraction = map(seconds, 0, 60, 0, 0.9);
     let MinuteFraction = map(minutes, 0, 60, 0, 0.9);
-    let SecondAngle = map(seconds+(millis/1000), 0, 60, 0, 360);
-    let MinuteAngle = map(minutes+SecondFraction, 0, 60, 0, 360);
-    let HourAngle = map(hours+MinuteFraction, 0, 24, 0, 720);
+
+
     let RotHour = map(hours+MinuteFraction, 0, 24, 0, -720);
     let RotMinute = map(minutes+SecondFraction, 0, 60, 0, -360);
     let RotSecond = map(seconds+(millis/1000), 0, 60, 0, -360);
+    let RotAlarm = map(alarmsecs, 0, 20, 0, -360);
+    var a = 0;
     
     translate(width/2,height/2);
+
+
+
+
+
+   if (alarmsecs == 0){
+        a = millis;
+   }
+   else {
+   	a = 0;
+   }
     
 
 noStroke();
@@ -41,7 +53,7 @@ for(let i=1; i<=12; i=i+1){
   push();
   textSize(15);
   rotate(deg+RotHour);
-  text(num, 0, -220);
+  text(num, 0, -220+a);
 
   pop();
 
@@ -54,7 +66,7 @@ for(let i=1; i<=60; i=i+1){
   push();
   textSize(10);
   rotate(deg+RotMinute);
-  text(num, 0, -170);
+  text(num, 0, -170+a);
 
   pop();
 
@@ -67,35 +79,31 @@ for(let i=1; i<=60; i=i+1){
   push();
   textSize(5);
   rotate(deg+RotSecond);
-  text(num, 0, -120);
+  text(num, 0, -120+a);
 
   pop();
+
+}
+
+for(let i=0; i<=19; i=i+1){
+  
+  if(alarmsecs > 0){
+  let num = i;
+  let deg = 0+(i*18);
+  push();
+  textSize(10);
+  rotate(deg+RotAlarm);
+  text(num, 0, -70+a);
+
+  pop();
+
+}
 
 }
 
 
     
     
-    push();
-    rotate(HourAngle);
-    //rect(-8,-140, 16, 140);
-    pop();
-    
-    push();
-    rotate(MinuteAngle);
-  //  rect(-8,-200, 16, 200);
-    pop();
-    
-    push();
-    rotate(SecondAngle);
-   // rect(-5,-200, 10,200);
-    pop();
-
-    //fill(200);
-
-
-
-      //eye = map(hours+MinuteFraction, 0, 24, 1, 50);
 
 
 

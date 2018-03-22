@@ -1,4 +1,8 @@
-New Clock Design
+<b>Alarm added</b>
 
-I've been playing around with a few different clock designs but they've mostly been a bit too ambitious and I hadn't gotten out of the early stages. For this one I decided to take my last working clock design and switch it on its head, with the numbers on the clock moving and the single hand being static. Gives the clock a new visual dynamic while also keeping relatively basic. Ye, cool
+Got an alarm function up and running, including a new wheel when the alarm is triggered that counts down
+until it goes off. I altered the x position of the numbers with millis to give it the affect of rapidly expanding and then
+contracting, however I'd like to make something a bit smoother for my final clock. This is just the best I've come up with so far.
+
+
 
