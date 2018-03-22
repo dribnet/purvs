@@ -2,8 +2,6 @@
 
 ### Tree Of Growth Main
 
-This stage here, while looking quite barren, so surprisingly complete. Ive worked out the framework for the clock and from here its just the easy job of implementing imagine in place of the placeholder ellipses, and adding a background and alarm. 
+This is the final form of my project. Ive got the alarm working how I want, a nice day/night cycle, and a lone cloud floating by.
 
-Due to the simplistic nature of the clock, making sure the polish is high is paramount to creating a quality product. 
-
-by the start of next lesson (20th march), I should have my assets completed and added my alarm functions.
+My project is a standard rotation clock however in place of hands, trees grow. They reset on each minute hour and day to slowly regrow. They are set on their own little world, a stark difference to the initial starting idea of three rows for the trees. 
