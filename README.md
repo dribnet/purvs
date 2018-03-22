@@ -1,11 +1,10 @@
 ## PS1 MDDN 242 2017
 
-### Slit Scan Initials 3
+### Updating towards Final
 
-Been trying to figure out how to apply the slit pixel data to the arcs. Since copy always creates a square image I was trying to find a way around it ended up creating some sort of video display function in the process.
-Was thinking of using multiple bezier curves to create my arcs but not sure. Needed to have put more focus on the project.
+In the last commit I updated my work to be able to use the debug.
 
-Video input isn't optimized on Chrome.
+Now i'm starting to progress towards my final. Going to try use  polar to cartesian conversion to have my slit scan rotate around the canvas instead of making lines. Just need to remember how to incorporate the video sketch into the clock sketch.
 
 
 
