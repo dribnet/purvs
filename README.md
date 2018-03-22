@@ -1,1 +1,0 @@
-I have fixed the colours in my clock so they are not over powering or plain and added a pattern to the face of the clock to closer match my inspiration. I have also made the small circle in the middle of the main clock rotate to show when its evening and day.
