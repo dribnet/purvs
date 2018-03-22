@@ -1,10 +1,8 @@
 ## PS1 MDDN 242 2017
 
-### Updating towards Final
+### Figuring out concepts
 
-In the last commit I updated my work to be able to use the debug.
-
-Now i'm starting to progress towards my final. Going to try use  polar to cartesian conversion to have my slit scan rotate around the canvas instead of making lines. Just need to remember how to incorporate the video sketch into the clock sketch.
+Struggling to figure out how to merge the clock api and the image sketch so started working on the basic rotation based on seconds past and having the sketch reset once 60 seconds has passed. 
 
 
 
