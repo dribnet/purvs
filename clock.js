@@ -38,7 +38,7 @@ function draw_clock(obj) {
     textAlign(CENTER,CENTER);
 
     //creating blocks
-    if (random() > 0.96){
+    if (random() > 0.97){
         blocks.push(new Block(0," "));
     }
 
@@ -177,7 +177,7 @@ function Block(blockType, time) {
         translate(this.x,this.y);
         rotate(this.r);
         fill(this.fill);
-        stroke(0,80);
+        stroke(81, 78, 69,80);
         rect(0,0,this.size,this.size);
         fill(56, 62, 71);
         noStroke();
