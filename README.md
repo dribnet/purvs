@@ -2,5 +2,4 @@
 
 ### Sun Tide Clock
 
-My Clock is based on the sun and tide, I used the sun moving to represent the minutes and the tide rising to represent the seconds. The background colour also changes to represnt the sky to represent the time of day (the colour changes with every hour). At the moment I have got the everything working and am just working on small changes and trying things out.
-
+My Clock is based on the sun and tide, I used the sun moving to represent the minutes and the tide rising to represent the seconds. The background colour also changes to represent the sky and to show the time of day (the colour changes with every hour). I wanted to keep the style very simple and clean, using blcok colours and simple shapes and movements.
