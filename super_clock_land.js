@@ -1,13 +1,4 @@
 class SuperClockLand {
-	//    time.hours goes from 0-23
-	//    time.minutes goes from 0-59
-	//    time.seconds goes from 0-59
-	//    time.millis goes from 0-1000
-	//    time.seconds_until_alarm is:
-	//        < 0 if no alarm is set
-	//        = 0 if the alarm is currently going off
-	//        > 0 --> the number of seconds until alarm should go off
-
 	constructor() {
 		noSmooth();
 
