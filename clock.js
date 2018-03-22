@@ -3,23 +3,14 @@
  */ 
 
 const position = [90, 285, 525, 720];
-var x = 180;
-var y = 180;
-var d = 10;
+var t = 0;
+var pink = '#fae';
 
-var x_speed = 2;
-var y_speed = 1;
+var R = 255;
+var G = 255;
+var B = 200;
 
 function draw_clock(obj) {
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
 
     strokeWeight(2);
 	stroke(0);
@@ -28,16 +19,10 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm;
     
-    background(255,255,200); //  beige
-    fill(128,100,100); // dark grey
-    
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82); 
-    text("X: " + mouseX, 10, 150); 
-    text("X: " + mouseY, 10, 170);
+
+    background(R,G,B); // beige
 
     let hourBarWidth   = map(hours, 0, 23, 0, height-100);
     let minuteBarWidth = map(minutes, 0, 59, 0, height-100);
@@ -49,57 +34,18 @@ function draw_clock(obj) {
     let secondsWithFraction   = seconds + (millis / 1000.0);
     let secondBarHeightSmooth  = map(secondsWithFraction, 0, 60, 0, height-100);
 
-
-    fill('#fae');
-    rect(465, 160, 30, 30);
-    rect(465, 260, 30, 30);
-    
-    fill(51);
-    beginShape();
-    	vertex(495, 160);
-    	vertex(480, 140);
-    	vertex(450, 140);
-    	vertex(450, 170);
-    	vertex(465, 190);
-    	vertex(465, 160);
-    endShape(CLOSE);
-
-    beginShape();
-    	vertex(495, 260);
-    	vertex(480, 240);
-    	vertex(450, 240);
-    	vertex(450, 270);
-    	vertex(465, 290);
-    	vertex(465, 260);
-    endShape(CLOSE);
-
-    fill(0);
-    line(465, 160, 450, 140);
-    line(465, 260, 450, 240);
-
-
-    // noStroke();
-    // fill(40);
-    // rect(90, height-(50+minutesBarHeightSmooth), 180, minutesBarHeightSmooth);
-    // fill(80);
-    // rect(285, height-(50+minutesBarHeightSmooth), 180, minutesBarHeightSmooth);
-    // fill(80);
-    // rect(525, height-(50+secondBarheightSmooth), 180, secondBarheightSmooth);
-    // fill(80);
-    // rect(720, height-(50+secondBarheightSmooth), 180, secondBarheightSmooth);
-
 	let minutes1 = int(minutes/10);
     let minutes2 = minutes%10;
     let hours1 = int(hours/10);
     let hours2 = hours%10;
 
-    if(hours1==0){
+	if(hours1==0){
     	draw_zero(minutesBarHeightSmooth, position[0]);
     } else if(hours1==1){
     	draw_one(minutesBarHeightSmooth, position[0]);
     } else if(hours1==2){
     	draw_two(minutesBarHeightSmooth, position[0]);
-    }
+	}
 
     if(hours2==0){
     	draw_zero(minutesBarHeightSmooth, position[1]);
@@ -159,22 +105,82 @@ function draw_clock(obj) {
     	draw_nine(secondBarHeightSmooth, position[3]);
     }
 
-    fill (0,0,255);
-  	ellipse (x, y, d, d);
+    if(alarm<0){
+    	fill(pink);
+    	draw_dot1();
+    	fill(pink);
+    	draw_dot2();
+	} else if(alarm>0){
+		t+=1;
+		if(t<60){
+			fill(255,0,0);
+			draw_dot1();
+			fill(255);
+			draw_dot2();
+		} else if(t<=120){
+			fill(255);
+			draw_dot1();
+			fill(255,0,0);
+			draw_dot2();
+			if(t==120){
+				t=0;
+			}
+		} else {
+			t=0;
+		}
+	} else if(alarm==0){
+		t+=1;
+		if(t<20){
+			fill(255,0,0);
+			draw_dot1();
+			fill(255,0,0);
+			draw_dot2();
+		} else if(t<=40){
+			fill(255);
+			draw_dot1();
+			fill(255);
+			draw_dot2();
+			if(t==40){
+				t=0;
+			}
+		} else {
+			t=0;
+		}
+	}
+}
 
-  	//bouncing horizontally
- 	x = x + x_speed;
-  	
-  	if (x+10 > 960 || x-10 < 0)  {
-     	x_speed = -x_speed;
-  	}
+function draw_dot1() {
+    rect(475, 280, 30, 30);
+    
+    fill(51);
+    beginShape();
+    	vertex(505, 280);
+    	vertex(490, 260);
+    	vertex(460, 260);
+    	vertex(460, 290);
+    	vertex(475, 309);
+    	vertex(475, 280);
+    endShape(CLOSE);
 
-  	//bouncing veritcally
-  	y = y + y_speed;
+    fill(0);
+    line(475, 280, 460, 260);
+}
 
-  	if (y+10 > 500 || y-10 < 0) {
-	 	y_speed = -y_speed;
-  	}
+function draw_dot2() {
+    rect(475, 180, 30, 30);
+    
+    fill(51);
+    beginShape();
+    	vertex(505, 180);
+    	vertex(490, 160);
+    	vertex(460, 160);
+    	vertex(460, 190);
+    	vertex(475, 209);
+    	vertex(475, 180);
+    endShape(CLOSE);
+
+    fill(0);
+    line(475, 180, 460, 160);
 }
 
 function draw_one(h, p) {
@@ -516,7 +522,353 @@ function draw_three(h, p){
 		vertex(p+70, 370);
 		vertex(p+60, 360);
 	endShape(CLOSE);
-}
+
+	fill('#fae');
+	let fillHeight = map(h, 0, height-100, 410, 80);
+	if(h>0.0 && fillHeight>380.0){
+		let dig;
+	if(fillHeight>=380.0 && fillHeight<=410.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine1 = map(dig, 410, 380, p+60, p+30);
+	let diagonalLine2 = map(dig, 410, 380, p+120, p+150);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(diagonalLine2, fillHeight);
+		vertex(diagonalLine1, fillHeight);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>370.0){
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, fillHeight);
+		vertex(p+30, fillHeight);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>360.0){
+	let dig;
+	if(fillHeight>=360.0 && fillHeight<=370.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine1 = map(dig, 370, 360, p+70, p+60);
+	let diagonalLine2 = map(dig, 370, 360, p+110, p+120);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, fillHeight);
+		vertex(diagonalLine2, fillHeight);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(diagonalLine1, fillHeight);
+		vertex(p+30, fillHeight);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>330.0){
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, fillHeight);
+		vertex(p+120, fillHeight);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, fillHeight);
+		vertex(p+30, fillHeight);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>270.0){
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, fillHeight);
+		vertex(p+120, fillHeight);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>260.0){
+	let dig;
+	if(fillHeight>=260.0 && fillHeight<=270.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine = map(dig, 270, 260, p+120, p+110);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, fillHeight);
+		vertex(diagonalLine, fillHeight);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>245.0){
+	let dig;
+	if(fillHeight>=245.0 && fillHeight<=260.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine = map(dig, 260, 245, p+150, p+135);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(diagonalLine, fillHeight);
+		vertex(p+60, fillHeight);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>230.0){
+	let dig;
+	if(fillHeight>=230.0 && fillHeight<=245.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine = map(dig, 245, 230, p+135, p+150);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(diagonalLine, fillHeight);
+		vertex(p+60, fillHeight);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>230.0){
+	let dig;
+	if(fillHeight>=220.0 && fillHeight<=230.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine = map(dig, 230, 220, p+135, p+150);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(diagonalLine, fillHeight);
+		vertex(p+60, fillHeight);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>220.0){
+	let dig;
+	if(fillHeight>=220.0 && fillHeight<=230.0){
+		dig = fillHeight;
+	}else{
+		dig = -1;
+	}
+	let diagonalLine = map(dig, 230, 220, p+110, p+120);
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(p+150, 230);
+		vertex(p+150, fillHeight);
+		vertex(diagonalLine, fillHeight);
+		vertex(p+110, 230);
+		vertex(p+60, 230);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>140){
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(p+150, 230);
+		vertex(p+150, fillHeight);
+		vertex(p+120, fillHeight);
+		vertex(p+120, 220);
+		vertex(p+110, 230);
+		vertex(p+60, 230);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);	
+	} else if(h>0.0 && fillHeight>120){
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(p+150, 230);
+		vertex(p+150, fillHeight);
+		vertex(p+120, fillHeight);
+		vertex(p+120, 220);
+		vertex(p+110, 230);
+		vertex(p+60, 230);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);	
+	beginShape();
+		vertex(p+30, fillHeight);
+		vertex(p+60, fillHeight);
+		vertex(p+60, 140);
+		vertex(p+30, 140);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>110){
+		let dig;
+		if(fillHeight>=110.0 && fillHeight<=120.0){
+			dig = fillHeight;
+		}else{
+			dig = -1;
+		}
+		let diagonalLine1 = map(dig, 120, 110, p+60, p+70);
+		let diagonalLine2 = map(dig, 120, 110, p+120, p+110);	
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(p+150, 230);
+		vertex(p+150, fillHeight);
+		vertex(diagonalLine2, fillHeight);
+		vertex(p+120, 120);
+		vertex(p+120, 220);
+		vertex(p+110, 230);
+		vertex(p+60, 230);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);	
+	beginShape();
+		vertex(p+30, fillHeight);
+		vertex(p+30, 140);
+		vertex(p+60, 140);
+		vertex(p+60, 120);
+		vertex(diagonalLine1, fillHeight);
+	endShape(CLOSE);
+	} else if(h>0.0 && fillHeight>80){
+		let dig;
+		if(fillHeight>=80.0 && fillHeight<=110.0){
+			dig = fillHeight;
+		}else{
+			dig = -1;
+		}
+		let diagonalLine1 = map(dig, 110, 80, p+30, p+60);
+		let diagonalLine2 = map(dig, 110, 80, p+150, p+120);	
+	beginShape();
+		vertex(p+60, 410);
+		vertex(p+120, 410);
+		vertex(p+150, 380);
+		vertex(p+150, 260);
+		vertex(p+135, 245);
+		vertex(p+150, 230);
+		vertex(p+150, 110);
+		vertex(diagonalLine2, fillHeight);
+		vertex(diagonalLine1, fillHeight);
+		vertex(p+30, 110);
+		vertex(p+30, 140);
+		vertex(p+60, 140);
+		vertex(p+60, 120);
+		vertex(p+70, 110);
+		vertex(p+110, 110);
+		vertex(p+120, 120);
+		vertex(p+120, 220);
+		vertex(p+110, 230);
+		vertex(p+60, 230);
+		vertex(p+60, 260);
+		vertex(p+110, 260);
+		vertex(p+120, 270);
+		vertex(p+120, 360);
+		vertex(p+110, 370);
+		vertex(p+70, 370);
+		vertex(p+60, 360);
+		vertex(p+60, 330);
+		vertex(p+30, 330);
+		vertex(p+30, 380);
+	endShape(CLOSE);	
+	}
+} // done
 
 function draw_four(h, p){
 
