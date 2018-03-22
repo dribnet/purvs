@@ -8,7 +8,6 @@ var debug_is_on = (typeof DEBUG !== 'undefined');
 var movie;
 
 function setup () {
-
   img = createImage(960, 500);
   pixelDensity(1);
   movie = createVideo('test.mp4')
@@ -21,6 +20,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   var main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+  background(240);
 
 
   // this is true if debug.js is included
@@ -31,8 +31,8 @@ function setup () {
 }
 
 function turn_on_alarm() {
-  nextAlarm = millis() + 20000;
-  print("Alarm on: T minus 20 seconds");
+  nextAlarm = millis() + 10000;
+  print("Alarm on: T minus 10 seconds");
 }
 
 function turn_off_alarm() {
@@ -46,7 +46,6 @@ function mouseClicked() {
   }
   if (nextAlarm > 0) {
     turn_off_alarm();
-    background(255);
   }
   else {
     turn_on_alarm();

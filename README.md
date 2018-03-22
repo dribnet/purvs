@@ -1,6 +1,6 @@
 ## PS1 MDDN 242 2017
 
-### Final
+### Final 
 
 This is my final clock, not what I intended to have but couldn't figure out how to make an arc out of vectors so I resorted to this design.
 

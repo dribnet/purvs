@@ -25,10 +25,15 @@ function draw_clock(obj) {
     //        > 0 --> the number of seconds until alarm should go off
 
   //Time Data
-  var mil = obj.millis;
-  var s = obj.seconds;
-  var m = obj.minutes;
-  var hour = obj.hours;
+  let mil = obj.millis;
+  let s = obj.seconds;
+  let m = obj.minutes;
+  let hour = obj.hours;
+  let alarm = obj.seconds_until_alarm
+
+  if (alarm > 0){
+  	background(240)
+  } 
 
 //Video Pixels
   movie.loadPixels();
