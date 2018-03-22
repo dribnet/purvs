@@ -15,8 +15,9 @@ function draw_clock(obj) {
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
-    background(240);
+    background(40);
 
+    textAlign(LEFT);
     rectMode(CENTER);
     noStroke();
 
@@ -38,26 +39,27 @@ function draw_clock(obj) {
     text("Millis: " + millis, 10, 82);
 
     angleMode(DEGREES);
+    textAlign(CENTER,CENTER);
 
     //creating blocks
 
     if(millis > 950){
         if(drawSecBlock){
-            blocks.push(new Block(1));
+            blocks.push(new Block(1, seconds));
             drawSecBlock = false;
         }
     }
 
     if(seconds == 59){
         if(drawMinBlock){
-            blocks.push(new Block(2));
+            blocks.push(new Block(2,minutes));
             drawMinBlock = false;
         }
     }
 
     if(minutes == 59 && seconds == 59){
         if(drawHourBlock){
-            blocks.push(new Block(3));
+            blocks.push(new Block(3,hours));
             drawHourBlock = false;
         }
     }
@@ -78,7 +80,7 @@ function draw_clock(obj) {
 
 
     for (var i = 0; i < blocks.length; i++) {
-        if(blocks[i].y >= ground.returnY(blocks[i].x)){
+        if(blocks[i].y + blocks[i].size >= ground.returnY(blocks[i].x)){
             blocks[i].bounce();
         }
         blocks[i].move();
@@ -89,21 +91,30 @@ function draw_clock(obj) {
         if(blocks[i].y > height){
             blocks.splice(i,1);
         }
+        if(blocks[i].x > width){
+            blocks.splice(i,1);
+        }
     }
-
     ground.display();
 }
 
-function Block(blockType) {
-    if(blockType == 1){
-        this.size = random(10,14);
-        this.fill = color(255,0,0);
+function Block(blockType, time) {
+    if(blockType == 0){
+        this.size = random(3,6);
+        this.fill = color(110, 118, 132);
+        this.textSize = this.size/2;
+    } else if(blockType == 1){
+        this.size = random(17,20);
+        this.fill = color(110, 118, 132);
+        this.textSize = this.size/2;
     } else if (blockType == 2){
         this.size = random(40,50);
-        this.fill = color(0,255,0);
+        this.fill = color(156, 170, 193);
+        this.textSize = this.size/2;
     } else {
         this.size = random(70,80);
-        this.fill = color(0,0,255);
+        this.fill = color(171, 195, 234);
+        this.textSize = this.size/2;
     }
     this.y = 0 - this.size;
     this.x = 70;
@@ -111,6 +122,8 @@ function Block(blockType) {
     this.ySpeed = 4;
     this.xSpeed = 0;
     this.rSpeed = 0;
+
+    this.blockTime = time;
 
     this.yAccel = 0.2;
     this.rAccel = 0;
@@ -122,21 +135,28 @@ function Block(blockType) {
             this.ySpeed += this.yAccel;
         }
         this.r += this.rSpeed;
+        if(this.r > 360){
+            this.r = this.rSpeed;
+        }
     }
 
     this.bounce = function(){
         this.ySpeed += 2;
         this.ySpeed = -this.ySpeed;
-        this.xSpeed += 0.7;
+        this.xSpeed += 1;
         this.rSpeed += 0.7;
     }
 
     this.display = function(){
         push();
-        fill(this.fill);
         translate(this.x,this.y);
         rotate(this.r);
+        fill(this.fill);
         rect(0,0,this.size,this.size);
+        fill(20);
+        textSize(this.textSize);
+        text(this.blockTime,0,0);
+
         pop();
     }
 
