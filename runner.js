@@ -5,9 +5,17 @@ var prevSec;
 var millisRolloverTime;
 var nextAlarm;
 var debug_is_on = (typeof DEBUG !== 'undefined');
+var movie;
 
 function setup () {
+
+  img = createImage(960, 500);
   pixelDensity(1);
+  movie = createVideo('test.mp4')
+  movie.size(320, 500);
+  movie.play();
+  movie.loop(true);
+  movie.hide(true);
   angleMode(DEGREES);
 
   // create the drawing canvas, save the canvas element
@@ -23,13 +31,13 @@ function setup () {
 }
 
 function turn_on_alarm() {
-  nextAlarm = millis() + 20000;    
-  print("Alarm on: T minus 20 seconds");  
+  nextAlarm = millis() + 20000;
+  print("Alarm on: T minus 20 seconds");
 }
 
 function turn_off_alarm() {
   nextAlarm = -1;
-  print("Alarm turned off");  
+  print("Alarm turned off");
 }
 
 function mouseClicked() {
@@ -38,6 +46,7 @@ function mouseClicked() {
   }
   if (nextAlarm > 0) {
     turn_off_alarm();
+    background(255);
   }
   else {
     turn_on_alarm();
@@ -91,7 +100,7 @@ function draw () {
       alarm = -1;
     }
 
-    // Reckon the current millisecond, 
+    // Reckon the current millisecond,
     // particularly if the second has rolled over.
     // Note that this is more correct than using millis()%1000;
     if (prevSec != S) {
