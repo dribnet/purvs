@@ -21,21 +21,37 @@ function draw_clock(obj) {
   let seconds = obj.seconds;
   let millis = obj.millis;
   let alarm = obj.seconds_until_alarm;
+  let valueSpeed = 1000;
+  let valueAngle = 360;
+
+  background(214, 246, 255);
+
+  ////////////////////////////////////////////////////////////// alarm function//
+
+  if (alarm > 0) {
+   background(10, 79, 96);
+    valueSpeed = 500;
+    valueAngle = 1800;
+   if (alarm < 15.0){
+    background(89, 0, 0);
+    valueSpeed = 100;
+    valueAngle = 3600;
+   }
+  }
+  ///////////////////////////////////////////////////////////////////////////////
  
   let hourAngle = map(hours % 12, 0, 12, 0, 360);
   let minuteAngle = map(minutes, 0, 60, 0, 360);
   let secondAngle = map(seconds, 0, 60, 0, 360);
-  let millisAngle = map(millis, 0, 1000, 0, 360);
+  let millisAngle = map(millis, 0, valueSpeed, 0, valueAngle);
 
-  let smoothMillis = seconds + (millis / 1000);
+  let smoothMillis = seconds + (millis / valueSpeed);
   let smoothSC = map(smoothMillis, 0, 60, 0, 360);
   let innerRo = map(smoothMillis, 0, 60, 360, 0);
 
   let speed = smoothSC;
 
 
-
-  background(214, 246, 255);
   // background(255, 232, 235); // real-time sky lighting for the background
   //translate to the center
   translate(width/2, height/2);
@@ -748,12 +764,6 @@ function draw_clock(obj) {
   ellipse(0, -350, 15, 15);
   ellipse(-100, -350, 60, 60);
   ///////////////////////////////////////////////////////////////////////
-
-  //////////////////////////////////alarming///////////////////////////// alarm
-
-  if(alarm > 1){
-    
-  }
 
 }
 
