@@ -148,8 +148,6 @@ class SuperClockLand {
 
 	}
 
-	//TODO: break the ocean shimmer drawing into a function
-
 	initialDraw() {
 		let d = this.background;
 		d.background(0x55, 0x55, 0xFF);
@@ -182,7 +180,7 @@ class SuperClockLand {
 			//lerps the colours for the top and bottom of the sky region. If the alarm is active, the top colour is lerp'd with alarming red
 			bg.fill(lerpColor(
 				lerpColor(color(0x5A-0x5A * this.darkenToMidnight(), 0x8C-0x8C * this.darkenToMidnight(), 0xD6-0xD6 * this.darkenToMidnight()),
-					color(0xFF, 0x4A, 0x5A), this.alarmState != -1 ? 1 - this.alarmState / 20 : 0),
+					color(0xFF, 0x4A, 0x5A), this.alarmState !== -1 ? 1 - this.alarmState / 20 : 0),
 				color(0xC6 - 0xC6 * this.darkenToMidnight(), 0xD6- 0xD6* this.darkenToMidnight(), 0xF7-0xF7* this.darkenToMidnight()*0.5),
 				i/60));
 			bg.rect(0,i, this.SCREEN_WIDTH, 8);
