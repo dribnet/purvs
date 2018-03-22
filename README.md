@@ -1,8 +1,8 @@
-I based my concept on vintage maps and charts that document the sun and moons movements. 
+The final design for my clock is inspired by vintage charts that document the movements of the sun and the moon.
 
-I animated and designed the circles so that they would travel outwards with each passing millisecond, second, minute and hour. 
+I used straight lines to imitate measurement tools and notches to keep track of the numbers. 
 
-I plan to add more visual detail and the alarm mode, as well as rules and markers to give a numerical indication.
+I considered using actual numbers alongside the notches however i found that it cluttered the screen too much.
 
 ## PS1 MDDN 242 2017
 
