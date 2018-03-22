@@ -64,6 +64,7 @@ function draw_clock(obj) {
     line(960, 460, 800, 300);
     line(960, 380, 880, 300);
 
+
     let mill = map(millis, 0, 1000, 0, 360);
     let sec = map(seconds, 0, 60, 0, 360);
     let min = map(minutes, 0, 60, 360);
@@ -75,6 +76,7 @@ function draw_clock(obj) {
 
      translate(480, 150);
      rotate(-90);
+
 
       strokeWeight(10);
      stroke(0, 255, 255);
@@ -111,4 +113,6 @@ function draw_clock(obj) {
      textSize(40);
      noStroke();
      text(hours + ':' + minutes + ':' + seconds, -80, 10);
+
+
 }
