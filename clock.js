@@ -139,3 +139,12 @@ function drawDropletDevice(Xd, Yd, sx, sy){
 
 	//pop();
 }
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
+}
