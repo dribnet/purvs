@@ -3,6 +3,7 @@
  */ 
  var y = 250;
  var yspeed = 40;
+ var x = 255;
 
  createCanvas(960, 500);
 
@@ -31,13 +32,11 @@ function draw_clock(obj) {
 
    background(hourR, hourG, hourB);
    
-   if (alarm > 0){
-    background(0);
-   }
 
     //alarm going off
    if (alarm == 0){
     
+    x = 0;
     y = y + yspeed;
 
     if(y > 400 || y < 100){
@@ -49,30 +48,30 @@ function draw_clock(obj) {
     }else{
         background(hourR, hourG, hourB);
         y = 250;
+        x = 255;
+
    }
    //alarm about to go off
-   if (alarm > 0){
-       }
-
+   
 
     noStroke();
-    fill(200, 50);
+    fill(66, 204, 255, 50);
     rect(0, secondRect, width, height);
     textFont('Helvetica');
     
-    fill(220);
+    fill(x);
     textSize(500);
 
     text(hours, 400, 400);
-    fill(255, 255, 153);
+    fill(244, 226, 66);
    
   
     ellipse(minuteSun, y, 150, 150);
     
     textSize(100);
-    fill(220);
+    fill(x);
     
-    text(minutes, minuteSun-60, y+35);
+    text(minutes, minuteSun-55, y+35);
 
     textSize(50)
     text(seconds, 300, secondRect+35);
