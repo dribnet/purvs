@@ -1,6 +1,5 @@
 ## PS1 MDDN 242 2017
 
-### Diming solar clock
+### Flower Solar Clock 
 
-With this diming solar clock, it displays the numbers which appears and disappears. Son once a number appears the previous number dims out. 
-
+With this clock I've decided to go from the diming clock to this flower clock. I thought this would be easier to code. So for this clock I got the inspiration from the Polar clock but without the date. This is my final concept. 

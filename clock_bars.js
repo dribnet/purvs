@@ -17,37 +17,102 @@ function draw_clock(obj) {
     let millis = obj.millis;
     background(204);
 
-    background(255,255,200); //  beige
-    fill(128,100,100); // dark grey
-    text("Hour: "   + hours, 10, 22);
-    text("Minute: " + minutes, 10, 42);
-    text("Second: " + seconds, 10, 62);
-    text("Millis: " + millis, 10, 82);
+    background(0); //  black
+    stroke(255, 128, 0) // orange
+    fill(255); // white
+    textSize (30);
+    text("Hour: "   + hours, 10, 40);
+    text("Minute: " + minutes, 10, 80);
+    text("Second: " + seconds, 10, 120);
+    text("Millis: " + millis, 10, 160);
 
-    let hourBarWidth   = map(hours, 0, 23, 0, width);
-    let minuteBarWidth = map(minutes, 0, 59, 0, width);
-    let secondBarWidth = map(seconds, 0, 59, 0, width);
-    let millisBarWidth = map(millis, 0, 1000, 0, width);
+    if (obj.hours >= 12){
+        hours = hours - 12;
+    }
+    
+    
+    let hrs = map(hours, 0, 11, 0, 365);
+    let min = map(minutes, 0, 60, 0, 365);
+    let sec =map(seconds, 0, 60, 0, 365);
+    let mil = map(millis, 0, 999, 0, 365);
+    angleMode(DEGREES);
 
-    noStroke();
-    fill(40);
-    rect(0, 100, hourBarWidth, 50);
-    fill(80);
-    rect(0, 150, minuteBarWidth, 50);
-    fill(120)
-    rect(0, 200, secondBarWidth, 50);
-    fill(160)
-    rect(0, 250, millisBarWidth, 50);
+    
+    fill(0);
+    translate(width/2, height/2);
 
-    // Make a bar which *smoothly* interpolates across 1 minute.
-    // We calculate a version that goes from 0...60, 
-    // but with a fractional remainder:
-    let secondBarWidthChunky  = map(seconds, 0, 60, 0, width);
-    let secondsWithFraction   = seconds + (millis / 1000.0);
-    let secondBarWidthSmooth  = map(secondsWithFraction, 0, 60, 0, width);
 
-    fill(100, 100, 200)
-    rect(0, 350, secondBarWidthChunky, 50);
-    fill(120, 120, 240)
-    rect(0, 400, secondBarWidthSmooth, 50);
+
+
+//millis
+    push();
+    
+    var i = 0;
+    stroke(255, 0, 128);
+
+    while( i < mil){
+        rotate(7);
+        line(0,-20 , 0, -50); //pink
+        i = i + 7;
+    }
+    pop();
+
+    
+//second
+
+    push();
+
+    var i = 0;
+    stroke(20, 0, 255); //blue
+    strokeWeight(1)
+    while( i < sec ){
+        rotate(2); 
+        line(0,-60 , 0, -110); 
+        i = i + 2;
+    }
+
+    pop();
+    
+    
+    
+//minute
+
+    push();
+
+    var i = 0;
+    stroke(0, 255, 64); //green
+    strokeWeight(4)
+    while(i < min){
+    rotate(2);
+    line(0,-120 , 0, -165); 
+    
+    i = i + 2;
+    
+    }
+    pop();
+//hours
+
+    push();
+    var i = 0;
+    stroke(255, 128, 0); //orange
+    strokeWeight(4)
+    while(i < hrs){
+        rotate(2);
+        line(0, -175, 0, -219);
+        i = i + 2;
+    }
+    
+    pop();
+
+
+    while(i < 500){
+
+        stroke(255, 255, 0); //yellow
+        fill(255); //white
+        strokeWeight(4);
+        rotate(2550);
+        line(0, -175, 0, -220);
+        i = i + 1;
+    }
+
 }
