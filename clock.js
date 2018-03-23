@@ -87,7 +87,8 @@ function draw_clock(obj) {
     }else{
     	text(hours + " : " + minutes, 430, 430);
     }
-  	
+  	hobofont= loadFont("HoboStd.otf");
+ 	textFont("HoboStd");
   	textSize(50);
   	if (hours < 12){
   		text('AM', 540, 350);
