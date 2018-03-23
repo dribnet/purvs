@@ -60,13 +60,13 @@ function draw_clock(obj) {
     	fill(lerpColor(color(255,222,209),color(255,102,28),0.01+map(al, 20, 0 , 0.01,0.99))); 
     }
     if(mn<10&&mn>=0){
-    	text("0"+mn,310,0);
+    	text("0"+mn,340,0);
     }
     if(mn>=10&&mn<20){
-    	text(mn,380,0);
+    	text(mn,340,0);
     }
     if(mn<60&&mn>=20){
-    	text(mn,310,0);
+    	text(mn,340,0);
     }
 
     if(hr == 0){
@@ -77,7 +77,7 @@ function draw_clock(obj) {
         text("0"+hr,-200,0);
     }
     if(hr>=10&&hr<20){
-        text(hr,-120,0);
+        text(hr,-200,0);
     }
     if(hr>=20){
         text(hr,-200,0);
