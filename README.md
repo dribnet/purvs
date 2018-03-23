@@ -2,9 +2,6 @@
 
 ### Solar System Clock
 
-Solar system clock Version 4
+Solar system clock Version final
 
-In this version i played around with the alarm function some more. I decided to venture away from the bg colour change 
-and focused more on the planets. i orginally made the planets grow in size with the sun as the alarm whent off but i thought 
-it looked a bit overwhelming, so i decided to make the planets speed up as the alarm aproached and then the sun
-increases and decreases in size when it is going off.
+Quickly fixed up the planets when alarm is about to go off to look a bit better as they were getting drawn in front of the sun as the orbited 

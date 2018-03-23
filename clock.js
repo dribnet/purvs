@@ -301,7 +301,7 @@ function draw_clock(obj) {
 // in the right position around the orbit
 function milli_planet(){
 	var angle;
-	if(obj.seconds_until_alarm>0){
+	if(obj.seconds_until_alarm>=0 && obj.seconds_until_alarm<5){
 		angle = (2*Math.PI/500)*obj.millis;
 	}
 	else{
@@ -327,8 +327,8 @@ function milli_planet(){
 function second_planet(){
 	let smooth = obj.seconds + (obj.millis / 1000.0);
 	let angle;
-	if(obj.seconds_until_alarm>0){
-		angle = -((2*Math.PI/1)*smooth);
+	if(obj.seconds_until_alarm>=0 && obj.seconds_until_alarm<5){
+		angle = (2*Math.PI/1)*smooth;
 	}
 	else{
 		angle = (2*Math.PI/59)*smooth;
@@ -351,16 +351,8 @@ function second_planet(){
 // function to calculate and draw the minutes planet 
 // in the right position around the orbit
 function minute_planet(){
-	let smooth;
-	let angle;
-	if(obj.seconds_until_alarm>0){
-		smooth = obj.minutes + (obj.millis / 1000);
-		angle = -((2*Math.PI/1)*smooth+(Math.PI/3));
-	}
-	else{
-		smooth = obj.minutes + (obj.seconds / 60.0);
-		angle = (2*Math.PI/59)*smooth;
-	}
+	let smooth= obj.minutes + (obj.seconds / 60.0);
+	let angle = (2*Math.PI/59)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-270);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-90);
@@ -379,16 +371,8 @@ function minute_planet(){
 // function to calculate and draw the hours planet 
 // in the right position around the orbit 
 function hour_planet(){
-	let smooth;
-	let angle;
-	if(obj.seconds_until_alarm>0){
-		smooth = obj.hours + (obj.millis / 1000);
-		angle = (2*Math.PI/1)*smooth+Math.PI;
-	}
-	else{
-		smooth = obj.hours + (obj.minutes / 60.0);
-		angle = (2*Math.PI/23)*smooth;
-	}
+	let smooth= obj.hours + (obj.minutes / 60.0);
+	let angle = (2*Math.PI/23)*smooth;
 
 	let offsetX = orbitX + cos(angle)*(orbitWidth/2-180);
 	let offsetY = orbitY + sin(angle)*(orbitHeight/2-75);
