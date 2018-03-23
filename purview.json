@@ -1,24 +1,28 @@
 {
   "commits": [
     {
-      "sha": "55277ec4487e52fd2b172309920481c7dca3d7d4",
+      "sha": "ceaf3ff5181502f287077a6e940100185f2f3002",
       "name": "Final"
     },
     {
+      "sha": "55277ec4487e52fd2b172309920481c7dca3d7d4",
+      "name": "Clock Alarm"
+    },
+    {
       "sha": "61a4c69e5e1fc17e240c7c7edb72e2fcbe818357",
-      "name": "Readable Clock"
+      "name": "Original Clock"
     },
     {
-      "sha": "a75241948bdc7afd2bbf1c8c0f3dd8887d04d636",
-      "name": "One Working Hand"
-    },
-    {
-      "sha": "1291854d21e4c36a850299c20c8c6da363f02e83",
+      "sha": "6b4a6ea7bb20130b0ce2d26c6934c525a1962047",
       "name": "Fake3D Test"
     },
     {
+      "sha": "70a68822f1b15145374577b83bd22a7bd2d9d3f3",
+      "name": "Maeda Clock"
+    },
+    {
       "sha": "07142405f46300c498bc95b97706293dc9b9d500",
-      "name": "Idea Mockup"
+      "name": "Sketch"
     }
   ]
 }
