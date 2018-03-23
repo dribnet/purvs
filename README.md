@@ -12,10 +12,6 @@ I disregarded the idea of actually showing the time in my clock and just to show
 Im happy with how my clock turned out. Its a very simple deisgn but effective design to show the speed of time. 
 
 
-Second Sketch:
-
-I disregard the domino idea and decided to go for a more simple idea. I started of with a simple wave that goes down the page to represent the speed of the hours, minutes, seconds and milliseconds. I had another idea to instead create a helix shape with the waves. It looks a lot more interesting then just one simple wave. The helix shape kind of reminds me of the shape of a DNA. I will keep the background black just so that any colour i pick for my helix, it will also stand out. 
-
 Maede clock:
 
 the maeda clock i picked was the pixellated numbers and the hours and minutes alternated as they zoomed in and out. This clock stood out to me as it was so simple but the design was so effective. If i have time, i want to try and make it functional.  
