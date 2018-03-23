@@ -1,43 +1,77 @@
-//These variables represent the conventions set by the Braille Authority.
-//However they have been scaled and are represented as pixels
-var dotSize = 36; //1.44mm Dot Size
-var dotSpace = 58.5; //2.34mm Space between Dots
-var cellSpace = 155; //6.1mm Space between Cells
+// These variables represent the conventions set by the Braille Authority.
+// However they have been scaled and are represented as pixels
+var dotSize = 36; // 1.44mm Dot Size
+var dotSpace = 58.5; // 2.34mm Space between Dots
+var cellSpace = 155; // 6.1mm Space between Cells
 
-/*
- * us p5.js to draw a clock on a 960x500 canvas
- */
 function draw_clock(obj) {
-    // draw your own clock here based on the values of obj:
-    //    obj.hours goes from 0-23
-    //    obj.minutes goes from 0-59
-    //    obj.seconds goes from 0-59
-    //    obj.millis goes from 0-1000
-    //    obj.seconds_until_alarm is:
-    //        < 0 if no alarm is set
-    //        = 0 if the alarm is currently going off
-    //        > 0 --> the number of seconds until alarm should go off
+	// Sets the colours for use. As changing variables though so I can edit them with my alarm
+    let cyan = color(0, 255, 255); // Cyan
+    let yellow = color(255, 255, 0); // Yellow
+    let magenta = color(255, 0, 255); // Meganta
 
-    //Sets variables for colours so they can easily be called upon later.
-    var cyan = color(0, 255, 255);
-    var yellow = color(255, 255, 0);
-    var magenta = color(255, 0, 255);
-
-    //Set for me by the existing code. The time.
+    // Set for me by the existing code. The time with the addition of the alarm function
     let hours = obj.hours;
     let minutes = obj.minutes;
     let seconds = obj.seconds;
     let millis = obj.millis;
+    let alarm = obj.seconds_until_alarm
 
-    //Makes a variable to be controlled by the layers and used by the Braille Cells.
+    // Makes a variable to be controlled by the layers and used by the Braille Cells.
     let timer = seconds;
 
-    background(230); // light gray background.
-    strokeWeight(0); // Stroke weight to 0 pixels.
+    // Stroke weight to 0 pixels.
+    strokeWeight(0);
 
-    //Loops all the code into 3 different layers for the clock.
+    //Alarm Code.
+
+    // Sets up the check for the alarm. Sets the normal state and the alarm state.
+    // Alarm state is set to have the background flash black and white with the 
+    // Braille flashing the opposite to the background. Largely inspired by
+    // the lecturers code for the Bar Clock.
+    if (alarm < 0) {
+        background(230); // Light Grey Background
+    }
+    else {
+        if(seconds % 2 == 0) {
+            background(0); // Black
+            cyan = (255);
+            yellow = (255);
+            magenta = (255);
+        }
+        else {
+            background(230); // White
+            cyan = (0);
+            yellow = (0);
+            magenta = (0);
+        }
+    }
+
+	// Again basically derived from the lecturers Bar Clock, however changed obviously
+	// for the format of my clock and the aesthetic I am going for. Controls the alarm 
+	// count down from 20. Makes the background turn progressively darker until it is black
+	// and the Braille progressively changes from their set colour to white to contrast the
+	// background.
+	if (alarm > 0) {
+		fill(100);
+		rect(width-50, height-50, 40, 40);
+
+		if (alarm < 20.0) {
+			var alarmBackground = map(alarm, 0, 20, 0, 230);
+			background (alarmBackground);
+
+			var colourChange = map(alarm, 0, 20, 255, 0);
+			cyan = color(colourChange, 255, 255);
+			yellow = color(255, 255, colourChange);
+			magenta = color(255, colourChange, 255);
+		}
+	}
+
+	// Code for the Braille Numbers and Layers.
+
+    // Loops all the code into 3 different layers for the clock.
     for(let layer = 0; layer<3; layer++){
-        //Sets all the colours for the layers dependant on the layer.
+        // Sets all the colours for the layers dependant on the layer.
         if (layer == 0){
             fill (cyan);
         } else if (layer == 1){
@@ -47,7 +81,7 @@ function draw_clock(obj) {
             fill (magenta);
         }
 
-        //Syncs the layers and timer variables so each layer represents a different time.
+        // Syncs the layers and timer variables so each layer represents a different time.
         if (layer == 0){
             timer = seconds;
         } else if (layer == 1){
@@ -57,8 +91,8 @@ function draw_clock(obj) {
             timer = hours;
         }
 
-        //Controls the Ones column on the numbers. Split between the 0-59 format and the
-        //1-12 format as they can't be coded the same on a AM/PM clock.
+        // Controls the Ones column on the numbers. Split between the 0-59 format and the
+        // 1-12 format as they can't be coded the same on a AM/PM clock.
         if (layer <= 1){
             push();
             translate(402, 168);
@@ -150,15 +184,15 @@ function draw_clock(obj) {
             pop();
         }
 
-        //The easier Braille Cells with less variables than the numbered cells.
+        // The easier Braille Cells with less variables than the numbered cells.
 
-        //Calls the Draw Number Indicator Function.
+        // Calls the Draw Number Indicator Function.
         push();
         translate(92, 168);
         drawN();
         pop();
 
-        //Changes the A in AM to P or vice versa depending on the time of the day.
+        // Changes the A in AM to P or vice versa depending on the time of the day.
         push(); 
         translate(617, 168);
         if(hours <= 12){
@@ -168,89 +202,89 @@ function draw_clock(obj) {
         }
         pop();
 
-        //Calls the Draw M function.
+        // Calls the Draw M function.
         push();
         translate(772, 168);
         drawM();
         pop();
 
-        //Translates ever so slightly so you can see each layer.
-        translate(7, 7);
+        // Translates ever so slightly so you can see each layer.
+        translate(5, 5);
     }
 }
 
-//Braille "Fonts"
+// Braille "Fonts"
 
-//AM and the Number 1 draw function.
+// AM and the Number 1 draw function.
 function drawA1(){
 	ellipse(0, 0, dotSize, dotSize);
 }
-//PM draw function.
+// PM draw function.
 function drawP(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
     ellipse(0, 2*dotSpace, dotSize, dotSize);
 }
-//Draws the M for the AM and PM draw functions.
+// Draws the M for the AM and PM draw functions.
 function drawM(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, 2*dotSpace, dotSize, dotSize);
 }
-//Draws the Number Indicator.
+// Draws the Number Indicator.
 function drawN(){
     ellipse(dotSpace, dotSpace, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(dotSpace, 2*dotSpace, dotSize, dotSize);
     ellipse(0, 2*dotSpace, dotSize, dotSize);
 }
-//Draws the Number 2
+// Draws the Number 2
 function draw2(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 3
+// Draws the Number 3
 function draw3(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
 }
-//Draws the Number 3
+// Draws the Number 3
 function draw4(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(dotSpace, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 4
+// Draws the Number 4
 function draw5(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 5
+// Draws the Number 5
 function draw6(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 6
+// Draws the Number 6
 function draw7(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
     ellipse(dotSpace, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 7
+// Draws the Number 7
 function draw8(){
     ellipse(0, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
     ellipse(dotSpace, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 8
+// Draws the Number 8
 function draw9(){
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
 }
-//Draws the Number 9
+// Draws the Number 9
 function draw0(){
     ellipse(dotSpace, 0, dotSize, dotSize);
     ellipse(0, dotSpace, dotSize, dotSize);
