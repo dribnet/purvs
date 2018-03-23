@@ -2,7 +2,9 @@
 
 ### Fluid Rotational Clock 
 
-The hands of the clock now rotate around a parent hand 
-hour round the center
-minute round the hour etc
+colors changed 
+removed lines and added x's to help to read time
 
+every hand roates around on its parents x path
+
+cleaned up the code
