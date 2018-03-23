@@ -25,6 +25,9 @@ function draw_clock(obj) {
     
        let mouseX_map = map(mouseX, 0, width, 250, 255);
        let mouseY_map = map(mouseY, 0, height, 250, 255);
+
+       let att = obj.seconds_until_alarm;
+
     
 c1 = color(250);
 c2 = color(255);
@@ -57,7 +60,6 @@ line(cx+length, cy-length, cx-length, cy+length)
 
 
 
-
 if (seconds%2 == 0){
 	fill(c1); 
 	background(c2);
@@ -69,12 +71,44 @@ if (seconds%2 == 0){
 ellipse (width/2, height/2, millis* sqrt((pow(width/2, 2) + pow(height/2,2)))/480, millis*sqrt((pow(width/2, 2) + pow(height/2,2)))/480);
 fill(0);
 
+
+
+create_hand(0, days, 30,mm, 130);
+
 create_hand(0, days, 30,mm, 130);
 create_hand(130, hoursWithFraction, 20, s,65);
 create_hand(65, minutesWithFraction, 15, m,33);
 create_hand(33, secondsWithFraction, 10, h, 0);
-create_hand(17, millisTT,5,d,width);
 
+
+
+    if (att > 0){
+
+create_hand(17, att, 10,h, 0);
+
+if (seconds%2 == 0){
+	fill(255,0,0,20); 
+	background(250,0,0,20);
+} else {
+		fill(250,0,0,20); 
+	background(255,0,0,20);
+}
+	
+} else if  (att == 0){
+	create_hand(17, millisTT,5,d,width);
+
+if (seconds%2 == 0){
+	fill(255,0,0,40); 
+	background(250,0,0,40);
+} else {
+		fill(250,0,0,40); 
+	background(255,0,0,40);
+}
+}  
+
+else {
+	create_hand(17, millisTT,5,d,width);
+}
 
 }
 
