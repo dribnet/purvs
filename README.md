@@ -3,7 +3,7 @@
 ### Times of Life
 
 
-This is y final Clock. I had a few issues getting it working and a few missing files but I got there in the end with a little help.
+This is my sketch, I was inspired by Golan Levin's clock and th time turner in Harry Potter
 
 
 
