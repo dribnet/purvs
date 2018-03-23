@@ -197,7 +197,7 @@
   	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-10], secondsTens);
   }
   else if (hours > 20) {
-  	var hourFirst = new Number(FIRST_HOUR_START_X, two);
+  	var hourFirst = new Number(FIRST_HOUR_START_X, two, secondsTens);
   	var hourSecond = new Number(SEC_HOUR_START_X, numbers[hours-20], secondsTens);
   }
 
