@@ -19,6 +19,8 @@ function draw_clock(obj) {
     let seconds = obj.seconds;
     let millis = obj.millis;
 
+        background(0);
+
         strokeWeight(8);
         noFill();
         stroke(255, 100, 150);
@@ -43,7 +45,7 @@ function draw_clock(obj) {
         noStroke();
         textSize(24);
 
-        text(hours + ':' + minutes + ':' + seconds, 4Clock0, 260);
+        text(hours + ':' + minutes + ':' + seconds, 430, height/2);
         textFont('Source Code Pro');
 
     
