@@ -246,6 +246,7 @@ function Number(startX, number, elapsed) {
 		for (var i = 0; i < 6; i++) {
 			for (var j = 0; j < 11; j++) {
 				if (this.array[i][j] == true) {
+          stroke(255);
 					noFill();
 					//move every 10 seconds
 					if  ((j-1)*10 >= (secondsTens)*2) {
@@ -266,7 +267,7 @@ function Number(startX, number, elapsed) {
 						fill(239, 201,76);
 					}
           //draw the circle
-					ellipse(this.x + (i*PIXEL_SIZE), START_Y + (j*PIXEL_SIZE), PIXEL_SIZE - GAP, PIXEL_SIZE - GAP);
+					rect(this.x + (i*PIXEL_SIZE), START_Y + (j*PIXEL_SIZE), PIXEL_SIZE - GAP, PIXEL_SIZE - GAP);
 				}
 			}
 		}
