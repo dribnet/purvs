@@ -2,7 +2,7 @@
 
 ### Fluid Rotational Clock 
 
-Rotated the clock 90 degrees counter clock wise to get so 12 is at the top
-removed guidelines and added a dotted circle that represents the numbers 1-12
+The hands of the clock now rotate around a parent hand 
+hour round the center
+minute round the hour etc
 
-correct the hour to 12 hour time rather than 24 hour
