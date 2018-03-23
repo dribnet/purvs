@@ -9,7 +9,7 @@
  const SEC_HOUR_START_X = 300;
  const FIRST_MIN_START_X = 500;
  const SEC_MIN_START_X = 700;
- const GAP = 10;
+ const GAP =5;
  let num;
  let zero;
  let one;
