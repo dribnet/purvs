@@ -24,6 +24,7 @@ function draw_clock(obj) {
     angleMode(DEGREES);
 
     background(255);
+    background(54, 46, 43);
     let cAM = map(minutes, 0, 59, 150, 200);
 	let cPM = map(minutes, 0, 59, 96, 200);
    
@@ -34,6 +35,7 @@ function draw_clock(obj) {
 	stroke(150);
     rect(200, 10, 570, 460);
     stroke(204);
+    fill(255);
     rect(210, 20, 550, 440);
 
     stroke(0);
@@ -55,12 +57,14 @@ function draw_clock(obj) {
     		stroke(240, 0, 0);
 		    rect(200, 10, 570, 460);
 		    stroke(204);
+		    fill(255);
 		    rect(210, 20, 550, 440);
 
     	}else{
     		stroke(150);
 		    rect(200, 10, 570, 460);
 		    stroke(204);
+		    fill(255);
 		    rect(210, 20, 550, 440);	
     	}
     
