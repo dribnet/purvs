@@ -2,7 +2,7 @@
 
 ### Calcu-Clock - current build
 
-Colour changes with time, minutes are represented as an addition problem, hours are represented as a subtraction problem. Alarm is a seconds math attack.
+The point of the clock is to help children work on their basic math skills by generating random math problems based on the time. The hours are a subtraction problem and the minutes are represented by an addition problem. Colour changes with time, with RGB values permeated across different axis and colour intesity increasing as minutes, seconds and milliseconds increase. Lastly the Alarm countdown is just the seconds represented as a subtraction problem, they rapidly changed every second, with the alarm itself growing the image onscreen.
 
 ### Calcu-Clock - concept
 
