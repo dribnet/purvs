@@ -21,4 +21,4 @@ the white numbers makes it ambiguous as to the changes happening and what number
 are being displayed.
 
 Overall I think I was fairly faithful to my original intent and I am quite happy
-with how it turned out.
+with how it turned out. Use this resource to help: https://www.pharmabraille.com/pharmaceutical-braille/the-braille-alphabet/
