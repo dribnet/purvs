@@ -41,7 +41,7 @@
     let g= map(seconds, 0, 59, 0, 255);
     let b = map(millis, 0, 1000, 0, 255);
     noStroke();
-    
+
     for (var i = 0; i < ((CANVAS_WIDTH)/BS_ORIGINAL); i++) {
     	for (var j = 0; j < ((CANVAS_HEIGHT)/BS_ORIGINAL); j++) {
     		fill(r+(i*pulse),g+(j*pulse),b+(i+j)*pulse);
@@ -134,7 +134,7 @@ function draw_Time(seconds,minutes,hours){
 
     var LeftNumberStringSeconds = LeftNumberSeconds.toString()[0];
     var LeftNumberStringSeconds2 = LeftNumberSeconds.toString()[1];
-    if (LeftNumber<10){
+    if (LeftNumberSeconds<10){
       draw_number(0,3);
       draw_number(LeftNumberStringSeconds,4);
     } else {
