@@ -107,7 +107,7 @@
     // = 0 if the alarm is currently going off
     if(seconds_until_alarm==0){
       alarm = true;
-      BS = BS + 0.025
+      BS = BS + 0.075
     }
   }
 
