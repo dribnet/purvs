@@ -48,10 +48,7 @@ function draw_clock(obj) {
 		}
 		
 
-        if(minutes >0){seconds_until_alarm = 0;}
-
-        if(minutes == 47){seconds_until_alarm = 0;}
-
+        if(minutes == 0){seconds_until_alarm = 0;}
         if(seconds_until_alarm == 0){background(pulse,50,pulse);} //when the alarms going off pulse background 
       
     	//note these are ordered like this on purpose to prevent overlapping issues
@@ -126,14 +123,14 @@ function draw_clock(obj) {
         else{text(millis,milLoci-7,startY+195);}
 
 
-    
+    /*
     fill(255); 
     text("Hour: "   + hours, 10, 22);
     text("Minute: " + minutes, 10, 42);
     text("Second: " + seconds, 10, 62);
     text("Millis: " + millis, 10, 82);
     text("Alarm: " + seconds_until_alarm, 10, 102);
-    
+    */
     /*
     fill(255);
     textSize(80); 
