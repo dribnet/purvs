@@ -39,13 +39,13 @@ mm = color(96, 118, 140)
 
     
 function create_hand(radiusH, timing, size, c ,rad) {
-  xH=(radiusH)*cos(radians(degrees(timing)))  + width/2;
-  yH=(radiusH)*sin(radians(degrees(timing))) + height/2;
+  xH=(radiusH)*cos(radians(degrees(timing)))  + width/2; //finds positions of x in circle
+  yH=(radiusH)*sin(radians(degrees(timing))) + height/2; //finds positions of y in circle 
   fill(c);
    ellipse(xH, yH, size, size);
-translate(xH-width/2,yH-height/2)
+translate(xH-width/2,yH-height/2) // moves 0,0 to center of hand just drawn. now next hand will rotate around new 0,0
 
-  length = 2;
+  length = 2; // all this is to draw the little crosses
   stroke(c);
   for (i = 0; i < 12; i = i+1) {
 cx=(rad)*cos(radians(degrees(PI/6*i)))  + width/2;
@@ -60,7 +60,7 @@ line(cx+length, cy-length, cx-length, cy+length)
 
 
 
-if (seconds%2 == 0){
+if (seconds%2 == 0){ // the pulsing background
 	fill(c1); 
 	background(c2);
 } else {
@@ -69,11 +69,11 @@ if (seconds%2 == 0){
 }
 
 ellipse (width/2, height/2, millis* sqrt((pow(width/2, 2) + pow(height/2,2)))/480, millis*sqrt((pow(width/2, 2) + pow(height/2,2)))/480);
-fill(0);
+fill(0); //way over the top method to make sure pulse reaches in the corners
 
 
 
-create_hand(0, days, 30,mm, 130);
+create_hand(0, days, 30,mm, 130); // create the hands
 
 create_hand(0, days, 30,mm, 130);
 create_hand(130, hoursWithFraction, 20, s,65);
@@ -82,11 +82,11 @@ create_hand(33, secondsWithFraction, 10, h, 0);
 
 
 
-    if (att > 0){
+    if (att > 0){  //alarm is messy but essiently if it is on change pulse to lighter red, if its going off pulse darkens, when alarm is off back to normal
 
-create_hand(17, att, 10,h, 0);
+create_hand(17, att, 10,h, 0); 
 
-if (seconds%2 == 0){
+if (seconds%2 == 0){ 
 	fill(255,0,0,20); 
 	background(250,0,0,20);
 } else {
