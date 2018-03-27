@@ -13,46 +13,46 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": -200,
+        "tilt": -180
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": -186,
+        "tilt": 120
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": -7,
+        "tilt": 63
       }
     },
   "B":
     {
       "box1": {
-        "position": -191,
+        "position": -174,
         "tilt": -90
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": -35,
+        "tilt": -50
       },
       "box3": {
         "position": -12,
-        "tilt": 6
+        "tilt": 7
       }
     },
   "C":
     {
       "box1": {
-        "position": -163,
-        "tilt": -84
+        "position": -129,
+        "tilt": -110
       },
       "box2": {
-        "position": -191,
-        "tilt": 163
+        "position": -144,
+        "tilt": 137
       },
       "box3": {
-        "position": 0,
-        "tilt": -27
+        "position": 78,
+        "tilt": -33
       }
     }
 }
@@ -128,37 +128,68 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
 
-function drawPart(y_offset, pos, tilt) {
-  let middle_x = 2 * canvasWidth / 3;
-  let middle_y = canvasHeight / 2;
-  resetMatrix();
-  translate(middle_x + pos, middle_y + y_offset);
-  rotate(tilt);
 
-  let scale = 10;
+// function drawPart(y_offset, pos, tilt) {
+//   let middle_x = 2 * canvasWidth / 3;
+//   let middle_y = canvasHeight / 2;
+//   resetMatrix();
+//   translate(middle_x + pos, middle_y + y_offset);
+//   rotate(tilt);
 
-  fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
-}
+//   let scale = 10;
 
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
-  let pos = pos_slider.value();
-  let tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
+//   fill(colorFront);
+//   // rect(-100,-100,100,100);
+//   ellipse(5*scale, 5*scale, 5*scale, 5*scale);
+// }
+
+// function drawFromSliders(y_offset, pos_slider, tilt_slider) {
+//   let pos = pos_slider.value();
+//   let tilt = tilt_slider.value();
+//   drawPart(y_offset, pos, tilt);
+// }
+const colorFront = [255, 250, 255]; //white
+const colorFront2 = [200, 50, 55]; //red
+const colorBack = [167, 226, 249]; //light blue
+
+let letterA_posX = 0
+let letterA_posY = 0
+
+function DrawLetter(posx, posy, offx, offy){
+  noFill();
+  strokeWeight(3);
+  stroke(colorFront);
+  ellipse(posx, posy, 50, 50);
+  ellipse(posx, posy, 35, 35);
+  ellipse(posx, posy, 20, 20);
+
+
+  // fill(colorFront2);
+  // ellipse(posx, posy+(offy*2), 50, 50);
 }
 
 function draw () {
   background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
+  noStroke();
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+let CenterX = canvasWidth/2;
+let CenterY = canvasHeight/2;
+
+DrawLetter(CenterX-100, CenterY, letterA_posX, letterA_posY);
+DrawLetter(CenterX, CenterY, letterA_posX, letterA_posY);
+DrawLetter(CenterX + 100, CenterY, letterA_posX, letterA_posY);
+DrawLetter(CenterX-100, CenterY+75, letterA_posX, letterA_posY);
+DrawLetter(CenterX+100, CenterY+75, letterA_posX, letterA_posY);
+DrawLetter(CenterX, CenterY-125, letterA_posX, letterA_posY);
+DrawLetter(CenterX -75, CenterY-75, letterA_posX, letterA_posY);
+DrawLetter(CenterX + 75, CenterY-75, letterA_posX, letterA_posY);
+
+
+
+  // drawFromSliders(-50, pos1_slider, pos1_slider);
+  // drawFromSliders(  0, pos2_slider, tilt2_slider);
+  // drawFromSliders( 50, pos3_slider, tilt3_slider);
 }
 
 function keyTyped() {
