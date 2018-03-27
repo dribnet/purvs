@@ -11,35 +11,35 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+   {
+  "box1": {
+    "position": -147,
+    "tilt": 117
+  },
+  "box2": {
+    "position": 88,
+    "tilt": 52
+  },
+  "box3": {
+    "position": 64,
+    "tilt": 0
+  }
+},
   "B":
-    {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
+   {
+  "box1": {
+    "position": -191,
+    "tilt": -90
+  },
+  "box2": {
+    "position": -54,
+    "tilt": -45
+  },
+  "box3": {
+    "position": -12,
+    "tilt": 6
+  }
+},
   "C":
     {
       "box1": {
