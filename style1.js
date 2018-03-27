@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [230, 122, 227];
+const colorBack = [65, 242, 246];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -142,7 +142,7 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  ellipse(-20*scale, -3*scale, 20*scale, 3*scale);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
