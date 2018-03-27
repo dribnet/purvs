@@ -19,6 +19,7 @@ let mins = obj.minutes;
 let secs = obj.seconds;
 let mls = obj.millis;
 
+
 //color mapping test
 let C1 = map(hours,0,6,221,252);
 let C2 = map(hours,0,6,212,241);
@@ -36,6 +37,16 @@ if(hours>6 && hours <=18){
 if (hours>18) {
     background(Cn1,Cn2,Cn3);
 }
+
+let alarmGrow = map(mls,0,1000,0,960);
+if(alarm==0){
+    background('#f44242');
+    fill('#ff0000');
+    ellipse(480,250,alarmGrow,alarmGrow);
+}
+
+
+
 fill('#e8ddab');
 rect(0,445 ,960,55);
 
