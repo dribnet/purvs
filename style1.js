@@ -13,48 +13,50 @@ let savedValues = {
     "A":
     {
   "box1": {
-    "position": -200,
-    "tilt": -57
+    "position": -133,
+    "tilt": -92
   },
   "box2": {
-    "position": -49,
-    "tilt": -1
+    "position": -182,
+    "tilt": 0
   },
   "box3": {
-    "position": -62,
-    "tilt": 33
+    "position": -182,
+    "tilt": 0
   }
+
 
     },
   "B":
    {
   "box1": {
-    "position": -191,
-    "tilt": -90
+    "position": -147,
+    "tilt": -88
   },
   "box2": {
-    "position": 11,
-    "tilt": -25
+    "position": -102,
+    "tilt": 6
   },
   "box3": {
-    "position": 46,
-    "tilt": 0
+    "position": -102,
+    "tilt": 3
   }
+
 
 },
    "C":
     {
   "box1": {
-    "position": -152,
-    "tilt": -91
+    "position": -63,
+    "tilt": -13
   },
   "box2": {
-    "position": -151,
-    "tilt": 180
+    "position": -102,
+    "tilt": -51
   },
   "box3": {
-    "position": -151,
-    "tilt": -180
+    "position": -98,
+    "tilt": 6
   }
 }
 }
@@ -133,35 +135,59 @@ function buttonPressedEvent() {
 const colorFront = [255, 255, 255];
 const colorBack = [112, 42, 46];
 
+
+
+
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
   let middle_y = canvasHeight / 2;
   resetMatrix();
   translate(middle_x + pos, middle_y + y_offset);
   rotate(tilt);
-
   let scale = 10;
 
   fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, 3*scale, scale*20, scale);
-  ellipse(-20*scale, 3*scale+6, scale, scale);
+   //Shapes I can add
+   drawLetter(100,200,120,120);
 }
+
+
+
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
   let pos = pos_slider.value();
   let tilt = tilt_slider.value();
   drawPart(y_offset, pos, tilt);
 }
+function drawLetter(posx,posy,offx,offy){
+fill(colorFront);
+ellipse(posx,posy-250,50,50);
+ellipse(posx-200,posy-250,50,50);
+fill(colorBack);
+ellipse(posx,posy-250,45,45);
+ellipse(posx-200,posy-250,45,45);
+
+}
+
 
 function draw () {
   background(colorBack);
   fill(colorFront);
   stroke(95, 52, 8);
+  
+  rect(0,100,960,200);
+
+
+
+
+
+//Here is where I add my own function to draw
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
   drawFromSliders( 50, pos3_slider, tilt3_slider);
+
+
 }
 
 function keyTyped() {
