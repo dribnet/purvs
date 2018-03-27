@@ -12,34 +12,34 @@ var canvasHeight = 500;
 var savedValues = {
   "A":
     {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+  "box1": {
+    "position": 132,
+    "tilt": -47
+  },
+  "box2": {
+    "position": -104,
+    "tilt": -4
+  },
+  "box3": {
+    "position": -121,
+    "tilt": 58
+  }
+},
   "B":
     {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
+  "box1": {
+    "position": -191,
+    "tilt": -90
+  },
+  "box2": {
+    "position": -30,
+    "tilt": -41
+  },
+  "box3": {
+    "position": -40,
+    "tilt": 1
+  }
+},
   "C":
     {
       "box1": {
