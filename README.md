@@ -1,7 +1,5 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
+I have made a hexigon shape that can be moulded into other shapes. I want to use to use the double lines because I feel like it looks alot nicer than a plane shape.
 
-Replace this README with information about your alphabet.
+Make sure to click on style1.
