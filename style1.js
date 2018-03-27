@@ -11,33 +11,33 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
+     {
+        "box1": {
+        "position": 0,
+        "tilt": -14
+        },
+       "box2": {
+         "position": -45,
+         "tilt": 87
+       },
+       "box3": {
+         "position": -30,
+          "tilt": 29
       }
     },
   "B":
     {
       "box1": {
-        "position": -191,
-        "tilt": -90
+        "position": 0,
+        "tilt": -43
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": 19,
+        "tilt": 16
       },
       "box3": {
-        "position": -12,
-        "tilt": 6
+        "position": -141,
+        "tilt": 90
       }
     },
   "C":
@@ -152,9 +152,10 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 }
 
 function draw () {
-  background(colorBack);
+  background(200);
   fill(colorFront);
   stroke(95, 52, 8);
+
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
