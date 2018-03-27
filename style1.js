@@ -128,8 +128,9 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+
+const colorFront =[207, 222, 227];//[225];
+const colorBack = [225]//[29, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -154,11 +155,14 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  //stroke(95, 52, 8);
+  noStroke();
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  fill(194, 24, 7);
+  ellipse(480, 250, 50, 50); 
+  //drawFromSliders(-50, pos1_slider, tilt1_slider);
+  //drawFromSliders(  0, pos2_slider, tilt2_slider);
+  //drawFromSliders( 50, pos3_slider, tilt3_slider);
 }
 
 function keyTyped() {
