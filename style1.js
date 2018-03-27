@@ -13,16 +13,16 @@ let savedValues = {
   "A":
    {
   "box1": {
-    "position": -147,
-    "tilt": 117
+    "position": -64,
+    "tilt": -104
   },
   "box2": {
-    "position": 88,
-    "tilt": 52
+    "position": 150,
+    "tilt": 43
   },
   "box3": {
-    "position": 64,
-    "tilt": 0
+    "position": 19,
+    "tilt": -21
   }
 },
   "B":
@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [50,150,255];
+const colorBack = [255,125,50];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -142,7 +142,8 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  line(-15*scale, -2*scale, 7*scale, 13*scale);
+
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -154,7 +155,7 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  stroke(55);
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
