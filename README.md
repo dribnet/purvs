@@ -1,7 +1,5 @@
-## PS2 MDDN 242 2018
+## PS2 MDDN 242 2018 Part 1 - Initial Ideas
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
+I decided to go with a simple lined font. It only uses straight lines that make up the letters.
+Ive come up with a general rule that each letter is to have 3 lines making up the majority of the letter with a fourth to be used as an embellishment. This fourth line can also be incorperated into the main letter in the case of letters such as W.
 
-Replace this README with information about your alphabet.

@@ -13,31 +13,31 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": -200,
+        "tilt": 119
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": -35,
+        "tilt": 12
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": -79,
+        "tilt": 74
       }
     },
   "B":
     {
       "box1": {
-        "position": -191,
-        "tilt": -90
+        "position": -200,
+        "tilt": -162
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": -200,
+        "tilt": -180
       },
       "box3": {
-        "position": -12,
-        "tilt": 6
+        "position": -22,
+        "tilt": -16
       }
     },
   "C":
@@ -128,38 +128,51 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [222, 184, 135];
+const colorBack = [248, 248, 255];
 
-function drawPart(y_offset, pos, tilt) {
-  let middle_x = 2 * canvasWidth / 3;
-  let middle_y = canvasHeight / 2;
-  resetMatrix();
-  translate(middle_x + pos, middle_y + y_offset);
-  rotate(tilt);
 
-  let scale = 10;
-
-  fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
-}
-
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
-  let pos = pos_slider.value();
-  let tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
-}
 
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  stroke(922, 184, 135);
+  strokeWeight(4);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  //A
+  line(280, 180, 250, 250);
+  line(280, 180, 310, 250);
+  line(260, 230, 300, 230);
+  line(257, 238, 270, 238);
+
+  //B
+  line(330, 180, 330, 250);
+  line(330, 180, 380, 215);
+  line(380, 215, 330, 250);
+  line(380, 215, 345, 215);
+
+  //C
+  line(400, 180, 400, 250);
+  line(400, 180, 450, 180);
+  line(450, 250, 400, 250);
+  line(450, 250, 450, 235);
+
+  //D
+  line(480, 180, 480, 250);
+  line(480, 180, 530, 215);
+  line(530, 215, 480, 250);
+  line(490, 225, 490, 240);
+
+
+  //E
+  line(550, 180, 550, 250);
+  line(550, 180, 600, 180);
+  line(600, 250, 550, 250);
+  line(600, 215, 565, 215);
+
 }
+
+
 
 function keyTyped() {
   if (key == '!') {
