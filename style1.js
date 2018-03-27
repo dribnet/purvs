@@ -14,30 +14,30 @@ let savedValues = {
    {
   "box1": {
     "position": -64,
-    "tilt": -104
+    "tilt": -79
   },
   "box2": {
-    "position": 150,
-    "tilt": 43
+    "position": 65,
+    "tilt": 53
   },
   "box3": {
-    "position": 19,
-    "tilt": -21
+    "position": 5,
+    "tilt": -13
   }
 },
   "B":
    {
   "box1": {
-    "position": -191,
-    "tilt": -90
+    "position": -138,
+    "tilt": -103
   },
   "box2": {
-    "position": -54,
-    "tilt": -45
+    "position": -29,
+    "tilt": -12
   },
   "box3": {
-    "position": -12,
-    "tilt": 6
+    "position": -15,
+    "tilt": -53
   }
 },
   "C":
@@ -139,10 +139,11 @@ function drawPart(y_offset, pos, tilt) {
   rotate(tilt);
 
   let scale = 10;
-
+  strokeWeight(5);
+  stroke(colorFront)
   fill(colorFront);
   // rect(-100,-100,100,100);
-  line(-15*scale, -2*scale, 7*scale, 13*scale);
+  line(-10*scale, -2*scale, 7*scale, 2*scale);
 
 }
 
