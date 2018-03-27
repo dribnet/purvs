@@ -89,8 +89,8 @@ function cTime(){ //defines the current time
 function cGen(){	
 	cTime();
 
-	/*if(tAlarm == 0){fill(255,66,66);}
-	else{fill(85,90,120);};*/
+	if(tAlarm == 0){fill(255,66,66);}
+	else{fill(85,90,120);};
 	nGen();	
 
 	fill(255);
