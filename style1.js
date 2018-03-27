@@ -11,50 +11,50 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+{
+  "box1": {
+    "position": -119,
+    "tilt": -60
+  },
+  "box2": {
+    "position": -32,
+    "tilt": 0
+  },
+  "box3": {
+    "position": -68,
+    "tilt": 69
+  }
+  },
   "B":
-    {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
+ {
+  "box1": {
+    "position": -138,
+    "tilt": 38
+  },
+  "box2": {
+    "position": -52,
+    "tilt": 0
+  },
+  "box3": {
+    "position": -118,
+    "tilt": -47
+  }
+},
   "C":
     {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+  "box1": {
+    "position": -200,
+    "tilt": -90
+  },
+  "box2": {
+    "position": -200,
+    "tilt": 180
+  },
+  "box3": {
+    "position": -200,
+    "tilt": 180
+  }
+}
 }
 
 function setup () {
@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [255, 0, 255];
+const colorBack = [0, 150, 255];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -153,12 +153,27 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 
 function draw () {
   background(colorBack);
-  fill(colorFront);
+  
+  //480,250 is middle
   stroke(95, 52, 8);
+  fill(120);
+  beginShape();
+  vertex(300,250);
+  vertex(350,150);
+  vertex(450,90);
+  vertex(700,130);
+  vertex(650,300);
+  vertex(480,350);
+  endShape(CLOSE);
+  
 
+fill(colorFront);
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
   drawFromSliders( 50, pos3_slider, tilt3_slider);
+
+  // arc(480, 250, 350, 350, 0, 90);
+
 }
 
 function keyTyped() {
