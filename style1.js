@@ -11,50 +11,50 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+{
+  "box1": {
+    "position": -174,
+    "tilt": -69
+  },
+  "box2": {
+    "position": -69,
+    "tilt": -13
+  },
+  "box3": {
+    "position": -44,
+    "tilt": 66
+  }
+},
   "B":
-    {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
+{
+  "box1": {
+    "position": -191,
+    "tilt": -85
+  },
+  "box2": {
+    "position": -226,
+    "tilt": -133
+  },
+  "box3": {
+    "position": -5,
+    "tilt": -19
+  }
+},
   "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+{
+  "box1": {
+    "position": -280,
+    "tilt": -73
+  },
+  "box2": {
+    "position": -191,
+    "tilt": 180
+  },
+  "box3": {
+    "position": -161,
+    "tilt": -9
+  }
+}
 }
 
 function setup () {
@@ -65,11 +65,11 @@ function setup () {
   angleMode(DEGREES);
 
   // create two sliders
-  pos1_slider = createSlider(-200, 200, 0);
+  pos1_slider = createSlider(-280, 280, 0);
   tilt1_slider = createSlider(-180, 180, 0);
-  pos2_slider = createSlider(-200, 200, 0);
+  pos2_slider = createSlider(-280, 280, 0);
   tilt2_slider = createSlider(-180, 180, 0);
-  pos3_slider = createSlider(-200, 200, 0);
+  pos3_slider = createSlider(-280, 280, 0);
   tilt3_slider = createSlider(-180, 180, 0);
 
   sel = createSelect();
@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [132, 191, 151];
+const colorBack = [125, 142, 123];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -140,9 +140,16 @@ function drawPart(y_offset, pos, tilt) {
 
   let scale = 10;
 
+
   fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  noStroke ();
+    // rect(-100,-100,100,100);
+  beginShape ();
+  vertex (-24*scale, 4*scale);
+  vertex (14*scale, 6*scale);
+  vertex (16*scale, 4*scale);
+  vertex (-24*scale, 0*scale);
+  endShape (CLOSE);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -154,7 +161,6 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
