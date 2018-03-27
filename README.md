@@ -1,7 +1,3 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
-
-Replace this README with information about your alphabet.
+I have messed around with the given ps2 files and created my own versions of 'A' 'B' 'C'. I will now be moving on and creating my own types of shapes for my alphabet.

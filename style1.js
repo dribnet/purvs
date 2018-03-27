@@ -10,51 +10,53 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 let savedValues = {
-  "A":
+    "A":
     {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
+  "box1": {
+    "position": -200,
+    "tilt": -57
+  },
+  "box2": {
+    "position": -49,
+    "tilt": -1
+  },
+  "box3": {
+    "position": -62,
+    "tilt": 33
+  }
+
     },
   "B":
+   {
+  "box1": {
+    "position": -191,
+    "tilt": -90
+  },
+  "box2": {
+    "position": 11,
+    "tilt": -25
+  },
+  "box3": {
+    "position": 46,
+    "tilt": 0
+  }
+
+},
+   "C":
     {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
-  "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+  "box1": {
+    "position": -152,
+    "tilt": -91
+  },
+  "box2": {
+    "position": -151,
+    "tilt": 180
+  },
+  "box3": {
+    "position": -151,
+    "tilt": -180
+  }
+}
 }
 
 function setup () {
@@ -128,8 +130,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [255, 255, 255];
+const colorBack = [112, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -142,7 +144,8 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  rect(-20*scale, 3*scale, scale*20, scale);
+  ellipse(-20*scale, 3*scale+6, scale, scale);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
