@@ -142,14 +142,31 @@ function drawPart(y_offset, pos, tilt) {
 
 
   fill(colorFront);
-  noStroke ();
+  stroke (125, 142, 123);
     // rect(-100,-100,100,100);
   beginShape ();
-  vertex (-24*scale, 4*scale);
-  vertex (14*scale, 6*scale);
-  vertex (16*scale, 4*scale);
   vertex (-24*scale, 0*scale);
+  vertex (14*scale, 2*scale);
+  vertex (14*scale, 6*scale);
+  vertex (-24*scale, 4*scale);
   endShape (CLOSE);
+
+  fill (255, 180);
+  beginShape ();
+  vertex (-24*scale, -0*scale);
+  vertex (-21*scale, -2*scale);
+  vertex (16*scale, 0*scale);
+  vertex (14*scale, 2*scale);
+  endShape (CLOSE);
+
+  fill (60, 180);
+  beginShape ();
+  vertex (14*scale, 2*scale);
+  vertex (16*scale, 0*scale);
+  vertex (16*scale, 4*scale);
+  vertex (14*scale, 6*scale);
+  endShape (CLOSE);
+
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -162,9 +179,9 @@ function draw () {
   background(colorBack);
   fill(colorFront);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
+  drawFromSliders(-100, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 100, pos3_slider, tilt3_slider);
 }
 
 function keyTyped() {
