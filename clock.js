@@ -343,8 +343,8 @@ if(hours>=12){
     noStroke();
 
     //2
-    if(hours>12){
     if(hours>=13){
+    if(hours>=14){
     y2=306;
     }
     strokeWeight(2);
@@ -354,8 +354,8 @@ if(hours>=12){
     }
 
     //3
-    if(hours>=13){
     if(hours>=14){
+    if(hours>=15){
     y3=308;
     }
     strokeWeight(2);
@@ -365,8 +365,8 @@ if(hours>=12){
     }
 
     //4
-    if(hours>=14){
     if(hours>=15){
+    if(hours>=16){
     y4=309.5;
     }
     strokeWeight(2);
@@ -376,8 +376,8 @@ if(hours>=12){
     }
 
     //5
-    if(hours>=15){
     if(hours>=16){
+    if(hours>=17){
     y5=310;
     }
     strokeWeight(2);
@@ -387,8 +387,8 @@ if(hours>=12){
     }
 
     //6
-    if(hours>=16){
     if(hours>=17){
+    if(hours>=18){
     y6=310.5;
     }
     strokeWeight(2);
@@ -398,8 +398,8 @@ if(hours>=12){
     }
 
     //7
-    if(hours>=17){
-    if(hours>=18){
+    if(hours>=19){
+    if(hours>=20){
     y7=310.5;
     }
     strokeWeight(2);
@@ -409,8 +409,8 @@ if(hours>=12){
     }
 
     //8
-    if(hours>=18){
-    if(hours>=19){
+    if(hours>=20){
+    if(hours>=21){
     y8=310;
     }
     strokeWeight(2);
@@ -420,8 +420,8 @@ if(hours>=12){
     }
 
     //9
-    if(hours>=19){
-    if(hours>=20){
+    if(hours>=21){
+    if(hours>=22){
     y9=309.5;
     }
     strokeWeight(2);
@@ -431,8 +431,8 @@ if(hours>=12){
     }
 
     //10
-    if(hours>=20){
-    if(hours>=21){
+    if(hours>=22){
+    if(hours>=23){
     y10=308;
     }
     strokeWeight(2);
@@ -442,8 +442,8 @@ if(hours>=12){
     }
 
     //11
-    if(hours>=21){
-    if(hours>=22){
+    if(hours>=23){
+    if(hours>=24){
     y11=306;
     }
     strokeWeight(2);
