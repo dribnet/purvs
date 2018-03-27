@@ -8,6 +8,24 @@ let tilt3_slider = null;
 
 const canvasWidth = 960;
 const canvasHeight = 500;
+var DrawTypeEnum = {
+  CIRCLEGRID: 1,
+  SQUARE: 2,
+  CIRCLE: 3,
+};
+var circleOn = true;
+var squareOn = true;
+var circleGridArray = new Array(3);
+for (var i = 0; i < circleGridArray.length; i++) {
+   circleGridArray[i] = new Array(3);
+ }
+
+for (var i = 0; i < circleGridArray.length; i++) {
+  for (var j = 0; j < circleGridArray[i].length; j++) {
+    circleGridArray[i][j]= true;
+  }
+}
+
 
 let savedValues = {
   "A":
@@ -54,7 +72,37 @@ let savedValues = {
         "position": 0,
         "tilt": -27
       }
+    },
+  "D":
+    {
+      "box1": {
+        "position": -151,
+        "tilt": -90
+      },
+      "box2": {
+        "position": -70,
+        "tilt": 57
+      },
+      "box3": {
+        "position": -40,
+        "tilt": -46
+      }
+    },
+  "F":
+    {
+    "box1": {
+      "position": -200,
+      "tilt": -180
+    },
+    "box2": {
+      "position": -200,
+      "tilt": -92
+    },
+    "box3": {
+      "position": -21,
+      "tilt": -9
     }
+  }
 }
 
 function setup () {
@@ -76,6 +124,8 @@ function setup () {
   sel.option('A');
   sel.option('B');
   sel.option('C');
+  sel.option('D');
+  sel.option('F');
   sel.changed(letterChangedEvent);
 
   button = createButton('show data');
@@ -128,10 +178,12 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
+const colorCircleGrid = [224, 0, 0];
+const colorSquare = [0, 0, 0];
+const colorCircle = [220, 220, 220];
 const colorBack = [29, 42, 46];
 
-function drawPart(y_offset, pos, tilt) {
+function drawPart(y_offset, pos, tilt, drawType) {
   let middle_x = 2 * canvasWidth / 3;
   let middle_y = canvasHeight / 2;
   resetMatrix();
@@ -140,25 +192,43 @@ function drawPart(y_offset, pos, tilt) {
 
   let scale = 10;
 
-  fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  if(drawType==DrawTypeEnum.CIRCLEGRID){
+    fill(colorCircleGrid);
+    for (var i = 0; i < 3; i++) {
+      yTranslate=i*100;
+      for (var j = 0; j < 3; j++) {
+        xTranslate=j*100;
+        if(circleGridArray[i][j]==true)    
+          ellipse((-30*scale)+xTranslate, (-10*scale)+yTranslate, 3*scale, 3*scale);
+      }
+    }
+  }
+  else if(drawType==DrawTypeEnum.SQUARE){
+      fill(colorSquare);
+      if(squareOn)
+        rect(-30*scale, -15*scale, 20*scale, 20*scale);
+  }
+  else if(drawType==DrawTypeEnum.CIRCLE){
+      fill(colorCircle);
+      if(circleOn)
+        ellipse((-30*scale)+100, (-15*scale)+100, 20*scale, 20*scale);
+    }  
 }
 
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
+function drawFromSliders(y_offset, pos_slider, tilt_slider, drawType) {
   let pos = pos_slider.value();
   let tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
+  drawPart(y_offset, pos, tilt, drawType);
 }
 
 function draw () {
   background(colorBack);
-  fill(colorFront);
+  fill(colorCircleGrid);
   stroke(95, 52, 8);
-
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 0, pos2_slider, tilt2_slider, DrawTypeEnum.SQUARE);
+  drawFromSliders( 0, pos3_slider, tilt3_slider, DrawTypeEnum.CIRCLE);
+  drawFromSliders(-50, pos1_slider, tilt1_slider, DrawTypeEnum.CIRCLEGRID);
+  
 }
 
 function keyTyped() {
