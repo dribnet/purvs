@@ -15,7 +15,7 @@ let r = Math.random(0,1); //the random minute and hour value
 x = 0; //defining x-axis value
 let y = 0; //defining y-axis value
 
-let fX = (CANVAS_WIDTH / 10); //the width of each number frame
+let fX = (CANVAS_WIDTH / 11); //the width of each number frame
 let fY = (fX * 1.33); //the height of each frame based on the ratio of width
 
 let cX = 0; //the constantly changing Y
@@ -24,7 +24,8 @@ let cX = 0; //the constantly changing Y
 let minute = 0; //the current minute
 let hour = 0; //the current hour
 let sec = 0;
-let sSec = 0;
+let mills = 0;
+let smoothSec = 0;
 
 //the alarm variables
 tAlarm = 0; 
@@ -36,7 +37,8 @@ let tVal = 0;
 let fthVal = 0;
 
 //Array
-var fArray = [];
+var xArray = [];
+var yArray = [];
 var have_setup = false;
 
 function my_setup () {
@@ -44,11 +46,10 @@ function my_setup () {
   // let main_canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   // main_canvas.parent('canvasContainer');
   
-  console.log(fArray);
-  for(z = 0; z < 40; z++){
-  	fArray[z]=(Math.floor(random(0,10)));
+  for(z = 0; z < 60; z++){
+  	xArray[z]=(Math.floor(random(0,10)));
+  	yArray[z]=(Math.floor(random(0,10)));
   }
-  console.log(fArray);
 }
 
 function draw_clock(obj) {
@@ -64,13 +65,12 @@ function draw_clock(obj) {
   hour = obj.hours;
   minute = obj.minutes;
   sec = obj.seconds;
+  mills = obj.millis;
   tAlarm = obj.seconds_until_alarm;
-  sSec = sec;
   //defines background and stroke
   background(50,40,80); // black background
   stroke(0);
   cGen(); //starts the functions to draw the clock
-  
 }
 
 function cTime(){ //defines the current time
@@ -89,9 +89,12 @@ function cTime(){ //defines the current time
 function cGen(){	
 	cTime();
 
-	if(tAlarm == 0){fill(255,66,66);}
+	if(tAlarm == 0){fill(255,66,66); background(200, 30, 30);}
 	else{fill(85,90,120);};
+
+	//blended
 	nGen();	
+	xGen();
 
 	fill(255);
 	aDraw(fVal, CANVAS_WIDTH/2 - fX*2, CANVAS_HEIGHT/2 + fY*0.25, 100, 100);
@@ -101,9 +104,53 @@ function cGen(){
 }
 
 function nGen(){
-	cY = map(sec, 0, 59, 0-fY, CANVAS_HEIGHT+fY, false);
-	for(z = 0; z < 40; z++){
-		aDraw(fArray[z], 50*z, cY, fX, fY);
+	x = 0;
+	y = 0;
+	//cY = map(sec, 0, 59, 0-fY, CANVAS_HEIGHT+fY, true);
+	for(z = 0; z <= 60; z++){
+		let smoothSec = sec + (mills / 1000.0);
+		cY = map(smoothSec, 0, 59, 0-fY, CANVAS_HEIGHT+fY/*+fY-(60-(z*12.635))*/, true);
+		y = cY + (12.635*z);
+		aDraw(yArray[z], x, y, fX, fY);
+		if(x >= CANVAS_WIDTH){x = 0}
+		else{x = x+fX};
+		if(y >= CANVAS_HEIGHT){y = 0}
+	}
+
+	for(z = 0; z <= 60; z++){
+		let smoothSec = sec + (mills / 1000.0);
+		cY = map(smoothSec, 0, 59, CANVAS_HEIGHT+fY, 0-fY/*+fY-(60-(z*12.635))*/, true);
+		y = cY - (12.635*z);
+		aDraw(yArray[z], x, y, fX, fY);
+		if(x >= CANVAS_WIDTH){x = 0}
+		else{x = x+fX};
+		if(y >= CANVAS_HEIGHT){y = 0}
+	}
+}
+
+function xGen(){
+	x = 0;
+	y = 0;
+	for(z = 0; z <= 60; z++){
+		let smoothSec = sec + (mills / 1000.0);
+		cX = map(smoothSec, 0, 59, 0-fX, CANVAS_WIDTH-fX);
+		x = cX + (23.75*z);
+		aDraw(xArray[z], x, y, fX, fY);
+		if(y >= CANVAS_HEIGHT){y = 0}
+		else{y = y+fY};
+		if(x >= CANVAS_WIDTH){x = 0}
+	}
+
+	x = 0;
+	y = 0;
+	for(z = 0; z <= 60; z++){
+		let smoothSec = sec + (mills / 1000.0);
+		cX = map(smoothSec, 0, 59, CANVAS_WIDTH+fX, 0-fY);
+		x = cX - (23.75*z);
+		aDraw(xArray[z], x, y, fX, fY);
+		if(y >= CANVAS_HEIGHT){y = 0}
+		else{y = y+fY};
+		if(x >= CANVAS_WIDTH){x = 0}
 	}
 }
 
