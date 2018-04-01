@@ -1,7 +1,5 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
+Style 1:
 
-Replace this README with information about your alphabet.
+My first idea is to have each of the letters contained within a triangular shape. I will have parameters for two white stripes to distunguish each letter. To further develop this idea, I was thinking I could have a secondary colour (dark gray) for the extra shapes the two stripes create (as in B and C).
