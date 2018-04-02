@@ -1,5 +1,5 @@
 ## PS2 MDDN 242 2018
 
-Style 1:
+Style 2:
 
-My first idea is to have each of the letters contained within a triangular shape. I will have parameters for two white stripes to distunguish each letter. To further develop this idea, I was thinking I could have a secondary colour (dark gray) for the extra shapes the two stripes create (as in B and C).
+My second idea is to have an arrow shape that can be rotated and stretched to form the main part of the letter. I have also included two circle shapes that can change position and either be visibile or not.
