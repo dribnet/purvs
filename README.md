@@ -1,5 +1,5 @@
 ## PS2 MDDN 242 2018
 
-Style 2:
+Style 3:
 
-My second idea is to have an arrow shape that can be rotated and stretched to form the main part of the letter. I have also included two circle shapes that can change position and either be visibile or not.
+My third idea is to create the letters from two lines and a ring shape. The ring can change position and size but the thickness will stay the same. All of the letters will use the ring shape. The two lines will have optional visibility and can change position and angle, but not thickness.
