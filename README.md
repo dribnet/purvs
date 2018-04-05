@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
 
-Replace this README with information about your alphabet.
+My idea for this alphabet style is to have an isometric set of animating alphabets.
+ I will create this animation by fading in and fading out in between 
+all "blocks" that formed the alphabet by playing with the opacity. 
+I am also gonna fake this 3D style by just using 2D shapes.
