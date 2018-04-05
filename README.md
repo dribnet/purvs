@@ -1,4 +1,5 @@
 ## Progress #1
+Forgot to change thumbnail in last commit.
 Doesn't work on chrome to well.
 
 In the last update I said I wanted to create this 'literal font' but remixed and I went on to figure out how to generate a image of the font and manipulate the pixels. 
