@@ -88,8 +88,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [250,250,205];
+const colorBack = [255,250,240];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
