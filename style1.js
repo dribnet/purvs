@@ -132,8 +132,8 @@ const colorFront = [207, 222, 227];
 const colorBack = [29, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
-  let middle_x = 2 * canvasWidth / 3;
-  let middle_y = canvasHeight / 2;
+  let middle_x = ellipse(200,200,90,50)
+  let middle_y = ellipse(200,200,90,50)
   resetMatrix();
   translate(middle_x + pos, middle_y + y_offset);
   rotate(tilt);
@@ -142,7 +142,7 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  rect(-20*scale, -1*scale, 20*scale, -1*scale);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
