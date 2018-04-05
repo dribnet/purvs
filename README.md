@@ -1,7 +1,3 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
-
-Replace this README with information about your alphabet.
+This is my first little play around with the code, I liked the idea of circles over lapping to create the letter but for now I just did a basic shape. I would like my final output to be a trail of circles with no fill moving around to make the letters.

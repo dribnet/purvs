@@ -11,48 +11,48 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
+      {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": -3,
+        "tilt": 14
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": -93,
+        "tilt": -29
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": 105,
+        "tilt": -16
       }
     },
   "B":
-    {
+      {
       "box1": {
-        "position": -191,
-        "tilt": -90
+        "position": -200,
+        "tilt": -158
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": -16,
+        "tilt": -47
       },
       "box3": {
-        "position": -12,
-        "tilt": 6
+        "position": -51,
+        "tilt": 41
       }
     },
   "C":
-    {
+      {
       "box1": {
-        "position": -163,
-        "tilt": -84
+        "position": 46,
+        "tilt": -85
       },
       "box2": {
-        "position": -191,
-        "tilt": 163
+        "position": -132,
+        "tilt": 123
       },
       "box3": {
-        "position": 0,
-        "tilt": -27
+        "position": 38,
+        "tilt": 4
       }
     }
 }
@@ -140,9 +140,11 @@ function drawPart(y_offset, pos, tilt) {
 
   let scale = 10;
 
-  fill(colorFront);
+  noFill();
+  stroke(255);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  //rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  ellipse(-20*scale, -3*scale, 10*scale, 10*scale);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
