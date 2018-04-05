@@ -29,7 +29,7 @@ let savedValues = {
     {
       "box1": {
         "position": -191,
-        "tilt": -89
+        "tilt": 89
       },
       "box2": {
         "position": -187,
