@@ -13,46 +13,46 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": 14,
+        "tilt": 1
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": -8,
+        "tilt": 58
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": -175,
+        "tilt": 113
       }
     },
   "B":
     {
       "box1": {
         "position": -191,
-        "tilt": -90
+        "tilt": -89
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": -187,
+        "tilt": -180
       },
       "box3": {
-        "position": -12,
-        "tilt": 6
+        "position": -4,
+        "tilt": 43
       }
     },
   "C":
     {
       "box1": {
-        "position": -163,
-        "tilt": -84
+        "position": -159,
+        "tilt": -131
       },
       "box2": {
-        "position": -191,
-        "tilt": 163
+        "position": 75,
+        "tilt": -39
       },
       "box3": {
-        "position": 0,
-        "tilt": -27
+        "position": -186,
+        "tilt": 132
       }
     }
 }
@@ -128,7 +128,7 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
+const colorFront = [207, 10, 10];
 const colorBack = [29, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
@@ -142,7 +142,7 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  rect(-20*scale, -3*scale, 20*scale, 3*scale,20);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -158,7 +158,7 @@ function draw () {
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders(  0, pos3_slider, tilt3_slider);
 }
 
 function keyTyped() {

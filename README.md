@@ -1,7 +1,3 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
-
-Replace this README with information about your alphabet.
+For the current thumbnail and preview I mainly was just messing around with the code, just to try and see what I could make with it. Based off of this, my current idea is to do Neon Sign inspired idea. The plan is to have an single square like object which is made up of multiple lines and shapes that, like a neon sign, will light up different lines and segments to show different letters. I could also then add in a feature which allows the user to change the colour of the letter sign, this can be extended upon so that the user can have multiple letters showing like how one of the other example had, and for lines that are used by both characters, the colours of both letters could mix to show that both are in use. Will only do this if I have time.
