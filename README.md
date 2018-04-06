@@ -1,4 +1,11 @@
 ## PS2 MDDN 242 2018
 
-So far I have edited the code to create very thin lines that form letters in a very, very abstract way. I like the abstract, art style of the letters but the weakness is that the letters are hard for people to interpret and understand without some explanation.
-I have chosen the orange and black colours because I enjoy the contrast they create.
+(Replace this README with information about your alphabet. This is an example.)
+
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
