@@ -21,18 +21,18 @@ const letterA = {
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -105
 }
 
 const letterC = {
-  "size": 100,
+  "size": 90,
   "offsetx": 30,
   "offsety": 0
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#fff1b7";
+const colorBack   = "#d3efff";
+const colorStroke = "#ffb7ce";
 
 function setup () {
   // create the drawing canvas, save the canvas element
