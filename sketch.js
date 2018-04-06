@@ -77,12 +77,12 @@ const letterC = {
 }
 
 const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
+const colorBack   = "#aae4f7";
 const colorStroke = "#000000";
 const colorDiamond = [240, 240, 240]; 
 const colorCircleGrid = [224, 0, 0];
 const colorSquare = [0, 0, 0];
-const colorCircle = [200, 200, 200];
+const colorCircle = [74, 85, 89];
 
 function setup () {
   // create the drawing canvas, save the canvas element
