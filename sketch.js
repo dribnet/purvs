@@ -142,7 +142,7 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  ellipse(-20*scale, -3*scale, 20*scale, 3*scale);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -156,6 +156,8 @@ function draw () {
   background(colorBack);
   fill(colorFront);
   stroke(95, 52, 8);
+
+
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
