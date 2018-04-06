@@ -12,68 +12,92 @@ const canvasHeight = 500;
  *
  */
 
+// const letterA = {
+//   "size": 0,
+//   "offsetx": 0,
+//   "offsety": 35
+// }
+
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "rotate": 180,
+  "accentXa": 0,
+  "accentYa": 45
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "rotate": 90,
+  "accentXa": -45,
+  "accentYa": 25
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "rotate": 90,
+  "accentXa": 0,
+  "accentYa": -90
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#d3b59c";
+const colorBack   = "#e3ede5";
+const colorStroke = "#85bcb7";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
+  angleMode (DEGREES);
+
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
+  fill (colorFront);
+  stroke (colorStroke);
+  strokeWeight (10);
 
   // with no animation, redrawing the screen is not necessary
-  noLoop();
+  noLoop ();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+function drawLetter (posx, posy, letterData) {
+  // determines variables for the Arc
+  let rotate2 = letterData["rotate"];
 
-  // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  // determines variables for the first "accent"
+  let accentXb = letterData["accentXa"];
+  let accentYb = letterData["accentYa"];
+
+  // draws the Arc and the Accent
+  push ();
+  rotate (rotate2);
+  arc (posx ,posy ,200 ,200 ,-40 ,220 ,PIE);
+  ellipse (accentXb, accentYb, 50);
+  pop ();
 }
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background (colorBack);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  push ();
+  translate (center_x - 250, center_y);
+  drawLetter (0, 0, letterA);
+  pop ();
+
+  push ();
+  translate (center_x, center_y);
+  drawLetter (0, 0, letterB);
+  pop ();
+
+  push ();
+  translate (center_x + 250, center_y);
+  drawLetter (0, 0, letterC);
+  pop ();
 }
 
-function keyTyped() {
+function keyTyped () {
   if (key == '!') {
     saveBlocksImages();
   }
