@@ -14,25 +14,25 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx": 35,
+  "offsety": 70
 }
 
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -120
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 90,
+  "offsetx": 60,
+  "offsety": 30
 }
 
-const colorFront  = "#199cff";
+const colorFront  = "#C21807"; //#199cff
 const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorStroke = "#0"; //233f11
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -55,8 +55,8 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(posx, posy, 150, 150); //Eellipse
+  rect(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
