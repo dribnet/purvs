@@ -1,5 +1,11 @@
-## PS2 MDDN 242 2018 Part 1 - Initial Ideas
+## PS2 MDDN 242 2018
 
-I decided to go with a simple lined font. It only uses straight lines that make up the letters.
-Ive come up with a general rule that each letter is to have 3 lines making up the majority of the letter with a fourth to be used as an embellishment. This fourth line can also be incorperated into the main letter in the case of letters such as W.
+(Replace this README with information about your alphabet. This is an example.)
+
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
