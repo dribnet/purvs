@@ -1,7 +1,11 @@
-## Progress #1
-Forgot to change thumbnail in last commit.
-Doesn't work on chrome to well.
+## PS2 MDDN 242 2018
 
-In the last update I said I wanted to create this 'literal font' but remixed and I went on to figure out how to generate a image of the font and manipulate the pixels. 
+(Replace this README with information about your alphabet. This is an example.)
 
-I thought I would have to use the createImage function but I did some research on my inspirations/precedents and stumbled upon the generative gestaltung book for web and it showed a way to create what I wanted to do. In this commit it's an example from the book and I've just been playing around with the code and removing things so I can understand it better to create my own font based on it.
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
