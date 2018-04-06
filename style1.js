@@ -11,50 +11,106 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
+    // {
+    //   "box1": {
+    //     "position": -174,
+    //     "tilt": -47
+    //   },
+    //   "box2": {
+    //     "position": -104,
+    //     "tilt": -4
+    //   },
+    //   "box3": {
+    //     "position": -121,
+    //     "tilt": 58
+    //   }
     {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
+  "box1": {
+    "position": 71,
+    "tilt": -23
+  },
+  "box2": {
+    "position": 6,
+    "tilt": 49
+  },
+  "box3": {
+    "position": -146,
+    "tilt": 113
+  }
+
     },
   "B":
+    // {
+    //   "box1": {
+    //     "position": -191,
+    //     "tilt": -90
+    //   },
+    //   "box2": {
+    //     "position": -54,
+    //     "tilt": -45
+    //   },
+    //   "box3": {
+    //     "position": -12,
+    //     "tilt": 6
+    //   }
     {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
+  "box1": {
+    "position": -154,
+    "tilt": -72
+  },
+  "box2": {
+    "position": 9,
+    "tilt": 9
+  },
+  "box3": {
+    "position": -21,
+    "tilt": -9
+  }
+
     },
   "C":
+    // {
+    //   "box1": {
+    //     "position": -163,
+    //     "tilt": -84
+    //   },
+    //   "box2": {
+    //     "position": -191,
+    //     "tilt": 163
+    //   },
+    //   "box3": {
+    //     "position": 0,
+    //     "tilt": -27
+    //   }
+    // }
     {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+//   "box1": {
+//     "position": 48,
+//     "tilt": 33
+//   },
+//   "box2": {
+//     "position": -109,
+//     "tilt": 84
+//   },
+//   "box3": {
+//     "position": 16,
+//     "tilt": 95
+//   }
+// }
+//{
+  "box1": {
+    "position": 89,
+    "tilt": 26
+  },
+  "box2": {
+    "position": -185,
+    "tilt": 120
+  },
+  "box3": {
+    "position": 7,
+    "tilt": 12
+  }
+}
 }
 
 function setup () {
