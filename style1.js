@@ -157,23 +157,27 @@ function draw () {
   //480,250 is middle
   stroke(95, 52, 8);
   fill(120);
-  beginShape();
-  vertex(300,250);
-  vertex(350,150);
-  vertex(450,90);
-  vertex(700,130);
-  vertex(650,300);
-  vertex(480,350);
-  endShape(CLOSE);
+  // beginShape();
+  // vertex(300,250);
+  // vertex(350,150);
+  // vertex(450,90);
+  // vertex(700,130);
+  // vertex(650,300);
+  // vertex(480,350);
+  // endShape(CLOSE);
   
 
-fill(colorFront);
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
-
-  // arc(480, 250, 350, 350, 0, 90);
-
+// fill(colorFront);
+  // drawFromSliders(-50, pos1_slider, tilt1_slider);
+  // drawFromSliders(  0, pos2_slider, tilt2_slider);
+  // drawFromSliders( 50, pos3_slider, tilt3_slider);
+push();
+  fill(colorFront);
+  arc(480, 250, 350, 350, 80, 280, CHORD);
+  fill(colorBack);
+  noStroke();
+  arc(529, 250, 300, 346, 96, 264, CHORD);
+  pop();
 }
 
 function keyTyped() {
