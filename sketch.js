@@ -13,26 +13,53 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 50,
+  "size2": 35,
+
+
+  "offsetx": -20,
+  "offsety": 20,
+
+  "offset2x": 20,
+  "offset2y": 15,
+
+  "offset3x": 0,
+  "offset3y": -30
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 50,
+  "size2": 35,
+
+
+  "offsetx": 25,
+  "offsety": 4,
+
+  "offset2x": -10,
+  "offset2y": 12,
+
+  "offset3x": -10,
+  "offset3y": -22
+
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 50,
+  "size2": 35,
+
+  "offsetx": 15,
+  "offsety": -25,
+
+ "offset2x": 20,
+  "offset2y": 35,
+
+  "offset3x": -25,
+  "offset3y": -2
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#ffbc14";
+const colorBack   = "#ffbc14";
+const colorStroke = "255";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +69,7 @@ function setup () {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(3);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -51,12 +78,24 @@ function setup () {
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
+  let size3 = letterData["size2"];
+
+  
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
+  let pos3x = posx + letterData["offset2x"];
+  let pos3y = posy + letterData["offset2y"];
+
+  let pos4x = posx + letterData["offset3x"];
+  let pos4y = posy + letterData["offset3y"];
+
+  // draw circles
   ellipse(posx, posy, 150, 150);
   ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos3x, pos3y, size2, size2);
+  ellipse(pos4x, pos4y, size3, size3);
+
 }
 
 function draw () {
