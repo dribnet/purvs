@@ -9,4 +9,3 @@ The parameters are:
 
 
 
-At this time I still want to use a blue,orange,black,white, color palette, and thought I would make this commit, then work on graphic details.

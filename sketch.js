@@ -67,15 +67,21 @@ function drawLetter(posx, posy, scale, letterData) {
   // ellipse(posx, posy, 150, 150);
   // ellipse(pos2x, pos2y, size2, size2);
 
-point(posx, posy);
-point(posx+40, posy-40);
-point(pos2x, pos2y);
+point(posx, posy +50);
+point(posx+40, posy-40 +50);
+point(pos2x, pos2y +50);
 
 }
 
 function draw () {
   // clear screen
   background(colorBack);
+  push();
+    rectMode(CENTER);
+    strokeWeight(5)
+    stroke(255);
+    rect(width/2, height/2, 800, 400);
+  pop();
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
