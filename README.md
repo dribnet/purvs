@@ -1,7 +1,11 @@
 ## PS2 MDDN 242 2018
 
+(Replace this README with information about your alphabet. This is an example.)
 
-My idea for this alphabet style is to have an isometric set of animating alphabets.
- I will create this animation by fading in and fading out in between 
-all "blocks" that formed the alphabet by playing with the opacity. 
-I am also gonna fake this 3D style by just using 2D shapes.
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
