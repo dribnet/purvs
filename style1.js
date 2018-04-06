@@ -11,50 +11,50 @@ const canvasHeight = 500;
 
 let savedValues = {
   "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+{
+  "box1": {
+    "position": -165,
+    "tilt": 25
+  },
+  "box2": {
+    "position": 14,
+    "tilt": 117
+  },
+  "box3": {
+    "position": -200,
+    "tilt": 9
+  }
+},
   "B":
-    {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
+{
+  "box1": {
+    "position": -196,
+    "tilt": -139
+  },
+  "box2": {
+    "position": -14,
+    "tilt": -114
+  },
+  "box3": {
+    "position": 21,
+    "tilt": -79
+  }
+},
   "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+{
+  "box1": {
+    "position": -49,
+    "tilt": -73
+  },
+  "box2": {
+    "position": -140,
+    "tilt": 133
+  },
+  "box3": {
+    "position": -200,
+    "tilt": -35
+  }
+}
 }
 
 function setup () {
@@ -128,21 +128,24 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [255];
+const colorBack = [0];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
   let middle_y = canvasHeight / 2;
   resetMatrix();
   translate(middle_x + pos, middle_y + y_offset);
-  rotate(tilt);
+  rotate(tilt*2);
+  translate(30,100);
 
-  let scale = 10;
+  let scale = -10;
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  textSize(pos);
+  noStroke();
+  text("the way hands release a bird", -3*scale, 20*scale,pos*-11);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
