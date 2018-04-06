@@ -41,20 +41,20 @@ let savedValues = {
   }
 },
   "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+   {
+  "box1": {
+    "position": -95,
+    "tilt": 2
+  },
+  "box2": {
+    "position": -200,
+    "tilt": -102
+  },
+  "box3": {
+    "position": -108,
+    "tilt": -41
+  }
+}
 }
 
 function setup () {
@@ -144,6 +144,7 @@ function drawPart(y_offset, pos, tilt) {
   fill(colorFront);
   // rect(-100,-100,100,100);
   line(-10*scale, -2*scale, 7*scale, 2*scale);
+  
 
 }
 
@@ -157,6 +158,7 @@ function draw () {
   background(colorBack);
   fill(colorFront);
   stroke(55);
+
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
