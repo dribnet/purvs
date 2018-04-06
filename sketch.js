@@ -14,21 +14,35 @@ const canvasHeight = 500;
 
 const letterA = {
 
-  "offsetx": 0,
-  "offsety": 0,
-  "translateX": 356,
-  "translateY": -105,
-  "rotate" : 45
+  "translate1X": 506,
+  "translate1Y": 261,
+  "rotate1" : 260,
+
+  "translate2X": 605,
+  "translate2Y": 245,
+  "rotate2" : -11
 }
 
 const letterB = {
-  "offsetx": 0,
-  "offsety": -145
+
+  "translate1X": 500,
+  "translate1Y": 245,
+  "rotate1" : 270,
+
+  "translate2X": 0,
+  "translate2Y": 0,
+  "rotate2" : 0
 }
 
 const letterC = {
-  "offsetx": 0,
-  "offsety": 0
+
+  "translate1X": 700,
+  "translate1Y": 245,
+  "rotate1" : 270,
+
+  "translate2X": 0,
+  "translate2Y": 0,
+  "rotate2" : 0
 }
 
 const colorFront  = "#199cff";
@@ -53,18 +67,30 @@ function setup () {
 function drawLetter(posx, posy, letterData,scale) {
   // determine parameters for second circle
 
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  let transX = letterData["translateX"];
-  let transY = letterData["translateY"];
-  let rotate = letterData["rotate"];
+  let trans1X = letterData["translate1X"];
+  let trans1Y = letterData["translate1Y"];
+  let rot1 = letterData["rotate1"];
 
-  // draw two circles
-  translate(transX,transY);
-  line(posx, posy, posx, posy + 100);
-  line(posx, posy+100, posx+100, posy+100);
+  let trans2X = letterData["translate2X"];
+  let trans2Y = letterData["translate2Y"];
+  let rot2 = letterData["rotate2"];
+
+  // draw 1st right angle.
+  push();
+  translate(trans1X,trans1Y);
+  rotate(rot1);
+  line(0, 0, 0, 100);
+  line(0, 100, 100, 100);
+  pop();
+
+  // draw 2nd right angle.
+  push();
+  translate(trans2X, trans2Y);
+  rotate(rot2);
+  line(0, 0, 0, 100);
+  line(0, 100, 100, 100);
+  pop();
 
 
 }
@@ -78,16 +104,17 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters A, B, C from saved data
+  //Drawing static base line
   push()
   translate(center_x, center_y);
   rotate(45);
   translate(-center_x, -center_y);
-  line(center_x, 400, center_x, 100); //Base line
+  line(center_x, 400, center_x, 100);
   pop()
 
 
-  drawLetter(center_x - 250, center_y, letterA, 1);
+  // draw the letters A, B, C from saved data
+  drawLetter(center_x, center_y, letterA, 1);
 }
 
 function keyTyped() {
