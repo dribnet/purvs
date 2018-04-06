@@ -1,11 +1,14 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+My alphabet is based on the Morse Code, where the order of the goes from top to bottom.
+I will have animations with transitions from a dot to a dash and vice versa.
+I have a few ideas about how to remove dots or dashes when not needed anymore. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The six parameters per letter:
+  * `first` : Object shape(dot or dash) or null; of the first character 
+  * `second` : Object shape(dot or dash) or null; of the second character 
+  * `third` : Object shape(dot or dash) or null; of the third character 
+  * `fourth` : Object shape(dot or dash) or null; of the fourth character 
+  * `fifth` : Object shape(dot or dash) or null; of the fifth character 
+  * `offset` : the offset in the y axis; the more characters the smaller the offset(offset = # of null’s)
 
