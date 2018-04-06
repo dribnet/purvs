@@ -1,5 +1,11 @@
 ## PS2 MDDN 242 2018
 
-Style 3:
+(Replace this README with information about your alphabet. This is an example.)
 
-My third idea is to create the letters from two lines and a ring shape. The ring can change position and size but the thickness will stay the same. All of the letters will use the ring shape. The two lines will have optional visibility and can change position and angle, but not thickness.
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
