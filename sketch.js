@@ -12,27 +12,53 @@ const canvasHeight = 500;
  *
  */
 
+
+
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "point1X": 30, "point1Y": -70,
+  
+  "point2X": 60, "point2Y": 0,
+  
+  "point3X": 10, "point3Y": -20,
+  
+  "point4X": 50, "point4Y": -20,
+  
+  "point5X": 7, "point5Y": -12,
+  
+  "point6X": 20, "point6Y": -12
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "point1X": 0, "point1Y": -70,
+  
+  "point2X": 50, "point2Y": -35,
+  
+  "point3X": 50, "point3Y": -35,
+  
+  "point4X": 0, "point4Y": 0,
+  
+  "point5X": 50, "point5Y": -35,
+  
+  "point6X": 15, "point6Y": -35
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "point1X": 0, "point1Y": -70,
+  
+  "point2X": 50, "point2Y": -70,
+  
+  "point3X": 50, "point3Y": 0,
+  
+  "point4X": 0, "point4Y": 0,
+  
+  "point5X": 50, "point5Y": 0,
+  
+  "point6X": 50, "point6Y": -15
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#f8f8ff";
+const colorBack   = "#f8f8ff";
+const colorStroke = "#ffc482";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -48,15 +74,16 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+
+function drawLetter(posX, posY, letterData){
+  //determine parameters for lines
+
+  line(posX, posY, posX+letterData["point1X"], posY+letterData["point1Y"]);
+
+  line(posX+letterData["point1X"], posY+letterData["point1Y"], posX+letterData["point2X"], posY+letterData["point2Y"]);
+  line(posX+letterData["point3X"], posY+letterData["point3Y"], posX+letterData["point4X"], posY+letterData["point4Y"]);
+  line(posX+letterData["point5X"], posY+letterData["point5Y"], posX+letterData["point6X"], posY+letterData["point6Y"]);
 }
 
 function draw () {
@@ -68,9 +95,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
