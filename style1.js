@@ -5,6 +5,7 @@ let pos2_slider = null;
 let tilt2_slider = null;
 let pos3_slider = null;
 let tilt3_slider = null;
+let checkboxes = [];
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -31,16 +32,16 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": 0,
+        "tilt": 0
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": 0,
+        "tilt": 0
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": 0,
+        "tilt": 0
       }
     },
   "B":
@@ -120,6 +121,12 @@ function setup () {
   pos3_slider = createSlider(-200, 200, 0);
   tilt3_slider = createSlider(-180, 180, 0);
 
+  for(let i=0; i<12; i++) {
+    let cur_checkbox = createCheckbox('', false);
+    checkboxes.push(cur_checkbox);
+    cur_checkbox.parent('container_' + i);
+  }
+
   sel = createSelect();
   sel.option('A');
   sel.option('B');
@@ -132,17 +139,44 @@ function setup () {
   button.mousePressed(buttonPressedEvent);
 
   // position each element on the page
-  main_canvas.parent('canvasContainer');
-  pos1_slider.parent('slider1Container');
-  tilt1_slider.parent('slider2Container');
-  pos2_slider.parent('slider3Container');
-  tilt2_slider.parent('slider4Container');
-  pos3_slider.parent('slider5Container');
-  tilt3_slider.parent('slider6Container');
+  // main_canvas.parent('canvasContainer');
+  // pos1_slider.parent('slider1Container');
+  // tilt1_slider.parent('slider2Container');
+  // pos2_slider.parent('slider3Container');
+  // tilt2_slider.parent('slider4Container');
+  // pos3_slider.parent('slider5Container');
+  // tilt3_slider.parent('slider6Container');
 
   sel.parent(selectorContainer);
   button.parent(buttonContainer);
+  letterChangedEvent();
 }
+
+function uiToDataObject() {
+  let obj = [];
+  for(let i=0; i<12; i++) {
+    obj.push(checkboxes[i].checked());
+  }
+  return obj;
+}
+
+function dataObjectToUi(obj) {
+  for(let i=0; i<12; i++) {
+    checkboxes[i].checked(obj[i]);
+  }
+}
+
+function letterChangedEvent() {
+  let item = sel.value();
+  dataObjectToUi(letterParams[item]);
+}
+
+function buttonPressedEvent() {
+  let obj = uiToDataObject();
+  json = JSON.stringify(obj, null, 2);
+  alert(json);
+}
+
 
 function sliderToDataObject() {
   let obj = {};
