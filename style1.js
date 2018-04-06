@@ -13,46 +13,46 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
-        "tilt": -47
+        "position": -150,
+        "tilt": 90
       },
       "box2": {
-        "position": -104,
-        "tilt": -4
+        "position": -200,
+        "tilt": 120
       },
       "box3": {
-        "position": -121,
-        "tilt": 58
+        "position": 40,
+        "tilt": -120
       }
     },
   "B":
     {
       "box1": {
-        "position": -191,
+        "position": -200,
         "tilt": -90
       },
       "box2": {
-        "position": -54,
-        "tilt": -45
+        "position": -200,
+        "tilt": 0
       },
       "box3": {
-        "position": -12,
-        "tilt": 6
+        "position": -200,
+        "tilt": 0
       }
     },
   "C":
     {
       "box1": {
-        "position": -163,
-        "tilt": -84
+        "position": -143,
+        "tilt": 15
       },
       "box2": {
-        "position": -191,
-        "tilt": 163
+        "position": -200,
+        "tilt": -68
       },
       "box3": {
-        "position": 0,
-        "tilt": -27
+        "position": -103,
+        "tilt": -156
       }
     }
 }
@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [150];
+const colorBack = [75];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -142,7 +142,17 @@ function drawPart(y_offset, pos, tilt) {
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  drawLetter(100,200,120,120);
+}
+
+function drawLetter(posx,posy,offx,offy){
+  fill(colorFront);
+  ellipse(posx,posy-250,30,30);
+  ellipse(posx-110,posy-250,30,30);
+  fill(colorBack);
+  ellipse(posx,posy-250,23,23);
+  ellipse(posx-110,posy-250,23,23);
+  
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
