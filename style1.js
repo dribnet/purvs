@@ -12,19 +12,19 @@ const canvasHeight = 500;
 let savedValues = {
   "A":
     {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
+  "box1": {
+    "position": -166,
+    "tilt": -77
+  },
+  "box2": {
+    "position": -38,
+    "tilt": 0
+  },
+  "box3": {
+    "position": -71,
+    "tilt": 72
+   }
+  },
   "B":
     {
       "box1": {
@@ -128,8 +128,8 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [186, 243, 255];
+const colorBack = [255, 232, 239];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -141,8 +141,9 @@ function drawPart(y_offset, pos, tilt) {
   let scale = 10;
 
   fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  //rect(-100,-100,100,100);
+  rect(-20*scale, -3*scale, 20*scale, 3*scale, 50);
+  // ellipse(50, 50, 50, 50);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -154,11 +155,14 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  strokeWeight(2);
+  stroke(255);
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
   drawFromSliders( 50, pos3_slider, tilt3_slider);
+  
+
 }
 
 function keyTyped() {
