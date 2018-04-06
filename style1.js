@@ -1,3 +1,4 @@
+
 let main_canvas = null;
 let pos1_slider = null;
 let tilt1_slider = null;
@@ -156,9 +157,9 @@ function draw () {
   fill(colorFront);
   stroke(95, 52, 8);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  rect(250, pos1_slider, tilt1_slider, 60);
+  drawFromSliders( 500, pos2_slider, tilt2_slider, 70);
+  ellipse( 500, pos3_slider, tilt3_slider, 90);
 }
 
 function keyTyped() {
