@@ -26,8 +26,8 @@ const letterB = {
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 100,
+  "offsety": -10
 }
 
 const colorFront  = "#199cff";
@@ -55,7 +55,7 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
+  ellipse(pos2x, pos2y, 150, 150);
   ellipse(pos2x, pos2y, size2, size2);
 }
 
@@ -70,7 +70,7 @@ function draw () {
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
   drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x + 250, center_y, 10, letterA);
 }
 
 function keyTyped() {
