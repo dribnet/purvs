@@ -13,20 +13,21 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 0,
+  "translateX": 356,
+  "translateY": -105,
+  "rotate" : 45
 }
 
 const letterB = {
-  "size": 150,
   "offsetx": 0,
   "offsety": -145
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
+  "offsetx": 0,
   "offsety": 0
 }
 
@@ -43,23 +44,33 @@ function setup () {
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
+function drawLetter(posx, posy, letterData,scale) {
   // determine parameters for second circle
+
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+  let transX = letterData["translateX"];
+  let transY = letterData["translateY"];
+  let rotate = letterData["rotate"];
+
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  translate(transX,transY);
+  line(posx, posy, posx, posy + 100);
+  line(posx, posy+100, posx+100, posy+100);
+
+
 }
 
 function draw () {
+
   // clear screen
   background(colorBack);
 
@@ -68,9 +79,15 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  push()
+  translate(center_x, center_y);
+  rotate(45);
+  translate(-center_x, -center_y);
+  line(center_x, 400, center_x, 100); //Base line
+  pop()
+
+
+  drawLetter(center_x - 250, center_y, letterA, 1);
 }
 
 function keyTyped() {
