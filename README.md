@@ -1,3 +1,11 @@
 ## PS2 MDDN 242 2018
 
-This is my preliminary idea for my alphabet. It is based off two types of triangles- one with two thick sides and one thin, and one with one thick side and two thin. There will be 2 of each triangle availible to be used or hidden to creat each letter. Every letter consits of 1-3 triangles and is made up of a combination of the two triangle types. 
+(Replace this README with information about your alphabet. This is an example.)
+
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
