@@ -1,9 +1,11 @@
 ## PS2 MDDN 242 2018
 
-## Alphabet
+(Replace this README with information about your alphabet. This is an example.)
 
-For my alphabet I was thinking of having simple lettering that is made up of arcs. This point of this alaphabet is that the arcs never turn into fully enclosed circles. For eample every letter has opening and gaps. Some of the letter I simple changed hte orientation of it to make it similar to the other letters so it is slightly confusing for the user. 
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
-For the numbering I was thinking of making it slightly more unreadable but still taking the same idea as the letters. 
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
-How i am thinking of making this is having several arcs that can be orientated around. Or have difference sized arcs that you can call or stretch the exsisting one. These are just ideas so far and I am not sure what I will do just yet. 
