@@ -13,22 +13,22 @@ let savedValues = {
   "A":
     {
       "box1": {
-        "position": -174,
+        "position": -350,
         "tilt": -47
       },
       "box2": {
-        "position": -104,
+        "position": -350,
         "tilt": -4
       },
       "box3": {
-        "position": -121,
+        "position": -350,
         "tilt": 58
       }
     },
   "B":
     {
       "box1": {
-        "position": -191,
+        "position": -350,
         "tilt": -90
       },
       "box2": {

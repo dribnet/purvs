@@ -1,11 +1,13 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+My alphabet is a set of 4 circles which are all connected by lines.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I have 8 parameters per letter:
+  * x : x of first circle
+  * y : y of first circle
+  * x2 : x of second circle
+  * y2 : y of second circle
+  * etc..
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+
 
