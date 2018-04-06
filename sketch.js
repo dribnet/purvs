@@ -1,14 +1,30 @@
-var main_canvas;
-var pos1_slider;
-var tilt1_slider;
-var pos2_slider;
-var tilt2_slider;
-var pos3_slider;
-var tilt3_slider;
+const canvasWidth = 960;
+const canvasHeight = 500;
 
-var canvasWidth = 960;
-var canvasHeight = 500;
+/* 
+ * my three variable per letter are:
+ *
+   size: radius of the second circle (in pixels)
+   offsetx: x offset (in pixels) of the second circle
+            relative to the first one
+   offsety: y offset (in pixels) of the second circle
+            relative to the first one
+ *
+ */
 
+const letterA = {
+  "size": 80,
+  "offsetx": 0,
+  "offsety": 35
+}
+
+const letterB = {
+  "size": 150,
+  "offsetx": 0,
+  "offsety": -145
+}
+
+<<<<<<< HEAD
 var savedValues = {
   "A":
     {
@@ -55,111 +71,55 @@ var savedValues = {
         "tilt": -27
       }
     }
+=======
+const letterC = {
+  "size": 100,
+  "offsetx": 30,
+  "offsety": 0
+>>>>>>> upstream/part1
 }
+
+const colorFront  = "#199cff";
+const colorBack   = "#e3eded";
+const colorStroke = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
-
-  // rotation in degrees (more slider friendly)
-  angleMode(DEGREES);
-
-  // create two sliders
-  pos1_slider = createSlider(-200, 200, 0);
-  tilt1_slider = createSlider(-180, 180, 0);
-  pos2_slider = createSlider(-200, 200, 0);
-  tilt2_slider = createSlider(-180, 180, 0);
-  pos3_slider = createSlider(-200, 200, 0);
-  tilt3_slider = createSlider(-180, 180, 0);
-
-  sel = createSelect();
-  sel.option('A');
-  sel.option('B');
-  sel.option('C');
-  sel.changed(letterChangedEvent);
-
-  button = createButton('show data');
-  button.mousePressed(buttonPressedEvent);
-
-  // position each element on the page
   main_canvas.parent('canvasContainer');
-  pos1_slider.parent('slider1Container');
-  tilt1_slider.parent('slider2Container');
-  pos2_slider.parent('slider3Container');
-  tilt2_slider.parent('slider4Container');
-  pos3_slider.parent('slider5Container');
-  tilt3_slider.parent('slider6Container');
 
-  sel.parent(selectorContainer);
-  button.parent(buttonContainer);
-}
-
-function sliderToDataObject() {
-  var obj = {};
-  obj["box1"] = {};
-  obj["box1"]["position"] = pos1_slider.value();
-  obj["box1"]["tilt"] = tilt1_slider.value();
-  obj["box2"] = {};
-  obj["box2"]["position"] = pos2_slider.value();
-  obj["box2"]["tilt"] = tilt2_slider.value();
-  obj["box3"] = {};
-  obj["box3"]["position"] = pos3_slider.value();
-  obj["box3"]["tilt"] = tilt3_slider.value();
-  return obj;
-}
-
-function dataObjectToSliders(obj) {
-  pos1_slider.value(obj["box1"]["position"]);
-  tilt1_slider.value(obj["box1"]["tilt"]);
-  pos2_slider.value(obj["box2"]["position"]);
-  tilt2_slider.value(obj["box2"]["tilt"]);
-  pos3_slider.value(obj["box3"]["position"]);
-  tilt3_slider.value(obj["box3"]["tilt"]);
-}
-
-function letterChangedEvent() {
-  var item = sel.value();
-  dataObjectToSliders(savedValues[item]);
-}
-
-function buttonPressedEvent() {
-  var obj = sliderToDataObject();
-  json = JSON.stringify(obj, null, 2);
-  alert(json);
-}
-
-var colorFront = [207, 222, 227];
-var colorBack = [29, 42, 46];
-
-function drawPart(y_offset, pos, tilt) {
-  var middle_x = 2 * canvasWidth / 3;
-  var middle_y = canvasHeight / 2;
-  resetMatrix();
-  translate(middle_x + pos, middle_y + y_offset);
-  rotate(tilt);
-
-  var scale = 10;
-
+  // color/stroke setup
   fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  stroke(colorStroke);
+  strokeWeight(4);
+
+  // with no animation, redrawing the screen is not necessary
+  noLoop();
 }
 
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
-  var pos, tilt;
-  pos = pos_slider.value();
-  tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
+function drawLetter(posx, posy, scale, letterData) {
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+
+  // draw two circles
+  ellipse(posx, posy, 150, 150);
+  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
+  // clear screen
   background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  // compute the center of the canvas
+  let center_x = canvasWidth / 2;  
+  let center_y = canvasHeight / 2;
+
+  // draw the letters A, B, C from saved data
+  drawLetter(center_x - 250, center_y, 10, letterA);
+  drawLetter(center_x      , center_y, 10, letterB);
+  drawLetter(center_x + 250, center_y, 10, letterC);
 }
 
 function keyTyped() {
