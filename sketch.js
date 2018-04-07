@@ -13,75 +13,26 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 150,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 45
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 50,
+  "offsetx": 70,
+  "offsety": 10
+
 }
 
-<<<<<<< HEAD
-var savedValues = {
-  "A":
-    {
-  "box1": {
-    "position": 132,
-    "tilt": -47
-  },
-  "box2": {
-    "position": -104,
-    "tilt": -4
-  },
-  "box3": {
-    "position": -121,
-    "tilt": 58
-  }
-},
-  "B":
-    {
-  "box1": {
-    "position": -191,
-    "tilt": -90
-  },
-  "box2": {
-    "position": -30,
-    "tilt": -41
-  },
-  "box3": {
-    "position": -40,
-    "tilt": 1
-  }
-},
-  "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
-=======
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
+  "size": 150,
+  "offsetx": 45,
   "offsety": 0
->>>>>>> upstream/part1
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = (221, 191, 141);
+const colorBack   = (214, 131, 49);
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -90,8 +41,9 @@ function setup () {
 
   // color/stroke setup
   fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
+  //stroke(colorStroke);
+  noStroke();
+  
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -104,8 +56,11 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
+  ellipse(posx, posy, 225, 225);
+  push();
+  fill(colorBack);
   ellipse(pos2x, pos2y, size2, size2);
+  pop();
 }
 
 function draw () {
