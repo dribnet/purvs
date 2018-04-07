@@ -13,24 +13,24 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "offset1": 0,
-  "offset2": 0,
-  "offset3": 0,
-  "offset4": 0,
-  "rot1": 0,
-  "rot2": 0,
-  "rot3": 0,
-  "rot4": 0
+  "offset1": -65,
+  "offset2": -65,
+  "offset3": 30,
+  "offset4": -90,
+  "rot1": 10,
+  "rot2": 170,
+  "rot3": 90,
+  "rot4": 90
 }
 
 const letterB = {
-  "offset1": 0,
-  "offset2": 0,
-  "offset3": 0,
-  "offset4": 0,
-  "rot1": 0,
-  "rot2": 0,
-  "rot3": 0,
+  "offset1": -70,
+  "offset2": -70,
+  "offset3": 60,
+  "offset4": 90,
+  "rot1": 130,
+  "rot2": -130,
+  "rot3": 180,
   "rot4": 0
 }
 
@@ -135,9 +135,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
+  drawLetter(center_x - 300, center_y, 10, letterA);
   drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x + 300, center_y, 10, letterC);
 }
 
 function keyTyped() {
