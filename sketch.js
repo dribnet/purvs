@@ -30,9 +30,10 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
+const colorFront  = "ffffff";
+const colorBack   = "ffffff";
 const colorStroke = "#233f11";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -40,8 +41,8 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
+  fill(200);
+  stroke(0);
   strokeWeight(4);
 
   // with no animation, redrawing the screen is not necessary
@@ -55,13 +56,13 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  //ellipse(posx, posy, 150, 150);
+  //ellipse(pos2x, pos2y, size2, size2);                                                                        
 }
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(200);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
@@ -71,6 +72,62 @@ function draw () {
   drawLetter(center_x - 250, center_y, 10, letterA);
   drawLetter(center_x      , center_y, 10, letterB);
   drawLetter(center_x + 250, center_y, 10, letterC);
+  
+  //A
+  push();
+  translate(-320,0);
+  beginShape();
+  vertex(center_x,center_y-100);                      
+  vertex(center_x-50,center_y);
+  vertex(center_x-50,center_y+100);
+  vertex(center_x,center_y+25);
+  vertex(center_x+50,center_y+100);
+  vertex(center_x+50,center_y);             
+  endShape(CLOSE);
+  //
+  beginShape();
+  vertex(center_x,center_y-75);                      
+  vertex(center_x-25,center_y);
+  vertex(center_x-25,center_y+25);
+  vertex(center_x,center_y);
+  vertex(center_x+25,center_y+25);
+  vertex(center_x+25,center_y);             
+  endShape(CLOSE);
+  pop();
+
+  //B
+  push();
+  translate(0,0);
+  beginShape();
+  vertex(center_x,center_y-100);
+  vertex(center_x-90,center_y);
+  vertex(center_x,center_y+100);
+  vertex(center_x+90,center_y);
+  endShape(CLOSE);
+  //
+  beginShape();
+  vertex(center_x,center_y-80);
+  vertex(center_x-60,center_y-10);
+  vertex(center_x+60,center_y-10);
+  endShape(CLOSE);
+  //
+  beginShape();
+  vertex(center_x,center_y+80);
+  vertex(center_x-60,center_y+10);
+  vertex(center_x+60,center_y+10);
+  endShape(CLOSE);
+  pop();
+
+  //C
+  translate(320,0);
+  push();
+  beginShape();
+  vertex(center_x,center_y-100);
+  vertex(center_x-100,center_y);
+  vertex(center_x,center_y+100);
+  vertex(center_x-50,center_y);
+  endShape(CLOSE);
+  pop();
 }
 
 function keyTyped() {
