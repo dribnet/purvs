@@ -13,15 +13,15 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": -45
 }
 
 const letterB = {
-  "size": 150,
+  "size": 130,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -65
 }
 
 const letterC = {
@@ -30,9 +30,9 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#B06660";
+const colorBack   = "#D9A98F";
+const colorStroke = "#EAC3B8";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +42,7 @@ function setup () {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(20);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
