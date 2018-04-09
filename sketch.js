@@ -73,13 +73,16 @@ function drawLetter(posx, posy, scale, letterData) {
   let endy = posy + letterData["y2"];
 
   // draw two circles
-    fill(colorFront);
+  fill(colorFront);
   ellipse(posx, posy, 130, 130);
-    fill(colorBack);
-    stroke(colorBack);
+
+  fill(colorBack);
+  stroke(colorBack);
   ellipse(pos2x, pos2y, size2, size2);
+
+  //draw line
   stroke(colorStroke);
-   fill(colorFront);
+  fill(colorFront);
   strokeWeight (40);
   line(startx, starty, endx, endy);
   strokeWeight (4);
