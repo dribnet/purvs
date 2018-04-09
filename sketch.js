@@ -13,54 +13,47 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "posX1": 200,
-  "posX2": 220,
-  "posY1": 200,
-  "posY2": 250,
-  "offset1X1": -80,
-  "offset1X2": -120,
-  "offset1Y1": 0,
-  "offset1Y2": 0,
-  "offset2X1": -30,
-  "offset2X2": -70,
-  "offset2Y1": 0,
-  "offset2Y2": -50
+  "offsetX": 200,
+  "offsetY": 200,
+  "posX1": 0,
+  "posY1": 0,
+  "posX2": -100,
+  "posY2": -100,
+  "posX3": 50,
+  "posY3": -50,
+  "posX4":- 100,
+  "posY4": -100
 }
 
 const letterB = {
-  "posX1": 450,
-  "posX2": 450,
-  "posY1": 200,
-  "posY2": 250,
-  "offset1X1": 0,
-  "offset1X2": 0,
-  "offset1Y1": -70,
-  "offset1Y2": -70,
-  "offset2X1": 30,
-  "offset2X2": 60,
-  "offset2Y1": -10,
-  "offset2Y2": -60
+  "offsetX": 0,
+  "offsetY": 0,
+  "posX1": -50,
+  "posY1": -50,
+  "posX2": 100,
+  "posY2": 100,
+  "posX3": 0,
+  "posY3": 50,
+  "posX4": 200,
+  "posY4": 100
 }
 
 const letterC = {
-  "posX1": 770,
-  "posX2": 800,
-  "posY1": 230,
-  "posY2": 250,
-  "offset1X1": 0,
-  "offset1X2": 0,
-  "offset1Y1": -80,
-  "offset1Y2": -120,
-  "offset2X1": -10,
-  "offset2X2": -50,
-  "offset2Y1": -40,
-  "offset2Y2": -60
-
+  "offsetX":-200,
+  "offsetY": -200,
+  "posX1": -50,
+  "posY1": -50,
+  "posX2": -100,
+  "posY2": -100,
+  "posX3": 0,
+  "posY3": 0,
+  "posX4": -100,
+  "posY4": -100
 }
 
-const colorFront  = "#fff968";
-const colorBack   = "#e3eded";
-const colorStroke = "#ffb168";
+const colorFront  = "#7142f4";
+const colorBack   = "#000000";
+const colorStroke = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -78,23 +71,33 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let posx1 = letterData["posX1"];
+  let mainposx1 =letterData["offsetX"];
+  let mainposy1 =letterData["offsetY"];
+  let posx1 = mainposx1 + letterData["posX1"];
   let posx2 = letterData["posX2"];
-  let posy1 = letterData["posY1"];
+  let posx3 = mainposx1+letterData["posX3"];
+  let posx4 = letterData["posX4"];
+  let posy1 = mainposy1+letterData["posY1"];
   let posy2 = letterData["posY2"];
-  let offset1x1 = posx1 + letterData["offset1X1"];
-  let offset1x2 = posx2 + letterData["offset1X2"];
-  let offset1y1 = posy1 + letterData["offset1Y1"];
-  let offset1y2 = posy2 + letterData["offset1Y2"];
-  let offset2x1 = posx1 + letterData["offset2X1"];
-  let offset2x2 = posx2 + letterData["offset2X2"];
-  let offset2y1 = posy1 + letterData["offset2Y1"];
-  let offset2y2 = posy2 + letterData["offset2Y2"];
+  let posy3 = mainposy1+letterData["posY3"];
+  let posy4 = letterData["posY4"];
+ 
+  
+  angleMode(DEGREES);
+  rectMode(CENTER);
+
+push();
+
+  translate(canvasWidth/2, canvasHeight/2);
+
+  rotate(135);
 
   // draw two circles
-  line(posx1, posy1, posx2, posy2);
-  line(offset1x1, offset1y1, offset1x2, offset1y2);
-  line(offset2x1, offset2y1, offset2x2, offset2y2);
+  rect(mainposx1, mainposy1, 200, 200);
+  rect(posx1, posy1, posx2, posy2);
+  rect(posx3, posy3, posx4, posy4);
+  
+pop();
 }
 
 function draw () {
@@ -107,7 +110,7 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
+  drawLetter(center_x   , center_y, 10, letterB);
   drawLetter(center_x + 250, center_y, 10, letterC);
 }
 

@@ -1,18 +1,18 @@
 ## PS2 MDDN 242 2018
 
-Each of my letters is composed with three lines. The position, length and angle of the lines is not fixed so they change depending on the letter. 
+This is my second alphabet. This one is more limited than the previous one so making unique letters is more difficult.
 
-The twelve parameters per letter:
 
-  * posX1: first x position for the first line
-  * posX2: second x position for the first line
-  * posY1: first y position for the first line,
-  * posY2: second y position for the first line,
-  * offset1X1: x offset for the second line based on the first x position
-  * offset1X2: x offset for the second line based on the second x position
-  * offset1Y1: y offset for the second line based on the first y position
-  * offset1Y2: y offset for the second line based on the second y position
-  * offset2X1: x offset for the third line based on the first x position
-  * offset2X2: x offset for the third line based on the second x position
-  * offset2Y1: y offset for the third line based on the first y position
-  * offset2Y2: y offset for the third line based on the second y position
+The ten parameters per letter:
+
+
+  * offsetX: The x offset of the main dimond
+  * offsetY: The y offset of the main dimond
+  * posx1: first x position for the first dimond
+  * posx2: second x position for the first dimond
+  * posx3: first x position for the second dimond
+  * posx4: second x position for the second dimond
+  * posy1: first y position for the first dimond
+  * posy2: second y position for the first dimond
+  * posy3: first y position for the second dimond
+  * posy4: second y position for the second dimond
