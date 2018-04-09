@@ -9,3 +9,5 @@ The 6 parameters per letter:
   * `pointTwo` : x and y value of pointTwo
   etc..
 
+
+- Added refined colour choices to better show layering.

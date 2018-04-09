@@ -4,6 +4,8 @@ const canvasHeight = 500;
 const letterSize = 100;
 const letterAngle = 0.872665;
 
+const colourOpac = 50;
+
 /* 
  * my three variable per letter are:
  *
@@ -78,6 +80,8 @@ function drawLetter(posx, posy, scale, letterData) {
   let p5 = createVector(letterData["pointFive"]["x"], letterData["pointFive"]["y"]);
   let p6 = createVector(letterData["pointSix"]["x"], letterData["pointSix"]["y"]);
 
+  fill(255, 223, 17, colourOpac);
+
   beginShape();
   vertex(posx - p1.x, posy - p1.y);
   vertex(posx - p2.x, posy - p2.y);
@@ -85,22 +89,20 @@ function drawLetter(posx, posy, scale, letterData) {
   endShape(CLOSE);
 
 push();
-  fill(0);
-  ellipse(posx,posy,5,5);
-  push();
+  stroke(0,40);
   noFill();
+  //ellipse(posx,posy,5,5);
   ellipse(posx,posy,letterSize*2,letterSize*2);
-  pop();
-  fill(255,0,0);
+    fill(0);
   ellipse(posx - p1.x, posy - p1.y,5,5);
    ellipse(posx - p4.x, posy - p4.y,5,5);
-  fill(0,255,0);
   ellipse(posx - p2.x, posy - p2.y,5,5);
     ellipse(posx - p5.x, posy - p5.y,5,5);
-  fill(0,0,255);
   ellipse(posx - p3.x, posy - p3.y,5,5);
     ellipse(posx - p6.x, posy - p6.y,5,5);
 pop();
+
+fill(17, 215, 255,colourOpac);
 
   beginShape();
   vertex(posx - p4.x, posy - p4.y);
@@ -111,7 +113,7 @@ pop();
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(255);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
