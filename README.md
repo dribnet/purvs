@@ -1,11 +1,3 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+I changed my idea a bit. I want the font to be made up of the same arcs and be simpler so it is more confusing and interesting. The arcs will never come together to be full circles. How it will work is that the larger arc will rotate and the smaller one will rotate and move around to form the different letters and numbers. I decided to simplify it because I realised that my other idea would require too many parameters as well as it was really confusing to code. I like the look of this font better as it is just curves that rotate and move about. I'm sure if I will add in some other things but for now this is my initial idea 2.
