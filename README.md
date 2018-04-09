@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+Each of my letters consist of two triangles that occupy a larger sphere, the size of the sphere is set as a constant and if changed, the points for each trianlge will also update. Each letter currently consists of 6 parameters.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+The trangles also use a fill with a slight opacty giving it a layered look.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The 6 parameters per letter:
+  * `pointone` : x and y value of pointOne
+  * `pointTwo` : x and y value of pointTwo
+  etc..
 
