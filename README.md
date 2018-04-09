@@ -1,9 +1,3 @@
 ## PS2 MDDN 242 2018
 
-I made the first 3 letter of my alphabet, I'm not sure about the colours yet but I think I will have it a solid colour as having the centre transparent would be strange. I like how the arcs all the same size. I think I will keep them all the same size and just changed the rotation and position of then. 
-The parameters I used are 4
-Pos2x is the x position for the outer arcs
-Pos2y is the y position for the outer arcs
-Pos3x is the x position for the inner arcs
-Pos3y is the y position for the inner arcs
-They are drawn by individually by calling and rotating the outer and inner arcs and setting the position to the place I want them.    
+I changed my idea a bit. I want the font to be made up of the same arcs and be simpler so it is more confusing and interesting. The arcs will never come together to be full circles. How it will work is that the larger arc will rotate and the smaller one will rotate and move around to form the different letters and numbers. I decided to simplify it because I realised that my other idea would require too many parameters as well as it was really confusing to code. I like the look of this font better as it is just curves that rotate and move about. I'm sure if I will add in some other things but for now this is my initial idea 2.    
