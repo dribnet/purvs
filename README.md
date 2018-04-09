@@ -11,4 +11,4 @@ translate2X
 translate2X
 rotate2
 
-As i progress through the project i may add or remove more parameters.
+So far i have coded letters A-X
