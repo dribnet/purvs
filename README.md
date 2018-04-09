@@ -1,9 +1,12 @@
 ## PS2 MDDN 242 2018
 
-Each of my letters is made up of 2 triangles. I am currently having issues with the rotation and translation of the second triangle. I may look into a different way of setting it up so I avoid using the rotate feature. 
+Examples of letters A, B and C in triange font.
 
-The three parameters per letter:
-  * `rotate' : rotation of triangle
-  * `offsetx` : x offset of the second triangle relative to the first one
-  * `offsety` : y offset of the second triangle relative to the first one
+There are  parameters per letter:
+  > offset1 -- x coordinate of the first triangle
+  > offset2 -- y coordinate of the first triangle
+  > offset3 -- x coordinate of the second triangle
+  > offset4 -- y coordinate of the second triangle
+  > rotate1 -- rotation of the first triangle
+  > rotate2 -- rotation of the second triangle
 
