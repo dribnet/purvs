@@ -278,20 +278,20 @@ const letterX = {
 
 const letterY = {
 
-  "translate1X": 587,
-  "translate1Y": 285,
-  "rotate1" : 225,
+  "translate1X": 515,
+  "translate1Y": 144,
+  "rotate1" : 45,
 
-  "translate2X": 375,
-  "translate2Y": 357,
+  "translate2X": 445,
+  "translate2Y": 215,
   "rotate2" : 315
 }
 
 const letterZ = {
 
   "translate1X": 587,
-  "translate1Y": 285,
-  "rotate1" : 225,
+  "translate1Y": 143,
+  "rotate1" : 135,
 
   "translate2X": 375,
   "translate2Y": 357,
@@ -391,8 +391,9 @@ function draw () {
   // drawLetter(center_x, center_y, letterU, 1);
   // drawLetter(center_x, center_y, letterV, 1);
   // drawLetter(center_x, center_y, letterW, 1);
-  // drawLetter(center_x, center_y, letterX, 1);
-  drawLetter(center_x, center_y, letterY, 1);
+  // // drawLetter(center_x, center_y, letterX, 1);
+  // drawLetter(center_x, center_y, letterY, 1);
+  drawLetter(center_x, center_y, letterZ, 1);
 
 }
 
