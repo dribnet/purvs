@@ -13,26 +13,40 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 60,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 0,
+  "x1": 60,
+  "y1": 50,
+  "x2": 60,
+  "y2": -40
+
 }
 
 const letterB = {
-  "size": 150,
+  "size": 60,
   "offsetx": 0,
-  "offsety": -105
+  "offsety": 0,   
+  "x1": -60,
+  "y1": -130,
+  "x2": -60,
+  "y2": 40    
 }
 
 const letterC = {
-  "size": 90,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 70,
+  "offsetx": 40,
+  "offsety": 0,
+  "x1": -40,
+  "y1": 0,
+  "x2": -40,
+  "y2": 10   
 }
 
-const colorFront  = "#fff1b7";
+const colorFront  = "#ffb7ce";
 const colorBack   = "#d3efff";
 const colorStroke = "#ffb7ce";
+  //pastel yellow hex code #fff1b7
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -53,10 +67,22 @@ function drawLetter(posx, posy, scale, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let startx = posx + letterData["x1"];
+  let starty = posy + letterData["y1"];
+  let endx = posx + letterData["x2"];
+  let endy = posy + letterData["y2"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
+    fill(colorFront);
+  ellipse(posx, posy, 130, 130);
+    fill(colorBack);
+    stroke(colorBack);
   ellipse(pos2x, pos2y, size2, size2);
+  stroke(colorStroke);
+   fill(colorFront);
+  strokeWeight (40);
+  line(startx, starty, endx, endy);
+  strokeWeight (4);
 }
 
 function draw () {

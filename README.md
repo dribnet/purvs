@@ -1,11 +1,13 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+My letters are made up of two circles and a line. The first circle has a fixed size and postion. Where as with the other two shapes (the second circle and line) the location and size are controlled by parameters.
 
 The three parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
-
+  * `x1` : starting x position of the line
+  * `y1` : starting y position of the line
+  * `x2` : ending x position of the line
+  * `y2` : ending y position of the line
