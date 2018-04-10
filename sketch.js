@@ -13,86 +13,93 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-//line 1 
-  "pt1x": 100,
-  "pt1y": 100,
-  "pt2x": 150,
-  "pt2y": 150
 
-//line 2
-//   "pt3x": 0,1
-//   "pt3y": -20
-//   "pt4x":
-//   "pt4y":
 
-// //line 3
-//   "pt5x":
-//   "pt5y":
-//   "pt6x":
-//   "pt6y":
-  
-// //line 4
-//   "pt7x":
-//   "pt7y":
-//   "pt8x":
-//   "pt8y":
+//line1
+ "ptx": -150,
+ "pty": -50,
+ "ptx2": -150,
+ "pty2": 50,
+
+ //line2
+ "ptx3": -150,
+ "pty3": 50,
+ "ptx4": -50,
+ "pty4": 50,
+
+ //line3
+ "ptx5": -50,
+ "pty5": 50,
+ "ptx6": -50,
+ "pty6": -70,
+
+ //line 4
+ "ptx7": -150,
+ "pty7": -50,
+ "ptx8": -60,
+ "pty8": -50,
 }
 
 const letterB = {
-//line 1
-  "pt1x": 100,
-  "pt1y": 15,
-  "pt2x": 150,
-  "pt2y": 150,
 
-//line 2
-//   "pt3x": 0,1
-//   "pt3y": -20
-//   "pt4x":
-//   "pt4y":
+//line1
+"ptx": -50,
+"pty": -150,
+"ptx2": -50,
+"pty2": 50,
 
-// //line 3
-//   "pt5x":
-//   "pt5y":
-//   "pt6x":
-//   "pt6y":
 
-// //line 4
-//   "pt7x":
-//   "pt7y":
-//   "pt8x":
-//   "pt8y":
+//line2
+ "ptx3": -50,
+ "pty3": -50,
+ "ptx4": 50,
+ "pty4": -50,
+
+
+//line3
+ "ptx5": 50,
+ "pty5": -50,
+ "ptx6": 50,
+ "pty6": 50,
+
+//line4
+ "ptx7": 50,
+ "pty7": 50,
+ "ptx8": 25,
+ "pty8": 50,
+
 }
 
 const letterC = {
-//line 1
-  "pt1x": 150,
-  "pt1y": 150,
-  "pt2x": 150,
-  "pt2y": 155,
 
-//line 2
-//   "pt3x": 0,1
-//   "pt3y": -20
-//   "pt4x":
-//   "pt4y":
+//line1
+ "ptx": 100,
+ "pty": -50,
+ "ptx2": 25,
+ "pty2": -50,
 
-// //line 3
-//   "pt5x":
-//   "pt5y":
-//   "pt6x":
-//   "pt6y":
-  
-// //line 4
-//   "pt7x":
-//   "pt7y":
-//   "pt8x":
-//   "pt8y":
+ //line2
+ "ptx3": 25,
+ "pty3": -50,
+ "ptx4": 25,
+ "pty4": 50,
+
+ //line3
+ "ptx5": 25,
+ "pty5": 50,
+ "ptx6": 100,
+ "pty6": 50,
+
+ //line 4
+ "ptx7": 100,
+ "pty7": -50,
+ "ptx8": 100,
+ "pty8": -40,
 }
 
-const colorFront  = "#ffbc14";
-const colorBack   = "#ffbc14";
-const colorStroke = "255";
+const colorFront  = "#199cff";
+const colorBack   = "#ffbc14"; //orange
+const colorStroke = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -108,23 +115,42 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(pt1x, pt1y, letterData) {
-  // determine parameters for second circle
+function drawLetter(ptx, pty, letterData) {
 
-  
-  let posx = pt1x + letterData["pt1x"];
-  let posy = pt1y + letterData["pt1y"];
+  let posx = ptx + letterData["ptx"];
+  let posy = pty + letterData["pty"];
 
-  let pos2x = pt1x + letterData["pt2x"];
-  let pos2y = pt1y + letterData["pt2y"];
+  let pos2x = ptx + letterData["ptx2"];
+  let pos2y = pty + letterData["pty2"];
 
-  // let pos3x = ptx + letterData["pt3x"];
-  // let pos3y = pty + letterData["pt3y"];
+  let pos3x = ptx + letterData["ptx3"];
+  let pos3y = pty + letterData["pty3"];
 
-  // draw circles
-  //ellipse(100, 100, 150, 150);
-  
-  line(posx, posy, pos2x, pos2y);
+  let pos4x = ptx + letterData["ptx4"];
+  let pos4y = pty + letterData["pty4"];
+
+  let pos5x = ptx + letterData["ptx5"];
+  let pos5y = pty + letterData["pty5"];
+
+  let pos6x = ptx + letterData["ptx6"];
+  let pos6y = pty + letterData["pty6"];
+
+  let pos7x = ptx + letterData["ptx7"];
+  let pos7y = pty + letterData["pty7"];
+
+  let pos8x = ptx + letterData["ptx8"];
+  let pos8y = pty + letterData["pty8"];
+
+
+  line(posx,posy,pos2x,pos2y);
+  line(pos3x,pos3y,pos4x,pos4y);
+  line(pos5x,pos5y,pos6x,pos6y);
+  line(pos7x,pos7y,pos8x,pos8y);
+
+
+
+
+
 
 }
 
@@ -137,9 +163,11 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x  -200, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
+
+
 }
 
 function keyTyped() {
