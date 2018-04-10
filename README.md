@@ -1,8 +1,6 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I had some big issues with trying to merge the new branch, as I had no work done over the weekend I just wiped all my old work and started fresh so that I could get the new branch to work. After this I will work on making my alphabet.
 
 The three parameters per letter:
   * `size` : radius of the second circle
