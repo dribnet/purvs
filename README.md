@@ -1,16 +1,20 @@
 ## PS2 MDDN 242 2018
 
 <<<<<<< HEAD
-I did a bit of experimentation on my code today and have created a parametric font which I am quite pleased with the look of, composed of six parameters.
-I may have to end up adjusting some of these parameters when it comes to creating more complex letters, or find a way to stylize the letters in a way that suits my paramaters.
 
-The six parameters per letter:
-  * `size` : the size of the thin rectangles.
-  * `offsetx` : x offset of the first thick rectangle
-  * `offset2x` : x offset of the second thick rectangle
+I have continued developing my code to express more letters of the alphabet. I have changed a few of the parameters as they weren't doing exactly as I was intending. However, now I have run into a new problem as the small rectangles are now moving with the larger rectangles. I have run out of time today so will have to find a fix for this next time.
+
+
+I now have eight parameters and they are:
+
+  * `size` : The length of the second wide rectangle
+  * `offsetx` : x offset of the thin rectangles (having issues with this)
+  * `offset2x` : x offset of the first thick rectangle
+  * `offset3x` : x offset of the second thick rectangle
   * `offsety` : y offset of the first thin rectangle
   * `offset2y` : y offset of the second thin rectangle
   * `offset3y` : y offset of the third thin rectangle
+   * `offset3y` : y offset of the second thick rectangle
 
 >>>>>>> upstream/part1
 =======
