@@ -2,6 +2,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterSize = 100;
+const pointSize = letterSize/20;
 const letterAngle = 0.872665;
 
 const colourOpac = 50;
@@ -80,35 +81,48 @@ function drawLetter(posx, posy, scale, letterData) {
   let p5 = createVector(letterData["pointFive"]["x"], letterData["pointFive"]["y"]);
   let p6 = createVector(letterData["pointSix"]["x"], letterData["pointSix"]["y"]);
 
-  fill(255, 223, 17, colourOpac);
+  //paper fill
+  fill(232, 232, 220);
+  //colour fill
+  //fill(255, 223, 17, colourOpac);
+
+  push();
+  translate(posx,posy);
+  angleMode(DEGREES);
+  rotate(random(-10,10));
 
   beginShape();
-  vertex(posx - p1.x, posy - p1.y);
-  vertex(posx - p2.x, posy - p2.y);
-  vertex(posx - p3.x, posy - p3.y);
+  vertex(0 - p1.x, 0 - p1.y);
+  vertex(0 - p2.x, 0 - p2.y);
+  vertex(0 - p3.x, 0 - p3.y);
   endShape(CLOSE);
 
-push();
+  //paper fill
+  fill(242, 242, 242);
+  //colour fill
+  // fill(17, 215, 255,colourOpac);
+
+  beginShape();
+  vertex(0 - p4.x, 0 - p4.y);
+  vertex(0 - p5.x, 0 - p5.y);
+  vertex(0 - p6.x, 0 - p6.y);
+  endShape(CLOSE);
+
+  push();
   stroke(0,40);
   noFill();
-  //ellipse(posx,posy,5,5);
-  ellipse(posx,posy,letterSize*2,letterSize*2);
-    fill(0);
-  ellipse(posx - p1.x, posy - p1.y,5,5);
-   ellipse(posx - p4.x, posy - p4.y,5,5);
-  ellipse(posx - p2.x, posy - p2.y,5,5);
-    ellipse(posx - p5.x, posy - p5.y,5,5);
-  ellipse(posx - p3.x, posy - p3.y,5,5);
-    ellipse(posx - p6.x, posy - p6.y,5,5);
-pop();
+  //ellipse(0,0,5,5);
+  ellipse(0,0,letterSize*2,letterSize*2);
+  fill(0);
+  // ellipse(0 - p1.x, 0 - p1.y,pointSize,pointSize);
+  // ellipse(0 - p4.x, 0 - p4.y,pointSize,pointSize);
+  // ellipse(0 - p2.x, 0 - p2.y,pointSize,pointSize);
+  // ellipse(0 - p5.x, 0 - p5.y,pointSize,pointSize);
+  // ellipse(0 - p3.x, 0 - p3.y,pointSize,pointSize);
+  // ellipse(0 - p6.x, 0 - p6.y,pointSize,pointSize);
+  pop();
 
-fill(17, 215, 255,colourOpac);
-
-  beginShape();
-  vertex(posx - p4.x, posy - p4.y);
-  vertex(posx - p5.x, posy - p5.y);
-  vertex(posx - p6.x, posy - p6.y);
-  endShape(CLOSE);
+  pop();
 }
 
 function draw () {
