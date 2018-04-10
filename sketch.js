@@ -145,7 +145,7 @@ function drawLetter(posx, posy, scale, letterData) {
   fill(colorTriangle);
   if(TriangleOn==1){
     triangle(posx, posy, posx+20*scale, posy, posx+100,posy+100);
-    triangle(posx, posy, posx+20*scale, posy, posx+100,posy+100);
+    triangle(posx, posy+200, posx+20*scale, posy+200, posx+100,posy+100);
     //quad(posx+100, posy-100, posx+20*scale, posy, posx+100, posy+100, posx, posy,)
   }
 
@@ -173,7 +173,7 @@ function draw () {
   let center_y = canvasHeight / 3;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letter);
+  drawLetter(center_x - 250, center_y, 10, letterA);
   drawLetter(center_x      , center_y, 10, letterK);
   drawLetter(center_x + 250, center_y, 10, letterC);
 }
