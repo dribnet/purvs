@@ -18,12 +18,5 @@ The 12 parameters per letter:
   * `point6Y` : Y offset of the sixth point
 
 =======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
->>>>>>> upstream/part2
+In the process of completing the entire alphabet, I have no changes from my initial idea. The current design philosiphies employed are working well from converting from drawn sketches to alphabet
 
