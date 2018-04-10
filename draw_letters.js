@@ -9,17 +9,31 @@ const colorStroke = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  let x = 25; 
+  let y = 0; 
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+  //translate(50, 50);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+  let pos1x = letterData["offset1x"];
+  let pos1y = letterData["offset1y"];
+  let pos2x = letterData["offset2x"];
+  let pos2y = letterData["offset2y"];
+  let pos3x = letterData["offset3x"];
+  let pos3y = letterData["offset3y"];
+  let pos4x = letterData["offset4x"];
+  let pos4y = letterData["offset4y"];
 
   // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  beginShape();
+  vertex(0+x, 0+y);
+  vertex(0, 0);
+  vertex(pos1x, pos1y);
+  vertex(pos2x, pos2y);
+  vertex(pos3x, pos3y);
+  vertex(pos4x, pos4y);
+  endShape(CLOSE);
 }
