@@ -1,12 +1,18 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+My alphabet is made up of three semi-transparent circles and a line. The line was added in because I realised that three circles was not enough to create unique enough letters. The line is the same colour as the background so it looks like it's cutting the circle. So far I've only finished some letters.
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+I wanted my letters to touch. This means they don't fit inside the bounding box.
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+I removed the offset parameter because It was no longer needed. However I added in parameters needed for the line.
 
+The eight parameters per letter are now:
+
+*posx1: first x position for the first circle
+*posx2: second x position for the first circle
+*posy1: first y position for the first circle
+*posy2: second y position for the first circle
+*linex1: first x position for the line
+*linex2: second x position for the line
+*liney1: first y position for the line
+*liney2: second y position for the line
