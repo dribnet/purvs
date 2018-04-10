@@ -1,12 +1,7 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+my original idea but with one extra point; will allow me to create more complex shapes and characters i couldn't with only 4 points.
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+will experiment with changing appearance of lines and points, and adding things to make the design more interesting.
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+difficulties include slowly hardcoding every point (wish i could click and drag)
