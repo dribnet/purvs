@@ -55,7 +55,7 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  rect(posx, posy, 150, 150); //Eellipse
+  rect(posx, posy, 150, 150); //ellipse
   rect(pos2x, pos2y, size2, size2);
 }
 
