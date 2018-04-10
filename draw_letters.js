@@ -28,9 +28,10 @@ function drawLetter(letterData) {
   let pos5y = posy + letterData["offset4y"];
 
   // draw two circles
-  rect(pos4x, posy, 40, 200);
-  rect(pos3x, pos5y, 40, size2);
-  rect(pos2x, pos2y, 90, 10);
-  rect(pos2x, pos3y, 90, 10);
-  rect(pos2x, pos4y, 90, 10);
+  rect(pos4x, posy, 30, 200);
+  rect(pos3x, pos5y, 30, size2);
+  fill (255, 0, 0);
+  rect(0, pos2y, 100, 10);
+  rect(0, pos3y,100, 10);
+  rect(0, pos4y, 100, 10);
 }

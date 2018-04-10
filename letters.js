@@ -11,8 +11,8 @@ const alphabet = {
   },
   "A": {
       "size": 200,
-      "offsetx": 40,
-      "offset2x": 90,
+      "offsetx": 00,
+      "offset2x": 70,
       "offset3x": 00,
       "offsety": 95,
       "offset2y": 00,
@@ -21,7 +21,7 @@ const alphabet = {
   },
   "B": {
       "size": 200,
-      "offsetx": 40,
+      "offsetx": 0,
       "offset2x": 90,
       "offset3x": 00,
       "offsety": 95,
