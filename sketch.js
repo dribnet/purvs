@@ -78,7 +78,7 @@ function draw () {
   background(colorBack);
   push();
     rectMode(CENTER);
-    strokeWeight(5)
+    strokeWeight(3)
     stroke(255);
     rect(width/2, height/2, 800, 400);
   pop();
