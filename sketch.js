@@ -14,21 +14,21 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "sizeX": 10,
-  "sizeY": 100,
-  "offsetx": -80,
-  "offsety": 110,
-  
-  "sizeX2": 10,
-  "sizeY2": 100,
-  "offsetx2": 70,
-  "offsety2": 110,
 
-  "sizeX3": 140,
-  "sizeY3": 10,
-  "offsetx3": -70,
-  "offsety3": 110,
+ 
 
+
+
+
+
+  "q1" :38,
+  "q2" :31,
+  "q3" :86,
+  "q4" :20,
+  "q5" :69,
+  "q6" :63,
+  "q7" :30,
+  "q8" :80,
     
 
   
@@ -71,6 +71,16 @@ const letterC = {
   "sizeY3": 10,
   "offsetx3": -80,
   "offsety3": -100,
+  
+  "q1" :38,
+  "q2" :31,
+  "q3" :86,
+  "q4" :20,
+  "q5" :69,
+  "q6" :63,
+  "q7" :30,
+  "q8" :80,
+
 
 }
 
@@ -111,15 +121,24 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2xxx = posx + letterData["offsetx3"];
   let pos2yyy = posy + letterData["offsety3"];
   
+  let po1 = posx + letterData["q1"];
+  let po2 = posy + letterData["q2"];
+    let po3= posx + letterData["q3"];
+  let po4 = posy + letterData["q4"];
+    let po5= posx + letterData["q5"];
+  let po6 = posy + letterData["q6"];
+    let po7 = posx + letterData["q7"];
+  let po8 = posy + letterData["q8"];
 
-
+let quad1 = quad(38,31,86,20,69,63,30,80)
+let po11 = posx + letterData["quad1"]
 
   // draw two circles
 
   rect(pos2x, pos2y, size1, size2);
   rect(pos2xx, pos2yy, size11, size22);
   rect(pos2xxx, pos2yyy, size111, size222);
-
+quad(po1,po2,po3,po4,po5,po6,po7,po8)
 
   triangle(posx,posy,posx-80,posy+100,posx+80,posy+100);
 
@@ -143,6 +162,8 @@ function draw () {
   drawLetter(center_x + 320, center_y      ,10,letterC);
 
 }
+
+
 
 function keyTyped() {
   if (key == '!') {
