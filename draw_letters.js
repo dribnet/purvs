@@ -15,11 +15,29 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+  
+   let posx = letterData["x"];
+  let posy = letterData["y"];
+
+  let pos2x = letterData["x2"];
+  let pos2y = letterData["y2"];
+
+  let pos3x = letterData["x3"];
+  let pos3y = letterData["y3"];
+
+  let pos4x = letterData["x4"];
+  let pos4y = letterData["y4"];
+
+  let pos5x = letterData["x5"];
+  let pos5y = letterData["y5"];
+
+  let pos6x = letterData["x6"];
+  let pos6y = letterData["y6"];
 
   // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  line(posx,posy,pos2x,pos2y);
+  line(pos2x,pos2y,pos3x,pos3y);
+  line(pos3x,pos3y,pos4x,pos4y);
+
+  line(pos5x,pos5y,pos6x,pos6y);
 }
