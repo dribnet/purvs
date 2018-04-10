@@ -1,11 +1,12 @@
 ## PS2 MDDN 242 2018
 
-This is just a quick experiment done in class to get my head around the ideas presented in class and hat is going on with the code.
+(Replace this README with information about your alphabet. This is an example.)
 
-This example is constructed via an Arc and a small circle. There is a small issue with the rotate conflicting with the x and y axis's but this could be fixed easily with a Push and Pop I think dependant on whether I can nest them.
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
 
-The three parameters per letter:
-  * `rotate` : rotates on the center of the Arc.
-  * `accentXa` : controls the X axis of the small circle.
-  * `accentYa` : controls the Y axis of the small circle.
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
