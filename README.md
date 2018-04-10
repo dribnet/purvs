@@ -13,7 +13,7 @@ This included updating the parameters for my design I have added more :
 The three parameters per letter are now:
 >>>>>>> upstream/part2
    	*"sizeRect": rect,
-    * "positionX": position of rect,,
+    * "positionX": position of rect,
     * "positionY": position of rect,
     * "size": circle,
     * "offsetx": position of circle,,
