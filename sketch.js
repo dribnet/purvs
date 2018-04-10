@@ -7,7 +7,7 @@ var DrawTypeEnum = {
 };
 var circleOn = 1;
 var squareOn = 1;
-var diamondOn = 1;
+var TriangleOn = 1;
 var circleGridArray = new Array(3);
 for (var i = 0; i < circleGridArray.length; i++) {
    circleGridArray[i] = new Array(3);
@@ -30,56 +30,71 @@ for (var i = 0; i < circleGridArray.length; i++) {
  *
  */
 
-const letterA = {
+// const letterA = {
 
-  "1": 0,
-  "2": 1,
-  "3": 0,
-  "4": 1,
-  "5": 1,
-  "6": 1,
-  "7": 1,
-  "8": 0,
-  "9": 1,
-  "10": 0,
-  "11": 0,
-  "12": 1
-}
+//   "TL": 0,
+//   "TM": 1,
+//   "TR": 0,
+//   "ML": 1,
+//   "MM": 1,
+//   "MR": 1,
+//   "BL": 1,
+//   "BM": 0,
+//   "BR": 1,
+//   "Square": 0,
+//   "Circle": 0,
+//   "Triangle": 1
+// }
 
-const letterB = {
-  "1": 1,
-  "2": 0,
-  "3": 1,
-  "4": 1,
-  "5": 1,
-  "6": 0,
-  "7": 1,
-  "8": 0,
-  "9": 1,
-  "10": 1,
-  "11": 0,
-  "12": 0
-}
+// const letterB = {
+//   "TL": 1,
+//   "TM": 1,
+//   "TR": 0,
+//   "ML": 1,
+//   "MM": 0,
+//   "MR": 1,
+//   "BL": 1,
+//   "BM": 1,
+//   "BR": 0,
+//   "Square": 1,
+//   "Circle": 1,
+//   "Triangle": 0
+// }
 
-const letterC = {
-  "1": 0,
-  "2": 1,
-  "3": 1,
-  "4": 1,
-  "5": 0,
-  "6": 0,
-  "7": 0,
-  "8": 1,
-  "9": 1,
-  "10": 0,
-  "11": 1,
-  "12": 0
+// const letterC = {
+//   "TL": 0,
+//   "TM": 1,
+//   "TR": 1,
+//   "ML": 1,
+//   "MM": 0,
+//   "MR": 0,
+//   "BL": 0,
+//   "BM": 1,
+//   "BR": 1,
+//   "Square": 0,
+//   "Circle": 1,
+//   "Triangle": 0
+// }
+
+const letter = {
+  "TL": 1,
+  "TM": 1,
+  "TR": 1,
+  "ML": 1,
+  "MM": 1,
+  "MR": 1,
+  "BL": 1,
+  "BM": 0,
+  "BR": 1,
+  "Square": 1,
+  "Circle": 0,
+  "Triangle": 0
 }
 
 const colorFront  = "#199cff";
 const colorBack   = "#aae4f7";
 const colorStroke = "#000000";
-const colorDiamond = [240, 240, 240]; 
+const colorTriangle = [240, 240, 240]; 
 const colorCircleGrid = [224, 0, 0];
 const colorSquare = [0, 0, 0];
 const colorCircle = [74, 85, 89];
@@ -100,18 +115,18 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  squareOn = letterData["10"];
-  circleOn = letterData["11"];
-  diamondOn = letterData["12"];
-  circleGridArray[0][0] = letterData["1"];
-  circleGridArray[0][1] = letterData["2"];
-  circleGridArray[0][2] = letterData["3"];
-  circleGridArray[1][0] = letterData["4"];
-  circleGridArray[1][1] = letterData["5"];
-  circleGridArray[1][2] = letterData["6"];
-  circleGridArray[2][0] = letterData["7"];
-  circleGridArray[2][1] = letterData["8"];
-  circleGridArray[2][2] = letterData["9"];
+  squareOn = letterData["Square"];
+  circleOn = letterData["Circle"];
+  TriangleOn = letterData["Triangle"];
+  circleGridArray[0][0] = letterData["TL"];
+  circleGridArray[0][1] = letterData["TM"];
+  circleGridArray[0][2] = letterData["TR"];
+  circleGridArray[1][0] = letterData["ML"];
+  circleGridArray[1][1] = letterData["MM"];
+  circleGridArray[1][2] = letterData["MR"];
+  circleGridArray[2][0] = letterData["BL"];
+  circleGridArray[2][1] = letterData["BM"];
+  circleGridArray[2][2] = letterData["BR"];
 
 
 
@@ -127,9 +142,14 @@ function drawLetter(posx, posy, scale, letterData) {
   if(circleOn==1)
     ellipse((posx)+100, (posy)+100, 20*scale, 20*scale);
 
-  fill(colorDiamond);
-  if(diamondOn==1)
-  quad(posx+100, posy, posx+20*scale, posy+100, posx+100, posy+200, posx, posy+100,)
+  fill(colorTriangle);
+  if(TriangleOn==1){
+    triangle(posx, posy, posx+20*scale, posy, posx+100,posy+100);
+    triangle(posx, posy, posx+20*scale, posy, posx+100,posy+100);
+    //quad(posx+100, posy-100, posx+20*scale, posy, posx+100, posy+100, posx, posy,)
+  }
+
+  
     
   fill(colorCircleGrid);
   for (var i = 0; i < 3; i++) {
@@ -153,8 +173,8 @@ function draw () {
   let center_y = canvasHeight / 3;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
+  drawLetter(center_x - 250, center_y, 10, letter);
+  drawLetter(center_x      , center_y, 10, letterK);
   drawLetter(center_x + 250, center_y, 10, letterC);
 }
 
