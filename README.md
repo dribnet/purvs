@@ -5,6 +5,7 @@ I will create this animation by fading in and fading out in between
 all "blocks" that formed the alphabet by playing with the opacity. 
 I am also gonna fake this 3D style by just using 2D shapes drawn with vertex.
 
+<<<<<<< HEAD
 
 
 The parameters per letter:
@@ -36,4 +37,13 @@ The parameters per letter:
   * `x10` : x offset of the tenth cube with colour difference
   * `y10` : y offset of the tenth cube with colour difference
 
+=======
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
+
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+>>>>>>> upstream/part2
 
