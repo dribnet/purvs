@@ -1,6 +1,7 @@
 ## PS2 MDDN 242 2018
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 I started to play around with the sliders and replaced the rectangles with arcs to make my letters with.
 I made an A, B, and C with the arcs, and added their data to the sketch1 file.
 I tried playing around with adding another parameter per arc, I statred using a y-scale (changing the width) of the arcs but it just looked weird so I am sticking with just changing the angle of the all the arcs.
@@ -20,3 +21,7 @@ The six parameters per letter are now:
 		*`Arc End`: angle of the other end of the arc
 
 >>>>>>> upstream/part2
+=======
+I started to play around with the sliders and replaced the rectangles with arcs to make my letters with.
+I made an A, B, and C with the arcs, and added their datato the sketch1 file.
+>>>>>>> 271ecd26241dc9464008478c6587b6b5c30ffa9a
