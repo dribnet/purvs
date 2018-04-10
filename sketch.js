@@ -13,26 +13,56 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "x": 0,
+  "y": 100,
+  "1x": 35,
+  "1y": 20,
+  "2x": 70,
+  "2y": 100,
+
+  "3x":35,
+  "3y":0,
+  "4x":70,
+  "4y":80,
+  "5x": 70,
+  "5y":0
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "x": 10,
+  "y": 90,
+  "1x": 10,
+  "1y": 45,
+  "2x": 65,
+  "2y": 90,
+
+  "3x": 35,
+  "3y": 50,
+  "4x": 70,
+  "4y": 80,
+  "5x": 70,
+  "5y": 20
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x": 35,
+  "y": 50,
+  "1x": 70,
+  "1y": 80,
+  "2x": 70,
+  "2y": 20,
+
+  "3x": 0,
+  "3y": 50,
+  "4x": 70,
+  "4y": 100,
+  "5x": 70,
+  "5y": 0
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = "#4EFFC4";
+const colorBack   = "#2AA9CC";
+const colorStroke = "#4EFFC4";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,20 +73,74 @@ function setup () {
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
-
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
+function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos1x = posx + letterData["x"];
+  let pos1y = posy + letterData["y"];
+  let pos2x = posx + letterData["1x"]; 
+  let pos2y = posy + letterData["1y"]; 
+  let pos3x = posx + letterData["2x"]; 
+  let pos3y = posy + letterData["2y"]; 
 
+  let pos4x = posx + letterData["3x"];  
+  let pos4y = posy + letterData["3y"]; 
+  let pos5x = posx + letterData["4x"]; 
+  let pos5y = posy+ letterData["4y"]; 
+  let pos6x = posx + letterData["5x"]; 
+  let pos6y = posy + letterData["5y"]; 
+
+  push()
+  noStroke();
+  rect(posx,posy,70,100)
+  fill(colorBack)
+  triangle( pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
+  triangle( pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
+  pop()
+  // "x": 0,
+  // "y": 100,
+  // "1x": 35,
+  // "1y": 20,
+  // "2x": 70,
+  // "2y": 100,
+
+  // "3x":35,
+  // "3y":0,
+  // "4x":70,
+  // "4y":80,
+  // "5x": 70,
+  // "5y":0
+  // draw lines
+
+  // line(posx,posy+30,pos2x,pos2y);
+  // line(pos2x,pos2y,pos3x,pos2y);
+  // line(pos3x,pos2y,pos4x,pos3y);
+
+  //   line( pos1x+27, pos1y+10, pos5x, pos5y);
+  //   line( pos5x, pos5y, pos6x, pos5y);
+  //   line( pos6x, pos5y, pos7x, pos7y);
+
+    
+//   push()
+// //    translate(-40,20)
+//   line(27,10,32,-20)
+//   line(32,-20,57,-20);
+//   line(57,-20,62,10)
+//   pop()
+    
+
+//   push()
+//   line(0,30,20,0);
+//   line(20,0,70,0)
+//   line(70,0,90,30)
+//   pop()
+  
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  // ellipse(posx, posy, 150, 150);
+  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
@@ -68,9 +152,11 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x - 250, center_y-50, letterA);
+  drawLetter(center_x      , center_y-50, letterB);
+  drawLetter(center_x + 250, center_y-50, letterC);
+
+  
 }
 
 function keyTyped() {
