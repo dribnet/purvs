@@ -1,3 +1,4 @@
+
 /*
  * Here are some things you can edit
  */
@@ -19,7 +20,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
+  angleMode(DEGREES);
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
