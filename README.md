@@ -1,7 +1,12 @@
 ## PS2 MDDN 242 2018
 
-my letters are composed of four rectangles placed in different positions to create different shapes. lines are drawn between each rectangle, but not between the first and last. very simple idea, probably could use some more interesting design elements.
+(Replace this README with information about your alphabet. This is an example.)
 
-The eight parameters per letter:
-	x(n): x coordinate of point in letter
-	y(n): y coordinate of point in letter
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
+
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
