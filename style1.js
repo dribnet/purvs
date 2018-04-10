@@ -129,7 +129,7 @@ function buttonPressedEvent() {
 }
 
 const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorBack = [255, 240, 245];
 
 function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
@@ -153,13 +153,46 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 
 function draw () {
   background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
+  //A
+  strokeWeight(20);
+  stroke(255, 69, 0);
+  strokeCap(ROUND);
+  line(290, 125, 220, 300);
+  stroke(255, 165, 0);
+  strokeCap(ROUND);
+  line(290, 125, 360, 300);
+  strokeWeight(20);
+  stroke(255, 215, 0);
+  ellipse(270, 250, 50, 50);
+  ellipse(310, 250, 50, 50);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
-}
+  //B
+  strokeWeight(20);
+  stroke(255, 69, 0);
+  strokeCap(ROUND);
+  line(480, 125, 480, 300);
+  stroke(255, 165, 0);
+  strokeCap(ROUND);
+  line(480, 145, 480, 280);
+  strokeWeight(20);
+  stroke(255, 215, 0);
+  ellipse(540, 165, 50, 50);
+  ellipse(540, 260, 50, 50);
+
+  //C
+  strokeWeight(20);
+  stroke(255, 69, 0);
+  strokeCap(ROUND);
+  line(670, 220, 800, 125);
+  stroke(255, 165, 0);
+  strokeCap(ROUND);
+  line(670, 220, 800, 300);
+  strokeWeight(20);
+  stroke(255, 215, 0);
+  ellipse(800, 185, 50, 50);
+  ellipse(800, 240, 50, 50);
+
+ }
 
 function keyTyped() {
   if (key == '!') {
