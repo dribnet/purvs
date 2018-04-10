@@ -144,6 +144,9 @@ function drawPart(y_offset, pos, tilt) {
   //rect(-100,-100,100,100);
   rect(-20*scale, -3*scale, 20*scale, 3*scale, 50);
   // ellipse(50, 50, 50, 50);
+  fill(255);
+  ellipse(-18*scale, -1.5*scale, 20, 20);
+  ellipse(-2*scale, -1.5*scale, 20, 20);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -161,6 +164,7 @@ function draw () {
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
   drawFromSliders( 50, pos3_slider, tilt3_slider);
+
   
 
 }

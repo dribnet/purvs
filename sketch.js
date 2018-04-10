@@ -13,26 +13,39 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  // "size": 80,
+  // "offsetx": 0,
+  // "offsety": 35
+  "position1": -300,
+  "tilt1": -90,
+  "position2": 50,
+  "tilt2": -45,
+  "position3": -100,
+  "tilt3": 0,
+  "turncolor": -12,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "position1": -191,
+  "tilt1": 0,
+  "position2": -54,
+  "tilt2": 0,
+  "position3": -12,
+  "tilt3": 0
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "position1": -163,
+  "tilt1": -84,
+  "position2": -191,
+  "tilt2": -95,
+  "position3": -100,
+  "tilt3": -47
 }
 
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorFront  = [186, 243, 255];
+const colorBack   = [255, 232, 239];
+const colorStroke = [255];
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -48,15 +61,36 @@ function setup () {
   noLoop();
 }
 
+function drawPart(posx, posy, scale, offsetx, tilt) {
+  resetMatrix();
+  // translate(posx + offsetx*scale/10, posy);
+  translate(posx, posy);
+  rotate(tilt);
+  noFill();
+  strokeWeight(1);
+  rect(-200, -15, 20*scale, 3*scale, 25);
+  fill(186, 243, 255);
+  strokeWeight(2.5);
+  rect(-20*scale, -3*scale, 20*scale, 3*scale, 50);
+  fill(255);
+  ellipse(-18*scale, -1.5*scale, 15, 15);
+  ellipse(-2*scale, -1.5*scale, 15, 15);
+  
+}
+
 function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let y_offset = 5 * scale;
+  drawPart(posx, posy-y_offset, scale, letterData["position1"], letterData["tilt1"]);
+  // drawPart(posx,          posy, scale, letterData["position2"], letterData["tilt2"]);
+  // drawPart(posx, posy+y_offset, scale, letterData["position3"], letterData["tilt3"]);
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  // ellipse(posx, posy, 150, 150);
+  // ellipse(pos2x, pos2y, size2, size2);
+  // rect(posx-20, posy, 150, 50, 50);
+  // rect(pos2x, pos2y, size2/2, size2*2, 50);
+  // rect(pos2x, pos2y, size2/2, size2*2, 50);
+  // rect(pos2x+70, pos2y, size2/2, size2*2, 50);
 }
 
 function draw () {
