@@ -10,5 +10,4 @@ The 6 parameters per letter:
   etc..
 
 
-- Exploring different aesthetic of origami letters rather than opaque colours.
-- Added rotation to each letter to add variation.
+- Removed guide circles 
