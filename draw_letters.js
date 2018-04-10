@@ -1,5 +1,7 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
+const center_x = 50;
+const center_y = 100;
 
 /*
  * Draw the letter given the letterData
@@ -9,17 +11,55 @@ const colorStroke = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
+
+  noFill();
+  stroke('red');
+  strokeWeight(1);
+  rect(0,0,100,200);
+
+  // determine parameters for second circle  
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+  angleMode(DEGREES);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+  // rect(0,0,100,200);
 
-  // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  let trans1X = letterData["translate1X"];
+  let trans1Y = letterData["translate1Y"];
+  let rot1 = letterData["rotate1"];
+
+  let trans2X = letterData["translate2X"];
+  let trans2Y = letterData["translate2Y"];
+  let rot2 = letterData["rotate2"];
+
+push();
+  // scale(0.5);
+
+  // //Drawing static base line
+  // push();
+  // translate(center_x, center_y);
+  // rotate(45);
+  // translate(-center_x, -center_y);
+  // line(center_x, 400, center_x, 100);
+  // pop()
+
+  // // draw 1st right angle.
+  // push();
+  // translate(trans1X,trans1Y);
+  // rotate(rot1);
+  // line(0, 0, 0, 100);
+  // line(0, 100, 100, 100);
+  // pop();
+
+  // // draw 2nd right angle.
+  // push();
+  // translate(trans2X, trans2Y);
+  // rotate(rot2);
+  // line(0, 0, 0, 100);
+  // line(0, 100, 100, 100);
+  // pop();
+
+pop();
+
 }

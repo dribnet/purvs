@@ -309,18 +309,19 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
-  angleMode(DEGREES);
+
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData,scale) {
-  // determine parameters for second circle
-
+  
+  // determine parameters for second circle  
+  fill(colorFront);
+  stroke(colorStroke);
+  strokeWeight(4);
+  angleMode(DEGREES);
 
   let trans1X = letterData["translate1X"];
   let trans1Y = letterData["translate1Y"];
@@ -329,6 +330,14 @@ function drawLetter(posx, posy, letterData,scale) {
   let trans2X = letterData["translate2X"];
   let trans2Y = letterData["translate2Y"];
   let rot2 = letterData["rotate2"];
+
+  //Drawing static base line
+  push()
+  translate(center_x, center_y);
+  rotate(45);
+  translate(-center_x, -center_y);
+  line(center_x, 400, center_x, 100);
+  pop()
 
   // draw 1st right angle.
   push();
@@ -358,19 +367,13 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  //Drawing static base line
-  push()
-  translate(center_x, center_y);
-  rotate(45);
-  translate(-center_x, -center_y);
-  line(center_x, 400, center_x, 100);
-  pop()
+
 
 
   // draw the letters A, B, C from saved data
-  // drawLetter(center_x, center_y, letterA, 1);
-  // drawLetter(center_x, center_y, letterB, 1);
-  // drawLetter(center_x, center_y, letterC, 1);
+  drawLetter(center_x, center_y, letterA, 1);
+  drawLetter(center_x, center_y, letterB, 1);
+  drawLetter(center_x, center_y, letterC, 1);
   // drawLetter(center_x, center_y, letterD, 1);
   // drawLetter(center_x, center_y, letterE, 1);
   // drawLetter(center_x, center_y, letterF, 1);
