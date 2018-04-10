@@ -12,19 +12,19 @@ const canvasHeight = 500;
 let savedValues = {
   "A":
       {
-      "box1": {
-        "position": -3,
-        "tilt": 14
-      },
-      "box2": {
-        "position": -93,
-        "tilt": -29
-      },
-      "box3": {
-        "position": 105,
-        "tilt": -16
-      }
-    },
+  "box1": {
+    "position": 3,
+    "tilt": -15
+  },
+  "box2": {
+    "position": -20,
+    "tilt": -30
+  },
+  "box3": {
+    "position": -10,
+    "tilt": 29
+  }
+},
   "B":
       {
       "box1": {
@@ -71,6 +71,7 @@ function setup () {
   tilt2_slider = createSlider(-180, 180, 0);
   pos3_slider = createSlider(-200, 200, 0);
   tilt3_slider = createSlider(-180, 180, 0);
+  pos4_slider = createSlider(-200, 200, 0);
 
   sel = createSelect();
   sel.option('A');
@@ -132,7 +133,7 @@ const colorFront = [207, 222, 227];
 const colorBack = [29, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
-  let middle_x = 2 * canvasWidth / 3;
+  let middle_x = 2 * canvasWidth / 2;
   let middle_y = canvasHeight / 2;
   resetMatrix();
   translate(middle_x + pos, middle_y + y_offset);
@@ -141,10 +142,21 @@ function drawPart(y_offset, pos, tilt) {
   let scale = 10;
 
   noFill();
-  stroke(255);
-  // rect(-100,-100,100,100);
-  //rect(-20*scale, -3*scale, 20*scale, 3*scale);
-  ellipse(-20*scale, -3*scale, 10*scale, 10*scale);
+  stroke(205);
+
+
+  beginShape();
+
+  for(var i = 0; i < 60; i++) {
+
+  var radius = 10 + random(50);
+  var x = cos(radians(i * 3.6)) * radius;
+  var y = sin(radians(i * 3.6)) * radius;
+  vertex(-scale*x, -scale/2*y);
+  }
+
+endShape();
+
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
@@ -154,12 +166,17 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
 }
 
 function draw () {
-  background(colorBack);
-  fill(colorFront);
+  background(0);
   stroke(95, 52, 8);
 
   drawFromSliders(-50, pos1_slider, tilt1_slider);
   drawFromSliders(  0, pos2_slider, tilt2_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders( 50, pos3_slider, tilt3_slider);
   drawFromSliders( 50, pos3_slider, tilt3_slider);
 }
 

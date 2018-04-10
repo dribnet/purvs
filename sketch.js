@@ -141,8 +141,16 @@ function drawPart(y_offset, pos, tilt) {
   var scale = 10;
 
   fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  beginShape();
+  for(var i = 0; i < 100; i++) {
+  Change the radius for every vertex
+
+  var radius = 100 + random(5);
+  var x = cos(radians(i * 3.6)) * radius;
+  var y = sin(radians(i * 3.6)) * radius;
+  vertex(x, y);
+  }
+  endShape();
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
