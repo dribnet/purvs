@@ -10,10 +10,14 @@ The eight parameters per letter:
   * `rot2`: Controls rotation of Arc2
   * `rot3`: Controls rotation of Arc3
   * `rot4`: Controls rotation of Arc4
-  * `offset1`: Controls the X offset of Arc1
-  * `offset2`: Controls the X offset of Arc2
-  * `offset3`: Controls the X offset of Arc3
-  * `offset4`: Controls the X offset of Arc4
+  * `offsetx1`: Controls the X offset of Arc1
+  * `offsetx2`: Controls the X offset of Arc2
+  * `offsetx3`: Controls the X offset of Arc3
+  * `offsetx4`: Controls the X offset of Arc4
+  * `offsety1`: Controls the Y offset of Arc1
+  * `offsety2`: Controls the Y offset of Arc2
+  * `offsety3`: Controls the Y offset of Arc3
+  * `offsety4`: Controls the Y offset of Arc4
 =======
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].

@@ -1,5 +1,5 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+const colorFront  = "#F7134A";
+const colorStroke = "#F787D5";
 
 /*
  * Draw the letter given the letterData
@@ -13,13 +13,69 @@ function drawLetter(letterData) {
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+  angleMode(DEGREES);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+ // determine parameters for the arcs
+   let rot1 = letterData["rot1"];
+   let rot2 = letterData["rot2"];
+   let rot3 = letterData["rot3"];
+   let rot4 = letterData["rot4"];
+  let offsetx1 = letterData["offsetx1"];
+  let offsetx2 = letterData["offsetx2"];
+  let offsetx3 = letterData["offsetx3"];
+  let offsetx4 = letterData["offsetx4"]; 
+  let offsety1 = letterData["offsety1"];
+  let offsety2 = letterData["offsety2"];
+  let offsety3 = letterData["offsety3"];
+  let offsety4 = letterData["offsety4"];
+  
 
-  // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  push();
+  translate(80, 100);
+
+//arc1
+  push();
+  rotate(rot1);
+  scale(0.5);
+  fill(colorFront);
+  arc(offsetx1, offsety1, 200, 200, 80, 280, CHORD);
+  fill(colorBack);
+  noStroke();
+    arc(offsetx1+31, offsety1, 150, 200, 96, 264, CHORD);
+  pop();
+
+//arc2
+   push();
+   rotate(rot2);
+   scale(0.5);
+  fill(colorFront);
+  arc(offsetx2, offsety2, 200, 200, 80, 280, CHORD);
+  fill(colorBack);
+  noStroke();
+    arc(offsetx2+31, offsety2, 150, 200, 96, 264, CHORD);
+  pop();
+
+//arc3
+   push();
+   rotate(rot3);
+   scale(0.5);
+  fill(colorFront);
+  arc(offsetx3, offsety3, 200, 200, 80, 280, CHORD);
+  fill(colorBack);
+  noStroke();
+    arc(offsetx3+31, offsety3, 150, 200, 96, 264, CHORD);
+  pop();
+
+//arc4
+   push();
+   rotate(rot4);
+   scale(0.5);
+  fill(colorFront);
+  arc(offsetx4, offsety4, 100, 100, 80, 280, CHORD);
+  fill(colorBack);
+  noStroke();
+    arc(offsetx4+17, offsety4, 50, 100, 96, 264, CHORD);
+  pop();
+
+  pop();
 }

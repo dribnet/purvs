@@ -1,22 +1,100 @@
 const alphabet = {
   "default": {
-      "size": 10,
-      "offsetx": 0,
-      "offsety": 0
+      "offsetx1": 0,
+      "offsetx2": 0,
+      "offsetx3": 0,
+      "offsetx4": 0,
+      "offsety1": 0,
+      "offsety2": 0,
+      "offsety3": 0,
+      "offsety4": 0,
+      "rot1": 0,
+      "rot2": 0,
+      "rot3": 0,
+      "rot4": 0
   },
   "A": {
-      "size": 50,
-      "offsetx": 0,
-      "offsety": 23
+     "offsetx1": -65,
+     "offsetx2": -65,
+     "offsetx3": 110,
+     "offsetx4": -20,
+     "offsety1": 60,
+     "offsety2": -60,
+     "offsety3": 0,
+     "offsety4": 0,
+     "rot1": 10,
+     "rot2": 170,
+     "rot3": 90,
+     "rot4": 90
   },
   "B": {
-      "size": 100,
-      "offsetx": 0,
-      "offsety": -98
+    "offsetx1": -70,
+    "offsetx2": -70,
+    "offsetx3": 60,
+    "offsetx4": 90,
+    "offsety1": 0,
+    "offsety2": 0,
+    "offsety3": 0,
+    "offsety4": 0,
+    "rot1": 130,
+    "rot2": -130,
+    "rot3": 180,
+    "rot4": 0
   },
   "C": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0
-  }
+    "offsetx1": -60,
+    "offsetx2": -60,
+    "offsetx3": 0,
+    "offsetx4": 0,
+    "offsety1": 0,
+    "offsety2": 0,
+    "offsety3": 0,
+    "offsety4": 0,
+    "rot1": 90,
+    "rot2": -90,
+    "rot3": 0,
+    "rot4": 0
+  },
+  "D": {
+    "offsetx1": -70,
+    "offsetx2": -70,
+    "offsetx3": 60,
+    "offsetx4": -90,
+    "offsety1": 0,
+    "offsety2": 0,
+    "offsety3": 0,
+    "offsety4": 0,
+    "rot1": 130,
+    "rot2": -130,
+    "rot3": 180,
+    "rot4": 180
+  },
+  "E": {
+    "offsetx1": -10,
+    "offsetx2": 160,
+    "offsetx3": 160,
+    "offsetx4": 20,
+    "offsety1": 0,
+    "offsety2": 0,
+    "offsety3": 0,
+    "offsety4": 0,
+    "rot1": 0,
+    "rot2": -90,
+    "rot3": 90,
+    "rot4": 90
+    },
+  "F": {
+    "offsetx1": 0,
+    "offsetx2": 0,
+    "offsetx3": 0,
+    "offsetx4": 0,
+    "offsety1": 0,
+    "offsety2": 0,
+    "offsety3": 0,
+    "offsety4": 0,
+    "rot1": 180,
+    "rot2": 0,
+    "rot3": 0,
+    "rot4": 0
+    }
 }

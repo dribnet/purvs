@@ -1,16 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
 
 const letterA = {
   "offset1": -65,
@@ -66,7 +56,7 @@ function setup () {
 }
 
 function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
+  // determine parameters for the arcs
    let rot1 = letterData["rot1"];
    let rot2 = letterData["rot2"];
    let rot3 = letterData["rot3"];
@@ -77,9 +67,6 @@ function drawLetter(posx, posy, scale, letterData) {
   let offset4 = letterData["offset4"];
   
 
-  // draw two circles
-  // ellipse(posx, posy, 150, 150);
-  // ellipse(pos2x, pos2y, size2, size2);
   push();
   translate(posx, posy);
 
