@@ -1,11 +1,16 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+Each of my letters are built with four static triangles arranged to make a square as well as one square on top which cuts through the triangles to create the letters. The triangles can change colour and transparency which will also help form the shape of the letters.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+ The Seven parameters per letter
+ * =========================== *
+  * `topFill` : Fill for top triangle
+  * `rightFill` : Fill for right triangle
+  * `bottomFill` : Fill for bottom triangle
+  * `leftFill` : Fill for left triangle
+  * `SquareFill` : Fill for Square (usually white but colour is more flexable than booleans)
+   
+ Irrelevant at the moment but neccisary for future Letters
+ * ===================================================== *
+  * `quadHorozontal` : Squares position on X axis relative to where the letter is drawn
+  * `quadVerticle` : Squares position on Y axis relative to where the letter is drawn
