@@ -4,7 +4,7 @@ Each of my letters consist of two triangles that occupy a larger sphere, the siz
 
 The trangles also use a fill with a slight opacty giving it a layered look.
 
-The 6 parameters per letter:
+The 12 parameters per letter:
   * `pointone` : x and y value of pointOne
   * `pointTwo` : x and y value of pointTwo
   etc..
