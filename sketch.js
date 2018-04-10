@@ -15,78 +15,73 @@ const canvasHeight = 500;
 
 const letterA = {
 
+
+  "sizeX": 60,
+  "sizeY": 100,
+  "offsetx": -30,
+  "offsety": 20,
+   
+  "qx1" :-30,
+  "qy1" :-100,
+  "qx2" :30,
+  "qy2" :-100,
+  "qx3" :100,
+  "qy3" :100,
+  "qx4" :-100,
+  "qy4" :100,
+
  
 
 
+// cude will be added next session
 
 
-
-  "q1" :38,
-  "q2" :31,
-  "q3" :86,
-  "q4" :20,
-  "q5" :69,
-  "q6" :63,
-  "q7" :30,
-  "q8" :80,
-    
-
-  
-  
 }
 
 const letterB = {
+
+
+
+  
   "sizeX": 120,
-  "sizeY": 10,
-  "offsetx": -80,
+  "sizeY": 120,
+  "offsetx": -100,
   "offsety": -100,
-
-  "sizeX2": 10,
-  "sizeY2": 200,
-  "offsetx2": -90,
-  "offsety2": -100,
-
-  "sizeX3": 10,
-  "sizeY3": 100,
-  "offsetx3": 30,
-  "offsety3": -100,
-
+   
+    "qx1" :-100,
+  "qy1" :-20,
+  "qx2" :-10,
+  "qy2" :-50,
+  "qx3" :100,
+  "qy3" :100,
+  "qx4" :-100,
+  "qy4" :100,
 
 }
 
 const letterC = {
 
-    "sizeX": 130,
-  "sizeY": 10,
-  "offsetx": -80,
-  "offsety": -100,
- 
 
-  "sizeX2": 10,
-  "sizeY2": 200,
-  "offsetx2": -90,
-  "offsety2": -100,
-
-  "sizeX3": 130,
-  "sizeY3": 10,
-  "offsetx3": -80,
-  "offsety3": -100,
   
-  "q1" :38,
-  "q2" :31,
-  "q3" :86,
-  "q4" :20,
-  "q5" :69,
-  "q6" :63,
-  "q7" :30,
-  "q8" :80,
+
+  "sizeX": 200,
+  "sizeY": 50,
+  "offsetx": -100,
+  "offsety": -100,
+   
+   "qx1" :-100,
+  "qy1" :-100,
+  "qx2" :-80,
+  "qy2" :-100,
+  "qx3" :100,
+  "qy3" :100,
+  "qx4" :-100,
+  "qy4" :100,
 
 
 }
 
-const colorFront  = "#f21352";
-const colorBack   = "#fcecb0";
-const colorStroke = "#e00214";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -94,9 +89,9 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(2);
+
+ 
+
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -105,42 +100,39 @@ function setup () {
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
   
-
   let size1 = letterData["sizeX"];
   let size2 = letterData["sizeY"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-   let size11 = letterData["sizeX2"];
-  let size22 = letterData["sizeY2"];
-  let pos2xx = posx + letterData["offsetx2"];
-  let pos2yy = posy + letterData["offsety2"];
-
-  let size111 = letterData["sizeX3"];
-  let size222 = letterData["sizeY3"];
-  let pos2xxx = posx + letterData["offsetx3"];
-  let pos2yyy = posy + letterData["offsety3"];
   
-  let po1 = posx + letterData["q1"];
-  let po2 = posy + letterData["q2"];
-    let po3= posx + letterData["q3"];
-  let po4 = posy + letterData["q4"];
-    let po5= posx + letterData["q5"];
-  let po6 = posy + letterData["q6"];
-    let po7 = posx + letterData["q7"];
-  let po8 = posy + letterData["q8"];
+  let q1 = posx + letterData["qx1"];
+  let q2 = posy + letterData["qy1"];
+    let q3= posx + letterData["qx2"];
+  let q4 = posy + letterData["qy2"];
+    let q5= posx + letterData["qx3"];
+  let q6 = posy + letterData["qy3"];
+    let q7 = posx + letterData["qx4"];
+  let q8 = posy + letterData["qy4"];
 
-let quad1 = quad(38,31,86,20,69,63,30,80)
-let po11 = posx + letterData["quad1"]
+
+
+
+
 
   // draw two circles
+  noStroke()
+  fill (255,68,93,100);
 
-  rect(pos2x, pos2y, size1, size2);
-  rect(pos2xx, pos2yy, size11, size22);
-  rect(pos2xxx, pos2yyy, size111, size222);
-quad(po1,po2,po3,po4,po5,po6,po7,po8)
 
-  triangle(posx,posy,posx-80,posy+100,posx+80,posy+100);
+quad(q1,q2,q3,q4,q5,q6,q7,q8);
+
+ fill (200,58,23,100);
+ stroke(255,208,68)
+ strokeWeight(3)
+ rect(pos2x, pos2y, size1, size2);
+
+                   
 
 
 
@@ -149,7 +141,7 @@ quad(po1,po2,po3,po4,po5,po6,po7,po8)
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(255,208,68);
 
 
   // compute the center of the canvas
@@ -157,7 +149,7 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 320, center_y - 100,10, letterA);
+  drawLetter(center_x - 320, center_y      ,10, letterA);
   drawLetter(center_x      , center_y      ,10, letterB);
   drawLetter(center_x + 320, center_y      ,10,letterC);
 
@@ -165,6 +157,7 @@ function draw () {
 
 
 
+   
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
