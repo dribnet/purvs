@@ -1,19 +1,21 @@
 ## PS2 MDDN 242 2018
 
-this is my inital sketch idea of how I might do my letters. I am planning on expanding this idea and seeing what other parameters i can add/use to enhance this idea and make it more interesting. 
+experimenting with the new code, I have added my letters, i might try to expand on this idea and look at my letters and how these shapes will work for all 26 letters. 
 
 <<<<<<< HEAD
-Each of my letters is composed with 3 circles. each representing a letter (circle 1= A , circle 2=B , circle 3= C). I have then adding 3 rectangle boxes that I can position and tilt to cut into the circles to create a chape that resembles these letters. each of my parametes allow me to move and position these boxes. for example the direction, size and placement. I have kept the original 3 parameters that came with the code to experiment with. I have added rotation as a paramete so i am able to angle the objects. 
+I am goign to work more on my letters and draw out how each letter will look, also looking into what other constant varibles I will need to complete all my letters in the alphabet 
 
 The 4 parameters per letter:
 =======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+In the process of completing the entire alphabet, I have looked into changing the colours and maybe looking into playing with other shapes later on.
+This included updating the parameters for my design I have added more : 
 
 The three parameters per letter are now:
 >>>>>>> upstream/part2
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-  * 'rotate': this determinds the angle of the object 
-
+   	*"sizeRect": rect,
+    * "positionX": position of rect,,
+    * "positionY": position of rect,
+    * "size": circle,
+    * "offsetx": position of circle,,
+    * "offsety": position of circle,
+    * "rotate": angle
