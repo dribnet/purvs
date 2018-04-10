@@ -12,35 +12,91 @@ const canvasHeight = 500;
  *
  */
 
+
 const letterA = {
   // "size": 80,
   // "offsetx": 0,
-  // "offsety": 35
-  "position1": -300,
-  "tilt1": -90,
-  "position2": 50,
+  // "offsety": 3
+  "positionx1": 226,
+  "positiony1": 160,
+  "tilt1": -45,
+  "colorR1": 106,
+  "positionx2": 262,
+  "positiony2": 100,
   "tilt2": -45,
-  "position3": -100,
-  "tilt3": 0,
-  "turncolor": -12,
+  "colorR2": 126,
+  "positionx3": 300,
+  "positiony3": 40,
+  "tilt3": -45,
+  "colorR3": 146,
+  "positionx4": 310,
+  "positiony4": 290,
+  "tilt4": 45,
+  "colorR4": 166,
+  "positionx5": 350,
+  "positiony5": 350,
+  "tilt5": 45,
+  "colorR5": 186,
+  "positionx6": 390,
+  "positiony6": 410,
+  "tilt6": 45,
+  "colorR6": 206,
+
 }
 
 const letterB = {
-  "position1": -191,
+  "positionx1": 620,
+  "positiony1": 320,
   "tilt1": 0,
-  "position2": -54,
-  "tilt2": 0,
-  "position3": -12,
-  "tilt3": 0
+  "colorR1": 106,
+  "positionx2": 450,
+  "positiony2": 118,
+  "tilt2": 80.1,
+  "colorR2": 126,
+  "positionx3": 450,
+  "positiony3": 20,
+  "tilt3": 80.1,
+  "colorR3": 146,
+  "positionx4": 620,
+  "positiony4": 150,
+  "tilt4": 0,
+  "colorR4": 166,
+  "positionx5": 600,
+  "positiony5": 60,
+  "tilt5": -45,
+  "colorR5": 186,
+  "positionx6": 580,
+  "positiony6": 400,
+  "tilt6": 45,
+  "colorR6": 206,
+
 }
 
 const letterC = {
-  "position1": -163,
-  "tilt1": -84,
-  "position2": -191,
-  "tilt2": -95,
-  "position3": -100,
-  "tilt3": -47
+  "positionx1": 900,
+  "positiony1": 320,
+  "tilt1": 0,
+  "colorR1": 106,
+  "positionx2": 825,
+  "positiony2": 320,
+  "tilt2": 0,
+  "colorR2": 126,
+  "positionx3": 650,
+  "positiony3": 120,
+  "tilt3": 80.1,
+  "colorR3": 146,
+  "positionx4": 650,
+  "positiony4": 45,
+  "tilt4": 80.1,
+  "colorR4": 166,
+  "positionx5": 825,
+  "positiony5": 165,
+  "tilt5": 0,
+  "colorR5": 186,
+  "positionx6": 900,
+  "positiony6": 165,
+  "tilt6": 0,
+  "colorR6": 206,
 }
 
 const colorFront  = [186, 243, 255];
@@ -61,28 +117,33 @@ function setup () {
   noLoop();
 }
 
-function drawPart(posx, posy, scale, offsetx, tilt) {
-  resetMatrix();
-  // translate(posx + offsetx*scale/10, posy);
-  translate(posx, posy);
+function drawPart(posx, posy, scale, offsetx, offsety, tilt, colorR) {
+  push();
+  // resetMatrix();
+  // translate(posx + offsetx*scale/2, posy);
+  translate(offsetx, offsety);
   rotate(tilt);
   noFill();
   strokeWeight(1);
-  rect(-200, -15, 20*scale, 3*scale, 25);
-  fill(186, 243, 255);
+  rect(-200, -15, 10*scale, 3*scale, 25);
+  fill(colorR, 243, 255);
   strokeWeight(2.5);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale, 50);
+  rect(-20*scale, -3*scale, 10*scale, 3*scale, 50);
   fill(255);
-  ellipse(-18*scale, -1.5*scale, 15, 15);
-  ellipse(-2*scale, -1.5*scale, 15, 15);
+  ellipse(-12*scale, -1.5*scale, 5, 5);
+  ellipse(-18*scale, -1.5*scale, 5, 5);
+  pop();
   
 }
 
 function drawLetter(posx, posy, scale, letterData) {
-  let y_offset = 5 * scale;
-  drawPart(posx, posy-y_offset, scale, letterData["position1"], letterData["tilt1"]);
-  // drawPart(posx,          posy, scale, letterData["position2"], letterData["tilt2"]);
-  // drawPart(posx, posy+y_offset, scale, letterData["position3"], letterData["tilt3"]);
+  // let y_offset = 2.5*scale;
+  drawPart(posx, posy, scale, letterData["positionx1"], letterData["positiony1"], letterData["tilt1"], letterData["colorR1"]);
+  drawPart(posx, posy, scale, letterData["positionx2"], letterData["positiony2"], letterData["tilt2"], letterData["colorR2"]);
+  drawPart(posx, posy, scale, letterData["positionx3"], letterData["positiony3"], letterData["tilt3"], letterData["colorR3"]);
+  drawPart(posx, posy, scale, letterData["positionx4"], letterData["positiony4"], letterData["tilt4"], letterData["colorR4"]);
+  drawPart(posx, posy, scale, letterData["positionx5"], letterData["positiony5"], letterData["tilt5"], letterData["colorR5"]);
+  drawPart(posx, posy, scale, letterData["positionx6"], letterData["positiony6"], letterData["tilt6"], letterData["colorR6"]);
 
   // draw two circles
   // ellipse(posx, posy, 150, 150);
@@ -92,6 +153,8 @@ function drawLetter(posx, posy, scale, letterData) {
   // rect(pos2x, pos2y, size2/2, size2*2, 50);
   // rect(pos2x+70, pos2y, size2/2, size2*2, 50);
 }
+
+
 
 function draw () {
   // clear screen
