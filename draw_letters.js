@@ -23,3 +23,11 @@ function drawLetter(letterData) {
   ellipse(50, 150, 100, 100);
   ellipse(pos2x, pos2y, size2, size2);
 }
+
+
+
+
+
+
+// Git ID for initial sketch ideas 
+// 4ebfcd36e8a36e6114e76410a1b9e83d736e7701
