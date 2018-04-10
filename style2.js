@@ -129,12 +129,15 @@ function drawCharacter(x, y, obj) {
   let spacing_x = 50, spacing_y = 100;
 
   let positions = [
-    [-spacing_x, -spacing_y],
-    [ spacing_x, -spacing_y],
-    [-spacing_x, 0],
-    [ spacing_x, 0],
-    [-spacing_x, spacing_y],
-    [ spacing_x, spacing_y],
+    [-spacing_x, -spacing_y], //top left
+    [ spacing_x, -spacing_y], //top right
+    
+
+    [-spacing_x, 0], //middle left
+    [ spacing_x, 0], // middle right
+
+    [-spacing_x, spacing_y], //bottom left
+    [ spacing_x, spacing_y], //bottom right
   ]
 
   push();

@@ -13,10 +13,15 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 50,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35,
+  "b1": 0,
+  "b2": 1,
+  "b3": 0
+
 }
+
 
 const letterB = {
   "size": 150,
@@ -55,8 +60,75 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  // ellipse(posx, posy, 150, 150);
+  // ellipse(pos2x, pos2y, size2, size2);
+
+  
+  // fill("blue");
+  // rect(100, 100, 30, 30);
+  // fill("green");
+  // rect(135, 100, 30, 30);
+  // fill("red");
+  // rect(170, 100, 30, 30);
+  // fill("yellow");
+  // rect(100, 135, 30, 30);
+  // fill("purple");
+  // rect(135, 135, 30, 30);
+  // fill("orange");
+  // rect(170, 135, 30, 30);
+  // fill("black");
+  // rect(100, 170, 30, 30);
+  // fill("white");
+  // rect(135, 170, 30, 30);
+  // fill("pink");
+  // rect(170, 170, 30, 30);
+
+fill("pink");
+//A
+rect(170, 170, 30, 30);
+rect(205, 170, 30, 30);
+rect(240, 170, 30, 30);
+
+rect(170, 205, 30, 30);
+rect(240, 205, 30, 30);
+
+rect(170, 240, 30, 30);
+rect(205, 240, 30, 30);
+rect(240, 240, 30, 30);
+
+rect(170, 275, 30, 30);
+rect(240, 275, 30, 30);
+
+
+//B
+rect(435, 170, 30, 30);
+rect(470, 170, 30, 30);
+
+rect(435, 205, 30, 30);
+rect(470, 205, 30, 30);
+
+rect(435, 240, 30, 30);
+rect(470, 240, 30, 30);
+
+rect(435, 275, 30, 30);
+rect(470, 275, 30, 30);
+
+
+//C
+rect(695, 170, 30, 30);
+rect(730, 170, 30, 30);
+rect(765, 170, 30, 30);
+
+rect(695, 205, 30, 30);
+rect(695, 240, 30, 30);
+rect(695, 275, 30, 30);
+
+rect(730, 275, 30, 30);
+rect(765, 275, 30, 30);
+
+
+  
+
 }
 
 function draw () {
