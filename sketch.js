@@ -13,48 +13,81 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 50,
-  "size2": 35,
+//line 1 
+  "pt1x": 100,
+  "pt1y": 100,
+  "pt2x": 150,
+  "pt2y": 150
 
+//line 2
+//   "pt3x": 0,1
+//   "pt3y": -20
+//   "pt4x":
+//   "pt4y":
 
-  "offsetx": -20,
-  "offsety": 20,
-
-  "offset2x": 20,
-  "offset2y": 15,
-
-  "offset3x": 0,
-  "offset3y": -30
+// //line 3
+//   "pt5x":
+//   "pt5y":
+//   "pt6x":
+//   "pt6y":
+  
+// //line 4
+//   "pt7x":
+//   "pt7y":
+//   "pt8x":
+//   "pt8y":
 }
 
 const letterB = {
-  "size": 50,
-  "size2": 35,
+//line 1
+  "pt1x": 100,
+  "pt1y": 15,
+  "pt2x": 150,
+  "pt2y": 150,
 
+//line 2
+//   "pt3x": 0,1
+//   "pt3y": -20
+//   "pt4x":
+//   "pt4y":
 
-  "offsetx": 25,
-  "offsety": 4,
+// //line 3
+//   "pt5x":
+//   "pt5y":
+//   "pt6x":
+//   "pt6y":
 
-  "offset2x": -10,
-  "offset2y": 12,
-
-  "offset3x": -10,
-  "offset3y": -22
-
+// //line 4
+//   "pt7x":
+//   "pt7y":
+//   "pt8x":
+//   "pt8y":
 }
 
 const letterC = {
-  "size": 50,
-  "size2": 35,
+//line 1
+  "pt1x": 150,
+  "pt1y": 150,
+  "pt2x": 150,
+  "pt2y": 155,
 
-  "offsetx": 15,
-  "offsety": -25,
+//line 2
+//   "pt3x": 0,1
+//   "pt3y": -20
+//   "pt4x":
+//   "pt4y":
 
- "offset2x": 20,
-  "offset2y": 35,
-
-  "offset3x": -25,
-  "offset3y": -2
+// //line 3
+//   "pt5x":
+//   "pt5y":
+//   "pt6x":
+//   "pt6y":
+  
+// //line 4
+//   "pt7x":
+//   "pt7y":
+//   "pt8x":
+//   "pt8y":
 }
 
 const colorFront  = "#ffbc14";
@@ -75,26 +108,23 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
+function drawLetter(pt1x, pt1y, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let size3 = letterData["size2"];
 
   
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let posx = pt1x + letterData["pt1x"];
+  let posy = pt1y + letterData["pt1y"];
 
-  let pos3x = posx + letterData["offset2x"];
-  let pos3y = posy + letterData["offset2y"];
+  let pos2x = pt1x + letterData["pt2x"];
+  let pos2y = pt1y + letterData["pt2y"];
 
-  let pos4x = posx + letterData["offset3x"];
-  let pos4y = posy + letterData["offset3y"];
+  // let pos3x = ptx + letterData["pt3x"];
+  // let pos3y = pty + letterData["pt3y"];
 
   // draw circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
-  ellipse(pos3x, pos3y, size2, size2);
-  ellipse(pos4x, pos4y, size3, size3);
+  //ellipse(100, 100, 150, 150);
+  
+  line(posx, posy, pos2x, pos2y);
 
 }
 

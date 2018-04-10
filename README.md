@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
 
+This is the start of new code for a new idea focusing on lines. Just committing before adding the second sketch in class
+
 Each of my letters is composed with four circles. The size and position of the first circle is fixed, but the location and size of the other circles is controlled by the parameters. There are 2 bigger circles and one smaller.
 
 The three parameters per letter:
