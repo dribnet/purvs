@@ -1,15 +1,12 @@
 ## PS2 MDDN 242 2018
 
-This is my third alphabet. This one uses three semi-transparent circles. The size of the circles doens't change, only the postion does.
+(Replace this README with information about your alphabet. This is an example.)
 
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
 
-The six parameters per letter:
-
-
-  * offsetX: The x offset of the main circle
-  * offsetY: The y offset of the main circle
-  * posx1: first x position for the first circle
-  * posx2: second x position for the first circle
-  * posy1: first y position for the first circle
-  * posy2: second y position for the first circle
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
