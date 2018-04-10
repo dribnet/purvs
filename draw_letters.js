@@ -20,6 +20,26 @@ function drawLetter(letterData) {
   let pos2y = 150+letterData["offsety"];
 
   // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  
+ // ellipse(50, 150, 100, 100);
+  //ellipse(pos2x, pos2y, size2, size2);
+
+  let w = letterData["width_1"];
+  let h = letterData["height_1"];
+  let x = letterData["pos_x1"];
+  let y = letterData["pos_y1"];
+
+  let w2 = letterData["width_2"];
+  let h2 = letterData["height_2"];
+  let x2 = letterData["pos_x2"];
+  let y2 = letterData["pos_y2"];
+
+  let w3 = letterData["width_3"];
+  let h3 = letterData["height_3"];
+  let x3 = letterData["pos_x3"];
+  let y3 = letterData["pos_y3"];
+
+  rect(x,y,w,h);
+  rect(x2,y2,w2,h2);
+  rect(x3,y3,w3,h3);
 }

@@ -1,9 +1,14 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+Episode 01
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+upon finally deciding on what my parametric aphabet would look like, i have finally settled on an inspiration
+mainly my parametric alphabet will be bsaed of the cipher code. Think of it like a morse code variation, but is
+much more complex in terms of shape. THE FOLLOWIN LETTERS SO FAR ARE
+
+A, B , C , D 
+
+i will upload a full cipher guideline code for a reference.
 
 The three parameters per letter are now:
   * `size` : radius of the second circle
