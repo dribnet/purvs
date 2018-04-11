@@ -23,7 +23,7 @@ function drawLetter(letterData) {
  // ellipse(50, 150, 100, 100);
  // ellipse(pos2x, pos2y, size2, size2);
 
- arc(pos2x, pos2y, size2,size2,15,-25,PI + QUARTER_PI, TWO_PI);
+
 
  let xval1 = letterData["x1"];
  // x1, y1, x2,y2

@@ -16,7 +16,7 @@ const letterA = {
    "x1":250,
     "x2":175,
       "x3":290,
-    "x4":310,
+    "x4":275,
 
     "y1":250,
     "y2":175,
@@ -48,8 +48,8 @@ const letterB = {
 
     "z1":567,
     "z2":275,
-    "z3":500,
-    "z4":325,
+    "z3":450,
+    "z4":360,
 
 
 
@@ -67,9 +67,9 @@ const letterC = {
     "y4":275,
 
     "z1":700,
-    "z2":225,
+    "z2":200,
     "z3":700,
-    "z4":275,
+    "z4":300,
 }
 
 
@@ -125,14 +125,7 @@ function draw () {
   // clear screen
   background(colorBack);
 
-  push();
-   strokeWeight(7);
-noFill();
-stroke(255);
-ellipse(250,250,150,150);
-ellipse(500,250,150,150);
-ellipse(750,250,150,150);
-pop();
+  
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
