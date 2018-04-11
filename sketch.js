@@ -13,27 +13,68 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 150,
-  "offsetx": 20,
-  "offsety": 2,
+   "x1":250,
+    "x2":175,
+      "x3":290,
+    "x4":310,
+
+    "y1":250,
+    "y2":175,
+    "y3":200,
+    "y4":305,
+
+    "z1":180,
+    "z2":250,
+    "z3":320,
+    "z4":250,
+
+
+
+
 
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+
+   "x1":500,
+    "x2":175,
+      "x3":500,
+    "x4":325,
+
+    "y1":500,
+    "y2":250,
+    "y3":567,
+    "y4":275,
+
+    "z1":567,
+    "z2":275,
+    "z3":500,
+    "z4":325,
+
+
+
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x1":750,
+    "x2":175,
+      "x3":700,
+    "x4":225,
+
+      "y1":750,
+    "y2":325,
+    "y3":700,
+    "y4":275,
+
+    "z1":700,
+    "z2":225,
+    "z3":700,
+    "z4":275,
 }
 
 
 const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
+const colorStroke = "#ffccfa";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,7 +84,7 @@ function setup () {
   // color/stroke setup
 
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(6);
   noFill();
 
   // with no animation, redrawing the screen is not necessary
@@ -52,17 +93,31 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let pos3x = posx + letterData["offsetz"];
+ 
 
+
+ let xval1 = letterData["x1"];
+ let xval2 = letterData["x2"];
+  let xval3 = letterData["x3"];
+ let xval4 = letterData["x4"];
+
+ let yval1 = letterData["y1"];
+ let yval2 = letterData["y2"];
+  let yval3 = letterData["y3"];
+ let yval4 = letterData["y4"];
+
+
+ let zval1 = letterData["z1"];
+ let zval2 = letterData["z2"];
+  let zval3 = letterData["z3"];
+ let zval4 = letterData["z4"];
 
   // draw two circles
 
 
- arc(pos2x, pos2y, size2,size2,15,-25,PI + QUARTER_PI, TWO_PI);
- line(250, 175,250,325);
+ line(xval1, xval2,xval3,xval4);
+ line(yval1, yval2,yval3,yval4);
+ line(zval1, zval2,zval3,zval4);
 
 }
 
@@ -71,6 +126,7 @@ function draw () {
   background(colorBack);
 
   push();
+   strokeWeight(7);
 noFill();
 stroke(255);
 ellipse(250,250,150,150);
