@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
--- I found it might be difficult to make capital letters such as 'B' with just 3 ellipses and 1 rectangle, so I decided to make my font in lowercase, and have made a new 'A'.
+-- Made a 'c' & 'd'.
 
 
 

@@ -14,7 +14,7 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(3);
 
-  // determine parameters for second circle
+  // determine parameters 
   let size2 = letterData["size"];
   let pos1x = 50+letterData["offsetx"];
   let pos1y = 150+letterData["offsety"];
@@ -40,7 +40,7 @@ function drawLetter(letterData) {
     translate(-pos1x,-pos1y);
     rect(pos1x,pos1y,20,size2)
   pop();  
-  
+
   ellipse(pos2x,pos2y,35,35);
   ellipse(pos3x,pos3y,35,35);
   ellipse(pos4x,pos4y,35,35);
