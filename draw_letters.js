@@ -31,7 +31,7 @@ function drawLetter(letterData) {
 
   
 
-  ellipse(pos2x,pos2y,35,35);
+  
 
 
   push();
@@ -40,7 +40,8 @@ function drawLetter(letterData) {
     translate(-pos1x,-pos1y);
     rect(pos1x,pos1y,20,size2)
   pop();  
-
+  
+  ellipse(pos2x,pos2y,35,35);
   ellipse(pos3x,pos3y,35,35);
   ellipse(pos4x,pos4y,35,35);
 

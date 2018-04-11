@@ -1,8 +1,14 @@
 ## PS2 MDDN 242 2018
 
-Think I've got something that'll work across all letters.
+-- I found it might be difficult to make capital letters such as 'B' with just 3 ellipses and 1 rectangle, so I decided to make my font in lowercase, and have made a new 'A'.
 
-I've used 3 ellipses and 1 rectangle to make this "A".
+
+
+
+
+
+
+I've used 3 ellipses and 1 rectangle.
 
 There are 10 parameters being used, which are:
 	
