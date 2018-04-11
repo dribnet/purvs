@@ -157,12 +157,16 @@ function draw () {
   strokeWeight(20);
   stroke(255, 69, 0);
   strokeCap(ROUND);
+
   line(290, 125, 220, 300);
   stroke(255, 165, 0);
   strokeCap(ROUND);
+
   line(290, 125, 360, 300);
   strokeWeight(20);
+  
   stroke(255, 215, 0);
+
   ellipse(270, 250, 50, 50);
   ellipse(310, 250, 50, 50);
 
