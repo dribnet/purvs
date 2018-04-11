@@ -16,10 +16,10 @@ const letterA = {
 
 
 //line1
- "ptx": -150,
- "pty": -50,
- "ptx2": -150,
- "pty2": 50,
+ "ptx": -50,
+ "pty": 50,
+ "ptx2": -50,
+ "pty2": -70,
 
  //line2
  "ptx3": -150,
@@ -28,10 +28,10 @@ const letterA = {
  "pty4": 50,
 
  //line3
- "ptx5": -50,
- "pty5": 50,
- "ptx6": -50,
- "pty6": -70,
+ "ptx5": -150,
+ "pty5": -50,
+ "ptx6": -150,
+ "pty6": 50,
 
  //line 4
  "ptx7": -150,
@@ -73,16 +73,16 @@ const letterB = {
 const letterC = {
 
 //line1
- "ptx": 100,
+ "ptx": 25,
  "pty": -50,
  "ptx2": 25,
- "pty2": -50,
+ "pty2": 50,
 
  //line2
- "ptx3": 25,
+ "ptx3": 100,
  "pty3": -50,
  "ptx4": 25,
- "pty4": 50,
+ "pty4": -50,
 
  //line3
  "ptx5": 25,
@@ -97,7 +97,7 @@ const letterC = {
  "pty8": -40,
 }
 
-const colorFront  = "#199cff";
+const colorFront  = "#000000";
 const colorBack   = "#ffbc14"; //orange
 const colorStroke = "#233f11";
 
@@ -141,8 +141,9 @@ function drawLetter(ptx, pty, letterData) {
   let pos8x = ptx + letterData["ptx8"];
   let pos8y = pty + letterData["pty8"];
 
-
+  strokeWeight(5)
   line(posx,posy,pos2x,pos2y);
+  strokeWeight(2);
   line(pos3x,pos3y,pos4x,pos4y);
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);

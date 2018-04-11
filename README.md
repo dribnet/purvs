@@ -1,6 +1,5 @@
 ## PS2 MDDN 242 2018
-
-So this is the start of my new idea. My idea is using lines to replicate the lower case of the alphabet, From here i want too play with specific lines are thicker and maybe a different colour. Thinking about making the most stable line a bit thicker. I have 8 parameters at the moment but this can be cut down as some parameters are the same. 
+So this is my idea which i have created my alphabet. I have a focused on the lower case styles of letters, along with this every letter and number is made up from 4 lines. ALso each letter and number has one thicker line which is the most stable point of the letter/number. By applying all these rules i have created my sans serif font. 
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point

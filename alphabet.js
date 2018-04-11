@@ -1,8 +1,5 @@
-/*
- * Here are some things you can edit
- */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#ffbc14";
+const colorLines   = "0";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
