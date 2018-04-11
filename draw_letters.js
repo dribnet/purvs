@@ -46,33 +46,4 @@ function drawLetter(letterData) {
   line(0, 30, 30, 30);
   pop();
 
-push();
-  // scale(0.5);
-
-  // //Drawing static base line
-  // push();
-  // translate(center_x, center_y);
-  // rotate(45);
-  // translate(-center_x, -center_y);
-  // line(center_x, 400, center_x, 100);
-  // pop()
-
-  // // draw 1st right angle.
-  // push();
-  // translate(trans1X,trans1Y);
-  // rotate(rot1);
-  // line(0, 0, 0, 100);
-  // line(0, 100, 100, 100);
-  // pop();
-
-  // // draw 2nd right angle.
-  // push();
-  // translate(trans2X, trans2Y);
-  // rotate(rot2);
-  // line(0, 0, 0, 100);
-  // line(0, 100, 100, 100);
-  // pop();
-
-pop();
-
 }

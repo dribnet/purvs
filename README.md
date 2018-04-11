@@ -15,3 +15,4 @@ Trans2X
 Trans2Y
 rot2
 
+I have finished merging my alphabets, all that is left are the numbers

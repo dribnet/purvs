@@ -382,7 +382,7 @@ function draw () {
   // drawLetter(center_x, center_y, letterG, 1);
   // drawLetter(center_x, center_y, letterH, 1);
   // drawLetter(center_x, center_y, letterI, 1);
-  drawLetter(center_x, center_y, letterJ, 1);
+  // drawLetter(center_x, center_y, letterJ, 1);
   // drawLetter(center_x, center_y, letterK, 1);
   // drawLetter(center_x, center_y, letterL, 1);
   // drawLetter(center_x, center_y, letterM, 1);
@@ -396,9 +396,9 @@ function draw () {
   // drawLetter(center_x, center_y, letterU, 1);
   // drawLetter(center_x, center_y, letterV, 1);
   // drawLetter(center_x, center_y, letterW, 1);
-  // // drawLetter(center_x, center_y, letterX, 1);
+  // drawLetter(center_x, center_y, letterX, 1);
   // drawLetter(center_x, center_y, letterY, 1);
-  // drawLetter(center_x, center_y, letterZ, 1);
+  drawLetter(center_x, center_y, letterZ, 1);
 
 }
 
