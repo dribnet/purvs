@@ -17,8 +17,6 @@ const letterA = {
   "size2": 30,
   "size3": 40,
   "size4": 40,
-
-
   "xi": 0,
   "yi": 0,
   "x1": 0,
@@ -32,7 +30,6 @@ const letterB = {
   "size2": 130,
   "size3": 80,
   "size4": 80,
-
   "xi": 0,
   "yi": 0,
   "x1": 0,
@@ -46,7 +43,6 @@ const letterC = {
   "size2": 163,
   "size3": 40,
   "size4": 40,
-
   "xi": 30,
   "yi": 0,
   "x1": 55,
