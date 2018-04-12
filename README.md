@@ -1,11 +1,6 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+These letters are based upon a 11 point coordinate system. Orignally designed this way to allow for easy of parameter use when drawing the lines as the beginning and ends of each point can just be assigned to the points. For example, the spine of the letter B would have the beginning at point 2, and the ending at point 10.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+However, I have not managed to figure out how to make this work properly, and so this current version has a total of 20 parameters, rather than the 12 that it should.
 
