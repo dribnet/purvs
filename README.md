@@ -1,11 +1,17 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+My idea of the alphabet is using cookies put together to get the letters. When look at the cookies form above, the standing cookies and laying cookies will show different shapes so I want to use them as the lines and circles in letters.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The 11 parameters per letter:
+  * `status` : the status of cookies, standing or laying
+  * `offsetx` : x offset of the second column of cookies relative to the first column
+  * `offsety` : y offset of the second column of cookies relative to the first column
+  * `r` : how many degrees the cookies should rotate
+  * `rotoffset` : rotate offset
+  * `movex` : x position of where the coordinate will move to
+  * `movey` : y position of where the coordinate will move to
+  * `gx` : x position of the gap between two cookies in the first column
+  * `gy` : y position of the gap between two cookies in the first column
+  * `g2x` : x position of the gap between two cookies in the second column
+  * `g2y` : y position of the gap between two cookies in the second column
 
