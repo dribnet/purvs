@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
--- Made a 'c' & 'd'.
+--Made alphabet up to 'j' and the digit '1'.
 
 
 
