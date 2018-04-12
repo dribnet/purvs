@@ -20,7 +20,7 @@ function drawLetter(letterData) {
   // determine parameters for second circle  
   fill(colorFront);
   stroke(colorStroke);
-  strokeWeight(4);
+
   angleMode(DEGREES);
 
   let trans1X = letterData["translate1X"];
@@ -30,16 +30,24 @@ function drawLetter(letterData) {
   let trans2X = letterData["translate2X"];
   let trans2Y = letterData["translate2Y"];
   let rot2 = letterData["rotate2"];
+  let sw1 = letterData["strokeweight1"];
+  let sw2 = letterData["strokeweight2"];
 
+  strokeWeight(4);
   line(10, 150, 90, 70);
+
+  //first right angle
   push();
+  strokeWeight(sw1);
   translate(trans1X, trans1Y);
   rotate(rot1);
   line(0, 0, 0, 30);
   line(0, 30, 30, 30);
   pop()
 
-  push();
+  //second right angle
+  push(); 
+  strokeWeight(sw2);
   translate(trans2X, trans2Y);
   rotate(rot2);
   line(0, 0, 0, 30);
