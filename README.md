@@ -1,11 +1,16 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each of my letters is composed of a constant circle, and two triangles that change position, colour and rotation. This simplicity allows for few parameters to change between letters.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `rotation1` : rotation of the first triangle
+  * `rotation2` : rotation of the second triangle
 
+  * `offsetx1` : x offset of the first triangle relative to the circle
+  * `offsety1` : y offset of the first triangle relative to the circle
+
+  * `offsetx2` : x offset of the second triangle relative to the circle
+  * `offsety2` : y offset of the second triangle relative to the circle
+  
+  * `colour1` : colour of first triangle
+  * `colour2` : colour of second triangle
