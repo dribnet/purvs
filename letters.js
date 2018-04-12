@@ -46,7 +46,7 @@ const alphabet = {
       //line 4
        "ptx7": 0,
        "pty7": 100,
-       "ptx8": 90,
+       "ptx8": 85,
        "pty8": 100,
   },
   "B": {
@@ -676,6 +676,7 @@ const alphabet = {
   },
   "0": {
     //line1
+       //line1
        "ptx": 0,
        "pty": 200,
        "ptx2": 100,
@@ -685,17 +686,17 @@ const alphabet = {
        "ptx3": 0,
        "pty3": 200,
        "ptx4": 0,
-       "pty4": 100,
+       "pty4": 0,
 
     //line3
        "ptx5": 0,
-       "pty5": 100,
+       "pty5": 0,
        "ptx6": 85,
-       "pty6": 100,
+       "pty6": 0,
 
     //line 4
        "ptx7": 85,
-       "pty7": 100,
+       "pty7": 0,
        "ptx8": 85,
        "pty8": 185,
   },
@@ -888,13 +889,13 @@ const alphabet = {
        "pty4": 200,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 75,
        "pty5": 0,
        "ptx6": 0,
        "pty6": 0,
 
     //line 4
-       "ptx7": 0,
+       "ptx7": 25,
        "pty7": 200,
        "ptx8": 100,
        "pty8": 200,
