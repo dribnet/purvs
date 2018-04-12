@@ -2,13 +2,13 @@ const alphabet = {
   "default": {
       "size" : 50,
       "offsetx" : 0,
-      "offsety" : 0,
+      "offsety" : -50,
       "rotate" : 0,
-      "offset2x" : 0,
+      "offset2x" : 50,
       "offset2y" : 100,
-      "offset3x" : 0,
+      "offset3x" : 50,
       "offset3y" : 100,
-      "offset4x" : 0,
+      "offset4x" : 50,
       "offset4y" : 100
   },
   "A": {
@@ -25,14 +25,14 @@ const alphabet = {
   },
   "B": {
       "size" : 150,
-      "offsetx": -10,
+      "offsetx": -15,
       "offsety": -40,
       "rotate" : 0,
-      "offset2x" : 70,
+      "offset2x" : 65,
       "offset2y" : 150,
-      "offset3x" : 40,
+      "offset3x" : 35,
       "offset3y" : 185,
-      "offset4x" : 77,
+      "offset4x" : 72,
       "offset4y" : 185
   },
   "C": {
@@ -73,14 +73,14 @@ const alphabet = {
   },
   "F": {
       "size" : 160,
-      "offsetx": -10-20,
+      "offsetx": -10-5,
       "offsety": -30,
       "rotate" : 0,
-      "offset2x" : 10-20,
+      "offset2x" : 10-5,
       "offset2y" : 100,
-      "offset3x" : 70-20,
+      "offset3x" : 70-5,
       "offset3y" : 100,
-      "offset4x" : 70-20,
+      "offset4x" : 70-5,
       "offset4y" : 40
   },
   "G": {
@@ -109,14 +109,14 @@ const alphabet = {
   },
     "I": {
       "size" : 85,
-      "offsetx" : 0,
+      "offsetx" : 10,
       "offsety" : 5,
       "rotate" : 0,
-      "offset2x" : 50,
+      "offset2x" : 60,
       "offset2y" : 70,
-      "offset3x" : 50,
+      "offset3x" : 60,
       "offset3y" : 70,
-      "offset4x" : 50,
+      "offset4x" : 60,
       "offset4y" : 70
   },
     "J": {
@@ -131,16 +131,124 @@ const alphabet = {
       "offset4x" : 50,
       "offset4y" : 230
   },
-  "1": {
+    "K": {
+      "size" : 160,
+      "offsetx": -30,
+      "offsety": -30,
+      "rotate" : 0,
+      "offset2x" : 75,
+      "offset2y" : 75,
+      "offset3x" : 85,
+      "offset3y" : 185,
+      "offset4x" : 40,
+      "offset4y" : 125
+  },
+    "L": {
       "size" : 160,
       "offsetx": 0,
       "offsety": -30,
       "rotate" : 0,
-      "offset2x" : 0,
-      "offset2y" : 90,
+      "offset2x" : 50,
+      "offset2y" : 185,
       "offset3x" : 50,
-      "offset3y" : 50,
+      "offset3y" : 55,
       "offset4x" : 50,
+      "offset4y" : 120
+  },
+    "M": {
+      "size" : 100,
+      "offsetx" : -40,
+      "offsety" : 0,
+      "rotate" : 0,
+      "offset2x" : 50,
+      "offset2y" : 140,
+      "offset3x" : 50,
+      "offset3y" : 185,
+      "offset4x" : 100,
+      "offset4y" : 185
+  },
+      "N": {
+      "size" : 100,
+      "offsetx" : -40,
+      "offsety" : 0,
+      "rotate" : 0,
+      "offset2x" : 50,
+      "offset2y" : 140,
+      "offset3x" : 80,
+      "offset3y" : 185,
+      "offset4x" : 80,
+      "offset4y" : 185
+  },
+    "O": {
+      "size" : 0,
+      "offsetx" : 0,
+      "offsety" : -10,
+      "rotate" : 0,
+      "offset2x" : 50,
+      "offset2y" : 135,
+      "offset3x" : 20,
+      "offset3y" : 185,
+      "offset4x" : 80,
+      "offset4y" : 185
+  },
+    "P": {
+      "size" : 150,
+      "offsetx": -30,
+      "offsety": 55,
+      "rotate" : 0,
+      "offset2x" : 50,
+      "offset2y" : 148,
+      "offset3x" : 20,
+      "offset3y" : 185,
+      "offset4x" : 57,
+      "offset4y" : 185
+  },
+    "Q": {
+      "size" : 150,
+      "offsetx": -10,
+      "offsety": 55,
+      "rotate" : 0,
+      "offset2x" : 12,
+      "offset2y" : 148,
+      "offset3x" : 40,
+      "offset3y" : 185,
+      "offset4x" : 5,
+      "offset4y" : 185
+  },
+    "X": {
+      "size" : 90,
+      "offsetx" : 0,
+      "offsety" : 10,
+      "rotate" : 45,
+      "offset2x" : 30,
+      "offset2y" : 135,
+      "offset3x" : 75,
+      "offset3y" : 185,
+      "offset4x" : 75,
+      "offset4y" : 185
+  },
+    "0": {
+      "size" : 55,
+      "offsetx" : 0,
+      "offsety" : 40,
+      "rotate" : 90,
+      "offset2x" : 50,
+      "offset2y" : 50,
+      "offset3x" : 15,
+      "offset3y" : 130,
+      "offset4x" : 85,
+      "offset4y" : 130
+  },
+  "1": {
+      "size" : 160,
+      "offsetx": 30,
+      "offsety": -30,
+      "rotate" : 0,
+      "offset2x" : 30,
+      "offset2y" : 90,
+      "offset3x" : 80,
+      "offset3y" : 50,
+      "offset4x" : 80,
       "offset4y" : 185
   }
 

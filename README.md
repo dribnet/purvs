@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
---Made alphabet up to 'j' and the digit '1'.
+Just making a checkpoint, and taking a break.
 
 
 
