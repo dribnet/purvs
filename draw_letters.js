@@ -33,3 +33,14 @@ function drawLetter(letterData) {
   rect(0, pos3y,100, 10);
   rect(0, pos4y, 100, 10);
 }
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_obj = {};
+  new_obj ["lengthV2"] = map(percent, 0, 100, oldObj["lengthV2"], newObj["lengthV2"]);
+  new_obj ["offsetxV1"] = map(percent, 0, 100, oldObj["offsetxV1"], newObj["offsetxV1"]);
+  new_obj ["offsetxV2"] = map(percent, 0, 100, oldObj["offsetxV2"], newObj["offsetxV2"]);
+  new_obj ["offsetyH1"] = map(percent, 0, 100, oldObj["offsetyH1"], newObj["offsetyH1"]);
+  new_obj ["offsetyH2"] = map(percent, 0, 100, oldObj["offsetyH2"], newObj["offsetyH2"]);
+  new_obj ["offsetyH3"] = map(percent, 0, 100, oldObj["offsetyH3"], newObj["offsetyH3"]);
+  new_obj ["offsetyV2"] = map(percent, 0, 100, oldObj["offsetyV2"], newObj["offsetyV2"]);
+  return new_obj;
+}
