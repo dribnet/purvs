@@ -13,21 +13,56 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+      "size": 50,
+      "offsetx": 0,
+      "offsety": 23,
+
+      "pos_x1": 10,
+      "pos_y1":170,
+      "width_1":100,
+      "height_1":20,
+
+      "pos_x2": 90,
+      "pos_y2": 90,
+      "width_2":20,
+      "height_2":100
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+      "size": 100,
+      "offsetx": 0,
+      "offsety": 8,
+      
+      "pos_x1": 10,
+      "pos_y1":170,
+      "width_1":100,
+      "height_1":20,
+
+      "pos_x2": 90,
+      "pos_y2": 90,
+      "width_2":20,
+      "height_2":100,
+
+      "pos_x3": 10,
+      "pos_y3": 90,
+      "width_3":20,
+      "height_3":100
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 100,
-  "offsety": -10
+      "size": 68,
+      "offsetx": 15,
+      "offsety": 0,
+
+      "pos_x1": 10,
+      "pos_y1":170,
+      "width_1":100,
+      "height_1":20,
+
+      "pos_x2": 10,
+      "pos_y2": 90,
+      "width_2":20,
+      "height_2":100,
 }
 
 const colorFront  = "#199cff";
@@ -50,13 +85,32 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let w = letterData["width_1"];
+  let h = letterData["height_1"];
+  let x = letterData["pos_x1"];
+  let y = letterData["pos_y1"];
+
+  let w2 = letterData["width_2"];
+  let h2 = letterData["height_2"];
+  let x2 = letterData["pos_x2"];
+  let y2 = letterData["pos_y2"];
+
+  let w3 = letterData["width_3"];
+  let h3 = letterData["height_3"];
+  let x3 = letterData["pos_x3"];
+  let y3 = letterData["pos_y3"];
+
+  let w4 = letterData["width_4"];
+  let h4 = letterData["height_4"];
+  let x4 = letterData["pos_x4"];
+  let y4 = letterData["pos_y4"];
 
   // draw two circles
-  ellipse(pos2x, pos2y, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(x,y,w,h);
+  rect(x2,y2,w2,h2);
+  rect(x3,y3,w3,h3);
+  rect(x4,y4,w4,h4);
+  
 }
 
 function draw () {
@@ -70,7 +124,7 @@ function draw () {
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
   drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterA);
+  drawLetter(center_x + 250, center_y, 10, letterC);
 }
 
 function keyTyped() {
