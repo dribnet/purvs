@@ -3,7 +3,7 @@
 <<<<<<< HEAD
     
 =======
-I tested out some colours for mt letter forms and I think that this red fill on the inner arc is interesting but I don't think it looks that great filled in. I like the colour though. Maybe if it was all filled in or all filled in with a different stroke or just have the outer filled in would be interesting to see. For now I'm not sure about the colours but I think it would be nice to see the outer and inner with two different colours that either contrast or compilement.  
+I tested out another set of colours. This time i tried yellow and orange which I like as it looks like a sunset or sunrise in a way. However I removed the fill from the inner arc and added a fill to the outer arc and I think I like this as it looks prettty interesting. I think it would look better if it transparent slightly. I think I will test out some more colours and see how they look.   
 
 pos2x this draws the x position of the first point 
 pos2y this draws the y position of the first point 
