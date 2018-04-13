@@ -60,7 +60,16 @@ function getCharacterInterpolationObj(percent, oldObj, newObj) {
 
 function interpolate_letter (percent, oldObj, newObj) {
 let new_letter = {};
-Alpha = map(percent, 0, 100, 0, 255)
+
+if(percent<=50){
+  Alpha = map(percent, 50, 0, 0, 255);
+}else if(percent<=90){
+  Alpha = map(percent, 50, 100, 0, 255);
+}else
+    Alpha = 255;
+
+// textSize(15);
+// text(percent, 0, 0);
 new_letter["TL"] = map(percent, 0, 100, oldObj["TL"], newObj["TL"]);
 new_letter["TM"] = map(percent, 0, 100, oldObj["TM"], newObj["TM"]);
 new_letter["TR"] = map(percent, 0, 100, oldObj["TR"], newObj["TR"]);
