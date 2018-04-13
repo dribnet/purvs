@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -17,86 +17,50 @@ const letterA = {
   // "size": 80,
   // "offsetx": 0,
   // "offsety": 3
-  "positionx1": 226,
-  "positiony1": 160,
-  "tilt1": -45,
-  "colorR1": 106,
-  "positionx2": 262,
-  "positiony2": 100,
-  "tilt2": -45,
-  "colorR2": 126,
-  "positionx3": 300,
-  "positiony3": 40,
-  "tilt3": -45,
-  "colorR3": 146,
-  "positionx4": 310,
-  "positiony4": 290,
-  "tilt4": 45,
-  "colorR4": 166,
-  "positionx5": 350,
-  "positiony5": 350,
-  "tilt5": 45,
-  "colorR5": 186,
-  "positionx6": 390,
-  "positiony6": 410,
-  "tilt6": 45,
-  "colorR6": 206,
+  "positionX1": -180,
+  "positionY1": 100,
+  "tilt1": -1,
+  "change1": 1,
+  "positionX2": 60,
+  "positionY2": -120,
+  "tilt2": 1.5,
+  "change2": 1,
+  "positionX3": -150,
+  "positionY3": -10,
+  "tilt3": 0,
+  "change3": 1,
 
 }
 
 const letterB = {
-  "positionx1": 620,
-  "positiony1": 320,
-  "tilt1": 0,
-  "colorR1": 106,
-  "positionx2": 450,
-  "positiony2": 118,
-  "tilt2": 80.1,
-  "colorR2": 126,
-  "positionx3": 450,
-  "positiony3": 20,
-  "tilt3": 80.1,
-  "colorR3": 146,
-  "positionx4": 620,
-  "positiony4": 150,
-  "tilt4": 0,
-  "colorR4": 166,
-  "positionx5": 600,
-  "positiony5": 60,
-  "tilt5": -45,
-  "colorR5": 186,
-  "positionx6": 580,
-  "positiony6": 400,
-  "tilt6": 45,
-  "colorR6": 206,
+  "positionX1": -100,
+  "positionY1": 120,
+  "tilt1": -1.5,
+  "change1": 1,
+  "positionX2": 100,
+  "positionY2": -60,
+  "tilt2": 2,
+  "change2": 0,
+  "positionX3": 120,
+  "positionY3": 50,
+  "tilt3": 2,
+  "change3": 0,
 
 }
 
 const letterC = {
-  "positionx1": 900,
-  "positiony1": 320,
-  "tilt1": 0,
-  "colorR1": 106,
-  "positionx2": 825,
-  "positiony2": 320,
+  "positionX1": -100,
+  "positionY1": 120,
+  "tilt1": -1.5,
+  "change1": 1,
+  "positionX2": -100,
+  "positionY2": 30,
   "tilt2": 0,
-  "colorR2": 126,
-  "positionx3": 650,
-  "positiony3": 120,
-  "tilt3": 80.1,
-  "colorR3": 146,
-  "positionx4": 650,
-  "positiony4": 45,
-  "tilt4": 80.1,
-  "colorR4": 166,
-  "positionx5": 825,
-  "positiony5": 165,
-  "tilt5": 0,
-  "colorR5": 186,
-  "positionx6": 900,
-  "positiony6": 165,
-  "tilt6": 0,
-  "colorR6": 206,
+  "change2": 1,
+  "positionX3": -100,
+  "positionY3": -120,
+  "tilt3": 0,
+  "change3": 1,
 }
 
 const colorFront  = [186, 243, 255];
@@ -117,41 +81,128 @@ function setup () {
   noLoop();
 }
 
-function drawPart(posx, posy, scale, offsetx, offsety, tilt, colorR) {
+
+function drawPart(posx, posy, scale, offsetx, offsety, tilt, change) {
+
+
+  //straight part//
+if(change == 1){
+  //draw Dandelion part//
   push();
-  // resetMatrix();
-  // translate(posx + offsetx*scale/2, posy);
-  translate(offsetx, offsety);
+  translate(posx + offsetx, posy + offsety);
   rotate(tilt);
   noFill();
-  strokeWeight(1);
-  rect(-200, -15, 10*scale, 3*scale, 25);
-  fill(colorR, 243, 255);
-  strokeWeight(2.5);
-  rect(-20*scale, -3*scale, 10*scale, 3*scale, 50);
+  stroke(51, 94, 50);
+  //draw stalk//
+  bezier(85, 20, 10, 10, 90, 90, 15, 80);
+  // bezier(20*scale, 4*scale, 10+scale, 10+scale, 90-scale, 90-scale, 15-scale, 7*scale);
+  bezier(150, 20, 10, 10, 90, 90, 15, 80);
+  // bezier(24*scale, 65-scale, -20+scale, 10+scale, 90-scale, 90-scale, 15-scale, 7*scale);
+  bezier(200, 10, 20, 25, 90, 90, 15, 80);
+  // bezier(18*scale, 34-scale, 2*scale, 6*scale, 9*scale, 9*scale, 15-scale, 7*scale);
+  bezier(180, 34, 10, 10, 90, 90, 15, 80);
+  // bezier(15*scale, 7*scale, -2*scale, -2*scale, 9*scale, 9*scale, 15-scale, 7*scale);
+  bezier(54, 120, 10, 10, 90, 90, 100, 50);
+  //draw flower//
+  stroke(255);
   fill(255);
-  ellipse(-12*scale, -1.5*scale, 5, 5);
-  ellipse(-18*scale, -1.5*scale, 5, 5);
+  ellipse(85, 20, 15, 15);
+  ellipse(150, 20, 20, 20);
+  ellipse(200, 10, 30, 30);
+  ellipse(180, 34, 10, 10);
+  ellipse(100, 50, 10, 10);
+  //draw leaves//
+  fill(51, 94, 50);
+  noStroke();
+  ellipse(70, 70, 50, 10);
+  rotate(1);
+  ellipse(80, -100, 10, 50);
+  ellipse(60, -25, 30, 10);
+  rotate(1);
+  ellipse(-20, -130, 10, 30);
   pop();
-  
+}else if(change == 0){ //draw an ellipse of Dandelion//
+  push();
+  translate(posx + offsetx, posy + offsety);
+  rotate(tilt);
+  stroke(51, 94, 50);
+  noFill();
+  // fill(255);
+  arc(50, 100, 100, 100, 360, 0);
+  fill(51, 94, 50);
+  ellipse(-10, 100, 20, 10);
+  rotate(1);
+  ellipse(45, 10, 30, 10);
+  rotate(1);
+  ellipse(115, -45, 30, 10);
+  rotate(3);
+  ellipse(-25, 45, 30, 10);
+  fill(255);
+  noStroke();
+  ellipse(-40, 45, 10, 10);
+  ellipse(-40, 35, 10, 10);
+
+  // ellipse(10*scale, 2*scale, 100, 100);
+  pop();
+}else if(change == 2){ //draw V shaped of Dandelion//
+  //draw Dandelion part//
+  push();
+  translate(posx + offsetx, posy + offsety);
+  rotate(tilt);
+  noFill();
+  stroke(51, 94, 50);
+  //draw stalk//
+  line(105, -80, 45, 90);
+  line(80, -80, 45, 90);
+  bezier(85, 20, 10, 10, 90, 90, 15, 80);
+  bezier(85, -50, -50, -100, 185, 90, 15, 120);
+  // bezier(20*scale, 4*scale, 10+scale, 10+scale, 90-scale, 90-scale, 15-scale, 7*scale);
+  bezier(150, 20, 10, 10, 90, 90, 15, 80);
+  // bezier(24*scale, 65-scale, -20+scale, 10+scale, 90-scale, 90-scale, 15-scale, 7*scale);
+  bezier(200, 10, 20, 25, 90, 90, 15, 80);
+  // bezier(18*scale, 34-scale, 2*scale, 6*scale, 9*scale, 9*scale, 15-scale, 7*scale);
+  bezier(180, 34, 10, 10, 90, 90, 15, 80);
+  // bezier(15*scale, 7*scale, -2*scale, -2*scale, 9*scale, 9*scale, 15-scale, 7*scale);
+  bezier(54, 120, 10, 10, 90, 90, 100, 50);
+  //draw flower//
+  stroke(255);
+  fill(255);
+  ellipse(85, 20, 15, 15);
+  ellipse(150, 20, 20, 20);
+  ellipse(200, 10, 30, 30);
+  ellipse(180, 34, 10, 10);
+  ellipse(100, 50, 10, 10);
+
+  ellipse(105, -80, 20, 20);
+  ellipse(80, -80, 10, 10);
+  ellipse(85, -50, 10, 10);
+  //draw leaves//
+  fill(51, 94, 50);
+  noStroke();
+  ellipse(70, 70, 50, 10);
+  rotate(1);
+  ellipse(80, -100, 10, 50);
+  ellipse(60, -25, 30, 10);
+  rotate(1);
+  ellipse(-20, -130, 10, 30);
+  rotate(1);
+  ellipse(-45, 50, 10, 30);
+  rotate(1);
+  ellipse(-45, 50, 10, 30);
+  ellipse(-35, 100, 10, 30);
+  pop();
+
+}
+
+
 }
 
 function drawLetter(posx, posy, scale, letterData) {
-  // let y_offset = 2.5*scale;
-  drawPart(posx, posy, scale, letterData["positionx1"], letterData["positiony1"], letterData["tilt1"], letterData["colorR1"]);
-  drawPart(posx, posy, scale, letterData["positionx2"], letterData["positiony2"], letterData["tilt2"], letterData["colorR2"]);
-  drawPart(posx, posy, scale, letterData["positionx3"], letterData["positiony3"], letterData["tilt3"], letterData["colorR3"]);
-  drawPart(posx, posy, scale, letterData["positionx4"], letterData["positiony4"], letterData["tilt4"], letterData["colorR4"]);
-  drawPart(posx, posy, scale, letterData["positionx5"], letterData["positiony5"], letterData["tilt5"], letterData["colorR5"]);
-  drawPart(posx, posy, scale, letterData["positionx6"], letterData["positiony6"], letterData["tilt6"], letterData["colorR6"]);
+  let y_offset = 5 * scale;
+  drawPart(posx, posy, scale, letterData["positionX1"], letterData["positionY1"], letterData["tilt1"], letterData["change1"]);
+  drawPart(posx,          posy, scale, letterData["positionX2"], letterData["positionY2"], letterData["tilt2"], letterData["change2"]);
+  drawPart(posx, posy, scale, letterData["positionX3"], letterData["positionY3"], letterData["tilt3"], letterData["change3"]);
 
-  // draw two circles
-  // ellipse(posx, posy, 150, 150);
-  // ellipse(pos2x, pos2y, size2, size2);
-  // rect(posx-20, posy, 150, 50, 50);
-  // rect(pos2x, pos2y, size2/2, size2*2, 50);
-  // rect(pos2x, pos2y, size2/2, size2*2, 50);
-  // rect(pos2x+70, pos2y, size2/2, size2*2, 50);
 }
 
 
@@ -161,7 +212,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
