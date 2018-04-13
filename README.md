@@ -18,6 +18,8 @@ The eight parameters per letter:
   * `offsety2`: Controls the Y offset of Arc2
   * `offsety3`: Controls the Y offset of Arc3
   * `offsety4`: Controls the Y offset of Arc4
+
+  I added new parameters for the Y value of the acrs due to when i created some of the letters i found that they were floating above the base line.
 =======
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].

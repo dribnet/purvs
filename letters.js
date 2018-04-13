@@ -72,7 +72,7 @@ const alphabet = {
   "E": {
     "offsetx1": -10,
     "offsetx2": 160,
-    "offsetx3": 160,
+    "offsetx3": 140,
     "offsetx4": 20,
     "offsety1": 0,
     "offsety2": 0,
@@ -84,17 +84,31 @@ const alphabet = {
     "rot4": 90
     },
   "F": {
-    "offsetx1": 140,
-    "offsetx2": 70,
+    "offsetx1": 70,
+    "offsetx2": 130,
     "offsetx3": 100,
     "offsetx4": 110,
     "offsety1": 40,
     "offsety2": -40,
-    "offsety3": 0,
-    "offsety4": 0,
+    "offsety3": -55,
+    "offsety4": -55,
     "rot1": -90,
     "rot2": 90,
     "rot3": 180,
     "rot4": 180
+    },
+     "G": {
+      "offsetx1": 0,
+      "offsetx2": 0,
+      "offsetx3": 0,
+      "offsetx4": 0,
+      "offsety1": 0,
+      "offsety2": 0,
+      "offsety3": 0,
+      "offsety4": 0,
+      "rot1": 0,
+      "rot2": 0,
+      "rot3": 0,
+      "rot4": 0
     }
 }
