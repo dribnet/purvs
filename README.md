@@ -1,6 +1,7 @@
 ## PS2 MDDN 242 2018
 
-I managed to sort out my bounding box problem with the help of Tom, now that I have fixed this I can move onto the interpolation so that my alphabet will be animated.
+Having completed the alphabet I can now move onto 1-10 ,this step should be fairly easy. Another thing I could improve on as well is the M and W, I couldn't think of a better way to do these with 4 control points. I also added a mapp to the color which now changes depending on the location of the control points.
+I also had some issues with the interpolation which I will have to trouble shoot next class. 
 
 
 The eight parameters per letter:
