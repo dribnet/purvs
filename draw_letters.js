@@ -39,3 +39,17 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   line(linex1,liney1,linex2,liney2)
 }
+
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["posX1"] = map(percent, 0, 100, oldObj["posX1"], newObj["posX1"]);
+  new_letter["posY1"] = map(percent, 0, 100, oldObj["posY1"], newObj["posY1"]);
+  new_letter["posX2"] = map(percent, 0, 100, oldObj["posX2"], newObj["posX2"]);
+  new_letter["posY2"] = map(percent, 0, 100, oldObj["posY2"], newObj["posY2"]);
+
+  new_letter["linex1"] = map(percent, 0, 100, oldObj["linex1"], newObj["linex1"]);
+  new_letter["linex2"] = map(percent, 0, 100, oldObj["linex2"], newObj["linex2"]);
+  new_letter["liney1"] = map(percent, 0, 100, oldObj["liney1"], newObj["liney1"]);
+  new_letter["liney2"] = map(percent, 0, 100, oldObj["liney2"], newObj["liney2"]);
+  return new_letter;
+}

@@ -1,8 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I've added some more letters and played around with the colour. I made the transparency different for the big circle and the two smaller ones so that the smaller ones stand out more.
-
-The line is no longer the colour of the background, but instead a cream colour. This is the same for the big circle outline, cream matches better with the brown. 
+Added the animation. I noticed that the line appears and disappears suddenly when going to or from a letter that has a line and one that does not. I might make the line fade in/out for this since transparency is used throughout my letters. 
 
 
 The eight parameters per letter are now:
