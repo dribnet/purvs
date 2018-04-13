@@ -21,8 +21,8 @@ const colorStroke = "#ffaa00";
   var ry5=0;
 function drawLetter(letterData) {
   // color/stroke setup
-  fill(0);
-  stroke(0);
+  fill(255);
+  stroke(255);
   strokeWeight(7);
 rectMode(CENTER);
   // determine parameters for second circle
@@ -40,7 +40,7 @@ line(x1,y1,x2,y2);
 line(x2,y2,x3,y3);
 line(x3,y3,x4,y4);
 line(x4,y4,x5,y5);
-stroke(0);
+stroke(255);
 rect(x1,y1,3,3);
 rect(x2,y2,3,3);
 rect(x3,y3,3,3);
