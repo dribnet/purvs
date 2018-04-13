@@ -88,17 +88,11 @@ function drawLetter(x, y, letterData) {
   line(posx,posy,pos3x,pos3y)
   line(posx,posy,pos4x,pos4y)
 
-  line(pos2x,pos2y,posx,posy)
   line(pos2x,pos2y,pos3x,pos3y)
   line(pos2x,pos2y,pos4x,pos4y)
 
-  line(pos3x,pos3y,posx,posy)
-  line(pos3x,pos3y,pos2x,pos2y)
   line(pos3x,pos3y,pos4x,pos4y)
 
-  line(pos4x,pos4y,posx,posy)
-  line(pos4x,pos4y,pos3x,pos3y)
-  line(pos4x,pos4y,pos2x,pos2y)
 
 }
 
