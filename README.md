@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Examples of letters A, B and C in triange font.
+I have added the code to do basic animation between letters. 
 
 There are  parameters per letter:
   > offset1 -- x coordinate of the first triangle

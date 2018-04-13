@@ -42,3 +42,14 @@ push();
 
   pop();
 }
+
+function interpolate_letter(percent, oldObj, newObj){
+  let new_obj = {};
+  new_obj["offset1"] = map(percent, 0, 100, oldObj["offset1"], newObj ["offset1"]);
+  new_obj["offset2"] = map(percent, 0, 100, oldObj["offset2"], newObj ["offset2"]);
+  new_obj["offset3"] = map(percent, 0, 100, oldObj["offset3"], newObj ["offset3"]);
+  new_obj["offset4"] = map(percent, 0, 100, oldObj["offset4"], newObj ["offset4"]);
+  new_obj["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj ["rotate1"]);
+  new_obj["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj ["rotate2"]);
+  return new_obj;
+}
