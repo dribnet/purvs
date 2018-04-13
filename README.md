@@ -1,10 +1,9 @@
 ## PS2 MDDN 242 2018
 
-My alphabet is made up of three semi-transparent circles and a line. The line was added in because I realised that three circles was not enough to create unique enough letters. The line is the same colour as the background so it looks like it's cutting the circle. So far I've only finished some letters.
+I've added some more letters and played around with the colour. I made the transparency different for the big circle and the two smaller ones so that the smaller ones stand out more.
 
-I wanted my letters to touch. This means they don't fit inside the bounding box.
+The line is no longer the colour of the background, but instead a cream colour. This is the same for the big circle outline, cream matches better with the brown. 
 
-I removed the offset parameter because It was no longer needed. However I added in parameters needed for the line.
 
 The eight parameters per letter are now:
 
