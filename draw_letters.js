@@ -29,7 +29,6 @@ function drawLetter(letterData) {
   // draw two circles
   rect(pos3x, posy, 25, 200);
   rect(pos4x, pos5y, 25, size2);
-  fill (255, 0, 0);
   rect(0, pos2y, 100, 10);
   rect(0, pos3y,100, 10);
   rect(0, pos4y, 100, 10);
