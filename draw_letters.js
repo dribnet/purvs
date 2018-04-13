@@ -79,3 +79,25 @@ function drawLetter(letterData) {
 
   pop();
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_Letter = {};
+  new_Letter["rot1"] = map(percent, 0, 100, oldObj["rot1"], newObj["rot1"]);
+  new_Letter["rot2"] = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
+  new_Letter["rot3"] = map(percent, 0, 100, oldObj["rot3"], newObj["rot3"]);
+  new_Letter["rot4"] = map(percent, 0, 100, oldObj["rot4"], newObj["rot4"]);
+  new_Letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_Letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_Letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_Letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
+  new_Letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+  new_Letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_Letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+  new_Letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
+  return new_Letter;
+}
+
+
+
+
+

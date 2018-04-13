@@ -19,7 +19,9 @@ The eight parameters per letter:
   * `offsety3`: Controls the Y offset of Arc3
   * `offsety4`: Controls the Y offset of Arc4
 
-  I added new parameters for the Y value of the acrs due to when i created some of the letters i found that they were floating above the base line.
+  I added new parameters for the Y value of the arcs due to when i created some of the letters i found that they were floating above the base line.
+
+  I have also added animation for the letters and i must say they are exactly how i wanted them to be done.
 =======
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].
