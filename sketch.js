@@ -106,14 +106,14 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   
-  let q1 = posx + letterData["qx1"];
-  let q2 = posy + letterData["qy1"];
-    let q3= posx + letterData["qx2"];
-  let q4 = posy + letterData["qy2"];
-    let q5= posx + letterData["qx3"];
-  let q6 = posy + letterData["qy3"];
-    let q7 = posx + letterData["qx4"];
-  let q8 = posy + letterData["qy4"];
+  let x1 = posx + letterData["qx1"];
+  let y1 = posy + letterData["qy1"];
+  let x2= posx + letterData["qx2"];
+  let y2 = posy + letterData["qy2"];
+  let x3= posx + letterData["qx3"];
+  let y3 = posy + letterData["qy3"];
+  let x4 = posx + letterData["qx4"];
+  let y4 = posy + letterData["qy4"];
 
 
 
@@ -124,8 +124,13 @@ function drawLetter(posx, posy, scale, letterData) {
   noStroke()
   fill (255,68,93,100);
 
+beginShape();
+vertex(x1,y1)
+vertex(x2,y2)
+vertex(x3,y3)
+vertex(x4,y4)
+endShape();
 
-quad(q1,q2,q3,q4,q5,q6,q7,q8);
 
  fill (200,58,23,100);
  stroke(255,208,68)
