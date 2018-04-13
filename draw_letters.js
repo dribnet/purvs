@@ -1,6 +1,8 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+// const colorFront  = "#199cff";
+// const colorStroke = "#233f11
 
+const colorFront  = "0, 0, 0, 80";
+const colorStroke = "0, 0, 0, 50";
 /*
  * Draw the letter given the letterData
  *
@@ -18,10 +20,16 @@ function drawLetter(letterData) {
   strokeWeight(4);
    angleMode(DEGREES);
 
-   noFill();
-   stroke('red');
-   rect(0, 0, 100, 200);
-   stroke('black');
+   // noFill();
+   // stroke('red');
+   // rect(0, 0, 100, 200);
+
+
+
+   stroke(255, 232, 0);
+   //fill(255, 159, 25);
+   //noFill();
+
 
   // determine parameters for second circle
   // let size2 = letterData["size"];
@@ -43,13 +51,15 @@ let posy = 0;
   // ellipse(50, 150, 100, 100);
   // ellipse(pos2x, pos2y, size2, size2);
 
-  push();
 
+  push();
+  //stroke(#efd1ff);
   rotate(rotatearc2+46.5);
   translate(50,175);
-  noFill();
   arc(pos2x, pos2y, 80, -80, arcAngle, PI, PI + QUARTER_PI);
-
+  noFill();
+  // fill(255, 232, 0);
+  // stroke(255, 159, 25);
   rotate(rotatearc3);
   translate(20,20);
   arc(pos3x, pos3y, 30, -30, arcAngle, PI, PI + QUARTER_PI);
