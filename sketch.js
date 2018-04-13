@@ -12,7 +12,7 @@ var posy1 = center_y;
 var posy2 = posy1 + 75;
 var posy3 = posy2 + 75;
 
-
+//var dot1 = [pos1,pos2];
 
 /* 
  * my three variable per letter are:
@@ -28,19 +28,23 @@ var posy3 = posy2 + 75;
 const letterA = {
   "size": 50,
   "offsetx": 0,
-  "offsety": 0
+  "offsety": 0,
+  //"L1Begin": dot2["x"], dot2["y"]
 }
+
 
 const letterB = {
   "size": 10,
   "offsetx": 0,
-  "offsety": 0
+  "offsety": 0,
+  "L1Begin": dot2["x"]
 }
 
 const letterC = {
   "size": 10,
   "offsetx": 0,
-  "offsety": 0
+  "offsety": 0,
+  //"L1Begin": dot2["x"], dot2["y"]
 }
 
 const colorFront  = "#199cff";
@@ -88,21 +92,7 @@ function drawLetter(posx, posy, scale, letterData) {
 
 //Drawing the letters
   strokeWeight(4);
-  //Draw Letter A
-  line(posx1,posy3,posx2,posy1);
-  line(posx2,posy1,posx3,posy3);
-  line(posx1,posy2,posx3,posy2);
-  //Letter B
-  line(posx2,posy1,posx2,posy3);
-  line(posx2,posy1,posx3,posy1h);
-  line(posx3,posy1h,posx2,posy2);
-  line(posx2,posy2,posx3,posy2h);
-  line(posx3,posy2h,posx2,posy3);
-  //Letter C
-  line(posx3,posy1,posx2,posy1);
-  line(posx2,posy1,posx1,posy2);
-  line(posx1,posy2,posx2,posy3);
-  line(posx2,posy3,posx3,posy3);
+  
 }
 
 function draw () {
