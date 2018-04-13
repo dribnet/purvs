@@ -21,3 +21,23 @@ function drawLetter(letterData) {
   line(letterData["point3X"], letterData["point3Y"], letterData["point4X"], letterData["point4Y"]);
   line(letterData["point5X"], letterData["point5Y"], letterData["point6X"], letterData["point6Y"]);
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+	let new_letter = {};
+	new_letter["point1X"] = map(percent, 0, 100, oldObj["point1X"], newObj["point1X"]);
+	new_letter["point1Y"] = map(percent, 0, 100, oldObj["point1Y"], newObj["point1Y"]);
+	new_letter["point2X"] = map(percent, 0, 100, oldObj["point2X"], newObj["point2X"]);
+	new_letter["point2Y"] = map(percent, 0, 100, oldObj["point2Y"], newObj["point2Y"]);
+	new_letter["point3X"] = map(percent, 0, 100, oldObj["point3X"], newObj["point3X"]);
+	new_letter["point3Y"] = map(percent, 0, 100, oldObj["point3Y"], newObj["point3Y"]);
+	new_letter["point4X"] = map(percent, 0, 100, oldObj["point4X"], newObj["point4X"]);
+	new_letter["point4Y"] = map(percent, 0, 100, oldObj["point4Y"], newObj["point4Y"]);
+	new_letter["point5X"] = map(percent, 0, 100, oldObj["point5X"], newObj["point5X"]);
+	new_letter["point5Y"] = map(percent, 0, 100, oldObj["point5Y"], newObj["point5Y"]);
+	new_letter["point6X"] = map(percent, 0, 100, oldObj["point6X"], newObj["point6X"]);
+	new_letter["point6Y"] = map(percent, 0, 100, oldObj["point6Y"], newObj["point6Y"]);
+
+
+	return new_letter;
+
+}
