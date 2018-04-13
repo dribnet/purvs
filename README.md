@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-My idea for my alphabet is to use 2 triangles and looking at perhaps adding a line which stays in the same place. At the moment i have used the 2 triangles and am looking at where the line will be placed. I am abit confused about the parameters so i will look more into them and understanding them. I'm also still yet to understand how to put my letters into the alphabet bounding boxes etc.
+I have started boxing out my alphabet. I have started with the two triangles but still wanting to put a line in the centre of some or most letters if i can. I will now look at finishing my alphabet and numbers as well as the colours.
 
 The parameters per letter are now:
   let pos1x = posx + letterData["x"];
