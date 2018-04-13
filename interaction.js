@@ -82,6 +82,7 @@ function computeCurrentSoloChar() {
 
 let hot_key_press = false;
 function draw () {
+  angleMode(DEGREES)
   // clear screen
   background(colorBack);
 

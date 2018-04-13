@@ -43,3 +43,26 @@ let ly2 = letterData["ly2"];
 
   line(x+lx1, y+ly1, x+lx2, y+ly2);
 }
+
+function interpolate_letter(percent, oldObj, newObj){
+
+  let new_letter = {};
+
+  new_letter["a1"] = map(percent, 0, 100, oldObj ["a1"], newObj ["a1"]);
+  new_letter["a2"] = map(percent, 0, 100, oldObj ["a2"], newObj ["a2"]);
+
+  new_letter["tx1"] = map(percent, 0, 100, oldObj ["tx1"], newObj ["tx1"]);
+  new_letter["ty1"] = map(percent, 0, 100, oldObj ["ty1"], newObj ["ty1"]);
+  new_letter["tx2"] = map(percent, 0, 100, oldObj ["tx2"], newObj ["tx2"]);
+  new_letter["ty2"] = map(percent, 0, 100, oldObj ["ty2"], newObj ["ty2"]);
+  new_letter["tx3"] = map(percent, 0, 100, oldObj ["tx3"], newObj ["tx3"]);
+  new_letter["ty3"] = map(percent, 0, 100, oldObj ["ty3"], newObj ["ty3"]);
+
+  new_letter["lx1"] = map(percent, 0, 100, oldObj ["lx1"], newObj ["lx1"]);
+  new_letter["ly1"] = map(percent, 0, 100, oldObj ["ly1"], newObj ["ly1"]);
+  new_letter["lx2"] = map(percent, 0, 100, oldObj ["lx2"], newObj ["lx2"]);
+  new_letter["ly2"] = map(percent, 0, 100, oldObj ["ly2"], newObj ["ly2"]);
+
+  return new_letter;
+
+}

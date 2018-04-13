@@ -2,7 +2,9 @@
 
 I have based my letters around the gothic style of lettering. I will try use an arc, triangle and a line to do this.
 
-I am currnetly completing my Alphabet. I have sketched how I invision the whole alphabet to look like.
+I am currnetly completing my Alphabet I have now progressed to the O, i will complete the alphabet then go back through it to see if I can improve any that a weaker than others.
+
+I have got the transition to work but want to experiment with it to get the arc to transition smoother.
 
 I have twelve paramaters fore ach of my letters;
 	"a1" : The first angle of the arc.
