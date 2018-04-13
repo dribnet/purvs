@@ -1,16 +1,20 @@
 ## PS2 MDDN 242 2018
 
 <<<<<<< HEAD
-I changed my idea a bit. I want the font to be made up of the same arcs and be simpler so it is more confusing and interesting. The arcs will never come together to be full circles. How it will work is that the larger arc will rotate and the smaller one will rotate and move around to form the different letters and numbers. I decided to simplify it because I realised that my other idea would require too many parameters as well as it was really confusing to code. I like the look of this font better as it is just curves that rotate and move about. I'm sure if I will add in some other things but for now this is my initial idea 2.    
+    
 =======
-(Replace this README with information about your alphabet. This is an example.)
+With my letter forms I decided to go with my second idea of the the two arcs. I've create all the letters and numbers for them as so far I am happy with it. Making it took a while as I couldn;t figure out how to rotate the arcs but once I figured it out it wasn't too difficult to make the rest. The thing that took the longest was finding hte position of hte arcs when I rotated them. 
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+I think that now i have drawn out all the forms I will play with colour and stroke sizes too see what looks interesting. I might add something more to the forms as they look a bit plain. So maybe a circle or a line would be interesting to see. I think that maybe if the outer arc as filled in and the inner was not it would look pretty interesting. Or have then both filled in with different colours but the stroke would be none. I think for now i will play around with it and see what I come up with. 
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+I ended up having to add some more variables to the list as I realized that i needed two rotate variables. One for the outer and one for the inner. As for sixe I turned it into a variable as well to make it easier if I wanted to change the size or something. So far I have a total of 7 variables. 
+
+pos2x this draws the x position of the first point 
+pos2y this draws the y position of the first point 
+pos3x this draws the x position of the second point 
+pos3y this draws the y position of the second point 
+arcAngle is the size of the arcs for both arcs
+rotatearc2 this rotates the outer arc
+rotatearc3 this rotates the inner arc
 
 >>>>>>> upstream/part2

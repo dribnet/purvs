@@ -14,12 +14,12 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 20,
   "offsetx": 200,
   "offsety": 485,
   "offset3x": 235,
-  "offset3y": 515
-  //"rotate": 
+  "offset3y": 515,
+  "rotate": 90 
 }
 
 const letterC = {
@@ -28,7 +28,7 @@ const letterC = {
 //  "offsety": 485,
 //  "offset3x": 235,
 //  "offset3y": 515
-//  //"rotate": 90,
+    //"rotatearc": 47
 //  //"offset3x": 240,
 //  //"offset3y": 480
 //  //"offsetx5": 160,
@@ -66,12 +66,13 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  //let size2 = letterData["size"];
+  let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let pos3x = posx + letterData["offset3x"];
   let pos3y = posy + letterData["offset3y"];
-  //let rotate2 = letterData["rotate"];
+  let rotate2 = letterData["rotatearc"];
+  //let rotate2 = 0;
   //let pos4x = posx + letterData["offsetx2"];
   //let pos4y = posy + letterData["offsety2"];
   //let pos5x = posx + letterData["offsetx4"];
@@ -79,7 +80,7 @@ function drawLetter(posx, posy, scale, letterData) {
   //let pos2y3 = posy + letterData["offsety3"];
   //let pos2x6 = posx + letterData["offsetx6"];
   //let pos2y6 = posy + letterData["offsety6"];
-
+angleMode(DEGREES);
 
   // draw two circles
   //ellipse(posx, posy, 150, 150);
@@ -87,7 +88,7 @@ function drawLetter(posx, posy, scale, letterData) {
 
   push();
 
-  rotate(47);
+  //rotate(rotate2+47);
   translate(-140,-690);
   //rect or whatever  r
 
