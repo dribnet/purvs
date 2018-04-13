@@ -19,6 +19,11 @@ const colorStroke = "#ffaa00";
   var ry3=0;
   var ry4=0;
   var ry5=0;
+  var g1=255;
+  var g2=255;
+  var g3=255;
+  var g4=255;
+
 function drawLetter(letterData) {
   // color/stroke setup
   fill(255);
@@ -36,11 +41,20 @@ rectMode(CENTER);
   let y4 = letterData["y4"]+ry4;
   let x5 = letterData["x5"]+r5;
   let y5 = letterData["y5"]+ry5;
+  fill(g1);
+  stroke(g1);
 line(x1,y1,x2,y2);
+fill(g2);
+stroke(g2);
 line(x2,y2,x3,y3);
+fill(g3);
+stroke(g3);
 line(x3,y3,x4,y4);
+fill(g4);
+stroke(g4);
 line(x4,y4,x5,y5);
 stroke(255);
+fill(255);
 rect(x1,y1,3,3);
 rect(x2,y2,3,3);
 rect(x3,y3,3,3);
@@ -59,6 +73,10 @@ if(c>1000){
   ry3=random(-7,7);
   ry4=random(-7,7);
   ry5=random(-7,7);
+  g1=random(50,255);
+  g2=random(50,255);
+  g3=random(50,255);
+  g4=random(50,255);
 }
 c++;
 }
