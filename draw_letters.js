@@ -46,8 +46,8 @@ function drawLetter(letterData) {
    //rotating rect 
    push ();
    rotate (rotation);
-   fill('white')
-   //fill (247,168,255,80);
+   //fill('white')
+   fill (247,168,255,80);
    rect(posX, posY, sizeR, sizeR);
    pop();
 
@@ -55,8 +55,8 @@ function drawLetter(letterData) {
 
    push ();
    rotate (rotation);
-   //fill (247,168,255,80);
-  fill ('white');
+   fill (247,168,255,80);
+  //fill ('white');
    rect(posZX, posZY, sizeR, sizeR);
    pop();
 
