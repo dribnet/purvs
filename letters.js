@@ -1,21 +1,21 @@
 const alphabet = {
   "default": {
-      "sizeRect": 50,
-      "positionX": 20,
-      "positionY": 30,
+      //"sizeRect": 50,
+      //"positionX": 20,
+      //"positionY": 30,
       "size": 100,
       "offsetx": 0,
       "offsety": -15,
       "rotate": 40,
-       "XZ": 30,
-       "XY": 40
+      // "XZ": 30,
+      // "XY": 40
       
   },
   "A": {
      "sizeRect": 80,
       "positionX": 120,
       "positionY": 50,
-      "size": 120,
+      "size": 100,
       "offsetx": 0,
       "offsety": -15,
       "rotate": 44
@@ -25,7 +25,7 @@ const alphabet = {
       "sizeRect": 80,
       "positionX": 10,
       "positionY": 50,
-      "size": 120,
+      "size": 80,
       "offsetx": 0,
       "offsety": -15,
       "rotate": 0
@@ -34,7 +34,7 @@ const alphabet = {
     "sizeRect": 80,
     "positionX": 95,
     "positionY": 20,
-    "size": 120,
+    "size": 100,
     "offsetx": 0,
     "offsety": -15,
     "rotate": 40
@@ -49,7 +49,7 @@ const alphabet = {
     "rotate": 0
   },
   "E": {
-    "sizeRect": 60,
+    "sizeRect": 50,
     "positionX": 140,
     "positionY": 40,
     "size": 120,
@@ -60,7 +60,7 @@ const alphabet = {
     "XY": 0
   },
   "F": {
-    "sizeRect": 60,
+    "sizeRect": 50,
     "positionX": 120,
     "positionY": 0,
     "size": 120,
@@ -69,5 +69,17 @@ const alphabet = {
     "rotate": 40, 
     //"XZ": 110,
     //"XY": 0
+  },
+  "G": {
+    "sizeRect": 40,
+    "positionX": 120,
+    "positionY": 0,
+    "size": 120,
+    "offsetx": 0,
+    "offsety": -15,
+    "rotate": 40, 
+    "XZ": 140,
+    "XY": 80
   }
 }
+

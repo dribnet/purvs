@@ -13,14 +13,14 @@ function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
-  strokeWeight(5);
+  
 
   angleMode(DEGREES);
 
   //showbounding boxes
   noFill();
-  stroke ('white');
-  // rect (0,0,100,200);
+  //stroke ('red');
+  //rect (0,0,100,200);
 
 
   // determine parameters for second circle
@@ -34,20 +34,34 @@ function drawLetter(letterData) {
   let posZX = letterData ["XZ"];
   let posZY = letterData ["XY"];
 
+  stroke ('white');
+
 
   // DRAWING SHAPES// 
   //CIRCLES 
-    fill(155, 158, 163);
+  fill('black');
+    //fill(155, 158, 163);
     //ellipse(50, 150, 100, 100);
 
     //fill (247,168,255,80);
+    noFill();
+    stroke (112, 124, 99);
+    strokeWeight (5);
+    ellipse (50,135,120,120);
+    fill(157, 165, 94,80);
     ellipse(pos2x, pos2y, size2, size2);
+    //triangle(50,100,0,200,100,200);
+
+    stroke ('white');
+    //strokeWeight(5);
 
    //rotating rect 
    push ();
    rotate (rotation);
    //fill('white')
-   fill (247,168,255,80);
+   fill (211, 211, 209);
+   //fill('black');
+
    rect(posX, posY, sizeR, sizeR);
    pop();
 
@@ -55,10 +69,19 @@ function drawLetter(letterData) {
 
    push ();
    rotate (rotation);
-   fill (247,168,255,80);
+   fill (211, 211, 209);
+   
   //fill ('white');
    rect(posZX, posZY, sizeR, sizeR);
    pop();
+
+
+
+  }
+  function interpolate_letter(percent,oldObj,newObj){
+    let new_letter ={};
+    new_letter["size"] =map(percent,0,100,oldObj["size"],newObj["size"]);
+    return new_letter;
 
 
 
