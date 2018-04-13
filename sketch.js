@@ -2,47 +2,49 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+The eight parameters per letter:
+  * 'posx1' : X starting point of bezier
+  * 'posy1' : Y starting point of bezier
+  * 'posx2' : Second X point of bezier
+  * 'posy2' : Second Y point of bezier
+  * 'posx3' : Third X point of bezier
+  * 'posy3' : Third Y point of bezier
+  * 'posx4' : Last X point of bezier
+  * 'posy4' : Last Y point of bezier
  *
  */
 
 const letterA = {
-  "x1": 52,
-  "y1": 2,
-  "x2": 38,
-  "y2": 171,
-  "x3": -50,
-  "y3": -79,
-  "x4": 58,
-  "y4": 28,
+  "x1": 40,
+  "y1": 0,
+  "x2": 24,
+  "y2": -100,
+  "x3": -41,
+  "y3": 45,
+  "x4": 40,
+  "y4": -15,
 }
 
 const letterB = {
-  "x1": -43,
-  "y1": -87,
-  "x2": -34,
-  "y2": 90,
-  "x3": 64,
-  "y3": -67,
-  "x4": -42,
-  "y4": -27,
+  "x1": 0,
+  "y1": -56,
+  "x2": 94,
+  "y2": -60,
+  "x3": -13,
+  "y3": 51,
+  "x4": 0,
+  "y4": -99,
 }
 
 const letterC = {
-  "x1": 25,
-  "y1": 65,
-  "x2": -30,
-  "y2": 95,
-  "x3": -86,
-  "y3": -31,
-  "x4": 33,
-  "y4": 11,
+  "x1": 38,
+  "y1": -8,
+  "x2": 3,
+  "y2": 18,
+  "x3": -18,
+  "y3": -32,
+  "x4": 22,
+  "y4": -38,
 }
 
 

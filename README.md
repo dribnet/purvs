@@ -1,11 +1,7 @@
 ## PS2 MDDN 242 2018
 
-Starting from scratch I decided to make my life easier with the short time I have to finish this project. I am using beziers and the fill created by them to make my alphabet. I randomised the fill and the background so that each refresh puts in a new color. The look I am going for is something like that of a kids show/cartoony. I still need to work on the shape of the letters but this is a good start. I also can't seem to get the letters.js working.
+I've finally gotten my code updated to work on the alphabet page. I've started working on the rest of my letters now and trying to figure out how to do the letters which may require 5-6 bezier points. I recieved some good feedback from Tom about how to solve those letters and also how to adjust the fill so that when we animate it it won't freak out as I am currently just using random values.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
 The eight parameters per letter:
 	* 'posx1' : X starting point of bezier

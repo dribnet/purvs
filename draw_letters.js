@@ -1,4 +1,3 @@
-const colorFront  = "#199cff";
 
 /*
  * Draw the letter given the letterData
@@ -8,12 +7,25 @@ const colorFront  = "#199cff";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  fill(colorFront);
-  stroke(0);
+
   strokeWeight(4);
+  stroke(255);
 
+  let posx = 0;
+  let posy = 0;
 
+  let pos1x = posx + letterData["x1"];
+  let pos1y = posy + letterData["y1"];
+  let pos2x = posx + letterData["x2"];
+  let pos2y = posy + letterData["y2"];
+  let pos3x = posx + letterData["x3"];
+  let pos3y = posy + letterData["y3"];
+  let pos4x = posx + letterData["x4"];
+  let pos4y = posy + letterData["y4"];
 
+  // draw two circles
 
+  fill(random(255),random(255),random(255));
+  bezier(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
 }
+
