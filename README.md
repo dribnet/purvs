@@ -1,12 +1,12 @@
 ## PS2 MDDN 242 2018
 
-Episode 01
+Episode 02
 
-upon finally deciding on what my parametric aphabet would look like, i have finally settled on an inspiration
-mainly my parametric alphabet will be bsaed of the cipher code. Think of it like a morse code variation, but is
-much more complex in terms of shape. THE FOLLOWIN LETTERS SO FAR ARE
+I have added more letters into my alphabet, adding a variation with an ellipse within the code. The next step is to find a way to tilt the third variation of the cipher code to complete the remaining letters within the parametric alphabet.
 
-A, B , C , D 
+currently the shown example is represented with the incomplete S, being rotated as an example.
+
+A, B , C , D , E, F, G, H, I, J, K, L, M, N, O, P, Q, R
 
 i will upload a full cipher guideline code for a reference.
 
