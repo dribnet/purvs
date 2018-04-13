@@ -2,7 +2,6 @@
 
 <<<<<<< HEAD
 I was inspired by a Dutch furniture designer and architect, Gerrit Thomas Rietveld, especially his famous design, Red and Blue Chair. So I imitate the colors from the design to show my respect. Also, I utilized the transpancy to do this design in order to show that each color can influence each other. Even though red, blue and yellow are very simple color, they still have some new creation for each combination. 
-=======
 
 In the process of completing the entire alphabet, I have made 3 changes for the alphabet, including sizes of the arcs, x and y of the arcs.
 
