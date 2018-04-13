@@ -51,19 +51,19 @@ const letterB = {
 
 const letterC = {
   "size": 80,
-  "x": 60,
-  "y": -100,
-  "2x": 60,
-  "2y": -50,
+  "x": 90,
+  "y": -120,
+  "2x": 50,
+  "2y": 0,
   "3x": -50,
-  "3y": -50,
+  "3y": 0,
     
-  "4x": 30,
-  "4y": -50,
-  "5x": -30,
-  "5y": -50,
-  "6x": 0,
-  "6y": 100
+  "4x": 50,
+  "4y": 0,
+  "5x": -50,
+  "5y": 0,
+  "6x": 90,
+  "6y": 120
 }
 
 //const letterD = {
@@ -336,9 +336,9 @@ function drawLetter(posx, posy, scale, letterData) {
 
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos22x, pos22y, size2, size2);
-  line(posx, posy, 170, 250)
+  // ellipse(posx, posy, 150, 150);
+  // ellipse(pos22x, pos22y, size2, size2);
+  // line(posx, posy, 170, 250)
     
     triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
     triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
@@ -349,10 +349,6 @@ function drawLetter(posx, posy, scale, letterData) {
     triangle(50, 100, 35, 200, 65, 200);
     line(25, 120, 75, 120);*/
     
-    //b
-    triangle(50, 50, 25, 200, 75, 200);
-    triangle(50, 100, 35, 200, 65, 200);
-    line(25, 120, 75, 120);
     
 }
 
