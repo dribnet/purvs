@@ -1,19 +1,19 @@
 ## PS2 MDDN 242 2018
 
-Updated my code to show the entire alphabet + numbers. Here I ran into a bit of trouble when I got to 8 and found out I didn't have enough lines to create a convincing looking 8, or at least in the style I'd already established. I thought about changing my paramaters to be made up of a continuous 6 line segment rather than the 3 line segment and 1 line on its own. This would make make me able to add extra lines to some of my current letters and complete the 8 properly, but would also mean I'd have to redesign my E and 3 characters to something more basic and less consistent. With either of these options I have to compromise, so maybe a plan C to think about.
+Applied the interpolation animation between my letters, all looking pretty good so far. Next step is to refine and customise this. Something to add is that I altered my parameters in drawletter function to be x, x2, y, y2 etc. instead of posx, pos2x etc. because I felt this was a bit confusing as these didn't need to have different names than their letterdata counterparts.
 
 The twelve parameters per letter are:
-  * `posX` : x co-ordinate of first point of line segment
-  * `posY` : Y co-ordinate of first point of line segment
-  * `pos2X` : x co-ordinate of second point of line segment
-  * `pos2Y` : Y co-ordinate of second point of line segment
-  * `pos3X` : x co-ordinate of third point of line segment
-  * `pos3Y` : Y co-ordinate of third point of line segment
-  * `pos4X` : x co-ordinate of fourth point of line segment
-  * `pos4Y` : Y co-ordinate of fourth point of line segment
-  * `pos5X` : x co-ordinate of first point of individual line
-  * `pos5Y` : Y co-ordinate of first point of individual line
-  * `pos6X` : x co-ordinate of second point of individual line
-  * `pos6Y` : Y co-ordinate of second point of individual line
+  * `x` : x co-ordinate of first point of line segment
+  * `y` : Y co-ordinate of first point of line segment
+  * `x2` : x co-ordinate of second point of line segment
+  * `y2` : Y co-ordinate of second point of line segment
+  * `x3` : x co-ordinate of third point of line segment
+  * `y3` : Y co-ordinate of third point of line segment
+  * `x4` : x co-ordinate of fourth point of line segment
+  * `y4` : Y co-ordinate of fourth point of line segment
+  * `x5` : x co-ordinate of first point of individual line
+  * `y5` : Y co-ordinate of first point of individual line
+  * `x6` : x co-ordinate of second point of individual line
+  * `y6` : Y co-ordinate of second point of individual line
   
 
