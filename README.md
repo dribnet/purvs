@@ -1,12 +1,10 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+In the process of completing the entire alphabet, I have started to build the framework and plan out how I will draw each characters.
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+This included updating the parameters to by removing the current parameters and adding in some new ones listed below that will change over time.
 
 The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * lines : an array of 1s and 0s that let the line algroithm know whether or not to "light up" or "turn on" a particular line
+  * letterColour : Contains the letters colour
 

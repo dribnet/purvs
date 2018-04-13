@@ -1,22 +1,18 @@
 const alphabet = {
   "default": {
-      "size": 10,
-      "offsetx": 0,
-      "offsety": 0
+	  "lines": [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+	  "letterColour": "red"
   },
   "A": {
-      "size": 50,
-      "offsetx": 0,
-      "offsety": 23
+      "lines": [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+	  "letterColour": "red"
   },
   "B": {
-      "size": 100,
-      "offsetx": 0,
-      "offsety": -98
+      "lines": [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+	  "letterColour": "red"
   },
   "C": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0
+      "lines": [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+	  "letterColour": "red"
   }
 }
