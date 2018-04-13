@@ -1,10 +1,11 @@
 ## PS2 MDDN 242 2018
 
-<<<<<<< HEAD
-I started to play around with the sliders and replaced the rectangles with arcs to make my letters with.
+-I started to play around with the sliders and replaced the rectangles with arcs to make my letters with.
 I made an A, B, and C with the arcs, and added their data to the sketch1 file.
-I tried playing around with adding another parameter per arc, I statred using a y-scale (changing the width) of the arcs but it just looked weird so I am sticking with just changing the angle of the all the arcs.
+-I tried playing around with adding another parameter per arc, I statred using a y-scale (changing the width) of the arcs but it just looked weird so I am sticking with just changing the angle of the all the arcs.
 I now have a full alphabet, A-Z, and a default icon. I still need to tweek some of the letter forms and then create the number forms and special characters as well.
+-I have implemented the interaction animation between letters, so there is now the default interpolation between letters when they are typed.
+I have also started to develop a new alphabet that has two outer arcs and then a line on the inside that can be oriented in one of four postions. In my next commit I will have this new alphabet working.
 
 --
 
@@ -20,9 +21,3 @@ The six parameters per letter are now:
 	`Inner Arc`
 		*`Arc Start`: angle of one end of the arc
 		*`Arc End`: angle of the other end of the arc
-
->>>>>>> upstream/part2
-=======
-I started to play around with the sliders and replaced the rectangles with arcs to make my letters with.
-I made an A, B, and C with the arcs, and added their datato the sketch1 file.
->>>>>>> 271ecd26241dc9464008478c6587b6b5c30ffa9a

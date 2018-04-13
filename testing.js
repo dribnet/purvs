@@ -431,10 +431,10 @@ let savedValues = {
     "arcEnd": 344
   }
 }
-
-
 }
-wxyz
+
+
+
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -576,19 +576,11 @@ function draw () {
   angleMode(DEGREES);
   
   strokeWeight(12);
-  arc(width/2, height/2, arc1rad_slider.value(), 200, arc1_slider.value(), arc1end_slider.value());
+  arc(width/2, height/2, 200, 200, arc1_slider.value(), arc1end_slider.value());
   strokeWeight(10);
-  arc(width/2, height/2, arc2rad_slider.value(), 150, arc2_slider.value(), arc2end_slider.value());
+  arc(width/2, height/2, 150, 150, arc2_slider.value(), arc2end_slider.value());
   strokeWeight(8);
-  arc(width/2, height/2, arc3rad_slider.value(), 100, arc3_slider.value(), arc3end_slider.value());
-
-  //arc(width/2, height/2, 170, 210, arc1_slider.value(), arc1end_slider.value());
-  //arc(width/2, height/2, 120, 160, arc2_slider.value(), arc2end_slider.value());
-  //arc(width/2, height/2, 70, 110, arc3_slider.value(), arc3end_slider.value());
-
-  //drawFromSliders(-50, pos1_slider, tilt1_slider);
-  //drawFromSliders(  0, pos2_slider, tilt2_slider);
-  //drawFromSliders( 50, pos3_slider, tilt3_slider);
+  arc(width/2, height/2, 100, 100, arc3_slider.value(), arc3end_slider.value());
 }
 
 function keyTyped() {

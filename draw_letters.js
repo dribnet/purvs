@@ -42,3 +42,18 @@ function drawLetter(letterData) {
     arc(50, 100, 100, 100, inner_arcStart, inner_arcEnd);
   pop();
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {
+    "box1": {},
+    "box2": {},
+    "box3": {}
+  };
+  new_letter["box1"]["arcStart"] = map(percent, 0, 100, oldObj["box1"]["arcStart"], newObj["box1"]["arcStart"]);
+  new_letter["box1"]["arcEnd"] = map(percent, 0, 100, oldObj["box1"]["arcEnd"], newObj["box1"]["arcEnd"]);
+  new_letter["box2"]["arcStart"] = map(percent, 0, 100, oldObj["box2"]["arcStart"], newObj["box2"]["arcStart"]);
+  new_letter["box2"]["arcEnd"] = map(percent, 0, 100, oldObj["box2"]["arcEnd"], newObj["box2"]["arcEnd"]);
+  new_letter["box3"]["arcStart"] = map(percent, 0, 100, oldObj["box3"]["arcStart"], newObj["box3"]["arcStart"]);
+  new_letter["box3"]["arcEnd"] = map(percent, 0, 100, oldObj["box3"]["arcEnd"], newObj["box3"]["arcEnd"]);
+  return new_letter;
+}
