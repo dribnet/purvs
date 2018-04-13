@@ -6,7 +6,9 @@ const alphabet = {
       "size": 100,
       "offsetx": 0,
       "offsety": -15,
-      "rotate": 40
+      "rotate": 40,
+       "XZ": 30,
+       "XY": 40
       
   },
   "A": {
@@ -28,10 +30,44 @@ const alphabet = {
       "offsety": -15,
       "rotate": 0
   },
-  // "C": {
-  //   "size": 120,
-  //   "offsetx": 0,
-  //   "offsety": -15,
-  //   "rotate": 40
-  // }
+  "C": {
+    "sizeRect": 80,
+    "positionX": 95,
+    "positionY": 20,
+    "size": 120,
+    "offsetx": 0,
+    "offsety": -15,
+    "rotate": 40
+  },
+ "D": {
+    "sizeRect": 80,
+    "positionX": 30,
+    "positionY": 95,
+    "size": 120,
+    "offsetx": 0,
+    "offsety": -15,
+    "rotate": 0
+  },
+  "E": {
+    "sizeRect": 60,
+    "positionX": 140,
+    "positionY": 40,
+    "size": 120,
+    "offsetx": 0,
+    "offsety": -15,
+    "rotate": 40, 
+    "XZ": 110,
+    "XY": 0
+  },
+  "F": {
+    "sizeRect": 60,
+    "positionX": 120,
+    "positionY": 0,
+    "size": 120,
+    "offsetx": 0,
+    "offsety": -15,
+    "rotate": 40, 
+    //"XZ": 110,
+    //"XY": 0
+  }
 }

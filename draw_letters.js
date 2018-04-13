@@ -13,7 +13,7 @@ function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
-  strokeWeight(10);
+  strokeWeight(5);
 
   angleMode(DEGREES);
 
@@ -31,11 +31,13 @@ function drawLetter(letterData) {
   let sizeR = letterData ["sizeRect"];
   let posX = letterData["positionX"];
   let posY = letterData["positionY"];
+  let posZX = letterData ["XZ"];
+  let posZY = letterData ["XY"];
 
 
   // DRAWING SHAPES// 
   //CIRCLES 
-    fill(255,227,69,70);
+    fill(155, 158, 163);
     //ellipse(50, 150, 100, 100);
 
     //fill (247,168,255,80);
@@ -44,9 +46,20 @@ function drawLetter(letterData) {
    //rotating rect 
    push ();
    rotate (rotation);
-   fill (247,168,255,80);
+   fill('white')
+   //fill (247,168,255,80);
    rect(posX, posY, sizeR, sizeR);
    pop();
+
+   //rotating rect 2 
+
+   push ();
+   rotate (rotation);
+   //fill (247,168,255,80);
+  fill ('white');
+   rect(posZX, posZY, sizeR, sizeR);
+   pop();
+
 
 
   }
