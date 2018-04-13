@@ -110,7 +110,8 @@ const alphabet = {
       "rotate2" : 225
   },
   "J": {
-      "strokeweight": 4,
+      "strokeweight1": 4,
+      "strokeweight2": 4,
       "translate1X": 10,
       "translate1Y": 107,
       "rotate1" : 45,
@@ -353,56 +354,56 @@ const alphabet = {
   "5": {
       "strokeweight1": 4,
       "strokeweight2": 4,
-      "translate1X": 60,
-      "translate1Y": 58,
-      "rotate1" : 45,
+      "translate1X": 111,
+      "translate1Y": 91,
+      "rotate1" : 135,
   
-      "translate2X": 60,
-      "translate2Y": 100,
-      "rotate2" : -45
+      "translate2X": 43,
+      "translate2Y": 180,
+      "rotate2" : 180
   },
   "6": {
       "strokeweight1": 4,
       "strokeweight2": 4,
-      "translate1X": 60,
-      "translate1Y": 58,
-      "rotate1" : 45,
+      "translate1X": 32,
+      "translate1Y": 170,
+      "rotate1" : 225,
   
-      "translate2X": 60,
-      "translate2Y": 100,
+      "translate2X": 10,
+      "translate2Y": 150,
       "rotate2" : -45
   },
   "7": {
       "strokeweight1": 4,
       "strokeweight2": 4,
-      "translate1X": 60,
-      "translate1Y": 58,
-      "rotate1" : 45,
+      "translate1X": 70,
+      "translate1Y": 90,
+      "rotate1" : 225,
   
-      "translate2X": 60,
-      "translate2Y": 100,
-      "rotate2" : -45
+      "translate2X": 82,
+      "translate2Y": 120,
+      "rotate2" : 135
   },
   "8": {
       "strokeweight1": 4,
       "strokeweight2": 4,
-      "translate1X": 60,
-      "translate1Y": 58,
-      "rotate1" : 45,
+      "translate1X": 90,
+      "translate1Y": 70,
+      "rotate1" : 90,
   
-      "translate2X": 60,
-      "translate2Y": 100,
-      "rotate2" : -45
+      "translate2X": 10,
+      "translate2Y": 150,
+      "rotate2" : 270
   },
   "9": {
       "strokeweight1": 4,
       "strokeweight2": 4,
-      "translate1X": 60,
-      "translate1Y": 58,
-      "rotate1" : 45,
+      "translate1X": 90,
+      "translate1Y": 70,
+      "rotate1" : 90,
   
       "translate2X": 60,
       "translate2Y": 100,
-      "rotate2" : -45
+      "rotate2" : 270
   }
 }
