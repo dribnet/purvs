@@ -1,13 +1,11 @@
-## PS2 MDDN 242 2018
+## PS2 MDDN 242 2018 Animation
 
 <<<<<<< HEAD
     
 =======
-With my letter forms I decided to go with my second idea of the the two arcs. I've create all the letters and numbers for them as so far I am happy with it. Making it took a while as I couldn;t figure out how to rotate the arcs but once I figured it out it wasn't too difficult to make the rest. The thing that took the longest was finding hte position of hte arcs when I rotated them. 
+For the interpolate I merged the code with the part3 with no errors. I put in my variables and tested it but it did not work. I tried again but still not luck when I changed the browsers. The first problem I found was that I put new_letter instead of newObj, however this still did not work. I asked the lecturer and I turned out that I had spelt interpolate wrong. Now with it working I play around the letter forms and found that the ones I rotated it looked really weird. It would fly out of the bounding box and reappear. I'm not sure about this happening but it looks interesting so I may keep it or fix it. I'm not sure how I would go about fixing it though. 
 
-I think that now i have drawn out all the forms I will play with colour and stroke sizes too see what looks interesting. I might add something more to the forms as they look a bit plain. So maybe a circle or a line would be interesting to see. I think that maybe if the outer arc as filled in and the inner was not it would look pretty interesting. Or have then both filled in with different colours but the stroke would be none. I think for now i will play around with it and see what I come up with. 
-
-I ended up having to add some more variables to the list as I realized that i needed two rotate variables. One for the outer and one for the inner. As for sixe I turned it into a variable as well to make it easier if I wanted to change the size or something. So far I have a total of 7 variables. 
+What I will do next with my letter forms is play around with the colours, fills and strokes too see what it looks like, like what I said in my previous commit. I will also play around with the animations to make it more interesting. I think with this method I could fix my rotation effect. I think that it would be interesting to test out some animation effect on it like delaying it. I will play around with it and see what I come up with. 
 
 pos2x this draws the x position of the first point 
 pos2y this draws the y position of the first point 
