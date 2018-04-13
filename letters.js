@@ -140,8 +140,8 @@ const alphabet = {
       "offset2y" : 75,
       "offset3x" : 85,
       "offset3y" : 185,
-      "offset4x" : 40,
-      "offset4y" : 125
+      "offset4x" : 50,
+      "offset4y" : 130
   },
     "L": {
       "size" : 160,
@@ -167,15 +167,15 @@ const alphabet = {
       "offset4x" : 100,
       "offset4y" : 185
   },
-      "N": {
+    "N": {
       "size" : 100,
       "offsetx" : -40,
       "offsety" : 0,
       "rotate" : 0,
-      "offset2x" : 50,
+      "offset2x" : 40,
       "offset2y" : 140,
-      "offset3x" : 80,
-      "offset3y" : 185,
+      "offset3x" : 65,
+      "offset3y" : 160,
       "offset4x" : 80,
       "offset4y" : 185
   },
