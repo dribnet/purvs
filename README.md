@@ -9,6 +9,8 @@ The 12 parameters per letter:
   "Circle": controls the circle
   "Triangle": controls the two triangles
 
+## Edits and Additions
+
   Refactored control variables for readability
   changed the diamond to two triangles because the cross effect was more versatile
 

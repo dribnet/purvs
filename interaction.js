@@ -5,9 +5,10 @@ var Alpha = 255
 const colorFront  = "#199cff";
 const colorBack   = "#aae4f7";
 const colorStroke = "#000000";
-var colorTriangle = [240, 240, 240, Alpha]; 
-var colorCircleGrid = [224, 0, 0, Alpha];
-var colorSquare = [0, 0, 0, Alpha];
+//refactured to add fade animation
+// var colorTriangle = [240, 240, 240, Alpha]; 
+// var colorCircleGrid = [224, 0, 0, Alpha];
+// var colorSquare = [0, 0, 0, Alpha];
 var colorCircle = [74, 85, 89, Alpha];
 const colorLines   = "#000090";
 const colorWhite = [255,255,255];

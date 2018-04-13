@@ -73,7 +73,7 @@ function drawLetter(letterData) {
     yTranslate=i*SizeOf*10;
     for (var j = 0; j < 3; j++) {
       xTranslate=j*SizeOf*10;
-      if(circleGridArray[i][j]>=50)    
+      if(circleGridArray[i][j]>=40)    
         ellipse((posx)+xTranslate, (posy)+yTranslate, 3*SizeOf, 3*SizeOf);
     }
   }
