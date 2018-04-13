@@ -35,16 +35,20 @@ const canvasHeight = 500;
 //const colorStroke = "#233f11";
 
 var cols, rows;
-var  w = 30;
+var  w = 50;
 var grid = [];
+
+var current;
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  cols = floor(300/w);
-  rows = floor(300/w);
+  cols = floor(200/w);
+  rows = floor(200/w);
+
+  
 
   
 
@@ -58,11 +62,14 @@ function setup () {
 
   for (var r = 0; r < rows; r++){
     for (var c = 0; c < cols; c++){
-      var cell = new Cell(c,r);
+      var cell = new Cell(c, r);
       grid.push(cell);
     }
 
   }
+
+  current = grid[0];
+
 }
 
 //function drawLetter(posx, posy, scale, letterData) {
@@ -83,7 +90,19 @@ function draw () {
   translate(330, 100);
 
   for (var c = 0; c < grid.length; c++){
+    console.log(grid[c]);
     grid[c].show();
+  }
+
+  current.visited = true;
+  var next = current.checkNeighbors();
+  if (next) {
+    next.visited = true;
+    current = next;
+  }
+
+  function index( c, r){
+    return c + r * cols;
   }
 
   // compute the center of the canvas
@@ -95,41 +114,94 @@ function draw () {
   //drawLetter(center_x      , center_y, 10, letterB);
   //drawLetter(center_x + 250, center_y, 10, letterC);
 }
+
+function index(c, r) {
+  if (c < 0 || r < 0 || c >cols-1 || r > rows-1){
+    return -1;
+
+  }
+  return c + r * cols; 
+
+}
 //Grid
 function Cell(c, r){
 this.c = c;
 this.r = r;
 this.walls = [true, true, true, true];
+this.visited = false; 
 
-this.show = function(){
-  var x = this.c*w;
-  var y = this.r*w;
-  stroke(255);
+this.checkNeighbors = function() {
+var neighbors =[];
 
-  if(this.walls[0]){
-  line(x, y, x+w, y);
+var top = grid[index(c, r-1)];
+var right = grid[index(c+1, r)];
+var bottom = grid[index(c, r+1)];
+var left = grid[index(c-1, r)];
+
+if (top && !top.visited){
+  neighbors.push(top);
 }
 
-if(this.walls[1]){
-  line(x+w, y, x+w, y+w);
+if (right && !right.visited){
+  neighbors.push(right);
 }
 
-if(this.walls[2]){
-  line(x+w, y+w, x, y+w);
+
+if (bottom && !bottom.visited){
+  neighbors.push(bottom);
+}
+
+
+if (left && !left.visited){
+  neighbors.push(left);
+}
+
+if (neighbors.length > 0){
+  var r = floor(random(0, neighbours.length));
+  return neighbors[c];
+}else{
+  return undefined;
+ }
+}
+
+  this.show = function(){
+    var x = this.c*w;
+    var y = this.r*w;
+    stroke(255);
+
+    if(this.walls[0]){
+    line(x, y, x+w, y);
   }
 
-  if(this.walls[3]){
-  line(x, y+w, x, y);
+  if(this.walls[1]){
+    line(x+w, y, x+w, y+w);
+  }
+
+  if(this.walls[2]){
+    line(x+w, y+w, x, y+w);
+    }
+
+    if(this.walls[3]){
+    line(x, y+w, x, y);
+  }
+
+    if (this.visited){
+    fill(14, 199, 55);
+    rect(x, y, w, w);
+    }
+    
+  }
+
+
+
 }
 
 
-  //noFill();
-  //rect(x, y, w, w);
-}
 
 
 
-}
+
+
 
 function keyTyped() {
   if (key == '!') {
@@ -139,3 +211,7 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
+
+
+
