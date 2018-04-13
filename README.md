@@ -1,18 +1,21 @@
 ## PS2 MDDN 242 2018
 
-Looked at the 'e' geometry gaps, but left it as is so that it has even spacing between elements
+Made the geometry of '1' conenct, and considered moving the bottom circle up to make the appendage longer, but ended up not keeping that.
 
-Moved the 'k' middle circle. It now looks more like a 'k'.
+Made the stroke a bit darker.
 
-Utilised the third circle to remove gaps on the 'n'.
+Testing several different ways of designing the 'm'. Landed on a version that looks like a "movie clapper".
 
-
-Might end up making a personal rule to use all elements for each letter, just to make the project uniformed.
-
+Changed the '0' to be the same as the 'o', except moved it upwards.
 
 
 
+I feel like not making the previously mentioned uniform rule, because it takes away freedom.
 
+
+Worked on '2' for a bit, and not entirely happy with it, but it is what it is for now.
+
+On the 'N', I moved the bottom circle in a bit, because taking another look at it, I thought it just didn't look right being out so far.
 
 
 
