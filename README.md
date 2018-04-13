@@ -2,30 +2,17 @@
 
 <<<<<<< HEAD
 
-I have continued developing my code to express more letters of the alphabet. I have changed a few of the parameters as they weren't doing exactly as I was intending. However, now I have run into a new problem as the small rectangles are now moving with the larger rectangles. I have run out of time today so will have to find a fix for this next time.
+I have refined and renamed my parameters so that they are all effective and are all named correctly. 
+After completing most of the alphabet in code today I realized I have to include a few more parameters as forming letters such as S, X, Z has been too challenging. I may simply have to map one of the variables to another of the rectangles, and control them both through one parameter. I am happy however with how my letters are animating they look smooth and clean. I now have more work to do figuring out what modifications my variables need in order to communicate the entire alphabet effectively.
 
 
-I now have eight parameters and they are:
+I have refined my parameters to seven and they are: 
 
-  * `size` : The length of the second wide rectangle
-  * `offsetx` : x offset of the thin rectangles (having issues with this)
-  * `offset2x` : x offset of the first thick rectangle
-  * `offset3x` : x offset of the second thick rectangle
-  * `offsety` : y offset of the first thin rectangle
-  * `offset2y` : y offset of the second thin rectangle
-  * `offset3y` : y offset of the third thin rectangle
-   * `offset3y` : y offset of the second thick rectangle
+      * "lengthV2": The length of the second vertical rect.
+      * "offsetxV1": x offset of the first vertical rect.
+      * "offsetxV2": x offset of the second vertical rect.
+      * "offsetyH1": y offset of the first horizontal rect.
+      * "offsetyH2": y offset of the second horizontal rect.
+      * "offsetyH3": y offset of the third horizontal rect.
+      * "offsetyV2" y offset of the secpond vertical rect.
 
->>>>>>> upstream/part1
-=======
-(Replace this README with information about your alphabet. This is an example.)
-
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
->>>>>>> upstream/part2
