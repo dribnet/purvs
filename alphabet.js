@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#FFE4E1";
+const colorLines   = "#000000";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -43,7 +43,7 @@ function draw () {
   const bottom_margin = 2*height - 60;
   const x_step = 140;
   const y_step = 280;
-  const first_letter_offset_x = 20;
+  const first_letter_offset_x = 40;
 
   let cur_letter_index = 0;
 
