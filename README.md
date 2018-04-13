@@ -1,7 +1,9 @@
 ## PS2 MDDN 242 2018
-* just updated a the 0 to be bigger as i noticed looking at it again it was not the same size as the other numbers. then just a few other formatting with some other letters and numbers.
+So this is how my text style is looking with the interpolation code adopted into it. It is certainly interesting looking at the transition of the lines to generate the specific letter or number. I did like how the solid line out of the 4 didnt move much which links to the idea of it being the most stable line of each letter/number. 
 
-So this is my idea which i have created my alphabet. I have a focused on the lower case styles of letters, along with this every letter and number is made up from 4 lines. ALso each letter and number has one thicker line which is the most stable point of the letter/number. By applying all these rules i have created my sans serif font. 
+Few other minor things i looked into was looking at different strokecaps, i found the rounded one was more visually appropriate compared to the square end.
+
+things i want to try experiment with is looking at potentially having a foreground/outline of the lines, adding a bit more colour with the letters/numbers which contain holes or blocks in them. I want to try make my textstyle a bit more complex so that the animation is that more interesting. as i have 4 more parameters to add and i can easily cut down to have 6 parameters if needed.
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point
