@@ -10,9 +10,8 @@ const alphabet = {
   "linex2":0,
   "liney1":0,
   "liney2":0
-
-
   },
+
   "A": {
   "posX1": 50,
   "posY1": 118,
@@ -30,7 +29,6 @@ const alphabet = {
   "posY1": 135,
   "posX2": 77,
   "posY2": 135
-
   },
   "D": {
   "posX1": 65,
@@ -162,6 +160,12 @@ const alphabet = {
   "liney1":68,
   "liney2":193
   },
+  "S": {
+  "posX1": 50,
+  "posY1": 82,
+  "posX2": 25,
+  "posY2": 140
+  },
   "T": {
   "posX1": 50,
   "posY1": 138,
@@ -172,11 +176,23 @@ const alphabet = {
   "liney1":118,
   "liney2":118
   },
+  "U": {
+  "posX1": 50,
+  "posY1": 140,
+  "posX2": 50,
+  "posY2": 150
+  },
   "V": {
   "posX1": 50,
   "posY1": 178,
   "posX2": 50,
   "posY2": 130
+  },
+  "W": {
+  "posX1": 50,
+  "posY1": 82,
+  "posX2": 30,
+  "posY2": 110
   },
   "X": {
   "posX1": 20,
@@ -193,5 +209,111 @@ const alphabet = {
   "posY1": 178,
   "posX2": 50,
   "posY2": 102
+  },
+  "Z": {
+  "posX1": 70,
+  "posY1": 172,
+  "posX2": 30,
+  "posY2": 110
+  },
+  "0": {
+  "posX1": 50,
+  "posY1": 130,
+  "posX2": 50,
+  "posY2": 130,
+  "linex1": 78,
+  "linex2":-15,
+  "liney1":69,
+  "liney2":150
+  },
+  "1": {
+  "posX1": 28,
+  "posY1": 90,
+  "posX2": 50,
+  "posY2": 158,
+  "linex1":50,
+  "linex2":50,
+  "liney1":65,
+  "liney2":196
+  },
+  "2": {
+  "posX1": 75,
+  "posY1": 170,
+  "posX2": 38,
+  "posY2": 106,
+  "linex1":50,
+  "linex2":50,
+  "liney1":65,
+  "liney2":196
+  },
+  "3": {
+  "posX1": 50,
+  "posY1": 97,
+  "posX2": 50,
+  "posY2": 153,
+  "linex1":113,
+  "linex2":-12,
+  "liney1":150,
+  "liney2":150
+  },
+  "4": {
+  "posX1": 12,
+  "posY1": 160,
+  "posX2": 40,
+  "posY2": 105,
+  "linex1":70,
+  "linex2":70,
+  "liney1":68,
+  "liney2":193
+  },
+  "5": {
+  "posX1": 70,
+  "posY1": 90,
+  "posX2": 30,
+  "posY2": 148,
+  "linex1":70,
+  "linex2":70,
+  "liney1":68,
+  "liney2":193
+  },
+  "6": {
+  "posX1": 75,
+  "posY1": 170,
+  "posX2": 50,
+  "posY2": 158,
+  "linex1": 78,
+  "linex2":-15,
+  "liney1":69,
+  "liney2":150
+  },
+  "7": {
+  "posX1": 90,
+  "posY1": 139,
+  "posX2": 50,
+  "posY2": 158,
+  "linex1":116,
+  "linex2":-15,
+  "liney1":118,
+  "liney2":118
+  },
+  "8": {
+  "posX1": 50,
+  "posY1": 98,
+  "posX2": 50,
+  "posY2": 138,
+  "linex1":116,
+  "linex2":-15,
+  "liney1":118,
+  "liney2":118
+  },
+  "9": {
+  "posX1": 39,
+  "posY1": 106,
+  "posX2": 39,
+  "posY2": 106,
+  "linex1":70,
+  "linex2":70,
+  "liney1":68,
+  "liney2":193
   }
 }

@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Added the animation. I noticed that the line appears and disappears suddenly when going to or from a letter that has a line and one that does not. I might make the line fade in/out for this since transparency is used throughout my letters. 
+All letters and numbers are complete.
 
 
 The eight parameters per letter are now:
