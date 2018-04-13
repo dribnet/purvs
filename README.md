@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I've finally gotten my code updated to work on the alphabet page. I've started working on the rest of my letters now and trying to figure out how to do the letters which may require 5-6 bezier points. I recieved some good feedback from Tom about how to solve those letters and also how to adjust the fill so that when we animate it it won't freak out as I am currently just using random values.
+I managed to sort out my bounding box problem with the help of Tom, now that I have fixed this I can move onto the interpolation so that my alphabet will be animated.
 
 
 The eight parameters per letter:

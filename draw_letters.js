@@ -7,12 +7,17 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  stroke(255, 0, 0);
+  noFill();
+  //rect(0, 0, 100, 200);
+
 
   strokeWeight(4);
   stroke(255);
-
-  let posx = 0;
-  let posy = 0;
+  let posx = 5;
+  let posy = 89;
+  push();
+  scale(2.2);
 
   let pos1x = posx + letterData["x1"];
   let pos1y = posy + letterData["y1"];
@@ -23,9 +28,11 @@ function drawLetter(letterData) {
   let pos4x = posx + letterData["x4"];
   let pos4y = posy + letterData["y4"];
 
+
   // draw two circles
 
   fill(random(255),random(255),random(255));
   bezier(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
+  pop();
 }
 

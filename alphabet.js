@@ -29,8 +29,8 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+  let center_x = canvasWidth/2;  
+  let center_y = canvasHeight/2;
 
   // draw the letters A, B, C from saved data
   push();
