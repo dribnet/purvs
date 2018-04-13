@@ -1,407 +1,90 @@
 const alphabet = {
   "default":
-   {
-  "box1": {
-    "arcStart": 274,
-    "arcEnd": 274
-  },
-  "box2": {
-    "arcStart": 304,
-    "arcEnd": 304
-  },
-  "box3": {
-    "arcStart": 0,
-    "arcEnd": 360
-  }
+  {
+  "arcStart1": 0,
+  "arcEnd1": 360,
+  "arcStart2": 0,
+  "arcEnd2": 360,
+  "lineOrient": 0
 },
   "A":
    {
-  "box1": {
-    "arcStart": 154,
-    "arcEnd": 29,
-  },
-  "box2": {
-    "arcStart": 16,
-    "arcEnd": 167,
-  },
-  "box3": {
-    "arcStart": 45,
-    "arcEnd": 135,
-  }  
+  "arcStart1": 136,
+  "arcEnd1": 42,
+  "arcStart2": 245,
+  "arcEnd2": 294,
+  "lineOrient": 1
 },
   "B":
-    {
-   "box1": {
-    "arcStart": 47,
-    "arcEnd": 266,
-  },
-  "box2": {
-    "arcStart": 0,
-    "arcEnd": 96,
-  },
-  "box3": {
-    "arcStart": 96,
-    "arcEnd": 360,
-  }
+  {
+  "arcStart1": 236,
+  "arcEnd1": 123,
+  "arcStart2": 275,
+  "arcEnd2": 0,
+  "lineOrient": 4
 },
   "C":
-    {
-   "box1": {
-    "arcStart": 61,
-    "arcEnd": 297,
-  },
-  "box2": {
-    "arcStart": 60,
-    "arcEnd": 295,
-  },
-  "box3": {
-    "arcStart": 66,
-    "arcEnd": 291,
-  }
+  {
+  "arcStart1": 52,
+  "arcEnd1": 309,
+  "arcStart2": 57,
+  "arcEnd2": 305,
+  "lineOrient": 2
 },
   "D":
   {
-    "box1": {
-    "arcStart": 257,
-    "arcEnd": 106
-  },
-  "box2": {
-    "arcStart": 254,
-    "arcEnd": 106
-  },
-  "box3": {
-    "arcStart": 249,
-    "arcEnd": 110
-  }
+  "arcStart1": 242,
+  "arcEnd1": 117,
+  "arcStart2": 238,
+  "arcEnd2": 121,
+  "lineOrient": 2
 },
   "E":
   {
-  "box1": {
-    "arcStart": 61,
-    "arcEnd": 298
-  },
-  "box2": {
-    "arcStart": 133,
-    "arcEnd": 226
-  },
-  "box3": {
-    "arcStart": 152,
-    "arcEnd": 204
-  }
+  "arcStart1": 58,
+  "arcEnd1": 299,
+  "arcStart2": 141,
+  "arcEnd2": 217,
+  "lineOrient": 4
 },
   "F":
   {
-  "box1": {
-    "arcStart": 111,
-    "arcEnd": 331
-  },
-  "box2": {
-    "arcStart": 156,
-    "arcEnd": 321
-  },
-  "box3": {
-    "arcStart": 166,
-    "arcEnd": 199
-  }
+  "arcStart1": 109,
+  "arcEnd1": 320,
+  "arcStart2": 180,
+  "arcEnd2": 318,
+  "lineOrient": 4
 },
   "G":
   {
-  "box1": {
-    "arcStart": 33,
-    "arcEnd": 269
-  },
-  "box2": {
-    "arcStart": 32,
-    "arcEnd": 75
-  },
-  "box3": {
-    "arcStart": 31,
-    "arcEnd": 70
-  }
+  "arcStart1": 6,
+  "arcEnd1": 270,
+  "arcStart2": 5,
+  "arcEnd2": 90,
+  "lineOrient": 4
 },
   "H":
   {
-  "box1": {
-    "arcStart": 128,
-    "arcEnd": 232
-  },
-  "box2": {
-    "arcStart": 301,
-    "arcEnd": 66
-  },
-  "box3": {
-    "arcStart": 190,
-    "arcEnd": 351
-  }
+  "arcStart1": 116,
+  "arcEnd1": 240,
+  "arcStart2": 297,
+  "arcEnd2": 59,
+  "lineOrient": 4
 },
   "I":
   {
-  "box1": {
-    "arcStart": 242,
-    "arcEnd": 299
-  },
-  "box2": {
-    "arcStart": 54,
-    "arcEnd": 126
-  },
-  "box3": {
-    "arcStart": 75,
-    "arcEnd": 105
-  }
+  "arcStart1": 65,
+  "arcEnd1": 113,
+  "arcStart2": 247,
+  "arcEnd2": 293,
+  "lineOrient": 5
 },
   "J":
   {
-  "box1": {
-    "arcStart": 240,
-    "arcEnd": 142
-  },
-  "box2": {
-    "arcStart": 240,
-    "arcEnd": 304
-  },
-  "box3": {
-    "arcStart": 240,
-    "arcEnd": 302
-  }
-},
-  "K":
-  {
-  "box1": {
-    "arcStart": 134,
-    "arcEnd": 228
-  },
-  "box2": {
-    "arcStart": 85,
-    "arcEnd": 170
-  },
-  "box3": {
-    "arcStart": 174,
-    "arcEnd": 270
-  }
-},
-  "L":
-  {
-  "box1": {
-    "arcStart": 41,
-    "arcEnd": 229
-  },
-  "box2": {
-    "arcStart": 43,
-    "arcEnd": 230
-  },
-  "box3": {
-    "arcStart": 43,
-    "arcEnd": 144
-  }
-},
-  "M":
-  {
-  "box1": {
-    "arcStart": 146,
-    "arcEnd": 35
-  },
-  "box2": {
-    "arcStart": 227,
-    "arcEnd": 316
-  },
-  "box3": {
-    "arcStart": 248,
-    "arcEnd": 292
-  }
-},
-  "N":
-  {
-  "box1": {
-    "arcStart": 146,
-    "arcEnd": 35
-  },
-  "box2": {
-    "arcStart": 137,
-    "arcEnd": 43
-  },
-  "box3": {
-    "arcStart": 121,
-    "arcEnd": 57
-  }
-},
-  "O":
-  {
-  "box1": {
-    "arcStart": 360,
-    "arcEnd": 0
-  },
-  "box2": {
-    "arcStart": 360,
-    "arcEnd": 0
-  },
-  "box3": {
-    "arcStart": 360,
-    "arcEnd": 0
-  }
-},
-  "P":
-  {
-  "box1": {
-    "arcStart": 119,
-    "arcEnd": 245
-  },
-  "box2": {
-    "arcStart": 221,
-    "arcEnd": 20
-  },
-  "box3": {
-    "arcStart": 0,
-    "arcEnd": 0
-  }
-},
-  "Q":
-  {
-  "box1": {
-    "arcStart": 41,
-    "arcEnd": 65
-  },
-  "box2": {
-    "arcStart": 69,
-    "arcEnd": 37
-  },
-  "box3": {
-    "arcStart": 38,
-    "arcEnd": 67
-  }
-},
-  "R":
-  {
-  "box1": {
-    "arcStart": 123,
-    "arcEnd": 214
-  },
-  "box2": {
-    "arcStart": 125,
-    "arcEnd": 319
-  },
-  "box3": {
-    "arcStart": 215,
-    "arcEnd": 315
-  }
-},
-  "S":
-  {
-  "box1": {
-    "arcStart": 193,
-    "arcEnd": 324
-  },
-  "box2": {
-    "arcStart": 7,
-    "arcEnd": 142
-  },
-  "box3": {
-    "arcStart": 194,
-    "arcEnd": 0
-  }
-},
-  "T":
-  {
-  "box1": {
-    "arcStart": 204,
-    "arcEnd": 337
-  },
-  "box2": {
-    "arcStart": 253,
-    "arcEnd": 290
-  },
-  "box3": {
-    "arcStart": 210,
-    "arcEnd": 332
-  }
-},
-  "U":
-  {
-  "box1": {
-    "arcStart": 333,
-    "arcEnd": 208
-  },
-  "box2": {
-    "arcStart": 331,
-    "arcEnd": 209
-  },
-  "box3": {
-    "arcStart": 329,
-    "arcEnd": 211
-  }
-},
-  "V":
-  {
-  "box1": {
-    "arcStart": 333,
-    "arcEnd": 208
-  },
-  "box2": {
-    "arcStart": 350,
-    "arcEnd": 189
-  },
-  "box3": {
-    "arcStart": 34,
-    "arcEnd": 149
-  }
-},
-  "W":
-  {
-  "box1": {
-    "arcStart": 333,
-    "arcEnd": 208
-  },
-  "box2": {
-    "arcStart": 58,
-    "arcEnd": 124
-  },
-  "box3": {
-    "arcStart": 71,
-    "arcEnd": 111
-  }
-},
-  "X":
-  {
-  "box1": {
-    "arcStart": 219,
-    "arcEnd": 320
-  },
-  "box2": {
-    "arcStart": 40,
-    "arcEnd": 141
-  },
-  "box3": {
-    "arcStart": 0,
-    "arcEnd": 0
-  }
-},
-  "Y":
-  {
-  "box1": {
-    "arcStart": 321,
-    "arcEnd": 143
-  },
-  "box2": {
-    "arcStart": 322,
-    "arcEnd": 16
-  },
-  "box3": {
-    "arcStart": 319,
-    "arcEnd": 222
-  }
-},
-  "Z":
-  {
-  "box1": {
-    "arcStart": 216,
-    "arcEnd": 347
-  },
-  "box2": {
-    "arcStart": 25,
-    "arcEnd": 176
-  },
-  "box3": {
-    "arcStart": 180,
-    "arcEnd": 344
-  }
+  "arcStart1": 326,
+  "arcEnd1": 139,
+  "arcStart2": 326,
+  "arcEnd2": 134,
+  "lineOrient": 0
 }
 }  

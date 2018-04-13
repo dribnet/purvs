@@ -1,6 +1,11 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
+let x1 = null;
+let x2 = null;
+let y1 = null;
+let y2 = null;
+
 /*
  * Draw the letter given the letterData
  *
@@ -18,15 +23,51 @@ function drawLetter(letterData) {
   //let pos2x = 50+letterData["offsetx"];
   //let pos2y = 150+letterData["offsety"];
 
-  let outer_arcStart = letterData["box1"]["arcStart"];
-  let outer_arcEnd = letterData["box1"]["arcEnd"];
-  let mid_arcStart = letterData["box2"]["arcStart"];
-  let mid_arcEnd = letterData["box2"]["arcEnd"];
-  let inner_arcStart = letterData["box3"]["arcStart"];
-  let inner_arcEnd = letterData["box3"]["arcEnd"];
+  let outer_arcStart = letterData["arcStart1"];
+  let outer_arcEnd = letterData["arcEnd1"];
+  let inner_arcStart = letterData["arcStart2"];
+  let inner_arcEnd = letterData["arcEnd2"];
+  let orient = letterData["lineOrient"];
 
-  // draw three arcs
+  if(orient == 0){
+    x1 = 50-40;
+    x2 = 50+40;
+    y1 = 100-40;
+    y2 = 100-40;
 
+  }
+  if(orient == 1){
+    x1 = 50-40;
+    x2 = 50+40;
+    y1 = 100+40;
+    y2 = 100+40;
+  }
+  if(orient == 2){
+    x1 = 50-40;
+    x2 = 50-40;
+    y1 = 100+40;
+    y2 = 100-40;
+  }
+  if(orient == 3){
+    x1 = 50+40;
+    x2 = 50+40;
+    y1 = 100+40;
+    y2 = 100-40;
+  }
+  if(orient == 4){
+    x1 = 50-40;
+    x2 = 50+40;
+    y1 = 100;
+    y2 = 100;
+  }
+  if(orient == 5){
+    x1 = 50;
+    x2 = 50;
+    y1 = 100-40;
+    y2 = 100+40;
+  }
+
+  // draw two arcs and a line
   noFill();
   stroke(220);
   angleMode(DEGREES);
@@ -36,24 +77,19 @@ function drawLetter(letterData) {
     translate(50, 70);
     strokeWeight(12);
     arc(50, 100, 200, 200, outer_arcStart, outer_arcEnd);
-    strokeWeight(10);
-    arc(50, 100, 150, 150, mid_arcStart, mid_arcEnd);
     strokeWeight(8);
-    arc(50, 100, 100, 100, inner_arcStart, inner_arcEnd);
+    arc(50, 100, 150, 150, inner_arcStart, inner_arcEnd);
+    strokeWeight(7);
+    line(x1, y1, x2, y2);
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {
-    "box1": {},
-    "box2": {},
-    "box3": {}
-  };
-  new_letter["box1"]["arcStart"] = map(percent, 0, 100, oldObj["box1"]["arcStart"], newObj["box1"]["arcStart"]);
-  new_letter["box1"]["arcEnd"] = map(percent, 0, 100, oldObj["box1"]["arcEnd"], newObj["box1"]["arcEnd"]);
-  new_letter["box2"]["arcStart"] = map(percent, 0, 100, oldObj["box2"]["arcStart"], newObj["box2"]["arcStart"]);
-  new_letter["box2"]["arcEnd"] = map(percent, 0, 100, oldObj["box2"]["arcEnd"], newObj["box2"]["arcEnd"]);
-  new_letter["box3"]["arcStart"] = map(percent, 0, 100, oldObj["box3"]["arcStart"], newObj["box3"]["arcStart"]);
-  new_letter["box3"]["arcEnd"] = map(percent, 0, 100, oldObj["box3"]["arcEnd"], newObj["box3"]["arcEnd"]);
+  let new_letter = {};
+  new_letter["arcStart1"] = map(percent, 0, 100, oldObj["arcStart1"], newObj["arcStart1"]);
+  new_letter["arcEnd1"] = map(percent, 0, 100, oldObj["arcEnd1"], newObj["arcEnd1"]);
+  new_letter["arcStart2"] = map(percent, 0, 100, oldObj["arcStart2"], newObj["arcStart2"]);
+  new_letter["arcEnd2"] = map(percent, 0, 100, oldObj["arcEnd2"], newObj["arcEnd2"]);
+  new_letter["lineOrient"] = map(percent, 0, 100, oldObj["lineOrient"], newObj["lineOrient"]);
   return new_letter;
 }
