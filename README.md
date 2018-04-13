@@ -1,7 +1,3 @@
 ## PS2 MDDN 242 2018
 
-my original idea but with one extra point; will allow me to create more complex shapes and characters i couldn't with only 4 points.
-
-will experiment with changing appearance of lines and points, and adding things to make the design more interesting.
-
-difficulties include slowly hardcoding every point (wish i could click and drag)
+i have added some movement to the letters, and can control the speed of the movement with a variable. i have also added the interaction element to the design, which i think looks pretty good. i think the general aesthetic of the letterforms is appealing, but i should keep experimenting to find something perfect.
