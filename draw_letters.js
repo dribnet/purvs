@@ -9,10 +9,16 @@ const colorStroke = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+angleMode(DEGREES);
+
+
+  rect(0,0,100,200);
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+
+
 
   // determine parameters for second circle
   let size2 = letterData["size"];
@@ -21,7 +27,7 @@ function drawLetter(letterData) {
 
   // draw two circles
   
-  translate(width/290, height/155);
+  //translate(width/290, height/155);
  //ellipse(50, 150, 200, 200);
   //ellipse(pos2x, pos2y, size2, size2);
 
@@ -45,18 +51,25 @@ function drawLetter(letterData) {
   let x4 = letterData["pos_x4"];
   let y4 = letterData["pos_y4"];
 
-  let circle_x = 55;
-  let circle_y = 140;
+  let circle_x = 50;
+  let circle_y = 135;
   let circle_w = letterData["c_width"];
   let circle_h = letterData["c_height"];
 
-  let r_rot = letterData["r_letter"];
 
-  
-  ellipse(circle_x ,circle_y, circle_w, circle_h);
+  push();
+  translate(50, 100);
+  ellipse(0,0,10,10);
+  let r_rot = letterData["r_letter"];
   rotate(r_rot);
+  translate(-50, -100);
+  ellipse(circle_x ,circle_y, circle_w, circle_h);
   rect(x,y,w,h);
   rect(x2,y2,w2,h2);
   rect(x3,y3,w3,h3);
   rect(x4,y4,w4,h4);
+  pop();
+  fill(255,0,0);
+  ellipse(0,0,10,10);
+
 }
