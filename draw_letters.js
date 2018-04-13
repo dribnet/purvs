@@ -37,6 +37,7 @@ function drawLetter(letterData) {
   //first right angle
   push();
   strokeWeight(sw1);
+
   translate(trans1X, trans1Y);
   rotate(rot1);
   line(0, 0, 0, 30);
@@ -52,4 +53,18 @@ function drawLetter(letterData) {
   line(0, 30, 30, 30);
   pop();
 
+}
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["translate1X"] = map(percent, 0, 100, oldObj["translate1X"], newObj["translate1X"]);
+  new_letter["translate1Y"] = map(percent, 0, 100, oldObj["translate1Y"], newObj["translate1Y"]);
+  new_letter["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
+
+  new_letter["translate2X"] = map(percent, 0, 100, oldObj["translate2X"], newObj["translate2X"]);
+  new_letter["translate2Y"] = map(percent, 0, 100, oldObj["translate2Y"], newObj["translate2Y"]);
+  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
+  new_letter["strokeweight1"] = map(percent, 0, 100, oldObj["strokeweight1"], newObj["strokeweight1"]);
+  new_letter["strokeweight2"] = map(percent, 0, 100, oldObj["strokeweight2"], newObj["strokeweight2"]);
+  return new_letter;
 }
