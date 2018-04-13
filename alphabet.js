@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack   = "#E7FDF7";
+// const colorLines = "#FF84BC";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -20,13 +20,17 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
+
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function draw () {
+function draw () {  
+background(colorBack);
   // clear screen
-  background(colorBack);
+  // noFill();
+  // stroke(colorStroke);
+  // strokeWeight(4);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
@@ -52,7 +56,7 @@ function draw () {
     translate(0, j);
 
     // draw lines
-    stroke(colorLines);
+
     line(left_margin, 0, right_margin, 0);
     for(let i=left_margin; i<right_margin-8; i+=30) {
       line(i, 100, i+12, 100);

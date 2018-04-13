@@ -150,15 +150,15 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  //drawLetter(center_x - 250, center_y, 10, letterA);
-  //drawLetter(center_x, center_y, 10, letterB);
-  //drawLetter(center_x + 250, center_y, 10, letterC);
-  drawLetter(center_x - 250, center_y, 10, letterD);
-  drawLetter(center_x , center_y, 10, letterE);
+  drawLetter(center_x - 250, center_y, 10, letterA);
+  drawLetter(center_x, center_y, 10, letterB);
+  drawLetter(center_x + 250, center_y, 10, letterC);
+  //drawLetter(center_x - 250, center_y, 10, letterD);
+  //drawLetter(center_x , center_y, 10, letterE);
   //drawLetter(center_x - 250, center_y, 10, letterF);
   //drawLetter(center_x - 250, center_y, 10, letterG);
   //drawLetter(center_x, center_y, 10, letterH);
-   drawLetter(center_x + 250, center_y, 10, letterI);
+  //drawLetter(center_x + 250, center_y, 10, letterI);
 
 
 }
