@@ -396,7 +396,7 @@ const alphabet = {
     "Circle": 100,
     "Triangle": 0
 },
-"100":{
+"1":{
     "TL": 0,
     "TM": 100,
     "TR": 0,
