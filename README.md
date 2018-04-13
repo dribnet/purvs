@@ -1,11 +1,14 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+Style 3:
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each of my letters is composed with two lines and a ring. There are 4 parameters controlling each of the two lines and 3 parameters controlling the ring.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The 10 parameters per letter:
+  * arc Start: angle in degrees where the arc starts
+  * arc End: angle in degress where the arc ends
+  * line 1/2 length: length of line 
+  * line 1/2 tilt: angle of line in degrees
+  * line 1/2 position X: location of line on x axis in relation to middle of screen
+  * line 1/2 position Y: location of line on y axis in relation to middle of screen
 
