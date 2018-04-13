@@ -51,6 +51,7 @@ function drawLetter(letterData) {
     fill(157, 165, 94,80);
     ellipse(pos2x, pos2y, size2, size2);
     //triangle(50,100,0,200,100,200);
+    triangle(pos2x,pos2y,size,size);
 
     stroke ('white');
     //strokeWeight(5);
@@ -61,7 +62,6 @@ function drawLetter(letterData) {
    //fill('white')
    fill (211, 211, 209);
    //fill('black');
-
    rect(posX, posY, sizeR, sizeR);
    pop();
 
@@ -80,8 +80,20 @@ function drawLetter(letterData) {
   }
   function interpolate_letter(percent,oldObj,newObj){
     let new_letter ={};
+    new_letter["sizeRect"] =map(percent,0,100,oldObj["sizeRect"],newObj["sizeRect"]);
+    new_letter["positionX"] =map(percent,0,100,oldObj["positionX"],newObj["positionX"]);
+    new_letter["positionY"] =map(percent,0,100,oldObj["positionY"],newObj["positionY"]);
+    new_letter["rotate"] =map(percent,0,100,oldObj["rotate"],newObj["rotate"]);
     new_letter["size"] =map(percent,0,100,oldObj["size"],newObj["size"]);
     return new_letter;
+
+    // "sizeRect": 80,
+    //   "positionX": 120,
+    //   "positionY": 50,
+    //   "size": 100,
+    //   "offsetx": 0,
+    //   "offsety": -15,
+    //   "rotate": 44
 
 
 
