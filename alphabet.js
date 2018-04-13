@@ -9,6 +9,7 @@ const colorCircleGrid = [224, 0, 0];
 const colorSquare = [0, 0, 0];
 const colorCircle = [74, 85, 89];
 const colorLines   = "#000090";
+const colorWhite = [255,255,255];
 
 
 /* 

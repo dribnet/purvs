@@ -61,6 +61,8 @@ function drawLetter(letterData) {
   if(TriangleOn==1){
     triangle(posx, posy, posx+20*SizeOf, posy, posx+SizeOf*10,posy+SizeOf*10);
     triangle(posx, posy+SizeOf*20, posx+20*SizeOf, posy+SizeOf*20, posx+SizeOf*10,posy+SizeOf*10);
+    //line(posx, posy, posx+20*SizeOf, posy+SizeOf*20);
+    //line(posx, posy+SizeOf*20, posx+20*SizeOf, posy)
     //quad(posx+100, posy-100, posx+20 SizeOf, posy, posx+100, posy+100, posx, posy,)
   }
 
