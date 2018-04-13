@@ -50,15 +50,15 @@ function drawLetter(letterData) {
   stroke(colorSquare);
   strokeWeight(2);
   fill(colorSquare);
-  if(squareOn==1)
+  if(squareOn>=90)
     rect(posx, posy, 20*SizeOf, 20*SizeOf);
 
   fill(colorCircle);
-  if(circleOn==1)
+  if(circleOn>=90)
     ellipse((posx)+SizeOf*10, (posy)+SizeOf*10, 20*SizeOf, 20*SizeOf);
 
   fill(colorTriangle);
-  if(TriangleOn==1){
+  if(TriangleOn>=90){
     triangle(posx, posy, posx+20*SizeOf, posy, posx+SizeOf*10,posy+SizeOf*10);
     triangle(posx, posy+SizeOf*20, posx+20*SizeOf, posy+SizeOf*20, posx+SizeOf*10,posy+SizeOf*10);
     //line(posx, posy, posx+20*SizeOf, posy+SizeOf*20);
@@ -73,7 +73,7 @@ function drawLetter(letterData) {
     yTranslate=i*SizeOf*10;
     for (var j = 0; j < 3; j++) {
       xTranslate=j*SizeOf*10;
-      if(circleGridArray[i][j]==1)    
+      if(circleGridArray[i][j]>=90)    
         ellipse((posx)+xTranslate, (posy)+yTranslate, 3*SizeOf, 3*SizeOf);
     }
   }
