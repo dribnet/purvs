@@ -81,12 +81,12 @@ const alphabet = {
       "offsetyV2": 0
   },
       "I": {
-      "lengthV2": 95,
-      "offsetxV1": 90,
+      "lengthV2": 0,
+      "offsetxV1": 37.5,
       "offsetxV2": 0,
-      "offsetyH1": 190,
-      "offsetyH2": 0,
-      "offsetyH3": 95,
+      "offsetyH1": 0,
+      "offsetyH2": 180,
+      "offsetyH3": 190,
       "offsetyV2": 95
   },
       "J": {
@@ -99,6 +99,15 @@ const alphabet = {
       "offsetyV2": 100
   },
       "K": {
+      "lengthV2": 100,
+      "offsetxV1": 0,
+      "offsetxV2": 75,
+      "offsetyH1": 60,
+      "offsetyH2": 80,
+      "offsetyH3": 100,
+      "offsetyV2": 100
+  },
+      "L": {
       "lengthV2": 100,
       "offsetxV1": 0,
       "offsetxV2": 75,
