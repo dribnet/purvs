@@ -66,16 +66,16 @@ function drawLetter(posx, posy, scale, letterData) {
   
   let vert1x = posx + letterData["vertX"];
   let vert1y = posy + letterData["vertY"];
-  let ctrl1Px = posx + letterData["ctrl1Px"];
-  let ctrl1Py = posy + letterData["ctrl1Py"];
-  let vert2x= posx +letterData["vertX2"];
-  let vert2y= posy +letterData["vertY2"];
+  let ctrl1Px = posx + letterData["ctrlPx"];
+  let ctrl1Py = posy + letterData["ctrlPy"];
+  let vert2x = posx + letterData["vertX2"];
+  let vert2y = posy + letterData["vertY2"];
 
-  stroke(colorBack);
+  stroke(255,0,255); //Pink for testing
   strokeWeight(25);
   beginShape();
-  vertex(405,175)
-  quadraticVertex(700,360,405,325)
+  vertex(vert1x,vert1y)
+  quadraticVertex(ctrl1Px,ctrl1Py,vert2x,vert2y)
   endShape();
 }
 
@@ -87,8 +87,13 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  //draw rect - need to change this later for animation
+  //draw rect(secondary canvas) - possibly need to change this later for animation
+  rect(center_x - 250, center_y, 150, 150)
   rect(center_x, center_y, 150, 150)
+  rect(center_x + 250, center_y, 150, 150)
+
+  //translate the letters to center
+  translate(-canvasWidth/2, -canvasHeight/2)
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
