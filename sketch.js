@@ -14,31 +14,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "vertX": 405,
-  "vertY": 175,
-  "ctrlPx": 700,
-  "ctrlPy": 360,
-  "vertX2": 405,
-  "vertY2": 325
+  "vertX": 425,
+  "vertY": 310,
+  "ctrlPx": 470,
+  "ctrlPy": 80,
+  "vertX2": 535,
+  "vertY2": 310
   
 }
 
 const letterB = {
-  "vertX": 405,
-  "vertY": 175,
-  "ctrlPx": 700,
-  "ctrlPy": 360,
-  "vertX2": 405,
-  "vertY2": 325
+  "vertX": 425,
+  "vertY": 190,
+  "ctrlPx": 600,
+  "ctrlPy": 225,
+  "vertX2": 425,
+  "vertY2": 250
 }
 
 const letterC = {
-  "vertX": 405,
-  "vertY": 175,
-  "ctrlPx": 700,
-  "ctrlPy": 360,
-  "vertX2": 405,
-  "vertY2": 325
+  "vertX": 510,
+  "vertY": 190,
+  "ctrlPx": 340,
+  "ctrlPy": 250,
+  "vertX2": 510,
+  "vertY2": 300
 
 }
 
@@ -71,8 +71,10 @@ function drawLetter(posx, posy, scale, letterData) {
   let vert2x = posx + letterData["vertX2"];
   let vert2y = posy + letterData["vertY2"];
 
-  stroke(255,0,255); //Pink for testing
-  strokeWeight(25);
+  //stroke(255,0,255); //Pink for testing
+  stroke(colorBack)
+  noFill();
+  strokeWeight(20);
   beginShape();
   vertex(vert1x,vert1y)
   quadraticVertex(ctrl1Px,ctrl1Py,vert2x,vert2y)
