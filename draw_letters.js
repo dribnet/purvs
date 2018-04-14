@@ -35,3 +35,27 @@ function drawLetter(letterData) {
   triangle( pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
   pop()
 }
+
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["gx"] = map(percent, 0, 100, oldObj["gx"], newObj["gx"]);
+  new_letter["gy"] = map(percent, 0, 100, oldObj["gy"], newObj["gy"]);
+
+  new_letter["1x"] = map(percent, 0, 100, oldObj["1x"], newObj["1x"]);
+  new_letter["1y"] = map(percent, 0, 100, oldObj["1y"], newObj["1y"]);
+
+  new_letter["2x"] = map(percent, 0, 100, oldObj["2x"], newObj["2x"]);
+  new_letter["2y"] = map(percent, 0, 100, oldObj["2y"], newObj["2y"]);
+
+  new_letter["3x"] = map(percent, 0, 100, oldObj["3x"], newObj["3x"]);
+  new_letter["3y"] = map(percent, 0, 100, oldObj["3y"], newObj["3y"]);
+
+  new_letter["4x"] = map(percent, 0, 100, oldObj["4x"], newObj["4x"]);
+  new_letter["4y"] = map(percent, 0, 100, oldObj["4y"], newObj["4y"]);
+
+  new_letter["5x"] = map(percent, 0, 100, oldObj["5x"], newObj["5x"]);
+  new_letter["5y"] = map(percent, 0, 100, oldObj["5y"], newObj["5y"]);
+
+  return new_letter;
+
+}
