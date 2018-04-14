@@ -1,6 +1,19 @@
 ## PS2 MDDN 242 2018
 
-Added the '3' and possibly landed on an ok '2' design.
+Shrunk the rectangle on the 'n'.
+Shifted the rectangle on the '2' to the left more.
+
+Decided to make every number except for '0', be the same height for consistency.
+I then modified the '2' since there was more space.
+
+Shifted one of the ellipses on '9', because it was hanging off the right side of the rectangle.
+
+Decided to have the middle ellipse of '3' on the middle of the bar so it lines up.
+
+
+
+At this point in time, after much consideration, I have decided to break the rule to have all numbers be the same height, by making '8' touch the ceiling.
+This was done so I could have the middle of the number be in the middle of the line, and still maintain even spacing.
 
 
 
