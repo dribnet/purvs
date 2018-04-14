@@ -2,8 +2,8 @@
 
 The three parameters per letter:
   * 
-  * `x` : x offset of the first triangle relative to the first point
-  * `y` : y offset of the first triangle relative to the first point
+  * `gx` : x offset of the first triangle relative to the first point
+  * `gy` : y offset of the first triangle relative to the first point
   * `1x` : 1x offset of the first triangle relative to the second point
   * `1y` : 1y offset of the first triangle relative to the second point
   * `2x` : 2x offset of the first triangle relative to the third point
