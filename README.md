@@ -1,24 +1,8 @@
 ## PS2 MDDN 242 2018
 
-Made the geometry of '1' conenct, and considered moving the bottom circle up to make the appendage longer, but ended up not keeping that.
+I could've done a few different things for the 's', but this way, with only 2 circles used, made more sense.
 
-Made the stroke a bit darker.
-
-Testing several different ways of designing the 'm'. Landed on a version that looks like a "movie clapper".
-
-Changed the '0' to be the same as the 'o', except moved it upwards.
-
-
-
-I feel like not making the previously mentioned uniform rule, because it takes away freedom.
-
-
-Worked on '2' for a bit, and not entirely happy with it, but it is what it is for now.
-
-On the 'N', I moved the bottom circle in a bit, because taking another look at it, I thought it just didn't look right being out so far.
-
-
-
+I tried mirroing the 's' to make the 'z', but after some tweaking I think this version more clearly communicates the 'Z' shape.
 
 
 
