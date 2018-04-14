@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#ffd044aa";
+const colorLines   = "#d8a006";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -17,7 +17,7 @@ let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
-let soloNumAnimationFrames = 30;
+let soloNumAnimationFrames =30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
@@ -83,7 +83,7 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(colorBack);
+  background(255,208,68);
 
   // draw the interpolation on the guidelines
   push();

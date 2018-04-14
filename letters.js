@@ -145,8 +145,8 @@ const alphabet = {
    
   "qx1" :0,
   "qy1" :50,
-  "qx2" :80,
-  "qy2" :90,
+  "qx2" :22,
+  "qy2" :50,
   "qx3" :80,
   "qy3" :100,
   "qx4" :5,
@@ -162,7 +162,7 @@ const alphabet = {
   "offsetx": 30,
   "offsety": 50,
    
-   "qx1" :30,
+   "qx1" :60,
   "qy1" :50,
   "qx2" :70,
   "qy2" :50,
@@ -172,18 +172,16 @@ const alphabet = {
   "qy4" :150,
 },
   "J": {
-
-  "sizeX": 90,
-  "sizeY": 25,
-  "offsetx": 20,
+ "sizeX": 25,
+  "sizeY": 100,
+  "offsetx": 60,
   "offsety": 50,
    
-   
-  "qx1" :85,
-  "qy1" :50,
-  "qx2" :100,
-  "qy2" :70,
-  "qx3" :90,
+  "qx1" :0,
+  "qy1" :95,
+  "qx2" :80,
+  "qy2" :135,
+  "qx3" :80,
   "qy3" :150,
   "qx4" :0,
   "qy4" :150,
@@ -214,9 +212,9 @@ const alphabet = {
    
   "qx1" :0,
   "qy1" :80,
-  "qx2" :80,
+  "qx2" :90,
   "qy2" :135,
-  "qx3" :80,
+  "qx3" :90,
   "qy3" :150,
   "qx4" :0,
   "qy4" :150,
@@ -416,26 +414,26 @@ const alphabet = {
 
   "X": {
 
-  "sizeX": 30,
-  "sizeY": 30,
-  "offsetx": 35,
-  "offsety": 85,
+  "sizeX": 100,
+  "sizeY": 100,
+  "offsetx": 0,
+  "offsety": 50,
    
    "qx1" :0,
-  "qy1" :150,
+  "qy1" :50,
   "qx2" :100,
   "qy2" :50,
-  "qx3" :100,
+  "qx3" :0,
   "qy3" :150,
-  "qx4" :0,
-  "qy4" :50,
+  "qx4" :100,
+  "qy4" :150,
 },
 
   "Y": {
 
   "sizeX": 25,
   "sizeY": 55,
-  "offsetx":40,
+  "offsetx":38,
   "offsety": 105,
    
   "qx1" :0,
@@ -443,9 +441,9 @@ const alphabet = {
   "qx2" :110,
   "qy2" :50,
   "qx3" :70,
-  "qy3" :150,
+  "qy3" :130,
   "qx4" :30,
-  "qy4" :150,
+  "qy4" :130,
 },
 
   "Z": {
