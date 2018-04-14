@@ -55,24 +55,28 @@ const letterB = {
 },
 
 "box5": {
-  "x":-62, //layer
-  "y":-31, //actually under
+  "x":-55, //layer
+  "y":18, //actually under
 },
 
 "box6": {
-  "x":-64, //solid
-  "y":64, //solid
+  "x":-84, //solid
+  "y":77, //solid
 },
 
 "box7": {
-  "x":-81, //very top
-  "y":79, //very top
+  "x":-84, //very top
+  "y":77, //very top
 },
 
 "box8": {
   "x":-58, //very behind
-  "y":-28 //very behind
-}
+  "y":-32, //very behind
+},
+// "box9": {
+// 	"x":-58,
+// 	"y":-10
+// }
 }
 
 
@@ -93,12 +97,12 @@ const letterC = {
 },
 
   "box5": {
-  "x":-73,
-  "y":73,
+  "x":-81,
+  "y":80,
 },
 
 "box6": {
-  "x":-55, //solid
+  "x":-130, //solid
   "y":-20, //solid
 },
 
@@ -155,8 +159,8 @@ function drawLetter(posx, posy, col, letterData) {
   let pos8x = posx + letterData["box8"]["x"];
   let pos8y = posy + letterData["box8"]["y"];  
 
-  // let pos2x = posx + letterData["box9"]["x"];
-  // let pos2y = posy + letterData["box9"]["y"];
+  // let pos9x = posx + letterData["box9"]["x"];
+  // let pos9y = posy + letterData["box9"]["y"];
 
   // let pos2x = posx + letterData["box10"]["x"];
   // let pos2y = posy + letterData["box10"]["y"];
@@ -238,46 +242,7 @@ function drawOwl(x,y){
 
   pop();
 }
-function drawOwl2(x,y){
-  push();
-  translate(x, y);
 
-
-  push();
-  fill(col1);
-  stroke(col1);
-  beginShape();
-  vertex(50,50);
-  vertex(100,70);
-  vertex(100,20);
-  vertex(50,10);
-  endShape();
-  pop();
-  
-  push();
-  fill(col2);
-  stroke(col2);
-  beginShape();
-  vertex(100,70);
-  vertex(100,20);
-  vertex(130,0);
-  vertex(130,40);
-  endShape();
-  pop();
-  
-  push();
-  fill(col4);
-  stroke(col4);
-  beginShape();
-  vertex(100,20);
-  vertex(130,-2);
-  vertex(85,-10);
-  vertex(50,10);
-  endShape();
-  pop();
-
-  pop();
-}
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
