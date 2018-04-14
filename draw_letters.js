@@ -27,6 +27,7 @@ function drawLetter(letterData) {
   let pos5y = letterData["offsety4"];
   // draw two squares
   rect(0, 75, 100, 125);
+  fill(255);
   rect(pos2x, pos2y, size2, size2);
   rect(pos3x, pos3y, size2, size2);
   rect(pos4x, pos4y, size2, size2);
