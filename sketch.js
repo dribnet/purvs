@@ -1,76 +1,43 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
 
-const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
-}
-
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
-}
-
-const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
-}
-
-const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
-  // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
-
+ background(180);
+ 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // let size2 = letterData["size"];
+  // let pos2x = posx + letterData["offsetx"];
+  // let pos2y = posy + letterData["offsety"];
+  
 
   // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  // rect(480, 250 , 150, 150);
+  // rect(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
-  // clear screen
-  background(colorBack);
-
-  // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
-
-  // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  
+noStroke();
+fill(0);
+//A
+triangle(100, 400 ,200, 200, 300, 400);
+//B
+triangle(450, 400, 450, 250, 600, 325);
+triangle(450, 400, 450, 200, 550, 250);
+//C
+triangle(900, 400, 900, 200, 700, 300 );
+fill(180);
+triangle(850, 350, 850, 250, 950, 300);
 }
 
 function keyTyped() {
