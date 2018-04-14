@@ -347,17 +347,29 @@ const alphabet = {
       "offset4x" : 80,
       "offset4y" : 185
   },
-    "2": {
-      "size" : 90,
-      "offsetx" : 30,
+  "2": {
+      "size" : 85,
+      "offsetx" : 35,
       "offsety" : 40,
       "rotate"  : 90,
-      "offset2x" : 10+20-10,
-      "offset2y" : 120-10,
-      "offset3x" : 50+20-10,
-      "offset3y" : 65-10,
-      "offset4x" : 100-10,
-      "offset4y" : 115-10
+      "offset2x" : 20+10,
+      "offset2y" : 80,
+      "offset3x" : 60+10,
+      "offset3y" : 55,
+      "offset4x" : 85,
+      "offset4y" : 100
+  },
+  "3": {
+      "size" : 155,
+      "offsetx" : 35,
+      "offsety" : -30,
+      "rotate"  : 0,
+      "offset2x" : 45,
+      "offset2y" : 55,
+      "offset3x" : 45,
+      "offset3y" : 185,
+      "offset4x" : 75,
+      "offset4y" : 125
   }
 
 
