@@ -1,14 +1,15 @@
 ## PS2 MDDN 242 2018
 
-My idea for this alphabet style is to have an isometric set of animating alphabets.
-I will create this animation by fading in and fading out in between 
-all "blocks" that formed the alphabet by playing with the opacity. 
-I am also gonna fake this 3D style by just using 2D shapes drawn with vertex.
+At first I was trying to use 3D cube to complete my design but I realised that it limits my design outlook a lot. Since I could not customise the faces of the cube if I use 3D cube funciton, I have decided to draw my own cube with the vertex function instead. In this way I can customise my cube's three faces' colour to create the isometric illusion alphabet that I intend to achieve.
+
+For my next step I will try finding a way to reduce my use of parametres since I have exceeded the 12 parametres limit at the moment.
 
 <<<<<<< HEAD
 
 
 The parameters per letter:
+  * `x1` : x offset of the first cube 
+  * `y1` : y offset of the first cube 
 
   * `x2` : x offset of the second cube relative to the first one
   * `y2` : y offset of the second cube relative to the first one
@@ -31,11 +32,7 @@ The parameters per letter:
   * `x8` : x offset of the eighth cube
   * `y8` : y offset of the eighth cube 
 
-  * `x9` : x offset of the ninth cube with colour difference
-  * `y9	` : y offset of the ninth cube with colour difference
 
-  * `x10` : x offset of the tenth cube with colour difference
-  * `y10` : y offset of the tenth cube with colour difference
 
 =======
 In the process of completing the entire alphabet, I have [made what changes?].

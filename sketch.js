@@ -2,78 +2,116 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
+  "box2": {
+  "x": -130,
+  "y": 20,
+  },
 
-  "x2": -130,
-  "y2": 20,
+"box3": {
+  "x":-130,
+  "y":-20,
+},
 
-  "x3":-130,
-  "y3":-20,
+"box4": {
+  "x":-50, //layer
+  "y":50, //actually under 
+},
 
-  "x5":-50, //layer
-  "y5":50, //actually under 
+"box5": {
+  "x":-50, //layer
+  "y":10, //actually under
+},
 
-  "x6":-50, //layer
-  "y6":10, //actually under
+"box6": {
+  "x":-50, //solid
+  "y":-30, //solid
+},
 
-  "x7":-50, //solid
-  "y7":-30, //solid
+"box7": {
+  "x":-81, //very top
+  "y":30, //very top
+},
 
-  "x8":-81, //very top
-  "y8":30, //very top
-
-  "x4":-97, //very behind
-  "y4":-39 //very behind
+"box8": {
+  "x":-97, //very behind
+  "y":-39 //very behind
+}
 }
 
 const letterB = {
+  "box2": {
+  "x": -130,
+  "y": 20,
+  },
 
-  "x2": -130,
-  "y2": 20,
+"box3": {
+  "x":-130,
+  "y":-20,
+},
 
-  "x3":-130,
-  "y3":-20,
+"box4": {
+  "x":-98, //layer
+  "y":-39, //actually under 
+},
 
-  "x4":-98,
-  "y4":-39,
+"box5": {
+  "x":-62, //layer
+  "y":-31, //actually under
+},
 
-  "x5":-62,
-  "y5":-31,
+"box6": {
+  "x":-64, //solid
+  "y":64, //solid
+},
 
-  // "x8":-83,
-  // "y8":-11,
+"box7": {
+  "x":-81, //very top
+  "y":79, //very top
+},
 
-  "x8":-64,
-  "y8":64,
-
-  "x9":-81,
-  "y9":79,
-  
-  "x10":-88,
-  "y10":-8
-
+"box8": {
+  "x":-58, //very behind
+  "y":-28 //very behind
 }
+}
+
 
 const letterC = {
+  "box2": {
+  "x": -130, //solid
+  "y": 20, //solid
+},
 
-  "x2": -130, //solid
-  "y2": 20, //solid
+  "box3": {
+  "x":-130, //solid
+  "y":-20, //solid
+},
 
-  "x3":-130, //solid
-  "y3":-20, //solid
+  "box4": {
+  "x":-100,
+  "y":-38,
+},
 
-  "x4":-100,
-  "y4":-38,
+  "box5": {
+  "x":-73,
+  "y":73,
+},
 
-  "x7":-55,
-  "y7":-30,
+"box6": {
+  "x":-55, //solid
+  "y":-20, //solid
+},
 
-  "x8":-81,
-  "y8":80,
+  "box7": {
+  "x":-55,
+  "y":-30,
+},
 
-  "x5":-73,
-  "y5":73
+  "box8": {
+  "x":-81,
+  "y":80
 }
-
+}
 
 
 function setup () {
@@ -96,32 +134,32 @@ function drawLetter(posx, posy, col, letterData) {
   // determine parameters for second circle
   // let col3 = letterData["col3"];
   
-  let pos2x = posx + letterData["x2"];
-  let pos2y = posy + letterData["y2"];
+  let pos2x = posx + letterData["box2"]["x"];
+  let pos2y = posy + letterData["box2"]["y"];
 
-  let pos3x = posx + letterData["x3"];
-  let pos3y = posy + letterData["y3"];
+  let pos3x = posx + letterData["box3"]["x"];
+  let pos3y = posy + letterData["box3"]["y"];
 
-  let pos5x = posx + letterData["x5"];
-  let pos5y = posy + letterData["y5"];
+  let pos4x = posx + letterData["box4"]["x"];
+  let pos4y = posy + letterData["box4"]["y"];
 
-  let pos6x = posx + letterData["x6"];
-  let pos6y = posy + letterData["y6"];
+  let pos5x = posx + letterData["box5"]["x"];
+  let pos5y = posy + letterData["box5"]["y"];
 
-  let pos7x = posx + letterData["x7"];
-  let pos7y = posy + letterData["y7"];
+  let pos6x = posx + letterData["box6"]["x"];
+  let pos6y = posy + letterData["box6"]["y"];
 
-  let pos8x = posx + letterData["x8"];
-  let pos8y = posy + letterData["y8"];
+  let pos7x = posx + letterData["box7"]["x"];
+  let pos7y = posy + letterData["box7"]["y"];
 
-  let pos4x = posx + letterData["x4"];
-  let pos4y = posy + letterData["y4"];  
+  let pos8x = posx + letterData["box8"]["x"];
+  let pos8y = posy + letterData["box8"]["y"];  
 
-  let pos9x = posx + letterData["x9"];
-  let pos9y = posy + letterData["y9"]; 
-  
-  let pos10x = posx + letterData["x10"];
-  let pos10y = posy + letterData["y10"]; 
+  // let pos2x = posx + letterData["box9"]["x"];
+  // let pos2y = posy + letterData["box9"]["y"];
+
+  // let pos2x = posx + letterData["box10"]["x"];
+  // let pos2y = posy + letterData["box10"]["y"];
   // draw two circles
   // ellipse(posx, posy, 150, 150);
   // ellipse(pos2x, pos2y, size2, size2);
@@ -130,15 +168,18 @@ function drawLetter(posx, posy, col, letterData) {
   drawOwl(pos4x,pos4y,150,150); //x4y4
   drawOwl(pos2x,pos2y,150,150);
 
-
-  drawOwl(pos3x,pos3y,150,150); //x3y3
-  drawOwl(pos5x,pos5y,150,150); //x5y5
-  drawOwl(pos6x,pos6y,150,150); //x6y6
-  drawOwl(pos7x,pos7y,150,150); //x7y7
   drawOwl(pos8x,pos8y,150,150); //x8y8
+  drawOwl(pos3x,pos3y,150,150); //x3y3
 
-  drawOwl2(pos9x,pos9y,150,150) //x10y10 //different col
-  drawOwl2(pos10x,pos10y,150,150) //x10y10 //different col
+  drawOwl(pos5x,pos5y,150,150); //x5y5
+
+  drawOwl(pos6x,pos6y,150,150); //x6y6
+
+  drawOwl(pos7x,pos7y,150,150); //x7y7
+  
+
+  // drawOwl2(pos9x,pos9y,150,150) //x10y10 //different col
+  // drawOwl2(pos10x,pos10y,150,150) //x10y10 //different col
 }
 
 function draw () {
