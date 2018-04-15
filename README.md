@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I changed the colour and removed the transparency. The design without the transparency doesn't work because you can't see the circles when they overlap. This makes the letter designs look too similar. I will use transparency in my later designs.
-
+I wanted to play around with the colour, stroke and transparency. For this design I changed the colours and made the stroke bigger and the line transparent. I'm not sure about the transparent stroke for the line because even though it matches with the circles, it doesn't match with the outside line. 
 
 
 The eight parameters per letter are now:
