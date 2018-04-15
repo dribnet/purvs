@@ -1,8 +1,6 @@
 ## PS2 MDDN 242 2018
 
-At first I was trying to use 3D cube to complete my design but I realised that it limits my design outlook a lot. Since I could not customise the faces of the cube if I use 3D cube funciton, I have decided to draw my own cube with the vertex function instead. In this way I can customise my cube's three faces' colour to create the isometric illusion alphabet that I intend to achieve.
-
-For my next step I will try finding a way to reduce my use of parametres since I have exceeded the 12 parametres limit at the moment.
+I have completed my alphabet by layering my vertex drawn cubes to achieve a 3D look by just drawing in 2D shapes. I am happy with the result but will do some adjustment to some of the alphabet for a more refined design.
 
 <<<<<<< HEAD
 
@@ -34,13 +32,6 @@ The parameters per letter:
 
 
 
-=======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 >>>>>>> upstream/part2
 
