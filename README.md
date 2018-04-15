@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I have completed my alphabet by layering my vertex drawn cubes to achieve a 3D look by just drawing in 2D shapes. I am happy with the result but will do some adjustment to some of the alphabet for a more refined design.
+I am pleased with the animation. I think the transformation of the cubes from one alphabet to another is really interesting and it looks like an alphabet puzzle maze.
 
 <<<<<<< HEAD
 
