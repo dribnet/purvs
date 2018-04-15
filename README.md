@@ -2,8 +2,9 @@
 
 Each of my letters is composed with four triangles. The first triangle (1) will be draw first, then the other three will be draw based on the data of triangle(1). Each triangle is controlled by four parameters.
 
-The 11 parameters per letter:
-*size
+The 12 parameters per letter:
+*sizeR1 : scale the size of triangle(1)
+*sizeR3 : scale the size of triangle(3)
 *offsetx1 : x offset of the triangle(2) relative to the first triangle(1)
 *offsety1 : y offset of the triangle(2) relative to the first triangle(1)
 *offsetx2 : x offset of the triangle(3) relative to the first triangle(1)

@@ -13,49 +13,50 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size1": 1,
+  "size3": 1,
   "offsetx1": 77,
   "offsety1": -75,
   "offsetx2": 24,
   "offsety2": -109,
-  "offsetx3": -2,
-  "offsety3": -73,
+  "offsetx3": 0,
+  "offsety3": -72,
   "tilt1": 0,
   "tilt2": 0,
   "tilt3": 32,
-  "tilt4": 34
+  "tilt4": 32
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx1": 0,
-  "offsety1": 35,
-  "offsetx2": 0,
-  "offsety2": 35,
-  "offsetx3": 0,
-  "offsety3": 35,
-  "tilt1": 0,
-  "tilt2": 0,
-  "tilt3": 150,
-  "tilt4": -30
+  "size1": 0.9,
+  "size3": 0.9,
+  "offsetx1": -23,
+  "offsety1": -60,
+  "offsetx2": 12,
+  "offsety2": -55,
+  "offsetx3": 7,
+  "offsety3": -140,
+  "tilt1": -15,
+  "tilt2": -90,
+  "tilt3": 110,
+  "tilt4": 90
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx1": 0,
-  "offsety1": 35,
-  "offsetx2": 0,
-  "offsety2": 35,
-  "offsetx3": 0,
-  "offsety3": 35,
-  "tilt1": 0,
-  "tilt2": 0,
-  "tilt3": 0,
-  "tilt4": 0
-}
+  "size1": 1,
+  "size3": 1.5,
+  "offsetx1": 4,
+  "offsety1": -135,
+  "offsetx2": 24,
+  "offsety2": -70,
+  "offsetx3": -10,
+  "offsety3": -130,
+  "tilt1": 60,
+  "tilt2": 55,
+  "tilt3": -160,
+  "tilt4": 71
 
-//const colorFront  = "#199cff";//blue
-//const colorBack   = "#e3eded";//lightblue
+}
 const colorFront  = "#033806";//green rgb(3, 56, 6)
 const colorBack   = "#f5f4f7";//sliver rgb(245, 244, 247)
 const colorStroke = "#233f11";//darkgreen rgb(35, 63, 17)
@@ -64,24 +65,20 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-  
   // rotation in degrees (more slider friendly)
   angleMode(DEGREES);
-
   // color/stroke setup
   fill(colorFront);
   noStroke();
-  /*
-  stroke(colorStroke);
-  strokeWeight(1);*/
-
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
+function drawLetter(posx, posy, letterData) {
+  
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let sizeR1 = letterData["size1"];
+  let sizeR3 = letterData["size3"];
   let posR2x = posx + letterData["offsetx1"];
   let posR2y = posy + letterData["offsety1"];
   let posR3x = posx + letterData["offsetx2"];
@@ -93,32 +90,31 @@ function drawLetter(posx, posy, scale, letterData) {
   let R3 = letterData["tilt3"];
   let R4 = letterData["tilt4"];
 
-  // draw two circles
-  //ellipse(posx, posy, 150, 150);
-  //ellipse(pos2x, pos2y, size2, size2);
-  
   push();
+  fill(53, 124, 59, 180);
   translate(posx, posy);
+  scale(sizeR1);
   rotate(R1);
   triangle(0, 0, -50, 0, 50, -150);
-  //text("rotation =" + RotateData, -30, -30);
   pop();
 
   push();
+  fill(122, 188, 166, 150);
   translate(posR2x, posR2y);
   rotate(R2);
   triangle(0, 0, -25, 75, 25, 75);
   pop();
 
   push();
-  fill(0);
+  fill(122, 188, 130, 150);
   translate(posR3x, posR3y);
+  scale(sizeR3);
   rotate(R3);
   triangle(0, 0, 0, -48, 63, 0);
   pop();
 
   push();
-  fill(255);
+  fill(61, 112, 10, 100);
   translate(posR4x, posR4y);
   rotate(R4);
   triangle(0, 0, 0, -45, 65, -45);
@@ -136,9 +132,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
