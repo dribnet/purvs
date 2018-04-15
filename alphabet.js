@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = [255, 232, 239];
-const colorLines   = [0];
+const colorLines   = [255, 232, 239];
 
 /*
  * do not edit this rest of this file, instead edit the letter
@@ -13,7 +13,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-=";
 
 function setup () {
   // create the drawing canvas, save the canvas element

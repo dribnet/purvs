@@ -89,6 +89,7 @@ function drawPart(posx, posy, scale, offsetx, offsety, tilt, change) {
 if(change == 1){
   //draw Dandelion part//
   push();
+  strokeWeight(4);
   translate(posx + offsetx, posy + offsety);
   rotate(tilt);
   noFill();
@@ -121,8 +122,9 @@ if(change == 1){
   rotate(1);
   ellipse(-20, -130, 10, 30);
   pop();
-}else if(change == 0){ //draw an ellipse of Dandelion//
+}else if(change == 0){ //draw an ellipse Dandelion//
   push();
+  strokeWeight(4);
   translate(posx + offsetx, posy + offsety);
   rotate(tilt);
   stroke(51, 94, 50);
@@ -151,6 +153,7 @@ if(change == 1){
   rotate(tilt);
   noFill();
   stroke(51, 94, 50);
+  strokeWeight(4);
   //draw stalk//
   line(105, -80, 45, 90);
   line(80, -80, 45, 90);
@@ -190,6 +193,52 @@ if(change == 1){
   rotate(1);
   ellipse(-45, 50, 10, 30);
   ellipse(-35, 100, 10, 30);
+  pop();
+
+}else if(change == 3){ //draw ARC shaped of Dandelion//
+  //draw Dandelion part//
+  push();
+  translate(posx + offsetx, posy + offsety);
+  rotate(tilt);
+  noFill();
+  stroke(51, 94, 50);
+  strokeWeight(4);
+  //draw stalk//
+  arc(150, 150, 200, 200, 80, 360);
+
+  bezier(120, 50, 220, 40, 200, 120, 250, 100);
+  bezier(120, 50, 220, 40, 200, 120, 250, 200);
+  bezier(120, 50, 220, 40, 200, 120, 230, 250);
+
+  bezier(100, 250, 250, 250, 120, 50, 220, 40);
+
+  //draw flower//
+  stroke(255);
+  fill(255);
+  ellipse(250, 100, 15, 15);
+  ellipse(250, 200, 20, 20);
+  ellipse(230, 250, 30, 30);
+  ellipse(220, 40, 10, 10);
+  
+  //draw leaves//
+  fill(51, 94, 50);
+  noStroke();
+  ellipse(245, 80, 50, 10);
+  rotate(1);
+  ellipse(250, -110, 10, 50);
+  ellipse(260, -25, 30, 10);
+  rotate(1);
+  ellipse(20, -190, 10, 30);
+  rotate(1);
+  ellipse(-125, -45, 10, 50);
+  rotate(1);
+  ellipse(-145, 75, 10, 30);
+  ellipse(-135, 95, 10, 30);
+
+  ellipse(-205, 95, 10, 40);
+  ellipse(-295, 95, 40, 10);
+  ellipse(-205, 95, 40, 10);
+  ellipse(-205, 42, 40, 10);
   pop();
 
 }
