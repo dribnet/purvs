@@ -33,25 +33,37 @@ function drawLetter(letterData) {
   let posY = letterData["positionY"];
   let posZX = letterData ["XZ"];
   let posZY = letterData ["XY"];
+  let Xrotate = letterData ["xR"];
+  let Yrotate = letterData ["yR"];
 
   stroke ('white');
 
 
   // DRAWING SHAPES// 
   //CIRCLES 
-  fill('black');
+
     //fill(155, 158, 163);
     //ellipse(50, 150, 100, 100);
 
     //fill (247,168,255,80);
-    noFill();
-    stroke (112, 124, 99);
+    //noFill();
+    fill (203, 206, 119);
+    
     strokeWeight (5);
+    //fill(203, 206, 119,90);
+    fill (203, 206, 119);
     ellipse (50,135,120,120);
-    fill(157, 165, 94,80);
-    ellipse(pos2x, pos2y, size2, size2);
-    //triangle(50,100,0,200,100,200);
-    triangle(pos2x,pos2y,size,size);
+    stroke (112, 124, 99);
+  
+  
+    push ();
+   rotate (Xrotate);
+   //fill('white')
+   fill('white');
+   //fill (203, 206, 119);
+   //fill('black');
+   rect(pos2x, pos2y, size2, size2);
+   pop();
 
     stroke ('white');
     //strokeWeight(5);
@@ -60,22 +72,23 @@ function drawLetter(letterData) {
    push ();
    rotate (rotation);
    //fill('white')
-   fill (211, 211, 209);
+   fill (203, 206, 119);
    //fill('black');
    rect(posX, posY, sizeR, sizeR);
    pop();
 
    //rotating rect 2 
-
    push ();
-   rotate (rotation);
-   fill (211, 211, 209);
+   rotate (Yrotate);
+   fill (203, 206, 119);
    
   //fill ('white');
    rect(posZX, posZY, sizeR, sizeR);
    pop();
 
-   //testing commmit !!!!!!
+  
+
+  
 
 
   }

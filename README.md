@@ -8,7 +8,7 @@ I have added a new shape and am experimenting with the colours and layout of the
 The 4 parameters per letter:
 =======
 
-The three parameters per letter are now:
+The 11 parameters per letter are now:
 >>>>>>> upstream/part2
    	*"sizeRect": rect,
     * "positionX": position of rect,
