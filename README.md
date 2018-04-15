@@ -1,6 +1,7 @@
 ## PS2 MDDN 242 2018
 
-All letters and numbers are complete.
+I wanted to play around with the colour, stroke and transparency. For this design I changed the colour and removed the transparency. The design without the transparency doesn't work because you can't see the circles when they overlap. This makes the letter designs look too similar. I will use transparency in my later designs.
+
 
 
 The eight parameters per letter are now:
