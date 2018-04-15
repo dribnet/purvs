@@ -1,15 +1,18 @@
 ## PS2 MDDN 242 2018
  
- Currently my six variable per letter are:
+ Currently my 10 variable per letter are:
   - vertX: X position of initial start of the line(anchor point)
   - vertY: Y position of initial start of the line(anchor point)
   - ctrlPx: X position of the control point for vertX
   - ctrlPy: Y position of the control point for vertY
   - vertX2: X position of the end point of the line(anchor point)
   - vertY2: Y position of the end point of the line(anchor point)
+Added:
+  - ctrlPx2: X position of the control point for the second curve
+  - ctrlPy2: Y position of the control point for the second curve
+  - vertX3: X position of the end point of the second curve(anchor point)
+  - vertY3: Y position of the end point of the second curve(anchor point)
 
-  In my experimental commit and previous commit I was using a pink stroke() and points of the rectangle as reference for how to draw my line. To speed up the process I have started using Adobe Illustrator as reference. Utilizing the info panel I screenshot my canvas and import the screenshot into a 960x500 artboard on Illustrator. I then use the pen tool to create a bezier curve and control the anchor points to create a certain type of curve. Using Illustrators Info window I am able to pin point the location of the vertex and handles and I round the number to end in a 5 or 0 because I want my font to be restrained since the project is about parameters.
+  In my last commit I stated that using just one curve to create a set of letters is too challenging for the viewer to decipher what letter it is. In this iteration i've added 4 new parameters for an extra quadratic curve. Because i'm using Adobe Illustrator and the pen tool to create my font letters I feel like my font is a recreation of what the pen tool does in the p5.js framework.
 
-  Utilizing just one quadratic curve to create a set of letters is possibly too challenging to be translatable for the viewer so I believe in my next iteration I will add a second quadratic curve but still keep it restrained as possible. Possibly not using an extra vertex as that would use up my 12 parameters.
-
-  In this commit I've created the ABC. But it feels like it's just an A, rotated V and C. My original idea was to have a 'literal' font so I want to try create a convincing font just from the quadratic curves. The current iteration of my font has similiarities to the Comic Sans.
+  I find the resemblance/recreation of the Illustrator's pen tool fitting because it's a program used for Graphic Design/Font creation and one of the inspirations for my project is the graphic design principle of Gestalt. Gestalt is a psychology term which refers to visual perception. I don't feel as my font has a strong resemblance to any of the Gestalt principles currently as my font has changed since I first sourced it as inspiration.
