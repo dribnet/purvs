@@ -30,13 +30,13 @@ function drawLetter(letterData) {
   let y6 = letterData["y6"];
 
   
-  
-  stroke(142, 173, 107);
-  noFill();
-  rect(0, 0, 100, 200);
-  
+  //guidelines 
+  //stroke(142, 173, 107);
+  //noFill();
+  //rect(0, 0, 100, 200);
+  //
   noStroke();
-  //triangle LEFT
+  //left triangle
   //stroke(255);
   fill(141, 198, 75);
   triangle(x1, y1, x2, y2, x3, y3);
@@ -47,10 +47,9 @@ function drawLetter(letterData) {
   triangle(shadowX, y1, x2, y2, x3, y3);
   //rect(130, 180, 70, 25);
 
-  //no parameters left for this middle bit
  
-  noStroke();
   //right triangle
+  noStroke();
   strokeWeight(4);
   fill(194, 226, 151);
   //stroke(255);

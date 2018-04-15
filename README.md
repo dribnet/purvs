@@ -1,6 +1,8 @@
 ## PS2 MDDN 242 2018
 
-I forgot to update the code
+My final 'origiami' inspired alpahbet.
+
+I tried to do add fold like patterns to the letters and numbers but proved very hard. 
 
 
 In the process of completing the entire alphabet, I have [made what changes?].
