@@ -121,32 +121,34 @@ let posy = 0;
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
-  new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
+  //new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
+  //new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  if(percent => -50){
-//  new_letter["offset3x"] = oldObj["offset3x"];
-//  new_letter["offset3y"] = oldObj["offset3y"];
+  //new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
+  new_letter["rotate3"] = map(percent, 0, 100, oldObj["rotate3"], newObj["rotate3"]);
+  if(percent < 40/5){
+  new_letter["offset3x"] = oldObj["offset3x"];
+  new_letter["offset3y"] = oldObj["offset3y"];
 //  new_letter["offsetx"] = oldObj["offsetx"];
 //  new_letter["offsety"] = oldObj["offsety"];
-  new_letter["rotate2"] = oldObj["rotate2"];
+  //new_letter["rotate2"] = oldObj["rotate2"];
   new_letter["rotate3"] = oldObj["rotate3"];
-  }else if (percent < -55){
-//  new_letter["offset3x"] = map(percent, 30, 60, oldObj["offset3x"], newObj["offset3x"]);
-//  new_letter["offset3y"] = map(percent, 30, 60, oldObj["offset3y"], newObj["offset3y"]);
-//  new_letter["offsetx"] = map(percent, 30, 60, oldObj["offsetx"], newObj["offsetx"]);
+  }else if (percent > -40){
+  new_letter["offset3x"] = map(percent, 80, 100, oldObj["offset3x"], newObj["offset3x"]);
+  new_letter["offset3y"] = map(percent, 80, 100, oldObj["offset3y"], newObj["offset3y"]);
+//  new_letter["offsetx"] s= map(percent, 30, 60, oldObj["offsetx"], newObj["offsetx"]);
 //  new_letter["offsety"] = map(percent, 30, 60, oldObj["offsety"], newObj["offsety"]);
-  new_letter["rotate2"] = map(percent, 30, 60, oldObj["rotate2"], newObj["rotate2"]);
-  new_letter["rotate3"] = map(percent, 30, 60, oldObj["rotate3"], newObj["rotate3"]);
-  }else{
+  new_letter["rotate2"] = map(percent, -30, 50, oldObj["rotate2"], newObj["rotate2"]);
+  //new_letter["rotate3"] = map(percent, -30, 100, oldObj["rotate3"], newObj["rotate3"]);
+  }//else if(percent / -100){
 //  new_letter["offset3x"] = newObj["offset3x"];
 //  new_letter["offset3y"] = newObj["offset3y"];
 //  new_letter["offsetx"] = newObj["offsetx"];
 //  new_letter["offsety"] = newObj["offsety"];  
-  new_letter["rotate2"] = newObj["rotate2"];
-  new_letter["rotate3"] = newObj["rotate3"];
-  }
+//  new_letter["rotate2"] = newObj["rotate2"];
+//  new_letter["rotate3"] = newObj["rotate3"];
+  //}
 //  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
 //  new_letter["rotate3"] = map(percent, 0, 100, oldObj["rotate3"], newObj["rotate3"]);
 //  if(percent < 50){
@@ -159,6 +161,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter = alphabet["default"];
   return new_letter;
 }
+
 
 
 
