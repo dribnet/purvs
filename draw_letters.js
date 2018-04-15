@@ -183,3 +183,37 @@ function drawLetter(letterData) {
   drawPart(posx, posy, scale, letterData["positionX3"], letterData["positionY3"], letterData["tilt3"], letterData["change3"]);
   pop();
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  // new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["positionX1"] = map(percent, 0, 100, oldObj["positionX1"], newObj["positionX1"]);
+  new_letter["positionY1"] = map(percent, 0, 100, oldObj["positionY1"], newObj["positionY1"]);
+  new_letter["tilt1"] = map(percent, 0, 100, oldObj["tilt1"], newObj["tilt1"]);
+  new_letter["change1"] = map(percent, 0, 100, oldObj["change1"], newObj["change1"]);
+
+  new_letter["positionX2"] = map(percent, 0, 100, oldObj["positionX2"], newObj["positionX2"]);
+  new_letter["positionY2"] = map(percent, 0, 100, oldObj["positionY2"], newObj["positionY2"]);
+  new_letter["tilt2"] = map(percent, 0, 100, oldObj["tilt2"], newObj["tilt2"]);
+  new_letter["change2"] = map(percent, 0, 100, oldObj["change2"], newObj["change2"]);
+
+  new_letter["positionX3"] = map(percent, 0, 100, oldObj["positionX3"], newObj["positionX3"]);
+  new_letter["positionY3"] = map(percent, 0, 100, oldObj["positionY3"], newObj["positionY3"]);
+  new_letter["tilt3"] = map(percent, 0, 100, oldObj["tilt3"], newObj["tilt3"]);
+  new_letter["change3"] = map(percent, 0, 100, oldObj["change3"], newObj["change3"]);
+
+
+  // if(percent < 30) {
+  //   // new_letter["size"] = oldObj["size"];
+  //   // new_letter["offsety"] = oldObj["offsety"];
+  // }
+  // else if (percent < 60){
+  //   // new_letter["size"] = map(percent, 30, 60, oldObj["size"], newObj["size"]);
+  //   // new_letter["offsety"] = map(percent, 30, 60, oldObj["offsety"], newObj["offsety"]);
+  // }
+  // else {
+  //   // new_letter["size"] = newObj["size"];
+  //   // new_letter["offsety"] = newObj["offsety"];
+  // }
+  return new_letter;
+}
