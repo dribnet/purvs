@@ -1,8 +1,9 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#FFE4E1";
+const colorLines   = "#000000";
+const colorHalfline   = "#FF0000";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -22,6 +23,7 @@ let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -96,19 +98,30 @@ function draw () {
   const bottom_margin = 2*height - 60;
   const numSteps = 11;
   const x_step = (right_margin - left_margin + 100) / (numSteps + 1)
-  const first_letter_offset_x = 20;
+  const first_letter_offset_x = 120;
 
   translate(0, top_margin);
 
   // draw lines
-  stroke(colorLines);
-  line(left_margin, 0, right_margin, 0);
-  for(let i=left_margin; i<right_margin-8; i+=30) {
-    line(i, 100, i+12, 100);
-  }
+    stroke(colorLines);
+    line(left_margin, 0, right_margin, 0);
+    stroke(colorLines);
+    line(left_margin, 100, right_margin, 100);
+    stroke(colorLines);
+    for(let i=left_margin; i<right_margin-8; i+=30) {
+      stroke(colorLines);
+      line(i, 150, i+12, 150);
+      stroke(colorLines);
+      line(i, 50, i+12, 50);
+      stroke(colorHalfline);
+      line(i, 240, i+12, 240);
+      stroke(colorHalfline);
+      line(i, -40, i+12, -40);
+      stroke(colorLines);
+    }
   line(left_margin, 200, right_margin, 200);
 
-  translate(left_margin+first_letter_offset_x, 0);
+  translate(left_margin+first_letter_offset_x, 130);
   for(let i=0; i<numSteps; i = i+1) {
     let percent = map(i, 0, numSteps, 0, 100);
     let curLetterObj = getCharacterInterpolation(percent, soloLastLetter, soloCurLetter);
@@ -116,22 +129,24 @@ function draw () {
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
-    fill(colorLines);
+    noStroke();
+    fill(105);
     textSize(50);
     textAlign(CENTER)
     if (i == 0) {
-      text(soloLastLetter, 50, 280);
+      text(soloLastLetter, 0, -150);
     }
     else if (i == (numSteps -1)) {
       if (hot_key_press) {
-        rect(50-40, 280-40, 80, 80);
+        fill(255);
+        noStroke();
+        rect(-150+100, -150-60, 95, 90);
         hot_key_press = false;
       }
-      text(soloCurLetter, 50, 280);
+      text(soloCurLetter, 0, -150);
     }
     else if (interpolation_is_on) {
-      text("" + i*10 + "%", 50, 280);
+      text("" + i*10 + "%", 0,-150);
     }
     translate(x_step, 0);
   }
@@ -153,7 +168,7 @@ function draw () {
   }
 
   push();
-  translate(center_x, center_y);
+  translate(center_x, center_y+60);
   let cur_obj = computeCurrentSoloChar();
   drawLetter(cur_obj);
   pop();

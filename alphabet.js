@@ -3,6 +3,7 @@
  */
 const colorBack    = "#FFE4E1";
 const colorLines   = "#000000";
+const colorHalfline   = "#FF0000";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -43,7 +44,7 @@ function draw () {
   const bottom_margin = 2*height - 60;
   const x_step = 140;
   const y_step = 280;
-  const first_letter_offset_x = 40;
+  const first_letter_offset_x = 120;
 
   let cur_letter_index = 0;
 
@@ -54,12 +55,23 @@ function draw () {
     // draw lines
     stroke(colorLines);
     line(left_margin, 0, right_margin, 0);
+    stroke(colorLines);
+    line(left_margin, 100, right_margin, 100);
+    stroke(colorLines);
     for(let i=left_margin; i<right_margin-8; i+=30) {
-      line(i, 100, i+12, 100);
+      stroke(colorLines);
+      line(i, 150, i+12, 150);
+      stroke(colorLines);
+      line(i, 50, i+12, 50);
+      stroke(colorHalfline);
+      line(i, 240, i+12, 240);
+      stroke(colorHalfline);
+      line(i, -40, i+12, -40);
+      stroke(colorLines);
     }
     line(left_margin, 200, right_margin, 200);
 
-    translate(left_margin+first_letter_offset_x, 0);
+    translate(left_margin+first_letter_offset_x, 130);
     for(let i=left_margin+first_letter_offset_x; i<right_margin-x_step+1; i+=x_step) {
       let letter = letters[cur_letter_index];
       if (letter in alphabet) {
