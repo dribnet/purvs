@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018 Colours
    
-I tried out another combination of colours and stroke, this time I used grey and white. I change the outer arc stroke to be white and slightly thicker. The inner arc I made much thinner so it was just barely visible. Although I don't think this will work with such a thin stroke and light colours. I like the black and white better but this is also interesting to see. It's too bright and doesn't match well together. 
+I tested out another idea, but this time I played around with the opacity. I gave both arcs a fill and made them both transparent slightly. Then for the stroke I made the out transparent and the inner solid. I think that the dark grey stroke on the inner arc is a bit harsh and stands out too much. I like the transparency on the outer arc stroke I think it looks pretty interesting. So far out of all of them I like this one and the black and white on the best. 
 
 
 pos2x this draws the x position of the first point 
