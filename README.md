@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I changed the colours, made them white and a cream colour and I returned the stroke to the original size (4). The similar colours do make it difficult to see the different elements and the transparency. I think I will keep the colours very different.
+I wanted to play around with the colour, stroke and transparency. For this design I changed made it black and white. I like the simplicity of that colour scheme and I think it works well with transparency.  I made the stroke width smaller, I like it like this because it makes the letters look less crowed and more delicate. I only put a stroke around the smaller circle to make it stand out a little and to make the line match better with the rest of the letter.
 
 The eight parameters per letter are now:
 
