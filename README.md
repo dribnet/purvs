@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018 Colours
    
-I tried out some colours on my letters forms but this time I made the stroke on the inner arc white and thicker which looks interesting however I'm not sure if that is what I want. It might look better if it was the outer arc which was thicker and white perhaps. I think that I will test out some other colour combinations but I like the no fill on the arcs. The black and white I think works well together with the strong contrast. I still cannot figure out how to make it rotate and it changes colour so I will ask the lecturer about it. I'm not sure if I want it to rotate and change colour but it would be interesting to see what it looks like. 
+This test I tried the opposite of the previous commit.  I made the white black and the black white. I think I like this better as it stand out more and looks more interesting. I think that making the inner arc thinner would look interesting however I don't think it will look that great. As for the outer arc I like it as it however maybe making it thicker would look nice as well giving it a more distinct contrast. As for the colours I might l leave it as it is or making it an off white colour. 
 
 
 pos2x this draws the x position of the first point 
