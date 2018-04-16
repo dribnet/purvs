@@ -18,15 +18,16 @@ function drawLetter(letterData) {
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
-   angleMode(DEGREES);
+  angleMode(DEGREES);
+
 
    // noFill();
    // stroke('red');
    // rect(0, 0, 100, 200);
 
 
-let color = (255, 255, 0);
-   stroke(color);
+//let color = (255, 255, 0);
+   
    //fill(255, 159, 25);
    noFill();
 
@@ -47,7 +48,7 @@ let posy = 0;
   let arcAngle = 270;
   let rotatearc2 = letterData["rotate2"];
   let rotatearc3= letterData["rotate3"];
-  let colour= color + letterData["colour2"];
+  //let colour= color + letterData["colour2"];
 
   // draw two circles
   // ellipse(50, 150, 100, 100);
@@ -63,9 +64,10 @@ let posy = 0;
   noFill();
   // fill(255, 232, 0);
   // stroke(255, 159, 25);
+  strokeWeight(6);
+  stroke(255, 255, 255);
   rotate(rotatearc3);
   translate(20,20);
-  stroke(colour);
   arc(pos3x, pos3y, 30, -30, arcAngle, PI, PI + QUARTER_PI);
 
   //translate(140,70);
@@ -165,6 +167,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter = alphabet["default"];
   return new_letter;
 }
+
 
 
 

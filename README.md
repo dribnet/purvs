@@ -1,7 +1,6 @@
-## PS2 MDDN 242 2018 Animation
+## PS2 MDDN 242 2018 Colours
    
-I tested out the colours but I couldn't get it to work with variables so I tried some other things but no luck, I'm too sure how I would make it but so far I'm stuck on how to make it change colour when it rotates or something. I tried adding different variables and setting them in the interpolate function but nothing so far.
-I tested it again I forgot to call the variable I set for colour so that was why it wasn't showing up. It shows but still no colour change. I'm not sure what the problem is and I cannot seem to figure it out.
+I tried out some colours on my letters forms but this time I made the stroke on the inner arc white and thicker which looks interesting however I'm not sure if that is what I want. It might look better if it was the outer arc which was thicker and white perhaps. I think that I will test out some other colour combinations but I like the no fill on the arcs. The black and white I think works well together with the strong contrast. I still cannot figure out how to make it rotate and it changes colour so I will ask the lecturer about it. I'm not sure if I want it to rotate and change colour but it would be interesting to see what it looks like. 
 
 
 pos2x this draws the x position of the first point 
