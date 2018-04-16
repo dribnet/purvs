@@ -1,4 +1,6 @@
-
+const colorFront  = "#281c1c";
+const colorStroke = "#ffffff";
+const colorInside = "#ffffff";
 /*
  * Draw the letter given the letterData
  *
@@ -7,14 +9,23 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  let x = 50;
-  let y = 127;
-  let shrink = 0.81;
+  //boundary
+  push();
+  rectMode(CENTER);
+  stroke(255);
+  scale(0.8);
+  noFill();
+  rect(75, 125, 140, 200);
+  pop();
+
+  let x = 45;
+  let y = 170;
+  let shrink = 0.6;
   // color/stroke setup
-  const colorFront  = "#281c1c";
-  const colorBack   = "#ffcfcd";
-  const colorStroke = "#ffffff";
-  const colorInside = "#ffffff";
+  // const colorFront  = "#281c1c";
+  // const colorBack   = "#ffcfcd";
+  // const colorStroke = "#ffffff";
+  // const colorInside = "#ffffff";
 
   fill(colorFront);
   // stroke(colorStroke);
@@ -49,7 +60,7 @@ function drawLetter(letterData) {
   let rotOreo = letterData["rOreo"];
 
   // draw oreo
-  if(sta == 1){
+  if(sta === 1){
     push();
     scale(shrink);
     translate(transx, transy);
@@ -97,7 +108,7 @@ function drawLetter(letterData) {
     fill(colorInside);
     rect(posx + 10, posy + 4, 100, 10, 5);
     pop();
-  }else if(sta == 0){
+  }else if(sta === 0){
     push();
     scale(shrink);
     translate(transx, transy);
@@ -135,7 +146,7 @@ function drawLetter(letterData) {
     fill(colorFront);
     drawOreo(posx, posy, 120);
     pop();
-  }else if(sta == -1){
+  }else if(sta === -1){
     push();
     scale(shrink);
     translate(trans2x, trans2y);
@@ -165,6 +176,25 @@ function drawLetter(letterData) {
     translate(transx + gap2x, transy + gap2y);
     fill(colorFront);
     drawHalfOreo(posx, posy, 243, rotOreo);
+    pop();
+  }else if(sta === 2){
+    push();
+    scale(shrink);
+    translate(transx + gapx, transy + gapy);
+    rotate(rot);
+    fill(colorFront);
+    rect(posx, posy - 14, 120, 17, 6);
+    rect(posx, posy + 14, 120, 17, 6);
+
+    fill(colorInside);
+    rect(posx + 10, posy + 4, 100, 10, 5);
+    pop();
+
+    push();
+    scale(shrink);
+    translate(transx, transy);
+    fill(colorFront);
+    drawBigOreo(posx, posy, 180);
     pop();
   }
 }
@@ -235,5 +265,35 @@ function drawHalfOreo(hox, hoy, hsize, hr){
     ellipse(hox + 34, hoy - 60, 12, 12);
   }
   pop();
+  pop();
+}
+function drawBigOreo(box, boy,bsize){
+  push();
+  const colorPattern = "#514444";
+  ellipseMode(CENTER);
+  fill(colorFront);
+  ellipse(box, boy, bsize, bsize);
+  push();
+  // rotate(-60);
+  fill(colorPattern);
+  for(var m = 0; m < 24; m ++){
+    rotate(15);
+    rect(box + 62, boy, 19, 9, 5);
+  }
+  pop();
+  scale(0.7);
+  for(var z = 0; z < 6; z ++){
+    fill(colorPattern);
+    rotate(60);
+    triangle(box - 14, boy - 78, box + 14, boy - 78, box, boy - 60);
+    triangle(box - 14, boy - 38, box + 14, boy - 38, box, boy - 56);
+    triangle(box - 22, boy - 72, box - 22, boy - 44, box - 6, boy - 58);
+    triangle(box + 22, boy - 72, box + 22, boy - 44, box + 6, boy - 58);
+    ellipse(box + 34, boy - 60, 12, 12);
+  }
+  stroke(colorPattern);
+  strokeWeight(8);
+  noFill();
+  ellipse(box, boy, bsize * 0.3, bsize * 0.3);
   pop();
 }
