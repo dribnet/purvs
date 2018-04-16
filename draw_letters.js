@@ -33,7 +33,7 @@ function drawLetter(letterData) {
   let col2 = map(pos2y, -150, 150, 0, 255);
   let col3 = map(pos3y, -150, 150, 0, 255);
 
-  fill(col1*1.7, col2, col3*1.1);
+  fill(col1*1.6, col2*1.5, col3*1.9, 100);
   bezier(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
   pop();
 }

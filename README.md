@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Having completed the alphabet I can now move onto 1-10 ,this step should be fairly easy. Another thing I could improve on as well is the M and W, I couldn't think of a better way to do these with 4 control points. I also added a mapp to the color which now changes depending on the location of the control points.
-I also had some issues with the interpolation which I will have to trouble shoot next class. 
+I've finished up the numbers so now all I need to do is fix the interaction. I don't really know what's wrong with it so I'll have to wait till next class. I'm sure I can tidy up some of the letters but I will do that if I have the time to after integrating the interaction section.
 
 
 The eight parameters per letter:
