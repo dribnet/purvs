@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
-I wanted to play around with the colour, stroke and transparency. For this design I wanted to try using bright colours. I swapped out the black of the previous design for a pink/red. The stroke is not white, instead it is a very light pink. I did this to make it more cohesive with the overall colour scheme. I made the stroke of the smaller circle thinner than the stroke of the line and bigger circle, so they would stand out a little more.
+
+I wanted to play around with the colour, stroke and transparency. For this design I used purples and blues. I like the way the colours look together, epically when the two smaller circlers overlap.  I didn't change the stroke weight or transparency for this particular design. 
+
 
 The eight parameters per letter are now:
 
