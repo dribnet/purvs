@@ -43,7 +43,7 @@ function bottomletter(bottomletterX, bottomletterY, bottomletterR, cf, cs,bRa1, 
 function handle(cs, bottomletterX, bottomletterY, bottomletterR, topletterX, topletterY, topletterR) {
   stroke(cs);
   line(bottomletterX - bottomletterR / 2, bottomletterY, topletterX - topletterR / 2, topletterY);
-  line(bottomletterX + bottomletterR / 2, bottomletterY, topletterX + topletterR / 2, topletterY);
+  line(bottomletterX + bottomletterR / 2, bottomletterY, topletterX, topletterY);
 }
 
 
