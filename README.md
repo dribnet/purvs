@@ -13,6 +13,9 @@ Added:
   - vertX3: X position of the end point of the second curve(anchor point)
   - vertY3: Y position of the end point of the second curve(anchor point)
 
-  In my last commit I stated that using just one curve to create a set of letters is too challenging for the viewer to decipher what letter it is. In this iteration i've added 4 new parameters for an extra quadratic curve. Because i'm using Adobe Illustrator and the pen tool to create my font letters I feel like my font is a recreation of what the pen tool does in the p5.js framework.
+  Cosmetic iteration;
+  I have swapped the colours around to reference the connection to Adobe Illustrator and the colour scheme of the UI.
+  I have used a darker grey for the background and font and light grey for the rectangle as in reference to the artboard of Illustrator.
+  The change of colours has created the visual perception that the square has had a line cut out of it rather than a line placed on top of it as in the previous iteration. By making this change it connects back to one of inital inspirations of Gestalt.
 
-  I find the resemblance/recreation of the Illustrator's pen tool fitting because it's a program used for Graphic Design/Font creation and one of the inspirations for my project is the graphic design principle of Gestalt. Gestalt is a psychology term which refers to visual perception. I don't feel as my font has a strong resemblance to any of the Gestalt principles currently as my font has changed since I first sourced it as inspiration.
+  I am now happy with the current iteration of my font and will now focus on catching up.

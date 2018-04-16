@@ -62,8 +62,8 @@ const letterC = {
   "vertY3": 280
 }
 
-const colorFront  = "#333332";
-const colorBack   = "#e2e2e0";
+const colorFront  = "#e2e2e0";
+const colorBack   = "#333332";
 //const colorStroke = "#e2e2e0";
 
 function setup () {
