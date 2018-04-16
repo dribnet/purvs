@@ -2,8 +2,11 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-For my alphabet I want to use mainly circles with a variation of filled and stroked, i saw an example where the letters were formed by a sort of boucing ball simulation
-and was thinking it could be cool to go along that pathway. 
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
 
-For this basic idea i just used 4 ellipses 2 filled 2 stroked and had 6 parameters for the positions of 3 of the ellipses.
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
