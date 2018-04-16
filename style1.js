@@ -138,11 +138,15 @@ function drawPart(y_offset, pos, tilt) {
   translate(middle_x + pos, middle_y + y_offset);
   rotate(tilt);
 
-  let scale = 10;
+  let x = 0;
+  let y = 0;
+  let r = 120
+  let c = 0
 
   fill(colorFront);
   // rect(-100,-100,100,100);
-  ellipse(-20*scale, -3*scale, 10*scale, 3*scale);
+  // ellipse(-20*scale, -3*scale, 10*scale, 3*scale);
+  arc(x, y + height / 4, r, r / 2, 0, TWO_PI - QUARTER_PI);
 }
 
 function drawFromSliders(y_offset, pos_slider, tilt_slider) {
