@@ -1,5 +1,3 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -15,9 +13,6 @@ function drawLetter(letterData) {
   strokeWeight(1);
   rect(0,0,100,200);
 
-  // determine parameters for second circle  
-  fill(colorFront);
-  stroke(colorStroke);
 
   angleMode(DEGREES);
 
@@ -31,9 +26,8 @@ function drawLetter(letterData) {
   let sw1 = letterData["strokeweight1"];
   let sw2 = letterData["strokeweight2"];
 
-  strokeWeight(4);
-  line(10, 150, 90, 70);
 
+  stroke(2,128,144,150);
   //first right angle
   push();
   strokeWeight(sw1);
@@ -53,10 +47,16 @@ function drawLetter(letterData) {
   line(0, 30, 30, 30);
   pop();
 
+  stroke(2,195,154);
+  strokeWeight(4);
+  line(10, 150, 90, 70);
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
+
   new_letter["translate1X"] = map(percent, 0, 100, oldObj["translate1X"], newObj["translate1X"]);
   new_letter["translate1Y"] = map(percent, 0, 100, oldObj["translate1Y"], newObj["translate1Y"]);
   new_letter["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);

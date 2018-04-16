@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#05668D";
+const colorLines   = 255;
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -83,7 +83,7 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(colorBack);
+  background(242,245,201);
 
   // draw the interpolation on the guidelines
   push();
@@ -116,8 +116,8 @@ function draw () {
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
-    fill(colorLines);
+    stroke(2,195,154);
+    fill(2,195,154);
     textSize(50);
     textAlign(CENTER)
     if (i == 0) {

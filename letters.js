@@ -133,7 +133,7 @@ const alphabet = {
   },
   "L": {
       "strokeweight1": 4,
-      "strokeweight2": 4,
+      "strokeweight2": 0,
       "translate1X": 30,
       "translate1Y": 130,
       "rotate1" : 45,
