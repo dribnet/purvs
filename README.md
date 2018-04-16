@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I used purples and blues. I like the way the colours look together, epically when the two smaller circlers overlap.  I didn't change the stroke weight or transparency for this particular design. 
-
+I wanted to play around with the colour, stroke and transparency. For this design I removed the fill on the background. It has an Interesting look without the big circles colour in the back. It also effects how the transparency of the smaller circles looks. The small gold one doesn't look like it's transparent. I used white and gold for the colours. 
 
 The eight parameters per letter are now:
 
