@@ -11,27 +11,17 @@ const colorStroke = "#e3eded";
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(3);
-
-  // determine parameters for second circle
-  //let size2 = letterData["size"];
-  //let pos2x = 50+letterData["offsetx"];
-  //let pos2y = 150+letterData["offsety"];
-  //
-  //// draw two circles
-  //ellipse(50, 150, 100, 100);
-  //ellipse(pos2x, pos2y, size2, size2);
-  //
   
-  for(var i = 0; i < 14; i++){
+  for(var i = 0; i < 16; i++){
 	strokeWeight(4);
 	if(letterData["lines"][i] == 1){
+		strokeWeight(5);
 		stroke(letterData["letterColour"]);
 	}else{
+		strokeWeight(1);
 		stroke("black");
 	}	
-	line(0,100,50, 100); 
+	drawLines(i);
   }
   
   ////Outer Box
@@ -64,7 +54,7 @@ function drawLetter(letterData) {
   // stroke(colorStroke);
   //line(50,100,50, 200);
   //
-  ////V
+  ////UV
   // strokeWeight(4);
   //stroke("red");
   //line(0,200,50, 0);
@@ -76,4 +66,41 @@ function drawLetter(letterData) {
   //line(0, 0, 50, 200);
   //line(50, 200,100, 0);
   
+}
+
+//I hope to change this :L
+function drawLines(i){
+	if(i == 0){
+		line(0,0,50, 0);
+	}else if(i == 1){
+		line(50,0,100, 0);
+	}else if(i == 2){
+		line(100,0,100, 100);
+	}else if(i == 3){
+		line(100,100,100, 200);
+	}else if(i == 4){
+		line(100,200,50, 200);
+	}else if(i == 5){
+		line(50,200, 0, 200);
+	}else if(i == 6){
+		line(0, 200,0, 100);
+	}else if(i == 7){
+		line(0, 100, 0, 0);
+	}else if(i == 8){
+		line(0,100,50, 100);
+	}else if(i == 9){
+		line(50,100,100, 100);
+	}else if(i == 10){
+		line(50, 0, 50, 100);
+	}else if(i == 11){
+		line(50,100,50, 200);
+	}else if(i == 12){
+		line(0,200,50, 0);
+	}else if(i == 13){
+		line(50,0,100, 200);
+	}else if(i == 14){
+		line(0, 0, 50, 200);
+	}else {
+		line(50, 200,100, 0);
+	}
 }
