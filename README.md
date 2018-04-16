@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I changed the colours and made the stroke bigger and the line transparent. I'm not sure about the transparent stroke for the line because even though it matches with the circles, it doesn't match with the outside line. 
-
+I wanted to play around with the colour, stroke and transparency. For this design I changed the colours, made them white and a cream colour and I returned the stroke to the original size (4). The similar colours do make it difficult to see the different elements and the transparency. I think I will keep the colours very different.
 
 The eight parameters per letter are now:
 
