@@ -2,10 +2,8 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+For my alphabet I want to use mainly circles with a variation of filled and stroked, i saw an example where the letters were formed by a sort of boucing ball simulation
+and was thinking it could be cool to go along that pathway. 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+For this basic idea i just used 4 ellipses 2 filled 2 stroked and had 6 parameters for the positions of 3 of the ellipses.
 
