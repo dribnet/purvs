@@ -1,6 +1,9 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I removed the fill on the background. It has an Interesting look without the big circles colour in the back. It also effects how the transparency of the smaller circles looks. The small gold one doesn't look like it's transparent. I used white and gold for the colours. 
+I wanted to play around with the colour, stroke and transparency. For this design I made the medium circle and the stroke the background colour and removed the transparency. This gives it a "cut-out" look. The little circle is partially transparent and white. I like how it looks when it overlaps with the background coloured parts, because it looks like it's pure white. I made the stroke width 4 so it could be clearly seen, even though I liked the way the thin stroke looked.
+
+This is a simple looking design but so far I think it is my favourite.
+
 
 The eight parameters per letter are now:
 
