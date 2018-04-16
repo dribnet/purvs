@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018 Colours
    
-This test I tried the opposite of the previous commit.  I made the white black and the black white. I think I like this better as it stand out more and looks more interesting. I think that making the inner arc thinner would look interesting however I don't think it will look that great. As for the outer arc I like it as it however maybe making it thicker would look nice as well giving it a more distinct contrast. As for the colours I might l leave it as it is or making it an off white colour. 
+I tried out another combination of colours and stroke, this time I used grey and white. I change the outer arc stroke to be white and slightly thicker. The inner arc I made much thinner so it was just barely visible. Although I don't think this will work with such a thin stroke and light colours. I like the black and white better but this is also interesting to see. It's too bright and doesn't match well together. 
 
 
 pos2x this draws the x position of the first point 
