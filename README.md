@@ -1,9 +1,19 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+My initial idea was using the basic geometric shape to compose my letters. In this sketch I used two rectangle to compose my letter by changing the position and shape, and there are 8 parameters. 
+2x, 2y, 3x, 3y control the position 
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+s1, s2, s3, s4 control the sahpe
+
+  let pos2x = 0+letterData["x1"];
+  let pos2y = 0+letterData["y1"];
+  let size1 = letterData["s1"];
+  let size2 = letterData["s2"];
+
+  let pos3x = letterData["x2"];
+  let pos3y = 50+letterData["y2"];
+  let size3 = letterData["s3"];
+  let size4 = letterData["s4"]; 
 
 The three parameters per letter are now:
   * `size` : radius of the second circle
