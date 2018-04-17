@@ -1,157 +1,110 @@
-let main_canvas = null;
-
-let checkboxes = [];
-
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-let letterParams = {
-  "A":
-    [
-      true,
-      false,
-      false,
-      false,
-      false,
-      false
-    ],
-  "B":
-    [
-      true,
-      false,
-      true,
-      false,
-      false,
-      false
-    ],
-  "C":
-    [
-      true,
-      true,
-      false,
-      false,
-      false,
-      false
-    ]
+/* 
+ * my nine variable per letter are:
+ *
+    stretch x: stretches the arrow shape on the original x axis
+    stretch y: stretches the arrow shape on the original y axis
+	tilt: rotates the arrow in degrees
+    ball1(2) vis: visibility of the ball
+    ball1(2) x: x axis position of ball
+    ball1(2) y: y axis position of ball
+ *
+ */
+
+const letterA = {
+	"stretch X": 0,
+	"stretch Y": 0,
+	"tilt": 0,
+	"visibility1": 0,
+	"position1 X": 0,
+	"position1 Y": 0,
+	"visibility2": 0,
+	"position2 X": 0,
+	"position2 Y": 0,
 }
+
+const letterB = {
+	"stretch X": 30,
+	"stretch Y": -30,
+    "tilt": -90,
+	"visibility1": 1,
+    "position1 X": 70,
+	"position1 Y": -70,
+	"visibility2": 1,
+    "position2 X": 70,
+	"position2 Y": 70,
+}
+
+const letterC = {
+	"stretch X": 30,
+	"stretch Y": -30,
+	"tilt": -90,
+	"visibility1": 0,
+	"position1 X": 0,
+	"position1 Y": 0,
+	"visibility2": 0,
+	"position2 X": 0,
+	"position2 Y": 0,
+}
+
+const colorQuad = [200, 200, 200];
+const colorCircle = [0, 0, 0];
+const colorBack = [255, 255, 255];
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
-
-  sel = createSelect();
-  sel.option('A');
-  sel.option('B');
-  sel.option('C');
-  sel.changed(letterChangedEvent);
-
-  button = createButton('show data');
-  button.mousePressed(buttonPressedEvent);
-
-  // position each element on the page
   main_canvas.parent('canvasContainer');
 
-  sel.parent(selectorContainer);
-  button.parent(buttonContainer);
+  // with no animation, redrawing the screen is not necessary
+  noLoop();
+}
 
-  for(let i=0; i<6; i++) {
-    let cur_checkbox = createCheckbox('', false);
-    checkboxes.push(cur_checkbox);
-    cur_checkbox.parent('container_' + i);
+function drawLetter(posx, posy, scale, letterData) {
+  stretchx = letterData["stretch X"];
+  stretchy = letterData["stretch Y"];
+  tilt = letterData["tilt"];
+  posx1 = posx + letterData["position1 X"];
+  posy1 = posy + letterData["position1 Y"];
+  vis1 = letterData["visibility1"];
+  posx2 = posx + letterData["position2 X"];
+  posy2 = posy + letterData["position2 Y"];
+  vis2 = letterData["visibility2"];
+
+  angleMode(DEGREES);
+  noStroke();
+  
+  //draw circles
+  fill(colorCircle);
+  if(vis1==1){
+	ellipse(posx1, posy1, 80, 80);
   }
-
-  letterChangedEvent();
-}
-
-function uiToDataObject() {
-  let obj = [];
-  for(let i=0; i<6; i++) {
-    obj.push(checkboxes[i].checked());
+  if(vis2==1){
+	ellipse(posx2, posy2, 80, 80);
   }
-  return obj;
-}
-
-function dataObjectToUi(obj) {
-  for(let i=0; i<6; i++) {
-    checkboxes[i].checked(obj[i]);
-  }
-}
-
-function letterChangedEvent() {
-  let item = sel.value();
-  dataObjectToUi(letterParams[item]);
-}
-
-function buttonPressedEvent() {
-  let obj = uiToDataObject();
-  json = JSON.stringify(obj, null, 2);
-  alert(json);
-}
-
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
-
-function drawPart(y_offset, pos, tilt) {
-  let middle_x = 2 * canvasWidth / 3;
-  let middle_y = canvasHeight / 2;
-  resetMatrix();
-  translate(middle_x + pos, middle_y + y_offset);
+  //draw arrow quad
+  fill(colorQuad);
+  push();
+  translate(posx, posy);
   rotate(tilt);
-
-  let scale = 10;
-
-  fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
-}
-
-function drawPart(pos, is_on) {
-  let rad = 0;
-  if(is_on) {
-    strokeWeight(0);
-    rad = 90;
-    fill(colorFront);
-  }
-  else {
-    stroke(colorFront);
-    strokeWeight(8);
-    rad = 40;
-    noFill();
-  }
-  push();
-  translate(pos[0], pos[1]);
-  ellipse(0, 0, rad, rad);
-  pop();
-}
-
-// obj is an array of six booleans
-function drawCharacter(x, y, obj) {
-  let spacing_x = 50, spacing_y = 100;
-
-  let positions = [
-    [-spacing_x, -spacing_y],
-    [ spacing_x, -spacing_y],
-    [-spacing_x, 0],
-    [ spacing_x, 0],
-    [-spacing_x, spacing_y],
-    [ spacing_x, spacing_y],
-  ]
-
-  push();
-    translate(x, y);
-    for(let i=0; i<6; i++) {
-      drawPart(positions[i], obj[i])
-    }
+  quad(-120 - stretchx, 100, 0, -100 - stretchy, 120 + stretchx, 100, 0, 40);
   pop();
 }
 
 function draw () {
+  // clear screen
   background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
 
-  obj = uiToDataObject();
-  drawCharacter(width/2, height/2, obj);
+  // compute the center of the canvas
+  let center_x = canvasWidth / 2;  
+  let center_y = canvasHeight / 2;
+
+  // draw the letters A, B, C from saved data
+  drawLetter(center_x - 250, center_y, 10, letterA);
+  drawLetter(center_x , center_y, 10, letterB);
+  drawLetter(center_x + 250, center_y, 10, letterC);
 }
 
 function keyTyped() {

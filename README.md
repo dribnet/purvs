@@ -1,12 +1,3 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+I used the basic interpolate function as a base for starting my animation. I then changed it so that the lines wouldn't move or tilt if they have a length of 0 in the old or new letter. I also decided to make the ring become a full circle before switching to the new arc angles. When the animation is half complete, the ring will be a brighter colour and fades in/out of that colour during the rest of the animation.
