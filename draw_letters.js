@@ -1,3 +1,4 @@
+const colorFront  = "#199cff";
 
 
 // This function draws each individual box
@@ -157,3 +158,18 @@ function interpolate_letter(percent, oldObj, newObj){
   return new_letter;
 
 }
+var swapWords = [
+  "MAZEFONT",
+  "PANCAKES",
+  "CUTIEPIE",
+  "COLORFUL",
+  "UNPUZZLE",
+  "LUNCHBOX",
+  "JOYSTICK",
+  "DUCKWALK",
+  "WHEEZING",
+  "UNBOXING",
+  "ENJOYING",
+  "BUBBLING"
+]
+

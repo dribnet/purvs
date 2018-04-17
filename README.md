@@ -1,6 +1,12 @@
 ## PS2 MDDN 242 2018
 
-I am pleased with the animation. I think the transformation of the cubes from one alphabet to another is really interesting and it looks like an alphabet puzzle maze.
+In the exhibition, the animation of my words transformation is smooth and looks very 3D surprisingly. But the position of some letters are weird and not in the right position.
+
+Next step:
+- Reposition and adjust some alphabets.
+- Develop on colour template for my alphabet.
+- Research on exhitbition letter choices.
+- Reduce the parameters use.
 
 <<<<<<< HEAD
 
