@@ -166,11 +166,9 @@ var swapWords = [
   "UNBOXING",
   "CUTIEPIE",
   "COLORFUL",
+  "ICECREAM",
   "UNPUZZLE",
-  "LUNCHBOX",
-  "WHEEZING",
   "JOYSTICK",
-  "DUCKWALK",
   "BUBBLING"
 ]
 
