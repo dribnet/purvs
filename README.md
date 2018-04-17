@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 
 <<<<<<< HEAD
-This is just an idea of what I want to do, not coded. I simply wanted to get my ideas on paper, if this idea does work then it will be very usful to have this sketch as it will help me work out the placement of my letters. I want to create maze type of font. I intend to have a grid that is where my maze lettering will take place. I will have to work out the logistics of this, but am looking at the coding train maze building video to help work out how I could accomplish this. These colours are not neccesarily the ones that will be present in my final.
+This is a coded sketch of A, B and C. I simplified it massively because it was really confusing me. Previously I had attempted to creat a Maze type of code where my shape would travel and the wall of the grid would be removed so that the letter I wanted could be formed. To accomplish this I looked at the coding train's maze video, however once I developed the code I got confused. I over complicated it. Next I formed an array which I was going to use to create my grid, however that would not work with the code we were given. Therefore, I have stripped the code down to basic's. From here I need to alter it to fit the 12 parameters. Also I think it would be interesting to have the green morph underneath the grid rather then suddenly appeare within it. One thing I do like significantly about this sketch is the colours. I am going for a computer-ish/ similar to matrix look, therefore these colours work nicely.
 =======
 (Replace this README with information about your alphabet. This is an example.)
 
