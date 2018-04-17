@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 
-<<<<<<< HEAD
-This is my alphabet. I use two arcs and two lines as the basis and make the arcs do the extension and the lines do the extension and rotation to complete my alphabet and the numbers. Besides, I also added some elements of chinese character in the alphabet.
+
+This my experiment of the exhibition. This experiment is according my last parameters. But the characters are white that lead to hard to see. So I will fix that next time. 
 =======
 (Replace this README with information about your alphabet. This is an example.)
 
