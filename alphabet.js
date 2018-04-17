@@ -1,14 +1,15 @@
 /*
  * Here are some things you can edit
  */
-const colorFront  = "#199cff";
-const colorBack   = "#aae4f7";
+var Alpha = 255
+const colorFront  = [130, 44, 7];
+const colorBack   = [183, 143, 115];
 const colorStroke = "#000000";
 const colorTriangle = [240, 240, 240]; 
 const colorCircleGrid = [224, 0, 0];
 const colorSquare = [0, 0, 0];
 const colorCircle = [74, 85, 89];
-const colorLines   = "#000090";
+const colorLines   = [130, 44, 7];
 const colorWhite = [255,255,255];
 
 

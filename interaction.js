@@ -3,14 +3,13 @@
  */
 var Alpha = 255
 const colorFront  = "#199cff";
-const colorBack   = "#aae4f7";
-const colorStroke = "#000000";
+const colorBack   = [183, 143, 115];
 //refactured to add fade animation
 // var colorTriangle = [240, 240, 240, Alpha]; 
 // var colorCircleGrid = [224, 0, 0, Alpha];
 // var colorSquare = [0, 0, 0, Alpha];
-var colorCircle = [74, 85, 89, Alpha];
-const colorLines   = "#000090";
+//var colorCircle = [74, 85, 89, Alpha];
+const colorLines   = [130, 44, 7];
 const colorWhite = [255,255,255];
 
 /* 
@@ -59,33 +58,6 @@ function getCharacterInterpolationObj(percent, oldObj, newObj) {
   return obj;
 }
 
-function interpolate_letter (percent, oldObj, newObj) {
-let new_letter = {};
-
-if(percent<=50){
-  Alpha = map(percent, 50, 0, 0, 255);
-}else if(percent<=90){
-  Alpha = map(percent, 50, 100, 0, 255);
-}else
-    Alpha = 255;
-
-// textSize(15);
-// text(percent, 0, 0);
-new_letter["TL"] = map(percent, 0, 100, oldObj["TL"], newObj["TL"]);
-new_letter["TM"] = map(percent, 0, 100, oldObj["TM"], newObj["TM"]);
-new_letter["TR"] = map(percent, 0, 100, oldObj["TR"], newObj["TR"]);
-new_letter["ML"] = map(percent, 0, 100, oldObj["ML"], newObj["ML"]);
-new_letter["MM"] = map(percent, 0, 100, oldObj["MM"], newObj["MM"]);
-new_letter["MR"] = map(percent, 0, 100, oldObj["MR"], newObj["MR"]);
-new_letter["BL"] = map(percent, 0, 100, oldObj["BL"], newObj["BL"]);
-new_letter["BM"] = map(percent, 0, 100, oldObj["BM"], newObj["BM"]);
-new_letter["BR"] = map(percent, 0, 100, oldObj["BR"], newObj["BR"]);
-new_letter["Square"] = map(percent, 0, 100, oldObj["Square"], newObj["Square"]);
-new_letter["Circle"] = map(percent, 0, 100, oldObj["Circle"], newObj["Circle"]);
-new_letter["Triangle"] = map(percent, 0, 100, oldObj["Triangle"], newObj["Triangle"]);
-return new_letter;
-
-}
 
 function getObjFromChar(c) {
   if (c in alphabet) {

@@ -1,14 +1,14 @@
 const alphabet = {
     "default": {
-    "TL": 100,
-    "TM": 100,
-    "TR": 100,
-    "ML": 100,
+    "TL": 0,
+    "TM": 0,
+    "TR": 0,
+    "ML": 0,
     "MM": 100,
-    "MR": 100,
-    "BL": 100,
-    "BM": 100,
-    "BR": 100,
+    "MR": 0,
+    "BL": 0,
+    "BM": 0,
+    "BR": 0,
     "Square": 0,
     "Circle": 0,
     "Triangle": 0
@@ -422,7 +422,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0
+    "Triangle": 100
 },
 "3":{
     "TL": 100,

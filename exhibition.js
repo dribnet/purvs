@@ -1,9 +1,18 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
 
+var Alpha = 255
+const colorFront  = "#199cff";
+const colorBack   = [183, 143, 115];
+const colorStroke = "#000000";
+//refactured to add fade animation
+// var colorTriangle = [240, 240, 240, Alpha]; 
+// var colorCircleGrid = [224, 0, 0, Alpha];
+// var colorSquare = [0, 0, 0, Alpha];
+// var colorCircle = [74, 85, 89, Alpha];
+const colorLines   = "#000090";
+const colorWhite = [255,255,255];
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
@@ -38,57 +47,17 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "PRIMITIV",
   "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+  "???MA???",
+  "??WHERO?",
+  "??MANGU?",
+  "PARAURI?",
+  "KAKARIKI",
+  "?KOWHAI?",
+  "?KARAKA?",
+  "MAWHERO?",
+  "??MAORI?"
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")

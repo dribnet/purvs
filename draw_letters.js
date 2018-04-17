@@ -3,7 +3,9 @@ var squareOn = 1;
 var TriangleOn = 1;
 var posx = 0;
 var posy = 100;
-var SizeOf = 5;
+var SizeOf = 4.0;
+var CircleGridColor;
+
 var circleGridArray = new Array(3);
 for (var i = 0; i < circleGridArray.length; i++) {
    circleGridArray[i] = new Array(3);
@@ -14,6 +16,8 @@ for (var i = 0; i < circleGridArray.length; i++) {
     circleGridArray[i][j]= 1;
   }
 }
+
+
 /*
  * Draw the letter given the letterData
  *
@@ -21,13 +25,16 @@ for (var i = 0; i < circleGridArray.length; i++) {
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+
 function drawLetter(letterData) {
   //guidelines
   // noFill();
   // color('red');
   // rect(0, 0, 100, 200);
-
   // determine parameters for second circle
+  // colorSquare = (221, 4, 38);
+
 
   circleGridArray[0][0] = letterData["TL"];
   circleGridArray[0][1] = letterData["TM"];
@@ -47,36 +54,75 @@ function drawLetter(letterData) {
   // draw two circles
   // ellipse(posx, posy, 150, 150);
   // ellipse(pos2x, pos2y, SizeOf2, SizeOf2);
-  stroke(0, 0, 0, Alpha);
-  strokeWeight(2);
-  fill(0, 0, 0, Alpha);
-  if(squareOn>=80)
-    rect(posx, posy, 20*SizeOf, 20*SizeOf);
+  
+  //relative variables for resizing shapes
+  rel20 = 20;
+  rel10 = 10;
+  relCirc = 3.3;
 
-  fill(colorCircle);
-  if(circleOn>=60)
-    ellipse((posx)+SizeOf*10, (posy)+SizeOf*10, 20*SizeOf, 20*SizeOf);
+  //stroke variables
+  //noStroke();
+  strokeWeight(5);
+  strokeJoin(ROUND);
 
-  fill(240, 240, 240, Alpha);
+  //Square controlled here
+  stroke(36, 48, 61, Alpha);
+  fill(36, 48, 61, Alpha);
+  if(squareOn>=70)
+    rect(posx, posy, rel20*SizeOf, rel20*SizeOf);
+
+  //Circle controlled here
+  stroke(216, 207, 203, Alpha);
+  fill(216, 207, 203, Alpha);
+  if(circleOn>=70)
+    ellipse((posx)+SizeOf*rel10, (posy)+SizeOf*rel10, rel20*SizeOf, rel20*SizeOf);
+
+  //Triangle controlled here
+  stroke(216, 207, 203, Alpha);
+  fill(216, 207, 203, Alpha);
   if(TriangleOn>=70){
-    triangle(posx, posy, posx+20*SizeOf, posy, posx+SizeOf*10,posy+SizeOf*10);
-    triangle(posx, posy+SizeOf*20, posx+20*SizeOf, posy+SizeOf*20, posx+SizeOf*10,posy+SizeOf*10);
-    //line(posx, posy, posx+20*SizeOf, posy+SizeOf*20);
-    //line(posx, posy+SizeOf*20, posx+20*SizeOf, posy)
-    //quad(posx+100, posy-100, posx+20 SizeOf, posy, posx+100, posy+100, posx, posy,)
+    triangle(posx, posy, posx+rel20*SizeOf, posy, posx+SizeOf*rel10,posy+SizeOf*rel10);
+    triangle(posx, posy+SizeOf*rel20, posx+rel20*SizeOf, posy+SizeOf*rel20, posx+SizeOf*rel10,posy+SizeOf*rel10);
+
   }
 
+  //Circle grid Controlled here
+  CircleGridColor = (193, 5, 5, Alpha);
   
-    
-  fill(224, 0, 0, Alpha);
+  fill(193, 5, 5, Alpha);
+  stroke(193, 5, 5, Alpha);  
   for (var i = 0; i < 3; i++) {
-    yTranslate=i*SizeOf*10;
+    yTranslate=i*SizeOf*rel10;
     for (var j = 0; j < 3; j++) {
-      xTranslate=j*SizeOf*10;
-      if(circleGridArray[i][j]>=40)    
-        ellipse((posx)+xTranslate, (posy)+yTranslate, 3*SizeOf, 3*SizeOf);
+      xTranslate=j*SizeOf*rel10;
+      if(circleGridArray[i][j]>=50)    
+        ellipse((posx)+xTranslate, (posy)+yTranslate, relCirc*SizeOf, relCirc*SizeOf);
     }
   }
+}
 
+function interpolate_letter (percent, oldObj, newObj) {
+let new_letter = {};
+
+if(percent<=50){
+  Alpha = map(percent, 50, 0, 0, 255);
+}else if(percent<=90){
+  Alpha = map(percent, 50, 100, 0, 255);
+}else
+    Alpha = 255;
+
+new_letter["TL"] = map(percent, 0, 100, oldObj["TL"], newObj["TL"]);
+new_letter["TM"] = map(percent, 0, 100, oldObj["TM"], newObj["TM"]);
+new_letter["TR"] = map(percent, 0, 100, oldObj["TR"], newObj["TR"]);
+new_letter["ML"] = map(percent, 0, 100, oldObj["ML"], newObj["ML"]);
+new_letter["MM"] = map(percent, 0, 100, oldObj["MM"], newObj["MM"]);
+new_letter["MR"] = map(percent, 0, 100, oldObj["MR"], newObj["MR"]);
+new_letter["BL"] = map(percent, 0, 100, oldObj["BL"], newObj["BL"]);
+new_letter["BM"] = map(percent, 0, 100, oldObj["BM"], newObj["BM"]);
+new_letter["BR"] = map(percent, 0, 100, oldObj["BR"], newObj["BR"]);
+new_letter["Square"] = map(percent, 0, 100, oldObj["Square"], newObj["Square"]);
+new_letter["Circle"] = map(percent, 0, 100, oldObj["Circle"], newObj["Circle"]);
+new_letter["Triangle"] = map(percent, 0, 100, oldObj["Triangle"], newObj["Triangle"]);
+return new_letter;
 
 }
