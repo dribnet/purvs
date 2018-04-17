@@ -32,15 +32,12 @@ function drawLetter(letterData) {
   ellipse(pos2x, pos2y, 13, 13);
   ellipse(pos3x, pos3y, 13, 13);
   ellipse(pos4x, pos4y, 13, 13);
-
-  stroke(255,255,255,200)
-
-strokeWeight(4)
-
+//Lines that connect ellipses
+stroke(255,255,255,200)
+strokeWeight(5)
   line(posx,posy,pos2x,pos2y)
   line(posx,posy,pos3x,pos3y) 
   line(pos3x,pos3y,pos4x,pos4y)
-
 strokeWeight(1.5)
  line(posx,posy,pos4x,pos4y)
   line(pos2x,pos2y,pos4x,pos4y)

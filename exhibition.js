@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#232323";
+const colorLines   = "#ffffff";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
 }
@@ -34,13 +34,14 @@ let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 
 let lastKeyPressedTime;
-let secondsUntilSwapMode = 15;
+let secondsUntilSwapMode = 30;
 let lastWordSwappedTime;
 let isSwappingWords = true;
 let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+  "NIGHTSKY",
   "ACTUALLY",
   "1234567?",
   "EXPECTED",
