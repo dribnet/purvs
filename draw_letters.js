@@ -1,5 +1,5 @@
-const colorFront  = "#9fc471";
-const colorStroke = "#344222";
+const colorFront  = "#ff5619";
+const colorStroke = "#357ff4";
 
 
 //original colours
