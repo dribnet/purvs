@@ -20,6 +20,8 @@ function drawLetter(letterData) {
   let pos4x = letterData["offset4x"];
   let pos4y = letterData["offset4y"];
   
+  // Rotation done in degrees
+  // Rectangle coordinates refer to the center of the rectangle
   angleMode(DEGREES);
   rectMode(CENTER);
 
@@ -36,7 +38,7 @@ function drawLetter(letterData) {
   // -----
 
 }
-
+// This animates things
 function interpolate_letter(percent, oldObj,newObj) {
   let new_letter = {};
   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
@@ -52,6 +54,7 @@ function interpolate_letter(percent, oldObj,newObj) {
   return new_letter;
 }
 
+// These are words used in the exhibition
 var swapWords = [
   "GOODGAME",
   "FOR SURE",

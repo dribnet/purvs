@@ -1,10 +1,12 @@
 ## PS2 MDDN 242 2018
 
-I didn't like how in the preview and thumbnail, the letters looked green, so changed the fill to be more blue.
+For my font, I chose to make it be lowercase, because that is simpler than capital letters.
+I also wanted to make use of the "blue & orange" color palette.
 
-Made a different design for '2', which still looks a bit abstract, but more closely resembles a '2'.
+I decided to use ellipses to form my font, because they don't rotate, and so the only parameters necessary were their 'x & y' positions.
+However, just three ellipses was not enough geometry to form letter shapes, so I added the use of a rectangle.
 
-I considered getting the '9' to be a modified 'six', because the two numbers are usually reverses of each other, but I prefer the previous '9'.
+Though some letters & numbers are abstract in appearance, I generally applied a rule of making sure the letters and numbers were recognizable by common standards.
 
 
 
