@@ -43,19 +43,13 @@ function drawLetter(letterData) {
 
   // DRAWING SHAPES// 
   //CIRCLES 
-
-    //fill(155, 158, 163);
-    //ellipse(50, 150, 100, 100);
-
-    //fill (247,168,255,80);
-    //noFill();
     fill (203, 206, 119);
     
     strokeWeight (5);
-    //fill(203, 206, 119,90);
     fill (229, 135, 135,180);
     ellipse (50,135,105,105);
-    stroke (227,237,237);
+    //stroke (227,237,237);
+    stroke ('white');
   
   
     push ();
@@ -67,7 +61,8 @@ function drawLetter(letterData) {
    rect(pos2x, pos2y, size2, size2);
    pop();
 
-    stroke (227,237,237);
+    //stroke (227,237,237);
+    stroke ('white');
     //strokeWeight(5);
 
    //rotating rect 
