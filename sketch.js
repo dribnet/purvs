@@ -13,26 +13,40 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offset1x": 0,
+  "offset1y": -103,
+  "offset2x": 0,
+  "offset2y": 30,
+  "rotate1": 180,
+  "rotate2": 180,
+  "color1": "#199cff",
+  "color2": "#c6cece"
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offset1x": -105,
+  "offset1y": 0,
+  "offset2x": 70,
+  "offset2y": 0,
+  "rotate1": 90,
+  "rotate2": 90,
+  "color1": "#c6cece",
+  "color2": "#c6cece"
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offset1x": 70,
+  "offset1y": 0,
+  "offset2x": 70,
+  "offset2y": 0,
+  "rotate1": 90,
+  "rotate2": 90,
+  "color1": "#c6cece",
+  "color2": "#c6cece"
 }
 
 const colorFront  = "#199cff";
 const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,22 +55,57 @@ function setup () {
 
   // color/stroke setup
   fill(colorFront);
-  stroke(colorStroke);
   strokeWeight(4);
+
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
+function drawTri (x, y, angle) {
+  push();
+  
+  
+  let height = 125;
+  translate(x, y);
+  rotate(angle);
+  triangle(0, 0+height/2, 0+height/2, 0-height/2, 0-height/2, 0-height/2);
+  
+  pop();
+
+  //15 high ten wide, half height = middle 
+  //from half height, go half height up to find top, half height down to find mottom line, left and right 5 to find other points
+
+}
+
+function drawLetter(posx, posy, rotate, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  
+  let pos1x = posx + letterData["offset1x"];
+  let pos1y = posy + letterData["offset1y"];
+  let pos2y = posy + letterData["offset2y"];
+  let pos2x = posx + letterData["offset2x"];
+  let ro1 = letterData["rotate1"];
+  let ro2 = letterData["rotate2"];
+  let coltri1 = letterData["color1"];
+  let coltri2 = letterData["color2"];
+
+
+
 
   // draw two circles
+ 
+  noStroke();
+  fill(colorFront);
   ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(coltri1)
+  drawTri(pos1x, pos1y, ro1);
+  fill(coltri2);
+  drawTri(pos2x, pos2y, ro2);
+
+
+
 }
 
 function draw () {
