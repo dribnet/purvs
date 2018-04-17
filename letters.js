@@ -1,15 +1,15 @@
 const alphabet = {
   "default": {
       //second line
-      "point1X": 0, "point1Y": 35,
-      "point2X": 100, "point2Y": 55,
+      "point1X": 0, "point1Y": 165,
+      "point2X": 0, "point2Y": 165,
       //third line
       "point3X": 0, "point3Y": 165,
-      "point4X": 100, "point4Y": 145,
+      "point4X": 0, "point4Y": 165,
       
       //final line (decoration)
-      "point5X": 15, "point5Y": 130,
-      "point6X": 15, "point6Y": 160
+      "point5X": 0, "point5Y": 165,
+      "point6X": 0, "point6Y": 165
   },
   "A": {
       //second line
@@ -442,6 +442,18 @@ const alphabet = {
       //final line (decoration)
       "point5X": 100, "point5Y": 55,
       "point6X": 100, "point6Y": 145
+  },
+  "?": {
+      //second line
+      "point1X": 0, "point1Y": 135,
+      "point2X": 100, "point2Y": 85,
+      //third line
+      "point3X": 100, "point3Y": 85,
+      "point4X": 0, "point4Y": 35,
+      
+      //final line (decoration)
+      "point5X": 15, "point5Y": 165,
+      "point6X": 30, "point6Y": 165
   }
 }
 

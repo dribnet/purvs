@@ -4,6 +4,8 @@ The letters of my alphabet are very literal, Im not trying to create an abstract
 
 The numbers are a bit more abstract but are still pretty legible.
 
+IN regards to animation, keeping it in line with the subtle simple philosophy was the aim. The only change to the standard transition is a small bounce at the end. This adds a subtle change but still feels smooth and not over done. 
+
 =======
 The 12 parameters per letter:
   * `point1X` : X offset of the first point
