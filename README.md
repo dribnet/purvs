@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 This is the exhibition file, i decided to return back to the 2 colour scheme as having the dark blue on the thick line made it a lot harder to read as the letters are close together, and didn't look that nice. Thinking of some words for my typography Im thinking of words like formal, lined out, structured, dominant. A word that supports the ideas wanted to express. Overall im happy with the typography, its nice and simpy making it easy to read which i wanted to be a key theme in this project, as well as all the letters all look like they have the same format. 
 
-Looking at the format of the letters in the exhibition i changed some of my letters, and created a bit more of a gap between the letters. So a few updates on their positions
+Looking at the format of the letters in the exhibition i changed some of my letters, and created a bit more of a gap between the letters. So a few updates on their positions to make the visual more clean.
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point
