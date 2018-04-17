@@ -64,8 +64,8 @@ function drawLetter(letterData) {
   
 
   pop();
-  fill(163,160,162);
-  ellipse(0,0,1,1);
+  fill(130,0,0);
+  ellipse(0,0,10,10);
 
 }
 

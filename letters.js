@@ -37,9 +37,25 @@ const alphabet = {
       "pos_x2": 80,
       "pos_y2": 90,
       "width_2":20,
-      "height_2":100
+      "height_2":100,
 
-      
+      "pos_x3": 0,
+      "pos_y3":170,
+      "width_3":90,
+      "height_3":20,
+
+      "pos_x4": 80,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
+
   },
   "B": {
 
@@ -56,7 +72,19 @@ const alphabet = {
       "pos_x3": 0,
       "pos_y3": 90,
       "width_3":20,
-      "height_3":100
+      "height_3":100,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
   },
   "C": {
 
@@ -69,6 +97,23 @@ const alphabet = {
       "pos_y2": 90,
       "width_2":20,
       "height_2":100,
+
+      "pos_x3": 0,
+      "pos_y3":170,
+      "width_3":100,
+      "height_3":20,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
       
   },
    "D": {
@@ -86,7 +131,19 @@ const alphabet = {
       "pos_x3": 0,
       "pos_y3": 90,
       "width_3":100,
-      "height_3":20
+      "height_3":20,
+
+      "pos_x4": 0,
+      "pos_y4":170,
+      "width_4":100,
+      "height_4":20,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
   },
    "E": {
       
@@ -108,7 +165,14 @@ const alphabet = {
       "pos_x4": 0,
       "pos_y4": 90,
       "width_4":20,
-      "height_4":100
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
   },
    "F": {
       
@@ -125,10 +189,23 @@ const alphabet = {
       "pos_x3": 0,
       "pos_y3": 90,
       "width_3":100,
-      "height_3":20
-  },
+      "height_3":20,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":100,
+      "height_4":20,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
+
+   },
    "G": {
-      
+
       "pos_x1": 0,
       "pos_y1":90,
       "width_1":100,
@@ -137,7 +214,24 @@ const alphabet = {
       "pos_x2": 80,
       "pos_y2": 90,
       "width_2":20,
-      "height_2":100
+      "height_2":100,
+
+      "pos_x3": 0,
+      "pos_y3":90,
+      "width_3":100,
+      "height_3":20,
+
+      "pos_x4": 80,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
 
   },
    "H": {
@@ -155,19 +249,48 @@ const alphabet = {
       "pos_x3": 0,
       "pos_y3": 90,
       "width_3":20,
-      "height_3":100
+      "height_3":100,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
   },
    "I": {
 
+      "pos_x1": 0,
+      "pos_y1": 90,
+      "width_1":20,
+      "height_1":100,
+
       "pos_x2": 0,
       "pos_y2": 90,
-      "width_2":20,
-      "height_2":100,
+      "width_2":100,
+      "height_2":20,
 
       "pos_x3": 0,
       "pos_y3": 90,
-      "width_3":100,
-      "height_3":20
+      "width_3":20,
+      "height_3":100,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":100,
+      "height_4":20,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter":0
   },
   "J": {
 
@@ -181,10 +304,22 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "pos_x3": 0,
+      "pos_y3":170,
+      "width_3":90,
+      "height_3":20,
+
+      "pos_x4": 80,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
       "c_posx": 50,
       "c_posy": 135, 
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
   "K": {
       
@@ -203,10 +338,17 @@ const alphabet = {
       "width_3":20,
       "height_3":100,
 
+      "pos_x4": 0,
+      "pos_y4":170,
+      "width_4":100,
+      "height_4":20,
+
       "c_posx": 50,
       "c_posy": 135, 
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
   "L": {
 
@@ -220,10 +362,22 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "pos_x3": 0,
+      "pos_y3":170,
+      "width_3":100,
+      "height_3":20,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
       
   },
    "M": {
@@ -243,10 +397,17 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "pos_x4": 0,
+      "pos_y4":170,
+      "width_4":100,
+      "height_4":20,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
    "N": {
       
@@ -273,7 +434,9 @@ const alphabet = {
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
    "O": {
       
@@ -292,10 +455,17 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "pos_x4": 0,
+      "pos_y4":170,
+      "width_4":100,
+      "height_4":20,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
    "P": {
       
@@ -309,10 +479,22 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "pos_x3": 0,
+      "pos_y3":90,
+      "width_3":100,
+      "height_3":20,
+
+      "pos_x4": 80,
+      "pos_y4": 90,
+      "width_4":20,
+      "height_4":100,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
 
   },
    "Q": {
@@ -332,10 +514,17 @@ const alphabet = {
       "width_3":20,
       "height_3":100,
 
+      "pos_x4": 0,
+      "pos_y4":90,
+      "width_4":100,
+      "height_4":20,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
   },
    "R": {
 
@@ -349,10 +538,23 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "pos_x3": 0,
+      "pos_y3": 90,
+      "width_3":20,
+      "height_3":100,
+
+      "pos_x4": 0,
+      "pos_y4": 90,
+      "width_4":100,
+      "height_4":20,
+
       "c_posx": 50,
       "c_posy": 135,
       "c_width": 20,
-      "c_height": 20
+      "c_height": 20,
+
+      "r_letter":0
+
   },
   "S": {
 
@@ -365,6 +567,21 @@ const alphabet = {
       "pos_y2": 85,
       "width_2":20,
       "height_2":70,
+
+      "pos_x3": 35,
+      "pos_y3":135,
+      "width_3":60,
+      "height_3":20,
+
+      "pos_x4": 81,
+      "pos_y4": 85,
+      "width_4":20,
+      "height_4":70,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
 
       "r_letter":45
   },
@@ -380,6 +597,21 @@ const alphabet = {
       "width_2":20,
       "height_2":60,
 
+      "pos_x3": -10,
+      "pos_y3":140,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 40,
+      "pos_y4": 80,
+      "width_4":20,
+      "height_4":60,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
       "r_letter":320 //320
   },
   "U": {
@@ -393,6 +625,21 @@ const alphabet = {
       "pos_y2": 80,
       "width_2":20,
       "height_2":60,
+
+      "pos_x3": 40,
+      "pos_y3":140,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 40,
+      "pos_y4": 80,
+      "width_4":20,
+      "height_4":60,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
 
       "r_letter":40 //320
   },
@@ -408,6 +655,16 @@ const alphabet = {
       "width_2":20,
       "height_2":70,
 
+      "pos_x3": -15,
+      "pos_y3":85,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 35,
+      "pos_y4": 35,
+      "width_4":20,
+      "height_4":70,
+
       "r_letter":225
   },
   "W": {
@@ -421,6 +678,16 @@ const alphabet = {
       "pos_y2": 85,
       "width_2":20,
       "height_2":70,
+
+      "pos_x3": 35,
+      "pos_y3":135,
+      "width_3":60,
+      "height_3":20,
+
+      "pos_x4": 81,
+      "pos_y4": 85,
+      "width_4":20,
+      "height_4":70,
 
       "c_posx": 65,
       "c_posy": 115,
@@ -441,6 +708,16 @@ const alphabet = {
       "width_2":20,
       "height_2":60,
 
+      "pos_x3": -10,
+      "pos_y3":140,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 40,
+      "pos_y4": 80,
+      "width_4":20,
+      "height_4":60,
+
       "c_posx": 20,
       "c_posy": 120,
       "c_width": 20,
@@ -460,6 +737,16 @@ const alphabet = {
       "width_2":20,
       "height_2":60,
 
+      "pos_x3": 40,
+      "pos_y3":140,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 40,
+      "pos_y4": 80,
+      "width_4":20,
+      "height_4":60,
+
       "c_posx": 80,
       "c_posy": 120,
       "c_width": 20,
@@ -478,6 +765,16 @@ const alphabet = {
       "pos_y2": 35,
       "width_2":20,
       "height_2":70,
+
+      "pos_x3": -15,
+      "pos_y3":85,
+      "width_3":70,
+      "height_3":20,
+
+      "pos_x4": 35,
+      "pos_y4": 35,
+      "width_4":20,
+      "height_4":70,
 
       "c_posx": 10,
       "c_posy": 60,
