@@ -16,6 +16,10 @@ let line3_Ydir = null;
 let slope = 0;
 let intercept = 0;
 let equationY = 0;
+let col = 0;
+let	r = 255;
+let	g = 0;
+let	b = 0;
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -183,6 +187,11 @@ rect(-20*scale, -3*scale, 20*scale, 3*scale);
 }
 
 function calculateVectors(x1,y1,x2,y2) {
+//reset colour values
+col = 0;
+r = 255;
+g = 0;
+b = 0;
 posVectorS = createVector(x1,y1); //start position vector
 posVectorD = createVector(x2,y2);
 //calculates directional vector going from positionS to positionD
@@ -198,10 +207,50 @@ function DrawFromVectors(directionVector, posVectorS) {
 		posVectorN  = p5.Vector.add(posVectorS, movementVector); 
 		xCompon = posVectorN.x;
 		yCompon = posVectorN.y;
-		ellipse(xCompon + (canvasWidth/2), yCompon + (canvasHeight/2), 50,50);
+		drawFromComponents(xCompon, yCompon);
 	}
 }
 
+function drawFromComponents(xCompon, yCompon) {
+	if(col == 0){ 
+		g = g + 10;
+       if(g >= 255) {
+           col = 1;
+       }
+   }
+	if(col == 1){ 
+		r = r - 10;
+		if(r <= 0) {
+			col = 2;
+		}
+	}
+	if(col == 2){ 
+		b = b + 10;
+		if(b >= 255) {
+			col = 3;
+		}
+	}
+	if(col == 3){ 
+		g = g - 10;
+		if(g <= 0) {
+			col = 4;
+		}
+	}
+	if(col == 4){ 
+		r = r + 10;
+		if(r >= 255) {
+			col = 5;
+		}
+	}
+	if(col == 5){ 
+		b = b - 10;
+		if(b <= 0) {
+			col = 0;
+		}
+	}
+	fill (r, g, b); 
+	ellipse(xCompon + (canvasWidth/2), yCompon + (canvasHeight/2), 50,50);
+}
 
 
 function drawFromSliders(xstart, ystart, xdir, ydir) {
