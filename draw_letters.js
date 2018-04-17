@@ -20,7 +20,7 @@ function drawLetter(letterData) {
   //showbounding boxes
   noFill();
   //stroke ('red');
-  rect (0,0,100,200);
+  //rect (0,0,100,200);
 
 
   // determine parameters for second circle
