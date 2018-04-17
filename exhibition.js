@@ -39,7 +39,6 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
 
-
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
