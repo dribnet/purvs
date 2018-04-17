@@ -1,5 +1,5 @@
 const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+const colorStroke = "#233f11"; //pink
 
 /*
  * Draw the letter given the letterData
@@ -11,50 +11,44 @@ const colorStroke = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
 
-  // noFill();
-  // stroke("green");
-  // strokeWeight(2);
-  // rect(0, 0, 100, 200);
 
   stroke(255,204,250);
-  strokeWeight(8);
 
 
- 
 
-  // draw two circles
- // ellipse(50, 150, 100, 100);
- // ellipse(pos2x, pos2y, size2, size2);
+//line 1 parameter
 
-
- let xval1 = letterData["x1"];
+ let xval1 = letterData["x1"]; 
  let xval2 = letterData["x2"];
   let xval3 = letterData["x3"];
  let xval4 = letterData["x4"];
 
+//line 2 parameter
  let yval1 = letterData["y1"];
  let yval2 = letterData["y2"];
   let yval3 = letterData["y3"];
  let yval4 = letterData["y4"];
 
-
+//line 3 parameter
  let zval1 = letterData["z1"];
  let zval2 = letterData["z2"];
   let zval3 = letterData["z3"];
  let zval4 = letterData["z4"];
 
-  // draw two circles
 
-
-
+//draw lines
+  strokeWeight(10);
  line(xval1, xval2,xval3,xval4);
 
+  strokeWeight(5);
  line(yval1, yval2,yval3,yval4);
 
+  strokeWeight(3);
  line(zval1, zval2,zval3,zval4);
 
 }
 
+//interaction code
 function interpolate_letter(percent, oldObj, newObj){
   let new_letter = {};
   new_letter["x1"] = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
@@ -71,3 +65,11 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["z4"] = map(percent, 0, 100, oldObj["z4"], newObj["z4"]);
   return new_letter;
  }
+
+ var swapWords = [
+ "STRAIGHT",
+ "PLEASING",
+ "YEAH NAH"
+ ]
+
+
