@@ -50,7 +50,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-	"PLAIN AS",
+	"PLAIN AS", //font name
 	"CATSRGR8",
 	"MYNAMEIS",
 	"CJMOFFATT",
@@ -63,4 +63,5 @@ var swapWords = [
 	"IDEASFOR",
 	"INTEREST",
 	"INGWORDS",
+	"        ",
 ]
