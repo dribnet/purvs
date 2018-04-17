@@ -71,8 +71,8 @@ const alphabet = {
       "dot8": hide,
       "dot9": hide,
 
-      "dotm1": hide,
-      "dotm2": hide
+      "dotm1": show,
+      "dotm2": show
   },
   "E": {
       "dot1": show,
@@ -159,14 +159,14 @@ const alphabet = {
       "dotm2": hide
   },
   "K": {
-      "dot1": hide,
-      "dot2": show,
+      "dot1": show,
+      "dot2": hide,
       "dot3": show,
-      "dot4": hide,
+      "dot4": show,
       "dot5": show,
       "dot6": hide,
-      "dot7": hide,
-      "dot8": show,
+      "dot7": show,
+      "dot8": hide,
       "dot9": show,
 
       "dotm1": hide,
