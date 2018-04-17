@@ -14,6 +14,10 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
+  // var swapWords = [
+  // ""
+  // ]
+
   // determine parameters for second circle
   //let size2 = letterData["size"];
   //let pos2x = 50+letterData["offsetx"];
@@ -68,3 +72,30 @@ if(letterData["b12"]==1){
  //rect(30,30,30,30);
 
 }
+function interpolate_letter(percent, oldObj, newObj){
+
+  var on = 1;
+let new_letter = {};
+new_letter["b1"] = map(percent,0,100,oldObj["b1"],newObj["b1"])
+new_letter["b2"] = map(percent,0,100,oldObj["b2"],newObj["b2"])
+new_letter["b3"] = map(percent,0,100,oldObj["b3"],newObj["b3"])
+new_letter["b4"] = map(percent,0,100,oldObj["b4"],newObj["b4"])
+new_letter["b5"] = map(percent,0,100,oldObj["b5"],newObj["b5"])
+new_letter["b6"] = map(percent,0,100,oldObj["b6"],newObj["b6"])
+new_letter["b7"] = map(percent,0,100,oldObj["b7"],newObj["b7"])
+new_letter["b8"] = map(percent,0,100,oldObj["b8"],newObj["b8"])
+new_letter["b9"] = map(percent,0,100,oldObj["b9"],newObj["b9"])
+new_letter["b10"] = map(percent,0,100,oldObj["b10"],newObj["b10"])
+new_letter["b11"] = map(percent,0,100,oldObj["b11"],newObj["b11"])
+new_letter["b12"] = map(percent,0,100,oldObj["b12"],newObj["b12"])
+
+
+//if(percent <40)
+//new_letter["b6"] = map(percent,0,100,oldObj["b6"],newObj[on])
+//if(percent >40)
+//same as above 
+
+return new_letter;
+
+}
+
