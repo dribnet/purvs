@@ -19,5 +19,8 @@ For 26 letters, each shapes is represented a letter, for instance, first shape i
 For numbers, I also make different shapes for ten numbers. For example, first shape in last row that is 0.
 
 
+Interaction:
 
+For the interaction part, I only add the new function on draw_letter.js and I find some interesting changing and I will
+edit the color in next post.
 
