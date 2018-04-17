@@ -1,3 +1,4 @@
+
 const canvasWidth = 960;
 const canvasHeight = 500;
 
@@ -155,17 +156,20 @@ noFill();
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
   line(pos9x,pos9y,pos10x,pos10y);
-  filter(BLUR,6);
 pop();
+filter(BLUR,6);
 
 push();
 stroke(255);
 strokeWeight(3);
+smooth();
+noFill();
   line(posx,posy,pos2x,pos2y);
   line(pos3x,pos3y,pos4x,pos4y);
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
   line(pos9x,pos9y,pos10x,pos10y);
+
 pop();
 
 
