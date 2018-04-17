@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 Each of my letters consist of 4 cresents made up of 2 arcs each, all based at the center and rotating outward from there. None of the postions are fixed and they all move with the letter and are postioned so they dont overlap most of the time. Some of them do use the fact that they overlap as a feature of the arcs and hide points or even fully behind the other arcs.
 When changing letter or number they do cross over each other creating a weird but cool effect for the letters.
+With my code I found that my letters were to big for the bounding box but this was fixed easily with the use of scale and translate to move them into their proper position.
 
 The eight parameters per letter:
   * `rot1`: Controls rotation of Arc1
@@ -18,6 +19,5 @@ The eight parameters per letter:
   * `offsety3`: Controls the Y offset of Arc3
   * `offsety4`: Controls the Y offset of Arc4
 
-  I added new parameters for the Y value of the arcs due to when i created some of the letters i found that they were floating above the base line.
+At first I only wanted the parameters for rotationa and offsetx but through the course of the project with other letters i found that adding parameters for offsety made it easier to move and clean up.
 
-  I have also added animation for the letters and i must say they are exactly how i wanted them to be done.

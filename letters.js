@@ -377,6 +377,7 @@ const alphabet = {
     "rot3": -135,
     "rot4": -135
   },
+  //Now drawing numbers and symbols
   "0": {
     "offsetx1": -20,
     "offsetx2": -20,

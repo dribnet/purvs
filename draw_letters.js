@@ -1,7 +1,7 @@
 const colorFront  = "#F7134A";
 const colorStroke = "#F787D5";
 
-
+//Creates the four arcs
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
@@ -9,14 +9,7 @@ function drawLetter(letterData) {
   strokeWeight(4);
   angleMode(DEGREES);
 
-  var swapWords = [
-  "!DRAGON!",
-  "MAHJONGG",
-  "CHINESE!",
-  "MONKHOOD",
-  "CHICKENS"
 
-  ]
  // determine parameters for the arcs
    let rot1 = letterData["rot1"];
    let rot2 = letterData["rot2"];
@@ -32,6 +25,7 @@ function drawLetter(letterData) {
   let offsety4 = letterData["offsety4"];
 
   push();
+  //Centers the letters to the middle points in the code
   translate(50, 100);
 
 //arc1
@@ -81,6 +75,7 @@ function drawLetter(letterData) {
   pop();
 }
 
+//Creating the interpolation for the letters
 function interpolate_letter(percent, oldObj, newObj) {
   let new_Letter = {};
   new_Letter["rot1"] = map(percent, 0, 100, oldObj["rot1"], newObj["rot1"]);
