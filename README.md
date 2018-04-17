@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Applied the interpolation animation between my letters, all looking pretty good so far. Next step is to refine and customise this. Something to add is that I altered my parameters in drawletter function to be x, x2, y, y2 etc. instead of posx, pos2x etc. because I felt this was a bit confusing as these didn't need to have different names than their letterdata counterparts.
+Merged the new exhibition code and beginning to play around with it. More on this later.
 
 The twelve parameters per letter are:
   * `x` : x co-ordinate of first point of line segment

@@ -38,12 +38,12 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
+  "SMELLY69",
+  "BIGBOYZZ",
+  "REALTALK",
+  "TRASHMAN",
+  "WHATS UP",
+  "URTHBEST",
   "PROVIDED",
   "ALTHOUGH",
   "HAPPENED",
