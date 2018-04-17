@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "white";
 const colorLines   = "#000090";
 
 /* 
@@ -38,12 +38,12 @@ function draw () {
 
   // constants
   const left_margin = 40;
-  const right_margin = 2*width - 40;
+  const right_margin = 2*width - 0;
   const top_margin = 80;
   const bottom_margin = 2*height - 60;
-  const x_step = 140;
+  const x_step = 148;
   const y_step = 280;
-  const first_letter_offset_x = 20;
+  const first_letter_offset_x = 100;
 
   let cur_letter_index = 0;
 
@@ -59,7 +59,7 @@ function draw () {
     }
     line(left_margin, 200, right_margin, 200);
 
-    translate(left_margin+first_letter_offset_x, 0);
+    translate(left_margin+first_letter_offset_x, 100);
     for(let i=left_margin+first_letter_offset_x; i<right_margin-x_step+1; i+=x_step) {
       let letter = letters[cur_letter_index];
       if (letter in alphabet) {
