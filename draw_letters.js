@@ -1,4 +1,4 @@
-const colorFront  = "#281c1c";
+const colorFron  = "#281c1c";
 const colorStroke = "#ffffff";
 const colorInside = "#ffffff";
 /*
@@ -10,154 +10,153 @@ const colorInside = "#ffffff";
  */
 function drawLetter(letterData) {
   //boundary
-  push();
-  rectMode(CENTER);
-  stroke(255);
-  scale(0.8);
-  noFill();
-  rect(75, 125, 140, 200);
-  pop();
+  // push();
+  // rectMode(CENTER);
+  // stroke(255);
+  // scale(0.8);
+  // noFill();
+  // rect(75, 125, 140, 200);
+  // pop();
 
   let x = 45;
   let y = 170;
   let shrink = 0.6;
   // color/stroke setup
-  // const colorFront  = "#281c1c";
+  // const colorFron  = "#281c1c";
   // const colorBack   = "#ffcfcd";
   // const colorStroke = "#ffffff";
   // const colorInside = "#ffffff";
 
-  fill(colorFront);
+  // fill(40, 28, 28, alphaSide);
   // stroke(colorStroke);
   noStroke();
   angleMode(DEGREES);
   strokeWeight(4);
 
   // determine parameters for second circle
-  let sta = letterData["status"];
+  let alphaSide = letterData["status"];
+  let alphaFront = map(alphaSide, 0, 255, 255, 0);
 
   let transx = x + letterData["movex"];
   let transy = y + letterData["movey"];
 
   let rot = letterData["r"];
   let rot2 = letterData["r2"];
-  let rotgap = letterData["rotoffset"];
-  let rotgap2 = letterData["rotoffset2"];
+  let rot3 = letterData["r3"];
+  let rot4 = letterData["r4"];
 
-  let gapx = letterData["gx"];
-  let gapy = letterData["gy"];
+  let gap2x = transx + letterData["offset2x"];
+  let gap2y = transy + letterData["offset2y"];
 
-  let gap2x = letterData["g2x"];
-  let gap2y = letterData["g2y"];
+  let gap3x = letterData["offset3x"];
+  let gap3y = letterData["offset3y"];
 
-  let trans2x = transx + letterData["offsetx"];
-  let trans2y = transy + letterData["offsety"];
+  let gap4x = letterData["offset4x"];
+  let gap4y = letterData["offset4y"];
 
   // draw oreo
-  if(sta === 1){
-    drawSide(shrink, transx, transy, rot, rot2, rotgap, rotgap2, gapx, gapy, gap2x, gap2y, trans2x, trans2y);
-  }else if(sta = 255){
-    drawFront(shrink, transx, transy, rot, rot2, rotgap, rotgap2, gapx, gapy, gap2x, gap2y, trans2x, trans2y);
-  }
+    drawSide(shrink, transx, transy, rot, rot2, rot3, rot4, gap2x, gap2y, gap3x, gap3y, gap4x, gap4y, alphaSide);
+    drawFront(shrink, transx, transy, rot, rot2, rot3, rot4, gap2x, gap2y, gap3x, gap3y, gap4x, gap4y, alphaFront);
 }
 
-function drawSide(shr, trax, tray, rotate1, rotate2, rotate3, rotate4, gax, gay, ga2x, ga2y, tra2x, tra2y){
+function drawSide(Sshrink, trax, tray, rotate1, rotate2, rotate3, rotate4, tra2x, tra2y, tra3x, tra3y, tra4x, tra4y, alphaS){
   push();
-  scale(shr);
+  scale(Sshrink);
   translate(trax, tray);
   rotate(rotate1);
-  fill(colorFront);
+  fill(40, 28, 28, alphaS);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaS);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 
   push();
-  scale(shr);
+  scale(Sshrink);
   translate(tra2x, tra2y);
   rotate(rotate1 + rotate2);
-  fill(colorFront);
+  fill(40, 28, 28, alphaS);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaS);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 
   push();
-  scale(shr);
-  translate(trax + gax, tray + gay);
+  scale(Sshrink);
+  translate(trax + tra3x, tray + tra3y);
   rotate(rotate1 + rotate3);
-  fill(colorFront);
+  fill(40, 28, 28, alphaS);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaS);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 
   push();
-  scale(shr);
-  translate(tra2x + ga2x, tra2y + ga2y);
+  scale(Sshrink);
+  translate(tra2x + tra4x, tra2y + tra4y);
   rotate(rotate1 + rotate4);
-  fill(colorFront);
+  fill(40, 28, 28, alphaS);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaS);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 }
 
-function drawFront(shrr, traxx, trayy, rotate11, rotate22, rotate33, rotate44, gaxx, gayy, ga2xx, ga2yy, tra2xx, tra2yy){
+function drawFront(Fshrink, trax, tray, rotate1, rotate2, rotate3, rotate4,  tra2x, tra2y, tra3x, tra3y, tra4x, tra4y, alphaF){
   push();
-  scale(shrr);
-  translate(traxx, trayy);
-  rotate(rotate11);
-  fill(colorFront);
+  scale(Fshrink);
+  translate(trax, tray);
+  rotate(rotate1);
+  fill(40, 28, 28, alphaF);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaF);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 
   push();
-  scale(shrr);
-  translate(tra2xx, tra2yy);
-  rotate(rotate11 + rotate22);
-  fill(colorFront);
+  scale(Fshrink);
+  translate(tra2x, tra2y);
+  rotate(rotate1 + rotate2);
+  fill(40, 28, 28, alphaF);
   rect(0, 0 - 14, 120, 17, 6);
   rect(0, 0 + 14, 120, 17, 6);
 
-  fill(colorInside);
+  fill(255, 255, 255, alphaF);
   rect(0 + 10, 0 + 4, 100, 10, 5);
   pop();
 
   push();
-  scale(shrr);
-  translate(traxx + gaxx, trayy + gayy);
-  fill(colorFront);
-  drawOreo(0, 0, 120);
+  scale(Fshrink);
+  translate(trax + tra3x, tray + tra3y);
+  fill(40, 28, 28, alphaF);
+  drawOreo(0, 0, 120, alphaF);
   pop();
 
   push();
-  scale(shrr);
-  translate(tra2xx + ga2xx, tra2yy + ga2yy);
-  fill(colorFront);
-  drawOreo(0, 0, 120);
+  scale(Fshrink);
+  translate(tra2x + tra4x, tra2y + tra4y);
+  fill(40, 28, 28, alphaF);
+  drawOreo(0, 0, 120, alphaF);
   pop();
 }
 
-function drawOreo(ox, oy, size){
+function drawOreo(ox, oy, size, alphaO){
   push();
-  const colorPattern = "#514444";
+  // const colorPattern = "#514444";
+  fill(40, 28, 28, alphaO);
   ellipseMode(CENTER);
   ellipse(ox, oy, size, size);
 
-  fill(colorPattern);
+  fill(81, 68, 68, alphaO);
   push();
   for(let i = 0; i < 30; i ++){
     rotate(12);
@@ -174,7 +173,7 @@ function drawOreo(ox, oy, size){
     ellipse(ox + 16, oy - 28, 6, 6);
   }
   pop();
-  stroke(colorPattern);
+  stroke(81, 68, 68, alphaO);
   strokeWeight(4);
   noFill();
   ellipse(ox, oy, size * 0.2, size * 0.2);

@@ -1,21 +1,18 @@
 ## PS2 MDDN 242 2018
-For the interaction, I tried to put interpolate code directly into my drawLetter code, but the swiching bewteen two letters which in different "status" has some problems, so that I need to refine my code first and then use transparent function to slove the problems.
-
-Because I need to design the interaction next and I had 4 kind of "status" which could make the change between two letters in different status very difficult to code and also very messy, so I cut off 2 status and changed design of some letters. At the same time, I cleaned up my code through moving the code in drawLetter function into new functions. Then these new functions could be called in drawLetter function.
-
-Meanwhile, the name of my parameters and variables are now hard to understand. I will change them later when I refine my code.
+Now I already finish the refine of my code. I deleted the IF statement and replace that with the transparent function. I kept the status in my letterData but use it as the data of transparent. So now when I draw each letter, it will draw both the side and front of the cookie at the same time, but one of them is hidden. 
+Besides, I renamed my parameters and variables. They are easier to understand now.
 
 The parameters per letter are now:
-	* `status` : the status of cookies, standing or laying
+	* `status` : the status of two status of cookies, show or hide
 	* `movex` : x position of where the coordinate of the first cookie will move to
 	* `movey` : y position of where the coordinate of the first cookie will move to
-	* `offsetx` : x offset of the second column of cookies relative to the first column
-	* `offsety` : y offset of the second column of cookies relative to the first column
 	* `r` : how many degrees the first cookies should rotate
-	* `r2` : how many degrees the cookies should rotate
-	* `rotoffset` : rotate offset of the third cookie
-	* `rotoffset2` : rotate offset of the fourth cookie
-	* `gx` : x position of the gap between two cookies in the first column
-	* `gy` : y position of the gap between two cookies in the first column
-	* `g2x` : x position of the gap between two cookies in the second column
-	* `g2y` : y position of the gap between two cookies in the second column
+	* `r2` : offset degrees of the second cookies should rotate relative to the first one
+	* `r3` : how many degrees the third cookies should rotate
+	* `r4` : how many degrees the fourth cookies should rotate
+	* `offset2x` : x offset of the second cookie relative to the first one
+	* `offset2y` : y offset of the second cookie relative to the first one
+	* `offset3x` : x offset of the third cookie relative to the second one
+	* `offset3y` : y offset of the third cookie relative to the second one
+	* `offset4x` : x offset of the fourth cookie relative to the third one
+	* `offset4y` : y offset of the fourth cookie relative to the third one
