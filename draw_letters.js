@@ -1,21 +1,8 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
-var posx1 = 0;
-var posx2 = posx1 + 30;
-var posx3 = posx2 + 30;
-
-var posy1 = 0;
-var posy2 = posy1 + 60;
-var posy3 = posy2 + 75;
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
+//Creating basic positions for the 3x3 grid
 var posx1 = 10;
 var posx2 = 50;
 var posx3 = 90;
@@ -28,7 +15,7 @@ var posy3 = 190;
   stroke(colorStroke);
   strokeWeight(1);
 
-  // determine parameters for second circle
+  //Creating vars from the parameters in letter.js
   let dot1 = letterData["dot1"];
   let dot2 = letterData["dot2"];
   let dot3 = letterData["dot3"];
@@ -42,10 +29,11 @@ var posy3 = 190;
   let dotm1 = letterData["dotm1"];
   let dotm2 = letterData["dotm2"];
 
-  //draw lines
+  //Draw lines for ease of reading(mayberemoved later)
   line(0,0,0,200);
   line(100,0,100,200);
-  // draw the dots
+
+  //Drawing the dots in a 3x3 grid
   ellipse(posx1, posy1, dot1);
   ellipse(posx2, posy1, dot2);
   ellipse(posx3, posy1, dot3);
@@ -55,7 +43,7 @@ var posy3 = 190;
   ellipse(posx1, posy3, dot7);
   ellipse(posx2, posy3, dot8);
   ellipse(posx3, posy3, dot9);
-
-  ellipse(posx3,45,dotm1);
+  //Drawing the extra two dots in the grid
+  ellipse(posx3,50,dotm1);
   ellipse(posx3,145,dotm2);
 }
