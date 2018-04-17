@@ -1,13 +1,5 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
-
-/* 
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -24,19 +16,15 @@ let soloCurAnimationFrame = 0;
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
 function setup () {
-  // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // with no animation, redrawing the screen is not necessary
-  // noLoop();
 }
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
 
 function getCharacterInterpolationObj(percent, oldObj, newObj) {
   if (interpolation_is_on) {
-    // safe to use the function
     obj = interpolate_letter(percent, oldObj, newObj)
   }
   else {
@@ -67,7 +55,6 @@ function getCharacterInterpolation(percent, oldChar, newChar) {
 
 
 function computeCurrentSoloChar() {
-  // now figure out what object to draw
   var obj;
   if (soloIsAnimating) {
     nextObj = getObjFromChar(soloCurLetter);
@@ -82,14 +69,12 @@ function computeCurrentSoloChar() {
 
 let hot_key_press = false;
 function draw () {
-  // clear screen
   background(colorBack);
 
-  // draw the interpolation on the guidelines
   push();
   scale(0.5);
 
-  // constants
+
   const left_margin = 40;
   const right_margin = 2*width - 40;
   const top_margin = 80;
@@ -100,7 +85,7 @@ function draw () {
 
   translate(0, top_margin);
 
-  // draw lines
+
   stroke(colorLines);
   line(left_margin, 0, right_margin, 0);
   for(let i=left_margin; i<right_margin-8; i+=30) {
@@ -112,7 +97,7 @@ function draw () {
   for(let i=0; i<numSteps; i = i+1) {
     let percent = map(i, 0, numSteps, 0, 100);
     let curLetterObj = getCharacterInterpolation(percent, soloLastLetter, soloCurLetter);
-    // print(curLetterObj, soloLastLetter, soloCurLetter);
+
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
@@ -137,17 +122,13 @@ function draw () {
   }
   pop();
 
-  // now draw the letter full size below
-
-  // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // see if animation should be turned off
   if(soloIsAnimating && soloCurAnimationFrame >= soloNumAnimationFrames) {
     soloIsAnimating = false;
   }
-  // if we are animating, increment the number of animation frames
+
   if(soloIsAnimating) {
     soloCurAnimationFrame = soloCurAnimationFrame + 1;
   }

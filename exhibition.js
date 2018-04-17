@@ -1,13 +1,5 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
-
-/* 
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -94,7 +86,7 @@ var defaultSwapWords = [
 const interpolation_is_on = (typeof interpolate_letter === "function")
 
 function setup () {
-  // create the drawing canvas, save the canvas element
+ 
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
@@ -103,7 +95,7 @@ function setup () {
   lastWordSwappedTime = now;
 
   if (typeof swapWords === 'undefined') {
-      // the variable is defined
+      
       swapWords = [];
   }
   swapWords = swapWords.concat(defaultSwapWords);
@@ -116,7 +108,7 @@ function setup () {
 
 function getCharacterInterpolationObj(percent, oldObj, newObj) {
   if (interpolation_is_on) {
-    // safe to use the function
+    
     obj = interpolate_letter(percent, oldObj, newObj)
   }
   else {
@@ -147,7 +139,7 @@ function getCharacterInterpolation(percent, oldChar, newChar) {
 
 
 function computeCurrentSoloChar() {
-  // now figure out what object to draw
+  
   let obj;
   if (soloIsAnimating) {
     nextObj = getObjFromChar(soloCurLetter);
@@ -160,7 +152,7 @@ function computeCurrentSoloChar() {
   return obj;
 }
 
-// draws a single character given an object, position, and scale
+
 function drawFromDataObject(x, y, s, obj) {
   push();
   translate(x, y);
@@ -170,7 +162,7 @@ function drawFromDataObject(x, y, s, obj) {
 }
 
 function computeCurrentChosenChar(n) {
-  // now figure out what object to draw
+  
   var obj;
   if (chosenIsAnimating[n]) {
     if(chosenCurAnimationFrame[n] < 0) {
@@ -179,9 +171,9 @@ function computeCurrentChosenChar(n) {
     else {
       nextObj = getObjFromChar(chosenLetters[n]);
       if (interpolation_is_on) {
-        // safe to use the function
+        
         let percent = map(chosenCurAnimationFrame[n], 0, chosenNumAnimationFrames, 0, 100)
-        // obj["box1"]["position"] = map(chosenCurAnimationFrame[n], 0, chosenNumAnimationFrames, chosenPrevObjs[n]["box1"]["position"], nextObj["box1"]["position"])
+        
 
         obj = interpolate_letter(percent, chosenPrevObjs[n], nextObj)
       }

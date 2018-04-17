@@ -1,20 +1,14 @@
-const colorFront  = "#23c7e0";
+const colorFront  = "#3dcbff";
 const colorStroke = "#db8a00";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(3);
 
-  // determine parameters 
+  // parameters used
   let size2 = letterData["size"];
   let pos1x = 50+letterData["offsetx"];
   let pos1y = 150+letterData["offsety"];
@@ -29,17 +23,17 @@ function drawLetter(letterData) {
   angleMode(DEGREES);
   rectMode(CENTER);
 
+  // geometry used-----
   push();
     translate(pos1x,pos1y);
     rotate(spin1);
     translate(-pos1x,-pos1y);
     rect(pos1x,pos1y,20,size2)
   pop();  
-
   ellipse(pos2x,pos2y,35,35);
   ellipse(pos3x,pos3y,35,35);
   ellipse(pos4x,pos4y,35,35);
-
+  // -----
 
 }
 
@@ -57,3 +51,25 @@ function interpolate_letter(percent, oldObj,newObj) {
   new_letter["rotate"] = map(percent, 0, 100, oldObj["rotate"], newObj["rotate"]);
   return new_letter;
 }
+
+var swapWords = [
+  "GOODGAME",
+  "FOR SURE",
+  "POGCHAMP",
+  "SO AMAZE",
+  " INSANE ",
+  "AYYYLMAO",
+  "RESTLESS",
+  " PLANET ",
+  " HUSTLE ",
+  "YEAH NAH",
+  " YUGIOH ",
+  "RESOLVED",
+  "COOLBEAN",
+  "RESOLUTE",
+  "TARANAKI",
+  "TERRIFIC",
+  "LAUGHING",
+  "COOLNESS",
+  "PARALLEL"
+]

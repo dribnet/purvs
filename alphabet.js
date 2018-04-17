@@ -1,13 +1,5 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
-
-/* 
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -16,11 +8,10 @@ const canvasHeight = 500;
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
 function setup () {
-  // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // with no animation, redrawing the screen is not necessary
+  
   noLoop();
 }
 
