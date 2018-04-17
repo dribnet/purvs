@@ -1,10 +1,5 @@
-const colorFront  = "#ff5619";
-const colorStroke = "#357ff4";
-
-
-//original colours
-// const colorFront  = "pink";
-// const colorStroke = "#84ceab";
+const colorFront  = "pink";
+const colorStroke = "#84ceab";
 
 /*
  * Draw the letter given the letterData
