@@ -2,10 +2,20 @@
 
 ## Thomas Hartley
 
+<<<<<<< HEAD
 ##Introduction
 Inspiration and Reasoning
 
 The alphabet and typography used is inspired directly from 'Gothic sans-serif' which is used by enginners and formed from simple strokes consisting of horizontal and vertical lines from left to right and top to bottom (https://en.wikipedia.org/wiki/Technical_lettering and http://ednotebook.hostgator.co.in/basics-of-engineering-drawing). The main use is for diagrams and detailed plans to prevent confusion if someone were to reread or look over the same documents. In middle school, I was taught the simplicity of this type of writing and I was very fond of it. I have OCD and so patterns of edges and lines are very prodominant to me. Specifically the ratio of each 'stroke' of each letter and the shape of each stroke. 
+=======
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
+
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+>>>>>>> upstream/part2
 
 ##Typography
 
