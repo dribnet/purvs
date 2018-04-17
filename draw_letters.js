@@ -7,79 +7,45 @@ const colorStroke = "#ffaa00";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-
-  var c=0;
-  var r1=0;
-  var r2=0;
-  var r3=0;
-  var r4=0;
-  var r5=0;
-  var ry1=0;
-  var ry2=0;
-  var ry3=0;
-  var ry4=0;
-  var ry5=0;
-  var g1=255;
-  var g2=255;
-  var g3=255;
-  var g4=255;
-
+  var rx=[0,0,0,0,0];
+  var ry=[0,0,0,0,0];
+  var grey=[255,255,255,255];
+  var lastMillis = 0;
 function drawLetter(letterData) {
   // color/stroke setup
   fill(255);
   stroke(255);
   strokeWeight(7);
 rectMode(CENTER);
-  // determine parameters for second circle
-  let x1 = letterData["x1"]+r1;
-  let y1 = letterData["y1"]+ry1;
-  let x2 = letterData["x2"]+r2;
-  let y2 = letterData["y2"]+ry2;
-  let x3 = letterData["x3"]+r3;
-  let y3 = letterData["y3"]+ry3;
-  let x4 = letterData["x4"]+r4;
-  let y4 = letterData["y4"]+ry4;
-  let x5 = letterData["x5"]+r5;
-  let y5 = letterData["y5"]+ry5;
-  fill(g1);
-  stroke(g1);
-line(x1,y1,x2,y2);
-fill(g2);
-stroke(g2);
-line(x2,y2,x3,y3);
-fill(g3);
-stroke(g3);
-line(x3,y3,x4,y4);
-fill(g4);
-stroke(g4);
-line(x4,y4,x5,y5);
+//loads letter coordinates into array
+let xp = [letterData["x1"]+rx[0],letterData["x2"]+rx[1],letterData["x3"]+rx[2],letterData["x4"]+rx[3],letterData["x5"]+rx[4]]
+let yp = [letterData["y1"]+ry[0],letterData["y2"]+ry[1],letterData["y3"]+ry[2],letterData["y4"]+ry[3],letterData["y5"]+ry[4]]
+//draws lines
+for(var i=0;i<4;i++){
+fill(grey[i]);
+stroke(grey[i]);
+line(xp[i],yp[i],xp[i+1],yp[i+1]);
+}
+//draws points
 stroke(255);
 fill(255);
-rect(x1,y1,3,3);
-rect(x2,y2,3,3);
-rect(x3,y3,3,3);
-rect(x4,y4,3,3);
-rect(x4,y4,3,3);
-rect(x5,y5,3,3);
-if(c>1000){
-  c=0;
-  r1=random(-7,7);
-  r2=random(-7,7);
-  r3=random(-7,7);
-  r4=random(-7,7);
-  r5=random(-7,7);
-  ry1=random(-7,7);
-  ry2=random(-7,7);
-  ry3=random(-7,7);
-  ry4=random(-7,7);
-  ry5=random(-7,7);
-  g1=random(50,255);
-  g2=random(50,255);
-  g3=random(50,255);
-  g4=random(50,255);
+for(var i=0;i<5;i++){
+rect(xp[i],yp[i],3,3);
 }
-c++;
+//adds randomisation
+let curMillis = int(millis() / 300);
+if(curMillis != lastMillis) {
+  lastMillis = curMillis;
+  for(var i =0;i<5;i++){
+    rx[i]=random(-7,7);
+    ry[i]=random(-7,7);
+  }
+  for(var i =0;i<4;i++){
+    grey[i]=random(50,255);
+  }
 }
+}
+
 function interpolate_letter(percent, oldObj, newObj){
   let new_letter = {};
   new_letter["x1"]=map(percent,0,100,oldObj["x1"],newObj["x1"]);

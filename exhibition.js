@@ -38,8 +38,8 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+  "IN TRUTH",
   "ACTUALLY",
-  "1234567?",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
@@ -214,7 +214,7 @@ function draw () {
     }
   }
 
-  background(colorBack);
+  background(0);
   fill(colorFront);
   stroke(95, 52, 8);
 
