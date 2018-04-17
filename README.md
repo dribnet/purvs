@@ -1,6 +1,9 @@
 ## PS2 MDDN 242 2018
 
-The three parameters per letter:
+<<<<<<< HEAD
+
+my letters was inspired by paper cutting and geometric shapes, and its consist of two triangles that overlapped a rectangle.
+The twelve parameters per letter:
   * 
   * `gx` : x offset of the first triangle relative to the first point
   * `gy` : y offset of the first triangle relative to the first point
@@ -9,7 +12,6 @@ The three parameters per letter:
   * `2x` : 2x offset of the first triangle relative to the third point
   * `2y` : 2y offset of the first triangle relative to the third point
 
-<<<<<<< HEAD
   * `3x` : 3x offset of the second triangle relative to the first point
   * `3y` : 3y offset of the second triangle relative to the first point
   * `4x` : 3x offset of the second triangle relative to the second point
@@ -20,10 +22,3 @@ The three parameters per letter:
 =======
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
->>>>>>> upstream/part2
-
