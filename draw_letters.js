@@ -1,12 +1,8 @@
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
+  
+//bounding box
   stroke(255);
   noFill();
   //rect(0, 0, 100, 200);
@@ -17,6 +13,8 @@ function drawLetter(letterData) {
   let posy = 89;
   push();
   scale(2.2);
+
+//parameters for bezier
 
   let pos1x = posx + letterData["x1"];
   let pos1y = posy + letterData["y1"];
@@ -29,18 +27,27 @@ function drawLetter(letterData) {
   let pos5x = posx + letterData["x5"];
   let pos5y = posy + letterData["y5"];
 
-  // draw two circles
+// color map that change with bezier position
   let col1 = map(pos1x, -150, 150, 0, 255);
   let col2 = map(pos2y, -150, 150, 0, 255);
   let col3 = map(pos3y, -150, 150, 0, 255);
 
+//bezier
   fill(col1*5, col2*1, col3*1.9, 100);
   bezier(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
+
+//circle
   strokeWeight(1);
   fill(255);
   ellipse(pos5x, pos5y, 3,3);
+
   pop();
+
+
 }
+
+
+//interpolate code 
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};

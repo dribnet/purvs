@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#000000";
-const colorLines   = "#E5E5E3";
+const colorLines   = "#7A7A79";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -21,7 +21,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?,";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.?,";
 
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
@@ -39,7 +39,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "NEOCHALK",
-  "1234567?",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
