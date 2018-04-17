@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#000000";
+const colorLines   = "#E5E5E3";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -21,7 +21,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?,";
 
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
@@ -38,7 +38,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "NEOCHALK",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
@@ -215,7 +215,7 @@ function draw () {
   }
 
   background(colorBack);
-  fill(colorFront);
+  //fill(colorFront);
   stroke(95, 52, 8);
 
   // shorthand variables to allow margin

@@ -153,7 +153,7 @@ function draw () {
   }
 
   push();
-  translate(center_x, center_y);
+  translate(center_x, center_y-30);
   let cur_obj = computeCurrentSoloChar();
   drawLetter(cur_obj);
   pop();

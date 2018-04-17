@@ -1,7 +1,8 @@
 ## PS2 MDDN 242 2018
 
-I've finished up the numbers so now all I need to do is fix the interaction. I don't really know what's wrong with it so I'll have to wait till next class. I'm sure I can tidy up some of the letters but I will do that if I have the time to after integrating the interaction section.
+Big Update
 
+I fixed my code and change the overall look of things, I liked how it looked before with the pinkish/purpely tones on the black background. I removed the white bounding boxes as I felt like they clashed with the stroke of my font. I've also grabbed the exhibition part and need to come up with some words I would like to display. I've added in a question mark, full stop and a comma for the last 3 spaces. 
 
 The eight parameters per letter:
 	* 'posx1' : X starting point of bezier
