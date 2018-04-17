@@ -3,15 +3,16 @@ const alphabet = {
       //"sizeRect": 50,
       //"positionX": 20,
       //"positionY": 30,
-      "size": 100,
-      "offsetx": 0,
-      "offsety": -15,
+      "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
       "rotate": 40,
       // "XZ": 30,
       // "XY": 40
       
   },
   "A": {
+      //"colourpicker" : 1,
      "sizeRect": 60,
       "positionX": 120,
       "positionY": 50,
@@ -20,6 +21,7 @@ const alphabet = {
       "offsety": -40,
       "rotate": 44,
       "xR" : 0
+      
      
   },
   "B": {
@@ -47,11 +49,11 @@ const alphabet = {
  "D": {
     "sizeRect": 60,
     "positionX": 45,
-    "positionY": 110,
+    "positionY": 105,
 
-    "size": 75,
+    "size": 60,
     "offsetx": 60,
-    "offsety": -140,
+    "offsety": -130,
 
     "rotate": 0,
     "yR" : 0,
@@ -411,6 +413,177 @@ const alphabet = {
 
     "XZ": 70,
     "XY": 160
+  },
+  "0": {
+    "sizeRect": 35,
+    "positionX": 32.5,
+    "positionY": 117.5,
+
+    "size": 60,
+    "offsetx": -30,
+    "offsety": -45,
+    //"rotate": 40, 
+    //"yR" : 40,
+    //"xR" : 0
+  },
+  "1": {
+    "sizeRect": 28,
+    "positionX": 38,
+    "positionY": 105,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 38,
+    "XY": 135
+  },
+  "2": {
+    "sizeRect": 15,
+    "positionX": 20,
+    "positionY": 120,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 62.5,
+    "XY": 140
+  },
+  "3": {
+    "sizeRect": 15,
+    "positionX": 20,
+    "positionY": 115,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 20,
+    "XY": 142
+  },
+  "4": {
+    "sizeRect": 20,
+    "positionX": 60,
+    "positionY": 145,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 44,
+    "xR" : 0,
+
+    "XZ": 105,
+    "XY": 50
+  },
+  "5": {
+    "sizeRect": 15,
+    "positionX": 65,
+    "positionY": 115,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 20,
+    "XY": 142
+  },
+  "6": {
+    "sizeRect": 20,
+    "positionX": 57.5,
+    "positionY": 105,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 35,
+    "XY": 135
+  },
+  "7": {
+    "sizeRect": 20,
+    "positionX": 20,
+    "positionY": 145,
+
+   
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 20,
+    "XY": 125
+  },
+  "8": {
+    "sizeRect": 15,
+    "positionX": 42.5,
+    "positionY": 115,
+
+    
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 42.5,
+    "XY": 140
+  },
+  "9": {
+    "sizeRect": 20,
+    "positionX": 20,
+    "positionY": 145,
+
+  
+     "size": 60,
+      "offsetx": -30,
+      "offsety": -45,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 0,
+
+    "XZ": 45,
+    "XY": 115
   }
 }
+
+
+
+
+
+
 

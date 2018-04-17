@@ -1,4 +1,4 @@
-const colorFront  = "#ffffff";
+const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 //const colorStroke = "#ffffff";
 
@@ -35,6 +35,7 @@ function drawLetter(letterData) {
   let posZY = letterData ["XY"];
   let Xrotate = letterData ["xR"];
   let Yrotate = letterData ["yR"];
+  //let defineColor = letterData ["colourpicker"];
 
   noStroke();
 
@@ -46,31 +47,40 @@ function drawLetter(letterData) {
     fill (203, 206, 119);
     
     strokeWeight (5);
-    fill (229, 135, 135,180);
-    ellipse (50,135,105,105);
+     fill (229, 135, 135,180);
+     ellipse (50,135,105,105);
     //stroke (227,237,237);
+
+   //   if (defineColor = 1){
+   //  fill (229, 135, 135,180);
+   //  ellipse (50,135,105,105);
+   // }
+   // if (defineColor = 0){
+   //  fill (160, 157, 157,180);
+   //  ellipse (50,135,105,105);
+   // }
+
     stroke ('white');
   
   
     push ();
    rotate (Xrotate);
-   //fill('white')
+
    fill(182, 221, 166,180);
-   //fill (203, 206, 119);
-   //fill('black');
+  
    rect(pos2x, pos2y, size2, size2);
    pop();
 
-    //stroke (227,237,237);
+   
     stroke ('white');
-    //strokeWeight(5);
+  
 
    //rotating rect 
    push ();
    rotate (rotation);
-   //fill('white')
+   
    fill (216, 208, 99,180);
-   //fill('black');
+   
    rect(posX, posY, sizeR, sizeR);
    pop();
 
@@ -79,11 +89,16 @@ function drawLetter(letterData) {
    rotate (Yrotate);
    fill (216, 208, 99,180);
    
-  //fill ('white');
    rect(posZX, posZY, sizeR, sizeR);
    pop();
 
-  
+
+  var swapWords = [
+    "BLOCKZZZ",
+    "CRAZYBOX"
+
+
+  ]
 
   
 
