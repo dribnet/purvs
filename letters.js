@@ -140,18 +140,18 @@ const alphabet = {
     "rot4": 0
   },
   "J": {
-    "offsetx1": -60,
-    "offsetx2": 0,
+    "offsetx1": -65,
+    "offsetx2": 20,
     "offsetx3": 145,
-    "offsetx4": 20,
-    "offsety1": 20,
-    "offsety2": 0,
-    "offsety3": -40,
-    "offsety4": 20,
-    "rot1": -80,
-    "rot2": 10,
+    "offsetx4": 30,
+    "offsety1": -30,
+    "offsety2": -10,
+    "offsety3": 30,
+    "offsety4": -30,
+    "rot1": -100,
+    "rot2": 190,
     "rot3": -90,
-    "rot4": 0
+    "rot4": 200
   },
   "K": {
     "offsetx1": 100,
@@ -294,14 +294,14 @@ const alphabet = {
     "rot4": 90
   },
   "U": {
-    "offsetx1": -20,
-    "offsetx2": -20,
-    "offsetx3": -20,
-    "offsetx4": -40,
-    "offsety1": 0,
-    "offsety2": 0,
-    "offsety3": -25,
-    "offsety4": -25,
+    "offsetx1": -30,
+    "offsetx2": -30,
+    "offsetx3": -60,
+    "offsetx4": -80,
+    "offsety1": -55,
+    "offsety2": -55,
+    "offsety3": 25,
+    "offsety4": 25,
     "rot1": 200,
     "rot2": 200,
     "rot3": -20,
@@ -364,18 +364,18 @@ const alphabet = {
     "rot4": 90
   },
   "Z": {
-    "offsetx1": 160,
-    "offsetx2": 160,
-    "offsetx3": 140,
-    "offsetx4": 10,
+    "offsetx1": -60,
+    "offsetx2": -65,
+    "offsetx3": 20,
+    "offsetx4": 30,
     "offsety1": 0,
     "offsety2": 0,
     "offsety3": 0,
-    "offsety4": -10,
+    "offsety4": 0,
     "rot1": -90,
-    "rot2": -90,
-    "rot3": 90,
-    "rot4": -45
+    "rot2": 90,
+    "rot3": -135,
+    "rot4": -135
   },
   "0": {
     "offsetx1": -20,
@@ -517,4 +517,18 @@ const alphabet = {
     "rot3": 180,
     "rot4": 180
   },
+  "?": {
+    "offsetx1": 20,
+    "offsetx2": 20,
+    "offsetx3": 20,
+    "offsetx4": 145,
+    "offsety1": 30,
+    "offsety2": 30,
+    "offsety3": 30,
+    "offsety4": 0,
+    "rot1": 150,
+    "rot2": 150,
+    "rot3": 150,
+    "rot4": 90
+   }
 }
