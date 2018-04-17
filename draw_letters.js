@@ -41,9 +41,29 @@ strokeWeight(4)
   line(posx,posy,pos3x,pos3y) 
   line(pos3x,pos3y,pos4x,pos4y)
 
-strokeWeight(2)
+strokeWeight(1.5)
  line(posx,posy,pos4x,pos4y)
   line(pos2x,pos2y,pos4x,pos4y)
   line(pos2x,pos2y,pos3x,pos3y)
  
+}
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
+  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
+  if (percent < 50){
+    new_letter["x2"] = newObj["x"]
+    new_letter["y2"] = newObj["y"]
+  }
+  else {
+    new_letter["x2"] = newObj["x2"]
+    new_letter["y2"] = newObj["y2"]
+  }
+  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
+  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
+  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  return new_letter;
 }
