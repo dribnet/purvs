@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-
 <<<<<<< HEAD
-Each of my letters consist of 4 cresents made up of 2 arcs each, all based at the center and rotating outward from there. None of the postions are fixed and they all move with the letter and are postioned so they dont overlap most of the time.
+Each of my letters consist of 4 cresents made up of 2 arcs each, all based at the center and rotating outward from there. None of the postions are fixed and they all move with the letter and are postioned so they dont overlap most of the time. Some of them do use the fact that they overlap as a feature of the arcs and hide points or even fully behind the other arcs.
+When changing letter or number they do cross over each other creating a weird but cool effect for the letters.
 
 The eight parameters per letter:
   * `rot1`: Controls rotation of Arc1
@@ -22,13 +21,3 @@ The eight parameters per letter:
   I added new parameters for the Y value of the arcs due to when i created some of the letters i found that they were floating above the base line.
 
   I have also added animation for the letters and i must say they are exactly how i wanted them to be done.
-=======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
->>>>>>> upstream/part2

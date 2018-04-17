@@ -29,14 +29,15 @@ function drawLetter(letterData) {
   let offsety3 = letterData["offsety3"];
   let offsety4 = letterData["offsety4"];
   
+  //rect(0,0,100,200);
 
   push();
-  translate(80, 100);
+  translate(50, 100);
 
 //arc1
   push();
   rotate(rot1);
-  scale(0.5);
+  scale(0.35);
   fill(colorFront);
   arc(offsetx1, offsety1, 200, 200, 80, 280, CHORD);
   fill(colorBack);
@@ -47,7 +48,7 @@ function drawLetter(letterData) {
 //arc2
    push();
    rotate(rot2);
-   scale(0.5);
+   scale(0.35);
   fill(colorFront);
   arc(offsetx2, offsety2, 200, 200, 80, 280, CHORD);
   fill(colorBack);
@@ -58,7 +59,7 @@ function drawLetter(letterData) {
 //arc3
    push();
    rotate(rot3);
-   scale(0.5);
+   scale(0.35);
   fill(colorFront);
   arc(offsetx3, offsety3, 200, 200, 80, 280, CHORD);
   fill(colorBack);
@@ -69,7 +70,7 @@ function drawLetter(letterData) {
 //arc4
    push();
    rotate(rot4);
-   scale(0.5);
+   scale(0.3);
   fill(colorFront);
   arc(offsetx4, offsety4, 100, 100, 80, 280, CHORD);
   fill(colorBack);
