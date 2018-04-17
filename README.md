@@ -1,12 +1,13 @@
 ## PS2 MDDN 242 2018
 
-COLOUR RESEARCH 2
+COLOUR RESEARCH 3
 
-More Vintage colour scheme.
+More Cute and soft. Marshmellow vibe.
+This is my favourite one so far since my first colour choice is quite tiring to look at in the exhibition.
 
-  const col1 = "#493255"; 
-  const col2 = "#f5bd4d";
-  const col3 = "#c64e68"; 
+  const col1 = "#f9d9e9"; 
+  const col2 = "#c3e6e7";
+  const col3 = "#fefefe"; 
 
 Next step:
 - Reposition and adjust some alphabets.
