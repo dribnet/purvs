@@ -8,10 +8,12 @@
  */
 function drawLetter(letterData) {
 
-  noFill();
-  stroke('red');
-  strokeWeight(1);
-  rect(0,0,100,200);
+
+  // Drawing bounding boxes
+  // noFill();
+  // stroke('red');
+  // strokeWeight(1);
+  // rect(0,0,100,200);
 
 
   angleMode(DEGREES);
@@ -53,17 +55,30 @@ function drawLetter(letterData) {
 
 }
 
+var swapWords = [
+  "ANGLESSS",
+  "YEEEEEET",
+  "YOOOOOTE",
+  "BUSINESS",
+  "INCREASE",
+  "OCEANIAA",
+  "12345678",
+  "90HANDSS"
+  
+]
+
+
+
+
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-
-
+  
   new_letter["translate1X"] = map(percent, 0, 100, oldObj["translate1X"], newObj["translate1X"]);
   new_letter["translate1Y"] = map(percent, 0, 100, oldObj["translate1Y"], newObj["translate1Y"]);
   new_letter["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
-
+  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
   new_letter["translate2X"] = map(percent, 0, 100, oldObj["translate2X"], newObj["translate2X"]);
   new_letter["translate2Y"] = map(percent, 0, 100, oldObj["translate2Y"], newObj["translate2Y"]);
-  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
   new_letter["strokeweight1"] = map(percent, 0, 100, oldObj["strokeweight1"], newObj["strokeweight1"]);
   new_letter["strokeweight2"] = map(percent, 0, 100, oldObj["strokeweight2"], newObj["strokeweight2"]);
   return new_letter;

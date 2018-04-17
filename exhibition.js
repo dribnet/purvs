@@ -3,7 +3,7 @@
  */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
-
+const colorFront = "e3eded";
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
@@ -38,8 +38,8 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ANGLES",
-  "1234567?",
+  "ANGLESSS",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
@@ -214,7 +214,7 @@ function draw () {
     }
   }
 
-  background(colorBack);
+  background(242,245,201);
   fill(colorFront);
   stroke(95, 52, 8);
 

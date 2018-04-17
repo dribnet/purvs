@@ -3,7 +3,7 @@
  */
 const colorBack    = "#05668D";
 const colorLines   = 255;
-
+ 
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
