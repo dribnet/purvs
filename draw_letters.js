@@ -45,7 +45,13 @@ for (var i = 0; i < circleGridArray.length; i++) {
   squareOn = letterData["Square"];
   circleOn = letterData["Circle"];
   TriangleOn = letterData["Triangle"];
-  Alpha = letterData["Alpha"];
+
+  if ("Alpha" in letterData) {
+    Alpha = letterData["Alpha"];
+  }
+  else {
+    Alpha = 255;
+  }
 
   //relative variables for resizing shapes
   rel20 = 20;
@@ -53,24 +59,28 @@ for (var i = 0; i < circleGridArray.length; i++) {
   relCirc = 3.6;
 
   //stroke variables
-  //noStroke();
   strokeWeight(5);
   strokeJoin(ROUND);
+  noStroke();
+  
 
   //Square controlled here
-  stroke(36, 48, 61, Alpha);
+  if(Alpha>=200)
+    stroke(36, 48, 61, Alpha);
   fill(36, 48, 61, Alpha);
   if(squareOn>=70)
     rect(posx, posy, rel20*SizeOf, rel20*SizeOf);
 
   //Circle controlled here
-  stroke(216, 207, 203, Alpha);
+  if(Alpha>=200)  
+    stroke(216, 207, 203, Alpha);
   fill(216, 207, 203, Alpha);
   if(circleOn>=70)
     ellipse((posx)+SizeOf*rel10, (posy)+SizeOf*rel10, rel20*SizeOf, rel20*SizeOf);
 
   //Triangle controlled here
-  stroke(216, 207, 203, Alpha);
+  if(Alpha>=200)  
+    stroke(216, 207, 203, Alpha);
   fill(216, 207, 203, Alpha);
   if(TriangleOn>=70){
     triangle(posx, posy, posx+rel20*SizeOf, posy, posx+SizeOf*rel10,posy+SizeOf*rel10);
@@ -79,10 +89,9 @@ for (var i = 0; i < circleGridArray.length; i++) {
   }
 
   //Circle grid Controlled here
-  CircleGridColor = (193, 5, 5, Alpha);
-  
+  if(Alpha>=200)
+    stroke(193, 5, 5, Alpha);  
   fill(193, 5, 5, Alpha);
-  stroke(193, 5, 5, Alpha);  
   for (var i = 0; i < 3; i++) {
     yTranslate=i*SizeOf*rel10;
     for (var j = 0; j < 3; j++) {

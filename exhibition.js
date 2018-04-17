@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 
-var Alpha = 255
+//var Alpha = 255
 const colorFront  = "#199cff";
 const colorBack   = [183, 143, 115];
 const colorStroke = "#000000";
@@ -43,7 +43,6 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "PRIMITIV",
-  "12345678",
   "???MA???",
   "??WHERO?",
   "??MANGU?",

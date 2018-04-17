@@ -1,5 +1,5 @@
 const alphabet = {
-    "default": {
+  "default": {
     "TL": 0,
     "TM": 0,
     "TR": 0,
@@ -11,8 +11,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
   },
   "A": {
 
@@ -27,8 +26,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100
 },
 "B": {
     "TL": 100,
@@ -42,8 +40,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 
 "C":{
@@ -58,8 +55,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 
 "D":{
@@ -74,8 +70,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 
 "E":{
@@ -90,8 +85,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 
 "F":{
@@ -106,8 +100,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "G":{
     "TL": 100,
@@ -121,8 +114,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "H":{
     "TL": 100,
@@ -136,8 +128,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "I":{
     "TL": 100,
@@ -151,8 +142,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "J":{
     "TL": 0,
@@ -166,8 +156,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "K":{
     "TL": 100,
@@ -181,8 +170,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "L":{
     "TL": 100,
@@ -196,8 +184,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "M":{
     "TL": 100,
@@ -211,8 +198,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "N":{
     "TL": 100,
@@ -226,8 +212,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "O":{
     "TL": 0,
@@ -241,8 +226,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "P":{
     "TL": 0,
@@ -256,8 +240,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "Q":{
     "TL": 0,
@@ -271,8 +254,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "R":{
     "TL": 100,
@@ -286,8 +268,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "S":{
     "TL": 0,
@@ -301,8 +282,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "T":{
     "TL": 100,
@@ -316,8 +296,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "U":{
     "TL": 100,
@@ -331,8 +310,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "V":{
     "TL": 100,
@@ -346,8 +324,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "W":{
     "TL": 100,
@@ -361,8 +338,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "X":{
     "TL": 100,
@@ -376,8 +352,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "Y":{
     "TL": 100,
@@ -391,8 +366,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "Z":{
     "TL": 100,
@@ -406,8 +380,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "0":{
     "TL": 0,
@@ -421,8 +394,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "1":{
     "TL": 0,
@@ -436,8 +408,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "2":{
     "TL": 100,
@@ -451,8 +422,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 100,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "3":{
     "TL": 100,
@@ -466,8 +436,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "4":{
     "TL": 100,
@@ -481,8 +450,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "5":{
     "TL": 0,
@@ -496,8 +464,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 100,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "6":{
     "TL": 100,
@@ -511,8 +478,7 @@ const alphabet = {
     "BR": 0,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 "7":{
     "TL": 100,
@@ -526,8 +492,7 @@ const alphabet = {
     "BR": 0,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "8":{
     "TL": 100,
@@ -541,8 +506,7 @@ const alphabet = {
     "BR": 100,
     "Square": 0,
     "Circle": 0,
-    "Triangle": 100,
-    "Alpha": 255 
+    "Triangle": 100 
 },
 "9":{
     "TL": 0,
@@ -556,8 +520,7 @@ const alphabet = {
     "BR": 100,
     "Square": 100,
     "Circle": 0,
-    "Triangle": 0,
-    "Alpha": 255
+    "Triangle": 0
 },
 
 }
