@@ -38,57 +38,8 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+
+
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
@@ -214,9 +165,9 @@ function draw () {
     }
   }
 
-  background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
+  background(255,208,68);
+  fill(0);
+  stroke(0);
 
   // shorthand variables to allow margin
   var o = 20

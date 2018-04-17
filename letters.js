@@ -159,16 +159,16 @@ const alphabet = {
 
   "sizeX": 20,
   "sizeY": 100,
-  "offsetx": 30,
+  "offsetx": 20,
   "offsety": 50,
    
-   "qx1" :60,
+   "qx1" :50,
   "qy1" :50,
-  "qx2" :70,
+  "qx2" :60,
   "qy2" :50,
-  "qx3" :70,
+  "qx3" :60,
   "qy3" :150,
-  "qx4" :30,
+  "qx4" :20,
   "qy4" :150,
 },
   "J": {

@@ -62,14 +62,29 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["qx4"] = map(percent , 0, 90, oldObj ["qx4"], newObj["qx4"]);
   new_letter["qy4"] = map(percent , 0, 90, oldObj ["qy4"], newObj["qy4"]);
   //if( percent < 30) {
-  //  new_letter["offsetx"]= oldObj ["offsetx"]
+  //  new_letter["offsetx"] = oldObj ["offsetx"] 
   //}  else if ( percent < 30) {
   //  new_letter["offsetx"] = map(percent, 30,60, oldObj["offsety"], newObj["offsety"]);
   //}
   //else {
   //  new_letter["offsetx"] = newObj["offsetx"];
-  //}
-
-
+  //
   return new_letter;
 }
+
+  var swapWords = [
+  
+  "OLDSOLID"
+  "EVERYONE",
+  "COMPLETE",
+  "BASEBALL",
+  "JACOB NG",
+  "100 PLUS",
+  "UPGRADED",
+  "IPHONE 7",
+  "FACEBOOK",
+
+  
+  
+
+]
