@@ -1,65 +1,60 @@
-
-const colorQuad = [200, 200, 200];
-const colorCircle = [0, 0, 0];
-const colorBack = [255, 255, 255];
-
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-const ballSize = 80;
-
-const arrowLP = [-120, 100];
-const arrowTP = [0, -100];
-const arrowRP = [120, 100];
-const arrowBP = [0, 40];
-
 /* 
- * my nine variables per letter are:
+ * my ten variables per letter are:
  *
-    stretch x: stretches the arrow shape on the original x axis
-    stretch y: stretches the arrow shape on the original y axis
-	tilt: rotates the arrow in degrees
-    ball1(2) vis: visibility of the ball
-    ball1(2) x: x axis position of ball
-    ball1(2) y: y axis position of ball
+    arc start: angle in degrees of ring start point
+    arc end: angle in degrees of ring end point
+    line1(2) length: length of line
+    line1(2) tilt: angle in degrees of line
+    line1(2) x: x axis position of line
+    line1(2) y: y axis position of line
  *
  */
 
 const letterA = {
-	"stretch X": 0,
-	"stretch Y": 0,
-	"tilt": 0,
-	"visibility1": 0,
-	"position1 X": 0,
-	"position1 Y": 0,
-	"visibility2": 0,
-	"position2 X": 0,
-	"position2 Y": 0,
+  "arc Start": 120,
+  "arc End": -60,
+  "length1": 150,
+  "tilt1": 0,
+  "position1 X": -125,
+  "position1 Y": 0,
+  "length2": 220,
+  "tilt2": 90,
+  "position2 X": 30,
+  "position2 Y": -120,
 }
 
 const letterB = {
-	"stretch X": 30,
-	"stretch Y": -30,
-    "tilt": -90,
-	"visibility1": 1,
-    "position1 X": 70,
-	"position1 Y": -70,
-	"visibility2": 1,
-    "position2 X": 70,
-	"position2 Y": 70,
+  "arc Start": -100,
+  "arc End": 100,
+  "length1": 250,
+  "tilt1": 90,
+  "position1 X": 0,
+  "position1 Y": -120,
+  "length2": 130,
+  "tilt2": 0,
+  "position2 X": 0,
+  "position2 Y": 0,
 }
 
 const letterC = {
-	"stretch X": 30,
-	"stretch Y": -30,
-	"tilt": -90,
-	"visibility1": 0,
-	"position1 X": 0,
-	"position1 Y": 0,
-	"visibility2": 0,
-	"position2 X": 0,
-	"position2 Y": 0,
+  "arc Start": 45,
+  "arc End": -45,
+  "length1": 0,
+  "tilt1": 0,
+  "position1 X": 0,
+  "position1 Y": 0,
+  "length2": 0,
+  "tilt2": 0,
+  "position2 X": 0,
+  "position2 Y": 0,
 }
+
+const colorBack   = "#ffffff";
+const colorLine = "#000000";
+const colorRing = "#dbdbdb";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -71,36 +66,44 @@ function setup () {
 }
 
 function drawLetter(posx, posy, scale, letterData) {
-  stretchx = letterData["stretch X"];
-  stretchy = letterData["stretch Y"];
-  tilt = letterData["tilt"];
-  posx1 = posx + letterData["position1 X"];
-  posy1 = posy + letterData["position1 Y"];
-  vis1 = letterData["visibility1"];
-  posx2 = posx + letterData["position2 X"];
-  posy2 = posy + letterData["position2 Y"];
-  vis2 = letterData["visibility2"];
+  let start = letterData["arc Start"];
+  let end = letterData["arc End"];
+
+  let length1 = letterData["length1"];
+  let tilt1 = letterData["tilt1"];
+  let posx1 = letterData["position1 X"];
+  let posy1 = letterData["position1 Y"];
+
+  let length2 = letterData["length2"];
+  let tilt2 = letterData["tilt2"];
+  let posx2 = letterData["position2 X"];
+  let posy2 = letterData["position2 Y"];
 
   angleMode(DEGREES);
-  noStroke();
+  noFill();
+
+  //draw line behind ring
+  drawLine(length1, tilt1, posx1+ posx, posy1 + posy);
+
   
-  //draw 2 black circles
-  fill(colorCircle);
-  drawBall(vis1, posx1, posy1);
-  drawBall(vis2, posx2, posy2);
- 
-  //draw arrow quad
-  fill(colorQuad);
-  push();
-  translate(posx, posy);
-  rotate(tilt);
-  quad(arrowLP[0] - stretchx, arrowLP[1], arrowTP[0], arrowTP[1] - stretchy, arrowRP[0] + stretchx, arrowRP[1], arrowBP[0], arrowBP[1]);
-  pop();
+  //draw ring
+  stroke(colorRing);
+  strokeWeight(20);
+  arc(posx, posy, 200, 200, start, end);
+
+  //draw line in front of ring
+  drawLine(length2, tilt2, posx2+ posx, posy2 + posy);
 }
 
-function drawBall(v, x, y){
-  if(v==1){
-	ellipse(x, y, ballSize, ballSize);
+function drawLine(length, tilt, posx, posy) {
+  strokeWeight(5);
+  stroke(colorLine);
+  if(length>0){
+	  push();
+	  translate(posx, posy);
+	  rotate(tilt);
+	  line(0, 0, length, 0);
+	  pop();
   }
 }
 
@@ -114,7 +117,7 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x , center_y, 10, letterB);
+  drawLetter(center_x - 65 , center_y, 10, letterB);
   drawLetter(center_x + 250, center_y, 10, letterC);
 }
 
@@ -126,4 +129,3 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
-
