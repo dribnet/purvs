@@ -3,6 +3,9 @@
  */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
+if (typeof colorFront === 'undefined') {
+  colorFront   = "#199cff";
+}
 
 /* 
  * do not edit this rest of this file, instead edit the letter
