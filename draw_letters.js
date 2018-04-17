@@ -23,13 +23,14 @@ let ly1 = letterData["ly1"];
 let lx2 = letterData["lx2"];
 let ly2 = letterData["ly2"];
 
+push();
+ scale(0.9)
   // draw 
-    
     awh = 100;
     x = 50;
     y = 100;
     
-    stroke(255);
+    stroke(0);
    noFill();
   strokeWeight(10);
 
@@ -43,7 +44,7 @@ let ly2 = letterData["ly2"];
   fill(0);
 
   triangle(x+tx1, y+ty1, x+tx2, y+ty2, x+tx3, y+ty3);
-
+pop();
   
 }
 

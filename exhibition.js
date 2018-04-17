@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+
 const colorLines   = "#000090";
 
 /* 
@@ -21,7 +21,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?default";
 
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
@@ -36,6 +36,23 @@ let lastWordSwappedTime;
 let isSwappingWords = true;
 let secondsPerWord = 8;
 let curSwapWord = 0;
+
+var swapWords = [
+  "GEFALLEN",
+  "!BATMAN!",
+  "HALLOW",
+  /*
+  "IMMORTAL",
+  "BICYCLES",
+  "BIGHEADS",
+  "ACCIDENT",
+  "CHIEFEST",
+  "GAUCHELY",
+  */
+  "ALIENSVS",
+  "PREDATOR",
+
+]
 
 var defaultSwapWords = [
   "ACTUALLY",
@@ -197,6 +214,7 @@ function computeCurrentChosenChar(n) {
 }
 
 function draw () {
+  angleMode(DEGREES);
   now = millis();
   // check to see if we should go into swapping mode
   if(!isSwappingWords && lastKeyPressedTime + 1000 * secondsUntilSwapMode < now) {
@@ -214,8 +232,8 @@ function draw () {
     }
   }
 
-  background(colorBack);
-  fill(colorFront);
+  background(125, 30, 40);
+  fill(125, 30, 40);
   stroke(95, 52, 8);
 
   // shorthand variables to allow margin

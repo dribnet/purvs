@@ -1,9 +1,11 @@
 ## PS2 MDDN 242 2018
 
-I have based my letters around the gothic style of lettering. I will try use an arc, triangle and a line to do this.
+Gefallen 
+  - This is the name I have given my design. I dont know if I will change it. At this point I am very happy with it. But it is in german and I dont know if thats allowed.
 
-I am currnetly completing my Alphabet I have now progressed to the O, i will complete the alphabet then go back through it to see if I can improve any that a weaker than others.
+I have based my letters around the gothic style of lettering. I will try use an arc, triangle and a line to do this I have found these can portray the type of lettering I want. I have also chosen these in particular because of their link to the deathly hallows from harry potter. I like to try and encorporate other intrests of mine like this as it gets me more interested in my own work. It means I want to do it and have it do well as it has more of a connection to meand I will enjoy working on it more.
 
+I have completed the alphabet and am happy with he majrity of the lettering. I still want to tweak a few things and play around with different colour options to see which works best. I might also might draw this from harry potter but will have to experiment to see if the colouring works.
 I have got the transition to work but want to experiment with it to get the arc to transition smoother.
 
 I have twelve paramaters fore ach of my letters;
