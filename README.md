@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
-Polygon Alphabet
+Polyfont
 =======
 
-I have decided on the colours and style I want to go for with is an 80s theme for my font because polygons and 3D effects were a big thing in 80s design styles. The colours I chose were mustard yellow, orangey red and aqua blue because when I think of the 80s those are the colours that remind me of it, and also purple but it wouldnt have gone well in my font designs because I want darker colours. I have also completed the animation side of the project and am happy with it but I might add some movement to the design font to show a 3D computer generated effect. I have also taken out the stroke because I didnt like how it wrapped itself around the font shapes.
+When I started this project I had the sketch idea of using a polygon for my base letter shapes. There were 18 parameters which all moved the rectangles on both x and y axis and they also rotated. That made up the polygon but I knew there needed to be less parameters so I decided to use a vertex to create my polygon shape and ended up only having 8 parameters even though I could have had 12 which would have made this project way easier, but I wanted to challenge myself. This eventually made me think of a style that the letters could go in so I made them look more retro by having 2 other shapes behind with retro colours to top of the style choice.
+
+I learent in this project how parameters work and that less is more sometimes and I learnt how to graph things better using code. I feel like I could have done better with changing the given code more, but I am happy with the outcome of my work.

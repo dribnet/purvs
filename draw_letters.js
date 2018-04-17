@@ -1,5 +1,11 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
+var swapWords = [
+"POLYFONT",
+"EXTREEM!",
+"  RETRO",
+"ALPHABET"
+]
 
 /*
  * Draw the letter given the letterData
