@@ -5,7 +5,7 @@ const letterSize = 100;
 const pointSize = letterSize/20;
 const letterAngle = 0.872665;
 
-const colourOpac = 240;
+const colourOpac = 100;
 
 /* 
  * The 6 parameters per letter:
@@ -26,30 +26,30 @@ const colourOpac = 240;
 // }
 
 const letterA = {
-  "pointOne":   { "x": 0,                                                       "y": letterSize},
-  "pointTwo":   { "x": Math.sin(letterAngle) * -letterSize,                     "y": Math.cos(letterAngle) * -letterSize},
-  "pointThree": { "x": (Math.tan(0.366519) * letterSize) * Math.cos(0.698132),  "y": (Math.tan(0.523599) * letterSize) * Math.sin(0.698132)},
-  "pointFour":  { "x": 0,                                                       "y": letterSize},
-  "pointFive":  { "x": Math.sin(letterAngle) * letterSize,                      "y": Math.cos(letterAngle) * -letterSize},
-  "pointSix":   { "x": (Math.tan(0.366519) * -letterSize) * Math.cos(0.698132), "y": (Math.tan(0.523599) * letterSize) * Math.sin(0.698132)},
+  "p1": { "ang": 000,   "dist": letterSize},
+    "p2": { "ang": 130,   "dist": letterSize},
+    "p3": { "ang": 300,   "dist": 0.5*(letterSize)},
+    "p4": { "ang": 000,   "dist": letterSize},
+    "p5": { "ang": 230,   "dist": letterSize},
+    "p6": { "ang": 070,   "dist": 0.5*(letterSize)},
 }
 
 const letterB = {
-  "pointOne":   { "x": letterSize/2,  "y": letterSize},
-  "pointTwo":   { "x": -letterSize/2, "y": letterSize/3},
-  "pointThree": { "x": letterSize/2,  "y": -letterSize/3},
-  "pointFour":  { "x": letterSize/2,  "y": letterSize/3},
-  "pointFive":  { "x": -letterSize/2, "y": -letterSize/3},
-  "pointSix":   { "x": letterSize/2,  "y": -letterSize},
+   "p1": { "ang": 320,   "dist": letterSize},
+    "p2": { "ang": 050,   "dist": 0.76*letterSize},
+    "p3": { "ang": 220,   "dist": letterSize},
+    "p4": { "ang": 220,   "dist": letterSize},
+    "p5": { "ang": 140,   "dist": 0.76*letterSize},
+    "p6": { "ang": 320,   "dist": letterSize},
 }
 
 const letterC = {
-  "pointOne":   { "x": letterSize,                                              "y": 0},
-  "pointTwo":   { "x": Math.cos(letterAngle) * -letterSize,                     "y": Math.sin(letterAngle) * -letterSize},
-  "pointThree": { "x": (Math.tan(0.523599) * letterSize) * Math.sin(0.698132),  "y": (Math.tan(0.366519) * letterSize) * Math.cos(0.698132)},
-  "pointFour":  { "x": letterSize,                                              "y": 0},
-  "pointFive":  { "x": Math.cos(letterAngle) * -letterSize,                     "y": Math.sin(letterAngle) * letterSize},
-  "pointSix":   { "x": (Math.tan(0.523599) * letterSize) * Math.sin(0.698132),  "y": (Math.tan(0.366519) * -letterSize) * Math.cos(0.698132)},
+  "p1": { "ang": 270,   "dist": letterSize},
+    "p2": { "ang": 035,   "dist": letterSize},
+    "p3": { "ang": 210,   "dist": 0.5*letterSize},
+    "p4": { "ang": 270,   "dist": letterSize},
+    "p5": { "ang": 140,   "dist": letterSize},
+    "p6": { "ang": 330,   "dist": 0.6*letterSize},
 }
 
 const colorStroke = "#233f11";
@@ -70,23 +70,26 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
 
+  push();
+  blendMode(MULTIPLY)
+
+  angleMode(DEGREES);
+
   // determine parameters for triangle points
-  let p1 = createVector(letterData["pointOne"]["x"], letterData["pointOne"]["y"]);
-  let p2 = createVector(letterData["pointTwo"]["x"], letterData["pointTwo"]["y"]);
-  let p3 = createVector(letterData["pointThree"]["x"], letterData["pointThree"]["y"]);
-  let p4 = createVector(letterData["pointFour"]["x"], letterData["pointFour"]["y"]);
-  let p5 = createVector(letterData["pointFive"]["x"], letterData["pointFive"]["y"]);
-  let p6 = createVector(letterData["pointSix"]["x"], letterData["pointSix"]["y"]);
+  let p1 = createVector(0 - sin(letterData["p1"]["ang"]) * letterData["p1"]["dist"], 0 + cos(letterData["p1"]["ang"]) * letterData["p1"]["dist"]);
+  let p2 = createVector(0 - sin(letterData["p2"]["ang"]) * letterData["p2"]["dist"], 0 + cos(letterData["p2"]["ang"]) * letterData["p2"]["dist"]);
+  let p3 = createVector(0 - sin(letterData["p3"]["ang"]) * letterData["p3"]["dist"], 0 + cos(letterData["p3"]["ang"]) * letterData["p3"]["dist"]);
+  let p4 = createVector(0 - sin(letterData["p4"]["ang"]) * letterData["p4"]["dist"], 0 + cos(letterData["p4"]["ang"]) * letterData["p4"]["dist"]);
+  let p5 = createVector(0 - sin(letterData["p5"]["ang"]) * letterData["p5"]["dist"], 0 + cos(letterData["p5"]["ang"]) * letterData["p5"]["dist"]);
+  let p6 = createVector(0 - sin(letterData["p6"]["ang"]) * letterData["p6"]["dist"], 0 + cos(letterData["p6"]["ang"]) * letterData["p6"]["dist"]);
 
   //paper fill
-  fill(232, 232, 220, colourOpac);
+  //fill(232, 232, 220, colourOpac);
   //colour fill
-  //fill(255, 223, 17, colourOpac);
+  fill(80, 150, 255, colourOpac);
 
   push();
   translate(posx,posy);
-  angleMode(DEGREES);
-  rotate(random(-10,10));
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
@@ -95,9 +98,9 @@ function drawLetter(posx, posy, scale, letterData) {
   endShape(CLOSE);
 
   //paper fill
-  fill(242, 242, 242, colourOpac);
+  //fill(242, 242, 242, colourOpac);
   //colour fill
-  // fill(17, 215, 255,colourOpac);
+   fill(255, 50, 50,colourOpac);
 
   beginShape();
   vertex(0 - p4.x, 0 - p4.y);
@@ -108,8 +111,8 @@ function drawLetter(posx, posy, scale, letterData) {
   push();
   stroke(0,40);
   noFill();
-  //ellipse(0,0,5,5);
-  //ellipse(0,0,letterSize*2,letterSize*2);
+  ellipse(0,0,5,5);
+  ellipse(0,0,letterSize*2,letterSize*2);
   fill(0);
   // ellipse(0 - p1.x, 0 - p1.y,pointSize,pointSize);
   // ellipse(0 - p4.x, 0 - p4.y,pointSize,pointSize);
@@ -119,6 +122,7 @@ function drawLetter(posx, posy, scale, letterData) {
   // ellipse(0 - p6.x, 0 - p6.y,pointSize,pointSize);
   pop();
 
+  pop();
   pop();
 }
 
