@@ -35,10 +35,15 @@ function drawLetter(letterData) {
 
   stroke(255,255,255,200)
 
+strokeWeight(4)
+
   line(posx,posy,pos2x,pos2y)
-  line(posx,posy,pos3x,pos3y)
-  line(posx,posy,pos4x,pos4y)
-  line(pos2x,pos2y,pos3x,pos3y)
-  line(pos2x,pos2y,pos4x,pos4y)
+  line(posx,posy,pos3x,pos3y) 
   line(pos3x,pos3y,pos4x,pos4y)
+
+strokeWeight(2)
+ line(posx,posy,pos4x,pos4y)
+  line(pos2x,pos2y,pos4x,pos4y)
+  line(pos2x,pos2y,pos3x,pos3y)
+ 
 }
