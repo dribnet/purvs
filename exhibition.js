@@ -38,7 +38,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "90DEGREE",
   "1234567?",
   "EXPECTED",
   "PROPERTY",

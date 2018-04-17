@@ -21,7 +21,7 @@ const alphabet = {
       "offsetyV1": 0,
       "offsetyV2": 0
   },
-  "B": {
+      "B": {
       "lengthV1": 200,
       "lengthV2": 200,
       "offsetxV1": 0,
@@ -32,7 +32,7 @@ const alphabet = {
       "offsetyV1": 0,
       "offsetyV2": 0
   },
-  "C": {
+      "C": {
       "lengthV1": 200,
       "lengthV2": 200,
       "offsetxV1": 0,
@@ -43,7 +43,7 @@ const alphabet = {
       "offsetyV1": 0,
       "offsetyV2": 0
   },
-    "D": {
+      "D": {
       "lengthV1": 200,
       "lengthV2": 200,
       "offsetxV1": 0,
@@ -187,26 +187,26 @@ const alphabet = {
       "offsetyV2": 0
   },
       "Q": {
-      "lengthV1": 180,
+      "lengthV1": 190,
       "lengthV2": 200,
       "offsetxV1": 0,
       "offsetxV2": 75,
       "offsetyH1": 0,
-      "offsetyH2": 155,
-      "offsetyH3": 175,
+      "offsetyH2": 160,
+      "offsetyH3": 180,
       "offsetyV1": 0,
       "offsetyV2": 0
   },
       "R": {
       "lengthV1": 200,
-      "lengthV2": 180,
+      "lengthV2": 190,
       "offsetxV1": 0,
       "offsetxV2": 75,
-      "offsetyH1": 20,
+      "offsetyH1": 10,
       "offsetyH2": 80,
       "offsetyH3": 100,
       "offsetyV1": 0,
-      "offsetyV2": 20
+      "offsetyV2": 10
   },
       "S": {
       "lengthV1": 75,
