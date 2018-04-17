@@ -45,7 +45,7 @@ function drawLetter(letterData) {
   fill(176, 232, 111);
   let shadowX = x1 + 20;
   triangle(shadowX, y1, x2, y2, x3, y3);
-  //rect(130, 180, 70, 25);
+  
 
  
   //right triangle
@@ -71,6 +71,6 @@ function drawLetter(letterData) {
    new_letter["x6"] = map(percent, 0, 100, oldObj["x6"], newObj["x6"]);
    new_letter["x6"] = map(percent, 0, 100, oldObj["x6"], newObj["x6"]);
    return new_letter;
-  }
+}
 
 
