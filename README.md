@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018 Colours
    
-I tested out another idea, but this time I played around with the opacity. I gave both arcs a fill and made them both transparent slightly. Then for the stroke I made the out transparent and the inner solid. I think that the dark grey stroke on the inner arc is a bit harsh and stands out too much. I like the transparency on the outer arc stroke I think it looks pretty interesting. So far out of all of them I like this one and the black and white on the best. 
+I tested out some more colour this time instead of just white and grey I figured that it would look more interesting if it has a splash more colour. With this I like it better because it isn't just plain, it still is but it is more exciting than before. I think with the fill and opacity I will keep it this way because I like the look of it better. As for the animation I left it as it is because I liked the latest version of the animation tests I made a few commits ago. As for anything I might add I'm not sure I will but I will think about it. Next I will add in the exhibition to the code and see how it turns out. For names I was thinking of Crescent.
 
 
 pos2x this draws the x position of the first point 
