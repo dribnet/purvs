@@ -6,9 +6,6 @@ const alphabet = {
       "width":50
   },
   "A": {
-      "size": 50,
-      "offsetx": 0,
-      "offsety": 23,
 
       "pos_x1": 0,
       "pos_y1":170,
@@ -21,9 +18,6 @@ const alphabet = {
       "height_2":100
   },
   "B": {
-      "size": 100,
-      "offsetx": 0,
-      "offsety": 8,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -41,9 +35,6 @@ const alphabet = {
       "height_3":100
   },
   "C": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
 
       "pos_x1": 0,
       "pos_y1":170,
@@ -57,9 +48,6 @@ const alphabet = {
       
   },
    "D": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -77,9 +65,6 @@ const alphabet = {
       "height_3":20
   },
    "E": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -102,9 +87,6 @@ const alphabet = {
       "height_4":100
   },
    "F": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -122,9 +104,6 @@ const alphabet = {
       "height_3":20
   },
    "G": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":90,
@@ -138,9 +117,6 @@ const alphabet = {
 
   },
    "H": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":90,
@@ -158,9 +134,6 @@ const alphabet = {
       "height_3":100
   },
    "I": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
 
       "pos_x2": 0,
       "pos_y2": 90,
@@ -173,9 +146,6 @@ const alphabet = {
       "height_3":20
   },
   "J": {
-      "size": 50,
-      "offsetx": 0,
-      "offsety": 23,
 
       "pos_x1": 0,
       "pos_y1":170,
@@ -187,13 +157,12 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "c_posx": 50,
+      "c_posy": 135, 
       "c_width": 20,
       "c_height": 20
   },
   "K": {
-      "size": 100,
-      "offsetx": 0,
-      "offsety": 8,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -210,13 +179,12 @@ const alphabet = {
       "width_3":20,
       "height_3":100,
 
+      "c_posx": 50,
+      "c_posy": 135, 
       "c_width": 20,
       "c_height": 20
   },
   "L": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
 
       "pos_x1": 0,
       "pos_y1":170,
@@ -228,14 +196,13 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
       
   },
    "M": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -252,13 +219,12 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
   },
    "N": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -280,13 +246,12 @@ const alphabet = {
       "width_4":20,
       "height_4":100,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
   },
    "O": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":170,
@@ -303,13 +268,12 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
   },
    "P": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":90,
@@ -321,14 +285,13 @@ const alphabet = {
       "width_2":20,
       "height_2":100,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
 
   },
    "Q": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
       
       "pos_x1": 0,
       "pos_y1":90,
@@ -345,13 +308,12 @@ const alphabet = {
       "width_3":20,
       "height_3":100,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
   },
    "R": {
-      "size": 68,
-      "offsetx": 15,
-      "offsety": 0,
 
       "pos_x2": 0,
       "pos_y2": 90,
@@ -363,25 +325,141 @@ const alphabet = {
       "width_3":100,
       "height_3":20,
 
+      "c_posx": 50,
+      "c_posy": 135,
       "c_width": 20,
       "c_height": 20
   },
   "S": {
-      "size": 50,
-      "offsetx": 0,
-      "offsety": 23,
 
-      
-      "pos_x1": 01,
-      "pos_y1":170,
-      "width_1":90,
+      "pos_x1": 35,
+      "pos_y1":135,
+      "width_1":60,
       "height_1":20,
 
-      "pos_x2": 80,
-      "pos_y2": 90,
+      "pos_x2": 81,
+      "pos_y2": 85,
       "width_2":20,
-      "height_2":100,
+      "height_2":70,
 
       "r_letter":45
+  },
+  "T": {
+
+      "pos_x1": -10,
+      "pos_y1":140,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 40,
+      "pos_y2": 80,
+      "width_2":20,
+      "height_2":60,
+
+      "r_letter":320 //320
+  },
+  "U": {
+
+      "pos_x1": 40,
+      "pos_y1":140,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 40,
+      "pos_y2": 80,
+      "width_2":20,
+      "height_2":60,
+
+      "r_letter":40 //320
+  },
+  "V": {
+
+      "pos_x1": -15,
+      "pos_y1":85,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 35,
+      "pos_y2": 35,
+      "width_2":20,
+      "height_2":70,
+
+      "r_letter":225
+  },
+  "W": {
+
+      "pos_x1": 35,
+      "pos_y1":135,
+      "width_1":60,
+      "height_1":20,
+
+      "pos_x2": 81,
+      "pos_y2": 85,
+      "width_2":20,
+      "height_2":70,
+
+      "c_posx": 65,
+      "c_posy": 115,
+      "c_width": 20,
+      "c_height": 20,
+
+      "r_letter":45
+  },
+  "X": {
+
+      "pos_x1": -10,
+      "pos_y1":140,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 40,
+      "pos_y2": 80,
+      "width_2":20,
+      "height_2":60,
+
+      "c_posx": 20,
+      "c_posy": 120,
+      "c_width": 20,
+      "c_height": 20,
+
+      "r_letter":320 //320
+  },
+  "Y": {
+
+      "pos_x1": 40,
+      "pos_y1":140,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 40,
+      "pos_y2": 80,
+      "width_2":20,
+      "height_2":60,
+
+      "c_posx": 80,
+      "c_posy": 120,
+      "c_width": 20,
+      "c_height": 20,
+
+      "r_letter":40 //320
+  },
+  "Z": {
+
+      "pos_x1": -15,
+      "pos_y1":85,
+      "width_1":70,
+      "height_1":20,
+
+      "pos_x2": 35,
+      "pos_y2": 35,
+      "width_2":20,
+      "height_2":70,
+
+      "c_posx": 10,
+      "c_posy": 60,
+      "c_width": 20,
+      "c_height": 20,
+
+      "r_letter":225
   }
 }
