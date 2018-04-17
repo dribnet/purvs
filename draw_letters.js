@@ -1,6 +1,7 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+const colorFront  = "#4b4b4b";
+const colorStroke = "#999999";
 
+//Setup variables for line orientation
 let x1 = null;
 let x2 = null;
 let y1 = null;
@@ -18,23 +19,19 @@ function drawLetter(letterData) {
   fill(75);
   stroke(colorStroke);
 
-  // determine parameters for arcs
-  //let size2 = letterData["size"];
-  //let pos2x = 50+letterData["offsetx"];
-  //let pos2y = 150+letterData["offsety"];
-
+  //Setup the parameters
   let outer_arcStart = letterData["arcStart1"];
   let outer_arcEnd = letterData["arcEnd1"];
   let inner_arcStart = letterData["arcStart2"];
   let inner_arcEnd = letterData["arcEnd2"];
   let orient = letterData["lineOrient"];
 
+  //If statements for line orientations
   if(orient == 0){
     x1 = 50-40;
     x2 = 50+40;
     y1 = 100-40;
     y2 = 100-40;
-
   }
   if(orient == 1){
     x1 = 50-40;
@@ -79,19 +76,19 @@ function drawLetter(letterData) {
     y2 = 100-30;
   }
 
-  // draw two arcs and a line
+  //Setup drawing stuff
   noFill();
   stroke(220);
   angleMode(DEGREES);
 
   push();
-    scale(0.6);
+    scale(0.5); //Scale and translate to fit in 'alphabet display'
     translate(50, 70);
-    strokeWeight(12);
+    strokeWeight(12); //Draw outer arc
     arc(50, 100, 200, 200, outer_arcStart, outer_arcEnd);
-    strokeWeight(8);
+    strokeWeight(8);  //Draw inner arc
     arc(50, 100, 150, 150, inner_arcStart, inner_arcEnd);
-    strokeWeight(7);
+    strokeWeight(7);  //Draw inner line
     line(x1, y1, x2, y2);
   pop();
 }
