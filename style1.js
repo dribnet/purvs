@@ -9,72 +9,70 @@ let tilt3_slider = null;
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-const fW = canvasWidth/3;
-const fH = canvasHeight/3;
+const fW = canvasWidth/4;
+const fH = canvasHeight/4;
 
-let setStroke = 0;
-let numStroke = 0;
-let r = 0;
+let rand = false;
 
-const bWidth = 40;
-let fWidth = 0;
+let rotation = 0;
 
-let inter = 0;
+const shapes = ['rec', 'tri', 'cir'];
 
-let length = 0.0;
-let rA = 0.0; //The Angle Ratio
+const letterA = {
+  "Shape": 'tri',   
+  "angle1": 0,
+  "angle2": 255,
+  "posX": 0,
+  "posY": 0,
+  "scale1": 0,
+  "scale2": 0,
+}
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
+  noLoop();
   angleMode(DEGREES);
 }
 
-function calculate(ang){
-	rA = ang - (Math.floor(ang/90));
-	length = (fW + (fW*(1-Math.sin(ang))));
-}
-
-function artStroke(ang, x){
-    line((canvasWidth/fun[1])*cS, canvasHeight/2, (canvasWidth/fun[1])*(cS+1), canvasHeight/2);
-    rotate((fun[cS]));
-    artStroke(cS, A[]);
-  } 
-}
-
-function letter(array[]){
-	for(i:array.length){
-		artStroke(array[i]);
-	}
-}
-
-/*
-function rGen(){
-  r = Math.floor(random(0, 40));
-  fWidth = bWidth - r;
-}*/
-
 function draw(){
-  background('#80dfff');
-  fill(0);
-  calculate(45);
-  ellipse(canvasWidth/3, canvasHeight/3, 100, 100);
-  //artStroke(A[1], A);
+  background('grey');
+  strokeWeight(4);
+  stroke(255);
+  noFill();
+  letter(letterA);
 }
 
-// let savedValues = {
-//   "A":
-//     {
-//       artStroke(255, 0, 0, 0);
-//       },
-//       artStroke(315, 0, 0, 0);
-//       },
-//       artStroke(0, 0, 0, 0);
-//       }
-//     }
-// }
+function letter(letterData){
+	if(rand == false){var shape = letterData["Shape"];}
+	else{var shape = random(shapes);};
 
-// const A = [225, 0, 315];
+	let angle1 = letterData['angle1'];
+	let angle2 = letterData['angle2'];
+	let scale1 = letterData['scale1'];
+	let scale2 = letterData['scale2'];
+	let posX = letterData['posX'];
+	let posY = letterData['posY'];
+
+	if(shape == ('rec')){
+		rotate(360-angle1);
+		rect(fW, fH, scale1, scale1);
+		rotate(360-angle2);
+		rect(fW+posX, fH+posY, scale2, scale2);
+	}
+	else if(shape == ('tri')){
+		rotate(360-angle1);
+		triangle(fW, fH, scale1, fH+scale1, fW+scale1, fH);
+		rotate(360-angle2);
+		triangle(fW+posX, fH+posY, scale2, fH+scale2, fW+scale2, fH);
+	}
+	else if(shape == ('cir')){
+		rotate(360-angle1);
+		ellipse(fW, fH, scale1);
+		rotate(360-angle2);
+		ellipse(fW+posX, fH+posY, scale2);
+	};
+}
 
 function keyTyped() {
   if (key == '!') {
