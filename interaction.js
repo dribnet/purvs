@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-var Alpha = 255
+//var Alpha = 255
 const colorFront  = "#199cff";
 const colorBack   = [183, 143, 115];
 //refactured to add fade animation
