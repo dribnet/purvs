@@ -1,5 +1,6 @@
 const colorFront  = "#199cff";
 
+//drawing in the individual part//
 function drawPart(posx, posy, scale, offsetx, offsety, tilt, change) {
 
 
@@ -165,6 +166,8 @@ if(change == 1){
 
 }
 
+
+//drawing or adding a part from the DrawPart functions//
 function drawLetter(letterData) {
 
   let posx=100;
@@ -220,6 +223,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
+//adding words//
 var swapWords = [
   "ADORABLE",
   "DELICATE",
