@@ -48,28 +48,6 @@ function drawLetter(letterData) {
 
 }
 
-//interaction code
-function interpolate_letter(percent, oldObj, newObj){
-  let new_letter = {};
-  new_letter["x1"] = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
-  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
-  new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
-  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
-  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
-  new_letter["z1"] = map(percent, 0, 100, oldObj["z1"], newObj["z1"]);
-  new_letter["z2"] = map(percent, 0, 100, oldObj["z2"], newObj["z2"]);
-  new_letter["z3"] = map(percent, 0, 100, oldObj["z3"], newObj["z3"]);
-  new_letter["z4"] = map(percent, 0, 100, oldObj["z4"], newObj["z4"]);
-  return new_letter;
- }
 
- var swapWords = [
- "STRAIGHT",
- "PLEASING",
- "YEAH NAH"
- ]
 
 
