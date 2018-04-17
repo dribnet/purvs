@@ -1,50 +1,64 @@
-const canvasWidth = 960;
-const canvasHeight = 500;
-const stripeWidth = 10;
-const colorFront = [0, 0, 0];
+
+const colorQuad = [200, 200, 200];
+const colorCircle = [0, 0, 0];
 const colorBack = [255, 255, 255];
 
+const canvasWidth = 960;
+const canvasHeight = 500;
+
+const ballSize = 80;
+
+const arrowLP = [-120, 100];
+const arrowTP = [0, -100];
+const arrowRP = [120, 100];
+const arrowBP = [0, 40];
+
 /* 
- * my eight variable per letter are:
+ * my nine variables per letter are:
  *
-    line1(2) length: length of line
-    line1(2) tilt: angle in degrees of line
-    line1(2) x: x axis position of line
-    line1(2) y: y axis position of line
+    stretch x: stretches the arrow shape on the original x axis
+    stretch y: stretches the arrow shape on the original y axis
+	tilt: rotates the arrow in degrees
+    ball1(2) vis: visibility of the ball
+    ball1(2) x: x axis position of ball
+    ball1(2) y: y axis position of ball
  *
  */
 
 const letterA = {
+	"stretch X": 0,
+	"stretch Y": 0,
+	"tilt": 0,
+	"visibility1": 0,
 	"position1 X": 0,
-	"position1 Y": -85,
-	"tilt1": 0,
-	"length1": 100,
+	"position1 Y": 0,
+	"visibility2": 0,
 	"position2 X": 0,
 	"position2 Y": 0,
-	"tilt2": 0,
-	"length2": 0,
 }
 
 const letterB = {
-	"position1 X": -10,
-	"position1 Y": -85,
-	"tilt1": -30,
-	"length1": 100,
-	"position2 X": -10,
-	"position2 Y": -85,
-	"tilt2": 25,
-	"length2": 200,
+	"stretch X": 30,
+	"stretch Y": -30,
+    "tilt": -90,
+	"visibility1": 1,
+    "position1 X": 70,
+	"position1 Y": -70,
+	"visibility2": 1,
+    "position2 X": 70,
+	"position2 Y": 70,
 }
 
 const letterC = {
-	"position1 X": 35,
-	"position1 Y": -40,
-	"tilt1": -105,
-	"length1": 150,
-	"position2 X": 40,
-	"position2 Y": -50,
-	"tilt2": 19,
-	"length2": 150,
+	"stretch X": 30,
+	"stretch Y": -30,
+	"tilt": -90,
+	"visibility1": 0,
+	"position1 X": 0,
+	"position1 Y": 0,
+	"visibility2": 0,
+	"position2 X": 0,
+	"position2 Y": 0,
 }
 
 function setup () {
@@ -57,36 +71,37 @@ function setup () {
 }
 
 function drawLetter(posx, posy, scale, letterData) {
+  stretchx = letterData["stretch X"];
+  stretchy = letterData["stretch Y"];
+  tilt = letterData["tilt"];
   posx1 = posx + letterData["position1 X"];
   posy1 = posy + letterData["position1 Y"];
-  tilt1 = letterData["tilt1"];
-  len1 = letterData["length1"];
+  vis1 = letterData["visibility1"];
   posx2 = posx + letterData["position2 X"];
   posy2 = posy + letterData["position2 Y"];
-  tilt2 = letterData["tilt2"];
-  len2 = letterData["length2"];
+  vis2 = letterData["visibility2"];
 
   angleMode(DEGREES);
-  
-  //draw black background triangle
   noStroke();
-  fill(colorFront);
-  triangle(posx, posy, posx + 150, posy, posx, posy - 180);
   
-  //draw 2 white stripes
-  fill(colorBack);
-  drawStripe(posx1, posy1, tilt1, len1);
-  drawStripe(posx2, posy2, tilt2, len2);
-  
+  //draw 2 black circles
+  fill(colorCircle);
+  drawBall(vis1, posx1, posy1);
+  drawBall(vis2, posx2, posy2);
+ 
+  //draw arrow quad
+  fill(colorQuad);
+  push();
+  translate(posx, posy);
+  rotate(tilt);
+  quad(arrowLP[0] - stretchx, arrowLP[1], arrowTP[0], arrowTP[1] - stretchy, arrowRP[0] + stretchx, arrowRP[1], arrowBP[0], arrowBP[1]);
+  pop();
 }
 
-function drawStripe(x, y, t, l){
-  push();
-  translate(x, y);
-  rotate(t);
-  rect(0, 0, l, stripeWidth);
-  pop();
-	
+function drawBall(v, x, y){
+  if(v==1){
+	ellipse(x, y, ballSize, ballSize);
+  }
 }
 
 function draw () {
@@ -111,3 +126,4 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
