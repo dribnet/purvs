@@ -19,5 +19,5 @@ The eight parameters per letter:
   * `offsety3`: Controls the Y offset of Arc3
   * `offsety4`: Controls the Y offset of Arc4
 
-At first I only wanted the parameters for rotationa and offsetx but through the course of the project with other letters i found that adding parameters for offsety made it easier to move and clean up.
+At first I only wanted the parameters for rotation and offsetx but through the course of the project with other letters i found that adding parameters for offsety made it easier to move and clean up.
 
