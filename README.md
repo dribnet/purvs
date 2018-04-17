@@ -1,6 +1,8 @@
 ## PS2 MDDN 242 2018
 
-I have started boxing out my alphabet. I have started with the two triangles but still wanting to put a line in the centre of some or most letters if i can. I will now look at finishing my alphabet and numbers as well as the colours.
+I finished boxing out my alphabet and my numbers. I have stuck to just using the two triangles and found that making my alphabet both legible and nice to look at was easier as opposed to my numbers which i found harder to create using just the two triangles thus they are harder to define. I may look at refining these numbers more and try get each to resemble their assigned number more. 
+
+Overall i am happy with my progress and how my alphabet is turning out. I also changed the colours to blue and red which i think complement each other more than the previous orange and purple i had that was too overpowering reminding me more of a roadcone. I will now look at making these small changes as well as thinking of a name for my font + exhibition words.
 
 The parameters per letter are now:
   let pos1x = posx + letterData["x"];

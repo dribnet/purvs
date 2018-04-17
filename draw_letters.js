@@ -11,8 +11,8 @@ const colorStroke = "#DE5A78";
  */
 function drawLetter(letterData) {
 
-//  rect(0, 0, 100, 200);
-//  line(0, 100, 100, 100);
+    //bounding box
+//  rect(0, 0, 100, 200); 
 
 
   // color/stroke setup
@@ -20,13 +20,14 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
+  //parameters for first triangle
   let pos1x = letterData["x"];
   let pos1y = letterData["y"];
   let pos2x = letterData["2x"];
   let pos2y = letterData["2y"];
   let pos3x = letterData["3x"];
   let pos3y = letterData["3y"];
-    
+  //parameters for second triangle  
   let pos4x = letterData["4x"];
   let pos4y = letterData["4y"];
   let pos5x = letterData["5x"];
@@ -34,13 +35,13 @@ function drawLetter(letterData) {
   let pos6x = letterData["6x"];
   let pos6y = letterData["6y"];
 
+  //draw two triangles
   triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
   triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
 }
 
  function interpolate_letter(percent, oldObj, newObj){
    let new_letter = {};
-   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
    new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
    new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
    new_letter["2x"] = map(percent, 0, 100, oldObj["2x"], newObj["2x"]);
@@ -55,3 +56,11 @@ function drawLetter(letterData) {
    new_letter["6y"] = map(percent, 0, 100, oldObj["6y"], newObj["6y"]);
    return new_letter;
  }
+
+ //  var swapWords = [
+ // "NAME",
+ // "HUMILITY",
+ // "KINDNESS",
+ // "DETACHED",
+ // "PATIENCE"
+ // ]
