@@ -9,8 +9,8 @@ function drawLetter(letterData) {
   angleMode(DEGREES)
 //triangle and line parameters 
   let offset1 = letterData["offset1"] //x of 1st triangle and line
-  let offset2 = letterData["offset2"] //x of 2nd triangle and line
-  let offset3 = letterData["offset3"] //y of 1st triangle and line
+  let offset2 = letterData["offset2"] //y of 1st triangle and line
+  let offset3 = letterData["offset3"] //x of 2nd triangle and line
   let offset4 = letterData["offset4"] //y of 2nd triangle and line
   let rot1 = letterData["rotate1"]; //rotate of 1st triangle and line
   let rot2 = letterData["rotate2"]; //rotate of 2nd triangle and line

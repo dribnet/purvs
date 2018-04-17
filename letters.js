@@ -72,7 +72,6 @@ const alphabet = {
   "rotate2": 328
 },
 
-//Needs doing
 "H": {
   "offset1": 100,
   "offset2": 0,
@@ -82,32 +81,31 @@ const alphabet = {
   "rotate2": 270
 },
 "I": {
-  "offset1": 100,
-  "offset2": -70,
+  "offset1": -120,
+  "offset2": -55,
   "offset3": -100,
-  "offset4": -10,
-  "rotate1": 90,
+  "offset4": 12,
+  "rotate1": 210,
   "rotate2": 270
 },
 
-//Needs doing
 "J": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
-  "rotate1": 0,
-  "rotate2": 0
+  "offset1": -20,
+  "offset2": -100,
+  "offset3": -50,
+  "offset4": -50,
+  "rotate1": 180,
+  "rotate2": 180
 },
 
 //Needs doing
 "K": {
   "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
-  "rotate1": 0,
-  "rotate2": 0
+  "offset2": -70,
+  "offset3": 110,
+  "offset4": -98,
+  "rotate1": 180,
+  "rotate2": 120
 },
 
 "L": {
@@ -138,61 +136,57 @@ const alphabet = {
 },
 
 "O": {
-  "offset1": -120,
-  "offset2": -55,
+  "offset1": 100,
+  "offset2": -70,
   "offset3": -100,
-  "offset4": 12,
-  "rotate1": 210,
-  "rotate2": 270
-},
-
-//Needs doing
-"P": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
-  "rotate1": 0,
-  "rotate2": 0
-},
-
-//Needs doing
-"Q": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
-  "rotate1": 0,
-  "rotate2": 0
-},
-
-//Needs doing
-"R": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
-  "rotate1": 0,
-  "rotate2": 0
-},
-
-"S": {
-  "offset1": 130,
-  "offset2": 0,
-  "offset3": -60,
-  "offset4": 20,
+  "offset4": -10,
   "rotate1": 90,
   "rotate2": 270
 },
 
-//Needs doing
-"T": {
-  "offset1": -80,
-  "offset2": -80,
+"P": {
+  "offset1": 50,
+  "offset2": -70,
   "offset3": 50,
   "offset4": -100,
-  "rotate1": 200,
-  "rotate2": 160
+  "rotate1": 90,
+  "rotate2": 150
+},
+
+"Q": {
+  "offset1": -110,
+  "offset2": 0,
+  "offset3": -110,
+  "offset4": 50,
+  "rotate1": 270,
+  "rotate2": 270
+},
+
+"R": {
+  "offset1": 50,
+  "offset2": -70,
+  "offset3": 102,
+  "offset4": -85,
+  "rotate1": 120,
+  "rotate2": 120
+},
+
+"S": {
+  "offset1": 120,
+  "offset2": 0,
+  "offset3": 48,
+  "offset4": 30,
+  "rotate1": 90,
+  "rotate2": 30
+},
+
+"T": {
+  "offset1": 0,
+  "offset2": 107,
+  "offset3": 100,
+  "offset4": -12,
+  "rotate1": 30,
+  "rotate2": 90
 },
 
 "U": {
