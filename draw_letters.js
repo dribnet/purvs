@@ -46,3 +46,8 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
   return new_letter;
  }
+
+
+var swapWords = [
+"SQUARED2",
+]
