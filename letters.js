@@ -212,13 +212,17 @@ const alphabet = {
     //"XY": 80
   },
   "P": {
-    "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
-    "size": 80,
-    "offsetx": -40,
-    "offsety": -40,
-    "rotate": 40, 
+     "sizeRect": 40,
+    "positionX": 20,
+    "positionY": 165,
+
+    "size": 60,
+    "offsetx": -30,
+    "offsety": -45,
+    "rotate": 0, 
+    //"yR" : 40,
+    "xR" : 0
+
     //"XZ": 140,
     //"XY": 80
   },
@@ -248,43 +252,59 @@ const alphabet = {
     "offsety": -80,
 
     "rotate": 40,
+    "yR" : 40,
     "xR" : 44,
 
     "XZ": 81,
     "XY": 43
   },
   "S": {
-    "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
-    "size": 80,
-    "offsetx": -40,
+   "sizeRect": 40,
+    "positionX": 110,
+    "positionY": 0,
+
+    "size": 60,
+
+    "offsetx": -30,
     "offsety": -40,
-    "rotate": 40, 
-    //"XZ": 140,
-   // "XY": 80
+
+    "rotate": 44,
+    "yR" : 44,
+    "xR" : 0,
+
+    "XZ": 120,
+    "XY": 100
   },
   "T": {
     "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
-    "size": 80,
-    "offsetx": -40,
-    "offsety": -40,
-    "rotate": 40, 
-    "XZ": 140,
-    "XY": 80
+    "positionX": 10,
+    "positionY": 110,
+
+    "size": 60,
+
+    "offsetx": 80,
+    "offsety": -80,
+
+    "rotate": 0,
+    "yR" : 0,
+    "xR" : 44,
+
+    "XZ": 50,
+    "XY": 110
   },
   "U": {
-    "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
+    "sizeRect": 60,
+    "positionX": 20,
+    "positionY": 105,
+
     "size": 80,
     "offsetx": -40,
     "offsety": -40,
-    "rotate": 40, 
-    "XZ": 140,
-    "XY": 80
+
+    "rotate": 0, 
+
+    //"XZ": 140,
+   // "XY": 80
   },
   "V": {
    "sizeRect": 80,

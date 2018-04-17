@@ -20,7 +20,7 @@ function drawLetter(letterData) {
   //showbounding boxes
   noFill();
   //stroke ('red');
-  //rect (0,0,100,200);
+  rect (0,0,100,200);
 
 
   // determine parameters for second circle
@@ -53,7 +53,7 @@ function drawLetter(letterData) {
     //fill(203, 206, 119,90);
     fill (203, 206, 119);
     ellipse (50,135,120,120);
-    stroke (112, 124, 99);
+    stroke (112, 124, 99,80);
   
   
     push ();
@@ -99,15 +99,14 @@ function drawLetter(letterData) {
     new_letter["positionY"] =map(percent,0,100,oldObj["positionY"],newObj["positionY"]);
     new_letter["rotate"] =map(percent,0,100,oldObj["rotate"],newObj["rotate"]);
     new_letter["size"] =map(percent,0,100,oldObj["size"],newObj["size"]);
+    new_letter["offsetx"] =map(percent,0,100,oldObj["offsetx"],newObj["offsetx"]);
+    new_letter["offsety"] =map(percent,0,100,oldObj["offsety"],newObj["offsety"]);
+    new_letter["xR"] =map(percent,0,100,oldObj["xR"],newObj["xR"]);
+    new_letter["XZ"] =map(percent,0,100,oldObj["XZ"],newObj["XZ"]);
+    new_letter["yR"] =map(percent,0,100,oldObj["yR"],newObj["yR"]);
+    new_letter["XY"] =map(percent,0,100,oldObj["XY"],newObj["XY"]);
     return new_letter;
 
-    // "sizeRect": 80,
-    //   "positionX": 120,
-    //   "positionY": 50,
-    //   "size": 100,
-    //   "offsetx": 0,
-    //   "offsety": -15,
-    //   "rotate": 44
 
 
 
