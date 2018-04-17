@@ -16,27 +16,27 @@ function drawLetter(letterData) {
 
 
 
-//line 1 parameter
+//line 1 = line(x1,y1,x2,y2)
 
  let xval1 = letterData["x1"]; 
  let xval2 = letterData["x2"];
   let xval3 = letterData["x3"];
  let xval4 = letterData["x4"];
 
-//line 2 parameter
+//line 2 = line(x1,y1,x2,y2)
  let yval1 = letterData["y1"];
  let yval2 = letterData["y2"];
   let yval3 = letterData["y3"];
  let yval4 = letterData["y4"];
 
-//line 3 parameter
+//line 3 = line(x1,y1,x2,y2)
  let zval1 = letterData["z1"];
  let zval2 = letterData["z2"];
   let zval3 = letterData["z3"];
  let zval4 = letterData["z4"];
 
 
-//draw lines
+//line(x1,y1,x2,y2)
   strokeWeight(10);
  line(xval1, xval2,xval3,xval4);
 
