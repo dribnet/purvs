@@ -77,7 +77,7 @@ function drawLetter(letterData) {
   }
 
   //Setup drawing stuff
-  noFill();
+  fill(255, 40);
   stroke(220);
   angleMode(DEGREES);
 

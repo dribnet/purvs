@@ -8,10 +8,11 @@ I now have a full alphabet, A-Z, and a default icon. I still need to tweek some 
 I have also started to develop a new alphabet that has two outer arcs and then a line on the inside that can be oriented in one of four postions. In my next commit I will have this new alphabet working.
 -I have now changed my alphabet so that it has two outer arcs and a line inside, the line has six possible positions. i'm not sure if I will use this version as my final or the original three arc design, but I will finish the alphabet first and see which one looks better then.
 -I have finished the alphabet and numbers for my 'line' typeface, I like this design more than my previous 'concetric' design. I had to add two extra orientations for the inner line, diagonals, to complete every letter and number. I am now adjusting some of the letters so they look better and I am going to play around with some extra things like fills to add extra 'pizzaz' to the typeface
+-I have added a translucent fill to the arcs, this gives some substantiality to the letter forms, completely changing the silhouette and gives them mass. I had to go back and rework most the letters to better fit with the fill but I like them much more and think it is now a lot more legible. I now need to tweek the animtions between letter if I can and add my own words to the exhibition.
 
 --
 
-My alphabet includes two concentric arcs and a line inside them, the arcs do not change size or position only the angles of the ends. To form my letters the arcs change 'length,' I have 5 parameters per letter, these are the angles for each end of each arc and an orientation parameter for the line, the lines has eight postions which are the outside edges of a square and then horizontal or vertical inside it, the line can be of of each of these, the values for each position are stored in if statements which are called by which number orientation is set at. The outer arc is also thicker and the inner arc and line thinner to add some visual differences
+My alphabet includes two concentric arcs and a line inside them, the arcs do not change size or position only the angles of the ends, the arcs also have a translucent fill to them to add mass and shape. To form my letters the arcs change 'length,' I have 5 parameters per letter, these are the angles for each end of each arc and an orientation parameter for the line, the lines has eight postions which are the outside edges of a square and then horizontal or vertical inside it, the line can be of of each of these, the values for each position are stored in if statements which are called by which number orientation is set at. The outer arc is also thicker and the inner arc and line thinner to add some visual differences
 
 The six parameters per letter are now:
 	`Outer Arc`
@@ -20,4 +21,4 @@ The six parameters per letter are now:
 	`Middle Arc`
 		*`Arc Start`: angle of one end of the arc
 		*`Arc End`: angle of the other end of the arc
-	`Line Orientation`: chooses one of eight positions
+	`Line Orientation`: chooses one of eight positions for the line

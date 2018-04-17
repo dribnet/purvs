@@ -37,9 +37,15 @@ let isSwappingWords = true;
 let secondsPerWord = 8;
 let curSwapWord = 0;
 
+var swapWords = [
+  "ARCLINES",
+  "DISASTER",
+
+]
+
 var defaultSwapWords = [
   "ACTUALLY",
-  "1234567?",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",

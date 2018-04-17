@@ -17,16 +17,16 @@ const alphabet = {
 },
   "B":
   {
-  "arcStart1": 236,
-  "arcEnd1": 123,
-  "arcStart2": 275,
-  "arcEnd2": 0,
+  "arcStart1": 259,
+  "arcEnd1": 105,
+  "arcStart2": 0,
+  "arcEnd2": 105,
   "lineOrient": 4
 },
   "C":
   {
-  "arcStart1": 52,
-  "arcEnd1": 309,
+  "arcStart1": 57,
+  "arcEnd1": 305,
   "arcStart2": 57,
   "arcEnd2": 305,
   "lineOrient": 2
@@ -35,8 +35,8 @@ const alphabet = {
   {
   "arcStart1": 242,
   "arcEnd1": 117,
-  "arcStart2": 238,
-  "arcEnd2": 121,
+  "arcStart2": 269,
+  "arcEnd2": 91,
   "lineOrient": 2
 },
   "E":
@@ -49,17 +49,17 @@ const alphabet = {
 },
   "F":
   {
-  "arcStart1": 109,
-  "arcEnd1": 320,
-  "arcStart2": 180,
+  "arcStart1": 90,
+  "arcEnd1": 318,
+  "arcStart2": 90,
   "arcEnd2": 318,
   "lineOrient": 4
 },
   "G":
   {
-  "arcStart1": 6,
-  "arcEnd1": 270,
-  "arcStart2": 5,
+  "arcStart1": 0,
+  "arcEnd1": 271,
+  "arcStart2": 0,
   "arcEnd2": 90,
   "lineOrient": 4
 },
@@ -73,50 +73,50 @@ const alphabet = {
 },
   "I":
   {
-  "arcStart1": 65,
-  "arcEnd1": 113,
-  "arcStart2": 247,
-  "arcEnd2": 293,
+  "arcStart1": 75,
+  "arcEnd1": 103,
+  "arcStart2": 255,
+  "arcEnd2": 286,
   "lineOrient": 5
 },
   "J":
   {
-  "arcStart1": 326,
-  "arcEnd1": 139,
-  "arcStart2": 326,
-  "arcEnd2": 134,
+  "arcStart1": 240,
+  "arcEnd1": 138,
+  "arcStart2": 272,
+  "arcEnd2": 138,
   "lineOrient": 0
 },
   "K":
   {
-  "arcStart1": 118,
-  "arcEnd1": 242,
-  "arcStart2": 37,
-  "arcEnd2": 134,
-  "lineOrient": 7
+  "arcStart1": 41,
+  "arcEnd1": 90,
+  "arcStart2": 270,
+  "arcEnd2": 320,
+  "lineOrient": 5
 },
 
   "L":
   {
-  "arcStart1": 35,
-  "arcEnd1": 236,
-  "arcStart2": 38,
-  "arcEnd2": 142,
+  "arcStart1": 30,
+  "arcEnd1": 271,
+  "arcStart2": 148,
+  "arcEnd2": 216,
   "lineOrient": 1
 },
   "M":
   {
-  "arcStart1": 142,
-  "arcEnd1": 38,
-  "arcStart2": 178,
-  "arcEnd2": 0,
+  "arcStart1": 141,
+  "arcEnd1": 36,
+  "arcStart2": 67,
+  "arcEnd2": 110,
   "lineOrient": 5
 },
   "N":
   {
   "arcStart1": 145,
   "arcEnd1": 38,
-  "arcStart2": 233,
+  "arcStart2": 269,
   "arcEnd2": 38,
   "lineOrient": 2
 },
@@ -130,34 +130,34 @@ const alphabet = {
 },
   "P":
   {
-  "arcStart1": 114,
-  "arcEnd1": 249,
-  "arcStart2": 252,
+  "arcStart1": 90,
+  "arcEnd1": 360,
+  "arcStart2": 270,
   "arcEnd2": 0,
   "lineOrient": 4
 },
   "Q":
   {
-  "arcStart1": 69,
-  "arcEnd1": 23,
-  "arcStart2": 66,
-  "arcEnd2": 26,
+  "arcStart1": 45,
+  "arcEnd1": 18,
+  "arcStart2": 45,
+  "arcEnd2": 18,
   "lineOrient": 1
 },
   "R":
   {
-  "arcStart1": 117,
-  "arcEnd1": 331,
-  "arcStart2": 121,
-  "arcEnd2": 325,
+  "arcStart1": 56,
+  "arcEnd1": 360,
+  "arcStart2": 269,
+  "arcEnd2": 360,
   "lineOrient": 2
 },
   "S":
   {
-  "arcStart1": 39,
-  "arcEnd1": 139,
-  "arcStart2": 217,
-  "arcEnd2": 314,
+  "arcStart1": 44,
+  "arcEnd1": 150,
+  "arcStart2": 224,
+  "arcEnd2": 330,
   "lineOrient": 6
 },
   "T":
@@ -172,7 +172,7 @@ const alphabet = {
   {
   "arcStart1": 325,
   "arcEnd1": 215,
-  "arcStart2": 54,
+  "arcStart2": 90,
   "arcEnd2": 215,
   "lineOrient": 3
 },
@@ -180,40 +180,40 @@ const alphabet = {
   {
   "arcStart1": 325,
   "arcEnd1": 215,
-  "arcStart2": 321,
-  "arcEnd2": 119,
+  "arcStart2": 326,
+  "arcEnd2": 89,
   "lineOrient": 2
 },
   "W":
   {
   "arcStart1": 325,
   "arcEnd1": 215,
-  "arcStart2": 66,
-  "arcEnd2": 114,
+  "arcStart2": 253,
+  "arcEnd2": 289,
   "lineOrient": 5
 },
   "X":
   {
-  "arcStart1": 29,
-  "arcEnd1": 51,
-  "arcStart2": 215,
-  "arcEnd2": 235,
+  "arcStart1": 315,
+  "arcEnd1": 44,
+  "arcStart2": 135,
+  "arcEnd2": 225,
   "lineOrient": 7
 },
   "Y":
   {
-  "arcStart1": 336,
-  "arcEnd1": 115,
-  "arcStart2": 328,
-  "arcEnd2": 41,
-  "lineOrient": 6
+  "arcStart1": 223,
+  "arcEnd1": 135,
+  "arcStart2": 223,
+  "arcEnd2": 316,
+  "lineOrient": 7
 },
   "Z":
   {
-  "arcStart1": 47,
+  "arcStart1": 43,
   "arcEnd1": 135,
-  "arcStart2": 221,
-  "arcEnd2": 318,
+  "arcStart2": 222,
+  "arcEnd2": 317,
   "lineOrient": 7
 },
 "0":
@@ -227,74 +227,74 @@ const alphabet = {
   "1":
   {
   "arcStart1": 75,
-  "arcEnd1": 104,
-  "arcStart2": 228,
+  "arcEnd1": 103,
+  "arcStart2": 180,
   "arcEnd2": 271,
   "lineOrient": 5
 },
   "2":
   {
-  "arcStart1": 193,
-  "arcEnd1": 321,
-  "arcStart2": 44,
+  "arcStart1": 215,
+  "arcEnd1": 137,
+  "arcStart2": 36,
   "arcEnd2": 137,
   "lineOrient": 7
 },
   "3":
   {
-  "arcStart1": 221,
-  "arcEnd1": 318,
+  "arcStart1": 223,
+  "arcEnd1": 331,
   "arcStart2": 331,
-  "arcEnd2": 158,
+  "arcEnd2": 147,
   "lineOrient": 0
 },
   "4":
   {
-  "arcStart1": 181,
-  "arcEnd1": 295,
-  "arcStart2": 352,
+  "arcStart1": 180,
+  "arcEnd1": 270,
+  "arcStart2": 347,
   "arcEnd2": 12,
-  "lineOrient": 3
+  "lineOrient": 5
 },
   "5":
   {
-  "arcStart1": 229,
-  "arcEnd1": 284,
-  "arcStart2": 329,
-  "arcEnd2": 142,
+  "arcStart1": 226,
+  "arcEnd1": 317,
+  "arcStart2": 226,
+  "arcEnd2": 138,
   "lineOrient": 0
 },
   "6":
   {
-  "arcStart1": 337,
-  "arcEnd1": 270,
-  "arcStart2": 330,
-  "arcEnd2": 211,
-  "lineOrient": 0
+  "arcStart1": 360,
+  "arcEnd1": 258,
+  "arcStart2": 360,
+  "arcEnd2": 180,
+  "lineOrient": 4
 },
   "7":
   {
-  "arcStart1": 236,
-  "arcEnd1": 96,
-  "arcStart2": 236,
+  "arcStart1": 213,
+  "arcEnd1": 90,
+  "arcStart2": 213,
   "arcEnd2": 0,
   "lineOrient": 4
 },
   "8":
   {
   "arcStart1": 0,
-  "arcEnd1": 178,
-  "arcStart2": 180,
-  "arcEnd2": 360,
+  "arcEnd1": 360,
+  "arcStart2": 0,
+  "arcEnd2": 179,
   "lineOrient": 4
 },
   "9":
   {
-  "arcStart1": 157,
-  "arcEnd1": 87,
-  "arcStart2": 149,
-  "arcEnd2": 32,
-  "lineOrient": 1
+  "arcStart1": 180,
+  "arcEnd1": 105,
+  "arcStart2": 180,
+  "arcEnd2": 0,
+  "lineOrient": 4
 }
 
 }  
