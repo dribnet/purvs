@@ -1,5 +1,5 @@
-const colorBack    = "#253d63";
-const colorLines   = "#eaf1fc";
+const colorBack    = "#8fa3ba";
+const colorLines   = "#ffffff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter

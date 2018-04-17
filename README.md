@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
-So this is the same interpolation code. i was just exploring into different colours of the background and lines. I wanted to take through 3 really clean colours into the typefront. So i went with a dark blue for the solid thicker line - as i wanted the colour to reference the stability/dominance of it. then used a white for the smaller lines to not distract away from the typeface. Then a very soft light blue/purple. 
+This is the exhibition file, i decided to return back to the 2 colour scheme as having the dark blue on the thick line made it a lot harder to read as the letters are close together, and didn't look that nice. Thinking of some words for my typography Im thinking of words like formal, lined out, structured, dominant. A word that supports the ideas wanted to express. Overall im happy with the typography, its nice and simpy making it easy to read which i wanted to be a key theme in this project, as well as all the letters all look like they have the same format. 
+
+Looking at the format of the letters in the exhibition i changed some of my letters, and created a bit more of a gap between the letters. So a few updates on their positions
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point

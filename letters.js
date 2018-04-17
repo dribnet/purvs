@@ -1,40 +1,40 @@
 const alphabet = {
   "default": {
       //line1
-       "ptx": 0,
-       "pty": 0,
-       "ptx2": 0,
+       "ptx": 35,
+       "pty": 200,
+       "ptx2": 85,
        "pty2": 200,
 
       //line2
-       "ptx3": 10,
-       "pty3": 0,
-       "ptx4": 10,
-       "pty4": 200,
+       "ptx3": 20,
+       "pty3": 180,
+       "ptx4": 70,
+       "pty4": 180,
 
       //line3
-       "ptx5": 20,
-       "pty5": 0,
-       "ptx6": 20,
-       "pty6": 200,
+       "ptx5": 15,
+       "pty5": 160,
+       "ptx6": 65,
+       "pty6": 160,
 
       //line 4
-       "ptx7": 30,
-       "pty7": 0,
-       "ptx8": 30,
-       "pty8": 200,
+       "ptx7": 10,
+       "pty7": 140,
+       "ptx8": 60,
+       "pty8": 140,
   },
   "A": {
       //line1
-       "ptx": 100,
+       "ptx": 90,
        "pty": 200,
-       "ptx2": 100,
-       "pty2": 80,
+       "ptx2": 90,
+       "pty2": 90,
 
       //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
       //line3
@@ -52,24 +52,24 @@ const alphabet = {
   "B": {
     //line1
       "ptx": 0,
-      "pty": 0,
+      "pty": 25,
       "ptx2": 0,
       "pty2": 200,
 
     //line2
        "ptx3": 0,
        "pty3": 100,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 100,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 90,
        "pty5": 100,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 200,
 
     //line4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
        "ptx8": 25,
        "pty8": 200,
@@ -84,30 +84,30 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
        "ptx5": 0,
        "pty5": 100,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 100,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 100,
-       "ptx8": 100,
-       "pty8": 110,
+       "ptx8": 90,
+       "pty8": 100,
   },
   "D": {
     //line1
-       "ptx": 100,
-       "pty": 0,
-       "ptx2": 100,
+       "ptx": 90,
+       "pty": 25,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 200,
        "ptx4": 0,
        "pty4": 200,
@@ -121,7 +121,7 @@ const alphabet = {
     //line 4
        "ptx7": 0,
        "pty7": 100,
-       "ptx8": 75,
+       "ptx8": 65,
        "pty8": 100,
   },
   "E": {
@@ -134,7 +134,7 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
@@ -151,22 +151,22 @@ const alphabet = {
   },
   "F": {
     //line1
-       "ptx": 0,
-       "pty": 0,
-       "ptx2": 0,
+       "ptx": 15,
+       "pty": 50,
+       "ptx2": 15,
        "pty2": 200,
 
     //line2
-       "ptx3": 0,
-       "pty3": 25,
-       "ptx4": 100,
-       "pty4": 25,
+       "ptx3": 15,
+       "pty3": 50,
+       "ptx4": 90,
+       "pty4": 50,
 
     //line3
-       "ptx5": 100,
-       "pty5": 25,
-       "ptx6": 100,
-       "pty6": 50,
+       "ptx5": 90,
+       "pty5": 50,
+       "ptx6": 90,
+       "pty6": 75,
 
     //line 4
        "ptx7": 0,
@@ -177,52 +177,52 @@ const alphabet = {
   "G": {
     //line1
        "ptx": 0,
-       "pty": 50,
+       "pty": 75,
        "ptx2": 0,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
        "ptx5": 0,
-       "pty5": 50,
-       "ptx6": 100,
-       "pty6": 50,
+       "pty5": 75,
+       "ptx6": 90,
+       "pty6": 75,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 150,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 200,
   },
   "H": {
     //line1
        "ptx": 25,
-       "pty": 0,
+       "pty": 25,
        "ptx2": 25,
        "pty2": 200,
 
     //line2
        "ptx3": 25,
-       "pty3": 100,
-       "ptx4": 100,
-       "pty4": 100,
+       "pty3": 125,
+       "ptx4": 90,
+       "pty4": 125,
 
     //line3
-       "ptx5": 100,
-       "pty5": 100,
-       "ptx6": 100,
+       "ptx5": 90,
+       "pty5": 125,
+       "ptx6": 90,
        "pty6": 200,
 
     //line 4
        "ptx7": 0,
-       "pty7": 0,
+       "pty7": 25,
        "ptx8": 25,
-       "pty8": 0,
+       "pty8": 25,
   },
   "I": {
     //line1
@@ -254,7 +254,7 @@ const alphabet = {
        "ptx": 50,
        "pty": 50,
        "ptx2": 50,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
        "ptx3": 50,
@@ -277,7 +277,7 @@ const alphabet = {
   "K": {
     //line1
        "ptx": 0,
-       "pty": 0,
+       "pty": 25,
        "ptx2": 0,
        "pty2": 200,
 
@@ -302,21 +302,21 @@ const alphabet = {
   "L": {
     //line1
        "ptx": 25,
-       "pty": 0,
+       "pty": 25,
        "ptx2": 25,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
-       "ptx3": 0,
+       "ptx3": 10,
        "pty3": 200,
        "ptx4": 75,
        "pty4": 200,
 
     //line3
        "ptx5": 0,
-       "pty5": 0,
+       "pty5": 25,
        "ptx6": 25,
-       "pty6": 0,
+       "pty6": 25,
 
     //line 4
        "ptx7": 75,
@@ -340,13 +340,13 @@ const alphabet = {
     //line3
        "ptx5": 50,
        "pty5": 125,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 100,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 100,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 200,
   },
   "N": {
@@ -371,14 +371,14 @@ const alphabet = {
     //line 4
        "ptx7": 85,
        "pty7": 200,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 200,
   },
   "O": {
     //line1
        "ptx": 0,
        "pty": 100,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 100,
 
     //line2
@@ -402,44 +402,44 @@ const alphabet = {
   "P": {
     //line1
        "ptx": 0,
-       "pty": 0,
+       "pty": 25,
        "ptx2": 0,
        "pty2": 200,
 
     //line2
        "ptx3": 0,
-       "pty3": 25,
-       "ptx4": 100,
-       "pty4": 25,
+       "pty3": 50,
+       "ptx4": 90,
+       "pty4": 50,
 
     //line3
-       "ptx5": 100,
-       "pty5": 25,
-       "ptx6": 100,
+       "ptx5": 90,
+       "pty5": 50,
+       "ptx6": 90,
        "pty6": 125,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 125,
        "ptx8": 25,
        "pty8": 125,
   },
   "Q": {
     //line1
-       "ptx": 100,
-       "pty": 0,
-       "ptx2": 100,
+       "ptx": 90,
+       "pty": 25,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
-       "pty3": 25,
+       "ptx3": 90,
+       "pty3": 50,
        "ptx4": 0,
-       "pty4": 25,
+       "pty4": 50,
 
     //line3
        "ptx5": 0,
-       "pty5": 25,
+       "pty5": 50,
        "ptx6": 0,
        "pty6": 125,
 
@@ -454,18 +454,18 @@ const alphabet = {
        "ptx": 15,
        "pty": 80,
        "ptx2": 15,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
        "ptx3": 15,
        "pty3": 100,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 100,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 90,
        "pty5": 100,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 115,
 
     //line 4
@@ -478,23 +478,23 @@ const alphabet = {
     //line1
        "ptx": 0,
        "pty": 100,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
        "ptx3": 0,
        "pty3": 100,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 100,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 90,
        "pty5": 100,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 125,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
        "ptx8": 0,
        "pty8": 200,
@@ -504,35 +504,35 @@ const alphabet = {
        "ptx": 50,
        "pty": 25,
        "ptx2": 50,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
        "ptx3": 15,
        "pty3": 75,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 75,
 
     //line3
        "ptx5": 50,
        "pty5": 200,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 200,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 185,
   },
   "U": {
     //line1
-       "ptx": 100,
+       "ptx": 90,
        "pty": 100,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 220,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 200,
        "ptx4": 15,
        "pty4": 200,
@@ -552,14 +552,14 @@ const alphabet = {
   "V": {
     //line1
        "ptx": 15,
-       "pty": 100,
+       "pty": 102,
        "ptx2": 55,
        "pty2": 200,
 
     //line2
        "ptx3": 55,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 100,
 
     //line3
@@ -590,24 +590,24 @@ const alphabet = {
     //line3
        "ptx5": 50,
        "pty5": 175,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 200,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 100,
   },
   "X": {
     //line1
        "ptx": 0,
        "pty": 100,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 100,
        "ptx4": 0,
        "pty4": 200,
@@ -626,32 +626,32 @@ const alphabet = {
   },
   "Y": {
     //line1
-       "ptx": 50,
-       "pty": 100,
-       "ptx2": 50,
-       "pty2": 200,
+       "ptx": 25,
+       "pty": 50,
+       "ptx2": 25,
+       "pty2": 197,
 
     //line2
-       "ptx3": 50,
-       "pty3": 100,
-       "ptx4": 0,
-       "pty4": 15,
+       "ptx3": 25,
+       "pty3": 125,
+       "ptx4": 90,
+       "pty4": 125,
 
     //line3
-       "ptx5": 50,
-       "pty5": 100,
-       "ptx6": 100,
-       "pty6": 15,
+       "ptx5": 90,
+       "pty5": 125,
+       "ptx6": 90,
+       "pty6": 50,
 
     //line 4
-       "ptx7": 50,
+       "ptx7": 25,
        "pty7": 200,
-       "ptx8": 75,
+       "ptx8": 85,
        "pty8": 200,
   },
   "Z": {
     //line1
-       "ptx": 100,
+       "ptx": 90,
        "pty": 100,
        "ptx2": 0,
        "pty2": 200,
@@ -659,19 +659,19 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 90,
        "pty5": 100,
        "ptx6": 0,
        "pty6": 100,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 185,
   },
   "0": {
@@ -679,7 +679,7 @@ const alphabet = {
        //line1
        "ptx": 0,
        "pty": 200,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
@@ -705,7 +705,7 @@ const alphabet = {
        "ptx": 50,
        "pty": 0,
        "ptx2": 50,
-       "pty2": 200,
+       "pty2": 197,
 
     //line2
        "ptx3": 50,
@@ -727,7 +727,7 @@ const alphabet = {
   },
   "2": {
     //line1
-       "ptx": 100,
+       "ptx": 90,
        "pty": 0,
        "ptx2": 0,
        "pty2": 200,
@@ -735,7 +735,7 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
@@ -745,7 +745,7 @@ const alphabet = {
        "pty6": 50,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 0,
        "ptx8": 0,
        "pty8": 0,
@@ -754,11 +754,11 @@ const alphabet = {
     //line1
        "ptx": 25,
        "pty": 75,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 200,
        "ptx4": 0,
        "pty4": 200,
@@ -766,11 +766,11 @@ const alphabet = {
     //line3
        "ptx5": 25,
        "pty5": 75,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 0,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 0,
        "ptx8": 0,
        "pty8": 0,
@@ -785,7 +785,7 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 115,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 115,
 
     //line3
@@ -795,16 +795,16 @@ const alphabet = {
        "pty6": 200,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 115,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 140,
   },
   "5": {
     //line1
        "ptx": 0,
        "pty": 0,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 0,
 
     //line2
@@ -816,11 +816,11 @@ const alphabet = {
     //line3
        "ptx5": 0,
        "pty5": 75,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 200,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 200,
        "ptx8": 0,
        "pty8": 200,
@@ -835,17 +835,17 @@ const alphabet = {
     //line2
        "ptx3": 0,
        "pty3": 200,
-       "ptx4": 100,
+       "ptx4": 90,
        "pty4": 200,
 
     //line3
-       "ptx5": 100,
+       "ptx5": 90,
        "pty5": 200,
-       "ptx6": 100,
+       "ptx6": 90,
        "pty6": 100,
 
     //line 4
-       "ptx7": 100,
+       "ptx7": 90,
        "pty7": 100,
        "ptx8": 30,
        "pty8": 100,
@@ -879,11 +879,11 @@ const alphabet = {
     //line1
        "ptx": 0,
        "pty": 0,
-       "ptx2": 100,
+       "ptx2": 90,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 0,
        "ptx4": 0,
        "pty4": 200,
@@ -897,18 +897,18 @@ const alphabet = {
     //line 4
        "ptx7": 25,
        "pty7": 200,
-       "ptx8": 100,
+       "ptx8": 90,
        "pty8": 200,
   },
   "9": {
     //line1
-       "ptx": 100,
+       "ptx": 90,
        "pty": 0,
        "ptx2": 75,
        "pty2": 200,
 
     //line2
-       "ptx3": 100,
+       "ptx3": 90,
        "pty3": 0,
        "ptx4": 0,
        "pty4": 0,
