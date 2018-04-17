@@ -1,7 +1,5 @@
 ## PS2 MDDN 242 2018
 
-This is the code for getting started with PS2. The drop down
-selects previous saved settings. The `show data` button exposes
-the current drawing as JSON so it can be added to the code.
+A ball animation where the ball follows a trajectory set by the user using the sliders, the distance is a constant set by msyself, where it moves but gradually slows down until it stops. There are 3 balls that move & leave a trail in order to create the letters. 
 
-Replace this README with information about your alphabet.
+Initially I was calculating the equation of the line using y=mx+c but then i found that p5.js has vector methods so I changed it to use vectors(as this is much easier)
