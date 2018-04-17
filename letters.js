@@ -143,14 +143,16 @@ const alphabet = {
   },
   "J": {
     "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
+    "positionX": 110,
+    "positionY": 0,
+
     "size": 80,
     "offsetx": -40,
     "offsety": -40,
+
     "rotate": 40, 
-    "XZ": 140,
-    "XY": 80
+    //"XZ": 140,
+    //"XY": 80
   },
   "K": {
     "sizeRect": 40,
@@ -198,15 +200,16 @@ const alphabet = {
 
   },
   "N": {
-    "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
+     "sizeRect": 60,
+    "positionX": 20,
+    "positionY": 130,
     "size": 80,
     "offsetx": -40,
     "offsety": -40,
-    "rotate": 40, 
-    "XZ": 140,
-    "XY": 80
+    "rotate": 0, 
+
+    //"XZ": 140,
+   // "XY": 80
   },
   "O": {
     //"sizeRect": 40,
@@ -381,14 +384,20 @@ const alphabet = {
   },
   "Z": {
     "sizeRect": 40,
-    "positionX": 40,
-    "positionY": -50,
-    "size": 80,
-    "offsetx": -40,
+    "positionX": 110,
+    "positionY": 0,
+
+    "size": 60,
+
+    "offsetx": -30,
     "offsety": -40,
-    "rotate": 40, 
-    "XZ": 140,
-    "XY": 80
+
+    "rotate": 44,
+    "yR" : 44,
+    "xR" : 0,
+
+    "XZ": 120,
+    "XY": 100
   }
 }
 
