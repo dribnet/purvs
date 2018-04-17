@@ -1,10 +1,21 @@
 let main_canvas = null;
-let pos1_slider = null;
-let tilt1_slider = null;
-let pos2_slider = null;
-let tilt2_slider = null;
-let pos3_slider = null;
-let tilt3_slider = null;
+
+let line1_Xstart = null;
+let line1_Ystart = null;
+let line1_Xdir = null;
+let line1_Ydir = null;
+let line2_Xstart = null;
+let line2_Ystart = null;
+let line2_Xdir = null;
+let line2_Ydir = null;
+let line3_Xstart = null;
+let line3_Ystart = null;
+let line3_Xdir = null;
+let line3_Ydir = null;
+
+let slope = 0;
+let intercept = 0;
+let equationY = 0;
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -65,12 +76,18 @@ function setup () {
   angleMode(DEGREES);
 
   // create two sliders
-  pos1_slider = createSlider(-200, 200, 0);
-  tilt1_slider = createSlider(-180, 180, 0);
-  pos2_slider = createSlider(-200, 200, 0);
-  tilt2_slider = createSlider(-180, 180, 0);
-  pos3_slider = createSlider(-200, 200, 0);
-  tilt3_slider = createSlider(-180, 180, 0);
+ line1_Xstart = createSlider(-200, 200, 0);
+ line1_Ystart = createSlider(-200, 200, 0);
+ line1_Xdir = createSlider(-180, 180, 0);
+ line1_Ydir = createSlider(-180, 180, 0);
+ line2_Xstart = createSlider(-200, 200, 0);
+ line2_Ystart = createSlider(-200, 200, 0);
+ line2_Xdir = createSlider(-180, 180, 0);
+ line2_Ydir = createSlider(-180, 180, 0);
+ line3_Xstart = createSlider(-200, 200, 0);
+ line3_Ystart = createSlider(-200, 200, 0);
+ line3_Xdir = createSlider(-180, 180, 0);
+ line3_Ydir = createSlider(-180, 180, 0);
 
   sel = createSelect();
   sel.option('A');
@@ -83,12 +100,18 @@ function setup () {
 
   // position each element on the page
   main_canvas.parent('canvasContainer');
-  pos1_slider.parent('slider1Container');
-  tilt1_slider.parent('slider2Container');
-  pos2_slider.parent('slider3Container');
-  tilt2_slider.parent('slider4Container');
-  pos3_slider.parent('slider5Container');
-  tilt3_slider.parent('slider6Container');
+  line1_Xstart.parent('slider1Container');
+  line1_Ystart.parent('slider2Container');
+  line1_Xdir.parent('slider3Container');
+  line1_Ydir.parent('slider4Container');
+  line2_Xstart.parent('slider5Container');
+  line2_Ystart.parent('slider6Container');
+  line2_Xdir.parent('slider7Container');
+  line2_Ydir.parent('slider8Container');
+  line3_Xstart.parent('slider9Container');
+  line3_Ystart.parent('slider10Container');
+  line3_Xdir.parent('slider11Container');
+  line3_Ydir.parent('slider12Container');
 
   sel.parent(selectorContainer);
   button.parent(buttonContainer);
@@ -97,25 +120,37 @@ function setup () {
 function sliderToDataObject() {
   let obj = {};
   obj["box1"] = {};
-  obj["box1"]["position"] = pos1_slider.value();
-  obj["box1"]["tilt"] = tilt1_slider.value();
+  obj["box1"]["startX"] = line1_Xstart.value();
+  obj["box1"]["startY"] = line1_Ystart.value();
   obj["box2"] = {};
-  obj["box2"]["position"] = pos2_slider.value();
-  obj["box2"]["tilt"] = tilt2_slider.value();
+  obj["box2"]["dirX"] = line1_Xdir.value();
+  obj["box2"]["dirY"] = line1_Ydir.value();
   obj["box3"] = {};
-  obj["box3"]["position"] = pos3_slider.value();
-  obj["box3"]["tilt"] = tilt3_slider.value();
+  obj["box3"]["startX"] = line2_Xstart.value();
+  obj["box3"]["startY"] = line2_Ystart.value();
+  obj["box4"] = {};
+  obj["box4"]["dirX"] = line2_Xdir.value();
+  obj["box4"]["dirY"] = line2_Ydir.value();
   return obj;
 }
 
 function dataObjectToSliders(obj) {
-  pos1_slider.value(obj["box1"]["position"]);
-  tilt1_slider.value(obj["box1"]["tilt"]);
-  pos2_slider.value(obj["box2"]["position"]);
-  tilt2_slider.value(obj["box2"]["tilt"]);
-  pos3_slider.value(obj["box3"]["position"]);
-  tilt3_slider.value(obj["box3"]["tilt"]);
+  line1_Xstart.value(obj["box1"]["startX"]);
+  line1_Ystart.value(obj["box1"]["startY"]);
+  line1_Xdir.value(obj["box2"]["dirX"]);
+  line1_Ydir.value(obj["box2"]["dirY"]);
+  line2_Xstart.value(obj["box3"]["position"]);
+  line2_Ystart.value(obj["box3"]["tilt"]);
+  line2_Xdir.value(obj["box4"]["position"]);
+  line2_Ydir.value(obj["box4"]["tilt"]);
+  line3_Xstart.value(obj["box5"]["position"]);
+  line3_Ystart.value(obj["box5"]["tilt"]);
+  line3_Xdir.value(obj["box6"]["position"]);
+  line3_Ydir.value(obj["box6"]["tilt"]);
 }
+
+
+
 
 function letterChangedEvent() {
   let item = sel.value();
@@ -128,7 +163,9 @@ function buttonPressedEvent() {
   alert(json);
 }
 
+//colour of the letters
 const colorFront = [207, 222, 227];
+//colour of the background
 const colorBack = [29, 42, 46];
 
 function drawPart(y_offset, pos, tilt) {
@@ -145,20 +182,43 @@ function drawPart(y_offset, pos, tilt) {
   rect(-20*scale, -3*scale, 20*scale, 3*scale);
 }
 
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
-  let pos = pos_slider.value();
-  let tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
+
+
+//equation of slope: m=(y2-y1)/(x2-x1)
+function CalculateSlope(x1,x2,y1,y2) {
+  slope = (y2 - y1)/(x2 - x1);
+  CalculateIntercept(x1,y1);
+}
+
+//equation of line: y=mx+c
+function CalculateIntercept(x, y) {
+  intercept = y - (slope * x);
+  DrawAsLine(x);
+}
+
+function DrawAsLine(xPos) {
+  xPos0 = xPos;
+  while (xPos < xPos0 + 100) {
+    yPos = slope * xPos + intercept
+    ellipse(xPos+(canvasWidth/2),yPos + (canvasHeight/2),100,100);
+    xPos = xPos + 1;
+  }
+}
+
+
+function drawFromSliders(xstart, ystart, xdir, ydir) {
+  xs = line1_Xstart.value();
+  ys = line1_Ystart.value();
+  xd = line1_Xdir.value();
+  yd = line1_Ydir.value();
+  CalculateSlope(xs, ys, xd, yd);
 }
 
 function draw () {
   background(colorBack);
   fill(colorFront);
   stroke(95, 52, 8);
-
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawFromSliders(line1_Xstart, line1_Ystart, line1_Xdir, line1_Ydir);
 }
 
 function keyTyped() {
