@@ -66,6 +66,18 @@ function drawLetter(letterData) {
     y1 = 100-40;
     y2 = 100+40;
   }
+  if(orient == 6){
+    x1 = 50-30;
+    x2 = 50+30;
+    y1 = 100-30;
+    y2 = 100+30;
+  }
+  if(orient == 7){
+    x1 = 50-30;
+    x2 = 50+30;
+    y1 = 100+30;
+    y2 = 100-30;
+  }
 
   // draw two arcs and a line
   noFill();
