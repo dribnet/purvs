@@ -229,14 +229,14 @@ const alphabet = {
       "dotm2": hide
   },
   "P": {
-      "dot1": hide,
+      "dot1": show,
       "dot2": show,
       "dot3": hide,
-      "dot4": hide,
+      "dot4": show,
       "dot5": show,
       "dot6": hide,
-      "dot7": hide,
-      "dot8": show,
+      "dot7": show,
+      "dot8": hide,
       "dot9": hide,
 
       "dotm1": show,
