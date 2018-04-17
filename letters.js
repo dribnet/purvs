@@ -382,7 +382,7 @@ const alphabet = {
       "dotm1": show,
       "dotm2": hide
   },
-  "0": {
+  "hide": {
       "dot1": show,
       "dot2": show,
       "dot3": show,
