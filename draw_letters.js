@@ -4,9 +4,9 @@ const colorFront  = "#199cff";
 // This function draws each individual box
 function drawPart(posx, posy) {
 
-  const col1 = "#5f756f"; 
-  const col2 = "#63c5c5"; //light green
-  const col3 = "#f42f3b"; //red
+  const col1 = "#493255"; 
+  const col2 = "#f5bd4d"; //light green
+  const col3 = "#c64e68"; //red
 
   push();
   scale(0.5);

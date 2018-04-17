@@ -1,11 +1,12 @@
 ## PS2 MDDN 242 2018
 
-COLOUR RESEARCH 1
+COLOUR RESEARCH 2
 
-More futuristic, cyber vibe.
-  const col1 = "#5f756f"; //dark green
-  const col2 = "#63c5c5"; //light green
-  const col3 = "#f42f3b"; //red
+More Vintage colour scheme.
+
+  const col1 = "#493255"; 
+  const col2 = "#f5bd4d";
+  const col3 = "#c64e68"; 
 
 Next step:
 - Reposition and adjust some alphabets.
