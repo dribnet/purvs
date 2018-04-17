@@ -28,20 +28,23 @@ let ly2 = letterData["ly2"];
     awh = 100;
     x = 50;
     y = 100;
-    stroke(0);
+    
+    stroke(255);
    noFill();
   strokeWeight(10);
 
   arc(x, y, awh, awh, a1, a2);
 
-  strokeWeight(1);
+  strokeWeight(6);
+
+  line(x+lx1, y+ly1, x+lx2, y+ly2);
+
+  strokeWeight(2);
   fill(0);
 
   triangle(x+tx1, y+ty1, x+tx2, y+ty2, x+tx3, y+ty3);
 
-  strokeWeight(4);
-
-  line(x+lx1, y+ly1, x+lx2, y+ly2);
+  
 }
 
 function interpolate_letter(percent, oldObj, newObj){

@@ -13,7 +13,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?default";
 
 function setup () {
   // create the drawing canvas, save the canvas element
