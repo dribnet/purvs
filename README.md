@@ -1,9 +1,12 @@
 ## PS2 MDDN 242 2018
+For the interaction I test all my letters and they all worked and there are some changes that I did not even imanige of myself.
+The rx1,ry1,rx2,ry2 control the red line.
+the ox1,oy1,ox2,oy2 control the orange line.
+The ex,ey ex2,and ey2 control two yellow circles.
 
-(Replace this README with information about your alphabet. This is an example.)
 
 <<<<<<< HEAD
-Each of my letters is composed with two round lines and two circles. All me lines and circles are not fixed, so they can have much different combinations.
+My idea is com from the pizza, so I choose red line, orange line and two yellow circles, they are ham, cheese and squid or onion roll to constitute my letters.
 =======
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].

@@ -1,5 +1,7 @@
 
+//const colorFront  = "#199cff";
 const colorStroke = "#233f11";
+//const colorBack = "#e3eded";
 
 /*
  * Draw the letter given the letterData
@@ -50,8 +52,26 @@ function drawLetter(letterData) {
   //circle 2
     ellipse(ex2,ey2,50,50)
 
-
-  // draw two circles
-  //ellipse(50, 150, 100, 100);
-  //ellipse(pos2x, pos2y, size2, size2);
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+   new_letter["rx1"] = map(percent, 0, 100, oldObj["rx1"], newObj["rx1"]);
+   new_letter["ry1"] = map(percent, 0, 100, oldObj["ry1"], newObj["ry1"]);
+   new_letter["rx2"] = map(percent, 0, 100, oldObj["rx2"], newObj["rx2"]);
+   new_letter["ry2"] = map(percent, 0, 100, oldObj["ry2"], newObj["ry2"]);
+   new_letter["ox1"] = map(percent, 0, 100, oldObj["ox1"], newObj["ox1"]);
+   new_letter["oy1"] = map(percent, 0, 100, oldObj["oy1"], newObj["oy1"]);
+   new_letter["ox2"] = map(percent, 0, 100, oldObj["ox2"], newObj["ox2"]);
+   new_letter["oy2"] = map(percent, 0, 100, oldObj["oy2"], newObj["oy2"]);
+   new_letter["c1x"] = map(percent, 0, 100, oldObj["c1x"], newObj["c1x"]);
+   new_letter["c1y"] = map(percent, 0, 100, oldObj["c1y"], newObj["c1y"]);
+   new_letter["c2x"] = map(percent, 0, 100, oldObj["c2x"], newObj["c2x"]);
+   new_letter["c2y"] = map(percent, 0, 100, oldObj["c2y"], newObj["c2y"]);
+   return new_letter;
+ }
+
+
+
+
+

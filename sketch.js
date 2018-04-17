@@ -13,25 +13,52 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+      "rx1":200,
+      "ry1":150,
+      "rx2":-100,
+      "ry2":+300,
+      "ox1":200,
+      "oy1":150,
+      "ox2":+100,
+      "oy2":+300,
+      "c1x":-40,
+      "c1y":+250,
+      "c2x":+80,
+      "c2y":0,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+      "rx1":480,
+      "ry1":150,
+      "rx2":0,
+      "ry2":+300,
+      "ox1":480,
+      "oy1":200,
+      "ox2":0,
+      "oy2":+200,
+      "c1x":+70,
+      "c1y":+50,
+      "c2x":0,
+      "c2y":+200,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+   "rx1":800,
+      "ry1":150,
+      "rx2":-100,
+      "ry2":+150,
+      "ox1":700,
+      "oy1":300,
+      "ox2":+100,
+      "oy2":+150,
+      "c1x":+10,
+      "c1y":+30,
+      "c2x":0,
+      "c2y":+240,
 }
 
 const colorFront  = "#199cff";
-const colorBack   = "#e3eded";
+const colorBack   = [255, 240, 245];
 const colorStroke = "#233f11";
 
 function setup () {
@@ -50,13 +77,42 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  //let size2 = letterData["size"];
+  //let pos2x = posx + letterData["offsetx"];
+  //let pos2y = posy + letterData["offsety"];
+  let rlx = letterData["rx1"];
+  let rly = letterData["ry1"];
+  let rlx2 = rlx + letterData["rx2"];
+  let rly2 = rly + letterData["ry2"];
 
-  // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+  let olx = letterData["ox1"];
+  let oly = letterData["oy1"];
+  let olx2 = olx + letterData["ox2"];
+  let oly2 = oly + letterData["oy2"];
+
+  let ex = rlx + letterData["c1x"];
+  let ey = rly + letterData["c1y"];
+  let ex2 = ex + letterData["c2x"];
+  let ey2 = ey + letterData["c2y"]; 
+
+  //red
+   stroke(255, 69, 0);
+   strokeWeight(20);
+   strokeCap(ROUND);
+   line(rlx, rly, rlx2, rly2);
+  
+  //gold
+    stroke(255, 165, 0);
+    strokeCap(ROUND);
+    line(olx, oly, olx2, oly2);
+
+  //circle 1
+    fill(255);
+    strokeWeight(15)
+    stroke(255, 215, 0);
+    ellipse(ex,ey,70,70)
+  //circle 2
+    ellipse(ex2,ey2,70,70)
 }
 
 function draw () {
