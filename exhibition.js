@@ -42,6 +42,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "MAZEFONT",
+  "LOLLIPOP",
   "ENJOYING",
   "PANCAKES",
   "UNBOXING",

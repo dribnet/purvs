@@ -1,6 +1,11 @@
 ## PS2 MDDN 242 2018
 
-In the exhibition, the animation of my words transformation is smooth and looks very 3D surprisingly. But the position of some letters are weird and not in the right position.
+COLOUR RESEARCH 1
+
+More futuristic, cyber vibe.
+  const col1 = "#5f756f"; //dark green
+  const col2 = "#63c5c5"; //light green
+  const col3 = "#f42f3b"; //red
 
 Next step:
 - Reposition and adjust some alphabets.

@@ -4,9 +4,9 @@ const colorFront  = "#199cff";
 // This function draws each individual box
 function drawPart(posx, posy) {
 
-  const col1 = "#ffcc74"; 
-  const col2 = "#ff7991"; //light green
-  const col3 = "#4fc4d8"; //red
+  const col1 = "#5f756f"; 
+  const col2 = "#63c5c5"; //light green
+  const col3 = "#f42f3b"; //red
 
   push();
   scale(0.5);
@@ -160,6 +160,7 @@ function interpolate_letter(percent, oldObj, newObj){
 }
 var swapWords = [
   "MAZEFONT",
+  "LOLLIPOP",
   "ENJOYING",
   "PANCAKES",
   "UNBOXING",
