@@ -1,3 +1,5 @@
+const colorFront  = "#199cff";
+
 function drawPart(posx, posy, scale, offsetx, offsety, tilt, change) {
 
 
@@ -217,3 +219,10 @@ function interpolate_letter(percent, oldObj, newObj) {
   // }
   return new_letter;
 }
+
+var swapWords = [
+  "ADORABLE",
+  "DELICATE",
+  "FLOWERS+"
+]
+
