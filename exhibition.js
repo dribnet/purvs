@@ -36,6 +36,15 @@ let lastWordSwappedTime;
 let isSwappingWords = true;
 let secondsPerWord = 8;
 let curSwapWord = 0;
+  
+var swapWords = [
+  "!DRAGON!",
+  "MAHJONGG",
+  "CHINESE!",
+  "MONKHOOD",
+  "CHICKENS"
+
+  ]
 
 var defaultSwapWords = [
   "ACTUALLY",

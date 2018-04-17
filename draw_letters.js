@@ -1,13 +1,7 @@
 const colorFront  = "#F7134A";
 const colorStroke = "#F787D5";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
@@ -15,6 +9,14 @@ function drawLetter(letterData) {
   strokeWeight(4);
   angleMode(DEGREES);
 
+  var swapWords = [
+  "!DRAGON!",
+  "MAHJONGG",
+  "CHINESE!",
+  "MONKHOOD",
+  "CHICKENS"
+
+  ]
  // determine parameters for the arcs
    let rot1 = letterData["rot1"];
    let rot2 = letterData["rot2"];
@@ -28,8 +30,6 @@ function drawLetter(letterData) {
   let offsety2 = letterData["offsety2"];
   let offsety3 = letterData["offsety3"];
   let offsety4 = letterData["offsety4"];
-  
-  //rect(0,0,100,200);
 
   push();
   translate(50, 100);
@@ -96,6 +96,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_Letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
   new_Letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
   return new_Letter;
+
+
 }
 
 

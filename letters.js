@@ -161,7 +161,7 @@ const alphabet = {
     "offsety1": 0,
     "offsety2": -60,
     "offsety3": 0,
-    "offsety4": 90,
+    "offsety4": 100,
     "rot1": 180,
     "rot2": 180,
     "rot3": 180,
