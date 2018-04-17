@@ -28,16 +28,28 @@ let savedValues = {
 	"A":
 	{
 		"box1": {
-			"position": -174,
-			"tilt": -47
+			"startX": 76,
+			"startY": -120
 		},
 		"box2": {
-			"position": -104,
-			"tilt": -4
+			"dirX": 0,
+			"dirY": 0
 		},
 		"box3": {
-			"position": -121,
-			"tilt": 58
+			"startX": 83,
+			"startY": -117
+		},
+		"box4": {
+			"dirX": 111,
+			"dirY": 14
+		},
+		"box5": {
+			"startX": -53,
+			"startY": -36
+		},
+		"box6": {
+			"dirX": 41,
+			"dirY": -8
 		}
 	},
 	"B":
@@ -135,6 +147,12 @@ function sliderToDataObject() {
 	obj["box4"] = {};
 	obj["box4"]["dirX"] = line2_Xdir.value();
 	obj["box4"]["dirY"] = line2_Ydir.value();
+	obj["box5"] = {};
+	obj["box5"]["startX"] = line3_Xstart.value();
+	obj["box5"]["startY"] = line3_Ystart.value();
+	obj["box6"] = {};
+	obj["box6"]["dirX"] = line3_Xdir.value();
+	obj["box6"]["dirY"] = line3_Ydir.value();
 	return obj;
 }
 
@@ -143,14 +161,14 @@ function dataObjectToSliders(obj) {
 	line1_Ystart.value(obj["box1"]["startY"]);
 	line1_Xdir.value(obj["box2"]["dirX"]);
 	line1_Ydir.value(obj["box2"]["dirY"]);
-	line2_Xstart.value(obj["box3"]["position"]);
-	line2_Ystart.value(obj["box3"]["tilt"]);
-	line2_Xdir.value(obj["box4"]["position"]);
-	line2_Ydir.value(obj["box4"]["tilt"]);
-	line3_Xstart.value(obj["box5"]["position"]);
-	line3_Ystart.value(obj["box5"]["tilt"]);
-	line3_Xdir.value(obj["box6"]["position"]);
-	line3_Ydir.value(obj["box6"]["tilt"]);
+	line2_Xstart.value(obj["box3"]["startX"]);
+	line2_Ystart.value(obj["box3"]["startY"]);
+	line2_Xdir.value(obj["box4"]["dirX"]);
+	line2_Ydir.value(obj["box4"]["dirY"]);
+	line3_Xstart.value(obj["box5"]["startX"]);
+	line3_Ystart.value(obj["box5"]["startY"]);
+	line3_Xdir.value(obj["box6"]["dirX"]);
+	line3_Ydir.value(obj["box6"]["dirY"]);
 }
 
 
@@ -249,24 +267,26 @@ function drawFromComponents(xCompon, yCompon) {
 		}
 	}
 	fill (r, g, b); 
-	ellipse(xCompon + (canvasWidth/2), yCompon + (canvasHeight/2), 50,50);
+	ellipse(xCompon + (canvasWidth/2), yCompon + (canvasHeight/2), 30,30);
 }
 
 
 function drawFromSliders(xstart, ystart, xdir, ydir) {
-	xs = line1_Xstart.value();
-	ys = line1_Ystart.value();
-	xd = line1_Xdir.value();
-	yd = line1_Ydir.value();
+	xs = xstart.value();
+	ys = ystart.value();
+	xd = xdir.value();
+	yd = ydir.value();
 	calculateVectors(xs,ys,xd,yd);
 }
 
 function draw () {
 	background(colorBack);
 	fill(colorFront);
-	strokeWeight(1);
+	strokeWeight(0.5);
 	stroke('#222222');
 	drawFromSliders(line1_Xstart, line1_Ystart, line1_Xdir, line1_Ydir);
+	drawFromSliders(line2_Xstart, line2_Ystart, line2_Xdir, line2_Ydir);
+	drawFromSliders(line3_Xstart, line3_Ystart, line3_Xdir, line3_Ydir);
 }
 
 function keyTyped() {
