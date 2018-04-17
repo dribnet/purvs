@@ -1,6 +1,6 @@
 
-const colorFront  = "#FF9F00";
-const colorStroke = "#7B14CC";
+const colorFront  = "#6ADEDD";
+const colorStroke = "#DE5A78";
 
 /*
  * Draw the letter given the letterData
@@ -11,7 +11,9 @@ const colorStroke = "#7B14CC";
  */
 function drawLetter(letterData) {
 
-  rect(0,0,100,200);
+//  rect(0, 0, 100, 200);
+//  line(0, 100, 100, 100);
+
 
   // color/stroke setup
   fill(colorFront);
@@ -36,10 +38,20 @@ function drawLetter(letterData) {
   triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
 }
 
-// function interpolate_letter(percent, oldObj, newObj){
-//   let new_letter = {};
-//   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-//   new_letter["offsetx"] = 0; //edit with my own parameters
-//   new_letter["offsety"] = 0;
-//   return new_letter;
-// }
+ function interpolate_letter(percent, oldObj, newObj){
+   let new_letter = {};
+   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+   new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
+   new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
+   new_letter["2x"] = map(percent, 0, 100, oldObj["2x"], newObj["2x"]);
+   new_letter["2y"] = map(percent, 0, 100, oldObj["2y"], newObj["2y"]);
+   new_letter["3x"] = map(percent, 0, 100, oldObj["3x"], newObj["3x"]);
+   new_letter["3y"] = map(percent, 0, 100, oldObj["3y"], newObj["3y"]);
+   new_letter["4x"] = map(percent, 0, 100, oldObj["4x"], newObj["4x"]);
+   new_letter["4y"] = map(percent, 0, 100, oldObj["4y"], newObj["4y"]);
+   new_letter["5x"] = map(percent, 0, 100, oldObj["5x"], newObj["5x"]);
+   new_letter["5y"] = map(percent, 0, 100, oldObj["5y"], newObj["5y"]);
+   new_letter["6x"] = map(percent, 0, 100, oldObj["6x"], newObj["6x"]);
+   new_letter["6y"] = map(percent, 0, 100, oldObj["6y"], newObj["6y"]);
+   return new_letter;
+ }
