@@ -13,6 +13,7 @@ const canvasHeight = 500;
  */
 
 const letterA = {
+<<<<<<< HEAD
  "pbx": +30,
  "pby": -25,
  "pcx": +90,
@@ -93,6 +94,52 @@ function drawLetter(posx, posy, scale, letterData) {
   triangle(posx -40, posy +120, posbx, posby, poscx, poscy);
   triangle(pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
 
+=======
+  "size": 80,
+  "offsetx": 0,
+  "offsety": 35
+}
+
+const letterB = {
+  "size": 150,
+  "offsetx": 0,
+  "offsety": -145
+}
+
+const letterC = {
+  "size": 100,
+  "offsetx": 30,
+  "offsety": 0
+}
+
+const colorFront  = "#199cff";
+const colorBack   = "#e3eded";
+const colorStroke = "#233f11";
+
+function setup () {
+  // create the drawing canvas, save the canvas element
+  main_canvas = createCanvas(canvasWidth, canvasHeight);
+  main_canvas.parent('canvasContainer');
+
+  // color/stroke setup
+  fill(colorFront);
+  stroke(colorStroke);
+  strokeWeight(4);
+
+  // with no animation, redrawing the screen is not necessary
+  noLoop();
+}
+
+function drawLetter(posx, posy, scale, letterData) {
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+
+  // draw two circles
+  ellipse(posx, posy, 150, 150);
+  ellipse(pos2x, pos2y, size2, size2);
+>>>>>>> upstream/part2
 }
 
 function draw () {
