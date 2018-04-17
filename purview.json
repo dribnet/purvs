@@ -5,12 +5,16 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+      "sha": "c056d6b8794448d9f3fe3cb62612f05e65ed5fe0",
+      "name": "Part 3"
     },
     {
       "sha": "3d6b1ee1961b57b5acd1a58cc606d29141c1ed37",
-      "name": "experiment2"
+      "name": "Part 2"
+    },
+    {
+      "sha": "4ebfcd36e8a36e6114e76410a1b9e83d736e7701",
+      "name": "Part 1"
     }
   ]
 }
