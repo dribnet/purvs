@@ -3,6 +3,8 @@
 <<<<<<< HEAD
 
 my letters was inspired by paper cutting and geometric shapes, and its consist of two triangles that overlapped a rectangle.
+
+I changed the background color from blue to green, also I finished the alphabets and the number, each of the style is based on geometry. 
 The twelve parameters per letter:
   * 
   * `gx` : x offset of the first triangle relative to the first point
