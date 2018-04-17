@@ -1,21 +1,12 @@
 ## PS2 MDDN 242 2018
 
-Each of my letters is composed of a constant circle, and two triangles that change position, colour and rotation. This simplicity allows for few parameters to change between letters.
+(Replace this README with information about your alphabet. This is an example.)
 
-The three parameters per letter:
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
 
-rotation1 : rotation of the first triangle
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
-rotation2 : rotation of the second triangle
-
-offsetx1 : x offset of the first triangle relative to the circle
-
-offsety1 : y offset of the first triangle relative to the circle
-
-offsetx2 : x offset of the second triangle relative to the circle
-
-offsety2 : y offset of the second triangle relative to the circle
-
-colour1 : colour of first triangle
-
-colour2 : colour of second triangle
