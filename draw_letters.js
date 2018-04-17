@@ -1,6 +1,13 @@
 const colorFront  = "#FDF4F5";
 const colorStroke = "#233f11";
 
+
+var swapWords = [
+  "GEOMETRY",
+  "ALPHABET",
+  "12345678"
+]
+
 /*
  * Draw the letter given the letterData
  *
@@ -11,7 +18,7 @@ const colorStroke = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   let posx = 0;
-  let posy = 0; 
+  let posy = 50; 
   let pos1x = posx + letterData["gx"];
   let pos1y = posy + letterData["gy"];
   let pos2x = posx + letterData["1x"]; 

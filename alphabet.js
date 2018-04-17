@@ -59,7 +59,7 @@ function draw () {
     }
     line(left_margin, 200, right_margin, 200);
 
-    translate(left_margin+first_letter_offset_x, 50);
+    translate(left_margin+first_letter_offset_x, 0);
     for(let i=left_margin+first_letter_offset_x; i<right_margin-x_step+1; i+=x_step) {
       let letter = letters[cur_letter_index];
       if (letter in alphabet) {
