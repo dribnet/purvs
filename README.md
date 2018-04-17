@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Each of my letters are going to be created in the shape of a digital alarm clock and be drawn from a series of lines. I want my alphabet to look like its made out of neon lights. This has already created a design issue that will need to be fixed where only 1 of the letters the "C" is showing correctly while the others are blurred far too much.
-
+For now i have dropped the BLUR filter as it is causing too many issues with loading and not working. this is my chosen alphabet design
 <<<<<<< HEAD
 
 The 5 parameters per letter:
@@ -14,9 +13,11 @@ The 5 parameters per letter:
 In the process of completing the entire alphabet, I have [made what changes?].
 This included updating the parameters to [add/remove parameters for?].
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The 5 Prarameters i am using is:
+Left = left side of shape.
+Right = Right side of shape.
+Top = Top of Shape.
+Mid = Middle of shape.
+Bot = bottom of shape.
 >>>>>>> upstream/part2
 
