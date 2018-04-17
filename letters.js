@@ -30,7 +30,7 @@ const alphabet = {
       "g2y": -4
     },
   "B": {
-    "status": 0,
+    "status": 255,
     "offsetx": 0,
     "offsety": 125,
     "r": 90,
@@ -60,20 +60,19 @@ const alphabet = {
     "g2y": 88
   },
   "D":{
-    "status": -1,
+    "status": 1,
     "offsetx": 0,
     "offsety": 125,
     "r": 90,
     "r2": 0,
-    "rotoffset":-90,
-    "rotoffset2": -90,
+    "rotoffset":-45,
+    "rotoffset2": -135,
     "movex":0,
     "movey":-125,
-    "gx":0,
-    "gy": 0,
-    "g2x": 20,
-    "g2y": 122,
-    "rOreo": -90
+    "gx":40,
+    "gy": 10,
+    "g2x": 30,
+    "g2y": 95,
   },
   "E":{
     "status": 1,
@@ -106,20 +105,19 @@ const alphabet = {
     "g2y": -13
   },
   "G":{
-    "status": -1,
-    "offsetx": 125,
-    "offsety": 125,
-    "r": 90,
-    "r2": 0,
-    "rotoffset":-90,
-    "rotoffset2": -90,
-    "movex":0,
-    "movey":-125,
-    "gx":125,
-    "gy":125,
-    "g2x": 90,
-    "g2y": 123,
-    "rOreo": 90
+    "status": 1,
+    "offsetx": -80,
+    "offsety": 105,
+    "r": 140,
+    "r2": -50,
+    "rotoffset":-140,
+    "rotoffset2": 0,
+    "movex":80,
+    "movey":-105,
+    "gx":-25,
+    "gy":85,
+    "g2x": 130,
+    "g2y": 35,
   },
   "H": {
     "status": 1,
@@ -227,22 +225,22 @@ const alphabet = {
     "g2y": -125
   },
   "O": {
-    "status": 2,
-    "offsetx": 0,
-    "offsety": 0,
-    "r": 0,
-    "r2": 0,
+    "status": 1,
+    "offsetx": -5,
+    "offsety": 140,
+    "r": 90,
+    "r2": -90,
     "rotoffset":0,
-    "rotoffset2": 0,
-    "movex": 55,
-    "movey": 0,
-    "gx":-45,
-    "gy":-35,
+    "rotoffset2": -90,
+    "movex":0,
+    "movey":-65,
+    "gx":130,
+    "gy":0,
     "g2x": 0,
-    "g2y": 0
+    "g2y": -180
   },
   "P": {
-    "status": 0,
+    "status": 255,
     "offsetx": 0,
     "offsety": 125,
     "r": 90,
@@ -257,22 +255,22 @@ const alphabet = {
     "g2y": -67
   },
   "Q": {
-    "status": 2,
-    "offsetx": 0,
-    "offsety": 0,
-    "r":15,
-    "r2": 0,
-    "rotoffset":0,
-    "rotoffset2": 0,
-    "movex": 55,
-    "movey": -38,
-    "gx":-35,
-    "gy":100,
-    "g2x": 0,
-    "g2y": 0
+    "status": 1,
+    "offsetx": -40,
+    "offsety": 125,
+    "r": 110,
+    "r2": -40,
+    "rotoffset":-60,
+    "rotoffset2": -40,
+    "movex":40,
+    "movey":-120,
+    "gx":40,
+    "gy":155,
+    "g2x": 90,
+    "g2y": -130
   },
   "R": {
-    "status": 0,
+    "status": 255,
     "offsetx": 40,
     "offsety": 10,
     "r": 90,
@@ -317,20 +315,19 @@ const alphabet = {
     "g2y": 65
   },
   "U":{
-    "status": -1,
-    "offsetx": 165,
-    "offsety": -5,
+    "status": 255,
+    "offsetx": 100,
+    "offsety": 0,
     "r": 90,
     "r2": 0,
     "rotoffset":-90,
     "rotoffset2": -90,
-    "movex":-5,
+    "movex":15,
     "movey":-120,
-    "gx":-30,
-    "gy": -5,
-    "g2x": 60,
-    "g2y": 122,
-    "rOreo": 0
+    "gx":40,
+    "gy": 180,
+    "g2x": -60,
+    "g2y": 180,
   },
   "V": {
     "status": 1,
@@ -408,19 +405,19 @@ const alphabet = {
     "g2y": -145
   },
   "0":{
-    "status": 2,
-    "offsetx": 0,
-    "offsety": 0,
-    "r": 0,
-    "r2": 0,
+    "status": 1,
+    "offsetx": -40,
+    "offsety": 125,
+    "r": 110,
+    "r2": -40,
     "rotoffset":0,
-    "rotoffset2": 0,
-    "movex": 55,
-    "movey": 0,
-    "gx":-45,
-    "gy":-35,
-    "g2x": 0,
-    "g2y": 0
+    "rotoffset2": -40,
+    "movex":40,
+    "movey":-120,
+    "gx":90,
+    "gy":130,
+    "g2x": 90,
+    "g2y": -130
   },
   "1":{
     "status": 1,
@@ -498,7 +495,7 @@ const alphabet = {
     "g2y": 210
   },
   "6": {
-    "status": 0,
+    "status": 255,
     "offsetx": -60,
     "offsety": 115,
     "r": 120,
@@ -528,7 +525,7 @@ const alphabet = {
     "g2y": 110
   },
   "8": {
-    "status": 0,
+    "status": 255,
     "offsetx": 125,
     "offsety": 125,
     "r": 90,
@@ -543,7 +540,7 @@ const alphabet = {
     "g2y": 58
   },
   "9": {
-    "status": 0,
+    "status": 255,
     "offsetx": 0,
     "offsety": 135,
     "r": 90,
@@ -558,7 +555,7 @@ const alphabet = {
     "g2y": -77
   },
   "?": {
-    "status": 0,
+    "status": 255,
     "offsetx": 160,
     "offsety": 45,
     "r": 0,
@@ -573,7 +570,7 @@ const alphabet = {
     "g2y": 131
   },
   "!": {
-    "status": 0,
+    "status": 255,
     "offsetx": 0,
     "offsety": 0,
     "r": 90,
