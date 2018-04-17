@@ -20,17 +20,17 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "vertX": 480,
+  "vertX": 485,
   "vertY": 300,
-  "ctrlPx": 360,
+  "ctrlPx": 395,
   "ctrlPy": 260,
-  "vertX2": 520,
-  "vertY2": 200,
+  "vertX2": 487,
+  "vertY2": 205,
 
-  "ctrlPx2": 505,
-  "ctrlPy2": 310,
-  "vertX3": 530,
-  "vertY3": 300
+  "ctrlPx2": 530,
+  "ctrlPy2": 185,
+  "vertX3": 515,
+  "vertY3": 310
   
 }
 
@@ -38,28 +38,28 @@ const letterB = {
   "vertX": 485,
   "vertY": 235,
   "ctrlPx": 530,
-  "ctrlPy": 230,
-  "vertX2": 535,
+  "ctrlPy": 250,
+  "vertX2": 515,
   "vertY2": 270,
 
   "ctrlPx2": 420,
   "ctrlPy2": 360,
-  "vertX3": 460,
+  "vertX3": 450,
   "vertY3": 200
 }
 
 const letterC = {
-  "vertX": 500,
-  "vertY": 200,
-  "ctrlPx": 440,
-  "ctrlPy": 180,
-  "vertX2": 440,
-  "vertY2": 255,
+  "vertX": 505,
+  "vertY": 205,
+  "ctrlPx": 445,
+  "ctrlPy": 185,
+  "vertX2": 445,
+  "vertY2": 260,
 
-  "ctrlPx2": 440,
-  "ctrlPy2": 330,
+  "ctrlPx2": 445,
+  "ctrlPy2": 335,
   "vertX3": 520,
-  "vertY3": 280
+  "vertY3": 285
 }
 
 const colorFront  = "#e2e2e0";
@@ -76,7 +76,6 @@ function setup () {
 
   // color/stroke setup
   fill(colorFront);
-  //stroke(colorStroke);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -107,7 +106,7 @@ function drawLetter(posx, posy, scale, letterData) {
   //stroke(255,0,255); //Pink for testing
   stroke(colorBack)
   noFill();
-  strokeWeight(20);
+  strokeWeight(15);
   beginShape();
   vertex(vert1x,vert1y)
   quadraticVertex(ctrl1Px,ctrl1Py,vert2x,vert2y)
@@ -124,9 +123,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   //draw rect(secondary canvas) - possibly need to change this later for animation
-  rect(center_x - 250, center_y, 150, 150)
-  rect(center_x, center_y, 150, 150)
-  rect(center_x + 250, center_y, 150, 150)
+  rect(center_x - 250, center_y, 100, 200)
+  rect(center_x, center_y, 100, 200)
+  rect(center_x + 250, center_y, 100, 200)
 
   //translate the letters to center
   translate(-canvasWidth/2, -canvasHeight/2)
