@@ -1,6 +1,12 @@
  const colorFront  = "#199cff";
  const colorStroke = "#233f11";
 
+ var swapWords = [
+    "CRESCENT",
+    "ELEGANCE",
+    "SERAPHIC",
+    "VIRTUOUS"
+ ]
 
 function drawLetter(letterData) {
   // colorstroke setup

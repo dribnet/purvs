@@ -1,6 +1,9 @@
-## PS2 MDDN 242 2018 Colours
+## PS2 MDDN 242 2018 Exhibition
    
-I tested out some more colour this time instead of just white and grey I figured that it would look more interesting if it has a splash more colour. With this I like it better because it isn't just plain, it still is but it is more exciting than before. I think with the fill and opacity I will keep it this way because I like the look of it better. As for the animation I left it as it is because I liked the latest version of the animation tests I made a few commits ago. As for anything I might add I'm not sure I will but I will think about it. Next I will add in the exhibition to the code and see how it turns out. For names I was thinking of Crescent.
+I added in the last part to the code which was the exhibition and I think that it works well. I like how the animation looks, how it rolls and rotates along to form a new word. Typing it out looks really interesting as well which the rotation of the arcs. I like the colours and opacity which I think fit well with the letter forms. The animation is smooth and it doesn't fly too far away with each of the letters changing along, rotating, and flying in different directions is cool. 
+I chose the name crescent for my letter forms because the colours and the arcs reminded me of the crescent moon. The soft light dark blue and white fits well together and I think that it is better than just plain black and white. 
+Looking at the various letter I like how they turned out in that they sit high and low as well as in different angles which makes it more visually interesting. It is simple and difficult to read in a way which is what I want it to be. 
+My next steps is to refine and clean up the code and see if there is anything I need to add or can improve. However as of now I am pretty happy with how it turned out. 
 
 
 pos2x this draws the x position of the first point 
