@@ -1,3 +1,11 @@
-## PS2 MDDN 242 2018
+## VICTORY2
+Victory2 is inspired by the handdrawn style of Colin McCahon's painting. I imagined Colin's words had an energy he could not physically express in paint, so I did my best to give the letters in Victory2 a sense of life through the movement and dynamic colour you can see. The type is deliberately messy and imperfect so as to convey the "mark of the maker" and give the letters a human feeling.
 
-added dynamic colour
+## PROCESS
+I began with the idea of letters created by lines drawn between four points as I believed this would be an effective way to represent all the different forms while still leaving room for experimentation within these constraints. I ended up having to add another point as some forms would not have been possible to create using only four. Much of my time was spent mapping the points to create interesting forms and experimenting with different orders and shapes. Some letters only required four points to be effectively drawn, and so I would simply map the fifth point back to the third, creating an overlap; this created an interesting effect when I animated the points to move. I also spent a considerable amount of time perfecting the animation. Originally I was using the same variable for the x and y values of each point, but realised it would look better with separate variables. I ran into some difficultly when I discovered the Alphabet and Exhibition sketches would render the animation differently. This was because I was rendering the animation by frames, not milliseconds, but Tom and the TAs helped me fix that. The colour animation was inspired by Colin McCahon's style of painting text, where he would leave some parts of his letters less opaque than others as the paint on his brush would run thin. I tried to convey this with differently coloured line segments that would change periodically given a random value of grey. While the brief specified that random numbers should not be implemented, Tom allowed me to use them as I could demonstrate a certain level of control over the randomisation. The biggest challenge I faced was mapping the entire character set given that I had 10 parameters for each letter; this is where most of my time was spent.
+
+## ADDITIONAL FEATURES
+If I were to have had more time and resources, I would have implemented variable line thicknesses, an uppercase character set, a wider range of animation, different colour palettes, and a tool for mapping points in a more efficient way.
+
+## CONCLUSION
+I had a lot of fun and learnt a lot of things while completeing this problem set.

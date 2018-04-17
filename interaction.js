@@ -116,9 +116,9 @@ function draw () {
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
-    fill(colorLines);
-    textSize(50);
+    stroke(0);
+    fill(255);
+    textSize(40);
     textAlign(CENTER)
     if (i == 0) {
       text(soloLastLetter, 50, 280);
@@ -153,7 +153,7 @@ function draw () {
   }
 
   push();
-  translate(center_x, center_y);
+  translate(center_x-30, center_y-50);
   let cur_obj = computeCurrentSoloChar();
   drawLetter(cur_obj);
   pop();

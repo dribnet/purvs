@@ -38,8 +38,8 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "IN TRUTH",
   "ACTUALLY",
+  "1234567?",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
