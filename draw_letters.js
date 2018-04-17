@@ -1,5 +1,10 @@
-const colorFront  = "pink";
-const colorStroke = "#84ceab";
+const colorFront  = "#9fc471";
+const colorStroke = "#344222";
+
+
+//original colours
+// const colorFront  = "pink";
+// const colorStroke = "#84ceab";
 
 /*
  * Draw the letter given the letterData
@@ -8,15 +13,22 @@ const colorStroke = "#84ceab";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+   var swapWords = [
+  ".GLITCH.",
+  "WELCOME ",
+  ".CLICK..",
+  "HAHAHAHA",
+  "WHIZZING",
+  "FRAZZLED"
+  ]
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
 
-  // var swapWords = [
-  // ""
-  // ]
+
 
   // determine parameters for second circle
   //let size2 = letterData["size"];
@@ -89,13 +101,9 @@ new_letter["b10"] = map(percent,0,100,oldObj["b10"],newObj["b10"])
 new_letter["b11"] = map(percent,0,100,oldObj["b11"],newObj["b11"])
 new_letter["b12"] = map(percent,0,100,oldObj["b12"],newObj["b12"])
 
-
-//if(percent <40)
-//new_letter["b6"] = map(percent,0,100,oldObj["b6"],newObj[on])
-//if(percent >40)
-//same as above 
-
 return new_letter;
+
+
 
 }
 
