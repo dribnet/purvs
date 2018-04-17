@@ -9,21 +9,14 @@ const colorStroke = "#000000";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-angleMode(DEGREES);
-
-  rect(0,0,100,200);
-  // color/stroke setup
+  angleMode(DEGREES);
+  //rect(0,0,100,200);
+  //color/stroke setup
   fill(colorFont);
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
-
   // draw two circles
-  
   //translate(width/290, height/155);
  //ellipse(50, 150, 200, 200);
   //ellipse(pos2x, pos2y, size2, size2);
@@ -78,32 +71,33 @@ angleMode(DEGREES);
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["w"] = map(percent, 0, 100, oldObj["w"], newObj["w"]);
-  new_letter["h"] = map(percent, 0, 100, oldObj["h"], newObj["h"]);
-  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
-  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
 
-  new_letter["w2"] = map(percent, 0, 100, oldObj["w2"], newObj["w2"]);
-  new_letter["h2"] = map(percent, 0, 100, oldObj["h2"], newObj["h2"]);
-  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["width_1"] = map(percent, 0, 100, oldObj["width_1"], newObj["width_1"]);
+  new_letter["height_1"] = map(percent, 0, 100, oldObj["height_1"], newObj["height_1"]);
+  new_letter["pos_x1"] = map(percent, 0, 100, oldObj["pos_x1"], newObj["pos_x1"]);
+  new_letter["pos_y1"] = map(percent, 0, 100, oldObj["pos_y1"], newObj["pos_y1"]);
 
-  new_letter["w3"] = map(percent, 0, 100, oldObj["w3"], newObj["w3"]);
-  new_letter["h3"] = map(percent, 0, 100, oldObj["h3"], newObj["h3"]);
-  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["width_2"] = map(percent, 0, 100, oldObj["width_2"], newObj["width_2"]);
+  new_letter["height_2"] = map(percent, 0, 100, oldObj["height_2"], newObj["height_2"]);
+  new_letter["pos_x2"] = map(percent, 0, 100, oldObj["pos_x2"], newObj["pos_x2"]);
+  new_letter["pos_y2"] = map(percent, 0, 100, oldObj["pos_y2"], newObj["pos_y2"]);
 
-  new_letter["w4"] = map(percent, 0, 100, oldObj["w4"], newObj["w4"]);
-  new_letter["h4"] = map(percent, 0, 100, oldObj["h4"], newObj["h4"]);
-  new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
-  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  new_letter["width_3"] = map(percent, 0, 100, oldObj["width_3"], newObj["width_3"]);
+  new_letter["height_3"] = map(percent, 0, 100, oldObj["height_3"], newObj["height_3"]);
+  new_letter["pos_x3"] = map(percent, 0, 100, oldObj["pos_x3"], newObj["pos_x3"]);
+  new_letter["pos_y3"] = map(percent, 0, 100, oldObj["pos_y3"], newObj["pos_y3"]);
 
-  new_letter["circle_x"] = map(percent, 0, 100, oldObj["circle_x"], newObj["circle_x"]);
-  new_letter["circle_y"] = map(percent, 0, 100, oldObj["circle_y"], newObj["circle_y"]);
-  new_letter["circle_w"] = map(percent, 0, 100, oldObj["circle_w"], newObj["circle_w"]);
-  new_letter["circle_h"] = map(percent, 0, 100, oldObj["circle_h"], newObj["circle_h"]);
+  new_letter["width_4"] = map(percent, 0, 100, oldObj["width_4"], newObj["width_4"]);
+  new_letter["height_4"] = map(percent, 0, 100, oldObj["height_4"], newObj["height_4"]);
+  new_letter["pos_x4"] = map(percent, 0, 100, oldObj["pos_x4"], newObj["pos_x4"]);
+  new_letter["pos_y4"] = map(percent, 0, 100, oldObj["pos_y4"], newObj["pos_y4"]);
 
-  new_letter["r_rot"] = map(percent, 0, 100, oldObj["r_rot"], newObj["r_rot"]);
+  new_letter["c_posx"] = map(percent, 0, 100, oldObj["c_posx"], newObj["c_posx"]);
+  new_letter["c_posy"] = map(percent, 0, 100, oldObj["c_posy"], newObj["c_posy"]);
+  new_letter["c_width"] = map(percent, 0, 100, oldObj["c_width"], newObj["c_width"]);
+  new_letter["c_height"] = map(percent, 0, 100, oldObj["c_height"], newObj["c_height"]);
+
+  new_letter["r_letter"] = map(percent, 0, 100, oldObj["r_letter"], newObj["r_letter"]);
 
   return new_letter;
 }

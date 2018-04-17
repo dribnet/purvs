@@ -1,12 +1,34 @@
 const alphabet = {
   "default": {
-      "size": 10,
-      "offsetx": 0,
-      "offsety": 0,
-      "width":50
+      "pos_x1": 0,
+      "pos_y1":0,
+      "width_1":0,
+      "height_1":0,
+
+      "pos_x2": 0,
+      "pos_y2": 0,
+      "width_2":0,
+      "height_2":0,
+
+      "pos_x3": 0,
+      "pos_y3": 0,
+      "width_3":0,
+      "height_3":0,
+
+      "pos_x4": 0,
+      "pos_y4": 0,
+      "width_4":0,
+      "height_4":0,
+
+      "c_posx": 0,
+      "c_posy": 0,
+      "c_width": 0,
+      "c_height": 0,
+
+      "r_letter": 0
+
   },
   "A": {
-
       "pos_x1": 0,
       "pos_y1":170,
       "width_1":90,
@@ -16,9 +38,11 @@ const alphabet = {
       "pos_y2": 90,
       "width_2":20,
       "height_2":100
+
+      
   },
   "B": {
-      
+
       "pos_x1": 0,
       "pos_y1":170,
       "width_1":100,
