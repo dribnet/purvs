@@ -2,60 +2,59 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * The layout of my variables and how they interact with the letterforms:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+  1 triangle(xMain, yMain, tri1X, tri1Ya, tri1X, tri1Yb);
+  2 triangle(xMain, yMain, xQuad, tri2Ya, xQuad, tri2Yb);
+  3 triangle(xMain, yMain, xQuad, tri3Ya, xQuad, tri3Yb);
+
+  rotate - is there just the letter structure requires the xQuad variable
+  to relate to the y axis rather than the x. however it simply rotates the
+  letterforms so that they can use the settings all ready in place.
+ *
  *
  */
 
-  // 1 triangle(xMain, yMain, tri1X, tri1Ya, tri1X, tri1Yb);
-  // 2 triangle(xMain, yMain, xQuad, tri2Ya, xQuad, tri2Yb);
-  // 3 triangle(xMain, yMain, xQuad, tri3Ya, xQuad, tri3Yb);
-
 const letterA = {
-  "xMain": -100,//Start Point X.
-  "yMain": 0,//Start Point Y,
-  "xQuad": 50,//The X points in a row.
-  "tri1X": 0,//Coordinates for the other points of Triangle 1.
+  "xMain": -100,
+  "yMain": 0,
+  "xQuad": 50,
+  "tri1X": 0,
   "tri1Ya": -50,
   "tri1Yb": 50,
-  "tri2Ya": 75,//Coordinates for the other points of Triangle 2.
+  "tri2Ya": 75,
   "tri2Yb": 25,
-  "tri3Ya": -75,//Coordinates for the other points of Triangle 3.
+  "tri3Ya": -75,
   "tri3Yb": -25,
-  "rotate": 90//Rotate depending on whether the design is verticle or not.
+  "rotate": 90
 }
 
 const letterB = {
-  "xMain": -75,//Start Point X.
-  "yMain": -60,//Start Point Y,
-  "xQuad": 75,//The X points in a row.
-  "tri1X": 47,//Coordinates for the other points of Triangle 1.
+  "xMain": -75,
+  "yMain": -60,
+  "xQuad": 75,
+  "tri1X": 47,
   "tri1Ya": 0,
   "tri1Yb": -75,
-  "tri2Ya": -50,//Coordinates for the other points of Triangle 2.
+  "tri2Ya": -50,
   "tri2Yb": -100,
-  "tri3Ya": 50,//Coordinates for the other points of Triangle 3.
+  "tri3Ya": 50,
   "tri3Yb": -25,
-  "rotate": 0//Rotate depending on whether the design is verticle or not.
+  "rotate": 0
 }
 
 const letterC = {
-  "xMain": -75,//Start Point X.
-  "yMain": -25,//Start Point Y,
-  "xQuad": 75,//The X points in a row.
-  "tri1X": 50,//Coordinates for the other points of Triangle 1.
+  "xMain": -75,
+  "yMain": -25,
+  "xQuad": 75,
+  "tri1X": 50,
   "tri1Ya": -87,
   "tri1Yb": 37,
-  "tri2Ya": -50,//Coordinates for the other points of Triangle 2.
+  "tri2Ya": -50,
   "tri2Yb": -100,
-  "tri3Ya": 0,//Coordinates for the other points of Triangle 3.
+  "tri3Ya": 0,
   "tri3Yb": 50,
-  "rotate": 0//Rotate depending on whether the design is verticle or not.
+  "rotate": 0
 }
 
 
@@ -160,7 +159,6 @@ function draw () {
 
 
 
-  stroke (56, 56, 56);
   strokeWeight (0);
 
   // Compute the center of the canvas.
@@ -171,17 +169,6 @@ function draw () {
   drawLetter (center_x - 250, center_y, letterA);
   drawLetter (center_x, center_y, letterB);
   drawLetter (center_x + 250, center_y, letterC);
-
-
-  // //B
-  // push();
-  // translate (center_x, center_y);
-  // ellipse (0, 0, 10)
-  // triangle(-75, -60, 47, 0, 47, -75);
-
-  // triangle(-75, -60, 75, -50, 75, -100);
-  // triangle(-75, -60, 75, 50, 75, -25);
-  // pop();
 }
 
 function keyTyped () {

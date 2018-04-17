@@ -1,6 +1,3 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
-
 /*
  * Draw the letter given the letterData
  *
@@ -10,16 +7,35 @@ const colorStroke = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
+  fill (255, 122, 122, 150);
+  strokeWeight (0);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+  // Variables for the Points shared by all Triangles.
+  let xM = letterData["xMain"];
+  let yM = letterData["yMain"];
+  let xQ = letterData["xQuad"];
+  // Variables for the other Points on the 1st Triangle.
+  let x1 = letterData["tri1X"];
+  let y1A = letterData["tri1Ya"];
+  let y1B = letterData["tri1Yb"];
+  // Variables for the other Points on the 2nd Triangle.
+  let y2A = letterData["tri2Ya"];
+  let y2B = letterData["tri2Yb"];
+  // Variables for the other Points on the 3rd Triangle.
+  let y3A = letterData["tri3Ya"];
+  let y3B = letterData["tri3Yb"];
+  // Variables determines whether or not to rotate the letter.
+  let rotation = letterData["rotate"];
 
-  // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  // Makes me the Letterform
+  push(); // Contains the shapes.
+  rotate (rotation); // If the Letter needs Rotating it will Rotate.
+  triangle(xM, yM, x1, y1A, x1, y1B); // Triangle 1
+  triangle(xM, yM , xQ, y2A, xQ, y2B); // Triangle 2
+  triangle(xM, yM, xQ, y3A, xQ, y3B); // Triangle 3
+  pop();
+
+  noFill();
+  strokeWeight (1);
+  rect (0, 0, 100, 200);
 }
