@@ -1,46 +1,65 @@
+//line colour
 const colorStroke = "#FF84BC";
-//const colorBack   = "#E7FDF7";
 
 function drawLetter(letterData) {
 
     // stroke setup
   noFill();
   stroke(colorStroke);
-  strokeWeight(4);
   angleMode(DEGREES)
-  //determine parameters for second circle
-  //let size2 = letterData["size"];
-  // let pos2x = posx + letterData["offsetx"];
-  // let pos2y = posy + letterData["offsety"];
-  let offset1 = letterData["offset1"]
-  let offset2 = letterData["offset2"]
-  let offset3 = letterData["offset3"]
-  let offset4 = letterData["offset4"]
-  let rot1 = letterData["rotate1"];
-  let rot2 = letterData["rotate2"];
+//triangle and line parameters 
+  let offset1 = letterData["offset1"] //x of 1st triangle and line
+  let offset2 = letterData["offset2"] //x of 2nd triangle and line
+  let offset3 = letterData["offset3"] //y of 1st triangle and line
+  let offset4 = letterData["offset4"] //y of 2nd triangle and line
+  let rot1 = letterData["rotate1"]; //rotate of 1st triangle and line
+  let rot2 = letterData["rotate2"]; //rotate of 2nd triangle and line
 
 
 //draw two triangles with seperate rotation ability, collective and individual push and pops to 
 //position correctly 
+
+//draw three lines, two on adjacent sides of the first triangle, and one on the first side
+//of the second triangle
+strokeWeight(6);
+
+//double line 1 tri 1
+push();
+rotate(rot1);
+line(offset1-50, offset2+34.6, offset1, offset2-48);
+pop();
+
+//double line 2 tri 1
+push();
+rotate(rot1);
+line(offset1, offset2-48, offset1+50, offset2+34.6);
+pop();
+
+//single line tri 2
+push();
+rotate(rot2);
+line(offset3-50, offset4+34.6, offset3, offset4-48);
+pop();
+
+strokeWeight(3);
 push();
 
   //translate(posx, posy);
 
   push();
-
   rotate(rot1);
-  triangle(offset1-50, offset2+30, offset1, offset2-50, offset1+50, offset2+30);
+  triangle(offset1-50, offset2+36.6, offset1, offset2-50, offset1+50, offset2+36.6);
 
   pop();
 
-  push();
+    push();
 
-  rotate(rot2);  
-  triangle(offset3-50, offset4+30, offset3, offset4-50, offset3+50, offset4+30);
+    rotate(rot2);  
+    triangle(offset3-50, offset4+36.6, offset3, offset4-50, offset3+50, offset4+36.6);
 
-  pop();
+    pop();
 
-  pop();
+pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj){

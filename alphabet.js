@@ -1,8 +1,5 @@
-/*
- * Here are some things you can edit
- */
+//background colour
 const colorBack   = "#E7FDF7";
-// const colorLines = "#FF84BC";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
