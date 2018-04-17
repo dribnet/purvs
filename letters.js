@@ -12,7 +12,7 @@ const alphabet = {
       
   },
   "A": {
-     "sizeRect": 80,
+     "sizeRect": 60,
       "positionX": 120,
       "positionY": 50,
       "size": 60,
@@ -23,9 +23,9 @@ const alphabet = {
      
   },
   "B": {
-      "sizeRect": 80,
-      "positionX": 10,
-      "positionY": 50,
+      "sizeRect": 60,
+      "positionX": 20,
+      "positionY": 60,
       "size": 40,
      "offsetx": 70,
       "offsety": -100,
@@ -33,9 +33,9 @@ const alphabet = {
       "xR" : 44
   },
   "C": {
-    "sizeRect": 80,
-    "positionX": 95,
-    "positionY": 20,
+    "sizeRect": 60,
+    "positionX": 105,
+    "positionY": 35,
     
     "size": 70,
     "offsetx": -35,
@@ -45,9 +45,9 @@ const alphabet = {
     "xR" : 0
   },
  "D": {
-    "sizeRect": 80,
-    "positionX": 30,
-    "positionY": 95,
+    "sizeRect": 60,
+    "positionX": 45,
+    "positionY": 110,
 
     "size": 75,
     "offsetx": 60,
@@ -58,9 +58,9 @@ const alphabet = {
     "xR" : 44
   },
   "E": {
-    "sizeRect": 50,
+    "sizeRect": 40,
     "positionX": 140,
-    "positionY": 40,
+    "positionY": 55,
     
     "size": 70,
 
@@ -72,12 +72,12 @@ const alphabet = {
     "xR" : 0,
 
     "XZ": 110,
-    "XY": 0
+    "XY": 15
   },
   "F": {
     "sizeRect": 40,
-    "positionX": 120,
-    "positionY": 0,
+    "positionX": 110,
+    "positionY": 20,
 
     "size": 50,
 
@@ -92,7 +92,7 @@ const alphabet = {
     "XY": 43
   },
   "G": {
-    "sizeRect": 40,
+    "sizeRect": 30,
     "positionX": 120,
     "positionY": 0,
 
@@ -108,9 +108,9 @@ const alphabet = {
     "XY": 150
   },
   "H": {
-    "sizeRect": 60,
-    "positionX": 70,
-    "positionY": 60,
+    "sizeRect": 45,
+    "positionX": 80,
+    "positionY": 70,
 
     "size": 50,
     "offsetx": -20,
@@ -122,8 +122,8 @@ const alphabet = {
   
 
 
-    "XZ": 118,
-    "XY": 20
+    "XZ": 110,
+    "XY": 30
   },
   "I": {
     "sizeRect": 40,

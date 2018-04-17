@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-experimenting with the new code, I have added my letters, i might try to expand on this idea and look at my letters and how these shapes will work for all 26 letters. 
+I have experimented with colour and trying out new ideas with my letter forms. I now have to resize and allign all my shapes because when I added the new code it overlapped the letters  
 
 <<<<<<< HEAD
 I have added a new shape and am experimenting with the colours and layout of the design 

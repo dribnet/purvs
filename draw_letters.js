@@ -36,7 +36,9 @@ function drawLetter(letterData) {
   let Xrotate = letterData ["xR"];
   let Yrotate = letterData ["yR"];
 
-  stroke ('white');
+  noStroke();
+
+  //stroke ('white');
 
 
   // DRAWING SHAPES// 
@@ -51,28 +53,28 @@ function drawLetter(letterData) {
     
     strokeWeight (5);
     //fill(203, 206, 119,90);
-    fill (203, 206, 119);
-    ellipse (50,135,120,120);
-    stroke (112, 124, 99,80);
+    fill (229, 135, 135,180);
+    ellipse (50,135,105,105);
+    stroke (227,237,237);
   
   
     push ();
    rotate (Xrotate);
    //fill('white')
-   fill('white');
+   fill(182, 221, 166,180);
    //fill (203, 206, 119);
    //fill('black');
    rect(pos2x, pos2y, size2, size2);
    pop();
 
-    stroke ('white');
+    stroke (227,237,237);
     //strokeWeight(5);
 
    //rotating rect 
    push ();
    rotate (rotation);
    //fill('white')
-   fill (203, 206, 119);
+   fill (216, 208, 99,180);
    //fill('black');
    rect(posX, posY, sizeR, sizeR);
    pop();
@@ -80,7 +82,7 @@ function drawLetter(letterData) {
    //rotating rect 2 
    push ();
    rotate (Yrotate);
-   fill (203, 206, 119);
+   fill (216, 208, 99,180);
    
   //fill ('white');
    rect(posZX, posZY, sizeR, sizeR);
@@ -111,3 +113,4 @@ function drawLetter(letterData) {
 
 
   }
+
