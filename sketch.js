@@ -60,8 +60,8 @@ const letterC = {
   "5y": 0
 }
 
-const colorFront  = "#4EFFC4";
-const colorBack   = "#2AA9CC";
+const colorFront  = "#FF91D7";
+const colorBack   = "#6B00B2";
 const colorStroke = "#4EFFC4";
 
 function setup () {
