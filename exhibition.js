@@ -42,16 +42,16 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "MAZEFONT",
+  "ENJOYING",
   "PANCAKES",
+  "UNBOXING",
   "CUTIEPIE",
   "COLORFUL",
   "UNPUZZLE",
   "LUNCHBOX",
+  "WHEEZING",
   "JOYSTICK",
   "DUCKWALK",
-  "WHEEZING",
-  "UNBOXING",
-  "ENJOYING",
   "BUBBLING"
 ]
 

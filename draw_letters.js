@@ -160,16 +160,16 @@ function interpolate_letter(percent, oldObj, newObj){
 }
 var swapWords = [
   "MAZEFONT",
+  "ENJOYING",
   "PANCAKES",
+  "UNBOXING",
   "CUTIEPIE",
   "COLORFUL",
   "UNPUZZLE",
   "LUNCHBOX",
+  "WHEEZING",
   "JOYSTICK",
   "DUCKWALK",
-  "WHEEZING",
-  "UNBOXING",
-  "ENJOYING",
   "BUBBLING"
 ]
 
