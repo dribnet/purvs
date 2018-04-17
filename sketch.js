@@ -99,7 +99,7 @@ const letterC = {
 
 const colorFront  = "#000000";
 const colorBack   = "#ffbc14"; //orange
-const colorStroke = "#233f11";
+const colorStroke = "#000000";
 
 function setup () {
   // create the drawing canvas, save the canvas element

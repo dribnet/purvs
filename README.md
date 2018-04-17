@@ -1,9 +1,5 @@
 ## PS2 MDDN 242 2018
-So this is how my text style is looking with the interpolation code adopted into it. It is certainly interesting looking at the transition of the lines to generate the specific letter or number. I did like how the solid line out of the 4 didnt move much which links to the idea of it being the most stable line of each letter/number. 
-
-Few other minor things i looked into was looking at different strokecaps, i found the rounded one was more visually appropriate compared to the square end.
-
-things i want to try experiment with is looking at potentially having a foreground/outline of the lines, adding a bit more colour with the letters/numbers which contain holes or blocks in them. I want to try make my textstyle a bit more complex so that the animation is that more interesting. as i have 4 more parameters to add and i can easily cut down to have 6 parameters if needed.
+So this is the same interpolation code. i was just exploring into different colours of the background and lines. I wanted to take through 3 really clean colours into the typefront. So i went with a dark blue for the solid thicker line - as i wanted the colour to reference the stability/dominance of it. then used a white for the smaller lines to not distract away from the typeface. Then a very soft light blue/purple. 
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point

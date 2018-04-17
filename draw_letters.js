@@ -1,5 +1,5 @@
-const colorFront  = "#ffbc14";
-const colorStroke = "#000000";
+const colorFront  = "#253d63";
+const colorStroke = "#ffffff";
 
 /*
  * Draw the letter given the letterData
@@ -11,8 +11,7 @@ const colorStroke = "#000000";
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(5);
   strokeCap(ROUND);
 
   let ptx = 0;
@@ -42,12 +41,16 @@ function drawLetter(letterData) {
   let pos8x = ptx + letterData["ptx8"];
   let pos8y = pty + letterData["pty8"];
 
-  strokeWeight(8)
-  line(posx,posy,pos2x,pos2y);
-  strokeWeight(5);
+
+   //3 thinner lines
+  stroke(255); //192, 214, 249
   line(pos3x,pos3y,pos4x,pos4y);
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
+
+  strokeWeight(8);
+  stroke(44, 72, 96); //242, 247, 255
+  line(posx,posy,pos2x,pos2y); //The thicker line
 }
 function interpolate_letter(percent, oldObj, newObj){
 let new_letter = {};
