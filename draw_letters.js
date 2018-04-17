@@ -1,4 +1,17 @@
-const colorFront  = "#fdbc00";
+const colorFront  = "#fee23e";
+const colorShadow = "#ffd319"
+
+let swapWords = [
+  "90DEGREE",
+  "VERTICAL",
+  "CROSSING",
+  "EXTENDED",
+  "DIRECTLY",
+  "SIDEWAYS",
+  "LONGWAYS",
+  "WEIGHTED"
+]
+
 
 function drawLetter(letterData) {
 
@@ -26,16 +39,25 @@ function drawLetter(letterData) {
 
   // draw vertical rectangles.
 
-  rect(posV1x, posV1y, 25, sizeV1);
-  rect(posV2x, posV2y, 25, sizeV2);
+  rectWithShadow(posV1x, posV1y, 25, sizeV1);
+  rectWithShadow(posV2x, posV2y, 25, sizeV2);
 
   // draw horizontal rectangles.
 
-  rect(0, posH1y, 100, 10);
-  rect(0, posH2y, 100, 10);
-  rect(0, posH3y, 100, 10);
+  rect(0, posH1y, 90, 10);
+  rect(0, posH2y, 90, 10);
+  rect(0, posH3y, 90, 10);
 
 }   
+
+// function for shadow 
+
+function rectWithShadow(x, y, width, height){
+  fill(colorShadow);
+  rect(x+10, y, width, height);
+  fill(colorFront);
+  rect(x, y, width, height);
+} 
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_obj = {};
