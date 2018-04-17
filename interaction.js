@@ -110,7 +110,8 @@ function draw () {
 
   translate(left_margin+first_letter_offset_x, 0);
   for(let i=0; i<numSteps; i = i+1) {
-    let percent = map(i, 0, numSteps, 0, 100);
+    let percent = map(i, 0, numSteps-1, 0, 100);
+    print(percent);
     let curLetterObj = getCharacterInterpolation(percent, soloLastLetter, soloCurLetter);
     // print(curLetterObj, soloLastLetter, soloCurLetter);
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
