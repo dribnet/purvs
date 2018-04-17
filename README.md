@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2018
 
-I wanted to play around with the colour, stroke and transparency. For this design I made the medium circle and the stroke the background colour and removed the transparency. This gives it a "cut-out" look. The little circle is partially transparent and white. I like how it looks when it overlaps with the background coloured parts, because it looks like it's pure white. I made the stroke width 4 so it could be clearly seen, even though I liked the way the thin stroke looked.
+I changed the stroke weight to be thinner and changed the colour of the small circle to be red. I adjusted the size and positions of the lines and circles to fir better now that I've removed strokes and changed the stroke width.
 
-This is a simple looking design but so far I think it is my favourite.
-
+I really like the "cut-out" sections because it gives and interesting look and shape to the letters. The red gives it some colour and adds interest instead of it being black and white. 
 
 The eight parameters per letter are now:
 
