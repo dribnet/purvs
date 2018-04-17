@@ -1,15 +1,15 @@
 var circleOn = 1;
 var squareOn = 1;
 var TriangleOn = 1;
-var posx = 0;
+var posx = 13;
 var posy = 100;
-var SizeOf = 4.0;
+var SizeOf = 3.7;
 var CircleGridColor;
 
 var circleGridArray = new Array(3);
 for (var i = 0; i < circleGridArray.length; i++) {
-   circleGridArray[i] = new Array(3);
- }
+  circleGridArray[i] = new Array(3);
+}
 
 for (var i = 0; i < circleGridArray.length; i++) {
   for (var j = 0; j < circleGridArray[i].length; j++) {
@@ -27,14 +27,11 @@ for (var i = 0; i < circleGridArray.length; i++) {
  */
 
 
-function drawLetter(letterData) {
-  //guidelines
+ function drawLetter(letterData) {
+  //guidelines for debugging position
   // noFill();
   // color('red');
   // rect(0, 0, 100, 200);
-  // determine parameters for second circle
-  // colorSquare = (221, 4, 38);
-
 
   circleGridArray[0][0] = letterData["TL"];
   circleGridArray[0][1] = letterData["TM"];
@@ -48,17 +45,12 @@ function drawLetter(letterData) {
   squareOn = letterData["Square"];
   circleOn = letterData["Circle"];
   TriangleOn = letterData["Triangle"];
+  Alpha = letterData["Alpha"];
 
-
-
-  // draw two circles
-  // ellipse(posx, posy, 150, 150);
-  // ellipse(pos2x, pos2y, SizeOf2, SizeOf2);
-  
   //relative variables for resizing shapes
   rel20 = 20;
   rel10 = 10;
-  relCirc = 3.3;
+  relCirc = 3.6;
 
   //stroke variables
   //noStroke();
@@ -102,14 +94,15 @@ function drawLetter(letterData) {
 }
 
 function interpolate_letter (percent, oldObj, newObj) {
-let new_letter = {};
+  let new_letter = {};
 
+//controls the fade in and out on animation
 if(percent<=50){
-  Alpha = map(percent, 50, 0, 0, 255);
+  new_letter["Alpha"] = map(percent, 50, 0, 0, 255);
 }else if(percent<=90){
-  Alpha = map(percent, 50, 100, 0, 255);
+  new_letter["Alpha"]= map(percent, 50, 100, 0, 255);
 }else
-    Alpha = 255;
+new_letter["Alpha"]= 255;
 
 new_letter["TL"] = map(percent, 0, 100, oldObj["TL"], newObj["TL"]);
 new_letter["TM"] = map(percent, 0, 100, oldObj["TM"], newObj["TM"]);
