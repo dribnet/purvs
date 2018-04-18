@@ -80,3 +80,10 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
   return new_letter;
 }
+
+
+var swapWords = [
+  "3COLOURS",//3 colors for my deisign
+  "INDESIGN",//industrial design
+  "FORCHAIR"//Red and Blue Chair
+]

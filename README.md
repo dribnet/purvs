@@ -19,3 +19,5 @@ The six parameters per letter are now:
 Red and Blue Chair is inspired by Piet Cornelies Mondrian's drawing. He is good at combining line, dot, and flat planes into his art. I think Red and Blue Chairis the best translation of 3D design for Piet Cornelies Mondrian's famous drawing. However, my point is not showing a Piet Cornelies Mondrian's drawing in P5.js. I should combine my style into my design. Personally, I think retangle is representing masculine. It could not tell more emotions, like the modern buildings in the city. They all look like kind of same shape with different sizes without telling more emotion.
 
 In this design, I did not utilize rectangles because I don't want to make my design looks cold. I think the color combination of red, blue and yellow is a little bit cold, it is not as soft as some light colors. Therefore, I used half circles as elements for it to make it more acceptable.
+
+I made 3 words for swapWords list, including 3COLOURS, INDESIGN, FORCHAIR. They means I used 3 colours of Red and Blue Chair, a famous furniture from industrial design. 

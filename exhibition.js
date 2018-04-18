@@ -166,7 +166,7 @@ function computeCurrentSoloChar() {
 // draws a single character given an object, position, and scale
 function drawFromDataObject(x, y, s, obj) {
   push();
-  translate(x, y);
+  translate(x+45, y);
   scale(s, s);
   drawLetter(obj);
   pop();
@@ -235,7 +235,7 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 90, 0.8, obj)
   }
 }
 
