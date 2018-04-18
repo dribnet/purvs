@@ -1,20 +1,15 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+const colorFront  = "#000000";
+const colorStroke = "#000000";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
+
   // color/stroke setup
   fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
 
-  
+  //paramaters in terms of letterData
   let x = letterData["x"];
   let y = letterData["y"];
 
@@ -43,9 +38,10 @@ function drawLetter(letterData) {
 }
 
 function interpolate_letter(percent, oldObj, newObj){
+
   let new_letter = {};
-  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
-  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
+  new_letter["x"]  = map(percent, 0, 100, oldObj["x"],  newObj["x"]);
+  new_letter["y"]  = map(percent, 0, 100, oldObj["y"],  newObj["y"]);
   new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
   new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
   new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);

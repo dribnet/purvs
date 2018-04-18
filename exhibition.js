@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#ffffff";
 const colorLines   = "#000090";
 
 /* 
@@ -26,7 +26,7 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
-let chosenNumAnimationFrames = 30;
+let chosenNumAnimationFrames = 40;
 let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 
@@ -34,23 +34,23 @@ let lastKeyPressedTime;
 let secondsUntilSwapMode = 15;
 let lastWordSwappedTime;
 let isSwappingWords = true;
-let secondsPerWord = 8;
+let secondsPerWord = 2;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "SMELLY69",
+  "COOLFONT",
   "BIGBOYZZ",
-  "REALTALK",
+  "THNX MOM",
   "TRASHMAN",
-  "WHATS UP",
-  "URTHBEST",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
+  "WHAT  UP",
+  "DOG?    ",
+  "KEEPITUP",
+  "PPPPPPPP",
+  "QQQQQQQQ",
+  "RRRRRRRR",
+  "        ",
+  ",,,,,,,,",
+  "        ",
   "ANYTHING",
   "INDUSTRY",
   "RELIGION",

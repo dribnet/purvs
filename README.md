@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Merged the new exhibition code and beginning to play around with it. More on this later.
+Decided to as of now go with a basic black and white colour scheme as my font is quite sharp and I was to accentuate this. I also added a space character and a question mark character, and changed the speed of my exhibition so that there's less of a wait between word changes. 
 
 The twelve parameters per letter are:
   * `x` : x co-ordinate of first point of line segment
