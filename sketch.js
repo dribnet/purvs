@@ -2,7 +2,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my ten variables per letter are:
+ * my ten variable per letter are:
  *
     arc start: angle in degrees of ring start point
     arc end: angle in degrees of ring end point
@@ -52,7 +52,7 @@ const letterC = {
   "position2 Y": 0,
 }
 
-const colorBack   = "#ffffff";
+const colorBack = "#ffffff";
 const colorLine = "#000000";
 const colorRing = "#dbdbdb";
 
@@ -80,11 +80,14 @@ function drawLetter(posx, posy, scale, letterData) {
   let posy2 = letterData["position2 Y"];
 
   angleMode(DEGREES);
-  noFill();
 
   //draw line behind ring
-  drawLine(length1, tilt1, posx1+ posx, posy1 + posy);
-
+  strokeWeight(5);
+  noFill();
+  stroke(colorLine);
+  if(length1>0){
+    drawLine(length1, tilt1, posx1+ posx, posy1 + posy);
+  }
   
   //draw ring
   stroke(colorRing);
@@ -92,19 +95,19 @@ function drawLetter(posx, posy, scale, letterData) {
   arc(posx, posy, 200, 200, start, end);
 
   //draw line in front of ring
-  drawLine(length2, tilt2, posx2+ posx, posy2 + posy);
+  strokeWeight(5);
+  stroke(colorLine);
+  if(length2>0){
+    drawLine(length2, tilt2, posx2+ posx, posy2 + posy);
+  }
 }
 
 function drawLine(length, tilt, posx, posy) {
-  strokeWeight(5);
-  stroke(colorLine);
-  if(length>0){
-	  push();
-	  translate(posx, posy);
-	  rotate(tilt);
-	  line(0, 0, length, 0);
-	  pop();
-  }
+  push();
+  translate(posx, posy);
+  rotate(tilt);
+  line(0, 0, length, 0);
+  pop();
 }
 
 function draw () {

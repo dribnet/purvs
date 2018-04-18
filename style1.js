@@ -1,11 +1,8 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
-const stripeWidth = 10;
-const colorFront = [0, 0, 0];
-const colorBack = [255, 255, 255];
 
 /* 
- * my eight variables per letter are:
+ * my eight variable per letter are:
  *
     line1(2) length: length of line
     line1(2) tilt: angle in degrees of line
@@ -47,6 +44,9 @@ const letterC = {
 	"length2": 150,
 }
 
+const colorFront = [0, 0, 0];
+const colorBack = [255, 255, 255];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -68,25 +68,24 @@ function drawLetter(posx, posy, scale, letterData) {
 
   angleMode(DEGREES);
   
-  //draw black background triangle
+  //background triangle
   noStroke();
   fill(colorFront);
   triangle(posx, posy, posx + 150, posy, posx, posy - 180);
   
-  //draw 2 white stripes
+  //white stripes
   fill(colorBack);
-  drawStripe(posx1, posy1, tilt1, len1);
-  drawStripe(posx2, posy2, tilt2, len2);
-  
-}
-
-function drawStripe(x, y, t, l){
   push();
-  translate(x, y);
-  rotate(t);
-  rect(0, 0, l, stripeWidth);
+  translate(posx1, posy1);
+  rotate(tilt1);
+  rect(0, 0, len1, 10);
   pop();
-	
+  push();
+  translate(posx2, posy2);
+  rotate(tilt2);
+  rect(0, 0, len2, 10);
+  pop();
+  
 }
 
 function draw () {

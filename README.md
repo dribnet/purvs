@@ -1,15 +1,7 @@
 ## PS2 MDDN 242 2018
 
-Style 3:
+Since my previous version, I developed my design further by adding in some extra parameters. Initially, I didn't have these parameters and had my letters all centered around the ring shape but when I had the whole alphabet displayed at once I realised it looked a bit messy. All of my letters are now the same height, so some have ended up a bit more harder to read than I initially planned but I do like the abstract look I have created.
 
-I decided to go with another abstract shape design, but this time bringing in a curve as the main form. Each letter will contain a curve and at least one line. There are 4 parameters controlling each of the two lines and 2 parameters controlling the arc curve. To develop this idea further, I would like to bring in some colour and maybe trial with the idea of using transparancy for the curve.
+Originally I had both the lines underneath the ring but I thought having one line on top looked better as it has a bit more depth. I also changed my colour scheme so the ring shape is the focus of each letter.
 
-The 10 parameters per letter:
-
-    arc start: angle in degrees of ring start point
-    arc end: angle in degrees of ring end point
-    line1(2) length: length of line
-    line1(2) tilt: angle in degrees of line
-    line1(2) x: x axis position of line
-    line1(2) y: y axis position of line
-
+I used the basic interpolate function as a base for starting my animation. I then changed it so that the lines wouldn't move or tilt if they have a length of 0 in the old or new letter. I also decided to make the ring become a full circle before switching to the new arc angles. When the animation is half complete, the ring will be a brighter colour and fades in/out of that colour during the rest of the animation.

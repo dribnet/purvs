@@ -1,20 +1,8 @@
-
-const colorQuad = [200, 200, 200];
-const colorCircle = [0, 0, 0];
-const colorBack = [255, 255, 255];
-
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-const ballSize = 80;
-
-const arrowLP = [-120, 100];
-const arrowTP = [0, -100];
-const arrowRP = [120, 100];
-const arrowBP = [0, 40];
-
 /* 
- * my nine variables per letter are:
+ * my nine variable per letter are:
  *
     stretch x: stretches the arrow shape on the original x axis
     stretch y: stretches the arrow shape on the original y axis
@@ -61,6 +49,10 @@ const letterC = {
 	"position2 Y": 0,
 }
 
+const colorQuad = [200, 200, 200];
+const colorCircle = [0, 0, 0];
+const colorBack = [255, 255, 255];
+
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -84,24 +76,21 @@ function drawLetter(posx, posy, scale, letterData) {
   angleMode(DEGREES);
   noStroke();
   
-  //draw 2 black circles
+  //draw circles
   fill(colorCircle);
-  drawBall(vis1, posx1, posy1);
-  drawBall(vis2, posx2, posy2);
- 
+  if(vis1==1){
+	ellipse(posx1, posy1, 80, 80);
+  }
+  if(vis2==1){
+	ellipse(posx2, posy2, 80, 80);
+  }
   //draw arrow quad
   fill(colorQuad);
   push();
   translate(posx, posy);
   rotate(tilt);
-  quad(arrowLP[0] - stretchx, arrowLP[1], arrowTP[0], arrowTP[1] - stretchy, arrowRP[0] + stretchx, arrowRP[1], arrowBP[0], arrowBP[1]);
+  quad(-120 - stretchx, 100, 0, -100 - stretchy, 120 + stretchx, 100, 0, 40);
   pop();
-}
-
-function drawBall(v, x, y){
-  if(v==1){
-	ellipse(x, y, ballSize, ballSize);
-  }
 }
 
 function draw () {
@@ -126,4 +115,3 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
-
