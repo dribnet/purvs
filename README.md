@@ -1,13 +1,31 @@
 ## PS2 MDDN 242 2018
 
-interaction
-unify my letters in a consistent size, position, angle. Especially, I embrace slightly differenct styles in letters and numbers, the numbers look more like hand writing style. The interaction between echo letter looks smoothly.
-
-<!-- Alphabet:
+Alphabet:
 I continued to develop one of my original idea. I used this style to create a couple of letters. In this case, the problem is I need more variables to define the different letter, like the colour for each part, the handle point, and so on. Also, I keep working on the details of my letters.
 I got inspried by some of precedent including colours, shapes, and so on.
-I try to define my consistent style with adding some constant value instead of variables. Anyway, with all the helps, I work out them within 12 variables. They refined all the details of each letter and number like size, position, joint, ratio, colour, shadow to make them stand out. I use blocks to emphasis the main part because of the contrast between blocks and lines. Also, I draw another shape with transparent colour to show the visual effect. -->
+I try to define my consistent style with adding some constant value instead of variables. Anyway, with all the helps, I work out them within 12 variables. They refined all the details of each letter and number like size, position, joint, ratio, colour, shadow to make them stand out. I use blocks to emphasis the main part because of the contrast between blocks and lines. Also, I draw another shape with transparent colour to show the visual effect.
 
+I set up the constant for colours(fill and stroke); also, I set the angle as degree mode.
+
+
+
+I set up eleven parameters per letter are now:
+  * `bottomletterX` : the arc1 with filled colour coordinate X
+  * 'bottomletterY' : the arc2 with filled colour coordinate Y
+  * 'bottomletterR' : the radius of this ellipse
+  * 'bRa1' : the beginning of the angle of arc1
+  * 'bRa2' : the end of the the angel of arc1
+  * 'topletterX' : X axis (the stroke of an arc2)
+  * 'toplettery' : Y axis (the stroke of an arc2)
+  * 'topletterR': the vertical radius
+  * 'topletterR1' : the horizonal radius
+  * 'tRa1' : the beginning of the angle of arc2
+  * 'tRa2' : the end of the angle of arc2
+
+
+<!-- interaction
+unify my letters in a consistent size, position, angle. Especially, I embrace slightly differenct styles in letters and numbers, the numbers look more like hand writing style. The interaction between echo letter looks smoothly.
+ -->
 <!-- In the beginning, I had created the original sketch letters. I simplified the background to black, and I drawed the lines and  arcs, I was going to use the 2D shapes to build the 3D form. 
 
 I created 3 different drafts. For the first one, I control the angle of ellipses and the position of lines to contruct different letters.Also, I changed the opacity of colous, looks a little bit like the 3 dimention.
@@ -17,13 +35,5 @@ I am going to put them into the system to have a look at what happen next step.
  -->
 
 
-(Replace this README with information about your alphabet. This is an example.)
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
-
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
