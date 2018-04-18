@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#FFE4E1";
 const colorLines   = "#000090";
 
 /* 
@@ -21,7 +21,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
@@ -39,7 +39,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "ACTUALLY",
-  "1234567?",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
@@ -163,7 +163,7 @@ function computeCurrentSoloChar() {
 // draws a single character given an object, position, and scale
 function drawFromDataObject(x, y, s, obj) {
   push();
-  translate(x, y);
+  translate(x+45, y+90); // move my alphabet to center
   scale(s, s);
   drawLetter(obj);
   pop();
@@ -232,7 +232,8 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    // change scale and the space of each letter
+    drawFromDataObject(o + i*w2/7.7, o + h2/2.0 - 120, 0.7, obj)
   }
 }
 

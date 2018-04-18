@@ -1,6 +1,15 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
+ var swapWords = [
+ //NAME OF FONT
+  "VISMUSIC",
+// Melody of Do Re Mi Fa Sor la Xi
+  "CDEFGABC",
+// Melody of little stars
+  "11556651"
+]
+
 /*
  * Draw the letter given the letterData
  *
