@@ -8,6 +8,7 @@ const colorInside = "#ffffff";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
   //boundary
   // push();
@@ -178,4 +179,22 @@ function drawOreo(ox, oy, size, alphaO){
   noFill();
   ellipse(ox, oy, size * 0.2, size * 0.2);
   pop();
+}
+
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["status"] = map(percent, 0, 100, oldObj["status"], newObj["status"]);
+  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
+  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
+  new_letter["r"] = map(percent, 0, 100, oldObj["r"], newObj["r"]);
+  new_letter["r2"] = map(percent, 0, 100, oldObj["r2"], newObj["r2"]);
+  new_letter["r3"] = map(percent, 0, 100, oldObj["r3"], newObj["r3"]);
+  new_letter["r4"] = map(percent, 0, 100, oldObj["r4"], newObj["r4"]);
+  new_letter["movex"] = map(percent, 0, 100, oldObj["movex"], newObj["movex"]);
+  new_letter["movey"] = map(percent, 0, 100, oldObj["movey"], newObj["movey"]);
+  new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
+  new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
+  new_letter["offset4x"] = map(percent, 0, 100, oldObj["offset4x"], newObj["offset4x"]);
+  new_letter["offset4y"] = map(percent, 0, 100, oldObj["offset4y"], newObj["offset4y"]);
+  return new_letter;
 }

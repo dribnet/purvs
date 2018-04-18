@@ -1,10 +1,10 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#ffcfcd";
 const colorLines   = "#000090";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -21,7 +21,7 @@ let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!/";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -56,7 +56,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -140,7 +140,7 @@ function draw () {
   // now draw the letter full size below
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // see if animation should be turned off

@@ -155,14 +155,14 @@ const alphabet = {
     "offset2y": 125,
     "r": 90,
     "r2": 0,
-    "r3":-90,
-    "r4": -90,
+    "r3": 90,
+    "r4": 90,
     "movex":125,
     "movey":-125,
-    "offset3x":-155,
-    "offset3y":213,
-    "offset4x": -155,
-    "offset4y": 88
+    "offset3x":-35,
+    "offset3y":230,
+    "offset4x": -35,
+    "offset4y": 105
   },
   "K": {
     "status": 255,
@@ -185,14 +185,14 @@ const alphabet = {
     "offset2y": 125,
     "r": 90,
     "r2": 0,
-    "r3":-90,
-    "r4": -90,
+    "r3":90,
+    "r4": 90,
     "movex":0,
     "movey":-125,
-    "offset3x":20,
-    "offset3y":213,
-    "offset4x": 20,
-    "offset4y": 88
+    "offset3x":138,
+    "offset3y":230,
+    "offset4x": 138,
+    "offset4y": 105
   },
   "M": {
     "status": 255,

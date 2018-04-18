@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
-Now I already finish the refine of my code. I deleted the IF statement and replace that with the transparent function. I kept the status in my letterData but use it as the data of transparent. So now when I draw each letter, it will draw both the side and front of the cookie at the same time, but one of them is hidden. 
-Besides, I renamed my parameters and variables. They are easier to understand now.
+For my interaction of the alphabet, I used moving for the changes of the side look of oreo and transparence for the changes between front and side look of oreo. 
+Also, when I test my interaction and the process of letter swiching, I found some weird rotate of my letter parts such as when the J changing into K, the third part of the letter will rotate in a very exaggerated way. That was because I put a wrong number in the letterData so it was looks good when it was in the alphabet but weird when it moved and swiched to next letter. I double checked all the letters and updated some numbers in rotation so the weird rotating will not happen.
 
 The parameters per letter are now:
 	* `status` : the status of two status of cookies, show or hide
