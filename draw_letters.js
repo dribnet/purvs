@@ -1,7 +1,13 @@
 
 //const colorFront  = "#199cff";
 const colorStroke = "#233f11";
-//const colorBack = "#e3eded";
+
+var swapWords = [
+    "FORSNACK",
+    "YOUWANT?",
+    "WHICHONE"
+
+]
 
 /*
  * Draw the letter given the letterData
