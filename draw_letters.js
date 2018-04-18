@@ -14,12 +14,24 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
+  //first triangle
+  let posax = letterData["pax"];
+  let posay = letterData["pay"];
+  let posbx = letterData["pbx"];
+  let posby = letterData["pby"];
+  let poscx = letterData["pcx"];
+  let poscy = letterData["pcy"];
 
-  // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
+  //second triangle
+
+  let pos1x = letterData["p1x"];
+  let pos1y = letterData["p1y"];
+  let pos2x = letterData["p2x"];
+  let pos2y = letterData["p2y"];
+  let pos3x = letterData["p3x"];
+  let pos3y = letterData["p3y"];
+
+  // draw two triangles
+  triangle(posax, posay, posbx, posby, poscx, poscy);
+  triangle(pos1x , pos1y, pos2x, pos2y, pos3x, pos3y);
 }
