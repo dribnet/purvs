@@ -5,7 +5,10 @@ const alphabet = {
   "arcEnd1": 360,
   "arcStart2": 0,
   "arcEnd2": 360,
-  "lineOrient": 0
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "A":
    {
@@ -13,7 +16,10 @@ const alphabet = {
   "arcEnd1": 42,
   "arcStart2": 245,
   "arcEnd2": 294,
-  "lineOrient": 1
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 140,
+  "lineY2": 140
 },
   "B":
   {
@@ -21,7 +27,10 @@ const alphabet = {
   "arcEnd1": 105,
   "arcStart2": 0,
   "arcEnd2": 105,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "C":
   {
@@ -29,7 +38,10 @@ const alphabet = {
   "arcEnd1": 305,
   "arcStart2": 57,
   "arcEnd2": 305,
-  "lineOrient": 2
+  "lineX1": 10,
+  "lineX2": 10,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "D":
   {
@@ -37,7 +49,10 @@ const alphabet = {
   "arcEnd1": 117,
   "arcStart2": 269,
   "arcEnd2": 91,
-  "lineOrient": 2
+  "lineX1": 10,
+  "lineX2": 10,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "E":
   {
@@ -45,7 +60,10 @@ const alphabet = {
   "arcEnd1": 299,
   "arcStart2": 141,
   "arcEnd2": 217,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "F":
   {
@@ -53,7 +71,10 @@ const alphabet = {
   "arcEnd1": 318,
   "arcStart2": 90,
   "arcEnd2": 318,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "G":
   {
@@ -61,7 +82,10 @@ const alphabet = {
   "arcEnd1": 271,
   "arcStart2": 0,
   "arcEnd2": 90,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "H":
   {
@@ -69,7 +93,10 @@ const alphabet = {
   "arcEnd1": 240,
   "arcStart2": 297,
   "arcEnd2": 59,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "I":
   {
@@ -77,7 +104,10 @@ const alphabet = {
   "arcEnd1": 103,
   "arcStart2": 255,
   "arcEnd2": 286,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "J":
   {
@@ -85,7 +115,10 @@ const alphabet = {
   "arcEnd1": 138,
   "arcStart2": 272,
   "arcEnd2": 138,
-  "lineOrient": 0
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 60,
+  "lineY2": 60
 },
   "K":
   {
@@ -93,7 +126,10 @@ const alphabet = {
   "arcEnd1": 90,
   "arcStart2": 270,
   "arcEnd2": 320,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
 
   "L":
@@ -102,7 +138,10 @@ const alphabet = {
   "arcEnd1": 271,
   "arcStart2": 148,
   "arcEnd2": 216,
-  "lineOrient": 1
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 140,
+  "lineY2": 140
 },
   "M":
   {
@@ -110,7 +149,10 @@ const alphabet = {
   "arcEnd1": 36,
   "arcStart2": 67,
   "arcEnd2": 110,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "N":
   {
@@ -118,7 +160,10 @@ const alphabet = {
   "arcEnd1": 38,
   "arcStart2": 269,
   "arcEnd2": 38,
-  "lineOrient": 2
+  "lineX1": 10,
+  "lineX2": 10,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "O":
   {
@@ -126,15 +171,21 @@ const alphabet = {
   "arcEnd1": 360,
   "arcStart2": 0,
   "arcEnd2": 360,
-  "lineOrient": 1
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 140,
+  "lineY2": 140
 },
   "P":
   {
   "arcStart1": 90,
   "arcEnd1": 360,
-  "arcStart2": 270,
+  "arcStart2": 180,
   "arcEnd2": 0,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "Q":
   {
@@ -142,7 +193,10 @@ const alphabet = {
   "arcEnd1": 18,
   "arcStart2": 45,
   "arcEnd2": 18,
-  "lineOrient": 1
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 140,
+  "lineY2": 140
 },
   "R":
   {
@@ -150,7 +204,10 @@ const alphabet = {
   "arcEnd1": 360,
   "arcStart2": 269,
   "arcEnd2": 360,
-  "lineOrient": 2
+  "lineX1": 10,
+  "lineX2": 10,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "S":
   {
@@ -158,7 +215,10 @@ const alphabet = {
   "arcEnd1": 150,
   "arcStart2": 224,
   "arcEnd2": 330,
-  "lineOrient": 6
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 70,
+  "lineY2": 130
 },
   "T":
   {
@@ -166,7 +226,10 @@ const alphabet = {
   "arcEnd1": 337,
   "arcStart2": 75,
   "arcEnd2": 105,
-  "lineOrient": 0
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 60,
+  "lineY2": 60
 },
   "U":
   {
@@ -174,7 +237,10 @@ const alphabet = {
   "arcEnd1": 215,
   "arcStart2": 90,
   "arcEnd2": 215,
-  "lineOrient": 3
+  "lineX1": 90,
+  "lineX2": 90,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "V":
   {
@@ -182,7 +248,10 @@ const alphabet = {
   "arcEnd1": 215,
   "arcStart2": 326,
   "arcEnd2": 89,
-  "lineOrient": 2
+  "lineX1": 10,
+  "lineX2": 10,
+  "lineY1": 140,
+  "lineY2": 60
 },
   "W":
   {
@@ -190,7 +259,10 @@ const alphabet = {
   "arcEnd1": 215,
   "arcStart2": 253,
   "arcEnd2": 289,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "X":
   {
@@ -198,7 +270,10 @@ const alphabet = {
   "arcEnd1": 44,
   "arcStart2": 135,
   "arcEnd2": 225,
-  "lineOrient": 7
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 130,
+  "lineY2": 70
 },
   "Y":
   {
@@ -206,7 +281,10 @@ const alphabet = {
   "arcEnd1": 135,
   "arcStart2": 223,
   "arcEnd2": 316,
-  "lineOrient": 7
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 130,
+  "lineY2": 70
 },
   "Z":
   {
@@ -214,7 +292,10 @@ const alphabet = {
   "arcEnd1": 135,
   "arcStart2": 222,
   "arcEnd2": 317,
-  "lineOrient": 7
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 130,
+  "lineY2": 70
 },
 "0":
   {
@@ -222,7 +303,10 @@ const alphabet = {
   "arcEnd1": 360,
   "arcStart2": 0,
   "arcEnd2": 360,
-  "lineOrient": 7
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 130,
+  "lineY2": 70
 },
   "1":
   {
@@ -230,7 +314,10 @@ const alphabet = {
   "arcEnd1": 103,
   "arcStart2": 180,
   "arcEnd2": 271,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "2":
   {
@@ -238,7 +325,10 @@ const alphabet = {
   "arcEnd1": 137,
   "arcStart2": 36,
   "arcEnd2": 137,
-  "lineOrient": 7
+  "lineX1": 20,
+  "lineX2": 80,
+  "lineY1": 130,
+  "lineY2": 70
 },
   "3":
   {
@@ -246,7 +336,10 @@ const alphabet = {
   "arcEnd1": 331,
   "arcStart2": 331,
   "arcEnd2": 147,
-  "lineOrient": 0
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 60,
+  "lineY2": 60
 },
   "4":
   {
@@ -254,7 +347,10 @@ const alphabet = {
   "arcEnd1": 270,
   "arcStart2": 347,
   "arcEnd2": 12,
-  "lineOrient": 5
+  "lineX1": 50,
+  "lineX2": 50,
+  "lineY1": 60,
+  "lineY2": 140
 },
   "5":
   {
@@ -262,7 +358,10 @@ const alphabet = {
   "arcEnd1": 317,
   "arcStart2": 226,
   "arcEnd2": 138,
-  "lineOrient": 0
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 60,
+  "lineY2": 60
 },
   "6":
   {
@@ -270,7 +369,10 @@ const alphabet = {
   "arcEnd1": 258,
   "arcStart2": 360,
   "arcEnd2": 180,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "7":
   {
@@ -278,7 +380,10 @@ const alphabet = {
   "arcEnd1": 90,
   "arcStart2": 213,
   "arcEnd2": 0,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "8":
   {
@@ -286,7 +391,10 @@ const alphabet = {
   "arcEnd1": 360,
   "arcStart2": 0,
   "arcEnd2": 179,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 },
   "9":
   {
@@ -294,7 +402,10 @@ const alphabet = {
   "arcEnd1": 105,
   "arcStart2": 180,
   "arcEnd2": 0,
-  "lineOrient": 4
+  "lineX1": 10,
+  "lineX2": 90,
+  "lineY1": 100,
+  "lineY2": 100
 }
 
 }  
