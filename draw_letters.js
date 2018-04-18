@@ -8,6 +8,7 @@ const colorStroke = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
@@ -55,9 +56,7 @@ noFill();
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
   line(pos9x,pos9y,pos10x,pos10y);
-
 pop();
-
 
 stroke(255);
 strokeWeight(3);
