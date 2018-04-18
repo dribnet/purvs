@@ -1,11 +1,19 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+This commit contains a preview and thumbnail showing off my concept for my font. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+It uses one rectangle set to a particular ratio, and two polygons that are currently represented as octagons, but i intend to allow a parameter to change the number of sides the shape has.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+The twelve parameters per letter: 
+	Polygon1.x
+	Polygon1.y
+	Polygon1.scale
+	Polygon1.sides
+	Polygon2.x
+	Polygon2.y
+	Polygon2.scale
+	Polygon2.sides
+	Rectangle.x
+	Rectangle.y
+	Rectangle.scale
+	Rectangle.angle

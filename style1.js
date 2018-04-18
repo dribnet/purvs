@@ -1,10 +1,14 @@
 let main_canvas = null;
-let pos1_slider = null;
-let tilt1_slider = null;
-let pos2_slider = null;
-let tilt2_slider = null;
-let pos3_slider = null;
-let tilt3_slider = null;
+let octo1x_slider = null;
+let octo1y_slider = null;
+let octo1s_slider = null;
+let octo2x_slider = null;
+let octo2y_slider = null;
+let octo2s_slider = null;
+let rectx_slider = null;
+let recty_slider = null;
+let rects_slider = null;
+let rectr_slider = null;
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -12,47 +16,59 @@ const canvasHeight = 500;
 let savedValues = {
   "A":
     {
-      "box1": {
-        "position": -174,
-        "tilt": -47
+      "octo1": {
+        "x": -174,
+        "y": +50,
+        "scale": 50
       },
-      "box2": {
-        "position": -104,
-        "tilt": -4
+      "octo2": {
+        "x": +174,
+        "y": +50,
+        "scale": 100
       },
-      "box3": {
-        "position": -121,
-        "tilt": 58
+      "rect": {
+        "x": -121,
+        "y": +58,
+        "scale": 100,
+        "tilt": 40
       }
     },
   "B":
     {
-      "box1": {
-        "position": -191,
-        "tilt": -90
+      "octo1": {
+        "x": -174,
+        "y": +50,
+        "scale": 50
       },
-      "box2": {
-        "position": -54,
-        "tilt": -45
+      "octo2": {
+        "x": +174,
+        "y": +50,
+        "scale": 100
       },
-      "box3": {
-        "position": -12,
-        "tilt": 6
+      "rect": {
+        "x": -121,
+        "y": +58,
+        "scale": 100,
+        "tilt": 40
       }
     },
   "C":
     {
-      "box1": {
-        "position": -163,
-        "tilt": -84
+      "octo1": {
+        "x": -174,
+        "y": +50,
+        "scale": 50
       },
-      "box2": {
-        "position": -191,
-        "tilt": 163
+      "octo2": {
+        "x": +174,
+        "y": +50,
+        "scale": 100
       },
-      "box3": {
-        "position": 0,
-        "tilt": -27
+      "rect": {
+        "x": -121,
+        "y": +58,
+        "scale": 100,
+        "tilt": 40
       }
     }
 }
@@ -65,12 +81,16 @@ function setup () {
   angleMode(DEGREES);
 
   // create two sliders
-  pos1_slider = createSlider(-200, 200, 0);
-  tilt1_slider = createSlider(-180, 180, 0);
-  pos2_slider = createSlider(-200, 200, 0);
-  tilt2_slider = createSlider(-180, 180, 0);
-  pos3_slider = createSlider(-200, 200, 0);
-  tilt3_slider = createSlider(-180, 180, 0);
+  octo1x_slider = createSlider(-200, 200, 0);
+  octo1y_slider = createSlider(-180, 180, 0);
+  octo1s_slider = createSlider(-200, 200, 0);
+  octo2x_slider = createSlider(-180, 180, 0);
+  octo2y_slider = createSlider(-200, 200, 0);
+  octo2s_slider = createSlider(-180, 180, 0);
+  rectx_slider = createSlider(-180, 180, 0);
+  recty_slider = createSlider(-180, 180, 0);
+  rects_slider = createSlider(-180, 180, 0);
+  rectr_slider = createSlider(-180, 180, 0);
 
   sel = createSelect();
   sel.option('A');
@@ -83,12 +103,16 @@ function setup () {
 
   // position each element on the page
   main_canvas.parent('canvasContainer');
-  pos1_slider.parent('slider1Container');
-  tilt1_slider.parent('slider2Container');
-  pos2_slider.parent('slider3Container');
-  tilt2_slider.parent('slider4Container');
-  pos3_slider.parent('slider5Container');
-  tilt3_slider.parent('slider6Container');
+  octo1x_slider.parent('slider1Container');
+  octo1y_slider.parent('slider2Container');
+  octo1s_slider.parent('slider3Container');
+  octo2x_slider.parent('slider4Container');
+  octo2y_slider.parent('slider5Container');
+  octo2s_slider.parent('slider6Container');
+  rectx_slider.parent('slider7Container');
+  recty_slider.parent('slider8Container');
+  rects_slider.parent('slider9Container');
+  rectr_slider.parent('slider10Container');
 
   sel.parent(selectorContainer);
   button.parent(buttonContainer);
@@ -96,25 +120,33 @@ function setup () {
 
 function sliderToDataObject() {
   let obj = {};
-  obj["box1"] = {};
-  obj["box1"]["position"] = pos1_slider.value();
-  obj["box1"]["tilt"] = tilt1_slider.value();
-  obj["box2"] = {};
-  obj["box2"]["position"] = pos2_slider.value();
-  obj["box2"]["tilt"] = tilt2_slider.value();
-  obj["box3"] = {};
-  obj["box3"]["position"] = pos3_slider.value();
-  obj["box3"]["tilt"] = tilt3_slider.value();
+  obj["octo1"] = {};
+  obj["octo1"]["x"] = octo1x_slider.value();
+  obj["octo1"]["y"] = octo1y_slider.value();
+  obj["octo1"]["scale"] = octo1s_slider.value();
+  obj["octo2"] = {};
+  obj["octo2"]["x"] = octo2x_slider.value();
+  obj["octo2"]["y"] = octo2y_slider.value();
+  obj["octo2"]["scale"] = octo2s_slider.value();
+  obj["rect"] = {};
+  obj["rect"]["x"] = rectx_slider.value();
+  obj["rect"]["y"] = recty_slider.value();
+  obj["rect"]["scale"] = rects_slider.value();
+  obj["rect"]["tilt"] = rectr_slider.value();
   return obj;
 }
 
 function dataObjectToSliders(obj) {
-  pos1_slider.value(obj["box1"]["position"]);
-  tilt1_slider.value(obj["box1"]["tilt"]);
-  pos2_slider.value(obj["box2"]["position"]);
-  tilt2_slider.value(obj["box2"]["tilt"]);
-  pos3_slider.value(obj["box3"]["position"]);
-  tilt3_slider.value(obj["box3"]["tilt"]);
+  octo1x_slider.value(obj["octo1"]["x"]);
+  octo1y_slider.value(obj["octo1"]["y"]);
+  octo1s_slider.value(obj["octo1"]["scale"]);
+  octo2x_slider.value(obj["octo2"]["x"]);
+  octo2y_slider.value(obj["octo2"]["y"]);
+  octo2s_slider.value(obj["octo2"]["scale"]);
+  rectx_slider.value(obj["rect"]["x"]);
+  recty_slider.value(obj["rect"]["y"]);
+  rects_slider.value(obj["rect"]["scale"]);
+  rectr_slider.value(obj["rect"]["tilt"]);
 }
 
 function letterChangedEvent() {
@@ -128,10 +160,10 @@ function buttonPressedEvent() {
   alert(json);
 }
 
-const colorFront = [207, 222, 227];
-const colorBack = [29, 42, 46];
+const colorFront = [148, 183, 239];
+const colorBack = [244, 255, 253];
 
-function drawPart(y_offset, pos, tilt) {
+/*function drawPart(y_offset, pos, tilt) {
   let middle_x = 2 * canvasWidth / 3;
   let middle_y = canvasHeight / 2;
   resetMatrix();
@@ -149,16 +181,25 @@ function drawFromSliders(y_offset, pos_slider, tilt_slider) {
   let pos = pos_slider.value();
   let tilt = tilt_slider.value();
   drawPart(y_offset, pos, tilt);
+}*/
+
+function drawOcto(octo1x_slider,octo1y_slider,octo1s_slider) {
+  fill(colorFront);
+  polygon(0,0,octo1s_slider.value,8)
+  translate(middle_x + x, middle_y + y);
 }
 
 function draw () {
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
 
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+  drawOcto(octo1x_slider,octo1y_slider,octo1s_slider)
+  drawOcto(octo2x_slider,octo2y_slider,octo2s_slider)
+  drawRect(rectx_slider,recty_slider,rects_slider,rectr_slider)
+
+  //drawFromSliders(-50, pos1_slider, tilt1_slider);
+  //drawFromSliders(  0, pos2_slider, tilt2_slider);
+  //drawFromSliders( 50, pos3_slider, tilt3_slider);
 }
 
 function keyTyped() {
