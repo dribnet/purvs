@@ -200,7 +200,14 @@ function interpolate_letter(percent, oldObj, newObj){
 }
 var swapWords = [
   "OREOTIME",
+  "TASTEME!",
   "DAYDREAM",
   "SHERLOCK",
-  "TASTEME!"
+  "DATABASE",
+  "EXTERNAL",
+  "BARBECUE",
+  "DISCOVER",
+  "FAVORITE",
+  "HANDSOME",
+  "ICECREAM"
 ]
