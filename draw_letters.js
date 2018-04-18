@@ -10,8 +10,8 @@ const colorStroke = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
+  fill(20);
+  stroke(20);
   strokeWeight(4);
 
   //first triangle
@@ -34,4 +34,8 @@ function drawLetter(letterData) {
   // draw two triangles
   triangle(posax, posay, posbx, posby, poscx, poscy);
   triangle(pos1x , pos1y, pos2x, pos2y, pos3x, pos3y);
+ 
+  noFill();
+  stroke(colorFront);
+  rect(0, 0, 100, 200)
 }
