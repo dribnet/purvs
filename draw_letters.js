@@ -1,6 +1,12 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
+var swapWords = [
+  "COOLWORD",
+  "NEATFONT",
+  "ABCDEFGH"
+]
+
 /*
  * Draw the letter given the letterData
  *
