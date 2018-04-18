@@ -39,3 +39,21 @@ function drawLetter(letterData) {
   stroke(colorFront);
   rect(0, 0, 100, 200)
 }
+
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["pax"] = map(percent, 0, 100, oldObj["pax"], newObj["pax"]);
+  new_letter["pay"] = map(percent, 0, 100, oldObj["pay"], newObj["pay"]);
+  new_letter["pbx"] = map(percent, 0, 100, oldObj["pbx"], newObj["pbx"]);
+  new_letter["pby"] = map(percent, 0, 100, oldObj["pby"], newObj["pby"]);
+  new_letter["pcx"] = map(percent, 0, 100, oldObj["pcx"], newObj["pcx"]);
+  new_letter["pcy"] = map(percent, 0, 100, oldObj["pcy"], newObj["pcy"]);
+  new_letter["p1x"] = map(percent, 0, 100, oldObj["p1x"], newObj["p1x"]);
+  new_letter["p1y"] = map(percent, 0, 100, oldObj["p1y"], newObj["p1y"]);
+  new_letter["p2x"] = map(percent, 0, 100, oldObj["p2x"], newObj["p2x"]);
+  new_letter["p2y"] = map(percent, 0, 100, oldObj["p2y"], newObj["p2y"]);
+  new_letter["p3x"] = map(percent, 0, 100, oldObj["p3x"], newObj["p3x"]);
+  new_letter["p3y"] = map(percent, 0, 100, oldObj["p3y"], newObj["p3y"]);
+
+  return new_letter;
+}
