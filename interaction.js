@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#000000";
-const colorLines   = "#ffffff";
+const colorLines   = "#ffffffybv";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
