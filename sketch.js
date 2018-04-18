@@ -55,7 +55,7 @@ const letterC = {
 }
 
 const colorFront  = "#281c1c";
-const colorBack   = "#ffcfcd";
+const colorBack   = "#ffd0d0";
 const colorStroke = "#ffffff";
 const colorInside = "#ffffff";
 const colorPattern = "#514444";
