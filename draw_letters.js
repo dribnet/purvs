@@ -225,8 +225,11 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 //adding words//
 var swapWords = [
+  "BLOSSOMS",
+  "FLOWERS+",
+  "ELEGANCE",
   "ADORABLE",
   "DELICATE",
-  "FLOWERS+"
+  
 ]
 
