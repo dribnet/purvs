@@ -8,7 +8,9 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
+
+
+
 
   // determine parameters for second circle
   let size1 = letterData["sizeX"];
@@ -27,9 +29,13 @@ function drawLetter(letterData) {
   let y4 =letterData["qy4"];
 
 
+//addded new interations to make the font more interesting 
+// to apply shaky effect to the font
+
+//
 noStroke()
 fill (255,68,93,100);
-  // draw two circles
+  // building quadrilateral shapes by 4 vertex 
 beginShape();
 vertex(x1,y1)
 vertex(x2,y2)
@@ -37,16 +43,25 @@ vertex(x3,y3)
 vertex(x4,y4)
 endShape();
 
+// addded new interations to make the font more interesting 
 
+
+
+
+//
 
 fill (200,58,23,100);
 stroke(255,208,68)
 strokeWeight(3)
 rect(pos2x, pos2y, size1, size2);
 
+
+
 }
 
 function interpolate_letter(percent, oldObj, newObj){
+var step = frameCount % 5;
+applyMatrix(1, 0, 0, 1, step,0);
 
   let new_letter = {};
   new_letter["sizeX"] = map(percent , 0, 90, oldObj ["sizeX"], newObj["sizeX"]);
@@ -61,27 +76,32 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["qy3"] = map(percent , 0, 90, oldObj ["qy3"], newObj["qy3"]);
   new_letter["qx4"] = map(percent , 0, 90, oldObj ["qx4"], newObj["qx4"]);
   new_letter["qy4"] = map(percent , 0, 90, oldObj ["qy4"], newObj["qy4"]);
-  //if( percent < 30) {
-  //  new_letter["offsetx"] = oldObj ["offsetx"] 
-  //}  else if ( percent < 30) {
-  //  new_letter["offsetx"] = map(percent, 30,60, oldObj["offsety"], newObj["offsety"]);
-  //}
-  //else {
-  //  new_letter["offsetx"] = newObj["offsetx"];
-  //
+  //if( percent < 25) {
+   // new_letter["offsetx"] = oldObj ["offsetx"] + applyMatrix(1, 0, 0, 1, step,0);
+  //} 
+
+
+
+
   return new_letter;
+
 }
+
+
 
   var swapWords = [
   
-  "ROCKYKEY",
+  "ORANGEON",
   "EVERYONE",
-  "COMPLETE",
-  "BASEBALL",
-  "JACOB NG",
-  "100 PLUS",
   "UPGRADED",
   "IPHONE 7",
   "FACEBOOK",
+  "ANCIENTS",
+  "EGYPTIAN",
+  "100 PLUS",
+  "BASEBALL",
+  "12345678",
+
+  
 
 ]

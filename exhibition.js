@@ -31,7 +31,7 @@ let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 
 let lastKeyPressedTime;
-let secondsUntilSwapMode = 15;
+let secondsUntilSwapMode = 0;
 let lastWordSwappedTime;
 let isSwappingWords = true;
 let secondsPerWord = 8;
