@@ -15,8 +15,8 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
-     let posx = letterData["x"];
+ 
+  let posx = letterData["x"];
   let posy = letterData["y"];
 
   let pos2x = letterData["x2"];
@@ -68,4 +68,28 @@ strokeWeight(3);
 
 
 
+}
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["x"] = map(percent,0, 100, oldObj["x"],newObj["x"]);
+  new_letter["y"] = map(percent,0, 100, oldObj["y"],newObj["y"]);
+  new_letter["x2"] = map(percent,0, 100, oldObj["x2"],newObj["x2"]);
+  new_letter["y2"] = map(percent,0, 100, oldObj["y2"],newObj["y2"]);
+  new_letter["x3"] = map(percent,0, 100, oldObj["x3"],newObj["x3"]);
+  new_letter["y3"] = map(percent,0, 100, oldObj["y3"],newObj["y3"]);
+  new_letter["x4"] = map(percent,0, 100, oldObj["x4"],newObj["x4"]);
+  new_letter["y4"] = map(percent,0, 100, oldObj["y4"],newObj["y4"]);
+  new_letter["x5"] = map(percent,0, 100, oldObj["x5"],newObj["x5"]);
+  new_letter["y5"] = map(percent,0, 100, oldObj["y5"],newObj["y5"]);
+  new_letter["x6"] = map(percent,0, 100, oldObj["x6"],newObj["x6"]);
+  new_letter["y6"] = map(percent,0, 100, oldObj["y6"],newObj["y6"]);
+  new_letter["x7"] = map(percent,0, 100, oldObj["x7"],newObj["x7"]);
+  new_letter["y7"] = map(percent,0, 100, oldObj["y7"],newObj["y7"]);
+  new_letter["x8"] = map(percent,0, 100, oldObj["x8"],newObj["x8"]);
+  new_letter["y8"] = map(percent,0, 100, oldObj["y8"],newObj["y8"]);
+  new_letter["x9"] = map(percent,0, 100, oldObj["x9"],newObj["x9"]);
+  new_letter["y9"] = map(percent,0, 100, oldObj["y9"],newObj["y9"]);
+  new_letter["x10"] = map(percent,0, 100, oldObj["x10"],newObj["x10"]);
+  new_letter["y10"] = map(percent,0, 100, oldObj["y10"],newObj["y10"]);
+  return new_letter;
 }

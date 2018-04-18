@@ -4,7 +4,7 @@ const alphabet = {
       "offsetx": 0,
       "offsety": 0
   },
-  "A": {
+ "A": {
       //left
 "x3": 0,
  "y3": 5,
