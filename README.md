@@ -1,5 +1,5 @@
 ## PS2 MDDN 242 2018
 
-Alphabet Construction
+Alphabet Finalized
 
-This is my first attempt at building the fonts shapes from my code with the same paramters outlined in the Concept upload. I have added a question Mark and a fullstop just to round out the whole line nicely.I am fairly happy with the results so far however I am feeling a little limited to the shapes I can create with my current parameters and so I am considering adding a final parameter to control the x coordinate for the 3rd triangle. This will give me greater variety in the shapes I can create given that I will basically give myself an intirely new triangle to work with. I don't think it is going to be the easiest font to understand however it I aiming for abstract so I think that will be fine. I think I am really going to struggle with characters like the O, P, R as I don't have ideas for them yet.
+So I did add that other parameter and it gave me so much more freedom. But I think I was right in thinking it isnt the most legiable font. However I think my change in colour has helped to alliviate this issue as it makes everything darker and easier to view agaisnt the background. Some of the letters are more clear than others but I think I have worked within the constrainst well to deliver a good looking product. Something I primarily focussed on was the creation of a coherent font, in terms of all the letters looking as if they belong in the same family. Thus I am happy with the results. I am interested to see how it will work with the transitions though. 

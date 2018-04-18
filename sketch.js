@@ -57,54 +57,12 @@ const letterC = {
   "rotate": 0
 }
 
-
-
-
-
-
-
-
-
-//TO FIX!!!!
-
-
-// const colorFront  = color(204, 102, 0);
-// const colorBack   = color(204, 153, 0);
-// const colorStroke = color(153, 51, 0);
-
-
-
-
-
-
-
-
-
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
   angleMode (DEGREES);
-
-
-
-
-
-
-  //TO FIX!!!
-
-  // color/stroke setup
-  // fill (colorFront);
-  // stroke (colorStroke);
-  // strokeWeight (10);
-
-
-
-
-
-
-
 
   // With no animation, redrawing the screen is not necessary.
   noLoop ();
@@ -140,24 +98,10 @@ function drawLetter (posx, posy, letterData) {
 
 function draw () {
   // Clears the screen.
-  background (66, 244, 235);
+  background (227, 237, 237);
   // Sets the settings for the shapes that make the fonts.
 
-
-
-
-
-
-
-  //Need to Fix Possibly.
-  fill (255, 122, 122, 150);
-
-
-
-
-
-
-
+  fill (142, 38, 43, 150);
 
   strokeWeight (0);
 
