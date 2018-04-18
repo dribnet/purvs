@@ -13,19 +13,8 @@ Added:
   - vertX3: X position of the end point of the second curve(anchor point)
   - vertY3: Y position of the end point of the second curve(anchor point)
 
-  Cosmetic iteration;
-  In my last commit I said I was happy with the current iteration and would focus on catching up but after pushing the commit I felt like the the 2 letters A/B could be refined more because I have a bad habit of nitpicking my work. I just didn't like how they have the sharp edge.
+Starting to progress through the alphabet. Because of how I wrote my code for the "ABC" part I had to manipulate some of my code so that it would work with and in the alphabet framework. 
 
-<<<<<<< HEAD
-  I personally felt that since the fonts are so minimal(a line) that even the slightest anomaly such as the sharp edge in one of the letter forms would render them as not apart of the font family. It's also something that can be cleaned up reasonably easily just by changing the control handles. Possibly for the animation the sharp edge is incorporated to show a contrast from the fluidity of the form. 
-=======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+With the help of Michael I was able to incorporate the rectangle into my drawLetter function and cleaned up by transformations by his suggestion to use the push() and pop() function. For the code to work with the alphabet framework I had to translate my lines from being drawn at locations such as 200,300,400 etc, to inside the the 100x200 rectangle of alphabet. I did this by changing the anchor point locations of the parameters to 0-100,0-200.
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
->>>>>>> upstream/part2
-
-  I also changed the artboard(rect) to a size of 100x200 instead of 150x150 because the drawLetter(data) draws each letter in a 100x200 rectangle so I just wanted to further restrain my font to fit the parameters of the function. Now I feel like I can catch up.
+After this the code was able to be drawn, I then added a transformation for scale and translation to make it fit inside the rectangle. The alphabet code differs slighty from the initial "ABC" but still looks like it fits the font family.

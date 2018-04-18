@@ -74,9 +74,6 @@ function setup () {
   //Change rect (x,y) from corner to center
   rectMode(CENTER)
 
-  // color/stroke setup
-  fill(colorFront);
-
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
@@ -104,14 +101,23 @@ function drawLetter(posx, posy, scale, letterData) {
   let vert3y = posy + letterData["vertY3"];
 
   //stroke(255,0,255); //Pink for testing
-  stroke(colorBack)
+
+  noStroke();
+  fill(colorFront);
+  rect(posx, posy, 100, 200);
+
+  push();
+  translate(-canvasWidth/2, -canvasHeight/2)
+  stroke(colorBack);
   noFill();
   strokeWeight(15);
   beginShape();
-  vertex(vert1x,vert1y)
-  quadraticVertex(ctrl1Px,ctrl1Py,vert2x,vert2y)
-  quadraticVertex(ctrl2Px, ctrl2Py, vert3x,vert3y)
+  vertex(vert1x, vert1y);
+  quadraticVertex(ctrl1Px, ctrl1Py, vert2x, vert2y);
+  quadraticVertex(ctrl2Px, ctrl2Py, vert3x, vert3y);
   endShape();
+  pop();
+
 }
 
 function draw () {
@@ -123,12 +129,10 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   //draw rect(secondary canvas) - possibly need to change this later for animation
-  rect(center_x - 250, center_y, 100, 200)
-  rect(center_x, center_y, 100, 200)
-  rect(center_x + 250, center_y, 100, 200)
+  //rect(center_x - 250, center_y, 100, 200)
+  //rect(center_x, center_y, 100, 200)
+  //rect(center_x + 250, center_y, 100, 200)
 
-  //translate the letters to center
-  translate(-canvasWidth/2, -canvasHeight/2)
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, 10, letterA);
