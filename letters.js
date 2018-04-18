@@ -1,58 +1,56 @@
 const alphabet = {
   "default": {
-     "box2x": 0,
-     "box2y": 330,
+     "box2x": 100,
+     "box2y": 100,
 
-     "box3x": 0,
-     "box3y": 330,
 
-     "box1x":0,
-     "box1y":330,
 
-     "box5x":0,
-     "box5y":330,
+     "box1x":100,
+     "box1y":320,
 
-     "box6x":0,
-     "box6y":330,
+     "box5x":120,
+     "box5y":140,
 
-     "box7x":0,
-     "box7y":330,
+     "box6x":0, //
+     "box6y":200,
+
+     "box7x":140,
+     "box7y":180,
     
-     "box8x":0,
-     "box8y":330,
+     "box8x":140,
+     "box8y":220,
 
-     "box4x": 0,
-     "box4y": 330
+     "box4x": 120,
+     "box4y": 260
   },
    
   "A": {
 
      "box7x":20,
-     "box7y":300,
+     "box7y":310,
 
 
-     "box3x": -30,
-     "box3y": 330,
+
 
      "box5x":-30,
-     "box5y":290,
+     "box5y":300,
 
      "box6x":-30,
-     "box6y":250,
+     "box6y":260,
 
 
 
      "box2x": 40,
-     "box2y": 280,
+     "box2y": 290,
 
      "box1x":1,
-     "box1y":230,
+     "box1y":240,
 
      "box4x": 40,
-     "box4y": 320,
+     "box4y": 330,
   
      "box8x":40,
-     "box8y":238
+     "box8y":248
      
    },
 
@@ -62,8 +60,6 @@ const alphabet = {
      "box7y":342,
 
 
-     "box3x": 0,
-     "box3y": 330,
 
      "box5x":0,
      "box5y":290,
@@ -94,8 +90,6 @@ const alphabet = {
      "box7y":340,
 
 
-     "box3x": 0,
-     "box3y": 330,
 
      "box5x":0,
      "box5y":290,
@@ -125,8 +119,7 @@ const alphabet = {
      "box7y":340,
 
 
-     "box3x": 0,
-     "box3y": 330,
+
 
      "box5x":0,
      "box5y":290,
@@ -156,8 +149,7 @@ const alphabet = {
      "box7y":280,
 
 
-     "box3x": 0,
-     "box3y": 310,
+
 
      "box5x":0,
      "box5y":270,
@@ -187,8 +179,7 @@ const alphabet = {
      "box7y":280,
 
 
-     "box3x": 0,
-     "box3y": 310,
+
 
      "box5x":0,
      "box5y":270,
@@ -218,8 +209,7 @@ const alphabet = {
      "box7y":330,
 
 
-     "box3x": 0,
-     "box3y": 320,
+
 
      "box5x":0,
      "box5y":280,
@@ -247,30 +237,29 @@ const alphabet = {
   "H": {
 
      "box7x":55, //dont move
-     "box7y":295,
+     "box7y":305,
 
 
-     "box3x": 0,
-     "box3y": 330,
+
 
      "box5x":0,
-     "box5y":290,
+     "box5y":300,
 
      "box6x":0,
-     "box6y":250,
+     "box6y":260,
 
 
      "box1x":80,
-     "box1y":320, //dont move
+     "box1y":330, //dont move
 
      "box2x": 80, //hiding
-     "box2y": 240,
+     "box2y": 250,
 
      "box4x": 80,
-     "box4y": 280,
+     "box4y": 290,
   
      "box8x":80, //dont move
-     "box8y":240
+     "box8y":250
      
    },
    "I": {
@@ -279,8 +268,6 @@ const alphabet = {
      "box7y":250,
 
 
-     "box3x": 0,
-     "box3y": 330,
 
      "box5x":0,
      "box5y":290,
@@ -308,9 +295,6 @@ const alphabet = {
      "box7y":338,
 
 
-     "box3x": 10,
-     "box3y": 310,
-
      "box5x":10,
      "box5y":270,
 
@@ -337,8 +321,7 @@ const alphabet = {
      "box7y":300,
 
 
-     "box3x": -10,
-     "box3y": 330,
+    
 
      "box5x":-10,
      "box5y":290,
@@ -366,8 +349,6 @@ const alphabet = {
      "box7y":338,
 
 
-     "box3x": 10,
-     "box3y": 320,
 
      "box5x":10,
      "box5y":280,
@@ -392,69 +373,64 @@ const alphabet = {
    "M": {
 
      "box7x":35, //dont move
-     "box7y":268,
+     "box7y":288,
 
 
-     "box3x": -20,
-     "box3y": 330,
 
      "box5x":-20,
-     "box5y":290,
+     "box5y":300,
 
      "box6x":-20,
-     "box6y":250,
+     "box6y":260,
 
 
      "box1x":70,
-     "box1y":320, //dont move
+     "box1y":330, //dont move
 
      "box2x": 70, //hiding
-     "box2y": 240,
+     "box2y": 250,
 
      "box4x": 70,
-     "box4y": 280,
+     "box4y": 290,
   
      "box8x":70, //dont move
-     "box8y":240
+     "box8y":250
      
    },
    "N": {
 
-     "box7x":0, //dont move
-     "box7y":265,
+     "box7x":-15, //dont move
+     "box7y":270,
 
 
-     "box3x": -50,
-     "box3y": 310,
+
 
      "box5x":-50,
-     "box5y":270,
+     "box5y":290,
 
      "box6x":-50,
-     "box6y":230,
+     "box6y":260,
 
 
-     "box1x":30,
-     "box1y":320, //dont move
+     "box1x":0,
+     "box1y":310, //dont move
 
-     "box2x": 80, //hiding
-     "box2y": 280,
+     "box2x": 50, //hiding
+     "box2y": 310,
 
-     "box4x": 80,
-     "box4y": 320,
+     "box4x": 50,
+     "box4y": 350,
   
-     "box8x":80, //dont move
-     "box8y":240
+     "box8x":50, //dont move
+     "box8y":270
      
    },
    "O": {
 
-     "box7x":60, //dont move
+     "box7x":50, //dont move
      "box7y":340,
 
 
-     "box3x": 20,
-     "box3y": 330,
 
      "box5x":0,
      "box5y":290,
@@ -484,8 +460,6 @@ const alphabet = {
      "box7y":270,
 
 
-     "box3x": 0,
-     "box3y": 310,
 
      "box5x":0,
      "box5y":270,
@@ -512,62 +486,57 @@ const alphabet = {
    "Q": {
 
      "box7x":20, //dont move
-     "box7y":320,
+     "box7y":330,
 
-
-     "box3x": -20,
-     "box3y": 310,
 
      "box5x":-20,
-     "box5y":270,
+     "box5y":280,
 
      "box6x":-20,
-     "box6y":230,
+     "box6y":240,
 
 
      "box1x":10,
-     "box1y":210, //dont move
+     "box1y":220, //dont move
 
      "box2x": 50,
-     "box2y": 260,
+     "box2y": 270,
 
      
 
      "box4x": 90,
-     "box4y": 325,
+     "box4y": 335,
   
      "box8x":50, //dont move
-     "box8y":220
+     "box8y":230
      
    },
    "R": {
 
-     "box7x":110, //dont move
+     "box7x":100, //dont move
      "box7y":330,
 
 
-     "box3x": 0,
-     "box3y": 330,
 
      "box5x":0,
-     "box5y":290,
+     "box5y":300,
 
      "box6x":0,
-     "box6y":250,
+     "box6y":260,
 
 
      "box1x":30,
-     "box1y":230, //dont move
+     "box1y":240, //dont move
 
      "box2x": 60, //hiding
-     "box2y": 290,
+     "box2y": 300,
 
      
 
      "box4x": 50,
-     "box4y": 235,
+     "box4y": 245,
   
-     "box8x":110, //dont move
+     "box8x":100, //dont move
      "box8y":330
      
    },
@@ -577,8 +546,6 @@ const alphabet = {
      "box7y":348,
 
 
-     "box3x": 10,
-     "box3y": 320,
 
      "box5x":10,
      "box5y":280,
@@ -606,9 +573,6 @@ const alphabet = {
      "box7y":250,
 
 
-     "box3x": 0,
-     "box3y": 320,
-
      "box5x":0,
      "box5y":280,
 
@@ -632,30 +596,29 @@ const alphabet = {
    "U": {
 
      "box7x":45, //dont move
-     "box7y":330,
+     "box7y":350,
 
 
-     "box3x": -40,
-     "box3y": 280,
+
 
      "box5x":-40,
-     "box5y":240,
+     "box5y":270,
 
      "box6x":-40,
-     "box6y":200,
+     "box6y":230,
 
 
      "box1x":70,
-     "box1y":280, 
+     "box1y":310, 
 
      "box2x": 70, 
-     "box2y": 200,
+     "box2y": 230,
 
      "box4x": 70,
-     "box4y": 240,
+     "box4y": 270,
   
      "box8x":0, //dont move
-     "box8y":320
+     "box8y":340
      
    },
    "V": {
@@ -664,27 +627,25 @@ const alphabet = {
      "box7y":330,
 
 
-     "box3x": 70,
-     "box3y": 270,
 
      "box5x":70,
-     "box5y":230,
+     "box5y":240,
 
      "box6x":70,
-     "box6y":190,
+     "box6y":200,
 
 
      "box1x":-20,
-     "box1y":290, //dont move
+     "box1y":300, //dont move
 
      "box2x": -20, //hiding
-     "box2y": 210,
+     "box2y": 220,
 
      "box4x": -20,
-     "box4y": 250,
+     "box4y": 260,
   
      "box8x":-20, //dont move
-     "box8y":210
+     "box8y":220
      
    },
 
@@ -693,9 +654,6 @@ const alphabet = {
      "box7x":45, //dont move
      "box7y":320,
 
-
-     "box3x": -20,
-     "box3y": 330,
 
      "box5x":-20,
      "box5y":290,
@@ -723,8 +681,6 @@ const alphabet = {
      "box7y":300,
 
 
-     "box3x": -20,
-     "box3y": 330,
 
      "box5x":-20,
      "box5y":330,
@@ -753,24 +709,23 @@ const alphabet = {
      "box7y":300,
 
 
-     "box3x": 70,
-     "box3y": 240,
+
 
      "box5x":70,
-     "box5y":200,
+     "box5y":240,
 
      "box6x":70,
-     "box6y":160,
+     "box6y":200,
 
 
      "box1x":-25,
-     "box1y":260, //dont move
+     "box1y":290, //dont move
 
      "box2x": -25, //hiding
-     "box2y": 180,
+     "box2y": 210,
 
      "box4x": -25,
-     "box4y": 220,
+     "box4y": 250,
   
      "box8x":33, //dont move
      "box8y":340
@@ -778,31 +733,30 @@ const alphabet = {
    },
    "Z": {
 
-     "box7x":20, //dont move
-     "box7y":330,
+     "box7x":0, //dont move
+     "box7y":230,
 
 
-     "box3x": -25,
-     "box3y": 320,
-
-     "box5x":-10,
-     "box5y":260,
-
-     "box6x":10,
-     "box6y":220,
 
 
-     "box1x":10,
-     "box1y":220, //dont move
+     "box5x":-30, //!
+     "box5y":280,
 
-     "box2x": -50, //hiding
-     "box2y": 204,
+     "box6x":0, //dont move
+     "box6y":270,
 
-     "box4x": 10, //hiding
-     "box4y": 220,
+
+     "box1x":-50, // dont move
+     "box1y":222, 
+
+     "box2x": 0,  //dont move
+     "box2y": 240,
+
+     "box4x": -60,  
+     "box4y": 330,
   
-     "box8x":-30, //dont move
-     "box8y":210
+     "box8x":-10,
+     "box8y":340
      
    },
    "0": {
@@ -811,8 +765,7 @@ const alphabet = {
      "box7y":340,
 
 
-     "box3x": 20,
-     "box3y": 330,
+
 
      "box5x":0,
      "box5y":290,
@@ -838,31 +791,28 @@ const alphabet = {
    },
    "1": {
 
-     "box7x":65, //dont move
-     "box7y":342,
+     "box7x":60, //dont move
+     "box7y":335,
 
 
-     "box3x": -15,
-     "box3y": 243,
+     "box5x":10,
+     "box5y":280,
 
-     "box5x":-20,
-     "box5y":240,
-
-     "box6x":-20,
-     "box6y":240,
+     "box6x":10,
+     "box6y":250,
 
 
-     "box1x":15,
-     "box1y":280, //
+     "box1x":-15,
+     "box1y":310, //
 
-     "box2x": 15, //
+     "box2x": -35, //
      "box2y": 240,
 
-     "box4x": 20, //front 
-     "box4y": 330,
+     "box4x": 60, //front 
+     "box4y": 335,
   
-     "box8x":15, //
-     "box8y":220
+     "box8x":60, //
+     "box8y":335
      
    },
    "2": {
@@ -871,8 +821,6 @@ const alphabet = {
      "box7y":330,
 
 
-     "box3x": 10,
-     "box3y": 310,
 
      "box5x":10,
      "box5y":270,
@@ -900,8 +848,6 @@ const alphabet = {
      "box7y":328,
 
 
-     "box3x": 60, //
-     "box3y": 255,
 
      "box5x":60, //
      "box5y":215,
@@ -931,14 +877,12 @@ const alphabet = {
      "box7y":298,
 
 
-     "box3x": -20,
-     "box3y": 280,
 
      "box5x":-20,
-     "box5y":240,
+     "box5y":250,
 
      "box6x":-20,
-     "box6y":225,
+     "box6y":210,
 
 
      "box1x":60,
@@ -960,8 +904,6 @@ const alphabet = {
      "box7y":200,
 
 
-     "box3x": 0,
-     "box3y": 200,
 
      "box5x":0,
      "box5y":250,
@@ -986,32 +928,29 @@ const alphabet = {
    "6": {
 
      "box7x":30,
-     "box7y":330,
+     "box7y":320,
 
-
-     "box3x": -10,
-     "box3y": 260, //behind
 
      "box5x":-10,
-     "box5y":220,
+     "box5y":240,
 
      "box6x":-10,
-     "box6y":180, //done
+     "box6y":200, //done
 
 
      "box1x":-10,
-     "box1y":230, 
+     "box1y":250, 
 
      "box2x": 60,
-     "box2y": 280,
+     "box2y": 300,
 
      
 
      "box4x": -10,
-     "box4y": 290,
+     "box4y": 310,
   
      "box8x":60, //dont move
-     "box8y":240
+     "box8y":260
      
    },
    "7": {
@@ -1020,8 +959,7 @@ const alphabet = {
      "box7y":210,
 
 
-     "box3x": 50,
-     "box3y": 210,
+
 
      "box5x":50,
      "box5y":260,
@@ -1049,14 +987,13 @@ const alphabet = {
      "box7y":170,
 
 
-     "box3x": 0,
-     "box3y": 220,
+
 
      "box5x":-10,
      "box5y":270,
 
      "box6x":-10,
-     "box6y":270,
+     "box6y":210,
 
 
      "box1x":30,
@@ -1076,55 +1013,22 @@ const alphabet = {
    },
 
    
-    "S": {
-
-     "box7x":48, //dont move
-     "box7y":250,
-
-
-     "box3x": 48, //dont move
-     "box3y": 290,
-
-     "box5x":0, //dont move
-     "box5y":240,
-
-     "box6x":0, //dont move
-     "box6y":200,
-
-
-     "box1x":30,
-     "box1y":180, //dont move
-
-     "box2x": -23,
-     "box2y": 325, //wait
-
-     
-
-     "box4x": -3,
-     "box4y": 310,
-  
-     "box8x":-23, //dont move
-     "box8y":325
-     
-   },
    "9": {
 
      "box7x":50, //dont move
-     "box7y":200,
+     "box7y":211,
 
 
-     "box3x": 50, //dont move
-     "box3y": 240,
 
      "box5x":-20, //dont move
      "box5y":250,
 
      "box6x":-20, //dont move
-     "box6y":210,
+     "box6y":220,
 
 
      "box1x":10,
-     "box1y":190, //dont move
+     "box1y":200, //dont move
 
      "box2x": 50,
      "box2y": 290, //wait
@@ -1135,7 +1039,7 @@ const alphabet = {
      "box4y": 330,
   
      "box8x":50, //dont move
-     "box8y":280
+     "box8y":250
      
    },
    "?": {
@@ -1144,8 +1048,6 @@ const alphabet = {
      "box7y":340,
 
 
-     "box3x": 50,
-     "box3y": 250,
 
      "box5x":50,
      "box5y":210,

@@ -5,7 +5,7 @@ const colorFront  = "#199cff";
 function drawPart(posx, posy) {
 
   const col1 = "#f9d9e9"; 
-  const col2 = "#c3e6e7";
+  const col2 = "#bbdade";
   const col3 = "#fefefe"; 
 
   push();
@@ -50,7 +50,98 @@ push();
   pop();
 
 }
+function drawPart2(posx, posy) {
 
+  const col1 = "#f9d9e9"; 
+  const col2 = "#bbdade";
+  const col3 = "#fefefe"; 
+
+  
+
+
+  push();
+  scale(0.5);
+  noStroke();
+  translate(posx, posy);
+
+  push();
+  beginShape();
+  fill(col1);
+  stroke(col1);
+  vertex(50,120);
+  vertex(100,140);
+  vertex(100,90);
+  vertex(50,80);
+
+  endShape();
+  pop();
+
+    push();
+  fill(col2);
+  stroke(col2);
+  beginShape();
+  vertex(100,140);
+  vertex(100,90);
+  vertex(130,70);
+  vertex(130,110);
+  endShape();
+  pop();
+
+push();
+  fill(187,218,222,0);
+  stroke(187,218,222,0);
+  beginShape();
+  vertex(100,90);
+  vertex(130,68);
+  vertex(85,60);
+  vertex(50,80);
+  endShape();
+  pop();
+
+  pop();
+
+  push();
+  scale(0.5);
+  noStroke();
+  translate(posx, posy);
+
+  push();
+  beginShape();
+  fill(col1);
+  stroke(col1);
+  vertex(50,50);
+  vertex(100,70);
+  vertex(100,20);
+  vertex(50,10);
+
+  endShape();
+  pop();
+
+    push();
+  fill(col2);
+  stroke(col2);
+  beginShape();
+  vertex(100,70);
+  vertex(100,20);
+  vertex(130,0);
+  vertex(130,40);
+  endShape();
+  pop();
+
+push();
+  fill(col3);
+  stroke(col3);
+  beginShape();
+  vertex(100,20);
+  vertex(130,-2);
+  vertex(85,-10);
+  vertex(50,10);
+  endShape();
+  pop();
+
+  pop();
+
+}
 /*
  * Draw the letter given the letterData
  *
@@ -111,16 +202,20 @@ function drawLetter(letterData) {
   // drawPart(pos6x, pos6y);
   // drawPart(pos7x, pos7y);
   // drawPart(pos8x, pos8y);
+
   drawPart(pos1x, pos1y);
+
   drawPart(pos4x, pos4y);
+
   drawPart(pos2x, pos2y);
+
   drawPart(pos8x, pos8y);
 
-  //three main
-  drawPart(pos3x, pos3y); //three main
-  drawPart(pos5x, pos5y);
-  drawPart(pos6x, pos6y);
+  
 
+  drawPart(pos5x, pos5y);
+
+  drawPart2(pos6x, pos6y);  //drawpart2
   drawPart(pos7x, pos7y); // the frontest one
 
 
@@ -159,16 +254,11 @@ function interpolate_letter(percent, oldObj, newObj){
 
 }
 var swapWords = [
-  "MAZEFONT",
+  "ILLUSION",
   "LOLLIPOP",
-  "ENJOYING",
-  "PANCAKES",
-  "UNBOXING",
-  "CUTIEPIE",
+  "HALFMOON",
   "COLORFUL",
   "ICECREAM",
-  "UNPUZZLE",
-  "JOYSTICK",
   "BUBBLING"
 ]
 

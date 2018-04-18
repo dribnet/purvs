@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#d2ecef";
+const colorBack    = "#c3e6e7";
 const colorLines   = "#000090";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
@@ -41,16 +41,11 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "MAZEFONT",
+  "ILLUSION",
   "LOLLIPOP",
-  "ENJOYING",
-  "PANCAKES",
-  "UNBOXING",
-  "CUTIEPIE",
+  "HALFMOON",
   "COLORFUL",
   "ICECREAM",
-  "UNPUZZLE",
-  "JOYSTICK",
   "BUBBLING"
 ]
 
