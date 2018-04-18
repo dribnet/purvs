@@ -1,15 +1,17 @@
 const alphabet = {
   "default": {
     "colourpicker" : 0,
-      //"sizeRect": 50,
-      //"positionX": 20,
-      //"positionY": 30,
+
+      "sizeRect": 30,
+      "positionX": 20,
+      "positionY": 105,
+
       "size": 60,
       "offsetx": -30,
       "offsety": -45,
-      "rotate": 40,
-      // "XZ": 30,
-      // "XY": 40
+      "rotate": 0,
+      "XZ": 50,
+       "XY": 135
       
   },
   "A": {
@@ -510,8 +512,8 @@ const alphabet = {
   "4": {
     "colourpicker" : 0,
     "sizeRect": 20,
-    "positionX": 60,
-    "positionY": 145,
+    "positionX": 40,
+    "positionY": 105,
 
     
      "size": 60,
@@ -519,11 +521,11 @@ const alphabet = {
       "offsety": -45,
 
     "rotate": 0,
-    "yR" : 44,
+    "yR" : 0,
     "xR" : 0,
 
-    "XZ": 105,
-    "XY": 50
+    "XZ": 20,
+    "XY": 145
   },
   "5": {
     "colourpicker" : 0,
