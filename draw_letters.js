@@ -15,6 +15,7 @@ function drawLetter(letterData) {
   rect(0, 0, 100, 200);
   strokeWeight(6);
   angleMode(DEGREES);
+  // 11 variables define all the letters and numbers, I use const to define colours and shadow
   let bottomletterR =letterData["bottomletterR"];
   let bottomletterX = letterData["bottomletterX"];
   let bottomletterY = letterData["bottomletterY"];
@@ -30,6 +31,7 @@ function drawLetter(letterData) {
   topletter(topletterX, topletterY, topletterR, topletterR1, tRa1, tRa2);
 }
 
+// This function gives the stroke to create contour without filling colour
 function bottomletter(bottomletterX, bottomletterY, bottomletterR, bRa1, bRa2) {
   noStroke();
   fill(227, 22, 115, 200);
@@ -39,13 +41,9 @@ function bottomletter(bottomletterX, bottomletterY, bottomletterR, bRa1, bRa2) {
   arc(bottomletterX, bottomletterY, bottomletterR, bottomletterR / 2, bRa1, bRa2);
 }
 
-// function handle(bottomletterX, bottomletterY, bottomletterR, topletterX, topletterY, topletterR) {
-//   stroke(0);
-//   line(bottomletterX - bottomletterR / 2, bottomletterY, topletterX - topletterR / 2, topletterY);
-//   line(bottomletterX + bottomletterR / 2, bottomletterY, topletterX + topletterR / 2, topletterY);
-// }
 
 
+//This function gives the shape with colour
 function topletter(topletterX, topletterY, topletterR, topletterR1, tRa1, tRa2) {
   // stroke(44, 149, 247);
   fill(26, 176, 239, 160);
@@ -64,6 +62,14 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["bottomletterX"] = map(percent, 0, 100, oldObj["bottomletterX"], newObj["bottomletterX"]);
   new_letter["bottomletterY"] = map(percent, 0, 100, oldObj["bottomletterY"], newObj["bottomletterY"]);
   new_letter["bottomletterR"] = map(percent, 0, 100, oldObj["bottomletterR"], newObj["bottomletterR"]);
+  new_letter["bRa1"] = map(percent, 0, 100, oldObj["bRa1"], newObj["bRa1"]);
+  new_letter["bRa2"] = map(percent, 0, 100, oldObj["bRa2"], newObj["bRa2"]);
+  new_letter["topletterX"] = map(percent, 0, 100, oldObj["topletterX"], newObj["topletterX"]);
+  new_letter["topletterY"] = map(percent, 0, 100, oldObj["topletterY"], newObj["topletterY"]);
+  new_letter["topletterR"] = map(percent, 0, 100, oldObj["topletterR"], newObj["topletterR"]);
+  new_letter["topletterR1"] = map(percent, 0, 100, oldObj["topletterR1"], newObj["topletterR1"]);
+  new_letter["tRa1"] = map(percent, 0, 100, oldObj["tRa1"], newObj["tRa1"]);
+  new_letter["tRa2"] = map(percent, 0, 100, oldObj["tRa2"], newObj["tRa2"]);
 
   return new_letter
 }
