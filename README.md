@@ -1,9 +1,12 @@
 ## PS2 MDDN 242 2018
 
-Alphabet:
+interaction
+unify my letters in a consistent size, position, angle. Especially, I embrace slightly differenct styles in letters and numbers, the numbers look more like hand writing style. The interaction between echo letter looks smoothly.
+
+<!-- Alphabet:
 I continued to develop one of my original idea. I used this style to create a couple of letters. In this case, the problem is I need more variables to define the different letter, like the colour for each part, the handle point, and so on. Also, I keep working on the details of my letters.
 I got inspried by some of precedent including colours, shapes, and so on.
-I try to define my consistent style with adding some constant value instead of variables. Anyway, with all the helps, I work out them within 12 variables. They refined all the details of each letter and number like size, position, joint, ratio, colour, shadow to make them stand out. I use blocks to emphasis the main part because of the contrast between blocks and lines. Also, I draw another shape with transparent colour to show the visual effect.
+I try to define my consistent style with adding some constant value instead of variables. Anyway, with all the helps, I work out them within 12 variables. They refined all the details of each letter and number like size, position, joint, ratio, colour, shadow to make them stand out. I use blocks to emphasis the main part because of the contrast between blocks and lines. Also, I draw another shape with transparent colour to show the visual effect. -->
 
 <!-- In the beginning, I had created the original sketch letters. I simplified the background to black, and I drawed the lines and  arcs, I was going to use the 2D shapes to build the 3D form. 
 
