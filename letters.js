@@ -1,28 +1,28 @@
 const alphabet = {
   "default": {
       //line1
-       "ptx": 35,
+       "ptx": 20,
        "pty": 200,
-       "ptx2": 85,
+       "ptx2": 80,
        "pty2": 200,
 
       //line2
-       "ptx3": 20,
-       "pty3": 180,
+       "ptx3": 30,
+       "pty3": 190,
        "ptx4": 70,
-       "pty4": 180,
+       "pty4": 190,
 
       //line3
-       "ptx5": 15,
-       "pty5": 160,
-       "ptx6": 65,
-       "pty6": 160,
+       "ptx5": 40,
+       "pty5": 180,
+       "ptx6": 60,
+       "pty6": 180,
 
       //line 4
-       "ptx7": 10,
-       "pty7": 140,
-       "ptx8": 60,
-       "pty8": 140,
+       "ptx7": 45,
+       "pty7": 170,
+       "ptx8": 55,
+       "pty8": 170,
   },
   "A": {
       //line1

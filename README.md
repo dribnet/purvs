@@ -1,7 +1,10 @@
 ## PS2 MDDN 242 2018
-This is the exhibition file, i decided to return back to the 2 colour scheme as having the dark blue on the thick line made it a lot harder to read as the letters are close together, and didn't look that nice. Thinking of some words for my typography Im thinking of words like formal, lined out, structured, dominant. A word that supports the ideas wanted to express. Overall im happy with the typography, its nice and simpy making it easy to read which i wanted to be a key theme in this project, as well as all the letters all look like they have the same format. 
+So, this is my final for project 2. I have named my font 'lined up'.  My typography is referencing a very simple and clean style. I wanted to make my type front to be executed with a very readable style to emphasize the practicality of my font. I referenced ideas of structured and stability with the idea that each of the letters has one dominant line, underlining this point with a much thicker line compared to the rest. As I put a few rules in place for my font it generated a very structured font face. Looking into the translation between the letters again is very clean and simple to help enforce the initial idea of a clean and sleek design.
 
-Looking at the format of the letters in the exhibition i changed some of my letters, and created a bit more of a gap between the letters. So a few updates on their positions to make the visual more clean.
+My typeface is made up with 4 lines, the lines are placed on roughly 90 or 45 degrees, except some of the numbers move slightly away from this rule. The numbers were a bit more complex with the angles as I really wanted to create a slight distinction between numbers and letters. This was taken through with the sizes of each. The letters being smaller not filling the whole 100, 200 boxes whereas the numbers did. The size was also different as I focused on creating the lowercase alphabet as I felt it was more clean and suited my parameters.
+
+Looking at things I would have refined further if I had more time, I would invest more time into iterating a slightly more complex structure, to not take away from the initial idea of clean and sleek but to more push it that much more. I would have also liked to create unique transition for each letter and number. 
+
 
 The 8 parameters per letter are now:
   * ptx - X cord for 1st line point
