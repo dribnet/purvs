@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
   // clear screen
-  background(255);
+  background(252, 252, 252);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
