@@ -212,7 +212,7 @@ const alphabet = {
   },
   "O": {
     "positionX1": -100,
-    "positionY1": 100,
+    "positionY1": 120,
     "tilt1": -1.60,
     "change1": 3,
     "positionX2": -130,
@@ -220,7 +220,7 @@ const alphabet = {
     "tilt2": -1.25,
     "change2": 1,
     "positionX3": 120,
-    "positionY3": -70,
+    "positionY3": -80,
     "tilt3": 1.60,
     "change3": 3,
   },
@@ -380,7 +380,7 @@ const alphabet = {
   },
   "0": {
     "positionX1": -100,
-    "positionY1": 100,
+    "positionY1": 80,
     "tilt1": -1.60,
     "change1": 3,
     "positionX2": -130,
