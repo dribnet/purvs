@@ -1,4 +1,4 @@
-const colorFron  = "#281c1c";
+const colorFront  = "#199cff";
 const colorStroke = "#ffffff";
 const colorInside = "#ffffff";
 /*
@@ -198,3 +198,9 @@ function interpolate_letter(percent, oldObj, newObj){
   new_letter["offset4y"] = map(percent, 0, 100, oldObj["offset4y"], newObj["offset4y"]);
   return new_letter;
 }
+var swapWords = [
+  "OREOTIME",
+  "DAYDREAM",
+  "SHERLOCK",
+  "TASTEME!"
+]
