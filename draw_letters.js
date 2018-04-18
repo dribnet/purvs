@@ -3,13 +3,13 @@ const colorShadow = "#ffd319"
 
 let swapWords = [
   "90DEGREE",
+  "ELDORADO",
+  "HORIZONS",
+  "TIMBUKTU",
   "VERTICAL",
-  "CROSSING",
-  "EXTENDED",
-  "DIRECTLY",
-  "SIDEWAYS",
-  "LONGWAYS",
-  "WEIGHTED"
+  "GOLDRUSH",
+  "HERCULES",
+  "WILLIAMS"
 ]
 
 

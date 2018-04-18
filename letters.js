@@ -136,8 +136,8 @@ const alphabet = {
       "lengthV2": 200,
       "offsetxV1": 0,
       "offsetxV2": 0,
-      "offsetyH1": 150,
-      "offsetyH2": 170,
+      "offsetyH1": 160,
+      "offsetyH2": 180,
       "offsetyH3": 190,
       "offsetyV1": 0,
       "offsetyV2": 0
