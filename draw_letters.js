@@ -10,12 +10,12 @@ const colorStroke = "#84ceab";
  */
 
    var swapWords = [
-  ".GLITCH.",
+  ".GLITCH.", //name of my font
   "WELCOME ",
   ".CLICK..",
   "HAHAHAHA",
   "WHIZZING",
-  "FRAZZLED"
+  "FRAZZLED" //I have chosen 'quirky' words as I hope they will bring amusement to viewers
   ]
 function drawLetter(letterData) {
   // color/stroke setup
@@ -69,7 +69,7 @@ if(letterData["b11"]==1){
 }
 if(letterData["b12"]==1){
  rect(60,90,30,30);
-}
+} //there are 12 blocks to each letter, this is the grid being set up
 
 //loci 4 will be at 0, 30
 //loci 5 will be at 30, 30
