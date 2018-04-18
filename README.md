@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
 
-Alphabet Finalized
+Interaction Development
 
-So I did add that other parameter and it gave me so much more freedom. But I think I was right in thinking it isnt the most legiable font. However I think my change in colour has helped to alliviate this issue as it makes everything darker and easier to view agaisnt the background. Some of the letters are more clear than others but I think I have worked within the constrainst well to deliver a good looking product. Something I primarily focussed on was the creation of a coherent font, in terms of all the letters looking as if they belong in the same family. Thus I am happy with the results. I am interested to see how it will work with the transitions though. 
+So I didn't have to visually change any of my fonts to suit the interactions thankfully. However there are a few differences in the parameters. I adjusted them into a more exact form so that the transitions would look better. I didn this by making sure all the letters share a more consistent framework in where each x coordinate is located in comparison to each font. This basically just insures that most of the letter transitions don't have a triangle flip in on itself.
+
+I also decided to run with the linear transition provided in class because I feel that my letterform is complex enough in the transitions without adding anything special because it all ready has a lot on. I considered doing a full rotation for each but I think this would make the font start being to complex in the transitions. Also I have noticed on the transition page that the new letter on the top still hasn't completed the transition however this is an issue with the provided code and not mine because I noticed that in the lecture as well so I don't feel I need to change this.

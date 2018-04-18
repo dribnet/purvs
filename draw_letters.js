@@ -35,8 +35,22 @@ function drawLetter(letterData) {
   triangle(xM, yM , x2, y2A, x2, y2B); // Triangle 2
   triangle(xM, yM, x3, y3A, x3, y3B); // Triangle 3
   pop();
+}
 
-  // noFill();
-  // strokeWeight (1);
-  // rect (0, 0, 100, 200);
+function interpolate_letter(percent, oldObj, newObj){
+  let new_letter = {};
+  new_letter["xMain"] = map (percent, 0, 100, oldObj["xMain"], newObj["xMain"]);
+  new_letter["yMain"] = map (percent, 0, 100, oldObj["yMain"], newObj["yMain"]);
+  new_letter["tri1X"] = map (percent, 0, 100, oldObj["tri1X"], newObj["tri1X"]);
+  new_letter["tri1Ya"] = map (percent, 0, 100, oldObj["tri1Ya"], newObj["tri1Ya"]);
+  new_letter["tri1Yb"] = map (percent, 0, 100, oldObj["tri1Yb"], newObj["tri1Yb"]);
+  new_letter["tri2X"] = map (percent, 0, 100, oldObj["tri2X"], newObj["tri2X"]);
+  new_letter["tri2Ya"] = map (percent, 0, 100, oldObj["tri2Ya"], newObj["tri2Ya"]);
+  new_letter["tri2Yb"] = map (percent, 0, 100, oldObj["tri2Yb"], newObj["tri2Yb"]);
+  new_letter["tri3X"] = map (percent, 0, 100, oldObj["tri3X"], newObj["tri3X"]);
+  new_letter["tri3Ya"] = map (percent, 0, 100, oldObj["tri3Ya"], newObj["tri3Ya"]);
+  new_letter["tri3Yb"] = map (percent, 0, 100, oldObj["tri3Yb"], newObj["tri3Yb"]);
+  new_letter["rotate"] = map (percent, 0, 100, oldObj["rotate"], newObj["rotate"]);
+
+  return new_letter;
 }
