@@ -1,5 +1,6 @@
 const alphabet = {
   "default": {
+    "colourpicker" : 0,
       //"sizeRect": 50,
       //"positionX": 20,
       //"positionY": 30,
@@ -12,7 +13,7 @@ const alphabet = {
       
   },
   "A": {
-      //"colourpicker" : 1,
+      "colourpicker" : 1,
      "sizeRect": 60,
       "positionX": 120,
       "positionY": 50,
@@ -25,6 +26,7 @@ const alphabet = {
      
   },
   "B": {
+    "colourpicker" : 1,
       "sizeRect": 60,
       "positionX": 20,
       "positionY": 60,
@@ -35,6 +37,7 @@ const alphabet = {
       "xR" : 44
   },
   "C": {
+    "colourpicker" : 1,
     "sizeRect": 60,
     "positionX": 105,
     "positionY": 35,
@@ -47,6 +50,7 @@ const alphabet = {
     "xR" : 0
   },
  "D": {
+  "colourpicker" : 1,
     "sizeRect": 60,
     "positionX": 45,
     "positionY": 105,
@@ -60,6 +64,7 @@ const alphabet = {
     "xR" : 44
   },
   "E": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 140,
     "positionY": 55,
@@ -77,6 +82,7 @@ const alphabet = {
     "XY": 15
   },
   "F": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 110,
     "positionY": 20,
@@ -94,6 +100,7 @@ const alphabet = {
     "XY": 43
   },
   "G": {
+    "colourpicker" : 1,
     "sizeRect": 30,
     "positionX": 120,
     "positionY": 0,
@@ -110,6 +117,7 @@ const alphabet = {
     "XY": 150
   },
   "H": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 80,
     "positionY": 70,
@@ -128,6 +136,7 @@ const alphabet = {
     "XY": 30
   },
   "I": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 100,
     "positionY": 30,
@@ -144,6 +153,7 @@ const alphabet = {
     //"XY": 80
   },
   "J": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 110,
     "positionY": 0,
@@ -157,6 +167,7 @@ const alphabet = {
     //"XY": 80
   },
   "K": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 45,
     "positionY": 100,
@@ -174,6 +185,7 @@ const alphabet = {
     "XY": 150
   },
   "L": {
+    "colourpicker" : 1,
      "sizeRect": 25,
     "positionX": 55,
     "positionY": 100,
@@ -191,6 +203,7 @@ const alphabet = {
     "XY": 125
   },
   "M": {
+    "colourpicker" : 1,
       "sizeRect": 25,
       "positionX": 83,
       "positionY": 65,
@@ -208,6 +221,7 @@ const alphabet = {
 
   },
   "N": {
+    "colourpicker" : 1,
      "sizeRect": 60,
     "positionX": 20,
     "positionY": 130,
@@ -220,6 +234,7 @@ const alphabet = {
    // "XY": 80
   },
   "O": {
+    "colourpicker" : 1,
     //"sizeRect": 40,
     //"positionX": 40,
     //"positionY": -50,
@@ -235,6 +250,7 @@ const alphabet = {
     //"XY": 80
   },
   "P": {
+    "colourpicker" : 1,
      "sizeRect": 40,
     "positionX": 20,
     "positionY": 165,
@@ -250,6 +266,7 @@ const alphabet = {
     //"XY": 80
   },
   "Q": {
+    "colourpicker" : 1,
    "sizeRect": 40,
     "positionX": 150,
     "positionY": 50,
@@ -265,6 +282,7 @@ const alphabet = {
     //"XY": 80
   },
   "R": {
+    "colourpicker" : 1,
    "sizeRect": 40,
     "positionX": 45,
     "positionY": 130,
@@ -282,6 +300,7 @@ const alphabet = {
    // "XY": 150
   },
   "S": {
+    "colourpicker" : 1,
    "sizeRect": 40,
     "positionX": 110,
     "positionY": 0,
@@ -299,6 +318,7 @@ const alphabet = {
     "XY": 100
   },
   "T": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 10,
     "positionY": 110,
@@ -316,6 +336,7 @@ const alphabet = {
     "XY": 110
   },
   "U": {
+    "colourpicker" : 1,
     "sizeRect": 60,
     "positionX": 20,
     "positionY": 110,
@@ -330,6 +351,7 @@ const alphabet = {
    // "XY": 80
   },
   "V": {
+    "colourpicker" : 1,
    "sizeRect": 80,
     "positionX": 100,
     "positionY": 30,
@@ -346,6 +368,7 @@ const alphabet = {
     //"XY": 80
   },
   "W": {
+    "colourpicker" : 1,
        "sizeRect": 25,
       "positionX": 83,
       "positionY": 65,
@@ -364,6 +387,7 @@ const alphabet = {
 
   },
   "X": {
+    "colourpicker" : 1,
      "sizeRect": 60,
     "positionX": 85,
     "positionY": 55,
@@ -382,6 +406,7 @@ const alphabet = {
     "XY": 30
   },
   "Y": {
+    "colourpicker" : 1,
     "sizeRect": 40,
     "positionX": 0,
     "positionY": 100,
@@ -398,6 +423,7 @@ const alphabet = {
     "XY": 100 
   },
   "Z": {
+    "colourpicker" : 1,
     "sizeRect": 35,
     "positionX": 0,
     "positionY": 80,
@@ -415,6 +441,7 @@ const alphabet = {
     "XY": 160
   },
   "0": {
+    "colourpicker" : 0,
     "sizeRect": 35,
     "positionX": 32.5,
     "positionY": 117.5,
@@ -427,6 +454,7 @@ const alphabet = {
     //"xR" : 0
   },
   "1": {
+    "colourpicker" : 0,
     "sizeRect": 28,
     "positionX": 38,
     "positionY": 105,
@@ -444,6 +472,7 @@ const alphabet = {
     "XY": 135
   },
   "2": {
+    "colourpicker" : 0,
     "sizeRect": 15,
     "positionX": 20,
     "positionY": 120,
@@ -461,6 +490,7 @@ const alphabet = {
     "XY": 140
   },
   "3": {
+    "colourpicker" : 0,
     "sizeRect": 15,
     "positionX": 20,
     "positionY": 115,
@@ -478,6 +508,7 @@ const alphabet = {
     "XY": 142
   },
   "4": {
+    "colourpicker" : 0,
     "sizeRect": 20,
     "positionX": 60,
     "positionY": 145,
@@ -495,6 +526,7 @@ const alphabet = {
     "XY": 50
   },
   "5": {
+    "colourpicker" : 0,
     "sizeRect": 15,
     "positionX": 65,
     "positionY": 115,
@@ -512,6 +544,7 @@ const alphabet = {
     "XY": 142
   },
   "6": {
+    "colourpicker" : 0,
     "sizeRect": 20,
     "positionX": 57.5,
     "positionY": 105,
@@ -529,6 +562,7 @@ const alphabet = {
     "XY": 135
   },
   "7": {
+    "colourpicker" : 0,
     "sizeRect": 20,
     "positionX": 20,
     "positionY": 145,
@@ -546,6 +580,7 @@ const alphabet = {
     "XY": 125
   },
   "8": {
+    "colourpicker" : 0,
     "sizeRect": 15,
     "positionX": 42.5,
     "positionY": 115,
@@ -563,6 +598,7 @@ const alphabet = {
     "XY": 140
   },
   "9": {
+    "colourpicker" : 0,
     "sizeRect": 20,
     "positionX": 20,
     "positionY": 145,

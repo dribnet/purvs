@@ -9,6 +9,13 @@ const colorStroke = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+ var swapWords = [
+    "BLOCKZZZ",
+    "CRAZYBOX"
+
+
+  ]
+  
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
@@ -35,7 +42,7 @@ function drawLetter(letterData) {
   let posZY = letterData ["XY"];
   let Xrotate = letterData ["xR"];
   let Yrotate = letterData ["yR"];
-  //let defineColor = letterData ["colourpicker"];
+  let defineColor = letterData ["colourpicker"];
 
   noStroke();
 
@@ -47,18 +54,18 @@ function drawLetter(letterData) {
     fill (203, 206, 119);
     
     strokeWeight (5);
-     fill (229, 135, 135,180);
-     ellipse (50,135,105,105);
+    // fill (229, 135, 135,180);
+     //ellipse (50,135,105,105);
     //stroke (227,237,237);
 
-   //   if (defineColor = 1){
-   //  fill (229, 135, 135,180);
-   //  ellipse (50,135,105,105);
-   // }
-   // if (defineColor = 0){
-   //  fill (160, 157, 157,180);
-   //  ellipse (50,135,105,105);
-   // }
+    if (defineColor == 1){
+    fill (229, 135, 135,180);
+    ellipse (50,135,105,105);
+   }
+   if (defineColor == 0){
+    fill (160, 157, 157,180);
+    ellipse (50,135,105,105);
+   }
 
     stroke ('white');
   
@@ -93,12 +100,7 @@ function drawLetter(letterData) {
    pop();
 
 
-  var swapWords = [
-    "BLOCKZZZ",
-    "CRAZYBOX"
-
-
-  ]
+  
 
   
 
