@@ -1,30 +1,15 @@
 const colorFront = "#199cff";
 const colorStroke = "#233f11";
 
-// This function draws each individual box
-function drawPart(posx, posy, scale, offsetx, tilt) {
-	push();
-	translate(posx + offsetx * scale / 10, posy);
-	rotate(tilt);
-	rect(-20 * scale, -3 * scale, 20 * scale, 3 * scale);
-	pop();
-}
 
 /*
- * Draw a static version of the particle animation, given letterData
+ * Draw a frame of the particle animation, given letterData
  *
  * Letters should always be drawn with the
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-	//todo: figure out how to make this work aaa
-	// rotation in degrees (for tilt variable)
-	angleMode(DEGREES);
-
-	let posx = 90;
-	let posy = 100;
-	let scale = 3;
 
 	//show the bounding box
 	noFill();
@@ -35,10 +20,15 @@ function drawLetter(letterData) {
 	stroke(colorStroke);
 
 	push();
-	let y_offset = 5 * scale;
-	drawPart(posx, posy - y_offset, scale, letterData["position1"], letterData["tilt1"]);
-	drawPart(posx, posy, scale, letterData["position2"], letterData["tilt2"]);
-	drawPart(posx, posy + y_offset, scale, letterData["position3"], letterData["tilt3"]);
+	if(letterData.length < 4) {
+		letterData.push(new Character(letterData, createVector(0, 0), 1, true));
+		for (let i = 0; i < 300; i++) {
+			letterData[4].updateCanvas();
+		}
+	}
+	letterData[4].updateCanvas();
+	letterData[4].drawCanvas();
+
 	pop();
 }
 

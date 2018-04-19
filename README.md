@@ -7,15 +7,15 @@ tracing a path between four points that they approach in sequence.
 
 ### Changes:
 
-- Since I last remembered to commit I got the particle system going as originally designed and implemented the number values.
+- Trying a final idea to get animation working
 
 ### Issues:
 
-- There is no practical way to actually animate any of my code in the API
+- Currently not actually drawing anything
 
 ### To-Do:
 
-- Actually get these drawing in draw_letters through some deep voodoo of some sort I guess.
+- Get at least a single frame of the animation working
 
 ### Notes:
 
