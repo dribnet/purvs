@@ -106,7 +106,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var SwapWords = [
-  "TRIANGLE",
+  "FLYCRANE", //font name
   "FORESTRY",
   "MOUNTAIN",
   "CLONDILY",

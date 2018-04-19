@@ -41,7 +41,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "TRIANGLE",
+  "FLYCRANE", //font name
   "FORESTRY",
   "MOUNTAIN",
   "CLONDILY",
