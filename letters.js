@@ -351,6 +351,175 @@ const alphabet = {
     "vertX3": 75,
     "vertY3": 115
   },
+    "0": {
+    "vertX": 35,
+    "vertY": 90,
+    "ctrlPx": 50,
+    "ctrlPy": 135,
+    "vertX2": 75,
+    "vertY2": 90,
+
+    "ctrlPx2": 50,
+    "ctrlPy2": 50,
+    "vertX3": 35,
+    "vertY3": 90
+  },
+    "1": {
+    "vertX": 50,
+    "vertY": 110,
+    "ctrlPx": 65,
+    "ctrlPy": 75,
+    "vertX2": 50,
+    "vertY2": 75,
+
+    "ctrlPx2": 60,
+    "ctrlPy2": 70,
+    "vertX3": 50,
+    "vertY3": 110
+  },
+    "2": {
+    "vertX": 35,
+    "vertY": 85,
+    "ctrlPx": 55,
+    "ctrlPy": 55,
+    "vertX2": 70,
+    "vertY2": 85,
+
+    "ctrlPx2": 0,
+    "ctrlPy2": 110,
+    "vertX3": 70,
+    "vertY3": 110
+  },
+    "3": {
+    "vertX": 45,
+    "vertY": 75,
+    "ctrlPx": 75,
+    "ctrlPy": 75,
+    "vertX2": 50,
+    "vertY2": 90,
+
+    "ctrlPx2": 85,
+    "ctrlPy2": 110,
+    "vertX3": 45,
+    "vertY3": 110
+  },
+    "4": {
+    "vertX": 65,
+    "vertY": 70,
+    "ctrlPx": 25,
+    "ctrlPy": 100,
+    "vertX2": 40,
+    "vertY2": 100,
+
+    "ctrlPx2": 70,
+    "ctrlPy2": 90,
+    "vertX3": 70,
+    "vertY3": 120
+  },
+    "5": {
+    "vertX": 70,
+    "vertY": 80,
+    "ctrlPx": 45,
+    "ctrlPy": 75,
+    "vertX2": 40,
+    "vertY2": 80,
+
+    "ctrlPx2": 90,
+    "ctrlPy2": 110,
+    "vertX3": 40,
+    "vertY3": 110
+  },
+    "6": {
+    "vertX": 65,
+    "vertY": 70,
+    "ctrlPx": 30,
+    "ctrlPy": 90,
+    "vertX2": 50,
+    "vertY2": 110,
+
+    "ctrlPx2": 70,
+    "ctrlPy2": 105,
+    "vertX3": 55,
+    "vertY3": 90
+  },
+    "7": {
+    "vertX": 45,
+    "vertY": 75,
+    "ctrlPx": 75,
+    "ctrlPy": 70,
+    "vertX2": 65,
+    "vertY2": 85,
+
+    "ctrlPx2": 50,
+    "ctrlPy2": 105,
+    "vertX3": 50,
+    "vertY3": 115
+  },
+    "8": {
+    "vertX": 65,
+    "vertY": 110,
+    "ctrlPx": 20,
+    "ctrlPy": 65,
+    "vertX2": 65,
+    "vertY2": 70,
+
+    "ctrlPx2": 50,
+    "ctrlPy2": 105,
+    "vertX3": 50,
+    "vertY3": 115
+  },
+    "9": {
+    "vertX": 65,
+    "vertY": 120,
+    "ctrlPx": 70,
+    "ctrlPy": 70,
+    "vertX2": 65,
+    "vertY2": 70,
+
+    "ctrlPx2": 20,
+    "ctrlPy2": 75,
+    "vertX3": 65,
+    "vertY3": 95
+  },
+    "?": {
+    "vertX": 40,
+    "vertY": 85,
+    "ctrlPx": 60,
+    "ctrlPy": 55,
+    "vertX2": 65,
+    "vertY2": 85,
+
+    "ctrlPx2": 40,
+    "ctrlPy2": 90,
+    "vertX3": 50,
+    "vertY3": 120
+  },
+    "/": {
+    "vertX": 40,
+    "vertY": 115,
+    "ctrlPx": 60,
+    "ctrlPy": 90,
+    "vertX2": 70,
+    "vertY2": 70,
+
+    "ctrlPx2": 60,
+    "ctrlPy2": 90,
+    "vertX3": 40,
+    "vertY3": 115
+  },
+    "=": {
+    "vertX": 40,
+    "vertY": 85,
+    "ctrlPx": 70,
+    "ctrlPy": 80,
+    "vertX2": 70,
+    "vertY2": 90,
+
+    "ctrlPx2": 80,
+    "ctrlPy2": 110,
+    "vertX3": 40,
+    "vertY3": 100
+  },
 }
 
 
