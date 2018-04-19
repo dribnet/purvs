@@ -98,7 +98,7 @@ const alphabet = {
   "H": {
       //second line
       "point1X": 0, "point1Y": 35,
-      "point2X": 0, "point2Y": 55,
+      "point2X": 20, "point2Y": 55,
       //third line
       "point3X": 0, "point3Y": 100,
       "point4X": 100, "point4Y": 100,
@@ -109,15 +109,15 @@ const alphabet = {
   },
   "I": {
       //second line
-      "point1X": 50, "point1Y": 165,
-      "point2X": 50, "point2Y": 35,
+      "point1X": 100, "point1Y": 165,
+      "point2X": 80, "point2Y": 145,
       //third line
       "point3X": 0, "point3Y": 35,
       "point4X": 100, "point4Y": 35,
       
       //final line (decoration)
-      "point5X": 0, "point5Y": 165,
-      "point6X": 100, "point6Y": 165
+      "point5X": 50, "point5Y": 35,
+      "point6X": 50, "point6Y": 165
   },
   "J": {
       //second line
@@ -134,7 +134,7 @@ const alphabet = {
   "K": {
       //second line
       "point1X": 0, "point1Y": 35,
-      "point2X": 0, "point2Y": 55,
+      "point2X": 20, "point2Y": 55,
       //third line
       "point3X": 0, "point3Y": 120,
       "point4X": 100, "point4Y": 50,

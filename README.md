@@ -1,10 +1,8 @@
 ## PS2 MDDN 242 2018
 
-The letters of my alphabet are very literal, Im not trying to create an abstract alphabet but rather one that can be easily read. Due to the limitations on how ive set out my parameters, ive had each letter start in the bottom left of the bounding box. The first two lines share some parameters and as such are linked together. The third and fourth lines can be positioned as please. Some letters can be made up of three lines while others use four. With this in mind, the fourth line is used as a decorational line to make the letter look more interesting. The caveat of this is when the starting line is a unique line, such as in the letter 'X' where going from the bottom left to top right only requires 1 line. 
+This is the final version of the alphabet. The alphabet is very plain, wanting to focus on readablility over expressionism. The letters that make up the font are all straight lines of a set weight, not lending any part of the letter more importance than another. The only exception to this is the decoration that adorns most of the letters. This is there to add both some uniqueness to the latters, but also as a way to use the final line that some letters do not need to utilize. 
 
-The numbers are a bit more abstract but are still pretty legible.
-
-IN regards to animation, keeping it in line with the subtle simple philosophy was the aim. The only change to the standard transition is a small bounce at the end. This adds a subtle change but still feels smooth and not over done. 
+I chose this design as I am fond of the function over form ideology as well as approaching my work with a minimalistic mindset. These two things combined lead to a simple alphabet thats easy to read and animated smoothly and easily. When it came to the olours, I wanted to match the calm feeling that was present in the font and as such, chose light orange with a very pale purple behind it as the background colour. 
 
 =======
 The 12 parameters per letter:
