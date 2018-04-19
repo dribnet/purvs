@@ -33,9 +33,11 @@ function drawLetter(letterData) {
   // let pos5x = 50+letterData["x4"];
   // let pos5y = -125+letterData["y4"];
   //drawpoint
-  
+  stroke('white');
   rect(pos2x,pos2y,size1,size1);
+  stroke('#FF3D3A');
   rect(pos3x,pos3y,size2,size2);
+  stroke('#9D9DAA');
   rect(pos4x,pos4y,size3,size3);
   // point(pos4x,pos4y);
   // point(pos5x,pos5y);
