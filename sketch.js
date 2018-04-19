@@ -2,13 +2,20 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * my twelve variable per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+   Octo1x
+   Octo1y
+   Octo1Scale
+   Octo1poly
+   Octo2x
+   Octo2y
+   Octo2Scale
+   Octo2poly
+   Rectx
+   Recty
+   RectScale
+   RectAngle
  *
  */
 
