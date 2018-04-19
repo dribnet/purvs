@@ -56,6 +56,7 @@ function interpolate_letter(percent, oldObj,newObj) {
 
 // These are words used in the exhibition
 var swapWords = [
+  "COOLBEAN",
   "GOODGAME",
   "FOR SURE",
   "POGCHAMP",
@@ -68,7 +69,6 @@ var swapWords = [
   "YEAH NAH",
   " YUGIOH ",
   "RESOLVED",
-  "COOLBEAN",
   "RESOLUTE",
   "TARANAKI",
   "TERRIFIC",
