@@ -1,19 +1,27 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
-<<<<<<< HEAD
 
-Through a bit of trial and error im working out how to do my own letters by changing around the code provided. 
-I have changed my idea a little bit to just iusing two triangles at most as this will allow me to change a max of 12 parameters through changing the six points of the two triangles. 
-So far the most parameters i have had to change is 10 (by keeping the starting point the same this saves me 2 parameters.)
+My alphabet is named PEVERELL after the family in Harry Potter that were in the deathly hallows tale. I decided on this name as the deathly hallows is commonly associated with a triangle symbol.
+For my exhiibition code I included a 8 letter word for each letter of the alhpabet to showcase each letter indiviually. 
 =======
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+In the process of completing the entire alphabet, I have only made subtle changes to make my letters work. My intial idea was to use 3 triangles and change the colour to create more defined letters but that would have been to many parameters because most of my letters were using 12 parameters with just the 2 triangles. 
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+
+The twelve parameters per letter are now:
+  *    These are the x and y cooridates of each point for the triangles,
+  a - c being 1 triangle and 1 - 3 being the other.
+  *    "pax": 
+  *    "pay": 
+  *    "pbx": 
+  *    "pby": 
+  *    "pcx": 
+  *    "pcy": 
+  *    "p1x": 
+  *    "p1y": 
+  *    "p2x": 
+  *    "p2y": 
+  *    "p3x": 
+  *    "p3y": 
 
 >>>>>>> upstream/part2

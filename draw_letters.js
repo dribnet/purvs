@@ -37,7 +37,7 @@ function drawLetter(letterData) {
  
   noFill();
   stroke(colorFront);
-  rect(0, 0, 100, 200)
+  //rect(0, 0, 100, 200)
 }
 
 function interpolate_letter(percent, oldObj, newObj){
@@ -57,3 +57,35 @@ function interpolate_letter(percent, oldObj, newObj){
 
   return new_letter;
 }
+var swapWords = [
+   "PEVERELL",
+   "TRIANGLE",
+   "ABSOLUTE",
+   "BACTERIA",
+   "CELLULAR",
+   "DEFINITE",
+   "ECONOMIC",
+   "FLAGSHIP",
+   "GRATEFUL",
+   "HERITAGE",
+   "IMPERIAL",
+   "JUDGMENT",
+   "KEYBOARD",
+   "LAUGHTER",
+   "MINORITY",
+   "NUMEROUS",
+   "OPTIMISM",
+   "PEACEFUL",
+   "QUANTITY",
+   "RATIONAL",
+   "SCRUTINY",
+   "TRANSFER",
+   "UNIVERSE",
+   "VERTICAL",
+   "WILDLIFE",
+   "XANTHINE",
+   "YOURSELF",
+   "ZIZZLING",
+   
+   
+]
