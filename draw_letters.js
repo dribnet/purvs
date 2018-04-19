@@ -1,7 +1,17 @@
 const colorStroke = "#233f11";
-const colourOpacPaper = 240;
-const colourOpacColour = 100;
-const pointSize = 3;
+const colourOpacPaper = 200;
+const colourOpacColour = 200;
+const pointSize = 2;
+
+var swapWords = [
+"-OHELLO-",
+"TRIANGLE",
+"GEOMETRY",
+"TESTWORD",
+"MICHAELS",
+"FONTFACE",
+"TRIANGLE",
+]
 /*
  * Draw the letter given the letterData
  *
@@ -11,9 +21,11 @@ const pointSize = 3;
  */
 function drawLetter(letterData) {
   push();
-  stroke(colorStroke);
-  strokeWeight(1);
-  blendMode(MULTIPLY);
+  stroke(0);
+      strokeWeight(0.5);
+  //noFill();
+  //blendMode(MULTIPLY);
+  fill(224, 219, 215);
   angleMode(DEGREES);
 
   // determine parameters for triangle points
@@ -24,13 +36,30 @@ function drawLetter(letterData) {
   let p5 = createVector(0 -sin(letterData["p5"]["ang"]) * letterData["p5"]["dist"], 0 + cos(letterData["p5"]["ang"]) * letterData["p5"]["dist"]);
   let p6 = createVector(0 -sin(letterData["p6"]["ang"]) * letterData["p6"]["dist"], 0 + cos(letterData["p6"]["ang"]) * letterData["p6"]["dist"]);
 
+  push();
+  translate(50,100);
+  //rotate(random(-5,5));
+
+  // line(0,0,0-p1.x,0-p1.y);
+  // line(0,0,0-p2.x,0-p2.y);
+  // line(0,0,0-p3.x,0-p3.y);
+  // line(0,0,0-p4.x,0-p4.y);
+  // line(0,0,0-p5.x,0-p5.y);
+  // line(0,0,0-p6.x,0-p6.y);
+
+  // line(0,0,0-p1.x,0+p1.y);
+  // line(0,0,0-p2.x,0+p2.y);
+  // line(0,0,0-p3.x,0+p3.y);
+  // line(0,0,0-p4.x,0+p4.y);
+  // line(0,0,0-p5.x,0+p5.y);
+  // line(0,0,0-p6.x,0+p6.y);
+
   //paper fill
   //fill(232, 232, 220, colourOpacPaper);
   //colour fill
   fill(80, 150, 255, colourOpacColour);
 
-  push();
-  translate(50,100);
+  noStroke();
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
@@ -52,15 +81,15 @@ function drawLetter(letterData) {
   push();
   stroke(0,40);
   noFill();
-  ellipse(0,0,5,5);
-  ellipse(0,0,letterSize*2,letterSize*2);
+  //ellipse(0,0,5,5);
+  //ellipse(0,0,letterSize*2,letterSize*2);
   fill(0);
-  ellipse(0 - p1.x, 0 - p1.y,pointSize,pointSize);
-  ellipse(0 - p4.x, 0 - p4.y,pointSize,pointSize);
-  ellipse(0 - p2.x, 0 - p2.y,pointSize,pointSize);
-  ellipse(0 - p5.x, 0 - p5.y,pointSize,pointSize);
-  ellipse(0 - p3.x, 0 - p3.y,pointSize,pointSize);
-  ellipse(0 - p6.x, 0 - p6.y,pointSize,pointSize);
+  // ellipse(0 - p1.x, 0 - p1.y,pointSize,pointSize);
+  // ellipse(0 - p4.x, 0 - p4.y,pointSize,pointSize);
+  // ellipse(0 - p2.x, 0 - p2.y,pointSize,pointSize);
+  // ellipse(0 - p5.x, 0 - p5.y,pointSize,pointSize);
+  // ellipse(0 - p3.x, 0 - p3.y,pointSize,pointSize);
+  // ellipse(0 - p6.x, 0 - p6.y,pointSize,pointSize);
   pop();
 
   pop();

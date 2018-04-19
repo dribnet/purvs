@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#ffffff";
+const colorLines   = "#000000";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -13,7 +13,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-";
 
 function setup () {
   // create the drawing canvas, save the canvas element
