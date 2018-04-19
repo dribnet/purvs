@@ -46,7 +46,8 @@ strokeWeight(1.5)
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-
+//Every 25% the a point moves from the old point to the new point.
+//None of them move at the same time.
   if(percent < 25){
   new_letter["x"] = oldObj["x"]
   new_letter["y"] = oldObj["y"]
