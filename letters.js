@@ -71,10 +71,10 @@ const alphabet = {
     "positionX": 140,
     "positionY": 55,
     
-    "size": 70,
+    "size": 60,
 
-    "offsetx": -40,
-    "offsety": -50,
+    "offsetx": -30,
+    "offsety": -45,
 
     "rotate": 40,
     "yR" : 40, 
@@ -85,14 +85,14 @@ const alphabet = {
   },
   "F": {
     "colourpicker" : 1,
-    "sizeRect": 40,
+    "sizeRect": 30,
     "positionX": 110,
     "positionY": 20,
 
-    "size": 50,
+    "size": 45,
 
-    "offsetx": -35,
-    "offsety": -2,
+    "offsetx": -40,
+    "offsety": -20,
 
     "rotate": 40,
     "xR" : 0,
@@ -224,12 +224,12 @@ const alphabet = {
   },
   "N": {
     "colourpicker" : 1,
-     "sizeRect": 60,
-    "positionX": 20,
-    "positionY": 130,
-    "size": 80,
-    "offsetx": -40,
-    "offsety": -40,
+     "sizeRect": 45,
+    "positionX": 27.7,
+    "positionY": 122.5,
+    "size": 65,
+    "offsetx": -32.5,
+    "offsety": -47.5,
     "rotate": 0, 
 
     //"XZ": 140,
@@ -253,13 +253,13 @@ const alphabet = {
   },
   "P": {
     "colourpicker" : 1,
-     "sizeRect": 40,
-    "positionX": 20,
-    "positionY": 165,
+     "sizeRect": 30,
+    "positionX": 25,
+    "positionY": 150,
 
-    "size": 60,
-    "offsetx": -30,
-    "offsety": -45,
+    "size": 50,
+    "offsetx": -25,
+    "offsety": -50,
     "rotate": 0, 
     //"yR" : 40,
     "xR" : 0
@@ -269,9 +269,9 @@ const alphabet = {
   },
   "Q": {
     "colourpicker" : 1,
-   "sizeRect": 40,
+   "sizeRect": 30,
     "positionX": 150,
-    "positionY": 50,
+    "positionY": 60,
 
     "size": 60,
     "offsetx": -30,
@@ -303,7 +303,7 @@ const alphabet = {
   },
   "S": {
     "colourpicker" : 1,
-   "sizeRect": 40,
+   "sizeRect": 35,
     "positionX": 110,
     "positionY": 0,
 
@@ -325,10 +325,10 @@ const alphabet = {
     "positionX": 10,
     "positionY": 110,
 
-    "size": 60,
+    "size": 50,
 
-    "offsetx": 80,
-    "offsety": -90,
+    "offsetx": 75,
+    "offsety": -95,
 
     "rotate": 0,
     "yR" : 0,
@@ -339,26 +339,24 @@ const alphabet = {
   },
   "U": {
     "colourpicker" : 1,
-    "sizeRect": 60,
-    "positionX": 20,
-    "positionY": 110,
-
-    "size": 80,
-    "offsetx": -40,
-    "offsety": -40,
-
-    "rotate": 0, 
+     "sizeRect": 45,
+    "positionX": 27.7,
+    "positionY": 102.5,
+    "size": 65,
+    "offsetx": -32.5,
+    "offsety": -47.5,
+    "rotate": 0
 
     //"XZ": 140,
    // "XY": 80
   },
   "V": {
     "colourpicker" : 1,
-   "sizeRect": 80,
+   "sizeRect": 70,
     "positionX": 100,
     "positionY": 30,
 
-    "size": 80,
+    "size": 70,
     "offsetx": 60,
     "offsety": -110,
 
@@ -390,9 +388,9 @@ const alphabet = {
   },
   "X": {
     "colourpicker" : 1,
-     "sizeRect": 60,
-    "positionX": 85,
-    "positionY": 55,
+     "sizeRect": 50,
+    "positionX": 90,
+    "positionY": 65,
 
     "size": 70,
     "offsetx": -35,
@@ -404,12 +402,12 @@ const alphabet = {
   
 
 
-    "XZ": 110,
-    "XY": 30
+    "XZ": 115,
+    "XY": 40
   },
   "Y": {
     "colourpicker" : 1,
-    "sizeRect": 40,
+    "sizeRect": 35,
     "positionX": 0,
     "positionY": 100,
 
@@ -421,26 +419,26 @@ const alphabet = {
     "yR" : 0,
     "xR" : 0,
 
-    "XZ": 60, 
+    "XZ": 62.5, 
     "XY": 100 
   },
   "Z": {
     "colourpicker" : 1,
-    "sizeRect": 35,
-    "positionX": 0,
-    "positionY": 80,
+    "sizeRect": 25,
+    "positionX": 15,
+    "positionY": 105,
 
-    "size": 60,
+    "size": 40,
 
-    "offsetx": -30,
-    "offsety": -40,
+    "offsetx": -20,
+    "offsety": -35,
 
     "rotate": 0,
     "yR" : 0,
     "xR" : 0,
 
-    "XZ": 70,
-    "XY": 160
+    "XZ": 60,
+    "XY": 140
   },
   "0": {
     "colourpicker" : 0,
