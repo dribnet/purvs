@@ -12,6 +12,8 @@ class Character {
 		this.canvas.noSmooth();
 		this.canvas.background(0x00);
 
+		this.lastFrame = 0;
+
 		for (let i = 0; i < 4; i++) {
 			this.vertices[i] = new Vertex(letter[i][0]*PI, letter[i][1], this.scale, letter[i][2]);
 		}
@@ -21,10 +23,12 @@ class Character {
 		}
 	}
 	setLetter(letter) {
-		this.letter = letter; //TODO: still no interpolation to use yo
+		this.letter = letter;
 	}
 
-	updateCanvas() {
+	updateCanvas(skippable) {
+		if (skippable && frameCount === this.lastFrame) { return; }
+		this.lastFrame = frameCount;
 		this.canvas.fill(0x00, 5); //5 leaves some cool ghosting due to an opacity quirk
 		this.canvas.rect(0,0,this.canvas.width,this.canvas.height);
 		this.canvas.loadPixels();

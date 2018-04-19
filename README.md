@@ -7,12 +7,12 @@ tracing a path between four points that they approach in sequence.
 
 ### Changes:
 
-- Committed horrible code-crimes to get the Alphabet to render. Further crimes may be necessary.
+- Prevented the interpolation pages from crashing
 
 ### Issues:
 
-- It takes a bit for the alphabet to spin up, not much I can do for that.
+- Interpolation does not actually work, there's no tidy way to do so given the way drawLetters is called
 
 ### To-Do:
 
-- See if I can perform similar witchcraft on the interpolation pages but I'm not holding my breath
+- Bundle it up.
