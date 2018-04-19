@@ -10,18 +10,17 @@ const colorStroke = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-
 	//show the bounding box
-	noFill();
-	stroke('red');
-	rect(0, 0, 100, 200);
-
-	fill(colorFront);
-	stroke(colorStroke);
+	// noFill();
+	// stroke('red');
+	// rect(0, 0, 100, 200);
+	//
+	// fill(colorFront);
+	// stroke(colorStroke);
 
 	push();
-	if(letterData.length < 4) {
-		letterData.push(new Character(letterData, createVector(0, 0), 1, true));
+	if(letterData.length < 5) {
+		letterData.push(new Character(letterData, createVector(0, 0), 10));
 		for (let i = 0; i < 300; i++) {
 			letterData[4].updateCanvas();
 		}

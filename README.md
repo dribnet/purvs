@@ -7,17 +7,12 @@ tracing a path between four points that they approach in sequence.
 
 ### Changes:
 
-- Trying a final idea to get animation working
+- Committed horrible code-crimes to get the Alphabet to render. Further crimes may be necessary.
 
 ### Issues:
 
-- Currently not actually drawing anything
+- It takes a bit for the alphabet to spin up, not much I can do for that.
 
 ### To-Do:
 
-- Get at least a single frame of the animation working
-
-### Notes:
-
-- It seems that I fundamentally misunderstood how the API was used, and my animation code is incompatible with it all.
-- Probably I'll need to make the randomisation deterministic and figure out how to speed the whole thing up very very quickly or this simply won't be ready in time. I've been butting against this for the past couple days but nothing seems viable. This is not very fun.
+- See if I can perform similar witchcraft on the interpolation pages but I'm not holding my breath
