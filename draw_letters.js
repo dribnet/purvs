@@ -22,7 +22,11 @@ function drawLetter(letterData) {
 
   // color/stroke setup
   const colorFront  = "#033806";//green rgb(3, 56, 6)
-  const colorBack   = "#f5f4f7";//sliver rgb(245, 244, 247)
+  //const colorBack   = "#f5f4f7";//sliver rgb(245, 244, 247)
+  //const colorBack    = "#e3eded"; // light blue
+  //const colorBack    = "#e6f0e1"; // light green
+  //const colorBack    = "#fff4f4"; // light pink
+  const colorBack    = "#f3fafc"; // light blue2
   const colorStroke = "#233f11";//darkgreen rgb(35, 63, 17)
   fill(colorFront);
   noStroke();

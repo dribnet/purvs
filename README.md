@@ -1,6 +1,15 @@
 ## PS2 MDDN 242 2018
 
 ****************
+experiment 2:
+tried four different background colours:
+
+const colorBack    = "#e3eded"; // light blue
+const colorBack    = "#e6f0e1"; // light green
+const colorBack    = "#fff4f4"; // light pink
+const colorBack    = "#f3fafc"; // light blue2 (currently use)
+
+****************
 update: Interaction and Exhibition
 
 colour:

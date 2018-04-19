@@ -1,7 +1,10 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+//const colorBack    = "#e3eded"; // light blue
+//const colorBack    = "#e6f0e1"; // light green
+//const colorBack    = "#fff4f4"; // light pink
+const colorBack    = "#f3fafc"; // light blue2
 const colorLines   = "#000090";
 
 /* 
