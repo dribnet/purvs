@@ -1,6 +1,17 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
+var swapWords = [
+"RTR0SPEC",
+"NEGATIVE",
+"ETC12345",
+"COLORFUL",
+"GOOD1420",
+"ACCURATE",
+"PLEASANT",
+"ABSOLUTE",
+"EXPLICIT",
+]
 /*
  * Draw the letter given the letterData
  *
