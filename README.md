@@ -1,11 +1,35 @@
 ## PS2 MDDN 242 2018
 
-Episode 02
+Episode 03
 
-Due to some issues i have made a debug code to fix all the proper positions and values of each of the cipher codes that represent each of the following letter
+To further make the transitions more smoother, i fixed up the letters.js by adding a full line of the const variables for each of the moving rect/ellipse/rotation.
 
-A, B , C , D , E, F, G, H, I, J, K, L, M, N, O, P, Q, R
+by adding all these values to their respective letter const, i can get a smoother transition by hiding as well as merging the shapes when not needed into the background. The resulting change made for an interesting interpolation of letter changes.
 
-This is done to further simply the issue of rotating the rectangles to complete the cipher aplhabet that i am trying to accomplish.
+using the reference as shown:
+  "pos_x1": 0,
+  "pos_y1":0,
+  "width_1":0,
+  "height_1":0,
 
-i will upload a full cipher guideline code for a reference soon. but for now the current parameters are shown as the following:
+  "pos_x2": 0,
+  "pos_y2": 0,
+  "width_2":0,
+  "height_2":0,
+
+  "pos_x3": 0,
+  "pos_y3": 0,
+  "width_3":0,
+  "height_3":0,
+
+  "pos_x4": 0,
+  "pos_y4": 0,
+  "width_4":0,
+  "height_4":0,
+
+  "c_posx": 0,
+  "c_posy": 0,
+  "c_width": 0,
+  "c_height": 0,
+
+  "r_letter": 0
