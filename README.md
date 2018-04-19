@@ -1,14 +1,24 @@
 ## PS2 MDDN 242 2018
 
-My alphabet is inspired by James Edmondson's work (dedicated typographer) and it is a monochromatic, kinetic rectangle and two ellipses that vary from 2 different sizes. 
+This is my font animated when a letter is typed. 
 
-The typeface is inspired by mechanical fonts and I feel having a simple, high contrast colorway being dark and light would be essential to convey this.
+The keyframes are shown above and it shows the certain changes among the parameters. The main elements include the ellipses and the kinetic rectangle.
 
-The rects were hard to work with as each point had to be iterated to create a new shape. The ellipses on the other hand was naturally easy as it only has size and position parameters.
+I noticed that the default mapping complimented my typeface really well, as there are no noticeable jarring elements such as severe overlapping and misplacements.
 
-Overall my interpretation of my precedent is a bolder one as I felt having the 'mechanic' look is ideal.
- 
-James Edmondson Inspiration
- https://i.pinimg.com/564x/6f/9f/31/6f9f314d34ec63007fecfcca14980fca.jpg 
+The updated parameters are as follows:
 
-
+	"size": 		Size of 1st ellipse
+	"offsetx": 		X pos
+	"offsety": 		Y pos
+	"size2": 		Size of 2nd ellipse
+	"offsetx2":		X pos
+	"offsety2": 	Y pos
+	"qua_x1_1": 	Quad 1st vertices x pos
+	"qua_y1_1": 	Quad 1st vertices y pos
+	"qua_x2_1": 	Quad 2nd vertices x pos
+	"qua_y2_1": 	Quad 2nd vertices y pos
+	"qua_x3_1": 	Quad 3rd vertices x pos
+	"qua_y3_1": 	Quad 3rd vertices y pos
+	"qua_x4_1": 	Quad 4th vertices x pos
+	"qua_y4_1": 	Quad 4th vertices y pos
