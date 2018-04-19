@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+Alphabet nearly completed, not as updated in program.
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+I have created and saved parameters for all of my alphabet up to the number 3. I have not yet added these configurations into the program. I am struggling in program to get the full alphabet to show on one page currently.
 
 The three parameters per letter are now:
   * `size` : radius of the second circle

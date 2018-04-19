@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#ffffff";
+const colorLines   = "#0000f0";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(85, 72, 89);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
@@ -52,7 +52,7 @@ function draw () {
     translate(0, j);
 
     // draw lines
-    stroke(colorLines);
+    stroke(255);
     line(left_margin, 0, right_margin, 0);
     for(let i=left_margin; i<right_margin-8; i+=30) {
       line(i, 100, i+12, 100);
