@@ -1,16 +1,11 @@
 ## PS2 MDDN 242 2018
 
-Episode 01
+Episode 02
 
-these are the beginning letters for my parametric alphabet.
+Due to some issues i have made a debug code to fix all the proper positions and values of each of the cipher codes that represent each of the following letter
 
-this values goes onto 4 eg pos_x4 for each rect
+A, B , C , D , E, F, G, H, I, J, K, L, M, N, O, P, Q, R
 
-pos_x1 : x position of the rect
+This is done to further simply the issue of rotating the rectangles to complete the cipher aplhabet that i am trying to accomplish.
 
-pos_y1 : y position of the rect
-
-width_1 : width of the rect
-
-height_1 : height of the rect
-
+i will upload a full cipher guideline code for a reference soon. but for now the current parameters are shown as the following:
