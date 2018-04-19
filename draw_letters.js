@@ -3,7 +3,7 @@ const colorStroke = "#e3eded";
 
 var swapWords = [
   "MEDITATE",
-  "YUMMY123"
+  "FH3  T78"
   ]
 
 function drawLetter(letterData) {

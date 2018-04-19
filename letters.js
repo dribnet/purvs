@@ -129,7 +129,7 @@ const alphabet = {
   "linex1": 75,
   "linex2":-8,
   "liney1":76,
-  "liney2":145
+  "liney2":150
   },
   "H": {
   "alpha":255,
@@ -401,7 +401,7 @@ const alphabet = {
   "linex1": 75,
   "linex2":-8,
   "liney1":76,
-  "liney2":145
+  "liney2":150
   },
   "Y": {
   "alpha":0,
@@ -449,7 +449,7 @@ const alphabet = {
   "linex1": 75,
   "linex2":-8,
   "liney1":76,
-  "liney2":145
+  "liney2":150
   },
   "1": {
   "alpha":255,
@@ -545,7 +545,7 @@ const alphabet = {
   "linex1": 75,
   "linex2":-8,
   "liney1":76,
-  "liney2":145
+  "liney2":150
   },
   "7": {
   "alpha":255,
