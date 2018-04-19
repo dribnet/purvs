@@ -44,7 +44,7 @@ let curSwapWord = 0;
 var defaultSwapWords = [
   "02ISBEST",
   "1234567?",
-  "EXPECTED",
+  "DATUPUTI",
   "PROPERTY",
   "ADDITION",
   "FOLLOWED",
