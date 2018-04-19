@@ -3,12 +3,12 @@ const letterAngle = 0.872665;
 
 const alphabet = {
   "default": {
-    "p1": { "ang": 000,   "dist": letterSize},
-    "p2": { "ang": 125,   "dist": letterSize},
-    "p3": { "ang": 300,   "dist": 0.45*(letterSize)},
-    "p4": { "ang": 000,   "dist": letterSize},
-    "p5": { "ang": 230,   "dist": letterSize},
-    "p6": { "ang": 060,   "dist": 0.45*(letterSize)},
+    "p1": { "ang": 000,   "dist": 0},
+    "p2": { "ang": 000,   "dist": 0},
+    "p3": { "ang": 000,   "dist": 0},
+    "p4": { "ang": 000,   "dist": 0},
+    "p5": { "ang": 000,   "dist": 0},
+    "p6": { "ang": 000,   "dist": 0},
     },
   "A": {
     "p1": { "ang":  000,   "dist": letterSize},
@@ -35,7 +35,7 @@ const alphabet = {
     "p6": { "ang": 202,   "dist": 0.5704*letterSize},
   },
   "D": {
-    "p1": { "ang": 090,   "dist": letterSize},
+    "p1": { "ang": 090,   "dist": 0.9*letterSize},
     "p2": { "ang": -035,   "dist": letterSize},
     "p3": { "ang": -150,   "dist": letterSize},
     "p4": { "ang": 090,   "dist": 0.32*letterSize},
@@ -43,12 +43,12 @@ const alphabet = {
     "p6": { "ang": -150,   "dist": letterSize},
   },
   "E": {
-    "p1": { "ang": -090,   "dist": letterSize},
+    "p1": { "ang": -090,   "dist": 0.8*letterSize},
     "p2": { "ang": 019,   "dist": letterSize},
     "p3": { "ang": 160,   "dist": letterSize},
     "p4": { "ang": 090,   "dist": letterSize},
-    "p5": { "ang": -035,   "dist": 0.6*letterSize},
-    "p6": { "ang": -150,   "dist": 0.6*letterSize},
+    "p5": { "ang": -035,   "dist": 0.5*letterSize},
+    "p6": { "ang": -150,   "dist": 0.5*letterSize},
   },
   "F": {
     "p1": { "ang": -012,   "dist": letterSize},
@@ -163,6 +163,7 @@ const alphabet = {
     "p6": { "ang": 055,   "dist": 0.2*letterSize},
   },
   "T": {
+    "T": { "test" : 000},
     "p1": { "ang": 030,   "dist": 0.7392*letterSize},
     "p2": { "ang": -030,   "dist": 0.7392*letterSize},
     "p3": { "ang": -180,   "dist": letterSize},

@@ -4,9 +4,10 @@ const colourOpacColour = 200;
 const pointSize = 2;
 
 var swapWords = [
-"-OHELLO-",
-"TRIANGLE",
 "GEOMETRY",
+"        ",
+"TRIANGLE",
+"ANGULAR",
 "TESTWORD",
 "MICHAELS",
 "FONTFACE",
@@ -22,7 +23,7 @@ var swapWords = [
 function drawLetter(letterData) {
   push();
   stroke(0);
-      strokeWeight(0.5);
+  strokeWeight(0.5);
   //noFill();
   //blendMode(MULTIPLY);
   fill(224, 219, 215);
@@ -36,23 +37,34 @@ function drawLetter(letterData) {
   let p5 = createVector(0 -sin(letterData["p5"]["ang"]) * letterData["p5"]["dist"], 0 + cos(letterData["p5"]["ang"]) * letterData["p5"]["dist"]);
   let p6 = createVector(0 -sin(letterData["p6"]["ang"]) * letterData["p6"]["dist"], 0 + cos(letterData["p6"]["ang"]) * letterData["p6"]["dist"]);
 
+  var letterHeight
+
+  var lowestPoint = 0;
+  var min = 10000;
+  for (var i = 1; i <= 6; i++) {
+    if(cos(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] < min){
+      lowestPoint = i;
+      min = cos(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"];
+    }
+  }
+
+  var highestPoint = 0;
+  var max = 0;
+  for (var i = 1; i <= 6; i++) {
+    if(cos(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] > max){
+      highestPoint = i;
+      max = abs(cos(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"]);
+    }
+  }
+
+  var letterHeightDiff = (max - abs(min));
+
+  console.log(letterData);
+  console.log(letterHeightDiff);
+
   push();
-  translate(50,100);
+  translate(50,100+letterHeightDiff/2);
   //rotate(random(-5,5));
-
-  // line(0,0,0-p1.x,0-p1.y);
-  // line(0,0,0-p2.x,0-p2.y);
-  // line(0,0,0-p3.x,0-p3.y);
-  // line(0,0,0-p4.x,0-p4.y);
-  // line(0,0,0-p5.x,0-p5.y);
-  // line(0,0,0-p6.x,0-p6.y);
-
-  // line(0,0,0-p1.x,0+p1.y);
-  // line(0,0,0-p2.x,0+p2.y);
-  // line(0,0,0-p3.x,0+p3.y);
-  // line(0,0,0-p4.x,0+p4.y);
-  // line(0,0,0-p5.x,0+p5.y);
-  // line(0,0,0-p6.x,0+p6.y);
 
   //paper fill
   //fill(232, 232, 220, colourOpacPaper);

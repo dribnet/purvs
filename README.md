@@ -9,7 +9,7 @@ The 12 parameters per letter:
   * `pointTwo` : "ang" angle of point and "dist" distance from center.
   etc..
 
-I have finished inputing the parameters for my alphabet, with each letter being in its final state.
+Added code to determine difference in height, allowing each letter to be centered in relation to each other.
 
- The only thing I am looking at changing now is the general aesthetic of the letters, such as colour and stroke weight.
- As currently the letters are using a colour scheme I mainly implimented to test the position of each triangle.
+Also slightly altered some parameters for particular letters to allow for more space between letters.
+
