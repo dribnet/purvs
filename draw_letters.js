@@ -28,7 +28,8 @@ function drawLetter(letterData) {
   let totalSize = 2;                   // Scale of letter as a whole
   let triSize = 30 * totalSize;        // Make size relative to totalSize  
   push();  
-  translate(0, 100);
+  translate(50, 100);
+scale(0.75,0.75);
   //TOP TRIANGLE\\
   fill(fill1); 
   triangle(- triSize,- triSize, 0, 0, + triSize, - triSize);
@@ -94,3 +95,12 @@ function interpolate_letter(percent, oldObj, newObj) {
   }
   return new_letter;
 }
+
+var swapWords = [
+"BOXTHING",
+"SUDDENLY",
+"PIZZAGUY",
+"EXPECTED",
+"FEELINGS",
+"SPINNERS"
+]

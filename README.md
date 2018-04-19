@@ -1,7 +1,9 @@
 ## PS2 MDDN 242 2018
 
-For my interaction I wanted to give a clue to how the letters were changing. To me the most important part of my letters is the square that moves, it has a drastic effect on the form. I thought that if I change the colours instantly, place the crosses at the end and then interpolate the center square inbetween. This way I would effectively be able to show how the letters are formed in an interesting way.
-The Nine parameters per letter
+My idea for Boxthing was to use as minimal Parameters as possible while at the same time creating unique and readable characters. While undergoing this I came across many problems that I believe I was able to find solutions for in a unique way. 
+
+## Reflection
+If I were to further develop this I would redesign the interpolations. I had trouble figuring out how to go between colours so I did not end up getting smooth colour changes. To me, it is not the end of the world as the flickery change does help enforce the theme of the text. The characters themself however I am proud of, they have a nice and unique look and when I got to the end of the problem set was pleasantly surprised at the look of most words. Even better is that I was successful in doing this with a low amount of parameters.
 _______________________________
 
 * `topFill` : Fill for top triangle

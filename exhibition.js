@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "white";
 const colorLines   = "#000090";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
@@ -19,14 +19,14 @@ const canvasHeight = 500;
 let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
-let soloIsAnimating = false;
+let soloIsAnimating = true;
 let soloNumAnimationFrames = 30;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
-let chosenLetters = [];
+let chosenLetters = ["BOXTHING"];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
 let chosenNumAnimationFrames = 30;
