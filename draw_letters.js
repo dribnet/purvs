@@ -27,11 +27,6 @@ const colorStroke = "#233f11";
 
 }
 
-var swapWords = [
-  "SET OF 3",
-  "ADVANCED"
-  "BATHROOM"
-]
 
 
 function drawLetter(letterData) {
