@@ -53,3 +53,18 @@ function drawLetter(letterData) {
   endShape();
   pop();
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["vertX"] = map(percent, 0, 100, oldObj["vertX"], newObj["vertX"]);
+  new_letter["vertY"] = map(percent, 0, 100, oldObj["vertY"], newObj["vertY"]);
+  new_letter["ctrlPx"] = map(percent, 0, 100, oldObj["ctrlPx"], newObj["ctrlPx"]);
+  new_letter["ctrlPy"] = map(percent, 0, 100, oldObj["ctrlPy"], newObj["ctrlPy"]);
+  new_letter["vertX2"] = map(percent, 0, 100, oldObj["vertX2"], newObj["vertX2"]);
+  new_letter["vertY2"] = map(percent, 0, 100, oldObj["vertY2"], newObj["vertY2"]);
+  new_letter["ctrlPx2"] = map(percent, 0, 100, oldObj["ctrlPx2"], newObj["ctrlPx2"]);
+  new_letter["ctrlPy2"] = map(percent, 0, 100, oldObj["ctrlPy2"], newObj["ctrlPy2"]);
+  new_letter["vertX3"] = map(percent, 0, 100, oldObj["vertX3"], newObj["vertX3"]);
+  new_letter["vertY3"] = map(percent, 0, 100, oldObj["vertY3"], newObj["vertY3"]);
+  return new_letter;
+}

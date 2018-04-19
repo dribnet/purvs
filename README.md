@@ -13,5 +13,4 @@ Added:
   - vertX3: X position of the end point of the second curve(anchor point)
   - vertY3: Y position of the end point of the second curve(anchor point)
 
-  Completed the alphabet part of this project, I've added "? / =" as I wasn't really sure what i'd do for the custom letters. 
-  For the numbers since some of the numbers are similiar in shape to letters I decided to make them a bit smaller than the alphabet just to aid the viewer in distinguishing which is a letter and which is a number for instance 5 and S look similar.
+  Added the interpolation part of the project. If I have time I want to add a cosmetic interpolation just to clean up how the handles create sharp glitchy things when animating. Trying to think of ways to create a smoother transition possibly through strokeweight or opacity or maybe the use of the line caps? I think they're called that.
