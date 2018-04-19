@@ -27,6 +27,12 @@ const colorStroke = "#233f11";
 
 }
 
+var swapWords = [
+  "SET OF 3",
+  "ADVANCED"
+  "BATHROOM"
+]
+
 
 function drawLetter(letterData) {
 
@@ -36,7 +42,7 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
-  let posx=0;
+  let posx=50;
   let posy=100;
 
   // determine parameters for second circle

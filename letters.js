@@ -1,13 +1,13 @@
 const alphabet = {
   "default": {
   "offset1x": 0,
-  "offset1y": -50,
+  "offset1y": 20,
   "offset2x": 0,
-  "offset2y": 30,
-  "rotate1": 180,
-  "rotate2": 180,
+  "offset2y": -20,
+  "rotate1": 90,
+  "rotate2": 270,
   "color1": "#199cff",
-  "color2": "#c6cece"
+  "color2": "#199cff"
   },
     "A": {
   "offset1x": 0,
@@ -30,9 +30,9 @@ const alphabet = {
   "color2": "#c6cece"
   },
     "C": {
-  "offset1x": 20,
+  "offset1x": 10,
   "offset1y": 0,
-  "offset2x": 20,
+  "offset2x": 10,
   "offset2y": 0,
   "rotate1": 90,
   "rotate2": 90,
@@ -50,17 +50,17 @@ const alphabet = {
   "color2": "#c6cece"
   },
     "E": {
-  "offset1x": 30,
-  "offset1y": -20,
-  "offset2x": 30,
-  "offset2y": 20,
+  "offset1x": 15,
+  "offset1y": -15,
+  "offset2x": 15,
+  "offset2y": 15,
   "rotate1": 90,
   "rotate2": 90,
   "color1": "#c6cece",
   "color2": "#c6cece"
   },
     "F": {
-  "offset1x": 30,
+  "offset1x": 25,
   "offset1y": 0,
   "offset2x": -5,
   "offset2y": 30,
@@ -200,9 +200,9 @@ const alphabet = {
   "color2": "#c6cece"
   },
     "T": {
-  "offset1x": 45,
+  "offset1x": 40,
   "offset1y": 30,
-  "offset2x": -45,
+  "offset2x": -40,
   "offset2y": 30,
   "rotate1": 270,
   "rotate2": 90,
@@ -320,9 +320,9 @@ const alphabet = {
   "color2": "#c6cece"
   },
     "6": {
-  "offset1x": 30,
+  "offset1x": 25,
   "offset1y": -30,
-  "offset2x": 20,
+  "offset2x": 15,
   "offset2y": -20,
   "rotate1": 270,
   "rotate2": 90,
@@ -330,12 +330,12 @@ const alphabet = {
   "color2": "#c6cece"
   },
     "7": {
-  "offset1x": -35,
-  "offset1y": 30,
-  "offset2x": -35,
-  "offset2y": 30,
-  "rotate1": 90,
-  "rotate2": 0,
+  "offset1x": -25,
+  "offset1y": 20,
+  "offset2x": -25,
+  "offset2y": 20,
+  "rotate1": 0,
+  "rotate2": 90,
   "color1": "#c6cece",
   "color2": "#c6cece"
   },
@@ -364,6 +364,16 @@ const alphabet = {
   "offset1y": 15,
   "offset2x": 0,
   "offset2y": 15,
+  "rotate1": 0,
+  "rotate2": 0,
+  "color1": "#c6cece",
+  "color2": "#c6cece"
+  },
+    "?": {
+  "offset1x": 0,
+  "offset1y": 55,
+  "offset2x": 0,
+  "offset2y": -30,
   "rotate1": 0,
   "rotate2": 0,
   "color1": "#c6cece",
