@@ -1,3 +1,3 @@
 ## PS2 MDDN 242 2018
 
-I have set my colours so they change to random values constantly to look more like lights, ad have also added transparency to the colours so they appear to be more of a glow again on random values. i still need to do alot of work to make it look relatively good compared to the BLUR filter and need to slow down the speed for the colour and opacity change.
+I couldnt get BLUR to work without destroying the framerate, so i decided to take a different path. I have layered the letters and used BLENDMODE() and the alpha variable in RBG to control transparency in the colours. This has created a cool looking retro style mixxed in with the colour switching which at its randomised values fits the art style well due to it looking ""buggy"" and jumpy.

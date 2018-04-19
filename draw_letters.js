@@ -52,23 +52,40 @@ var g = random(173,105);
 var b = random(212,180);
 var a = random(60,90);
 
-let colS = color(r,g,b,a);
 
-frameRate(1);
+let colS = color(r,g,b,a);
+  
+
 push();
+
+blendMode(BLEND);
 stroke(colS);
-strokeWeight(12);
+strokeWeight(6);
 smooth();
 noFill();
-  line(posx,posy,pos2x,pos2y);
-  line(pos3x,pos3y,pos4x,pos4y);
-  line(pos5x,pos5y,pos6x,pos6y);
-  line(pos7x,pos7y,pos8x,pos8y);
-  line(pos9x,pos9y,pos10x,pos10y);
+  line(posx+3,posy+3,pos2x+3,pos2y+3);
+  line(pos3x+3,pos3y+3,pos4x+3,pos4y+3);
+  line(pos5x+3,pos5y+3,pos6x+3,pos6y+3);
+  line(pos7x+3,pos7y+3,pos8x+3,pos8y+3);
+  line(pos9x+3,pos9y+3,pos10x+3,pos10y+3);
 pop();
 
 push();
-stroke(255);
+
+blendMode(BLEND);
+stroke(colS);
+strokeWeight(2);
+smooth();
+noFill();
+  line(posx-2,posy-2,pos2x-2,pos2y-2);
+  line(pos3x-2,pos3y-2,pos4x-2,pos4y-2);
+  line(pos5x-2,pos5y-2,pos6x-2,pos6y-2);
+  line(pos7x-2,pos7y-2,pos8x-2,pos8y-2);
+  line(pos9x-2,pos9y-2,pos10x-2,pos10y-2);
+pop();
+
+push();
+stroke(255,255,255,98);
 strokeWeight(3);
 smooth();
   line(posx,posy,pos2x,pos2y);
@@ -81,6 +98,7 @@ pop();
 
 
 }
+
 function interpolate_letter(percent, oldObj, newObj){
   let new_letter = {};
   new_letter["x"] = map(percent,0, 100, oldObj["x"],newObj["x"]);
