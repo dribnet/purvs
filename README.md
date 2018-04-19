@@ -4,6 +4,8 @@ I was realise my old idea of kidtoy have too many parameters for each alphabet o
 
 On the Alphabet page, It came out really great and readable of my flowers characters. I added an extra 3 character on my alphabet page. They are +, -, and = character.
 
+On the interaction page, I have a problem with the transition between A to B character. It causes I draw a part seperatly drawpart. A character has only stright formed but B character has a combination of stright formed and curved formed. But I think it still fine with the tranisiton.
+
 I used 12 parameters for each alphabet so far.
 ► "positionX1": 0, // set to move the part 1 by X axis
 ► "positionY1": 0, // set to move the part 1 by Y axis
