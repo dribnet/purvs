@@ -1,16 +1,8 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#c3e6e7";
 const colorLines   = "#000090";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
 }
-
-/* 
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;

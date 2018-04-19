@@ -1,17 +1,17 @@
-
 // This function draws each individual cube
 function drawPart(posx, posy) {
 
-  const col1 = "#f9d9e9"; 
-  const col2 = "#bbdade";
-  const col3 = "#fefefe"; 
+  const col1 = "#f9d9e9"; //light pink
+  const col2 = "#bbdade"; //blue
+  const col3 = "#fefefe"; //white
 
   push();
 
   scale(0.5);
   noStroke();
   translate(posx, posy);
-
+  
+  //front face of my cube
   push();
   beginShape();
   fill(col1);
@@ -22,7 +22,8 @@ function drawPart(posx, posy) {
   vertex(50,10);
   endShape();
   pop();
-
+  
+  //side face of my cube
   push();
   fill(col2);
   stroke(col2);
@@ -34,6 +35,7 @@ function drawPart(posx, posy) {
   endShape();
   pop();
 
+  //top face of my cube
   push();
   fill(col3);
   stroke(col3);
@@ -48,6 +50,7 @@ function drawPart(posx, posy) {
   pop();
 
 }
+
 // This function draw the two combined cubes, this is to shave off 2 x,y coordinate of 1cube.
 function drawPart2(posx, posy) {
 
@@ -168,6 +171,8 @@ function drawLetter(letterData) {
   let pos8x = posx + letterData["box8x"];
   let pos8y = posy + letterData["box8y"];
 
+  //The way I placed the following drawCode determines 
+  //which cubes go on top of which to create a 3D illution
   
   push();
 

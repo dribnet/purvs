@@ -1,13 +1,5 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#d2ecef";
 const colorLines   = "#000090";
-
-/* 
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;
