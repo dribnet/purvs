@@ -1,18 +1,23 @@
 ## PS2 MDDN 242 2018
 
-This is a system where characters are drawn by the motion of 1-pixel particles tracing a path between
-four points that they approach in sequence.
+This is a system where characters are drawn by the motion of 1-pixel particles
+tracing a path between four points that they approach in sequence.
 
 ---
 
-###Changes:
-- Totally forgot to commit my code to git until now because I haven't been doing anything interesting to look at
+### Changes:
 
-###Issues:
-- Currently nothing much to look at
-- Class variables are currently a bit of a mess
-- Lots of tidy-up needs doing
+- Since I last remembered to commit I got the particle system going as originally designed and implemented the number values.
 
-###To-Do:
-- Commit to git more often! I've been bad about it
-- Get my particle systems drawing on-screen
+### Issues:
+
+- There is no practical way to actually animate any of my code in the API
+
+### To-Do:
+
+- Actually get these drawing in draw_letters through some deep voodoo of some sort I guess.
+
+### Notes:
+
+- It seems that I fundamentally misunderstood how the API was used, and my animation code is incompatible with it all.
+- Probably I'll need to make the randomisation deterministic and figure out how to speed the whole thing up very very quickly or this simply won't be ready in time. I've been butting against this for the past couple days but nothing seems viable. This is not very fun.

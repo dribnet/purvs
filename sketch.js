@@ -1,172 +1,137 @@
-var main_canvas;
-var pos1_slider;
-var tilt1_slider;
-var pos2_slider;
-var tilt2_slider;
-var pos3_slider;
-var tilt3_slider;
+let main_canvas = null;
 
-var canvasWidth = 960;
-var canvasHeight = 500;
+const canvasWidth = 960;
+const canvasHeight = 500;
 
-var savedValues = {
-  "A":
-    {
-      "box1": {
-        "position": -174,
-        "tilt": -47
-      },
-      "box2": {
-        "position": -104,
-        "tilt": -4
-      },
-      "box3": {
-        "position": -121,
-        "tilt": 58
-      }
-    },
-  "B":
-    {
-      "box1": {
-        "position": -191,
-        "tilt": -90
-      },
-      "box2": {
-        "position": -54,
-        "tilt": -45
-      },
-      "box3": {
-        "position": -12,
-        "tilt": 6
-      }
-    },
-  "C":
-    {
-      "box1": {
-        "position": -163,
-        "tilt": -84
-      },
-      "box2": {
-        "position": -191,
-        "tilt": 163
-      },
-      "box3": {
-        "position": 0,
-        "tilt": -27
-      }
-    }
+let characters = [];
+
+function setup() {
+	// create the drawing canvas, save the canvas element
+	main_canvas = createCanvas(canvasWidth, canvasHeight);
+	main_canvas.parent('canvasContainer');
+
+	pixelDensity(1); //this makes the pixel stuff work consistently!!
+	noSmooth();
+
+	background(0x00);
+
+	characters.push(new Character("7", createVector(width/4, height/2), 10));
+	characters.push(new Character("8", createVector(width/2, height/2), 10));
+	characters.push(new Character("9", createVector(width/4*3, height/2), 10));
+
+	print("done");
 }
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
 
-  // rotation in degrees (more slider friendly)
-  angleMode(DEGREES);
+const colorFront = [207, 222, 227];
+const colorBack = [29, 42, 46];
 
-  // create two sliders
-  pos1_slider = createSlider(-200, 200, 0);
-  tilt1_slider = createSlider(-180, 180, 0);
-  pos2_slider = createSlider(-200, 200, 0);
-  tilt2_slider = createSlider(-180, 180, 0);
-  pos3_slider = createSlider(-200, 200, 0);
-  tilt3_slider = createSlider(-180, 180, 0);
 
-  sel = createSelect();
-  sel.option('A');
-  sel.option('B');
-  sel.option('C');
-  sel.changed(letterChangedEvent);
+function draw() {
+	fill(0x00, 5); //5 leaves some cool ghosting due to an opacity quirk
+	rect(0,0,width,height);
+translate(width/2, 0);
+	loadPixels();
+	let pointLocation;
+	for (let i = 0, l = characters.length; i < l; i++) {
+		for (let j = 0, m = characters[i].tracers.length; j < m; j++) {
+			characters[i].tracers[j].update();
+			pointLocation = characters[i].tracers[j].location.copy().add(characters[i].location);
+			let address = round(pointLocation.x)*4 + round(pointLocation.y)*width*4;
 
-  button = createButton('show data');
-  button.mousePressed(buttonPressedEvent);
+			let c = characters[i].tracers[j].colour;
+			if (c === 0) {
+				pixels[address] = 0xFF;        //r
+			} else if (c === 1) {
+				pixels[address + 1] = 0xFF;    //g
+			} else {
+				pixels[address + 2] = 0xFF;    //b
+			}
+		}
 
-  // position each element on the page
-  main_canvas.parent('canvasContainer');
-  pos1_slider.parent('slider1Container');
-  tilt1_slider.parent('slider2Container');
-  pos2_slider.parent('slider3Container');
-  tilt2_slider.parent('slider4Container');
-  pos3_slider.parent('slider5Container');
-  tilt3_slider.parent('slider6Container');
+	}
+	updatePixels();
 
-  sel.parent(selectorContainer);
-  button.parent(buttonContainer);
-}
-
-function sliderToDataObject() {
-  var obj = {};
-  obj["box1"] = {};
-  obj["box1"]["position"] = pos1_slider.value();
-  obj["box1"]["tilt"] = tilt1_slider.value();
-  obj["box2"] = {};
-  obj["box2"]["position"] = pos2_slider.value();
-  obj["box2"]["tilt"] = tilt2_slider.value();
-  obj["box3"] = {};
-  obj["box3"]["position"] = pos3_slider.value();
-  obj["box3"]["tilt"] = tilt3_slider.value();
-  return obj;
-}
-
-function dataObjectToSliders(obj) {
-  pos1_slider.value(obj["box1"]["position"]);
-  tilt1_slider.value(obj["box1"]["tilt"]);
-  pos2_slider.value(obj["box2"]["position"]);
-  tilt2_slider.value(obj["box2"]["tilt"]);
-  pos3_slider.value(obj["box3"]["position"]);
-  tilt3_slider.value(obj["box3"]["tilt"]);
-}
-
-function letterChangedEvent() {
-  var item = sel.value();
-  dataObjectToSliders(savedValues[item]);
-}
-
-function buttonPressedEvent() {
-  var obj = sliderToDataObject();
-  json = JSON.stringify(obj, null, 2);
-  alert(json);
-}
-
-var colorFront = [207, 222, 227];
-var colorBack = [29, 42, 46];
-
-function drawPart(y_offset, pos, tilt) {
-  var middle_x = 2 * canvasWidth / 3;
-  var middle_y = canvasHeight / 2;
-  resetMatrix();
-  translate(middle_x + pos, middle_y + y_offset);
-  rotate(tilt);
-
-  var scale = 10;
-
-  fill(colorFront);
-  // rect(-100,-100,100,100);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
-}
-
-function drawFromSliders(y_offset, pos_slider, tilt_slider) {
-  var pos, tilt;
-  pos = pos_slider.value();
-  tilt = tilt_slider.value();
-  drawPart(y_offset, pos, tilt);
-}
-
-function draw () {
-  background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
-
-  drawFromSliders(-50, pos1_slider, tilt1_slider);
-  drawFromSliders(  0, pos2_slider, tilt2_slider);
-  drawFromSliders( 50, pos3_slider, tilt3_slider);
+	//text("FPS: "+floor(frameRate()), width/2, 20);
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+	if (key === '!') {
+		saveBlocksImages();
+	}
+	else if (key === '@') {
+		saveBlocksImages(true);
+	}
+	if (key === 'P') {
+		noLoop();
+	}
+	if (key === 'S') {
+		loop();
+	}
+}
+
+class Character {
+	constructor(letter, locationVec, scale) {
+		this.scale = scale;
+		this.location = locationVec.copy();
+		this.tracers = []; //array of tracers, x, y, current target point, current path ID
+		this.letter = letter;
+		//vertices properties
+		this.vertices = [4];
+
+		for (let i = 0; i < 4; i++) {
+			this.vertices[i] = new Vertex(alphabet[letter][i][0]*PI, alphabet[letter][i][1], this.scale, alphabet[letter][i][2]);
+		}
+		for (let i = 0; i < 15*this.scale; i++) {
+			let originVert = floor(random(4));
+			this.tracers.push(new Tracer(this, (originVert+1)%4, this.vertices[originVert].location.copy().rotate(random(-PI,PI))));
+		}
+	}
+	setLetter(letter) {
+		this.letter = letter;
+	}
+
+}
+
+class Vertex {
+	constructor(angle, magnitude, scale, turnRate) {
+		this.location = createVector(magnitude*scale,0).rotate(angle);
+		this.turnRate = turnRate;
+	}
+	setValues(angle, magnitude, scale, turnRate) {
+		this.location = createVector(magnitude*scale,0).rotate(angle);
+		this.turnRate = turnRate;
+	}
+
+}
+
+class Tracer {
+	constructor(character, targetIndex, location) {
+		this.parentCharacter = character;
+		this.targetIndex = targetIndex;
+		this.location = location;
+		this.targetPosition = createVector(0,0);
+		this.changeTarget(this.targetIndex);
+		this.velocity = createVector(0,random(0.8,1.2));
+		this.colour = floor(random(3));
+	}
+	update() {
+		this.location.add(this.velocity);
+
+		let dir = this.targetPosition.copy().sub(this.location).angleBetween(this.velocity);
+		this.velocity.rotate(dir/PI*this.parentCharacter.vertices[this.targetIndex].turnRate);
+
+
+		if (this.location.dist(this.targetPosition)
+			< this.parentCharacter.scale * (0.2/this.parentCharacter.vertices[this.targetIndex].turnRate)) {
+			this.changeTarget(this.targetIndex+1);
+		}
+
+	}
+
+	changeTarget(n) {
+		this.targetIndex = n%4;
+		this.targetPosition.set(this.parentCharacter.vertices[this.targetIndex].location.copy())
+	}
+
 }
