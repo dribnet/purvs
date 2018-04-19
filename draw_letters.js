@@ -13,10 +13,12 @@ function drawLetter(letterData) {
   //rotation in degrees (for tilt variable)
   angleMode(DEGREES);
   
+  /*
   //show bounding box
   noFill();
   stroke('red');
   rect(0, 0, 100, 200);
+  */
 
   // color/stroke setup
   const colorFront  = "#033806";//green rgb(3, 56, 6)
@@ -81,57 +83,36 @@ function drawLetter(letterData) {
   pop();
 }
 
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+
+  new_letter["size1"] = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+  new_letter["size3"] = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
+  new_letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+  new_letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
+  new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
+  new_letter["tilt1"] = map(percent, 0, 100, oldObj["tilt1"], newObj["tilt1"]);
+  new_letter["tilt2"] = map(percent, 0, 100, oldObj["tilt2"], newObj["tilt2"]);
+  new_letter["tilt3"] = map(percent, 0, 100, oldObj["tilt3"], newObj["tilt3"]);
+  new_letter["tilt4"] = map(percent, 0, 100, oldObj["tilt4"], newObj["tilt4"]);
+
+  return new_letter;
+
+}
 
 var SwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+  "TRIANGLE",
+  "FORESTRY",
+  "MOUNTAIN",
+  "CLONDILY",
+  "SUNSHINE",
+  "MOONBEAM",
+  "POLESTAR",
+  "CANICULA",
+  "04071997"
 ]

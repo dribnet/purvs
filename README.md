@@ -1,8 +1,30 @@
 ## PS2 MDDN 242 2018
 
--------------
-update: Alphabet
--------------
+****************
+update: Interaction and Exhibition
+
+colour:
+	const colorBack   = "#f5f4f7";//sliver rgb(245, 244, 247)
+
+	triangle (1):
+	fill(53, 124, 59, 180);
+
+	triangle (2):
+	fill(122, 188, 166, 150);
+
+	triangle (3):
+	fill(122, 188, 130, 150);
+
+	triangle (4):
+	fill(61, 112, 10, 100);
+****************
+My idea:
+
+Inspired by paper crane, I decided to use four different triangles to constitute my letter. I want my letters have a style which is natural, fresh and simplicity.
+
+****************
+
+
 
 When I put my code in alphabet file, I found that the posx and posy which were used as my postion of triangle (1), are also used as the postion of the whole letters form in the draw_letters file. Because of this, I added two new parameters to control triangle (1).
 
