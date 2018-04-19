@@ -1,20 +1,12 @@
 ## PS2 MDDN 242 2018
 
-This commit has A, B, and C showing on the index page.
+(Replace this README with information about your alphabet. This is an example.)
 
-I have also adjusted the size of the letters compared to the previous commit to better fit the guidlines in the brief.
-If you access style1.html, you will also be able to edit the letters and access the inputs for A, B and C
+In the process of completing the entire alphabet, I have [made what changes?].
+This included updating the parameters to [add/remove parameters for?].
 
-The twelve parameters per letter: 
-	Polygon1.x
-	Polygon1.y
-	Polygon1.scale
-	Polygon1.sides
-	Polygon2.x
-	Polygon2.y
-	Polygon2.scale
-	Polygon2.sides
-	Rectangle.x
-	Rectangle.y
-	Rectangle.scale
-	Rectangle.angle
+The three parameters per letter are now:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
