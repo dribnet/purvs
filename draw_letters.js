@@ -1,7 +1,5 @@
-const colorFront  = "#199cff";
 
-
-// This function draws each individual box
+// This function draws each individual cube
 function drawPart(posx, posy) {
 
   const col1 = "#f9d9e9"; 
@@ -9,6 +7,7 @@ function drawPart(posx, posy) {
   const col3 = "#fefefe"; 
 
   push();
+
   scale(0.5);
   noStroke();
   translate(posx, posy);
@@ -21,11 +20,10 @@ function drawPart(posx, posy) {
   vertex(100,70);
   vertex(100,20);
   vertex(50,10);
-
   endShape();
   pop();
 
-    push();
+  push();
   fill(col2);
   stroke(col2);
   beginShape();
@@ -36,7 +34,7 @@ function drawPart(posx, posy) {
   endShape();
   pop();
 
-push();
+  push();
   fill(col3);
   stroke(col3);
   beginShape();
@@ -50,20 +48,20 @@ push();
   pop();
 
 }
+// This function draw the two combined cubes, this is to shave off 2 x,y coordinate of 1cube.
 function drawPart2(posx, posy) {
 
   const col1 = "#f9d9e9"; 
   const col2 = "#bbdade";
   const col3 = "#fefefe"; 
 
-  
-
-
   push();
+
   scale(0.5);
   noStroke();
   translate(posx, posy);
-
+  
+  //first cube
   push();
   beginShape();
   fill(col1);
@@ -76,7 +74,7 @@ function drawPart2(posx, posy) {
   endShape();
   pop();
 
-    push();
+  push();
   fill(col2);
   stroke(col2);
   beginShape();
@@ -87,7 +85,7 @@ function drawPart2(posx, posy) {
   endShape();
   pop();
 
-push();
+  push();
   fill(187,218,222,0);
   stroke(187,218,222,0);
   beginShape();
@@ -100,6 +98,7 @@ push();
 
   pop();
 
+  //second cube
   push();
   scale(0.5);
   noStroke();
@@ -113,11 +112,10 @@ push();
   vertex(100,70);
   vertex(100,20);
   vertex(50,10);
-
   endShape();
   pop();
 
-    push();
+  push();
   fill(col2);
   stroke(col2);
   beginShape();
@@ -128,7 +126,7 @@ push();
   endShape();
   pop();
 
-push();
+  push();
   fill(col3);
   stroke(col3);
   beginShape();
@@ -140,30 +138,14 @@ push();
   pop();
 
   pop();
-
 }
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
-  // rotation in degrees (for tilt variable)
-  // angleMode(DEGREES);
+
 
   let posx=0;
   let posy=0;
-  // let scale=0;
 
-  // show bounding box
-  // noFill();
-  // stroke('red');
-  // rect(0, 0, 100, 200);
-
-  // fill(colorFront);
-  // stroke(colorStroke);
 
   let pos2x = posx + letterData["box2x"];
   let pos2y = posy + letterData["box2y"];
@@ -190,18 +172,7 @@ function drawLetter(letterData) {
   let pos8y = posy + letterData["box8y"];
 
   
-  // print(pos2y, pos3y)
-
   push();
-
-  // drawPart(pos2x, pos2y);
-  // drawPart(pos3x, pos3y);
-  // drawPart(pos1x, pos1y);
-  // drawPart(pos4x, pos4y);
-  // drawPart(pos5x, pos5y);
-  // drawPart(pos6x, pos6y);
-  // drawPart(pos7x, pos7y);
-  // drawPart(pos8x, pos8y);
 
   drawPart(pos1x, pos1y);
 
@@ -211,26 +182,20 @@ function drawLetter(letterData) {
 
   drawPart(pos8x, pos8y);
 
-  
-
   drawPart(pos5x, pos5y);
 
   drawPart2(pos6x, pos6y);  //drawpart2
+
   drawPart(pos7x, pos7y); // the frontest one
 
-
-  // drawPart(posx, posy, pos3x, pos3y);
-  // drawPart(pos2x, pos2y, letterData["2x"], letterData["2y"]);
-  // drawPart(pos3x, pos3y, scale, letterData["3x"], letterData["3y"]);
   pop();
 }
+
 function interpolate_letter(percent, oldObj, newObj){
   let new_letter = {};
+
   new_letter["box2x"] = map(percent, 0, 100, oldObj["box2x"], newObj["box2x"]);
   new_letter["box2y"] = map(percent, 0, 100, oldObj["box2y"], newObj["box2y"]);
-
-  new_letter["box3x"] = map(percent, 0, 100, oldObj["box3x"], newObj["box3x"]);
-  new_letter["box3y"] = map(percent, 0, 100, oldObj["box3y"], newObj["box3y"]);
 
   new_letter["box4x"] = map(percent, 0, 100, oldObj["box4x"], newObj["box4x"]);
   new_letter["box4y"] = map(percent, 0, 100, oldObj["box4y"], newObj["box4y"]);
@@ -256,7 +221,7 @@ function interpolate_letter(percent, oldObj, newObj){
 var swapWords = [
   "ILLUSION",
   "LOLLIPOP",
-  "HALFMOON",
+  "QUESTION",
   "COLORFUL",
   "ICECREAM",
   "BUBBLING"

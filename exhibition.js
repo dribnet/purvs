@@ -43,7 +43,7 @@ let curSwapWord = 0;
 var defaultSwapWords = [
   "ILLUSION",
   "LOLLIPOP",
-  "HALFMOON",
+  "QUESTION",
   "COLORFUL",
   "ICECREAM",
   "BUBBLING"
