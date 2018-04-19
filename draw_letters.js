@@ -29,12 +29,11 @@ function drawLetter(letterData) {
   let x6 = letterData["x6"];
   let y6 = letterData["y6"];
 
-  
   //guidelines 
   //stroke(142, 173, 107);
   //noFill();
   //rect(0, 0, 100, 200);
-  //
+  
   noStroke();
   //left triangle
   //stroke(255);
@@ -46,8 +45,7 @@ function drawLetter(letterData) {
   let shadowX = x1 + 20;
   triangle(shadowX, y1, x2, y2, x3, y3);
   
-
- 
+  
   //right triangle
   noStroke();
   strokeWeight(4);
@@ -55,6 +53,17 @@ function drawLetter(letterData) {
   //stroke(255);
   triangle(x4, y4, x5, y5, x6, y6);
   noStroke();
+
+
+  var swapWords = [
+
+  "THINKING"
+
+
+  ]
+
+
+
 }
   function interpolate_letter(percent, oldObj, newObj){
    let new_letter = {};
@@ -72,5 +81,14 @@ function drawLetter(letterData) {
    new_letter["x6"] = map(percent, 0, 100, oldObj["x6"], newObj["x6"]);
    return new_letter;
 }
-
+   
+   var swapWords = [
+   "THINKING",
+   "DAZZLING",
+   "GOTTEM??",
+   "TAEHYUNG",
+   "ORIGAMI?",
+   "THANKFUL", 
+   "REACTION"
+]
 
