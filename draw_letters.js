@@ -10,8 +10,11 @@ const colorStroke = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
+
+  push()
   fill(0);
   noStroke();
+  translate(25, 75);
 
   //determines parameters for quad
 
@@ -39,14 +42,14 @@ function drawLetter(letterData) {
 
   // draw two circles
   
-  ellipse(ellipse_posx, ellipse_posy, ellipse_size, ellipse_size);
-  ellipse(ellipse_pos2x, ellipse_pos2y, ellipse_size2, ellipse_size2);
+  ellipse(ellipse_posx/2, ellipse_posy/2, ellipse_size/2, ellipse_size/2);
+  ellipse(ellipse_pos2x/2, ellipse_pos2y/2, ellipse_size2/2, ellipse_size2/2);
 
 
 //quads
 
-  quad(quadx1_1, quady1_1, quadx2_1, quady2_1, quadx3_1, quady3_1, quadx4_1,quady4_1);
-
+  quad(quadx1_1/2, quady1_1/2, quadx2_1/2, quady2_1/2, quadx3_1/2, quady3_1/2, quadx4_1/2,quady4_1/2);
+pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
