@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "white";
 const colorLines   = "#000090";
 
 /* 
@@ -96,7 +96,7 @@ function draw () {
   const bottom_margin = 2*height - 60;
   const numSteps = 11;
   const x_step = (right_margin - left_margin + 100) / (numSteps + 1)
-  const first_letter_offset_x = 20;
+  const first_letter_offset_x = 100;
 
   translate(0, top_margin);
 

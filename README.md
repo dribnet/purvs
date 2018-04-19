@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Coming up with a full alphabet prooved difficult for the minimal set of parameters I started with. I thought hard to think of solutions that would help create letters I struggled with without stacking on too many more variables. My solution was to add only two more parameters, two colourable 45 degree lines though the middle of the letter. This allowed me to make use of negetive space as well as open up just the right amount of possibilities. I found this was the best way to finish my alphabet without obscuring the style of the design
-
+For my interaction I wanted to give a clue to how the letters were changing. To me the most important part of my letters is the square that moves, it has a drastic effect on the form. I thought that if I change the colours instantly, place the crosses at the end and then interpolate the center square inbetween. This way I would effectively be able to show how the letters are formed in an interesting way.
 The Nine parameters per letter
 _______________________________
 

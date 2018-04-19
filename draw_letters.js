@@ -1,6 +1,3 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
-
 /*
  * Draw the letter given the letterData
  *
@@ -30,8 +27,8 @@ function drawLetter(letterData) {
   noStroke();
   let totalSize = 2;                   // Scale of letter as a whole
   let triSize = 30 * totalSize;        // Make size relative to totalSize  
-    
-   
+  push();  
+  translate(0, 100);
   //TOP TRIANGLE\\
   fill(fill1); 
   triangle(- triSize,- triSize, 0, 0, + triSize, - triSize);
@@ -64,5 +61,36 @@ function drawLetter(letterData) {
   line(+ triSize, + triSize, - triSize, - triSize);
   stroke(stroke2)
   line(- triSize, + triSize, + triSize, - triSize);
+  pop();
+}
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  if (percent < 50) { new_letter["quadHorozontal"] = oldObj["quadHorozontal"]; }
+  else {
+      new_letter["quadHorozontal"] = map(percent, 50, 100, oldObj["quadHorozontal"], newObj["quadHorozontal"]);
+  }
+  if (percent > 50) { new_letter["quadVerticle"] = newObj["quadVerticle"]; }
+  else {
+      new_letter["quadVerticle"] = map(percent, 0, 50, oldObj["quadVerticle"], newObj["quadVerticle"]);
+  }
   
+  if (percent < 100) {
+  new_letter["topFill"] =       newObj["topFill"];
+  new_letter["rightFill"] =     newObj["rightFill"];
+  new_letter["bottomFill"] =    newObj["bottomFill"];
+  new_letter["leftFill"] =      newObj["leftFill"];
+  new_letter["SquareFill"] =    newObj["SquareFill"];
+  new_letter["strokeUp"] =      color["trans"];
+  new_letter["strokeDown"] =    color["trans"];
+  } else {
+  new_letter["topFill"] =       newObj["topFill"];
+  new_letter["rightFill"] =     newObj["rightFill"];
+  new_letter["bottomFill"] =    newObj["bottomFill"];
+  new_letter["leftFill"] =      newObj["leftFill"];
+  new_letter["SquareFill"] =    newObj["SquareFill"];
+  new_letter["strokeUp"] =      newObj["strokeUp"];
+  new_letter["strokeDown"] =    newObj["strokeDown"];
+  }
+  return new_letter;
 }
