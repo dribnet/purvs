@@ -2,13 +2,13 @@ const alphabet = {
   "default": {
       "size": 25,
       "offsetx": 0,
-      "offsety": 0,
+      "offsety": 75,
       "offsetx2": 0,
-      "offsety2": 0,
+      "offsety2": 75,
       "offsetx3": 0,
-      "offsety3": 0,
+      "offsety3": 75,
       "offsetx4": 0,
-      "offsety4": 0,
+      "offsety4": 75,
       
   },
   "A": {     
