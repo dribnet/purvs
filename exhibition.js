@@ -1,8 +1,13 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#232323";
+const colorBack    = "#1f242d";
 const colorLines   = "#ffffff";
+var swapWords = [
+"CONSTELL",
+"NIGHTSKY",
+"ALPHABET"
+]
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
 }
@@ -37,11 +42,10 @@ let lastKeyPressedTime;
 let secondsUntilSwapMode = 30;
 let lastWordSwappedTime;
 let isSwappingWords = true;
-let secondsPerWord = 8;
+let secondsPerWord = 4;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "NIGHTSKY",
   "ACTUALLY",
   "1234567?",
   "EXPECTED",

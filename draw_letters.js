@@ -1,5 +1,5 @@
-const colorFront  = "#ffffff";
-const colorStroke = "#ffffff";
+const colorFront  = "#e3eded";
+const colorStroke = "#e3eded";
 /*
  * Draw the letter given the letterData
  *
@@ -7,6 +7,7 @@ const colorStroke = "#ffffff";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
   // color/stroke setup
   fill(colorFront);
@@ -27,13 +28,12 @@ function drawLetter(letterData) {
   let pos4y = letterData["y4"];
 
   // draw four circles
+  ellipse(posx, posy, 11, 11);
+  ellipse(pos2x, pos2y, 11, 11);
+  ellipse(pos3x, pos3y, 11, 11);
+  ellipse(pos4x, pos4y, 11, 11);
 
-  ellipse(posx, posy, 13, 13);
-  ellipse(pos2x, pos2y, 13, 13);
-  ellipse(pos3x, pos3y, 13, 13);
-  ellipse(pos4x, pos4y, 13, 13);
-//Lines that connect ellipses
-stroke(255,255,255,200)
+  //draws the lines connecting the points
 strokeWeight(5)
   line(posx,posy,pos2x,pos2y)
   line(posx,posy,pos3x,pos3y) 
@@ -46,21 +46,62 @@ strokeWeight(1.5)
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
-  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
-  if (percent < 50){
-    new_letter["x2"] = newObj["x"]
-    new_letter["y2"] = newObj["y"]
+
+  if(percent < 25){
+  new_letter["x"] = oldObj["x"]
+  new_letter["y"] = oldObj["y"]
+  new_letter["x3"] = oldObj["x3"]
+  new_letter["y3"] = oldObj["y3"]
+  new_letter["x4"] = oldObj["x4"]
+  new_letter["y4"] = oldObj["y4"]
+  new_letter["x2"] = map(percent, 0, 25, oldObj["x2"], newObj["x2"]);
+  new_letter["y2"] = map(percent, 0, 25, oldObj["y2"], newObj["y2"]);
   }
-  else {
+
+   else if(percent < 50){
     new_letter["x2"] = newObj["x2"]
     new_letter["y2"] = newObj["y2"]
+  new_letter["x3"] = oldObj["x3"]
+  new_letter["y3"] = oldObj["y3"]
+  new_letter["x4"] = oldObj["x4"]
+  new_letter["y4"] = oldObj["y4"]
+  new_letter["x"] = map(percent, 25, 50, oldObj["x"], newObj["x"]);
+  new_letter["y"] = map(percent, 25, 50, oldObj["y"], newObj["y"]);
   }
-  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
-  new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
-  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+
+    else if(percent < 75){
+    new_letter["x2"] = newObj["x2"]
+    new_letter["y2"] = newObj["y2"]
+    new_letter["x"] = newObj["x"]
+    new_letter["y"] = newObj["y"]
+  new_letter["x4"] = oldObj["x4"]
+  new_letter["y4"] = oldObj["y4"]
+  new_letter["x3"] = map(percent, 50, 75, oldObj["x3"], newObj["x3"]);
+  new_letter["y3"] = map(percent, 50, 75, oldObj["y3"], newObj["y3"]);
+  }
+
+    else if(percent < 100){
+    new_letter["x2"] = newObj["x2"]
+    new_letter["y2"] = newObj["y2"]
+    new_letter["x"] = newObj["x"]
+    new_letter["y"] = newObj["y"]
+    new_letter["x3"] = newObj["x3"]
+    new_letter["y3"] = newObj["y3"]
+
+  new_letter["x4"] = map(percent, 75, 100, oldObj["x4"], newObj["x4"]);
+  new_letter["y4"] = map(percent, 75, 100, oldObj["y4"], newObj["y4"]);
+  }
+
+  else{
+  new_letter["x"] = newObj["x"]
+  new_letter["y"] = newObj["y"]
+  new_letter["x2"] = newObj["x2"]
+  new_letter["y2"] = newObj["y2"]
+  new_letter["x3"] = newObj["x3"]
+  new_letter["y3"] = newObj["y3"]
+  new_letter["x4"] = newObj["x4"]
+  new_letter["y4"] = newObj["y4"]
+  }
+
   return new_letter;
 }
