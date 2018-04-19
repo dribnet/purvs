@@ -8,6 +8,7 @@ const colorStroke = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+ 
 function drawLetter(letterData) {
   //rotation in degrees (for tilt variable)
   angleMode(DEGREES);
@@ -79,3 +80,58 @@ function drawLetter(letterData) {
 
   pop();
 }
+
+
+var SwapWords = [
+  "ACTUALLY",
+  "1234567?",
+  "EXPECTED",
+  "PROPERTY",
+  "ADDITION",
+  "FOLLOWED",
+  "PROVIDED",
+  "ALTHOUGH",
+  "HAPPENED",
+  "QUESTION",
+  "AMERICAN",
+  "INCREASE",
+  "RECEIVED",
+  "ANYTHING",
+  "INDUSTRY",
+  "RELIGION",
+  "BUILDING",
+  "INTEREST",
+  "REMEMBER",
+  "BUSINESS",
+  "INVOLVED",
+  "REQUIRED",
+  "CHILDREN",
+  "NATIONAL",
+  "SERVICES",
+  "COMPLETE",
+  "ORGANIZE",
+  "SOUTHERN",
+  "CONSIDER",
+  "PERSONAL",
+  "STANDARD",
+  "CONTINUE",
+  "PLANNING",
+  "STRENGTH",
+  "ALPHABET",
+  "POSITION",
+  "STUDENTS",
+  "DECISION",
+  "POSSIBLE",
+  "SUDDENLY",
+  "DIRECTLY",
+  "PRESSURE",
+  "THINKING",
+  "DISTRICT",
+  "PROBABLY",
+  "TOGETHER",
+  "ECONOMIC",
+  "PROBLEMS",
+  "TRAINING",
+  "EVIDENCE",
+  "PROGRAMS"
+]
