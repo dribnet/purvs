@@ -15,9 +15,9 @@ function setup() {
 
 	background(0x00);
 
-	characters.push(new Character("7", createVector(width/4, height/2), 10));
-	characters.push(new Character("8", createVector(width/2, height/2), 10));
-	characters.push(new Character("9", createVector(width/4*3, height/2), 10));
+	characters.push(new Character("A", createVector(width/4, height/2), 10));
+	characters.push(new Character("B", createVector(width/2, height/2), 10));
+	characters.push(new Character("C", createVector(width/4*3, height/2), 10));
 
 	print("done");
 }
