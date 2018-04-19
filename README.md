@@ -12,7 +12,7 @@ Design Concepts
 The design was inpired by a geometric typeface from pinterest. Im using a quadrilateral shape as the main body and a rect as a sub body to form my letter. The quadrilateral shape should hold more spaces than the rect shape in each letter. The reason I have chosen the quadrilateral shapes is because it allows me to make more changes to the form of my letter and using rect as a sub component to bring out the style of my design and the connection of each of my letter since my quadrilateral shapes are pretty random.
 
 Challenges 
-I tried to make the quadrilateral shape taking as much spaces as it can because I want to make it as solid as it can. The only thing im not happy with is the letter W, M, and X. Is pretty obvious that they are quiet different compared to my other letters. I made the quadrilateral shape into 2 triangles and thats kind of running away from my original idea. However I have tried everything I can and this is the best outcome I got. There's always a way to code out intersting stuff by using simple funtion and that is what I'm enjoying about coding so far.  
+I tried to make the quadrilateral shape taking as much spaces as it can because I want to make it as solid as it can. The only thing im not happy with is the letter W, M, and X. It is  pretty obvious that they are quiet different compared to my other letters. I made the quadrilateral shape into 2 triangles and thats kind of running away from my original idea. However I have tried everything I can at this point and this is the best outcome I have got. There's always a way to code out intersting stuff by using simple funtion and that is what I'm enjoying about coding so far.  
  
 
 12 parameters
