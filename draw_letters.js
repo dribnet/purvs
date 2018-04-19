@@ -3,7 +3,8 @@ const colorStroke = "#e3eded";
 
 var swapWords = [
   "MEDITATE",
-  "FH3  T78"
+  "FH3  T78",
+  "CIRCLES0"
   ]
 
 function drawLetter(letterData) {
@@ -30,7 +31,7 @@ function drawLetter(letterData) {
   let g = letterData["g"];
   let b = letterData["b"];
   
-  // draw three circles and a line
+  //draw three circles and a line
   ellipse(50, 130, 115, 115);
   
   fill(227, 237, 237);
@@ -51,6 +52,7 @@ function interpolate_letter(percent, oldObj, newObj){
 
   let new_letter = {};
 
+  //alpha is used for faing lines in/out
   new_letter["alpha"] = map(percent, 0, 100, oldObj["alpha"], newObj["alpha"]);
 
   new_letter["r"] = map(percent, 0, 100, oldObj["r"], newObj["r"]);
