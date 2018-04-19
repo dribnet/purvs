@@ -53,13 +53,12 @@ function drawLetter(letterData) {
 
 
   // DRAWING SHAPES// 
-  //CIRCLES 
+  //circles
     fill (203, 206, 119);
     
     strokeWeight (5);
-    // fill (229, 135, 135,180);
-     //ellipse (50,135,105,105);
-    //stroke (227,237,237);
+
+    // changing the colour if it is a # or letter 
 
     if (defineColor == 1){
     fill (229, 135, 135,180);
@@ -72,6 +71,7 @@ function drawLetter(letterData) {
 
     stroke ('white');
   
+  //drawing rects 
   
     push ();
    rotate (Xrotate);
@@ -82,7 +82,7 @@ function drawLetter(letterData) {
    pop();
 
    
-    stroke ('white');
+  stroke ('white');
   
 
    //rotating rect 
@@ -122,6 +122,7 @@ function drawLetter(letterData) {
     new_letter["XZ"] =map(percent,0,100,oldObj["XZ"],newObj["XZ"]);
     new_letter["yR"] =map(percent,0,100,oldObj["yR"],newObj["yR"]);
     new_letter["XY"] =map(percent,0,100,oldObj["XY"],newObj["XY"]);
+    new_letter["colourpicker"] =map(percent,0,100,oldObj["colourpicker"],newObj["colourpicker"]);
     return new_letter;
 
 
