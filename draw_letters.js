@@ -2,7 +2,7 @@
 
 /*
  * Draw the letter given the letterData
- *
+ 
  * Letters should always be drawn with the
  * following bounding box guideline:
  * from (0,0) to (100, 200)
@@ -12,13 +12,15 @@ function drawLetter(letterData) {
 
 
 
-  // determine parameters for second circle
+  // 12 paremeters 
+
+
   let size1 = letterData["sizeX"];
   let size2 = letterData["sizeY"];
   let pos2x =  letterData["offsetx"];
   let pos2y =  letterData["offsety"];
 
-  
+  // each point of my quadrilateral shapes 
   let x1 =letterData["qx1"];
   let y1 =letterData["qy1"];
   let x2=letterData["qx2"];
@@ -29,8 +31,7 @@ function drawLetter(letterData) {
   let y4 =letterData["qy4"];
 
 
-//addded new interations to make the font more interesting 
-// to apply shaky effect to the font
+
 
 //
 noStroke()
@@ -43,12 +44,6 @@ vertex(x3,y3)
 vertex(x4,y4)
 endShape();
 
-// addded new interations to make the font more interesting 
-
-
-
-
-//
 
 fill (200,58,23,100);
 stroke(255,208,68)
@@ -60,9 +55,14 @@ rect(pos2x, pos2y, size1, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj){
-var step = frameCount % 5;
-applyMatrix(1, 0, 0, 1, step,0);
 
+//addded new interations to make the font more interesting 
+// to apply vibration effect to the font by using applyMatrix 
+
+applyMatrix(1, 0, 0, 1, frameCount % 5,0);
+
+//
+  
   let new_letter = {};
   new_letter["sizeX"] = map(percent , 0, 90, oldObj ["sizeX"], newObj["sizeX"]);
   new_letter["sizeY"] = map(percent , 0, 90, oldObj ["sizeY"], newObj["sizeY"]);
@@ -76,12 +76,6 @@ applyMatrix(1, 0, 0, 1, step,0);
   new_letter["qy3"] = map(percent , 0, 90, oldObj ["qy3"], newObj["qy3"]);
   new_letter["qx4"] = map(percent , 0, 90, oldObj ["qx4"], newObj["qx4"]);
   new_letter["qy4"] = map(percent , 0, 90, oldObj ["qy4"], newObj["qy4"]);
-  //if( percent < 25) {
-   // new_letter["offsetx"] = oldObj ["offsetx"] + applyMatrix(1, 0, 0, 1, step,0);
-  //} 
-
-
-
 
   return new_letter;
 
@@ -102,6 +96,5 @@ applyMatrix(1, 0, 0, 1, step,0);
   "BASEBALL",
   "12345678",
 
-  
 
 ]
