@@ -34,7 +34,7 @@ function drawLetter(letterData) {
   let pos4x = posx + letterData["x5"];
   let pos4y = posy + letterData["y5"];
   angleMode(DEGREES);
-  stroke(300);
+  stroke('gold');
   arc(posx,posy,100,100,posix,posiy);
   arc(posx,posy,100,100,posiix,posiiy);
   //stroke('yellow');
@@ -59,3 +59,9 @@ function interpolate_letter(percent, oldObj, newObj){
   return new_letter;
 
 }
+
+var swapWords = [
+  "SUPERMAN",
+  "STRAIGHT",
+  "SECURITY"
+]
