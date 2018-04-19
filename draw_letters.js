@@ -2,9 +2,9 @@
 // This function draws each individual cube
 function drawPart(posx, posy) {
 
-const col1 = "#ffcc74"; //yellow
-const col2 = "#ff7991"; //hot pink
-const col3 = "#4fc4d8"; //blue
+  const col1 = "#f9d9e9"; 
+  const col2 = "#bbdade";
+  const col3 = "#fefefe"; 
 
   push();
 
@@ -51,9 +51,9 @@ const col3 = "#4fc4d8"; //blue
 // This function draw the two combined cubes, this is to shave off 2 x,y coordinate of 1cube.
 function drawPart2(posx, posy) {
 
-const col1 = "#ffcc74"; //yellow
-const col2 = "#ff7991"; //hot pink
-const col3 = "#4fc4d8"; //blue
+  const col1 = "#f9d9e9"; 
+  const col2 = "#bbdade";
+  const col3 = "#fefefe"; 
 
   push();
 
