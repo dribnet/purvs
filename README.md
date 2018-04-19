@@ -1,12 +1,12 @@
 ## PS2 MDDN 242 2018
 
-Updating before implementing the final section of code. I realised before I stated my offsets incorrectly, this is what they should be:
+This is my final verison of the "triangle" font. Each letter of the font is made up of two equilatteral triangles and a total of six parameters. The first triangle has two sides with thick line weights (accomplished with a single thick line on each of the two sides, set with the same offsets as the points of the trianlge it meets with and controlled by the same parameter) and is positions with the parameters tri1X, tri1Y and rotate1. I changed the names of these variables from offset1 and offset2 to make it easier to follow as I had ended up confusing myself with their titles. The second triangle has one side with a thicker line weight and is controlled with the parameters tri2X, tri2Y and rotate2. 
 
-  "offset1": triangle 1 x, line 1 and 2 x
-  "offset2": triangle 1 y, line 1 and 2 y
-  "offset3": triangle 2 x, line 3 x
-  "offset4": triangle 2 y, line 3 y
-  "rotate1": triangle 1 line 1 and 2 rotation
-  "rotate2": triangle 2 line 3 rotation
+I used triangles as the base for this font as I have seen triangular based fonts in the past and they always look clean and simple. Individually I think most of the letters in this font accomplish that look, but loses this when used to formulate words. I think this is largly due to the kerning although that is difficult to accomplish in the context of this project. 
 
-I have completed the final letters I was missing. I still need to set the parameters for the numbers, but I am implementing the last section of code while still in class just incase it doesn't go smoothly. After I've done those two things I will do a final tidy up of the alphabet and fine tune the animation. 
+I'm glad I could impliment my original design of the thick and thin line weights as when I started the project I wasn't sure if it would work within the parameters and without the ability to connect line points as you would in programs such as photoshop. But I think it worked well in the end and definitly helped to more clearly define some letters/numbers such as G, F, 4, Y, J etc. Given that I only used half of the parameter limit, if I were to do this project again I would look into creating a true/false toggle for the triangles giving the option of using either two triangles with two thick lines, two triangles one with a single thick line and one with two or two triangles with single thick lines. This would again increase the versatility of the font and more easily define some letters, which may also help with the overall tidyness too.
+
+Whilst compiling everything for hand in I thought about how my font reminds me of contsellation patterns and it could be nice to give it a more distinct theme, adding circles around the points and changing the colours to a dark blue background with white or light blue triangles, but I gave this a go just changing the colours and I found the dark background was way too overpowering, even toning it back, so I decided against it. 
+
+In terms of interpolation I think a slower rotation between letters would have been nice, although given the ~1 second animation time this wasn't pheasable. I do however like the very subtle bounce I implemented at the end of the rotation animation. 
+

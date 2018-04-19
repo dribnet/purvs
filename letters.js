@@ -1,245 +1,343 @@
 const alphabet = {
+  
   "default": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 0,
-  "offset4": 100,
+  "tri1X": 0,
+  "tri1Y": 100,
+  "tri2X": 0,
+  "tri2Y": 100,
   "rotate1": 0,
   "rotate2": 0
   },
 
   "A": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": -62,
-  "offset4": -43,
+  "tri1X": 0,
+  "tri1Y": 115,
+  "tri2X": -78,
+  "tri2Y": -53,
   "rotate1": 0,
   "rotate2": 240
   },
 
   "B": {
-  "offset1": 120,
-  "offset2": 0,
-  "offset3": 80,
-  "offset4": 0,
+  "tri1X": 120,
+  "tri1Y": 0,
+  "tri2X": 80,
+  "tri2Y": 0,
   "rotate1": 90,
   "rotate2": 90
   },
 
   "C": {
-  "offset1": -110,
-  "offset2": 0,
-  "offset3": -90,
-  "offset4": 0,
+  "tri1X": -110,
+  "tri1Y": 0,
+  "tri2X": -90,
+  "tri2Y": 0,
   "rotate1": 270,
   "rotate2": 270
   },
 
   "D": {
-  "offset1": 90,
-  "offset2": 0,
-  "offset3": 110,
-  "offset4": 0,
+  "tri1X": 90,
+  "tri1Y": 0,
+  "tri2X": 110,
+  "tri2Y": 0,
   "rotate1": 90,
   "rotate2": 90
   },
 
   "E": {
-  "offset1": -120,
-  "offset2": 0,
-  "offset3": -80,
-  "offset4": 0,
+  "tri1X": -120,
+  "tri1Y": 0,
+  "tri2X": -80,
+  "tri2Y": 0,
   "rotate1": 270,
   "rotate2": 270
   },
 
  "F": {
-  "offset1": -80,
-  "offset2": -45,
-  "offset3": 135,
-  "offset4": -60,
+  "tri1X": -80,
+  "tri1Y": -35,
+  "tri2X": 135,
+  "tri2Y": -66,
   "rotate1": 240,
   "rotate2": 120
 },
 
-//Needs doing
 "G": {
-  "offset1": -80,
-  "offset2": 0,
-  "offset3": -28,
-  "offset4": 118,
+  "tri1X": -80,
+  "tri1Y": -20,
+  "tri2X": -48,
+  "tri2Y": 98,
   "rotate1": 270,
   "rotate2": 328
 },
 
 "H": {
-  "offset1": 100,
-  "offset2": 0,
-  "offset3": -100,
-  "offset4": 25,
+  "tri1X": 100,
+  "tri1Y": 15,
+  "tri2X": -100,
+  "tri2Y": 15,
   "rotate1": 90,
   "rotate2": 270
 },
 "I": {
-  "offset1": -120,
-  "offset2": -55,
-  "offset3": -100,
-  "offset4": 12,
-  "rotate1": 210,
-  "rotate2": 270
+  "tri1X": -85,
+  "tri1Y": -75,
+  "tri2X": -100,
+  "tri2Y": -30,
+  "rotate1": 212,
+  "rotate2": 271
 },
 
 "J": {
-  "offset1": -20,
-  "offset2": -100,
-  "offset3": -50,
-  "offset4": -50,
+  "tri1X": 20,
+  "tri1Y": -125,
+  "tri2X": -10,
+  "tri2Y": -75,
   "rotate1": 180,
   "rotate2": 180
 },
 
-//Needs doing
 "K": {
-  "offset1": 0,
-  "offset2": -70,
-  "offset3": 110,
-  "offset4": -98,
+  "tri1X": 0,
+  "tri1Y": -70,
+  "tri2X": 110,
+  "tri2Y": -98,
   "rotate1": 180,
   "rotate2": 120
 },
 
 "L": {
-  "offset1": -60,
-  "offset2": -95,
-  "offset3": -30,
-  "offset4": 50,
+  "tri1X": -76,
+  "tri1Y": -105,
+  "tri2X": -30,
+  "tri2Y": 70,
   "rotate1": 218,
   "rotate2": 335
 },
 
 "M": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": 40,
-  "offset4": 100,
+  "tri1X": -20,
+  "tri1Y": 100,
+  "tri2X": 20,
+  "tri2Y": 100,
   "rotate1": 0,
   "rotate2": 0
 },
 
 "N": {
-  "offset1": -73,
-  "offset2": -85,
-  "offset3": 20,
-  "offset4": 100,
+  "tri1X": -33,
+  "tri1Y": -85,
+  "tri2X": -20,
+  "tri2Y": 100,
   "rotate1": 180,
   "rotate2": 0
 },
 
 "O": {
-  "offset1": 100,
-  "offset2": -70,
-  "offset3": -100,
-  "offset4": -10,
+  "tri1X": 100,
+  "tri1Y": -52,
+  "tri2X": -100,
+  "tri2Y": -40,
   "rotate1": 90,
   "rotate2": 270
 },
 
 "P": {
-  "offset1": 50,
-  "offset2": -70,
-  "offset3": 50,
-  "offset4": -100,
+  "tri1X": 72,
+  "tri1Y": -50,
+  "tri2X": 71,
+  "tri2Y": -100,
   "rotate1": 90,
   "rotate2": 150
 },
 
 "Q": {
-  "offset1": -110,
-  "offset2": 0,
-  "offset3": -110,
-  "offset4": 50,
+  "tri1X": -100,
+  "tri1Y": -20,
+  "tri2X": -100,
+  "tri2Y": 30,
   "rotate1": 270,
   "rotate2": 270
 },
 
 "R": {
-  "offset1": 50,
-  "offset2": -70,
-  "offset3": 102,
-  "offset4": -85,
+  "tri1X": 54,
+  "tri1Y": -50,
+  "tri2X": 122,
+  "tri2Y": -65,
   "rotate1": 120,
   "rotate2": 120
 },
 
 "S": {
-  "offset1": 120,
-  "offset2": 0,
-  "offset3": 48,
-  "offset4": 30,
+  "tri1X": 120,
+  "tri1Y": 0,
+  "tri2X": 48,
+  "tri2Y": 30,
   "rotate1": 90,
   "rotate2": 30
 },
 
 "T": {
-  "offset1": 0,
-  "offset2": 107,
-  "offset3": 100,
-  "offset4": -12,
+  "tri1X": 20,
+  "tri1Y": 77,
+  "tri2X": 85,
+  "tri2Y": -52,
   "rotate1": 30,
   "rotate2": 90
 },
 
 "U": {
-  "offset1": 20,
-  "offset2": -100,
-  "offset3": 0,
-  "offset4": -100,
+  "tri1X": 10,
+  "tri1Y": -100,
+  "tri2X": -10,
+  "tri2Y": -100,
   "rotate1": 180,
   "rotate2": 180
 },
 
 "V": {
-  "offset1": 0,
-  "offset2": -80,
-  "offset3": 0,
-  "offset4": -110,
+  "tri1X": 0,
+  "tri1Y": -80,
+  "tri2X": 0,
+  "tri2Y": -110,
   "rotate1": 180,
   "rotate2": 180
 },
 
 "W": {
-  "offset1": 20,
-  "offset2": -100,
-  "offset3": -20,
-  "offset4": -100,
+  "tri1X": 20,
+  "tri1Y": -100,
+  "tri2X": -20,
+  "tri2Y": -100,
   "rotate1": 180,
   "rotate2": 180
 },
 
 "X": {
-  "offset1": 0,
-  "offset2": 120,
-  "offset3": 0,
-  "offset4": -80,
+  "tri1X": 0,
+  "tri1Y": 120,
+  "tri2X": 0,
+  "tri2Y": -80,
   "rotate1": 0,
   "rotate2": 180
 },
 
 "Y": {
-  "offset1": 20,
-  "offset2": -70,
-  "offset3": 20,
-  "offset4": 130,
+  "tri1X": 20,
+  "tri1Y": -70,
+  "tri2X": 20,
+  "tri2Y": 130,
   "rotate1": 180,
   "rotate2": 0
 },
 
 "Z": {
-  "offset1": 0,
-  "offset2": 100,
-  "offset3": -60,
-  "offset4": -80,
+  "tri1X": 50,
+  "tri1Y": 40,
+  "tri2X": -130,
+  "tri2Y": -45,
+  "rotate1": 60,
+  "rotate2": 240
+},
+  
+"0": {
+  "tri1X": 0,
+  "tri1Y": -135,
+  "tri2X": -61,
+  "tri2Y": -43,
+  "rotate1": 180,
+  "rotate2": 240
+},
+
+  "1": {
+  "tri1X": 36,
+  "tri1Y": 70,
+  "tri2X": -20,
+  "tri2Y": 120,
+  "rotate1": 40,
+  "rotate2": 338
+  },
+
+  "2": {
+  "tri1X": 48,
+  "tri1Y": 62,
+  "tri2X": -100,
+  "tri2Y": -50,
+  "rotate1": 60,
+  "rotate2": 240
+  },
+
+  "3": {
+  "tri1X": 120,
+  "tri1Y": 10,
+  "tri2X": 80,
+  "tri2Y": -10,
+  "rotate1": 90,
+  "rotate2": 90
+  },
+
+  "4": {
+  "tri1X": -80,
+  "tri1Y": 0,
+  "tri2X": -30,
+  "tri2Y": 110,
+  "rotate1": 270,
+  "rotate2": 330
+  },
+
+  "5": {
+  "tri1X": -120,
+  "tri1Y": 0,
+  "tri2X": 55,
+  "tri2Y": 40,
+  "rotate1": 270,
+  "rotate2": 30
+  },
+
+  "6": {
+  "tri1X": -10,
+  "tri1Y": 120,
+  "tri2X": 20,
+  "tri2Y": 70,
+  "rotate1": 0,
+  "rotate2": 0
+  },
+
+  "7": {
+  "tri1X": 40,
+  "tri1Y": 13,
+  "tri2X": 20,
+  "tri2Y": 120,
+  "rotate1": 62,
+  "rotate2": 0
+  },
+
+  "8": {
+  "tri1X": 0,
+  "tri1Y": 120,
+  "tri2X": 0,
+  "tri2Y": -60,
   "rotate1": 0,
   "rotate2": 180
-},
+  },
+
+  "9": {
+  "tri1X": -70,
+  "tri1Y": -20,
+  "tri2X": -15,
+  "tri2Y": 110,
+  "rotate1": 270,
+  "rotate2": 330
+  },
+
+  "?": {
+  "tri1X": 48,
+  "tri1Y": -35,
+  "tri2X": 100,
+  "tri2Y": -120,
+  "rotate1": 90,
+  "rotate2": 150
+  },
 }
