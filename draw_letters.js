@@ -2,9 +2,9 @@
 // This function draws each individual cube
 function drawPart(posx, posy) {
 
-  const col1 = "#f9d9e9"; 
-  const col2 = "#bbdade";
-  const col3 = "#fefefe"; 
+const col1 = "#ffcc74"; //yellow
+const col2 = "#ff7991"; //hot pink
+const col3 = "#4fc4d8"; //blue
 
   push();
 
@@ -51,9 +51,9 @@ function drawPart(posx, posy) {
 // This function draw the two combined cubes, this is to shave off 2 x,y coordinate of 1cube.
 function drawPart2(posx, posy) {
 
-  const col1 = "#f9d9e9"; 
-  const col2 = "#bbdade";
-  const col3 = "#fefefe"; 
+const col1 = "#ffcc74"; //yellow
+const col2 = "#ff7991"; //hot pink
+const col3 = "#4fc4d8"; //blue
 
   push();
 
@@ -149,9 +149,6 @@ function drawLetter(letterData) {
 
   let pos2x = posx + letterData["box2x"];
   let pos2y = posy + letterData["box2y"];
-
-  let pos3x = posx + letterData["box3x"];
-  let pos3y = posy + letterData["box3y"];
 
   let pos1x = posx + letterData["box1x"];
   let pos1y = posy + letterData["box1y"];
