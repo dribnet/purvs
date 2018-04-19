@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2018
 
-Final Illution Font 
+Final Illusion Font 
 
 The biggest challenge for me in this project was to transform 2D shapes
 into a 3D looking form. At first I tried designing my alphabet with 3D
