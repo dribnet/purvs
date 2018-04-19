@@ -10,11 +10,13 @@ const colorStroke = "#233f11";
  * from (0,0) to (100, 200)
  */
  var swapWords = [
-    "BLOCKZZZ",
     "CRAZYBOX",
+    "BLOCKZZZ",
     "12345678",
     "ILLISION",
-    "COLORFUL"
+    "COLORFUL",
+    "BLOCKBOX"
+
 
 
   ]
