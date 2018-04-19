@@ -33,7 +33,7 @@ function drawLetter(letterData) {
   let size4 = letterData["size3"];
   let size5 = letterData["size4"];
 
-  stroke(200,100,100);
+  stroke(100,300,200);
   push();
   beginShape();
   vertex(posx,posy-40);
@@ -45,11 +45,8 @@ function drawLetter(letterData) {
 
   line(posx,posy-30,posx,posy+30);
   line(posx+30,posy,posx-30,posy);
-  //stroke('black');
   ellipse(posix, posiy, size1, size1);
-  //stroke('blue');
   ellipse(pos1x, pos1y, size3, size3);
-  //stroke('green');
   ellipse(pos2x, pos2y, size4, size5);
 
   // determine parameters for second circle
@@ -75,3 +72,11 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size4"] = map(percent, 0, 100, oldObj["size4"], newObj["size4"]);
   return new_letter;
 }
+var swapWords = [
+  "55555555",
+  "STARWARS",
+  "RRRRRRRR",
+  "5BOQNRVA",
+  "A758258A",
+  "FOREVER0"
+]
