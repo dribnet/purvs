@@ -1,5 +1,5 @@
 const colorStroke = "#233f11";
-const colourOpac = 200;
+const colourOpac = 255;
 
 var swapWords = [
 "GEOMETRY",
@@ -47,33 +47,12 @@ function drawLetter(letterData) {
   }
 
   var letterHeightDiff = (max - abs(min));
+  translate(50,100+letterHeightDiff/2);
 
-  var leftPoint = 0;
-  var left = 10000;
-  for (var i = 1; i <= 6; i++) {
-    if(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] < left){
-      leftPoint = i;
-      left = sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"];
-    }
-  }
-
-  var rightPoint = 0;
-  var right = 0;
-  for (var i = 1; i <= 6; i++) {
-    if(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] > right){
-      rightPoint = i;
-      right = abs(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"]);
-    }
-  }
-
-  var letterWidthDiff = abs(right - abs(left));
-  translate(50+letterWidthDiff/2,100+letterHeightDiff/2);
-
-  //stroke fill
-  stroke(255);
-  strokeWeight(2);
+  //stroke
+  noStroke();
   //bottom fill
-  fill(221, 209, 197, colourOpac);
+  fill(0, colourOpac);
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
@@ -82,7 +61,7 @@ function drawLetter(letterData) {
   endShape(CLOSE);
 
   //top fill
-  fill(242, 228, 215, colourOpac);
+  fill(0, colourOpac);
 
   beginShape();
   vertex(0 - p4.x, 0 - p4.y);

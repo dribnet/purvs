@@ -9,9 +9,9 @@ The 12 parameters per letter:
 
 I have completed the parameters for my alphabet so am now looking into different styles and what style will be used for my final alphabet.
 
- - Style Two
- 	- Paper
+ - Style Three
+ 	- Solid Colour/No Overlay
 
- 	This style aims to reflect my initial design idea, which was that of origami, the colours of each layer is changed to reflect that, as well as a white stroke to clearly define each layer.
+ 	This style aims to resemble a more ink based medium, with each layer being solid black with no transperancy.
 
- 	The layers are still slightly transparent to allow for some distinction of the form beneath.
+ 	This allows for each letter to appear as a block form rather than a form made of two layers overlapping.
