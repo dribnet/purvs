@@ -9,9 +9,9 @@ The 12 parameters per letter:
 
 I have completed the parameters for my alphabet so am now looking into different styles and what style will be used for my final alphabet.
 
- - Style One
- 	- Solid Colour
+ - Style Two
+ 	- Paper
 
- 	This style aims to play off the layered aspects of my design, with the blendMode being set to multiply, any overlays colour is effected, thus changing the overall form of the letter slightly.
+ 	This style aims to reflect my initial design idea, which was that of origami, the colours of each layer is changed to reflect that, as well as a white stroke to clearly define each layer.
 
- 	The two selected colours are red and blue as I like the contrast between each layer.
+ 	The layers are still slightly transparent to allow for some distinction of the form beneath.

@@ -69,10 +69,11 @@ function drawLetter(letterData) {
   var letterWidthDiff = abs(right - abs(left));
   translate(50+letterWidthDiff/2,100+letterHeightDiff/2);
 
-  //stroke
-  noStroke();
+  //stroke fill
+  stroke(255);
+  strokeWeight(2);
   //bottom fill
-  fill(80, 150, 255, colourOpac);
+  fill(221, 209, 197, colourOpac);
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
@@ -81,7 +82,7 @@ function drawLetter(letterData) {
   endShape(CLOSE);
 
   //top fill
-  fill(255, 50, 50, colourOpac);
+  fill(242, 228, 215, colourOpac);
 
   beginShape();
   vertex(0 - p4.x, 0 - p4.y);
