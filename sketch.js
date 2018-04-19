@@ -13,15 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+"offsetx": -20,
+"offsety": 30,
+
+"offsetx2": 20,
+"offsety2": 30,
+
+"offsetx3": 0,
+"offsety3": 0,
+
+"rotate": 0,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+ "offsetx": -20,
+"offsety": 30,
+
+"offsetx2": 20,
+"offsety2": 30,
+
+"offsetx3": 0,
+"offsety3": 60,
+
+
+"rotate": 90,
 }
 
 const letterC = {
@@ -48,15 +63,55 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+function drawLetter(posx, posy, letterData) {
 
-  // draw two circles
-  ellipse(posx, posy, 150, 150);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  // determine parameters for second circle
+  let ox = letterData["offsetx"];
+  let oy = letterData["offsety"];
+
+  let ox2 = letterData["offsetx2"];
+  let oy2 = letterData["offsety2"];
+
+  let ox3 = letterData["offsetx3"];
+  let oy3 = letterData["offsety3"];
+
+ // let rot = radians(letterData["rotate"])
+
+
+
+
+
+drawTri(posx+ox, posy+oy);
+drawTri(posx+ox2, posy+oy2);
+drawTri(posx+ox3, posy+oy3);
+  // draw 3 triangles
+ 
+
+ 
+
+}
+function drawTri(x1,y1) {
+
+
+  // determine parameters for second circle
+  //let size2 = letterData["size"];
+let x2 = x1 -20;
+let y2 = y1 + 30;
+let x3 = x1 +20;
+let y3 = y1 +30;
+
+
+
+
+  // draw a triangle
+
+
+  triangle(x1,y1,x2,y2,x3,y3);
+
+
+ 
+
 }
 
 function draw () {
@@ -68,9 +123,19 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, 10, letterA);
-  drawLetter(center_x      , center_y, 10, letterB);
-  drawLetter(center_x + 250, center_y, 10, letterC);
+ 
+
+ //drawLetter(center_x-250, center_y, letterA);
+
+ drawLetter(center_x-250, center_y, letterA);
+
+ drawLetter(center_x, center_y, letterB);
+
+    //drawTri(center_x-250, center_y, letterA);
+  //drawLetter(center_x      , center_y, 10, letterB);
+ // drawLetter(center_x + 250, center_y, 10, letterC);
+
+
 }
 
 function keyTyped() {

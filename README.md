@@ -2,10 +2,4 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+This was a test trying to figure out how to implement triangles to form letters, and seeing what parameters I would need to make each letter. I figured making my own drawTriangle function would allow me to easily create a triangle with only an x and y rather than ust using the triangle function which takes each point of the traiangle (x1,y1,x2,y2,x3,y3)
