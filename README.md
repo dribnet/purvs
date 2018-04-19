@@ -1,1 +1,3 @@
-Seeing my letters in words helped me realise changes that needed to be made as well as some solutions.
+I'm glad I finally got my transition to work. What I've done is made it so that each point moves from it's old point to it's new one in 1/4 of the 30 frame transition. This happens for all four of my points.
+
+This is a lot more interesting to look at than a slow slide from point in the screen to another. The letters appear as if they unfold and refold themselves. This is even more so apparent when they go from the default character (dot) to a letter or number.

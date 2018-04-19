@@ -42,7 +42,7 @@ let lastKeyPressedTime;
 let secondsUntilSwapMode = 30;
 let lastWordSwappedTime;
 let isSwappingWords = true;
-let secondsPerWord = 4;
+let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
