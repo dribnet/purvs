@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#2C2E2D";
+const colorLines   = "#F3FFFB";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -38,57 +38,17 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+  "ROBOTIC?",
+  "?MATRIX?",
+  "?CODING?",
+  "?SOURCE?",
+  "??BOXY??",
+  "PATTERN?",
+  "?CIPHER?",
+  "?STYLE??",
+  "??RUN???",
+  "?CIPHER?",
+
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")

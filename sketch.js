@@ -13,35 +13,26 @@ const canvasHeight = 500;
  */
 
 //const letterA = {
-  //"size": 80,
-  //"offsetx": 0,
-  //"offsety": 35
+ // "grid"
 //}
 
 //const letterB = {
-  //"size": 150,
-  //"offsetx": 0,
-  //"offsety": -145
+  //"grid"
 //}
 
 //const letterC = {
-  //"size": 100,
-  //"offsetx": 30,
-  //"offsety": 0
+  //"grid"
 //}
 
 //const colorFront  = "#199cff";
 //const colorBack   = "#e3eded";
 //const colorStroke = "#233f11";
 
-
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-  
-  pixelDensity(1);
-  
+
   // color/stroke setup
   //fill(colorFront);
   //stroke(colorStroke);
@@ -49,75 +40,229 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+}
 
-  
-//function drawLetter(posx, posy, scale, letterData) {
+
+
+function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  //let size2 = letterData["size"];
-  //let pos2x = posx + letterData["offsetx"];
-  //let pos2y = posy + letterData["offsety"];
+ // let pos2x = posx + letterData["offsetx"];
+ // let pos2y = posy + letterData["offsety"];
+
 
   // draw two circles
+    
+  
+
+
+
   //ellipse(posx, posy, 150, 150);
   //ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
   // clear screen
-  
-  loadPixels();
-
-  for (var y = 0; y < height; y++){
-    for(var x = 0; x < width; x++ ){
-      var index = (x + y * width) * 4;
-       pixels[index+0] = 255;
-       pixels[index+1] = 0;
-       pixels[index+2] = 255;
-       pixels[index+3] = 255;
-
-   }
-  }
-
-  updatePixels();
+  background(46, 48, 48);
+   fill(255);
+   rect(0, 0, 100, 100);
 
 
-}
 
-
-//Grid Pattern
-//function grid(){
-
-   //translate(360, 150);
-
-  //background(0);
-  //strokeWeight(2);
-  //stroke(255);
-  //fill(127);
-
-  //for (var x = 0; x < 200; x = x + 50) {
-  //for (var y = 0; y < 200; y = y + 50) {
-    //rect(x, y, 50, 50);
-  //}
-
-  
-//}
-//}
-
-  
   // compute the center of the canvas
-  //let center_x = canvasWidth / 2;  
- // let center_y = canvasHeight / 2;
+  let center_x = canvasWidth / 2;  
+  let center_y = canvasHeight / 2;
+   
+  
+
+
+fill(48, 255, 26);
+
+   //Top
+  //rect(0, 0, 100, 25);
+
+  
+
+   //Bottom
+  //rect(0, 75, 100, 25);
+
+   //Right
+   //rect(75, 0, 25, 100);
+
+  //Left
+   //rect(0, 0, 25, 100);
+
+   //M1
+   //rect(25, 0, 50, 25);
+
+   //M2
+  //rect(25, 25, 50, 25);
+
+   //M3
+   //rect(25, 50, 50, 25);
+
+   //M4
+  // rect(25, 75, 50, 25);
+
+   //R4
+   //rect(50, 75, 50, 25);
+
+   //R2
+  //rect(50, 0, 50, 25);
+
+   //R2 Right
+   //rect(0, 75, 50, 25);
+
+  
+
+
+
+
+   //Grid
+    noFill();
+    stroke(46, 48, 48);
+    strokeWeight(4);
+    rect(0, 0, 100, 100);
+
+    //Down
+    line(25, 0, 25, 100);
+    line(50, 0, 50, 100);
+    line(75, 0, 75, 100);
+
+    //Across
+    line(0, 25, 100, 25);
+    line(0, 50, 100, 50);
+    line(0, 75, 100, 75); 
+
+  
+  //A
+  //push();
+  //translate(-150, -100);
+  //greyBox();
+  //Top();
+  //Left();
+  //Right();
+  //M3();
+  //grid();
+  //pop();
+
+  //B
+  //push();
+  //translate(100, -100);
+  //greyBox();
+  //Left();
+  //Bottom();
+  //M2();
+  //M3();
+  //grid();
+  //pop();
+
+  //C
+  //push();
+  //translate(350, -100);
+  //greyBox();
+  //Bottom();
+  //Top();
+  //Left();
+  //grid();
+  //pop();
+
+
 
   // draw the letters A, B, C from saved data
   //drawLetter(center_x - 250, center_y, 10, letterA);
   //drawLetter(center_x      , center_y, 10, letterB);
  // drawLetter(center_x + 250, center_y, 10, letterC);
+}
+
+//function greyBox(){
+  ////Grey
+    //fill(71, 74, 73);
+    //noStroke();
+    //rect(250, 250, 200, 200);
+    
+//}
 
 
-//function keyTyped() {
-  //if (key == '!') {
-    //saveBlocksImages();
+  //function grid(){
+
+    
+    //Grid
+    //noFill();
+    //stroke(46, 48, 48);
+    //strokeWeight(4);
+    //rect(250, 250, 200, 200);
+
+    //Down
+    //line(300, 250, 300, 450);
+    //line(350, 250, 350, 450);
+    //line(400, 250, 400, 450);
+
+    //Across
+    //line(250, 300, 450, 300);
+    //line(250, 350, 450, 350);
+    //line(250, 400, 450, 400); 
   //}
-  //else if (key == '@') {
-   // saveBlocksImages(true);
- // }
+
+function Left(){
+  fill(67, 255, 42);
+  rect(250, 250, 50, 200);
+}
+
+function Top(){
+  fill(67, 255, 42);
+  rect(250, 250, 200, 50);
+}
+
+function Right(){
+  fill(67, 255, 42);
+  rect(400, 250, 50, 200);
+}
+
+function Bottom(){
+  fill(67, 255, 42);
+  rect(250, 400, 200, 50);
+}
+
+function M1(){
+  fill(67, 255, 42);
+  rect(300, 300, 100, 50);
+}
+
+function M2(){
+ fill(67, 255, 42);
+  rect(300, 300, 100, 50);
+}
+
+function M3(){
+
+  fill(67, 255, 42);
+  rect(300, 350, 100, 50);
+}
+
+function M4(){
+  fill(67, 255, 42);
+  rect(300, 400, 100, 50);
+}
+
+//Extra Squares.
+function R4(){
+  fill(67, 255, 42);
+  rect(350, 400, 100, 50);
+}
+
+function R2(){
+  fill(67, 255, 42);
+  rect(350, 250, 100, 50);
+}
+
+
+
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+  else if (key == '@') {
+    saveBlocksImages(true);
+  }
+}
