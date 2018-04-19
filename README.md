@@ -1,21 +1,9 @@
 ## PS2 MDDN 242 2018
 
-Exhibition
+Final
 
-My exhibition words include.
+This is my final Design I have decided to keep the addition of the turquoise colour as I believe it makes my letter forms more easily deciphered from one another. Also, I like that it is not simply one colour and also that only some shapes include the turquoise and others do not because I think it creates more interesting letterforms. Furthermore, it makes words as a whole more interesting to look at as there are only some parts which have this colour in them.
 
-"ROBOTIC?",     
- "?MATRIX?",
- "?CODING?",
- "?SOURCE?",
- "??BOXY??",
- "PATTERN?",
- "?CIPHER?",
- "?STYLE??",
- "??RUN???",
- "?CIPHER?",
-
-I think these words reflect the type of alphabet I have. A kind of code which has a computer look to it and on its own is a cipher because most of the letterforms they are not easily deciphered. 
 
 
 
