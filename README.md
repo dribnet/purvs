@@ -1,8 +1,9 @@
 ## PS2 MDDN 242 2018
 
-Alphabet
+Interaction
 
-For my final alphabet I decided to stick to experiment two as I liked the way this looked and believe that it gives each letter form more individuality. My letters are not obvious but that is how I want them to be. They are like their own code. The letterforms remind me of a puzzle therefore I wanted to make them a puzzle to read. However, I also believe it is important to have some easily distinguished letters within it such as A, B, C.
+For my interaction I wanted the grid not to simply be filled cell by cell, but to have shapes morph underneath the grid.  Which is why I went with experiment number two for my final. Keeping the idea of having the grid above the shapes clear. When placed with the letter forms I believe they are very obvious to read but on their own they are not. If I had more time I would have liked to have the shapes move more freely underneath the grid and perhaps have them morph differently not so harshly. However, this does work considering the shapes are rectangular and it is a very computer type of alphabet.
+
 
 
 =======
