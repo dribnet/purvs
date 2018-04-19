@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorLines   = "#000000";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
 }
@@ -222,7 +222,7 @@ function draw () {
   stroke(95, 52, 8);
 
   // shorthand variables to allow margin
-  var o = 20
+  var o = 100
   var w2 = width - 2 * o
   var h2 = height - 2 * o
   for(var i=0; i<8; i++) {
@@ -235,7 +235,7 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 0.5, obj)
   }
 }
 

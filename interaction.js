@@ -102,11 +102,11 @@ function draw () {
 
   // draw lines
   stroke(colorLines);
-  line(left_margin, 0, right_margin, 0);
+  //line(left_margin, 0, right_margin, 0);
   for(let i=left_margin; i<right_margin-8; i+=30) {
-    line(i, 100, i+12, 100);
+    //line(i, 100, i+12, 100);
   }
-  line(left_margin, 200, right_margin, 200);
+  //line(left_margin, 200, right_margin, 200);
 
   translate(left_margin+first_letter_offset_x, 0);
   for(let i=0; i<numSteps; i = i+1) {
@@ -117,6 +117,7 @@ function draw () {
       drawLetter(curLetterObj);
     }
     stroke(colorLines);
+    strokeWeight(4);
     fill(colorLines);
     textSize(50);
     textAlign(CENTER)

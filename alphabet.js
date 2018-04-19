@@ -13,7 +13,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // Handy string of all letters available
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -53,11 +53,11 @@ function draw () {
 
     // draw lines
     stroke(colorLines);
-    line(left_margin, 0, right_margin, 0);
+    //line(left_margin, 0, right_margin, 0);
     for(let i=left_margin; i<right_margin-8; i+=30) {
-      line(i, 100, i+12, 100);
+      //line(i, 100, i+12, 100);
     }
-    line(left_margin, 200, right_margin, 200);
+    //line(left_margin, 200, right_margin, 200);
 
     translate(left_margin+first_letter_offset_x, 0);
     for(let i=left_margin+first_letter_offset_x; i<right_margin-x_step+1; i+=x_step) {
