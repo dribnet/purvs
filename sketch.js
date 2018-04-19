@@ -89,7 +89,7 @@ class Character {
 		}
 	}
 	setLetter(letter) {
-		this.letter = letter; //TODO: still no interpolation to use yo
+		this.letter = letter;
 	}
 
 	updateCanvas() {
