@@ -154,7 +154,7 @@ function draw () {
   }
 
   if(isSwappingWords) {
-    if(lastWordSwappedTime + 1000 * secondsPerWord < now) {
+    if(lastWordSwappedTime + 600 * secondsPerWord < now) {
       lastWordSwappedTime = now;
       curSwapWord = (curSwapWord + 1) % swapWords.length;
       for(var i=0; i<8; i++) {
