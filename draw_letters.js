@@ -1,17 +1,8 @@
 const colorStroke = "#233f11";
-const colourOpacPaper = 200;
-const colourOpacColour = 200;
-const pointSize = 2;
+const colourOpac = 200;
 
 var swapWords = [
 "GEOMETRY",
-"        ",
-"TRIANGLE",
-"ANGULAR",
-"TESTWORD",
-"MICHAELS",
-"FONTFACE",
-"TRIANGLE",
 ]
 /*
  * Draw the letter given the letterData
@@ -26,7 +17,6 @@ function drawLetter(letterData) {
   strokeWeight(0.5);
   //noFill();
   //blendMode(MULTIPLY);
-  fill(224, 219, 215);
   angleMode(DEGREES);
 
   // determine parameters for triangle points
@@ -37,8 +27,7 @@ function drawLetter(letterData) {
   let p5 = createVector(0 -sin(letterData["p5"]["ang"]) * letterData["p5"]["dist"], 0 + cos(letterData["p5"]["ang"]) * letterData["p5"]["dist"]);
   let p6 = createVector(0 -sin(letterData["p6"]["ang"]) * letterData["p6"]["dist"], 0 + cos(letterData["p6"]["ang"]) * letterData["p6"]["dist"]);
 
-  var letterHeight
-
+  //calculate central point
   var lowestPoint = 0;
   var min = 10000;
   for (var i = 1; i <= 6; i++) {
@@ -59,19 +48,31 @@ function drawLetter(letterData) {
 
   var letterHeightDiff = (max - abs(min));
 
-  console.log(letterData);
-  console.log(letterHeightDiff);
+  var leftPoint = 0;
+  var left = 10000;
+  for (var i = 1; i <= 6; i++) {
+    if(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] < left){
+      leftPoint = i;
+      left = sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"];
+    }
+  }
 
-  push();
-  translate(50,100+letterHeightDiff/2);
-  //rotate(random(-5,5));
+  var rightPoint = 0;
+  var right = 0;
+  for (var i = 1; i <= 6; i++) {
+    if(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"] > right){
+      rightPoint = i;
+      right = abs(sin(letterData["p"+i]["ang"]) * letterData["p"+i]["dist"]);
+    }
+  }
 
-  //paper fill
-  //fill(232, 232, 220, colourOpacPaper);
-  //colour fill
-  fill(80, 150, 255, colourOpacColour);
+  var letterWidthDiff = abs(right - abs(left));
+  translate(50+letterWidthDiff/2,100+letterHeightDiff/2);
 
+  //stroke
   noStroke();
+  //bottom fill
+  fill(80, 150, 255, colourOpac);
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
@@ -79,10 +80,8 @@ function drawLetter(letterData) {
   vertex(0 - p3.x, 0 - p3.y);
   endShape(CLOSE);
 
-  //paper fill
-  //fill(242, 242, 242, colourOpacPaper);
-  //colour fill
-  fill(255, 50, 50,colourOpacColour);
+  //top fill
+  fill(255, 50, 50, colourOpac);
 
   beginShape();
   vertex(0 - p4.x, 0 - p4.y);
@@ -90,21 +89,6 @@ function drawLetter(letterData) {
   vertex(0 - p6.x, 0 - p6.y);
   endShape(CLOSE);
 
-  push();
-  stroke(0,40);
-  noFill();
-  //ellipse(0,0,5,5);
-  //ellipse(0,0,letterSize*2,letterSize*2);
-  fill(0);
-  // ellipse(0 - p1.x, 0 - p1.y,pointSize,pointSize);
-  // ellipse(0 - p4.x, 0 - p4.y,pointSize,pointSize);
-  // ellipse(0 - p2.x, 0 - p2.y,pointSize,pointSize);
-  // ellipse(0 - p5.x, 0 - p5.y,pointSize,pointSize);
-  // ellipse(0 - p3.x, 0 - p3.y,pointSize,pointSize);
-  // ellipse(0 - p6.x, 0 - p6.y,pointSize,pointSize);
-  pop();
-
-  pop();
   pop();
 }
 
@@ -139,3 +123,31 @@ function interpolate_letter(percent, oldData, newData){
 
   return new_letter;
 }
+
+// var overlaySize = 10;
+
+//   push();  
+//   let shadowp1 = createVector(0 -sin(letterData["p1"]["ang"]) * (letterData["p1"]["dist"]+overlaySize), 0 + cos(letterData["p1"]["ang"]) * (letterData["p1"]["dist"]+overlaySize));
+//   let shadowp2 = createVector(0 -sin(letterData["p2"]["ang"]) * (letterData["p2"]["dist"]+overlaySize), 0 + cos(letterData["p2"]["ang"]) * (letterData["p2"]["dist"]+overlaySize));
+//   let shadowp3 = createVector(0 -sin(letterData["p3"]["ang"]) * (letterData["p3"]["dist"]+overlaySize), 0 + cos(letterData["p3"]["ang"]) * (letterData["p3"]["dist"]+overlaySize));
+//   let shadowp4 = createVector(0 -sin(letterData["p4"]["ang"]) * (letterData["p4"]["dist"]+overlaySize), 0 + cos(letterData["p4"]["ang"]) * (letterData["p4"]["dist"]+overlaySize));
+//   let shadowp5 = createVector(0 -sin(letterData["p5"]["ang"]) * (letterData["p5"]["dist"]+overlaySize), 0 + cos(letterData["p5"]["ang"]) * (letterData["p5"]["dist"]+overlaySize));
+//   let shadowp6 = createVector(0 -sin(letterData["p6"]["ang"]) * (letterData["p6"]["dist"]+overlaySize), 0 + cos(letterData["p6"]["ang"]) * (letterData["p6"]["dist"]+overlaySize));
+  
+//   beginShape();
+//   vertex(0 - shadowp1.x, 0 - shadowp1.y);
+//   vertex(0 - shadowp2.x, 0 - shadowp2.y);
+//   vertex(0 - shadowp3.x, 0 - shadowp3.y);
+//   endShape(CLOSE);
+
+//   //paper fill
+//   //fill(242, 242, 242, colourOpacPaper);
+//   //colour fill
+//   fill(255, 50, 50,colourOpacColour);
+
+//   beginShape();
+//   vertex(0 - shadowp4.x, 0 - shadowp4.y);
+//   vertex(0 - shadowp5.x, 0 - shadowp5.y);
+//   vertex(0 - shadowp6.x, 0 - shadowp6.y);
+//   endShape(CLOSE);
+//   pop();

@@ -322,5 +322,13 @@ const alphabet = {
     "p4": { "ang": -090,   "dist": 0.3*letterSize},
     "p5": { "ang": 180,   "dist": 0.3*letterSize},
     "p6": { "ang": 090,   "dist": 0.3*letterSize},
+  },
+  " ": {
+    "p1": { "ang": 090,   "dist": 0},
+    "p2": { "ang": 0,   "dist": 0},
+    "p3": { "ang": -90,   "dist": 0},
+    "p4": { "ang": -090,   "dist": 0},
+    "p5": { "ang": 180,   "dist": 0},
+    "p6": { "ang": 090,   "dist": 0},
   },          
 }
