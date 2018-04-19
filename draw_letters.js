@@ -50,18 +50,15 @@ function drawLetter(letterData) {
   translate(50,100+letterHeightDiff/2);
 
   //stroke
-  noStroke();
+  stroke(0,100,100);
   //bottom fill
-  fill(0, colourOpac);
+  noFill();
 
   beginShape();
   vertex(0 - p1.x, 0 - p1.y);
   vertex(0 - p2.x, 0 - p2.y);
   vertex(0 - p3.x, 0 - p3.y);
   endShape(CLOSE);
-
-  //top fill
-  fill(0, colourOpac);
 
   beginShape();
   vertex(0 - p4.x, 0 - p4.y);
@@ -103,31 +100,3 @@ function interpolate_letter(percent, oldData, newData){
 
   return new_letter;
 }
-
-// var overlaySize = 10;
-
-//   push();  
-//   let shadowp1 = createVector(0 -sin(letterData["p1"]["ang"]) * (letterData["p1"]["dist"]+overlaySize), 0 + cos(letterData["p1"]["ang"]) * (letterData["p1"]["dist"]+overlaySize));
-//   let shadowp2 = createVector(0 -sin(letterData["p2"]["ang"]) * (letterData["p2"]["dist"]+overlaySize), 0 + cos(letterData["p2"]["ang"]) * (letterData["p2"]["dist"]+overlaySize));
-//   let shadowp3 = createVector(0 -sin(letterData["p3"]["ang"]) * (letterData["p3"]["dist"]+overlaySize), 0 + cos(letterData["p3"]["ang"]) * (letterData["p3"]["dist"]+overlaySize));
-//   let shadowp4 = createVector(0 -sin(letterData["p4"]["ang"]) * (letterData["p4"]["dist"]+overlaySize), 0 + cos(letterData["p4"]["ang"]) * (letterData["p4"]["dist"]+overlaySize));
-//   let shadowp5 = createVector(0 -sin(letterData["p5"]["ang"]) * (letterData["p5"]["dist"]+overlaySize), 0 + cos(letterData["p5"]["ang"]) * (letterData["p5"]["dist"]+overlaySize));
-//   let shadowp6 = createVector(0 -sin(letterData["p6"]["ang"]) * (letterData["p6"]["dist"]+overlaySize), 0 + cos(letterData["p6"]["ang"]) * (letterData["p6"]["dist"]+overlaySize));
-  
-//   beginShape();
-//   vertex(0 - shadowp1.x, 0 - shadowp1.y);
-//   vertex(0 - shadowp2.x, 0 - shadowp2.y);
-//   vertex(0 - shadowp3.x, 0 - shadowp3.y);
-//   endShape(CLOSE);
-
-//   //paper fill
-//   //fill(242, 242, 242, colourOpacPaper);
-//   //colour fill
-//   fill(255, 50, 50,colourOpacColour);
-
-//   beginShape();
-//   vertex(0 - shadowp4.x, 0 - shadowp4.y);
-//   vertex(0 - shadowp5.x, 0 - shadowp5.y);
-//   vertex(0 - shadowp6.x, 0 - shadowp6.y);
-//   endShape(CLOSE);
-//   pop();

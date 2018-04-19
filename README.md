@@ -9,9 +9,9 @@ The 12 parameters per letter:
 
 I have completed the parameters for my alphabet so am now looking into different styles and what style will be used for my final alphabet.
 
- - Style Three
- 	- Solid Colour/No Overlay
+ - Style Four
+ 	- Outline
 
- 	This style aims to resemble a more ink based medium, with each layer being solid black with no transperancy.
+ 	This last style explores the letters being represented through line rather than form.
 
- 	This allows for each letter to appear as a block form rather than a form made of two layers overlapping.
+ 	 With each layer only having an outline to represent it.
