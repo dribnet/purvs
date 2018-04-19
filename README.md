@@ -6,6 +6,12 @@ On the Alphabet page, It came out really great and readable of my flowers charac
 
 On the interaction page, I have a problem with the transition between A to B character. It causes I draw a part seperatly drawpart. A character has only stright formed but B character has a combination of stright formed and curved formed. But I think it still fine with the tranisiton.
 
+Finally on the exhibition page, my design is called "BLOSSOMS" font and I added more words to explain of my flower looked. 
+"FLOWERS+",
+"ELEGANCE",
+"ADORABLE",
+"DELICATE"
+
 I used 12 parameters for each alphabet so far.
 ► "positionX1": 0, // set to move the part 1 by X axis
 ► "positionY1": 0, // set to move the part 1 by Y axis
