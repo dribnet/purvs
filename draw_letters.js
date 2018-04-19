@@ -2,9 +2,12 @@ const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 
 var swapWords = [
-  "COOLWORD",
-  "NEATFONT",
-  "ABCDEFGH"
+  "OVERLAPS",
+  "TYPEFACE",
+  "CHILDISH",
+  "BLENDING",
+  "MAGENTA!",
+  "ALPHABET",
 ]
 
 /*
@@ -21,7 +24,7 @@ function drawLetter(letterData) {
   rect(0, 0, 100, 200);
   strokeWeight(6);
   angleMode(DEGREES);
-  // 11 variables define all the letters and numbers, I use const to define colours and shadow
+  // 11 variables define all the letters and numbers, I use const to define colours and overlap
   let bottomletterR =letterData["bottomletterR"];
   let bottomletterX = letterData["bottomletterX"];
   let bottomletterY = letterData["bottomletterY"];
@@ -49,7 +52,7 @@ function bottomletter(bottomletterX, bottomletterY, bottomletterR, bRa1, bRa2) {
 
 
 
-//This function gives the shape with colour
+//This function gives the shape with filled colour, the colours are const
 function topletter(topletterX, topletterY, topletterR, topletterR1, tRa1, tRa2) {
   // stroke(44, 149, 247);
   fill(26, 176, 239, 160);
@@ -59,10 +62,8 @@ function topletter(topletterX, topletterY, topletterR, topletterR1, tRa1, tRa2) 
   arc(topletterX, topletterY, topletterR, topletterR1, tRa1, tRa2);
 }
 
-// var swapWords = [
-//   "FONTNAME"
-// ]
 
+// all my variable follow the certain order to draw
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["bottomletterX"] = map(percent, 0, 100, oldObj["bottomletterX"], newObj["bottomletterX"]);

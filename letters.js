@@ -211,7 +211,7 @@ const alphabet = {
           "P": {
       "bottomletterX": 53,
       "bottomletterY": 58,
-      "bottomletterR": 60,
+      "bottomletterR": 68,
       "bRa1": 0,
       "bRa2": 360,
       "topletterX": 30,
@@ -263,7 +263,7 @@ const alphabet = {
           "T": {
       "bottomletterX": 50,
       "bottomletterY": 55,
-      "bottomletterR": 65,
+      "bottomletterR": 58,
       "bRa1": 0,
       "bRa2": 360,
       "topletterX": 50,
@@ -328,7 +328,7 @@ const alphabet = {
           "Y": {
       "bottomletterX": 50,
       "bottomletterY": 55,
-      "bottomletterR": 65,
+      "bottomletterR": 68,
       "bRa1": 320,
       "bRa2": 230,
       "topletterX": 50,
