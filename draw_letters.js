@@ -46,9 +46,18 @@ function drawLetter(letterData) {
  let pos10x = letterData["x10"];
  let pos10y = letterData["y10"];
 
+
+var r = random(70,255);
+var g = random(173,105);
+var b = random(212,180);
+var a = random(60,90);
+
+let colS = color(r,g,b,a);
+
+frameRate(1);
 push();
-stroke(255,105,180);
-strokeWeight(6);
+stroke(colS);
+strokeWeight(12);
 smooth();
 noFill();
   line(posx,posy,pos2x,pos2y);
@@ -56,16 +65,18 @@ noFill();
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
   line(pos9x,pos9y,pos10x,pos10y);
-
 pop();
 
+push();
 stroke(255);
 strokeWeight(3);
+smooth();
   line(posx,posy,pos2x,pos2y);
   line(pos3x,pos3y,pos4x,pos4y);
   line(pos5x,pos5y,pos6x,pos6y);
   line(pos7x,pos7y,pos8x,pos8y);
   line(pos9x,pos9y,pos10x,pos10y);
+pop();
 
 
 
