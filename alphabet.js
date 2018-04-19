@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#1f242d";
+const colorLines   = "#ffffff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(0);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
@@ -64,6 +64,7 @@ function draw () {
       let letter = letters[cur_letter_index];
       if (letter in alphabet) {
         drawLetter(alphabet[letter]);
+        //ellipse(255);
       }
       else {
         drawLetter(alphabet["default"]);    

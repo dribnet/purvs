@@ -1,12 +1,11 @@
 ## PS2 MDDN 242 2018
 
-(Replace this README with information about your alphabet. This is an example.)
+In the process of completing the entire alphabet, I have added a black ring around the cicles to create a gap between each one. 
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+The eight parameters per letter are now:
+  * x and y for the small filled cicle
+  * x and y for the large filled cicle
+  * x and y for the small stroked cicle
+  * x and y for the large stroked cicle
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
