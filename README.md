@@ -1,37 +1,15 @@
 ## PS2 MDDN 242 2018
 
-Episode 06
+Episode 00
 
-To further make the transitions more smoother, i fixed up the letters.js by adding a full line of the const variables for each of the moving rect/ellipse/rotation.
+I am in the process of figuring out how this code works. in combination i am also interating some designs in paper for what the parametric aphabet is going to look like
 
-by adding all these values to their respective letter const, i can get a smoother transition by hiding as well as merging the shapes when not needed into the background. The resulting change made for an interesting interpolation of letter changes.
+Each of my letters is composed with two circles. The size of the circle is fixed and the position is the same as the second circle, but the location and size of the second circle is controlled by three parameters.
 
-using the reference as shown:
-      "pos_x1": 0,
-      "pos_y1":0,
-      "width_1":0,
-      "height_1":0,
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
 
-      "pos_x2": 0,
-      "pos_y2": 0,
-      "width_2":0,
-      "height_2":0,
+  MORE TO COME SOON!!!
 
-      "pos_x3": 0,
-      "pos_y3": 0,
-      "width_3":0,
-      "height_3":0,
-
-      "pos_x4": 0,
-      "pos_y4": 0,
-      "width_4":0,
-      "height_4":0,
-
-      "c_posx": 0,
-      "c_posy": 0,
-      "c_width": 0,
-      "c_height": 0,
-
-      "r_letter": 0
-
-TUNE IN FOR MORE EPISODES!!
