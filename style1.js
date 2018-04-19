@@ -19,64 +19,64 @@ let savedValues = {
   "A":
     {
       "octo1": {
-        "x": -56,
-        "y": 12,
-        "scale": 42,
+        "x": -14,
+        "y": 3,
+        "scale": 10.5,
         "poly" : 8
       },
       "octo2": {
-        "x": -107,
-        "y": -124,
-        "scale": 75,
+        "x": -26.75,
+        "y": -31,
+        "scale": 18.75,
         "poly" : 3
       },
       "rect": {
         "x": 0,
-        "y": -8,
-        "scale": 126,
+        "y": -2,
+        "scale": 31.5,
         "tilt": 53
       }
     },
   "B":
     {
       "octo1": {
-        "x": -174,
-        "y": +50,
-        "scale": 50,
-        "poly" : 8
+        "x": -6.5,
+        "y": -10.5,
+        "scale": 13.25,
+        "poly" : 3
       },
       "octo2": {
-        "x": +174,
-        "y": +50,
-        "scale": 100,
-        "poly" : 8
+        "x": -3.75,
+        "y": 12.5,
+        "scale": 18.75,
+        "poly" : 3
       },
       "rect": {
-        "x": -121,
-        "y": +58,
-        "scale": 100,
-        "tilt": 40
+        "x": -30,
+        "y": 1.25,
+        "scale": 25,
+        "tilt": 90
       }
     },
   "C":
     {
       "octo1": {
-        "x": -174,
-        "y": +50,
-        "scale": 50,
-        "poly" : 8
+        "x": 16.5,
+        "y": 20,
+        "scale": 16,
+        "poly" : 4
       },
       "octo2": {
-        "x": +174,
-        "y": +50,
-        "scale": 100,
-        "poly" : 8
+        "x": -10.5,
+        "y": 20,
+        "scale": 16,
+        "poly" : 4
       },
       "rect": {
-        "x": -121,
-        "y": +58,
-        "scale": 100,
-        "tilt": 40
+        "x": -2,
+        "y": -30,
+        "scale": 33.75,
+        "tilt": -180
       }
     }
 }
@@ -90,18 +90,18 @@ function setup () {
   rectMode(CENTER);
 
   // create two sliders
-  octo1x_slider = createSlider(-200, 200, 0);
-  octo1y_slider = createSlider(-200, 200, 0);
-  octo1s_slider = createSlider(0, 200, 100);
+  octo1x_slider = createSlider(-50, 50, -14);
+  octo1y_slider = createSlider(-50, 50, 3);
+  octo1s_slider = createSlider(0, 50, 10.5);
   octo1p_slider = createSlider(3, 10, 8);
-  octo2x_slider = createSlider(-200, 200, 0);
-  octo2y_slider = createSlider(-200, 200, 0);
-  octo2s_slider = createSlider(0, 200, 100);
-  octo2p_slider = createSlider(3, 10, 8);
-  rectx_slider = createSlider(-200, 200, 0);
-  recty_slider = createSlider(-200, 200, 0);
-  rects_slider = createSlider(0, 200, 100);
-  rectr_slider = createSlider(-180, 180, 0);
+  octo2x_slider = createSlider(-50, 50, -26.75);
+  octo2y_slider = createSlider(-50, 50, -31);
+  octo2s_slider = createSlider(0, 50, 18.75);
+  octo2p_slider = createSlider(3, 10, 3);
+  rectx_slider = createSlider(-50, 50, 0);
+  recty_slider = createSlider(-50, 50, -2);
+  rects_slider = createSlider(0, 50, 31.5);
+  rectr_slider = createSlider(-180, 180, 53);
 
   sel = createSelect();
   sel.option('A');
@@ -189,17 +189,17 @@ function draw () {
   fill(255, 130, 148);
 
   //Immovable Rect
-  rect(2* canvasWidth /3-100+16,canvasHeight/2+16,20,120);
+  rect(2* canvasWidth /3-25+6,canvasHeight/2+6,5,30);
 
   //Moveable Objects
-  drawFromSliders(1,octo1x_slider,octo1y_slider,octo1s_slider,octo1p_slider,12,12);
-  drawFromSliders(1,octo2x_slider,octo2y_slider,octo2s_slider,octo2p_slider,12,12);
-  drawFromSliders(2,rectx_slider,recty_slider,rects_slider,rectr_slider,12,12);
+  drawFromSliders(1,octo1x_slider,octo1y_slider,octo1s_slider,octo1p_slider,6,6);
+  drawFromSliders(1,octo2x_slider,octo2y_slider,octo2s_slider,octo2p_slider,6,6);
+  drawFromSliders(2,rectx_slider,recty_slider,rects_slider,rectr_slider,6,6);
 
   //Front of Objects
   fill(255);
 
-  rect(2* canvasWidth /3-100,canvasHeight/2,20,120);
+  rect(2* canvasWidth /3-25,canvasHeight/2,5,30);
 
   //Moveable Objects
   drawFromSliders(1,octo1x_slider,octo1y_slider,octo1s_slider,octo1p_slider,0,0);
