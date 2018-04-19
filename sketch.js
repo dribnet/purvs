@@ -15,9 +15,9 @@ function setup() {
 
 	background(0x00);
 
-	characters.push(new Character("A", createVector(width/4, height/2), 10));
-	characters.push(new Character("B", createVector(width/2, height/2), 10));
-	characters.push(new Character("C", createVector(width/4*3, height/2), 10));
+	characters.push(new Character(alphabet["A"], createVector(width/4, height/2), 10, false));
+	characters.push(new Character(alphabet["B"], createVector(width/2, height/2), 10, false));
+	characters.push(new Character(alphabet["C"], createVector(width/4*3, height/2), 10, false));
 
 	print("done");
 }
@@ -30,7 +30,6 @@ const colorBack = [29, 42, 46];
 function draw() {
 	fill(0x00, 5); //5 leaves some cool ghosting due to an opacity quirk
 	rect(0,0,width,height);
-translate(width/2, 0);
 	loadPixels();
 	let pointLocation;
 	for (let i = 0, l = characters.length; i < l; i++) {
@@ -71,16 +70,22 @@ function keyTyped() {
 }
 
 class Character {
-	constructor(letter, locationVec, scale) {
+	constructor(letter, locationVec, scale, canvas) {
 		this.scale = scale;
 		this.location = locationVec.copy();
 		this.tracers = []; //array of tracers, x, y, current target point, current path ID
 		this.letter = letter;
 		//vertices properties
 		this.vertices = [4];
+		if (canvas) {
+			this.canvas = createGraphics(100, 200);
+			this.canvas.pixelDensity(1);
+			this.canvas.noSmooth();
+			this.canvas.background(0x00);
+		}
 
 		for (let i = 0; i < 4; i++) {
-			this.vertices[i] = new Vertex(alphabet[letter][i][0]*PI, alphabet[letter][i][1], this.scale, alphabet[letter][i][2]);
+			this.vertices[i] = new Vertex(letter[i][0]*PI, letter[i][1], this.scale, letter[i][2]);
 		}
 		for (let i = 0; i < 15*this.scale; i++) {
 			let originVert = floor(random(4));
@@ -88,9 +93,34 @@ class Character {
 		}
 	}
 	setLetter(letter) {
-		this.letter = letter;
+		this.letter = letter; //TODO: still no interpolation to use yo
 	}
 
+	updateCanvas() {
+		this.canvas.fill(0x00, 5); //5 leaves some cool ghosting due to an opacity quirk
+		this.canvas.rect(0,0,width,height);
+		this.canvas.loadPixels();
+		let pointLocation;
+		for (let j = 0, m = this.tracers.length; j < m; j++) {
+			this.tracers[j].update();
+			pointLocation = this.tracers[j].location.copy().add(50, 100);
+			let address = round(pointLocation.x)*4 + round(pointLocation.y)*400;
+
+			let c = this.tracers[j].colour;
+			if (c === 0) {
+				this.canvas.pixels[address] = 0xFF;        //r
+			} else if (c === 1) {
+				this.canvas.pixels[address + 1] = 0xFF;    //g
+			} else {
+				this.canvas.pixels[address + 2] = 0xFF;    //b
+			}
+		}
+		this.canvas.updatePixels();
+	}
+
+	drawCanvas() {
+		image(this.canvas, 0, 0);
+	}
 }
 
 class Vertex {
