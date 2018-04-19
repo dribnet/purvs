@@ -1,8 +1,22 @@
 ## PS2 MDDN 242 2018
 
-Interaction
+Exhibition
 
-For my interaction I wanted the grid not to simply be filled cell by cell, but to have shapes morph underneath the grid.  Which is why I went with experiment number two for my final. Keeping the idea of having the grid above the shapes clear. When placed with the letter forms I believe they are very obvious to read but on their own they are not. If I had more time I would have liked to have the shapes move more freely underneath the grid and perhaps have them morph differently not so harshly. However, this does work considering the shapes are rectangular and it is a very computer type of alphabet.
+My exhibition words include.
+
+"ROBOTIC?",     
+ "?MATRIX?",
+ "?CODING?",
+ "?SOURCE?",
+ "??BOXY??",
+ "PATTERN?",
+ "?CIPHER?",
+ "?STYLE??",
+ "??RUN???",
+ "?CIPHER?",
+
+I think these words reflect the type of alphabet I have. A kind of code which has a computer look to it and on its own is a cipher because most of the letterforms they are not easily deciphered. 
+
 
 
 
