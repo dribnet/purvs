@@ -13,4 +13,8 @@ Added:
   - vertX3: X position of the end point of the second curve(anchor point)
   - vertY3: Y position of the end point of the second curve(anchor point)
 
-  Added the interpolation part of the project. If I have time I want to add a cosmetic interpolation just to clean up how the handles create sharp glitchy things when animating. Trying to think of ways to create a smoother transition possibly through strokeweight or opacity or maybe the use of the line caps? I think they're called that.
+  Confused by how to fix the glitching animation, strokeCaps don't seem to affect the sharp edges that the control handles create. I then tried creating a change in opacity through making the stroke colour of the line change to the colour of the rect so during transition the line would become feint enough to not notice the glitch but that came with errors which for me was confusing since my code 
+
+  var c = color(50,50,50) and then added the variable to my stroke(c). Unsure as to why it gave errors. Probably something small that i'm missing.
+
+  Decided to add some comments to my draw_letters to hopefully make it less confusing because it was confusing for me to figure out.

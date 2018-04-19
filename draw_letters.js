@@ -34,6 +34,8 @@ function drawLetter(letterData) {
   let vert3y = posy + letterData["vertY3"];
 
   // draw two lines
+
+  //create artboard
   push();
   noStroke();
   fill(colorFront);
@@ -41,16 +43,16 @@ function drawLetter(letterData) {
   pop();
   
   push();
-  scale(1.6);
-  translate(-22, -25);
+  scale(1.6); //scale upwards to not be small
+  translate(-22, -25); //translate to fit inside box
   stroke(colorStroke);
   noFill();
   strokeWeight(10);
-  beginShape();
-  vertex(vert1x, vert1y);
-  quadraticVertex(ctrl1Px, ctrl1Py, vert2x, vert2y);
-  quadraticVertex(ctrl2Px, ctrl2Py, vert3x, vert3y);
-  endShape();
+  beginShape(); //create lines
+  vertex(vert1x, vert1y); //first anchor point
+  quadraticVertex(ctrl1Px, ctrl1Py, vert2x, vert2y); //first line
+  quadraticVertex(ctrl2Px, ctrl2Py, vert3x, vert3y); //create second line from end of first
+  endShape(); //finish lines
   pop();
 }
 
