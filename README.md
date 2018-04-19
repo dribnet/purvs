@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
-Exhibition:
+<!-- Exhibition:
 I suppose I select the the first word because of the characteristic is overlaps.when I overlap the 2D shapes and lines, I'd like to give a sense of 3D of these letters. The original inspriation by my daughter's toy so that I choose the brighter colours, also adding the transparent setting to the overlap layer, hopefully looks more vibrant. Then, some portions of  overlaps are drawn with the shape, the others depend on the order of drawing and the position of shapes.
-Totally, I create the style of alphabet for children, that's why I switch the straight line into curve.
+Totally, I create the style of alphabet for children, that's why I switch the straight line into curve. -->
 <!-- Alphabet:
 I continued to develop one of my original idea. I used this style to create a couple of letters. In this case, the problem is I need more variables to define the different letter, like the colour for each part, the handle point, and so on. Also, I keep working on the details of my letters.
 I got inspried by some of precedent including colours, shapes, and so on.
@@ -25,9 +25,9 @@ I set up eleven parameters per letter are now:
   * 'tRa2' : the end of the angle of arc2
  -->
 
-<!-- interaction
-unify my letters in a consistent size, position, angle. Especially, I embrace slightly differenct styles in letters and numbers, the numbers look more like hand writing style. The interaction between echo letter looks smoothly.
- -->
+interaction
+unify my letters in a consistent size, position, angle. Especially, I embrace slightly differenct styles in letters and numbers, the numbers look more like hand writing style. The interaction between each letter looks smoothly. one looks like fill the colour into the shape, the other looks the children's hand writing. I'd like to show the animation natrually.
+
 <!-- In the beginning, I had created the original sketch letters. I simplified the background to black, and I drawed the lines and  arcs, I was going to use the 2D shapes to build the 3D form. 
 
 I created 3 different drafts. For the first one, I control the angle of ellipses and the position of lines to contruct different letters.Also, I changed the opacity of colous, looks a little bit like the 3 dimention.
