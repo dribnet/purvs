@@ -37,23 +37,6 @@ let isSwappingWords = true;
 let secondsPerWord = 8;
 let curSwapWord = 0;
 
-var swapWords = [
-  "GEFALLEN",
-  "!BATMAN!",
-  "HALLOW",
-  /*
-  "IMMORTAL",
-  "BICYCLES",
-  "BIGHEADS",
-  "ACCIDENT",
-  "CHIEFEST",
-  "GAUCHELY",
-  */
-  "ALIENSVS",
-  "PREDATOR",
-
-]
-
 var defaultSwapWords = [
   "ACTUALLY",
   "1234567?",
@@ -232,7 +215,7 @@ function draw () {
     }
   }
 
-  background(125, 30, 40);
+  background(165, 50, 60);
   fill(125, 30, 40);
   stroke(95, 52, 8);
 

@@ -83,7 +83,7 @@ let hot_key_press = false;
 function draw () {
   angleMode(DEGREES)
   // clear screen
-  background(125, 30, 40);
+  background(165, 50, 60);
 
   // draw the interpolation on the guidelines
   push();

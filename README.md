@@ -1,15 +1,15 @@
 ## PS2 MDDN 242 2018
 
-Gefallen 
-  - This is the name I have given my design. I dont know if I will change it. At this point I am very happy with it. But it is in german and I dont know if thats allowed.
+Gefallen/Befallen
 
-I have based my letters around the gothic style of lettering. I will try use an arc, triangle and a line to do this I have found these can portray the type of lettering I want. I have also chosen these in particular because of their link to the deathly hallows from harry potter. I like to try and encorporate other intrests of mine like this as it gets me more interested in my own work. It means I want to do it and have it do well as it has more of a connection to meand I will enjoy working on it more.
+For my font I have based my idea around the old germaic/gothic font styles. For the shapes to make up my font I have taken inspiration from the deathly hallows from Harry Potter. The shapes are an arc, a line and a triangle. they are also the shapes/parts of the deathly hallows in Harry potter. I have changed the colours to a dark red background and the text being a dark bold black. I chose this because it helps give my font a darker and older feel. 
 
-I have completed the alphabet and am happy with he majrity of the lettering. I still want to tweak a few things and play around with different colour options to see which works best. I might also might draw this from harry potter but will have to experiment to see if the colouring works.
-I have got the transition to work but want to experiment with it to get the arc to transition smoother.
+To get my shapes I have used 12 paramaters. Two for the arc which are the degree locations of each point. Six are for the triangle with the x and y co-ordinate of each point. I also have four paramaters for the location of the line with the x and y position of each point. For my interacton movement I have change it slightly to snap into the last position for more of an impact when it becomes the letter. Experimenting more I would make the arc transition more fluid and consistent between all letters.
 
-I have twelve paramaters fore ach of my letters;
-	"a1" : The first angle of the arc.
+
+
+I have twelve paramaters for each of my letters;
+    "a1" : The first angle of the arc.
   	"a2" : The second Angle of the arc.
 
   	"tx1" : The first X location of the triangle.
