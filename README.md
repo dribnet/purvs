@@ -22,10 +22,13 @@ A few things that are defined for various reasons:
 -The gap and stroke width and line width  - both gap and line width are defined by the stroke width in order to cause the least amount of conflict regarding each individual line clashing.
 -Color Scheme - Based on old typewriter script and black and white vintage films as well as a minimalist palette. 
 -Color Variation - The varrying color in each stroke (1 to 3) was initally meant to represent the order in which the strokes are made. This was also to simulate a "running out of ink" subtle effect.
+-The third line on majority of the shapes recides up or slides behind the other strokes in order to prevent confusion regarding the order of the effect itself. 
 
 #Possibilities
 
 A few ideas fell through due to timing, however a few concepts that could be implemented would be an animation for the drawing function itself, a random width and scale that would not conflict with other frames and objects, and a full ascii keyboard of characters that could be drawn. 
+
+Another pssibility would be to find a varition to the current ration on the number scheme as well as some of the more akward forming letters, such as 'G'.
 
 #Functions and Variables (Via System)
 
