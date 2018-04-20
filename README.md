@@ -1,6 +1,7 @@
 ## PS2 MDDN 242 2018
 
 <<<<<<< HEAD
+My design was based of the type of logos you see on the chinese takeaway restaurants. my vision was that of a more pointy typeface but size constrictions forced me to make them smaller and a bit less intracate, I worked around this though by using commands such as scale and translate allowing me to get most of the detail I wanted.
 Each of my letters consist of 4 cresents made up of 2 arcs each, all based at the center and rotating outward from there. None of the postions are fixed and they all move with the letter and are postioned so they dont overlap most of the time. Some of them do use the fact that they overlap as a feature of the arcs and hide points or even fully behind the other arcs.
 When changing letter or number they do cross over each other creating a weird but cool effect for the letters.
 With my code I found that my letters were to big for the bounding box but this was fixed easily with the use of scale and translate to move them into their proper position.
@@ -20,4 +21,6 @@ The eight parameters per letter:
   * `offsety4`: Controls the Y offset of Arc4
 
 At first I only wanted the parameters for rotation and offsetx but through the course of the project with other letters i found that adding parameters for offsety made it easier to move and clean up.
+
+Overall the process was a fun one and this font i would definitely make into a proper typeface/font if need be. 
 
