@@ -166,7 +166,7 @@ function computeCurrentSoloChar() {
 // draws a single character given an object, position, and scale
 function drawFromDataObject(x, y, s, obj) {
   push();
-  translate(x, y);
+  translate(x+40, y);
   scale(s, s);
   drawLetter(obj);
   pop();

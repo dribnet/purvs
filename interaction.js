@@ -90,8 +90,8 @@ function draw () {
   scale(0.5);
 
   // constants
-  const left_margin = 40;
-  const right_margin = 2*width - 40;
+  const left_margin = 150;
+  const right_margin = 2*width + 20;
   const top_margin = 80;
   const bottom_margin = 2*height - 60;
   const numSteps = 11;
@@ -120,7 +120,7 @@ function draw () {
     strokeWeight(4);
     fill(colorLines);
     textSize(50);
-    textAlign(CENTER)
+    translate(-60, 0);
     if (i == 0) {
       text(soloLastLetter, 50, 280);
     }
@@ -134,6 +134,7 @@ function draw () {
     else if (interpolation_is_on) {
       text("" + i*10 + "%", 50, 280);
     }
+    translate(60, 0);
     translate(x_step, 0);
   }
   pop();

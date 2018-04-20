@@ -37,8 +37,8 @@ function draw () {
   scale(0.5);
 
   // constants
-  const left_margin = 40;
-  const right_margin = 2*width - 40;
+  const left_margin = 90;
+  const right_margin = 2*width + 20;
   const top_margin = 80;
   const bottom_margin = 2*height - 60;
   const x_step = 140;
