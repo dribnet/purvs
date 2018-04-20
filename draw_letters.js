@@ -25,6 +25,7 @@ let ballSpeed = 10;
   frameRate(30); //otherwise it changes speed on different computers
   fill(colorFront);
   noStroke(0);
+  //where start is the start position (dark blue) & dir is a position vector in the direction of the trajectory
   calculateVectors(letterData["StartX1"],letterData["StartY1"], letterData["DirX1"], letterData["DirY1"] );
   calculateVectors(letterData["StartX2"],letterData["StartY2"], letterData["DirX2"], letterData["DirY2"] );
   calculateVectors(letterData["StartX3"],letterData["StartY3"], letterData["DirX3"], letterData["DirY3"] );
@@ -62,7 +63,7 @@ function DrawFromVectors(directionVector, posVectorS) {
 }
 
 function DrawBall(directionVector, posVectorS, xpos, ypos) {
-
+  fill(ballCol);
 	//find out which direction the ball is going in, & switch it round if we're at the end of the line.
 	if (countingUp == 1 ) {
 		counter++;
@@ -77,24 +78,28 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
 		countingUp = 1;
 	}
 
-	fill(ballCol);
+	
 	xStart = posVectorS.x;
 	yStart = posVectorS.y;
   //make it go all the way along the line at the right speed!
 	xPos = directionVector.x*counter*speed/ballSpeed;
 	yPos = directionVector.y*counter*speed/ballSpeed;
+  xPos2 = directionVector.x*(100 - counter)*speed/ballSpeed;
+  yPos2 = directionVector.y*(100 - counter)*speed/ballSpeed;
 	xPosDraw = xStart + xPos;
 	yPosDraw = yStart + yPos;
+  xPos2Draw = xStart + xPos2;
+  yPos2Draw = yStart + yPos2;
 	posVectorCurrent = createVector(xPosDraw,yPosDraw);
-	//draw the ball
+	//draw the ball & a second ball
 	ellipse(xPosDraw, yPosDraw, 6,6);
+  ellipse(xPos2Draw, yPos2Draw, 6,6);
 }
 
 function drawFromComponents(xCompon, yCompon) {
 r++;
 g++;
 b++; 
-
 fill (r, g, b); 
 //draw the circle!
 ellipse(xCompon, yCompon, 4,4);
@@ -130,7 +135,7 @@ function interpolate_letter(percent, oldData, newData) {
 
 }
 
-//lep made sense since I was using so many vectors!
+//lerp made sense since I was using so many vectors!
 function CalculateLerp(oldX,newX,oldY,newY,amount) {
   oldVec = createVector(oldX,oldY);
   newVec = createVector(newX,newY);
