@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#ffffff";
+const colorBack    = "#a6a6a6";
 const colorLines   = "#000090";
 const colorFront  = "#199cff";
 
@@ -39,6 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+  "VINTAGE?",
   "ACTUALLY",
   "1234567?",
   "EXPECTED",

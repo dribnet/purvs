@@ -7,7 +7,7 @@ let distanceX;
 let distanceY;
 
 function drawLetter(letterData) {
-  stroke(80,80,80);
+  stroke(115,115,115);
   strokeWeight(4);
   let x1 = letterData["stroke1_x1"];
   let x2 = letterData["stroke1_x2"];
@@ -17,7 +17,7 @@ function drawLetter(letterData) {
   
   drawin(x1, y1, x2, y2);
   
-  stroke(77,77,77);
+  stroke(85,85,85);
   //strokeWeight(7.5);
   let x3 = letterData["stroke2_x1"];
   let x4 = letterData["stroke2_x2"];
