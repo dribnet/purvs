@@ -321,5 +321,4 @@ const alphabet = {
   "offset3x": 130,
   "offset3y": -310
 }
-
-
+}
