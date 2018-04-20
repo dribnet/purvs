@@ -20,7 +20,7 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  angleMode (DEGREES);
+  angleMode (DEGREES); // Added Degrees angle mode so that rotation would work.
 
   // with no animation, redrawing the screen is not necessary
   noLoop();

@@ -1,5 +1,5 @@
 /*
- * Here are some things you can edit
+ * Didn't need to edit anything here. Designed the font with these colours in mind.
  */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
@@ -41,57 +41,37 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+  "ALPHANGL", // Name of my font
+  "BIRTHDAY", // List of Words Each Letter used at least Once.
+  "CREATIVE",
+  "DYNAMIC!",
+  "ENORMOUS",
+  "FRIENDLY",
+  "GORGEOUS",
+  "HUMANITY",
+  "IMAGINE?",
+  "JOKING?!",
+  "KINGDOM.",
+  "LAUGHTER",
+  "MAXIMUM!",
+  "NUMEROUS",
+  "ORIGINAL",
+  "PRINCESS",
+  "QUICKLY!",
+  "REALITY?",
+  "SURVIVAL",
+  "TRIANGLE",
+  "ULTIMATE",
+  "VICTORIA",
+  "WEAKNESS",
+  "XEROXING",
+  "YOURSELF",
+  "ZOOLOGY.",
+  "1234....",
+  "4567!!!!",
+  "7890????",
+
+  
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
@@ -100,6 +80,8 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+
+  angleMode (DEGREES);
 
   let now = millis();
   lastKeyPressedTime = now;

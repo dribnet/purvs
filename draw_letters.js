@@ -1,12 +1,10 @@
 /*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
+ * Letters drawn to the specifications given. Simple transformations provided.
+ * Uses all the parameters allowed for this project.
  */
 function drawLetter(letterData) {
   // color/stroke setup
+  // Fill specified here instead of in a variable so that I could include an Alpha condition.
   fill (142, 38, 43, 150);
   strokeWeight (0);
 
@@ -38,6 +36,8 @@ function drawLetter(letterData) {
 }
 
 function interpolate_letter(percent, oldObj, newObj){
+  // The linear transition code given out in class Suffices for my interpolations
+  // because the letters are complex they need a simple transforma
   let new_letter = {};
   new_letter["xMain"] = map (percent, 0, 100, oldObj["xMain"], newObj["xMain"]);
   new_letter["yMain"] = map (percent, 0, 100, oldObj["yMain"], newObj["yMain"]);

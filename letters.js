@@ -272,7 +272,7 @@ const alphabet = {
     "tri1Ya": -49.75,
     "tri1Yb": -100,
     "tri2X": 200,
-    "tri2Ya": -0,
+    "tri2Ya": 0,
     "tri2Yb": -100,
     "tri3X": 200,
     "tri3Ya": -20,
@@ -484,9 +484,9 @@ const alphabet = {
     "tri2X": 100,
     "tri2Ya": -14.75,
     "tri2Yb": -100,
-    "tri3X": 110,
+    "tri3X": 120,
     "tri3Ya": -20,
-    "tri3Yb": -70,
+    "tri3Yb": -60,
     "rotate": 90
   },
   "7": {
@@ -526,7 +526,7 @@ const alphabet = {
     "tri2X": 0,
     "tri2Ya": 0,
     "tri2Yb": 100,
-    "tri3X": 10,
+    "tri3X": 20,
     "tri3Ya": 15,
     "tri3Yb": 55,
     "rotate": 0
@@ -538,11 +538,11 @@ const alphabet = {
     "tri1Ya": -35,
     "tri1Yb": -65,
     "tri2X": 0,
-    "tri2Ya": -0,
+    "tri2Ya": 0,
     "tri2Yb": -100,
-    "tri3X": 0,
-    "tri3Ya": -0,
-    "tri3Yb": -30,
+    "tri3X": 30,
+    "tri3Ya": -9,
+    "tri3Yb": -70,
     "rotate": 90
   },
   "!": {

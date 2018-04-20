@@ -1,5 +1,5 @@
 /*
- * Here are some things you can edit
+ * Didn't change anything here.
  */
 const colorBack    = "#e3eded";
 const colorLines   = "#000090";
@@ -28,7 +28,7 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  angleMode (DEGREES);
+  angleMode (DEGREES); // Changed the angle mode to degrees so I could rotate easier.
 
   // with no animation, redrawing the screen is not necessary
   // noLoop();
