@@ -1,6 +1,6 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
-const ballCol   = "#FF7F66";
+const ballCol   = 255;
 const speed = 1.2;
 let countingUp = 1; 
 let counter = 0;
@@ -75,7 +75,7 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
 		countingUp = 1;
 	}
 
-	fill('#FF7F66');
+	fill(ballCol);
 	xStart = posVectorS.x;
 	yStart = posVectorS.y;
 	xPos = directionVector.x*counter*speed/ballSpeed;
@@ -84,7 +84,7 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
 	yPosDraw = yStart + yPos;
 	posVectorCurrent = createVector(xPosDraw,yPosDraw);
 	//draw the ball
-	ellipse(xPosDraw, yPosDraw, 5,5);
+	ellipse(xPosDraw, yPosDraw, 6,6);
 }
 
 function drawFromComponents(xCompon, yCompon) {
@@ -94,5 +94,10 @@ b++;
 
 fill (r, g, b); 
 //draw the circle!
-ellipse(xCompon, yCompon, 3,3);
+ellipse(xCompon, yCompon, 4,4);
+}
+
+function interpolate_letter(percent, oldData, newData) {
+
+  
 }
