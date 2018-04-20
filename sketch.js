@@ -100,9 +100,7 @@ function drawLetter(posx, posy, scale, letterData) {
   let x3 = letterData["pos_x3"];
   let y3 = letterData["pos_y3"];
 
-  // draw two circles
-  //ellipse(posx, posy, 150, 150);
-  //ellipse(pos2x, pos2y, size2, size2);
+  //testing- rect instead of ellip
   rect(x,y,w,h);
   rect(x2,y2,w2,h2);
   rect(x3,y3,w3,h3);

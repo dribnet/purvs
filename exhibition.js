@@ -42,9 +42,9 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "02ISBEST",
+  "PREDATOR",
   "1234567?",
-  "DATUPUTI",
+  "QUESTION",
   "PROPERTY",
   "ADDITION",
   "FOLLOWED",

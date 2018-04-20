@@ -1,6 +1,19 @@
 const colorFont  = "#800000";
 const colorStroke = "#000000";
 
+var swapWords = [
+  "CIPHER??",
+  "PREDATOR",
+  "REFERENC",
+  "EXPLICIT",
+  "CONTENTS",
+  "ACCURATE",
+  "HARDCODE",
+  "THATNONE",
+  "UNDERSTA",
+  "HIDDEN69",
+]
+
 /*
  * Draw the letter given the letterData
  *
@@ -10,17 +23,12 @@ const colorStroke = "#000000";
  */
 function drawLetter(letterData) {
   angleMode(DEGREES);
-  //rect(0,0,100,200);
   //color/stroke setup
   fill(colorFont);
   stroke(colorStroke);
   strokeWeight(4);
 
-  // draw two circles
-  //translate(width/290, height/155);
- //ellipse(50, 150, 200, 200);
-  //ellipse(pos2x, pos2y, size2, size2);
-
+  //values for each of the rect a total of 4
   let w = letterData["width_1"];
   let h = letterData["height_1"];
   let x = letterData["pos_x1"];
@@ -41,6 +49,7 @@ function drawLetter(letterData) {
   let x4 = letterData["pos_x4"];
   let y4 = letterData["pos_y4"];
 
+  //values for the circle and the rotation
   let circle_x = letterData["c_posx"];
   let circle_y = letterData["c_posy"];
   let circle_w = letterData["c_width"];
@@ -51,9 +60,9 @@ function drawLetter(letterData) {
 
   push();
   translate(50, 100);
-  //ellipse(0,0,1,1); //Activate only for reference
+  //ellipse(0,0,1,1); //<-- Activate only for reference
   
-
+  //Following values shape the cipher 
   rotate(r_rot);
   translate(-50, -100);
   rect(x,y,w,h);
@@ -64,6 +73,7 @@ function drawLetter(letterData) {
   
 
   pop();
+  //added circular reference and style
   fill(130,0,0);
   ellipse(50,50,10,10);
 
@@ -72,6 +82,7 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
+  //animation changes and transition for the values reference: oldbj - newObj
   new_letter["width_1"] = map(percent, 0, 100, oldObj["width_1"], newObj["width_1"]);
   new_letter["height_1"] = map(percent, 0, 100, oldObj["height_1"], newObj["height_1"]);
   new_letter["pos_x1"] = map(percent, 0, 100, oldObj["pos_x1"], newObj["pos_x1"]);

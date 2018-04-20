@@ -1,5 +1,7 @@
 const alphabet = {
   "default": {
+
+      //FOLLOWING VALUES RUN FOR RECTx4
       "pos_x1": 0,
       "pos_y1":0,
       "width_1":0,
@@ -20,11 +22,13 @@ const alphabet = {
       "width_4":0,
       "height_4":0,
 
+      //FOLLOWING VALUES RUN FOR ELLIPx1
       "c_posx": 0,
       "c_posy": 0,
       "c_width": 0,
       "c_height": 0,
 
+      //FOLLOWING VALUES RUN FOR ROT
       "r_letter": 0
 
   },
