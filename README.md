@@ -1,5 +1,5 @@
 ## PS2 MDDN 242 2018
-=====
+
 ArcLines
 
 For this project I wanted to create a simple sleek typeface that is fairly legible. Through out the project I changed the design a bit, initially I started with three concentric arcs that had no fill, I think it was too simplistic and not as legible as my final, I then moved to the current design with two arcs and a line but still had no fill. I liked this new design as it was more legible and I could do a lot more with the letters but I felt it was still missing something so I tried adding the fill, the fill added some extra 'mass' to the letters and I found it made them more legible and more interesting to look at, I think that my final design is successful in showing the ideas I wanted to convey. I kept the colours simple with a dark grey background and light grey font to add to the sleek and simple aesthetic and so that the light letters popped against the dark background. I made the animations simple and added a little bounce to add some life to the font while still keeping it minimal.
