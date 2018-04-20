@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#333332";
 const colorLines   = "#000090";
 if (typeof colorFront === 'undefined') {
   colorFront   = "#199cff";
@@ -41,57 +41,24 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
+  "ILLUSTR8",
+  "GRAPHICS",
+  "GESTALT?",
+  "EMPHASIS",
+  "SIMPLIFY",
+  "MOVEMENT",
+  "CONTRAST",
+  "CONFLICT",
+  "DOMINANT",
+  "MAXIMIZE",
+  "MULTIPLE",
+  "ORIGINAL",
   "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+  "BOUNDARY",
+  "ADJACENT",
+  "STRIKING",
+  "QUANTITY",
+  "WEIGHTED"
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")

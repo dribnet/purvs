@@ -1,6 +1,23 @@
 ## PS2 MDDN 242 2018
+
+Final:
+My font is called Illustr8.
+
+The projects initial inspiration was to create a legible font through the use of the font function and to apply procedural/generative effects to create an visually intricate font family.
+
+Over the course of the project I found we had to use primitves to create our font family. My idea evolved over that time and I took inspiration from graphic design, specifically the use of Adobe Illustrator and Gestalt psychology(Visual Perception).
+
+Still wanting to have a visually intricate font family I looked at using quadratic curves because I found them hard to manipulate into certain forms because of the parameters needed to create them, to aid in the creation of my font I used Adobe Illustrator which resulted in me realizing that my font is a restrained translation of Illustrator's pen tool into the p5.js api. I further restrained my parameters by having my parameters end in an either 0 or 5 and limited myself to 10 parameters.
+
+The name, colour scheme and layout of my font is in reference to Adobe Illustrator so there is a connection to the program that helped me create my font. The background is a dark grey, a white rectangle representing the artboard and a font that is created by the p5.js equivalent of the pen tool.
+
+For my swap words I used words that have some relevance to graphic design and made sure to incorporate the A-Z in those words.
+I chose the name Illustr8 to again, reference Illustrator but the 8 represents how each swap word has 8 letters.
+
+If I had to continue this project I would look at putting less constraints on myself and the font by adding more parameters like the original 24. Implementing an opacity transition with the interpolation through the use of stroke colour.
+
  
- Currently my 10 variable per letter are:
+My 10 variable per letter are:
   - vertX: X position of initial start of the line(anchor point)
   - vertY: Y position of initial start of the line(anchor point)
   - ctrlPx: X position of the control point for vertX
@@ -13,8 +30,3 @@ Added:
   - vertX3: X position of the end point of the second curve(anchor point)
   - vertY3: Y position of the end point of the second curve(anchor point)
 
-  Confused by how to fix the glitching animation, strokeCaps don't seem to affect the sharp edges that the control handles create. I then tried creating a change in opacity through making the stroke colour of the line change to the colour of the rect so during transition the line would become feint enough to not notice the glitch but that came with errors which for me was confusing since my code 
-
-  var c = color(50,50,50) and then added the variable to my stroke(c). Unsure as to why it gave errors. Probably something small that i'm missing.
-
-  Decided to add some comments to my draw_letters to hopefully make it less confusing because it was confusing for me to figure out.
