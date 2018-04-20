@@ -1,24 +1,16 @@
 {
   "commits": [
     {
-      "sha": "b367c999b4744d1a46a77d690c0da993d103bfc9",
+      "sha": "2b6c130e13714417bdea20439081595614d3b0ca",
       "name": "final"
-    },
-    {
-      "sha": "b367c999b4744d1a46a77d690c0da993d103bfc9",
-      "name": "part4"
-    },
-	{
-      "sha": "b367c999b4744d1a46a77d690c0da993d103bfc9",
-      "name": "part3"
     },
 	{
       "sha": "6a8865515824ea575b0d5d6eb1cf003a7f8d9b38",
-      "name": "part2"
+      "name": "Experiment2"
     },
     {
       "sha": "600003d8946afe43c8f3d2e25d08740d63bfd160",
-      "name": "part1"
+      "name": "Experiment1"
     }
   ]
 }

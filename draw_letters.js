@@ -13,7 +13,7 @@ swapWords = ["NEONTYPE", "HI WORLD",  "MDDN 242"];
  */
 function drawLetter(letterData) {
   for(var i = 0; i < lines.length; i++){
-	if(letterData["lines"][i] == 1){
+	if(letterData["lines"][i] == 1){ //Draw lit up lines
 		strokeWeight(9);
 		stroke(letterData["red"], letterData["green"], letterData["blue"], 0.25*255);
 		line(lines[i][0], lines[i][1], lines[i][2], lines[i][3] );	
@@ -22,7 +22,7 @@ function drawLetter(letterData) {
 		line(lines[i][0], lines[i][1], lines[i][2], lines[i][3] );	
 		strokeWeight(1);
 		stroke("white");		
-	}else{		
+	}else{	//Draw normal lines
 		strokeWeight(2.5);
 		stroke(color(33,33,33,128));
 		line(lines[i][0], lines[i][1], lines[i][2], lines[i][3] );	
@@ -45,6 +45,7 @@ function interpolate_letter(percent, oldData, newData){
 		var oC = color(oldData["red"], oldData["green"], oldData["blue"], 255);		
 		newColor = lerpColor(oC, color(0,0,0,0), (percent/100)+0.20);
 	}
+	//Set new colors
 	new_letter["red"] = red(newColor);
 	new_letter["green"] = green(newColor);
 	new_letter["blue"] = blue(newColor);
