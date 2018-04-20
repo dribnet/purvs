@@ -41,6 +41,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+  "VERTS?OS",
   "ACTUALLY",
   "1234567?",
   "EXPECTED",
