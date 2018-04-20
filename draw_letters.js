@@ -50,7 +50,7 @@ function calculateVectors(x1,y1,x2,y2) {
 }
 
 function DrawFromVectors(directionVector, posVectorS) {
-  for (i = 0; i < 100; i++) {
+  for (i = 0; i < 80; i++) {
     //create a vector for the movement we will take (multiplication of i is the length of the line)
     movementVector = p5.Vector.mult(directionVector,(i*speed));
     //add the starting position vector to the movement vector to get it the right place
@@ -71,7 +71,7 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
 	else {
 		counter--
 	}
-	if (counter >= (100*ballSpeed)) {
+	if (counter >= (80*ballSpeed)) {
 		countingUp = 0;
 	}
 	else if (counter < 0) {
@@ -84,21 +84,14 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
   //make it go all the way along the line at the right speed!
 	xPos = directionVector.x*counter*speed/ballSpeed;
 	yPos = directionVector.y*counter*speed/ballSpeed;
-  xPos2 = directionVector.x*(counter-50)*speed/ballSpeed;
-  yPos2 = directionVector.y*(counter-50)*speed/ballSpeed;
-  xPos3 = directionVector.x*(counter+50)*speed/ballSpeed;
-  yPos3 = directionVector.y*(counter+50)*speed/ballSpeed;
+
 	xPosDraw = xStart + xPos;
 	yPosDraw = yStart + yPos;
-  xPos2Draw = xStart + xPos2;
-  yPos2Draw = yStart + yPos2;
-  xPos3Draw = xStart + xPos3;
-  yPos3Draw = yStart + yPos3;
+  
 	posVectorCurrent = createVector(xPosDraw,yPosDraw);
 	//draw the ball & a second ball
 	ellipse(xPosDraw, yPosDraw, 6,6);
-  ellipse(xPos2Draw, yPos2Draw, 4,4);
-  ellipse(xPos3Draw, yPos3Draw, 4,4);
+  
 }
 
 function drawFromComponents(xCompon, yCompon) {
