@@ -77,6 +77,7 @@ function DrawBall(directionVector, posVectorS, xpos, ypos) {
 	fill(ballCol);
 	xStart = posVectorS.x;
 	yStart = posVectorS.y;
+  //make it go all the way along the line at the right speed!
 	xPos = directionVector.x*counter*speed/ballSpeed;
 	yPos = directionVector.y*counter*speed/ballSpeed;
 	xPosDraw = xStart + xPos;
@@ -95,85 +96,41 @@ fill (r, g, b);
 //draw the circle!
 ellipse(xCompon, yCompon, 4,4);
 }
+
 //Percent will  range from  0-100,  and this  function  should  return  a new 
 //object  which is  in  between the oldData and newData.
 function interpolate_letter(percent, oldData, newData) {
+  let lerped = {};
   //amount between 0 & 1.0
   amount = percent/100;
-  oldStartPos1 = createVector(oldData["StartX1"], oldData["StartY1"] ); 
-  oldStartPos2 = createVector(oldData["StartX2"], oldData["StartY2"] ); 
-  oldStartPos3 = createVector(oldData["StartX3"], oldData["StartY3"] ); 
-  oldDirPos1 = createVector(oldData["DirX1"], oldData["DirY1"] ); 
-  oldDirPos2 = createVector(oldData["DirX2"], oldData["DirY2"] ); 
-  oldDirPos3 = createVector(oldData["DirX3"], oldData["DirY3"] ); 
-  newStartPos1 = createVector(newData["StartX1"], newData["StartY1"] ); 
-  newStartPos2 = createVector(newData["StartX2"], newData["StartY2"] ); 
-  newStartPos3 = createVector(newData["StartX3"], newData["StartY3"] ); 
-  newDirPos1 = createVector(newData["DirX1"], newData["DirY1"] ); 
-  newDirPos2 = createVector(newData["DirX2"], newData["DirY2"] ); 
-  newDirPos3 = createVector(newData["DirX3"], newData["DirY3"] );
-  //calculate & normalize the direction vector for the old & new lines
-  normalDirOld1 = CalculateNormalizedDir(oldStartPos1, oldDirPos1);
-  normalDirOld2 = CalculateNormalizedDir(oldStartPos2, oldDirPos2);
-  normalDirOld3 = CalculateNormalizedDir(oldStartPos3, oldDirPos3);
-  normalDirNew1 = CalculateNormalizedDir(newStartPos1, newDirPos1);
-  normalDirNew2 = CalculateNormalizedDir(newStartPos2, newDirPos2);
-  normalDirNew3 = CalculateNormalizedDir(newStartPos3, newDirPos3);
+  //calulate position vectors between old & new
+  lerpStart1 = CalculateLerp(oldData["StartX1"], newData["StartX1"], oldData["StartY1"], newData["StartY1"],amount); 
+  lerpDir1 = CalculateLerp(oldData["DirX1"], newData["DirX1"], oldData["DirY1"], newData["DirY1"],amount); 
+  lerpStart2 = CalculateLerp(oldData["StartX2"], newData["StartX2"], oldData["StartY2"], newData["StartY2"],amount); 
+  lerpDir2 = CalculateLerp(oldData["DirX2"], newData["DirX2"], oldData["DirY2"], newData["DirY2"],amount); 
+  lerpStart3 = CalculateLerp(oldData["StartX3"], newData["StartX3"], oldData["StartY3"], newData["StartY3"],amount); 
+  lerpDir3 = CalculateLerp(oldData["DirX3"], newData["DirX3"], oldData["DirY3"], newData["DirY3"],amount); 
+  //set the return object
+   lerped["StartX1"] = lerpStart1.x;
+   lerped["StartY1"] = lerpStart1.y;
+   lerped["DirX1"] = lerpDir1.x;
+   lerped["DirY1"] = lerpDir1.y;
+   lerped["StartX2"] = lerpStart2.x;
+   lerped["StartY2"] = lerpStart2.y;
+   lerped["DirX2"] = lerpDir2.x;
+   lerped["DirY2"] = lerpDir2.y;
+   lerped["StartX3"] = lerpStart3.x;
+   lerped["StartY3"] = lerpStart3.y;
+   lerped["DirX3"] = lerpDir3.x;
+   lerped["DirY3"] = lerpDir3.y;
+  return lerped;
 
-  for (i = 0; i < 100; i++) {
-    movementOld1 = CalculateMovementVector(normalDirOld1,i);
-    movementOld2 = CalculateMovementVector(normalDirOld2,i);
-    movementOld3 = CalculateMovementVector(normalDirOld3,i);
-    movementNew1 = CalculateMovementVector(normalDirNew1,i);
-    movementNew2 = CalculateMovementVector(normalDirNew2,i);
-    movementNew3 = CalculateMovementVector(normalDirNew3,i);
-    //make it start in the right place
-    posOldN1  = p5.Vector.add(oldStartPos1, movementOld1); 
-    posOldN2  = p5.Vector.add(oldStartPos2, movementOld2); 
-    posOldN3  = p5.Vector.add(oldStartPos3, movementOld3); 
-    posNewN1  = p5.Vector.add(newStartPos1, movementNew1); 
-    posNewN2  = p5.Vector.add(newStartPos2, movementNew2); 
-    posNewN3  = p5.Vector.add(newStartPos3, movementNew3);
-
-    lerped1 = CalculateLerp(posOldN1, posNewN1, amount);
-    lerped2 = CalculateLerp(posOldN2, posNewN2, amount);
-    lerped3 = CalculateLerp(posOldN3, posNewN3, amount);
-
-
-    //get the x & y components
-    xCompon1 = lerped1.x;
-    yCompon1 = lerped1.y;
-    xCompon2 = lerped2.x;
-    yCompon2 = lerped2.y;
-    xCompon3 = lerped3.x;
-    yCompon3 = lerped3.y;
-    drawFromLerp(xCompon1, yCompon1);
-    drawFromLerp(xCompon2, yCompon2);
-    drawFromLerp(xCompon3, yCompon3);
-  }
 }
 
-function CalculateNormalizedDir(startVec, dirVec) {
-  directionVector = p5.Vector.sub(dirVec, startVec); 
-  directionVector.normalize();
-  return directionVector;
-}
-
-function CalculateMovementVector(normalDirectionVector, i) {
-  movementVec = p5.Vector.mult(normalDirectionVector,(i*speed));
-  return movementVec;
-}
-
-function CalculateLerp(oldVector, newVector, amount) {
-  lerpedVec = p5.Vector.lerp(oldVector,newVector,amount)
-  return lerpedVec;
-}
-
-function drawFromLerp(xCompon, yCompon) {
-r++;
-g++;
-b++; 
-
-fill (r, g, b); 
-ellipse(xCompon, yCompon, 4,4);
+//lep made sense since I was using so many vectors!
+function CalculateLerp(oldX,newX,oldY,newY,amount) {
+  oldVec = createVector(oldX,oldY);
+  newVec = createVector(newX,newY);
+  lerped = p5.Vector.lerp(oldVec,newVec,amount);
+  return lerped;
 }
