@@ -24,5 +24,7 @@ TRONBLOCK uses 12 parameters, these are divided up between 5 vertices and and x,
 
 My design orignially began with 8 parameters and only 4 ajustable vertices, this had a number of my letters looking to similar and some letters near impossible to illustrate such as 'G' and 'W'. As a solution to this problem I chose to add a 5th adjustable vertex to allow more letter transforming, and a small ellipse to add an extra dimension to the design. This resulted in my tron style alphabet. (a drawing ive uploaded demonstrates this evolvement) 
 
+..* graph sketch shows the graph I used to map out the values for each letter
+
 
 
