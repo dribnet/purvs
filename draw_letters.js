@@ -15,7 +15,7 @@ function drawLetter(letterData) {
   strokeWeight(4);
   angleMode(DEGREES);
 
-
+  //Variables for letter forms
   let posx = 0;
   let posy = 0;
 
@@ -27,7 +27,7 @@ function drawLetter(letterData) {
   let rotatearc2 = letterData["rotate2"];
   let rotatearc3= letterData["rotate3"];
 
-
+  //drawing arcs here
   push();
   strokeWeight(7);
   stroke(38, 70, 81, 65);
@@ -47,7 +47,7 @@ function drawLetter(letterData) {
 
 }
 
-
+//Animation
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 

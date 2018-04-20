@@ -5,21 +5,7 @@ const alphabet = {
       // "offset3x": 0,
       // "offset3y":0
   },
-  // "A": {
-  //     "size": 50,
-  //     "offsetx": 0,
-  //     "offsety": 23
-  // },
-  // "B": {
-  //     "size": 100,
-  //     "offsetx": 0,
-  //     "offsety": -98
-  // },
-  // "C": {
-  //     "size": 68,
-  //     "offsetx": 15,
-  //     "offsety": 0
-  // }
+  //Drawing the letters here
   "A": {
   "rotate2": 0,
   "offsetx": 110,
@@ -334,30 +320,6 @@ const alphabet = {
   "rotate3": -30,
   "offset3x": 130,
   "offset3y": -310
-},
-    
-//   "C": {
-//   "size": 50,
-//   "offsetx": 200,
-//   "offsety": 485,
-//   "offset3x": 200,
-//   "offset3y": 485
-// }
-
-//   "C": {
-//   "size": 50,
-//   "offsetx": 200,
-//   "offsety": 485,
-//   "offset3x": 200,
-//   "offset3y": 485
-// },
-
-//   "B": {
-//   "size": 50,
-//   "offsetx": 200,
-//   "offsety": 485,
-//   "offset3x": 200,
-//   "offset3y": 485
-// }
 }
+
 

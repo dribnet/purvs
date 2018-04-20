@@ -5,6 +5,8 @@ I chose the name crescent for my letter forms because the colours and the arcs r
 Looking at the various letter I like how they turned out in that they sit high and low as well as in different angles which makes it more visually interesting. It is simple and difficult to read in a way which is what I want it to be. 
 My next steps is to refine and clean up the code and see if there is anything I need to add or can improve. However as of now I am pretty happy with how it turned out. 
 
+Fixed up some comments and cleaned it up.
+
 
 pos2x this draws the x position of the first point 
 pos2y this draws the y position of the first point 
