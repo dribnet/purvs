@@ -55,42 +55,22 @@ function drawin(x1, y1, x2, y2){
 };
 
 function interpolate_letter(percent, oldObj, newObj){
-  stroke(80,80,80);
-  strokeWeight(4);
-  x1 = oldObj["stroke1_x1"];
-  let x2 = oldObj["stroke1_x2"];
-  let y1 = oldObj["stroke1_y1"];
-  let y2 = oldObj["stroke1_y2"];
-  let x3 = newObj["stroke1_x1"];
-  let y3 = newObj["stroke1_y1"];
-  let x4 = newObj["stroke1_x2"];
-  let y4 = newObj["stroke1_y2"];
-  
-  interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4);
-
-  stroke(77,77,77);
-  x1 = oldObj["stroke2_x1"];
-  x2 = oldObj["stroke2_x2"];
-  y1 = oldObj["stroke2_y1"];
-  y2 = oldObj["stroke2_y2"];
-  x3 = newObj["stroke2_x1"];
-  y3 = newObj["stroke2_y1"];
-  x4 = newObj["stroke2_x2"];
-  y4 = newObj["stroke2_y2"];
-  interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4);
-
-  stroke(0,0,0);
-  x1 = oldObj["stroke3_x1"];
-  x2 = oldObj["stroke3_x2"];
-  y1 = oldObj["stroke3_y1"];
-  y2 = oldObj["stroke3_y2"];
-  x3 = newObj["stroke3_x1"];
-  y3 = newObj["stroke3_y1"];
-  x4 = newObj["stroke3_x2"];
-  y4 = newObj["stroke3_y2"];
-  interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4);
+  let new_letter = {};
+  new_letter["stroke1_x1"] = map(percent, 0, 100, oldObj["stroke1_x1"], newObj["stroke1_x1"]);
+  new_letter["stroke1_y1"] = map(percent, 0, 100, oldObj["stroke1_y1"], newObj["stroke1_y1"]);
+  new_letter["stroke1_x2"] = map(percent, 0, 100, oldObj["stroke1_x2"], newObj["stroke1_x2"]);
+  new_letter["stroke1_y2"] = map(percent, 0, 100, oldObj["stroke1_y2"], newObj["stroke1_y2"]);
+  new_letter["stroke2_x1"] = map(percent, 0, 100, oldObj["stroke2_x1"], newObj["stroke2_x1"]);
+  new_letter["stroke2_y1"] = map(percent, 0, 100, oldObj["stroke2_y1"], newObj["stroke2_y1"]);
+  new_letter["stroke2_x2"] = map(percent, 0, 100, oldObj["stroke2_x2"], newObj["stroke2_x2"]);
+  new_letter["stroke2_y2"] = map(percent, 0, 100, oldObj["stroke2_y2"], newObj["stroke2_y2"]);
+  new_letter["stroke3_x1"] = map(percent, 0, 100, oldObj["stroke3_x1"], newObj["stroke3_x1"]);
+  new_letter["stroke3_y1"] = map(percent, 0, 100, oldObj["stroke3_y1"], newObj["stroke3_y1"]);
+  new_letter["stroke3_x2"] = map(percent, 0, 100, oldObj["stroke3_x2"], newObj["stroke3_x2"]);
+  new_letter["stroke3_y2"] = map(percent, 0, 100, oldObj["stroke3_y2"], newObj["stroke3_y2"]);
+  return new_letter;
 }
-
+/*
 function interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4){
  /* length = ((((x2 - x1)^2)+((y2 - y1)^2))^0.5);
   beginShape(LINES);
@@ -105,7 +85,7 @@ function interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4){
     }
     else{gap = gap + 1;};
   };
-  endShape();*/
+  endShape();
   if(((((x2 - x1)^2)+((y2 - y1)^2))^0.5) > ((((x4 - x3)^2)+((y4 - y3)^2))^0.5)){length = ((((x2 - x1)^2)+((y2 - y1)^2))^0.5)}
   else{length = ((((x4 - x3)^2)+((y4 - y3)^2))^0.5)};
   beginShape(LINES);
@@ -114,7 +94,7 @@ function interpolate_draw(percent, x1, y1, x2, y2, x3, y3, x4, y4){
     cY = map(i, 0, length, y1, y2);
     cX2 = map(i, 0, length, y3, y4);
     cY2 = map(i, 0, length, x3, x4);
-    
+    interpolate_points(percent, cX, cY, cX2, cY2);
   };
   endShape();
 }
@@ -124,13 +104,7 @@ function interpolate_points(percent, x1, y1, x2, y2){
   distanceY = y2 - y1;
   vertex(((x1 - (distanceX*percent)),(y1 - (distanceY*percent))));
   vertex(((x1 - (distanceX*percent))+8,(y1 - (distanceY*percent))));
-}
-
-function interpolate_points2(percent, x1, y1, x2, y2){
-  distanceX = x2 - x1;
-  distanceY = y2 - y1;
-  return ((x1 - (distanceX*percent))+8,(y1 - (distanceY*percent)));
-}
+}*/
 
 function keyTyped() {
   if (key == '!') {

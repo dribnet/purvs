@@ -3,6 +3,7 @@
  */
 const colorBack    = "#ffffff";
 const colorLines   = "#000090";
+const colorFront  = "#199cff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
