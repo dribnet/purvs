@@ -5,7 +5,6 @@
 const colorLines   = "#ffffff";
 
 
-const colorCircle = [0, 85, 89];
 const colorBack   = "#FFD981";
 
 

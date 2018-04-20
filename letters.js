@@ -1,9 +1,24 @@
 const alphabet = {
     "default": {
-
+      "size": 40,
+      "scale": 1.2,
+      
+  "offx": 50,
+  "offy": -37,
+  "offx1": 50,
+  "offy1":0,
+   "offx2":50,
+  "offy2": 49,
+  
+  "rot": 0,
+  "rot2": 0,
+  "rot3": 180,
+  
+  
   },
   "A": {
- "size": 40,
+  "size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": -11,
@@ -15,10 +30,13 @@ const alphabet = {
   "rot": 180,
   "rot2": 180,
   "rot3": 180,
+  
+
 
 },
 "B": {
-      "size": 40,
+ "size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -20,
@@ -30,10 +48,12 @@ const alphabet = {
   "rot": 270,
   "rot2": 270,
   "rot3": 270,
+
 },
 
 "C":{
-      "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 63,
   "offy": -40,
@@ -45,11 +65,14 @@ const alphabet = {
   "rot": 270,
   "rot2": 90,
   "rot3": 270,
+  
+
 },
 
 "D":{
    
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 30,
   "offy": -20,
@@ -61,10 +84,12 @@ const alphabet = {
   "rot": 270,
   "rot2": 270,
   "rot3": 270,
+
 },
 
 "E":{
-     "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -40,
@@ -76,10 +101,13 @@ const alphabet = {
   "rot": 270,
   "rot2": 270,
   "rot3": 270,
+  
+
 },
 
 "F":{
-     "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 61,
   "offy": -40,
@@ -91,9 +119,11 @@ const alphabet = {
   "rot": 270,
   "rot2": 270,
   "rot3": 90,
+
 },
 "G":{
-     "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 70,
   "offy": -30,
@@ -105,9 +135,12 @@ const alphabet = {
   "rot": 180,
   "rot2": 0,
   "rot3": 0,
+  
+
 },
 "H":{
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 26,
   "offy": 0,
@@ -119,9 +152,12 @@ const alphabet = {
   "rot": 270,
   "rot2": 270,
   "rot3": 90,
+  
+
 },
 "I":{
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -37,
@@ -133,9 +169,12 @@ const alphabet = {
   "rot": 0,
   "rot2": 180,
   "rot3": 180,
+  
+
 },
 "J":{
-  "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 70,
   "offy": -24,
@@ -147,10 +186,12 @@ const alphabet = {
   "rot": 0,
   "rot2": 180,
   "rot3": 180,
+  
+
 },
 "K":{
-         "size": 40,
-   
+"size": 40,
+  "scale": 1.2,
   "offx": 38,
   "offy": -20,
   "offx1": 73,
@@ -163,7 +204,8 @@ const alphabet = {
   "rot3": 90,
 },
 "L":{
-         "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 38,
   "offy": -20,
@@ -175,10 +217,11 @@ const alphabet = {
   "rot": 90,
   "rot2": 90,
   "rot3": 90,
+
 },
 "M":{
- "size": 40,
- 
+"size": 40,
+  "scale": 1.2,
   "offx": 30,
   "offy": 0,
   "offx1": 30,
@@ -189,9 +232,12 @@ const alphabet = {
   "rot": 180,
   "rot2": 180,
   "rot3": 180,
+  
+
 },
 "N":{
-   "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": 0,
@@ -203,9 +249,11 @@ const alphabet = {
   "rot": 180,
   "rot2": 180,
   "rot3": 180,
+  
 },
 "O":{
-    "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": -12,
@@ -217,9 +265,11 @@ const alphabet = {
   "rot": 180,
   "rot2": 0,
   "rot3": 180,
+
 },
 "P":{
-         "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 38,
   "offy": 40,
@@ -231,9 +281,12 @@ const alphabet = {
   "rot": 90,
   "rot2": 270,
   "rot3": 90,
+  
+
 },
 "Q":{
-         "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 38,
   "offy": -00,
@@ -247,7 +300,8 @@ const alphabet = {
   "rot3": 270,
 },
 "R":{
-   "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 61,
   "offy": -20,
@@ -261,7 +315,8 @@ const alphabet = {
   "rot3": 90,
 },
 "S":{
-         "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 70,
   "offy": -20,
@@ -275,7 +330,8 @@ const alphabet = {
   "rot3": 90,
 },
 "T":{
- "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 30,
   "offy": -10,
@@ -289,7 +345,8 @@ const alphabet = {
   "rot3": 180,
 },
 "U":{
-   "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": 0,
@@ -303,8 +360,8 @@ const alphabet = {
   "rot3": 0,
 },
 "V":{
- 
-   "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 70,
   "offy": 15,
@@ -318,7 +375,8 @@ const alphabet = {
   "rot3": 180,
 },
 "W":{
-   "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 70,
   "offy": 15,
@@ -332,7 +390,8 @@ const alphabet = {
   "rot3": 0,
 },
 "X":{
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -10,
@@ -346,7 +405,8 @@ const alphabet = {
   "rot3": 180,
 },
 "Y":{
-  "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": 25,
@@ -360,8 +420,8 @@ const alphabet = {
   "rot3": 0,
 },
 "Z":{
-         "size": 40,
-   
+        "size": 40,
+  "scale": 1.2,
   "offx": 33,
   "offy": -20,
   "offx1": 70,
@@ -374,7 +434,8 @@ const alphabet = {
   "rot3": 270,
 },
 "0":{
-    "size": 40,
+"size": 40,
+  "scale": 1.2,
  
   "offx": 50,
   "offy": -12,
@@ -388,7 +449,8 @@ const alphabet = {
   "rot3": 180,
 },
 "1":{
-       "size": 40,
+  "size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -33,
@@ -402,7 +464,8 @@ const alphabet = {
   "rot3": 180,
 },
 "2":{
-       "size": 40,
+   "size": 40,
+  "scale": 1.2,
    
   "offx": 60,
   "offy": -26,
@@ -416,7 +479,8 @@ const alphabet = {
   "rot3": 180,
 },
 "3":{
-     "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -40,
@@ -430,7 +494,8 @@ const alphabet = {
   "rot3": 90,
 },
 "4":{
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
 
  
   "offx": 70,
@@ -445,7 +510,8 @@ const alphabet = {
   "rot3": 0,
 },
 "5":{
-       "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 40,
   "offy": 22,
@@ -460,7 +526,8 @@ const alphabet = {
 },
 "6":{
 
-         "size": 40,
+"size": 40,
+  "scale": 1.2,
    
   "offx": 38,
   "offy": -22,
@@ -474,7 +541,8 @@ const alphabet = {
   "rot3": 90,
 },
 "7":{
-       "size": 40,
+  "size": 40,
+  "scale": 1.2,
    
   "offx": 54,
   "offy": -22,
@@ -488,7 +556,8 @@ const alphabet = {
   "rot3": 270,
 },
 "8":{
-        "size": 40,
+  "size": 40,
+  "scale": 1.2,
    
   "offx": 50,
   "offy": -24,
@@ -502,7 +571,8 @@ const alphabet = {
   "rot3": 180,
 },
 "9":{
-         "size": 40,
+  "size": 40,
+  "scale": 1.2,
    
   "offx": 62,
   "offy": 20,

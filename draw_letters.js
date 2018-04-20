@@ -1,19 +1,8 @@
-var circleOn = 1;
-var squareOn = 1;
-var TriangleOn = 1;
+
 var posx = 0;
 var posy = 100;
-var SizeOf = 5;
-var circleGridArray = new Array(3);
-for (var i = 0; i < circleGridArray.length; i++) {
-   circleGridArray[i] = new Array(3);
- }
 
-for (var i = 0; i < circleGridArray.length; i++) {
-  for (var j = 0; j < circleGridArray[i].length; j++) {
-    circleGridArray[i][j]= 1;
-  }
-}
+
 /*
  * Draw the letter given the letterData
  *
@@ -23,12 +12,14 @@ for (var i = 0; i < circleGridArray.length; i++) {
  */
 function drawLetter(letterData) {
   
-   let pos1x = posx + letterData["offx"];
-  let pos1y = posy + letterData["offy"];
-  let pos2x = posx + letterData["offx1"];
-  let pos2y = posy + letterData["offy1"];
-  let pos3x = posx + letterData["offx2"];
-  let pos3y = posy + letterData["offy2"];
+   let sc = letterData["scale"];
+  
+   let pos1x = posx + letterData["offx"]*sc;
+  let pos1y = posy + letterData["offy"]*sc;
+  let pos2x = posx + letterData["offx1"]*sc;
+  let pos2y = posy + letterData["offy1"]*sc;
+  let pos3x = posx + letterData["offx2"]*sc;
+  let pos3y = posy + letterData["offy2"]*sc;
   
   let size = letterData["size"];
   
@@ -40,15 +31,16 @@ function drawLetter(letterData) {
    let color2 =  color(228, 115, 72);
     let color3 =  color(144, 36, 108);
     
+   
 
 
-  drawTriangle(pos1x,pos1y,size,rot,color1);
+  drawTriangle(pos1x,pos1y,size,rot,color1,sc);
 
- drawTriangle(pos2x,pos2y,size,rot2,color2);
-  drawTriangle(pos3x,pos3y,size,rot3,color3);
+ drawTriangle(pos2x,pos2y,size,rot2,color2,sc);
+  drawTriangle(pos3x,pos3y,size,rot3,color3,sc);
 }
 
-function drawTriangle (x,y,size,rotation,c){
+function drawTriangle (x,y,size,rotation,c,sc){
 
 noStroke();
   let a = pow(size,2); 
@@ -66,9 +58,8 @@ noStroke();
 translate(x,y);
 rotate(radians(rotation)); 
   fill(c);
-  triangle(x1,y1,x2,y2, x3, y3);
+  triangle(x1*sc,y1*sc,x2*sc,y2*sc, x3*sc, y3*sc);
   fill(255);
-  //  ellipse(0,0,10,10)
     
      rotate(radians(-rotation)); 
     translate(0-x,0-y);
