@@ -80,18 +80,14 @@ function setup () {
 }
 
 function drawLetter(posx, posy, scale, letterData) {
-  // determine parameters for second circle
-  // let size2 = letterData["size"];
-  // let pos22x = posx + letterData["offsetx"];
-  // let pos22y = posy + letterData["offsety"];
-    
+    //parameters for triangle 1
   let pos1x = posx + letterData["x"];
   let pos1y = posy + letterData["y"];
   let pos2x = posx + letterData["2x"];
   let pos2y = posy + letterData["2y"];
   let pos3x = posx + letterData["3x"];
   let pos3y = posy + letterData["3y"];
-    
+   //parameters for triangle 2 
   let pos4x = posx + letterData["4x"];
   let pos4y = posy + letterData["4y"];
   let pos5x = posx + letterData["5x"];
@@ -99,11 +95,9 @@ function drawLetter(posx, posy, scale, letterData) {
   let pos6x = posx + letterData["6x"];
   let pos6y = posy + letterData["6y"];
 
-    
+    //draw 2 triangles
     triangle(pos1x, pos1y, pos2x, pos2y, pos3x, pos3y);
-    triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
-    
-    
+    triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);   
 }
 
 function draw () {

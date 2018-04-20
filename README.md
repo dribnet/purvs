@@ -1,8 +1,17 @@
 ## PS2 MDDN 242 2018
 
-I finished boxing out my alphabet and my numbers. I have stuck to just using the two triangles and found that making my alphabet both legible and nice to look at was easier as opposed to my numbers which i found harder to create using just the two triangles thus they are harder to define. I may look at refining these numbers more and try get each to resemble their assigned number more. 
+TRINITY! 
 
-Overall i am happy with my progress and how my alphabet is turning out. I also changed the colours to blue and red which i think complement each other more than the previous orange and purple i had that was too overpowering reminding me more of a roadcone. I will now look at making these small changes as well as thinking of a name for my font + exhibition words.
+I have created an alphabet entirely from two triangles and called it Trinity! Trintiy because of the 3 sides of a triangle. 
+When thinking of what i would like to create my alphabet from i drew out circles, lines, arcs and triangles on a piece of paper and saw how many letters i could get from each and found that i didn't have much inspiration from the others thus choosing to use 2 triangles and a line. Origianlly my idea was to have the two triangles and a line that ran through the middle of some letters like E and F but after trailing that i decided to get rid of the line as it made the alphabet feel and look inconsistent, having the line also went over the 12 parameter limit. 
+
+When creating Trinity I found that the restriction of only 2 triangles provided me with a challenge when creating the numbers, as i found it was harder to manipulate the triangles to create legible numbers than it was to create each letter. However, i have tried my hardest to resemble each number the best i could.
+
+When chosing the look i didn't particualry have anything in mind but knew i wanted colour as opposed to black and white. I used Adobe Kuler to play around with different colour combinations. I orginally had my colours as orange with a purple outline but felt this was quite overpowering giving me more traffic cone vibes. I decided to tone it down chosing a cool blue with a redish pink outline which complement one another well.
+
+If i were to continue with this assignment i would look more into improving the some of the numberforms letterforms such as the 4, 5, N and Z.
+
+In saying that however i am happy with the progress i made and think the transitions from one letterform to the next are quite cool to look at. I am pleased with how Trinty tuned out.
 
 The parameters per letter are now:
   let pos1x = posx + letterData["x"];
@@ -18,7 +27,3 @@ The parameters per letter are now:
   let pos5y = posy + letterData["5y"];
   let pos6x = posx + letterData["6x"];
   let pos6y = posy + letterData["6y"];
-<!--   * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one -->
-

@@ -12,7 +12,7 @@ const colorStroke = "#DE5A78";
 function drawLetter(letterData) {
 
     //bounding box
-//  rect(0, 0, 100, 200); 
+//rect(0, 0, 100, 200); 
 
 
   // color/stroke setup
@@ -57,10 +57,12 @@ function drawLetter(letterData) {
    return new_letter;
  }
 
- //  var swapWords = [
- // "NAME",
- // "HUMILITY",
- // "KINDNESS",
- // "DETACHED",
- // "PATIENCE"
- // ]
+   var swapWords = [
+  "TRINITY!",
+  "KINDNESS",
+  "HUMILITY",
+  "DETACHED",
+  "PATIENCE",
+  "EQUALITY",
+  "ELEPHANT"
+  ]
