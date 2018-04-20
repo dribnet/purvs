@@ -18,9 +18,9 @@ var posy1 = 10;
 var posy2 = 100;
 var posy3 = 190;
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(1);
+  // fill(colorFront);
+  // stroke(colorStroke);
+  // strokeWeight(0);
 
   //Creating vars from the parameters in letter.js
   let dot1 = letterData["dot1"];
@@ -37,11 +37,18 @@ var posy3 = 190;
   let dotm2 = letterData["dotm2"];
 
   //Draw lines for ease of reading(dev purposes)
-  line(0,0,0,200);
-  line(100,0,100,200);
-  line(0,0,100,0);
-  line(0,200,100,200);
+  // line(0,0,0,200);
+  // line(100,0,100,200);
+  // line(0,0,100,0);
+  // line(0,200,100,200);
 
+  fill(0);
+  rect(0,0,100,200);
+
+
+  fill(255);
+  noStroke();
+  strokeWeight(0);
   //Drawing the dots in a 3x3 grid
   ellipse(posx1, posy1, dot1);
   ellipse(posx2, posy1, dot2);

@@ -1,6 +1,6 @@
 //Creating variables for ease of use in parameters
 //Actually affects the size of the ellipses made in draw_letter.js
-var show = 20;
+var show = 18;
 var hide = 0;
 
 const alphabet = {
