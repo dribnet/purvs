@@ -13,6 +13,9 @@ let line3_Ystart = null;
 let line3_Xdir = null;
 let line3_Ydir = null;
 
+let slope = 0;
+let intercept = 0;
+let equationY = 0;
 let col = 0;
 let	r = 255;
 let	g = 0;
@@ -52,55 +55,31 @@ let savedValues = {
 	"B":
 	{
 		"box1": {
-			"startX": 76,
-			"startY": -120
+			"position": -191,
+			"tilt": -90
 		},
 		"box2": {
-			"dirX": 0,
-			"dirY": 0
+			"position": -54,
+			"tilt": -45
 		},
 		"box3": {
-			"startX": 83,
-			"startY": -117
-		},
-		"box4": {
-			"dirX": 111,
-			"dirY": 14
-		},
-		"box5": {
-			"startX": -53,
-			"startY": -36
-		},
-		"box6": {
-			"dirX": 41,
-			"dirY": -8
+			"position": -12,
+			"tilt": 6
 		}
 	},
 	"C":
 	{
 		"box1": {
-			"startX": 76,
-			"startY": -120
+			"position": -163,
+			"tilt": -84
 		},
 		"box2": {
-			"dirX": 0,
-			"dirY": 0
+			"position": -191,
+			"tilt": 163
 		},
 		"box3": {
-			"startX": 83,
-			"startY": -117
-		},
-		"box4": {
-			"dirX": 111,
-			"dirY": 14
-		},
-		"box5": {
-			"startX": -53,
-			"startY": -36
-		},
-		"box6": {
-			"dirX": 41,
-			"dirY": -8
+			"position": 0,
+			"tilt": -27
 		}
 	}
 }
@@ -211,6 +190,19 @@ const colorFront = [207, 222, 227];
 //colour of the background
 const colorBack = [29, 42, 46];
 
+function drawPart(y_offset, pos, tilt) {
+	let middle_x = 2 * canvasWidth / 3;
+	let middle_y = canvasHeight / 2;
+	resetMatrix();
+	translate(middle_x + pos, middle_y + y_offset);
+	rotate(tilt);
+
+	let scale = 10;
+
+	fill(colorFront);
+// rect(-100,-100,100,100);
+rect(-20*scale, -3*scale, 20*scale, 3*scale);
+}
 
 function calculateVectors(x1,y1,x2,y2) {
 //reset colour values
@@ -229,7 +221,7 @@ DrawFromVectors(directionVector, posVectorS);
 
 function DrawFromVectors(directionVector, posVectorS) {
 	for (i = 0; i < 100; i++) {
-		movementVector = p5.Vector.mult(directionVector,(2*i));
+		movementVector = p5.Vector.mult(directionVector,(i));
 		posVectorN  = p5.Vector.add(posVectorS, movementVector); 
 		xCompon = posVectorN.x;
 		yCompon = posVectorN.y;
