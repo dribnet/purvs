@@ -2,6 +2,9 @@
 var posx = 0;
 var posy = 100;
 
+const colorFront  = "#199cff";
+const colorStroke = "#233f11";
+
 
 /*
  * Draw the letter given the letterData
@@ -10,6 +13,14 @@ var posy = 100;
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+var swapWords = [
+  "MOROCCON",
+  " MOSAIC ",
+  "   BY   ",
+  " GEORGE ",
+  " ROBSON ",
+]
+
 function drawLetter(letterData) {
   
    let sc = letterData["scale"];
@@ -66,7 +77,11 @@ rotate(radians(rotation));
    
      
 }
+ellipse(200,200,10,10);
+   drawTriangle(100,100,1,0,255,2);
 function interpolate_letter(percent, oldObj, newObj) {
+  
+ 
   let new_Letter = {};
   new_Letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_Letter["scale"] = map(percent, 0, 100, oldObj["scale"], newObj["scale"]);
@@ -86,5 +101,5 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_Letter;
 
 
-}
+} 
 
