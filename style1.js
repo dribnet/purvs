@@ -1,22 +1,13 @@
 let main_canvas = null;
 
-let line1_Xstart = null;
-let line1_Ystart = null;
-let line1_Xdir = null;
-let line1_Ydir = null;
-let line2_Xstart = null;
-let line2_Ystart = null;
-let line2_Xdir = null;
-let line2_Ydir = null;
-let line3_Xstart = null;
-let line3_Ystart = null;
-let line3_Xdir = null;
-let line3_Ydir = null;
-
-let col = 0;
-let	r = 255;
-let	g = 0;
-let	b = 0;
+const ballCol   = "#FF7F66";
+const speed = 1.2;
+let countingUp = 1; 
+let counter = 0;
+let r = 0;
+let g = 0;
+let b = 0;
+let ballSpeed = 6;
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -213,69 +204,71 @@ const colorBack = [29, 42, 46];
 
 
 function calculateVectors(x1,y1,x2,y2) {
-//reset colour values
-col = 0;
-r = 255;
-g = 0;
-b = 0;
-posVectorS = createVector(x1,y1); //start position vector
-posVectorD = createVector(x2,y2);
-//calculates directional vector going from positionS to positionD
-directionVector = p5.Vector.sub(posVectorD, posVectorS); 
-//normalize vector - obtains unit directional vector
-directionVector.normalize();
-DrawFromVectors(directionVector, posVectorS);
+  //reset colour values
+  r = 33;
+  g = 133;
+  b = 196;
+  //start position vector
+  posVectorS = createVector(x1,y1); 
+  //the vector that sets the direction that the 'line' goes in
+  posVectorD = createVector(x2,y2);
+  //calculates directional vector going from positionS to positionD
+  directionVector = p5.Vector.sub(posVectorD, posVectorS); 
+  //normalize vector - obtains unit directional vector
+  directionVector.normalize();
+  DrawFromVectors(directionVector, posVectorS);
+  DrawBall(directionVector, posVectorS);
 }
 
 function DrawFromVectors(directionVector, posVectorS) {
-	for (i = 0; i < 100; i++) {
-		movementVector = p5.Vector.mult(directionVector,(2*i));
-		posVectorN  = p5.Vector.add(posVectorS, movementVector); 
-		xCompon = posVectorN.x;
-		yCompon = posVectorN.y;
-		drawFromComponents(xCompon, yCompon);
+  for (i = 0; i < 100; i++) {
+    //create a vector for the movement we will take (multiplication of i is the length of the line)
+    movementVector = p5.Vector.mult(directionVector,(i*speed));
+    //add the starting position vector to the movement vector to get it the right place
+    posVectorN  = p5.Vector.add(posVectorS, movementVector); 
+    //get the x & y components
+    xCompon = posVectorN.x;
+    yCompon = posVectorN.y;
+    drawFromComponents(xCompon+500, yCompon+200);
+  }
+}
+
+function DrawBall(directionVector, posVectorS, xpos, ypos) {
+
+	//find out which direction the ball is going in, & switch it round if we're at the end of the line.
+	if (countingUp == 1 ) {
+		counter++;
 	}
+	else {
+		counter--
+	}
+	if (counter >= (100*ballSpeed)) {
+		countingUp = 0;
+	}
+	else if (counter < 0) {
+		countingUp = 1;
+	}
+
+	fill('#FF7F66');
+	xStart = posVectorS.x;
+	yStart = posVectorS.y;
+	xPos = directionVector.x*counter*speed/ballSpeed;
+	yPos = directionVector.y*counter*speed/ballSpeed;
+	xPosDraw = xStart + xPos;
+	yPosDraw = yStart + yPos;
+	posVectorCurrent = createVector(xPosDraw,yPosDraw);
+	//draw the ball
+	ellipse(xPosDraw+500, yPosDraw+200, 5,5);
 }
 
 function drawFromComponents(xCompon, yCompon) {
-	if(col == 0){ 
-		g = g + 10;
-       if(g >= 255) {
-           col = 1;
-       }
-   }
-	if(col == 1){ 
-		r = r - 10;
-		if(r <= 0) {
-			col = 2;
-		}
-	}
-	if(col == 2){ 
-		b = b + 10;
-		if(b >= 255) {
-			col = 3;
-		}
-	}
-	if(col == 3){ 
-		g = g - 10;
-		if(g <= 0) {
-			col = 4;
-		}
-	}
-	if(col == 4){ 
-		r = r + 10;
-		if(r >= 255) {
-			col = 5;
-		}
-	}
-	if(col == 5){ 
-		b = b - 10;
-		if(b <= 0) {
-			col = 0;
-		}
-	}
-	fill (r, g, b); 
-	ellipse(xCompon + (canvasWidth/2), yCompon + (canvasHeight/2), 30,30);
+r++;
+g++;
+b++; 
+
+fill (r, g, b); 
+//draw the circle!
+ellipse(xCompon, yCompon, 3,3);
 }
 
 
@@ -288,7 +281,9 @@ function drawFromSliders(xstart, ystart, xdir, ydir) {
 }
 
 function draw () {
-	background(colorBack);
+	background(50);
+	fill(0) 
+	rect(500,200,100,200);
 	fill(colorFront);
 	strokeWeight(0.5);
 	stroke('#222222');

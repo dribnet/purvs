@@ -1,17 +1,14 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 const ballCol   = "#FF7F66";
-const speed = 1.4;
-let speed2 = 1.4;
+const speed = 1.2;
+let countingUp = 1; 
+let counter = 0;
 let r = 0;
 let g = 0;
 let b = 0;
-let xpos1 = 0;
-let ypos1 = 0;
-let xpos2 = 0;
-let ypos2 = 0;
-let xpos3 = 0;
-let ypos3 = 0;
+let ballSpeed = 6;
+
 
 /*
  * Draw the letter given the letterData
@@ -20,7 +17,10 @@ let ypos3 = 0;
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+
  function drawLetter(letterData) {
+ 	
   fill(colorFront);
   noStroke(0);
   calculateVectors(letterData["StartX1"],letterData["StartY1"], letterData["DirX1"], letterData["DirY1"] );
@@ -43,7 +43,7 @@ function calculateVectors(x1,y1,x2,y2) {
   //normalize vector - obtains unit directional vector
   directionVector.normalize();
   DrawFromVectors(directionVector, posVectorS);
-  DrawBall(directionVector, posVectorS, xpos1, ypos1);
+  DrawBall(directionVector, posVectorS);
 }
 
 function DrawFromVectors(directionVector, posVectorS) {
@@ -60,34 +60,31 @@ function DrawFromVectors(directionVector, posVectorS) {
 }
 
 function DrawBall(directionVector, posVectorS, xpos, ypos) {
-	//xpos = xpos + (directionVector.x*speed);
-	//ypos = ypos + (directionVector.y*speed);
-	fill(255);
+
+	//find out which direction the ball is going in, & switch it round if we're at the end of the line.
+	if (countingUp == 1 ) {
+		counter++;
+	}
+	else {
+		counter--
+	}
+	if (counter >= (100*ballSpeed)) {
+		countingUp = 0;
+	}
+	else if (counter < 0) {
+		countingUp = 1;
+	}
+
+	fill('#FF7F66');
 	xStart = posVectorS.x;
 	yStart = posVectorS.y;
-	//  Making a position vector of the final position of the line
-	xFinish = xStart + directionVector.x*speed*100;
-	yFinish = yStart + directionVector.y*speed*100;
-    posVectorFinish = createVector(xFinish,yFinish); 
-    // Calculate length of line from start to finish
-	lineVector = p5.Vector.sub(posVectorFinish, posVectorS);
-	fromStartToFinish = lineVector.mag();
-	// Calculate new position for ball 
-	xPos = directionVector.x*speed2*frameCount;
-	yPos = directionVector.y*speed2*frameCount;
+	xPos = directionVector.x*counter*speed/ballSpeed;
+	yPos = directionVector.y*counter*speed/ballSpeed;
 	xPosDraw = xStart + xPos;
 	yPosDraw = yStart + yPos;
-	//Calculate length from start to current
 	posVectorCurrent = createVector(xPosDraw,yPosDraw);
-	lineVectorCurrent = p5.Vector.sub(posVectorCurrent, posVectorS);
-	fromStartToCurrent = lineVectorCurrent.mag();
-	// Draw ball
-	ellipse(xPosDraw, yPosDraw, 10,10);
-	// Check if ball at end of line
-	if (fromStartToCurrent >= fromStartToFinish || fromStartToCurrent == 0) {
-		speed2 = (-1)*speed2/frameCount;
-		}
-
+	//draw the ball
+	ellipse(xPosDraw, yPosDraw, 5,5);
 }
 
 function drawFromComponents(xCompon, yCompon) {

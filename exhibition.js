@@ -38,6 +38,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+  "UPANDOWN",
   "ACTUALLY",
   "1234567?",
   "EXPECTED",

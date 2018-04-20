@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#FFF6E5";
-const colorLines   = "#40484F";
+const colorBack    = "#e3eded";
+const colorLines   = "#000090";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -53,10 +53,10 @@ function draw () {
 
     // draw lines
     stroke(colorLines);
-    line(left_margin, 0, right_margin, 0);
-    for(let i=left_margin; i<right_margin-8; i+=30) {
-      line(i, 100, i+12, 100);
-    }
+    //line(left_margin, 0, right_margin, 0);
+    //for(let i=left_margin; i<right_margin-8; i+=30) {
+    //  line(i, 100, i+12, 100);
+    //}
     line(left_margin, 200, right_margin, 200);
 
     translate(left_margin+first_letter_offset_x, 0);
