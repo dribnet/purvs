@@ -421,18 +421,18 @@ const alphabet = {
     "rot4": 45
   },
   "3": {
-    "offsetx1": 0,
-    "offsetx2": 0,
-    "offsetx3": 0,
-    "offsetx4": 10,
+    "offsetx1": 40,
+    "offsetx2": 40,
+    "offsetx3": 40,
+    "offsetx4": 50,
     "offsety1": -55,
     "offsety2": -55,
     "offsety3": 55,
     "offsety4": 0,
-    "rot1": 0,
-    "rot2": 0,
-    "rot3": 0,
-    "rot4": 0
+    "rot1": 180,
+    "rot2": 180,
+    "rot3": 180,
+    "rot4": 180
   },
   "4": {
     "offsetx1": -105,
