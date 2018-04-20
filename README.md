@@ -1,7 +1,5 @@
 ## PS2 MDDN 242 2018
 
-![alt text](graph.jpg);
-
 ### IDEA:
 
 I have named my alphabet 'TRONBLOCK', it follows a robotic/block like theme. Some letters are intended to look slightly incomplete, as the unfinished section is replaced by a small ellipse. continuing the outline of the letter around the ellipse the letter should become clear.
