@@ -1,16 +1,16 @@
 {
   "commits": [
     {
-      "sha": "1eb50a6ac778e982ec5230a86bc4b3f3407a5ead",
-      "name": "final"
+      "sha": "0dac1d4dc73a919ba88d3040e27353b405518b2c",
+      "name": "Final"
     },
     {
       "sha": "ad2d394f69de5112c4b46537ff686ca6c58c89ca",
-      "name": "experiment2"
+      "name": "Experiment2"
     },
     {
       "sha": "54742691d50c55bdac3b94f75e0c72168f7beaaa",
-      "name": "experiment2"
+      "name": "Experiment2"
     }
   ]
 }
