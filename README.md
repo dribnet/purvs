@@ -1,19 +1,19 @@
 ## PS2 MDDN 242 2018
-For the interaction I test all my letters and they all worked and there are some changes that I did not even imanige of myself.
-The rx1,ry1,rx2,ry2 control the red line.
-the ox1,oy1,ox2,oy2 control the orange line.
-The ex,ey ex2,and ey2 control two yellow circles.
 
+My idea is come from pizza, so I choose red line, orange line and two yellow circles, they are ham, cheese and squid or onion roll to constitute my letters. B is little bit different than A and C so letters create start from B because B has two circles if I solve the B than A, C will be easy. I never change my idea or any parameters from the beginning because in my opinion letters and numbers need to easy to understand although my letters are little bit simple, I still think it is already enough. In the process or the project I did not met too much problem cause I have only 4 staffs and 12 parameters to control, two of thems are lines so that the position is easy to find. To be honest I really think use those ways to create numbers and letters sometimes is really make people feel confused and dizzness I really spent much time on how to transform two circles and two lines become to 26 letters and also numbers expecially numbers becuase numbers has two many curves so I tried to use my lines just sketch a contour others curves will be keep them blank or use two circles. Some of my letters and numbers are similar but I still it is still easy to recognized. I choose pink to be my background cause I think that make eyes fell comfortable. 
 
-<<<<<<< HEAD
-My idea is com from the pizza, so I choose red line, orange line and two yellow circles, they are ham, cheese and squid or onion roll to constitute my letters.
-=======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
->>>>>>> upstream/part2
+The 12 parameters per letter are now:
+  * `rx1` : first x point of the red line.
+  * `ry1` : first y point of the red line.
+  * `rx2` : second x point of the red line.
+  * `ry2` : second y point of the red line.
+  * `ox1` : first x point of the orange line.
+  * `oy1` : first y point of the orange line.
+  * `ox2` : second x point of the orange line.
+  * `oy2` : second y point of the orange line.
+  * `ex` :  x point of the first yellow circle.
+  * `ey` :  y point of the first yellow circle.
+  * `ex2` :  x point of the second yellow circle.
+  * `ey2` :  y point of the second yellow circle.
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
