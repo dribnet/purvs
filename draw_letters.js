@@ -7,7 +7,9 @@ let counter = 0;
 let r = 0;
 let g = 0;
 let b = 0;
-let ballSpeed = 6;
+//lower is faster, higher is slower
+//i like it higher, makes it real smooth & satisfying
+let ballSpeed = 10;
 
 
 /*
@@ -20,6 +22,7 @@ let ballSpeed = 6;
 
 
  function drawLetter(letterData) {
+  frameRate(30); //otherwise it changes speed on different computers
   fill(colorFront);
   noStroke(0);
   calculateVectors(letterData["StartX1"],letterData["StartY1"], letterData["DirX1"], letterData["DirY1"] );
