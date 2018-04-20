@@ -14,7 +14,7 @@ The 12 parameters per letter are:
 
 ### Inspiration
 
-The main inspiration are Maori paints for the colour scheme, which I felt fit well with the theme of primitive shapes and also lead me to use more muted colours and rounded strokes to give a more organic and less harsh feel to the letter forms.
+The main inspiration are Maori paints for the colour scheme, which I felt fit well with the theme of primitive shapes and the idea simple and elegant, as opposed to overconstructed. Additionally it lead me to use more muted colours and rounded strokes to give a more organic and less harsh feel to the letter forms.
 
 ### Aim
 
