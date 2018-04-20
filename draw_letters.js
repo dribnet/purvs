@@ -1,9 +1,17 @@
 const colorFront  = "#199cff";
 const colorStroke = "#233f11";
 const ballCol   = "#FF7F66";
+const speed = 1.4;
+let speed2 = 1.4;
 let r = 0;
 let g = 0;
 let b = 0;
+let xpos1 = 0;
+let ypos1 = 0;
+let xpos2 = 0;
+let ypos2 = 0;
+let xpos3 = 0;
+let ypos3 = 0;
 
 /*
  * Draw the letter given the letterData
@@ -18,6 +26,7 @@ let b = 0;
   calculateVectors(letterData["StartX1"],letterData["StartY1"], letterData["DirX1"], letterData["DirY1"] );
   calculateVectors(letterData["StartX2"],letterData["StartY2"], letterData["DirX2"], letterData["DirY2"] );
   calculateVectors(letterData["StartX3"],letterData["StartY3"], letterData["DirX3"], letterData["DirY3"] );
+
 }
 
 function calculateVectors(x1,y1,x2,y2) {
@@ -34,12 +43,13 @@ function calculateVectors(x1,y1,x2,y2) {
   //normalize vector - obtains unit directional vector
   directionVector.normalize();
   DrawFromVectors(directionVector, posVectorS);
+  DrawBall(directionVector, posVectorS, xpos1, ypos1);
 }
 
 function DrawFromVectors(directionVector, posVectorS) {
   for (i = 0; i < 100; i++) {
     //create a vector for the movement we will take (multiplication of i is the length of the line)
-    movementVector = p5.Vector.mult(directionVector,(i*1.4));
+    movementVector = p5.Vector.mult(directionVector,(i*speed));
     //add the starting position vector to the movement vector to get it the right place
     posVectorN  = p5.Vector.add(posVectorS, movementVector); 
     //get the x & y components
@@ -47,6 +57,37 @@ function DrawFromVectors(directionVector, posVectorS) {
     yCompon = posVectorN.y;
     drawFromComponents(xCompon, yCompon);
   }
+}
+
+function DrawBall(directionVector, posVectorS, xpos, ypos) {
+	//xpos = xpos + (directionVector.x*speed);
+	//ypos = ypos + (directionVector.y*speed);
+	fill(255);
+	xStart = posVectorS.x;
+	yStart = posVectorS.y;
+	//  Making a position vector of the final position of the line
+	xFinish = xStart + directionVector.x*speed*100;
+	yFinish = yStart + directionVector.y*speed*100;
+    posVectorFinish = createVector(xFinish,yFinish); 
+    // Calculate length of line from start to finish
+	lineVector = p5.Vector.sub(posVectorFinish, posVectorS);
+	fromStartToFinish = lineVector.mag();
+	// Calculate new position for ball 
+	xPos = directionVector.x*speed2*frameCount;
+	yPos = directionVector.y*speed2*frameCount;
+	xPosDraw = xStart + xPos;
+	yPosDraw = yStart + yPos;
+	//Calculate length from start to current
+	posVectorCurrent = createVector(xPosDraw,yPosDraw);
+	lineVectorCurrent = p5.Vector.sub(posVectorCurrent, posVectorS);
+	fromStartToCurrent = lineVectorCurrent.mag();
+	// Draw ball
+	ellipse(xPosDraw, yPosDraw, 10,10);
+	// Check if ball at end of line
+	if (fromStartToCurrent >= fromStartToFinish || fromStartToCurrent == 0) {
+		speed2 = (-1)*speed2/frameCount;
+		}
+
 }
 
 function drawFromComponents(xCompon, yCompon) {
