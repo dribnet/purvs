@@ -13,11 +13,22 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "v1":130,200,
-  "v2":230,200,
-  "v3":230,300,
-  "v4":280,250,
-  "v5":130,300
+	//v1 top left of bounding box
+	"v1x":130,
+	"v1y":200,
+	//v2 top right of bounding box 
+	"v2x":230,
+	"v2y":200,
+	//v3 bottom right of bounding box
+	"v3x":180,
+	"v3y":250,
+	//middle paramenter in most cases but can be swapped
+	"v4x":300,
+	"v4y":300
+	//Anchor point at bottom left
+	//offsetX:
+	//offsetY:
+	//size:???
 }
 
 const letterB = {
@@ -53,19 +64,28 @@ function setup () {
 function drawLetter(posx, posy, scale, letterData) {
   
   //LetterA trial
-  let v1 = letterData["v1"];
-  let v2 = letterData["v2"];
-  let v3 = letterData["v3"];
-  let v4 = letterData["v4"];
-  let v5 = letterData["v5"];
+  //let v1 = letterData["v1"];
+  //let v2 = letterData["v2"];
+  //let v3 = letterData["v3"];
+  //let v4 = letterData["v4"];
+  //let v5 = letterData["v5"];
+  let anchorX = 130;
+  let anchorY = 300;
+
+  let v1x = letterData["v1x"]; let v1y = letterData["v1y"];
+  let v2x = letterData["v2x"]; let v2y = letterData["v2y"];
+  let v3x = letterData["v3x"]; let v3y = letterData["v3y"];
+  let v4x = letterData["v4x"]; let v4y = letterData["v4y"];
 
   beginShape();
-    vertex(v1);
-    vertex(v2);
-    vertex(v3);
-    vertex(v4);
-    vertex(v5);
+    vertex(v1x,v1y);
+    vertex(v2x,v2y);
+    vertex(v3x,v3y);
+    vertex(v4x,v4y);
+    vertex(anchorX,anchorY);
   endShape(CLOSE);
+
+
 
   // determine parameters for second circle
   // size2 = letterData["size"];
