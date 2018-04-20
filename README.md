@@ -2,7 +2,7 @@
 
 My final alphabet is called Bubblegum which is mostly inspired by my chosen colour of my text which consists of a light pink colour. The name was also inspired by the soft curves of the circles and the rounded edges of the line. It is a lowercase alphabet which proved quite challenging when trying to create the letters and numbers within the twelve parameter guide line. 
 
-When creating my alphabet I ran into the problem of having too many parameters. I solveed this by making the x start position of my line equal to the x end position of my line. This allowed me to have enough parameters to enable me to control my arc but resulted in my line being only able to be drawn straight down vertically. 
+When creating my alphabet I ran into the problem of having too many parameters. I solved this by making the x start position of my line equal to the x end position of my line. This allowed me to have enough parameters to control my arc but resulted in my line being only able to be drawn straight down vertically. 
 
 The tweleve parameters per letter are now:
 * `size` : radius of the first circle
