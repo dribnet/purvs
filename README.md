@@ -1,65 +1,48 @@
-##Technical Lettering of someone from OCD Alphabet: PS2 MDDN 242 2018
+#VINTAGE?: PS2 MDDN 242 2018
 
-## Thomas Hartley
+Thomas Hartley
 
-<<<<<<< HEAD
-##Introduction
+#Introduction
 Inspiration and Reasoning
 
-The alphabet and typography used is inspired directly from 'Gothic sans-serif' which is used by enginners and formed from simple strokes consisting of horizontal and vertical lines from left to right and top to bottom (https://en.wikipedia.org/wiki/Technical_lettering and http://ednotebook.hostgator.co.in/basics-of-engineering-drawing). The main use is for diagrams and detailed plans to prevent confusion if someone were to reread or look over the same documents. In middle school, I was taught the simplicity of this type of writing and I was very fond of it. I have OCD and so patterns of edges and lines are very prodominant to me. Specifically the ratio of each 'stroke' of each letter and the shape of each stroke. 
-=======
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+The alphabet and typography used is inspired directly from 'Gothic sans-serif' and my own personal preference in minimilist line art and the 'OCD' astethic (https://en.wikipedia.org/wiki/Technical_lettering and http://ednotebook.hostgator.co.in/basics-of-engineering-drawing).
+This type font to me is very pleasing, easy to understand, simple to use, and is a allusion to old style type writter font. 
 
-The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
->>>>>>> upstream/part2
+#System and the Stroke
 
-##Typography
-
-#System
-
-Each letter is formed of a finite number of strokes with alternate x and y offsets, curvatures, as well as varrying angles. This means that defining each letter form with a few parameters and drawing the length, depth, ratio, etc from the variables given and then finally drawing the letter from the strokes and variables. The system itself takes a few parameters and then calculates out the details, which means that given the little amount of information, the rest needed can be derived from what is given.
-
-The system itself pushes or adds each vertex or point to the letterform (shaping) array which is gathered from the parameters given. This is then used to draw the x and y of each point and line. Furthermore, each Stroke (aStroke) has its own class or type with its own defined functions and variables. These functions are responsible for their own calculations and their own defining functions in order to show that each stroke is unique and is not conflicted with the math or variables for each other stroke type. As the letter system passes each variable, the new 
-
-#Stroke
-
-The Stroke 
+The system (for the most part) works by generating the distance between two points and iterates through each between the two pointspoint in order to form the shape. The astethic is created by 'gapping' between a few veticies based on the other defined variables. 
 
 #Stroke Design
 
-Aside the frame being defined, the design features and flaws are built entirely on the ration of spacing and the 
+Aside the frame being defined, the design features and flaws are built entirely on the ration of spacing and the consitant use of at least one side of each frame being used (left maximum, right maximum, top maximum, and bottom maximum [these are not variables but descritptors]).
+
+#Design Process
+
+A few things that are defined for various reasons:
+-The gap and stroke width and line width  - both gap and line width are defined by the stroke width in order to cause the least amount of conflict regarding each individual line clashing.
+-Color Scheme - Based on old typewriter script and black and white vintage films as well as a minimalist palette. 
+-Color Variation - The varrying color in each stroke (1 to 3) was initally meant to represent the order in which the strokes are made. This was also to simulate a "running out of ink" subtle effect.
+
+#Possibilities
+
+A few ideas fell through due to timing, however a few concepts that could be implemented would be an animation for the drawing function itself, a random width and scale that would not conflict with other frames and objects, and a full ascii keyboard of characters that could be drawn. 
+
 #Functions and Variables (Via System)
 
 Name | Location | Purpose
 
-canvasWidth | Initial Variable | Defines the Canvas Width.
-canvasHeight | Initial Variable | Defines the Canvas Height.
+(The # represents the variation in numbers as per each variable value 1-3 and 1-6)
+Stroke#_x# | letterData | Defines the x value of the for each point for each stroke.
+Stroke#_y# | letterData | Defines the y value of the for each point for each stroke.
 
-fW (Frame Width)| Initial Vairable | Defines the current frame width.
-fH (Frame Height) | Initial Variable | Defines the current frame height.
-fX (Frame X) | Initial Variable | Defines the current X position of the frame.
-fY (Frame Y) | Initial Varialbe | Defines the current Y poition of the frame.
+cX | draw_letters | The map for each X value in each line.
+cY | draw_letters | The map for each Y value in each line.
+gap | draw_letters | This is responsible for determining the size and consistency of the spacing between each vertice.
 
-letter [] | Intiial Array | Constains all the 'strokes' used for each and every letter used thus far.
-LetterData | Constant Values | Contains the data of values for each letter form.
+drawLetter() | draw_letters | Draws each letter based on its Letter Data.
+x# | drawLetter() | defines the x value based on letterData.
+y# | drawLetter() | defines the y value based on letterData.
 
-colorBack | Initial Variable | The constant color of the Background.
-colorStroke | Initial Vairaible | The constant color of the stroke of the shape and letter.
+drawin() | draw_Letters | From the arguments, maps each value of the line based on absolute value of distance and draws the vertice based on gap and the restrictive size.
 
-(Within setup the angle mode is change to degrees as its easier to preform the math.)
-
-aStroke () | Function and Type | Takes the x, y, angle, and curve parameters and holds its own variables and function as it constructs and completes each stroke and each strokes values. 
-
-x | aStroke Variable | Derived from parameter, is the current x of the shape.
-y | aStroke Variable | Derived from parameter, is the current y of the shape.
-angle | aStroke Variable | Derived from parameter, is the angle offset of the stroke and provideds theta for the rotation and calculation.
-curve | aStroke Variable | Derived from parameter and is responsible for determining the size and type of curve of each letter form.
-length | aStroke Variable | This is calculated to produce the length of the stroke and then is used to map out the required X and Y for each vertex.
-rA | aStroke Variable | This is the ratio of the angle and opposing side of the triangle to the length of the hypotenuse (length).
-shaping [] | aStroke Varaible | This is the array of the X and Y position for each vertex in the stroke shape. 
-gap | aStroke Variable | Boolean variable used to create the visual gap between the seperate horizontal lines within each stroke. 
-gap2 | aStroke Variable | This is also used to create the visual gap in the stroke by waiting a defined amount of processed verticies before drawing the next horizontal line. 
+interpolate_letter() | draw_letters | Defines the new letter data based on the old letter and new letter in order to preform a smooth animation of a transition.

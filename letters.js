@@ -1,3 +1,9 @@
+//Variables
+//Stroke#_x#
+//Stroke#_y#
+//Each variable correctly identifies the x and y points for each 'stroke'
+//with three strokes per letter object.
+
 const alphabet = {
   "default": {   
     "stroke1_x1": 10,
