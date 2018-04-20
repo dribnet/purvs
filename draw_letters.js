@@ -66,3 +66,25 @@ rotate(radians(rotation));
    
      
 }
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_Letter = {};
+  new_Letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_Letter["scale"] = map(percent, 0, 100, oldObj["scale"], newObj["scale"]);
+  
+  new_Letter["rot"] = map(percent, 0, 100, oldObj["rot"], newObj["rot"]);
+  new_Letter["rot2"] = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
+  new_Letter["rot3"] = map(percent, 0, 100, oldObj["rot3"], newObj["rot3"]);
+    
+  new_Letter["offx"] = map(percent, 0, 100, oldObj["offx"], newObj["offx"]);
+  new_Letter["offx1"] = map(percent, 0, 100, oldObj["offx1"], newObj["offx1"]);
+  new_Letter["offx2"] = map(percent, 0, 100, oldObj["offx2"], newObj["offx2"]);
+  
+  new_Letter["offy"] = map(percent, 0, 100, oldObj["offy"], newObj["offy"]);
+  new_Letter["offy1"] = map(percent, 0, 100, oldObj["offy1"], newObj["offy1"]);
+  new_Letter["offy2"] = map(percent, 0, 100, oldObj["offy2"], newObj["offy2"]);
+  
+  return new_Letter;
+
+
+}
+
