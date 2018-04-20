@@ -14,6 +14,8 @@ I was unable to effectively bridge the gap between my animations and the interpo
 Due to the architecture of this design it took a bit to get it to all come together. Were I to attempt it again, I would produce code in stages working up to my final design as I did in the clock project, rather than attempting to build top-down from a vision of a finished system. This also would have avoided my API issues early on.
 In the future I intend to much more carefully keep on top of what else is going on with the assignment! I got carried away with my excessive design which ended up being mostly wasted, as the animation isn't visible and the interpolation allowances never go to be used.
 
-Despite my failure to unify all aspects of the project as assigned, I am pleased with how the particle system itself came out, and I think the visuals are quite striking. This project has mostly been a lesson in organisation and academic mindfulness rather than programming advancement, but I think that's more valuable in the end.
+Despite my failure to unify all aspects of the project as assigned, I am pleased with how the particle system itself came out, and I think the visuals are quite striking. This project has mostly been a lesson in organisation and academic mindfulness rather than programming advancement, but I think that's more valuable in the end. I would have liked more opportunity to experiment with the visuals also.
+
+I am also pleased (though maybe I shouldn't be!?) with managing to commit code atrocities to wrangle what functionality I managed with the API. This was achieved by using the letters.js alphabet array as an extra place to store my character object state so that they'd be able to persist across drawLetter calls. This criminal technique was inspired by memories of chip-8 game assembly programming.
 
 ---
