@@ -37,10 +37,10 @@ var posy3 = 190;
   let dotm2 = letterData["dotm2"];
 
   //Draw lines for ease of reading(dev purposes)
-  // line(0,0,0,200);
-  // line(100,0,100,200);
-  // line(0,0,100,0);
-  // line(0,200,100,200);
+  line(0,0,0,200);
+  line(100,0,100,200);
+  line(0,0,100,0);
+  line(0,200,100,200);
 
   //Drawing the dots in a 3x3 grid
   ellipse(posx1, posy1, dot1);
