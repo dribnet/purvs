@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorLines   = "#ffffff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -83,7 +83,7 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(colorBack);
+  background(0);
 
   // draw the interpolation on the guidelines
   push();
