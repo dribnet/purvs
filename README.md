@@ -19,7 +19,7 @@ The ending result was the creation of alot of parameters for each of the rect, w
 
 ## CONCLUSION
 
-the many use of my parameters ended with a unique flow transition that i didnt forsee all at the cause of having a huge parameter library. But despite this downside i enjoyed and learnt an interesting connection between a library of parameters and how it interwined well into the changeing transition of letters.
+the many use of my parameters ended with a unique flow transition that i didnt forsee all at the cause of having a huge parameter library. But despite this downside i enjoyed and learnt an interesting connection between a library of parameters and how it interwined well into the changing transition of letters.
 
 the ending parameter Number was 20, and this could have been way bigger bumped up to 25 if i added the moving feature which was discarded in order to keep the clarity of the cipher code without disruption, and i didn't have enough time to properly debug that feature.
 
