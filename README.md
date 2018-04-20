@@ -1,13 +1,27 @@
 ## PS2 MDDN 242 2018
 
+Final Statement
+
+
+In my font, each letter is composed with four triangles. All this triangles are in green tone colour and with opacity difference in them. When these triangles overlying each other, there will be a new colour("new triangle"). My idea is inspired from paper crane, so I use the elements such as crane(nature) and triangle(shape). I want my letters have a style which is natural, fresh and simple. According to that, I choose light green and light blue to be the colour in my font. I can make my font better if I can find out a way to create more animation which are relate to paper folding. Also, if I can put more parameters, I want to use "scale" parameter in all my triangles so that I can create a more readable shape for my letter.
+
+critique the design. What would you do to make it better? what was difficult about making it?
+****************
+experiment 1:
+
+This is my original style. The triangles are in dark green and background colour is silver. I didn't add opacity in my letters.
+
 ****************
 experiment 2:
+
 tried four different background colours:
 
 const colorBack    = "#e3eded"; // light blue
 const colorBack    = "#e6f0e1"; // light green
 const colorBack    = "#fff4f4"; // light pink
 const colorBack    = "#f3fafc"; // light blue2 (currently use)
+
+I changed my colour in green tone, with light blue at the back. To create a fresh and natural style.
 
 ****************
 update: Interaction and Exhibition
