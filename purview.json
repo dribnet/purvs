@@ -1,16 +1,20 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "sha": "1af81405edee3fd896b1f152325e2e671f4a41fc",
+      "name": "Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+      "sha": "a8c12f65c82c485a4d6e0778a5b04963b7b5a175",
+      "name": "Transition Progress"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "experiment2"
+      "sha": "23833956742b628a5884b5d99544095dd598a0e0",
+      "name": "First Few Letters"
+    },
+    {
+      "sha": "4b96b8098287e12bd3c9a4ea5254f7a87053d714",
+      "name": "First Sketch"
     }
   ]
 }
