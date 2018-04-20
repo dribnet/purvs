@@ -1,0 +1,16 @@
+{
+  "commits": [
+    {
+      "sha": "74e4b784e8edfad8479df1e37a7a357ac0bff234",
+      "name": "final"
+    },
+    {
+      "sha": "c51bff156838dfd733daea67015f9e71558720ec",
+      "name": "experiment2: calculating the ball movemement wrong (check the code)"
+    },
+    {
+      "sha": "d481486150f73ec9ad6c3eb6dd33de02c7c5ed5d",
+      "name": "experiment1: rainbow trail thing (written in style1.js not drawletters)"
+    }
+  ]
+}
