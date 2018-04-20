@@ -41,17 +41,16 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
+  
+  "?BUBBLE?",
+  "RECEIVED",
+  "HAPPENED",
+  "HONEYDEW",
+  "???",
   "PROVIDED",
   "ALTHOUGH",
   "HAPPENED",
   "QUESTION",
-  "AMERICAN",
   "INCREASE",
   "RECEIVED",
   "ANYTHING",

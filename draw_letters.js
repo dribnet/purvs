@@ -42,8 +42,6 @@ function drawLetter(letterData) {
   strokeWeight (4);
   fill(colorFront);
 
-
-
   //drawing two circles
   fill(colorFront);
   ellipse(posx, posy, size, size);
