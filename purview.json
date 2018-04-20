@@ -6,12 +6,16 @@
       "name": "final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+      "sha": "e486121749edb1a4a70c670b3141bcc434094e36",
+      "name": "Initial Ideas"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "experiment1"
+      "sha": "fcce27e709abedba39393a85b9f2104ff269528f",
+      "name": "Alphabet"
+    }
+    {
+      "sha": "befbe1b61c8890a0293b1b0f218c39c81119de81",
+      "name": "Interaction"
     }
   ]
 }
