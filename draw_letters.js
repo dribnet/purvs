@@ -1,16 +1,8 @@
 //const colorBack   = "#e3eded";
-const colorStroke = "#233f11";
-
-const cW = 960;
-const cH = 500;
-
-let fW = cW*0.1;
-let fH = cH*0.1;
-let fX = cW*0.25;
-let fY = cH*0.25;
-
-var letter = [];
-
+//const colorStroke = "#233f11";
+let cY;
+let cX;
+let gap;
 /*
  * Draw the letter given the letterData
  *
@@ -34,7 +26,7 @@ var letter = [];
   ellipse(pos2x, pos2y, size2, size2);
 }*/
 
-function aStroke(x, y, x2, y2){
+/*function aStroke(x, y, x2, y2){
   this.x = x; 
   this.y = y;
   this.angle = angle;
@@ -97,41 +89,56 @@ this.lenCal = function(){
   } 
   return length;
   };
-}
+}*/   
 
 function drawLetter(letterData) {
-  stroke(140,140,140);
-  strokeWeight(5);
+  stroke(80,80,80);
+  strokeWeight(4);
   let x1 = letterData["stroke1_x1"];
   let x2 = letterData["stroke1_x2"];
   let y1 = letterData["stroke1_y1"];
   let y2 = letterData["stroke1_y2"];
-  line(x1, y1, x2, y2);
+  //line(x1, y1, x2, y2);
+  
+  drawin(x1, y1, x2, y2);
+  
   stroke(77,77,77);
-  strokeWeight(7.5);
+  //strokeWeight(7.5);
   let x3 = letterData["stroke2_x1"];
   let x4 = letterData["stroke2_x2"];
   let y3 = letterData["stroke2_y1"];
   let y4 = letterData["stroke2_y2"];
-  line(x3, y3, x4, y4);
+  //line(x3, y3, x4, y4);
+  
+  drawin(x3, y3, x4, y4);
+  
   stroke(0,0,0);
-  strokeWeight(10);
+  //strokeWeight(5);
   let x5 = letterData["stroke3_x1"];
   let x6 = letterData["stroke3_x2"];
   let y5 = letterData["stroke3_y1"];
   let y6 = letterData["stroke3_y2"];
-  line(x5, y5, x6, y6);
+  
+  drawin(x5, y5, x6, y6);
 }
 
-function distance(x, y, x2, y2){
-  return Math.floor()
-}
-
-function fullDraw(){
-  for(i = 0; i < letter.length; i++){
-    letter[i].drawing();
-  }
-}
+function drawin(x1, y1, x2, y2){
+  length = ((((x2 - x1)^2)+((y2 - y1)^2))^0.5);
+  beginShape(LINES);
+  let gap = 0;
+  for(i = 0; i < length; i++){
+	  let cX = map(i, 0, length, x1, x2);
+    let cY = map(i, 0, length, y1, y2);
+    if(gap > 4){
+      gap = 0;
+      vertex(cX, cY);
+      vertex(cX + 8, cY);
+    }
+    else{gap = gap + 1;};
+  };
+  endShape();
+  
+};
 
 function keyTyped() {
   if (key == '!') {
