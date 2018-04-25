@@ -2,10 +2,10 @@
 	const colorStroke = "#233f11";
 
 var swapWords = [
-	"BezierTest",
-	"enchalada",
-	"tacobell",
-	"Tortillia"
+	"FUGFONT",
+	"TACOBELL",
+	"JIMBEAM",
+	"HEADPHONE"
 ]
 
 function preload()[

@@ -525,6 +525,6 @@ const alphabet = {
       "rot1": -90, 
       "rot2": -90 
 
-},
+}
 
 } 
