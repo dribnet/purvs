@@ -1,12 +1,16 @@
 ## PS2 MDDN 242 2018
+#Bezifont
 
-(Replace this README with information about your alphabet. This is an example.)
+I will be attempting to make a font with subtle Bezier curves with a few accent shapes. For now the accent shapes will be one circle and one triangle. I may add a morph function to these shapes so they will be able to do both triangle or circle forms.
 
-In the process of completing the entire alphabet, I have [made what changes?].
-This included updating the parameters to [add/remove parameters for?].
+I am predicting that I will be able to handle the one bezier spline as one variable by loading the values to an array and then passing them to a drawBezier type function. A similar function will handle the morphing of the circle and the triangle, from one state to another.
+
+Other parameters will be similar to the initial example in class as detailed below.
 
 The three parameters per letter are now:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `size` : size of the triangle/circle morph shape. 
+  * `offsetx` : x offset of the triangle/circle relative to the first one
+  * `offsety` : y offset of the othe triangle/circle relative to the first one
+
+If there is time I would also like to add in some easing and fading functions where they would be necessary in the project.
 
