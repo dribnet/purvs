@@ -1,16 +1,15 @@
 ## PS2 MDDN 242 2018
-#Bezifont
+# Bezifont
 
-I will be attempting to make a font with subtle Bezier curves with a few accent shapes. For now the accent shapes will be one circle and one triangle. I may add a morph function to these shapes so they will be able to do both triangle or circle forms.
+Due to time constraints I will have to  simplify my project a bit. I decided after this experiment that I would have to simplify things and move away from the bezier points and revisit them on an upcoming project. I however did get the array data loaded properly into the quadraticVertex() function in an efficent manner. After some reading I learned that calling the method via: quadraticVertex.apply(this, array_data) will pass the array into the function in the proper format. So my drawBezier() function can draw a 3 point curve using only 3 prameters.
 
-I am predicting that I will be able to handle the one bezier spline as one variable by loading the values to an array and then passing them to a drawBezier type function. A similar function will handle the morphing of the circle and the triangle, from one state to another.
+Moving forward I will be addressing vertex points and addressing each one of them directly so I can get them into the map() function in a more efficent manner. So I will be using x,y constraints of each point in the next iteration of the project.
 
-Other parameters will be similar to the initial example in class as detailed below.
+For this iteration of the project the current parameters are:
+  * `vert1_pos` : The first vertex in the bezier curve 
+  * `vert2_pos` : the second vertex and control points in the bezier curve 
+  * `vert3_pos` : The thrid vertex and control points in the bezier curve 
+  * `obj_alpha` : alpha parameter of the current object.
 
-The three parameters per letter are now:
-  * `size` : size of the triangle/circle morph shape. 
-  * `offsetx` : x offset of the triangle/circle relative to the first one
-  * `offsety` : y offset of the othe triangle/circle relative to the first one
-
-If there is time I would also like to add in some easing and fading functions where they would be necessary in the project.
+The somewhat working bit of this code is on the character 'C' It passes and draws on top of the original 'C' character as expected with all of the points working. I consider this experiment a half sucess but it simply needs to be taken a little bit further with some custom mapping and drawing functions.
 
