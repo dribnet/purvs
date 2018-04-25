@@ -1,15 +1,23 @@
 ## PS2 MDDN 242 2018
-# Bezifont
+# pokeything 
 
-Due to time constraints I will have to  simplify my project a bit. I decided after this experiment that I would have to simplify things and move away from the bezier points and revisit them on an upcoming project. I however did get the array data loaded properly into the quadraticVertex() function in an efficent manner. After some reading I learned that calling the method via: quadraticVertex.apply(this, array_data) will pass the array into the function in the proper format. So my drawBezier() function can draw a 3 point curve using only 3 prameters.
+I had to discard the Bezier Splines for now and go very simple for the sake of time. I have landed on two triangles and a line that is built out of vertices. In the future I will be exploring vertex control further as it is a topic that interests me greatly. For now I will settle on the 3 vertices that I am currently controlling. I also chose some triangles for another element that I will rotate around the screen to add to the line and create some more letter shapes.
 
-Moving forward I will be addressing vertex points and addressing each one of them directly so I can get them into the map() function in a more efficent manner. So I will be using x,y constraints of each point in the next iteration of the project.
 
 For this iteration of the project the current parameters are:
-  * `vert1_pos` : The first vertex in the bezier curve 
-  * `vert2_pos` : the second vertex and control points in the bezier curve 
-  * `vert3_pos` : The thrid vertex and control points in the bezier curve 
-  * `obj_alpha` : alpha parameter of the current object.
+  * `vert_1x` : Vertex 1 X position 
+  * `vert_1y` : Vertex 1 Y position 
+  * `vert_2x` : Vertex 2 X position 
+  * `vert_2y` : Vertex 2 Y position 
+  * `vert_3x` : Vertex 3 X position 
+  * `vert_3y` : Vertex 3 Y position 
+  * `trans_1x` : Triangle 1 X translation data 
+  * `trans_1y` : Triangle 1 Y translation data 
+  * `trans_2x` : Triangle 2 X translation data 
+  * `trans_2y` : Triangle 2 Y translation data 
+  * `rot_deg1` : Triangle 1 rotation data 
+  * `rot_deg2` : Triangle 2 rotation data 
+  
 
-The somewhat working bit of this code is on the character 'C' It passes and draws on top of the original 'C' character as expected with all of the points working. I consider this experiment a half sucess but it simply needs to be taken a little bit further with some custom mapping and drawing functions.
+Oof, well this is certainly turning out to be very ugly. In the final version I shall give it a name far more fitting. For something this crude deserves a fitting name.
 

@@ -1,5 +1,5 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
+	const colorFront  = "#199cff";
+	const colorStroke = "#233f11";
 
 var swapWords = [
 	"BezierTest",
@@ -8,7 +8,8 @@ var swapWords = [
 	"Tortillia"
 ]
 
-
+function preload()[
+]
 /*
  * Draw the letter given the letterData
  *
@@ -18,58 +19,93 @@ var swapWords = [
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  fill(colorFront);
   stroke(colorStroke);
   strokeWeight(4);
+  angleMode(DEGREES);
 
 // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = 50+letterData["offsetx"];
-  let pos2y = 150+letterData["offsety"];
-
+  let trans_1x= letterData["translate_1x"];
+  let trans_1y= letterData["translate_1y"];
+  let trans_2x= letterData["translate_2x"];
+  let trans_2y= letterData["translate_2y"];
+// My vertex parameters
+	let vert_1x = letterData["v1x"];
+	let vert_1y = letterData["v1y"];
+	let vert_2x = letterData["v2x"];
+	let vert_2y = letterData["v2y"];
+	let vert_3x = letterData["v3x"];
+	let vert_3y = letterData["v3y"];
+	let rot_deg1 = letterData["rot1"];	
+	let rot_deg2 = letterData["rot2"];	
   // draw two circles
-  ellipse(50, 150, 100, 100);
-  ellipse(pos2x, pos2y, size2, size2);
-//My declarations
-	let vert1_pos = letterData["vertArr1"];
-	let vert2_pos = letterData["quadArr1"];
-	let vert3_pos = letterData["quadArr2"];
-	let obj_alpha = letterData["alpha"];
-
-	drawBezier(vert1_pos, vert2_pos, vert3_pos, obj_alpha);
+  //ellipse(50, 150, 100, 100);
+  //ellipse(pos2x, pos2y, size2, size2);
+	//Draw with letter data from letters.js	
+	vertex_spline(vert_1x, vert_1y, vert_2x, vert_2y, vert_3x, vert_3y);
 	
-}
-
-function drawBezier(vert1_arr, vert2_arr, vert3_arr) {
-	push();
-	var strokeColor = color(62, 157, 231);
-	//stroke_color(62, 157, 231, cos(millis()/1000);
-	strokeColor.setAlpha(256);
-	stroke(strokeColor);
-	noFill();
-	strokeWeight(4);
-	//Pass vertex data as int to array
+	//Draw Triangle 1
 	beginShape();
-	bezierDetail(50);
-	vertex.apply(this, vert1_arr);
-	quadraticVertex.apply(this, vert2_arr);
-	quadraticVertex.apply(this, vert3_arr);
-	endShape();
+	push();
+	fill(128);
+	translate(trans_1x, trans_1y);
+	rotate(rot_deg1);
+	triangle(50, 18, 80, 80, 16, 80);
 	pop();
-	return;
+	endShape();
+	
+        //Draw Triangle 2
+	beginShape();
+	push();
+	fill(128);
+	translate(trans_2x, trans_2y);
+	rotate(rot_deg2);
+	triangle(50, 18, 80, 80, 16, 80);
+	pop();
+	endShape();
+
+
 }
 
-//sets the alpha of an object to on
-function interpolate_alpha(alph_percent, oldObj, newObj) {
+function triangle(){
+	//Drawing triangles
+	beginShape();
+	fill(128);
+	triangle(50, 18, 80, 80, 16, 80);
+	endShape();	
+return;
+}
+
+function vertex_spline(vert_1x, vert_1y, vert_2x, vert_2y, vert_3x, vert_3y){
+	//Drawing spline using vertex() no fill
+	beginShape();
+		noFill();
+		bezierDetail(80);
+		vertex(vert_1x, vert_1y);
+		vertex(vert_2x, vert_2y);
+		vertex(vert_3x, vert_3y);
+	endShape();
+return;	
+}
+/*function interpolate_alpha(alph_percent, oldObj, newObj) {
 	let new_alpha = {};
 	new_alpha["alpha"] = map(alph_percent, 0, 100, oldObj["alpha"], newObj["alpha"]);
 	return new_letter;
-}
+}*/
 
 function interpolate_letter(percent, oldObj, newObj) {
 	let new_letter = {};
-	new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-	new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-	new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+	new_letter["v1x"] = map(percent, 0, 100, oldObj["v1x"], newObj["v1x"]);
+	new_letter["v1y"] = map(percent, 0, 100, oldObj["v1y"], newObj["v1y"]);
+	new_letter["v2x"] = map(percent, 0, 100, oldObj["v2x"], newObj["v2x"]);
+	new_letter["v2y"] = map(percent, 0, 100, oldObj["v2y"], newObj["v2y"]);
+	new_letter["v3x"] = map(percent, 0, 100, oldObj["v3x"], newObj["v3x"]);
+	new_letter["v3y"] = map(percent, 0, 100, oldObj["v3y"], newObj["v3y"]);
+	new_letter["translate_1x"] = map(percent, 0, 100, oldObj["translate_1x"], newObj["translate_1x"]);
+	new_letter["translate_1y"] = map(percent, 0, 100, oldObj["translate_1y"], newObj["translate_1y"]);
+	new_letter["translate_2x"] = map(percent, 0, 100, oldObj["translate_2x"], newObj["translate_2x"]);
+	new_letter["translate_2y"] = map(percent, 0, 100, oldObj["translate_2y"], newObj["translate_2y"]);
+	new_letter["rot1"] = map(percent, 0, 100, oldObj["rot1"], newObj["rot1"]);
+	new_letter["rot2"] = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
 	return new_letter;
 }
