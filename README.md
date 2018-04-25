@@ -1,10 +1,10 @@
 ## PS2 MDDN 242 2018
-# pokeything 
+# Fugfont 
 
-I had to discard the Bezier Splines for now and go very simple for the sake of time. I have landed on two triangles and a line that is built out of vertices. In the future I will be exploring vertex control further as it is a topic that interests me greatly. For now I will settle on the 3 vertices that I am currently controlling. I also chose some triangles for another element that I will rotate around the screen to add to the line and create some more letter shapes.
+I had to discard the Bezier Splines for now and go very simple for the sake of time. I have landed on two triangles and a line that is built out of vertices. In the future I will be exploring vertex control further as it is a topic that interests me greatly. For now I will settle on the 3 vertices that I am currently controlling. I also chose some triangles for another element that I will rotate around the screen to add to the line and create some more letter shapes. It was interesting working with the limited varibales and seeing how many values from the other letters could translate into other letters partially.
 
 
-For this iteration of the project the current parameters are:
+For the final iteration of the project the parameters were:
   * `vert_1x` : Vertex 1 X position 
   * `vert_1y` : Vertex 1 Y position 
   * `vert_2x` : Vertex 2 X position 
@@ -19,5 +19,5 @@ For this iteration of the project the current parameters are:
   * `rot_deg2` : Triangle 2 rotation data 
   
 
-Oof, well this is certainly turning out to be very ugly. In the final version I shall give it a name far more fitting. For something this crude deserves a fitting name.
+It turned out a bit uglier than I wanted. Next time I would want to work with bezier curves a bit more and add some more character to the letters by adding some curves and handling the parameters in a more efficent manner.
 

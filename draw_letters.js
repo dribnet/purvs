@@ -23,13 +23,11 @@ function drawLetter(letterData) {
   strokeWeight(4);
   angleMode(DEGREES);
 
-// determine parameters for second circle
-  let size2 = letterData["size"];
-  let trans_1x= letterData["translate_1x"];
-  let trans_1y= letterData["translate_1y"];
-  let trans_2x= letterData["translate_2x"];
-  let trans_2y= letterData["translate_2y"];
 // My vertex parameters
+        let trans_1x= letterData["translate_1x"];
+        let trans_1y= letterData["translate_1y"];
+        let trans_2x= letterData["translate_2x"];
+        let trans_2y= letterData["translate_2y"];
 	let vert_1x = letterData["v1x"];
 	let vert_1y = letterData["v1y"];
 	let vert_2x = letterData["v2x"];
