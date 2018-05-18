@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+
+I played around with the stroke of the bus to see what it would look like. It was interesting so I tested out the colourMode after asking a peer on how to do it. I ended up with neon colours which was what i wanted and it is unique. It looks like a mosaic or stained glass in a way. Some ideas I had for my images was to use nature or something related to art or food. I'm not sure what to do about my images so I wll think about it more and see what i come up with. 
