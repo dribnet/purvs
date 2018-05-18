@@ -24,10 +24,10 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
+    let pointSize = 10;
     let halfSize = 50;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] > 128) { 
       ellipse(x, y, pointSize, pointSize);
     }
     else {
@@ -35,7 +35,7 @@ function draw () {
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 100) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
