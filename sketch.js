@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("unitled.jpg");
+  maskImg = loadImage("untitled-1.png");
 }
 
 function setup () {
@@ -24,7 +24,7 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
+    let pointSize = 60;
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
@@ -35,7 +35,7 @@ function draw () {
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 100) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
