@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("unitled.jpg");
-  maskImg = loadImage("untitled-1.png");
+  sourceImg = loadImage("third.jpg");
+  maskImg = loadImage("thirdbw.png");
 }
 
 function setup () {
