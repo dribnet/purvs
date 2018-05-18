@@ -31,7 +31,7 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);   
     }
   }
   renderCounter = renderCounter + 1;
