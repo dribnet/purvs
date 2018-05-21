@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -19,7 +19,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<100;i++) {
+  for(let i=0;i<200;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -28,9 +28,9 @@ function draw () {
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize/1.5, pointSize/1.5);
     }
-    else {
+    else if(i%2==0){
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
@@ -38,7 +38,7 @@ function draw () {
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
-    // saveBlocksImages();
+    saveBlocksImages();
   }
 }
 
