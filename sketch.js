@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_4.jpg");
+  maskImg = loadImage("mask_4.png");
 }
 
 function setup () {
@@ -13,7 +13,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,7 +31,7 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      ellipse(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
