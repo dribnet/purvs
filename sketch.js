@@ -3,13 +3,13 @@ const finalVersion = false;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let circleSize = 50;
+let circleSize = 20;
 let squareSize = 20;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 20;
-  circleSize = 25;
+  circleSize = 10;
   squareSize = 10;
 }
 
