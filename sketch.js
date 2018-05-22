@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -18,28 +18,37 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const pointSize = 40;
+
 function draw () {
-  for(let i=0;i<200;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
+  for(let i=0;i<1080/pointSize;i++) {
+    let xBack = int(i * pointSize);
+    let yBack = int(renderCounter * pointSize);
+	let pix = sourceImg.get(xBack, yBack);
+    let halfSize = pointSize/2;
+    fill(pix);
+    rect(xBack-halfSize, yBack-halfSize, pointSize, pointSize);    
+  }
+  for(let i=0;i<110;i++) {
+    let xBack = int(i * pointSize);
+    let yBack = int(renderCounter * pointSize);
+	let xFront = floor(random(sourceImg.width));
+    let yFront = floor(random(sourceImg.height));
+    let pix = sourceImg.get(xFront, yFront);
+    let mask = maskImg.get(xFront, yFront);
+    let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize/1.5, pointSize/1.5);
-    }
-    else if(i%2==0){
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      ellipse(xFront, yFront, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
-    saveBlocksImages();
+    // saveBlocksImages();
   }
+
 }
 
 function keyTyped() {
