@@ -4,7 +4,7 @@ let renderCounter=0;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -24,7 +24,7 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
+    let pointSize = 15;
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
