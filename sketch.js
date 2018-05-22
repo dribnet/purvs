@@ -19,6 +19,7 @@ function setup () {
 }
 
 function draw () {
+  colorMode(HSB,255);
   for(let i=0;i<100;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -31,7 +32,7 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      rect(x-halfSize/2, y-halfSize/2, pointSize/2, pointSize/2);    
     }
   }
   renderCounter = renderCounter + 1;
