@@ -1,6 +1,7 @@
 let sourceImg=null;
 let maskImg=null;
 let currentRow=0;
+let dotsize = 30;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -18,26 +19,34 @@ function setup () {
   maskImg.loadPixels();
 }
 
-let pointSize = 70;
+let pointSize = 10;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
-    let x = i * pointSize;
-    let y = currentRow * pointSize;
+    let x = int(i * pointSize);
+    let y = int(currentRow * pointSize);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize * 2);
-      ellipse(x, y, pointSize * 2, pointSize);
+     	ellipse(x, y, pointSize, pointSize / 2);
+     	ellipse(x, y, pointSize / 2, pointSize);
+
+     	push();
+     	ellipse(x + (dotsize/4) , y + (dotsize/4), pointSize/2, pointSize/2);
+     	ellipse(x - (dotsize/4) , y + (dotsize/4), pointSize/2, pointSize/2);
+     	ellipse(x - (dotsize/4) , y - (dotsize/4), pointSize/2, pointSize/2);
+     	ellipse(x + (dotsize/4) , y - (dotsize/4), pointSize/2, pointSize/2);
+     //	ellipse(x, y, pointSize, pointSize);
+     	pop();
     }
     else {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  currentRow = currentRow + 1;
+  if(currentRow > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
