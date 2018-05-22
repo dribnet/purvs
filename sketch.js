@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -18,25 +18,27 @@ function setup () {
   maskImg.loadPixels();
 }
 
-  let pointSize = 15;
+  //let pointSize = 50;
+  let elementSpacing = 20;
+  let triSpace = 50
 
 function draw () {
-  for(let i=0;i<1080/pointSize;i++) {
+  for(let i=0;i<1080/elementSpacing;i++) {
 //    let x = floor(random(sourceImg.width));
 //    let y = floor(random(sourceImg.height));
 
-let x = int(i * pointSize);
-let y = int(renderCounter * pointSize);
+let x = int(i * elementSpacing);
+let y = int(renderCounter * elementSpacing);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     
-    let halfSize = pointSize/2;
+    let halfSize = triSpace/2;
     fill(pix);
 
-var x1 = random(pointSize);
+var x1 = random(triSpace);
 //stroke(1);
 //rect(x, y, pointSize, pointSize);
-    triangle(x+x1, y, x+pointSize, y+pointSize, x, y+pointSize);  
+    triangle(x+x1, y, x+triSpace, y+triSpace, x, y+triSpace);  
     
 
 /*
