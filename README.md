@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have added my own image of 'Bart' and rendered it using the program we were given, I have also experimented with images of birds but the rendering took too long due to the high level of detail. I have also added a picture of 'Rick' and a picture of a pizza on my phone,now im going to experiment with my own choice of pictures.
+I have imported my own images and used the sample code given in class and changed it. So far I have done all 3 of my images with masks and replaced the old cartoon ones I was experimenting with earlier. I am now going to experiment with the code to create abstract images of my 3 imported images to get more ideas.
