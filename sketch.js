@@ -8,7 +8,7 @@ let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 4;
+	let scale = 3;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -22,7 +22,7 @@ var DrawCalls = 50;
 
 function preload() {
 	sourceImg = loadImage("input_4.jpg");
-	maskImg = loadImage("mask_5.png");
+	maskImg = loadImage("mask_6.png");
 }
 
 function setup () {
@@ -100,7 +100,7 @@ function draw () {
 // }
 
 function keyTyped() {
-	if (key == '1') {
+	if (key == '!' || key == '1') {
 		saveBlocksImages();
 	}
 }
