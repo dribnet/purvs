@@ -1,3 +1,2 @@
-## Creative Coding 2: Custom Pixel
+I took photos of personal objects like the teddy bear I had when I was younger, and my piano keyboard, because music has been a big part of my life.
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
