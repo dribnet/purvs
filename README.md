@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+This is an initial upload with a few random images from my pendrive. For my project, I want to focus on how the abtraction of the images can change not only the shape of things but also the colours. I want to take human subjects and place them in interesting locale with lots of colour then through the render, make those images desaturated and dull. 

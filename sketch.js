@@ -1,14 +1,16 @@
+let finalVersion = false;
+
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0;
+let curRow=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
+  sourceImg = loadImage("input_2.jpg");
   maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(1080, 1920);
+  let main_canvas = createCanvas(1620, 1080);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
@@ -18,14 +20,24 @@ function setup () {
   maskImg.loadPixels();
 }
 
+let pointSize = 50;
+
+if (finalVersion  == true) {
+  pointSize = 20;
+}
+
+
+
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1620/pointSize;i++) {
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
+    let x = i * pointSize;
+    let y = curRow * pointSize;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 15;
-    let halfSize = 50;
+    
+    let halfSize = 0.5*pointSize;
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x, y, pointSize, pointSize);
@@ -34,8 +46,8 @@ function draw () {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  curRow = curRow + 1;
+  if(curRow*pointSize > 1080) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
