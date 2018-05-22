@@ -18,31 +18,26 @@ function setup () {
   maskImg.loadPixels();
 }
 
-function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+const pointSize = 30;
 
+function draw () {
+  for(let i=0;i<1080/pointSize;i++) {
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 40;
-    let halfSize = 10;      
-    noStroke();
+    let halfSize = pointSize/2;
     fill(pix);
-    if(mask[0] > 128) {
-      colorMode(HSB, 255);
-      ellipse(x, y, pointSize, pointSize);
+    if(mask[0] < 128) {
+		polygon(x-halfSize, y-halfSize, pointSize, 6); 
     }
     else {
-      noStroke();      
-      stroke(0);
-      strokeWeight(5);
-      colorMode(RGB, 255);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);
+        fill(0);
+    	polygon(x, y, pointSize/1.8, 6);  
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 50) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
@@ -54,3 +49,18 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+//polygon code from https://p5js.org/es/examples/form-regular-polygon.html
+function polygon(x, y, radius, npoints) {
+	angleMode(RADIANS);
+  var angle = TWO_PI / npoints;
+  beginShape();
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a) * radius;
+    var sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
+
+z_color_helper.js
