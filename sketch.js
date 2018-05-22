@@ -8,9 +8,10 @@ let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 20;
-  circleSize = 25;
-  squareSize = 20;
+	let scale = 4;
+	elementSpacing = elementSpacing/scale;
+	circleSize = circleSize/scale;
+	squareSize = squareSize/scale;
 }
 
 let sourceImg=null;
@@ -20,56 +21,56 @@ var PixelDensity = 100*2;
 var DrawCalls = 50;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+	sourceImg = loadImage("input_4.jpg");
+	maskImg = loadImage("mask_5.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(1080, 1920);
-  main_canvas.parent('canvasContainer');
+	let main_canvas = createCanvas(1080, 1920);
+	main_canvas.parent('canvasContainer');
 
-  imageMode(CENTER);
-  noStroke();
-  background(255);
-  sourceImg.loadPixels();
-  maskImg.loadPixels();
+	imageMode(CENTER);
+	noStroke();
+	background(255);
+	sourceImg.loadPixels();
+	maskImg.loadPixels();
 }
 
 function convertRgbToHsluv(c) {
-  return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+	return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
 }
 
 function draw () {
-  for(let i=0;i<1080/elementSpacing;i++) {
-    let x = int(i * elementSpacing);
-    let y = int(renderCounter * elementSpacing);
-    let dx = floor(random(elementSpacing/2));
-    let dy = floor(random(elementSpacing/2));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let halfSize = squareSize/2;
-    if(mask[0] > 128) {
-      fill(pix);
-      star(x, y, squareSize, halfSize, 4); 
-      //ellipse(x, y, circleSize, circleSize);
-    }
-    else {
-      // add random offsets
-      x = x + dx;
-      y = y + dy;
-      // convert to grayscale (remove color, keep brightness in hsluv colorspace)
-      let hsluvColor = convertRgbToHsluv(pix);
-      fillHsluv(0, 0, hsluvColor[2]);
-      star(x, y, squareSize, halfSize/1.5, 3);
-      //rect(x-halfSize, y-halfSize, squareSize, squareSize);    
-    }
-  }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/elementSpacing) {
-    console.log("Done!")
-    noLoop();
-    // saveBlocksImages();
-  }
+	for(let i=0;i<1080/elementSpacing;i++) {
+		let x = int(i * elementSpacing);
+		let y = int(renderCounter * elementSpacing);
+		let dx = floor(random(elementSpacing/2));
+		let dy = floor(random(elementSpacing/2));
+		let pix = sourceImg.get(x, y);
+		let mask = maskImg.get(x, y);
+		let halfSize = squareSize/2;
+		if(mask[0] > 128) {
+			noStroke();
+			fill(pix);
+			star(x, y, squareSize, halfSize, 4); 
+  		}
+  		else {
+	      // add random offsets
+	      x = x + dx;
+	      y = y + dy;
+	      // convert to grayscale (remove color, keep brightness in hsluv colorspace)
+	      let hsluvColor = convertRgbToHsluv(pix);
+	      fillHsluv(0, 0, hsluvColor[2]);
+	      stroke(3);
+	      star(x, y, squareSize, halfSize/1.5, 3);
+	  	}
+	}	
+	renderCounter = renderCounter + 1;
+	if(renderCounter > 1920/elementSpacing) {
+		console.log("Done!")
+		noLoop();
+	    // saveBlocksImages();
+	}
 }
 
 // function draw () {
@@ -99,22 +100,22 @@ function draw () {
 // }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
+	if (key == '1') {
+		saveBlocksImages();
+	}
 }
 
 function star(x, y, radius1, radius2, npoints) {
-  var angle = TWO_PI / npoints;
-  var halfAngle = angle/2.0;
-  beginShape();
-  for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a) * radius2;
-    var sy = y + sin(a) * radius2;
-    vertex(sx, sy);
-    sx = x + cos(a+halfAngle) * radius1;
-    sy = y + sin(a+halfAngle) * radius1;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
+	var angle = TWO_PI / npoints;
+	var halfAngle = angle/2.0;
+	beginShape();
+	for (var a = 0; a < TWO_PI; a += angle) {
+		var sx = x + cos(a) * radius2;
+		var sy = y + sin(a) * radius2;
+		vertex(sx, sy);
+		sx = x + cos(a+halfAngle) * radius1;
+		sy = y + sin(a+halfAngle) * radius1;
+		vertex(sx, sy);
+	}
+	endShape(CLOSE);
 }
