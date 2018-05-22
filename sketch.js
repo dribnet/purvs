@@ -5,8 +5,8 @@ let renderCounter=0;
 
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -30,22 +30,26 @@ function draw () {
     let halfSize = 40;
     fill(pix);
 
-    colorMode(HSB);
+    colorMode(RGB);
+    // colorMode(HSB);
 
     if(mask[0] > 128) {
-
-      stroke(100, 55, 44);
-      strokeWeight(7);
+      noStroke();
+      //stroke(100, 55, 44);
+      //strokeWeight(7);
       ellipse(x, y, pointSize, pointSize);
+      //ellipse(x+30, y+60, pointSize, pointSize+40);
       
     }
     else {
-      colorMode(HSL);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      colorMode(RGB);
+      // colorMode(HSL);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize); 
+      //ellipse(x+30, y+60, pointSize+10, pointSize);   
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 250) {
+  if(renderCounter > 400) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
