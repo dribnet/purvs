@@ -2,7 +2,12 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-
+ let elementSpacing = 30;
+ let circleSize = 40;
+ let squareSize = 10;
+ let triSize = 30;
+ let triSize2 = 60;
+ let triSize3 = 80;
 
 function preload() {
   sourceImg = loadImage("input_2.jpg");
@@ -21,13 +26,24 @@ function setup () {
 }
 
 function draw () {
-  for(let i=50;i<80;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  //for(let i=50;i<80;i++)
+  for(let i=0;i<1080/elementSpacing;i++) {
+    let x = int(i * elementSpacing);
+    let y = int(renderCounter * elementSpacing);
+    //let x = floor(random(sourceImg.width));
+    //let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let halfSize = squareSize/2;
+    
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
+    x = x + dx;
+    y = y + dy;
+    //z = z + dy;
+
     let pointSize = 30;
-    let halfSize = 40;
+    //let halfSize2 = 40;
     fill(pix);
 
     colorMode(RGB);
@@ -37,15 +53,19 @@ function draw () {
       noStroke();
       //stroke(100, 55, 44);
       //strokeWeight(7);
-      ellipse(x, y, pointSize, pointSize);
-      //ellipse(x+30, y+60, pointSize, pointSize+40);
-      
+      //ellipse(x, y, pointSize, pointSize);
+      //ellipse(x+30, y+60, circleSize, circleSize+40);
+      //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
+      triangle(x, y, x+triSize, y, x, y+triSize);
+      triangle(y, x+triSize2, y, x, y+triSize2, x);
+      triangle(y, x+triSize3, y, x, y+triSize3, x);
+      rect(x, y, squareSize, squareSize);
     }
     else {
       colorMode(RGB);
       // colorMode(HSL);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize); 
-      //ellipse(x+30, y+60, pointSize+10, pointSize);   
+      //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
+      ellipse(x+30, y+60, squareSize+10, squareSize);   
     }
   }
   renderCounter = renderCounter + 1;

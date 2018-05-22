@@ -2,4 +2,4 @@
 
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
 
-I changed the second image to a flower to see what it would look like. It turned out interesting even though I didn't changed the code much. I simply remvoved the stroke nad rectangles. With purely circles it looks like a colllage with the white spots in areas. I think that i will tested out some other techquines and see what they look like. I'm not sure about the photos yet but I want to do something that is vibrant sp that it would be interesting with different shapes and strokes. 
+I played around with some of the code and i manged to get the spacing to work after a while because I was missing a line of code. I added some triangles and it turned out pretty interesting after I got it to work. I think that i will play with it more and see what I come up with. For now this is an experiment. 
