@@ -43,7 +43,7 @@ function draw () {
     noLoop();
     // saveBlocksImages();
   }    
-  console.log(100*renderCounter);
+  console.log(1*renderCounter);
 }
 
 function keyTyped() {
