@@ -1,5 +1,4 @@
-Photo of my piano keyboard.
+Copied Tom's "finalVersion flag" sketch.js code.
 
-Changed the code to swap when it draws rectangles and ellipses.
-Ellipses used to draw when mask was white, but now 
-rectangles draw when mask is white.
+Didn't change much at the moment, but changed the background from white to black.
+Since the white background around the circles stood out too much.
