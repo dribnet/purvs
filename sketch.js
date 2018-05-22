@@ -33,12 +33,12 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
-       ellipse(x, y, pointSize, pointSize);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize); 
+       //ellipse(x, y, pointSize, pointSize);
     }
     else {
-      //ellipse(x, y, pointSize, pointSize);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      ellipse(x, y, pointSize, pointSize);
+      //rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
