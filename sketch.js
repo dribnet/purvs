@@ -2,9 +2,9 @@
 const finalVersion = false;
 
 /* Default versions of variables */
-let elementSpacing = 40;
-let circleSize = 40;
-let squareSize = 30;
+let elementSpacing = 30;
+let circleSize = 60;
+let squareSize = 50;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -27,8 +27,8 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  strokeWeight(1);
-  stroke(255);
+  //strokeWeight(1);
+  //stroke(255);
   background(234, 211, 220);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -38,21 +38,22 @@ function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
-    let dx = floor(random(elementSpacing/2));
-    let dy = floor(random(elementSpacing/2));
-    x = x + dx;
-    y = y + dy;
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);
-      //ellipse(x, y, circleSize, circleSize);
+      //rect(x-halfSize, y-halfSize, squareSize, squareSize);
+       noStroke();
+       ellipse(x, y, circleSize, circleSize);
     }
     else {
-      ellipse(x, y, circleSize, circleSize);
-      //rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      //ellipse(x, y, circleSize, circleSize);
+        strokeWeight(1);
+        stroke(255);
+       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
   renderCounter = renderCounter + 1;
