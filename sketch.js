@@ -1,6 +1,6 @@
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0;
+let currentRow=0;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -18,17 +18,19 @@ function setup () {
   maskImg.loadPixels();
 }
 
+let pointSize = 70;
+
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/pointSize;i++) {
+    let x = i * pointSize;
+    let y = currentRow * pointSize;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
+    let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize, pointSize * 2);
+      ellipse(x, y, pointSize * 2, pointSize);
     }
     else {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
