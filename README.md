@@ -1,4 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The first image i have chosen is a portait of my girlfriend taken up mount vic. I created the mask to outline her
-which was all easy enough. Now i can change up the code and try find something cool looking.
+I have added a few more photos and tried a couple of different techniques on them. for input 2 i tried using
+lines to connect the points inside the white of the mask and it looked quite cool and could be a direction i could look into.
+I also tried the gird on input 3 which worked well and there is a lot i could do with that as the base.
