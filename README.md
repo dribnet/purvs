@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+Just started playing around with different settings and what not for my photos. The photos I've chosen are all from one night of drinks with my friends, as they're mostly photos of people on neutral backgrounds so I decided to make the rectangles smaller and  more spread out so to bring the focus to the fore-front with minimal distraction.
