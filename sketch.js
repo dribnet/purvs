@@ -18,28 +18,33 @@ function setup () {
   maskImg.loadPixels();
 }
 
+
+// const pointSize = 30;
+let elementSpacing = 12.5;
+
 function draw () {
-  for(let i=0;i<500;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/elementSpacing;i++) {
+
+    let x = int(i * elementSpacing);
+    let y = int(renderCounter * elementSpacing);
+
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-
-    //change size of each point
-    let pointSize = 50;
-    let halfSize = pointSize/2;
+    let halfSize = elementSpacing/2;
     fill(pix);
 
-    //change mask limitation to allow more things elements o
+    //change mask limitation to allow more things elements
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      ellipse(x, y, elementSpacing, elementSpacing);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      rect(x-halfSize, y-halfSize, elementSpacing, elementSpacing);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {	//render counter = number of times it goes thru the algorithim.
+  if(renderCounter > 100) {	//render counter = number of times it goes thru the algorithim.
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
