@@ -1,25 +1,15 @@
-/* Set to true to make final high-resolution version */
-const finalVersion = false;
-
-/* Default versions of variables */
-let elementSpacing = 30;
-let circleSize = 60;
-let squareSize = 50;
-
-/* Override some variables with high-resolution final version */
-if (finalVersion) {
-  elementSpacing = 20;
-  circleSize = 25;
-  squareSize = 10;
-}
-
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+//I have used some of Tom White's example code for my own project
+//https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/b9eca66520db6771e0e0299da527af99496efb95
+
+
+
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -27,37 +17,40 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  //strokeWeight(1);
-  //stroke(255);
-  background(234, 211, 220);
+  //noStroke();
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+const pointSize = 40;
+
 function draw () {
-  for(let i=0;i<1080/elementSpacing;i++) {
-    let x = int(i * elementSpacing);
-    let y = int(renderCounter * elementSpacing);
-    // let x = floor(random(sourceImg.width));
-    // let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/pointSize;i++) {
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
+    //let x = floor(random(sourceImg.width));
+    //let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = squareSize/2;
+    let halfSize = pointSize/2;
+    //let pointSize = 60;
+    //let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
-      //rect(x-halfSize, y-halfSize, squareSize, squareSize);
-       noStroke();
-       ellipse(x, y, circleSize, circleSize);
+      noStroke();
+      //ellipse(x, y, pointSize, pointSize);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+
     }
     else {
-      //ellipse(x, y, circleSize, circleSize);
-        strokeWeight(1);
+       strokeWeight(4);
         stroke(255);
-       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/elementSpacing) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
