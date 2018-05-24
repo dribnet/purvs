@@ -9,7 +9,7 @@ let squareSize = 20;
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 20;
-  circleSize = 50;
+  circleSize = 20;
   squareSize = 10;
 }
 
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -37,16 +37,14 @@ function setup () {
 function owl(x, y, c, s) {
   push();
   translate(x, y);
-  triangle(10, 50, 20, 200, 100, 180);
-// arc(50, 50,50, 50, 0, PI + QUARTER_PI, PIE);
+arc(50, 50, 100, 100, 0, PI + QUARTER_PI, TWO_PI);
   pop();
 }
 
 function lll(x, y, c, s) {
   push();
   translate(x, y);
-arc(50, 50,200, 200, 0, PI + QUARTER_PI, PIE);
-// triangle(150, 50, 150, 200, 50, 180);
+triangle(50, 50, 20, 200, 100, 180);
   pop();
 }
 
@@ -66,10 +64,10 @@ function draw () {
     if(mask[0] > 128) {
       fill(pix);
       // ellipse(x, y, circleSize, circleSize);
-      lll(x, y, pix, 0.8);
+      lll(x, y, pix, 0.5);
     }
     else {
-      owl(x, y, pix, 0.3);
+      owl(x, y, pix, 0.5);
     }
   }
   renderCounter = renderCounter + 1;
