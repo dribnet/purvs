@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -13,16 +13,19 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(150);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 
 // const pointSize = 30;
-let elementSpacing = 12.5;
+let elementSpacing = 25;
 
 function draw () {
+
+
+
   for(let i=0;i<1080/elementSpacing;i++) {
 
     let x = int(i * elementSpacing);
@@ -35,12 +38,23 @@ function draw () {
     let halfSize = elementSpacing/2;
     fill(pix);
 
-    //change mask limitation to allow more things elements
-    if(mask[0] > 128) {
-      ellipse(x, y, elementSpacing, elementSpacing);
+    //change mask
+    let circleSize = elementSpacing;
+    //o\0.53.87
+    if(mask[0] == 0) { //mask layers
+      noStroke()
+      ellipse(x, y, circleSize, circleSize);
     }
-    else {
-      rect(x-halfSize, y-halfSize, elementSpacing, elementSpacing);    
+    if(mask[0] > 0 && mask[0] < 70) {
+      ellipse(x, y, circleSize * .8, circleSize * .8);
+    }
+    if(mask[0] == 87) {
+      ellipse(x, y, circleSize * .6 , circleSize * .6);
+    }
+    else { //background dots
+      // rect(x-halfSize, y-halfSize, elementSpacing, elementSpacing);  
+      ellipse(x, y,  circleSize * .5 ,circleSize * .5) ;
+
     }
   }
   renderCounter = renderCounter + 1;

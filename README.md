@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The source of my images are various different things i produced through last year and this year. i left the alrogithim the same however i altered the amount of circles being produced as well as the size of each circle.
+My custom pixel is made up of a gridded circle layout where there is a mask with multiple different layers of a greyscale colour that is picked up by the sketch code. If the colour is within the set range it draws the circle on the grid at a different size, creating a scaling effect.
