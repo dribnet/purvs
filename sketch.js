@@ -4,8 +4,8 @@ let renderCounter=0;
 let pointSize = 10;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
   //sourceImg = loadImage("input_1.jpg");
 }
 
@@ -37,7 +37,7 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      ellipse(x-halfSize, y-halfSize, pointSize+50, pointSize+50);    
     }
   }
   renderCounter = renderCounter + 1;
