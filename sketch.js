@@ -1,7 +1,7 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
-let pointSize = 40;
+let pointSize = 10;
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
