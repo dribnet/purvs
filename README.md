@@ -1,9 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-Episode 01
+Episode 02 THEME??
 
-experimenting with the grid like features of the code, now i need to find a theme for the images im about to take, this all but a mere testing the waters sort of excercise.
+Taking everyday mundane items into action. Three things that represent me as a student, always carrying a water bottle around, rubix cube keychain to show creativity i guess, and the hardrive for well student work.
 
--take phots
--make theme
--experiment further with the code.
+-take photos :D done!!
+-make theme :D done 11
+-experiment further with the code... more to go
