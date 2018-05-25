@@ -3,7 +3,7 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
+  sourceImg = loadImage("input_2.jpg");
   maskImg = loadImage("mask_1.png");
 }
 
@@ -24,10 +24,12 @@ function convertRgbToHsluv(c) {
   
   //For the size of the shapes drawn
   let pSBig = 350;
-  let pSSmall = 300;
+  let pSSmall = 30;
+  const rSize = 20;
+  let sw = 0;
 
 function draw () {
-    for(let i=0;i<1;i++) {
+  for(let i=0; i<1; i++) {
       let x = floor(random(sourceImg.width));
       let y = floor(random(sourceImg.height));
       let pix = sourceImg.get(x, y);
@@ -36,16 +38,11 @@ function draw () {
       let halfSize = pointSize/2
       let ro = random(0, 360);
       let hsluvColor = convertRgbToHsluv(pix);
-  
-      if(mask[0] > 128){
-        fill(pix);
-        pickShape(pix, x, y, pointSize, halfSize, ro);
-      }
-      if(mask[0] < 128){
-        fillHsluv(0, 0, hsluvColor[2]);
-        pickShape(pix, x, y, pointSize, halfSize, ro);
-    }
 
+      push();
+      fill(pix);
+      pickShape(pix, x, y, pointSize, halfSize, ro);
+      pop();
     //Reduces size of shapes over time, while restricting the minimum sizes
     if(pSBig>55){
       pSBig-=0.3;
@@ -56,7 +53,22 @@ function draw () {
     //console.log(pix);
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 3500) {
+  if(renderCounter > 3000) {
+    push();
+      for(let m=0; m<1080; m=m+rSize) {
+        for(let b=0; b<1920; b=b+rSize){
+          let pix2 = sourceImg.get(m, b);
+          let hsluvColor = convertRgbToHsluv(pix2);
+          let mask2 = maskImg.get(m, b);
+          if(mask2[0] < 128){
+            //fill(sourceImg.get(m, b));
+            fillHsluv(0, 0, hsluvColor[2]);
+            rect(m, b, rSize, rSize);
+          } 
+        }
+        console.log(m);
+      }
+      pop();
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
@@ -79,6 +91,7 @@ function pickShape(pix, x, y, pointSize, halfSize, ro){
     triangle(0, 0, 0-halfSize, 0+pointSize, 0+halfSize, 0+pointSize);
   } 
 }
+
 
 function keyTyped() {
   if (key == '!') {

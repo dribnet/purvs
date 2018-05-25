@@ -1,5 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
+-25/5-
+I have found a couple of photos that I have taken from around Wellington, my third image is still the rainbow gradient to test out different ideas easier.
+My algorithm still draws ellipses, squares and triangles. They get smaller over time and the shape depends on the lightness value of the point in the image. 
+I have now implemented a mask in which a greyscale grid is drawn in the masked areas, it took me a long time to workout how to draw both a grid and a random pattern but I got it to work inthe end.
+I will now work on tweeking different parameters to finalise my design.
+
 -22/5- 2nd Commit
 I am still using the same images as i haven't found final images to use yet, although I have changed the third image from the black and white gradient to a ranbow gradient so I could test my sketch easier and see different effects my code had.
 The algorithm draws ellipses, squares and triangles. The shape that is drawn depends on the value of the colour from each point that is picked, so ellipses are a third of the colour space, squares the next third and triangles the last third. The shapes also still shrink over time which I think makes a nice layered affect where you can sometimes see bigger shapes that haven't been covered. The shapes also have a random rotation value to add some visual differences and prevent a grid-like appearance 
