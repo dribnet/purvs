@@ -2,4 +2,4 @@
 
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
 
-I liked the look of the triangles so I decided to play around more with the code and see what i could come up with. I first changed and added in some more shapes to see what i could create and I ended up with various shapes of triangles which I quite like. I thnk that the rotation with the different triangles look rather intereting. I played around with the colour mode and it ended up with bright colours which I like the contrast with the flowers and background muted greens. 
+I played around with the colours and rotation. I ended up with this which reminds me of a abstract pool mirror image of some sort. I like the colours and how it looks but i don't think that this would work very well for any of the images so I think I will keep experiementing and see what I come up with. I do like the blue background gradient. 

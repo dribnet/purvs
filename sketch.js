@@ -48,7 +48,7 @@ function draw () {
     //let halfSize2 = 40;
     fill(pix);
 
-    colorMode(RGB);
+    colorMode(HSL, 0, 40, 50);
     // colorMode(HSB);
 
     if(mask[0] > 128) {
@@ -58,22 +58,23 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-      triangle(x+triSize3, y, x-triSize, y+triSize2, x, y+triSize);
-      triangle(y, x+triSize2, y, x-triSize, y-triSize2, x);
+      triangle(x+triSize3, y, x-triSize3, y, x, y);
+      triangle(y, x+triSize2, y, x-triSize3, x, x/triSize);
       //rotate(a);
       translate(10, 20);
       //rotate(60);
-      triangle(y+triSize, x+triSize3, y, x/triSize2, y+triSize3, x);
+      triangle(y, x/triSize3, y, x-triSize2, y, x);
       //a = a + 0.1
       rect(x, y, squareSize, squareSize);
     }
     else {
-      colorMode(RGB, 55);
+      colorMode(RGB, 50, 20, 10);
       // colorMode(HSL);
       //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
       //rotate(60);
       //ellipseMode(CENTER);
       ellipse(x+30, y+80, circleSize+10, circleSize);
+      //rotate(-5);
       ellipse(x+80, y+15, circleSize+30, circleSize+20);
       //a = a + 1;   
     }
