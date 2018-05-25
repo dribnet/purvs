@@ -1,6 +1,20 @@
+let finalVersion = false; 
+
+let elementSpacing = 15;
+let squareSize = 15;
+let circleSize = 35;
+
+if(finalVersion) {
+let elementSpacing = 20;
+let squareSize =20;
+let circleSize = 25;
+}
+
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0;
+let renderCounter =0;
+
+
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -18,29 +32,63 @@ function setup () {
   maskImg.loadPixels();
 }
 
+function p1(x,y,c,s){
+	push();
+	translate(x,y);
+	scale(s);
+	fill(c)
+    ellipse(0,0,30,30);
+
+    fill(125)
+    ellipse(0,0,15,15);
+
+	pop();
+}
+
+function convertRgbToHsluv(c) {
+return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+}
+
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/elementSpacing;i++) {
+   let x = int(i * elementSpacing);
+   let y = int(renderCounter * elementSpacing);
+    //let dx = floor(random(elementSpacing/2));
+    //let dy = floor(random(elementSpacing/2))
+
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
+   
+
     fill(pix);
+
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+
+      p1(x, y, pix, 0.5);
+    
+      
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+    //x = x + dx;
+    //y = y + dy;
+      //let hsluvColor = convertRgbToHsluv(pix);
+      //fillHsluv(0,0, hsluvColor[2]/2);
+      let halfSize = squareSize/2;
+      rect(x-halfSize, y-halfSize, squareSize, squareSize); 
+           
     }
   }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  renderCounter  = renderCounter  + 1;
+  if(renderCounter> 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
 }
+
+
+
+
 
 function keyTyped() {
   if (key == '!') {
