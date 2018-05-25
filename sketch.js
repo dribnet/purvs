@@ -2,9 +2,16 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+let pointSize = 10;
+
+let gridXNum;
+let gridYNum;
+
+ var y = 0;
+
 function preload() {
   sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_1.png");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -14,31 +21,33 @@ function setup () {
   imageMode(CENTER);
   noStroke();
   background(255);
+  rectMode(CENTER);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<1000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 14;
-    let halfSize = 7;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+  gridXNum = width / pointSize;
+  gridYNum = height / pointSize;
+
+    for (var x = 0; x < gridXNum; x++) {
+
+        let xPos = x*pointSize;
+        let yPos = y*pointSize;
+
+        let pix = sourceImg.get(xPos, yPos);
+
+        fill(pix);
+
+        ellipse(xPos, yPos, pointSize, pointSize);
     }
-    else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
-    }
-  }
+    y++;
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 50) {
+  if(y > gridYNum) {
     console.log("Done!")
     noLoop();
-    // saveBlocksImages();
+    saveBlocksImages();
   }
 }
 
