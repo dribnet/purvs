@@ -5,3 +5,6 @@ At this point I'm still playing with ideas, I quite like the mixture of the grid
 ### Update:
 
 I've now added multiple masks and the ability to use both the fully randomized script and the two grid style scripts in one porject.
+
+### Notes:
+One thing I've noticed is at very high image densities the texture of certain shapes just disapears lossing the effect of certain shapes

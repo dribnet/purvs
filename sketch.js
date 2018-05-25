@@ -1,15 +1,18 @@
 /* Set to true to make final high-resolution version */
 const finalVersion = true;
 var SecondDraw = false;
+var bground = false;
+var Y_AXIS = 1;
+var X_AXIS = 2;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let circleSize = 50;
+let circleSize = 30;
 let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 2;
+	let scale = 2.5;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -20,12 +23,12 @@ let maskImg=null;
 let renderCounter=0;
 let renderCounterTwo=0;
 var PixelDensity = 100*2;
-var DrawCalls = 250;
+var DrawCalls = 400;
 
 function preload() {
-	sourceImg = loadImage("input_1.jpg");
-	maskImg = loadImage("mask_1.png");
-	maskTwoImg = loadImage("mask_5.png");
+	sourceImg = loadImage("input_A1.jpg");
+	maskImg = loadImage("mask_A1.png");
+	maskTwoImg = loadImage("mask_A2.png");
 }
 
 function setup () {
@@ -45,6 +48,13 @@ function convertRgbToHsluv(c) {
 }
 
 function draw () {
+  	if(bground==false){
+		// Background  
+		b1 = color(255);
+	  	b2 = color(0);
+	  	setGradient(0, 0, width, height, b1, b2, X_AXIS);
+		bground=true;
+	}
 	for(let i=0;i<1080/elementSpacing;i++) {
 		let x = int(i * elementSpacing);
 		let y = int(renderCounter * elementSpacing);
@@ -62,10 +72,8 @@ function draw () {
 		if(maskTwo[0] > 128 && SecondDraw == true) {
 			fill(pix2);
 			noStroke();
-			ellipse(x2, y2, squareSize, squareSize);
-			// noStroke();
-			// fill(pix);
-			// star(x, y, squareSize, squareSize, 2); 
+			ellipse(x2, y2, circleSize, circleSize);
+			//star(x, y, squareSize, squareSize, 2); 
 		}
 		if(mask[0] > 128 && SecondDraw == false) {
 			noStroke();
@@ -133,7 +141,28 @@ function keyTyped() {
 		saveBlocksImages();
 	}
 }
+//creates a colour gradient source: https://p5js.org/examples/color-linear-gradient.html
+function setGradient(x, y, w, h, c1, c2, axis) {
 
+  noFill();
+
+  if (axis == Y_AXIS) {  // Top to bottom gradient
+    for (var i = y; i <= y+h; i++) {
+      var inter = map(i, y, y+h, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }
+  }  
+  else if (axis == X_AXIS) {  // Left to right gradient
+    for (var i = x; i <= x+w; i++) {
+      var inter = map(i, x, x+w, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(i, y, i, y+h);
+    }
+  }
+}
 function star(x, y, radius1, radius2, npoints) {
 	var angle = TWO_PI / npoints;
 	var halfAngle = angle/2.0;
