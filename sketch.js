@@ -19,21 +19,38 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<100;i++) {
+  for(let i=0;i<200;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
+    let pointSize = 50;
+    let halfSize = 25;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
+      noStroke();
+      fill(0);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      stroke(pix);
+      strokeWeight(3);
+      line(x-halfSize,y-halfSize,x-halfSize,y+halfSize);
+      line(x-halfSize*0.8,y-halfSize,x-halfSize*0.8,y+halfSize);
+      line(x-halfSize*0.6,y-halfSize,x-halfSize*0.6,y+halfSize);
+      line(x-halfSize*0.4,y-halfSize,x-halfSize*0.4,y+halfSize);
+      line(x-halfSize*0.2,y-halfSize,x-halfSize*0.2,y+halfSize);
+      line(x,y-halfSize,x,y+halfSize);
+      line(x+halfSize,y-halfSize,x+halfSize,y+halfSize);
+      line(x+halfSize*0.8,y-halfSize,x+halfSize*0.8,y+halfSize);
+      line(x+halfSize*0.6,y-halfSize,x+halfSize*0.6,y+halfSize);
+      line(x+halfSize*0.4,y-halfSize,x+halfSize*0.4,y+halfSize);
+      line(x+halfSize*0.2,y-halfSize,x+halfSize*0.2,y+halfSize);
+    } else {
+      noStroke();
+      fill(pix);
+      quad(x-random(24,33),y-random(24,33),x-random(24,33),y+random(24,33),x+random(24,33),y+random(24,33),x+random(24,33),y-random(24,33));
     }
   }
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
@@ -47,3 +64,6 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+
+      
