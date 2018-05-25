@@ -16,37 +16,53 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  //background(117, 187, 220);
+  background(255);
 }
 
+
+//DONT MOVE
   //let pointSize = 50;
   let elementSpacing = 20;
-  let triSpace = 50
+  
+//DONT MOVE
+
 
 function draw () {
+
   for(let i=0;i<1080/elementSpacing;i++) {
 //    let x = floor(random(sourceImg.width));
 //    let y = floor(random(sourceImg.height));
+
+let triSize = 60
+
+
 
 let x = int(i * elementSpacing);
 let y = int(renderCounter * elementSpacing);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     
-    let halfSize = triSpace/2;
+    let halfSize = triSize/2;
     fill(pix);
 
-var x1 = random(triSpace);
+var r1 = random(triSize);
+var r2 = random(halfSize);
+var r4 = random(halfSize/2);
+
 //stroke(1);
 //rect(x, y, pointSize, pointSize);
-    triangle(x+x1, y, x+triSpace, y+triSpace, x, y+triSpace);  
+
+      triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
     
+//triangle(x+r1, y, x+triSize, y+triSize, x, y+triSize);
 
 /*
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
     }
     else {
-      triangle(x, y, x+pointSize, y+pointSize, x, y+pointSize);    
+      triangle(x+r1, y, x+triSize, y+triSize, x, y+triSize);    
     }
     */
   }
