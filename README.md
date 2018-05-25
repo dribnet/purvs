@@ -1,2 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-I took some photos of plants. There is an outline of the plants in black hexagons and everything else is offset rows of circles. I don't like all the white space in the image so I'll try to remove it. 
+This is my image with only the mask showing. It would look better if there was more detail shown in the mask. It looks interesting but I don't think I'll carry on with this theme.

@@ -18,7 +18,7 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 10;
+const pointSize = 30;
 
 function draw () {
   for(let i = 0; i < 1080 / pointSize * 2; i++) {
@@ -33,7 +33,7 @@ function draw () {
       if(renderCounter % 2 == 0){
         x += pointSize/2;
       }
-      ellipse(x-halfSize, y-halfSize,pointSize);
+      //polygon(x-halfSize, y-halfSize,pointSize);
     }
     else {
         fill(0);
