@@ -1,7 +1,7 @@
 let finalVersion = false; 
 
 let elementSpacing = 15;
-let squareSize = 15;
+let squareSize = 13;
 let circleSize = 35;
 
 if(finalVersion) {
@@ -27,7 +27,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(25);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
