@@ -2,7 +2,7 @@ let finalVersion = false;
 
 let sourceImg=null;
 let maskImg=null;
-let curRow=0;
+let renderCounter=0;
 
 function preload() {
   sourceImg = loadImage("input_2.jpg");
@@ -18,9 +18,14 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-}
-
+} 
 let pointSize = 50;
+let elementSpacing = 50;
+let squareSize = 30;
+let circleSize = 30;
+let dots = 50;
+let repeats = 100; 
+
 
 if (finalVersion  == true) {
   pointSize = 20;
@@ -29,25 +34,34 @@ if (finalVersion  == true) {
 
 
 function draw () {
-  for(let i=0;i<1620/pointSize;i++) {
-    // let x = floor(random(sourceImg.width));
-    // let y = floor(random(sourceImg.height));
-    let x = i * pointSize;
-    let y = curRow * pointSize;
+  for(let i=0;i<dots;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    //let x = int(i * elementSpacing);
+    //let y = int(curRow * elementSpacing);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     
-    let halfSize = 0.5*pointSize;
-    fill(pix);
+    let halfSize = 0.5*elementSpacing;
+    
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      fill(pix);
+      noStroke();
+      circleSize = floor(random(15, 30));
+      ellipse(x, y, circleSize, circleSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      
+      noFill();
+
+      stroke(pix);
+      strokeWeight(3);
+      squareSize = floor(random(15, 30));
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
-  curRow = curRow + 1;
-  if(curRow*pointSize > 1080) {
+  renderCounter = renderCounter + 1;
+  if(renderCounter > repeats) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
