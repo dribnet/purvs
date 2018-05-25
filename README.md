@@ -1,2 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-This is my image with only the mask showing. It would look better if there was more detail shown in the mask. It looks interesting but I don't think I'll carry on with this theme.
+I added a mask on the cactus, highlighting the 'spots'. The rows of hexagons are offset and have either a white hexagon or a black hexagon inside them. It's not a very unique variation so I will keep iterating. 
