@@ -1,6 +1,6 @@
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0;
+let renderCounter=0; // Rename to row counter
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -18,10 +18,10 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 30;
+const pointSize = 10;
 
 function draw () {
-  for(let i=0;i<1080/pointSize;i++) {
+  for(let i = 0; i < 1080 / pointSize * 2; i++) {
     let x = int(i * pointSize);
     let y = int(renderCounter * pointSize);
     let pix = sourceImg.get(x, y);
@@ -29,7 +29,11 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] < 128) {
-		polygon(x-halfSize, y-halfSize, pointSize, 6); 
+		//polygon(x-halfSize, y-halfSize, pointSize, 6); 
+      if(renderCounter % 2 == 0){
+        x += pointSize/2;
+      }
+      ellipse(x-halfSize, y-halfSize,pointSize);
     }
     else {
         fill(0);

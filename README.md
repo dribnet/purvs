@@ -1,2 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-I've changed the rects and ellipses to polygons (code from https://p5js.org/es/examples/form-regular-polygon.html). I put in an outline on the bus and made all polygons not in the outline bigger so they overlap.
+I took some photos of plants. There is an outline of the plants in black hexagons and everything else is offset rows of circles. I don't like all the white space in the image so I'll try to remove it. 
