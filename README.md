@@ -1,7 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-Episode 00
+Episode 01
 
-somekind of grid
+experimenting with the grid like features of the code, now i need to find a theme for the images im about to take, this all but a mere testing the waters sort of excercise.
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+-take phots
+-make theme
+-experiment further with the code.
