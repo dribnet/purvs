@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
- let elementSpacing = 50;
+ let elementSpacing = 30;
  let circleSize = 10;
  let squareSize = 30;
  let triSize = 20;
@@ -44,7 +44,7 @@ function draw () {
 
     let a = 100;
 
-    let pointSize = 30;
+    let pointSize = 10;
     //let halfSize2 = 40;
     fill(pix);
 
@@ -58,22 +58,23 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-      triangle(x, y, x+triSize, y, x, y+triSize);
-      triangle(y, x+triSize2, y, x/triSize, y+triSize2, x);
+      triangle(x+triSize3, y, x-triSize, y+triSize2, x, y+triSize);
+      triangle(y, x+triSize2, y, x-triSize, y-triSize2, x);
       //rotate(a);
       translate(10, 20);
       //rotate(60);
-      triangle(y, x+triSize3, y, x, y+triSize3, x);
+      triangle(y+triSize, x+triSize3, y, x/triSize2, y+triSize3, x);
       //a = a + 0.1
       rect(x, y, squareSize, squareSize);
     }
     else {
-      colorMode(RGB);
+      colorMode(RGB, 55);
       // colorMode(HSL);
       //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
       //rotate(60);
       //ellipseMode(CENTER);
-      ellipse(x+30, y+60, circleSize+10, circleSize);
+      ellipse(x+30, y+80, circleSize+10, circleSize);
+      ellipse(x+80, y+15, circleSize+30, circleSize+20);
       //a = a + 1;   
     }
   }
