@@ -9,8 +9,8 @@ let squareSize = 20;
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 12;
-  circleSize = 35;
-  squareSize = 30;
+  circleSize = 30;
+  squareSize = 15;
 }
 
 let sourceImg=null;
@@ -18,12 +18,12 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(1920, 1080);
+  let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
@@ -53,7 +53,7 @@ function draw () {
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1080/elementSpacing) {
+  if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();

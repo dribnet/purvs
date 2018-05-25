@@ -1,10 +1,8 @@
-Copied Tom's "grid offsets" sketch.js code, and adjusted circleSize, squareSize, and elementSpacing.
+For a theme, all my photos are of personal memorabilia, and I like the idea of giving the objects this blurry asthetic, as if it's being imagined.
 
-I did try just increasing the sizes at first, and it looked interesting, a bit like a low-res painting.
-However, the right eye was half-covered by gray, so I lowered the elementSpacing.
+Teddy bear from childhood.
+Camera from Granddad.
 
-I noticed the smaller the elementSpacing, the more distinctly the render resembled the photo. So I might try lowering the spacing even more and see what happens.
+The 3rd image I'm not completely sure about, but the FirstAidKit was from my Mum. She put it together for me to bring to Wellington, but also for many years when I was younger, my siblings and I were apart of "St John's Cadets".
 
-
-
-I need to take some vertical photos, remake the mask, and get some more subject material.
+So all these objects are related to my past, and I think the way I've rendered the first 2 photos so far, through a bit of a blurry look, capture that memory asthetic.
