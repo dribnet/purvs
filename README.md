@@ -1,4 +1,3 @@
 ## Creative Coding 2: Custom Pixel
-I added many polygons inside the main polygon, that are slightly transparent. For this iteration I made the mask shown as pure white. The transparency within the polygons gives the white an almost glowing effect.
-
-I changed the first mask by making a thick outline around the flowers (so it would be clearly seen).
+I removed some of the polygons inside the main polygon, and made them white instead of black. I also made the masked parts made with dots.
+I made a mask for the rose based on it's petals. I'm thinking of adding another mask and have a blend between the dots and hexagons.

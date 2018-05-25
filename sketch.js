@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0; // Rename to row counter
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -30,21 +30,16 @@ function draw () {
     fill(pix);
     if(mask[0] < 128) {
       polygon(x, y, pointSize, 6);
-      fill(0, 0, 0, 50);
-      polygon(x, y, pointSize/1.3, 6);
-      polygon(x, y, pointSize/1.6, 6);
-      polygon(x, y, pointSize/2, 6);
-      polygon(x, y, pointSize/2.5, 6);
+      fill(255, 255, 255, 50);
+      polygon(x, y, pointSize/1.5, 6);
+
       polygon(x, y, pointSize/3, 6);
-      polygon(x, y, pointSize/3.5, 6);
+
       polygon(x, y, pointSize/4, 6); 
-      polygon(x, y, pointSize/4.5, 6); 
     }
     else {
-        fill(pix);
-      //rect(x, y, pointSize*2, pointSize*2);
-        fill(0, 0, 0, 50);
-    	//rect(x, y, pointSize*2, pointSize*2);  
+      fill(pix);
+       ellipse(x, y, pointSize/2, pointSize/2);
     }
   }
   renderCounter = renderCounter + 1;
