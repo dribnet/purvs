@@ -30,19 +30,19 @@ function convertRgbToHsluv(c) {
 
 function draw () {
   for(let i=0; i<1; i++) {
-      let x = floor(random(sourceImg.width));
-      let y = floor(random(sourceImg.height));
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      let pointSize = floor(random(pSSmall, pSBig)); //picks random number between to values for the size of shapes
-      let halfSize = pointSize/2
-      let ro = random(0, 360);
-      let hsluvColor = convertRgbToHsluv(pix);
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    let pointSize = floor(random(pSSmall, pSBig)); //picks random number between to values for the size of shapes
+    let halfSize = pointSize/2
+    let ro = random(0, 360);
+    let hsluvColor = convertRgbToHsluv(pix);
 
-      push();
+    push();
       fill(pix);
       pickShape(pix, x, y, pointSize, halfSize, ro);
-      pop();
+    pop();
     //Reduces size of shapes over time, while restricting the minimum sizes
     if(pSBig>55){
       pSBig-=0.3;
