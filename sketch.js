@@ -1,7 +1,7 @@
 let finalVersion = false; 
 
-let elementSpacing = 15;
-let squareSize = 13;
+let elementSpacing = 35;
+let squareSize = 35;
 let circleSize = 35;
 
 if(finalVersion) {
@@ -37,13 +37,17 @@ function p1(x,y,c,s){
 	translate(x,y);
 	scale(s);
 	fill(c)
-    ellipse(0,0,30,30);
-
-    fill(125)
-    ellipse(0,0,15,15);
+  noStroke();
+  for (var i = 0; i < 10; i ++) {
+    rect(0, 30, 20, 140);
+    rotate(PI/6);
+  }
 
 	pop();
 }
+
+
+
 
 function convertRgbToHsluv(c) {
 return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
@@ -53,8 +57,8 @@ function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
    let x = int(i * elementSpacing);
    let y = int(renderCounter * elementSpacing);
-    //let dx = floor(random(elementSpacing/2));
-    //let dy = floor(random(elementSpacing/2))
+   // let dx = floor(random(elementSpacing/2));
+   // let dy = floor(random(elementSpacing/2))
 
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
@@ -64,7 +68,7 @@ function draw () {
 
     if(mask[0] > 128) {
 
-      p1(x, y, pix, 0.5);
+      p1(x, y, pix, 0.4);
     
       
     }
