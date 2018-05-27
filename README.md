@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos I have taken myself of my dog as a puppy. The mask highlights the entirety of the dog. I want to show a theme that relates to the negative imapcts of designer dogs and puppy farming that occurs in this country. For my second design, I am planning to have the dog represented by a wide range of dog glypths to show the idea of buying one puppy from a puppy farm meaning the suffering of lots of dogs and puppies.
+The images above are photos I have taken myself of my dog as a puppy. The mask highlights the entirety of the dog. I want to show a theme that relates to the love that needs to be put into breeding dogs instead of focusing on how they look. For my third design, I have created the dog using a heart glypth. I think the idea might look better if the dog itself was in black and white to further emphasise the design.
 
-So far, the algorithm uses my glyph design from the last project to do the dog, although I haven't altered it yet to get the desired outcome. 
+The algorithm uses a new heart glyph design to create the dog.
