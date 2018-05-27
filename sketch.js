@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 
 function preload() {
-	sourceImg = loadImage("input_2.jpg");
-	maskImg = loadImage("mask_2.png");
+	sourceImg = loadImage("input_3.jpg");
+	maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -12,7 +12,7 @@ function setup () {
 	  angleMode(DEGREES);
 	  imageMode(CENTER);
 	  noStroke();
-	  background(0);
+	  background(200);
 	  sourceImg.loadPixels();
 	  maskImg.loadPixels();
 }
@@ -38,18 +38,19 @@ function draw () {
       			let hsluvColor = convertRgbToHsluv(pix);
 				fillHsluv(0, 0, hsluvColor[2]);
 				rect(xBack, yBack, pointWidth, pointHeight); 
-				drawDogs(xBack, yBack, pointWidth, pointHeight, pix);
 			}
 		}
 	}
+	pointWidth = 200;
 	for(let i = 0; i < 4000; i++){
 		let xFront = floor(random(sourceImg.width));
 		let yFront = floor(random(sourceImg.height));
 		let pix = sourceImg.get(xFront, yFront);
 		let mask = maskImg.get(xFront, yFront);
 		if(mask[0] > 128){
-			fill(0, 0, 0, 120);
-			ellipse(xFront, yFront, pointSize, pointSize);
+			fill(pix);
+			pointHeight = floor(random(70, 130));
+			drawDogs(xFront, yFront, pointWidth, pointHeight, pix);
 		}
 	}
 
@@ -67,11 +68,11 @@ function drawDogs(centreX, centreY, width, height, values){
 	let strokeWidth = 0.5;
   	let red = values[0];
   	let green = values[1];
-    let legHeight = map(height, 40, 70, 0, height/4.5);
+    let legHeight = map(height, 70, 130, 0, height/4.5);
   	let blue = values[2];
-	let fillColour = map(blue, 0, 255, 0, 70);
-	let earColour = 100-fillColour;
-	let outerEarColour = fillColour+10;
+	let fillColour = values;
+	let earColour = [fillColour[0]+40, fillColour[1]+15, fillColour[1]+15];
+	let outerEarColour = [fillColour[0]-15, fillColour[1]-15, fillColour[2]-15];
     
     //basic dog shape
     //head
@@ -119,8 +120,8 @@ function drawDogs(centreX, centreY, width, height, values){
     let footLength = chestLength/5;
 	
 	//tail
-	fillUniform(fillColour);
-    strokeUniform(fillColour);
+	fill(fillColour);
+    stroke(fillColour);
     bezier(tailX, tailY, tailX*fluffiness, tailY, tailX+tailLength, tailY-tailHeight, tailX+tailLength, tailY-tailHeight);
 	
     //custom dog shape
@@ -206,13 +207,13 @@ function drawDogs(centreX, centreY, width, height, values){
       chestY, leftLegX+leftLegLength, noseY+noseHeight/2, furSize);
 
 	//ears
-	fillUniform(outerEarColour);
-	strokeUniform(earColour);
+	fill(outerEarColour);
+	stroke(earColour);
 	strokeWeight(strokeWidth);
     quad(earX, earY+earHeight, earX, earY-headLength/4, earX+earLength, earY,
     earX+earLength, earY+earHeight/1.5);  
 	noStroke();
-	fillUniform(fillColour);
+	fill(fillColour);
 	pop();
 }
 
