@@ -18,24 +18,36 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const pointSize = 20;
+
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/pointSize;i++) {
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
+    let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
+      // triangle(x-halfSize, y, x, y+pointSize, x+halfSize, y);
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      if ( x%pointSize == 0) {
+      	triangle(x-halfSize, y, x, y+pointSize, x+halfSize, y);
+      }
+      else {
+	  	triangle(x-halfSize, y+pointSize, x, y, x+halfSize, y+pointSize); 
+      }
+
+      // triangle(x-halfSize, y+pointSize, x, y, x+halfSize, y+pointSize); 
+      // rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
