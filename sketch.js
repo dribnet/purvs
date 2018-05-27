@@ -8,9 +8,9 @@ let squareSize = 20;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 12;
+  elementSpacing = 17;
   circleSize = 30;
-  squareSize = 15;
+  squareSize = 10;
 }
 
 let sourceImg=null;
@@ -28,7 +28,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(128);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
