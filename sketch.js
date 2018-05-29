@@ -30,9 +30,9 @@ function draw () {
     let mask = maskImg.get(x, y);
     //let cx = floor(random(sourceImg.width));
     //let cy = floor(random(sourceImg.height));
-    let halfsize = pointSize/2;
+    //let halfsize = pointSize/2;
     //editing the numbers below slows render but increases detail
-    //let halfSize = 5;
+    let halfsize = 5;
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x+halfsize, y+halfsize, pointSize1, pointSize1);

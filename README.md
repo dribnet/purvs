@@ -1,8 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-Episode 02 THEME??
+Episode 02 THEME
 
-Taking everyday mundane items into action. Three things that represent me as a student, always carrying a water bottle around, rubix cube keychain to show creativity i guess, and the hardrive for well student work.
+Three objects that represent the mundane lifestyle of a design student. this is shown by the water bottle next to a familiar desk and the rubiks keychain in his bag along with a harddrive plugged in to the computer with a mouse. all to show the everday items that most students will have while they study. but this mostly just my perspective.
 
 -take photos :D done!!
 -make theme :D done 11
