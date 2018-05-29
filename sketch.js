@@ -7,12 +7,12 @@ var X_AXIS = 2;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let circleSize = 40;
+let circleSize = 60;
 let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 1.5;
+	let scale = 1.9;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -49,6 +49,7 @@ function convertRgbToHsluv(c) {
 
 function draw () {
 	// Background handled here
+	//console.log(getRandom(1,2));
   	if(bground==false){
 		b1 = color(255);
 	  	b2 = color(0);
@@ -72,7 +73,8 @@ function draw () {
 		if(maskTwo[0] > 128 && SecondDraw == true) {
 			fill(pix2);
 			noStroke();
-			ellipse(x2, y2, circleSize, circleSize);
+			let rand = getRandom(1,2);
+			ellipse(x2, y2, circleSize/rand, circleSize/rand);
 			//star(x, y, squareSize, squareSize, 2); 
 		}
 		if(mask[0] > 128 && SecondDraw == false) {
@@ -140,6 +142,12 @@ function keyTyped() {
 	if (key == '!' || key == '1') {
 		saveBlocksImages();
 	}
+}
+
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return (Math.random() * (max - min)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 //creates a colour gradient source: https://p5js.org/examples/color-linear-gradient.html
 function setGradient(x, y, w, h, c1, c2, axis) {

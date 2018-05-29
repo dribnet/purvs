@@ -7,6 +7,11 @@ At this point I'm still playing with ideas, I quite like the mixture of the grid
 I've now added multiple masks and the ability to use both the fully randomized script and the two grid style scripts in one porject.
 
 ### Notes:
+
 One thing I've noticed is at very high image densities the texture of certain shapes just disapears lossing the effect of certain shapes
 
-Mainly experimenting at this point with different shapes and the scaling of those shapes, it's a little hard to conceptualize at this point what will look best at different scales
+Mainly experimenting at this point with different shapes and the scaling of those shapes, it's a little hard to conceptualize at this point what will look best at different scales.
+
+### Theming:
+
+my current idea is separating the organic from the inorganic, using portraits of people pulling the organic elements body/hair/face to the front with colour. Then fading the inorgainic aspects into the background clothes/furniture with abstract and random point pattern
