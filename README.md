@@ -1,3 +1,4 @@
 ## Creative Coding 2: Custom Pixel
-I removed some of the polygons inside the main polygon, and made them white instead of black. I also made the masked parts made with dots.
-I made a mask for the rose based on it's petals. I'm thinking of adding another mask and have a blend between the dots and hexagons.
+I added a second mask to make an outline around the first mask. In the mask I made hexagons with the same pattern as the circles but a little bigger. This is because previously the there was no connection between the circles and the hexagons.
+
+I also changed the hexagons colouring so instead of having it get continuously lighter,  it gets lighter then goes back to the original colour and then gets lighter again. 

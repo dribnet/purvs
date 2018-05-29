@@ -3,8 +3,9 @@ let maskImg=null;
 let renderCounter=0; // Rename to row counter
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
+  maskImgB = loadImage("mask_2b.png");
 }
 
 function setup () {
@@ -16,6 +17,7 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImgB.loadPixels();
 }
 
 const pointSize = 20;
@@ -26,20 +28,34 @@ function draw () {
     let y = int(renderCounter * pointSize);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let maskB = maskImgB.get(x, y);
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] < 128) {
       polygon(x, y, pointSize, 6);
       fill(255, 255, 255, 50);
       polygon(x, y, pointSize/1.5, 6);
-
+      fill(pix);
+      polygon(x, y, pointSize/2, 6);
+      fill(255, 255, 255, 50);
       polygon(x, y, pointSize/3, 6);
-
+      fill(pix);
+      polygon(x, y, pointSize/3.5, 6);
+      polygon(x, y, pointSize/2, 6);
+      fill(255, 255, 255, 50);
       polygon(x, y, pointSize/4, 6); 
+    }
+    else if(maskB[0] < 128) {
+    	fill(pix);
+    	polygon(x, y, pointSize/2, 6);
+    	fill(255, 255, 255);
+    	polygon(x, y, pointSize/4, 6); 
     }
     else {
       fill(pix);
        ellipse(x, y, pointSize/2, pointSize/2);
+       fill(255, 255, 255);
+       ellipse(x, y, pointSize/4, pointSize/4);
     }
   }
   renderCounter = renderCounter + 1;
