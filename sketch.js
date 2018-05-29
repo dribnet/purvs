@@ -4,8 +4,8 @@ let maskImg=null;
 let curRow = 0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.png");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -37,17 +37,19 @@ function draw () {
 
     let halfSize = squareSize/2;
     fill(pix);
-    if(mask[0] >140 && mask[0] <160){
+
+    if(mask[0] > 250) {
       rect(x-halfSize, y-halfSize, squareSize*2, squareSize*2);   
 
     }
-    if(mask[0] > 160) {
+    if (mask[0] < 10){
       rect(x-halfSize, y-halfSize, squareSize, squareSize*2);   
     }
-    if (mask[0] < 140){
+
+	if(mask[0] >11 && mask[0] <249){
       x = x + nx;
       y = y + ny;
-      ellipse(x, y, cir0!cleSize, circleSize);
+      ellipse(x, y, circleSize, circleSize);
       x = x + nx*2;
       y = y + ny*2;
       ellipse(x, y, circleSize/2, circleSize/2);
