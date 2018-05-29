@@ -1,5 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
+-29/5-
+I am using three images taken from around Wellington. I still need to work on a cohesive theme across the images.
+I played around with the grid that is drawn in the masked areas. I increased the size of the squaress a little and tried out over-saturating, de-saturating and having greyscale squares. The first two images above I used de-saturation (to 35%), the third image is at full color/saturation as that looked best with this image.
+I am pretty happy with how my code distorts the images so I wil just work on finding/taking some photos with a theme in mind fro the final product.
+
 -25/5-
 I have found a couple of photos that I have taken from around Wellington, my third image is still the rainbow gradient to test out different ideas easier.
 My algorithm still draws ellipses, squares and triangles. They get smaller over time and the shape depends on the lightness value of the point in the image. 
