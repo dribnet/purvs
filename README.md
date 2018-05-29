@@ -1,5 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos I have taken myself of my dog as a puppy. The mask highlights the entirety of the dog. I want to show a theme that relates to the love that needs to be put into breeding dogs instead of focusing on how they look. For my third design, I have created the dog using a heart glypth. I think the idea might look better if the dog itself was in black and white to further emphasise the design.
+The images above are photos I have taken myself of my dog as a puppy. The mask highlights the entirety of the dog. I also have a second mask that highlights the deg of the dog. I want to show a theme that relates to the negative imapcts of designer dogs and puppy farming that occurs in this country. This design uses a wide range of dog glypths to show the idea of designer dogs and have the actual dog in the photo to be a silhouette.
 
-The algorithm uses a new heart glyph design to create the dog.
+So far, the algorithm uses my glyph design from the last project to do the background. I have altered it so that the dog ears come in two variations; pointy or floppy. I have also changed the colouring so the dog is all one colour and the colour of the dog matches the original pixel underneath. I also decided to have a consistent rectangle colour and add an outline. 
+The silhouette is created using transparent ellipses. I did this because otherwise it looks quite blocky and I like that it makes the silhouette look a bit more undefined. To improve on this algorithm, I added a second mask which keeps sampling random pixels until it ends up in the second mask. I did this to make it easier to control how many ellipses will be seen.
