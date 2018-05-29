@@ -1,7 +1,9 @@
-I've been trying to experiment alot more with this image.
+I thought about not using smartmasking, but I tried it on my 3rd photo, and found the smartmask was more cleaner than if I used Photoshop.
 
-I've tried playing around with different ellipse shapes, and playing around with what the mask draws and where.
+For example, the edges are clean with smartmasking, but with Photoshop the edges were jaggered.
 
-For now, I'm taking a break on this iteration. I think background gaps shining through with white spots is really cool, and adds to my theme/asthetic of memory fuzz.
 
-However, I'm not happy with the drawing of the FirstAidKit as it is, so it'll give me the opportunity to experiment with different coding methods.
+
+However, the smartmask couldn't identify the object in input_2. Also for input_1 it actually recognized the object as a teddy bear, but it didn't completely cover the bear.
+
+So I'll stick with a manual mask for image 1 & 2, and use smartmasking for image 3.
