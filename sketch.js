@@ -7,12 +7,12 @@ var X_AXIS = 2;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let circleSize = 30;
+let circleSize = 40;
 let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 2.5;
+	let scale = 1.5;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -58,8 +58,8 @@ function draw () {
 	for(let i=0;i<1080/elementSpacing;i++) {
 		let x = int(i * elementSpacing);
 		let y = int(renderCounter * elementSpacing);
-		let dx = floor(random(elementSpacing/2));
-		let dy = floor(random(elementSpacing/2));
+		let dx = floor(random(elementSpacing));
+		let dy = floor(random(elementSpacing));
 		let pix = sourceImg.get(x, y);
 		let mask = maskImg.get(x, y);
 		// let maskTwo = maskTwoImg.get(x, y);
@@ -89,7 +89,7 @@ function draw () {
 		      let hsluvColor = convertRgbToHsluv(pix);
 		      fillHsluv(0, 0, hsluvColor[2]);
 		      stroke(3);
-		      star(x, y, squareSize, halfSize/1.5, 3);
+		      star(x, y, squareSize, halfSize/3, 3);
 	  		}
 		}
 	}	
