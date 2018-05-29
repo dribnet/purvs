@@ -1,5 +1,7 @@
-Iterated the camera render. 
+I've been trying to experiment alot more with this image.
 
-I reduced the size of the squares, which meant the background could be seen through the cracks. I didn't think black background suited the image, so I changed that to grey. Utilizing contrast to shine focus on the camera.
+I've tried playing around with different ellipse shapes, and playing around with what the mask draws and where.
 
-I also increased element spacing so that the image looked more blurry.
+For now, I'm taking a break on this iteration. I think background gaps shining through with white spots is really cool, and adds to my theme/asthetic of memory fuzz.
+
+However, I'm not happy with the drawing of the FirstAidKit as it is, so it'll give me the opportunity to experiment with different coding methods.

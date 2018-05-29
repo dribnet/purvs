@@ -8,9 +8,9 @@ let squareSize = 20;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 17;
+  elementSpacing = 20;
   circleSize = 30;
-  squareSize = 10;
+  squareSize = 40;
 }
 
 let sourceImg=null;
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -28,13 +28,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(128);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<1920/elementSpacing;i++) {
+  for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
     let dx = floor(random(elementSpacing/2));
@@ -45,12 +45,13 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] < 128) {
       ellipse(x, y, circleSize, circleSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
-    }
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);  
+   
+   }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 1920/elementSpacing) {
