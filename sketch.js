@@ -26,9 +26,9 @@ var PixelDensity = 100*2;
 var DrawCalls = 400;
 
 function preload() {
-	sourceImg = loadImage("input_A1.jpg");
+	sourceImg = loadImage("input_A2.jpg");
 	maskImg = loadImage("mask_A1.png");
-	maskTwoImg = loadImage("mask_A2.png");
+	maskTwoImg = loadImage("mask_A3.png");
 }
 
 function setup () {
@@ -48,11 +48,11 @@ function convertRgbToHsluv(c) {
 }
 
 function draw () {
+	// Background handled here
   	if(bground==false){
-		// Background  
 		b1 = color(255);
 	  	b2 = color(0);
-	  	setGradient(0, 0, width, height, b1, b2, X_AXIS);
+	  	setGradient(0, 0, width, height, b1, b2, Y_AXIS);
 		bground=true;
 	}
 	for(let i=0;i<1080/elementSpacing;i++) {
@@ -89,7 +89,7 @@ function draw () {
 		      let hsluvColor = convertRgbToHsluv(pix);
 		      fillHsluv(0, 0, hsluvColor[2]);
 		      stroke(3);
-		      star(x, y, squareSize, halfSize/3, 3);
+		      star(x, y, squareSize*1.1, halfSize/3, 3);
 	  		}
 		}
 	}	
