@@ -23,7 +23,7 @@ let maskImg=null;
 let renderCounter=0;
 let renderCounterTwo=0;
 var PixelDensity = 100*2;
-var DrawCalls = 400;
+var DrawCalls = 1000;
 
 function preload() {
 	sourceImg = loadImage("input_A1.jpg");
