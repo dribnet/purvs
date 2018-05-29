@@ -1,11 +1,17 @@
 ## Creative Coding 2: Custom Pixel
 
 
+-- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
+
+
+29/5
+I have jet to figure out how to do the sizing changes to what I want. I have got the mask working in regards to the colour which i like. I want to try with maybe only dropping the saturation than completely making it greyscale.
+
+I have yet to fully decide on my theme. I was thinking a sports, exercise or football theme but the weather isnt very nice as of this moment so im not too sure what I will do to take my photos.
+
 
 25/5 
 I have played around with the code and have the triangles on a few random variables so there is more variation between them. this gives more of a poly art feel but it makes it significantly harder to see what the image is and what it represents. I want to play around and see if i can have the mask be more detailed to see the image clearer at parts.
-
---- have also encountered a problem when my code is pushed that one of my artworks doesnt appear ---
 
 
 
