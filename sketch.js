@@ -1,51 +1,56 @@
+/* Set to true to make final high-resolution version */
+const finalVersion = true;
+
+/* Default versions of variables */
+let pointSize = 60;
+
+/* Override some variables with high-resolution final version */
+if (finalVersion) {
+  pointSize = 20;
+}
+
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-//I have used some of Tom White's example code for my own project
-//https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/b9eca66520db6771e0e0299da527af99496efb95
-
-
-
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
+  angleMode(DEGREES);
   imageMode(CENTER);
-  //noStroke();
-  background(0);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
-const pointSize = 40;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
     let x = int(i * pointSize);
     let y = int(renderCounter * pointSize);
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
-    //let pointSize = 60;
-    //let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
+      // stroke(255);
+      // strokeWeight(2);
       noStroke();
-      //ellipse(x, y, pointSize, pointSize);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
-
+      rect(x-halfSize, y-halfSize, pointSize, pointSize); 
+      // ellipse(x, y, pointSize, pointSize);
     }
     else {
-       strokeWeight(4);
-        stroke(255);
+      stroke(255);
+      strokeWeight(2);
+      // noStroke();
+      //rotate(25);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
