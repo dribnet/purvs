@@ -8,3 +8,5 @@ I've now added multiple masks and the ability to use both the fully randomized s
 
 ### Notes:
 One thing I've noticed is at very high image densities the texture of certain shapes just disapears lossing the effect of certain shapes
+
+Mainly experimenting at this point with different shapes and the scaling of those shapes, it's a little hard to conceptualize at this point what will look best at different scales
