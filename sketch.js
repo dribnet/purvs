@@ -4,12 +4,12 @@ let renderCounter=0;
 let curRow = 0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(1080, 1920);
+  let main_canvas = createCanvas(1080, 1920); //1080 x 1920
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
@@ -20,7 +20,7 @@ function setup () {
 }
 
 let pointSize = 20;
-let pointSize1 = 40;
+
 
 function draw () {
   for(let i=0;i<1080;i++) {
@@ -28,11 +28,12 @@ function draw () {
     let y = curRow * pointSize;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    //let cx = floor(random(sourceImg.width));
-    //let cy = floor(random(sourceImg.height));
+    //let cx = curRow * floor(random(sourceImg.width));
+    //let cy = curRow * floor(random(sourceImg.height));
     //let halfsize = pointSize/2;
     //editing the numbers below slows render but increases detail
     let halfsize = 5;
+    let pointSize1 = random(10,90);
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x+halfsize, y+halfsize, pointSize1, pointSize1);
