@@ -34,7 +34,7 @@ function draw () {
       push();
       translate(x, y);
       rotate(0.785398);
-      rect(x, y, pointSize, pointSize);
+      rect(0-halfSize, 0-halfSize, pointSize, pointSize);
       pop();   
     }
   }
