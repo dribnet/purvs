@@ -18,26 +18,37 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const pointSize = 10;
+
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080;i++) {
+    //let x = floor(random(sourceImg.width));
+    //let y = floor(random(sourceImg.height));
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 20;
+    let halfSize = pointSize/2;
     fill(pix);
+    stroke(255);
     if(mask[0] > 128) {
-      line(x, y, pointSize, pointSize);
+      beginShape();
+      vertex(x, y);
+      vertex(pointSize, pointSize);
+      vertex(x, y);
+      endShape();
+      stroke(0);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);
     }
     else {
+      stroke(0);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920) {
     console.log("Done!")
-    //noLoop();
+    noLoop();
     // saveBlocksImages();
   }
 }
