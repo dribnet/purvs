@@ -1,7 +1,7 @@
 let finalVersion = false; 
 
-let elementSpacing = 35;
-let squareSize = 35;
+let elementSpacing = 20;
+let squareSize = 45;
 let circleSize = 35;
 
 if(finalVersion) {
@@ -19,6 +19,9 @@ let renderCounter =0;
 function preload() {
   sourceImg = loadImage("input_1.jpg");
   maskImg = loadImage("mask_1.png");
+
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -27,10 +30,11 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(25);
+  background(197, 232, 183);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
+
 
 function p1(x,y,c,s){
 	push();
@@ -39,7 +43,7 @@ function p1(x,y,c,s){
 	fill(c)
   noStroke();
   for (var i = 0; i < 10; i ++) {
-    rect(0, 30, 20, 140);
+    ellipse(0, 30, 30, 140);
     rotate(PI/6);
   }
 
@@ -68,7 +72,7 @@ function draw () {
 
     if(mask[0] > 128) {
 
-      p1(x, y, pix, 0.4);
+      p1(x, y, pix, 0.3);
     
       
     }
@@ -78,7 +82,8 @@ function draw () {
       //let hsluvColor = convertRgbToHsluv(pix);
       //fillHsluv(0,0, hsluvColor[2]/2);
       let halfSize = squareSize/2;
-      rect(x-halfSize, y-halfSize, squareSize, squareSize); 
+      rect(x-halfSize, y-halfSize, squareSize, squareSize-32); 
+
            
     }
   }
