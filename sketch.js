@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -24,7 +24,7 @@ let triSize = 10;
 let triSize2 = 7;
 let elementSpacing = 12.5;
 let squareSize = 12.5
-let circleSize = 10
+let circleSize = 2
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
@@ -41,6 +41,7 @@ function draw () {
     let triy2 = floor(random(sourceImg.height));
     let trix3 = floor(random(sourceImg.width));
     let triy3 = floor(random(sourceImg.height));
+
    
     let halfSize = squareSize/2;
     fill(pix);
@@ -68,7 +69,16 @@ function draw () {
     }
     if(mask[0] > 170){
 
-      ellipse(x, y, circleSize, circleSize);
+      ellipse(x, y, circleSize);
+
+      if(circleSize < 12.5){
+
+      circleSize = circleSize + 0.008
+}
+        else(circleSize = 12.5)
+        
+
+
 
     }
 
