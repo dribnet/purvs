@@ -1,4 +1,6 @@
 ## Creative Coding 2: Custom Pixel
-I added a second mask to make an outline around the first mask. In the mask I made hexagons with the same pattern as the circles but a little bigger. This is because previously the there was no connection between the circles and the hexagons.
+For this experiment I wanted to make the background more interesting. I added an extra ellipse to the background and shifted it up by 1.5. This makes a pattern which I like more than the single rows of ellipses.
 
-I also changed the hexagons colouring so instead of having it get continuously lighter,  it gets lighter then goes back to the original colour and then gets lighter again. 
+I also made the transparent hexagons white so they would match the background. I don't like this as much as the semitransparent hexagons because the flowers don't stand out as much as they did.
+
+I tried using the smartmask on another image of a flower but it didn't work well. It did I creates a large area around the flowers instead of masking the actual flowers even though the background was white. This isn't helpful to me so I don't think I'll be using it.
