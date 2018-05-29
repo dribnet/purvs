@@ -7,12 +7,12 @@ var X_AXIS = 2;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let circleSize = 30;
+let circleSize = 60;
 let squareSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 2.5;
+	let scale = 1.9;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -26,9 +26,9 @@ var PixelDensity = 100*2;
 var DrawCalls = 1000;
 
 function preload() {
-	sourceImg = loadImage("input_A1.jpg");
+	sourceImg = loadImage("input_A2.jpg");
 	maskImg = loadImage("mask_A1.png");
-	maskTwoImg = loadImage("mask_A2.png");
+	maskTwoImg = loadImage("mask_A3.png");
 }
 
 function setup () {
@@ -48,18 +48,19 @@ function convertRgbToHsluv(c) {
 }
 
 function draw () {
+	// Background handled here
+	//console.log(getRandom(1,2));
   	if(bground==false){
-		// Background  
 		b1 = color(255);
 	  	b2 = color(0);
-	  	setGradient(0, 0, width, height, b1, b2, X_AXIS);
+	  	setGradient(0, 0, width, height, b1, b2, Y_AXIS);
 		bground=true;
 	}
 	for(let i=0;i<1080/elementSpacing;i++) {
 		let x = int(i * elementSpacing);
 		let y = int(renderCounter * elementSpacing);
-		let dx = floor(random(elementSpacing/2));
-		let dy = floor(random(elementSpacing/2));
+		let dx = floor(random(elementSpacing));
+		let dy = floor(random(elementSpacing));
 		let pix = sourceImg.get(x, y);
 		let mask = maskImg.get(x, y);
 		// let maskTwo = maskTwoImg.get(x, y);
@@ -72,7 +73,8 @@ function draw () {
 		if(maskTwo[0] > 128 && SecondDraw == true) {
 			fill(pix2);
 			noStroke();
-			ellipse(x2, y2, circleSize, circleSize);
+			let rand = getRandom(1,2);
+			ellipse(x2, y2, circleSize/rand, circleSize/rand);
 			//star(x, y, squareSize, squareSize, 2); 
 		}
 		if(mask[0] > 128 && SecondDraw == false) {
@@ -89,7 +91,7 @@ function draw () {
 		      let hsluvColor = convertRgbToHsluv(pix);
 		      fillHsluv(0, 0, hsluvColor[2]);
 		      stroke(3);
-		      star(x, y, squareSize, halfSize/1.5, 3);
+		      star(x, y, squareSize*1.1, halfSize/3, 3);
 	  		}
 		}
 	}	
@@ -140,6 +142,12 @@ function keyTyped() {
 	if (key == '!' || key == '1') {
 		saveBlocksImages();
 	}
+}
+
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return (Math.random() * (max - min)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 //creates a colour gradient source: https://p5js.org/examples/color-linear-gradient.html
 function setGradient(x, y, w, h, c1, c2, axis) {
