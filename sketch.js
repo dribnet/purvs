@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
- let elementSpacing = 30;
+ let elementSpacing = 25;
  let circleSize = 10;
  let squareSize = 30;
  let triSize = 20;
@@ -48,8 +48,8 @@ function draw () {
     //let halfSize2 = 40;
     fill(pix);
 
-    colorMode(HSL, 0, 40, 50);
-    // colorMode(HSB);
+    //colorMode(HSL);
+    //colorMode(HSB);
 
     if(mask[0] > 128) {
       noStroke();
@@ -58,25 +58,35 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-      triangle(x+triSize3, y, x-triSize3, y, x, y);
-      triangle(y, x+triSize2, y, x-triSize3, x, x/triSize);
+
+      //triangle(x-triSize3, y, x-triSize3, y, x, y+triSize3);
+      //triangle(y, x-triSize, y, x-triSize3, x, x);
+
+      triangle(x-triSize3, y, x+triSize, y-triSize3, x, y+triSize);
+
+      //triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
+      //triangle(x+triSize2, x, y, x, y+triSize3, x);
+
       //rotate(a);
-      translate(10, 20);
+      translate(-10, 20);
       //rotate(60);
-      triangle(y, x/triSize3, y, x-triSize2, y, x);
+      //triangle(y, x/triSize3, y, x-triSize2, y, x);
       //a = a + 0.1
-      rect(x, y, squareSize, squareSize);
+      //rect(x, y, squareSize, squareSize);
     }
     else {
-      colorMode(RGB, 50, 20, 10);
+      //colorMode(RGB, 50, 20, 10);
       // colorMode(HSL);
       //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
       //rotate(60);
       //ellipseMode(CENTER);
-      ellipse(x+30, y+80, circleSize+10, circleSize);
+      //translate(-20, 0)
+      noStroke();
+      //ellipse(x+30, y+80, circleSize+10, circleSize);
       //rotate(-5);
-      ellipse(x+80, y+15, circleSize+30, circleSize+20);
-      //a = a + 1;   
+      //ellipse(x+80, y+15, circleSize+30, circleSize+20);
+      //a = a + 1;  
+      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2); 
     }
   }
   renderCounter = renderCounter + 1;
