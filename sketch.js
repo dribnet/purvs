@@ -104,7 +104,7 @@ function draw () {
       // convert to grayscale (remove color, keep brightness in hsluv colorspace)
       let hsluvColor = convertRgbToHsluv(pix);
       fillHsluv(0, 0, hsluvColor[2]);
-      rect(x-halfSize, y-halfSize, squareSize/5, squareSize/5);    
+      rect(x-halfSize, y-halfSize, squareSize/2, squareSize/2);    
     }
   }
   renderCounter = renderCounter + 1;
