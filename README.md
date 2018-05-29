@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+With my images I decided to change my idea of doing faces to creating something that is more personal to me which is my culture. I decided to take photos of teine Samoa (Samoan girls) as it's Samoan language week and so I thought this will be a great opportunity to use that for my project. 
