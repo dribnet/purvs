@@ -31,7 +31,11 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      push();
+      translate(x, y);
+      rotate(0.785398);
+      rect(x, y, pointSize, pointSize);
+      pop();   
     }
   }
   renderCounter = renderCounter + 1;
