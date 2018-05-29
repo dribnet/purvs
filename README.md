@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-With my images I decided to change my idea of doing faces to creating something that is more personal to me which is my culture. I decided to take photos of teine Samoa (Samoan girls) as it's Samoan language week and so I thought this will be a great opportunity to use that for my project. 
+For my photos I have three girls who are my friends. I took these photos while they were dancing a Samoan siva for VUSSA (Victoria University Students' Association) I wanted to capture the pose of how they are and also trying to create that texture and colour of the puletasi (The womans clothing). With this I tried to clean it up a bit. 
