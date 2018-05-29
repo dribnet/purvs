@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -21,7 +21,7 @@ function setup () {
 let pointSize = 40;
 let elementSpacing = 20;
 let squareSize = 20;
-let circleSize = 40
+let circleSize = 30
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
