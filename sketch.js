@@ -8,7 +8,7 @@ let circleSize = 75;
 // let circleSize3 = 45;
 // let circleSize4 = 30;
 // let circleSize5 = 15;
-let squareSize = 50;
+// let arcSize = 40;
 
 
 if (finalVersion) {
@@ -18,7 +18,7 @@ if (finalVersion) {
 	// let circleSize3 = 22.5;
 	// let circleSize4 = 15;
 	// let circleSize5 = 7.5;
-	let squareSize = 25;
+	// let arcSize = 20;
 }
 
 let sourceImg=null;
@@ -26,8 +26,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -35,9 +35,9 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  // angleMode(DEGREES);
+  angleMode(DEGREES);
   // noStroke();
-  background(255);
+  background(10);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -50,17 +50,21 @@ function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
-    // let x = floor(random(sourceImg.width));
-    // let y = floor(random(sourceImg.height));
+    let dx = floor(random(elementSpacing));
+    let dy = floor(random(elementSpacing));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = squareSize/2;
     // fill(pix);
     let hsluvColor = convertRgbToHsluv(pix);
     let circleSize2 = map(hsluvColor[1], 0, 100, 60, 70);
     let circleSize3 = map(hsluvColor[1], 0, 100, 45, 55);
     let circleSize4 = map(hsluvColor[1], 0, 100, 30, 40);
     let circleSize5 = map(hsluvColor[1], 0, 100, 15, 25);
+
+    let arcSize = map(hsluvColor[1], 0, 100, 40, 60);
+    let startAngle = map(hsluvColor[1], 0, 100, 180, 359);
+    let endAngle = map(hsluvColor[1], 0, 100, 360, 179);
+    let halfSize = arcSize/2;
 
     if(mask[0] > 128) {
       stroke(pix);
@@ -73,9 +77,11 @@ function draw () {
       ellipse(x, y, circleSize5, circleSize5);
     }
     else {
+    x = dx + x;
+    y = dy + y;
     	noStroke();
-    	fillHsluv(0,0,hsluvColor[2]);
-      rect(x-halfSize, y-halfSize, squareSize, squareSize); 
+    fill(pix);
+      arc(x-halfSize, y-halfSize, arcSize, arcSize, startAngle, endAngle); 
   
     }
 
