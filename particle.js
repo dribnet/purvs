@@ -32,15 +32,18 @@ function Particle() {
   }
 
   this.show = function() {
-    //colorMode(HSB);
     var px = floor(this.pos.x)
     var py = floor(this.pos.y)
-    var col = sourceImg.get(px,py);
+    var col = img.get(px,py);
+    var mask1 = mask.get(px,py);
     stroke(col[0],col[1],col[2], 100);
-    strokeWeight(0.5);
-    line(this.pos.x, this.pos.y,this.prevPos.x, this.prevPos.y)
+    if(mask1[0] > 128){
+      strokeWeight(1);
+    } else {
+    strokeWeight(25);
+    }
+    line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrev();
-    //point(this.pos.x, this.pos.y)
 
   }
   this.updatePrev = function() {
