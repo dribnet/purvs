@@ -28,7 +28,7 @@ function draw () {
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      rect(x, y, pointSize, pointSize);
     }
     else {
       push();
