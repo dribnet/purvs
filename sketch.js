@@ -1,5 +1,5 @@
 /* Set to true to make final high-resolution version */
-let finalVersion = false;
+let finalVersion = true;
 
 /* Default versions of variables */
 let elementSpacing = 40;
@@ -9,8 +9,8 @@ let circleSize = 50;
 /* Override some variables with high-resolution final version*/
 if (finalVersion){
   elementSpacing = 20;
-  squareSize = 10;
-  circleSize = 25;
+  squareSize = 20;
+  circleSize = 20;
 }
 
 let sourceImg=null;
