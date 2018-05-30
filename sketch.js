@@ -39,8 +39,8 @@ function convertRgbToHsluv(c){
 
 function draw () {
   for(let i=0;i<(1080/elementSpacing);i++) {
-    let dx = floor(random(elementSpacing/4));
-    let dy = floor(random(elementSpacing/4));
+    let dx = floor(random(elementSpacing/4));//offset X
+    let dy = floor(random(elementSpacing/4));//offset Y
     let x = int(i * elementSpacing);
     let y = int(curRow * elementSpacing);
 
@@ -53,11 +53,15 @@ function draw () {
       ellipse(x, y, circleSize, circleSize);
     }
     else {
+      /* Remove color*/
       //let hsluvColor = convertRgbToHsluv(pix);
       //fillHsluv(0, 0, hsluvColor[2]);
+
+      /* Offset */
+      x = x + dx;
+      y = y + dy; 
+
       let halfSize = squareSize/2;
-      //x = x + dx;
-      //y = y + dy; 
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
