@@ -1,5 +1,12 @@
 ## Creative Coding 2: Custom Pixel
 
+Part 2:
+My theme is "Against Violence". I add three photos that I took and start to experiment them with grid layout techniques.
+
+
+
+
+Part 1:
 I fix the bug and added three random photos that I took. I got some idea: 
 
 1, Cats Protect League
