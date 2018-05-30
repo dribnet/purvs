@@ -1,16 +1,16 @@
 /* Set to true to make final high-resolution version */
-let finalVersion = true;
+let finalVersion = false;
 
 /* Default versions of variables */
 let elementSpacing = 40;
-let squareSize = 40;
+let squareSize = 20;
 let circleSize = 50;
 
 /* Override some variables with high-resolution final version*/
 if (finalVersion){
   elementSpacing = 20;
-  squareSize = 20;
-  circleSize = 20;
+  squareSize = 10;
+  circleSize = 25;
 }
 
 let sourceImg=null;
@@ -39,8 +39,8 @@ function convertRgbToHsluv(c){
 
 function draw () {
   for(let i=0;i<(1080/elementSpacing);i++) {
-    //let dx = floor(random(elementSpacing/4));
-    //let dy = floor(random(elementSpacing/4));
+    let dx = floor(random(elementSpacing/4));
+    let dy = floor(random(elementSpacing/4));
     let x = int(i * elementSpacing);
     let y = int(curRow * elementSpacing);
 
