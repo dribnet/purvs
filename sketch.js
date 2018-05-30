@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
- let elementSpacing = 25;
+ let elementSpacing = 15;
  let circleSize = 10;
  let squareSize = 30;
  let triSize = 20;
@@ -46,7 +46,7 @@ function draw () {
 
     let pointSize = 10;
     //let halfSize2 = 40;
-    fill(pix);
+    //fill(pix, 10);//////////////////
 
     //colorMode(HSL);
     //colorMode(HSB);
@@ -59,18 +59,23 @@ function draw () {
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
 
+      translate(0, 0);
+      triangle(x-triSize3, y, x+triSize2, y-triSize3, x, y+triSize);
+      triangle(x-triSize3, y, x+triSize, y-triSize2, x, y+triSize);
+      triangle(y, x+triSize3, y, x-triSize2, y, x);
       //triangle(x-triSize3, y, x-triSize3, y, x, y+triSize3);
       //triangle(y, x-triSize, y, x-triSize3, x, x);
-
+      fill(pix[0], pix[1], pix[2], 40);
+      //rotate(-10);
       triangle(x-triSize3, y, x+triSize, y-triSize3, x, y+triSize);
 
       //triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
       //triangle(x+triSize2, x, y, x, y+triSize3, x);
 
       //rotate(a);
-      translate(-10, 20);
+      //translate(-10, 20);
       //rotate(60);
-      //triangle(y, x/triSize3, y, x-triSize2, y, x);
+      triangle(y, x+triSize3, y, x-triSize2, y, x);
       //a = a + 0.1
       //rect(x, y, squareSize, squareSize);
     }
@@ -86,7 +91,12 @@ function draw () {
       //rotate(-5);
       //ellipse(x+80, y+15, circleSize+30, circleSize+20);
       //a = a + 1;  
-      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2); 
+      rotate(0);
+      fill(pix[0], pix[1], pix[2], 50);
+      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
+      translate(0, 5);
+      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
+      //triangle(x-triSize, y-triSize, y, x+triSize3, x-triSize2, x);  
     }
   }
   renderCounter = renderCounter + 1;
