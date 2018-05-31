@@ -1,19 +1,10 @@
 ## Creative Coding 2: Custom Pixel
-Forgot to update the readme + thumbnail in last commit.
+I've been unsure if my code has been working in my commits because I work on a different folder and then port my code over into ps4 folder without testing on the local server.
 
 Iteration:
 
-I have retaken my photos so that they have better quality, since before my photos were from a camera with underwater housing but the quality of the image was quite bad. My current photos are taken with a DSLR. From my previous photos I liked the ones that had interesting colours. I found that best worked with the perlin noise algorithm and complimented the flowing lines. My photos are taken infront of the water front I was trying to focus more on the colours in the image to do that I was trying to get photos of the ocean where something is reflecting onto it to have a change in colours. 
+Iterations with another image, i've decided for progress I will keep this format as my algorithm that i'm applying is generative and  changing the parameter on my strokeweight/rendering time of the image change the output drastically each image will look similar but be 'one of a kind.'
 
-I have been experimenting mainly with different masks and the strokeweight parameters of the mask function. Initially I started with a mask that looked like perlin noise because I wanted the line weights to blend but then I read how the code works and tested with a mask that consisted of white circles on a black background to make these perlin noise spheres. My last mask which is used in all three of my images. I used the same image each time for this experiment to show the differences in parameters. Each image was rendered for 
+In this image I found a snapper card that was dropped into shallow water. The light created some interesting rainbow colours on the rocks and the current of the water made the rock/card and colours distorted looking. I mainly chose this image because of the colours are really pleasing for me.
 
-For the first image I had the strokeweight be 0.3 on the white part of the mask so it comes out more and 0.1 on the black so it is hardly visible(opaque). This created an effect to where lines would come through but wouldn't blend too well so the mask is quite visible. 
-
-For the second image I had increased the variables from 0.3 to 0.5 and 0.1 to 0.3. This had a similar effect but had more of a blend between. So the mask had created a 'highlight' in the colours and brung out an opaque brightness in the image where the lines in the mask is. 
-
-For the third image I had increased the variables from 0.5 to 1 and 0.3 to 0.5 this created an effect where the mask lines were more visible and the colours are more saturated.
-
-Each image in the iteration sequence was rendered for longer than the previous creating more density as the image is rendered generatively.
-
-
-
+The parameters for these images are similar to the last commit except the rendering times were different and this time I was using different masks. For my masks I was trying to track the rainbow colours so that they would render those colours over the colours of the rock. I want to try create a mask that looks like the 1st images surrounding of the card and the 2nd images, render of the card.

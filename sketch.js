@@ -1,4 +1,4 @@
-var sourceImg;
+var img, mask;
 var time = 0;
 
 var inc = 0.1;
@@ -11,8 +11,8 @@ var particles = [];
 var flowfield = [];
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  img = loadImage("input_1.jpg");
+  mask = loadImage("newmask1.png");
 }
 
 function setup () {
