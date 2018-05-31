@@ -1,13 +1,19 @@
 ## Creative Coding 2: Custom Pixel
 
+smart mask
+My story setting and smart mask
+It's an amazing system to make a mask of a wide range of objects. Also, I finally select my series of images. To ensure express my consistent style explicitly, I choose the image from the different angles to view the object, upward view, vertical view, side view to make sure the 3d visual effect stand out.
 
-progress
+For next step, I will refine the details of the shapes and adjust the perspective to fulfil my intention.
+
+
+<!-- progress
 
 I was inspired by the work form processing. The initial idea is if I transfer the whole thing to the Z axis and I may find a specific angle to give a sense of 3d to viewers.
 I referenced Isometric projection, An isometric view of an object can be obtained by choosing the viewing direction such that the angles between the projections of the x, y, and z-axes are all the same. It points out the mathematics method how to calculate the rotation angle.
 
 I push my experiment from 2d to 3d, that's the key point of my plan. I adjust the height of the part of mask. I have done some research about how to control the camera viewpoint ortho(). I am still working on this part though.
-
+ -->
 
 
 <!-- The start
