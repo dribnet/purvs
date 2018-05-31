@@ -1,4 +1,4 @@
-const finalVersion = true;
+   const finalVersion = true;
 
 
 let elementSpacing = 50;
@@ -46,17 +46,31 @@ function splatter(x, y, c, s) {
   //strokeWeight(70);
   //ellipse(0, -35, 50,50); // Body
   //noStroke();
-  fill(c);
+
 
   let circSize = random (10, 60);
   let posX = random(0,50);
   let posY = random (0,50);
-  ellipse(40,posY, circSize,circSize);
-  ellipse(posX,-35,circSize,circSize);
-  fill(0);
-  ellipse (posX,posY,10,10);
-  ellipse (posX,posY,10,10);
-  ellipse (posX,posY,5,5);
+
+  //fill (160, 219, 207);
+  //ellipse(40,posY, circSize,circSize);
+  //fill(209, 179, 10);
+  //ellipse(posX,-35,circSize,circSize);
+  //fill(153, 12, 12);
+  //ellipse(posX,posY,circSize,circSize);
+  //fill(0);
+  //ellipse (posX,posY,10,10);
+
+  fill(c);
+  ellipse (20,20,30,30);
+  ellipse (25,30,40,40);
+  ellipse (0,0,15,15);
+  ellipse (50,50,10,10);
+  ellipse (40,15,20,20);
+  ellipse (0,40,30,30);
+
+  //ellipse (posX,posY,10,10);
+  //ellipse (posX,posY,5,5);
   noStroke();
   strokeWeight(5);
 
@@ -85,6 +99,8 @@ function convertRgbToHsluv(c) {
 
 
 function draw () {
+
+  //colorMode(HSB,255);
 
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
