@@ -1,8 +1,8 @@
 /* Set to true to make final high-resolution version */
-const finalVersion = true;
+const finalVersion = false;
 
 /* Default versions of variables */
-let pointSize = 60;
+let pointSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
@@ -14,8 +14,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -24,7 +24,7 @@ function setup () {
 
   angleMode(DEGREES);
   imageMode(CENTER);
-  background(255);
+  background(229, 237, 249, 100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -40,18 +40,30 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      // stroke(255);
-      // strokeWeight(2);
-      noStroke();
-      rect(x-halfSize, y-halfSize, pointSize, pointSize); 
-      // ellipse(x, y, pointSize, pointSize);
+      stroke(145, 156, 173);
+      strokeWeight(0.5);
+       ellipse(x, y, pointSize, pointSize);
+       stroke(255);
+       strokeWeight(1);
+      fill(pix);
+       ellipse(x, y, pointSize/1.5, pointSize/1.5);
+       ellipse(x, y, pointSize/2, pointSize/2);
+      ellipse(x, y, pointSize/3, pointSize/3);
+      ellipse(x, y, pointSize/4, pointSize/4);
+
+
     }
     else {
-      stroke(255);
-      strokeWeight(2);
+      //stroke(pix);
+      //strokeWeight(2);
+      //noFill();
       // noStroke();
       //rotate(25);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      fill(255);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);
+      fill(pix);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize/2);
+    
     }
   }
   renderCounter = renderCounter + 1;
