@@ -13,29 +13,35 @@ function setup () {
 	  angleMode(DEGREES);
 	  imageMode(CENTER);
 	  noStroke();
-	  background(0);
+	  background(200);
 	  sourceImg.loadPixels();
 	  maskImg.loadPixels();
+	  maskImgB.loadPixels();
 }
 
 let pointWidth = 60;
 let pointHeight = 60;
-let pointSize = 25;
+let pointSize = 80;
 
 function draw () {
-	//draw squares across background
+	//draw squares with dogs across background
 	for(let i=0;i<1080;i+=pointWidth){ 
 		for(let j = 0; j < 1920; j+=pointHeight) {
 			let xBack = i;
 			let yBack = j;
 			pointHeight = floor(random(50, 70));
-			if(i>=1920-70){
-				pointHeight = 1920 - j;
+			if(j+pointHeight>1920-50){
+				if(1920-j<=70){
+					pointHeight = 1920 - j;
+				}
+				else{
+					pointHeight=50;
+				}
 			}
 			let pix = sourceImg.get(xBack+pointWidth/2, yBack+pointHeight/2);
 			let mask = maskImg.get(xBack+pointWidth/2, yBack+pointHeight/2);
 			if(mask[0] <= 128){
-				fill(30);
+				fill(220);
 				stroke(0);
 				strokeWeight(4);
 				rect(xBack, yBack, pointWidth, pointHeight); 
@@ -43,9 +49,21 @@ function draw () {
 				noStroke();
 				drawDogs(xBack, yBack, pointWidth, pointHeight, pix);
 			}
+			else{
+				//just draw rectangle without dog and outline
+				// convert to grayscale and make darker
+				//make greyscale
+				let bw = (pix[0] * 0.3 + pix[1] * 0.59 + pix[2] * 0.11);
+				//make darker
+				bw *= 0.1;
+				fill(bw, bw, bw);
+				noStroke();
+				rect(xBack, yBack, pointWidth, pointHeight); 
+			}
 		}
 	}
-	for(let i = 0; i < 10000; i++){
+	//draw actual dog
+	for(let i = 0; i < 2000; i++){
 		let xFront = floor(random(sourceImg.width));
 		let yFront = floor(random(sourceImg.height));
 		let mask = maskImgB.get(xFront, yFront);
@@ -56,7 +74,9 @@ function draw () {
 			
 		}
 		let pix = sourceImg.get(xFront, yFront);
-		fill(0, 0, 0, 120);
+		//make greyscale
+		let bw = (pix[0] * 0.3 + pix[1] * 0.59 + pix[2] * 0.11);
+		fill(bw, bw, bw, 80);
 		ellipse(xFront, yFront, pointSize, pointSize);
 	}
 	//when done
@@ -70,14 +90,15 @@ function drawDogs(centreX, centreY, width, height, values){
 	push();
 	translate(centreX, centreY);
 	if(floor(random(0, 10))<5){
-		//scale(-1, 1);
+		translate(width, 0);
+		scale(-1, 1);
 	}
 	let strokeWidth = 0.5;
   	let red = values[0];
   	let green = values[1];
     let legHeight = map(height, 50, 70, 0, 25);
   	let blue = values[2];
-	let fillColour = values;
+	let fillColour = values[2];
 	let strokeColour = 0;
     
     //basic dog shape
