@@ -1,6 +1,4 @@
 function Particle() {
-  //this.x = x;
-  //this.y = y;
   this.pos = createVector(random(width),random(height));
   this.vel = createVector(0,0);
   this.acc = createVector(0,0);
@@ -13,9 +11,6 @@ function Particle() {
     this.vel.limit(this.maxspeed)
     this.pos.add(this.vel);
     this.acc.mult(0);
-
-    // this.x = constrain(this.x, 0,width);
-    // this.y = constrain(this.y, 0,height);
   }
 
   this.follow = function(vectors) {
@@ -40,10 +35,11 @@ function Particle() {
     if(mask1[0] > 128){
       strokeWeight(1);
     } else {
-    strokeWeight(25);
+      strokeWeight(0.5)
     }
-    line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+    line(this.pos.x, this.pos.y,this.prevPos.x, this.prevPos.y)
     this.updatePrev();
+    //point(this.pos.x, this.pos.y)
 
   }
   this.updatePrev = function() {
