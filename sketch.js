@@ -2,9 +2,9 @@ let finalVersion = false;
 
 let pointSize = 40;
 
-let elementSpacin = 40 ;
-let circleSize = 50;
-let squareSize = 40;
+let elementSpacin = 20 ;
+let circleSize = 40;
+let squareSize = 20;
 
 
 if(finalVersion){
@@ -58,6 +58,24 @@ function convertRGBToHsluv(c){
 
 // }
 
+function flower(x, y, c, s){
+  push();
+  translate(x,y);
+  scale(s);
+  fill(c)
+  
+  // for (var i = 0; i < 6; i ++) {
+  //   ellipse(0,30,20,20);
+  //   rotate((i + 1) / 6.0 * TAU+radians(90));
+  // }
+  for(let i = 0; i < 6; i++){ //this code is for short lines
+      angleMode(DEGREES)
+      rotate(60)
+      ellipse(0,30,circleSize, circleSize)
+    }
+  pop();
+}
+
 function draw () {
   for(let i=0;i<1080/elementSpacin;i++) {
 
@@ -74,7 +92,8 @@ function draw () {
 
     if(mask[0] > 128) {
       fill(pix);
-      ellipse(x, y, circleSize, circleSize);
+      // ellipse(x, y, circleSize, circleSize);
+      flower(x,y,pix,0.3);
       // x = x + dx/2;
       // y = y + dy/2;
       // let owl_size = map(hsluvColor[2],0,100,0.3,0.9);
@@ -85,7 +104,7 @@ function draw () {
       y = y + dy;
       
       fillHsluv( 0, 0, hsluvColor[2]/2);
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      rect(x-halfSize, y-halfSize, squareSize+random(20), squareSize);    
     }
   }
   renderCounter = renderCounter + 1;
