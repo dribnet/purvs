@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Just started playing around with different settings and what not for my photos. The photos I've chosen are all from one night of drinks with my friends, as they're mostly photos of people on neutral backgrounds so I decided to make the rectangles smaller and  more spread out so to bring the focus to the fore-front with minimal distraction.
+Development and theme. 
+
+I've decided to stick with the photos I took of my friends during drinks as my theme. The background is neutral and constrasts well with my subjects which are bright, vary in colour, and have aspects of transparency. The context of the photos I feel is relevant to the medium as they're being abstracted and distorted, which is a theme familiar with alcohol, could be considered restoration to how I originally conceived these photos while under the influence. Anyway, getting some good results. I tried to bring the background forward a bit in this update, and have it more speccled and random, I think this creates a cool, but not overpowering, gradient effect for the background. For the mask/foreground I increased the size of the ellipses to fill out the gaps that I had before. Going forward I want to experiment with other P5 primitives and/or colours.

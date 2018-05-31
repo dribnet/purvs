@@ -5,13 +5,13 @@ let renderCounter=0;
 
 let pointSize = 30;
 let elementSpacing = 20;
-let squareSize = 5;
-let circleSize = 20;
+let squareSize = 10;
+let circleSize = 28;
 
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -32,8 +32,8 @@ function draw () {
    // let y = floor(random(sourceImg.height));
     let x = i * elementSpacing;
     let y = renderCounter * elementSpacing;
-    let dx = floor(random(elementSpacing/5));
-    let dy = floor(random(elementSpacing/5));
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
