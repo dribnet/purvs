@@ -26,9 +26,9 @@ var PixelDensity = 100*2;
 var DrawCalls = 1000;
 
 function preload() {
-	sourceImg = loadImage("input_A2.jpg");
-	maskImg = loadImage("mask_A1.png");
-	maskTwoImg = loadImage("mask_A3.png");
+	sourceImg = loadImage("input_S1.jpg");
+	maskImg = loadImage("mask_S1.png");
+	maskTwoImg = loadImage("mask_S2.png");
 }
 
 function setup () {
