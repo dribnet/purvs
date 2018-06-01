@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-This is my first post in this project, I use three kind of the images to represent that. I also use the codes from Tom White's new codes. I still do not know how to make the mask, I just replace these mask images to the white background. I will try my best to learn how to do that and finish it in the next step.
+This is my test about this project. These photos are combined by circles and squares and I used photo to create the mask because my photos' contrast is not strong. If I use the smart mask, my photos will not be perfect. And my main idea is about "have a meal", so I combine three main things, people, table and drink. However, I stlill think the drink photo's mask is not so perfect and i also will change the circles and squares to the other shapes. 
