@@ -13,14 +13,15 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(150);
+  background(159,194,188);
+  // background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 
 // const pointSize = 30;
-let elementSpacing = 15;
+let elementSpacing = 8;
 
 function draw () {
 
@@ -46,27 +47,20 @@ function draw () {
     if(mask[0] == 0) { //mask layers
       noStroke()
       ellipse(x, y, circleSize, circleSize);
-    }
-    if(mask[0] > 0 && mask[0] < 50) {
-      ellipse(x, y, circleSize * .95, circleSize * .95);
-    }
+    }i
     if(mask[0] > 50 && mask[0] < 100) {
-      ellipse(x, y, circleSize * .8 , circleSize * .8);
-    }
-    if(mask[0] > 100 && mask[0] < 150) {
-      ellipse(x, y, circleSize * .65 , circleSize * .65);
-    }
-    if(mask[0] > 150 && mask[0] < 200) {
-      ellipse(x, y, circleSize * .55 , circleSize * .55);
-    }
+    	noStroke();
+      ellipse(x, y, circleSize * .7 , circleSize * .7);
+  	}
     if(mask[0] > 200) { //background dots
-      // rect(x-halfSize, y-halfSize, elementSpacing, elementSpacing);  
-      ellipse(x, y,  circleSize * .5 ,circleSize * .5) ;
+      noStroke();
+      rect(x-halfSize, y-halfSize, elementSpacing, elementSpacing);  
+      // ellipse(x, y,  circleSize * .5 ,circleSize * .5) ;
 
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 400) {	//render counter = number of times it goes thru the algorithim.
+  if(renderCounter > 420) {	//render counter = number of times it goes thru the algorithim.
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
