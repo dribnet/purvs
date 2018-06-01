@@ -1,7 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
+-1/6- 3rd Commit
+I implemented my previous grid mask into the 'stroke only' code so that the random shape background only draws the stroke with no fill and then the grid is drawn ontop in the mask. I quite like how this turned out and I will iterate onthis for my final I think.
+
 -1/6- 2nd Commit
-i wanted to try somthing different and saw someone else who was using shpes with a stroke but no fill so I took some precendence from that and implemented it into my own code. The algorithm still draws random shapes across the image but now the fill of the shapes is almost nearly greyscale (10% saturation) and the stroke of the shapes is in full color. The masked areas are jsut drawn in full color (filled). I'm not sure if I will use this for my final design but will play with it more before the hand-in.
+I wanted to try somthing different and saw someone else who was using shpes with a stroke but no fill so I took some precendence from that and implemented it into my own code. The algorithm still draws random shapes across the image but now the fill of the shapes is almost nearly greyscale (10% saturation) and the stroke of the shapes is in full color. The masked areas are jsut drawn in full color (filled). I'm not sure if I will use this for my final design but will play with it more before the hand-in.
 
 -1/6-
 I have changed the algorithm a little so that now the random background shapes are desaturated and the grid drawn over top is normal, full color. I think that this makes the grid pop a lot more and you don't lose to much contedxt tcause the background still ahs a bit of color so you can work ou tthe scene. I still need to work out the pictures I'm using but will propbably just tsay with the theme of photos from around Wellington.
