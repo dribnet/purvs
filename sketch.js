@@ -14,8 +14,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -54,11 +54,8 @@ function draw () {
 
     }
     else {
-      //stroke(pix);
-      //strokeWeight(2);
-      //noFill();
-      // noStroke();
-      //rotate(25);
+     noStroke();
+
       fill(255);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
       fill(pix);
