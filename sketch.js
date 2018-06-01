@@ -18,8 +18,8 @@ let maskImg=null;
 let curRow=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_garden.jpg");
+  maskImg = loadImage("mask_garden.png");
 }
 
 function setup () {

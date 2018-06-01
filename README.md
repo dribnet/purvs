@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
+Part 4:
+Tried the smart mask. It is a good tool but not really work on my project. Becasue my photos are simple and have some effects on them. So I think I will just use my original masks for this project.
 
 Part 3:
 I add the "cross" shape in my glyth:
