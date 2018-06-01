@@ -4,7 +4,7 @@ let renderCounter=0;
 
 function preload() {
   sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  maskImg = loadImage("mask_2_1.png");
 }
 
 function setup () {
@@ -23,18 +23,19 @@ function setup () {
 let triSize = 10;
 let triSize2 = 7;
 let elementSpacing = 12.5;
-let squareSize = 12.5
+let squareSize = 25
 let circleSize = 2
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     // for(let i=0;i<1;i++) {
-    // let x = floor(random(sourceImg.width));
-    // let y = floor(random(sourceImg.height));
+    let x2 = floor(random(sourceImg.width));
+    let y2 = floor(random(sourceImg.height));
     let x = i * elementSpacing;
     let y = renderCounter * elementSpacing;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let mask2 = maskImg.get(x2, y2);
     let trix1 = floor(random(sourceImg.width));
     let triy1 = floor(random(sourceImg.height));
     let trix2 = floor(random(sourceImg.width));
@@ -46,36 +47,37 @@ function draw () {
     let halfSize = squareSize/2;
     fill(pix);
     push();
-    if(mask[0] < 85) {
+    if(mask2[0] < 85) {
       // stroke(0)
       push();
-      rect(x, y, squareSize, squareSize);
-      // fill(255);
-      // ellipse(x, y, circleSize, circleSize);
-      // triangle(x, y+10, x-triSize2, y-triSize2, x+triSize2, y-triSize2);
+      rect(x2, y2, squareSize, squareSize);
+
       pop();
-      // triangle(trix1, triy1, trix2, triy2, trix3, triy3)
-      // fill(255, 100, 0);
+
       pop();
-      // triangle(x, y, x-halfSize, y-pointSize, x+halfSize, y-pointSize);
+
 
     }
     if(mask[0] > 85 && mask[0] < 170) {
-      // rect(x, y, squareSize, squareSize); 
+
       triangle(x, y+10, x-triSize, y-triSize, x+triSize, y-triSize);
-      // fill(100);   
-      // triangle(x, y+10, x-triSize/2, y-triSize/2, x+triSize/2, y-triSize/2);   
+
+      if(triSize > 2){
+
+        triSize = triSize - 0.01;
+}
+          else(triSize = 2);
 
     }
     if(mask[0] > 170){
 
       ellipse(x, y, circleSize);
 
-      if(circleSize < 12.5){
+      if(circleSize < 15){
 
-      circleSize = circleSize + 0.008
+      circleSize = circleSize + 0.008;
 }
-        else(circleSize = 12.5)
+        else(circleSize = 15);
         
 
 

@@ -17,3 +17,8 @@ I have added 3 shades to my masks one white, one grey, and one black. I have the
 UPDATE #5
 I have recreated the mask of my second pictureto look more like a bottle to help display the idea and theme better. I believe i will go either find or take more pictures that display the bottle better for my other artworks.
 I have also set my circles up on my picture to gradually grow as it renders to give of a fizz type effect.
+
+UPDATE #6
+I have created a new mask for my second picture and this helped get the fizzing effect a lot better especially after I reversed the growing effect from my circles onto my triangles to make them shrink as the picture renders.
+I played with doing some random features on the squares and made it so they are random only in the parts of the mask that are coloured black. This lead to a pleasing design that also helped emphasize the bottle in the mask. What i will try to do is I will create a symbol that represents something being banned or bad for you and replace that in the squares place to help bring out my theme a lot more than it currently is.
+After I have done that all that there will be left to do will be to import my new pictures and then create their respective masks.
