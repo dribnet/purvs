@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
--Smartmask
+-Flower Glyph
 
-Here I tried out the smartmask. I used images of a crowd, elephants in a queue and a basket of fruit. The artworks that are shown are really abstracted versions of these pictures. I particularly wanted to bring attention to what exactly I had masked which is why I made the masked part very square and bold and the things I did not mask as small circles that created a lot of blank space. I might use the mask for my final image as I can see that it easily picks up a person and it would mean that I would have to draw around a person in photoshop to create this mask.
+I wanted to make my image look as though nature was taking over the person or like the person was vanishing into nature. Therefore I created a flower glyph. I masked the lines of the persons face and added this glyph to this specific part. I wanted to make it look like the person was taking the nature from the background as the background is quite computerised and harsh. I think I may want to try a different mask for the inside of her face so it is not the same pattern as my background. I have yet to use my own photographs but I know I want to have a portrait of someone and then an image of nature in the background. These three images just demonstrate some of the different variations of the flower glyph I tried.

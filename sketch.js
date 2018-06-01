@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -18,7 +18,7 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 40;
+const pointSize = 20;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
@@ -31,10 +31,19 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);
+      push();
+       translate(x, y);
+       scale(0.5);
+       flower();
+       pop();
+     
     }
     else {
-      ellipse(x, y, halfSize, halfSize);    
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);  
+       
+       
+      
+        
     }
   }
   renderCounter = renderCounter + 1;
@@ -49,4 +58,41 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
+
+function flower(){
+
+  var i = 0;
+  var radius = 15;
+
+  angleMode(RADIANS);
+
+  while(i < 20){
+  rotate(360);
+  stroke(250);
+  ellipse(5, radius, 10, 20);
+  i = i + 1;
+
+  }
+
+ }
+
+
+//z_color_helper.js#
+function fillHsluv(h, s, l) {
+  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
+}
+
+function strokeHsluv(h, s, l) {
+  var rgb = hsluv.hsluvToRgb([h, s, l]);
+  stroke(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
+}
+
+function fillUniform(brightness) {
+    fillHsluv(0, 0, brightness);
+}
+
+function strokeUniform(brightness) {
+    strokeHsluv(0, 0, brightness);    
 }
