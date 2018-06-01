@@ -1,5 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have changed two of my images as i didn't like how my mask turned out for the first and second image which made the outcome design not look as good as i wanted to. 
-i still wanted to stick to the theme of the landscape. In all three of my images it shows the sky, which are all different colours. I want to make sure the colour difference shows in my end design. 
-I am still playing around with the code. I did change my code from my previous design, all ellipse and squares are unifrom and are very tiny. When viewig it with bigger ellipses and squares, you couldnt really see the image, but now that i have made it bigger, you can see the image better and shows the details. I still need to tweek the design as it does not show the sky tones so ill need to work on that. 
+I have tweeked my code, mojority of the change was the rectangles. I have made it to the rectangles are random and are bigger and overlapping each other. This effect has no made it easier to see the sky colours which i wanted. I wanted to keep the circles uniform to contrast form the squares. I did make the cricles bigger as it looked funny when they were very small and spaced apart. I really like the turn out of this design. I will push the design though, to make it more different and unique. 
