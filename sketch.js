@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_4.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -20,10 +20,10 @@ function setup () {
 
 function draw () {
   //define sizes and spacing
-    let circleSize = 10;
-    let elementSpacing = 10;
-    let elementSpacing2 = 20;
-    let squareSize = 20;
+    let circleSize = 5;
+    let elementSpacing = 5;
+    let elementSpacing2 = 10;
+    let squareSize = 10;
   // set variables inside for loop
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int (i * elementSpacing);
@@ -46,7 +46,7 @@ function draw () {
     }
     //draw rectangles for background
     else {
-      rect(x2, y2, squareSize, squareSize);     
+      rect(x2, y2, squareSize, squareSize);  
     }
   }
   renderCounter = renderCounter + 1;
@@ -61,7 +61,4 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
-}
-function shapeA (posx, posy, widthA, heightA) {
-  ellipse(x-halfSize, y-halfSize, widthA, heightA);   
 }
