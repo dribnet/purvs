@@ -4,8 +4,8 @@ let maskImg=null;
 let curRow = 0;
 
 function preload() {
-  sourceImg = loadImage("input_3.png");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.png");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -20,39 +20,41 @@ function setup () {
 }
 
 //let pointSize = 50;
-let elementSpacing = 30;
+let elementSpacing = 15; //10;
+let elementSpacing2 = 50;
 //let elementSpacingH = 20;
-let squareSize = 20;
+let squareSize = 15;
 
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
-    let nx = floor(random(elementSpacing*2));
-    let ny = floor(random(elementSpacing*2));
+    let nx = floor(random(elementSpacing2*2));
+    let ny = floor(random(elementSpacing2*2));
     let x = i * elementSpacing;
     let y = curRow * elementSpacing;
+    let x2 = i * elementSpacing2;
+    let y2 = curRow * elementSpacing2;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let circleSize = (random(30, 120));
+    let circleSize = (random(30, 70));
 
     let halfSize = squareSize/2;
     fill(pix);
 
-    if(mask[0] > 250) {
+    if(mask[0] > 160) {
       rect(x-halfSize, y-halfSize, squareSize*2, squareSize*2);   
-
+      //rect(x-halfSize, y-halfSize, squareSize, squareSize);
     }
-    if (mask[0] < 10){
-      rect(x-halfSize, y-halfSize, squareSize, squareSize*2);   
+    if (mask[0] < 140){
+      rect(x-halfSize, y-halfSize, squareSize/2, squareSize*2);  
+      //rect(x-halfSize, y-halfSize, squareSize/5, squareSize/5); 
     }
 
-	if(mask[0] >11 && mask[0] <249){
-      x = x + nx;
-      y = y + ny;
+	if(mask[0] >141 && mask[0] <159){
+      x2 = x2 + nx;
+      y2 = y2 + ny;
+      fill(249, 235, 235, 150);
       ellipse(x, y, circleSize, circleSize);
-      x = x + nx*2;
-      y = y + ny*2;
-      ellipse(x, y, circleSize/2, circleSize/2);
     }
   }
   curRow = curRow + 1;
