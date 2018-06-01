@@ -3,12 +3,12 @@ let maskImg=null;
 let renderCounter=0;
 
 let angle = 0;
-let w = 20;
+let w = 14;
 let ma;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -32,9 +32,9 @@ function draw() {
   perspective(42/100*PI, 2, 0.2, 100);
   // ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 500);
   translate(0, 0, -40);
-  rotateX(HALF_PI+3/10*PI);
-  // rotateX(PI-90/100*QUARTER_PI);
-  rotateZ(ma);
+  // rotateX(HALF_PI+3/10*PI);
+  rotateX(HALF_PI);
+  // rotateY(PI);
   // translate(width / 2, height / 2);
   rectMode(CENTER);
   // rotateX(angle * 0.25);
@@ -49,17 +49,19 @@ function draw() {
       let mask = maskImg.get(x, z);
       fill(pix);
       let a = angle + offset;
-      let h = floor(map(sin(a), -1, 1, -100, 200)); 
+      let h = floor(map(cos(a), -1, 1, 100, 200)); 
       
 
-      translate(x - width/2, 80, z - height/2);
+      translate(x - width/2, 0, z - height/2);
       // normalMaterial();
 
       if(mask[0] > 128) {
         h = h + 300;
-      }
+        ellipsoid(w-2,h,w-2);
+      }else{ h = h-100}
 
       box(w-2, h, w-2);
+      
       offset += 0.1
 
       pop();

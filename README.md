@@ -1,10 +1,20 @@
 ## Creative Coding 2: Custom Pixel
 
-smart mask
+
+work on my style
+Finally, I built a consistent style of series. I took this sort of shots from the different spots. When I employ my concept to these photos, I can show a specific sense of dimension. The viewers could feel something come out, fade away, pass by.
+
+There is sort of challenges at this stage:
+1. background texture( have to learn how to create 3d texture, like 3d supershapes or noise.
+2. When I transfer my code to the class system, something always has been changed. I have to work it out the rule of it.
+3. viewpoint control
+4. how to calculate the angle of rotation on X, Y, Z axis.
+
+<!-- smart mask
 My story setting and smart mask
 It's an amazing system to make a mask of a wide range of objects. Also, I finally select my series of images. To ensure express my consistent style explicitly, I choose the image from the different angles to view the object, upward view, vertical view, side view to make sure the 3d visual effect stand out.
 
-For next step, I will refine the details of the shapes and adjust the perspective to fulfil my intention.
+For next step, I will refine the details of the shapes and adjust the perspective to fulfil my intention. -->
 
 
 <!-- progress
