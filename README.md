@@ -14,4 +14,4 @@ Mainly experimenting at this point with different shapes and the scaling of thos
 
 ### Theming:
 
-my current idea is separating the organic from the inorganic, using portraits of people pulling the organic elements body/hair/face to the front with colour. Then fading the inorgainic aspects into the background clothes/furniture with abstract and random point pattern
+my current idea is separating the Human from the non-Human, using portraits of people pulling the organic elements body/hair/face to the front with colour. Then fading the inorgainic aspects into the background clothes/furniture with abstract and random point pattern
