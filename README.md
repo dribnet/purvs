@@ -3,6 +3,14 @@
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
 
+1/6 #2
+I have tried the opposite of the last itteration with the sizes of the triangles increasing dramatically and also the triangles on the ouside of the code should have a gteater variance.
+Having played around I found I didnt like the mask greyscale because I found the style i'm doing it looks better with vibrant colours so I need to find another use for the mask. The idea at the moment is to have differnt sized triangles in and out of the mask. The only way I can think of doing it is having the image drawn two times but one outside the mask and the other inside the mask. 
+My theme at tis point will be a sort of tribute to my cats so I will hopefully have three differnt images of cats. 
+
+I have also had trouble with getting the smartmask to work so will try get that working.
+
+
 1/6
 This is an attempt at making the triangles smaller which results in a greater detail showing but it is losing the Poly Art feel that I am going for with this work.
 

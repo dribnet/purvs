@@ -23,7 +23,7 @@ function setup () {
 
 //DONT MOVE
 
-  let elementSpacing = 5;
+  let elementSpacing = 20;
   
 //DONT MOVE
 
@@ -37,7 +37,7 @@ function draw () {
 //    let x = floor(random(sourceImg.width));
 //    let y = floor(random(sourceImg.height));
 
-let triSize = 15;
+let triSize = 65;
 
 
 
@@ -47,23 +47,21 @@ let y = int(renderCounter * elementSpacing);
     let mask = maskImg.get(x, y);
     
     let halfSize = triSize/2;
-    //fill(pix);
+    fill(pix);
 
 var r1 = random(triSize);
 var r2 = random(halfSize);
 var r4 = random(halfSize/2);
 
  if(mask[0] < 128) {
-      fill(pix);
+      //fill(pix);
       triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
 }
 else{
-let hsluvColor = convertRgbToHsluv(pix);
-      fillHsluv(0, 0, hsluvColor[2]);
+  //let hsluvColor = convertRgbToHsluv(pix);
+      //fillHsluv(0, 0, hsluvColor[2]);
       triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
 }
-
-
 
 
 //stroke(1);
@@ -81,6 +79,8 @@ let hsluvColor = convertRgbToHsluv(pix);
       triangle(x+r1, y, x+triSize, y+triSize, x, y+triSize);    
     }
     */
+
+
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 400) {
