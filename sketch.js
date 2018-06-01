@@ -1,4 +1,193 @@
-   const finalVersion = true;
+// const finalVersion = false;
+
+
+// let elementSpacing = 50;
+// let circleSize = 50;
+// let squareSize = 40;
+// pointSize =20;
+
+
+// if (finalVersion) {
+//   elementSpacing = 20;
+//   circleSize = 25;
+//   squareSize = 20;
+// }
+
+// let sourceImg=null;
+// let maskImg=null;
+// let renderCounter=0;
+
+
+// function preload() {
+//   sourceImg = loadImage("input_2.jpg");
+//   maskImg = loadImage("mask_2.png");
+// }
+
+// function setup () {
+//   let main_canvas = createCanvas(1080, 1920);
+//   main_canvas.parent('canvasContainer');
+
+//   imageMode(CENTER);
+//   noStroke();
+//   background(255);
+//   sourceImg.loadPixels();
+//   maskImg.loadPixels();
+// }
+
+// function pattern (x,y,c,s){
+//  console.log("pattern");
+//     push();
+//     translate (x,y);
+//     fill(c);
+//     stroke(c);
+//     let starSize =  s*2;
+
+//     line(starSize*0,starSize*0, starSize*10,starSize*10);
+//     line(starSize*0,starSize*0, starSize*10,starSize*-10);
+//     line(starSize*0,starSize*0, starSize*-10,starSize*10);
+//     line(starSize*0,starSize*0, starSize*-10,starSize*-10);
+//     line(starSize*0,starSize*0, starSize*0,starSize*30);
+//     line(starSize*0,starSize*0, starSize*0,starSize*-30);
+//     line(starSize*0,starSize*0, starSize*30,starSize*0);
+//     line(starSize*0,starSize*0, starSize*-30,starSize*0);
+
+//     ellipse(starSize*10,starSize*10, starSize*2,starSize*2);
+//     ellipse(starSize*10,starSize*-10, starSize*2,starSize*2);
+//     ellipse(starSize*-10,starSize*10, starSize*2,starSize*2);
+//     ellipse(starSize*-10,starSize*-10, starSize*2,starSize*2);
+//     ellipse(starSize*0,starSize*30, starSize*4,starSize*4);
+//     ellipse(starSize*0,starSize*-30, starSize*4,starSize*4);
+//     ellipse(starSize*30,starSize*0, starSize*4,starSize*4);
+//     ellipse(starSize*-30,starSize*0,starSize*4,starSize*4);
+
+//     line(starSize*-30,starSize*0,starSize*-10,starSize*-10);
+//     line(starSize*0,starSize*-30,starSize*-10,starSize*-10);
+//     line(starSize*0,starSize*30,starSize*10,starSize*10);
+//     line(starSize*30,starSize*0,starSize*10,starSize*10);
+//     line(starSize*30,starSize*0,starSize*10,starSize*-10);
+//     line(starSize*0,starSize*-30,starSize*10,starSize*-10);
+//     line(starSize*0,starSize*30,starSize*-10,starSize*10);
+//     line(starSize*-30,starSize*0,starSize*-10,starSize*10);
+
+//     ellipse(starSize*25,starSize*25,starSize*1,starSize*1);
+//     ellipse(starSize*-25,starSize*-25,starSize*1,starSize*1);
+//     ellipse(starSize*-25,starSize*25,starSize*1,starSize*1);
+//     ellipse(starSize*25,starSize*-25,starSize*1,starSize*1);
+
+//     line(starSize*25,starSize*25,starSize*-10,starSize*10);
+//     line(starSize*25,starSize*25,starSize*10,starSize*-10);
+//     line(starSize*-25,starSize*-25,starSize*10,starSize*-10);
+//     line(starSize*-25,starSize*-25,starSize*-10,starSize*10);
+//     line(starSize*-25,starSize*25,starSize*10,starSize*10);
+//     line(starSize*-25,starSize*25,starSize*-10,starSize*-10);
+//     line(starSize*25,starSize*-25,starSize*10,starSize*10);
+//     line(starSize*25,starSize*-25,starSize*-10,starSize*-10);
+  
+//     pop();
+//   }
+
+
+
+// function splatter(x, y, c, s) {
+//   push();
+//   translate(x, y);
+//   scale(s);  // Set the createCanvas
+
+//   let maxRand = 0;
+//   let minRand = -0;
+//   let posX = random(maxRand,minRand);
+//   let posY = random (maxRand,minRand);
+
+//   fill(c);
+//   ellipse (200 + posX,2+posY,30,30);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+//   ellipse (25 + posX,30+posY,40,40);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+//   ellipse (0 + posX,0+posY,15,15);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+//   ellipse (50 + posX,50+posY,10,10);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+//   ellipse (40 + posX,15+posY,20,20);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+//   ellipse (0 + posX,40+posY,30,30);
+//    posX = random(maxRand,minRand);
+//    posY = random (maxRand,minRand);
+
+//   noStroke();
+//   strokeWeight(5);
+//   pop();
+
+
+// }
+// function convertRgbToHsluv(c) {
+//   return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+// }
+
+// function draw () {
+
+//    for(let i=0;i<1080/5;i++) {
+//     let x = floor(random(sourceImg.width));
+//     let y = floor(random(sourceImg.height));  
+//     let dx = floor(random(elementSpacing/2));
+//     let dy = floor(random(elementSpacing/2));
+//     let pix = sourceImg.get(x, y);
+//     let mask = maskImg.get(x, y);
+//     let pointSize = 20;
+//     let halfSize = 50;
+//     fill(pix);
+//     if(mask[0] > 128) {
+//       pattern(x, y, pix, 0.5);
+//       //splatter(x, y, pix, pointSize/30);
+//       //ellipse(x,y,5,5);
+//     }
+//     else {
+
+//     for(let i=0;i<1080/elementSpacing;i++) {
+//     let x = int(i * elementSpacing);
+//     let y = int(renderCounter * elementSpacing);
+//     let dx = floor(random(elementSpacing/2));
+//     let dy = floor(random(elementSpacing/2));
+//     let pix = sourceImg.get(x, y);
+//     let mask = maskImg.get(x, y);
+//     let halfSize = squareSize/2;
+//     if(mask[0] < 128) {
+//       //pattern(x, y, pix, 0.5);
+//       //splatter(x, y, pix, pointSize/30);
+//       //pattern(x, y, pix, 0.5);
+//       rect(x-halfSize, y-halfSize, squareSize/2, squareSize/2);  
+//     }
+//     else {
+//       // add random offsets
+//       x = x + dx;
+//       y = y + dy;
+//       // convert to grayscale (remove color, keep brightness in hsluv colorspace)
+//       let hsluvColor = convertRgbToHsluv(pix);
+//       fillHsluv(0, 0, hsluvColor[2]);
+//       //ellipse(x-halfSize, y-halfSize, squareSize/2, squareSize/2);    
+//     }
+//   }
+//   renderCounter = renderCounter + 1;
+//   if(renderCounter > 1920/elementSpacing) {
+//     console.log("Done!")
+//     noLoop();
+//     // saveBlocksImages();
+//   }
+// }
+// }
+// }
+
+// function keyTyped() {
+//   if (key == '!') {
+//     saveBlocksImages();
+//   }
+// }
+
+const finalVersion = true;
 
 
 let elementSpacing = 50;
@@ -32,62 +221,96 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
+  //noStroke();
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+function pattern (x,y,c,s){
+ console.log("pattern");
+    push();
+    translate (x,y);
+    fill(c);
+    stroke(c);
+    let starSize =  s*1;
+
+    line(starSize*0,starSize*0, starSize*10,starSize*10);
+    line(starSize*0,starSize*0, starSize*10,starSize*-10);
+    line(starSize*0,starSize*0, starSize*-10,starSize*10);
+    line(starSize*0,starSize*0, starSize*-10,starSize*-10);
+    line(starSize*0,starSize*0, starSize*0,starSize*30);
+    line(starSize*0,starSize*0, starSize*0,starSize*-30);
+    line(starSize*0,starSize*0, starSize*30,starSize*0);
+    line(starSize*0,starSize*0, starSize*-30,starSize*0);
+
+    ellipse(starSize*10,starSize*10, starSize*2,starSize*2);
+    ellipse(starSize*10,starSize*-10, starSize*2,starSize*2);
+    ellipse(starSize*-10,starSize*10, starSize*2,starSize*2);
+    ellipse(starSize*-10,starSize*-10, starSize*2,starSize*2);
+    ellipse(starSize*0,starSize*30, starSize*4,starSize*4);
+    ellipse(starSize*0,starSize*-30, starSize*4,starSize*4);
+    ellipse(starSize*30,starSize*0, starSize*4,starSize*4);
+    ellipse(starSize*-30,starSize*0,starSize*4,starSize*4);
+
+    line(starSize*-30,starSize*0,starSize*-10,starSize*-10);
+    line(starSize*0,starSize*-30,starSize*-10,starSize*-10);
+    line(starSize*0,starSize*30,starSize*10,starSize*10);
+    line(starSize*30,starSize*0,starSize*10,starSize*10);
+    line(starSize*30,starSize*0,starSize*10,starSize*-10);
+    line(starSize*0,starSize*-30,starSize*10,starSize*-10);
+    line(starSize*0,starSize*30,starSize*-10,starSize*10);
+    line(starSize*-30,starSize*0,starSize*-10,starSize*10);
+
+    ellipse(starSize*25,starSize*25,starSize*1,starSize*1);
+    ellipse(starSize*-25,starSize*-25,starSize*1,starSize*1);
+    ellipse(starSize*-25,starSize*25,starSize*1,starSize*1);
+    ellipse(starSize*25,starSize*-25,starSize*1,starSize*1);
+
+    line(starSize*25,starSize*25,starSize*-10,starSize*10);
+    line(starSize*25,starSize*25,starSize*10,starSize*-10);
+    line(starSize*-25,starSize*-25,starSize*10,starSize*-10);
+    line(starSize*-25,starSize*-25,starSize*-10,starSize*10);
+    line(starSize*-25,starSize*25,starSize*10,starSize*10);
+    line(starSize*-25,starSize*25,starSize*-10,starSize*-10);
+    line(starSize*25,starSize*-25,starSize*10,starSize*10);
+    line(starSize*25,starSize*-25,starSize*-10,starSize*-10);
+  
+    pop();
+  }
+
 function splatter(x, y, c, s) {
   push();
   translate(x, y);
   scale(s);  // Set the createCanvas
-  //stroke(c); // Set the gray value
-  //strokeWeight(70);
-  //ellipse(0, -35, 50,50); // Body
-  //noStroke();
 
-
-  let circSize = random (10, 60);
-  let posX = random(0,50);
-  let posY = random (0,50);
-
-  //fill (160, 219, 207);
-  //ellipse(40,posY, circSize,circSize);
-  //fill(209, 179, 10);
-  //ellipse(posX,-35,circSize,circSize);
-  //fill(153, 12, 12);
-  //ellipse(posX,posY,circSize,circSize);
-  //fill(0);
-  //ellipse (posX,posY,10,10);
+  let maxRand = 0;
+  let minRand = -0;
+  let posX = random(maxRand,minRand);
+  let posY = random (maxRand,minRand);
 
   fill(c);
-  ellipse (20,20,30,30);
-  ellipse (25,30,40,40);
-  ellipse (0,0,15,15);
-  ellipse (50,50,10,10);
-  ellipse (40,15,20,20);
-  ellipse (0,40,30,30);
+  ellipse (200 + posX,2+posY,30,30);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
+  ellipse (25 + posX,30+posY,40,40);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
+  ellipse (0 + posX,0+posY,15,15);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
+  ellipse (50 + posX,50+posY,10,10);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
+  ellipse (40 + posX,15+posY,20,20);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
+  ellipse (0 + posX,40+posY,30,30);
+   posX = random(maxRand,minRand);
+   posY = random (maxRand,minRand);
 
-  //ellipse (posX,posY,10,10);
-  //ellipse (posX,posY,5,5);
   noStroke();
   strokeWeight(5);
-
-  //stroke(255);
-  // ellipse (-10,-30,40,40);
-  // ellipse (-40,0,10,10);
-  // ellipse (-20,-50,40,40);
-  // ellipse (10,30,40,40);
-
-  noStroke();
-  fill(255);
-  //ellipse(-17.5, -65, 35, 35); // Left eye dome
-  //ellipse(17.5, -65, 35, 35);  // Right eye dome
-  fill(c);
-  //ellipse(-14, -65, 8, 8);  // Left eye
-  //ellipse(14, -65, 8, 8);   // Right eye
-  curve(0, -58, 4, -51, 0, -44, -4, -51); // Beak
   pop();
 
 
@@ -111,7 +334,8 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
     if(mask[0] > 128) {
-      splatter(x, y, pix, 0.5);
+      pattern(x, y, pix, 0.5);
+      //splatter(x, y, pix, 0.5);
     }
     else {
       // add random offsets
@@ -120,7 +344,8 @@ function draw () {
       // convert to grayscale (remove color, keep brightness in hsluv colorspace)
       let hsluvColor = convertRgbToHsluv(pix);
       fillHsluv(0, 0, hsluvColor[2]);
-      rect(x-halfSize, y-halfSize, squareSize/2, squareSize/2);    
+    
+      //splatter(x, y, pix, elementSpacing/30);
     }
   }
   renderCounter = renderCounter + 1;
