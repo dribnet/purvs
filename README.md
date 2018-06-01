@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Those three pictures are my BJD dolls, I choose them because the color is really good and I also really like them. I think it is more beautiful to use dolls' photos rather than the real people's photos.
+I still choose three of my ball joint dolls' image but remove the color of the background because I only want highlight the doll. I want my doll's face more clear than the body and also the doll's eyes more clear than the face, but when I tried to load different masks it still nothing change, I am not sure it is my mask problem or my code problem.
