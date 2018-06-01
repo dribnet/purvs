@@ -15,12 +15,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(1);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  rectMode(CENTER);
 }
 
-  const pointSize = 15;
+  const pointSize = 17;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
@@ -33,13 +34,22 @@ function draw () {
     let mask = maskImg.get(x, y);
     //let pointSize = 50;
     //let halfSize = 50;
-    let halfSize = pointSize/2;
+    let halfSize = pointSize/4;
 
     fill(pix);
     if(mask[0] > 128) {
-        ellipse(x, y, pointSize, pointSize);
+    	stroke(0);
+        rect(x, y, pointSize, pointSize);
+
+        stroke(0);
+        rect(x, y, pointSize/2, pointSize/2);
+   
+        stroke(0);
+        rect(x, y, pointSize/4, pointSize/4);
+        
     }
     else {
+    	stroke(0);
         rect(x-halfSize, y-halfSize, pointSize, pointSize); 
     }
   }
