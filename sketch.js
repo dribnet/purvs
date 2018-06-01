@@ -23,7 +23,7 @@ function setup () {
 
 //DONT MOVE
 
-  let elementSpacing = 10;
+  let elementSpacing = 5;
   
 //DONT MOVE
 
@@ -37,7 +37,7 @@ function draw () {
 //    let x = floor(random(sourceImg.width));
 //    let y = floor(random(sourceImg.height));
 
-let triSize = 30;
+let triSize = 15;
 
 
 

@@ -3,6 +3,8 @@
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
 
+1/6
+This is an attempt at making the triangles smaller which results in a greater detail showing but it is losing the Poly Art feel that I am going for with this work.
 
 29/5
 I have jet to figure out how to do the sizing changes to what I want. I have got the mask working in regards to the colour which i like. I want to try with maybe only dropping the saturation than completely making it greyscale.
