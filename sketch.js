@@ -2,12 +2,12 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
- let elementSpacing = 15;
+ let elementSpacing = 20;
  let circleSize = 10;
  let squareSize = 30;
  let triSize = 20;
- let triSize2 = 20;
- let triSize3 = 30;
+ let triSize2 = 30;
+ let triSize3 = 40;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -58,16 +58,20 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-
-      translate(0, 0);
-      triangle(x-triSize3, y, x+triSize2, y-triSize3, x, y+triSize);
-      triangle(x-triSize3, y, x+triSize, y-triSize2, x, y+triSize);
+fill(pix[0], pix[1], pix[2], 50);
+ push();
+      translate(-10, 5);
+      //triangle(x-triSize3, y, x+triSize2, y-triSize3, x, y+triSize);
+      //triangle(x-triSize3, y, x+triSize, y-triSize2, x, y+triSize);
+   
       triangle(y, x+triSize3, y, x-triSize2, y, x);
+      rect(x, y, triSize3, triSize);
       //triangle(x-triSize3, y, x-triSize3, y, x, y+triSize3);
       //triangle(y, x-triSize, y, x-triSize3, x, x);
-      fill(pix[0], pix[1], pix[2], 40);
+      stroke(pix);
+      strokeWeight(0.5);
       //rotate(-10);
-      triangle(x-triSize3, y, x+triSize, y-triSize3, x, y+triSize);
+      triangle(x-triSize2, y, x+triSize, y-triSize3, x, y+triSize);
 
       //triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
       //triangle(x+triSize2, x, y, x, y+triSize3, x);
@@ -75,28 +79,34 @@ function draw () {
       //rotate(a);
       //translate(-10, 20);
       //rotate(60);
-      triangle(y, x+triSize3, y, x-triSize2, y, x);
+      //triangle(y, x+triSize3, y, x-triSize2, y, x);
       //a = a + 0.1
       //rect(x, y, squareSize, squareSize);
+    pop();
     }
     else {
+      fill(pix[0], pix[1], pix[2], 60);
+
+      push();
       //colorMode(RGB, 50, 20, 10);
       // colorMode(HSL);
       //rect(x-halfSize, y-halfSize, pointSize, pointSize); 
       //rotate(60);
       //ellipseMode(CENTER);
-      //translate(-20, 0)
+      translate(0, -10);
       noStroke();
       //ellipse(x+30, y+80, circleSize+10, circleSize);
       //rotate(-5);
       //ellipse(x+80, y+15, circleSize+30, circleSize+20);
       //a = a + 1;  
-      rotate(0);
-      fill(pix[0], pix[1], pix[2], 50);
-      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
-      translate(0, 5);
-      triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
+      //rotate(0);
+      triangle(x-triSize3, y+triSize2, x-triSize3, y+triSize3, x-triSize, y-triSize3);
+      //translate(0, 50);
+      //rotate(30);
+      //translate(100, -50);
+      triangle(x+triSize, y+triSize2, x-triSize3, y+triSize3, x-triSize2, y+triSize3);
       //triangle(x-triSize, y-triSize, y, x+triSize3, x-triSize2, x);  
+      pop();
     }
   }
   renderCounter = renderCounter + 1;
