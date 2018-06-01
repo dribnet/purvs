@@ -5,9 +5,9 @@
 
 
 
-let elementSpacing = 25;
+let elementSpacing = 35;
 let circleSize = 50;
-let squareSize = 40;
+let squareSize = 30;
 let pointSize = 40;
 
 let sourceImg=null;
@@ -29,20 +29,35 @@ function setup () {
   maskImg.loadPixels();
 }
 
-
-
 function glyph(x, y,c, s) {
   push();
   translate(x, y);
   scale(s);
   stroke(c);
-  strokeWeight(10);
 
-  ellipse(0,0, 50,50);
+strokeWeight(8);
+  ellipse(0,0, 60,60);
 
-  noFill();
-  ellipse(40,40,10,10);
-  ellipse(45,45,5,5);
+
+  strokeWeight(5);
+  ellipse(0,-20,25,25);
+  ellipse(20,0,25,25);
+  ellipse(-20,0,25,25);
+  ellipse(0,20,25,25);
+
+  // line(-35,-35, 65,-35);
+  // line(-35,-35, -35,35);
+  
+  ellipse(-35,-35,25,25);
+  ellipse(35,-35,25,25);
+  ellipse(35,35,25,25);
+  ellipse(-35,35,25,25);
+  
+
+
+  
+  
+
   pop();
 }
 //const pointSize = 40;
@@ -58,10 +73,12 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
+
     if(mask[0] > 128){
     	glyph(x, y, pix, 0.5);
     }
     else{
+
       fill(pix);
     	rect(x-halfSize, y-halfSize, pointSize, pointSize);
     	}

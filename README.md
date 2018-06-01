@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have played around with creating a custom shape for my mask. Right now it is an ellipse with smaller ellipses with no fill inside it. I plan to next play around with this custom shape to see if I can improve the results.
+I have made the pattern more complex and changes the masks so that the overall theme of 'magic' and 'fantasy' shines through. I think I will try edit the square pixels next.
