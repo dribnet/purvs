@@ -20,7 +20,7 @@ function setup () {
   maskImg.loadPixels();
 }
 
-  const pointSize = 12;
+  const pointSize = 15;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
@@ -37,10 +37,10 @@ function draw () {
 
     fill(pix);
     if(mask[0] > 128) {
-        rect(x-halfSize, y-halfSize, pointSize, pointSize);
+        ellipse(x, y, pointSize, pointSize);
     }
     else {
-        ellipse(x, y, pointSize, pointSize);  
+        rect(x-halfSize, y-halfSize, pointSize, pointSize); 
     }
   }
   renderCounter = renderCounter + 1;
