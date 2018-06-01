@@ -209,8 +209,8 @@ let renderCounter=0;
 
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
   //sourceImg = loadImage("input_1.jpg");
 }
 
@@ -344,7 +344,7 @@ function draw () {
       // convert to grayscale (remove color, keep brightness in hsluv colorspace)
       let hsluvColor = convertRgbToHsluv(pix);
       fillHsluv(0, 0, hsluvColor[2]);
-    
+
       //splatter(x, y, pix, elementSpacing/30);
     }
   }
