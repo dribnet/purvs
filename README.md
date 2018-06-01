@@ -3,13 +3,17 @@
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
 
+1/6 #3
+This itteration I have got the smartmask to work but I wont be using it further into the project. This is because of the deatin in the images such as the fur and whiskers. This sort of detail can only be captured by the human eye. 
+I have also played around with the ways I use the mask. I really like how the squares have this effect on this random pick. I still want to play around with it and see if I can get a rotation or better sizing to fit with the triangles. I still want to play around with the double layer idea and having the whole canvas triangles just differnt sizes.
+
+
 1/6 #2
 I have tried the opposite of the last itteration with the sizes of the triangles increasing dramatically and also the triangles on the ouside of the code should have a gteater variance.
 Having played around I found I didnt like the mask greyscale because I found the style i'm doing it looks better with vibrant colours so I need to find another use for the mask. The idea at the moment is to have differnt sized triangles in and out of the mask. The only way I can think of doing it is having the image drawn two times but one outside the mask and the other inside the mask. 
 My theme at tis point will be a sort of tribute to my cats so I will hopefully have three differnt images of cats. 
 
 I have also had trouble with getting the smartmask to work so will try get that working.
-
 
 1/6
 This is an attempt at making the triangles smaller which results in a greater detail showing but it is losing the Poly Art feel that I am going for with this work.
@@ -22,7 +26,6 @@ I have yet to fully decide on my theme. I was thinking a sports, exercise or foo
 
 25/5 
 I have played around with the code and have the triangles on a few random variables so there is more variation between them. this gives more of a poly art feel but it makes it significantly harder to see what the image is and what it represents. I want to play around and see if i can have the mask be more detailed to see the image clearer at parts.
-
 
 
 At the moment I have played around with shaped and have tried to take insiration from Low Poly Art to make my images. I have made some progress and am quite happy with it at this stage. I want to try using different shapes or polygons. Also trying to implement a randomness to it with regards to size or shape if I get that working. If i can I want to map the shapes to the fill/colour but dont know how well that woul work or how to do it. Want to work on the masking effect, maybe changing the size because at the moment it is all uniform.
