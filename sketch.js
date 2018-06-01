@@ -1,17 +1,22 @@
 //I have used some of Tom White's example code for my own project
 //https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/b9eca66520db6771e0e0299da527af99496efb95
 //https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/a0a30d1ab172f2695fffb48b90e7aec031b9f6ce
+//https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/6625811ac946e2ad2689e7ed69441f47dc25643c
 
-let elementSpacing = 50;
-let circleSize = 40;
+
+
+let elementSpacing = 25;
+let circleSize = 50;
 let squareSize = 40;
+let pointSize = 40;
+
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("23frisbee.jpg");
-  maskImg = loadImage("23frisbeebw.png");
+  sourceImg = loadImage("03third.jpg");
+  maskImg = loadImage("03thirdbw.png");
 }
 
 function setup () {
@@ -24,29 +29,47 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 40;
+
+
+function glyph(x, y,c, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  stroke(c);
+  strokeWeight(10);
+
+  ellipse(0,0, 50,50);
+
+  noFill();
+  ellipse(40,40,10,10);
+  ellipse(45,45,5,5);
+  pop();
+}
+//const pointSize = 40;
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
   	let x = int(i * elementSpacing);
   	let y = int(renderCounter * elementSpacing);
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
+    
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
+
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
-    //let pointSize = 60;
-    //let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, circleSize, circleSize);
+    if(mask[0] > 128){
+    	glyph(x, y, pix, 0.5);
     }
-    else {
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+    else{
+      fill(pix);
+    	rect(x-halfSize, y-halfSize, pointSize, pointSize);
+    	}
     }
-  }
+  
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();

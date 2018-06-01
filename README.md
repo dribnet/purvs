@@ -1,5 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-These images have been created using the SmartMask program. I have used masks such as 'person', 'frisbee' and 'potted plant' in my images. I like the way this program creates quality masks for images, but I also enjoy the freedom you have when making your own masks in photoshop.
-
-(The three images are of Extreme Frisbee with two players lunging for the frisbee, a couple standing infront of a rainbow in a desert, and a bunch of potted plants.) 
+I have played around with creating a custom shape for my mask. Right now it is an ellipse with smaller ellipses with no fill inside it. I plan to next play around with this custom shape to see if I can improve the results.
