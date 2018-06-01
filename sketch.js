@@ -5,13 +5,13 @@ const finalVersion = false;
 /* Default versions of variables */
 let elementSpacing = 20;
 let circleSize = 20;
-let squareSize = 40;
+let squareSize = 50;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 20;
   circleSize = 20;
-  squareSize = 40;
+  squareSize = 50;
 }
 
 let sourceImg=null;
@@ -19,8 +19,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -28,7 +28,6 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
   background('white');
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -45,12 +44,23 @@ function draw () {
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
+
+     push();
+      stroke(pix);
+     strokeWeight(5);
+     noFill();
+
       ellipse(x, y, circleSize, circleSize);
+      pop();
+
     }
     else {
+push();
+noStroke();
       x = x + dx;
       y = y + dy;
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);   
+      pop(); 
     }
   }
   renderCounter = renderCounter + 1;

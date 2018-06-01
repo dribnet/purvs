@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have tweeked my code, mojority of the change was the rectangles. I have made it to the rectangles are random and are bigger and overlapping each other. This effect has no made it easier to see the sky colours which i wanted. I wanted to keep the circles uniform to contrast form the squares. I did make the cricles bigger as it looked funny when they were very small and spaced apart. I really like the turn out of this design. I will push the design though, to make it more different and unique. 
+This is another design that i thought of. I wanted to see what it would look like if the circles had no fill and stroke would stay the same colour of the image and you're still able to have a clear idea of what the image is. I do really like how it looked. The main focus is now more on my theme, which is the landscape and the different sky colours now stand out a lot more and has become dominant. 
