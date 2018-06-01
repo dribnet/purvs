@@ -209,8 +209,8 @@ let renderCounter=0;
 
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
   //sourceImg = loadImage("input_1.jpg");
 }
 
