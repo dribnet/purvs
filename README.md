@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
+-1/6- 2nd Commit
+i wanted to try somthing different and saw someone else who was using shpes with a stroke but no fill so I took some precendence from that and implemented it into my own code. The algorithm still draws random shapes across the image but now the fill of the shapes is almost nearly greyscale (10% saturation) and the stroke of the shapes is in full color. The masked areas are jsut drawn in full color (filled). I'm not sure if I will use this for my final design but will play with it more before the hand-in.
+
 -1/6-
 I have changed the algorithm a little so that now the random background shapes are desaturated and the grid drawn over top is normal, full color. I think that this makes the grid pop a lot more and you don't lose to much contedxt tcause the background still ahs a bit of color so you can work ou tthe scene. I still need to work out the pictures I'm using but will propbably just tsay with the theme of photos from around Wellington.
 I tried out the smartmask on myimages but wasn't happywith how the masks' turned out so am not using them. The first image it picked out the wall that the person is standing on as a 'bench' but because the wall is mostly the same color and grey it didn't look good with the way taht my code distorts the images. With the second image, the smartmask picked out a lot of the people in the midground, but they are too small so they didn't really show up in the final image. With the third image it did not detect anything to mask.

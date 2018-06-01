@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -42,7 +42,7 @@ function draw () {
     //Draw random background shapes
     push();
       //fill(pix);
-      fillHsluv(hsluvColor[0], hsluvColor[1]*0.45, hsluvColor[2]);  //Desaturates the colors
+      fillHsluv(hsluvColor[0], hsluvColor[1]*0.2, hsluvColor[2]);  //Desaturates the colors
       pickShape(pix, x, y, pointSize, halfSize, ro);
     pop();
     
@@ -93,10 +93,13 @@ function drawGrid(rSize){
       let pix2 = sourceImg.get(m, b);
       let hsluvColor = convertRgbToHsluv(pix2);
       let mask2 = maskImg.get(m, b);
-      if(mask2[0] < 128){
-        fillHsluv(hsluvColor[0], hsluvColor[1], hsluvColor[2]);  
+      //if(mask2[0] < 128){
+        //fillHsluv(hsluvColor[0], hsluvColor[1], hsluvColor[2]); 
+        noFill();
+        stroke(pix2);
+        strokeWeight(4);
         rect(m, b, rSize, rSize);
-      } 
+      //} 
     }
     console.log(m);
   }
