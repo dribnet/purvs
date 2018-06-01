@@ -1,6 +1,6 @@
 /* Default versions of variables */
-let elementSpacing = 30;
-let circleSize = 60;
+let elementSpacing = 35;
+let circleSize = 40;
 let squareSize = 40;
 
 let sourceImg=null;
@@ -8,8 +8,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
