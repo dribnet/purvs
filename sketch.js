@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -16,6 +16,7 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  angleMode(DEGREES);
 }
 
 function convertRgbToHsluv(c) {
@@ -23,8 +24,8 @@ function convertRgbToHsluv(c) {
 }
   
 //For the size of the shapes drawn
-let pSBig = 350;
-let pSSmall = 300;
+let pSBig = 250;
+let pSSmall = 200;
 const rSize = 30; //set size for grid
 
 function draw () {
@@ -35,11 +36,13 @@ function draw () {
     let mask = maskImg.get(x, y);
     let pointSize = floor(random(pSSmall, pSBig)); //picks random number between to values for the size of shapes
     let halfSize = pointSize/2
-    let ro = random(0, 360);
+    let ro = random(0, 360);  //Picks random angle for rotation of shapes
     let hsluvColor = convertRgbToHsluv(pix);
 
+    //Draw random background shapes
     push();
-      fill(pix);
+      //fill(pix);
+      fillHsluv(hsluvColor[0], hsluvColor[1]*0.45, hsluvColor[2]);  //Desaturates the colors
       pickShape(pix, x, y, pointSize, halfSize, ro);
     pop();
     
@@ -52,7 +55,9 @@ function draw () {
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 2500) {
+  if(renderCounter > 2000) {
+
+    //Draw grid in mask
     push();
       drawGrid(rSize);  
     pop();
@@ -89,8 +94,7 @@ function drawGrid(rSize){
       let hsluvColor = convertRgbToHsluv(pix2);
       let mask2 = maskImg.get(m, b);
       if(mask2[0] < 128){
-        //fill(sourceImg.get(m, b));
-        fillHsluv(hsluvColor[0], hsluvColor[1]*0.35, hsluvColor[2]);  //Desaturates the colors
+        fillHsluv(hsluvColor[0], hsluvColor[1], hsluvColor[2]);  
         rect(m, b, rSize, rSize);
       } 
     }

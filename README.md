@@ -1,5 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
+-1/6-
+I have changed the algorithm a little so that now the random background shapes are desaturated and the grid drawn over top is normal, full color. I think that this makes the grid pop a lot more and you don't lose to much contedxt tcause the background still ahs a bit of color so you can work ou tthe scene. I still need to work out the pictures I'm using but will propbably just tsay with the theme of photos from around Wellington.
+I tried out the smartmask on myimages but wasn't happywith how the masks' turned out so am not using them. The first image it picked out the wall that the person is standing on as a 'bench' but because the wall is mostly the same color and grey it didn't look good with the way taht my code distorts the images. With the second image, the smartmask picked out a lot of the people in the midground, but they are too small so they didn't really show up in the final image. With the third image it did not detect anything to mask.
+
 -29/5-
 I am using three images taken from around Wellington. I still need to work on a cohesive theme across the images.
 I played around with the grid that is drawn in the masked areas. I increased the size of the squaress a little and tried out over-saturating, de-saturating and having greyscale squares. The first two images above I used de-saturation (to 35%), the third image is at full color/saturation as that looked best with this image.
