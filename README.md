@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Ive changed my idea and render process once more. Ive now decided to take some pictures of my roommates infront of their room walls that they have decorated. After masking, Ive created a render process which should resul in a slight networky picture where the background wall is solid circles which all link together while the subject is much harder to discern due to the cubes being hollow.
+My roommates and their walls are quite interesting. Each of them has similar but distinct tastes whcih creates a really interesting visual when compared. I wanted to focus on a theme of familiar but unfamiliar. The roommates themselves are easy to spot and visialise and they are on the edge of recognision, but there are small parts within that break the possibility of complete familiarity. 
+
+The backgrounds are hard to tell with the spaes only being outlines and the colours being quite spread out. THhe gradient of size creates an almost steam effect where the squares almost look to rise up from the bottom, growing in size and density as it does so. 
