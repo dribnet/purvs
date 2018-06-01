@@ -2,12 +2,15 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
- let elementSpacing = 20;
+ let elementSpacing = 27;
  let circleSize = 10;
  let squareSize = 30;
  let triSize = 20;
- let triSize2 = 30;
- let triSize3 = 40;
+ let triSize2 = 40;
+ let triSize3 = 60;
+ let tri = 20;
+ let tri2 = 30;
+ let tri3 = 40;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -30,6 +33,7 @@ function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
+    let istriangles = false;
     //let x = floor(random(sourceImg.width));
     //let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -58,20 +62,21 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-fill(pix[0], pix[1], pix[2], 50);
+fill(pix[0], pix[1], pix[2], 20);
  push();
       translate(-10, 5);
       //triangle(x-triSize3, y, x+triSize2, y-triSize3, x, y+triSize);
       //triangle(x-triSize3, y, x+triSize, y-triSize2, x, y+triSize);
    
-      triangle(y, x+triSize3, y, x-triSize2, y, x);
-      rect(x, y, triSize3, triSize);
+      triangle(y, x+tri3, y, x-tri2, y, x);
+      rect(x, y, tri3, tri);
       //triangle(x-triSize3, y, x-triSize3, y, x, y+triSize3);
       //triangle(y, x-triSize, y, x-triSize3, x, x);
-      stroke(pix);
-      strokeWeight(0.5);
+      //stroke(pix);
+      //strokeWeight(0.5);
       //rotate(-10);
-      triangle(x-triSize2, y, x+triSize, y-triSize3, x, y+triSize);
+      fill(pix[0], pix[1], pix[2], 70);
+      triangle(x-tri2, y, x+tri, y-tri3, x, y+tri);
 
       //triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
       //triangle(x+triSize2, x, y, x, y+triSize3, x);
@@ -85,7 +90,7 @@ fill(pix[0], pix[1], pix[2], 50);
     pop();
     }
     else {
-      fill(pix[0], pix[1], pix[2], 60);
+      fill(pix[0], pix[1], pix[2], 50);
 
       push();
       //colorMode(RGB, 50, 20, 10);
@@ -104,15 +109,19 @@ fill(pix[0], pix[1], pix[2], 50);
       //translate(0, 50);
       //rotate(30);
       //translate(100, -50);
-      triangle(x+triSize, y+triSize2, x-triSize3, y+triSize3, x-triSize2, y+triSize3);
+      //triangle(x+triSize, y+triSize2, x-triSize3, y+triSize3, x-triSize2, y+triSize3);
       //triangle(x-triSize, y-triSize, y, x+triSize3, x-triSize2, x);  
       pop();
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 400) {
+
+
+  if(renderCounter > 400 && istriangles == false) {
     console.log("Done!")
-    noLoop();
+    //noLoop();
+    istriangles = true
+    renderCounter = 0;
     // saveBlocksImages();
   }
 }
