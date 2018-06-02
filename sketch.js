@@ -8,9 +8,9 @@ let colorSquareSize = 40;
 
 /* Override some variables with high-resolution final version*/
 if (finalVersion){
-  elementSpacing = 10;
-  squareSize = 10;
-  colorSquareSize = 10;
+  elementSpacing = 5;
+  squareSize = 5;
+  colorSquareSize = 5;
 }
 
 let sourceImg=null;
@@ -18,8 +18,8 @@ let maskImg=null;
 let curRow=0;
 
 function preload() {
-  sourceImg = loadImage("input_garden_small.jpg");
-  maskImg = loadImage("mask_garden_small.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
