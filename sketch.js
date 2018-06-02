@@ -4,14 +4,15 @@ let renderCounter=0;
 
 
 let pointSize = 30;
-let elementSpacing = 20;
-let squareSize = 10;
-let circleSize = 28;
+let elementSpacing = 18;
+let squareSize = 13;
+let circleSize = 23;
 
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
+  maskImg2 = loadImage("mask_3.1.png")
 }
 
 function setup () {
@@ -23,6 +24,7 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImg2.loadPixels();
 }
 
 
@@ -31,20 +33,29 @@ function draw () {
     //let x = floor(random(sourceImg.width));
    // let y = floor(random(sourceImg.height));
     let x = i * elementSpacing;
+    let a = i + 1;
     let y = renderCounter * elementSpacing;
     let dx = floor(random(elementSpacing/2));
     let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let mask2 = maskImg2.get(x, y);
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
+      if(mask2[0] > 128){
+
+       ellipse(x,y, circleSize-10, circleSize-10);
+      }
+      else{
       ellipse(x, y, circleSize, circleSize);
+    }
     }
     else {
       x = x + dx;
       y = y + dy;
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      squareSize2 = squareSize;
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -53,6 +64,9 @@ function draw () {
     noLoop();
     // saveBlocksImages();
   }
+
+
+
 }
 
 function keyTyped() {
