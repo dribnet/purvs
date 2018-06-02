@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+My idea is about a food culture. I want to communicate how differences of many food around the world. In the example, I choose a waffle, kimchi soup, and spaghetti. The waffle is representing of Western food culture. The kimchi soup is representing of Asian food culture. And the spaghetti is representing of Italian food culture.
