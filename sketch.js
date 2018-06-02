@@ -1,10 +1,12 @@
 /* Set to true to make final high-resolution version */
 const finalVersion = false;
 
-/* Default versions of variables */
-let circlepointSize = 40
+//variables
+let circlepointSize = 20
 let rectpointSize = 20;
 let pointSize = 20;
+let scaleSize = 40;
+
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
@@ -26,7 +28,7 @@ function setup () {
 
   angleMode(DEGREES);
   imageMode(CENTER);
-  background(255, 254, 206);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -40,24 +42,57 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
-    fill(pix);
+    
     if(mask[0] > 128) {
-      stroke(145, 156, 173);
-      strokeWeight(1);
-       ellipse(x, y, circlepointSize, circlepointSize);
-       stroke(255);
-       strokeWeight(1);
-      fill(pix);
-      ellipse(x, y, circlepointSize/1.2, circlepointSize/1.2);
-      ellipse(x, y, circlepointSize/2, circlepointSize/2);
-      ellipse(x, y, circlepointSize/3, circlepointSize/3);
-      ellipse(x, y, circlepointSize/5, circlepointSize/5);
+      noStroke();
+      fill(180);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);
       
+push();
+translate(x, y);
+scale(scaleSize/300.0);
+stroke(0);
+    strokeWeight(2);
+      // Draw the cross glyph
+      fill(pix); 
+      beginShape();
+      vertex(0, -25);
+      vertex(-25, -50);
+      vertex(-50, -25);
+      vertex(-25, 0);
+      vertex(-50, 25);
+      vertex(-25, 50);
+      vertex(0, 25);
+      vertex(25, 50);
+      vertex(50, 25);
+      vertex(25, 0);
+      vertex(50, -25);
+      vertex(25, -50);
+      vertex(0, -25);
+      endShape();
+  pop();
 
-      // strokeWeight(2);
-      // arc(x, y, halfSize, halfSize, 90, 270);
+     
+
+
+
+
+
+      // fill(255);
       // stroke(0);
-      // arc(x, y, halfSize, halfSize, 270, 90);
+      // strokeWeight(1);
+      // //ellipse(x, y, circlepointSize/1.2, circlepointSize/1.2);
+      // ellipse(x, y, circlepointSize/2, circlepointSize/2);
+      // ellipse(x, y, circlepointSize/3, circlepointSize/3);
+      // ellipse(x, y, circlepointSize/5, circlepointSize/5);
+      
+      // noStroke();
+      // fill(pix);
+      // rect(x-halfSize, y-halfSize, rectpointSize, rectpointSize);
+      // // fill(255);
+      // // rect(halfSize, halfSize, rectpointSize/2, rectpointSize/2);
+
+
 
 
     }
