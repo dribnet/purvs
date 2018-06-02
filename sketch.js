@@ -2,7 +2,9 @@
 const finalVersion = false;
 
 /* Default versions of variables */
-let pointSize = 40;
+let circlepointSize = 40
+let rectpointSize = 20;
+let pointSize = 20;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
@@ -14,8 +16,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -24,7 +26,7 @@ function setup () {
 
   angleMode(DEGREES);
   imageMode(CENTER);
-  background(229, 237, 249, 100);
+  background(255, 254, 206);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -41,25 +43,32 @@ function draw () {
     fill(pix);
     if(mask[0] > 128) {
       stroke(145, 156, 173);
-      strokeWeight(0.5);
-       ellipse(x, y, pointSize, pointSize);
+      strokeWeight(1);
+       ellipse(x, y, circlepointSize, circlepointSize);
        stroke(255);
        strokeWeight(1);
       fill(pix);
-       ellipse(x, y, pointSize/1.5, pointSize/1.5);
-       ellipse(x, y, pointSize/2, pointSize/2);
-      ellipse(x, y, pointSize/3, pointSize/3);
-      ellipse(x, y, pointSize/4, pointSize/4);
+      ellipse(x, y, circlepointSize/1.2, circlepointSize/1.2);
+      ellipse(x, y, circlepointSize/2, circlepointSize/2);
+      ellipse(x, y, circlepointSize/3, circlepointSize/3);
+      ellipse(x, y, circlepointSize/5, circlepointSize/5);
+      
+
+      // strokeWeight(2);
+      // arc(x, y, halfSize, halfSize, 90, 270);
+      // stroke(0);
+      // arc(x, y, halfSize, halfSize, 270, 90);
 
 
     }
     else {
-     noStroke();
-
-      fill(255);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);
+      let colourrd = random(150, 255);
+      let strokerd = random(0, 2);
+      strokeWeight(strokerd);
+      stroke(colourrd);
       fill(pix);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize/2);
+      rect(x-halfSize, y-halfSize, rectpointSize, rectpointSize);
+      
     
     }
   }
