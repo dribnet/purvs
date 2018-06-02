@@ -2,4 +2,4 @@
 
 More Iterating
 
-Continuing with my second mask/facial distortion idea I've begun to experiment with lines. So far I've only been able to make the lines one colour rather than the colour of their intended pixel, so I'll continue to play around with this.
+Stuck with the idea of distorting the face using lines, I decided to randomise the end points of the lines in order to create a messy look that stands out from the ellipses. I think this achieves the distortion I was looking for originally without having to change the elementspacing within my second mask.

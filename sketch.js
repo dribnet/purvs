@@ -5,14 +5,14 @@ let renderCounter=0;
 
 let pointSize = 60/2;
 let elementSpacing = 36/2;
-let squareSize = 26/2;
+let squareSize = 20/2;
 let circleSize = 46/2;
 
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
-  maskImg2 = loadImage("mask_2.1.png")
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
+  maskImg2 = loadImage("mask_3.1.png")
 }
 
 function setup () {
@@ -35,8 +35,8 @@ function draw () {
     let x = i * elementSpacing;
     let a = i + 1;
     let y = renderCounter * elementSpacing;
-    let x2 = x - 30;
-    let y2 = y - 30;
+    let x2 = floor(random(x-30, x+30));
+    let y2 = floor(random(y-30,y+30));
     let dx = floor(random(elementSpacing/2));
     let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
@@ -48,9 +48,9 @@ function draw () {
       if(mask2[0] > 128){
 
        //ellipse(x,y, circleSize-10, circleSize-10);
-       strokeWeight(5);
-       stroke([0]);
-       line(x, y, a, y2);
+       strokeWeight(circleSize);
+       stroke(pix);
+       line(x, y, x2, y2);
       }
       else{
         noStroke();
