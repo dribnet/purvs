@@ -1,12 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 Iteration:
+Testing with an image of a feather floating on a calm ocean. Experimenting with the use of a small mask and trying to refine the parameters of my noise to create more of a nicer looking and controlled noise based on parameters.
 
-Was testing around with the smartmask tool before but never committed anything from it. So I started to test around with it again and wanted to see if I could trick the program by selecting an image that has objects with similar colours so I chose an image with fruit and vegetables as they have similar colours and forms.
+Based on this and the last commit I have done I have a better idea of how to create better looking noise and will probably not use images with a small focus point such as the feather in this image. I do think the colours in the image are interesting.
 
-The program thought a pear was an apple and some lettuce to be broccoli, I thought how it detected the bananas into two different groups was interesting as they were in such close proximity.
-
-I tested the smart masked image in my rendering program and played around with different parameters strokeweight parameters. But with these images I added more particles sequentially, so the first image had 1000 particles generated and the second 2000 and the last image had 5000 particles.
-
-Generating more particles creates a more defined image faster and is something that I have forgotten to change with my other iterations since i'm using two js files. Again the part of the image that stays within the mask is rendered with more detail and the ones not in the mask are wispy.
-
-I personally like the last image the most because of the depth in the background perlin noise which is something that I want to try and have in my final outputs.
+I think I have experimented enough I do however want to develop the code further but am unsure as to how currently and I will try to decide on which images I want to further refine into my final outputs that reference my narrative the best,
