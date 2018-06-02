@@ -13,35 +13,42 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(50);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+const pointSize = 20;
+
 function draw () {
-  for(let i=0;i<200;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let x2 = (random(x-200,x+200));
-    let y2 = (random(y-200,y+200));
+  for(let i=0;i<1080/pointSize;i++) {
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
-    let pix2 = sourceImg.get(x2, y2);
     let mask = maskImg.get(x, y);
-    let pointSize = 50;
-    let halfSize = 10;
+    let halfSize = pointSize/2;
     fill(pix);
-    stroke(pix);
+    stroke(pix)
+
     if(mask[0] > 128) {
-      strokeWeight(7)
-      line(x, y, x2, y2);
+      // noFill()
+          strokeWeight(19)
+      // line(x, y+40, x+40, y);
+      // line(x+40, y+40, x, y);
+      line(x+10,y,x+10,y+20)  
+      line(x-10,y,x-10,y+20) 
     }
     else {
-      
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+     noFill()
+          strokeWeight(19)
+      line(x,y+10,x+20,y+10)  
+      line(x,y-10,x+20,y-10)  
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 20) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
