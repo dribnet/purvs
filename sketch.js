@@ -19,6 +19,10 @@ function setup () {
   maskImg.loadPixels();
 }
 
+function convertRgbToHsluv(c) {
+  return hsluv.rgbToHsluv([c[0]/155.0, c[1]/155.0, c[2]/155.0]);
+}
+
 function draw () {
     let pointSize = 10;
     let halfSize = pointSize/2;
@@ -27,11 +31,21 @@ function draw () {
     let y = int(pointSize*renderCounter);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
     if(mask[0] < 128) {
-      ellipse(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));
+      //ellipse(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));
+    fill(pix);
+      rect(x,y,pointSize,pointSize);
+
+            let hsluvColor = convertRgbToHsluv(pix);
+      fillHsluv(0, 0, hsluvColor[2]);
+      beginShape();
+      vertex(x-halfSize,y-halfSize);
+      vertex(x+halfSize,y-halfSize);
+      vertex(x-halfSize,y+halfSize);
+      endShape();
     }
     else {
+      fill(pix);
       rect(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));    
     }
   }
