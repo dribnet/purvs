@@ -1,7 +1,7 @@
 /* Default versions of variables */
-let elementSpacing = 35;
-let circleSize = 40;
-let squareSize = 40;
+let elementSpacing = 30;
+let circleSize = 5;
+let squareSize = 20;
 
 let sourceImg=null;
 let maskImg=null;
@@ -32,14 +32,14 @@ function draw () {
     let y = int(renderCounter * elementSpacing);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 30; //let element spacing = 40  
-    let halfSize = 15;
+    let pointSize = 22; //let element spacing = 40  
+    let halfSize = 11;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize+circleSize, pointSize+circleSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
   renderCounter = renderCounter + 1;
