@@ -1,6 +1,4 @@
 ## Creative Coding 2: Custom Pixel
-For this experiment I wanted to make the background more interesting. I added an extra ellipse to the background and shifted it up by 1.5. This makes a pattern which I like more than the single rows of ellipses.
+I've added a new photo because the cactus wasn't working well with my idea. It had no background or flowers. I want flowers to go with the theme of the importance of nature/bees but also to link to bees and the hexagons/honeycomb. I've also added in a bee which I want to be placed randomly in the image. It will be something for people to find within the image, I want it to show how bees are threatened. 
 
-I also made the transparent hexagons white so they would match the background. I don't like this as much as the semitransparent hexagons because the flowers don't stand out as much as they did.
-
-I tried using the smartmask on another image of a flower but it didn't work well. It did I creates a large area around the flowers instead of masking the actual flowers even though the background was white. This isn't helpful to me so I don't think I'll be using it.
+I only want one bee and I will need to make it smaller. The bee is covered by the other shapes which I don't want.
