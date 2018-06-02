@@ -2,6 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+  let turn = 0;
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
@@ -13,7 +14,6 @@ function setup () {
 
   imageMode(CENTER);
   rectMode(CENTER);
-  noStroke();
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -34,19 +34,82 @@ function draw () {
     if(mask[0] < 128) {
       //ellipse(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));
     fill(pix);
+  noStroke();
       rect(x,y,pointSize,pointSize);
 
             let hsluvColor = convertRgbToHsluv(pix);
       fillHsluv(0, 0, hsluvColor[2]);
-      beginShape();
-      vertex(x-halfSize,y-halfSize);
-      vertex(x+halfSize,y-halfSize);
-      vertex(x-halfSize,y+halfSize);
-      endShape();
+      strokeHsluv(0,0,hsluvColor[2]);
+      // beginShape();
+      // vertex(x-halfSize,y-halfSize);
+      // vertex(x+halfSize,y-halfSize);
+      // vertex(x-halfSize,y+halfSize);
+      // endShape();
+      noFill();
+      ellipse(x,y,halfSize,halfSize);
     }
     else {
       fill(pix);
-      rect(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));    
+      stroke(pix);
+      strokeWeight(1);
+      //rect(x, y, pointSize+random(3,pointSize), pointSize+random(3,pointSize));
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+      line(random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize),random(x-pointSize,x+pointSize),random(y-pointSize,y+pointSize));  
+
     }
   }
   renderCounter = renderCounter + 1;
@@ -55,6 +118,7 @@ function draw () {
     noLoop();
     // saveBlocksImages();
   }
+
 }
 
 function keyTyped() {
