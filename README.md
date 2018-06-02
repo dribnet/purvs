@@ -1,9 +1,5 @@
-I thought about not using smartmasking, but I tried it on my 3rd photo, and found the smartmask was more cleaner than if I used Photoshop.
+Experimenting with shapes and color.
 
-For example, the edges are clean with smartmasking, but with Photoshop the edges were jaggered.
-
-
-
-However, the smartmask couldn't identify the object in input_2. Also for input_1 it actually recognized the object as a teddy bear, but it didn't completely cover the bear.
-
-So I'll stick with a manual mask for image 1 & 2, and use smartmasking for image 3.
+Changed the ellipse input from (...., circleSize, circleSize), to (...., circleSize, circleSize* 3).
+The color didn't make sense, and could look like I'm trying to potray a techno theme.
+The ellipses drawn as ovals were okay for the most part, but around the bottom of the object the image didn't come out too great. I preferred the way circles drew the image over the ovals.
