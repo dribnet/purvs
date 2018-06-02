@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Iterating
+More Iterating
 
-In iterating my design I've started experiementing with multiple masks, one to outline the subject of the photo and another to identify the face of my subject. Trying this in a way to further distort and abstract the face of my subject, which is our main identifier when looking at other humans. At first I wanted to create larger ellipses for the faces so that it'd be less defined than the rest of the render, however I found that the way they were layered verticially made the resolution difference not that noticeable. After trying unsuccessfully to fix this issue by creating a seperate element spacing for my second mask, I decided to go more in line with the background,  smaller shapes with white space between them. This is interesting because it creates a somewhat transparent effect. Still want to develop this further.
+Continuing with my second mask/facial distortion idea I've begun to experiment with lines. So far I've only been able to make the lines one colour rather than the colour of their intended pixel, so I'll continue to play around with this.
