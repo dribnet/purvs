@@ -10,7 +10,10 @@ let scaleSize = 40;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  pointSize = 20;
+let circlepointSize = 20
+let rectpointSize = 20;
+let pointSize = 20;
+let scaleSize = 40;
 }
 
 let sourceImg=null;
@@ -18,8 +21,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -44,63 +47,49 @@ function draw () {
     let halfSize = pointSize/2;
     
     if(mask[0] > 128) {
+      
+      //background square
       noStroke();
-      fill(180);
+      fill(pix);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
+
+      //Generates a random angle to rotate the cross
+      let spin = random(0, 360);
       
-push();
-translate(x, y);
-scale(scaleSize/300.0);
-stroke(0);
-    strokeWeight(2);
+      //Cross shape over the top of the background square
+    push();
+      translate(x, y);
+      rotate(spin);
+      scale(scaleSize/250.0);
+      stroke(0);
+      strokeWeight(1);
       // Draw the cross glyph
-      fill(pix); 
-      beginShape();
-      vertex(0, -25);
-      vertex(-25, -50);
-      vertex(-50, -25);
-      vertex(-25, 0);
-      vertex(-50, 25);
-      vertex(-25, 50);
-      vertex(0, 25);
-      vertex(25, 50);
-      vertex(50, 25);
-      vertex(25, 0);
-      vertex(50, -25);
-      vertex(25, -50);
-      vertex(0, -25);
-      endShape();
-  pop();
+      fill(229, 238, 252); 
+            beginShape();
+            vertex(0, -25);
+            vertex(-25, -50);
+            vertex(-50, -25);
+            vertex(-25, 0);
+            vertex(-50, 25);
+            vertex(-25, 50);
+            vertex(0, 25);
+            vertex(25, 50);
+            vertex(50, 25);
+            vertex(25, 0);
+            vertex(50, -25);
+            vertex(25, -50);
+            vertex(0, -25);
+            endShape();
+      pop();
 
-     
-
-
-
-
-
-      // fill(255);
-      // stroke(0);
-      // strokeWeight(1);
-      // //ellipse(x, y, circlepointSize/1.2, circlepointSize/1.2);
-      // ellipse(x, y, circlepointSize/2, circlepointSize/2);
-      // ellipse(x, y, circlepointSize/3, circlepointSize/3);
-      // ellipse(x, y, circlepointSize/5, circlepointSize/5);
-      
-      // noStroke();
-      // fill(pix);
-      // rect(x-halfSize, y-halfSize, rectpointSize, rectpointSize);
-      // // fill(255);
-      // // rect(halfSize, halfSize, rectpointSize/2, rectpointSize/2);
-
-
-
-
-    }
+}
     else {
-      let colourrd = random(150, 255);
-      let strokerd = random(0, 2);
+      //generates a random colour outline 
+      let colourrd = random(0, 255); 
+      //generates a random strokeweights from 0 weight to 2
+      let strokerd = random(0, 2.5); 
       strokeWeight(strokerd);
-      stroke(colourrd);
+      stroke(colourrd, colourrd, colourrd);
       fill(pix);
       rect(x-halfSize, y-halfSize, rectpointSize, rectpointSize);
       
