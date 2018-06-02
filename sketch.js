@@ -11,8 +11,8 @@ var particles = [];
 var flowfield = [];
 
 function preload() {
-  img = loadImage("input5.jpg");
-  mask = loadImage("mask5.png");
+  img = loadImage("input9.jpg");
+  mask = loadImage("mask11.png");
 }
 
 function setup () {
@@ -27,7 +27,7 @@ function setup () {
 
   flowfield = new Array(cols * rows);
 
-  for (var i = 0 ; i < 1000; i++){
+  for (var i = 0 ; i < 5000; i++){
   particles[i] = new Particle();
   }
 }
