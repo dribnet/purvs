@@ -1,5 +1,5 @@
 /* Set to true to make final high-resolution version */
-let finalVersion = false;
+let finalVersion = true;
 
 /* Default versions of variables */
 let elementSpacing = 40;
@@ -18,8 +18,8 @@ let maskImg=null;
 let curRow=0;
 
 function preload() {
-  sourceImg = loadImage("input_garden.jpg");
-  maskImg = loadImage("mask_garden.png");
+  sourceImg = loadImage("input_garden_small.jpg");
+  maskImg = loadImage("mask_garden_small.png");
 }
 
 function setup () {
