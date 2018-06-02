@@ -1,6 +1,7 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
+var noiseScale=0.02;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -18,12 +19,9 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 25;
+const pointSize = 20;
 
 function draw () {
-  let x1 = 0;
-  let y1 = 0;
-
   for(let i=0;i<1080;i++) {
     let x = int(i * pointSize);
     let y = int(renderCounter * pointSize);
@@ -31,31 +29,23 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
     fill(pix);
-    stroke(pix);
+    stroke(255);
 
     if(mask[0] > 128) {
-      if(x1!=0) {
-        rect(x, y, pointSize, pointSize);
-
-        strokeWeight(5);
-        stroke(255);
-        line(x1+halfSize, y1+halfSize, x+halfSize, y+halfSize);
-        x1 = x;
-        y1 = y;
+        var noiseVal = noise((x)*noiseScale, noiseScale);
+        stroke(noiseVal*255);
+        line(x, noiseVal*80, x, y);
+        ellipse(x, y, pointSize, pointSize); 
       }
-      else{
-        x1 = x;
-        y1 = y;
-      }
+    
+    else {
+      stroke(0);
+      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
-    else{
-      noStroke();
-      rect(x, y, pointSize, pointSize);
-    }
-}
+  }
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter > 1920) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
