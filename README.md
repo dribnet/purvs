@@ -2,4 +2,4 @@
 
 Back to old idea again
 
-I found this whacky projection called Atlantis which I am now in love with, I can do a portrait map projection and portray some interesting data on it. I plan to make it a data visualizer proportionate to population e. make a carbon emissions map that shows the worst places per capita.
+This is the first attempt at trying to visualize this, its a bit slapped together but works at displaying the data. It's looking super abstract and will require a bit of an explanation but I like where it's going so far.
