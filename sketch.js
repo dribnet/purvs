@@ -1,6 +1,6 @@
 let finalVersion = false; 
 
-let elementSpacing = 20;
+let elementSpacing = 15;
 let squareSize = 45;
 let circleSize = 35;
 
@@ -20,9 +20,13 @@ function preload() {
   //sourceImg = loadImage("input_1.jpg");
  // maskImg = loadImage("mask_1.png");
 
- sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+ //sourceImg = loadImage("input_2.jpg");
+  //maskImg = loadImage("mask_2.png");
+
+   sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
+
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
@@ -30,8 +34,11 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(169, 229, 192)
+  
+  
    //background(247, 111, 161);
+   //background(169, 229, 192)
+   background(244, 188, 66)
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -74,7 +81,7 @@ function draw () {
 
     if(mask[0] > 128) {
 
-      p1(x, y, pix, 0.2);
+      p1(x, y, pix, 0.25);
     
       
     }
@@ -83,8 +90,10 @@ function draw () {
     //y = y + dy;
       //let hsluvColor = convertRgbToHsluv(pix);
       //fillHsluv(0,0, hsluvColor[2]/2);
-      let halfSize = squareSize/2;
-      rect(x-halfSize, y-halfSize, squareSize, squareSize-30); 
+      //let halfSize = squareSize/2;
+      //rect(x-halfSize, y-halfSize, squareSize, squareSize-40); 
+
+      p1(x, y, pix, 0.1);
 
            
     }
