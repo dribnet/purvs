@@ -1,3 +1,18 @@
+/* Set to true to make final high-resolution version */
+const finalVersion = false;
+
+/* Default versions of variables */
+let elementSpacing = 60;
+let circleSize = 50;
+let squareSize = 30;
+let pointSize = 30;
+/* Override some variables with high-resolution final version */
+if (finalVersion) {
+  elementSpacing = 20;
+  circleSize = 25;
+  squareSize = 10;
+}
+
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
@@ -5,6 +20,7 @@ let renderCounter=0;
 function preload() {
   sourceImg = loadImage("input_1.jpg");
   maskImg = loadImage("mask_1.png");
+  plx = loadImage("mask_1_final.png")
 }
 
 function setup () {
@@ -13,31 +29,54 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(80);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
+function convertRgbToHsluv(c) {
+  return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+}
 
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/elementSpacing;i++) {
+    let x = int(i * elementSpacing);
+    let y = int(renderCounter * elementSpacing);
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 50;
-    let halfSize = 50;
-    fill(pix);
+    let halfSize = squareSize/2;
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+
+            let hsluvColor = convertRgbToHsluv(pix);
+      fillHsluv(0, 0, hsluvColor[2]);
+      ellipse(x, y, circleSize, circleSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      // add random offsets
+      x = x + dx;
+      y = y + dy;
+      // convert to grayscale (remove color, keep brightness in hsluv colorspace)
+
+      push();
+      fill(pix);
+      stroke(80);
+      push(); 
+      
+      strokeWeight(10);
+      rect(x-halfSize+15, y-halfSize-50, squareSize-10, squareSize+80);
+      pop(); 
+      strokeWeight(5);
+      rect(x-halfSize-5, y-halfSize-20, squareSize+30, squareSize-10);   
+  
+      pop();   
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 50) {
+  if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
+    image(plx,550,970);
     // saveBlocksImages();
   }
 }
