@@ -2,9 +2,9 @@ let finalVersion = false;
 
 let pointSize = 40;
 
-let elementSpacin = 35 ;
+let elementSpacin = 25 ;
 let circleSize = 50;
-let squareSize = 30;
+let squareSize = 20;
 
 
 if(finalVersion){
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -41,7 +41,7 @@ function flower(x, y, c, s){
   push();
   translate(x,y);
   scale(s);
-  stroke(255);
+
   strokeWeight(4)
   
 
@@ -54,12 +54,19 @@ function flower(x, y, c, s){
   fill(c)
   ellipse(0,0,40,40)
 
-  for(i = 0; i <=5 ;i++){ // this code is for triangles
+  for(i = 0; i <=5 ;i++){ 
       angleMode(DEGREES);
       rectMode(CENTER);
       fill(255)
       rotate(60);
+      stroke(255)
       triangle( 0, 35, -10, 20, 10, 20);
+    }
+  for(let i = 0; i <= 12; i++){ //this code is for short lines
+      angleMode(DEGREES)
+      rotate(30)
+      stroke(255)
+      line(0,20,0,30)
     }
 
 
@@ -82,12 +89,15 @@ function draw () {
 
     if(mask[0] > 128) {
 
-      flower(x,y,pix,0.3);
+      flower(x,y,pix,0.2);
 
     }
     else { 
-
-      fill(pix)
+      x = x + dx;
+      y = y + dy;
+      stroke(pix);
+      strokeWeight(5);
+      noFill();
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
