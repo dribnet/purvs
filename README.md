@@ -1,4 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-This is another change in background colour. I went for a light pink. It doesn't work well with the first image because it has a lot of grey. I liked the original white background the best.
-
-The bee still can't be seen because it's getting covered by the other shapes. 
+I made the ellipses closer togeather so they make lines. This makes it so you can see a shadow of the flowers. I like this effect.They stop halfway, I think having them go all the way down would be too much. 
