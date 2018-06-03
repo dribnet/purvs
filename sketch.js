@@ -42,19 +42,21 @@ function draw () {
 
 	    if(draw_pass==0){
 		    // original
-		    if(mask[0] > 128 && draw_pass==0) {
-		      ellipse(x, y, pointSize, pointSize);
+		    if(mask[0]==255) {
+		      spider(x, y);
+		      //ellipse(x, y, pointSize, pointSize);
 		    }
-		    else {
+		    else if(mask[0]==0){
 		      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
 		    }
 	  	}
 		else if(draw_pass==1){
 	    	// connecting lines
-		    if(maskb[0] > 128 && draw_pass==1) {
+		    if(maskb[0] > 128) {
 		    	if(x1!=0) {	
 		    		strokeWeight(5);
 		    		line(x1+halfSize, y1+halfSize, x+halfSize, y+halfSize);
+		    		//spider(x, y);
 		    		x1 = x;
 		    		y1 = y;
 		    	}
@@ -87,4 +89,15 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
+
+function spider(x, y) {
+	let x0 = 0;
+	let y0 = 0;
+	for(let i=0; i<10; i++){
+		x0 = x + random(-50, 50);
+		y0 = y + random(-50, 50);
+		strokeWeight(5);
+		line(x, y, x0, y0);
+	}
 }
