@@ -5,3 +5,5 @@ My idea is about a food culture. I want to communicate how differences of many f
 The pixel on the food was looked a bit sensor on it, overmore likes an illegal image. I changed the background elements more bigger and added ellipses on the pixel of the food instead of rectangle. 
 
 I was trying to add the randomness of elementspacing on custom pixel. It looked fine on the white mask but not on the black mask. It is recking a bit of elementspacing.
+
+I added the color control on my custom pixel, so on the white mask will turning into grey scale.
