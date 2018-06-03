@@ -33,9 +33,9 @@ function Particle() {
     var mask1 = mask.get(px,py);
     stroke(col[0],col[1],col[2], 100);
     if(mask1[0] > 128){
-      strokeWeight(5);
+      strokeWeight(1.2);
     } else {
-      strokeWeight(2)
+      strokeWeight(0.5)
     }
     line(this.pos.x, this.pos.y,this.prevPos.x, this.prevPos.y)
     this.updatePrev();
