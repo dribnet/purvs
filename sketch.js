@@ -15,7 +15,7 @@ function setup () {
   imageMode(CENTER);
   rectMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,57 +31,63 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
 
-    if(mask[0] > 120) {
-      if(mask[0] < 100){
-      fill(255,160,255,50);
-      stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);
-    }
-  }
     if(mask[0] > 100) {
+      if(mask[0] > 90) {
       fill(255,160,255,100);
       stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize*3.5, pointSize*3.5);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.4, pointSize*.4);
     }
   }
-    if(mask[0] > 80) {
+  
+    if(mask[0] < 90) {
+      if(mask[0] > 80) {
       fill(255,160,255,90);
       stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize*3, pointSize*3);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.35, pointSize*.35);
     }
-    if(mask[0] > 60) {
+  }
+  
+    if(mask[0] < 80) {
+      if(mask[0] > 60) {
       fill(255,160,255,80);
       stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize*2.5, pointSize*2.5);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.3, pointSize*.3);
     }
-    if(mask[0] > 40) {
+  }
+    if(mask[0] < 60) {
+      if(mask[0] > 40) {
       fill(255,160,255,70);
       stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize*2, pointSize*2);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.25, pointSize*.25);
     }
-    if(mask[0] > 20) {
+  }
+  
+    if(mask[0] < 40) {
+      if(mask[0] > 20) {
       fill(255,160,255,60);
       stroke(5);
-      strokeWeight(1);
-      rect(x-halfSize, y-halfSize, pointSize*1.5, pointSize*1.5);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.2, pointSize*.2);
     }
-
-
-
-    //else {
-    //  fill(pix);
-    //  noStroke();
-    //  rect(x-halfSize, y-halfSize, pointSize, pointSize);    
-    //}
-}
-
+  }
   
-
+    if(mask[0] < 20) {
+      if(mask[0] > 20) {
+      fill(255,160,255,50);
+      stroke(5);
+      strokeWeight(0);
+      rect(x-halfSize, y-halfSize, pointSize*.15, pointSize*.15);
+    }
+  }
+  else{
+    fill(pix);
+    rect(x-halfSize, y-halfSize, pointSize*.15, pointSize*.15);
+  }
+}
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 1920) {
