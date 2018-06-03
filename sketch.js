@@ -1,12 +1,6 @@
-/* Set to true to make final high-resolution version */
 const finalVersion = true;
 
-/* Default versions of variables */
-let elementSpacing = 40;
-let circleSize = 50;
-let squareSize = 20;
 
-/* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 12;
   circleSize = 35;
@@ -18,8 +12,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -28,7 +22,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(110,110,160);
+  background(110);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -46,7 +40,7 @@ function draw () {
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, circleSize, circleSize*3);
+      ellipse(x, y, circleSize, circleSize);
     }
     else {
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
@@ -56,7 +50,6 @@ function draw () {
   if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
-    // saveBlocksImages();
   }
 }
 
