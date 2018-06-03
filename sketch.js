@@ -1,3 +1,5 @@
+//Made by Ben Spearman
+//MDDN 242 Creative Coding II, 2018
 var sourceImg=null;
 var maskImg=null;
 var renderCounter=0;
@@ -71,3 +73,5 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+//Brush Stroke images obtained from http://www.onlygfx.com/14-grunge-brush-stroke-banner-png-transparent-vol-4/ under creative commons
