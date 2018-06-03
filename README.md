@@ -14,7 +14,7 @@ Using a background color of dark-grey allowed a brighter than black, but not as 
 
 
 
-I thought about not using smartmasking, but I tried it on photo_3, and found the smartmask was cleaner than if I used Photoshop.
+I thought about not using smartmasking, but I tried it on input_3, and found the smartmask was cleaner than if I used Photoshop.
 For example, the edges are cleaner with smartmasking, but with Photoshop the edges were jaggered.
 
 However, the smartmask couldn't identify the object in input_2. Also for input_1 it actually recognized the object as a teddy bear, but it didn't completely cover the bear.
