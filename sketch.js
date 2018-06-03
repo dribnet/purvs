@@ -2,10 +2,16 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+//I have used some of Tom White's example code for my own project
+//https://bl.ocks.org/dribnet/2b5fdedb10367f0db717755169946832/b9eca66520db6771e0e0299da527af99496efb95
+
+
+
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
+let paint = [];
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
@@ -16,26 +22,58 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+
 }
 
+const pointSize = 40;
+const ellipseSize = 60;
+
 function draw () {
-  for(let i=0;i<500;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/pointSize;i++) {
+  	let x = int(i * pointSize);
+  	let y = int(renderCounter * pointSize);
+  
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 50;
-    let halfSize = 5;
-    fill(pix);
+  
+
+   fill(pix);
+   stroke(pix);
+   strokeWeight(4)
+	
+
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      
+;
+      strokeWeight(4)
+    	 fill(pix);
+      
+      rect(x, y, pointSize, pointSize);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
-    }
+      fill(0);
+      stroke(pix);
+      strokeWeight(1);
+
+      rect(x, y, pointSize, pointSize);
+      
+     
+    noFill();
+
+	for (let j = 0; j < 20; j++){
+  var x1 = x+20;
+  var y1 = y+20;
+  var yr = y1 + random(-20, 20)
+  var xr = x1 + random(-20, 20)
+   	
+   	let paint = line(x1, y1, xr, yr);
+  	paint[j]
+   }
+
+}
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
