@@ -1,5 +1,12 @@
 ## Creative Coding 2: Custom Pixel
 
+Fri 1st June
+I experimented with the smartmask but because my theme doesnt focus on people/animals and focuses more on the enviroment it didnt highlight
+what I wanted. For my images I wanted to the cultural enviroment to be masked differently to the natural enviroment to show contrast
+between the 2. For example my middle picture is masked in a certain way that the natural tree leaves are random squares and the cultural
+are in ordered squares as if to show that humans have affected and almost 'ordered' this area for a pathway. With the lightpost and
+bench masked with a 3D hex shape to connect the top 'natural enviroment' to the bottom 'cultural enviroment.'
+
 Tue 29th May
 I have worked out how to create two masks and implement them into my artwork piece. I have also taken polygon code from 
 https://p5js.org/es/examples/form-regular-polygon.html to create an almost 3D affect of the bushes in the first picture.

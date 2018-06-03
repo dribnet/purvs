@@ -12,7 +12,7 @@ const pointSize = 40;
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
-  maskTwoImg = loadImage("mask_1_2.png");
+  maskTwoImg = loadImage("mask_3_2.png");
 }
 
 function setup () {
@@ -61,14 +61,14 @@ function draw () {
   }
   renderCounter ++;
 
-  /* First Loop */
+  /* First Loop Render */
   if(renderCounter > 1920/pointSize && !SecondDraw) {
     console.log("Done!");
     SecondDraw = true;
     //noLoop();
     // saveBlocksImages();
   }
-  /* Second Loop */
+  /* Second Loop Render */
   if(SecondDraw) {
 		renderCounterTwo++;
 		if(renderCounterTwo > DrawCalls) {
