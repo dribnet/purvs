@@ -25,16 +25,21 @@ function draw () {
     // let y = floor(random(sourceImg.height));
     let x = int(i*elementSpacing);
     let y = int(renderCounter*elementSpacing);
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
+    x = x + dx;
+    y = y + dy;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 20;
     let halfSize = elementSpacing/2;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] > 200) {
       ellipse(x, y, pointSize*2, pointSize*2);
       ellipse(x, y, pointSize, pointSize);
     }
     else {
+      // ellipse(x, y, pointSize*2, pointSize*2);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
       ellipse(x-halfSize, y-halfSize, pointSize/2, pointSize/2);
     }
