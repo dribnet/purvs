@@ -37,27 +37,6 @@ function convertRGBToHsluv(c){
   return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
 }
 
-// function owl(x, y, c, s){
-//   push();
-//   translate(x, y);
-//   scale(s);
-//   stroke(c);
-//   strokeWeight(70);
-//   line(0,-35,0,-65);
-//   noStroke();
-//   fill(255);
-//   ellipse(-17.5,-65,35,35);
-//   ellipse(17.5,-65,35,35);
-//   arc(0, -65, 70, 70, 0, PI);
-//   fill(c);
-//   ellipse(-14, -65, 8, 8);
-//   ellipse(14,-65,8,8);
-//   quad(0,-58,4,-51,0,-44,-4,-51);
-//   pop();
-
-
-// }
-
 function flower(x, y, c, s){
   push();
   translate(x,y);
@@ -73,6 +52,7 @@ function flower(x, y, c, s){
       rotate(60)
       ellipse(0,30,circleSize, circleSize)
     }
+  
   pop();
 }
 
