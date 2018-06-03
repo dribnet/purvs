@@ -9,13 +9,15 @@ var X_AXIS = 2;
 let elementSpacing = 40;
 let circleSize = 60;
 let squareSize = 40;
+var DrawCalls = 500;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 1.9;
+	let scale = 2.8;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
+	DrawCalls = DrawCalls * scale;
 }
 
 let sourceImg=null;
@@ -23,7 +25,7 @@ let maskImg=null;
 let renderCounter=0;
 let renderCounterTwo=0;
 var PixelDensity = 100*2;
-var DrawCalls = 1000;
+
 
 function preload() {
 	sourceImg = loadImage("input_S1.jpg");
@@ -73,9 +75,9 @@ function draw () {
 		if(maskTwo[0] > 128 && SecondDraw == true) {
 			fill(pix2);
 			noStroke();
+			//adds random scaling to the circles
 			let rand = getRandom(1,2);
 			ellipse(x2, y2, circleSize/rand, circleSize/rand);
-			//star(x, y, squareSize, squareSize, 2); 
 		}
 		if(mask[0] > 128 && SecondDraw == false) {
 			noStroke();
@@ -99,44 +101,18 @@ function draw () {
 	if(renderCounter > 1920/elementSpacing && SecondDraw == false) {
 		console.log("First Draw Done!")
 		SecondDraw = true;
-		//noLoop();
-	    // saveBlocksImages();
+
 	} 
 	if(SecondDraw) {
 		renderCounterTwo = renderCounterTwo + 1; 
 		if(renderCounterTwo > DrawCalls) {
 			console.log("Second Draw Done!")
 			noLoop();
-			// saveBlocksImages();
+
 		}
 	}
 }
 
-// function draw () {
-//   for(let i=0;i<PixelDensity;i++) {
-//     let x = floor(random(sourceImg.width));
-//     let y = floor(random(sourceImg.height));
-//     let pix = sourceImg.get(x, y);
-//     let mask = maskImg.get(x, y);
-//     let pointSize = 25/1.5;
-//     let halfSize = 12/1.5;
-//     fill(pix);
-//     if(mask[0] > 128) {
-//       star(x, y, pointSize, halfSize/1.5, 3);
-//  		//ellipse(x, y, pointSize, pointSize);
-//     }
-//     else {
-//       star(x, y, pointSize, halfSize, 4);      
-//   		//rect(x-halfSize, y-halfSize, pointSize, pointSize);    
-//     }
-//   }
-//   renderCounter = renderCounter + 1;
-//   if(renderCounter > DrawCalls) {
-//     console.log("Done!")
-//     noLoop();
-//     // saveBlocksImages();
-//   }
-// }
 
 function keyTyped() {
 	if (key == '!' || key == '1') {
@@ -149,6 +125,7 @@ function getRandom(min, max) {
   max = Math.floor(max);
   return (Math.random() * (max - min)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
+
 //creates a colour gradient source: https://p5js.org/examples/color-linear-gradient.html
 function setGradient(x, y, w, h, c1, c2, axis) {
 
