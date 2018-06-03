@@ -2,9 +2,9 @@ let finalVersion = false;
 
 let pointSize = 40;
 
-let elementSpacin = 20 ;
-let circleSize = 40;
-let squareSize = 20;
+let elementSpacin = 35 ;
+let circleSize = 50;
+let squareSize = 30;
 
 
 if(finalVersion){
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -41,18 +41,28 @@ function flower(x, y, c, s){
   push();
   translate(x,y);
   scale(s);
-  fill(c)
+  stroke(255);
+  strokeWeight(4)
   
-  // for (var i = 0; i < 6; i ++) {
-  //   ellipse(0,30,20,20);
-  //   rotate((i + 1) / 6.0 * TAU+radians(90));
-  // }
-  for(let i = 0; i < 6; i++){ //this code is for short lines
+
+  for(let i = 0; i < 6; i++){ 
       angleMode(DEGREES)
       rotate(60)
+      fill(c)
       ellipse(0,30,circleSize, circleSize)
     }
-  
+  fill(c)
+  ellipse(0,0,40,40)
+
+  for(i = 0; i <=5 ;i++){ // this code is for triangles
+      angleMode(DEGREES);
+      rectMode(CENTER);
+      fill(255)
+      rotate(60);
+      triangle( 0, 35, -10, 20, 10, 20);
+    }
+
+
   pop();
 }
 
@@ -71,20 +81,14 @@ function draw () {
 
 
     if(mask[0] > 128) {
-      fill(pix);
-      // ellipse(x, y, circleSize, circleSize);
+
       flower(x,y,pix,0.3);
-      // x = x + dx/2;
-      // y = y + dy/2;
-      // let owl_size = map(hsluvColor[2],0,100,0.3,0.9);
-      // owl(x,y,pix,owl_size);
+
     }
-    else {  
-      x = x + dx;
-      y = y + dy;
-      
-      fillHsluv( 0, 0, hsluvColor[2]/2);
-      rect(x-halfSize, y-halfSize, squareSize+random(20), squareSize);    
+    else { 
+
+      fill(pix)
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
   renderCounter = renderCounter + 1;
