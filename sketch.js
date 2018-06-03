@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 
 function preload() {
-	sourceImg = loadImage("input_3.jpg");
-	maskImg = loadImage("mask_3.png");
-	maskImgB = loadImage("mask_3b.png");
+	sourceImg = loadImage("input_1.jpg");
+	maskImg = loadImage("mask_1.png");
+	maskImgB = loadImage("mask_1b.png");
 }
 
 function setup () {
@@ -13,56 +13,43 @@ function setup () {
 	  angleMode(DEGREES);
 	  imageMode(CENTER);
 	  noStroke();
-	  background(200);
+	  background(240);
 	  sourceImg.loadPixels();
 	  maskImg.loadPixels();
 	  maskImgB.loadPixels();
 }
 
-let pointWidth = 60;
-let pointHeight = 60;
-let pointSize = 80;
+let pointWidth = 30;
+let pointHeight = 40;
 
 function draw () {
-	//draw squares with dogs across background
+	//draw lighter dogs across background
 	for(let i=0;i<1080;i+=pointWidth){ 
-		for(let j = 0; j < 1920; j+=pointHeight) {
+		for(let j = -96; j < 1920; j+=40) {
 			let xBack = i;
 			let yBack = j;
-			pointHeight = floor(random(50, 70));
-			if(j+pointHeight>1920-50){
-				if(1920-j<=70){
-					pointHeight = 1920 - j;
-				}
-				else{
-					pointHeight=50;
-				}
-			}
+			pointHeight = floor(random(25, 35));
+			let pix = sourceImg.get(xBack+pointWidth/2, yBack+pointHeight/2);
+			drawDogs(xBack, yBack, pointWidth, pointHeight, pix, pointWidth-pointWidth/5,pointWidth+pointWidth/5, true);
+		}
+	}
+	pointWidth = 135;
+	pointHeight = 192;
+	//draw dogs across background
+	for(let i=0;i<1080;i+=pointWidth){ 
+		for(let j = 0; j < 1920; j+=192) {
+			let xBack = i;
+			let yBack = j;
+			pointHeight = floor(random(130, 200));
 			let pix = sourceImg.get(xBack+pointWidth/2, yBack+pointHeight/2);
 			let mask = maskImg.get(xBack+pointWidth/2, yBack+pointHeight/2);
 			if(mask[0] <= 128){
-				fill(220);
-				stroke(0);
-				strokeWeight(4);
-				rect(xBack, yBack, pointWidth, pointHeight); 
-				strokeWeight(0.5);
-				noStroke();
-				drawDogs(xBack, yBack, pointWidth, pointHeight, pix);
-			}
-			else{
-				//just draw rectangle without dog and outline
-				// convert to grayscale and make darker
-				//make greyscale
-				let bw = (pix[0] * 0.3 + pix[1] * 0.59 + pix[2] * 0.11);
-				//make darker
-				bw *= 0.1;
-				fill(bw, bw, bw);
-				noStroke();
-				rect(xBack, yBack, pointWidth, pointHeight); 
+				drawDogs(xBack, yBack, pointWidth, pointHeight, pix, 130, 200, false);
 			}
 		}
 	}
-	//draw actual dog
+	//draw actual dog blurry using ellipses
+	ellipseWidth = 120;
 	for(let i = 0; i < 2000; i++){
 		let xFront = floor(random(sourceImg.width));
 		let yFront = floor(random(sourceImg.height));
@@ -71,13 +58,16 @@ function draw () {
 			xFront = floor(random(sourceImg.width));
 			yFront = floor(random(sourceImg.height));
 			mask = maskImgB.get(xFront, yFront);
-			
 		}
 		let pix = sourceImg.get(xFront, yFront);
 		//make greyscale
 		let bw = (pix[0] * 0.3 + pix[1] * 0.59 + pix[2] * 0.11);
-		fill(bw, bw, bw, 80);
-		ellipse(xFront, yFront, pointSize, pointSize);
+		//lighten colour;
+		bw *= 1.5;
+		let alpha = floor(random(10, 50));
+		ellipseHeight = random(ellipseWidth-ellipseWidth/4, ellipseWidth+ellipseWidth/4);
+		fill(bw, bw, bw, alpha);
+		ellipse(xFront, yFront, ellipseWidth, ellipseHeight);
 	}
 	//when done
     console.log("Done!")
@@ -86,9 +76,10 @@ function draw () {
 
 }
 
-function drawDogs(centreX, centreY, width, height, values){
+function drawDogs(centreX, centreY, width, height, values, min, max, override){
 	push();
 	translate(centreX, centreY);
+	//randomly flips half the dogs
 	if(floor(random(0, 10))<5){
 		translate(width, 0);
 		scale(-1, 1);
@@ -96,15 +87,20 @@ function drawDogs(centreX, centreY, width, height, values){
 	let strokeWidth = 0.5;
   	let red = values[0];
   	let green = values[1];
-    let legHeight = map(height, 50, 70, 0, 25);
+    let legHeight = map(height, min, max, width*0.07, width*0.37);
   	let blue = values[2];
-	let fillColour = values[2];
+	let fillColour = [values[2], values[2], values[2]];
 	let strokeColour = 0;
+	//make dog set colour if the small background ones
+	if(override == true){
+		fillColour = 225;
+		strokeColour = 100;
+	}
     
     //basic dog shape
     //head
     let headX = width/2 - width/3.5;
-    let headY = height/2-legHeight/2-width/8;
+    let headY = 192/2-legHeight/2-width/8;
     let headHeight = width/6;
     let headLength = width/7;
 
@@ -144,7 +140,7 @@ function drawDogs(centreX, centreY, width, height, values){
     let tailY = chestY;
     let tailLength = headLength;
     let tailHeight = headHeight;
-    let fluffiness = map(blue, 0, 255, 1.1, 1.35);
+    let fluffiness = map(blue, 0, 255, 1.1, 1.3);
 
     fill(fillColour);
     stroke(fillColour);
@@ -198,7 +194,7 @@ function drawDogs(centreX, centreY, width, height, values){
 
 	 //add fur
 
-	 let furSize = map(blue, 0, 255, 1, height/10);
+	 let furSize = map(blue, 0, 255, 1, height/15);
 	 
 	//left leg
     makeBaseFur(leftLegX, leftLegY-leftLegHeight/10, leftLegX + leftLegLength, leftLegY-leftLegHeight/10, leftLegX+leftLegLength/20, 
