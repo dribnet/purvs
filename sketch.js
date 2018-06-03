@@ -19,7 +19,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(180);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
@@ -40,6 +40,31 @@ function draw () {
    fill(pix);
    stroke(pix);
    strokeWeight(4)
+
+
+ function circ(x, y,st, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  stroke(st);
+
+noStroke();
+  ellipse(0,0, 55,55);
+
+
+  ellipse(0,-20,30,30);
+  ellipse(20,0, 30,30);
+  ellipse(-20,0,30,30);
+  ellipse(0,20,30,30);
+
+  
+  ellipse(-35,-35,20,20);
+  ellipse(35,-35,20,20);
+  ellipse(35,35,20,20);
+  ellipse(-35,35,20,20);
+  
+  pop();
+}
 	
 
     if(mask[0] > 128) {
@@ -47,8 +72,8 @@ function draw () {
 ;
       strokeWeight(4)
     	 fill(pix);
-      
-      rect(x, y, pointSize, pointSize);
+      circ(x, y, pix, .5);
+      // rect(x, y, pointSize, pointSize);
     }
     else {
       fill(0);

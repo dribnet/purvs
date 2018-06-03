@@ -1,10 +1,12 @@
 ## Creative Coding 2: Custom Pixel
 
-For this commit i used the smart masks to generate my masks for my images and decided to use animals as my images. I made this choice because i wanted to see how well the smartmask did and picking animals. I also wanted to predominantly work on my code. 
+For this commit i have added in my own images that i have found inspiring. all these images have been taken around wellington in places that i have remembered seeing.
 
-My theme for this project is the things that first inspired me to do design and move on from being a chef and that is street art, not necessarily graffiti but in Napier they have a few big murals that people have created around the town and i always found them really inspiring and wanting to draw and create things after seeing them. 
+When initially putting my images in i didnt like how flat they looked and wanted to make it look at little more inspiring and have the artwork pop of the canvas. I decided to change my rects that were the main artwork of my images and have them offset slightly. This gave it a nice 3d sort of effect.
 
-In my code i have used these star like lines, these are inspired from a randomgaussian example shown in p5js and adapted to fit my code, i choose this because i wanted to follow more with what inspired me and when i was younger i liked doing these crayon scratch paintings where you would draw in colour on a piece of paper and paint over the colouring with black paint, it created a cool effect and this was the idea behind the stars and using the stroke to my advantage by making it the colour of the picture.
+After playing around with this a little more i have discovered that it works a lot better with colourful things, as my image three isnt that great but my first two i really like.
+
+from here i want to play around a bit more with my masking and do some more manually and try work out stuff that enhances the images to make them inspiring to others. I have started doing this in image two and so far i think it works quite well as it captures the image and highlights a lot of the distinctive feaures. 
 
  
 
