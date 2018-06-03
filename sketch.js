@@ -4,8 +4,8 @@ let renderCounter=0;
 let elementSpacing=20;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -28,13 +28,15 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 20;
-    let halfSize = 20;
+    let halfSize = elementSpacing/2;
     fill(pix);
     if(mask[0] > 128) {
+      ellipse(x, y, pointSize*2, pointSize*2);
       ellipse(x, y, pointSize, pointSize);
     }
     else {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
+      ellipse(x-halfSize, y-halfSize, pointSize/2, pointSize/2);
     }
   }
   renderCounter = renderCounter + 1;
