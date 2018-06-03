@@ -20,7 +20,7 @@ let renderCounter=0;
 function preload() {
   sourceImg = loadImage("input_1.jpg");
   maskImg = loadImage("mask_1.png");
-  plx = loadImage("mask_1_final.png")
+  plx = loadImage("mask_1_final.png");
 }
 
 function setup () {
@@ -33,9 +33,9 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-function convertRgbToHsluv(c) {
-  return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
-}
+// function convertRgbToHsluv(c) {
+//   return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+// }
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
@@ -47,9 +47,9 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
     if(mask[0] > 128) {
-
-            let hsluvColor = convertRgbToHsluv(pix);
-      fillHsluv(0, 0, hsluvColor[2]);
+fill(pix);
+      //       let hsluvColor = convertRgbToHsluv(pix);
+      // fillHsluv(0, 0, hsluvColor[2]);
       ellipse(x, y, circleSize, circleSize);
     }
     else {
