@@ -2,4 +2,4 @@
 
 Back to old idea again
 
-Don't really know what I'm doing again, I was kinda digging this though. It gave me the maessage that everything was hanging by a thread. I was playing around with noise to see if I could make my airline inspired map.
+I found this whacky projection called Atlantis which I am now in love with, I can do a portrait map projection and portray some interesting data on it. I plan to make it a data visualizer proportionate to population e. make a carbon emissions map that shows the worst places per capita.
