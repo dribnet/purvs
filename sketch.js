@@ -23,6 +23,19 @@ function convertRgbToHsluv(c) {
   return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
 }
 
+function flower (x, y, c, s){
+
+  let pix = sourceImg.get(x, y);
+  push();
+  translate(x, y);
+  scale(s);  // Set the createCanvas
+  stroke(c); // Set the gray value
+  fill(pix);
+  ellipse(0, 0, 50, 25);
+  ellipse(0, 0, 25, 50);
+  pop();
+}
+
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     // let x = floor(random(sourceImg.width));
@@ -44,6 +57,8 @@ function draw () {
       fillHsluv(0, 0, hsluvColor[2]);
       ellipse(x, y, pointSize*2, pointSize*2);
       ellipse(x, y, pointSize, pointSize);
+      fill(pix);
+      flower(x, y, pix, 0.5);
     }
     else {
       // x = x + dx;
