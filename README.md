@@ -1,15 +1,14 @@
 ## Creative Coding 2: Custom Pixel
+Believe I forgot to update the readme in last commit.
 
 Iteration:
-After my process and experimentation with masks/parameters/images I feel as I have a better understanding of how to render images that are up to my standard.
+Still trying to figure out what images to use for a final so i've still making different iterations of my images and selecting the best ones.
 
-Here I have used an image underneath a part of a dock. 
+Again I have used an image underneath a part of a dock. 
 Photography-wise:
- I wanted to capture the repetition of the posts, the water colour gradient with the reflections and shadows and to have the focus be the muscles growing on the support beam. I had adjusted the aperture to create a depth of field between the focal point and the other beams which I think accentuated the perlin noise algorithm applied in the render process.
-
+I wanted to capture the tunnel like view through the underneath of the docks I liked the border of that the dock created and the contrast between the dark black border and the colours of the ocean.
 
 Masking/Technical:
- For the first and second image I used a mask that was only applied to the focal point and it was used to retain the focus and detail in the image. I used a 0.5 - 0.9 strokeweight for the part inside the mask so it slowly rendered out to be in high detail. For the part outside the mask it was rendered at 0.1 - 0.3 strokeweight so it has more of a wispy opaque look and creates denser lines by overlapping/being in close proximity.
+ I applied the mask in a way to capture the border and the details because I wanted that part to be crisp and clean to show more of a contrast between the border and the ocean. I experimented with different parameters for each of the images again. Scaling the strokeweight of the lines in the mask by 0.6 > 1.2 for the iterations and for the noise outside the mask were from 0.1 > 0.5.
 
- In the last image I applied more of the mask to the water to create more density so the reflections were easier to distinguish.
-
+ Because the images are created generatively I let the first and last image render longer than the one in the middle hence why it has more brightness and more of the image actually rendered over the noise.
