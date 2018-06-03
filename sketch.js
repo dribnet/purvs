@@ -15,6 +15,7 @@ if (finalVersion) {
 
 let sourceImg=null;
 let maskImg=null;
+let plx=null;
 let renderCounter=0;
 
 function preload() {
