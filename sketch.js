@@ -1,15 +1,13 @@
 const finalVersion = false;
 
-      elementSpacing = 10;
-      elementySpacing = 30;
-      circleSize = 10;
-      squareSize = 15;
+      elementSpacing = 22;
+      circleSize = 20;
+      squareSize = 20;
   
   if (finalVersion) {
-    elementSpacing = 10;
-    elementySpacing = 30;
-    circleSize = 25;
-    squareSize = 15;
+    elementSpacing = 20;
+    circleSize = 20;
+    squareSize = 20;
   }
 
 //   pointSize = 40;
@@ -23,8 +21,9 @@ const finalVersion = false;
       renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  sourceImg2 = loadImage("input_2.2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -34,28 +33,42 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(80);
   sourceImg.loadPixels();
+  sourceImg2.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  scale(0.5);
+scale(0.45);
   for( i=0;i<1080/elementSpacing;i++) {
           x = int(i * elementSpacing);
-          y = int(renderCounter * elementySpacing);
-          dx = floor(random(elementSpacing/2));
-          dy = floor(random(elementySpacing/2));
-    x = x + dx;
-    y = y + dy;
+          y = int(renderCounter * elementSpacing);
+    //       dx = floor(random(elementSpacing/2));
+    //       dy = floor(random(elementSpacing/2));
+    //       x1 = floor(random(sourceImg.width));
+    //       y1 = floor(random(sourceImg.height));
+    // x1 = x1 + dx;
+    // y1 = y1 + dy;
+    // x = x + dx;
+    // y = y + dy;
           pix = sourceImg.get(x, y);
+          pix2 = sourceImg2.get(x, y);
           mask = maskImg.get(x, y);
+      
           halfSize = squareSize/2;
     fill(pix);
+    stroke(pix2);
+      strokeWeight(4);
     if(mask[0] > 128) {
+      
       ellipse(x, y, circleSize, circleSize);
+      line(x-12, y-12, x+12, y+12);
     }
     else {
+      noFill();
+      
+      
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
