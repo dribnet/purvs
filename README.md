@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-This is another design that i thought of. I wanted to see what it would look like if the circles had no fill and stroke would stay the same colour of the image and you're still able to have a clear idea of what the image is. I do really like how it looked. The main focus is now more on my theme, which is the landscape and the different sky colours now stand out a lot more and has become dominant. 
+Another design i thought of. I swapped the squares and circles so that the circles now create the background. I have also made a changed to the circles, so i added a smaller inside the circle giving it more of a different looking effect which i like the look of. I don't think this is my favourite deisng as the main focus isn't on the sky anymore. 
