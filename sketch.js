@@ -1,14 +1,20 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+var sourceImg=null;
+var maskImg=null;
+var renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  strokeImg1 = loadImage("Stroke1.png");
+  strokeImg2 = loadImage("Stroke2.png");
+  strokeImg3 = loadImage("Stroke3.png");
+  strokeImg4 = loadImage("Stroke4.png");
+  strokeImg5 = loadImage("Stroke5.png");
+  strokeImg6 = loadImage("Stroke6.png");
+  maskImg = loadImage("BrushMask.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(1080, 1920);
+  var main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
@@ -19,29 +25,47 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+  for(var i=0;i<50;i++) {
+    var x = floor(random(sourceImg.width));
+    var y = floor(random(sourceImg.height));
+    var pix = sourceImg.get(x, y);
+    var mask = maskImg.get(x, y);
+    var pointSize = 15;
+    var halfSize = 50;
+    tint(pix);
+    // if(mask[0] < 60) {
+    //   image(strokeImg1,x-pointSize, y-(3.33*pointSize), pointSize, 3.33*pointSize);
+    // }
+    if(60 < mask[0] < 90) {
+      image(strokeImg2,x-pointSize, y-(3.33*pointSize), pointSize, 3.33*pointSize);
     }
-    else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+    if(90 < mask[0] < 140) {
+      image(strokeImg3,x-pointSize, y-(3.33*pointSize), pointSize, 3.33*pointSize);
     }
+    if(140< mask[0] < 200) {
+      image(strokeImg4,x-pointSize, y-(3.33*pointSize), pointSize, 3.33*pointSize);
+    }
+    if(200 < mask[0] < 255) {
+      image(strokeImg5,x-pointSize, y-(3.33*pointSize), pointSize, 3.33*pointSize);
+    }
+    // else {
+    //   fill(pix);
+    //   rect(x-halfSize, y-halfSize, pointSize, pointSize);  
+    // }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 300) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
 }
 
+function brush(x,y){
+  beginShape();
+    
+  endShape();
+}
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
