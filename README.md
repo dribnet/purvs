@@ -4,3 +4,5 @@ My custom pixel is made up of a gridded circle layout where there is a mask with
 
 I added an offset to see what it would like.
 After doing some research ive decided to go towards a roy lichtenstein art style for my finale image.
+
+So for my project i really wanted to incorporate some drawing into it as i like to draw. Hence why i went for a more illustrative approach.
