@@ -1,6 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-I tried using the smart mask programe to mask out my model.
-It works but not in my intended way since I only want to mask
-out her hair and skin. Therefore I have decided to not use
-this programe for my project.
+Updated all my artwork image.
+I feel like in the finished image,
+my png file takes up too much among the overall
+image. I might draw the religion symbols out with
+p5js then placing them on just the skin& hair png
+file one by one. 
