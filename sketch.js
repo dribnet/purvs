@@ -4,8 +4,8 @@ let renderCounter=0;
 let elementSpacing=20;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -29,10 +29,36 @@ function flower (x, y, c, s){
   push();
   translate(x, y);
   scale(s);  // Set the createCanvas
-  stroke(c); // Set the gray value
+  stroke(pix); // Set the gray value
   fill(pix);
-  ellipse(0, 0, 50, 25);
-  ellipse(0, 0, 25, 50);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
+  fill(255);
+  stroke(c);
+  ellipse(0, 0, 10, 10)
+  pop();
+}
+
+function flower_non (x, y, c, s){
+
+  let pix = sourceImg.get(x, y);
+  push();
+  translate(x, y);
+  scale(s);  // Set the createCanvas
+  stroke(pix); // Set the gray value
+  fill(pix);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
+  rotate(1);
+  ellipse(0, 0, 50, 15);
   pop();
 }
 
@@ -58,7 +84,7 @@ function draw () {
       ellipse(x, y, pointSize*2, pointSize*2);
       ellipse(x, y, pointSize, pointSize);
       fill(pix);
-      flower(x, y, pix, 0.5);
+      flower_non(x, y, pix, 0.5);
     }
     else {
       // x = x + dx;
@@ -68,6 +94,7 @@ function draw () {
       // fillHsluv(0, 0, hsluvColor[2]);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
       ellipse(x-halfSize, y-halfSize, pointSize/2, pointSize/2);
+      flower(x-halfSize, y-halfSize, pix, 0.5);
     }
   }
   renderCounter = renderCounter + 1;
