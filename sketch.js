@@ -5,9 +5,9 @@ let renderCounter=0;
 let gotNumber = false;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
-  maskImgB = loadImage("mask_2b.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
+  maskImgB = loadImage("mask_3b.png");
 }
 
 function setup () {
@@ -16,7 +16,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(255, 240, 240);
   sourceImg.loadPixels();
   maskImg.loadPixels();
   maskImgB.loadPixels();
@@ -35,33 +35,33 @@ function draw () {
     fill(pix);
     if(mask[0] < 128) {
       polygon(x, y, pointSize, 6);
-      fill(0, 0, 0);
+      fill(255, 255, 255);
       polygon(x, y, pointSize/1.5, 6);
       fill(pix);
       polygon(x, y, pointSize/2, 6);
-      fill(0, 0, 0);
+      fill(255, 255, 255);
       polygon(x, y, pointSize/3, 6);
       fill(pix);
       polygon(x, y, pointSize/3.5, 6);
       polygon(x, y, pointSize/2, 6);
-      fill(0, 0, 0);
+      fill(255, 255, 255);
       polygon(x, y, pointSize/4, 6); 
     }
     else if(maskB[0] < 128) {
     	fill(pix);
     	polygon(x, y, pointSize/2, 6);
-    	fill(0, 0, 0);
+    	fill(255, 255, 255);
     	polygon(x, y, pointSize/4, 6); 
     }
 
       fill(pix);
       ellipse(x, y, pointSize/2, pointSize/2);
-      fill(0, 0, 0);
+      fill(255, 255, 255);
       ellipse(x, y, pointSize/4, pointSize/4);
        
       fill(pix);
       ellipse(x, y*1.5, pointSize/2, pointSize/2);
-      fill(0, 0, 0);
+      fill(255, 255, 255);
       ellipse(x, y*1.5, pointSize/4, pointSize/4);
   }
 
@@ -96,8 +96,8 @@ function polygon(x, y, radius, npoints) {
 
 function bee(){
 
-  let beeX;
-  let beeY;
+  var beeX;
+  var beeY;
 
   let beeSize = 6;
 
