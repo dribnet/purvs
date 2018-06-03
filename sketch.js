@@ -4,7 +4,7 @@ const finalVersion = true;
 if (finalVersion) {
   elementSpacing = 12;
   circleSize = 35;
-  squareSize = 7;
+  squareSize = 12;
 }
 
 let sourceImg=null;
