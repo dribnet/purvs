@@ -2,4 +2,4 @@
 
 Smart Mask
 
-I had a go at the smartmask feature and managed to make this funky looking thing that kinda hides the problem which is vehicles. I think this looks pretty cool but I'm unsure if I'll use it in my final.
+The baby blue looks a bit ridiculous so maybe I'll introduce some form of noise to make it look like smoke, I'm liking where this is going though. I also need a third image but that shouldn't be too hard to decide on.

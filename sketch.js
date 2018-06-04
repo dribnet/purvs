@@ -5,7 +5,7 @@ let renderCounter=0;
 
 function preload() {
   sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_input_2.png");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -21,11 +21,11 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const pointSize = 8;
+const pointSize = 10;
 
 function draw () {
 
-  //need to fix due to use of rectMode CENTER
+  //need to use due to use of rectMode CENTER
 
   translate(pointSize,pointSize);
 
@@ -36,20 +36,23 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
 
-    let opc = map(mask[0],0,255,100,0);
+    let opc = map(mask[0],0,255,255,0);
     let size = map(mask[0],0,255,5,1);
+    let str = map(mask[0],0,255,4,1);
 
-    if(mask[0] > 128) {
-      fill(random,random,random);
+    if(mask[0] < 255 && mask[0] > 0) {
+      fill(150,200,255,opc);
+      stroke(opc);
+      strokeWeight(1);
       rect(x-halfSize, y-halfSize, pointSize*size, pointSize*size);
       //fill(pix);
       //rect(x-halfSize, y-halfSize, pointSize, pointSize);
     }
 
     else{
+      noStroke();
       fill(pix);
       rect(x-halfSize, y-halfSize, pointSize, pointSize);
-
     }
   }
 
