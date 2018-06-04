@@ -1,14 +1,12 @@
 ## Creative Coding 2: Custom Pixel
 
-Episode 03 THEME REVSION?
+Episode 04 THEME REVISED
 
-Planning to revise the theme, looking into a paint like style of art.
+the general theme shows three pathways both showing in the day and night. But the three pathways all connect into one big alleyway path, that interconnects a large portion of my commute to the train station as a student, and day or night, i always have to cross these paths to reduce the time i have to get to the station. Personally this pathway has saved me time in numerous occasions especially if your a student who always procrastinates.
 
-experimented with randomizing the sizes of the circle and the result was interesting, the next is to see how far i can take this sort of matte paint like style.
-
--take photos (REVISING)
--make theme (REVISING)
+-take photos (REVISED)
+-make theme (REVISED)
 -experiment further with the code... more to go
 
-(fixed the small lines that seperated the squares and ellipses in the code).
+(fixed the small random dash line above the images).
 
