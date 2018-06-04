@@ -1,5 +1,7 @@
 /* Set to true to make final high-resolution version */
 const finalVersion = false;
+  const col =80;
+  const col2 = 255;
 
 /* Default versions of variables */
 let elementSpacing = 60;
@@ -36,6 +38,8 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
   maskImg2.loadPixels();
+
+
 }
 
 function convertRgbToHsluv(c) {
@@ -69,24 +73,28 @@ function draw () {
       stroke(80);
       push(); 
       
-      strokeWeight(10);
+      strokeWeight(5);
       rect(x-halfSize+15, y-halfSize-50, squareSize-10, squareSize+80);
       pop(); 
       strokeWeight(5);
-      rect(x-halfSize-5, y-halfSize-20, squareSize+30, squareSize-10);   
-  
+      rect(x-halfSize-5, y-halfSize-20, squareSize-10, squareSize-10);   
+      rect(x-halfSize+30, y-halfSize-20, squareSize-10, squareSize-10); 
       pop();   
     }
     if(mask2[0] >128){
       push();
       fill(pix);
-      ellipse(x, y, circleSize, circleSize);
+      stroke(pix);
+      strokeWeight(12);
+      // rect(x,y,circleSize,circleSize);
+     rect(x,y,50,50);
       pop();
     }
     else{
       push();
-      fill(30,0,255,40);
-      rect(x,y,circleSize,circleSize);
+      fill(col);
+      heart(x,y);
+      // rect(x,y,10,100);
       pop();
     }
   }
@@ -94,16 +102,100 @@ function draw () {
   if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
-    image(plx,550,980);
+    image(plx,600,980);
+ 
     // neck();
     // saveBlocksImages();
   }
 }
+function heart(x,y){
+  push();
 
+  noStroke();
+  translate(x,y);
+  // fill(col);
+  scale(0.2);
+
+  push();
+  fill(255);
+  stroke(255);
+  strokeWeight(8);
+    line(160,  82,190,  58);
+    line(220,  52,250,  57);
+    line(275,  80,290,  100);
+    line(294,  120,292,  160);
+     line(51,  68,90,  56);
+    line(120,  60,135,  75);
+    line(40,  85,25,  110);
+    line(286,  175,272,  200);
+    line(180,  280,210,  255);
+    line(240,  235,260,  218);
+     line(90,  240,120,  270);
+    line(135,  285,145,  295);
+     line(20,  125,30,  160);
+    line(40,  180,65,  220);
+pop();
+
+  triangle( 110, 50, 50, 70, 150, 90);
+    triangle( 150, 90, 200, 50, 200, 110);
+    triangle( 200, 50, 250, 110, 200, 110);
+    triangle( 200, 50, 265, 60, 250, 110);
+    triangle( 265, 60, 275, 120, 250, 110);
+    triangle( 275, 120, 265, 60, 295, 110);
+    triangle( 295, 110, 290, 160, 275, 120);
+    triangle( 275, 120, 290, 160, 210, 140);
+    triangle( 275, 120, 210, 140, 250, 110);
+    triangle( 250, 110, 200, 110, 210, 140);
+    triangle( 210, 140, 200, 100, 150, 90);
+    triangle( 50, 70, 150, 90, 80, 100);
+    triangle( 50, 70, 80, 100, 20, 120);
+    triangle( 20, 120, 120, 120, 80, 100);
+    triangle( 120, 120, 80, 100, 150, 90);
+    triangle( 150, 90, 140, 160, 210, 140);
+    triangle( 140, 160, 150, 90, 120, 120);
+    triangle( 140, 160, 210, 140, 240, 200);
+    triangle( 240, 200, 210, 140, 270, 210);
+    triangle( 270, 210, 290, 160, 210, 140);
+    triangle( 270, 210, 240, 200, 150, 300);
+    triangle( 150, 300, 240, 200, 160, 240);
+    triangle( 160, 240, 240, 200, 140, 160);
+    triangle( 140, 160, 120, 120, 130, 200);
+    triangle( 130, 200, 140, 160, 160, 240);
+    triangle( 160, 240, 150, 300, 130, 200);
+    triangle( 150, 300, 120, 260, 130, 200);
+    
+    triangle( 150, 300, 130, 200, 70, 220);
+
+    triangle( 80, 210, 130, 200, 80, 180);
+    triangle( 80, 180, 130, 200, 120, 120);
+    triangle( 120, 120, 90, 120, 80, 180);
+    triangle( 80, 180, 90, 120, 20, 120);
+    triangle( 20, 120, 80, 180, 30, 170);
+    triangle( 30, 170, 80, 180, 70, 220);
+    triangle( 70, 220, 80, 180, 80, 210);
+    triangle( 70, 220, 80, 210, 130, 200);
+    pop();
+}
+function cross(){
+  beginShape();
+  vertex(100,100);
+  vertex(100,100);
+
+  vertex(200,100);
+  vertex(200,0);
+  vertex(250,0);
+  vertex(250,100);
+  vertex(350,100);
+  vertex(350,250);
+  vertex(250,300)
+  vertex(200,300);
+  vertex(200,250);
+  vertex(150,200);
+  vertex(250,200);
+}
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
 }
-
 
