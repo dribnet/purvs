@@ -25,7 +25,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(30);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -40,8 +40,8 @@ function draw () {
 		// Draw inner pixel 
 		drawInnerPixelShape(x, y);	
 	}else { // Decide Whether we draw a background star
-		var n = random(10);
-		if(n >= 9.5){
+		var n = random(100);
+		if(n > 99){
 			n = random(10);
 			//Decide on a color
 			if(n <= 2){
