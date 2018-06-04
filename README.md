@@ -1,4 +1,4 @@
 ## Creative Coding 2: Custom Pixel
 
-I further developed my code that change some of the pixels into more complicated shapes rather than the simple ellipses. Because I want to represent the small happiness in the normal life, I used flower shapes so the masked area will be full of colourful flowers. I also set the random size to the flowers but so far it is not distinct and I will change the random range into bigger numbers. Also I will add random rotation to each flower to make the final result more interesting. 
-I used translate and rotate function on the pixels at the background. However, it seems like the rotation may be to much and the background is unreadable. I want to emphasis the foreground but also keep the background visible so that the audience will know the happiness is everywhere in their life. 
+I took some photos and select these three photo as my images that I will render in pixerls in the next step. 
+I wanted to focus on the small but easy being ignored happiness in the daily life, so I shoot the photos that record the moments I feel happiness. For example, the hot drink and scarf in cold days, the discount of shops and the last cup-cake in my favourite flavor.
