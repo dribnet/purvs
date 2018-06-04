@@ -1,6 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-Taking the code given to us, I have replaced the source images with that of art depicting futuristic cities, due to the wide range and contrast of colours in each image.
+I have replaced the images I was using with that of gradients, as I want to explore the display of colour through pointilism.
 
-Finally exploring point size for inital test/concept.
+At the momment the images still use the same code as the pervious experiments, but that will change in future commits. 
 
