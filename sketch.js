@@ -1,12 +1,12 @@
 let sourceImg=null;
 let maskImg=null;
 let currentRow=0;
-let dotsize = 30;
-let renderCounter=0;
+let dotsize = 15;
+//let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -20,7 +20,7 @@ function setup () {
   maskImg.loadPixels();
 }
 
-let pointSize = 90;
+let pointSize = 20;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {

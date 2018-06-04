@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+These were the pictures I created using the SmartMask. I used the cat, elephant and cow tags to create the different mask for the pictures. I used the list smart mask for the cow picture to mask only the three cows instead of all four. I think creating masks in photoshop (even though more time consuming) produces a better result when having a small pixel size as you can see if there are any errors with the mask. 
