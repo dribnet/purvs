@@ -1,5 +1,5 @@
 /* Set to true to make final high-resolution version */
-const finalVersion = false;
+const finalVersion = true;
 
 //variables
 let circlepointSize = 20
