@@ -5,8 +5,8 @@ let dotsize = 15;
 //let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_5.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_4.png");
 }
 
 function setup () {
