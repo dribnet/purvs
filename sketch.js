@@ -5,8 +5,8 @@ let dotsize = 15;
 //let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -31,19 +31,19 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-     	ellipse(x, y, pointSize, pointSize / 2);
-     	ellipse(x, y, pointSize / 2, pointSize);
+     	ellipse(x, y, pointSize, pointSize );
+     	ellipse(x, y, pointSize , pointSize);
 
      	push();
-     	ellipse(x + (dotsize/4) , y + (dotsize/4), pointSize/2, pointSize/2);
-     	ellipse(x - (dotsize/4) , y + (dotsize/4), pointSize/2, pointSize/2);
-     	ellipse(x - (dotsize/4) , y - (dotsize/4), pointSize/2, pointSize/2);
-     	ellipse(x + (dotsize/4) , y - (dotsize/4), pointSize/2, pointSize/2);
-     //	ellipse(x, y, pointSize, pointSize);
+     	ellipse(x + (dotsize/4) , y + (dotsize/4), pointSize, pointSize);
+     	ellipse(x - (dotsize/4) , y + (dotsize/4), pointSize, pointSize);
+     	ellipse(x - (dotsize/4) , y - (dotsize/4), pointSize, pointSize);
+     	ellipse(x + (dotsize/4) , y - (dotsize/4), pointSize, pointSize);
+
      	pop();
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      rect(x-pointSize/4, y-pointSize/4 , pointSize/2, pointSize/2) ;    
     }
   }
   currentRow = currentRow + 1;
