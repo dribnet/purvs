@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let pointSize = 20;
+let pointSize = 25;
 
 let gridXNum;
 let gridYNum;
@@ -10,8 +10,8 @@ let gridYNum;
 let lineNum = 3;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -49,10 +49,11 @@ function draw () {
         translate(xPos, yPos);
         if(lineNum == 4){
           rotate(-PI/4);
+          polygon(0, 0, pointSize/1.7, lineNum);
         } else {
         rotate(-PI/2);
-      }
         polygon(0, 0, pointSize/2, lineNum);
+      }
         //rect(0,0,pointSize,pointSize);
         pop();
     }
