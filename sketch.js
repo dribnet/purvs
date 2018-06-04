@@ -1,8 +1,19 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+// Constant Variables
 const pointSize = 10;
-let count = 0;
+const halfSize = pointSize/2;
+const width = 1080/pointSize;
+const height = 1920/pointSize;
+//Used in Both Shape functions 
+const p1 = pointSize/2;
+// Used in InnerMask Shape function
+const p2 = pointSize/3.5;
+const p3 = pointSize/4;
+// Used in Star function
+const p4 = pointSize/8;
+// Changeable Variables
+let sourceImg = null;
+let maskImg = null;
+let currentY = 0;
 
 function preload() {
   sourceImg = loadImage("input_2.jpg");
@@ -14,68 +25,75 @@ function setup () {
   main_canvas.parent('canvasContainer');
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0; i<1080/pointSize; i++) {
+  for(let i = 0; i < width; i++) {
     let x = i * pointSize;
-    let y = renderCounter * pointSize;
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let halfSize = pointSize/2;
-	fill(0);
-	rect(x-halfSize, y-halfSize, pointSize, pointSize); 
-    fill(pix);
-    if(mask[0] > 128) {
-		beginShape();
-		vertex(x, y-pointSize/2);
-		vertex(x+pointSize/3, y-pointSize/4);
-		vertex(x+pointSize/3, y+pointSize/4);
-		vertex(x, y+pointSize/2);
-		vertex(x-pointSize/3, y+pointSize/4);
-		vertex(x-pointSize/3, y-pointSize/4);
-		endShape(CLOSE);		
-    }
-    else { // Blank Background		
+    let y = currentY * pointSize;	
+	let mask = maskImg.get(x, y);		
+	if(mask[0] == 255){	//Check if pixel is in the mask
+		fill(sourceImg.get(x, y));
+		// Draw inner pixel 
+		drawInnerPixelShape(x, y);	
+	}else { // Decide Whether we draw a background star
 		var n = random(10);
 		if(n >= 9.5){
 			n = random(10);
 			//Decide on a color
 			if(n <= 2){
-				pix = color(255,0,0);
+				fill(255,0,0); // Red
 			}else if(n <= 5){
-				pix = color(0,255,0);
+				fill(0,255,0); // Green
 			}else if(n <= 7){
-				pix = color(0,0,255);
+				fill(0,0,255); // Blue
 			}else {
-				pix = color(255,255,0);
+				fill(255,255,0); // Yellow
 			}
-			fill(pix);
 			// Draw a star
-			beginShape();
-			vertex(x, y-pointSize/2);
-			vertex(x+pointSize/8, y-pointSize/8);
-			vertex(x+pointSize/2, y);
-			vertex(x+pointSize/8, y+pointSize/8);
-			vertex(x, y+pointSize/2);
-			vertex(x-pointSize/8, y+pointSize/8);
-			vertex(x-pointSize/2, y);
-			vertex(x-pointSize/8, y-pointSize/8);
-			endShape(CLOSE);
+			drawStar(x, y);
 		}
-    }
-	count++;
-  }
-  
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {	  
+	}    
+  }  
+  currentY += 1;
+  if(currentY > height) {	  
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
+}
+
+/*
+	Function which draws an Honeycomb inspired shape, made to be thinner like the inner strips of a LED or CRT pixel.
+*/
+function drawInnerPixelShape(x, y){	
+	beginShape();
+	vertex(x, y-p1);
+	vertex(x+p2, y-p3);
+	vertex(x+p2, y+p3);
+	vertex(x, y+p1);
+	vertex(x-p2, y+p3);
+	vertex(x-p2, y-p3);
+	endShape(CLOSE);	
+}
+
+/*
+	Function which draws a star shape
+*/
+function drawStar(x, y){	
+	beginShape();
+	vertex(x, y-p1);
+	vertex(x+p4, y-p4);
+	vertex(x+p1, y);
+	vertex(x+p4, y+p4);
+	vertex(x, y+p1);
+	vertex(x-p4, y+p4);
+	vertex(x-p1, y);
+	vertex(x-p4, y-p4);
+	endShape(CLOSE);
 }
 
 function keyTyped() {

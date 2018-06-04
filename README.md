@@ -1,7 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-So I have added in the images to the program that I have taken. They aren't anything too specail, they are just an assortment of some things that I use to rest and relax, going with my theme of the importance of play. 
+So for this update, I have mainly focused on optimization and cleaning up my code as opposed to changing the fundementals of the algorithm as I am pretty happy with it so far. So what I did was:
+	- I added in a lot more comments which should make it a bit more readable
+	- Focused on reducing the render time. I know that this isn't nessassary, but I thought that it would be a good thing to do as. This was done by primarily trying to reduce the amount of function calls required for the program to run, as well as reduce the amount of maths needed to be performed. All this as added up to a considerable gain in performance. 
 
-I have made a few changes to the algorithm. For starters I have decided that I will not draw the background of objects that are not in the masks. This is because I was going to have them blurred or something along those lines anyway as I want the focus to be on the masked objects. So I thought that it would potentially look cleaner if I instead removed the unmasked areas and then things like stars and stuff randomly, to not make it feel as empty. 
-
-So far I am liking the idea and am just going to keep tweaking it until I am really happy with it.
+Some things I may still do would involve tweaking the background. This would primarily involve tweaking the star sizes, the colours etc. I may add more symbols, like say the playstaion symbols, which would work well with the the darker background
