@@ -2,4 +2,4 @@
 
 Getting there
 
-I need to make my iterations cool so that my use of 3 images isn't such a negative, it's got a cool aesthetic going on right now though so that's nice.
+I think this is the loook that best reprenents my data and also looks the best, I forgot to provide context to what it it but it is an Atlantis projection of the world with Co2 emissions per capita on the mask.
