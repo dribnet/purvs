@@ -18,10 +18,11 @@ function setup () {
   background(1);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  rectMode(CENTER);
+  
+  //ellipseMode(CENTER);
 }
 
-  const pointSize = 17;
+  const pointSize = 16;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
@@ -34,22 +35,25 @@ function draw () {
     let mask = maskImg.get(x, y);
     //let pointSize = 50;
     //let halfSize = 50;
-    let halfSize = pointSize/4;
+    let halfSize = pointSize/2;
 
     fill(pix);
     if(mask[0] > 128) {
-    	stroke(0);
-        rect(x, y, pointSize, pointSize);
+    	 push();
+        rectMode(CENTER);
+        
+       rect(x, y, pointSize, pointSize);
 
         stroke(0);
-        rect(x, y, pointSize/2, pointSize/2);
-   
-        stroke(0);
-        rect(x, y, pointSize/4, pointSize/4);
-        
+        beginShape();
+        vertex(x,y-halfSize+1);
+        vertex(x-halfSize+1,y);
+        vertex(x,y+halfSize-1);
+        vertex(x+halfSize-1,y);
+        endShape(CLOSE);
+       pop(); 
     }
     else {
-    	stroke(0);
         rect(x-halfSize, y-halfSize, pointSize, pointSize); 
     }
   }
