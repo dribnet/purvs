@@ -3,9 +3,10 @@ let maskImg=null;
 let renderCounter=0;
 let curRow = 0;
 
+
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -21,7 +22,6 @@ function setup () {
 
 let pointSize = 20;
 
-
 function draw () {
   for(let i=0;i<1080;i++) {
     let x = i * pointSize;
@@ -33,7 +33,7 @@ function draw () {
     //let halfsize = pointSize/2;
     //editing the numbers below slows render but increases detail
     let halfsize = 5;
-    let pointSize1 = random(10,90);
+    let pointSize1 = random(10,20);
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x+halfsize, y+halfsize, pointSize1, pointSize1);
