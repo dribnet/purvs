@@ -6,15 +6,11 @@
     },
     {
       "sha": "3b608c2316e208fe6363da53274d0974e8764f84",
-      "name": "experiment2"
+      "name": "experiment"
     },
     {
       "sha": "d617518f386976f929cecf20ae8887a894b8d825",
-      "name": "experiment1"
-    },
-    {
-      "sha": "d617518f386976f929cecf20ae8887a894b8d825",
-      "name": "sketch"
+      "name": "test"
     }
   ]
 }
