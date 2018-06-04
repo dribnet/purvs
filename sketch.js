@@ -13,7 +13,7 @@ var DrawCalls = 500;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 2.8;
+	let scale = 2;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -28,9 +28,9 @@ var PixelDensity = 100*2;
 
 
 function preload() {
-	sourceImg = loadImage("input_S1.jpg");
-	maskImg = loadImage("mask_S1.png");
-	maskTwoImg = loadImage("mask_S2.png");
+	sourceImg = loadImage("input_A2.jpg");
+	maskImg = loadImage("mask_A1.png");
+	maskTwoImg = loadImage("mask_A3.png");
 }
 
 function setup () {
@@ -77,7 +77,8 @@ function draw () {
 			noStroke();
 			//adds random scaling to the circles
 			let rand = getRandom(1,2);
-			ellipse(x2, y2, circleSize/rand, circleSize/rand);
+			star(x2, y2, squareSize/rand, (halfSize*1.5)/rand, 9);
+			//ellipse(x2, y2, circleSize/rand, circleSize/rand);
 		}
 		if(mask[0] > 128 && SecondDraw == false) {
 			noStroke();
