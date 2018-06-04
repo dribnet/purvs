@@ -6,7 +6,7 @@ Image shown is a turtle-tendril visualisation of points spreading through the in
 
 #### Changes:
 
-- Implemented tendrils
+- Switched computers, checking that works
 
 #### Issues:
 
