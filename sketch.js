@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 
 function preload() {
-	sourceImg = loadImage("input_1.jpg");
-	maskImg = loadImage("mask_1.png");
-	maskImgB = loadImage("mask_1b.png");
+	sourceImg = loadImage("input_3.jpg");
+	maskImg = loadImage("mask_3.png");
+	maskImgB = loadImage("mask_3b.png");
 }
 
 function setup () {
@@ -106,7 +106,7 @@ function drawDogs(centreX, centreY, width, height, values, min, max, override){
 
     let noseHeight = headHeight/1.5;
     let noseLength = headLength;
-    let noseX = headX-(headLength/2)+3;
+    let noseX = headX-(headLength/2);
     let noseY = headY + headHeight/9;
     
     let earX = headX + headLength/20;
