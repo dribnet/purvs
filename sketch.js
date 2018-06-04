@@ -13,42 +13,29 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(100);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const pointSize = 16;
 function draw () {
-  for(let i=0;i<1080/pointSize;i++) {
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
-    let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
+  for(let i=0;i<540;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    //let pointSize = 100;
-    //let halfSize = 50;
-    let halfSize = pointSize/2;
+    let pointSize = 40;
+    let halfSize = 35;
     fill(pix);
     if(mask[0] > 128) {
-      push();
-        beginShape();
-        vertex(x,y-halfSize);
-        vertex(x+halfSize,y-halfSize/2);
-        vertex(x+halfSize,y+halfSize/2);
-        vertex(x,y+halfSize);
-        vertex(x-halfSize,y+halfSize/2);
-        vertex(x-halfSize,y-halfSize/2);
-        endShape(CLOSE);
-      pop();
+      ellipse(x, y, pointSize, pointSize);
     }
     else {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
@@ -60,3 +47,5 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+
