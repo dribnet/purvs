@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let curRow=0;
 let renderCounter = 0;
-let pointSize = 30;
+let pointSize = 10;
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
@@ -32,12 +32,23 @@ function draw () {
     let halfSize = 10;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      polygon(x, y, pointSize, 6);
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+   polygon(x, y, pointSize, 6);
     }
   }
+
+  function polygon(x, y, radius, npoints) {
+  var angle = TWO_PI / npoints;
+  beginShape();
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a) * radius;
+    var sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
   curRow = curRow + 1;
   if(curRow > 1920/pointSize) {
     console.log("Done!")

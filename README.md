@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images I am using are photos focusing on my theme of reflection, I have chosen to use the reflection of light and the reflection of light off the wet ground. I will be focusing on making the light look better and making a solid image without white patches in the final images.
+I have added a custom mask to the images and have chosen to further develop the images with focusing on the origin of the light and not the reflection of the light. I believe this with look better and show my ideas with more clarity. Showing how light spreads in the reflections. Currently both sets of pixels Masked and unMasked are both the same shape but I shall be changing them to help distinguish between the two types.
