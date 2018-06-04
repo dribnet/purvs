@@ -6,8 +6,8 @@ let maskImg=null;
 let row=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -44,19 +44,19 @@ function draw () {
     let y = int(row * elementSpace);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let sOffset = random(0, 5);
-    let swOffset = random(0, 5);
-    let shOffset = random(0, 5);
+    let sOffset = random(0, 10);
+    let swOffset = random(0, 40);
+    let shOffset = random(0, 20);
 
     // fill(pix);
     if(mask[0] > 128) {
       push();
-      translate(x - 20, y);
+      translate(x + sOffset - 20, y);
       fill(pix);
       // rotate(30);
       for(let j=0;j<5;j++){
         rotate(72);
-        ellipse(10 + sOffset, 0, frontSize + swOffset, frontSize + shOffset);
+        ellipse(10, 0, frontSize + swOffset, frontSize + shOffset);
       }
       pop();
     }
