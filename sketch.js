@@ -2,7 +2,7 @@ let finalVersion = false;
 
 let pointSize = 40;
 
-let elementSpacin = 25 ;
+let elementSpacin = 10 ;
 let circleSize = 50;
 let squareSize = 20;
 
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -28,7 +28,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background('gray');
+  background(240);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -38,6 +38,7 @@ function convertRGBToHsluv(c){
 }
 
 function flower(x, y, c, s){
+
   push();
   translate(x,y);
   scale(s);
