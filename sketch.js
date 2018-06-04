@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -13,12 +13,12 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const pointSize = 20;
+const pointSize = 16;
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
     //let x = floor(random(sourceImg.width));
@@ -32,7 +32,16 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      push();
+        beginShape();
+        vertex(x,y-halfSize);
+        vertex(x+halfSize,y-halfSize/2);
+        vertex(x+halfSize,y+halfSize/2);
+        vertex(x,y+halfSize);
+        vertex(x-halfSize,y+halfSize/2);
+        vertex(x-halfSize,y-halfSize/2);
+        endShape(CLOSE);
+      pop();
     }
     else {
       rect(x-halfSize, y-halfSize, pointSize, pointSize);    
