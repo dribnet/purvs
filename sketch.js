@@ -6,6 +6,7 @@ let currentRow=0;
 let fadeCount=0;
 let fadeRowBegin = 15;
 let rot=10;
+let s=1.0;
 //Render Quality settings: 'low' 'med' 'high'
 let quality = "low";
 let diamondSize = 10;
@@ -18,18 +19,21 @@ switch(quality){
     diamondSize = 80;
     circleSize = 80;
     spacing = 80;
+    fadeDiamondSize = 80;
     break;
 
   case "med":
     diamondSize = 30;
     circleSize = 30;
     spacing = 30;
+    fadeDiamondSize = 30;
     break;
 
   case "high":
     diamondSize = 10;
     circleSize = 10;
     spacing = 10;
+    fadeDiamondSize = 10;
     break;
 
   default:
@@ -37,8 +41,8 @@ switch(quality){
 }
 //Image loading for operations
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 //Canvas and image information setup.
@@ -62,16 +66,17 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
-    if(mask[0] > 128) {
-      let halfSize = spacing/2;
+    let halfSize = spacing/2;
+
+        if(mask[0] > 128) {
+
       push();
       if (currentRow > fadeRowBegin){
-      rot = rot + 2;
-      fadeCount = fadeCount + 1;
-      fadeDiamondSize = map(currentRow, 0, 30, diamondSize, 5);
+      rot = rot + 8;
       translate(x,y);
       rotate(rot);
-      rect(0-halfSize, 0-halfSize, fadeDiamondSize, fadeDiamondSize);
+      scale(s);
+      rect(0-halfSize, 0-halfSize,  diamondSize, diamondSize);
     } else {
       translate(x,y);
       rotate(rot);
@@ -84,6 +89,8 @@ function draw () {
     }
     //rowFade();
   }
+
+  s = map(currentRow, 13, 25, 1.0, 0);  //  fadeCount = fadeCount + 1;
   currentRow = currentRow + 1;
   if(currentRow *  spacing>1920) {
     console.log("Done!")
