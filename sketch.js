@@ -15,8 +15,8 @@ let lineNum = 3;
 let filletRadius = 0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -56,17 +56,35 @@ function draw () {
     let yPos = renderCounter*gridSize + gridSize/2;
     let pix = sourceImg.get(xPos, yPos);
     let mask = maskImg.get(xPos, yPos);
-    fill(pix);
 
     //lineNum = Math.floor(map(mask[0],maskLow,maskHigh,4,8));
     
     filletRadius = abs(map(mask[0],maskHigh,maskLow,0,1));
-    pointSize = (map(mask[0],maskLow,maskHigh,1,gridSize));
+
+    if(mask[0] == 0){
+      pointSize = gridSize/10;
+    } else {
+      pointSize = (map(mask[0],maskLow,maskHigh,1,gridSize));
+    }
+
+    //shadow
+
+    fill(20,100);
+
+    push();
+    translate(xPos+gridSize/8, yPos+gridSize/8);
+    rect(0,0,pointSize,pointSize,filletRadius*gridSize);
+    pop();
+
+    //block colour
+
+    fill(pix);
 
     push();
     translate(xPos, yPos);
     rect(0,0,pointSize,pointSize,filletRadius*gridSize);
     pop();
+
     }
 
     lineNum+=0.1;

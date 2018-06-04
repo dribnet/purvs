@@ -4,5 +4,7 @@ Once again replacing the images so that each image was a gradient created by a f
 
 The current program takes the code from the last series of images and applies it to the new task
 
+Added code to draw shadows to make each point pop and stand out.
+
 
 
