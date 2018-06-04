@@ -11,17 +11,19 @@ I believe this backing mask will serve my image concept of "Connectivity" well, 
 
 #### Changes:
 
-- Implemented the majority of the contrast-mapping function.
+- Made the edge detection a bit more sophisticated and sanitised the result a bit
 
 #### Issues:
 
-- Values might be a bit too noisy for my intended purpose.
+- Parameters might need tweaking for different images but that's okay
+
+- Tendril split chance will probably need a reasonable base chance with this
 
 #### To-Do:
 
-- Implement a map-smoothing component to the delta map function.
+- Implement the tendril component
 
 #### Notes:
 
--
+- Delta Map came out better than I expected really
 

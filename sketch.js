@@ -5,7 +5,12 @@ const RED_MULT = 1;
 const GREEN_MULT = 1;
 const BLUE_MULT = 1;
 
-const REGION_SIZE = 30; //24 may be solid but figure it out per images
+const DELTA_THRESHOLD = 0.2;
+const FLOOR_MULT = 0.95;
+const CEIL_MULT = 1.15;
+const BLUR_ITERATIONS = 10;
+
+const REGION_SIZE = 10; //24 may be solid but figure it out per images, 30 is also good
 const X_REGIONS = 1080/REGION_SIZE;
 const Y_REGIONS = 1920/REGION_SIZE;
 
@@ -22,7 +27,6 @@ function setup() {
 	background(255);
 	sourceImage.loadPixels();
 	noStroke();
-	//image(sourceImage, 0, 0);
 
 	print("calculating map");
 	let t = millis();
@@ -65,26 +69,56 @@ function calculateDeltaMap() {
 				}
 			}
 			let delta = (maxR - minR) * RED_MULT + (maxG - minG) * GREEN_MULT + (maxB - minB) * BLUE_MULT;
-			//let delta = random(255)*random(255)*random(255);
 			minDelta = delta < minDelta ? delta : minDelta;
 			maxDelta = delta > maxDelta ? delta : maxDelta;
 			col.push(delta);
 		}
 		deltaMap.push(col);
 	}
-	for (let i = 0, xRegions = sourceImage.width/REGION_SIZE, yRegions = sourceImage.height/REGION_SIZE; i < xRegions; i++) {
-		for (let j = 0; j < yRegions; j++) {
+
+	//change the data range to be 0.0 ~ 1.0
+	for (let i = 0; i < X_REGIONS; i++) {
+		for (let j = 0; j < Y_REGIONS; j++) {
 			deltaMap[i][j] = (deltaMap[i][j] - minDelta) / (maxDelta-minDelta);
 		}
 	}
 
 
-	// renderCounter = renderCounter + 1;
-	// if (renderCounter > 5) {
-	// 	console.log("Done!")
-	// 	noLoop();
-	// 	// saveBlocksImages();
-	// }
+	//apply 'blurring' to reduce noise
+	for (let i = 0; i < BLUR_ITERATIONS; i++) {
+		deltaMap = blurMap(deltaMap);
+	}
+}
+
+function blurMap(inputMap) {
+	let averagedDMap = [];
+	for (let i = 0; i < X_REGIONS; i++) {
+		let col = [];
+		for (let j = 0; j < Y_REGIONS; j++) {
+			let averagedValue = 0;
+			let c = 0;
+			for (let x = -1; x <= 1; x++) {
+				for (let y = -1; y <= 1; y++) {
+					if (i+x < 0 || i+x >= X_REGIONS || j+y < 0 || j+y >= Y_REGIONS) {
+						continue;
+					}
+					c++;
+					averagedValue += inputMap[i+x][j+y];
+				}
+			}
+			averagedValue /= c;
+			averagedValue = averagedValue*0.5 + inputMap[i][j]*0.5;
+			if (averagedValue < DELTA_THRESHOLD) {
+				averagedValue *= FLOOR_MULT;
+			} else {
+				averagedValue *= CEIL_MULT;
+				averagedValue = averagedValue > 1.0 ? 1.0 : averagedValue;
+			}
+			col.push(averagedValue);
+		}
+		averagedDMap.push(col);
+	}
+	return averagedDMap;
 }
 
 function keyTyped() {
