@@ -1,8 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-I have edited the spider function to create a strand of lines rather than a a flower of them. This gives
-more of the scratchy scribbly look i was going for. I have also edited my passes to firstly draw the skin
-then the background and then the body last. 
+This version i added a new photo for the 3rd input that was more of a fit with the other two and
+created a new version of my scribble as horizontal scratches to make the pictures come across as kind of creepy.
+I used two for loops to create lines that zig zagged away from the pixel.
 
-I'm going to continue to edit the spider function and try a few different things then work on making the 
-shattered abstract looking background.
+I also started creating a function for the shattered glass which looks good, but i'm not sure if it gives enough 
+detail to the background for my liking. I might test with the shattered glass as the body and make the background 
+a pixelated grid.
