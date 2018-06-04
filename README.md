@@ -1,7 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
+image 2 progress
+with all the help from my teacher and TAs, I gain a deeper understanding of the perspective and I employed the camera() function to explore more possibilities. Then, I have found the better angle to show.
 
-work on my style
+For next step, I will bring my own version to image 1 and also finsh my image 3.
+<!-- work on my style
 Finally, I built a consistent style of series. I took this sort of shots from the different spots. When I employ my concept to these photos, I can show a specific sense of dimension. The viewers could feel something come out, fade away, pass by.
 
 There is sort of challenges at this stage:
@@ -9,7 +12,7 @@ There is sort of challenges at this stage:
 2. When I transfer my code to the class system, something always has been changed. I have to work it out the rule of it.
 3. viewpoint control
 4. how to calculate the angle of rotation on X, Y, Z axis.
-
+ -->
 <!-- smart mask
 My story setting and smart mask
 It's an amazing system to make a mask of a wide range of objects. Also, I finally select my series of images. To ensure express my consistent style explicitly, I choose the image from the different angles to view the object, upward view, vertical view, side view to make sure the 3d visual effect stand out.
