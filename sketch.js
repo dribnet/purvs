@@ -19,8 +19,8 @@
 
 
 // function preload() {
-//   sourceImg = loadImage("input_2.jpg");
-//   maskImg = loadImage("mask_2.png");
+//   sourceImg = loadImage("input_1.jpg");
+//   maskImg = loadImage("mask_1.png");
 // }
 
 // function setup () {
@@ -92,28 +92,34 @@
 //   push();
 //   translate(x, y);
 //   scale(s);  // Set the createCanvas
+//   fill(c);
 
-//   let maxRand = 0;
-//   let minRand = -0;
+//   let maxRand = 10;
+//   let minRand = -10;
+
 //   let posX = random(maxRand,minRand);
 //   let posY = random (maxRand,minRand);
 
-//   fill(c);
 //   ellipse (200 + posX,2+posY,30,30);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
+
 //   ellipse (25 + posX,30+posY,40,40);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
+
 //   ellipse (0 + posX,0+posY,15,15);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
+
 //   ellipse (50 + posX,50+posY,10,10);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
+
 //   ellipse (40 + posX,15+posY,20,20);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
+
 //   ellipse (0 + posX,40+posY,30,30);
 //    posX = random(maxRand,minRand);
 //    posY = random (maxRand,minRand);
@@ -130,7 +136,7 @@
 
 // function draw () {
 
-//    for(let i=0;i<1080/5;i++) {
+//    for(let i=0;i<400;i++) {
 //     let x = floor(random(sourceImg.width));
 //     let y = floor(random(sourceImg.height));  
 //     let dx = floor(random(elementSpacing/2));
@@ -141,7 +147,7 @@
 //     let halfSize = 50;
 //     fill(pix);
 //     if(mask[0] > 128) {
-//       pattern(x, y, pix, 0.5);
+//       splatter(x, y, pix, 1);
 //       //splatter(x, y, pix, pointSize/30);
 //       //ellipse(x,y,5,5);
 //     }
@@ -159,7 +165,7 @@
 //       //pattern(x, y, pix, 0.5);
 //       //splatter(x, y, pix, pointSize/30);
 //       //pattern(x, y, pix, 0.5);
-//       rect(x-halfSize, y-halfSize, squareSize/2, squareSize/2);  
+//       //rect(x-halfSize, y-halfSize, squareSize/2, squareSize/2);  
 //     }
 //     else {
 //       // add random offsets
@@ -172,7 +178,7 @@
 //     }
 //   }
 //   renderCounter = renderCounter + 1;
-//   if(renderCounter > 1920/elementSpacing) {
+//   if(renderCounter > 50) {
 //     console.log("Done!")
 //     noLoop();
 //     // saveBlocksImages();
@@ -196,7 +202,7 @@ let squareSize = 40;
 
 
 if (finalVersion) {
-  elementSpacing = 20;
+  elementSpacing = 10;
   circleSize = 25;
   squareSize = 20;
 }
@@ -209,8 +215,8 @@ let renderCounter=0;
 
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
   //sourceImg = loadImage("input_1.jpg");
 }
 
@@ -279,6 +285,30 @@ function pattern (x,y,c,s){
     pop();
   }
 
+  function pattern2 (x,y,c,s){
+
+    console.log("pat2");
+    push();
+    translate (x,y);
+    fill(c);
+    stroke(c);
+    let starSize =  s*1;
+
+ line(starSize*0,starSize*0, starSize*10,starSize*10);
+    line(starSize*0,starSize*0, starSize*10,starSize*-10);
+    line(starSize*0,starSize*0, starSize*-10,starSize*10);
+    line(starSize*0,starSize*0, starSize*-10,starSize*-10);
+    line(starSize*0,starSize*0, starSize*0,starSize*20);
+    line(starSize*0,starSize*0, starSize*0,starSize*-20);
+    line(starSize*0,starSize*0, starSize*20,starSize*0);
+    line(starSize*0,starSize*0, starSize*-20,starSize*0);
+  
+    pop();
+
+
+
+}
+
 function splatter(x, y, c, s) {
   push();
   translate(x, y);
@@ -344,6 +374,7 @@ function draw () {
       // convert to grayscale (remove color, keep brightness in hsluv colorspace)
       let hsluvColor = convertRgbToHsluv(pix);
       fillHsluv(0, 0, hsluvColor[2]);
+      pattern2(x,y,pix,0.5);
 
       //splatter(x, y, pix, elementSpacing/30);
     }
