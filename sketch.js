@@ -25,7 +25,7 @@ function preload() {
   maskImg = loadImage("mask_3.png");
 
   maskImg2 = loadImage("mask_3.5.png");
-  plx = loadImage("mask_3_final.png");
+  plx = loadImage("why.png");
 }
 
 function setup () {
@@ -103,8 +103,10 @@ function draw () {
     console.log("Done!")
     noLoop();
     image(plx,560,990);
- 
-    // neck();
+    cross2();
+    peace();
+
+
     // saveBlocksImages();
   }
 }
@@ -193,6 +195,47 @@ function cross(){
   vertex(150,200);
   vertex(250,200);
 }
+function peace(){
+
+  push();
+  scale(0.7);
+  translate(90,800);
+  push();
+  fill(0);
+  textSize(250);
+  text('^', 435, 360);
+  pop();
+  push();
+  strokeWeight(30);
+  stroke(0);
+  noFill();
+  ellipse(500,200,200,200);
+  pop();
+
+  push();
+  fill(0);
+  strokeWeight(10);
+  line(500,200,450,280);
+  line(500,200,550,280);
+  pop();
+
+  fill(0);
+
+  rect(490,100,20,200);
+  pop(); 
+
+  pop();
+}
+
+function cross2(){
+  push();
+
+  fill(255);
+  rect(500,300,50,500);
+  rect(380,420,300,50);
+  pop();
+}
+
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
