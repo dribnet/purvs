@@ -21,11 +21,11 @@ let maskImg2=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 
-  maskImg2 = loadImage("mask_1.5.png");
-  plx = loadImage("mask_1_final.png");
+  maskImg2 = loadImage("mask_3.5.png");
+  plx = loadImage("mask_3_final.png");
 }
 
 function setup () {
@@ -102,7 +102,7 @@ function draw () {
   if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
-    image(plx,600,980);
+    image(plx,560,990);
  
     // neck();
     // saveBlocksImages();
