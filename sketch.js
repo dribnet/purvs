@@ -22,13 +22,18 @@ function setup () {
   maskImg.loadPixels();
 }
 
-// let pointSize = 40; //smaller number, higher resolution
 let elementSpace = 40;
-let backSize = 22;
+let backSize = 55;
 let frontSize = 20;
 
 if(finalVersion){
-  pointSize = 20;
+let elementSpace = 40;
+let backSize = 22;
+let frontSize = 20;
+}
+
+function convertRgbToHsluv(c){
+  return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
 }
 
 function draw () {
@@ -39,16 +44,19 @@ function draw () {
     let y = int(row * elementSpace);
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let sOffset = random(0, 3);
+    let sOffset = random(0, 5);
+    let swOffset = random(0, 5);
+    let shOffset = random(0, 5);
 
-    fill(pix);
+    // fill(pix);
     if(mask[0] > 128) {
       push();
-      translate(x, y);
+      translate(x - 20, y);
+      fill(pix);
       // rotate(30);
       for(let j=0;j<5;j++){
         rotate(72);
-        ellipse(10 + sOffset, 0, frontSize + sOffset, frontSize + sOffset);
+        ellipse(10 + sOffset, 0, frontSize + swOffset, frontSize + shOffset);
       }
       pop();
     }
@@ -56,6 +64,8 @@ function draw () {
       let halfSize = backSize / 2;
       push();
       translate(x-halfSize, y-halfSize);
+      let hsluvColor = convertRgbToHsluv(pix);
+      fillHsluv(204, 46, hsluvColor[2]);
       rotate(45);
       rect(0, 0, backSize, backSize);
       pop();    
