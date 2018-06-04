@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -18,8 +18,8 @@ function setup () {
   // pixelDensity(1);
 }
 
-const pointSize = 30;
-const pointSize2 =30;
+const pointSize = 35;
+const pointSize2 =35;
 
 function draw () {
   for(let i=0;i<1080/pointSize;i++) {
