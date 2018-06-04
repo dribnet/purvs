@@ -3,6 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 let gotNumber = false;
+let start = 0;
+let renderCounter2 = 0;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
@@ -25,44 +27,56 @@ function setup () {
 const pointSize = 15;
 
 function draw () {
-  for(let i = 0; i < 1080 / pointSize * 2; i++) {
-    let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let maskB = maskImgB.get(x, y);
-    let halfSize = pointSize/2;
+  for(let ii = 0; ii < 1080 / pointSize * 2; ii++) {
+    let x2 = int(ii * pointSize);
+    let y2 = int(renderCounter * pointSize);
+    let pix2 = sourceImg.get(x2, y2);
 
-    BG(pix, x, y, pointSize)
-
-    fill(pix);
-    if(mask[0] < 128) {
-      polygon(x, y, pointSize, 6);
-      fill(255, 255, 255);
-      polygon(x, y, pointSize/1.5, 6);
-      fill(pix);
-      polygon(x, y, pointSize/2, 6);
-      fill(255, 255, 255);
-      polygon(x, y, pointSize/3, 6);
-      fill(pix);
-      polygon(x, y, pointSize/3.5, 6);
-      polygon(x, y, pointSize/2, 6);
-      fill(255, 255, 255);
-      polygon(x, y, pointSize/4, 6); 
-    }
-    else if(maskB[0] < 128) {
-    	fill(pix);
-    	polygon(x, y, pointSize/2, 6);
-    	fill(255, 255, 255);
-    	polygon(x, y, pointSize/4, 6); 
-    }
+    BG(pix2, x2, y2, pointSize);//draws background dots
+	start = start + 1;
   }
-
-  bee();
+  	if(start > 10000){//makes sure the hexagons are drawn on top
+	
+		for(let i = 0; i < 1080 / pointSize * 2; i++) {
+		
+		let x = int(i * pointSize);
+		let y = int(renderCounter2 * pointSize);
+		let pix = sourceImg.get(x, y);
+		let mask = maskImg.get(x, y);
+		let maskB = maskImgB.get(x, y);
+	  
+		fill(pix);
+		if(mask[0] < 128) {
+		  polygon(x, y, pointSize, 6);
+		  fill(255, 255, 255);
+		  polygon(x, y, pointSize/1.5, 6);
+		  fill(pix);
+		  polygon(x, y, pointSize/2, 6);
+		  fill(255, 255, 255);
+		  polygon(x, y, pointSize/3, 6);
+		  fill(pix);
+		  polygon(x, y, pointSize/3.5, 6);
+		  polygon(x, y, pointSize/2, 6);
+		  fill(255, 255, 255);
+		  polygon(x, y, pointSize/4, 6); 
+		}
+		else if(maskB[0] < 128) {
+			fill(pix);
+			polygon(x, y, pointSize/2, 6);
+			fill(255, 255, 255);
+			polygon(x, y, pointSize/4, 6); 
+		}
+	}
+  }
+	if(start > 10000)
+	{
+	  renderCounter2 = renderCounter2 +1;
+	}
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
-    console.log("Done!")
+  if(renderCounter > 1920*2/pointSize) {
+	bee();
+    console.log("Done!");
     noLoop();
     // saveBlocksImages();
   }
@@ -87,19 +101,19 @@ function polygon(x, y, radius, npoints) {
   endShape(CLOSE);
 }
 
-function BG(pix, x, y, pointSize){
+function BG(pix2, x2, y2, pointSize){
 
-  fill(pix);
-  ellipse(x, y, pointSize/2, pointSize/2);
+  fill(pix2);
+  ellipse(x2, y2, pointSize/2, pointSize/2);
   fill(255, 255, 255);
-  ellipse(x, y, pointSize/4, pointSize/4);
-       
-  fill(pix);
-  ellipse(x, y*0.5, pointSize/2, pointSize/2);
+  ellipse(x2, y2, pointSize/3, pointSize/3);
+  
+  //different y value makes the shadow effect
+  fill(pix2);
+  ellipse(x2, y2-300, pointSize/2, pointSize/2);
   fill(255, 255, 255);
-  ellipse(x, y*0.5, pointSize/4, pointSize/4);
+  ellipse(x2, y2-300, pointSize/3, pointSize/3);
 }
-
 
 function bee(){
 
@@ -117,7 +131,7 @@ function bee(){
   }
 
 	fill(0);
-  ellipse(beeX+120/beeSize, beeY+24/beeSize, 37/beeSize, 27/beeSize);
+	ellipse(beeX+120/beeSize, beeY+24/beeSize, 37/beeSize, 27/beeSize);
 	
 	triangle(beeX+100/beeSize, beeY+40/beeSize, beeX+20/beeSize, beeY+40/beeSize, beeX+45/beeSize, beeY+55/beeSize);
 	triangle(beeX+100/beeSize, beeY+40/beeSize, beeX+20/beeSize, beeY+70/beeSize, beeX+80/beeSize, beeY+70/beeSize);
