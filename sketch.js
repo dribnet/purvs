@@ -2,7 +2,7 @@ let finalVersion = false;
 
 let pointSize = 40;
 
-let elementSpacin = 10 ;
+let elementSpacin = 15 ;
 let circleSize = 50;
 let squareSize = 20;
 
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -79,6 +79,8 @@ function draw () {
 
     let x = int(i * elementSpacin);
     let y = int(renderCounter * elementSpacin);
+    let dd = floor(random(sourceImg.width));
+    let dt = floor(random(sourceImg.height));
     let dx = floor(random(elementSpacin/4));
     let dy = floor(random(elementSpacin/4)); 
 
@@ -89,17 +91,19 @@ function draw () {
 
 
     if(mask[0] > 128) {
+      x = x + dx;
+      y = y + dy;
 
       flower(x,y,pix,0.2);
 
     }
-    else { 
-      x = x + dx;
-      y = y + dy;
+    if (renderCounter < 20 && mask[0] <= 128)  { 
+      // x = x + dx;
+      // y = y + dy;
       stroke(pix);
       strokeWeight(5);
       noFill();
-      rect(x-halfSize, y-halfSize, squareSize, squareSize);    
+      rect(dd-halfSize, dt-halfSize, squareSize, squareSize);    
     }
   }
   renderCounter = renderCounter + 1;

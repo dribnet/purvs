@@ -4,3 +4,5 @@ theme for this project is Halloween in school, when I was high school student in
 I used smarmask to make the mask for each images, and I changed the shpaes of the pixels.
 
 the shapes was inspired from project 3 glyphs, and I try to make different mask for each images, which help me to make a choice for artwork.
+
+I try to change some size for the shapes, which make the image more interesting.
