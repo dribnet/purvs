@@ -2,60 +2,77 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let pointSize = 25;
+let gridSize = 20;
+let pointSize = gridSize;
 
 let gridXNum;
 let gridYNum;
 
+var maskLow = 255;
+var maskHigh = 0;
+
 let lineNum = 3;
+let filletRadius = 0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_4.jpg");
+  maskImg = loadImage("mask_5.png");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
-
   imageMode(CENTER);
   noStroke();
   background(255);
   rectMode(CENTER);
-  //angleMode(DEGREES);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
-  gridXNum = width / pointSize;
-  gridYNum = height / pointSize;
+  gridXNum = width / gridSize;
+  gridYNum = height / gridSize;
+
+  //mask low/high value finder
+
+  for (var x = 0; x < gridXNum; x++) {
+      for (var y = 0; y < gridXNum; y++) {
+      let xPos = x*gridSize;
+      let yPos = y*gridSize;
+      let mask = maskImg.get(xPos, yPos);
+      if(mask[0] > maskHigh){
+        maskHigh = mask[0];
+      } else if(mask[0] < maskLow){
+        maskLow = mask[0];
+      }
+    }
+  }
+  //background(20);
 }
 
 function draw () {
+  smooth();
+  for (var x = 0; x < gridXNum; x++) {
+    let xPos = x*gridSize+gridSize/2;
+    let yPos = renderCounter*gridSize + gridSize/2;
+    let pix = sourceImg.get(xPos, yPos);
+    let mask = maskImg.get(xPos, yPos);
+    fill(pix);
 
-  fill(0);
+    //lineNum = Math.floor(map(mask[0],maskLow,maskHigh,4,8));
+    
+    filletRadius = abs(map(mask[0],maskHigh,maskLow,0,1));
+    pointSize = (map(mask[0],maskLow,maskHigh,1,gridSize));
 
-    for (var x = 0; x < gridXNum; x++) {
-
-        let xPos = x*pointSize;
-        let yPos = renderCounter*pointSize;
-
-        let pix = sourceImg.get(xPos, yPos);
-        let mask = maskImg.get(xPos, yPos);
-        fill(pix);
-
-        lineNum = Math.floor(map(mask[0],0,255,4,20));
-
-        push();
-        translate(xPos, yPos);
-        if(lineNum == 4){
-          rotate(-PI/4);
-          polygon(0, 0, pointSize/1.7, lineNum);
-        } else {
-        rotate(-PI/2);
-        polygon(0, 0, pointSize/2, lineNum);
-      }
-        //rect(0,0,pointSize,pointSize);
-        pop();
+    push();
+    translate(xPos, yPos);
+    rect(0,0,pointSize,pointSize,filletRadius*gridSize);
+    pop();
+    // push();
+    // translate(xPos, yPos);
+    // noFill();
+    // stroke(200);
+    // rect(0,0,gridSize,gridSize);
+    // pop();
     }
 
     lineNum+=0.1;

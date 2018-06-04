@@ -8,3 +8,6 @@ Updated code to use a mask, that mask being a grayscaled version of the image, w
 
 Added code to change the size of each point based on the map as well, so that squares appear slightly larger, helping remove some white space.
 
+Explored mapping point size more to create size gradients
+
+
