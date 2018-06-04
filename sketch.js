@@ -3,7 +3,7 @@ let maskImg=null;
 let currentRow=0;
 
 //Render Quality settings: 'low' 'med' 'high'
-let quality = "med";
+let quality = "high";
 let diamondSize = 10;
 let circleSize = 10;
 let spacing = 10;
@@ -33,8 +33,8 @@ switch(quality){
 }
 //Image loading for operations
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 //Canvas and image information setup.
