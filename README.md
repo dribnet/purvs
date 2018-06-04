@@ -1,29 +1,19 @@
 ## Creative Coding 2: Custom Pixel
 
-The image shown is the result of my 'mask' generating code that essentially functions as a sort of edge detection, with white areas representing areas with higher contrast and black with less. I will be using this information to drive a turtle-based tendril visualisation.
-
-This code was actually largely written a little bit ago, but health problems have gotten in the way of working on this a bit.
-
-I believe this backing mask will serve my image concept of "Connectivity" well, by using the contrast areas for chance of tendril splitting.
-
+Image shown is a turtle-tendril visualisation of points spreading through the input image, sampling colour from underneath and splitting based on the rate of colour change in the area.
 
 ---
 
 #### Changes:
 
-- Made the edge detection a bit more sophisticated and sanitised the result a bit
+- Implemented tendrils
 
 #### Issues:
 
-- Parameters might need tweaking for different images but that's okay
-
-- Tendril split chance will probably need a reasonable base chance with this
+- Outlining is sloppy
 
 #### To-Do:
 
-- Implement the tendril component
+- Tidy up the tendril drawing and make it spread better to empty areas if possible.
 
-#### Notes:
-
-- Delta Map came out better than I expected really
 
