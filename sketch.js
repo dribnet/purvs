@@ -1,11 +1,10 @@
 var img, mask;
-var time = 0;
 
 var inc = 0.1;
-var scl = 10;
-var cols, rows;
+var scl = 10; //vector every 10 pixels
+var cols, rows; //flowfield grid
 
-var zoff = 0;
+var zoff = 0; //3rd dimension(time)
 
 var particles = [];
 var flowfield = [];
@@ -15,6 +14,7 @@ function preload() {
   mask = loadImage("mask_1.png");
 }
 
+
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
@@ -22,17 +22,20 @@ function setup () {
   imageMode(CENTER);
   background(20);
   pixelDensity(1)
+  
+  //generate flowfield grid
   cols = floor(width / scl);
   rows = floor(height / scl);
-
   flowfield = new Array(cols * rows);
 
-  for (var i = 0 ; i < 5000; i++){
+  //generate particle array
+  for ( var i = 0 ; i < 5000; i++){
   particles[i] = new Particle();
   }
 }
 
 function draw() {
+  //flowfield simulation that controls particles
   var yoff = 0;
   for (var y = 0; y < rows; y++) {
     var xoff = 0;
@@ -43,16 +46,15 @@ function draw() {
       v.setMag(1);
       flowfield[index] = v;
       xoff += inc;
+
       push();
       translate(x * scl, y * scl);
       rotate(v.heading());
-      strokeWeight(1);
-      stroke(255,50);
       pop();
     }
     yoff += inc;
 
-    zoff += 0.0003;
+    zoff += 0.0003; //time variable 
   }
   for (var i = 0; i < particles.length; i++){
   particles[i].follow(flowfield);
