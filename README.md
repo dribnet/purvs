@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Getting there
+Smart Mask
 
-I think this is the loook that best reprenents my data and also looks the best, I forgot to provide context to what it it but it is an Atlantis projection of the world with Co2 emissions per capita on the mask.
+I had a go at the smartmask feature and managed to make this funky looking thing that kinda hides the problem which is vehicles. I think this looks pretty cool but I'm unsure if I'll use it in my final.
