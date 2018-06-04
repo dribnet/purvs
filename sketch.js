@@ -15,7 +15,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(35);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -32,10 +32,13 @@ function draw () {
     let halfSize = 10;
     fill(pix);
     if(mask[0] > 128) {
-      polygon(x, y, pointSize, 6);
+polygon(x,y,5,3)
     }
+
     else {
-   polygon(x, y, pointSize, 6);
+stroke(0,0,0);
+strokeWeight(2);
+polygon(x, y, 3, 6);
     }
   }
 
@@ -43,8 +46,8 @@ function draw () {
   var angle = TWO_PI / npoints;
   beginShape();
   for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a) * radius;
-    var sy = y + sin(a) * radius;
+    var sx = x + cos(a) * pointSize/1.5;
+    var sy = y + sin(a) * pointSize/1.5;
     vertex(sx, sy);
   }
   endShape(CLOSE);
