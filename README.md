@@ -1,4 +1,4 @@
 ## Creative Coding 2: Custom Pixel
 
-Now I changed my code into tiling every pixel one by one. I set the "lastVersion" function so that I could quickly preview my pixels after each time I change the code. 
-For my theme I want to do and the photo I want to shoot next, I plan to do something that let people stay positive and find the small happiness next to them which they ignored before. I am not sure what kind of photo could express this theme but I will start to shoot my daily life to represent the small happiness. 
+I further developed my code that change some of the pixels into more complicated shapes rather than the simple ellipses. Because I want to represent the small happiness in the normal life, I used flower shapes so the masked area will be full of colourful flowers. I also set the random size to the flowers but so far it is not distinct and I will change the random range into bigger numbers. Also I will add random rotation to each flower to make the final result more interesting. 
+I used translate and rotate function on the pixels at the background. However, it seems like the rotation may be to much and the background is unreadable. I want to emphasis the foreground but also keep the background visible so that the audience will know the happiness is everywhere in their life. 
