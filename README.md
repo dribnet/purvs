@@ -6,3 +6,5 @@ At the momment the images still use the same code as the pervious experiments, b
 
 Updated code to use a mask, that mask being a grayscaled version of the image, with it being posterized so that there are clear changes in brightness. This mask was then taken into the code, where the brightness was mapped to the number of sides foe the polygon, so the brighter the colour the more sphereical it would appear.
 
+Added code to change the size of each point based on the map as well, so that squares appear slightly larger, helping remove some white space.
+
