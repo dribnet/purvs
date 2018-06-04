@@ -1,44 +1,58 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
+let t = 0;
+let r = 1;
+let xN;
+let yN;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.bmp");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
-
   imageMode(CENTER);
+  background(0);
   noStroke();
-  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<100;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 100;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+//  background(0,1);
+
+  t = t + 0.01;
+  r = r - 0.005;
+
+  let circleSize = 40/t*100;
+
+  let x = noise(t);
+  x = map(x,0,1,0,sourceImg.width);
+  let y = noise(r);
+  y = map(y,0,1,0,sourceImg.height);
+
+  let pix = sourceImg.get(x, y);
+  let mask = maskImg.get(x, y);
+
+    if(frameCount % 60 == 0 && mask[0] > 128) {
+        stroke(255);
+        strokeWeight(3 + r*100);
+        line (x,y,xN,yN);
+        xN = x;
+        yN = y;
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+        noStroke();
+        fill (pix);
+        ellipse (x,y,circleSize,circleSize);
     }
-  }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if (circleSize < 40) {
     console.log("Done!")
     noLoop();
-    // saveBlocksImages();
+    saveBlocksImages();
   }
 }
 

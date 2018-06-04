@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+The images I used are of my good friend Gilbert, I took these photos during a evening adventure I had with him while under the influence of alcohol. I wanted to capture the feeling of being intoxicated with my images. Another goal I have is simply using the vast amount of colour information a photo contains to create complex colour harmonies and so far I have been impressed as to how well it has worked out.
+
+The images are generated with a circle that shrinks smaller as time goes on so at first the circle establishes the background color and later it finds a little bit of detail around the centre just to hint there may be a person in the picture. I used noise to make the circles movements smooth enough to create a wavy feel and played with using lines to create some texture and interest in where my friend is masked out.
