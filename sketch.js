@@ -33,8 +33,8 @@ switch(quality){
 }
 //Image loading for operations
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 //Canvas and image information setup.
@@ -59,11 +59,11 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      //let halfSize = spacing/3;
+      let halfSize = spacing/2;
       push();
       translate(x,y);
       rotate(15);
-      rect(0, 0, diamondSize, diamondSize);
+      rect(0-halfSize, 0-halfSize, diamondSize, diamondSize);
       pop();
     }
     else {
