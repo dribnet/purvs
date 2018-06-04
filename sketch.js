@@ -3,8 +3,8 @@ let maskImg = null;
 let renderCounter = 0;
 
 function preload() {
-    sourceImg = loadImage("input_1.jpg");
-    maskImg = loadImage("mask_1.png");
+    sourceImg = loadImage("input_3.jpg");
+    maskImg = loadImage("mask_3.png");
 }
 
 function setup() {
@@ -56,7 +56,7 @@ function draw() {
         var r2 = random(halfSize);
         var r4 = random(halfSize / 2);
 
-        if (mask[0] < 128) {
+        if (mask[0] > 128) {
             //fill(pix);
               rect(x, y, r2, r2);
 

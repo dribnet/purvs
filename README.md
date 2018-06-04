@@ -2,6 +2,12 @@
 
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
+
+5/6
+Have retuene code and updated photos due to a more accurate mask.
+I really like the way the code is at the moment. The way the triangles give the image the poly art effect and the squares that cover the background but arrange themselves in triangles to link the whole design together.
+
+
 3/6
 - Was An Experiment that hasnt paid off - 
 Updated the masks, On this push I have tried to get the double triangle layering working. It has to an extent but I cant seem to change it to my desired effect. Therefore I will further experiment with the squares that I was working with last time.
