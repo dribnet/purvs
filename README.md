@@ -5,4 +5,7 @@ I used smarmask to make the mask for each images, and I changed the shpaes of th
 
 the shapes was inspired from project 3 glyphs, and I try to make different mask for each images, which help me to make a choice for artwork.
 
-I try to change some size for the shapes, which make the image more interesting.
+I try to change the element spacing and square size to make the images more interesting.
+
+for my final, the background was inspired from other classmates, and it worked very well.
+

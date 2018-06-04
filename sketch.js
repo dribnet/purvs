@@ -1,4 +1,4 @@
-let finalVersion = false;
+
 
 let pointSize = 40;
 
@@ -6,12 +6,6 @@ let elementSpacin = 15 ;
 let circleSize = 50;
 let squareSize = 20;
 
-
-if(finalVersion){
-  pointSize = 20;
-  circleSize = 25;
-  squareSize = 20;
-};
 
 let sourceImg=null;
 let maskImg=null;
@@ -43,7 +37,6 @@ function flower(x, y, c, s){
   translate(x,y);
   scale(s);
 
-  strokeWeight(4)
   
 
   for(let i = 0; i < 6; i++){ 
@@ -63,7 +56,7 @@ function flower(x, y, c, s){
       stroke(255)
       triangle( 0, 35, -10, 20, 10, 20);
     }
-  for(let i = 0; i <= 12; i++){ //this code is for short lines
+  for(let i = 0; i <= 12; i++){ 
       angleMode(DEGREES)
       rotate(30)
       stroke(255)
