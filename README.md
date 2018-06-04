@@ -1,13 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-I have replaced the images I was using with that of gradients, as I want to explore the display of colour through pointilism.
+Once again replacing the images so that each image was a gradient created by a friend, and the mask is a photo of their hand, creating a link between the hand and the art the hand created.
 
-At the momment the images still use the same code as the pervious experiments, but that will change in future commits. 
+The current program takes the code from the last series of images and applies it to the new task
 
-Updated code to use a mask, that mask being a grayscaled version of the image, with it being posterized so that there are clear changes in brightness. This mask was then taken into the code, where the brightness was mapped to the number of sides foe the polygon, so the brighter the colour the more sphereical it would appear.
-
-Added code to change the size of each point based on the map as well, so that squares appear slightly larger, helping remove some white space.
-
-Explored mapping point size more to create size gradients
 
 

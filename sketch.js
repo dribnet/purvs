@@ -15,8 +15,8 @@ let lineNum = 3;
 let filletRadius = 0;
 
 function preload() {
-  sourceImg = loadImage("input_4.jpg");
-  maskImg = loadImage("mask_5.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -67,12 +67,6 @@ function draw () {
     translate(xPos, yPos);
     rect(0,0,pointSize,pointSize,filletRadius*gridSize);
     pop();
-    // push();
-    // translate(xPos, yPos);
-    // noFill();
-    // stroke(200);
-    // rect(0,0,gridSize,gridSize);
-    // pop();
     }
 
     lineNum+=0.1;
