@@ -1,12 +1,12 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
-const pointSize = 30;
+const pointSize = 10;
 let count = 0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -26,34 +26,52 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
-	fill(0,0,0);
+	fill(0);
 	rect(x-halfSize, y-halfSize, pointSize, pointSize); 
-	/*
-	if(pix[0] > pix[1] && pix[0] > pix[2]){
-		pix = color(pix[0],0,0);
-	}else if(pix[1] > pix[0] && pix[1] > pix[2]){
-		pix = color(0,pix[1],0);
-	}else if(pix[2] > pix[1] && pix[2] > pix[0]){
-		pix = color(0,0,pix[2]);
-	}else{
-		pix = color(128,128,128);
-	}
-	*/
     fill(pix);
     if(mask[0] > 128) {
-		if(count % 2){
-			triangle(x-pointSize/2, y-pointSize/2, x, y+pointSize/2, x+pointSize/2, y-pointSize/2);
-		}else{
-			triangle(x-pointSize/2, y+pointSize/2, x, y-pointSize/2, x+pointSize/2, y+pointSize/2);
-		}		
-		count++;
+		beginShape();
+		vertex(x, y-pointSize/2);
+		vertex(x+pointSize/3, y-pointSize/4);
+		vertex(x+pointSize/3, y+pointSize/4);
+		vertex(x, y+pointSize/2);
+		vertex(x-pointSize/3, y+pointSize/4);
+		vertex(x-pointSize/3, y-pointSize/4);
+		endShape(CLOSE);		
     }
-    else {
-		ellipse(x, y, pointSize, pointSize);   
+    else { // Blank Background		
+		var n = random(10);
+		if(n >= 9.5){
+			n = random(10);
+			//Decide on a color
+			if(n <= 2){
+				pix = color(255,0,0);
+			}else if(n <= 5){
+				pix = color(0,255,0);
+			}else if(n <= 7){
+				pix = color(0,0,255);
+			}else {
+				pix = color(255,255,0);
+			}
+			fill(pix);
+			// Draw a star
+			beginShape();
+			vertex(x, y-pointSize/2);
+			vertex(x+pointSize/8, y-pointSize/8);
+			vertex(x+pointSize/2, y);
+			vertex(x+pointSize/8, y+pointSize/8);
+			vertex(x, y+pointSize/2);
+			vertex(x-pointSize/8, y+pointSize/8);
+			vertex(x-pointSize/2, y);
+			vertex(x-pointSize/8, y-pointSize/8);
+			endShape(CLOSE);
+		}
     }
+	count++;
   }
+  
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter > 1920/pointSize) {	  
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
