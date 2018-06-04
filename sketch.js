@@ -6,26 +6,26 @@ const RED_MULT = 1;
 const GREEN_MULT = 1;
 const BLUE_MULT = 1;
 
-const DELTA_THRESHOLD = 0.2;
-const FLOOR_MULT = 0.95;
+const DELTA_THRESHOLD = 0.9; //was 0.2 for the test images.
+const FLOOR_MULT = 0.9; //was 0.95 for test images.
 const CEIL_MULT = 1.15;
 const BLUR_ITERATIONS = 10;
 
-const REGION_SIZE = 10; //24 may be solid but figure it out per images, 30 is also good
+const REGION_SIZE = 15; //24 may be solid but figure it out per images, 30 is also good
 const X_REGIONS = 1080 / REGION_SIZE;
 const Y_REGIONS = 1920 / REGION_SIZE;
 
-const TENDRIL_GENERATIONS = 1000;
+const TENDRIL_GENERATIONS = 500;
 const TENDRIL_INITIAL_THICKNESS = 50;
-const STARTING_TENDRIL_HEADS = 13;
-const TURN_DIVISOR = 32;
+const STARTING_TENDRIL_HEADS = 6;
 
-const DELTAMAP_MODIFIER = 0.1;
+const DELTAMAP_MODIFIER = 0.75;
 
 const DEBUG_VISUALISE_DELTAMAP = false;
+const DEBUG_VISUALISE_DELTAMAP_ALPHA = 255;
 
 function preload() {
-	sourceImage = loadImage("input_2.jpg");
+	sourceImage = loadImage("input_3.jpg");
 }
 
 function setup() {
@@ -34,7 +34,6 @@ function setup() {
 
 	pixelDensity(1);
 	imageMode(CENTER);
-	background(255);
 	sourceImage.loadPixels();
 	noStroke();
 
@@ -50,14 +49,19 @@ function setup() {
 	print("drawing tendrils...");
 
 	background(0x33);
-	stroke(0);
-	strokeWeight(1);
-	for (let i = 0; i < width/5; i = i*1.25+2) {
-		line(0,i, width, i);
-		line(0,height-i, width, height-i);
-		line(i,0, i, height);
-		line(width-i,0, width-i, height);
-	}
+
+    for (let i = 0; i < X_REGIONS; i++) {
+        for (let j = 0; j < Y_REGIONS; j++) {
+            let c = getImageColour((i+1)*REGION_SIZE,j*REGION_SIZE);
+            stroke(c);
+            strokeWeight(1-deltaMap[i][j]);
+            line(i*REGION_SIZE+2, j*REGION_SIZE+2, (i+1)*REGION_SIZE-2, (j+1)*REGION_SIZE-2);
+            line((i+1)*REGION_SIZE-2, j*REGION_SIZE+2, i*REGION_SIZE+2, (j+1)*REGION_SIZE-2);
+        }
+    }
+
+	//sort the limbs by their size
+	placedTendrils.sort(function(a, b){ return a.size < b.size ? a : b});
 
 	for (let i = 0, l = placedTendrils.length; i < l; i++) {
 		placedTendrils[i].drawOutline();
@@ -77,7 +81,7 @@ function setup() {
 		noStroke();
 		for (let i = 0; i < X_REGIONS; i++) {
 			for (let j = 0; j < Y_REGIONS; j++) {
-				fill(deltaMap[i][j] * 255, 64);
+				fill(deltaMap[i][j] * 255, DEBUG_VISUALISE_DELTAMAP_ALPHA);
 				rect(i * REGION_SIZE, j * REGION_SIZE, REGION_SIZE, REGION_SIZE);
 			}
 		}
@@ -88,39 +92,45 @@ function calculateTendrils(tendrilList) {
 	let inert = tendrilList;
 	let active = [];
 
-	let heading = 0;
+	let heading = -PI/2;
 	for (let i = 0; i < STARTING_TENDRIL_HEADS; i++) {
 		let x = width/2;
 		let y = height/2;
 		active.push(new Tendril(x, y, heading, getImageColour(x,y), TENDRIL_INITIAL_THICKNESS, 100));
 		heading += TAU/STARTING_TENDRIL_HEADS;
 	}
+    active.push(new Tendril(0, 0, PI/4, getImageColour(0,0), TENDRIL_INITIAL_THICKNESS, 100));
+    active.push(new Tendril(width, 0, PI/4*3, getImageColour(width,0), TENDRIL_INITIAL_THICKNESS, 100));
+    active.push(new Tendril(width, height, -PI/4*3, getImageColour(width, height), TENDRIL_INITIAL_THICKNESS, 100));
+    active.push(new Tendril(0, height, -PI/4, getImageColour(0, height), TENDRIL_INITIAL_THICKNESS, 100));
+
 
 	for (let gen = 0; gen < TENDRIL_GENERATIONS; gen++) {
 		let children = [];
 		for (let i = 0, l = active.length; i < l; i++) {
 			let t = active[i];
+            //if (t.loc.x > width || t.loc.x < 0 || t.loc.y > height || t.loc.y < 0) { continue; } //was getting too many out of bounds
 			let tEnd = t.loc.copy().add(t.vel);
 			let regionX = floor(tEnd.x / REGION_SIZE);
 			let regionY = floor(tEnd.y / REGION_SIZE);
 			let branchChance = deltaMap[(regionX+X_REGIONS*100)%X_REGIONS][(regionY+Y_REGIONS)%Y_REGIONS] * DELTAMAP_MODIFIER;
+
 			if (random(1) < (branchChance - t.splitInertia/100)) {
 				//split into two!
-				let rotation = random(PI/TURN_DIVISOR, -PI/TURN_DIVISOR) - PI/8;
+				let rotation = -PI/4+random(PI/16, -PI/16);
 				children.push(
 					new Tendril(tEnd.x, tEnd.y, t.heading + rotation,
-						lerpColor(t.colour, getImageColour(tEnd.x, tEnd.y), 0.01), max(t.size*0.9, 4), 100));
-				rotation = random(PI/TURN_DIVISOR, -PI/TURN_DIVISOR) + PI/8;
+						lerpColor(t.colour, getImageColour(tEnd.x, tEnd.y), 0.01), max(t.size*0.95, 4), 100));
+				rotation = PI/4+random(PI/16, -PI/16);
 				children.push(
 					new Tendril(tEnd.x, tEnd.y, t.heading + rotation,
-						lerpColor(t.colour, getImageColour(tEnd.x, tEnd.y), 0.01), max(t.size*0.9, 4), 100));
+						lerpColor(t.colour, getImageColour(tEnd.x, tEnd.y), 0.01), max(t.size*0.95, 4), 100));
 			} else {
 				//continue with some turning behaviour
-				let rotation = random(PI/TURN_DIVISOR, -PI/TURN_DIVISOR);
 				children.push(
-					new Tendril(tEnd.x, tEnd.y, t.heading + rotation,
+					new Tendril(tEnd.x, tEnd.y, t.heading + random(PI/128, -PI/128),
 						lerpColor(t.colour, getImageColour(tEnd.x, tEnd.y), 0.01),
-						max(t.size - 0.1, 4), t.splitInertia-1));
+						max(t.size - 0.095, 4), t.splitInertia-1));
 			}
 			inert.push(t);
 		}
@@ -148,17 +158,17 @@ class Tendril {
 
 
 	drawOutline() {
-		strokeWeight(this.size+4);
-		stroke(red(this.colour)*0.2, green(this.colour)*0.25, blue(this.colour)*0.3);
+		strokeWeight(this.size+6);
+		stroke(red(this.colour)*0.1, green(this.colour)*0.15, blue(this.colour)*0.2);
 		line(this.loc.x, this.loc.y, this.loc.x+this.vel.x, this.loc.y+this.vel.y);
 	}
 	drawBottom() {
 		strokeWeight(this.size);
-		stroke(red(this.colour)*0.6, green(this.colour)*0.65, blue(this.colour)*0.7);
+		stroke(red(this.colour)*0.75, green(this.colour)*0.775, blue(this.colour)*0.8);
 		line(this.loc.x, this.loc.y, this.loc.x+this.vel.x, this.loc.y+this.vel.y);
 	}
 	drawTop() {
-		strokeWeight(this.size-2);
+		strokeWeight(max(this.size-2,0));
 		stroke(this.colour);
 		line(this.loc.x, this.loc.y - 1, this.loc.x+this.vel.x, this.loc.y+this.vel.y - 1);
 	}
@@ -178,7 +188,6 @@ function calculateDeltaMap() {
 	let minDelta = 255 * 255 * 255;
 	let maxDelta = 0;
 	for (let i = 0; i < X_REGIONS; i++) {
-		//print("" + floor(i / X_REGIONS * 100) + "%");
 		let col = [];
 		for (let j = 0; j < Y_REGIONS; j++) {
 			//getting the value range in a region
