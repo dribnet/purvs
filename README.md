@@ -2,9 +2,12 @@
 
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
+3/6
+- Was An Experiment that hasnt paid off - 
+Updated the masks, On this push I have tried to get the double triangle layering working. It has to an extent but I cant seem to change it to my desired effect. Therefore I will further experiment with the squares that I was working with last time.
 
 1/6 #3
-This itteration I have got the smartmask to work but I wont be using it further into the project. This is because of the deatin in the images such as the fur and whiskers. This sort of detail can only be captured by the human eye. 
+This itteration I have got the smartmask to work but I wont be using it further into the project. This is because of the deatail in the images such as the fur and whiskers. This sort of detail can only be captured by the human eye. 
 I have also played around with the ways I use the mask. I really like how the squares have this effect on this random pick. I still want to play around with it and see if I can get a rotation or better sizing to fit with the triangles. I still want to play around with the double layer idea and having the whole canvas triangles just differnt sizes.
 
 
