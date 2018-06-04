@@ -6,4 +6,4 @@ At the same time, I think yellow and red would be the symbol colors for Wellingt
 
 Personally I really like the first image (Blue sky and an unique train), I think that one is perfectly suitable to my theme Wellington transportation. Meanwhile, the image looks like making by many pieces LEGOs. 
 
-Additonally I quite enjoy this project. 
+Additonally I quite enjoy this project.....
