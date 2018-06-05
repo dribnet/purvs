@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I tested out the smart mask on the last image of the purple orchid. It turned out pretty good but there still isn't that great for what i actually want. I think that it would be best ot use the oiginal mask instead of this as I like the one I made better. This turned out to look okay it covered what I want but just too much and it I just want the flowers. 
+This is my final image for the first piece. I like how the flowers look like they are made out of crystals and that the hanging stems of the flowers look like shards of shattered galss falling down. The colouring with the opacity makes it looks really interesting and pretty. The background I like how it looks like hairs and get gradually lighter as you go down. Overall I an pretty happy with this first image. I increased the staturation a but to make it so that the glass was more vibrant and I think that it worked out well as it shines almost in a way like crystals.
