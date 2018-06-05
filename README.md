@@ -1,4 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Looking at my pictures I was trying to come up with a theme and as my pictures seem to show the sea and the sky it made me think of pollution and how we need to protect our seas and oceans more and decided to try convey that message/theme in my symbols. I found a stop looking symbol is often used to stop littering and it might convey that message in my pictures. 
-I'm also just adjusting the sizes of my symbols to see what looks the best.
+I tried out the smartmask on my images but I decided not gto use them as the things they identified as objects were not things that I wanted to highlight. It found masks of boats and other smaller things like that, when my theme is more about the sea and the sky so it didn't really work for me and I will instead stick with my masks that I already made. I might adjust my masks a bit though and see how that changes how the images look.
