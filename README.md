@@ -1,27 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-As of right now I do not know what kind of image I will go for. I believe I may go for something like landscapes and city skylines or even portraits.
-
-UPDATE #1
-Currently I have a image of Scarlet Johansson that I edited years ago, an image of my MDDN241 Project 2 model, and Vincent Van Gogh's famous starry night.
-
-UPDATE #2
-Currently I have 3 images from my year one DSDN144 photographics project 2 which looked at light. My thought process for this project was to show big name companies products in a type of evil light. I am trying to figure out how I can shape the code to best represent this idea.
-
-UPDATE #3
-Currently I am exploring different shapes with my design and now i want to try to play with the mask features adding more different shapes on different parts of the image.
-
-UPDATE #4
-I have added 3 shades to my masks one white, one grey, and one black. I have then changed the code to see this extra shade. I have found that with the addition of this new shade and shape to these images I can personally see in artwork_1 The Starship Enterprise, in artwork_2 The Millennium Falcon and in artwork_3 a simple thruster propelling heat as it takes off.
-
-UPDATE #5
-I have recreated the mask of my second picture to look more like a bottle to help display the idea and theme better. I believe i will go either find or take more pictures that display the bottle better for my other artworks.
-I have also set my circles up on my picture to gradually grow as it renders to give of a fizz type effect.
-
-UPDATE #6
-I have created a new mask for my second picture and this helped get the fizzing effect a lot better especially after I reversed the growing effect from my circles onto my triangles to make them shrink as the picture renders.
-I played with doing some random features on the squares and made it so they are random only in the parts of the mask that are coloured black. This lead to a pleasing design that also helped emphasize the bottle in the mask. What i will try to do is I will create a symbol that represents something being banned or bad for you and replace that in the squares place to help bring out my theme a lot more than it currently is.
-After I have done that all that there will be left to do will be to import my new pictures and then create their respective masks.
-
-UPDATE #7
-I have changed up my other two masks and also the colour of some of my photos to emphasize my theme a lot more. I also created a new function allowing me to insert my own shape into the algorithm and replace the squares. My new symbol is the symbol normally used to show something as banned or not good, this helps with my theme of reducing the amount of consumption of these products.
+With this project the theme i went with changed slightly a few ways through, I finally settled on having my pictures be something like a warning to the things that New Zealand drinks in excess such as "Wine", "Fizzy Drinks", and "Beer".
+With my design, I had pictures from a previous photography project that already touched on these themes and this project helped bring that idea across more.
+With my masks I went with a direct approach to the theme and made them into the things that they are representing, A wine glass, a fizzy bottle, and a beer can. In my masks I have 3 shads of colour, "255" white, "100" grey, and "0" black, with these the white of the mask shows the most detail by being circles in a grid format that grow in size as they get closer to the ground, they show off the bulk of the shape in the mask. Next is the grey that is shown in the picture in the form of triangles in a grid pattern that surround the circles, these shrink in size as they get lower to the bottom of the image. Lastly I have my own symbol that I made that represents the symbol that is placed on banned goods, this part is randomized in the background in the section of the masks that is coloured black.
+The colours in my pictures arn't overly symbolic in the sense that they are mainly just there to help represent the shape, this is because most win bottles are green, Coka-Cola's brand colour is red and beer is generally a yellowish/amber colour.
