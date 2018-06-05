@@ -1,3 +1,18 @@
+/* Set to true to make final high-resolution version */
+const finalVersion = false;
+
+/* Default versions of variables */
+let elementSpacing = 40;
+let circleSize = 50;
+let squareSize = 20;
+
+/* Override some variables with high-resolution final version */
+if (finalVersion) {
+  elementSpacing = 20;
+  circleSize = 20;
+  squareSize = 10;
+}
+
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
@@ -13,29 +28,52 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  var c = color(65)
+  background(c);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+//create the arc
+function owl(x, y, c, s) {
+  push();
+  translate(x, y);
+arc(50, 50, 100, 100, 0, PI + QUARTER_PI, TWO_PI);
+  pop();
+}
+// create the triangle
+function lll(x, y, c, s) {
+  push();
+  translate(x, y);
+triangle(50, 50, 20, 200, 100, 180);
+  pop();
+}
+
+
 function draw () {
-  for(let i=0;i<120;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/elementSpacing;i++) {
+    let x = int(i * elementSpacing);
+    let y = int(renderCounter * elementSpacing);
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
+    x = x + dx;
+    y = y + dy;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize =100;
-    let halfSize = 80;
+    let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      rect(x, y, pointSize, pointSize);
+      //add triangle to the black mask
+      fill(pix);
+      lll(x, y, pix, 0.5);
     }
     else {
-      ellipse(x-halfSize, y-halfSize, pointSize, pointSize);    
+      //add triangle to the white mask
+      owl(x, y, pix, 0.5);
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
