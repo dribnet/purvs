@@ -19,8 +19,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -44,26 +44,27 @@ function draw () {
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
+
 push();
-    
-      //stroke(pix);
+ //stroke(pix);
      //strokeWeight(3);
      //noFill();
-      ellipse(x, y, circleSize, circleSize);
+      ellipse(x, y, circleSize, circleSize); //circle
        //stroke(pix);
     // strokeWeight(3);
     // noFill();
-       ellipse(x, y, circleSize/2, circleSize/2);
+       ellipse(x, y, circleSize/2, circleSize/2); //smaller circle
       pop();
 
     }
+
     else {
 
       push();
-      x = x + dx;
+      x = x + dx; //random order
       y = y + dy;
 stroke(pix)
-strokeWeight(4);
+strokeWeight(4); //outline squares
 noFill();
    
       rect(x-halfSize, y-halfSize, squareSize, squareSize);   
