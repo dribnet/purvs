@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -31,7 +31,7 @@ function draw () {
         noStroke();
         fill(pix);
         quad(x-random(24,33),y-random(24,33),x-random(24,33),y+random(24,33),x+random(24,33),y+random(24,33),x+random(24,33),y-random(24,33));
-        fill(lerpColor(color(pix),color(0,0,0),0.2));
+        fill(lerpColor(color(pix),color(0,0,0),random(20,40)/100));
         quad(x-random(20,29),y-random(20,29),x-random(20,29),y+random(20,29),x+random(20,29),y+random(20,29),x+random(20,29),y-random(20,29));
         stroke(pix);
         noFill();
@@ -39,9 +39,12 @@ function draw () {
         curveTightness(3);
         beginShape()
         for(var k=0; k<20; k++) {
-          curveVertex(x-96+noise(random(200))*192,y-96+noise(random(200))*192);
-          curveVertex(x-96+noise(random(200))*192,y-96+noise(random(200))*192);
-          curveVertex(x-96+noise(random(200))*192,y-96+noise(random(200))*192);
+          var rand1=random(256,192);
+          curveVertex(x-rand1/2+noise(random(200))*rand3,y-rand1/2+noise(random(200))*rand1);
+          var rand2=random(256,192);
+          curveVertex(x-rand2/2+noise(random(200))*rand3,y-rand2/2+noise(random(200))*rand2);
+          var rand3=random(256,192);
+          curveVertex(x-rand3/2+noise(random(200))*rand3,y-rand3/2+noise(random(200))*rand3);
         }
         endShape();
 
