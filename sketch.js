@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -13,8 +13,8 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(192,179,186);
-  // background(255);
+  // background(192,179,186);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
