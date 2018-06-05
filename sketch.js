@@ -1,63 +1,72 @@
 const finalVersion = true;
 
+var xoff = 0;
+var yoff = 0;
 
- if (finalVersion) {
-  pointSize = 40;
- }
+pointSize = 2;
+scl = 5;
+bend = 15;
+var pos = [];
 
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+var xSZ = 216;
+var ySZ = 384;
+
+sourceImg = null;
+maskImg = null;
+renderCounter = 0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("3.jpg");
+  maskImg = loadImage("3.png");
 }
 
-function setup () {
-  let main_canvas = createCanvas(1080, 1920);
+function setup() {
+  main_canvas = createCanvas(xSZ * scl, ySZ * scl);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(30);
+
+  background(20);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  noFill();
+
+
+  for (i = 0; i < ySZ; i++) {
+    pos[i] = [];
+    for (j = 0; j < xSZ; j++) {
+      pos[i][j] = [];
+print("done");
+      pos[i][j][0] = map(noise(i * i * i), 0, 1, j * scl, (j + 1) * scl);
+      pos[i][j][1] = map(noise(j * j * j), 0, 1, i * scl, (i + 1) * scl);
+
+    }
+
+  } 
 }
 
-function draw () {
-  for(let i=0;i<1080/pointSize;i++) {
-    print(i + " = x " + renderCounter + " = y");
-    let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
-   
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    
-    let halfSize = pointSize/2;
-   fill(pix);
+function draw() {
 
-        
-         
-         let pixBW = (pix[0] + pix[1] + pix[2])/3; //takes everage of rgb and turns it into bw value
-         
-          
-         
-   strokeWeight(3);
-    if(mask[0] > 50) {
-     ellipse(x-halfSize, y-halfSize, pointSize/255*pixBW, pointSize/255*pixBW); 
-    
+  for (i = 0; i < ySZ; i++) {
+    for (j = 0; j < xSZ; j++) {
+
+      pix = sourceImg.get(pos[i][j][0], pos[i][j][1]);
+      mask = maskImg.get(pos[i][j][0], pos[i][j][1]);
+  
+      strokeWeight(0);
+      fill(pix[0], pix[1], pix[2], 60);
+  
+      if (j - 1 >= 0) { // to the left
+        curve(pos[i][j][0] * scl - 20 * bend, pos[i][j][1] * scl, pos[i][j][0] * scl, pos[i][j][1] * scl, pos[i][j - 1][0] * scl, pos[i][j - 1][1] * scl, pos[i][j - 1][0] * scl - 20 * bend, pos[i][j - 1][1] * scl);
       }
-    else {
-      ellipse(x-halfSize, y-halfSize, pointSize/4, pointSize/4);    
-    }
-  } 
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
-    console.log("Done!")
-    noLoop();
-    // saveBlocksImages();
+      if (i - 1 >= 0) { // upper connection
+        curve(pos[i][j][0] * scl, pos[i][j][1] * scl - 20 * bend, pos[i][j][0] * scl, pos[i][j][1] * scl, pos[i - 1][j][0] * scl, pos[i - 1][j][1] * scl, pos[i - 1][j][0] * scl - 20 * bend, pos[i - 1][j][1] * scl - 20 * bend);
+      }
+
+    } 
   }
+  noLoop();
+  console.log(" " + frameRate());
 }
 
 function keyTyped() {

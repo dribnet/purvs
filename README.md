@@ -1,12 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-I decided to use images I’ve taken of Wellington CBD buildings at night. The images are black and white and I intend to keep them that way as I like the aesthetic. 
+I’ve added noise to the x and y values so that they will produce a sort of wavy effect, which gives some dynamic to the image.
 
-I started experimenting with the code we were given. 
+Rather than ellipses I have decided to add curves that form a sort of tear drop shape. I was intending to create a faux-3D effect but my values didn’t really work out that way, and I felt I didn’t like the direction my images where taking. 
 
-values of each circle are taken in increments of 5 pixels.
-elements that are masked change size depending on their brightness.
+The effect is interesting but Im more interested in interpreting the image rather than adding an effect to it. 
 
-The mask that I’m using is just the image, as it is already black and white. White acts as the masked areas. Choosing to do this allows me more control over what areas the mask actually picks up, as I can change how bright the pixel has to be before it is part of the mask.
-
-Nothing to fancy has been done yet. I am liking the simplicity and the contrast that has been produced but feel it needs something as it feels empty. 
