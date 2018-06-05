@@ -41,10 +41,10 @@ let maskImg3=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
-  maskImg2 = loadImage("mask_3_2.png");
-  maskImg3 = loadImage("mask_3_3.png")
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
+  //maskImg2 = loadImage("mask_3_2.png");
+  //maskImg3 = loadImage("mask_3_3.png")
 }
 
 function setup () {
@@ -56,8 +56,8 @@ function setup () {
   background('gray');
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  maskImg2.loadPixels();
-  maskImg3.loadPixels();
+  //maskImg2.loadPixels();
+  //maskImg3.loadPixels();
 }
 
 function convertRgbToHsluv(c) {
@@ -79,8 +79,8 @@ function draw () {
           let dy = floor(random(elementSpacing/2));
           let pix = sourceImg.get(x, y);
           let mask = maskImg.get(x, y);
-          let mask2 = maskImg2.get(x, y);
-          let mask3 = maskImg3.get(x,y);
+          //let mask2 = maskImg2.get(x, y);
+          //let mask3 = maskImg3.get(x,y);
           let halfSize = squareSize/2;
 
           if(mask[0] > 128) {
@@ -111,75 +111,75 @@ function draw () {
         }
     }
 
-    if(!layerTwoRendered && layerOneRendered){
-      //high res loops
-      for(let i=0;i<imageWidth/elementSpacing2;i++) {
-        let x = int(i * elementSpacing2);
-        let y = int(renderCounter * elementSpacing2);
+    // if(!layerTwoRendered && layerOneRendered){
+    //   //high res loops
+    //   for(let i=0;i<imageWidth/elementSpacing2;i++) {
+    //     let x = int(i * elementSpacing2);
+    //     let y = int(renderCounter * elementSpacing2);
 
-       // let x2 = int(i * elementSpacing2);
-        //let y2 = int(renderCounter * elementSpacing2);
+    //    // let x2 = int(i * elementSpacing2);
+    //     //let y2 = int(renderCounter * elementSpacing2);
 
-        let dx = floor(random(elementSpacing2/2));
-        let dy = floor(random(elementSpacing2/2));
-        let pix = sourceImg.get(x, y);
-        let mask = maskImg.get(x, y);
-        let mask2 = maskImg2.get(x, y);
-        let mask3 = maskImg3.get(x,y);
-        let halfSize = squareSize/2;
+    //     let dx = floor(random(elementSpacing2/2));
+    //     let dy = floor(random(elementSpacing2/2));
+    //     let pix = sourceImg.get(x, y);
+    //     let mask = maskImg.get(x, y);
+    //     let mask2 = maskImg2.get(x, y);
+    //     let mask3 = maskImg3.get(x,y);
+    //     let halfSize = squareSize/2;
 
-         if(mask2[0] > 128) {
-          fill(pix);
-          ellipse(x, y, circleSize2, circleSize2);
-        }
-      }
-      renderCounter = renderCounter + 1;
-        if(renderCounter > imageHeight/elementSpacing2) {
-          layerTwoRendered = true;
-          renderCounter = 0;
-        }
-    }
+    //      if(mask2[0] > 128) {
+    //       fill(pix);
+    //       ellipse(x, y, circleSize2, circleSize2);
+    //     }
+    //   }
+    //   renderCounter = renderCounter + 1;
+    //     if(renderCounter > imageHeight/elementSpacing2) {
+    //       layerTwoRendered = true;
+    //       renderCounter = 0;
+    //     }
+    // }
 
-    if(!layerThreeRendered && layerOneRendered && layerTwoRendered){
-      //high res loops
-      for(let i=0;i<imageWidth/elementSpacing3;i++) {
-        let x = int(i * elementSpacing3);
-        let y = int(renderCounter * elementSpacing3);
+    // if(!layerThreeRendered && layerOneRendered && layerTwoRendered){
+    //   //high res loops
+    //   for(let i=0;i<imageWidth/elementSpacing3;i++) {
+    //     let x = int(i * elementSpacing3);
+    //     let y = int(renderCounter * elementSpacing3);
 
-       // let x2 = int(i * elementSpacing2);
-        //let y2 = int(renderCounter * elementSpacing2);
+    //    // let x2 = int(i * elementSpacing2);
+    //     //let y2 = int(renderCounter * elementSpacing2);
 
-        let dx = floor(random(elementSpacing3/2));
-        let dy = floor(random(elementSpacing3/2));
-        let pix = sourceImg.get(x, y);
-        let mask = maskImg.get(x, y);
-        let mask2 = maskImg2.get(x, y);
-        let mask3 = maskImg3.get(x,y);
-        let halfSize = squareSize/2;
+    //     let dx = floor(random(elementSpacing3/2));
+    //     let dy = floor(random(elementSpacing3/2));
+    //     let pix = sourceImg.get(x, y);
+    //     let mask = maskImg.get(x, y);
+    //     let mask2 = maskImg2.get(x, y);
+    //     let mask3 = maskImg3.get(x,y);
+    //     let halfSize = squareSize/2;
 
-         if(mask3[0] > 128) {
-          noFill();
-          stroke(pix);
-          strokeWeight(3)
-          rect(x-halfSize, y-halfSize, squareSize2, squareSize2);
-          stroke(51);
-          rect(x-halfSize,y-halfSize,squareSize,squareSize);
-          stroke(pix);
-          rect(x-halfSize,y-halfSize,squareSize3,squareSize3);
-          stroke(pix);
-          rect(x-halfSize-10,y-halfSize-10,squareSize,squareSize);
+    //      if(mask3[0] > 128) {
+    //       noFill();
+    //       stroke(pix);
+    //       strokeWeight(3)
+    //       rect(x-halfSize, y-halfSize, squareSize2, squareSize2);
+    //       stroke(51);
+    //       rect(x-halfSize,y-halfSize,squareSize,squareSize);
+    //       stroke(pix);
+    //       rect(x-halfSize,y-halfSize,squareSize3,squareSize3);
+    //       stroke(pix);
+    //       rect(x-halfSize-10,y-halfSize-10,squareSize,squareSize);
 
-        }
-      }
-      renderCounter = renderCounter + 1;
-        if(renderCounter > imageHeight/elementSpacing3) {
-          layerThreeRendered = true;
-          renderCounter = 0;
-        }
-    }
+    //     }
+    //   }
+    //   renderCounter = renderCounter + 1;
+    //     if(renderCounter > imageHeight/elementSpacing3) {
+    //       layerThreeRendered = true;
+    //       renderCounter = 0;
+    //     }
+    // }
   
 
-  if(layerOneRendered && layerTwoRendered && layerThreeRendered) {
+  if(layerOneRendered){//&& layerTwoRendered && layerThreeRendered) {
     console.log("Done!")
     noLoop();
   }
