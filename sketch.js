@@ -31,20 +31,15 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     stroke(pix)
-
+    strokeWeight(13)
     if(mask[0] > 128) {
       // noFill()
-          strokeWeight(19)
-      // line(x, y+40, x+40, y);
-      // line(x+40, y+40, x, y);
-      line(x+10,y,x+10,y+20)  
-      line(x-10,y,x-10,y+20) 
+      line(x, y+40, x+40, y);
+      line(x+40, y+40, x, y);
     }
     else {
-     noFill()
-          strokeWeight(19)
-      line(x,y+10,x+20,y+10)  
-      line(x,y-10,x+20,y-10)  
+      // noFill()
+      ellipse(x+halfSize, y+halfSize, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
