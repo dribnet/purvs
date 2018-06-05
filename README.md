@@ -1,4 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I changed the range of random into larger one, from 0 - 5 to 0 - 40, and now the different size of flower is visible. Also, I solve the problem of the random size of each leaf of one flower. I think that is because I put the random function in a wrong place. Previously, I put the random in the place that drawing leaves. After I move the random function to the translate part, the problem has solved and all the leaves in one flower are in the same size.
-Next step I will try to render a high resolution result to see if there is something I can refine.
+I nearly finsh my code so far. I did many changes and test different size of pixels. In the end, I choose the size of 10 for background and 6 for foreground to render my high resolution version.
+During the process I try to render the high resolution version, I had many problems. At the beginning I changed the "finalVersion" into true but the program did not render the high resolution ones. The reason why this happened because I put my if statement out of any function so it will not be called when the program running. I solve the problem by putting the if statement into the setup function. 
+Likely, I use the if statement to change the random range for low and high resolution version as well. I put it in the setup function at the beginning, but all the flowers were in the same size because the sepup funcion will be called only once, so only one number was picked from the range and put on all the flowers. After I moved it into draw, the problem has been solved.
