@@ -15,7 +15,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(35);
+  background(55);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -28,17 +28,28 @@ function draw () {
     let y = curRow * pointSize;
     let pix = sourceImg.get(x, y);  
     let mask = maskImg.get(x, y);
- 
+    var brightness = (pix[0] + pix[1] + pix[2])/3;
+ // if(brightness > 180){   
+ // console.log(pix);}
     let halfSize = 10;
     fill(pix);
-    if(mask[0] > 128) {
+if(mask[0] > 128) {
+if(brightness > 135){
+  fill(pix[0],pix[1],pix[2],80);
+  rect(x,y,pointSize,pointSize);
+  blendMode(SCREEN);
+}
+fill(pix);
+stroke(0,0,0);
+strokeWeight(6);
 polygon(x,y,5,3)
-    }
+}
 
-    else {
+else {
 stroke(0,0,0);
 strokeWeight(2);
 polygon(x, y, 3, 6);
+blendMode(SCREEN);
     }
   }
 
@@ -55,6 +66,7 @@ polygon(x, y, 3, 6);
   curRow = curRow + 1;
   if(curRow > 1920/pointSize) {
     console.log("Done!")
+
     noLoop();
     // saveBlocksImages();
   }
