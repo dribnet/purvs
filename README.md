@@ -1,1 +1,1 @@
-I have used over lapping circles for the stairs and lines that cross over each other for the rails and I like the way it has turned out.
+In the second picture I decided I wanted to go with vertical and horizontal lines since the pictures I'm using seem to be geometric looking.
