@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -52,13 +52,7 @@ function draw () {
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
     }
   }
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/elementSpacing) {
-    console.log("Done!")
-    noLoop();
-    // saveBlocksImages();
-  }
-}
+  
 function ball (x, y, c, s){
   push();
   translate(x, y);
@@ -69,3 +63,25 @@ function ball (x, y, c, s){
   pop();
 
 }
+
+
+
+
+  renderCounter = renderCounter + 1;
+  if(renderCounter > 1920/elementSpacing) {
+    console.log("Done!")
+    noLoop();
+    saveBlocksImages();
+  }
+}
+
+
+
+
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
+}
+
