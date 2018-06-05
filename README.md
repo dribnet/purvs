@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have changed my design so that the squares so not have a fill and it is only outlineD. I really like how it turned out over a white background. It still shows the sky colours and it also makes it look interesting and different at the same time. i also like how the circles create small diamonds. 
+i used the smartmask to create masks for my three images. Although the process was very striaght forward and simple, i wont be using it for my final. For my first image, it didn't capture the rock i was standing on and for the other two images, the mask wasnt very accurate and was missing a few sports i wanted to mask. I will be using the masks that i have created on photoshop as it is more accurate. 
