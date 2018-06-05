@@ -7,9 +7,9 @@ let start = 0;
 let renderCounter2 = 0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
-  maskImgB = loadImage("mask_1b.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
+  //maskImgB = loadImage("mask_1b.png");
 }
 
 function setup () {
@@ -21,10 +21,10 @@ function setup () {
   background(255, 255, 255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  maskImgB.loadPixels();
+  //maskImgB.loadPixels();
 }
 
-const pointSize = 15;
+const pointSize = 20;
 
 function draw () {
   for(let ii = 0; ii < 1080 / pointSize * 2; ii++) {
@@ -43,10 +43,10 @@ function draw () {
 		let y = int(renderCounter2 * pointSize);
 		let pix = sourceImg.get(x, y);
 		let mask = maskImg.get(x, y);
-		let maskB = maskImgB.get(x, y);
+		//let maskB = maskImgB.get(x, y);
 	  
 		fill(pix);
-		if(mask[0] < 128) {
+		if(mask[0] > 128) {
 		  polygon(x, y, pointSize, 6);
 		  fill(255, 255, 255);
 		  polygon(x, y, pointSize/1.5, 6);
@@ -60,15 +60,15 @@ function draw () {
 		  fill(255, 255, 255);
 		  polygon(x, y, pointSize/4, 6); 
 		}
-		else if(maskB[0] < 128) {
-			fill(pix);
-			polygon(x, y, pointSize/2, 6);
-			fill(255, 255, 255);
-			polygon(x, y, pointSize/4, 6); 
-		}
+		//else if(maskB[0] < 128) {
+			//fill(pix);
+			//polygon(x, y, pointSize/2, 6);
+			//fill(255, 255, 255);
+			//polygon(x, y, pointSize/4, 6); 
+		//}
 	}
   }
-	if(start > 10000)
+	if(start > 10000)//starts drawing the hexagons at the top of the page
 	{
 	  renderCounter2 = renderCounter2 +1;
 	}
