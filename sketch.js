@@ -33,7 +33,7 @@ function draw () {
     //let halfsize = pointSize/2;
     //editing the numbers below slows render but increases detail
     let halfsize = 5;
-    let pointSize1 = random(10,20);
+    let pointSize1 = random(10,30);
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x+halfsize, y+halfsize, pointSize1, pointSize1);
