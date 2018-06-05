@@ -67,7 +67,7 @@ function draw () {
   }
 }
 
-//function to pick and draw each shape
+//Function to pick and draw each shape
 function pickShape(pix, x, y, pointSize, halfSize, ro, mask){
   let hsluvColor = convertRgbToHsluv(pix);
 
@@ -75,7 +75,7 @@ function pickShape(pix, x, y, pointSize, halfSize, ro, mask){
   stroke(pix);
   strokeWeight(4);
 
-  translate(x, y);
+  translate(x, y); //To get a rotation on all the shapes drawn
   rotate(ro);
 
   if(hsluvColor[2] < 33){  //Draws ellipses if lightness of the color is under 33
@@ -89,7 +89,7 @@ function pickShape(pix, x, y, pointSize, halfSize, ro, mask){
   } 
 }
 
-//function to draw the grid in the masked areas
+//Function to draw the grid in the masked areas
 function drawGrid(rSize){
   for(let m=0; m<1080; m=m+rSize) {
     for(let b=0; b<1920; b=b+rSize){
