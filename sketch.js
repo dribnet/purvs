@@ -1,21 +1,6 @@
 let sourceImg=null;
 let maskImg=null;
-//let renderCounter=0;
-let curRow = 0;
-  
-  // let colours = [
-  // "219, 210, 213, 150",
-  // "218, 223, 232, 150",
-  // "168, 161, 164, 150",
-  // "255, 232, 241, 150",
-  // "232, 251, 255, 150"
-  // ];
-//let colour = random(0-4);
-//let colour = Math.ceil(Math.random() * 4);
-//let colour.sort(function(a, b) {return 0.5- Math.random()});
-//let colour = colours[Math.floor(Math.random()* 4)];
-//let colour = Math.random() * 4;
-//let blurCol = colours[colour];
+let vertRow = 0; //current render row going top to bottom
 
 function preload() {
   sourceImg = loadImage("input_3.png");
@@ -28,28 +13,25 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(230);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-//let pointSize = 50;
-let elementSpacing = 15; //10;
-let elementSpacing2 = 50;
-//let elementSpacingH = 20;
+let spacingGeneric = 15; 
+let spacingCirc = 50;
 let squareSize = 15;
 
 let drawPass = 0;
 
 function draw () {
-  for(let i=0;i<1080/elementSpacing;i++) {
-    let x = i * elementSpacing;
-    let y = curRow * elementSpacing;
+  for(let i=0;i<1080/spacingGeneric;i++) {
+    let x = i * spacingGeneric;
+    let y = vertRow * spacingGeneric;
    
-    let x2 = i * elementSpacing2;
-    let y2 = curRow * elementSpacing2;
-    let dx = floor(random(elementSpacing2/2));
-    let dy = floor(random(elementSpacing2/2));
+    let x2Circ = i * spacingCirc;
+    let y2Circ = vertRow * spacingCirc;
+
     let circleSize = (random(30, 70));
 
     let pix = sourceImg.get(x, y);
@@ -57,7 +39,6 @@ function draw () {
 
     let halfSize = squareSize/2;
 
-    
 
     fill(pix);
 
@@ -68,25 +49,21 @@ function draw () {
       rect(x-halfSize, y-halfSize, squareSize/2, squareSize*2);  
     }
       if((mask[0] >141 && mask[0] <159)&&(drawPass == 1)) {
-      // x2 = x2 + dx;
-      // y2 = y2 + dy;
-      let nx = x2 / 5.0;
-      let ny = y2 / 30.0;
+      let nx = x2Circ / 50.0;
+      let ny = y2Circ / 30.0;
       let jit_x = 80*(noise(nx, ny, 0)-0.5);
       let jit_y = 80*(noise(nx, ny, 10)-0.2)
-      //fill(219, 210, 213, 150);
-      //fill(random(colours));
-      //fill(blurCol);
-      fill(219, 210, 213, 150)
+
+      fill((Math.ceil(Math.random()*215,255)),(150));
       ellipse(x + jit_x, y + jit_y, circleSize, circleSize);
     }
 
 }
 
-  curRow = curRow + 1;
-  if(curRow*elementSpacing > 1920) {
+  vertRow = vertRow + 1;
+  if(vertRow*spacingGeneric > 1920) {
   	if(drawPass == 0){
-  		curRow = 0;
+  		vertRow = 0;
   		drawPass = 1;
   	} else {
     console.log("Done!")
