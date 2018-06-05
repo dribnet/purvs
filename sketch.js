@@ -45,7 +45,7 @@ function draw () {
     }
     else {
       blur(1);
-      rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8);    
+      rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8,5);    
     }
   }
   renderCounter = renderCounter + 1;

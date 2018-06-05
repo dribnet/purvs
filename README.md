@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
+
+--
+
 SMARTMASK EXPERIMENTATION
 
 Here I used smartmasking methods as oposed to creating black and white vectors in photoshop. 
