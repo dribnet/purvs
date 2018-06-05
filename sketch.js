@@ -1,4 +1,4 @@
-let finalVersion = false; //false --> simple version;
+let finalVersion = true; //false --> simple version;
                          //true --> final version;
 
 let sourceImg=null;
@@ -46,7 +46,7 @@ function setup () {
   imageMode(CENTER);
   angleMode(DEGREES);
   noStroke();
-  background(255);
+  background(208, 220, 237);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }

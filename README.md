@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-For this time, I changed the colour of the background from green-blue to the pure blue. I use the blue tone to show the mood of sadness so I want it to be the cold and ruthless blue. 
+Now I changed the background colour to the light blue. I want to give the whole render a more blue shader so I choose this colour. But the pixels in dark areas are not so solid now. I may try black later.
