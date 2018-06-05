@@ -5,7 +5,7 @@ function Particle(maskImg) {
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
-  this.maxspeed = 4;
+  this.maxspeed = 3;
   this.h = 0;
 
   this.prevPos = this.pos.copy();
@@ -35,11 +35,13 @@ function Particle(maskImg) {
     if (this.h > 255) {
       this.h = 0;
     }
-    strokeWeight(10);
+    
     let mask = maskImg.get(this.pos.x, this.pos.y);
+    let str = map(mask[0],0,255,0,8);
 
-    if(mask[0] < 255 && mask[0] > 0) {
-      stroke(200,200,255,100);
+    if(mask[0] < 255 && mask[0] > 30) {
+      strokeWeight(str);
+      stroke(200,200,255,80);
       line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
       this.updatePrev();
      }

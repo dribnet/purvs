@@ -61,7 +61,6 @@ if(SourceImgName=="input_1.jpg") {
   //maps for image one to draw squares at proportionate sizes
     let opc = map(mask[0],0,255,255,0);
     let size = map(mask[0],0,255,5,1);
-    let str = map(mask[0],0,255,4,1);
 
     if(mask[0] < 255 && mask[0] > 0) {
       fill(200,200,255,opc);
@@ -90,9 +89,7 @@ if(SourceImgName=="input_1.jpg") {
         let mask = maskImg.get(x, y);
         let halfSize = pointSize/2;
 
-        let opc = map(mask[0],0,255,255,0);
         let size = map(mask[0],0,255,5,1);
-        let str = map(mask[0],0,255,4,1);
 
         if(mask[0] < 255 && mask[0] > 0) {
           fill(pix);
