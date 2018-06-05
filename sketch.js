@@ -3,22 +3,13 @@ const finalVersion = true;
 
 
 let elementSpacing = 40;
-let circleSize = 75;
-// let circleSize2 = 60;
-// let circleSize3 = 45;
-// let circleSize4 = 30;
-// let circleSize5 = 15;
-// let arcSize = 40;
+// let circleSize = 75;
 
 
 if (finalVersion) {
 	let elementSpacing = 20;
-	let circleSize = 37.5;
-	// let circleSize2 = 30;
-	// let circleSize3 = 22.5;
-	// let circleSize4 = 15;
-	// let circleSize5 = 7.5;
-	// let arcSize = 20;
+	// let circleSize = 37.5;
+
 }
 
 let sourceImg=null;
@@ -26,8 +17,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -37,7 +28,7 @@ function setup () {
   imageMode(CENTER);
   angleMode(DEGREES);
   // noStroke();
-  background(200);
+  background(100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -45,6 +36,8 @@ function setup () {
 function convertRgbToHsluv (c) {
 	return hsluv.rgbToHsluv([c[0]/255.0,c[1]/255.0,c[2]/255.0]);
 }
+
+
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
@@ -58,50 +51,45 @@ function draw () {
     let mask = maskImg.get(x, y);
     // fill(pix);
     let hsluvColor = convertRgbToHsluv(pix);
-    let circleSize2 = map(hsluvColor[1], 0, 100, 60, 70);
-    let circleSize3 = map(hsluvColor[1], 0, 100, 45, 55);
-    let circleSize4 = map(hsluvColor[1], 0, 100, 30, 40);
-    let circleSize5 = map(hsluvColor[1], 0, 100, 15, 25);
-
-    let startAngle1 = map(hsluvColor[0], 0, 100, 180, 359);
-    let endAngle1 = map(hsluvColor[2], 0, 100, 360, 179);
-    let startAngle2 = map(hsluvColor[1], 0, 100, 180, 359);
-    let endAngle2 = map(hsluvColor[0], 0, 100, 360, 179);
-    let startAngle3 = map(hsluvColor[2], 0, 100, 180, 359);
-    let endAngle3 = map(hsluvColor[0], 0, 100, 360, 179);
-    let startAngle4 = map(hsluvColor[1], 0, 100, 180, 359);
-    let endAngle4 = map(hsluvColor[2], 0, 100, 360, 179);
-    let startAngle5 = map(hsluvColor[2], 0, 100, 180, 359);
-    let endAngle5 = map(hsluvColor[1], 0, 100, 360, 179);
 
     let arcSize = map(hsluvColor[1], 0, 100, 40, 60);
-    let startAngle = map(hsluvColor[2], 0, 100, 180, 359);
-    let endAngle = map(hsluvColor[0], 0, 100, 360, 179);
+    let startAngle = map(hsluvColor[2], 0, 100, 180, 360);
+    let endAngle = map(hsluvColor[0], 0, 100, 359, 179);
     let halfSize = arcSize/2;
 
+    let circleSize2 = map(y,1920,0,0,40);
+
     if(mask[0] < 128) {
-    	x = dx1 + x;
-    	y = dy1 + y;
-      stroke(pix);
-      strokeWeight(2.5);
-      noFill();
-      arc(x, y, circleSize, circleSize,startAngle1, endAngle1);
-      arc(x, y, circleSize2, circleSize2,startAngle2, endAngle2);
-      arc(x, y, circleSize3, circleSize3,startAngle3, endAngle3);
-      arc(x, y, circleSize4, circleSize4,startAngle4, endAngle4);
-      arc(x, y, circleSize5, circleSize5,startAngle5, endAngle5);
-    }
-    else {
-    x = dx + x;
-    y = dy + y;
+    	x1 = dx1 + x;
+    	y1 = dy1 + y;
     	noStroke();
+ 
+      push();
+      fill(pix);
+      rect(x, y, arcSize, arcSize);
+      pop();
+
+      ellipse(x1, y1, circleSize2, circleSize2);
+
+    }
+
+
+    else {
+    x1 = dx + x;
+    y1 = dy + y;
+    noStroke();
+    let hsluvColor = convertRgbToHsluv(pix);
+	fillHsluv(hsluvColor[0], 0, hsluvColor[2]);
+    rect(x, y, arcSize, arcSize);
     fill(pix);
-      arc(x-halfSize, y-halfSize, arcSize, arcSize, startAngle, endAngle); 
-  
+	arc(x1-halfSize, y1-halfSize, arcSize, arcSize, startAngle, endAngle);
+
     }
 
 
   }
+
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 1920/elementSpacing) {
     console.log("Done!")
