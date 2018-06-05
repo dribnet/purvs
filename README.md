@@ -1,5 +1,19 @@
 ## Creative Coding 2: Custom Pixel
 
+SMARTMASK EXPERIMENTATION
+
+Here I used smartmasking methods as oposed to creating black and white vectors in photoshop. 
+
+The results weren't as accurate but since my mosaic style grid has fairly big pixel size the imperfections aren't as visible anyway.
+
+I struggled with using the smartmask at first but through the help of peers and tutors I figured out an issue where it couldn't identify anything with my photos. 
+
+I've also implemented text t see how it would affect my imagery in the 3rd photo. 
+
+I think it has more to offer in terms of audience engagement since there is a motive to the "Game?" question in the form of the basketball hoop.
+
+--
+
 TEST
 
 Since my theme revolves around basketball I will try to incorporate ellipses that look like basketballs into my pixel. These are my initial images.

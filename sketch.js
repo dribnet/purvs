@@ -24,7 +24,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(150);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -41,9 +41,11 @@ function draw () {
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x, y, pointSize*1.5, pointSize*1.5);
+
     }
     else {
-      rect(x-halfSize, y-halfSize, pointSize, pointSize);    
+      blur(1);
+      rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8);    
     }
   }
   renderCounter = renderCounter + 1;
