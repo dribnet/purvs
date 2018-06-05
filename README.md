@@ -1,5 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-I have decided that i like the flowers so going with that nature theme. I have been playing around with the code and found that i like this look. It almost looks as if its cross-stitch. I like how making the flower elements bigger and spaced out in comparrsion to the backgraound gives some type of depth which is compelling to look at.
+SMARTMASK
 
-Note: This is incorrect code! After i had made this i was messing around and changing the code more and accidently quit before reverting back to this styles code for the commit. I will experiment later to get it.
+I tried using the smartmask and found that it didnt really work for my subject matter as there are really only two components; the backgorund greenery and the flowers themselves. You can see from the labels_line it identified one of my flowers as a cake! So therefore i decideed to mask the images myself instead of using the smart mask. 
+If my subject matter was more element heavy that's when i would have made use of the smartmask tool.
