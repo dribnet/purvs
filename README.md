@@ -1,13 +1,41 @@
-## Creative Coding 2: Custom Pixel Experiment 2
+## Creative Coding 2: Custom Pixel Final
 
-As mentioned before, I think the png image file takes up
-too much of my overall rendered image. Therefore in this
-version update, I have redone the skin and hair png with
-photoshop and refine it so it looks cleaner and then coded
-the religion glyphs on top.
+My original idea is to create a serie of three person
+with different skin colours in two perspectives. One 
+is in judgemental people's and one is in their own perspective.
+The first perspective is shown before my image is completely done
+rendering(with just one specific religious symbol forming their
+face and hair), the second perspective is shown when the image
+is actually finished(with the png and all other religious glyphs
+placed on top). The main idea I want to express is you can be
+whatever you want no matter the skin colour or ethnic background.
 
-Next step:
+I have decided to not use smartmask because the smartmask mask
+out the entire person. But I only want to mask out specific parts
+of the person. Also, the mask that this program creates is not 
+smooth enough and it can not mask objects out perfectly.
 
-- Redo and fine my other 2 models' skin and hair png.
-- Continue coding other religion glyphs.
-- Try other background glyph/ outfit glyph if still have spare time.
+I drew three png file of my models in photoshop as a part of my project.
+I have chosen png image files to place on top because of the property
+of them. Their opacity adds some interesting elements to my overall
+design. In my three png images, I have set their opacity to 80% so
+when they are placed on my rendered image, my glyphs underneath can
+still be seen.
+
+For the background, I have used my heart glyph from PS3. I originally
+wanted to do a transition of the empty heart into a full heart, linking
+the empty heart to first perspective and full heart to second perspective.
+But after a few experiments I realised that this idea can not be achieve
+because once the image is rendered, you can not change the fill of an 
+object function. I think it would have added a lot more meanings to my
+project if it works.
+
+I have created two masks for each model so I can have different glyphs
+for background, their outfits, their faces and hair. I tried using other
+glyph for the outfit mask and using different colours for the religious 
+glyphs on top of my png image but it ends up way too messy so I have 
+decided to keep it simple by using just rectangles and black & white.
+
+If I have more time to refine this project, I would ask my models to
+wear some brighter colours for experiment shoot. The colours might
+create an interesting contrast to the background.
