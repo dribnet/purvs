@@ -1,4 +1,6 @@
 ## Creative Coding 2: Custom Pixel
+-5/6- 2nd Commit
+My first image is now a photo of a seagull at the park, So my theme is photos from Wellignton to showcase some nice areas around. I adjusted the code slightly to make the stroke of the shapes thinner and the grid shapes a little smaller just to increase resolution and detail captured. I just now need to add the purview and then I will be finished
 
 -5/6-
 I have changed my first image to a photo I took at Frank Kitts Park of a seagull, this is to better utilise the smartmask. In myfirst image the smartmask picked uop the seagull quite well and also a giumat anchor in the background which it thought was a person. I just used the bird for the mask. The secong image it picked up quite a few people scattered across the image, unfortunatly they rae very small so they dont show up very well with the code that I am using. The third image idd not com eup with anything on the smartmask, so the processed image only shows the random shape outlines and grid area. I will not use any of the smartmasks for my final, I think I will just use my own made ones.

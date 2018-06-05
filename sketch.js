@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -24,9 +24,9 @@ function convertRgbToHsluv(c) {
 }
   
 //For the size of the shapes drawn
-let pSBig = 250;
-let pSSmall = 200;
-const rSize = 30; //set size for grid
+let pSBig = 300;
+let pSSmall = 250;
+const rSize = 15; //set size for grid
 
 function draw () {
   for(let i=0; i<1; i++) {
@@ -37,13 +37,11 @@ function draw () {
     let pointSize = floor(random(pSSmall, pSBig)); //picks random number between to values for the size of shapes
     let halfSize = pointSize/2
     let ro = random(0, 360);  //Picks random angle for rotation of shapes
-    let hsluvColor = convertRgbToHsluv(pix);
+    //let hsluvColor = convertRgbToHsluv(pix);
 
     //Draw random background shapes
     push();
-      //fill(pix);
-      fillHsluv(hsluvColor[0], hsluvColor[1]*0.2, hsluvColor[2]);  //Desaturates the colors
-      pickShape(pix, x, y, pointSize, halfSize, ro);
+      pickShape(pix, x, y, pointSize, halfSize, ro, mask);
     pop();
     
     //Reduces size of shapes over time, while restricting the minimum sizes
@@ -55,8 +53,9 @@ function draw () {
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 2000) {
+  if(renderCounter > 4000) {
 
+    console.log("Drawing Grid");
     //Draw grid in mask
     push();
       drawGrid(rSize);  
@@ -69,19 +68,23 @@ function draw () {
 }
 
 //function to pick and draw each shape
-function pickShape(pix, x, y, pointSize, halfSize, ro){
+function pickShape(pix, x, y, pointSize, halfSize, ro, mask){
   let hsluvColor = convertRgbToHsluv(pix);
+
+  noFill();
+  stroke(pix);
+  strokeWeight(4);
+
+  translate(x, y);
+  rotate(ro);
+
   if(hsluvColor[2] < 33){  //Draws ellipses if lightness of the color is under 33
-    ellipse(x, y, pointSize, pointSize);
+    ellipse(0, 0, pointSize, pointSize);
   }
   if(hsluvColor[2] > 33 && hsluvColor[2] < 66){  //Draws squares if lightness of the color is over 33 and under 66
-    translate(x, y);
-    rotate(ro);
     rect(0-halfSize, 0-halfSize, pointSize, pointSize);
   }
   if(hsluvColor[2] > 66){ //Draws triangles if lightness of the color is over 66
-    translate(x, y);
-    rotate(ro);
     triangle(0, 0, 0-halfSize, 0+pointSize, 0+halfSize, 0+pointSize);
   } 
 }
@@ -93,15 +96,13 @@ function drawGrid(rSize){
       let pix2 = sourceImg.get(m, b);
       let hsluvColor = convertRgbToHsluv(pix2);
       let mask2 = maskImg.get(m, b);
-      //if(mask2[0] < 128){
-        //fillHsluv(hsluvColor[0], hsluvColor[1], hsluvColor[2]); 
-        noFill();
-        stroke(pix2);
-        strokeWeight(4);
+      
+      if(mask2[0] < 128){
+        fillHsluv(hsluvColor[0], hsluvColor[1], hsluvColor[2]); 
         rect(m, b, rSize, rSize);
-      //} 
+      } 
     }
-    console.log(m);
+    console.log(m); //Once log hits '1080' grid mask will draw on screen
   }
 }
 
