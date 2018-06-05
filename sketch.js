@@ -3,8 +3,8 @@ let maskImg=null;
 let vertRow = 0; //current render row going top to bottom
 
 function preload() {
-  sourceImg = loadImage("input_3.png");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.png");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
