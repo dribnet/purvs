@@ -8,8 +8,8 @@ let renderCounter=0;
 
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 let paint = [];
 
@@ -25,7 +25,7 @@ function setup () {
 
 }
 
-const pointSize = 40;
+const pointSize = 35;
 const ellipseSize = 60;
 
 function draw () {
