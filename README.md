@@ -1,10 +1,16 @@
 ## Creative Coding 2: Custom Pixel
 
 
-I decided it was time to try some new photographs for my theme. In particular I want something that has a plainer background that I can get quite creative with, & a simply outlined foreground shape so that it can be abstracted a bit more as well, while it's still clear what the image is portraying. In terms of theme I was looking for something outdoors as the enviroment is very important to me, & if possible involved people having fun. This is actually a photo I took over summer of my boyfriend playing with a soccer ball at the beach. I think it fits well with the requirements i have, & I definietely think I can develop it into a theme with the way I manipulate the pixels & the other images I include. I have hundreds of similar photos from the same day so plenty to pick from.
+My theme changed a little throughout my project, but the final idea is related to the outdoors, exercising & generally having fun doing it. 
 
-Strcking with the linear style background I made it more full by spreading the lines evenly across the pixel so they never clump in the centre & leave the outside looking sparse. When testing some variable options I noticed it looked similar to pencil lines or brush strokes, so I thickened the width of the line, & thinned the length so it looks like lots of short, fast strokes. When looking from afar it almost looks like fabric as well.
+IMAGES
+I chose my images based on a few criteria. Firstly it had to have a reasonly plain background. I really liked the slight colour changes from my first picture of the sunset, & in my newer images the same effect was created with the change from sky to water to sand. I also wanted to express how to have fun exercising outdoors with nothing more than a ball. I am guilty myself of wasting the few nice Wellington days inside on my computer. Of course it's possible to have fun outside without exercising & vice versa it's possible to exercise without being outside but I feel like these are both important things & they go hand in hand nicely. 
 
-I added a few gradient changes to the foreground, gives it sort of an embossed feel, but it doesn't fit with the background. I instead changed this to be circles with no fill, only a stroke, to match the linear feel of the background. I thought making them circles would give a less rigid feel, but really it still has the same problem.
+PIXELS
+Sticking with the linear style background I made it more full by spreading the lines evenly across the pixel so they never clump in the centre & leave the outside looking sparse. When testing some variable options I noticed it looked similar to pencil lines or brush strokes, so I thickened the width of the line, & thinned the length so it looks like lots of short, fast strokes. When looking from afar it almost looks like fabric as well.
 
-I tried using smartmask. It worked well at selecting indivdual objects, but I can get a much clearer selection using photoshop. There are some parts of the foreground that I would have preferred to be background but they were selected by smartmask
+I added a few gradient changes to the foreground, gives it sort of an embossed feel, but it doesn't fit with the background. I instead changed this to be circles with no fill, only a stroke, to match the linear feel of the background. I thought making them circles would give a less rigid feel, but really it still has the same problem. To fix this I changed the way the circles were drawn from changing size of linear circles, to drawing many lines crossing over the centre from one side of the circle to the other. This fits a lot better with the 'messy' linear background.
+
+
+SMARTMASK
+I tried using smartmask. It worked well for selecting indivdual objects, but I can get a much clearer selection using photoshop. Since I desired my final images to be quite detailed rather than abstract, i decided not to use smartmask so that I could get more accuracy in my boundaries between foreground & background. I used the mask to differentiate the person & the object (the ball) from the landscape & other people in the background. 
