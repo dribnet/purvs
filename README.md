@@ -4,7 +4,7 @@ The idea for my 3 designs is to show a theme that relates to the negative imapct
 
 I was inspired by my own dog and how she now suffers from health issues from her breeder breeding dogs unethically. The images used are 3 different photographs I have taken myself of my dog.
 
-The masks I have used are dog itself and the dog minus the edge. I decided to do this so that there wouldn't be a gap between the edge of the dog and the background dogs. One option would be to have just drawn the background entirely underneath without checking a mask but I didn't want any dogs showing thorugh underneath, especially since originally I was going to use less ellipses to create the design.
+The masks I have used are dog itself and the dog minus the edge. I decided to do this so that there wouldn't be a gap between the edge of the dog and the background dogs. One option would be to have just drawn the background entirely underneath without checking a mask but I didn't want any dogs showing thorugh underneath, especially since originally I was going to use less ellipses to create the design. I didn't use smartmask because it didn't have the option to create both of these.
 
 To create the background, I used a for loop that drew very small dogs in a set colour. The appearance of the dog is determined by the pixel underneath with half the dogs randomly facing a different direction. The for loop for the larger dogs is almost the same except it uses a greyscale version of the orginal pixel colour and is only drawn if outside of the mask (main mask). 
 
