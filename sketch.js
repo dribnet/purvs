@@ -13,6 +13,8 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
+
+//Change background draw colour to same background RGB values as input image.
   // background(192,179,186);
   background(255);
   sourceImg.loadPixels();
