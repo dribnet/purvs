@@ -16,4 +16,4 @@ When the first time I rendered the high resolution artwork, the program did not 
 
 Through the project and the final artworks, I learned not only how to design and code, but also how to live positively. I wish I could express and represent this theme to the audience watching my work as well. Moreover, if I could refine the project further, I may re-code the flower pixels to make it more like the real flowers with different kinds, sizes and colours overlapping one to another. 
 
-Special thanks for my lecturer and tutors. They helped me to work through the whole project and stood out when I had the problems and difficulties. 
+Special thanks to my lecturer and tutors. They helped me to work through the whole project and stood out when I had the problems and difficulties. 
