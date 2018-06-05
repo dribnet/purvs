@@ -1,10 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-This try kind of fail, I still use the Images which I took from Shenzhen MOCAP. 
 
-I really want to use the line to create out the position of the lights that I use noise and line to create the pattern. In the first input it looks fine, however going to second and third one it like a disaster.
+I used one of my previous projects about the Haning Street murder in Wellington. I highlighted the important part in the images and I want it looks more layers then I’m trying to use two masks in this version. 
 
-Especially, the second image it simple looks like a brunch of the mess fringe lol
-
-In this experiential, I think I will do sth connect with natural such as, light or water.
-
+But it not works quite well, I may give it up and this topic I do not have passion to create it.

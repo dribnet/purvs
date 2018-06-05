@@ -1,79 +1,60 @@
-/* Set to true to make final high-resolution version */
-const finalVersion = false;
-
-/* Default versions of variables */
-let elementSpacing = 40;
-let circleSize = 50;
-let squareSize = 20;
-
-/* Override some variables with high-resolution final version */
-if (finalVersion) {
-  elementSpacing = 20;
-  circleSize = 50;
-  squareSize = 10;
-}
-
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0;
-//xoff for my line function
-var xoff = 0.0;
+let renderCounter=0; // Rename to row counter
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
+  // add two masks in
   maskImg = loadImage("mask_3.png");
+  maskImgB = loadImage("mask_32.png");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
-  noiseSeed(99);
-  stroke(0, 10);
+
   imageMode(CENTER);
   noStroke();
-  var c = color(255)
-  background(c);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImgB.loadPixels();
 }
 
-// create rectangel for black mask
-function rre(x, y, c, s) {
-  push();
-  translate(x, y);
-  rect(30, 20, 55, 100, 20);
-  pop();
-}
-
-
+const pointSize = 50;
 
 function draw () {
-  for(let i=0;i<1080/elementSpacing;i++) {
-    let x = int(i * elementSpacing);
-    let y = int(renderCounter * elementSpacing);
+  for(let i = 0; i < 1080 / pointSize * 2; i++) {
+
+
+    let x = int(i * pointSize);
+    let y = int(renderCounter * pointSize);
+    let dx = floor(random(pointSize/2));
+    let dy = floor(random(pointSize/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = squareSize/2;
+    let maskB = maskImgB.get(x, y);
+    let halfSize = pointSize/2;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] < 128) {
+      x = x + dx;
+      y = y + dy;
+      //create round and rectangle to black
       fill(pix);
-      stroke(pix);
-      strokeWeight(5)
-      // use noise and line to create out the light came though position.
-      xoff = xoff + .01;
-      var n = noise(xoff) * width;
-      line(-x, -y/10, n*2, height*1.5);
-      line(x, -y/20, n*2, height*1.5);
+      ellipse(x, y, pointSize, pointSize);
+      rect(x, y, pointSize, pointSize);
     }
-    else {
-      noStroke(pix);
-      strokeWeight(0)
-      // add rre in
-      rre(x, y, pix, 0.3);
+    else if(maskB[0] < 128) {
+      //create polygon to white mask
+      fill(pix);
+      polygon(x, y, pointSize, 6); 
+      fill(pix);
+      polygon(x, y, pointSize/4, 6);
     }
   }
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/elementSpacing) {
+  if(renderCounter > 1920/pointSize) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
@@ -84,4 +65,17 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
+
+//create polygon function
+function polygon(x, y, radius, npoints) {
+  angleMode(RADIANS);
+  var angle = TWO_PI / npoints;
+  beginShape();
+  for (var a = 0; a < TWO_PI; a += angle) {
+    var sx = x + cos(a) * radius;
+    var sy = y + sin(a) * radius;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
 }
