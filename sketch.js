@@ -1,6 +1,3 @@
-//used perlin noise flowfield code from Dan Shiffman, also used an image of Atlantis Map projection
-//that is labelled for reuse 
-
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
@@ -43,8 +40,8 @@ function setup () {
 //else if came in use when I had to declare the maskImg, now works for pic 2 + 3
   for (var i = 0; i < 50; i++) {
     particles[i] = new Particle(maskImg);
+    }
   }
-}
 
 function draw () {
 //pic 1 custom pixel
@@ -82,7 +79,7 @@ if(SourceImgName=="input_1.jpg") {
 //pic 2+3 custom pixel
   else if(SourceImgName=="input_2.jpg" || SourceImgName=="input_3.jpg") {
 
-    const pointSize = 25;
+    const pointSize = 10;
 
     translate(pointSize,pointSize);
 

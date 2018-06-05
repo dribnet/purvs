@@ -35,7 +35,7 @@ function Particle(maskImg) {
     if (this.h > 255) {
       this.h = 0;
     }
-    strokeWeight(1);
+    strokeWeight(10);
     let mask = maskImg.get(this.pos.x, this.pos.y);
 
     if(mask[0] < 255 && mask[0] > 0) {
