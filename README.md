@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
+After listening to my tutor's advise, I devide to go for the elementSpacing of 5 or 4. Now I will render the input_1 and input_3.
+
 I applied elementSpacing in 10 to input_1, 5 to input_2 and 2 to input_3. Just want to find the best scale for my project.
 
 Part 4:

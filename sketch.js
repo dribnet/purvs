@@ -8,9 +8,9 @@ let colorSquareSize = 40;
 
 /* Override some variables with high-resolution final version*/
 if (finalVersion){
-  elementSpacing = 2;
-  squareSize = 2;
-  colorSquareSize = 2;
+  elementSpacing = 5;
+  squareSize = 5;
+  colorSquareSize = 5;
 }
 
 let sourceImg=null;
