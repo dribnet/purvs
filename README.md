@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+i tested out the smartmask on the lantern flowers. The mask ended up okay it covered majority however it did not work well covering the bottom bits of the flowers. The mask leaves this gap between the flowers so I think that it is best to just leave it and go with my original one for the lantern flowers. I will test out the other flowers and see how they work. 
 
-I tested it out without the stroke and I'm still not sure whether i like it with or without it. The fuzzy lines and opacity of the triangles make it look interesting and the dangle pieces of the flower remind me of a jellyfish. The background is still drawing over hte flowers so I ask about how to fix it and I will try and get it to work. With the way it looks currently it looks like it is sparkling in a way. The density I think could be more packed together however i do like how it looks with the triangles stretched and spaced out. The image looks like pale washed out crystal lantern flowers which I quite like.  
+I had some trounle with the mask but it was all just simplle issues that I did not pay close enough attention to. 

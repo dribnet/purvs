@@ -14,7 +14,7 @@ let renderCounter=0;
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  maskImg = loadImage("mask_input_1.png");
 }
 
 function setup () {
@@ -52,8 +52,8 @@ function draw () {
     //let halfSize2 = 40;
     //fill(pix, 10);//////////////////
 
-    //colorMode(HSL);
-    //colorMode(HSB);
+    //colorMode(RGB, 60, 60, 140);
+    colorMode(RGB);
 
     if(mask[0] > 128) {
       noStroke();
@@ -62,20 +62,21 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       //ellipse(x+30, y+60, circleSize, circleSize+40);
       //triangle(x+30, y+60, z+10, circleSize, circleSize+40, circleSize);
-fill(pix[0], pix[1], pix[2], 20);
+fill(pix[0], pix[1], pix[2], 40);
  push();
-      translate(-10, 5);
+      translate(-10, 15);
       //triangle(x-triSize3, y, x+triSize2, y-triSize3, x, y+triSize);
       //triangle(x-triSize3, y, x+triSize, y-triSize2, x, y+triSize);
    
       triangle(y, x+tri3, y, x-tri2, y, x);
+      fill(pix[0], pix[1], pix[2], 30);
       rect(x, y, tri3, tri);
       //triangle(x-triSize3, y, x-triSize3, y, x, y+triSize3);
       //triangle(y, x-triSize, y, x-triSize3, x, x);
       //stroke(pix);
       //strokeWeight(0.5);
       //rotate(-10);
-      fill(pix[0], pix[1], pix[2], 70);
+      fill(pix[0], pix[1], pix[2], 50);
       triangle(x-tri2, y, x+tri, y-tri3, x, y+tri);
 
       //triangle(y-triSize, y-triSize, y, x+triSize3, y, x+triSize2);
