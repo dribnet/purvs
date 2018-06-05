@@ -4,11 +4,11 @@ let currentRow=0;
 
 //Mask elements to begin a rotate and scale disolve.
 let fadeCount=0;
-let fadeRowBegin = 45 ;
+let fadeRowBegin = 40 ;
 let rot=10;
 let s=1.0;
 //Render Quality settings: 'low' 'med' 'high'
-let quality = "high";
+let quality = "med";
 let diamondSize = 10;
 let circleSize = 10;
 let spacing = 10;
@@ -95,7 +95,7 @@ function draw () {
 
   }
 
-  s = map(currentRow, 125, 192, 1.0, 0);
+  s = map(currentRow, 55, 64, 1.0, 0);
   currentRow = currentRow + 1;
   if(currentRow *  spacing>1920) {
     console.log("Done!")
