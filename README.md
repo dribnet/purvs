@@ -1,1 +1,1 @@
-In the second picture I decided I wanted to go with vertical and horizontal lines since the pictures I'm using seem to be geometric looking.
+I just wanted to see what the previous picture looked like with the new code. However I think I'll keep it how it was.
