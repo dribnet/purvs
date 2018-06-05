@@ -1,7 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
-In this version, I have not think about the theme of my three photos. I used my photos which I took at Shenzhen MOCAP museum, China. I really like the architecture which built a lot of glass walls from the sunshine came in. It makes me feel comfortable and good for the environment because it saves a lots electricity. 
+This try kind of fail, I still use the Images which I took from Shenzhen MOCAP. 
 
-Then I start created these three images. I used triangle shapes in the black mask and create arcs in white mask. It created out the concept of the MOCAP museum, all about geometry in the reality. 
+I really want to use the line to create out the position of the lights that I use noise and line to create the pattern. In the first input it looks fine, however going to second and third one it like a disaster.
 
-I had use three different codes in these three images. The stairs one cannot fit on the shapes that I created for image1 because it has not intensive light came through it. 
+Especially, the second image it simple looks like a brunch of the mess fringe lol
+
+In this experiential, I think I will do sth connect with natural such as, light or water.
+

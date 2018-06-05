@@ -9,67 +9,67 @@ let squareSize = 20;
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
   elementSpacing = 20;
-  circleSize = 20;
+  circleSize = 50;
   squareSize = 10;
 }
 
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
+//xoff for my line function
+var xoff = 0.0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
-
+  noiseSeed(99);
+  stroke(0, 10);
   imageMode(CENTER);
   noStroke();
-  var c = color(65)
+  var c = color(255)
   background(c);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-//create the arc
-function owl(x, y, c, s) {
+// create rectangel for black mask
+function rre(x, y, c, s) {
   push();
   translate(x, y);
-arc(50, 50, 100, 100, 0, PI + QUARTER_PI, TWO_PI);
+  rect(30, 20, 55, 100, 20);
   pop();
 }
-// create the triangle
-function lll(x, y, c, s) {
-  push();
-  translate(x, y);
-triangle(50, 50, 20, 200, 100, 180);
-  pop();
-}
+
 
 
 function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
-    let dx = floor(random(elementSpacing/2));
-    let dy = floor(random(elementSpacing/2));
-    x = x + dx;
-    y = y + dy;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      //add triangle to the black mask
       fill(pix);
-      lll(x, y, pix, 0.5);
+      stroke(pix);
+      strokeWeight(5)
+      // use noise and line to create out the light came though position.
+      xoff = xoff + .01;
+      var n = noise(xoff) * width;
+      line(-x, -y/10, n*2, height*1.5);
+      line(x, -y/20, n*2, height*1.5);
     }
     else {
-      //add triangle to the white mask
-      owl(x, y, pix, 0.5);
+      noStroke(pix);
+      strokeWeight(0)
+      // add rre in
+      rre(x, y, pix, 0.3);
     }
   }
   renderCounter = renderCounter + 1;
