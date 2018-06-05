@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -60,23 +60,12 @@ function draw () {
   }
 }
 function ball (x, y, c, s){
-	push();
-	translate(x, y);
-	scale(s);
-  stroke(c);
-	fill(196, 227, 255);
+  push();
+  translate(x, y);
+  scale(s);
+  stroke(c, 196, 227, 255);
+  noFill();//(196, 227, 255);
   ellipse(0, 0, 80, 80);
   pop();
 
-}
-
-
-
-
-
-   
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
 }

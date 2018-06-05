@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-So far I am testing out different patterns and colours to see which one is best suited for the topic and which one I like the most.
+I've completed rendering the images and I think I will be going with this. 
+
+
