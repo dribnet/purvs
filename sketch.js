@@ -8,9 +8,9 @@ let squareSize = 10;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 30;
+  elementSpacing = 35;
   circleSize = 5;
-  squareSize = 25;
+  squareSize = 30;
 }
 
 let sourceImg=null;
@@ -46,7 +46,7 @@ function draw () {
     let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, circleSize, circleSize);
+      ball(x, y, pix, 0.5);
     }
     else {
       rect(x-halfSize, y-halfSize, squareSize, squareSize);    
@@ -59,7 +59,22 @@ function draw () {
     // saveBlocksImages();
   }
 }
+function ball (x, y, c, s){
+	push();
+	translate(x, y);
+	scale(s);
+  stroke(c);
+	fill(196, 227, 255);
+  ellipse(0, 0, 80, 80);
+  pop();
 
+}
+
+
+
+
+
+   
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
