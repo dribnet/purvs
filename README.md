@@ -1,12 +1,16 @@
 ## Creative Coding 2: Custom Pixel
 
-I have added more photos as a test, which are two friends of mine.  Who are close to me. The capture at the start is to capture the moments I shared with them. 
+Right now I am going with the theme 'friendship'.
 
-The capture represents me capturing memories and storing it somewhere.
+These pictures are of me and my friends in different places. These places are places where I socialise are make new or develop my friendships. 
 
-One sitting down on a couch and one walking up stairs. Continued using Tom's code with some minor changes to the sizes of the ellipes.
+The three areas are skating, pool, and the last image that will be put in will be university.
 
-The couch I wanted to capture the person with ellipses. 
+So I've made a collage of photos that relate to each topic and put photos that I think that are important and have a meaning behind them.
 
-The one walking up, I wanted to capture the green which were little branches and I masked the person walking up as well.
+Right now I've rendered one image with very small circle square size because I wanted the images to be visible as possible and the background will be coded with patterns. Hopefully.
 
+My next goal is to add patterns that relate to the topic. For example, skating maybe wheels or skateboard decks, pool just pool balls, and the last image for uni will probably a mixture of emoji expressions, angry, sad, and happy etc.
+
+
+Very precious moments and memories ye. 

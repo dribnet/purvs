@@ -2,15 +2,15 @@
 const finalVersion = false;
 
 /* Default versions of variables */
-let elementSpacing = 40;
-let circleSize = 20;
-let squareSize = 20;
+let elementSpacing = 5;
+let circleSize = 30;
+let squareSize = 10;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 20;
-  circleSize = 10;
-  squareSize = 10;
+  elementSpacing = 30;
+  circleSize = 5;
+  squareSize = 25;
 }
 
 let sourceImg=null;
@@ -18,8 +18,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
@@ -37,10 +37,10 @@ function draw () {
   for(let i=0;i<1080/elementSpacing;i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
-    let dx = floor(random(elementSpacing/2));
-    let dy = floor(random(elementSpacing/2));
-    x = x + dx;
-    y = y + dy;
+    let dx = floor((elementSpacing/2));
+    let dy = floor((elementSpacing/2));
+     x = x + dx;
+     y = y + dy;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let halfSize = squareSize/2;
