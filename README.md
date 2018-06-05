@@ -1,9 +1,12 @@
 ## Creative Coding 2: Custom Pixel
 
-image 2 progress
+image 3 and refine image 2
+I select the image 3 is the ball on the ground which is opposite to the image 2.  Originally, I just want to move the camera up and down to see the ball rise up from the ground. But when I have done this, I found more things I could do. I was going to add more details to my images, including the texure, changing the angle, viewpoint and so on.
+
+<!-- image 2 progress
 with all the help from my teacher and TAs, I gain a deeper understanding of the perspective and I employed the camera() function to explore more possibilities. Then, I have found the better angle to show.
 
-For next step, I will bring my own version to image 1 and also finsh my image 3.
+For next step, I will bring my own version to image 1 and also finsh my image 3. -->
 <!-- work on my style
 Finally, I built a consistent style of series. I took this sort of shots from the different spots. When I employ my concept to these photos, I can show a specific sense of dimension. The viewers could feel something come out, fade away, pass by.
 

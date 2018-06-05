@@ -35,7 +35,7 @@ function draw() {
   background(255);
   
   perspective(52/100*PI, 1, 0.1, 100);
-  // ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 500);
+  
   translate(0, -300, -40);
   // rotateX(HALF_PI+3/10*PI);
   rotateX(-HALF_PI);
@@ -60,11 +60,10 @@ function draw() {
       fill(pix);
       let a = angle + offset;
       let h = floor(map(cos(a), -1, 1, 100, 200));
-      let i; 
+      let g; 
       
 
       translate(x - width/2, 0, z - height/2);
-      // normalMaterial();
 
       // if(mask[0] > 200) {
       //   // white
@@ -77,13 +76,16 @@ function draw() {
 
 
       // draw ellipse inside the mask
-      if(mask[0] > 128) {
-        h = map(tan(h),-1,1,50,100);
-        // ellipsoid(w-2,h,w-2);
-        cylinder(w-2,h);
-      }else{ h = map(cos(h)-1,1,-50,30)}
+      if(mask[0] < 128) {
+        h = map(cos(h)-1,1,-50,20);
+        g = map(sin(g) -1, 1,-1,2);
+        box(w-g, h, w-g);
+      }else if (mask[0] > 128){h = map(tan(h),-1,1,50,100)
 
-      box(w-2, h, w-2);
+       cylinder(w-2,h);
+      }
+       
+      
       
       offset += 0.1
 
