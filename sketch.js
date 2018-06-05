@@ -13,7 +13,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(55);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -34,18 +34,24 @@ function draw () {
 
     if(mask[0] > 128) {
       // noFill()
-          strokeWeight(19)
-      // line(x, y+40, x+40, y);
-      // line(x+40, y+40, x, y);
-      line(x+10,y,x+10,y+20)  
-      line(x-10,y,x-10,y+20) 
+          strokeWeight(8)
+      // line(x,y+20,x,y-20)  
+      // line(x-20,y,x+20,y)  
+      // line(x-10,y-10,x+20,y+10)
+      // line(x-15,y+20,x+20,y-10)  
+      beginShape();
+      vertex(x-13,y+13)
+      vertex(x,y-13)
+      vertex(x+13,y+13)
+      endShape(CLOSE);
+ 
     }
-    
+
     else {
      noFill()
           strokeWeight(19)
-      line(x,y+10,x+20,y+10)  
-      line(x,y-10,x+20,y-10)  
+      line(x-10,y+10,x+10,y+10)   
+      line(x-10,y-10,x+10,y-10) 
     }
   }
   renderCounter = renderCounter + 1;

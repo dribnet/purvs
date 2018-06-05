@@ -1,1 +1,1 @@
-I just wanted to see what the previous picture looked like with the new code. However I think I'll keep it how it was.
+This picture is of buildings to once again continue with the geometric shapes theme. I've used triangles for the buildings and tree. Then I used straight lines again for the sky.
