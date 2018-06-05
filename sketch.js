@@ -3,8 +3,8 @@ let maskImg = null;
 let renderCounter = 0;
 
 function preload() {
-    sourceImg = loadImage("input_3.jpg");
-    maskImg = loadImage("mask_3.png");
+    sourceImg = loadImage("input_1.jpg");
+    maskImg = loadImage("mask_1_2.png");
 }
 
 function setup() {
@@ -16,15 +16,12 @@ function setup() {
     background(255);
     sourceImg.loadPixels();
     maskImg.loadPixels();
-    //background(117, 187, 220);
     background(255);
 }
 
 
 //DONT MOVE
-
 let elementSpacing = 10;
-
 //DONT MOVE
 
 function convertRgbToHsluv(c) {
@@ -33,16 +30,9 @@ function convertRgbToHsluv(c) {
 
 function draw() {
 
-
-// TWO OF FOLLOWING IN IF & ELSE STATEMENT?!?!?!
     for (let i = 0; i < 1080 / elementSpacing; i++) {
 
-        //    let x = floor(random(sourceImg.width));
-        //    let y = floor(random(sourceImg.height));
-
         let triSize = 30;
-
-
 
         let x = int(i * elementSpacing);
         let y = int(renderCounter * elementSpacing);
@@ -58,30 +48,13 @@ function draw() {
 
         if (mask[0] > 128) {
             //fill(pix);
-              rect(x, y, r2, r2);
+              rect(x, y, r1-(r2*2), r1-(r2*2));
 
         } else {
             //let hsluvColor = convertRgbToHsluv(pix);
             //fillHsluv(0, 0, hsluvColor[2]);
               triangle(x + r1, (y + r4), (x + triSize) - r4, (y + triSize) - r4, x + r4, (y + triSize) - r4);
         }
-
-
-        //stroke(1);
-        //rect(x, y, pointSize, pointSize);
-
-        //triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
-
-        //triangle(x+r1, y, x+triSize, y+triSize, x, y+triSize);
-
-            /*
-            if(mask[0] > 128) {
-              triangle(x+r1, (y+r4), (x+triSize)-r4, (y+triSize)-r4, x+r4, (y+triSize)-r4);
-            }
-            else {
-              triangle(x+r1, y, x+triSize, y+triSize, x, y+triSize);    
-            }
-            */
 
 
     }

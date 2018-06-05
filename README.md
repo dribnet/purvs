@@ -3,8 +3,12 @@
 
 -- Have encountered a problem when my code is pushed that one of my artworks doesnt appear --
 
+5/6 #2
+I have updated the backgroud so that it has more substance while also keeping the same grainy effect of the last attempt. I have tried making itsmaller or larger but the effect of it isnt as good as what I have found now. The background also gives a nice outline to the poly art style of the cats themselves that seem in detail due to the contrast between the two types of filling.
+
+
 5/6
-Have retuene code and updated photos due to a more accurate mask.
+Have changed code and updated photos due to a more accurate mask.
 I really like the way the code is at the moment. The way the triangles give the image the poly art effect and the squares that cover the background but arrange themselves in triangles to link the whole design together.
 
 
