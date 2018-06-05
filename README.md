@@ -1,1 +1,1 @@
-Just trying out different ways that I could manipulate the image. This time using rect and line. It doesn't look very pleasant at the moment but I'm just experimenting. 
+I have used over lapping circles for the stairs and lines that cross over each other for the rails and I like the way it has turned out.
