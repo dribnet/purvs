@@ -1,4 +1,4 @@
-let finalVersion = true; //false --> simple version;
+let finalVersion = false; //false --> simple version;
                          //true --> final version;
 
 let sourceImg=null;
@@ -98,7 +98,7 @@ function draw () {
       push();
       translate(x-halfSize, y-halfSize);
       let hsluvColor = convertRgbToHsluv(pix);
-      fillHsluv(204, 46, hsluvColor[2]);
+      fillHsluv(228, 40, hsluvColor[2]);
       rotate(45);
       rect(0, 0, backSize, backSize);
       pop();    

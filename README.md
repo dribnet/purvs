@@ -1,5 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I nearly finsh my code so far. I did many changes and test different size of pixels. In the end, I choose the size of 10 for background and 6 for foreground to render my high resolution version.
-During the process I try to render the high resolution version, I had many problems. At the beginning I changed the "finalVersion" into true but the program did not render the high resolution ones. The reason why this happened because I put my if statement out of any function so it will not be called when the program running. I solve the problem by putting the if statement into the setup function. 
-Likely, I use the if statement to change the random range for low and high resolution version as well. I put it in the setup function at the beginning, but all the flowers were in the same size because the sepup funcion will be called only once, so only one number was picked from the range and put on all the flowers. After I moved it into draw, the problem has been solved.
+For this time, I changed the colour of the background from green-blue to the pure blue. I use the blue tone to show the mood of sadness so I want it to be the cold and ruthless blue. 
