@@ -1,8 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-I’ve added noise to the x and y values so that they will produce a sort of wavy effect, which gives some dynamic to the image.
+Ive changed a lot from the last version. 
 
-Rather than ellipses I have decided to add curves that form a sort of tear drop shape. I was intending to create a faux-3D effect but my values didn’t really work out that way, and I felt I didn’t like the direction my images where taking. 
+As a background I have created a grid but using x and y values that have been affected by noise. This produces a sort of random grid, but as noise functions different to the random function it doesn’t produce as extreme randomness. 
 
-The effect is interesting but Im more interested in interpreting the image rather than adding an effect to it. 
+In the masked areas, where brightness is above 128, pixels are represented by a small square. 
 
+The images produced are reminiscent of beads in a woven blanket. 
+
+I like the mesh like effect of the image. The grid brings a lot of dynamic to the image and can be looked at as a complex 3D object too. The squares (beads) are looking rather flat and I’d like to explore ways to develop them further. 
