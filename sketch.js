@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -24,7 +24,7 @@ function draw () {
   for(let i=0;i<1080/pointSize;i++) {
     let x = int(i * pointSize);
     let y = int(renderCounter * pointSize);
-    // let x = floor(random(sourceImg.width));
+        // let x = floor(random(sourceImg.width));
     // let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
@@ -33,7 +33,7 @@ function draw () {
     if(mask[0] > 128) {
       push();
        translate(x, y);
-       scale(0.5);
+       scale(0.4);
        flower();
        pop();
      
@@ -69,7 +69,6 @@ function flower(){
 
   while(i < 20){
   rotate(360);
-  stroke(250);
   ellipse(5, radius, 10, 20);
   i = i + 1;
 
