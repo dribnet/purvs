@@ -1,11 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-Ive changed a lot from the last version. 
+The beads have been slightly updated. 
+- The border has been removed
+- They change brightness based off of how bright the pixel they represent is. 
 
-As a background I have created a grid but using x and y values that have been affected by noise. This produces a sort of random grid, but as noise functions different to the random function it doesn’t produce as extreme randomness. 
+The grid is remains the same as before. 
 
-In the masked areas, where brightness is above 128, pixels are represented by a small square. 
-
-The images produced are reminiscent of beads in a woven blanket. 
-
-I like the mesh like effect of the image. The grid brings a lot of dynamic to the image and can be looked at as a complex 3D object too. The squares (beads) are looking rather flat and I’d like to explore ways to develop them further. 
+Im not so sure I like how the beads are looking, in the last iteration they felt apart of the grid. Now, the image is disjointed, it is just a grid with squares onto and I’m not sure I like it much.
