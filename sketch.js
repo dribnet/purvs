@@ -4,7 +4,7 @@ let renderCounter=0;
 
 //Image and mask loader
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
+  sourceImg = loadImage("z_input_1.jpg");
   maskImg = loadImage("mask_1.png");
 }
 
