@@ -2,11 +2,8 @@
 
 Andrija Djorovic
 
-I looking into a pixel style similer to my 3rd assignment, mainly by using the Hexagon as the main element.
-The theme revolves around my best friends in my teenager years, my dog Tobi.
+After a few iterations and experiment, I finally found a custom pixel that I enjoy and find visually pleasing, that also holds my previous points; using hexagons as the main(or all in this iterations) element and the background and foreground focus of the theme.
 
-I'm trying a few different thinks for my style, I have 2 that I'm looking into now,
-my vision is that the image will have a clear foreground and background:
-#1: circles in the background and hexagon in the foreground 
-#2: both hexagon in the foreground and background, but the background is made to look more washed-out by adding a white hexagon ring.
-I also make a custom mask for my image, as I was using one for the given one in the first push
+I added more images that follow the theme, using simple and mono-coloured(or duo with the water) background.
+
+I looked into the smartmask but in the end I found in to as detailed as I wanted. With the foreground holding  a big part of the image, as well as a big problem with my there of a clear foreground vs background. As such I made a one image with my custom mask and one with the smartmask.

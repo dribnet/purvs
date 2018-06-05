@@ -5,8 +5,8 @@ let renderCounter=0;
 const colorBack = "#e3eded";
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_input_3.png");
 }
 
 function setup () {
@@ -21,7 +21,7 @@ function setup () {
 }
 
 function draw () {
-  let pointSize = 30;
+  let pointSize = 16;
 
   for(let i=0;i<1080/pointSize;i++) {
     let x = int(i * pointSize);
@@ -29,18 +29,6 @@ function draw () {
     let halfSize = pointSize/2;
     let pix = sourceImg.get(x+halfSize, y+halfSize);
     let mask = maskImg.get(x+halfSize, y+halfSize);
-    fill(pix)
-
-    //circles
-    // if(mask[0] < 128) {
-    //   if(renderCounter%2 == 0){
-    //     ellipse(x+halfSize, y, pointSize);
-    //   }
-    //   else{
-    //     ellipse(x, y, pointSize);
-    //   }
-    // }
-    //pentagons
     if(mask[0] < 128) {
       if(renderCounter%2 == 0){
         fill(pix);
@@ -60,6 +48,7 @@ function draw () {
       }
     }
     else {
+      fill(pix);
       if(renderCounter%2 == 0){
         hexagon(x+(pointSize/2), y, pointSize);
       }
@@ -76,12 +65,6 @@ function draw () {
   }
 }
 
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-}
-
 function hexagon(x, y, radius) {
   var angle = TWO_PI / 6;
   beginShape();
@@ -91,4 +74,11 @@ function hexagon(x, y, radius) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+
+function keyTyped() {
+  if (key == '!') {
+    saveBlocksImages();
+  }
 }
