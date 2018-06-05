@@ -3,7 +3,7 @@ const finalVersion = true;
 var xoff = 0;
 var yoff = 0;
 
-sizeSq = 40;
+sizeSq = 30;
 halfSizeSq = sizeSq / 2;
 scl = 5;
 bend = 15;
@@ -71,17 +71,22 @@ function draw() {
    
       
        if (mask[0] > 50) {
-        fill(pix);
-        stroke(pix);
+         
+         let brightness = pix[0] + pix[1] + pix[2] /3;
+         pix[3] = 100;
+         
+        
+        stroke('rgba(230,230,230,0.25)');
         print("y = " + i + " x = " + j);
-        animate[num] = []
+        animate[num] = [];
         animate[num][0] = pos[i][j][0] * scl;
         animate[num][1] = pos[i][j][1] * scl;
-        rect(animate[num][0] - halfSizeSq, animate[num][1] - halfSizeSq, sizeSq, sizeSq);
+        animate[num][3] = brightness/255 * sizeSq;
+        animate[num][4] = pix;
 
         num++;
       }else{
-            stroke(240);
+            stroke('rgba(230,230,230,0.25)');
          strokeWeight(1);
 
       if (j - 1 >= 0) { // to the left
@@ -99,18 +104,15 @@ function draw() {
 
       }
 
-
-
-
-
-
-
-
-
-
-
     }
+  }  for (num = 0; num < animate.length; num++) {
+   noStroke();
+           print("color value" + animate[num][4]);
+      fill(animate[num][4]);
+      rect(animate[num][0] - halfSizeSq, animate[num][1] - halfSizeSq, animate[num][3],animate[num][3]);
   }
+  
+  
   print("done!");
   noLoop();
 }
