@@ -10,12 +10,18 @@ if (finalVersion) {
 	pointSize = 20;
 }
 
+//the length of the "brushstroke" in the background
+const brushLength = 10;
+
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
 let numPoints = 15;
 let points = [];
+let xStart;
+let xNoise;
+let yNoise;
 
 function preload() {
 	sourceImg = loadImage("input_1.jpg");
@@ -23,17 +29,22 @@ function preload() {
 }
 
 function setup () {
-	let main_canvas = createCanvas(1080, 1920);
-	main_canvas.parent('canvasContainer');
+    //console.log("starting");
+    smooth();
+    let main_canvas = createCanvas(1080, 1920);
+    main_canvas.parent('canvasContainer');
 
-	imageMode(CENTER);
-	noStroke();
-	background(255);
-	sourceImg.loadPixels();
-	maskImg.loadPixels();
+    imageMode(CENTER);
+    noStroke();
+    background(255);
+    sourceImg.loadPixels();
+    maskImg.loadPixels();
+
+    
 }
 
 function draw () {
+
 
 	for(let i=0;i<1080/pointSize;i++) {
 		let x = int(i * pointSize);
@@ -70,23 +81,41 @@ function draw () {
     	//noStroke();
     	//rect(x, y, pointSize, pointSize); 
 
+        var xstart = random(10),
+        xnoise = xstart,
+        ynoise = random(10);
 
-    	stroke(pix);
-    	strokeWeight(0.2);
-    	var m = numPoints;
-    	var n = numPoints;
-    	for (k = 0; k < numPoints; k++) {
-    		n--
-    		for (j = 0; j < numPoints; j++) {
-    			n--
-    			line(x+ noise(k)*bigPoint - 10, y + noise(j)*bigPoint - 10, x + noise(n)*bigPoint - 10, y + noise(m)*bigPoint - 10 );
-    		}
-    	}
+        for (var yPos = 0; yPos <= pointSize; yPos+=5) {
+            ynoise += 0.1;
+            xnoise  = xstart;
+            for (var xPos = 0; xPos <= pointSize; xPos+=5) {
+                //console.log("x" + xPos);
+                xnoise += 0.1;
+              drawPoint(x+xPos+10, y+yPos, noise(xnoise, ynoise), pix);
+            }
+        }
+  
+
+
+
+    	//stroke(pix);
+    	//strokeWeight(0.2);
+    	//var m = numPoints;
+    	//var n = numPoints;
+    	//for (k = 0; k < numPoints; k++) {
+    	//	n--
+    	//	for (j = 0; j < numPoints; j++) {
+    	//		n--
+    	//		line(x+ noise(k)*bigPoint - 10, y + noise(j)*bigPoint - 10, x + noise(n)*bigPoint - 10, y + noise(m)*bigPoint - 10 );
+    	//	}
+    	//}
 
 
 
     }
 }
+
+
 renderCounter = renderCounter + 1;
 if(renderCounter > 1920/pointSize) {
 	console.log("Done!")
@@ -99,6 +128,16 @@ function keyTyped() {
 	if (key == '!') {
 		saveBlocksImages();
 	}
+}
+
+function drawPoint(x, y, noiseFactor, col) {
+  push();
+  translate(x, y);
+  rotate(noiseFactor * radians(360));
+  strokeWeight(2);
+  stroke(col);
+  line(10, 0, 0, 0);
+  pop();
 }
 
 
