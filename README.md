@@ -8,7 +8,8 @@ rendering(with just one specific religious symbol forming their
 face and hair), the second perspective is shown when the image
 is actually finished(with the png and all other religious glyphs
 placed on top). The main idea I want to express is you can be
-whatever you want no matter the skin colour or ethnic background.
+whatever you want(to have whatever religion no matter the skin colour 
+or ethnic background.
 
 I have decided to not use smartmask because the smartmask mask
 out the entire person. But I only want to mask out specific parts
@@ -25,7 +26,7 @@ still be seen.
 For the background, I have used my heart glyph from PS3. I originally
 wanted to do a transition of the empty heart into a full heart, linking
 the empty heart to first perspective and full heart to second perspective.
-But after a few experiments I realised that this idea can not be achieve
+But after a few experiments I realised that this idea can not be achieved
 because once the image is rendered, you can not change the fill of an 
 object function. I think it would have added a lot more meanings to my
 project if it works.
@@ -38,4 +39,6 @@ decided to keep it simple by using just rectangles and black & white.
 
 If I have more time to refine this project, I would ask my models to
 wear some brighter colours for experiment shoot. The colours might
-create an interesting contrast to the background.
+create an interesting contrast to the background. I would also draw more
+religious glyphs to place on top of my png file so there will be more varieties
+of look.

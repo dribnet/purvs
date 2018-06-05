@@ -1,5 +1,5 @@
 /* Set to true to make final high-resolution version */
-const finalVersion = false;
+const finalVersion = true;
 const col =80;
 
 /* Default versions of variables */
@@ -9,9 +9,11 @@ let squareSize = 30;
 let pointSize = 30;
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  elementSpacing = 20;
-  circleSize = 25;
-  squareSize = 10;
+  elementSpacing = 60;
+  circleSize = 50;
+  squareSize = 30;
+  pointSize = 30;
+
 }
 
 let sourceImg=null;
