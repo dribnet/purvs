@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
+-5/6-
+I have changed my first image to a photo I took at Frank Kitts Park of a seagull, this is to better utilise the smartmask. In myfirst image the smartmask picked uop the seagull quite well and also a giumat anchor in the background which it thought was a person. I just used the bird for the mask. The secong image it picked up quite a few people scattered across the image, unfortunatly they rae very small so they dont show up very well with the code that I am using. The third image idd not com eup with anything on the smartmask, so the processed image only shows the random shape outlines and grid area. I will not use any of the smartmasks for my final, I think I will just use my own made ones.
+
 -1/6- 3rd Commit
 I implemented my previous grid mask into the 'stroke only' code so that the random shape background only draws the stroke with no fill and then the grid is drawn ontop in the mask. I quite like how this turned out and I will iterate onthis for my final I think.
 
