@@ -37,7 +37,7 @@ function setup () {
   imageMode(CENTER);
   angleMode(DEGREES);
   // noStroke();
-  background(10);
+  background(200);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -52,6 +52,8 @@ function draw () {
     let y = int(renderCounter * elementSpacing);
     let dx = floor(random(elementSpacing));
     let dy = floor(random(elementSpacing));
+    let dx1 = floor(random(circleSize));
+    let dy1 = floor(random(circleSize));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     // fill(pix);
@@ -61,20 +63,33 @@ function draw () {
     let circleSize4 = map(hsluvColor[1], 0, 100, 30, 40);
     let circleSize5 = map(hsluvColor[1], 0, 100, 15, 25);
 
+    let startAngle1 = map(hsluvColor[0], 0, 100, 180, 359);
+    let endAngle1 = map(hsluvColor[2], 0, 100, 360, 179);
+    let startAngle2 = map(hsluvColor[1], 0, 100, 180, 359);
+    let endAngle2 = map(hsluvColor[0], 0, 100, 360, 179);
+    let startAngle3 = map(hsluvColor[2], 0, 100, 180, 359);
+    let endAngle3 = map(hsluvColor[0], 0, 100, 360, 179);
+    let startAngle4 = map(hsluvColor[1], 0, 100, 180, 359);
+    let endAngle4 = map(hsluvColor[2], 0, 100, 360, 179);
+    let startAngle5 = map(hsluvColor[2], 0, 100, 180, 359);
+    let endAngle5 = map(hsluvColor[1], 0, 100, 360, 179);
+
     let arcSize = map(hsluvColor[1], 0, 100, 40, 60);
-    let startAngle = map(hsluvColor[1], 0, 100, 180, 359);
-    let endAngle = map(hsluvColor[1], 0, 100, 360, 179);
+    let startAngle = map(hsluvColor[2], 0, 100, 180, 359);
+    let endAngle = map(hsluvColor[0], 0, 100, 360, 179);
     let halfSize = arcSize/2;
 
-    if(mask[0] > 128) {
+    if(mask[0] < 128) {
+    	x = dx1 + x;
+    	y = dy1 + y;
       stroke(pix);
       strokeWeight(2.5);
-      fill(10);
-      ellipse(x, y, circleSize, circleSize);
-      ellipse(x, y, circleSize2, circleSize2);
-      ellipse(x, y, circleSize3, circleSize3);
-      ellipse(x, y, circleSize4, circleSize4);
-      ellipse(x, y, circleSize5, circleSize5);
+      noFill();
+      arc(x, y, circleSize, circleSize,startAngle1, endAngle1);
+      arc(x, y, circleSize2, circleSize2,startAngle2, endAngle2);
+      arc(x, y, circleSize3, circleSize3,startAngle3, endAngle3);
+      arc(x, y, circleSize4, circleSize4,startAngle4, endAngle4);
+      arc(x, y, circleSize5, circleSize5,startAngle5, endAngle5);
     }
     else {
     x = dx + x;

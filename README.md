@@ -1,7 +1,13 @@
 ## Creative Coding 2: Custom Pixel
 
-The inspiration of the pattern was from Ukiyo-e, a genre of Japanese art which flourished from the 17th through 19th centuries. Kanagawa Oki Nami Ura is a famous masterpiece from Katsushika Hokusai, one of the Japanese artists from the Japanese art. It is about great wave of the occean. So I created five circles for the masking part to show the wave. 
+Theme
+Water cycle
 
-Also, I reduced the lightness of another part to demonstarte the strong contract between vivid colors and dark colors.
+I chose three image from three different weather to explain my theme. 
 
-In this part, I changed rectangle shapes as arc shapes. Also, I use mapping to change the scale of the arc shapes. My goal of it is to make it more unpredictable. So we can see more differences between the masking part and another part.
+
+Elements
+In this part, I was focusing on how I can define each part of my design. Also, I was thinking how I can explain my theme clearly with different elements. 
+
+Smartmask
+Because there are two parts in my input images. One of them is the sky part. Another one is the non-sky part. They are specific objects. And I checked the masking categories. It didn't mention the sky. Therefore, I didn'y use smartmask in my project.
