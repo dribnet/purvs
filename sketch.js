@@ -16,8 +16,8 @@ let maskImg = null;
 let currentY = 0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
@@ -41,7 +41,7 @@ function draw () {
 		drawInnerPixelShape(x, y);	
 	}else { // Decide Whether we draw a background star
 		var n = random(100);
-		if(n > 99){
+		if(n > 99.5){
 			n = random(10);
 			//Decide on a color
 			if(n <= 2){
