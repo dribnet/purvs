@@ -3,7 +3,7 @@ const finalVersion = false;
 
 /* Default versions of variables */
 let pointSize = 40;
-let doubPointSize = 80;
+let size = 80;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
@@ -16,7 +16,7 @@ let maskImg=null;
 let renderCounter=0;
 
 
-let numPoints = 10;
+let numPoints = 8;
 let points = [];
 
 function preload() {
@@ -52,13 +52,19 @@ function draw () {
     let halfSize = pointSize/2;
     fill(pix);
     if(mask[0] > 128) {
-    	ellipse(x, y, pointSize, pointSize);
+    	rect(x, y, pointSize, pointSize);
     }
     else {
-    	rect(x-halfSize, y-halfSize, pointSize, pointSize); 
+    	//rect(x-halfSize, y-halfSize, pointSize, pointSize); 
 
 
-    	
+    	stroke(pix);
+    	strokeWeight(0.5);
+    	for (k = 0; k < numPoints; k++) {
+    		for (j = 0; j < numPoints; j++) {
+    			line(x - numPoints*1.5 + noise(k)*size, y - numPoints*1.5 + noise(j)*size, x  - numPoints*1.5 + noise(numPoints-k)*size, y - numPoints*1.5  + noise(numPoints-j)*size );
+    		}
+    	}
 
 
 
