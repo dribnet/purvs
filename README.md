@@ -1,9 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-The beads have again been slightly updated. 
-- They change size based off of how bright the pixel they represent is. 
-- Opacity has been changed to 100 to give translucency 
+I ended up experimenting a lot to produce this outcome and I like the way it is looking. It produces a starry sky with constellations.
 
-The grid is remains mostly the same but I changed the opacity of the lines to be slightly translucent and less bright/intense. This seems to help the contrast in the image as the image felt very dense in the last iteration.
+It took a lot of trial and error to arrive at this as I was trying to move away from my previous iteration as I felt stuck in its development.
 
-Again I’m not happy as with the outcome as the two elements (grid and the squares) dont produce a cohesive image. 
+The stars were created from a array where every 4th pixels x and y is recorded. The arrays order is then randomised. 
+
+The lines connect the first point of the mask to the last point. I don’t like the fact this produces a continuous line so will have to come up with some way to prevent this. 
+
+I like this idea of converting imagery into constellation design, but I would like to develop and abstract the idea further.
