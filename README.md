@@ -9,6 +9,6 @@ My idea is to bring out the emotions more from individuals by rearranging coding
 
 I have created a sun like glyph that has an ellipse at the center surrounded by 8 rectangles. I like how it overlapping each other and gives me the vision of mess textures in the boxes but not in random. I mask the boxes out in photoshop followed by the shapes of the character and keep the background clear and empty so that the focus point is all pointed into the characters. 
 
-
+Photoshop masking - I have tried really hard to place every boxes carefully considered to the eyes, mouth, ears,and hair that could work nicely to through each other. 
 
 Extra Note - I have an idea of an emotions app that could tell what your emotions and personality color is by the numbers of boxes fullfill in that person's face . 
