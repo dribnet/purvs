@@ -13,8 +13,8 @@ let renderCounter=0;
  let tri3 = 40;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_input_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_input_3.png");
 }
 
 function setup () {
