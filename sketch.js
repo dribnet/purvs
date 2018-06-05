@@ -8,9 +8,9 @@ let colorSquareSize = 40;
 
 /* Override some variables with high-resolution final version*/
 if (finalVersion){
-  elementSpacing = 5;
-  squareSize = 5;
-  colorSquareSize = 5;
+  elementSpacing = 2;
+  squareSize = 2;
+  colorSquareSize = 2;
 }
 
 let sourceImg=null;
@@ -18,8 +18,8 @@ let maskImg=null;
 let curRow=0;
 
 function preload() {
-  sourceImg = loadImage("input_2.jpg");
-  maskImg = loadImage("mask_2.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {

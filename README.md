@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
+I applied elementSpacing in 10 to input_1, 5 to input_2 and 2 to input_3. Just want to find the best scale for my project.
+
 Part 4:
 Tried the smart mask. It is a good tool but not really work on my project. Becasue my photos are simple and have some effects on them. So I think I will just use my original masks for this project.
 
