@@ -2,9 +2,17 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+
+let pointSize = 30;
+let elementSpacing = 18;
+let squareSize = 13;
+let circleSize = 23;
+
+
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
+  maskImg2 = loadImage("mask_3.1.png")
 }
 
 function setup () {
@@ -16,42 +24,58 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImg2.loadPixels();
 }
 
-const pointSize = 20;
 
 function draw () {
-  for(let i=0;i<1080/pointSize;i++) {
-    let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
-        // let x = floor(random(sourceImg.width));
-    // let y = floor(random(sourceImg.height));
+  for(let i=0;i<1080/elementSpacing;i++) {
+    //let x = floor(random(sourceImg.width));
+   // let y = floor(random(sourceImg.height));
+    let x = i * elementSpacing;
+    //let a = i + 1;
+    let y = renderCounter * elementSpacing;
+    //let dx = floor(random(elementSpacing/2));
+    //let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = pointSize/2;
+    let mask2 = maskImg2.get(x, y);
+    let halfSize = squareSize/2;
     fill(pix);
     if(mask[0] > 128) {
+      if(mask2[0] > 128){
       push();
-       translate(x, y);
-       scale(0.4);
-       flower();
-       pop();
-     
-    }
-    else {
+      translate(x,y);
+      scale(0.4);
+      fill(pix);  
+      flower();
+      pop();
+      
+      }
+      else{
       rect(x-halfSize, y-halfSize, pointSize, pointSize);  
        
-       
-      
-        
+    }
+    }
+    else {
+      push();
+      translate(x, y);
+      scale(0.5);
+      noFill();
+      stroke(pix);
+      flower();
+      pop();  
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter*elementSpacing > 1920) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
+
+
+
 }
 
 function keyTyped() {
@@ -76,9 +100,7 @@ function flower(){
 
  }
 
-
-//z_color_helper.js#
-function fillHsluv(h, s, l) {
+ function fillHsluv(h, s, l) {
   var rgb = hsluv.hsluvToRgb([h, s, l]);
   fill(rgb[0] * 255, rgb[1] * 255, rgb[2] * 255);
 }
