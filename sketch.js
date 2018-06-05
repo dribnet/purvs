@@ -1,10 +1,18 @@
 let sourceImg=null;
 let maskImg=null;
-let renderCounter=0; // Rename to row counter
+let renderCounter=0;
+
+
+let pointSize = 60;
+let elementSpacing = 50/2;
+let squareSize = 20;
+let circleSize = 50/2;
+
 
 function preload() {
   sourceImg = loadImage("input_1.jpg");
   maskImg = loadImage("mask_1.png");
+  maskImg2 = loadImage("mask_12.png")
 }
 
 function setup () {
@@ -16,62 +24,71 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImg2.loadPixels();
 }
 
-const pointSize = 50;
 
 function draw () {
-  for(let i = 0; i < 1080 / pointSize * 2; i++) {
-
-
-    let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
-    let dx = floor(random(pointSize/2));
-    let dy = floor(random(pointSize/2));
+  for(let i=0;i<1080/elementSpacing;i++) {
+    //let x = floor(random(sourceImg.width));
+   // let y = floor(random(sourceImg.height));
+    let x = i * elementSpacing;
+    let a = i + 1;
+    let y = renderCounter * elementSpacing;
+    let x2 = floor(random(x-30, x+30));
+    let y2 = floor(random(y-30,y+30));
+    let dx = floor(random(elementSpacing/2));
+    let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = pointSize/2;
+    let mask2 = maskImg2.get(x, y);
+    let halfSize = squareSize/2;
     fill(pix);
-    if(mask[0] < 128) {
-      x = x + dx;
-      y = y + dy;
-      //create round and rectangle to black
-      fill(pix);
-      ellipse(x, y, pointSize, pointSize);
-      rect(x, y, pointSize, pointSize);
+    if(mask[0] > 128) {
+      if(mask2[0] > 128){
+       //ellipse(x,y, circleSize-10, circleSize-10);
+       strokeWeight(circleSize);
+       stroke(pix);
+       strokeWeight(12);
+       line(x, y+20, x2, y2*2);
+       // strokeWeight(8);
+       line(x, y-100, x2, y2);
+       // line(x+20, y+20, x2/2, y2/2);
+      }
+      else{
+        noStroke();
+      squareBase2 = map(x, 0, 1920, 10, 120);
+      squareSize2 = squareBase + floor(random(50, 80));
+      arc(x, y, squareSize, squareSize,0,squareSize);
+    }
     }
     else {
-      //create polygon to white mask
-      fill(pix);
-      polygon(x, y, pointSize, 6); 
-      fill(pix);
-      polygon(x, y, pointSize/4, 6);
+      noFill();
+      stroke(pix);
+      strokeWeight(3);
+      squareBase = map(y, 0, 1080, 2, 45);
+      squareSize = squareBase + floor(random(3, 15));
+      rect(x-halfSize, y-halfSize, squareSize, squareSize);
+      // noStroke();
+      // x = x + dx;
+      // y = y + dy;
+      // squareSize2 = squareSize;
+      // rect(x-halfSize, y-halfSize, squareSize, squareSize);
     }
   }
-
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  if(renderCounter*elementSpacing > 1920) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
+
+
+
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
-}
-
-//create polygon function
-function polygon(x, y, radius, npoints) {
-  angleMode(RADIANS);
-  var angle = TWO_PI / npoints;
-  beginShape();
-  for (var a = 0; a < TWO_PI; a += angle) {
-    var sx = x + cos(a) * radius;
-    var sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
 }
