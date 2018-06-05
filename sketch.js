@@ -4,15 +4,15 @@ let currentRow=0;
 
 //Mask elements to begin a rotate and scale disolve.
 let fadeCount=0;
-let fadeRowBegin = 15;
+let fadeRowBegin = 45 ;
 let rot=10;
 let s=1.0;
 //Render Quality settings: 'low' 'med' 'high'
-let quality = "low";
+let quality = "high";
 let diamondSize = 10;
 let circleSize = 10;
 let spacing = 10;
-
+var Y_AXIS = 1;
 //renderer Quality settings:
 switch(quality){
   case "low":
@@ -43,24 +43,27 @@ switch(quality){
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
+  bgImg = loadImage('bg_3.jpg')
 }
 
 //Canvas and image information setup.
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
+  image(bgImg, 0, 0);
   angleMode(DEGREES);
   imageMode(CENTER);
   noStroke();
-  background(195,68,47);
+  //cX used for gradient renders
+  let c1 = color(195,68,47);
+  let c2 = color(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
+//setGradient(0, 0, width, height, c1, c2, Y_AXIS); //used in one off renders for generating background images
   for(let i=0;i<1080/diamondSize;i++) {
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
     let x = i * spacing;
     let y = currentRow * spacing;
     let pix = sourceImg.get(x, y);
@@ -68,16 +71,17 @@ function draw () {
     fill(pix);
     let halfSize = spacing/2;
 
-        if(mask[0] > 128) {
-
+    if(mask[0] > 128) {
       push();
       if (currentRow > fadeRowBegin){
-      rot = rot + 8;
+      //rotates rows and scales diamonds when fadeRowBegin is met
+      //rot = rot + 8;
       translate(x,y);
       rotate(rot);
       scale(s);
       rect(0-halfSize, 0-halfSize,  diamondSize, diamondSize);
     } else {
+      //otherwise make normal diamonds
       translate(x,y);
       rotate(rot);
       rect(0-halfSize, 0-halfSize, diamondSize, diamondSize);
@@ -85,25 +89,42 @@ function draw () {
       pop();
     }
     else {
+      //else if off the mask, make background circles
       ellipse(x, y, circleSize, circleSize);
     }
-    //rowFade();
+
   }
 
-  s = map(currentRow, 13, 25, 1.0, 0);  //  fadeCount = fadeCount + 1;
+  s = map(currentRow, 125, 192, 1.0, 0);
   currentRow = currentRow + 1;
   if(currentRow *  spacing>1920) {
     console.log("Done!")
     noLoop();
     // saveBlocksImages();
   }
-}
+}//draw
 
-//Starts the scaling and rotating of elements at fade begin point
-/*function rowFade(){
-  if (currentRow > fadeRowBegin){
-  let fadeCount = fadeCount + 1;
-  map(y, y, 24, diamondSize, 0);
+
+/*
+function setGradient(x, y, w, h, c1, c2, axis) {
+
+  noFill();
+
+  if (axis == Y_AXIS) {  // Top to bottom gradient
+    for (var i = y; i <= y+h; i++) {
+      var inter = map(i, y, y+h, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }
+  }
+  else if (axis == X_AXIS) {  // Left to right gradient
+    for (var i = x; i <= x+w; i++) {
+      var inter = map(i, x, x+w, 0, 1);
+      var c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(i, y, i, y+h);
+    }
   }
 }*/
 
