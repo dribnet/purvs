@@ -1,17 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-Episode 06 FINAL 
+Episode 05.5 Experiment 
 
-## Theme
-
-the general theme that i was trying to establish is the idea and importance of certain everday areas that has come as ordinary and mundane to most people. Such is the case of alleyways that we walk into everyday. My images consist of three pathways both showing in the day and night. But the three pathways all connect into one big alleyway path, that interconnects a large portion of my commute to the train station as a student, and day or night, i always have to cross these paths to reduce the time i have to get to the station. and as mundane as these pathways are i always used them everday so its held a siginificant importance to me in my everyday commute. And this was my theme that i wanted to portray.
-
-##PROCESS
-
-originally i had the previous idea and theme, of everyday mundane items that represented me as a student. But i wanted to explore these idea of importance miuch deeper and i ended up changing the theme to a more sensible an understanble theme.
-
-##MASK
-I experimented in various instances where i replaced the ellipses and squares by reversing the negatives of the mask layers from black and white, to white and black. These changes help me further understand the extent in which i can experiment with the code. I had also changed the pictures half way and recreate the mask again, due to the change of theme that i was exploring.
+i figured out a way to randomized the positions of the squares to create a unique puzzle like look on the outside layer. I have also improved the ellipses to make it look better in accordance with the changes made. so the squares when generated are moving at random positions of x and y at a set parameter of 5 each.
 
 ##INSTANCES THAT I HAD UNDERTOOK
 -take photos (REVISED)

@@ -2,6 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 let curRow = 0;
+let poinSize1 = 0;
 
 
 function preload() {
@@ -33,12 +34,14 @@ function draw () {
     //let halfsize = pointSize/2;
     //editing the numbers below slows render but increases detail
     let halfsize = 5;
-    let pointSize1 = random(10,30);
+    let pointSize1 = random(20,40);
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x+halfsize, y+halfsize, pointSize1, pointSize1);
     }
     else {
+      x = x + random(0,5);
+      y = y + random(0,5);
       rect(x-halfsize, y-halfsize, pointSize, pointSize);    
     }
   }
