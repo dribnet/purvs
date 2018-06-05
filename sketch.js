@@ -1,8 +1,8 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
-let fullSize = 30;
-let halfSize = 15;
+let fullSize;
+let halfSize;
 let r;
 let g;
 let b;
@@ -20,22 +20,25 @@ let pB;
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
+  presImg = loadImage("input_3.jpg");
 }
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
+  presImg = loadImage("input_3.jpg");
 }
 
 function setup () {
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
+  presImg.loadPixels();
   imageMode(CENTER);
   noStroke();
   background(255);
   sourceImg.loadPixels();
-  //sourceImg.filter(GRAY);
+  sourceImg.filter(GRAY);
   maskImg.loadPixels();
   //image(sourceImg,0,0);
   
@@ -43,8 +46,8 @@ function setup () {
 
 function draw () {
   for(let i=0;(i<sourceImg.width);i++) {
-    let fullSize = 8;
-    let halfSize = 4;
+    let fullSize = 16;
+    let halfSize = 8;
     //let x = floor(random(sourceImg.width));
     //let y = floor(random(sourceImg.height));
     let x = i*fullSize;
@@ -53,12 +56,9 @@ function draw () {
     let mask = maskImg.get(x, y);
 
     fill(pix);
-    if(mask[0] > 128) { //not focus
-      for(n = -4; n < 4; n++){
-        console.log("um");
-        let nP = maskImg.get(n+x,y);
-        if(!(nP[0]>128)){rect(n+x,y, 1, 1)};
-      }
+    if(mask[0] > 128) { //focus
+      fill(presImg.get(x,y));
+      rect((x-halfSize), (y-halfSize), fullSize, fullSize);  
     }
     else {
       //noiseDetail(8);
@@ -105,7 +105,7 @@ function draw () {
   }
   console.log(renderCounter);
   renderCounter = renderCounter + 1;
-  if(renderCounter > 238) {
+  if(renderCounter > (sourceImg.height/fullSize)-2) {
     console.log("Done!")
     noLoop();
   }
