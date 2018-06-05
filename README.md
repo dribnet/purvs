@@ -1,6 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-Final Design - Hands
+Final Design - Hand Art
 
 The final design for my custom pixel can be seen above.
 
