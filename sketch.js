@@ -30,6 +30,8 @@ function draw () {
     let pix = sourceImg.get(x+halfSize, y+halfSize);
     let mask = maskImg.get(x+halfSize, y+halfSize);
     fill(pix)
+
+    //circles
     // if(mask[0] < 128) {
     //   if(renderCounter%2 == 0){
     //     ellipse(x+halfSize, y, pointSize);
@@ -38,6 +40,7 @@ function draw () {
     //     ellipse(x, y, pointSize);
     //   }
     // }
+    //pentagons
     if(mask[0] < 128) {
       if(renderCounter%2 == 0){
         fill(pix);
