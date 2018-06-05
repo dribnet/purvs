@@ -1,48 +1,33 @@
-const finalVersion = true;
+var scl = 5; //scale to multiply by
+var rainAmt = 40 // the amount of rain to apply (larger number = less rain)
 
-var xoff = 0;
-var yoff = 0;
+var maskLines = [];  //array of horizontal lines 
+var rain = []; //array of random vertical lines
 
-sizeSq = 30;
-halfSizeSq = sizeSq / 2;
-scl = 4;
-bend = 15;
-var pos = [];
+var num = 0; // a counter 
 
-var animate = [];
-var num = 0;
-
-var xSZ = 216;
-var ySZ = 384;
+var xSZ = 216; //width (x Size)
+var ySZ = 384; //heigh (y Size)
 
 sourceImg = null;
 maskImg = null;
-renderCounter = 0;
 
-function shuffler(array) {
+function randomize(array) { //randomize the array
   var currentIndex = array.length,
     temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
+    tempValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+    array[randomIndex] = tempValue;
   }
 
   return array;
 }
-
-
-var arr = [];
-
-//console.log(arr);
 
 function preload() {
   sourceImg = loadImage("3.jpg");
@@ -50,104 +35,56 @@ function preload() {
 }
 
 function setup() {
-
-
   main_canvas = createCanvas(xSZ * scl, ySZ * scl);
   main_canvas.parent('canvasContainer');
 
-
+  
   imageMode(CENTER);
-
-
-  background(0);
+  background(20);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
-
-
-  for (i = 0; i < ySZ; i++) {
-    pos[i] = [];
+  for (i = 0; i < ySZ; i++) { //nested loop that goes through each pixel
     for (j = 0; j < xSZ; j++) {
-      arr[i * xSZ + j] = [];
-      pos[i][j] = [];
+      rain[i * xSZ + j] = [];  //creates an array at each pixel
+      rain[i * xSZ + j][0] = j * scl; //stores x as first value in each pixel of the array
+      rain[i * xSZ + j][1] = i * scl; //stores y as second value in each pixel of the array
 
-      pos[i][j][0] = map(noise(i * yoff), 0, 1, j * scl, (j + 1) * scl);
-      pos[i][j][1] = map(noise(j * xoff), 0, 1, i * scl, (i + 1) * scl);
-      arr[i * xSZ + j][0] = j * scl;
-      arr[i * xSZ + j][1] = i * scl;
-      xoff += 0.01;
+      pix = sourceImg.get(rain[i * xSZ + j][0], rain[i * xSZ + j][1]); 
+      mask = maskImg.get(rain[i * xSZ + j][0], rain[i * xSZ + j][1]);
 
+      if (mask[0] > 50) { //when mask brigthness is greater that 50 take that pixels x and y and store it in a the maskLines array
+        maskLines[num] = []; //creates an array at num 
+        maskLines[num][0] = rain[i * xSZ + j][0] * scl; //
+        maskLines[num][1] = rain[i * xSZ + j][1] * scl;
+        num++;
+      } else {
+
+      }
     }
-    yoff += 0.01;
-
   }
-  print("arr = " + arr)
-  arr = shuffler(arr);
-  print("arr = " + arr);
+  rain = randomize(rain); //randomize rain array
 }
 
 
 
 function draw() {
+
+  for (c = 0; c < rain.length / rainAmt; c++) {
+    let alphaValue = random(50,255); //chooses a random alpha level to apply to the rain
+    let r = random(25); //random value for the length of the rain
+    stroke(190, alphaValue);
+    strokeWeight(1);
   
-   for (i = 0; i < ySZ; i++) {
-    for (j = 0; j < xSZ; j++) {
-
-      pix = sourceImg.get(pos[i][j][0], pos[i][j][1]);
-      mask = maskImg.get(pos[i][j][0], pos[i][j][1]);
-
-
-
-   
-      
-       if (mask[0] > 50) {
-         
-         let brightness = pix[0] + pix[1] + pix[2] /3;
-         pix[3] = 150;
-         
-        
-        stroke('rgba(230,230,230,0.25)');
-        print("y = " + i + " x = " + j);
-        animate[num] = [];
-        animate[num][0] = pos[i][j][0] * scl;
-        animate[num][1] = pos[i][j][1] * scl;
-        animate[num][3] = brightness/255 * sizeSq;
-        animate[num][4] = pix;
-
-        num++;
-      }else{
-            stroke('rgba(230,230,230,0.25)');
-         strokeWeight(1);
-
- 
-
-      }
-
+    line(rain[c][0], rain[c][1], rain[c][0], rain[c][1] + r);
+  }
+  for (num = 0; num < maskLines.length - 1; num++) {
+    stroke('rgba(230,230,230,0.8)');
+    strokeWeight(3);
+    if (abs(maskLines[num][0] - maskLines[num + 1][0]) < 60 && abs(maskLines[num][1] - maskLines[num + 1][1]) < 10) {
+      line(maskLines[num][0], maskLines[num][1], maskLines[num + 1][0], maskLines[num + 1][1]);
     }
   }
-
-  for (c = 0; c < arr.length / 20; c++) {
-    stroke('rgba(230,230,230,0.5)');
-    strokeWeight(3);
-    ellipse(arr[c][0], arr[c][1], 1, 1);
-  }
-  for (num = 0; num < animate.length-1; num++) {
-    //noStroke();
-    print("color value" + animate[num][4]);
- //   fill(animate[num][4]);
-    //rect(animate[num][0] - halfSizeSq, animate[num][1] - halfSizeSq, animate[num][3], animate[num][3]);
-  //     ellipse(animate[num][0], animate[num][1], animate[num][3]/3, animate[num][3]/3);
-       if (abs(animate[num][0]-animate[num+1][0]) < 20){
-             line(animate[num][0], animate[num][1], animate[num+1][0], animate[num+1][1]);
-       }
-      
-   
-       
-       
-  }
-
-
-  print("done!");
   noLoop();
 }
 
