@@ -5,10 +5,10 @@
 
 
 
-let elementSpacing = 35;
+let elementSpacing = 20;
 let circleSize = 50;
 let squareSize = 30;
-let pointSize = 40;
+let pointSize = 20;
 
 let sourceImg=null;
 let maskImg=null;
@@ -75,7 +75,7 @@ function draw () {
     let halfSize = squareSize/2;
 
     if(mask[0] > 128){
-    	glyph(x, y, pix, 0.5);
+    	glyph(x, y, pix, 0.28);
     }
     else{
 
