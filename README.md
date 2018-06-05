@@ -1,8 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
--Final 
+-Test 
 
-For my final artworks I considered several things that I learnt from my previous sketches. I moved the square sections to look as though they were moving up the characters and taking over the natural shapes. Especially in artwork 3 the boys look quite unnatural and robotic. My idea started out as a representation of the modern world taking over and creating global warming. However, I don't think the images makes the connection to global warming but I do think it represents technology/the modern world taking over. These images are a representation of the destruction of natural human nature especially in children who no longer play outdoors but stare at a screen. By covering the older boy in more square objects than the younger boy it represents the destruction or contagion by technology overtime. 
-
-Some things I added in my code:
-Another mask as I needed a cleaner transition into the square sections. In order to do this I changed the flower from simply outlined to filled. I also altered the original images in order to create the idea that the leaves were turning brown. As you can see in these images the leaves go from green to tinged with brown. This is where the idea of global warming comes in but I still do not believe it is clear enough. I am happy with how the images turned out and I like the concept of technology taking over as it is so relevant. I think if I were to continue this project I may completely ditch the global warming idea and focus on expanding on this one. 
+I browsed through pinterest to look for interesting photos to add to the code. I decide to look at the idea of travel. I made different landscapes and placed them all through an airplane window. I chose these images particularly because of their bold colours and the way they all show a gradient. I also wanted to look at morning, day, and night as you can see above. Pointalism seems to work really well with sky-scapes.
