@@ -9,7 +9,9 @@ face and hair), the second perspective is shown when the image
 is actually finished(with the png and all other religious glyphs
 placed on top). The main idea I want to express is you can be
 whatever you want(to have whatever religion no matter the skin colour 
-or ethnic background.
+or ethnic background. I did this project with three religion symbols
+which are a cross symbolising Christianity, star symbolising 
+Judaism and a oeace sigh to symbol no religion.
 
 I have decided to not use smartmask because the smartmask mask
 out the entire person. But I only want to mask out specific parts
