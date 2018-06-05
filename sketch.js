@@ -46,7 +46,8 @@ function setup () {
   imageMode(CENTER);
   angleMode(DEGREES);
   noStroke();
-  background(208, 220, 237);
+  // background(208, 220, 237);
+  background(10);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -84,7 +85,7 @@ function draw () {
     // fill(pix);
     if(mask[0] > 128) {
       push();
-      translate(x + sOffset - 20, y);
+      translate(x + sOffset - 10, y);
       fill(pix);
       // rotate(30);
       for(let j=0;j<5;j++){

@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Now I changed the background colour to the light blue. I want to give the whole render a more blue shader so I choose this colour. But the pixels in dark areas are not so solid now. I may try black later.
+For this time I use the black background as an another test. The black background gives the pixels in the dark areas more solid looking, so I may keep this as the final colour of background.
