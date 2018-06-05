@@ -5,6 +5,6 @@ I decided it was time to try some new photographs for my theme. In particular I 
 
 Strcking with the linear style background I made it more full by spreading the lines evenly across the pixel so they never clump in the centre & leave the outside looking sparse. When testing some variable options I noticed it looked similar to pencil lines or brush strokes, so I thickened the width of the line, & thinned the length so it looks like lots of short, fast strokes. When looking from afar it almost looks like fabric as well.
 
-I added a few gradient changes to the foreground, gives it sort of an embossed feel, but it doesn't fit with the background.
+I added a few gradient changes to the foreground, gives it sort of an embossed feel, but it doesn't fit with the background. I instead changed this to be circles with no fill, only a stroke, to match the linear feel of the background. I thought making them circles would give a less rigid feel, but really it still has the same problem.
 
 I tried using smartmask. It worked well at selecting indivdual objects, but I can get a much clearer selection using photoshop. There are some parts of the foreground that I would have preferred to be background but they were selected by smartmask

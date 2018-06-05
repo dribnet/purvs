@@ -29,6 +29,7 @@ function preload() {
 }
 
 function setup () {
+    ellipseMode(CORNER);
     //console.log("starting");
     smooth();
     let main_canvas = createCanvas(1080, 1920);
@@ -62,19 +63,22 @@ function draw () {
     	var b = pix[2];
     	var a = pix[3];
     	var fillcol;
-    	fill(pix)
-    	noStroke();
-    	rect(x, y, pointSize, pointSize); 
+        strokeWeight(2.5);
+    	noFill();
+        stroke(pix);
+    	ellipse(x, y, pointSize, pointSize); 
     	fillcol = color(r+10,g+10,b+10,a);
-    	fill(fillcol);
-    	rect(x+pointSize/8, y+pointSize/8, pointSize*0.75, pointSize*0.75); 
+    	stroke(fillcol);
+    	ellipse(x+pointSize*0.1, y+pointSize*0.1, pointSize*0.8, pointSize*0.8); 
     	fillcol = color(r+20,g+20,b+20,a);
-    	fill(fillcol);
-    	rect(x+pointSize/4, y+pointSize/4, pointSize*0.5, pointSize*0.5); 
+    	stroke(fillcol);
+    	ellipse(x+pointSize*0.2, y+pointSize*0.2, pointSize*0.6, pointSize*0.6); 
     	fillcol = color(r+30,g+30,b+30,a);
-    	fill(fillcol);
-    	//i know this isn't how math works, but it's how my brain works
-    	rect(x+pointSize/2-pointSize/8, y+pointSize/2-pointSize/8, pointSize*0.25, pointSize*0.25); 
+    	stroke(fillcol);
+    	ellipse(x+pointSize*0.3, y+pointSize*0.3, pointSize*0.4, pointSize*0.4); 
+        fillcol = color(r+40,g+40,b+40,a);
+        stroke(fillcol);
+        ellipse(x+pointSize*0.4, y+pointSize*0.4, pointSize*0.2, pointSize*0.2); 
     	
     }
     else {
