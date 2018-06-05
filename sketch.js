@@ -5,7 +5,7 @@ var yoff = 0;
 
 sizeSq = 30;
 halfSizeSq = sizeSq / 2;
-scl = 5;
+scl = 4;
 bend = 15;
 var pos = [];
 
@@ -126,9 +126,9 @@ function draw() {
     }
   }
 
-  for (c = 0; c < arr.length / 10; c++) {
+  for (c = 0; c < arr.length / 20; c++) {
     stroke('rgba(230,230,230,0.5)');
-    strokeWeight(1);
+    strokeWeight(3);
     ellipse(arr[c][0], arr[c][1], 1, 1);
   }
   for (num = 0; num < animate.length-1; num++) {
@@ -137,9 +137,11 @@ function draw() {
  //   fill(animate[num][4]);
     //rect(animate[num][0] - halfSizeSq, animate[num][1] - halfSizeSq, animate[num][3], animate[num][3]);
   //     ellipse(animate[num][0], animate[num][1], animate[num][3]/3, animate[num][3]/3);
-       if (abs(animate[num][0]-animate[num+1][0]) < 50){}
-       
-       line(animate[num][0], animate[num][1], animate[num+1][0], animate[num+1][1]);
+       if (abs(animate[num][0]-animate[num+1][0]) < 20){
+             line(animate[num][0], animate[num][1], animate[num+1][0], animate[num+1][1]);
+       }
+      
+   
        
        
   }
