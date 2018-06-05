@@ -42,3 +42,7 @@ wear some brighter colours for experiment shoot. The colours might
 create an interesting contrast to the background. I would also draw more
 religious glyphs to place on top of my png file so there will be more varieties
 of look.
+
+I followed Tom's example codes and push around 10 commits to github but then
+they all disappeared after I force a git push. I learn my lesson and will
+never force a push again.
