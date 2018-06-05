@@ -35,10 +35,7 @@ function draw () {
     if(mask[0] > 128) {
       // noFill()
           strokeWeight(8)
-      // line(x,y+20,x,y-20)  
-      // line(x-20,y,x+20,y)  
-      // line(x-10,y-10,x+20,y+10)
-      // line(x-15,y+20,x+20,y-10)  
+      //this shape creates the triangle 
       beginShape();
       vertex(x-13,y+13)
       vertex(x,y-13)
@@ -49,6 +46,7 @@ function draw () {
 
     else {
      noFill()
+     // This makes the horizontal lines.
           strokeWeight(19)
       line(x-10,y+10,x+10,y+10)   
       line(x-10,y-10,x+10,y-10) 
