@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 function preload(){
- 	sourceImg = loadImage("input_1.jpg");
- 	maskImg = loadImage("mask_1.png");
+ 	sourceImg = loadImage("input_3.jpg");
+ 	maskImg = loadImage("mask_3.png");
 }
 
 function setup (){
@@ -18,7 +18,8 @@ function setup (){
  	maskImg.loadPixels();
 }
 
-const pointSize = 25;
+let elementSpacing = 10
+const pointSize = 10;
 let draw_pass = 0;
 let x1 = 0;
 let y1 = 0;
@@ -26,11 +27,17 @@ let y1 = 0;
 function draw (){
  	//let x1 = 0;
  	//let y1 = 0;
-  	for(let i=0; i<100; i++) {
-	    //let x = int(i * pointSize);
-	    //let y = int(renderCounter * pointSize);
-	    let x = floor(random(sourceImg.width));
-	    let y = floor(random(sourceImg.height));
+  	for(let i=0; i<width/elementSpacing; i++) {
+	    let x=0;
+	    let y=0;
+	    if(draw_pass==2 || draw_pass==0){
+	    	x = floor(random(sourceImg.width));
+	    	y = floor(random(sourceImg.height));
+	    }
+	    else{
+	    	x = int(i*elementSpacing);
+	    	y = int(renderCounter*elementSpacing);
+	    }
 	    let pix = sourceImg.get(x, y);
 	    let mask = maskImg.get(x, y);
 	    let halfSize = pointSize/2;
@@ -71,7 +78,7 @@ function draw (){
 
   	// Makes the passes increment at different rates
   	if(draw_pass==0){
-  		renderCounter = renderCounter + 2;
+  		renderCounter = renderCounter + 3;
   	}
   	else if(draw_pass==1){
 		renderCounter = renderCounter + 1;
@@ -81,7 +88,7 @@ function draw (){
   	}
 
   	// has the render pass through 3 times
-	if(renderCounter > 150) {
+	if(renderCounter > height/elementSpacing) {
  		if(draw_pass==0) {
  			renderCounter = 0;
  			draw_pass =  1;
@@ -109,9 +116,9 @@ function spider(x, y){
 	let x0 = 0;
 	let y0 = 0;
 	for(let i=0; i<10; i++){
-		x0 = x + random(-50, 50);
-		y0 = y + random(-50, 50);
-		strokeWeight(5);
+		x0 = x + random(-20, 20);
+		y0 = y + random(-20, 20);
+		strokeWeight(4);
 		line(x, y, x0, y0);
 		//x = x0;
 		//y = y0;
@@ -155,20 +162,5 @@ function scratch(x, y){
 }
 
 function glass(x, y){
-	let num =1;
-	if(num==1){
-		triangle(x+random(-20, -5), y+random(-40, -10), x+random(5, 20), y+random(-40, 40), x+random(-10, 10), y+random(10, 40));
-	}
-	else if(num==2){
-		triangle(x-17, y+6, x+14, y+46, x+2, y-10);
-	}
-	else if(num==3){
-		triangle(x-14, y+6, x+14, y+46, x+2, y-10);
-	}
- 	else if(num==4){
- 		triangle(x-17, y+6, x+14, y+46, x+2, y-10);
-	}
-	else if(num==5){
-		triangle(x-17, y+6, x+14, y+46, x+2, y-10);
-	}
+	triangle(x+random(-10, -3), y+random(-20, -5), x+random(3, 10), y+random(-20, 20), x+random(-5, 5), y+random(5, 20));
 }

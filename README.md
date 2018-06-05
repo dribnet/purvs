@@ -1,9 +1,13 @@
 ## Creative Coding 2: Custom Pixel
 
-This version i added a new photo for the 3rd input that was more of a fit with the other two and
-created a new version of my scribble as horizontal scratches to make the pictures come across as kind of creepy.
-I used two for loops to create lines that zig zagged away from the pixel.
+For my project I started with the idea of using lines to lessen the detail of a persons facial 
+features. I started with straight lines going from pixel to pixel randomly this gave a creepy 
+effect to the picture which gave me the idea to make the the lines look scratchy. 
 
-I also started creating a function for the shattered glass which looks good, but i'm not sure if it gives enough 
-detail to the background for my liking. I might test with the shattered glass as the body and make the background 
-a pixelated grid.
+For my final version, for the first pass I have a function that draws lines zig zagging from the 
+pixel if it is inside the grey part of the mask which covers any skin in the photo.
+The second pass draws the background as triangles of random sizes in a grid pattern.
+the third pass draws the other parts of the person as lines stranding from the randomly selected pixel.
+
+The three photos i chose are of my girlfriend in three locations that are a part of my life
+in Wellington and in Napier where i am from. 
