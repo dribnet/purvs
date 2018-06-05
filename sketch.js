@@ -9,18 +9,18 @@ var t2 = 1;
 var t3 = 1;
 var rendlay1 = 200;
 var rendlay2 = 400;
-var rendlay3 = 700;
+var rendlay3 = 900;
 var rendstop = rendlay3;
 
 var pointSize = 30;
 var medDetail = 10;
-var fineDetail = 5;
+var fineDetail = 3;
 
 function preload() {
 //Loading the three different image layers, the standard, the medium, and the fine
-  sourceImg = loadImage("input_2.jpg");
-  medImg = loadImage("input_2_med.png");
-  fineImg = loadImage("input_2_fine.png");
+  sourceImg = loadImage("preview.jpg");
+  medImg = loadImage("preview.jpg");
+  fineImg = loadImage("preview.jpg");
   
 //Loading the different brush stroke images that will make up the painted image 
   strokeImg1 = loadImage("Stroke1.png");
@@ -147,7 +147,7 @@ function firstLayer (){
 }
 
 function secondLayer(){
-  for(var j=0;j<50;j++) {
+  for(var j=0;j<75;j++) {
       x = floor(random(sourceImg.width));
       y = floor(random(sourceImg.height));
       pix = medImg.get(x, y);
@@ -196,7 +196,7 @@ function secondLayer(){
 }
 
 function thirdLayer(){
-  for(var k=0;k<50;k++) {
+  for(var k=0;k<200;k++) {
     x = floor(random(fineImg.width));
     y = floor(random(fineImg.height));
     pix = fineImg.get(x, y);
