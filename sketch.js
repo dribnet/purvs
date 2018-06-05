@@ -4,7 +4,7 @@ let currentRow=0;
 
 //Mask elements to begin a rotate and scale disolve.
 let fadeCount=0;
-let fadeRowBegin = 40 ;
+let fadeRowBegin = 60 ; //60 good result under med quality
 let rot=10;
 let s=1.0;
 //Render Quality settings: 'low' 'med' 'high'
@@ -23,10 +23,10 @@ switch(quality){
     break;
 
   case "med":
-    diamondSize = 30;
-    circleSize = 30;
-    spacing = 30;
-    fadeDiamondSize = 30;
+    diamondSize = 20;
+    circleSize = 20;
+    spacing = 20;
+    fadeDiamondSize = 20;
     break;
 
   case "high":
@@ -75,7 +75,7 @@ function draw () {
       push();
       if (currentRow > fadeRowBegin){
       //rotates rows and scales diamonds when fadeRowBegin is met
-      //rot = rot + 8;
+      rot = rot + 1;
       translate(x,y);
       rotate(rot);
       scale(s);
@@ -90,12 +90,22 @@ function draw () {
     }
     else {
       //else if off the mask, make background circles
-      ellipse(x, y, circleSize, circleSize);
+      //Juan Superrior BG cross settings
+      ellipse(x-halfSize, y-halfSize, 5, circleSize);
+      ellipse(x-halfSize, y-halfSize, circleSize, 5);
+
+      //Anton BG cross settings
+      //ellipse(x-halfSize, y-halfSize, 14, circleSize);
+      //ellipse(x-halfSize, y-halfSize, circleSize, 14);
+
+      //Marie BG Cross settings:
+      //ellipse(x-halfSize, y-halfSize, 5, circleSize);
+      //ellipse(x-halfSize, y-halfSize, circleSize, 5);
     }
 
   }
 
-  s = map(currentRow, 55, 64, 1.0, 0);
+  s = map(currentRow, 65, 96, 1.0, 0);
   currentRow = currentRow + 1;
   if(currentRow *  spacing>1920) {
     console.log("Done!")
