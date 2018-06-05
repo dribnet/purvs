@@ -6,8 +6,8 @@ let poinSize1 = 0;
 
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_4.jpg");
+  maskImg = loadImage("mask_4.png");
 }
 
 function setup () {
