@@ -39,10 +39,13 @@ function draw () {
     let mask = maskImg.get(x, y);
     let halfSize = pointSize/2;
     fill(pix);
+    //_____________________MASKED PIXELS__________________________
     if(mask[0] > 128) {
       ellipse(x, y, pointSize*1.5, pointSize*1.5);
 
     }
+    //_____________________NON MASKED PIXELS__________________________
+
     else {
       blur(1);
       rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8,5);    

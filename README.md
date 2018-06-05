@@ -1,5 +1,19 @@
 ## Creative Coding 2: Custom Pixel
-Above is evidence of Smartmasking
+FINAL
+
+My images explore the spaces between people and their favourite outdoor hoop in New Zealand. With basketball being the fastest growing sport in the country (projected to overtake rugby in terms of the secondary school demographic) it will evoke more fun when pedestrian traffic are exposed to being called out for a game.
+
+The imagery depicted was taken during the last sunny days before winter. The left image was taken in the new and popular Victoria Park courts in Auckland during my short visit. The one on the right is the Oriental Bay halfcourt hoop which is nestled between a skatepark and Te Papa.
+
+The pixels mimic the shape of pixel hardware when seen through a zoomed lens or microscope. This is to reference retro videogames and questions the boundaries of the "playing" a game. This evokes the audience to see a videogame aesthetic but also see real people participating it.
+
+The people are highlighted through the use of smartmask and are output by elliptical pixels. This is to add more contrast from foreground to background which evokes more depth into the image.
+
+Overall I feel my project is a personal expression for apreciating the growth of this sport in New Zealand. Though I feel I could've done more regarding the technical side e.g. not being able to complete a basketball ellipse for the masked subjects, the vague message still evokes a good reaction. 
+
+Adding particle systems to convey movement may have benefitted my project positively, though there is depth in the imagery I feel this element would've made the final image stand out even more.
+
+
 
 --
 
