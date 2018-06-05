@@ -9,11 +9,11 @@ var X_AXIS = 2;
 let elementSpacing = 40;
 let circleSize = 60;
 let squareSize = 40;
-var DrawCalls = 500;
+var DrawCalls = 300;
 
 /* Override some variables with high-resolution final version */
 if (finalVersion) {
-	let scale = 2;
+	let scale = 3;
 	elementSpacing = elementSpacing/scale;
 	circleSize = circleSize/scale;
 	squareSize = squareSize/scale;
@@ -28,9 +28,9 @@ var PixelDensity = 100*2;
 
 
 function preload() {
-	sourceImg = loadImage("input_A2.jpg");
-	maskImg = loadImage("mask_A1.png");
-	maskTwoImg = loadImage("mask_A3.png");
+	sourceImg = loadImage("input_AnS1.png");
+	maskImg = loadImage("mask_AnS1.png");
+	maskTwoImg = loadImage("mask_AnS3.png");
 }
 
 function setup () {
@@ -45,19 +45,20 @@ function setup () {
 	console.log("finalVersion is " + finalVersion);
 }
 
+//converts colour to greyscale
 function convertRgbToHsluv(c) {
 	return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
 }
 
 function draw () {
 	// Background handled here
-	//console.log(getRandom(1,2));
   	if(bground==false){
 		b1 = color(255);
 	  	b2 = color(0);
 	  	setGradient(0, 0, width, height, b1, b2, Y_AXIS);
 		bground=true;
 	}
+	
 	for(let i=0;i<1080/elementSpacing;i++) {
 		let x = int(i * elementSpacing);
 		let y = int(renderCounter * elementSpacing);
@@ -70,16 +71,18 @@ function draw () {
 		let y2 = floor(random(sourceImg.height));
 		let pix2 = sourceImg.get(x2, y2);
 		let maskTwo = maskTwoImg.get(x2, y2);
-		
 		let halfSize = squareSize/2;
+		
+		//second mask drawn here
 		if(maskTwo[0] > 128 && SecondDraw == true) {
 			fill(pix2);
 			noStroke();
 			//adds random scaling to the circles
 			let rand = getRandom(1,2);
 			star(x2, y2, squareSize/rand, (halfSize*1.5)/rand, 9);
-			//ellipse(x2, y2, circleSize/rand, circleSize/rand);
 		}
+		
+		//first mask drawn here
 		if(mask[0] > 128 && SecondDraw == false) {
 			noStroke();
 			fill(pix);
@@ -98,12 +101,14 @@ function draw () {
 	  		}
 		}
 	}	
+	//first draw
 	renderCounter = renderCounter + 1;
 	if(renderCounter > 1920/elementSpacing && SecondDraw == false) {
 		console.log("First Draw Done!")
 		SecondDraw = true;
 
 	} 
+	//seond draw
 	if(SecondDraw) {
 		renderCounterTwo = renderCounterTwo + 1; 
 		if(renderCounterTwo > DrawCalls) {
@@ -149,6 +154,8 @@ function setGradient(x, y, w, h, c1, c2, axis) {
     }
   }
 }
+
+//star function, draws at x and y, radius1 equals the outer size, radius 2 equals the inner size, npoints is the number of points to the star
 function star(x, y, radius1, radius2, npoints) {
 	var angle = TWO_PI / npoints;
 	var halfAngle = angle/2.0;

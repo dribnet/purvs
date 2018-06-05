@@ -1,17 +1,27 @@
 ## Creative Coding 2: Custom Pixel
 
-At this point I'm still playing with ideas, I quite like the mixture of the grid and the semi randomized grid. I also want to experiment more with the greyscale areas and the overall pixel density. I'm thinking if I change pixel density with different masks the code will need significant refacturing but overall could be worth it; seeing as at this point if the pixel density is to high the saveBlocksImages command crashes.
+### Code:
 
-### Update:
+I’ve incorporated multiple aspects of the class code examples, p5.js examples (such as the gradient function) to create my pieces. I also use two masks, the first mask establishes the background in these sharp semi-random three pointed triangles that are set to greyscale, and the face and the skin of the subject are drawn in an ordered grid of coloured softer four pointed stars. The second mask is then drawn over top masking out the hair of the subject and these droplet like concentric circles of colour in the scene, this is done with randomly placed and random within a range sized, nine pointed stars that create a jagged circle like effect. 
 
-I've now added multiple masks and the ability to use both the fully randomized script and the two grid style scripts in one porject.
+### Shape Choice:
 
-### Notes:
+Three pointed star “Caltrops”: I really like the noisy sharp effect these had on the background image, it created a very clear definition between the other shapes and sections. At the same time I felt it look interesting in and of itself.
 
-One thing I've noticed is at very high image densities the texture of certain shapes just disapears lossing the effect of certain shapes
+Four pointed star “soft-semi-squares”: Here I enjoyed the pixelation like effect but I also thought the nested effect of them drawn a top each created an intriguing visual
 
-Mainly experimenting at this point with different shapes and the scaling of those shapes, it's a little hard to conceptualize at this point what will look best at different scales.
+Nine pointed star “jagged circle”: I was inspired by other classmates work using circles in their work on portraits and I really like how circles effected hair and you could still capture lines and highlights even at quite high shape sizes. I decided to fit it in more with my general star theme by making them circle like stars, yet still keep what I liked about it. 
 
 ### Theming:
 
-my current idea is separating the Human from the non-Human, using portraits of people pulling the organic elements body/hair/face to the front with colour. Then fading the inorgainic aspects into the background clothes/furniture with abstract and random point pattern
+My Theme is a simple one, I went with the loved ones in my life and used photos of them they chose themselves. This gave me a semi diverse range of images some being photos taken while tramping others being promotional photos for theatre shows. I attempted to pull the “Humaness” to the forefront of the image with my treatment at let the non-human elements fall into the more abstract random background. Except for my droplet like masks of the background that one, added to the overall composition, and two, allowed me to explore the idea of adding these ripples of colour to the image, as if the composition was a body of water.
+
+### SmartMask use:
+
+After a few tries with smartmask I could see very quickly that though it was a powerful tool it wasn’t right for my project in that my masks separated people into skin and hair, and ultimately a rough separation between the subject and their environment wasn’t needed. 
+
+### Notes:
+
+I’ve noticed a lot of effects can be lost or gained at different shape sizes, thus I’ve tried to use scales for each input so as to best capture the effect I’m after. For example I want the size small enough so as to capture nuance in the hair of the subject but not so small as to lose the abstraction of the face and become weird pixelation image of them.
+
+
