@@ -18,42 +18,47 @@ let pG;
 let pB;
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("input_3.jpg");
+  maskImg = loadImage("mask_3.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(540, 960);
+  let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
   noStroke();
   background(255);
   sourceImg.loadPixels();
+  //sourceImg.filter(GRAY);
   maskImg.loadPixels();
   //image(sourceImg,0,0);
-  filter(GRAY);
+  
 }
 
 function draw () {
   for(let i=0;(i<sourceImg.width);i++) {
-    let fullSize = 30;
-    let halfSize = 15;
+    let fullSize = 8;
+    let halfSize = 4;
     //let x = floor(random(sourceImg.width));
     //let y = floor(random(sourceImg.height));
-    let x = i;
-    let y = renderCounter;
+    let x = i*fullSize;
+    let y = renderCounter*fullSize;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
     fill(pix);
     if(mask[0] > 128) { //not focus
-      //rect((x-halfSize), y-halfSize, fullSize, fullSize);
+      for(n = -4; n < 4; n++){
+        console.log("um");
+        let nP = maskImg.get(n+x,y);
+        if(!(nP[0]>128)){rect(n+x,y, 1, 1)};
+      }
     }
     else {
       //noiseDetail(8);
@@ -64,13 +69,13 @@ function draw () {
       let g = green(pix);
       let b = blue(pix);
 
-      let shift = 2; 
+      let shift = 4; 
 
       let nR = round(shift*r/255)*(255/shift);
       let nG = round(shift*g/255)*(255/shift);
       let nB = round(shift*b/255)*(255/shift);
 
-      //fill(nR, nG, nB);  
+      fill(nR, nG, nB);  
 
       var errR = r - nR;
       var errG = g - nG;
@@ -91,19 +96,18 @@ function draw () {
       error(sourceImg, 1 / 16.0, x+1, y+1, errR, errG, errB);
 
       sourceImg.updatePixels();
-
-      //rect((x-halfSize), (y-halfSize), fullSize, fullSize);   
+      //let pixel = sourceImg.get(x, y);
+      //fill(pixel);
+      rect((x-halfSize), (y-halfSize), fullSize, fullSize);   
     
     }
-    image(sourceImg,sourceImg.width/2,sourceImg.height/2);
+    //image(sourceImg,sourceImg.width/2,sourceImg.height/2);
   }
   console.log(renderCounter);
   renderCounter = renderCounter + 1;
-  if(renderCounter > sourceImg.height) {
+  if(renderCounter > 238) {
     console.log("Done!")
     noLoop();
-    image(sourceImg, sourceImg.width/2, sourceImg.height/2);
-    // saveBlocksImages();
   }
 }
 
@@ -112,7 +116,7 @@ function index(x,y){
 }
 
 function error(img, shift, x, y, eR, eG, eB){
-  if(x<0 || x>=img.width || y<0 || y>=img.height)return;
+  if(x<0 || x>=img.width*fullSize || y<0 || y>=img.height)return;
   let pix = img.pixels;
   let ind = index(x,y);
   let nC = img.pixels[ind];
@@ -126,74 +130,6 @@ function error(img, shift, x, y, eR, eG, eB){
   pix[ind] = (pG + eG * shift);
   pix[ind] = (pB + eB * shift);
 }
-/*
-function part1(x,y,errR,errG,errB){
-  if(x+1 <= 1080){
-    let ind = index(x+1,y);
-    let nC = sourceImg.pixels[ind];
-    let pR = red(nC);
-    let pG = green(nC);
-    let pB = blue(nC);
-
-    pR = pR + errR * 7/16.0;
-    pG = pG + errG * 7/16.0;
-    pB = pB + errB * 7/16.0;
-
-    sourceImg.pixels[ind] = color(pR, pG, pB); 
-  }
-}
-
-function part2(x,y,errR,errG,errB){
-  if(x - 1 >= 0 || y + 1 <= 1920){
-    let ind = index(x-1,y+1);
-    let nC = sourceImg.pixels[ind];
-
-    pR = red(nC);
-    pG = green(nC);
-    pB = blue(nC);
-
-    pR = pR + errR * 3/16.0;
-    pG = pG + errG * 3/16.0;
-    pB = pB + errB * 3/16.0;
-
-    sourceImg.pixels[ind] = color(pR, pG, pB); 
-    }
-}
-
-function part3(x,y,errR,errG,errB){
-  if(y+1 <= 1920){
-    let ind = index(x,y+1);
-    let nC = sourceImg.pixels[ind];
-
-    pR = red(nC);
-    pG = green(nC);
-    pB = blue(nC);
-
-    pR = pR + errR * 5/16.0;
-    pG = pG + errG * 5/16.0;
-    pB = pB + errB * 5/16.0;
-
-    sourceImg.pixels[ind] = color(pR, pG, pB);
-  }
-}
-
-function part4(x,y,errR,errG,errB){
-  if(x+1 >= 1080 || y+1 <= 1920){
-    let ind = index(x+1,y+1);
-    let nC = sourceImg.pixels[ind];
-
-      pR = red(nC);
-      pG = green(nC);
-      pB = blue(nC);
-
-      pR = pR + errR * 1/16.0;
-      pG = pG + errG * 1/16.0;
-      pB = pB + errB * 1/16.0;
-
-      sourceImg.pixels[ind] = color(pR, pG, pB);
-  }
-}
-*/
 
 function keyTyped() {
   if (key == '!') {
