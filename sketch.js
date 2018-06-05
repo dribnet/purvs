@@ -20,28 +20,56 @@ function setup () {
   maskImg.loadPixels();
 }
 
-  let pointSize = 50;
-  let halfSize = 25;
-
 function draw () {
-  for(let i=0;i<width/pointSize;i++) {
+  let pointSize = 30;
+
+  for(let i=0;i<1080/pointSize;i++) {
     let x = int(i * pointSize);
-    let y = int(renderCounter * pointSize);
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+    let y = int(renderCounter * pointSize) - (4*renderCounter);
+    let halfSize = pointSize/2;
+    let pix = sourceImg.get(x+halfSize, y+halfSize);
+    let mask = maskImg.get(x+halfSize, y+halfSize);
+    fill(pix)
+    // if(mask[0] < 128) {
+    //   if(renderCounter%2 == 0){
+    //     ellipse(x+halfSize, y, pointSize);
+    //   }
+    //   else{
+    //     ellipse(x, y, pointSize);
+    //   }
+    // }
+    if(mask[0] < 128) {
+      if(renderCounter%2 == 0){
+        fill(pix);
+        hexagon(x+(pointSize/2), y, pointSize);
+        fill(255);
+        hexagon(x+(pointSize/2), y, pointSize-(pointSize/5));
+        fill(pix);
+        hexagon(x+(pointSize/2), y, pointSize-(pointSize/2));
+      }
+      else{
+        fill(pix);
+        hexagon(x, y, pointSize);
+        fill(255);
+        hexagon(x, y, pointSize-(pointSize/5));
+        fill(pix);
+        hexagon(x, y, pointSize-(pointSize/2));
+      }
     }
     else {
-      hexagon(x, y, pointSize);    
+      if(renderCounter%2 == 0){
+        hexagon(x+(pointSize/2), y, pointSize);
+      }
+      else{
+        hexagon(x, y, pointSize);
+      }
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > sourceImg.height/pointSize) {
+  if(renderCounter > sourceImg.height/(pointSize/2)) {
     console.log("Done!")
     noLoop();
-    // saveBlocksImages();
+    //saveBlocksImages();
   }
 }
 
