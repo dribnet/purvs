@@ -46,8 +46,8 @@ function setup () {
 
 function draw () {
   for(let i=0;(i<sourceImg.width);i++) {
-    let fullSize = 16;
-    let halfSize = 8;
+    let fullSize = 8;
+    let halfSize = 4;
     //let x = floor(random(sourceImg.width));
     //let y = floor(random(sourceImg.height));
     let x = i*fullSize;
@@ -105,7 +105,7 @@ function draw () {
   }
   console.log(renderCounter);
   renderCounter = renderCounter + 1;
-  if(renderCounter > (sourceImg.height/fullSize)-2) {
+  if(renderCounter > (sourceImg.height/fullSize)) {
     console.log("Done!")
     noLoop();
   }
