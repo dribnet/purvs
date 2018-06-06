@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-###Getting Started:
+###Background Creation:
 
-So I have had an incredibly rough few weeks, life wise so sadly I am only getting around to this project now. I have been thinking about how I would like to approach this project however, which I will go into more detail about in my next project. For now this is my first attempt. I have only rendered one because of how long it is taking to render, however this iteration was more to get my head around the code anyways. Which I think I have done now.
+So I was going to make this post about my conceptual design but I wanted to get my head around the code further and I thought that my background would be more successfully shown by these images so I will do that in the next post instead. The idea with the background is to make it look like weaved threads, which I will explain in the next post. It is executed at the very start so it only gets drawn once, so it doesn't continue to draw over the refreshing layers. It takes one colour from the edge and extrudes it accross the entire canvas which will heighten the masked layer as it will blend into the background as a partern instead. Which will work for the images I have as they all have a simple, and similar background. However this doesn't work for the last of the images in the given sequeneces because of the reversed masks.
