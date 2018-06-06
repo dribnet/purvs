@@ -1,7 +1,7 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
-let fullSize = 8;
+let fullSize = 4;
 let halfSize = 4;
 let r;
 let g;
@@ -18,12 +18,9 @@ let pG;
 let pB;
 let xSource;
 let ySource;
-
-function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
-  presImg = loadImage("input_3.jpg");
-}
+let pass = 1; 
+let dX;
+let dY;
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
@@ -42,15 +39,13 @@ function setup () {
   sourceImg.loadPixels();
   sourceImg.filter(GRAY);
   maskImg.loadPixels();
-  //image(sourceImg,0,0);
 }
 
-function draw () {
+function draw () {  
+  let fullSize = 8;
+  let halfSize = 4;
+ 
   for(let i=0;(i<sourceImg.width);i++) {
-    let fullSize = 10;
-    let halfSize = 5;
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
     let x = i*fullSize;
     let y = renderCounter*fullSize;
     let pix = sourceImg.get(x, y);
@@ -63,10 +58,6 @@ function draw () {
       rect((x-halfSize), (y-halfSize), fullSize, fullSize);  
     }
     else{
-      //noiseDetail(8);
-      //let xShift = map(noise(x), 0, 1, -fullSize, fullSize);
-      //let yShift = map(noise(y), 0, 1, -fullSize, fullSize);
-
       let r = red(pix);
       let g = green(pix);
       let b = blue(pix);
@@ -84,7 +75,6 @@ function draw () {
       var errB = b - nB;
       
       //Beginning 
-      //console.log(index(x,y));
       //Part 1
       error(sourceImg, 7 / 16.0, x+1, y, errR, errG, errB);
 
@@ -98,12 +88,9 @@ function draw () {
       error(sourceImg, 1 / 16.0, x+1, y+1, errR, errG, errB);
 
       sourceImg.updatePixels();
-      //let pixel = sourceImg.get(x, y);
-      //fill(pixel);
+
       rect((x-halfSize), (y-halfSize), fullSize, fullSize);   
     }
-    
-    //image(sourceImg,sourceImg.width/2,sourceImg.height/2);
   }
   console.log(renderCounter);
   renderCounter = renderCounter + 1;
@@ -113,6 +100,10 @@ function draw () {
   }
 }
 
+function setter(x,y){
+  let xSource = x;
+  let ySource = y;
+}
 function index(x,y){
   return 4*(x + y * sourceImg.width);
 }
