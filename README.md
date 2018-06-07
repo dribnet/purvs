@@ -1,3 +1,3 @@
-## Creative Coding 2: Custom Pixel
+## SmartMask
 
-For my photos I have three girls who are my friends. I took these photos while they were dancing a Samoan siva for VUSSA (Victoria University Students' Association) I wanted to capture the pose of how they are and also trying to create that texture and colour of the puletasi (The womans clothing). With this I tried to clean it up a bit. 
+I tested out the smartmask and it turned out pretty good. I reckon it was better than drawing it on photoshop. It really captured the person and the theme that I was trying to portray. 
