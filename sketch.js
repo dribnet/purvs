@@ -1,13 +1,13 @@
-let sourceImg = null; // Sets Image Variable for use later.
-let maskImg = null; // Sets Mask Image Variable for use later.
+let sourceImg = null; 
+let maskImg = null; 
 let lap = 0; // Sets Lap variable for use in Background. Copies the Layers downward.
 let renderCounter = 0; // Variable used to stop the render at the end and control which line of the Masked Layer is Rendered.
-let grow = 1;
-let shrink = 1;
+let grow = 1; // Variable to be used to control the size of the circles for the masked layer.
+let shrink = 1;// Variable to be used to control the space between circles for the masked layer.
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg"); // Loads Image, using variable above.
-  maskImg = loadImage("mask_3.png"); // Loads Mask Image, using variable above.
+  sourceImg = loadImage("input_1.jpg"); 
+  maskImg = loadImage("mask_1.png"); 
 }
 
 function setup () {
@@ -16,12 +16,12 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke(); // Don't want a stroke.
+  noStroke(); 
   background(80); // Sets the colour behind the weave.
-  sourceImg.loadPixels(); // Loads Image in.
-  maskImg.loadPixels(); // Loads Mask Image in.
+  sourceImg.loadPixels(); 
+  maskImg.loadPixels(); 
 
-  let pointSize = 20; // Sets variable to control of Rectangles.
+  let pointSize = 20; // Sets variable to control of Rectangles for Background.
 
   //Code for Background.
 
@@ -86,34 +86,38 @@ function setup () {
   }
 }
 
-// function draw () {
-//   translate (0, 92);
-//   for(let xl = 0; xl < 410; xl++) {
-//     let x = xl*4*(grow/1.5);
-//     let y = renderCounter*4*(shrink/1.5);
-//     let pointSize = 4*grow;
-//     let halfSize = 4*grow;
+function draw () {
+  translate (0, 92); // Translates the start of the code to the top of the head at the "tallest subject" image (input_3.jpg, mask_3.png). 
+  // This way it starts of very high resolution from the right spots around about.
 
-//     let pix = sourceImg.get(x+5, y+92);
-//     let mask = maskImg.get(x+5, y+92);
-//     fill(pix);
+  // Loop that will create a circle if within the mask on the spot. Math inside loop to grow the circles and the distance between each.
+  // This loop will calculate the entire row and place circles appropraitely.
+  for(let xl = 0; xl < 410; xl++) {
+    let x = xl*4*(grow/1.5); // Math needed to position the circle on the x axis correctly. It also sets x.
+    let y = renderCounter*4*(shrink/1.5); // Math needed to position the circle on the y axis correctly. It also sets y.
+    let pointSize = 4*grow; // Because I only want grow to increase in small amounts, math is needed to calculate point size as well.
 
-//     if(mask[0] > 128) {
-//       ellipse(x, y, pointSize, pointSize);
-//     }
-//     else {
-//     }
-//   }
-//    grow = grow * 1.007;
-//    shrink = shrink *1.0035;
+    // Takes the given x and y coordinates and grabs the colour and sets the fill to that colour. Also determines whether it will be used or not
+    // Depending on what the mask is.
+    let pix = sourceImg.get(x+5, y+92);
+    let mask = maskImg.get(x+5, y+92);
+    fill(pix);
 
-//   renderCounter = renderCounter + 1;
-//   if(renderCounter > 268) {
-//     console.log("Done!")
-//     noLoop();
-//     // saveBlocksImages();
-//   }
-// }
+    if(mask[0] > 128) { // Only draws a circle if the current x, y coordinate is on the mask.
+      ellipse(x, y, pointSize, pointSize);
+    }
+    else {} // Do Nothing.
+  }
+   grow = grow * 1.007; // Since draw is a looping function this variable adjusts for each row to make the circles slightly bigger.
+   shrink = shrink *1.0035; // And this variable adjusts the distance between each circle, and also needs adjusting as they grow, but not as much.
+
+  renderCounter = renderCounter + 1;
+  if(renderCounter > 268) { // Set out 268 because that how many layers are visable on the canvas.
+    console.log("Done!")
+    noLoop();
+    // saveBlocksImages();
+  }
+}
 
 function keyTyped() {
   if (key == '!') {

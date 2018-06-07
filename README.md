@@ -1,5 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-###Background Layer Fixed:
+### Final:
 
-So while putting comments in my code to upload my final I noticed that the background was slightly wrongly coded. The issue was that the colour picked for each row was actually picking it for the current row to be rendered and the one after as well. So I editted the code to fix this which wasn't too hard. However I also cleaned up the code a little bit to rely on the variables more again and just look neater. I also completed the commenting on the background and I will finish the commenting for the final in my next iteration as I am still to get to that.
+I didn't have any more issues with my code, however I did clean things up a little bit more and added the comments but other than that I am happy with the project.
+
+## Summary:
+
+The idea for this project stems from my wish to represent the LGBT community in some way as it is important to me and my life. As such I have taken a drag performer a they can represent at least part of community, and have often been the face against oppression. (However they are a contentious issue, however this isn't the platform form that.) With that performer I have strived to; firstly create further exposure for our community, secondly show the individuals behind the performance, and thirdly show how strong our bonds are. The exposure comes easy with the platform in which this is being displayed, so I am using it to engage with the community and promote expressing yourself. My second idea is enforced via the composition of the masked layer. It was coded in such a way that the face is highlighted while the outfit, while visable, is at a lower resolution. This I believe will lead the observer to focus more on the higher resolution areas, and hopefully re-enforces the point of the person behind the performance, with our community. Lastly, and the more abstract point, is how the background looks as if it is woven. This was done like this to emphasis that our community is "tight knit" and how we are strong together. This point doesn't jump out at you but I thought it was a nice touch to add anyways. 
+
+I think my project is a good mix or code, abstract ideas and community engagement and thus I am fairly happy with it. Given more time I don't think there is too much I could have done to refine this idea further so I am happy with it.
