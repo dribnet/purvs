@@ -5,8 +5,8 @@ let back = 0;
 let renderCounter = 0;
 
 function preload() {
-  sourceImg = loadImage("input_3.jpg");
-  maskImg = loadImage("mask_3.png");
+  sourceImg = loadImage("input_1.jpg");
+  maskImg = loadImage("mask_1.png");
 }
 
 function setup () {
@@ -18,16 +18,13 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-}
 
-function draw () {
+  let pointSize = 20;
+  let halfSize = 10;
+
   // Code for Background.
-
-
   if (back == 0){
     for(let xl = 0; xl <= 54; xl++) {
-      let pointSize = 20;
-      let halfSize = 10;
       let x = xl*pointSize*3;
       let y = 0;
 
@@ -51,8 +48,6 @@ function draw () {
     }
 
     for(let yl = 0; yl <= 54; yl++) {
-      let pointSize = 20;
-      let halfSize = 10;
       let x = 0;
       let y = yl*pointSize*3;
 
@@ -74,9 +69,12 @@ function draw () {
       }
       lap = 0;
     }
+  } 
+  else { // Do Nothing.
   }
-  back = back + 1;
+}
 
+function draw () {
   for(let xl = 0; xl < 54; xl++) {
     let x = xl*20;
     let y = renderCounter*20;
@@ -93,14 +91,6 @@ function draw () {
     else {
     }
   }
-
-
-
-
-
-
-
-
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 108) {
