@@ -11,98 +11,109 @@ function preload() {
 }
 
 function setup () {
+  // Canvas Set up
   let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(80);
-  sourceImg.loadPixels();
-  maskImg.loadPixels();
+  noStroke(); // Don't want a stroke.
+  background(80); // Sets the colour behind the weave.
+  sourceImg.loadPixels(); // Loads Image in.
+  maskImg.loadPixels(); // Loads Mask Image in.
 
-  let pointSize = 20;
-  let halfSize = 10;
+  let pointSize = 20; // Sets variable to control of Rectangles.
 
-//   // Code for Background.
-//   if (back == 0){
-//     for(let xl = 0; xl <= 54; xl++) {
-//       let x = xl*pointSize*3;
-//       let y = 0;
+  //Code for Background.
 
-//       let pix = sourceImg.get(x, y);
-//       let mask = maskImg.get(x, y);
-//       fill(pix);
+  //This loop makes all the the Verticle Rectangles.
+  for(let xl = 0; xl <= 17; xl++) {
+    let x1 = xl*pointSize*3; // Formula to locate the position of x1 given the row currently being rendered (xl).
+    let x2 = xl*pointSize*3+30; // Formula to locate the position of x2 given the row currently being rendered (xl).
+    let y = 0; // y doesn't require a formular as it stays constant for colour picking.
 
-//       x = x + 5;
-//       y = y - 5;
+    let pix1 = sourceImg.get(x1, y); // Grabs the colour to be used by the first Column created by the loop below.
+    let pix2 = sourceImg.get(x2, y); // Grabs the colour to be used by the second Column created by the loop below.
 
-//       for (let v1 = 0; v1 < 33; v1++) {
-//         rect(x, y+lap, pointSize, pointSize*2);
-//         lap = lap + 60;
-//       }
-//       lap = 0;
-//       for (let v2 = 0; v2 < 33; v2++) {
-//         rect(x+30, y+lap-30, pointSize, pointSize*2);
-//         lap = lap + 60;
-//       }  
-//       lap = 0;
+    x1 = x1 + 5; // Moves the first Column into the right position to be symmetrical.
+    x2 = x2 + 5; // Moves the second Column into the right position to be symmetrical.
+    y = y - 5; // Moves the y alignment to be symmetrical.
+
+    // Creates the first Column of rectangles using the first specified colour and predefined positioning.
+    fill(pix1);
+    for (let v1 = 0; v1 < 33; v1++) { // A loop to create the 34 Rectangles in that Column.
+      rect(x1, y+lap, pointSize, pointSize*2); // Creates one Rectangle.
+      lap = lap + 60; // Adds to the current lap variable so that the next rectangle created is 60 pixels further along than the last.
+    }
+    lap = 0; // Resets the Lap Variable so it can be used again in the following functions.
+
+    // Creates the second Column of rectangles using the first specified colour and predefined positioning.
+    fill(pix2);
+    for (let v2 = 0; v2 < 33; v2++) { // A loop to create the 34 Rectangles in that Column.
+      rect(x2, y+lap-30, pointSize, pointSize*2); // Creates one Rectangle.
+      lap = lap + 60; // Adds to the current lap variable so that the next rectangle created is 60 pixels further along than the last.
+    }
+    lap = 0; // Resets the Lap Variable so it can be used again in the following functions.
+  }
+
+  //This loop makes all the the Horizontal Rectangles.
+  for(let yl = 0; yl <= 31; yl++) {
+    let y1 = yl*pointSize*3+10; // Formula to locate the position of y1 given the row currently being rendered (yl).
+    let y2 = yl*pointSize*3+40; // Formula to locate the position of y2 given the row currently being rendered (yl).
+    let x = 0; // x doesn't require a formular as it stays constant for colour picking.
+
+    let pix1 = sourceImg.get(x, y1); // Grabs the colour to be used by the first Row created by the loop below.
+    let pix2 = sourceImg.get(x, y2); // Grabs the colour to be used by the second Row created by the loop below.
+
+    y1 = y1 - 5; // Moves the first Row into the right position to be symmetrical.
+    y2 = y2 - 5; // Moves the second Row into the right position to be symmetrical.
+    x = x - 5; // Moves the x alignment to be symmetrical.
+
+    // Creates the first Row of rectangles using the first specified colour and predefined positioning.
+    fill(pix1);
+    for (let h1 = 0; h1 < 19; h1++) { // A loop to create the 20 Rectangles in that Row.
+      rect(x+lap-30, y1, pointSize*2, pointSize); // Creates one Rectangle.
+      lap = lap + 60; // Adds to the current lap variable so that the next rectangle created is 60 pixels further along than the last.
+    }
+    lap = 0; // Resets the Lap Variable so it can be used again in the following functions.
+
+    // Creates the second Row of rectangles using the first specified colour and predefined positioning.
+    fill(pix2);
+    for (let h2 = 0; h2 < 19; h2++) { // A loop to create the 20 Rectangles in that Row.
+      rect(x+lap, y2, pointSize*2, pointSize); // Creates one Rectangle.
+      lap = lap + 60; // Adds to the current lap variable so that the next rectangle created is 60 pixels further along than the last.
+    }
+    lap = 0; // Resets the Lap Variable so it can be used again in the following functions.
+  }
+}
+
+// function draw () {
+//   translate (0, 92);
+//   for(let xl = 0; xl < 410; xl++) {
+//     let x = xl*4*(grow/1.5);
+//     let y = renderCounter*4*(shrink/1.5);
+//     let pointSize = 4*grow;
+//     let halfSize = 4*grow;
+
+//     let pix = sourceImg.get(x+5, y+92);
+//     let mask = maskImg.get(x+5, y+92);
+//     fill(pix);
+
+//     if(mask[0] > 128) {
+//       ellipse(x, y, pointSize, pointSize);
 //     }
-
-//     for(let yl = 0; yl <= 54; yl++) {
-//       let x = 0;
-//       let y = yl*pointSize*3;
-
-//       let pix = sourceImg.get(x, y);
-//       let mask = maskImg.get(x, y);
-//       fill(pix);
-
-//       x = x + 5;
-//       y = y - 5;
-
-//       for (let h1 = 0; h1 < 33; h1++) {
-//         rect(x+lap-40, y+10, pointSize*2, pointSize);
-//         lap = lap + 60;
-//       }
-//       lap = 0;
-//       for (let h2 = 0; h2 < 33; h2++) {
-//         rect(x+lap-10, y+40, pointSize*2, pointSize);
-//         lap = lap + 60;
-//       }
-//       lap = 0;
+//     else {
 //     }
-//   } 
-//   else { // Do Nothing.
 //   }
-}
+//    grow = grow * 1.007;
+//    shrink = shrink *1.0035;
 
-function draw () {
-  translate (0, 92);
-  for(let xl = 0; xl < 410; xl++) {
-    let x = xl*4*(grow/1.5);
-    let y = renderCounter*4*(shrink/1.5);
-    let pointSize = 4*grow;
-    let halfSize = 4*grow;
-
-    let pix = sourceImg.get(x+5, y+92);
-    let mask = maskImg.get(x+5, y+92);
-    fill(pix);
-
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-    }
-  }
-   grow = grow * 1.007;
-   shrink = shrink *1.0035;
-
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 268) {
-    console.log("Done!")
-    noLoop();
-    // saveBlocksImages();
-  }
-}
+//   renderCounter = renderCounter + 1;
+//   if(renderCounter > 268) {
+//     console.log("Done!")
+//     noLoop();
+//     // saveBlocksImages();
+//   }
+// }
 
 function keyTyped() {
   if (key == '!') {
