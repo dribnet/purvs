@@ -1,15 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-###Concept Explanation + Proper Photo's and Masks:
+###Development Mask Layer Completed:
 
-Finally I have got my code to a point in which I can talk about the concepts and things, with the photos and masks now being the proper ones. 
+So I did my masked layer seperately to my background layer to make things as clear as possible for my eyes while editing. This iteration took a long time to narrow down to a good form, and I had a few issues which I will address while talking about the concept.
 
-But first some adjustments. I have found an easier way to set the background than with variables. I have instead shifted it into the setup function which only executes once. The background does still require a little adjusting, colour wise, to get it to the point I'd be happy with but otherwise I am happy with how it has turned out. Also the masked layer is currently at a purely representational stage, and is not to be taken as proper content.
+So the conceptual design for the mask was to have the face as clear as possible and the as you go further down the body it gets less clear. This was suppose to highlight the performer behind the art. It has been relatively well done to how I would like it, however I couldn't get the math behind it to cooperate in such a way that the bottom would be even more unclear. So sadly it wasn't a total success. Also orignially the head was 400% clearer frokm the top and the body was the same. However I did the math and that would leave the computers needing to render for 4 hours and at this point that is not possible, so I had to comprimise the value a little bit. 
 
-In terms of concept. I wanted to do portraits, or body shots with a similar background as each other. This way I could focus on making the subject the focus. This is why I have formatted the background in the way I have.
-
-In terms of the actual conceptual side of things, I have taken an event that I am thoroughly exposed to and an individual involved in the event. The event being Mx Capital Drag 2018, and the individual being an incredibly close friend, who won this year after many years trying. This way the project has a connection to my life.
-
-In terms of community engagement, I would like to promote drag as an art form in the multimedia context of this project. But I would also like to highlight the individuals behind the art.
-
-As such moving forward into the representation of the masked layer, I would like to code it in a way the leaves most of the detail in the face and leaving the outfits up to the imagination. I have this idea that if successful will work for this, but I'll go further into this in my next upload.
+I ran into a lot of issues along the way with the math and my brain not being quite ablke to understand so the math in the code works but I won't be able to explain it well. But I think I am ready to combine the two layers and hand in.
