@@ -10,4 +10,4 @@ The idea for this project stems from my wish to represent the LGBT community in 
 
 I think my project is a good mix or code, abstract ideas and community engagement and thus I am fairly happy with it. Given more time I don't think there is too much I could have done to refine this idea further so I am happy with it.
 
-Note I never experimented with smart masks, but I didn't want to use them as 1) I saw them being used in class and didn't like their accuracy. 2) Because I didn't like their accuracy I didn't think they would be approapriate for my photo's. 3) I literally used to make masks of people like I have for money so I had no issue doing it manually.
+Note: I never experimented with smart masks, but I didn't want to use them as 1) I saw them being used in class and didn't like their accuracy. 2) Because I didn't like their accuracy I didn't think they would be approapriate for my photo's. 3) I literally used to make masks of people like I have for money so I had no issue doing it manually.
