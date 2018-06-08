@@ -63,41 +63,41 @@ function draw () {
 
     fill(pix); //fills by the color of the original image
 
-    if(mask[0]>128){
-      fill(presImg.get(x,y));
+    if(mask[0]>128){ //focus 
+      fill(presImg.get(x,y)); //fills based on the original picture not the error comprised one
       rect((x-halfSize), (y-halfSize), fullSize, fullSize);  
     }
-    else{
-      let r = red(pix);
-      let g = green(pix);
-      let b = blue(pix);
+    else{ //the background
+      let r = red(pix); //red of original pixel
+      let g = green(pix); //green of original pixel
+      let b = blue(pix); //blue of original pizel
 
-      let shift = 4; 
+      let shift = 4; //this defines the boundaries that the color is shifted into
 
-      let nR = round(shift*r/255)*(255/shift);
+      let nR = round(shift*r/255)*(255/shift); //rounds based on shift
       let nG = round(shift*g/255)*(255/shift);
       let nB = round(shift*b/255)*(255/shift);
 
-      fill(nR, nG, nB);  
+      fill(nR, nG, nB);  //fills via the boundered color
 
-      var errR = r - nR;
-      var errG = g - nG;
-      var errB = b - nB;
+      var errR = r - nR; //defines error for red
+      var errG = g - nG; //error for green
+      var errB = b - nB; //error for blue
       
       //Beginning 
       //Part 1
-      error(sourceImg, 7 / 16.0, x+1, y, errR, errG, errB);
+      error(sourceImg, 7 / 16.0, x+1, y, errR, errG, errB); //defines the right pixel based on the error of this one
 
       //Part 2
-      error(sourceImg, 3 / 16.0, x-1, y+1, errR, errG, errB);
+      error(sourceImg, 3 / 16.0, x-1, y+1, errR, errG, errB); //defines bottom left
 
       //Part 3]
-      error(sourceImg, 5 / 16.0, x, y+1, errR, errG, errB); 
+      error(sourceImg, 5 / 16.0, x, y+1, errR, errG, errB); //defines bottom
 
       //Part 4
-      error(sourceImg, 1 / 16.0, x+1, y+1, errR, errG, errB);
+      error(sourceImg, 1 / 16.0, x+1, y+1, errR, errG, errB); //defines bottom right
 
-      sourceImg.updatePixels();
+      sourceImg.updatePixels(); //updates based on the changed pixels
 
       rect((x-halfSize), (y-halfSize), fullSize, fullSize);   
     }
@@ -110,24 +110,24 @@ function draw () {
   }
 }
 
-function index(x,y){
+function index(x,y){ //returns the index of the given x and y within image
   return 4*(x + y * sourceImg.width);
 }
 
-function error(img, shift, x, y, eR, eG, eB){
+function error(img, shift, x, y, eR, eG, eB){ //this function defines a new pixel color based on the error values
   if(x<0 || x>=img.width*fullSize || y<0 || y>=img.height)return;
-  let pix = img.pixels;
-  let ind = index(x,y);
-  let nC = img.pixels[ind];
+  let pix = img.pixels; //index of the image to be editted
+  let ind = index(x,y); //gets exact value
+  let nC = img.pixels[ind]; //exact color
 
-  let pR = red(nC);
-  let pG = green(nC);
-  let pB = blue(nC);
+  let pR = red(nC); //grabs the red
+  let pG = green(nC); //grabs the green
+  let pB = blue(nC); //grabs the blue
 
   //nC = ((pR + eR * shift), (pG + eG * shift), (pB + eB * shift));
-  pix[ind] = (pR + eR * shift);
-  pix[ind] = (pG + eG * shift);
-  pix[ind] = (pB + eB * shift);
+  pix[ind] = (pR + eR * shift);  //new pixel color based on error //red
+  pix[ind] = (pG + eG * shift);  //green
+  pix[ind] = (pB + eB * shift); //blue
 }
 
 function keyTyped() {
