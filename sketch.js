@@ -30,6 +30,12 @@ let pR; //New Red based on the algorithum on the previous Red
 let pG; //New Green based on the algorithum on the previous Green
 let pB; //New Blue based on the algorithum on the previous Blue
 
+let nudge = true; //allows the nudge to be called
+let xSource; //the first mask pixel of the focus X
+let ySource; //the first mask pixel of the focus Y
+let dX; //map for the nudge X
+let dY; //map for the nudge Y
+
 function preload() { //Preloads the image
   sourceImg = loadImage("input_3.jpg"); //The source image (to be editted)
   maskImg = loadImage("mask_3.png"); //The mask for the image
@@ -50,6 +56,7 @@ function setup () { //sets up the code
 }
 
 function draw () {  
+  nudge(); //calls nudge function
   let fullSize = 8; //The full size of the rectangle or pixel
   let halfSize = 4; //Half the size of the rectange or pixel 
  
@@ -99,7 +106,9 @@ function draw () {
 
       sourceImg.updatePixels(); //updates based on the changed pixels
 
-      rect((x-halfSize), (y-halfSize), fullSize, fullSize);   
+      let dX = map(abs(sourceImg.width - xSource), 0, sourceImg.width, -fullSize*2, fullSize*2); //map x distance to the source pixel and nudges based on that
+      let dY = map(abs(sourceIMg.height - ySource), 0, sourceImg.height, -fullSize*2, fullSize*2); //map y distance to the source pixel and nudges based on that
+      rect((x-halfSize)+dX, (y-halfSize)+dY, fullSize, fullSize);  //draw pixel
     }
   }
   console.log(renderCounter);
@@ -128,6 +137,23 @@ function error(img, shift, x, y, eR, eG, eB){ //this function defines a new pixe
   pix[ind] = (pR + eR * shift);  //new pixel color based on error //red
   pix[ind] = (pG + eG * shift);  //green
   pix[ind] = (pB + eB * shift); //blue
+}
+
+if(nudge){ //this function finds the first white pixel in the mask img
+	nudge  = !nudge;
+	for(a = 0; a < maskImg.height; a++){
+		for(b = 0; b < maskImg.width; b++){
+			let x = b*fullSize; //the x is determined by the iteration (for loop) through the width and the size of the rectangle to be drawn
+    		let y = a*fullSize; //the y is determined by the rectangle and b
+		    let mask = maskImg.get((b*fullSize), (a*fullSize)); //The pixel at x,y of the mask
+
+    	if(!(mask[0]>128)){
+    	let xSource = x;
+    	let ySource = y;
+    	return;
+    	}
+		}
+	}
 }
 
 function keyTyped() {
