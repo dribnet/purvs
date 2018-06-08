@@ -50,9 +50,12 @@ function setup () {
 
 function drawLetter(posx, posy, scale, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let offset1 = letterData["offset1"]
+  let offset2 = letterData["offset2"]
+  let offset3 = letterData["offset3"]
+  let offset4 = letterData["offset4"]
+  let rot1 = letterData["rotate1"];
+  let rot2 = letterData["rotate2"];
 
   // draw two circles
   ellipse(posx, posy, 150, 150);

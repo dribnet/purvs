@@ -1,6 +1,6 @@
-const colorFront  = "#199cff";
-const colorStroke = "#233f11";
-const colorFont = "#199cff";
+const colorFront  = "red";
+const colorStroke = "black";
+
 /*
  * Draw the letter given the letterData
  *
@@ -10,16 +10,43 @@ const colorFont = "#199cff";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  fill(colorFront);
-  stroke(colorStroke);
-  strokeWeight(4);
 
-  // determine parameters for second circle
+  stroke(colorStroke);
+  strokeWeight(14);
+
   let size2 = letterData["size"];
   let pos2x = 50+letterData["offsetx"];
   let pos2y = 150+letterData["offsety"];
 
-  // draw two circles
-  ellipse(50, 150, 100, 100);
+  let lineX = letterData["lineX"];
+  let lineY = letterData["lineY"];
+
+  let arcW = letterData["arcW"];
+  let arcH = letterData["arcH"];
+  let arcX = 50+letterData["arcX"];
+  let arcY = 100 + letterData["arcY"];
+  let arcS = letterData["arcS"];
+
+  fill(135,206,235,200);
+  arc(arcX, arcY, arcW, arcH, arcS, PI + QUARTER_PI, OPEN);
   ellipse(pos2x, pos2y, size2, size2);
+  line(pos2x,pos2y,lineX,lineY);
+  noStroke();
+ 
+
 }
+function interpolate_letter(percent, oldData, newData){
+//Percent will range from 0-100
+let new_obj = {};
+  return new_obj;
+}
+var swapWords = [
+"PERSONAL",
+  "STANDARD",
+  "CONTINUE",
+  "PLANNING",
+  "STRENGTH",
+  "ALPHABET",
+  "POSITION",
+  "STUDENTS"
+  ]
