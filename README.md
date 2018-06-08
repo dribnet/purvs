@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 ## AQUATIC TEXT
 
-
+Fri 8th June
 I am current experimenting with my own shapes to create something abstract/different. In the process I have made in making this alphabet I have configured the arc to create an interesting shape the represents each letter, along side the line which also helps seperate each letter individually.
 
 I have experimented with different styles and finally decided on how im going to approach my lettering in my alphabet. I have named my style 'Aquatic' after its blue style along with how the letters are shaped.

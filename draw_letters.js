@@ -43,10 +43,10 @@ let new_obj = {};
   return new_obj;
 }
 var swapWords = [
-"PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
+  "AQUATICS",
+  "CLEARSEA",
+  "DRIFTING",
+  "HOTWATER",
   "STRENGTH",
   "ALPHABET",
   "POSITION",
