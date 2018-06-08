@@ -63,5 +63,8 @@ function saveBlocksImages(doZoom) {
   }
   imageData = offscreenCanvas.toDataURL('image/png');
   imageData = imageData.replace('image/png', downloadMime);
-  p5.prototype.downloadFile(imageData, 'thumbnail.png', 'png');
+  // call this function after 1 second
+  setTimeout(function(){
+    p5.prototype.downloadFile(imageData, 'thumbnail.png', 'png');
+  }, 1000);  
 }
