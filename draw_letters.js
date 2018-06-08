@@ -20,6 +20,8 @@ function drawLetter(letterData) {
 
   let lineX = letterData["lineX"];
   let lineY = letterData["lineY"];
+  let lineOX = 50+letterData["lineOX"];
+  let lineOY = 150+letterData["lineOY"];
 
   let arcW = letterData["arcW"];
   let arcH = letterData["arcH"];
@@ -30,7 +32,7 @@ function drawLetter(letterData) {
   fill(135,206,235,200);
   arc(arcX, arcY, arcW, arcH, arcS, PI + QUARTER_PI, OPEN);
   ellipse(pos2x, pos2y, size2, size2);
-  line(pos2x,pos2y,lineX,lineY);
+  line(lineOX,lineOY,lineX,lineY);
   noStroke();
  
 

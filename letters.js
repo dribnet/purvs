@@ -9,18 +9,19 @@ const alphabet = {
        "lineY":70,
        "arcS":0
   },
-  "A": { 
-      "size": 50,
+  "A": { //Done
+       "size": 80,
       "offsetx": 8,
-      "offsety": -23,
-       "arcX": 0,
-       "arcY":50,
-       "lineX":70,
-       "lineY":70,
-       "arcW":80,
-       "arcH":80,
-       "arcS":0
-
+      "offsety": 0,
+       "arcX": 10,
+       "arcY":70,
+       "lineX":98,
+       "lineY":210,
+       "arcW":60,
+       "arcH":60,
+       "arcS":29,
+       "lineOX":48,
+       "lineOY":0
   },
   "B": {//Done
      "size": 80,
@@ -28,47 +29,55 @@ const alphabet = {
       "offsety": 0,
        "arcX": 10,
        "arcY":70,
-       "lineX":58,
+       "lineX":19,
        "lineY":80,
        "arcW":60,
        "arcH":60,
-       "arcS":29
+       "arcS":29,
+       "lineOX":-31,
+       "lineOY":0
   },
   "C": {//Done
       "size": 20,
       "offsetx": -10,
-      "offsety": -20,
+      "offsety": -30,
        "arcX": 10,
        "arcY":50,
-       "lineX":90,
-       "lineY":130,
+       "lineX":110,
+       "lineY":120,
        "arcW":80,
        "arcH":80,
-       "arcS":70
+       "arcS":70,
+       "lineOX":8,
+       "lineOY":-30
   },
-   "D": {
-      "size": 68,
-      "offsetx": 15,
+   "D": {//Done
+     "size": 80,
+      "offsetx": 8,
       "offsety": 0,
-       "arcX": 50,
-       "arcY":50,
-       "lineX":70,
-       "lineY":70,
-       "arcW":80,
-       "arcH":80,
-       "arcS":0
+       "arcX": 10,
+       "arcY":70,
+       "lineX":98,
+       "lineY":80,
+       "arcW":60,
+       "arcH":60,
+       "arcS":29,
+       "lineOX":48,
+       "lineOY":0
   },
      "E": { //Done
-            "size": 20,
-      "offsetx": 15,
-      "offsety": 0,
-       "arcX": 50,
+      "size": 20,
+      "offsetx": -10,
+      "offsety": -30,
+       "arcX": 10,
        "arcY":50,
-       "lineX":120,
+       "lineX":110,
        "lineY":150,
        "arcW":80,
        "arcH":80,
-       "arcS":70
+       "arcS":70,
+       "lineOX":8,
+       "lineOY":0
   },
      "F": {
       "size": 68,
@@ -80,7 +89,9 @@ const alphabet = {
        "lineY":70,
        "arcW":80,
        "arcH":80,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
   "G": {
       "size": 40,
@@ -92,7 +103,9 @@ const alphabet = {
        "lineY":70,
        "arcW":80,
        "arcH":80,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "H": {
      "size": 80,
@@ -104,7 +117,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "I": {
      "size": 40,
@@ -116,19 +131,23 @@ const alphabet = {
        "lineY":196,
        "arcW":0,
        "arcH":0,
-       "arcS":0
+       "arcS":0,
+       "lineOX":30,
+       "lineOY":0
   },
    "J": {
-     "size": 80,
-      "offsetx": 8,
-      "offsety": -23,
+     "size": 40,
+      "offsetx": 31,
+      "offsety": -47,
        "arcX": 10,
-       "arcY":20,
-       "lineX":20,
-       "lineY":200,
-       "arcW":60,
-       "arcH":60,
-       "arcS":0
+       "arcY":120,
+       "lineX":80,
+       "lineY":222,
+       "arcW":40,
+       "arcH":40,
+       "arcS":0,
+       "lineOX":30,
+       "lineOY":0
   },
    "K": {
      "size": 80,
@@ -140,7 +159,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "L": {
      "size": 80,
@@ -152,7 +173,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "M": {
      "size": 80,
@@ -164,7 +187,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "N": {
      "size": 80,
@@ -176,19 +201,23 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "O": { //Done
      "size": 80,
       "offsetx": 8,
-      "offsety": 5,
+      "offsety": 0,
        "arcX": 10,
        "arcY":70,
        "lineX":58,
-       "lineY":155,
+       "lineY":150,
        "arcW":60,
        "arcH":60,
-       "arcS":29
+       "arcS":29,
+       "lineOX":8,
+       "lineOY":0
   },
    "P": {
      "size": 80,
@@ -200,7 +229,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "Q": {
      "size": 80,
@@ -212,7 +243,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "R": {
      "size": 80,
@@ -224,7 +257,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "S": {
      "size": 80,
@@ -236,7 +271,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "T": {
      "size": 80,
@@ -248,7 +285,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "U": {
      "size": 80,
@@ -260,7 +299,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "V": {
      "size": 80,
@@ -272,7 +313,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "W": {
      "size": 80,
@@ -284,7 +327,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "X": {
      "size": 80,
@@ -296,7 +341,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "Y": {
      "size": 80,
@@ -308,7 +355,9 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
    "Z": {
      "size": 80,
@@ -320,7 +369,135 @@ const alphabet = {
        "lineY":200,
        "arcW":60,
        "arcH":60,
-       "arcS":0
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
   },
+     "1": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "2": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "3": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "4": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "5": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "6": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "7": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "8": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  },
+     "9": {
+     "size": 80,
+      "offsetx": 8,
+      "offsety": -23,
+       "arcX": 10,
+       "arcY":20,
+       "lineX":20,
+       "lineY":200,
+       "arcW":60,
+       "arcH":60,
+       "arcS":0,
+       "lineOX":8,
+       "lineOY":0
+  }
 
 }
