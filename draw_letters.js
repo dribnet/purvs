@@ -29,6 +29,7 @@ function drawLetter(letterData) {
   let arcY = 100 + letterData["arcY"];
   let arcS = letterData["arcS"];
 
+
   fill(135,206,235,200);
   arc(arcX, arcY, arcW, arcH, arcS, PI + QUARTER_PI, OPEN);
   ellipse(pos2x, pos2y, size2, size2);
@@ -43,12 +44,12 @@ let new_obj = {};
   return new_obj;
 }
 var swapWords = [
-  "AQUATICS",
-  "CLEARSEA",
-  "DRIFTING",
-  "HOTWATER",
-  "STRENGTH",
-  "ALPHABET",
+  "AQUAFONT",
+  "BUBBLING", //Good
+  "AQUATICS", //Change Q to look different than A
+  "CLEARSEA", //needs S changed
+  "DRIFTING", //Good
+  "ALPHABET", //H looks strange and L has big spaces
   "POSITION",
-  "STUDENTS"
+  "STUDENTS" //Needs S to be changed
   ]

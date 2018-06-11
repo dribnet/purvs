@@ -1,5 +1,9 @@
 ## PS2 MDDN 242 2018
-## AQUATIC TEXT
+## AQUA FONT
+
+Mon 11th June
+I have finished the alphabet, now I need to do numbers 0-9 below. 
+Complications : Throughout the alphabet I wanted to try and create each letter from just a line, an ellipse and an arc but its proving to be more complicated then I thought. Some letters like 'S' and 'M' have to be quite abstracted than the rest. Where as 'V','W','X','Z' have to be simplified because of their shape. I am currently experimenting with different ways to make letters look a lot nicer while keeping the theme of the 'aqua font'.
 
 Fri 8th June
 I am current experimenting with my own shapes to create something abstract/different. In the process I have made in making this alphabet I have configured the arc to create an interesting shape the represents each letter, along side the line which also helps seperate each letter individually.

@@ -41,6 +41,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
+/*
   "PERSONAL",
   "STANDARD",
   "CONTINUE",
@@ -49,6 +50,7 @@ var defaultSwapWords = [
   "ALPHABET",
   "POSITION",
   "STUDENTS"
+  */
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
