@@ -38,15 +38,32 @@ function drawLetter(letterData) {
  
 
 }
-function interpolate_letter(percent, oldData, newData){
+function interpolate_letter(percent, oldObj, newObj){
 //Percent will range from 0-100
-let new_obj = {};
-  return new_obj;
+    let new_letter = {};
+    new_letter["size"] = map(percent, 50, 100, oldObj["size"], newObj["size"]);
+    new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+    new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+
+    new_letter["lineX"] = map(percent, 50, 100, oldObj["lineX"], newObj["lineX"]);
+    new_letter["lineY"] = map(percent, 50, 100, oldObj["lineY"], newObj["lineY"]);
+    new_letter["lineOX"] = map(percent, 50, 100, oldObj["lineOX"], newObj["lineOX"]);
+    new_letter["lineOY"] = map(percent, 50, 100, oldObj["lineOY"], newObj["lineOY"]);
+
+    new_letter["arcW"] = map(percent, 50, 100, oldObj["arcW"], newObj["arcW"]);
+    /*
+    new_letter["arcH"] = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
+    new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+    new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
+    new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+    */
+
+    return new_letter;
 }
 var swapWords = [
   "AQUAFONT", //Good
   "BUBBLING", //Good
-  "CLEARSEA", //needs S changed
+  "CLEARSEA", //Good
   "AQUATICS", //Good
   "DRIFTING", //Good
   ]

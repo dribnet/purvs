@@ -1,7 +1,7 @@
 ## PS2 MDDN 242 2018
 ## AQUA FONT
 Tuesday 12th June
-I have completed my numbers and now im going back over and touching up and letters that dont suit the style.
+I have completed my numbers and now im going back over and touching up and letters that dont suit the style. I have also updated the animation in interpolate_letter to make it fit my font better.
 
 Mon 11th June
 I have finished the alphabet, now I need to do numbers 0-9 below. 
