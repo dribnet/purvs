@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2018
 ## AQUA FONT
+Tuesday 12th June
+I have completed my numbers and now im going back over and touching up and letters that dont suit the style.
 
 Mon 11th June
 I have finished the alphabet, now I need to do numbers 0-9 below. 
@@ -8,7 +10,7 @@ Complications : Throughout the alphabet I wanted to try and create each letter f
 Fri 8th June
 I am current experimenting with my own shapes to create something abstract/different. In the process I have made in making this alphabet I have configured the arc to create an interesting shape the represents each letter, along side the line which also helps seperate each letter individually.
 
-I have experimented with different styles and finally decided on how im going to approach my lettering in my alphabet. I have named my style 'Aquatic' after its blue style along with how the letters are shaped.
+I have experimented with different styles and finally decided on how im going to approach my lettering in my alphabet. I have named my style 'Aqua Font' after its blue style along with how the letters are shaped.
 
 The parameters per letter are now:
   * `size` : radius of the second circle

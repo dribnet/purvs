@@ -44,12 +44,9 @@ let new_obj = {};
   return new_obj;
 }
 var swapWords = [
-  "AQUAFONT",
+  "AQUAFONT", //Good
   "BUBBLING", //Good
-  "AQUATICS", //Change Q to look different than A
   "CLEARSEA", //needs S changed
+  "AQUATICS", //Good
   "DRIFTING", //Good
-  "ALPHABET", //H looks strange and L has big spaces
-  "POSITION",
-  "STUDENTS" //Needs S to be changed
   ]
