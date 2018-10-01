@@ -1,18 +1,11 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers..
+I have chosen to continue with the idea of snow, however I wish to make it more of a grid pattern that I did in the last project. I am wanting it to be a repeating pattern of trees and some sow banks in the first image. (top left). it will then zoom in to the picture to the right, where you can see close images of the trees. You can also see ski marks, from people skiing around the trees. 
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+The next zoom in, is the bottom left picture. you can see the trees in more detail and you can see the snow wells beneath the trees. 
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+The next zoom in, is the middle bottom snowflakes. To do this I will probably hardcode some snowflakes, and randomly generate them in a pattern or in a grid. 
+
+The very last zoom in will be molecules, h2o.
+
+I do not know how feasible this idea will be, but I am hoping I will be able to implement some of it at least. I think a focus of mine will be on the idea of pixel art and 'cuteness'.
