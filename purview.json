@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "fc9f4b7fd766bee2cd15e6acfa66f219dd3c7ac4",
+      "name": "Part 4: Timing and movement refinement"
+    },
+    {
+      "sha": "49c313f0ad09b40e843cbae749e984f9dd58337a",
+      "name": "Part 3: Randomised component, and Lighting"
+    },
+    {
+      "sha": "1217f8dfd72a430ef2f994bc0bacc7553c94f575",
+      "name": "Part 2.2: 2 color Lighting Models"
+    },
+    {
+      "sha": "31090792f9953661f81f3748e002537f200ee69d",
+      "name": "Part 2: WebGL based Windows XP screensaver"
+    },
+    {
+      "sha": "48b13cb563b58322d87cfa0ecf54e03658594df1",
+      "name": "Part 1: Intial Experiements"
+    }
+  ]
+}
