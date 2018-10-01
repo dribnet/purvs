@@ -1,4 +1,5 @@
 ## PS4 MDDN 342 2018
+first readme
 
 In my example I am starting with the classic 10print commodore
 screen. My idea is to expose an additional level of maze as
