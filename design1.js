@@ -26,10 +26,11 @@ function setup () {
 }
 
 function mousePressed() {
+  /*
   if(recording == false) {
     recording = true;
     gifRecorder = new p5recorder(frameMax, "wallpaper.gif");
-  }
+  }*/
 }
 
 function draw () {
@@ -38,7 +39,7 @@ function draw () {
   translate(0, 0, -600);
   let cur_frame = frameCount % frameMax;
   let cur_frac = map(cur_frame, 0, frameMax, 0, 1);
-
+  orbitControl();
   //-----------------------background graident-----------------------//
   setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   translate(0, 0, 600);
@@ -169,9 +170,10 @@ function draw () {
   if(worldTranslate <= 1){worldTranslate =1} 
 
   //-----------------------Gif Recorder-----------------------// 
+  /*
   if(recording) {
     gifRecorder.addBuffer();
-  }
+  }*/
 }
 
 function keyTyped() {
