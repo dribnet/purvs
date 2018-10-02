@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-My initial idea is to reveal a second layer of parachuters inside the frame of the first parachuters parachute strings. They will be significantly smaller as though in the distance. I may also include some detail in the colours of the clothes and parachutes with multiple similarly coloured shapes making up the larger shape. I could also use parachuter silhouettes instead of shapes. 
+I am continuing on with my sky and parachute theme. The initial scene will show a sky full of clouds and as you zoom closer in and past the clouds, the parachuters are revealed. When you zoom in close to the parachuters, smaller details will be revealed such as textures in the colours of their parachutes, faces, smaller clothing details and basic hands and feet. There will also be another layer of smaller parachuters that will appear in the background at the same time as the smaller details are revealed.
