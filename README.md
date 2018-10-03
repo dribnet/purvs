@@ -1,18 +1,4 @@
-## PS4 MDDN 342 2018
-
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
-
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+# PART 1
+## Ideation Sketch (v0)
+Looking over my idea from PS3 I don't think I want to go in that direction for this problem set. While the kaleidoscope effect is really interesting and provides a kind of fractal design suitable for this, I want to try something new in a style more suited to still images, since the effect my PS3 provides I think is only really effective in animation.
+Until I have a new idea though I have made a sketch based on PS3, which involves different versions of my hand-in. Zooming in the patterns will become more complex and kaleidoscopic, as with what actually happens in my code with the expanding circles.
