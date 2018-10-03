@@ -1,18 +1,6 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+I've started with moving away from my project 3 and developing something with a little more detail. I did like my 3rd proejct but feel as if this concept idea will look better and more compex than if I carried on but I don't know if I am making this too hard for myself considering I will have to begin with new code!
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+I think this idea of snowflakes falling and as you zoom, you are able to see more detail! I've always been interested in the originalilty of different snowfalkes and I think it would bring an intertesting thing to this project through making each snowflake different. 
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
