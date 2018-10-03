@@ -1,11 +1,6 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+In my example I was inspired by fractal coasts and cells. I like the theory that coasts are fractal and the furthur you zoom into one the more coast you see leading to technically infinite coastline. I also liked the imagry of zooming into cells where somthing small has incredible complexity within it that is only revealed when zooming in.
 
 This README should be updated as the code changes. Replace
 this placeholder text and use this
