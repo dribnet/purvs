@@ -1,18 +1,11 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+I still want to use my idea from project 3 to impliment even further. For my idea in my sketch, I want to do atleast 3 simple zoom:
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+1. The first one is showing the close up of my wallpaper, nothing too special
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+2. The second one even closer to it but we can see all the rectangular wave form that the movement of the water surface create.
+
+3. The third one is zoom is even more into the wave form to see more randomly generated bubble.
+
+4. I want to impliment the 4th one if there is time in this project. I want to put some pixelated micro bacteria in the water. 
