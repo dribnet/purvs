@@ -1,5 +1,9 @@
 {
   "commits": [
+  	{
+      "sha": "d30cd8832360797d97de07495ae69bbd7bb58ae8",
+      "name": "Part 2: Move Controls"
+    },
     {
       "sha": "bf5242814ba0a6c5b1a350b2ca939d4d06647621",
       "name": "Part 1: Sketch Idea"
