@@ -19,7 +19,7 @@ var worldMap = new L.Map('map', {
   maxZoom: maxZoomLevel,
   crs: myCRS,
   attributionControl: false,
-  center: [512, 512], 
+  center: [0, 0], 
   zoom: initialZoomLevel});
 
 worldMap._p5_seed = Math.floor(Math.random() * 1000);
