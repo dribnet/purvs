@@ -9,3 +9,5 @@ The next zoom in, is the middle bottom snowflakes. To do this I will probably ha
 The very last zoom in will be molecules, h2o.
 
 I do not know how feasible this idea will be, but I am hoping I will be able to implement some of it at least. I think a focus of mine will be on the idea of pixel art and 'cuteness'.
+
+fixed
