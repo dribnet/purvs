@@ -1,18 +1,7 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+I find myself without too much immediate inspiration for this project, which bothers me because I love maps and visualising levels of detail so you'd think this would be right up my alley. The strongest of my inspirations is in line with Tom's example of the famous Scale of Life website where you can zoom through orders of magnitude from the cosmos to particles.
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+I instead want to do a more pseudo-scientific, premodern version of this webpage. By this, I mean to use dated and disproved models of the universe inspired by geocentic models of the universe, kepler's mysterium cosmographicum in which the planets are ordered and arranged based on the relative sizes of nested platonic solids, alchemical models of chemistry and the like. I can imagine an experience similar to Scale of Life where one is zooming in through a universe with celestial spheres and explanantions about geocentric epicycles and platonic solids, zooming down further into Earth (maybe flat to be cheeky?), and deeper into molecular levels where alchemy and antiquated models of the atom can be seen.
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+For now I am just testing with different scaling factors to draw different stroke weights based on the zoom level, and whether or not I can hide or show things such as text based on different zoom levels.
