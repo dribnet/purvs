@@ -20,11 +20,37 @@ var tourPath = [
   [6, 512, 512]
 ]
 
+
+function owl(x,y){
+	push();
+	translate(x,y);
+	stroke(0);
+
+}
+
+
+
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  p5.background(200, 200, 255);
+
+
+
 }
+
+
+
+
+
+
+
+//   // debug - show border
+//   p5.noFill();
+//   p5.stroke(0, 200, 200)
+//   p5.rect(0, 0, 255, 255);
+//   p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+//   let sizex = x2 - x1;
+//   p5.text("width: " + sizex, 10, 40);
+// }
+
