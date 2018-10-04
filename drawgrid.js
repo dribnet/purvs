@@ -1,5 +1,5 @@
 /*
- * This is the function to implement to make your own abstract design.
+ * This is the a class example of the abstract design framework.
  *
  * arguments:
  * p5: the p5.js object - all draw commands should be prefixed with this object
@@ -16,15 +16,29 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [2, 420, 400],
+  [4, 420, 400]
 ]
 
-// This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  // temporary variables used for object placement
+  let cx=0, cy=0, cx2=0, cy2=0;
+
+  p5.background(255);
+
+  // Two ellipses with a radius of 50 units are then added.
+  cx = p5.map(512, x1, x2, 0, 256);
+  cy = p5.map(512, y1, y2, 0, 256);
+  radius = p5.map(600, x1, x2, 0, 256);
+  p5.noFill();
+  p5.stroke("#f90250");
+  p5.strokeWeight((zoom*10)+10);
+  p5.ellipse(cx, cy, (radius-cx));
+
   // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  p5.noFill();
+  p5.stroke(255, 0, 0);
+  p5.strokeWeight(1);
+  p5.rect(0, 0, 255, 255);
 }
