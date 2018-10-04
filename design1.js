@@ -16,7 +16,10 @@ var pg;
 const frameMax = 360;
 let recording = false;
 let gifRecorder = null;
-
+//Camera Control Vars
+var zAxis = 900;
+var yAxis = 0;
+var xAxis = 0;
 function setup () {
   createCanvas(960, 480, WEBGL);
   c1 = color(100, 0, 125);
@@ -39,7 +42,9 @@ function draw () {
   translate(0, 0, -600);
   let cur_frame = frameCount % frameMax;
   let cur_frac = map(cur_frame, 0, frameMax, 0, 1);
-  orbitControl();
+  //orbitControl();
+  camera(xAxis, yAxis, zAxis, xAxis, yAxis, 0, 0.0, 1.0, 0.0);
+  //camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
   //-----------------------background graident-----------------------//
   setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   translate(0, 0, 600);
@@ -175,7 +180,27 @@ function draw () {
     gifRecorder.addBuffer();
   }*/
 }
-
+function keyPressed(){
+  print("zoomed");
+  if (key === '+') {
+    zAxis = zAxis - 50;
+  }
+  else if (key === '-') {
+    zAxis = zAxis + 50; 
+  }
+  else if (keyCode === LEFT_ARROW) {
+    xAxis = xAxis - 50; 
+  }
+  else if (keyCode === RIGHT_ARROW) {
+    xAxis = xAxis + 50; 
+  }
+  else if (keyCode === UP_ARROW) {
+    yAxis = yAxis - 50; 
+  }
+  else if (keyCode === DOWN_ARROW) {
+    yAxis = yAxis + 50; 
+  }
+}
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
