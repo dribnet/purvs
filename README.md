@@ -1,18 +1,5 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+Initial Concept:
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+My thrid project was based arounf clusters of roses, so for this project I want to zoom in on the petals. I did some google imaging to look at what rose petals looks like under a microscope and it looks like a whole bunch of textured, organic circles. I want to try replicate this pattern in this project. The most zoomed out version will just be dense clusters of roses, and as you zoom in they start to spread out a bit more, and then it gets to a point where you start to see some texture appearing on the outer petals, and then you get even closer and the texture is clear and covering all petals of the rose
