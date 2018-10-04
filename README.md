@@ -1,18 +1,3 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
-
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
-
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+I am using the pattern from my previous project as I think it could work quite well in this project. The focus of my previous project was about the layering of shapes and hopefully I can capture this again with the zooming in/out feature. My idea is to explore the depths of the basic geometric shape by starting with a zoomed out radial pattern and zooming in shows the layers of how the pattern is created. 
