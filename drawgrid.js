@@ -15,9 +15,9 @@
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [2, 356, 356],
+  [4, 356, 356],
+  [6, 356, 356]
 ]
 
 let ballx = 400
@@ -39,15 +39,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let i=0; i<10; i++) {
   	let shade = 128 + 128 / (i+1);
   	let current_r = p5.map(i, 0, 9, local_ball_r, 0)
-	p5.fill(0, 0, shade);
-	p5.ellipse(local_ballx, local_bally, current_r);  	
+  	p5.noStroke();
+	p5.fill(0, 0, 0, shade * 0.3);
+	p5.text("hello", local_ballx, local_bally);  
+	p5.textSize(current_r);	
   }
-
+  
   // debug - show border
   p5.noFill();
   p5.stroke(0, 200, 200)
   p5.rect(0, 0, 255, 255);
   p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
   let sizex = x2 - x1;
-  p5.text("width: " + sizex, 10, 40);
+  p5.text("width: " + sizex, 10, 40); 
 }
