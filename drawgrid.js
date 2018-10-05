@@ -130,9 +130,44 @@ function parachuter(p5, x, y, x1, x2, y1, y2){
 	p5.fill(244, 197, 66);//YELLOW
 	p5.triangle(tritop_x, tritop_y, tri1_x5, tri1_y2, tri1_x4 ,tri1_y3);
 
-
 }
 
+function cloud(p5, x, y, x1, x2, y1, y2){
+
+    p5.fill(255, 255, 255);
+    p5.noStroke();
+    let cloud_x1 = p5.map(x + 10, x1, x2, 0, 256);
+    let cloud_x2 = p5.map(x + 20, x1, x2, 0, 256);
+    let cloud_x3 = p5.map(x + 35, x1, x2, 0, 256);
+    let cloud_x4 = p5.map(x + 45, x1, x2, 0, 256);
+
+    let cloud_y1 = p5.map(y + 20, y1, y2, 0, 256);
+
+	let cloud1_w_offset1 = p5.map(x + 50, x1, x2, 0, 256);
+	let cloud1_w_offset2 = p5.map(x + 30, x1, x2, 0, 256);
+	let cloud1_w_offset3 = p5.map(y + 40, y1, y2, 0, 256);
+	let cloud1_w_offset4 = p5.map(y + 55, y1, y2, 0, 256);
+	let cloud1_w_offset5 = p5.map(y + 45, y1, y2, 0, 256);
+
+	
+	let cloud1_w = cloud1_w_offset1 - cloud_x1;
+	let cloud2_w = cloud1_w_offset1 - cloud_x2;
+	let cloud3_w = cloud1_w_offset1 - cloud_x3;
+	let cloud4_w = cloud1_w_offset2 - cloud_x4;
+
+	let cloud1_w2 = cloud1_w_offset3 - cloud_y1;
+	let cloud2_w2 = cloud1_w_offset4 - cloud_y1;
+	let cloud3_w2 = cloud1_w_offset5 - cloud_y1;
+	let cloud4_w2 = cloud1_w_offset3 - cloud_y1;	
+
+	let cloud_y4 = p5.map(y + 0, y1, y2, 0, 256);
+
+    p5.arc(cloud_x1, cloud_y1, cloud1_w, cloud1_w2, 542, 360);
+    p5.arc(cloud_x2, cloud_y1, cloud2_w, cloud2_w2, 542, 360);
+    p5.arc(cloud_x3, cloud_y1, cloud3_w, cloud3_w2, 542, 360);
+  	p5.arc(cloud_x4, cloud_y1, cloud4_w, cloud4_w2, 542, 360);
+
+}
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
@@ -141,7 +176,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	p5.background(222, 249, 247);
 	p5.noStroke();
 	parachuter(p5, 412, 512, x1, x2, y1, y2);
-	
+
+
+	cloud(p5, 412, 512, x1, x2, y1, y2);
+
 
   // debug - show border
   // p5.noFill();

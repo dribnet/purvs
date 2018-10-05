@@ -1,5 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I have updated the code to include a parachuter in the new format. It took a while because the the arcs worked differently in the new code and I had to experiment a lot. 
-
-Next I will add some clouds.
+I incorperated my cloud code and I found drawing arcs in this code layout is a lot harder and more time consuming. I just drew one to start to get the hang of it and at the moment it is drawn really close to the parachuter. When I tried to move it, I ran into a few problems with translate and changing the values so I think I'll wait for more tutorials before I try more technical things.
