@@ -1,7 +1,5 @@
 ## PS4 MDDN 342 2018
 
-My idea for this is to have my existing pattern zoom out into a slightly different version of itself.
+I've put in the shapes of my repeating pattern. 
 
-It will begin with the pattern in all pink on a white canvas. As you zoom out, it reveals that it is actually a part of the same pattern again, but in a pink/blue glitch style.
-
-it'll have to zoom out a lot with this idea, so I'll probably begin with the pattern smaller that what is shown here in the sketch.
+The only thing that isn't really working is the stroke weight. I haven't figured out how to keep the weight in proportion when zooming, so currently it's just set to 12. 

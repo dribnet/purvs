@@ -20,21 +20,82 @@ var tourPath = [
   [4, 420, 400]
 ]
 
+function myPattern(p5, x, y, x1, x2, y1, y2)  {
+  let arc_x = p5.map(x+20, x1, x2, 0, 256);
+  let arc_y = p5.map(y-60, y1, y2, 0, 256);
+  let arc_w_offset = p5.map(x+100, x1, x2, 0, 256);
+  let arc_w = arc_w_offset - arc_x;
+  p5.arc(arc_x, arc_y, arc_w, arc_w, 220, 10); //big
+
+  let sm_arc_x = p5.map(x-40, x1, x2, 0, 256);
+  let sm_arc_y = p5.map(y+40, y1, y2, 0, 256);
+  let sm_arc_w_offset = p5.map(x+20, x1, x2, 0, 256);
+  let sm_arc_w = sm_arc_w_offset - sm_arc_x;
+  p5.arc(sm_arc_x, sm_arc_y, sm_arc_w, sm_arc_w, 100, 180); //small
+
+  let zzz_x = p5.map(x-10, x1, x2, 0, 256);
+  let zzz_y = p5.map(y+80, y1, y2, 0, 256);
+  p5.beginShape(); //long zigzag
+    p5.vertex(zzz_x, zzz_y);
+    p5.vertex(zzz_x+20, zzz_y-15);
+    p5.vertex(zzz_x+40, zzz_y);
+    p5.vertex(zzz_x+60, zzz_y-15);
+    p5.vertex(zzz_x+80, zzz_y);
+    p5.vertex(zzz_x+100, zzz_y-15);
+  p5.endShape();
+
+  let zz_x = p5.map(x-100, x1, x2, 0, 256);
+  let zz_y = p5.map(y-80, y1, y2, 0, 256);
+  p5.beginShape(); //zigzag
+    p5.vertex(zz_x, zz_y);
+    p5.vertex(zz_x+20, zz_y+20);
+    p5.vertex(zz_x+40, zz_y);
+    p5.vertex(zz_x+60, zz_y+20);
+  p5.endShape();
+
+  let line_y = p5.map(x-30, y1, y2, 0, 256);
+  p5.line(zz_x, line_y, zz_x+20, line_y+15);
+
+  let topV_x = p5.map(x+105, x1, x2, 0, 256);
+  let topV_y = p5.map(y-80, y1, y2, 0, 256);
+  p5.beginShape(); //top V
+    p5.vertex(topV_x, topV_y);
+    p5.vertex(topV_x-5, topV_y-40);
+    p5.vertex(topV_x+50, topV_y-30);
+  p5.endShape();
+
+  let bottomV_x = p5.map(x-60, x1, x2, 0, 256);
+  let bottomV_y = p5.map(y+100, y1, y2, 0, 256);
+  p5.beginShape(); //bottom V
+    p5.vertex(bottomV_x, bottomV_y);
+    p5.vertex(bottomV_x+20, bottomV_y+12);
+    p5.vertex(bottomV_x+40, bottomV_y+10);
+  p5.endShape();
+
+  let t_x = p5.map(x+60, x1, x2, 0, 256);
+  let t_y = p5.map(y+30,  y1, y2, 0, 256);
+  p5.line(t_x, t_y, t_x+40, t_y-38); //T
+  p5.line(t_x+20, t_y-60, t_x+60, t_y-30);
+}
+
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  p5.angleMode(p5.DEGREES);
   // temporary variables used for object placement
   let cx=0, cy=0, cx2=0, cy2=0;
 
   p5.background(255);
+  p5.noFill();
+  p5.stroke("#f90250");
+  p5.strokeWeight(12);
 
   // Two ellipses with a radius of 50 units are then added.
   cx = p5.map(512, x1, x2, 0, 256);
   cy = p5.map(512, y1, y2, 0, 256);
-  radius = p5.map(600, x1, x2, 0, 256);
-  p5.noFill();
-  p5.stroke("#f90250");
-  p5.strokeWeight((zoom*10)+10);
+  radius = p5.map(580, x1, x2, 0, 256);
   p5.ellipse(cx, cy, (radius-cx));
+
+  myPattern(p5, 512, 512, x1, x2, y1, y2);
 
   // debug - show border
   p5.noFill();
