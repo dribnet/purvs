@@ -5,9 +5,9 @@ With my last part I had a tempory button based navigation system for my 3D scene
 
 <hr>
 here are the button based controls:
--Arrow_up: move up
--Arrow_down: move down
--Arrow_left: move left
--Arrow_right: move right
+- Arrow_up: move up
+- Arrow_down: move down
+- Arrow_left: move left
+- Arrow_right: move right
 - "+" Key : zoom in
 - "-" Key : zoom out
