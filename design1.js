@@ -20,57 +20,95 @@ let gifRecorder = null;
 var zAxis = 900;
 var yAxis = 0;
 var xAxis = 0;
+var AxisModifier = 50;
+var mod = 0;
 function setup () {
-  createCanvas(960, 480, WEBGL);
+  createCanvas(960, 720, WEBGL);
   c1 = color(100, 0, 125);
   c2 = color(0, 125, 255);
   pg = createGraphics(256,256);
 
+  //button handlers
+  //Zoom out 
+  var loadButton = createButton('ZoomOut');
+  loadButton.mousePressed(ZoomOutX);
+  loadButton.parent('button1Container');
+  //Zoom in
+  var loadButton = createButton('Zoom-In');
+  loadButton.mousePressed(ZoomInX);
+  loadButton.parent('button1Container');
+  //blank
+  var loadButton = createButton("....");
+  loadButton.mousePressed();
+  loadButton.parent('button2Container');
+  //Move Up
+  var loadButton = createButton("&#8593");
+  loadButton.mousePressed(MoveUp);
+  loadButton.parent('button2Container');
+  //blank
+  var loadButton = createButton("....");
+  loadButton.mousePressed();
+  loadButton.parent('button2Container');
+  //Move Right
+  var loadButton = createButton('&#8592');
+  loadButton.mousePressed(MoveLeft);
+  loadButton.parent('button3Container');
+   //Move Down
+  var loadButton = createButton('&#8595');
+  loadButton.mousePressed(MoveDown);
+  loadButton.parent('button3Container');
+  //Move Left
+  var loadButton = createButton('&#8594');
+  loadButton.mousePressed(MoveRight);
+  loadButton.parent('button3Container');
+  //reset Cam
+  var loadButton = createButton('ResetCamera');
+  loadButton.mousePressed(ResetCam);
+  loadButton.parent('button4Container');
+  //Screen Zoom Pos
+  //Max Zoomed out
+  var loadButton = createButton('Positon1');
+  loadButton.mousePressed(POS1);
+  loadButton.parent('Pos1Container');
+  //Middle Zoom
+  var loadButton = createButton('Positon2');
+  loadButton.mousePressed(POS2);
+  loadButton.parent('Pos1Container');
+  //Max Zoomed in
+  var loadButton = createButton('Positon3');
+  loadButton.mousePressed(POS3);
+  loadButton.parent('Pos1Container');
 }
 
 function mousePressed() {
-  /*
-  if(recording == false) {
-    recording = true;
-    gifRecorder = new p5recorder(frameMax, "wallpaper.gif");
-  }*/
 }
 
 function draw () {
-  //-----------------------scene setup-----------------------//
-  background(100);
+   //-----------------------scene setup-----------------------//
+  background(80);
   translate(0, 0, -600);
   let cur_frame = frameCount % frameMax;
   let cur_frac = map(cur_frame, 0, frameMax, 0, 1);
-  //orbitControl();
   camera(xAxis, yAxis, zAxis, xAxis, yAxis, 0, 0.0, 1.0, 0.0);
-  //camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
   //-----------------------background graident-----------------------//
-  setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
+  //setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   translate(0, 0, 600);
   
   //-----------------------Scene Lighting-----------------------//
-  //ambientLight(50);
   var locX = height / 2;
   var locY = width;
   ambientMaterial(250);
   directionalLight(255, 0, 255, 0.25, 0.25, 0);
-  //directionalLight(250, 0, 200, 700, 400, 0.25);
   directionalLight(0, 150, 250, 0, 0, -10);
   pointLight(0, 0, 255, locX, locY, 250);
 
-  //stroke(0);
-  //noStroke();
-  //normalMaterial();
+  //-----------------------central Torus-----------------------//
   strokeWeight(0.3);
-  //Main Torus
-  rotateZ(frameCount * 0.005);
-  rotateX(frameCount * 0.005);
-  rotateY(frameCount * 0.005);
+  rotateZ(frameCount * 0.0035);
+  rotateX(frameCount * 0.0035);
+  rotateY(frameCount * 0.0035);
   torus(120, 30);
-  //stroke(0, 0, 100);
-  //fill (random(255),0, 255);
-  
+  //sphere(2500);
   //-----------------------inner core anticlockwise-----------------------//
   for(let i = 0; i < 10; i++) {
         push();
@@ -83,7 +121,6 @@ function draw () {
         ellipsoid(45, 15, 45);
         ellipsoid(15, 45, 45);
         degree4 += 0.02;
-        //degree += 0.08;
         pop();
   }
 
@@ -91,10 +128,8 @@ function draw () {
   for(let i = 0; i < worldSphereCount; i++) {
         push();
         rotateX(degree2);
-        //rotateY(degree2);
         rotateZ(degree2);
         translate(0, 0, worldTranslate);
-        //torus(10, 5);
         sphere(25);
         degree2 += 0.9;
         pop();
@@ -103,11 +138,9 @@ function draw () {
   //-----------------------outer smaller spheres-----------------------//
   for(let i = 0; i < worldSphereCount/2; i++) {
         push();
-        //rotateX(degree3);
         rotateY(degree3);
         rotateZ(degree3);
         translate(0, 0, 250);
-        //torus(10, 5);
         sphere(10);
         degree3 += 0.7;
         pop();
@@ -122,7 +155,7 @@ function draw () {
   for(var j = 0; j < 5; j++){
     push();
     for(var i = 0; i < 10; i++){
-      translate(sin(frameCount * 0.02 + j) * 100, sin(frameCount * 0.02 + j) * 100, i * 0.1);
+      translate(sin(frameCount * 0.001 + j) * 100, sin(frameCount * 0.001 + j) * 100, i * 0.1);
       rotateZ(frameCount * 0.002);
       push();
       specularMaterial(255, 125, 255);
@@ -141,12 +174,9 @@ function draw () {
         translate(0, 0, 0);
         box(70, 70, 70);
         degree += 0.01;
-        //degree += 0.08;
         pop();
   }
   strokeWeight(1);
-  //print(worldSphereCount);
-
 
   //-----------------------Movement Triggers-----------------------//
   //bal count triggers
@@ -173,32 +203,28 @@ function draw () {
     worldTranslate--;
   }
   if(worldTranslate <= 1){worldTranslate =1} 
-
-  //-----------------------Gif Recorder-----------------------// 
-  /*
-  if(recording) {
-    gifRecorder.addBuffer();
-  }*/
 }
 function keyPressed(){
-  print("zoomed");
+  //print("zoomed");
   if (key === '+') {
-    zAxis = zAxis - 50;
+    zAxis = zAxis - AxisModifier;
+    print(zAxis);
   }
   else if (key === '-') {
-    zAxis = zAxis + 50; 
+    zAxis = zAxis + AxisModifier;
+    print(zAxis);
   }
   else if (keyCode === LEFT_ARROW) {
-    xAxis = xAxis - 50; 
+    xAxis = xAxis - AxisModifier; 
   }
   else if (keyCode === RIGHT_ARROW) {
-    xAxis = xAxis + 50; 
+    xAxis = xAxis + AxisModifier; 
   }
   else if (keyCode === UP_ARROW) {
-    yAxis = yAxis - 50; 
+    yAxis = yAxis - AxisModifier; 
   }
   else if (keyCode === DOWN_ARROW) {
-    yAxis = yAxis + 50; 
+    yAxis = yAxis + AxisModifier; 
   }
 }
 function keyTyped() {
@@ -234,4 +260,45 @@ function setGradient(x, y, w, h, c1, c2, axis) {
       line(i, y, i, y+h);
     }
   }
+}
+
+
+//Input panel methods
+function ZoomOutX(){
+  zAxis = zAxis + AxisModifier;
+}
+function ZoomInX(){
+  zAxis = zAxis - AxisModifier;
+}
+function MoveLeft(){
+  xAxis = xAxis - AxisModifier; 
+}
+function MoveRight(){
+  xAxis = xAxis + AxisModifier; 
+}
+function MoveUp(){
+  yAxis = yAxis - AxisModifier;  
+}
+function MoveDown(){
+  yAxis = yAxis + AxisModifier;  
+}
+function ResetCam(){
+  zAxis = 1000;
+  yAxis = 0;
+  xAxis = 0;
+}
+function POS1(){  //fully zoomed out
+  zAxis = 800;
+  yAxis = 0;
+  xAxis = 0; 
+}
+function POS2(){  //middle zoom
+  zAxis = 1200;
+  yAxis = 0;
+  xAxis = 0; 
+}
+function POS3(){  //fully zoomed in
+  zAxis = 1800;
+  yAxis = 0;
+  xAxis = 0; 
 }
