@@ -27,4 +27,5 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noFill();
   p5.stroke(255, 0, 0)
   p5.rect(0, 0, 255, 255);
+  p5.ellipse(25, 0, 50, 50);
 }
