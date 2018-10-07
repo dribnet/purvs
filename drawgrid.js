@@ -24,7 +24,7 @@ var tourPath = [
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  p5.noFill();
+  p5.stroke(255, 0, 0)
+  p5.rect(0, 0, 255, 255);
 }
