@@ -1,5 +1,9 @@
 {
   "commits": [
+    {
+      "sha": "8486eaa8b19d9eaedb0848711846a42743e6eaaf",
+      "name": "Part 3: OnScreen Controls/Zoom Points"
+    },
   	{
       "sha": "d30cd8832360797d97de07495ae69bbd7bb58ae8",
       "name": "Part 2: Move Controls"
