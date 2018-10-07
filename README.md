@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I am using the pattern from my previous project as I think it could work quite well in this project. The focus of my previous project was about the layering of shapes and hopefully I can capture this again with the zooming in/out feature. My idea is to explore the depths of the basic geometric shape by starting with a zoomed out radial pattern and zooming in shows the layers of how the pattern is created. 
+Merged the code and started to add some of my shape layers and colours into it. I'm finding it quite difficult to get my head around and at the moment the shape on the right is going a bit weird when I zoom in. I'll continue to add elements of my old code into this one and hopefully I'll understand the code better as I go. 
