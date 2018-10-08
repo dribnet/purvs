@@ -31,7 +31,7 @@ function setup () {
 
 	// graphics settings
 	createCanvas (960, 480);
-  pixelDensity (1);
+	pixelDensity (1);
 	frameRate (frRate);
 
 	// drawing canvases: one for each RGB colour dimension
@@ -150,6 +150,7 @@ function Transform (line, newPos) {
 	complete -> boolean: true to override the line's actual position as well
 	*/
 Transform.prototype.apply = function (complete) {
+
 	this.line.scale (this.len, this.x, this.y, complete);
 };
 
@@ -215,6 +216,7 @@ Line.prototype.update = function () {
 	equation for animating an attribute towards the target
 	*/
 Line.prototype.approach = function (attr) {
+
 	this.actual [attr] += (this [attr] - this.actual [attr]) * Line.v;
 }
 
@@ -254,6 +256,7 @@ Line.prototype.scale = function (newLen, newX, newY, complete) {
 	get a random element from a given array
 	*/
 function randElem (arr) {
+
 	return arr [randInt (arr.length)];
 }
 
@@ -261,5 +264,6 @@ function randElem (arr) {
 	simplify the random integer process into one function
 	*/
 function randInt (min, max, focus) {
+	
 	return int (focusedRandom (min, max, focus));
 }

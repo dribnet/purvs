@@ -14,37 +14,40 @@
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
-var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
-]
+var tourPath = [];
 
 function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 
+	let sc = Math.pow (2, zoom);
 	p5.push ();
-	p5.scale (Math.pow (2, zoom));
-	p5.translate (-x1, -y1);
+	p5.scale (-sc);
+	p5.translate (x1, y1);
+	// x1 /= sc;
+	// y1 /= sc;
+	// x2 /= sc;
+	// y2 /= sc;
 
-	// blue ellipse
+
+
+	p5.background (255);
 	p5.noStroke ();
-	p5.fill (0, 0, 255);
-	p5.ellipse (200, 200, 50);
 
-	// green ellipse
-	p5.fill (0, 255, 0);
-	p5.ellipse (100, 100, 50);
+	p5.fill (55, 200, 200);
+	p5.ellipse (0, 0, 20);
+	
+	p5.fill (200, 55, 200);
+	p5.ellipse (30, 0, 20);
 
+	// let grid = 100/sc,
+	// 		minX = snap (x1 - grid*0.5, grid),
+	// 		maxX = snap (x2 + grid*1.5, grid),
+	// 		minY = snap (y1 - grid*0.5, grid),
+	// 		maxY = snap (y2 + grid*1.5, grid);
 
-	p5.strokeWeight (100);
-
-	// purple line
-	p5.stroke (220, 0, 220, 128);
-	p5.line (300, 0, 300, 500);
-
-	// yellow line
-	p5.stroke (220, 220, 0, 128);
-	p5.line (200, 400, 600, 400);
+	// for (let x = minX; x < maxX + 4*grid; x += grid)
+	// 	for (let y = minY; y < maxY + 4*grid; y += grid) {
+	// 		p5.ellipse (x, y, 0.5*grid);
+	// 	}
 
 	p5.pop ();
 
@@ -54,3 +57,7 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 	// p5.rect(0, 0, 255, 255);
 }
 
+function snap (point, grid) {
+
+	return Math.floor (point/grid) * grid;
+}
