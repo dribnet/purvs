@@ -11,6 +11,9 @@
  */
 
 
+
+
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -58,6 +61,23 @@ let cx=0, cy=0, cx2=0, cy2=0;
   cx2 = p5.map(412+50, x1, x2, 0, 256);
   p5.fill(0, 255, 0);
   p5.ellipse(cx, cy, (cx2-cx));
+
+
+  for (var i = 0; i < 360; i++) {
+  	p5.push();
+  	//p5.rotate(i);
+  	cx = p5.map(512, x1, x2, 0, 256);
+  	cy = p5.map(312, y1, y2, 0, 256);
+  	dx = p5.map(513, x1, x2, 0, 256);
+  	dy = p5.map(412, y1, y2, 0, 256);
+  	cx2 = p5.map(412+50, x1, x2, 0, 256);
+  	p5.stroke(255, 0 ,0);
+  	p5.fill(255, 0, 0);
+  	p5.rect(cx, cy, dx, dy);
+  	p5.pop();
+  }
+  
+
 	
   // debug - show border
   // p5.noFill();
