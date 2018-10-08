@@ -1,13 +1,15 @@
 function setup() {
   createCanvas(800, 800);
-  background(0, 0, 0);
+  background(0);
   frameRate(60);
 
   // translucent stroke using alpha value
-  stroke(123, 36, 242, 5);
+  stroke(204, 78, 206, 5);
 }
 
 
+var colourOne = (204, 78, 206);
+var colourTwo = (96, 200, 224);
 var flipFlop = true;
 var circleWidth1 = 400;
 var circleWidth2 = 200;
@@ -16,16 +18,35 @@ var globalYOffset = 200;
 var pos = 1;
 var seconds = 0;
 var stopDraw = false;
+var doOnce = true;
 
 function draw() {
   // draw two random chords each frame
   noFill();
 
+  if (doOnce) {
+    // rotate(radians(90));
+    doOnce = false;
+  }
+
   if (flipFlop && !stopDraw) {
-    randomChord(6);
-    randomChord(6);
+
+    randomChord(8);
+    randomChord(8);
     randomChord(7);
     randomChord(7);
+    randomChord(8);
+    randomChord(8);
+    randomChord(7);
+    randomChord(7);
+    randomChord(8);
+    randomChord(8);
+    randomChord(7);
+    randomChord(7);
+    // randomChord(5);
+    // randomChord(5);
+    // randomChord(6);
+    // randomChord(6);
   }
 
   if (!flipFlop && !stopDraw) {
@@ -37,17 +58,23 @@ function draw() {
     randomChord(4);
     randomChord(5);
     randomChord(5);
-    randomChord(8);
-    randomChord(8);
-    
+    randomChord(6);
+    randomChord(6);
+    randomChord(6);
+    randomChord(6);
+    randomChord(6);
+    randomChord(6);
+    randomChord(9);
+    randomChord(9);
+
   }
 
   if (frameCount % (60 * 1) == 0) {
     seconds++;
     console.log(seconds);
   }
-  
-  if (frameCount % (60 * 30) == 0) {
+
+  if (frameCount % (60 * 20) == 0) {
     console.log("OFF");
     stopDraw = true;
   }
@@ -56,11 +83,11 @@ function draw() {
     console.log("FLOP");
     flipFlop = false;
     seconds = 0;
-    stroke(32, 154, 99, 5);
+    stroke(96, 200, 224, 5);
   } else if (seconds == 5 && !flipFlop) {
     console.log("FLIP");
     flipFlop = true;
-    stroke(123, 36, 242, 5);
+    stroke(204, 78, 206, 5);
     seconds = 0;
   }
 }
@@ -104,7 +131,13 @@ function randomChord(mat) {
     var xpos2 = circleWidth1 + circleWidth1 * tan(angle2);
     var ypos2 = circleWidth2 + circleWidth2 * cos(angle2);
     line(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset);
-  } else if (mat == 6) { //vert valley bezier
+  } else if (mat == 6) { //horizontal valley
+    var xpos1 = circleWidth1 + circleWidth1 * cos(angle1);
+    var ypos1 = circleWidth2 + circleWidth2 * tan(angle1);
+    var xpos2 = circleWidth1 + circleWidth1 * cos(angle2);
+    var ypos2 = circleWidth2 + circleWidth2 * tan(angle2);
+    line(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset);
+  } else if (mat == 7) { //vert valley bezier
     var xpos1 = (circleWidth1) + (circleWidth2) * cos(angle1);
     var ypos1 = (circleWidth2) + (circleWidth3 / 2) * tan(angle1);
     var xpos2 = (circleWidth1) + (circleWidth2) * cos(angle2);
@@ -114,7 +147,7 @@ function randomChord(mat) {
     var xpos4 = (circleWidth1) + (circleWidth2) * cos(angle4);
     var ypos4 = (circleWidth2) + (circleWidth3 / 2) * tan(angle4);
     bezier(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset, xpos3, ypos3 + globalYOffset, xpos4, ypos4 + globalYOffset)
-  } else if (mat == 7) { //Horiz valley bezier
+  } else if (mat == 8) { //Horiz valley bezier
     var xpos1 = (circleWidth1) + (circleWidth3 / 2) * tan(angle1);
     var ypos1 = (circleWidth2) + (circleWidth2) * cos(angle1);
     var xpos2 = (circleWidth1) + (circleWidth2) * cos(angle2);
@@ -124,7 +157,7 @@ function randomChord(mat) {
     var xpos4 = (circleWidth1) + (circleWidth3 / 2) * tan(angle4);
     var ypos4 = (circleWidth2) + (circleWidth2) * cos(angle4);
     bezier(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset, xpos3, ypos3 + globalYOffset, xpos4, ypos4 + globalYOffset)
-  } else if (mat == 8) {
+  } else if (mat == 9) {
     //regressive loop
     for (var i = 1; i < 4; i++) {
       //circle
