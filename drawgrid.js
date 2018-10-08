@@ -57,24 +57,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
       /* now draw all elements from back to front */
+   //p5.translate(200,200);
+   
 
-     p5.translate(200,200);
      p5.fill('#041370'); // blue
      p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
      p5.rotate(p5.HALF_PI);
   
   	 p5.fill('#422F14'); // brown
-     p5.rect(x_pos/4, y_pos/4,perimiter,perimiter,0, 20, 0, 20);
+     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
      p5.rotate(p5.HALF_PI);
 
      p5.fill('#FCDB85'); //yellow
-      p5.rect(x_pos/4, y_pos,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
+      p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
+    p5.rotate(p5.HALF_PI);
 
      p5.fill('#EE4502'); // red
-      p5.rect(x_pos/4, y_pos/4,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
-  
+      p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
+    p5.rotate(p5.HALF_PI);
+ 
     }
   }
 
