@@ -26,51 +26,90 @@ let ballr = 500;
 
 var cells = [];
 
-var numberOfCells = 5000;
-var maxCellSize = 30;
+var mainCell;
+
+var numberOfCells = 100;
 
 class cell{
-	constructor(x,y,r){
+	constructor(x,y,r,zoomThresh){
 		this.x = x;
 		this.y = y;
 		this.r = r;
+		this.subCells = [];
+		this.zoomThresh = zoomThresh;
 	}
 
-	draw(p5,x1,x2,y1,y2){
+	draw(p5,x1,x2,y1,y2,zoom){
 		var localX = p5.map(this.x,x1,x2,0,256);
 		var localY = p5.map(this.y,y1,y2,0,256);
 		var localEdge = p5.map((this.x + this.r), x1, x2, 0, 256);
 		var localR = localEdge - localX;
 
-		p5.noFill();
+
+		p5.fill(20,20,25);
 		p5.stroke(255);
 		
-		p5.ellipse(localX,localY,localR,localR);
-		p5.textAlign(p5.CENTER,p5.CENTER);
-		//p5.text(cells.indexOf(this),localX,localY);
+		if(zoom < this.zoomThresh) p5.ellipse(localX,localY,localR,localR);
+		else {
+			for(let c of this.subCells){
+	   			c.draw(p5,x1,x2,y1,y2,zoom)
+	   	}
+	   	p5.colorMode(p5.RGB,255);
+}
+		
+		
 	}
 }
 
-for(i = 0; i < numberOfCells; i ++){
-	var point;
-	
-	restartLoop:
-	while (true) {
-		var point = randomInsideCircle(ballr/2);
-		for (let c of cells){
-			if (isPointInsideCircle(point.x,point.y,c.x,c.y,c.r/2)) {
-				continue restartLoop;
+function generateCells(bigCell,cellCount,zoomThresh){
+	for(i = 0; i < cellCount; i ++){
+		var point;
+		
+		restartLoop:
+		while (true) {
+			var point = randomInsideCircle(bigCell.x,bigCell.y,bigCell.r/2);
+			for (let c of bigCell.subCells){
+				if (isPointInsideCircle(point.x,point.y,c.x,c.y,c.r/2)) {
+					console.log("Inside circle");
+					continue restartLoop;
+				}
+				//console.log(isPointInsideCircle(point.x,point.y,c.x,c.y,c.r));
 			}
-			//console.log(isPointInsideCircle(point.x,point.y,c.x,c.y,c.r));
+
+			var size = findSmallestDistance(bigCell.subCells,point,bigCell.r/10)*2;
+			bigCell.subCells.push(new cell(point.x,point.y,size,zoomThresh));
+			break;
 		}
-
-		var size = findSmallestDistance(point)*2;
-		cells.push(new cell(point.x,point.y,size));
-		break;
 	}
-
-	
 }
+
+mainCell = new cell(0,0,500,1);
+generateCells(mainCell,250,4);
+for(let c of mainCell.subCells){
+	generateCells(c,150,7);
+}
+
+// for(i = 0; i < numberOfCells; i ++){
+// 	var point;
+	
+// 	restartLoop:
+// 	while (true) {
+// 		var point = randomInsideCircle(ballr/2);
+// 		for (let c of cells){
+// 			if (isPointInsideCircle(point.x,point.y,c.x,c.y,c.r/2)) {
+// 				continue restartLoop;
+// 			}
+// 			//console.log(isPointInsideCircle(point.x,point.y,c.x,c.y,c.r));
+// 		}
+
+// 		var size = findSmallestDistance(point)*2;
+// 		cells.push(new cell(point.x,point.y,size));
+// 		break;
+// 	}
+// }
+
+
+
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
@@ -85,25 +124,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let balla = p5.map(zoom,0,2,255,0);
 
   p5.fill(255,balla);
-  //p5.noFill();
   p5.stroke(255);
-  //p5.ellipse(local_ballx,local_bally,local_ballr,local_ballr);
 
    p5.noFill();
    p5.stroke(255)
    //p5.rect(0, 0, 255, 255);
    //p5.ellipse(127,127,127,127);
    //p5.text("" + x1 + "," + y1, 50,50);
-   for(let c of cells){
-   		c.draw(p5,x1,x2,y1,y2)
-   }
+   mainCell.draw(p5,x1,x2,y1,y2,zoom);
+   //for(let c of cells){
+   //		c.draw(p5,x1,x2,y1,y2)
+   //}
 }
 
-function randomInsideCircle(radius){
+function randomInsideCircle(x,y,radius){
 	var pt_angle = Math.random() * 2 * Math.PI;
     var pt_radius_sq = Math.random() * radius * radius;
-    var pt_x = Math.sqrt(pt_radius_sq) * Math.cos(pt_angle);
-    var pt_y = Math.sqrt(pt_radius_sq) * Math.sin(pt_angle);
+    var pt_x = x + Math.sqrt(pt_radius_sq) * Math.cos(pt_angle);
+    var pt_y = y + Math.sqrt(pt_radius_sq) * Math.sin(pt_angle);
     return {x:pt_x,y:pt_y};
 }
 
@@ -115,9 +153,9 @@ function isPointInsideCircle(pointX,pointY,circleX,circleY,circleR){
 	else return false;
 }
 
-function findSmallestDistance(point){
+function findSmallestDistance(cellArray,point,maxCellSize){
 	var smallestDist = Math.random()*maxCellSize;
-	for(let c of cells){
+	for(let c of cellArray){
 		var a = point.x - c.x;
 		var b = point.y - c.y;
 		var dist = Math.sqrt(a*a + b*b)-(c.r/2);
