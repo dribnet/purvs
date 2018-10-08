@@ -21,6 +21,34 @@ var stopDraw = false;
 var doOnce = true;
 
 function draw() {
+  noFill();
+  stroke(204, 78, 206);
+  for(let i=0; i<1; i++) {
+    randomChord8();
+  }
+  noLoop();
+}
+
+function randomChord8() {
+  // find a random point on a circle
+
+  var angle1 = random(0, 2 * PI);
+  var angle2 = random(0, 2 * PI);
+  var angle3 = random(0, 2 * PI);
+  var angle4 = random(0, 2 * PI);
+
+  var xpos1 = (circleWidth1) + (circleWidth3 / 2) * tan(angle1);
+  var ypos1 = (circleWidth2) + (circleWidth2) * cos(angle1);
+  var xpos2 = (circleWidth1) + (circleWidth2) * cos(angle2);
+  var ypos2 = (circleWidth2) + (circleWidth3 / 2) * sin(angle2);
+  var xpos3 = (circleWidth1) + (circleWidth2) * cos(angle3);
+  var ypos3 = (circleWidth2) + (circleWidth3 / 2) * sin(angle3);
+  var xpos4 = (circleWidth1) + (circleWidth3 / 2) * tan(angle4);
+  var ypos4 = (circleWidth2) + (circleWidth2) * cos(angle4);
+  bezier(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset, xpos3, ypos3 + globalYOffset, xpos4, ypos4 + globalYOffset)
+}
+
+function draw_full() {
   // draw two random chords each frame
   noFill();
 
@@ -94,7 +122,6 @@ function draw() {
 
 function randomChord(mat) {
   // find a random point on a circle
-
 
   var angle1 = random(0, 2 * PI);
   var angle2 = random(0, 2 * PI);
