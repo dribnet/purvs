@@ -28,6 +28,10 @@ function draw() {
     randomChord(4);
     randomChord(5);
     randomChord(5);
+    randomChord(6);
+    randomChord(6);
+    randomChord(7);
+    randomChord(7);
   }
   
   if (frameCount % (60*60) == 0) {
@@ -63,10 +67,10 @@ function randomChord(mat) {
     var ypos2 = circleWidth2 + circleWidth1 * sin(angle2);
     line(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset);
   }else if (mat == 4) {//circle
-    var xpos1 = circleWidth1 + circleWidth2 * cos(angle1);
-    var ypos1 = circleWidth2 + circleWidth2 * sin(angle1);
-    var xpos2 = circleWidth1 + circleWidth2 * cos(angle2);
-    var ypos2 = circleWidth2 + circleWidth2 * sin(angle2);
+    var xpos1 = circleWidth1 + circleWidth1 * cos(angle1);
+    var ypos1 = circleWidth2 + circleWidth1 * sin(angle1);
+    var xpos2 = circleWidth1 + circleWidth1 * cos(angle2);
+    var ypos2 = circleWidth2 + circleWidth1 * sin(angle2);
     line(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset);
   } else if (mat == 5) {//horizontal valley
     var xpos1 = circleWidth1 + circleWidth1 * tan(angle1);
@@ -84,6 +88,28 @@ function randomChord(mat) {
     var xpos4 = circleWidth1 + circleWidth1 * cos(angle4);
     var ypos4 = circleWidth2 + circleWidth2 * tan(angle4);
     bezier(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset, xpos3, ypos3+globalYOffset, xpos4, ypos4+globalYOffset)
+  } else if (mat == 7) {
+    //regressive loop
+    for(var i = 1; i < 10; i++){
+      //circle
+      var xpos1 = circleWidth1 + circleWidth2 * cos(angle1);
+      var ypos1 = circleWidth2 + circleWidth2 * sin(angle1);
+      var xpos2 = circleWidth1 + circleWidth2 * cos(angle2);
+      var ypos2 = circleWidth2 + circleWidth2 * sin(angle2);
+      line(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset);
+      //ellipse wide
+      var xpos1 = circleWidth1 + (circleWidth1/2) * cos(angle1);
+      var ypos1 = circleWidth2 + (circleWidth2/2) * sin(angle1);
+      var xpos2 = circleWidth1 + (circleWidth1/2) * cos(angle2);
+      var ypos2 = circleWidth2 + (circleWidth2/2) * sin(angle2);
+      line(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset);
+      //ellipse tall
+      var xpos1 = circleWidth1 + (circleWidth2/2) * cos(angle1);
+      var ypos1 = circleWidth2 + (circleWidth1/2) * sin(angle1);
+      var xpos2 = circleWidth1 + (circleWidth2/2) * cos(angle2);
+      var ypos2 = circleWidth2 + (circleWidth1/2) * sin(angle2);
+      line(xpos1, ypos1+globalYOffset, xpos2, ypos2+globalYOffset);
+    }
   }
  
 }
