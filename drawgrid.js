@@ -9,7 +9,11 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
+const max_thickness = 256;
+// const ball_radius = 32;
+// const line_width = 8;
+const grid_size = 256;
+const max_movement = 16;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -169,16 +173,59 @@ function cloud(p5, x, y, x1, x2, y1, y2){
 
 }
 
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let noiseX = p5.noise(x * noiseScale,
+                        y * noiseScale, z);
+  let noiseY = p5.noise(x * noiseScale,
+                        y * noiseScale, z+50);
+  let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
+  let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
+  return [x+offsetX, y+offsetY]
+}
+
+
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	p5.angleMode(p5.DEGREES);
 	p5.background(222, 249, 247);
-	p5.noStroke();
-	parachuter(p5, 412, 512, x1, x2, y1, y2);
+
+	let max_shift = max_thickness;
+
+	let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  	let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  	let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  	let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
 
-	cloud(p5, 412, 512, x1, x2, y1, y2);
+	for(let x=min_x; x<max_x; x+=grid_size) {
+    	for(let y=min_y; y<max_y; y+=grid_size) {
+      /* first compute the points to be drawn */
+      let shift_point = getOffsetPoint(p5, x, y, z, 0.1);
+      let x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+      let y_pos = p5.map(shift_point[1], y1, y2, 0, 256);
+
+      let shift_point_left = getOffsetPoint(p5, x+grid_size, y, z, 0.1);
+      let x_pos_left = p5.map(shift_point_left[0], x1, x2, 0, 256);
+      let y_pos_left = p5.map(shift_point_left[1], y1, y2, 0, 256);
+
+      let shift_point_down = getOffsetPoint(p5, x, y+grid_size, z, 0.1);
+      let x_pos_down = p5.map(shift_point_down[0], x1, x2, 0, 256);
+      let y_pos_down = p5.map(shift_point_down[1], y1, y2, 0, 256);
+
+		p5.noStroke();
+		parachuter(p5, x,y, x1, x2, y1, y2);
+
+		//cloud(p5, 412, 512, x1, x2, y1, y2);
+		}		
+	}
+
 
 
   // debug - show border

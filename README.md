@@ -1,3 +1,5 @@
 ## PS4 MDDN 342 2018
 
-I incorperated my cloud code and I found drawing arcs in this code layout is a lot harder and more time consuming. I just drew one to start to get the hang of it and at the moment it is drawn really close to the parachuter. When I tried to move it, I ran into a few problems with translate and changing the values so I think I'll wait for more tutorials before I try more technical things.
+The parachuters are now drawn infinitely in an irregular grid. I have made the spaces between them large because I don't want them to be cluttered at the initial view. 
+
+I want them to display in a more irregular pattern like my ps3 so I need to play around with the offset values. I will also bring back the clouds in the background and some in the foreground to add some context. 
