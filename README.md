@@ -1,6 +1,5 @@
 ## PS4 MDDN 342 2018
 
-I've started with moving away from my project 3 and developing something with a little more detail. I did like my 3rd proejct but feel as if this concept idea will look better and more compex than if I carried on but I don't know if I am making this too hard for myself considering I will have to begin with new code!
+I was able to take one of the classs examples and somewhat start what I want to do with ps4. My idea from is to have a snowfall image, and when you zoom in different snowflakes will start to form. I think it will be interesting to start with small circles or dots on the screen and as you zoom in you are able to see different detaisl from each snowflake. I've started with round white circles and have a zoom with a little bit of detail in each of them.
 
-I think this idea of snowflakes falling and as you zoom, you are able to see more detail! I've always been interested in the originalilty of different snowfalkes and I think it would bring an intertesting thing to this project through making each snowflake different. 
-
+Moving forward I need to continue to work on the code and try figure out exactly how to change small details. I will need to add in a lot of randomised details so that each snowflake is a little different. 
