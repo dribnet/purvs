@@ -9,4 +9,6 @@ I've imported the map code and I've figured out a simple way to deal with the co
 10/10
 I still had some bugs I wasn't aware of with the map code, which I /think/ I've fixed now.
 
-I have an idea for how to alter my design from the last project. I think I might make it so you never see the end of a line, they are of infinite length. I think that would be the best way to adapt to the infinite plane.
+A) I have an idea for how to alter my design from the last project. I think I might make it so you never see the end of a line, they are of infinite length. I think that would be the best way to adapt to the infinite plane.
+
+B) I now have a grid on the infinite plane, starting work on adapting the last project's design
