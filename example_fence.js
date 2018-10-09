@@ -51,16 +51,21 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   }
 }
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
+function drawStamens(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLines) {
   const offsets = [
     [1, 1],
     [1, -1],
     [-1, 1],
     [-1, -1]
   ]
+  let noiseScale = 0.5;
+  // let noiseX = p5.noise(x * noiseScale,
+  //                       y * noiseScale, z);
+  // rad2 = p5.map(noiseX, 0, 1, rad2*0.1, rad2);
   let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
   let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
   let pixel_radius = pixel_posx2 - pixel_posx1;
+
   for(var i=0; i<offsets.length; i++) {
     let offset = offsets[i];
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
@@ -140,7 +145,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if (zoom >= 10) {
         p5.fill(255);
         p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 4*line_width);        
+        // drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 4*line_width);        
       }
 
       p5.stroke(255);
@@ -154,7 +159,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         if (zoom >= 5) drawLines = true;
         p5.fill(255);
         p5.stroke(255);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        drawStamens(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
       }
     }
   }
