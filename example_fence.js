@@ -1,8 +1,8 @@
 const max_thickness = 64;
 const max_movement = 16;
-const ball_radius = 32;
+const ball_radius = 3;
 const line_width = 8;
-const grid_size = 64;
+const grid_size = 20;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -45,8 +45,8 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
   let pixel_radius = pixel_posx2 - pixel_posx1;
   for(let i=0; i<offsets.length; i++) {
     let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    let pixel_x = p5.map(pos_x+0.1*rad1*offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+0.1*rad1*offset[1], y1, y2, 0, 256);
     p5.ellipse(pixel_x, pixel_y, pixel_radius);    
   }
 }
@@ -140,7 +140,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if (zoom >= 10) {
         p5.fill(255);
         p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 2*line_width);        
+        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 4*line_width);        
       }
 
       p5.stroke(255);
@@ -152,8 +152,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
         if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
-        p5.stroke(0, 0, 128);
+        p5.fill(255);
+        p5.stroke(255);
         drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
       }
     }
