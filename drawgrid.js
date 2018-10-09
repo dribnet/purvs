@@ -20,8 +20,8 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 
 	let sc = Math.pow (2, zoom);
 	p5.push ();
-	p5.scale (-sc);
-	p5.translate (x1, y1);
+	p5.scale (sc);
+	p5.translate (-x1, -y1);
 	// x1 /= sc;
 	// y1 /= sc;
 	// x2 /= sc;
@@ -33,10 +33,16 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 	p5.noStroke ();
 
 	p5.fill (55, 200, 200);
-	p5.ellipse (0, 0, 20);
-	
+	p5.ellipse (0, 0, 80);
+
 	p5.fill (200, 55, 200);
-	p5.ellipse (30, 0, 20);
+	p5.ellipse (0, 100, 80);
+
+	p5.fill (55, 200, 55);
+	p5.ellipse (100, 0, 80);
+
+	p5.fill (200, 55, 55);
+	p5.ellipse (100, 100, 80);
 
 	// let grid = 100/sc,
 	// 		minX = snap (x1 - grid*0.5, grid),
@@ -52,9 +58,9 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 	p5.pop ();
 
 	// debug - show border
-	// p5.noFill();
-	// p5.stroke(255, 0, 0);
-	// p5.rect(0, 0, 255, 255);
+	p5.noFill();
+	p5.stroke(255, 0, 0);
+	p5.rect(0, 0, 255, 255);
 }
 
 function snap (point, grid) {
