@@ -27,6 +27,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
    p5.noFill();
    p5.stroke(255, 0, 0)
    p5.rect(0, 0, 255, 255);
+
+    p5.rect(100, 100, 25, 10);
+    p5.rect(90, 93, 45, 7);
+    p5.rect(92.5, 86, 40, 7);
+    p5.rect(95, 79, 35, 7);
+    p5.rect(97.5, 72, 30, 7);
+    p5.rect(100, 65, 25, 7);
+    p5.rect(100, 65, 20, 7);
+
+
+
+
    p5.text("hello", 10,20);
+
 
 }
