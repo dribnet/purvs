@@ -173,6 +173,172 @@ function cloud(p5, x, y, x1, x2, y1, y2){
 
 }
 
+ function face(p5, x, y, x1, x2, y1, y2){
+ 	//EYES
+	let eye1_x = p5.map(x + 4, x1, x2, 0, 256);
+	let eye2_x = p5.map(x + 6, x1, x2, 0, 256);
+	let eye_y = p5.map(y + -6, y1, y2, 0, 256);
+	
+	let eye1_origin_x = p5.map(0, x1, x2, 0, 256);
+	let eye1_offset = p5.map(1.5, x1, x2, 0, 256);
+	let eye_radius = eye1_offset - eye1_origin_x;
+
+	p5.fill(0);//BLACK EYES
+	p5.ellipse(eye1_x, eye_y, eye_radius, eye_radius);
+	p5.ellipse(eye2_x, eye_y, eye_radius, eye_radius);
+ 	
+ 	//MOUTH
+	let mouth1_x = p5.map(x + 5, x1, x2, 0, 256);
+	let mouth1_y = p5.map(y + -5, y1, y2, 0, 256);
+	let mouth1_w_offset = p5.map(x+10, x1, x2, 0, 256); 
+	let mouth1_w = mouth1_w_offset - mouth1_x;
+	
+	p5.stroke(0)
+	p5.strokeWeight(2);
+	p5.noFill();
+	p5.arc(mouth1_x, mouth1_y, mouth1_w, mouth1_w, 0,  180);
+ }
+
+ function handf (p5, x, y, x1, x2, y1, y2){
+ 	//HANDS
+	let hand1_x = p5.map(x + 11.2, x1, x2, 0, 256);
+	let hand2_x = p5.map(x + -1.2, x1, x2, 0, 256);
+	let hand1_y = p5.map(y + 13, y1, y2, 0, 256);
+	let hand1_w_offset = p5.map(x+8.8, x1, x2, 0, 256); 
+	let hand1_w = hand1_w_offset - hand1_x;
+	
+	p5.noStroke();
+	p5.fill(255, 204, 153);//PEACH SKIN
+	p5.arc(hand1_x, hand1_y, hand1_w, hand1_w, 0,  180);
+	p5.arc(hand2_x, hand1_y, hand1_w, hand1_w, 0,  180);
+
+	//FEET
+	let feet1_x = p5.map(x + 7.2, x1, x2, 0, 256);
+	let feet2_x = p5.map(x + 3, x1, x2, 0, 256);
+	let feet1_y = p5.map(y + 32, y1, y2, 0, 256);
+	let feet1_w_offset = p5.map(x+3.8, x1, x2, 0, 256); 
+	let feet1_w = feet1_w_offset - feet1_x;
+	
+	p5.noStroke();
+	p5.fill(201, 63, 42); //RED
+	p5.arc(feet1_x, feet1_y, feet1_w, feet1_w, 180,  0);
+	p5.arc(feet2_x, feet1_y, feet1_w, feet1_w, 180, 0);
+ }
+
+ function backpack_straps(p5, x,y, x1, x2, y1, y2){
+ 	//LEFT STRAP
+ 	let L_point1x = p5.map(x + 0, x1, x2, 0, 256);
+	let L_point1y = p5.map(y + 0, y1, y2, 0, 256);
+
+	let L_point2x = p5.map(x + 1, x1, x2, 0, 256);
+	let L_point2y = p5.map(y + 0, y1, y2, 0, 256);
+
+	let L_point3x = p5.map(x + 2, x1, x2, 0, 256);
+	let L_point3y = p5.map(y + 6, y1, y2, 0, 256);
+
+	let L_point4x = p5.map(x + 0, x1, x2, 0, 256);
+	let L_point4y = p5.map(y + 13, y1, y2, 0, 256);
+
+	let L_point5x = p5.map(x + 0, x1, x2, 0, 256);
+	let L_point5y = p5.map(y + 10, y1, y2, 0, 256);
+
+	let L_point6x = p5.map(x + 1, x1, x2, 0, 256);
+	let L_point6y = p5.map(y + 6, y1, y2, 0, 256);
+
+	let L_point7x = p5.map(x + 0, x1, x2, 0, 256);
+	let L_point7y = p5.map(y + 2, y1, y2, 0, 256);
+
+	let L_point8x = p5.map(x + 0, x1, x2, 0, 256);
+	let L_point8y = p5.map(y + 0, y1, y2, 0, 256);
+
+	p5.fill(201, 63, 42); //RED
+	p5.stroke(201, 63, 42);
+	p5.strokeWeight(2);
+	p5.beginShape();
+	p5.vertex(L_point1x, L_point1y);
+	p5.vertex(L_point1x, L_point1y);
+	p5.vertex(L_point2x, L_point2y);
+	p5.vertex(L_point3x, L_point3y);
+	p5.vertex(L_point4x, L_point4y);
+	p5.vertex(L_point5x, L_point5y);
+	p5.vertex(L_point6x, L_point6y);
+	p5.vertex(L_point7x, L_point7y);
+	p5.vertex(L_point8x, L_point8y);
+	p5.vertex(L_point8x, L_point8y);
+	p5.endShape();
+
+	//RIGHT STRAP
+ 	let point1x = p5.map(x + 10, x1, x2, 0, 256);
+	let point1y = p5.map(y + 0, y1, y2, 0, 256);
+
+	let point2x = p5.map(x + 9, x1, x2, 0, 256);
+	let point2y = p5.map(y + 0, y1, y2, 0, 256);
+
+	let point3x = p5.map(x + 8, x1, x2, 0, 256);
+	let point3y = p5.map(y + 6, y1, y2, 0, 256);
+
+	let point4x = p5.map(x + 10, x1, x2, 0, 256);
+	let point4y = p5.map(y + 13, y1, y2, 0, 256);
+
+	let point5x = p5.map(x + 10, x1, x2, 0, 256);
+	let point5y = p5.map(y + 10, y1, y2, 0, 256);
+
+	let point6x = p5.map(x + 9, x1, x2, 0, 256);
+	let point6y = p5.map(y + 6, y1, y2, 0, 256);
+
+	let point7x = p5.map(x + 10, x1, x2, 0, 256);
+	let point7y = p5.map(y + 2, y1, y2, 0, 256);
+
+	let point8x = p5.map(x + 10, x1, x2, 0, 256);
+	let point8y = p5.map(y + 0, y1, y2, 0, 256);
+
+	p5.fill(201, 63, 42); //RED
+	p5.stroke(201, 63, 42);
+	p5.strokeWeight(2);
+	p5.beginShape();
+	p5.vertex(point1x, point1y);
+	p5.vertex(point1x, point1y);
+	p5.vertex(point2x, point2y);
+	p5.vertex(point3x, point3y);
+	p5.vertex(point4x, point4y);
+	p5.vertex(point5x, point5y);
+	p5.vertex(point6x, point6y);
+	p5.vertex(point7x, point7y);
+	p5.vertex(point8x, point8y);
+	p5.vertex(point8x, point8y);
+	p5.endShape();
+
+	//CLIP
+
+	let clip_x = p5.map(x + 1, x1, x2, 0, 256);
+	let clip_y = p5.map(y + 6, y1, y2, 0, 256);
+
+ 	let clip_origin = p5.map(0, x1, x2, 0, 256);
+ 	let clip_offset_x = p5.map(7.5, x1, x2, 0, 256);
+ 	let clip_width = clip_offset_x - clip_origin;
+
+ 	let clip_offset_y = p5.map(1, x1, x2, 0, 256);
+ 	let clip_height = clip_offset_y - clip_origin;
+
+	p5.rect(clip_x, clip_y, clip_width, clip_height);
+
+ }
+
+ function backpack(p5, x,y, x1, x2, y1, y2){
+
+	let backpack_x = p5.map(x + -1, x1, x2, 0, 256);
+	let backpack_y = p5.map(y + -1, y1, y2, 0, 256);
+
+ 	let backpack_origin = p5.map(0, x1, x2, 0, 256);
+ 	let backpack_offset_x = p5.map(12, x1, x2, 0, 256);
+ 	let backpack_width = backpack_offset_x - backpack_origin;
+
+ 	let backpack_offset_y = p5.map(10, x1, x2, 0, 256);
+ 	let backpack_height = backpack_offset_y - backpack_origin;
+ 	p5.fill(150, 63, 42); //RED
+ 	p5.rect(backpack_x, backpack_y, backpack_width, backpack_height, 10);
+ }
+
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
@@ -221,6 +387,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 		p5.noStroke();
 		parachuter(p5, x,y, x1, x2, y1, y2);
+
+		if(zoom >= 3){
+			backpack(p5, x, y, x1, x2, y1, y2);
+			parachuter(p5, x,y, x1, x2, y1, y2);
+			face(p5, x,y, x1, x2, y1, y2);
+			handf(p5, x,y, x1, x2, y1, y2);
+			backpack_straps(p5, x,y, x1, x2, y1, y2);
+		}
 
 		//cloud(p5, 412, 512, x1, x2, y1, y2);
 		}		
