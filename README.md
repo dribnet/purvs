@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Tom and I tried to add in some random variables to be able to randomise the snowflakes. We are still working on adjusting the code to get it to work so right now nothing has really changed other than within the code. I'm wokring outside of the code to try and draw up what I would like the snowflakes to look like and be randomised around in order for it to be easier when it comes to drawing it within the code. It'll also make it easier to know eaxctly what I can and can't do too. 
+I've found this code on github around generating different snowflakes which works really well and gives a level of detail that I wanted from the start. I want to see if I cna change the code around so it isn't a direct copy, otherwise I will have to go back to a more simple idea of randomising the snowflakes through different stroke sizes etc
