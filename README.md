@@ -1,11 +1,5 @@
 ## PS4 MDDN 342 2018
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
 
 This README should be updated as the code changes. Replace
 this placeholder text and use this
