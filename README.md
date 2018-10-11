@@ -1,5 +1,13 @@
 ## PS4 MDDN 342 2018
 
+SECOUND:
+
+This iteration has been made through modifying the example fence 3. First I want
+to design the top layer which is meant to represent a wave like motion through using 
+randomness.
+
+FIRST: 
+
 This sketch has been developed from one of my iterations in PS3. I used shades of blue on 
 a grey background for one of my wallpaper designs. It reminded me of a water molecule, this
 sketch has been developed from that concept to create four layers which will you will be 
