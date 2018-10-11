@@ -86,18 +86,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
 
-      if (zoom <=1.9){
+      if (zoom >=2){
       p5.stroke(255, 0, 0);
       p5.fill(0, 0, 128);
       p5.stroke(255);
       p5.ellipse(x_pos, y_pos, cur_ball_radius*4);
     }
-      
-      if (zoom >= 2) {
+
         p5.fill(0, 0, 255);
         p5.noStroke();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius*3);        
-      }
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);        
+  
 
 
       if(zoom >= 3) {
