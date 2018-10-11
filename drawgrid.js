@@ -112,8 +112,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       // First compute shifted point in grid
-      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.1);
-      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
+      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0);
+      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0);
       let shifted_x = x + offsetX;
       let shifted_y = y + offsetY;
       let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
@@ -122,8 +122,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // now compute shifted point one step to the left
       let x_left = x + grid_size;
       let y_left = y;
-      let offsetX_left = getRandomValue(p5, x_left, y_left, z, "shiftX", -max_movement, max_movement, 0.1);
-      let offsetY_left = getRandomValue(p5, x_left, y_left, z, "shiftY", -max_movement, max_movement, 0.1);
+      let offsetX_left = getRandomValue(p5, x_left, y_left, z, "shiftX", -max_movement, max_movement, 0);
+      let offsetY_left = getRandomValue(p5, x_left, y_left, z, "shiftY", -max_movement, max_movement, 0);
       let shifted_x_left = x_left + offsetX_left;
       let shifted_y_left = y_left + offsetY_left;
       let x_pos_left = p5.map(shifted_x_left, x1, x2, 0, 256);
@@ -132,21 +132,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // lastly compute shifted point one step down
       let x_down = x;
       let y_down = y + grid_size;
-      let offsetX_down = getRandomValue(p5, x_down, y_down, z, "shiftX", -max_movement, max_movement, 0.1);
-      let offsetY_down = getRandomValue(p5, x_down, y_down, z, "shiftY", -max_movement, max_movement, 0.1);
+      let offsetX_down = getRandomValue(p5, x_down, y_down, z, "shiftX", -max_movement, max_movement, 0);
+      let offsetY_down = getRandomValue(p5, x_down, y_down, z, "shiftY", -max_movement, max_movement, 0);
       let shifted_x_down = x_down + offsetX_down;
       let shifted_y_down = y_down + offsetY_down;
       let x_pos_down = p5.map(shifted_x_down, x1, x2, 0, 256);
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
 
       /* now draw all elements from back to front */
-      if (zoom < 2) {
-        p5.strokeWeight(cur_line_width);
-        p5.stroke(150, 0, 0);
-        // p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
-        p5.stroke(0, 150, 0);
-        // p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
-      }
+      // if (zoom < 2) {
+      //   p5.strokeWeight(cur_line_width);
+      //   p5.stroke(150, 0, 0);
+      //   // p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
+      //   p5.stroke(0, 150, 0);
+      //   // p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
+      // }
 
       // if (zoom >= 2) {
       //   p5.fill(0, 0, 255);
@@ -154,12 +154,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);        
       // }
 
-      p5.stroke(253, 80, 87,150);
+      p5.stroke(253, 50, 57,150);
       p5.strokeWeight(3);
       // p5.noStroke();
       // p5.fill(253, 80, 87,150);
       p5.noFill();
-      p5.triangle(x_pos, y_pos -80, x_pos - 80, y_pos + 80, x_pos + 80, y_pos + 80);
+      // p5.angleMode(RADIANS);
+      p5.triangle(x_pos, y_pos -180, x_pos - 80, y_pos + 80, x_pos + 80, y_pos + 80);
+      // p5.rotate(.050);
+      p5.triangle(x_pos, y_pos -140, x_pos - 40, y_pos + 40, x_pos + 40, y_pos + 40);
+      // p5.rotate(1.0);
+      p5.triangle(x_pos, y_pos -120, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);1
+
+
 
       // if(zoom >= 3) {
       //   // now if we are super zoomed, draw lines in the stamen
