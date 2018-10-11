@@ -143,30 +143,32 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if (zoom < 2) {
         p5.strokeWeight(cur_line_width);
         p5.stroke(150, 0, 0);
-        p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
+        // p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
         p5.stroke(0, 150, 0);
-        p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
+        // p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
       }
 
-      if (zoom >= 2) {
-        p5.fill(0, 0, 255);
-        p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);        
-      }
+      // if (zoom >= 2) {
+      //   p5.fill(0, 0, 255);
+      //   p5.noStroke();
+      //   drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);        
+      // }
 
-      p5.stroke(0, 0, 150);
-      p5.fill(0, 0, 128, 250);
-      p5.noStroke();
-      p5.triangle(x_pos, y_pos -50, x_pos - 50, y_pos + 50, x_pos + 50, y_pos + 50);
+      p5.stroke(253, 80, 87,150);
+      p5.strokeWeight(3);
+      // p5.noStroke();
+      // p5.fill(253, 80, 87,150);
+      p5.noFill();
+      p5.triangle(x_pos, y_pos -80, x_pos - 80, y_pos + 80, x_pos + 80, y_pos + 80);
 
-      if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
-        var drawLines = false;
-        if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
-        p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/3, line_width/2, drawLines);
-      }
+      // if(zoom >= 3) {
+      //   // now if we are super zoomed, draw lines in the stamen
+      //   var drawLines = false;
+      //   if (zoom >= 5) drawLines = true;
+      //   p5.fill(0, 0, 255);
+      //   p5.stroke(0, 0, 128);
+      //   drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/3, line_width/2, drawLines);
+      // }
     }
   }
 
