@@ -155,9 +155,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
 
       p5.stroke(0, 0, 150);
-      p5.fill(0, 0, 128);
+      p5.fill(0, 0, 128, 250);
       p5.noStroke();
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      p5.triangle(x_pos, y_pos -50, x_pos - 50, y_pos + 50, x_pos + 50, y_pos + 50);
 
       if(zoom >= 3) {
         // now if we are super zoomed, draw lines in the stamen
