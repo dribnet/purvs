@@ -87,11 +87,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       /* now draw all elements from back to front */
      
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
-
-     p5.fill('#041370'); // blue
+ if (zoom < 2) {
+  p5.fill('#041370'); // blue
      p5.rect(x_pos, y_pos,perBlue,perBlue,0, 20, 0, 20);
-     //p5.rotate(p5.HALF_PI); 
-
+     p5.rotate(p5.HALF_PI); 
+ }
+     
+if (zoom >= 2) {
      p5.fill('#EE4502'); // red
      p5.rect(x_posRed, y_posRed,perRed,perRed,20, 0, 20, 0);
     //p5.rotate(p5.HALF_PI); 
@@ -99,7 +101,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
      p5.fill('#422F14'); // brown
      p5.rect(x_posBrown, y_posBrown,perRed/2,perRed/2,0, 20, 0, 20);
   
-
+}
 
  
 
