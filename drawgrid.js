@@ -1,6 +1,11 @@
 const max_thickness = 64;
-const  boxDimentions = 30;
-const grid_size = 60;
+
+const boxBlue = 32;
+const boxRed = 10;
+const boxYellow = 32;
+const boxBrown = 32;
+
+const grid_size = 64;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -40,10 +45,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
+  // debug version: draw one
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
-  let c_p00 = p5.map(10, x1, x2, 0, 256);
-  let box = p5.map(boxDimentions, x1, x2, 0, 256);
-  let perimiter= box - c_p00;
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  
+  let blue = p5.map(boxBlue, x1, x2, 0, 256);
+  let red = p5.map(boxRed, x1, x2, 0, 256);
+  let yellow = p5.map(boxYellow, x1, x2, 0, 256);
+  let brown = p5.map(boxBrown, x1, x2, 0, 256);
+
+  let perBlue = blue - c_p00;
+  let perRed = red - c_p00;
+  let perYellow = yellow - c_p00;
+  let perBrown= brown - c_p00;
 
   p5.background(255);
   p5.fill(0, 0, 128);
@@ -56,36 +76,24 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-   //    /* now draw all elements from back to front */
-   // p5.translate(200,200);
-   
+      /* now draw all elements from back to front */
+     
+      //p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
      p5.fill('#041370'); // blue
-     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
-  
-  	 p5.fill('#422F14'); // brown
-     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
-
-     p5.fill('#FCDB85'); //yellow
-     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
+     p5.rect(x_pos, y_pos,perBlue,perBlue,0, 20, 0, 20);
 
      p5.fill('#EE4502'); // red
-     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
- 
+     p5.rect(x_pos, y_pos,perRed,perRed,0, 20, 0, 20);
     }
   }
 
   // debug - show border
-  p5.noFill();
-  p5.stroke(0, 200, 200)
-  p5.strokeWeight(1);
-  p5.rect(0, 0, 255, 255);
-  p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  let sizex = x2 - x1;
-  p5.text("width: " + sizex, 10, 40);
+  // p5.noFill();
+  // p5.stroke(0, 200, 200)
+  // p5.strokeWeight(1);
+  // p5.rect(0, 0, 255, 255);
+  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  // let sizex = x2 - x1;
+  // p5.text("width: " + sizex, 10, 40);
 }
-
