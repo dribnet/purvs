@@ -22,7 +22,7 @@ var tourPath = [
 
 let ballx = 400
 let bally = 400
-let ballr = 100
+let ballr = 200
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
