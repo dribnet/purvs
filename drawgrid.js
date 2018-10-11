@@ -1,7 +1,7 @@
 const max_thickness = 64;
 
-const boxBlue = 32;
-const boxRed = 10;
+const boxBlue = 50;
+const boxRed = 40;
 const boxYellow = 32;
 const boxBrown = 32;
 
@@ -56,6 +56,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   
   let blue = p5.map(boxBlue, x1, x2, 0, 256);
+
   let red = p5.map(boxRed, x1, x2, 0, 256);
   let yellow = p5.map(boxYellow, x1, x2, 0, 256);
   let brown = p5.map(boxBrown, x1, x2, 0, 256);
@@ -74,6 +75,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos = p5.map(x, x1, x2, 0, 256);
       let y_pos = p5.map(y, y1, y2, 0, 256);
 
+      let x_posRed = p5.map(x+5, x1, x2, 0, 256);
+      let y_posRed = p5.map(y+5, y1, y2, 0, 256);
+
+      let x_posBrown = p5.map(x+10, x1, x2, 0, 256);
+      let y_posBrown = p5.map(y+10, y1, y2, 0, 256);
+
       let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
@@ -83,13 +90,27 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
      p5.fill('#041370'); // blue
      p5.rect(x_pos, y_pos,perBlue,perBlue,0, 20, 0, 20);
+     //p5.rotate(p5.HALF_PI); 
 
      p5.fill('#EE4502'); // red
-     p5.rect(x_pos, y_pos,perRed,perRed,0, 20, 0, 20);
-    
-     p5.fill('#EE4502'); // red
-     p5.rect(x_pos, y_pos,perRed,perRed,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI);
+     p5.rect(x_posRed, y_posRed,perRed,perRed,20, 0, 20, 0);
+    //p5.rotate(p5.HALF_PI); 
+     
+     p5.fill('#422F14'); // brown
+     p5.rect(x_posBrown, y_posBrown,perRed/2,perRed/2,0, 20, 0, 20);
+  
+
+
+ 
+
+     // p5.rect(x_pos, y_pos*2,perRed,perRed,0, 20, 0, 20);
+     // p5.rotate(p5.HALF_PI);
+     
+     // p5.rect(x_pos, y_pos*2,perRed,perRed,0, 20, 0, 20);
+     // p5.rotate(p5.HALF_PI);
+
+  //p5.rotate(p5.HALF_PI); 
+
     }
   }
 
