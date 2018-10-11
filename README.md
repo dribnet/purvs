@@ -12,3 +12,6 @@ I still had some bugs I wasn't aware of with the map code, which I /think/ I've 
 A) I have an idea for how to alter my design from the last project. I think I might make it so you never see the end of a line, they are of infinite length. I think that would be the best way to adapt to the infinite plane.
 
 B) I now have a grid on the infinite plane, starting work on adapting the last project's design
+
+11/10
+I have the Lines drawing but as I thought, having the stripes without line endings isn't as interesting. Also, I have ideas about how to implement the zooming details, I'm working on that next.

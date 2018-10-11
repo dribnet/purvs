@@ -16,49 +16,111 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [];
 
-function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
+let minNoise = 1, maxNoise = 0;
 
-	let sc = Math.pow (2, zoom);
-	p5.push ();
-	p5.scale (sc);
-	p5.translate (-x1, -y1);
+const canvases = {
+	uninit: true,
 
-	p5.background (255);
-//	p5.noStroke ();
-	
-	let grid = 100;
-//	p5.stroke (0, 100);
-	p5.strokeWeight (grid/3);
-	
-	let snap = point => p5.int (point/grid);
-	
-	let xStart = snap (x1)-2,
-			xEnd = snap (x2)+2,
-			yStart = snap (y1)-2,
-			yEnd = snap (y2)+2;
-	p5.print (xStart, xEnd, yStart, yEnd);
+	forEach: function () {},
 
-	for (let y = yStart; y <= yEnd; y++) {
-		p5.stroke (p5.noise (0, y, z)*255, 100, 150, 100);
-		p5.line (x1, y*grid, x2, y*grid);
-	}
+	snapIndex: makeSnap (1/3),
+
+	getProb: 0.8,
+
+	get: function (noise) {
+
+		let val = (noise * 100) % 1, i = null;
+		// console.log (noise);
+
+		if (val < 1/3 * this.getProb)
+			i = 0;
 		
-	for (let x = xStart; x <= xEnd; x++) {
-		p5.stroke (p5.noise (x, 0, z)*255, 100, 150, 100);
-		p5.line (x*grid, y1, x*grid, y2);
+		else if (val < 2/3 * this.getProb)
+			i = 1;
+		
+		else if (val < 3/3 * this.getProb)
+			i = 2;
+
+		if (i == null) return null;
+		else return this.cs [i];
+	},
+
+	init: function (p5) {
+
+		if (this.uninit) {
+			this.cs = [
+				p5.createGraphics (256, 256),
+				p5.createGraphics (256, 256),
+				p5.createGraphics (256, 256)
+			];
+			this.cs.forEach (c => {
+				c.stroke (55, 128);
+				c.strokeWeight (grid/3);
+				c.strokeCap (p5.SQUARE);
+			});
+			this.uninit = false;
+		}
 	}
-	
-	p5.pop ();
-	// debug - show border
-//	p5.noFill();
-//	p5.stroke(255, 0, 0);
-//	p5.rect(0, 0, 255, 255);
 }
 
-/*function snap (point, grid, offset) {
+const grid = 15;
+
+function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
+	// p5.noiseSeed (z);
 	
-	if (typeof offset == 'undefined')
-		return snap (point, grid, 0);
+	// initialise offscreen drawing canvases once EVER
+	canvases.init (p5);
 	
-	return (Math.floor (point/grid) + offset) * grid;
-}*/
+	// initialise once per draw
+	canvases.cs.forEach (canvas => {
+			canvas.push ();
+			canvas.background (255);
+			canvas.scale (Math.pow (2, zoom));
+			canvas.translate (-x1, -y1);
+	});
+	
+	
+	let snap = makeSnap (grid);
+	let target;
+
+	// horizontal lines
+	for (let y = snap (y1)-1; y <= snap (y2)+1; y++) {
+		target = canvases.get (p5.noise (0, y, z))
+		if (target != null)
+			target.line (x1-1, y*grid, x2+1, y*grid);
+	}
+		
+	// vertical lines
+	for (let x = snap (x1)-1; x <= snap (x2)+1; x++) {
+		target = canvases.get (p5.noise (x, 0, z))
+		if (target != null)
+			target.line (x*grid, y1-1, x*grid, y2+1);
+	}
+	
+	// ready pixels
+	p5.loadPixels ();
+	canvases.cs.forEach (c => c.loadPixels ());
+	
+	// output to the screen
+	let d = p5.pixelDensity (),
+			maxI = 4 * (p5.width*d) * (p5.height*d);
+	for (let i = 0; i < maxI; i += 4) {
+		for (let j = 0; j < 3; j++)
+			p5.pixels [i+j] = canvases.cs [j].pixels [i];
+		p5.pixels [i+3] = 255;
+	}
+	p5.updatePixels ();
+	
+	// ready for next draw
+	canvases.cs.forEach (canvas => {
+		canvas.pop ();
+	});
+	
+	// debug - show border
+	// p5.noFill();
+	// p5.stroke(255, 0, 0);
+	// p5.rect(0, 0, 255, 255);
+}
+
+function makeSnap (grid) {
+	return point => Math.floor (point/grid); }
