@@ -34,41 +34,62 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   let x1q = 712;
   let y1q = 512;
-
   let x2q = 512;
   let y2q = 712;
-
   let x3q = 312;
   let y3q = 512;
-
   let x4q = 512;
   let y4q = 312;
 
-  p5.fill(100);
+  let x1q2 = 612;
+  let y1q2 = 512;
+  let x2q2 = 512;
+  let y2q2 = 612;
+  let x3q2 = 412;
+  let y3q2 = 512;
+  let x4q2 = 512;
+  let y4q2 = 412;
 
-  x1c = p5.map(x1q, x1, x2, 0, 256);
-  y1c = p5.map(y1q, y1, y2, 0, 256);
+  //main diamond
+  let x1c = p5.map(x1q, x1, x2, 0, 256);
+  let y1c = p5.map(y1q, y1, y2, 0, 256);
+  let x2c = p5.map(x2q, x1, x2, 0, 256);
+  let y2c = p5.map(y2q, y1, y2, 0, 256);
+  let x3c = p5.map(x3q, x1, x2, 0, 256);
+  let y3c = p5.map(y3q, y1, y2, 0, 256);
+  let x4c = p5.map(x4q, x1, x2, 0, 256);
+  let y4c = p5.map(y4q, y1, y2, 0, 256);
 
-  x2c = p5.map(x2q, x1, x2, 0, 256);
-  y2c = p5.map(y2q, y1, y2, 0, 256);
+  //inner diamond
+  let x1c2 = p5.map(x1q2, x1, x2, 0, 256);
+  let y1c2 = p5.map(y1q2, y1, y2, 0, 256);
+  let x2c2 = p5.map(x2q2, x1, x2, 0, 256);
+  let y2c2 = p5.map(y2q2, y1, y2, 0, 256);
+  let x3c2 = p5.map(x3q2, x1, x2, 0, 256);
+  let y3c2 = p5.map(y3q2, y1, y2, 0, 256);
+  let x4c2 = p5.map(x4q2, x1, x2, 0, 256);
+  let y4c2 = p5.map(y4q2, y1, y2, 0, 256);
 
-  x3c = p5.map(x3q, x1, x2, 0, 256);
-  y3c = p5.map(y3q, y1, y2, 0, 256);
-
-  x4c = p5.map(x4q, x1, x2, 0, 256);
-  y4c = p5.map(y4q, y1, y2, 0, 256);
-
+  p5.fill(113, 103, 114);
   p5.quad(x1c, y1c, x2c, y2c, x3c, y3c, x4c, y4c);
 
-  p5.fill(50);
-  let y_snap_c = p5.map(512, y1, y2, 0, 256);
-  let elipse_c = p5.map(x1 + 10, x1, x2, 0, 256);
+  p5.fill(82, 81, 99);
+  p5.quad(x1c2, y1c2, x2c2, y2c2, x3c2, y3c2, x4c2, y4c2);
+  
 
-  for (let i=x1-gridSize; i<x2+gridSize; i+=gridSize) {
-    let x_snap = snap_to_grid(i, gridSize);
-    let x_snap_c = p5.map(x_snap, x1, x2, 0, 256);
-    p5.ellipse(x_snap_c, y_snap_c, elipse_c)
-  }
+ 
+
+
+
+  // p5.fill(50);
+  // let y_snap_c = p5.map(512, y1, y2, 0, 256);
+  // let elipse_c = p5.map(x1 + 10, x1, x2, 0, 256);
+
+  // for (let i=x1-gridSize; i<x2+gridSize; i+=gridSize) {
+  //   let x_snap = snap_to_grid(i, gridSize);
+  //   let x_snap_c = p5.map(x_snap, x1, x2, 0, 256);
+  //   p5.ellipse(x_snap_c, y_snap_c, elipse_c)
+  // }
 
 //First Diamond
 // tx = p5.map(512-960/2, x1, x2, 0, 256);
