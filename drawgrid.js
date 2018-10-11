@@ -1,6 +1,6 @@
 const max_thickness = 64;
 const  boxDimentions = 30;
-const grid_size = 64;
+const grid_size = 60;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -41,7 +41,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
 
-  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_p00 = p5.map(10, x1, x2, 0, 256);
   let box = p5.map(boxDimentions, x1, x2, 0, 256);
   let perimiter= box - c_p00;
 
@@ -56,8 +56,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-      /* now draw all elements from back to front */
-   //p5.translate(200,200);
+   //    /* now draw all elements from back to front */
+   // p5.translate(200,200);
    
 
      p5.fill('#041370'); // blue
@@ -69,12 +69,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
      p5.rotate(p5.HALF_PI);
 
      p5.fill('#FCDB85'); //yellow
-      p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-    p5.rotate(p5.HALF_PI);
+     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
+     p5.rotate(p5.HALF_PI);
 
      p5.fill('#EE4502'); // red
-      p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
-    p5.rotate(p5.HALF_PI);
+     p5.rect(x_pos, y_pos,perimiter,perimiter,0, 20, 0, 20);
+     p5.rotate(p5.HALF_PI);
  
     }
   }
