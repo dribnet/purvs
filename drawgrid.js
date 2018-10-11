@@ -1,5 +1,29 @@
+
+
+const max_thickness = 64;
+const ball_radius = 32;
+const line_width = 15;
+const grid_size = 100;
+
+/* the random number seed for the tour */
+var tourSeed = 301;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [1, 356.500000000000, 665.750000000000],
+  [3, 353.250000000000, 668.187500000000],
+  [4, 322.562500000000, 645.093750000000],
+  [5, 322.562500000000, 645.109375000000],
+  [7, 317.984375000000, 643.636718750000],
+  [3, 317.984375000000, 643.636718750000]
+]
+
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
 /*
- * This is the function to implement to make your own abstract design.
+ * This is the funciton to implement to make your own abstract design.
  *
  * arguments:
  * p5: the p5.js object - all draw commands should be prefixed with this object
@@ -9,99 +33,79 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
-
-/* the random number seed for the tour */
-var tourSeed = 301;
-/* triplets of locations: zoom, x, y */
-var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
-]
-
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-// temporary variables used for object placement
-  let cx=0, cx2=0, cx3=0,cx4 = 0, cx5 = 0, cx_line = 0, cx_line_2 =0;
-  let  cy=0, cy2 = 0, cy3 = 0, cy4 = 0, cy5 = 0, cy_line = 0, cy_line_2 = 0, cy_line_3 = 0, cy_line_4 = 0;
+  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  let max_shift = max_thickness;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+  // debug version: draw one
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+  let cur_ball_radius = c_pball - c_p00;
 
   p5.background(255);
-  p5.rectMode(p5.CORNERS);
+  //p5.fill(0, 0, 128);
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
 
-  // // The first red rectangle fills the entire space
-  // cx = p5.map(512-960/2, x1, x2, 0, 256);
-  // cy = p5.map(512-720/2, y1, y2, 0, 256);
-  // cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-  // cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  // p5.fill(255, 0, 0);
-  // p5.rect(cx, cy, cx2, cy2);
+       let x_pos = p5.map(x, x1, x2, 0, 256);
+       let y_pos = p5.map(y, y1, y2, 0, 256);
+       let x_pos_2 = p5.map(x + 30, x1, x2, 0, 256);
+       let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+       let x_pos_3 = p5.map(x - 30, x1, x2, 0, 256);
+       let y_pos_3 = p5.map(y + 60, y1, y2, 0, 256);
+       p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
-  // // The second black rectangle is inset to form a frame inset by 20 units
-  // cx = p5.map(512-940/2, x1, x2, 0, 256);
-  // cy = p5.map(512-700/2, y1, y2, 0, 256);
-  // cx2 = p5.map(512+940/2, x1, x2, 0, 256);
-  // cy2 = p5.map(512+700/2, y1, y2, 0, 256);
-  // p5.fill(0);
-  // p5.rect(cx, cy, cx2, cy2);
+       //for top lines
+       let x_pos_line = p5.map(x - 40, x1, x2, 0, 256);
+       let x_pos_line_2 = p5.map(x + 40, x1, x2, 0, 256);
+       let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
+       p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
+       p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
 
-  // // Two ellipses with a radius of 50 units are then added.
-  // cx = p5.map(512, x1, x2, 0, 256);
-  // cy = p5.map(512, y1, y2, 0, 256);
-  // cx2 = p5.map(512+50, x1, x2, 0, 256);
-  // p5.fill(0, 0, 255);
-  // p5.ellipse(cx, cy, (cx2-cx));
+       //for bottom lines
+       let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
+       p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
+       p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
 
-  // // The second green ellipse is above and to the left of the first one.
-  // cx = p5.map(412, x1, x2, 0, 256);
-  // cy = p5.map(412, y1, y2, 0, 256);
-  // cx2 = p5.map(412+50, x1, x2, 0, 256);
-  // p5.fill(0, 255, 0);
-  // p5.ellipse(cx, cy, (cx2-cx));
-  p5.strokeWeight(2);
-  p5.stroke(0,0,255);
-
-  //1st line
-  cy_line = p5.map(600, y1, y2, 0, 256);
-  cy_line_2 = p5.map(650, y1, y2, 0, 256);
-  cy_line_3 = p5.map(700, y1, y2, 0, 256);
-  cy_line_4 = p5.map(550, y1, y2, 0, 256);
-  cx_line= p5.map(0, x1, x2, 0, 256);
-  cx_line_2 = p5.map(0, x1, x2, 0, 256);
-  p5.line(cx_line,cy_line,cx_line_2,cy_line_2);
-  //2nd line
-  p5.line(cx_line,cy_line_2,cx_line_2,cy_line_3);
-  //3rd line
-  //p5.line(cx_line,cy_line, cx_line_2, cy_line_4);
-
-  //1st quad
-  cy = p5.map(610, y1, y2, 0, 256);
-  cy2 = p5.map(650, y1, y2, 0, 256);
-  cy3 = p5.map(690, y1, y2, 0, 256);
-  cx = p5.map(100, x1, x2, 0, 256);
-  cx2 = p5.map(50, x1, x2, 0, 256);
-  cx3 = p5.map(150, x1, x2, 0, 256);
-  p5.quad(cx, cy, cx2, cy2, cx, cy3, cx3, cy2);
-
-  //2nd quad
-  cy4 = p5.map(600, y1, y2, 0, 256);
-  //cy5 = p5.map(600, y1, y2, 0, 256);
-  cx4 = p5.map(30, x1, x2, 0, 256);
-  cx5 = p5.map(170, x1, x2, 0, 256);
-  //cx6 = p5.map(90, x1, x2, 0, 256);
-
-  //topline
-  p5.line(cx4, cy4, cx,cy);
-  p5.line(cx5 , cy4 , cx, cy);
+      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
 
-  //bottomline 
-  cy5 = p5.map(700, y1, y2, 0, 256);
-  p5.line(cx4, cy5, cx, cy3);
-  p5.line(cx5, cy5, cx, cy3);
+      // p5.strokeWeight(cur_line_width);
+      // p5.stroke(150, 0, 0);
+      // p5.line(x_pos, y_pos, x_pos_left, y_pos);
+      // p5.stroke(0, 150, 0);
+      // p5.line(x_pos, y_pos, x_pos, y_pos_down);
+
+      // p5.stroke(0, 0, 150);
+      // p5.noStroke();
+      // p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+
+    }
+  }
+
   // debug - show border
   // p5.noFill();
-  //p5.stroke(255, 0, 0)
-  //p5.rect(0, 0, 255, 255);
+  // p5.stroke(0, 200, 200)
+  // p5.strokeWeight(1);
+  // p5.rect(0, 0, 255, 255);
+  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  // let sizex = x2 - x1;
+  // p5.text("width: " + sizex, 10, 40);
 }
