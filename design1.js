@@ -22,6 +22,18 @@ var yAxis = 0;
 var xAxis = 0;
 var AxisModifier = 50;
 var mod = 0;
+
+let zAxisCamera = 1000;
+let yAxisCamera = 0;
+let xAxisCamera = 0;
+
+let zAxisCameraLast = 1000;
+let yAxisCameraLast = 0;
+let xAxisCameraLast = 0;
+
+let curCameraFrame = 0;
+let maxCameraFrames = 60;
+
 function setup () {
   createCanvas(960, 720, WEBGL);
   c1 = color(100, 0, 125);
@@ -38,7 +50,7 @@ function setup () {
   loadButton.mousePressed(ZoomInX);
   loadButton.parent('button1Container');
   //blank
-  var loadButton = createButton("....");
+  var loadButton = createButton("...");
   loadButton.mousePressed();
   loadButton.parent('button2Container');
   //Move Up
@@ -46,7 +58,7 @@ function setup () {
   loadButton.mousePressed(MoveUp);
   loadButton.parent('button2Container');
   //blank
-  var loadButton = createButton("....");
+  var loadButton = createButton("...");
   loadButton.mousePressed();
   loadButton.parent('button2Container');
   //Move Right
@@ -84,12 +96,25 @@ function mousePressed() {
 }
 
 function draw () {
+  curCameraFrame = curCameraFrame + 1;
+  if(curCameraFrame > maxCameraFrames) {
+    xAxisCamera = xAxis;
+    yAxisCamera = yAxis;
+    zAxisCamera = zAxis;
+  }
+  else {
+    xAxisCamera = map(curCameraFrame, 0, maxCameraFrames, xAxisCameraLast, xAxis)
+    yAxisCamera = map(curCameraFrame, 0, maxCameraFrames, yAxisCameraLast, yAxis)
+    zAxisCamera = map(curCameraFrame, 0, maxCameraFrames, zAxisCameraLast, zAxis)
+  }
+
+
    //-----------------------scene setup-----------------------//
   background(80);
   translate(0, 0, -600);
   let cur_frame = frameCount % frameMax;
   let cur_frac = map(cur_frame, 0, frameMax, 0, 1);
-  camera(xAxis, yAxis, zAxis, xAxis, yAxis, 0, 0.0, 1.0, 0.0);
+  camera(xAxisCamera, yAxisCamera, zAxisCamera, xAxisCamera, yAxisCamera, 0, 0.0, 1.0, 0.0);
   //-----------------------background graident-----------------------//
   //setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   translate(0, 0, 600);
@@ -102,21 +127,34 @@ function draw () {
   directionalLight(0, 150, 250, 0, 0, -10);
   pointLight(0, 0, 255, locX, locY, 250);
 
-  //-----------------------central Torus-----------------------//
-  strokeWeight(0.3);
+  //-----------------------Area Covers-----------------------//
   rotateZ(frameCount * 0.0035);
   rotateX(frameCount * 0.0035);
   rotateY(frameCount * 0.0035);
-  torus(120, 30);
-  //sphere(2500);
+  strokeWeight(10);
+  sphere(4000);
+  rotateZ(frameCount * 0.0055);
+  rotateX(frameCount * 0.0055);
+  rotateY(frameCount * 0.0055);
+  strokeWeight(1);
+  sphere(350);
+  rotateZ(frameCount * 0.0095);
+  rotateX(frameCount * 0.0095);
+  rotateY(frameCount * 0.0095);
+  strokeWeight(1);
+  sphere(1200);
+  strokeWeight(0.3);
+  //torus(120, 30);
+  
   //-----------------------inner core anticlockwise-----------------------//
   for(let i = 0; i < 10; i++) {
         push();
+        stroke(0);
+        sphere(85);
         rotateX(degree);
         rotateY(degree);
         rotateX(degree);
         translate(0, 0, 0);
-        stroke(0);
         ellipsoid(45, 45, 15);
         ellipsoid(45, 15, 45);
         ellipsoid(15, 45, 45);
@@ -152,6 +190,7 @@ function draw () {
   ambientMaterial(0);
 
   //-----------------------ball scatter middle-----------------------//
+  /*
   for(var j = 0; j < 5; j++){
     push();
     for(var i = 0; i < 10; i++){
@@ -164,7 +203,7 @@ function draw () {
     }
     pop();
   }
-
+  */
   //-----------------------inner cube core-----------------------//
   for(let i = 0; i < 10; i++) {
         push();
@@ -203,6 +242,10 @@ function draw () {
     worldTranslate--;
   }
   if(worldTranslate <= 1){worldTranslate =1} 
+  if(zAxis >= 3700){ zAxis = 3700;}
+  //if(zAxis <= 736){ zAxis = 736;}
+  //print(zAxis);
+    
 }
 function keyPressed(){
   //print("zoomed");
@@ -231,6 +274,9 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
+function mouseWheel(event) {
+  zAxis += event.delta;
 }
 function polygon(x, y, radius, npoints) {
   var angle = TWO_PI / npoints;
@@ -282,23 +328,33 @@ function MoveUp(){
 function MoveDown(){
   yAxis = yAxis + AxisModifier;  
 }
+function startCameraAnimation() {
+  curCameraFrame = 0;
+  xAxisCameraLast = xAxis;
+  yAxisCameraLast = yAxis;
+  zAxisCameraLast = zAxis;
+}
 function ResetCam(){
+  startCameraAnimation();
   zAxis = 1000;
   yAxis = 0;
   xAxis = 0;
 }
 function POS1(){  //fully zoomed out
-  zAxis = 800;
+  startCameraAnimation();
+  zAxis = 2995;
   yAxis = 0;
   xAxis = 0; 
 }
 function POS2(){  //middle zoom
-  zAxis = 1200;
+  startCameraAnimation();
+  zAxis = 958;
   yAxis = 0;
   xAxis = 0; 
 }
 function POS3(){  //fully zoomed in
-  zAxis = 1800;
+  startCameraAnimation();
+  zAxis = 736;
   yAxis = 0;
   xAxis = 0; 
 }

@@ -1,7 +1,8 @@
 ## PS4 MDDN 342 2018
 
-Part 3: OnScreen Zoom function
-With my last part I had a tempory button based navigation system for my 3D scene, but now there is a onscreen GUI that will let the user click through with there mouse to navigate the scene. I do want to add it so it zooms in smoothly, but that isnt a priority just yet. The on screen navigation has 3 preset "zoom" points, where you can click to see the various points in the scene, along with a basic "arrow" style navigation to move around in the scene with.
+Part 4: Tour Zoom function (re-invented for 3D)
+Since my design is in spacial 3D, having a tour feature, where it moves between the set points. With the added functionallity of being able to smoothly "tour" between the set points, you can view different set points on the control panel.
+
 
 <hr>
 here are the button based controls:
