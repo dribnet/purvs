@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+      "sha": "3099c1004469a45976ccaa414d1f48f3eb599c7f",
+      "name": "Part 4: Tour feature/layers"
+    },
+    {
       "sha": "8486eaa8b19d9eaedb0848711846a42743e6eaaf",
       "name": "Part 3: OnScreen Controls/Zoom Points"
     },
