@@ -60,6 +60,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let yellow = p5.map(boxYellow, x1, x2, 0, 256);
   let brown = p5.map(boxBrown, x1, x2, 0, 256);
 
+  //perimiter
   let perBlue = blue - c_p00;
   let perRed = red - c_p00;
   let perYellow = yellow - c_p00;
@@ -85,6 +86,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
      p5.fill('#EE4502'); // red
      p5.rect(x_pos, y_pos,perRed,perRed,0, 20, 0, 20);
+    
+     p5.fill('#EE4502'); // red
+     p5.rect(x_pos, y_pos,perRed,perRed,0, 20, 0, 20);
+     p5.rotate(p5.HALF_PI);
     }
   }
 
