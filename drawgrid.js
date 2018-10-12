@@ -20,6 +20,7 @@ const cloud_grid_size = 300;
 const cloud1_grid_size = 400;
 const max_movement = 200;
 const max_cloud_movement = 250;
+const line_width = 0.07;
 //let do_animation = true;
 
 
@@ -351,8 +352,12 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	let mouth1_w_offset = p5.map(x+10/4, x1, x2, 0, 256); 
 	let mouth1_w = mouth1_w_offset - mouth1_x;
 	
+	let c_p00 = p5.map(0, x1, x2, 0, 256);
+  	let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  	let cur_line_width = c_plwidth - c_p00;
+
 	p5.stroke(0)
-	p5.strokeWeight(2);
+	p5.strokeWeight(cur_line_width);
 	p5.noFill();
 	p5.arc(mouth1_x, mouth1_y, mouth1_w, mouth1_w, 0,  180);
  }

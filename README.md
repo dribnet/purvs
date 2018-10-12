@@ -1,5 +1,7 @@
 ## PS4 MDDN 342 2018
 
+Update: I have changed the mouth so that the line width doesn't decrease when you zoom. It now stays a consistent size.
+
 I have added extra grids on different levels of zoom. You first see large clouds which you can zoom through to reveal the parachuters and smaller clouds. When you get close enough to them the details show up as well as a second layer of smaller parachuters in the distance. 
 
 This has made loading take a little bit longer because it is drawing a lot more than it needed to before. 
