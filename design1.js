@@ -22,7 +22,7 @@ var yAxis = 0;
 var xAxis = 0;
 var AxisModifier = 50;
 var mod = 0;
-
+var tourTrigger = false;
 let zAxisCamera = 1000;
 let yAxisCamera = 0;
 let xAxisCamera = 0;
@@ -78,25 +78,34 @@ function setup () {
   loadButton.mousePressed(ResetCam);
   loadButton.parent('button4Container');
   //Screen Zoom Pos
-  //Max Zoomed out
+  //Pos 1
   var loadButton = createButton('Positon1');
   loadButton.mousePressed(POS1);
   loadButton.parent('Pos1Container');
-  //Middle Zoom
+  //Pos 2
   var loadButton = createButton('Positon2');
   loadButton.mousePressed(POS2);
   loadButton.parent('Pos1Container');
-  //Max Zoomed in
+  //Pos 3
   var loadButton = createButton('Positon3');
   loadButton.mousePressed(POS3);
-  loadButton.parent('Pos1Container');
+  loadButton.parent('Pos2Container');
+  //Pos 4
+  var loadButton = createButton('Positon4');
+  loadButton.mousePressed(POS4);
+  loadButton.parent('Pos2Container');
+  //Pos 4
+  var loadButton = createButton('FullTour');
+  loadButton.mousePressed(FullTour);
+  loadButton.parent('Pos3Container');
 }
 
 function mousePressed() {
 }
 
 function draw () {
-  curCameraFrame = curCameraFrame + 1;
+  if(tourTrigger == false){curCameraFrame = curCameraFrame + 1;}    
+  if(tourTrigger == true){curCameraFrame = curCameraFrame + 0.2;}    
   if(curCameraFrame > maxCameraFrames) {
     xAxisCamera = xAxis;
     yAxisCamera = yAxis;
@@ -107,7 +116,6 @@ function draw () {
     yAxisCamera = map(curCameraFrame, 0, maxCameraFrames, yAxisCameraLast, yAxis)
     zAxisCamera = map(curCameraFrame, 0, maxCameraFrames, zAxisCameraLast, zAxis)
   }
-
 
    //-----------------------scene setup-----------------------//
   background(80);
@@ -245,6 +253,7 @@ function draw () {
   if(zAxis >= 3700){ zAxis = 3700;}
   //if(zAxis <= 736){ zAxis = 736;}
   //print(zAxis);
+  //print(tourTrigger);
     
 }
 function keyPressed(){
@@ -309,7 +318,7 @@ function setGradient(x, y, w, h, c1, c2, axis) {
 }
 
 
-//Input panel methods
+//----------------------Input panel methods--------------------//
 function ZoomOutX(){
   zAxis = zAxis + AxisModifier;
 }
@@ -335,26 +344,44 @@ function startCameraAnimation() {
   zAxisCameraLast = zAxis;
 }
 function ResetCam(){
+  tourTrigger = false;
   startCameraAnimation();
-  zAxis = 1000;
+  //zAxis = 0;
   yAxis = 0;
   xAxis = 0;
 }
-function POS1(){  //fully zoomed out
+function POS1(){ 
+  tourTrigger = false;
   startCameraAnimation();
   zAxis = 2995;
   yAxis = 0;
   xAxis = 0; 
 }
-function POS2(){  //middle zoom
+function POS2(){ 
+  tourTrigger = false;
+  startCameraAnimation();
+  zAxis = 1800;
+  yAxis = 0;
+  xAxis = 0; 
+}
+function POS3(){ 
+  tourTrigger = false;
   startCameraAnimation();
   zAxis = 958;
   yAxis = 0;
   xAxis = 0; 
 }
-function POS3(){  //fully zoomed in
+function POS4(){  
+  tourTrigger = false;
   startCameraAnimation();
   zAxis = 736;
+  yAxis = 0;
+  xAxis = 0; 
+}
+function FullTour(){  
+  tourTrigger = true;
+  startCameraAnimation();
+  zAxis = 100;
   yAxis = 0;
   xAxis = 0; 
 }
