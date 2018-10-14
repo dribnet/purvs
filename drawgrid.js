@@ -20,6 +20,86 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
+function drawRect(p5,x,y,x1,x2,y1,y2) {
+	p5.rectMode(p5.CENTER);
+
+	let x_pos = p5.map(x, x1, x2, 0, 256);
+    let y_pos = p5.map(y, y1, y2, 0, 256);
+    let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+    let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+
+    	let rect_x = p5.map(x,x1,x2,0,256);
+        let rect_y = p5.map(y,y1,y2,0,256);
+        let rect_origin = p5.map(0,x1,x2,0,256);
+        let rect_offset_x = p5.map(5,x1,x2,0,256);
+        let rect_offset_y = p5.map(20,x1,x2,0,256);
+        let rect_width  = rect_offset_x - rect_origin ; 
+        let rect_height  = rect_offset_y - rect_origin ; 
+        p5.noStroke();
+        p5.fill(100, 87, 255, 40);//lilac
+        p5.rect(rect_x,rect_y,rect_width,rect_height);
+
+        let innerrect_x = p5.map(x,x1,x2,0,256);
+        let innerrect_y = p5.map(y,y1,y2,0,256);
+        let innerrect_origin = p5.map(0,x1,x2,0,256);
+        let innerrect_offset_x = p5.map(20,x1,x2,0,256);
+        let innerrect_offset_y = p5.map(5,x1,x2,0,256);
+        let innerrect_width  = innerrect_offset_x - innerrect_origin ; 
+        let innerrect_height  = innerrect_offset_y - innerrect_origin ; 
+        p5.noStroke();
+        p5.fill(100, 87, 255, 40);//lilac
+        p5.rect(innerrect_x,innerrect_y,innerrect_width,innerrect_height);
+
+
+        let rightrect_x = p5.map(x + 10,x1,x2,0,256);
+        let rightrect_y = p5.map(y,y1,y2,0,256);
+        let rightrect_origin = p5.map(0,x1,x2,0,256);
+        let rightrect_offset_x = p5.map(20,x1,x2,0,256);
+        let rightrect_offset_y = p5.map(20,x1,x2,0,256);
+        let rightrect_width  = rightrect_offset_x - rightrect_origin ; 
+        let rightrect_height  = rightrect_offset_y - rightrect_origin ; 
+        p5.fill(250,13,73,40); //pink
+        p5.rect(rightrect_x,rightrect_y,rightrect_width,rightrect_height);
+
+
+        let leftrect_x = p5.map(x -10,x1,x2,0,256);
+        let leftrect_y = p5.map(y,y1,y2,0,256);
+        let leftrect_origin = p5.map(0,x1,x2,0,256);
+        let leftrect_offset_x = p5.map(20,x1,x2,0,256);
+        let leftrect_offset_y = p5.map(20,x1,x2,0,256);
+        let leftrect_width  = leftrect_offset_x - leftrect_origin ; 
+        let leftrect_height  = leftrect_offset_y - leftrect_origin ; 
+        p5.fill(250,13,73,40); //pink
+        p5.rect(leftrect_x,leftrect_y,leftrect_width,leftrect_height);
+
+
+        let uprect_x = p5.map(x,x1,x2,0,256);
+        let uprect_y = p5.map(y - 10,y1,y2,0,256);
+        let uprect_origin = p5.map(0,x1,x2,0,256);
+        let uprect_offset_x = p5.map(20,x1,x2,0,256);
+        let uprect_offset_y = p5.map(20,x1,x2,0,256);
+        let uprect_width  = uprect_offset_x - uprect_origin ; 
+        let uprect_height  = uprect_offset_y - uprect_origin ; 
+        p5.fill(250,13,73,40); //pink
+        p5.rect(uprect_x,uprect_y,uprect_width,uprect_height);
+
+        let downrect_x = p5.map(x,x1,x2,0,256);
+        let downrect_y = p5.map(y + 10,y1,y2,0,256);
+        let downrect_origin = p5.map(0,x1,x2,0,256);
+        let downrect_offset_x = p5.map(20,x1,x2,0,256);
+        let downrect_offset_y = p5.map(20,x1,x2,0,256);
+        let downrect_width  = downrect_offset_x - downrect_origin ; 
+        let downrect_height  = downrect_offset_y - downrect_origin ; 
+        p5.fill(250,13,73,40); //pink
+        p5.rect(downrect_x,downrect_y,downrect_width,downrect_height);
+
+
+
+
+}
+
+
+
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -57,6 +137,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   p5.background(255);
   p5.fill(0, 0, 128);
+
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute the points to be drawn */
@@ -66,25 +147,42 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
+
+ 	  let right_circlex = p5.map(x + 15, x1, x2, 0, 256);
+      let right_circley = p5.map(y - 15, y1, y2, 0, 256);
+
+
+      let left_circlex = p5.map(x - 15, x1, x2, 0, 256);
+      let left_circley = p5.map(y + 15, y1, y2, 0, 256);
+
+if (zoom < 3) {
       p5.stroke(0, 0, 150);
       p5.noStroke();
       p5.fill(250,13,73,40); //pink
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
 
- 	  let right_circlex = p5.map(x + 15, x1, x2, 0, 256);
-      let right_circley = p5.map(y - 15, y1, y2, 0, 256);
       p5.fill(100, 87, 255, 40);//lilac
       p5.ellipse(right_circlex, y_pos, cur_ball_radius);
       p5.ellipse(x_pos, right_circley, cur_ball_radius);
 
 
-      let left_circlex = p5.map(x - 15, x1, x2, 0, 256);
-      let left_circley = p5.map(y + 15, y1, y2, 0, 256);
+     
       p5.ellipse(left_circlex, y_pos, cur_ball_radius);
       p5.ellipse(x_pos, left_circley, cur_ball_radius);
+
+
+
     }
-  }
+  
+    /* now draw all elements from back to front */
+     
+
+      if (zoom >= 3) {
+      drawRect(p5, x,y, x1, x2, y1, y2);
+		}
+    }
+      
 
   // debug - show border
   // p5.noFill();
@@ -94,4 +192,5 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
   // let sizex = x2 - x1;
   // p5.text("width: " + sizex, 10, 40);
+}
 }

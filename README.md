@@ -1,3 +1,4 @@
 ## PS4 MDDN 342 2018
 
-I've made an element of my orignal pattern into a tile/grid - pretty simple at the moment, but I am yet to work on the zooming feature. I would also like to randomise the grid, so that it is not so structured and linear. I will start adding to the pattern as I zoom in so hopefully that adds to the complexity. My concern is that it will look too simple overall, as the animation and composition is what made my wallpaper interesting in the last project, even though the elements were simple. 
+Started playing around with the zoom feature, had a few code issues but I've got it functioning now. This isn't what I want to happen on the zoom, it was just an experiment with another shape. 
+Still working on adding a bit more complexity to my image, as it's a bit boring at the moment. 
