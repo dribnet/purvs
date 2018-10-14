@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Merged the code and started to add some of my shape layers and colours into it. I'm finding it quite difficult to get my head around and at the moment the shape on the right is going a bit weird when I zoom in. I'll continue to add elements of my old code into this one and hopefully I'll understand the code better as I go. 
+I've made an element of my orignal pattern into a tile/grid - pretty simple at the moment, but I am yet to work on the zooming feature. I would also like to randomise the grid, so that it is not so structured and linear. I will start adding to the pattern as I zoom in so hopefully that adds to the complexity. My concern is that it will look too simple overall, as the animation and composition is what made my wallpaper interesting in the last project, even though the elements were simple. 
