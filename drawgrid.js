@@ -19,6 +19,23 @@ var tourPath = [
   [6, 512, 512]
 ]
 
+
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let noiseX = p5.noise(x * noiseScale,
+                        y * noiseScale, z);
+  let noiseY = p5.noise(x * noiseScale,
+                        y * noiseScale, z+50);
+  let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
+  let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
+  return [x+offsetX, y+offsetY]
+}
+
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
@@ -29,26 +46,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     
 
 
-	let cx = p5.map(512, x1, x2, 0, 256);
-	let cy = p5.map(512, y1, y2, 0, 256);
+	let cx = p5.map(112.5, x1, x2, 0, 256);
+	let cy = p5.map(110, y1, y2, 0, 256);
 	let cx2 = p5.map(512+10, x1, x2, 0, 256);
 	tree(p5,cx,cy);
-
+p5.ellipse(cx,cy,cx2,cx2);
 	p5.strokeWeight(0);
 	//p5.ellipse(cx, cy, (cx2-cx));
 
 p5.rect(cx, cy, (cx2-cx),(cx2-cx)/4);
-p5.rect(cx, cy, (cx2-cx)/1.6,(cx2-cx)/4);
+p5.rect(cx, cy+100, (cx2-cx)/1.6,(cx2-cx)/4);
 
 
 
-}
+} 
 
 function tree (p5,x,y){
 
 	this.x=x;
     this.y=y;
-	p5.strokeWeight(0);
+	p5.strokeWeight(0); 
+	p5.fill(200);
+
+	
+
 	p5.fill(99, 60, 34);
     p5.rect(102.5, 100, 20, 10);
 
@@ -65,5 +86,7 @@ function tree (p5,x,y){
     p5.rect(100, 65, 25, 7);
     p5.fill(74, 196, 77);
     p5.rect(102.5, 58, 20, 7);
+
+ 
 
 }
