@@ -83,6 +83,45 @@ function drawStamens(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, draw
   }
 }
 
+function drawLine(level, p5, x1, x2, y1, y2,) {
+  if (level > maxLevel) {
+    return;
+  }
+
+  let x1_pos = p5.map(512, x1, x2, 0, 256);
+  let x2_pos = p5.map(512+200, x1, x2, 0, 256);
+  let y_pos = p5.map(512, y1, y2, 0, 256);
+
+  p5.stroke(255);
+  p5.strokeWeight(10);
+  p5.line(x1_pos, y_pos, x2_pos, y_pos);
+  // noStroke();
+
+/*
+  for (let i = 1; i < branches + 1; i++) {
+    push();
+    translate(200 * i / (branches + 1), 0);
+    scale(0.5, 0.5);
+
+    push();
+    rotate(angle);
+    drawLine(level + 1);
+    pop();
+
+    push();
+    rotate(-angle);
+    drawLine(level + 1);
+    pop(); 
+    pop(); 
+  }
+  */
+}
+
+let angle = Math.PI * 2 * Math.random();
+let level = 0;
+const maxLevel = 4;
+const branches = 2;
+
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -102,6 +141,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // let dz = p5.globalFrameCount / 50.0;
   // z = z + dz;
 
+  p5.background(169, 211, 255);
+
+  // push();
+  // translate(width/2, height/2);
+  for (let i = 0; i < 6; i++) {
+      drawLine(0, p5, x1, x2, y1, y2);
+  }
+  // pop();
+
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
   let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -115,7 +163,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(169, 211, 255);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute all three points with offsets */
