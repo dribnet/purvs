@@ -32,6 +32,9 @@ let gridSize = 100;
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
+  p5.background(254, 234, 229);
+
+  //diamonds
   let x1q = 712;
   let y1q = 512;
   let x2q = 512;
@@ -50,6 +53,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let x4q2 = 512;
   let y4q2 = 412;
 
+  let x1q3 = 680;
+  let y1q3 = 350;
+  let x2q3 = 512;
+  let y2q3 = 212;
+  let x3q3 = 350;
+  let y3q3 = 350;
+  let x4q3 = 512;
+  let y4q3 = 512;
+
+  //circles
+  let x1cc1 = 510;
+  let y1cc1 = 750;
+
+  //diamonds map
   //main diamond
   let x1c = p5.map(x1q, x1, x2, 0, 256);
   let y1c = p5.map(y1q, y1, y2, 0, 256);
@@ -70,13 +87,50 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let x4c2 = p5.map(x4q2, x1, x2, 0, 256);
   let y4c2 = p5.map(y4q2, y1, y2, 0, 256);
 
+  //upper diamond
+  let x1c3 = p5.map(x1q3, x1, x2, 0, 256);
+  let y1c3 = p5.map(y1q3, y1, y2, 0, 256);
+  let x2c3 = p5.map(x2q3, x1, x2, 0, 256);
+  let y2c3 = p5.map(y2q3, y1, y2, 0, 256);
+  let x3c3 = p5.map(x3q3, x1, x2, 0, 256);
+  let y3c3 = p5.map(y3q3, y1, y2, 0, 256);
+  let x4c3 = p5.map(x4q3, x1, x2, 0, 256);
+  let y4c3 = p5.map(y4q3, y1, y2, 0, 256);
+
+  //circles map
+  let x1ccc1 = p5.map(x1cc1, x1, x2, 0, 256);
+  let y1ccc1 = p5.map(y1cc1, y1, y2, 0, 256);
+
+
+  //circle no fill
+  p5.noFill();
+  p5.stroke(113, 103, 114);
+  p5.strokeWeight(7);
+  p5.ellipse(x1ccc1, y1ccc1, 500, 500);
+  p5.ellipse(x1ccc1, y1ccc1, 600, 600);
+
+
+  //circle body
+  p5.noStroke();
+  p5.fill(113, 103, 114);
+  p5.ellipse(x1ccc1, y1ccc1, 400, 400);
+  p5.fill(254, 234, 229);
+  p5.ellipse(x1ccc1, y1ccc1, 200, 200);
+
+  //diamond body
+  p5.fill(113, 103, 114);
+  p5.quad(x1c3, y1c3, x2c3, y2c3, x3c3, y3c3, x4c3,y4c3);
+
+  p5.stroke(254, 234, 229);
+  p5.strokeWeight(15);
   p5.fill(113, 103, 114);
   p5.quad(x1c, y1c, x2c, y2c, x3c, y3c, x4c, y4c);
 
+  p5.noStroke();
   p5.fill(82, 81, 99);
   p5.quad(x1c2, y1c2, x2c2, y2c2, x3c2, y3c2, x4c2, y4c2);
   
-
+  
  
 
 
