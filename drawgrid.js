@@ -1,5 +1,6 @@
 const max_thickness = 64;
 const ball_radius = 32;
+const ball_radius2 = 10;
 const line_width = 8;
 const grid_size = 64;
 
@@ -20,83 +21,6 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-// function drawRect(p5,x,y,x1,x2,y1,y2) {
-// 	p5.rectMode(p5.CENTER);
-
-// 	let x_pos = p5.map(x, x1, x2, 0, 256);
-//     let y_pos = p5.map(y, y1, y2, 0, 256);
-//     let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-//     let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
-
-//     	let rect_x = p5.map(x,x1,x2,0,256);
-//         let rect_y = p5.map(y,y1,y2,0,256);
-//         let rect_origin = p5.map(0,x1,x2,0,256);
-//         let rect_offset_x = p5.map(5,x1,x2,0,256);
-//         let rect_offset_y = p5.map(20,x1,x2,0,256);
-//         let rect_width  = rect_offset_x - rect_origin ; 
-//         let rect_height  = rect_offset_y - rect_origin ; 
-//         p5.noStroke();
-//         p5.fill(100, 87, 255, 40);//lilac
-//         p5.rect(rect_x,rect_y,rect_width,rect_height);
-
-//         let innerrect_x = p5.map(x,x1,x2,0,256);
-//         let innerrect_y = p5.map(y,y1,y2,0,256);
-//         let innerrect_origin = p5.map(0,x1,x2,0,256);
-//         let innerrect_offset_x = p5.map(20,x1,x2,0,256);
-//         let innerrect_offset_y = p5.map(5,x1,x2,0,256);
-//         let innerrect_width  = innerrect_offset_x - innerrect_origin ; 
-//         let innerrect_height  = innerrect_offset_y - innerrect_origin ; 
-//         p5.noStroke();
-//         p5.fill(100, 87, 255, 40);//lilac
-//         p5.rect(innerrect_x,innerrect_y,innerrect_width,innerrect_height);
-
-
-//         let rightrect_x = p5.map(x + 10,x1,x2,0,256);
-//         let rightrect_y = p5.map(y,y1,y2,0,256);
-//         let rightrect_origin = p5.map(0,x1,x2,0,256);
-//         let rightrect_offset_x = p5.map(20,x1,x2,0,256);
-//         let rightrect_offset_y = p5.map(20,x1,x2,0,256);
-//         let rightrect_width  = rightrect_offset_x - rightrect_origin ; 
-//         let rightrect_height  = rightrect_offset_y - rightrect_origin ; 
-//         p5.fill(250,13,73,40); //pink
-//         p5.rect(rightrect_x,rightrect_y,rightrect_width,rightrect_height);
-
-
-//         let leftrect_x = p5.map(x -10,x1,x2,0,256);
-//         let leftrect_y = p5.map(y,y1,y2,0,256);
-//         let leftrect_origin = p5.map(0,x1,x2,0,256);
-//         let leftrect_offset_x = p5.map(20,x1,x2,0,256);
-//         let leftrect_offset_y = p5.map(20,x1,x2,0,256);
-//         let leftrect_width  = leftrect_offset_x - leftrect_origin ; 
-//         let leftrect_height  = leftrect_offset_y - leftrect_origin ; 
-//         p5.fill(250,13,73,40); //pink
-//         p5.rect(leftrect_x,leftrect_y,leftrect_width,leftrect_height);
-
-
-//         let uprect_x = p5.map(x,x1,x2,0,256);
-//         let uprect_y = p5.map(y - 10,y1,y2,0,256);
-//         let uprect_origin = p5.map(0,x1,x2,0,256);
-//         let uprect_offset_x = p5.map(20,x1,x2,0,256);
-//         let uprect_offset_y = p5.map(20,x1,x2,0,256);
-//         let uprect_width  = uprect_offset_x - uprect_origin ; 
-//         let uprect_height  = uprect_offset_y - uprect_origin ; 
-//         p5.fill(250,13,73,40); //pink
-//         p5.rect(uprect_x,uprect_y,uprect_width,uprect_height);
-
-//         let downrect_x = p5.map(x,x1,x2,0,256);
-//         let downrect_y = p5.map(y + 10,y1,y2,0,256);
-//         let downrect_origin = p5.map(0,x1,x2,0,256);
-//         let downrect_offset_x = p5.map(20,x1,x2,0,256);
-//         let downrect_offset_y = p5.map(20,x1,x2,0,256);
-//         let downrect_width  = downrect_offset_x - downrect_origin ; 
-//         let downrect_height  = downrect_offset_y - downrect_origin ; 
-//         p5.fill(250,13,73,40); //pink
-//         p5.rect(downrect_x,downrect_y,downrect_width,downrect_height);
-
-
-
-
-// }
 
 function drawEllipses(p5,x,y,x1,x2,y1,y2) {
  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
@@ -122,7 +46,7 @@ function drawEllipses(p5,x,y,x1,x2,y1,y2) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(0);
   p5.fill(0, 0, 128);
 
   for(let x=min_x; x<max_x; x+=grid_size) {
@@ -181,6 +105,230 @@ function drawEllipses(p5,x,y,x1,x2,y1,y2) {
 }
 }
 
+
+
+function drawEllipses2(p5,x,y,x1,x2,y1,y2) {
+ /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  let max_shift = max_thickness;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+  // debug version: draw one
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+  let cur_ball_radius = c_pball - c_p00;
+
+  p5.background(0);
+  p5.fill(0, 0, 128);
+
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+      /* first compute the points to be drawn */
+      let x_pos = p5.map(x, x1, x2, 0, 256);
+      let y_pos = p5.map(y, y1, y2, 0, 256);
+
+      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+
+
+ 	  let right_circlex = p5.map(x + 15, x1, x2, 0, 256);
+      let right_circley = p5.map(y - 15, y1, y2, 0, 256);
+
+
+      let left_circlex = p5.map(x - 15, x1, x2, 0, 256);
+      let left_circley = p5.map(y + 15, y1, y2, 0, 256);
+
+      let upperleft_circlex = p5.map(x - 7.5, x1, x2, 0, 256);
+      let upperleft_circley = p5.map(y - 7.5, y1, y2, 0, 256);
+
+      let upperright_circlex = p5.map(x + 7.5, x1, x2, 0, 256);
+      let upperright_circley = p5.map(y - 7.5, y1, y2, 0, 256);
+
+      let lowerleft_circlex = p5.map(x - 7.5, x1, x2, 0, 256);
+      let lowerleft_circley = p5.map(y + 7.5, y1, y2, 0, 256);
+
+      let lowerright_circlex = p5.map(x + 7.5, x1, x2, 0, 256);
+      let lowerright_circley = p5.map(y + 7.5, y1, y2, 0, 256);
+
+       p5.stroke(0, 0, 150);
+      p5.noStroke();
+      p5.fill(100, 87, 255, 40);//lilac
+      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+
+      
+
+      p5.fill(250,13,73,40); //pink
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius);
+     
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius);
+
+      p5.ellipse(upperleft_circlex, upperleft_circley, cur_ball_radius);
+
+      p5.ellipse(upperright_circlex, upperright_circley, cur_ball_radius);
+
+      p5.ellipse(lowerright_circlex, lowerright_circley, cur_ball_radius);
+
+      p5.ellipse(lowerleft_circlex, lowerright_circley, cur_ball_radius);
+
+
+
+
+
+
+     p5.fill(100, 87, 255, 40);//lilac
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius/1.5);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius/1.5);
+     
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius/1.5);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius/1.5);
+
+      p5.ellipse(upperleft_circlex, upperleft_circley, cur_ball_radius/1.5);
+
+      p5.ellipse(upperright_circlex, upperright_circley, cur_ball_radius/1.5);
+
+      p5.ellipse(lowerright_circlex, lowerright_circley, cur_ball_radius/1.5);
+
+      p5.ellipse(lowerleft_circlex, lowerright_circley, cur_ball_radius/1.5);
+}
+
+}
+}
+
+
+function drawEllipses3(p5,x,y,x1,x2,y1,y2) {
+ /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  let max_shift = max_thickness;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+  // debug version: draw one
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius2, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+  let cur_ball_radius2 = c_pball - c_p00;
+
+  p5.background(0);
+  p5.fill(0, 0, 128);
+
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+      /* first compute the points to be drawn */
+      let x_pos = p5.map(x, x1, x2, 0, 256);
+      let y_pos = p5.map(y, y1, y2, 0, 256);
+
+      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+
+
+ 	  let right_circlex = p5.map(x + 5, x1, x2, 0, 256);
+      let right_circley = p5.map(y - 5, y1, y2, 0, 256);
+
+
+      let left_circlex = p5.map(x - 5, x1, x2, 0, 256);
+      let left_circley = p5.map(y + 5, y1, y2, 0, 256);
+
+      let upperleft_circlex = p5.map(x - 2.5, x1, x2, 0, 256);
+      let upperleft_circley = p5.map(y - 2.5, y1, y2, 0, 256);
+
+      let upperright_circlex = p5.map(x + 2.5, x1, x2, 0, 256);
+      let upperright_circley = p5.map(y - 2.5, y1, y2, 0, 256);
+
+      let lowerleft_circlex = p5.map(x - 2.5, x1, x2, 0, 256);
+      let lowerleft_circley = p5.map(y + 2.5, y1, y2, 0, 256);
+
+      let lowerright_circlex = p5.map(x + 2.5, x1, x2, 0, 256);
+      let lowerright_circley = p5.map(y + 2.5, y1, y2, 0, 256);
+
+       p5.stroke(0, 0, 150);
+      p5.noStroke();
+      p5.fill(100, 87, 255, 40);//lilac
+      p5.ellipse(x_pos, y_pos, cur_ball_radius2);
+
+
+      
+
+      p5.fill(250,13,73,80); //pink
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius2);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius2);
+     
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius2);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius2);
+
+      p5.ellipse(upperleft_circlex, upperleft_circley, cur_ball_radius2);
+
+      p5.ellipse(upperright_circlex, upperright_circley, cur_ball_radius2);
+
+      p5.ellipse(lowerright_circlex, lowerright_circley, cur_ball_radius2);
+
+      p5.ellipse(lowerleft_circlex, lowerright_circley, cur_ball_radius2);
+
+
+
+      p5.fill(100, 87, 255, 40);//lilac
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius2*2);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius2*2);
+     
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius2*2);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius2*2);
+
+      p5.ellipse(upperleft_circlex, upperleft_circley, cur_ball_radius2*2);
+
+      p5.ellipse(upperright_circlex, upperright_circley, cur_ball_radius2*2);
+
+      p5.ellipse(lowerright_circlex, lowerright_circley, cur_ball_radius2*2);
+
+      p5.ellipse(lowerleft_circlex, lowerright_circley, cur_ball_radius2*2);
+
+
+      p5.fill(250,13,73,80);//lilac
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius2/1.5);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius2/1.5);
+     
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius2/1.5);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius2/1.5);
+
+      p5.ellipse(upperleft_circlex, upperleft_circley, cur_ball_radius2/1.5);
+
+      p5.ellipse(upperright_circlex, upperright_circley, cur_ball_radius2/1.5);
+
+      p5.ellipse(lowerright_circlex, lowerright_circley, cur_ball_radius2/1.5);
+
+      p5.ellipse(lowerleft_circlex, lowerright_circley, cur_ball_radius2/1.5);
+
+}
+
+}
+}
+
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
@@ -205,7 +353,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(0);
   p5.fill(0, 0, 128);
 
   for(let x=min_x; x<max_x; x+=grid_size) {
@@ -225,7 +373,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let left_circlex = p5.map(x - 15, x1, x2, 0, 256);
       let left_circley = p5.map(y + 15, y1, y2, 0, 256);
 
-if (zoom < 3) {
+if (zoom < 2) {
       p5.stroke(0, 0, 150);
       p5.noStroke();
       p5.fill(250,13,73,40); //pink
@@ -248,8 +396,16 @@ if (zoom < 3) {
     /* now draw all elements from back to front */
      
 
-      if (zoom >= 3) {
+      if (zoom >= 2) {
       drawEllipses(p5, x,y, x1, x2, y1, y2);
+		}
+
+		if (zoom >= 4) {
+      drawEllipses2(p5, x,y, x1, x2, y1, y2);
+		}
+
+		if (zoom >= 5) {
+      drawEllipses3(p5, x,y, x1, x2, y1, y2);
 		}
     }
       
