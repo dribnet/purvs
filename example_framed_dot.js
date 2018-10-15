@@ -11,6 +11,8 @@
  */
 
 
+
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -20,8 +22,19 @@ var tourPath = [
   [4, 420, 400]
 ]
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let noiseX = p5.noise(x * noiseScale,
+                        y * noiseScale, z);
+  let noiseY = p5.noise(x * noiseScale,
+                        y * noiseScale, z+50);
+  let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
+  let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
+  return [x+offsetX, y+offsetY]
+}
+
+  // This version draws two rectangles and two ellipses.
+  // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // temporary variables used for object placement
   let cx=0, cy=0, cx2=0, cy2=0;
@@ -61,6 +74,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   // debug - show border
   // p5.noFill();
+  // p5.strokeWeight(10);
   // p5.stroke(255, 0, 0)
   // p5.rect(0, 0, 255, 255);
 }
+ 

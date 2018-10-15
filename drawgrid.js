@@ -19,6 +19,24 @@ var tourPath = [
   [6, 512, 512]
 ]
 
+
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let noiseX = p5.noise(x * noiseScale,
+                        y * noiseScale, z);
+  let noiseY = p5.noise(x * noiseScale,
+                        y * noiseScale, z+50);
+  let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
+  let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
+  return [x+offsetX, y+offsetY]
+}
+
+
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
@@ -26,7 +44,33 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // p5.noFill();
   // p5.stroke(255, 0, 0)
    //p5.rect(0, 0, 255, 255);
-    
+
+
+
+	let cx = p5.map(112.5, x1, x2, 0, 256);
+	let cy = p5.map(110, y1, y2, 0, 256);
+	let cx2 = p5.map(512+10, x1, x2, 0, 256);
+	//tree2(p5,cx,cy);
+
+	p5.strokeWeight(0);
+	//p5.ellipse(cx, cy, (cx2-cx));
+
+
+
+
+
+  
+tree(p5, x1, x2, y1, y2, z, zoom);
+tree(p5, x1, x2, y1, y2, z, zoom);
+//p5.rect(rect1x, rect1y, (radiusRect1-rect1x)/1.6,(radiusRect1-rect1x)/4);
+
+
+
+}
+
+
+
+function tree (p5, x1, x2, y1, y2, z, zoom){
 
 
 	let rect1x = p5.map(512, x1, x2, 0, 256);
@@ -54,7 +98,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	let basey = p5.map(514, y1, y2, 0, 256);
 	let radiusbase = p5.map(514.9+10, x1, x2, 0, 256);
 
-	tree(p5,rect1x,rect1y);
+	
 
 	p5.strokeWeight(0);
 	//p5.ellipse(rect1x, rect1y, (radiusRect1-rect1x));
@@ -71,15 +115,5 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
 
 p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
-//p5.rect(rect1x, rect1y, (radiusRect1-rect1x)/1.6,(radiusRect1-rect1x)/4);
-
-
-
-}
-
-function tree (p5,x,y){
-
-	this.x=x;
-    this.y=y;
 
 }
