@@ -1,7 +1,7 @@
 ## PS4 MDDN 342 2018
 
-Part 4: Tour Zoom function (re-invented for 3D)
-Since my design is in spacial 3D, having a tour feature, where it moves between the set points. With the added functionallity of being able to smoothly "tour" between the set points, you can view different set points on the control panel.
+Part 5: Style re-style, and more shapes
+I decided to overhaul my style, before I was using a fairly simple 2 colour system, but now ive gone for a more retro style, with darker colors, and neo effects. I also added more shapes and animations, the goal is to make it seem like the closer your get the "reactor" is revealing itself through the different barriers.
 
 
 <hr>

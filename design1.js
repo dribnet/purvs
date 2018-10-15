@@ -4,6 +4,8 @@ let degree = 0;
 let degree2 = 0;
 let degree3 = 0;
 let degree4 = 0;
+let degree5 = 0;
+let degree6 = 0;
 var Y_AXIS = 1;
 var X_AXIS = 2;
 var worldSphereCount = 5;
@@ -22,7 +24,10 @@ var yAxis = 0;
 var xAxis = 0;
 var AxisModifier = 50;
 var mod = 0;
+var StrokeColor = 1;
+var StrokeTrigger = false;
 var tourTrigger = false;
+var resetLock = false;
 let zAxisCamera = 1000;
 let yAxisCamera = 0;
 let xAxisCamera = 0;
@@ -105,7 +110,7 @@ function mousePressed() {
 
 function draw () {
   if(tourTrigger == false){curCameraFrame = curCameraFrame + 1;}    
-  if(tourTrigger == true){curCameraFrame = curCameraFrame + 0.2;}    
+  if(tourTrigger == true){curCameraFrame = curCameraFrame + 0.1;}    
   if(curCameraFrame > maxCameraFrames) {
     xAxisCamera = xAxis;
     yAxisCamera = yAxis;
@@ -123,9 +128,10 @@ function draw () {
   let cur_frame = frameCount % frameMax;
   let cur_frac = map(cur_frame, 0, frameMax, 0, 1);
   camera(xAxisCamera, yAxisCamera, zAxisCamera, xAxisCamera, yAxisCamera, 0, 0.0, 1.0, 0.0);
+
   //-----------------------background graident-----------------------//
-  //setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   translate(0, 0, 600);
+  setGradient(-width, -height, width*2, height*2, c1, c2, Y_AXIS);
   
   //-----------------------Scene Lighting-----------------------//
   var locX = height / 2;
@@ -134,30 +140,57 @@ function draw () {
   directionalLight(255, 0, 255, 0.25, 0.25, 0);
   directionalLight(0, 150, 250, 0, 0, -10);
   pointLight(0, 0, 255, locX, locY, 250);
-
+  specularMaterial(100, 900, 100);
   //-----------------------Area Covers-----------------------//
+  rotateZ(frameCount * 0.0005);
+  rotateX(frameCount * 0.0005);
+  rotateY(frameCount * 0.0005);
+  strokeWeight(1);
+  torus(90, 3);
+  torus(1225, 45);
+  rotateZ(frameCount * 0.0015);
+  rotateX(frameCount * 0.0015);
+  rotateY(frameCount * 0.0015);
+  strokeWeight(1);
+  torus(90, 3);
+  torus(1225, 45);
   rotateZ(frameCount * 0.0035);
   rotateX(frameCount * 0.0035);
   rotateY(frameCount * 0.0035);
-  strokeWeight(10);
+  strokeWeight(1);
+  torus(1225, 45);
+  torus(90, 3);
+  torus(360, 30);
   sphere(4000);
   rotateZ(frameCount * 0.0055);
   rotateX(frameCount * 0.0055);
   rotateY(frameCount * 0.0055);
   strokeWeight(1);
+  torus(1225, 45);
+  torus(360, 30);
   sphere(350);
   rotateZ(frameCount * 0.0095);
   rotateX(frameCount * 0.0095);
   rotateY(frameCount * 0.0095);
   strokeWeight(1);
+  torus(90, 3);
+  torus(1225, 45);
+  torus(360, 30);
   sphere(1200);
   strokeWeight(0.3);
-  //torus(120, 30);
-  
+
+  //-----------------------Scene Stroke Controller-----------------------//
+  stroke(0,StrokeColor,StrokeColor);
+  if(StrokeColor == 255){StrokeTrigger = false;}
+  if(StrokeColor == 0){StrokeTrigger = true;}
+  if(StrokeColor >= 255){StrokeColor = 255;}
+  if(StrokeColor <= 0){StrokeColor = 0;}
+  if(StrokeTrigger == true){StrokeColor++;}
+  if(StrokeTrigger == false){StrokeColor--;}
+  //--------------------------------------------Stage 1--------------------------------------------//
   //-----------------------inner core anticlockwise-----------------------//
   for(let i = 0; i < 10; i++) {
         push();
-        stroke(0);
         sphere(85);
         rotateX(degree);
         rotateY(degree);
@@ -170,48 +203,6 @@ function draw () {
         pop();
   }
 
-  //-----------------------outer spheres-----------------------//
-  for(let i = 0; i < worldSphereCount; i++) {
-        push();
-        rotateX(degree2);
-        rotateZ(degree2);
-        translate(0, 0, worldTranslate);
-        sphere(25);
-        degree2 += 0.9;
-        pop();
-  }
-
-  //-----------------------outer smaller spheres-----------------------//
-  for(let i = 0; i < worldSphereCount/2; i++) {
-        push();
-        rotateY(degree3);
-        rotateZ(degree3);
-        translate(0, 0, 250);
-        sphere(10);
-        degree3 += 0.7;
-        pop();
-  }
-
-  //-----------------------seccondary Color Lighting-----------------------//
-  directionalLight(125, 125, 125, 0.25, 0.25, 0);
-  directionalLight(125, 125, 125, 0, 0, -10);
-  ambientMaterial(0);
-
-  //-----------------------ball scatter middle-----------------------//
-  /*
-  for(var j = 0; j < 5; j++){
-    push();
-    for(var i = 0; i < 10; i++){
-      translate(sin(frameCount * 0.001 + j) * 100, sin(frameCount * 0.001 + j) * 100, i * 0.1);
-      rotateZ(frameCount * 0.002);
-      push();
-      specularMaterial(255, 125, 255);
-      sphere(5); 
-      pop();
-    }
-    pop();
-  }
-  */
   //-----------------------inner cube core-----------------------//
   for(let i = 0; i < 10; i++) {
         push();
@@ -223,7 +214,81 @@ function draw () {
         degree += 0.01;
         pop();
   }
-  strokeWeight(1);
+ //-----------------------ball scatter middle-----------------------//
+  for(var j = 0; j < 5; j++){
+    push();
+    for(var i = 0; i < 10; i++){
+      translate(sin(frameCount * 0.001 + j) * 50, sin(frameCount * 0.001 + j) * 50, i * 0.1);
+      rotateZ(frameCount * 0.002);
+      push();
+      specularMaterial(100, 500, 500);
+      torus(10,3); 
+      pop();
+    }
+    pop();
+  }
+  //--------------------------------------------Stage 2--------------------------------------------//
+  //-----------------------seccondary Color Lighting-----------------------//
+  directionalLight(125, 125, 125, 0.25, 0.25, 0);
+  directionalLight(125, 125, 125, 0, 0, -10);
+  //ambientMaterial(0);
+
+   //-----------------------outer spheres-----------------------//
+  for(let i = 0; i < worldSphereCount; i++) {
+        push();
+        rotateX(degree2);
+        rotateZ(degree2);
+        translate(0, 0, worldTranslate);
+        sphere(25);
+        degree2 += 59;
+        pop();
+  }
+
+  //-----------------------outer smaller spheres-----------------------//
+  for(let i = 0; i < worldSphereCount/2; i++) {
+        push();
+        rotateY(degree3/2);
+        rotateZ(degree3/2);
+        translate(0, 0, 250);
+        sphere(10);
+        degree3 += 0.7;
+        pop();
+  }
+  stroke(0,StrokeColor/2,StrokeColor/2);
+  //--------------------------------------------Stage 3--------------------------------------------//
+  specularMaterial(100, 100, 100);
+  //-----------------------sphere ring-----------------------//
+  for(let i = 0; i < 250; i++) {
+        push();
+        rotateX(degree5/4);
+        rotateY(degree5/4);
+        //rotateZ(degree/4);
+        translate(0, 0, 1000);
+        sphere(30);
+        degree5 += 0.1;
+        pop();
+  }
+   //-----------------------(anti)sphere ring-----------------------//
+  for(let i = 0; i < 250; i++) {
+        push();
+        rotateX(-degree/-4);
+        rotateY(degree5/2);
+        //rotateZ(degree5/2);
+        translate(0, 0, 1000);
+        sphere(90);
+        degree5 -= 0.1;
+        pop();
+  }
+  for(let i = 0; i < 250; i++) {
+        push();
+        rotateX(degree5/2);
+        rotateZ(-degree/-4);
+        //rotateZ(degree5/2);
+        translate(0, 0, 1000);
+        sphere(30);
+        degree5 -= 0.1;
+        pop();
+  }
 
   //-----------------------Movement Triggers-----------------------//
   //bal count triggers
@@ -251,9 +316,18 @@ function draw () {
   }
   if(worldTranslate <= 1){worldTranslate =1} 
   if(zAxis >= 3700){ zAxis = 3700;}
+
+  //axis camera lock check
+  if(zAxisCamera >= 3700){
+    resetLock = true;
+  }
+  if(zAxisCamera < 3600){
+    resetLock = false;
+  }
   //if(zAxis <= 736){ zAxis = 736;}
   //print(zAxis);
   //print(tourTrigger);
+  //print(resetLock);
     
 }
 function keyPressed(){
@@ -300,7 +374,7 @@ function polygon(x, y, radius, npoints) {
 function setGradient(x, y, w, h, c1, c2, axis) {
 
   if (axis == Y_AXIS) {  // Top to bottom gradient
-    for (var i = y; i <= y+h; i++) {
+    for (var i = y; i <= y+h; i = i +2) {
       var inter = map(i, y, y+h, 0, 1);
       var c = lerpColor(c1, c2, inter);
       stroke(c);
@@ -308,7 +382,7 @@ function setGradient(x, y, w, h, c1, c2, axis) {
     }
   }  
   else if (axis == X_AXIS) {  // Left to right gradient
-    for (var i = x; i <= x+w; i++) {
+    for (var i = x; i <= x+w; i = i +2) {
       var inter = map(i, x, x+w, 0, 1);
       var c = lerpColor(c1, c2, inter);
       stroke(c);
@@ -353,7 +427,7 @@ function ResetCam(){
 function POS1(){ 
   tourTrigger = false;
   startCameraAnimation();
-  zAxis = 2995;
+  zAxis = 3700;
   yAxis = 0;
   xAxis = 0; 
 }
@@ -379,9 +453,12 @@ function POS4(){
   xAxis = 0; 
 }
 function FullTour(){  
-  tourTrigger = true;
-  startCameraAnimation();
-  zAxis = 100;
-  yAxis = 0;
-  xAxis = 0; 
+  POS1();
+  if(resetLock == true){
+    tourTrigger = true;
+    startCameraAnimation();
+    zAxis = 736;
+    yAxis = 0;
+    xAxis = 0; 
+  }
 }
