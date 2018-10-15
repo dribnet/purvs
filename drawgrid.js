@@ -5,10 +5,10 @@
  * p5: the p5.js object - all draw commands should be prefixed with this object
  * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
  * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
+//zoom: current zoom level (starts at 0), useful to decide how much detail to draw
 const max_thickness = 200;
 const grid_size = 250;
 
@@ -128,6 +128,16 @@ function myPattern(p5, x, y, x1, x2, y1, y2)  {
   p5.ellipse(sm_circle_x, sm_circle_y, sm_circle_radius, sm_circle_radius);
 }
 
+// function cross(p5, x, y, x1, x2, y1, y2) {
+//   let cross_x = p5.map(x-1, x1, x2, 0, 256);
+//   let cross_x1 = p5.map(x+1, x1, x2, 0, 256);
+//   let cross_y = p5.map(y-1, y1, y2, 0, 256);
+//   let cross_y1 = p5.map(y+1, y1, y2, 0, 256);
+
+//   p5.line(cross_x, cross_y, cross_x1, cross_y1);
+//   p5.line(cross_x, cross_y1, cross_x1, cross_y);
+// }
+
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
@@ -149,20 +159,37 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-
-      p5.stroke(249, 2, 80, 120);
-      myPattern(p5, x, y, x1, x2, y1, y2);
-      p5.stroke(35, 170, 255, 120);
-      myPattern(p5, x+10, y+10, x1, x2, y1, y2);
       p5.stroke(0);
       myPattern(p5, x+5, y+5, x1, x2, y1, y2);
-
+      if (zoom >= 1) {
+        p5.stroke(249, 2, 80, 60);
+        myPattern(p5, x, y, x1, x2, y1, y2);
+        p5.stroke(35, 170, 255, 60);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2);
+        p5.stroke(0);
+        myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+      }
+      if (zoom >= 2) {
+        p5.stroke(249, 2, 80, 60);
+        myPattern(p5, x, y, x1, x2, y1, y2);
+        p5.stroke(35, 170, 255, 60);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2);
+        p5.stroke(0);
+        myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+      }
+      // if (zoom >= 3) {
+      //   p5.push();
+      //   p5.fill(255, 255, 255, 200);
+      //   p5.pop();
+      //   p5.stroke(0);
+      //   myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+      // }
     }
   }
 
   //debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0);
-  // p5.strokeWeight(1);
-  // p5.rect(0, 0, 255, 255);
+  p5.noFill();
+  p5.stroke(255, 0, 0);
+  p5.strokeWeight(1);
+  p5.rect(0, 0, 255, 255);
 }
