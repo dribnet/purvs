@@ -1,18 +1,7 @@
-## PS4 MDDN 342 2018
+## PS4 Part 2
 
-In my example I am starting with the classic 10print commodore
-screen. My idea is to expose an additional level of maze as
-a person zooms in closer. In my case, the additional maze
-elements will appear behind the original layer. The smaller
-mazes will also have more structure and less contrast than
-the largest layers.
+For this problem set I decided to stick to the design from PS3. I think it has a lot of potential for this project and I especially like the color pallet. 
 
-This README should be updated as the code changes. Replace
-this placeholder text and use this
-README as a design journal to record your process.
-Be sure to use complete sentences,
-and you can reference your sketch which will appear above.
-The explanation should be short but complete, roughly 100 words.
+I have added this design to the PS4 template and make it more extendable. One thing I would like to do is to make it so when you zoom into one of the layers the color of that layer becomes the background color and inside contains another one of the objects that is seen on the initial screen. This could then go on infinitely depending on where you zoom. 
 
-Also update both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+I updated the tour variables to highlight three major areas of the design. 
