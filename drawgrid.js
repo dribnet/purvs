@@ -26,13 +26,49 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-let gridSize = 100;
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
+let gridSize = 200;
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  let max_shift = 0;
+  let line_width = 30;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, gridSize);
+  let max_x = snap_to_grid(x2 + max_shift + gridSize, gridSize);
 
   p5.background(254, 234, 229);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+
+  for(let x=min_x; x<max_x; x+=gridSize) {
+    let x_pos = p5.map(x, x1, x2, 0, 256);
+    let y1_pos = p5.map(400, y1, y2, 0, 256);
+    let y2_pos = p5.map(600, y1, y2, 0, 256);
+
+    let y3_pos = p5.map(800, y1, y2, 0, 256);
+    let y4_pos = p5.map(1000, y1, y2, 0, 256);
+
+    if (x > 500) {
+      p5.stroke(150, 0, 0);
+    }
+    else {
+      p5.stroke(0, 150, 0);      
+    }
+
+    p5.strokeWeight(cur_line_width);
+    p5.line(x_pos, y1_pos, x_pos, y2_pos);
+    p5.line(x_pos, y3_pos, x_pos, y4_pos);
+  }
+
 
   //diamonds
   let x1q = 712;
@@ -100,6 +136,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //circles map
   let x1ccc1 = p5.map(x1cc1, x1, x2, 0, 256);
   let y1ccc1 = p5.map(y1cc1, y1, y2, 0, 256);
+
 
 
   //circle no fill
@@ -174,7 +211,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
   // debug - show border
-  p5.noFill();
-  p5.stroke(255, 0, 0)
-  p5.rect(0, 0, 255, 255);
+  // p5.noFill();
+  // p5.stroke(255, 0, 0)
+  // p5.rect(0, 0, 255, 255);
 }
