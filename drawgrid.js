@@ -9,7 +9,9 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
+const max_thickness = 256;
+const grid_size = 200;
+const para2_grid_size = 50;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -75,7 +77,9 @@ var tourPath = [
 //   let quad_y4 = p5.map(y + -51, y1, y2, 0, 256);
 //   p5.quad(quad_x1, quad_y1, quad_x2, quad_y2, quad_x3, quad_y3, quad_x4, quad_y4);
 // }
-
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
 
 
 function cube(p5, x, y, x1, x2, y1, y2) {
@@ -166,12 +170,38 @@ function rightTop(p5, x, y, x1, x2, y1, y2) {
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.background(255);
 
-	cube(p5, 412, 512, x1, x2, y1, y2 );
-	leftSide(p5, 412, 512, x1, x2, y1, y2 );
-	rightSide(p5, 412, 512, x1, x2, y1, y2 );
-	leftTop(p5, 412, 512, x1, x2, y1, y2 );
-	rightTop(p5, 412, 512, x1, x2, y1, y2 );
-  
+   let max_shift = max_thickness;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+   for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+
+	// cube(p5, x, y, x1, x2, y1, y2 );
+	// leftSide(p5, x, y, x1, x2, y1, y2 );
+	// rightSide(p5, x, y, x1, x2, y1, y2 );
+	// leftTop(p5, x, y, x1, x2, y1, y2 );
+	// rightTop(p5, x, y, x1, x2, y1, y2 );
+
+	if (zoom >= 2){
+		cube(p5, x, y, x1, x2, y1, y2 );
+	leftSide(p5, x, y, x1, x2, y1, y2 );
+	rightSide(p5, x, y, x1, x2, y1, y2 );
+	leftTop(p5, x, y, x1, x2, y1, y2 );
+	rightTop(p5, x, y, x1, x2, y1, y2 );
+     }
+
+    if (zoom < 2){
+cube(p5, x, y, x1, x2, y1, y2 );
+
+	}
+}
+
+  }
 
 
 
