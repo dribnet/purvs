@@ -4,6 +4,7 @@ const max_thickness = 64;
 const ball_radius = 32;
 const line_width = 15;
 const grid_size = 100;
+let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -31,6 +32,18 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+    /* For animation: updated z based on global frame count */
+    p5.angleMode(p5.DEGREES);
+  //let dz = p5.globalFrameCount / 100.0;
+ // z = z + dz;
+
+  let springValue = p5.sin(p5.globalFrameCount / 100.0);
+  console.log(springValue);
+
+
+  x = p5.map(springValue, -1 , 1, x1, x2);
+  y = p5.map(springValue, -1,  1, y1, y2);
+
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
   /* this rectangle defines the region that will be drawn and includes a margin */
@@ -49,12 +62,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-
+        //x = p5.map(curValue, -1 , 1, x1, x2);
        let x_pos = p5.map(x, x1, x2, 0, 256);
        let y_pos = p5.map(y, y1, y2, 0, 256);
-       let x_pos_2 = p5.map(x + 30, x1, x2, 0, 256);
+       let x_pos_2 = p5.map(x + 50, x1, x2, 0, 256);
        let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
-       let x_pos_3 = p5.map(x - 30, x1, x2, 0, 256);
+       let x_pos_3 = p5.map(x - 50, x1, x2, 0, 256);
        let y_pos_3 = p5.map(y + 60, y1, y2, 0, 256);
        p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
