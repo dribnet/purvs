@@ -37,12 +37,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //let dz = p5.globalFrameCount / 100.0;
  // z = z + dz;
 
-  let springValue = p5.sin(p5.globalFrameCount / 100.0);
-  console.log(springValue);
+  let springValue = p5.sin(p5.globalFrameCount * 2);
+  
 
 
-  x = p5.map(springValue, -1 , 1, x1, x2);
-  y = p5.map(springValue, -1,  1, y1, y2);
+  sinx = p5.map(springValue, -1 , 1, 10, 50);
+  siny = p5.map(springValue, -1 , 1, 20, 200);
+ // y = p5.map(springValue, -1,  1, y1, y2);
+ 
 
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
@@ -65,9 +67,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         //x = p5.map(curValue, -1 , 1, x1, x2);
        let x_pos = p5.map(x, x1, x2, 0, 256);
        let y_pos = p5.map(y, y1, y2, 0, 256);
-       let x_pos_2 = p5.map(x + 50, x1, x2, 0, 256);
+       let x_pos_2 = p5.map(x + sinx, x1, x2, 0, 256);
        let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
-       let x_pos_3 = p5.map(x - 50, x1, x2, 0, 256);
+       let x_pos_3 = p5.map(x - sinx, x1, x2, 0, 256);
        let y_pos_3 = p5.map(y + 60, y1, y2, 0, 256);
        p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
