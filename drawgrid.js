@@ -46,18 +46,24 @@ class cell{
 		var localR = localEdge - localX;
 
 
-		p5.fill(20,20,25);
-		p5.stroke(255);
-		
-		if(zoom < this.zoomThresh) p5.ellipse(localX,localY,localR,localR);
-		else {
-			for(let c of this.subCells){
-	   			c.draw(p5,x1,x2,y1,y2,zoom)
-	   	}
-	   	p5.colorMode(p5.RGB,255);
-}
-		
-		
+			p5.fill(20,20,25);
+			p5.stroke(255);
+			if(localX >= 0-localR && localX <= 256+localR && localY >= 0-localR && localY <= 256+localR){
+			if(zoom < this.zoomThresh) {
+				
+					p5.ellipse(localX,localY,localR,localR);
+					// p5.noStroke();
+					// p5.fill(255);
+					// p5.text(localR,localX,localY);
+				
+			}
+			else {
+				for(let c of this.subCells){
+		   			c.draw(p5,x1,x2,y1,y2,zoom)
+		   		}
+		   	p5.colorMode(p5.RGB,255);
+			}
+		}
 	}
 }
 
@@ -84,35 +90,11 @@ function generateCells(bigCell,cellCount,zoomThresh){
 }
 
 mainCell = new cell(0,0,500,1);
-generateCells(mainCell,250,4);
+generateCells(mainCell,300,4);
 for(let c of mainCell.subCells){
-	generateCells(c,150,7);
+	generateCells(c,300,7);
 }
 
-// for(i = 0; i < numberOfCells; i ++){
-// 	var point;
-	
-// 	restartLoop:
-// 	while (true) {
-// 		var point = randomInsideCircle(ballr/2);
-// 		for (let c of cells){
-// 			if (isPointInsideCircle(point.x,point.y,c.x,c.y,c.r/2)) {
-// 				continue restartLoop;
-// 			}
-// 			//console.log(isPointInsideCircle(point.x,point.y,c.x,c.y,c.r));
-// 		}
-
-// 		var size = findSmallestDistance(point)*2;
-// 		cells.push(new cell(point.x,point.y,size));
-// 		break;
-// 	}
-// }
-
-
-
-
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // debug - show border
   p5.background(20,20,25);
