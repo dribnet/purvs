@@ -84,9 +84,9 @@ function generateCells(bigCell,cellCount,zoomThresh){
 }
 
 mainCell = new cell(0,0,500,1);
-generateCells(mainCell,2000,4);
+generateCells(mainCell,4000,4);
 for(let c of mainCell.subCells){
-	generateCells(c,300,10);
+	generateCells(c,250,10);
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
