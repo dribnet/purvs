@@ -10,14 +10,13 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
-
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [0, 0, 0],
+  [2, 0, 0],
+  [4, 0, 0]
 ]
 
 let ballx = 0;
@@ -37,6 +36,7 @@ class cell{
 		this.r = r;
 		this.subCells = [];
 		this.zoomThresh = zoomThresh;
+		this.thickness = Math.random()*0.5+0.3;
 	}
 
 	draw(p5,x1,x2,y1,y2,zoom){
@@ -45,10 +45,12 @@ class cell{
 		var localEdge = p5.map((this.x + this.r), x1, x2, 0, 256);
 		var localR = localEdge - localX;
 
-			p5.fill(20,20,25);
-			p5.stroke(255);
+			p5.fill(255);
+			p5.stroke(0);
 			if(localX >= 0-localR && localX <= 256+localR && localY >= 0-localR && localY <= 256+localR){
 				if(zoom < this.zoomThresh) {
+
+						p5.strokeWeight(this.thickness);
 						p5.ellipse(localX,localY,localR,localR);
 				}
 				else {
@@ -88,6 +90,9 @@ for(let c of mainCell.subCells){
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+	 // let dz = p5.globalFrameCount / 100.0;
+  // 	z = z + dz;
   // debug - show border
   p5.background(20,20,25);
 
@@ -123,7 +128,7 @@ function isPointInsideCircle(pointX,pointY,circleX,circleY,circleR){
 }
 
 function findSmallestDistance(bigCell,point,maxCellSize){
-	var smallestDist = (Math.random()*maxCellSize)+maxCellSize/10;
+	var smallestDist = (Math.random()*maxCellSize)+maxCellSize/8;
 	for(let c of bigCell.subCells){
 		var a = point.x - c.x;
 		var b = point.y - c.y;
