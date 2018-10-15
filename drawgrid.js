@@ -156,15 +156,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       p5.stroke(253, 50, 57,150);
       p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(253, 80, 87,150);
-      p5.noFill();
+      p5.noStroke();
+      p5.fill(253, 80, 87,100);
+      // p5.noFill();
       // p5.angleMode(RADIANS);
       p5.triangle(x_pos, y_pos -180, x_pos - 80, y_pos + 80, x_pos + 80, y_pos + 80);
       // p5.rotate(.050);
       p5.triangle(x_pos, y_pos -140, x_pos - 40, y_pos + 40, x_pos + 40, y_pos + 40);
       // p5.rotate(1.0);
-      p5.triangle(x_pos, y_pos -120, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);1
+      p5.triangle(x_pos, y_pos -120, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);
+
+      p5.fill(87, 80, 253,100);
+      p5.triangle(x_pos, y_pos + 180, x_pos - 80, y_pos - 80, x_pos + 80, y_pos - 80);
+      // p5.rotate(.050);
+      p5.triangle(x_pos, y_pos + 140, x_pos - 40, y_pos - 40, x_pos + 40, y_pos - 40);
+      // p5.rotate(1.0);
+      p5.triangle(x_pos, y_pos + 120, x_pos - 20, y_pos - 20, x_pos + 20, y_pos - 20);
+
 
 
 
