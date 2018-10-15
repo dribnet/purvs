@@ -36,7 +36,7 @@ class cell{
 		this.r = r;
 		this.subCells = [];
 		this.zoomThresh = zoomThresh;
-		this.thickness = Math.random()*0.5+0.3;
+		this.thickness = Math.random()*0.7+0.3;
 	}
 
 	draw(p5,x1,x2,y1,y2,zoom){
@@ -45,8 +45,8 @@ class cell{
 		var localEdge = p5.map((this.x + this.r), x1, x2, 0, 256);
 		var localR = localEdge - localX;
 
-			p5.fill(255);
-			p5.stroke(0);
+			p5.noFill();
+			p5.stroke(240,60,0);
 			if(localX >= 0-localR && localX <= 256+localR && localY >= 0-localR && localY <= 256+localR){
 				if(zoom < this.zoomThresh) {
 
@@ -84,7 +84,7 @@ function generateCells(bigCell,cellCount,zoomThresh){
 }
 
 mainCell = new cell(0,0,500,1);
-generateCells(mainCell,1000,4);
+generateCells(mainCell,2000,4);
 for(let c of mainCell.subCells){
 	generateCells(c,300,10);
 }
@@ -94,7 +94,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	 // let dz = p5.globalFrameCount / 100.0;
   // 	z = z + dz;
   // debug - show border
-  p5.background(20,20,25);
+  p5.background(40,10,0);
 
   let local_ballx = p5.map(ballx,x1,x2,0,256);
   let local_bally = p5.map(bally,y1,y2,0,256);
