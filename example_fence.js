@@ -3,6 +3,7 @@ const max_movement = 16;
 const ball_radius = 3;
 const line_width = 8;
 const grid_size = 20;
+let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -96,6 +97,10 @@ function drawStamens(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, draw
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness + max_movement;
+
+    /* For animation: updated z based on global frame count */
+  // let dz = p5.globalFrameCount / 50.0;
+  // z = z + dz;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
