@@ -21,7 +21,7 @@ const cloud1_grid_size = 400;
 const max_movement = 200;
 const max_cloud_movement = 250;
 const line_width = 0.07;
-//let do_animation = true;
+let do_animation = true;
 
 
 /* the random number seed for the tour */
@@ -35,6 +35,14 @@ var tourPath = [
 
 
 function parachuter(p5, x, y, x1, x2, y1, y2){
+		p5.angleMode(p5.DEGREES);
+	 // let sin_value = p5.sin(p5.globalFrameCount / 10);
+	 // let cur_angle = map(sin_value, -1, 1, -20, 20);
+	 // console.log(sineWave);
+
+	 // map that is map(sinewave, -1, 1, min and max degree);
+
+
 
 //HEAD
 	let head_x = p5.map(x + 5/4, x1, x2, 0, 256);
@@ -524,9 +532,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	p5.background(222, 249, 247);
 
 	 /* For animation: updated z based on global frame count */
-  	let dz = p5.globalFrameCount / 100.0;
-  	cloud_z = z + dz;
-  	z = z +dz;
+  //	let dz = p5.globalFrameCount / 100.0;
+  //	cloud_z = z + dz;
+  	//z = z +dz;
 
 	let max_shift = max_thickness + max_movement;
 	let max_cloud_shift = max_thickness + max_cloud_movement;
@@ -556,9 +564,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for(let x=para2_min_x; x<para2_max_x; x+=para2_grid_size) {
     	for(let y=para2_min_y; y<para2_max_y; y+=para2_grid_size) {	
 
-	      let offsetX = getRandomValue(p5, x, y, cloud_z, "shiftX", -max_movement, max_movement, 0.01);
-	      let offsetY = getRandomValue(p5, x, y, cloud_z, "shiftY", -max_movement, max_movement, 0.01);
-	      console.log(offsetX);
+	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.01);
+	      //let offsetY = getRandomValue(p5, x, y, cloud_z, "shiftY", -max_movement, max_movement, 0.01);''
+	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.01);
+	      //console.log(offsetX);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
@@ -573,9 +582,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for(let x=cloud_min_x; x<cloud_max_x; x+=cloud_grid_size) {
     	for(let y=cloud_min_y; y<cloud_max_y; y+=cloud_grid_size) {	
 
-	      let offsetX = getRandomValue(p5, x, y, cloud_z, "shiftX", -max_movement, max_movement, 0.01);
-	      let offsetY = getRandomValue(p5, x, y, cloud_z, "shiftY", -max_movement, max_movement, 0.01);
-	      console.log(offsetX);
+	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.01);
+	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.01);
+	      //console.log(offsetX);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
@@ -593,7 +602,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.1);
 	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
-	      console.log(offsetX);
+	      //console.log(offsetX);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
@@ -615,7 +624,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			}
 
 			if(zoom>=2){
-			parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				let sin_value = p5.sin(p5.globalFrameCount*2);
+	 			let cur_angle = p5.map(sin_value, -1, 1, -10, 10);
+	 			p5.push();
+	 			
+	 			 //let r1 = p5.map(x+sh, x1, x2, 0, 256);
+	 			 let r2 = p5.map(y-200, y1, y2, 0, 256);
+ 				p5.rotate(cur_angle);	
+				p5.translate(shifted_x,r2);
+					
+				parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();
 			}
 
 			if(zoom >= 4){
@@ -645,8 +664,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for(let x=cloud1_min_x; x<cloud1_max_x; x+=cloud1_grid_size) {
     	for(let y=cloud1_min_y; y<cloud1_max_y; y+=cloud1_grid_size) {	
 
-	      let offsetX = getRandomValue(p5, x, y, cloud_z, "shiftX", -max_cloud_movement, max_cloud_movement, 0.01);
-	      let offsetY = getRandomValue(p5, x, y, cloud_z, "shiftY", -max_cloud_movement, max_cloud_movement, 0.01);
+	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_cloud_movement, max_cloud_movement, 0.01);
+	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_cloud_movement, max_cloud_movement, 0.01);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
