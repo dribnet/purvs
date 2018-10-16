@@ -37,7 +37,7 @@ let gridSize = 200;
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_shift = 0;
-  let line_width = 30;
+  let line_width = 10;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, gridSize);
@@ -51,22 +51,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   for(let x=min_x; x<max_x; x+=gridSize) {
     let x_pos = p5.map(x, x1, x2, 0, 256);
-    let y1_pos = p5.map(400, y1, y2, 0, 256);
-    let y2_pos = p5.map(600, y1, y2, 0, 256);
+    let y1_pos = p5.map(100, y1, y2, 0, 256);
+    let y2_pos = p5.map(100, y1, y2, 0, 256);
 
-    let y3_pos = p5.map(800, y1, y2, 0, 256);
+    let y3_pos = p5.map(1200, y1, y2, 0, 256);
     let y4_pos = p5.map(1000, y1, y2, 0, 256);
 
-    if (x > 500) {
-      p5.stroke(150, 0, 0);
-    }
-    else {
-      p5.stroke(0, 150, 0);      
-    }
-
+    // if (x > 500) {
+    //   p5.stroke(150, 0, 0);
+    // }
+    // else {
+    //   p5.stroke(0, 150, 0);      
+    // }
+    p5.fill(113, 103, 114);
     p5.strokeWeight(cur_line_width);
-    p5.line(x_pos, y1_pos, x_pos, y2_pos);
-    p5.line(x_pos, y3_pos, x_pos, y4_pos);
+    p5.ellipse(x_pos, y1_pos, 100, 100);
+    p5.ellipse(x_pos, y3_pos, 100, 100);
   }
 
 
@@ -164,7 +164,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.quad(x1c, y1c, x2c, y2c, x3c, y3c, x4c, y4c);
 
   p5.noStroke();
-  p5.fill(82, 81, 99);
+  p5.fill(254, 234, 229);
   p5.quad(x1c2, y1c2, x2c2, y2c2, x3c2, y3c2, x4c2, y4c2);
   
   
