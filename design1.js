@@ -4,6 +4,8 @@ const ball_radius = 32;
 const line_width = 8;
 const grid_size = 128;
 let do_animation = true;
+p5.colorMode(HSB,255);
+
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -43,7 +45,7 @@ function drawRain(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
 
   for(let i=0; i<offsets.length; i++) {
     let offset = offsets[i];
-    let pixel_x = p5.map(pos_x, x1, x2, 0, 0);
+    let pixel_x = p5.map(pos_x, x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y, y1, y2, 0, 256);
     p5.ellipse(pixel_x, pixel_y, pixel_radius);    
   }
@@ -89,6 +91,7 @@ function drawRain(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness + max_movement;
 
@@ -149,8 +152,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
       // if (zoom < 2) {
-      p5.stroke(0,0,255,20);
-      p5.fill(0,0,255,20);
+      p5.stroke(0,30,210);
+      p5.fill(0,60,210);
       drawRain(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 5*line_width); 
       // }
 
