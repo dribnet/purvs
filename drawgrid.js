@@ -16,10 +16,13 @@ const max_thickness = 256;
 const grid_size = 100;
 const para2_grid_size = 50;
 
-const cloud_grid_size = 300;
+const cloud_grid_size = 100;
+const max_cloud_movement = 150;
+
 const cloud1_grid_size = 400;
-const max_movement = 200;
-const max_cloud_movement = 250;
+const max_cloud1_movement = 250;
+
+const max_movement = 90;
 const line_width = 0.07;
 let do_animation = true;
 
@@ -538,7 +541,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	let max_shift = max_thickness + max_movement;
 	let max_cloud_shift = max_thickness + max_cloud_movement;
-
+	let max_cloud1_shift = max_thickness + max_cloud1_movement;
 	let min_x = snap_to_grid(x1 - max_shift, grid_size);
   	let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
   	let min_y = snap_to_grid(y1 - max_shift, grid_size);
@@ -575,23 +578,29 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      if(zoom >=4){
 			parachuter_small(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-		}
+			}
     	}
     }
+
   	//CLOUD GRID BOTTOM
 	for(let x=cloud_min_x; x<cloud_max_x; x+=cloud_grid_size) {
     	for(let y=cloud_min_y; y<cloud_max_y; y+=cloud_grid_size) {	
 
-	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.01);
-	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.01);
+	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_cloud_movement, max_cloud_movement, 0.01);
+	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_cloud_movement, max_cloud_movement, 0.01);
 	      //console.log(offsetX);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
 	      let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
+	      //CLOUD MOVEMENT
+	      let moving = 1;
+	      moving = moving - p5.globalFrameCount;
+	     
 	      if(zoom >=2){
-			cloud(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+
+			cloud(p5, shifted_x, shifted_y+moving, x1, x2, y1, y2);
 		}
     	}
     }
@@ -607,6 +616,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
 	      let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+	      let sin_value = p5.sin(p5.globalFrameCount*10);
+	 	  let cur_angle = p5.map(sin_value, -1, 1, -20, 20);
+
 	      // debug
 	      // p5.fill(0);
 	      // let x_pos2 = p5.map(x, x1, x2, 0, 256);
@@ -620,51 +633,35 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 			if(zoom >= 4){
 				backpack(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				backpack(p5, 512, 512, x1, x2, y1, y2);
 			}
 
 			if(zoom>=2){
-				let sin_value = p5.sin(p5.globalFrameCount*2);
-	 			let cur_angle = p5.map(sin_value, -1, 1, -10, 10);
-	 			p5.push();
+
+	 			//p5.push();
 	 			
-	 			 //let r1 = p5.map(x+sh, x1, x2, 0, 256);
-	 			 let r2 = p5.map(y-200, y1, y2, 0, 256);
- 				p5.rotate(cur_angle);	
-				p5.translate(shifted_x,r2);
+	 			//let r1 = p5.map(x+sh, x1, x2, 0, 256);
+	 			//let r2 = p5.map(y-200, y1, y2, 0, 256);
+ 				//p5.rotate(cur_angle);
+ 				 //console.log(cur_angle);	
+				//p5.translate(shifted_x,r2);
 					
 				parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();
+				//p5.pop();
 			}
 
 			if(zoom >= 4){
 				face(p5, shifted_x, shifted_y, x1, x2, y1, y2);
 				handf(p5, shifted_x, shifted_y, x1, x2, y1, y2);
 				backpack_straps(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-
-				face(p5, 512, 512, x1, x2, y1, y2);
-				handf(p5, 512, 512, x1, x2, y1, y2);
-				backpack_straps(p5, 512, 512, x1, x2, y1, y2);
 			}
 		}	
 
-	p5.noStroke();
-	if(zoom >= 4){
-		backpack(p5, 512, 512, x1, x2, y1, y2);
-	}
-	if(zoom>=2){
-		parachuter(p5, 512, 512, x1, x2, y1, y2);
-	}
-	if(zoom >= 4){
-		face(p5, 512, 512, x1, x2, y1, y2);
-		handf(p5, 512, 512, x1, x2, y1, y2);
-		backpack_straps(p5, 512, 512, x1, x2, y1, y2);
-	}
+
   	//CLOUD GRID FRONT
 	for(let x=cloud1_min_x; x<cloud1_max_x; x+=cloud1_grid_size) {
     	for(let y=cloud1_min_y; y<cloud1_max_y; y+=cloud1_grid_size) {	
 
-	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_cloud_movement, max_cloud_movement, 0.01);
+	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_cloud1_movement, max_cloud1_movement, 0.01);
 	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_cloud_movement, max_cloud_movement, 0.01);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
