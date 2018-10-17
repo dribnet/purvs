@@ -1,18 +1,20 @@
 const max_thickness = 64;
 
 const boxBlue = 50;
-const boxRed = 40;
-const boxYellow = 32;
+const boxRed = 30;
+const boxYellow = 15;
 const boxBrown = 32;
 
 const grid_size = 64;
+
+
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
-  [3, 353.250000000000, 668.187500000000],
+  [1, 575.000000000000, 602.500000000000],//0.000000000000
+  [3, 565.500000000000,708.250000000000],
   [4, 322.562500000000, 645.093750000000],
   [5, 322.562500000000, 645.109375000000],
   [7, 317.984375000000, 643.636718750000],
@@ -36,6 +38,7 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+   
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
 
@@ -67,7 +70,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let perYellow = yellow - c_p00;
   let perBrown= brown - c_p00;
 
-  p5.background(255);
+    p5.background('#8B632A');
   p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
@@ -87,31 +90,80 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       /* now draw all elements from back to front */
      
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
- if (zoom < 2) {
+ if (zoom < 1) {
+  //p5.push();
   p5.fill('#041370'); // blue
-     p5.rect(x_pos, y_pos,perBlue,perBlue,0, 20, 0, 20);
-     p5.rotate(p5.HALF_PI); 
- }
-     
-if (zoom >= 2) {
-     p5.fill('#EE4502'); // red
-     p5.rect(x_posRed, y_posRed,perRed,perRed,20, 0, 20, 0);
-    //p5.rotate(p5.HALF_PI); 
-     
-     p5.fill('#422F14'); // brown
-     p5.rect(x_posBrown, y_posBrown,perRed/2,perRed/2,0, 20, 0, 20);
-  
-}
+    p5.translate(180, 200);
+  p5.noStroke();
+  for (var i = 0; i < 10; i ++) {
+    p5.ellipse(0, 10, perBlue*2, 6);
+    p5.rotate(p5.PI/5);
+  }
+
+//p5.pop();
 
  
+ }
+ 
+  if (zoom < 2) {
+  ///p5.push();
+    p5.translate(180, 200);
+  p5.noStroke();
+  for (var i = 0; i < 10; i ++) {
+    p5.ellipse(0, 10, perBlue, 10);
+    p5.rotate(p5.PI/5);
+  }
+//p5.pop();
 
-     // p5.rect(x_pos, y_pos*2,perRed,perRed,0, 20, 0, 20);
-     // p5.rotate(p5.HALF_PI);
+}
      
-     // p5.rect(x_pos, y_pos*2,perRed,perRed,0, 20, 0, 20);
-     // p5.rotate(p5.HALF_PI);
+if (zoom <= 3) {
 
-  //p5.rotate(p5.HALF_PI); 
+ //p5.push();
+  p5.fill('#EE4502'); // red
+  p5.translate(180, 150);
+  p5.noStroke();
+  for (var i = 0; i < 10; i ++) {
+    p5.ellipse(0, 30, 20, 80);
+    p5.rotate(p5.PI/5);
+  }
+  p5.fill('#FCDB85'); //yellow
+  
+ //  p5.noStroke();
+   
+   p5.translate(180, 230);
+   p5.rect(x_pos+45, y_pos,perYellow/2,perYellow/2,10, 80, 10, 80);
+  p5.rect(x_pos+75, y_pos,perYellow/2,perYellow/2,80, 10, 80, 10);
+ 
+  
+  p5.rect(x_pos+75, y_pos+25,perYellow/2,perYellow/2,10, 80, 10, 80);
+  p5.rect(x_pos+45, y_pos+25,perYellow/2,perYellow/2,80, 10, 80, 10);
+
+
+
+ // p5.pop();
+ 
+
+      //p5.rotate(p5.HALF_PI); 
+
+    // p5.rect(x_posRed, y_posRed,perRed,perRed,80, 10, 80, 10);
+    //p5.rotate(p5.HALF_PI); 
+ 
+     
+
+     // p5.fill('#422F14'); // brown
+     // p5.rect(x_posBrown, y_posBrown,perRed/2,perRed/2,0, 20, 0, 20);
+  
+}
+if (zoom < 4) {
+ //p5.stroke(1);
+ p5.push();
+  p5.fill('#FCDB85'); //yellow
+ p5.translate(270, 220);
+   p5.rect(x_pos, y_pos,perYellow,perYellow,10, 80, 10, 80);
+ p5.pop();
+}
+
 
     }
   }
