@@ -89,18 +89,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  // debug version: draw one
-  // let half_x = (x1 + x2) / 2;
-  // let half_y = (y1 + y2) / 2;
-  // min_x = snap_to_grid(half_x, grid_size);
-  // max_x = snap_to_grid(half_x + grid_size, grid_size);
-  // min_y = snap_to_grid(half_y, grid_size);
-  // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
-  let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
   p5.background(255);
@@ -115,10 +107,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
       let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
-     
-      p5.stroke(0, 200, 250);
-      p5.noFill();
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      if(zoom > 4){
+        p5.stroke(0, 200, 250);
+        p5.noFill();
+        p5.ellipse(x_pos, y_pos, cur_ball_radius-100);
+      }
+      else if(zoom <= 2){
+        p5.stroke(100, 250, 100);
+        p5.noFill();
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      }
+      else{
+        p5.stroke(250, 200, 0);
+        p5.noFill();
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      }
     }
   }
   //   // debug - show border
