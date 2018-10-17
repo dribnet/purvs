@@ -1,2 +1,2 @@
 ## PS4 MDDN 342 2018
-In this iteration i had an idea of making different sets of patterns every time you zoom in. I also wanted these patterns to represent seasons in someway. The first pattern would be winter then to spring.
+this time i want to make my wall paper look niser by having consistency.
