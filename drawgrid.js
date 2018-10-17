@@ -104,7 +104,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_ball_radius = c_pball - c_p00;
 
   p5.background(255);
-  p5.fill(0, 0, 128);
+  //p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       // First compute shifted point in grid
@@ -115,43 +115,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
       let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
-      // now compute shifted point one step to the left
-      let x_left = x + grid_size;
-      let y_left = y;
-      let offsetX_left = getRandomValue(p5, x_left, y_left, z, "shiftX", -max_movement, max_movement, 0.1);
-      let offsetY_left = getRandomValue(p5, x_left, y_left, z, "shiftY", -max_movement, max_movement, 0.1);
-      let shifted_x_left = x_left + offsetX_left;
-      let shifted_y_left = y_left + offsetY_left;
-      let x_pos_left = p5.map(shifted_x_left, x1, x2, 0, 256);
-      let y_pos_left = p5.map(shifted_y_left, y1, y2, 0, 256);
-
-      // lastly compute shifted point one step down
-      let x_down = x;
-      let y_down = y + grid_size;
-      let offsetX_down = getRandomValue(p5, x_down, y_down, z, "shiftX", -max_movement, max_movement, 0.1);
-      let offsetY_down = getRandomValue(p5, x_down, y_down, z, "shiftY", -max_movement, max_movement, 0.1);
-      let shifted_x_down = x_down + offsetX_down;
-      let shifted_y_down = y_down + offsetY_down;
-      let x_pos_down = p5.map(shifted_x_down, x1, x2, 0, 256);
-      let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
-
-      /* now draw all elements from back to front */
-      //p5.strokeWeight(cur_line_width);
-      // p5.stroke(150, 0, 0);
-      // p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
-      // p5.stroke(0, 150, 0);
-      // p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
-
-      p5.stroke(0, 0, 150);
-      p5.noStroke();
+     
+      p5.stroke(0, 200, 250);
+      p5.noFill();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
     }
   }
   //   // debug - show border
-  p5.noFill();
-  p5.stroke(0, 200, 200)
-  p5.rect(0, 0, 255, 255);
-  p5.ellipse(25, 25, 50, 50);
+  // p5.noFill();
+  // p5.stroke(0, 200, 200)
+  // p5.rect(0, 0, 255, 255);
+  // p5.ellipse(25, 25, 50, 50);
 
   // debug - show border
   // p5.noFill();
