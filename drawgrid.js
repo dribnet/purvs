@@ -49,12 +49,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
   // debug version: draw one
-  // let half_x = (x1 + x2) / 2;
-  // let half_y = (y1 + y2) / 2;
-  // min_x = snap_to_grid(half_x, grid_size);
-  // max_x = snap_to_grid(half_x + grid_size, grid_size);
-  // min_y = snap_to_grid(half_y, grid_size);
-  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+  let half_x = (x1 + x2) / 2;
+  let half_y = (y1 + y2) / 2;
+  min_x = snap_to_grid(half_x, grid_size);
+  max_x = snap_to_grid(half_x + grid_size, grid_size);
+  min_y = snap_to_grid(half_y, grid_size);
+  max_y = snap_to_grid(half_y + grid_size, grid_size);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   
@@ -89,40 +89,43 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
      
-      //p5.ellipse(x_pos, y_pos, cur_ball_radius);
- if (zoom < 1) {
-  //p5.push();
   p5.fill('#041370'); // blue
     p5.translate(128, 128);
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 10, perBlue*8, 10);
+    p5.ellipse(0, 10, perBlue*4, 10);
     p5.rotate(p5.PI/5);
   }
 
-//p5.pop();
+//       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
+//  if (zoom < 1) {
+//   //p5.push();
+ 
+//   }
+
+// //p5.pop();
 
  
- }
+//  }
  
-  if (zoom < 2) {
-  ///p5.push();
-    //p5.translate(0, 128);
-    p5.fill('#EE4502'); // red
-  p5.noStroke();
-  for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 10, perBlue, 10);
-    p5.rotate(p5.PI/5);
-  }
-//p5.pop();
+//   if (zoom < 2) {
+//   ///p5.push();
+//     //p5.translate(0, 128);
+//     p5.fill('#EE4502'); // red
+//   p5.noStroke();
+//   for (var i = 0; i < 10; i ++) {
+//     p5.ellipse(0, 10, perBlue, 10);
+//     p5.rotate(p5.PI/5);
+//   }
+// //p5.pop();
 
-}
+// }
      
 // if (zoom <= 3) {
 
 //  //p5.push();
 //   p5.fill('#EE4502'); // red
-//   p5.translate(180, 150);
+//   //p5.translate(, 150);
 //   p5.noStroke();
 //   for (var i = 0; i < 10; i ++) {
 //     p5.ellipse(0, 30, 20, 80);
@@ -166,7 +169,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 // }
 
 
-    }
+}
   }
 
   // debug - show border

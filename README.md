@@ -1,2 +1,2 @@
 ## PS4 MDDN 342 2018
-this time i want to make my wall paper look niser by having consistency.
+I have desided to intergate my idea and make a combination of flowers and snowflakes.
