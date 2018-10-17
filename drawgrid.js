@@ -113,7 +113,7 @@ p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/5);
 p5.fill(63, 175, 66);
 p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
 
-p5.fill(99, 60, 34);
+//p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
 
 }
