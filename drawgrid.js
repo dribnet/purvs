@@ -10,41 +10,120 @@ let do_animation = true;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 402.500000000000, 738.125000000000],
-  [3, 528.875976562500, 492.029296875000],
-  [5, 531.617431640625, 483.632080078125]
+  [1, 479, 401],
+  [2, 479, 401],
+  [3, 531.617431640625, 483.632080078125]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
+//for big wave without animation
+function waveform (p5, x, y, x1, x2, y1, y2){
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y, y1, y2, 0, 256);
+  let x_pos_2 = p5.map(x + 30, x1, x2, 0, 256);
+  let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_3 = p5.map(x - 30, x1, x2, 0, 256);
+  let y_pos_3 = p5.map(y + 60, y1, y2, 0, 256);
+  p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
-/*
- * This is the funciton to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
+  //for top lines
+  let x_pos_line = p5.map(x - 40, x1, x2, 0, 256);
+  let x_pos_line_2 = p5.map(x + 40, x1, x2, 0, 256);
+  let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
+  p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
+
+  //for bottom lines
+  let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
+  p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
+}
+//draw quad when zoom 3
+function smallWave (p5, x, y, x1, x2, y1, y2){
+  //center quad group
+  //1st quad
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y+10, y1, y2, 0, 256);
+  let x_pos_2 = p5.map(x + 20, x1, x2, 0, 256);
+  let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_3 = p5.map(x - 20, x1, x2, 0, 256);
+  let y_pos_3 = p5.map(y + 50, y1, y2, 0, 256);
+  p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
+  //2nd quad
+  let x_pos_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in = p5.map(y+20, y1, y2, 0, 256);
+  let x_pos_in_2 = p5.map(x + 10, x1, x2, 0, 256);
+  let y_pos_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_in_3 = p5.map(x - 10, x1, x2, 0, 256);
+  let y_pos_in_3 = p5.map(y + 40, y1, y2, 0, 256);
+  p5.quad(x_pos_in, y_pos_in, x_pos_in_3, y_pos_in_2, x_pos_in, y_pos_in_3, x_pos_in_2, y_pos_in_2);
+  //3rd quad
+  let x_pos_in_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in_in = p5.map(y+25, y1, y2, 0, 256);
+  let x_pos_in_in_2 = p5.map(x + 5, x1, x2, 0, 256);
+  let y_pos_in_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_in_in_3 = p5.map(x - 5, x1, x2, 0, 256);
+  let y_pos_in_in_3 = p5.map(y + 35, y1, y2, 0, 256);
+  p5.quad(x_pos_in_in, y_pos_in_in, x_pos_in_in_3, y_pos_in_in_2, x_pos_in_in, y_pos_in_in_3, x_pos_in_in_2, y_pos_in_2);
+}
+
+function upperlowerWave (p5, x, y, x1, x2, y1, y2){
+  //1st
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y - 5, y1, y2, 0, 256);
+  let x_pos_3 = p5.map(x - 30, x1, x2, 0, 256);
+  let y_pos_3 = p5.map(y + 65, y1, y2, 0, 256);
+  let x_pos_line = p5.map(x - 30, x1, x2, 0, 256);
+  let x_pos_line_2 = p5.map(x + 30, x1, x2, 0, 256);
+  let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
+  p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
+  //for bottom lines
+  let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
+  p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
+  //2nd in
+  let x_pos_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in = p5.map(y - 10, y1, y2, 0, 256);
+  let x_pos_in_3 = p5.map(x - 25, x1, x2, 0, 256);
+  let y_pos_in_3 = p5.map(y + 70, y1, y2, 0, 256);
+  let x_pos_line_in = p5.map(x - 20, x1, x2, 0, 256);
+  let x_pos_line_in_2 = p5.map(x + 20, x1, x2, 0, 256);
+  let y_pos_line_in = p5.map(y -20, y1, y2, 0, 256);
+  p5.line(x_pos_in, y_pos_in, x_pos_line_in, y_pos_line_in);
+  p5.line(x_pos_in, y_pos_in, x_pos_line_in_2, y_pos_line_in);
+  //for bottom lines
+  let y_pos_line_in_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos_in, y_pos_in_3, x_pos_line_in, y_pos_line_in_2);
+  p5.line(x_pos_in, y_pos_in_3, x_pos_line_in_2, y_pos_line_in_2);
+
+  let x_pos_in_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in_in = p5.map(y - 15, y1, y2, 0, 256);
+  let x_pos_in_in_3 = p5.map(x - 20, x1, x2, 0, 256);
+  let y_pos_in_in_3 = p5.map(y + 75, y1, y2, 0, 256);
+  let x_pos_line_in_in = p5.map(x - 10, x1, x2, 0, 256);
+  let x_pos_line_in_in_2 = p5.map(x + 10, x1, x2, 0, 256);
+  let y_pos_line_in_in = p5.map(y - 20, y1, y2, 0, 256);
+  p5.line(x_pos_in_in, y_pos_in_in, x_pos_line_in_in, y_pos_line_in_in);
+  p5.line(x_pos_in_in, y_pos_in_in, x_pos_line_in_in_2, y_pos_line_in_in);
+  //for bottom lines
+  let y_pos_line_in_in_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos_in_in, y_pos_in_in_3, x_pos_line_in_in, y_pos_line_in_in_2);
+  p5.line(x_pos_in_in, y_pos_in_in_3, x_pos_line_in_in_2, y_pos_line_in_in_2);
+}
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-    /* For animation: updated z based on global frame count */
-    p5.angleMode(p5.DEGREES);
-  //let dz = p5.globalFrameCount / 100.0;
- // z = z + dz;
-
-  let springValue = p5.sin(p5.globalFrameCount * 2);
-  
-
-
-  sinx = p5.map(springValue, -1 , 1, 10, 50);
-  siny = p5.map(springValue, -1 , 1, 20, 200);
- // y = p5.map(springValue, -1,  1, y1, y2);
- 
+  //setting another variable for animation
+  p5.angleMode(p5.DEGREES);
+  let SpringValue = p5.sin(p5.globalFrameCount * 2);
+  //let SpringValue_2 = p5.cos(p5.globalFrameCount * 2);
+  //map the changing value
+  sinx = p5.map(SpringValue, -1 , 1, 10, 50);
+  sinx_2 = p5.map(SpringValue, 1, -1, 10, 50)
+  siny = p5.map(SpringValue, -1 , 1, 0, 30);
+  siny_2 = p5.map(SpringValue, 1 , -1, -30, 0);
 
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
@@ -64,46 +143,40 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-        //x = p5.map(curValue, -1 , 1, x1, x2);
-       let x_pos = p5.map(x, x1, x2, 0, 256);
-       let y_pos = p5.map(y, y1, y2, 0, 256);
-       let x_pos_2 = p5.map(x + sinx, x1, x2, 0, 256);
-       let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
-       let x_pos_3 = p5.map(x - sinx, x1, x2, 0, 256);
-       let y_pos_3 = p5.map(y + 60, y1, y2, 0, 256);
-       p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
+      if (zoom < 2){
+       //x = p5.map(curValue, -1 , 1, x1, x2);
+          let x_pos = p5.map(x, x1, x2, 0, 256);
+          let y_pos = p5.map(y + siny, y1, y2, 0, 256);
+          let x_pos_2 = p5.map(x + sinx, x1, x2, 0, 256);
+          let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+          let x_pos_3 = p5.map(x - sinx, x1, x2, 0, 256);
+          let y_pos_3 = p5.map(y + 60 + siny_2, y1, y2, 0, 256);
+          p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
-       //for top lines
-       let x_pos_line = p5.map(x - 40, x1, x2, 0, 256);
-       let x_pos_line_2 = p5.map(x + 40, x1, x2, 0, 256);
-       let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
-       p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
-       p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
+          //for top lines
+          let x_pos_line = p5.map(x + sinx_2, x1, x2, 0, 256);
+          let x_pos_line_2 = p5.map(x - sinx_2, x1, x2, 0, 256);
+          let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
+          p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
+          p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
 
-       //for bottom lines
-       let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
-       p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
-       p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
+          //for bottom lines
+          let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
+          p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
+          p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
 
-      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
-
-
-      // p5.strokeWeight(cur_line_width);
-      // p5.stroke(150, 0, 0);
-      // p5.line(x_pos, y_pos, x_pos_left, y_pos);
-      // p5.stroke(0, 150, 0);
-      // p5.line(x_pos, y_pos, x_pos, y_pos_down);
-
-      // p5.stroke(0, 0, 150);
-      // p5.noStroke();
-      // p5.ellipse(x_pos, y_pos, cur_ball_radius);
-
-      if(zoom >= 3){
-        let rect_size = x_pos -x_pos_2;
-        p5.rect(x_pos, y_pos, rect_size,rect_size);
       }
-    }
+      if(zoom >= 2){
+        p5.stroke(0,255,255);
+        waveform(p5, x, y, x1, x2, y1, y2);
+      }
+      if(zoom >= 3){
+        p5.stroke(0,0,255);
+        smallWave(p5, x, y, x1, x2, y1, y2);
+        upperlowerWave (p5, x, y, x1, x2, y1, y2);
+          //p5.rect(10,10,10,10);
+      }
+      }
   }
 
   // debug - show border
