@@ -62,10 +62,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let rad100_pos2 = p5.map(rad100, x1, x2, 0, 256);
   let mapped_rad100 = rad100_pos2 - c_p00;  
 
-// let freq = 10.0;
-//   let sineWave2 = p5.sin(p5.globalFrameCount / freq);
-//   let boxBlue = p5.map(sineWave2, -1, 1, 40, 50);
-// let mapped_rad100 = boxBlue - c_p00; 
 
   //circle bars outter
   for(let x=min_x; x<max_x; x+=gridSize) {
@@ -106,8 +102,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(113, 103, 114);
       p5.stroke(82, 81, 99);
       p5.strokeWeight(cur_line_width);
-      p5.ellipse(x1_pos, y_pos, mapped_rad100, mapped_rad100);
-      // p5.ellipse(x_pos, y2_pos, mapped_rad100, mapped_rad100);      
+      p5.ellipse(x1_pos, y_pos, mapped_rad100, mapped_rad100);           
     }
   }
 
@@ -122,14 +117,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     let x_margin = 400;
     let x_center = 512;
-
   
     if(x < x_center - x_margin || x > x_center + x_margin) {
       p5.fill(113, 103, 114);
       p5.stroke(82, 81, 99);
       p5.strokeWeight(cur_line_width);
       p5.ellipse(x_pos, y1_pos, mapped_rad100, mapped_rad100);  
-      p5.ellipse(x_pos, y1_pos, mapped_rad100, mapped_rad100) 
     }
   }
 
@@ -222,7 +215,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.fill(113, 103, 114);
   p5.ellipse(x1ccc1, y1ccc1, 4*mapped_rad100, 4*mapped_rad100);
   p5.fill(254, 234, 229);
-  p5.ellipse(x1ccc1, y1ccc1,2*mapped_rad100, 2*mapped_rad100);
+  p5.ellipse(x1ccc1, y1ccc1, 2*mapped_rad100, 2*mapped_rad100);
 
   //diamond body
   p5.fill(113, 103, 114);
@@ -239,7 +232,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
  
-  for(let i=0; i<5; i++ ) {
+  for(let i=0; i<4; i++ ) {
     let freq = 300;
     let angle = p5.globalFrameCount / freq;
     let orbitSize = 600+i*(400);
