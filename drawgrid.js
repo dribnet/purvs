@@ -1,6 +1,6 @@
 const max_thickness = 64;
 
-const boxBlue = 50;
+let maxBoxBlue = 50;
 const boxRed = 30;
 const boxYellow = 15;
 const boxBrown = 32;
@@ -9,6 +9,7 @@ const grid_size = 64;
 
 var a = 0.0;
 var s = 0.0;
+let do_animation = true;
 
 
 /* the random number seed for the tour */
@@ -45,13 +46,8 @@ function snap_to_grid(num, gsize) {
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   
-// a = a + 0.04;
 
-let sineWave = p5.sin(p5.globalFrameCount/ 10);
-// value between -1 and 1 
-let s = p5.map(sineWave, 1, 10, 0.80, 1.0);
-console.log(s);
-//s = (p5.sin(a))*2;
+
    
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
@@ -72,6 +68,11 @@ console.log(s);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   
+  // boxBlue = 50;
+  let freq = 10.0;
+  let sineWave2 = p5.sin(p5.globalFrameCount / freq);
+  let boxBlue = p5.map(sineWave2, -1, 1, 40, 50);
+
   let blue = p5.map(boxBlue, x1, x2, 0, 256);
 
   let red = p5.map(boxRed, x1, x2, 0, 256);
@@ -89,17 +90,17 @@ console.log(s);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute the points to be drawn */
-      let x_pos = p5.map(x, x1, x2, 0, 256);
-      let y_pos = p5.map(y, y1, y2, 0, 256);
+      // let x_pos = p5.map(x, x1, x2, 0, 256);
+      // let y_pos = p5.map(y, y1, y2, 0, 256);
 
-      let x_posRed = p5.map(x+5, x1, x2, 0, 256);
-      let y_posRed = p5.map(y+5, y1, y2, 0, 256);
+      // let x_posRed = p5.map(x+5, x1, x2, 0, 256);
+      // let y_posRed = p5.map(y+5, y1, y2, 0, 256);
 
-      let x_posBrown = p5.map(x+10, x1, x2, 0, 256);
-      let y_posBrown = p5.map(y+10, y1, y2, 0, 256);
+      // let x_posBrown = p5.map(x+10, x1, x2, 0, 256);
+      // let y_posBrown = p5.map(y+10, y1, y2, 0, 256);
 
-      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
       /* now draw all elements from back to front */
 
@@ -109,7 +110,7 @@ console.log(s);
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
     p5.ellipse(0, 8, perBlue*4, 10);
-    p5.scale(s);
+    // p5.scale(s);
     p5.rotate(p5.PI/5);
   }
 
