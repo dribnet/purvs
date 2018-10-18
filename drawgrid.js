@@ -11,16 +11,15 @@
  */
 
 const max_thickness = 320;
-const lineWidth = 15;
+const lineWidth = 10;
 const grid_size = 350;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [2, 347, 344],
+  [3, 432, 439]
 ]
 
 function spine(p5, x, y, x1, x2, y1, y2){
@@ -63,7 +62,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  p5.background(0);
+  p5.background(10);
   p5.rectMode(p5.CORNERS);
 
   for(let x=min_x; x<max_x; x+=grid_size) {
