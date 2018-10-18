@@ -27,8 +27,7 @@ function circles(p5, x, y, x1, x2, y1, y2,z,zoom) {
  // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
  // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
  // let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
- let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
- let sineWave = p5.sin((p5.globalFrameCount / 10);
+ // let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
 
 
  // then draw the eyes
