@@ -86,7 +86,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_down = p5.map(shift_point_down[0], x1, x2, 0, 256);
       let y_pos_down = p5.map(shift_point_down[1], y1, y2, 0, 256);
 
-       tree(p5, x_pos, y_pos, x1, x2, y1, y2, z, zoom);
+       tree(p5, x, y, x1, x2, y1, y2, z, zoom);
 
 
       /* now draw all elements from back to front */
@@ -126,31 +126,33 @@ function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
 
 // top rec 512
   let rect1x = p5.map(x, x1, x2, 0, 256);
-  let rect1y = p5.map(x, y1, y2, 0, 256);
+  let rect1y = p5.map(y, y1, y2, 0, 256);
   let radiusRect1 = p5.map(x+10, x1, x2, 0, 256);
 
 //
   let rect2x = p5.map(x+0.8, x1, x2, 0, 256);
-  let rect2y = p5.map(x-2, y1, y2, 0, 256);
+  let rect2y = p5.map(y-2, y1, y2, 0, 256);
   let radiusRect2 = p5.map(x+10.8, x1, x2, 0, 256);
 
   let rect3x = p5.map(x+1.4, x1, x2, 0, 256);
-  let rect3y = p5.map(x-4, y1, y2, 0, 256);
+  let rect3y = p5.map(y-4, y1, y2, 0, 256);
   let radiusRect3 = p5.map(x+11.4, x1, x2, 0, 256);
 
   let rect4x = p5.map(x+2.1, x1, x2, 0, 256);
-  let rect4y = p5.map(x-6, y1, y2, 0, 256);
+  let rect4y = p5.map(y-6, y1, y2, 0, 256);
   let radiusRect4 = p5.map(x+12.1, x1, x2, 0, 256);
 
   let rect5x = p5.map(x+2.9, x1, x2, 0, 256);
-  let rect5y = p5.map(x-8, y1, y2, 0, 256);
+  let rect5y = p5.map(y-8, y1, y2, 0, 256);
   let radiusRect5 = p5.map(x+12.9, x1, x2, 0, 256);
 
   let basex = p5.map(x+2.9, x1, x2, 0, 256);
-  let basey = p5.map(x+2, y1, y2, 0, 256);
+  let basey = p5.map(y+2, y1, y2, 0, 256);
   let radiusbase = p5.map(x+12.9, x1, x2, 0, 256);
 
-
+  let base2x = p5.map(x+4.9, x1, x2, 0, 256);
+  let base2y = p5.map(y+4, y1, y2, 0, 256);
+  let radiusbase2 = p5.map(x+14.9, x1, x2, 0, 256);
 
 
 
@@ -170,8 +172,15 @@ p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/5);
  p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/5);
 p5.fill(63, 175, 66);
 p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
+ if(zoom > 2){
+p5.fill(220);
+p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
+}
 
-//p5.fill(99, 60, 34);
+p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
+
+
+
 
 }
