@@ -96,7 +96,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_ball_radius = c_pball - c_p00;
 
   p5.background(255);
-  //p5.fill(0, 0, 128);
+  // if(zoom > 4){
+  //   p5.background(0);//black
+  // }
+  // else if(zoom <= 2){
+  //   p5.background(100);//grey
+  // }
+  // else{
+  //   p5.background(200);//white
+  // }
+
+  if(zoom = 1){
+    p5.background(0);
+  }
+
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       // First compute shifted point in grid
@@ -140,3 +153,4 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // p5.text("width: " + sizex, 10, 40);
 }
 
+///global frame count with siine wave for colours
