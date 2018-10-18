@@ -40,7 +40,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom);
   DrawCircle(p5, x1, x2, y1, y2, z, zoom);
-  DrawValley(p5, x1, x2, y1, y2, z, zoom);
+  DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom);
+  DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom);
 	
 
 	// p5.bezier(b1, b2, b3, b4, b5, b6, b7, b8);  	
@@ -74,7 +75,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		}
 	}
 
-	function DrawValley (p5, x1, x2, y1, y2, z, zoom) {
+	function DrawValleyVertical (p5, x1, x2, y1, y2, z, zoom) {
 		let x = 512;
 		let y = 512;
 		let noiseScale = 0.1;
@@ -88,15 +89,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			var angle3 = p5.random(0, 2 * p5.PI);
 			var angle4 = p5.random(0, 2 * p5.PI);
 
-			// var xpos1 = (circleWidth1/2) + circleWidth1 * p5.cos(angle1);
-			// var ypos1 = circleWidth2 + circleWidth1 * p5.sin(angle1);
-			// var xpos2 = (circleWidth1/2) + circleWidth1 * p5.cos(angle2);
-			// var ypos2 = circleWidth2 + circleWidth1 * p5.sin(angle2)
-
 			var xpos1 = (circleWidth1/2) + circleWidth1 * p5.cos(angle1);
 		    var ypos1 = circleWidth2 + circleWidth2 * p5.tan(angle1);
 		    var xpos2 = (circleWidth1/2) + circleWidth1 * p5.cos(angle2);
 		    var ypos2 = circleWidth2 + circleWidth2 * p5.tan(angle2);
+
+			var l1 = p5.map(xpos1 + (x/1.3), x1, x2, 0, 256);
+			var l2 = p5.map(ypos1 + (y/1.3), y1, y2, 0, 256);
+			var l3 = p5.map(xpos2 + (x/1.3), x1, x2, 0, 256);
+			var l4 = p5.map(ypos2 + (y/1.3), y1, y2, 0, 256);
+
+			p5.line(l1,l2,l3,l4);
+
+
+		    // line(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset);
+		}
+	}
+
+	function DrawValleyHorizontal (p5, x1, x2, y1, y2, z, zoom) {
+		let x = 512;
+		let y = 512;
+		let noiseScale = 0.1;
+		p5.stroke(204, 78, 206,10);
+
+	  	for(let i=0; i< 5000; i++) {
+			let curz = i * 4;
+
+			var angle1 = p5.random(0, 2 * p5.PI);
+			var angle2 = p5.random(0, 2 * p5.PI);
+			var angle3 = p5.random(0, 2 * p5.PI);
+			var angle4 = p5.random(0, 2 * p5.PI);
+
+			var xpos1 = (circleWidth1/2) + circleWidth1 * p5.tan(angle1);
+		    var ypos1 = circleWidth2 + (circleWidth2)  * p5.cos(angle1);
+		    var xpos2 = (circleWidth1/2) + circleWidth1 * p5.tan(angle2);
+		    var ypos2 = circleWidth2 + (circleWidth2)  * p5.cos(angle2);
 
 			var l1 = p5.map(xpos1 + (x/1.3), x1, x2, 0, 256);
 			var l2 = p5.map(ypos1 + (y/1.3), y1, y2, 0, 256);
