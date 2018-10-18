@@ -95,19 +95,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
-  // if(zoom > 4){
-  //   p5.background(0);//black
-  // }
-  // else if(zoom <= 2){
-  //   p5.background(100);//grey
-  // }
-  // else{
-  //   p5.background(200);//white
-  // }
+ // p5.background(255);
 
-  if(zoom = 1){
-    p5.background(0);
+  if(zoom <= 1){
+    p5.background(210, 250, 255);
+  }
+  else if(zoom <= 3){
+    p5.background(180, 230, 255);
+  }
+  else if(zoom <= 5){
+    p5.background(150, 200, 255);
+  }
+  else{
+    p5.background(80, 130, 240);
   }
 
   for(let x=min_x; x<max_x; x+=grid_size) {
@@ -128,7 +128,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       else if(zoom <= 2){
         p5.stroke(100, 250, 100);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius-300);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
       }
       else{
         p5.stroke(250, 200, 0);
@@ -137,20 +137,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
     }
   }
-  //   // debug - show border
+  // debug - show border
   // p5.noFill();
   // p5.stroke(0, 200, 200)
   // p5.rect(0, 0, 255, 255);
   // p5.ellipse(25, 25, 50, 50);
 
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(0, 200, 200)
-  // p5.strokeWeight(1);
-  // p5.rect(0, 0, 255, 255);
-  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  // let sizex = x2 - x1;
-  // p5.text("width: " + sizex, 10, 40);
 }
 
 ///global frame count with siine wave for colours
