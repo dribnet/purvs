@@ -10,7 +10,7 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
-
+let do_animation = true;
 
 
 
@@ -18,10 +18,16 @@
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
+  [1, 512, 512],
   [2, 512, 512],
   [4, 512, 512],
-  [6, 512, 512]
+  [6, 512, 512],
+  [9, 512, 512],
+  [12, 512, 512],
+  [16, 512, 512]
 ]
+
+var anim = 0;
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
@@ -31,6 +37,10 @@ let cx=0, cy=0, cx2=0, cy2=0;
 
   p5.background(255);
   p5.rectMode(p5.CORNERS);
+
+  /* For animation: updated z based on global frame count */
+  //let dz = p5.globalFrameCount / 100.0;
+  //z = z + dz;
 
   // The first red rectangle fills the entire space
   cx = p5.map(512-960/2, x1, x2, 0, 256);
@@ -48,35 +58,47 @@ let cx=0, cy=0, cx2=0, cy2=0;
   p5.fill(0);
   p5.rect(cx, cy, cx2, cy2);
 
-  // Two ellipses with a radius of 50 units are then added.
-  cx = p5.map(512, x1, x2, 0, 256);
-  cy = p5.map(512, y1, y2, 0, 256);
-  cx2 = p5.map(512+50, x1, x2, 0, 256);
-  p5.fill(0, 0, 255);
-  p5.ellipse(cx, cy, (cx2-cx));
 
-  // The second green ellipse is above and to the left of the first one.
-  cx = p5.map(412, x1, x2, 0, 256);
-  cy = p5.map(412, y1, y2, 0, 256);
-  cx2 = p5.map(412+50, x1, x2, 0, 256);
-  p5.fill(0, 255, 0);
-  p5.ellipse(cx, cy, (cx2-cx));
+  let x = 0;
+  for (var j = 0; j < 30; j+=3.14159265 /15) {
+    cx = p5.map(512 + p5.sin(j-anim)*(350 - x), x1, x2, 0, 256);
+    cy = p5.map(512 + p5.cos(j-anim)*(350 - x), y1, y2, 0, 256);
+    dx = 22;
+    dy = 22;
+    x+=2.377;
 
-
-  for (var i = 0; i < 360; i++) {
-  	p5.push();
-  	//p5.rotate(i);
-  	cx = p5.map(512, x1, x2, 0, 256);
-  	cy = p5.map(312, y1, y2, 0, 256);
-  	dx = p5.map(513, x1, x2, 0, 256);
-  	dy = p5.map(412, y1, y2, 0, 256);
-  	cx2 = p5.map(412+50, x1, x2, 0, 256);
-  	p5.stroke(255, 0 ,0);
-  	p5.fill(255, 0, 0);
-  	p5.rect(cx, cy, dx, dy);
-  	p5.pop();
+    p5.fill(255, 0, 0);
+    p5.ellipse(cx, cy, dx, dy);
   }
+
+  p5.stroke(0, 30 ,150);
+  p5.noFill();
+
+  for (var i = 0; i < 8; i+=1) {
+    cx = p5.map(512, x1, x2, 0, 256);
+    cy = p5.map(512, y1, y2, 0, 256);
+    cx2 = p5.map(512 + (20/((i*i/2 + 0.1) * 10)), x1, x2, 0, 256);
+    p5.ellipse(cx, cy, (cx2 - cx));
+  }
+
+  for (var i = 0; i < 6.3; i+=3.14159265 /100) {
+    //p5.angleMode(DEGREES);
+    //p5.push();
+    //p5.rotate(i);
+    cx = p5.map(512 + p5.sin(i)*10, x1, x2, 0, 256);
+    cy = p5.map(512 + p5.cos(i)*10, y1, y2, 0, 256);
+    dx = p5.map(512, x1, x2, 0, 256);
+    dy = p5.map(512, y1, y2, 0, 256);
+    cx2 = p5.map(412+50, x1, x2, 0, 256);
+    p5.stroke(255, 0 ,0);
+    p5.fill(255, 0, 0);
+    p5.line(cx, cy, dx, dy);
+    //p5.pop();
+  }
+
   
+  anim += 0.0002;
+  if(anim>3.14159265*2) anim = 0;
 
 	
   // debug - show border
