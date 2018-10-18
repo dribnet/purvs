@@ -1,4 +1,9 @@
 # PART 4
+## Gotta go BACK in TIME (v4)
+Trying to copy/paste Tom's new code is just confusing me more so I'm going back to basics.
+Just a transfer commit.
+.
+.
 ## Distortion and Mondays (v3)
 I've been having trouble with the coordinate systems and keeping shapes together at the grid intersections, so I went all out on that to create a cross-cutted, ethereal animating mass that gets more dense in zoom. The main problem I came across is that it looks like my shapes are just glitching and doesn't seem like an intentional design. The visual I like but again, not the product I'm wanting from this handin.
 
