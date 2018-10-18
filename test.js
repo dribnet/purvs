@@ -20,7 +20,7 @@ var seconds = 0;
 var stopDraw = false;
 var doOnce = true;
 
-function draw() {
+function draw_less() {
   noFill();
   stroke(204, 78, 206);
   for(let i=0; i<1; i++) {
@@ -48,7 +48,7 @@ function randomChord8() {
   bezier(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset, xpos3, ypos3 + globalYOffset, xpos4, ypos4 + globalYOffset)
 }
 
-function draw_full() {
+function draw() {
   // draw two random chords each frame
   noFill();
 
