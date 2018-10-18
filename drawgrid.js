@@ -1,5 +1,3 @@
-
-
 const max_thickness = 64;
 const ball_radius = 32;
 const line_width = 15;
@@ -144,6 +142,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       if (zoom < 2){
+
+          //p5.strokeWeight(2);
        //x = p5.map(curValue, -1 , 1, x1, x2);
           let x_pos = p5.map(x, x1, x2, 0, 256);
           let y_pos = p5.map(y + siny, y1, y2, 0, 256);
@@ -151,6 +151,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
           let x_pos_3 = p5.map(x - sinx, x1, x2, 0, 256);
           let y_pos_3 = p5.map(y + 60 + siny_2, y1, y2, 0, 256);
+          //stroke color
+          p5.colorMode(p5.HSB, 100);
+          let x_spacing = 200;
+          let brightness_x = x % (2*x_spacing);
+          if (brightness_x > x_spacing) {
+            brightness_x = x_spacing - (brightness_x - x_spacing);
+          }
+          var brightness = p5.map(brightness_x, 0, x_spacing, 20, 100);   
+          // var brightness = p5.map(x, x1, x2, 50, 100);   
+          // brightness = 100;
+          p5.stroke(57, brightness, 100);
+
+          //center quad
           p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
 
           //for top lines
@@ -167,15 +180,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       }
       if(zoom >= 2){
-        p5.stroke(0,255,255);
+        p5.stroke(0,0,255);
         waveform(p5, x, y, x1, x2, y1, y2);
       }
       if(zoom >= 3){
-        p5.stroke(0,0,255);
-        p5.stroke(siny,sinx*sinx,255);
-        smallWave(p5, x, y, x1, x2, y1, y2);
-        upperlowerWave (p5, x, y, x1, x2, y1, y2);
-          //p5.rect(10,10,10,10);
+        //p5.stroke(0,0,255);
+        let color_choice = p5.map(SpringValue, -1 , 1, 0, 50);
+        p5.stroke(0,0,255 - color_choice);
+        //center quad group
+        //1st quad
+        let x_pos = p5.map(x, x1, x2, 0, 256);
+        let y_pos = p5.map(y+10, y1, y2, 0, 256);
+        let x_pos_2 = p5.map(x + 20, x1, x2, 0, 256);
+        let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+        let x_pos_3 = p5.map(x - 20, x1, x2, 0, 256);
+        let y_pos_3 = p5.map(y + 50, y1, y2, 0, 256);
+        p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
+        //2nd quad
+         p5.stroke(siny,0,205 * sinx);
+        let x_pos_in = p5.map(x, x1, x2, 0, 256);
+        let y_pos_in = p5.map(y+20, y1, y2, 0, 256);
+        let x_pos_in_2 = p5.map(x + 10, x1, x2, 0, 256);
+        let y_pos_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+        let x_pos_in_3 = p5.map(x - 10, x1, x2, 0, 256);
+        let y_pos_in_3 = p5.map(y + 40, y1, y2, 0, 256);
+        p5.quad(x_pos_in, y_pos_in, x_pos_in_3, y_pos_in_2, x_pos_in, y_pos_in_3, x_pos_in_2, y_pos_in_2);
+        //3rd quad
+        p5.stroke(siny,sinx*sinx,200);
+        let x_pos_in_in = p5.map(x, x1, x2, 0, 256);
+        let y_pos_in_in = p5.map(y+25, y1, y2, 0, 256);
+        let x_pos_in_in_2 = p5.map(x + 5, x1, x2, 0, 256);
+        let y_pos_in_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+        let x_pos_in_in_3 = p5.map(x - 5, x1, x2, 0, 256);
+        let y_pos_in_in_3 = p5.map(y + 35, y1, y2, 0, 256);
+        p5.quad(x_pos_in_in, y_pos_in_in, x_pos_in_in_3, y_pos_in_in_2, x_pos_in_in, y_pos_in_in_3, x_pos_in_in_2, y_pos_in_2);
+        upperlowerWave(p5, x, y, x1, x2, y1, y2);
       }
       }
   }
@@ -189,3 +228,4 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // let sizex = x2 - x1;
   // p5.text("width: " + sizex, 10, 40);
 }
+
