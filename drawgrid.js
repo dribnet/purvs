@@ -61,7 +61,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom);
 	DrawCircle(p5, x1, x2, y1, y2, z, zoom, 1);
-	DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 1.5);
+	DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 2);
 	DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3);
 	DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 2, 1);
 	DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 1, 0.5);
