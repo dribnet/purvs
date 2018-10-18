@@ -1,9 +1,11 @@
 ## PS4 MDDN 342 2018
 
-This is my first approach of this code.
+Here is the start point of my final version.
 
-I try to continue the art style of David Adey however I haven’t figure out how to located each point of my shapes.
+I start to know how to control the point in grid and where show my points located in.
 
-I only keep the same colour from my previous version, I not doing the cube shape anymore.
+I quite like this art shape, during the coding time I feeling very good because the chocolate XD
 
-I use curve to draw out the heart shape and change the position. But the grid is too hard to control.
+I will develop this further as a unboxing animation for this chocolate box.
+
+It is very different style from David Adey but I like this pop art style.
