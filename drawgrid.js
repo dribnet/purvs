@@ -4,8 +4,8 @@ const ball_radius2 = 10;
 const ball_radius3 = 45;
 const line_width = 8;
 const grid_size = 72;
-const max_movement = 16;
-let do_animation = false;
+const max_movement = 10;
+let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -297,6 +297,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 /* For animation: updated z based on global frame count */
   let dz = p5.globalFrameCount / 100.0;
+  // dz = 0;
   z = z + dz;
 
 
@@ -357,13 +358,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
 
 
-let phase = getRandomValue(p5, x_pos, y_pos, z, "phase", 0, 2*p5.PI, 0.1);
+  let phase = getRandomValue(p5, x_pos, y_pos, z, "phase", 0, 2*p5.PI, 0.1);
   let freq = getRandomValue(p5, x_pos, y_pos, z, "freq", 10, 50, 0.1);
-  let sineWave = p5.sin(phase + (dz));
-  let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
+  let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+  // sineWave = 0;
+  // let sineWave = p5.sin(dz);
+  let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.3);
+  let ball_radius2 = radiusScale * ball_radius;
+  let c_pball2 = p5.map(ball_radius2, x1, x2, 0, 256);
+  let cur_ball_radius2 = c_pball2 - c_p00;
 
+  let right_circlex = p5.map(x + 15, x1, x2, 0, 256);
+  let right_circley = p5.map(y - 15, y1, y2, 0, 256);
 
-console.log(sineWave);
+  // let pixel_radius = right_circlex - right_circley;
+  // pixel_radius = radiusScale * pixel_radius;
+  // console.log(radiusScale);
 
 
       // /* first compute the points to be drawn */
@@ -373,8 +383,7 @@ console.log(sineWave);
       // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
- 	    let right_circlex = p5.map(x + 15, x1, x2, 0, 256);
-      let right_circley = p5.map(y - 15, y1, y2, 0, 256);
+ 	  
 
       let left_circlex = p5.map(x - 15, x1, x2, 0, 256);
       let left_circley = p5.map(y + 15, y1, y2, 0, 256);
@@ -384,20 +393,20 @@ console.log(sineWave);
 if (zoom < 2) {
       p5.noStroke();
       p5.fill(250,13,73,30); //PINK
-      // p5.ellipse(x_pos, y_pos, cur_ball_radius*2, cur_ball_radius/2);
-      p5.ellipse(right_circlex, y_pos, cur_ball_radius/2);
-      p5.ellipse(x_pos, right_circley, cur_ball_radius/2);
+
+      // p5.ellipse(right_circlex, y_pos, pixel_radius);
+      // p5.ellipse(x_pos, right_circley, pixel_radius);
      
-      p5.ellipse(left_circlex, y_pos, cur_ball_radius/2);
-      p5.ellipse(x_pos, left_circley, cur_ball_radius/2);
+      // p5.ellipse(left_circlex, y_pos, cur_ball_radius/2);
+      // p5.ellipse(x_pos, left_circley, cur_ball_radius/2);
 
      
       p5.fill(100, 87, 255, 40);//LILAC
-      p5.ellipse(right_circlex, y_pos, cur_ball_radius);
-      p5.ellipse(x_pos, right_circley, cur_ball_radius);
+      p5.ellipse(right_circlex, y_pos, cur_ball_radius2);
+      p5.ellipse(x_pos, right_circley, cur_ball_radius2);
      
-      p5.ellipse(left_circlex, y_pos, cur_ball_radius);
-      p5.ellipse(x_pos, left_circley, cur_ball_radius);
+      p5.ellipse(left_circlex, y_pos, cur_ball_radius2);
+      p5.ellipse(x_pos, left_circley, cur_ball_radius2);
 
      }
 
