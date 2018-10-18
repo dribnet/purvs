@@ -1,7 +1,7 @@
 const max_thickness = 64;
 const max_movement = 16;
-const ball_radius = 32;
-const line_width = 8;
+// const ball_radius = 32;
+// const line_width = 8;
 const grid_size = 64;
 
 /* the random number seed for the tour */
@@ -28,50 +28,50 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
-  const sqrt2 = 1.4142/2;
-  let offsets = [
-    [sqrt2, sqrt2],
-    [-sqrt2, sqrt2],
-    [-sqrt2, -sqrt2],
-    [sqrt2, -sqrt2]
-  ]
-  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
-  let pixel_radius = pixel_posx2 - pixel_posx1;
-  for(let i=0; i<offsets.length; i++) {
-    let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
-  }
-}
+// function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
+//   const sqrt2 = 1.4142/2;
+//   let offsets = [
+//     [sqrt2, sqrt2],
+//     [-sqrt2, sqrt2],
+//     [-sqrt2, -sqrt2],
+//     [sqrt2, -sqrt2]
+//   ]
+//   let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+//   let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+//   let pixel_radius = pixel_posx2 - pixel_posx1;
+//   for(let i=0; i<offsets.length; i++) {
+//     let offset = offsets[i];
+//     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+//     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+//     p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+//   }
+// }
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
-  const offsets = [
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1]
-  ]
-  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
-  let pixel_radius = pixel_posx2 - pixel_posx1;
-  for(var i=0; i<offsets.length; i++) {
-    let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.strokeWeight(0);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
-    if(drawLines) {
-      p5.strokeWeight(pixel_radius / 20);
-      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
-      p5.strokeWeight(0);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
-    }  
-  }
-}
+// function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
+//   const offsets = [
+//     [1, 1],
+//     [1, -1],
+//     [-1, 1],
+//     [-1, -1]
+//   ]
+//   let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+//   let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+//   let pixel_radius = pixel_posx2 - pixel_posx1;
+//   for(var i=0; i<offsets.length; i++) {
+//     let offset = offsets[i];
+//     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+//     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+//     p5.strokeWeight(0);
+//     p5.ellipse(pixel_x, pixel_y, pixel_radius);
+//     if(drawLines) {
+//       p5.strokeWeight(pixel_radius / 20);
+//       p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
+//       p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
+//       p5.strokeWeight(0);
+//       p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
+//     }  
+//   }
+// }
 
 /*
  * This is the funciton to implement to make your own abstract design.
@@ -102,11 +102,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // min_y = snap_to_grid(half_y, grid_size);
   // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
-  let c_p00 = p5.map(0, x1, x2, 0, 256);
-  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
-  let cur_line_width = c_plwidth - c_p00;
-  let cur_ball_radius = c_pball - c_p00;
+  // let c_p00 = p5.map(0, x1, x2, 0, 256);
+  // let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  // let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
+  // let cur_line_width = c_plwidth - c_p00;
+  // let cur_ball_radius = c_pball - c_p00;
 
   p5.background(255);
   for(let x=min_x; x<max_x; x+=grid_size) {
@@ -154,24 +154,63 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);        
       // }
 
-      p5.stroke(253, 50, 57,150);
+      p5.stroke(253, 50, 57, 150);
       p5.strokeWeight(3);
       p5.noStroke();
       p5.fill(253, 80, 87,100);
       // p5.noFill();
       // p5.angleMode(RADIANS);
+      // p5.triangle(x_pos, y_pos -200, x_pos - 100, y_pos + 100, x_pos + 100, y_pos + 100);
+
       p5.triangle(x_pos, y_pos -180, x_pos - 80, y_pos + 80, x_pos + 80, y_pos + 80);
       // p5.rotate(.050);
       p5.triangle(x_pos, y_pos -140, x_pos - 40, y_pos + 40, x_pos + 40, y_pos + 40);
       // p5.rotate(1.0);
       p5.triangle(x_pos, y_pos -120, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);
 
+      // p5.triangle(x_pos, y_pos -100, x_pos -  0, y_pos +  0, x_pos +  0, y_pos +  0);
+
+
       p5.fill(87, 80, 253,100);
+      // p5.triangle(x_pos, y_pos + 200, x_pos - 100, y_pos - 100, x_pos + 100, y_pos - 100);
+
       p5.triangle(x_pos, y_pos + 180, x_pos - 80, y_pos - 80, x_pos + 80, y_pos - 80);
       // p5.rotate(.050);
       p5.triangle(x_pos, y_pos + 140, x_pos - 40, y_pos - 40, x_pos + 40, y_pos - 40);
       // p5.rotate(1.0);
       p5.triangle(x_pos, y_pos + 120, x_pos - 20, y_pos - 20, x_pos + 20, y_pos - 20);
+
+      if(zoom>=2){
+      p5.fill(253, 80, 87,100);;
+      p5.triangle(x_pos, y_pos -240, x_pos - 140, y_pos + 140, x_pos + 140, y_pos + 140);
+      p5.triangle(x_pos, y_pos -220, x_pos - 120, y_pos + 120, x_pos + 120, y_pos + 120);
+      p5.triangle(x_pos, y_pos -200, x_pos - 100, y_pos + 100, x_pos + 100, y_pos + 100);
+
+
+      p5.fill(87, 80, 253,100);
+      p5.triangle(x_pos, y_pos + 240, x_pos - 140, y_pos - 140, x_pos + 140, y_pos - 140);
+      p5.triangle(x_pos, y_pos + 220, x_pos - 120, y_pos - 120, x_pos + 120, y_pos - 120);
+      p5.triangle(x_pos, y_pos + 200, x_pos - 100, y_pos - 100, x_pos + 100, y_pos - 100);
+
+      // p5.fill(253, 80, 87,100);;
+      // p5.triangle(x_pos, y_pos -40, x_pos - 40, y_pos + 40, x_pos + 40, y_pos + 40);
+      // p5.triangle(x_pos, y_pos -20, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);
+      // p5.triangle(x_pos, y_pos -0 , x_pos - 0, y_pos + 0, x_pos + 0, y_pos + 0);
+
+
+      }
+      //  if(zoom>=4){
+      // p5.fill(253, 80, 87,100);;
+      // p5.triangle(x_pos, y_pos -240, x_pos - 140, y_pos + 140, x_pos + 140, y_pos + 140);
+      // p5.triangle(x_pos, y_pos -220, x_pos - 120, y_pos + 120, x_pos + 120, y_pos + 120);
+      // p5.triangle(x_pos, y_pos -200, x_pos - 100, y_pos + 100, x_pos + 100, y_pos + 100);
+
+
+      // p5.fill(87, 80, 253,100);
+      // p5.triangle(x_pos, y_pos + 240, x_pos - 140, y_pos - 140, x_pos + 140, y_pos - 140);
+      // p5.triangle(x_pos, y_pos + 220, x_pos - 120, y_pos - 120, x_pos + 120, y_pos - 120);
+      // p5.triangle(x_pos, y_pos + 200, x_pos - 100, y_pos - 100, x_pos + 100, y_pos - 100);
+      // }
 
 
 
