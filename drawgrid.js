@@ -9,7 +9,7 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-const max_thickness = 256;
+const max_thickness = 0;
 // const ball_radius = 32;
 // const line_width = 8;
 // const grid_size = 256;
@@ -22,18 +22,20 @@ const max_cloud_movement = 150;
 const cloud1_grid_size = 400;
 const max_cloud1_movement = 250;
 
-const max_movement = 90;
+const max_movement = 80;
 const line_width = 0.07;
 let do_animation = true;
 
 
 /* the random number seed for the tour */
-var tourSeed = 301;
+var tourSeed = 430;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [5, 512, 512]
+  [0, 338, 483],
+  [2, 254, 478],
+  [3, 314, 430],
+  [4, 290, 426],
+  [5, 293, 429]
 ]
 
 
@@ -596,7 +598,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      //CLOUD MOVEMENT
 	      let moving = 1;
-	      moving = moving - p5.globalFrameCount;
+	      moving = (moving - (p5.globalFrameCount/5)) % 100;
+	      // console.log(moving);
 	     
 	      if(zoom >=2){
 
@@ -617,13 +620,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
 	      let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
-	      let sin_value = p5.sin(p5.globalFrameCount*10);
-	 	  let cur_angle = p5.map(sin_value, -1, 1, -20, 20);
-
+ 		  let phase = getRandomValue(p5, x, y, z, "phase", 0, 360, 0.1);
+	      let sin_value = p5.sin(phase + (p5.globalFrameCount*2));
+	 	  let cur_angle = p5.map(sin_value, -1, 1, -3, 3);
+			let rotate_x = p5.map(x + 5/25, x1, x2, 0, 256);
+			let rotate_y = p5.map(y + -75.203/25, y1, y2, 0, 256);
 	      // debug
 	      // p5.fill(0);
-	      // let x_pos2 = p5.map(x, x1, x2, 0, 256);
-	      // let y_pos2 = p5.map(y, y1, y2, 0, 256);
+	      let x_pos2 = p5.map(x, x1, x2, 0, 256);
+	      let y_pos2 = p5.map(y, y1, y2, 0, 256);
 	      // p5.stroke(0);
 	      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
 	      // p5.ellipse(x_pos2, y_pos2, 10);
@@ -637,16 +642,18 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 			if(zoom>=2){
 
-	 			//p5.push();
+	 			p5.push();
 	 			
 	 			//let r1 = p5.map(x+sh, x1, x2, 0, 256);
 	 			//let r2 = p5.map(y-200, y1, y2, 0, 256);
- 				//p5.rotate(cur_angle);
+	 			p5.translate(x_pos2, y_pos2)
+ 				p5.rotate(cur_angle);
+	 			p5.translate(-x_pos2, -y_pos2)
  				 //console.log(cur_angle);	
 				//p5.translate(shifted_x,r2);
 					
 				parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				//p5.pop();
+				p5.pop();
 			}
 
 			if(zoom >= 4){
