@@ -154,6 +154,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);        
       // }
 
+      let point180 = p5.map(18, x1, x2, 0, 256);
+      let point80 = p5.map(8, x1, x2, 0, 256);
+
+
+
       p5.stroke(253, 50, 57, 150);
       p5.strokeWeight(3);
       p5.noStroke();
@@ -197,8 +202,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // p5.triangle(x_pos, y_pos -20, x_pos - 20, y_pos + 20, x_pos + 20, y_pos + 20);
       // p5.triangle(x_pos, y_pos -0 , x_pos - 0, y_pos + 0, x_pos + 0, y_pos + 0);
 
-
       }
+      // 
       //  if(zoom>=4){
       // p5.fill(253, 80, 87,100);;
       // p5.triangle(x_pos, y_pos -240, x_pos - 140, y_pos + 140, x_pos + 140, y_pos + 140);
