@@ -1,3 +1,10 @@
+# PART 4
+## Distortion and Mondays (v3)
+I've been having trouble with the coordinate systems and keeping shapes together at the grid intersections, so I went all out on that to create a cross-cutted, ethereal animating mass that gets more dense in zoom. The main problem I came across is that it looks like my shapes are just glitching and doesn't seem like an intentional design. The visual I like but again, not the product I'm wanting from this handin.
+
+You'll get a surprise from the tour function too.
+.
+.
 # PART 3
 ## Zoomin' Space (v2)
 I'm straying away from my ps3 visuals, but still want to try something with blend modes. My idea for this was just to have an ethereal black whole structure that would become more complex and saturated with zoom. I'm finding the coordinate system particularly with smaller sizing hard to understand, I want to work on that more for layering different ellipses and other shapes. 
