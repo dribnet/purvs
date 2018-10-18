@@ -110,17 +110,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if(zoom > 4){
         p5.stroke(0, 200, 250);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius-100);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/2);
       }
       else if(zoom <= 2){
         p5.stroke(100, 250, 100);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius-300);
       }
       else{
         p5.stroke(250, 200, 0);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
       }
     }
   }
