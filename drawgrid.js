@@ -41,34 +41,78 @@ function waveform (p5, x, y, x1, x2, y1, y2){
   p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
   p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
 }
+//draw quad when zoom 3
 function smallWave (p5, x, y, x1, x2, y1, y2){
-  //share same y for 2nd pt
-  let y_small_2 = p5.map(y - 20, y1, y2, 0, 256);
-  //share 1st and 2nd (left side)
-  let x_small = p5.map(x - 15, x1, x2, 0, 256);
-  let y_small = p5.map(y - 32.5, y1, y2, 0, 256);
-  let y_small_3 = p5.map(y - 7.5, y1, y2, 0, 256);
-  let x_small_2 = p5.map(x, x1, x2, 0, 256);
-  p5.line(x_small, y_small, x_small_2, y_small_2);
-  p5.line(x_small, y_small_3, x_small_2, y_small_2);
+  //center quad group
+  //1st quad
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y+10, y1, y2, 0, 256);
+  let x_pos_2 = p5.map(x + 20, x1, x2, 0, 256);
+  let y_pos_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_3 = p5.map(x - 20, x1, x2, 0, 256);
+  let y_pos_3 = p5.map(y + 50, y1, y2, 0, 256);
+  p5.quad(x_pos, y_pos, x_pos_3, y_pos_2, x_pos, y_pos_3, x_pos_2, y_pos_2);
+  //2nd quad
+  let x_pos_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in = p5.map(y+20, y1, y2, 0, 256);
+  let x_pos_in_2 = p5.map(x + 10, x1, x2, 0, 256);
+  let y_pos_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_in_3 = p5.map(x - 10, x1, x2, 0, 256);
+  let y_pos_in_3 = p5.map(y + 40, y1, y2, 0, 256);
+  p5.quad(x_pos_in, y_pos_in, x_pos_in_3, y_pos_in_2, x_pos_in, y_pos_in_3, x_pos_in_2, y_pos_in_2);
+  //3rd quad
+  let x_pos_in_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in_in = p5.map(y+25, y1, y2, 0, 256);
+  let x_pos_in_in_2 = p5.map(x + 5, x1, x2, 0, 256);
+  let y_pos_in_in_2 = p5.map(y + 30, y1, y2, 0, 256);
+  let x_pos_in_in_3 = p5.map(x - 5, x1, x2, 0, 256);
+  let y_pos_in_in_3 = p5.map(y + 35, y1, y2, 0, 256);
+  p5.quad(x_pos_in_in, y_pos_in_in, x_pos_in_in_3, y_pos_in_in_2, x_pos_in_in, y_pos_in_in_3, x_pos_in_in_2, y_pos_in_2);
+}
 
-  //share 3rd and 4th (left side)
-  let x_small_3 = p5.map(x - 26, x1, x2, 0, 256);
-  let y_small_4 = p5.map(y - 13, y1, y2, 0, 256);
-  let x_small_4 = p5.map(x - 17, x1, x2, 0, 256);
-  let y_small_5 = p5.map(y - 27, y1, y2, 0, 256);
-  p5.line(x_small_3, y_small_4, x_small_4, y_small_2);
-  p5.line(x_small_3, y_small_5, x_small_4, y_small_2);
+function upperlowerWave (p5, x, y, x1, x2, y1, y2){
+  //1st
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y - 5, y1, y2, 0, 256);
+  let x_pos_3 = p5.map(x - 30, x1, x2, 0, 256);
+  let y_pos_3 = p5.map(y + 65, y1, y2, 0, 256);
+  let x_pos_line = p5.map(x - 30, x1, x2, 0, 256);
+  let x_pos_line_2 = p5.map(x + 30, x1, x2, 0, 256);
+  let y_pos_line = p5.map(y - 20, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos, x_pos_line, y_pos_line);
+  p5.line(x_pos, y_pos, x_pos_line_2, y_pos_line);
+  //for bottom lines
+  let y_pos_line_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos, y_pos_3, x_pos_line, y_pos_line_2);
+  p5.line(x_pos, y_pos_3, x_pos_line_2, y_pos_line_2);
+  //2nd in
+  let x_pos_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in = p5.map(y - 10, y1, y2, 0, 256);
+  let x_pos_in_3 = p5.map(x - 25, x1, x2, 0, 256);
+  let y_pos_in_3 = p5.map(y + 70, y1, y2, 0, 256);
+  let x_pos_line_in = p5.map(x - 20, x1, x2, 0, 256);
+  let x_pos_line_in_2 = p5.map(x + 20, x1, x2, 0, 256);
+  let y_pos_line_in = p5.map(y -20, y1, y2, 0, 256);
+  p5.line(x_pos_in, y_pos_in, x_pos_line_in, y_pos_line_in);
+  p5.line(x_pos_in, y_pos_in, x_pos_line_in_2, y_pos_line_in);
+  //for bottom lines
+  let y_pos_line_in_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos_in, y_pos_in_3, x_pos_line_in, y_pos_line_in_2);
+  p5.line(x_pos_in, y_pos_in_3, x_pos_line_in_2, y_pos_line_in_2);
 
-  //share 5th and 6th (left side)
-  let x_small_5 = p5.map(x - 35, x1, x2, 0, 256);
-  let y_small_6 = p5.map(y - 17.5, y1, y2, 0, 256);
-  let x_small_6 = p5.map(x - 30, x1, x2, 0, 256);
-  let y_small_7 = p5.map(y - 22.5, y1, y2, 0, 256);
-  p5.line(x_small_5, y_small_6, x_small_6, y_small_2);
-  p5.line(x_small_5, y_small_7, x_small_6, y_small_2);
-
-  
+  let x_pos_in_in = p5.map(x, x1, x2, 0, 256);
+  let y_pos_in_in = p5.map(y - 15, y1, y2, 0, 256);
+  let x_pos_in_in_3 = p5.map(x - 20, x1, x2, 0, 256);
+  let y_pos_in_in_3 = p5.map(y + 75, y1, y2, 0, 256);
+  let x_pos_line_in_in = p5.map(x - 10, x1, x2, 0, 256);
+  let x_pos_line_in_in_2 = p5.map(x + 10, x1, x2, 0, 256);
+  let y_pos_line_in_in = p5.map(y - 20, y1, y2, 0, 256);
+  p5.line(x_pos_in_in, y_pos_in_in, x_pos_line_in_in, y_pos_line_in_in);
+  p5.line(x_pos_in_in, y_pos_in_in, x_pos_line_in_in_2, y_pos_line_in_in);
+  //for bottom lines
+  let y_pos_line_in_in_2 = p5.map(y + 80, y1, y2, 0, 256);
+  p5.line(x_pos_in_in, y_pos_in_in_3, x_pos_line_in_in, y_pos_line_in_in_2);
+  p5.line(x_pos_in_in, y_pos_in_in_3, x_pos_line_in_in_2, y_pos_line_in_in_2);
 }
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //setting another variable for animation
@@ -123,10 +167,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       }
       if(zoom >= 2){
-          waveform(p5, x, y, x1, x2, y1, y2);
+        p5.stroke(0,255,255);
+        waveform(p5, x, y, x1, x2, y1, y2);
       }
       if(zoom >= 3){
-          smallWave(p5, x, y, x1, x2, y1, y2);
+        p5.stroke(0,0,255);
+        p5.stroke(siny,sinx*sinx,255);
+        smallWave(p5, x, y, x1, x2, y1, y2);
+        upperlowerWave (p5, x, y, x1, x2, y1, y2);
           //p5.rect(10,10,10,10);
       }
       }
