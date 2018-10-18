@@ -99,7 +99,11 @@ function setup () {
   var loadButton = createButton('Positon4');
   loadButton.mousePressed(POS4);
   loadButton.parent('Pos2Container');
-  //Pos 4
+  //Pos 5
+  var loadButton = createButton('Positon5');
+  loadButton.mousePressed(POS5);
+  loadButton.parent('Pos3Container');
+  //full tour
   var loadButton = createButton('FullTour');
   loadButton.mousePressed(FullTour);
   loadButton.parent('Pos3Container');
@@ -315,13 +319,13 @@ function draw () {
     worldTranslate--;
   }
   if(worldTranslate <= 1){worldTranslate =1} 
-  if(zAxis >= 3700){ zAxis = 3700;}
+  if(zAxis >= 10000){ zAxis = 10000;}
 
   //axis camera lock check
-  if(zAxisCamera >= 3700){
+  if(zAxisCamera >= 10000){
     resetLock = true;
   }
-  if(zAxisCamera < 3600){
+  if(zAxisCamera < 9900){
     resetLock = false;
   }
   //if(zAxis <= 736){ zAxis = 736;}
@@ -427,25 +431,32 @@ function ResetCam(){
 function POS1(){ 
   tourTrigger = false;
   startCameraAnimation();
-  zAxis = 3700;
+  zAxis = 10000;
   yAxis = 0;
   xAxis = 0; 
 }
 function POS2(){ 
   tourTrigger = false;
   startCameraAnimation();
-  zAxis = 1800;
+  zAxis = 3700;
   yAxis = 0;
   xAxis = 0; 
 }
 function POS3(){ 
   tourTrigger = false;
   startCameraAnimation();
+  zAxis = 1800;
+  yAxis = 0;
+  xAxis = 0; 
+}
+function POS4(){ 
+  tourTrigger = false;
+  startCameraAnimation();
   zAxis = 958;
   yAxis = 0;
   xAxis = 0; 
 }
-function POS4(){  
+function POS5(){  
   tourTrigger = false;
   startCameraAnimation();
   zAxis = 736;
