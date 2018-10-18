@@ -1,23 +1,9 @@
 ## PS4 MDDN 342 2018
 
-In my final version of this project, I changed my concept from David Adey art style to Pop art style.
+This is my new idea's sketch.
 
-Actually, I am struggled with the map function for the grid. Also, I couldn’t use the WEBGL to continue to develop my previous idea. 
+However, I couldn't continue my previous idea. I want to do 3D but I don’t think I can use the camera zoom in for this one(I’m not sure). 
 
-For this idea, I got my inspiration from Thuy Nguyen about layers in a box of almond chocolate. The first layer is the box and when you zoom in it will slowly reveal the layers of ingredient in the box such as the chocolate and almond filling. 
+Then I got my new idea from my friend, because one of my experiment’s shape looks like almond. 
 
-I have four zoom in layers.
-0: Chocolate box
-1: Open the box, you can see the chocolate
-2: Chocolate shaking in the box
-3: Chocolate with almond filling
-4: Only almond
-
-Technical issues
-To be honest, the code is quite hard to understand. I spent about one week to play with it and could’t figure out how the map of grid work.
-
-Because I don’t want to do the iterative wallpaper in the first zoom layer then I took long time to put each of the points into the canvas which I want it to be.
-
-That’s the completed process in my coding time.
-
-The package reference is from MUJI Almond chocolate.
+In this idea, it try to lead the audience go into each part of the chocolate.
