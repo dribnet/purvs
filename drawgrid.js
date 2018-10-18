@@ -12,6 +12,7 @@
 const max_thickness = 256;
 const grid_size = 180;
 const para2_grid_size = 50;
+let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -32,14 +33,19 @@ function snap_to_grid(num, gsize) {
 
 function cube(p5, x, y, x1, x2, y1, y2) {
 
+  // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+  let sineWave = p5.sin(p5.globalFrameCount/10);
+  let height = p5.map(sineWave, -1, 1, 0, 10);
+
 	let quad_x1 = p5.map(x-75, x1, x2, 0, 256);
-	let quad_y1 = p5.map(y+0, y1, y2, 0, 256);
+	let quad_y1 = p5.map(y+0+height, y1, y2, 0, 256);
 	let quad_x2 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y2 = p5.map(y-60, y1, y2, 0, 256);
+	let quad_y2 = p5.map(y-60+height, y1, y2, 0, 256);
 	let quad_x3 = p5.map(x+75, x1, x2, 0, 256);
-	let quad_y3 = p5.map(y+0, y1, y2, 0, 256);
+	let quad_y3 = p5.map(y+0+height, y1, y2, 0, 256);
 	let quad_x4 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y4 = p5.map(y+60, y1, y2, 0, 256);
+	let quad_y4 = p5.map(y+60+height, y1, y2, 0, 256);
 
 	p5.fill('#58CAFF');
 	p5.quad(quad_x1, quad_y1, quad_x2, quad_y2, quad_x3, quad_y3, quad_x4, quad_y4);
