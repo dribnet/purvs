@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Added some animation, I'm going to make them move up and down slowly. 
+Made my blocks move up and down, I added an offset to make them random. I also added another level of zoom with the added red triangle. Not sure if I want to keep this.
