@@ -1,9 +1,11 @@
 const max_thickness = 64;
 const ball_radius = 32;
+
+
 const line_width = 8;
 const grid_size = 64;
-const max_movement = 16;
-
+const max_movement = 100;
+ var r = random(255);
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */

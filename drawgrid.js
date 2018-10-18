@@ -59,7 +59,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-  
+
 tree(p5, x1, x2, y1, y2, z, zoom);
 tree(p5, x1, x2, y1, y2, z, zoom);
 //p5.rect(rect1x, rect1y, (radiusRect1-rect1x)/1.6,(radiusRect1-rect1x)/4);
@@ -74,29 +74,29 @@ function tree (p5, x1, x2, y1, y2, z, zoom){
 
 
 	let rect1x = p5.map(512, x1, x2, 0, 256);
-	let rect1y = p5.map(512, y1, y2, 0, 256);
-	let radiusRect1 = p5.map(512+10, x1, x2, 0, 256);
+	let rect1y = p5.map(512+10, y1, y2, 0, 256);
+	let radiusRect1 = p5.map(512+100, x1, x2, 0, 256);
 
 
 	let rect2x = p5.map(512.8, x1, x2, 0, 256);
-	let rect2y = p5.map(510, y1, y2, 0, 256);
-	let radiusRect2 = p5.map(512.8+10, x1, x2, 0, 256);
+	let rect2y = p5.map(510+10, y1, y2, 0, 256);
+	let radiusRect2 = p5.map(512.8+100, x1, x2, 0, 256);
 
 	let rect3x = p5.map(513.4, x1, x2, 0, 256);
-	let rect3y = p5.map(508, y1, y2, 0, 256);
-	let radiusRect3 = p5.map(513.4+10, x1, x2, 0, 256);
+	let rect3y = p5.map(508+10, y1, y2, 0, 256);
+	let radiusRect3 = p5.map(513.4+100, x1, x2, 0, 256);
 
 	let rect4x = p5.map(514.1, x1, x2, 0, 256);
-	let rect4y = p5.map(506, y1, y2, 0, 256);
-	let radiusRect4 = p5.map(514.1+10, x1, x2, 0, 256);
+	let rect4y = p5.map(506+10, y1, y2, 0, 256);
+	let radiusRect4 = p5.map(514.1+100, x1, x2, 0, 256);
 
 	let rect5x = p5.map(514.9, x1, x2, 0, 256);
-	let rect5y = p5.map(504, y1, y2, 0, 256);
-	let radiusRect5 = p5.map(514.9+10, x1, x2, 0, 256);
+	let rect5y = p5.map(504+10, y1, y2, 0, 256);
+	let radiusRect5 = p5.map(514.9+100, x1, x2, 0, 256);
 
 	let basex = p5.map(514.9, x1, x2, 0, 256);
-	let basey = p5.map(514, y1, y2, 0, 256);
-	let radiusbase = p5.map(514.9+10, x1, x2, 0, 256);
+	let basey = p5.map(514+10, y1, y2, 0, 256);
+	let radiusbase = p5.map(514.9+100, x1, x2, 0, 256);
 
 	
 
