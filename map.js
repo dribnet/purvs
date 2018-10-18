@@ -178,3 +178,4 @@ attrStr += '<a href="#" onclick="javascript:clickReset();">reset</a> | '
 attrStr += '<a href="#" onclick="javascript:clickDemo();">tour</a>'
 attrib.addAttribution(attrStr)
 worldMap.addControl(attrib)
+

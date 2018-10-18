@@ -197,6 +197,6 @@ String.prototype.hashCode = function() {
 
 function getRandomValue(p5, x, y, z, name, min, max, scale) {
   let hashNumber = name.hashCode();
-  let noiseVal = p5.noise(x * scale, y * scale, (z + hashNumber));
-  return p5.map(noiseVal, 0, 1, min, max);
+  let noiseVal = p5.noise(x * scale, (y + hashNumber), z * scale);
+  return p5.map(noiseVal, -1, 1, min, max);
 }
