@@ -7,18 +7,24 @@ const boxBrown = 32;
 
 const grid_size = 64;
 
+var a = 0.0;
+var s = 0.0;
 
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 575.000000000000, 602.500000000000],//0.000000000000
-  [3, 565.500000000000,708.250000000000],
-  [4, 322.562500000000, 645.093750000000],
-  [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
-  [3, 317.984375000000, 643.636718750000]
+  [1, 416.472656250000,660.144531250000],//0.000000000000
+  [2, 118.439453125000,888.384765625000],
+  [3, 379.128906250000,1259.570312500000],
+  [4, 340.375000000000,1315.000000000000],
+  [5, 267.613281250000,1356.066406250000],
+  [6, 251.523193359375,1361.349121093750],
+  [1, 416.472656250000,660.144531250000]
+
+
+
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -38,6 +44,14 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  
+// a = a + 0.04;
+
+let sineWave = p5.sin(p5.globalFrameCount/ 10);
+// value between -1 and 1 
+let s = p5.map(sineWave, 1, 10, 0.80, 1.0);
+console.log(s);
+//s = (p5.sin(a))*2;
    
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
@@ -70,7 +84,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let perYellow = yellow - c_p00;
   let perBrown= brown - c_p00;
 
-    p5.background('#8B632A');
+    //p5.background('#8B632A');
   p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
@@ -88,87 +102,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
       /* now draw all elements from back to front */
-     
+
+
   p5.fill('#041370'); // blue
-    p5.translate(128, 128);
+  p5.translate(128, 128);
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 10, perBlue*4, 10);
+    p5.ellipse(0, 8, perBlue*4, 10);
+    p5.scale(s);
     p5.rotate(p5.PI/5);
   }
 
-//       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
-//  if (zoom < 1) {
-//   //p5.push();
- 
-//   }
+    p5.fill('#EE4502'); // red
+  p5.noStroke();
+  for (var i = 0; i < 10; i ++) {
+    p5.ellipse(0, 10, perBlue, 10);
+    p5.rotate(p5.PI/5);
+}
 
-// //p5.pop();
-
- 
-//  }
- 
-//   if (zoom < 2) {
-//   ///p5.push();
-//     //p5.translate(0, 128);
-//     p5.fill('#EE4502'); // red
-//   p5.noStroke();
-//   for (var i = 0; i < 10; i ++) {
-//     p5.ellipse(0, 10, perBlue, 10);
-//     p5.rotate(p5.PI/5);
-//   }
-// //p5.pop();
-
-// }
-     
-// if (zoom <= 3) {
-
-//  //p5.push();
-//   p5.fill('#EE4502'); // red
-//   //p5.translate(, 150);
-//   p5.noStroke();
-//   for (var i = 0; i < 10; i ++) {
-//     p5.ellipse(0, 30, 20, 80);
-//     p5.rotate(p5.PI/5);
-//   }
-//   p5.fill('#FCDB85'); //yellow
-  
-//  //  p5.noStroke();
-   
-//    p5.translate(180, 230);
-//    p5.rect(x_pos+45, y_pos,perYellow/2,perYellow/2,10, 80, 10, 80);
-//   p5.rect(x_pos+75, y_pos,perYellow/2,perYellow/2,80, 10, 80, 10);
- 
-  
-//   p5.rect(x_pos+75, y_pos+25,perYellow/2,perYellow/2,10, 80, 10, 80);
-//   p5.rect(x_pos+45, y_pos+25,perYellow/2,perYellow/2,80, 10, 80, 10);
-
-
-
-//  // p5.pop();
- 
-
-//       //p5.rotate(p5.HALF_PI); 
-
-//     // p5.rect(x_posRed, y_posRed,perRed,perRed,80, 10, 80, 10);
-//     //p5.rotate(p5.HALF_PI); 
- 
-     
-
-//      // p5.fill('#422F14'); // brown
-//      // p5.rect(x_posBrown, y_posBrown,perRed/2,perRed/2,0, 20, 0, 20);
-  
-// }
-// if (zoom < 4) {
-//  //p5.stroke(1);
-//  p5.push();
-//   p5.fill('#FCDB85'); //yellow
-//  p5.translate(270, 220);
-//    p5.rect(x_pos, y_pos,perYellow,perYellow,10, 80, 10, 80);
-//  p5.pop();
-// }
-
-
+    p5.fill('#FCDB85'); //yellow
+  p5.noStroke();
+  for (var i = 0; i < 10; i ++) {
+    p5.ellipse(0, 10, perBlue/2, 10);
+    p5.rotate(p5.PI/5);
+}
 }
   }
 
