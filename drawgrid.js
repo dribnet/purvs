@@ -32,8 +32,10 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-function myPattern(p5, x, y, x1, x2, y1, y2)  {
-  let sineWave = p5.sin(p5.globalFrameCount*2.5);
+function myPattern(p5, x, y, x1, x2, y1, y2, z)  {
+
+  let phase = x * y;
+  let sineWave = p5.sin(phase + p5.globalFrameCount*3);
 
   let arc_move = p5.map(sineWave, -1, 1, 0, 20);
   let arc_x = p5.map(x+20, x1, x2, 0, 256);
@@ -169,22 +171,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       p5.stroke(0);
-      myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+      myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       if (zoom >= 1) {
-        p5.stroke(249, 2, 80, 60);
-        myPattern(p5, x, y, x1, x2, y1, y2);
-        p5.stroke(35, 170, 255, 60);
-        myPattern(p5, x+10, y+10, x1, x2, y1, y2);
+        p5.stroke(249, 2, 80);
+        myPattern(p5, x, y, x1, x2, y1, y2, z);
+        p5.stroke(35, 170, 255);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
         p5.stroke(0);
-        myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+        myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       }
       if (zoom >= 2) {
-        p5.stroke(249, 2, 80, 60);
-        myPattern(p5, x, y, x1, x2, y1, y2);
-        p5.stroke(35, 170, 255, 60);
-        myPattern(p5, x+10, y+10, x1, x2, y1, y2);
+        p5.stroke(249, 2, 80);
+        myPattern(p5, x, y, x1, x2, y1, y2, z);
+        p5.stroke(35, 170, 255);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
         p5.stroke(0);
-        myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+        myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       }
       // if (zoom >= 3) {
       //   for(let x=sm_min_x; x<sm_max_x; x+=sm_grid_size) {
@@ -205,7 +207,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // for(let x=min_x; x<max_x; x+=grid_size) {
       //   for(let y=min_y; y<max_y; y+=grid_size) {
       //     p5.stroke(0);
-      //     myPattern(p5, x+5, y+5, x1, x2, y1, y2);
+      //     myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       //   }
       // }
       // }
