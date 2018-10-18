@@ -93,28 +93,28 @@ function drawLine(level, p5, x1, x2, y1, y2,) {
   let y_pos = p5.map(512, y1, y2, 0, 256);
 
   p5.stroke(255);
-  p5.strokeWeight(10);
+  p5.strokeWeight(2);
   p5.line(x1_pos, y_pos, x2_pos, y_pos);
   // noStroke();
 
-/*
-  for (let i = 1; i < branches + 1; i++) {
-    push();
-    translate(200 * i / (branches + 1), 0);
-    scale(0.5, 0.5);
 
-    push();
-    rotate(angle);
-    drawLine(level + 1);
-    pop();
+  // for (let i = 1; i < branches + 1; i++) {
+  //   p5.push();
+  //   p5.translate(200 * i / (branches + 1), 0);
+  //   p5.scale(0.5, 0.5);
 
-    push();
-    rotate(-angle);
-    drawLine(level + 1);
-    pop(); 
-    pop(); 
-  }
-  */
+  //   p5.push();
+  //   p5.rotate(angle);
+  //    drawLine(level + 1, level + 1, x1_pos, y_pos, x2_pos, y_pos);
+  //   p5.pop();
+
+  //   p5.push();
+  //   p5.rotate(-angle);
+  //    drawLine(level + 1, x1_pos, y_pos, x2_pos, y_pos);
+  //   p5.pop(); 
+  //   p5.pop(); 
+  // }
+  
 }
 
 let angle = Math.PI * 2 * Math.random();
@@ -122,22 +122,11 @@ let level = 0;
 const maxLevel = 4;
 const branches = 2;
 
-/*
- * This is the funciton to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
-function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
-  let max_shift = max_thickness + max_movement;
 
-     // For animation: updated z based on global frame count 
+function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+ let max_shift = max_thickness + max_movement;
+
+     //For animation: updated z based on global frame count 
   // let dz = p5.globalFrameCount / 50.0;
   // z = z + dz;
 
@@ -182,7 +171,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if (zoom >= 10) {
         p5.fill(255);
         p5.noStroke();
-        // drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 4*line_width);        
       }
 
       p5.stroke(255);
@@ -191,12 +179,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
       if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
         if (zoom >= 5) drawLines = true;
         p5.fill(255);
         p5.stroke(255);
-        drawStamens(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+        drawStamens(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/6, line_width/2, drawLines);
+
+
       }
     }
   }
