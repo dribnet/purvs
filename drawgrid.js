@@ -10,6 +10,9 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
+const max_thickness = 320;
+const lineWidth = 15;
+const grid_size = 350;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -20,41 +23,61 @@ var tourPath = [
   [6, 512, 512]
 ]
 
-let ballx = 400
-let bally = 400
-let ballr = 300
+function spine(p5, x, y, x1, x2, y1, y2){
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
+  let x_pos = p5.map(x, x1, x2, 0, 256);
+  let y_pos = p5.map(y, y1, y2, 0, 256);
+  let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+  let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+
+  let arc00 = p5.map(0, x1, x2, 0, 256);
+  let arcX = p5.map(x, x1, x2, 0, 256);
+  let arcY = p5.map(y, y1, y2, 0, 256);
+  let arcX2 = p5.map(x+180, x1, x2, 0, 256);
+  let arcY2 = p5.map(y+170, y1, y2, 0, 256);
+  let arc_originX = p5.map(0, x1, x2, 0, 256);
+  let arcOffset = p5.map(200, x1, x2, 0, 256);
+  let arcR = arcOffset - arc_originX;
+
+  let arcStrokeW = p5.map(lineWidth, x1, x2, 0, 256);
+
+  let curArcStrW = arcStrokeW - arc00;
+  
+  p5.stroke(204, 91, 57);
+  p5.strokeWeight(curArcStrW);
+  p5.noFill();
+  p5.arc(arcX, arcY, arcR, arcR, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
+  p5.arc(arcX2, arcY2, arcR, arcR, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
+}
+
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // temporary variables used for object placement
-  let cx=0, cy=0, cx2=0, cy2=0;
+  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  let max_shift = max_thickness;
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
   p5.background(0);
   p5.rectMode(p5.CORNERS);
 
-  let local_ballx = p5.map(ballx, x1, x2, 0, 256);
-  let local_bally = p5.map(bally, y1, y2, 0, 256);
-  let local_ballx_edge = p5.map((ballx + ballr), x1, x2, 0, 256); // Work out where edge is by adding radius and center together
-  let local_ball_r = local_ballx_edge - local_ballx;
-  
-  for(i = 0; i < 10; i++){
-    let shade = 128 + 128 / (i+1);
-    let current_r = p5.map(i, 0, 9, local_ball_r, 0);
-    p5.fill(0, 0, shade);
-    p5.ellipse(local_ballx+(i*40), local_bally+(i*40), current_r);
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+      spine(p5, x, y, x1, x2, y1, y2);
+    }
   }
 
-  // Two ellipses with a radius of 50 units are then added.
-  /*cx = p5.map(512, x1, x2, 0, 256);
-  cy = p5.map(512, y1, y2, 0, 256);
-  cx2 = p5.map(512+100, x1, x2, 0, 256);
-  cy2 = p5.map(512+50, y1, y2, 0, 256);
-  p5.fill(255);
-  p5.ellipse(cx, cy, (cx2-cx));*/
 
   //debug - show border
   /*p5.noFill();
+  p5.strokeWeight(1);
   p5.stroke(255, 0, 0)
   p5.rect(0, 0, 255, 255);*/
 }
+
+
