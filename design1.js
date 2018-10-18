@@ -19,7 +19,7 @@ const frameMax = 360;
 let recording = false;
 let gifRecorder = null;
 //Camera Control Vars
-var zAxis = 900;
+var zAxis = 10000;
 var yAxis = 0;
 var xAxis = 0;
 var AxisModifier = 50;
@@ -56,7 +56,6 @@ function setup () {
   loadButton.parent('button1Container');
   //blank
   var loadButton = createButton("...");
-  loadButton.mousePressed();
   loadButton.parent('button2Container');
   //Move Up
   var loadButton = createButton("&#8593");
@@ -64,7 +63,6 @@ function setup () {
   loadButton.parent('button2Container');
   //blank
   var loadButton = createButton("...");
-  loadButton.mousePressed();
   loadButton.parent('button2Container');
   //Move Right
   var loadButton = createButton('&#8592');
@@ -114,7 +112,18 @@ function mousePressed() {
 
 function draw () {
   if(tourTrigger == false){curCameraFrame = curCameraFrame + 1;}    
-  if(tourTrigger == true){curCameraFrame = curCameraFrame + 0.1;}    
+  if(tourTrigger == true){
+    if(zAxisCamera <= 1800){
+      curCameraFrame = curCameraFrame + 0.05;
+      print(curCameraFrame);
+      print(zAxisCamera + ":>=");
+    }
+    if(zAxisCamera >= 1800){
+      curCameraFrame = curCameraFrame + 0.2;
+      print(curCameraFrame);
+      print(zAxisCamera + ":<=");
+    }
+  }
   if(curCameraFrame > maxCameraFrames) {
     xAxisCamera = xAxis;
     yAxisCamera = yAxis;
@@ -328,10 +337,11 @@ function draw () {
   if(zAxisCamera < 9900){
     resetLock = false;
   }
-  //if(zAxis <= 736){ zAxis = 736;}
+  //-------Debug Prints--------//
   //print(zAxis);
   //print(tourTrigger);
   //print(resetLock);
+  //print(StrokeColor);
     
 }
 function keyPressed(){
