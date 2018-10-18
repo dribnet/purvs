@@ -1,2 +1,2 @@
 ## PS4 MDDN 342 2018
-I have desided to intergate my idea and make a combination of flowers and snowflakes.I also fixed the tour 
+I have desided to intergate my idea and make a combination of flowers and snowflakes.I also fixed the tour. for now im cleaning up my code. I was able to add animation on the flowers. Im still trying to play around with the animation

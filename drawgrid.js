@@ -58,7 +58,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  // debug version: draw one
+  // draw one
   let half_x = (x1 + x2) / 2;
   let half_y = (y1 + y2) / 2;
   min_x = snap_to_grid(half_x, grid_size);
@@ -68,63 +68,56 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   
+  //important code
   // boxBlue = 50;
-  let freq = 10.0;
-  let sineWave2 = p5.sin(p5.globalFrameCount / freq);
-  let boxBlue = p5.map(sineWave2, -1, 1, 40, 50);
+  let freqBlue = 10.0;
+  let freqRed = 30.0;
+  let freqYellow = 20.0;
+  
+  let sineWaveBlue = p5.sin(p5.globalFrameCount / freqBlue);
+  let sineWaveRed = p5.sin(p5.globalFrameCount / freqRed);
+  let sineWaveYellow = p5.sin(p5.globalFrameCount / freqYellow);
+  
+  let growBlue = p5.map(sineWaveBlue, -1, 1, 40, 50);
+  let growRed = p5.map(sineWaveRed, -1, 1, 20, 60);
+  let growYellow = p5.map(sineWaveYellow, 1, -1, 30, 90);
 
-  let blue = p5.map(boxBlue, x1, x2, 0, 256);
+  let flower1 = p5.map(growBlue, x1, x2, 0, 256);
+  let flower2 = p5.map(growRed, x1, x2, 0, 256);
+  let flower3 = p5.map(growYellow, x1, x2, 0, 256);
 
-  let red = p5.map(boxRed, x1, x2, 0, 256);
-  let yellow = p5.map(boxYellow, x1, x2, 0, 256);
-  let brown = p5.map(boxBrown, x1, x2, 0, 256);
+  //flowers
+  let flowBlue = flower1 - c_p00 ;
+  let flowRed = flower2 - c_p00;
+  let flowYellow = flower3 - c_p00;
+ 
 
-  //perimiter
-  let perBlue = blue - c_p00;
-  let perRed = red - c_p00;
-  let perYellow = yellow - c_p00;
-  let perBrown= brown - c_p00;
-
-    //p5.background('#8B632A');
-  p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute the points to be drawn */
-      // let x_pos = p5.map(x, x1, x2, 0, 256);
-      // let y_pos = p5.map(y, y1, y2, 0, 256);
+  
 
-      // let x_posRed = p5.map(x+5, x1, x2, 0, 256);
-      // let y_posRed = p5.map(y+5, y1, y2, 0, 256);
-
-      // let x_posBrown = p5.map(x+10, x1, x2, 0, 256);
-      // let y_posBrown = p5.map(y+10, y1, y2, 0, 256);
-
-      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
-
-      /* now draw all elements from back to front */
-
-
+  /* now draw all elements from back to front */
+  
   p5.fill('#041370'); // blue
   p5.translate(128, 128);
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 8, perBlue*4, 10);
-    // p5.scale(s);
+    p5.ellipse(0, 10, flowBlue*4, 10);
     p5.rotate(p5.PI/5);
   }
 
     p5.fill('#EE4502'); // red
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 10, perBlue, 10);
+    p5.ellipse(0, 10, flowRed*2, 10);
     p5.rotate(p5.PI/5);
 }
 
     p5.fill('#FCDB85'); //yellow
   p5.noStroke();
   for (var i = 0; i < 10; i ++) {
-    p5.ellipse(0, 10, perBlue/2, 10);
+    p5.ellipse(0, 10, flowYellow/2, 10);
     p5.rotate(p5.PI/5);
 }
 }
