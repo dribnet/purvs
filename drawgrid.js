@@ -173,17 +173,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.stroke(0);
       myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       if (zoom >= 1) {
-        p5.stroke(249, 2, 80);
+        p5.stroke(255, 107, 141);
         myPattern(p5, x, y, x1, x2, y1, y2, z);
-        p5.stroke(35, 170, 255);
-        myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
-        p5.stroke(0);
-        myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
-      }
-      if (zoom >= 2) {
-        p5.stroke(249, 2, 80);
-        myPattern(p5, x, y, x1, x2, y1, y2, z);
-        p5.stroke(35, 170, 255);
+        p5.stroke(122, 204, 255);
         myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
         p5.stroke(0);
         myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
@@ -204,12 +196,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //       p5.pop();
       //     }
       //   }
-      // for(let x=min_x; x<max_x; x+=grid_size) {
-      //   for(let y=min_y; y<max_y; y+=grid_size) {
-      //     p5.stroke(0);
-      //     myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
+      //   for(let x=min_x; x<max_x; x+=grid_size) {
+      //     for(let y=min_y; y<max_y; y+=grid_size) {
+      //       p5.stroke(0);
+      //       myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
+      //     }
       //   }
-      // }
       // }
     }
   }
