@@ -10,16 +10,16 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
-const max_thickness = 320;
-const lineWidth = 10;
-const grid_size = 350;
+const max_thickness = 250;
+const lineWidth = 15;
+const grid_size = 250;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 347, 344],
-  [3, 432, 439]
+  [1, 578, 481],
+  [3, 347, 499]
 ]
 
 function spine(p5, x, y, x1, x2, y1, y2){
@@ -32,7 +32,7 @@ function spine(p5, x, y, x1, x2, y1, y2){
   let arc00 = p5.map(0, x1, x2, 0, 256);
   let arcX = p5.map(x, x1, x2, 0, 256);
   let arcY = p5.map(y, y1, y2, 0, 256);
-  let arcX2 = p5.map(x+180, x1, x2, 0, 256);
+  let arcX2 = p5.map(x+125, x1, x2, 0, 256);
   let arcY2 = p5.map(y+170, y1, y2, 0, 256);
   let arc_originX = p5.map(0, x1, x2, 0, 256);
   let arcOffset = p5.map(200, x1, x2, 0, 256);
@@ -73,7 +73,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
   //debug - show border
-  /*p5.noFill();
+/*  p5.noFill();
   p5.strokeWeight(1);
   p5.stroke(255, 0, 0)
   p5.rect(0, 0, 255, 255);*/
