@@ -20,7 +20,7 @@ var tourSeed = 301;
 var tourPath = [
   [2, 351.958984375000, 514.058593750000],
   [2, 1228.750000000000, 491.750000000000],
-  [2, 769.046875000000, 501.745117187500]
+  [1, 784.833007812500, 509.099609375000]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -40,7 +40,7 @@ let gridSize = 400;
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
    p5.background(254, 234, 229);
-  let max_shift = 100;
+  let max_shift = 140;
   let line_width = 10;
 
   /*--------------------- -------------------- */ 
@@ -63,11 +63,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let mapped_rad100 = rad100_pos2 - c_p00;  
 
 
+   //breathing effect
+  let grad_freq_One = 10.0;
+  let sineWave_One = p5.sin(p5.globalFrameCount / grad_freq_One);
+
+  let grow_One = p5.map (sineWave_One, -1, 1, 40, 50);
+
+  let circ_wave_One = p5.map(grow_One, x1, x2, 0, 256);
+  //growing circle
+  let circ_grow_One = circ_wave_One - c_p00;
+
   //circle bars outter
   for(let x=min_x; x<max_x; x+=gridSize) {
      let x_pos = p5.map(x, x1, x2, 0, 256);
-     let y1_pos = p5.map(612, y1, y2, 0, 256);
-   
+     let y1_pos = p5.map(612, y1, y2, 0, 256);   
      const thin_line_width = 8;
      let c_thin_line_width_pos2 = p5.map(thin_line_width, x1, x2, 0, 256);
      let mapped_thin_line_width = c_thin_line_width_pos2 - c_p00;
@@ -79,30 +88,37 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
      //circles map
      let circ_out_x_map = p5.map(circ_out_x, x1, x2, 0, 256);
      let circ_out_y_map = p5.map(circ_out_y, y1, y2, 0, 256);
-
      
-      p5.noFill();
-      p5.stroke(113, 103, 114);
-      p5.strokeWeight(mapped_thin_line_width);
-      let orbits = [12, 20, 28, 36];
-      for(i=0; i<orbits.length; i++) {
-        p5.ellipse(circ_out_x_map, circ_out_y_map, orbits[i]*mapped_rad100, orbits[i]*mapped_rad100);
-      }        
-    }
+     p5.noFill();
+     p5.stroke(113, 103, 114);
+     p5.strokeWeight(mapped_thin_line_width);
+     let orbits = [12, 20, 28, 36];
+     for(i=0; i<orbits.length; i++) {
+       p5.ellipse(circ_out_x_map, circ_out_y_map, orbits[i]*mapped_rad100, orbits[i]*mapped_rad100);
+     }        
+    }  
 
   //Y circles outter
   for(let y=min_y; y<max_y; y+=gridSize) {
     let y_pos = p5.map(y+10, y1, y2, 0, 256);
     let x1_pos = p5.map(512, x1, x2, 0, 256);
-
     let y_margin = 150;
     let y_center = 512;
+    //cutoff
+    let y_min = -1500;
+    let y_max = 2500;
 
     if(y < y_center - y_margin || y > y_center + y_margin) {
-      p5.fill(113, 103, 114);
-      p5.stroke(82, 81, 99);
-      p5.strokeWeight(cur_line_width);
-      p5.ellipse(x1_pos, y_pos, mapped_rad100, mapped_rad100);           
+      if(y < y_max & y > y_min) {
+        p5.fill(113, 103, 114);
+        p5.stroke(82, 81, 99);
+        p5.strokeWeight(cur_line_width);
+        p5.ellipse(x1_pos, y_pos, mapped_rad100, mapped_rad100);  
+         if(zoom > 0){
+          p5.fill(0, 255, 0);
+          p5.ellipse(x1_pos, y_pos, circ_grow_One);
+        }           
+      }
     }
   }
 
@@ -110,19 +126,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=gridSize) {
     let x_pos = p5.map(x-85, x1, x2, 0, 256);
     let y1_pos = p5.map(612, y1, y2, 0, 256);
-
-    const thin_line_width = 8;
-    let c_thin_line_width_pos2 = p5.map(thin_line_width, x1, x2, 0, 256);
-    let mapped_thin_line_width = c_thin_line_width_pos2 - c_p00;
-
     let x_margin = 400;
     let x_center = 512;
+    //cutoff
+    let x_min = -1500
+    let x_max = 2500
   
     if(x < x_center - x_margin || x > x_center + x_margin) {
-      p5.fill(113, 103, 114);
-      p5.stroke(82, 81, 99);
-      p5.strokeWeight(cur_line_width);
-      p5.ellipse(x_pos, y1_pos, mapped_rad100, mapped_rad100);  
+      if(x < x_max & x > x_min){
+        p5.fill(113, 103, 114);
+        p5.stroke(82, 81, 99);
+        p5.strokeWeight(cur_line_width);
+        p5.ellipse(x_pos, y1_pos, mapped_rad100, mapped_rad100);
+         if(zoom > 0){
+          p5.fill(0, 255, 0);
+          p5.ellipse(x_pos, y1_pos, circ_grow_One);
+        }  
+      }      
     }
   }
 
@@ -194,13 +214,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let x1ccc1 = p5.map(x1cc1, x1, x2, 0, 256);
   let y1ccc1 = p5.map(y1cc1, y1, y2, 0, 256);
 
+  //outline
   const thin_line_width = 8;
   let c_thin_line_width_pos2 = p5.map(thin_line_width, x1, x2, 0, 256);
-  let mapped_thin_line_width = c_thin_line_width_pos2 - c_p00;
-
-  // const rad100 = 100;
-  // let rad100_pos2 = p5.map(rad100, x1, x2, 0, 256);
-  // let mapped_rad100 = rad100_pos2 - c_p00;
+  let mapped_thin_line_width = c_thin_line_width_pos2 - c_p00; 
 
   //circle no fill
   p5.noFill();
@@ -209,11 +226,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.ellipse(x1ccc1, y1ccc1, 5*mapped_rad100, 5*mapped_rad100);
   p5.ellipse(x1ccc1, y1ccc1, 6*mapped_rad100, 6*mapped_rad100);
 
-
+  
   //circle body
   p5.noStroke();
   p5.fill(113, 103, 114);
   p5.ellipse(x1ccc1, y1ccc1, 4*mapped_rad100, 4*mapped_rad100);
+
+  if(zoom > 0){
+    p5.noFill();
+    p5.stroke(255, 255, 255);
+    p5.strokeWeight(5);
+    p5.ellipse(x1ccc1, y1ccc1, 2.5*mapped_rad100, 2.5*mapped_rad100);
+    p5.ellipse(x1ccc1, y1ccc1, 3.5*mapped_rad100, 3.5*mapped_rad100);
+  } 
+
+  p5.noStroke();
   p5.fill(254, 234, 229);
   p5.ellipse(x1ccc1, y1ccc1, 2*mapped_rad100, 2*mapped_rad100);
 
@@ -229,7 +256,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noStroke();
   p5.fill(254, 234, 229);
   p5.quad(x1c2, y1c2, x2c2, y2c2, x3c2, y3c2, x4c2, y4c2);
-
 
  
   for(let i=0; i<4; i++ ) {
@@ -249,7 +275,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.fill(113, 103, 114);  
     p5.ellipse(x_orbitc, y_orbitc, 30 - mapped_rad100, 30 - mapped_rad100);
 
-  }    
+  }   
+
+  
+  
+ 
 
 
   // p5.stroke(0, 255, 0);
