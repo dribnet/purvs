@@ -107,7 +107,7 @@ function tree (p5, x1, x2, y1, y2, z, zoom){
 	p5.strokeWeight(0);
 	//p5.ellipse(rect1x, rect1y, (radiusRect1-rect1x));
 p5.fill(34, 99, 36);
-p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/5);
+//p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/5);
  p5.fill(38, 109, 40);
  p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/5);
  p5.fill(58, 153, 61);
@@ -125,6 +125,21 @@ p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
  if(zoom > 2){
 p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
+
+
+p5.fill(3, 99, 36);
+p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/10);
+ p5.fill(38, 109, 40);
+ p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/5);
+ p5.fill(58, 153, 61);
+p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/5);
+ p5.fill(49, 137, 52);
+ p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/5);
+p5.fill(63, 175, 66);
+p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
+
+
+
 }
 
 

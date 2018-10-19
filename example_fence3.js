@@ -69,6 +69,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
+
+
   p5.background(255);
   p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
@@ -175,10 +177,50 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
  if(zoom > 2){
 p5.fill(220);
 p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
+
+
+
+}
+
+if (zoom > 3){
+ 
+
+
+
+
+ p5.fill(53, 132, 55);
+p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/7);
+ p5.fill(59, 137, 61);
+ p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/7);
+ p5.fill(78, 173, 81);
+p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/7);
+ p5.fill(68, 155, 71);
+ p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/7);
+p5.fill(84, 188, 87);
+p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/7);
+
+
+
+
+}
+
+if (zoom > 4){
+   p5.fill(240);
+p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
+p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/20);
+p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/20);
+ p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/20);
+ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/20);
 }
 
 p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
+
+if (zoom > 3){
+
+  p5.fill(114, 75, 49);
+  p5.rect(basex, basey, (radiusbase-basex)/8,(radiusbase-basex)/5);
+}
 
 
 
