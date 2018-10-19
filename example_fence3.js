@@ -19,9 +19,7 @@ var tourPath = [
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
-function snap_to_grid(num, gsize) {
-  return (num - (num % gsize));
-}
+
 
 /* this function returns a point offset by noise at that location */
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -33,7 +31,9 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
   return [x+offsetX, y+offsetY]
 }
-
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -88,7 +88,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_down = p5.map(shift_point_down[0], x1, x2, 0, 256);
       let y_pos_down = p5.map(shift_point_down[1], y1, y2, 0, 256);
 
-       tree(p5, x, y, x1, x2, y1, y2, z, zoom);
+       tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
 
       /* now draw all elements from back to front */
