@@ -58,7 +58,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
 
  // ZOOM LEVEL 1
- if (zoom >=0) {
+ if (zoom >=2 && zoom <=4) {
              //Red Diamond 1 Super Large
 
   let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -86,7 +86,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       p5.endShape();
  
       }
-      if (zoom >=0) {
+      if (zoom >=1 && zoom <=3) {
              //Red Diamond 1 Larger
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -115,7 +115,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       }
           
 
-        if (zoom >=1) {
+        if (zoom <=2) {
              //Red Diamond 1 Large Kite
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -143,7 +143,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
         
-        if (zoom >=2) {
+        if (zoom <=2) {
              //Red Diamond 2 Medium Kite
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -256,7 +256,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
         
 // BLUE DIAMONDS
-  if (zoom >=0) {
+  if (zoom >=2 && zoom <=4) {
              //Blue Diamond 1 Super Large
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -283,7 +283,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
 
- if (zoom >=0) {
+ if (zoom >=1 && zoom <=3){
   let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
              //Blue Diamond 1 Larger
@@ -315,7 +315,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
 
 
-if (zoom >=1) {
+if (zoom <=2) {
   let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
            //Blue Diamond 1 Large Kite
@@ -342,7 +342,7 @@ if (zoom >=1) {
 }
      
 
-     if (zoom >=2) {
+     if (zoom <=2) {
              //Blue Diamond 2 Small Kite
              let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
