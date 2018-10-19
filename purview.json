@@ -1,12 +1,8 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000006",
+      "sha": "fd10cb2c7f0a88b8df09e9d973abc1490174394a",
       "name": "final_version"
-    },
-        {
-      "sha": "0000000000000000000000000000000000000005",
-      "name": "iteration 6"
     },
     {
       "sha": "e5f1fc9bfedbdfafa44d36b594c4b20254d92fca",
