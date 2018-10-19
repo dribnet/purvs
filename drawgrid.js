@@ -60,8 +60,8 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  // ZOOM LEVEL 1
           
 
-        if (zoom <=2) {
-             //Red Diamond 1
+        if (zoom >=0) {
+             //Red Diamond 1 Large Kite
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y+100, y1, y2, 0, 256);
 
@@ -87,8 +87,8 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
         
-        if (zoom <=2) {
-             //Red Diamond 2
+        if (zoom >=0) {
+             //Red Diamond 2 Medium Kite
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y+60, y1, y2, 0, 256);
 
@@ -114,8 +114,8 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
 
-      if (zoom >=0) {
-             //Red Diamond 3
+      if (zoom >=1) {
+             //Red Diamond 3 Perfect Diamond
       let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
       let quad_1y = p5.map(y+60, y1, y2, 0, 256);
 
@@ -140,7 +140,32 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       p5.endShape();
  
       }
-        
+        if (zoom >=2) {
+             //Red Diamond Larger Perfect Diamond
+      let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
+      let quad_1y = p5.map(y+100, y1, y2, 0, 256);
+
+      let quad_2x = p5.map(x+ 63, x1, x2, 0, 256);
+      let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
+
+      let quad_3x = p5.map(x+125, x1, x2, 0, 256);
+      let quad_3y = p5.map(y-100, y1, y2, 0, 256); 
+
+      let quad_4x = p5.map(x + 187, x1, x2, 0, 256);
+      let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
+
+      p5.stroke(253, 50, 57, 150);
+      p5.strokeWeight(3);
+      p5.noStroke();
+      p5.fill(253, 80, 87,100);
+      p5.beginShape();
+          p5.vertex(quad_1x, quad_1y);
+          p5.vertex(quad_2x, quad_2y);
+          p5.vertex(quad_3x, quad_3y);
+          p5.vertex(quad_4x, quad_4y);
+      p5.endShape();
+ 
+      }
 
         
 // BLUE DIAMONDS
@@ -148,8 +173,8 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
 
 
-if (zoom <=2) {
-           //Blue Diamond 1
+if (zoom >=0) {
+           //Blue Diamond 1 Large Kite
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y-100, y1, y2, 0, 256);
 
@@ -176,8 +201,8 @@ if (zoom <=2) {
 }
      
 
-     if (zoom <=2) {
-             //Blue Diamond 2
+     if (zoom >=0) {
+             //Blue Diamond 2 Small Kite
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y-60, y1, y2, 0, 256);
 
@@ -204,8 +229,8 @@ if (zoom <=2) {
       } 
 
 
-      if (zoom >=0) {
-             //Blue Diamond 3
+      if (zoom >=1) {
+             //Blue Diamond 3 Perfect Smaller
       let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
       let quad_1y = p5.map(y+40, y1, y2, 0, 256);
 
@@ -240,7 +265,7 @@ if (zoom <=2) {
       // ZOOM LEVEL 2
    
          if (zoom >=2) {
-             //Red Diamond 4
+             //Red Diamond 4 In Center of Kites
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y+40, y1, y2, 0, 256);
 
@@ -266,74 +291,18 @@ if (zoom <=2) {
  
       }
 
-
       if (zoom >=2) {
-             //Blue Diamond 4
-      let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      let quad_1y = p5.map(y+60, y1, y2, 0, 256);
+             //Blue Diamond 4 In Center of Kites
+      let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
+      let quad_1y = p5.map(y+20, y1, y2, 0, 256);
 
-      let quad_2x = p5.map(x+ 85, x1, x2, 0, 256);
-      let quad_2y = p5.map(y-100, y1, y2, 0, 256); 
-
-      let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      let quad_3y = p5.map(y-125, y1, y2, 0, 256); 
-
-      let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
-      let quad_4y = p5.map(y-100, y1, y2, 0, 256); 
-
-      p5.stroke(253, 50, 57, 150);
-      p5.strokeWeight(3);
-      p5.noStroke();
-      p5.fill(87, 80, 253,100);
-      p5.beginShape();
-          p5.vertex(quad_1x, quad_1y);
-          p5.vertex(quad_2x, quad_2y);
-          p5.vertex(quad_3x, quad_3y);
-          p5.vertex(quad_4x, quad_4y);
-      p5.endShape();
- 
-      }
-if (zoom >=2) {
-             //Red Diamond 5
-      let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      let quad_1y = p5.map(y-60, y1, y2, 0, 256);
-
-      let quad_2x = p5.map(x+ 85, x1, x2, 0, 256);
-      let quad_2y = p5.map(y+100, y1, y2, 0, 256); 
-
-      let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      let quad_3y = p5.map(y+125, y1, y2, 0, 256); 
-
-      let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
-      let quad_4y = p5.map(y+100, y1, y2, 0, 256); 
-
-      p5.stroke(253, 50, 57, 150);
-      p5.strokeWeight(3);
-      p5.noStroke();
-      p5.fill(253, 80, 87,100);
-      p5.beginShape();
-          p5.vertex(quad_1x, quad_1y);
-          p5.vertex(quad_2x, quad_2y);
-          p5.vertex(quad_3x, quad_3y);
-          p5.vertex(quad_4x, quad_4y);
-      p5.endShape();
- 
-      }
-
-
- // ZOOM LEVEL 3
-    if (zoom >=3) {
-             //Blue Diamond 3
-      let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      let quad_1y = p5.map(y+40, y1, y2, 0, 256);
-
-      let quad_2x = p5.map(x+115, x1, x2, 0, 256);
+      let quad_2x = p5.map(x- 15, x1, x2, 0, 256);
       let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
 
-      let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      let quad_3y = p5.map(y-40, y1, y2, 0, 256); 
+      let quad_3x = p5.map(x+0, x1, x2, 0, 256);
+      let quad_3y = p5.map(y-20, y1, y2, 0, 256); 
 
-      let quad_4x = p5.map(x + 135, x1, x2, 0, 256);
+      let quad_4x = p5.map(x + 15, x1, x2, 0, 256);
       let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
 
       p5.stroke(253, 50, 57, 150);
@@ -347,7 +316,92 @@ if (zoom >=2) {
           p5.vertex(quad_4x, quad_4y);
       p5.endShape();
  
-      } 
+      }
+
+
+      // if (zoom >=2) {
+      //        //Blue Diamond 4 Kite Connector
+      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
+      // let quad_1y = p5.map(y-60, y1, y2, 0, 256);
+
+      // let quad_2x = p5.map(x+ 85, x1, x2, 0, 256);
+      // let quad_2y = p5.map(y-100, y1, y2, 0, 256); 
+
+      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
+      // let quad_3y = p5.map(y-125, y1, y2, 0, 256); 
+
+      // let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
+      // let quad_4y = p5.map(y-100, y1, y2, 0, 256); 
+
+      // p5.stroke(253, 50, 57, 150);
+      // p5.strokeWeight(3);
+      // p5.noStroke();
+      // p5.fill(87, 80, 253,100);
+      // p5.beginShape();
+      //     p5.vertex(quad_1x, quad_1y);
+      //     p5.vertex(quad_2x, quad_2y);
+      //     p5.vertex(quad_3x, quad_3y);
+      //     p5.vertex(quad_4x, quad_4y);
+      // p5.endShape();
+ 
+      // }
+
+
+// if (zoom >=2) {
+//              //Red Diamond 5 Kite Connector
+//       let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
+//       let quad_1y = p5.map(y+100, y1, y2, 0, 256);
+
+//       let quad_2x = p5.map(x+ 93, x1, x2, 0, 256);
+//       let quad_2y = p5.map(y+125, y1, y2, 0, 256); 
+
+//       let quad_3x = p5.map(x+125, x1, x2, 0, 256);
+//       let quad_3y = p5.map(y+150, y1, y2, 0, 256); 
+
+//       let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
+//       let quad_4y = p5.map(y+100, y1, y2, 0, 256); 
+
+//       p5.stroke(253, 50, 57, 150);
+//       p5.strokeWeight(3);
+//       p5.noStroke();
+//       p5.fill(253, 80, 87,100);
+//       p5.beginShape();
+//           p5.vertex(quad_1x, quad_1y);
+//           p5.vertex(quad_2x, quad_2y);
+//           p5.vertex(quad_3x, quad_3y);
+//           p5.vertex(quad_4x, quad_4y);
+//       p5.endShape();
+ 
+//       }
+
+
+ // ZOOM LEVEL 3
+    // if (zoom >=3) {
+    //          //Blue Diamond 3 Skinny Diamond
+    //   let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
+    //   let quad_1y = p5.map(y+40, y1, y2, 0, 256);
+
+    //   let quad_2x = p5.map(x+115, x1, x2, 0, 256);
+    //   let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
+
+    //   let quad_3x = p5.map(x+125, x1, x2, 0, 256);
+    //   let quad_3y = p5.map(y-40, y1, y2, 0, 256); 
+
+    //   let quad_4x = p5.map(x + 135, x1, x2, 0, 256);
+    //   let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
+
+    //   p5.stroke(253, 50, 57, 150);
+    //   p5.strokeWeight(3);
+    //   p5.noStroke();
+    //   p5.fill(87, 80, 253,100);
+    //   p5.beginShape();
+    //       p5.vertex(quad_1x, quad_1y);
+    //       p5.vertex(quad_2x, quad_2y);
+    //       p5.vertex(quad_3x, quad_3y);
+    //       p5.vertex(quad_4x, quad_4y);
+    //   p5.endShape();
+ 
+    //   } 
 
 
 
