@@ -1,14 +1,4 @@
-/*
- * This is the function to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
+
 let do_animation = true;
 const max_thickness = 700;
 const grid_size = 250;
@@ -32,8 +22,6 @@ var tourPath = [
 ]
 
 
-
-
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     
     let dz = p5.globalFrameCount / 100.0;
@@ -55,12 +43,12 @@ for(let x=min_x; x<max_x; x+=grid_size) {
         
       p5.noStroke();
 
- //RED DIAMONDS
+ //TOP DIAMONDS
 
 
- // ZOOM LEVEL 1
+
  if (zoom >=2) {
-             //Red Diamond 1 Super Large
+   //Top Diamond 1 Super Large
 
   let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
@@ -88,9 +76,9 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
       if (zoom >=1 && zoom <=3) {
-             //Red Diamond 1 Larger
+      //Top Diamond 1 Larger
 
-             let sineWave = p5.sin(p5.globalFrameCount/8);
+  let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
 
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
@@ -117,9 +105,9 @@ for(let x=min_x; x<max_x; x+=grid_size) {
           
 
         if (zoom <=2) {
-             //Red Diamond 1 Large Kite
+        //Top Diamond 1 Large Kite
 
-             let sineWave = p5.sin(p5.globalFrameCount/8);
+  let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
 
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
@@ -145,7 +133,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       }
         
         if (zoom <=2) {
-             //Red Diamond 2 Medium Kite
+             //Top Diamond 2 Medium Kite
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
@@ -170,95 +158,12 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       p5.endShape();
  
       }
-
-      
-
-      // if (zoom <=0) {
-      //        //Red Diamond 3 Perfect Diamond
-      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+60, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x+ 85, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-60, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(253, 80, 87,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
   
 
-      //          if (zoom >=2) {
-      //        //Red Diamond 4 In Center of Kites
-      // let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+40, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x- 25, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+0, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-40, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 25, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(253, 80, 87,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
-      //        if (zoom >=3) {
-      //        //RED Diamond Larger Perfect Diamond
-      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+120, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x+ 40, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-120, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 210, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(253, 80, 87,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
-
-
         
-// BLUE DIAMONDS
+// BOTTOM DIAMONDS
   if (zoom >=2) {
-             //Blue Diamond 1 Super Large
+             //Bottom Diamond 1 Super Large
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
@@ -287,7 +192,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  if (zoom >=1 && zoom <=3){
   let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
-             //Blue Diamond 1 Larger
+             //Bottom Diamond 1 Larger
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y-140 + pulse, y1, y2, 0, 256);
 
@@ -312,14 +217,11 @@ for(let x=min_x; x<max_x; x+=grid_size) {
  
       }
 
-     
-
-
 
 if (zoom <=2) {
   let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
-           //Blue Diamond 1 Large Kite
+           //Bottom Diamond 1 Large Kite
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
       let quad_1y = p5.map(y-100 + pulse, y1, y2, 0, 256);
 
@@ -344,7 +246,7 @@ if (zoom <=2) {
      
 
      if (zoom <=2) {
-             //Blue Diamond 2 Small Kite
+             //Bottom Diamond 2 Small Kite
              let sineWave = p5.sin(p5.globalFrameCount/8);
   let pulse = p5.map(sineWave, -1, 1, 0, 250);
       let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
@@ -370,192 +272,9 @@ if (zoom <=2) {
       } 
      
 
-
-      // if (zoom <=0) {
-      //        //Blue Diamond 3 Perfect Smaller
-      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+40, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x+ 95, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-40, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 155, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(87, 80, 253,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // } 
-
-
-
-      // if (zoom >=2) {
-      //        //Blue Diamond 4 In Center of Kites
-      // let quad_1x = p5.map(x+ 0, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+20, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x- 15, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+0, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-20, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 15, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(87, 80, 253,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
-      //       if (zoom >=2) {
-      //        //Blue Diamond Larger Perfect Diamond
-      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y+90, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x+ 70, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-90, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 180, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(87, 80, 253,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
-
-
-      // if (zoom >=2) {
-      //        //Blue Diamond 4 Kite Connector
-      // let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-      // let quad_1y = p5.map(y-60, y1, y2, 0, 256);
-
-      // let quad_2x = p5.map(x+ 85, x1, x2, 0, 256);
-      // let quad_2y = p5.map(y-100, y1, y2, 0, 256); 
-
-      // let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-      // let quad_3y = p5.map(y-125, y1, y2, 0, 256); 
-
-      // let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
-      // let quad_4y = p5.map(y-100, y1, y2, 0, 256); 
-
-      // p5.stroke(253, 50, 57, 150);
-      // p5.strokeWeight(3);
-      // p5.noStroke();
-      // p5.fill(87, 80, 253,100);
-      // p5.beginShape();
-      //     p5.vertex(quad_1x, quad_1y);
-      //     p5.vertex(quad_2x, quad_2y);
-      //     p5.vertex(quad_3x, quad_3y);
-      //     p5.vertex(quad_4x, quad_4y);
-      // p5.endShape();
- 
-      // }
-
-
-// if (zoom >=2) {
-//              //Red Diamond 5 Kite Connector
-//       let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-//       let quad_1y = p5.map(y+100, y1, y2, 0, 256);
-
-//       let quad_2x = p5.map(x+ 93, x1, x2, 0, 256);
-//       let quad_2y = p5.map(y+125, y1, y2, 0, 256); 
-
-//       let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-//       let quad_3y = p5.map(y+150, y1, y2, 0, 256); 
-
-//       let quad_4x = p5.map(x + 165, x1, x2, 0, 256);
-//       let quad_4y = p5.map(y+100, y1, y2, 0, 256); 
-
-//       p5.stroke(253, 50, 57, 150);
-//       p5.strokeWeight(3);
-//       p5.noStroke();
-//       p5.fill(253, 80, 87,100);
-//       p5.beginShape();
-//           p5.vertex(quad_1x, quad_1y);
-//           p5.vertex(quad_2x, quad_2y);
-//           p5.vertex(quad_3x, quad_3y);
-//           p5.vertex(quad_4x, quad_4y);
-//       p5.endShape();
- 
-//       }
-
-
- // ZOOM LEVEL 3
-    // if (zoom >=3) {
-    //          //Blue Diamond 3 Skinny Diamond
-    //   let quad_1x = p5.map(x+ 125, x1, x2, 0, 256);
-    //   let quad_1y = p5.map(y+40, y1, y2, 0, 256);
-
-    //   let quad_2x = p5.map(x+115, x1, x2, 0, 256);
-    //   let quad_2y = p5.map(y+0, y1, y2, 0, 256); 
-
-    //   let quad_3x = p5.map(x+125, x1, x2, 0, 256);
-    //   let quad_3y = p5.map(y-40, y1, y2, 0, 256); 
-
-    //   let quad_4x = p5.map(x + 135, x1, x2, 0, 256);
-    //   let quad_4y = p5.map(y+0, y1, y2, 0, 256); 
-
-    //   p5.stroke(253, 50, 57, 150);
-    //   p5.strokeWeight(3);
-    //   p5.noStroke();
-    //   p5.fill(87, 80, 253,100);
-    //   p5.beginShape();
-    //       p5.vertex(quad_1x, quad_1y);
-    //       p5.vertex(quad_2x, quad_2y);
-    //       p5.vertex(quad_3x, quad_3y);
-    //       p5.vertex(quad_4x, quad_4y);
-    //   p5.endShape();
- 
-    //   } 
-
-
-
     }
 
 
-
 }
-    
-    
-    
- 
-    
-    
-    //SHOW RED LINE GRID
-//   p5.noFill();
-//   p5.stroke(255, 100, 100)
-//   p5.rect(0, 0, 255, 255);
-    
-    
 
 }
