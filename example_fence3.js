@@ -126,54 +126,62 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
 
-// top rec 512
+// bottom rec 512
   let rect1x = p5.map(x, x1, x2, 0, 256);
   let rect1y = p5.map(y, y1, y2, 0, 256);
   let radiusRect1 = p5.map(x+10, x1, x2, 0, 256);
 
-//
+// seccond rect 
   let rect2x = p5.map(x+0.8, x1, x2, 0, 256);
   let rect2y = p5.map(y-2, y1, y2, 0, 256);
   let radiusRect2 = p5.map(x+10.8, x1, x2, 0, 256);
-
+//third rect
   let rect3x = p5.map(x+1.4, x1, x2, 0, 256);
   let rect3y = p5.map(y-4, y1, y2, 0, 256);
   let radiusRect3 = p5.map(x+11.4, x1, x2, 0, 256);
-
+//fourth rect
   let rect4x = p5.map(x+2.1, x1, x2, 0, 256);
   let rect4y = p5.map(y-6, y1, y2, 0, 256);
   let radiusRect4 = p5.map(x+12.1, x1, x2, 0, 256);
-
+//fifth rect 
   let rect5x = p5.map(x+2.9, x1, x2, 0, 256);
   let rect5y = p5.map(y-8, y1, y2, 0, 256);
   let radiusRect5 = p5.map(x+12.9, x1, x2, 0, 256);
-
+//base of tree
   let basex = p5.map(x+2.9, x1, x2, 0, 256);
   let basey = p5.map(y+2, y1, y2, 0, 256);
   let radiusbase = p5.map(x+12.9, x1, x2, 0, 256);
-
+//snow hole thing
   let base2x = p5.map(x+4.9, x1, x2, 0, 256);
   let base2y = p5.map(y+4, y1, y2, 0, 256);
   let radiusbase2 = p5.map(x+14.9, x1, x2, 0, 256);
 
 
 
-
-
   
 
   p5.strokeWeight(0);
-  //p5.ellipse(rect1x, rect1y, (radiusRect1-rect1x));
+ // furst rec 512
 p5.fill(34, 99, 36);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/5);
+
+// seccond rect
  p5.fill(38, 109, 40);
  p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/5);
+
+ //third rect
  p5.fill(58, 153, 61);
 p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/5);
+
+//fourth rect
  p5.fill(49, 137, 52);
  p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/5);
+
+ //fifth rect 
 p5.fill(63, 175, 66);
 p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
+
+//zoom 2 introduces snow base around the botto of tree 
  if(zoom > 2){
 p5.fill(220);
 p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
@@ -181,12 +189,9 @@ p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
 
 
 }
-
-if (zoom > 3){
  
-
-
-
+ //zoom 3 introduces smaller details and shades on the tree
+if (zoom > 3){
 
  p5.fill(53, 132, 55);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/7);
@@ -204,6 +209,7 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/7);
 
 }
 
+//zoom 4 introduces snowcaps to the top of trees
 if (zoom > 4){
    p5.fill(240);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
@@ -216,10 +222,93 @@ p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/20);
 p5.fill(99, 60, 34);
 p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
 
+
+//places the brown stem of the tree back ontop of the snow circle well thing. Also adds some more rendering detail
 if (zoom > 3){
 
   p5.fill(114, 75, 49);
   p5.rect(basex, basey, (radiusbase-basex)/8,(radiusbase-basex)/5);
+}
+
+if (zoom > 4){
+
+
+//light 1
+  let light1x = p5.map(x+2.9, x1, x2, 0, 256);
+  let light1y = p5.map(y-8, y1, y2, 0, 256);
+  let radiuslight1 = p5.map(x+12.9, x1, x2, 0, 256);
+
+  p5.fill(255,0,0);
+  p5.rect(light1x, light1y, (radiuslight1-light1x)/20,(radiuslight1-light1x)/20);
+
+
+  //2
+   let light3x = p5.map(x+5.6, x1, x2, 0, 256);
+  let light3y = p5.map(y-6.3, y1, y2, 0, 256);
+  let radiuslight3 = p5.map(x+15.6, x1, x2, 0, 256);
+  p5.rect(light3x, light3y, (radiuslight3-light3x)/20,(radiuslight3-light3x)/20);
+
+  //3
+   let light4x = p5.map(x+4, x1, x2, 0, 256);
+  let light4y = p5.map(y-7, y1, y2, 0, 256);
+  let radiuslight4 = p5.map(x+14, x1, x2, 0, 256);
+  p5.rect(light4x, light4y, (radiuslight4-light4x)/20,(radiuslight4-light4x)/20);
+
+//light 4
+  let light2x = p5.map(x+7.2, x1, x2, 0, 256);
+  let light2y = p5.map(y-6, y1, y2, 0, 256);
+  let radiuslight2 = p5.map(x+17.2, x1, x2, 0, 256);
+  p5.rect(light2x, light2y, (radiuslight2-light2x)/20,(radiuslight2-light2x)/20);
+
+//5
+   let light5x = p5.map(x+6, x1, x2, 0, 256);
+  let light5y = p5.map(y-5, y1, y2, 0, 256);
+  let radiuslight5 = p5.map(x+16, x1, x2, 0, 256);
+  p5.rect(light5x, light5y, (radiuslight5-light5x)/20,(radiuslight5 - light5x)/20);
+
+  //6
+   let light6x = p5.map(x+4.5, x1, x2, 0, 256);
+  let light6y = p5.map(y-4.5, y1, y2, 0, 256);
+  let radiuslight6 = p5.map(x+14.5, x1, x2, 0, 256);
+  p5.rect(light6x, light6y, (radiuslight6-light6x)/20,(radiuslight6 - light6x)/20);
+
+    //7
+   let light7x = p5.map(x+3, x1, x2, 0, 256);
+  let light7y = p5.map(y-4.2, y1, y2, 0, 256);
+  let radiuslight7 = p5.map(x+13, x1, x2, 0, 256);
+  p5.rect(light7x, light7y, (radiuslight7-light7x)/20,(radiuslight7 - light7x)/20);
+
+  //8
+  let light8x = p5.map(x+1.4, x1, x2, 0, 256);
+  let light8y = p5.map(y-4, y1, y2, 0, 256);
+  let radiuslight8 = p5.map(x+11.4, x1, x2, 0, 256);
+  p5.rect(light8x, light8y, (radiuslight8-light8x)/20,(radiuslight8-light8x)/20);
+
+      //9
+   let light9x = p5.map(x+2.6, x1, x2, 0, 256);
+  let light9y = p5.map(y-3.2, y1, y2, 0, 256);
+  let radiuslight9 = p5.map(x+12.6, x1, x2, 0, 256);
+  p5.rect(light9x, light9y, (radiuslight9-light9x)/20,(radiuslight9 - light9x)/20);
+
+
+     //10
+   let light10x = p5.map(x+4.5, x1, x2, 0, 256);
+  let light10y = p5.map(y-2.6, y1, y2, 0, 256);
+  let radiuslight10 = p5.map(x+14.5, x1, x2, 0, 256);
+  p5.rect(light10x, light10y, (radiuslight10-light10x)/20,(radiuslight10 - light10x)/20);
+
+       //11
+   let light11x = p5.map(x+6.5, x1, x2, 0, 256);
+  let light11y = p5.map(y-2.2, y1, y2, 0, 256);
+  let radiuslight11 = p5.map(x+16.5, x1, x2, 0, 256);
+  p5.rect(light11x, light11y, (radiuslight11-light11x)/20,(radiuslight11 - light11x)/20);
+
+        //12
+   let light12x = p5.map(x+8.6, x1, x2, 0, 256);
+  let light12y = p5.map(y-2, y1, y2, 0, 256);
+  let radiuslight12 = p5.map(x+18.6, x1, x2, 0, 256);
+  p5.rect(light12x, light12y, (radiuslight12-light12x)/20,(radiuslight12 - light12x)/20);
+	
 }
 
 
