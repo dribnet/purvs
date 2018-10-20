@@ -13,8 +13,8 @@ const max_thickness = 200;
 const grid_size = 250;
 const line_width = 12;
 
-const sm_grid_size = 4;
-const sm_max_thickness = 150;
+const sm_grid_size = 5;
+const sm_max_thickness = 100;
 
 let do_animation = true;
 
@@ -22,9 +22,11 @@ let do_animation = true;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [2, 420, 400],
-  [4, 420, 400]
+  [1, 512, 512],
+  [2, 535, 539],
+  [3, 430, 535],
+  [3, 404, 625],
+  [4, 435, 437]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -154,55 +156,62 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.noFill();
   p5.strokeWeight(cur_line_width);
 
-  let max_shift = max_thickness;
-  /* this rectangle defines the region that will be drawn and includes a margin */
-  let min_x = snap_to_grid(x1 - max_shift, grid_size);
-  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
-  let min_y = snap_to_grid(y1 - max_shift, grid_size);
-  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
-
   let sm_max_shift = sm_max_thickness;
-  /* this rectangle defines the region that will be drawn and includes a margin */
   let sm_min_x = snap_to_grid(x1 - sm_max_shift, sm_grid_size);
   let sm_max_x = snap_to_grid(x2 + sm_max_shift + sm_grid_size, sm_grid_size);
   let sm_min_y = snap_to_grid(y1 - sm_max_shift, sm_grid_size);
   let sm_max_y = snap_to_grid(y2 + sm_max_shift + sm_grid_size, sm_grid_size);
 
+  for(let x=sm_min_x; x<sm_max_x; x+=sm_grid_size) {
+    for(let y=sm_min_y; y<sm_max_y; y+=sm_grid_size) {
+      if (zoom >= 4) {
+        let mini_circle_x = p5.map(x, x1, x2, 0, 256);
+        let mini_circle_y = p5.map(y, y1, y2, 0, 256);
+        let mini_circle_origin_x = p5.map(0, x1, x2, 0, 256);
+        let mini_circle_offset = p5.map(2, x1, x2, 0, 256);
+        let mini_circle_radius = mini_circle_offset - mini_circle_origin_x;
+        p5.push();
+        p5.noStroke();
+        p5.fill(0);
+        p5.ellipse(mini_circle_x, mini_circle_y, mini_circle_radius, mini_circle_radius);
+        p5.pop();
+        p5.push();
+        p5.noStroke();
+        p5.fill(255);
+        p5.ellipse(mini_circle_x+6, mini_circle_y-6, mini_circle_radius, mini_circle_radius);
+        p5.pop();
+      }
+    }
+  }
+
+  let max_shift = max_thickness;
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-      p5.stroke(0);
-      myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       if (zoom >= 1) {
+        p5.stroke(255, 224, 231);
+        myPattern(p5, x, y, x1, x2, y1, y2, z);
+        p5.stroke(232, 246, 255);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
+      }
+      if (zoom >= 2) {
+        p5.stroke(255, 181, 198);
+        myPattern(p5, x, y, x1, x2, y1, y2, z);
+        p5.stroke(193, 231, 255);
+        myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
+      }
+      if (zoom >= 3) {
         p5.stroke(255, 107, 141);
         myPattern(p5, x, y, x1, x2, y1, y2, z);
         p5.stroke(122, 204, 255);
         myPattern(p5, x+10, y+10, x1, x2, y1, y2, z);
-        p5.stroke(0);
-        myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
       }
-      // if (zoom >= 3) {
-      //   for(let x=sm_min_x; x<sm_max_x; x+=sm_grid_size) {
-      //     for(let y=sm_min_y; y<sm_max_y; y+=sm_grid_size) {
-      //       let mini_circle_x = p5.map(x, x1, x2, 0, 256);
-      //       let mini_circle_y = p5.map(y, y1, y2, 0, 256);
-      //       let mini_circle_origin_x = p5.map(0, x1, x2, 0, 256);
-      //       let mini_circle_offset = p5.map(2, x1, x2, 0, 256);
-      //       let mini_circle_radius = mini_circle_offset - mini_circle_origin_x;
-      //       p5.push();
-      //       p5.noStroke();
-      //       //p5.strokeWeight(cur_line_width/60);
-      //       p5.fill(255);
-      //       p5.ellipse(mini_circle_x, mini_circle_y, mini_circle_radius, mini_circle_radius);
-      //       p5.pop();
-      //     }
-      //   }
-      //   for(let x=min_x; x<max_x; x+=grid_size) {
-      //     for(let y=min_y; y<max_y; y+=grid_size) {
-      //       p5.stroke(0);
-      //       myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
-      //     }
-      //   }
-      // }
+      p5.stroke(0);
+      myPattern(p5, x+5, y+5, x1, x2, y1, y2, z);
     }
   }
 
