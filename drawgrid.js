@@ -58,7 +58,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
 
  // ZOOM LEVEL 1
- if (zoom >=2 && zoom <=4) {
+ if (zoom >=2) {
              //Red Diamond 1 Super Large
 
   let sineWave = p5.sin(p5.globalFrameCount/8);
@@ -256,7 +256,7 @@ for(let x=min_x; x<max_x; x+=grid_size) {
 
         
 // BLUE DIAMONDS
-  if (zoom >=2 && zoom <=4) {
+  if (zoom >=2) {
              //Blue Diamond 1 Super Large
 
              let sineWave = p5.sin(p5.globalFrameCount/8);
