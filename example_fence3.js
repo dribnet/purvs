@@ -5,6 +5,8 @@ const ball_radius = 32;
 const line_width = 8;
 const grid_size = 64;
 const max_movement = 100;
+
+let do_animation = true;
 // var r = random(255);
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -46,6 +48,12 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+
+	  /* For animation: updated z based on global frame count */
+  let dz = p5.globalFrameCount / 100.0;
+  z = z + dz;
+  
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness + max_movement;
 
@@ -152,9 +160,13 @@ function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
   let basey = p5.map(y+2, y1, y2, 0, 256);
   let radiusbase = p5.map(x+12.9, x1, x2, 0, 256);
 //snow hole thing
-  let base2x = p5.map(x+4.9, x1, x2, 0, 256);
-  let base2y = p5.map(y+4, y1, y2, 0, 256);
-  let radiusbase2 = p5.map(x+14.9, x1, x2, 0, 256);
+  let base2x = p5.map(x+1.5, x1, x2, 0, 256);
+  let base2y = p5.map(y+3, y1, y2, 0, 256);
+  let radiusbase2 = p5.map(x+11.5, x1, x2, 0, 256);
+
+  let base3x = p5.map(x+1, x1, x2, 0, 256);
+  let base3y = p5.map(y+3.4, y1, y2, 0, 256);
+  let radiusbase3 = p5.map(x+11, x1, x2, 0, 256);
 
 
 
@@ -184,7 +196,8 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
 //zoom 2 introduces snow base around the botto of tree 
  if(zoom > 2){
 p5.fill(220);
-p5.ellipse(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
+p5.rect(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
+p5.rect(base3x, base3y, (radiusbase3-base3x)/1.3,(radiusbase3-base3x)/8);
 
 
 
@@ -233,12 +246,38 @@ if (zoom > 3){
 if (zoom > 4){
 
 
+//star 1
+  let star1x = p5.map(x+4.7, x1, x2, 0, 256);
+  let star1y = p5.map(y-11, y1, y2, 0, 256);
+  let radiusstar1 = p5.map(x+14.7, x1, x2, 0, 256);
+
+  p5.fill(255, 226, 86);
+  p5.rect(star1x, star1y, (radiusstar1-star1x)/25,(radiusstar1-star1x)/4);
+
+//star 2
+   let star2x = p5.map(x+4.01, x1, x2, 0, 256);
+  let star2y = p5.map(y-10, y1, y2, 0, 256);
+  let radiusstar2 = p5.map(x+14.7, x1, x2, 0, 256);
+
+  
+  p5.rect(star2x, star2y, (radiusstar2-star2x)/6,(radiusstar2-star2x)/25);
+
+
+  //star 3
+   let star3x = p5.map(x+4.4, x1, x2, 0, 256);
+  let star3y = p5.map(y-10.3, y1, y2, 0, 256);
+  let radiusstar3 = p5.map(x+14.4, x1, x2, 0, 256);
+
+ 
+  p5.rect(star3x, star3y, (radiusstar3-star3x)/10,(radiusstar3-star3x)/10);
+
+
 //light 1
   let light1x = p5.map(x+2.9, x1, x2, 0, 256);
   let light1y = p5.map(y-8, y1, y2, 0, 256);
   let radiuslight1 = p5.map(x+12.9, x1, x2, 0, 256);
 
-  p5.fill(255,0,0);
+  //p5.fill(255,0,0);
   p5.rect(light1x, light1y, (radiuslight1-light1x)/20,(radiuslight1-light1x)/20);
 
 
@@ -308,6 +347,32 @@ if (zoom > 4){
   let light12y = p5.map(y-2, y1, y2, 0, 256);
   let radiuslight12 = p5.map(x+18.6, x1, x2, 0, 256);
   p5.rect(light12x, light12y, (radiuslight12-light12x)/20,(radiuslight12 - light12x)/20);
+
+        //13
+   let light13x = p5.map(x+7, x1, x2, 0, 256);
+  let light13y = p5.map(y-0.7, y1, y2, 0, 256);
+  let radiuslight13 = p5.map(x+17, x1, x2, 0, 256);
+  p5.rect(light13x, light13y, (radiuslight13-light13x)/20,(radiuslight13 - light13x)/20);
+
+
+        //14
+   let light14x = p5.map(x+5, x1, x2, 0, 256);
+  let light14y = p5.map(y+0.3, y1, y2, 0, 256);
+  let radiuslight14 = p5.map(x+15, x1, x2, 0, 256);
+  p5.rect(light14x, light14y, (radiuslight14-light14x)/20,(radiuslight14 - light14x)/20);
+
+
+//15
+     let light15x = p5.map(x+2.5, x1, x2, 0, 256);
+  let light15y = p5.map(y+1, y1, y2, 0, 256);
+  let radiuslight15 = p5.map(x+12.5, x1, x2, 0, 256);
+  p5.rect(light15x, light15y, (radiuslight15-light15x)/20,(radiuslight15 - light15x)/20);
+
+         //17
+   let light17x = p5.map(x, x1, x2, 0, 256);
+  let light17y = p5.map(y+1.5, y1, y2, 0, 256);
+  let radiuslight17 = p5.map(x+10, x1, x2, 0, 256);
+  p5.rect(light17x, light17y, (radiuslight17-light17x)/20,(radiuslight17 - light17x)/20);
 	
 }
 
