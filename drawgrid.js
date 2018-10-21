@@ -632,7 +632,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      //CLOUD MOVEMENT
 	      let moving = 1;
-	      moving = moving - (p5.globalFrameCount/5);
+	      moving = (moving - (p5.globalFrameCount/5))%70;
 	      // console.log(moving);
 	     
 	      if(zoom >=2){
@@ -775,7 +775,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
   // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  p5.noFill();
+  p5.stroke(255, 0, 0)
+  p5.rect(0, 0, 255, 255);
 }
