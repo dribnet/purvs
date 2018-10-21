@@ -1,4 +1,8 @@
 # PART 4
+## RGB grid (v5)
+I've been adapting Tom's grid code in stages to help me understand how things work and I think I'm getting there. I'm heading back to my blend modes idea in the hope of making some interesting visuals that have more meaning than my abstractions in ps3. I'm thinking of even doing a pixel colour representation of a digital screen where the closest zoom shows this RGB configuration. I want to try something with noise animation too once I'm confident with this code. 
+.
+.
 ## Gotta go BACK in TIME (v4)
 Trying to copy/paste Tom's new code is just confusing me more so I'm going back to basics.
 Just a transfer commit.
