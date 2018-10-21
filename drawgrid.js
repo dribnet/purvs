@@ -10,17 +10,16 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 const max_thickness = 0;
-// const ball_radius = 32;
-// const line_width = 8;
-// const grid_size = 256;
+
 const grid_size = 100;
 const para2_grid_size = 50;
 
-const cloud_grid_size = 100;
-const max_cloud_movement = 150;
+const cloud_grid_size = 128;
+const max_cloud_movement = 100;
 
-const cloud1_grid_size = 400;
-const max_cloud1_movement = 250;
+const max_cloud_thickness = 300;
+const cloud1_grid_size = 256;
+const max_cloud1_movement = 150;
 
 const max_movement = 80;
 const line_width = 0.07;
@@ -71,40 +70,8 @@ function parachuter(p5, x, y, x1, x2, y1, y2){
  	let body_offset_y = p5.map(16/4, x1, x2, 0, 256);
  	let body_height = body_offset_y - body_origin;
 
-	p5.fill(149, 201, 112);//PINK
+	p5.fill(149, 201, 112);//GREEN
 	p5.rect(body_x,body_y,body_width,body_height);
-
-   	//ARMS
-   	let arms_x = p5.map(x + -2.5/4, x1, x2, 0, 256);
-   	let arms_x2 = p5.map(x + 10/4, x1, x2, 0, 256);
- 	let arms_y = p5.map(y + 0/4, y1, y2, 0, 256);
-
- 	let arms_origin = p5.map(0/4, x1, x2, 0, 256);
- 	let arms_offset_x = p5.map(2.5/4, x1, x2, 0, 256);
- 	let arms_width = arms_offset_x - arms_origin;
-
- 	let arms_offset_y = p5.map(13/4, x1, x2, 0, 256);
- 	let arms_height = arms_offset_y - arms_origin;
-
-	p5.rect(arms_x,arms_y,arms_width, arms_height);
-	p5.rect(arms_x2,arms_y,arms_width, arms_height);
-
-	//LEGS
-	let legs_x1 = p5.map(x + 1.3/4, x1, x2, 0, 256);
-	let legs_x2 = p5.map(x + 5.3/4, x1, x2, 0, 256);
-	let legs_y = p5.map(y + 16/4, y1, y2, 0, 256);
-
- 	let legs_origin = p5.map(0/4, x1, x2, 0, 256);
- 	let legs_offset_x = p5.map(3.5/4, x1, x2, 0, 256);
- 	let legs_width = legs_offset_x - legs_origin;
-
- 	let legs_offset_y = p5.map(16/4, x1, x2, 0, 256);
- 	let legs_height = legs_offset_y - legs_origin;
-
-    p5.fill(38, 60, 61);//dark blue/green
-	p5.rect(legs_x1, legs_y, legs_width, legs_height);
-	p5.rect(legs_x2, legs_y, legs_width, legs_height);
-
 
 	//ROPE
 	let rope_x1 = p5.map(x + 0/4, x1, x2, 0, 256); 
@@ -157,6 +124,57 @@ function parachuter(p5, x, y, x1, x2, y1, y2){
 	p5.fill(244, 197, 66);//YELLOW
 	p5.triangle(tritop_x, tritop_y, tri1_x5, tri1_y2, tri1_x4 ,tri1_y3);
 
+}
+
+function armleft(p5, x, y, x1, x2, y1, y2){
+	//ARMS
+	p5.fill(149, 201, 112);//GREEN
+   	let arms_x = p5.map(x + -2.5/4, x1, x2, 0, 256);
+ 	let arms_y = p5.map(y + 0/4, y1, y2, 0, 256);
+
+ 	let arms_origin = p5.map(0/4, x1, x2, 0, 256);
+ 	let arms_offset_x = p5.map(2.5/4, x1, x2, 0, 256);
+ 	let arms_width = arms_offset_x - arms_origin;
+
+ 	let arms_offset_y = p5.map(13/4, x1, x2, 0, 256);
+ 	let arms_height = arms_offset_y - arms_origin;
+
+	p5.rect(arms_x,arms_y,arms_width, arms_height);
+}
+
+function armright(p5, x, y, x1, x2, y1, y2){
+	//ARMS
+	p5.fill(149, 201, 112);//GREEN
+   	let arms_x2 = p5.map(x + 10/4, x1, x2, 0, 256);
+ 	let arms_y = p5.map(y + 0/4, y1, y2, 0, 256);
+
+ 	let arms_origin = p5.map(0/4, x1, x2, 0, 256);
+ 	let arms_offset_x = p5.map(2.5/4, x1, x2, 0, 256);
+ 	let arms_width = arms_offset_x - arms_origin;
+
+ 	let arms_offset_y = p5.map(13/4, x1, x2, 0, 256);
+ 	let arms_height = arms_offset_y - arms_origin;
+
+	p5.rect(arms_x2,arms_y,arms_width, arms_height);
+}
+
+
+function legs(p5, x, y, x1, x2, y1, y2){
+	//LEGS
+	let legs_x1 = p5.map(x + 1.3/4, x1, x2, 0, 256);
+	let legs_x2 = p5.map(x + 5.3/4, x1, x2, 0, 256);
+	let legs_y = p5.map(y + 14/4, y1, y2, 0, 256);
+
+ 	let legs_origin = p5.map(0/4, x1, x2, 0, 256);
+ 	let legs_offset_x = p5.map(3.5/4, x1, x2, 0, 256);
+ 	let legs_width = legs_offset_x - legs_origin;
+
+ 	let legs_offset_y = p5.map(16/4, x1, x2, 0, 256);
+ 	let legs_height = legs_offset_y - legs_origin;
+
+    p5.fill(38, 60, 61);//dark blue/green
+	p5.rect(legs_x1, legs_y, legs_width, legs_height);
+	p5.rect(legs_x2, legs_y, legs_width, legs_height);
 }
 
 function parachuter_small(p5, x, y, x1, x2, y1, y2){
@@ -312,18 +330,18 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 
     p5.fill(255, 255, 255);
     p5.noStroke();
-    let cloud_x1 = p5.map(x + 10*5, x1, x2, 0, 256);
-    let cloud_x2 = p5.map(x + 20*5, x1, x2, 0, 256);
-    let cloud_x3 = p5.map(x + 35*5, x1, x2, 0, 256);
-    let cloud_x4 = p5.map(x + 45*5, x1, x2, 0, 256);
+    let cloud_x1 = p5.map(x + 10*4, x1, x2, 0, 256);
+    let cloud_x2 = p5.map(x + 20*4, x1, x2, 0, 256);
+    let cloud_x3 = p5.map(x + 35*4, x1, x2, 0, 256);
+    let cloud_x4 = p5.map(x + 45*4, x1, x2, 0, 256);
 
-    let cloud_y1 = p5.map(y + 20*5, y1, y2, 0, 256);
+    let cloud_y1 = p5.map(y + 20*4, y1, y2, 0, 256);
 
-	let cloud1_w_offset1 = p5.map(x + 50*5, x1, x2, 0, 256);
-	let cloud1_w_offset2 = p5.map(x + 30*5, x1, x2, 0, 256);
-	let cloud1_w_offset3 = p5.map(y + 40*5, y1, y2, 0, 256);
-	let cloud1_w_offset4 = p5.map(y + 55*5, y1, y2, 0, 256);
-	let cloud1_w_offset5 = p5.map(y + 45*5, y1, y2, 0, 256);
+	let cloud1_w_offset1 = p5.map(x + 50*4, x1, x2, 0, 256);
+	let cloud1_w_offset2 = p5.map(x + 30*4, x1, x2, 0, 256);
+	let cloud1_w_offset3 = p5.map(y + 40*4, y1, y2, 0, 256);
+	let cloud1_w_offset4 = p5.map(y + 55*4, y1, y2, 0, 256);
+	let cloud1_w_offset5 = p5.map(y + 45*4, y1, y2, 0, 256);
 
 	
 	let cloud1_w = cloud1_w_offset1 - cloud_x1;
@@ -336,7 +354,7 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	let cloud3_w2 = cloud1_w_offset5 - cloud_y1;
 	let cloud4_w2 = cloud1_w_offset3 - cloud_y1;	
 
-	let cloud_y4 = p5.map(y + 0*5, y1, y2, 0, 256);
+	let cloud_y4 = p5.map(y + 0*4, y1, y2, 0, 256);
 
     p5.arc(cloud_x1, cloud_y1, cloud1_w, cloud1_w2, 542, 360);
     p5.arc(cloud_x2, cloud_y1, cloud2_w, cloud2_w2, 542, 360);
@@ -375,7 +393,19 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	p5.arc(mouth1_x, mouth1_y, mouth1_w, mouth1_w, 0,  180);
  }
 
- function handf (p5, x, y, x1, x2, y1, y2){
+ function hand_left (p5, x, y, x1, x2, y1, y2){
+ 	//HANDS
+	let hand1_x = p5.map(x + 11.2/4, x1, x2, 0, 256);
+	let hand1_y = p5.map(y + 13/4, y1, y2, 0, 256);
+	let hand1_w_offset = p5.map(x+8.8/4, x1, x2, 0, 256); 
+	let hand1_w = hand1_w_offset - hand1_x;
+	
+	p5.noStroke();
+	p5.fill(255, 204, 153);//PEACH SKIN
+	p5.arc(hand1_x, hand1_y, hand1_w, hand1_w, 0,  180);
+ }
+
+  function hand_right (p5, x, y, x1, x2, y1, y2){
  	//HANDS
 	let hand1_x = p5.map(x + 11.2/4, x1, x2, 0, 256);
 	let hand2_x = p5.map(x + -1.2/4, x1, x2, 0, 256);
@@ -385,13 +415,15 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	
 	p5.noStroke();
 	p5.fill(255, 204, 153);//PEACH SKIN
-	p5.arc(hand1_x, hand1_y, hand1_w, hand1_w, 0,  180);
 	p5.arc(hand2_x, hand1_y, hand1_w, hand1_w, 0,  180);
 
+ }
+
+  function feet (p5, x, y, x1, x2, y1, y2){
 	//FEET
 	let feet1_x = p5.map(x + 7.2/4, x1, x2, 0, 256);
 	let feet2_x = p5.map(x + 3/4, x1, x2, 0, 256);
-	let feet1_y = p5.map(y + 32/4, y1, y2, 0, 256);
+	let feet1_y = p5.map(y + 30/4, y1, y2, 0, 256);
 	let feet1_w_offset = p5.map(x+3.8/4, x1, x2, 0, 256); 
 	let feet1_w = feet1_w_offset - feet1_x;
 	
@@ -400,6 +432,8 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	p5.arc(feet1_x, feet1_y, feet1_w, feet1_w, 180,  0);
 	p5.arc(feet2_x, feet1_y, feet1_w, feet1_w, 180, 0);
  }
+
+
 
  function backpack_straps(p5, x,y, x1, x2, y1, y2){
  	//LEFT STRAP
@@ -543,7 +577,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	let max_shift = max_thickness + max_movement;
 	let max_cloud_shift = max_thickness + max_cloud_movement;
-	let max_cloud1_shift = max_thickness + max_cloud1_movement;
+	let max_cloud1_shift = max_cloud_thickness + max_cloud1_movement;
 	let min_x = snap_to_grid(x1 - max_shift, grid_size);
   	let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
   	let min_y = snap_to_grid(y1 - max_shift, grid_size);
@@ -598,7 +632,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      //CLOUD MOVEMENT
 	      let moving = 1;
-	      moving = (moving - (p5.globalFrameCount/5)) % 100;
+	      moving = moving - (p5.globalFrameCount/5);
 	      // console.log(moving);
 	     
 	      if(zoom >=2){
@@ -634,33 +668,88 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	      // p5.ellipse(x_pos2, y_pos2, 10);
 
 
+ 		  let legs_rotate_x = p5.map(shifted_x+1.5, x1, x2, 0, 256);
+	      let legs_rotate_y = p5.map(shifted_y+3, y1, y2, 0, 256);
+
+	      let armleft_rotate_x = p5.map(shifted_x, x1, x2, 0, 256);
+	      let armright_rotate_x = p5.map(shifted_x+2.5, x1, x2, 0, 256);
+
+	      let arms_rotate_y = p5.map(shifted_y, y1, y2, 0, 256);
+
+
+
 			p5.noStroke();
+			p5.push();
+	 			p5.translate(x_pos2, y_pos2)
+ 				p5.rotate(cur_angle);
+	 			p5.translate(-x_pos2, -y_pos2)
 
 			if(zoom >= 4){
 				backpack(p5, shifted_x, shifted_y, x1, x2, y1, y2);
 			}
 
 			if(zoom>=2){
-
-	 			p5.push();
-	 			
-	 			//let r1 = p5.map(x+sh, x1, x2, 0, 256);
-	 			//let r2 = p5.map(y-200, y1, y2, 0, 256);
-	 			p5.translate(x_pos2, y_pos2)
- 				p5.rotate(cur_angle);
-	 			p5.translate(-x_pos2, -y_pos2)
- 				 //console.log(cur_angle);	
-				//p5.translate(shifted_x,r2);
-					
-				parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();
+				//LEGS
+				p5.push();
+					p5.translate(legs_rotate_x, legs_rotate_y)
+	 			p5.rotate(cur_angle);
+		 			p5.translate(-legs_rotate_x, -legs_rotate_y)
+		 			legs(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();	
+					//BODY
+					parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
 			}
+
 
 			if(zoom >= 4){
 				face(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				handf(p5, shifted_x, shifted_y, x1, x2, y1, y2);
 				backpack_straps(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+
+				//HANDS
+				p5.push();
+					p5.translate(armleft_rotate_x, arms_rotate_y)
+	 				p5.rotate(cur_angle);
+		 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
+		 			hand_right(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();	
+				p5.push();
+					p5.translate(armright_rotate_x, arms_rotate_y)
+	 				p5.rotate(-cur_angle);
+		 			p5.translate(-armright_rotate_x, -arms_rotate_y)
+		 			hand_left(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();	
+				
+				//FEET
+				p5.push();
+					p5.translate(legs_rotate_x, legs_rotate_y)
+					p5.rotate(cur_angle);
+		 			p5.translate(-legs_rotate_x, -legs_rotate_y)
+					feet(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();
+
+
+
 			}
+			if(zoom>=2){
+				p5.noStroke();
+				p5.push();
+					p5.translate(armleft_rotate_x, arms_rotate_y)
+	 				p5.rotate(cur_angle);
+		 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
+					armleft(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();
+				p5.push();
+					p5.translate(armright_rotate_x, arms_rotate_y)
+	 				p5.rotate(-cur_angle);
+		 			p5.translate(-armright_rotate_x, -arms_rotate_y)
+
+					armright(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				p5.pop();	
+			}
+			p5.pop();
+			//p5.fill(0);
+			//p5.ellipse(handright_rotate_x, arms_rotate_y, 10);
+
 		}	
 
 
@@ -669,7 +758,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     	for(let y=cloud1_min_y; y<cloud1_max_y; y+=cloud1_grid_size) {	
 
 	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_cloud1_movement, max_cloud1_movement, 0.01);
-	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_cloud_movement, max_cloud_movement, 0.01);
+	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_cloud1_movement, max_cloud1_movement, 0.01);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
