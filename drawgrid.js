@@ -32,23 +32,16 @@ var tourSeed = 430;
 var tourPath = [
   [0, 338, 483],
   [2, 254, 478],
-  [3, 314, 430],
-  [4, 290, 426],
-  [5, 293, 429]
+  [3, 194, 423],
+  [4, 191, 418],
+  [5, 204, 384]
 ]
 
 
 function parachuter(p5, x, y, x1, x2, y1, y2){
 		p5.angleMode(p5.DEGREES);
-	 // let sin_value = p5.sin(p5.globalFrameCount / 10);
-	 // let cur_angle = map(sin_value, -1, 1, -20, 20);
-	 // console.log(sineWave);
 
-	 // map that is map(sinewave, -1, 1, min and max degree);
-
-
-
-//HEAD
+	//HEAD
 	let head_x = p5.map(x + 5/4, x1, x2, 0, 256);
 	let head_y = p5.map(y + -5/4, y1, y2, 0, 256);
 
@@ -105,7 +98,6 @@ function parachuter(p5, x, y, x1, x2, y1, y2){
 	p5.fill(249, 145, 9);//ORANGE
 	p5.arc(para1_x, para1_y, para1_w, para1_w, 270,  17.103, p5.OPEN);
 
-
 	let tritop_x = p5.map(x + 5/4, x1, x2, 0, 256);
 	let tritop_y = p5.map(y + -75.203/4, y1, y2, 0, 256);
 	let tri1_x2 = p5.map(x + 31/4, x1, x2, 0, 256);
@@ -123,11 +115,11 @@ function parachuter(p5, x, y, x1, x2, y1, y2){
 
 	p5.fill(244, 197, 66);//YELLOW
 	p5.triangle(tritop_x, tritop_y, tri1_x5, tri1_y2, tri1_x4 ,tri1_y3);
-
 }
 
-function armleft(p5, x, y, x1, x2, y1, y2){
 	//ARMS
+function armleft(p5, x, y, x1, x2, y1, y2){
+	
 	p5.fill(149, 201, 112);//GREEN
    	let arms_x = p5.map(x + -2.5/4, x1, x2, 0, 256);
  	let arms_y = p5.map(y + 0/4, y1, y2, 0, 256);
@@ -177,9 +169,9 @@ function legs(p5, x, y, x1, x2, y1, y2){
 	p5.rect(legs_x2, legs_y, legs_width, legs_height);
 }
 
+//BOTTOM LAYER OF PARACHUTERS
 function parachuter_small(p5, x, y, x1, x2, y1, y2){
-
-//HEAD
+	//HEAD
 	let head_x = p5.map(x + 5/25, x1, x2, 0, 256);
 	let head_y = p5.map(y + -5/25, y1, y2, 0, 256);
 
@@ -235,7 +227,6 @@ function parachuter_small(p5, x, y, x1, x2, y1, y2){
 	p5.rect(legs_x1, legs_y, legs_width, legs_height);
 	p5.rect(legs_x2, legs_y, legs_width, legs_height);
 
-
 	//ROPE
 	let rope_x1 = p5.map(x + 0/25, x1, x2, 0, 256); 
 	let rope_y1 = p5.map(y + 0/25, y1, y2, 0, 256);
@@ -252,7 +243,6 @@ function parachuter_small(p5, x, y, x1, x2, y1, y2){
 	p5.line(rope_x1, rope_y1, rope_x2, rope_y2);
 	p5.line(rope_x3, rope_y3, rope_x4, rope_y4);
 
- 	
 	//PARACHUTE
 	let para1_x = p5.map(x + 5/25, x1, x2, 0, 256);
 	let para1_y = p5.map(y + -48/25, y1, y2, 0, 256);
@@ -267,7 +257,6 @@ function parachuter_small(p5, x, y, x1, x2, y1, y2){
 
 	p5.fill(249, 145, 9);//ORANGE
 	p5.arc(para1_x, para1_y, para1_w, para1_w, 270,  17.103, p5.OPEN);
-
 
 	let tritop_x = p5.map(x + 5/25, x1, x2, 0, 256);
 	let tritop_y = p5.map(y + -75.203/25, y1, y2, 0, 256);
@@ -286,11 +275,10 @@ function parachuter_small(p5, x, y, x1, x2, y1, y2){
 
 	p5.fill(244, 197, 66);//YELLOW
 	p5.triangle(tritop_x, tritop_y, tri1_x5, tri1_y2, tri1_x4 ,tri1_y3);
-
 }
 
+//SECOND LAYER OF CLOUDS
 function cloud(p5, x, y, x1, x2, y1, y2){
-
     p5.fill(255, 255, 255);
     p5.noStroke();
     let cloud_x1 = p5.map(x + 10, x1, x2, 0, 256);
@@ -305,7 +293,6 @@ function cloud(p5, x, y, x1, x2, y1, y2){
 	let cloud1_w_offset3 = p5.map(y + 40, y1, y2, 0, 256);
 	let cloud1_w_offset4 = p5.map(y + 55, y1, y2, 0, 256);
 	let cloud1_w_offset5 = p5.map(y + 45, y1, y2, 0, 256);
-
 	
 	let cloud1_w = cloud1_w_offset1 - cloud_x1;
 	let cloud2_w = cloud1_w_offset1 - cloud_x2;
@@ -326,8 +313,8 @@ function cloud(p5, x, y, x1, x2, y1, y2){
 
 }
 
+//TOP LAYER OF CLOUDS
 function cloud_big(p5, x, y, x1, x2, y1, y2){
-
     p5.fill(255, 255, 255);
     p5.noStroke();
     let cloud_x1 = p5.map(x + 10*4, x1, x2, 0, 256);
@@ -342,7 +329,6 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	let cloud1_w_offset3 = p5.map(y + 40*4, y1, y2, 0, 256);
 	let cloud1_w_offset4 = p5.map(y + 55*4, y1, y2, 0, 256);
 	let cloud1_w_offset5 = p5.map(y + 45*4, y1, y2, 0, 256);
-
 	
 	let cloud1_w = cloud1_w_offset1 - cloud_x1;
 	let cloud2_w = cloud1_w_offset1 - cloud_x2;
@@ -360,9 +346,9 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
     p5.arc(cloud_x2, cloud_y1, cloud2_w, cloud2_w2, 542, 360);
     p5.arc(cloud_x3, cloud_y1, cloud3_w, cloud3_w2, 542, 360);
   	p5.arc(cloud_x4, cloud_y1, cloud4_w, cloud4_w2, 542, 360);
-
 	}
 
+	//FACE
  function face(p5, x, y, x1, x2, y1, y2){
  	//EYES
 	let eye1_x = p5.map(x + 4/4, x1, x2, 0, 256);
@@ -373,7 +359,7 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	let eye1_offset = p5.map(1.5/4, x1, x2, 0, 256);
 	let eye_radius = eye1_offset - eye1_origin_x;
 
-	p5.fill(0);//BLACK EYES
+	p5.fill(0);//BLACK
 	p5.ellipse(eye1_x, eye_y, eye_radius, eye_radius);
 	p5.ellipse(eye2_x, eye_y, eye_radius, eye_radius);
  	
@@ -393,8 +379,8 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	p5.arc(mouth1_x, mouth1_y, mouth1_w, mouth1_w, 0,  180);
  }
 
- function hand_left (p5, x, y, x1, x2, y1, y2){
  	//HANDS
+ function hand_left (p5, x, y, x1, x2, y1, y2){
 	let hand1_x = p5.map(x + 11.2/4, x1, x2, 0, 256);
 	let hand1_y = p5.map(y + 13/4, y1, y2, 0, 256);
 	let hand1_w_offset = p5.map(x+8.8/4, x1, x2, 0, 256); 
@@ -406,7 +392,6 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
  }
 
   function hand_right (p5, x, y, x1, x2, y1, y2){
- 	//HANDS
 	let hand1_x = p5.map(x + 11.2/4, x1, x2, 0, 256);
 	let hand2_x = p5.map(x + -1.2/4, x1, x2, 0, 256);
 	let hand1_y = p5.map(y + 13/4, y1, y2, 0, 256);
@@ -434,7 +419,7 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
  }
 
 
-
+//BACKPACK AND STRAPS
  function backpack_straps(p5, x,y, x1, x2, y1, y2){
  	//LEFT STRAP
  	let L_point1x = p5.map(x + 0/4, x1, x2, 0, 256);
@@ -519,7 +504,6 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	p5.endShape();
 
 	//CLIP
-
 	let clip_x = p5.map(x + 1/4, x1, x2, 0, 256);
 	let clip_y = p5.map(y + 6/4, y1, y2, 0, 256);
 
@@ -533,7 +517,7 @@ function cloud_big(p5, x, y, x1, x2, y1, y2){
 	p5.rect(clip_x, clip_y, clip_width, clip_height);
 
  }
-
+ //BACKPACK
  function backpack(p5, x,y, x1, x2, y1, y2){
 
 	let backpack_x = p5.map(x + -1/4, x1, x2, 0, 256);
@@ -554,59 +538,44 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-/* this function returns a point offset by noise at that location */
-// function getOffsetPoint(p5, x, y, z, noiseScale) {
-//   let noiseX = p5.noise(x * noiseScale,
-//                         y * noiseScale, z);
-//   let noiseY = p5.noise(x * noiseScale,
-//                         y * noiseScale, z+50);
-//   let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
-//   let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
-//   return [x+offsetX, y+offsetY]
-// }
-
-
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	p5.angleMode(p5.DEGREES);
 	p5.background(222, 249, 247);
 
-	 /* For animation: updated z based on global frame count */
-  //	let dz = p5.globalFrameCount / 100.0;
-  //	cloud_z = z + dz;
-  	//z = z +dz;
-
 	let max_shift = max_thickness + max_movement;
 	let max_cloud_shift = max_thickness + max_cloud_movement;
 	let max_cloud1_shift = max_cloud_thickness + max_cloud1_movement;
+
+	//FOR MAIN PARACHUTER GRID
 	let min_x = snap_to_grid(x1 - max_shift, grid_size);
   	let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
   	let min_y = snap_to_grid(y1 - max_shift, grid_size);
   	let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
+  	// FOR BOTTOM CLOUD GRID
   	let cloud_min_x = snap_to_grid(x1 - max_shift, cloud_grid_size);
   	let cloud_max_x = snap_to_grid(x2 + max_shift + cloud_grid_size, cloud_grid_size);
   	let cloud_min_y = snap_to_grid(y1 - max_shift, cloud_grid_size);
   	let cloud_max_y = snap_to_grid(y2 + max_shift + cloud_grid_size, cloud_grid_size);
 
+  	//FOR TOP CLOUD GRID
   	let cloud1_min_x = snap_to_grid(x1 - max_cloud_shift, cloud1_grid_size);
   	let cloud1_max_x = snap_to_grid(x2 + max_cloud_shift + cloud1_grid_size, cloud1_grid_size);
   	let cloud1_min_y = snap_to_grid(y1 - max_cloud_shift, cloud1_grid_size);
   	let cloud1_max_y = snap_to_grid(y2 + max_cloud_shift + cloud1_grid_size, cloud1_grid_size);
 
-
+  	//FOR SMALLER BOTTOM PARACHUTER GRID
 	let para2_min_x = snap_to_grid(x1 - max_cloud_shift, para2_grid_size);
   	let para2_max_x = snap_to_grid(x2 + max_cloud_shift + para2_grid_size, para2_grid_size);
   	let para2_min_y = snap_to_grid(y1 - max_cloud_shift, para2_grid_size);
   	let para2_max_y = snap_to_grid(y2 + max_cloud_shift + para2_grid_size, para2_grid_size);
 
-  	//BOTTOM PARACHUTER LAYER
+  	//BOTTOM PARACHUTER GRID
 	for(let x=para2_min_x; x<para2_max_x; x+=para2_grid_size) {
     	for(let y=para2_min_y; y<para2_max_y; y+=para2_grid_size) {	
 
 	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.01);
-	      //let offsetY = getRandomValue(p5, x, y, cloud_z, "shiftY", -max_movement, max_movement, 0.01);''
 	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.01);
-	      //console.log(offsetX);
 	      let shifted_x = x + offsetX;
 	      let shifted_y = y + offsetY;
 	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
@@ -632,13 +601,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 	      //CLOUD MOVEMENT
 	      let moving = 1;
-	      moving = (moving - (p5.globalFrameCount/5))%70;
-	      // console.log(moving);
-	     
-	      if(zoom >=2){
+	      moving = (moving - (p5.globalFrameCount/5))%70;	
 
+	      if(zoom >=2){
 			cloud(p5, shifted_x, shifted_y+moving, x1, x2, y1, y2);
-		}
+		  }
     	}
     }
 
@@ -646,110 +613,97 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for(let x=min_x; x<max_x; x+=grid_size) {
     	for(let y=min_y; y<max_y; y+=grid_size) {
 
-	      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.1);
-	      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
-	      //console.log(offsetX);
-	      let shifted_x = x + offsetX;
-	      let shifted_y = y + offsetY;
-	      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
-	      let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+		    let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.1);
+		    let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
+		    let shifted_x = x + offsetX;
+		    let shifted_y = y + offsetY;
+		    let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+		    let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
- 		  let phase = getRandomValue(p5, x, y, z, "phase", 0, 360, 0.1);
-	      let sin_value = p5.sin(phase + (p5.globalFrameCount*2));
-	 	  let cur_angle = p5.map(sin_value, -1, 1, -3, 3);
+			let phase = getRandomValue(p5, x, y, z, "phase", 0, 360, 0.1);
+		    let sin_value = p5.sin(phase + (p5.globalFrameCount*2));
+		 	let cur_angle = p5.map(sin_value, -1, 1, -3, 3);
 			let rotate_x = p5.map(x + 5/25, x1, x2, 0, 256);
 			let rotate_y = p5.map(y + -75.203/25, y1, y2, 0, 256);
-	      // debug
-	      // p5.fill(0);
-	      let x_pos2 = p5.map(x, x1, x2, 0, 256);
-	      let y_pos2 = p5.map(y, y1, y2, 0, 256);
-	      // p5.stroke(0);
-	      // p5.line(x_pos, y_pos, x_pos2, y_pos2);
-	      // p5.ellipse(x_pos2, y_pos2, 10);
 
+		    let x_pos2 = p5.map(x, x1, x2, 0, 256);
+		    let y_pos2 = p5.map(y, y1, y2, 0, 256);
 
- 		  let legs_rotate_x = p5.map(shifted_x+1.5, x1, x2, 0, 256);
-	      let legs_rotate_y = p5.map(shifted_y+3, y1, y2, 0, 256);
+			let legs_rotate_x = p5.map(shifted_x+1.5, x1, x2, 0, 256);
+		    let legs_rotate_y = p5.map(shifted_y+3, y1, y2, 0, 256);
 
-	      let armleft_rotate_x = p5.map(shifted_x, x1, x2, 0, 256);
-	      let armright_rotate_x = p5.map(shifted_x+2.5, x1, x2, 0, 256);
+		    let armleft_rotate_x = p5.map(shifted_x, x1, x2, 0, 256);
+		    let armright_rotate_x = p5.map(shifted_x+2.5, x1, x2, 0, 256);
 
-	      let arms_rotate_y = p5.map(shifted_y, y1, y2, 0, 256);
-
+		    let arms_rotate_y = p5.map(shifted_y, y1, y2, 0, 256);
 
 
 			p5.noStroke();
 			p5.push();
-	 			p5.translate(x_pos2, y_pos2)
- 				p5.rotate(cur_angle);
-	 			p5.translate(-x_pos2, -y_pos2)
-
-			if(zoom >= 4){
-				backpack(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-			}
-
-			if(zoom>=2){
-				//LEGS
-				p5.push();
-					p5.translate(legs_rotate_x, legs_rotate_y)
+		 		p5.translate(x_pos2, y_pos2)
 	 			p5.rotate(cur_angle);
-		 			p5.translate(-legs_rotate_x, -legs_rotate_y)
-		 			legs(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();	
+		 		p5.translate(-x_pos2, -y_pos2)
+
+				if(zoom >= 4){
+					backpack(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+				}
+
+				if(zoom>=2){
+					//LEGS
+					p5.push();
+						p5.translate(legs_rotate_x, legs_rotate_y)
+		 				p5.rotate(cur_angle);
+			 			p5.translate(-legs_rotate_x, -legs_rotate_y)
+			 			legs(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();	
 					//BODY
 					parachuter(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-			}
+				}
 
+				if(zoom >= 4){
+					face(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					backpack_straps(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					//HANDS
+					p5.push();
+						p5.translate(armleft_rotate_x, arms_rotate_y)
+		 				p5.rotate(cur_angle);
+			 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
+			 			hand_right(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();	
+					p5.push();
+						p5.translate(armright_rotate_x, arms_rotate_y)
+		 				p5.rotate(-cur_angle);
+			 			p5.translate(-armright_rotate_x, -arms_rotate_y)
+			 			hand_left(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();	
+					
+					//FEET
+					p5.push();
+						p5.translate(legs_rotate_x, legs_rotate_y)
+						p5.rotate(cur_angle);
+			 			p5.translate(-legs_rotate_x, -legs_rotate_y)
+						feet(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();
+				}
 
-			if(zoom >= 4){
-				face(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				backpack_straps(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-
-				//HANDS
-				p5.push();
-					p5.translate(armleft_rotate_x, arms_rotate_y)
-	 				p5.rotate(cur_angle);
-		 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
-		 			hand_right(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();	
-				p5.push();
-					p5.translate(armright_rotate_x, arms_rotate_y)
-	 				p5.rotate(-cur_angle);
-		 			p5.translate(-armright_rotate_x, -arms_rotate_y)
-		 			hand_left(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();	
-				
-				//FEET
-				p5.push();
-					p5.translate(legs_rotate_x, legs_rotate_y)
-					p5.rotate(cur_angle);
-		 			p5.translate(-legs_rotate_x, -legs_rotate_y)
-					feet(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();
-
-
-
-			}
-			if(zoom>=2){
-				p5.noStroke();
-				p5.push();
-					p5.translate(armleft_rotate_x, arms_rotate_y)
-	 				p5.rotate(cur_angle);
-		 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
-					armleft(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();
-				p5.push();
-					p5.translate(armright_rotate_x, arms_rotate_y)
-	 				p5.rotate(-cur_angle);
-		 			p5.translate(-armright_rotate_x, -arms_rotate_y)
-
-					armright(p5, shifted_x, shifted_y, x1, x2, y1, y2);
-				p5.pop();	
-			}
+				if(zoom>=2){
+					p5.noStroke();
+					//LEFT ARM
+					p5.push();
+						p5.translate(armleft_rotate_x, arms_rotate_y)
+		 				p5.rotate(cur_angle);
+			 			p5.translate(-armleft_rotate_x, -arms_rotate_y)
+						armleft(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();
+					//RIGHT ARM
+					p5.push();
+						p5.translate(armright_rotate_x, arms_rotate_y)
+		 				p5.rotate(-cur_angle);
+			 			p5.translate(-armright_rotate_x, -arms_rotate_y)
+						armright(p5, shifted_x, shifted_y, x1, x2, y1, y2);
+					p5.pop();	
+				}
 			p5.pop();
-			//p5.fill(0);
-			//p5.ellipse(handright_rotate_x, arms_rotate_y, 10);
-
 		}	
 
 
@@ -772,10 +726,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 }
 
-
-
   // debug - show border
-  p5.noFill();
-  p5.stroke(255, 0, 0)
-  p5.rect(0, 0, 255, 255);
+  // p5.noFill();
+  // p5.stroke(255, 0, 0)
+  // p5.rect(0, 0, 255, 255);
 }
