@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Iterated a bit further, tried to get animation to work but for some reason I can't figure it out. So have left that for now and just worked on the zooming.  
+Got some help to get the animation going, although there is still a bug which creates a weird grid and cuts off the circles when animating. My code is currently a mess which I think is causing some of the issue, so I am going to spend a while cleaning it all up, and hope I can get something that doesn't glitch so much. Now I know my idea and what animation I want to do though, I think it should work pretty ok. 
