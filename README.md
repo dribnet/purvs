@@ -1,4 +1,8 @@
 # PART 4
+## Laggy screen (v6)
+I'm really not enjoying this code or idea but I just want to get it done so I went with the screen idea and tried merging it with my RGB pixels. It gets very laggy up close and I'm not sure of a more efficient way of doing it. Once the zoom is focusing on one pixel (one set of RGB) I want to add some small noise animation to give it some life.
+.
+.
 ## RGB grid (v5)
 I've been adapting Tom's grid code in stages to help me understand how things work and I think I'm getting there. I'm heading back to my blend modes idea in the hope of making some interesting visuals that have more meaning than my abstractions in ps3. I'm thinking of even doing a pixel colour representation of a digital screen where the closest zoom shows this RGB configuration. I want to try something with noise animation too once I'm confident with this code. 
 .

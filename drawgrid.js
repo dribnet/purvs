@@ -1,24 +1,25 @@
-const max_thickness = 64;
-const ball_radius = 20;
-const grid_size = 64;
+const max_thickness = 10;
+const ball_radius = 1;
+let grid_size = 64;
+let border_colour = 50;
+let screen_colour = 255;
 let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 460, 500],
-  [3, 450, 410],
-  [5, 447, 426],
-  [3, 450, 410],
-  [3, 450, 620]
+  [0, 512, 512],
+  [2, 400, 512],
+  [5, 398.676341056824, 513.196428298950],
+  [8, 396.310547471046, 513.051897287369],
+  [4, 400, 512]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
-
 
 
 /*
@@ -32,60 +33,61 @@ function snap_to_grid(num, gsize) {
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-function circles(p5, x, y, x1, x2, y1, y2,z,zoom) {
-
- // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
- // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
- // let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
- // let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
-
-
- // then draw the eyes
-  let eye_pos1_x = p5.map(x + -17.5, x1, x2, 0, 256);
-  let eye_pos2_x = p5.map(x + 17.5, x1, x2, 0, 256);
-  let eye_pos1_y = p5.map(y + -0, y1, y2, 0, 256);
-  let eye_pos2_y = p5.map(y +0,y1, y2, 0, 256);
-
-
-
-  let eye_pos1_origin_x = p5.map(0, x1, x2, 0, 256);
-  let eye_pos1_offset1 = p5.map(35, x1, x2, 0, 256);
-
-  let eye_pos_radius1 = eye_pos1_offset1 - eye_pos1_origin_x;
-
-  p5.fill(255);
-  p5.ellipse(eye_pos1_x, eye_pos1_y, eye_pos_radius1, eye_pos_radius1); // Left eye dome
-  p5.ellipse(eye_pos2_x, eye_pos2_y, eye_pos_radius1, eye_pos_radius1); // Left eye dome
-}
-
-
-
-function drawCircle(p5, x, y, x1, x2, y1, y2,z,zoom)  {
+function drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, offset)  {
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_ball_radius = c_pball - c_p00;
 
 
   /* first compute the points to be drawn */
-  let x_pos = p5.map(x, x1, x2, 0, 256);
-  let y_pos = p5.map(y, y1, y2, 0, 256);
+  let r_x_pos = p5.map(x + offset, x1, x2, 0, 256);
+  let g_x_pos = p5.map(x + 1 + offset, x1, x2, 0, 256);
+  let b_x_pos = p5.map(x + 2+ offset, x1, x2, 0, 256);
 
-  let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-  let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-  //Sinwave width shift
-  var wave_x = p5.map(p5.sin(angle*speed), -1, 1, -x_pos, x_pos);         
-  console.log(wave_x);
+
   /* now draw all elements from back to front */
-  p5.push();
-    p5.blendMode(p5.DIFFERENCE);
-    p5.fill(255, 0, 0);
-    p5.ellipse(x_pos, y_pos, cur_ball_radius);
-    p5.fill(0, 255, 0);
-    p5.ellipse(x_pos+20, y_pos, cur_ball_radius);
-    p5.fill(0, 0, 255);
-    p5.ellipse(x_pos+40, y_pos, cur_ball_radius);      
-  p5.pop(); 
+  for (let i=0; i < 10; i++){
+    let y_pos = p5.map(y + (i*3), y1, y2, 0, 256);
+    p5.push();
+      // p5.blendMode(p5.DIFFERENCE);
+      p5.fill(255, 0, 0);
+      p5.ellipse(r_x_pos, y_pos, cur_ball_radius);
+      p5.fill(0, 255, 0);
+      p5.ellipse(g_x_pos, y_pos, cur_ball_radius);
+      p5.fill(0, 0, 255);
+      p5.ellipse(b_x_pos, y_pos, cur_ball_radius);      
+    p5.pop(); 
+  }
+
+  if (zoom >= 8){
+    // ANIMATE
+  }
+
+}
+
+
+function drawScreen(p5, x, y, x1, x2, y1, y2,z, zoom, colour, w, h)  {
+
+  /* first compute the points to be drawn */
+  let screen_x_pos = p5.map(x + -256, x1, x2, 0, 256);
+  let screen_y_pos = p5.map(y + -256, y1, y2, 0, 256);
+
+  let screen_pos_origin_x = p5.map(0, x1, x2, 0, 256);
+  let screen_pos_offset_x = p5.map(w, x1, x2, 0, 256);
+  let screen_pos_width = screen_pos_offset_x - screen_pos_origin_x;
+
+  let screen_pos_origin_y = p5.map(0, x1, x2, 0, 256);
+  let screen_pos_offset_y = p5.map(h, x1, x2, 0, 256);
+  let screen_pos_height = screen_pos_offset_y - screen_pos_origin_y;
+
+
+  /* now draw all elements from back to front */
+  // p5.blendMode(p5.DIFFERENCE);
+  p5.noStroke();
+  p5.fill(colour);
+  p5.rect(screen_x_pos, screen_y_pos, screen_pos_width, screen_pos_height);
+
 }
 
 
@@ -106,19 +108,39 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
+  p5.colorMode(p5.HSB);
+  p5.background(20, 50, 100);
+  p5.colorMode(p5.RGB);
 
-  p5.background(0);
 
-  for(let x=min_x; x<max_x; x+=grid_size) {
-    for(let y=min_y; y<max_y; y+=grid_size) {
-      drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom);
+
+  if(zoom >= 0 && zoom <= 4){
+    screen_colour = 255/zoom;
+    // console.log(screen_colour);    
+    drawScreen(p5, 500, 500, x1, x2, y1, y2, z, zoom, border_colour, 525, 306);// border
+    drawScreen(p5, 725, 800, x1, x2, y1, y2, z, zoom, border_colour, 80, 100);// neck
+    drawScreen(p5, 607, 900, x1, x2, y1, y2, z, zoom, border_colour, 310, 20);// stand
+    drawScreen(p5, 512, 512, x1, x2, y1, y2, z, zoom, screen_colour, 500, 281); // screen   
+  }
+
+  if(zoom >= 5){
+     p5.background(0);
+    for(let x=min_x; x<max_x; x+=grid_size/2) {
+      for(let y=min_y; y<max_y; y+=grid_size/2) {
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 0);
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 5);
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 10);
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 15);
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 20);
+        drawCircle(p5, x, y, x1, x2, y1, y2, z, zoom, 25);        
+      }
     }
   }
 
 
   
 
-  // debug - show border
+  // // debug - show border
   // p5.noFill();
   // p5.stroke(0, 200, 200)
   // p5.rect(0, 0, 255, 255);
