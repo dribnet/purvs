@@ -18,9 +18,11 @@ var Half_Y = 720/2;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 351.958984375000, 514.058593750000],
+  [2, 1180.875000000000, 737.375000000000],
+  [3, 252.937500000000, 539.125000000000],
   [2, 1228.750000000000, 491.750000000000],
-  [1, 784.833007812500, 509.099609375000]
+  [2, 784.833007812500, 509.099609375000],
+  [2, 499.875000000000, 516.000000000000]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -38,8 +40,13 @@ let gridSize = 400;
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  const bg_colour = [115, 175, 212];
+  const colour_One = [7, 89, 166];
+  const colour_Two = [3, 4, 40];
+  const colour_Three = [1, 2, 62];
+  const colour_Four = [1, 8, 92];
 
-   p5.background(254, 234, 229);
+  p5.background(bg_colour);
   let max_shift = 140;
   let line_width = 10;
 
@@ -65,13 +72,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
    //breathing effect
   let grad_freq_One = 10.0;
+  let grad_freq_Two = 5.0;
+  let grad_freq_Three = 20.0;
+
   let sineWave_One = p5.sin(p5.globalFrameCount / grad_freq_One);
+  let sineWave_Two = p5.sin(p5.globalFrameCount / grad_freq_Two);
+  let sineWave_Three = p5.sin(p5.globalFrameCount / grad_freq_Three);
 
   let grow_One = p5.map (sineWave_One, -1, 1, 40, 50);
-
+  let grow_Two = p5.map(sineWave_Two, -1, 1, 20, 60);
+  let grow_Three = p5.map(sineWave_Three, -1, 1, 50, 70);
+  
   let circ_wave_One = p5.map(grow_One, x1, x2, 0, 256);
+  let circ_wave_Two = p5.map(grow_Two, x1, x2, 0, 256);
+  let circ_wave_Three = p5.map(grow_Three, x1, x2, 0, 256);
+
   //growing circle
   let circ_grow_One = circ_wave_One - c_p00;
+  let circ_grow_Two = circ_wave_Two - c_p00;
+  let circ_grow_Three = circ_wave_Three - c_p00
 
   //circle bars outter
   for(let x=min_x; x<max_x; x+=gridSize) {
@@ -90,7 +109,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
      let circ_out_y_map = p5.map(circ_out_y, y1, y2, 0, 256);
      
      p5.noFill();
-     p5.stroke(113, 103, 114);
+     p5.stroke(colour_Three);
      p5.strokeWeight(mapped_thin_line_width);
      let orbits = [12, 20, 28, 36];
      for(i=0; i<orbits.length; i++) {
@@ -110,13 +129,18 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     if(y < y_center - y_margin || y > y_center + y_margin) {
       if(y < y_max & y > y_min) {
-        p5.fill(113, 103, 114);
-        p5.stroke(82, 81, 99);
+        p5.fill(colour_One);
+        p5.stroke(colour_Two);
         p5.strokeWeight(cur_line_width);
         p5.ellipse(x1_pos, y_pos, mapped_rad100, mapped_rad100);  
          if(zoom > 0){
-          p5.fill(0, 255, 0);
+          p5.noStroke();
+          p5.fill(bg_colour);
+          p5.ellipse(x1_pos, y_pos, circ_grow_Three);
+          p5.fill(colour_One);
           p5.ellipse(x1_pos, y_pos, circ_grow_One);
+          p5.fill(colour_Two);
+          p5.ellipse(x1_pos, y_pos, circ_grow_Two/2);
         }           
       }
     }
@@ -134,18 +158,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   
     if(x < x_center - x_margin || x > x_center + x_margin) {
       if(x < x_max & x > x_min){
-        p5.fill(113, 103, 114);
-        p5.stroke(82, 81, 99);
+        p5.fill(colour_One);
+        p5.stroke(colour_Two);
         p5.strokeWeight(cur_line_width);
         p5.ellipse(x_pos, y1_pos, mapped_rad100, mapped_rad100);
          if(zoom > 0){
-          p5.fill(0, 255, 0);
+          p5.noStroke();
+          p5.fill(bg_colour);
+          p5.ellipse(x_pos, y1_pos, circ_grow_Three);
+          p5.fill(colour_One);
           p5.ellipse(x_pos, y1_pos, circ_grow_One);
+          p5.fill(colour_Two);
+          p5.ellipse(x_pos, y1_pos, circ_grow_Two/2);
         }  
       }      
     }
   }
-
 
   //diamonds
   let x1q = 712;
@@ -179,6 +207,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let x1cc1 = 510;
   let y1cc1 = 750;
 
+  //square
+  let x1s1 = 385;
+  let y1s1 = 625;
+
+  let x2s2 = 380;
+  let y2s2 = 620;
   //diamonds map
   //main diamond
   let x1c = p5.map(x1q, x1, x2, 0, 256);
@@ -210,6 +244,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let x4c3 = p5.map(x4q3, x1, x2, 0, 256);
   let y4c3 = p5.map(y4q3, y1, y2, 0, 256);
 
+  //square
+  let x1ss1 = p5.map(x1s1, x1, x2, 0, 256);
+  let y1ss1 = p5.map(y1s1, y1, y2, 0 ,256);
+
+  let x2ss2 = p5.map(x2s2, x1, x2, 0, 256);
+  let y2ss2 = p5.map(y2s2, y1, y2, 0 ,256);
+
   //circles map
   let x1ccc1 = p5.map(x1cc1, x1, x2, 0, 256);
   let y1ccc1 = p5.map(y1cc1, y1, y2, 0, 256);
@@ -221,7 +262,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   //circle no fill
   p5.noFill();
-  p5.stroke(113, 103, 114);
+  p5.stroke(colour_Four);
   p5.strokeWeight(mapped_thin_line_width);
   p5.ellipse(x1ccc1, y1ccc1, 5*mapped_rad100, 5*mapped_rad100);
   p5.ellipse(x1ccc1, y1ccc1, 6*mapped_rad100, 6*mapped_rad100);
@@ -229,33 +270,70 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   
   //circle body
   p5.noStroke();
-  p5.fill(113, 103, 114);
+  p5.fill(colour_One);
   p5.ellipse(x1ccc1, y1ccc1, 4*mapped_rad100, 4*mapped_rad100);
+  if(zoom > 1){
+     //circles
+    let circ_out_x = 512;
+    let circ_out_y = 590;
+    //circles map
+    let circ_out_x_map = p5.map(circ_out_x, x1, x2, 0, 256);
+    let circ_out_y_map = p5.map(circ_out_y, y1, y2, 0, 256);   
 
-  if(zoom > 0){
     p5.noFill();
-    p5.stroke(255, 255, 255);
+    p5.stroke(colour_Three);
     p5.strokeWeight(5);
     p5.ellipse(x1ccc1, y1ccc1, 2.5*mapped_rad100, 2.5*mapped_rad100);
     p5.ellipse(x1ccc1, y1ccc1, 3.5*mapped_rad100, 3.5*mapped_rad100);
-  } 
+    p5.stroke(colour_Three);
+    p5.strokeWeight(2);
+    p5.ellipse(x1ccc1, y1ccc1, 2.9*mapped_rad100, 2.9*mapped_rad100);
+    p5.ellipse(x1ccc1, y1ccc1, 3*mapped_rad100, 3*mapped_rad100);
+    p5.ellipse(x1ccc1, y1ccc1, 3.1*mapped_rad100, 3.1*mapped_rad100);
+
+    p5.stroke(colour_Three);
+    p5.strokeWeight(5);
+    p5.rect(x1ss1, y1ss1,  2.5*mapped_rad100, 2.5*mapped_rad100);
+    p5.rect(x2ss2, y2ss2,  2.6*mapped_rad100, 2.6*mapped_rad100);  
+  }
 
   p5.noStroke();
-  p5.fill(254, 234, 229);
+  p5.fill(bg_colour);
   p5.ellipse(x1ccc1, y1ccc1, 2*mapped_rad100, 2*mapped_rad100);
 
   //diamond body
-  p5.fill(113, 103, 114);
-  p5.quad(x1c3, y1c3, x2c3, y2c3, x3c3, y3c3, x4c3,y4c3);
+  p5.fill(colour_One);
+  p5.quad(x1c3, y1c3, x2c3, y2c3, x3c3, y3c3, x4c3, y4c3);
 
-  p5.stroke(254, 234, 229);
+  if(zoom > 2){
+    p5.fill(bg_colour);
+    p5.quad(x1c3 - 100, y1c3, x2c3, y2c3 + 10, x3c3 + 100, y3c3, x4c3, y4c3);
+    p5.fill(colour_Two);
+    p5.quad(x1c3 - 200, y1c3, x2c3, y2c3 + 20, x3c3 + 200, y3c3, x4c3, y4c3);
+    p5.fill(colour_Four);
+    p5.quad(x1c3 - 300, y1c3, x2c3, y2c3 + 30, x3c3 + 300, y3c3, x4c3, y4c3);
+  }
+
+  p5.stroke(bg_colour);
   p5.strokeWeight(15);
-  p5.fill(113, 103, 114);
+  p5.fill(colour_One);
   p5.quad(x1c, y1c, x2c, y2c, x3c, y3c, x4c, y4c);
 
+  if(zoom > 1){
+    p5.noFill();
+    p5.stroke(colour_Three);
+    p5.strokeWeight(8);
+    p5.quad(x1c - 100, y1c, x2c, y2c - 100, x3c + 100, y3c, x4c, y4c + 100);
+    p5.quad(x1c - 300, y1c, x2c, y2c - 300, x3c + 300, y3c, x4c, y4c + 300);
+    p5.line(x1c - 15, y1c, x3c + 15, y3c);
+    p5.line(x2c, y2c - 15, x4c, y4c + 15);
+  }
+
   p5.noStroke();
-  p5.fill(254, 234, 229);
+  p5.fill(bg_colour);
   p5.quad(x1c2, y1c2, x2c2, y2c2, x3c2, y3c2, x4c2, y4c2);
+
+
 
  
   for(let i=0; i<4; i++ ) {
@@ -272,9 +350,14 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     let y_centerc = p5.map(y_center, y1, y2, 0, 256);
     let x_orbitc = p5.map(x_orbit, x1, x2, 0, 256);
     let y_orbitc = p5.map(y_orbit, y1, y2, 0, 256);
-    p5.fill(113, 103, 114);  
-    p5.ellipse(x_orbitc, y_orbitc, 30 - mapped_rad100, 30 - mapped_rad100);
-
+    p5.fill(colour_Four);  
+    p5.ellipse(x_orbitc, y_orbitc, 30 - mapped_rad100, 30 - mapped_rad100);  
+    if(zoom > 1){
+      p5.fill(bg_colour);  
+      p5.ellipse(x_orbitc, y_orbitc, circ_grow_One);
+      p5.fill(colour_One);
+      p5.ellipse(x_orbitc, y_orbitc, circ_grow_One/2);
+    }    
   }   
 
   
