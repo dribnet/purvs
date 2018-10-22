@@ -1,7 +1,3 @@
-## PS4 Part 2
+## PS4 Part 3
 
-For this problem set I decided to stick to the design from PS3. I think it has a lot of potential for this project and I especially like the color pallet. 
-
-I have added this design to the PS4 template and make it more extendable. One thing I would like to do is to make it so when you zoom into one of the layers the color of that layer becomes the background color and inside contains another one of the objects that is seen on the initial screen. This could then go on infinitely depending on where you zoom. 
-
-I updated the tour variables to highlight three major areas of the design. 
+Made my design into a grid. Also applied some slight randomness to the width. Still some minor issues as the image breaks when zoomed in too far. This is a problem with drawing cricles across grid lines. 
