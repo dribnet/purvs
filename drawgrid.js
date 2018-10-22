@@ -85,11 +85,9 @@ function smallSquares(p5, x, y, x1, x2, y1, y2) {
 }
 
 
-
-
-/*function offCircles(p5, x, y, x1, x2, y1, y2) {
+function smallCircle(p5, x, y, x1, x2, y1, y2) {
  let sineWave = p5.sin(p5.globalFrameCount/20);
- let pulse = p5.map(sineWave, 1, -1, -200, 10);
+ let pulse = p5.map(sineWave, 1, -1, -50, 20);
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
@@ -103,22 +101,24 @@ function smallSquares(p5, x, y, x1, x2, y1, y2) {
       let y_top_circle = p5.map(y - 38, y1, y2, 0, 256);
       let y_bottom_circle = p5.map(y + 38, y1, y2, 0, 256);
 
-      let y_topright_circle = p5.map(y - 38, y1, y2, 0, 256);
-      let x_topright_circle = p5.map(x + 38, x1, x2, 0, 256);
-      let y_topleft_circle = p5.map(y - 38, y1, y2, 0, 256);
-      let x_topleft_circle = p5.map(x - 38, x1, x2, 0, 256);
+      let y_topright_circle = p5.map(y - 44, y1, y2, 0, 256);
+      let x_topright_circle = p5.map(x + 44, x1, x2, 0, 256);
+      let y_topleft_circle = p5.map(y - 44, y1, y2, 0, 256);
+      let x_topleft_circle = p5.map(x - 44, x1, x2, 0, 256);
 
-      let y_bottomleft_circle = p5.map(y + 38, y1, y2, 0, 256);
-      let x_bottomleft_circle = p5.map(x - 38, x1, x2, 0, 256);
-      let y_bottomright_circle = p5.map(y + 38, y1, y2, 0, 256);
-      let x_bottomright_circle = p5.map(x + 38, x1, x2, 0, 256);
+      let y_bottomleft_circle = p5.map(y + 44, y1, y2, 0, 256);
+      let x_bottomleft_circle = p5.map(x - 44, x1, x2, 0, 256);
+      let y_bottomright_circle = p5.map(y + 44, y1, y2, 0, 256);
+      let x_bottomright_circle = p5.map(x + 44, x1, x2, 0, 256);
 
 
       p5.noStroke();
   
-    
 
-       p5.fill(115, 129, 255, 80);//lilac
+
+
+
+      p5.fill(250,13,73,30); //pink
       //Top-Right Circle
       p5.ellipse(x_topright_circle, y_topright_circle, (cur_ball_radius + pulse));
 
@@ -130,7 +130,8 @@ function smallSquares(p5, x, y, x1, x2, y1, y2) {
 
       //Bottom-Right Circle
       p5.ellipse(x_bottomright_circle, y_bottomright_circle, (cur_ball_radius + pulse));
-}*/
+}
+
 
 
 
@@ -460,6 +461,9 @@ smallSquares(p5, x, y, x1, x2, y1, y2 );
 
 if (zoom >=4) {
 
+
+  smallCircle(p5, x - 32, y - 32, x1, x2, y1, y2 );
+
       let sineWave = p5.sin(p5.globalFrameCount/20);
       let pulse2 = p5.map(sineWave, -1, 1, -50, 20);
       let pulse3 = p5.map(sineWave, -1, 1, -100, 20);
@@ -509,28 +513,28 @@ if (zoom >=4) {
   
       //Right Circle
       p5.fill(250,13,73,30); //pink
-      p5.ellipse(x_right_circle, y_centre_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_right_circle, y_centre_circle, (cur_ball_radius2));
 
       //Left Circle
-      p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius2));
 
       //Top Circle
-      p5.ellipse(x_centre_circle, y_top_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_centre_circle, y_top_circle, (cur_ball_radius2));
 
       //Bottom Circle
-      p5.ellipse(x_centre_circle, y_bottom_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_centre_circle, y_bottom_circle, (cur_ball_radius2));
 
       //Top-Right Circle
-      p5.ellipse(x_topright_circle, y_topright_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_topright_circle, y_topright_circle, (cur_ball_radius2));
 
       //Top-Left Circle
-      p5.ellipse(x_topleft_circle, y_topleft_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_topleft_circle, y_topleft_circle, (cur_ball_radius2));
 
       //Bottom-Left Circle
-      p5.ellipse(x_bottomleft_circle, y_bottomleft_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_bottomleft_circle, y_bottomleft_circle, (cur_ball_radius2));
 
       //Bottom-Right Circle
-      p5.ellipse(x_bottomright_circle, y_bottomright_circle, (cur_ball_radius2 + pulse2));
+      p5.ellipse(x_bottomright_circle, y_bottomright_circle, (cur_ball_radius2));
 
 
       //Mini Right Circle
@@ -576,6 +580,8 @@ if (zoom >=4) {
       p5.ellipse(x_centre_circle, y_bottom_mini3circle, cur_ball_radius/8 + pulse4);
       
       smallSquares(p5, x, y, x1, x2, y1, y2 );
+
+      
  
       }
 
