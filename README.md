@@ -1,5 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I am going to carry through the layout and colours from my last project into this one. 
-
-It will start zoomed out and the pattern will appear as solid lines, as you zoom in you will see that the lines are made of circles. As you continue to zoom in you will notice more details about the layers of circles.
+After playing with the code a lot I have got some what of an idea of how it works. I have managed to make the waves as solid lines, I found this was difficult as I used quadratic vertex to make them. I am now working on making the circles that will make up the waves when you zoom in.
