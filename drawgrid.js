@@ -11,6 +11,11 @@
  */
 const cellwidth = 64;
 const grid_size = 128;
+const max_movement = 16;
+
+
+
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -30,7 +35,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.background(0);
   p5.rectMode(p5.CORNERS);
 
-  let max_shift = 100;
+  let max_shift = 100 + max_movement;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -53,13 +58,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     	for(let y=min_y; y<max_y; y+=grid_size) 
     	{
-    		
     			p5.stroke(0, 200, 150);
 			  	p5.strokeWeight(3);
 			  	p5.fill(0, 200, 150,100);
 
-			let x_pos = p5.map(x, x1, x2, 0, 256);
-      		let y_pos = p5.map(y, y1, y2, 0, 256);				
+    		let shift_point = getOffsetPoint(p5, x, y, z, 100);
+			let x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
+      		let y_pos = p5.map(shift_point[1], y1, y2, 0, 256);				
 				p5.ellipse(x_pos, y_pos, curCellRadius);
 
 				x_pos = p5.map(x-20, x1, x2, 0, 256);
@@ -77,7 +82,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 				x_pos = p5.map(x+15, x1, x2, 0, 256);
       			y_pos = p5.map(y-20, y1, y2, 0, 256); 	
 				p5.ellipse(x_pos, y_pos, curCellRadius/3);
-				
+
 				x_pos = p5.map(x-25, x1, x2, 0, 256);
       			y_pos = p5.map(y+50, y1, y2, 0, 256); 	
 				p5.ellipse(x_pos, y_pos, curCellRadius/3); 
@@ -149,10 +154,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
+	  function getOffsetPoint(p5, x, y, z, noiseScale) 
+	  {
+		  let noiseX = p5.noise(x * noiseScale,
+		                        y * noiseScale, z);
+		  let noiseY = p5.noise(x * noiseScale,
+		                        y * noiseScale, z+50);
+		  let offsetX = p5.map(noiseX, 0, 1, -max_movement, max_movement);
+		  let offsetY = p5.map(noiseY, 0, 1, -max_movement, max_movement);
+		  return [x+offsetX, y+offsetY]
+	  }
 
 	  function snap_to_grid(num, gsize)
 	  {
-	  	return(num-(num % gsize));
+	  		return(num-(num % gsize));
 	  }
 
 	// debug - show border
