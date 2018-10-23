@@ -1,4 +1,8 @@
 # PART 4
+## Stages (v7)
+I've implemented some more stages of my idea and animation at the zooms > 5. I wanted it to become more abstract as you get closer than the rgb sets since technically that's meant to be the simplest form of a monitor's light. I'm a bit more confident in this idea and I think all I'm going to do now is refine it to make it less laggy.
+.
+.
 ## Laggy screen (v6)
 I'm really not enjoying this code or idea but I just want to get it done so I went with the screen idea and tried merging it with my RGB pixels. It gets very laggy up close and I'm not sure of a more efficient way of doing it. Once the zoom is focusing on one pixel (one set of RGB) I want to add some small noise animation to give it some life.
 .
