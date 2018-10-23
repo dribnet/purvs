@@ -4,6 +4,8 @@ const ball_radius = 50;
 const line_width = 8;
 const grid_size = 80;
 
+//let do_animation = true;
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -98,6 +100,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
+    /* For animation: updated z based on global frame count */
+  let dz = p5.globalFrameCount / 100.0;
+  z = z + dz;
+
   // debug version: draw one
   // let half_x = (x1 + x2) / 2;
   // let half_y = (y1 + y2) / 2;
@@ -143,6 +149,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
       p5.fill(0);
       p5.ellipse(x_pos, y_pos, cur_ball_radius/3);
+      p5.beginShape();
 
 
       if (zoom >= 2) {
