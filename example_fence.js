@@ -4,7 +4,7 @@ const ball_radius = 50;
 const line_width = 8;
 const grid_size = 80;
 
-//let do_animation = true;
+let do_animation = true;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -143,6 +143,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
       // }
 
+      let sineWave = p5.sin(p5.globalFrameCount/20);
+      let pulse = p5.map(sineWave, 1, -1, -50, 20);
+
       p5.stroke(0);
       p5.strokeWeight(2);
       p5.fill(180, 0, 0, 120);
@@ -156,7 +159,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.fill(180, 0, 0, 120);
         p5.stroke(0);
         p5.strokeWeight(2);
-        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2 + pulse);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5);
         p5.fill(0);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/4);      
