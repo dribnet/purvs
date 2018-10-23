@@ -16,15 +16,92 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [2, 420, 400],
+  [4, 420, 400]
 ]
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
+
+
+
+
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
+  // temporary variables used for object placement
+  
+
+  p5.background(0);
+  p5.rectMode(p5.CORNERS);
+  	let cellwidth = 200;
+ 
+ 	centerx = p5.map(512, x1, x2, 0, 256);
+  	centery = p5.map(512, y1, y2, 0, 256);
+  
+  // Two ellipses with a radius of 50 units are then added.
+//--------------------------------------------------------External cell
+  
+  diamter = p5.map(512+cellwidth, x1, x2, 0, 256);
+  p5.stroke(0, 200, 150);
+  p5.strokeWeight(5);
+  p5.noFill();
+  p5.fill(0, 200, 150,100);
+  p5.ellipse(centerx, centery, (diamter-centerx));
+
+  	p5.strokeWeight(2);
+
+ //--------------------------------------------------------internal cells
+
+	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
+	  y = p5.map(512-10, y1, y2, 0, 256);
+	  x = p5.map(512-30, x1, x2, 0, 256);	  
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
+	  y = p5.map(512+20, y1, y2, 0, 256);	
+	  x = p5.map(512+45, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/5, x1, x2, 0, 256);
+	  y = p5.map(512-20, y1, y2, 0, 256);	
+	  x = p5.map(512-5, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/3, x1, x2, 0, 256);
+	  y = p5.map(512-20, y1, y2, 0, 256);	
+	  x = p5.map(512+15, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
+	  y = p5.map(512+20, y1, y2, 0, 256);	
+	  x = p5.map(512+45, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/20, x1, x2, 0, 256);
+	  y = p5.map(512-20, y1, y2, 0, 256);	
+	  x = p5.map(512+45, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+	  diamter = p5.map(512+cellwidth/3, x1, x2, 0, 256);
+	  y = p5.map(512+40, y1, y2, 0, 256);	
+	  x = p5.map(512-25, x1, x2, 0, 256);
+	  p5.ellipse(x, y, (diamter-centerx));
+
+
+
+
+
+
+
+
+
+
+
+
+	// debug - show border
+   //p5.noFill();
+   //p5.strokeWeight(1);
+   //p5.stroke(255, 0, 0)
+   //.rect(0, 0, 255, 255);
 }
+
+
+
