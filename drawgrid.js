@@ -9,8 +9,8 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
-const grid_size = 64;
+const cellwidth = 64;
+const grid_size = 128;
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -27,7 +27,10 @@ var tourPath = [
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // temporary variables used for object placement
-  let max_shift = 0;
+  p5.background(0);
+  p5.rectMode(p5.CORNERS);
+
+  let max_shift = 100;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -35,15 +38,60 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  p5.background(0);
-  p5.rectMode(p5.CORNERS);
-  let cellwidth = 200;
+  let centerpoint = p5.map(0, x1, x2, 0, 256);
+  let centerCell = p5.map(cellwidth, x1, x2, 0, 256);
+  let curCellRadius = centerCell - centerpoint;
 
+  
+  
 
- 
  	centerx = p5.map(512, x1, x2, 0, 256);
   	centery = p5.map(512, y1, y2, 0, 256);
-  
+
+  	for(let x=min_x; x<max_x; x+=grid_size) 
+  	{
+
+    	for(let y=min_y; y<max_y; y+=grid_size) 
+    	{
+    		
+    			p5.stroke(0, 200, 150);
+			  	p5.strokeWeight(3);
+			  	p5.fill(0, 200, 150,100);
+
+			let x_pos = p5.map(x, x1, x2, 0, 256);
+      		let y_pos = p5.map(y, y1, y2, 0, 256);				
+				p5.ellipse(x_pos, y_pos, curCellRadius);
+
+				x_pos = p5.map(x-20, x1, x2, 0, 256);
+      			y_pos = p5.map(y+40, y1, y2, 0, 256);
+				p5.ellipse(x_pos, y_pos, curCellRadius/4);
+
+				x_pos = p5.map(x+45, x1, x2, 0, 256);
+      			y_pos = p5.map(y+20, y1, y2, 0, 256);
+				p5.ellipse(x_pos, y_pos, curCellRadius/10);
+
+				x_pos = p5.map(x-5, x1, x2, 0, 256);
+      			y_pos = p5.map(y-20, y1, y2, 0, 256);  
+				p5.ellipse(x_pos, y_pos, curCellRadius/5);
+
+				x_pos = p5.map(x+15, x1, x2, 0, 256);
+      			y_pos = p5.map(y-20, y1, y2, 0, 256); 	
+				p5.ellipse(x_pos, y_pos, curCellRadius/3);
+				
+				x_pos = p5.map(x-25, x1, x2, 0, 256);
+      			y_pos = p5.map(y+50, y1, y2, 0, 256); 	
+				p5.ellipse(x_pos, y_pos, curCellRadius/3); 
+
+
+    	}
+
+  	}
+
+
+
+
+
+
   // Two ellipses with a radius of 50 units are then added.
 //--------------------------------------------------------External cell
   
@@ -108,10 +156,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	  }
 
 	// debug - show border
-   //p5.noFill();
-   //p5.strokeWeight(1);
-   //p5.stroke(255, 0, 0)
-   //.rect(0, 0, 255, 255);
+  // p5.noFill();
+  // p5.strokeWeight(1);
+  // p5.stroke(255, 0, 0)
+  // p5.rect(0, 0, 255, 255);
 }
 
 
