@@ -2,7 +2,7 @@ const max_thickness = 64;
 const max_movement = 80;
 const ball_radius = 50;
 const line_width = 8;
-const grid_size = 100;
+const grid_size = 80;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -112,7 +112,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(0);
+  p5.background(35);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute all three points with offsets */
@@ -137,25 +137,47 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
       // }
 
-      if (zoom >= 10) {
-        p5.fill(255);
-        p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius, 2*line_width);        
-      }
-
-      p5.stroke(255);
-      p5.fill(180, 0, 0);
-      p5.noStroke();
+      p5.stroke(0);
+      p5.strokeWeight(2);
+      p5.fill(180, 0, 0, 120);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      p5.fill(0);
+      p5.ellipse(x_pos, y_pos, cur_ball_radius/3);
 
-      if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
-        var drawLines = false;
-        if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
-        p5.stroke(0, 0, 128);
-        drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+
+      if (zoom >= 2) {
+        p5.fill(180, 0, 0, 120);
+        p5.stroke(0);
+        p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5);
+        p5.fill(0);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/4);      
       }
+
+      if (zoom >= 3) {
+        p5.fill(180, 0, 0, 120);
+        p5.stroke(0);
+        p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.8);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/2.2);
+        p5.fill(0);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/5);      
+      }
+
+
+
+
+
+
+      // if(zoom >= 3) {
+      //   // now if we are super zoomed, draw lines in the stamen
+      //   var drawLines = false;
+      //   if (zoom >= 5) drawLines = true;
+      //   p5.fill(0, 0, 255);
+      //   p5.stroke(0, 0, 128);
+      //   drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
+      // }
     }
   }
 
