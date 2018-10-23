@@ -20,12 +20,14 @@ function snap_to_grid(num, gsize) {
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 868, 607],
-  [1, 774, 619],
-  [2, 894, 492],
-  [2, 1007, 354],
-  [3, 998, 373],
-  [4, 999, 372]
+  [0, 511, 448],
+  [1, 600, 551],
+  [2, 640, 451],
+  [3, 655, 503],
+  [4, 641, 510],
+  [5, 610, 479],
+  [8, 607, 479],
+  [0, 511, 448]
     
 ]
 
@@ -188,7 +190,7 @@ function simpleCircles2(p5, x, y, x1, x2, y1, y2, z) {
 //Simple 4 Diamond Shaped Circles With Pulsing Animation
 function minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) {
   let sineWave = p5.sin(p5.globalFrameCount/20);
- let pulse2 = p5.map(sineWave, 1, -1, -100, 20);
+ let pulse2 = p5.map(sineWave, 1, -1, -100, 50);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
@@ -322,9 +324,6 @@ for(let x=min_x; x<max_x; x+=grid_size) {
         diamondCircles(p5, x, y, x1, x2, y1, y2 );
  
       }
-
-
-
 
        if (zoom >=4) {
 
