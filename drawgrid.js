@@ -10,7 +10,7 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 
-
+const grid_size = 64;
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -27,11 +27,19 @@ var tourPath = [
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // temporary variables used for object placement
-  
+  let max_shift = 0;
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
   p5.background(0);
   p5.rectMode(p5.CORNERS);
-  	let cellwidth = 200;
+  let cellwidth = 200;
+
+
  
  	centerx = p5.map(512, x1, x2, 0, 256);
   	centery = p5.map(512, y1, y2, 0, 256);
@@ -94,7 +102,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-
+	  function snap_to_grid(num, gsize)
+	  {
+	  	return(num-(num % gsize));
+	  }
 
 	// debug - show border
    //p5.noFill();
