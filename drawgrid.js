@@ -35,6 +35,12 @@ var toggleZoom = true;
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+	let do_animation = true;
+
+	let dz = p5.globalFrameCount / 1.0;
+  	z = z + dz;
+  	console.log(z);
   // temporary variables used for object placement
 	let cx=0, cy=0, cx2=0, cy2=0;
 
@@ -53,6 +59,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 2, 1, "purple");
 		DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 		DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom, 1);
+		DrawCircleAnimate(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 
 
 	}else if(zoom == 1){
@@ -165,9 +172,43 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		}else if(colour=="black"){
 			p5.stroke(0, 0, 0, baseAlpha);
 		}
-	  	
-	  	for(let i=0; i< GlobalDrawCalls*magnitude; i++) {
+
+		for(let i=0; i< GlobalDrawCalls*magnitude; i++) {
 			let curz = i * 4;
+
+			var angle1 = p5.random(0, 2 * p5.PI);
+			var angle2 = p5.random(0, 2 * p5.PI);
+
+			var xpos1 = (circleWidth2) + (circleWidth1/scale) * p5.cos(angle1);
+			var ypos1 = circleWidth2 + (circleWidth1/scale) * p5.sin(angle1);
+			var xpos2 = (circleWidth2) + (circleWidth1/scale) * p5.cos(angle2);
+			var ypos2 = circleWidth2 + (circleWidth1/scale) * p5.sin(angle2)
+
+			var l1 = p5.map(xpos1 + (x/1.3), x1, x2, 0, 256);
+			var l2 = p5.map(ypos1 + (y/1.3), y1, y2, 0, 256);
+			var l3 = p5.map(xpos2 + (x/1.3), x1, x2, 0, 256);
+			var l4 = p5.map(ypos2 + (y/1.3), y1, y2, 0, 256);
+
+			p5.line(l1,l2,l3,l4);
+		}
+	}
+
+	function DrawCircleAnimate (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour) {
+		let x = 512;
+		let y = 512;
+		let noiseScale = 0.1;
+		// p5.stroke(204, 78, 206,baseAlpha);
+		
+		if(colour=="purple"){
+			p5.stroke(204, 78, 206,baseAlpha);
+			
+		}else if(colour=="cyan"){
+			p5.stroke(96, 200, 224, baseAlpha);
+		}else if(colour=="black"){
+			p5.stroke(0, 0, 0, baseAlpha);
+		}
+	  	if (z<GlobalDrawCalls*magnitude){
+			
 
 			var angle1 = p5.random(0, 2 * p5.PI);
 			var angle2 = p5.random(0, 2 * p5.PI);
