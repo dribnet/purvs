@@ -10,7 +10,7 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 const max_thickness = 256;
-const grid_size = 180;
+const grid_size = 120;
 const para2_grid_size = 50;
 let do_animation = true;
 
@@ -38,16 +38,16 @@ function firstSquare(p5, x, y, x1, x2, y1, y2) {
   let sineWave = p5.sin(p5.globalFrameCount/10);
   let height = p5.map(sineWave, -1, 1, 0, 15);
 
-	let quad_x1 = p5.map(x-75, x1, x2, 0, 256);
-	let quad_y1 = p5.map(y+0, y1, y2, 0, 256);
-	let quad_x2 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y2 = p5.map(y-60, y1, y2, 0, 256);
-	let quad_x3 = p5.map(x+75, x1, x2, 0, 256);
-	let quad_y3 = p5.map(y+0, y1, y2, 0, 256);
-	let quad_x4 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y4 = p5.map(y+60, y1, y2, 0, 256);
+	let quad_x1 = p5.map(x-75/2, x1, x2, 0, 256);
+	let quad_y1 = p5.map(y+0/2, y1, y2, 0, 256);
+	let quad_x2 = p5.map(x+0/2, x1, x2, 0, 256);
+	let quad_y2 = p5.map(y-60/2, y1, y2, 0, 256);
+	let quad_x3 = p5.map(x+75/2, x1, x2, 0, 256);
+	let quad_y3 = p5.map(y+0/2, y1, y2, 0, 256);
+	let quad_x4 = p5.map(x+0/2, x1, x2, 0, 256);
+	let quad_y4 = p5.map(y+60/2, y1, y2, 0, 256);
 
-	p5.fill('#58CAFF');
+	p5.fill(253, 253, 105);
 	p5.quad(quad_x1, quad_y1, quad_x2, quad_y2, quad_x3, quad_y3, quad_x4, quad_y4);
 }
 
@@ -56,65 +56,65 @@ function firstSquare(p5, x, y, x1, x2, y1, y2) {
 function cube(p5, x, y, x1, x2, y1, y2, z) {
 let phase = getRandomValue(p5, x, y, z, "phase", 0, 2*p5.PI, 0.1);
 	let sineWave = p5.sin(phase + p5.globalFrameCount/10);
-  	let height = p5.map(sineWave, -1, 1, 0, 10);
+  	let height = p5.map(sineWave, -1, 1, 0, 12);
 
   	
   	// let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
   	// let shifted_y = y + offsetY;
 
-	let quad_x1 = p5.map(x-75, x1, x2, 0, 256);
-	let quad_y1 = p5.map(y+0+height, y1, y2, 0, 256);
-	let quad_x2 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y2 = p5.map(y-60+height, y1, y2, 0, 256);
-	let quad_x3 = p5.map(x+75, x1, x2, 0, 256);
-	let quad_y3 = p5.map(y+0+height, y1, y2, 0, 256);
-	let quad_x4 = p5.map(x+0, x1, x2, 0, 256);
-	let quad_y4 = p5.map(y+60+height, y1, y2, 0, 256);
+	let quad_x1 = p5.map(x-75/2, x1, x2, 0, 256);
+	let quad_y1 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let quad_x2 = p5.map(x+0/2, x1, x2, 0, 256);
+	let quad_y2 = p5.map(y-60/2+height, y1, y2, 0, 256);
+	let quad_x3 = p5.map(x+75/2, x1, x2, 0, 256);
+	let quad_y3 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let quad_x4 = p5.map(x+0/2, x1, x2, 0, 256);
+	let quad_y4 = p5.map(y+60/2+height, y1, y2, 0, 256);
 
-	p5.fill('#58CAFF');
+	p5.fill(253, 253, 105);
 	p5.quad(quad_x1, quad_y1, quad_x2, quad_y2, quad_x3, quad_y3, quad_x4, quad_y4);
 
-	let left_x1 = p5.map(x-75, x1, x2, 0, 256);
-	let left_y1 = p5.map(y+0+height, y1, y2, 0, 256);
-	let left_x2 = p5.map(x+0, x1, x2, 0, 256);
-	let left_y2 = p5.map(y+60+height, y1, y2, 0, 256);
-	let left_x3 = p5.map(x+0, x1, x2, 0, 256);
-	let left_y3 = p5.map(y+100, y1, y2, 0, 256);
-	let left_x4 = p5.map(x-75, x1, x2, 0, 256);
-	let left_y4 = p5.map(y+40, y1, y2, 0, 256);
+	let left_x1 = p5.map(x-75/2, x1, x2, 0, 256);
+	let left_y1 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let left_x2 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_y2 = p5.map(y+60/2+height, y1, y2, 0, 256);
+	let left_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_y3 = p5.map(y+100/2, y1, y2, 0, 256);
+	let left_x4 = p5.map(x-75/2, x1, x2, 0, 256);
+	let left_y4 = p5.map(y+40/2, y1, y2, 0, 256);
 
-	p5.fill(4, 41, 67);
+	p5.fill(99,78,143);
 	p5.quad(left_x1, left_y1, left_x2, left_y2, left_x3, left_y3, left_x4, left_y4);
 
-	let right_x1 = p5.map(x+75, x1, x2, 0, 256);
-	let right_y1 = p5.map(y+0+height, y1, y2, 0, 256);
-	let right_x2 = p5.map(x+0, x1, x2, 0, 256);
-	let right_y2 = p5.map(y+60+height, y1, y2, 0, 256);
-	let right_x3 = p5.map(x+0, x1, x2, 0, 256);
-	let right_y3 = p5.map(y+100, y1, y2, 0, 256);
-	let right_x4 = p5.map(x+75, x1, x2, 0, 256);
-	let right_y4 = p5.map(y+40, y1, y2, 0, 256);
+	let right_x1 = p5.map(x+75/2, x1, x2, 0, 256);
+	let right_y1 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let right_x2 = p5.map(x+0/2, x1, x2, 0, 256);
+	let right_y2 = p5.map(y+60/2+height, y1, y2, 0, 256);
+	let right_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let right_y3 = p5.map(y+100/2, y1, y2, 0, 256);
+	let right_x4 = p5.map(x+75/2, x1, x2, 0, 256);
+	let right_y4 = p5.map(y+40/2, y1, y2, 0, 256);
 
-	p5.fill(240, 60, 46);
+	p5.fill(54, 32, 81);
 	p5.quad(right_x1, right_y1, right_x2, right_y2, right_x3, right_y3, right_x4, right_y4);
 
-	let left_tri_x1 = p5.map(x+0, x1, x2, 0, 256);
-	let left_tri_y1 = p5.map(y-30+height, y1, y2, 0, 256);
-	let left_tri_x2 = p5.map(x+38, x1, x2, 0, 256);
-	let left_tri_y2 = p5.map(y+0+height, y1, y2, 0, 256);
-	let left_tri_x3 = p5.map(x+0, x1, x2, 0, 256);
-	let left_tri_y3 = p5.map(y+30+height, y1, y2, 0, 256);
+	let left_tri_x1 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y1 = p5.map(y-30/2+height, y1, y2, 0, 256);
+	let left_tri_x2 = p5.map(x+38/2, x1, x2, 0, 256);
+	let left_tri_y2 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let left_tri_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y3 = p5.map(y+30/2+height, y1, y2, 0, 256);
 
 
-	p5.fill(240, 60, 46);
+	p5.fill(99,78,143);
 	p5.triangle(left_tri_x1, left_tri_y1, left_tri_x2, left_tri_y2, left_tri_x3, left_tri_y3);
 
-	let right_tri_x1 = p5.map(x+0, x1, x2, 0, 256);
-	let right_tri_y1 = p5.map(y-30+height, y1, y2, 0, 256);
-	let right_tri_x2 = p5.map(x-38, x1, x2, 0, 256);
-	let right_tri_y2 = p5.map(y+0+height, y1, y2, 0, 256);
-	let right_tri_x3 = p5.map(x+0, x1, x2, 0, 256);
-	let right_tri_y3 = p5.map(y+30+height, y1, y2, 0, 256);
+	let right_tri_x1 = p5.map(x+0/2, x1, x2, 0, 256);
+	let right_tri_y1 = p5.map(y-30/2+height, y1, y2, 0, 256);
+	let right_tri_x2 = p5.map(x-38/2, x1, x2, 0, 256);
+	let right_tri_y2 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let right_tri_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let right_tri_y3 = p5.map(y+30/2+height, y1, y2, 0, 256);
 
 
 	p5.fill(4, 41, 67);
@@ -126,15 +126,15 @@ let phase = getRandomValue(p5, x, y, z, "phase", 0, 2*p5.PI, 0.1);
 
 	function triangle(p5, x, y, x1, x2, y1, y2) {
 
-	let left_tri_x1 = p5.map(x+0, x1, x2, 0, 256);
-	let left_tri_y1 = p5.map(y-30, y1, y2, 0, 256);
-	let left_tri_x2 = p5.map(x+38, x1, x2, 0, 256);
-	let left_tri_y2 = p5.map(y+0, y1, y2, 0, 256);
-	let left_tri_x3 = p5.map(x+0, x1, x2, 0, 256);
-	let left_tri_y3 = p5.map(y+30, y1, y2, 0, 256);
+	let left_tri_x1 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y1 = p5.map(y-30/2, y1, y2, 0, 256);
+	let left_tri_x2 = p5.map(x+38/2, x1, x2, 0, 256);
+	let left_tri_y2 = p5.map(y+0/2, y1, y2, 0, 256);
+	let left_tri_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y3 = p5.map(y+30/2, y1, y2, 0, 256);
 
 
-	p5.fill(240, 60, 46);
+	p5.fill(99,78,143);
 	p5.triangle(left_tri_x1, left_tri_y1, left_tri_x2, left_tri_y2, left_tri_x3, left_tri_y3);
 
 
@@ -144,16 +144,16 @@ function smallSquares(p5, x, y, x1, x2, y1, y2) {
 
 
 
-	let square1_x1 = p5.map(x-75/2, x1, x2, 0, 256);
-	let square1_y1 = p5.map(y+0/2, y1, y2, 0, 256);
-	let square1_x2 = p5.map(x+0/2, x1, x2, 0, 256);
-	let square1_y2 = p5.map(y-60/2, y1, y2, 0, 256);
-	let square1_x3 = p5.map(x+75/2, x1, x2, 0, 256);
-	let square1_y3 = p5.map(y+0/2, y1, y2, 0, 256);
-	let square1_x4 = p5.map(x+0/2, x1, x2, 0, 256);
-	let square1_y4 = p5.map(y+60/2, y1, y2, 0, 256);
+	let square1_x1 = p5.map(x-75/4, x1, x2, 0, 256);
+	let square1_y1 = p5.map(y+0/4, y1, y2, 0, 256);
+	let square1_x2 = p5.map(x+0/4, x1, x2, 0, 256);
+	let square1_y2 = p5.map(y-60/4, y1, y2, 0, 256);
+	let square1_x3 = p5.map(x+75/4, x1, x2, 0, 256);
+	let square1_y3 = p5.map(y+0/4, y1, y2, 0, 256);
+	let square1_x4 = p5.map(x+0/4, x1, x2, 0, 256);
+	let square1_y4 = p5.map(y+60/4, y1, y2, 0, 256);
 
-	p5.fill(4, 41, 67);
+	p5.fill(54, 32, 81);
 	
 	p5.quad(square1_x1, square1_y1, square1_x2, square1_y2, square1_x3, square1_y3, square1_x4, square1_y4);
 	
@@ -179,35 +179,49 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
    for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
+ 
+
+ // if (zoom == 1){
+		
+	// 	smallSquares(p5, x, y, x1, x2, y1, y2 );
+		
 
 
-
-	if (zoom >= 3){
-		cube(p5, x, y, x1, x2, y1, y2, z );
+ // 	 if (zoom <= 2){
+	// 	firstSquare(p5, x, y, x1, x2, y1, y2 );
 
 		
-    }
+	// }
 
 
 
+	
+	// }
 
-    if (zoom <= 2){
-		firstSquare(p5, x, y, x1, x2, y1, y2 );
-
+	// if (zoom >= 3){
+	// 	cube(p5, x, y, x1, x2, y1, y2, z );
+ //    }
+if (zoom < 3){
+	firstSquare(p5, x, y, x1, x2, y1, y2 );	
+}
 		
-	}
 
+ if (zoom >= 1){
+ 	smallSquares(p5, x, y, x1, x2, y1, y2 );
+ }
 
-	 if (zoom == 1){
-		
-		smallSquares(p5, x, y, x1, x2, y1, y2 );
-		
-	}
-
-    if (zoom == 2){
-		smallSquares(p5, x, y, x1, x2, y1, y2 );
+	 if (zoom >= 2){
 		triangle(p5, x, y, x1, x2, y1, y2 );
-    }
+	}
+
+if (zoom >=3){
+	
+	cube(p5, x, y, x1, x2, y1, y2, z );
+
+}
+
+// smallSquares(p5, x, y, x1, x2, y1, y2 );
+	
 
 
 }
