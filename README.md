@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-To help bring my whole animation together, I decided to tie back in the first zoomed out pattern into zoom level 4 and above. It does make it a bit more laggy, but I think it makes the image look a lot better. I don't think I'll add a lot more detail after this, maybe just subtle colour changes for a few extra zooms, but I think it looks quite effective as it is (the current colours are a work in progress at the moment too). I also want to try fix the animation that is randomised so that it doesn't get faster and faster - a minor detail though. I have got the main part of the map now so it is just further iterations and fixing details from here. 
+Have continued to iterate and condense the code a bit so it isn't as long. I managed to fix the problem with the randomised animation where it would get faster the longer it went on, so that it stays at the same pace now. Also updated the tour and made a few minor changes to colour. 

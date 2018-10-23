@@ -26,7 +26,6 @@ var tourPath = [
   [3, 655, 503],
   [4, 641, 510],
   [5, 610, 479],
-  [8, 607, 479],
   [0, 511, 448]
     
 ]
@@ -105,8 +104,7 @@ function simpleCircles(p5, x, y, x1, x2, y1, y2, z) {
       let y_top_circle = p5.map(y - 10, y1, y2, 0, 256);
       let y_bottom_circle = p5.map(y + 10, y1, y2, 0, 256);
 
-      p5.noStroke();
-      p5.fill(100, 87, 255, 60);//lilac
+  
       p5.ellipse(x_right_circle, y_centre_circle, (cur_ball_radius + pulse));
       p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius + pulse));
       p5.ellipse(x_centre_circle, y_top_circle, (cur_ball_radius + pulse));
@@ -288,7 +286,9 @@ for(let x=min_x; x<max_x; x+=grid_size) {
        
 
        if (zoom <2) {
-          simpleCircles(p5, x, y, x1, x2, y1, y2);
+        p5.noStroke();
+        p5.fill(100, 87, 255, 100);//lilac
+        simpleCircles(p5, x, y, x1, x2, y1, y2);
         }
 
 
