@@ -6,7 +6,6 @@ const line_width = 8;
 const ball_radius = 20;
 const ball_radius2 = 30;
 const ball_radius3 = 10;
-
 const mini_grid_size = 8;
 const mini_max_thickness = 24;
 
@@ -29,60 +28,6 @@ var tourPath = [
   [0, 511, 448]
     
 ]
-
-//Circles Inbetween Regular Grid (Square Shape - Zoom >= 3)
-function squareCircles(p5, x, y, x1, x2, y1, y2) {
- let sineWave = p5.sin(p5.globalFrameCount/20);
- let pulse = p5.map(sineWave, 1, -1, -50, 20);
-
-  let c_p00 = p5.map(0, x1, x2, 0, 256);
-  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  let c_pball = p5.map(ball_radius3, x1, x2, 0, 256);
-  let cur_line_width = c_plwidth - c_p00;
-  let cur_ball_radius3 = c_pball - c_p00;
-
-      let y_topright_circle = p5.map(y - 36, y1, y2, 0, 256);
-      let x_topright_circle = p5.map(x + 36, x1, x2, 0, 256);
-      let y_topleft_circle = p5.map(y - 36, y1, y2, 0, 256);
-      let x_topleft_circle = p5.map(x - 36, x1, x2, 0, 256);
-
-      let y_bottomleft_circle = p5.map(y + 36, y1, y2, 0, 256);
-      let x_bottomleft_circle = p5.map(x - 36, x1, x2, 0, 256);
-      let y_bottomright_circle = p5.map(y + 36, y1, y2, 0, 256);
-      let x_bottomright_circle = p5.map(x + 36, x1, x2, 0, 256);
-  
-      p5.ellipse(x_topright_circle, y_topright_circle, (cur_ball_radius3 + pulse));
-      p5.ellipse(x_topleft_circle, y_topleft_circle, (cur_ball_radius3 + pulse));
-      p5.ellipse(x_bottomleft_circle, y_bottomleft_circle, (cur_ball_radius3+ pulse));
-      p5.ellipse(x_bottomright_circle, y_bottomright_circle, (cur_ball_radius3 + pulse));
-     
-}
-
-
-//Circles Inbetween Regular Grid (Diamond Shape - Zoom >= 3)
-function diamondCircles(p5, x, y, x1, x2, y1, y2) {
- let sineWave = p5.sin(p5.globalFrameCount/20);
- let pulse = p5.map(sineWave, 1, -1, -50, 20);
-
-  let c_p00 = p5.map(0, x1, x2, 0, 256);
-  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  let c_pball = p5.map(ball_radius3, x1, x2, 0, 256);
-  let cur_line_width = c_plwidth - c_p00;
-  let cur_ball_radius3 = c_pball - c_p00;
-
-      let x_centre_circle = p5.map(x + 32, x1, x2, 0, 256);
-      let y_centre_circle = p5.map(y - 32, y1, y2, 0, 256);
-      let x_right_circle = p5.map(x + 38, x1, x2, 0, 256);
-      let x_left_circle = p5.map(x - 38, x1, x2, 0, 256);
-      let y_top_circle = p5.map(y - 38, y1, y2, 0, 256);
-      let y_bottom_circle = p5.map(y + 38, y1, y2, 0, 256);
-    
-      p5.ellipse(x_right_circle, y_centre_circle, (cur_ball_radius3 + pulse));
-      p5.ellipse(x_centre_circle, y_bottom_circle, (cur_ball_radius3 + pulse));
-      p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius3 + pulse));
-      p5.ellipse(x_centre_circle, y_top_circle, (cur_ball_radius3+ pulse));
-
-}
 
 //Simple 4 Diamond Shaped Circles With Random Animation
 function simpleCircles(p5, x, y, x1, x2, y1, y2, z) {
@@ -153,10 +98,7 @@ function standardCircles(p5, x, y, x1, x2, y1, y2, z) {
       p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius2 + pulse2));
       p5.ellipse(x_topleft_circle, y_topleft_circle, (cur_ball_radius2 + pulse2));
 
-
 }
-
-
 
 //Simple 4 Diamond Shaped Circles With Pulsing Animation
 function simpleCircles2(p5, x, y, x1, x2, y1, y2, z) {
@@ -184,8 +126,7 @@ function simpleCircles2(p5, x, y, x1, x2, y1, y2, z) {
 }
 
 
-
-//Simple 4 Diamond Shaped Circles With Pulsing Animation
+//Simple 4 Mini-Diamond Shaped Circles With Pulsing Animation
 function minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) {
   let sineWave = p5.sin(p5.globalFrameCount/20);
  let pulse2 = p5.map(sineWave, 1, -1, -100, 50);
@@ -208,6 +149,60 @@ function minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) {
        p5.ellipse(x_left_minicircle2, y_centre_circle, (cur_ball_radius/3 + pulse2));
        p5.ellipse(x_centre_circle, y_top_minicircle2, (cur_ball_radius/3 + pulse2));
        p5.ellipse(x_centre_circle, y_bottom_minicircle2, (cur_ball_radius/3 + pulse2));
+
+}
+
+//Circles Inbetween Regular Grid (Square Shape - Zoom >= 3)
+function squareCircles(p5, x, y, x1, x2, y1, y2) {
+ let sineWave = p5.sin(p5.globalFrameCount/20);
+ let pulse = p5.map(sineWave, 1, -1, -50, 20);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius3, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+  let cur_ball_radius3 = c_pball - c_p00;
+
+      let y_topright_circle = p5.map(y - 36, y1, y2, 0, 256);
+      let x_topright_circle = p5.map(x + 36, x1, x2, 0, 256);
+      let y_topleft_circle = p5.map(y - 36, y1, y2, 0, 256);
+      let x_topleft_circle = p5.map(x - 36, x1, x2, 0, 256);
+
+      let y_bottomleft_circle = p5.map(y + 36, y1, y2, 0, 256);
+      let x_bottomleft_circle = p5.map(x - 36, x1, x2, 0, 256);
+      let y_bottomright_circle = p5.map(y + 36, y1, y2, 0, 256);
+      let x_bottomright_circle = p5.map(x + 36, x1, x2, 0, 256);
+  
+      p5.ellipse(x_topright_circle, y_topright_circle, (cur_ball_radius3 + pulse));
+      p5.ellipse(x_topleft_circle, y_topleft_circle, (cur_ball_radius3 + pulse));
+      p5.ellipse(x_bottomleft_circle, y_bottomleft_circle, (cur_ball_radius3+ pulse));
+      p5.ellipse(x_bottomright_circle, y_bottomright_circle, (cur_ball_radius3 + pulse));
+     
+}
+
+
+//Circles Inbetween Regular Grid (Diamond Shape - Zoom >= 3)
+function diamondCircles(p5, x, y, x1, x2, y1, y2) {
+ let sineWave = p5.sin(p5.globalFrameCount/20);
+ let pulse = p5.map(sineWave, 1, -1, -50, 20);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius3, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+  let cur_ball_radius3 = c_pball - c_p00;
+
+      let x_centre_circle = p5.map(x + 32, x1, x2, 0, 256);
+      let y_centre_circle = p5.map(y - 32, y1, y2, 0, 256);
+      let x_right_circle = p5.map(x + 38, x1, x2, 0, 256);
+      let x_left_circle = p5.map(x - 38, x1, x2, 0, 256);
+      let y_top_circle = p5.map(y - 38, y1, y2, 0, 256);
+      let y_bottom_circle = p5.map(y + 38, y1, y2, 0, 256);
+    
+      p5.ellipse(x_right_circle, y_centre_circle, (cur_ball_radius3 + pulse));
+      p5.ellipse(x_centre_circle, y_bottom_circle, (cur_ball_radius3 + pulse));
+      p5.ellipse(x_left_circle, y_centre_circle, (cur_ball_radius3 + pulse));
+      p5.ellipse(x_centre_circle, y_top_circle, (cur_ball_radius3+ pulse));
 
 }
 
@@ -284,62 +279,63 @@ for(let x=min_x; x<max_x; x+=grid_size) {
       let y_top_minicircle2 = p5.map(y - 3, y1, y2, 0, 256);
       let y_bottom_minicircle2 = p5.map(y + 3, y1, y2, 0, 256);
        
-
+      //Random Pulsing Diamond-Shaped Circles
        if (zoom <2) {
         p5.noStroke();
-        p5.fill(100, 87, 255, 100);//lilac
+        p5.fill(100, 87, 255, 100);//Lilac
         simpleCircles(p5, x, y, x1, x2, y1, y2);
         }
 
 
        if (zoom ==2) {
         p5.noStroke();
-        p5.fill(100, 87, 255, 40);//lilac
-        standardCircles(p5, x, y, x1, x2, y1, y2);
+        p5.fill(100, 87, 255, 40);//Lilac
+        standardCircles(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 8 Circles
 
-        p5.fill(115, 129, 255, 80);//lilac
-        simpleCircles2(p5, x, y, x1, x2, y1, y2);
+        p5.fill(115, 129, 255, 80);//Lilac
+        simpleCircles2(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 4 Circles (Medium Sized)
       
-        p5.fill(250,13,73,60); //pink
-        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z)
+        p5.fill(250,13,73,60); //Pink
+        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) //Diamond Shaped with 4 Circles (Mini Sized)
 
       }
 
     
        if (zoom ==3) {
         p5.noStroke();
-        p5.fill(250,13,73,50); //pink
-        standardCircles(p5, x, y, x1, x2, y1, y2);
+        p5.fill(250,13,73,50); //Pink
+        standardCircles(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 8 Circles
 
-        p5.fill(115, 129, 255, 80);//lilac
-        simpleCircles2(p5, x, y, x1, x2, y1, y2);
+        p5.fill(115, 129, 255, 80);//Lilac
+        simpleCircles2(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 4 Circles (Medium Sized)
+      
+        p5.fill(250,13,73,60); //Pink
+        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) //Diamond Shaped with 4 Circles (Mini Sized)
 
-        p5.fill(250,13,73,60); //pink
-        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z)
-
-        p5.fill(115, 129, 255, 180);//Darker Purple/Blue
-        squareCircles(p5, x, y, x1, x2, y1, y2 );
+        p5.fill(115, 129, 255, 100);//Darker Purple/Blue
+        squareCircles(p5, x, y, x1, x2, y1, y2 ); //Square Shaped with 4 Circles (Offset from Regular Grid)
 
         p5.fill(128, 131, 255, 150);//Lighter Purple/Blue
-        diamondCircles(p5, x, y, x1, x2, y1, y2 );
+        diamondCircles(p5, x, y, x1, x2, y1, y2 ); //Diamond Shaped with 4 Circles (Offset from Regular Grid)
+
  
       }
 
        if (zoom >=4) {
 
         p5.noStroke();
-        p5.fill(250,13,73,150); //pink
-        standardCircles(p5, x, y, x1, x2, y1, y2);
+        p5.fill(250,13,73,150); //Pink
+        standardCircles(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 8 Circles
          
-        p5.fill(100, 87, 255, 50);//lilac
-        simpleCircles2(p5, x, y, x1, x2, y1, y2);
+        p5.fill(100, 87, 255, 50);//Pink-Purplish
+        simpleCircles2(p5, x, y, x1, x2, y1, y2); //Diamond Shaped with 4 Circles (Medium Sized)
 
         p5.fill(128, 131, 255, 100);//Lighter Purple/Blue
-        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z)
+        minidiamondCircle(p5, x, y, x1, x2, y1, y2, z) //Diamond Shaped with 4 Circles (Smallest Sized)
 
         p5.fill(128, 131, 255, 220);//Lighter Purple/Blue
-        squareCircles(p5, x, y, x1, x2, y1, y2 );
-        diamondCircles(p5, x, y, x1, x2, y1, y2 );
+        squareCircles(p5, x, y, x1, x2, y1, y2 ); //Square Shaped with 4 Circles (Offset from Regular Grid)
+        diamondCircles(p5, x, y, x1, x2, y1, y2 ); //Diamond Shaped with 4 Circles (Offset from Regular Grid)
  
       }
 
