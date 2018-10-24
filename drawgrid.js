@@ -51,6 +51,8 @@ const ball_radius = 32;
 const line_width = 8;
 const grid_size = 64;
 
+let do_animation = true;
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -94,6 +96,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_ball_radius = c_pball - c_p00;
+
+  /* For animation: updated z based on global frame count */
+  let dz = p5.globalFrameCount / 100.0;
+  z = z + dz;
+  
 
  // p5.background(255);
  //background colours from light blue to dark blue
