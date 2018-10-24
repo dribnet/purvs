@@ -1,7 +1,7 @@
 const max_thickness = 64;
 const max_movement = 16;
 const ball_radius = 3;
-const ball_radius2 = 6;
+const ball_radius2 = 1.5;
 const line_width = 8;
 const grid_size = 20;
 const maxLevel = 4;
@@ -51,27 +51,73 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
     let pixel_x = p5.map(pos_x+0.6*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.6*rad1*offset[1], y1, y2, 0, 256);
     p5.strokeWeight(0);
+
     if(drawCircles) {
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
+      p5.ellipse(pixel_x, pixel_y, pixel_radius);
     }
     if(drawLines) {
       p5.strokeWeight(pixel_radius / 5);
-      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
+      // p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
+      // p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
       p5.strokeWeight(0);
     }  
   }
+
+  // spokes
+  let spokeLength = getRandomValue(p5, pos_x, pos_y, z, "spokeLength", 0.5, 1.5, 0.1);
+  let spokeRadius = rad2 * spokeLength;
+  let center_pixel_x = p5.map(pos_x, x1, x2, 0, 256);
+  let center_pixel_y = p5.map(pos_y, y1, y2, 0, 256);
+  let spoke_pixel_x2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  if(drawLines) {
+    for(let angle=0; angle<360; angle=angle+60) {
+      p5.strokeWeight(pixel_radius / 5);
+      let spike_x = pos_x + spokeRadius * p5.cos(angle);
+      let spike_y = pos_y + spokeRadius * p5.sin(angle);
+      let spike_pixel_x = p5.map(spike_x, x1, x2, 0, 256);
+      let spike_pixel_y = p5.map(spike_y, y1, y2, 0, 256);
+      p5.line(center_pixel_x, center_pixel_y, spike_pixel_x, spike_pixel_y);
+
+      // draw spikes on the spikes
+      let spreadAngle = getRandomValue(p5, pos_x, pos_y, z, "spreadAngle", 10, 40, 0.9);
+      let fractionOut = 0.3;
+      let fractionRadius = fractionOut * spokeRadius;
+      // let spreadAngle = 30;
+      let fractionThin = 0.25;
+      p5.strokeWeight(fractionThin * pixel_radius / 5);
+      let spike_fork_x = pos_x + fractionRadius * p5.cos(angle);
+      let spike_fork_y = pos_y + fractionRadius * p5.sin(angle);
+      let subspike1_x = pos_x + spokeRadius * p5.cos(angle-spreadAngle);
+      let subspike1_y = pos_y + spokeRadius * p5.sin(angle-spreadAngle);
+      let subspike2_x = pos_x + spokeRadius * p5.cos(angle+spreadAngle);
+      let subspike2_y = pos_y + spokeRadius * p5.sin(angle+spreadAngle);
+      let spike_fork_pixel_x = p5.map(spike_fork_x, x1, x2, 0, 256);
+      let spike_fork_pixel_y = p5.map(spike_fork_y, y1, y2, 0, 256);
+      let subspike_pixel1_x = p5.map(subspike1_x, x1, x2, 0, 256);
+      let subspike_pixel1_y = p5.map(subspike1_y, y1, y2, 0, 256);
+      let subspike_pixel2_x = p5.map(subspike2_x, x1, x2, 0, 256);
+      let subspike_pixel2_y = p5.map(subspike2_y, y1, y2, 0, 256);
+
+      p5.line(spike_fork_pixel_x, spike_fork_pixel_y, subspike_pixel1_x, subspike_pixel1_y);
+      p5.line(spike_fork_pixel_x, spike_fork_pixel_y, subspike_pixel2_x, subspike_pixel2_y);
+    }
+    p5.strokeWeight(0);
+  }  
+
+
 }
 
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
  let max_shift = max_thickness + max_movement;
 
+  p5.angleMode(p5.DEGREES);
+
   // For animation: updated z based on global frame count 
   let dz = p5.globalFrameCount / 50.0;
   z = z + dz;
 
-  p5.background(169, 211, 255);
+  p5.background(85, 142, 255);
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -82,7 +128,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
-  let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
+  let c_pball = p5.map(ball_radius2, x1, x2, 0, 256);
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
@@ -115,20 +161,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         var drawLines = false;
       }
 
-        if (zoom >= 4) {
+        if (zoom >= 3) {
           var drawCircles = true; 
         }
+
         if (zoom >= 5) {
           drawLines = true;
           drawCircles = false; 
- }
+        }
 
         p5.fill(255);
         p5.stroke(255);
         snowflake(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/2, line_width/3, drawLines, drawCircles);
 
 
-        
 
 
       }
