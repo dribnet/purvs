@@ -9,9 +9,9 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 //zoom: current zoom level (starts at 0), useful to decide how much detail to draw
-const max_thickness = 200;
+const max_thickness = 5;
 const grid_size = 250;
-const line_width = 12;
+const line_width = 0;
 
 const sm_grid_size = 4;
 const sm_max_thickness = 150;
@@ -21,7 +21,7 @@ let do_animation = true;
 
 
 /* the random number seed for the tour */
-var tourSeed = 301;
+var tourSeed = 150;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [0, 77.585937500000, -1577.542968750000],
@@ -38,7 +38,7 @@ function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-function rain(p5, x, y, x1, x2, y1, y2, z)  {
+function CIRLCES(p5, x, y, x1, x2, y1, y2, z)  {
 
   p5.blendMode(p5.BLEND)
   p5.colorMode(p5.HSB, 360);
@@ -73,6 +73,76 @@ function rain(p5, x, y, x1, x2, y1, y2, z)  {
  
 }
 
+function SQUARES(p5, x, y, x1, x2, y1, y2, z)  {
+
+  p5.blendMode(p5.BLEND)
+  p5.colorMode(p5.HSB, 360);
+  p5.rectMode(p5.CENTER);
+
+  let bounce = p5.sin(x + p5.globalFrameCount);
+  let bounce2 = p5.sin(y + p5.globalFrameCount);
+
+  let square_x = p5.map(x, x1, x2, 0, 256);
+  let square_y = p5.map(y, y1, y2, 0, 256);
+  let square_origin_x = p5.map(0, x1, x2, 0, 256);
+  let square_offset = p5.map(20, x1, x2, 0, 256);
+  let square_radius = square_offset - square_origin_x;
+
+  var col1 = p5.map(square_y,0,square_x,270,150);
+  var col2 = p5.map(square_x,0,square_y,150,270);
+
+  p5.strokeWeight(square_radius);
+  
+  p5.push();
+  p5.translate(0, bounce*200);
+  p5.fill(col1, 300, 360);
+  p5.stroke(col1, 300, 360);
+  p5.rect(square_x, square_y, square_radius, square_radius);
+  p5.pop();
+
+  p5.push();
+  p5.translate( bounce2*200, 0);
+  p5.fill(col2, 300, 360);
+  p5.stroke(col2, 300, 360);
+  p5.rect(square_x, square_y, square_radius, square_radius);
+  p5.pop();
+ 
+}
+
+function roundSQUARES(p5, x, y, x1, x2, y1, y2, z) {
+
+  p5.blendMode(p5.BLEND)
+  p5.colorMode(p5.HSB, 360);
+  p5.rectMode(p5.CORNER);
+
+  let bounce = p5.sin(x + p5.globalFrameCount);
+  let bounce2 = p5.sin(y + p5.globalFrameCount);
+
+  let square_x = p5.map(x, x1, x2, 0, 256);
+  let square_y = p5.map(y, y1, y2, 0, 64);
+  let square_origin_x = p5.map(1, x1, x2, 0, 256);
+  let square_offset = p5.map(50, x1, x2, 0, 256);
+  let square_radius = square_offset - square_origin_x;
+
+  var col1 = p5.map(square_y,0,square_x,270,150);
+  var col2 = p5.map(square_x,0,square_y,150,270);
+
+  p5.strokeWeight(square_radius);
+  
+  for (let i = 0; i < 1; i++) {
+
+    
+    p5.push();
+
+    p5.translate(bounce, bounce*100);
+    p5.fill(col1, 300, 360);
+    p5.stroke(col1, 300, 360);
+    p5.rect(square_x, square_y, square_radius, square_radius);
+    p5.pop();
+
+  }
+}
+
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
@@ -81,7 +151,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
 
   p5.angleMode(p5.DEGREES);
-  p5.background(0,50);
+  p5.background(0,40);
   p5.noFill();
   p5.strokeWeight(cur_line_width);
 
@@ -96,9 +166,23 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
 
+        if (zoom < 2) {
           p5.push();
-          rain(p5, x+150, y+160, x1, x2, y1, y2, z);
+          CIRLCES(p5, x+150, y+160, x1, x2, y1, y2, z);
           p5.pop();
+        }
+
+        if (zoom > 1) {
+          p5.push();
+          SQUARES(p5, x+150, y+160, x1, x2, y1, y2, z)
+          p5.pop();
+        }
+
+        if (zoom > 0 && zoom < 4) {
+          p5.push();
+          roundSQUARES(p5, x, y, x1, x2, y1, y2, z)
+          p5.pop();
+        }
       }
     }
   
