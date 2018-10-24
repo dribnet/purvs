@@ -1,4 +1,4 @@
 ## PS4 MDDN 342 2018
 
-Using class examples code to learn how the map and grid works, will adapt it to try add my code from the previous project.
+Still getting used to the way the code works and how to get my wallpaper idea working with this code set. So far i have multiple circles that line on the diagonal, they over lap and as you zoom in have some animation. Next I am going to play around with the different zoom states and see if i can make something interesting.
 

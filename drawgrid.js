@@ -100,7 +100,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* For animation: updated z based on global frame count */
   let dz = p5.globalFrameCount / 100.0;
   z = z + dz;
-  
+
 
  // p5.background(255);
  //background colours from light blue to dark blue
@@ -131,30 +131,33 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if(zoom <= 1){
         p5.stroke(100, 250, 100);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        //p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        ribbon(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);
       }
       else if(zoom <= 3){
         p5.stroke(250, 200, 0);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
+        //p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
+        ribbon(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);
       }
       else if(zoom <= 5){
         p5.stroke(250, 250, 100);
         p5.noFill();
-        p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
+        //p5.ellipse(x_pos, y_pos, cur_ball_radius-200);
+        ribbon(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);
       }
-      else{
-        p5.stroke(230, 230, 230);
-        // p5.noFill();
-        // p5.ellipse(x_pos, y_pos, cur_ball_radius/4);
-        p5.fill(255);
-        for(let i = 0; i < 20; i++){
-          p5.ellipse(i, i, i);
-          p5.ellipse(i+50, i+20, i);
-          //i++;
-          //p5.ellipse();
-        }
-      }
+      // else{
+      //   p5.stroke(230, 230, 230);
+      //   // p5.noFill();
+      //   p5.ellipse(x_pos, y_pos, cur_ball_radius/4);
+      //   //p5.fill(255);
+      //   // for(let i = 0; i < 20; i++){
+      //   //   p5.ellipse(i, i, i);
+      //   //   p5.ellipse(i+50, i+20, i);
+      //   //   //i++;
+      //   //   //p5.ellipse();
+      //   // }
+      // }
     }
   }
   // debug - show border
@@ -162,6 +165,41 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // p5.stroke(0, 200, 200)
   // p5.rect(0, 0, 255, 255);
 //  p5.ellipse(25, 25, 50, 50);
+
+  function ribbon(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
+
+    // fillShape = map(sin(bGTime), -1, 1, 170, 250);
+    // fill(xPos, fillShape, fillShape);
+
+    // for(var i = 0; i < 9; i++){
+    //   p5.ellipse(xPos, yPos, cur_ball_radius-200);//radius/3, radius/2);
+    //   rotate(PI/4);
+    // }
+  // const sqrt2 = 1.4142/2;
+  // let offsets = [
+  //   [sqrt2, sqrt2],
+  //   [-sqrt2, sqrt2],
+  //   [-sqrt2, -sqrt2],
+  //   [sqrt2, -sqrt2]
+  // ]
+  p5.noFill();
+  let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+  let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+  let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
+
+  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  let pixel_radius = pixel_posx2 - pixel_posx1;
+  pixel_radius = radiusScale * pixel_radius;
+  for(let i=0; i<25; i++) {
+    //let offset = offsets[i];
+    let pixel_x = p5.map(pos_x+0.5*rad1*i, x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+0.5*rad1*i, y1, y2, 0, 256);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+  }
+
+  }
 
 }
 
