@@ -1,12 +1,15 @@
 ## PS4 MDDN 342 2018
 
-In this part, I was focusing on adding different colors into my drawing. 
+In this project, I tended to achieve the goal of chidlhood memeory by design of Pokemon. 
 
-My original idea was trying to achieve the MBE style. But I found that it is hard to control the drawing shapes to match the elements sizes. So I reduced a little bit my expectation to do the colors painting.
+Idea: I was inspired by Pokémon(Pocket Monsters). My idea was about trainer (you) go inside of the ball to see the Pokemon. I did not draw Pikachu this time because Pikachu is too famous and predictable. If we mention Pokemon, most of people will think about Pikachu. But I was aiming to do something unpredictable in this project to surprise people. So I chose marill.
 
-Additionally, I paid attention on the textures of elements. For example, I tended to show the smooth Pokemon ball and tail ball, I added some tectures (white lines) on them. For color selection, I used the colors from my sketch, including red, blue, white and black.
+Levels Decision: My original idea is showing many Poke balls at the beginning. Then the Poke balls will be taken half of it when you zoom in to next leverl. Each zoom in means you go further into the inside of the balls. For the next level, you will see Pokemon (sleepy marill). The reason why it shows sleepy marill is that you need to wake it up in next level. Therefore, woke up marill will appear in the last level.
 
-On the other hand, I added a new level into this part, sleepy marill. It stays in the middle between tail part and woke up marill. So the whole story will be you go into the ball, find a sleepy marill, and woke it up.
+Animation: Because we can't use rotate function to do the rotation directly, so it would be the most diffcult part for me when I animated the objects. After asking for help, I changed p5.rotate() as p5.sin() and p5.cos(). On the other hand, I made some animation for marill's facial expressions to express its situation, like sleepy, woke up.
+
+Color selection: I kept using the colors from my sketch, such as red, blue, white and black. It can match my original idea well. Also, I thought of those textures of elements, like smooth tail balls and smooth Poke balls. 
+
 
 Zoom 0: Poke balls
 Zoom 1: half Poke balls
@@ -14,5 +17,4 @@ Zoom 2: half Poke balls & tail part
 Zoom 3: half Poke balls & sleepy marill
 Zoom 4: half Poke balls & woke up marill
 
-This part: updated both images keeping their original sizes:
-preview.png (960x500) and thumbnail.png (230x120).
+Final images: preview.png (960x500) and thumbnail.png (230x120).
