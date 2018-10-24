@@ -1,7 +1,5 @@
 ## PS4 MDDN 342 2018
 
-I've got the detail I wanted on the snowflakes that I think look good when zooming in. Because I have made it such a small circle at the beginning then going into a snowflake the zooming is a lot slower than I wanted it but I don't think there is much I can do about that.
-I would love to play around with colour add more detail to the snowflake. 
+From the begnning I had played with a white snowflake with a simple blue background so I'm playing around with different colours to match the snowflake. I want to make sure each line complements each other while also making them a little different from one another to make the difference stand out more.
 
-Overall it is at a good point now where I am able to play around and adjust sizes to see what works best for this problem set.
-
+I'm going to continue to play with colours before my final animation
