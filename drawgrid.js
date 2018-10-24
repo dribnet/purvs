@@ -8,7 +8,7 @@ const maxLevel = 4;
 let do_animation = false;
 
 
-var tourSeed = 401;
+var tourSeed = 201;
 var tourPath = [
   [1, 356.500000000000, 665.750000000000],
   [3, 353.250000000000, 668.187500000000],
@@ -73,8 +73,8 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
   let center_pixel_y = p5.map(pos_y, y1, y2, 0, 256);
   let spoke_pixel_x2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
   if(drawLines) {
-        p5.fill("#FCDDFF");
-        p5.stroke("#FCDDFF");
+        p5.fill("#FFF1F2");
+        p5.stroke("#FFF1F2");
     for(let angle=0; angle<360; angle=angle+60) {
       p5.strokeWeight(pixel_radius / 6);
       let spike_x = pos_x + spokeRadius * p5.cos(angle);
@@ -86,8 +86,8 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
  }
  }    
        if(drawLines2) { 
-        p5.fill("#8CD4FF");
-        p5.stroke("#8CD4FF");
+        p5.fill(255);
+        p5.stroke(255);
       for(let angle=0; angle<360; angle=angle+60) {
       let spreadAngle = getRandomValue(p5, pos_x, pos_y, z, "spreadAngle", 10, 40, 0.9);
       let fractionOut = 0.3;
@@ -112,8 +112,8 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
     p5.strokeWeight(0);
   }
      if(drawLines3) { 
-        p5.fill("#9AADE8");
-        p5.stroke("#9AADE8");
+        p5.fill(255);
+        p5.stroke(255);
       for(let angle=0; angle<360; angle=angle+20) {
       let spreadAngle2 = getRandomValue(p5, pos_x, pos_y, z, "spreadAngle2", 0, 80, 0.9);
       let fractionOut2 = 0.3;
@@ -146,7 +146,7 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom, drawBackground) {
 
- p5.background(255);
+ p5.background("#DFBBED");
 
  let max_shift = max_thickness + max_movement;
 
