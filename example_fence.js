@@ -1,8 +1,9 @@
 const max_thickness = 64;
-const max_movement = 80;
-const ball_radius = 50;
+const max_movement = 100;
+const ball_radius = 150;
 const line_width = 8;
-const grid_size = 80;
+const grid_size = 200;
+
 
 let do_animation = true;
 
@@ -34,51 +35,6 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2) {
-  const sqrt2 = 1.4142/2;
-  let offsets = [
-    [sqrt2, sqrt2],
-    [-sqrt2, sqrt2],
-    [-sqrt2, -sqrt2],
-    [sqrt2, -sqrt2]
-  ]
-  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
-  let pixel_radius = pixel_posx2 - pixel_posx1;
-  for(let i=0; i<offsets.length; i++) {
-    let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
-  }
-}
-
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
-  const offsets = [
-    [1, 1],
-    [1, -1],
-    [-1, 1],
-    [-1, -1]
-  ]
-  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
-  let pixel_radius = pixel_posx2 - pixel_posx1;
-  for(var i=0; i<offsets.length; i++) {
-    let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.strokeWeight(0);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
-    if(drawLines) {
-      p5.strokeWeight(pixel_radius / 5);
-      p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
-      p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
-      p5.strokeWeight(0);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
-    }  
-  }
-}
-
 /*
  * This is the funciton to implement to make your own abstract design.
  *
@@ -90,6 +46,9 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines) {
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
+
+
+
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness + max_movement;
@@ -100,25 +59,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-    /* For animation: updated z based on global frame count */
-  let dz = p5.globalFrameCount / 100.0;
-  z = z + dz;
-
-  // debug version: draw one
-  // let half_x = (x1 + x2) / 2;
-  // let half_y = (y1 + y2) / 2;
-  // min_x = snap_to_grid(half_x, grid_size);
-  // max_x = snap_to_grid(half_x + grid_size, grid_size);
-  // min_y = snap_to_grid(half_y, grid_size);
-  // max_y = snap_to_grid(half_y + grid_size, grid_size);
-
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(35);
+  p5.background(20);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute all three points with offsets */
@@ -134,75 +81,121 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_down = p5.map(shift_point_down[0], x1, x2, 0, 256);
       let y_pos_down = p5.map(shift_point_down[1], y1, y2, 0, 256);
 
-      /* red and green lines */
-      // if (zoom < 2) {
-      //   p5.strokeWeight(cur_line_width);
-      //   p5.stroke(150, 0, 0);
-      //   p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
-      //   p5.stroke(0, 150, 0);
-      //   p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
-      // }
 
       let sineWave = p5.sin(p5.globalFrameCount/20);
       let pulse = p5.map(sineWave, 1, -1, -50, 20);
 
+      let sineWave2 = p5.sin(p5.globalFrameCount/10);
+      let pulse2 = p5.map(sineWave2, 1, -1, -50, 20);
+
+      let sineWave3 = p5.sin(p5.globalFrameCount/30);
+      let pulse3 = p5.map(sineWave3, 1, -1, -20, 10);
+
+
+
+      if (zoom == 0) {
       p5.stroke(0);
       p5.strokeWeight(2);
-      p5.fill(180, 0, 0, 120);
+      p5.fill(180, 0, 0, 30);
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
       p5.fill(0);
-      p5.ellipse(x_pos, y_pos, cur_ball_radius/3);
-      p5.beginShape();
+      p5.ellipse(x_pos, y_pos, cur_ball_radius/3.5);
+      p5.beginShape();    
+      }
 
 
-      if (zoom >= 2) {
-        p5.fill(180, 0, 0, 120);
+      if (zoom == 1) {
+        p5.fill(180, 0, 0, 60);
         p5.stroke(0);
         p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2 + pulse);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5);
         p5.fill(0);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/4);      
       }
 
-      if (zoom >= 3) {
+      if (zoom == 2) {
         p5.fill(180, 0, 0, 120);
         p5.stroke(0);
         p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2 + pulse);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/1.8);
-        p5.ellipse(x_pos, y_pos, cur_ball_radius/2.2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/2.2 + pulse2);
         p5.fill(0);
-        p5.ellipse(x_pos, y_pos, cur_ball_radius/5);      
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/4 + pulse3);      
+
       }
 
+     if (zoom == 3) {
+        p5.fill(180, 0, 0, 60);
+        p5.stroke(0);
+        p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2 + pulse);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5 + pulse3);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.8);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/2.2 + pulse2);
+        p5.fill(0);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/4 + pulse3);      
+
+      }
+
+      if (zoom == 4) {
+        p5.background(255, 0, 0);
+        p5.fill(180, 0, 0, 30);
+        p5.stroke(0);
+        p5.strokeWeight(2);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.2 + pulse);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.5 + pulse3);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/1.8);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/2.2 + pulse2);
+        p5.fill(0);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/4 + pulse3);      
+
+      }
+
+     // if (zoom == 4) {
+     //    p5.fill(180, 0, 0, 120);
+     //    p5.stroke(0);
+     //    p5.strokeWeight(2);
+     //    p5.ellipse(x_pos -500, y_pos +500, cur_ball_radius/7 + pulse);
+     //    p5.ellipse(x_pos, y_pos +600, cur_ball_radius/7 + pulse);
+     //    p5.ellipse(x_pos +200, y_pos +700, cur_ball_radius/7 + pulse);
+     //    p5.ellipse(x_pos, y_pos +200, cur_ball_radius/7 + pulse);
+     //    // p5.ellipse(x_pos, y_pos -50, cur_ball_radius/7 + pulse);
+     //    // p5.ellipse(x_pos -250, y_pos +100, cur_ball_radius/7 + pulse);
+     //    // p5.ellipse(x_pos -300, y_pos +650, cur_ball_radius/7 + pulse);
+     //    // p5.ellipse(x_pos -450, y_pos +800, cur_ball_radius/7 + pulse);
+
+    
+
+     //  }
+
+     //  if (zoom == 5) {
+     //    p5.fill(180, 0, 0, 120);
+     //    p5.stroke(0);
+     //    p5.strokeWeight(2);
+     //    p5.ellipse(x_pos -500, y_pos +500, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos, y_pos +600, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos +200, y_pos +700, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos, y_pos +200, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos, y_pos -50, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos -250, y_pos +100, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos -300, y_pos +650, cur_ball_radius/10 + pulse);
+     //    p5.ellipse(x_pos -450, y_pos +800, cur_ball_radius/10 + pulse);
+
+    
+
+     //  }
 
 
-
-
-
-      // if(zoom >= 3) {
-      //   // now if we are super zoomed, draw lines in the stamen
-      //   var drawLines = false;
-      //   if (zoom >= 5) drawLines = true;
-      //   p5.fill(0, 0, 255);
-      //   p5.stroke(0, 0, 128);
-      //   drawStamens(p5, x1, x2, y1, y2, shift_point[0], shift_point[1], ball_radius/3, line_width/2, drawLines);
-      // }
     }
   }
 
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(0, 200, 200)
-  // p5.strokeWeight(1);
-  // p5.rect(0, 0, 255, 255);
-  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  // let sizex = x2 - x1;
-  // p5.text("width: " + sizex, 10, 40);
+ 
 }
 
-function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-}

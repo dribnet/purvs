@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-First attempt at animation. I don't want the roses to move around but I have experimented with a pulsing rose petal
+I added in opacity levels so that it is more faded the further out you are, but now I want to get to the brightest point around zoom 4 and then invert the colours so that the roses are black and the background is red
