@@ -4,6 +4,7 @@ const ball_radius = 32;
 const line_width = 8;
 const grid_size = 64;
 let do_animation = true;
+let presentCol = getRandomValue(p5, x, y, z, "pCol", 0, 255, 1);
 
 /* the random number seed for the tour */
 var tourSeed = 150;
@@ -188,7 +189,7 @@ if (zoom > 3){
   p5.rect(basex, basey, (radiusbase-basex)/8,(radiusbase-basex)/5);
 }
 
-if (zoom > 4){
+if (zoom > 3){
 
 
 //star 1
@@ -216,9 +217,35 @@ if (zoom > 4){
  
   p5.rect(star3x, star3y, (radiusstar3-star3x)/10,(radiusstar3-star3x)/10);
 
+if(zoom >5){
 
+  p5.fill(163, 195, 247);
+  let present1x = p5.map(x+6.4, x1, x2, 0, 256);
+  let present1y = p5.map(y+3, y1, y2, 0, 256);
+  let radiuspresent1 = p5.map(x+16.4, x1, x2, 0, 256);
+  p5.rect(present1x, present1y, (radiuspresent1-present1x)/5,(radiuspresent1-present1x)/5);
 
+ p5.fill(239, 124, 180);
+  let present2x = p5.map(x+2.4, x1, x2, 0, 256);
+  let present2y = p5.map(y+3, y1, y2, 0, 256);
+  let radiuspresent2 = p5.map(x+12.4, x1, x2, 0, 256);
+  p5.rect(present2x, present2y, (radiuspresent2-present2x)/7,(radiuspresent2-present2x)/7);
 
+ p5.fill(127, 195, 244);
+  let present3x = p5.map(x+0, x1, x2, 0, 256);
+  let present3y = p5.map(y+4, y1, y2, 0, 256);
+  let radiuspresent3 = p5.map(x+10, x1, x2, 0, 256);
+  p5.rect(present3x, present3y, (radiuspresent3-present3x)/3,(radiuspresent3-present3x)/10);
+
+ p5.fill(206, 178, 255);
+  let present4x = p5.map(x+5, x1, x2, 0, 256);
+  let present4y = p5.map(y+3.3, y1, y2, 0, 256);
+  let radiuspresent4 = p5.map(x+15, x1, x2, 0, 256);
+  p5.rect(present4x, present4y, (radiuspresent4-present4x)/10,(radiuspresent4-present4x)/10);
+
+}
+
+ p5.fill(255, 226, 86);
 }
 
 }

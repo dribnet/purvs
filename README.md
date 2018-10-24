@@ -1,4 +1,8 @@
 ## PS4 MDDN 342 2018
+24/10/2018
+
+I have added some presents, I will probably make more details on them in the future. Like a bow, ribons, ect. I will also want to fade them in a bit more. 
+
 //24/10/2018
 
 I For this commit, I have added using tom's movement code (kind of) for the staments. I have added christmas lights. I changed the circles to rectangles and put more coordernates into the array to do this. I also have added snow onto the branches rto give it a more winter feel. The only problem with the animation thoughg is that it makes the window slow :(. It works fine when the window is small. but will not work or be extremely glitchy at fill screen. I guess this is not something I could easily optimise though, so it will just have to do.
