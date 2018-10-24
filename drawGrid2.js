@@ -4,6 +4,7 @@ const ball_radius = 32;
 const line_width = 8;
 const grid_size = 64;
 let do_animation = true;
+var bGTime = 0;
 
 /* the random number seed for the tour */
 var tourSeed = 150;
@@ -47,7 +48,9 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     let offset = offsets[i];
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
+    //let fillShape = p5.map(pos_x, -1, 1, 170, 250);
+    //fill(fillShape, 0, 0);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius*2);    
   }
 }
 
@@ -160,21 +163,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       }
 
       if (zoom >= 2) {
-        p5.fill(0, 0, 255);
+        p5.fill(66, 134, 244);
         p5.noStroke();
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);        
       }
 
-      p5.stroke(0, 0, 150);
-      p5.fill(0, 0, 128);
+      //p5.stroke(150, 0, 150);
+      p5.fill(200, 120, 128);
       p5.noStroke();
-      //p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      p5.ellipse(x_pos, y_pos, cur_ball_radius/6);
 
       if(zoom >= 3) {
         // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
         if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
+        p5.fill(200, 120, 128);
         p5.stroke(0, 0, 128);
         drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/3, line_width/2, drawLines, z);
       }
