@@ -1,5 +1,5 @@
 const max_thickness = 64;
-const max_movement = 0;
+const max_movement = 100;
 const ball_radius = 150;
 const line_width = 8;
 const grid_size = 200;
