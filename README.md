@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Code isn't working to let me put in the randomised snowflake so going to have to do something different which is frustrating. Probably going to have to be a super simple code and maybe randomise the lines
+Started to work on making the snowflakes now and sorting through the code to add zoom funtions. I've managed to start to create the zoom to work so that little details will start to appear. I am now going to work on create a snowflake look more detailed with different lines rotating etc
