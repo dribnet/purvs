@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I have managed to make some of the waves with circles. However, it is taking a lot longer than I thought it would because I have to place each one individually and all of the code that goes along with each circle.
+I have added all the levels of zoom that I want and it works quite well. However, I’m going to keep changing the numbers and see what I can come up with.
