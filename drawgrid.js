@@ -52,22 +52,22 @@ function CIRLCES(p5, x, y, x1, x2, y1, y2, z)  {
   let circle_offset = p5.map(20, x1, x2, 0, 256);
   let circle_radius = circle_offset - circle_origin_x;
 
-  var col1 = p5.map(circle_y,0,circle_x,270,80);
-  var col2 = p5.map(circle_x,0,circle_y,80,270);
+  var colo1 = p5.map(circle_x,0,circle_y,270,150);
+  var colo2 = p5.map(circle_y,0,circle_x,150,270);
 
   p5.strokeWeight(circle_radius);
   
   p5.push();
   p5.translate(0, bounce*200);
-  p5.fill(col1, 300, 360);
-  p5.stroke(col1, 300, 360);
+  p5.fill(colo1, 300, 360);
+  p5.stroke(colo1, 300, 360);
   p5.ellipse(circle_x, circle_y, circle_radius);
   p5.pop();
 
   p5.push();
-  p5.translate( bounce2*200, 0);
-  p5.fill(col2, 300, 360);
-  p5.stroke(col2, 300, 360);
+  p5.translate(bounce2*200, 0);
+  p5.fill(colo2, 300, 360);
+  p5.stroke(colo2, 300, 360);
   p5.ellipse(circle_x, circle_y, circle_radius);
   p5.pop();
  
@@ -88,22 +88,22 @@ function SQUARES(p5, x, y, x1, x2, y1, y2, z)  {
   let square_offset = p5.map(20, x1, x2, 0, 256);
   let square_radius = square_offset - square_origin_x;
 
-  var col1 = p5.map(square_y,0,square_x,270,150);
-  var col2 = p5.map(square_x,0,square_y,150,270);
+  var colo3 = p5.map(square_x,0,square_y,270,150);
+  var colo4 = p5.map(square_y,0,square_x,150,270);
 
   p5.strokeWeight(square_radius);
   
   p5.push();
   p5.translate(0, bounce*200);
-  p5.fill(col1, 300, 360);
-  p5.stroke(col1, 300, 360);
+  p5.fill(colo3, 300, 360);
+  p5.stroke(colo3, 300, 360);
   p5.rect(square_x, square_y, square_radius, square_radius);
   p5.pop();
 
   p5.push();
   p5.translate( bounce2*200, 0);
-  p5.fill(col2, 300, 360);
-  p5.stroke(col2, 300, 360);
+  p5.fill(colo4, 300, 360);
+  p5.stroke(colo4, 300, 360);
   p5.rect(square_x, square_y, square_radius, square_radius);
   p5.pop();
  
@@ -124,19 +124,16 @@ function roundSQUARES(p5, x, y, x1, x2, y1, y2, z) {
   let square_offset = p5.map(50, x1, x2, 0, 256);
   let square_radius = square_offset - square_origin_x;
 
-  var col1 = p5.map(square_y,0,square_x,270,150);
-  var col2 = p5.map(square_x,0,square_y,150,270);
+  var colo5 = p5.map(square_x,0,square_y,270,200);
 
   p5.strokeWeight(square_radius);
   
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 3; i++) {
 
-    
     p5.push();
-
-    p5.translate(bounce, bounce*100);
-    p5.fill(col1, 300, 360);
-    p5.stroke(col1, 300, 360);
+    p5.translate(square_x, bounce*100);
+    p5.fill(colo5, 300, 360);
+    p5.stroke(colo5, 300, 360);
     p5.rect(square_x, square_y, square_radius, square_radius);
     p5.pop();
 
