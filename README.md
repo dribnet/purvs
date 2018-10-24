@@ -1,5 +1,11 @@
 ## PS4 MDDN 342 2018
 
+//22/10/2018
+
+I have added the detail features on the tree. You can see in the image that I have also changed the shadow around the bottom to a pixel circle instead of a real circle. Just to have some continuity
+
+The next commit I do will be the lights and the star probably.
+
 //20/10/2018
 
 Created a christmas Tree grid
