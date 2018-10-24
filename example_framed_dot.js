@@ -23,73 +23,44 @@ var tourPath = [
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  function owl(p5, x, y, x1, x2, y1, y2) {
-  p5.stroke(0);
+  // temporary variables used for object placement
+  let cx=0, cy=0, cx2=0, cy2=0;
 
-  // first draw the body
-  let line_x0 = p5.map(x + 0, x1, x2, 0, 256);
-  let line_x_offset = p5.map(x + 70, x1, x2, 0, 256);
-  let x_strokewidth = line_x_offset - line_x0;
-  let line_y1 = p5.map(y + -35, y1, y2, 0, 256);
-  let line_y2 = p5.map(y + -65, y1, y2, 0, 256);
+  p5.background(255);
+  p5.rectMode(p5.CORNERS);
 
-  p5.strokeWeight(x_strokewidth);
-  p5.line(line_x0, line_y1, line_x0, line_y2);
-  p5.noStroke();
+  // The first red rectangle fills the entire space
+  cx = p5.map(512-960/2, x1, x2, 0, 256);
+  cy = p5.map(512-720/2, y1, y2, 0, 256);
+  cx2 = p5.map(512+960/2, x1, x2, 0, 256);
+  cy2 = p5.map(512+720/2, y1, y2, 0, 256);
+  p5.fill(255, 0, 0);
+  p5.rect(cx, cy, cx2, cy2);
 
-  // then draw the eyes
-  let eye_pos1_x = p5.map(x + -17.5, x1, x2, 0, 256);
-  let eye_pos2_x = p5.map(x + 17.5, x1, x2, 0, 256);
-  let eye_pos1_y = p5.map(y + -65, y1, y2, 0, 256);
-
-  let eye_pos1_origin_x = p5.map(0, x1, x2, 0, 256);
-  let eye_pos1_offset1 = p5.map(35, x1, x2, 0, 256);
-  let eye_pos_radius1 = eye_pos1_offset1 - eye_pos1_origin_x;
-
-  p5.fill(255);
-  p5.ellipse(eye_pos1_x, eye_pos1_y, eye_pos_radius1, eye_pos_radius1); // Left eye dome
-  p5.ellipse(eye_pos2_x, eye_pos1_y, eye_pos_radius1, eye_pos_radius1); // Left eye dome
-
-  // then the chin
-  let arc_x = p5.map(x + 0, x1, x2, 0, 256);
-  let arc_y = p5.map(y + -65, y1, y2, 0, 256);
-  let arc_w_offset = p5.map(x+70, x1, x2, 0, 256);
-  let arc_w = arc_w_offset - arc_x;
-  p5.arc(arc_x, arc_y, arc_w, arc_w, 0, p5.PI);  // Chin
-
-  // the eyeballs
-  let eyeball_x1 = p5.map(x + -14, x1, x2, 0, 256);
-  let eyeball_x2 = p5.map(x + 14,  x1, x2, 0, 256);
-  let eyeball_r = eye_pos_radius1 / 3;
+  // The second black rectangle is inset to form a frame inset by 20 units
+  cx = p5.map(512-940/2, x1, x2, 0, 256);
+  cy = p5.map(512-700/2, y1, y2, 0, 256);
+  cx2 = p5.map(512+940/2, x1, x2, 0, 256);
+  cy2 = p5.map(512+700/2, y1, y2, 0, 256);
   p5.fill(0);
-  p5.ellipse(eyeball_x1, eye_pos1_y, eyeball_r, eyeball_r); // Left eye
-  p5.ellipse(eyeball_x2, eye_pos1_y, eyeball_r, eyeball_r);  // Right eye
+  p5.rect(cx, cy, cx2, cy2);
 
-  // the beak
-  let quad_x1 = p5.map(x + 0, x1, x2, 0, 256);
-  let quad_y1 = p5.map(y + -65, y1, y2, 0, 256);
-  let quad_x2 = p5.map(x + 4, x1, x2, 0, 256);
-  let quad_y2 = p5.map(y + -51, y1, y2, 0, 256);
-  let quad_x3 = p5.map(x + 0, x1, x2, 0, 256);
-  let quad_y3 = p5.map(y + -44, y1, y2, 0, 256);
-  let quad_x4 = p5.map(x + -4, x1, x2, 0, 256);
-  let quad_y4 = p5.map(y + -51, y1, y2, 0, 256);
-  p5.quad(quad_x1, quad_y1, quad_x2, quad_y2, quad_x3, quad_y3, quad_x4, quad_y4);
-}
+  // Two ellipses with a radius of 50 units are then added.
+  cx = p5.map(512, x1, x2, 0, 256);
+  cy = p5.map(512, y1, y2, 0, 256);
+  cx2 = p5.map(512+50, x1, x2, 0, 256);
+  p5.fill(0, 0, 255);
+  p5.ellipse(cx, cy, (cx2-cx));
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
-function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  p5.background(50, 50, 100);
-
-  owl(p5, 412, 512, x1, x2, y1, y2);
-  owl(p5, 612, 512, x1, x2, y1, y2);
+  // The second green ellipse is above and to the left of the first one.
+  cx = p5.map(412, x1, x2, 0, 256);
+  cy = p5.map(412, y1, y2, 0, 256);
+  cx2 = p5.map(412+50, x1, x2, 0, 256);
+  p5.fill(0, 255, 0);
+  p5.ellipse(cx, cy, (cx2-cx));
 
   // debug - show border
   // p5.noFill();
-  // p5.stroke(0, 200, 200)
+  // p5.stroke(255, 0, 0)
   // p5.rect(0, 0, 255, 255);
-  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  // let sizex = x2 - x1;
-  // p5.text("width: " + sizex, 10, 40);
 }

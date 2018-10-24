@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-For my initial concept, i've thought about using one of my problem set two interactions as the zoomed view of my procedural map. I think that the detail and motion it provides creates an interesting canvas that the un-zoomed view could be built upon. For example, the un-zoomed view could consist of a much larger shapes that are made from the smaller pattern from problem set two.
+I've been slowly iterating through my concepts, and have found one that I will continue forward with. The idea is to use the base code that our tutor provided, and build the larger shapes discussed in my original concept from this. I will then be adding further detail with smaller shapes, allowing the user to zoom in and explore. Animation will be the final addition to the composition, however, the type of animation has yet to be confirmed.

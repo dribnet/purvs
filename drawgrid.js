@@ -1,19 +1,16 @@
 const max_thickness = 64;
-const ball_radius = 16;
-const line_width = 8;
-const grid_size = 32;
+const ball_radius = 5;
+const line_width = 1;
+const grid_size = 50; // The distance between each drawn object
 
 /* the random number seed for the tour */
-var tourSeed = 301;
+var tourSeed = 0;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
-  [3, 353.250000000000, 668.187500000000],
-  [4, 322.562500000000, 645.093750000000],
-  [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
-  [3, 317.984375000000, 643.636718750000]
 ]
+
+var ticker = 0;
+
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
@@ -32,6 +29,8 @@ function snap_to_grid(num, gsize) {
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
 
@@ -41,8 +40,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-
-
   // debug version: draw one
   // let half_x = (x1 + x2) / 2;
   // let half_y = (y1 + y2) / 2;
@@ -51,8 +48,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // min_y = snap_to_grid(half_y, grid_size);
   // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
-  p5.rotate(0.1);
-  p5.push();
+  ///////
+
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
@@ -64,22 +61,31 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
 
-      /* first compute the points to be drawn */
-      let x_pos = p5.map(x, x1, x2, 0, 256);
-      let y_pos = p5.map(y, y1, y2, 0, 256);
-
-      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
-
       p5.stroke(0, 0, 150);
       p5.noStroke();
-      // p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      for(let y=min_y; y<max_y; y+=grid_size) {
+
+      	/* first compute the points to be drawn */
+      	let x_pos = p5.map(x, x1, x2, 0, 256);
+      	let y_pos = p5.map(y, y1, y2, 0, 256);
+
+
+      	let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      	let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+
+      	p5.ellipse(x_pos, y_pos, cur_ball_radius);
+      }
+
     }
   }
 
-  p5.pop();
+  ///////
+
+  // p5.background(255);
+  // p5.fill(20);
+
+  // p5.ellipse(0, 0, 50);
 
   // debug - show border
   // p5.noFill();
