@@ -1,7 +1,8 @@
 ## PS4 MDDN 342 2018
 
-My original idea was from Pokémon(Pocket Monsters).
+This is the testing code for my original idea. 
 
-Firstly, it will show many Poke balls at the beginning. When you zoom in to next leverl, it means you will go into the ball to see what it is inside. There will only half Poke balls for this level. Then, when you keep zoomming to next level, Pokemon will show immediately. The Pokemon, marill will appear in the last level.
+I only did two levels, Poke balls and half Poke balls, at this stage. I haven't started for the colors, because I tened it leave this part at the end. Sofar, I just utilized different colors to define different parts.
 
-So far, I updated images keeping their original sizes:	sketch.png(960x720), preview.png (960x500) and thumbnail.png (230x120).
+This part: Updated both images keeping their original sizes:
+preview.png (960x500) and thumbnail.png (230x120).
