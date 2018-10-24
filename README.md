@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I have added all the levels of zoom that I want and it works quite well. However, I’m going to keep changing the numbers and see what I can come up with.
+After testing out different levels of zoom and originally having it change from a solid wave shape to waves made of circles I have decided that makes more sense to start with the circles rather than the solid shape. This is because when zoomed into the circles you cant see the shape the circles make and it looks confusing, whereas when zoomed out you can see the whole wave.

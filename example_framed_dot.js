@@ -870,7 +870,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
 
-      if (zoom >= 4) {
+      if (zoom < 2) { //>= 4
         // LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -888,7 +888,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         circleWaves(p5, x+5, y+5, x1, x2, y1, y2);
       }
 
-      if (zoom == 3) { 
+      if (zoom == 2) { //3
         // LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -906,7 +906,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         circleWaves(p5, x+2, y+2, x1, x2, y1, y2);
       }
 
-      if (zoom == 2  ) { 
+      if (zoom == 3) { //2
         //LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -924,7 +924,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         waves(p5, x+2, y+2, x1, x2, y1, y2);
       }
 
-      if (zoom < 2) { 
+      if (zoom >= 4) { //< 2
         //DARK BLUE
         p5.stroke('#8ec5fb');
         p5.fill('#8ec5fb');
