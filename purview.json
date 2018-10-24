@@ -1,0 +1,28 @@
+{
+  "commits": [
+    {
+      "sha": "0077e8ce77baa5c4d6bc121186a1f8a8d6955afc",
+      "name": "final_version"
+    },
+    {
+      "sha": "0b0e209bc882c92ff0ef77b99618ceccbc50b2f9",
+      "name": "Color selection"
+    },
+    {
+      "sha": "e35a8fe194d9040d20d4bb1ea969dc9cadaf0c0d",
+      "name": "Experiment3(scale)"
+    },
+    {
+      "sha": "c219f0da956a22f9ed5f082c675948460382d926",
+      "name": "Experiment2(Multiple only)"
+    },
+    {
+      "sha": "dd37ba2597ff0551718def142ca5950680bd1719",
+      "name": "Experiment1(Multiple)"
+    },
+    {
+      "sha": "a4a0160559b93bd1970463e3d27734343ad46157",
+      "name": "Sketch"
+    }
+  ]
+}
