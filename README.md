@@ -1,13 +1,11 @@
 ## PS4 MDDN 342 2018
 
-I have chosen to continue with the idea of snow, however I wish to make it more of a grid pattern that I did in the last project. I am wanting it to be a repeating pattern of trees and some sow banks in the first image. (top left). it will then zoom in to the picture to the right, where you can see close images of the trees. You can also see ski marks, from people skiing around the trees. 
+//20/10/2018
 
-The next zoom in, is the bottom left picture. you can see the trees in more detail and you can see the snow wells beneath the trees. 
+Created a christmas Tree grid
 
-The next zoom in, is the middle bottom snowflakes. To do this I will probably hardcode some snowflakes, and randomly generate them in a pattern or in a grid. 
+I had created a non zoomable christmas tree origionally, and had help from pheobe to put it into my grid. I think I am going to change my idea a little though. 
 
-The very last zoom in will be molecules, h2o.
+I want to do a sort of 'week in the life of a christmas tree'. What will happen, is the user will zoom in on a christmas tree farm. (i.e a uniform grid of trees which look exactly the same). The further the user will zoom in, the further they will get into the christmas time line. On the second zoom in you will see more details of the tree, including a shadow (in pixel form) and some snow on the branches. The next zoom will be a star on the top of the tree (representing the person has bought the tree and is decorating it). The next will be lights which will be animated and move and blink in a random order. the next zoom will be presents. The very last zoom will be the tree, skelleton, or the process of the tree dying. 
 
-I do not know how feasible this idea will be, but I am hoping I will be able to implement some of it at least. I think a focus of mine will be on the idea of pixel art and 'cuteness'.
-
-fixed
+The narrative for this I suppose could be the commericalisation of christmas, and how everything is dumped after december 25th. I may if I have enough time include like a pixel calendar or something which pushes this narrative a little more.

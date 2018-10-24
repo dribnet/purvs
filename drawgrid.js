@@ -25,8 +25,12 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
+function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
+
+
+
   const sqrt2 = 1.4142/2;
+
   let offsets = [
     [0.380, -0.5], //1 (top)
     [0.32, -0.44], //2
@@ -57,7 +61,15 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
   
-    p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius);    
+  if(zoom > 4){
+    //p5.fill(25);
+   //p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
+  }
+
+  else{
+    p5.noFill();
+  }
+
   }
 }
 
@@ -302,16 +314,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
-drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);        
+drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z, zoom);        
      
-      if(zoom >= 3) {
-        // now if we are super zoomed, draw lines in the stamen
-        //var drawLines = false;
-        if (zoom >= 5) drawLines = true;
-        p5.fill(0, 0, 255);
-        p5.stroke(0, 0, 128);
-        ////drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/3, line_width/2, drawLines, z);
-      }
+     
     }
   }
 
