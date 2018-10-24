@@ -63,7 +63,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
   
   if(zoom > 4){
     //p5.fill(25);
-   //p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
+   p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
   }
 
   else{

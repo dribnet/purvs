@@ -1,4 +1,10 @@
 ## PS4 MDDN 342 2018
+//24/10/2018
+
+I For this commit, I have added using tom's movement code (kind of) for the staments. I have added christmas lights. I changed the circles to rectangles and put more coordernates into the array to do this. I also have added snow onto the branches rto give it a more winter feel. The only problem with the animation thoughg is that it makes the window slow :(. It works fine when the window is small. but will not work or be extremely glitchy at fill screen. I guess this is not something I could easily optimise though, so it will just have to do.
+
+The last things I need to do are to make the presents, and to make the date calendar thing. I think it would be a cool idea to still incorporate a skiier, or even the snow down to a molecular level. But I will put these on the back burner to implement until my exam is over. If I do end up doiing these it will probably be too close to thr due date to do perfectly.
+
 
 //22/10/2018
 
