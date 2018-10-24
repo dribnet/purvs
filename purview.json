@@ -1,27 +1,23 @@
 {
   "commits": [
     {
-      "sha": "0077e8ce77baa5c4d6bc121186a1f8a8d6955afc",
+      "sha": "4ece492c3616a38641eab72037c97afe5d0e3647",
       "name": "final_version"
     },
     {
-      "sha": "0b0e209bc882c92ff0ef77b99618ceccbc50b2f9",
+      "sha": "ad55df0c310ff8e1854766d8504a20d56f7bcd54",
       "name": "Color selection"
     },
     {
-      "sha": "e35a8fe194d9040d20d4bb1ea969dc9cadaf0c0d",
-      "name": "Experiment3(scale)"
+      "sha": "94ed277a6b26bc8312dccd91c0c79063745daf3d",
+      "name": "Animation"
     },
     {
-      "sha": "c219f0da956a22f9ed5f082c675948460382d926",
-      "name": "Experiment2(Multiple only)"
+      "sha": "0f3a7712b781b5210f6ebfbea47b31989ee89594",
+      "name": "Experiment"
     },
     {
-      "sha": "dd37ba2597ff0551718def142ca5950680bd1719",
-      "name": "Experiment1(Multiple)"
-    },
-    {
-      "sha": "a4a0160559b93bd1970463e3d27734343ad46157",
+      "sha": "f89dde8c8cdf194512e659a9a47d095e1117b53d",
       "name": "Sketch"
     }
   ]
