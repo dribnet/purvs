@@ -34,7 +34,9 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLines, drawCircles) {
+
+
+function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLines, drawLines2, drawCircles, drawSpikes) {
   const offsets = [
     [1, 1],
     [1, -1],
@@ -57,11 +59,11 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
     }
     if(drawLines) {
       p5.strokeWeight(pixel_radius / 5);
-      // p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
+
       // p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
       p5.strokeWeight(0);
     }  
-  }
+
 
   // spokes
   let spokeLength = getRandomValue(p5, pos_x, pos_y, z, "spokeLength", 0.5, 1.5, 0.1);
@@ -77,8 +79,12 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
       let spike_pixel_x = p5.map(spike_x, x1, x2, 0, 256);
       let spike_pixel_y = p5.map(spike_y, y1, y2, 0, 256);
       p5.line(center_pixel_x, center_pixel_y, spike_pixel_x, spike_pixel_y);
+  // draw spikes on the spikes
+ }
+ }    
+       if(drawLines2) { 
+      for(let angle=0; angle<360; angle=angle+60) {
 
-      // draw spikes on the spikes
       let spreadAngle = getRandomValue(p5, pos_x, pos_y, z, "spreadAngle", 10, 40, 0.9);
       let fractionOut = 0.3;
       let fractionRadius = fractionOut * spokeRadius;
@@ -100,25 +106,33 @@ function snowflake(p5, x1, x2, y1, y2, x, y, z, pos_x, pos_y, rad1, rad2, drawLi
 
       p5.line(spike_fork_pixel_x, spike_fork_pixel_y, subspike_pixel1_x, subspike_pixel1_y);
       p5.line(spike_fork_pixel_x, spike_fork_pixel_y, subspike_pixel2_x, subspike_pixel2_y);
-    }
     p5.strokeWeight(0);
-  }  
+  }
+      }  
+    }
+   }
 
 
-}
 
 
-function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+
+function drawGrid(p5, x1, x2, y1, y2, z, zoom, drawBackground) {
+
+ p5.background(85, 142, 255);
+
  let max_shift = max_thickness + max_movement;
 
   p5.angleMode(p5.DEGREES);
 
+
+ // if(drawBackground) {
+        // p5.background(85, 142, 255);
+ //    } 
+
+
   // For animation: updated z based on global frame count 
   let dz = p5.globalFrameCount / 50.0;
   z = z + dz;
-
-  p5.background(85, 142, 255);
-
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
   let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
@@ -157,25 +171,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
-      if(zoom >= 3) {
+
+      if(zoom >= 2) {
         var drawLines = false;
+        var drawLines2 = false;
       }
 
-        if (zoom >= 3) {
+        if (zoom >= 2) {
           var drawCircles = true; 
         }
 
-        if (zoom >= 5) {
-          drawLines = true;
-          drawCircles = false; 
+        if (zoom >= 3) {
+          var drawLines= true;
+          var drawCircles = false; 
+        }
+
+          if (zoom >= 4) {
+          var drawLines2= true;
+
         }
 
         p5.fill(255);
         p5.stroke(255);
-        snowflake(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/2, line_width/3, drawLines, drawCircles);
-
-
-
+        snowflake(p5, x1, x2, y1, y2, x_pos, y_pos, z, shift_point[0], shift_point[1], ball_radius/2, line_width/3, drawLines, drawLines2, drawCircles);
+        
 
       }
 

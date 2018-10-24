@@ -1,3 +1,7 @@
 ## PS4 MDDN 342 2018
 
-With a bit of help i've managed to get a snowflake shape that is some what randomised in temrs of the shape size and direction. I will continue to work on the colours and I would like to work on the zoom aspect adding more detail each ime as well as a subtle graident xhange in the colour scheme
+I've got the detail I wanted on the snowflakes that I think look good when zooming in. Because I have made it such a small circle at the beginning then going into a snowflake the zooming is a lot slower than I wanted it but I don't think there is much I can do about that.
+I would love to play around with colour add more detail to the snowflake. 
+
+Overall it is at a good point now where I am able to play around and adjust sizes to see what works best for this problem set.
+
