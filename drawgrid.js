@@ -44,7 +44,6 @@ function snap_to_grid (num, gsize) {
 
 function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
   p5.randomSeed(99)
-
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness
 
@@ -82,7 +81,14 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
       x_pos_left += local_circlewid / 2
       y_pos_down += local_circlehei / 2
 
-      drawCircle(x_pos_left, y_pos_down, local_circlewid, local_circlehei, p5)
+      drawCircle(
+        x_pos_left,
+        y_pos_down,
+        local_circlewid,
+        local_circlehei,
+        p5,
+        zoom
+      )
     }
   }
 
@@ -92,11 +98,43 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
   // p5.rect(0, 0, 255, 255)
 }
 
-function drawCircle (x, y, wid, hei, p5) {
-  wid = p5.random(wid / 2, wid)
+function drawCircle (x, y, wid, hei, p5, zoom) {
+  var iIncrease
+  switch (zoom) {
+    case 0:
+      iIncrease = 0.3
+      break
+    case 1:
+      iIncrease = 0.2
+      break
+    case 2:
+      iIncrease = 0.1
+      break
+    case 3:
+      iIncrease = 0.05
+      break
+    case 4:
+      iIncrease = 0.02
+      break
+    case 5:
+      iIncrease = 0.01
+      break
+    case 6:
+      iIncrease = 0.005
+      break
+    case 7:
+      iIncrease = 0.003
+      break
+    case 8:
+      iIncrease = 0.001
+      break
+    case 9:
+      iIncrease = 0.0005
+      break
+  }
 
   let iVal
-  for (var i = 1, count = 1; i <= 2; (i += 0.1), count++) {
+  for (var i = 1, count = 1; i <= 2; (i += iIncrease), count++) {
     if (count % 3 == 0) {
       p5.fill(color1)
     } else if (count % 3 == 1) {
