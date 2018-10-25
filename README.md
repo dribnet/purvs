@@ -1,4 +1,7 @@
 ## PS4 MDDN 342 2018
 
-I've started integrating my ps3 design into the project. The code wasn't as hard to figure out as I thought it'd be which was a relief. 
-For this pattern I wanted to follow through on an idea I had for project 3 as a nice graphic wallpaper. I think it'll be fun to create more in depth patterns for this later on.
+## Part 2
+
+I've integrated some features of my design from PS3. The design is from an idea I had for the last assignment but didn't execute. It's a simple tiling wallpaper that can be zoomed and panned across. I'm straying from my initial sketch idea as I figured that might've been a bit hard to do, and I think this would be more effective as just an abstract design.
+
+Going forward I want to think of cool ways further detail can be revealed by zooming, as well as animation features.
