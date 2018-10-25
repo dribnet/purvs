@@ -155,11 +155,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
       if (zoom < 2) {
-        p5.strokeWeight(cur_line_width);
-        p5.stroke(150, 0, 0);
-        p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
-        p5.stroke(0, 150, 0);
-        p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
+          // p5.strokeWeight(cur_line_width);
+          // p5.stroke(150, 0, 0);
+          // p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
+          // p5.stroke(0, 150, 0);
+          // p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
+          drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);
       }
 
       if (zoom >= 2) {
