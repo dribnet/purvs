@@ -1,24 +1,16 @@
 {
   "commits": [
     {
-      "sha": "cc36a4da5a64b269ea975caddb613f02c73f0fd9",
-      "name": "Part 5: Final Development"
+      "sha": "aa0aa4f9e490c4e01c70038b27514cdabfd32c56",
+      "name": "Part 3: Final Development"
     },  
     {
-      "sha": "e1a7728041437560fc5f279cc43abc0190b5a71c",
-      "name": "Part 4: Color Changes and Elements"
+      "sha": "3255692d6c3f6928b48eb8bacd02d78934240cf3",
+      "name": "Part 2: Dynamic Eelements/Start of further Development"
     },   
     {
-      "sha": "4026d8ae201de86674f7fb636dd229cc79bbf3da",
-      "name": "Part 3: Further Development of Elements"
-    },
-    {
-      "sha": "8b3f1d73758e2731d01496fefe92930224361f2c",
-      "name": "Part 2: Development"
-    },
-    {
-      "sha": "db0a763fdd26ef38a78c8534373a7fdb2e78668e",
-      "name": "Part 1: Initial Start"
+      "sha": "76c193d4160d575eb926ed8859f98317872d75ae",
+      "name": "Part 1: Implementing Eelements"
     }
   ]
 }
