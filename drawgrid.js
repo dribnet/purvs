@@ -22,7 +22,7 @@ var tourPath = [
   [3, 347, 499]
 ]
 
-function spine(p5, x, y, x1, x2, y1, y2){
+function spine(p5, x, y, x1, x2, y1, y2, zoom){
 
   let x_pos = p5.map(x, x1, x2, 0, 256);
   let y_pos = p5.map(y, y1, y2, 0, 256);
@@ -47,6 +47,11 @@ function spine(p5, x, y, x1, x2, y1, y2){
   p5.noFill();
   p5.arc(arcX, arcY, arcR, arcR, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
   p5.arc(arcX2, arcY2, arcR, arcR, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
+
+  if(zoom >= 3){
+    p5.arc(arcX, arcY, arcR/2, arcR/2, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
+    p5.arc(arcX2, arcY2, arcR/2, arcR/2, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
+  }
 }
 
 function snap_to_grid(num, gsize) {
@@ -67,10 +72,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-      spine(p5, x, y, x1, x2, y1, y2);
+      spine(p5, x, y, x1, x2, y1, y2, zoom);
     }
   }
-
 
   //debug - show border
 /*  p5.noFill();
