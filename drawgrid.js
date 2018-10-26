@@ -10,7 +10,7 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 const max_thickness = 64;
-const grid_size = 255;
+const grid_size = 200;
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -25,7 +25,7 @@ var tourPath = [
 const backgrnd = "#105B63";
 const lines = "#DB9E36";
 const fillColour = "#FFD34E";
-const lineWidth = 20;
+const lineWidth = 10;
 
 /*let ballx = 400;
 let bally = 400;
@@ -184,7 +184,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.curveVertex(x0, y0);
       p5.curveVertex(x128, y195);
       p5.curveVertex(x255, y0);
-      p5.curveVertex(x383, y215);
+      p5.curveVertex(x383, y195);
       p5.endShape();
 
       p5.beginShape();
@@ -192,7 +192,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.curveVertex(x0, y20);
       p5.curveVertex(x128, y215);
       p5.curveVertex(x255, y20);
-      p5.curveVertex(x383, y235);
+      p5.curveVertex(x383, y215);
       p5.endShape();
 
       p5.beginShape();
@@ -200,15 +200,31 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.curveVertex(x0, y40);
       p5.curveVertex(x128, y235);
       p5.curveVertex(x255, y40);
-      p5.curveVertex(x383, y255);
+      p5.curveVertex(x383, y235);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y0);
-      p5.curveVertex(x0, y255);
+      p5.curveVertex(x0, y235);
       p5.curveVertex(x128, y40);
-      p5.curveVertex(x255, y255);
+      p5.curveVertex(x255, y235);
       p5.curveVertex(x383, y40);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y0);
+      p5.curveVertex(x0, y215);
+      p5.curveVertex(x128, y20);
+      p5.curveVertex(x255, y215);
+      p5.curveVertex(x383, y20);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y0);
+      p5.curveVertex(x0, y195);
+      p5.curveVertex(x128, y0);
+      p5.curveVertex(x255, y195);
+      p5.curveVertex(x383, y0);
       p5.endShape();
     }
   }
@@ -257,10 +273,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   	//p5.line(0, 0, 255, 255);
 
   //debug - show border
-  p5.noFill();
-  p5.strokeWeight(1);
-  p5.stroke(255, 0, 0)
-  p5.rect(0, 0, 255, 255);
-  p5.textSize(12);
-  p5.text('(' + x1 + ", " + y1 + ")", 10, 30);
+  // p5.noFill();
+  // p5.strokeWeight(1);
+  // p5.stroke(255, 0, 0)
+  // p5.rect(0, 0, 255, 255);
+  // p5.textSize(12);
+  // p5.text('(' + x1 + ", " + y1 + ")", 10, 30);
 }
