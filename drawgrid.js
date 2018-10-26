@@ -10,7 +10,6 @@
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
 const max_thickness = 64;
-const line_width = 8;
 const grid_size = 255;
 
 /* the random number seed for the tour */
@@ -120,8 +119,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos = p5.map(x, x1, x2, 0, 256);
       let y_pos = p5.map(y, y1, y2, 0, 256);
 
-      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+      // p5.ellipse(x_pos, y_pos, strokeWidth);
+
+      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
       /*
       //X VALUES
@@ -146,7 +147,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       ///*
       //X VALUES
       let x383 = p5.map(x + (3*grid_size/2), x1, x2, 0, 256);
-      let x255 = p5.map(grid_size, x1, x2, 0, 256);
+      let x255 = p5.map(x + grid_size, x1, x2, 0, 256);
       let x128 = p5.map(x +(grid_size/2), x1, x2, 0, 256);
       let x0 = p5.map(x, x1, x2, 0, 256);
       let NEGx128 = p5.map(x +(-1*grid_size/2), x1, x2, 0, 256);
@@ -155,16 +156,29 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       //Y values
 
-      let y255 = p5.map(grid_size, x1, x2, 0, 256);
-      let y235 = p5.map(y + (grid_size - (grid_size/12.8)), x1, x2, 0, 256);
-      let y215 = p5.map(y + (grid_size - (2*grid_size/12.8)), x1, x2, 0, 256);
-      let y195 = p5.map(y + (grid_size - (3*grid_size/12.8)), x1, x2, 0, 256);
-      let y40 = p5.map(y + (2*grid_size/12.8), x1, x2, 0, 256);
-      let y20 = p5.map(y + (grid_size/12.8), x1, x2, 0, 256);
-      let y0 = p5.map(y, x1, x2, 0, 256);
+      let y255 = p5.map(y + grid_size, y1, y2, 0, 256);
+      let y235 = p5.map(y + (grid_size - (grid_size/12.8)), y1, y2, 0, 256);
+      let y215 = p5.map(y + (grid_size - (2*grid_size/12.8)), y1, y2, 0, 256);
+      let y195 = p5.map(y + (grid_size - (3*grid_size/12.8)), y1, y2, 0, 256);
+      let y40 = p5.map(y + (2*grid_size/12.8), y1, y2, 0, 256);
+      let y20 = p5.map(y + (grid_size/12.8), y1, y2, 0, 256);
+      let y0 = p5.map(y, y1, y2, 0, 256);
       //*/
 
+      //p5.strokeWeight(strokeWidth * 0.1);
       /* now draw all elements from back to front */
+      /* debug with lines
+      p5.fill(0);
+      p5.ellipse(x0, y0, 0.25*strokeWidth);
+      p5.fill(255);
+      p5.ellipse(x128, y195, 0.10*strokeWidth);
+
+      p5.line(NEGx128, y215, x0, y0);
+      p5.line(x0, y0, x128, y195);
+      p5.line(x128, y195, x255, y0);
+      p5.line(x255, y0, x383, y215);
+      */
+
       p5.beginShape();
       p5.curveVertex(NEGx128, y215);
       p5.curveVertex(x0, y0);
