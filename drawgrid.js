@@ -25,7 +25,7 @@ var tourPath = [
 const backgrnd = "#105B63";
 const lines = "#DB9E36";
 const fillColour = "#FFD34E";
-const lineWidth = 10;
+const lineWidth = 5;
 
 /*let ballx = 400;
 let bally = 400;
@@ -47,7 +47,7 @@ let GNEGx128 = -128
 
 //Y values
 
-let Gy255 = 255;
+let Gy256 = 255;
 let Gy235 = 235;
 let Gy215 = 215;
 let Gy195 = 195;
@@ -66,7 +66,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.background(backgrnd);
 
     /* max_shift is the amount of overlap a tile can spill over into its neighbors */
-  let max_shift = max_thickness;
+  let max_shift = 4 * max_thickness;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -88,7 +88,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   p5.strokeWeight(strokeWidth);  
   p5.stroke (lines);
-  p5.fill(255, 211, 78, 50);
+  p5.fill(255, 211, 78, 32);
   p5.stroke (lines); //noStroke();
 
   /*let localBallX = p5.map(ballx, x1, x2, 0, 256);
@@ -146,9 +146,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       ///*
       //X VALUES
-      let x383 = p5.map(x + (3*grid_size/2), x1, x2, 0, 256);
+      let x383 = p5.map(x + (1*grid_size/1), x1, x2, 0, 256);
       let x255 = p5.map(x + grid_size, x1, x2, 0, 256);
-      let x128 = p5.map(x +(grid_size/2), x1, x2, 0, 256);
+      let x128 = p5.map(x +(grid_size/1), x1, x2, 0, 256);
       let x0 = p5.map(x, x1, x2, 0, 256);
       let NEGx128 = p5.map(x +(-1*grid_size/2), x1, x2, 0, 256);
 
@@ -167,63 +167,69 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       //p5.strokeWeight(strokeWidth * 0.1);
       /* now draw all elements from back to front */
-      /* debug with lines
-      p5.fill(0);
-      p5.ellipse(x0, y0, 0.25*strokeWidth);
-      p5.fill(255);
-      p5.ellipse(x128, y195, 0.10*strokeWidth);
+      // /* debug with lines
+      // p5.fill(0);
+      // p5.ellipse(x0, y0, 0.25*strokeWidth);
+      // p5.fill(255);
+      // p5.ellipse(x128, y195, 0.10*strokeWidth);
 
-      p5.line(NEGx128, y215, x0, y0);
-      p5.line(x0, y0, x128, y195);
-      p5.line(x128, y195, x255, y0);
-      p5.line(x255, y0, x383, y215);
-      */
+      // p5.line(NEGx128, y215, x0, y0);
+      // p5.line(x0, y0, x128, y195);
+      // p5.line(x128, y195, x255, y0);
+      // p5.line(x255, y0, x383, y215);
+      // */
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y215);
       p5.curveVertex(x0, y0);
-      p5.curveVertex(x128, y195);
+      p5.curveVertex(x0, y195);
       p5.curveVertex(x255, y0);
+      p5.curveVertex(x255, y195);
       p5.curveVertex(x383, y195);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y235);
       p5.curveVertex(x0, y20);
-      p5.curveVertex(x128, y215);
+      p5.curveVertex(x0, y215);
       p5.curveVertex(x255, y20);
+      p5.curveVertex(x255, y215);
       p5.curveVertex(x383, y215);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y255);
       p5.curveVertex(x0, y40);
-      p5.curveVertex(x128, y235);
+      p5.curveVertex(x0, y235);
       p5.curveVertex(x255, y40);
+      p5.curveVertex(x255, y235);
       p5.curveVertex(x383, y235);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y0);
       p5.curveVertex(x0, y235);
-      p5.curveVertex(x128, y40);
+      p5.curveVertex(x0, y40);
       p5.curveVertex(x255, y235);
+      p5.curveVertex(x255, y40);
       p5.curveVertex(x383, y40);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y0);
       p5.curveVertex(x0, y215);
-      p5.curveVertex(x128, y20);
+      p5.curveVertex(x0, y20);
       p5.curveVertex(x255, y215);
+      p5.curveVertex(x255, y20);
       p5.curveVertex(x383, y20);
       p5.endShape();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y0);
       p5.curveVertex(x0, y195);
-      p5.curveVertex(x128, y0);
+      p5.curveVertex(x0, y0);
       p5.curveVertex(x255, y195);
+      p5.curveVertex(x255, y0);
       p5.curveVertex(x383, y0);
       p5.endShape();
     }
@@ -272,7 +278,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
  
   	//p5.line(0, 0, 255, 255);
 
-  //debug - show border
+  // //debug - show border
   // p5.noFill();
   // p5.strokeWeight(1);
   // p5.stroke(255, 0, 0)
