@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "sha": "a0e9857c49f32fcbf8a9107203dcba96e272b51c",
+      "name": "final_version"
+    },
+    {
+      "sha": "f2b2cbb6ccfb0d9402de117bfe2a36c6505c254f",
+      "name": "part_4"
+    },
+    {
+      "sha": "31da32e4c1c08d0b18bd2237e8f7cc1eb630b993",
+      "name": "part_3"
+    },
+    {
+      "sha": "57a11c8c106ab50186e2ecdfb612fc63f1d0bb0f",
+      "name": "part_2"
+    },
+    {
+      "sha": "3e520a822e43a15cfc7cb0450ba001e87797c79f",
+      "name": "sketch"
+    }
+  ]
+}
