@@ -19,7 +19,8 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [1, 578, 481],
-  [3, 347, 499]
+  [3, 347, 499],
+  [3, 419, 370]
 ]
 
 function spine(p5, x, y, x1, x2, y1, y2, zoom){
@@ -41,16 +42,32 @@ function spine(p5, x, y, x1, x2, y1, y2, zoom){
   let arcStrokeW = p5.map(lineWidth, x1, x2, 0, 256);
 
   let curArcStrW = arcStrokeW - arc00;
+
+  let col = 0;
+  col = col++;
+  if(col == 255){
+    col = 0;
+  }
   
   p5.stroke(204, 91, 57);
+  if(zoom >= 1){
+    p5.stroke(73, 160, 160);
+  }
+  if(zoom >= 2){
+    p5.stroke(0, 150, 100);
+  }
   p5.strokeWeight(curArcStrW);
   p5.noFill();
   p5.arc(arcX, arcY, arcR, arcR, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
   p5.arc(arcX2, arcY2, arcR, arcR, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
 
-  if(zoom >= 3){
-    p5.arc(arcX, arcY, arcR/2, arcR/2, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
-    p5.arc(arcX2, arcY2, arcR/2, arcR/2, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
+  if(zoom >= 1){
+    p5.arc(arcX, arcY, arcR/1.7, arcR/1.7, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
+    p5.arc(arcX2, arcY2, arcR/1.7, arcR/1.7, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
+  }
+  if(zoom >= 2){
+    p5.arc(arcX, arcY, arcR/4, arcR/4, p5.QUARTER_PI*3.2, p5.QUARTER_PI*8.8, p5.CHORD);
+    p5.arc(arcX2, arcY2, arcR/4, arcR/4, p5.QUARTER_PI*15.2, p5.QUARTER_PI*20.8, p5.CHORD);
   }
 }
 
@@ -67,12 +84,20 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  p5.background(10);
+  p5.background(0);
+
+  if(zoom >= 1){
+    p5.background(243, 52, 52);
+  }
+  if(zoom >= 2){
+    p5.background(255);
+  }
+
   p5.rectMode(p5.CORNERS);
 
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
-      spine(p5, x, y, x1, x2, y1, y2, zoom);
+      spine(p5, x, y, x1, x2, y1, y2, zoom); 
     }
   }
 
