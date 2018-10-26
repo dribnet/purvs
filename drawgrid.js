@@ -43,7 +43,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   const bg_colour = [115, 175, 212];
   const colour_One = [7, 89, 166];
   const colour_Two = [3, 4, 40, 100];
-  const colour_Three = [1, 2, 62, 10];
+  const colour_Three = [1, 2, 62];
   const colour_Four = [1, 8, 92, 100];
 
   p5.background(bg_colour);
