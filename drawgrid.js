@@ -22,7 +22,9 @@ var tourSeed = 301;
 var tourPath = [
   [1, 578, 481],
   [3, 399, 500],
-  [3, 419, 370]
+  [3, 419, 370],
+  [2, 584, 207],
+  [2, 735, 488]
 ]
 
 function spine(p5, x, y, x1, x2, y1, y2, zoom){
@@ -122,12 +124,4 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       spine(p5, x, y, x1, x2, y1, y2, zoom); 
     }
   }
-
-  //debug - show border
-/*  p5.noFill();
-  p5.strokeWeight(1);
-  p5.stroke(255, 0, 0)
-  p5.rect(0, 0, 255, 255);*/
 }
-
-
