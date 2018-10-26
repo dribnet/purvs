@@ -19,7 +19,7 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [1, 578, 481],
-  [3, 347, 499],
+  [3, 399, 500],
   [3, 419, 370]
 ]
 
