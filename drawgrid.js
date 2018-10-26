@@ -1,7 +1,7 @@
 const max_thickness = 64;
 const ball_radius = 5;
 const line_width = 1;
-const grid_size = 50; // The distance between each drawn object
+const grid_size = 180; // The distance between each drawn object
 
 /* the random number seed for the tour */
 var tourSeed = 0;
@@ -10,6 +10,9 @@ var tourPath = [
 ]
 
 var ticker = 0;
+
+let x_pos = 0;
+let y_pos = 0;
 
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -67,14 +70,21 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       for(let y=min_y; y<max_y; y+=grid_size) {
 
       	/* first compute the points to be drawn */
-      	let x_pos = p5.map(x, x1, x2, 0, 256);
-      	let y_pos = p5.map(y, y1, y2, 0, 256);
+        for (var j = -5; j < 5; j++) {
+          for (var i = -5; i < 5; i++) {
+            x_pos = p5.map(x+i*10, x1, x2, 0, 256);
+            y_pos = p5.map(y+j*10, y1, y2, 0, 256);
+
+            p5.ellipse(x_pos, y_pos, cur_ball_radius);
+          }
+        }
+
+      
 
 
       	let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       	let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-      	p5.ellipse(x_pos, y_pos, cur_ball_radius);
       }
 
     }
