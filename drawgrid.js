@@ -99,12 +99,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.curveVertex(384, 40);
   p5.endShape();
 
-  for(let i = 0; i<10; i++){
+  /*for(let i = 0; i<10; i++){
     //let shade = 255 / (i+1);
     let currentR = p5.map(i, 0, 9, localBallRadius, 0);
     //p5.fill(0, 0, shade);
     p5.ellipse(localBallX, localBallY, currentR);
-  }
+  } */
  
   	//p5.line(0, 0, 255, 255);
 
