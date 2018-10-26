@@ -11,5 +11,7 @@ I want to make more detail appear at higher zooms for instance make certain stru
 
 I have worked my idea into a tiling pattern which is nice as the design now spreads to infinity. the next step is to add layers to the design then implement noise in the distribution to appear more natural, then i want to have subtle animation in the parts to simulate floating around like cells do BOOM! THERES HOPE FOR THE FUTURE.
 
+first step in zoom done, got it scaling and zooming and now when close enough the inter membrane wall of the cell is made clear. Next step add for structure to cell like phytoplasm and mitochondria. The final zoom will show somthing like chromosomes or dna
+
 Also update both images keeping their original sizes:
 preview.png (960x500) and thumbnail.png (230x120).
