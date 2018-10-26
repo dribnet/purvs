@@ -4,3 +4,5 @@ During this project I struggled at the start as my project 3 didn’t translate 
 
 While playing with this code I found a cool little effect that I could create using maps and the HSB color range. I mapped the x and y of the grid to create this effect that introduced more colors as the grid got smaller, I felt like this really stepped my project up a notch and made it somewhat interesting. I think that technically I could have played around with the code more but with time closing in on me I decided to keep it simple and make something that looked good visually, I was also happy with how smooth it runs. I’m happy with the output of this project but I think I could have maybe explored some other avenues in terms of detail/technical side of things.
 
+The tour I added explores the range of coloured graphics that my project creates, and then zooms all the way in to see the nice gradients that a formed by the dense grid.
+
