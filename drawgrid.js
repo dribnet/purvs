@@ -1,3 +1,6 @@
+const max_thickness = 64;
+const line_width = 2;
+const grid_size = 64;
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -9,7 +12,10 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
+ /* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
 
 /* the random number seed for the tour */
 var tourSeed = 301;
@@ -22,31 +28,66 @@ var tourPath = [
 
 // global positions
 
-let ballx = 400;
-let bally = 400;
-let ballr = 100;
+function brickWall(){
 
-// This version draws two rectangles and two ellipses.
+}
+
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+  //p5.background(255);
+
+  let max_shift = max_thickness;
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+  let c_p00 = p5.map(0, x1, x2, 0, 256);
+  let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
+  let cur_line_width = c_plwidth - c_p00;
+
   p5.background(255);
+  p5.fill(0, 0, 128);
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+      /* first compute the points to be drawn */
+      let x_pos = p5.map(x, x1, x2, 0, 256);
+      let y_pos = p5.map(y, y1, y2, 0, 256);
 
-  // local positions here
-  let local_ballx = p5.map(ballx, x1, x2, 0, 256);
-  let local_bally = p5.map(bally, y1, y2, 0, 256);
-  let local_ballx_edge = p5.map((ballx + ballr), x1, x2, 0, 256);
-  let local_ball_r = local_ballx_edge - local_ballx;
+      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-  p5.stroke(100);
-  for(let i=0; i<10; i++) {
-  	let shade = 128 + 128 / (i+1);
-  	let current_r = p5.map(i, 0, 9, local_ball_r, 0)
-	p5.fill(0, 0, shade);
-	p5.ellipse(local_ballx, local_bally, current_r);  	
+      /* now draw all elements from back to front */
+      p5.strokeWeight(cur_line_width);
+      p5.stroke(0);
+      //p5.fill(0,255,0);
+      p5.line(x_pos, y_pos, x_pos_left, y_pos);
+      p5.stroke(0, 150, 0);
+      //p5.fill(255,0,0);
+      p5.line(x_pos, y_pos, x_pos, y_pos_down);
+    }
+    p5.rect(0,0,200,20);
   }
+
+  // for(let x=min_x; x<max_x; x+=grid_size) {
+  //   for(let y=min_y; y<max_y; y+=grid_size) {
+
+  //       if (zoom > 0) {
+  //         p5.push();
+          
+  //         p5.pop();
+  //       }
+  //     }
+  //   }
+
+
+  
 
 
   // debug - show border
+
+  p5.strokeWeight(1);
   p5.noFill();
   p5.stroke(255, 0, 0)
   p5.rect(0, 0, 255, 255);
