@@ -1,3 +1,3 @@
-## PS4 Part 3
+## PS4 Part 4
 
-Added some layering details. As you zoom in, the complexity of the circle increases. This creates an interesting experience as you naturally want to zoom in to get a closer look at the details, but as you do it only gets more complex which then makes you want to zoom in more. 
+Added randomness to the position, width, and height of the circles. This makes them look like a creepy organic catseye marble which I think looks really cool. I also made the colors of the rings rotate as you zoom in as well to add some more detail. 

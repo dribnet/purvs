@@ -14,6 +14,7 @@ const max_thickness = 64
 const ball_radius = 32
 const line_width = 8
 const grid_size = 64
+const noise_density = 0.1
 
 /* the random number seed for the tour */
 var tourSeed = 301
@@ -37,13 +38,16 @@ var color2
 var color3
 var background_color
 
+let do_animation = true
+
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid (num, gsize) {
   return num - num % gsize
 }
 
 function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
-  p5.randomSeed(99)
+  let dz = p5.globalFrameCount / 100.0
+  z = z + dz
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness
 
@@ -81,14 +85,51 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
       x_pos_left += local_circlewid / 2
       y_pos_down += local_circlehei / 2
 
-      drawCircle(
-        x_pos_left,
-        y_pos_down,
-        local_circlewid,
-        local_circlehei,
+      wid = getRandomValue(
         p5,
-        zoom
+        x,
+        y,
+        z,
+        'wid',
+        local_circlewid / 6,
+        local_circlewid,
+        noise_density
       )
+
+      hei = getRandomValue(
+        p5,
+        x,
+        y,
+        z,
+        'hei',
+        local_circlehei / 4,
+        local_circlehei,
+        noise_density
+      )
+
+      xpos = getRandomValue(
+        p5,
+        x,
+        y,
+        z,
+        'xpos',
+        x_pos_left - 10,
+        x_pos_left + 10,
+        noise_density
+      )
+
+      ypos = getRandomValue(
+        p5,
+        x,
+        y,
+        z,
+        'ypos',
+        y_pos_down - 10,
+        y_pos_down + 10,
+        noise_density
+      )
+
+      drawCircle(xpos, ypos, wid, hei, p5, zoom)
     }
   }
 
@@ -100,41 +141,52 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 
 function drawCircle (x, y, wid, hei, p5, zoom) {
   var iIncrease
+  var countStart
   switch (zoom) {
     case 0:
+      countStart = 1
       iIncrease = 0.3
       break
     case 1:
+      countStart = 2
       iIncrease = 0.2
       break
     case 2:
+      countStart = 3
       iIncrease = 0.1
       break
     case 3:
+      countStart = 1
       iIncrease = 0.05
       break
     case 4:
-      iIncrease = 0.02
+      countStart = 2
+      iIncrease = 0.04
       break
     case 5:
-      iIncrease = 0.01
+      countStart = 3
+      iIncrease = 0.03
       break
     case 6:
-      iIncrease = 0.005
+      countStart = 1
+      iIncrease = 0.025
       break
     case 7:
-      iIncrease = 0.003
+      countStart = 2
+      iIncrease = 0.02
       break
     case 8:
-      iIncrease = 0.001
+      countStart = 3
+      iIncrease = 0.015
       break
     case 9:
-      iIncrease = 0.0005
+      countStart = 1
+      iIncrease = 0.01
       break
   }
 
   let iVal
-  for (var i = 1, count = 1; i <= 2; (i += iIncrease), count++) {
+  for (var i = 1, count = countStart; i <= 2; (i += iIncrease), count++) {
     if (count % 3 == 0) {
       p5.fill(color1)
     } else if (count % 3 == 1) {
