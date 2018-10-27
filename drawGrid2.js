@@ -8,13 +8,24 @@ var bGTime = 0;
 
 angleMode(DEGREES);
 
+// /* the random number seed for the tour */
+// var tourSeed = 150;
+//  triplets of locations: zoom, x, y 
+// var tourPath = [
+//   [2, -146, 1132],
+//   [2, -149, 1257]
+// ]
+
 /* the random number seed for the tour */
-var tourSeed = 150;
+var tourSeed = 300;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, -146, 1132],
-  [2, -149, 1257]
-]
+  [0, 338, 483],
+  [1, 254, 478],
+  [3, 37, 352],
+  [4, 42, 352],
+  [6, 54, 339]
+];
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
@@ -161,6 +172,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         drawPetals2(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
         //p5.fill(255,255,255);
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/2, 2*line_width, z/2); 
+      }
+
+      if(zoom >= 7){
+        p5.fill(200, 120, 128);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/5);
+        p5.fill(100, 150, 150);
+        p5.ellipse(x_pos, y_pos, cur_ball_radius/5.5);
       }
 
 
