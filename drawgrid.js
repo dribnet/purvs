@@ -75,12 +75,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
   // debug version: draw one
-  let half_x = (x1 + x2) / 2;
-  let half_y = (y1 + y2) / 2;
-  min_x = snap_to_grid(half_x, grid_size);
-  max_x = snap_to_grid(half_x + grid_size, grid_size);
-  min_y = snap_to_grid(half_y, grid_size);
-  max_y = snap_to_grid(half_y + grid_size, grid_size);
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(lineWidth, x1, x2, 0, 256);
@@ -97,22 +97,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let localBallRadius = localBallXEdge - localBallX;*/
 
 
-  /*let localpoint1x = p5.map(point1x, x1, x2, 0, 256);
-  let localpoint1y = p5.map(point1y, y1, y2, 0, 256);
-  let localpoint2x = p5.map(point2x, x1, x2, 0, 256);
-  let localpoint2y = p5.map(point2y, y1, y2, 0, 256);
-  let localpoint3x = p5.map(point3x, x1, x2, 0, 256);
-  let localpoint3y = p5.map(point3y, y1, y2, 0, 256);
-
-  p5.beginShape();
-  p5.curveVertex(localpoint1x, localpoint1y);
-  p5.curveVertex(localpoint1x, localpoint1y);
-  p5.curveVertex(localpoint2x, localpoint2y);
-  p5.curveVertex(localpoint3x, localpoint3y);
-  p5.curveVertex(localpoint3x, localpoint3y);
-  p5.endShape();*/
-
-
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute the points to be drawn */
@@ -124,33 +108,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
       // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
-      /*
-      //X VALUES
-      let x383 = p5.map(Gx383, x1, x2, 0, 256);
-      let x255 = p5.map(Gx255, x1, x2, 0, 256);
-      let x128 = p5.map(Gx128, x1, x2, 0, 256);
-      let x0 = p5.map(Gx0, x1, x2, 0, 256);
-      let NEGx128 = p5.map(GNEGx128, x1, x2, 0, 256);
-
-
-
-      //Y values
-       
-      let y255 = p5.map(Gy255, x1, x2, 0, 256);
-      let y235 = p5.map(Gy235, x1, x2, 0, 256);
-      let y215 = p5.map(Gy215, x1, x2, 0, 256);
-      let y195 = p5.map(Gy195, x1, x2, 0, 256);
-      let y40 = p5.map(Gy40, x1, x2, 0, 256);
-      let y20 = p5.map(Gy20, x1, x2, 0, 256);
-      let y0 = p5.map(Gy0, x1, x2, 0, 256);  */
-
-      ///*
       //X VALUES
       let x383 = p5.map(x + (1*grid_size/1), x1, x2, 0, 256);
       let x255 = p5.map(x + grid_size, x1, x2, 0, 256);
-      let x128 = p5.map(x +(grid_size/1), x1, x2, 0, 256);
+      let x128 = p5.map(x +(grid_size/2), x1, x2, 0, 256);
       let x0 = p5.map(x, x1, x2, 0, 256);
-      let NEGx128 = p5.map(x +(-1*grid_size/2), x1, x2, 0, 256);
+      let NEGx128 = p5.map(x +(-1*grid_size/1), x1, x2, 0, 256);
 
 
 
@@ -167,17 +130,83 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       //p5.strokeWeight(strokeWidth * 0.1);
       /* now draw all elements from back to front */
-      // /* debug with lines
+      // // /* debug with lines
       // p5.fill(0);
       // p5.ellipse(x0, y0, 0.25*strokeWidth);
       // p5.fill(255);
       // p5.ellipse(x128, y195, 0.10*strokeWidth);
 
-      // p5.line(NEGx128, y215, x0, y0);
-      // p5.line(x0, y0, x128, y195);
-      // p5.line(x128, y195, x255, y0);
-      // p5.line(x255, y0, x383, y215);
-      // */
+      // p5.line(x0, y255, x0, y0);
+      // p5.line(x0, y0, x255, y255);
+      // p5.line(x255, y255, x255, y0);
+      //p5.line(x255, y0, x383, y215);
+      //*/
+
+
+  p5.strokeWeight(strokeWidth);  
+  p5.stroke (lines);
+  p5.fill(255, 211, 78, 32);
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y215);
+      p5.curveVertex(x0, y0);
+      p5.curveVertex(x0, y195);
+      p5.curveVertex(x255, y0);
+      p5.curveVertex(x255, y195);
+      p5.curveVertex(x383, y195);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y235);
+      p5.curveVertex(x0, y20);
+      p5.curveVertex(x0, y215);
+      p5.curveVertex(x255, y20);
+      p5.curveVertex(x255, y215);
+      p5.curveVertex(x383, y215);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y255);
+      p5.curveVertex(x0, y40);
+      p5.curveVertex(x0, y235);
+      p5.curveVertex(x255, y40);
+      p5.curveVertex(x255, y235);
+      p5.curveVertex(x383, y235);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y0);
+      p5.curveVertex(x0, y235);
+      p5.curveVertex(x0, y40);
+      p5.curveVertex(x255, y235);
+      p5.curveVertex(x255, y40);
+      p5.curveVertex(x383, y40);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y0);
+      p5.curveVertex(x0, y215);
+      p5.curveVertex(x0, y20);
+      p5.curveVertex(x255, y215);
+      p5.curveVertex(x255, y20);
+      p5.curveVertex(x383, y20);
+      p5.endShape();
+
+      p5.beginShape();
+      p5.curveVertex(NEGx128, y0);
+      p5.curveVertex(x0, y195);
+      p5.curveVertex(x0, y0);
+      p5.curveVertex(x255, y195);
+      p5.curveVertex(x255, y0);
+      p5.curveVertex(x383, y0);
+      p5.endShape();
+
+      //inner
+
+      if(zoom > 0){
+      p5.stroke(fillColour);
+      p5.strokeWeight(strokeWidth/10);
+      p5.noFill();
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y215);
@@ -233,6 +262,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.curveVertex(x383, y0);
       p5.endShape();
     }
+    }
   }
 
   /*
@@ -278,7 +308,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
  
   	//p5.line(0, 0, 255, 255);
 
-  // //debug - show border
+  //debug - show border
   // p5.noFill();
   // p5.strokeWeight(1);
   // p5.stroke(255, 0, 0)
