@@ -1,6 +1,3 @@
 ## PS4 MDDN 342 2018
 
-Still getting used to the way the code works and how to get my wallpaper idea working with this code set. So far i have multiple circles that line on the diagonal, they over lap and as you zoom in have some animation. Next I am going to play around with the different zoom states and see if i can make something interesting.
-
-
-Got these cool pulsating flower looking things.
+Decided to change my original idea of using my project 3 wallpaper idea to creating a pattern of what looks to me like rows of flowers. The "petals" grow and contract to different sizes randomly. Each stage changes the flowers slightly from colours to shape. I really like that way it is starting to work out with the map and zoom functions, I think the final result will be quite interesting.
