@@ -18,11 +18,11 @@ let do_animation = true;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 460, 500],
-  [3, 560, 360],
-  [5, 447, 426],
-  [3, 450, 410],
-  [3, 450, 620]
+  [1, 610, 541],
+  [2, 600, 355],
+  [3, 615, 358],
+  [3, 618, 781],
+  [4, 735, 958]
 ]
 
 
@@ -33,10 +33,9 @@ function snap_to_grid(num, gsize) {
 
 function firstSquare(p5, x, y, x1, x2, y1, y2) {
 
-  // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
-  // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
-  let sineWave = p5.sin(p5.globalFrameCount/10);
-  let height = p5.map(sineWave, -1, 1, 0, 15);
+
+  // let sineWave = p5.sin(p5.globalFrameCount/10);
+  // let height = p5.map(sineWave, -1, 1, 0, 15);
 
 	let quad_x1 = p5.map(x-75/2, x1, x2, 0, 256);
 	let quad_y1 = p5.map(y+0/2, y1, y2, 0, 256);
@@ -117,7 +116,7 @@ let phase = getRandomValue(p5, x, y, z, "phase", 0, 2*p5.PI, 0.1);
 	let right_tri_y3 = p5.map(y+30/2+height, y1, y2, 0, 256);
 
 
-	p5.fill(4, 41, 67);
+	p5.fill(54, 32, 81);
 	p5.triangle(right_tri_x1, right_tri_y1, right_tri_x2, right_tri_y2, right_tri_x3, right_tri_y3);
 
 
@@ -159,6 +158,63 @@ function smallSquares(p5, x, y, x1, x2, y1, y2) {
 	
 }
 
+function animate_triangle(p5, x, y, x1, x2, y1, y2, z) {
+let phase = getRandomValue(p5, x, y, z, "phase", 0, 2*p5.PI, 0.1);
+  let sineWave = p5.sin(phase + p5.globalFrameCount/10);
+  let height = p5.map(sineWave, -1, 1, 0, -6);
+
+
+	let square1_x1 = p5.map(x-75/4, x1, x2, 0, 256);
+	let square1_y1 = p5.map(y+0/4+height, y1, y2, 0, 256);
+	let square1_x2 = p5.map(x+0/4, x1, x2, 0, 256);
+	let square1_y2 = p5.map(y-60/4+height, y1, y2, 0, 256);
+	let square1_x3 = p5.map(x+75/4, x1, x2, 0, 256);
+	let square1_y3 = p5.map(y+0/4+height, y1, y2, 0, 256);
+	let square1_x4 = p5.map(x+0/4, x1, x2, 0, 256);
+	let square1_y4 = p5.map(y+60/4+height, y1, y2, 0, 256);
+
+	p5.fill(54, 32, 81);
+	
+	p5.quad(square1_x1, square1_y1, square1_x2, square1_y2, square1_x3, square1_y3, square1_x4, square1_y4);
+
+
+	let left_tri_x1 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y1 = p5.map(y-30/2+height, y1, y2, 0, 256);
+	let left_tri_x2 = p5.map(x+38/2, x1, x2, 0, 256);
+	let left_tri_y2 = p5.map(y+0/2+height, y1, y2, 0, 256);
+	let left_tri_x3 = p5.map(x+0/2, x1, x2, 0, 256);
+	let left_tri_y3 = p5.map(y+30/2+height, y1, y2, 0, 256);
+
+
+	p5.fill(99,78,143);
+	p5.triangle(left_tri_x1, left_tri_y1, left_tri_x2, left_tri_y2, left_tri_x3, left_tri_y3);
+
+
+	let left_x1 = p5.map(x-75/4, x1, x2, 0, 256);
+	let left_y1 = p5.map(y+0/4+height, y1, y2, 0, 256);
+	let left_x2 = p5.map(x+0/4, x1, x2, 0, 256);
+	let left_y2 = p5.map(y+60/4+height, y1, y2, 0, 256);
+	let left_x3 = p5.map(x+0/4, x1, x2, 0, 256);
+	let left_y3 = p5.map(y+65/4, y1, y2, 0, 256);
+	let left_x4 = p5.map(x-75/4, x1, x2, 0, 256);
+	let left_y4 = p5.map(y+5/4, y1, y2, 0, 256);
+
+	p5.fill(214,214,89);
+	p5.quad(left_x1, left_y1, left_x2, left_y2, left_x3, left_y3, left_x4, left_y4);
+
+	let right_x1 = p5.map(x+76/4, x1, x2, 0, 256);
+	let right_y1 = p5.map(y+0/4+height, y1, y2, 0, 256);
+	let right_x2 = p5.map(x+0/4, x1, x2, 0, 256);
+	let right_y2 = p5.map(y+60/4+height, y1, y2, 0, 256);
+	let right_x3 = p5.map(x+0/4, x1, x2, 0, 256);
+	let right_y3 = p5.map(y+65/4, y1, y2, 0, 256);
+	let right_x4 = p5.map(x+76/4, x1, x2, 0, 256);
+	let right_y4 = p5.map(y+5/4, y1, y2, 0, 256);
+
+	p5.fill(194, 194, 80);
+	p5.quad(right_x1, right_y1, right_x2, right_y2, right_x3, right_y3, right_x4, right_y4);
+
+}
 
 
 
@@ -206,12 +262,12 @@ if (zoom < 3){
 }
 		
 
- if (zoom >= 1){
+ if (zoom == 1){
  	smallSquares(p5, x, y, x1, x2, y1, y2 );
  }
 
-	 if (zoom >= 2){
-		triangle(p5, x, y, x1, x2, y1, y2 );
+	 if (zoom == 2){
+		animate_triangle(p5, x, y, x1, x2, y1, y2 );
 	}
 
 if (zoom >=3){
