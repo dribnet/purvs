@@ -15,7 +15,6 @@ const max_movement = 16;
 
 
 
-
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -32,25 +31,6 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
 }
 
 
-//function drawCells(p5, x1, x2, y1, y2, pos_x, pos_y, rad1) {
-//  const sqrt2 = 1.4142/2;
-//  let offsets = [
-//    [sqrt2, sqrt2],
-//    [-sqrt2, sqrt2],
-//    [-sqrt2, -sqrt2],
-//    [sqrt2, -sqrt2]
-//  ]
-//  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-//  let pixel_posx2 = p5.map(pos_x+rad1, x1, x2, 0, 256);
-//  let pixel_radius = pixel_posx2 - pixel_posx1;
-//  p5.ellipse(pixel_posx1, pixel_posx2, pixel_radius);
-//  //for(let i=0; i<offsets.length; i++) {
-//  //  let offset = offsets[i];
-//  //  let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-//  //  let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-//  //  p5.ellipse(pixel_x, pixel_y, pixel_radius);    
-//  //}
-//}
 
 
 function fillCell(p5,x1, x2, y1, y2,xpos,ypos,radius){
@@ -83,7 +63,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let centerpoint = p5.map(0, x1, x2, 0, 256);
   let centerCell = p5.map(cellwidth, x1, x2, 0, 256);
   let curCellRadius = centerCell - centerpoint;
-
   
   
 
@@ -137,7 +116,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	    			{
 	    				p5.stroke(0, 200, 150,100);
 					  	p5.strokeWeight(3);
-					  	p5.fill(0, 200, 150,20);
+					  	p5.fill(0, 200, 150,30);
 	    				p5.ellipse(x_pos, y_pos, curCellRadius);
 
 	    				
@@ -146,7 +125,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					  		p5.strokeWeight(3);
 							x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
 		      				y_pos = p5.map(shift_point[1], y1, y2, 0, 256); 	
-							//p5.ellipse(x_pos, y_pos, curCellRadius);
+							
 
 							//bottom center
 							x_pos = p5.map(shift_point[0], x1, x2, 0, 256);
@@ -232,7 +211,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		      				y_pos = p5.map(shift_point[1]+27, y1, y2, 0, 256); 	
 							p5.ellipse(x_pos, y_pos, curCellRadius/10);
 
-							//right down\
+							//right down
 
 							x_pos = p5.map(shift_point[0]+27, x1, x2, 0, 256);
 		      				y_pos = p5.map(shift_point[1]+7, y1, y2, 0, 256); 	
@@ -254,7 +233,44 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		      				y_pos = p5.map(shift_point[1]+27, y1, y2, 0, 256); 	
 							p5.ellipse(x_pos, y_pos, curCellRadius/10);
 
-							
+								
+
+							//nucleus
+							p5.stroke(160, 20, 200);
+							p5.fill(160, 20, 200,100);
+							x_pos = p5.map(shift_point[0]-15, x1, x2, 0, 256);
+		      				y_pos = p5.map(shift_point[1], y1, y2, 0, 256); 	
+							p5.ellipse(x_pos, y_pos, curCellRadius/5,curCellRadius/3);
+
+							//nucleolous
+							y_pos = p5.map(shift_point[1]+5, y1, y2, 0, 256); 
+							p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);
+
+							//mitochondria
+							p5.stroke(206, 109, 6);
+							p5.fill(206, 109, 6,100);
+							x_pos = p5.map(shift_point[0] +10, x1, x2, 0, 256);
+		      				y_pos = p5.map(shift_point[1] -10, y1, y2, 0, 256); 
+		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/7,curCellRadius/13);
+
+		      				let ex1 = p5.map(shift_point[0]+10, x1, x2, 0, 256);
+		      				let ey1 = p5.map(shift_point[1]+1, y1, y2, 0, 256)
+		      				let ex2 = p5.map(shift_point[0]+5, x1, x2, 0, 256);
+		      				let ey2 = p5.map(shift_point[1]+15, y1, y2, 0, 256)
+							let ex3 = p5.map(shift_point[0]-2, x1, x2, 0, 256);
+		      				let ey3 = p5.map(shift_point[1]-20, y1, y2, 0, 256);
+		      				let r = Math.floor((Math.random() * 255)+1);
+		      				let g = Math.floor((Math.random() * 255)+1);
+		      				let b = Math.floor((Math.random() * 255)+1);
+		      				p5.fill(0,g,b);
+		      				p5.print(r,g,b);
+		      				p5.beginShape();
+		      				
+		      				p5.vertex(ex1,ey1);
+		      				p5.bezierVertex(ex2,ey2,ex3,ey3,ex1,ey1);
+		      				
+		      				//p5.bezierVertex();
+		      				p5.endShape();
 	    			}
 
 		  	}
@@ -264,56 +280,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-  // Two ellipses with a radius of 50 units are then added.
-//--------------------------------------------------------External cell
-  
-  diamter = p5.map(512+cellwidth, x1, x2, 0, 256);
-  p5.stroke(0, 200, 150);
-  p5.strokeWeight(5);
-  p5.noFill();
-  p5.fill(0, 200, 150,100);
-  p5.ellipse(centerx, centery, (diamter-centerx));
-
-  	p5.strokeWeight(2);
-
- //--------------------------------------------------------internal cells
-
-	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
-	  y = p5.map(512-10, y1, y2, 0, 256);
-	  x = p5.map(512-30, x1, x2, 0, 256);	  
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
-	  y = p5.map(512+20, y1, y2, 0, 256);	
-	  x = p5.map(512+45, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/5, x1, x2, 0, 256);
-	  y = p5.map(512-20, y1, y2, 0, 256);	
-	  x = p5.map(512-5, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/3, x1, x2, 0, 256);
-	  y = p5.map(512-20, y1, y2, 0, 256);	
-	  x = p5.map(512+15, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/10, x1, x2, 0, 256);
-	  y = p5.map(512+20, y1, y2, 0, 256);	
-	  x = p5.map(512+45, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/20, x1, x2, 0, 256);
-	  y = p5.map(512-20, y1, y2, 0, 256);	
-	  x = p5.map(512+45, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-	  diamter = p5.map(512+cellwidth/3, x1, x2, 0, 256);
-	  y = p5.map(512+40, y1, y2, 0, 256);	
-	  x = p5.map(512-25, x1, x2, 0, 256);
-	  p5.ellipse(x, y, (diamter-centerx));
-
-
+ 
 
 
 
