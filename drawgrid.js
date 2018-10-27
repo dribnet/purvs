@@ -8,12 +8,10 @@ let yoff = 0.0;
 var tourSeed = 150;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 457, 552],
-  [1, 491, 533],
-  [2, 418, 513],
-  [3, 415, 514],
-  [4, 415, 514],
-  [5, 415, 514]
+  [0, 490, 810],
+  [1, 490, 810],
+  [2, 490, 810],
+  [3, 490, 810],
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -51,18 +49,28 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     let pixel_x = p5.map(pos_x+offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
 
-       p5.textSize(100);
-       p5.fill(255);
-       p5.strokeWeight(5);
-       p5.stroke(255);
-       p5.text("V", pixel_x, pixel_y, pixel_radius);
-       p5.text("O", pixel_x + 80, pixel_y, pixel_radius);
-       p5.text("I", pixel_x + 180, pixel_y, pixel_radius);
-       p5.text("D", pixel_x + 230, pixel_y, pixel_radius);
+
+     for (var j = 0; j < 1; j++) {
+       var r = p5.random(255);
+       p5.fill(r);
+       let xoff = 0;
+       for (let x = 0; x <= x1; x += 50){
+           xoff += 10;
+           yoff += 2;
+        }
+       let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 10);
+       p5.textSize(40 + yt);
+       p5.noStroke();
+       p5.text("ALL", pixel_x + j, 0);
+       p5.text("THE", pixel_x + j, 50);
+       p5.text("THINGS", pixel_x + j, 100);
+       p5.text("YOU", pixel_x + j, 150);
+       p5.text("SEE", pixel_x + j, 200);
+     }
   }
 }
 
-function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z) {
+function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, drawLines, z) {
   const offsets = [
     [1, 1],
     [1, -1],
@@ -70,24 +78,21 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z)
     [-1, -1]
   ]
   let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
-  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  let pixel_posx2 = p5.map(pos_x, x1, x2, 0, 256);
   let pixel_radius = pixel_posx2 - pixel_posx1;
   let z_fraction = z % 2.0;
   let num_stamens = p5.map(z_fraction, 0, 1, 0, offsets.length)
 
   for(var i=0;i<offsets.length;i++) {
     let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+rad1*offset[1], y1, y2, 0, 256);
+    let pixel_x = p5.map(pos_x+offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
 
-  for (var i = 1; i < 10; i++) {
+        p5.background(0);
         p5.fill(255);
-        p5.stroke(0);
-        p5.strokeWeight(2);
-        p5.textSize(50);
-        p5.text("doesn't", pixel_x + i, pixel_y + i, pixel_radius);   
-        p5.text("Exist", pixel_x + i, pixel_y + i + 50, pixel_radius); 
-       }
+        p5.textSize(200);
+        p5.text("DOESNT", pixel_x - 600, pixel_y - 100);   
+        p5.text("EXIST", pixel_x - 600, pixel_y + 100);
     
   if(drawLines) {
      //p5.background(255);
@@ -109,10 +114,8 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z)
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* For animation: updated z based on global frame count */
-  let dz = p5.globalFrameCount / 100.0;
+  let dz = p5.globalFrameCount / 50.0;
   z = z + dz;
-
-  p5.background(0);
 
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness + max_movement;
@@ -133,6 +136,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // min_y = snap_to_grid(half_y, grid_size);
   // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
+  p5.background(0);
+  
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       // First compute shifted point in grid
@@ -164,31 +169,25 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
 
 
+      /* now draw all elements from back to front */
       if (zoom == 0) {
+      for(let size = 50; size < 100; size = size + 10){ 
+      for(let j = 50; j < 256; j = j + 150){
+       p5.textSize(size);
+       p5.stroke(0);
+       p5.fill(255);
+       p5.text("V", x_pos, y_pos + j);
+       p5.text("O", x_pos + 50, y_pos + j);
+       p5.text("I", x_pos + 120, y_pos + j);
+       p5.text("D", x_pos + 140, y_pos + j);
+      }
+     }
+    }
+
+    if (zoom >= 1) {
         p5.fill(255);
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y); 
       }
-
-      /* now draw all elements from back to front */
-      if (zoom == 1) {
-       for (var i = 0; i < 256; i = i + 200) {
-       var r = p5.random(100);
-       p5.fill(255 - r);
-       let xoff = 0;
-       for (let x = 0; x <= x1; x += 50){
-           xoff += 10;
-           yoff += 2;
-        }
-       let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 10);
-       p5.textSize(40 + yt);
-       p5.noStroke();
-       p5.text("ALL", x_pos + i, 0, x_pos_left, y_pos_left);
-       p5.text("THE", x_pos + i, 50, x_pos_left, y_pos_left);
-       p5.text("THINGS", x_pos + i, 100, x_pos_left, y_pos_left);
-       p5.text("YOU", x_pos + i, 150, x_pos_left, y_pos_left);
-       p5.text("SEE", x_pos + i, 200, x_pos_left, y_pos_left);
-     }
-    }
 
       if(zoom >= 2) {
         // now if we are super zoomed, draw lines in the stamen
