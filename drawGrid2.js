@@ -8,14 +8,6 @@ var bGTime = 0;
 
 angleMode(DEGREES);
 
-// /* the random number seed for the tour */
-// var tourSeed = 150;
-//  triplets of locations: zoom, x, y 
-// var tourPath = [
-//   [2, -146, 1132],
-//   [2, -149, 1257]
-// ]
-
 /* the random number seed for the tour */
 var tourSeed = 300;
 /* triplets of locations: zoom, x, y */
@@ -87,8 +79,7 @@ function drawPetals2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
     let offset = offsets[i];
     let pixel_x = p5.map(pos_x+0.5*rad2*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad2*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius*1.5); 
-    //p5.ellipse(pixel_x, pixel_y, pixel_radius*2);  
+    p5.ellipse(pixel_x, pixel_y, pixel_radius*1.5); \
   }
 }
 
@@ -160,8 +151,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);
       }
 
-      if (zoom >= 2 && zoom < 4) {
-        //z = z + dx *2;
+      if (zoom >= 2 && zoom < 4) {\
         p5.fill(173, 230, 255, 150);
         p5.noStroke();
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);   
@@ -170,7 +160,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       if(zoom >= 4) {
         p5.fill(203, 157, 249, 50);
         drawPetals2(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
-        //p5.fill(255,255,255);
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/2, 2*line_width, z/2); 
       }
 
@@ -185,10 +174,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(200, 120, 128);
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius/6);
-      // if(zoom >= 5){
-      //   p5.fill(0, 255, 0);  
-      //   drawPetals(p5, x1, x2, y1, y2, shifted_x/2, shifted_y/2, ball_radius, 1.5*line_width, z); 
-      // }
 
     }
   }
