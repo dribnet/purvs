@@ -8,6 +8,8 @@ var bGTime = 0;
 
 angleMode(DEGREES);
 
+
+
 /* the random number seed for the tour */
 var tourSeed = 300;
 /* triplets of locations: zoom, x, y */
@@ -31,7 +33,7 @@ function getOffsetPoint(p5, x, y, z, noiseScale) {
   return [x+offsetX, y+offsetY]
 }
 
-function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
+function drawCircles(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
   const sqrt2 = 1.4142/1.6;
   let offsets = [
     [sqrt2, sqrt2],
@@ -56,7 +58,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
     p5.ellipse(pixel_x, pixel_y, pixel_radius*2);   
   }
 }
-function drawPetals2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
+function drawCircles2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
   const sqrt2 = 1.4142/1.6;
   let offsets = [
     [sqrt2, sqrt2],
@@ -79,7 +81,7 @@ function drawPetals2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
     let offset = offsets[i];
     let pixel_x = p5.map(pos_x+0.5*rad2*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad2*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius*1.5); \
+    p5.ellipse(pixel_x, pixel_y, pixel_radius*1.5); 
   }
 }
 
@@ -148,22 +150,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       /* now draw all elements from back to front */
       if (zoom < 2) {
          p5.fill(200, 120, 128);
-        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);
+        drawCircles(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width);
       }
 
-      if (zoom >= 2 && zoom < 4) {\
+      if (zoom >= 2 && zoom < 4) {
         p5.fill(173, 230, 255, 150);
         p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);   
+        drawCircles(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);   
       }
 
       if(zoom >= 4) {
         p5.fill(203, 157, 249, 50);
-        drawPetals2(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
-        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/2, 2*line_width, z/2); 
+        drawCircles2(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
+        drawCircles(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/2, 2*line_width, z/2); 
       }
 
-      if(zoom >= 7){
+      if(zoom >= 6){
         p5.fill(200, 120, 128);
         p5.ellipse(x_pos, y_pos, cur_ball_radius/5);
         p5.fill(100, 150, 150);
@@ -174,6 +176,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(200, 120, 128);
       p5.noStroke();
       p5.ellipse(x_pos, y_pos, cur_ball_radius/6);
+
 
     }
   }
