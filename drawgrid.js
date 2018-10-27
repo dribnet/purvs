@@ -38,6 +38,11 @@ let do_animation = true;
 var t;
 var t2;
 var Frames;
+var gradientOn = false;
+var doOnce = true;
+var maxMagnitude = 1;
+var pulse = false;
+var firstpass = false;
 
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
@@ -52,9 +57,38 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		console.log(Frames);
 	}
 
-	if(Frames<20){
-		p5.background(0);
+	if(Frames>GlobalDrawCalls*maxMagnitude&&!pulse){
+		Frames=0;
+		gradientOn = true;
+		console.log("gradientOn true");
+		pulse = true;
 	}
+
+	if(Frames<20&&doOnce){
+		p5.background(0,0,0);
+	}else{
+		doOnce=false;
+	}
+
+	if(gradientOn&&pulse){
+		p5.background(0,0,0,10);
+		
+		if(Frames==50){
+			console.log("gradientOn false");
+			Frames = 0;
+			gradientOn = false;
+			firstpass = true;
+		}
+	}else if(firstpass&&!gradientOn&&pulse){
+		
+		if(Frames==100){
+			gradientOn=true;
+			console.log("gradientOn true");
+			Frames = 0;
+		}
+			
+	}
+
 	
   	
 	// t = t + Frames;
@@ -71,9 +105,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for (var i = 1; i <= DrawsPerFrame; i++) {
 		if (!zoom){
 			p5.strokeWeight(0.9);
+			// p5.strokeWeight(20);
+			maxMagnitude = 2;
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 3, 1, "purple");
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 2, 1, "purple");
-			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 2, 1, "purple");
+			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 2, 1, 1, "purple");
+			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 1, 1, 1, "purple");			
 			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 			DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom, 1);
 			// DrawCircleAnimate(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
@@ -81,11 +118,32 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 		}else if(zoom == 1){
 			// GlobalDrawCalls = 1;
+			moveVert = 150;
+			moveHoriz = 150;
+			// let xoffsetR = 50;
+			// let xoffsetL = 47;
+			// let yoffset = 18;
 			p5.strokeWeight(1.1);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 2, 1, "purple");
-			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3, 1);
+			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3, 1, "purple");
+			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 2, 1, "purple");
+			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3, 1, "purple");
 			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 2, 1, 1, "purple");
+			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 1, 1, 1, "purple");
+			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 			DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom, 1);
+			// DrawEllipseTall(p5, x1, x2, y1+moveVert, y2+moveVert, z, zoom, 1, 4, "black");
+			// DrawEllipseTall(p5, x1+xoffsetR, x2+xoffsetR, y1+moveVert-yoffset, y2+moveVert-yoffset, z, zoom, 1, 6, "black");
+			// DrawEllipseTall(p5, x1-xoffsetL, x2-xoffsetL, y1+moveVert-yoffset, y2+moveVert-yoffset, z, zoom, 1, 6, "black");
+			// DrawEllipseTall(p5, x1, x2, y1-moveVert, y2-moveVert, z, zoom, 1, 4, "black");
+			// DrawEllipseTall(p5, x1+xoffsetR, x2+xoffsetR, y1-moveVert+yoffset, y2-moveVert+yoffset, z, zoom, 1, 6, "black");
+			// DrawEllipseTall(p5, x1-xoffsetL, x2-xoffsetL, y1-moveVert+yoffset, y2-moveVert+yoffset, z, zoom, 1, 6, "black");
+			// DrawEllipseWide(p5, x1+moveHoriz, x2+moveHoriz, y1, y2, z, zoom, 1, 4, "black");
+			// DrawEllipseWide(p5, x1+moveHoriz-yoffset, x2+moveHoriz-yoffset, y1+xoffsetR, y2+xoffsetR, z, zoom, 1, 6, "black");
+			// DrawEllipseWide(p5, x1+moveHoriz-yoffset, x2+moveHoriz-yoffset, y1-xoffsetL, y2-xoffsetL, z, zoom, 1, 6, "black");
+			// DrawEllipseWide(p5, x1-moveHoriz, x2-moveHoriz, y1, y2, z, zoom, 1, 4, "black");
+
+			maxMagnitude = 2;
 
 		}else if(zoom == 2){
 			// do_animation = false;
@@ -102,6 +160,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			DrawCircle(p5, x1-moveHoriz, x2-moveHoriz, y1+moveVert, y2+moveVert, z, zoom, 1, 15, "black");
 			DrawCircle(p5, x1+moveHoriz, x2+moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 15, "black");
 			DrawCircle(p5, x1-moveHoriz, x2-moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 15, "black");
+			maxMagnitude = 3;
 		}else if(zoom == 3){
 			p5.strokeWeight(3.5);
 			moveVert = 34;
@@ -134,6 +193,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	if(zoom){
 		if(zoom!=ZoomLevel){
 			Frames = 0;
+			doOnce = true;
 			ZoomLevel = zoom;
 			console.log("ZoomLevel "+ ZoomLevel);
 			// p5.background(0);
@@ -141,6 +201,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		toggleZoom = true;	
 	}else if(!zoom&&toggleZoom){
 		Frames = 0;
+		doOnce = true;
 		ZoomLevel = 0;
 		toggleZoom = false;
 	 	console.log("ZoomLevel "+0);
@@ -151,39 +212,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	// p5.bezier(b1, b2, b3, b4, b5, b6, b7, b8);  	
   }
 
-	// function DrawCircle (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour) {
-	// 	let x = 512;
-	// 	let y = 512;
-	// 	let noiseScale = 0.1;
-	// 	// p5.stroke(204, 78, 206,baseAlpha);
-		
-	// 	if(colour=="purple"){
-	// 		p5.stroke(204, 78, 206,baseAlpha);
-			
-	// 	}else if(colour=="cyan"){
-	// 		p5.stroke(96, 200, 224, baseAlpha);
-	// 	}else if(colour=="black"){
-	// 		p5.stroke(0, 0, 0, baseAlpha);
-	// 	}
-
-	// 	if (Frames<(GlobalDrawCalls*magnitude)){
-
-	// 		var angle1 = p5.random(0, 2 * p5.PI);
-	// 		var angle2 = p5.random(0, 2 * p5.PI);
-
-	// 		var xpos1 = (circleWidth2) + (circleWidth1/scale) * p5.cos(angle1);
-	// 		var ypos1 = circleWidth2 + (circleWidth1/scale) * p5.sin(angle1);
-	// 		var xpos2 = (circleWidth2) + (circleWidth1/scale) * p5.cos(angle2);
-	// 		var ypos2 = circleWidth2 + (circleWidth1/scale) * p5.sin(angle2)
-
-	// 		var l1 = p5.map(xpos1 + (x/1.3), x1, x2, 0, 256);
-	// 		var l2 = p5.map(ypos1 + (y/1.3), y1, y2, 0, 256);
-	// 		var l3 = p5.map(xpos2 + (x/1.3), x1, x2, 0, 256);
-	// 		var l4 = p5.map(ypos2 + (y/1.3), y1, y2, 0, 256);
-
-	// 		p5.line(l1,l2,l3,l4);
-	// 	}
-	// }
 
 	function DrawCircle (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour) {
 		let x = 512;
@@ -371,7 +399,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			p5.stroke(0, 0, 0, baseAlpha);
 		}
 	  	if (Frames<(GlobalDrawCalls*magnitude)){
-
+	  		// console.log("DrawValleyHorizontal")
 			var angle1 = p5.random(0, 2 * p5.PI);
 			var angle2 = p5.random(0, 2 * p5.PI);
 
