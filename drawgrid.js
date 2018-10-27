@@ -1,7 +1,8 @@
 const max_thickness = 64;
-const max_movement = 32;
+const max_movement = 64;
 const grid_size = 256;
-let do_animation = false;
+let do_animation = true;
+let yoff = 0.0;
 
 /* the random number seed for the tour */
 var tourSeed = 150;
@@ -35,7 +36,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     [-sqrt2, -sqrt2],
     [sqrt2, -sqrt2]
   ]
-  let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2, 0.1);
   let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
   let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
   let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
@@ -47,8 +48,17 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
 
   for(let i=0; i<offsets.length; i++) {
     let offset = offsets[i];
-    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
-    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+    let pixel_x = p5.map(pos_x+offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
+
+       p5.textSize(100);
+       p5.fill(255);
+       p5.strokeWeight(5);
+       p5.stroke(255);
+       p5.text("V", pixel_x, pixel_y, pixel_radius);
+       p5.text("O", pixel_x + 80, pixel_y, pixel_radius);
+       p5.text("I", pixel_x + 180, pixel_y, pixel_radius);
+       p5.text("D", pixel_x + 230, pixel_y, pixel_radius);
   }
 }
 
@@ -72,13 +82,15 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z)
 
   for (var i = 1; i < 10; i++) {
         p5.fill(255);
+        p5.stroke(0);
+        p5.strokeWeight(2);
         p5.textSize(50);
-        p5.text("Doesn't", pixel_x + i, pixel_x + i, pixel_radius);   
-        p5.text("Exist", pixel_x + i, pixel_x + i + 50, pixel_radius); 
+        p5.text("doesn't", pixel_x + i, pixel_y + i, pixel_radius);   
+        p5.text("Exist", pixel_x + i, pixel_y + i + 50, pixel_radius); 
        }
     
   if(drawLines) {
-     p5.background(255);
+     //p5.background(255);
      }
   }
 }
@@ -151,30 +163,34 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let x_pos_down = p5.map(shifted_x_down, x1, x2, 0, 256);
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
 
-      /* now draw all elements from back to front */
-      if (zoom < 2) {
-       for (var i = 1; i < 256; i = i + 100) {
-       var r = p5.random(255);
-       p5.stroke(r);
-       p5.textSize(50);
-       if (i<256){
-       p5.text("ALL",x_pos + i, 0, x_pos_left, y_pos_left);
-       p5.text("THE",x_pos + i, 50, x_pos_left, y_pos_left);
-       p5.text("THINGS",x_pos + i, 100, x_pos_left, y_pos_left);
-       p5.text("YOU",x_pos + i, 150, x_pos_left, y_pos_left);
-       p5.text("SEE",x_pos + i, 200, x_pos_left, y_pos_left);
-        }
-       }
-      }
 
-      if (zoom >= 2) {
+      if (zoom == 0) {
         p5.fill(255);
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y); 
       }
 
+      /* now draw all elements from back to front */
+      if (zoom == 1) {
+       for (var i = 0; i < 256; i = i + 200) {
+       var r = p5.random(100);
+       p5.fill(255 - r);
+       let xoff = 0;
+       for (let x = 0; x <= x1; x += 50){
+           xoff += 10;
+           yoff += 2;
+        }
+       let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 10);
+       p5.textSize(40 + yt);
+       p5.noStroke();
+       p5.text("ALL", x_pos + i, 0, x_pos_left, y_pos_left);
+       p5.text("THE", x_pos + i, 50, x_pos_left, y_pos_left);
+       p5.text("THINGS", x_pos + i, 100, x_pos_left, y_pos_left);
+       p5.text("YOU", x_pos + i, 150, x_pos_left, y_pos_left);
+       p5.text("SEE", x_pos + i, 200, x_pos_left, y_pos_left);
+     }
+    }
 
-
-      if(zoom >= 3) {
+      if(zoom >= 2) {
         // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
         if (zoom >= 5) drawLines = true;
