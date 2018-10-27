@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-At this stage, I have created a layout consisting of many larger shapes made from lots of smaller shapes. I am happy with the progress so far, the next step however is to implement a simple animation that will be explorable from the zoomed in view.
+While messing around, I discovered an intersting configuration that resembles a formation of cells. I think I will use this idea as my final, as it shows some sort of story, opposed to the bland structure of many small shapes. From this point i'll just be adding more details and complexity to the zoomed in views.

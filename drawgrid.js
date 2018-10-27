@@ -1,7 +1,10 @@
-const max_thickness = 64;
-const ball_radius = 5;
-const line_width = 1;
-const grid_size = 180; // The distance between each drawn object
+let max_thickness = 64;
+let ball_radius = 24;
+let line_width = 8;
+let grid_size = 128; // The distance between each drawn object
+
+let do_animation = true;
+let max_movement = 256;
 
 /* the random number seed for the tour */
 var tourSeed = 0;
@@ -14,28 +17,42 @@ var ticker = 0;
 let x_pos = 0;
 let y_pos = 0;
 
+let colour = 0;
+let colourSelect = 0;
+
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
 }
 
-/*
- * This is the funciton to implement to make your own abstract design.
- *
- * arguments:
- * p5: the p5.js object - all draw commands should be prefixed with this object
- * x1, x2, y1, y2: draw the pattern contained in the rectangle x1,y1 to x2, y2
- * z: use this as the noise z offset (can be shifted)
- * zoom: current zoom level (starts at 0), useful to decide how much detail to draw
- *
- * The destination drawing should be in the square 0, 0, 255, 255.
- */
-function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
+// function setRandomColor() {
+//   var colourSelect = random(3);
+//   if(colourSelect == 1){
+//     fill('#96beff');
+//   } else if(colourSelect == 2){
+//     fill('#ffc196')
+//   } else if(colourSelect == 3){
+//     fill('#f496ff')
+//   }
+// }
 
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let offsetX = getRandomValue(p5, x, y, z, "offsetX", -max_movement, max_movement, noiseScale);
+  let offsetY = getRandomValue(p5, x, y, z, "offsetY", -max_movement, max_movement, noiseScale);
+  return [x+offsetX, y+offsetY]
+}
+
+
+function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
+
+  /* For animation: updated z based on global frame count */
+  let dz = p5.globalFrameCount / 100.0;
+  z = z + dz;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -43,24 +60,17 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let min_y = snap_to_grid(y1 - max_shift, grid_size);
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
-  // debug version: draw one
-  // let half_x = (x1 + x2) / 2;
-  // let half_y = (y1 + y2) / 2;
-  // min_x = snap_to_grid(half_x, grid_size);
-  // max_x = snap_to_grid(half_x + grid_size, grid_size);
-  // min_y = snap_to_grid(half_y, grid_size);
-  // max_y = snap_to_grid(half_y + grid_size, grid_size);
-
-  ///////
-
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(line_width, x1, x2, 0, 256);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
+
   p5.background(255);
   p5.fill(20);
+  // setRandomColor();
+
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
 
@@ -69,40 +79,116 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       for(let y=min_y; y<max_y; y+=grid_size) {
 
-      	/* first compute the points to be drawn */
-        for (var j = -5; j < 5; j++) {
-          for (var i = -5; i < 5; i++) {
-            x_pos = p5.map(x+i*10, x1, x2, 0, 256);
-            y_pos = p5.map(y+j*10, y1, y2, 0, 256);
 
-            p5.ellipse(x_pos, y_pos, cur_ball_radius);
-          }
+        // Zoom Modifiers Start Here
+
+        if (zoom < 1) {
+          let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement*0.3, max_movement*0.3, 0.1);
+          let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement*0.3, max_movement*0.3, 0.1);
+          let shifted_x = x + offsetX;
+          let shifted_y = y + offsetY;
+          let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+          p5.ellipse(x_pos, y_pos, cur_ball_radius);
         }
 
-      
+        if (zoom >= 1) {
+
+          let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement*0.3, max_movement*0.3, 0.1);
+          let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement*0.3, max_movement*0.3, 0.1);
+
+          let shifted_x = x + offsetX;
+          let shifted_y = y + offsetY;
+
+          let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
 
 
-      	let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      	let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+          p5.noFill();
+          p5.stroke(0);
+          p5.strokeWeight(4);
+
+          p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+          p5.noStroke();
+          p5.fill(0);
+
+
+          offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement*0.35, max_movement*0.35, 0.1);
+          offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement*0.35, max_movement*0.35, 0.1);
+
+          shifted_x = x + offsetX;
+          shifted_y = y + offsetY;
+
+          x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+          p5.ellipse(x_pos, y_pos, cur_ball_radius*0.1);
+
+
+          // for (var i = 0; i < 1; i++) {
+
+          //   let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement/2, max_movement/2, 0.1);
+          //   let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement/2, max_movement/2, 0.1);
+
+          //   let shifted_x = x + offsetX;
+          //   let shifted_y = y + offsetY;
+
+          //   let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          //   let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+          //   p5.ellipse(x_pos, y_pos, cur_ball_radius/10);
+          // }
+        }
+
+
+        if (zoom >= 2){
+          let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement*0.345, max_movement*0.345, 0.1);
+          let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement*0.345, max_movement*0.345, 0.1);
+
+          let shifted_x = x + offsetX;
+          let shifted_y = y + offsetY;
+
+          let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+          p5.stroke(0);
+          p5.noFill();
+          p5.strokeWeight(1);
+
+          p5.ellipse(x_pos, y_pos, cur_ball_radius*0.2);
+        }
+
+        if (zoom >= 3){
+
+          let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement*0.3, max_movement*0.3, 0.1);
+          let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement*0.3, max_movement*0.3, 0.1);
+
+          let shifted_x = x + offsetX;
+          let shifted_y = y + offsetY;
+
+          let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+          let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+            
+
+          p5.stroke(0);
+          p5.noFill();
+          p5.strokeWeight(1);
+
+          p5.ellipse(x_pos, y_pos, cur_ball_radius*1.1);
+
+        }
+
+
+
+
 
       }
-
     }
   }
 
-  ///////
 
-  // p5.background(255);
-  // p5.fill(20);
-
-  // p5.ellipse(0, 0, 50);
-
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(0, 200, 200)
-  // p5.strokeWeight(1);
-  // p5.rect(0, 0, 255, 255);
-  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  // let sizex = x2 - x1;
-  // p5.text("width: " + sizex, 10, 40);
 }
+
+
