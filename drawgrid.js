@@ -253,21 +253,34 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		      				y_pos = p5.map(shift_point[1] -10, y1, y2, 0, 256); 
 		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/7,curCellRadius/13);
 
-		      				let ex1 = p5.map(shift_point[0]+10, x1, x2, 0, 256);
-		      				let ey1 = p5.map(shift_point[1]+1, y1, y2, 0, 256)
-		      				let ex2 = p5.map(shift_point[0]+5, x1, x2, 0, 256);
-		      				let ey2 = p5.map(shift_point[1]+15, y1, y2, 0, 256)
-							let ex3 = p5.map(shift_point[0]-2, x1, x2, 0, 256);
-		      				let ey3 = p5.map(shift_point[1]-20, y1, y2, 0, 256);
+		      				// endoplasmic reticulum
+		      				let e1 = p5.map(shift_point[0]-18, x1, x2, 0, 256);
+		      				let e2 = p5.map(shift_point[1]-15, y1, y2, 0, 256)
+
+		      				let e3 = p5.map(shift_point[0]-12, x1, x2, 0, 256);
+		      				let e4 = p5.map(shift_point[1]-18, y1, y2, 0, 256)
+
+							let e5 = p5.map(shift_point[0]-15, x1, x2, 0, 256);
+		      				let e6 = p5.map(shift_point[1]-12, y1, y2, 0, 256);
+
+		      				let e7 = p5.map(shift_point[0]+3, y1, y2, 0, 256);
+		      				let e8 = p5.map(shift_point[1]+7, y1, y2, 0, 256);
+
+		      				let e9 = p5.map(shift_point[0]+40, y1, y2, 0, 256);
+		      				let e10 = p5.map(shift_point[1], y1, y2, 0, 256);
+
 		      				let r = Math.floor((Math.random() * 255)+1);
-		      				let g = Math.floor((Math.random() * 255)+1);
-		      				let b = Math.floor((Math.random() * 255)+1);
-		      				p5.fill(0,g,b);
+		      				let g = Math.floor((Math.random() * 205)+1);
+		      				let b = Math.floor((Math.random() * 250)+1);
+
+		      				//p5.fill(0,g,b);
+		      				p5.noFill();
+		      				p5.stroke(0,0,200);
 		      				p5.print(r,g,b);
 		      				p5.beginShape();
 		      				
-		      				p5.vertex(ex1,ey1);
-		      				p5.bezierVertex(ex2,ey2,ex3,ey3,ex1,ey1);
+		      				p5.vertex(e1,e2);
+		      				p5.quadraticVertex(e3,e4,e5,e6);
 		      				
 		      				//p5.bezierVertex();
 		      				p5.endShape();
