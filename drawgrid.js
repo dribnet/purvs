@@ -101,6 +101,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           xpos+local_rect_size-door_right,ypos+local_rect_size-door_3d, xpos,ypos+local_rect_size);
         p5.fill(0,255,0);
         p5.ellipse(xpos+local_rect_size-door_right-3, ypos+local_rect_size/2, 5);
+
+        //hand
+        if(zoom == 3 || zoom == 4){
+          let ran_value = p5.random(local_rect_size-door_3d*4);
+          p5.stroke(235,192,134);
+          p5.fill(255,205,148);
+          // p5.fill(0,0,0);
+          p5.ellipse(xpos+local_rect_size-door_right-3, ypos+door_3d+ran_value, 20,3);
+          p5.ellipse(xpos+local_rect_size-door_right-3, ypos+door_3d+ran_value+3, 22,3);
+          p5.ellipse(xpos+local_rect_size-door_right-3, ypos+door_3d+ran_value+6, 20,3);
+          p5.ellipse(xpos+local_rect_size-door_right-3, ypos+door_3d+ran_value+9, 12,2);
+          p5.ellipse(xpos+local_rect_size-door_right+5, ypos+door_3d+ran_value+4, 11, 11);
+
+          //finger nails
+          p5.fill(0);
+          p5.stroke(0);
+
+          p5.ellipse(xpos+local_rect_size-door_right-10, ypos+door_3d+ran_value, 2, 1);
+          p5.ellipse(xpos+local_rect_size-door_right-10, ypos+door_3d+ran_value+3, 2, 1);
+          p5.ellipse(xpos+local_rect_size-door_right-10, ypos+door_3d+ran_value+6, 2, 1);
+          p5.ellipse(xpos+local_rect_size-door_right-7, ypos+door_3d+ran_value+9, 2, 1);
+
+        }
+
       }else if(zoom == 0){
         p5.fill(0,0,255);
         p5.rect(xpos, ypos, local_rect_size, local_rect_size);
@@ -108,10 +132,22 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.ellipse(xpos+local_rect_size-5, ypos+local_rect_size/2, 5);
       }else if(zoom == 5){
         p5.noFill(0,0,0);
-        p5.rect(xpos,ypos,local_rect_size,local_rect_size);
+        // p5.rect(xpos,ypos,local_rect_size,local_rect_size);
       }
+
+
     }
   }
+  //5~11
+  // if(zoom >= 5 && zoom < 11){
+  //   p5.noFill();
+  //   p5.stroke(255, 0, 0)
+  //   let ran_value = p5.random(local_rect_size);
+  //   p5.text("follow me", ran_value, ran_value);
+  // }
+  // p5.ellipse(local_rectx,local_recty,30,30);
+
+
   // if(zoom >= 5 && zoom <= 10){
   //   let tempx1, tempx2, tempy1, tempy2;
   //   if(zoom == 5){
@@ -145,7 +181,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // }
   p5.strokeWeight(3);
   p5.stroke(0,255,0);
-
   // // The second green ellipse is above and to the left of the first one.
   // cx = p5.map(412, x1, x2, 0, 256);
   // cy = p5.map(412, y1, y2, 0, 256);

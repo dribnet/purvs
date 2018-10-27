@@ -1,15 +1,4 @@
 ## PS4 MDDN 342 2018
 
-Won't be carrying on from the last project's idea.
-
-I want to show 3D looking 2D that I couldn't do from the last project. I want to show that the door has been opened and the camera goes in to have a look, I haven't thought what could be inside the door though.
-
-TODO: still need to make the door look 3D looking
-
-Thinking of dividing my ideas into 3,
-0~5 door
-6~10 something behind door
-11~16 more detail/something random/unclear.
-------
-door after door and a jump scare at the end
-X looks like I cant do door after door.
+I have got when the door is opening, so at zoom 3~4 there is a ghost hand that's opening the door and my next idea could be what's inside the door something that attracts to the goal zoom.
+Want to have something that makes signs to follow the object in the middle, dont want the user to goto a random location.
