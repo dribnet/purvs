@@ -53,7 +53,33 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
     p5.ellipse(pixel_x, pixel_y, pixel_radius*2);   
   }
 }
+function drawPetals2(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2,  z) {
+  const sqrt2 = 1.4142/1.6;
+  let offsets = [
+    [sqrt2, sqrt2],
+    [-sqrt2, sqrt2],
+    [-sqrt2, -sqrt2],
+    [sqrt2, -sqrt2]
+  ]
 
+  let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+  let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+  let radiusScale = p5.map(sineWave, -1, 1, 0.50, 1.0);
+
+  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  let pixel_radius = pixel_posx2 - pixel_posx1;
+  pixel_radius = radiusScale * pixel_radius;
+  for(let i=0; i<offsets.length; i++) {
+
+    let offset = offsets[i];
+    let pixel_x = p5.map(pos_x+0.5*rad2*offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+0.5*rad2*offset[1], y1, y2, 0, 256);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius*1.5); 
+    //p5.ellipse(pixel_x, pixel_y, pixel_radius*2);  
+  }
+}
 
 /*
  * This is the funciton to implement to make your own abstract design.
@@ -125,15 +151,16 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       if (zoom >= 2 && zoom < 4) {
         //z = z + dx *2;
-        p5.fill(173, 230, 255);
+        p5.fill(173, 230, 255, 150);
         p5.noStroke();
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);   
       }
 
       if(zoom >= 4) {
-        p5.fill(203, 157, 249);
-        p5.noStroke();
-        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
+        p5.fill(203, 157, 249, 50);
+        drawPetals2(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z/2); 
+        //p5.fill(255,255,255);
+        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/2, 2*line_width, z/2); 
       }
 
 
