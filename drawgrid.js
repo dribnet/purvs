@@ -1,5 +1,3 @@
-
-
 const max_thickness = 64;
 const max_movement = 0;
 const ball_radius = 32;
@@ -7,10 +5,6 @@ const line_width = 8;
 const grid_size = 64;
 let do_animation = true;
 var bGTime = 0;
-
-angleMode(DEGREES);
-
-
 
 /* the random number seed for the tour */
 var tourSeed = 300;
