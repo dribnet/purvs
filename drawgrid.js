@@ -138,14 +138,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
     }
   }
-  //5~11
-  // if(zoom >= 5 && zoom < 11){
-  //   p5.noFill();
-  //   p5.stroke(255, 0, 0)
-  //   let ran_value = p5.random(local_rect_size);
-  //   p5.text("follow me", ran_value, ran_value);
-  // }
-  // p5.ellipse(local_rectx,local_recty,30,30);
+  //5~11 text 'follow me'
+  if(zoom >= 5 && zoom < 11){
+    p5.noFill();
+    p5.stroke(255, 0, 0)
+    p5.strokeWeight(1);
+    let ran_value1 = p5.random(local_rect_size);
+    let ran_value2 = p5.random(local_rect_size);
+
+    if(zoom > 6){
+      p5.strokeWeight(3);
+      for(var i = 0; i < zoom; i ++){
+        ran_value1 = p5.random(local_rect_size/zoom);
+        ran_value2 = p5.random(local_rect_size/zoom);
+        p5.text("follow me", ran_value1, ran_value2);
+        p5.text("follow me", ran_value2, ran_value1);
+
+      }
+    }else{
+      p5.text("follow me", ran_value1, ran_value1);
+      p5.text("follow me", ran_value2, ran_value2);
+    }
+  }
+  p5.strokeWeight(1);
+  p5.ellipse(local_rectx,local_recty,30,30);
 
 
   // if(zoom >= 5 && zoom <= 10){

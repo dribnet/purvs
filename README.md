@@ -1,4 +1,6 @@
 ## PS4 MDDN 342 2018
 
-I have got when the door is opening, so at zoom 3~4 there is a ghost hand that's opening the door and my next idea could be what's inside the door something that attracts to the goal zoom.
-Want to have something that makes signs to follow the object in the middle, dont want the user to goto a random location.
+After the zoom 5 I have created some text saying follow me, so it sounds like something is calling you from the monitor.
+I will still make the user to follow along the middle point which has an empty ellipse at the moment but I will keep adding things in here just to make things more interesting. 
+
+Next step would be adding details to the middle point, might make a ghost's back or something like that.
