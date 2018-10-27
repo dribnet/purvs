@@ -1,5 +1,91 @@
+const max_thickness = 64;
+const max_movement = 32;
+const grid_size = 256;
+let do_animation = false;
+
+/* the random number seed for the tour */
+var tourSeed = 150;
+/* triplets of locations: zoom, x, y */
+var tourPath = [
+  [0, 457, 552],
+  [1, 491, 533],
+  [2, 418, 513],
+  [3, 415, 514],
+  [4, 415, 514],
+  [5, 415, 514]
+]
+
+/* this function takes a coordinate and aligns to a grid of size gsize */
+function snap_to_grid(num, gsize) {
+  return (num - (num % gsize));
+}
+
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let offsetX = getRandomValue(p5, x, y, z, "offsetX", -max_movement, max_movement, noiseScale);
+  let offsetY = getRandomValue(p5, x, y, z, "offsetY", -max_movement, max_movement, noiseScale);
+  return [x+offsetX, y+offsetY]
+}
+
+function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
+  const sqrt2 = 1.4142/2;
+  let offsets = [
+    [sqrt2, sqrt2],
+    [-sqrt2, sqrt2],
+    [-sqrt2, -sqrt2],
+    [sqrt2, -sqrt2]
+  ]
+  let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+  let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+  let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
+
+  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2,  0, 256);
+  let pixel_radius = pixel_posx2 - pixel_posx1;
+  pixel_radius = radiusScale * pixel_radius;
+
+  for(let i=0; i<offsets.length; i++) {
+    let offset = offsets[i];
+    let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
+  }
+}
+
+function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z) {
+  const offsets = [
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1]
+  ]
+  let pixel_posx1 = p5.map(pos_x, x1, x2, 0, 256);
+  let pixel_posx2 = p5.map(pos_x+rad2, x1, x2, 0, 256);
+  let pixel_radius = pixel_posx2 - pixel_posx1;
+  let z_fraction = z % 2.0;
+  let num_stamens = p5.map(z_fraction, 0, 1, 0, offsets.length)
+
+  for(var i=0;i<offsets.length;i++) {
+    let offset = offsets[i];
+    let pixel_x = p5.map(pos_x+rad1*offset[0], x1, x2, 0, 256);
+    let pixel_y = p5.map(pos_y+rad1*offset[1], y1, y2, 0, 256);
+
+  for (var i = 1; i < 10; i++) {
+        p5.fill(255);
+        p5.textSize(50);
+        p5.text("Doesn't", pixel_x + i, pixel_x + i, pixel_radius);   
+        p5.text("Exist", pixel_x + i, pixel_x + i + 50, pixel_radius); 
+       }
+    
+  if(drawLines) {
+     p5.background(255);
+     }
+  }
+}
+
+
 /*
- * This is the function to implement to make your own abstract design.
+ * This is the funciton to implement to make your own abstract design.
  *
  * arguments:
  * p5: the p5.js object - all draw commands should be prefixed with this object
@@ -9,47 +95,101 @@
  *
  * The destination drawing should be in the square 0, 0, 255, 255.
  */
-
-
-/* the random number seed for the tour */
-var tourSeed = 301;
-/* triplets of locations: zoom, x, y */
-var tourPath = [
-  [2, 356, 356],
-  [4, 356, 356],
-  [6, 356, 356]
-]
-
-let ballx = 400
-let bally = 400
-let ballr = 100
-
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-  p5.background(255);
+  /* For animation: updated z based on global frame count */
+  let dz = p5.globalFrameCount / 100.0;
+  z = z + dz;
 
-  // Two ellipses with a radius of 50 units are then added.
-  let local_ballx = p5.map(ballx, x1, x2, 0, 256);
-  let local_bally = p5.map(bally, y1, y2, 0, 256);
-  let local_ballx_edge = p5.map((ballx + ballr), x1, x2, 0, 256);
-  let local_ball_r = local_ballx_edge - local_ballx;
+  p5.background(0);
 
-  p5.stroke(100);
-  for(let i=0; i<10; i++) {
-  	let shade = 128 + 128 / (i+1);
-  	let current_r = p5.map(i, 0, 9, local_ball_r, 0)
-  	p5.noStroke();
-	p5.fill(0, 0, 0, shade * 0.3);
-	p5.text("hello", local_ballx, local_bally);  
-	p5.textSize(current_r);	
+  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  let max_shift = max_thickness + max_movement;
+
+  // console.log(p5.globalFrameCount);
+
+  /* this rectangle defines the region that will be drawn and includes a margin */
+  let min_x = snap_to_grid(x1 - max_shift, grid_size);
+  let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
+  let min_y = snap_to_grid(y1 - max_shift, grid_size);
+  let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
+
+  // debug version: draw one
+  // let half_x = (x1 + x2) / 2;
+  // let half_y = (y1 + y2) / 2;
+  // min_x = snap_to_grid(half_x, grid_size);
+  // max_x = snap_to_grid(half_x + grid_size, grid_size);
+  // min_y = snap_to_grid(half_y, grid_size);
+  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+
+  for(let x=min_x; x<max_x; x+=grid_size) {
+    for(let y=min_y; y<max_y; y+=grid_size) {
+      // First compute shifted point in grid
+      let offsetX = getRandomValue(p5, x, y, z, "shiftX", -max_movement, max_movement, 0.1);
+      let offsetY = getRandomValue(p5, x, y, z, "shiftY", -max_movement, max_movement, 0.1);
+      let shifted_x = x + offsetX;
+      let shifted_y = y + offsetY;
+      let x_pos = p5.map(shifted_x, x1, x2, 0, 256);
+      let y_pos = p5.map(shifted_y, y1, y2, 0, 256);
+
+      // now compute shifted point one step to the left
+      let x_left = x + grid_size;
+      let y_left = y;
+      let offsetX_left = getRandomValue(p5, x_left, y_left, z, "shiftX", -max_movement, max_movement, 0.1);
+      let offsetY_left = getRandomValue(p5, x_left, y_left, z, "shiftY", -max_movement, max_movement, 0.1);
+      let shifted_x_left = x_left + offsetX_left;
+      let shifted_y_left = y_left + offsetY_left;
+      let x_pos_left = p5.map(shifted_x_left, x1, x2, 0, 256);
+      let y_pos_left = p5.map(shifted_y_left, y1, y2, 0, 256);
+
+      // lastly compute shifted point one step down
+      let x_down = x;
+      let y_down = y + grid_size;
+      let offsetX_down = getRandomValue(p5, x_down, y_down, z, "shiftX", -max_movement, max_movement, 0.1);
+      let offsetY_down = getRandomValue(p5, x_down, y_down, z, "shiftY", -max_movement, max_movement, 0.1);
+      let shifted_x_down = x_down + offsetX_down;
+      let shifted_y_down = y_down + offsetY_down;
+      let x_pos_down = p5.map(shifted_x_down, x1, x2, 0, 256);
+      let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
+
+      /* now draw all elements from back to front */
+      if (zoom < 2) {
+       for (var i = 1; i < 256; i = i + 100) {
+       var r = p5.random(255);
+       p5.stroke(r);
+       p5.textSize(50);
+       if (i<256){
+       p5.text("ALL",x_pos + i, 0, x_pos_left, y_pos_left);
+       p5.text("THE",x_pos + i, 50, x_pos_left, y_pos_left);
+       p5.text("THINGS",x_pos + i, 100, x_pos_left, y_pos_left);
+       p5.text("YOU",x_pos + i, 150, x_pos_left, y_pos_left);
+       p5.text("SEE",x_pos + i, 200, x_pos_left, y_pos_left);
+        }
+       }
+      }
+
+      if (zoom >= 2) {
+        p5.fill(255);
+        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y); 
+      }
+
+
+
+      if(zoom >= 3) {
+        // now if we are super zoomed, draw lines in the stamen
+        var drawLines = false;
+        if (zoom >= 5) drawLines = true;
+        p5.fill(255);
+        drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, drawLines, z);
+      }
+    }
   }
-  
-  // debug - show border
-  p5.noFill();
-  p5.stroke(0, 200, 200)
-  p5.rect(0, 0, 255, 255);
-  p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  let sizex = x2 - x1;
-  p5.text("width: " + sizex, 10, 40); 
+  /*
+   //debug - show border
+   p5.noFill();
+   p5.stroke(0, 200, 200)
+   p5.strokeWeight(1);
+   p5.rect(0, 0, 255, 255);
+   p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+   let sizex = x2 - x1;
+   p5.text("width: " + sizex, 10, 40);*/
 }
