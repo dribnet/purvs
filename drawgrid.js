@@ -1,6 +1,8 @@
+//---- VALUES ---- VALUES ---- VALUES ---- VALUES ---- VALUES ----//
+
 const max_thickness = 64;
 const line_width = 2;
-const grid_size = 64;
+const grid_size = 256;
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -28,7 +30,101 @@ var tourPath = [
 
 // global positions
 
-function brickWall(){
+function brickWall(p5, x, y, x1, x2, y1, y2){
+  let brick_x = p5.map(x, x1, x2, 0, 256);
+  let brick_y = p5.map(y, y1, y2, 0, 256);
+  let rect_origin = p5.map(0, x1, x2, 0,256);
+  let rect_offset_x = p5.map(grid_size/3, x1, x2, 0,256);
+  let rect_offset_y = p5.map(grid_size/10, x1, x2, 0,256);
+  let brick_w = rect_offset_x - rect_origin;
+  let brick_h = rect_offset_y - rect_origin;
+
+  var odd = true;
+  var brick_start = 0;
+
+  p5.strokeWeight(2);
+  p5.rect (brick_x, brick_y, brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y,brick_w,brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y, brick_w, brick_h);
+
+  p5.push();
+  p5.translate(-1 * (brick_w/2), 0);
+  p5.rect (brick_x, brick_y + brick_h, brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + brick_h,brick_w, brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + brick_h, brick_w, brick_h);
+  p5.pop();
+
+  p5.rect (brick_x, brick_y + (brick_h * 2), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 2),brick_w,brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 2), brick_w, brick_h);
+
+  p5.push();
+  p5.translate(-1 * (brick_w/2), 0);
+  p5.rect (brick_x, brick_y + (brick_h * 3), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 3),brick_w, brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 3), brick_w, brick_h);
+  p5.pop();
+
+  p5.rect (brick_x, brick_y + (brick_h * 4), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 4),brick_w,brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 4), brick_w, brick_h);
+
+  p5.push();
+  p5.translate(-1 * (brick_w/2), 0);
+  p5.rect (brick_x, brick_y + (brick_h * 5), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 5),brick_w, brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 5), brick_w, brick_h);
+  p5.pop();
+
+  p5.rect (brick_x, brick_y + (brick_h * 6), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 6),brick_w,brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 6), brick_w, brick_h);
+
+  p5.push();
+  p5.translate(-1 * (brick_w/2), 0);
+  p5.rect (brick_x, brick_y + (brick_h * 7), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 7),brick_w, brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 7), brick_w, brick_h);
+  p5.pop();
+
+  p5.rect (brick_x, brick_y + (brick_h * 8), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 8),brick_w,brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 8), brick_w, brick_h);
+
+  p5.push();
+  p5.translate(-1 * (brick_w/2), 0);
+  p5.rect (brick_x, brick_y + (brick_h * 9), brick_w, brick_h);
+  p5.rect (brick_x + brick_w, brick_y + (brick_h * 9),brick_w, brick_h);
+  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 9), brick_w, brick_h);
+  p5.pop();
+
+
+// //---- brick background ----//
+//   push();
+//   stroke(0);
+//   strokeWeight(stroke_basic*2);
+
+//   rect(0, 0, 960, 480);
+
+//   strokeWeight(stroke_basic);
+//   translate(0, 0);
+  
+//   var odd = true;
+//   var start_w = 0;
+
+//   for(var y_br=0; y_br<480; y_br+=brick_h){
+//     if (odd) {
+//       start_w = -brick_w/2;
+//     } else {
+//       start_w =  0;
+//     }
+//     for(var x_br=start_w; x_br<960; x_br+=brick_w){
+//     rectMode(CORNER);
+//     rect(x_br, y_br, brick_w, brick_h);
+//     }
+//     odd = !odd;
+//   }
+//   pop();
 
 }
 
@@ -36,6 +132,8 @@ function brickWall(){
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //p5.background(255);
 
+
+  /* max_shift is the amount of overlap a tile can spill over into its neighbors */
   let max_shift = max_thickness;
   /* this rectangle defines the region that will be drawn and includes a margin */
   let min_x = snap_to_grid(x1 - max_shift, grid_size);
@@ -48,26 +146,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
 
   p5.background(255);
-  p5.fill(0, 0, 128);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       /* first compute the points to be drawn */
       let x_pos = p5.map(x, x1, x2, 0, 256);
       let y_pos = p5.map(y, y1, y2, 0, 256);
 
-      let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
+      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
+      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
 
       /* now draw all elements from back to front */
-      p5.strokeWeight(cur_line_width);
-      p5.stroke(0);
-      //p5.fill(0,255,0);
-      p5.line(x_pos, y_pos, x_pos_left, y_pos);
-      p5.stroke(0, 150, 0);
-      //p5.fill(255,0,0);
-      p5.line(x_pos, y_pos, x_pos, y_pos_down);
+      brickWall(p5, x, y, x1, x2, y1, y2);
     }
-    p5.rect(0,0,200,20);
+    
   }
 
   // for(let x=min_x; x<max_x; x+=grid_size) {
@@ -82,17 +173,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   //   }
 
 
-  
-
-
-  // debug - show border
-
-  p5.strokeWeight(1);
-  p5.noFill();
-  p5.stroke(255, 0, 0)
-  p5.rect(0, 0, 255, 255);
-  //p5.text("help", 10, 10);
-  p5.text("corner: (" + x1 + "," + y1 + ")", 10,20);
-  let sizex = x2-x1;
-  p5.text("width:" + sizex, 10, 30);
+  // // debug - show border //
+  // p5.strokeWeight(1);
+  // p5.noFill();
+  // p5.stroke(255, 0, 0)
+  // p5.rect(0, 0, 255, 255);
+  // //p5.text("help", 10, 10);
+  // p5.text("corner: (" + x1 + "," + y1 + ")", 10,20);
+  // let sizex = x2-x1;
+  // p5.text("width:" + sizex, 10, 30);
 }
