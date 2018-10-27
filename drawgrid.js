@@ -75,12 +75,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
 
   // debug version: draw one
-  // let half_x = (x1 + x2) / 2;
-  // let half_y = (y1 + y2) / 2;
-  // min_x = snap_to_grid(half_x, grid_size);
-  // max_x = snap_to_grid(half_x + grid_size, grid_size);
-  // min_y = snap_to_grid(half_y, grid_size);
-  // max_y = snap_to_grid(half_y + grid_size, grid_size);
+  let half_x = (x1 + x2) / 2;
+  let half_y = (y1 + y2) / 2;
+  min_x = snap_to_grid(half_x, grid_size);
+  max_x = snap_to_grid(half_x + grid_size, grid_size);
+  min_y = snap_to_grid(half_y, grid_size);
+  max_y = snap_to_grid(half_y + grid_size, grid_size);
 
   let c_p00 = p5.map(0, x1, x2, 0, 256);
   let c_plwidth = p5.map(lineWidth, x1, x2, 0, 256);
