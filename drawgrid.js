@@ -16,10 +16,10 @@
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 512, 512],
-  [6, 512, 512],
-  [11, 512, 512],
-  [16, 512, 512]
+  [0, 440, 440],
+  [6, 400, 400],
+  [11, 400, 400],
+  [16, 400, 400]
 ]
 
 let rectx = 400;
@@ -154,10 +154,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.noStroke();
 
     p5.fill(167,243,243,opac);
-    
     p5.ellipse(local_rectx,local_recty,ghost_size,ghost_size);
   }
+  //testing
   // myCircle(p5,x1,x2,y1,y2,local_rectx, local_recty, 120, 120);
+  // p5.rectMode(p5.CENTER);
+  // p5.noFill();
+  // p5.strokeWeight(1);
+  // p5.stroke(0);
+  // p5.rect(local_rectx,local_recty,ghost_size,ghost_size);
 
   //11~16 showing candy
   if(zoom >= 11 && zoom <= 16){

@@ -1,8 +1,7 @@
 ## PS4 MDDN 342 2018
-Watch till 16!
-Finally figured out what to do for the end part of the thing. Since it's end of the trimester and some people are finished with university, they deserve something so I'm giving them a candy to celebrate!
-
-last minute idea, adding randomness to the colours and the text colours. 
+Watch till 0~16!
+Final:
+Got tour working perfectly, if you dont use a tour to find the middle point, you can't really follow the circle.
 
 Idea summary:
 First round (random doors and sneaky hand of ghost's opening for you, door looks 3D as well opening inwards (inside the screen))
