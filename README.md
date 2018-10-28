@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-After testing out different levels of zoom and originally having it change from a solid wave shape to waves made of circles I have decided that makes more sense to start with the circles rather than the solid shape. This is because when zoomed into the circles you cant see the shape the circles make and it looks confusing, whereas when zoomed out you can see the whole wave.
+After a lot of trial and error and deconstructing other peoples animation code I have finally got my circles to pulse in size. Although it doesn’t look how I want it to right now this is a good step in the right direction. I just need to play with some numbers to see which replicates my last project the best.
