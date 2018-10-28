@@ -1,5 +1,5 @@
 const max_thickness = 64;
-const max_movement = 64;
+const max_movement = 32;
 const grid_size = 256;
 let do_animation = true;
 let yoff = 0.0;
@@ -8,10 +8,11 @@ let yoff = 0.0;
 var tourSeed = 150;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 490, 810],
-  [1, 490, 810],
-  [2, 490, 810],
-  [3, 490, 810],
+  [0, 500, 500],
+  [1, 500, 500],
+  [2, 500, 500],
+  [3, 500, 500],
+  [4, 500, 500]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -50,7 +51,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
 
 
-     for (var j = 0; j < 1; j++) {
+     for (var j = 0.5; j < 1; j++) {
        var r = p5.random(255);
        p5.fill(r);
        let xoff = 0;
@@ -58,7 +59,8 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
            xoff += 10;
            yoff += 2;
         }
-       let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 10);
+       let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 100);
+       p5.background(0, 0, 255);
        p5.textSize(40 + yt);
        p5.noStroke();
        p5.text("ALL", pixel_x + j, 0);
@@ -88,9 +90,9 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, drawLines, z) {
     let pixel_x = p5.map(pos_x+offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
 
-        //p5.background(0);
-        var r = p5.random(255);
-        p5.fill(r, 0, 0);
+        p5.background(0, 0, 255);
+        //var r = p5.random(255);
+        p5.fill(255);
         //p5.fill(255);
         p5.textSize(200);
         p5.text("DOESNT", pixel_x - 600, pixel_y - 100);   
@@ -138,7 +140,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // min_y = snap_to_grid(half_y, grid_size);
   // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
-  //p5.background(0);
+  p5.background(0, 0, 255);
   
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
@@ -172,11 +174,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
       /* now draw all elements from back to front */
-      if (zoom == 0) {
+      if (zoom < 2) {
       for(let size = 50; size < 100; size = size + 10){ 
       for(let j = 50; j < 256; j = j + 150){
-       var r = p5.random(255);
-       p5.fill(r, 0 ,0);
+       var r = p5.random(150, 255, 5);
+       p5.fill(r);
        p5.textSize(size);
        p5.stroke(0);
        //p5.fill(255);
@@ -188,12 +190,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
      }
     }
 
-    if (zoom >= 1) {
+    if (zoom >= 2) {
         p5.fill(255);
         drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y); 
       }
 
-      if(zoom >= 2) {
+      if(zoom >= 4) {
         // now if we are super zoomed, draw lines in the stamen
         var drawLines = false;
         if (zoom >= 5) drawLines = true;

@@ -19,7 +19,7 @@ var worldMap = new L.Map('map', {
   maxZoom: maxZoomLevel,
   crs: myCRS,
   attributionControl: false,
-  center: [490, 810], 
+  center: [500, 500], 
   zoom: initialZoomLevel});
 
 worldMap._p5_seed = Math.floor(Math.random() * 1000);
@@ -122,17 +122,18 @@ tiles.addTo(worldMap)
 
 var curLinkIndex = 0;
 
-linkHome = "#0/0/490/810/0"
+linkHome = "#0/0/500/500/0"
 
 if (typeof tourPath === 'undefined') {
   var tourPath = [
-  [0, 490, 810],
-  [1, 490, 810],
-  [2, 490, 810],
-  [3, 490, 810],
+  [0, 500, 500],
+  [1, 500, 500],
+  [2, 500, 500],
+  [3, 500, 500],
+  [3, 500, 500],
   ]
 }
-tourPath.unshift([initialZoomLevel, 490, 810]);
+tourPath.unshift([initialZoomLevel, 500, 500]);
 
 if (typeof tourSeed === 'undefined') {
   var tourSeed = 0;
