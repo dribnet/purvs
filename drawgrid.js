@@ -3,6 +3,7 @@
 const max_thickness = 64;
 const line_width = 2;
 const grid_size = 128;
+let do_animation = true;
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -39,63 +40,24 @@ function brickWall(p5, x, y, x1, x2, y1, y2){
   let brick_w = brick_offset_x - brick_origin;
   let brick_h = brick_offset_y - brick_origin;
 
-  var odd = true;
-  var brick_start = 0;
+  p5.fill(241, 238, 228);
 
-  p5.rect (brick_x, brick_y, brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y,brick_w,brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y, brick_w, brick_h);
+  // var odd = true;
+  // var brick_start = 0;
 
-  p5.push();
-  p5.translate(-1 * (brick_w/2), 0);
-  p5.rect (brick_x, brick_y + brick_h, brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + brick_h,brick_w, brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + brick_h, brick_w, brick_h);
-  p5.pop();
-
-  p5.rect (brick_x, brick_y + (brick_h * 2), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 2),brick_w,brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 2), brick_w, brick_h);
-
-  p5.push();
-  p5.translate(-1 * (brick_w/2), 0);
-  p5.rect (brick_x, brick_y + (brick_h * 3), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 3),brick_w, brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 3), brick_w, brick_h);
-  p5.pop();
-
-  p5.rect (brick_x, brick_y + (brick_h * 4), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 4),brick_w,brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 4), brick_w, brick_h);
-
-  p5.push();
-  p5.translate(-1 * (brick_w/2), 0);
-  p5.rect (brick_x, brick_y + (brick_h * 5), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 5),brick_w, brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 5), brick_w, brick_h);
-  p5.pop();
-
-  p5.rect (brick_x, brick_y + (brick_h * 6), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 6),brick_w,brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 6), brick_w, brick_h);
-
-  p5.push();
-  p5.translate(-1 * (brick_w/2), 0);
-  p5.rect (brick_x, brick_y + (brick_h * 7), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 7),brick_w, brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 7), brick_w, brick_h);
-  p5.pop();
-
-  p5.rect (brick_x, brick_y + (brick_h * 8), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 8),brick_w,brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 8), brick_w, brick_h);
-
-  p5.push();
-  p5.translate(-1 * (brick_w/2), 0);
-  p5.rect (brick_x, brick_y + (brick_h * 9), brick_w, brick_h);
-  p5.rect (brick_x + brick_w, brick_y + (brick_h * 9),brick_w, brick_h);
-  p5.rect (brick_x + brick_w*2, brick_y + (brick_h * 9), brick_w, brick_h);
-  p5.pop();
+  for (let i=0; i<10; i+=2){
+    // row of bricks without offset
+    p5.rect (brick_x, brick_y + (brick_h *i), brick_w, brick_h); // row of bricks not offset
+    p5.rect (brick_x + brick_w, brick_y + (brick_h *i),brick_w,brick_h);
+    p5.rect (brick_x + brick_w*2, brick_y + (brick_h *i), brick_w, brick_h);
+    // row of bricks with offset 
+    p5.push();
+    p5.translate(-1 * (brick_w/2), 0);
+    p5.rect (brick_x, brick_y + (brick_h * (i+1)), brick_w, brick_h);
+    p5.rect (brick_x + brick_w, brick_y + (brick_h * (i+1)),brick_w, brick_h);
+    p5.rect (brick_x + brick_w*2, brick_y + (brick_h * (i+1)), brick_w, brick_h);
+    p5.pop();
+  }
 }
 
 function WindowSill(p5, x, y, x1, x2, y1, y2){
@@ -107,6 +69,8 @@ function WindowSill(p5, x, y, x1, x2, y1, y2){
   let windowSill_w = windowSill_offset_x - windowSill_origin;
   let windowSill_h = windowSill_offset_y - windowSill_origin;
   let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
+
+  p5.fill("#dddad0");
 
   // window sill
 
@@ -132,7 +96,6 @@ function Window(p5, x, y, x1, x2, y1, y2){
   let window_h = window_offset_y - window_origin;
   let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
 
-  p5.fill(0);
   p5.rect(window_x, window_y, window_w, window_h); //window 
 }
 
@@ -149,6 +112,130 @@ function Moon(p5, x, y, x1, x2, y1, y2){
   p5.ellipse(moon_x, moon_y, moon_radius, moon_radius);
   p5.fill(0);
   p5.ellipse(moon_x2, moon_y, moon_radius, moon_radius); // moon shadow
+}
+
+function Star(p5, x, y, x1, x2, y1, y2, z){
+  let phase = getRandomValue(p5, x, y, z, "phase", 0, 2*p5.PI, 0.1);
+  let sineWave = p5.sin(phase + p5.globalFrameCount/10);
+  let starSize = p5.map(sineWave, -1, 1, 0, 5);
+
+  //let star_posx = getRandomValue();
+
+  let star_x = p5.map(x + grid_size/2, x1, x2, 0, 256);
+  let star_y = p5.map(y + grid_size/2, y1, y2, 0, 256);
+
+  p5.fill(255);
+
+  p5.ellipse(star_x, star_y, 10 + starSize, 10 + starSize);
+  p5.ellipse(star_x + 20, star_y + 20, 5 + starSize, 5 + starSize);
+
+}
+
+function WindowDetail(p5, x, y, x1, x2, y1, y2){
+  let windowSill_x = p5.map(x, x1, x2, 0, 256);
+  let windowSill_y = p5.map(y, y1, y2, 0, 256);
+  let windowSill_origin = p5.map(0, x1, x2, 0,256);
+  let windowSill_offset_x = p5.map(grid_size, x1, x2, 0,256);
+  let windowSill_offset_y = p5.map(grid_size * 1.3, x1, x2, 0,256);
+  let windowSill_w = windowSill_offset_x - windowSill_origin;
+  let windowSill_h = windowSill_offset_y - windowSill_origin;
+  let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
+
+  p5.fill("#dddad0");
+
+  // window sill
+
+  p5.rect(windowSill_x, windowSill_y, windowSill_w, windowSill_h); 
+
+  // corner of window sill 
+
+  let corner_x1 = p5.map(x + 0, x1, x2, 0, 256); 
+  let corner_y1 = p5.map(y + grid_size * 1.3, y1, y2, 0, 256);
+  let corner_x2 = p5.map(x + grid_size/10, x1, x2, 0, 256); 
+  let corner_y2 = p5.map(y + grid_size * 1.2, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1, corner_x2, corner_y2);
+
+  // brick detailing
+
+  let corner_y1_1 = p5.map(y + grid_size * 1.2, y1, y2, 0, 256);
+  let corner_y2_1 = p5.map(y + grid_size * 1.1, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_1, corner_x2, corner_y2_1);
+
+  let corner_y1_2 = p5.map(y + grid_size * 1.1, y1, y2, 0, 256);
+  let corner_y2_2 = p5.map(y + grid_size * 1.0, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_2, corner_x2, corner_y2_2);
+
+  let corner_y1_3 = p5.map(y + grid_size * 1.0, y1, y2, 0, 256);
+  let corner_y2_3 = p5.map(y + grid_size * 0.9, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_3, corner_x2, corner_y2_3);
+
+  let corner_y1_4 = p5.map(y + grid_size * 0.9, y1, y2, 0, 256);
+  let corner_y2_4 = p5.map(y + grid_size * 0.8, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_4, corner_x2, corner_y2_4);
+
+  let corner_y1_5 = p5.map(y + grid_size * 0.8, y1, y2, 0, 256);
+  let corner_y2_5 = p5.map(y + grid_size * 0.7, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_5, corner_x2, corner_y2_5);
+
+  let corner_y1_6 = p5.map(y + grid_size * 0.7, y1, y2, 0, 256);
+  let corner_y2_6 = p5.map(y + grid_size * 0.6, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_6, corner_x2, corner_y2_6);
+
+  let corner_y1_7 = p5.map(y + grid_size * 0.6, y1, y2, 0, 256);
+  let corner_y2_7 = p5.map(y + grid_size * 0.5, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_7, corner_x2, corner_y2_7);
+
+  let corner_y1_8 = p5.map(y + grid_size * 0.5, y1, y2, 0, 256);
+  let corner_y2_8 = p5.map(y + grid_size * 0.4, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_8, corner_x2, corner_y2_8);
+
+  let corner_y1_9 = p5.map(y + grid_size * 0.4, y1, y2, 0, 256);
+  let corner_y2_9 = p5.map(y + grid_size * 0.3, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_9, corner_x2, corner_y2_9);
+
+  let corner_y1_10 = p5.map(y + grid_size * 0.3, y1, y2, 0, 256);
+  let corner_y2_10 = p5.map(y + grid_size * 0.2, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_10, corner_x2, corner_y2_10);
+
+  let corner_y1_11 = p5.map(y + grid_size * 0.2, y1, y2, 0, 256);
+  let corner_y2_11 = p5.map(y + grid_size * 0.1, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_11, corner_x2, corner_y2_11);
+
+  let corner_y1_12 = p5.map(y + grid_size * 0.1, y1, y2, 0, 256);
+  let corner_y2_12 = p5.map(y + grid_size * 0.0, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1_12, corner_x2, corner_y2_12);
+
+  // horizontal detailing
+
+  let corner_x1_h1 = p5.map(x + grid_size/6, x1, x2, 0, 256); 
+  let corner_x2_h1 = p5.map(x + grid_size/3.7, x1, x2, 0, 256); 
+  
+  p5.line(corner_x1_h1, corner_y1, corner_x2_h1, corner_y2);
+
+  let corner_x1_h2 = p5.map(x + grid_size/2, x1, x2, 0, 256); 
+  let corner_x2_h2 = p5.map(x + grid_size/1.7, x1, x2, 0, 256); 
+
+  p5.line(corner_x1_h2, corner_y1, corner_x2_h2, corner_y2);
+
+  let corner_x1_h3 = p5.map(x + grid_size/1.2, x1, x2, 0, 256); 
+  let corner_x2_h3 = p5.map(x + grid_size/1.1, x1, x2, 0, 256); 
+
+  p5.line(corner_x1_h3, corner_y1, corner_x2_h3, corner_y2);
+
+
 }
 
 // The rectangles are 960x720 and centered at 512,512.
@@ -185,6 +272,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.strokeWeight(1);
         brickWall(p5, x, y, x1, x2, y1, y2);
         WindowSill(p5, grid_size, grid_size, x1, x2, y1, y2);
+        p5.fill(0);
         Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
         p5.pop();
       }
@@ -193,10 +281,34 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.push();
         p5.strokeWeight(2);
         brickWall(p5, x, y, x1, x2, y1, y2);
-        WindowSill(p5, grid_size, grid_size, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        p5.fill(0);
         Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
         Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
         p5.pop();
+      }
+
+      if (zoom >= 2) {
+        p5.push();
+        p5.strokeWeight(2);
+        brickWall(p5, x, y, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        p5.fill(0);
+        Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
+        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Star(p5, grid_size, grid_size, x1, x2, y1, y2);
+        p5.pop();     
+      }
+
+
+      if (zoom >= 3) {
+        p5.push();
+        p5.strokeWeight(2);
+        brickWall(p5, x, y, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        p5.fill("#AED6F1");
+        Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
+        p5.pop();     
       }
       
     }

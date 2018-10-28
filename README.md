@@ -1,7 +1,4 @@
 ## PS4 MDDN 342 2018
 
-In this commit, I've begun to work out how the coordinate system works and implemented my brick wall pattern into it. I need to clean up the function into a for loop so that it creates draws the brick wall with way less lines of code but I wanted to do it manually to make sure everything was working fine! 
-
---
-
-I also added a window function with a window sill that stays in proportion throughout the zooms. I added a moon that you can see when you zoom up closer to the window. I would like to add clouds that float (ambient animation) with randomness incorporated into it ? 
+I fixed the brick wall function so that it's in a for loop to clean it up. 
+I also added detail to the window sill when you zoom in once. I added stars that 'twinkle' when you zoom in 3 times into the window. I'm trying to figure out how I can distribute the stars randomly and so that the stars twinkle in different timing so that it looks more natural. 
