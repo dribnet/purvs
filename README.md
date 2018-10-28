@@ -12,3 +12,6 @@ Adding the zoom.
 ——————————————————————————
 
 Adding animation.
+
+——————————————
+I tried a new idea. To write by code calculation. I made 3 caculations when writing code. In line 35-54 of drawgrid.js, it can change different caculations.
