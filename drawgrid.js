@@ -24,10 +24,15 @@ function snap_to_grid(num, gsize) {
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [0, 512, 512], 
+  [1, 520, 512],
+  [2, 530, 512],
+  [4, 600, 520],
+  [6, 598, 522.5],
+  [8, 598.5, 522.5]
 ]
+
+// initial brickwall - repeated in x,y grid
 
 function brickWall(p5, x, y, x1, x2, y1, y2){
   let brick_x = p5.map(x, x1, x2, 0, 256);
@@ -37,6 +42,8 @@ function brickWall(p5, x, y, x1, x2, y1, y2){
   let brick_offset_y = p5.map(grid_size/10, x1, x2, 0,256);
   let brick_w = brick_offset_x - brick_origin;
   let brick_h = brick_offset_y - brick_origin;
+
+  p5.stroke(0);
 
   p5.fill(241, 238, 228);
 
@@ -54,6 +61,8 @@ function brickWall(p5, x, y, x1, x2, y1, y2){
     p5.pop();
   }
 }
+
+// window with no brick window sill detail 
 
 function WindowSill(p5, x, y, x1, x2, y1, y2){
   let windowSill_x = p5.map(x, x1, x2, 0, 256);
@@ -94,6 +103,8 @@ function WindowSill(p5, x, y, x1, x2, y1, y2){
 
   p5.rect(window_x, window_y, window_w, window_h); 
 }
+
+// window that has brick detailing on the window sill called at zoom >= 2
 
 function WindowDetail(p5, x, y, x1, x2, y1, y2){
   let windowSill_x = p5.map(x, x1, x2, 0, 256);
@@ -215,6 +226,8 @@ function WindowDetail(p5, x, y, x1, x2, y1, y2){
 
 }
 
+// moon that shows up in the window 
+
 function Moon(p5, x, y, x1, x2, y1, y2){
   let moon_x = p5.map(x + grid_size/ 2.5, x1, x2, 0, 256);
   let moon_y = p5.map(y + grid_size/ 4, y1, y2, 0, 256);
@@ -230,6 +243,8 @@ function Moon(p5, x, y, x1, x2, y1, y2){
   p5.fill(0);
   p5.ellipse(moon_x2, moon_y, moon_radius, moon_radius); // moon shadow
 }
+
+// one star that is animating
 
 function Star(p5, x, y, x1, x2, y1, y2, z){
   let phase = getRandomValue(p5, x, y, z, "phase", 0, 10*p5.PI, 0.1);
@@ -250,6 +265,9 @@ function Star(p5, x, y, x1, x2, y1, y2, z){
   p5.ellipse(star_x, star_y, star_radius + starTwinkle, star_radius + starTwinkle);
 }
 
+// stars drawn put into function that drawGrid is neater also had to separate Star function and Stars
+// so that the phase would work properly and the twinkling animation wasn't in unison.
+
 function Stars(p5, x, y, x1, x2, y1, y2, z){
   //let star_pos_random = getRandomValue(p5, x, y, z, "star_pos_random", 0, grid_size, 0.1);
   Star(p5, x + 40, y + 60, x1, x2, y1, y2);
@@ -268,6 +286,10 @@ function Stars(p5, x, y, x1, x2, y1, y2, z){
 
   //console.log(star_pos_random);
 }
+
+//----- MINI WALL INCEPTION -----//
+
+// mini window you can see on the mini wall 
 
 function WindowMini(p5, x, y, x1, x2, y1, y2){
   p5.strokeWeight(0.5);
@@ -311,6 +333,8 @@ function WindowMini(p5, x, y, x1, x2, y1, y2){
   p5.rect(window_x, window_y, window_w, window_h); 
 }
 
+// mini brick wall pattern that is called in DetailedWall function in zoom >=6
+
 function brickWallMini(p5, x, y, x1, x2, y1, y2){
   p5.strokeWeight(0.5);
   var mini_size = 0.5;
@@ -339,7 +363,16 @@ function brickWallMini(p5, x, y, x1, x2, y1, y2){
       p5.pop();
     }
   }
+  p5.fill(0);
+  p5.push();
+  p5.noStroke();
+  p5.rect(brick_x + brick_w*47.5, brick_y, brick_w, brick_h*120);
+  p5.rect(brick_x - brick_w*0.5, brick_y, brick_w, brick_h*120);
+  p5.rect(brick_x, brick_y, brick_w *48, brick_h);
+  p5.pop();
 }
+
+// wall without brick wall pattern
 
 function Wall(p5, x, y, x1, x2, y1, y2){
 
@@ -360,6 +393,8 @@ function Wall(p5, x, y, x1, x2, y1, y2){
 
   WindowMini(p5, x + wall_sizeW/2 - 0.25, y + wall_sizeH/2 -0.25, x1, x2, y1, y2);
 }
+
+// wall wih brick wall pattern - quite laggy
 
 function DetailedWall(p5, x, y, x1, x2, y1, y2,zoom){
 
@@ -382,12 +417,60 @@ function DetailedWall(p5, x, y, x1, x2, y1, y2,zoom){
 
   WindowMini(p5, x + wall_sizeW/2 - 0.25, y + wall_sizeH/2 -0.25, x1, x2, y1, y2);
 
-  p5.strokeWeight(12);
+}
 
-  p5.noFill();
-  p5.rect(wall_x, wall_y, wall_w, wall_h);
+function MoonMini(p5, x, y, x1, x2, y1, y2){
+  var mini_size = 0.5;
+  let moon_x = p5.map(x + 8/2 - 0.25 + mini_size/ 2.5, x1, x2, 0, 256);
+  let moon_y = p5.map(y + 6/2 -0.25 + mini_size/ 4, y1, y2, 0, 256);
+  let moon_x2 = p5.map(x + 8/2 - 0.25 + mini_size/ 2.2, x1, x2, 0, 256);
+
+  let moon_origin = p5.map(0, x1, x2, 0, 256); 
+  let moon_offset = p5.map(0.1, x1, x2, 0, 256);
+  let moon_radius = moon_offset - moon_origin;
+
+  p5.fill("#F7FAFD");
+  p5.ellipse(moon_x, moon_y, moon_radius, moon_radius);
+  p5.noStroke();
+  p5.fill(0);
+  p5.ellipse(moon_x2, moon_y, moon_radius, moon_radius); // moon shadow
+}
+
+function Cloud (p5, x, y, x1, x2, y1, y2, z){
+  let phase = getRandomValue(p5, x, y, z, "phase", 0, 10*p5.PI, 0.1);
+  let sineWave = p5.sin(phase + p5.globalFrameCount/5);
+  let cloudFloat = p5.map(sineWave, -1, 1, 0, 5);
+
+  let cloudrect_x = p5.map(x, x1, x2, 0, 256);
+  let cloudrect_y = p5.map(y, y1, y2, 0, 256);
+  let cloudrect_origin = p5.map(0, x1, x2, 0,256);
+  let cloudrect_offset_x = p5.map(grid_size/6, x1, x2, 0,256);
+  let cloudrect_offset_y = p5.map(grid_size/10, x1, x2, 0,256);
+  let cloudrect_w = cloudrect_offset_x - cloudrect_origin;
+  let cloudrect_h = cloudrect_offset_y - cloudrect_origin;
+
+  let cloudellipse_x = p5.map(x, x1, x2, 0, 256);
+  let cloudellipse_y = p5.map(y, y1, y2, 0, 256);
+  let cloudellipse_origin = p5.map(0, x1, x2, 0, 256);
+  let cloudellipse_offset = p5.map(grid_size/10, x1, x2, 0, 256);
+  let cloudellipse_radius = cloudellipse_offset - cloudellipse_origin;
+
+  p5.noStroke();
+
+  p5.fill(241, 238, 228);
+
+  p5.rect(cloudrect_x, cloudrect_y+ cloudFloat, cloudrect_w, cloudrect_h);
+  p5.ellipse(cloudellipse_x, cloudellipse_y+ cloudellipse_radius/2 + cloudFloat, cloudellipse_radius, cloudellipse_radius);
+  p5.ellipse(cloudellipse_x + cloudrect_w, cloudellipse_y+ cloudellipse_radius/2 + cloudFloat, cloudellipse_radius, cloudellipse_radius);
+  p5.ellipse(cloudellipse_x + cloudrect_w/3, cloudellipse_y + cloudFloat, cloudellipse_radius, cloudellipse_radius);
+  p5.ellipse(cloudellipse_x + cloudrect_w*0.7, cloudellipse_y + cloudFloat, cloudellipse_radius*0.8, cloudellipse_radius *0.8);
 
 }
+
+ function CloudFloat (p5, x, y, x1, x2, y1, y2, z){
+   Cloud(p5, x + 45, y + 40, x1, x2, y1, y2, z);
+   Cloud(p5, x + 80, y +110, x1, x2, y1, y2, z);
+ }
 
 
 
@@ -431,7 +514,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.push();
         p5.strokeWeight(0.75);
         brickWall(p5, x, y, x1, x2, y1, y2);
-        WindowSill(p5, grid_size, grid_size, x1, x2, y1, y2);
+        WindowSill(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2)
         p5.pop();
       }
 
@@ -439,18 +523,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.push();
         p5.strokeWeight(1);
         brickWall(p5, x, y, x1, x2, y1, y2);
-        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
-        p5.pop();
+        WindowDetail(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Moon(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
       }
 
       if (zoom == 2) {
         p5.push();
         p5.strokeWeight(2);
         brickWall(p5, x, y, x1, x2, y1, y2);
-        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Moon(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Stars(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
         p5.pop();     
       }
 
@@ -458,10 +543,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.push();
         p5.strokeWeight(1.5*zoom);
         brickWall(p5, x, y, x1, x2, y1, y2);
-        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Wall(p5, grid_size*1.55, grid_size+147.5, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Moon(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Stars(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Wall(p5, (grid_size*2.5) + (grid_size*1.55), (grid_size*2.5) + (grid_size + 147.5), x1, x2, y1, y2);
         p5.pop();
       }
 
@@ -476,16 +562,32 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //   p5.pop();
       // }
 
-        if (zoom >= 6){
+      if (zoom >= 6){
         p5.push();
         p5.strokeWeight(1.5*zoom);
         brickWall(p5, x, y, x1, x2, y1, y2);
         WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
-        Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
-        DetailedWall(p5, grid_size*1.55, grid_size+147.5, x1, x2, y1, y2);
+        Moon(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Stars(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        DetailedWall(p5, (grid_size*2.5) + (grid_size*1.55), (grid_size*2.5) + (grid_size + 147.5), x1, x2, y1, y2);
         p5.pop();
       }
+
+      if (zoom >= 7){
+        p5.push();
+        p5.strokeWeight(1.5*zoom);
+        brickWall(p5, x, y, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Moon(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        Stars(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        CloudFloat(p5, grid_size*3.5, grid_size*3.5, x1, x2, y1, y2);
+        DetailedWall(p5, (grid_size*2.5) + (grid_size*1.55), (grid_size*2.5) + (grid_size + 147.5), x1, x2, y1, y2);
+        MoonMini(p5, (grid_size*2.5) + (grid_size*1.55), (grid_size*2.5) + (grid_size + 147.5), x1, x2, y1, y2);
+        p5.pop();
+      }
+
+
 
 
 
