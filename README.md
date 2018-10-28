@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-My sketch still follow my cartoon style and I will not use the tile pattern, the main zoom part will be inside window - crystalball - inside crystaball - inside decorations. I will focus more one the patterns so maybe just has a few animation and I will still add one or two more different zoom part.
+I fixed the 'draw function' part and add a flower and zoom in part. The main zoom part is the window and it has three of four zoom in and for bird and flower each of them zoom for one time. I still not add the animation and the last part for the crytalball decoration. I really struggle with this time's animation code and I want use the same animation as my project 3, I hope I can do that but if I can not do I probably use Tom's code example.
