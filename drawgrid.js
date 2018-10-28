@@ -13,7 +13,6 @@
 let do_animation = true;
 
 
-
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -29,10 +28,7 @@ var tourPath = [
 
 var anim = 0;
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-
 let cx=0, cy=0, cx2=0, cy2=0;
 
   p5.background(255);
@@ -82,22 +78,25 @@ let cx=0, cy=0, cx2=0, cy2=0;
   }
 
   for (var i = 0; i < 6.3; i+=3.14159265 /100) {
-    //p5.angleMode(DEGREES);
-    //p5.push();
-    //p5.rotate(i);
     cx = p5.map(512 + p5.sin(i)*10, x1, x2, 0, 256);
     cy = p5.map(512 + p5.cos(i)*10, y1, y2, 0, 256);
-    dx = p5.map(512, x1, x2, 0, 256);
-    dy = p5.map(512, y1, y2, 0, 256);
+    if(zoom<15) {
+    	dx = p5.map(512, x1, x2, 0, 256);
+    	dy = p5.map(512, y1, y2, 0, 256);
+    }
+    else {
+    	dx = p5.map(512 + p5.sin(anim)*0.001, x1, x2, 0, 256);
+    	dy = p5.map(512 + p5.cos(anim)*0.001, y1, y2, 0, 256);
+    }
     cx2 = p5.map(412+50, x1, x2, 0, 256);
     p5.stroke(255, 0 ,0);
     p5.fill(255, 0, 0);
     p5.line(cx, cy, dx, dy);
-    //p5.pop();
   }
 
+  if(zoom<15) anim += 0.0002;
+  else anim += 0.002;
   
-  anim += 0.0002;
   if(anim>3.14159265*2) anim = 0;
 
 	
