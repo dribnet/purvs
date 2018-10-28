@@ -15,7 +15,7 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [0, 0, 0],
-  [2, 0, 0],
+  [1, 0, 0],
   [4, 0, 0]
 ]
 
@@ -93,7 +93,7 @@ function generateCells(bigCell,cellCount,zoomThresh,hue){
 mainCell = new cell(0,0,500,1,[0,0,100],false);
 generateCells(mainCell,5000,4,-1);
 for(let c of mainCell.subCells){
-	generateCells(c,300,10,c.colour[0]);
+	generateCells(c,250,10,c.colour[0]);
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
