@@ -1,5 +1,13 @@
 ## PS4 MDDN 342 2018
 
+
+FOURTH:
+The boat design didn't turn out how I would have liked it to, so I have gone with the same
+concept but made a Koi fish pond instead. This design has allowed me to add randomness 
+and animation to the design which is ultimately what I wanted. When zoomed in on the water 
+you can see the particles moving and when zoomed in even further you can see the actual water
+particles. 
+
 THIRD: 
 
 Layers have been added, in the mean time I am designing a boat sitting in water for the first
