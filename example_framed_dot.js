@@ -278,7 +278,7 @@ let sineWave = p5.sin(p5.globalFrameCount/12);
   let c_pball = p5.map(ball_radius, x1, x2, 0, 256);
   let cur_ball_radius = c_pball - c_p00;
 
-   //ONLINE HORIZONTAL CIRCLE WAVES
+  //ONLINE HORIZONTAL CIRCLE WAVES
   let circle1_x = p5.map(x-80, x1, x2, 0, 256);
   let circle1_y = p5.map(y, y1, y2, 0, 256);
   p5.ellipse(circle1_x, circle1_y, (cur_ball_radius/7+pulse/-10));
@@ -837,92 +837,6 @@ let sineWave = p5.sin(p5.globalFrameCount/12);
 
 }
 
-// // The rectangles are 960x720 and centered at 512,512.
-// function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-
-//    let dz = p5.globalFrameCount / 100.0;
-//     z = z + dz;
-
-//   p5.background(255);
- 
-
-//   let max_shift = max_thickness;
-//   /* this rectangle defines the region that will be drawn and includes a margin */
-//   let min_x = snap_to_grid(x1 - max_shift, grid_size);
-//   let max_x = snap_to_grid(x2 + max_shift + grid_size, grid_size);
-//   let min_y = snap_to_grid(y1 - max_shift, grid_size);
-//   let max_y = snap_to_grid(y2 + max_shift + grid_size, grid_size);
-
-//   for(let x=min_x; x<max_x; x+=grid_size) {
-//     for(let y=min_y; y<max_y; y+=grid_size) {
-
-//       if (zoom < 2) { //>= 4
-//         // LIGHT BLUE
-//         p5.stroke('#d2e7fd');
-//         p5.fill('#d2e7fd');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x-5, y-5, x1, x2, y1, y2);  
-//         // MID BLUE
-//         p5.stroke('#aed8fb');
-//         p5.fill('#aed8fb');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x, y, x1, x2, y1, y2);
-//         //DARK BLUE
-//         p5.stroke('#8ec5fb');
-//         p5.fill('#8ec5fb');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x+5, y+5, x1, x2, y1, y2);
-//       }
-
-//       if (zoom == 2) { //3
-//         // LIGHT BLUE
-//         p5.stroke('#d2e7fd');
-//         p5.fill('#d2e7fd');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x-2, y -2, x1, x2, y1, y2);  
-//         // MID BLUE
-//         p5.stroke('#aed8fb');
-//         p5.fill('#aed8fb');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x, y, x1, x2, y1, y2);
-//         //DARK BLUE
-//         p5.stroke('#8ec5fb');
-//         p5.fill('#8ec5fb');
-//         p5.strokeWeight(2);
-//         circleWaves(p5, x+2, y+2, x1, x2, y1, y2);
-//       }
-
-//       if (zoom == 3) { //2
-//         //LIGHT BLUE
-//         p5.stroke('#d2e7fd');
-//         p5.fill('#d2e7fd');
-//         p5.strokeWeight(2);
-//         waves(p5, x-2, y-2, x1, x2, y1, y2);
-//         //MID BLUE
-//         p5.stroke('#aed8fb');
-//         p5.fill('#aed8fb');
-//         p5.strokeWeight(2);
-//         waves(p5, x, y, x1, x2, y1, y2);
-//         //DARK BLUE
-//         p5.stroke('#8ec5fb');
-//         p5.fill('#8ec5fb');
-//         p5.strokeWeight(2);
-//         waves(p5, x+2, y+2, x1, x2, y1, y2);
-//       }
-
-//       if (zoom >= 4) { //< 2
-//         //DARK BLUE
-//         p5.stroke('#8ec5fb');
-//         p5.fill('#8ec5fb');
-//         p5.strokeWeight(2);
-//         waves(p5, x, y+2, x1, x2, y1, y2);
-//       }
-//       p5.fill('red');
-//       circlePattern(p5, x,y, x1, x2, y1, y2);
-//     }
-//   }
-
-
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     
   let dz = p5.globalFrameCount / 100.0;
@@ -942,12 +856,71 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
           
-      p5.stroke('#8ec5fb');
-      p5.fill('#8ec5fb');
-      p5.strokeWeight(2);
-      circleWaves(p5, x,y, x1, x2, y1, y2);
-          
-          
+      // p5.stroke('#8ec5fb');
+      // p5.fill('#8ec5fb');
+      // p5.strokeWeight(2);
+      // circleWaves(p5, x,y, x1, x2, y1, y2);
+
+      if (zoom >= 4 ) { //>= 4
+        // LIGHT BLUE
+        p5.stroke('#d2e7fd');
+        p5.fill('#d2e7fd');
+        p5.strokeWeight(2);
+        circleWaves(p5, x-5, y-5, x1, x2, y1, y2);  
+        // MID BLUE
+        p5.stroke('#aed8fb');
+        p5.fill('#aed8fb');
+        p5.strokeWeight(2);
+        circleWaves(p5, x, y, x1, x2, y1, y2);
+        //DARK BLUE
+        p5.stroke('#8ec5fb');
+        p5.fill('#8ec5fb');
+        p5.strokeWeight(2);
+        circleWaves(p5, x+5, y+5, x1, x2, y1, y2);
+      }
+      if (zoom == 3) { //3
+        // LIGHT BLUE
+        p5.stroke('#d2e7fd');
+        p5.fill('#d2e7fd');
+        p5.strokeWeight(2);
+        circleWaves(p5, x-2, y -2, x1, x2, y1, y2);  
+        // MID BLUE
+        p5.stroke('#aed8fb');
+        p5.fill('#aed8fb');
+        p5.strokeWeight(2);
+        circleWaves(p5, x, y, x1, x2, y1, y2);
+        //DARK BLUE
+        p5.stroke('#8ec5fb');
+        p5.fill('#8ec5fb');
+        p5.strokeWeight(2);
+        circleWaves(p5, x+2, y+2, x1, x2, y1, y2);
+      }
+      if (zoom == 2) { //2
+        //LIGHT BLUE
+        p5.stroke('#d2e7fd');
+        p5.fill('#d2e7fd');
+        p5.strokeWeight(2);
+        waves(p5, x-2, y-2, x1, x2, y1, y2);
+        //MID BLUE
+        p5.stroke('#aed8fb');
+        p5.fill('#aed8fb');
+        p5.strokeWeight(2);
+        waves(p5, x, y, x1, x2, y1, y2);
+        //DARK BLUE
+        p5.stroke('#8ec5fb');
+        p5.fill('#8ec5fb');
+        p5.strokeWeight(2);
+        waves(p5, x+2, y+2, x1, x2, y1, y2);
+      }
+      if (zoom < 2) { //< 2
+        //DARK BLUE
+        p5.stroke('#8ec5fb');
+        p5.fill('#8ec5fb');
+        p5.strokeWeight(2);
+        waves(p5, x-2, y-2, x1, x2, y1, y2);
+        waves(p5, x, y, x1, x2, y1, y2);
+        waves(p5, x+2, y+2, x1, x2, y1, y2);
+      }       
     }
   }
 
