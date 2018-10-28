@@ -60,7 +60,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
            yoff += 2;
         }
        let yt = p5.map(p5.noise(xoff, yoff), 0, 1, 1, 100);
-       p5.background(0, 0, 255);
+       p5.background(255);
        p5.textSize(40 + yt);
        p5.noStroke();
        p5.text("ALL", pixel_x + j, 0);
@@ -90,13 +90,15 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, drawLines, z) {
     let pixel_x = p5.map(pos_x+offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+offset[1], y1, y2, 0, 256);
 
-        p5.background(0, 0, 255);
-        //var r = p5.random(255);
-        p5.fill(255);
-        //p5.fill(255);
+        p5.background(255);
+        var r = p5.random(255);
+        p5.fill(0);
         p5.textSize(200);
         p5.text("DOESNT", pixel_x - 600, pixel_y - 100);   
         p5.text("EXIST", pixel_x - 600, pixel_y + 100);
+        p5.fill(0, r);
+        p5.text("DOESNT", pixel_x - 600 + 40, pixel_y - 100);
+        p5.text("EXIST", pixel_x - 600 + 40, pixel_y + 100);
     
   if(drawLines) {
      //p5.background(255);
@@ -140,7 +142,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   // min_y = snap_to_grid(half_y, grid_size);
   // max_y = snap_to_grid(half_y + grid_size, grid_size);
 
-  p5.background(0, 0, 255);
+  //p5.background(0, 0, 255);
   
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
@@ -175,12 +177,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
       if (zoom < 2) {
-      for(let size = 50; size < 100; size = size + 10){ 
+      for(let size = 60; size < 120; size = size + 20){ 
       for(let j = 50; j < 256; j = j + 150){
        var r = p5.random(150, 255, 5);
-       p5.fill(r);
+       p5.fill(r, r);
        p5.textSize(size);
-       p5.stroke(0);
+       //p5.stroke(0);
        //p5.fill(255);
        p5.text("V", x_pos, y_pos + j);
        p5.text("O", x_pos + 50, y_pos + j);
