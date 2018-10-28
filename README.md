@@ -5,3 +5,6 @@ In my case, the image will turn the Judah gear into a pinion.To show the effect 
 ______________________________________
 
 Start on working out the shape.
+_____________________________
+
+I tried with the class example to make it move and want to make it have a circulatory movement like gears. 

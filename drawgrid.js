@@ -12,7 +12,8 @@ var tourPath = [
   [2, -146, 1132],
   [2, -149, 1257]
 ]
-
+var time = 0;
+var now = 0;
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
@@ -47,7 +48,7 @@ function drawPetals(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z) {
     let offset = offsets[i];
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
-    p5.ellipse(pixel_x, pixel_y, pixel_radius);
+    p5.ellipse(pixel_x, pixel_y, pixel_radius);    
   }
 }
 
@@ -74,8 +75,8 @@ function drawStamens(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, drawLines, z)
       p5.line(pixel_x-pixel_radius, pixel_y, pixel_x+pixel_radius, pixel_y);
       p5.line(pixel_x, pixel_y-pixel_radius, pixel_x, pixel_y+pixel_radius);
       p5.strokeWeight(0);
-      p5.ellipse(pixel_x, pixel_y, pixel_radius / 12);
-    }
+      p5.rect(pixel_x, pixel_y, pixel_radius / 12);
+    }  
   }
 }
 
@@ -118,7 +119,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let cur_line_width = c_plwidth - c_p00;
   let cur_ball_radius = c_pball - c_p00;
 
-  p5.background(255);
+  p5.background(0);
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
       // First compute shifted point in grid
@@ -151,19 +152,39 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       /* now draw all elements from back to front */
       if (zoom < 2) {
-        p5.push();
-        //p5.noFill();
-        let w = 0.7*(x_pos-x_pos_left);
-        p5.strokeWeight(3);
-        if(x % 2 == 0)
-          p5.fill(0);
-        else {
-          p5.fill(255);
-        }
-        p5.translate(x_pos, y_pos);
-        p5.rotate(p5.PI/4);
-        p5.rect(-w/2,-w/2,w,w);
-        p5.pop();
+        p5.strokeWeight(cur_line_width);
+        p5.stroke(155,0,0);
+        p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
+        p5.stroke(255,0,0);
+        p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
+      }
+
+      if (zoom >= 2) {
+        p5.fill(255);
+        p5.noStroke();
+        drawPetals(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z);        
+      }
+
+      p5.stroke(255);
+      p5.fill(155);
+      p5.noStroke();
+      now++;
+      if(now % 4 == 0){
+
+      	   p5.translate(x_pos, y_pos);
+      p5.rotate(time+=0.001);
+       p5.translate(-x_pos, -y_pos);
+      }
+   
+      p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+      if(zoom >= 3) {
+        // now if we are super zoomed, draw lines in the stamen
+        var drawLines = false;
+        if (zoom >= 5) drawLines = true;
+        p5.fill(0, 0, 255);
+        p5.stroke(0, 0, 128);
+        drawStamens(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius/3, line_width/2, drawLines, z);
       }
     }
   }
