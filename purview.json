@@ -2,6 +2,10 @@
   "commits": [
     {
       "sha": "062451d250837da1a9075ea772bfcb59eaea3a91",
+      "name": "Part 6: Final"
+    },
+    {
+      "sha": "062451d250837da1a9075ea772bfcb59eaea3a91",
       "name": "Part 5: Style over-haul"
     },
     {
