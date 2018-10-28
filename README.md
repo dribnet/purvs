@@ -18,3 +18,6 @@ I have the Lines drawing but as I thought, having the stripes without line endin
 
 15/10
 The self-similar structure is at a start, though it still needs a lot of work. The key will be adding to the colour channel that has been subtracted from in the super context. The fact that I don't have that functionality is why most of the lines are grey at the moment.
+
+29/10 - COMPLETED
+For simplicity, only the intersections between lines contain a smaller version of the design. Otherwise, I got the design working exactly how I wanted
