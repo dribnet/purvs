@@ -1,3 +1,4 @@
 ## PS4 MDDN 342 2018
 
-Second attempt at animating the circles so they pulse. I think it is coming along well and looking more how I want it too but it’s not there yet.
+I have finally finished animating the circles and they look a lot more like waves than they did before and also mimic the same idea of my last project. I naw have to re added the zoom effect now that the animation is finished.
+
