@@ -114,14 +114,10 @@ function draw () {
   if(tourTrigger == false){curCameraFrame = curCameraFrame + 1;}    
   if(tourTrigger == true){
     if(zAxisCamera <= 1800){
-      curCameraFrame = curCameraFrame + 0.05;
-      print(curCameraFrame);
-      print(zAxisCamera + ":>=");
+      curCameraFrame = curCameraFrame + 0.03;
     }
     if(zAxisCamera >= 1800){
-      curCameraFrame = curCameraFrame + 0.2;
-      print(curCameraFrame);
-      print(zAxisCamera + ":<=");
+      curCameraFrame = curCameraFrame + 0.25;
     }
   }
   if(curCameraFrame > maxCameraFrames) {
@@ -244,7 +240,6 @@ function draw () {
   //-----------------------seccondary Color Lighting-----------------------//
   directionalLight(125, 125, 125, 0.25, 0.25, 0);
   directionalLight(125, 125, 125, 0, 0, -10);
-  //ambientMaterial(0);
 
    //-----------------------outer spheres-----------------------//
   for(let i = 0; i < worldSphereCount; i++) {
@@ -275,7 +270,6 @@ function draw () {
         push();
         rotateX(degree5/4);
         rotateY(degree5/4);
-        //rotateZ(degree/4);
         translate(0, 0, 1000);
         sphere(30);
         degree5 += 0.1;
@@ -286,7 +280,6 @@ function draw () {
         push();
         rotateX(-degree/-4);
         rotateY(degree5/2);
-        //rotateZ(degree5/2);
         translate(0, 0, 1000);
         sphere(90);
         degree5 -= 0.1;
@@ -296,7 +289,6 @@ function draw () {
         push();
         rotateX(degree5/2);
         rotateZ(-degree/-4);
-        //rotateZ(degree5/2);
         translate(0, 0, 1000);
         sphere(30);
         degree5 -= 0.1;
@@ -434,7 +426,6 @@ function startCameraAnimation() {
 function ResetCam(){
   tourTrigger = false;
   startCameraAnimation();
-  //zAxis = 0;
   yAxis = 0;
   xAxis = 0;
 }
