@@ -281,286 +281,283 @@ let sineWave = p5.sin(p5.globalFrameCount/12);
   //ONLINE HORIZONTAL CIRCLE WAVES
   let circle1_x = p5.map(x-80, x1, x2, 0, 256);
   let circle1_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circle1_x, circle1_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circle1_x, circle1_y, (cur_ball_radius/7+pulse/-7));
   
   let circle2_x = p5.map(x-70, x1, x2, 0, 256);
   let circle2_y = p5.map(y-6, y1, y2, 0, 256);
-  p5.ellipse(circle2_x, circle2_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circle2_x, circle2_y, (cur_ball_radius/5+pulse/-5));
 
   let circle3_x = p5.map(x-60, x1, x2, 0, 256);
   let circle3_y = p5.map(y-10, y1, y2, 0, 256);
-  p5.ellipse(circle3_x, circle3_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circle3_x, circle3_y, (cur_ball_radius/4+pulse/-4));
 
   let circle4_x = p5.map(x-50, x1, x2, 0, 256);
   let circle4_y = p5.map(y-13, y1, y2, 0, 256);
-  p5.ellipse(circle4_x, circle4_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circle4_x, circle4_y, (cur_ball_radius/3+pulse/-3));
 
   let circle5_x = p5.map(x-40, x1, x2, 0, 256);
   let circle5_y = p5.map(y-14, y1, y2, 0, 256);
-  p5.ellipse(circle5_x, circle5_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circle5_x, circle5_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circle6_x = p5.map(x-30, x1, x2, 0, 256);
   let circle6_y = p5.map(y-13, y1, y2, 0, 256);
-  p5.ellipse(circle6_x, circle6_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circle6_x, circle6_y, (cur_ball_radius/2+pulse/-2));
 
   let circle7_x = p5.map(x-20, x1, x2, 0, 256);
   let circle7_y = p5.map(y-10, y1, y2, 0, 256);
-  p5.ellipse(circle7_x, circle7_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circle7_x, circle7_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circle8_x = p5.map(x-10, x1, x2, 0, 256);
   let circle8_y = p5.map(y-6, y1, y2, 0, 256);
-  p5.ellipse(circle8_x, circle8_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circle8_x, circle8_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circle9_x = p5.map(x, x1, x2, 0, 256);
   let circle9_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circle9_x, circle9_y, (cur_ball_radius/1.2+pulse/1.2));
+  p5.ellipse(circle9_x, circle9_y, (cur_ball_radius/1.2+pulse/-1.2));
 
   let circle10_x = p5.map(x+10, x1, x2, 0, 256);
   let circle10_y = p5.map(y+6, y1, y2, 0, 256);
-  p5.ellipse(circle10_x, circle10_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circle10_x, circle10_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circle11_x = p5.map(x+20, x1, x2, 0, 256);
   let circle11_y = p5.map(y+10, y1, y2, 0, 256);
-  p5.ellipse(circle11_x, circle11_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circle11_x, circle11_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circle12_x = p5.map(x+30, x1, x2, 0, 256);
   let circle12_y = p5.map(y+13, y1, y2, 0, 256);
-  p5.ellipse(circle12_x, circle12_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circle12_x, circle12_y, (cur_ball_radius/2+pulse/-2));
 
   let circle13_x = p5.map(x+40, x1, x2, 0, 256);
   let circle13_y = p5.map(y+14, y1, y2, 0, 256);
-  p5.ellipse(circle13_x, circle13_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circle13_x, circle13_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circle14_x = p5.map(x+50, x1, x2, 0, 256);
   let circle14_y = p5.map(y+13, y1, y2, 0, 256);
-  p5.ellipse(circle14_x, circle14_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circle14_x, circle14_y, (cur_ball_radius/3+pulse/-3));
 
   let circle15_x = p5.map(x+60, x1, x2, 0, 256);
   let circle15_y = p5.map(y+10, y1, y2, 0, 256);
-  p5.ellipse(circle15_x, circle15_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circle15_x, circle15_y, (cur_ball_radius/4+pulse/-4));
 
   let circle16_x = p5.map(x+70, x1, x2, 0, 256);
   let circle16_y = p5.map(y+6, y1, y2, 0, 256);
-  p5.ellipse(circle16_x, circle16_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circle16_x, circle16_y, (cur_ball_radius/5+pulse/-5));
 
   let circle17_x = p5.map(x+80, x1, x2, 0, 256);
   let circle17_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circle17_x, circle17_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circle17_x, circle17_y, (cur_ball_radius/7+pulse/-7));
 
 
   //ONLINE HORIZONTAL CIRCLE WAVES 2
   let circleA1_x = p5.map(x+40, x1, x2, 0, 256);
   let circleA1_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circleA1_x, circleA1_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circleA1_x, circleA1_y, (cur_ball_radius/7+pulse/-7));
   
   let circleA2_x = p5.map(x+50, x1, x2, 0, 256);
   let circleA2_y = p5.map(y-6, y1, y2, 0, 256);
-  p5.ellipse(circleA2_x, circleA2_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleA2_x, circleA2_y, (cur_ball_radius/5+pulse/-5));
 
   let circleA3_x = p5.map(x+60, x1, x2, 0, 256);
   let circleA3_y = p5.map(y-10, y1, y2, 0, 256);
-  p5.ellipse(circleA3_x, circleA3_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleA3_x, circleA3_y, (cur_ball_radius/4+pulse/-4));
 
   let circleA4_x = p5.map(x+70, x1, x2, 0, 256);
   let circleA4_y = p5.map(y-13, y1, y2, 0, 256);
-  p5.ellipse(circleA4_x, circleA4_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleA4_x, circleA4_y, (cur_ball_radius/3+pulse/-3));
 
   let circleA5_x = p5.map(x+80, x1, x2, 0, 256);
   let circleA5_y = p5.map(y-14, y1, y2, 0, 256);
-  p5.ellipse(circleA5_x, circleA5_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleA5_x, circleA5_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleA6_x = p5.map(x+90, x1, x2, 0, 256);
   let circleA6_y = p5.map(y-13, y1, y2, 0, 256);
-  p5.ellipse(circleA6_x, circleA6_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleA6_x, circleA6_y, (cur_ball_radius/2+pulse/-2));
 
   let circleA7_x = p5.map(x+100, x1, x2, 0, 256);
   let circleA7_y = p5.map(y-10, y1, y2, 0, 256);
-  p5.ellipse(circleA7_x, circleA7_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleA7_x, circleA7_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleA8_x = p5.map(x+110, x1, x2, 0, 256);
   let circleA8_y = p5.map(y-6, y1, y2, 0, 256);
-  p5.ellipse(circleA8_x, circleA8_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleA8_x, circleA8_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleA9_x = p5.map(x+120, x1, x2, 0, 256);
   let circleA9_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circleA9_x, circleA9_y, (cur_ball_radius/1.2+pulse/1.2));
+  p5.ellipse(circleA9_x, circleA9_y, (cur_ball_radius/1.2+pulse/-1.2));
 
   let circleA10_x = p5.map(x+130, x1, x2, 0, 256);
   let circleA10_y = p5.map(y+6, y1, y2, 0, 256);
-  p5.ellipse(circleA10_x, circleA10_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleA10_x, circleA10_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleA11_x = p5.map(x+140, x1, x2, 0, 256);
   let circleA11_y = p5.map(y+10, y1, y2, 0, 256);
-  p5.ellipse(circleA11_x, circleA11_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleA11_x, circleA11_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleA12_x = p5.map(x+150, x1, x2, 0, 256);
   let circleA12_y = p5.map(y+13, y1, y2, 0, 256);
-  p5.ellipse(circleA12_x, circleA12_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleA12_x, circleA12_y, (cur_ball_radius/2+pulse/-2));
 
   let circleA13_x = p5.map(x+160, x1, x2, 0, 256);
   let circleA13_y = p5.map(y+14, y1, y2, 0, 256);
-  p5.ellipse(circleA13_x, circleA13_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleA13_x, circleA13_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleA14_x = p5.map(x+170, x1, x2, 0, 256);
   let circleA14_y = p5.map(y+13, y1, y2, 0, 256);
-  p5.ellipse(circleA14_x, circleA14_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleA14_x, circleA14_y, (cur_ball_radius/3+pulse/-3));
 
   let circleA15_x = p5.map(x+180, x1, x2, 0, 256);
   let circleA15_y = p5.map(y+10, y1, y2, 0, 256);
-  p5.ellipse(circleA15_x, circleA15_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleA15_x, circleA15_y, (cur_ball_radius/4+pulse/-4));
 
   let circleA16_x = p5.map(x+190, x1, x2, 0, 256);
   let circleA16_y = p5.map(y+6, y1, y2, 0, 256);
-  p5.ellipse(circleA16_x, circleA16_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleA16_x, circleA16_y, (cur_ball_radius/5+pulse/-5));
 
   let circleA17_x = p5.map(x+200, x1, x2, 0, 256);
   let circleA17_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circleA17_x, circleA17_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circleA17_x, circleA17_y, (cur_ball_radius/7+pulse/-7));
 
 
   //VERTICAL CIRCLE WAVES 
 
   let circleD1_x = p5.map(x+120, x1, x2, 0, 256);
   let circleD1_y = p5.map(y+200, y1, y2, 0, 256);
-  p5.ellipse(circleD1_x, circleD1_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circleD1_x, circleD1_y, (cur_ball_radius/7+pulse/-7));
   
   let circleD2_x = p5.map(x+113, x1, x2, 0, 256);
   let circleD2_y = p5.map(y+190, y1, y2, 0, 256);
-  p5.ellipse(circleD2_x, circleD2_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleD2_x, circleD2_y, (cur_ball_radius/5+pulse/-5));
 
   let circleD3_x = p5.map(x+107, x1, x2, 0, 256);
   let circleD3_y = p5.map(y+180, y1, y2, 0, 256);
-  p5.ellipse(circleD3_x, circleD3_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleD3_x, circleD3_y, (cur_ball_radius/4+pulse/-4));
 
   let circleD4_x = p5.map(x+104, x1, x2, 0, 256);
   let circleD4_y = p5.map(y+170, y1, y2, 0, 256);
-  p5.ellipse(circleD4_x, circleD4_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleD4_x, circleD4_y, (cur_ball_radius/3+pulse/-3));
 
   let circleD5_x = p5.map(x+103, x1, x2, 0, 256);
   let circleD5_y = p5.map(y+160, y1, y2, 0, 256);
-  p5.ellipse(circleD5_x, circleD5_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleD5_x, circleD5_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleD6_x = p5.map(x+104, x1, x2, 0, 256);
   let circleD6_y = p5.map(y+150, y1, y2, 0, 256);
-  p5.ellipse(circleD6_x, circleD6_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleD6_x, circleD6_y, (cur_ball_radius/2+pulse/-2));
 
   let circleD7_x = p5.map(x+107, x1, x2, 0, 256);
   let circleD7_y = p5.map(y+140, y1, y2, 0, 256);
-  p5.ellipse(circleD7_x, circleD7_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleD7_x, circleD7_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleD8_x = p5.map(x+113, x1, x2, 0, 256);
   let circleD8_y = p5.map(y+130, y1, y2, 0, 256);
-  p5.ellipse(circleD8_x, circleD8_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleD8_x, circleD8_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleD9_x = p5.map(x+120, x1, x2, 0, 256);
   let circleD9_y = p5.map(y+120, y1, y2, 0, 256);
-  p5.ellipse(circleD9_x, circleD9_y, (cur_ball_radius/1.2+pulse/1.2));
+  p5.ellipse(circleD9_x, circleD9_y, (cur_ball_radius/1.2+pulse/-1.2));
 
   let circleD10_x = p5.map(x+127, x1, x2, 0, 256);
   let circleD10_y = p5.map(y+110, y1, y2, 0, 256);
-  p5.ellipse(circleD10_x, circleD10_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleD10_x, circleD10_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleD11_x = p5.map(x+133, x1, x2, 0, 256);
   let circleD11_y = p5.map(y+100, y1, y2, 0, 256);
-  p5.ellipse(circleD11_x, circleD11_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleD11_x, circleD11_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleD12_x = p5.map(x+136, x1, x2, 0, 256);
   let circleD12_y = p5.map(y+90, y1, y2, 0, 256);
-  p5.ellipse(circleD12_x, circleD12_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleD12_x, circleD12_y, (cur_ball_radius/2+pulse/-2));
 
   let circleD13_x = p5.map(x+137, x1, x2, 0, 256);
   let circleD13_y = p5.map(y+80, y1, y2, 0, 256);
-  p5.ellipse(circleD13_x, circleD13_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleD13_x, circleD13_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleD14_x = p5.map(x+136, x1, x2, 0, 256);
   let circleD14_y = p5.map(y+70, y1, y2, 0, 256);
-  p5.ellipse(circleD14_x, circleD14_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleD14_x, circleD14_y, (cur_ball_radius/3+pulse/-3));
 
   let circleD15_x = p5.map(x+133, x1, x2, 0, 256);
   let circleD15_y = p5.map(y+60, y1, y2, 0, 256);
-  p5.ellipse(circleD15_x, circleD15_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleD15_x, circleD15_y, (cur_ball_radius/4+pulse/-4));
 
   let circleD16_x = p5.map(x+127, x1, x2, 0, 256);
   let circleD16_y = p5.map(y+50, y1, y2, 0, 256);
-  p5.ellipse(circleD16_x, circleD16_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleD16_x, circleD16_y, (cur_ball_radius/5+pulse/-5));
 
   let circleD17_x = p5.map(x+120, x1, x2, 0, 256);
   let circleD17_y = p5.map(y+40, y1, y2, 0, 256);
-  p5.ellipse(circleD17_x, circleD17_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circleD17_x, circleD17_y, (cur_ball_radius/7+pulse/-7));
 
 
 
   //VERTICAL CIRCLE WAVES 2
   let circleE1_x = p5.map(x+120, x1, x2, 0, 256);
   let circleE1_y = p5.map(y+80, y1, y2, 0, 256);
-  p5.ellipse(circleE1_x, circleE1_y, (cur_ball_radius/7+pulse/7));
+  p5.ellipse(circleE1_x, circleE1_y, (cur_ball_radius/7+pulse/-7));
   
   let circleE2_x = p5.map(x+113, x1, x2, 0, 256);
   let circleE2_y = p5.map(y+70, y1, y2, 0, 256);
-  p5.ellipse(circleE2_x, circleE2_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleE2_x, circleE2_y, (cur_ball_radius/5+pulse/-5));
 
   let circleE3_x = p5.map(x+107, x1, x2, 0, 256);
   let circleE3_y = p5.map(y+60, y1, y2, 0, 256);
-  p5.ellipse(circleE3_x, circleE3_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleE3_x, circleE3_y, (cur_ball_radius/4+pulse/-4));
 
   let circleE4_x = p5.map(x+104, x1, x2, 0, 256);
   let circleE4_y = p5.map(y+50, y1, y2, 0, 256);
-  p5.ellipse(circleE4_x, circleE4_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleE4_x, circleE4_y, (cur_ball_radius/3+pulse/-3));
 
   let circleE5_x = p5.map(x+103, x1, x2, 0, 256);
   let circleE5_y = p5.map(y+40, y1, y2, 0, 256);
-  p5.ellipse(circleE5_x, circleE5_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleE5_x, circleE5_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleE6_x = p5.map(x+104, x1, x2, 0, 256);
   let circleE6_y = p5.map(y+30, y1, y2, 0, 256);
-  p5.ellipse(circleE6_x, circleE6_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleE6_x, circleE6_y, (cur_ball_radius/2+pulse/-2));
 
   let circleE7_x = p5.map(x+107, x1, x2, 0, 256);
   let circleE7_y = p5.map(y+20, y1, y2, 0, 256);
-  p5.ellipse(circleE7_x, circleE7_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleE7_x, circleE7_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleE8_x = p5.map(x+113, x1, x2, 0, 256);
   let circleE8_y = p5.map(y+10, y1, y2, 0, 256);
-  p5.ellipse(circleE8_x, circleE8_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleE8_x, circleE8_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleE9_x = p5.map(x+120, x1, x2, 0, 256);
   let circleE9_y = p5.map(y, y1, y2, 0, 256);
-  p5.ellipse(circleE9_x, circleE9_y, (cur_ball_radius/1.+pulse/1.));
+  p5.ellipse(circleE9_x, circleE9_y, (cur_ball_radius/1.2+pulse/-1.2));
 
   let circleE10_x = p5.map(x+127, x1, x2, 0, 256);
   let circleE10_y = p5.map(y-10, y1, y2, 0, 256);
-  p5.ellipse(circleE10_x, circleE10_y, (cur_ball_radius/1.4+pulse/1.4));
+  p5.ellipse(circleE10_x, circleE10_y, (cur_ball_radius/1.4+pulse/-1.4));
 
   let circleE11_x = p5.map(x+133, x1, x2, 0, 256);
   let circleE11_y = p5.map(y-20, y1, y2, 0, 256);
-  p5.ellipse(circleE11_x, circleE11_y, (cur_ball_radius/1.8+pulse/1.8));
+  p5.ellipse(circleE11_x, circleE11_y, (cur_ball_radius/1.8+pulse/-1.8));
 
   let circleE12_x = p5.map(x+136, x1, x2, 0, 256);
   let circleE12_y = p5.map(y-30, y1, y2, 0, 256);
-  p5.ellipse(circleE12_x, circleE12_y, (cur_ball_radius/2+pulse/2));
+  p5.ellipse(circleE12_x, circleE12_y, (cur_ball_radius/2+pulse/-2));
 
   let circleE13_x = p5.map(x+137, x1, x2, 0, 256);
   let circleE13_y = p5.map(y-40, y1, y2, 0, 256);
-  p5.ellipse(circleE13_x, circleE13_y, (cur_ball_radius/2.5+pulse/2.5));
+  p5.ellipse(circleE13_x, circleE13_y, (cur_ball_radius/2.5+pulse/-2.5));
 
   let circleE14_x = p5.map(x+136, x1, x2, 0, 256);
   let circleE14_y = p5.map(y-50, y1, y2, 0, 256);
-  p5.ellipse(circleE14_x, circleE14_y, (cur_ball_radius/3+pulse/3));
+  p5.ellipse(circleE14_x, circleE14_y, (cur_ball_radius/3+pulse/-3));
 
   let circleE15_x = p5.map(x+133, x1, x2, 0, 256);
   let circleE15_y = p5.map(y-60, y1, y2, 0, 256);
-  p5.ellipse(circleE15_x, circleE15_y, (cur_ball_radius/4+pulse/4));
+  p5.ellipse(circleE15_x, circleE15_y, (cur_ball_radius/4+pulse/-4));
 
   let circleE16_x = p5.map(x+127, x1, x2, 0, 256);
   let circleE16_y = p5.map(y-70, y1, y2, 0, 256);
-  p5.ellipse(circleE16_x, circleE16_y, (cur_ball_radius/5+pulse/5));
+  p5.ellipse(circleE16_x, circleE16_y, (cur_ball_radius/5+pulse/-5));
 
   let circleE17_x = p5.map(x+120, x1, x2, 0, 256);
   let circleE17_y = p5.map(y-80, y1, y2, 0, 256);
-  p5.ellipse(circleE17_x, circleE17_y, (cur_ball_radius/7+pulse/7));
-
-
-
+  p5.ellipse(circleE17_x, circleE17_y, (cur_ball_radius/7+pulse/-7));
 
     
 }
