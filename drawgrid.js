@@ -184,7 +184,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         for(let a = 0;a < 2*p5.PI;a += p5.PI/8){
           p5.push();
           p5.translate(x_pos, y_pos);
-          p5.rotate(a);
+          p5.rotate(a+p5.globalFrameCount/10);
           p5.fill(0);
           p5.rect(-w/16, w/2,w/8,w/8);
           p5.pop();
