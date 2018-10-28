@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-While messing around, I discovered an intersting configuration that resembles a formation of cells. I think I will use this idea as my final, as it shows some sort of story, opposed to the bland structure of many small shapes. From this point i'll just be adding more details and complexity to the zoomed in views.
+As of now, this is the final iteration for my problem set four. I continued to build on the cell composition, and develop detail down each level. I think that the final composition works quite well, and is intersting enough to explore. I added a little bit of colour just to keep things interesting, as it became very dull after a while.
