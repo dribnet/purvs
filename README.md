@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-This iteration I added more random opacity to the fill() color, and took off the background of the fist zone. The max_movement is slower than the other iterations.
+This final version I decided to use black and white as the color pallete because it works better with this design. I developed a bit with the styles and positions of the text, also I added the background() within drawLines() to clear the canvas into black when super zoomed. The concept of the design is based on the tool we are using to creating this non-exist design,the design piece itself is made from coding, therefore this design coule be just void. I use text to express this idea because text is powerful, it transfering information from people to people, also from computers to people, and vise versa.
