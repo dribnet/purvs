@@ -6,7 +6,7 @@ let grid_size = 128; // The distance between each drawn object
 let do_animation = true;
 let max_movement = 256;
 
-/* the random number seed for the tour */
+/* the random number seed f+or the tour */
 var tourSeed = 0;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
