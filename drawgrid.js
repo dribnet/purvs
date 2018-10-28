@@ -66,12 +66,23 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 	p5.updatePixels ();
 	
 	// replace lines 63-75 with the following line to see what a single canvas sees
-//	p5.image (out.canvases [0], 0, 0);
+//	p5.image (canvases [0], 0, 0);
 	
 	// ready for next draw
 	canvases.forEach (canvas => {
 		canvas.pop ();
 	});
+	
+	// debug - show border
+//	p5.noFill ();
+//	p5.stroke (0);
+//	p5.rect (0, 0, 255, 255);
+//
+//	p5.fill (0);
+//	p5.noStroke ();
+//	p5.text ("corner: (" + x1 + "," + y1 + ")", 10, 20);
+//	let sizex = x2 - x1;
+//	p5.text ("width: " + sizex, 10, 40);
 }
 
 // convert a floating point to an integer co-ordinate in grid space
@@ -124,67 +135,107 @@ function show (p5, z, sc, canvas, box, grid, colours) {
 	// check if we will see anything on the screen
 	if (!SquareVector.containsSome (canvas, box))
 		return;
-
+	
 	// draw grid
-	for (let row = snap (box.y, grid); row <= snap (box.y+box.h, grid); row++) {
-		for (let col = snap (box.x, grid); col <= snap (box.x+box.w, grid); col++) {
+	for (let row = snap (box.y, grid)-1; row <= snap (box.y+box.h, grid); row++) {
+		for (let col = snap (box.x, grid)-1; col <= snap (box.x+box.w, grid); col++) {
 
-			let newColours = Array.from (colours),
+			let rowColours = Array.from (colours),
+					colColours = Array.from (colours),
+					bothColours = Array.from (colours),
 					rowShape, colShape;
-
-			// apply colour settings
-			fill (colours);
 
 			// draw row
 			let rowFill = choose (p5.noise (0, row+0.1, z));
 			if (rowFill >= 0) {
+				
+				rowColours [rowFill] = !colours [rowFill];
+				bothColours [rowFill] = !colours [rowFill];
 
 				// make the stripe shape
 				rowShape = SquareVector.and (
 					new SquareVector (
-						grid*col,
-						grid*(row + 0.5-thickness/2),
-						grid,
-						grid*thickness),
-					box
-				);
+						col + 0.5+thickness/2,
+						row + 0.5-thickness/2,
+						1,
+						thickness).mult (grid),
+					box);
 
 				// draw the stripe if there's anything on the screen
-				if (typeof rowShape != "undefined")
+				if (typeof rowShape != "undefined") {
+					fill (colours);
 					rowShape.show (canvases [rowFill]);
-
-				// update colour state for recursive colour setting
-				newColours [rowFill] = !colours [rowFill];
+				}
 			}
 
 			// draw column
 			let colFill = choose (p5.noise (col+0.1, 0, z));
 			if (colFill >= 0) {
+				
+				colColours [colFill] = !colours [colFill];
+				bothColours [colFill] = !colours [colFill];
 
 				// make the stripe shape
 				colShape = SquareVector.and (
 					new SquareVector (
-						grid*(col + 0.5-thickness/2),
-						grid*row,
-						grid*thickness,
-						grid
-					), box);
+						col+0.5-thickness/2,
+						row+0.5+thickness/2,
+						thickness,
+						1).mult (grid),
+					box);
 
 				// draw the stripe if there's anything on the screen
-				if (typeof colShape != "undefined")
+				if (typeof colShape != "undefined") {
+					fill (colours);
 					colShape.show (canvases [colFill]);
-
-				// update colour state for recursive colour setting
-				newColours [colFill] = !colours [colFill];
+				}
 			}
 
-			// recurse
+			// recursion check
 			let newGrid = grid/80;
-
 			if (newGrid * sc > 1) {
-				let newBox = SquareVector.and (rowShape, colShape);
+				let newBox;
+				
+				// grid intersection
+				newBox = new SquareVector (
+					col + 0.5-thickness/2,
+					row + 0.5-thickness/2,
+					thickness).mult (grid);
+				if (typeof newBox != "undefined") 
+					show (p5, z, sc, canvas, newBox, newGrid, bothColours);
+				
+				
+				// grid negative space below right
+				newBox = new SquareVector (
+					col+0.5+thickness/2,
+					row+0.5+thickness/2,
+					1-thickness).mult (grid);
 				if (typeof newBox != "undefined")
-					show (p5, z, sc, canvas, newBox, newGrid, newColours);
+					show (p5, z, sc, canvas, newBox, newGrid, colours);
+				
+				// stripe right
+				newBox = new SquareVector (
+					col + 0.5+thickness/2,
+					row + 0.5-thickness/2,
+					1-thickness,
+					thickness
+				).mult (grid);
+				
+//				canvases [0].fill (200, 100, 100, 100);
+//				newBox.show (canvases [0]);
+				
+				if (typeof newBox != "undefined")
+					show (p5, z, sc, canvas, newBox, newGrid, rowColours);
+				
+				// stripe below
+				newBox = new SquareVector (
+					col + 0.5-thickness/2,
+					row + 0.5+thickness/2,
+					thickness,
+					1-thickness
+				).mult (grid);
+				if (typeof newBox != "undefined")
+					show (p5, z, sc, canvas, newBox, newGrid, colColours);
 			}
 		}
 	}
@@ -213,7 +264,11 @@ function SquareVector (x, y, w, h) {
 	this.x = x;
 	this.y = y;
 	this.w = w;
-	this.h = h;
+	
+	if (typeof h == "undefined")
+		this.h = w;
+	else
+		this.h = h;
 }
 
 /*
@@ -221,6 +276,10 @@ function SquareVector (x, y, w, h) {
 	*/
 SquareVector.prototype.show = function (target) {
 	target.rect (this.x, this.y, this.w, this.h);
+}
+
+SquareVector.prototype.mult = function (scale) {
+	return new SquareVector (this.x*scale, this.y*scale, this.w*scale, this.h*scale);
 }
 
 // CORNER mode rect from CORNERS information
