@@ -30,13 +30,14 @@ var mainCell;
 var numberOfCells = 100;
 
 class cell{
-	constructor(x,y,r,zoomThresh){
+	constructor(x,y,r,zoomThresh,colour,filled){
 		this.x = x;
 		this.y = y;
 		this.r = r;
+		this.colour = colour;
+		this.filled = filled;
 		this.subCells = [];
 		this.zoomThresh = zoomThresh;
-		this.thickness = Math.random()*0.7+0.3;
 	}
 
 	draw(p5,x1,x2,y1,y2,zoom){
@@ -45,12 +46,16 @@ class cell{
 		var localEdge = p5.map((this.x + this.r), x1, x2, 0, 256);
 		var localR = localEdge - localX;
 
-			p5.noFill();
-			p5.stroke(240,60,0);
+		p5.colorMode(p5.HSB,100);
+		p5.blendMode(p5.ADD);
+		p5.noFill();
+		if(this.filled) p5.fill(this.colour[0],this.colour[1],this.colour[2]);
+		else p5.noFill();
+		p5.stroke(this.colour[0],this.colour[1],this.colour[2]);
+
 			if(localX >= 0-localR && localX <= 256+localR && localY >= 0-localR && localY <= 256+localR){
 				if(zoom < this.zoomThresh) {
-
-						p5.strokeWeight(this.thickness);
+						p5.strokeWeight(localR/15);
 						p5.ellipse(localX,localY,localR,localR);
 				}
 				else {
@@ -63,7 +68,7 @@ class cell{
 	}
 }
 
-function generateCells(bigCell,cellCount,zoomThresh){
+function generateCells(bigCell,cellCount,zoomThresh,hue){
 	for(i = 0; i < cellCount; i ++){
 		var point;
 		
@@ -76,17 +81,19 @@ function generateCells(bigCell,cellCount,zoomThresh){
 				}
 			}
 
+			if(hue < 0) var colour = [Math.random()*100,50+Math.random()*25,50+Math.random()*50];
+			else var colour = [hue+Math.random()*10,50+Math.random()*25,50+Math.random()*50];
 			var size = findSmallestDistance(bigCell,point,bigCell.r/10)*2;
-			bigCell.subCells.push(new cell(point.x,point.y,size,zoomThresh));
+			bigCell.subCells.push(new cell(point.x,point.y,size,zoomThresh,colour,false));
 			break;
 		}
 	}
 }
 
-mainCell = new cell(0,0,500,1);
-generateCells(mainCell,4000,4);
+mainCell = new cell(0,0,500,1,[0,0,100],false);
+generateCells(mainCell,5000,4,-1);
 for(let c of mainCell.subCells){
-	generateCells(c,250,10);
+	generateCells(c,300,10,c.colour[0]);
 }
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
@@ -94,7 +101,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	 // let dz = p5.globalFrameCount / 100.0;
   // 	z = z + dz;
   // debug - show border
-  p5.background(40,10,0);
+
+  p5.background(0,0,10);
 
   let local_ballx = p5.map(ballx,x1,x2,0,256);
   let local_bally = p5.map(bally,y1,y2,0,256);
