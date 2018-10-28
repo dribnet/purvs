@@ -29,8 +29,6 @@ var tourPath = [
   [6, 512, 512]
 ]
 
-// global positions
-
 function brickWall(p5, x, y, x1, x2, y1, y2){
   let brick_x = p5.map(x, x1, x2, 0, 256);
   let brick_y = p5.map(y, y1, y2, 0, 256);
@@ -42,12 +40,9 @@ function brickWall(p5, x, y, x1, x2, y1, y2){
 
   p5.fill(241, 238, 228);
 
-  // var odd = true;
-  // var brick_start = 0;
-
   for (let i=0; i<10; i+=2){
     // row of bricks without offset
-    p5.rect (brick_x, brick_y + (brick_h *i), brick_w, brick_h); // row of bricks not offset
+    p5.rect (brick_x, brick_y + (brick_h *i), brick_w, brick_h);
     p5.rect (brick_x + brick_w, brick_y + (brick_h *i),brick_w,brick_h);
     p5.rect (brick_x + brick_w*2, brick_y + (brick_h *i), brick_w, brick_h);
     // row of bricks with offset 
@@ -84,19 +79,20 @@ function WindowSill(p5, x, y, x1, x2, y1, y2){
   let corner_y2 = p5.map(y + grid_size * 1.2, y1, y2, 0, 256);
 
   p5.line(corner_x1, corner_y1, corner_x2, corner_y2);
-}
 
-function Window(p5, x, y, x1, x2, y1, y2){
-  let window_x = p5.map(x, x1, x2, 0, 256);
+  // window
+
+  p5.fill(0);
+
+  let window_x = p5.map(x + grid_size * 0.1, x1, x2, 0, 256);
   let window_y = p5.map(y, y1, y2, 0, 256);
   let window_origin = p5.map(0 + grid_size/10, x1, x2, 0,256);
   let window_offset_x = p5.map(grid_size, x1, x2, 0,256);
   let window_offset_y = p5.map(grid_size * 1.3, x1, x2, 0,256);
   let window_w = window_offset_x - window_origin;
   let window_h = window_offset_y - window_origin;
-  let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
 
-  p5.rect(window_x, window_y, window_w, window_h); //window 
+  p5.rect(window_x, window_y, window_w, window_h); 
 }
 
 function WindowDetail(p5, x, y, x1, x2, y1, y2){
@@ -203,6 +199,20 @@ function WindowDetail(p5, x, y, x1, x2, y1, y2){
 
   p5.line(corner_x1_h3, corner_y1, corner_x2_h3, corner_y2);
 
+  // window
+
+  p5.fill(0);
+
+  let window_x = p5.map(x + grid_size * 0.1, x1, x2, 0, 256);
+  let window_y = p5.map(y, y1, y2, 0, 256);
+  let window_origin = p5.map(0 + grid_size/10, x1, x2, 0,256);
+  let window_offset_x = p5.map(grid_size, x1, x2, 0,256);
+  let window_offset_y = p5.map(grid_size * 1.3, x1, x2, 0,256);
+  let window_w = window_offset_x - window_origin;
+  let window_h = window_offset_y - window_origin;
+
+  p5.rect(window_x, window_y, window_w, window_h); 
+
 }
 
 function Moon(p5, x, y, x1, x2, y1, y2){
@@ -214,12 +224,12 @@ function Moon(p5, x, y, x1, x2, y1, y2){
   let moon_offset = p5.map(30, x1, x2, 0, 256);
   let moon_radius = moon_offset - moon_origin;
 
-  p5.fill("#C0C0C0");
+  p5.fill("#F7FAFD");
   p5.ellipse(moon_x, moon_y, moon_radius, moon_radius);
+  p5.noStroke();
   p5.fill(0);
   p5.ellipse(moon_x2, moon_y, moon_radius, moon_radius); // moon shadow
 }
-
 
 function Star(p5, x, y, x1, x2, y1, y2, z){
   let phase = getRandomValue(p5, x, y, z, "phase", 0, 10*p5.PI, 0.1);
@@ -238,7 +248,6 @@ function Star(p5, x, y, x1, x2, y1, y2, z){
 
   //p5.ellipse(star_x, star_y, 10 + starSize, 10 + starSize);
   p5.ellipse(star_x, star_y, star_radius + starTwinkle, star_radius + starTwinkle);
-
 }
 
 function Stars(p5, x, y, x1, x2, y1, y2, z){
@@ -258,6 +267,131 @@ function Stars(p5, x, y, x1, x2, y1, y2, z){
   Star(p5, x + 85, y + 145, x1, x2, y1, y2);
 
   //console.log(star_pos_random);
+}
+
+function WindowMini(p5, x, y, x1, x2, y1, y2){
+  p5.strokeWeight(0.5);
+  var mini_size = 0.5;
+  let windowSill_x = p5.map(x, x1, x2, 0, 256);
+  let windowSill_y = p5.map(y, y1, y2, 0, 256);
+  let windowSill_origin = p5.map(0, x1, x2, 0,256);
+  let windowSill_offset_x = p5.map(mini_size, x1, x2, 0,256);
+  let windowSill_offset_y = p5.map(mini_size * 1.3, x1, x2, 0,256);
+  let windowSill_w = windowSill_offset_x - windowSill_origin;
+  let windowSill_h = windowSill_offset_y - windowSill_origin;
+  let window_sil = p5.map(mini_size/10, x1, x2, 0, 256);
+
+  p5.fill("#dddad0");
+
+  // window sill
+
+  p5.rect(windowSill_x, windowSill_y, windowSill_w, windowSill_h); 
+
+  // corner of window sill 
+
+  let corner_x1 = p5.map(x + 0, x1, x2, 0, 256); 
+  let corner_y1 = p5.map(y + mini_size * 1.3, y1, y2, 0, 256);
+  let corner_x2 = p5.map(x + mini_size/10, x1, x2, 0, 256); 
+  let corner_y2 = p5.map(y + mini_size * 1.2, y1, y2, 0, 256);
+
+  p5.line(corner_x1, corner_y1, corner_x2, corner_y2);
+
+  // window
+
+  p5.fill(0);
+
+  let window_x = p5.map(x + mini_size * 0.1, x1, x2, 0, 256);
+  let window_y = p5.map(y, y1, y2, 0, 256);
+  let window_origin = p5.map(0 + mini_size/10, x1, x2, 0,256);
+  let window_offset_x = p5.map(mini_size, x1, x2, 0,256);
+  let window_offset_y = p5.map(mini_size * 1.3, x1, x2, 0,256);
+  let window_w = window_offset_x - window_origin;
+  let window_h = window_offset_y - window_origin;
+
+  p5.rect(window_x, window_y, window_w, window_h); 
+}
+
+function brickWallMini(p5, x, y, x1, x2, y1, y2){
+  p5.strokeWeight(0.5);
+  var mini_size = 0.5;
+  let brick_x = p5.map(x, x1, x2, 0, 256);
+  let brick_y = p5.map(y, y1, y2, 0, 256);
+  let brick_origin = p5.map(0, x1, x2, 0,256);
+  let brick_offset_x = p5.map(mini_size/3, x1, x2, 0,256);
+  let brick_offset_y = p5.map(mini_size/10, x1, x2, 0,256);
+  let brick_w = brick_offset_x - brick_origin;
+  let brick_h = brick_offset_y - brick_origin;
+
+  p5.fill(241, 238, 228);
+
+  for(let j=0; j < 16; j++){
+    for (let i=0; i<120; i+=2){
+      // row of bricks without offset
+      p5.rect (brick_x + (brick_w * 3), brick_y + (brick_h *i), brick_w, brick_h);
+      p5.rect (brick_x + brick_w + (brick_w * 3) *j, brick_y + (brick_h *i),brick_w,brick_h);
+      p5.rect (brick_x + brick_w*2 + (brick_w * 3) *j, brick_y + (brick_h *i), brick_w, brick_h);
+      // row of bricks with offset 
+      p5.push();
+      p5.translate(-1 * (brick_w/2), 0);
+      p5.rect (brick_x +(brick_w * 3) *j, brick_y + (brick_h * (i+1)), brick_w, brick_h);
+      p5.rect (brick_x + brick_w +(brick_w * 3) *j, brick_y + (brick_h * (i+1)),brick_w, brick_h);
+      p5.rect (brick_x + brick_w*2 +(brick_w * 3) *j, brick_y + (brick_h * (i+1)), brick_w, brick_h);
+      p5.pop();
+    }
+  }
+}
+
+function Wall(p5, x, y, x1, x2, y1, y2){
+
+  var wall_sizeW = 8;
+  var wall_sizeH = 6;
+  let wall_x = p5.map(x, x1, x2, 0, 256);
+  let wall_y = p5.map(y, y1, y2, 0, 256);
+  let wall_origin = p5.map(0, x1, x2, 0,256);
+  let wall_offset_x = p5.map(wall_sizeW, x1, x2, 0,256);
+  let wall_offset_y = p5.map(wall_sizeH, x1, x2, 0,256);
+  let wall_w = wall_offset_x - wall_origin;
+  let wall_h = wall_offset_y - wall_origin;
+
+  p5.fill(241, 238, 228);
+  p5.stroke(0);
+
+  p5.rect(wall_x, wall_y, wall_w, wall_h);
+
+  WindowMini(p5, x + wall_sizeW/2 - 0.25, y + wall_sizeH/2 -0.25, x1, x2, y1, y2);
+}
+
+function DetailedWall(p5, x, y, x1, x2, y1, y2,zoom){
+
+  var wall_sizeW = 8;
+  var wall_sizeH = 6;
+  let wall_x = p5.map(x, x1, x2, 0, 256);
+  let wall_y = p5.map(y, y1, y2, 0, 256);
+  let wall_origin = p5.map(0, x1, x2, 0,256);
+  let wall_offset_x = p5.map(wall_sizeW, x1, x2, 0,256);
+  let wall_offset_y = p5.map(wall_sizeH, x1, x2, 0,256);
+  let wall_w = wall_offset_x - wall_origin;
+  let wall_h = wall_offset_y - wall_origin;
+
+  p5.fill(241, 238, 228);
+  p5.stroke(0);
+
+  p5.rect(wall_x, wall_y, wall_w, wall_h);
+
+  brickWallMini(p5, x, y, x1, x2, y1, y2);
+
+  WindowMini(p5, x + wall_sizeW/2 - 0.25, y + wall_sizeH/2 -0.25, x1, x2, y1, y2);
+
+  p5.strokeWeight(12);
+
+  p5.noFill();
+  p5.rect(wall_x, wall_y, wall_w, wall_h);
+
+}
+
+
+
+function PotPlant(p5, x, y, x1, x2, y1, y2){
 
 }
 
@@ -295,36 +429,65 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
       if (zoom == 0) {
         p5.push();
-        p5.strokeWeight(1);
+        p5.strokeWeight(0.75);
         brickWall(p5, x, y, x1, x2, y1, y2);
         WindowSill(p5, grid_size, grid_size, x1, x2, y1, y2);
-        p5.fill(0);
-        Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
         p5.pop();
       }
 
-      if (zoom >= 1) {
+      if (zoom == 1) {
         p5.push();
-        p5.strokeWeight(2);
+        p5.strokeWeight(1);
         brickWall(p5, x, y, x1, x2, y1, y2);
         WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        p5.fill(0);
-        Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
         Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
         p5.pop();
       }
 
-      if (zoom >= 2) {
+      if (zoom == 2) {
         p5.push();
         p5.strokeWeight(2);
         brickWall(p5, x, y, x1, x2, y1, y2);
         WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-        p5.fill(0);
-        Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
         Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
         Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
         p5.pop();     
       }
+
+      if (zoom >= 3){
+        p5.push();
+        p5.strokeWeight(1.5*zoom);
+        brickWall(p5, x, y, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Wall(p5, grid_size*1.55, grid_size+147.5, x1, x2, y1, y2);
+        p5.pop();
+      }
+
+      // if (zoom >= 4){
+      //   p5.push();
+      //   p5.strokeWeight(1.5*zoom);
+      //   brickWall(p5, x, y, x1, x2, y1, y2);
+      //   WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+      //   Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
+      //   Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
+      //   Wall(p5, grid_size*1.45, grid_size+50, x1, x2, y1, y2);
+      //   p5.pop();
+      // }
+
+        if (zoom >= 6){
+        p5.push();
+        p5.strokeWeight(1.5*zoom);
+        brickWall(p5, x, y, x1, x2, y1, y2);
+        WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
+        Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
+        DetailedWall(p5, grid_size*1.55, grid_size+147.5, x1, x2, y1, y2);
+        p5.pop();
+      }
+
+
 
 
       // if (zoom >= 3) {
@@ -343,7 +506,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-  // debug - show border //
+  //debug - show border //
   // p5.strokeWeight(1);
   // p5.noFill();
   // p5.stroke(255, 0, 0)
