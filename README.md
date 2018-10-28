@@ -1,11 +1,9 @@
 ## PS4 MDDN 342 2018
 
-I have redesigned my space scene so that it has 3 layers and is less intense than my original spirals.
+My final design is inspired by my space concept from PS3. I have developed this idea so that the scene transitions from clusters of galaxies to single stars. I have muted the colour scheme because I thought that the black emphasised the depth more so now that it is in 2D. This final design has been made to be a bit more realistic than my previous iterations. I have tried to make it appear as though the objects in the scene move faster as you move between the three levels of detail
 
-The first layer is a scene of stars that represent the different galaxies.
+The first zoom level shows stars of varying sizes, where the bigger stars are brighter to give the illusion of depth. The colours around these stars represent smaller, more clustered space debris.
 
-The second layer zooms into a single galaxy and incorporates the old spiral design but is now more intricate.
+The second zoom level shows the individual galaxies in more detail. I chose to make the ellipses that make up the spirals to be randomly coloured and posiitoned so that when the scene animates, the spirals look like they contain moving elements but are not actually moving around space themselves.
 
-The third layers shows a more detailed version of the galaxy where the stars represent all the different suns in that galaxy.
-
-To further refine my design I will fix the issue of the grid being obvious and cutting off the shapes and add in my animation.
+The final zoom level shows a close up of a star. I have drawn these further apart to represent the distance that are normally between stars. The stars are animated so it looks a bit more like a spinning ball of flames. 

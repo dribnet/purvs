@@ -126,7 +126,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   let max_shift = max_thickness + max_movement;
 
   /* For animation: updated z based on global frame count */
-  let dz = p5.globalFrameCount/2000;
+  let dz = p5.globalFrameCount/1000;
   z = z + dz;
 
   /* this rectangle defines the region that will be drawn and includes a margin */
@@ -171,7 +171,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		  layer2(p5, x_pos, y_pos, cur_ball_radius);  
 	  }
 	  else if((x%4)==0&&(y%4)==0){
-		  do_animation = false;
+		  do_animation = true;
 		  layer3(p5, x_pos, y_pos, cur_ball_radius, x, y, z);  
 	  }
     }
