@@ -13,5 +13,7 @@ I have worked my idea into a tiling pattern which is nice as the design now spre
 
 first step in zoom done, got it scaling and zooming and now when close enough the inter membrane wall of the cell is made clear. Next step add for structure to cell like phytoplasm and mitochondria. The final zoom will show somthing like chromosomes or dna
 
+My final work shows off all the elements I wanted to however this project is certainly at the beta stage and would certainly need more work to be truely complete. I think the concept I have is quite strong but i personlly found it very difficult to draw a wide array of organic shapes within the confines of the zoom functionality and framework of this problem set, and if i was to re do the project i would try to use a different method for drawing things as the method of hard coding everything if incredibly inneficient and doesnt allow for much procedural generation of designs. 
+
 Also update both images keeping their original sizes:
 preview.png (960x500) and thumbnail.png (230x120).

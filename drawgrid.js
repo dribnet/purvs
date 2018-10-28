@@ -20,8 +20,12 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [2, 512, 512],
-  [2, 420, 400],
-  [4, 420, 400]
+  [3, 507, 503],
+  [4, 502, 491],
+  [5, 509, 484],
+  [6, 509, 484],
+  [7, 507, 484],
+  [4, 503, 503],
 ]
 
 function getOffsetPoint(p5, x, y, z, noiseScale) {
@@ -235,56 +239,155 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 								
 
-							//nucleus
-							p5.stroke(160, 20, 200);
-							p5.fill(160, 20, 200,100);
-							x_pos = p5.map(shift_point[0]-15, x1, x2, 0, 256);
-		      				y_pos = p5.map(shift_point[1], y1, y2, 0, 256); 	
-							p5.ellipse(x_pos, y_pos, curCellRadius/5,curCellRadius/3);
-
-							//nucleolous
-							y_pos = p5.map(shift_point[1]+5, y1, y2, 0, 256); 
-							p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);
 
 							//mitochondria
 							p5.stroke(206, 109, 6);
 							p5.fill(206, 109, 6,100);
-							x_pos = p5.map(shift_point[0] +10, x1, x2, 0, 256);
+							x_pos = p5.map(shift_point[0] +5, x1, x2, 0, 256);
 		      				y_pos = p5.map(shift_point[1] -10, y1, y2, 0, 256); 
 		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/7,curCellRadius/13);
+		      				x_pos = p5.map(shift_point[0] +10, x1, x2, 0, 256);
+		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/7,curCellRadius/13);
 
+		      				x_pos = p5.map(shift_point[0] +5, x1, x2, 0, 256);
+		      				y_pos = p5.map(shift_point[1] +10, y1, y2, 0, 256); 
+		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/13,curCellRadius/7);
+		      				y_pos = p5.map(shift_point[1] +15, y1, y2, 0, 256); 
+		      				p5.ellipse(x_pos, y_pos+Math.random(0,10), curCellRadius/13,curCellRadius/7);
 		      				// endoplasmic reticulum
 		      				let e1 = p5.map(shift_point[0]-18, x1, x2, 0, 256);
-		      				let e2 = p5.map(shift_point[1]-15, y1, y2, 0, 256)
+		      				let e2 = p5.map(shift_point[1]-15, y1, y2, 0, 256);
 
 		      				let e3 = p5.map(shift_point[0]-12, x1, x2, 0, 256);
-		      				let e4 = p5.map(shift_point[1]-18, y1, y2, 0, 256)
+		      				let e4 = p5.map(shift_point[1]-18, y1, y2, 0, 256);
+							let e5 = p5.map(shift_point[0]-19, x1, x2, 0, 256);
+		      				let e6 = p5.map(shift_point[1]-16, y1, y2, 0, 256);
 
-							let e5 = p5.map(shift_point[0]-15, x1, x2, 0, 256);
-		      				let e6 = p5.map(shift_point[1]-12, y1, y2, 0, 256);
+		      				let e7 = p5.map(shift_point[0]-15, x1, x2, 0, 256);
+		      				let e8 = p5.map(shift_point[1], y1, y2, 0, 256);
+		      				let e9 = p5.map(shift_point[0]-10, x1, x2, 0, 256);
+		      				let e10= p5.map(shift_point[1]-15, y1, y2, 0, 256);
 
-		      				let e7 = p5.map(shift_point[0]+3, y1, y2, 0, 256);
-		      				let e8 = p5.map(shift_point[1]+7, y1, y2, 0, 256);
+		      				let e11 = p5.map(shift_point[0], x1, x2, 0, 256);
+		      				let e12 = p5.map(shift_point[1], y1, y2, 0, 256);
+      						let e13 = p5.map(shift_point[0], x1, x2, 0, 256);
+		      				let e14 = p5.map(shift_point[1], y1, y2, 0, 256);
 
-		      				let e9 = p5.map(shift_point[0]+40, y1, y2, 0, 256);
-		      				let e10 = p5.map(shift_point[1], y1, y2, 0, 256);
+		      				let e15 = p5.map(shift_point[0]-14, x1, x2, 0, 256);
+		      				let e16 = p5.map(shift_point[1]-12, y1, y2, 0, 256);
+							let e17 = p5.map(shift_point[0]-10, x1, x2, 0, 256);
+		      				let e18 = p5.map(shift_point[1]-13, y1, y2, 0, 256);
 
-		      				let r = Math.floor((Math.random() * 255)+1);
-		      				let g = Math.floor((Math.random() * 205)+1);
-		      				let b = Math.floor((Math.random() * 250)+1);
+		      				let e19 = p5.map(shift_point[0]-14, x1, x2, 0, 256);
+		      				let e20 = p5.map(shift_point[1]+12, y1, y2, 0, 256);
+							let e21 = p5.map(shift_point[0]-10, x1, x2, 0, 256);
+		      				let e22 = p5.map(shift_point[1]+13, y1, y2, 0, 256);
 
-		      				//p5.fill(0,g,b);
+		      				let e23 = p5.map(shift_point[0]-12, x1, x2, 0, 256);
+		      				let e24 = p5.map(shift_point[1]+18, y1, y2, 0, 256);
+							let e25 = p5.map(shift_point[0]-19, x1, x2, 0, 256);
+		      				let e26 = p5.map(shift_point[1]+16, y1, y2, 0, 256);
+
+		      				let e27 = p5.map(shift_point[0]-8, x1, x2, 0, 256);
+		      				let e28 = p5.map(shift_point[1]+18, y1, y2, 0, 256);
+							let e29 = p5.map(shift_point[0]-10, x1, x2, 0, 256);
+		      				let e30 = p5.map(shift_point[1]-16, y1, y2, 0, 256);
+		      				
 		      				p5.noFill();
 		      				p5.stroke(0,0,200);
-		      				p5.print(r,g,b);
+		      				
 		      				p5.beginShape();
 		      				
 		      				p5.vertex(e1,e2);
 		      				p5.quadraticVertex(e3,e4,e5,e6);
-		      				
-		      				//p5.bezierVertex();
+		      				p5.quadraticVertex(e7,e8,e9,e10);
+		      				p5.quadraticVertex(e11,e12,e13,e14);
+		      				p5.quadraticVertex(e15,e16,e17,e18);
+		      				p5.quadraticVertex(e19,e20,e21,e22);
+		      				p5.quadraticVertex(e23,e24,e25,e26);
+		      				p5.quadraticVertex(e27,e28,e29,e30);
+		      				p5.quadraticVertex(e3,e12,e19,e20);
+		      				p5.quadraticVertex(e11,e12,e13,e14);
+		      				p5.quadraticVertex(e23,e24,e25,e26);
+		      				p5.quadraticVertex(e19,e20,e21,e22);
+		      				p5.quadraticVertex(e19,e20,e21,e22);
+		      				p5.quadraticVertex(e23,e24,e25,e26);
+		      				p5.quadraticVertex(e3,e4,e5,e6);
+		      				p5.quadraticVertex(e7,e8,e9,e10);
+		      				p5.quadraticVertex(e27,e28,e29,e30);
+		      				p5.quadraticVertex(e3,e12,e19,e20);
+		      				p5.quadraticVertex(e23,e24,e25,e26);
+		      				p5.quadraticVertex(e1,e2,e3,e4);
+		      				p5.quadraticVertex(e23,e24,e25,e26);
+		      				p5.quadraticVertex(e1,e2,e3,e4);
 		      				p5.endShape();
+
+
+
+
+		      				//nucleus
+		      				p5.stroke(160, 20, 200);
+							p5.fill(0);
+							x_pos = p5.map(shift_point[0]-15, x1, x2, 0, 256);												
+		      				y_pos = p5.map(shift_point[1], y1, y2, 0, 256); 
+		      				p5.ellipse(x_pos, y_pos, curCellRadius/5,curCellRadius/3);
+		      				p5.fill(160, 20, 200,200);	
+							p5.ellipse(x_pos, y_pos, curCellRadius/5,curCellRadius/3);
+		      				//nucleolous
+		      				
+							y_pos = p5.map(shift_point[1]+5, y1, y2, 0, 256); 
+							p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);
+
+							
+
+							
+
+
 	    			}
+
+
+			    			if(zoom >=6)
+			    			{
+			    				//nucleolus
+			    				p5.stroke(160, 20, 200);
+			    				p5.fill(0);
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);
+								p5.fill(200, 20, 200,200);
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);	
+
+			    				
+				      					
+				      		}
+				      		if(zoom >=7)
+			    			{
+			    				p5.stroke(160, 20, 200);
+			    				p5.fill(0);
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);
+								p5.fill(200, 20, 200,150);
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/8,curCellRadius/8);	
+			    				//chromosomes
+			    				p5.fill(0);
+		      					p5.noStroke();
+			    				x_pos = p5.map(shift_point[0]-13.4, x1, x2, 0, 256);
+			    				y_pos = p5.map(shift_point[1]+7.4, y1, y2, 0, 256); 	
+		      					p5.ellipse(x_pos, y_pos, curCellRadius/32,curCellRadius/128);
+
+		      					x_pos = p5.map(shift_point[0]-14.3, x1, x2, 0, 256);
+			    				y_pos = p5.map(shift_point[1]+6.5, y1, y2, 0, 256)
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/128,curCellRadius/32);
+
+
+
+			    				x_pos = p5.map(shift_point[0]-15.6, x1, x2, 0, 256);
+			    				y_pos = p5.map(shift_point[1]+1.5, y1, y2, 0, 256); 			    				
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/32,curCellRadius/128);
+			    				
+
+			    				x_pos = p5.map(shift_point[0]-16.5, x1, x2, 0, 256);
+			    				y_pos = p5.map(shift_point[1]+2.4, y1, y2, 0, 256); 	
+			    				p5.ellipse(x_pos, y_pos, curCellRadius/128,curCellRadius/32);
+
+			    			}
 
 		  	}
 		}
