@@ -1,3 +1,11 @@
+const max_thickness = 64;
+const max_movement = 300;
+const ball_radius = 32;
+const line_width = 8;
+const grid_size = 64;
+let do_animation = true;
+
+
 /*
  * This is the function to implement to make your own abstract design.
  *
@@ -15,9 +23,16 @@
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, 512, 512],
-  [4, 512, 512],
-  [6, 512, 512]
+  [2, 463.575195312500,567.494140625000],
+  [3, 467.452636718750,572.531738281250],
+  [4, 448.134277343750,571.708984375000],
+  [8, 447.437881469727,576.664093017578],
+  [2, 189.150390625000,415.698242187500],
+  [3, 197.625000000000,416.250000000000],
+  [2, 699.000000000000,813.250000000000],
+  [3, 686.875000000000,839.250000000000],
+
+  //[6, 512, 512]
 ]
 
 
@@ -30,6 +45,13 @@ var tourPath = [
 	//p5.rect(rX, rY, 40, 40);
 
 //}
+
+/* this function returns a point offset by noise at that location */
+function getOffsetPoint(p5, x, y, z, noiseScale) {
+  let offsetX = getRandomValue(p5, x, y, z, "offsetX", -max_movement, max_movement, noiseScale);
+  let offsetY = getRandomValue(p5, x, y, z, "offsetY", -max_movement, max_movement, noiseScale);
+  return [x+offsetX, y+offsetY]
+}
 
 function drawShape(xpos, ypos, p5, x1, x2, y1, y2, z, zoom) {
      let x_0 = p5.map(0, x1, x2, 0, 256);
@@ -134,6 +156,106 @@ function drawStar(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
      p5.fill(255, 215, 0);
      p5.ellipse(x, y, 8 * x_unit, 8 * x_unit);
 }
+
+function drawStardetail(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
+     let x_0 = p5.map(0, x1, x2, 0, 256);
+     let x_1 = p5.map(1, x1, x2, 0, 256);
+     let x_unit = (x_1 - x_0);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 0, 0);
+     p5.ellipse(x, y, 6 * x_unit, 6 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 4 * x_unit, 4 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 215, 0);
+     p5.ellipse(x, y, 2 * x_unit, 2 * x_unit);
+}
+
+function drawStarLast(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
+     let x_0 = p5.map(0, x1, x2, 0, 256);
+     let x_1 = p5.map(1, x1, x2, 0, 256);
+     let x_unit = (x_1 - x_0);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.7 * x_unit, 0.7 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos - 0.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos + 0.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos + 0.5, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos - 0.5, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos - 0.4, x1, x2, 0, 256);
+     y = p5.map(ypos - 0.4, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos + 0.4, x1, x2, 0, 256);
+     y = p5.map(ypos - 0.4, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos + 0.4, x1, x2, 0, 256);
+     y = p5.map(ypos + 0.4, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+     x = p5.map(xpos - 0.4, x1, x2, 0, 256);
+     y = p5.map(ypos + 0.4, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+     
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.strokeWeight(0.05 * x_unit);
+     p5.stroke(255, 69, 0);
+     p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
+
+
+
+
+
+
+
+
+}
+
+
 
 
 
@@ -576,7 +698,7 @@ function drawBirdEye(xpos, ypos, p5, x1, x2, y1, y2, z, zoom) {
 // This version draws two rectangles and two ellipses.
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-     p5.background(248, 240, 233);
+     p5.background(216, 191, 216);
      p5.rectMode(p5.CORNERS);
      p5.angleMode(p5.DEGREES);
      //let rot = 0;
@@ -590,16 +712,19 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     drawWindow(0, 0, p5, x1, x2, y1, y2, z, zoom);
     drawflower(850, 700, p5, x1, x2, y1, y2, z, zoom);
     //drawShape(560, 448, p5, x1, x2, y1, y2, z, zoom);
+
+
     if (zoom >= 2) {
         drawWallpaper(0, 0, p5, x1, x2, y1, y2, z, zoom); 
         drawTable(448, 400, p5, x1, x2, y1, y2, z, zoom);
         drawCrystalBall(0, 0, p5, x1, x2, y1, y2, z, zoom);
-        drawFlowerZoom(850, 700, p5, x1, x2, y1, y2, z, zoom);
-        drawBirdEye(0, -7.5, p5, x1, x2, y1, y2, z, zoom);
+        //drawFlowerZoom(850, 700, p5, x1, x2, y1, y2, z, zoom);
+        //drawBirdEye(0, -7.5, p5, x1, x2, y1, y2, z, zoom);
         //drawShape(560, 448, p5, x1, x2, y1, y2, z, zoom);    
       }
 
       if (zoom >= 3){
+
           drawSmallBall(0, 0, p5, x1, x2, y1, y2, z, zoom);
           drawStarLine(577, 423.5, p5, x1, x2, y1, y2, z, zoom);
           drawStar(577, 423.5, p5, x1, x2, y1, y2, z, zoom);
@@ -608,17 +733,33 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
           drawStar(587, 438, p5, x1, x2, y1, y2, z, zoom);
           drawStar(597, 434, p5, x1, x2, y1, y2, z, zoom);
           drawSmallBallWeight(0, 0, p5, x1, x2, y1, y2, z, zoom);
+          drawBirdEye(0, -7.5, p5, x1, x2, y1, y2, z, zoom);
+          drawFlowerZoom(850, 700, p5, x1, x2, y1, y2, z, zoom);
+
+      }
+
+      if(zoom >= 4){
+          drawStardetail(567, 457, p5, x1, x2, y1, y2, z, zoom);
+          drawStardetail(577, 447.5, p5, x1, x2, y1, y2, z, zoom);
+          drawStardetail(557, 442, p5, x1, x2, y1, y2, z, zoom);
+          drawStardetail(587, 462, p5, x1, x2, y1, y2, z, zoom);
+          drawStardetail(597, 458, p5, x1, x2, y1, y2, z, zoom);
+
+      }
+
+      if(zoom >=8){
+          drawStarLast(577,447.5, p5, x1, x2, y1, y2, z, zoom);
       }
 
      
 
-  //p5.noFill();
-  //p5.strokeWeight(1);
-  //p5.stroke(0, 200, 200)
-  //p5.rect(0, 0, 255, 255);
-  //p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  //let sizex = x2 - x1;
-  //p5.text("width: " + sizex, 10, 40);
+  // p5.noFill();
+  // p5.strokeWeight(1);
+  // p5.stroke(0, 200, 200)
+  // p5.rect(0, 0, 255, 255);
+  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  // let sizex = x2 - x1;
+  // p5.text("width: " + sizex, 10, 40);
 }
 
   // debug - show border

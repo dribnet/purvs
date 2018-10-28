@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I fixed the 'draw function' part and add a flower and zoom in part. The main zoom part is the window and it has three of four zoom in and for bird and flower each of them zoom for one time. I still not add the animation and the last part for the crytalball decoration. I really struggle with this time's animation code and I want use the same animation as my project 3, I hope I can do that but if I can not do I probably use Tom's code example.
+I add two more details for the the crystalball zoom and for the last zoom in version I add a white flower, I also change the background colour because I want it little bit warm. I still has the problem with the animation I just want my white flower can rotate by the center but I even can not make the pattern move with the example, I think I really need fix this with tutor or Tom tomorrow morning before the due time cause I do not want give up the animation.
