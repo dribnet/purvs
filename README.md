@@ -1,3 +1,10 @@
 ## PS4 MDDN 342 2018
 
-I add two more details for the the crystalball zoom and for the last zoom in version I add a white flower, I also change the background colour because I want it little bit warm. I still has the problem with the animation I just want my white flower can rotate by the center but I even can not make the pattern move with the example, I think I really need fix this with tutor or Tom tomorrow morning before the due time cause I do not want give up the animation.
+This is my final Version.
+Zoom 1 - Window - Crystalball - Inside crystal ball(yellow decoration) - Inside yellow decoration - little white flower.
+
+Zoom 2 - Bird - Unhappy bird
+
+Zoom 3 - Flower - Colourful flower
+
+My work has my strong personal style as my previous about cartoon and cute things, most of zoom pattern I use cartoon flowers and I am not add animation in my final work because this time the animation code really out of my control and most of time not work, and another reason is I feel animation is a little bit redundant for my final work. I use too many draw function to create the pattern so animation probably make my work messy.

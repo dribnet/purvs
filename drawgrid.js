@@ -154,7 +154,7 @@ function drawStar(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
      y = p5.map(ypos + 24, y1, y2, 0, 256);
      p5.noStroke();
      p5.fill(255, 215, 0);
-     p5.ellipse(x, y, 8 * x_unit, 8 * x_unit);
+     p5.ellipse(x, y, 8.5 * x_unit, 8.5 * x_unit);
 }
 
 function drawStardetail(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
@@ -166,7 +166,7 @@ function drawStardetail(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
      y = p5.map(ypos, y1, y2, 0, 256);
      p5.noStroke();
      p5.fill(255, 0, 0);
-     p5.ellipse(x, y, 6 * x_unit, 6 * x_unit);
+     p5.ellipse(x, y, 7.5 * x_unit, 7.5 * x_unit);
 
      x = p5.map(xpos, x1, x2, 0, 256);
      y = p5.map(ypos, y1, y2, 0, 256);
@@ -174,11 +174,60 @@ function drawStardetail(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
      p5.fill(255, 165, 0);
      p5.ellipse(x, y, 4 * x_unit, 4 * x_unit);
 
+     x = p5.map(xpos + 2, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos - 2, x1, x2, 0, 256);
+     y = p5.map(ypos, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos - 2, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos, x1, x2, 0, 256);
+     y = p5.map(ypos + 2, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos + 1.5, x1, x2, 0, 256);
+     y = p5.map(ypos + 1.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos - 1.5, x1, x2, 0, 256);
+     y = p5.map(ypos + 1.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos - 1.5, x1, x2, 0, 256);
+     y = p5.map(ypos - 1.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
+     x = p5.map(xpos + 1.5, x1, x2, 0, 256);
+     y = p5.map(ypos - 1.5, y1, y2, 0, 256);
+     p5.noStroke();
+     p5.fill(255, 165, 0);
+     p5.ellipse(x, y, 2.5 * x_unit, 2.5 * x_unit);
+
      x = p5.map(xpos, x1, x2, 0, 256);
      y = p5.map(ypos, y1, y2, 0, 256);
      p5.noStroke();
      p5.fill(255, 215, 0);
      p5.ellipse(x, y, 2 * x_unit, 2 * x_unit);
+
 }
 
 function drawStarLast(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
