@@ -1,4 +1,9 @@
 ## PS4 MDDN 342 2018
+29/10/2018
+
+I have made the zoom for 7 begin to make the tree look like it is 'decaying'. I have also staggard the adition of presents so that they add in the 'lead up' to christmas. I think the things I will add after this point, is the skeleton on the tree (on zoom 8), and I will also add a calendar. If I have time I will add a background other than white.
+
+
 24/10/2018
 
 I have added some presents, I will probably make more details on them in the future. Like a bow, ribons, ect. I will also want to fade them in a bit more. 

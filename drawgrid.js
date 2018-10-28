@@ -3,7 +3,9 @@ const max_movement = 1;
 const ball_radius = 32;
 const line_width = 8;
 const grid_size = 64;
-let do_animation = true;
+var do_animation = true;
+
+
 let presentCol = getRandomValue(p5, x, y, z, "pCol", 0, 255, 1);
 
 /* the random number seed for the tour */
@@ -62,7 +64,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
   
-  if(zoom > 4){
+  if(zoom > 3){
     //p5.fill(25);
    p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
   }
@@ -77,9 +79,9 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
 
 
 
-
 function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
 
+if (zoom <= 7){
 // bottom rec 512
   let rect1x = p5.map(x, x1, x2, 0, 256);
   let rect1y = p5.map(y, y1, y2, 0, 256);
@@ -140,7 +142,7 @@ p5.fill(63, 175, 66);
 p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
 
 //zoom 2 introduces snow base around the botto of tree 
- if(zoom > 2){
+ if(zoom > 1){
 p5.fill(220);
 p5.rect(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
 p5.rect(base3x, base3y, (radiusbase3-base3x)/1.3,(radiusbase3-base3x)/8);
@@ -150,7 +152,7 @@ p5.rect(base3x, base3y, (radiusbase3-base3x)/1.3,(radiusbase3-base3x)/8);
 }
  
  //zoom 3 introduces smaller details and shades on the tree
-if (zoom > 3){
+if (zoom > 2){
 
  p5.fill(53, 132, 55);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/7);
@@ -169,7 +171,7 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/7);
 }
 
 //zoom 4 introduces snowcaps to the top of trees
-if (zoom > 4){
+if (zoom > 3){
    p5.fill(240);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
 p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/20);
@@ -183,13 +185,13 @@ p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
 
 
 //places the brown stem of the tree back ontop of the snow circle well thing. Also adds some more rendering detail
-if (zoom > 3){
+if (zoom > 2){
 
   p5.fill(114, 75, 49);
   p5.rect(basex, basey, (radiusbase-basex)/8,(radiusbase-basex)/5);
 }
 
-if (zoom > 3){
+if ((zoom > 2) && (zoom <= 6)){
 
 
 //star 1
@@ -197,7 +199,12 @@ if (zoom > 3){
   let star1y = p5.map(y-11, y1, y2, 0, 256);
   let radiusstar1 = p5.map(x+14.7, x1, x2, 0, 256);
 
+if (zoom == 6){
+p5.fill(78,95,62);
+}
+else{
   p5.fill(255, 226, 86);
+ }
   p5.rect(star1x, star1y, (radiusstar1-star1x)/25,(radiusstar1-star1x)/4);
 
 //star 2
@@ -217,19 +224,29 @@ if (zoom > 3){
  
   p5.rect(star3x, star3y, (radiusstar3-star3x)/10,(radiusstar3-star3x)/10);
 
-if(zoom >5){
+}
 
-  p5.fill(163, 195, 247);
+if ((zoom == 3) || (zoom == 4) || (zoom == 5)){
+	  p5.fill(163, 195, 247);
   let present1x = p5.map(x+6.4, x1, x2, 0, 256);
   let present1y = p5.map(y+3, y1, y2, 0, 256);
   let radiuspresent1 = p5.map(x+16.4, x1, x2, 0, 256);
   p5.rect(present1x, present1y, (radiuspresent1-present1x)/5,(radiuspresent1-present1x)/5);
+}
+if ((zoom == 4) || (zoom == 5) ){
+	//creates the presents 
+
 
  p5.fill(239, 124, 180);
   let present2x = p5.map(x+2.4, x1, x2, 0, 256);
   let present2y = p5.map(y+3, y1, y2, 0, 256);
   let radiuspresent2 = p5.map(x+12.4, x1, x2, 0, 256);
   p5.rect(present2x, present2y, (radiuspresent2-present2x)/7,(radiuspresent2-present2x)/7);
+}
+
+if(zoom == 5){
+
+
 
  p5.fill(127, 195, 244);
   let present3x = p5.map(x+0, x1, x2, 0, 256);
@@ -244,11 +261,33 @@ if(zoom >5){
   p5.rect(present4x, present4y, (radiuspresent4-present4x)/10,(radiuspresent4-present4x)/10);
 
 }
-
  p5.fill(255, 226, 86);
-}
+
+//introduces decaying tree details 
+if (zoom > 5){
+
+
+   p5.fill(80, 55, 39);
+p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/10);
+p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/10);
+p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/10);
+ p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/10);
+ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/10);
+
+   p5.fill(78,95,62);
+p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
+p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/20);
+p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/20);
+ p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/20);
+ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/20);
+
+ p5.fill(255);
+
+}}
 
 }
+
+
 
 
 /*
@@ -322,7 +361,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
   
       /* now draw all elements from back to front */
-      if (zoom < 2) {
+      if (zoom < 1) {
         p5.strokeWeight(cur_line_width);
         p5.stroke(150, 0, 0);
         //p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
@@ -330,7 +369,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         //p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
       }
 
-      if (zoom >= 2) {
+      if (zoom >= 1) {
         p5.fill(0, 0, 255);
         p5.noStroke();
          }
@@ -339,11 +378,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.fill(0, 0, 128);
       p5.noStroke();
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
+
+      //if (zoom <= 5){
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
+
+if (zoom <= 5){
 
 drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z, zoom);        
      
-     
+     }
     }
   }
 
