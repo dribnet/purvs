@@ -27,6 +27,6 @@
     {
       "sha": "365bac2410eed006d16363b1cac1a8824e9dd704",
       "name": "early development"
-    },
+    }
   ]
 }
