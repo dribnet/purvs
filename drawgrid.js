@@ -20,12 +20,11 @@ const noise_density = 0.1
 var tourSeed = 301
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
-  [3, 353.250000000000, 668.187500000000],
-  [4, 322.562500000000, 645.093750000000],
-  [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
-  [3, 317.984375000000, 643.636718750000]
+  [0, 517.527343750000, 505.882812500000],
+  [1, 565.439453125000, 339.044921875000],
+  [3, 607.114257812500, 386.653808593750],
+  [5, 596.244018554688, 362.087646484375],
+  [8, 595.576950073242, 363.224914550781]
 ]
 
 var circlex = 0
@@ -75,10 +74,6 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
 
   for (let x = min_x; x < max_x; x += grid_size) {
     for (let y = min_y; y < max_y; y += grid_size) {
-      /* first compute the points to be drawn */
-      let x_pos = p5.map(x, x1, x2, 0, 256)
-      let y_pos = p5.map(y, y1, y2, 0, 256)
-
       let x_pos_left = p5.map(x + grid_size, x1, x2, 0, 256)
       let y_pos_down = p5.map(y + grid_size, y1, y2, 0, 256)
 
@@ -133,7 +128,7 @@ function drawGrid (p5, x1, x2, y1, y2, z, zoom) {
     }
   }
 
-  // // // debug - show border
+  // debug - show border
   // p5.noFill()
   // p5.stroke(255, 0, 0)
   // p5.rect(0, 0, 255, 255)

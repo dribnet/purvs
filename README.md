@@ -1,3 +1,3 @@
-## PS4 Part 4
+## PS4 Part 5
 
-Added randomness to the position, width, and height of the circles. This makes them look like a creepy organic catseye marble which I think looks really cool. I also made the colors of the rings rotate as you zoom in as well to add some more detail. 
+Updated the tour path to show off various parts of my design. I belive this design would work well as a large print or wallpaper. I could also see it as a cinematic fly-through as the way the number of rings increases as you zoom in could make for an interesting experience. 
