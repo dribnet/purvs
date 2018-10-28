@@ -1,3 +1,3 @@
 ## PS4 MDDN 342 2018
 
-I totally change my idea for the project 4 but I will still use some parts from my project 3 and folllow my personal style. I feel a little bit confused about the code I really want use the 'draw' function but for now every time when I use 'draw' function the versions all not look like what I want so I think I need work on it today. I am not add the zoom part now I need add them after I fix the 'draw' funtion.
+My sketch still follow my cartoon style and I will not use the tile pattern, the main zoom part will be inside window - crystalball - inside crystaball - inside decorations. I will focus more one the patterns so maybe just has a few animation and I will still add one or two more different zoom part.
