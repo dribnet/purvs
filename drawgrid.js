@@ -17,8 +17,9 @@ var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [0, 512, 512],
-  [3, 512, 512],
-  [6, 512, 512]
+  [6, 512, 512],
+  [11, 512, 512],
+  [16, 512, 512]
 ]
 
 let rectx = 400;
@@ -58,8 +59,10 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 // temporary variables used for object placement
   if(zoom < 11){
     p5.background(255);
-  }else{
+  }else if(zoom < 16){
     p5.background(0);
+  }else{
+    p5.background(249, 88, 60);
   }
   p5.rectMode(p5.CORNER);
 
@@ -155,9 +158,123 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
     p5.ellipse(local_rectx,local_recty,ghost_size,ghost_size);
   }
   // myCircle(p5,x1,x2,y1,y2,local_rectx, local_recty, 120, 120);
-  p5.noFill();
-  p5.stroke(255);
-  p5.ellipse(local_rectx,local_recty,ghost_size,ghost_size);
+
+  //11~16 showing candy
+  if(zoom >= 11 && zoom <= 16){
+    if(zoom>= 11 && zoom <16){
+      p5.noFill();
+      p5.stroke(255);
+
+      p5.ellipse(local_rectx,local_recty,ghost_size,ghost_size);
+    }
+    p5.fill(255);
+    p5.stroke(255);
+    let offset;
+    if(zoom == 11){
+      
+      p5.triangle(local_rectx,local_recty, local_rectx-30,local_recty-20, local_rectx-30,local_recty+20);
+      p5.triangle(local_rectx,local_recty, local_rectx+30,local_recty-20, local_rectx+30,local_recty+20);
+
+    }else if(zoom == 12){ 
+      offset = 20;
+      p5.strokeWeight(1);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx-30,local_recty-20-offset, local_rectx-30,local_recty+20-offset);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx+30,local_recty-20-offset, local_rectx+30,local_recty+20-offset);
+
+      p5.strokeWeight(4);
+      p5.line(local_rectx, local_recty+ghost_size/2, local_rectx, local_recty+ghost_size/2+15);
+    }else if(zoom == 13){ 
+      offset = 30;
+      p5.strokeWeight(1);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx-30,local_recty-20-offset, local_rectx-30,local_recty+20-offset);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx+30,local_recty-20-offset, local_rectx+30,local_recty+20-offset);
+
+      p5.strokeWeight(4);
+      p5.line(local_rectx, local_recty+ghost_size/2, local_rectx, local_recty+ghost_size/2+30);
+
+    }else if(zoom == 14){ 
+      offset = 40;
+      p5.strokeWeight(1);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx-30,local_recty-20-offset, local_rectx-30,local_recty+20-offset);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx+30,local_recty-20-offset, local_rectx+30,local_recty+20-offset);
+
+      p5.strokeWeight(4);
+      p5.line(local_rectx, local_recty+ghost_size/2, local_rectx, local_recty+ghost_size/2+50);
+
+    }else if(zoom == 15){ 
+      offset = 50;
+      p5.strokeWeight(1);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx-30,local_recty-20-offset, local_rectx-30,local_recty+20-offset);
+      p5.triangle(local_rectx,local_recty-offset, local_rectx+30,local_recty-20-offset, local_rectx+30,local_recty+20-offset);
+
+      p5.strokeWeight(4);
+      p5.line(local_rectx, local_recty+ghost_size/2, local_rectx, local_recty+ghost_size/2+75);
+
+    }else{
+      let r, g, b;
+      let textr, textg, textb;
+          // let candy_colours = [
+          //   [255, 188, 217],
+          //   [188, 255, 226],
+          //   [255, 188, 251],
+          //   [255, 226, 188],
+          //   [226, 188, 255]
+          // ]
+      let ran_color = p5.random(4);
+      let ran_text_color = p5.random(4);
+      ran_color = Math.round(ran_color);
+      ran_text_color = Math.round(ran_text_color);
+      if(ran_color == 0){
+        r = 255;
+        g = 188;
+        b = 217;
+        textr = 148;
+        textg = 0; 
+        textb = 211;
+      }else if(ran_color == 1){
+         r = 188;
+         g = 255;
+         b = 225;
+        textr = 0;
+        textg = 0; 
+        textb = 255;
+      }else if(ran_color == 2){
+         r = 255;
+         g = 188;
+         b = 251;
+        textr = 0;
+        textg = 255; 
+        textb = 0;
+      }else if(ran_color == 3){
+        r = 255;
+        g = 226;
+        b = 188;
+        textr = 255;
+        textg = 0; 
+        textb = 0;
+       }else if(ran_color == 4){
+         r = 226;
+         g = 188;
+         b = 255;
+        textr = 0;
+        textg = 0; 
+        textb = 0;
+      }
+          
+      p5.fill(r, g, b);
+      p5.ellipse(130,100,ghost_size,ghost_size);
+      p5.strokeWeight(3);
+      p5.stroke(255);
+      p5.line(130, 100+ghost_size/2, 130, 100+ghost_size+30);
+
+      p5.fill(textr, textg, textb);
+      p5.strokeWeight(0.6);
+      p5.text("End of the trimester,", 73, 15);
+      p5.text("y'all deserve a candy!", 68, 30); 
+
+    }
+  }
+  
 
   
   p5.strokeWeight(3);
