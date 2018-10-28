@@ -10,10 +10,9 @@ var tourSeed = 301;
 var tourPath = [
   [1, 512, 512],
   [2, 473.835937500000, 568.513671875000],
-  [3, 395.318359375000, 645.093750000000],
+  [3, 379.272460937500, 625.728027343750],
   [3, 380.061523437500, 630.379882812500],
-  [4, 270.893066406250, 270.893066406250],
-  [4, 260.500732421875, 766.193359375000],
+  [4, 380.061523437500, 630.379882812500],
   [0, 512.000000000000, 512.000000000000],
 ]
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -862,7 +861,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       // p5.strokeWeight(2);
       // circleWaves(p5, x,y, x1, x2, y1, y2);
 
-      if (zoom >= 3 ) { //>= 4
+      if (zoom < 3 ) { //>= 4
         // LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -879,7 +878,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.strokeWeight(2);
         circleWaves(p5, x+5, y+5, x1, x2, y1, y2);
       }
-      if (zoom == 2) { //3
+      if (zoom == 3) { //3
         // LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -896,7 +895,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.strokeWeight(2);
         circleWaves(p5, x+2, y+2, x1, x2, y1, y2);
       }
-      if (zoom == 1) { //2
+      if (zoom == 4) { //2
         //LIGHT BLUE
         p5.stroke('#d2e7fd');
         p5.fill('#d2e7fd');
@@ -913,7 +912,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.strokeWeight(2);
         waves(p5, x+2, y+2, x1, x2, y1, y2);
       }
-      if (zoom < 1) { //< 2
+      if (zoom >= 5) { //< 2
         //DARK BLUE
         p5.stroke('#8ec5fb');
         p5.fill('#8ec5fb');
