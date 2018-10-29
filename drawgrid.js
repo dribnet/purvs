@@ -9,16 +9,16 @@ var do_animation = true;
 let presentCol = getRandomValue(p5, x, y, z, "pCol", 0, 255, 1);
 
 /* the random number seed for the tour */
-var tourSeed = 150;
+var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [0, 512, 512],
-  [1, 512, 512],
-  [2, 512, 512],
-  [3, 512, 512],
-  [4, 512, 512]
-];
-
+  [0, 356.500000000000, 665.750000000000],
+  [2, 353.250000000000, 668.187500000000],
+  [3, 322.562500000000, 645.093750000000],
+  [4, 322.562500000000, 645.109375000000],
+  [5, 317.984375000000, 643.636718750000],
+  [6, 507.984375000000, 516.636718750000]
+]
 
 var fontRegular;
 function preload() {
@@ -544,7 +544,7 @@ drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, 
   let calendary = p5.map(y-10, y1, y2, 0, 256);
   let radiuscalendar = p5.map(x+19, x1, x2, 0, 256);
   
-  if (zoom >= 2){
+  if (zoom >= 3){
 p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calendarx)/5);
  
 
@@ -583,8 +583,12 @@ p5.stroke(0);
   
     }
   }
-
-
+//p5.fill(0)
+// let backx = p5.map(x+9.1, x1, x2, 0, 256);
+//   let backy = p5.map(y-8.2, y1, y2, 0, 256);
+//   let radiusback = p5.map(x+19, x1, x2, 0, 256);
+//  p5.rect(backx, backy, (radiusback-backx),(radiusback-backx));
+  
 
   //debug - show border
   // p5.noFill();
