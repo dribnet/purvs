@@ -45,7 +45,7 @@ function brickWall(p5, x, y, x1, x2, y1, y2){
 
   p5.stroke(0);
 
-  p5.fill(241, 238, 228);
+  p5.fill("#A04000");
 
   for (let i=0; i<10; i+=2){
     // row of bricks without offset
@@ -74,7 +74,7 @@ function WindowSill(p5, x, y, x1, x2, y1, y2){
   let windowSill_h = windowSill_offset_y - windowSill_origin;
   let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
 
-  p5.fill("#dddad0");
+  p5.fill("#873600");
 
   // window sill
 
@@ -116,7 +116,7 @@ function WindowDetail(p5, x, y, x1, x2, y1, y2){
   let windowSill_h = windowSill_offset_y - windowSill_origin;
   let window_sil = p5.map(grid_size/10, x1, x2, 0, 256);
 
-  p5.fill("#dddad0");
+  p5.fill("#873600");
 
   // window sill
 
@@ -237,7 +237,7 @@ function Moon(p5, x, y, x1, x2, y1, y2){
   let moon_offset = p5.map(30, x1, x2, 0, 256);
   let moon_radius = moon_offset - moon_origin;
 
-  p5.fill("#F7FAFD");
+  p5.fill("#FCF3CF");
   p5.ellipse(moon_x, moon_y, moon_radius, moon_radius);
   p5.noStroke();
   p5.fill(0);
@@ -259,7 +259,7 @@ function Star(p5, x, y, x1, x2, y1, y2, z){
   let star_offset = p5.map(1, x1, x2, 0, 256);
   let star_radius = star_offset - star_origin;
 
-  p5.fill(255);
+  p5.fill("#FCF3CF");
 
   //p5.ellipse(star_x, star_y, 10 + starSize, 10 + starSize);
   p5.ellipse(star_x, star_y, star_radius + starTwinkle, star_radius + starTwinkle);
@@ -303,7 +303,7 @@ function WindowMini(p5, x, y, x1, x2, y1, y2){
   let windowSill_h = windowSill_offset_y - windowSill_origin;
   let window_sil = p5.map(mini_size/10, x1, x2, 0, 256);
 
-  p5.fill("#dddad0");
+  p5.fill("#873600");
 
   // window sill
 
@@ -346,7 +346,7 @@ function brickWallMini(p5, x, y, x1, x2, y1, y2){
   let brick_w = brick_offset_x - brick_origin;
   let brick_h = brick_offset_y - brick_origin;
 
-  p5.fill(241, 238, 228);
+  p5.fill("#A04000");
 
   for(let j=0; j < 16; j++){
     for (let i=0; i<120; i+=2){
@@ -386,7 +386,7 @@ function Wall(p5, x, y, x1, x2, y1, y2){
   let wall_w = wall_offset_x - wall_origin;
   let wall_h = wall_offset_y - wall_origin;
 
-  p5.fill(241, 238, 228);
+  p5.fill("#A04000");
   p5.stroke(0);
 
   p5.rect(wall_x, wall_y, wall_w, wall_h);
@@ -408,7 +408,7 @@ function DetailedWall(p5, x, y, x1, x2, y1, y2,zoom){
   let wall_w = wall_offset_x - wall_origin;
   let wall_h = wall_offset_y - wall_origin;
 
-  p5.fill(241, 238, 228);
+  p5.fill("#A04000");
   p5.stroke(0);
 
   p5.rect(wall_x, wall_y, wall_w, wall_h);
@@ -429,7 +429,7 @@ function MoonMini(p5, x, y, x1, x2, y1, y2){
   let moon_offset = p5.map(0.1, x1, x2, 0, 256);
   let moon_radius = moon_offset - moon_origin;
 
-  p5.fill("#F7FAFD");
+  p5.fill("#FCF3CF");
   p5.ellipse(moon_x, moon_y, moon_radius, moon_radius);
   p5.noStroke();
   p5.fill(0);
@@ -457,7 +457,7 @@ function Cloud (p5, x, y, x1, x2, y1, y2, z){
 
   p5.noStroke();
 
-  p5.fill(241, 238, 228);
+  p5.fill("#B0BEC5");
 
   p5.rect(cloudrect_x, cloudrect_y+ cloudFloat, cloudrect_w, cloudrect_h);
   p5.ellipse(cloudellipse_x, cloudellipse_y+ cloudellipse_radius/2 + cloudFloat, cloudellipse_radius, cloudellipse_radius);
@@ -471,15 +471,6 @@ function Cloud (p5, x, y, x1, x2, y1, y2, z){
    Cloud(p5, x + 45, y + 40, x1, x2, y1, y2, z);
    Cloud(p5, x + 80, y +110, x1, x2, y1, y2, z);
  }
-
-
-
-function PotPlant(p5, x, y, x1, x2, y1, y2){
-
-}
-
-
-
 
 // The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
@@ -551,17 +542,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.pop();
       }
 
-      // if (zoom >= 4){
-      //   p5.push();
-      //   p5.strokeWeight(1.5*zoom);
-      //   brickWall(p5, x, y, x1, x2, y1, y2);
-      //   WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-      //   Moon(p5, grid_size, grid_size, x1, x2, y1, y2);
-      //   Stars(p5, grid_size, grid_size, x1, x2, y1, y2);
-      //   Wall(p5, grid_size*1.45, grid_size+50, x1, x2, y1, y2);
-      //   p5.pop();
-      // }
-
       if (zoom >= 6){
         p5.push();
         p5.strokeWeight(1.5*zoom);
@@ -586,24 +566,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         MoonMini(p5, (grid_size*2.5) + (grid_size*1.55), (grid_size*2.5) + (grid_size + 147.5), x1, x2, y1, y2);
         p5.pop();
       }
-
-
-
-
-
-
-      // if (zoom >= 3) {
-      //   p5.push();
-      //   p5.strokeWeight(2);
-      //   brickWall(p5, x, y, x1, x2, y1, y2);
-      //   WindowDetail(p5, grid_size, grid_size, x1, x2, y1, y2);
-      //   p5.fill("#AED6F1");
-      //   Window(p5, grid_size * 1.1, grid_size, x1, x2, y1, y2);
-      //   p5.pop();     
-      // }
-      
-    }
-    
+    }    
   }
 
 
