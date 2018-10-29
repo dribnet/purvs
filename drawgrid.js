@@ -16,6 +16,15 @@ var tourPath = [
   [2, -149, 1257]
 ]
 
+
+var fontRegular;
+function preload() {
+  fontRegular = loadFont('Adam.otf');
+
+}
+
+
+
 /* this function takes a coordinate and aligns to a grid of size gsize */
 function snap_to_grid(num, gsize) {
   return (num - (num % gsize));
@@ -266,29 +275,29 @@ if(zoom == 4){
 //introduces decaying tree details 
 if (zoom > 4){
 
-
-   p5.fill(80, 55, 39);
+p5.fill(80, 55, 39);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/10);
 p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/10);
 p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/10);
- p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/10);
- p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/10);
+p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/10);
+p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/10);
 
-   p5.fill(78,95,62);
+p5.fill(78,95,62);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
 p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/20);
 p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/20);
- p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/20);
- p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/20);
+p5.rect(rect4x, rect4y, (radiusRect4-rect4x)/1.80,(radiusRect4-rect4x)/20);
+p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/20);
 
- p5.fill(255);
+p5.fill(255);
 
-}}
+}
+}
 
 if (zoom >= 6){
 
-	p5.fill(220);
-	let baseDEADx = p5.map(x+1, x1, x2, 0, 256);
+p5.fill(220);
+let baseDEADx = p5.map(x+1, x1, x2, 0, 256);
   let baseDEADy = p5.map(y+3.4, y1, y2, 0, 256);
   let radiusbaseDEAD = p5.map(x+11, x1, x2, 0, 256);
   p5.rect(baseDEADx, baseDEADy, (radiusbaseDEAD-baseDEADx)/1.3,(radiusbaseDEAD-baseDEADx)/8);
@@ -513,20 +522,67 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //if (zoom <= 5){
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
+
+
 if (zoom <= 4){
 
 drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z, zoom);        
      
-     }
+     } 	
+       p5.fill(230);
+   
+  let calendarx = p5.map(x+9, x1, x2, 0, 256);
+  let calendary = p5.map(y-10, y1, y2, 0, 256);
+  let radiuscalendar = p5.map(x+19, x1, x2, 0, 256);
+  
+  if (zoom >= 2){
+p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calendarx)/5);
+ 
+
+  	p5.fill(200,0,0);
+ p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calendarx)/20);
+  }
+let fontx = p5.map(x+9.1, x1, x2, 0, 256);
+  let fonty = p5.map(y-8.2, y1, y2, 0, 256);
+  let radiusfont = p5.map(x+19, x1, x2, 0, 256);
+ 
+
+p5.fill(0);
+p5.stroke(0);
+  p5.strokeWeight(1);
+ let sizex = x2 - x1;
+ p5.textSize(radiusfont/12);
+
+
+ //p5.textFont(fontRegular);
+ if (zoom ==3){
+ p5.text("23", fontx, fonty);
+}
+
+ if (zoom ==4){
+ p5.text("25", fontx, fonty);
+}
+ if (zoom ==5){
+ 	p5.textSize(radiusfont/7);
+ p5.text("27", fontx, fonty);
+}
+
+ if (zoom ==6){
+ 	p5.textSize(radiusfont/7);
+ p5.text("31", fontx, fonty);
+}
+  
     }
   }
 
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(0, 200, 200)
-  // p5.strokeWeight(1);
-  // p5.rect(0, 0, 255, 255);
-  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  // let sizex = x2 - x1;
-  // p5.text("width: " + sizex, 10, 40);
+
+
+  //debug - show border
+  p5.noFill();
+  p5.stroke(0, 200, 200)
+  p5.strokeWeight(1);
+  p5.rect(0, 0, 255, 255);
+  //p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  let sizex = x2 - x1;
+ // p5.text("width: " + sizex, 10, 40);
 }

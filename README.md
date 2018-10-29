@@ -1,7 +1,9 @@
 ## PS4 MDDN 342 2018
 29/10/2018
 
-Update: I have made the skeleton. I also made every zoom smaller by one, as when I zoomed in to the last zoom it was too close.
+
+
+ I have made the skeleton. I also made every zoom smaller by one, as when I zoomed in to the last zoom it was too close. I also have made a calendar which apears on the 23rd, 25th, 27th, 31st.
 
 I have made the zoom for 7 begin to make the tree look like it is 'decaying'. I have also staggard the adition of presents so that they add in the 'lead up' to christmas. I think the things I will add after this point, is the skeleton on the tree (on zoom 8), and I will also add a calendar. If I have time I will add a background other than white.
 
