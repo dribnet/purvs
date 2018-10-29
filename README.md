@@ -1,9 +1,27 @@
 ## PS4 MDDN 342 2018
+30/10/2018
+
+FINAL VERSION - A WEEK IN THE LIFE OF A CHRISTMAS TREE
+
+I am happy with my change of design, I really like the idea of 'a week in the life of a christmas tree'.
+
+The tour starts off the week before chirstmas, where the trees are growing in a christmas tree farm (hence the grid formation), in somw snow banks. An addition I added at the last minute was 'snow contours'. I decided to add this in order to give the landscape some subtle dimension.
+
+The tour then goes to zoom in. The contours are gone but there are presents starting to apear (this is supposed to represent a family buying the tree. The next zoom in introduces some more presents, a calendar, and decorations on the tree. The lights are subtly animated. The date is the 23rd, a couple of days before chirstmas.
+
+The next zoom is the 25th, christmas day. There are more presents. 
+The next zoom is two days after christmas, the decorations are turned off, and the tree is begining to droop. 
+
+The last zoom is the 31st, the last day of the year. The christmas tree is dead.
+
+If had to have a narrative for this, I would say it shows the commericalisation of christmas, and how fleeting and weird the tradition of having a tree for a couple of days is. In reflection on this asignment, I found the code quite hard at the start. But once I got into it and began to make a decent effort in order to understand it, it was very easy to use. The code for the animation was a little confusing but I ended up basing my code of the example code, so it was fine. 
+
+I have really enjoyed these last two years in creative coding, it has definitly been my favourite course so far. Thank you Tom and Pheobe for making it so fun, and for helping me make cool things for my portfolio :)
+
+
+
 29/10/2018
-
-
-
- I have made the skeleton. I also made every zoom smaller by one, as when I zoomed in to the last zoom it was too close. I also have made a calendar which apears on the 23rd, 25th, 27th, 31st.
+I have made the skeleton. I also made every zoom smaller by one, as when I zoomed in to the last zoom it was too close. I also have made a calendar which apears on the 23rd, 25th, 27th, 31st.
 
 I have made the zoom for 7 begin to make the tree look like it is 'decaying'. I have also staggard the adition of presents so that they add in the 'lead up' to christmas. I think the things I will add after this point, is the skeleton on the tree (on zoom 8), and I will also add a calendar. If I have time I will add a background other than white.
 
