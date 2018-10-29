@@ -12,9 +12,12 @@ let presentCol = getRandomValue(p5, x, y, z, "pCol", 0, 255, 1);
 var tourSeed = 150;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [2, -146, 1132],
-  [2, -149, 1257]
-]
+  [0, 512, 512],
+  [1, 512, 512],
+  [2, 512, 512],
+  [3, 512, 512],
+  [4, 512, 512]
+];
 
 
 var fontRegular;
@@ -443,6 +446,9 @@ p5.fill(80, 55, 39);
  */
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   /* max_shift is the amount of overlap a tile can spill over into its neighbors */
+  
+
+
   let max_shift = max_thickness + max_movement;
 
   /* For animation: updated z based on global frame count */
@@ -520,6 +526,9 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //p5.ellipse(x_pos, y_pos, cur_ball_radius);
 
       //if (zoom <= 5){
+
+
+
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
 
@@ -578,11 +587,11 @@ p5.stroke(0);
 
 
   //debug - show border
-  p5.noFill();
-  p5.stroke(0, 200, 200)
-  p5.strokeWeight(1);
-  p5.rect(0, 0, 255, 255);
-  //p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  let sizex = x2 - x1;
+  // p5.noFill();
+  // p5.stroke(0, 200, 200)
+  // p5.strokeWeight(1);
+  // p5.rect(0, 0, 255, 255);
+  // //p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  // let sizex = x2 - x1;
  // p5.text("width: " + sizex, 10, 40);
 }
