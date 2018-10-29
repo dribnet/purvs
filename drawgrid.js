@@ -231,6 +231,10 @@ function drawStardetail(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
 }
 
 function drawStarLast(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
+     let speed = 3.0;
+     let flowerWave = p5.sin(speed * p5.globalFrameCount);
+     let fVar = p5.map(flowerWave, -1, 1, 51, 255);
+
      let x_0 = p5.map(0, x1, x2, 0, 256);
      let x_1 = p5.map(1, x1, x2, 0, 256);
      let x_unit = (x_1 - x_0);
@@ -238,55 +242,55 @@ function drawStarLast(xpos, ypos, p5, x1, x2, y1, y2, z, zoom){
      x = p5.map(xpos, x1, x2, 0, 256);
      y = p5.map(ypos, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.7 * x_unit, 0.7 * x_unit);
 
      x = p5.map(xpos, x1, x2, 0, 256);
      y = p5.map(ypos - 0.5, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos, x1, x2, 0, 256);
      y = p5.map(ypos + 0.5, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos + 0.5, x1, x2, 0, 256);
      y = p5.map(ypos, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos - 0.5, x1, x2, 0, 256);
      y = p5.map(ypos, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos - 0.4, x1, x2, 0, 256);
      y = p5.map(ypos - 0.4, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos + 0.4, x1, x2, 0, 256);
      y = p5.map(ypos - 0.4, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos + 0.4, x1, x2, 0, 256);
      y = p5.map(ypos + 0.4, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
 
      x = p5.map(xpos - 0.4, x1, x2, 0, 256);
      y = p5.map(ypos + 0.4, y1, y2, 0, 256);
      p5.noStroke();
-     p5.fill(255);
+     p5.fill(fVar);
      p5.ellipse(x, y, 0.5 * x_unit, 0.5 * x_unit);
      
      x = p5.map(xpos, x1, x2, 0, 256);
@@ -411,25 +415,32 @@ function drawflower(xpos, ypos, p5, x1, x2, y1, y2, z, zoom) {
 
 
 function drawBird(xpos, ypos, p5, x1, x2, y1, y2, z, zoom) {
+     let speed = 2;
+     let birdWave = p5.sin(speed * p5.globalFrameCount);
+
      let x_0 = p5.map(0, x1, x2, 0, 256);
      let x_1 = p5.map(1, x1, x2, 0, 256);
      let x_unit = (x_1 - x_0);
 
      //bird mouth1
+     let mouthBirdHeight1 = p5.map(birdWave, -1, 1, 175, 185);
      x = p5.map(xpos + 440, x1, x2, 0, 256);
      y = p5.map(ypos + 180, y1, y2, 0, 256);
      w = p5.map(xpos + 450, x1, x2, 0, 256);
-     h = p5.map(ypos + 185, y1, y2, 0, 256);
+     h = p5.map(ypos + mouthBirdHeight1, y1, y2, 0, 256);
+     // h = p5.map(ypos + 185, y1, y2, 0, 256);
      p5.strokeWeight(9 * x_unit);
      p5.stroke(255, 69, 0);
      p5.noFill();
      p5.line(x, y, w, h);
 
      //bird mouth2
+     let mouthBirdHeight2 = p5.map(birdWave, -1, 1, 185, 175);
      x = p5.map(xpos + 440, x1, x2, 0, 256);
      y = p5.map(ypos + 180, y1, y2, 0, 256);
      w = p5.map(xpos + 450, x1, x2, 0, 256);
-     h = p5.map(ypos + 175, y1, y2, 0, 256);
+     h = p5.map(ypos + mouthBirdHeight2, y1, y2, 0, 256);
+     // h = p5.map(ypos + 175, y1, y2, 0, 256);
      p5.strokeWeight(9 * x_unit);
      p5.stroke(255, 69, 0);
      p5.noFill();
