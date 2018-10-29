@@ -64,7 +64,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
     let pixel_x = p5.map(pos_x+0.5*rad1*offset[0], x1, x2, 0, 256);
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
   
-  if(zoom > 3){
+  if(zoom > 2){
     //p5.fill(25);
    p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
   }
@@ -81,7 +81,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
 
 function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
 
-if (zoom <= 7){
+if (zoom <= 5){
 // bottom rec 512
   let rect1x = p5.map(x, x1, x2, 0, 256);
   let rect1y = p5.map(y, y1, y2, 0, 256);
@@ -142,7 +142,7 @@ p5.fill(63, 175, 66);
 p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/5);
 
 //zoom 2 introduces snow base around the botto of tree 
- if(zoom > 1){
+ if(zoom > 0){
 p5.fill(220);
 p5.rect(base2x, base2y, (radiusbase2-base2x)/1.5,(radiusbase2-base2x)/5);
 p5.rect(base3x, base3y, (radiusbase3-base3x)/1.3,(radiusbase3-base3x)/8);
@@ -152,7 +152,7 @@ p5.rect(base3x, base3y, (radiusbase3-base3x)/1.3,(radiusbase3-base3x)/8);
 }
  
  //zoom 3 introduces smaller details and shades on the tree
-if (zoom > 2){
+if (zoom > 1){
 
  p5.fill(53, 132, 55);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/7);
@@ -171,7 +171,7 @@ p5.rect(rect5x, rect5y, (radiusRect5-rect5x)/2.6,(radiusRect5-rect5x)/7);
 }
 
 //zoom 4 introduces snowcaps to the top of trees
-if (zoom > 3){
+if (zoom > 2){
    p5.fill(240);
 p5.rect(rect1x, rect1y, (radiusRect1-rect1x),(radiusRect1-rect1x)/20);
 p5.rect(rect2x, rect2y, (radiusRect2-rect2x)/1.20,(radiusRect2-rect2x)/20);
@@ -185,13 +185,13 @@ p5.rect(basex, basey, (radiusbase-basex)/2.6,(radiusbase-basex)/5);
 
 
 //places the brown stem of the tree back ontop of the snow circle well thing. Also adds some more rendering detail
-if (zoom > 2){
+if (zoom > 1){
 
   p5.fill(114, 75, 49);
   p5.rect(basex, basey, (radiusbase-basex)/8,(radiusbase-basex)/5);
 }
 
-if ((zoom > 2) && (zoom <= 6)){
+if ((zoom > 2) && (zoom <= 5)){
 
 
 //star 1
@@ -199,7 +199,7 @@ if ((zoom > 2) && (zoom <= 6)){
   let star1y = p5.map(y-11, y1, y2, 0, 256);
   let radiusstar1 = p5.map(x+14.7, x1, x2, 0, 256);
 
-if (zoom == 6){
+if (zoom == 5){
 p5.fill(78,95,62);
 }
 else{
@@ -226,14 +226,14 @@ else{
 
 }
 
-if ((zoom == 3) || (zoom == 4) || (zoom == 5)){
+if ((zoom == 2) || (zoom == 3) || (zoom == 4)){
 	  p5.fill(163, 195, 247);
   let present1x = p5.map(x+6.4, x1, x2, 0, 256);
   let present1y = p5.map(y+3, y1, y2, 0, 256);
   let radiuspresent1 = p5.map(x+16.4, x1, x2, 0, 256);
   p5.rect(present1x, present1y, (radiuspresent1-present1x)/5,(radiuspresent1-present1x)/5);
 }
-if ((zoom == 4) || (zoom == 5) ){
+if ((zoom == 3) || (zoom == 4) ){
 	//creates the presents 
 
 
@@ -244,7 +244,7 @@ if ((zoom == 4) || (zoom == 5) ){
   p5.rect(present2x, present2y, (radiuspresent2-present2x)/7,(radiuspresent2-present2x)/7);
 }
 
-if(zoom == 5){
+if(zoom == 4){
 
 
 
@@ -264,7 +264,7 @@ if(zoom == 5){
  p5.fill(255, 226, 86);
 
 //introduces decaying tree details 
-if (zoom > 5){
+if (zoom > 4){
 
 
    p5.fill(80, 55, 39);
@@ -285,6 +285,137 @@ p5.rect(rect3x, rect3y, (radiusRect3-rect3x)/1.40,(radiusRect3-rect3x)/20);
 
 }}
 
+if (zoom >= 6){
+
+	p5.fill(220);
+	let baseDEADx = p5.map(x+1, x1, x2, 0, 256);
+  let baseDEADy = p5.map(y+3.4, y1, y2, 0, 256);
+  let radiusbaseDEAD = p5.map(x+11, x1, x2, 0, 256);
+  p5.rect(baseDEADx, baseDEADy, (radiusbaseDEAD-baseDEADx)/1.3,(radiusbaseDEAD-baseDEADx)/8);
+
+
+
+//first trunk of dead tree
+p5.fill(99, 60, 34);
+ let trunkSkelx = p5.map(x+3.6, x1, x2, 0, 256);
+  let trunkSkely = p5.map(y+0.7, y1, y2, 0, 256);
+  let radiustrunkSkel1 = p5.map(x+13.6, x1, x2, 0, 256);
+  p5.rect(trunkSkelx, trunkSkely, (radiustrunkSkel1-trunkSkelx)/4,(radiustrunkSkel1-trunkSkelx)/3);
+
+//second trunk
+ let trunkSkel2x = p5.map(x+4.1, x1, x2, 0, 256);
+  let trunkSkel2y = p5.map(y-4, y1, y2, 0, 256);
+  let radiustrunkSkel2 = p5.map(x+14.1, x1, x2, 0, 256);
+  p5.rect(trunkSkel2x, trunkSkel2y, (radiustrunkSkel2-trunkSkel2x)/7,(radiustrunkSkel2-trunkSkel2x)/2);
+
+ //third trunk
+ let trunkSkel3x = p5.map(x+4.5, x1, x2, 0, 256);
+  let trunkSkel3y = p5.map(y-8, y1, y2, 0, 256);
+  let radiustrunkSkel3 = p5.map(x+14.1, x1, x2, 0, 256);
+  p5.rect(trunkSkel3x, trunkSkel3y, (radiustrunkSkel3-trunkSkel3x)/15,(radiustrunkSkel3-trunkSkel3x));
+
+p5.fill(88, 42, 11);
+ //first branch
+ let trunkSkelbranchx = p5.map(x+0.8, x1, x2, 0, 256);
+  let trunkSkelbranchy = p5.map(y+1.5, y1, y2, 0, 256);
+  let radiustrunkSkelbranch = p5.map(x+10.8, x1, x2, 0, 256);
+  p5.rect(trunkSkelbranchx, trunkSkelbranchy, (radiustrunkSkelbranch-trunkSkelbranchx)/1.2,(radiustrunkSkelbranch-trunkSkelbranchx)/20);
+//smaller parts
+p5.fill(80, 55, 39);
+	let trunkSkelRightSmall1x = p5.map(x+0.2, x1, x2, 0, 256);
+  let trunkSkelRightSmall1y = p5.map(y+2, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall1 = p5.map(x+10.2, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall1x, trunkSkelRightSmall1y, (radiustrunkSkelRightSmall1-trunkSkelRightSmall1x)/18,(radiustrunkSkelRightSmall1-trunkSkelRightSmall1x)/20);
+
+  let trunkSkelRightSmall2x = p5.map(x+9.2, x1, x2, 0, 256);
+  let trunkSkelRightSmall2y = p5.map(y+2, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall2 = p5.map(x+19.2, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall2x, trunkSkelRightSmall2y, (radiustrunkSkelRightSmall2-trunkSkelRightSmall2x)/18,(radiustrunkSkelRightSmall2-trunkSkelRightSmall2x)/20);
+
+p5.fill(88, 42, 11);
+ //seccond branch
+ let trunkSkelbranch2x = p5.map(x+1.6, x1, x2, 0, 256);
+  let trunkSkelbranch2y = p5.map(y-0.5, y1, y2, 0, 256);
+  let radiustrunkSkelbranch2 = p5.map(x+11.6, x1, x2, 0, 256);
+  p5.rect(trunkSkelbranch2x, trunkSkelbranch2y, (radiustrunkSkelbranch2-trunkSkelbranch2x)/1.5,(radiustrunkSkelbranch2-trunkSkelbranch2x)/20);
+
+//smaller parts
+p5.fill(80, 55, 39);
+	let trunkSkelRightSmall3x = p5.map(x+1, x1, x2, 0, 256);
+  let trunkSkelRightSmall3y = p5.map(y, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall3 = p5.map(x+10.2, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall3x, trunkSkelRightSmall3y, (radiustrunkSkelRightSmall3-trunkSkelRightSmall3x)/18,(radiustrunkSkelRightSmall3-trunkSkelRightSmall3x)/20);
+
+  let trunkSkelRightSmall4x = p5.map(x+8.30, x1, x2, 0, 256);
+  let trunkSkelRightSmall4y = p5.map(y, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall4 = p5.map(x+18.3, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall4x, trunkSkelRightSmall4y, (radiustrunkSkelRightSmall4-trunkSkelRightSmall4x)/18,(radiustrunkSkelRightSmall4-trunkSkelRightSmall4x)/20);
+
+
+
+
+p5.fill(88, 42, 11);
+ //third branch
+ let trunkSkelbranch3x = p5.map(x+2.5, x1, x2, 0, 256);
+  let trunkSkelbranch3y = p5.map(y-2.5, y1, y2, 0, 256);
+  let radiustrunkSkelbranch3 = p5.map(x+12.5, x1, x2, 0, 256);
+  p5.rect(trunkSkelbranch3x, trunkSkelbranch3y, (radiustrunkSkelbranch3-trunkSkelbranch3x)/2,(radiustrunkSkelbranch3-trunkSkelbranch3x)/20);
+//smaller parts
+p5.fill(80, 55, 39);
+	let trunkSkelRightSmall5x = p5.map(x+1.9, x1, x2, 0, 256);
+  let trunkSkelRightSmall5y = p5.map(y-2, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall5 = p5.map(x+11.9, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall5x, trunkSkelRightSmall5y, (radiustrunkSkelRightSmall5-trunkSkelRightSmall5x)/18,(radiustrunkSkelRightSmall5-trunkSkelRightSmall5x)/20);
+
+  let trunkSkelRightSmall6x = p5.map(x+7.50, x1, x2, 0, 256);
+  let trunkSkelRightSmall6y = p5.map(y-2, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall6 = p5.map(x+17.5, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall6x, trunkSkelRightSmall6y, (radiustrunkSkelRightSmall6-trunkSkelRightSmall6x)/18,(radiustrunkSkelRightSmall6-trunkSkelRightSmall6x)/20);
+
+
+
+
+p5.fill(88, 42, 11);
+ //fourth branch
+ let trunkSkelbranch4x = p5.map(x+3.2, x1, x2, 0, 256);
+  let trunkSkelbranch4y = p5.map(y-4.5, y1, y2, 0, 256);
+  let radiustrunkSkelbranch4 = p5.map(x+13.2, x1, x2, 0, 256);
+  p5.rect(trunkSkelbranch4x, trunkSkelbranch4y, (radiustrunkSkelbranch4-trunkSkelbranch4x)/2.8,(radiustrunkSkelbranch4-trunkSkelbranch4x)/20);
+//smaller parts
+p5.fill(80, 55, 39);
+	let trunkSkelRightSmall7x = p5.map(x+2.6, x1, x2, 0, 256);
+  let trunkSkelRightSmall7y = p5.map(y-4, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall7 = p5.map(x+12.6, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall7x, trunkSkelRightSmall7y, (radiustrunkSkelRightSmall7-trunkSkelRightSmall7x)/18,(radiustrunkSkelRightSmall7-trunkSkelRightSmall7x)/20);
+
+  let trunkSkelRightSmall8x = p5.map(x+6.80, x1, x2, 0, 256);
+  let trunkSkelRightSmall8y = p5.map(y-4, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall8 = p5.map(x+16.8, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall8x, trunkSkelRightSmall8y, (radiustrunkSkelRightSmall8-trunkSkelRightSmall8x)/18,(radiustrunkSkelRightSmall8-trunkSkelRightSmall8x)/20);
+
+
+p5.fill(88, 42, 11);
+ //fifth branch
+ let trunkSkelbranch5x = p5.map(x+3.6, x1, x2, 0, 256);
+  let trunkSkelbranch5y = p5.map(y-6.5, y1, y2, 0, 256);
+  let radiustrunkSkelbranch5 = p5.map(x+13.6, x1, x2, 0, 256);
+  p5.rect(trunkSkelbranch5x, trunkSkelbranch5y, (radiustrunkSkelbranch5-trunkSkelbranch5x)/4,(radiustrunkSkelbranch5-trunkSkelbranch5x)/20);
+//smaller parts
+p5.fill(80, 55, 39);
+	let trunkSkelRightSmall9x = p5.map(x+3, x1, x2, 0, 256);
+  let trunkSkelRightSmall9y = p5.map(y-6, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall9 = p5.map(x+13, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall9x, trunkSkelRightSmall9y, (radiustrunkSkelRightSmall9-trunkSkelRightSmall9x)/18,(radiustrunkSkelRightSmall9-trunkSkelRightSmall9x)/20);
+
+  let trunkSkelRightSmall10x = p5.map(x+6.1, x1, x2, 0, 256);
+  let trunkSkelRightSmall10y = p5.map(y-6, y1, y2, 0, 256);
+  let radiustrunkSkelRightSmall10 = p5.map(x+16.1, x1, x2, 0, 256);
+  p5.rect(trunkSkelRightSmall10x, trunkSkelRightSmall10y, (radiustrunkSkelRightSmall10-trunkSkelRightSmall10x)/18,(radiustrunkSkelRightSmall10-trunkSkelRightSmall10x)/20);
+
+
+
+
+}
 }
 
 
@@ -361,7 +492,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let y_pos_down = p5.map(shifted_y_down, y1, y2, 0, 256);
   
       /* now draw all elements from back to front */
-      if (zoom < 1) {
+      if (zoom < 0) {
         p5.strokeWeight(cur_line_width);
         p5.stroke(150, 0, 0);
         //p5.line(x_pos, y_pos, x_pos_left, y_pos_left);
@@ -369,7 +500,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         //p5.line(x_pos, y_pos, x_pos_down, y_pos_down);
       }
 
-      if (zoom >= 1) {
+      if (zoom >= 0) {
         p5.fill(0, 0, 255);
         p5.noStroke();
          }
@@ -382,7 +513,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       //if (zoom <= 5){
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
-if (zoom <= 5){
+if (zoom <= 4){
 
 drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z, zoom);        
      
