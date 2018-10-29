@@ -9,15 +9,14 @@ var do_animation = true;
 let presentCol = getRandomValue(p5, x, y, z, "pCol", 0, 255, 1);
 
 /* the random number seed for the tour */
-var tourSeed = 301;
+var tourSeed = 1;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
   [0, 356.500000000000, 665.750000000000],
   [2, 353.250000000000, 668.187500000000],
   [3, 322.562500000000, 645.093750000000],
   [4, 322.562500000000, 645.109375000000],
-  [5, 317.984375000000, 643.636718750000],
-  [6, 507.984375000000, 516.636718750000]
+  [5, 317.984375000000, 643.636718750000]
 ]
 
 var fontRegular;
@@ -244,6 +243,20 @@ if ((zoom == 2) || (zoom == 3) || (zoom == 4)){
   let present1y = p5.map(y+3, y1, y2, 0, 256);
   let radiuspresent1 = p5.map(x+16.4, x1, x2, 0, 256);
   p5.rect(present1x, present1y, (radiuspresent1-present1x)/5,(radiuspresent1-present1x)/5);
+
+  p5.fill(245);
+  let present1ax = p5.map(x+7.2, x1, x2, 0, 256);
+  let present1ay = p5.map(y+3, y1, y2, 0, 256);
+  let radiuspresent1a = p5.map(x+17.2, x1, x2, 0, 256);
+  p5.rect(present1ax, present1ay, (radiuspresent1a-present1ax)/20,(radiuspresent1a-present1ax)/5);
+  
+  let present1bx = p5.map(x+6.4, x1, x2, 0, 256);
+  let present1by = p5.map(y+3.8, y1, y2, 0, 256);
+  let radiuspresent1b = p5.map(x+16.4, x1, x2, 0, 256);
+  p5.rect(present1bx, present1by, (radiuspresent1b-present1bx)/5,(radiuspresent1b-present1bx)/20);
+
+
+
 }
 if ((zoom == 3) || (zoom == 4) ){
 	//creates the presents 
@@ -254,23 +267,60 @@ if ((zoom == 3) || (zoom == 4) ){
   let present2y = p5.map(y+3, y1, y2, 0, 256);
   let radiuspresent2 = p5.map(x+12.4, x1, x2, 0, 256);
   p5.rect(present2x, present2y, (radiuspresent2-present2x)/7,(radiuspresent2-present2x)/7);
+
+ p5.fill(255);
+  let present2ax = p5.map(x+3, x1, x2, 0, 256);
+  let present2ay = p5.map(y+3, y1, y2, 0, 256);
+  let radiuspresent2a = p5.map(x+13, x1, x2, 0, 256);
+  p5.rect(present2ax, present2ay, (radiuspresent2a-present2ax)/40,(radiuspresent2a-present2ax)/7);
+
+  let present2bx = p5.map(x+2.4, x1, x2, 0, 256);
+  let present2by = p5.map(y+3.6, y1, y2, 0, 256);
+  let radiuspresent2b = p5.map(x+12.4, x1, x2, 0, 256);
+  p5.rect(present2bx, present2by, (radiuspresent2b-present2bx)/7,(radiuspresent2b-present2bx)/40);
+
 }
 
 if(zoom == 4){
 
 
 
- p5.fill(127, 195, 244);
+  p5.fill(127, 195, 244);
   let present3x = p5.map(x+0, x1, x2, 0, 256);
   let present3y = p5.map(y+4, y1, y2, 0, 256);
   let radiuspresent3 = p5.map(x+10, x1, x2, 0, 256);
   p5.rect(present3x, present3y, (radiuspresent3-present3x)/3,(radiuspresent3-present3x)/10);
+
+  p5.fill(240);
+  let present3ax = p5.map(x+0, x1, x2, 0, 256);
+  let present3ay = p5.map(y+4.4, y1, y2, 0, 256);
+  let radiuspresent3a = p5.map(x+10, x1, x2, 0, 256);
+  p5.rect(present3ax, present3ay, (radiuspresent3a-present3ax)/3,(radiuspresent3a-present3ax)/40);
+
+  let present3bx = p5.map(x+1, x1, x2, 0, 256);
+  let present3by = p5.map(y+4, y1, y2, 0, 256);
+  let radiuspresent3b = p5.map(x+11, x1, x2, 0, 256);
+  p5.rect(present3bx, present3by, (radiuspresent3b-present3bx)/40,(radiuspresent3b-present3bx)/10);
+
+
 
  p5.fill(206, 178, 255);
   let present4x = p5.map(x+5, x1, x2, 0, 256);
   let present4y = p5.map(y+3.3, y1, y2, 0, 256);
   let radiuspresent4 = p5.map(x+15, x1, x2, 0, 256);
   p5.rect(present4x, present4y, (radiuspresent4-present4x)/10,(radiuspresent4-present4x)/10);
+
+ p5.fill(240);
+  let present4ax = p5.map(x+5.4, x1, x2, 0, 256);
+  let present4ay = p5.map(y+3.3, y1, y2, 0, 256);
+  let radiuspresent4a = p5.map(x+15.4, x1, x2, 0, 256);
+  p5.rect(present4ax, present4ay, (radiuspresent4a-present4ax)/45,(radiuspresent4a-present4ax)/10);
+
+ 
+  let present4bx = p5.map(x+5, x1, x2, 0, 256);
+  let present4by = p5.map(y+3.7, y1, y2, 0, 256);
+  let radiuspresent4b = p5.map(x+15, x1, x2, 0, 256);
+  p5.rect(present4bx, present4by, (radiuspresent4b-present4bx)/10,(radiuspresent4b-present4bx)/45);
 
 }
  p5.fill(255, 226, 86);
@@ -529,8 +579,55 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
+
+//snowcontours
+
+p5.fill(250);
+  let backx = p5.map(x-5, x1, x2, 0, 256);
+  let backy = p5.map(y-12, y1, y2, 0, 256);
+  let radiusback = p5.map(x+5, x1, x2, 0, 256);
+
+  let back2x = p5.map(x-3.5, x1, x2, 0, 256);
+  let back2y = p5.map(y-13, y1, y2, 0, 256);
+  let radiusback2 = p5.map(x+6.5, x1, x2, 0, 256);
+
+  let back3x = p5.map(x-2, x1, x2, 0, 256);
+  let back3y = p5.map(y-15, y1, y2, 0, 256);
+  let radiusback3 = p5.map(x+8, x1, x2, 0, 256);
+
+  let back4x = p5.map(x-0.5, x1, x2, 0, 256);
+  let back4y = p5.map(y-18, y1, y2, 0, 256);
+  let radiusback4 = p5.map(x+9.5, x1, x2, 0, 256);
+
+  let back5x = p5.map(x+1.5, x1, x2, 0, 256);
+  let back5y = p5.map(y-22, y1, y2, 0, 256);
+  let radiusback5 = p5.map(x+11.5, x1, x2, 0, 256);
+
+   let back6x = p5.map(x+3.3, x1, x2, 0, 256);
+  let back6y = p5.map(y-27, y1, y2, 0, 256);
+  let radiusback6 = p5.map(x+13.3, x1, x2, 0, 256);
+
+  let backax = p5.map(x-6.5, x1, x2, 0, 256);
+  let backay = p5.map(y-9.5, y1, y2, 0, 256);
+  let radiusbacka = p5.map(x+3.5, x1, x2, 0, 256);
+
+  if (zoom <= 1){
+
+  p5.rect(backx, backy, (radiusback-backx)*2,(radiusback-backx)*2);
+  p5.rect(back2x, back2y, (radiusback2-back2x)*1.7,(radiusback2-back2x)*2.2);
+  p5.rect(back3x, back3y, (radiusback3-back3x)*1.4,(radiusback3-back3x)*2.6);
+  p5.rect(back4x, back4y, (radiusback4-back4x)*1.1,(radiusback4-back4x)*3.2);
+  p5.rect(back5x, back5y, (radiusback5-back5x)/1.5,(radiusback5-back5x)*4);
+  p5.rect(back6x, back6y, (radiusback5-back6x)/2.6,(radiusback6-back6x)*5);
+  //p5.fill(0);
+  p5.rect(backax, backay, (radiusbacka-backax)*2.3,(radiusbacka-backax)*1.5);
+  }
+
+   
+
+
+tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
 
 if (zoom <= 4){
