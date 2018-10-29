@@ -16,6 +16,8 @@ The last zoom is the 31st, the last day of the year. The christmas tree is dead.
 
 If had to have a narrative for this, I would say it shows the commericalisation of christmas, and how fleeting and weird the tradition of having a tree for a couple of days is. In reflection on this asignment, I found the code quite hard at the start. But once I got into it and began to make a decent effort in order to understand it, it was very easy to use. The code for the animation was a little confusing but I ended up basing my code of the example code, so it was fine. 
 
+the only thing that I couldnt get working in the end, was importing font. I wanted to improt a pixel font for the calendar, but It didn't end up working :(
+
 I have really enjoyed these last two years in creative coding, it has definitly been my favourite course so far. Thank you Tom and Pheobe for making it so fun, and for helping me make cool things for my portfolio :)
 
 

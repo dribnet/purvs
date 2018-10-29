@@ -6,6 +6,9 @@ const grid_size = 64;
 var do_animation = true;
 
 
+
+
+
 /* the random number seed for the tour */
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
@@ -38,7 +41,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
 
 
   const sqrt2 = 1.4142/2;
-
+//offsets of the chritsmas tree lights for animation
   let offsets = [
     [0.380, -0.5], //1 (top)
     [0.32, -0.44], //2
@@ -54,7 +57,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
     [0.40, 0.04],
     [0.59, 0.085]
   ]
-
+//code from lectures
   let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
   let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
   let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
@@ -70,7 +73,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
     let pixel_y = p5.map(pos_y+0.5*rad1*offset[1], y1, y2, 0, 256);
   
   if(zoom > 2){
-    //p5.fill(25);
+    //only draws lights if zoom is big enough
    p5.rect(pixel_x, pixel_y, pixel_radius, pixel_radius); 
   }
 
@@ -85,7 +88,7 @@ function drawLights(p5, x1, x2, y1, y2, pos_x, pos_y, rad1, rad2, z, zoom) {
 
 
 function tree (p5, x, y, x1, x2, y1, y2, z, zoom){
-
+//base of tree
 if (zoom <= 5){
 // bottom rec 512
   let rect1x = p5.map(x, x1, x2, 0, 256);
@@ -197,13 +200,15 @@ if (zoom > 1){
 }
 
 if ((zoom > 2) && (zoom <= 5)){
-
+//making the star for the top of the tree
 
 //star 1
   let star1x = p5.map(x+4.7, x1, x2, 0, 256);
   let star1y = p5.map(y-11, y1, y2, 0, 256);
   let radiusstar1 = p5.map(x+14.7, x1, x2, 0, 256);
 
+
+//green if so big
 if (zoom == 5){
 p5.fill(78,95,62);
 }
@@ -231,6 +236,8 @@ else{
 
 }
 
+//presents gradually appear and user zooms in
+
 if ((zoom == 2) || (zoom == 3) || (zoom == 4)){
 	  p5.fill(163, 195, 247);
   let present1x = p5.map(x+6.4, x1, x2, 0, 256);
@@ -253,7 +260,6 @@ if ((zoom == 2) || (zoom == 3) || (zoom == 4)){
 
 }
 if ((zoom == 3) || (zoom == 4) ){
-	//creates the presents 
 
 
  p5.fill(239, 124, 180);
@@ -319,7 +325,7 @@ if(zoom == 4){
 }
  p5.fill(255, 226, 86);
 
-//introduces decaying tree details 
+//introduces decaying tree details once zoom is big enough
 if (zoom > 4){
 
 p5.fill(80, 55, 39);
@@ -607,7 +613,7 @@ p5.fill(250);
   let radiusbacka = p5.map(x+3.5, x1, x2, 0, 256);
 
   if (zoom <= 1){
-
+//actually cteates the snow contours
   p5.rect(backx, backy, (radiusback-backx)*2,(radiusback-backx)*2);
   p5.rect(back2x, back2y, (radiusback2-back2x)*1.7,(radiusback2-back2x)*2.2);
   p5.rect(back3x, back3y, (radiusback3-back3x)*1.4,(radiusback3-back3x)*2.6);
@@ -620,12 +626,12 @@ p5.fill(250);
 
    
 
-
+//draws the tree from a fucntion
 tree(p5, x , y, x1, x2, y1, y2, z, zoom);
 
 
 if (zoom <= 4){
-
+//draws the lights when zoom is ewqual to 4
 drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, z, zoom);        
      
      } 	
@@ -635,6 +641,7 @@ drawLights(p5, x1, x2, y1, y2, shifted_x, shifted_y, ball_radius, 2*line_width, 
   let calendary = p5.map(y-10, y1, y2, 0, 256);
   let radiuscalendar = p5.map(x+19, x1, x2, 0, 256);
   
+  //draws the calendar and text, only when it is big enough to properly read
   if (zoom >= 3){
 p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calendarx)/5);
  
@@ -642,6 +649,8 @@ p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calen
   	p5.fill(200,0,0);
  p5.rect(calendarx, calendary, (radiuscalendar-calendarx)/5,(radiuscalendar-calendarx)/20);
   }
+
+
 let fontx = p5.map(x+9.1, x1, x2, 0, 256);
   let fonty = p5.map(y-8.2, y1, y2, 0, 256);
   let radiusfont = p5.map(x+19, x1, x2, 0, 256);
@@ -654,7 +663,7 @@ p5.stroke(0);
  p5.textSize(radiusfont/12);
 
 
- //p5.textFont(fontRegular);
+ //changes the date when zoom in/ time passes
  if (zoom ==3){
  p5.text("23", fontx, fonty);
 }
@@ -671,6 +680,8 @@ p5.stroke(0);
  	p5.textSize(radiusfont/7);
  p5.text("31", fontx, fonty);
 }
+
+
   
     }
   }
