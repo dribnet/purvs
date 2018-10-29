@@ -1,5 +1,7 @@
 ## PS4 MDDN 342 2018
 
+Final Submission
+
 tour 1 : brick wall with window & floating clouds
 tour 2 : window sill detail, moon
 tour 3 : stars twinkling animation
@@ -11,13 +13,13 @@ tour 6 : moon shows up on the second window
 
 Colour iteration 
 
-I actually like this colour, I tried different colour combination with the ivory bricks but I think the reddish bricks colour looks better when trying to add more colour to the composition. I quite like this one as well as the final. I take back what I said about not liking some of the colour combinations (I think this one is successful)
+I actually like this colour, I tried different colour combination with the ivory bricks but I think the reddish bricks colour looks better when trying to add more colour to the composition. I quite like this one. I take back what I said about not liking some of the colour combinations (I think this one is successful)
 
 --
 
 Overall, I found this project much more challenging than the previous problem sets we had because of the difficulty on wrapping my head around the coordinate system. I didn't realise how technical the coordinate system was and in my sketch I thought of a difficult idea (my initial gustav klimt inspired abstract pattern). I soon realised that I wasn't going to be able to achieve that idea so I decided to extend my ps3 concept.
 
-The brick tiling is drawn within the grid system whereas I thought it looked tacky/ redundant to have the windows within the grid system repeating itself. So, I decided to choose to put the windows outside of the replicating grid (centre of the page) so that the viewer knew where to focus on. As it zoomed, I wanted to reveal little details with each zoom so that the viewers had incentive to keep zooming.
+The brick tiling is drawn within the grid system whereas I thought it looked tacky/ redundant to have the windows within the grid system repeating itself. So, I decided to choose to put the windows outside of the replicating grid (centre of the page) so that the viewer knew where to focus on. As it zoomed, I wanted it to reveal little details with each zoom so that the viewers had incentive to keep zooming.
 
 zoom 0 : brickwall, window and floating clouds
 zoom 1 : window detail is revealed, moon is added
