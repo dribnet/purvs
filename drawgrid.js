@@ -131,33 +131,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let yd0 = p5.map(y - ydOffset * grid_size, y1, y2, 0, 256);
       let ydm1 = p5.map(y - (0.5 + ydOffset - ydIn) * grid_size, y1, y2, 0, 256);
       let ydp1 = p5.map(y + (0.5 - ydOffset - ydIn) * grid_size, y1, y2, 0, 256);
-      
 
-      // //test
-      // //pattern 2
-
-      // let xp0 = p5.map(x +  grid_size, x1, x2, 0, 256);
-      // let xp1 = p5.map(x + 0.5 * grid_size, x1, x2, 0, 256);
-      // let xp2 = p5.map(x + grid_size - (grid_size), x1, x2, 0, 256);
-
-      // let xpdist = 1*(xp2 - xp0)/11;
-
-      // let yp0 = p5.map(y - ydOffset * grid_size, y1, y2, 0, 256);
-      // let ypm1 = p5.map(y - (0.06 + ydOffset) * grid_size, y1, y2, 0, 256);
-      // let ypp1 = p5.map(y + (0.06 - ydOffset) * grid_size, y1, y2, 0, 256);
-
-
-
-
-      // // debug view of vertices
-      //p5.fill(0, 255, 0);
-      //p5.ellipse(xp0, yp0, 30); 
-      //p5.ellipse(xp0 + 1*xpdist, yp0, 30); //mid 
-     // p5.ellipse(xp2, yp0, 30); 
-     // p5.ellipse(xp0, ypm1, 30); 
-     // p5.ellipse(xp0, ypp1, 30); 
-
-
+     //diamond
       if(zoom > 0){ 
 
       p5.noStroke();
@@ -180,65 +155,54 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       p5.vertex(xd0, yd0); 
       p5.endShape();
     }
+      
+      // // debug view of vertices
+      //p5.fill(0, 255, 0);
+      //p5.ellipse(xp0, yp0, 30); 
+      //p5.ellipse(xp0 + 1*xpdist, yp0, 30); //mid 
+     // p5.ellipse(xp2, yp0, 30); 
+     // p5.ellipse(xp0, ypm1, 30); 
+     // p5.ellipse(xp0, ypp1, 30); 
+
   }
 }
 
+//pattern over diamond
 if(zoom > 3){
-
-
   let Smin_x = snap_to_grid(x1 - max_shift, smallGridSize);
   let Smax_x = snap_to_grid(x2 + max_shift + smallGridSize, smallGridSize);
   let Smin_y = snap_to_grid(y1 - max_shift, smallGridSize);
   let Smax_y = snap_to_grid(y2 + max_shift + smallGridSize, smallGridSize);
 
-  p5.strokeWeight(strokeWidth/15);  
-  p5.stroke (backgrnd);
-  p5.noFill();//p5.fill(255, 211, 78, 32);
 
   for(let x=Smin_x; x<Smax_x; x+=smallGridSize) {
     for(let y=Smin_y; y<Smax_y; y+=smallGridSize) {
+
+      p5.strokeWeight(strokeWidth/8);  
+      p5.stroke (backgrnd);
+      p5.noFill();//p5.fill(255, 211, 78, 32);
       /* first compute the points to be drawn */
       let x_pos = p5.map(x, x1, x2, 0, 256);
       let y_pos = p5.map(y, y1, y2, 0, 256);
 
-      // p5.ellipse(x_pos, y_pos, strokeWidth);
-
-      // let x_pos_left = p5.map(x+grid_size, x1, x2, 0, 256);
-      // let y_pos_down = p5.map(y+grid_size, y1, y2, 0, 256);
-
-
       ///*
       //X VALUES
-      let x383 = p5.map(x + (3*grid_size/2), x1, x2, 0, 256);
-      let x255 = p5.map(x + grid_size, x1, x2, 0, 256);
-      let x128 = p5.map(x +(grid_size/2), x1, x2, 0, 256);
+      let x383 = p5.map(x + (3*smallGridSize/2), x1, x2, 0, 256);
+      let x255 = p5.map(x + smallGridSize, x1, x2, 0, 256);
+      let x128 = p5.map(x +(smallGridSize/2), x1, x2, 0, 256);
       let x0 = p5.map(x, x1, x2, 0, 256);
-      let NEGx128 = p5.map(x +(-1*grid_size/2), x1, x2, 0, 256);
+      let NEGx128 = p5.map(x +(-1*smallGridSize/2), x1, x2, 0, 256);
 
       //Y values
 
-      let y255 = p5.map(y + grid_size, y1, y2, 0, 256);
-      let y235 = p5.map(y + (grid_size - (grid_size/12.8)), y1, y2, 0, 256);
-      let y215 = p5.map(y + (grid_size - (2*grid_size/12.8)), y1, y2, 0, 256);
-      let y195 = p5.map(y + (grid_size - (3*grid_size/12.8)), y1, y2, 0, 256);
-      let y40 = p5.map(y + (2*grid_size/12.8), y1, y2, 0, 256);
-      let y20 = p5.map(y + (grid_size/12.8), y1, y2, 0, 256);
+      let y255 = p5.map(y + smallGridSize, y1, y2, 0, 256);
+      let y235 = p5.map(y + (smallGridSize - (smallGridSize/12.8)), y1, y2, 0, 256);
+      let y215 = p5.map(y + (smallGridSize - (2*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y195 = p5.map(y + (smallGridSize - (3*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y40 = p5.map(y + (2*smallGridSize/12.8), y1, y2, 0, 256);
+      let y20 = p5.map(y + (smallGridSize/12.8), y1, y2, 0, 256);
       let y0 = p5.map(y, y1, y2, 0, 256);
-      //*/
-
-      //p5.strokeWeight(strokeWidth * 0.1);
-      /* now draw all elements from back to front */
-      /* debug with lines
-      p5.fill(0);
-      p5.ellipse(x0, y0, 0.25*strokeWidth);
-      p5.fill(255);
-      p5.ellipse(x128, y195, 0.10*strokeWidth);
-
-      p5.line(NEGx128, y215, x0, y0);
-      p5.line(x0, y0, x128, y195);
-      p5.line(x128, y195, x255, y0);
-      p5.line(x255, y0, x383, y215);
-      */
+      
 
       p5.beginShape();
       p5.curveVertex(NEGx128, y215);
@@ -271,17 +235,10 @@ if(zoom > 3){
       p5.curveVertex(x255, y255);
       p5.curveVertex(x383, y40);
       p5.endShape();
+
+      
     }
   }
-
-  /*for(let i = 0; i<10; i++){
-    //let shade = 255 / (i+1);
-    let currentR = p5.map(i, 0, 9, localBallRadius, 0);
-    //p5.fill(0, 0, shade);
-    p5.ellipse(localBallX, localBallY, currentR);
-  } */
- 
-    //p5.line(0, 0, 255, 255);
 
   // //debug - show border
   // p5.noFill();
@@ -291,6 +248,74 @@ if(zoom > 3){
   // p5.textSize(12);
   // p5.text('(' + x1 + ", " + y1 + ")", 10, 30);
 }
+
+if(zoom>5){
+  let Smin_x = snap_to_grid(x1 - max_shift, smallGridSize);
+  let Smax_x = snap_to_grid(x2 + max_shift + smallGridSize, smallGridSize);
+  let Smin_y = snap_to_grid(y1 - max_shift, smallGridSize);
+  let Smax_y = snap_to_grid(y2 + max_shift + smallGridSize, smallGridSize);
+  for(let x=Smin_x; x<Smax_x; x+=smallGridSize) {
+    for(let y=Smin_y; y<Smax_y; y+=smallGridSize) {
+      /* first compute the points to be drawn */
+      let x_pos = p5.map(x, x1, x2, 0, 256);
+      let y_pos = p5.map(y, y1, y2, 0, 256);
+
+      ///*
+      //X VALUES
+      let x383 = p5.map(x + (3*smallGridSize/2), x1, x2, 0, 256);
+      let x255 = p5.map(x + smallGridSize, x1, x2, 0, 256);
+      let x128 = p5.map(x +(smallGridSize/2), x1, x2, 0, 256);
+      let x0 = p5.map(x, x1, x2, 0, 256);
+      let NEGx128 = p5.map(x +(-1*smallGridSize/2), x1, x2, 0, 256);
+
+      //Y values
+
+      let y255 = p5.map(y + smallGridSize, y1, y2, 0, 256);
+      let y235 = p5.map(y + (smallGridSize - (smallGridSize/12.8)), y1, y2, 0, 256);
+      let y215 = p5.map(y + (smallGridSize - (2*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y195 = p5.map(y + (smallGridSize - (3*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y40 = p5.map(y + (2*smallGridSize/12.8), y1, y2, 0, 256);
+      let y20 = p5.map(y + (smallGridSize/12.8), y1, y2, 0, 256);
+      let y0 = p5.map(y, y1, y2, 0, 256);
+      
+        p5.strokeWeight(strokeWidth/30);  
+        p5.stroke (lines);
+        p5.noFill();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y215);
+        p5.curveVertex(x0, y0);
+        p5.curveVertex(x128, y195);
+        p5.curveVertex(x255, y0);
+        p5.curveVertex(x383, y215);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y235);
+        p5.curveVertex(x0, y20);
+        p5.curveVertex(x128, y215);
+        p5.curveVertex(x255, y20);
+        p5.curveVertex(x383, y235);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y255);
+        p5.curveVertex(x0, y40);
+        p5.curveVertex(x128, y235);
+        p5.curveVertex(x255, y40);
+        p5.curveVertex(x383, y255);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y0);
+        p5.curveVertex(x0, y255);
+        p5.curveVertex(x128, y40);
+        p5.curveVertex(x255, y255);
+        p5.curveVertex(x383, y40);
+        p5.endShape();
+      }
+    }
+  }
 
 
 //drawing
@@ -370,84 +395,14 @@ if(zoom > 3){
 
 
       // // debug view of vertices
-      p5.fill(0, 255, 0);
-      p5.ellipse(xp0, yp0, 30); 
-      p5.ellipse(xp0 + 1*xpdist, yp0, 30); //mid 
+     // p5.fill(0, 255, 0);
+     // p5.ellipse(xp0, yp0, 30); 
+     // p5.ellipse(xp0 + 1*xpdist, yp0, 30); //mid 
      // p5.ellipse(xp2, yp0, 30); 
      // p5.ellipse(xp0, ypm1, 30); 
      // p5.ellipse(xp0, ypp1, 30); 
 
-
-      // if(zoom > 0){ 
-
-      // p5.noStroke();
-      // if(zoom < 2){
-      //   p5.fill(17, 98, 105);
-      // }
-      // else if(zoom < 3){
-      //   p5.fill(18, 107, 110);
-      // }
-      // else{
-      //   p5.fill(31, 121, 120);
-      // }
-
-      // // draw diamond here
-      // p5.beginShape();
-      // p5.vertex(xd0, yd0);
-      // p5.vertex(xd1, ydp1); 
-      // p5.vertex(xd2, yd0); 
-      // p5.vertex(xd1, ydm1);
-      // p5.vertex(xd0, yd0); 
-      // p5.endShape();
-
-       p5.stroke(backgrnd);
-      p5.noFill();
-      p5.strokeWeight(strokeWidth/2);
-
-      //let pdist = xp2 - xp0;
-      let pamplitude = p5.map(y - 0.07 * grid_size, y1, y2, 0, 256);
-      //let pcycle = pdist/11;
-
-      //p5.line(xp0, yp0, xp2, yp0);
-      p5.beginShape();
-      for(let count = 0; count < 15; count ++){
-        let height = 0;
-        if((count % 2) == 0){
-
-          p5.stroke(255, 0, 0);
-          height = - pamplitude;
-          p5.ellipse(xp0 - count * xpdist, yp0 + height, 10, 10);
-        }
-        else{
-
-          p5.stroke(backgrnd);
-          height =  - pamplitude;
-          p5.ellipse(xp0 - count * xpdist, yp0 + height, 10, 10);
-        }
-        //p5.curveVertex(xp0 + count*pcycle/2, yp0 + height);
-
-          p5.stroke(0, 255, 0);
-        //p5.ellipse(xp0 - count * xpdist, yp0 - pamplitude, 10, 10);
-      }
-      p5.endShape();
-      // p5.fill(255, 211, 78);
-      // p5.noStroke();
-      // // //debug attempt using a rect (changed from sample code's circle)
-      // //p5.push();
-      // //p5.rotate(-deg);
-      // //p5.translate(xtest, 0);
-      // //p5.rect(x_pos, y_pos, cur_ball_radius, cur_ball_radius);
-      // //p5.pop();
-      // //other attempt
-      // p5.fill(255, 211, 78);
-      // p5.beginShape();
-      // p5.vertex(x0, y0);
-      // p5.vertex(x255, y0);
-      // p5.vertex(x128, y128);
-      // p5.vertex(x0, y0);
-      // p5.endShape();
-      //}
-
+      //main pattern
       p5.strokeWeight(strokeWidth);  
       p5.stroke (lines);
       p5.fill(255, 211, 78, 32);
@@ -508,7 +463,7 @@ if(zoom > 3){
 
       
 
-      //inner
+      //inner pattern of main
 
       if(zoom > 1){
       p5.stroke(fillColour);
@@ -569,27 +524,16 @@ if(zoom > 3){
       p5.curveVertex(x383, y0);
       p5.endShape();
     }
-
-      /* now draw all elements from back to front */
-      //p5.strokeWeight(cur_line_width);
-      //p5.stroke(150, 0, 0);
-      //p5.line(x_pos, y_pos, x_pos_left, y_pos);
-      //p5.stroke(0, 150, 0);
-      //p5.line(x_pos, y_pos, x_pos, y_pos_down);
-
-      //p5.stroke(0, 0, 150);
-      //p5.noStroke();
-      //p5.ellipse(x_pos, y_pos, cur_ball_radius);
      
     }
   }
 
   // debug - show border
-  p5.noFill();
-  p5.stroke(0, 200, 200)
-  p5.strokeWeight(1);
-  p5.rect(0, 0, 255, 255);
-  p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
-  let sizex = x2 - x1;
-  p5.text("width: " + sizex, 10, 40);
+  // p5.noFill();
+  // p5.stroke(0, 200, 200)
+  // p5.strokeWeight(1);
+  // p5.rect(0, 0, 255, 255);
+  // p5.text("corner: (" + x1 + "," + y1 + ")", 10, 20);
+  // let sizex = x2 - x1;
+  // p5.text("width: " + sizex, 10, 40);
 }
