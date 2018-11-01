@@ -17,12 +17,13 @@ let do_animation = true;
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
-  [1, 356.500000000000, 665.750000000000],
-  [3, 353.250000000000, 668.187500000000],
-  [4, 322.562500000000, 645.093750000000],
-  [5, 322.562500000000, 645.109375000000],
-  [7, 317.984375000000, 643.636718750000],
-  [3, 317.984375000000, 643.636718750000]
+  [1, 512.000000000000, 512.000000000000],
+  [2, 1, 512.000000000000, 512.000000000000],
+  [3, 511.206054687500, 481.335449218750],
+  [4, 511.228027343750, 481.355224609375],
+  [5, 511.239013671875, 481.365112304688],
+  [6, 507.995361328125, 480.233337402344],
+  [7, 508.222473144531, 480.204925537109]
 ]
 
 /* this function takes a coordinate and aligns to a grid of size gsize */
@@ -200,16 +201,20 @@ if(zoom>4){
       
 
         if(zoom  == 5){
-          p5.strokeWeight(strokeWidth/7); 
+          p5.strokeWeight(strokeWidth/8);
+        p5.noStroke();
+        p5.noFill(); 
         }
         else if (zoom == 6){
-          p5.strokeWeight(strokeWidth/6); 
+          p5.strokeWeight(strokeWidth/6);
+        p5.stroke (219, 158, 54);
+        p5.noFill(); 
         }
         else if (zoom > 6){
-          p5.strokeWeight(strokeWidth/5); 
-        }
+          p5.strokeWeight(strokeWidth/5);
         p5.stroke (219, 158, 54);
-        p5.noFill();
+        p5.noFill(); 
+        }
 
         p5.beginShape();
         p5.curveVertex(NEGx128, y215);
