@@ -182,25 +182,30 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
         p5.rect(-w / 2, -w / 2, w, w);
         p5.pop();
       } else {
-        let w = 0.6 * (x_pos - x_pos_left);
+        let w = p5.map((p5.globalFrameCount%20),0,20,0.8,0.1) * (x_pos - x_pos_left);
+        if(p5.globalFrameCount%40 < 20)
+          w = p5.map((p5.globalFrameCount%20),0,20,0.1,0.8) * (x_pos - x_pos_left);
+        p5.push();
+        p5.translate(x_pos, y_pos);
+        p5.rotate(p5.globalFrameCount / 10);
         p5.fill(0);
-        p5.ellipse(x_pos, y_pos, w, w);
+        p5.ellipse(0, 0, w, w);
         p5.fill(255);
-        p5.ellipse(x_pos, y_pos, 0.7 * w, 0.7 * w);
+        p5.ellipse(0, 0, 0.7 * w, 0.7 * w);
 
         p5.fill(0);
-        p5.ellipse(x_pos, y_pos, 0.4 * w, 0.4 * w);
+        p5.ellipse(0, 0, 0.4 * w, 0.4 * w);
         p5.fill(255);
-        p5.ellipse(x_pos, y_pos, 0.3 * w, 0.3 * w);
+        p5.ellipse(0, 0, 0.3 * w, 0.3 * w);
 
         for (let a = 0; a < 2 * p5.PI; a += p5.PI / 8) {
           p5.push();
-          p5.translate(x_pos, y_pos);
-          p5.rotate(a + p5.globalFrameCount / 10);
+          p5.rotate(a);
           p5.fill(0);
           p5.rect(-w / 16, w / 2, w / 8, w / 8);
           p5.pop();
         }
+        p5.pop();
       }
     }
   }
