@@ -168,6 +168,84 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 }
 
 //pattern over diamond
+
+if(zoom>4){
+  let Smin_x = snap_to_grid(x1 - max_shift, smallGridSize);
+  let Smax_x = snap_to_grid(x2 + max_shift + smallGridSize, smallGridSize);
+  let Smin_y = snap_to_grid(y1 - max_shift, smallGridSize);
+  let Smax_y = snap_to_grid(y2 + max_shift + smallGridSize, smallGridSize);
+  for(let x=Smin_x; x<Smax_x; x+=smallGridSize) {
+    for(let y=Smin_y; y<Smax_y; y+=smallGridSize) {
+      /* first compute the points to be drawn */
+      let x_pos = p5.map(x, x1, x2, 0, 256);
+      let y_pos = p5.map(y, y1, y2, 0, 256);
+
+      ///*
+      //X VALUES
+      let x383 = p5.map(x + (3*smallGridSize/2), x1, x2, 0, 256);
+      let x255 = p5.map(x + smallGridSize, x1, x2, 0, 256);
+      let x128 = p5.map(x +(smallGridSize/2), x1, x2, 0, 256);
+      let x0 = p5.map(x, x1, x2, 0, 256);
+      let NEGx128 = p5.map(x +(-1*smallGridSize/2), x1, x2, 0, 256);
+
+      //Y values
+
+      let y255 = p5.map(y + smallGridSize, y1, y2, 0, 256);
+      let y235 = p5.map(y + (smallGridSize - (smallGridSize/12.8)), y1, y2, 0, 256);
+      let y215 = p5.map(y + (smallGridSize - (2*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y195 = p5.map(y + (smallGridSize - (3*smallGridSize/12.8)), y1, y2, 0, 256);
+      let y40 = p5.map(y + (2*smallGridSize/12.8), y1, y2, 0, 256);
+      let y20 = p5.map(y + (smallGridSize/12.8), y1, y2, 0, 256);
+      let y0 = p5.map(y, y1, y2, 0, 256);
+      
+
+        if(zoom  == 5){
+          p5.strokeWeight(strokeWidth/7); 
+        }
+        else if (zoom == 6){
+          p5.strokeWeight(strokeWidth/6); 
+        }
+        else if (zoom > 6){
+          p5.strokeWeight(strokeWidth/5); 
+        }
+        p5.stroke (219, 158, 54);
+        p5.noFill();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y215);
+        p5.curveVertex(x0, y0);
+        p5.curveVertex(x128, y195);
+        p5.curveVertex(x255, y0);
+        p5.curveVertex(x383, y215);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y235);
+        p5.curveVertex(x0, y20);
+        p5.curveVertex(x128, y215);
+        p5.curveVertex(x255, y20);
+        p5.curveVertex(x383, y235);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y255);
+        p5.curveVertex(x0, y40);
+        p5.curveVertex(x128, y235);
+        p5.curveVertex(x255, y40);
+        p5.curveVertex(x383, y255);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y0);
+        p5.curveVertex(x0, y255);
+        p5.curveVertex(x128, y40);
+        p5.curveVertex(x255, y255);
+        p5.curveVertex(x383, y40);
+        p5.endShape();
+      }
+    }
+  }
+
 if(zoom > 3){
   let Smin_x = snap_to_grid(x1 - max_shift, smallGridSize);
   let Smax_x = snap_to_grid(x2 + max_shift + smallGridSize, smallGridSize);
@@ -236,6 +314,33 @@ if(zoom > 3){
       p5.curveVertex(x383, y40);
       p5.endShape();
 
+      if(zoom > 4) {
+
+      p5.noStroke();
+      if(zoom == 5){
+        p5.fill(18, 107, 110);
+      }
+      else if(zoom == 6){
+        p5.fill(17, 98, 105);
+      }
+      else if(zoom > 6){
+        p5.fill(backgrnd);
+      }
+
+      let ycOffset = 0.04;
+
+      let xc0 = p5.map(x + smallGridSize, x1, x2, 0, 256);
+      let xc1 = p5.map(x + 0.5 * smallGridSize, x1, x2, 0, 256);
+      let xc2 = p5.map(x + smallGridSize, x1, x2, 0, 256);
+
+      let yc0 = p5.map(y - smallGridSize, y1, y2, 0, 256);
+      let ycm1 = p5.map(y + (0.5 - ycOffset) * smallGridSize, y1, y2, 0, 256);
+      let ycp1 = p5.map(y + (0.5 + ycOffset) * smallGridSize, y1, y2, 0, 256);
+
+      p5.ellipse(xc2, ycp1, 1.2*strokeWidth, 2*strokeWidth);
+      p5.ellipse(xc1, ycm1, strokeWidth, 1.5*strokeWidth);
+      }
+
       
     }
   }
@@ -248,74 +353,6 @@ if(zoom > 3){
   // p5.textSize(12);
   // p5.text('(' + x1 + ", " + y1 + ")", 10, 30);
 }
-
-if(zoom>5){
-  let Smin_x = snap_to_grid(x1 - max_shift, smallGridSize);
-  let Smax_x = snap_to_grid(x2 + max_shift + smallGridSize, smallGridSize);
-  let Smin_y = snap_to_grid(y1 - max_shift, smallGridSize);
-  let Smax_y = snap_to_grid(y2 + max_shift + smallGridSize, smallGridSize);
-  for(let x=Smin_x; x<Smax_x; x+=smallGridSize) {
-    for(let y=Smin_y; y<Smax_y; y+=smallGridSize) {
-      /* first compute the points to be drawn */
-      let x_pos = p5.map(x, x1, x2, 0, 256);
-      let y_pos = p5.map(y, y1, y2, 0, 256);
-
-      ///*
-      //X VALUES
-      let x383 = p5.map(x + (3*smallGridSize/2), x1, x2, 0, 256);
-      let x255 = p5.map(x + smallGridSize, x1, x2, 0, 256);
-      let x128 = p5.map(x +(smallGridSize/2), x1, x2, 0, 256);
-      let x0 = p5.map(x, x1, x2, 0, 256);
-      let NEGx128 = p5.map(x +(-1*smallGridSize/2), x1, x2, 0, 256);
-
-      //Y values
-
-      let y255 = p5.map(y + smallGridSize, y1, y2, 0, 256);
-      let y235 = p5.map(y + (smallGridSize - (smallGridSize/12.8)), y1, y2, 0, 256);
-      let y215 = p5.map(y + (smallGridSize - (2*smallGridSize/12.8)), y1, y2, 0, 256);
-      let y195 = p5.map(y + (smallGridSize - (3*smallGridSize/12.8)), y1, y2, 0, 256);
-      let y40 = p5.map(y + (2*smallGridSize/12.8), y1, y2, 0, 256);
-      let y20 = p5.map(y + (smallGridSize/12.8), y1, y2, 0, 256);
-      let y0 = p5.map(y, y1, y2, 0, 256);
-      
-        p5.strokeWeight(strokeWidth/30);  
-        p5.stroke (lines);
-        p5.noFill();
-
-        p5.beginShape();
-        p5.curveVertex(NEGx128, y215);
-        p5.curveVertex(x0, y0);
-        p5.curveVertex(x128, y195);
-        p5.curveVertex(x255, y0);
-        p5.curveVertex(x383, y215);
-        p5.endShape();
-
-        p5.beginShape();
-        p5.curveVertex(NEGx128, y235);
-        p5.curveVertex(x0, y20);
-        p5.curveVertex(x128, y215);
-        p5.curveVertex(x255, y20);
-        p5.curveVertex(x383, y235);
-        p5.endShape();
-
-        p5.beginShape();
-        p5.curveVertex(NEGx128, y255);
-        p5.curveVertex(x0, y40);
-        p5.curveVertex(x128, y235);
-        p5.curveVertex(x255, y40);
-        p5.curveVertex(x383, y255);
-        p5.endShape();
-
-        p5.beginShape();
-        p5.curveVertex(NEGx128, y0);
-        p5.curveVertex(x0, y255);
-        p5.curveVertex(x128, y40);
-        p5.curveVertex(x255, y255);
-        p5.curveVertex(x383, y40);
-        p5.endShape();
-      }
-    }
-  }
 
 
 //drawing
