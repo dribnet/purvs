@@ -208,12 +208,12 @@ if(zoom>4){
         else if (zoom == 6){
           p5.strokeWeight(strokeWidth/6);
         p5.stroke (219, 158, 54);
-        p5.noFill(); 
+        p5.fill(255, 211, 78, 32);//p5.noFill(); 
         }
         else if (zoom > 6){
           p5.strokeWeight(strokeWidth/5);
         p5.stroke (219, 158, 54);
-        p5.noFill(); 
+        p5.fill(255, 211, 78, 32);//p5.noFill(); 
         }
 
         p5.beginShape();

@@ -1,6 +1,6 @@
 ## PS4 MDDN 342 2018
 
-I changed the orange outline to come in at point 6 instead of point 5 because i just didnt like the way they looked around the border/outside of the diamond. 
+I added a fill on the second pattern from level 6 to give a bit more colour variation in the background as it was looking flat. 
 
 The progression is now as follows:
 
@@ -10,8 +10,8 @@ The progression is now as follows:
 3. diamond is lightened again
 4. second pattern is added
 5. Ellipses are added faintly
-6. orange outer line appears, ellipses get darker
+6. orange outer line appears, ellipses get darker, fill enabled.
 7. ellipses appear the same colour as the original background, orange outer lines get thicker
 
 
-While still experimenting with the final pattern, I added the tour paths for easier navigation.
+My next step is to get some ambient animation going, and deciding how i want my zoom levels to "finish". I worry any more levels will become too laggy to function once I add animations, so I may have to keep it simple. 
