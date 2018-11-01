@@ -560,8 +560,117 @@ if(zoom > 3){
       p5.curveVertex(x255, y0);
       p5.curveVertex(x383, y0);
       p5.endShape();
-    }
-     
+    }  
+  }
+}
+
+    if(zoom > 7){
+      let minGridSize = 0.5/4;
+      let min_x = snap_to_grid(x1 - max_shift, minGridSize);
+      let max_x = snap_to_grid(x2 + max_shift + minGridSize, minGridSize);
+      let min_y = snap_to_grid(y1 - max_shift, minGridSize);
+      let max_y = snap_to_grid(y2 + max_shift + minGridSize, minGridSize);
+
+      for(let x=min_x; x<max_x; x+=minGridSize) {
+        for(let y=min_y; y<max_y; y+=minGridSize) {
+
+        p5.stroke (lines);
+        p5.fill(255, 211, 78, 32);
+
+        //X VALUES
+        let x255 = p5.map(x + minGridSize, x1, x2, 0, 256);
+        let x128 = p5.map(x +(minGridSize/2), x1, x2, 0, 256);
+        let x0 = p5.map(x, x1, x2, 0, 256);
+
+
+        let x383 = p5.map(x + (1*minGridSize/1), x1, x2, 0, 256);
+        //let NEGx128old = p5.map(x +(-1*grid_size/1), x1, x2, 0, 256);
+        let NEGx128 = p5.map(x +(-1*minGridSize/1), x1, x2, 0, 256);
+
+        let xtest = p5.map(x + minGridSize/7.5, x1, x2, 0, 256);
+
+
+
+        //Y values
+
+        let y255 = p5.map(y + minGridSize, y1, y2, 0, 256);
+        let y0 = p5.map(y, y1, y2, 0, 256);
+        let y128 = p5.map(y +(minGridSize/2), y1, y2, 0, 256);
+
+        let y235 = p5.map(y + (minGridSize - (minGridSize/12.8)), y1, y2, 0, 256);
+        let y215 = p5.map(y + (minGridSize - (2*minGridSize/12.8)), y1, y2, 0, 256);
+        let y195 = p5.map(y + (minGridSize - (3*minGridSize/12.8)), y1, y2, 0, 256);
+        let y40 = p5.map(y + (2*minGridSize/12.8), y1, y2, 0, 256);
+        let y20 = p5.map(y + (minGridSize/12.8), y1, y2, 0, 256);
+
+
+        // //old stuff
+
+        let x_pos = p5.map(x, x1, x2, 0, 256);
+        let y_pos = p5.map(y, y1, y2, 0, 256);
+
+        let x_pos_left = p5.map(x+minGridSize, x1, x2, 0, 256);
+        let y_pos_down = p5.map(y+minGridSize, y1, y2, 0, 256);
+
+        //main pattern
+        p5.strokeWeight(strokeWidth/100);  
+        p5.stroke (lines);
+        p5.fill(255, 211, 78, 32);
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y215);
+        p5.curveVertex(x0, y0);
+        p5.curveVertex(x0, y195);
+        p5.curveVertex(x255, y0);
+        p5.curveVertex(x255, y195);
+        p5.curveVertex(x383, y195);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y235);
+        p5.curveVertex(x0, y20);
+        p5.curveVertex(x0, y215);
+        p5.curveVertex(x255, y20);
+        p5.curveVertex(x255, y215);
+        p5.curveVertex(x383, y215);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y255);
+        p5.curveVertex(x0, y40);
+        p5.curveVertex(x0, y235);
+        p5.curveVertex(x255, y40);
+        p5.curveVertex(x255, y235);
+        p5.curveVertex(x383, y235);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y0);
+        p5.curveVertex(x0, y235);
+        p5.curveVertex(x0, y40);
+        p5.curveVertex(x255, y235);
+        p5.curveVertex(x255, y40);
+        p5.curveVertex(x383, y40);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y0);
+        p5.curveVertex(x0, y215);
+        p5.curveVertex(x0, y20);
+        p5.curveVertex(x255, y215);
+        p5.curveVertex(x255, y20);
+        p5.curveVertex(x383, y20);
+        p5.endShape();
+
+        p5.beginShape();
+        p5.curveVertex(NEGx128, y0);
+        p5.curveVertex(x0, y195);
+        p5.curveVertex(x0, y0);
+        p5.curveVertex(x255, y195);
+        p5.curveVertex(x255, y0);
+        p5.curveVertex(x383, y0);
+        p5.endShape();
+      }
     }
   }
 
