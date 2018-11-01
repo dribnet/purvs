@@ -9,9 +9,8 @@ I tried with the class example to make it move and want to make it have a circul
 
 Adding the zoom.
 
-——————————————————————————
+—————————————————————————
+I add new animation and zoom to make it more looks like Industrialized Mechanics.
 
-Adding animation.
+—————————————————————————
 
-——————————————
-I tried a new idea. To write by code calculation. I made 3 caculations when writing code. In line 35-54 of drawgrid.js, it can change different caculations.
