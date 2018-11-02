@@ -4,6 +4,7 @@ const max_thickness = 64;
 const ball_radius = 32;
 const line_width = 2;
 const grid_size = 64;
+const max_movement = 50;
 
 const backgrnd = "#105B63";
 const lines = "#DB9E36";
@@ -75,6 +76,15 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
   p5.stroke (lines);
   p5.fill(255, 211, 78, 32);
 
+  // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+  // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+  // let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+  // let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
+
+  // let freq = 10;
+  // let sineWave = p5.sin(p5.globalFrameCount / freq);
+  // let x_shift = p5.map(sineWave, -1, 1, 0, grid_size/2);
+
 //set points
   for(let x=min_x; x<max_x; x+=grid_size) {
     for(let y=min_y; y<max_y; y+=grid_size) {
@@ -128,6 +138,11 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
       let xd0 = p5.map(x + xdIn * grid_size, x1, x2, 0, 256);
       let xd1 = p5.map(x + 0.5 * grid_size, x1, x2, 0, 256);
       let xd2 = p5.map(x + grid_size - (xdIn * grid_size), x1, x2, 0, 256);
+
+      // with shift
+      // let xd0 = p5.map(x + xdIn * grid_size + x_shift, x1, x2, 0, 256);
+      // let xd1 = p5.map(x + 0.5 * grid_size + x_shift, x1, x2, 0, 256);
+      // let xd2 = p5.map(x + grid_size - (xdIn * grid_size) + x_shift, x1, x2, 0, 256);
 
       let yd0 = p5.map(y - ydOffset * grid_size, y1, y2, 0, 256);
       let ydm1 = p5.map(y - (0.5 + ydOffset - ydIn) * grid_size, y1, y2, 0, 256);
@@ -359,10 +374,25 @@ if(zoom > 3){
   // p5.text('(' + x1 + ", " + y1 + ")", 10, 30);
 }
 
+  let dz = p5.globalFrameCount / 10;
+  z = z + dz;
 
-//drawing
+  //drawing
   for(let x=min_x; x<max_x; x+=grid_size) {
+    // let phase = getRandomValue(p5, pos_x, pos_y, z, "phase", 0, 2*p5.PI, 0.1);
+    // let freq = getRandomValue(p5, pos_x, pos_y, z, "freq", 10, 50, 0.1);
+    // let sineWave = p5.sin(phase + (p5.globalFrameCount / freq));
+    // let radiusScale = p5.map(sineWave, -1, 1, 0.80, 1.0);
+
+    // let freq = 10;
+    // let sineWave = p5.sin(p5.globalFrameCount / freq);
+    // let x_shift = p5.map(sineWave, -1, 1, 0, grid_size/2);
+
+
     for(let y=min_y; y<max_y; y+=grid_size) {
+
+      let x_shift = getRandomValue(p5, x, y, z, "shiftX", -grid_size/6, grid_size/6, 0.1);
+      let x_shift2 = getRandomValue(p5, x + grid_size, y, z, "shiftX", -grid_size/6, grid_size/6, 0.1);
 
       p5.strokeWeight(strokeWidth);  
       p5.stroke (lines);
@@ -370,14 +400,14 @@ if(zoom > 3){
       /* first compute the points to be drawn */
 
       //X VALUES
-      let x255 = p5.map(x + grid_size, x1, x2, 0, 256);
-      let x128 = p5.map(x +(grid_size/2), x1, x2, 0, 256);
-      let x0 = p5.map(x, x1, x2, 0, 256);
+      let x255 = p5.map(x + grid_size + x_shift2, x1, x2, 0, 256);
+      let x128 = p5.map(x +(grid_size/2) + x_shift, x1, x2, 0, 256);
+      let x0 = p5.map(x + x_shift, x1, x2, 0, 256);
 
 
-      let x383 = p5.map(x + (1*grid_size/1), x1, x2, 0, 256);
+      let x383 = p5.map(x + (1*grid_size/1) + x_shift, x1, x2, 0, 256);
       //let NEGx128old = p5.map(x +(-1*grid_size/1), x1, x2, 0, 256);
-      let NEGx128 = p5.map(x +(-1*grid_size/1), x1, x2, 0, 256);
+      let NEGx128 = p5.map(x +(-1*grid_size/1) + x_shift, x1, x2, 0, 256);
 
       let xtest = p5.map(x + grid_size/7.5, x1, x2, 0, 256);
 
@@ -569,7 +599,7 @@ if(zoom > 3){
   }
 }
 
-    if(zoom > 7){
+    /*if(zoom > 7){
       let minGridSize = 0.5/4;
       let min_x = snap_to_grid(x1 - max_shift, minGridSize);
       let max_x = snap_to_grid(x2 + max_shift + minGridSize, minGridSize);
@@ -677,7 +707,7 @@ if(zoom > 3){
         p5.endShape();
       }
     }
-  }
+  }*/
 
   // debug - show border
   // p5.noFill();
