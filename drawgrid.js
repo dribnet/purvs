@@ -16,9 +16,13 @@
 var tourSeed = 301;
 /* triplets of locations: zoom, x, y */
 var tourPath = [
+  [0, 512, 512],
+  [1, 512, 512],
   [2, 512, 512],
+  [3, 512, 512],
   [4, 512, 512],
-  [6, 512, 512]
+  [5, 512, 512],
+
 ]
 
 // var circleWidth1 = 400;
@@ -106,7 +110,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	// t = t + Frames;
   	
  	// temporary variables used for object placement
-	let cx=0, cy=0, cx2=0, cy2=0;
+	// let cx=0, cy=0, cx2=0, cy2=0;
 
 	// p5.background(0);
 	p5.rectMode(p5.CORNERS);
@@ -115,8 +119,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	var moveVert = 200;
 	var moveHoriz = 200;
 
-
-
+	//zoom level 0
 	for (var i = 1; i <= DrawsPerFrame; i++) {
 		if (!zoom){
 			p5.strokeWeight(0.9);
@@ -131,7 +134,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom, 1,1);
 			// DrawCircleAnimate(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 
-
+			//zoom level 1
 		}else if(zoom == 1){
 			// GlobalDrawCalls = 1;
 			moveVert = 150;
@@ -151,6 +154,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 			maxMagnitude = 2;
 
+			//zoom level 2
 		}else if(zoom == 2){
 			// do_animation = false;
 			moveVert = 60;
@@ -167,6 +171,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			DrawCircle(p5, x1+moveHoriz, x2+moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 15, "black", true, 0, "", false, 0);
 			DrawCircle(p5, x1-moveHoriz, x2-moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 15, "black", true, 0, "", false, 0);
 			maxMagnitude = 3;
+			
+			//zoom level 3 & 4
 		}else if(zoom <= 4){
 			p5.strokeWeight(3.2);
 			moveVert = 34;
@@ -181,15 +187,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			DrawEllipseWide(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 2, "cyan", true, 4, "Slow" ,true,0);
 			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 2, 3, "black",true,3, "", false, 0);
 			DrawBezierCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 2, 6, "black",true,3, "", false, 0);
-			// DrawCircle(p5, x1+moveHoriz, x2+moveHoriz, y1+moveVert, y2+moveVert, z, zoom, 1, 18, "black", true, 1, "", false, 0);
-			// DrawCircle(p5, x1-moveHoriz, x2-moveHoriz, y1+moveVert, y2+moveVert, z, zoom, 1, 18, "black", true, 1, "", false, 0);
-			// DrawCircle(p5, x1+moveHoriz, x2+moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 18, "black", true, 1, "", false, 0);
-			// DrawCircle(p5, x1-moveHoriz, x2-moveHoriz, y1-moveVert, y2-moveVert, z, zoom, 1, 18, "black", true, 1, "", false, 0);
-			
 
+			
+			//zoom level 5
 		} else if(zoom == 5){
 			moveHoriz = 1.25;
-			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 22, "purple", true, 5, "", false, 0);
+			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 22, "purple", true, 10, "slow", false, 0);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 1.5, 9, "purple", true, 6, true, 0, true);
 			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 1, 1.5, 9, "purple", true, 6, true, 0, true);	
 			DrawRegressiveCircle(p5, x1-moveHoriz, x2-moveHoriz, y1, y2, z, zoom, 1, 22);
