@@ -14,20 +14,18 @@
 
 /* the random number seed for the tour */
 var tourSeed = 301;
+
 /* triplets of locations: zoom, x, y */
 var tourPath = [
 
   [1, 512, 512],
   [2, 500, 500],
-  [3, 490, 490],
+  [3, 495, 495],
   [4, 495, 495],
   [5, 495, 495],
   [0, 512, 512]
 ]
 
-// var circleWidth1 = 400;
-// var circleWidth2 = 200;
-// var circleWidth3 = 100;
 
 var circleWidth1 = 400/2;
 var circleWidth2 = 200/2;
