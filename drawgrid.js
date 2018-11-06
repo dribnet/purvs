@@ -51,11 +51,9 @@ var sinIncrement;
 var cosIncrement; 
 var FastGamma = 0.0;// Start angle at 0
 var NormalGamma = 0.0;// Start angle at 0
-var SlowGamma = 0.0
+var SlowGamma = 0.0;
 var amplitude = 400.0; // Height of wave
 
-// This version draws two rectangles and two ellipses.
-// The rectangles are 960x720 and centered at 512,512.
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	// console.log(t);
 
@@ -104,13 +102,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	}
 
 	
-  	
-	// t = t + Frames;
-  	
- 	// temporary variables used for object placement
-	// let cx=0, cy=0, cx2=0, cy2=0;
-
-	// p5.background(0);
 	p5.rectMode(p5.CORNERS);
 	p5.noFill();
 	
@@ -121,7 +112,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	for (var i = 1; i <= DrawsPerFrame; i++) {
 		if (!zoom){
 			p5.strokeWeight(0.9);
-			// p5.strokeWeight(20);
 			maxMagnitude = 2;
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 3, 1, "purple",true, 3, false, 100, true);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3, 1, "purple",true, 3, false, 50, true);
@@ -130,16 +120,12 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			DrawValleyHorizontal(p5, x1, x2, y1, y2, z, zoom, 3, 1, 1, "purple", true, 0, false, 0, true);			
 			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple", true, 0, "", false, 0);
 			DrawRegressiveCircle(p5, x1, x2, y1, y2, z, zoom, 1,1);
-			// DrawCircleAnimate(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 1, "purple");
 
 			//zoom level 1
 		}else if(zoom == 1){
-			// GlobalDrawCalls = 1;
+
 			moveVert = 150;
 			moveHoriz = 150;
-			// let xoffsetR = 50;
-			// let xoffsetL = 47;
-			// let yoffset = 18;
 			p5.strokeWeight(1.1);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 2, 1, "purple", true, 2, true, 0, false);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 2, 3, 1, "purple", true, 2, true, 180, false);
@@ -154,7 +140,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 			//zoom level 2
 		}else if(zoom == 2){
-			// do_animation = false;
+
 			moveVert = 60;
 			moveHoriz = 60;
 			p5.strokeWeight(2.5);
@@ -175,8 +161,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			p5.strokeWeight(3.2);
 			moveVert = 34;
 			moveHoriz = 34;
-
-			// DrawBezierCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1.4, 2, "purple");
 			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 2, "purple", true, 1, "", false, 0);
 			DrawCircle(p5, x1, x2, y1+0, y2+0, z, zoom, 1, 22, "purple", true, 5, "", false, 0);
 			DrawValleyVertical(p5, x1, x2, y1, y2, z, zoom, 1, 1.5, 9, "purple", true, 6, true, 0, true);
@@ -204,7 +188,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 			doOnce = true;
 			ZoomLevel = zoom;
 			console.log("ZoomLevel "+ ZoomLevel);
-			// p5.background(0);
 		}	
 		toggleZoom = true;	
 	}else if(!zoom&&toggleZoom){
@@ -213,11 +196,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		ZoomLevel = 0;
 		toggleZoom = false;
 	 	console.log("ZoomLevel "+0);
-	 	// p5.background(0);
 	}
-	
-
-	// p5.bezier(b1, b2, b3, b4, b5, b6, b7, b8);  	
+	 	
   }
 
   	function DrawMover(p5, x1, x2, y1, y2, z, zoom,scale, type1,type2,offset, gammaChoice, invert, HardOffset){
@@ -252,8 +232,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawCircle (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour, DrawMov, NumberOfMovs, gammaChoice, invertOn, HardOffset) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
-		// p5.stroke(204, 78, 206,baseAlpha);
+		
+		
 		
 		if(colour=="purple"){
 			p5.stroke(204, 78, 206,baseAlpha);
@@ -298,8 +278,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawEllipseTall (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour, DrawMov, NumberOfMovs, gammaChoice, invertOn, HardOffset) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
-		// p5.stroke(204, 78, 206,baseAlpha);
+		
+		
 		if(colour=="purple"){
 			p5.stroke(204, 78, 206,baseAlpha);
 			
@@ -338,8 +318,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawEllipseWide (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour, DrawMov, NumberOfMovs, gammaChoice, invertOn, HardOffset) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
-		// p5.stroke(204, 78, 206,baseAlpha);
+		
+		
 		if(colour=="purple"){
 			p5.stroke(204, 78, 206,baseAlpha);
 			
@@ -379,8 +359,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawBezierCircle (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour, DrawMov, NumberOfMovs, gammaChoice, invertOn, HardOffset) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
-		// p5.stroke(204, 78, 206,baseAlpha);
+		
+		
 		if(colour=="purple"){
 			p5.stroke(204, 78, 206,baseAlpha);
 			
@@ -447,7 +427,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawValleyVertical (p5, x1, x2, y1, y2, z, zoom, width, magnitude, scale, colour, DrawMov, NumberOfMovs, invertOn, HardOffset,funkOn) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
+		
 		
 		if(funkOn){
 			var funk = circleWidth2;
@@ -488,9 +468,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					DrawVerticalValleyMover(p5, x1, x2, y1, y2, z, zoom, width, scale, circleWidth2,funk, i*15,j, HardOffset);
 				}			
 			}
-
-
-		    // line(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset);
 		}
 	}
 
@@ -513,7 +490,7 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	function DrawValleyHorizontal (p5, x1, x2, y1, y2, z, zoom, height, magnitude, scale, colour, DrawMov, NumberOfMovs, invertOn, HardOffset, funkOn) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
+		
 
 		if(funkOn){
 			var funk = circleWidth2;
@@ -555,16 +532,13 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 					DrawHorizontalValleyMover(p5, x1, x2, y1, y2, z, zoom, height, scale, funk,circleWidth2, i*5, j, HardOffset);
 				}			
 			}
-
-
-		    // line(xpos1, ypos1 + globalYOffset, xpos2, ypos2 + globalYOffset);
 		}
 	}
 	
 	function DrawRegressiveCircle (p5, x1, x2, y1, y2, z, zoom, magnitude, scale, colour) {
 		let x = 512;
 		let y = 512;
-		let noiseScale = 0.1;
+		
 		let alpha = 7;
 
 	  	if (Frames<(GlobalDrawCalls*magnitude)){
@@ -574,7 +548,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 			for (var j = 1; j < 3; j++) {
 				//circle
-			    // p5.stroke(204, 78, 206,alpha/(j/2));
 				p5.stroke(96, 200, 224, alpha/(j/2));
 				var xpos1 = circleWidth1 + ((circleWidth2 / j)/scale) * p5.cos(angle1);
 				var ypos1 = circleWidth2 + ((circleWidth2 / j)/scale) * p5.sin(angle1);
@@ -614,42 +587,5 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 
 
 
-      //regressive loop
-	
 
-
-  // The first red rectangle fills the entire space
-  // cx = p5.map(512-960/2, x1, x2, 0, 256);
-  // cy = p5.map(512-720/2, y1, y2, 0, 256);
-  // cx2 = p5.map(512+960/2, x1, x2, 0, 256);
-  // cy2 = p5.map(512+720/2, y1, y2, 0, 256);
-  // p5.fill(255, 0, 0);
-  // p5.rect(cx, cy, cx2, cy2);
-
-  // // The second black rectangle is inset to form a frame inset by 20 units
-  // cx = p5.map(512-940/2, x1, x2, 0, 256);
-  // cy = p5.map(512-700/2, y1, y2, 0, 256);
-  // cx2 = p5.map(512+940/2, x1, x2, 0, 256);
-  // cy2 = p5.map(512+700/2, y1, y2, 0, 256);
-  // p5.fill(0);
-  // p5.rect(cx, cy, cx2, cy2);
-
-  // // Two ellipses with a radius of 50 units are then added.
-  // cx = p5.map(512, x1, x2, 0, 256);
-  // cy = p5.map(512, y1, y2, 0, 256);
-  // cx2 = p5.map(512+50, x1, x2, 0, 256);
-  // p5.fill(0, 0, 255);
-  // p5.ellipse(cx, cy, (cx2-cx));
-
-  // // The second green ellipse is above and to the left of the first one.
-  // cx = p5.map(412, x1, x2, 0, 256);
-  // cy = p5.map(412, y1, y2, 0, 256);
-  // cx2 = p5.map(412+50, x1, x2, 0, 256);
-  // p5.fill(0, 255, 0);
-  // p5.ellipse(cx, cy, (cx2-cx));
-
-  // debug - show border
-  // p5.noFill();
-  // p5.stroke(255, 0, 0)
-  // p5.rect(0, 0, 255, 255);
 
