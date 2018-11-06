@@ -55,24 +55,18 @@ var SlowGamma = 0.0;
 var amplitude = 400.0; // Height of wave
 
 function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
-	// console.log(t);
-
-
 
 	if(p5.globalFrameCount!=t){
 		Frames++;
 		FastGamma += .08;
 		NormalGamma +=.04;
 		SlowGamma +=.01;
-		// console.log(p5.sin(SlowGamma));
 		t=p5.globalFrameCount;
-		// console.log(Frames);
 	}
 
 	if(Frames>GlobalDrawCalls*maxMagnitude&&!pulse){
 		Frames=0;
 		gradientOn = true;
-		// console.log("gradientOn true");
 		pulse = true;
 	}
 
@@ -83,10 +77,8 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 	}
 
 	if(gradientOn&&pulse){
-		p5.background(0,0,0,9);
-		
+		p5.background(0,0,0,9);	
 		if(Frames==50){
-			// console.log("gradientOn false");
 			Frames = 0;
 			gradientOn = false;
 			firstpass = true;
@@ -95,7 +87,6 @@ function drawGrid(p5, x1, x2, y1, y2, z, zoom) {
 		
 		if(Frames==100){
 			gradientOn=true;
-			// console.log("gradientOn true");
 			Frames = 0;
 		}
 			
