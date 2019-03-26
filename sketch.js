@@ -1,6 +1,10 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
+const PI = 3.14159;
+const HALF_PI = PI/2;
+const TWO_PI = PI*2;
 
+//const pie = PI;
 /* 
  * my three variable per letter are:
  *
@@ -13,21 +17,21 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "cSize": 100,
+  "arcS": PI, 
+  "arcE": PI + HALF_PI,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "cSize": 100,
+  "arcS": PI + HALF_PI, 
+  "arcE": TWO_PI
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "cSize": 100,
+  "arcS": PI, 
+  "arcE": PI + HALF_PI
 }
 
 const colorFront1  = "#199cff";
@@ -41,8 +45,10 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  stroke(0);
+  noFill();
+  strokeWeight(5);
+  strokeCap(PROJECT);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,20 +56,46 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let circleS = letterData["cSize"];
+  let ArcStart = letterData["arcS"];
+  let ArcEnd = letterData["arcE"];
+  let LineLength = letterData["lineL"]
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  //fill(colorFront1);
+  //ellipse(posx, posy, 150, 150);
+  //fill(colorFront2);
+  //ellipse(pos2x, pos2y, size2, size2);
+
+  arc(posx,posy,circleS,circleS,ArcStart,ArcEnd);
 }
 
 function draw () {
   // clear screen
   background(colorBack);
+
+  //A
+  strokeWeight(5);
+  noFill();
+  arc(100,100,100,100,PI,PI + HALF_PI);
+  line(50,100,100,100);
+  line(100,50,100,100);
+  arc(50,50,100,100,PI + HALF_PI,TWO_PI);
+
+  //B
+  strokeWeight(5);
+  noFill();
+  arc(150,100,100,100,PI + HALF_PI,TWO_PI);
+  line(150,0,150,100);
+  line(150,100,200,100);
+
+  //C
+  strokeWeight(5);
+  noFill();
+  arc(300,100,100,100,PI,PI + HALF_PI);
+  line(250,100,300,100);
+
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
