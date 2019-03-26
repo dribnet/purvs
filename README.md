@@ -1,11 +1,8 @@
 ## PS2 MDDN 242 2019
 
-Practice- just little changes with the colour.
+So this is my idea so far. I went home and had a think about it and came up with something in terms of using the background colour to give the illusion of the letter changing. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+So as you can see there is actually an ellipse in the middle of the A to make it look like an A. 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+ I am having trouble with some code to try and do the B, I also am still thinking of how I can do the B with these parameters, but I'll keep working on it and I'll figure something out.
 
