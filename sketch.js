@@ -31,7 +31,7 @@ const letterC = {
 }
 
 const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront2  = "#ffff00";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
