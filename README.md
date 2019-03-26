@@ -1,8 +1,7 @@
-## PS2 MDDN 242 2019
+## PS2 MDDN 242 2019 - Sketch
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I added a third ellipse to my letters. Each letter is shaped like a lollipop and each are a different size.
+Each of the three ellipses makes up the lollipop, the shadow and the stick.
 
 The three parameters per letter:
   * `size` : radius of the second circle
