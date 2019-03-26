@@ -11,3 +11,4 @@ The three parameters per letter:
 
  Just messed with this and made letters D & E in the given style
 
+ITS SQUARES NOW
