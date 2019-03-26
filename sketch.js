@@ -12,55 +12,112 @@ const canvasHeight = 500;
  *
  */
 
+//LETTER DATA
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "p1p2": 1,
+  "p3p4": 1,
+  "p5p6": 1,
+  "p1p3": 0,
+  "p2p4": 1,
+  "p3p5": 1,
+  "p4p6": 1
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+ "p1p2": 0,
+  "p3p4": 1,
+  "p5p6": 1,
+  "p1p3": 1,
+  "p2p4": 0,
+  "p3p5": 1,
+  "p4p6": 1
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "p1p2": 0,
+  "p3p4": 1,
+  "p5p6": 1,
+  "p1p3": 0,
+  "p2p4": 0,
+  "p3p5": 1,
+  "p4p6": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+//COLOURS
+const colorFront1  = "#ffa100";
+const orange  = "#ff3f00";
+const colorBack    = "#000000";
+const white  = "#ffffff";
 
+
+//SETUP
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  stroke(white);
+  strokeWeight(5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
+//DRAWLETTER
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  //draw lines
+  fill(orange);
+  stroke(orange);
+  //HORIZONTAL
+  strokeWeight(15);
+  if(letterData["p1p2"]==1){
+    line(posx-75, posy-100, posx+75, posy-100);
+  }
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  if(letterData["p3p4"]==1){
+    line(posx-75, posy, posx+75, posy);
+  }
+
+  if(letterData["p5p6"]==1){
+    line(posx-75, posy+100,posx+75, posy+100);
+  }
+
+  //VERTICAL
+  if(letterData["p1p3"]==1){
+    line(posx-75, posy-100, posx-75, posy);
+  }
+
+  if(letterData["p2p4"]==1){
+    line(posx+75, posy-100, posx+75, posy);
+  }
+  /***/
+
+  if(letterData["p3p5"]==1){
+    line(posx-75, posy,posx-75, posy+100);
+  }
+
+  if(letterData["p4p6"]==1){
+    line(posx+75, posy,posx+75, posy+100);
+  }
+
+  //draw dots
+  fill(white);
+  stroke(white);
+  strokeWeight(5);
+  
+  ellipse(posx-75, posy-100, 25);//top left p1
+  ellipse(posx+75, posy-100, 25);//top right p2
+
+  ellipse(posx-75, posy, 25); //mid left p3
+  ellipse(posx+75, posy, 25); //mid right p4
+
+  ellipse(posx-75, posy+100, 25); //bottom left p5
+  ellipse(posx+75, posy+100, 25); //bottom right p6
+
 }
 
+//DRAW
 function draw () {
   // clear screen
   background(colorBack);
@@ -82,4 +139,5 @@ function keyTyped() {
   else if (key == '@') {
     saveBlocksImages(true);
   }
+
 }
