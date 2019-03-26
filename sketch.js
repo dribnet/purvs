@@ -13,21 +13,42 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "x1": 100,
+  "y1": 10,
+  "x2": 75,
+  "y2": 150,
+  "x3": 100,
+  "y3": 125,
+  "x4": 125,
+  "y4": 150,
+  "x5": 125,
+  "y5": 150
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "x1": 0,
+  "y1": 35,
+  "x2": 0,
+  "y2": 35,
+  "x3": 0,
+  "y3": 35,
+  "x4": 0,
+  "y4": 35,
+  "x5": 0,
+  "y5": 35
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x1": 0,
+  "y1": 35,
+  "x2": 0,
+  "y2": 35,
+  "x3": 0,
+  "y3": 35,
+  "x4": 0,
+  "y4": 35,
+  "x5": 0,
+  "y5": 35
 }
 
 const colorFront1  = "#ff6600";
@@ -50,15 +71,27 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let vertexx1 = letterData["x1"];
+  let vertexy1 = letterData["y1"];
+  let vertexx2 = letterData["x2"];
+  let vertexy2 = letterData["y2"];
+  let vertexx3 = letterData["x3"];
+  let vertexy3 = letterData["y3"];
+  let vertexx4 = letterData["x4"];
+  let vertexy4 = letterData["y4"];
+  let vertexx5 = letterData["x5"];
+  let vertexy5 = letterData["y5"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  beginShape();
+  vertex(vertexx1, vertexy1);
+  vertex(vertexx2, vertexy2);
+  vertex(vertexx3, vertexy3);
+  vertex(vertexx4, vertexy4);
+  vertex(vertexx5, vertexy5);
+  endShape(CLOSE);
+
 }
 
 function draw () {
