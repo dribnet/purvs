@@ -13,21 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+    "shift1": -174,
+    "tilt1": -70,
+    "shift2": -104,
+    "tilt2": 0,
+    "shift3": -90,
+    "tilt3": 58
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+    "shift1": -191,
+    "tilt1": -90,
+    "shift2": -65,
+    "tilt2": -49,
+    "shift3": -40,
+    "tilt3": 0
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 0,
-  "offsety": 90
+    "shift1": -163,
+    "tilt1": -65,
+    "shift2": -220,
+    "tilt2": 180,
+    "shift3": -230,
+    "tilt3": 210
 }
 
 const colorFront1  = "#FFA44C"; //orange
@@ -49,20 +58,39 @@ function setup () {
   noLoop();
 }
 
+// This function draws each individual box
+function drawPart(posx, posy, scale, offsetx, tilt) {
+  push();
+  translate(posx + offsetx*scale/10, posy);
+  rotate(tilt);
+  rect(-20*scale, -3*scale, 20*scale, 3*scale);
+  ellipse
+  pop();
+}
+
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let shift1 = letterData["shift1"];
+  let tilt1 = letterData["tilt1"];
+  let shift2 = letterData["shift2"];
+  let tilt2 = letterData["tilt2"];
+  let shift3 = letterData["shift3"];
+  let tilt3 = letterData["tilt3"];
 
-  // draw two circles
-  noStroke();
+  // rotation in degrees (for tilt variable)
+  angleMode(DEGREES);
+
+  // draw letters
   fill(colorFront1);
-  ellipse(posx, posy, 10, 150); // lollipop stick
-  fill(colorFront3);
-  ellipse(pos2x, pos2y, size2, size2); // shadow
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2-50, size2); // light colour
+  noStroke();
+
+  push();
+  let scale=5;
+  let y_offset = 5 * scale;
+  drawPart(posx, posy-y_offset, scale, shift1, tilt1);
+  drawPart(posx,          posy, scale, shift2, tilt2);
+  drawPart(posx, posy+y_offset, scale, shift3, tilt3);
+  pop();
 }
 
 function draw () {
