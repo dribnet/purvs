@@ -14,39 +14,26 @@ const canvasHeight = 500;
 
 //LETTER DATA
 const letterA = {
-  "p1p2": 1,
-  "p3p4": 1,
-  "p5p6": 1,
-  "p1p3": 0,
-  "p2p4": 1,
-  "p3p5": 1,
-  "p4p6": 1
+  "backTriCount":1,
+  "frontTriCount":1,
+  "frontAlign": -5
 }
 
 const letterB = {
- "p1p2": 0,
-  "p3p4": 1,
-  "p5p6": 1,
-  "p1p3": 1,
-  "p2p4": 0,
-  "p3p5": 1,
-  "p4p6": 1
+  "backTriCount":2,
+  "frontTriCount":2,
+  "frontAlign": 7
 }
 
 const letterC = {
-  "p1p2": 0,
-  "p3p4": 1,
-  "p5p6": 1,
-  "p1p3": 0,
-  "p2p4": 0,
-  "p3p5": 1,
-  "p4p6": 0
+  "backTriCount":1,
+  "frontTriCount":1,
+  "frontAlign":15
 }
 
-//COLOURS
-const colorFront1  = "#ffa100";
-const orange  = "#ff3f00";
-const colorBack    = "#000000";
+//CONSTANTS
+const orange  = "#ffb759";
+const colorBack    = "#b9e1e5";
 const white  = "#ffffff";
 
 
@@ -66,54 +53,27 @@ function setup () {
 
 //DRAWLETTER
 function drawLetter(posx, posy, letterData) {
-  //draw lines
+//parameters
+let backNumTri = letterData["backTriCount"];
+let frontNumTri = letterData["frontTriCount"];
+let frontMove = letterData["frontAlign"];
+
+let backSize = 160;
+let frontSize =130;
+
+  //draw shapes
   fill(orange);
   stroke(orange);
-  //HORIZONTAL
-  strokeWeight(15);
-  if(letterData["p1p2"]==1){
-    line(posx-75, posy-100, posx+75, posy-100);
+
+  for(let i =0; i<backNumTri; i++){
+    ellipse(posx, posy-50+(i*50), backSize);
   }
 
-  if(letterData["p3p4"]==1){
-    line(posx-75, posy, posx+75, posy);
-  }
-
-  if(letterData["p5p6"]==1){
-    line(posx-75, posy+100,posx+75, posy+100);
-  }
-
-  //VERTICAL
-  if(letterData["p1p3"]==1){
-    line(posx-75, posy-100, posx-75, posy);
-  }
-
-  if(letterData["p2p4"]==1){
-    line(posx+75, posy-100, posx+75, posy);
-  }
-  /***/
-
-  if(letterData["p3p5"]==1){
-    line(posx-75, posy,posx-75, posy+100);
-  }
-
-  if(letterData["p4p6"]==1){
-    line(posx+75, posy,posx+75, posy+100);
-  }
-
-  //draw dots
   fill(white);
   stroke(white);
-  strokeWeight(5);
-  
-  ellipse(posx-75, posy-100, 25);//top left p1
-  ellipse(posx+75, posy-100, 25);//top right p2
-
-  ellipse(posx-75, posy, 25); //mid left p3
-  ellipse(posx+75, posy, 25); //mid right p4
-
-  ellipse(posx-75, posy+100, 25); //bottom left p5
-  ellipse(posx+75, posy+100, 25); //bottom right p6
+  for(let i =0; i<frontNumTri; i++){
+    ellipse(posx+frontMove, posy-50+(i*50), frontSize);
+  }
 
 }
 
