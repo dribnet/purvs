@@ -1,4 +1,4 @@
-const colorFront1  = "#199cff";
+const colorFront1  = "#00ffff";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
 
