@@ -14,3 +14,5 @@ The three parameters per letter:
 ITS SQUARES NOW
 
 EVERYTHING IS SQUARES - i also changed the colors
+
+NO STROKES MORE SQUARES

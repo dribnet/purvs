@@ -31,7 +31,7 @@ const letterC = {
 }
 
 const colorFront1  = "#ffffff";
-const colorFront2  = "#eeeeee";
+const colorFront2  = "#000000";
 const colorBack    = "#dddddd";
 const colorStroke  = "#000000";
 
@@ -41,8 +41,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
