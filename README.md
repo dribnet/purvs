@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+Part 1 - Initial idea
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+My first idea is designing the alphabets using morse code letters. It might be the same pattern but making it curving or probably the arrangment of the morse code. For this practise, I have arranged the circles for each of my letters. The bigger size of circles showed the starting point of the alphabet and the circles in dark red colour showed the intersection point of the alphabet. The location of the circles are controlled by the three parameters.
 
 The three parameters per letter:
   * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `shift1` : x axis of the circle
+  * `shift2` : y axis of the circle
 
