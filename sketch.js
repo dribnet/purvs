@@ -13,25 +13,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "smallWidth": 50,
+  "smallHeight": 100,
+  "offsetx": -185,
+  "offsety": -210,
+  "smallAngle": -15
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "smallWidth": 50,
+  "smallHeight": 200,
+  "offsetx": -58,
+  "offsety": -60,
+  "smallAngle": 0
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "smallWidth": 110,
+  "smallHeight": 110,
+  "offsetx": 20,
+  "offsety": 0,
+  "smallAngle": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#349e55";
+const colorFront2  = "#75d192";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -49,16 +55,25 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
+  angleMode(DEGREES);
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let smallWidth2 = letterData["smallWidth"];
+  let smallHeight2 = letterData["smallHeight"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let smallAngle2 = letterData["smallAngle"];
 
   // draw two circles
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  push();
+  if(smallAngle2 != 0){
+    translate(posx,posy);
+    rotate(smallAngle2);
+  }
+  ellipse(pos2x, pos2y, smallWidth2, smallHeight2);
+  pop();
 }
 
 function draw () {
