@@ -30,7 +30,7 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
+const colorFront1  = "#ccffe5";
 const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
@@ -55,10 +55,21 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
+
+  // translate(580, 200);
+  // noStroke();
+  // for (let i = 0; i < 20; i ++){
+  //   ellipse(pos2y, size2, 20, posx);
+  //   ellipse(pos2y, posx, 200, 100);
+  //   rotate(PI/5);
+  // }
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  noStroke();
+  ellipse(posx, posy, 200, 300);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, 300, 20);
+  fill(colorFront2);
+  ellipse(pos2x, pos2x, 300, 20);
 }
 
 function draw () {
