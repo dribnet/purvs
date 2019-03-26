@@ -1,8 +1,8 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+Practice Sketch
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each letter is composed of two ellipses and a rectangle. The size and position of the first ellipse and the rectangle is fixed. But the size of the second elllipse is controlled by a parameter. 
 
 The three parameters per letter:
   * `size` : radius of the second circle
