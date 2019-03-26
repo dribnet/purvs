@@ -47,7 +47,7 @@ function setup () {
   //noLoop();
 }
 
-function drawLetter(posx, posy, letterData, onetwo, oneRotate, twoRotate, cutout) {
+function drawLetter(posx, posy, letterData, circle1x, circle1y, circle2x, circle2y, circle3x, circle3y) {
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
@@ -64,32 +64,29 @@ function drawLetter(posx, posy, letterData, onetwo, oneRotate, twoRotate, cutout
   noStroke();
   //push();
   strokeWeight(1);
-  stroke(0);
+  fill('#ffb2e3');
   push();
-  translate(posx, posy-50);
+  translate(posx, posy);
+  rectMode(CENTER);
+  rect(0, 0, 210, 210, 20);  
+  pop();
 
-  rotate(oneRotate);
-  if(onetwo == true){
-  triangle(0, -100, 100, 100, -100, 100);
+  fill('#ff59c4');
+
+  push();
+  translate(posx, posy);
+  ellipse(circle1x, circle1y, 100, 100);
+  if(circle3x == circle2x && circle3y == circle2y){
+    ellipse(circle2x, circle2y, 150, 150);
+  } else {
+   ellipse(circle2x, circle2y, 100, 100);
+   ellipse(circle3x, circle3y, 100, 100);
   }
-  else {
-  triangle(0, -100, 100, 0, -100, 0);
-  }
+
+
   pop();
 
 
-  push();
- if(onetwo == false || cutout == true){
-    if(cutout == true){
-      noStroke();
-      fill('#ff59c4');
-    }
-  translate(posx, posy+50);
-  rotate(twoRotate); 
-  triangle(0, -100, 100, 0, -100, 0); 
-
-  pop();
-  } 
 
 }
 
@@ -103,10 +100,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA, true, 0, 0, true);
-
-  drawLetter(center_x      , center_y, letterB, true, 0, 0, true);
-  //drawLetter(center_x + 250, center_y, letterC, true);
+  drawLetter(center_x - 250, center_y, letterA, 0, -50, 0, 100, 0, 100);
+  drawLetter(center_x      , center_y, letterB, 0, -50, 0, 50, 100, 0);
+  drawLetter(center_x + 250, center_y, letterC, 80, 0, 0, 0, 0, 0);
 }
 
 function keyTyped() {
