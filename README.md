@@ -1,11 +1,16 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each of my letters is composed of two triangles. The size and position is determined by the x1,y1,x2,y2,x3,y3 co-ordinates which are determined by the offsets.
 
 The three parameters per letter:
   * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+  * `offsetx` : x2 co-ord of the first triangle
+  * `offsety` : y2 co-ord of the first triangle
+  * `offsetx2` : x3 co-ord of the first triangle
+  * `offsety2` : y3 co-ord of the first triangle
+  * `offset2x` : x2 co-ord of the second triangle
+  * `offset2y` : y2 co-ord of the second triangle
+  * `offset2x2` : x3 co-ord of the second triangle
+  * `offset2y2` : y2 co-ord of the second triangle
+  * `xoffset` : x1 co-ord of the second triangle relative to the first triangle's x1
+  * `yoffset` : y1 co-ord of the second triangle relative to the first triangle's y1
