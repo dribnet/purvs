@@ -12,3 +12,5 @@ The three parameters per letter:
  Just messed with this and made letters D & E in the given style
 
 ITS SQUARES NOW
+
+EVERYTHING IS SQUARES - i also changed the colors
