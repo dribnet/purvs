@@ -11,23 +11,42 @@ let tester = 0;
             relative to the first one
  *
  */
-
+   // draw the letters A, B, C from saved data
+   /*
+  drawLetter(center_x - 250, center_y, letterA, 0, -50, 0, 100, 0, 100);
+  drawLetter(center_x      , center_y, letterB, 0, -50, 0, 50, 100, 0);
+  drawLetter(center_x + 250, center_y, letterC, 80, 0, 0, 0, 0, 0);
+*/
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "circle1x": 0 ,
+  "circle1y": 100,
+  "circle2x": 0,
+  "circle2y": -50,
+  "circle3x": 0,
+  "circle3y": -50
+
+
+
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "circle1x": 0 ,
+  "circle1y": -50,
+  "circle2x": 0,
+  "circle2y": 50,
+  "circle3x": 100,
+  "circle3y": 0
+
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "circle1x": 0 ,
+  "circle1y": 0,
+  "circle2x": 75,
+  "circle2y": 0,
+  "circle3x": 75,
+  "circle3y": 0
+
 }
 
 const colorFront1  = "#ff18a6";
@@ -47,19 +66,17 @@ function setup () {
   //noLoop();
 }
 
-function drawLetter(posx, posy, letterData, circle1x, circle1y, circle2x, circle2y, circle3x, circle3y) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+function drawLetter(posx, posy, letterData) {
+
+  let circle1x = letterData["circle1x"];
+  let circle1y = letterData["circle1y"];
+  let circle2x = letterData["circle2x"];
+  let circle2y = letterData["circle2y"];
+  let circle3x = letterData["circle3x"];
+  let circle3y = letterData["circle3y"];
+
   tester = tester +0.01;
-  // draw two circles
-  /*
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
-  */
+
  
   noStroke();
   //push();
@@ -75,14 +92,14 @@ function drawLetter(posx, posy, letterData, circle1x, circle1y, circle2x, circle
 
   push();
   translate(posx, posy);
-  ellipse(circle1x, circle1y, 100, 100);
+  
   if(circle3x == circle2x && circle3y == circle2y){
-    ellipse(circle2x, circle2y, 150, 150);
+   ellipse(circle1x, circle1y, 150, 150);
   } else {
+    ellipse(circle1x, circle1y, 100, 100);
+  }
    ellipse(circle2x, circle2y, 100, 100);
    ellipse(circle3x, circle3y, 100, 100);
-  }
-
 
   pop();
 
@@ -100,7 +117,7 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA, 0, -50, 0, 100, 0, 100);
+  drawLetter(center_x - 250, center_y, letterA, 0, -150, 0, 100, 0, 100);
   drawLetter(center_x      , center_y, letterB, 0, -50, 0, 50, 100, 0);
   drawLetter(center_x + 250, center_y, letterC, 80, 0, 0, 0, 0, 0);
 }
