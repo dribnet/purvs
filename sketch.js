@@ -33,7 +33,7 @@ const letterC = {
 const colorFront1  = "#ffffff";
 const colorFront2  = "#000000";
 const colorBack    = "#dddddd";
-const colorStroke  = "#000000";
+const colorStroke  = "#AAAAAA";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -58,6 +58,8 @@ function drawLetter(posx, posy, letterData) {
   rect(posx, posy, 150, 150);
   fill(colorFront2);
   rect(pos2x, pos2y, size2, size2);
+  fill(colorStroke);
+  triangle(posx,posy,pos2x,pos2y,(posx+150),posy);
 }
 
 function draw () {
