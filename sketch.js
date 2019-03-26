@@ -31,9 +31,9 @@ const letterC = {
 }
 
 const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront2  = "#7b97c4";
+const colorBack    = "#ffe5c4";
+//const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +42,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -55,10 +55,11 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  noFill();
+  rect(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, 50, 30);
+
 }
 
 function draw () {
