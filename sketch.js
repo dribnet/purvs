@@ -30,9 +30,9 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "255";
-const colorFront2  = "#000000";
-const colorBack    = "#e3eded";
+const colorFront1  = [204, 101, 192, 2];
+const colorFront2  = [204,101,192,150];
+const colorBack    = [200,200,200];
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -48,6 +48,24 @@ function setup () {
   noLoop();
 }
 
+function drawLetter1(posx, posy, letterData) {
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+
+  // draw two circles
+  fill(colorFront1);
+  // ellipse(posx, posy, 150, 150);
+  triangle(posx -75, posy+75, posx , posy-75, posx +75, posy +75);
+  triangle(posx -75, posy+75, posx -75, posy-75, posx +75, posy);
+  triangle(posx +75, posy-75, posx +75, posy+75, posx -75, posy);
+  triangle(posx +75, posy-75, posx , posy+75, posx -75, posy -75);
+  fill(colorFront2);
+   triangle(posx -75, posy+75, posx , posy-75, posx +75, posy +75);
+  // ellipse(pos2x, pos2y, size2, size2);
+}
+
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
@@ -56,10 +74,22 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // ellipse(posx, posy, 150, 150);
+  triangle(posx -75, posy+75, posx , posy-75, posx +75, posy +75);
+  triangle(posx -75, posy+75, posx -75, posy-75, posx +75, posy);
+  triangle(posx +75, posy-75, posx +75, posy+75, posx -75, posy);
+  triangle(posx +75, posy-75, posx , posy+75, posx -75, posy -75);
+  // fill(colorFront2);
+   triangle(posx -75, posy+75, posx , posy-75, posx +75, posy +75);
+  // ellipse(pos2x, pos2y, size2, size2);
 }
+
+
+
+
+
+
+
 
 function draw () {
   // clear screen
@@ -70,7 +100,7 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter1(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
