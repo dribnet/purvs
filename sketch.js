@@ -30,10 +30,10 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#8ee1f2";
+const colorFront2  = "#f495a3";
+const colorBack    = "#edf1e9";
+// const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,8 +41,9 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  // stroke(colorStroke);
+  // strokeWeight(0);
+  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();

@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#edf1e9";
 const colorLines   = "#000090";
 
 /* 
@@ -124,14 +124,14 @@ function draw () {
     if (debugBox) {
       noFill()
       strokeWeight(4);
-      stroke(0, 200, 0);
+      stroke(240, 200, 0);
       rect(0, 0, 100, 200);
     }
 
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
+    noStroke();
     fill(colorLines);
     textSize(50);
     textAlign(CENTER)

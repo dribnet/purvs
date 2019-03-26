@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#edf1e9";
 const colorLines   = "#000090";
 
 /* 
@@ -60,7 +60,8 @@ function draw () {
     translate(0, j);
 
     // draw lines
-    stroke(colorLines);
+    // stroke(colorLines);
+    noStroke();
     line(left_margin, 0, right_margin, 0);
     for (let i=left_margin; i<right_margin-8; i+=30) {
       line(i, 100, i+12, 100);
@@ -73,7 +74,7 @@ function draw () {
         if (debugBox) {
           noFill()
           strokeWeight(4);
-          stroke(0, 200, 0);
+          stroke(240, 200, 0);
           rect(0, 0, 100, 200);
         }
 

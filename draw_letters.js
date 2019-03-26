@@ -1,5 +1,5 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#8ee2e0";
+const colorFront2  = "#f495a3";
 const colorStroke  = "#233f11";
 
 /*
@@ -11,8 +11,9 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  // stroke(colorStroke);
+  // strokeWeight(4);
+  noStroke();
 
   // determine parameters for second circle
   let size2 = letterData["size"];
@@ -35,7 +36,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "BABABABA",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "BAC?ABC?"
 ]
