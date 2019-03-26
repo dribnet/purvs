@@ -18,5 +18,10 @@ const alphabet = {
     "size": 50,
     "offsetx": 15,
     "offsety": 0
+  },
+  "D": {
+    "size": 60,
+    "offsetx": 0,
+    "offsety": -40
   }
 }
