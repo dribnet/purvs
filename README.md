@@ -1,8 +1,9 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+## Tutorial Class One
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I played with the start-up file and altered the size and shape of the ellipses. I also tried using rectangles instead of ellipses but found ellipses to be more appealing. I've started thinking about usig the concept of morse code to make my alphabets.
+
 
 The three parameters per letter:
   * `size` : radius of the second circle
