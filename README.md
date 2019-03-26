@@ -9,3 +9,4 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
+Changed colour and shape of the ellipses. An idea I am thinking of is a bunch of lines much like the wooden robot claw example, each line rotating around at each corner of a hexagon will multiple lines rotating from a center point.

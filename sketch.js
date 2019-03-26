@@ -30,8 +30,8 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#d81a1a";
+const colorFront2  = "#f2bfbf";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -42,7 +42,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1.5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -56,9 +56,9 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  ellipse(posx, posy, size2/1.5, size2*1.5);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, size2/2.5, size2);
 }
 
 function draw () {
