@@ -4,7 +4,6 @@ const PI = 3.14159;
 const HALF_PI = PI/2;
 const TWO_PI = PI*2;
 
-//const pie = PI;
 /* 
  * my three variable per letter are:
  *
@@ -17,21 +16,36 @@ const TWO_PI = PI*2;
  */
 
 const letterA = {
-  "cSize": 100,
   "arcS": PI, 
-  "arcE": PI + HALF_PI,
+  "arcE": TWO_PI,
+  "movetriX1" : 0,
+  "triX1toX2" : -40,
+  "triX1toX3" : 40,
+  "movetriY1" : -20,
+  "triY1toY2" : 60,
+  "triY1toY3" : 60
 }
 
 const letterB = {
-  "cSize": 100,
-  "arcS": PI + HALF_PI, 
-  "arcE": TWO_PI
+  "arcS": HALF_PI + PI, 
+  "arcE": HALF_PI,
+  "movetriX1" : 0,
+  "triX1toX2" : 0,
+  "triX1toX3" : 40,
+  "movetriY1" : 0,
+  "triY1toY2" : 40,
+  "triY1toY3" : 40
 }
 
 const letterC = {
-  "cSize": 100,
-  "arcS": PI, 
-  "arcE": PI + HALF_PI
+  "arcS": HALF_PI, 
+  "arcE": PI + HALF_PI,
+  "movetriX1" : 10,
+  "triX1toX2" : -30,
+  "triX1toX3" : 0,
+  "movetriY1" : -20,
+  "triY1toY2" : 20,
+  "triY1toY3" : 40
 }
 
 const colorFront1  = "#199cff";
@@ -39,16 +53,17 @@ const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
+
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(0);
-  noFill();
-  strokeWeight(5);
-  strokeCap(PROJECT);
+  //stroke(0);
+  //noFill();
+  //strokeWeight(5);
+  //strokeCap(PROJECT);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -56,10 +71,14 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let circleS = letterData["cSize"];
   let ArcStart = letterData["arcS"];
   let ArcEnd = letterData["arcE"];
-  let LineLength = letterData["lineL"]
+  let triangleX1 = letterData["movetriX1"]
+  let triangleX1toX2 = letterData["triX1toX2"]
+  let triangleX1toX3 = letterData["triX1toX3"]
+  let triangleY1 = letterData["movetriY1"]
+  let triangleY1toY2 = letterData["triY1toY2"]
+  let triangleY1toY3 = letterData["triY1toY3"]
 
   // draw two circles
 
@@ -67,35 +86,16 @@ function drawLetter(posx, posy, letterData) {
   //ellipse(posx, posy, 150, 150);
   //fill(colorFront2);
   //ellipse(pos2x, pos2y, size2, size2);
-
-  arc(posx,posy,circleS,circleS,ArcStart,ArcEnd);
+  noStroke();
+  fill(255,70,67,200);
+  arc(posx,posy,80,80,ArcStart,ArcEnd);
+  fill(64,102,93,200);
+  triangle(posx+triangleX1,posy+triangleY1,posx+triangleX1+triangleX1toX2,posy+triangleY1+triangleY1toY2, posx+triangleX1+triangleX1toX3, posy+triangleY1+triangleY1toY3);
 }
 
 function draw () {
   // clear screen
-  background(colorBack);
-
-  //A
-  strokeWeight(5);
-  noFill();
-  arc(100,100,100,100,PI,PI + HALF_PI);
-  line(50,100,100,100);
-  line(100,50,100,100);
-  arc(50,50,100,100,PI + HALF_PI,TWO_PI);
-
-  //B
-  strokeWeight(5);
-  noFill();
-  arc(150,100,100,100,PI + HALF_PI,TWO_PI);
-  line(150,0,150,100);
-  line(150,100,200,100);
-
-  //C
-  strokeWeight(5);
-  noFill();
-  arc(300,100,100,100,PI,PI + HALF_PI);
-  line(250,100,300,100);
-
+  background(200);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
