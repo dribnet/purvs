@@ -26,14 +26,15 @@ const letterB = {
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 0,
+  "offsety": 90
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#FFA44C"; //orange
+const colorFront2  = "#8CFFF1"; //light teal
+const colorFront3  = "#00BAA3"; // dark teal
+const colorBack    = "#e3eded"; // light grey
+const colorStroke  = "#233f11"; // dark grey
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -55,10 +56,13 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
+  noStroke();
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  ellipse(posx, posy, 10, 150); // lollipop stick
+  fill(colorFront3);
+  ellipse(pos2x, pos2y, size2, size2); // shadow
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, size2-50, size2); // light colour
 }
 
 function draw () {
