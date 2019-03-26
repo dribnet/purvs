@@ -1,8 +1,9 @@
 ## PS2 MDDN 242 2019
 
-Practice Sketch
+Practice Sketch 2
 
-Each letter is composed of two ellipses and a rectangle. The size and position of the first ellipse and the rectangle is fixed. But the size of the second elllipse is controlled by a parameter. 
+Each letter is composed of four ellipses and a rectangle. The size of the first two ellipses, the last ellipse and the rectangle have fixed sizes. The third ellipses size is controlled by a parameter. the location of all the shapes are controlled by a perimeter. 
+
 
 The three parameters per letter:
   * `size` : radius of the second circle
