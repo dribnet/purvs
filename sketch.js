@@ -2,36 +2,56 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * my five variables per letter are:
  *
    size: radius of the second circle (in pixels)
    offsetx: x offset (in pixels) of the second circle
             relative to the first one
    offsety: y offset (in pixels) of the second circle
             relative to the first one
+
+  * 'offsetTrunkx' : x offset of the tree trunk rectangle
+  * 'offsetTrunky' " y offset of the tree trunk rectangle
+
  *
  */
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx": -20,
+  "offsety": 20,
+  "offsetTrunkx":-10,
+  "offsetTrunky":-30,
+
+
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 100,
+  "offsetx": -10,
+  "offsety": 22,
+  "offsetTrunkx":-10,
+  "offsetTrunky":-20,
+
+
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx":-30,
+  "offsety":21,
+  "offsetTrunkx":0,
+  "offsetTrunky":0,
+
+
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#d000ff";
+const colorFront2  = "#ff6e00";
+const colorFront3 =  "#dc44ff";
+//const colorTrunk1 =  "#ffae00"; yellow 
+const colorTrunk1 =  "#872d00"; //brown
+
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -51,14 +71,40 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos2x = posx + letterData["offsetTrunkx"];
+  let pos2y = posy + letterData["offsetTrunky"];
+  let size3 = size2-10+ letterData["size"];
+  let pos3x = pos2x + letterData ["offsetx"];
+  let pos3y = pos2y + letterData ["offsety"];
+  let pos4x = pos3x +50 + letterData ["offsetx"];
+  let pos4y = pos3y+30 + letterData ["offsety"];
+  let pos5x = pos4x+20 + letterData ["offsetx"];
+  let pos5y = pos4y -50+ letterData ["offsety"];
+
+
 
   // draw two circles
+  noStroke();
+  
+  fill(colorTrunk1);
+  rect(pos2x, pos2y, 20, 400,5);
+
+  //top branch
+  
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  arc(posx, pos3y, size2,  40, 0, PI);
+
+  //bottom branch
+
+  fill(colorFront3);
+  arc(pos4x, pos4y, size3, 40,0 , PI);
+
+  //middle branch
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos5x, pos5y, size2, 40, 0 , PI);
+
+  
 }
 
 function draw () {
