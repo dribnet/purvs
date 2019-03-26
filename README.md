@@ -1,11 +1,12 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+As my first idea, I've decided to represtent my letters using the braille writing system. Each letter in braille  is made up of a six cell dot. The letter paramters are simply indicative of if each dot is showing or not in the cell. If the number next to the parmater is a one that implies that cell is showing. 
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `dot1` : The first dot of braille cell.
+  * `dot2` : The second dot of braille cell. 
+  * `dot3` : The third dot of braille cell. 
+  * `dot4` : The fouth dot of braille cell. 
+  * `dot5` : The  dot of braille cell. * `dot1` : The first dot of braille cell. * `dot1` : The first dot of braille cell.  
+ 
 
