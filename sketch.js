@@ -13,21 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx":35,
-  "offsety": 70
+  "offsetx1":-75,
+  "offsety1":75,
+  "offsetx2":75,
+  "offsety2":75,
+  "offsetx3":0,
+  "offsety3":-75
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx1":-75,
+  "offsety1":-75,
+  "offsetx2":-75,
+  "offsety2":75,
+  "offsetx3":75,
+  "offsety3":50
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 50,
-  "offsety": 25
+  "offsetx1":75,
+  "offsety1": -75,
+  "offsetx2":75,
+  "offsety2":75,
+  "offsetx3":-75,
+  "offsety3":0
 }
 
 const colorFront1  = "#ffffff";
@@ -49,17 +58,22 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  rectMode(CENTER);
+
+  let pos2x = posx + letterData["offsetx1"];
+  let pos2y = posy + letterData["offsety1"];
+  let pos3x = posx + letterData["offsetx2"];
+  let pos3y = posy + letterData["offsety2"];
+  let pos4x = posx + letterData["offsetx3"];
+  let pos4y = posy + letterData["offsety3"];
 
   // draw two circles
   fill(colorFront1);
-  rect(posx, posy, 150, 150);
+  rect(posx,posy,150,150);
   fill(colorFront2);
-  rect(pos2x, pos2y, size2, size2);
+  triangle(pos2x,pos2y,pos4x,pos4y,pos3x,pos3y);
   fill(colorStroke);
-  triangle(posx,posy,pos2x,pos2y,(posx+150),posy);
+  triangle(pos2x,pos2y,posx,posy,pos3x,pos3y);
 }
 
 function draw () {
