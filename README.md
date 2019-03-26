@@ -1,11 +1,5 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+INITIAL SKETCHES:
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+I decided to stick to ellipses as I like the look of them better and main focusef on lower cases. The only thing that changes in position and size are the smaller ellipses. I also altered the colours to ones which I preferred. I'm not 100% sure if I would keep to using ellipses for the actual project as I'd like to brainstorm more ideas and develop them a lot more.
