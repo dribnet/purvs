@@ -2,36 +2,44 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
+ * my five variables per letter are:
  *
    size: radius of the second circle (in pixels)
    offsetx: x offset (in pixels) of the second circle
             relative to the first one
    offsety: y offset (in pixels) of the second circle
             relative to the first one
+   arcStart: starting angle (in radians) of the arc
+   arcStop: end angle (in radians) of the arc
  *
  */
 
 const letterA = {
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35,
+  "arcStart": 180/3, // PI/3 - third of half circle
+  "arcStop": 180/3*2 // 2/3 of half circle
 }
 
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -50,
+  "arcStart": 180/3*2 + 30, // just over 2/3 of half circle
+  "arcStop":  150 + 180/3   // in between half circle point and 1/3 half circle
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 70,
+  "offsetx": 0,
+  "offsety": 0,
+  "arcStart": 180/3 - 30,  // just under third of half circle
+  "arcStop": 180/3*2 + 210 // just under a complete circle
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#2E8B57"; // sea green
+const colorFront2  = "#ADFF2F"; // greenyellow
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -53,12 +61,14 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let start = letterData["arcStart"];
+  let stop = letterData["arcStop"];
 
-  // draw two circles
+  // draw two arcs
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  arc(posx, posy, 150, 150, radians(start), radians(stop), PIE);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size2, size2, radians(start), radians(stop), PIE);
 }
 
 function draw () {
