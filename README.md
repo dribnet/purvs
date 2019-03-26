@@ -1,11 +1,3 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+ I expiremented with the code we got today by changing colour and stroke size. I also played around with the size of the ellipses and added a third ellipse for each letter. I'm not sure if I will continue with the font Ive created today but it is a start. 
