@@ -9,17 +9,20 @@ const letterA = {
   "offsety": 40,
   "b2offsetx": 130,
   "b2offsety": 210,
+  "b3offsetx": 130,
+  "b3offsety": 195
 }
 
 const letterB = {
   "size": 50,
-  "wid" : 50,
-  "hei" : 100,
+  "wid" : 100,
+  "hei" : 50,
   "offsetx":50,
   "offsety": 40,
-  "b2offsetx": 499,
-  "b2offsety": 162,
-  "tilt": 58
+  "b2offsetx": 485,
+  "b2offsety": 150,
+  "b3offsetx": 485,
+  "b3offsety": 205
 }
 
 const letterC = {
@@ -29,7 +32,9 @@ const letterC = {
   "offsetx": 50,
   "offsety": 50,
   "b2offsetx": 860,
-  "b2offsety": 180
+  "b2offsety": 180,
+  "b3offsetx": 850,
+  "b3offsety": 180
 }
 
 //big circle
@@ -70,10 +75,8 @@ function drawLetter(posx, posy, letterData) {
   let b2posx = letterData["b2offsetx"];
   let b2posy = letterData["b2offsety"];
 
-  let tilt = letterData["tilt"];
-
-  //let b3posx = letterData["b3offsetx"];
-  //let b3posy = letterData["b3offsety"];
+  let b3posx = letterData["b3offsetx"];
+  let b3posy = letterData["b3offsety"];
 
   // Ellipses //
   fill(colorFront1);
@@ -83,15 +86,17 @@ function drawLetter(posx, posy, letterData) {
   // letter A //
   ellipse(pos2x, pos2y, size2, size2);
   ellipse(b2posx, b2posy, wid1, hei1);
+  ellipse(b3posx, b3posy, wid1, hei1);
 
   // letter B //
   ellipse(posx, posy, size2, size2);
-  ellipse(b2posx, b2posy, wid1, hei1, tilt);
-  //ellipse(b3posx, b3posy, wid1, hei1);
+  ellipse(b2posx, b2posy, wid1, hei1);
+  ellipse(b3posx, b3posy, wid1, hei1);
 
   // letter C //
   ellipse(pos2x, pos2y, size2, size2);
   ellipse(b2posx, b2posy, wid1, hei1);
+  ellipse(b3posx, b3posy, wid1, hei1);
 }
 
 function draw () {
