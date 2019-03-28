@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+Initial Sketches
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Using an object that holds a shapes array that contains lists of more shapes that contains arrays.I have managed to keep my parameters lower than 12.The intial idea is just some oragami letters.I have used the beginshape tool.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+  * `shapes` : array that holds more objects and array lists
+  * `x` : x array of x co ordinates that draw multiple shapes
+  * `y` : y array of y co ordinates that draw multiple shapes
+  * `col`: makes every shape the assigned colour
