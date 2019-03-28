@@ -1,67 +1,73 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "x": -50,
+  "y": -10,
+  "x2": 50,
+  "y2": -10,
+  "start": 140,
+  "stop": 40
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "x": -70,
+  "y": 5,
+  "x2": 70,
+  "y2": 5,
+  "start": 20,
+  "stop": 350
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x": -110,
+  "y": -10,
+  "x2": -30,
+  "y2": 10,
+  "start": 50,
+  "stop": -50
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorBack    = "#a8c0dd"; // blue blackground
+const colorStroke  = "#ffffff"; // white stroke
 
 function setup () {
+
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(8);
+
+  // angle mode from radians to degrees for arc
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // determine parameters for the line
+  let lineX1 = posx + letterData["x"];
+  let lineY1 = posy + letterData["y"];
+  let lineX2 = posx + letterData["x2"];
+  let lineY2 = posy + letterData["y2"];
+  
+  // determine start and stop parameters for arc
+  let arcStart = letterData["start"];
+  let arcStop = letterData["stop"];
+
+  // draw an arc and line
+  noFill();
+  arc(posx, posy, 150, 150, arcStart, arcStop);
+  line(lineX1, lineY1, lineX2, lineY2);
 }
 
 function draw () {
+  
   // clear screen
   background(colorBack);
 
