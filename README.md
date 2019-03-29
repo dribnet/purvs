@@ -1,11 +1,20 @@
 ## PS2 MDDN 242 2019
 
 
-Each of my letters is composed with three circles. The size and position of the first circle is fixed, but the location and size of the second and third circles are controlled by five parameters.
+Each of my letters is composed with four triangles. each point of my triangles are controlled by 6 parameters each.
 
-The five parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-  * `offsetx2` : x offset of the third circle relative to the first one
-  * `offsety2` : y offset of the third circle relative to the first one
+
+The parameters for one of the triangles are:
+
+  * `offsetx1 tri 1` : x offset of the first triangle point relative to the center
+  * `offsety1 tri 1` : y offset of the first triangle point relative to the center
+  * `offsetx2 tri 1` : x offset of the second triangle point relative to the center
+  * `offsety2 tri 1` : y offset of the second triangle point relative to the center
+  * `offsetx3 tri 1` : x offset of the third triangle point relative to the center
+  * `offsety3 tri 1` : y offset of the third triangle point relative to the center
+
+  this is the same for the other 3 triangles with different offset values
+
+  I have currenlty only done the code for A, B and C and these are in the sketch window.
+
+  My preview is the sketch I have drawn of all the letters and how I am going to make them look
