@@ -13,27 +13,38 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+    "shift1": -224,
+    "shift1y": 0,
+    "tilt1": 240,
+    "shift2": 20,
+    "tilt2": -4,
+    "shift3": -121,
+    "tilt3": 100
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+    "shift1": 60,
+    "shift1y": 10,
+    "tilt1": -20,
+    "shift2": -30,
+    "tilt2": -120,
+    "shift3": -100,
+    "tilt3": 20
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+    "shift1": -100,
+    "shift1y": 20,
+    "tilt1": 20,
+    "shift2": 50,
+    "tilt2": 130,
+    "shift3": 0,
+    "tilt3": -100
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#1b1b1b";
+const colorBack    = "#0b3ea3";
+const colorStroke  = "#f4dc42";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,23 +53,46 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
+// This function draws each individual box
+function drawPart(posx, posy, scale, offsetx, offsety, tilt) {
+  push();
+  translate(posx + offsetx*scale/10, posy + offsety);
+  rotate(tilt);
+  triangle(-10*scale, scale, -10*scale, -30*scale, 10*scale, 30*scale);
+  pop();
+}
+
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let shift1 = letterData["shift1"];
+  let shift1y = letterData["shift1y"];
+  let tilt1 = letterData["tilt1"];
+  let shift2 = letterData["shift2"];
+  let tilt2 = letterData["tilt2"];
+  let shift3 = letterData["shift3"];
+  let tilt3 = letterData["tilt3"];
+
+  // rotation in degrees (for tilt variable)
+  angleMode(DEGREES);
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+
+
+  push();
+  let scale=3;
+  let y_offset = 5 * scale;
+  drawPart(posx, posy-y_offset, scale, shift1, shift1y, tilt1);
+  drawPart(posx,          posy, scale, shift2, 0, tilt2);
+  drawPart(posx, posy+y_offset, scale, shift3, 0, tilt3);
+  pop();
 }
 
 function draw () {
