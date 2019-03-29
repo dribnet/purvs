@@ -1,7 +1,6 @@
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
-
 /*
  * Draw the letter given the letterData
  *
@@ -10,20 +9,24 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+ // determine parameters for second circle
+  let posx2 = letterData["posx"];
+  let posy2 = letterData["posy"];
+  let ArcStart = letterData["arcS"];
+  let ArcEnd = letterData["arcE"];
+  let triangleX1 = letterData["movetriX1"]
+  let triangleX1toX2 = letterData["triX1toX2"]
+  let triangleX1toX3 = letterData["triX1toX3"]
+  let triangleY1 = letterData["movetriY1"]
+  let triangleY1toY2 = letterData["triY1toY2"]
+  let triangleY1toY3 = letterData["triY1toY3"]
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw one half_circle and triangle
+  noStroke();
+  fill(255,70,67,200);
+  arc(posx2,posy2,100,100,ArcStart,ArcEnd);
+  fill(64,102,93,200);
+  triangle(posx2+triangleX1,posy2+triangleY1,posx2+triangleX1+triangleX1toX2,posy2+triangleY1+triangleY1toY2, posx2+triangleX1+triangleX1toX3, posy2+triangleY1+triangleY1toY3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
