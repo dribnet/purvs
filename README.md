@@ -4,3 +4,7 @@ after spending last session playing with shapes and parameters i have added a gr
 
 I think I am going to try the triangle style that i  began exploring last week.
 
+I am now playing with the idea of using cyrillic instead of the latin alphabet just for funzies
+
+If i do choose to continue with the cyrillic im going to have to re work my sketch ideas significantly though
+
