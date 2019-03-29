@@ -1,12 +1,14 @@
-## PS2 MDDN 242 2019
+## Class Example
 
-(Replace this README with information about your alphabet. This is an example.)
+This experiment with the contour function is adapted from [the programming design systems chapter on custom shapes](https://programmingdesignsystems.com/shape/custom-shapes/index.html).
 
-Each of my letters is composed with two circles. The first circle draws on a baseline but has a variable size. The location and size of the second circle is controlled by three parameters.
+The [original code can be found here](https://github.com/runemadsen/programmingdesignsystems.com/blob/master/examples/shape/custom-shapes/contour.js)
 
-The four parameters per letter:
-  * `size1` : radius of the main circle
-  * `size2` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The six parameters per letter:
+  * `v1x` : vertex 1 x for contour triangle
+  * `v1y` : vertex 1 y for contour triangle
+  * `v2x` : vertex 2 x for contour triangle
+  * `v2y` : vertex 2 y for contour triangle
+  * `v3x` : vertex 3 x for contour triangle
+  * `v3y` : vertex 3 y for contour triangle
 
