@@ -12,10 +12,10 @@ const letterA = {
 
 const letterB = {
   "x": -70,
-  "y": 5,
+  "y": 1,
   "x2": 70,
-  "y2": 5,
-  "start": 20,
+  "y2": 1,
+  "start": 10,
   "stop": 350
 }
 
@@ -56,7 +56,7 @@ function drawLetter(posx, posy, letterData) {
   let lineX2 = posx + letterData["x2"];
   let lineY2 = posy + letterData["y2"];
   
-  // determine start and stop parameters for arc
+  // determine start and stop parameters for the arc
   let arcStart = letterData["start"];
   let arcStop = letterData["stop"];
 

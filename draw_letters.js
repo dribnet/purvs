@@ -1,6 +1,4 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorStroke  = "#ffffff"; //white stroke
 
 /*
  * Draw the letter given the letterData
@@ -12,25 +10,38 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(8);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  angleMode(DEGREES);
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // determine parameters for the line
+  let lineX1 = 50 + letterData["x"];
+  let lineY1 = 150 + letterData["y"];
+  let lineX2 = 50 + letterData["x2"];
+  let lineY2 = 150 + letterData["y2"];
+
+  //determine start and stop parameters for the arc
+  let arcStart = letterData["start"];
+  let arcStop = letterData["stop"];
+
+  // draw an arc and line
+  noFill();
+  arc(50, 150, 90, 90, arcStart, arcStop);
+  line(lineX1, lineY1, lineX2, lineY2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
+  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
+
+  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+
+  new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
+  new_letter["stop"] = map(percent, 0, 100, oldObj["stop"], newObj["start"]);
+
   return new_letter;
 }
 
