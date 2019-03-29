@@ -49,7 +49,7 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
+function drawLetter(posx, posy, letterData) { //only draw here.
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];

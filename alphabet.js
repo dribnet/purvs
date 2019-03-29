@@ -44,7 +44,7 @@ function draw () {
   push();
   scale(0.5);
 
-  // constants
+  // constants (controls the position)
   const left_margin = 40;
   const right_margin = 2*width - 40;
   const top_margin = 80;
@@ -59,7 +59,7 @@ function draw () {
     push();
     translate(0, j);
 
-    // draw lines
+    // draw lines (lines)
     stroke(colorLines);
     line(left_margin, 0, right_margin, 0);
     for (let i=left_margin; i<right_margin-8; i+=30) {

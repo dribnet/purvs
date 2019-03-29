@@ -19,4 +19,5 @@ const alphabet = {
     "offsetx": 15,
     "offsety": 0
   }
+  
 }
