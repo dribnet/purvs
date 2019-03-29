@@ -35,7 +35,7 @@ function drawLetter(letterData) {
   vertex(px1,py1);
   vertex(px2,py2);
   vertex(px3,py3);
-  fill(colorFront1);
+
   vertex(px3,py3);
   vertex(px4,py4);
   vertex(px5,py5);

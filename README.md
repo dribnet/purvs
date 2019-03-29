@@ -10,5 +10,5 @@ If i do choose to continue with the cyrillic im going to have to re work my sket
 
 tried doing the first four characters of the cyrillic alphabet in my existing style and i have to say im not a fan.
 
-
+this might work but I dont think so somehow - this is gonna take a lot of fixing
 
