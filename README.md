@@ -8,3 +8,7 @@ I am now playing with the idea of using cyrillic instead of the latin alphabet j
 
 If i do choose to continue with the cyrillic im going to have to re work my sketch ideas significantly though
 
+tried doing the first four characters of the cyrillic alphabet in my existing style and i have to say im not a fan.
+
+
+
