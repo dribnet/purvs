@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorFront1  = "#FFAD00";
+const colorFront2  = "#386466";
+const colorStroke  = "#386466";
 
 /*
  * Draw the letter given the letterData
@@ -12,7 +12,7 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(3.5);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
