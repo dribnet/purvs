@@ -1,7 +1,3 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
-
 /*
  * Draw the letter given the letterData
  *
@@ -10,20 +6,70 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  let size=45;
+  let spacing=60;
+  let startX1=0;
+  let startX2=55;
+  let y=20;
+  strokeJoin(BEVEL);
+  strokeWeight(2);
+  let colorB= color(255,255,255);
+  let colorW= color(0,0,0);
+  let alphaB=color(255,255,255,60);
+  let alphaW=color(0,0,0,160);
+  //DOT ONE
+  if(letterData["dot1"]==1){
+    fill(colorW);
+    stroke(colorB);
+    rect(startX1,y,size,size);
+  }
+   if(letterData["dot1"]!=1){
+    noFill();
+    stroke(alphaB);
+    rect(startX1,y,size,size);
+  }
+  //DOT TWO
+  if(letterData["dot2"]==1){
+    fill(colorB);
+    stroke(colorW);
+    rect(startX1,y+spacing,size,size);
+  }
+  if(letterData["dot2"]!=1){
+    fill(alphaB);
+    noStroke();
+    rect(startX1,y+spacing,size-30,size-30);
+  }
+  //DOT THREE
+  if(letterData["dot3"]==1){
+    fill(colorW);
+    stroke(colorB);
+    rect(startX1,y+(spacing*2),size,size);
+  }
+  if(letterData["dot3"]!=1){
+    noFill();
+    stroke(alphaB);
+    rect(startX1,y+(spacing*2),size-10,size-10);
+  }
+  //DOT FOUR
+  if(letterData["dot4"]==1){
+    fill(colorB);
+    stroke(colorW);
+    rect(startX2,y,size,size);
+  }
+  //DOT FIVE
+   if(letterData["dot5"]==1){
+    fill(colorW);
+    stroke(colorB);
+    rect(startX2,y+spacing,size,size);
+  }
+  //DOT SIX
+  if(letterData["dot6"]==1){
+    fill(colorB);
+    stroke(colorW);
+    rect(startX2,y+(spacing*2),size,size);
+  }
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
