@@ -17,4 +17,4 @@ The parameters for one of the triangles are:
 
   I have currenlty only done the code for A, B and C and these are in the sketch window.
 
-  My preview is the sketch I have drawn of all the letters and how I am going to make them look
+  I have drawn of all the letters and how I am going to make them look but I cannot change the preview image to that for some reason, it shows only the sketch.js image as the preview
