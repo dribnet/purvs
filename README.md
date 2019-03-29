@@ -1,20 +1,6 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+after spending last session playing with shapes and parameters i have added a grotesk font to the files for me to keep an eye on each character and get a feel for the kind of shapes i need to make.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I think I am going to try the triangle style that i  began exploring last week.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
- Just messed with this and made letters D & E in the given style
-
-ITS SQUARES NOW
-
-EVERYTHING IS SQUARES - i also changed the colors
-
-NO STROKES MORE SQUARES
-
-ADDED TRIANGLEs
