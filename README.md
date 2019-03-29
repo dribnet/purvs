@@ -2,10 +2,24 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each of my letters is composed with a rectangle and two arcs. 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The fourteen parameters per letter:
+
+  * `CPX1`: centerpoint of first arc XPosition,
+  * `CPY1`: centerpoint of first arc YPosition,
+  * `R1`: Radius of first arc,
+  * `SA1`: staring angle of first arc,
+  * `EA1`: ending angle of first arc,
+
+  * `CPX2`: centerpoint of second arc XPosition,
+  * `CPY2`: centerpoint of second arc YPosition,
+  * `R2`: Radius of second arc,
+  * `SA2`: staring angle of second arc,
+  * `EA2`: ending angle of second arc,
+
+  * `X1`: starting XPos of rectangle,
+  * `Y1`: starting YPos of rectangle,
+  * `X2`: ending XPos of rectangle,
+  * `Y2`: ending XPos of rectangle
 
