@@ -1,6 +1,9 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#349e55";
+const colorFront2  = "#75d192";
 const colorStroke  = "#233f11";
+
+const mainOffsetX = 50;
+const mainOffsetY = 150;
 
 /*
  * Draw the letter given the letterData
@@ -14,16 +17,39 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
+  angleMode(DEGREES);
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let smallWidth2 = letterData["smallWidth"];
+  let smallHeight2 = letterData["smallHeight"];
+  let pos2x = mainOffsetX + letterData["offsetx"];
+  let pos2y = mainOffsetY + letterData["offsety"];
+  let smallAngle2 = letterData["smallAngle"];
+  let semiRotate2 = letterData["semiRotate"];
 
   // draw two circles
+
+  //back circle
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  push();
+  if(semiRotate2 != null){
+    translate(mainOffsetX,mainOffsetY)
+    rotate(semiRotate2);
+    arc(mainOffsetX, mainOffsetY, 100, 100, 0, 180, CHORD);
+  }else{
+    ellipse(mainOffsetX, mainOffsetY, 100, 100);
+  }
+  
+  pop();
+
+  //front circle
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  push();
+  if(smallAngle2 != 0){
+    translate(0,0);
+    rotate(smallAngle2);
+  }
+  ellipse(pos2x, pos2y, smallWidth2, smallHeight2);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

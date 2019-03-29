@@ -1,6 +1,8 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
+
+
 /* 
  * my three variable per letter are:
  *
@@ -17,7 +19,8 @@ const letterA = {
   "smallHeight": 100,
   "offsetx": -185,
   "offsety": -210,
-  "smallAngle": -15
+  "smallAngle": -15,
+  "semiRotate": null
 }
 
 const letterB = {
@@ -25,15 +28,17 @@ const letterB = {
   "smallHeight": 200,
   "offsetx": -58,
   "offsety": -60,
-  "smallAngle": 0
+  "smallAngle": 0,
+  "semiRotate": null
 }
 
 const letterC = {
-  "smallWidth": 110,
-  "smallHeight": 110,
-  "offsetx": 20,
+  "smallWidth": 90,
+  "smallHeight": 90,
+  "offsetx": 0,
   "offsety": 0,
-  "smallAngle": 0
+  "smallAngle": 0,
+  "semiRotate": 90
 }
 
 const colorFront1  = "#349e55";
@@ -62,10 +67,24 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let smallAngle2 = letterData["smallAngle"];
+  let semiRotate2 = letterData["semiRotate"];
 
   // draw two circles
+
+  //back circle
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  push();
+  translate(posx, posy);
+  if(semiRotate2 != null){
+    rotate(semiRotate2);
+    arc(0, 0, 150, 150, 0, 180, CHORD);
+  }else{
+    ellipse(0, 0, 150, 150);
+  }
+  
+  pop();
+
+  //front circle
   fill(colorFront2);
   push();
   if(smallAngle2 != 0){
