@@ -1,11 +1,7 @@
-## PS2 MDDN 242 2019
+Tried to play with angle and color.
 
-(Replace this README with information about your alphabet. This is an example.)
+Add a new variable to lift the triangle down.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+My idea so far is to make something sharp and high contrast to draw people's attention.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
