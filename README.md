@@ -1,11 +1,19 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+The letter are made with 6 different vertexs and linked together with lines. I wanted to make the letter look somewhat "sketchy" so I added a loop to animate the letters. The box is a guideline for me to position of the vertex, I have not decided if I want to have that in my final.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+The parameters are the X and Y positions of the vertexs.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
 
+  * `point1x` : X position of the 1st point
+  * `point1y` : Y position of the 1st point
+  * `point2x` : X position of the 2nd point
+  * `point2y` : Y position of the 2nd point
+  * `point3x` : X position of the 3rd point
+  * `point3y` : Y position of the 3rd point
+  * `point4x` : X position of the 4th point
+  * `point4y` : Y position of the 4th point
+  * `point5x` : X position of the 5th point
+  * `point5y` : Y position of the 5th point
+  * `point6x` : X position of the 6th point
+  * `point6y` : Y position of the 6th point
