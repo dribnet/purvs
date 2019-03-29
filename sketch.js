@@ -1,17 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "offsetX1": 85,
   "offsetX2": 80,
@@ -21,7 +10,7 @@ const letterA = {
   "offsetY1": 20,
   "offsetY2": 30,
   "offsetY3": 20,
-  "offsetY4": 50,
+  "offsetY4": 50
 
 }
 
@@ -34,7 +23,7 @@ const letterB = {
   "offsetY1": 50,
   "offsetY2": 25,
   "offsetY3": 15,
-  "offsetY4": 5,  
+  "offsetY4": 5 
 
 }
 
@@ -47,7 +36,7 @@ const letterC = {
   "offsetY1": 50,
   "offsetY2": 55,
   "offsetY3": 65,
-  "offsetY4": 55,
+  "offsetY4": 55
  
 }
 
