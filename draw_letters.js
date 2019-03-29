@@ -73,42 +73,50 @@ else {
  rotate(90);
  scale(2,   0.5);
  translate(0, -200);
- strokeWeight(4);
 
- //1
- if(letterData["line1"]){  
-  line(0, 0, 0, 100); 
+ strokeWeight(3);
+
+  //1
+ if(letterData["line1"] != 0){  
+  curve(100*(letterData["line1"]-1), 0, 0, 0, 0, 100, 100*(letterData["line1"]-1), 100);
+  //line(0, 0, 0, 100); 
 }
 
-
+strokeWeight(10);
  //2
- if(letterData["line2"]){
- line(0, 0, 100, 0);
-}
+ if(letterData["line2"] != 0){  
+ curve(0, 100*(letterData["line2"]-1), 0, 0, 100, 0, 100, 100*(letterData["line2"]-1));
 
+}
+ strokeWeight(3);
  //3
- if(letterData["line3"]){
- line(100, 0, 100, 100);
+ if(letterData["line3"] != 0){
+ curve(-100*(letterData["line3"]-1)+100, 0, 100, 0, 100, 100, -100*(letterData["line3"]-1)+100, 100);
+ //line(100, 0, 100, 100);
 }
-
+strokeWeight(10);
  //4
- if(letterData["line4"]){
- line(0, 100, 100, 100);
+ if(letterData["line4"] != 0){
+ curve(0, 100*(letterData["line4"]-1)+100, 0, 100, 100, 100, 100, 100*(letterData["line4"]-1)+100);
+ //line(0, 100, 100, 100);
 }
-
+ strokeWeight(3);
  //5
- if(letterData["line5"]){
- line(0, 100, 0, 200);
+ if(letterData["line5"] != 0){
+  curve(100*(letterData["line5"]-1), 100, 0, 100, 0, 200, 100*(letterData["line5"]-1), 200);
+ //line(0, 100, 0, 200);
 }
-
+ strokeWeight(3);
  //6
- if(letterData["line6"]){
- line(100, 100, 100, 200);
+ if(letterData["line6"] != 0){
+curve(-100*(letterData["line6"]-1)+100, 100, 100, 100, 100, 200, -100*(letterData["line6"]-1)+100, 200);
+ //line(100, 100, 100, 200);
 }
-
+ strokeWeight(10);
  //7 
- if(letterData["line7"]){
- line(0, 200, 100, 200);
+ if(letterData["line7"] != 0){
+ curve(0, -100*(letterData["line7"]-1)+200, 0, 200, 100, 200, 100,  -100*(letterData["line7"]-1)+200);
+ //line(0, 200, 100, 200);
 }
 
  pop();
