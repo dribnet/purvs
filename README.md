@@ -2,7 +2,7 @@
 
 3rd 03/29
 
-Each of my letters is composed with one Half circle and one Triangle. 
+Each of my letters is composed with one Arc and one Triangle. 
 1) The size of circle is fixed, but the start point and the end point of the first circle is controlled by two parameters. 
 2) Three point of the triangle is controlled by six parameters.
 
