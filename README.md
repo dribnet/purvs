@@ -2,9 +2,9 @@
 
 Helen Perkins
 
-My idea so far is to use different sized rectangles to 'cut out' holes from a large rectangle/square to form each letter. The size and position of the initial large rectangle will always be the same, but the smaller rectangles will change size and position as needed to create the illusion of 'cutting holes' where there would be in a real letter. 
+I am in a rush today, so I havn't made major changes to the new code (part two) we were given today, but I have played around with the code a bit to familiarize myself. I read through the alphabet.js and changed the background colour of it. I then went into the draw_letters.js and changed the colours to match the colour scheme I came up with in my initial sketch. I then changed the ellipses to rectangles. I also had a look at the letters.js to make sure I understood that too and so far so good. These are minor changes, but they have helped me to feel comfortable with the new code/concepts and not fall behind. I plan to make more sketches of some differentideas when I can. 
 
-I am still experimenting with this type of code, and so far I have only managed to create the A. The parameters that will determine what letter is shown (so far) are:
+Parameters below are for my initial sketch, and dont apply to the alpahbet and draw letters ect yet.
 
 Parameters:
   * `size` : Of the largest rectangle that always stays the same

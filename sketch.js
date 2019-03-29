@@ -13,23 +13,22 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 50,
-  "wid": 50,
-  "hei": 25,
-  "offsetx": 50,
-  "offsety": 40,
-  "b2offsetx": 180,
-  "b2offsety": 300
+  "sizex": 20,
+  "sizey": 120,
+  "offsetx": 30,
+  "offsety": 30,
 }
 
 const letterB = {
-  "size": 50,
+  "sizex": 50,
+  "sizey": 50,
   "offsetx":50,
   "offsety": 50
 }
 
 const letterC = {
-  "size": 50,
+  "sizex": 50,
+  "sizey": 50,
   "offsetx": 50,
   "offsety": 50
 }
@@ -58,23 +57,20 @@ function setup () {
 //function is called.
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let size2x = letterData["sizex"];
+  let size2y = letterData["sizey"]
   //This is the x position of the big circle plus the amount x is moved for the little circle. 
   //Works out where little circle should go.
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let wid1 = letterData["wid"];
-  let hei1 = letterData["hei"];
-  let b2posx =letterData["b2offsetx"];
-  let b2posy = letterData["b2offsety"];
 
 //Saying that everytime the function is drawn two circles will be drawn.
   // draw two circles
   fill(colorFront1);
   rect(posx, posy, 150, 150);
   fill(colorFront2);
-  rect(pos2x, pos2y, size2, size2);
-  rect(b2posx,b2posy,wid1,hei1);
+  rect(pos2x, pos2y, size2x, size2y);
+  rect(pos2x+70, pos2y, size2x, size2y)
 }
 
 function draw () {
@@ -86,9 +82,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 350, center_y-75, letterA);
-  drawLetter(center_x -50     , center_y-75, letterB);
-  drawLetter(center_x + 250, center_y-75, letterC);
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
