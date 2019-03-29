@@ -11,6 +11,113 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
 
+ stroke('#ff59c4');
+ noFill();
+
+ let horizontal = false;
+
+angleMode(DEGREES);
+
+ if(letterData["horizontal"] == false){ 
+   strokeWeight(6);   
+
+ //1
+ if(letterData["line1"] != 0){  
+  curve(100*(letterData["line1"]-1), 0, 0, 0, 0, 100, 100*(letterData["line1"]-1), 100);
+  //line(0, 0, 0, 100); 
+}
+
+
+ //2
+ if(letterData["line2"] != 0){  
+ curve(0, 100*(letterData["line2"]-1), 0, 0, 100, 0, 100, 100*(letterData["line2"]-1));
+
+}
+
+ //3
+ if(letterData["line3"] != 0){
+ curve(-100*(letterData["line3"]-1)+100, 0, 100, 0, 100, 100, -100*(letterData["line3"]-1)+100, 100);
+ //line(100, 0, 100, 100);
+}
+
+ //4
+ if(letterData["line4"] != 0){
+ curve(0, 100*(letterData["line4"]-1)+100, 0, 100, 100, 100, 100, 100*(letterData["line4"]-1)+100);
+ //line(0, 100, 100, 100);
+}
+
+ //5
+ if(letterData["line5"] != 0){
+  curve(100*(letterData["line5"]-1), 100, 0, 100, 0, 200, 100*(letterData["line5"]-1), 200);
+ //line(0, 100, 0, 200);
+}
+
+ //6
+ if(letterData["line6"] != 0){
+curve(-100*(letterData["line6"]-1)+100, 100, 100, 100, 100, 200, -100*(letterData["line6"]-1)+100, 200);
+ //line(100, 100, 100, 200);
+}
+
+ //7 
+ if(letterData["line7"] != 0){
+ curve(0, -100*(letterData["line7"]-1)+200, 0, 200, 100, 200, 100,  -100*(letterData["line7"]-1)+200);
+ //line(0, 200, 100, 200);
+}
+
+}
+
+else {
+
+
+ push();
+ rotate(90);
+ scale(2,   0.5);
+ translate(0, -200);
+ strokeWeight(4);
+
+ //1
+ if(letterData["line1"]){  
+  line(0, 0, 0, 100); 
+}
+
+
+ //2
+ if(letterData["line2"]){
+ line(0, 0, 100, 0);
+}
+
+ //3
+ if(letterData["line3"]){
+ line(100, 0, 100, 100);
+}
+
+ //4
+ if(letterData["line4"]){
+ line(0, 100, 100, 100);
+}
+
+ //5
+ if(letterData["line5"]){
+ line(0, 100, 0, 200);
+}
+
+ //6
+ if(letterData["line6"]){
+ line(100, 100, 100, 200);
+}
+
+ //7 
+ if(letterData["line7"]){
+ line(0, 200, 100, 200);
+}
+
+ pop();
+}
+
+
+
+
+/*
   let circle1x = letterData["circle1x"];
   let circle1y = letterData["circle1y"];
   let circle2x = letterData["circle2x"];
@@ -49,7 +156,7 @@ function drawLetter(letterData) {
 
   pop();
 
-
+*/
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

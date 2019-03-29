@@ -68,40 +68,9 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
 
-  let circle1x = letterData["circle1x"];
-  let circle1y = letterData["circle1y"];
-  let circle2x = letterData["circle2x"];
-  let circle2y = letterData["circle2y"];
-  let circle3x = letterData["circle3x"];
-  let circle3y = letterData["circle3y"];
+  fill(0);
+  stroke(255);
 
-  tester = tester +0.01;
-
- 
-  noStroke();
-  //push();
-  strokeWeight(1);
-  fill('#ffb2e3');
-  push();
-  translate(posx, posy);
-  rectMode(CENTER);
-  rect(0, 0, 210, 210, 20);  
-  pop();
-
-  fill('#ff59c4');
-
-  push();
-  translate(posx, posy);
-  
-  if(circle3x == circle2x && circle3y == circle2y){
-   ellipse(circle1x, circle1y, 150, 150);
-  } else {
-    ellipse(circle1x, circle1y, 100, 100);
-  }
-   ellipse(circle2x, circle2y, 100, 100);
-   ellipse(circle3x, circle3y, 100, 100);
-
-  pop();
 
 
 
