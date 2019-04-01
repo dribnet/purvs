@@ -46,8 +46,8 @@ function drawLetter(letterData) {
   line(posx + lineSpacing*4, posy + Yshift4, posx + lineSpacing*4, posy + length4 + Yshift4);
 
   noStroke();
-  fill(colorBack);
-  //fill("#d1b932");
+  //fill(colorBack);
+  fill("#d1b932");
 
   quad(Xquad1, Yquad1, Xquad2, Yquad2, Xquad3, Yquad3, Xquad4, Yquad4);
 }

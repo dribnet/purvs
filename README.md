@@ -1,12 +1,8 @@
 ## PS2 MDDN 242 2019
 
-Today I refined my alphabet a bit more and continued developing more letters.
+Continued coding more letters and I am happy with how it looks so far.
 
-For the gaps between in between lines I decided to use a quad that is backgrund coloured to cover uwnanted lines. This added 8 parameters but this is fine because now we can use up to 20.
-
-The c and e look quite similar right now so might have to work on this but so far I think it is going well.
-
-I don't want my alphabet to be too simple so I might add some details later as well as make an interesting animation for the switch between letters.
+The quads are currently filled with a darker colour which helps me when I am coding the points of the quads as I can see where the quad actually is.
 
 The twelve parameters per letter:
   * `Yshift1` : top of line position for first line
