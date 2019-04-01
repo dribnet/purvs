@@ -323,6 +323,115 @@ const alphabet = {
   "offsetY2": 90,
   "offsetY3": 180,
   "offsetY4": 20
-  },       
+  },      
 
+  "R": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 20,
+  "offsetX3": 0,
+  "offsetX4": 10,
+ 
+  //length
+  "offsetY1": 100,
+  "offsetY2": 20,
+  "offsetY3": 20,
+  "offsetY4": 20
+  },     
+
+  "S": {
+  //yshift
+  "offsetX1": 60,
+  "offsetX2": 80,
+  "offsetX3": 0,
+  "offsetX4": 10,
+ 
+  //length
+  "offsetY1": 20,
+  "offsetY2": 20,
+  "offsetY3": 100,
+  "offsetY4": 20
+  },     
+
+  "T": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 0,
+  "offsetX3": -100,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 20,
+  "offsetY2": 20,
+  "offsetY3": 200,
+  "offsetY4": 20
+  },    
+
+  "U": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 40,
+  "offsetX3": 30,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 80,
+  "offsetY2": 30,
+  "offsetY3": 20,
+  "offsetY4": 100
+  },   
+
+  "V": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 40,
+  "offsetX3": 80,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 30,
+  "offsetY2": 30,
+  "offsetY3": 20,
+  "offsetY4": 60
+  },
+
+"W": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 30,
+  "offsetX3": 30,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 30,
+  "offsetY2": 70,
+  "offsetY3": 70,
+  "offsetY4": 30
+  },  
+
+ "X": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 20,
+  "offsetX3": 20,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 100,
+  "offsetY2": 60,
+  "offsetY3": 60,
+  "offsetY4": 100,
+
+  //quad x positions
+  "quadX1": 90,
+  "quadX2": 90,
+  "quadX3": 20,
+  "quadX4": 20,
+
+  //quad y positions
+  "quadY1": 190,
+  "quadY2": 140,
+  "quadY3": 160,
+  "quadY4": 160
+  },     
 }

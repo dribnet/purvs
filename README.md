@@ -4,6 +4,8 @@ Continued coding more letters and I am happy with how it looks so far.
 
 The quads are currently filled with a darker colour which helps me when I am coding the points of the quads as I can see where the quad actually is.
 
+Another problem is that I might need 2 quads for some of the letters eg. x and z so will figure this out tomorrow
+
 The twelve parameters per letter:
   * `Yshift1` : top of line position for first line
   * `Yshift2` : top of line position for second line
