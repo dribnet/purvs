@@ -1,117 +1,86 @@
+// Sets constants/variables
 const canvasWidth = 960;
 const canvasHeight = 500;
+const honeycombFill = "#FFC748";
+const colorStroke = "#FFEFC1";
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
+/* My two variables per letter are:
+    hex1_xPos: x position of hexagon
+    hex2_yPos: y position of hexagon */
 
-const letterA = {
-    "shift1": -174,
-    "tilt1": -70,
-    "shift2": -104,
-    "tilt2": 0,
-    "shift3": -90,
-    "tilt3": 58
+function setup() {
+    // create the drawing canvas, save the canvas element
+    main_canvas = createCanvas(canvasWidth, canvasHeight);
+    main_canvas.parent('canvasContainer');
+
+    // Sets background colour, honeycomb colours and stroke weight
+    background(227, 237, 237);
+    fill(honeycombFill);
+    stroke(colorStroke);
+    strokeWeight(4);
+
+    // With no animation, redrawing the screen is not necessary
+    noLoop();
 }
 
-const letterB = {
-    "shift1": -191,
-    "tilt1": -90,
-    "shift2": -65,
-    "tilt2": -49,
-    "shift3": -40,
-    "tilt3": 0
+function drawLetter() {
+    // Sets parameters
+    let hex1_size = letterData["1size"];
+    let hex1_xPos = 50 + letterData["1xPos"];
+    let hex1_yPos = 100 + letterData["1yPos"];
 }
 
-const letterC = {
-    "shift1": -163,
-    "tilt1": -65,
-    "shift2": -220,
-    "tilt2": 180,
-    "shift3": -230,
-    "tilt3": 210
+// Makes hexagon shape
+function draw_hex(hex1_xPos, hex1_yPos) {
+    push();
+    translate(hex1_xPos, hex1_yPos);
+    strokeWeight(8);
+    beginShape();
+    vertex(-20, -34);
+    vertex(20, -34);
+    vertex(39, 0);
+    vertex(20, 34);
+    vertex(-20, 34);
+    vertex(-39, 0);
+    endShape(CLOSE);
+    pop();
 }
 
-const colorFront1  = "#FFA44C"; //orange
-const colorFront2  = "#8CFFF1"; //light teal
-const colorFront3  = "#00BAA3"; // dark teal
-const colorBack    = "#e3eded"; // light grey
-const colorStroke  = "#233f11"; // dark grey
+function draw(letterData) {
+    // Draws letter A
+    draw_hex(200, 168);
+    draw_hex(140, 204);
+    draw_hex(140, 272);
+    draw_hex(140, 340);
+    draw_hex(260, 204);
+    draw_hex(260, 272);
+    draw_hex(260, 340);
+    draw_hex(200, 304);
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
+    // Draws letter B
+    draw_hex(400, 168);
+    draw_hex(400, 236);
+    draw_hex(400, 304);
+    draw_hex(400, 372);
+    draw_hex(460, 270);
+    draw_hex(460, 406);
+    draw_hex(520, 304);
+    draw_hex(520, 372);
 
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
-  // with no animation, redrawing the screen is not necessary
-  noLoop();
-}
-
-// This function draws each individual box
-function drawPart(posx, posy, scale, offsetx, tilt) {
-  push();
-  translate(posx + offsetx*scale/10, posy);
-  rotate(tilt);
-  rect(-20*scale, -3*scale, 20*scale, 3*scale);
-  ellipse
-  pop();
-}
-
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let shift1 = letterData["shift1"];
-  let tilt1 = letterData["tilt1"];
-  let shift2 = letterData["shift2"];
-  let tilt2 = letterData["tilt2"];
-  let shift3 = letterData["shift3"];
-  let tilt3 = letterData["tilt3"];
-
-  // rotation in degrees (for tilt variable)
-  angleMode(DEGREES);
-
-  // draw letters
-  fill(colorFront1);
-  noStroke();
-
-  push();
-  let scale=5;
-  let y_offset = 5 * scale;
-  drawPart(posx, posy-y_offset, scale, shift1, tilt1);
-  drawPart(posx,          posy, scale, shift2, tilt2);
-  drawPart(posx, posy+y_offset, scale, shift3, tilt3);
-  pop();
-}
-
-function draw () {
-  // clear screen
-  background(colorBack);
-
-  // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
-
-  // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+    // Draws letter C
+    draw_hex(640, 236);
+    draw_hex(640, 304);
+    draw_hex(640, 372);
+    draw_hex(700, 202);
+    draw_hex(700, 406);
+    draw_hex(760, 236);
+    draw_hex(760, 372);
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+    if (key == '!') {
+        saveBlocksImages();
+    } else if (key == '@') {
+        saveBlocksImages(true);
+    }
 }

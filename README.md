@@ -1,9 +1,9 @@
 ## PS2 MDDN 242 2019 - Sketch
 
-I just practised tilting and shifting each 'limb' of each letter. I shifted the parts of each letter to follow a more geometric-grid pattern.
+I've picked an idea to develop for my final. Each letter will be drawn using a number of hexagons (6 - 8?).
+I'm thinking some letters will be uppercase and lowercase?
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `hex1_xPos` : x position of the hexagon on the canvas
+  * `hex1_yPos` : y position of the hexagon on the canvas
 
