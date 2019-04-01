@@ -67,18 +67,47 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
+// function drawLetter(posx, posy, letterData) {
+  function drawsthin(posx, posy, letterData) {
   // determine parameters for second circle
-  let quadposx1 = letterData["pos1x"];
+  // let quadposx1 = letterData["pos1x"];
+  // let quadposx2 = letterData["pos2x"];
+  // let quadposx3 = letterData["pos3x"];
+  // let quadposx4 = letterData["pos4x"];
+  // let quadposy1 = letterData["pos1y"];
+  // let quadposy2 = letterData["pos2y"];
+  // let quadposy3 = letterData["pos3y"];
+  // let quadposy4 = letterData["pos4y"];
+  // let quadposy5 = letterData["pos5y"];
+  // let quadposy6 = letterData["pos6y"];
+  // let quadposy7 = letterData["pos7y"];
+  // let quadposy8 = letterData["pos8y"];
+
+
+    let quadposx1 = letterData["pos1x"];
+    let quadposy1 = letterData["pos1y"];
+    let quadposy2 = letterData["pos2y"];
+
+    quad(posx -  quadposx1, posy, posx , posy -quadposy1, posx +quadposx1, posy, posx, posy +quadposy2);
+  }
+
+
+function drawlthin(posx, posy, letterData) {
   let quadposx2 = letterData["pos2x"];
-  let quadposx3 = letterData["pos3x"];
-  let quadposx4 = letterData["pos4x"];
-  let quadposy1 = letterData["pos1y"];
-  let quadposy2 = letterData["pos2y"];
   let quadposy3 = letterData["pos3y"];
   let quadposy4 = letterData["pos4y"];
+   quad(posx - quadposx2, posy, posx , posy -quadposy3, posx +quadposx2, posy, posx, posy +quadposy4);
+ }
+
+function drawsfat(posx, posy, letterData) {
+  let quadposx3 = letterData["pos3x"];
   let quadposy5 = letterData["pos5y"];
   let quadposy6 = letterData["pos6y"];
+  quad(posx - quadposx3, posy, posx , posy -quadposy5, posx +quadposx3, posy, posx, posy +quadposy6);
+}
+
+function drawlfat(posx, posy, letterData) {
+  let quadposx4 = letterData["pos4x"];
   let quadposy7 = letterData["pos7y"];
   let quadposy8 = letterData["pos8y"];
 
@@ -92,9 +121,10 @@ function drawLetter(posx, posy, letterData) {
   // ellipse(posx, posy, 150, 150);
   // ellipse(pos2x, pos2y, size2, size2);
 
-  quad(posx -  quadposx1, posy, posx , posy -quadposy1, posx +quadposx1, posy, posx, posy +quadposy2);
-  quad(posx - quadposx2, posy, posx , posy -quadposy3, posx +quadposx2, posy, posx, posy +quadposy4);
-  quad(posx - quadposx3, posy, posx , posy -quadposy5, posx +quadposx3, posy, posx, posy +quadposy6);
+  
+
+ 
+  
   quad(posx -quadposx4, posy, posx , posy -quadposy7, posx +quadposx4, posy, posx, posy +quadposy8);
      
    // drawSkinnyQuad(letterData["pos1x"], );
@@ -117,6 +147,7 @@ function drawLetter(posx, posy, letterData) {
 
 // draw the quad 
 
+// http://purview.nz/versions/95f53cc9bedf61d8f8a051d5650fd55d.html
 
 // }
 
@@ -129,9 +160,25 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  push();
+  drawsthin(center_x - 250, center_y, letterA);
+  drawlthin(center_x - 250, center_y, letterA);
+  drawsfat(center_x - 250, center_y -50, letterA);
+  drawlfat(center_x - 250, center_y + 20, letterA);
+  pop();
+
+  
+  push();
+   drawsthin(center_x , center_y, letterB);
+   drawlthin(center_x , center_y, letterB);
+   drawsfat(center_x , center_y , letterB);
+   angleMode(DEGREES);
+  translate(center_x - 480, center_y-250);
+   // rotate(3);
+   drawlfat(center_x , center_y , letterB);
+   pop();
+  // drawLetter(center_x      , center_y, letterB);
+  // drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
