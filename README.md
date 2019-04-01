@@ -12,3 +12,5 @@ tried doing the first four characters of the cyrillic alphabet in my existing st
 
 this might work but I dont think so somehow - this is gonna take a lot of fixing
 
+I have sat down with a pen and paper to try and work out my system with as few variables as possible and i think the best bet is to map coordinates across the print area and use them as true false parameters to draw lines betweeen.
+
