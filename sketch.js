@@ -63,7 +63,7 @@ const letterB = {
   "offsetx2 tri 1": -70,
   "offsety2 tri 1": -10,
 
-  "offsetx3 tri 1": 10,
+  "offsetx3 tri 1": 35,
   "offsety3 tri 1": -10,
 
 
@@ -73,52 +73,52 @@ const letterB = {
   "offsetx2 tri 2": -70,
   "offsety2 tri 2": 80,
 
-  "offsetx3 tri 2": 10,
+  "offsetx3 tri 2": 35,
   "offsety3 tri 2": 10,
 
 
   "offsetx1 tri 3": -40,
   "offsety1 tri 3": -80,
 
-  "offsetx2 tri 3": 50,
+  "offsetx2 tri 3": 80,
   "offsety2 tri 3": 0,
 
-  "offsetx3 tri 3": 80,
+  "offsetx3 tri 3": 110,
   "offsety3 tri 3": 0,
 
 
-  "offsetx1 tri 4": 50,
+  "offsetx1 tri 4": 80,
   "offsety1 tri 4": 0,
 
   "offsetx2 tri 4": -40,
   "offsety2 tri 4": 80,
 
-  "offsetx3 tri 4": 80,
+  "offsetx3 tri 4": 110,
   "offsety3 tri 4": 0,
 }
 
 const letterC = {
-  "offsetx1 tri 1": 70,
+  "offsetx1 tri 1": 95,
   "offsety1 tri 1": -80,
 
-  "offsetx2 tri 1": 70,
+  "offsetx2 tri 1": 95,
   "offsety2 tri 1": 0,
 
   "offsetx3 tri 1": -10,
   "offsety3 tri 1": 0,
 
 
-  "offsetx1 tri 2": 70,
+  "offsetx1 tri 2": 95,
   "offsety1 tri 2": 0,
 
-  "offsetx2 tri 2": 70,
+  "offsetx2 tri 2": 95,
   "offsety2 tri 2": 80,
 
   "offsetx3 tri 2": -10,
   "offsety3 tri 2": 0,
 
 
-  "offsetx1 tri 3": 40,
+  "offsetx1 tri 3": 65,
   "offsety1 tri 3": -80,
 
   "offsetx2 tri 3": -40,
@@ -131,7 +131,7 @@ const letterC = {
   "offsetx1 tri 4": -40,
   "offsety1 tri 4": 0,
 
-  "offsetx2 tri 4": 40,
+  "offsetx2 tri 4": 65,
   "offsety2 tri 4": 80,
 
   "offsetx3 tri 4": -70,
