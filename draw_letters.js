@@ -38,8 +38,10 @@ function drawLetter(letterData) {
   fill(colorFront1);
   ellipse(50, 150, 75, 75);
   fill(colorFront2);
-  ellipse(b2posx, b2posy, letterData["wid"], letterData["hei"]);
-  ellipse(b3posx, b3posy, letterData["wid"], letterData["hei"]);
+  //ellipse(b2posx, b2posy, letterData["wid"], letterData["hei"]);
+  //ellipse(b3posx, b3posy, letterData["wid"], letterData["hei"]);
+  rect(b2posx, b2posy, letterData["wid"], letterData["hei"]);
+  rect(b3posx, b3posy, letterData["wid"], letterData["hei"]);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
