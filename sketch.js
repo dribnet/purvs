@@ -56,9 +56,9 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   fill(244,33,55);
-  ellipse(posx, posy, 150, 150);
+  rect(posx, posy, 50, 150);
   fill(144,44,55);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, 50, 150);
 }
 
 function draw () {
