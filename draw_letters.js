@@ -10,20 +10,24 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  let w = 100;
+  let h = 200;
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  fill(30);
+  noStroke();
+  beginShape();
+    vertex(0, 0);
+    vertex(w, 0);
+    vertex(w, h);
+    vertex(0, h);
+    beginContour();
+      vertex(w * 0.1, h * 0.3);
+      vertex(w * 0.5, h * 0.8);
+      vertex(w * 0.8, h * 0.4);
+    endContour();
+  endShape();
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  noLoop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
