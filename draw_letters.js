@@ -13,21 +13,22 @@ function drawLetter(letterData) {
   let w = 100;
   let h = 200;
 
-  fill(30);
-  noStroke();
-  beginShape();
-    vertex(0, 0);
-    vertex(w, 0);
-    vertex(w, h);
-    vertex(0, h);
-    beginContour();
-      vertex(w * 0.1, h * 0.3);
-      vertex(w * 0.5, h * 0.8);
-      vertex(w * 0.8, h * 0.4);
-    endContour();
-  endShape();
+  let curY=0;
+  stroke(0);
+  if(!letterData.structure)return;
+  fill(233,88,20);
 
-  noLoop();
+  for (let r = 0; r < letterData.structure.length; r++) {
+    let curX=0;
+    for (let c = 0; c < letterData.structure[r].length; c++) {
+        if(letterData.structure[r][c] === 1)
+          ellipse(curX,curY,20,20);
+        curX+=25;
+     }
+     curY+=25;
+
+
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

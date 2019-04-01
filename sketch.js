@@ -70,7 +70,7 @@ function drawLetter(posx, posy, letterData) {
     let curX=posx;
     for (let c = 0; c < letterData.structure[r].length; c++) {
         if(letterData.structure[r][c] === 1)
-          rect(curX,curY,20,20);
+          ellipse(curX,curY,20,20);
         curX+=25;
      }
      curY+=25;

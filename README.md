@@ -2,7 +2,7 @@
 
 Updated Idea, each letter is represented as a grid of pixels.
 
-A little bit concerned about if this parameter is appropriate to use, are we just limited to primitive types?  
+Playing around more with this idea, trying different shapes...
 
 The three parameters per letter:
   * `structure` : grid that defines the look of this letter
