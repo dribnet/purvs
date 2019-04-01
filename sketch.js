@@ -13,25 +13,28 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "sizeX": 60,
+  "sizeY": 80,
+  "offsetX": 80,
+  "offsetY": 200
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "sizeX": 60,
+  "sizeY": -200,
+  "offsetX": 80,
+  "offsetY": 0,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "sizeX": 60,
+  "sizeY": 120,
+  "offsetX": 95,
+  "offsetY": 180,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#D8D8D8";
+const colorFront2  = "#888080";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -50,15 +53,20 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let sizeX = letterData["sizeX"];
+  let sizeY = letterData["sizeY"];
+  let offsetX = letterData["offsetX"] -sizeX;
+  let offsetY = letterData["offsetY"] - sizeY;
 
-  // draw two circles
+
+
+  // ellipse(posx, posy, 150, 150);
+  stroke(0,0,0,0);
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  triangle(50 + posx, 0 + posy, 100 + posx, 200 + posy, 0 + posx, 200 + posy)
+  stroke(0,0,0,0);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(offsetX + posx, sizeY + offsetY + posy, sizeX + offsetX + posx, sizeY + offsetY + posy, sizeX / 2 + offsetX + posx, offsetY + posy)
 }
 
 function draw () {
@@ -83,3 +91,6 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
+
+
