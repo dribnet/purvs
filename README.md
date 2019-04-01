@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+Mockup of Alphabet
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+In the first stage of my creation I have made a mockup on illustrator to see what the letters are going to look like and hash out any letters that are too similar or that don't work.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The three parameters I plan to have per letter:
+  * `X Line` : The X position of the vertical line
+  * `Y top box` : The Y width of the top box
+  * `Y bott box` : The Y width of the bottom box
 
