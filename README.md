@@ -15,6 +15,4 @@ The parameters for one of the triangles are:
 
   this is the same for the other 3 triangles with different offset values
 
-  I have currenlty only done the code for A, B and C and these are in the sketch window.
-
-  I have drawn of all the letters and how I am going to make them look but I cannot change the preview image to that for some reason, it shows only the sketch.js image as the preview
+ So far I have coded my letters from A to M, I have not done the Interpolation yet. I have utilised the editor code to make my letters as it is a lot less time consuming than changing numbers constantly.
