@@ -1,12 +1,12 @@
 const alphabet = {
   "default": {
-  "line1": 2,
+  "line1": 0,
   "line2": 2,
   "line3": 2,
   "line4": 2,
-  "line5": 2,
-  "line6": 2,
-  "line7": 2,
+  "line5": 1,
+  "line6": 0,
+  "line7": 0,
   "horizontal": 0
 
   },
