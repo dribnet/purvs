@@ -21,9 +21,9 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  square(30, 20, 55, 20);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  square(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
