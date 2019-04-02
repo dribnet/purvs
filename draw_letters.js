@@ -26,33 +26,33 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   //let pos2x = posx + letterData["offsetTrunkx"];
 //  let pos2y = posy + letterData["offsetTrunky"];
-
+ 
   //top branch
   let size3 = size2-10+ letterData["size"];
   let top_size = letterData["top_size"];
-  let pos3x = posx+25 + letterData ["offsetx"];
+  let pos3x = posx+25 + letterData ["top_offsetx"];
   let pos3y = posy + letterData ["offsety"];
 
   // bottom branch
-  let pos4x = posx +25 + letterData ["offsetx"];
+  let pos4x = posx +25 + letterData ["bottom_offsetx"];
   let pos4y = posy+55 + letterData ["offsety"];
   let bottom_size = letterData ["bottom_size"];
 
   //middle branch
-  let pos5x = posx + letterData ["offsetx"];
+  //irrelevant let pos5x = posx + letterData ["offsetx"];
   let pos5y = posy+ letterData ["offsety"];
   let middle_size = letterData["middle_size"];
 
   let pos6x = posx + letterData ["middle_offset"];
-  let opacity = letterData ["opacity"];
+  //let opacity = letterData ["opacity"];
 //  let pos6y =
 
 
   // tree trunk
   noStroke();
 
-  fill(colorTrunk1);
-  rect(posx-10, 0, 20, 200,5);
+  //fill(colorTrunk1);
+  //rect(posx-10, 0, 20, 200,5);
 
   //top branch
 
@@ -71,12 +71,20 @@ function drawLetter(letterData) {
   arc(pos4x, pos4y+1, bottom_size, 40,0 , PI);
 }
 
-function interpolate_letter(percent, oldObj, newObj) {
+  function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["top_offsetx"] = map(percent, 0, 100, oldObj["top_offsetx"], newObj["top_offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  new_letter["top_size"] = map(percent, 0, 100, oldObj["top_size"], newObj["top_size"]);
+  new_letter["middle_size"] = map(percent, 0, 100, oldObj["middle_size"], newObj["middle_size"]);
+  new_letter["bottom_size"] = map(percent, 0, 100, oldObj["bottom_size"], newObj["bottom_size"]);
+  new_letter["middle_offset"] = map(percent, 0, 100, oldObj["middle_offset"], newObj["middle_offset"]);
+  new_letter["bottom_offsetx"] = map(percent, 0, 100, oldObj["bottom_offsetx"], newObj["bottom_offsetx"]);
+  new_letter["offsetTrunkx"] = map(percent, 0, 100, oldObj["offsetTrunkx"], newObj["offsetTrunkx"]);
+  new_letter["offsetTrunky"] = map(percent, 0, 100, oldObj["offsetTrunky"], newObj["offsetTrunky"]);
+
+   return new_letter;
 }
 
 var swapWords = [
@@ -84,3 +92,7 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
+// ideas : have a rotation parameter
+// have parameters for y values of each branch 
+//sort out what size, trunkoffset x and y are doing

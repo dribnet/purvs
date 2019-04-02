@@ -1,60 +1,87 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "top_size": 45,
-    "middle_size": 50,
-    "bottom_size":80,
-    "middle_offset":10,
-    "offsetx": 0,
-    "offsety": 0
+    "size": 100,
+  //"offsetx": -25,
+  "top_offsetx": -25,
+  "offsety": 0,
+  "offsetTrunkx": -5,
+  "offsetTrunky": -15,
+  "top_size": 55,
+  "middle_size": 60,
+  "bottom_size": 77.5,
+  "bottom_offsetx": -25, 
+  "middle_offset": -5,
+
   },
   "A": {
     "size": 50,
     "top_size": 45,
     "middle_size": 50,
     "bottom_size":80,
-    "offsetx": -25,
+    //"offsetx": -25,
+    "top_offsetx": -25,
+
     "middle_offset":0,
     "offsety": 1,
     "offsetTrunkx":-10,
     "offsetTrunky":-30,
+    "bottom_offsetx":-25,
   },
   "B": {
     "size": 55,
     "top_size": 77,
     "middle_size": 60,
     "bottom_size":77,
-    "offsetx": -15,
+   // "offsetx": -15,
+    "top_offsetx": -15,
+
     "offsety": 0,
     "middle_offset":0,
     "offsetTrunkx":-10,
     "offsetTrunky":-20,
+    "bottom_offsetx":-15, 
   },
   "C": {
     "size": 57,
     "top_size": 77,
     "middle_size": 40,
     "bottom_size":77,
-    "offsetx":-20,
+    //"offsetx":-20,
+    "top_offsetx":-20,
+
     "offsety":10,
     "middle_offset":-20,
-
     "offsetTrunkx":0,
     "offsetTrunky":0,
+    "bottom_offsetx":-20,
   },
   "D": {
     "size": 57,
     "top_size": 77,
     "middle_size": 77,
     "bottom_size":77,
-    "offsetx":-20,
+   // "offsetx":-20,
+    "top_offsetx":-20,
+
     "offsety":10,
     "middle_offset":5,
-
     "offsetTrunkx":0,
     "offsetTrunky":0,
-  }
+    "bottom_offsetx":-20,
+  },
 
+"E":{
+"size": 100,
+  //"offsetx": -32.5,
+  "top_offsetx": -32.5,
 
-
+  "offsety": 0,
+  "offsetTrunkx": -6.1,
+  "offsetTrunky": -15,
+  "top_size": 80,
+  "middle_size": 80,
+  "bottom_size": 85,
+  "middle_offset": -5.9,
+  "bottom_offsetx":-32.5,
+},
 }
