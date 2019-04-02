@@ -1,6 +1,3 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -9,28 +6,41 @@ const colorStroke  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
-}
-
+    for (i = 0; i < 8; i++){
+      push()
+      translate(50,100)
+      rotate(random(-0.1,0.1))
+      stroke(random(100,250))
+      noFill()
+      strokeWeight(2);
+      beginShape();
+      vertex(letterData["point1x"], letterData["point1y"]);
+      vertex(letterData["point2x"], letterData["point2y"]);
+      vertex(letterData["point3x"], letterData["point3y"]);
+      vertex(letterData["point4x"], letterData["point4y"]);
+      vertex(letterData["point5x"], letterData["point5y"]);
+      vertex(letterData["point6x"], letterData["point6y"]);
+      endShape();
+      pop();
+    };
+  }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["point1x"] = map(percent, 0, 100, oldObj["point1x"], newObj["point1x"]);
+  new_letter["point1y"] = map(percent, 0, 100, oldObj["point1y"], newObj["point1y"]);
+  new_letter["point2x"] = map(percent, 0, 100, oldObj["point2x"], newObj["point2x"]);
+  new_letter["point2y"] = map(percent, 0, 100, oldObj["point2y"], newObj["point2y"]);
+  new_letter["point3x"] = map(percent, 0, 100, oldObj["point3x"], newObj["point3x"]);
+  new_letter["point3y"] = map(percent, 0, 100, oldObj["point3y"], newObj["point3y"]);
+  new_letter["point4x"] = map(percent, 0, 100, oldObj["point4x"], newObj["point4x"]);
+  new_letter["point4y"] = map(percent, 0, 100, oldObj["point4y"], newObj["point4y"]);
+  new_letter["point5x"] = map(percent, 0, 100, oldObj["point5x"], newObj["point5x"]);
+  new_letter["point5y"] = map(percent, 0, 100, oldObj["point5y"], newObj["point5y"]);
+  new_letter["point6x"] = map(percent, 0, 100, oldObj["point6x"], newObj["point6x"]);
+  new_letter["point6y"] = map(percent, 0, 100, oldObj["point6y"], newObj["point6y"]);
   return new_letter;
 }
 
