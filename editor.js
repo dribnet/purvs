@@ -6,13 +6,34 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["size"]    = map(param_sliders[0].value(), 0, 100, 0, 100);
-  obj["offsetx"] = map(param_sliders[1].value(), 0, 100, -30, 30);
-  obj["offsety"] = map(param_sliders[2].value(), 0, 100, -100, 100);
+  obj["offsetx1 tri 1"] = map(param_sliders[0].value(), 0, 100, 0, 200);
+  obj["offsety1 tri 1"] = map(param_sliders[1].value(), 0, 100, 0, 200);
+  obj["offsetx2 tri 1"] = map(param_sliders[2].value(), 0, 100, 0, 200);
+  obj["offsety2 tri 1"] = map(param_sliders[3].value(), 0, 100, 0, 200);
+  obj["offsetx3 tri 1"] = map(param_sliders[4].value(), 0, 100, 0, 200);
+  obj["offsety3 tri 1"] = map(param_sliders[5].value(), 0, 100, 0, 200);
+  obj["offsetx1 tri 2"] = map(param_sliders[6].value(), 0, 100, 0, 200);
+  obj["offsety1 tri 2"] = map(param_sliders[7].value(), 0, 100, 0, 200);
+  obj["offsetx2 tri 2"] = map(param_sliders[8].value(), 0, 100, 0, 200);
+  obj["offsety2 tri 2"] = map(param_sliders[9].value(), 0, 100, 0, 200);
+  obj["offsetx3 tri 2"] = map(param_sliders[10].value(), 0, 100, 0, 200);
+  obj["offsety3 tri 2"] = map(param_sliders[11].value(), 0, 100, 0, 200);
+  obj["offsetx1 tri 3"] = map(param_sliders[12].value(), 0, 100, 0, 200);
+  obj["offsety1 tri 3"] = map(param_sliders[13].value(), 0, 100, 0, 200);
+  obj["offsetx2 tri 3"] = map(param_sliders[14].value(), 0, 100, 0, 200);
+  obj["offsety2 tri 3"] = map(param_sliders[15].value(), 0, 100, 0, 200);
+  obj["offsetx3 tri 3"] = map(param_sliders[16].value(), 0, 100, 0, 200);
+  obj["offsety3 tri 3"] = map(param_sliders[17].value(), 0, 100, 0, 200);
+  obj["offsetx1 tri 4"] = map(param_sliders[18].value(), 0, 100, 0, 200);
+  obj["offsety1 tri 4"] = map(param_sliders[19].value(), 0, 100, 0, 200);
+  obj["offsetx2 tri 4"] = map(param_sliders[20].value(), 0, 100, 0, 200);
+  obj["offsety2 tri 4"] = map(param_sliders[21].value(), 0, 100, 0, 200);
+  obj["offsetx3 tri 4"] = map(param_sliders[22].value(), 0, 100, 0, 200);
+  obj["offsety3 tri 4"] = map(param_sliders[23].value(), 0, 100, 0, 200);
   return obj;
 }
 
-let numSliders = 3;
+let numSliders = 24;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
