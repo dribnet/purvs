@@ -17,3 +17,5 @@ I have sat down with a pen and paper to try and work out my system with as few v
 so in the process of trying to figure this out i didn't push pop and i broke everything
 
 ive got it working and made the cutouts pink for debug things
+
+once i finish getting all the characters out im going to go full clean up patrol
