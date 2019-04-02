@@ -3,16 +3,16 @@ const alphabet = {
   //yshift
   //0 = mid line
   "offsetX1": -100,
-  "offsetX2": -100,
+  "offsetX2": -80,
   "offsetX3": -100,
-  "offsetX4": -100,
+  "offsetX4": -80,
 
   //length
   //100 bottom
   "offsetY1": 200,
-  "offsetY2": 200,
+  "offsetY2": 160,
   "offsetY3": 200,
-  "offsetY4": 200
+  "offsetY4": 160
   },
 
   "A": {
@@ -103,10 +103,10 @@ const alphabet = {
   "quadX4": 30,
 
   //quad y positions
-  "quadY1": 140,
+  "quadY1": 150,
   "quadY2": 185,
   "quadY3": 190,
-  "quadY4": 140
+  "quadY4": 150
   },
 
   "F": {
@@ -170,8 +170,8 @@ const alphabet = {
  
   //length
   "offsetY1": 200,
-  "offsetY2": 60,
-  "offsetY3": 50,
+  "offsetY2": 40,
+  "offsetY3": 30,
   "offsetY4": 90
   },
 
@@ -370,13 +370,13 @@ const alphabet = {
   "U": {
   //yshift
   "offsetX1": 0,
-  "offsetX2": 40,
-  "offsetX3": 30,
+  "offsetX2": 70,
+  "offsetX3": 60,
   "offsetX4": 0,
  
   //length
   "offsetY1": 80,
-  "offsetY2": 30,
+  "offsetY2": 25,
   "offsetY3": 20,
   "offsetY4": 100
   },   
@@ -398,15 +398,15 @@ const alphabet = {
 "W": {
   //yshift
   "offsetX1": 0,
-  "offsetX2": 30,
-  "offsetX3": 30,
+  "offsetX2": 40,
+  "offsetX3": 40,
   "offsetX4": 0,
  
   //length
-  "offsetY1": 30,
-  "offsetY2": 70,
-  "offsetY3": 70,
-  "offsetY4": 30
+  "offsetY1": 100,
+  "offsetY2": 30,
+  "offsetY3": 30,
+  "offsetY4": 100
   },  
 
  "X": {
@@ -423,15 +423,107 @@ const alphabet = {
   "offsetY4": 100,
 
   //quad x positions
-  "quadX1": 90,
-  "quadX2": 90,
-  "quadX3": 20,
-  "quadX4": 20,
+  "quadX1": 110,
+  "quadX2": 50,
+  "quadX3": 0,
+  "quadX4": 50,
 
   //quad y positions
-  "quadY1": 190,
+  "quadY1": 120,
   "quadY2": 140,
-  "quadY3": 160,
-  "quadY4": 160
+  "quadY3": 120,
+  "quadY4": 180
+  },     
+
+ "Y": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 60,
+  "offsetX3": 80,
+  "offsetX4": 0,
+ 
+  //length
+  "offsetY1": 150,
+  "offsetY2": 100,
+  "offsetY3": 100,
+  "offsetY4": 180,
+
+  //quad x positions
+  "quadX1": 70,
+  "quadX2": 70,
+  "quadX3": 10,
+  "quadX4": 10,
+
+  //quad y positions
+  "quadY1": 260,
+  "quadY2": 205,
+  "quadY3": 175,
+  "quadY4": 230
+  },   
+
+ "Z": {
+  //yshift
+  "offsetX1": 0,
+  "offsetX2": 0,
+  "offsetX3": 0,
+  "offsetX4": 80,
+ 
+  //length
+  "offsetY1": 100,
+  "offsetY2": 80,
+  "offsetY3": 60,
+  "offsetY4": 20,
+
+  //quad x positions
+  "quadX1": 50,
+  "quadX2": 50,
+  "quadX3": 10,
+  "quadX4": 10,
+
+  //quad y positions
+  "quadY1": 145,
+  "quadY2": 120,
+  "quadY3": 120,
+  "quadY4": 185
+  }, 
+
+ "0": {
+  //yshift
+  "offsetX1": -60,
+  "offsetX2": -100,
+  "offsetX3": -100,
+  "offsetX4": -60,
+ 
+  //length
+  "offsetY1": 120,
+  "offsetY2": 200,
+  "offsetY3": 200,
+  "offsetY4": 120
+  },  
+
+ "1": {
+  //yshift
+  "offsetX1": 80,
+  "offsetX2": -80,
+  "offsetX3": -100,
+  "offsetX4": 80,
+ 
+  //length
+  "offsetY1": 20,
+  "offsetY2": 200,
+  "offsetY3": 200,
+  "offsetY4": 20,
+
+  //quad x positions
+  "quadX1": 50,
+  "quadX2": 50,
+  "quadX3": 10,
+  "quadX4": 10,
+
+  //quad y positions
+  "quadY1": 260,
+  "quadY2": 205,
+  "quadY3": 175,
+  "quadY4": 230
   },     
 }
