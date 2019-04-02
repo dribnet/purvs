@@ -13,24 +13,54 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+    "T11x": 50,
+    "T11y": 10,
+    "T12x": 100,
+    "T12y": 200,
+    "T13x": 0,
+    "T13y": 200,
+
+    "T21x": 50,
+    "T21y": 50,
+    "T22x": 80,
+    "T22y": 150,
+    "T23x": 20,
+    "T23y": 150
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+    "T11x": 0,
+    "T11y": 10,
+    "T12x": 80,
+    "T12y": 70,
+    "T13x": 0,
+    "T13y": 100,
+
+    "T21x": 0,
+    "T21y": 75,
+    "T22x": 100,
+    "T22y": 80,
+    "T23x": 0,
+    "T23y": 200
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+    "T11x": 100,
+    "T11y": 10,
+    "T12x": 30,
+    "T12y": 100,
+    "T13x": 5,
+    "T13y": 100,
+
+    "T21x": 50,
+    "T21y": 100,
+    "T22x": 3,
+    "T22y": 100,
+    "T23x": 80,
+    "T23y": 195
 }
 
-const colorFront1  = "#199cff";
+const colorFront1  = "#fae";
 const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
@@ -50,15 +80,31 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let T11x = letterData["T11x"];
+  let T11y = letterData["T11y"];
+  let T12x = letterData["T12x"];
+  let T12y = letterData["T12y"];
+  let T13x = letterData["T13x"];
+  let T13y = letterData["T13y"];
+  let T21x = letterData["T21x"];
+  let T21y = letterData["T21y"];
+  let T22x = letterData["T22x"];
+  let T22y = letterData["T22y"];
+  let T23x = letterData["T23x"];
+  let T23y = letterData["T23y"];
+
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  triangle(T11x +posx, T11y + posy, T12x + posx, T12y + posy, T13x + posx, T13y + posy);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(T21x +posx, T21y + posy, T22x + posx, T22y + posy, T23x + posx, T23y + posy);
+
+  // fill(colorFront1);
+  // triangle(0, 10, 80, 70, 0, 100);
+  // fill(colorFront2);
+  // triangle(0, 75, 100, 80, 0, 200);
+
 }
 
 function draw () {
