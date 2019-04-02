@@ -1,4 +1,6 @@
-
+const colorFront1  = "#fae";
+const colorFront2  = "#59ccff";
+const colorStroke  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -8,65 +10,66 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  // color/stroke setup
+  stroke(colorStroke);
+  strokeWeight(4);
 
-  let posx = 0;
-  let posy = 0;
- 
-  let pos2x = posx + letterData["offsetx1 tri 1"];
-  let pos2y = posy + letterData["offsety1 tri 1"];
+  // determine parameters for second circle
+  //let size2 = letterData["size"];
 
-  let pos3x = posx + letterData["offsetx2 tri 1"];
-  let pos3y = posy + letterData["offsety2 tri 1"];
+  let FirstPosx = letterData["T11x"];
+  let FirstPosy = letterData["T11y"]
+  let SecondPosx = letterData["T12x"];
+  let SecondPosy = letterData["T12y"];
+  let ThirdPosx = letterData["T13x"];
+  let ThirdPosy = letterData["T13y"];
 
-  let pos4x = posx + letterData["offsetx3 tri 1"];
-  let pos4y = posy + letterData["offsety3 tri 1"];
+  let SFirstPosx = letterData["T21x"];
+  let SFirstPosy = letterData["T21y"]
+  let SSecondPosx = letterData["T22x"];
+  let SSecondPosy = letterData["T22y"];
+  let SThirdPosx = letterData["T23x"];
+  let SThirdPosy = letterData["T23y"];
 
-  let pos5x = posx + letterData["offsetx1 tri 2"];
-  let pos5y = posy + letterData["offsety1 tri 2"];
+  // draw two circles
+//  var size = width * 0.05;
+// translate(width/2, height/2);
+// triangle(0, 0, size, size*2, -size, size*2);
+// }
 
-  let pos6x = posx + letterData["offsetx2 tri 2"];
-  let pos6y = posy + letterData["offsety2 tri 2"];
-
-  let pos7x = posx + letterData["offsetx3 tri 2"];
-  let pos7y = posy + letterData["offsety3 tri 2"];
-
-  let pos8x = posx + letterData["offsetx1 tri 3"];
-  let pos8y = posy + letterData["offsety1 tri 3"];
-
-  let pos9x = posx + letterData["offsetx2 tri 3"];
-  let pos9y = posy + letterData["offsety2 tri 3"];
-
-  let pos10x = posx + letterData["offsetx3 tri 3"];
-  let pos10y = posy + letterData["offsety3 tri 3"];
-
-  let pos11x = posx + letterData["offsetx1 tri 4"];
-  let pos11y = posy + letterData["offsety1 tri 4"];
-
-  let pos12x = posx + letterData["offsetx2 tri 4"];
-  let pos12y = posy + letterData["offsety2 tri 4"];
-
-  let pos13x = posx + letterData["offsetx3 tri 4"];
-  let pos13y = posy + letterData["offsety3 tri 4"];
-
-  
-const colorFront1  = "#bc0000";
-const colorFront2  = "#9e0000";
-const colorBack    = "#2b2b2b";
-const colorStroke  = "#1e1e1e";
-
+//draw first tri
 fill(colorFront1);
-  triangle(pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
+triangle(FirstPosx, FirstPosy, SecondPosx, SecondPosy, ThirdPosx, ThirdPosy);
 
-  fill(colorFront2);
-  triangle(pos5x, pos5y, pos6x, pos6y, pos7x, pos7y);
-
-
-  fill(colorFront1);
-  triangle(pos8x, pos8y, pos9x, pos9y, pos10x, pos10y);
-
-  fill(colorFront2);
-  triangle(pos11x, pos11y, pos12x, pos12y, pos13x, pos13y);
-
-
-
+//draw second tri
+fill(colorFront2);
+triangle(SFirstPosx, SFirstPosy, SSecondPosx, SSecondPosy, SThirdPosx, SThirdPosy);
 }
+
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["T11x"] = map(percent, 0, 100, oldObj["T11x"], newObj["T11x"]);
+  new_letter["T11y"] = map(percent, 0, 100, oldObj["T11y"], newObj["T11y"]);
+  new_letter["T12x"] = map(percent, 0, 100, oldObj["T12x"], newObj["T12x"]);
+  new_letter["T12y"] = map(percent, 0, 100, oldObj["T12y"], newObj["T12y"]);
+  new_letter["T13x"] = map(percent, 0, 100, oldObj["T13x"], newObj["T13x"]);
+  new_letter["T13y"] = map(percent, 0, 100, oldObj["T13y"], newObj["T13y"]);
+  new_letter["T21x"] = map(percent, 0, 100, oldObj["T21x"], newObj["T21x"]);  
+  new_letter["T21y"] = map(percent, 0, 100, oldObj["T21y"], newObj["T21y"]); 
+  new_letter["T22x"] = map(percent, 0, 100, oldObj["T22x"], newObj["T22x"]);  
+  new_letter["T22y"] = map(percent, 0, 100, oldObj["T22y"], newObj["T22y"]);  
+  new_letter["T23x"] = map(percent, 0, 100, oldObj["T23x"], newObj["T23x"]);
+  new_letter["T23y"] = map(percent, 0, 100, oldObj["T23y"], newObj["T23y"]);
+
+
+ 
+
+
+  return new_letter;
+}
+
+var swapWords = [
+  "ABBAABBA",
+  "CAB?CAB?",
+  "BAAAAAAA"
+]

@@ -1,188 +1,121 @@
 const alphabet = {
   "default": {
-  "offsetx1 tri 1": 0,
-  "offsety1 tri 1": 180,
+   "T11x": 0,
+    "T11y": 100,
+    "T12x": 50,
+    "T12y": 30,
+    "T13x": 100,
+    "T13y": 100,
 
-  "offsetx2 tri 1": 50,
-  "offsety2 tri 1": 180,
-
-  "offsetx3 tri 1": 50,
-  "offsety3 tri 1": 75,
-
-
-  "offsetx1 tri 2": 50,
-  "offsety1 tri 2": 180,
-
-  "offsetx2 tri 2": 100,
-  "offsety2 tri 2": 180,
-
-  "offsetx3 tri 2": 50,
-  "offsety3 tri 2": 75,
-
-
-  "offsetx1 tri 3": 0,
-  "offsety1 tri 3": 150,
-
-  "offsetx2 tri 3": 50,
-  "offsety2 tri 3": 45,
-
-  "offsetx3 tri 3": 50,
-  "offsety3 tri 3": 20,
-
-
-  "offsetx1 tri 4": 50,
-  "offsety1 tri 4": 45,
-
-  "offsetx2 tri 4": 100,
-  "offsety2 tri 4": 150,
-
-  "offsetx3 tri 4": 50,
-  "offsety3 tri 4": 20,
+    "T21x": 0,
+    "T21y": 100,
+    "T22x": 50,
+    "T22y": 30,
+    "T23x": 100,
+    "T23y": 100
   },
   "A": {
-  "offsetx1 tri 1": 0,
-  "offsety1 tri 1": 180,
+    "T11x": 50,
+    "T11y": 10,
+    "T12x": 100,
+    "T12y": 200,
+    "T13x": 0,
+    "T13y": 200,
 
-  "offsetx2 tri 1": 50,
-  "offsety2 tri 1": 180,
-
-  "offsetx3 tri 1": 50,
-  "offsety3 tri 1": 75,
-
-
-  "offsetx1 tri 2": 50,
-  "offsety1 tri 2": 180,
-
-  "offsetx2 tri 2": 100,
-  "offsety2 tri 2": 180,
-
-  "offsetx3 tri 2": 50,
-  "offsety3 tri 2": 75,
-
-
-  "offsetx1 tri 3": 0,
-  "offsety1 tri 3": 150,
-
-  "offsetx2 tri 3": 50,
-  "offsety2 tri 3": 45,
-
-  "offsetx3 tri 3": 50,
-  "offsety3 tri 3": 20,
-
-
-  "offsetx1 tri 4": 50,
-  "offsety1 tri 4": 45,
-
-  "offsetx2 tri 4": 100,
-  "offsety2 tri 4": 150,
-
-  "offsetx3 tri 4": 50,
-  "offsety3 tri 4": 20,
+    "T21x": 50,
+    "T21y": 50,
+    "T22x": 80,
+    "T22y": 150,
+    "T23x": 20,
+    "T23y": 150
   },
-   "B": {
-  "offsetx1 tri 1": 10,
-  "offsety1 tri 1": 23,
+  "B": {
+    "T11x": 0,
+    "T11y": 10,
+    "T12x": 80,
+    "T12y": 70,
+    "T13x": 0,
+    "T13y": 100,
 
-  "offsetx2 tri 1": 10,
-  "offsety2 tri 1": 95,
-
-  "offsetx3 tri 1": 70,
-  "offsety3 tri 1": 95,
-
-
-  "offsetx1 tri 2": 10,
-  "offsety1 tri 2": 105,
-
-  "offsetx2 tri 2": 10,
-  "offsety2 tri 2": 170,
-
-  "offsetx3 tri 2": 70,
-  "offsety3 tri 2": 105,
-
-
-  "offsetx1 tri 3": 30,
-  "offsety1 tri 3": 20,
-
-  "offsetx2 tri 3": 95,
-  "offsety2 tri 3": 100,
-
-  "offsetx3 tri 3": 120,
-  "offsety3 tri 3": 100,
-
-
-  "offsetx1 tri 4": 95,
-  "offsety1 tri 4": 100,
-
-  "offsetx2 tri 4": 30,
-  "offsety2 tri 4": 170,
-
-  "offsetx3 tri 4": 120,
-  "offsety3 tri 4": 100,
-   },
+    "T21x": 0,
+    "T21y": 75,
+    "T22x": 100,
+    "T22y": 80,
+    "T23x": 0,
+    "T23y": 200
+  },
   "C": {
-  "offsetx1 tri 1": 110,
-  "offsety1 tri 1": 30,
+    "T11x": 100,
+    "T11y": 10,
+    "T12x": 30,
+    "T12y": 100,
+    "T13x": 0,
+    "T13y": 100,
 
-  "offsetx2 tri 1": 110,
-  "offsety2 tri 1": 100,
-
-  "offsetx3 tri 1": 50,
-  "offsety3 tri 1": 100,
-
-
-  "offsetx1 tri 2": 110,
-  "offsety1 tri 2": 100,
-
-  "offsetx2 tri 2": 110,
-  "offsety2 tri 2": 170,
-
-  "offsetx3 tri 2": 50,
-  "offsety3 tri 2": 100,
-
-
-  "offsetx1 tri 3": 85,
-  "offsety1 tri 3": 30,
-
-  "offsetx2 tri 3": 30,
-  "offsety2 tri 3": 100,
-
-  "offsetx3 tri 3": 5,
-  "offsety3 tri 3": 100,
-
-
-  "offsetx1 tri 4": 30,
-  "offsety1 tri 4": 100,
-
-  "offsetx2 tri 4": 85,
-  "offsety2 tri 4": 170,
-
-  "offsetx3 tri 4": 5,
-  "offsety3 tri 4": 100,
+    "T21x": 50,
+    "T21y": 100,
+    "T22x": 0,
+    "T22y": 100,
+    "T23x": 80,
+    "T23y": 195
   },
   "D": {
- "offsetx1 tri 1": 12,
-  "offsety1 tri 1": 126,
-  "offsetx2 tri 1": 98,
-  "offsety2 tri 1": 160,
-  "offsetx3 tri 1": 142,
-  "offsety3 tri 1": 118,
-  "offsetx1 tri 2": 26,
-  "offsety1 tri 2": 60,
-  "offsetx2 tri 2": 0,
-  "offsety2 tri 2": 82,
-  "offsetx3 tri 2": 70,
-  "offsety3 tri 2": 100,
-  "offsetx1 tri 3": 134,
-  "offsety1 tri 3": 57.99999999999999,
-  "offsetx2 tri 3": 190,
-  "offsety2 tri 3": 34,
-  "offsetx3 tri 3": 128,
-  "offsety3 tri 3": 16,
-  "offsetx1 tri 4": 134,
-  "offsety1 tri 4": 72,
-  "offsetx2 tri 4": 82,
-  "offsety2 tri 4": 66,
-  "offsetx3 tri 4": 86,
-  "offsety3 tri 4": 28.000000000000004
-    }
+    "T11x": 0,
+    "T11y": 10,
+    "T12x": 100,
+    "T12y": 100,
+    "T13x": 0,
+    "T13y": 200,
+
+    "T21x": 0,
+    "T21y": 20,
+    "T22x": 20,
+    "T22y": 100,
+    "T23x": 0,
+    "T23y": 180
+  },
+   "E": {
+    "T11x": 90,
+    "T11y": 50,
+    "T12x": 2,
+    "T12y": 10,
+    "T13x": 0,
+    "T13y": 100,
+
+    "T21x": 0,
+    "T21y": 100,
+    "T22x": 100,
+    "T22y": 200,
+    "T23x": 100,
+    "T23y": 200
+  },
+   "F": {
+    "T11x": 10,
+    "T11y": 20,
+    "T12x": 100,
+    "T12y": 5,
+    "T13x": 100,
+    "T13y": 15,
+
+    "T21x": 0,
+    "T21y": 100,
+    "T22x": 5,
+    "T22y": 200,
+    "T23x": 0,
+    "T23y": 0
+  },
+  "M": {
+ "T11x": 32,
+  "T11y": 46,
+  "T12x": 88,
+  "T12y": 128,
+  "T13x": 80,
+  "T13y": 36,
+  "T21x": 16,
+  "T21y": 156,
+  "T22x": 0,
+  "T22y": 56.00000000000001,
+  "T23x": 75,
+  "T23y": 70    
+  }
 }

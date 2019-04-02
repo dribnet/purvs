@@ -1,4 +1,4 @@
 ## Class Example
 
-This shows and editor example using [Baxter's 4 triangle system](https://bl.ocks.org/BaxterHB/b4f5f5500605a0521af5f5d85b0efa2d/37566c21a7e58c55b88955512158eb8102e26c1f).
+This shows and editor example using [Hannah's 2 triangle system](https://bl.ocks.org/yeehann/98662b4e8cb0527eaf00b7609160d7cc/14e9b26ec0ace81f13c8d6cc17aac07711a11b3b).
 
