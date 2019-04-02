@@ -5,7 +5,6 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-<<<<<<< HEAD
     "p1p2": 1,
     "p3p4": 1,
     "p5p6": 0,
@@ -485,9 +484,9 @@ const alphabet = {
     "p2p5": 0
   },
   //null character
-  "null": {
+  "?": {
     "p1p2": 1,
-    "p3p4": 1,
+    "p3p4": 0,
     "p5p6": 1,
 
     "p1p3": 1,
@@ -504,32 +503,3 @@ const alphabet = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
-  },
-  "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
-  }
-}
->>>>>>> origin/master
