@@ -15,38 +15,60 @@ const canvasHeight = 500;
 const letterA = {
   "pos1x": 20,
   "pos2x": 30,
-  "pos3x": 50,
-  "pos4x": 70,
+  "pos3x": 40,
+  "pos4x": 50,
   "pos1y": 140,
   "pos2y": 40,
-  "pos3y": 180,
-  "pos4y": 80,
-  "pos5y": 100,
-  "pos6y": 50,
-  "pos7y": 120,
-  "pos8y": 60,
+  "pos3y": 140,
+  "pos4y": 40,
+  "pos5y": 80,
+  "pos6y": 30,
+  "pos7y": 100,
+  "pos8y": 40,
+  "rotateF":0
   
 }
 
 const letterB = {
     "pos1x": 20,
   "pos2x": 30,
-  "pos3x": 50,
-  "pos4x": 70,
+  "pos3x": 40,
+  "pos4x": 50,
   "pos1y": 140,
   "pos2y": 40,
-  "pos3y": 180,
-  "pos4y": 80,
-  "pos5y": 100,
-  "pos6y": 50,
-  "pos7y": 120,
-  "pos8y": 60,
+  "pos3y": 140,
+  "pos4y": 40,
+  "pos5y": 80,
+  "pos6y": 30,
+  "pos7y": 100,
+  "pos8y": 40,
+  "rotatesF":90,
+  "rotateF":90
 }
 
 const letterC = {
-  "pos1x": 40,
-  "offsetx": 30,
-  "offsety": 0
+  // "pos1x": 40,
+  // "offsetx": 30,
+  // "offsety": 0,
+  // "rotateF":40
+
+     "pos1x": 20,
+  "pos2x": 30,
+  "pos3x": 40,
+  "pos4x": 50,
+  "pos1y": 140,
+  "pos2y": 40,
+  "pos3y": 140,
+  "pos4y": 40,
+  "pos5y": 80,
+  "pos6y": 30,
+  "pos7y": 100,
+  "pos8y": 40,
+  "rotatesS":70,
+  "rotateS":110,
+  "rotatesF":50,
+  "rotateF":-20
+
 }
 
 const colorFront1  = [204, 101, 192, 2];
@@ -87,8 +109,17 @@ function setup () {
     let quadposx1 = letterData["pos1x"];
     let quadposy1 = letterData["pos1y"];
     let quadposy2 = letterData["pos2y"];
+    let rotAmount1 = letterData["rotatesS"];
+ fill(colorFront1);
+    angleMode(DEGREES);
+  
+push(); 
+ translate(posx,posy);
+  rotate(rotAmount1);
+quad(0 -quadposx1, 0, 0 , 0 -quadposy1, 0 +quadposx1, 0, 0, 0 +quadposy2);
+pop();
 
-    quad(posx -  quadposx1, posy, posx , posy -quadposy1, posx +quadposx1, posy, posx, posy +quadposy2);
+    // quad(posx -  quadposx1, posy, posx , posy -quadposy1, posx +quadposx1, posy, posx, posy +quadposy2);
   }
 
 
@@ -96,21 +127,43 @@ function drawlthin(posx, posy, letterData) {
   let quadposx2 = letterData["pos2x"];
   let quadposy3 = letterData["pos3y"];
   let quadposy4 = letterData["pos4y"];
-   quad(posx - quadposx2, posy, posx , posy -quadposy3, posx +quadposx2, posy, posx, posy +quadposy4);
+   // quad(posx - quadposx2, posy, posx , posy -quadposy3, posx +quadposx2, posy, posx, posy +quadposy4);
+  let rotAmount2 = letterData["rotateS"];
+
+ fill(colorFront1);
+angleMode(DEGREES);
+  
+push(); 
+ translate(posx,posy);
+  rotate(rotAmount2);
+quad(0 -quadposx2, 0, 0 , 0 -quadposy3, 0 +quadposx2, 0, 0, 0 +quadposy4);
+pop();
+
  }
 
 function drawsfat(posx, posy, letterData) {
   let quadposx3 = letterData["pos3x"];
   let quadposy5 = letterData["pos5y"];
   let quadposy6 = letterData["pos6y"];
-  quad(posx - quadposx3, posy, posx , posy -quadposy5, posx +quadposx3, posy, posx, posy +quadposy6);
+  // quad(posx - quadposx3, posy, posx , posy -quadposy5, posx +quadposx3, posy, posx, posy +quadposy6);
+  let rotAmount3 = letterData["rotatesF"];
+
+ fill(colorFront1);
+angleMode(DEGREES);
+  
+push(); 
+ translate(posx,posy);
+  rotate(rotAmount3);
+quad(0 -quadposx3, 0, 0 , 0 -quadposy5, 0 +quadposx3, 0, 0, 0 +quadposy6);
+pop();
+
 }
 
 function drawlfat(posx, posy, letterData) {
   let quadposx4 = letterData["pos4x"];
   let quadposy7 = letterData["pos7y"];
   let quadposy8 = letterData["pos8y"];
-
+  let rotAmount = letterData["rotateF"];
 
   // uneeded
   // let pos2x = posx + letterData["offsetx"];
@@ -120,15 +173,18 @@ function drawlfat(posx, posy, letterData) {
   fill(colorFront1);
   // ellipse(posx, posy, 150, 150);
   // ellipse(pos2x, pos2y, size2, size2);
-
+angleMode(DEGREES);
   
+push(); 
+ translate(posx,posy);
+  rotate(rotAmount);
+quad(0 -quadposx4, 0, 0 , 0 -quadposy7, 0 +quadposx4, 0, 0, 0 +quadposy8);
 
- 
-  
-  quad(posx -quadposx4, posy, posx , posy -quadposy7, posx +quadposx4, posy, posx, posy +quadposy8);
+  //quad(posx -quadposx4, posy, posx , posy -quadposy7, posx +quadposx4, posy, posx, posy +quadposy8);
      
    // drawSkinnyQuad(letterData["pos1x"], );
 
+pop();
   // triangle(posx -75, posy+75, posx , posy-75, posx +75, posy +75);
   // triangle(posx -75, posy+75, posx -75, posy-75, posx +75, posy);
   // triangle(posx +75, posy-75, posx +75, posy+75, posx -75, posy);
@@ -167,16 +223,23 @@ function draw () {
   drawlfat(center_x - 250, center_y + 20, letterA);
   pop();
 
-  
+   
   push();
-   drawsthin(center_x , center_y, letterB);
-   drawlthin(center_x , center_y, letterB);
-   drawsfat(center_x , center_y , letterB);
-   angleMode(DEGREES);
-  translate(center_x - 480, center_y-250);
-   // rotate(3);
-   drawlfat(center_x , center_y , letterB);
+   drawsthin(center_x -40, center_y, letterB);
+   drawlthin(center_x -40, center_y, letterB);
+   drawsfat(center_x -30, center_y - 110, letterB);
+   drawlfat(center_x -30, center_y +10, letterB);
    pop();
+
+  
+    push();
+  drawsthin(center_x + 280, center_y+50, letterC);
+  drawlthin(center_x + 250, center_y-140, letterC);
+  drawsfat(center_x + 250, center_y -70, letterC);
+  drawlfat(center_x + 250, center_y +20, letterC);
+  pop();
+
+
   // drawLetter(center_x      , center_y, letterB);
   // drawLetter(center_x + 250, center_y, letterC);
 }
