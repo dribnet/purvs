@@ -20,8 +20,11 @@ angleMode(DEGREES);
 
  if(letterData["horizontal"] == 0){ 
    strokeWeight(6);   
-   scale(map(letterData["horizontal"], 1, 0, 1, 1, true),   map(letterData["horizontal"], 1, 0, 1, 0.75, true));
 
+   push();
+   scale(map(letterData["horizontal"], 1, 0, 1, 1, true),   map(letterData["horizontal"], 1, 0, 1, 0.75, true));
+   //translate(0, 5000);
+   translate(0, map(letterData["horizontal"], 1, 0, 0, 60, true));
 
  //1
  if(letterData["line1"] < 1 && letterData["line1"] > 0){
@@ -127,7 +130,7 @@ if(letterData["line7"] < 1 && letterData["line7"] > 0){
  curve(0, -100*(letterData["line7"]-1)+200, 0, 200, 100, 200, 100,  -100*(letterData["line7"]-1)+200);
  //line(0, 200, 100, 200);
 }
-
+pop();
 }
 
 else {
@@ -139,17 +142,27 @@ else {
  //translate(0, -200);
  //print(letterData["horizontal"]);
  //print(map(letterData["horizontal"], 0, 1, 0, 90, true));
+ if(letterData["horizontal"] > 1){
+ shearX(map(letterData["horizontal"]-1, 0, 0.1, 0, -15, true));
+  }
+ translate(100*letterData["horizontal"], 70 * letterData["horizontal"]);
  rotate(map(letterData["horizontal"], 0, 1, 0, 90, true));
- 
+ scale(map(letterData["horizontal"], 0, 1, 1, 0.25+(letterData["horizontal"]*1), true), map(letterData["horizontal"], 0, 1, 1, 1-(letterData["horizontal"]*0.5), true));
+
+ //translate( map(letterData["horizontal"], 0, 1, 0, 340 - (letterData["horizontal"]*280), true), map(letterData["horizontal"], 0, 1, 0, -100-(letterData["horizontal"]-100), true));
+
+/*
  if(letterData["horizontal"] < 1){
-  scale(map(letterData["horizontal"], 0, 1, 1, 0.75, true),   map(letterData["horizontal"], 0, 1, 1, 0.75, true));
-   translate( map(letterData["horizontal"], 0, 1, 0, 220, true), map(letterData["horizontal"], 0, 1, 0, -150, true));
+  //scale(map(letterData["horizontal"], 0, 1, 1, 0.75, true),   map(letterData["horizontal"], 0, 1, 1, 0.75, true));
+   translate( map(letterData["horizontal"], 0, 1, 0, 200, true), map(letterData["horizontal"], 0, 1, 0, -150, true));
  } else {
-  scale(map(letterData["horizontal"], 0, 1, 1, 1.25, true),   map(letterData["horizontal"], 0, 1, 1, 0.5, true));
+  //scale(map(letterData["horizontal"], 0, 1, 1, 1.25, true),   map(letterData["horizontal"], 0, 1, 1, 0.5, true));
    translate( map(letterData["horizontal"], 0, 1, 0, 60, true), map(letterData["horizontal"], 0, 1, 0, -200, true));
 
  }
-
+*/
+  
+  //translate( map(letterData["horizontal"], 0, 1, 0, 60, true), map(letterData["horizontal"], 0, 1, 0, -200, true));
 
  strokeWeight(6);
 

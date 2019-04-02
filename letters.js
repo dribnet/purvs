@@ -259,11 +259,11 @@ const alphabet = {
    "V": {
   "line1": 0,
   "line2": 0,
-  "line3": 0,
-  "line4": 0,
+  "line3": 1,
+  "line4": 1,
   "line5": 0,
-  "line6": 1,
-  "line7": 1,
+  "line6": 0,
+  "line7": 0,
   "horizontal": 0.5
 
   },
@@ -316,7 +316,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0.8
+  "horizontal": 1.1
 
   },
 
