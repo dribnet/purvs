@@ -1,3 +1,7 @@
+const colorFront1  = "#199cff";
+const colorFront2  = "#59ccff";
+const colorStroke  = "#233f11";
+
 /*
  * Draw the letter given the letterData
  *
@@ -6,68 +10,20 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  let w = 100;
-  let h = 200;
+  // color/stroke setup
+  stroke(colorStroke);
+  strokeWeight(4);
 
-  let r1x = letterData["r1x"];
-  let r1y = letterData["r1y"];
-  let r2x = letterData["r2x"];
-  let r2y = letterData["r2y"];
-  let r3x = letterData["r3x"];
-  let r3y = letterData["r3y"];
-  let r4x = letterData["r4x"];
-  let r4y = letterData["r4y"];
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = 50  + letterData["offsetx"];
+  let pos2y = 150 + letterData["offsety"];
 
-  let t1x = 20;
-  if ("t1x" in letterData) {
-    t1x = letterData["t1x"];
-  }
-  let t1y = 50;
-  if ("t1y" in letterData) {
-    t1y = letterData["t1y"];
-  }
-  let t2x = 80;
-  if ("t2x" in letterData) {
-    t2x = letterData["t2x"];
-  }
-  let t2y = 50;
-  if ("t2y" in letterData) {
-    t2y = letterData["t2y"];
-  }
-  let t3x = 50;
-  if ("t3x" in letterData) {
-    t3x = letterData["t3x"];
-  }
-  let t3y = 150;
-  if ("t3y" in letterData) {
-    t3y = letterData["t3y"];
-  }
-
-  print(t1x);
-
-  fill(30, 30, 30, 200);
-  noStroke();
-  beginShape();
-    curveVertex(r1x, r1y);
-    curveVertex(r2x, r2y);
-    curveVertex(r3x, r3y);
-    curveVertex(r4x, r4y);
-    curveVertex(r1x, r1y);
-    curveVertex(r2x, r2y);
-    curveVertex(r3x, r3y);
-  endShape(CLOSE);
-
-  fill(200, 200, 200, 200);
-  noStroke();
-  beginShape();
-    curveVertex(t1x, t1y);
-    curveVertex(t2x, t2y);
-    curveVertex(t3x, t3y);
-    curveVertex(t1x, t1y);
-    curveVertex(t2x, t2y);
-    curveVertex(t3x, t3y);
-  endShape(CLOSE);
-
+  // draw two circles
+  fill(colorFront1);
+  ellipse(50, 150, 75, 75);
+  fill(colorFront2);
+  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
