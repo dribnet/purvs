@@ -248,13 +248,22 @@ else {
  //translate(0, -200);
  //print(letterData["horizontal"]);
  //print(map(letterData["horizontal"], 0, 1, 0, 90, true));
- if(letterData["horizontal"] > 1){
+ if(letterData["horizontal"] > 1 && letterData["horizontal"] < 2.5){
  shearX(map(letterData["horizontal"]-1, 0, 0.1, 0, -20, true));
  scale(map(letterData["horizontal"]-1, 0, 0.1, 0, 1.4, true),1);
   }
+if (letterData["horizontal"] < 3){
  translate(10+(100*letterData["horizontal"]), 50 * letterData["horizontal"]);
  rotate(map(letterData["horizontal"], 0, 1, 0, 90, true));
  scale(map(letterData["horizontal"], 0, 1, 1, 0.25+(letterData["horizontal"]*1), true), map(letterData["horizontal"], 0, 1, 1, 1.1-(letterData["horizontal"]*0.5), true));
+} else {
+  translate(120, 100);
+ rotate(90);
+ scale(1, 0.7);
+
+line(50, 100, 50, 0);
+
+}
 
  //translate( map(letterData["horizontal"], 0, 1, 0, 340 - (letterData["horizontal"]*280), true), map(letterData["horizontal"], 0, 1, 0, -100-(letterData["horizontal"]-100), true));
 
@@ -411,7 +420,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "WELLSHIT",
+  "",
   "DICKDICK",
   "BAAAAAAA"
 ]
