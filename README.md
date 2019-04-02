@@ -1,12 +1,3 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
-Changed colour and shape of the ellipses. An idea I am thinking of is a bunch of lines much like the wooden robot claw example, each line rotating around at each corner of a hexagon will multiple lines rotating from a center point.
+Making a font that uses two ellipses and 2 lines, contemplating using negative space to add more to the designs.

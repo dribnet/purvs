@@ -13,9 +13,24 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+    "arcsize1": 70,
+    "arcsize2": 40,
+    "x_arc1": 10,
+    "y_arc1": 10,
+    "x_arc2": 10,
+    "y_arc2": 10,
+    "deg_arc1": 110,
+    "deg_arc2": 70,
+    "deg_arc3": 100,
+    "deg_arc4": 200,
+    "linex1": 100,
+    "linex2": 100,
+    "linex3": 100,
+    "linex4": 200,
+    "liney1": 100,
+    "liney2": 100,
+    "liney3": 100,
+    "liney4": 200
 }
 
 const letterB = {
@@ -30,10 +45,10 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#d81a1a";
-const colorFront2  = "#f2bfbf";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#ffffff";
+const colorFront2  = "#ffffff";
+const colorBack    = "#000000";
+const colorStroke  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -49,16 +64,37 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
+  angleMode(DEGREES)
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+let size2 = letterData["size"];
+let x_arc1 = posx + letterData["x_arc1"];
+let y_arc1 = posy + letterData["y_arc1"];
+let x_arc2 = posx + letterData["x_arc2"];
+let y_arc2 = posy + letterData["y_arc2"];
+let arcsize1 =letterData["arcsize1"];
+let arcsize2 =letterData["arcsize2"];
+let deg_arc1 =letterData["deg_arc1"];
+let deg_arc2 =letterData["deg_arc2"];
+let deg_arc3 =letterData["deg_arc3"];
+let deg_arc4 =letterData["deg_arc4"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, size2/1.5, size2*1.5);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2/2.5, size2);
+let linex1 = posx + letterData["linex1"];
+let liney1 = posy + letterData["liney1"];
+let linex2 = posx + letterData["linex2"];
+let liney2 = posy + letterData["liney2"];
+let linex3 = posx + letterData["linex3"];
+let liney3 = posy + letterData["liney3"];
+let linex4 = posx + letterData["linex4"];
+let liney4 = posy + letterData["liney4"];
+  print(int(letterData["liney2"]));
+  // draw arcs
+  noFill();
+  strokeWeight(10)
+  arc(x_arc1,y_arc1,arcsize1,arcsize1,deg_arc1,deg_arc2);
+  arc(x_arc2,y_arc2,arcsize2,arcsize2,deg_arc3,deg_arc4);    
+//ellipse(100,100,100,100)
+  line(linex1,liney1,linex2,liney2)
+  line(linex3,liney3,linex4,liney4)
 }
 
 function draw () {

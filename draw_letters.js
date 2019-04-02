@@ -11,19 +11,37 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
+  angleMode(DEGREES)
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+let size2 = letterData["size"];
+let x_arc1 =  letterData["x_arc1"];
+let y_arc1 =  letterData["y_arc1"];
+let x_arc2 =  letterData["x_arc2"];
+let y_arc2 =  letterData["y_arc2"];
+let arcsize1 =letterData["arcsize1"];
+let arcsize2 =letterData["arcsize2"];
+let deg_arc1 =letterData["deg_arc1"];
+let deg_arc2 =letterData["deg_arc2"];
+let deg_arc3 =letterData["deg_arc3"];
+let deg_arc4 =letterData["deg_arc4"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+let linex1 =  letterData["linex1"];
+let liney1 =  letterData["liney1"];
+let linex2 =  letterData["linex2"];
+let liney2 =  letterData["liney2"];
+let linex3 =  letterData["linex3"];
+let liney3 =  letterData["linex4"];
+let liney4 = letterData["liney4"];
+let linex4 = letterData["linex4"];
+  print(int(letterData["liney2"]));
+  // draw arcs
+  noFill();
+  strokeWeight(10)
+  arc(x_arc1,y_arc1,arcsize1,arcsize1,deg_arc1,deg_arc2);
+  arc(x_arc2,y_arc2,arcsize2,arcsize2,deg_arc3,deg_arc4);    
+//ellipse(100,100,100,100)
+  line(linex1,liney1,linex2,liney2)
+  line(linex3,liney3,linex4,liney4)
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
