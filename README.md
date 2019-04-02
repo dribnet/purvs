@@ -15,3 +15,5 @@ this might work but I dont think so somehow - this is gonna take a lot of fixing
 I have sat down with a pen and paper to try and work out my system with as few variables as possible and i think the best bet is to map coordinates across the print area and use them as true false parameters to draw lines betweeen.
 
 so in the process of trying to figure this out i didn't push pop and i broke everything
+
+ive got it working and made the cutouts pink for debug things
