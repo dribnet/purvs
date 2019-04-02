@@ -1,5 +1,5 @@
 const arcStrokeCol  = "#ffffff"; //white
-const lineStrokeCol = "#96f9ff"; //light blue
+const lineStrokeCol = "#c6e9ff"; //light blue
 
 /*
  * Draw the letter given the letterData
@@ -11,7 +11,7 @@ const lineStrokeCol = "#96f9ff"; //light blue
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(arcStrokeCol);
-  strokeWeight(8);
+  strokeWeight(9);
 
   angleMode(DEGREES);
 
@@ -32,6 +32,7 @@ function drawLetter(letterData) {
   noFill();
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
+  strokeWeight(8);
   //stroke(lineStrokeCol);
   line(lineX1, lineY1, lineX2, lineY2);
   

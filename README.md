@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019 - Sketch
 
-I have finished a draft sketch of the alphabet. I added 2 more parameters to even out the spacing between each letter - the x and y coordinates of the center of the arc. 
+I made some small adjustments to the alphabet.
 
 Each of my letters is composed with one arc and one line. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 
