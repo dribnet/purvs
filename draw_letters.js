@@ -1,5 +1,6 @@
 const colorFront1  = "#ffffff";
 const colorFront2  = "#000000";
+const colorFront3  = "#aaaaaa";
 
 /*
  * Draw the letter given the letterData
@@ -12,9 +13,7 @@ function drawLetter(letterData) {
   // color/stroke setup
  noStroke();
 
-
   // determine parameters for second circle
-
   // draw two circles
   let px1 = letterData["x1"];
   let py1 = letterData["y1"];
@@ -27,19 +26,23 @@ function drawLetter(letterData) {
   let px5 = letterData["x5"];
   let py5 = letterData["y5"];
 
-
-
-  
-  beginShape(TRIANGLES);
   fill(colorFront2);
-  vertex(px1,py1);
-  vertex(px2,py2);
-  vertex(px3,py3);
-
-  vertex(px3,py3);
-  vertex(px4,py4);
-  vertex(px5,py5);
-  endShape();
+  triangle(px1,py1,px2,py2,px3,py3);
+  scale(0.5);
+  triangle(px1,py1,px2,py2,px3,py3);
+  fill(colorFront1);
+  triangle(px3,py3,px4,py4,px5,py5);
+  
+  // beginShape(TRIANGLES);
+  // fill(colorFront2);
+  // vertex(px1,py1);
+  // vertex(px2,py2);
+  // vertex(px3,py3);
+  // fill(colorFront1);
+  // vertex(px3,py3);
+  // vertex(px4,py4);
+  // vertex(px5,py5);
+  // endShape();
 
 }
 
