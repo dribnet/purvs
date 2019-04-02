@@ -45,7 +45,7 @@ function draw () {
   scale(0.5);
 
   // constants
-  const left_margin = 40;
+  const left_margin = 4;
   const right_margin = 2*width - 40;
   const top_margin = 80;
   const bottom_margin = 2*height - 60;
@@ -73,7 +73,7 @@ function draw () {
         if (debugBox) {
           noFill()
           strokeWeight(4);
-          stroke(0, 200, 0);
+          stroke(50, 200, 50);
           rect(0, 0, 100, 200);
         }
 
