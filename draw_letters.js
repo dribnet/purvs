@@ -20,6 +20,8 @@ angleMode(DEGREES);
 
  if(letterData["horizontal"] == 0){ 
    strokeWeight(6);   
+   scale(map(letterData["horizontal"], 1, 0, 1, 1, true),   map(letterData["horizontal"], 1, 0, 1, 0.75, true));
+
 
  //1
  if(letterData["line1"] < 1 && letterData["line1"] > 0){
@@ -138,10 +140,18 @@ else {
  //print(letterData["horizontal"]);
  //print(map(letterData["horizontal"], 0, 1, 0, 90, true));
  rotate(map(letterData["horizontal"], 0, 1, 0, 90, true));
- scale(map(letterData["horizontal"], 0, 1, 1, 2, true),   map(letterData["horizontal"], 0, 1, 1, 0.5, true));
- translate(0, map(letterData["horizontal"], 0, 1, 0, -200, true));
+ 
+ if(letterData["horizontal"] < 1){
+  scale(map(letterData["horizontal"], 0, 1, 1, 0.75, true),   map(letterData["horizontal"], 0, 1, 1, 0.75, true));
+   translate( map(letterData["horizontal"], 0, 1, 0, 220, true), map(letterData["horizontal"], 0, 1, 0, -150, true));
+ } else {
+  scale(map(letterData["horizontal"], 0, 1, 1, 1.25, true),   map(letterData["horizontal"], 0, 1, 1, 0.5, true));
+   translate( map(letterData["horizontal"], 0, 1, 0, 60, true), map(letterData["horizontal"], 0, 1, 0, -200, true));
 
- strokeWeight(3);
+ }
+
+
+ strokeWeight(6);
 
   //1
  if(letterData["line1"] < 1 && letterData["line1"] > 0){
@@ -174,7 +184,7 @@ if(letterData["line2"] < 1 && letterData["line2"] > 0){
  curve(0, 100*(letterData["line2"]-1), 0, 0, 100, 0, 100, 100*(letterData["line2"]-1));
 
 }
- strokeWeight(3);
+ strokeWeight(6);
 
  //3
 if(letterData["line3"] < 1 && letterData["line3"] > 0){
@@ -207,7 +217,7 @@ strokeWeight(10);
  //line(0, 100, 100, 100);
 }
 
- strokeWeight(3);
+ strokeWeight(6);
  //5
 if(letterData["line5"] < 1 && letterData["line5"] > 0){
   stroke(255, 89, 196, map(letterData["line5"], 0, 1, 0, 255, true));
@@ -222,7 +232,7 @@ if(letterData["line5"] < 1 && letterData["line5"] > 0){
   curve(100*(letterData["line5"]-1), 100, 0, 100, 0, 200, 100*(letterData["line5"]-1), 200);
  //line(0, 100, 0, 200);
 }
- strokeWeight(3);
+ strokeWeight(6);
  //6
  if(letterData["line6"] < 1 && letterData["line6"] > 0){
   stroke(255, 89, 196, map(letterData["line6"], 0, 1, 0, 255, true));
