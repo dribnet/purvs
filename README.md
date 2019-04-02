@@ -1,6 +1,6 @@
-## PS2 MDDN 242 2019 - Sketch
+## PS2 MDDN 242 2019 - Full Alphabet
 
-I made some small adjustments to the alphabet.
+I made more small adjustments to the alphabet. The gap between line and arc is wider now, which I think gives it more style. I might make more changes and possibly add another shape that doesn't change in any way throughout the whole alphabet and numbers.
 
 Each of my letters is composed with one arc and one line. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 

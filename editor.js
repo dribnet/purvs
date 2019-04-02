@@ -6,13 +6,18 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["size"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-  obj["offsetx"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-  obj["offsety"] = map(param_sliders[2].value(), 0, 100, -150, 50);
+  obj["lineX1"]    = map(param_sliders[0].value(), 0, 100, 0, 100);
+  obj["lineY1"] = map(param_sliders[1].value(), 0, 100, 0, 100);
+  obj["lineX2"] = map(param_sliders[2].value(), 0, 100, 0, 100);
+  obj["lineY2"] = map(param_sliders[3].value(), 0, 100, 0, 100);
+  obj["arcX"] = map(param_sliders[4].value(), 0, 100, 0, 100);
+  obj["arcY"] = map(param_sliders[5].value(), 0, 100, 0, 200);
+  obj["start"] = map(param_sliders[6].value(), 0, 100, 0, 100);
+  obj["stop"] = map(param_sliders[7].value(), 0, 100, 0, 200);
   return obj;
 }
 
-let numSliders = 3;
+let numSliders = 8;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
