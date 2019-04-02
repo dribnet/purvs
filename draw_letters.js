@@ -1,5 +1,5 @@
-const colorBack    = "#FFD745";
-const colorStroke  = "#FFFF00";
+const colorBack    = "#FFFFFF";
+const colorStroke  = "#4286f4";
 const lineSpacing = 20;
 
 const posx = 0;
@@ -46,8 +46,8 @@ function drawLetter(letterData) {
   line(posx + lineSpacing*4, posy + Yshift4, posx + lineSpacing*4, posy + length4 + Yshift4);
 
   noStroke();
-  //fill(colorBack);
-  fill("#d1b932");
+  fill(colorBack);
+  //fill("#bcbcbc");
 
   quad(Xquad1, Yquad1, Xquad2, Yquad2, Xquad3, Yquad3, Xquad4, Yquad4);
 }
