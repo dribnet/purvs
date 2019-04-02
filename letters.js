@@ -1,6 +1,6 @@
 const alphabet = {
   "default": {
-    "size": 20,
+    "size": 40,
     "offsetx": 0,
     "offsety": 0
   },
