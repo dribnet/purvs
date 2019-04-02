@@ -1,42 +1,66 @@
 // Sets constants/variables
 const honeycombFill = "#FFC748";
 const colorStroke = "#FFEFC1";
-let verticalShift = 68;
-let horizontalShift = 60;
+angleMode(DEGREES);
 
 // Draw the letter given the letterData
 function drawLetter(letterData) {
-    // sets parameters
-    let hex1_size = letterData["1size"];
-    let hex1_xPos = 50 + letterData["1xPos"];
-    let hex1_yPos = 100 + letterData["1yPos"];
-    
-    let hex2_size = letterData["2size"];
-    let hex2_xPos = 0 + letterData["2xPos"];
-    let hex2_yPos = 0 + letterData["2yPos"];
-    
-    let hex3_size = letterData["3size"];
-    let hex3_xPos = 0 + letterData["3xPos"];
-    let hex3_yPos = 0 + letterData["3yPos"];
+    // Sets parameters
+    let hex1_xPos = letterData["1xPos"];
+    let hex1_yPos = letterData["1yPos"];
 
-    // Draws hexagon
+    let hex2_xPos = letterData["2xPos"];
+    let hex2_yPos = letterData["2yPos"];
+    
+    let hex3_xPos = letterData["3xPos"];
+    let hex3_yPos = letterData["3yPos"];
+
+    let hex4_xPos = letterData["4xPos"];
+    let hex4_yPos = letterData["4yPos"];
+
+    let hex5_xPos = letterData["5xPos"];
+    let hex5_yPos = letterData["5yPos"];
+
+    let hex6_xPos = letterData["6xPos"];
+    let hex6_yPos = letterData["6yPos"];
+
+    let hex7_xPos = letterData["7xPos"];
+    let hex7_yPos = letterData["7yPos"];
+
+    let hex8_xPos = letterData["8xPos"];
+    let hex8_yPos = letterData["8yPos"];
+
+    let hex9_xPos = letterData["9xPos"];
+    let hex9_yPos = letterData["9yPos"];
+
+    // Draws 9 hexagons
     fill(honeycombFill);
     stroke(colorStroke);
-    draw_hex();
+    draw_hex(hex1_xPos, hex1_yPos);
+    draw_hex(hex2_xPos, hex2_yPos);
+    draw_hex(hex3_xPos, hex3_yPos);
+    draw_hex(hex4_xPos, hex4_yPos);
+    draw_hex(hex5_xPos, hex5_yPos);
+    draw_hex(hex6_xPos, hex6_yPos);
+    draw_hex(hex7_xPos, hex7_yPos);
+    draw_hex(hex8_xPos, hex8_yPos);
+    draw_hex(hex9_xPos, hex9_yPos);
 }
 
 // Makes hexagon shape
 function draw_hex(hex1_xPos, hex1_yPos) {
+    angleMode(DEGREES);
     push();
     translate(hex1_xPos, hex1_yPos);
+    rotate(30);
     strokeWeight(4);
     beginShape();
-    vertex(0, -34);
-    vertex(40, -34);
-    vertex(19, 0);
-    vertex(40, 34);
-    vertex(-0, 34);
-    vertex(-19, 0);
+        for (i = 0; i < 6; i++) { // Makes all sides equal
+                ang = i * (360 / 6);
+                xVertex= sin(ang) * 15;
+                yVertex = cos(ang) * 15;
+                vertex(xVertex, yVertex);
+            }
     endShape(CLOSE);
     pop();
 }
