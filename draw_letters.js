@@ -14,16 +14,19 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  let shiftx1 = letterData["offsetx1"];
+  let shiftx2 = letterData["offsetx2"];
+  let shiftx3 = letterData["offsetx3"];
+  let shiftx4 = letterData["offsetx4"];
+  let shiftx5 = letterData["offsetx5"];
+ 
+  let length1 = letterData["offsety1"];
+  let length2 = letterData["offsety2"];
+  let length3 = letterData["offsety3"];
+  let length4 = letterData["offsety4"]; 
+  let length5 = letterData["offsety5"]; 
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

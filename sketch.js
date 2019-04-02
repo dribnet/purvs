@@ -13,27 +13,56 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx1": 15,
+  "offsetx2": 15,
+  "offsetx3": 15,
+  "offsetx4": 15,
+  "offsetx5": 15,
+ 
+  "offsety1": 40,
+  "offsety2": 40,
+  "offsety3": 40,
+  "offsety4": 40,
+  "offsety5": 50,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx1": 15,
+  "offsetx2": 15,
+  "offsetx3": 15,
+  "offsetx4": 15,
+  "offsetx5": 15,
+  "offsetx3": 15,
+  "offsetx4": 15,
+  "offsetx5": 15,
+
+  "offsety1": 40,
+  "offsety2": 40,
+  "offsety3": 40,
+  "offsety4": 40,
+  "offsety5": 40,
+  "offsety6": 40,
+  "offsety7": 40,
+  "offsety8": 40,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx1": 15,
+  "offsetx2": 15,
+  "offsetx3": 15,
+  "offsetx4": 15,
+  "offsetx5": 15,
+ 
+  "offsety1": 40,
+  "offsety2": 20,
+  "offsety3": 10,
+  "offsety4": 20,
+  "offsety5": 40,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorBack    = 0;
+const colorStroke  = 255;
+const lineSpacing = 10;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -48,18 +77,29 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+function drawLetter(posx, posy, letterData) {
+ 
+  let shiftx1 = letterData["offsetx1"];
+  let shiftx2 = letterData["offsetx2"];
+  let shiftx3 = letterData["offsetx3"];
+  let shiftx4 = letterData["offsetx4"];
+  let shiftx5 = letterData["offsetx5"];
+ 
+  let length1 = letterData["offsety1"];
+  let length2 = letterData["offsety2"];
+  let length3 = letterData["offsety3"];
+  let length4 = letterData["offsety4"]; 
+  let length5 = letterData["offsety5"]; 
+
+  line(posx + shiftx1, posy + lineSpacing,   posx + length1 + shiftx1, posy + lineSpacing);
+  line(posx + shiftx2, posy + lineSpacing*2, posx + length2 + shiftx2, posy + lineSpacing*2);
+  line(posx + shiftx3, posy + lineSpacing*3, posx + length3 + shiftx3, posy + lineSpacing*3);
+  line(posx + shiftx4, posy + lineSpacing*4, posx + length4 + shiftx4, posy + lineSpacing*4);
+  line(posx + shiftx5, posy + lineSpacing*5, posx + length5 + shiftx5, posy + lineSpacing*5);
 }
+
+
 
 function draw () {
   // clear screen
