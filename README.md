@@ -13,6 +13,10 @@ I have redone the X and Z to only use one quad and I think they mostly read corr
 
 I also changed the colours just so it was easier to see but I haven't thought about my colour scheme in depth yet.
 
+---------------
+
+I am also annoyed with the 3 but I don't know another way I can draw it without using 2 quads. Hazel also suggested there might be a way to draw a quad so that the middle intersects and creates a sideways hour glass sorta shape. This could be useful for drawing the X as well as 8.
+
 The 16 parameters per letter:
   * `Yshift1` : top of line position for first line
   * `Yshift2` : top of line position for second line
