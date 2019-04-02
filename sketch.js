@@ -78,19 +78,19 @@ function drawLetter(posx, posy, letterData) {
   fill(colorFront2);
 
   // letter A //
-  ellipse(pos2x, pos2y, size2, size2);
-  ellipse(b2posx, b2posy, wid1, hei1);
-  ellipse(b3posx, b3posy, wid1, hei1);
+  rect(pos2x, pos2y, size2, size2);
+  rect(b2posx, b2posy, wid1, hei1);
+  rect(b3posx, b3posy, wid1, hei1);
 
   // letter B //
-  ellipse(posx, posy, size2, size2);
-  ellipse(b2posx, b2posy, wid1, hei1);
-  ellipse(b3posx, b3posy, wid1, hei1);
+  rect(posx, posy, size2, size2);
+  rect(b2posx, b2posy, wid1, hei1);
+  rect(b3posx, b3posy, wid1, hei1);
 
   // letter C //
-  ellipse(pos2x, pos2y, size2, size2);
-  ellipse(b2posx, b2posy, wid1, hei1);
-  ellipse(b3posx, b3posy, wid1, hei1);
+  rect(pos2x, pos2y, size2, size2);
+  rect(b2posx, b2posy, wid1, hei1);
+  rect(b3posx, b3posy, wid1, hei1);
 }
 
 function draw () {

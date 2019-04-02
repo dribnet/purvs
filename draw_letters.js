@@ -1,6 +1,6 @@
-const colorFront1  = "#FF830D";
-const colorFront2  = "#386466";
-const colorStroke  = "#386466";
+const colorFront1  = "#F1A334";
+const colorFront2  = "#296EAD";
+const colorStroke  = "#296EAD";
 
 /*
  * Draw the letter given the letterData
@@ -17,7 +17,9 @@ const parameters = {
   "b2offsetx": 130,
   "b2offsety": 210,
   "b3offsetx": 130,
-  "b3offsety": 195
+  "b3offsety": 195,
+  "b4offsetx": 120,
+  "b4offsety": 110
 }
 
 function drawLetter(letterData) {
@@ -33,15 +35,18 @@ function drawLetter(letterData) {
   let b2posy = 150 + letterData["b2offsety"];
   let b3posx = 50 + letterData["b3offsetx"];
   let b3posy = 150 + letterData["b3offsety"];
+  let b4posx = 50 + letterData["b4offsetx"];
+  let b4posy = 150 + letterData["b4offsety"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  ellipse(50, 110, 130, 180);
   fill(colorFront2);
   //ellipse(b2posx, b2posy, letterData["wid"], letterData["hei"]);
   //ellipse(b3posx, b3posy, letterData["wid"], letterData["hei"]);
   rect(b2posx, b2posy, letterData["wid"], letterData["hei"]);
   rect(b3posx, b3posy, letterData["wid"], letterData["hei"]);
+  rect(b4posx, b4posy, letterData["wid"], letterData["hei"]);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
