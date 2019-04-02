@@ -557,13 +557,13 @@ const alphabet = {
   //yshift
   "offsetX1": -80,
   "offsetX2": -100,
-  "offsetX3": -100,
+  "offsetX3": -85,
   "offsetX4": -60,
  
   //length
   "offsetY1": 160,
   "offsetY2": 200,
-  "offsetY3": 180,
+  "offsetY3": 170,
   "offsetY4": 120,
 
   //quad x positions

@@ -1,8 +1,6 @@
 ## PS2 MDDN 242 2019
 
-Successfully got the quad to cross over so the quad in the X and the 8 look much better. I tried to use this with the 3 and it looks a little better I think.
-
-I've also been slightly tweaking lettters to make them look better.
+Added interpolation and interaction thing from part 4 but the function interpolate_letter doesn't work and I don't really know where to put it. Also in interaction.html it cuts off the bottom of some of my letters even though they stay within the boxes.
 
 The 16 parameters per letter:
   * `Yshift1` : top of line position for first line

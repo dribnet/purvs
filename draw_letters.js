@@ -52,13 +52,7 @@ function drawLetter(letterData) {
   quad(Xquad1, Yquad1, Xquad2, Yquad2, Xquad3, Yquad3, Xquad4, Yquad4);
 }
 
-function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
-}
+// function interpolate_letter(percent, oldData, newData)
 
 var swapWords = [
   "ABBAABBA",
