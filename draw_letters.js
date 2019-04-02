@@ -15,15 +15,26 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
+  let line1x = letterData["pos1x"];
+  let line2x = letterData["pos2x"];
+  let line1y = letterData["pos1y"];
+  let line2y = letterData["pos2y"];
   // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  //fill(colorFront1);
+
+  noFill();
+  //using vertices to create the lines for my alphabet and numbers
+  beginShape();
+    vertex(30, 20);
+    vertex(85, 20);
+    vertex(85, 75);
+    vertex(30, 20);
+  endShape();
+
+  line(line1x, line1y, line2x, line2y);
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -38,4 +49,4 @@ var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
-]
+] 

@@ -1,18 +1,21 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "pos1x": 40,
+    "pos2x": 0,
+    "pos1y": 0,
+    "pos2y": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "pos1x": 65,
+    "pos2x": 10,
+    "pos1y": 20,
+    "pos2y": 80
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "pos1x": 70,
+    "pos2x": 45,
+    "pos1y": 35,
+    "pos2y": 60
   },
   "C": {
     "size": 50,
