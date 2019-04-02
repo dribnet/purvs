@@ -7,7 +7,7 @@ const alphabet = {
   "line5": 2,
   "line6": 2,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
   "A": {
@@ -18,7 +18,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 0,
- "horizontal": false
+  "horizontal": 0
 
   },
   "B": {
@@ -29,7 +29,7 @@ const alphabet = {
   "line5": 1,
   "line6": 2,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
   "C": {
@@ -40,7 +40,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 2,
-   "horizontal": false
+   "horizontal": 0
 
   },
 
@@ -52,7 +52,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 1,
-   "horizontal": false
+   "horizontal": 0
 
   },
    "E": {
@@ -63,7 +63,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 1,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -75,7 +75,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-   "horizontal": false
+   "horizontal": 0
 
   },
 
@@ -87,7 +87,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 2,
-   "horizontal": false
+   "horizontal": 0
 
   },
 
@@ -99,7 +99,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 0,
-   "horizontal": false
+   "horizontal": 0
 
   },
   "I": {
@@ -110,7 +110,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -122,7 +122,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -135,7 +135,7 @@ const alphabet = {
   "line5": 1,
   "line6": 2,
   "line7": 0,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -147,7 +147,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 1,
-  "horizontal": false
+  "horizontal": 0
 
   },
     "M": {
@@ -158,7 +158,7 @@ const alphabet = {
   "line5": 2,
   "line6": 0,
   "line7": 1,
-  "horizontal": true
+  "horizontal": 1
 
   },
 
@@ -170,7 +170,7 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 0,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -182,18 +182,18 @@ const alphabet = {
   "line5": 2,
   "line6": 2,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
    "P": {
   "line1": 1,
   "line2": 2,
   "line3": 2,
-  "line4": -0.5,
+  "line4": -1,
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": false
+  "horizontal": 0
 
   },
    "Q": {
@@ -204,18 +204,18 @@ const alphabet = {
   "line5": 1,
   "line6": -2,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
-     "R": {
+  "R": {
   "line1": 1,
   "line2": 2,
   "line3": 2,
-  "line4": -0.5,
+  "line4": 1,
   "line5": 1,
   "line6": 2,
   "line7": 0,
-  "horizontal": false
+  "horizontal": 0
 
   },
    "S": {
@@ -226,7 +226,7 @@ const alphabet = {
   "line5": 0,
   "line6": 2,
   "line7": 2,
-  "horizontal": false
+  "horizontal": 0
 
   },
 
@@ -238,7 +238,7 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": true
+  "horizontal": 1
 
   },
 }
