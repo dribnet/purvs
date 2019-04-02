@@ -17,29 +17,54 @@ const canvasHeight = 500;
 
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety":135,
-  "offsety1": 0,
-  "offsetx1": 135
+  "size": 0,
+  "x": 240,
+  "y":250,
+  "x1":180,
+  "y1":450,
+  "x2":275,
+  "y2":340,
+
+  "x3":170,
+  "y3":420,
+  "x4":210,
+  "y4":350,
+   "x5":320,
+  "y5":450,
+  "x6":240,
+  "y6":250
+
+
 
 }
 
 const letterB = {  
   "size": 150,
-  "offsetx":10,
-  "offsety": 150,
-   "offsety1": 0,
-  "offsetx1": -50
-
+  "x1":0,
+  "y1": 0,
+  "x2":-110,
+  "y2":0,
+  "x3":230,
+  "y3":250,
+  "x4":230,
+  "y4":250,
+   "x5":230,
+  "y5":250,
+  "color": 40,
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 60,
-  "offsety": -290,
-   "offsety1": 0,
-  "offsetx1": 0
+  "x1": -1000,
+  "y1": -1000,
+  "x2":100,
+  "y2":0,
+  "x3":230,
+  "y3":250,
+  "x4":230,
+  "y4":250,
+   "x5":230,
+  "y5":250
 }
 
 const colorFront1  = "#052342";
@@ -64,30 +89,52 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  noStroke();
+ // noStroke();
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let pos3x = posx + letterData["offsetx1"];
-  let pos3y = posy + letterData["offsety2"];
+  let pos1x = letterData["x"];
+  let pos1y = letterData["y"];
+  let pos2x = letterData["x1"];
+  let pos2y = letterData["y1"];
+  let pos3x = letterData["x2"];
+  let pos3y = letterData["y2"];
+  let pos4x = letterData["x3"];
+  let pos4y = letterData["y3"];
+  let pos5x = letterData["x4"];
+  let pos5y = letterData["y4"];
+  let pos6x = letterData["x5"];
+  let pos6y = letterData["y5"];
+  let pos7x = letterData["x6"];
+  let pos7y = letterData["y6"];
+
 
   stroke(255);
   strokeWeight(1);
-  line(posx, posy, posx-50,posy+200);
+  line(pos1x, pos1y, posx-50,posy+200);
   fill(255, 15, 239, 50);
   noStroke();
-  triangle(posx, posy, posx-50,posy+200,posx+50,posy+100);
 
-  // draw two circles
-  // fill(255);
-  // triangle(posx,posy-200,posx-100,posy + 100,posx+100,posy+100);
-  // //ellipse(posx, posy, 150, 150);
-  // fill(0);
-   triangle(posx, posy, posx+50,posy + 200,posx-25,posy+100);
-   
-  //triangle(posx, posy, pos3x-50, pos3y+320,pos3x+50, pos3y+320);
+  triangle(pos1x, pos1y,pos2x, pos2y,pos3x, pos3y);
+  triangle(pos7x, pos7y,pos5x, pos5y,pos6x, pos6y);
+  //triangle(pos3x, pos3y, pos3x-50,pos3y+200,pos3x+36,pos3y+100);
+ // triangle(pos3x, pos3y, pos6x+75,pos6y + 200,pos7x-25,pos7y+100);
 
-  //ellipse(pos2x, pos2y, size2, size2);
+  fill(color);
+  //fill(19, 52, 107,90);
+  // beginShape();
+  // vertex(pos2x,pos2y);
+  // vertex(pos3x+120,pos3y);
+  // vertex(pos2x+90,pos2y+100);
+  // vertex(pos2x-25,pos2y+100);
+  // endShape(CLOSE);
+
+  //scale(1.5);
+  // beginShape();
+  // vertex(pos2x-25,pos2y+100);
+  // vertex(pos2x+145,pos2y+100);
+  // vertex(pos2x+115,pos2y+200);
+  // vertex(pos2x-50,pos2y+200);
+  // endShape(CLOSE);
+
 }
 
 function draw () {
@@ -112,8 +159,8 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-   drawLetter(center_x + 250, center_y, letterC);
+  // drawLetter(center_x      , center_y, letterB);
+  //  drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
