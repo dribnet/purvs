@@ -20,6 +20,45 @@ function drawLetter(letterData) {
 angleMode(DEGREES);
 
 push();
+/*
+if(letterData["level"] == 2){
+  scale(1, 1.25);
+  translate(0, -10);
+
+} else if (letterData["level"] == 1) {
+  scale(1, 0.8);
+  translate(0, 80);
+} else if (letterData["level"] == 0) {
+  scale(1, 1.2);
+  translate(0, 0);
+}
+else if (letterData["level"] == -1) {
+  scale(1, 1.1);
+  translate(0, 50);
+}
+*/
+scale(1, letterData["scale"]);
+translate(0, letterData["level"]);
+/*
+scale(1, letterData["scale"]);
+translate(0, letterData["level"]);
+*/
+/*
+if(letterData["scale"] < 1.2){
+
+} else {
+  translate(0, -(letterData["scale"]*10) - 115);
+}
+*/
+//2 -> 1.25         -> -10
+//0 -> 1.2 ^ 0.05   -> -5
+//-1 -> 1.1 ^ 0.1   -> 50
+//1 -> 0.8 ^ 0.3    -> 80
+//translate(0, 90);
+
+
+
+push();
 scale(0.65, 0.65);
 translate(25, 53);
 drawSpec(letterData, 4, 209, 62, 157);
@@ -35,6 +74,8 @@ push();
 scale(0.6, 0.6);
 translate(20, 55);
 drawSpec(letterData, 2, 255, 165, 223);
+pop();
+
 pop();
 /*
   let circle1x = letterData["circle1x"];
@@ -211,7 +252,7 @@ else {
  shearX(map(letterData["horizontal"]-1, 0, 0.1, 0, -20, true));
  scale(map(letterData["horizontal"]-1, 0, 0.1, 0, 1.4, true),1);
   }
- translate(10+(100*letterData["horizontal"]), 60 * letterData["horizontal"]);
+ translate(10+(100*letterData["horizontal"]), 50 * letterData["horizontal"]);
  rotate(map(letterData["horizontal"], 0, 1, 0, 90, true));
  scale(map(letterData["horizontal"], 0, 1, 1, 0.25+(letterData["horizontal"]*1), true), map(letterData["horizontal"], 0, 1, 1, 1.1-(letterData["horizontal"]*0.5), true));
 
@@ -359,6 +400,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["line6"]    = map(percent, 0, 100, oldObj["line6"], newObj["line6"]);
   new_letter["line7"]    = map(percent, 0, 100, oldObj["line7"], newObj["line7"]);
   new_letter["horizontal"]    = map(percent, 0, 100, oldObj["horizontal"], newObj["horizontal"]);
+  new_letter["scale"]    = map(percent, 0, 100, oldObj["scale"], newObj["scale"]);
+  new_letter["level"]    = map(percent, 0, 100, oldObj["level"], newObj["level"]);
   /*
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
@@ -368,7 +411,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "LOLLIPOP",
-  "SHIIIIIT",
+  "WELLSHIT",
+  "DICKDICK",
   "BAAAAAAA"
 ]

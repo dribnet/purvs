@@ -7,7 +7,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+  "level": 0
 
   },
   "A": {
@@ -18,7 +20,9 @@ const alphabet = {
   "line5": 2,
   "line6": 1,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 0.8, 
+  "level": 80
 
   },
   "B": {
@@ -29,7 +33,9 @@ const alphabet = {
   "line5": 1,
   "line6": 2,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.25, 
+  "level": -10
 
   },
   "C": {
@@ -40,7 +46,9 @@ const alphabet = {
   "line5": 2,
   "line6": 0,
   "line7": 2,
-   "horizontal": 0
+   "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -52,7 +60,10 @@ const alphabet = {
   "line5": 2,
   "line6": 1,
   "line7": 2,
-   "horizontal": 0
+   "horizontal": 0,
+  
+  "scale": 1.25, 
+  "level": -10
 
   },
    "E": {
@@ -63,7 +74,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -75,7 +88,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-   "horizontal": 0
+   "horizontal": 0,
+    "scale": 1.25, 
+  "level": -10
 
   },
 
@@ -87,7 +102,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 2,
-   "horizontal": 0
+   "horizontal": 0,
+  "scale": 1.1, 
+  "level": 50
 
   },
 
@@ -99,18 +116,22 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 0,
-   "horizontal": 0
+   "horizontal": 0,
+    "scale": 1.25, 
+  "level": -10
 
   },
   "I": {
-  "line1": 1,
+  "line1": 0,
   "line2": 0,
   "line3": 0,
-  "line4": 0,
-  "line5": 1,
+  "line4": 1,
+  "line5": 0,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 1,
+  "scale": 1.25, 
+  "level": -10
 
   },
 
@@ -119,10 +140,12 @@ const alphabet = {
   "line2": 0,
   "line3": 1,
   "line4": 0,
-  "line5": 1,
+  "line5": 2,
   "line6": 1,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.1, 
+  "level": 50
 
   },
 
@@ -135,7 +158,9 @@ const alphabet = {
   "line5": 1,
   "line6": 2,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.25, 
+  "level": -10
 
   },
 
@@ -147,7 +172,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.25, 
+  "level": -10
 
   },
     "M": {
@@ -158,7 +185,9 @@ const alphabet = {
   "line5": 2,
   "line6": 0,
   "line7": 1,
-  "horizontal": 1
+  "horizontal": 1,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -170,7 +199,9 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+  "level": 0
 
   },
 
@@ -182,7 +213,9 @@ const alphabet = {
   "line5": 2,
   "line6": 2,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
    "P": {
@@ -193,7 +226,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.1, 
+  "level": 50
 
   },
    "Q": {
@@ -204,7 +239,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.1, 
+  "level": 50
 
   },
   "R": {
@@ -215,7 +252,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
    "S": {
@@ -226,7 +265,9 @@ const alphabet = {
   "line5": 0,
   "line6": 2,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -238,7 +279,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 1
+  "horizontal": 3,
+  "scale": 1.25, 
+  "level": -10
 
   },
 
@@ -251,7 +294,9 @@ const alphabet = {
   "line5": 2,
   "line6": 2,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -264,7 +309,9 @@ const alphabet = {
   "line5": 0,
   "line6": 0,
   "line7": 0,
-  "horizontal": 0.5
+  "horizontal": 0.5,
+  "scale": 1.1, 
+  "level": 50
 
   },
 
@@ -277,7 +324,9 @@ const alphabet = {
   "line5": 0,
   "line6": 2,
   "line7": 1,
-  "horizontal": 1
+  "horizontal": 1,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -290,7 +339,9 @@ const alphabet = {
   "line5": 2,
   "line6": 2,
   "line7": 0,
-  "horizontal": 1
+  "horizontal": 1,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -303,7 +354,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 2,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.1, 
+  "level": 50
 
   },
 
@@ -316,7 +369,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 0,
-  "horizontal": 1.1
+  "horizontal": 1.1,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -328,7 +383,9 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -340,7 +397,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -352,7 +411,9 @@ const alphabet = {
   "line5": 1,
   "line6": 0,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -364,7 +425,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+  "level":0
 
   },
 
@@ -376,7 +439,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -388,7 +453,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -400,7 +467,9 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -412,7 +481,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 0,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -424,7 +495,9 @@ const alphabet = {
   "line5": 1,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 
@@ -436,7 +509,9 @@ const alphabet = {
   "line5": 0,
   "line6": 1,
   "line7": 1,
-  "horizontal": 0
+  "horizontal": 0,
+  "scale": 1.2, 
+"level": 0
 
   },
 }
