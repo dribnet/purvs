@@ -14,6 +14,7 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
+<<<<<<< HEAD
   const black  = "#000000";
   const colorBack   = "#000000";
   const white  = "#3d6d96";
@@ -85,6 +86,20 @@ function drawLetter(letterData) {
   
 
 
+=======
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = 50  + letterData["offsetx"];
+  let pos2y = 150 + letterData["offsety"];
+
+  // draw two circles
+  fill(colorFront1);
+  ellipse(50, 150, 75, 75);
+  fill(colorFront2);
+  ellipse(pos2x, pos2y, size2, size2);
+}
+
+>>>>>>> origin/master
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
