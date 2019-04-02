@@ -1,5 +1,5 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#C1272D";
+const colorFront2  = "#F2F2F2";
 const colorStroke  = "#233f11";
 
 /*
@@ -21,7 +21,7 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  ellipse(50, 100, 50, 50);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
 }

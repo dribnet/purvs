@@ -2,7 +2,7 @@
 
 Mockup of Alphabet
 
-In the first stage of my creation I have made a mockup on illustrator to see what the letters are going to look like and hash out any letters that are too similar or that don't work.
+Created the Alphabet inside sketch.js. Will need to do some tweaking to make them look like my mockup. Also need to make decisions on the  box colour being fully invisible or barely visible. All in all this is the least amount of parameters I could conjure with the code.
 
 The three parameters I plan to have per letter:
   * `X Line` : The X position of the vertical line
