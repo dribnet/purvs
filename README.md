@@ -1,8 +1,8 @@
 ## PS2 MDDN 242 2019
 
-DESIGN THE ALPHABET:
+THE ALPHABET:
 
-A style which I've taken from part one are the curves and circles. After doing a lot of research and looking into the history of writing, I've found out about hieroglyphics. This then led me to searching up glyphs and have found this symbol for a moon glyph. It consists of a straight line, two arcs and two small circles. I then decided to take insipiration from this glyph and base my alphabet on its elements to sort of create an alphabet which has a modern take on hieroglyphics but making the letters be a lot more readable (not symbols). For the line, the arcs and the circles, here are my parameters.
+I've managed to finish my alphabet with just using the elements of the moon glyph. I also removed two parameters (end points for arcs) as I dont necessarily need them because the arcs are always half circles so what I've done instead was use the start angle and added 180 to it (start_a1 + 180) for the end parameter of the arcs. The only thing I need to do now is the numbers and after this, I can focus on refining them and the design aspects of my alphabet.
 
 Parameters:
 line_x1 = x position for starting point of line
@@ -14,9 +14,7 @@ arc1_posy = y position for first arc
 arc2_posx = x position for second arc
 arc2_posy = y position for second arc
 start_a1 = start angle for arc 1
-end_a1 = end angle for arc 1
 start_a2 = start angle for arc 2
-end_a2 = end angle for arc 2
 circ1_offset_x = offset x position for circle 1
 circ1_offset_y = offset y position for circle 1
 circ2_offset_x = offset x position for circle 2
