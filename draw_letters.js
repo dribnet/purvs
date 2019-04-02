@@ -1,3 +1,4 @@
+
 const PaperColor = "#07c9ff";
 /*
  * Draw the letter given the letterData
@@ -10,8 +11,8 @@ const PaperColor = "#07c9ff";
 
 
 function drawLetter(letterData) {
-let posx =100;
-let posy = 200;
+
+
 
   // determine parameters for second circle
   let posx1 =  letterData["posx1"];
@@ -38,8 +39,12 @@ let posy = 200;
   let triposy2 = letterData["triposy2"];
   let triposy3 = letterData["triposy3"];
 
+push();
+// translate(49, 98);
+
 fill(255);
 triangle(triposx1,triposy1,triposx2,triposy2,triposx3,triposy3);
+
 
  fill(PaperColor);
 beginShape();
@@ -51,6 +56,9 @@ vertex(posx5, posy5);
 vertex(posx6, posy6);
 vertex(posx7, posy7);
 endShape(CLOSE);
+
+
+pop();
 
 
 
