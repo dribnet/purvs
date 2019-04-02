@@ -23,19 +23,9 @@ fill(colorStroke)
 rect(0,0,100,200)
 fill(colorFront2)
   triangle(letterData["v1x"],letterData["v1y"],letterData["v2x"],letterData["v2y"],letterData["v3x"],letterData["v3y"]);
+  triangle(letterData["v4x"],letterData["v4y"],letterData["v5x"],letterData["v5y"],letterData["v6x"],letterData["v6y"]);
   fill(colorFront1)
-triangle(letterData["bv1x"],letterData["bv1y"],letterData["bv2x"],letterData["bv2y"],letterData["bv3x"],letterData["bv3y"]);
-
-fill(colorFront2)
-  triangle(letterData["cv1x"],letterData["cv1y"],letterData["cv2x"],letterData["cv2y"],letterData["cv3x"],letterData["cv3y"]);
-triangle(letterData["dv1x"],letterData["dv1y"],letterData["dv2x"],letterData["dv2y"],letterData["dv3x"],letterData["dv3y"]);
-fill(colorFront1)
-triangle(letterData["ev1x"],letterData["ev1y"],letterData["ev2x"],letterData["ev2y"],letterData["ev3x"],letterData["ev3y"]);
- fill(colorFront2)
-triangle(letterData["gv1x"],letterData["gv1y"],letterData["gv2x"],letterData["gv2y"],letterData["gv3x"],letterData["gv3y"]);
-
-triangle(letterData["iv1x"],letterData["iv1y"],letterData["iv2x"],letterData["iv2y"],letterData["iv3x"],letterData["iv3y"]);
-triangle(letterData["kv1x"],letterData["kv1y"],letterData["kv2x"],letterData["kv2y"],letterData["kv3x"],letterData["kv3y"]);
+  triangle(letterData["v7x"],letterData["v7y"],letterData["v8x"],letterData["v8y"],letterData["v9x"],letterData["v9y"]);
 
 
 
