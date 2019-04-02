@@ -12,25 +12,20 @@ const canvasHeight = 500;
  *
  */
 
+// var x = i * 1.5; // defines the width
+// var y = cos(i * radians(2)) * 100; // last defines the height
+
 const letterA = {
-  "sizeX": 60,
-  "sizeY": 80,
-  "offsetX": 80,
-  "offsetY": 200
+  "heightY": 60,
+  "widthX": 1.6,
+  "length": 70,
+  "rotation_angle": 90,
 }
-
 const letterB = {
-  "sizeX": 60,
-  "sizeY": -200,
-  "offsetX": 80,
-  "offsetY": 0,
-}
-
-const letterC = {
-  "sizeX": 60,
-  "sizeY": 120,
-  "offsetX": 95,
-  "offsetY": 180,
+  "heightY": 60,
+  "widthX": 0.8,
+  "length": 170,
+  "rotation_angle": 90,
 }
 
 const colorFront1  = "#D8D8D8";
@@ -53,20 +48,25 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let sizeX = letterData["sizeX"];
-  let sizeY = letterData["sizeY"];
-  let offsetX = letterData["offsetX"] -sizeX;
-  let offsetY = letterData["offsetY"] - sizeY;
-
-
-
-  // ellipse(posx, posy, 150, 150);
-  stroke(0,0,0,0);
-  fill(colorFront1);
-  triangle(50 + posx, 0 + posy, 100 + posx, 200 + posy, 0 + posx, 200 + posy)
-  stroke(0,0,0,0);
-  fill(colorFront2);
-  triangle(offsetX + posx, sizeY + offsetY + posy, sizeX + offsetX + posx, sizeY + offsetY + posy, sizeX / 2 + offsetX + posx, offsetY + posy)
+  let heightY = letterData["heightY"];
+  let widthX = letterData["widthX"];
+  let rotation_angle = letterData["rotation_angle"];
+  let length = letterData["length"];
+  // convert rotation
+  var rotation = (rotation_angle/180)*Math.PI
+  fill(0,0,0,0);
+  stroke(255);
+  strokeWeight(10);
+  translate((width/2) + 200, height/2);
+  beginShape();
+  for(var i = -length; i < length; i++) { // defines the length and how many points there are
+    var x1 = (i * widthX);
+    var y1 = (cos(i * radians(2)) * heightY);
+    var x = x1 * cos(rotation) - y1 * sin(rotation);
+    var y = y1 * cos(rotation) + x1 * sin(rotation);
+    vertex(x, y);
+  }
+  endShape();
 }
 
 function draw () {
@@ -78,9 +78,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 500, center_y, letterB);
+  // drawLetter(center_x -250    , center_y, letterB);
+  // drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {

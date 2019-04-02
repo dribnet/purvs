@@ -1,66 +1,21 @@
 const alphabet = {
   "default": {
-    "sizeX": 60,
-    "sizeY": 80,
-    "offsetX": 80,
-    "offsetY": 200,
-    "rotation": 90
-
+    "heightY": 60,
+    "widthX": 1.6,
+    "length": 70,
+    "rotation_angle": 0,
   },
   "A": {
-    "sizeX": 60,
-    "sizeY": 80,
-    "offsetX": 80,
-    "offsetY": 200,
-    "rotation": 0
+    "heightY": 100,
+    "widthX": (Math.PI*2) / 10,
+    "length": 80,
+    "rotation_angle": 180,
   },
   "B": {
-    "sizeX": 60,
-    "sizeY": -200,
-    "offsetX": 80,
-    "offsetY": 0,
-    "rotation": 90
+    "heightY": 60,
+    "widthX": 0.8,
+    "length": 170,
+    "rotation_angle": 90,
   },
-  "C": {
-    "sizeX": 60,
-    "sizeY": 120,
-    "offsetX": 95,
-    "offsetY": 180,
-    "rotation": 0
-  },
-  "D": {
-    "sizeX": 60,
-    "sizeY": 120,
-    "offsetX": 95,
-    "offsetY": 180,
-    "rotation": 0
-  },
-  "E": {
-    "sizeX": 60,
-    "sizeY": 120,
-    "offsetX": 95,
-    "offsetY": 180,
-    "rotation": 0
-  },
-  "F": {
-    "sizeX": 30,
-    "sizeY": -60,
-    "offsetX": 80,
-    "offsetY": 0,
-    "rotation": 0
-  },
-  "G": {
-    "sizeX": 80,
-    "sizeY": -100,
-    "offsetX": 120,
-    "offsetY": 140,
-    "rotation": 0
-  },
-  "H": {
-    "sizeX": 80,
-    "sizeY": -100,
-    "offsetX": 120,
-    "offsetY": 140,
-    "rotation": 0
-  }
+
 }

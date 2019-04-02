@@ -10,25 +10,31 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
   // determine parameters for second circle
-  let sizeX = letterData["sizeX"];
-  let sizeY = letterData["sizeY"];
-  let offsetX = letterData["offsetX"] -sizeX;
-  let offsetY = letterData["offsetY"] - sizeY;
+  let heightY = letterData["heightY"];
+  let widthX = letterData["widthX"];
+  let rotation_angle = letterData["rotation_angle"];
+  let length = letterData["length"];
+  var translateY = heightY;
+  // convert rotation
+  var rotation = (rotation_angle/180)*Math.PI
 
-
-  // draw two circles
-  stroke(0,0,0,0);
-  fill(colorFront1);
-  triangle(50, 0, 100, 200, 0, 200)
-  stroke(255);
   fill(0,0,0,0);
-  triangle(offsetX, sizeY + offsetY, sizeX + offsetX, sizeY + offsetY, sizeX / 2 + offsetX, offsetY)
+  stroke(255);
+  strokeWeight(10);
+  beginShape();
+  for(var i = -length; i < length; i++) { // defines the length and how many points there are
+    var x1 = (i * widthX);
+    var y1 = (cos(i * radians(2)) * heightY);
+    var x = x1 * cos(rotation) - y1 * sin(rotation);
+    var y = y1 * cos(rotation) + x1 * sin(rotation);
+    vertex(x, y);
+  }
+  translate(50,0);
+
+  endShape();
 }
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
