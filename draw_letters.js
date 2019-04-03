@@ -1,5 +1,6 @@
 
 const PaperColor = "#07c9ff";
+const BgColour = "#ff87c3";
 /*
  * Draw the letter given the letterData
  *
@@ -10,7 +11,9 @@ const PaperColor = "#07c9ff";
 
 
 
+
 function drawLetter(letterData) {
+
 
 
 
@@ -39,10 +42,14 @@ function drawLetter(letterData) {
   let triposy2 = letterData["triposy2"];
   let triposy3 = letterData["triposy3"];
 
+
 push();
 // translate(49, 98);
 
 fill(255);
+noStroke();
+
+
 triangle(triposx1,triposy1,triposx2,triposy2,triposx3,triposy3);
 
 

@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2019
 
-Continued alphabet creation
+Finished Alphabet/Working on numbers
 
-After doing some research into oragami,I found that there isnt a whole lot of cutting of paper in it.So my design is just some folded paper rather than origami which is an art in itself.
-
+Finished my alphabet and am currently working on my numbers.Only have two left to do.That is the 5 and 8 which is requiring a bit of extra thinking with my paremeters.After this I will look at the interpolation between letters.
 
 The twenty parameters per letter:
   * "posx1": 
