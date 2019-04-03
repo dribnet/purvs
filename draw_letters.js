@@ -1,6 +1,6 @@
 const colorFront1  = "#ffffff";
 const colorFront2  = "#000000";
-const colorFront3  = "#ff59c4";
+const colorFront3  = "#aaaaaa";
 
 /*ff59c4
  * Draw the letter given the letterData
@@ -41,8 +41,36 @@ function drawLetter(letterData) {
   let t2sx= letterData["t2sx"];
   let t2sy= letterData["t2sy"];
 
-//Exception for "g"
-if (px3==50 && py3==125 && px6 ==50 && py6==75 && t1s==.5) {
+//Exceptions first for G,H,K
+if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
+  push();
+    fill(colorFront2);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t1s);
+    translate(t1sx,t1sy);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+  
+  push();
+    fill(colorFront1)
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t2s);
+    translate(t2sx,t2sy);
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+
+  ellipse(25,17.5,20,20);
+  ellipse(75,17.5,20,20);
+
+} else if (px3==50 && py3==125 && px6 ==50 && py6==75 && t1s==.5) {
   push();
     fill(colorFront2);
     triangle(px1,py1,px2,py2,px3,py3);
@@ -76,6 +104,71 @@ if (px3==50 && py3==125 && px6 ==50 && py6==75 && t1s==.5) {
     triangle(px4,py4,px5,py5,px6,py6);
     scale(-1,1);
     translate(-140,0);
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+} else if (px1 == 0 && py1 ==25 && px2 == 100 && py2 == 25 && px6 == 100 && py6 ==25) {
+  push();
+    fill(colorFront2);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t1s);
+    translate(t1sx,t1sy);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+  
+  push();
+    fill(colorFront1)
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t2s);
+    translate(t2sx,t2sy);
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+
+  push();
+  fill(colorFront2);
+  triangle(25,5,50,30,75,5);
+  pop();
+} else if (px1 == 0 && py1 == 0 && px3 == 60 && py3 == 100 && px6 ==60 && py6 ==100) {
+  push();
+    fill(colorFront2);
+    triangle(px1,py1,px2,py2,px3,py3);
+    scale(-1,1);
+    translate(-100,0);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t1s);
+    translate(t1sx,t1sy);
+    triangle(px1,py1,px2,py2,px3,py3);
+    scale(-1,1);
+    translate(-90,0);
+    triangle(px1,py1,px2,py2,px3,py3);
+  pop();
+  
+  push();
+    fill(colorFront1)
+    triangle(px4,py4,px5,py5,px6,py6);
+    scale(-1,1);
+    translate(-100,0);
+    triangle(px4,py4,px5,py5,px6,py6);
+  pop();
+
+  push();
+    fill(colorFront3);
+    scale(t2s);
+    translate(t2sx,t2sy);
+    triangle(px4,py4,px5,py5,px6,py6);
+    scale(-1,1);
+    translate(-90,0);
     triangle(px4,py4,px5,py5,px6,py6);
   pop();
 }

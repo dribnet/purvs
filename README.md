@@ -19,3 +19,6 @@ so in the process of trying to figure this out i didn't push pop and i broke eve
 ive got it working and made the cutouts pink for debug things
 
 once i finish getting all the characters out im going to go full clean up patrol
+
+put in more exceptions for the letters with accents on them and added more letters and took out the pink from the images so the preview looks more like what im working with
+
