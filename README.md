@@ -22,3 +22,7 @@ once i finish getting all the characters out im going to go full clean up patrol
 
 put in more exceptions for the letters with accents on them and added more letters and took out the pink from the images so the preview looks more like what im working with
 
+I have now powered through most of the letters just a few more to go
+
+smashed all the letters will style them later
+
