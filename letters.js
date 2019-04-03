@@ -19,15 +19,15 @@ const alphabet = {
   "triposx2":82.5,
   "triposx3":49,
 
-  "posy1":147.5,
+  "posy1":147,
   "posy2":128.5,
   "posy3":49.5,
   "posy4":128.5,
-  "posy5":147.5,
+  "posy5":147,
   "posy6":113,
 
-  "triposy1":147.5,
-  "triposy2":147.5,
+  "triposy1":147,
+  "triposy2":147,
   "triposy3":113,
   },
   "B": {
@@ -141,23 +141,674 @@ const alphabet = {
   "posx1": 10,
   "posx2": 10,
   "posx3": 88,
-  "posx4": 22.5,
+  "posx4": 32.5,
   "posx5": 88,
-  "posx6": 56,
-  "posx7": 56,
+  "posx6": 40,
+  "posx7": 40,
   "triposx1": 88,
   "triposx2": 22.5,
   "triposx3": 88,
   "posy1": 147,
   "posy2": 49,
   "posy3": 49,
-  "posy4": 70,
-  "posy5": 72,
-  "posy6": 93,
+  "posy4": 65,
+  "posy5": 85,
+  "posy6": 85,
   "posy7": 147,
   "triposy1": 49,
-  "triposy2": 70,
-  "triposy3": 72,
+  "triposy2": 65,
+  "triposy3": 85,
+
+
+
+  
+  
+
+   },
+  "G": {
+    
+  "posx1": 19,
+  "posx2": 10,
+  "posx3": 19,
+  "posx4": 85,
+  "posx5": 46,
+  "posx6": 88,
+  "posx7": 75,
+  "triposx1": 61,
+  "triposx2": 88,
+  "triposx3": 36,
+  "posy1": 147,
+  "posy2": 98,
+  "posy3": 59,
+  "posy4": 49,
+  "posy5": 115,
+  "posy6": 98,
+  "posy7": 147,
+  "triposy1": 84,
+  "triposy2": 98,
+  "triposy3": 122,
+
+
+
+  
+  
+   },
+  "H": {
+    
+  "posx1": 15,
+  "posx2": 15,
+  "posx3": 35,
+  "posx4": 35,
+  "posx5": 83,
+  "posx6": 83,
+  "posx7": 49,
+  "triposx1": 15,
+  "triposx2": 49,
+  "triposx3": 83,
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 88,
+  "posy5": 88,
+  "posy6": 147,
+  "posy7": 113,
+  "triposy1": 147,
+  "triposy2": 113,
+  "triposy3": 147,
+
+
+
+  
+  
+
+
+  
+   },
+  "I": {
+    
+  "posx1": 35,
+  "posx2": 35,
+  "posx3": 50,
+  "posx4": 65,
+  "posx5": 65,
+  
+  "triposx1": 35,
+  "triposx2": 50,
+  "triposx3": 65,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 74,
+  "posy4": 49,
+  "posy5": 147,
+  
+  "triposy1": 49,
+  "triposy2": 74,
+  "triposy3": 49,
+
+
+
+  
+  
+
+  },
+  "J": {
+    
+  "posx1": 35,
+  "posx2": 35,
+  "posx3": 50,
+  "posx4": 65,
+  "posx5": 65,
+  "posx6": 45,
+  "posx7": 17.5,
+  
+  "triposx1": 35,
+  "triposx2": 50,
+  "triposx3": 65,
+
+  "posy1": 107,
+  "posy2": 49,
+  "posy3": 74,
+  "posy4": 49,
+  "posy5": 107,
+  "posy6": 147,
+  "posy7": 137,
+  
+  "triposy1": 49,
+  "triposy2": 74,
+  "triposy3": 49,
+
+
+
+  
+  
+
+  },
+  "K": {
+    
+   "posx1":10,
+  "posx2":10,
+  "posx3":39,
+  "posx4":88,
+  "posx5":56,
+  "posx6":88,
+  "posx7":39,
+
+
+  "triposx1":88,
+  "triposx2":56,
+  "triposx3":88,
+
+
+  
+  "posy1":147,
+  "posy2":49,
+  "posy3":63.5,
+  "posy4":49,
+  "posy5":98,
+  "posy6":147,
+  "posy7":133,
+
+   "triposy1":49,
+  "triposy2":98,
+  "triposy3":147,
+
+
+
+  
+  
+
+
+  },
+  "L": {
+    
+ "posx1": 15,
+  "posx2": 15,
+  "posx3": 35,
+  "posx4": 35,
+  "posx5": 83,
+  "posx6": 83,
+  
+  "triposx1": 35,
+  "triposx2": 35,
+  "triposx3": 83,
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 127,
+  "posy5": 127,
+  "posy6": 147,
+  
+  "triposy1": 49,
+  "triposy2": 127,
+  "triposy3": 127,
+
+
+
+  
+  
+
+
+  },
+  "M": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 68.5,
+  "posx6": 49,
+  "posx7": 29.5,
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  "posy6": 147,
+  "posy7": 98,
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+
+  },
+  "N": {
+    
+ "posx1": 10,
+  "posx2": 15,
+  "posx3": 83,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+
+    },
+  "O": {
+    
+ "posx1": 29.5,
+  "posx2": 10,
+  "posx3": 10,
+  "posx4": 49,
+  "posx5": 88,
+  "posx6":88,
+  "posx7":68.5,
+    
+  
+ 
+
+  "posy1": 147,
+  "posy2": 122.5,
+  "posy3": 73.5,
+  "posy4": 49,
+  "posy5": 73.5,
+  "posy6":122.5,
+  "posy7":147,
+  
+  
+  
+
+
+
+  
+  
+
+
+    },
+  "P": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 49,
+  "posx4": 88,
+  "posx5": 88,
+  "posx6": 49,
+  "posx7": 49,
+
+    
+  
+  "triposx1": 88,
+  "triposx2": 49,
+  "triposx3": 49,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 73.5,
+  "posy5": 98,
+  "posy6": 98,
+  "posy7": 147,
+  
+  
+  "triposy1": 98,
+  "triposy2": 98,
+  "triposy3": 147,
+
+
+
+  
+  
+
+    },
+  "Q": {
+    
+  "posx1": 49,
+  "posx2": 10,
+  "posx3": 10,
+  "posx4": 49,
+  "posx5": 88,
+  "posx6":88,
+  "posx7":49,
+
+
+  "triposx1": 49,
+  "triposx2": 88,
+  "triposx3": 49,
+    
+  
+ 
+
+  "posy1": 147,
+  "posy2": 122.5,
+  "posy3": 73.5,
+  "posy4": 49,
+  "posy5": 73.5,
+  "posy6":122.5,
+  "posy7":98,
+
+  
+  "triposy1": 147,
+  "triposy2": 122.5,
+  "triposy3": 98,
+
+
+
+  
+  
+
+    },
+  "R": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 49,
+  "posx4": 88,
+  "posx5": 88,
+  "posx6": 49,
+  "posx7": 88,
+
+    
+  
+  "triposx1": 88,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 73.5,
+  "posy5": 98,
+  "posy6": 108,
+  "posy7": 147,
+  
+  
+  "triposy1": 98,
+  "triposy2": 108,
+  "triposy3": 147,
+
+
+
+  
+  
+
+    },
+  "S": {
+    
+ "posx1": 10,
+  "posx2": 29.5,
+  "posx3": 34.5,
+  "posx4": 88,
+  "posx5": 68.5,
+  "posx6": 63.5,
+  
+    
+  
+ 
+
+  "posy1": 147,
+  "posy2": 122.5,
+  "posy3": 54,
+  "posy4": 49,
+  "posy5": 73.5,
+  "posy6": 142,
+  
+  
+  
+  
+
+
+
+  
+  
+
+    },
+  "T": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+
+    },
+  "U": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+    },
+  "V": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+      },
+  "V": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+      },
+  "W": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+      },
+  "X": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+      },
+  "Y": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
+
+
+
+  
+  
+
+
+  
+      },
+  "Z": {
+    
+ "posx1": 10,
+  "posx2": 10,
+  "posx3": 88,
+  "posx4": 88,
+  "posx5": 49,
+    
+  
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+
+  "posy1": 147,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 147,
+  "posy5": 98,
+  
+  
+  "triposy1": 147,
+  "triposy2": 49,
+  "triposy3": 147,
 
 
 
