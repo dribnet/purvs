@@ -89,8 +89,8 @@ const alphabet = {
   "line6": 0,
   "line7": 0,
    "horizontal": 0,
-    "scale": 1.25, 
-  "level": -10
+    "scale": 1.1, 
+  "level": 20
 
   },
 
@@ -129,9 +129,9 @@ const alphabet = {
   "line5": 0,
   "line6": 0,
   "line7": 0,
-  "horizontal": 1,
-  "scale": 1.25, 
-  "level": -10
+  "horizontal": 2,
+  "scale": 0.8, 
+  "level": 80
 
   },
 
@@ -159,8 +159,8 @@ const alphabet = {
   "line6": 2,
   "line7": 0,
   "horizontal": 0,
-  "scale": 1.25, 
-  "level": -10
+  "scale": 1, 
+  "level": 30
 
   },
 
@@ -171,7 +171,7 @@ const alphabet = {
   "line4": 0,
   "line5": 1,
   "line6": 0,
-  "line7": 1,
+  "line7": 0,
   "horizontal": 0,
   "scale": 1.25, 
   "level": -10
@@ -280,8 +280,8 @@ const alphabet = {
   "line6": 0,
   "line7": 0,
   "horizontal": 3,
-  "scale": 1.25, 
-  "level": -10
+  "scale": 1.1, 
+  "level": 20
 
   },
 

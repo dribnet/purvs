@@ -61,13 +61,13 @@ if(letterData["scale"] < 1.2){
 push();
 scale(0.65, 0.65);
 translate(25, 53);
-drawSpec(letterData, 4, 209, 62, 157);
+//drawSpec(letterData, 4, 209, 62, 157);
 pop();
 
 push();
 scale(0.6, 0.6);
 translate(25, 60);
-drawSpec(letterData, 4, 255, 89, 196);
+//drawSpec(letterData, 4, 255, 89, 196);
 pop();
 
 push();
@@ -248,22 +248,59 @@ else {
  //translate(0, -200);
  //print(letterData["horizontal"]);
  //print(map(letterData["horizontal"], 0, 1, 0, 90, true));
- if(letterData["horizontal"] > 1 && letterData["horizontal"] < 2.5){
+ if(letterData["horizontal"] > 1 && letterData["horizontal"] <= 1.1){
  shearX(map(letterData["horizontal"]-1, 0, 0.1, 0, -20, true));
  scale(map(letterData["horizontal"]-1, 0, 0.1, 0, 1.4, true),1);
   }
-if (letterData["horizontal"] < 3){
+
+ if(letterData["horizontal"] > 1.1){
+    let hori = map(letterData["horizontal"], 0, 3, 0, 1, true);
+
+    strokeWeight(6*weight);
+    stroke(r, g, b);
+    line(50, 0, 50, map(hori, 0, 1, 0, 50, true));
+
+    translate(10+(100*hori), 50 * hori);
+    rotate(map(hori, 0, 1, 0, 90, true));
+    scale(map(hori, 0, 1, 1, 0.25+(hori*1), true), map(hori, 0, 1, 1, 1.1-(hori*0.5), true));
+
+
+
+  }
+ else {
+//if (letterData["horizontal"] < 3){
  translate(10+(100*letterData["horizontal"]), 50 * letterData["horizontal"]);
  rotate(map(letterData["horizontal"], 0, 1, 0, 90, true));
  scale(map(letterData["horizontal"], 0, 1, 1, 0.25+(letterData["horizontal"]*1), true), map(letterData["horizontal"], 0, 1, 1, 1.1-(letterData["horizontal"]*0.5), true));
-} else {
+}
+//} else {
+
+  /*
+
+   if(letterData["line1"] < 1 && letterData["line1"] > 0){
+  stroke(r, g, b, map(letterData["line1"], 0, 1, 0, 255, true));
+ } else if(letterData["line1"] > -1 && letterData["line1"] < 0){
+  stroke(r, g, b, map(letterData["line1"], 0, -1, 0, 255, true));
+ } 
+ else {
+   stroke(r, g, b);
+ }
+
+  strokeWeight(6*weight);
+
+
+  line(50, 25, 50, 100);
+
+
+
+
   translate(120, 100);
  rotate(90);
  scale(1, 0.7);
 
-line(50, 100, 50, 0);
+*/
 
-}
+//}
 
  //translate( map(letterData["horizontal"], 0, 1, 0, 340 - (letterData["horizontal"]*280), true), map(letterData["horizontal"], 0, 1, 0, -100-(letterData["horizontal"]-100), true));
 
@@ -420,7 +457,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "",
-  "DICKDICK",
+  "LUCYJAEG",
+  "HELLOHEL",
   "BAAAAAAA"
 ]
