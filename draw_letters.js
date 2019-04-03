@@ -14,21 +14,35 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(1);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let size3 = letterData["size4"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-  let pos3x = 50  + letterData["offsetx2"];
-  let pos3y = 150 + letterData["offsety2"];
+  let size2 = letterData["size_3"];
+  let size3 = letterData["size_3"];
+  let size4 = letterData["size_4"];
+  let size5 = letterData["size_5"];
+  let posx  = 50  + letterData["offsetx"];
+  let posy  = 150 + letterData["offsety"];
+  let pos2x = 50  + letterData["offsetx_2"];
+  let pos2y = 150 + letterData["offsety_2"];
+  let pos3x = 50  + letterData["offsetx_3"];
+  let pos3y = 150 + letterData["offsety_3"];
+  let pos4x = 50  + letterData["offsetx_4"];
+  let pos4y = 150 + letterData["offsety_4"];
+  let pos5x = 50  + letterData["offsetx_5"];
+  let pos5y = 150 + letterData["offsety_5"];
 
-  // draw two circles
+  //circles
   fill(colorFront1);
-  ellipse(50, 15, 25, 25);
+  ellipse(posx, posy, 25, 25);
+  ellipse(pos2x, pos2y, 25, 25);
   ellipse(pos3x, pos3y, 25, 25);
+  ellipse(pos4x, pos4y, 25, 25);
+  ellipse(pos5x, pos5y, 25, 25);
+  
+  //ovals
   fill(colorFront2);
-  rectMode(CENTER);
-  rect(pos2x, pos2y, size2, size3);
+  ellipse(posx, posy, size2, size3);
+  ellipse(pos2x, pos2y, size2, size3);
+  ellipse(pos3x, pos3y, size2, size3);
+  ellipse(pos4x, pos4y, size2, size3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

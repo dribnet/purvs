@@ -1,8 +1,8 @@
 ## PS2 MDDN 242 2019
 
-## Tutorial Class One
+## Morse Code Alphabets
 
-I played with the start-up file and altered the size and shape of the ellipses. I also tried using rectangles instead of ellipses but found ellipses to be more appealing. I've started thinking about usig the concept of morse code to make my alphabets.
+I've started playing around with using the concept of Morse Code to make my alphabets but I''m still having trouble figuring out all the parameters for each element. I will be looking further into this. 
 
 
 The three parameters per letter:
