@@ -61,13 +61,13 @@ if(letterData["scale"] < 1.2){
 push();
 scale(0.65, 0.65);
 translate(25, 53);
-//drawSpec(letterData, 4, 209, 62, 157);
+drawSpec(letterData, 4, 209, 62, 157);
 pop();
 
 push();
 scale(0.6, 0.6);
 translate(25, 60);
-//drawSpec(letterData, 4, 255, 89, 196);
+drawSpec(letterData, 4, 255, 89, 196);
 pop();
 
 push();
