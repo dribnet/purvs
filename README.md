@@ -1,29 +1,29 @@
 ## PS2 MDDN 242 2019
 
-Finished Alphabet/Working on numbers
+Finished Alphabet/numbers plus default
 
-Finished my alphabet and am currently working on my numbers.Only have two left to do.That is the 5 and 8 which is requiring a bit of extra thinking with my paremeters.After this I will look at the interpolation between letters.
+Finished my alphabet and numbers plus my default.From here going to look at the interpolation of my letters.
 
 The twenty parameters per letter:
-  * "posx1": 
-  * "posx2": 
-  * "posx3": 
-  * "posx4": 
-  * "posx5": 
-  * "posx6": 
-  * "posx7": 
+  * "posx1": position of pos1x co ordinate that draws my begin shape.
+  * "posx2": position of pos2x co ordinate that draws my begin shape.
+  * "posx3": position of pos3x co ordinate that draws my begin shape.
+  * "posx4": position of pos4x co ordinate that draws my begin shape.
+  * "posx5": position of pos5x co ordinate that draws my begin shape.
+  * "posx6": position of pos6x co ordinate that draws my begin shape.
+  * "posx7": position of pos7x co ordinate that draws my begin shape.
   
- * "triposx1": 
- * "triposx2": 
- * "triposx3": 
+ * "triposx1": position of triangle point 1
+ * "triposx2": position of triangle point 2
+ * "triposx3": position of triangle point 3
 
- * "posy1": 
- * "posy2": 
- * "posy3": 
- * "posy4": 
- * "posy5": 
- * "posy6": 
- * "posy7": 
- * "triposy1": 
- * "triposy2": 
- * "triposy3": 
+ * "posy1": position of pos1y co ordinate that draws my begin shape.
+ * "posy2": position of pos2y co ordinate that draws my begin shape.
+ * "posy3": position of pos3y co ordinate that draws my begin shape.
+ * "posy4": position of pos4y co ordinate that draws my begin shape.
+ * "posy5": position of pos5y co ordinate that draws my begin shape.
+ * "posy6": position of pos6y co ordinate that draws my begin shape.
+ * "posy7": position of pos7y co ordinate that draws my begin shape.
+ * "triposy1": position of triangle point 1
+ * "triposy2": position of triangle point 2
+ * "triposy3": position of triangle point 3

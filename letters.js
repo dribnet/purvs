@@ -1,9 +1,28 @@
 
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "posx1":10,    
+  "posx2":29.5,
+  "posx3":49,
+  "posx4":68.5,
+  "posx5":88,
+  "posx6":49,
+  
+
+  "triposx1":29.5,
+  "triposx2":49,
+  "triposx3":68.5,
+
+  "posy1":73.5,
+  "posy2":49,
+  "posy3":73.5,
+  "posy4":49,
+  "posy5":73.5,
+  "posy6":147,
+
+  "triposy1":49,
+  "triposy2":73.5,
+  "triposy3":49,
   },
   "A": {
    
@@ -952,23 +971,26 @@ const alphabet = {
      },
   "5": {
     
-  "posx1": 88,
-  "posx2": 29.5,
-  "posx3": 34.5,
-  "posx4": 10,
+  "posx1": 10,
+  "posx2": 10,
+  "posx3": 68.5,
+  "posx4": 29.5,
   "posx5": 68.5,
-  "posx6": 63.5,
-  
-    
-  
- 
-
+  "posx6": 88,
+  "posx7": 68.5,
+  "triposx1": 68.5,
+  "triposx2": 29.5,
+  "triposx3": 88,
   "posy1": 147,
-  "posy2": 142,
-  "posy3": 73.5,
-  "posy4": 49,
-  "posy5": 54,
+  "posy2": 49,
+  "posy3": 49,
+  "posy4": 73.5,
+  "posy5": 98,
   "posy6": 122.5,
+  "posy7": 147,
+  "triposy1": 49,
+  "triposy2": 73.5,
+  "triposy3": 122.5,
      },
   "6": {
     
@@ -1026,23 +1048,33 @@ const alphabet = {
      },
   "8": {
     
-  "posx1": 88,
-  "posx2": 29.5,
-  "posx3": 34.5,
-  "posx4": 10,
-  "posx5": 68.5,
-  "posx6": 63.5,
+  "posx1": 10,
+  "posx2": 35.5,
+  "posx3": 49,
+  "posx4": 62.5,
+  "posx5": 88,
+
+
+  "triposx1": 10,
+  "triposx2": 49,
+  "triposx3": 88,
+  
   
     
   
  
 
-  "posy1": 147,
-  "posy2": 142,
+  "posy1": 49,
+  "posy2": 98,
   "posy3": 73.5,
-  "posy4": 49,
-  "posy5": 54,
-  "posy6": 122.5,
+  "posy4": 98,
+  "posy5": 49,
+
+  "triposy1": 147,
+  "triposy2": 73.5,
+  "triposy3": 147,
+     
+  
      },
   "9": {
     
