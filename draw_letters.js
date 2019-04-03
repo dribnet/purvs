@@ -9,6 +9,12 @@ const lineStrokeCol = "#c6e9ff"; //light blue
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+
+  // draw a triangle
+  noStroke();
+  fill(170, 250, 255, 150);
+  triangle(50, 60, 90, 120, 10, 120);
+
   // color/stroke setup
   stroke(arcStrokeCol);
   strokeWeight(9);
@@ -21,17 +27,18 @@ function drawLetter(letterData) {
   let lineX2 = 50 + letterData["lineX2"];
   let lineY2 = 100 + letterData["lineY2"];
 
-  //determine start and stop parameters for the arc
+  // determine start and stop parameters for the arc
   let arcX = 50 + letterData["arcX"];
   let arcY = 100 + letterData["arcY"];
 
   let arcStart = letterData["start"];
   let arcStop = letterData["stop"];
 
-  // draw an arc and line
+  // draw an arc
   noFill();
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
+  // draw a line
   strokeWeight(8);
   //stroke(lineStrokeCol);
   line(lineX1, lineY1, lineX2, lineY2);

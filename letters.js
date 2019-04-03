@@ -92,9 +92,9 @@ const alphabet = {
     "lineX1": -45,
     "lineY1": -80,
     "lineX2": -45,
-    "lineY2": -40,
+    "lineY2": -50,
     "arcX": 0,
-    "arcY": 10,
+    "arcY": 0,
     "start": 140, 
     "stop": 40
   },
@@ -149,7 +149,7 @@ const alphabet = {
     "lineX2": 0,
     "lineY2": 20,
     "arcX": 0,
-    "arcY": 10,
+    "arcY": 0,
     "start": 140,
     "stop": 40
   },
@@ -160,7 +160,7 @@ const alphabet = {
     "lineX2": -45,
     "lineY2": -40,
     "arcX": 0,
-    "arcY": 10,
+    "arcY": 0,
     "start": 140,
     "stop": 40
   },
