@@ -2,42 +2,45 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "size": 50,
   "wid": 50,
-  "hei": 100,
-  "b2offsetx": 130,
-  "b2offsety": 210,
-  "b3offsetx": 130,
-  "b3offsety": 195
+  "hei": 180,
+  "b2offsetx": 105,
+  "b2offsety": 155,
+  "b3offsetx": 105,
+  "b3offsety": 155,
+  "b4offsetx": 105,
+  "b4offsety": 155,
 }
 
 const letterB = {
-  "size": 50,
-  "wid" : 100,
-  "hei" : 50,
-  "b2offsetx": 485,
-  "b2offsety": 150,
-  "b3offsetx": 485,
-  "b3offsety": 205
+  "wid" : 80,
+  "hei": 40,
+  "b2offsetx": 450,
+  "b2offsety": 125,
+  "b3offsetx": 450,
+  "b3offsety": 125,
+  "b4offsetx": 450,
+  "b4offsety": 180
 }
 
 const letterC = {
-  "size": 50,
   "wid": 100,
-  "hei": 50,
-  "b2offsetx": 860,
-  "b2offsety": 180,
-  "b3offsetx": 850,
-  "b3offsety": 180
+  "hei": 100,
+  "b2offsetx": 820,
+  "b2offsety": 120,
+  "b3offsetx": 820,
+  "b3offsety": 120,
+  "b4offsetx": 820,
+  "b4offsety": 120
 }
 
 //big circle
-const colorFront1  = "#FFAD00";
+const colorFront1  = "#F1A334";
 //small circle
-const colorFront2  = "#386466";
+const colorFront2  = "#296EAD";
 //background
-const colorBack    = "#386466";
-const colorStroke  = "#386466";
+const colorBack    = "#296EAD";
+const colorStroke  = "#296EAD";
 
 
 function setup () {
@@ -57,14 +60,12 @@ function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size1 = letterData["size"];
   let size2 = letterData["size2"];
+
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
   let wid1 = letterData["wid"];
   let hei1 = letterData["hei"];
-
-  let wid2 = letterData["wid_x"];
-  let hei2 = letterData["hei_y"];
 
   let b2posx = letterData["b2offsetx"];
   let b2posy = letterData["b2offsety"];
@@ -72,25 +73,31 @@ function drawLetter(posx, posy, letterData) {
   let b3posx = letterData["b3offsetx"];
   let b3posy = letterData["b3offsety"];
 
+  let b4posx = letterData["b4offsetx"];
+  let b4posy = letterData["b4offsety"];
+
   // Ellipses //
   fill(colorFront1);
-  ellipse(posx, posy, 140, 140);
+  ellipse(posx, posy, 130, 180);
   fill(colorFront2);
 
   // letter A //
   rect(pos2x, pos2y, size2, size2);
   rect(b2posx, b2posy, wid1, hei1);
   rect(b3posx, b3posy, wid1, hei1);
+  rect(b4posx, b4posy, wid1, hei1);
 
   // letter B //
   rect(posx, posy, size2, size2);
   rect(b2posx, b2posy, wid1, hei1);
   rect(b3posx, b3posy, wid1, hei1);
+  rect(b4posx, b4posy, wid1, hei1);
 
   // letter C //
   rect(pos2x, pos2y, size2, size2);
   rect(b2posx, b2posy, wid1, hei1);
   rect(b3posx, b3posy, wid1, hei1);
+  rect(b4posx, b4posy, wid1, hei1);
 }
 
 function draw () {
