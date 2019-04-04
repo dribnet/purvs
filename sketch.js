@@ -1,17 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "offsetx1": 15,
   "offsetx2": 15,
@@ -79,7 +68,7 @@ function setup () {
 
 
 function drawLetter(posx, posy, letterData) {
- 
+
   let shiftx1 = letterData["offsetx1"];
   let shiftx2 = letterData["offsetx2"];
   let shiftx3 = letterData["offsetx3"];
