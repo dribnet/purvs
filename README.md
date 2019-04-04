@@ -1,11 +1,3 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+So my idea is to use characters (such as the chinese, japanese and korean text) as reference. I thought it would be interesting to try and recreate those types of characters for the project. I plan to add some ellipses to the characters as well to make it look a bit more interesting. I thought of this after looking at korean texts as they seem to have a lot of these 'O' like shapes in their characters. Might change colours and such later.
