@@ -1,26 +1,17 @@
 ## PS2 MDDN 242 2019
 
-Added interpolation and interaction thing from part 4 but the function interpolate_letter doesn't work and I don't really know where to put it. Also in interaction.html it cuts off the bottom of some of my letters even though they stay within the boxes.
+I added the quads to the interpolation code so that these don't just randomly appear when a letter is drawn that has a quad in it. I then realised that this only works when it switches from a letter with a quad to another letter with a quad (eg x to g). To fix this I added a quad to every letter but just hid it in the top left corner. Now when the letter switches from a to k for example a quad will move from the top left to the quad position on k (a smoother transition if that makes sense)
 
-The 16 parameters per letter:
-  * `Yshift1` : top of line position for first line
-  * `Yshift2` : top of line position for second line
-  * `Yshift3` : top of line position for third line
-  * `Yshift4` : top of line position for fourth line   
+I also made one of the lines have a thicker stroke because I want to make the letters more interesting but I don't think it really works. I thought another thing I could do is make arcs behind the letters to make them more interesting. I have attempted this for the letter A but I want it to be less opaque but I don't know how to do this.
 
-  * `length1` : length bottom of line position for first line
-  * `length2` : length bottom of line position for second line
-  * `length3` : length bottom of line position for third line
-  * `length4` : length bottom of line position for fourth line
+I think the arc idea might look good but I need to figure out how to do it with less parameters since I only have 4 left :(
 
-
-  * `Xquad1` : x position of first quad point
-  * `Xquad2` : x position of second quad point
-  * `Xquad3` : x position of third quad point
-  * `Xquad4` : x position of fourth quad point
-
-  * `Yquad1` : y position of first quad point
-  * `Yquad2` : y position of second quad point
-  * `Yquad3` : y position of third quad point
-  * `Yquad4` : y position of fourth quad point
-
+The parameters I added:
+X  position 
+`  let Xarc1 = letterData["arcX1"];`
+Y position
+`  let Yarc1 = letterData["arcY1"];`
+Arc width
+`  let arcwidth = letterData["arcH"];`
+Arc height
+`  let archeight = letterData["arcW"];` 
