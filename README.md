@@ -13,7 +13,7 @@ Once i had finished the base alphabet i moved most of the letters scripts to a f
 
 The current parameters are:
 
- * `Line1` :  Whether this line is visable and/or curved
+* `Line1` :  Whether this line is visable and/or curved
 
 * `Line2` : Whether this line is visable and/or curved
 
