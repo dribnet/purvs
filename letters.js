@@ -415,7 +415,7 @@ const alphabet = {
     "arcX": 0,
     "arcY": -40,
     "start": 180,
-    "stop": 0
+    "stop": 90
   },
 
 }
