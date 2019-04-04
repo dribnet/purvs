@@ -11,20 +11,19 @@ const colorStroke  = "#7ea3dd";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-noStroke();
+stroke(colorFront2);
+strokeWeight(5);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
 
-
-fill(colorStroke)
-rect(0,0,100,200)
-fill(colorFront2)
+noFill();
   triangle(letterData["v1x"],letterData["v1y"],letterData["v2x"],letterData["v2y"],letterData["v3x"],letterData["v3y"]);
   triangle(letterData["v4x"],letterData["v4y"],letterData["v5x"],letterData["v5y"],letterData["v6x"],letterData["v6y"]);
-  fill(colorFront1)
+  fill(colorFront1);
+stroke(colorFront1);
   triangle(letterData["v7x"],letterData["v7y"],letterData["v8x"],letterData["v8y"],letterData["v9x"],letterData["v9y"]);
 
 
