@@ -1,13 +1,6 @@
 const arcStrokeCol  = "#ffffff"; //white
 const lineStrokeCol = "#c6e9ff"; //light blue
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
 
   // draw a triangle
@@ -17,7 +10,6 @@ function drawLetter(letterData) {
 
   // color/stroke setup
   stroke(arcStrokeCol);
-  strokeWeight(9);
 
   angleMode(DEGREES);
 
@@ -36,29 +28,30 @@ function drawLetter(letterData) {
 
   // draw an arc
   noFill();
+  strokeWeight(9);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
   // draw a line
   strokeWeight(8);
   //stroke(lineStrokeCol);
   line(lineX1, lineY1, lineX2, lineY2);
-  
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
+
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["lineX1"] = map(percent, 0, 100, oldObj["lineX1"], newObj["lineX1"]);
   new_letter["lineY1"] = map(percent, 0, 100, oldObj["lineY1"], newObj["lineY1"]);
 
   new_letter["lineX2"] = map(percent, 0, 100, oldObj["lineX2"], newObj["lineX2"]);
   new_letter["lineY2"] = map(percent, 0, 100, oldObj["lineY2"], newObj["lineY2"]);
 
-  new_letter["arcX"] = map(percent, 0, 100, oldobj["arcX"], newobj["arcX"]);
-  new_letter["arcY"] = map(percent, 0, 100, oldobj["arcY"], newobj["arcY"]);
+  new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+  new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
 
   new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
-  new_letter["stop"] = map(percent, 0, 100, oldObj["stop"], newObj["start"]);
+  new_letter["stop"] = map(percent, 0, 100, oldObj["stop"], newObj["stop"]);
 
   return new_letter;
 }

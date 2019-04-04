@@ -24,7 +24,7 @@ const alphabet = {
 
   "B": {
     "lineX1": -40,
-    "lineY1": -70,
+    "lineY1": -80,
     "lineX2": -40,
     "lineY2": 20,
     "arcX": 0,
@@ -221,9 +221,9 @@ const alphabet = {
   },
 
   "T": {
-    "lineX1": -40,
+    "lineX1": -30,
     "lineY1": -30,
-    "lineX2": 30,
+    "lineX2": 20,
     "lineY2": 0,
     "arcX": 30,
     "arcY": 0,
