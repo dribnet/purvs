@@ -10,4 +10,5 @@ The three parameters per letter:
   * `offset2x` : x offset of the second circle relative to the 2nd one
   * `offset2y` : y offset of the second circle relative to the 2nd one
 
-This is the sketch and my idea of my alphbet.
+This is the sketch and my idea of my alphbet. 
+adding pic to index html
