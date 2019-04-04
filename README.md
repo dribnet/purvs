@@ -1,11 +1,13 @@
 ## PS2 MDDN 242 2019
 
-Part 1 - Initial idea
+Part 2 - My alphabets design
 
-My first idea is designing the alphabets using morse code letters. It might be the same pattern but making it curving or probably the arrangment of the morse code. For this practise, I have arranged the circles for each of my letters. The bigger size of circles showed the starting point of the alphabet and the circles in dark red colour showed the intersection point of the alphabet. The location of the circles are controlled by the three parameters.
+This is my draft drawing of my alphabets. My initial idea was inspired by morse code. Thus, I want to design my alphabets using morse code with circle and rectangle. I actually searched for the actual morse code and try to design and rearrange them. I realised that it is hard to present out some of the letters by just using the shape of circle and rectangle, so I decide to use triangle and combine them together.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `shift1` : x axis of the circle
-  * `shift2` : y axis of the circle
-
+  * `c1x` : x axis of the circle
+  * `c1y` : y axis of the circle
+  * `r1x` : x axis of the rectangle
+  * `r1y` : y axis of the rectangle
+  * `t1x` : x axis of the triangle
+  * `t1y` : y axis of the triangle

@@ -1,4 +1,4 @@
-const canvasWidth = 960;
+  const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
@@ -14,8 +14,6 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  // "offsetx": 0,
-  // "offsety": 35
   "shift1": 200,
   "shift2": 200
 }
@@ -32,7 +30,7 @@ const letterC = {
   "shift6": 200
 }
 
-const colorFront1  = "#ce4040";
+const colorFront1  = "#ce4040"; 
 const colorFront2  = "#d67e7e";
 const colorBack    = "#919191";
 const colorStroke  = "#6d1b1b";
