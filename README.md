@@ -1,8 +1,7 @@
 ## PS2 MDDN 242 2019
 
-Finished Alphabet/numbers plus default
-
-Finished my alphabet and numbers plus my default.From here going to look at the interpolation of my letters.
+Trial interpolation
+Just trying out the interpolation and exhibition.Im happy with how its looking at the moment.
 
 The twenty parameters per letter:
   * "posx1": position of pos1x co ordinate that draws my begin shape.

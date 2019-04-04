@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#44484f";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
@@ -39,57 +39,10 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
-  "PROVIDED",
-  "ALTHOUGH",
-  "HAPPENED",
-  "QUESTION",
-  "AMERICAN",
-  "INCREASE",
-  "RECEIVED",
-  "ANYTHING",
-  "INDUSTRY",
-  "RELIGION",
-  "BUILDING",
-  "INTEREST",
-  "REMEMBER",
-  "BUSINESS",
-  "INVOLVED",
-  "REQUIRED",
-  "CHILDREN",
-  "NATIONAL",
-  "SERVICES",
-  "COMPLETE",
-  "ORGANIZE",
-  "SOUTHERN",
-  "CONSIDER",
-  "PERSONAL",
-  "STANDARD",
-  "CONTINUE",
-  "PLANNING",
-  "STRENGTH",
-  "ALPHABET",
-  "POSITION",
-  "STUDENTS",
-  "DECISION",
-  "POSSIBLE",
-  "SUDDENLY",
-  "DIRECTLY",
-  "PRESSURE",
-  "THINKING",
-  "DISTRICT",
-  "PROBABLY",
-  "TOGETHER",
-  "ECONOMIC",
-  "PROBLEMS",
-  "TRAINING",
-  "EVIDENCE",
-  "PROGRAMS"
+"FOLDABLE",
+  "SYMBOLIC",
+  "LOVINGLY",
+  "VICTORIA"
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")

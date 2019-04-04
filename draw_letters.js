@@ -73,14 +73,34 @@ pop();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["posx1"]    = map(percent, 0, 100, oldObj["posx1"], newObj["posx1"]);
+  new_letter["posx2"] = map(percent, 0, 100, oldObj["posx2"], newObj["posx2"]);
+  new_letter["posx3"] = map(percent, 0, 100, oldObj["posx3"], newObj["posx3"]);
+  new_letter["posx4"]    = map(percent, 0, 100, oldObj["posx4"], newObj["posx4"]);
+  new_letter["posx5"] = map(percent, 0, 100, oldObj["posx5"], newObj["posx5"]);
+  new_letter["posx6"] = map(percent, 0, 100, oldObj["posx6"], newObj["posx6"]);
+  new_letter["posx7"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["triposx1"] = map(percent, 0, 100, oldObj["triposx1"], newObj["triposx1"]);
+  new_letter["triposx2"] = map(percent, 0, 100, oldObj["triposx2"], newObj["triposx2"]);
+  new_letter["triposx3"]    = map(percent, 0, 100, oldObj["triposx3"], newObj["triposx3"]);
+  new_letter["posy1"] = map(percent, 0, 100, oldObj["posy1"], newObj["posy1"]);
+  new_letter["posy2"] = map(percent, 0, 100, oldObj["posy2"], newObj["posy2"]);
+  new_letter["posy3"]    = map(percent, 0, 100, oldObj["posy3"], newObj["posy3"]);
+  new_letter["posy4"] = map(percent, 0, 100, oldObj["posy4"], newObj["posy4"]);
+  new_letter["posy5"] = map(percent, 0, 100, oldObj["posy5"], newObj["posy5"]);
+  new_letter["posy6"]    = map(percent, 0, 100, oldObj["posy6"], newObj["posy6"]);
+  new_letter["posy7"] = map(percent, 0, 100, oldObj["posy7"], newObj["posy7"]);
+  new_letter["triposy1"] = map(percent, 0, 100, oldObj["triposy1"], newObj["triposy1"]);
+  new_letter["triposy2"]    = map(percent, 0, 100, oldObj["triposy2"], newObj["triposy2"]);
+  new_letter["triposy3"] = map(percent, 0, 100, oldObj["triposy3"], newObj["triposy3"]);
+  
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FOLDABLE",
+  "SYMBOLIC",
+  "LOVINGLY",
+  "VICTORIA",
+  
 ]
