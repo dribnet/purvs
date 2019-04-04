@@ -11,7 +11,7 @@ function drawLetter(letterData) {
 
     let hex2_xPos = letterData["2xPos"];
     let hex2_yPos = letterData["2yPos"];
-    
+
     let hex3_xPos = letterData["3xPos"];
     let hex3_yPos = letterData["3yPos"];
 
@@ -55,27 +55,42 @@ function draw_hex(hex1_xPos, hex1_yPos) {
     rotate(30);
     strokeWeight(4);
     beginShape();
-        for (i = 0; i < 6; i++) { // Makes all sides equal
-                ang = i * (360 / 6);
-                xVertex= sin(ang) * 15;
-                yVertex = cos(ang) * 15;
-                vertex(xVertex, yVertex);
-            }
+    for (i = 0; i < 6; i++) { // Makes all sides equal
+        ang = i * (360 / 6);
+        xVertex = sin(ang) * 15;
+        yVertex = cos(ang) * 15;
+        vertex(xVertex, yVertex);
+    }
     endShape(CLOSE);
     pop();
 }
 
-
 function interpolate_letter(percent, oldObj, newObj) {
     let new_letter = {};
-    new_letter["1size"] = map(percent, 0, 100, oldObj["1size"], newObj["1size"]);
     new_letter["1xPos"] = map(percent, 0, 100, oldObj["1xPos"], newObj["1xPos"]);
     new_letter["1yPos"] = map(percent, 0, 100, oldObj["1yPos"], newObj["1yPos"]);
+    new_letter["2xPos"] = map(percent, 0, 100, oldObj["2xPos"], newObj["2xPos"]);
+    new_letter["2yPos"] = map(percent, 0, 100, oldObj["2yPos"], newObj["2yPos"]);
+    new_letter["3xPos"] = map(percent, 0, 100, oldObj["3xPos"], newObj["3xPos"]);
+    new_letter["3yPos"] = map(percent, 0, 100, oldObj["3yPos"], newObj["3yPos"]);
+    new_letter["4xPos"] = map(percent, 0, 100, oldObj["4xPos"], newObj["4xPos"]);
+    new_letter["4yPos"] = map(percent, 0, 100, oldObj["4yPos"], newObj["4yPos"]);
+    new_letter["5xPos"] = map(percent, 0, 100, oldObj["5xPos"], newObj["5xPos"]);
+    new_letter["5yPos"] = map(percent, 0, 100, oldObj["5yPos"], newObj["5yPos"]);
+    new_letter["6xPos"] = map(percent, 0, 100, oldObj["6xPos"], newObj["6xPos"]);
+    new_letter["6yPos"] = map(percent, 0, 100, oldObj["6yPos"], newObj["6yPos"]);
+    new_letter["7xPos"] = map(percent, 0, 100, oldObj["7xPos"], newObj["7xPos"]);
+    new_letter["7yPos"] = map(percent, 0, 100, oldObj["7yPos"], newObj["7yPos"]);
+    new_letter["8xPos"] = map(percent, 0, 100, oldObj["8xPos"], newObj["8xPos"]);
+    new_letter["8yPos"] = map(percent, 0, 100, oldObj["8yPos"], newObj["8yPos"]);
+    new_letter["9xPos"] = map(percent, 0, 100, oldObj["9xPos"], newObj["9xPos"]);
+    new_letter["9yPos"] = map(percent, 0, 100, oldObj["9yPos"], newObj["9yPos"]);
     return new_letter;
 }
 
 var swapWords = [
-    "ABBAABBA",
-    "CAB?CAB?",
-    "BAAAAAAA"
+    "HUNICOMB",
+    "MUCHBEES",
+    "MANYCUTE",
+    "SO HONEY"
 ]

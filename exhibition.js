@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#C6E9FF";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "HUNICOMB",
   "1234567?",
   "EXPECTED",
   "PROPERTY",

@@ -1,20 +1,20 @@
+/* My two variables per letter are:
+    hex1_xPos: x position of hexagon
+    hex2_yPos: y position of hexagon */
+
 // Sets constants/variables
 const canvasWidth = 960;
 const canvasHeight = 500;
 const honeycombFill = "#FFC748";
 const colorStroke = "#FFEFC1";
 
-/* My two variables per letter are:
-    hex1_xPos: x position of hexagon
-    hex2_yPos: y position of hexagon */
-
 function setup() {
-    // create the drawing canvas, save the canvas element
+    // Create the drawing canvas, save the canvas element
     main_canvas = createCanvas(canvasWidth, canvasHeight);
     main_canvas.parent('canvasContainer');
 
     // Sets background colour, honeycomb colours and stroke weight
-    background(227, 237, 237);
+    background(193, 233, 255);
     fill(honeycombFill);
     stroke(colorStroke);
     strokeWeight(4);
@@ -25,9 +25,8 @@ function setup() {
 
 function drawLetter() {
     // Sets parameters
-    let hex1_size = letterData["1size"];
-    let hex1_xPos = 50 + letterData["1xPos"];
-    let hex1_yPos = 100 + letterData["1yPos"];
+    let hex1_xPos = letterData["1xPos"];
+    let hex1_yPos = letterData["1yPos"];
 }
 
 // Makes hexagon shape
