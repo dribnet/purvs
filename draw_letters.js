@@ -14,35 +14,39 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(1);
 
-  let size2 = letterData["size_3"];
-  let size3 = letterData["size_3"];
-  let size4 = letterData["size_4"];
-  let size5 = letterData["size_5"];
-  let posx  = 50  + letterData["offsetx"];
-  let posy  = 150 + letterData["offsety"];
-  let pos2x = 50  + letterData["offsetx_2"];
-  let pos2y = 150 + letterData["offsety_2"];
-  let pos3x = 50  + letterData["offsetx_3"];
-  let pos3y = 150 + letterData["offsety_3"];
-  let pos4x = 50  + letterData["offsetx_4"];
-  let pos4y = 150 + letterData["offsety_4"];
-  let pos5x = 50  + letterData["offsetx_5"];
-  let pos5y = 150 + letterData["offsety_5"];
+  let ball_pos_x = letterData["ballposx"];
+  let ball_pos_y = letterData["ballposy"];
+  let ball_size_w = letterData["ballsizew"];
+  let ball_size_h = letterData["ballsizeh"];
+  let ball_pos_x2 = letterData["ball2posx"];
+  let ball_pos_y2 = letterData["ball2posy"];
+  let ball_size_w2 = letterData["ball2sizew"];
+  let ball_size_h2 = letterData["ball2sizeh"];
+  let ball_pos_x3 = letterData["ball3posx"];
+  let ball_pos_y3 = letterData["ball3posy"];
+  let ball_size_w3 = letterData["ball3sizew"];
+  let ball_size_h3 = letterData["ball3sizeh"];
+  let ball_pos_x4 = letterData["ball4posx"];
+  let ball_pos_y4 = letterData["ball4posy"];
+  let ball_size_w4 = letterData["ball4sizew"];
+  let ball_size_h4 = letterData["ball4sizeh"];
+  let ball_pos_x5 = letterData["ball5posx"];
+  let ball_pos_y5 = letterData["ball5posy"];
+  let ball_size_w5 = letterData["ball5sizew"];
+  let ball_size_h5 = letterData["ball5sizeh"];
 
-  //circles
   fill(colorFront1);
-  ellipse(posx, posy, 25, 25);
-  ellipse(pos2x, pos2y, 25, 25);
-  ellipse(pos3x, pos3y, 25, 25);
-  ellipse(pos4x, pos4y, 25, 25);
-  ellipse(pos5x, pos5y, 25, 25);
-  
-  //ovals
+  push();
+  translate(50,100)
+  ellipse(ball_pos_x, ball_pos_y, ball_size_w, ball_size_h);
+  ellipse(ball_pos_x2, ball_pos_y2, ball_size_w2, ball_size_h2);
+  ellipse(ball_pos_x3, ball_pos_y3, ball_size_w3, ball_size_h3);
+
   fill(colorFront2);
-  ellipse(posx, posy, size2, size3);
-  ellipse(pos2x, pos2y, size2, size3);
-  ellipse(pos3x, pos3y, size2, size3);
-  ellipse(pos4x, pos4y, size2, size3);
+  ellipse(ball_pos_x4, ball_pos_y4, ball_size_w4, ball_size_h4);
+  ellipse(ball_pos_x5, ball_pos_y5, ball_size_w5, ball_size_h5);
+
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

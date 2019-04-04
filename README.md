@@ -2,7 +2,7 @@
 
 ## Morse Code Alphabets
 
-I've started playing around with using the concept of Morse Code to make my alphabets but I''m still having trouble figuring out all the parameters for each element. I will be looking further into this. 
+After some help with friends, I've managed to set up my parameters and have finally figured out what each of them control. Right now, I have an A and I will be continuing on making the rest of my alphabets. I've also deleted the default code and restarted from sctrach which made things a lot clearer. 
 
 
 The three parameters per letter:
