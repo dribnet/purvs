@@ -1,6 +1,8 @@
 ## PS2 MDDN 242 2019 - Full Alphabet
 
-I added a static triangle that doesn't change throughout. I think it adds an interesting look to the design as there is a contrast between the rounded letters and the sharpness of the triangle's points. 
+Made some adjustments.
+
+I added a static triangle that doesn't change throughout. I think it adds an interesting look to the design as there is a contrast between the rounded letters and the sharpness of the triangle's points.
 
 Each of my letters is composed with one arc and one line that work around a triangle. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 
