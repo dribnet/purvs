@@ -1,8 +1,9 @@
 ## PS2 MDDN 242 2019
 
-THE ALPHABET:
+THE ALPHABET + NUMBERS:
 
-I've managed to finish my alphabet with just using the elements of the moon glyph. I also removed two parameters (end points for arcs) as I dont necessarily need them because the arcs are always half circles so what I've done instead was use the start angle and added 180 to it (start_a1 + 180) for the end parameter of the arcs. The only thing I need to do now is the numbers and after this, I can focus on refining them and the design aspects of my alphabet.
+I've managed to finish my alphabet with just using the elements of the moon glyph. I also removed two parameters (end points for arcs) as I dont necessarily need them because the arcs are always half circles so what I've done instead was use the start angle and added 180 to it (start_a1 + 180) for the end parameter of the arcs. I've done the numbers as well so now I can just focus on refining them and think more about the design aspects of my alphabet.
+
 
 Parameters:
 line_x1 = x position for starting point of line
