@@ -15,7 +15,7 @@ function drawLetter(letterData) {
   strokeWeight(2);
   let colorB= color(255,255,255);
   let colorW= color(0,0,0);
-  let alphaB=color(255,255,255,60);
+  let alphaB=color(255,255,255,30);
   let alphaW=color(0,0,0,160);
   //DOT ONE
   if(letterData["dot1"]==1){
@@ -23,11 +23,11 @@ function drawLetter(letterData) {
     stroke(colorB);
     rect(startX1,y,size,size);
   }
-   if(letterData["dot1"]!=1){
-    noFill();
-    stroke(alphaB);
-    rect(startX1,y,size,size);
-  }
+  //  if(letterData["dot1"]!=1){
+  //   noFill();
+  //   stroke(alphaB);
+  //   rect(startX1,y,size,size);
+  // }
   //DOT TWO
   if(letterData["dot2"]==1){
     fill(colorB);
@@ -37,7 +37,7 @@ function drawLetter(letterData) {
   if(letterData["dot2"]!=1){
     fill(alphaB);
     noStroke();
-    rect(startX1,y+spacing,size-30,size-30);
+    rect(startX1,y+spacing,size-20,size-20);
   }
   //DOT THREE
   if(letterData["dot3"]==1){
@@ -45,11 +45,11 @@ function drawLetter(letterData) {
     stroke(colorB);
     rect(startX1,y+(spacing*2),size,size);
   }
-  if(letterData["dot3"]!=1){
-    noFill();
-    stroke(alphaB);
-    rect(startX1,y+(spacing*2),size-10,size-10);
-  }
+  // if(letterData["dot3"]!=1){
+  //   noFill();
+  //   stroke(alphaB);
+  //   rect(startX1,y+(spacing*2),size-10,size-10);
+  // }
   //DOT FOUR
   if(letterData["dot4"]==1){
     fill(colorB);
@@ -68,8 +68,6 @@ function drawLetter(letterData) {
     stroke(colorW);
     rect(startX2,y+(spacing*2),size,size);
   }
-
-
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
