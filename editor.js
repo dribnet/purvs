@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#296EAD";
 const colorLines   = "#000090";
 
 function sliderToDataObject() {
@@ -11,11 +11,15 @@ function sliderToDataObject() {
   obj["b2offsetx"] = map(param_sliders[2].value(), 0, 100, -150, 50);
   obj["b2offsety"] = map(param_sliders[3].value(), 0, 100, -150, 50);
   obj["b3offsetx"] = map(param_sliders[4].value(), 0, 100, -150, 50);
-  obj["b3offsety"] = map(param_sliders[5].value(), 0, 100, -150, 50);
+  obj["b3offsety"] = map(param_sliders[4].value(), 0, 100, -150, 50);
+  obj["b4offsetx"] = map(param_sliders[4].value(), 0, 100, -150, 50);
+  obj["b4offsety"] = map(param_sliders[4].value(), 0, 100, -150, 50);
+  obj["b5offsetx"] = map(param_sliders[4].value(), 0, 100, -150, 50);
+  obj["b5offsety"] = map(param_sliders[4].value(), 0, 100, -150, 50);
   return obj;
 }
 
-let numSliders = 3;
+let numSliders = 10;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 

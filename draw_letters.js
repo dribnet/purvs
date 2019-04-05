@@ -28,7 +28,7 @@ function drawLetter(letterData) {
 
   //--- Colour/Stroke Setup ---//
   stroke(colorStroke);
-  strokeWeight(3.5);
+  strokeWeight(1);
 
 //--- Parameter Variables ---//
   let b2posx = 50 + letterData["b2offsetx"];
@@ -45,7 +45,7 @@ function drawLetter(letterData) {
 
   //--- Draw Ellipse Base ---//
   fill(colorFront1);
-  ellipse(50, 110, 130, 180);
+  ellipse(50, 110, 110, 180);
   fill(colorFront2);
 
   //--- Draw Main Rectangles Inside Ellipse Base ---//
@@ -71,7 +71,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MEDIEVAL",
+  "CREATIVE",
+  "ETC12345"
 ]
