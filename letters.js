@@ -140,8 +140,74 @@ const alphabet = {
   "translates4":50,
   "translatef1":55,
   "translatef2":150
-  }
+  },
 
+
+  "E": {
+
+  "pos1x": 45,
+  "pos2x": 25,
+  "pos3x": 25,
+  "pos1y": 70,
+  "pos2y": 10,
+  "pos3y": 75,
+  "pos4y": 20,
+  "pos5y": 75,
+  "pos6y": 20,
+  "rotatesS":90,
+  "rotateS":90,
+  "rotatesF":90,
+  "translates1":25,
+  "translates2":100,
+  "translates3":25,
+  "translates4":25,
+  "translatef1":25,
+  "translatef2":175
+  },
+
+  "F": {
+
+  "pos1x": 10,
+  "pos2x": 25,
+  "pos3x": 25,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 75,
+  "pos4y": 20,
+  "pos5y": 75,
+  "pos6y": 20,
+  "rotatesS":0,
+  "rotateS":90,
+  "rotatesF":90,
+  "translates1":10,
+  "translates2":100,
+  "translates3":25,
+  "translates4":25,
+  "translatef1":25,
+  "translatef2":100
+  },
+
+  "G": {
+  "pos1x": 10,
+  "pos2x": 40,
+  "pos3x": 40,
+  "pos1y": 45,
+  "pos2y": 45,
+  "pos3y": -20,
+  "pos4y": 40,
+  "pos5y": 40,
+  "pos6y": -20,
+  "rotatesS":0,
+  "rotateS":0,
+  "rotatesF":0,
+  "translates1":10,
+  "translates2":100,
+  "translates3":55,
+  "translates4":155,
+  "translatef1":55,
+  "translatef2":45
+
+  },
 
 
 
