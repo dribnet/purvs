@@ -147,9 +147,17 @@ if(p5p6==1 || p4p6==1 || p1p6==1){
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["p1p2"]    = map(percent, 0, 100, oldObj["p1p2"], newObj["p1p2"]);
+  new_letter["p3p4"] = map(percent, 0, 100, oldObj["p3p4"], newObj["p3p4"]);
+  new_letter["p5p6"] = map(percent, 0, 100, oldObj["p5p6"], newObj["p5p6"]);
+
+  new_letter["p1p3"] = map(percent, 0, 100, oldObj["p1p3"], newObj["p1p3"]);
+  new_letter["p2p4"] = map(percent, 0, 100, oldObj["p2p4"], newObj["p2p4"]);
+  new_letter["p3p5"] = map(percent, 0, 100, oldObj["p3p5"], newObj["p3p5"]);
+  new_letter["p4p6"] = map(percent, 0, 100, oldObj["p4p6"], newObj["p4p6"]);
+
+  new_letter["p1p6"] = map(percent, 0, 100, oldObj["p1p6"], newObj["p1p6"]);
+  new_letter["p2p5"] = map(percent, 0, 100, oldObj["p2p5"], newObj["p2p5"]);
   return new_letter;
 }
 
