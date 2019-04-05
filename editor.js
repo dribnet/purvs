@@ -6,28 +6,29 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-    obj["v1x"] = map(param_sliders[0].value(), 0, 100, -50, 50);
-    obj["v1y"] = map(param_sliders[1].value(), 0, 100, -150, 50);
-    obj["v2x"] = map(param_sliders[2].value(), 0, 100, -50, 50);
-    obj["v2y"] = map(param_sliders[3].value(), 0, 100, -150, 50);
-    obj["v3x"] = map(param_sliders[4].value(), 0, 100, -50, 50);
-    obj["v3y"] = map(param_sliders[5].value(), 0, 100, -150, 50);
-    obj["v4x"] = map(param_sliders[6].value(), 0, 100, -50, 50);
-    obj["v4y"] = map(param_sliders[7].value(), 0, 100, -150, 50);
-    obj["v5x"] = map(param_sliders[8].value(), 0, 100, -50, 50);
-    obj["v5y"] = map(param_sliders[9].value(), 0, 100, -150, 50);
-    obj["v6x"] = map(param_sliders[10].value(), 0, 100, -50, 50);
-    obj["v6y"] = map(param_sliders[11].value(), 0, 100, -150, 50);
-    obj["v7x"] = map(param_sliders[12].value(), 0, 100, -50, 50);
-    obj["v7y"] = map(param_sliders[13].value(), 0, 100, -150, 50);
-    obj["v8x"] = map(param_sliders[14].value(), 0, 100, -50, 50);
-    obj["v8y"] = map(param_sliders[15].value(), 0, 100, -150, 50);
-    obj["v9x"] = map(param_sliders[16].value(), 0, 100, -50, 50);
-    obj["v9y"] = map(param_sliders[17].value(), 0, 100, -150, 50);
+    obj["v1x"] = map(param_sliders[0].value(), 0, 100, 0, 100);
+    obj["v1y"] = map(param_sliders[1].value(), 0, 100, 0, 100);
+    obj["v2x"] = map(param_sliders[2].value(), 0, 100, 0, 100);
+    obj["v2y"] = map(param_sliders[3].value(), 0, 100, 0, 100);
+    obj["v3x"] = map(param_sliders[4].value(), 0, 100, 0, 100);
+    obj["v3y"] = map(param_sliders[5].value(), 0, 100, 0, 100);
+    obj["v4x"] = map(param_sliders[6].value(), 0, 100, 0, 100);
+    obj["v4y"] = map(param_sliders[7].value(), 0, 100, 0, 100);
+    obj["v5x"] = map(param_sliders[8].value(), 0, 100, 0, 100);
+    obj["v5y"] = map(param_sliders[9].value(), 0, 100, 0, 100);
+    obj["v6x"] = map(param_sliders[10].value(), 0, 100, 0, 100);
+    obj["v6y"] = map(param_sliders[11].value(), 0, 100, 0, 100);
+    obj["v7x"] = map(param_sliders[12].value(), 0, 100, 0, 100);
+    obj["v7y"] = map(param_sliders[13].value(), 0, 100, 0, 100);
+    obj["v8x"] = map(param_sliders[14].value(), 0, 100, 0, 100);
+    obj["v8y"] = map(param_sliders[15].value(), 0, 100, 0, 100);
+    obj["v9x"] = map(param_sliders[16].value(), 0, 100, 0, 100);
+    obj["v9y"] = map(param_sliders[17].value(), 0, 100, 0, 100);
+    
   return obj;
 }
 
-let numSliders = 17;
+let numSliders = 18;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
