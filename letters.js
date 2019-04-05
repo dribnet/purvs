@@ -188,9 +188,9 @@ const alphabet = {
   },
 
   "G": {
-  "pos1x": 10,
-  "pos2x": 40,
-  "pos3x": 40,
+  "pos1x": 20,
+  "pos2x": 55,
+  "pos3x": 55,
   "pos1y": 45,
   "pos2y": 45,
   "pos3y": -20,
@@ -198,19 +198,61 @@ const alphabet = {
   "pos5y": 40,
   "pos6y": -20,
   "rotatesS":0,
-  "rotateS":0,
-  "rotatesF":0,
-  "translates1":10,
-  "translates2":100,
-  "translates3":55,
+  "rotateS":50,
+  "rotatesF":-50,
+  "translates1":80,
+  "translates2":150,
+  "translates3":40,
   "translates4":155,
-  "translatef1":55,
+  "translatef1":40,
   "translatef2":45
 
   },
 
+  "H": {
+  "pos1x": 10,
+  "pos2x": 30,
+  "pos3x": 10,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 30,
+  "pos4y":30,
+  "pos5y": 100,
+  "pos6y": 100,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
+  "translates1":10,
+  "translates2":100,
+  "translates3":50,
+  "translates4":100,
+  "translatef1":90,
+  "translatef2":100
+
+  },
 
 
+  "I": {
+  "pos1x": 10,
+  "pos2x": 30,
+  "pos3x": 30,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 10,
+  "pos4y":10,
+  "pos5y": 10,
+  "pos6y": 10,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
+  "translates1":50,
+  "translates2":100,
+  "translates3":50,
+  "translates4":10,
+  "translatef1":50,
+  "translatef2":190
+
+  },
 
 
 
