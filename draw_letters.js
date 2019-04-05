@@ -12,7 +12,7 @@ function drawLetter(letterData) {
     for (i = 0; i < 8; i++){
       push()
       translate(50,100)
-      rotate(random(-0.1,0.1))
+      rotate(random(-0.05,0.05))
       stroke(random(100,250))
       noFill()
       strokeWeight(2);
