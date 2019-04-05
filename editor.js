@@ -6,8 +6,8 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["sizex"]    = map(param_sliders[0].value(), 0, 100, 0, 30);
-   obj["sizey"]    = map(param_sliders[1].value(), 0, 100, 0, 30);
+  obj["sizex"]    = map(param_sliders[0].value(), 0, 100, 0, 90);
+   obj["sizey"]    = map(param_sliders[1].value(), 0, 100, 0, 90);
   obj["offsetx"] = map(param_sliders[2].value(), 0, 100, 0, 90);
   obj["offsety"] = map(param_sliders[3].value(), 0, 100, 0, 90);
   obj["boxX"] = map(param_sliders[4].value(), 0, 100, 0, 90);
