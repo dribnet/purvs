@@ -1,47 +1,31 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
-    "shift1": -250,
-    "tilt1": -90,
-    "shift2": -300,
-    "tilt2": -90,
-    "shift3": -200,
-    "tilt3": -90
+  "size": 80,
+  "offsetx": 0,
+  "offsety": 35,
+  // "offsetx3": 10,
+  // "offset3": 10
 }
 
 const letterB = {
-    "shift1": -191,
-    "tilt1": -45,
-    "shift2": -54,
-    "tilt2": -45,
-    "shift3": -12,
-    "tilt3": 45
+  "size": 150,
+  "offsetx": 0,
+  "offsety": -145
 }
 
 const letterC = {
-    "shift1": -163,
-    "tilt1": -84,
-    "shift2": -191,
-    "tilt2": 163,
-    "shift3": 0,
-    "tilt3": -27
+  "size": 100,
+  "offsetx": 30,
+  "offsety": 0
 }
 
-const colorFront1  = "#FCB9B2";
-const colorBack    = "#FED0BB";
-const colorStroke  = "#B23A48";
+const colorFront1  = "#CDC1DE";
+const colorFront2  = "#BDACD4";
+const colorFront3  = "#DED5E9";
+const colorBack    = "#EEEAF4";
+const colorStroke  = "#746CC0";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -50,47 +34,29 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-// This function draws each individual box
-function drawPart(posx, posy, scale, offsetx, tilt) {
-  push();
-  translate(posx + offsetx*scale/10, posy);
-  rotate(tilt);
-  beginShape();
-  vertex(0, 0);
-  vertex(35, 50/2);
-  vertex(0, 50);
-  endShape();
-  pop();
-}
-
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let shift1 = letterData["shift1"];
-  let tilt1 = letterData["tilt1"];
-  let shift2 = letterData["shift2"];
-  let tilt2 = letterData["tilt2"];
-  let shift3 = letterData["shift3"];
-  let tilt3 = letterData["tilt3"];
+  let size2 = letterData["size"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
 
-  // rotation in degrees (for tilt variable)
-  angleMode(DEGREES);
+  let size3 = letterData["size3"]
+  let pos3x = posx + letterData["offsetx3"];
+  let pos3y = posy + letterData["offsetx3"];
 
-  // draw two circles
+  noStroke();
   fill(colorFront1);
-
-  push();
-  let scale=3;
-  let y_offset = 5 * scale;
-  drawPart(posx, posy-y_offset, scale, shift1, tilt1);
-  drawPart(posx,          posy, scale, shift2, tilt2);
-  drawPart(posx, posy+y_offset, scale, shift3, tilt3);
-  pop();
+  square(posx, posy, 150, 150);
+  fill(colorFront2);
+  square(pos2x, pos2y, size2, size2);
+  fill(colorFront3);
+  square(pos3x, pos3y, 100, 100);
 }
 
 function draw () {
