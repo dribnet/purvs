@@ -35,7 +35,7 @@ function drawLetter(letterData) {
 
   // draw two arcs and a rectangle
   noStroke();
-  fill(180);
+  fill(180,200);
   rect(PosX1, PosY1, PosX2, PosY2);
   fill(30,100);
   arc(CenterPointX1, CenterPointY1, Radius1, Radius1, StartAngle1, EndAngle1);
@@ -64,7 +64,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABCDEFG?",
-  "CAB?CAB?",
-  "BADBGFEC"
+  // "ABCDEFG?",
+  // "CAB?CAB?",
+  // "BADBGFEC"
 ]

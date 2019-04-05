@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "MOSQUITO",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
