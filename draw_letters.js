@@ -1,6 +1,3 @@
-const colorFront1  = "#264953";
-const colorFront2  = "#16625E";
-const colorStroke  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -11,8 +8,6 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(1);
 
   let ball_pos_x = letterData["ballposx"];
   let ball_pos_y = letterData["ballposy"];
@@ -35,25 +30,53 @@ function drawLetter(letterData) {
   let ball_size_w5 = letterData["ball5sizew"];
   let ball_size_h5 = letterData["ball5sizeh"];
 
-  fill(colorFront1);
   push();
   translate(50,100)
+
+  noStroke();
+  fill("#F59178");
+  ellipse(ball_pos_x+3, ball_pos_y+5, ball_size_w, ball_size_h);
+  ellipse(ball_pos_x2+3, ball_pos_y2+5, ball_size_w2, ball_size_h2);
+  ellipse(ball_pos_x3+3, ball_pos_y3+5, ball_size_w3, ball_size_h3);
+  ellipse(ball_pos_x4+3, ball_pos_y4+5, ball_size_w4, ball_size_h4);
+  ellipse(ball_pos_x5+3, ball_pos_y5+5, ball_size_w5, ball_size_h5); 
+
+
+  fill("#F5C078");
   ellipse(ball_pos_x, ball_pos_y, ball_size_w, ball_size_h);
   ellipse(ball_pos_x2, ball_pos_y2, ball_size_w2, ball_size_h2);
   ellipse(ball_pos_x3, ball_pos_y3, ball_size_w3, ball_size_h3);
-
-  fill(colorFront2);
   ellipse(ball_pos_x4, ball_pos_y4, ball_size_w4, ball_size_h4);
   ellipse(ball_pos_x5, ball_pos_y5, ball_size_w5, ball_size_h5);
-
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["ballposx"] = map(percent, 0, 100, oldObj["ballposx"], newObj["ballposx"]);
+  new_letter["ballposy"] = map(percent, 0, 100, oldObj["ballposy"], newObj["ballposy"]);
+  new_letter["ballsizew"] = map(percent, 0, 100, oldObj["ballsizew"], newObj["ballsizew"]);
+  new_letter["ballsizeh"] = map(percent, 0, 100, oldObj["ballsizeh"], newObj["ballsizeh"]);
+
+  new_letter["ball2posx"] = map(percent, 0, 100, oldObj["ball2posx"], newObj["ball2posx"]);
+  new_letter["ball2posy"] = map(percent, 0, 100, oldObj["ball2posy"], newObj["ball2posy"]);
+  new_letter["ball2sizew"] = map(percent, 0, 100, oldObj["ball2sizew"], newObj["ball2sizew"]);
+  new_letter["ball2sizeh"] = map(percent, 0, 100, oldObj["ball2sizeh"], newObj["ball2sizeh"]);
+  
+  new_letter["ball3posx"] = map(percent, 0, 100, oldObj["ball3posx"], newObj["ball3posx"]);
+  new_letter["ball3posy"] = map(percent, 0, 100, oldObj["ball3posy"], newObj["ball3posy"]);
+  new_letter["ball3sizew"] = map(percent, 0, 100, oldObj["ball3sizew"], newObj["ball3sizew"]);
+  new_letter["ball3sizeh"] = map(percent, 0, 100, oldObj["ball3sizeh"], newObj["ball3sizeh"]);
+  
+  new_letter["ball4posx"] = map(percent, 0, 100, oldObj["ball4posx"], newObj["ball4posx"]);
+  new_letter["ball4posy"] = map(percent, 0, 100, oldObj["ball4posy"], newObj["ball4posy"]);
+  new_letter["ball4sizew"] = map(percent, 0, 100, oldObj["ball4sizew"], newObj["ball4sizew"]);
+  new_letter["ball4sizeh"] = map(percent, 0, 100, oldObj["ball4sizeh"], newObj["ball4sizeh"]);
+  
+  new_letter["ball5posx"] = map(percent, 0, 100, oldObj["ball5posx"], newObj["ball5posx"]);
+  new_letter["ball5posy"] = map(percent, 0, 100, oldObj["ball5posy"], newObj["ball5posy"]);
+  new_letter["ball5sizew"] = map(percent, 0, 100, oldObj["ball5sizew"], newObj["ball5sizew"]);
+  new_letter["ball5sizeh"] = map(percent, 0, 100, oldObj["ball5sizeh"], newObj["ball5111sizeh"]);
   return new_letter;
 }
 

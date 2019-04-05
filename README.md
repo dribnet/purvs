@@ -2,11 +2,32 @@
 
 ## Morse Code Alphabets
 
-After some help with friends, I've managed to set up my parameters and have finally figured out what each of them control. Right now, I have an A and I will be continuing on making the rest of my alphabets. I've also deleted the default code and restarted from sctrach which made things a lot clearer. 
+I have finished my letters and changed the colors to a brighter, warmer scheme to make it look more lively and playful. I ahve also added the interaction to it. Although it is pretty much finished, I think there is a lot that I can improve and I will be looking at what other changes I can make to my font. 
 
+In morse code, a maximum of five signals are composed in one letter, therefore I made my aplhabets with 5 ellipses and changed their widht/height when needed.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+20 parameters per letter, 4 for each ellipse of one alphabet:
+	"ballposx"
+    "ballposy"
+    "ballsizew"
+    "ballsizeh"
+   
+    "ball2posx"
+    "ball2posy"
+    "ball2sizew"
+    "ball2sizeh"
+   
+    "ball3posx"
+    "ball3posy"
+    "ball3sizew"
+    "ball3sizeh"
+   
+    "ball4posx"
+    "ball4posy"
+    "ball4sizew"
+    "ball4sizeh"
+   
+    "ball5posx"
+    "ball5posy"
+    "ball5sizew"
+    "ball5sizeh"
