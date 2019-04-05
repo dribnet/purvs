@@ -1,5 +1,8 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
+const PI = 3.14159;
+const HALF_PI = PI/2;
+const TWO_PI = PI*2;
 
 /* 
  * my three variable per letter are:
@@ -13,21 +16,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 35,
-  "offsety": 70
+  "size": 100,
+  "offsetx": 50,
+  "offsety": 0,
+  "arcS": TWO_PI-PI/3, 
+  "arcE": HALF_PI+PI/6,
+  "arcS2": HALF_PI-PI/6, 
+  "arcE2": TWO_PI-HALF_PI-PI/6, 
 }
 
 const letterB = {
-  "size": 150,
+  "size": 100,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": 0,
+  "arcS": -HALF_PI, 
+  "arcE": HALF_PI,
+  "arcS2": -HALF_PI+PI/3, 
+  "arcE2": HALF_PI-PI/3, 
 }
 
 const letterC = {
   "size": 100,
   "offsetx": 50,
-  "offsety": 25
+  "offsety": 25,
+  "arcS": HALF_PI, 
+  "arcE": -HALF_PI,
 }
 
 const colorFront1  = "#69779b";
@@ -41,7 +54,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
+  // stroke(colorStroke);
   strokeWeight(4);
 
   // with no animation, redrawing the screen is not necessary
@@ -53,12 +66,19 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let ArcStart = letterData["arcS"];
+  let ArcEnd = letterData["arcE"];
+  let ArcStart2 = letterData["arcS2"];
+  let ArcEnd2 = letterData["arcE2"];
 
   // draw two circles
+  stroke(colorStroke);
   fill(colorFront1);
-  rect(posx-75, posy-75, 150, 150);
+  arc(posx, posy, 100, 100,ArcStart,ArcEnd);
+  
+  noStroke();
   fill(colorFront2);
-  rect(pos2x-75, pos2y-75, size2, size2);
+  arc(pos2x, pos2y, size2, size2,ArcStart2,ArcEnd2);
 }
 
 function draw () {
