@@ -2,8 +2,7 @@
 
 Helen Perkins
 
-Here I have adapted my sketch to fit the alphabet format and has successfully added my sketch A B C to the letters.js and alphabet.js
-However, I have gone outside of the (100,200) guidelines and I think this is okay? My design still works the gap between letters is just a little smaller then if I stuck to a width of 100. (Mine is 120).
+Here I have added in the editor! I have hooked the sliders up to my six parameters and it works really well so far! I am yet to test whether the data it gives me is accurate to what is shows in editor.html but theres no reason for it not to be, so hopefully. This edior will vastly speed up my process of figuring out my other letters in the alphabet if all goes to plan.
 
 Parameters:
 
