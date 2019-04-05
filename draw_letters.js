@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorFront1  = "#ffffff";
+const colorFront2  = "#ffffff";
+const colorStroke  = "#ffffff";
 
 /*
  * Draw the letter given the letterData
@@ -30,13 +30,13 @@ let liney1 =  letterData["liney1"];
 let linex2 =  letterData["linex2"];
 let liney2 =  letterData["liney2"];
 let linex3 =  letterData["linex3"];
-let liney3 =  letterData["linex4"];
+let liney3 =  letterData["liney3"];
 let liney4 = letterData["liney4"];
 let linex4 = letterData["linex4"];
-  print(int(letterData["liney2"]));
+  
   // draw arcs
   noFill();
-  strokeWeight(10)
+  strokeWeight(3)
   arc(x_arc1,y_arc1,arcsize1,arcsize1,deg_arc1,deg_arc2);
   arc(x_arc2,y_arc2,arcsize2,arcsize2,deg_arc3,deg_arc4);    
 //ellipse(100,100,100,100)

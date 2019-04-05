@@ -6,24 +6,24 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-obj["arcsize1"]= map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["arcsize2"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["x_arc1"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-obj["y_arc1"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["x_arc2"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["y_arc2"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-obj["deg_arc1"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["deg_arc2"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["deg_arc3"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-obj["deg_arc4"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["linex1"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["linex2"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-obj["linex3"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["linex4"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["liney1"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-obj["liney2"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-obj["liney3"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-obj["liney4"] = map(param_sliders[2].value(), 0, 100, -150, 50);
+obj["arcsize1"]= map(param_sliders[0].value(), 0, 100, 0, 100);
+obj["arcsize2"] = map(param_sliders[1].value(), 0, 100, 0, 100);
+obj["x_arc1"] = map(param_sliders[2].value(), 0, 100, 0, 100);
+obj["y_arc1"] = map(param_sliders[3].value(), 0, 100, 0, 200);
+obj["x_arc2"] = map(param_sliders[4].value(), 0, 100, 0, 100);
+obj["y_arc2"] = map(param_sliders[5].value(), 0, 100, 0, 200);
+obj["deg_arc1"] = map(param_sliders[6].value(), 0, 100, 0, 360);
+obj["deg_arc2"] = map(param_sliders[7].value(), 0, 100, 0, 360);
+obj["deg_arc3"] = map(param_sliders[8].value(), 0, 100, 0, 360);
+obj["deg_arc4"] = map(param_sliders[9].value(), 0, 100, 0, 360);
+obj["linex1"] = map(param_sliders[10].value(), 0, 100, 0, 100);
+obj["linex2"] = map(param_sliders[11].value(), 0, 100, 0, 100);
+obj["linex3"] = map(param_sliders[12].value(), 0, 100, 0, 100);
+obj["linex4"] = map(param_sliders[13].value(), 0, 100, 0, 100);
+obj["liney1"] = map(param_sliders[14].value(), 0, 100, 0, 200);
+obj["liney2"] = map(param_sliders[15].value(), 0, 100, 0, 200);
+obj["liney3"] = map(param_sliders[16].value(), 0, 100, 0, 200);
+obj["liney4"] = map(param_sliders[17].value(), 0, 100, 0, 200);
   return obj;
 }
  
