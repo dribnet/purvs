@@ -76,9 +76,9 @@ const alphabet = {
   "pos6y": 55,
   // "pos7y": 30,
   // "pos8y": 20,
-  "rotatesS":0,
-  "rotateS":0,
-  "rotatesF":0,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
   // "rotateF":0,
   "translates1":10,
   "translates2":100,
@@ -94,51 +94,61 @@ const alphabet = {
     // "size": 50,
     // "offsetx": 15,
     // "offsety": 0
-  "pos1x": 20,
-  "pos2x": 30,
-  "pos3x": 30,
+  "pos1x": 10,
+  "pos2x": 40,
+  "pos3x": 40,
   // "pos4x": 30,
-  "pos1y": 50,
-  "pos2y": 40,
-  "pos3y": 60,
+  "pos1y": 45,
+  "pos2y": 45,
+  "pos3y": -20,
   "pos4y": 40,
-  "pos5y": 20,
-  "pos6y": 10,
+  "pos5y": 40,
+  "pos6y": -20,
   // "pos7y": 30,
   // "pos8y": 20,
-  "rotatesS":100,
-  "rotateS":80,
+  "rotatesS":0,
+  "rotateS":0,
   "rotatesF":0,
   // "rotateF":0,
-  "translates1":25,
+  "translates1":10,
   "translates2":100,
-  "translates3":30,
-  "translates4":140,
-  "translatef1":50,
-  "translatef2":60
+  "translates3":55,
+  "translates4":155,
+  "translatef1":55,
+  "translatef2":45
   // "translatef3":50,
   // "translatef4":150
   },
 
   "D": {
 
-  "pos1x": 20,
-  "pos2x": 30,
-  "pos3x": 30,
-  "pos1y": 50,
-  "pos2y": 40,
-  "pos3y": 60,
-  "pos4y": 40,
-  "pos5y": 20,
-  "pos6y": 10,
+  "pos1x": 10,
+  "pos2x": 65,
+  "pos3x": 65,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 20,
+  "pos4y": -10,
+  "pos5y": -10,
+  "pos6y": 20,
   "rotatesS":0,
-  "rotateS":0,
-  "rotatesF":0,
-  "translates1":75,
+  "rotateS":50,
+  "rotatesF":310,
+  "translates1":10,
   "translates2":100,
-  "translates3":70,
-  "translates4":140,
-  "translatef1":30,
-  "translatef2":160
+  "translates3":55,
+  "translates4":50,
+  "translatef1":55,
+  "translatef2":150
   }
+
+
+
+
+
+
+
+
+
+
 }
