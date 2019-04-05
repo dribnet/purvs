@@ -17,23 +17,26 @@ const letterA = {
   "sizey":50,
   "offsetx": 50,
   "offsety": 30,
-  "size3x": 50,
-  "size3y": 50
+  "boxX": 50,
+  "boxY": 100
 }
 
 const letterB = {
   "sizex": 50,
   "sizey": 50,
   "offsetx":50,
-  "offsety": 15
-  
+  "offsety": 15,
+  "boxX": 50,
+  "boxY": 85
 }
 
 const letterC = {
   "sizex": 50,
   "sizey": 50,
   "offsetx": 100,
-  "offsety": 50
+  "offsety": 50,
+  "boxX": 100,
+  "boxY": 50
 }
 
 //big circle
@@ -63,23 +66,29 @@ function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2x = letterData["sizex"];
   let size2y = letterData["sizey"];
-  let size4x = letterData["size3x"];
-  let size4y = letterData["size3y"]; 
+
 
 
   //This is the x position of the big circle plus the amount x is moved for the little circle. 
   //Works out where little circle should go.
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let posBX = posx + letterData["boxX"];
+  let posBY = posy + letterData["boxY"];
 
 //Saying that everytime the function is drawn two circles will be drawn.
   // draw two circles
   fill(colorFront1);
+
   rect(posx, posy, 150, 150);
+
   fill(colorFront2);
+
   rect(pos2x, pos2y, size2x, size2y);
-  rect(pos2x,pos2y+70, size4x, size4y);
-  rect(pos2x,pos2y+70, size2x, size2y);
+
+  rect(posBX,posBY, size2x, size2y);
+
+
 
 
 }
