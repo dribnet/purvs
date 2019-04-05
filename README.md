@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2019
-Something weird happened with my last commit so just commiting again and have also added a null character (?).
+
+UPDATES: I changed up the colours and played around with trying to make it look like a neon sign. I also removed the dots that arent used in making up the letter and am wondering if I even need them in the font. I also moved the top and middle dot points to make the font slant a little to the right.
+
 This is an updated version of my first experiment. I don't know if I want this to be my final concept as its very simple but I used it to get to know what I need to be doing in this assignment. 
 Each letter has six fixed dots which can have lines between them to make different letters. I made nine (added two for diagonal lines) parameters, that function like booleans (1 for true, 0 for false), to tell decide whether a letter needs a line between two of the dots. The drawLetter function then runs if statements to test whether each parameter is true and then draws a line between the points if it is true.
 

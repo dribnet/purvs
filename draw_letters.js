@@ -9,19 +9,12 @@ function drawLetter(letterData) {
   // color/stroke setup
   strokeWeight(4);
 
-  const black  = "#000000";
+  const lines  = "#ff0000";
+  const dots = "#ffffff";
   const colorBack   = "#000000";
-  const dark  = "#ce2c00";
-  const mid = "#ff5426";
-  const light = "#ff913d";
+  const glow = "#ffb459";
 
-   //draw lines 
-
-  fill(black); 
-  stroke(black); 
-  strokeWeight(15); 
-
-  //Create variables from letterData
+   //Create variables from letterData
   p1p2 = letterData["p1p2"];
   p3p4 = letterData["p3p4"];
   p5p6 = letterData["p5p6"];
@@ -33,75 +26,122 @@ function drawLetter(letterData) {
   p2p5 = letterData["p2p5"];
 
   let dotSize = 15;
-  //HORIZONTAL 
 
+//*****DRAWLINES****
+
+  fill(glow); 
+  stroke(glow); 
+  strokeWeight(22); 
+
+//HORIZONTAL 
   if(p1p2==1){ 
-    line(10, 20, 80, 20); 
+    line(25, 20, 95, 20); 
   } 
 
   if(p3p4==1){ 
-    line(10, 100, 80, 100); 
+    line(15, 100, 85, 100); 
   } 
 
   if(p5p6==1){ 
-    line(10, 180, 80, 180); 
+    line(5, 180, 75, 180); 
   } 
 
-   //VERTICAL 
-
+//VERTICAL 
   if(p1p3==1){ 
-   line(10, 20, 10, 100);
+   line(25, 20, 15, 100);
   }
 
   if(p2p4==1){
-    line(80, 20, 80, 100);
+    line(95, 20, 85, 100);
   } 
 
   if(p3p5==1){
-    line(10, 100, 10, 180);
+    line(15, 100, 5, 180);
   }
 
   if(p4p6==1){
-    line(80, 100, 80, 180);
+    line(85, 100, 75, 180);
   }
 
 //DIAGONAL
  if(p1p6==1){
-  line(10, 20, 80, 180);
+  line(25, 20, 75, 180);
 }
 
   if(p2p5==1){
-    line(80, 20, 10, 180);
+    line(95, 20, 5, 180);
   }
-   
 
-//DRAW DOTS
-  strokeWeight(5); 
-  fill(dark); 
-  stroke(dark); 
- 
+  fill(lines); 
+  stroke(lines); 
+  strokeWeight(12); 
+   
+//HORIZONTAL 
+  if(p1p2==1){ 
+    line(25, 20, 95, 20); 
+  } 
+
+  if(p3p4==1){ 
+    line(15, 100, 85, 100); 
+  } 
+
+  if(p5p6==1){ 
+    line(5, 180, 75, 180); 
+  } 
+
+//VERTICAL 
+  if(p1p3==1){ 
+   line(25, 20, 15, 100);
+  }
+
+  if(p2p4==1){
+    line(95, 20, 85, 100);
+  } 
+
+  if(p3p5==1){
+    line(15, 100, 5, 180);
+  }
+
+  if(p4p6==1){
+    line(85, 100, 75, 180);
+  }
+
+//DIAGONAL
+ if(p1p6==1){
+  line(25, 20, 75, 180);
+}
+
+  if(p2p5==1){
+    line(95, 20, 5, 180);
+  }
+
+//*****DRAW DOTS******
+  strokeWeight(5);
+
+//TOP 
+  fill(dots); 
+  stroke(dots); 
 if (p1p2==1 || p1p3==1 || p1p6==1){
-  ellipse(10, 20, dotSize);//top left p1 
+  ellipse(25, 20, dotSize);//top left p1 
 }
 if (p1p2==1 || p2p4==1 || p2p5==1){
-  ellipse(80, 20, dotSize);//top right p2 
+  ellipse(95, 20, dotSize);//top right p2 
 }
-  fill(mid);
-  stroke(mid);
 
+//MID
 if(p3p4==1 || p1p3==1 || p3p5==1){
-  ellipse(10, 100, dotSize); //mid left p3 
+  ellipse(15, 100, dotSize); //mid left p3 
 }
 if(p3p4==1 || p2p4==1 || p4p6==1){
-  ellipse(80, 100, dotSize); //mid right p4 
+  ellipse(85, 100, dotSize); //mid right p4 
 }
-  fill(light);
-  stroke(light);
+
+//BOTTOM
 if(p5p6==1 || p3p5==1 || p2p5==1){
-  ellipse(10, 180, dotSize); //bottom left p5 
+  ellipse(5, 180, dotSize); //bottom left p5 
 }
 if(p5p6==1 || p4p6==1 || p1p6==1){
-  ellipse(80, 180, dotSize); //bottom right p6 
+  ellipse(75, 180, dotSize); //bottom right p6 
 }
 
 }
