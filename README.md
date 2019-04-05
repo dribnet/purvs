@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-The letter are made with 6 different vertexs and linked together with lines. I wanted to make the letter look somewhat "sketchy" so I added a loop to animate the letters. The box is a guideline for me to position of the vertex, I have not decided if I want to have that in my final.
+ I wanted to keep it simple and also give it somewhat of an angular style. The letter are made with 6 different vertexs and linked together with lines. I also stuck to the traditional letters shapes to retain the legibility of the words, which is useful for the exhibition mode. I wanted to make the letter look somewhat "sketchy" so I added a loop that duplicate and animate the letters. I changed the background colour to black to get a better constrast. The intropolation of letters also made the characters look like they are dancing in the space.
 
 The parameters are the X and Y positions of the vertexs.
 

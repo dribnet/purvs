@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = 0;
+const colorLines   = 100;
 
 
 function sliderToDataObject() {
