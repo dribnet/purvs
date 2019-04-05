@@ -46,7 +46,7 @@ const letterC = {
  
   "offsety5": 60,
   "offsety6": 40,
-  "offsety7": 30,
+  "offsety7": 50,
   "offsety8": 40,
   "offsety9": 60,
 }
