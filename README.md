@@ -1,7 +1,6 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
-
+This is my draft for this project. I got the idea from matches, which can be into different shaps. 
 Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
 The three parameters per letter:
