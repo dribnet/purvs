@@ -1,10 +1,10 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#86645a";
+const colorLines   = "#543e37";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -37,7 +37,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
@@ -74,7 +74,7 @@ function draw () {
           noFill()
           strokeWeight(4);
           stroke(0, 200, 0);
-          rect(0, 0, 100, 200);
+          rect(0, 0, 200, 200);
         }
 
         let letter = letters[cur_letter_index];
@@ -82,7 +82,7 @@ function draw () {
           drawLetter(alphabet[letter]);
         }
         else {
-          drawLetter(alphabet["default"]);    
+          drawLetter(alphabet["default"]);
         }
         translate(x_step, 0);
         cur_letter_index = (cur_letter_index + 1);
