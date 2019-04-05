@@ -46,9 +46,25 @@ let linex4 = letterData["linex4"];
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcsize1"] = map(percent, 0, 100, oldObj["arcsize1"], newObj["arcsize1"]);
+  new_letter["arcsize2"] = map(percent, 0, 100, oldObj["arcsize2"], newObj["arcsize2"]);
+  new_letter["x_arc1"] = map(percent, 0, 100, oldObj["x_arc1"], newObj["x_arc1"]);
+  new_letter["y_arc1"] = map(percent, 0, 100, oldObj["y_arc1"], newObj["y_arc1"]);
+  new_letter["x_arc2"] = map(percent, 0, 100, oldObj["x_arc2"], newObj["x_arc2"]);
+  new_letter["y_arc2"] = map(percent, 0, 100, oldObj["y_arc2"], newObj["y_arc2"]);
+  new_letter["deg_arc1"] = map(percent, 0, 100, oldObj["deg_arc1"], newObj["deg_arc1"]);
+  new_letter["deg_arc2"] = map(percent, 0, 100, oldObj["deg_arc2"], newObj["deg_arc2"]);
+  new_letter["deg_arc3"] = map(percent, 0, 100, oldObj["deg_arc3"], newObj["deg_arc3"]);
+  new_letter["deg_arc4"] = map(percent, 0, 100, oldObj["deg_arc4"], newObj["deg_arc4"]);
+  new_letter["linex1"] = map(percent, 0, 100, oldObj["linex1"], newObj["linex1"]);
+  new_letter["liney1"] = map(percent, 0, 100, oldObj["liney1"], newObj["liney1"]);
+  new_letter["linex2"] = map(percent, 0, 100, oldObj["linex2"], newObj["linex2"]);
+  new_letter["liney2"] = map(percent, 0, 100, oldObj["liney2"], newObj["liney2"]);
+  new_letter["linex3"] = map(percent, 0, 100, oldObj["linex3"], newObj["linex3"]);
+  new_letter["liney3"] = map(percent, 0, 100, oldObj["liney3"], newObj["liney3"]);
+  new_letter["linex4"] = map(percent, 0, 100, oldObj["linex4"], newObj["linex4"]);
+  new_letter["liney4"] = map(percent, 0, 100, oldObj["liney4"], newObj["liney4"]);
+
   return new_letter;
 }
 
