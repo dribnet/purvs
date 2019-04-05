@@ -2,10 +2,7 @@
 
 GRAND GAIA RUNE FOUNDARY
 
-The Mega-Nation of Grand Gaia employs a foundary of runic crystals to power their capital city and any surrounding sub-nation. These runes are managed by the Koroud "Crystallizer" Lupine's faction of Crystalists. With the addition of the earthborn into the city, notably Selraph, Calvaris and Lana Xian, Koroud had to create an alternative set of runes that replicated their language, for their understanding.
+So I managed to get the leters D, E, F, G, H, K, O and X done...H was a pain to think of but it managed to happen. I've also created the default shapes for the letters. This ended up with 16 parameters as I had to add an aditional two today.
 
-The letters are split into steel and crystal as shown here. Anything of that green-shade is crystal, anything of gray is considered steel and everything will have a gold trim around it.
-
-"The earthborn language is rather curious. Perhaps there is some merit, for us Ezlytes, in learning the language of those from the linked world...In time...we'll see."
-
+"This is most...difficult...perhaps this wasn't as easy as I thought...The earthborn are certainly an interesting race"
 - Koroud "Crystallizer" Lupine

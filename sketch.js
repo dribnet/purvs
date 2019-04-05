@@ -25,11 +25,13 @@ const letterA = {
 
 	"cryspos1x": 0,
 	"cryspos2x": -35,
-	"cryspos3x": 35,
+	"cryspos3x": 0,
+	"cryspos4x": 35,
 
 	"cryspos1y": -35,
 	"cryspos2y": 20,
-	"cryspos3y": 20,
+	"cryspos3y": 10,
+	"cryspos4y": 20,
 }
 
 const letterB = {
@@ -46,10 +48,12 @@ const letterB = {
 	"cryspos1x": 0,
 	"cryspos2x": -50,
 	"cryspos3x": 35,
+	"cryspos4x": 35,
 
 	"cryspos1y": 0,
 	"cryspos2y": -70,
 	"cryspos3y": -50,
+	"cryspos4y": -50,
 }
 
 const letterC = {
@@ -66,10 +70,12 @@ const letterC = {
 	"cryspos1x": 0,
 	"cryspos2x": -50,
 	"cryspos3x": 50,
+	"cryspos4x": 50,
 
 	"cryspos1y": 0,
 	"cryspos2y": 0,
 	"cryspos3y": -70,
+	"cryspos4y": -70,
 }
 
 const colorFront1  = "#5F5F5F";
@@ -105,10 +111,12 @@ function drawLetter(posx, posy, letterData) {
   let cryspos1x = posx + letterData["cryspos1x"];
   let cryspos2x = posx + letterData["cryspos2x"];
   let cryspos3x = posx + letterData["cryspos3x"];
+  let cryspos4x = posx + letterData["cryspos4x"];
 
   let cryspos1y = posy + letterData["cryspos1y"];
   let cryspos2y = posy + letterData["cryspos2y"];
   let cryspos3y = posy + letterData["cryspos3y"];
+  let cryspos4y = posy + letterData["cryspos4y"];
 
   // draw 
   fill(colorFront1);
@@ -125,6 +133,7 @@ function drawLetter(posx, posy, letterData) {
   vertex(cryspos1x, cryspos1y)
   vertex(cryspos2x, cryspos2y)
   vertex(cryspos3x, cryspos3y)
+  vertex(cryspos4x, cryspos4y)
   vertex(cryspos1x, cryspos1y)
   endShape()
 }
