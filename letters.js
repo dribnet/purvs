@@ -202,7 +202,7 @@ const alphabet = {
     "lineX1": -34,
     "lineY1": -40,
     "lineX2": -34,
-    "lineY2": 50,
+    "lineY2": 40,
     "arcX": 10,
     "arcY": 0,
     "start": 250,
@@ -210,11 +210,11 @@ const alphabet = {
   },
 
   "S": {
-    "lineX1": 20,
-    "lineY1": 30,
-    "lineX2": 0,
+    "lineX1": 30,
+    "lineY1": 40,
+    "lineX2": -10,
     "lineY2": 80,
-    "arcX": 0,
+    "arcX": 10,
     "arcY": 0,
     "start": 110,
     "stop": 290
@@ -370,7 +370,7 @@ const alphabet = {
   	"lineY2": 0,
   	"arcX": 0,
   	"arcY": 0,
-  	"start": 10,
+  	"start": 0,
   	"stop": 310
   },
 

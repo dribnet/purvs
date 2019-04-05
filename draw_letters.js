@@ -9,6 +9,7 @@ function drawLetter(letterData) {
 
   // color/stroke setup
   stroke(arcStrokeCol);
+  strokeCap(ROUND);
 
   angleMode(DEGREES);
 
@@ -25,14 +26,19 @@ function drawLetter(letterData) {
   let arcStart = letterData["start"];
   let arcStop = letterData["stop"];
 
-  // draw an arc
-  fill(99, 142, 67, 100); //green
-  strokeWeight(9);
+  // draw main arc
+  fill(99, 142, 110, 80); //green
+  strokeWeight(5);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
-  // draw a line
+  // draw line
   strokeWeight(8);
   line(lineX1, lineY1, lineX2, lineY2);
+
+  // draw second arc
+  /*strokeWeight(1);
+  noFill();
+  arc(arcX, arcY, 70, 70, arcStart, arcStop);*/
 
 }
 
@@ -55,7 +61,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ARCANGLE",
+  "STRAIGHT",
+  "GREENERY",
+  "RELAXING"
 ]

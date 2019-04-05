@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019 - Alphabet
 
-Made some small adjustments.
+Decided to add a secondary arc, adjusted stroke weights and changed the main arc's fill to a slightly different hue (it has a blue tint).
 
 Each of my letters is composed with one arc and one line that work around a triangle. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 
