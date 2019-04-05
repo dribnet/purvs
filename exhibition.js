@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "PENTAPTPAT",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
