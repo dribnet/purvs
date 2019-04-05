@@ -1,11 +1,8 @@
 ## PS2 MDDN 242 2019
 
-For the design of letters, I chose to use straight lines.
+Changed of the exhibition and interaction. 
 
-But I added a little bit personal design to make my letters look angular.
-
-However, for the use of stright lines, I think it can be more in-depth, so I will focus more on the colors use and others.
-
+Next will move to the color change.
 
 
 The current parameters are:

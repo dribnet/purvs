@@ -53,10 +53,10 @@ function setup () {
 
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["x2"];
-  let pos2y = posy + letterData["y2"];
+  // determine parameters for lines
+  
+  let pos2x = letterData["x2"];
+  let pos2y = letterData["y2"];
 
 
   let pos3x = letterData["x3"];
@@ -74,7 +74,7 @@ function drawLetter(posx, posy, letterData) {
   let pos8y = letterData["y8"];
 
 
-  // draw two circles
+  // draw lines
   fill(colorFront1);
   line(50, 100, pos2x, pos2y, 20);
   fill(colorFront2);
@@ -89,7 +89,7 @@ function draw () {
   // clear screen
   background(colorBack);
    var startpoint= 0;
- var endpoint = PI;
+   var endpoint = PI;
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
