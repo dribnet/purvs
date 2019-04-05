@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-4rd 04/02
+5th 04/05
 
 Each of my letters is composed with two Arc and one Triangle. 
 1) The size of the first circle is fixed, but the start point and the end point of the first circle is controlled by two parameters.
@@ -19,4 +19,4 @@ The eight parameters per letter:
   * `triY1toY2` : Y2 offset of the triangle relative to the posY
   * `triY1toY3` : Y3 offset of the triangle relative to the posY
 
-I added the interpolation.
+I added the interpolation and the exhibition words.

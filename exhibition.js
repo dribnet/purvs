@@ -1,9 +1,9 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#d8d1c9";
 const colorFront   = "#199cff";
-const colorLines   = "#000090";
+const colorLines   = "#ffffff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter

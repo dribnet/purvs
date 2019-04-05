@@ -1,6 +1,3 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
 /*
  * Draw the letter given the letterData
  *
@@ -9,11 +6,15 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
- // determine parameters for second circle
+ // position for all parameters
   let posx2 = letterData["posx"];
   let posy2 = letterData["posy"];
+
+//parameters for the first arc
   let ArcStart = letterData["arcS"];
   let ArcEnd = letterData["arcE"];
+
+//parameters for the triangle
   let triangleX1 = letterData["movetriX1"]
   let triangleX1toX2 = letterData["triX1toX2"]
   let triangleX1toX3 = letterData["triX1toX3"]
@@ -21,14 +22,15 @@ function drawLetter(letterData) {
   let triangleY1toY2 = letterData["triY1toY2"]
   let triangleY1toY3 = letterData["triY1toY3"]
 
+//parameters for the second arc
   let Arc2Start = letterData["arc2S"];
   let Arc2End = letterData["arc2E"];
 
-  // draw one half_circle and triangle
+// draw two arc and one triangle
   noStroke();
-  fill(255,70,67,200);
+  fill(183,149,119,200);
   arc(posx2,posy2,100,100,ArcStart,ArcEnd);
-  fill(35,35,35,200);
+  fill(114,106,97,200);
   arc(posx2,posy2,100,100,Arc2Start,Arc2End);
   fill(64,102,93,200);
   triangle(posx2+triangleX1,posy2+triangleY1,posx2+triangleX1+triangleX1toX2,posy2+triangleY1+triangleY1toY2, posx2+triangleX1+triangleX1toX3, posy2+triangleY1+triangleY1toY3);
@@ -52,7 +54,57 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "MONGSTA0",
+  "MONGFONT",
   "ILOVEYOU",
-  "BAAAAAAA"
+  "ACTUALLY",
+  "1234567?",
+  "EXPECTED",
+  "PROPERTY",
+  "ADDITION",
+  "FOLLOWED",
+  "PROVIDED",
+  "ALTHOUGH",
+  "HAPPENED",
+  "QUESTION",
+  "AMERICAN",
+  "INCREASE",
+  "RECEIVED",
+  "ANYTHING",
+  "INDUSTRY",
+  "RELIGION",
+  "BUILDING",
+  "INTEREST",
+  "REMEMBER",
+  "BUSINESS",
+  "INVOLVED",
+  "REQUIRED",
+  "CHILDREN",
+  "NATIONAL",
+  "SERVICES",
+  "COMPLETE",
+  "ORGANIZE",
+  "SOUTHERN",
+  "CONSIDER",
+  "PERSONAL",
+  "STANDARD",
+  "CONTINUE",
+  "PLANNING",
+  "STRENGTH",
+  "ALPHABET",
+  "POSITION",
+  "STUDENTS",
+  "DECISION",
+  "POSSIBLE",
+  "SUDDENLY",
+  "DIRECTLY",
+  "PRESSURE",
+  "THINKING",
+  "DISTRICT",
+  "PROBABLY",
+  "TOGETHER",
+  "ECONOMIC",
+  "PROBLEMS",
+  "TRAINING",
+  "EVIDENCE",
+  "PROGRAMS"
 ]

@@ -1,21 +1,23 @@
+// setting 'PI'
 const PI = 3.14159;
 const HALF_PI = PI/2;
 const TWO_PI = PI*2;
 
+// setting my alphabet 
 const alphabet = {
   "default": {
     "posx" : 50,
     "posy" : 100,
-    "arcS": PI, 
+    "arcS": 0, 
     "arcE": TWO_PI,
     "arc2S" : 0,
     "arc2E" : 0,
     "movetriX1" : 0,
-    "triX1toX2" : -50,
-    "triX1toX3" : 50,
-    "movetriY1" : -25,
-    "triY1toY2" : 75,
-    "triY1toY3" : 75
+    "triX1toX2" : 0,
+    "triX1toX3" : 0,
+    "movetriY1" : 0,
+    "triY1toY2" : 0,
+    "triY1toY3" : 0
   },
   "A": {
     "posx" : 50,
@@ -67,11 +69,11 @@ const alphabet = {
     "arc2S" : 0,
     "arc2E" : 0,
     "movetriX1" : 0,
-    "triX1toX2" : 25,
-    "triX1toX3" : 0,
-    "movetriY1" : -25,
-    "triY1toY2" : 25,
-    "triY1toY3" : 50
+    "triX1toX2" : 0,
+    "triX1toX3" : 25,
+    "movetriY1" : 25,
+    "triY1toY2" : -50,
+    "triY1toY3" : -25
   },
   "E": {
     "posx" : 50,
@@ -188,16 +190,16 @@ const alphabet = {
   "M": {
     "posx" : 50,
     "posy" : 100,
-    "arcS": TWO_PI - HALF_PI/2,
-    "arcE": TWO_PI + PI - HALF_PI/2,
+    "arcS": PI - HALF_PI - HALF_PI/2, 
+    "arcE": PI + HALF_PI/2, 
     "arc2S" : 0,
     "arc2E" : 0,
-    "movetriX1" : -50,
-    "triX1toX2" : 0,
-    "triX1toX3" : 100,
-    "movetriY1" : -50,
-    "triY1toY2" : 100,
-    "triY1toY3" : 100
+    "movetriX1" : 25,
+    "triX1toX2" : -40,
+    "triX1toX3" : 25,
+    "movetriY1" : -35,
+    "triY1toY2" : 85,
+    "triY1toY3" : 85
   },
   "N": {
     "posx" : 100,
@@ -400,7 +402,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10,
-    "arc2S" : PI+HALF_PI + PI*2/10*1,
+    "arc2S" : -HALF_PI + PI*2/10*1,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -414,7 +416,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*2,
-    "arc2S" : PI+HALF_PI + PI*2/10*2,
+    "arc2S" : -HALF_PI + PI*2/10*2,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -428,7 +430,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*3,
-    "arc2S" : PI+HALF_PI + PI*2/10*3,
+    "arc2S" : -HALF_PI + PI*2/10*3,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -442,7 +444,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*4,
-    "arc2S" : PI+HALF_PI + PI*2/10*4,
+    "arc2S" : -HALF_PI + PI*2/10*4,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -456,7 +458,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*5,
-    "arc2S" : PI+HALF_PI + PI*2/10*5,
+    "arc2S" : -HALF_PI + PI*2/10*5,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -470,7 +472,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*6,
-    "arc2S" : PI+HALF_PI + PI*2/10*6,
+    "arc2S" : -HALF_PI + PI*2/10*6,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -484,7 +486,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*7,
-    "arc2S" : PI+HALF_PI + PI*2/10*7,
+    "arc2S" : -HALF_PI + PI*2/10*7,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -498,7 +500,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*8,
-    "arc2S" : PI+HALF_PI + PI*2/10*8,
+    "arc2S" : -HALF_PI + PI*2/10*8,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,
@@ -512,7 +514,7 @@ const alphabet = {
     "posy" : 100,
     "arcS": PI+HALF_PI,
     "arcE": PI+HALF_PI + PI*2/10*9,
-    "arc2S" : PI+HALF_PI + PI*2/10*9,
+    "arc2S" : -HALF_PI + PI*2/10*9,
     "arc2E" : PI+HALF_PI,
     "movetriX1" : 0,
     "triX1toX2" : 0,

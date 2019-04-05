@@ -1,17 +1,23 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
+//setting 'PI'
 const PI = 3.14159;
 const HALF_PI = PI/2;
 const TWO_PI = PI*2;
 
 /* 
- * my three variable per letter are:
+ * my eight variable per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+  * `arcS` : angle to start the arc, specified in radians of the first circle
+  * `arcE` : angle to stop the arc, specified in radians of the first circle
+  * `arc2S` : angle to start the arc, specified in radians of the second circle
+  * `arc2E` : angle to stop the arc, specified in radians of the second circle
+  * `movetriX1` : X1 offset of the triangle relative to the posX
+  * `triX1toX2` : X2 offset of the triangle relative to the posX
+  * `triX1toX3` : X3 offset of the triangle relative to the posX
+  * `movetriY1` : Y1 offset of the triangle relative to the posY
+  * `triY1toY2` : Y2 offset of the triangle relative to the posY
+  * `triY1toY3` : Y3 offset of the triangle relative to the posY
  *
  */
 
@@ -48,31 +54,21 @@ const letterC = {
   "triY1toY3" : 40
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
-
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // color/stroke setup
-  //stroke(0);
-  //noFill();
-  //strokeWeight(5);
-  //strokeCap(PROJECT);
-
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
+  // determine parameters for arc
   let ArcStart = letterData["arcS"];
   let ArcEnd = letterData["arcE"];
+  // determine parameters for triangle
   let triangleX1 = letterData["movetriX1"]
   let triangleX1toX2 = letterData["triX1toX2"]
   let triangleX1toX3 = letterData["triX1toX3"]
@@ -80,15 +76,11 @@ function drawLetter(posx, posy, letterData) {
   let triangleY1toY2 = letterData["triY1toY2"]
   let triangleY1toY3 = letterData["triY1toY3"]
 
-  // draw two circles
-
-  //fill(colorFront1);
-  //ellipse(posx, posy, 150, 150);
-  //fill(colorFront2);
-  //ellipse(pos2x, pos2y, size2, size2);
+  // draw one arc
   noStroke();
   fill(255,70,67,200);
   arc(posx,posy,80,80,ArcStart,ArcEnd);
+  // draw one triangle
   fill(64,102,93,200);
   triangle(posx+triangleX1,posy+triangleY1,posx+triangleX1+triangleX1toX2,posy+triangleY1+triangleY1toY2, posx+triangleX1+triangleX1toX3, posy+triangleY1+triangleY1toY3);
 }
