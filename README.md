@@ -11,22 +11,18 @@ In morse code, a maximum of five signals are composed in one letter, therefore I
     "ballposy"
     "ballsizew"
     "ballsizeh"
-   
-    "ball2posx"
+	"ball2posx"
     "ball2posy"
     "ball2sizew"
     "ball2sizeh"
-   
     "ball3posx"
     "ball3posy"
     "ball3sizew"
     "ball3sizeh"
-   
     "ball4posx"
     "ball4posy"
     "ball4sizew"
     "ball4sizeh"
-   
     "ball5posx"
     "ball5posy"
     "ball5sizew"
