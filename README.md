@@ -1,10 +1,11 @@
 ## PS2 MDDN 242 2019
 
-Part 2 - My alphabets design
+Part 2 - Alphabets design
 
-This is my draft drawing of my alphabets. My initial idea was inspired by morse code. Thus, I want to design my alphabets using morse code with circle and rectangle. I actually searched for the actual morse code and try to design and rearrange them. I realised that it is hard to present out some of the letters by just using the shape of circle and rectangle, so I decide to use triangle and combine them together.
+The following is the design of my alphabets. The grey color circles and rectangles are the morse code, the pale red color is the triangle and I arranged them with the circles and rectangles. After adding the triangles, the letters look better than only circles and rectangles and clearly shown. In addition, I have actually used more than 20 parameters for designing my alphabets. However, only part of the parameters are used in each letter, not all of them in each letter. Lastly, I have designed my alphabets till letter 'P' and I will continue working on my alphabets design.
 
-The three parameters per letter:
+The parameters per letter:
+  * `size1` : length of the rectangle
   * `c1x` : x axis of the circle
   * `c1y` : y axis of the circle
   * `r1x` : x axis of the rectangle

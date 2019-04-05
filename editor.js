@@ -10,14 +10,16 @@ function sliderToDataObject() {
   obj["e1y"] = map(param_sliders[1].value(), 0, 100, 0, 100);
   obj["r1x"] = map(param_sliders[2].value(), 0, 100, 0, 100);
   obj["r1y"] = map(param_sliders[3].value(), 0, 100, 0, 100);
-  obj["r2x"] = map(param_sliders[4].value(), 0, 100, 0, 100);
-  obj["r2y"] = map(param_sliders[5].value(), 0, 100, 0, 100);
-  obj["r3x"] = map(param_sliders[6].value(), 0, 100, 0, 100);
-  obj["r3y"] = map(param_sliders[7].value(), 0, 100, 0, 100);
+  obj["t1x"] = map(param_sliders[4].value(), 0, 100, 0, 100);
+  obj["t1y"] = map(param_sliders[5].value(), 0, 100, 0, 100);
+  obj["t2x"] = map(param_sliders[6].value(), 0, 100, 0, 100);
+  obj["t2y"] = map(param_sliders[7].value(), 0, 100, 0, 100);
+  obj["t3x"] = map(param_sliders[8].value(), 0, 100, 0, 100);
+  obj["t3y"] = map(param_sliders[9].value(), 0, 100, 0, 100);
   return obj;
 }
 
-let numSliders = 8;
+let numSliders = 10;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
@@ -76,18 +78,20 @@ function draw () {
     stroke(0, 200, 0, 80);
     rect(0, 0, 100, 200);
 
-     let pos2x = letterData["e1x"];
-    let pos2y = letterData["e1y"];
-    let pos3x = letterData["r1x"];
-    let pos3y = letterData["r1y"];
-    let pos4x = letterData["r2x"];
-    let pos4y = letterData["r2y"];
-    let pos5x = letterData["r3x"];
-    let pos5y = letterData["r3y"];
-    ellipse(pos2x, pos2y, 25, 25);
-    rect(pos3x, pos3y, 60, 15);
-    rect(pos4x, pos4y, 15, 120);
-    rect(pos5x, pos5y, 15, 120);
+  let pos2x = letterData["e1x"];
+  let pos2y = letterData["e1y"];
+  let pos3x = letterData["r1x"];
+  let pos3y = letterData["r1y"];
+  let pos4x = letterData["t1x"];
+  let pos4y = letterData["t1y"];
+  let pos5x = letterData["t2x"];
+  let pos5y = letterData["t2y"];
+  let pos6x = letterData["t3x"];
+  let pos6y = letterData["t3y"];
+  triangle(pos4x, pos4y, pos5x, pos5y, pos6x, pos6y);
+  ellipse(pos2x, pos2y, 25, 25);
+  rect(pos3x, pos3y, 100, 15);
+    
   }
 
   let obj = sliderToDataObject();
