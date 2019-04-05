@@ -2,9 +2,9 @@
 
 Helen Perkins
 
-Official Sketch One
+Sketch Two
 
-I have finished tweaking my initial sketch and have added all the parameters I think I will need (hopefully anyway! May need to add to more for more complex shapes...). In this sketch I have used a series of squares that are all the same proportions to each other, and have used smaller squares to block out aspects of the larger square for each letter in order to form the letters. Depending on the position/amount of smaller squares and what they obscure determines which letter is shown.
+Here is another sketch where I was experimenting with some different styles for my alphabet. Here I have gone for thinner lines and letters that are more obviously readable, however I think I do prefer my original sketch because I like how every square in it was the same size where as here the sizes of the squares vary depending on the letter.
 
 Parameters:
 

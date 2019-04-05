@@ -15,28 +15,28 @@ const canvasHeight = 500;
 const letterA = {
   "sizex": 50,
   "sizey":50,
-  "offsetx": 50,
+  "offsetx": 25,
   "offsety": 30,
-  "boxX": 50,
+  "boxX": 25,
   "boxY": 100
 }
 
 const letterB = {
   "sizex": 50,
-  "sizey": 50,
-  "offsetx":50,
-  "offsety": 15,
-  "boxX": 50,
-  "boxY": 85
+  "sizey": 30,
+  "offsetx":25,
+  "offsety": 30,
+  "boxX": 25,
+  "boxY": 95
 }
 
 const letterC = {
-  "sizex": 50,
-  "sizey": 50,
-  "offsetx": 100,
-  "offsety": 50,
-  "boxX": 100,
-  "boxY": 50
+  "sizex": 80,
+  "sizey": 90,
+  "offsetx": 30,
+  "offsety": 30,
+  "boxX": 65,
+  "boxY": 30
 }
 
 //big circle
@@ -54,8 +54,8 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
-
+  //strokeWeight(4);
+noStroke();
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
@@ -78,11 +78,12 @@ function drawLetter(posx, posy, letterData) {
 
 //Saying that everytime the function is drawn two circles will be drawn.
   // draw two circles
-  fill(colorFront1);
-
-  rect(posx, posy, 150, 150);
-
   fill(colorFront2);
+
+
+  rect(posx, posy, 100, 150);
+
+  fill(colorBack);
 
   rect(pos2x, pos2y, size2x, size2y);
 
