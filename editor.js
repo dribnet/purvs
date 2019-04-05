@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#cccccc";
 const colorLines   = "#000090";
 
 function sliderToDataObject() {
