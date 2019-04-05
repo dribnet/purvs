@@ -1,4 +1,4 @@
 ## Class Example
 
-Custom Interpolation Example: ball motion in y is more abrupt because interpolation pauses at beginning and end.
+Custom Interpolation Example: ball motion in y given anticipation backmotion for first 20% of interpolations.
 
