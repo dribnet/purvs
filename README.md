@@ -1,1 +1,1 @@
-So my idea is to have two traingle where one always has the same size and the seconds one will be able to change size and position. Both traingles can have an radian as well.
+So here I have 12 parameters wich build two sinus curves and rotate, change the width and height of the curves.

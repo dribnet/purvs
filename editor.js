@@ -10,11 +10,15 @@ function sliderToDataObject() {
   obj["widthX"] = map(param_sliders[1].value(), 0, 100, 0, 2);
   obj["rotation_angle"] = map(param_sliders[2].value(), 0, 100, -150, 50);
   obj["length"] = map(param_sliders[3].value(), 0, 100, 0, 150);
+  obj["heightY1"]    = map(param_sliders[4].value(), 0, 100, 0, 100);
+  obj["widthX1"] = map(param_sliders[5].value(), 0, 100, 0, 2);
+  obj["rotation_angle1"] = map(param_sliders[6].value(), 0, 100, -150, 50);
+  obj["length1"] = map(param_sliders[7].value(), 0, 100, 0, 150);
 
   return obj;
 }
 
-let numSliders = 4;
+let numSliders = 8;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
@@ -57,7 +61,7 @@ function buttonPressedEvent() {
 function draw () {
   // clear screen
   background(colorBack);
-
+  // console.log(param_sliders);
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
