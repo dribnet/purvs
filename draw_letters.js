@@ -1,10 +1,11 @@
 // Sets constants/variables
 const honeycombFill = "#FFC748";
 const colorStroke = "#FFEFC1";
-angleMode(DEGREES);
 
 // Draw the letter given the letterData
 function drawLetter(letterData) {
+    angleMode(DEGREES);
+    
     // Sets parameters
     let hex1_xPos = letterData["1xPos"];
     let hex1_yPos = letterData["1yPos"];
