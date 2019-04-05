@@ -2,11 +2,11 @@
 
 Helen Perkins
 
-Style/Rule Change:
-Up until now, my plan was to try and create every letter using up to four small squares inside the large square. I planned that every single one of the small squares would be 30 x 30. Now however thanks to the editor and its ability to help me iterate much quicker then I was before I have realised that I need to adapt and be more flexible with my design allowing the X and Y lengths of the squares to change and be non identicle to each other, in order to help me create a legible version of every letter. 
-Up until G (excluding D) I was able to make every letter with 30 x 30 squares, but my inability to create a D or G I am happy with has made me have this revelation about square sizes.
-I will still only have six parameters (at this stage as I have oly been using two smaller sqaures so far), so this change really isn't that significant, but the smaller squares will now be sized anywhere from 0 - 90 (reflected in the D of my preview).
+Another Issue
+Following on from my last discovery I have since realised that just changing it so that the smaller squares x's and y's can be different sizes in proportion to each other wasnt enough. I am also going to have to make it so that each small squares x and y can be totally different to theother small squares.
+Unfortunately this will mean more parameters but I should still definitely be under 12 (unless I just jinxed it...). Thumbnails and previews show my progress through the alphabet so far that led me to this realisation. (Unable to make the G or J with being able to manipulate the x and y of each smaller square independantly.)
 
+(have not added new parameters to solve above yet)
 Parameters:
 
   * `sizex` : size of x axis of smaller boxes

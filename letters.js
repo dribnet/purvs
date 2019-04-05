@@ -65,17 +65,17 @@ const alphabet = {
   "sizex": 30,
   "sizey": 30,
   "offsetx":45,
-  "offsety": 15,
+  "offsety": 0,
   "boxX": 45,
-  "boxY": 75
+  "boxY": 90
   },
   "I": {
   "sizex": 30,
-  "sizey": 30,
-  "offsetx":45,
-  "offsety": 15,
-  "boxX": 45,
-  "boxY": 75
+  "sizey": 50,
+  "offsetx":90,
+  "offsety": 35,
+  "boxX": 0,
+  "boxY": 35
   },
 
   "J": {
