@@ -189,9 +189,9 @@ const alphabet = {
 
   "Q": {
     "lineX1": 20,
-    "lineY1": 0,
-    "lineX2": 40,
-    "lineY2": 20,
+    "lineY1": 5,
+    "lineX2": 50,
+    "lineY2": 30,
     "arcX": 0,
     "arcY": 0,
     "start": 50,
@@ -238,8 +238,8 @@ const alphabet = {
     "lineY2": 50,
     "arcX": 0,
     "arcY": 0,
-    "start": 330, 
-    "stop": 210
+    "start": 310, 
+    "stop": 230
   },
 
   "V": {
@@ -249,8 +249,8 @@ const alphabet = {
     "lineY2": 20,
     "arcX": 0,
     "arcY": 0,
-    "start": 330, 
-    "stop": 210
+    "start": 310, 
+    "stop": 230
   },
 
   "W": {
@@ -260,8 +260,8 @@ const alphabet = {
     "lineY2": 20,
     "arcX": 0,
     "arcY": 0,
-    "start": 330, 
-    "stop": 210
+    "start": 310, 
+    "stop": 230
   },
 
   "X": {
@@ -281,20 +281,20 @@ const alphabet = {
     "lineX2": 0,
     "lineY2": 90,
     "arcX": 0,
-    "arcY": 0,
+    "arcY": -10,
     "start": 330, 
     "stop": 210
   },
 
   "Z": {
     "lineX1": -30,
-    "lineY1": -60,
+    "lineY1": -50,
     "lineX2": 30,
-    "lineY2": -30,
-    "arcX": 0,
+    "lineY2": -50,
+    "arcX": 20,
     "arcY": 10,
-    "start": 100,
-    "stop": 270
+    "start": 130,
+    "stop": 260
   },
 
   "0": {
@@ -321,13 +321,13 @@ const alphabet = {
 
   "2": {
     "lineX1": -30,
-    "lineY1": 45,
+    "lineY1": 40,
     "lineX2": 40,
-    "lineY2": 45,
+    "lineY2": 40,
     "arcX": -10,
-    "arcY": -10,
+    "arcY": 0,
     "start": 240,
-    "stop": 50
+    "stop": 20
   },
 
   "3": {
