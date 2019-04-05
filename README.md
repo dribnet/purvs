@@ -1,11 +1,26 @@
-## PS2 MDDN 242 2019 - Sketch
+## PS2 MDDN 242 2019 - Alphabet
 
-I've picked an idea to develop for my final. Each letter will be drawn using a number of hexagons (6 - 10?).
-I'm thinking some letters will be uppercase and some lowercase.
+Each of the letters drawn are made up of 9 hexagons which have 18 parameters each.
+The letters which appear to have less than 9 hexagons do indeed have 9 hexagons, the extra hexagons are just being drawn on top of existing ones.
+All the letters are a mix of upper and lower case, I thought this looked more interesting and "kiddy".
+Some letters are also drawn higher than the line. This is just to keep all the letters consistently aligned to a 'hexagonal grid', it also makes some letters look like they're bobbing up and down when drawn in a word.
 
-I made a function that draws a hexagon. When called, the function that draws the hexagon draws it at a specified x position and y position on the canvas which will be my parameters.
-For my sketch, I just called the function and manually typed in coordinates for each of the hexagons. I will use the correct number of parameters in my alphabet/interaction/exhibition.
-
-The two parameters per letter:
+The eighteen parameters per letter:
   * `hex1_xPos` : x position of hexagon# on the canvas
   * `hex1_yPos` : y position of hexagon# on the canvas
+  * `hex2_xPos` : x position of hexagon# on the canvas
+  * `hex2_yPos` : y position of hexagon# on the canvas
+  * `hex3_xPos` : x position of hexagon# on the canvas
+  * `hex3_yPos` : y position of hexagon# on the canvas
+  * `hex4_xPos` : x position of hexagon# on the canvas
+  * `hex4_yPos` : y position of hexagon# on the canvas
+  * `hex5_xPos` : x position of hexagon# on the canvas
+  * `hex5_yPos` : y position of hexagon# on the canvas
+  * `hex6_xPos` : x position of hexagon# on the canvas
+  * `hex6_yPos` : y position of hexagon# on the canvas
+  * `hex7_xPos` : x position of hexagon# on the canvas
+  * `hex7_yPos` : y position of hexagon# on the canvas
+  * `hex8_xPos` : x position of hexagon# on the canvas
+  * `hex8_yPos` : y position of hexagon# on the canvas
+  * `hex9_xPos` : x position of hexagon# on the canvas
+  * `hex9_yPos` : y position of hexagon# on the canvas

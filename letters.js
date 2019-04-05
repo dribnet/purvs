@@ -711,7 +711,7 @@ const alphabet = {
     "2xPos": defaultX,
     "2yPos": defaultY + verticalShift,
     "3xPos": defaultX - horizontalShift,
-    "3yPos": defaultY + verticalShift/2,
+    "3yPos": defaultY - verticalShift/2,
     "4xPos": defaultX + horizontalShift,
     "4yPos": defaultY - verticalShift/2,
     "5xPos": defaultX - horizontalShift,
@@ -723,7 +723,7 @@ const alphabet = {
     "8xPos": defaultX,
     "8yPos": defaultY - verticalShift,
     "9xPos": defaultX + horizontalShift,
-    "9yPos": defaultY - verticalShift*2.5
+    "9yPos": defaultY - verticalShift*1.5
     },
     "9": {
     "1xPos": defaultX + horizontalShift,

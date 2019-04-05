@@ -65,6 +65,7 @@ function draw_hex(hex1_xPos, hex1_yPos) {
     pop();
 }
 
+// Creates transitions between letters
 function interpolate_letter(percent, oldObj, newObj) {
     let new_letter = {};
     new_letter["1xPos"] = map(percent, 0, 100, oldObj["1xPos"], newObj["1xPos"]);
@@ -88,6 +89,7 @@ function interpolate_letter(percent, oldObj, newObj) {
     return new_letter;
 }
 
+// My chosen placeholder words
 var swapWords = [
     "HUNICOMB",
     "MUCHBEES",
