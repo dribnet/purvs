@@ -17,33 +17,50 @@ const letterA = {
   "pos2x": 30,
   "pos3x": 40,
   "pos4x": 50,
-  "pos1y": 140,
+  "pos1y": 70,
   "pos2y": 40,
-  "pos3y": 140,
+  "pos3y": 80,
   "pos4y": 40,
-  "pos5y": 80,
-  "pos6y": 30,
-  "pos7y": 100,
-  "pos8y": 40,
+  "pos5y": 30,
+  "pos6y": 20,
+  "pos7y": 40,
+  "pos8y": 30,
+  "rotatesS":0,
+  "rotateS":0,
+  "rotatesF":0,
   "rotateF":0
   
 }
 
 const letterB = {
-    "pos1x": 20,
+  //   "pos1x": 20,
+  // "pos2x": 30,
+  // "pos3x": 40,
+  // "pos4x": 50,
+  // "pos1y": 140,
+  // "pos2y": 40,
+  // "pos3y": 140,
+  // "pos4y": 40,
+  // "pos5y": 80,
+  // "pos6y": 30,
+  // "pos7y": 100,
+  // "pos8y": 40,
+  "pos1x": 20,
   "pos2x": 30,
   "pos3x": 40,
   "pos4x": 50,
-  "pos1y": 140,
+  "pos1y": 70,
   "pos2y": 40,
-  "pos3y": 140,
+  "pos3y": 80,
   "pos4y": 40,
-  "pos5y": 80,
-  "pos6y": 30,
-  "pos7y": 100,
-  "pos8y": 40,
-  "rotatesF":90,
-  "rotateF":90
+  "pos5y": 30,
+  "pos6y": 20,
+  "pos7y": 40,
+  "pos8y": 30,
+  "rotatesS":0,
+  "rotateS":0,
+  "rotatesF":0,
+  "rotateF":0
 }
 
 const letterC = {
@@ -52,22 +69,34 @@ const letterC = {
   // "offsety": 0,
   // "rotateF":40
 
-     "pos1x": 20,
+  //    "pos1x": 20,
+  // "pos2x": 30,
+  // "pos3x": 40,
+  // "pos4x": 50,
+  // "pos1y": 140,
+  // "pos2y": 40,
+  // "pos3y": 140,
+  // "pos4y": 40,
+  // "pos5y": 80,
+  // "pos6y": 30,
+  // "pos7y": 100,
+  // "pos8y": 40,
+  "pos1x": 20,
   "pos2x": 30,
   "pos3x": 40,
   "pos4x": 50,
-  "pos1y": 140,
+  "pos1y": 70,
   "pos2y": 40,
-  "pos3y": 140,
+  "pos3y": 80,
   "pos4y": 40,
-  "pos5y": 80,
-  "pos6y": 30,
-  "pos7y": 100,
-  "pos8y": 40,
-  "rotatesS":70,
-  "rotateS":110,
-  "rotatesF":50,
-  "rotateF":-20
+  "pos5y": 30,
+  "pos6y": 20,
+  "pos7y": 40,
+  "pos8y": 30,
+  "rotatesS":100,
+  "rotateS":80,
+  "rotatesF":0,
+  "rotateF":0
 
 }
 
@@ -217,26 +246,26 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   push();
-  drawsthin(center_x - 250, center_y, letterA);
+  drawsthin(center_x - 250, center_y +20, letterA);
   drawlthin(center_x - 250, center_y, letterA);
-  drawsfat(center_x - 250, center_y -50, letterA);
-  drawlfat(center_x - 250, center_y + 20, letterA);
+  drawsfat(center_x - 250, center_y +10, letterA);
+  drawlfat(center_x - 250, center_y + 30, letterA);
   pop();
 
    
   push();
-   drawsthin(center_x -40, center_y, letterB);
-   drawlthin(center_x -40, center_y, letterB);
-   drawsfat(center_x -30, center_y - 110, letterB);
-   drawlfat(center_x -30, center_y +10, letterB);
+   drawsthin(center_x , center_y +20, letterB);
+   drawlthin(center_x , center_y, letterB);
+   drawsfat(center_x +40, center_y - 40, letterB);
+   drawlfat(center_x +40, center_y +20, letterB);
    pop();
 
   
     push();
-  drawsthin(center_x + 280, center_y+50, letterC);
-  drawlthin(center_x + 250, center_y-140, letterC);
-  drawsfat(center_x + 250, center_y -70, letterC);
-  drawlfat(center_x + 250, center_y +20, letterC);
+  drawsthin(center_x + 270, center_y -50, letterC);
+  drawlthin(center_x + 270, center_y+50, letterC);
+  drawsfat(center_x + 250, center_y , letterC);
+  drawlfat(center_x + 250, center_y , letterC);
   pop();
 
 
