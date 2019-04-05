@@ -254,9 +254,117 @@ const alphabet = {
 
   },
 
+  "J": {
+  "pos1x": 10,
+  "pos2x": 30,
+  "pos3x": 35,
+  "pos1y": 100,
+  "pos2y": 65,
+  "pos3y": 10,
+  "pos4y":10,
+  "pos5y": -10,
+  "pos6y": 30,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
+  "translates1":70,
+  "translates2":100,
+  "translates3":70,
+  "translates4":10,
+  "translatef1":35,
+  "translatef2":170
+
+  },
+
+  "K": {
+  "pos1x": 10,
+  "pos2x": 60,
+  "pos3x": 60,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 10,
+  "pos4y": 10,
+  "pos5y": 10,
+  "pos6y": 10,
+  "rotatesS":360,
+  "rotateS":45,
+  "rotatesF":135,
+  "translates1":10,
+  "translates2":100,
+  "translates3":50,
+  "translates4":150,
+  "translatef1":50,
+  "translatef2":50
+
+  },
+
+  "L": {
+  "pos1x": 10,
+  "pos2x": 10,
+  "pos3x": 45,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 100,
+  "pos4y":100,
+  "pos5y": 10,
+  "pos6y": 10,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
+  "translates1":10,
+  "translates2":100,
+  "translates3":10,
+  "translates4":100,
+  "translatef1":50,
+  "translatef2":190
 
 
+  },
 
 
+  "M": {
+  "pos1x": 10,
+  "pos2x": 35,
+  "pos3x": 10,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": -65,
+  "pos4y":100,
+  "pos5y": 100,
+  "pos6y": 100,
+  "rotatesS":360,
+  "rotateS":360,
+  "rotatesF":360,
+  "translates1":10,
+  "translates2":100,
+  "translates3":50,
+  "translates4":50,
+  "translatef1":90,
+  "translatef2":100
+
+  },
+
+
+  "N": {
+  "pos1x": 10,
+  "pos2x": 70,
+  "pos3x": 10,
+  "pos1y": 100,
+  "pos2y": 100,
+  "pos3y": 10,
+  "pos4y":10,
+  "pos5y": 100,
+  "pos6y": 100,
+  "rotatesS":360,
+  "rotateS":60,
+  "rotatesF":360,
+  "translates1":10,
+  "translates2":100,
+  "translates3":50,
+  "translates4":100,
+  "translatef1":90,
+  "translatef2":100
+
+  },
 
 }
