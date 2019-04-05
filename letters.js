@@ -1,22 +1,32 @@
 const alphabet = {
   "default": {
-    "size": 40,
+    "sizex": 30,
+  "sizey":30,
     "offsetx": 0,
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+     "sizex": 30,
+  "sizey":30,
+   "offsetx": 45,
+  "offsety": 30,
+  "boxX": 45,
+  "boxY": 90
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "sizex": 30,
+  "sizey": 30,
+  "offsetx":45,
+  "offsety": 15,
+  "boxX": 45,
+  "boxY": 75
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "sizex": 30,
+  "sizey": 30,
+  "offsetx": 90,
+  "offsety": 50,
+  "boxX": 90,
+  "boxY": 50
   }
 }

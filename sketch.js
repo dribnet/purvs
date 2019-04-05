@@ -26,8 +26,8 @@ const letterB = {
   "sizey": 50,
   "offsetx":50,
   "offsety": 15,
-  "boxX": 50,
-  "boxY": 85
+  "boxX": 45,
+  "boxY": 75
 }
 
 const letterC = {

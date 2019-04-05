@@ -2,9 +2,8 @@
 
 Helen Perkins
 
-Sketch Two
-
-Here is another sketch where I was experimenting with some different styles for my alphabet. Here I have gone for thinner lines and letters that are more obviously readable, however I think I do prefer my original sketch because I like how every square in it was the same size where as here the sizes of the squares vary depending on the letter.
+Here I have adapted my sketch to fit the alphabet format and has successfully added my sketch A B C to the letters.js and alphabet.js
+However, I have gone outside of the (100,200) guidelines and I think this is okay? My design still works the gap between letters is just a little smaller then if I stuck to a width of 100. (Mine is 120).
 
 Parameters:
 
