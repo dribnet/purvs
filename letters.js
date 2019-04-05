@@ -1,3 +1,8 @@
+const PI = 3.14159;
+const HALF_PI = PI/2;
+const QUARTER_PI = PI/4;
+
+
 const alphabet = {
   "default": {
   //yshift
@@ -12,7 +17,13 @@ const alphabet = {
   "offsetY1": 20,
   "offsetY2": 40,
   "offsetY3": 20,
-  "offsetY4": 40
+  "offsetY4": 40,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 90,
+  "Astart": 0+.2,
+  "Astop": PI-.2
   },
 
   "A": {
@@ -43,8 +54,8 @@ const alphabet = {
   //arc positions
   "arcX1": 50,
   "arcY1": 150,
-  "arcH": 80,
-  "arcW": 80
+  "Astart": HALF_PI-0.5,
+  "Astop": -HALF_PI+0.5
   },
 
   "B": {
@@ -75,8 +86,8 @@ const alphabet = {
   //arc positions
   "arcX1": 50,
   "arcY1": 150,
-  "arcH": 80,
-  "arcW": 80
+  "Astart": -HALF_PI-0.5,
+  "Astop": HALF_PI+0.5
   },  
 
   "C": {
@@ -102,7 +113,13 @@ const alphabet = {
   "quadY1": 120,
   "quadY2": 145,
   "quadY3": 190,
-  "quadY4": 150
+  "quadY4": 150,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 150,
+  "Astart": QUARTER_PI+1,
+  "Astop": PI+1.4
   },
 
   "D": {
@@ -128,7 +145,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 150,
+  "Astart": HALF_PI-0.5,
+  "Astop": -HALF_PI+0.5
   },
 
   "E": {
@@ -154,7 +177,13 @@ const alphabet = {
   "quadY1": 150,
   "quadY2": 180,
   "quadY3": 185,
-  "quadY4": 150
+  "quadY4": 150,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 140,
+  "Astart": PI,
+  "Astop": 0
   },
 
   "F": {
@@ -180,7 +209,13 @@ const alphabet = {
   "quadY1": 40,
   "quadY2": 90,
   "quadY3": 90,
-  "quadY4": 40
+  "quadY4": 40,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   },
 
   "G": {
@@ -206,7 +241,13 @@ const alphabet = {
   "quadY1": 180,
   "quadY2": 260,
   "quadY3": 220,
-  "quadY4": 160
+  "quadY4": 160,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 135,
+  "Astart": HALF_PI-0.5,
+  "Astop": -HALF_PI+0.5
   },
 
   "H": {
@@ -232,7 +273,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 140,
+  "Astart": PI+.4,
+  "Astop": -.4
   },
 
   "I": {
@@ -252,7 +299,13 @@ const alphabet = {
   "quadY1": 110,
   "quadY2": 130,
   "quadY3": 130,
-  "quadY4": 110
+  "quadY4": 110,
+
+  //arc positions
+  "arcX1": 80,
+  "arcY1": 165,
+  "Astart": QUARTER_PI+1.3,
+  "Astop": PI+1.1
   },
 
   "J": {
@@ -278,7 +331,13 @@ const alphabet = {
   "quadY1": 110,
   "quadY2": 130,
   "quadY3": 130,
-  "quadY4": 110
+  "quadY4": 110,
+ 
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 240,
+  "Astart": 0+1.2,
+  "Astop": PI+.5
   },
 
   "K": {
@@ -304,7 +363,13 @@ const alphabet = {
   "quadY1": 190,
   "quadY2": 140,
   "quadY3": 160,
-  "quadY4": 160
+  "quadY4": 160,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 140,
+  "Astart": PI,
+  "Astop": 0
   },
 
   "L": {
@@ -324,7 +389,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 80,
+  "arcY1": 100,
+  "Astart": QUARTER_PI+1.3,
+  "Astop": PI+1.1
   },
 
   "M": {
@@ -350,7 +421,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 100,
+  "Astart": 0+.2,
+  "Astop": PI-.2
   },  
 
   "N": {
@@ -376,7 +453,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 110,
+  "Astart": 0+.6,
+  "Astop": PI+.3
   },    
 
   "O": {
@@ -402,7 +485,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 150,
+  "Astart": -PI*2,
+  "Astop": PI*2
   },  
 
   "P": {
@@ -428,7 +517,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 150,
+  "Astart": -HALF_PI-0.5,
+  "Astop": HALF_PI+0.5
   },  
 
   "Q": {
@@ -454,7 +549,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 30,
+  "arcY1": 150,
+  "Astart": HALF_PI-0.5,
+  "Astop": -HALF_PI+0.5
   },      
 
   "R": {
@@ -480,7 +581,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 140,
+  "Astart": 0+3,
+  "Astop": PI+2.8
   },     
 
   "S": {
@@ -506,7 +613,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 165,
+  "Astart": 0+1.2,
+  "Astop": PI+.5
   },     
 
   "T": {
@@ -532,7 +645,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 135,
+  "Astart": PI+.3,
+  "Astop": 0-.3
   },    
 
   "U": {
@@ -558,7 +677,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 40,
+  "arcY1": 150,
+  "Astart": 0-.2,
+  "Astop": PI-1
   },   
 
   "V": {
@@ -584,7 +709,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 60,
+  "arcY1": 150,
+  "Astart": 0+1.5,
+  "Astop": PI+.7
   },
 
   "W": {
@@ -610,7 +741,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 180,
+  "Astart": PI+.2,
+  "Astop": 0-.2
   },  
 
   "X": {
@@ -636,7 +773,13 @@ const alphabet = {
   "quadY1": 110,
   "quadY2": 190,
   "quadY3": 110,
-  "quadY4": 190
+  "quadY4": 190,
+
+  //arc positions
+  "arcX1": 15,
+  "arcY1": 140,
+  "Astart": PI+1.3,
+  "Astop": 0+.4
   },     
 
   "Y": {
@@ -662,7 +805,13 @@ const alphabet = {
   "quadY1": 260,
   "quadY2": 205,
   "quadY3": 175,
-  "quadY4": 230
+  "quadY4": 230,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 235,
+  "Astart": 0+.8,
+  "Astop": PI+.2
   },   
 
   "Z": {
@@ -688,7 +837,13 @@ const alphabet = {
   "quadY1": 145,
   "quadY2": 120,
   "quadY3": 120,
-  "quadY4": 185
+  "quadY4": 185,
+
+  //arc positions
+  "arcX1": 30,
+  "arcY1": 140,
+  "Astart": 0-.2,
+  "Astop": PI-1.2
   }, 
 
   //numbers
@@ -716,7 +871,13 @@ const alphabet = {
   "quadY1": 30,
   "quadY2": 30,
   "quadY3": 10,
-  "quadY4": 10
+  "quadY4": 10,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   },  
 
   "1": {
@@ -742,7 +903,13 @@ const alphabet = {
   "quadY1": 180,
   "quadY2": 40,
   "quadY3": 80,
-  "quadY4": 180
+  "quadY4": 180,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   },    
 
   "2": {
@@ -768,7 +935,13 @@ const alphabet = {
   "quadY1": 100,
   "quadY2": 20,
   "quadY3": 50,
-  "quadY4": 160  
+  "quadY4": 160,
+
+  //arc positions
+  "arcX1": 40,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5  
   },   
 
   "3": {
@@ -794,7 +967,13 @@ const alphabet = {
   "quadY1": 170,
   "quadY2": 30,
   "quadY3": 30,
-  "quadY4": 170  
+  "quadY4": 170,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5  
   },   
 
   "4": {
@@ -820,7 +999,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 20,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   }, 
 
   "5": {
@@ -846,7 +1031,13 @@ const alphabet = {
   "quadY1": 130,
   "quadY2": 20,
   "quadY3": 20,
-  "quadY4": 115 
+  "quadY4": 115,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   },   
 
   "6": {
@@ -872,7 +1063,13 @@ const alphabet = {
   "quadY1": 150,
   "quadY2": 10,
   "quadY3": 60,
-  "quadY4": 120  
+  "quadY4": 120,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5  
   }, 
 
   "7": {
@@ -898,7 +1095,13 @@ const alphabet = {
   "quadY1": 70,
   "quadY2": 70,
   "quadY3": 50,
-  "quadY4": 50
+  "quadY4": 50,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   }, 
 
   "8": {
@@ -924,7 +1127,13 @@ const alphabet = {
   "quadY1": 60,
   "quadY2": 140,
   "quadY3": 60,
-  "quadY4": 140
+  "quadY4": 140,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   }, 
 
   "9": {
@@ -950,6 +1159,12 @@ const alphabet = {
   "quadY1": 120,
   "quadY2": 120,
   "quadY3": 100,
-  "quadY4": 100
+  "quadY4": 100,
+
+  //arc positions
+  "arcX1": 50,
+  "arcY1": 40,
+  "Astart": PI+0.3,
+  "Astop": -QUARTER_PI+0.5
   },          
 }
