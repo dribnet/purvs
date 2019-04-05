@@ -4,8 +4,8 @@ function drawLetter(letterData) {
 
   // draw a triangle
   noStroke();
-  fill(99, 142, 67, 150);
-  triangle(50, 60, 90, 120, 10, 120);
+  fill(99, 142, 67, 150); //green
+  triangle(50, 60, 88, 120, 12, 120);
 
   // color/stroke setup
   stroke(arcStrokeCol);
@@ -26,7 +26,7 @@ function drawLetter(letterData) {
   let arcStop = letterData["stop"];
 
   // draw an arc
-  //noFill();
+  fill(99, 142, 67, 100); //green
   strokeWeight(9);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 

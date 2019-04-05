@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019 - Alphabet
 
-I changed up the colours and kept feeling as though something felt missing in my font; I felt as though it needed something more. I let the fill of the arcs come back and I quite like this look more. I think I will make more adjustments.
+Made some small adjustments.
 
 Each of my letters is composed with one arc and one line that work around a triangle. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 
