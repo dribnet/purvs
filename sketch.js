@@ -13,66 +13,115 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 100,
-  "offsetx": 25,
-  "offsety": -49
+  structure: 
+    [[0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+    [0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+    [0, 0, 0, 1,0,0,0,1,1,1,0,0,0,0],
+    [0, 0, 0, 0,1,0,1,1,1,1,0,0,0,0],
+    [0, 0, 0, 0,0,1,1,1,0,0,0,0,0,0],
+    [0, 0, 0, 1,1,1,1,0,1,1,1,0,0,0],
+    [0, 0, 1, 0,0,1,1,1,0,0,0,1,0,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,0,0,1,0],
+    [0, 0, 1, 0,0,0,0,0,0,0,0,1,0,0],
+    [0, 0, 0, 1,0,0,0,0,0,0,1,0,0,0],
+    [0, 0, 0, 0,1,1,1,1,1,1,0,0,0,0]]
 }
 
 const letterB = {
-  "size": 100,
-  "offsetx": 70,
-  "offsety": -170
+  structure: 
+    [[0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0],
+    [0, 0, 0, 0,0,1,1,1,0,0,0,0,0,0],
+    [0, 0, 0, 1,1,0,0,0,1,1,0,0,0,0],
+    [0, 0, 1, 0,0,0,0,0,0,0,1,0,0,0],
+    [0, 1, 0, 1,0,0,0,0,0,1,0,1,0,0],
+    [0, 1, 0, 0,1,0,0,0,1,0,0,1,0,0],
+    [1, 0, 0, 1,1,1,1,1,1,1,0,0,1,0],
+    [1, 1, 1, 0,1,0,0,0,1,0,1,1,1,0],
+    [1, 0, 0, 0,1,0,0,0,1,0,0,0,1,0],
+    [0, 1, 0, 0,1,0,0,0,1,0,0,1,0,0],
+    [0, 1, 0, 1,0,0,0,0,0,1,0,1,0,0],
+    [0, 0, 1, 0,0,0,0,0,0,0,1,0,0,0],
+    [0, 0, 0, 1,1,0,0,0,1,1,0,0,0,0],
+    [0, 0, 0, 0,0,1,1,1,0,0,0,0,0,0]]
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 60,
-  "offsety": -70
+  structure: 
+   [[0, 1, 0, 0,0,0,0,0,0,0,1,0,0,0],
+    [0, 1, 1, 0,1,1,1,1,0,1,1,0,0,0],
+    [0, 1, 0, 1,0,0,0,0,1,0,1,0,0,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,1,0,0,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,1,0,0,0],
+    [0, 0, 1, 0,0,0,0,0,0,1,0,0,0,0],
+    [0, 0, 0, 0,0,0,0,0,1,0,0,0,0,0],
+    [0, 0, 0, 0,1,0,0,0,0,1,0,0,0,0],
+    [0, 0, 0, 1,0,0,0,0,0,0,1,0,0,0],
+    [0, 1, 0, 1,0,0,0,0,0,0,1,0,0,0],
+    [1, 0, 0, 1,0,0,0,0,0,0,0,1,0,0],
+    [1, 0, 0, 1,0,0,0,0,0,0,0,1,0,0],
+    [0, 1, 0, 0,0,0,0,0,0,0,0,1,0,0],
+    [0, 0, 1, 1,1,1,1,1,1,1,1,1,0,0]]
 }
 
-const colorFront1  = "#ffffff";
-const colorFront2  = "#d3d3d3";
-const colorBack    = "#ffffff";
-const colorStroke  = "#233f11";
+const letterE = {
 
-function setup () {
+}
+const colorFront1 = "#199cff";
+const colorFront2 = "#59ccff";
+const colorBack = "#B38781";
+const colorStroke = "#233f11";
+
+function setup() {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  triangle(posx, posy, posx+150, posy,posx+75, posy- 140);
-  fill(colorFront2);
-  ellipse(pos2x+50, pos2y+50, size2, size2);
+  let w = 200;
+  let h = 200;
+  let curY=posy;
+  stroke(0);
+  if(!letterData.structure)return;
+  fill(255,237,235);
+  for (let r = 0; r < letterData.structure.length; r++) {
+
+    let curX=posx;
+    for (let c = 0; c < letterData.structure[r].length; c++) {
+        if(letterData.structure[r][c] === 1)
+          rect(curX,curY,7,7,2);
+        curX+=7;
+     }
+     curY+=7;
+
+
+  }
+
 }
 
-function draw () {
+function draw() {
   // clear screen
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 350, center_y-50, letterA);
+  drawLetter(center_x-50, center_y-50, letterB);
+  drawLetter(center_x + 250, center_y-50, letterC);
 }
 
 function keyTyped() {
