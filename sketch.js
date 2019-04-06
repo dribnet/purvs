@@ -70,8 +70,9 @@ function draw () {
 
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+  //the let center_x = canvasWidth/2 isnt working
+  let center_x = 400;  
+  let center_y = canvasHeight/2;
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
