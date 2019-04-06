@@ -446,18 +446,6 @@ const alphabet = {
   "arcE": TWO_PI,
   "arcS2": 0, 
   "arcE2": TWO_PI/10*9, 
-},
-"?": {
-  "size1": 100,
-    "size": 100,
-  "offsetx1": 50,
-  "offsety2": 50,
-  "offsetx": 0,
-  "offsety": 0,
-  "arcS": 0, 
-  "arcE": TWO_PI,
-  "arcS2": 0, 
-  "arcE2": TWO_PI/10*10, 
 }
 
 }
