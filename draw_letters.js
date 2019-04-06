@@ -9,6 +9,7 @@
 
 
 function drawLetter(letterData) {
+
     for (i = 0; i < 8; i++){
       push()
       translate(50,100)
@@ -29,6 +30,7 @@ function drawLetter(letterData) {
   }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
   new_letter["point1x"] = map(percent, 0, 100, oldObj["point1x"], newObj["point1x"]);
   new_letter["point1y"] = map(percent, 0, 100, oldObj["point1y"], newObj["point1y"]);
   new_letter["point2x"] = map(percent, 0, 100, oldObj["point2x"], newObj["point2x"]);
@@ -41,6 +43,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["point5y"] = map(percent, 0, 100, oldObj["point5y"], newObj["point5y"]);
   new_letter["point6x"] = map(percent, 0, 100, oldObj["point6x"], newObj["point6x"]);
   new_letter["point6y"] = map(percent, 0, 100, oldObj["point6y"], newObj["point6y"]);
+
   return new_letter;
 }
 
