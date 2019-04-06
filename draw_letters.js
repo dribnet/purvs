@@ -27,11 +27,11 @@ function drawLetter(letterData) {
   // draw two circles
   stroke(71, 145, 121);
   rect(10, 100, 80, 80);
-  stroke(119, 175, 142);
+  stroke(191, 235, 200);
   rect(pos3x, pos3y, size3 + 10, size3);
-  stroke(119, 175, 142);
+  stroke(191, 235, 200);
   rect(pos4x, pos4y, size3 + 10, size3);
-  stroke(212, 242, 198);
+  stroke(201, 235, 161);
   rect(pos2x, pos2y, size2 + 10, size2);
   
 }
