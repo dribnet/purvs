@@ -9,6 +9,9 @@ function sliderToDataObject() {
   obj["size"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
   obj["offsetx"] = map(param_sliders[1].value(), 0, 100, -50, 50);
   obj["offsety"] = map(param_sliders[2].value(), 0, 100, -150, 50);
+  obj["arcS"] = map(param_sliders[3].value(), 0, 100, -150, 50);
+  obj["arcE"] = map(param_sliders[4].value(), 0, 100, -150, 50);
+
   return obj;
 }
 
