@@ -21,12 +21,16 @@ function drawLetter(letterData) {
   let pos2y = 100 + letterData["prim_offsety"];
   let pos3x = 10 + letterData["sec_offsetx"];
   let pos3y = 100 + letterData["sec_offsety"];
+  let pos4x = 10 + letterData["third_offsetx"];
+  let pos4y = 100 + letterData["third_offsety"];
 
   // draw two circles
   stroke(71, 145, 121);
   rect(10, 100, 80, 80);
   stroke(119, 175, 142);
   rect(pos3x, pos3y, size3 + 10, size3);
+  stroke(119, 175, 142);
+  rect(pos4x, pos4y, size3 + 10, size3);
   stroke(212, 242, 198);
   rect(pos2x, pos2y, size2 + 10, size2);
   

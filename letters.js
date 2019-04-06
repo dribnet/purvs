@@ -6,16 +6,20 @@ const alphabet = {
     "prim_offsety": 15
   },
   "A": {
-    "primary_size": 45,
-    "secondary_size": 0,
-    "prim_offsetx": 12.5,
-    "prim_offsety": 45
+    "primary_size": 15,
+    "secondary_size": 45,
+    "prim_offsetx": 27.5,
+    "prim_offsety": 25,
+    "sec_offsetx": 12.5,
+    "sec_offsety": 50
   },
   "B": {
-    "primary_size": 45,
-    "secondary_size": 0,
-    "prim_offsetx": 0,
-    "prim_offsety": -55
+    "primary_size": 40,
+    "secondary_size": 15,
+    "prim_offsetx": 17.5,
+    "prim_offsety": 20,
+    "sec_offsetx": 0,
+    "sec_offsety": -25
   },
   "C": {
     "primary_size": 50,
@@ -92,111 +96,117 @@ const alphabet = {
     "prim_offsety": -10
   },
   "M": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 15,
+    "secondary_size": 15,
+    "prim_offsetx": 27.5,
+    "prim_offsety": 5,
+    "sec_offsetx": 0,
+    "sec_offsety": 85,
+    "third_offsetx": 55,
+    "third_offsety": 85
   },
   "N": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 45,
+    "secondary_size": 7.5,
+    "prim_offsetx": 12.5,
+    "prim_offsety": 45,
+    "sec_offsetx": 0,
+    "sec_offsety": -12.5
   },
   "O": {
-    "primary_size": 50,
+    "primary_size": 25,
     "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15
+    "prim_offsetx": 22.5,
+    "prim_offsety": 27.5
   },
   "P": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
+    "primary_size": 10,
+    "secondary_size": 45,
+    "prim_offsetx": 45,
     "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "sec_offsetx": 35,
+    "sec_offsety": 45
   },
   "Q": {
-    "primary_size": 50,
-    "secondary_size": 0,
+    "primary_size": 40,
+    "secondary_size": 15,
     "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "prim_offsety": 20,
+    "sec_offsetx": 45,
+    "sec_offsety": 72.5
   },
   "R": {
     "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "secondary_size": 7.5,
+    "prim_offsetx": 30,
+    "prim_offsety": 40,
+    "sec_offsetx": 0,
+    "sec_offsety": -12.5
   },
   "S": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
+    "primary_size": 20,
+    "secondary_size": 20,
+    "prim_offsetx": 60,
     "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "sec_offsetx": -7.5,
+    "sec_offsety": 47.5
   },
   "T": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 45,
+    "secondary_size": 45,
+    "prim_offsetx": 55,
+    "prim_offsety": 45,
+    "sec_offsetx": -30,
+    "sec_offsety": 45
   },
   "U": {
-    "primary_size": 50,
-    "secondary_size": 0,
+    "primary_size": 40,
+    "secondary_size": 7.5,
     "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "prim_offsety": -7.5,
+    "sec_offsetx": 62.5,
+    "sec_offsety": 85
   },
   "V": {
-    "primary_size": 50,
+    "primary_size": 30,
     "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15
+    "prim_offsetx": 20,
+    "prim_offsety": -7.5
   },
   "W": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 15,
+    "secondary_size": 15,
+    "prim_offsetx": 27.5,
+    "prim_offsety": 60,
+    "sec_offsetx": 0,
+    "sec_offsety": -20,
+    "third_offsetx": 55,
+    "third_offsety": -20
   },
   "X": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 30,
+    "secondary_size": 30,
+    "prim_offsetx": -15,
+    "prim_offsety": 70,
+    "sec_offsetx": 55,
+    "sec_offsety": -10
   },
   "Y": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
-    "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "primary_size": 30,
+    "secondary_size": 40,
+    "prim_offsetx": 20,
+    "prim_offsety": -15,
+    "sec_offsetx": -25,
+    "sec_offsety": 47.5,
+    "third_offsetx": 55,
+    "third_offsety": 47.5
   },
   "Z": {
-    "primary_size": 50,
-    "secondary_size": 0,
-    "prim_offsetx": 15,
+    "primary_size": 20,
+    "secondary_size": 20,
+    "prim_offsetx": -7.5,
     "prim_offsety": 15,
-    "sec_offsetx": 15,
-    "sec_offsety": 15
+    "sec_offsetx": 60,
+    "sec_offsety": 47.5
   }
 }
