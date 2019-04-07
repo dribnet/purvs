@@ -1,11 +1,26 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+My idea for an alphabet is to have a bunch of cute little bugs scurrying around and forming the alphabet out of their bodies. This is my first pass at it in sketch form, and currently each bugs x and y rotation is being passed in as its own parameter. I'm finding this method to be rather impractical, as I'm already finding it difficult to form even basic letters out of just 6 bugs, and I'm already using 18 parameters.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+My next pass at the concept will instead pass in the vertices of a Catmull-Rom spline or bezier curve and interpolate along it to get the positions and orientations for the bugs. This will allow me to have as many bugs as I want. I think I'll also have a custom location for a bug or a separate little spline as one of the inputs to provide some flexibility for letters like Q or E or H. 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+The current (soon to be retired) 18 parameters per letter:
+  * `bug1_x`
+  * `bug1_y`
+  * `bug1_rot`
+  * `bug2_x`
+  * `bug2_y`
+  *   `bug2_rot`
+  *  `bug3_x`
+  * `bug3_y`
+  *    `bug3_rot`
+  *   `bug4_x`
+  *  `bug4_y`
+  * `bug4_rot`
+  *    `bug5_x`
+  *   `bug5_y`
+  *  `bug5_rot`
+  *  `bug6_x`
+  *  `bug6_y`
+  *  `bug6_rot`
+      
