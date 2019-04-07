@@ -2,8 +2,12 @@
 // const colorFront2  = "#59ccff";
 // const colorStroke  = "#233f11";
 
-const colorFront1  = [204, 101, 192, 2];
-const colorFront2  = [204,101,192,150];
+// const colorFront1  = [204, 101, 192, 2];
+// const colorFront2  = [204,101,192,150];
+const colorFront1  = [255, 0, 0, 170];
+const colorFront2  = [255,255,0,170];
+const colorFront3  = [0, 0, 255, 170];
+
 const colorStroke  = "#233f11";
 
 /*
@@ -25,18 +29,6 @@ function drawLetter(letterData) {
   let w= 100;
   let h = 200;
 
-//   //determine parameters for second circle
-//   let size2 = letterData["size"];
-//   let pos2x = 50  + letterData["offsetx"];
-//   let pos2y = 150 + letterData["offsety"];
-
-//   // draw two circles
-//   fill(colorFront1);
-//   ellipse(50, 150, 75, 75);
-//   fill(colorFront2);
-//   ellipse(pos2x, pos2y, size2, size2);
-// // }
-
 
 
 
@@ -44,7 +36,7 @@ function drawLetter(letterData) {
 function drawsthin(letterData) {
 
 
- 
+ fill(colorFront1)
 
     let quadposx1 = letterData["pos1x"];
     let quadposy1 = letterData["pos1y"];
@@ -68,7 +60,7 @@ function drawlthin(letterData) {
   let quadposy4 = letterData["pos4y"];
   let rotAmount2 = letterData["rotateS"];
 
- fill(colorFront1);
+ fill(colorFront2);
 angleMode(DEGREES);
   
 push(); 
@@ -85,7 +77,7 @@ function drawsfat(letterData) {
   let quadposy6 = letterData["pos6y"];
   let rotAmount3 = letterData["rotatesF"];
 
- fill(colorFront1);
+ fill(colorFront3);
 angleMode(DEGREES);
   
 push(); 
@@ -122,12 +114,6 @@ drawsfat(letterData)
 // drawlfat(letterData)
 pop();
 
-// push();
-// drawsthin(letterDataB)
-// drawlthin(letterDataB)
-// drawsfat(80,50, letterDataB)
-// drawlfat(80, 100, letterDataB)
-// pop();
 
 
 }
@@ -162,5 +148,16 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "BAAAAAAA",
+  "?GUNDAM?",
+  "?ASRIEL?",
+  "DREEMURR",
+  "GAVIN?AU",
+  "AUKAIWEN",
+  "ANTIKRIS",
+  "PIZZAZES",
+  "FRIZZILY",
+  "DIZZYING",
+  "420?BABY",
+  "DARLINGS"
 ]

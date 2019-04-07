@@ -80,17 +80,10 @@ function draw () {
         let letter = letters[cur_letter_index];
         if (letter in alphabet) {
           drawLetter(alphabet[letter]);
-               // drawsthin(alphabet[letter]);
-               //      drawlthin(alphabet[letter]);
-               //           drawsfat(alphabet[letter]);
-               //                drawlfat(alphabet[letter]);
+   
         }
         else {
           drawLetter(alphabet["default"]);    
-           // drawsthin(alphabet["default"]); 
-           //  drawlthin(alphabet["default"]); 
-           //   drawsfat(alphabet["default"]); 
-           //    drawlfat(alphabet["default"]); 
         }
         translate(x_step, 0);
         cur_letter_index = (cur_letter_index + 1);
