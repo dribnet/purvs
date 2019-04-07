@@ -4,8 +4,8 @@
 
 // const colorFront1  = [204, 101, 192, 2];
 // const colorFront2  = [204,101,192,150];
-const colorFront1  = [255, 0, 0, 170];
-const colorFront2  = [255,255,0,170];
+const colorFront2  = [255, 0, 0, 170];
+const colorFront1  = [255,255,0,170];
 const colorFront3  = [0, 0, 255, 170];
 
 const colorStroke  = "#233f11";
