@@ -133,7 +133,7 @@ const alphabet = {
     "prim_offsetx": 20,
     "prim_offsety": 25,
     "sec_offsetx": 45,
-    "sec_offsety": 70
+    "sec_offsety": 80
   },
   "R": {
     "primary_size": 40,
@@ -222,7 +222,7 @@ const alphabet = {
   "1": {
     "primary_size": 45,
     "secondary_size": 0,
-    "prim_offsetx": -10,
+    "prim_offsetx": -15,
     "prim_offsety": 35,
   },
   "2": {
@@ -273,7 +273,7 @@ const alphabet = {
     "prim_offsetx": 0,
     "prim_offsety": 40,
     "sec_offsetx": 80,
-    "sec_offsety": 37.5
+    "sec_offsety": 40
   },
   "8": {
     "primary_size": 15,
