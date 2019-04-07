@@ -41,10 +41,15 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["primary_size"]    = map(percent, 0, 100, oldObj["primary_size"], newObj["primary_size"]);
+  new_letter["secondary_size"]    = map(percent, 0, 100, oldObj["secondary_size"], newObj["secondary_size"]);
   new_letter["prim_offsetx"] = map(percent, 0, 100, oldObj["prim_offsetx"], newObj["prim_offsetx"]);
   new_letter["prim_offsety"] = map(percent, 0, 100, oldObj["prim_offsety"], newObj["prim_offsety"]);
   new_letter["sec_offsetx"] = map(percent, 0, 100, oldObj["sec_offsetx"], newObj["sec_offsetx"]);
   new_letter["sec_offsety"] = map(percent, 0, 100, oldObj["sec_offsety"], newObj["sec_offsety"]);
+  new_letter["third_offsetx"] = map(percent, 0, 100, oldObj["third_offsetx"], newObj["third_offsetx"]);
+  new_letter["third_offsety"] = map(percent, 0, 100, oldObj["third_offsety"], newObj["third_offsety"]);
+  new_letter["fourth_offsetx"] = map(percent, 0, 100, oldObj["fourth_offsetx"], newObj["fourth_offsetx"]);
+  new_letter["fourth_offsety"] = map(percent, 0, 100, oldObj["fourth_offsety"], newObj["fourth_offsety"]);
   return new_letter;
 }
 
