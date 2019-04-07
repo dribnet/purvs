@@ -15,22 +15,35 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+ellipse(letterData["lx1"],letterData["ly1"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx2"],letterData["ly2"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx3"],letterData["ly3"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx4"],letterData["ly4"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx5"],letterData["ly5"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx6"],letterData["ly6"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx7"],letterData["ly7"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx8"],letterData["ly8"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx9"],letterData["ly9"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx10"],letterData["ly10"],letterData["size1"],letterData["size1"])
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+
+
+
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["size"]    = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+  new_letter["lx1"] = map(percent, 0, 100, oldObj["lx1"], newObj["lx1"]);
+    new_letter["lx2"] = map(percent, 0, 100, oldObj["lx2"], newObj["lx2"]);
+      new_letter["lx3"] = map(percent, 0, 100, oldObj["lx3"], newObj["lx3"]);
+        new_letter["lx4"] = map(percent, 0, 100, oldObj["lx4"], newObj["lx4"]);
+  new_letter["ly1"] = map(percent, 0, 100, oldObj["ly1"], newObj["ly1"]);
+    new_letter["ly2"] = map(percent, 0, 100, oldObj["ly2"], newObj["ly2"]);
+      new_letter["ly3"] = map(percent, 0, 100, oldObj["ly3"], newObj["ly3"]);
+        new_letter["ly4"] = map(percent, 0, 100, oldObj["ly4"], newObj["ly4"]);
   return new_letter;
 }
 
