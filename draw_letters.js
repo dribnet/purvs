@@ -15,18 +15,26 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for second circle
-    let size2x = letterData["sizex"];
-  let size2y = letterData["sizey"];
+  let size1x = letterData["sizeB1x"];
+  let size1y = letterData["sizeB1y"];
 
+  let size2x = letterData["sizeB2x"];
+  let size2y = letterData["sizeB2y"];
 
-let posx = 0;
-let posy = 80;
+  let posx = 0;
+  let posy = 80;
 
-   let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos1x = posx + letterData["posB1x"];
+  let pos1y = posy + letterData["posB1y"];
 
-    let posBX = posx + letterData["boxX"];
-  let posBY = posy + letterData["boxY"];
+  let pos2x = posx + letterData["posB2x"];
+  let pos2y = posy + letterData["posB2y"];
+
+  let pos3x = posx + letterData["posB3x"];
+  let pos3y = posy + letterData["posB3y"];
+
+  let pos4x = letterData["posB4x"];
+  let pos4y = letterData["posB4y"];
 
 
   // draw two circles
@@ -36,8 +44,10 @@ let posy = 80;
 
   fill(colorFront2);
 
-  rect(pos2x, pos2y, size2x, size2y);
-    rect(posBX,posBY, size2x, size2y);
+  rect(pos1x, pos1y, size1x, size1y);
+   rect(pos2x,pos2y, size1x, size1y);
+   rect(pos3x, pos3y, size2x,size2y);
+    rect(pos4x, pos4y, size2x, size2y);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

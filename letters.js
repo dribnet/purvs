@@ -5,85 +5,209 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 0
   },
+
   "A": {
-     "sizex": 30,
-  "sizey":30,
-   "offsetx": 45,
-  "offsety": 30,
-  "boxX": 45,
-  "boxY": 90
+
+    "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
+
   },
+
   "B": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":45,
-  "offsety": 15,
-  "boxX": 45,
-  "boxY": 75
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "C": {
-     "sizex": 30,
-  "sizey": 30,
-  "offsetx": 90,
-  "offsety": 50,
-  "boxX": 90,
-  "boxY": 50
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "D": {
-  "sizex": 50,
-  "sizey": 75,
-  "offsetx":50,
-  "offsety": 25,
-  "boxX": 50,
-  "boxY": 25
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "E": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":90,
-  "offsety": 20,
-  "boxX": 90,
-  "boxY": 70
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "F": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":90,
-  "offsety": 30,
-  "boxX": 90,
-  "boxY": 90
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "G": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":45,
-  "offsety": 15,
-  "boxX": 45,
-  "boxY": 75
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "H": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":45,
-  "offsety": 0,
-  "boxX": 45,
-  "boxY": 90
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
   "I": {
-  "sizex": 30,
-  "sizey": 50,
-  "offsetx":90,
-  "offsety": 35,
-  "boxX": 0,
-  "boxY": 35
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
 
   "J": {
-  "sizex": 30,
-  "sizey": 30,
-  "offsetx":45,
-  "offsety": 15,
-  "boxX": 45,
-  "boxY": 75
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 20,
+    "sizeB2y":20,
+
+    "posB1x": 45,
+    "posB1y": 30,
+
+    "posB2x": 45,
+    "posB2y": 90,
+
+    "posB3x": 10,
+    "posB3y": 10,
+
+    "posB4x":15,
+    "posB4y":15
+
   },
 }
