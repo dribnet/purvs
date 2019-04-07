@@ -1,7 +1,6 @@
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
-
 /*
  * Draw the letter given the letterData
  *
@@ -12,9 +11,10 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  noStroke();
+  fill(236,147,148);
 
-  // determine parameters for second circle
+
 ellipse(letterData["lx1"],letterData["ly1"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx2"],letterData["ly2"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx3"],letterData["ly3"],letterData["size1"],letterData["size1"])
@@ -25,7 +25,9 @@ ellipse(letterData["lx7"],letterData["ly7"],letterData["size1"],letterData["size
 ellipse(letterData["lx8"],letterData["ly8"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx9"],letterData["ly9"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx10"],letterData["ly10"],letterData["size1"],letterData["size1"])
-
+ellipse(letterData["lx11"],letterData["ly11"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx12"],letterData["ly12"],letterData["size1"],letterData["size1"])
+ellipse(letterData["lx13"],letterData["ly13"],letterData["size1"],letterData["size1"])
 
 
 
@@ -35,15 +37,35 @@ ellipse(letterData["lx10"],letterData["ly10"],letterData["size1"],letterData["si
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+  new_letter["size1"]    = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+    new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
+      new_letter["size3"]    = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
   new_letter["lx1"] = map(percent, 0, 100, oldObj["lx1"], newObj["lx1"]);
     new_letter["lx2"] = map(percent, 0, 100, oldObj["lx2"], newObj["lx2"]);
       new_letter["lx3"] = map(percent, 0, 100, oldObj["lx3"], newObj["lx3"]);
         new_letter["lx4"] = map(percent, 0, 100, oldObj["lx4"], newObj["lx4"]);
+        new_letter["lx5"] = map(percent, 0, 100, oldObj["lx5"], newObj["lx5"]);
+          new_letter["lx6"] = map(percent, 0, 100, oldObj["lx6"], newObj["lx6"]);
+            new_letter["lx7"] = map(percent, 0, 100, oldObj["lx7"], newObj["lx7"]);
+              new_letter["lx8"] = map(percent, 0, 100, oldObj["lx8"], newObj["lx8"]);
+              new_letter["lx9"] = map(percent, 0, 100, oldObj["lx9"], newObj["lx9"]);
+                new_letter["lx10"] = map(percent, 0, 100, oldObj["lx10"], newObj["lx10"]);
+                new_letter["lx11"] = map(percent, 0, 100, oldObj["lx11"], newObj["lx11"]);
+                new_letter["lx12"] = map(percent, 0, 100, oldObj["lx12"], newObj["lx12"]);
+                new_letter["lx13"] = map(percent, 0, 100, oldObj["lx13"], newObj["lx13"]);
   new_letter["ly1"] = map(percent, 0, 100, oldObj["ly1"], newObj["ly1"]);
     new_letter["ly2"] = map(percent, 0, 100, oldObj["ly2"], newObj["ly2"]);
       new_letter["ly3"] = map(percent, 0, 100, oldObj["ly3"], newObj["ly3"]);
         new_letter["ly4"] = map(percent, 0, 100, oldObj["ly4"], newObj["ly4"]);
+        new_letter["ly5"] = map(percent, 0, 100, oldObj["ly5"], newObj["ly5"]);
+          new_letter["ly6"] = map(percent, 0, 100, oldObj["ly6"], newObj["ly6"]);
+          new_letter["ly7"] = map(percent, 0, 100, oldObj["ly7"], newObj["ly7"]);
+            new_letter["ly8"] = map(percent, 0, 100, oldObj["ly8"], newObj["ly8"]);
+            new_letter["ly9"] = map(percent, 0, 100, oldObj["ly9"], newObj["ly9"]);
+              new_letter["ly10"] = map(percent, 0, 100, oldObj["ly10"], newObj["ly10"]);
+              new_letter["ly11"] = map(percent, 0, 100, oldObj["ly11"], newObj["ly11"]);
+              new_letter["ly12"] = map(percent, 0, 100, oldObj["ly12"], newObj["ly12"]);
+              new_letter["ly13"] = map(percent, 0, 100, oldObj["ly13"], newObj["ly13"]);
   return new_letter;
 }
 

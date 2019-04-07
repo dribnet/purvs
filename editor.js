@@ -27,14 +27,18 @@ function sliderToDataObject() {
   obj["ly9"] = map(param_sliders[17].value(), 0, 100, 0, 200);
   obj["lx10"] = map(param_sliders[18].value(), 0, 100, 0, 100);
   obj["ly10"] = map(param_sliders[19].value(), 0, 100, 0, 200);
-  obj["size1"] = map(param_sliders[20].value(), 0, 100, 0, 100);
-  obj["size2"] = map(param_sliders[21].value(), 0, 100, 0, 100);
-  obj["size3"] = map(param_sliders[22].value(), 0, 100, 0, 100);
+  obj["lx11"] = map(param_sliders[20].value(), 0, 100, 0, 100);
+  obj["ly11"] = map(param_sliders[21].value(), 0, 100, 0, 200);
+  obj["lx12"] = map(param_sliders[22].value(), 0, 100, 0, 100);
+  obj["ly12"] = map(param_sliders[23].value(), 0, 100, 0, 200);
+  obj["lx13"] = map(param_sliders[24].value(), 0, 100, 0, 100);
+  obj["ly13"] = map(param_sliders[25].value(), 0, 100, 0, 200);
+  obj["size1"] = map(param_sliders[26].value(), 0, 100, 0, 25);
 
   return obj;
 }
 
-let numSliders = 23;
+let numSliders = 27;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
