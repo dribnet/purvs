@@ -1,5 +1,5 @@
-const colorFront1  = "#e6f0f7";
-const colorFront2  = "#99bbe0";
+const colorMainRect  = "#e6f0f7";
+const colorFrontRect  = "#99bbe0";
 const colorStroke  = "#0f2133";
 
 /*
@@ -10,12 +10,11 @@ const colorStroke  = "#0f2133";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // fill/stroke setup
-  noFill();
+  // stroke setup
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
+  // determine parameters for moving rectangles
   let size2 = letterData["primary_size"];
   let size3 = letterData["secondary_size"];
   let pos2x = 10 + letterData["prim_offsetx"];
@@ -27,15 +26,14 @@ function drawLetter(letterData) {
   let pos5x = 10 + letterData["fourth_offsetx"];
   let pos5y = 100 + letterData["fourth_offsety"];
 
-  // draw two circles
-  fill(colorFront1);
+  // draw five rectangles
+  fill(colorMainRect);
   rect(10, 100, 80, 80);
-  fill(colorFront2);
+  fill(colorFrontRect);
   rect(pos3x, pos3y, size3 + 10, size3);
   rect(pos4x, pos4y, size3 + 10, size3);
-  rect(pos5x, pos5y, size2 +10, size2);
-  rect(pos2x, pos2y, size2 + 10, size2);
-  
+  rect(pos5x, pos5y, size2 + 10, size2);
+  rect(pos2x, pos2y, size2 + 10, size2); 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -54,7 +52,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "OLDFOGEY",
+  " SQUARE ",
+  "  FONT  ",
+  "MAIAHILL",
+  "LETS GO?"
 ]

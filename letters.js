@@ -1,9 +1,11 @@
 const alphabet = {
   "default": {
-    "primary_size": 50,
-    "secondary_size": 0,
+    "primary_size": 15,
+    "secondary_size": 15,
     "prim_offsetx": 10,
-    "prim_offsety": 15
+    "prim_offsety": 35,
+    "sec_offsetx": 45,
+    "sec_offsety": 35
   },
   "A": {
     "primary_size": 15,
