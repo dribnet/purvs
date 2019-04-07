@@ -156,12 +156,12 @@ const alphabet = {
     "sec_offsety": 47.5
   },
   "T": {
-    "primary_size": 35,
-    "secondary_size": 35,
+    "primary_size": 25,
+    "secondary_size": 25,
     "prim_offsetx": 55,
-    "prim_offsety": 45,
-    "sec_offsetx": -20,
-    "sec_offsety": 45
+    "prim_offsety": 55,
+    "sec_offsetx": -10,
+    "sec_offsety": 55
   },
   "U": {
     "primary_size": 40,
@@ -224,10 +224,10 @@ const alphabet = {
     "prim_offsety": 20
   },
   "1": {
-    "primary_size": 45,
+    "primary_size": 35,
     "secondary_size": 0,
-    "prim_offsetx": -15,
-    "prim_offsety": 35,
+    "prim_offsetx": 0,
+    "prim_offsety": 45,
   },
   "2": {
     "primary_size": 30,
