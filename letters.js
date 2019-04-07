@@ -69,9 +69,11 @@ const alphabet = {
   },
   "I": {
     "primary_size": 20,
-    "secondary_size": 0,
-    "prim_offsetx": 25,
-    "prim_offsety": -30
+    "secondary_size": 20,
+    "prim_offsetx": 0,
+    "prim_offsety": 30,
+    "sec_offsetx": 50,
+    "sec_offsety": 30
   },
   "J": {
     "primary_size": 15,
@@ -185,13 +187,13 @@ const alphabet = {
   },
   "X": {
     "primary_size": 15,
-    "secondary_size": 12.5,
+    "secondary_size": 15,
     "prim_offsetx": 27.5,
     "prim_offsety": 0,
-    "sec_offsetx": 57.5,
-    "sec_offsety": 35,
+    "sec_offsetx": 55,
+    "sec_offsety": 32.5,
     "third_offsetx": 0,
-    "third_offsety": 35,
+    "third_offsety": 32.5,
     "fourth_offsetx": 27.5,
     "fourth_offsety": 65
   },
