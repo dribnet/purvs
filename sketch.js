@@ -25,9 +25,7 @@ const letterB = {
 }
 
 const letterC = {
-  "size": 90,
-  "offsetx": 80,
-  "offsety": 30
+  
 }
 
 // const colorFront1  = "#199cff";
