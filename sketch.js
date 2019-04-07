@@ -15,10 +15,16 @@ const canvasHeight = 500;
 const letterA = {
   "sizex": 50,
   "sizey":50,
+
   "offsetx": 50,
   "offsety": 30,
+
   "boxX": 50,
-  "boxY": 100
+  "boxY": 100,
+
+  "box2Sx": 20,
+  "box2Sy": 20
+
 }
 
 const letterB = {
@@ -27,7 +33,9 @@ const letterB = {
   "offsetx":50,
   "offsety": 15,
   "boxX": 45,
-  "boxY": 75
+  "boxY": 75,
+  "box2Sx": 20,
+  "box2Sy":20
 }
 
 const letterC = {
@@ -36,7 +44,9 @@ const letterC = {
   "offsetx": 100,
   "offsety": 50,
   "boxX": 100,
-  "boxY": 50
+  "boxY": 50,
+    "box2Sx":20,
+  "box2Sy":20
 }
 
 //big circle
@@ -66,7 +76,8 @@ function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2x = letterData["sizex"];
   let size2y = letterData["sizey"];
-
+  let size3x = letterData["box2Sx"];
+  let size3y = letterData["box2Sy"];
 
 
   //This is the x position of the big circle plus the amount x is moved for the little circle. 
@@ -86,7 +97,7 @@ function drawLetter(posx, posy, letterData) {
 
   rect(pos2x, pos2y, size2x, size2y);
 
-  rect(posBX,posBY, size2x, size2y);
+  rect(posBX,posBY, size3x, size3y);
 
 
 

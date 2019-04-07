@@ -2,12 +2,9 @@
 
 Helen Perkins
 
-Another Issue
-Following on from my last discovery I have since realised that just changing it so that the smaller squares x's and y's can be different sizes in proportion to each other wasnt enough. I am also going to have to make it so that each small squares x and y can be totally different to theother small squares.
-Unfortunately this will mean more parameters but I should still definitely be under 12 (unless I just jinxed it...). Thumbnails and previews show my progress through the alphabet so far that led me to this realisation. (Unable to make the G or J with being able to manipulate the x and y of each smaller square independantly.)
+New parameters that allow the two smaller squares to have different x and y lengths to each other. I have just implemented these parameters on the sketch so far as I figured out the code, but I am now goint to add it to the alphabet/letters ect and editor so that I can figure out the rest of my letters with this new parameter. I will possibly have to add up to four more parameters for some letters but hopefully not!
 
-(have not added new parameters to solve above yet)
-Parameters:
+New parameters:
 
   * `sizex` : size of x axis of smaller boxes
   * `sizey` : size of y axis of smaller boxes
@@ -15,4 +12,7 @@ Parameters:
   * 'offsety' : y offset determines y position of smaller squares relative to the large 
   * `boxX` : x position of second small square, relative to big square
   * `boxY` : y position of second small square, relative to big square
+  * 'box2Sx' : x size of the second smaller square
+  * 'box2sy' : y size of the second smaller square
+
 
