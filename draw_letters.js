@@ -9,6 +9,7 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+
   // color/stroke setup
   stroke(colorStroke);
   noStroke();
