@@ -13,7 +13,7 @@ function drawLetter(letterData) {
   const dots = "#ffffff";
   const colorBack   = "#000000";
   const glow = "#ffb459";
-
+/**
    //Create variables from letterData
   p1p2 = letterData["p1p2"];
   p3p4 = letterData["p3p4"];
@@ -24,140 +24,99 @@ function drawLetter(letterData) {
   p4p6 = letterData["p4p6"];
   p1p6 = letterData["p1p6"];
   p2p5 = letterData["p2p5"];
-
+*/
   let dotSize = 15;
 
-//*****DRAWLINES****
 
-  fill(glow); 
-  stroke(glow); 
-  strokeWeight(22); 
+//*****DRAW LINES***//
+//P1 = 25, 20
+//P2 = 95, 20
+//P3 = 15, 100
+//P4 = 85, 100
+//P5 = 5, 180
+//P6 = 75, 180
 
-//HORIZONTAL 
-  if(p1p2==1){ 
-    line(25, 20, 95, 20); 
-  } 
+p1x = letterData["p1x"];
+p1y = letterData["p1y"];
+p2x = letterData["p2x"];
+p2y = letterData["p2y"];
+p3x = letterData["p3x"];
+p3y = letterData["p3y"];
+p4x = letterData["p4x"];
+p4y = letterData["p4y"];
+p5x = letterData["p5x"];
+p5y = letterData["p5y"];
+p6x = letterData["p6x"];
+p6y = letterData["p6y"];
 
-  if(p3p4==1){ 
-    line(15, 100, 85, 100); 
-  } 
+fill(glow); 
+stroke(glow); 
+strokeWeight(22); 
 
-  if(p5p6==1){ 
-    line(5, 180, 75, 180); 
-  } 
+//point one
+line(25, 20, p1x, p1y);
+//point two
+line(95, 20, p2x, p2y);
+//point three
+line(15, 100, p3x, p3y);
+//point four
+line(85, 100, p4x, p4y);
+//point five
+line(5, 180, p5x, p5y);
+//point six
+line(75, 180, p6x, p6y);
 
-//VERTICAL 
-  if(p1p3==1){ 
-   line(25, 20, 15, 100);
-  }
+fill(lines); 
+stroke(lines); 
+strokeWeight(12); 
 
-  if(p2p4==1){
-    line(95, 20, 85, 100);
-  } 
+//point one
+line(25, 20, p1x, p1y);
+//point two
+line(95, 20, p2x, p2y);
+//point three
+line(15, 100, p3x, p3y);
+//point four
+line(85, 100, p4x, p4y);
+//point five
+line(5, 180, p5x, p5y);
+//point six
+line(75, 180, p6x, p6y);
 
-  if(p3p5==1){
-    line(15, 100, 5, 180);
-  }
-
-  if(p4p6==1){
-    line(85, 100, 75, 180);
-  }
-
-//DIAGONAL
- if(p1p6==1){
-  line(25, 20, 75, 180);
-}
-
-  if(p2p5==1){
-    line(95, 20, 5, 180);
-  }
-
-  fill(lines); 
-  stroke(lines); 
-  strokeWeight(12); 
-   
-//HORIZONTAL 
-  if(p1p2==1){ 
-    line(25, 20, 95, 20); 
-  } 
-
-  if(p3p4==1){ 
-    line(15, 100, 85, 100); 
-  } 
-
-  if(p5p6==1){ 
-    line(5, 180, 75, 180); 
-  } 
-
-//VERTICAL 
-  if(p1p3==1){ 
-   line(25, 20, 15, 100);
-  }
-
-  if(p2p4==1){
-    line(95, 20, 85, 100);
-  } 
-
-  if(p3p5==1){
-    line(15, 100, 5, 180);
-  }
-
-  if(p4p6==1){
-    line(85, 100, 75, 180);
-  }
-
-//DIAGONAL
- if(p1p6==1){
-  line(25, 20, 75, 180);
-}
-
-  if(p2p5==1){
-    line(95, 20, 5, 180);
-  }
 
 //*****DRAW DOTS******
-  strokeWeight(5);
+strokeWeight(5);
+fill(dots); 
+stroke(dots); 
 
-//TOP 
-  fill(dots); 
-  stroke(dots); 
-if (p1p2==1 || p1p3==1 || p1p6==1){
-  ellipse(25, 20, dotSize);//top left p1 
-}
-if (p1p2==1 || p2p4==1 || p2p5==1){
-  ellipse(95, 20, dotSize);//top right p2 
-}
+ellipse(25, 20, dotSize);//top left p1 
+ellipse(95, 20, dotSize);//top right p2 
+ellipse(15, 100, dotSize); //mid left p3 
+ellipse(85, 100, dotSize); //mid right p4 
+ellipse(5, 180, dotSize); //bottom left p5 
+ellipse(75, 180, dotSize); //bottom right p6 
 
-//MID
-if(p3p4==1 || p1p3==1 || p3p5==1){
-  ellipse(15, 100, dotSize); //mid left p3 
-}
-if(p3p4==1 || p2p4==1 || p4p6==1){
-  ellipse(85, 100, dotSize); //mid right p4 
-}
-
-//BOTTOM
-if(p5p6==1 || p3p5==1 || p2p5==1){
-  ellipse(5, 180, dotSize); //bottom left p5 
-}
-if(p5p6==1 || p4p6==1 || p1p6==1){
-  ellipse(75, 180, dotSize); //bottom right p6 
-}
 
 }
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["p1p2"]    = map(percent, 0, 100, oldObj["p1p2"], newObj["p1p2"]);
-  new_letter["p3p4"] = map(percent, 0, 100, oldObj["p3p4"], newObj["p3p4"]);
-  new_letter["p5p6"] = map(percent, 0, 100, oldObj["p5p6"], newObj["p5p6"]);
+  new_letter["p1x"] = map(percent, 0, 100, oldObj["p1x"], newObj["p1x"]);
+  new_letter["p1y"] = map(percent, 0, 100, oldObj["p1y"], newObj["p1y"]);
 
-  new_letter["p1p3"] = map(percent, 0, 100, oldObj["p1p3"], newObj["p1p3"]);
-  new_letter["p2p4"] = map(percent, 0, 100, oldObj["p2p4"], newObj["p2p4"]);
-  new_letter["p3p5"] = map(percent, 0, 100, oldObj["p3p5"], newObj["p3p5"]);
-  new_letter["p4p6"] = map(percent, 0, 100, oldObj["p4p6"], newObj["p4p6"]);
+  new_letter["p2x"] = map(percent, 0, 100, oldObj["p2x"], newObj["p2x"]);
+  new_letter["p2y"] = map(percent, 0, 100, oldObj["p2y"], newObj["p2y"]);
 
-  new_letter["p1p6"] = map(percent, 0, 100, oldObj["p1p6"], newObj["p1p6"]);
-  new_letter["p2p5"] = map(percent, 0, 100, oldObj["p2p5"], newObj["p2p5"]);
+  new_letter["p3x"] = map(percent, 0, 100, oldObj["p3x"], newObj["p3x"]);
+  new_letter["p3y"] = map(percent, 0, 100, oldObj["p3y"], newObj["p3y"]);
+
+  new_letter["p4x"] = map(percent, 0, 100, oldObj["p4x"], newObj["p4x"]);
+  new_letter["p4y"] = map(percent, 0, 100, oldObj["p4y"], newObj["p4y"]);
+
+  new_letter["p5x"] = map(percent, 0, 100, oldObj["p5x"], newObj["p5x"]);
+  new_letter["p5y"] = map(percent, 0, 100, oldObj["p5y"], newObj["p5y"]);
+
+  new_letter["p6x"] = map(percent, 0, 100, oldObj["p6x"], newObj["p6x"]);
+  new_letter["p6y"] = map(percent, 0, 100, oldObj["p6y"], newObj["p6y"]);
   return new_letter;
 }
 
