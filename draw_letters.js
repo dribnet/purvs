@@ -33,8 +33,8 @@ function drawLetter(letterData) {
   let pos3x = posx + letterData["posB3x"];
   let pos3y = posy + letterData["posB3y"];
 
-  let pos4x = letterData["posB4x"];
-  let pos4y = letterData["posB4y"];
+  let pos4x = posx + letterData["posB4x"];
+  let pos4y = posy + letterData["posB4y"];
 
 
   // draw two circles
@@ -46,7 +46,7 @@ function drawLetter(letterData) {
 
   rect(pos1x, pos1y, size1x, size1y);
    rect(pos2x,pos2y, size1x, size1y);
-   rect(pos3x, pos3y, size2x,size2y);
+  rect(pos3x, pos3y, size2x,size2y);
     rect(pos4x, pos4y, size2x, size2y);
 }
 
