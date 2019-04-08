@@ -78,13 +78,13 @@ function drawLetter(letterData) {
   ellipse(pos5x, pos5y, 4, 4);
   ellipse(pos6x, pos6y, 4, 4);
 
-//   fill (250,250,0,90);
-// noStroke();
-// triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
-// fill (250,0,0,90);
-// triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
-// fill (250,0,100,90);
-//  triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
+  fill (250,250,0,90);
+noStroke();
+triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
+fill (250,0,0,90);
+triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
+fill (250,0,100,90);
+ triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
 
 
 

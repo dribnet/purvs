@@ -5,3 +5,4 @@ I finished the design and coding my alphabet at this stage. In addition, I tried
 x1: vertex1
 y1: vertex1
 .....
+ Up date the color version of my alphabet.
