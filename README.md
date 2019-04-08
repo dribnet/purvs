@@ -1,15 +1,45 @@
 ## PS2 MDDN 242 2019
 
-I added the exhibition.html to my index.html and called my font "division" because of the lines.
+I tweaked some of the arcs a little to make them a little cleaner. 
 
-I got the arcs working with some help from hazel (ty). I changed the opacity so that they are less harsh.
+Here is the full list of my 20 parameters:
 
-Here are my new parameters for the arcs that now work. I made the width and height constants the same so that I can change the start and stop of the arc, specified in radians. This takes my parameters up to 20.
+Xarc1 : x position for arc
 
-  let Xarc1 = letterData["arcX1"];
-  let Yarc1 = letterData["arcY1"];
+Yarc1: y position for arc
 
-  let arcStart = letterData["Astart"];
-  let arcStop = letterData["Astop"];
+arcStart : start angle of arc, specified in radians
 
-  I added all of the arcs today and I think it looks a lot better. I tried to differentiate the numbers by giving them all little arc hats. This also works because they are different sizes and this wouldn't work with the constant arc width and height.
+arcStop : stop angle of arc, specified in radians
+
+Yshift1 : top of line position for first line
+
+Yshift2 : top of line position for second line
+
+Yshift3 : top of line position for third line
+
+Yshift4 : top of line position for fourth line
+
+length1 : length bottom of line position for first line
+
+length2 : length bottom of line position for second line
+
+length3 : length bottom of line position for third line
+
+length4 : length bottom of line position for fourth line
+
+Xquad1 : x position of first quad point
+
+Xquad2 : x position of second quad point
+
+Xquad3 : x position of third quad point
+
+Xquad4 : x position of fourth quad point
+
+Yquad1 : y position of first quad point
+
+Yquad2 : y position of second quad point
+
+Yquad3 : y position of third quad point
+
+Yquad4 : y position of fourth quad point
