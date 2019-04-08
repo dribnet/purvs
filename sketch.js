@@ -1,5 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
+const colorBack    = "#edf1e9";
 
 //basic numbers for hexagonal grid
 const rad = 10;
