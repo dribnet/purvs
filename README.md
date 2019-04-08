@@ -1,12 +1,15 @@
 ## PS2 MDDN 242 2019
 
-Development and progress
+Progress
 
-So I realised when I tried using lines and ellipses at first but I noticed that a few of the letters couldn't be drawn using those shapes and arcs needed to be used but when I drew them in I founf out that the ellipses were not needed as I could draw round circles using an ellipse and still have curved parts without having a lot of paramaters. I also used alternating colours as I decided to use the lines and oulines and not filled shapes.
+I played around with the shapes that were a but difficult to draw like the j, g and a few others. I also drew the numbers and the ? which were easy as I used some of the letters as a base/starter for the numbers and manipulated them into the number, I also decided to use the whole canvas for the numbers unlike the lower case letters. I kept the same 3 colours but I made sure that the colours were alternating and the same colour wasn't always at the top or bottom.
 
 The parameters per letter:
   * `width` : for my arcs so I can manipulate the shape of it.
   * `height`: for my arcs so I can manipulate the shape of it.
-  * `offsetx` : x position for all my shapes but I defined them by adding in the first letter of what the shape is.
-  * `offsety` : y position for all my shapes but I defined them by adding in the first letter of what the shape is.
+  * `arcx` : x position for my arcs and I defined them by adding in the first letter of what the shape is.
+  * `aarcy` : y position for my arcs and I defined them by adding in the first letter of what the shape is.
+  * `llinex` : I have 2 x positions for my line and I defined them by adding in the first letter of what the shape is.
+  * `liney` : I hvae 2 y positions for my line and I defined them by adding in the first letter of what the shape is.
+
 

@@ -6,13 +6,7 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-
   // determine parameters
-  let ex = letterData["ex"];
-  let ey = letterData["ey"];
-  let ew = letterData["ew"];
-  let eh = letterData["eh"];
-
   let l1x = letterData["l1x"];
   let l1y = letterData["l1y"];
   let l2x = letterData["l2x"];
@@ -30,23 +24,18 @@ function drawLetter(letterData) {
   let a2w = letterData["a2w"];
   let a2h = letterData["a2h"];
 
-  //ellipse outline
-  noFill();
-  stroke(255, 221, 153);
-  strokeWeight(3);
-  ellipse(ex, ey, ew, eh);
-
   //line
   stroke(255);
   strokeWeight(5);
   line(l1x, l1y, l2x, l2y);
 
-  //arcs
+  //Darker Arc 
   noFill();
   stroke(255, 171, 0);
   strokeWeight(4);
   arc(a1x, a1y, aw, ah, radians(a1Start), radians(a1Start+180));
 
+  //Light Arc
   stroke(255,69,0);
   strokeWeight(4);
   arc(a2x, a2y, a2w, a2h, radians(a2Start), radians(a2Start+180));
@@ -54,11 +43,6 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["ex"] = map(percent, 0, 100, oldObj["ex"], newObj["ex"]);
-  new_letter["ey"] = map(percent, 0, 100, oldObj["ey"], newObj["ey"]);
-  new_letter["ew"] = map(percent, 0, 100, oldObj["ew"], newObj["ew"]);
-  new_letter["eh"] = map(percent, 0, 100, oldObj["eh"], newObj["eh"]);
-
   new_letter["l1x"] = map(percent, 0, 100, oldObj["l1x"], newObj["l1x"]);
   new_letter["l1y"] = map(percent, 0, 100, oldObj["l1y"], newObj["l1y"]);
   new_letter["l2x"] = map(percent, 0, 100, oldObj["l2x"], newObj["l2y"]);
@@ -67,6 +51,14 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["a1x"] = map(percent, 0, 100, oldObj["a1x"], newObj["a1x"]);
   new_letter["a1y"] = map(percent, 0, 100, oldObj["a1y"], newObj["a1y"]);
   new_letter["a1Start"] = map(percent, 0, 100, oldObj["a1Start"], newObj["a1Start"]);
+  new_letter["aw"] = map(percent, 0, 100, oldObj["aw"], newObj["aw"]);
+  new_letter["ah"] = map(percent, 0, 100, oldObj["ah"], newObj["ah"]);
+
+  new_letter["a2x"] = map(percent, 0, 100, oldObj["a2x"], newObj["a2x"]);
+  new_letter["a2y"] = map(percent, 0, 100, oldObj["a2y"], newObj["a2y"]);
+  new_letter["a2Start"] = map(percent, 0, 100, oldObj["a2Start"], newObj["a2Start"]);
+  new_letter["a2w"] = map(percent, 0, 100, oldObj["a2w"], newObj["a2w"]);
+  new_letter["a2h"] = map(percent, 0, 100, oldObj["a2h"], newObj["a2h"]);
   return new_letter;
 }
 
