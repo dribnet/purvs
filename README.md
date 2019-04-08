@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-G finished.
+Letters A through P done. 
 
 New parameters:
 
