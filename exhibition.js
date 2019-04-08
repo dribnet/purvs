@@ -41,7 +41,8 @@ let curSwapWord = 0;
 var defaultSwapWords = [
 "MELONLTR",
 "CHERYNYN",
-"12042019"
+"12042019",
+"JIANGXIN"
 ]
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
@@ -169,7 +170,7 @@ function draw () {
 
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  
 
   // shorthand variables to allow margin
   var o = 20
@@ -185,7 +186,7 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 80, 1.0, obj)
   }
 }
 

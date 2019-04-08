@@ -6,7 +6,7 @@ FINAL FONT:
 
 
 
-In the 	draw_letters.js	file and exhibition.js file, I replace the SwapWords variable into : MELONLTR","CHERYNYN","12042019"
+In the 	draw_letters.js	file and exhibition.js file, I replace the SwapWords variable into : MELONLTR","CHERYNYN","12042019","JIANGXIN"
 
 The ten parameters per letter:
  size1 : radius of the first sector
