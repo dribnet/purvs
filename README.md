@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-Letters to F done.
+G finished.
 
 New parameters:
 

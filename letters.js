@@ -130,23 +130,23 @@ const alphabet = {
 
   },
   "G": {
-  "sizeB1x": 30,
-    "sizeB1y":30,
+  "sizeB1x": 60,
+    "sizeB1y":20,
 
     "sizeB2x": 20,
-    "sizeB2y":20,
+    "sizeB2y":60,
 
-    "posB1x": 45,
+    "posB1x": 60,
     "posB1y": 30,
 
-    "posB2x": 45,
-    "posB2y": 90,
+    "posB2x": 40,
+    "posB2y": 70,
 
-    "posB3x": 10,
-    "posB3y": 10,
+    "posB3x": 40,
+    "posB3y": 30,
 
-    "posB4x":15,
-    "posB4y":15
+    "posB4x":40,
+    "posB4y":30
 
   },
   "H": {
