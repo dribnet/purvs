@@ -14,24 +14,24 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 50,
-  "offsetx": -53,
-  "size3": 75
+  "top": 50,
+  "mid": -53,
+  "bot": 75
 }
 
 const letterB = {
-  "size": 36,
-  "offsetx": 23,
-  "size3": 75
+  "top": 36,
+  "mid": 23,
+  "bot": 75
 }
 
 const letterC = {
-  "size": 50,
-  "offsetx": 23,
-  "size3": 75
+  "top": 50,
+  "mid": 23,
+  "bot": 75
 }
 
-const colorFront1  = "#DB2A06";
+const colorFront1  = "#C1272D";
 const colorFront2  = "#F2F2F2";
 const colorFront3  = "#cfe8e7";
 const colorBack    = "#e3eded";
@@ -47,7 +47,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(6);
+  strokeWeight(5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -55,9 +55,9 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let size3 = letterData["size3"];
+  let topbar = letterData["top"];
+  let midbar = posx + letterData["mid"];
+  let botbar = letterData["bot"];
 
   // draw two circles
   fill(colorFront1);
@@ -74,10 +74,10 @@ function drawLetter(posx, posy, letterData) {
   
   fill(colorFront3);
 
-  rect(pos2x, posy-103, 30, 233)
+  rect(midbar, posy-103, 30, 233)
   fill(colorFront3);
-  rect(posx-53, posy-103, 106, size2);
-  rect(posx-53, ((posy+130)-size3), 106, size3);
+  rect(posx-53, posy-103, 106, topbar);
+  rect(posx-53, ((posy+130)-botbar), 106, botbar);
 
 
 

@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2019
 
-Mockup of Alphabet
+Created Alphabet setup
 
-Created the Alphabet inside sketch.js. Will need to do some tweaking to make them look like my mockup. Also need to make decisions on the  box colour being fully invisible or barely visible. All in all this is the least amount of parameters I could conjure with the code.
+After getting some more done, I have set up all that needs to be done to finish my alphabet. i just need to enter the parameters for each letter. I have attempted to create an alphabet with the least amount of parameters possible, making it much easier to code. The interpolation animation is also very simple and satisfying as it is purely the movement of 3 rectangles.
 
 The three parameters I plan to have per letter:
-  * `X Line` : The X position of the vertical line
-  * `Y top box` : The Y width of the top box
-  * `Y bott box` : The Y width of the bottom box
+  * `top` : The size of the top rect on the Y axis
+  * `mid` : The X position of the vertival line
+  * `bot` : The size of the bottom rect on the Y axis
 
