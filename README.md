@@ -1,11 +1,9 @@
 ## PS2 MDDN 242 2019
 
-(Replace this README with information about your alphabet. This is an example.)
+Characters in my alphabet are basically created by a series of horizontal lines linning up in column. 5 lines for most of the letters and 9 lines for b,d,h,k,l and numbers.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+offsetx = start position of the line
+offsety =  length of the line
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+posx and posy to indicate position of the letter in the rectangle
 
