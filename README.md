@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-Letters A through P done. 
+Letters A through Z excluding R and U done.
 
 New parameters:
 
