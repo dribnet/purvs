@@ -356,19 +356,19 @@ const alphabet = {
     "sizeB1y":30,
 
     "sizeB2x": 30,
-    "sizeB2y":30,
+    "sizeB2y":5,
 
-    "posB1x": 45,
-    "posB1y": 30,
+    "posB1x": 30,
+    "posB1y": 20,
 
-    "posB2x": 45,
-    "posB2y": 30,
+    "posB2x": 30,
+    "posB2y": 90,
 
-    "posB3x": 80,
-    "posB3y": 80,
+    "posB3x": 90,
+    "posB3y": 60,
 
-    "posB4x":80,
-    "posB4y":80
+    "posB4x":90,
+    "posB4y":60
 
   },
       "S": {
@@ -413,22 +413,22 @@ const alphabet = {
   },
       "U": {
   "sizeB1x": 30,
-    "sizeB1y":30,
+    "sizeB1y":90,
 
-    "sizeB2x": 40,
-    "sizeB2y":40,
+    "sizeB2x": 10,
+    "sizeB2y":20,
 
-    "posB1x": 45,
-    "posB1y": 20,
+    "posB1x": 40,
+    "posB1y": 0,
 
-    "posB2x": 45,
-    "posB2y": 20,
+    "posB2x": 40,
+    "posB2y": 0,
 
-    "posB3x": 80,
-    "posB3y": 80,
+    "posB3x": 90,
+    "posB3y": 100,
 
-    "posB4x":80,
-    "posB4y":80
+    "posB4x":90,
+    "posB4y":100
 
   },
       "V": {
