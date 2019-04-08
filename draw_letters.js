@@ -64,24 +64,34 @@ function drawLetter(letterData) {
   line(pos2x, pos2y, pos3x, pos3y);
   line(pos1x, pos1y, pos4x, pos4y);
   line(pos4x, pos4y, pos5x, pos5y);
-  //line(pos3x, pos3y, pos4x, pos4y);
+  line(pos5x, pos5y, pos6x, pos6y);
+  line(pos2x, pos2y, pos7x, pos7y);
+  line(pos7x, pos7y, pos5x, pos5y);
+  line(pos2x, pos2y, pos8x, pos8y);
+  line(pos8x, pos8y, pos3x, pos3y);
 
-
-
-  // line(pos5x, pos5y, pos9x, pos9y);
-  // line(pos2x, pos2y,pos3x,pos3y);
-  // line(pos7x, pos7y, pos6x, pos6y);
-  // line(pos5x, pos5y,pos6x,pos6y);
-  // line(pos4x, pos4y, pos8x, pos8y);
-  // line(pos4x, pos4y, pos9x, pos9y);
-  //line(pos9x, pos9y, pos10x, pos10y);
   fill(colorStroke);
-  // ellipse(pos1x+0.5, pos1y, 4, 4);
-  // ellipse(pos5x+0.5, pos5y, 4, 4);
-  // ellipse(pos6x+0.5, pos6y, 4, 4);
-  // ellipse(pos3x+0.5, pos3y, 4, 4);
-  // ellipse(pos2x+0.5, pos2y, 4, 4);
-  // ellipse(pos8x+0.5, pos8y, 4, 4);
+  ellipse(pos1x, pos1y, 4, 4);
+  ellipse(pos2x, pos2y, 4, 4);
+  ellipse(pos3x, pos3y, 4, 4);
+  ellipse(pos4x, pos4y, 4, 4);
+  ellipse(pos5x, pos5y, 4, 4);
+  ellipse(pos6x, pos6y, 4, 4);
+
+//   fill (250,250,0,90);
+// noStroke();
+// triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
+// fill (250,0,0,90);
+// triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
+// fill (250,0,100,90);
+//  triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
+
+
+
+
+
+
+
   // pop();
 }
 
