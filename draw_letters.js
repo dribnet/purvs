@@ -3,7 +3,6 @@ const colorFront2  = "#E84855";
 const colorStroke1  = "#331D0D";
 const colorStroke2  = "#A61109";
 
-
 /*
  * Draw the letter given the letterData
  *
@@ -12,7 +11,6 @@ const colorStroke2  = "#A61109";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-
   // color/stroke setup
   stroke(colorStroke1);
   strokeWeight(3);
@@ -37,8 +35,7 @@ function drawLetter(letterData) {
     
   // draw the matches
   unit(posX1, posY1, rotR1, posX2, posY2, rotR2, posX3, posY3, rotR3, posX4, posY4, rotR4);
-
-  rectMode(CORNER);
+  rectMode(CORNER)
 }
 
 //function interpolate_letter(percent, oldObj, newObj) {
@@ -50,7 +47,7 @@ function drawLetter(letterData) {
 //}
 
 function unit(uX1, uY1, uR1, uX2, uY2, uR2, uX3, uY3, uR3, uX4, uY4, uR4){
-push();
+
 //    first match
     push();
     translate(uX1, uY1);
@@ -98,8 +95,25 @@ push();
     stroke(colorStroke2);
     ellipse(0, 0 - 31, 20, 30);
     pop();
-pop();
+}
 
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["x1"] = map(percent, 0, 100, oldObj["X1"], newObj["X1"]);
+  new_letter["y1"] = map(percent, 0, 100, oldObj["Y1"], newObj["Y1"]);
+  new_letter["R1"] = map(percent, 0, 100, oldObj["R1"], newObj["R1"]);
+  new_letter["X2"] = map(percent, 0, 100, oldObj["X2"], newObj["X2"]);
+
+  new_letter["Y2"] = map(percent, 0, 100, oldObj["Y2"], newObj["Y2"]);
+  new_letter["R2"] = map(percent, 0, 100, oldObj["R2"], newObj["R2"]);
+  new_letter["X3"] = map(percent, 0, 100, oldObj["X3"], newObj["X3"]);
+  new_letter["Y3"] = map(percent, 0, 100, oldObj["Y3"], newObj["Y3"]);
+  
+  new_letter["R3"] = map(percent, 0, 100, oldObj["R3"], newObj["R3"]);
+  new_letter["X4"] = map(percent, 0, 100, oldObj["X4"], newObj["X4"]);
+  new_letter["Y4"] = map(percent, 0, 100, oldObj["Y4"], newObj["Y4"]);
+  new_letter["R4"] = map(percent, 0, 100, oldObj["R4"], newObj["R4"]);
+  return new_letter;
 }
 
 var swapWords = [
