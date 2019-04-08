@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e6e6e6";
-const colorLines   = "#000090";
+const colorBack    = "#202020";
+const colorLines   = "#D0D0D0";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -73,7 +73,7 @@ function draw () {
         if (debugBox) {
           noFill()
           strokeWeight(4);
-          stroke(0, 200, 0);
+          stroke(179, 218, 255, 200);
           rect(0, 0, 100, 200);
         }
 
