@@ -2,6 +2,71 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 
+let letterA = {
+  "bug1_x": -25,
+      "bug1_y": -18,
+      "bug1_rot": 136.8,
+      "bug2_x": 26,
+      "bug2_y": -20,
+      "bug2_rot": 18,
+      "bug3_x": 2,
+      "bug3_y": 0,
+      "bug3_rot": 54,
+      "bug4_x": -49,
+      "bug4_y": 26,
+      "bug4_rot": 26,
+      "bug5_x": 48,
+      "bug5_y": 22,
+      "bug5_rot": -28,
+      "bug6_x": 1,
+      "bug6_y":-56,
+      "bug6_rot": 129,
+      "legRotOffset": 0,
+};
+let letterB =  {
+  "bug1_x": 50,
+      "bug1_y": -30,
+      "bug1_rot": -21,
+      "bug2_x": 35,
+      "bug2_y": -2,
+      "bug2_rot": 54,
+      "bug3_x": 1,
+      "bug3_y": -2,
+      "bug3_rot": 172,
+      "bug4_x": 42,
+      "bug4_y": 30,
+      "bug4_rot": -7,
+      "bug5_x": 4,
+      "bug5_y": 48,
+      "bug5_rot": 111,
+      "bug6_x": 1,
+      "bug6_y": -54,
+      "bug6_rot": -162,
+      "legRotOffset": 0,
+};
+let letterC =  {
+  "bug1_x": 36,
+      "bug1_y": -50,
+      "bug1_rot": -165.6,
+      "bug2_x": -35,
+      "bug2_y": -10,
+      "bug2_rot": 180,
+      "bug3_x": -33,
+      "bug3_y": 28,
+      "bug3_rot": 115,
+      "bug4_x": 9,
+      "bug4_y": 32,
+      "bug4_rot": -86,
+      "bug5_x": -7,
+      "bug5_y": -70,
+      "bug5_rot": -136,
+      "bug6_x": 26,
+      "bug6_y": -76,
+      "bug6_rot": -90,
+      "legRotOffset": 0,
+};
+
+
 const colorBody  = "#199cff";
 const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
@@ -137,9 +202,6 @@ function draw () {
   let center_x = canvasWidth / 2-100;
   let center_y = canvasHeight / 3- 50;
 
-  let letterA = alphabet["A"];
-  let letterB = alphabet["B"];
-  let letterC = alphabet["C"];
 
   // draw the letters A, B, C from saved data
   push();
