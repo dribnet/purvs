@@ -2,12 +2,13 @@
 // const colorFront2  = "#000000";
 // const colorFront3  = "#aaaaaa";
 
+//SOVIET APPROVED COLORS
 const colorFront1  = "#FCEA97";
 const colorFront2  = "#FFC003";
 const colorFront3  = "#A60202";
 
-/*ff59c4
- * Draw the letter given the letterData
+// SHADOW DEBUG HEX ff59c4
+ /* Draw the letter given the letterData
  *
  * Letters should always be drawn with the
  * following bounding box guideline:
@@ -17,59 +18,69 @@ function drawLetter(letterData) {
   // color/stroke setup
  noStroke();
 
-  // determine parameters for second circle
-  // draw two circles
-  let px1 = letterData["x1"];
-  let py1 = letterData["y1"];
+  //Triangle number 1
+  //Vertex1
+  let x1 = letterData["x1"];
+  let y1 = letterData["y1"];
+  //Vertex2
+  let x2 = letterData["x2"];
+  let y2 = letterData["y2"];
+  //Vertex3
+  let x3 = letterData["x3"];
+  let y3 = letterData["y3"];
   
-  let px2 = letterData["x2"];
-  let py2 = letterData["y2"];
+  //Triangle number 2
+  //Vertex1
+  let x4 = letterData["x4"];
+  let y4 = letterData["y4"];
+  //Vertex2
+  let x5 = letterData["x5"];
+  let y5 = letterData["y5"];
+  //Vertex3
+  let x6 = letterData["x6"];
+  let y6 = letterData["y6"];
   
-  let px3 = letterData["x3"];
-  let py3 = letterData["y3"];
-  
-  let px4 = letterData["x4"];
-  let py4 = letterData["y4"];
-  
-  let px5 = letterData["x5"];
-  let py5 = letterData["y5"];
-
-  let px6 = letterData["x6"];
-  let py6 = letterData["y6"];
-
+  //Shadow For Triangle 1
+  //scale
   let t1s = letterData["t1s"];
+  //translatex
   let t1sx= letterData["t1sx"];
+  //translatey
   let t1sy= letterData["t1sy"];
-
+  
+  //Shadow for triangle 2
+  //scale
   let t2s = letterData["t2s"];
+  //translatex
   let t2sx= letterData["t2sx"];
+  //translatey
   let t2sy= letterData["t2sy"];
 
-//Exceptions first for G,H,K,O,V,X,Z
-if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
+//Exceptions first for G,H,K,O,V,X,Z,0,2,3
+if (x1 ==100 && y1 ==25 && x6 == 50 && y6 ==75) {
   //G
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
   push();
   fill(colorFront2);
@@ -78,115 +89,115 @@ if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
   triangle(45,5,60,25,75,5);
   pop();
 
-} else if (px3==50 && py3==125 && px6 ==50 && py6==75 && t1s==.5) {
+} else if (x3==50 && y3==125 && x6 ==50 && y6==75 && t1s==.5) {
   //H
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-100,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-140,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-100,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-140,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
-} else if (px1 == 0 && py1 ==25 && px2 == 100 && py2 == 25 && px6 == 100 && py6 ==25) {
+} else if (x1 == 0 && y1 ==25 && x2 == 100 && y2 == 25 && x6 == 100 && y6 ==25) {
   //K
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
   fill(colorFront2);
   triangle(25,5,50,30,75,5);
   pop();
-} else if (px1 == 0 && py1 == 0 && px3 == 60 && py3 == 100 && px6 ==60 && py6 ==100) {
+} else if (x1 == 0 && y1 == 0 && x3 == 60 && y3 == 100 && x6 ==60 && y6 ==100) {
   //O
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-100,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-90,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-100,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-90,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
-} else if (px1==45 && py1 == 10 && px6 == 55 && py6 ==190) {
+} else if (x1==45 && y1 == 10 && x6 == 55 && y6 ==190) {
   //V
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     rect(45,0,10,30);
   pop();
 
@@ -194,12 +205,12 @@ if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     rect(45,170,10,30);
   pop();
 
@@ -207,172 +218,174 @@ if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
-} else if (px3 ==100 && py3 ==175 && px6 ==0 && py6 == 175) {
+} else if (x3 ==100 && y3 ==175 && x6 ==0 && y6 == 175) {
   //X
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
   push();
   fill(colorFront2);
   triangle(75,175,100,175,100,200);
   pop();
-} else if (px3==40 && py3 ==200 && px5 ==50 && py5 ==200) {
+} else if (x3==40 && y3 ==200 && x5 ==50 && y5 ==200) {
   //Z
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-100,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-149,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-100,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-150,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
-} else if (px3==40&&py3==175&&px6==50&&py6==0) {
+} else if (x3==40&&y3==175&&x6==50&&y6==0) {
   //0
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-100,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     scale(-1,1);
     translate(-150,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-100,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
     scale(-1,1);
     translate(-150,0);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
   push();
     fill(colorFront2);
     triangle(75,175,100,175,100,200);
   pop();
-} else if (px5==80&&py5==150&&px6==0&&py6==200) {
+} else if (x5==80&&y5==150&&x6==0&&y6==200) {
+  //2
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront2);
     translate(80,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
     fill(colorFront3);
     translate(20,0);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
-} else if (px2==25&&py2==200&&px6==25&&py6==200) {
+} else if (x2==25&&y2==200&&x6==25&&y6==200) {
+  //3
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
   
   push();
@@ -383,26 +396,26 @@ if (px1 ==100 && py1 ==25 && px6 == 50 && py6 ==75) {
 else{
   push();
     fill(colorFront2);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
 
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
-    triangle(px1,py1,px2,py2,px3,py3);
+    triangle(x1,y1,x2,y2,x3,y3);
   pop();
   
   push();
     fill(colorFront1)
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
-    triangle(px4,py4,px5,py5,px6,py6);
+    triangle(x4,y4,x5,y5,x6,y6);
   pop();
 }
 
@@ -410,13 +423,13 @@ else{
 
   // beginShape(TRIANGLES);
   // fill(colorFront2);
-  // vertex(px1,py1);
-  // vertex(px2,py2);
-  // vertex(px3,py3);
+  // vertex(x1,y1);
+  // vertex(x2,y2);
+  // vertex(x3,y3);
   // fill(colorFront1);
-  // vertex(px3,py3);
-  // vertex(px4,py4);
-  // vertex(px5,py5);
+  // vertex(x3,y3);
+  // vertex(x4,y4);
+  // vertex(x5,y5);
   // endShape();
 
 }
@@ -445,6 +458,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+  "SCFEFOJ6",
+  "DMUQPST1",
   "SULJOS2O",
   "BM6T1",
   "SULA",
