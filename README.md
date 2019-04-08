@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-So on this project I wanted to use triangles as the foundation for building the letters, after playing around with the sketch function to see how much I could build with only two triangles. After building a few letters in the sketch and the alphabet with relative ease I decided to try making the **cyrillic** (russian specifically) alphabet instead just to up the challenge level a bit. 
+For the alphabet, from the get go I wanted to use triangles as the foundation for building the letters. I began by playing around with the sketch function to see how much I could build with only two triangles. After building a few letters in the sketch and the alphabet with relative ease I decided to try making the **cyrillic** (russian specifically) alphabet instead just to up the challenge level a bit. 
 
 While playing with this Idea and thinking about parameters I realised that because I was using triangles there was very little chance that I would be able to keep my parameters particularly low because each triangle has 3 vertecies .In order to at least mitigate how many parameters I would have the cutouts are shifted mini clones of the larger triangles. 
 
@@ -20,3 +20,5 @@ While playing with this Idea and thinking about parameters I realised that becau
 - *t2s* the scale of the lighter triangle's shadow/cutout
 - *t2sx* the x translation of the second shadow/cutout
 - *t2sy* the y translation of the second shadow/cutout
+
+As far as color schemes go, once I had mapped out the alphabet I realised that the letters had a very soviet propaganda poster feel to them so I decided to use a soviet approved color scheme.

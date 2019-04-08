@@ -1,6 +1,10 @@
-const colorFront1  = "#ffffff";
-const colorFront2  = "#000000";
-const colorFront3  = "#aaaaaa";
+// const colorFront1  = "#ffffff";
+// const colorFront2  = "#000000";
+// const colorFront3  = "#aaaaaa";
+
+const colorFront1  = "#FCEA97";
+const colorFront2  = "#FFC003";
+const colorFront3  = "#A60202";
 
 /*ff59c4
  * Draw the letter given the letterData
