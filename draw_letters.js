@@ -11,26 +11,61 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
+  noStroke();
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size =  letterData["size"];
+  let posx =   letterData["posx"];
+  let posy =   letterData["posy"];
+  let posx2 =  letterData["posx2"];
+  let posy2 =  letterData["posy2"];
+  let t1 =     letterData["t1"];
+  let t2 =     letterData["t2"];
+  let t3 =     letterData["t3"];
+  let t4 =     letterData["t4"];
+  let t5 =     letterData["t5"];
+  let t6 =     letterData["t6"];
+  let r1 =     letterData["r1"];
+  let r2 =     letterData["r2"];
+  let r3 =     letterData["r3"];
+  let r4 =     letterData["r4"];
+  let r5 =     letterData["r5"];
+  let r6 =     letterData["r6"];
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(0);
+  ellipse(posx, posy, size, size);
+  fill(255);
+  ellipse(posx2, posy2, size, size);
+  fill(0);
+  stroke(10);
+  triangle(t1, t2, t3, t4, t5, t6);
+  triangle(r1, r2, r3, r4, r5, r6);
+  //triangle(30, 200, 50, 80, 50, 150);
+  //triangle(70, 200, 50, 80, 50, 150);
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["posx"] = map(percent, 0, 100, oldObj["posx"], newObj["posx"]);
+  new_letter["posy"] = map(percent, 0, 100, oldObj["posy"], newObj["posy"]);
+  new_letter["posx2"]    = map(percent, 0, 100, oldObj["posx2"], newObj["posx2"]);
+  new_letter["posy2"] = map(percent, 0, 100, oldObj["posy2"], newObj["posy2"]);
+  new_letter["t1"] = map(percent, 0, 100, oldObj["t1"], newObj["t1"]);
+  new_letter["t2"]    = map(percent, 0, 100, oldObj["t2"], newObj["t2"]);
+  new_letter["t3"] = map(percent, 0, 100, oldObj["t3"], newObj["t3"]);
+  new_letter["t4"] = map(percent, 0, 100, oldObj["t4"], newObj["t4"]);
+  new_letter["t5"]    = map(percent, 0, 100, oldObj["t5"], newObj["t5"]);
+  new_letter["t6"] = map(percent, 0, 100, oldObj["t6"], newObj["t6"]);
+  new_letter["r1"] = map(percent, 0, 100, oldObj["r1"], newObj["r1"]);
+  new_letter["r2"]    = map(percent, 0, 100, oldObj["r2"], newObj["r2"]);
+  new_letter["r3"] = map(percent, 0, 100, oldObj["r3"], newObj["r3"]);
+  new_letter["r4"] = map(percent, 0, 100, oldObj["r4"], newObj["r4"]);
+  new_letter["r5"]    = map(percent, 0, 100, oldObj["r5"], newObj["r5"]);
+  new_letter["r6"] = map(percent, 0, 100, oldObj["r6"], newObj["r6"]);
+  
   return new_letter;
 }
 

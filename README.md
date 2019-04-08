@@ -1,8 +1,5 @@
-Tried to play with angle and color.
+This version is about "constellation"
 
-Add a new variable to lift the triangle down.
+Though it is not that similar but I have tried to make the composition properly. I was tring to make a star which is a ellipse surrounded by lines. That needs too many parameters so I just give it up.
 
-My idea so far is to make something sharp and high contrast to draw people's attention.
-
-I am gonna explore more shapes and compositions.
-
+Here is the latest updated of this style. Still exploring. 
