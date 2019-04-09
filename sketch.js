@@ -16,27 +16,74 @@ const canvasHeight = 500;
  
 
 const letterA = {
-  "size": 80,
-  "offsetx": 150,
-  "offsety": 70
+    // line 1
+  "x1":50,
+  "y1":200,
+
+   // line 2
+  "x3":0,
+  "y3":180,
+
+   // line 4
+  "x5":0,
+  "y5":180,
+  "x6":50,
+  "y6":180,
+
+    // line 3
+  "x7":50,
+  "y7":200,
+  "x8":75,
+  "y8":200
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+    // line 1
+  "x1":50,
+  "y1":200,
+
+    // line 2
+  "x3":50,
+  "y3":0,
+
+   // line3
+  "x5":50,
+  "y5":100,
+  "x6":100,
+  "y6":150,
+
+   // line4
+  "x7":100,
+  "y7":150,
+  "x8":50,
+  "y8":200
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 50,
-  "offsety": 25
+  "x1":50,
+  "y1":200,
+
+    // line 2
+  "x3":100,
+  "y3":100,
+
+   // line3
+  "x5":50,
+  "y5":200,
+  "x6":100,
+  "y6":200,
+
+   // line4
+  "x7":50,
+  "y7":100,
+  "x8":50,
+  "y8":200
 }
 
 const colorFront1  = "#ffb266";
 const colorFront2  = "#ffe5cc";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorBack    = "#CCCCFF";
+const colorStroke  = "#FFFFFF";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -55,34 +102,38 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for lines
   
-  let pos2x = letterData["x2"];
-  let pos2y = letterData["y2"];
+   posx = letterData["x1"];
+   posy = letterData["y1"];
+   pos2x = letterData["x2"];
+   pos2y = letterData["y2"];
 
 
-  let pos3x = letterData["x3"];
-  let pos3y = letterData["y3"];
+   pos3x = letterData["x3"];
+   pos3y = letterData["y3"];
+   pos4x = letterData["x4"];
+   pos4y = letterData["y4"];
 
 
-  let pos5x = letterData["x5"];
-  let pos5y = letterData["y5"];
-  let pos6x = letterData["x6"];
-  let pos6y = letterData["y6"];
+   pos5x = letterData["x5"];
+   pos5y = letterData["y5"];
+   pos6x = letterData["x6"];
+   pos6y = letterData["y6"];
 
-  let pos7x = letterData["x7"];
-  let pos7y = letterData["y7"];
-  let pos8x = letterData["x8"];
-  let pos8y = letterData["y8"];
+   pos7x = letterData["x7"];
+   pos7y = letterData["y7"];
+   pos8x = letterData["x8"];
+   pos8y = letterData["y8"];
 
 
   // draw lines
   fill(colorFront1);
-  line(50, 100, pos2x, pos2y, 20);
+  line(posx, posy, 50, 100);
   fill(colorFront2);
-  line(pos3x-75, pos3y-55, 50, 100 ,20);
-  fill(colorFront3);
-  line(pos5x-100, pos5y-75, pos6x-100, pos6y-75, 20);
-  fill(colorFront4);
-  line(pos7x-150, pos7y-100, pos8x-150, pos8y-100, 20);
+  line(pos3x, pos3y, 50, 100);
+  fill(colorFront1);
+  line(pos5x, pos5y, pos6x, pos6y);
+  fill(colorFront2);
+  line(pos7x, pos7y, pos8x, pos8y);
 }
 
 function draw () {

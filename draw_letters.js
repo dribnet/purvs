@@ -1,6 +1,6 @@
 const colorFront1  = "#00ffff";
 const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorStroke  = "#FFFFFF";
 
 /*
  * Draw the letter given the letterData
