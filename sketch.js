@@ -3,7 +3,7 @@ const canvasHeight = 500;
 const colorBack    = "#edf1e9";
 
 //basic numbers for hexagonal grid
-const rad = 10;
+const rad = 7;
 const w = Math.sqrt(3) * rad;
 const h = 2 * rad;
 
@@ -61,13 +61,13 @@ const polygons = [
 // http://1.bp.blogspot.com/-rAqRNBJmz2M/TdER5PDZX6I/AAAAAAAAC7o/CLMbuXNrsOw/s1600/IMG_4388.jpg
 
 // default polygons array
-//                 /*row1*/0, 0, 0, 0, 0, 0, 0,
-//                   /*row2*/0, 0, 0, 0, 0, 0,
-//                 /*row3*/0, 0, 0, 0, 0, 0, 0,
-//                   /*row4*/0, 0, 0, 0, 0, 0,
-//                 /*row5*/0, 0, 0, 0, 0, 0, 0,
-//                   /*row6*/0, 0, 0, 0, 0, 0,
-//                 /*row7*/0, 0, 0, 0, 0, 0, 0
+                // /*row1*/0, 0, 0, 0, 0, 0, 0,
+                //   /*row2*/0, 0, 0, 0, 0, 0,
+                // /*row3*/0, 0, 0, 0, 0, 0, 0,
+                //   /*row4*/0, 0, 0, 0, 0, 0,
+                // /*row5*/0, 0, 0, 0, 0, 0, 0,
+                //   /*row6*/0, 0, 0, 0, 0, 0,
+                // /*row7*/0, 0, 0, 0, 0, 0, 0
 
 const letterA = {
   "polygons" : [/*row1*/0, 0, 0, 1, 0, 0, 0,

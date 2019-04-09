@@ -2,8 +2,8 @@
  * Here are some things you can edit
  */
 const colorBack    = "#edf1e9";
-const colorFront   = "#199cff";
-const colorLines   = "#000090";
+
+
 
 /* 
  * do not edit this rest of this file, instead edit the letter
