@@ -1,7 +1,6 @@
 /*
  * Here are some things you can edit
  */
-// const colorBack    = "#edf1e9";
 const colorLines   = "#000090";
 
 /* 
@@ -17,7 +16,7 @@ let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
-let soloNumAnimationFrames = 30;
+let soloNumAnimationFrames = 100;
 let soloCurAnimationFrame = 0;
 
 let debugBox = false;

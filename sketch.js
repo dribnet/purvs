@@ -54,7 +54,7 @@ const polygons = [
    blue: B value
  *
  */
-
+// Referenced images and codes
 // https://image.shutterstock.com/display_pic_with_logo/2883424/276509240/stock-vector-colorful-connecting-hexagon-alphabet-letters-276509240.jpg
 // https://editor.p5js.org/Rito/sketches/BJ5D_KeTg
 // https://www.redblobgames.com/grids/hexagons/#coordinates-offset

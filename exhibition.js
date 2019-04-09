@@ -11,8 +11,8 @@ let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
-let soloNumAnimationFrames = 30;
-let soloCurAnimationFrame = 0;
+let soloNumAnimationFrames = 50;
+let soloCurAnimationFrame = 50;
 
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
@@ -20,15 +20,15 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
-let chosenNumAnimationFrames = 30;
+let chosenNumAnimationFrames = 100;
 let chosenCurAnimationFrame = [0, 0, 0, 0, 0, 0, 0, 0];
 let curChosenLetter = 0;
 
 let lastKeyPressedTime;
-let secondsUntilSwapMode = 15;
+let secondsUntilSwapMode = 20;
 let lastWordSwappedTime;
 let isSwappingWords = true;
-let secondsPerWord = 8;
+let secondsPerWord = 10;
 let curSwapWord = 0;
 
 var defaultSwapWords = [

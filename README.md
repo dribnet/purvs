@@ -1,13 +1,6 @@
-## Alphabets
+## Interpolation
 
-All the alphabets and numbers have been designed.
-I made them in 3 different colors, pink for consonants, blue for vowls and blueish grey for the rest.
+Interpolation and exhibition is now available, found out that some constants announced in draw_letters.js were given the same name with variations in exhibition.js(shorthand variables to allow margin), so had to change those to different ones.
+I wanted the letters to fade out and fade in as naturally as possible.
 
-
-<!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one -->
 

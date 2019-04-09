@@ -1,11 +1,11 @@
 const colorBack    = "#edf1e9";
 
-//basic numbers for hexagonal grid
+//basic numbers for hexagons, radius, width and height
 const rad = 8;
 const w = Math.sqrt(3) * rad;
 const h = 2 * rad;
 
-//x values for first hexagons in even rows
+//x values for first hexagons in row 2,4,6
 const wEvenRow = 1/2*w;
 const wi2 = rad+wEvenRow;
 
@@ -69,23 +69,24 @@ translate(0, 56);
   pop();
 }
 
-function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["polygons"] = map(percent, 0, 100, oldObj["polygons"], newObj["polygons"]);
-  new_letter["red"] = map(percent, 0, 100, oldObj["red"], newObj["red"]);
-  new_letter["green"] = map(percent, 0, 100, oldObj["green"], newObj["green"]);
-  new_letter["blue"] = map(percent, 0, 100, oldObj["blue"], newObj["blue"]);
+function interpolate_letter(percent, oldData, newData) {
+  let new_letter = [];
+  var fadeColor;
 
-  let new_percent = {};
-  if(percent < 30) {
-    new_percent = map(percent, 0, 30, 0, -30);
+  if(percent<=50){ //Letter fades out
+    new_letter["polygons"] = oldData["polygons"];
+    var oC = color(oldData["red"], oldData["green"], oldData["blue"], 255);   
+    fadeColor = lerpColor(oC, color(colorBack), (percent/100)+0.5);
+  }else{ //Letter fades in
+    new_letter["polygons"] = newData["polygons"];
+    var newC = color(newData["red"], newData["green"], newData["blue"]);   
+    fadeColor = lerpColor(color(colorBack), newC, (percent/100)-0.2);
   }
-  else {
-    new_percent = map(percent, 30, 100, -30,30);
-  }
-
+  //Set new colors
+  new_letter["red"] = red(fadeColor);
+  new_letter["green"] = green(fadeColor);
+  new_letter["blue"] = blue(fadeColor);
   return new_letter;
-
 }
 
 
@@ -103,6 +104,8 @@ function polygon(x, y, radius, npoints) {
 
 var swapWords = [
   "HEXAFONT",
+  "SOHANGRY",
   "COOLAYE?",
-  "SOHANGRY"
+  "DEFAULT!"
+  
 ]
