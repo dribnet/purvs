@@ -23,4 +23,4 @@ The fourteen parameters per letter:
   * `X2`: ending XPos of rectangle,
   * `Y2`: ending XPos of rectangle
 
-i have made all of the letters upto K and made the interpolation happen smoothly
+i have made all of the letters upto Y and made the interpolation happen smoothly

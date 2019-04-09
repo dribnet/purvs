@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "GLASSARC",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
