@@ -1,14 +1,14 @@
-const arcStrokeCol  = "#ffffff"; //white
+const StrokeCol  = "#ffffff"; //white
 
 function drawLetter(letterData) {
 
-  // draw a triangle
+  // draw a static triangle
   noStroke();
   fill(99, 142, 75, 100); //green
   triangle(50, 60, 88, 120, 12, 120);
 
   // color/stroke setup
-  stroke(arcStrokeCol);
+  stroke(StrokeCol);
   strokeCap(ROUND);
 
   angleMode(DEGREES);
@@ -18,15 +18,15 @@ function drawLetter(letterData) {
   let lineY1 = 100 + letterData["lineY1"];
   let lineX2 = 50 + letterData["lineX2"];
   let lineY2 = 100 + letterData["lineY2"];
-
-  // determine start and stop parameters for the arc
+ 
+  // determine parameters for the arc
   let arcX = 50 + letterData["arcX"];
   let arcY = 100 + letterData["arcY"];
 
   let arcStart = letterData["start"];
   let arcStop = letterData["stop"];
 
-  // draw main arc
+  // draw arc
   fill(109, 165, 180, 60); //blue tint green
   strokeWeight(5);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
@@ -59,5 +59,9 @@ var swapWords = [
   "MINTFONT",
   "STRAIGHT",
   "GREENERY",
-  "RELAXING"
+  "RELAXING",
+  "OVERLAPS",
+  "TRIANGLE",
+  "MINTYICE",
+  "SEQUENCE"
 ]
