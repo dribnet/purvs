@@ -113,6 +113,7 @@ middle_arc();
 var swapWords = [
   "DISTRACT",   
   "FUNFUNKY",
-  "MOVEMOVE"
+  "ELENALEE",
+  "09042019",
 
 ]

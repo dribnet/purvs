@@ -1,40 +1,32 @@
 const alphabet = {
   "default": {
-  //  "size": 100,
-  //"offsetx": -25,
-  "top_offsetx": -25,
+  "top_offsetx": 5,
   "offsety": 0,
-//  "offsetTrunkx": -5,
-//  "offsetTrunky": -15,
-  "top_size": 55,
-  "middle_size": 60,
-  "bottom_size": 77.5,
-  "bottom_offsetx": -25,
-  "middle_offset": 0,
-  "rotate_top": 0,
-  "rotate_middle": 0,
-  "rotate_bottom": 0,
-  "translate_top_x":0,
-  "translate_top_y":0,
-  "translate_bottom_x":0,
-  "translate_bottom_y":0,
-  "translate_middle_x":0,
-  "translate_middle_y":0,
+  "top_size": 42,
+  "middle_size": 27,
+  "bottom_size": 71,
+  "middle_offset": -2.6999999999999993,
+  "bottom_offsetx": 66,
+  "rotate_top": 180,
+  "rotate_bottom": 298.8,
+  "rotate_middle": 90,
+  "translate_top_x": 130,
+  "translate_top_y": 105,
+  "translate_bottom_x": -114,
+  "translate_bottom_y": 142,
+  "translate_middle_x": 128,
+  "translate_middle_y": 80,
 
 
 
   },
   "A": {
-  //  "size": 50,
     "top_size": 45,
     "middle_size": 50,
     "bottom_size":80,
-    //"offsetx": -25,
     "top_offsetx": -125,
     "middle_offset":0,
     "offsety": 1,
-    //"offsetTrunkx":-10,
-    //"offsetTrunky":-30,
     "bottom_offsetx":-25,
     "rotate_top": 180,
     "rotate_middle": 0,
@@ -50,16 +42,13 @@ const alphabet = {
 
   },
   "B": {
-  //  "size": 55,
+
     "top_size": 45,
     "middle_size": 90,
     "bottom_size":45,
-   // "offsetx": -15,
     "top_offsetx": -15,
     "offsety": 0,
-    "middle_offset":0, //y offset
-  //  "offsetTrunkx":-10,
-  //  "offsetTrunky":-20,
+    "middle_offset":0, 
     "bottom_offsetx":-15,
     "rotate_top": 270,
     "rotate_middle": 90,
@@ -75,16 +64,12 @@ const alphabet = {
 
   },
   "C": {
-  //  "size": 57,
     "top_size": 77,
     "middle_size": 40,
     "bottom_size":77,
-    //"offsetx":-20,
     "top_offsetx":-20,
     "offsety":10,
     "middle_offset":-20,
-    //"offsetTrunkx":0,
-    //"offsetTrunky":0,
     "bottom_offsetx":-20,
     "rotate_top": 175,
     "rotate_middle": 85,
@@ -141,12 +126,8 @@ const alphabet = {
   "translate_middle_y": 177,
 },
 "F":{
-//"size": 100,
-  //"offsetx": -32.5,
   "top_offsetx": -12,
  "offsety": 0,
-  //"offsetTrunkx": -6.1,
-  //"offsetTrunky": -15,
   "top_size": 70,
   "middle_size": 60,
   "bottom_size": 90,
@@ -164,12 +145,9 @@ const alphabet = {
 
 },
 "G":{
-//"size": 100,
-  //"offsetx": -32.5,
+
   "top_offsetx": -32.5,
  "offsety": 0,
-  //"offsetTrunkx": -6.1,
-  //"offsetTrunky": -15,
   "top_size": 85,
   "middle_size": 40,
   "bottom_size": 85,
@@ -187,12 +165,9 @@ const alphabet = {
 
 },
 "H":{
-//"size": 100,
-  //"offsetx": -32.5,
+
   "top_offsetx": -12.5,
  "offsety": 0,
-  //"offsetTrunkx": -6.1,
-  //"offsetTrunky": -15,
   "top_size": 90.5,
   "middle_size": 44.4,
   "bottom_size": 90.5,
@@ -717,7 +692,7 @@ const alphabet = {
  "translate_middle_x": 124,
  "translate_middle_y": 10,
 },
-"?":{
+//"?":{
   "top_offsetx": 5,
   "offsety": 0,
   "top_size": 42,
@@ -734,5 +709,5 @@ const alphabet = {
   "translate_bottom_y": 142,
   "translate_middle_x": 128,
   "translate_middle_y": 80,
-},
+//},
 }
