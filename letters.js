@@ -106,14 +106,14 @@ const alphabet = {
 },
 
   "F": {
-     "size": 120,
+     "size": 130,
     "sizee11": 120,
-    "offsetx": 30,
+    "offsetx": 31,
     "offsety": 50,
     
     "sizee21": 100,
     "sizee22": 20,
-    "offsetx1": 20,
+    "offsetx1": 30,
     "offsety2": -50,
     
     "arc11": 3.14,
@@ -124,15 +124,15 @@ const alphabet = {
 },
  "G": {
  
-      "size": 60,
+      "size": 80,
     "sizee11": 120,
-    "offsetx": -10,
+    "offsetx": -5,
     "offsety": -18,
     
     "sizee21": 50,
     "sizee22": 50,
-    "offsetx1": 20,
-    "offsety2": 10,
+    "offsetx1": 30,
+    "offsety2": 5,
     
     "arc11": 0,
     "arc12": 3.14+1.57,
@@ -373,13 +373,13 @@ const alphabet = {
 
 },
   "U": {
-    "size": 50,
-    "sizee11": 100,  
+    "size": 60,
+    "sizee11": 200,  
     "offsetx": -10,
     "offsety": -90,
    
     "sizee21": 50,
-    "sizee22": 50,
+    "sizee22": 150,
     "offsetx1": -10,
     "offsety2": -90,
    
@@ -389,20 +389,21 @@ const alphabet = {
     "arc22": 3.14+1.51-1
   },
  "V": {
-    "size": 50,
-    "sizee11": 50,  
+    "size": 100,
+    "sizee11": 300,  
     "offsetx": -10,
-    "offsety": -30,
+    "offsety": 20,
    
-    "sizee21": 50,
-    "sizee22": 50,
+    "sizee21": 100,
+    "sizee22": 300,
     "offsetx1": -10,
-    "offsety2": -20,
+    "offsety2": 20,
    
-    "arc11": 3.14+1.57-1,
-    "arc12": 3.14+1.57+1,
-    "arc21": 3.14+1.57+1,
-    "arc22": 3.14+1.51-1
+    "arc11": 3.14+1.57-0.25
+    ,
+    "arc12": 3.14+1.57+0.65,
+    "arc21": 3.14+1.57-0.25,
+    "arc22": 3.14+1.51+0.65
   },
 
    "W": {

@@ -50,8 +50,20 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["sizee11"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee11"]);
+  new_letter["sizee21"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee21"]);
+  new_letter["sizee22"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee22"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetx1"]    = map(percent, 0, 100, oldObj["size"], newObj["offsetx1"]);
+  new_letter["offsety2"]    = map(percent, 0, 100, oldObj["size"], newObj["offsety2"]);
+  new_letter["arc11"]    = map(percent, 0, 1, oldObj["size"], newObj["arc11"]);
+  new_letter["arc12"]    = map(percent, 0, 1, oldObj["size"], newObj["arc12"]);
+  new_letter["arc21"]    = map(percent, 0, 1, oldObj["size"], newObj["arc21"]);
+  new_letter["arc22"]    = map(percent, 0, 1, oldObj["size"], newObj["arc22"]);
+
+
+
   return new_letter;
 }
 
