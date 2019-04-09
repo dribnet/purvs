@@ -56,381 +56,311 @@ function drawLetter(letterData) {
   //translatey
   let t2sy= letterData["t2sy"];
 
-//Exceptions first for G,H,K,O,V,X,Z,0,2,3
-if (x1 ==100 && y1 ==25 && x6 == 50 && y6 ==75) {
-  //G
+  //Which kind of exception
+  let exception= letterData["exception"];
+
+  let accentG = 0.0;
+  let accentH = 0.0;
+  let accentK = 0.0;
+  let accentO = 0.0;
+  let accentV = 0.0;
+  let accentX = 0.0;
+  let accentZ = 0.0;
+  let accent0 = 0.0;
+  let accent2 = 0.0;
+  let accent3 = 0.0;
+
+  switch(exception){
+    case 0:
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
+      break;
+    case 1:
+      accentG =1.0;
+      break;
+    case 2:
+      accentH =1.0;
+      break;
+    case 3:
+      accentK =1.0;
+      break;
+    case 4:
+      accentO =1.0;
+      break;
+    case 5:
+      accentV =1.0;
+      break;
+    case 6:
+      accentX =1.0;
+      break;
+    case 7:
+      accentZ =1.0;
+      break;
+    case 8:
+      accent0 =1.0;
+      break;
+    case 9:
+      accent2 =1.0;
+      break;
+    case 10:
+      accent3 =1.0;
+      break;
+  }
+
+  //DRAW Triangle 1
   push();
     fill(colorFront2);
     triangle(x1,y1,x2,y2,x3,y3);
   pop();
+    
+    //accent on 0
+      push();
+        scale(accent0);
+        fill(colorFront2);
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
 
+    //accent on Z
+      push();
+        scale(accentZ);
+        fill(colorFront2);
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+
+    //accent on V
+      push();
+        scale(accentV);
+        fill(colorFront2);
+        rect(45,0,10,30);
+      pop();
+
+    //accent on O
+      push();
+        scale(accentO);
+        fill(colorFront2);
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+
+    //accent on H
+      push();
+        scale(accentH);
+        fill(colorFront2);
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+
+  //DRAW Triangle 1 Shadow
   push();
     fill(colorFront3);
     scale(t1s);
     translate(t1sx,t1sy);
     triangle(x1,y1,x2,y2,x3,y3);
   pop();
-  
+    
+    //accent on 2
+    push();
+    scale(accent2);
+      fill(colorFront2);
+      translate(80,0);
+      triangle(x1,y1,x2,y2,x3,y3);
+      fill(colorFront3);
+      translate(20,0);
+      triangle(x1,y1,x2,y2,x3,y3);
+    pop();
+    //accent on 0
+      push();
+        scale(accent0);
+        fill(colorFront3);
+        scale(t1s);
+        translate(t1sx,t1sy);
+        scale(-1,1);
+        translate(-150,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+
+    //accent on Z
+    push();
+      scale(accentZ);
+      fill(colorFront3);
+      scale(t1s);
+      translate(t1sx,t1sy);
+      scale(-1,1);
+      translate(-149,0);
+      triangle(x1,y1,x2,y2,x3,y3);
+    pop();
+
+    //accent on O
+      push();
+        scale(accentO);
+        fill(colorFront3);
+        scale(t1s);
+        translate(t1sx,t1sy);
+        scale(-1,1);
+        translate(-90,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+    
+    //accent on H
+      push();
+        scale(accentH);
+        fill(colorFront3);
+        scale(t1s);
+        translate(t1sx,t1sy);
+        scale(-1,1);
+        translate(-140,0);
+        triangle(x1,y1,x2,y2,x3,y3);
+      pop();
+
+  //DRAW Triangle 2
   push();
     fill(colorFront1)
     triangle(x4,y4,x5,y5,x6,y6);
   pop();
+    
+    //accent on 0
+      push();
+        scale(accent0);
+        fill(colorFront1)
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
 
+    //accent on Z 
+    push();
+      scale(accentZ);
+      fill(colorFront1)
+      scale(-1,1);
+      translate(-100,0);
+      triangle(x4,y4,x5,y5,x6,y6);
+    pop();
+
+    //accent on V
+      push();
+        scale(accentV);
+        fill(colorFront1)
+        rect(45,170,10,30);
+      pop();
+
+    //accent on O
+      push();
+        scale(accentO);
+        fill(colorFront1)
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
+
+    //accent on H
+      push();
+        scale(accentH);
+        fill(colorFront1)
+        scale(-1,1);
+        translate(-100,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
+
+  //DRAW Triangle 2 Shadow
   push();
     fill(colorFront3);
     scale(t2s);
     translate(t2sx,t2sy);
     triangle(x4,y4,x5,y5,x6,y6);
   pop();
-  push();
-  fill(colorFront2);
-  triangle(25,25,40,5,55,25);
-  fill(colorFront1);
-  triangle(45,5,60,25,75,5);
-  pop();
 
-} else if (x3==50 && y3==125 && x6 ==50 && y6==75 && t1s==.5) {
-  //H
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
+    //accent on 3
+      push();
+        scale(accent3);
+        fill(colorFront2);
+        triangle(0,25,25,0,25,25);
+      pop();
+    //accent on 0
+      push();
+        scale(accent0);
+        fill(colorFront3);
+        scale(t2s);
+        translate(t2sx,t2sy);
+        scale(-1,1);
+        translate(-150,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
 
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-140,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
+      push();
+        scale(accent0);
+        fill(colorFront2);
+        triangle(75,175,100,175,100,200);
+      pop();
 
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-140,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-} else if (x1 == 0 && y1 ==25 && x2 == 100 && y2 == 25 && x6 == 100 && y6 ==25) {
-  //K
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
+    //accent on Z
+    push();
+      scale(accentZ);
+      fill(colorFront3);
+      scale(t2s);
+      translate(t2sx,t2sy);
+      scale(-1,1);
+      translate(-150,0);
+      triangle(x4,y4,x5,y5,x6,y6);
+    pop();
 
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
+    //accent on X
+      push();
+        scale(accentX);
+        fill(colorFront2);
+        triangle(75,175,100,175,100,200);
+      pop();
+    //accent on O
+      push();
+        scale(accentO);
+        fill(colorFront3);
+        scale(t2s);
+        translate(t2sx,t2sy);
+        scale(-1,1);
+        translate(-90,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
 
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
+    //accent on H
+      push();
+        scale(accentH);
+        fill(colorFront3);
+        scale(t2s);
+        translate(t2sx,t2sy);
+        scale(-1,1);
+        translate(-140,0);
+        triangle(x4,y4,x5,y5,x6,y6);
+      pop();
 
-  push();
-  fill(colorFront2);
-  triangle(25,5,50,30,75,5);
-  pop();
-} else if (x1 == 0 && y1 == 0 && x3 == 60 && y3 == 100 && x6 ==60 && y6 ==100) {
-  //O
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
+    //accent on G
+      push();
+      scale(accentG);
+      fill(colorFront2);
+      triangle(25,25,40,5,55,25);
+      fill(colorFront1);
+      triangle(45,5,60,25,75,5);
+      pop();
 
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-90,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
+    //accent on K
+      push();
+      scale(accentK);
+      fill(colorFront2);
+      triangle(25,5,50,30,75,5);
+      pop(); 
 
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-90,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-} else if (x1==45 && y1 == 10 && x6 == 55 && y6 ==190) {
-  //V
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-    rect(45,0,10,30);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-    rect(45,170,10,30);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-} else if (x3 ==100 && y3 ==175 && x6 ==0 && y6 == 175) {
-  //X
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-  push();
-  fill(colorFront2);
-  triangle(75,175,100,175,100,200);
-  pop();
-} else if (x3==40 && y3 ==200 && x5 ==50 && y5 ==200) {
-  //Z
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-149,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-150,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-} else if (x3==40&&y3==175&&x6==50&&y6==0) {
-  //0
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-    scale(-1,1);
-    translate(-150,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-100,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-    scale(-1,1);
-    translate(-150,0);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-  push();
-    fill(colorFront2);
-    triangle(75,175,100,175,100,200);
-  pop();
-} else if (x5==80&&y5==150&&x6==0&&y6==200) {
-  //2
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront2);
-    translate(80,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-    fill(colorFront3);
-    translate(20,0);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-} else if (x2==25&&y2==200&&x6==25&&y6==200) {
-  //3
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-  
-  push();
-    fill(colorFront2);
-    triangle(0,25,25,0,25,25);
-  pop();
-}
-else{
-  push();
-    fill(colorFront2);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t1s);
-    translate(t1sx,t1sy);
-    triangle(x1,y1,x2,y2,x3,y3);
-  pop();
-  
-  push();
-    fill(colorFront1)
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-
-  push();
-    fill(colorFront3);
-    scale(t2s);
-    translate(t2sx,t2sy);
-    triangle(x4,y4,x5,y5,x6,y6);
-  pop();
-}
-
-  
-
-  // beginShape(TRIANGLES);
-  // fill(colorFront2);
-  // vertex(x1,y1);
-  // vertex(x2,y2);
-  // vertex(x3,y3);
-  // fill(colorFront1);
-  // vertex(x3,y3);
-  // vertex(x4,y4);
-  // vertex(x5,y5);
-  // endShape();
 
 }
 

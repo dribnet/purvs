@@ -22,3 +22,5 @@ While playing with this Idea and thinking about parameters I realised that becau
 - *t2sy* the y translation of the second shadow/cutout
 
 As far as color schemes go, once I had mapped out the alphabet I realised that the letters had a very soviet propaganda poster feel to them so I decided to use a soviet approved color scheme.
+
+The next step was to remove the if statement hellscape i had created, I did this by adding 1 more parameter (*sorry*) but it got rid of about 200 lines of redundant code
