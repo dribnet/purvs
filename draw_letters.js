@@ -13,7 +13,7 @@ const bugSize = 25;
  */
 function drawLetter(letterData) {
 
-  let numBugs = 12;
+  let numBugs = 8;
   let bugSpacing = bugSize;
   let bugs = [];
   let points = [];
@@ -80,11 +80,19 @@ function drawLetter(letterData) {
 
 
 function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  let obj = {};
+  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+    obj["point1_x"] = map(percent, 0, 100, oldObj["point1_x"], newObj["point1_x"]);
+    obj["point1_y"] =  map(percent, 0, 100, oldObj["point1_y"], newObj["point1_y"]);
+    obj["point2_x"] =  map(percent, 0, 100, oldObj["point2_x"], newObj["point2_x"]);
+    obj["point2_y"] = map(percent, 0, 100, oldObj["point2_y"], newObj["point2_y"]);
+    obj["point3_x"] = map(percent, 0, 100, oldObj["point3_x"], newObj["point3_x"]);
+    obj["point3_y"] =  map(percent, 0, 100, oldObj["point3_y"], newObj["point3_y"]);
+    obj["point4_x"] =  map(percent, 0, 100, oldObj["point4_x"], newObj["point4_x"]);
+    obj["point4_y"] =  map(percent, 0, 100, oldObj["point4_y"], newObj["point4_y"]);
+  return obj;
 }
 
 var swapWords = [
@@ -108,10 +116,6 @@ function parametricSpline(points, t){
 }
 
 class Bug {
-  posX;
-  posY;
-  orient;
-  color;
 
   constructor(posx, posy, rot, color) {
     this.posX = posx;
