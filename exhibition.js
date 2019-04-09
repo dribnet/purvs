@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorFront   = "#199cff";
+const colorBack    = [250, 250, 250];
+const colorFront   = ["#199cff"];
 const colorLines   = "#000090";
 
 /* 

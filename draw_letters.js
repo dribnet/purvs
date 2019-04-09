@@ -2,7 +2,7 @@ const colorFront1  = [238, 190, 25, 170];
 const colorFront2  = [198,21,47,300];
 const colorFront3  = [10, 91, 138, 170];
 
-const colorStroke  = "#233f11";
+const colorStroke  = [10, 10, 10];
 // const colorStroke  = [0, 0, 0, 0];
 
 /*
@@ -116,16 +116,74 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["translates4"] = map(percent, 0, 100, oldObj["translates4"], newObj["translates4"]);
   new_letter["translatef1"] = map(percent, 0, 100, oldObj["translatef1"], newObj["translatef1"]);
   new_letter["translatef2"] = map(percent, 0, 100, oldObj["translatef2"], newObj["translatef2"]);
+
+
+if(percent < 50) {
+    new_letter["rotatesS"] = oldObj["rotatesS"];
+  }
+  else if(percent > 50) {
+    new_letter["rotatesS"] = newObj["rotatesS"];
+  }
+  else {
+    new_letter["rotatesS"] = map(percent, 40, 60, oldObj["rotatesS"], newObj["rotatesS"]);
+  } 
+
+
+
+if(percent < 50) {
+    new_letter["rotatesF"] = oldObj["rotatesF"];
+  }
+  else if(percent > 50) {
+    new_letter["rotatesF"] = newObj["rotatesF"];
+  }
+  else {
+    new_letter["rotatesF"] = map(percent, 40, 60, oldObj["rotatesF"], newObj["rotatesF"]);
+  } 
+
+
+  if(percent < 50) {
+    new_letter["pos1x"] = oldObj["pos1x"];
+  }
+  else if(percent > 50) {
+    new_letter["pos1x"] = newObj["pos1x"];
+  }
+  else {
+    new_letter["pos1x"] = map(percent, 40, 60, oldObj["pos1x"], newObj["pos1x"]);
+  } 
+
+    if(percent < 50) {
+    new_letter["pos1x"] = oldObj["pos1x"];
+  }
+  else if(percent > 50) {
+    new_letter["pos1x"] = newObj["pos1x"];
+  }
+  else {
+    new_letter["pos2x"] = map(percent, 40, 60, oldObj["pos2x"], newObj["pos2x"]);
+  } 
+    if(percent < 50) {
+    new_letter["pos2x"] = oldObj["pos2x"];
+  }
+  else if(percent > 50) {
+    new_letter["pos3x"] = newObj["pos3x"];
+  }
+  else {
+    new_letter["pos3x"] = map(percent, 40, 60, oldObj["pos3x"], newObj["pos3x"]);
+  } 
+
   return new_letter;
 }
 
 // some words for the exhibition
 var swapWords = [
   "GLASSCUT",
+  "12345678",
+  "RX?78?02",
   "ABBAABBA",
   "GAVIN?AU",
   "AUKAIWEN",
+  "1337l33T",
   "CAB?CAB?",
+  "O0QO0QO0",
   "BAAAAAAA",
   "ANTIKRIS",
   "PIZZAZES",
