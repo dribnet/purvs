@@ -16,13 +16,13 @@ function drawLetter(letterData) {
   let midbar = 50 + letterData["mid"];
   let botbar = letterData["bot"];
   // draw two circles
-  strokeWeight(4);
+  strokeWeight(5);
   fill(colorFront1);
   ellipse(50, 100, 100, 100);
   noFill();
-  line(0, 3, 0, 150);
-  line(100, 3, 100, 150);
-  arc(50, 148, 100, 100, TWO_PI, PI);
+  line(0, 3, 0, 165);
+  line(100, 3, 100, 165);
+  arc(50.5, 165, 100, 64, TWO_PI, PI);
   line(0, 30, 100, 30);
   line(0, 3, 100, 3);
 
@@ -31,10 +31,10 @@ function drawLetter(letterData) {
   
   fill(colorFront3);
 
-  rect(midbar, 0, 25, 200)
+  rect(midbar, 1, 25, 198)
   fill(colorFront3);
-  rect(-3, 0, 108, topbar);
-  rect(-3, ((200)-botbar), 106, botbar);
+  rect(-3, 1, 108, topbar);
+  rect(-3, ((200)-botbar), 108, botbar);
 
 
 
@@ -50,7 +50,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "SECLUDED",
+  "ACTUALLY",
+  "PROPERTY"
 ]
