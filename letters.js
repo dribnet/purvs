@@ -439,7 +439,7 @@ const alphabet = {
 
   },
 
-    "T": {
+  "T": {
   "pos1x": 10,
   "pos2x": 30,
   "pos3x": 30,
@@ -461,7 +461,7 @@ const alphabet = {
 
   },
 
-    "U": {
+  "U": {
   "pos1x": 10,
   "pos2x": 40,
   "pos3x": 10,
@@ -483,7 +483,7 @@ const alphabet = {
 
   },
 
-      "V": {
+  "V": {
   "pos1x": 10,
   "pos2x": 10,
   "pos3x": 10,
@@ -505,7 +505,7 @@ const alphabet = {
 
   },
 
-    "W": {
+  "W": {
   "pos1x": 10,
   "pos2x": 35,
   "pos3x": 10,
@@ -527,7 +527,7 @@ const alphabet = {
 
   },
 
-        "X": {
+  "X": {
   "pos1x": 10,
   "pos2x": 10,
   "pos3x": 10,
@@ -549,7 +549,7 @@ const alphabet = {
 
   },
 
-          "Y": {
+  "Y": {
   "pos1x": 10,
   "pos2x": 10,
   "pos3x": 10,
@@ -571,7 +571,7 @@ const alphabet = {
 
   },
 
-   "Z": {
+  "Z": {
   "pos1x": 10,
   "pos2x": 50,
   "pos3x": 50,
@@ -615,7 +615,7 @@ const alphabet = {
 
   },
 
-    "1": {
+  "1": {
   "pos1x": 10,
   "pos2x": 30,
   "pos3x": 30,
@@ -769,7 +769,7 @@ const alphabet = {
 
   },
 
-    "8": {
+  "8": {
   "pos1x": 40,
   "pos2x": 50,
   "pos3x": 50,

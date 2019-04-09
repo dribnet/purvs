@@ -1,14 +1,9 @@
-// const colorFront1  = "#199cff";
-// const colorFront2  = "#59ccff";
-// const colorStroke  = "#233f11";
-
-// const colorFront1  = [204, 101, 192, 2];
-// const colorFront2  = [204,101,192,150];
-const colorFront2  = [255, 0, 0, 170];
-const colorFront1  = [255,255,0,170];
-const colorFront3  = [0, 0, 255, 170];
+const colorFront1  = [238, 190, 25, 170];
+const colorFront2  = [198,21,47,300];
+const colorFront3  = [10, 91, 138, 170];
 
 const colorStroke  = "#233f11";
+// const colorStroke  = [0, 0, 0, 0];
 
 /*
  * Draw the letter given the letterData
@@ -22,7 +17,7 @@ const colorStroke  = "#233f11";
 
 
 function drawLetter(letterData) {
-//   // color/stroke setup
+  // color/stroke setup
   stroke(colorStroke);
   strokeWeight(4);
 
@@ -32,7 +27,7 @@ function drawLetter(letterData) {
 
 
 
-
+// draws the first quad
 function drawsthin(letterData) {
 
 
@@ -53,7 +48,7 @@ pop();
 
   }
 
-
+// draws the second quad
 function drawlthin(letterData) {
   let quadposx2 = letterData["pos2x"];
   let quadposy3 = letterData["pos3y"];
@@ -71,6 +66,7 @@ pop();
 
  }
 
+// draws the third quad
 function drawsfat(letterData) {
   let quadposx3 = letterData["pos3x"];
   let quadposy5 = letterData["pos5y"];
@@ -88,42 +84,20 @@ pop();
 
 }
 
-// function drawlfat(letterData) {
-//   let quadposx4 = letterData["pos4x"];
-//   let quadposy7 = letterData["pos7y"];
-//   let quadposy8 = letterData["pos8y"];
-//   let rotAmount = letterData["rotateF"];
-
-//   fill(colorFront1);
-// angleMode(DEGREES);
-  
-// push(); 
-//  translate(letterData["translatef3"], letterData["translatef4"]);
-//   rotate(rotAmount);
-// quad(0 -quadposx4, 0, 0 , 0 -quadposy7, 0 +quadposx4, 0, 0, 0 +quadposy8);
-
-
-// pop();
-  
-// }
 
 push();
 drawsthin(letterData)
 drawlthin(letterData)
 drawsfat(letterData)
-// drawlfat(letterData)
 pop();
-
 
 
 }
 
-
+// interpolation code
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
   new_letter["pos1x"] = map(percent, 0, 100, oldObj["pos1x"], newObj["pos1x"]);
   new_letter["pos2x"] = map(percent, 0, 100, oldObj["pos2x"], newObj["pos2x"]);
   new_letter["pos3x"] = map(percent, 0, 100, oldObj["pos3x"], newObj["pos3x"]);
@@ -145,20 +119,42 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
+// some words for the exhibition
 var swapWords = [
   "GLASSCUT",
   "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA",
-  "?GUNDAM?",
-  "?ASRIEL?",
-  "DREEMURR",
   "GAVIN?AU",
   "AUKAIWEN",
+  "CAB?CAB?",
+  "BAAAAAAA",
   "ANTIKRIS",
   "PIZZAZES",
   "FRIZZILY",
   "DIZZYING",
-  "420?BABY",
-  "DARLINGS"
+  "ALCOHOLS",
+  "DARLINGS",
+  "BLUDGEON",
+  "CATEGORY",
+  "CAULDRON",
+  "CYLINDER",
+  "DOCTRINE",
+  "DYSLEXIA",
+  "ENORMITY",
+  "GASOLINE",
+  "DYNAMITE",
+  "FRIGHTEN",
+  "BACHELOR",
+  "IDOLATRY",
+  "LAVISHED",
+  "LEASHING",
+  "LIFEBOAT",
+  "LIGAMENT",
+  "LETHARGY",
+  "MODELING",
+  "MODESTLY",
+  "OUTLIVED",
+  "OUTRAGED",
+  "OUTFLANK",
+  "PHONETIC",
+  "PILASTER"
 ]
