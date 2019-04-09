@@ -1,8 +1,16 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "offsetx5": 40,
+  "offsetx6": 30,
+
+  "offsetx8": 30,
+  "offsetx9": 40,
+ 
+  "offsety5": 0,
+  "offsety6": 20,
+
+  "offsety8": 20,
+  "offsety9": 0,
   },
   "A": {
   "offsetx5": 15,
@@ -16,6 +24,7 @@ const alphabet = {
   "offsety7": 60,
   "offsety8": 60,
   "offsety9": 65,
+
   },
 
 
@@ -120,11 +129,11 @@ const alphabet = {
   "offsety8": 30,
   "offsety9": 50,
 
-  "offsetx17": 50,
-  "offsetx18": 60,
+  "offsetx12": 50,
+  "offsetx13": 60,
 
-  "offsety17": 20,
-  "offsety18": 10,
+  "offsety12": 20,
+  "offsety13": 10,
 
 
   },
@@ -202,15 +211,15 @@ const alphabet = {
   },
 
       "L": {
-  "offsetx1": 15,
-  "offsetx2": 15,
-  "offsetx3": 15,
-  "offsetx4": 15,
-  "offsetx5": 15,
-  "offsetx6": 15,
-  "offsetx7": 15,
-  "offsetx8": 15,
-  "offsetx9": 15,
+  "offsetx1": 25,
+  "offsetx2": 25,
+  "offsetx3": 25,
+  "offsetx4": 25,
+  "offsetx5": 25,
+  "offsetx6": 25,
+  "offsetx7": 25,
+  "offsetx8": 25,
+  "offsetx9": 25,
 
   "offsety1": 10,
   "offsety2": 20,
@@ -236,17 +245,17 @@ const alphabet = {
   "offsety8": 10,
   "offsety9": 10,
 
-  "offsetx15": 65,
-  "offsetx16": 55,
-  "offsetx17": 45,
-  "offsetx18": 65,
-  "offsetx19": 65,
+  "offsetx10": 65,
+  "offsetx11": 55,
+  "offsetx12": 45,
+  "offsetx13": 65,
+  "offsetx14": 65,
  
-  "offsety15": 10,
-  "offsety16": 20,
-  "offsety17": 30,
-  "offsety18": 10,
-  "offsety19": 10,
+  "offsety10": 10,
+  "offsety11": 20,
+  "offsety12": 30,
+  "offsety13": 10,
+  "offsety14": 10,
 
   },
 
@@ -263,17 +272,17 @@ const alphabet = {
   "offsety8": 10,
   "offsety9": 10,
 
-  "offsetx15": 65,
-  "offsetx16": 65,
-  "offsetx17": 65,
-  "offsetx18": 45,
-  "offsetx19": 55,
+  "offsetx10": 65,
+  "offsetx11": 65,
+  "offsetx12": 65,
+  "offsetx13": 45,
+  "offsetx14": 55,
  
-  "offsety15": 10,
-  "offsety16": 10,
-  "offsety17": 10,
-  "offsety18": 30,
-  "offsety19": 20,
+  "offsety10": 10,
+  "offsety11": 10,
+  "offsety12": 10,
+  "offsety13": 30,
+  "offsety14": 20,
   },
 
       "O": {
@@ -403,17 +412,17 @@ const alphabet = {
   "offsety8": 20,
   "offsety9": 10,
 
-  "offsetx15": 65,
-  "offsetx16": 65,
-  "offsetx17": 45,
-  "offsetx18": 55,
-  "offsetx19": 65,
+  "offsetx10": 65,
+  "offsetx11": 65,
+  "offsetx12": 45,
+  "offsetx13": 55,
+  "offsetx14": 65,
  
-  "offsety15": 10,
-  "offsety16": 10,
-  "offsety17": 30,
-  "offsety18": 20,
-  "offsety19": 10,
+  "offsety10": 10,
+  "offsety11": 10,
+  "offsety12": 30,
+  "offsety13": 20,
+  "offsety14": 10,
   },
        "X": {
   "offsetx5": 10,

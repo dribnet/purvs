@@ -1,10 +1,11 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorFront   = "#199cff";
-const colorLines   = "#000090";
 
+const colorFront   = 255;
+
+const colorBack    = " #EBAD80";
+const colorLines   = "#482F00";
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
