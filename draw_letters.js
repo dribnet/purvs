@@ -10,9 +10,12 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   const lines  = "#24ad96";
-  const dots = "#ffffff";
+  const dots = "#006aff";
   const colorBack   = "#000000";
   const glow = "#c4fff5";
+
+
+
 /**
    //Create variables from letterData
   p1p2 = letterData["p1p2"];
@@ -49,6 +52,7 @@ p5y = letterData["p5y"];
 p6x = letterData["p6x"];
 p6y = letterData["p6y"];
 
+
 fill(glow); 
 stroke(glow); 
 strokeWeight(22); 
@@ -70,6 +74,7 @@ fill(lines);
 stroke(lines); 
 strokeWeight(12); 
 
+
 //point one
 line(25, 20, p1x, p1y);
 //point two
@@ -85,16 +90,100 @@ line(75, 180, p6x, p6y);
 
 
 //*****DRAW DOTS******
-strokeWeight(5);
+strokeWeight(4);
 fill(dots); 
 stroke(dots); 
 
-ellipse(25, 20, dotSize);//top left p1 
-ellipse(95, 20, dotSize);//top right p2 
-ellipse(15, 100, dotSize); //mid left p3 
-ellipse(85, 100, dotSize); //mid right p4 
-ellipse(5, 180, dotSize); //bottom left p5 
-ellipse(75, 180, dotSize); //bottom right p6 
+
+//POINT ONE
+//ellipse(25, 20, dotSize);//top left p1  
+beginShape();
+vertex(25,12);
+vertex(27,20);
+vertex(32,20);
+vertex(28,22);
+vertex(30,30);
+vertex(25,25);
+vertex(20,30);
+vertex(22,22);
+vertex(18,20);
+vertex(23,20);
+endShape(CLOSE);
+
+//POINT TWO
+//ellipse(95, 20, dotSize);//top right p2 
+beginShape();
+vertex(95,12);
+vertex(97,20);
+vertex(102,20);
+vertex(98,22);
+vertex(100,30);
+vertex(95,25);
+vertex(90,30);
+vertex(92,22);
+vertex(88,20);
+vertex(93,20);
+endShape(CLOSE);
+
+//POINT THREE
+//ellipse(15, 100, dotSize); //mid left p3 
+beginShape();
+vertex(15, 92);
+vertex(17,100);
+vertex(22, 100);
+vertex(18, 102);
+vertex(20, 110);
+vertex(15, 105);
+vertex(10, 110);
+vertex(12, 102);
+vertex(8, 100);
+vertex(13, 100);
+endShape(CLOSE);
+
+//POINT FOUR
+//ellipse(85, 100, dotSize); //mid right p4 
+beginShape();
+vertex(85, 92);
+vertex(87, 100);
+vertex(92, 100);
+vertex(88, 102);
+vertex(90, 110);
+vertex(85, 105);
+vertex(80, 110);
+vertex(82, 102);
+vertex(78, 100);
+vertex(83, 100);
+endShape(CLOSE);
+
+//POINT FIVE
+//ellipse(5, 180, dotSize); //bottom left p5 
+beginShape();
+vertex(6, 172);
+vertex(8, 180);
+vertex(13, 180);
+vertex(9, 182);
+vertex(11, 190);
+vertex(6, 185);
+vertex(1, 190);
+vertex(3, 182);
+vertex(0, 180);
+vertex(4, 180);
+endShape(CLOSE);
+
+//POINT SIX
+//ellipse(75, 180, dotSize); //bottom right p6 
+beginShape();
+vertex(75, 172);
+vertex(77, 180);
+vertex(82, 180);
+vertex(78, 182);
+vertex(80, 190);
+vertex(75, 185);
+vertex(70, 190);
+vertex(72, 182);
+vertex(68, 180);
+vertex(73, 180);
+endShape(CLOSE);
 
 
 }

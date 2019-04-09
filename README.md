@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-UPDATE: Added numbers and null character, created constants for each of the points x and y values to make parameters easier to do.
+UPDATE: Added numbers and null character, created constants for each of the points x and y values to make parameters easier to do, changed dots to stars.
 
 I changed my parameters from boolean to parameters that allow for the interpolation to work more effectively. The style still needs some work because it is very basic and I need to work out how to remove the unused dots. I currently have 12 parameters per letter which denote the x and y coordinates that each point will go to.
 
