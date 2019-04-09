@@ -4,16 +4,16 @@ const TWO_PI = PI*2;
 
 const alphabet = {
   "default": {
-    "size1": 100,
-  "size": 96,
-  "offsetx1": 50,
-  "offsety2": 50,
+    "size1": 20,
+  "size": 70,
+  "offsetx1": 55,
+  "offsety2": 90,
   "offsetx": 0,
-  "offsety": 0,
+  "offsety": -15,
   "arcS": 0, 
   "arcE": TWO_PI,
-  "arcS2": PI, 
-  "arcE2": TWO_PI, 
+  "arcS2": -TWO_PI/2.6, 
+  "arcE2": TWO_PI/3.6, 
   },
   "A": {
   "size1": 100,
