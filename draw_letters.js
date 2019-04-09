@@ -35,13 +35,13 @@ function drawLetter(letterData) {
   
   // draw two circles
   fill(colorFront1);
-  rect(0, 60, 80, 140);
+  rect(10, 60, 80, 140);
 
   fill(colorFront2);
-  arc(pos2x, pos2y, size2, size3, arc1, arc2);
+  arc(pos2x+10, pos2y, size2, size3, arc1, arc2);
   
   fill(colorFront2);
-  arc(pos3x, pos3y, size5, size6, arc3, arc4);
+  arc(pos3x+10, pos3y, size5, size6, arc3, arc4);
   
  
 
