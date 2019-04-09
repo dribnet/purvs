@@ -72,14 +72,27 @@ function drawLetter(posx, posy, letterData) {
   let scale=5;
   let y_offset = 10 * scale;
 
+  //letter a
   fill(colorFront1);
   drawPart(posx, posy-y_offset, scale, shift1, tilt1);
+  line(170, 205, 270, 305);
+  line(170, 205, 70, 305);
+  line(100, 290, 240, 290);
 
+  //letter b
   fill(colorFront2);
   drawPart(posx,          posy, scale, shift2, tilt2);
+  line(420, 205, 420, 370);
+  line(420, 205, 520, 290);
+  line(520, 290, 420, 370);
+  line(425, 290, 510, 290);
 
+  //letter c
   fill(colorFront3);
   drawPart(posx, posy+y_offset, scale, shift3, tilt3);
+  line(645, 200, 555, 290);
+  line(580, 285, 670, 375);
+
   pop();
 }
 
