@@ -14,6 +14,35 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   noStroke();
   fill(236,147,148);
+//determine parameters
+let lx1 = letterData["lx1"];
+let ly1 = letterData["ly1"];
+let lx2 = letterData["lx2"];
+let ly2 = letterData["ly2"];
+let lx3 = letterData["lx3"];
+let ly3 = letterData["ly3"];
+let lx4 = letterData["lx4"];
+let ly4 = letterData["ly4"];
+let lx5 = letterData["lx5"];
+let ly5 = letterData["lx5"];
+let lx6 = letterData["lx6"];
+let ly6 = letterData["ly6"];
+let lx7 = letterData["lx7"];
+let ly7 = letterData["ly7"];
+let lx8 = letterData["lx8"];
+let ly8 = letterData["ly8"];
+let lx9 = letterData["lx9"];
+let ly9 = letterData["ly9"];
+let lx10 = letterData["lx10"];
+let ly10 = letterData["ly10"];
+let lx11 = letterData["lx11"];
+let ly11 = letterData["ly11"];
+let lx12 = letterData["lx12"];
+let ly12 = letterData["ly12"];
+let lx13 = letterData["lx13"];
+let ly13 = letterData["ly13"];
+let size1 = letterData["size1"];
+
 
 //13 ellipses
 ellipse(letterData["lx1"],letterData["ly1"],letterData["size1"],letterData["size1"])
@@ -37,7 +66,7 @@ ellipse(letterData["lx13"],letterData["ly13"],letterData["size1"],letterData["si
 }
 // exhibition words
 var swapWords = [
-  "MDDNTTT?",
+  "MDDN 242",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
