@@ -14,6 +14,19 @@ const colorFront3  = "#A60202";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+  //EXCEPTION SCALERS
+  let accentG = 0.0;
+  let accentH = 0.0;
+  let accentK = 0.0;
+  let accentO = 0.0;
+  let accentV = 0.0;
+  let accentX = 0.0;
+  let accentZ = 0.0;
+  let accent0 = 0.0;
+  let accent2 = 0.0;
+  let accent3 = 0.0;
+
 function drawLetter(letterData) {
   // color/stroke setup
  noStroke();
@@ -59,17 +72,7 @@ function drawLetter(letterData) {
   //Which kind of exception
   let exception= letterData["exception"];
 
-  let accentG = 0.0;
-  let accentH = 0.0;
-  let accentK = 0.0;
-  let accentO = 0.0;
-  let accentV = 0.0;
-  let accentX = 0.0;
-  let accentZ = 0.0;
-  let accent0 = 0.0;
-  let accent2 = 0.0;
-  let accent3 = 0.0;
-
+//EXCEPTION SWITCH STATEMENT
   switch(exception){
     case 0:
       accentG = 0.0;
@@ -114,6 +117,7 @@ function drawLetter(letterData) {
       accent3 =1.0;
       break;
   }
+
 
   //DRAW Triangle 1
   push();
@@ -344,7 +348,14 @@ function drawLetter(letterData) {
         translate(-140,0);
         triangle(x4,y4,x5,y5,x6,y6);
       pop();
-
+    
+    //accent on K
+      push();
+      scale(accentK);
+      fill(colorFront2);
+      triangle(25,5,50,30,75,5);
+      pop(); 
+    
     //accent on G
       push();
       scale(accentG);
@@ -354,12 +365,7 @@ function drawLetter(letterData) {
       triangle(45,5,60,25,75,5);
       pop();
 
-    //accent on K
-      push();
-      scale(accentK);
-      fill(colorFront2);
-      triangle(25,5,50,30,75,5);
-      pop(); 
+
 
 
 }
@@ -384,6 +390,23 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["t2s"] = map(percent, 0, 100, oldObj["t2s"], newObj["t2s"]);
   new_letter["t2sx"] = map(percent, 0, 100, oldObj["t2sx"], newObj["t2sx"]);
   new_letter["t2sy"] = map(percent, 0, 100, oldObj["t2sy"], newObj["t2sy"]);
+  new_letter["exception"] = map(percent, 0, 100, oldObj["exception"], newObj["exception"]);
+  
+  let old_exception = oldObj["exception"];
+  let old_accent_scale = 0;
+  if (old_exception!=0) {
+    old_accent_scale= 1;
+  }
+
+  let new_exception = newObj["exception"];
+  let new_accent_scale =0;
+  if (new_exception!=0) {
+    new_accent_scale= 1;
+  }
+
+  new_letter["accentG"] = map(percent, 0, 100, old_accent_scale, new_accent_scale);
+
+
   return new_letter;
 }
 
