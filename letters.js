@@ -103,7 +103,7 @@ const alphabet = {
     "top_offsetx": -50,
     "offsety": 5,
     "top_size": 56.4,
-    "middle_size": 70.2,
+    "middle_size": 77.2,
     "bottom_size": 58.7,
     "middle_offset": -0.6000000000000014,
     "bottom_offsetx": 16,
@@ -115,7 +115,7 @@ const alphabet = {
     "translate_bottom_x": 144,
     "translate_bottom_y": 166.5,
     "translate_middle_x": -13.04,
-    "translate_middle_y": 130
+    "translate_middle_y": 130,
 
 
 
@@ -539,20 +539,20 @@ const alphabet = {
 "0":{
   "top_offsetx": -50,
   "offsety": 0,
-  "top_size": 100,
-  "middle_size": 90,
-  "bottom_size": 95,
+  "top_size": 90,
+  "middle_size": 83,
+  "bottom_size": 90,
   "middle_offset": -4,
   "bottom_offsetx": 55,
-  "rotate_top": 92,
+  "rotate_top": 90,
   "rotate_bottom": 270,
-  "rotate_middle": 93.60000000000001,
+  "rotate_middle": 90,
   "translate_top_x": 86.5,
-  "translate_top_y": 62.5,
+  "translate_top_y": 59.5,
   "translate_bottom_x": -40,
-  "translate_bottom_y": 218.50000000000006,
+  "translate_bottom_y": 213.50000000000006,
   "translate_middle_x": 122.5,
-  "translate_middle_y": 50,
+  "translate_middle_y": 40,
 },
 "1":{
   "top_offsetx": -50,

@@ -21,7 +21,7 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
 //top arc -  according to letter A
-
+ function top_arc(){
   let top_size = letterData["top_size"];
   let pos3x = posx+25 + letterData ["top_offsetx"];
   let pos3y = posy + letterData ["offsety"];
@@ -39,6 +39,9 @@ function drawLetter(letterData) {
   arc(pos3x, pos3y, top_size,  40, 0, 180);
   pop();
 
+}
+
+function bottom_arc(){
   // bottom arc - according to letter A
   let pos4x = posx +25 + letterData ["bottom_offsetx"];
   let pos4y = posy+55 + letterData ["offsety"];
@@ -54,6 +57,9 @@ function drawLetter(letterData) {
   rotate(rot_bottom);
   arc(pos4x, pos4y+1, bottom_size, 40,0 , 180);
   pop();
+}
+
+function middle_arc(){
 
   //middle arc according to letter A
   let pos5y = posy+ letterData ["offsety"];
@@ -71,7 +77,11 @@ function drawLetter(letterData) {
   arc(pos6x, pos5y+30, middle_size, 40, 0 , 180);
   pop();
 
+}
 
+top_arc();
+bottom_arc();
+middle_arc();
 
 }
 
@@ -101,7 +111,8 @@ function drawLetter(letterData) {
 }
 
 var swapWords = [
-  "HELLOHI?",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "DISTRACT",   
+  "FUNFUNKY",
+  "MOVEMOVE"
+
 ]
