@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#e4e4e4";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
@@ -40,7 +40,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "ACTUALLY",
-  "1234567?",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",

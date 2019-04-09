@@ -30,12 +30,12 @@ function drawLetter(letterData) {
 
 
 
-  fill(217,103,4);
+  fill(204,133,151);
   noStroke();
   arc(arcposX,arcposY,arcWidth,arcHeight,arcStart,arcEnd);
-  fill(2,89,40);
+  fill(38,53,84);
   rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
-  fill(48,48,48);
+  fill(70,103,96);
   triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
 }
 
