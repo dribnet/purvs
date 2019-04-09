@@ -1,16 +1,16 @@
 ## PS2 MDDN 242 2019
 
-Each of my letters is composed of two triangles. The size and position is determined by the x1,y1,x2,y2,x3,y3 co-ordinates which are determined by the offsets.
+Each of my letters is composed of three arcs and a possible line. The position of each arc is determined by the size of its radius and will offset it from a point depending on the size of the radius. The smaller the radius, the closer the ellipse is to the center. I have left a grey outline of each ellipse at the moment as guidelines.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x2 co-ord of the first triangle
-  * `offsety` : y2 co-ord of the first triangle
-  * `offsetx2` : x3 co-ord of the first triangle
-  * `offsety2` : y3 co-ord of the first triangle
-  * `offset2x` : x2 co-ord of the second triangle
-  * `offset2y` : y2 co-ord of the second triangle
-  * `offset2x2` : x3 co-ord of the second triangle
-  * `offset2y2` : y2 co-ord of the second triangle
-  * `xoffset` : x1 co-ord of the second triangle relative to the first triangle's x1
-  * `yoffset` : y1 co-ord of the second triangle relative to the first triangle's y1
+The eleven parameters per letter:
+  * `size` : radius of the top arc
+  * `size2` : radius of the middle arc
+  * `size3` : radius of the bottom arc
+  * `arcStart1` : the start angle of the first arc
+  * `arcEnd1` : the end angle of the first arc
+  * `arcStart2` : the start angle of the second arc
+  * `arcEnd2` : the end angle of the second arc
+  * `arcStart3` : the start angle of the third arc
+  * `arcEnd3` : the end angle of the third arc
+  * `lineX` : the x co-ord of the line
+  * `isLine` : boolean whether the letter has the line

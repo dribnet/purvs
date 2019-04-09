@@ -1,30 +1,71 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0,
-    "offsetx2": 0,
-    "offsety2": 0
+    "size": 100,
+    "size2": 100,
+    "size3": 100,
+    "arcStart1": 0,
+    "arcEnd1": 0,
+    "arcStart2": 0,
+    "arcEnd2": 0,
+    "arcStart3": 0,
+    "arcEnd3": 0,
+    "lineX": 50, 
+    "isLine": true
   },
   "A": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 17,
-    "offsetx2": 0,
-    "offsety2": 0
+    "size": 80,
+    "size2": 100,
+    "size3": 100,
+    "arcStart1": -135,
+    "arcEnd1": 20,
+    "arcStart2": 0,
+    "arcEnd2": 0,
+    "arcStart3": -105,
+    "arcEnd3": 20,
+    "lineX": 15,
+    "isLine": true
+
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70,
-    "offsetx2": 0,
-    "offsety2": 0
+    "size": 50,
+    "size2": 50,
+    "size3": 50,
+    "arcStart1": 0,
+    "arcEnd1": 0,
+    "arcStart2": 0,
+    "arcEnd2": 0,
+    "arcStart3": 0,
+    "arcEnd3": 0,
+    "lineX": 0,
+    "isLine": false
+
   },
   "C": {
+    "size": 120,
+    "size2": 120,
+    "size3": 120,
+    "arcStart1": 0,
+    "arcEnd1": 0,
+    "arcStart2": 0,
+    "arcEnd2": 0,
+    "arcStart3": 0,
+    "arcEnd3": 0,
+    "lineX": 0,
+    "isLine": false
+
+  },
+  "D": {
     "size": 50,
-    "offsetx": 15,
-    "offsety": 0,
-    "offsetx2": 0,
-    "offsety2": 0
+    "size2": 100,
+    "size3": 120,
+    "arcStart1": 0,
+    "arcEnd1": 0,
+    "arcStart2": 0,
+    "arcEnd2": 0,
+    "arcStart3": 0,
+    "arcEnd3": 0,
+    "lineX": 0,
+    "isLine": false
+
   }
 }

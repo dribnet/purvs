@@ -95,6 +95,10 @@ function drawLetter(posx, posy, letterData) {
   triangle(posx,posy,pos2x,pos2y,pos3x,pos3y);
   fill(colorFront2);
   triangle(posx2,posy2,pos2x2,pos2y2,pos3x2,pos3y2);
+  //arc(posx,posy,size2/2,size2/2, 0, PI);
+  // fill(255,50);
+  // bezier(1,100,200,200,100,200,300,300);
+  // bezier(1,110,200,210,100,210,300,310);
 }
 
 function draw () {
