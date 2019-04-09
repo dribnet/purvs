@@ -2,23 +2,30 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35,
-  // "offsetx3": 10,
-  // "offset3": 10
+    "shift1": -100,
+    "tilt1": -45,
+    "shift2": -100,
+    "tilt2": -45,
+    "shift3": -0,
+    "tilt3": 45
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+    "shift1": -100,
+    "tilt1": -45,
+    "shift2": -100,
+    "tilt2": -45,
+    "shift3": 100,
+    "tilt3": 45
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+    "shift1": -150,
+    "tilt1": -45,
+    "shift2": -100,
+    "tilt2": -45,
+    "shift3": -100,
+    "tilt3": 45
 }
 
 const colorFront1  = "#CDC1DE";
@@ -40,23 +47,40 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-
-  let size3 = letterData["size3"]
-  let pos3x = posx + letterData["offsetx3"];
-  let pos3y = posy + letterData["offsetx3"];
-
+function drawPart(posx, posy, scale, offsetx, tilt) {
+  push();
   noStroke();
+  translate(posx + offsetx*scale/10, posy);
+  rotate(tilt);
+  square(-20*scale, -3*scale, 20*scale, 3*scale);
+  pop();
+}
+
+function drawLetter(posx, posy, letterData) {
+
+  let shift1 = letterData["shift1"];
+  let tilt1 = letterData["tilt1"];
+  let shift2 = letterData["shift2"];
+  let tilt2 = letterData["tilt2"];
+  let shift3 = letterData["shift3"];
+  let tilt3 = letterData["tilt3"];
+
+  // rotation in degrees (for tilt variable)
+  angleMode(DEGREES);
+
+  push();
+  let scale=5;
+  let y_offset = 10 * scale;
+
   fill(colorFront1);
-  square(posx, posy, 150, 150);
+  drawPart(posx, posy-y_offset, scale, shift1, tilt1);
+
   fill(colorFront2);
-  square(pos2x, pos2y, size2, size2);
+  drawPart(posx,          posy, scale, shift2, tilt2);
+
   fill(colorFront3);
-  square(pos3x, pos3y, 100, 100);
+  drawPart(posx, posy+y_offset, scale, shift3, tilt3);
+  pop();
 }
 
 function draw () {
