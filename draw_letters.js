@@ -37,11 +37,10 @@ function drawLetter(letterData) {
   fill(255);
   ellipse(posx2, posy2, size, size);
   fill(0);
-  stroke(10);
+  noStroke(20);
   triangle(t1, t2, t3, t4, t5, t6);
   triangle(r1, r2, r3, r4, r5, r6);
-  //triangle(30, 200, 50, 80, 50, 150);
-  //triangle(70, 200, 50, 80, 50, 150);
+ 
 
 }
 
