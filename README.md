@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2019
 
+UPDATE: Added numbers and null character, created constants for each of the points x and y values to make parameters easier to do.
+
 I changed my parameters from boolean to parameters that allow for the interpolation to work more effectively. The style still needs some work because it is very basic and I need to work out how to remove the unused dots. I currently have 12 parameters per letter which denote the x and y coordinates that each point will go to.
 
 In the drawing function I have line(start Point x, start Poing y, end point x parameter, end point y parameter) for each of the six points. I took inspiration from the example we were shown of the machine created in real life where the bars that connected the points changed angles to create the different lectures. I still need to do the numbers and the null character. 

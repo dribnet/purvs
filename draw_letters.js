@@ -9,10 +9,10 @@ function drawLetter(letterData) {
   // color/stroke setup
   strokeWeight(4);
 
-  const lines  = "#ff0000";
+  const lines  = "#24ad96";
   const dots = "#ffffff";
   const colorBack   = "#000000";
-  const glow = "#ffb459";
+  const glow = "#c4fff5";
 /**
    //Create variables from letterData
   p1p2 = letterData["p1p2"];
