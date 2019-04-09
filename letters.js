@@ -1,25 +1,27 @@
+//setting PI, HALF_PI and QUARTER_PI as constants
 const PI = 3.14159;
 const HALF_PI = PI/2;
 const QUARTER_PI = PI/4;
 
+//---------------------------------------------------------------------------------------------
 
 const alphabet = {
   "default": {
-  //yshift
-  //0 = mid line
+//yshift - where the line begins on the y axis
+  //0 = middle/ midline of bounding box
   "offsetX1": 0,
   "offsetX2": 0,
   "offsetX3": 0,
   "offsetX4": 0,
 
-  //length
-  //100 bottom
+//length - the length of the line
+  //100 = bottom of bounding box
   "offsetY1": 20,
   "offsetY2": 40,
   "offsetY3": 20,
   "offsetY4": 40,
 
-  //arc positions
+//arc positions - filled with blue colour
   "arcX1": 50,
   "arcY1": 90,
   "Astart": 0+.2,
@@ -39,6 +41,7 @@ const alphabet = {
   "offsetY3": 70,
   "offsetY4": 100,
 
+//quad positions - filled with background colour
   //quad x positions
   "quadX1": 20,
   "quadX2": 50,
@@ -51,7 +54,7 @@ const alphabet = {
   "quadY3": 50,
   "quadY4": 50,
 
-  //arc positions
+//arc positions
   "arcX1": 50,
   "arcY1": 150,
   "Astart": HALF_PI-0.5,
@@ -181,7 +184,7 @@ const alphabet = {
 
   //arc positions
   "arcX1": 50,
-  "arcY1": 140,
+  "arcY1": 135,
   "Astart": PI,
   "Astop": 0
   },
@@ -213,7 +216,7 @@ const alphabet = {
 
   //arc positions
   "arcX1": 60,
-  "arcY1": 40,
+  "arcY1": 38,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5
   },
@@ -277,7 +280,7 @@ const alphabet = {
 
   //arc positions
   "arcX1": 60,
-  "arcY1": 140,
+  "arcY1": 138,
   "Astart": PI+.4,
   "Astop": -.4
   },
@@ -367,7 +370,7 @@ const alphabet = {
 
   //arc positions
   "arcX1": 60,
-  "arcY1": 140,
+  "arcY1": 138,
   "Astart": PI,
   "Astop": 0
   },
@@ -619,7 +622,7 @@ const alphabet = {
   "arcX1": 50,
   "arcY1": 165,
   "Astart": 0+1.2,
-  "Astop": PI+.5
+  "Astop": PI+.4
   },     
 
   "T": {
@@ -712,10 +715,10 @@ const alphabet = {
   "quadY4": 50,
 
   //arc positions
-  "arcX1": 60,
-  "arcY1": 150,
-  "Astart": 0+1.5,
-  "Astop": PI+.7
+  "arcX1": 58,
+  "arcY1": 145,
+  "Astart": 0+1.4,
+  "Astop": PI+.8
   },
 
   "W": {
@@ -811,7 +814,7 @@ const alphabet = {
   "arcX1": 50,
   "arcY1": 235,
   "Astart": 0+.8,
-  "Astop": PI+.2
+  "Astop": PI+.1
   },   
 
   "Z": {
@@ -906,7 +909,7 @@ const alphabet = {
   "quadY4": 180,
 
   //arc positions
-  "arcX1": 50,
+  "arcX1": 60,
   "arcY1": 40,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5
@@ -970,7 +973,7 @@ const alphabet = {
   "quadY4": 170,
 
   //arc positions
-  "arcX1": 50,
+  "arcX1": 40,
   "arcY1": 40,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5  
@@ -1034,7 +1037,7 @@ const alphabet = {
   "quadY4": 115,
 
   //arc positions
-  "arcX1": 50,
+  "arcX1": 60,
   "arcY1": 40,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5
@@ -1098,7 +1101,7 @@ const alphabet = {
   "quadY4": 50,
 
   //arc positions
-  "arcX1": 50,
+  "arcX1": 40,
   "arcY1": 40,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5
@@ -1162,7 +1165,7 @@ const alphabet = {
   "quadY4": 100,
 
   //arc positions
-  "arcX1": 50,
+  "arcX1": 40,
   "arcY1": 40,
   "Astart": PI+0.3,
   "Astop": -QUARTER_PI+0.5
