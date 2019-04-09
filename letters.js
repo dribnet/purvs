@@ -108,12 +108,12 @@ const alphabet = {
   "F": {
      "size": 130,
     "sizee11": 120,
-    "offsetx": 31,
+    "offsetx": 33,
     "offsety": 50,
     
-    "sizee21": 100,
+    "sizee21": 120,
     "sizee22": 20,
-    "offsetx1": 30,
+    "offsetx1": 32,
     "offsety2": -50,
     
     "arc11": 3.14,
@@ -288,7 +288,7 @@ const alphabet = {
   "P": {
      "size": 120,
     "sizee11": 120,
-    "offsetx": 30,
+    "offsetx": 32,
     "offsety": 50,
     
     "sizee21": 60,
@@ -358,12 +358,12 @@ const alphabet = {
  "T": {
      "size": 65,
     "sizee11": 250,
-    "offsetx": -50,
+    "offsetx": -51,
     "offsety": 50,
     
     "sizee21": 65,
     "sizee22": 250,
-    "offsetx1": 31,
+    "offsetx1": 32,
     "offsety2": 50,
     
     "arc11": -1.57,
