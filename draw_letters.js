@@ -15,7 +15,7 @@ function drawLetter(letterData) {
   noStroke();
   fill(236,147,148);
 
-
+//13 ellipses
 ellipse(letterData["lx1"],letterData["ly1"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx2"],letterData["ly2"],letterData["size1"],letterData["size1"])
 ellipse(letterData["lx3"],letterData["ly3"],letterData["size1"],letterData["size1"])
@@ -38,6 +38,7 @@ ellipse(letterData["lx13"],letterData["ly13"],letterData["size1"],letterData["si
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  //lx
   new_letter["size1"]    = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
     new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
       new_letter["size3"]    = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
@@ -54,6 +55,7 @@ function interpolate_letter(percent, oldObj, newObj) {
                 new_letter["lx11"] = map(percent, 0, 100, oldObj["lx11"], newObj["lx11"]);
                 new_letter["lx12"] = map(percent, 0, 100, oldObj["lx12"], newObj["lx12"]);
                 new_letter["lx13"] = map(percent, 0, 100, oldObj["lx13"], newObj["lx13"]);
+//ly
   new_letter["ly1"] = map(percent, 0, 100, oldObj["ly1"], newObj["ly1"]);
     new_letter["ly2"] = map(percent, 0, 100, oldObj["ly2"], newObj["ly2"]);
       new_letter["ly3"] = map(percent, 0, 100, oldObj["ly3"], newObj["ly3"]);
@@ -69,9 +71,9 @@ function interpolate_letter(percent, oldObj, newObj) {
               new_letter["ly13"] = map(percent, 0, 100, oldObj["ly13"], newObj["ly13"]);
   return new_letter;
 }
-
+// exhibition words
 var swapWords = [
-  "MDDNTTT",
+  "MDDNTTT?",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
