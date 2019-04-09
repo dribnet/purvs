@@ -1,11 +1,10 @@
 // Sets constants/variables
-const honeycombFill = "#FFC748";
 const colorStroke = "#FFEFC1";
 
 // Draw the letter given the letterData
 function drawLetter(letterData) {
     angleMode(DEGREES);
-    
+
     // Sets parameters
     let hex1_xPos = letterData["1xPos"];
     let hex1_yPos = letterData["1yPos"];
@@ -35,7 +34,7 @@ function drawLetter(letterData) {
     let hex9_yPos = letterData["9yPos"];
 
     // Draws 9 hexagons
-    fill(honeycombFill);
+    fill(255, 166, 72);
     stroke(colorStroke);
     draw_hex(hex1_xPos, hex1_yPos);
     draw_hex(hex2_xPos, hex2_yPos);
@@ -50,16 +49,50 @@ function drawLetter(letterData) {
 
 // Makes hexagon shape
 function draw_hex(hex1_xPos, hex1_yPos) {
-    angleMode(DEGREES);
     push();
+    // Darkest hexagon shadow and stroke
     translate(hex1_xPos, hex1_yPos);
     rotate(30);
     strokeWeight(4);
     beginShape();
     for (i = 0; i < 6; i++) { // Makes all sides equal
         ang = i * (360 / 6);
-        xVertex = sin(ang) * 15;
+        xVertex = sin(ang) * 15; // Sets size of darkest(outer) shadow
         yVertex = cos(ang) * 15;
+        vertex(xVertex, yVertex);
+    }
+    endShape(CLOSE);
+
+    // 2nd darkest shadow
+    noStroke();
+    fill(255, 185, 72);
+    beginShape();
+    for (i = 0; i < 6; i++) { // Makes all sides equal
+        ang = i * (360 / 6);
+        xVertex = sin(ang) * 10.5; // Sets size of 2nd darkest shadow
+        yVertex = cos(ang) * 10.5;
+        vertex(xVertex, yVertex);
+    }
+    endShape(CLOSE);
+
+    // 3rd darkest shadow
+    fill(255, 199, 72);
+    beginShape();
+    for (i = 0; i < 6; i++) { // Makes all sides equal
+        ang = i * (360 / 6);
+        xVertex = sin(ang) * 8.5; // Sets size of 3rd darkest shadow
+        yVertex = cos(ang) * 8.5;
+        vertex(xVertex, yVertex);
+    }
+    endShape(CLOSE);
+
+    // Lightest inner honeycomb shade
+    fill(255, 211, 112);
+    beginShape();
+    for (i = 0; i < 6; i++) { // Makes all sides equal
+        ang = i * (360 / 6);
+        xVertex = sin(ang) * 6; // Sets size of inner honeycomb
+        yVertex = cos(ang) * 6;
         vertex(xVertex, yVertex);
     }
     endShape(CLOSE);
