@@ -2,9 +2,7 @@
 
 ## Morse Code Alphabets
 
-I have finished my letters and changed the colors to a brighter, warmer scheme to make it look more lively and playful. I ahve also added the interaction to it. Although it is pretty much finished, I think there is a lot that I can improve and I will be looking at what other changes I can make to my font. 
-
-In morse code, a maximum of five signals are composed in one letter, therefore I made my aplhabets with 5 ellipses and changed their widht/height when needed.
+I've tested out some colours for my code and decided to keep the contrast between the orange and blue. I also tried to add some annimation to my letters like for them to look more fluid, but I haven't figured that out and will be looking deeper into that.
 
 20 parameters per letter, 4 for each ellipse of one alphabet:
 	"ballposx"

@@ -29,18 +29,42 @@ function drawLetter(letterData) {
   let ball_pos_y5 = letterData["ball5posy"];
   let ball_size_w5 = letterData["ball5sizew"];
   let ball_size_h5 = letterData["ball5sizeh"];
+  let p = 0;
+  let q = 0;
 
   push();
   translate(50,100)
+  
+  // if (second() % 2 == 0){
+  //   p = 2;
+  // }
+  // else {
+  //   p= - 2;
+  // }
+  // if (second() % 2 == 0){
+  //   q = 3;
+  // }
+  // else {
+  //   q = - 3;
+  // }
+  
+
 
   noStroke();
-  fill("#F59178");
-  ellipse(ball_pos_x+3, ball_pos_y+5, ball_size_w, ball_size_h);
-  ellipse(ball_pos_x2+3, ball_pos_y2+5, ball_size_w2, ball_size_h2);
-  ellipse(ball_pos_x3+3, ball_pos_y3+5, ball_size_w3, ball_size_h3);
-  ellipse(ball_pos_x4+3, ball_pos_y4+5, ball_size_w4, ball_size_h4);
-  ellipse(ball_pos_x5+3, ball_pos_y5+5, ball_size_w5, ball_size_h5); 
+  fill("#2D728F");
+  ellipse(ball_pos_x+3, ball_pos_y+15, ball_size_w+2, ball_size_h);
+  ellipse(ball_pos_x2+3, ball_pos_y2+15, ball_size_w2+2, ball_size_h2);
+  ellipse(ball_pos_x3+3, ball_pos_y3+15, ball_size_w3+2, ball_size_h3);
+  ellipse(ball_pos_x4+3, ball_pos_y4+15, ball_size_w4+2, ball_size_h4);
+  ellipse(ball_pos_x5+3, ball_pos_y5+15, ball_size_w5+2, ball_size_h5); 
 
+
+  fill("#F59178");
+  ellipse(ball_pos_x+2, ball_pos_y+3, ball_size_w, ball_size_h);
+  ellipse(ball_pos_x2+2, ball_pos_y2+3, ball_size_w2, ball_size_h2);
+  ellipse(ball_pos_x3+2, ball_pos_y3+3, ball_size_w3, ball_size_h3);
+  ellipse(ball_pos_x4+2, ball_pos_y4+3, ball_size_w4, ball_size_h4);
+  ellipse(ball_pos_x5+2, ball_pos_y5+3, ball_size_w5, ball_size_h5); 
 
   fill("#F5C078");
   ellipse(ball_pos_x, ball_pos_y, ball_size_w, ball_size_h);
@@ -49,6 +73,8 @@ function drawLetter(letterData) {
   ellipse(ball_pos_x4, ball_pos_y4, ball_size_w4, ball_size_h4);
   ellipse(ball_pos_x5, ball_pos_y5, ball_size_w5, ball_size_h5);
   pop();
+
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -76,12 +102,12 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["ball5posx"] = map(percent, 0, 100, oldObj["ball5posx"], newObj["ball5posx"]);
   new_letter["ball5posy"] = map(percent, 0, 100, oldObj["ball5posy"], newObj["ball5posy"]);
   new_letter["ball5sizew"] = map(percent, 0, 100, oldObj["ball5sizew"], newObj["ball5sizew"]);
-  new_letter["ball5sizeh"] = map(percent, 0, 100, oldObj["ball5sizeh"], newObj["ball5111sizeh"]);
+  new_letter["ball5sizeh"] = map(percent, 0, 100, oldObj["ball5sizeh"], newObj["ball5sizeh"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "AQUACODE",
+  "HSINCHEN",
+  "19980212"
 ]

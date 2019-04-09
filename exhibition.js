@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#58A4B0";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
@@ -18,7 +18,7 @@ let soloCurLetter = "B";
 let soloLastLetter = "A"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
-let soloNumAnimationFrames = 30;
+let soloNumAnimationFrames = 0;
 let soloCurAnimationFrame = 0;
 
 // Handy string of all letters available
@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
+  "WARRIORS",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
