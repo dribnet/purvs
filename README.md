@@ -1,8 +1,6 @@
 ## PS2 MDDN 242 2019
 
-### 08/04/19
-
-I have completed the design of numbers as well as the alphabet today. Now it's time to put the code in so that the alphabet moves flexibly.
+### 09/04/19
 
 
 

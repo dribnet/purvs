@@ -30,26 +30,48 @@ function drawLetter(letterData) {
 
 
 
-  fill(217,103,4,250);
+  fill(217,103,4);
   noStroke();
   arc(arcposX,arcposY,arcWidth,arcHeight,arcStart,arcEnd);
-  fill(2,89,40,250);
+  fill(2,89,40);
   rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
-  fill(48,48,48,250);
+  fill(48,48,48);
   triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+  new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
+  new_letter["rectH"] = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
+  new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+  new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
+  new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+  new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+  new_letter["arcW"] = map(percent, 0, 100, oldObj["arcW"], newObj["arcW"]);
+  new_letter["arcH"] = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
+  new_letter["triX1"] = map(percent, 0, 100, oldObj["triX1"], newObj["triX1"]);
+  new_letter["triY1"] = map(percent, 0, 100, oldObj["triY1"], newObj["triY1"]);
+  new_letter["triX2"] = map(percent, 0, 100, oldObj["triX2"], newObj["triX2"]);
+  new_letter["triY2"] = map(percent, 0, 100, oldObj["triY2"], newObj["triY2"]);
+  new_letter["triX3"] = map(percent, 0, 100, oldObj["triX3"], newObj["triX3"]);
+  new_letter["triY3"] = map(percent, 0, 100, oldObj["triY3"], newObj["triY3"]);
+
+  let new_percent = {};
+  if(percent < 30) {
+    new_percent = map(percent, 0, 20, 0, -20);
+  }
+  else {
+    new_percent = map(percent, 20, 100, -20, 20);
+  }
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FACEBOOK",
+  "12345678?",
+  "THURSDAY"
 ]
 
