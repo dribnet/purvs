@@ -3,6 +3,8 @@ const colorFront2  = "#59ccff";
 const colorStroke  = "#FFFFFF";
 
 function drawLetter(letterData) {
+  angleMode(DEGREES);
+
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(4);
@@ -23,38 +25,36 @@ function drawLetter(letterData) {
   let SThirdPosx = letterData["T23x"]; // x Third point of triangle 2
   let SThirdPosy = letterData["T23y"]; // y Third point of triangle 2
 
-  let rotatetri1 = letterData ["rot1"]; // Rotation for first triangle
-  let rotatetri2 = letterData ["rot2"]; // Rotation for second triangle
+  let rotatetri1 = 0;
+  if("rot1" in letterData) {
+    rotatetri1 = letterData ["rot1"]; // Rotation for first triangle
+  }
 
-push();
-translate(50,70);
-scale(0.5);
+  let rotatetri2 = 0;
+  if("rot2" in letterData) {
+    rotatetri2 = letterData ["rot2"]; // Rotation for first triangle
+  }
 
-  push();
-    rotate(rotatetri1);
-    triangle(FirstPosx, FirstPosy, SecondPosx, SecondPosy, ThirdPosx, ThirdPosy);
-  pop(); 
-
-  push();
-    rotate(rotatetri2)
-    triangle(SFirstPosx, SFirstPosy, SSecondPosx, SSecondPosy, SThirdPosx, SThirdPosy);
-  pop();
 
   //draw first tri
   push();
     fill(colorFront1);
+    translate(50, 100);
     rotate(rotatetri1);
+    translate(-50, -100);    
     triangle(FirstPosx, FirstPosy, SecondPosx, SecondPosy, ThirdPosx, ThirdPosy);
   pop();
 
   //draw second tri
   push();
     fill(colorFront2);
+    translate(20, 30);
     rotate(rotatetri2);
+    translate(-20, -30);   
     triangle(SFirstPosx, SFirstPosy, SSecondPosx, SSecondPosy, SThirdPosx, SThirdPosy);
   pop();
 
-pop();
+// pop();
 
 }
 
@@ -72,11 +72,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["T22y"] = map(percent, 0, 100, oldObj["T22y"], newObj["T22y"]);  
   new_letter["T23x"] = map(percent, 0, 100, oldObj["T23x"], newObj["T23x"]);
   new_letter["T23y"] = map(percent, 0, 100, oldObj["T23y"], newObj["T23y"]);
-  new_letter["rot1"] = map(percent, 0, 100, oldObj["rot1"], newObj["rot1"]);
-  new_letter["rot2"] = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
-
- 
-
+  new_letter["rot1"] = map(percent, 0, 100, 0, -360);
+  new_letter["rot2"] = map(percent, 0, 100, 0, -720);
+  // new_letter["rot2"] = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
 
   return new_letter;
 }
