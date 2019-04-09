@@ -13,26 +13,32 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "RScale": 20,
+  "R1x": 30,
+  "R1y": -100,
+  "T1x": 80,
+  "T1y": 20
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "RScale": 50,
+  "R1x": 0,
+  "R1y": -50,
+  "T1x": -6,
+  "T1y": -125
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "RScale": 40,
+  "R1x": 30,
+  "R1y": -100,
+  "T1x": -60,
+  "T1y": -27
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorBack    = "ffffff";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -50,15 +56,26 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let size2 = letterData["RScale"];
+  let pos2x = posx + letterData["R1x"];
+  let pos2y = posy + letterData["R1y"];
+  let pos3x = posx + letterData["T1x"];
+  let pos3y = posy + letterData["T1y"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  noStroke();
+  rect(posx, posy-100, 50, 150);
+  
+  push();
+  fill(255);
+  stroke(0);
+  strokeWeight(2);
+  triangle(100+posx, 50+posy, pos2x, pos2y, 86+pos3x, 75+pos3y);
+  pop();
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, size2, size2); 
 }
 
 function draw () {
