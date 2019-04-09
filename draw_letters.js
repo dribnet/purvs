@@ -66,9 +66,9 @@ ellipse(letterData["lx13"],letterData["ly13"],letterData["size1"],letterData["si
 }
 // exhibition words
 var swapWords = [
-  "MDDN 242",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MDDN242 ",
+  "12345678",
+  "09876543"
 ]
 
 
