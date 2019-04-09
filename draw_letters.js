@@ -36,29 +36,23 @@ function drawLetter(letterData) {
   let pos7y = posy+letterData["y6"];
   let pos8x = posx+letterData["x7"];
   let pos8y = posy+letterData["y7"];
-  let pos9x = posx+letterData["x8"];
-  let pos9y = posy+letterData["y8"];
-  let pos10x = posx+letterData["x9"];
-  let pos10y = posy+letterData["y9"];
+ 
 
 //debugging
-  print(pos1x);
-
-  // draw two circles
-  // fill(colorFront1);
-  // ellipse(50, 150, 75, 75);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
+  //print(pos1x);
   fill(255, 0, 0);
-  //ellipse(100, 100, 50, 50);
+  fill (255,255,0,50);
+noStroke();
+triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
+fill (250,0,0,50);
+triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
+fill (250,0,100,50);
+ triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
    stroke(255);
   strokeWeight(1);
-  //line(pos1x, pos1y, posx-50,posy+200);
-  //fill(255, 15, 239, 50);
-  //noStroke();
+
   noFill();
-  // push();
-  //translate(width/2, height/2);
+
 
   line(pos1x, pos1y, pos2x, pos2y);
   line(pos2x, pos2y, pos3x, pos3y);
@@ -78,15 +72,6 @@ function drawLetter(letterData) {
   ellipse(pos5x, pos5y, 4, 4);
   ellipse(pos6x, pos6y, 4, 4);
 
-  fill (250,250,0,90);
-noStroke();
-triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
-fill (250,0,0,90);
-triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
-fill (250,0,100,90);
- triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
-
-
 
 
 
@@ -97,32 +82,65 @@ fill (250,0,100,90);
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["x"] = map(percent, 0, 100, oldObj["x"], newObj["x"]);
-  new_letter["y"] = map(percent, 0, 100, oldObj["y"], newObj["y"]);
-    new_letter["x1"] = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
-  new_letter["y1"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-    new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
-  new_letter["y2"] = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
-    new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
-  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
-    new_letter["x4"] = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
-  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
-    new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
-  new_letter["y5"] = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
-    new_letter["x6"] = map(percent, 0, 100, oldObj["x6"], newObj["x6"]);
-  new_letter["y6"] = map(percent, 0, 100, oldObj["y6"], newObj["y6"]);
-  new_letter["x7"] = map(percent, 0, 100, oldObj["x7"], newObj["x7"]);
-  new_letter["y7"] = map(percent, 0, 100, oldObj["y7"], newObj["y7"]);
-new_letter["x8"] = map(percent, 0, 100, oldObj["x8"], newObj["x8"]);
-  new_letter["y8"] = map(percent, 0, 100, oldObj["y8"], newObj["y8"]);
-  new_letter["x9"] = map(percent, 0, 100, oldObj["x9"], newObj["x9"]);
-  new_letter["y9"] = map(percent, 0, 100, oldObj["y9"], newObj["y9"]);
+  let new_percent = 0;
+  let amount_of_anticipation = 40;
+
+  if(percent <= amount_of_anticipation) {
+    new_percent = map (percent, 0, 40, 0, -30);
+
+
+  }
+  else{
+    new_percent = map(percent, 40, 100, -30, 100);
+  }
+
+  //   let new_percent = 0;
+  // //let amount_of_anticipation = 20;
+  // if(percent < amount_of_anticipation) {
+  //   new_percent = map (percent, 0, amount_of_anticipation, 0, -10);
+  // }
+  // else{
+  //   new_percent = map(percent, amount_of_anticipation, 100, -10, 100);
+  // }
+  new_letter["size"]    = map(new_percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["x"] = map(new_percent, 0, 100, oldObj["x"], newObj["x"]);
+  new_letter["y"] = map(new_percent, 0, 100, oldObj["y"], newObj["y"]);
+  new_letter["x1"] = map(new_percent, 0, 100, oldObj["x1"], newObj["x1"]);
+  new_letter["y1"] = map(new_percent, 0, 100, oldObj["y1"], newObj["y1"]);
+  new_letter["x2"] = map(new_percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["y2"] = map(new_percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["x3"] = map(new_percent, 0, 100, oldObj["x3"], newObj["x3"]);
+  new_letter["y3"] = map(new_percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["x4"] = map(new_percent, 0, 100, oldObj["x4"], newObj["x4"]);
+  new_letter["y4"] = map(new_percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  new_letter["x5"] = map(new_percent, 0, 100, oldObj["x5"], newObj["x5"]);
+  new_letter["y5"] = map(new_percent, 0, 100, oldObj["y5"], newObj["y5"]);
+
+  new_letter["x5"] = oldObj["x5"];
+  new_letter["y5"] = oldObj["y5"];
+  // new_letter["x6"] = map(new_percent, -50, 100, oldObj["x6"], newObj["x6"]);
+  // new_letter["y6"] = map(new_percent, -50, 100, oldObj["y6"], newObj["y6"]);
+  // new_letter["x7"] = map(new_percent, -50, 100, oldObj["x7"], newObj["x7"]);
+  // new_letter["y7"] = map(new_percent, -50, 100, oldObj["y7"], newObj["y7"]);
+  // if(percent <10) {
+   
+  //     new_letter["y"] = oldObj["newObj"];
+  // }
+  // else if (percent > 90){
+  //    new_letter["y"] = oldObj["y"];
+  //   //new_letter["y"] = oldObj["newObj"];
+  //   // new_letter["y"] = map(percent, 50, 100, oldObj["y"], newObj["y"]);
+  // }
+  // else{
+  //   new_letter["y"] = map(percent, 10, 90, oldObj["y"]);
+  // }
+
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "STAR MAP",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "BEAUTIFUL"
 ]
