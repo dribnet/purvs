@@ -1,19 +1,19 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#edf1e9";
-// const colorLines   = "#000090";
+// const colorBack    = "#edf1e9";
+const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["polygons"] = map(param_sliders[0].value(), 0, 100, 5, 100);
-  obj["red"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-  obj["green"] = map(param_sliders[2].value(), 0, 100, -150, 50);
-  obj["blue"] = map(param_sliders[3].value(), 0, 100, -150, 50);
+  obj["red"] = map(param_sliders[0].value(), 0, 100, 5, 100);
+  obj["green"] = map(param_sliders[1].value(), 0, 100, -50, 50);
+  obj["blue"] = map(param_sliders[2].value(), 0, 100, -150, 50);
+  // obj["blue"] = map(param_sliders[3].value(), 0, 100, -150, 50);
   return obj;
 }
 
-let numSliders = 4;
+let numSliders = 3;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 

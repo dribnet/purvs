@@ -1,10 +1,3 @@
-/*
- * Here are some things you can edit
- */
-const colorBack    = "#edf1e9";
-
-
-
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
@@ -216,8 +209,8 @@ function draw () {
   }
 
   background(colorBack);
-  fill(colorFront);
-  stroke(95, 52, 8);
+  noFill();
+  stroke(129,144,168);
 
   // shorthand variables to allow margin
   var o = 20

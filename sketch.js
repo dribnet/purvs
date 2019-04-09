@@ -116,14 +116,16 @@ function setup () {
 
 function drawLetter(x,y,letterData) {
 
+   stroke(129, 144, 168);
+   strokeWeight(1);
+
   for(var i = 0; i < polygons.length; i++){
   if(letterData["polygons"][i] == 1){ //Draw lit up hexagon
     fill(letterData["red"], letterData["green"], letterData["blue"]);
     polygon(polygons[i][0], polygons[i][1], polygons[i][2], polygons[i][3]);    
   }else{  //Draw hexagon
     noFill();
-    stroke(129, 144, 168);
-    strokeWeight(1);
+
     polygon(polygons[i][0], polygons[i][1], polygons[i][2], polygons[i][3]);  
   } 
   polygon(polygons[i][0], polygons[i][1], polygons[i][2], polygons[i][3]);  
