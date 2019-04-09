@@ -6,15 +6,18 @@
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  let size=45;
+  let size=35;
   let spacing=60;
   let startX1=0;
   let startX2=55;
   let y=20;
+  shearX(PI / 89.0);
   strokeJoin(BEVEL);
   strokeWeight(2);
-  let colorB= color(255,255,255);
-  let colorW= color(0,0,0);
+  let colorB= color(255,255,255,letterData["alpha"
+]);
+  let colorW= color(0,0,0, letterData["alpha"
+]);
   let alphaB=color(255,255,255,30);
   let alphaW=color(0,0,0,160);
   //DOT ONE
@@ -72,9 +75,13 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["dot1"]= map(percent, 0, 100, oldObj["dot1"],newObj["dot1"]);
+  new_letter["dot2"]= map(percent, 0, 100, oldObj["dot2"],newObj["dot2"]);
+  new_letter["dot3"]= map(percent, 0, 100, oldObj["dot3"],newObj["dot3"]);
+  new_letter["dot4"]= map(percent, 0, 100, oldObj["dot4"],newObj["dot4"]);
+  new_letter["dot5"]= map(percent, 0, 100, oldObj["dot5"],newObj["dot5"]);
+  new_letter["dot6"]= map(percent, 0, 100, oldObj["dot6"],newObj["dot6"]);
+  new_letter["alpha"]= map(percent, 0, 100, 0, 255);
   return new_letter;
 }
 

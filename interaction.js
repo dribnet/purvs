@@ -43,6 +43,8 @@ function mouseClicked() {
 const interpolation_is_on = (typeof interpolate_letter === "function")
 
 function getCharacterInterpolationObj(percent, oldObj, newObj) {
+  
+
   if (interpolation_is_on) {
     // safe to use the function
     obj = interpolate_letter(percent, oldObj, newObj)
