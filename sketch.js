@@ -43,7 +43,7 @@ const letterC = {
 }
 
 const colorFront1  = "#1b1b1b";
-const colorBack    = "#0b3ea3";
+const colorBack    = "#000000";
 const colorStroke  = "#f4dc42";
 
 function setup () {
