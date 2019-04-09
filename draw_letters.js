@@ -9,12 +9,14 @@
 
 function drawLetter(letterData) {
 
-  for (i = 0; i < 8; i++) { //lOOP TO ANIMATE AND CREATE STROKES
-    push()
-    translate(50, 100) //PLACE ORIGIN TO CENTER OF LETTER
-    rotate(random(-0.05, 0.05)) //"VIBRATION" RANGE
-    stroke(random(100, 250)) //STROKE TONE RANGE
-    noFill()
+
+
+  for (i = 0; i < 8; i++) { //LOOP TO ANIMATE AND CREATE STROKES
+    push();
+    translate(50, 100); //PLACE ORIGIN TO CENTER OF LETTER
+    rotate(random(-0.05, 0.05)); //"VIBRATION" RANGE
+    stroke(random(100, 250)); //STROKE TONE RANGE
+    noFill();
     strokeWeight(2);
     beginShape(); //CREATING LETTERS BASED ON VERTEXES LISTED IN LETTERS.JS
     vertex(letterData["point1x"], letterData["point1y"]);
@@ -31,6 +33,12 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
+ 
+ if (percent > 10 && percent < 90){ //LOOP TO ANIMATE AND CREATE STROKES
+  rotate(random(-0.05,0.05));
+};
+
+
   new_letter["point1x"] = map(percent, 0, 100, oldObj["point1x"], newObj["point1x"]);
   new_letter["point1y"] = map(percent, 0, 100, oldObj["point1y"], newObj["point1y"]);
   new_letter["point2x"] = map(percent, 0, 100, oldObj["point2x"], newObj["point2x"]);
@@ -43,6 +51,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["point5y"] = map(percent, 0, 100, oldObj["point5y"], newObj["point5y"]);
   new_letter["point6x"] = map(percent, 0, 100, oldObj["point6x"], newObj["point6x"]);
   new_letter["point6y"] = map(percent, 0, 100, oldObj["point6y"], newObj["point6y"]);
+
+
 
   return new_letter;
 }
