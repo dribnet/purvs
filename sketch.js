@@ -38,8 +38,9 @@ const letterC = {
   "arcStop": 180/3*2 + 210 // just under a complete circle
 }
 
-const colorFront1  = "#2E8B57"; // sea green
-const colorFront2  = "#ADFF2F"; // greenyellow
+// changed colorFronts to arrays so I could pass it into fill function and add alpha value 
+const colorFront1  = [46, 139, 87]; // sea green #2E8B57
+const colorFront2  = [173, 255, 87]; // greenyellow #ADFF2F
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -65,9 +66,9 @@ function drawLetter(posx, posy, letterData) {
   let stop = letterData["arcStop"];
 
   // draw two arcs
-  fill(colorFront1);
+  fill(colorFront1[0], colorFront1[1], colorFront1[2], 255);
   arc(posx, posy, 150, 150, radians(start), radians(stop), PIE);
-  fill(colorFront2);
+  fill(colorFront2[0], colorFront2[1], colorFront2[2], 160);
   arc(pos2x, pos2y, size2, size2, radians(start), radians(stop), PIE);
 }
 
