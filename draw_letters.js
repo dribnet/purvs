@@ -99,6 +99,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "GLYPHICS", //Font Name
-  "EGYPTIAN", //Word relating to hieroglyphics
+  "EGYPTIAN", //Word relating to hieroglyphics/font
   "GLYPHICA" //Alternate font name
 ]

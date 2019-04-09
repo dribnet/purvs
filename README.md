@@ -1,8 +1,15 @@
 ## PS2 MDDN 242 2019
 
-INTERPOLATION:
+FINAL/EXHIBITION:
 
-When thinking about the animation of my letters and how they change to the next, I decided I wanted each fo the elements to move one at a time. So the line moves first, then the arcs, then the dots last. The way I controlled this animation is through using an if statement. When percentage is 20, the line starts moving to new position, when percentage is 60, the arcs start moving to new position and when percentage is 90, the circles/dots start moving, else if its less than these values, they stay in their old positions.
+Glyphics:
+
+My final alphabet is called glyphics. As stated on previous commits, it was inspired by Egyptian hieroglyphics and had been based on a moon glyph that had been rotated vertically (default). The design has been made to look this way to mimic the look of hieroglyphs as if the letters were carved into a cave. However, instead of using symbols like the Egyptians had done, I wanted to have my letters to still be readable and universal, which is why I stuck to the traditional english letters but mostly focused on the lower case and drawn them out with the elements of the moon glyph (line, arcs and ellipses).
+
+The swap words I've chosen are:
+Glyphics = name of font
+Egyptian = Word related to concept of letters/font
+Glyphica = alternate name for font
 
 Parameters:
 line_x1 = x position for starting point of line
