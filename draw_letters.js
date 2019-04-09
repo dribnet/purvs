@@ -1,5 +1,5 @@
-const colorFront1  = "#422d14";
-const colorFront2  = "#a88a66";
+const colorFront1  = "#ce0027";
+const colorFront2  = "#efa6a6";
 const colorStroke  = "#a88a66";
 
 /*
@@ -38,10 +38,10 @@ function drawLetter(letterData) {
   rect(0, 60, 80, 140);
 
   fill(colorFront2);
-  arc(pos2x, pos2y, size2, size3, arc1, arc2, );
+  arc(pos2x, pos2y, size2, size3, arc1, arc2);
   
   fill(colorFront2);
-  arc(pos3x, pos3y, size5, size6, arc3, arc4, );
+  arc(pos3x, pos3y, size5, size6, arc3, arc4);
   
  
 
@@ -49,18 +49,33 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["sizee11"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee11"]);
-  new_letter["sizee21"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee21"]);
-  new_letter["sizee22"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee22"]);
+  new_letter["sizee11"]    = map(percent, 0, 100, oldObj["sizee11"], newObj["sizee11"]);
+  new_letter["sizee21"]    = map(percent, 0, 100, oldObj["sizee21"], newObj["sizee21"]);
+  new_letter["sizee22"]    = map(percent, 0, 100, oldObj["sizee22"], newObj["sizee22"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["offsetx1"]    = map(percent, 0, 100, oldObj["size"], newObj["offsetx1"]);
-  new_letter["offsety2"]    = map(percent, 0, 100, oldObj["size"], newObj["offsety2"]);
-  new_letter["arc11"]    = map(percent, 0, 1, oldObj["size"], newObj["arc11"]);
-  new_letter["arc12"]    = map(percent, 0, 1, oldObj["size"], newObj["arc12"]);
-  new_letter["arc21"]    = map(percent, 0, 1, oldObj["size"], newObj["arc21"]);
-  new_letter["arc22"]    = map(percent, 0, 1, oldObj["size"], newObj["arc22"]);
+  new_letter["offsetx1"]    = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_letter["offsety2"]    = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["arc11"]    = map(percent, 0, 1, oldObj["arc11"], newObj["arc11"]);
+  new_letter["arc12"]    = map(percent, 0, 1, oldObj["arc12"], newObj["arc12"]);
+  new_letter["arc21"]    = map(percent, 0, 1, oldObj["arc21"], newObj["arc21"]);
+  new_letter["arc22"]    = map(percent, 0, 1, oldObj["arc22"], newObj["arc22"]);
+
+
+  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  // new_letter["sizee11"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee11"]);
+  // new_letter["sizee21"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee21"]);
+  // new_letter["sizee22"]    = map(percent, 0, 100, oldObj["size"], newObj["sizee22"]);
+  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  // new_letter["offsetx1"]    = map(percent, 0, 100, oldObj["size"], newObj["offsetx1"]);
+  // new_letter["offsety2"]    = map(percent, 0, 100, oldObj["size"], newObj["offsety2"]);
+  // new_letter["arc11"]    = map(percent, 0, 1, oldObj["size"], newObj["arc11"]);
+  // new_letter["arc12"]    = map(percent, 0, 1, oldObj["size"], newObj["arc12"]);
+  // new_letter["arc21"]    = map(percent, 0, 1, oldObj["size"], newObj["arc21"]);
+  // new_letter["arc22"]    = map(percent, 0, 1, oldObj["size"], newObj["arc22"]);
 
 
 
@@ -68,7 +83,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "PAPERCUT",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
