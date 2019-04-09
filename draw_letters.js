@@ -21,6 +21,8 @@ let colorLight = "#ffa5df";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+
+colorMode(RGB, 255);
 stroke('#cef2ff');
 
 noFill();
@@ -488,7 +490,33 @@ pop();
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["line1"]    = map(percent, 0, 100, oldObj["line1"], newObj["line1"]);
-  //colorDark = lerpColor("#d13e9d", "#653ed1", )
+
+  colorMode(HSL, 360, 100, 100, 360);
+  /*
+  if(percent < 50){
+   colorDark = lerpColor(color(321, 62, 53), color(256, 62, 53), (percent/100)*2);
+  } else {
+   colorDark = lerpColor(color(321, 62, 53), color(256, 62, 53), (percent/100)*2);
+  }
+  
+   colorDark = color(map(percent, 0, 100, 0, 340, true), 62, 53);
+   colorMid = color(map(percent, 0, 100, 0, 340, true), 100, 67);
+   colorLight = color(map(percent, 0, 100, 0, 340, true), 100, 82.35);
+  */ 
+  /*
+  if(percent < 50){
+   colorDark = lerpColor(color(321, 62, 53), color(map(percent, 0, 100, 0, 540, true), 62, 53), (percent/100)*2);
+   colorMid = lerpColor(color(321, 100, 67.45), color(map(percent, 0, 100, 0, 540, true), 100, 67.45), (percent/100)*2);
+   colorLight = lerpColor(color(321, 100, 82.35), color(map(percent, 0, 100, 0, 540, true), 100, 82.35), (percent/100)*2);
+  } else {
+    print("testtt");
+   colorDark = lerpColor(color(map(percent, 0, 100, 0, 540, true), 62, 53), color(321, 62, 53), (percent/100));
+   colorMid = lerpColor(color(map(percent, 0, 100, 0, 540, true), 100, 67.45), color(321, 100, 67.45),  (percent/100));
+   colorLight = lerpColor(color(map(percent, 0, 100, 0, 540, true), 100, 82.35), color(321, 100, 82.35),  (percent/100));
+  }
+  */
+  
+  
   //colorDark = "#d13e9d"; -> #653ed1
   //colorMid = "#ff59c4"; -> #9059ff
   //colorLight = "#ffa5df"; -> #c5a4ff
@@ -511,7 +539,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "JAZZLIKE",
+  "COHERENT",
   "STARLORD",
   "JAZZIEST"
 ]
