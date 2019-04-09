@@ -12,7 +12,7 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   
   // color/stroke setup
-  stroke("#ba3776");
+  stroke("#ff5185");
   strokeWeight(4);
 
   //grabbing contants from letters js
@@ -72,6 +72,9 @@ function drawLetter(letterData) {
     vertex(100, v1f);
     vertex(50, v1g);
   endShape();
+
+  //this is just for the interaction.html since the stroke is messing with the numbers and percentage stoke
+  strokeWeight(5);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -94,7 +97,14 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "PROBABLY",
+  "DAUGHTER",
+  "TROUBLED",
+  "PENTAGON",
+  "HOSPITAL",
+  "POLISHED",
+  "CUSTOMER",
+  "REQUITED",
+  "ABNORMAL",
+  "?POTATO?"
 ]
