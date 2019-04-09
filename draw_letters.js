@@ -24,25 +24,36 @@ function drawLetter(letterData) {
   let pos2x = mainOffsetX + letterData["offsetx"];
   let pos2y = mainOffsetY + letterData["offsety"];
   let smallAngle2 = letterData["smallAngle"];
+
+  let BsmallWidth2 = letterData["BsmallWidth"];
+  let BsmallHeight2 = letterData["BsmallHeight"];
+  let Bpos2x = mainOffsetX + letterData["Boffsetx"];
+  let Bpos2y = mainOffsetY + letterData["Boffsety"];
+  let BsmallAngle2 = letterData["BsmallAngle"];
+
+
   let semiRotate2 = letterData["semiRotate"];
+
+  let backColor2 = letterData["backColor"];
+  let frontAColor2 = letterData["Acolor"];
+  let frontBColor2 = letterData["Bcolor"];
 
   // draw two circles
 
   //back circle
-  fill(colorFront1);
+  fill(backColor2);
   push();
   if(semiRotate2 != null){
-    translate(mainOffsetX,mainOffsetY)
+    translate(0,0);
     rotate(semiRotate2);
-    arc(mainOffsetX, mainOffsetY, 100, 100, 0, 180, CHORD);
+    arc(mainOffsetY, -mainOffsetX, 100, 100, 0, 180, CHORD);
   }else{
     ellipse(mainOffsetX, mainOffsetY, 100, 100);
   }
-  
   pop();
 
-  //front circle
-  fill(colorFront2);
+  //1st front circle
+  fill(frontAColor2);
   push();
   if(smallAngle2 != 0){
     translate(0,0);
@@ -50,6 +61,18 @@ function drawLetter(letterData) {
   }
   ellipse(pos2x, pos2y, smallWidth2, smallHeight2);
   pop();
+
+  //2nd front circle
+  fill(frontBColor2);
+  push();
+  if(BsmallAngle2 != 0){
+    translate(0,0);
+    rotate(BsmallAngle2);
+  }
+  ellipse(Bpos2x, Bpos2y, BsmallWidth2, BsmallHeight2);
+  pop();
+
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
