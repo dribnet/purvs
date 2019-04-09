@@ -233,7 +233,7 @@ function draw () {
       chosenCurAnimationFrame[i] = chosenCurAnimationFrame[i] + 1;
     }
     var obj = computeCurrentChosenChar(i);
-    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
+    drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 50, 1.0, obj)
   }
 }
 
