@@ -13,21 +13,59 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "lineX": -20, //rect1
+  "lineY": 0,
+  "lineXX":-70,
+  "lineYY":150,
+
+  "lineX2":20, //rect2
+  "lineY2":0,
+  "lineXX2":70,
+  "lineYY2":150,
+
+  "offsetx":-30, //small1
+  "offsety":80,
+
+  "offsetx2":6, //small2
+  "offsety2":80
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "lineX": -10, //rect1
+  "lineY": 0,
+  "lineXX":-10,
+  "lineYY": 150,
+
+  "lineX2":15, //rect2
+  "lineY2":0,
+  "lineXX2":15,
+  "lineYY2":150,
+
+
+  "offsetx":55, //small1
+  "offsety":0,
+
+  "offsetx2":55, //small2
+  "offsety2":125
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "lineX": 0, //rect1
+  "lineY": 0,
+  "lineXX":0,
+  "lineYY":150,
+
+  "lineX2":25, //rect2
+  "lineY2":150,
+  "lineXX2":100,
+  "lineYY2":150,
+
+
+  "offsetx":20, //small1
+  "offsety":-7,
+
+  "offsetx2":80, //small2
+  "offsety2":-7
 }
 
 const colorFront1  = "#f4c242";
@@ -36,6 +74,7 @@ const colorBack    = "#636363";
 const colorStroke  = "#ffe7bc";
 
 function setup () {
+
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -50,15 +89,37 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+ 
+  let lin2x = posx + letterData["lineX"];//line1
+  let lin2y = posy + letterData["lineY"];
+  let lin2xx = posx + letterData["lineXX"];//line second point
+  let lin2yy = posy + letterData["lineYY"];
+
+  let lin3x = posx + letterData["lineX2"];//line2
+  let lin3y = posy + letterData["lineY2"];
+  let lin3xx = posx + letterData["lineXX2"];//line second point
+  let lin3yy = posy + letterData["lineYY2"];
+
+  
+  let pos1x = posx + letterData["offsetx"];//small1
+  let pos1y = posy + letterData["offsety"];
+  let pos2x = posx + letterData["offsetx2"];//small2
+  let pos2y = posy + letterData["offsety2"];
+
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  push();
+  strokeWeight(20);
+  line(lin2x, lin2y, lin2xx, lin2yy);
+  line(lin3x , lin3y, lin3xx, lin3yy);
+  pop();
+
+
+  rect(pos1x, pos1y, 25, 25,5);
+  rect(pos2x, pos2y, 25, 25,5);
 }
 
 function draw () {

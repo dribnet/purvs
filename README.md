@@ -1,13 +1,22 @@
 ## PS2 MDDN 242 2019
 
-Making sure pushin works.
+Each of my letters is composed with two lines and 2 small rectangles. The position and length of the lines and the position of the rectangles are contolled by the 12 parameters below.
 
-(Replace this README with information about your alphabet. This is an example.)
+The 12 parameters per letter:
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+  "lineX" - x and y coordinate for first point of the first line
+  "lineY" - " "
+  "lineXX" - x and y coordinate for second point of the first line
+  "lineYY" - " "
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  "lineX2" - x and y coordinate for first point of the second line
+  "lineY2" - " "
+  "lineXX2" - x and y coordinate for second point of the second line
+  "lineYY2"
+
+  "offsetx" - x and y coordinate for first small rect
+  "offsety" - " "
+
+  "offsetx2" - x and y coordinate for second small rect
+  "offsety2" - " "
 
