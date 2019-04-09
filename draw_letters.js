@@ -10,7 +10,7 @@ const colorStroke  = "#233f11";
  * from (0,0) to (200, 200)
  */
 function drawLetter(letterData) {
-  let w = 200;
+  let w = 100;
   let h = 200;
 
   let curY=0;
@@ -33,8 +33,8 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 200, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 200, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
 
   if(percent < 20) {
     new_letter["offsety"] = oldObj["offsety"];
@@ -50,7 +50,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "CHILDREN",
+  "01CUTE23",
+  "67SWEET8"
 ]
