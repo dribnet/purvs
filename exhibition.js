@@ -5,7 +5,7 @@ const colorBack    = "#e3eded";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -39,7 +39,7 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "PENTAPTPAT",
+  "PENTAPTPOLY",
   "1234567?",
   "EXPECTED",
   "PROPERTY",
@@ -137,7 +137,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -258,6 +258,6 @@ function keyTyped() {
     }
     upper_key = key.toUpperCase();
     swapExhibitLetter(curChosenLetter, upper_key, 0);
-    curChosenLetter = (curChosenLetter + 1) % 8;  
+    curChosenLetter = (curChosenLetter + 1) % 8;
   }
 }

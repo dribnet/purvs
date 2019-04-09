@@ -25,26 +25,34 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(colorFront1);
+  strokeWeight(5);
   beginShape();
   vertex(vertexx1, vertexy1);
   vertex(vertexx2, vertexy2);
   vertex(vertexx3, vertexy3);
   vertex(vertexx4, vertexy4);
   vertex(vertexx5, vertexy5);
-  endShape(CLOSE);
+  endShape(OPEN);
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["x1"]    = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
+  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
+  new_letter["x4"]    = map(percent, 0, 100, oldObj["x4"], newObj["x4"]);
+  new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
+  new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
+  new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  new_letter["y5"]    = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "FIVEPOINTPOLY",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
