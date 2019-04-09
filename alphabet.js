@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#EEEAF4";
 const colorLines   = "#000090";
 
 /* 
@@ -11,6 +11,8 @@ const colorLines   = "#000090";
 
 const canvasWidth = 960;
 const canvasHeight = 500;
+
+
 
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";

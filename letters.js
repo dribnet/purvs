@@ -5,9 +5,16 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linex1": 100,
+    "liney1": 100,
+    "linex2": 100,
+    "liney2": 200,
+
+    "linex3": 200,
+    "liney3": 200,
+    "linex4": 200,
+    "liney4": 300,
+
   },
   "B": {
     "size": 75,
