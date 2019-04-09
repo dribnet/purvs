@@ -1,10 +1,9 @@
-/*
- * Here are some things you can edit
- */
-const colorBack    = "#d8b786";
-const colorLines   = "#000090";
+//Background colour for alphabet.html
+const colorBack    = "#CF9C53";
+//Line colour for alphabet.html
+const colorLines   = "#8B5831";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -37,7 +36,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
@@ -82,7 +81,7 @@ function draw () {
           drawLetter(alphabet[letter]);
         }
         else {
-          drawLetter(alphabet["default"]);    
+          drawLetter(alphabet["default"]);
         }
         translate(x_step, 0);
         cur_letter_index = (cur_letter_index + 1);

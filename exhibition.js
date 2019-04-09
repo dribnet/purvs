@@ -1,11 +1,13 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#d8b786";
-const colorFront   = "#199cff";
-const colorLines   = "#000090";
 
-/* 
+ //Background Colour
+const colorBack    = "#CF9C53";
+const colorFront   = "#199cff";
+const colorLines   = "#8B5831";
+
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -40,7 +42,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "ACTUALLY",
-  "1234567?",
+  "12345678",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
@@ -137,7 +139,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -258,6 +260,6 @@ function keyTyped() {
     }
     upper_key = key.toUpperCase();
     swapExhibitLetter(curChosenLetter, upper_key, 0);
-    curChosenLetter = (curChosenLetter + 1) % 8;  
+    curChosenLetter = (curChosenLetter + 1) % 8;
   }
 }

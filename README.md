@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2019
 
-THE ALPHABET + NUMBERS:
+SKETCH:
 
-I've managed to finish my alphabet with just using the elements of the moon glyph. I also removed two parameters (end points for arcs) as I dont necessarily need them because the arcs are always half circles so what I've done instead was use the start angle and added 180 to it (start_a1 + 180) for the end parameter of the arcs. I've done the numbers as well so now I can just focus on refining them and think more about the design aspects of my alphabet.
-
+Shown above are my early sketches for the first 3 letters of my alphabet. I wish to be doing something with ellipses as I really like the round and curvy look of them, and in order to have more of this "round look" I will mostly be focusing on lower case letters. I want to be using soft pastel colours therefore I've settled with the clay and white colour for now. My parameters control the changes in terms of x/y position for line, x/y position for arcs, x/y position for circles and the start angles of my arcs.
 
 Parameters:
 line_x1 = x position for starting point of line

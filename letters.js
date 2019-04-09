@@ -1,5 +1,6 @@
 const alphabet = {
   "default": {
+    //offset = 0
     "line_x1": 0,
     "line_y1": 0,
     "line_x2": 0,
@@ -8,6 +9,7 @@ const alphabet = {
     "arc1_posy": 0,
     "arc2_posx": 0,
     "arc2_posy": 0,
+    //No offset for start angle
     "start_a1": 180,
     "start_a2": 180,
     "circ1_offset_x": 0,
