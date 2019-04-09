@@ -118,57 +118,57 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["translatef2"] = map(percent, 0, 100, oldObj["translatef2"], newObj["translatef2"]);
 
 
-// if(percent < 50) {
-//     new_letter["rotatesS"] = oldObj["rotatesS"];
-//   }
-//   else if(percent > 50) {
-//     new_letter["rotatesS"] = newObj["rotatesS"];
-//   }
-//   else {
-//     new_letter["rotatesS"] = map(percent, 40, 60, oldObj["rotatesS"], newObj["rotatesS"]);
-//   } 
+if(percent < 10) {
+    new_letter["rotatesS"] = oldObj["rotatesS"];
+  }
+  else if(percent > 90) {
+    new_letter["rotatesS"] = newObj["rotatesS"];
+  }
+  else {
+    new_letter["rotatesS"] = map(percent, 40, 60, oldObj["rotatesS"], newObj["rotatesS"]);
+  } 
 
 
 
-// if(percent < 50) {
-//     new_letter["rotatesF"] = oldObj["rotatesF"];
-//   }
-//   else if(percent > 50) {
-//     new_letter["rotatesF"] = newObj["rotatesF"];
-//   }
-//   else {
-//     new_letter["rotatesF"] = map(percent, 40, 60, oldObj["rotatesF"], newObj["rotatesF"]);
-//   } 
+if(percent < 10) {
+    new_letter["rotatesF"] = oldObj["rotatesF"];
+  }
+  else if(percent > 90) {
+    new_letter["rotatesF"] = newObj["rotatesF"];
+  }
+  else {
+    new_letter["rotatesF"] = map(percent, 40, 60, oldObj["rotatesF"], newObj["rotatesF"]);
+  } 
 
 
-//   if(percent < 50) {
-//     new_letter["pos1x"] = oldObj["pos1x"];
-//   }
-//   else if(percent > 50) {
-//     new_letter["pos1x"] = newObj["pos1x"];
-//   }
-//   else {
-//     new_letter["pos1x"] = map(percent, 40, 60, oldObj["pos1x"], newObj["pos1x"]);
-//   } 
+  if(percent < 10) {
+    new_letter["pos1x"] = oldObj["pos1x"];
+  }
+  else if(percent > 90) {
+    new_letter["pos1x"] = newObj["pos1x"];
+  }
+  else {
+    new_letter["pos1x"] = map(percent, 40, 60, oldObj["pos1x"], newObj["pos1x"]);
+  } 
 
-//     if(percent < 50) {
-//     new_letter["pos1x"] = oldObj["pos1x"];
-//   }
-//   else if(percent > 50) {
-//     new_letter["pos1x"] = newObj["pos1x"];
-//   }
-//   else {
-//     new_letter["pos2x"] = map(percent, 40, 60, oldObj["pos2x"], newObj["pos2x"]);
-//   } 
-//     if(percent < 50) {
-//     new_letter["pos2x"] = oldObj["pos2x"];
-//   }
-//   else if(percent > 50) {
-//     new_letter["pos3x"] = newObj["pos3x"];
-//   }
-//   else {
-//     new_letter["pos3x"] = map(percent, 40, 60, oldObj["pos3x"], newObj["pos3x"]);
-//   } 
+    if(percent < 10) {
+    new_letter["pos1x"] = oldObj["pos1x"];
+  }
+  else if(percent > 90) {
+    new_letter["pos1x"] = newObj["pos1x"];
+  }
+  else {
+    new_letter["pos2x"] = map(percent, 40, 60, oldObj["pos2x"], newObj["pos2x"]);
+  } 
+    if(percent < 10) {
+    new_letter["pos2x"] = oldObj["pos2x"];
+  }
+  else if(percent > 90) {
+    new_letter["pos3x"] = newObj["pos3x"];
+  }
+  else {
+    new_letter["pos3x"] = map(percent, 40, 60, oldObj["pos3x"], newObj["pos3x"]);
+  } 
 
   return new_letter;
 }
