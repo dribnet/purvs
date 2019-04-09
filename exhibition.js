@@ -40,13 +40,13 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "ACTUALLY",
-  "1234567?",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",
   "FOLLOWED",
   "PROVIDED",
   "ALTHOUGH",
+  "1234567?",
   "HAPPENED",
   "QUESTION",
   "AMERICAN",

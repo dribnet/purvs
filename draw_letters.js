@@ -27,18 +27,13 @@ function drawLetter(letterData) {
   let arcStop = letterData["stop"];
 
   // draw main arc
-  fill(99, 142, 110, 80); //green
+  fill(99, 142, 140, 80); //blue tint green
   strokeWeight(5);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
   // draw line
   strokeWeight(8);
   line(lineX1, lineY1, lineX2, lineY2);
-
-  // draw second arc
-  /*strokeWeight(1);
-  noFill();
-  arc(arcX, arcY, 70, 70, arcStart, arcStop);*/
 
 }
 
