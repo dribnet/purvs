@@ -27,23 +27,31 @@ function drawLetter(letterData) {
   // ellipse(pos2x, pos2y, size2, size2);
   strokeWeight(2);
 
-  fill(255,50);
-  triangle();
+  fill(255,200);
+  noStroke();
+  // if(letterData["isLine"]){
+  //   triangle(letterData["lineX"],50,letterData["lineX"],150,100/2 - letterData["size"]/5, 200/2 + letterData["size"]/5);
+  // }
+  // else{
+  //   triangle(100/2 - letterData["size"]/5,200/2 - letterData["size"]/5,100/2 + letterData["size2"]/5 , 200/2,100/2 - letterData["size3"]/5, 200/2 + letterData["size3"]/5);
+  // }
 
   noFill();
-  rect(0,0,100,200); // bounding
-  stroke(150,150);
+  stroke(150,100);
   // ellipseMode(CENTER);
-  ellipse(100/2 - letterData["size"]/5,200/2 - letterData["size"]/5,letterData["size"],letterData["size"]);
-  ellipse(100/2 + letterData["size2"]/5 , 200/2,letterData["size2"],letterData["siz2"]);
-  ellipse(100/2 - letterData["size3"]/5, 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"]);
+  if(true){
+  ellipse(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"]);
+  ellipse(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"]);
+  ellipse(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"]);
+
+  }
   
   angleMode(DEGREES);
-  stroke(100);
+  stroke(50);
   fill(255,50);
-  arc(100/2 - letterData["size"]/5,200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"], letterData["arcEnd1"]);
-  arc(100/2 + letterData["size2"]/5 , 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"], letterData["arcEnd2"]);
-  arc(100/2 - letterData["size3"]/5, 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
+  arc(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"], letterData["arcEnd1"]);
+  arc(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"], letterData["arcEnd2"]);
+  arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
   if(letterData["isLine"]){
     line(letterData["lineX"],50,letterData["lineX"],150);
     line(letterData["lineX"]+3,50,letterData["lineX"]+3,150);
