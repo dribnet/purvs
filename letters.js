@@ -414,11 +414,11 @@ const alphabet = {
     "rectW" : 1,
     "rectH" : 1,
     "arcX" : 50,
-    "arcY" : 90,
+    "arcY" : 100,
     "arcS" : TWO_PI,
     "arcE" : PI,
     "arcW" : 95,
-    "arcH" : 115
+    "arcH" : 95
   },
 
   "V": {

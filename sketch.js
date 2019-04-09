@@ -16,59 +16,65 @@ const TWO_PI = PI*2;
  */
 
 const letterA = {
-  "triX1" : 250,
-  "triY1" : 180,
-  "triX2" : 200,
-  "triY2" : 260,
-  "triX3" : 300,
-  "triY3" : 260,
-  "rectX" : 210,
-  "rectY" : 250,
-  "rectW" : 80,
-  "rectH" : 80,
-  "arcX" : 0,
-  "arcY" : 0,
-  "arcS" : 0,
-  "arcE" :0
+    "triX1" : 245,
+    "triY1" : 185,
+    "triX2" : 200,
+    "triY2" : 243,
+    "triX3" : 290,
+    "triY3" : 243,
+    "rectX" : 213,
+    "rectY" : 237,
+    "rectW" : 65,
+    "rectH" : 65,
+    "arcX" : 0,
+    "arcY" : 0,
+    "arcS" : 0,
+    "arcE" : 0,
+    "arcW" : 0,
+    "arcH" : 0
 }
 
 const letterB = {
-  "triX1" : 0,
-  "triY1" : 0,
-  "triX2" : 0,
-  "triY2" : 0,
-  "triX3" : 0,
-  "triY3" : 0,
-  "rectX" : 400,
-  "rectY" : 260,
-  "rectW" : 70,
-  "rectH" : 70,
-  "arcX" : 400,
-  "arcY" : 230,
-  "arcS" : PI+HALF_PI,
-  "arcE" : HALF_PI
+    "triX1" : 0,
+    "triY1" : 0,
+    "triX2" : 0,
+    "triY2" : 0,
+    "triX3" : 0,
+    "triY3" : 0,
+    "rectX" : 427,
+    "rectY" : 247,
+    "rectW" : 55,
+    "rectH" : 55,
+    "arcX" : 427,
+    "arcY" : 235,
+    "arcS" : PI+HALF_PI,
+    "arcE" : HALF_PI,
+    "arcW" : 80,
+    "arcH" : 70
 }
 
 const letterC = {
-  "triX1" : 0,
-  "triY1" : 0,
-  "triX2" : 0,
-  "triY2" : 0,
-  "triX3" : 0,
-  "triY3" : 0,
-  "rectX" : 600,
-  "rectY" : 200,
-  "rectW" : 30,
-  "rectH" : 120,
-  "arcX" : 600,
-  "arcY" : 260,
-  "arcS" : HALF_PI,
-  "arcE" : PI+HALF_PI
+    "triX1" : 0,
+    "triY1" : 0,
+    "triX2" : 0,
+    "triY2" : 0,
+    "triX3" : 0,
+    "triY3" : 0,
+    "rectX" : 665,
+    "rectY" : 185,
+    "rectW" : 25,
+    "rectH" : 117,
+    "arcX" : 665,
+    "arcY" : 245,
+    "arcS" : HALF_PI,
+    "arcE" : PI+HALF_PI,
+    "arcW" : 10,
+    "arcH" : 10
 }
 
 const colorFront1  = "#8886a1";
 const colorFront2  = "#8886a1";
-const colorBack    = "#e3e3e3";
+const colorBack    = "#e4e4e4";
 const colorStroke  = "#832690";
 
 
@@ -113,13 +119,15 @@ function drawLetter(posx, posy, letterData) {
   //fill(colorFront2);
   //rect(pos2x, posy, 30, 150);
 
-  fill(130,130,130);
+
+
+  fill(204,133,151);
   noStroke();
-  triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
-  fill(100,230,130);
-  rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
-  fill(230,230,0);
   arc(arcposX,arcposY,100,100,arcStart,arcEnd);
+  fill(38,53,84);
+  rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
+  fill(70,103,96);
+  triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
   
 
 

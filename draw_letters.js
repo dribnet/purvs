@@ -60,10 +60,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   let new_percent = {};
   if(percent < 30) {
-    new_percent = map(percent, 0, 20, 0, -20);
+    new_percent = map(percent, 0, 30, 0, -30);
   }
   else {
-    new_percent = map(percent, 20, 100, -20, 20);
+    new_percent = map(percent, 30, 100, -30, 30);
   }
 
   return new_letter;
