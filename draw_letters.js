@@ -104,5 +104,5 @@ function polygon(x, y, radius, npoints) {
 var swapWords = [
   "HEXAFONT",
   "COOLAYE?",
-  "ALPHABET"
+  "SOHANGRY"
 ]
