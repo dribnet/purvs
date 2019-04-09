@@ -38,14 +38,13 @@ function drawLetter(letterData) {
 
   noFill();
   stroke(150,100);
-  // ellipseMode(CENTER);
   if(true){
   ellipse(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"]);
   ellipse(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"]);
   ellipse(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"]);
 
   }
-  
+
   angleMode(DEGREES);
   stroke(50);
   fill(255,50);
@@ -54,7 +53,7 @@ function drawLetter(letterData) {
   arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
   if(letterData["isLine"]){
     line(letterData["lineX"],50,letterData["lineX"],150);
-    line(letterData["lineX"]+3,50,letterData["lineX"]+3,150);
+    line(letterData["lineX"]+4,50,letterData["lineX"]+4,150);
   }
 }
 
