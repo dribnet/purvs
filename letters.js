@@ -129,10 +129,6 @@ const alphabet = {
   },
 
   "L": {
-    "lineX1": -40,
-    "lineY1": 20,
-    "lineX2": -20,
-    "lineY2": 20,
     "arcX": 10,
     "arcY": 0,
     "start": 50,
