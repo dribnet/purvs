@@ -1,9 +1,10 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
 const colorFront   = "#199cff";
-const colorLines   = "#000090";
+
+const colorBack    = "#00173a";
+const colorLines   = "#d8ad00";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -217,7 +218,7 @@ function draw () {
 
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  stroke(0);
 
   // shorthand variables to allow margin
   var o = 20

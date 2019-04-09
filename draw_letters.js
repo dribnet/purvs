@@ -1,44 +1,95 @@
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["offsetx1 tri 1"] = map(percent,0,100, oldObj["offsetx1 tri 1"], newObj["offsetx1 tri 1"]);
-  new_letter["offsety1 tri 1"] = map(percent,0,100, oldObj["offsety1 tri 1"], newObj["offsety1 tri 1"]);
-  
-  new_letter["offsetx2 tri 1"] = map(percent,0,100, oldObj["offsetx2 tri 1"], newObj["offsetx2 tri 1"]);
-  new_letter["offsety2 tri 1"] = map(percent,0,100, oldObj["offsety2 tri 1"], newObj["offsety2 tri 1"]);
-  
-  new_letter["offsetx3 tri 1"] = map(percent,0,100, oldObj["offsetx3 tri 1"], newObj["offsetx3 tri 1"]);
-  new_letter["offsety3 tri 1"] = map(percent,0,100, oldObj["offsety3 tri 1"], newObj["offsety3 tri 1"]);
+ if(percent < 50) {
+  new_letter["offsetx1 tri 1"] = oldObj["offsetx1 tri 1"];
+  new_letter["offsetx2 tri 1"] = oldObj["offsetx2 tri 1"];
+  new_letter["offsetx3 tri 1"] = oldObj["offsetx3 tri 1"]
 
+  new_letter["offsetx1 tri 2"] = oldObj["offsetx1 tri 2"];
+  new_letter["offsetx2 tri 2"] = oldObj["offsetx2 tri 2"];
+  new_letter["offsetx3 tri 2"] = oldObj["offsetx3 tri 2"]
 
-  new_letter["offsetx1 tri 2"] = map(percent,0,100, oldObj["offsetx1 tri 2"], newObj["offsetx1 tri 2"]);
-  new_letter["offsety1 tri 2"] = map(percent,0,100, oldObj["offsety1 tri 2"], newObj["offsety1 tri 2"]);
-  
-  new_letter["offsetx2 tri 2"] = map(percent,0,100, oldObj["offsetx2 tri 2"], newObj["offsetx2 tri 2"]);
-  new_letter["offsety2 tri 2"] = map(percent,0,100, oldObj["offsety2 tri 2"], newObj["offsety2 tri 2"]);
-  
-  new_letter["offsetx3 tri 2"] = map(percent,0,100, oldObj["offsetx3 tri 2"], newObj["offsetx3 tri 2"]);
-  new_letter["offsety3 tri 2"] = map(percent,0,100, oldObj["offsety3 tri 2"], newObj["offsety3 tri 2"]);
+  new_letter["offsetx1 tri 3"] = oldObj["offsetx1 tri 3"];
+  new_letter["offsetx2 tri 3"] = oldObj["offsetx2 tri 3"];
+  new_letter["offsetx3 tri 3"] = oldObj["offsetx3 tri 3"]
 
+  new_letter["offsetx1 tri 4"] = oldObj["offsetx1 tri 4"];
+  new_letter["offsetx2 tri 4"] = oldObj["offsetx2 tri 4"];
+  new_letter["offsetx3 tri 4"] = oldObj["offsetx3 tri 4"];
 
-  new_letter["offsetx1 tri 3"] = map(percent,0,100, oldObj["offsetx1 tri 3"], newObj["offsetx1 tri 3"]);
-  new_letter["offsety1 tri 3"] = map(percent,0,100, oldObj["offsety1 tri 3"], newObj["offsety1 tri 3"]);
-  
-  new_letter["offsetx2 tri 3"] = map(percent,0,100, oldObj["offsetx2 tri 3"], newObj["offsetx2 tri 3"]);
-  new_letter["offsety2 tri 3"] = map(percent,0,100, oldObj["offsety2 tri 3"], newObj["offsety2 tri 3"]);
-  
-  new_letter["offsetx3 tri 3"] = map(percent,0,100, oldObj["offsetx3 tri 3"], newObj["offsetx3 tri 3"]);
-  new_letter["offsety3 tri 3"] = map(percent,0,100, oldObj["offsety3 tri 3"], newObj["offsety3 tri 3"]);
+ }
 
+else{
+  new_letter["offsetx1 tri 1"] = map(percent,70,100, oldObj["offsetx1 tri 1"], newObj["offsetx1 tri 1"]);
+  new_letter["offsetx2 tri 1"] = map(percent,70,100, oldObj["offsetx2 tri 1"], newObj["offsetx2 tri 1"]);
+  new_letter["offsetx3 tri 1"] = map(percent,70,100, oldObj["offsetx3 tri 1"], newObj["offsetx3 tri 1"])
 
-  new_letter["offsetx1 tri 4"] = map(percent,0,100, oldObj["offsetx1 tri 4"], newObj["offsetx1 tri 4"]);
-  new_letter["offsety1 tri 4"] = map(percent,0,100, oldObj["offsety1 tri 4"], newObj["offsety1 tri 4"]);
-  
-  new_letter["offsetx2 tri 4"] = map(percent,0,100, oldObj["offsetx2 tri 4"], newObj["offsetx2 tri 4"]);
-  new_letter["offsety2 tri 4"] = map(percent,0,100, oldObj["offsety2 tri 4"], newObj["offsety2 tri 4"]);
-  
-  new_letter["offsetx3 tri 4"] = map(percent,0,100, oldObj["offsetx3 tri 4"], newObj["offsetx3 tri 4"]);
-  new_letter["offsety3 tri 4"] = map(percent,0,100, oldObj["offsety3 tri 4"], newObj["offsety3 tri 4"]);
+  new_letter["offsetx1 tri 2"] = map(percent,70,100, oldObj["offsetx1 tri 2"], newObj["offsetx1 tri 2"]);
+  new_letter["offsetx2 tri 2"] = map(percent,70,100, oldObj["offsetx2 tri 2"], newObj["offsetx2 tri 2"]);
+  new_letter["offsetx3 tri 2"] = map(percent,70,100, oldObj["offsetx3 tri 2"], newObj["offsetx3 tri 2"])
+
+  new_letter["offsetx1 tri 3"] = map(percent,70,100, oldObj["offsetx1 tri 3"], newObj["offsetx1 tri 3"]);
+  new_letter["offsetx2 tri 3"] = map(percent,70,100, oldObj["offsetx2 tri 3"], newObj["offsetx2 tri 3"]);
+  new_letter["offsetx3 tri 3"] = map(percent,70,100, oldObj["offsetx3 tri 3"], newObj["offsetx3 tri 3"])
+
+  new_letter["offsetx1 tri 4"] = map(percent,70,100, oldObj["offsetx1 tri 4"], newObj["offsetx1 tri 4"]);
+  new_letter["offsetx2 tri 4"] = map(percent,70,100, oldObj["offsetx2 tri 4"], newObj["offsetx2 tri 4"]);
+  new_letter["offsetx3 tri 4"] = map(percent,70,100, oldObj["offsetx3 tri 4"], newObj["offsetx3 tri 4"]);
+}
+
+if(percent < 20) {
+  new_letter["offsety1 tri 1"] = oldObj["offsety1 tri 1"];
+  new_letter["offsety2 tri 1"] = oldObj["offsety2 tri 1"];
+  new_letter["offsety3 tri 1"] = oldObj["offsety3 tri 1"];
+
+  new_letter["offsety1 tri 2"] = oldObj["offsety1 tri 2"];
+  new_letter["offsety2 tri 2"] = oldObj["offsety2 tri 2"];
+  new_letter["offsety3 tri 2"] = oldObj["offsety3 tri 2"];
+
+  new_letter["offsety1 tri 3"] = oldObj["offsety1 tri 3"];
+  new_letter["offsety2 tri 3"] = oldObj["offsety2 tri 3"];
+  new_letter["offsety3 tri 3"] = oldObj["offsety3 tri 3"];
+
+  new_letter["offsety1 tri 4"] = oldObj["offsety1 tri 4"];
+  new_letter["offsety2 tri 4"] = oldObj["offsety2 tri 4"];
+  new_letter["offsety3 tri 4"] = oldObj["offsety3 tri 4"];
+}
+else if(percent > 60){
+  new_letter["offsety1 tri 1"] = newObj["offsety1 tri 1"];
+  new_letter["offsety2 tri 1"] = newObj["offsety2 tri 1"];
+  new_letter["offsety3 tri 1"] = newObj["offsety3 tri 1"];
+
+  new_letter["offsety1 tri 2"] = newObj["offsety1 tri 2"];
+  new_letter["offsety2 tri 2"] = newObj["offsety2 tri 2"];
+  new_letter["offsety3 tri 2"] = newObj["offsety3 tri 2"];
+
+  new_letter["offsety1 tri 3"] = newObj["offsety1 tri 3"];
+  new_letter["offsety2 tri 3"] = newObj["offsety2 tri 3"];
+  new_letter["offsety3 tri 3"] = newObj["offsety3 tri 3"];
+
+  new_letter["offsety1 tri 4"] = newObj["offsety1 tri 4"];
+  new_letter["offsety2 tri 4"] = newObj["offsety2 tri 4"];
+  new_letter["offsety3 tri 4"] = newObj["offsety3 tri 4"];
+}
+
+else{
+  new_letter["offsety1 tri 1"] = map(percent,30,60, oldObj["offsety1 tri 1"], newObj["offsety1 tri 1"]);
+  new_letter["offsety2 tri 1"] = map(percent,30,60, oldObj["offsety2 tri 1"], newObj["offsety2 tri 1"]);
+  new_letter["offsety3 tri 1"] = map(percent,30,60, oldObj["offsety3 tri 1"], newObj["offsety3 tri 1"]);
+
+  new_letter["offsety1 tri 2"] = map(percent,30,60, oldObj["offsety1 tri 2"], newObj["offsety1 tri 2"]);
+  new_letter["offsety2 tri 2"] = map(percent,30,60, oldObj["offsety2 tri 2"], newObj["offsety2 tri 2"]);
+  new_letter["offsety3 tri 2"] = map(percent,30,60, oldObj["offsety3 tri 2"], newObj["offsety3 tri 2"]);
+
+  new_letter["offsety1 tri 3"] = map(percent,30,60, oldObj["offsety1 tri 3"], newObj["offsety1 tri 3"]);
+  new_letter["offsety2 tri 3"] = map(percent,30,60, oldObj["offsety2 tri 3"], newObj["offsety2 tri 3"]);
+  new_letter["offsety3 tri 3"] = map(percent,30,60, oldObj["offsety3 tri 3"], newObj["offsety3 tri 3"]);
+
+  new_letter["offsety1 tri 4"] = map(percent,30,60, oldObj["offsety1 tri 4"], newObj["offsety1 tri 4"]);
+  new_letter["offsety2 tri 4"] = map(percent,30,60, oldObj["offsety2 tri 4"], newObj["offsety2 tri 4"]);
+  new_letter["offsety3 tri 4"] = map(percent,30,60, oldObj["offsety3 tri 4"], newObj["offsety3 tri 4"]);
+}
 
   return new_letter;
 }
