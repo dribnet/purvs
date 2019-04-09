@@ -1,14 +1,12 @@
 const colorFront1  = "#d000ff";
 const colorFront2  = "#ff6e00";
 const colorFront3 =  "#dc44ff";
-//const colorTrunk1 =  "#ffae00"; yellow
 const colorTrunk1 =  "#872d00"; //brown
 
 const colorStroke  = "#233f11";
 
 let posx = 50;
 let posy = 50;
-let size = 50;
 
 /*
  * Draw the letter given the letterData
@@ -22,58 +20,65 @@ function drawLetter(letterData) {
   stroke(colorStroke);
   strokeWeight(4);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  //let pos2x = posx + letterData["offsetTrunkx"];
-//  let pos2y = posy + letterData["offsetTrunky"];
- 
-  //top branch
-  let size3 = size2-10+ letterData["size"];
+//top arc -  according to letter A
+
   let top_size = letterData["top_size"];
   let pos3x = posx+25 + letterData ["top_offsetx"];
   let pos3y = posy + letterData ["offsety"];
+  let rotate_top = letterData["rotate_top"];
+  let translate_top_x = letterData ["translate_top_x"];
+  let translate_top_y = letterData ["translate_top_y"];
 
-  // bottom branch
+
+  noStroke();
+  fill(colorFront1);
+
+  push();
+  translate(translate_top_x,translate_top_y);
+  rotate(rotate_top);
+  arc(pos3x, pos3y, top_size,  40, 0, 180);
+  pop();
+
+  // bottom arc - according to letter A
   let pos4x = posx +25 + letterData ["bottom_offsetx"];
   let pos4y = posy+55 + letterData ["offsety"];
   let bottom_size = letterData ["bottom_size"];
+  let rot_bottom = letterData ["rotate_bottom"];
+  let translate_bottom_x = letterData ["translate_bottom_x"];
+  let translate_bottom_y = letterData ["translate_bottom_y"];
 
-  //middle branch
-  //irrelevant let pos5x = posx + letterData ["offsetx"];
-  let pos5y = posy+ letterData ["offsety"];
-  let middle_size = letterData["middle_size"];
-
-  let pos6x = posx + letterData ["middle_offset"];
-  //let opacity = letterData ["opacity"];
-//  let pos6y =
-
-
-  // tree trunk
-  noStroke();
-
-  //fill(colorTrunk1);
-  //rect(posx-10, 0, 20, 200,5);
-
-  //top branch
-
-  fill(colorFront1);
-  arc(pos3x, pos3y, top_size,  40, 0, PI);
-
-
-  //middle branch
-
-  fill(colorFront2);
-  arc(pos6x, pos5y+30, middle_size, 40, 0 , PI);
-
-  //bottom branch
 
   fill(colorFront3);
-  arc(pos4x, pos4y+1, bottom_size, 40,0 , PI);
+  push();
+  translate(translate_bottom_x,translate_bottom_y);
+  rotate(rot_bottom);
+  arc(pos4x, pos4y+1, bottom_size, 40,0 , 180);
+  pop();
+
+  //middle arc according to letter A
+  let pos5y = posy+ letterData ["offsety"];
+  let middle_size = letterData["middle_size"];
+  let pos6x = posx + letterData ["middle_offset"];
+  let rot_middle = letterData ["rotate_middle"];
+  let translate_middle_x = letterData ["translate_middle_x"];
+  let translate_middle_y = letterData ["translate_middle_y"];
+
+
+  fill(colorFront2);
+  push();
+  translate(translate_middle_x,translate_middle_y);
+  rotate(rot_middle);
+  arc(pos6x, pos5y+30, middle_size, 40, 0 , 180);
+  pop();
+
+
+
 }
 
+//interpolation/interaction
   function interpolate_letter(percent, oldObj, newObj) {
+  angleMode(DEGREES);
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["top_offsetx"] = map(percent, 0, 100, oldObj["top_offsetx"], newObj["top_offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["top_size"] = map(percent, 0, 100, oldObj["top_size"], newObj["top_size"]);
@@ -81,18 +86,22 @@ function drawLetter(letterData) {
   new_letter["bottom_size"] = map(percent, 0, 100, oldObj["bottom_size"], newObj["bottom_size"]);
   new_letter["middle_offset"] = map(percent, 0, 100, oldObj["middle_offset"], newObj["middle_offset"]);
   new_letter["bottom_offsetx"] = map(percent, 0, 100, oldObj["bottom_offsetx"], newObj["bottom_offsetx"]);
-  new_letter["offsetTrunkx"] = map(percent, 0, 100, oldObj["offsetTrunkx"], newObj["offsetTrunkx"]);
-  new_letter["offsetTrunky"] = map(percent, 0, 100, oldObj["offsetTrunky"], newObj["offsetTrunky"]);
+  new_letter["rotate_top"] = map(percent, 0, 100, oldObj["rotate_top"], newObj["rotate_top"]);
+  new_letter["rotate_bottom"] = map(percent, 0, 100, oldObj["rotate_bottom"], newObj["rotate_bottom"]);
+  new_letter["rotate_middle"] = map(percent, 0, 100, oldObj["rotate_middle"], newObj["rotate_middle"]);
+  new_letter["translate_top_x"] = map(percent, 0, 100, oldObj["translate_top_x"], newObj["translate_top_x"]);
+  new_letter["translate_top_y"] = map(percent, 0, 100, oldObj["translate_top_y"], newObj["translate_top_y"]);
+  new_letter["translate_bottom_x"] = map(percent, 0, 100, oldObj["translate_bottom_x"], newObj["translate_bottom_x"]);
+  new_letter["translate_bottom_y"] = map(percent, 0, 100, oldObj["translate_bottom_y"], newObj["translate_bottom_y"]);
+  new_letter["translate_middle_x"] = map(percent, 0, 100, oldObj["translate_middle_x"], newObj["translate_middle_x"]);
+  new_letter["translate_middle_y"] = map(percent, 0, 100, oldObj["translate_middle_y"], newObj["translate_middle_y"]);
+
 
    return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "HELLOHI?",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
-
-// ideas : have a rotation parameter
-// have parameters for y values of each branch 
-//sort out what size, trunkoffset x and y are doing

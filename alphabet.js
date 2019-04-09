@@ -4,6 +4,7 @@
 const colorBack    = "#2b2b2d";
 const colorLines   = "#716f77";
 
+
 /*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
@@ -24,6 +25,8 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES);
+
 }
 
 function mouseClicked() {

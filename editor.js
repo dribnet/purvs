@@ -6,16 +6,25 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["size"]    = map(param_sliders[0].value(), 0, 100, 0, 200);
-  obj["top_offsetx"] = map(param_sliders[1].value(), 0, 100, -50, 200);
-  obj["offsety"] = map(param_sliders[2].value(), 0, 100, 0, 20);
-  obj["offsetTrunkx"]    = map(param_sliders[3].value(), 0, 100, -20, 10);
-  obj["offsetTrunky"] = map(param_sliders[4].value(), 0, 100, -40, 10);
-  obj["top_size"] = map(param_sliders[5].value(), 0, 100, 20, 90);
-  obj["middle_size"]    = map(param_sliders[6].value(), 0, 100, 30, 90);
-  obj["bottom_size"] = map(param_sliders[7].value(), 0, 100, 40, 95);
-  obj["middle_offset"] = map(param_sliders[8].value(), 0, 100, -30, 30);
-  obj["bottom_offsetx"] = map(param_sliders[9].value(), 0, 100, -30, 70);
+//  obj["size"]    = map(param_sliders[0].value(), 0, 100, 0, 200);
+  obj["top_offsetx"] = map(param_sliders[0].value(), 0, 100, -50, 200);
+  obj["offsety"] = map(param_sliders[1].value(), 0, 100, 0, 20);
+  //obj["offsetTrunkx"]    = map(param_sliders[3].value(), 0, 100, -20, 10);
+  //obj["offsetTrunky"] = map(param_sliders[4].value(), 0, 100, -40, 10);
+  obj["top_size"] = map(param_sliders[2].value(), 0, 100, 0, 100);
+  obj["middle_size"]    = map(param_sliders[3].value(), 0, 100, 0, 100);
+  obj["bottom_size"] = map(param_sliders[4].value(), 0, 100, 0, 100);
+  obj["middle_offset"] = map(param_sliders[5].value(), 0, 100, -30, 100);
+  obj["bottom_offsetx"] = map(param_sliders[6].value(), 0, 100, -30, 70);
+  obj["rotate_top"]    = map(param_sliders[7].value(), 0, 100, 0, 200);
+  obj["rotate_bottom"] = map(param_sliders[8].value(), 0, 100, 0, 360);
+  obj["rotate_middle"] = map(param_sliders[9].value(), 0, 100, 0, 360);
+  obj["translate_top_x"]    = map(param_sliders[10].value(), 0, 100, -50, 100);
+  obj["translate_top_y"] = map(param_sliders[11].value(), 0, 100, -50, 100);
+  obj["translate_bottom_x"] = map(param_sliders[12].value(), 0, 100, -600, 200);
+  obj["translate_bottom_y"]    = map(param_sliders[13].value(), 0, 100, -200, 350);
+  obj["translate_middle_x"] = map(param_sliders[14].value(), 0, 100, -100, 200);
+  obj["translate_middle_y"] = map(param_sliders[15].value(), 0, 100, -50, 200);
 
 
 
@@ -24,7 +33,7 @@ function sliderToDataObject() {
   return obj;
 }
 
-let numSliders = 10;
+let numSliders = 16;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
@@ -69,7 +78,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data

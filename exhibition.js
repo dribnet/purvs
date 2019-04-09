@@ -5,7 +5,7 @@ const colorBack    = "#e3eded";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -98,6 +98,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+  angleMode(DEGREES);
 
   let now = millis();
   lastKeyPressedTime = now;
@@ -137,7 +138,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -258,6 +259,6 @@ function keyTyped() {
     }
     upper_key = key.toUpperCase();
     swapExhibitLetter(curChosenLetter, upper_key, 0);
-    curChosenLetter = (curChosenLetter + 1) % 8;  
+    curChosenLetter = (curChosenLetter + 1) % 8;
   }
 }
