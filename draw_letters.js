@@ -67,11 +67,22 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["b4offsety"] = map(percent, 0, 100, oldObj["b4offsety"], newObj["b4offsety"]);
   new_letter["b5offsetx"] = map(percent, 0, 100, oldObj["b5offsetx"], newObj["b5offsetx"]);
   new_letter["b5offsety"] = map(percent, 0, 100, oldObj["b5offsety"], newObj["b5offsety"]);
+
+  let new_percent = 0;
+  let amount_of_anticipation = 15;
+  if(percent < amount_of_anticipation) {
+    new_percent = map(percent, 0, amount_of_anticipation, 0, -10);
+  }
+  else {
+    new_percent = map(percent, amount_of_anticipation, 100, -10, 100);
+  }   
+  new_letter["b2offsety"] = map(new_percent, 0, 100, oldObj["b2offsety"], newObj["offsety"]);
+
   return new_letter;
 }
 
 var swapWords = [
   "ILLUSION",
   "CREATIVE",
-  "ETC12345"
+  "NEGATIVE"
 ]

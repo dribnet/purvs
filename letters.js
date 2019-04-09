@@ -336,19 +336,19 @@ const alphabet = {
    "b5offsety": -81,
  },
  "U": {
-   "wid": 60,
+   "wid": 43,
    "hei": 100,
 
-   "b2offsetx": -30,
+   "b2offsetx": -23,
    "b2offsety": -100,
 
-   "b3offsetx": -30,
+   "b3offsetx": -23,
    "b3offsety": -135,
 
-   "b4offsetx": -30,
+   "b4offsetx": -23,
    "b4offsety": -135,
 
-   "b5offsetx": -30,
+   "b5offsetx": -23,
    "b5offsety": -135,
  },
  "V": {
@@ -356,7 +356,7 @@ const alphabet = {
    "hei": 95,
 
    "b2offsetx": -20,
-   "b2offsety": -80,
+   "b2offsety": -90,
 
    "b3offsetx": -25,
    "b3offsety": -135,
