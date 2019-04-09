@@ -1,65 +1,57 @@
 const alphabet = {
   "default": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1],
-    [1, 0, 1]]
+    lines: [2, 1.5, 1, 0, 1, 1.5, 1],
+    box1: true,
+    box2:false
   },
   "A": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1],
-    [1, 0, 1]]
+    lines: [2, 1.5, 1, 0, 1, 1.5, 1],
+    box1: true,
+    box2:false
   },
   "B": {
-    structure: 
-  [[1, 0, 0],
-  [1, 1, 1],
-  [1, 0, 1],
-  [1, 1, 1]]
+    lines: [0, 0, 2, 1.5, 1, 1, 1.5],
+    box1: false,
+    box2: true
   },
   "C": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 0],
-    [1, 0, 0],
-    [1, 1, 1]]
+    lines: [2, 0, 0, 2, 1.5, 1.5, 0],
+    box1: false,
+    box2:false
   },
   "D": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 1],
-    [1, 0, 1],
-    [1, 1, 1]]
+    lines: [1, 1, 1, 1, 1, 1, 0],
+    box1: true,
+    box2: true
   },
   "E": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1],
-    [1, 1, 1]]
+    lines: [1, 0, 0, 1, 1, 1, 1],
+    box1: false,
+    box2: false
   },
   "F": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 0],
-    [1, 1, 1],
-    [1, 0, 0]]
-  }
-  , "G": {
-    structure: 
-    [[1, 1, 1],
-    [1, 0, 0],
-    [1, 0, 1],
-    [1, 1, 1]]
+    lines: [1, 0, 0, 0, 1, 1, 1],
+    box1: false,
+    box2: false
+  },
+  "G": {
+    lines: [2, 0, 1.5, 2, 1.5, 1.5, 1],
+    box1: false,
+    box2: true
   },
   "H": {
-    structure: 
-    [[1, 0, 1],
-    [1, 1, 1],
-    [1, 1, 1],
-    [1, 0, 1]]
+    lines: [0, 1, 1, 0, 1, 1, 1],
+    box1: false,
+    box2: false
+    },
+  "I": {
+    lines: [1, 0, 0, 1, 0, 0, 0],
+    box1: true,
+    box2: true
+  },
+  "J": {
+    lines: [1, 1, 1.5, 2, 0, 0, 0],
+    box1: false,
+    box2: false
   }
 }

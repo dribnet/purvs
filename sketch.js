@@ -12,31 +12,36 @@ const canvasHeight = 500;
  *
  */
 
+
+ /**
+  * ordering of lines: top, topright, botright,bottom,botleft,topleft,mid
+  * 1 == draw as line
+  * 1.5 == draw as half line
+  * 2 == draw as arc
+  */
 const letterA = {
-  structure: 
-  [[1, 1, 1],
-  [1, 0, 1],
-  [1, 1, 1],
-  [1, 0, 1]]
+  lines: [2, 1.5, 1, 0, 1, 1.5, 1],
+  box1: true,
+  box2:false
+
 }
 
 const letterB = {
-  structure: 
-  [[1, 0, 0],
-  [1, 1, 1],
-  [1, 0, 1],
-  [1, 1, 1]]
+  lines: [0, 0, 2, 1.5, 1, 1, 1.5],
+  box1: false,
+  box2: true
+
 }
 
 const letterC = {
-  structure: 
-  [[1, 1, 1],
-  [1, 0, 0],
-  [1, 0, 0],
-  [1, 1, 1]]
+  lines: [2, 0, 0, 2, 1.5, 1.5, 0],
+  box1: false,
+  box2:false
+
 }
 
 const letterE = {
+  lines: [1, 1, 1, 1, 1, 1, 0]
 
 }
 const colorFront1 = "#199cff";
@@ -58,27 +63,123 @@ function setup() {
 }
 
 function drawLetter(posx, posy, letterData) {
-
+  angleMode(DEGREES); 
   let w = 100;
   let h = 200;
-  let curY=posy;
-  stroke(0);
-  if(!letterData.structure)return;
-  fill(random(255),random(255),random(255))
-  for (let r = 0; r < letterData.structure.length; r++) {
+  let startX = posx;
+  let startY = posy;
+  let lineWidth = w;
+  let lineHeight = h / 2;
+  let currentLine = "top";
 
-    let curX=posx;
-    for (let c = 0; c < letterData.structure[r].length; c++) {
-        if(letterData.structure[r][c] === 1)
-          ellipse(curX,curY,20,20);
-        curX+=25;
-     }
-     curY+=25;
+  //handle filling rectboxes
+  if(letterData.box1) {
+    fill(color("#4bcce0"));
+    noStroke();
+    // rect(startX,startY,lineWidth,lineHeight);
+  }
+  if(letterData.box2) {
+    fill(color("#b6dd98"));
+    noStroke();
+    // rect(startX,startY+lineHeight,lineWidth,lineHeight);
+  }
+  stroke(5);
+  for (let i = 0; i < letterData.lines.length; i++) {
+    let thisLine = letterData.lines[i];
+    //then figure out what line this is.
+    switch (i) {
+      case 0:
+        // drawing top line
+        if (thisLine === 1) {  
+          line(startX, startY, startX+lineWidth, startY);
+        }
+        else if(thisLine === 2){
+          //draw as arc
+          arc(startX+lineWidth/2, startY+lineHeight/2,lineWidth,lineHeight,180,0);
 
-
+        }
+        startX += lineWidth;
+        break;
+      case 1:
+        // top right line
+        if (thisLine === 1) {
+          // draw full line
+          line(startX, startY, startX, startY + lineHeight);
+        } else if (thisLine === 1.5) {
+          let adjustedY = startY + lineHeight/2;
+          line(startX, adjustedY, startX, adjustedY + lineHeight/2)
+        }
+        startY += lineHeight;
+        break;
+      case 2:
+        // bot right line
+        if (thisLine === 1) {
+          line(startX, startY, startX, startY + lineHeight);
+        } else if( thisLine === 2) {
+          //draw as arc
+          arc(startX-lineWidth/2, startY+ lineHeight/2,lineWidth,lineHeight,270,90);
+        }
+        startY += lineHeight;
+        break;
+      case 3:
+        //Bottom line.
+        if (thisLine === 1) {
+          line(startX, startY, startX - lineWidth, startY);
+        } else if (thisLine === 1.5) {
+          let adjustedX = startX-lineHeight/2;
+          line(adjustedX, startY, startX - lineWidth, startY)
+        } else if (thisLine === 2) {
+          arc(startX-lineWidth/2, startY - lineHeight/2,lineWidth,lineHeight,0,180);
+        }
+        startX -= lineWidth;
+        break;
+      case 4:
+        // bot left line
+        if (thisLine === 1) {
+          line(startX, startY, startX, startY - lineHeight)
+        } else if (thisLine === 1.5) {
+          let adjustedY = startY-lineHeight/2;
+          line(startX, adjustedY, startX, startY-lineHeight)
+        }
+        startY -= lineHeight;
+        break;
+      case 5:
+        // top left line
+        if (thisLine === 1){ 
+          line(startX, startY, startX, startY - lineHeight)
+        }
+        else if (thisLine === 1.5) {
+          let adjustedY = startY - lineHeight/2;
+          line(startX, startY, startX, adjustedY)
+        }
+        // startY -= lineHeight;
+        break;
+      case 6:
+        // mid line
+        if (thisLine === 1) {
+          line(startX, startY, startX + lineWidth, startY);
+        } else if (thisLine === 1.5) {
+          let adjustedX = startX + lineWidth/2;
+          line(startX, startY, adjustedX, startY)
+        }
+        break;
+      case 7:
+        // top mid dot
+        if (thisLine === 1) ellipse(startX+lineWidth/2, startY-lineHeight/2, 10,10);
+        // startY -= lineHeight;
+        break;
+      case 8:
+        // bot mid dot
+        if (thisLine === 1) line(startX, startY, startX + lineWidth, startY);
+        break;
+      default:
+      // code block
+    }
   }
 
+
 }
+
 
 function draw() {
   // clear screen

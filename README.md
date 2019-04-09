@@ -1,9 +1,11 @@
 ## PS2 MDDN 242 2019
 
-Updated Idea, each letter is represented as a grid of pixels.
+Updated Idea again.. 
 
-Playing around more with this idea, trying different shapes...
+Using fixed lines to represent the letters and arcs. After trying this idea out i found out that the interaction section of this assignment wouldnt work with how i coded these letters. So i am back to drawing board.
 
 The three parameters per letter:
-  * `structure` : grid that defines the look of this letter
+  * `lines` : array that represents what lines/arcs are shown. [top,topright,botright...]
+  * `box#` : just determines the colour effect.
+
 
