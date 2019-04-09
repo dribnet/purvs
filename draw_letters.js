@@ -35,7 +35,6 @@ function drawLetter(letterData) {
   let positionx17 = letterData["offsetx17"];
   let positionx18 = letterData["offsetx18"];
   let positionx19 = letterData["offsetx19"];
-  let positionx20 = letterData["offsetx20"];
   
   let length1 = letterData["offsety1"];
   let length2 = letterData["offsety2"];
@@ -57,7 +56,7 @@ function drawLetter(letterData) {
   let length17 = letterData["offsety17"];
   let length18 = letterData["offsety18"];
   let length19 = letterData["offsety19"]; 
-  let length20 = letterData["offsety20"]; 
+
 
 
 
@@ -82,14 +81,68 @@ strokeWeight(5);
   line(posx + positionx17, posy + lineSpacing*7, posx + length17 + positionx17, posy + lineSpacing*7);
   line(posx + positionx18, posy + lineSpacing*8, posx + length18 + positionx18, posy + lineSpacing*8);
   line(posx + positionx19, posy + lineSpacing*9, posx + length19 + positionx19, posy + lineSpacing*9);
-  line(posx + positionx20, posy + lineSpacing*10, posx + length20 + positionx20, posy + lineSpacing*10);
+ 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  new_letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+
+  new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+
+  new_letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
+  new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
+
+  new_letter["offsetx5"] = map(percent, 0, 100, oldObj["offsetx5"], newObj["offsetx5"]);
+  new_letter["offsety5"] = map(percent, 0, 100, oldObj["offsety5"], newObj["offsety5"]);
+
+  new_letter["offsetx6"] = map(percent, 0, 100, oldObj["offsetx6"], newObj["offsetx6"]);
+  new_letter["offsety6"] = map(percent, 0, 100, oldObj["offsety6"], newObj["offsety6"]);
+
+  new_letter["offsetx7"] = map(percent, 0, 100, oldObj["offsetx7"], newObj["offsetx7"]);
+  new_letter["offsety7"] = map(percent, 0, 100, oldObj["offsety7"], newObj["offsety7"]);
+
+  new_letter["offsetx8"] = map(percent, 0, 100, oldObj["offsetx8"], newObj["offsetx8"]);
+  new_letter["offsety8"] = map(percent, 0, 100, oldObj["offsety8"], newObj["offsety8"]);
+
+  new_letter["offsetx9"] = map(percent, 0, 100, oldObj["offsetx9"], newObj["offsetx9"]);
+  new_letter["offsety9"] = map(percent, 0, 100, oldObj["offsety9"], newObj["offsety9"]);
+
+  new_letter["offsetx10"] = map(percent, 0, 100, oldObj["offsetx10"], newObj["offsetx10"]);
+  new_letter["offsety10"] = map(percent, 0, 100, oldObj["offsety10"], newObj["offsety10"]);
+
+  new_letter["offsetx11"] = map(percent, 0, 100, oldObj["offsetx11"], newObj["offsetx11"]);
+  new_letter["offsety11"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety11"]);
+
+  new_letter["offsetx12"] = map(percent, 0, 100, oldObj["offsetx12"], newObj["offsetx12"]);
+  new_letter["offsety12"] = map(percent, 0, 100, oldObj["offsety12"], newObj["offsety12"]);
+
+  new_letter["offsetx13"] = map(percent, 0, 100, oldObj["offsetx13"], newObj["offsetx13"]);
+  new_letter["offsety13"] = map(percent, 0, 100, oldObj["offsety13"], newObj["offsety13"]);
+
+  new_letter["offsetx14"] = map(percent, 0, 100, oldObj["offsetx14"], newObj["offsetx14"]);
+  new_letter["offsety14"] = map(percent, 0, 100, oldObj["offsety14"], newObj["offsety14"]);
+
+  new_letter["offsetx15"] = map(percent, 0, 100, oldObj["offsetx15"], newObj["offsetx15"]);
+  new_letter["offsety15"] = map(percent, 0, 100, oldObj["offsety15"], newObj["offsety15"]);
+
+  new_letter["offsetx16"] = map(percent, 0, 100, oldObj["offsetx16"], newObj["offsetx16"]);
+  new_letter["offsety16"] = map(percent, 0, 100, oldObj["offsety16"], newObj["offsety16"]);
+
+  new_letter["offsetx17"] = map(percent, 0, 100, oldObj["offsetx17"], newObj["offsetx17"]);
+  new_letter["offsety17"] = map(percent, 0, 100, oldObj["offsety17"], newObj["offsety17"]);
+
+  new_letter["offsetx18"] = map(percent, 0, 100, oldObj["offsetx18"], newObj["offsetx18"]);
+  new_letter["offsety18"] = map(percent, 0, 100, oldObj["offsety18"], newObj["offsety18"]);
+
+  new_letter["offsetx19"] = map(percent, 0, 100, oldObj["offsetx19"], newObj["offsetx19"]);
+  new_letter["offsety19"] = map(percent, 0, 100, oldObj["offsety19"], newObj["offsety19"]);
   return new_letter;
 }
 
