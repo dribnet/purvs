@@ -29,13 +29,13 @@ function drawLetter(letterData) {
   strokeWeight(5);
   line(l1x, l1y, l2x, l2y);
 
-  //Darker Arc 
+  //yellow Arc 
   noFill();
   stroke(255, 171, 0);
   strokeWeight(4);
   arc(a1x, a1y, aw, ah, radians(a1Start), radians(a1Start+180));
 
-  //Light Arc
+  //red Arc
   stroke(255,69,0);
   strokeWeight(4);
   arc(a2x, a2y, a2w, a2h, radians(a2Start), radians(a2Start+180));
@@ -45,8 +45,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["l1x"] = map(percent, 0, 100, oldObj["l1x"], newObj["l1x"]);
   new_letter["l1y"] = map(percent, 0, 100, oldObj["l1y"], newObj["l1y"]);
-  new_letter["l2x"] = map(percent, 0, 100, oldObj["l2x"], newObj["l2y"]);
-  new_letter["l2y"] = map(percent, 0, 100, oldObj["l2y"], newObj["l2y"]);
+  new_letter["l2x"] = map(percent, 0, 50, oldObj["l2x"], newObj["l2y"]);
+  new_letter["l2y"] = map(percent, 0, 0, oldObj["l2y"], newObj["l2y"]);
   
   new_letter["a1x"] = map(percent, 0, 100, oldObj["a1x"], newObj["a1x"]);
   new_letter["a1y"] = map(percent, 0, 100, oldObj["a1y"], newObj["a1y"]);
@@ -63,7 +63,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "HEADLINE",
+  "LINEARCS",
+  "?LINEAR?"
 ]

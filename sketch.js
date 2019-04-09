@@ -11,35 +11,47 @@ const canvasHeight = 500;
             relative to the first one
  *
  */
-
 const letterA = {
-  "offsetx": 0,
-  "offsety": 35,
-  "offsetw": 200,
-  "offseth": 200,
+  "rectx": 100,
+  "recty": 230,
 
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx": 110,
+  "offsety": 255,
+  "offsetw": 80,
+  "offseth": 70,
+
+  "offset2x": 110,
+  "offset2y": 270,
+  "offset2w": 80,
+  "offset2h": 30,
 }
 
 const letterB = {
-  "offsetx": 0,
-  "offsety": -145,
-  "offsetw": 100,
-  "offseth": 100,
+  "rectx": 420,
+  "recty": 230,
+  
+  "offsetx": 470,
+  "offsety": 245,
+  "offsetw": 50,
+  "offseth": 30,
+
+  "offset2x": 470,
+  "offset2y": 285,
+  "offset2w": 50,
+  "offset2h": 30,
 }
 
 const letterC = {
-  "offsetx": 30,
-  "offsety": 0,
-  "offsetw": 100,
-  "offseth": 100,
+  "rectx": 700,
+  "recty": 230,
+  
+  "offset2x": 725,
+  "offset2y": 245,
+  "offset2w": 75,
+  "offset2h": 75,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#7b97c4";
 const colorBack    = "#ffe5c4";
-//const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -51,25 +63,37 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let posw = letterData["offsetw"];
-  let posh = letterData["offseth"];
+  // determine parameters
+  let offsetx = letterData["offsetx"];
+  let offsety = letterData["offsety"];
+  let offsetw = letterData["offsetw"];
+  let offseth = letterData["offseth"];
 
-  let pos3x = posx + letterData["offsetx"];
-  let pos3y = posy + letterData["offsety"];
+  let offset2x = letterData["offset2x"];
+  let offset2y = letterData["offset2y"];
+  let offset2w = letterData["offset2w"];
+  let offset2h = letterData["offset2h"];
 
+  let rectx = letterData["rectx"];
+  let recty = letterData["recty"];
+  let w = 100;
+  let h = 100;
 
- //darker ellipse
+  //rectangle
   noFill();
-  stroke(colorFront1);
-  rect(pos2x, pos2y, posw, posh);
+  stroke(0);
+  strokeWeight(2);
+  rect(rectx, recty, w, h, 20);
 
-  //lighter ellipse
-  fill(colorFront2);
-  noStroke();
-  ellipse(pos3x, pos3y, posw, posh);
+  //small rect1
+  noFill();
+  stroke(255);  
+  rect(offsetx, offsety, offsetw, offseth, 15);
+ 
+  //small rect2
+  noFill();
+  stroke(255);
+  rect(offset2x, offset2y, offset2w, offset2h, 15);
 }
 
 function draw () {
