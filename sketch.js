@@ -37,10 +37,10 @@ const letterC = {
 //big circle
 const colorFront1  = "#F1A334";
 //small circle
-const colorFront2  = "#296EAD";
+const colorFront2  = "#3c4c6c";
 //background
-const colorBack    = "#296EAD";
-const colorStroke  = "#296EAD";
+const colorBack    = "#3c4c6c";
+const colorStroke  = "#3c4c6c";
 
 
 function setup () {

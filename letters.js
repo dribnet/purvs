@@ -35,16 +35,16 @@ const alphabet = {
     "wid": 65,
     "hei": 45,
 
-    "b2offsetx": -20,
+    "b2offsetx": -28,
     "b2offsety": -85,
 
-    "b3offsetx": -20,
+    "b3offsetx": -28,
     "b3offsety": -28,
 
-    "b4offsetx": -20,
+    "b4offsetx": -28,
     "b4offsety": -28,
 
-    "b5offsetx": -20,
+    "b5offsetx": -28,
     "b5offsety": -28,
   },
   "C": {
@@ -67,16 +67,16 @@ const alphabet = {
     "wid": 60,
     "hei": 100,
 
-    "b2offsetx": -40,
+    "b2offsetx": -38,
     "b2offsety": -85,
 
-    "b3offsetx": -40,
+    "b3offsetx": -38,
     "b3offsety": -85,
 
-    "b4offsetx": -40,
+    "b4offsetx": -38,
     "b4offsety": -85,
 
-    "b5offsetx": -40,
+    "b5offsetx": -38,
     "b5offsety": -85,
   },
   "E": {
@@ -112,7 +112,7 @@ const alphabet = {
     "b5offsety": -5,
   },
    "G": {
-    "wid": 80,
+    "wid": 70,
     "hei": 35,
 
     "b2offsetx": -20,
@@ -121,26 +121,26 @@ const alphabet = {
     "b3offsetx": -40,
     "b3offsety": -30,
 
-    "b4offsetx": -50,
+    "b4offsetx": -45,
     "b4offsety": -55,
 
-    "b5offsetx": -50,
+    "b5offsetx": -45,
     "b5offsety": -55,
   },
    "H": {
-    "wid": 50,
+    "wid": 30,
     "hei": 60,
 
-    "b2offsetx": -25,
+    "b2offsetx": -15,
     "b2offsety": -130,
 
-    "b3offsetx": -25,
+    "b3offsetx": -15,
     "b3offsety": -10,
 
-    "b4offsetx": -25,
+    "b4offsetx": -15,
     "b4offsety": -10,
 
-    "b5offsetx": -25,
+    "b5offsetx": -15,
     "b5offsety": -10,
   },
    "I": {
@@ -211,10 +211,10 @@ const alphabet = {
     "wid": 20,
     "hei": 90,
 
-    "b2offsetx": -40,
+    "b2offsetx": -35,
     "b2offsety": -45,
 
-    "b3offsetx": 20,
+    "b3offsetx": 15,
     "b3offsety": -45,
 
     "b4offsetx": -10,
@@ -259,10 +259,10 @@ const alphabet = {
    "wid": 65,
    "hei": 60,
 
-   "b2offsetx": -20,
+   "b2offsetx": -28,
    "b2offsety": -85,
 
-   "b3offsetx": -20,
+   "b3offsetx": -28,
    "b3offsety": -85,
 
    "b4offsetx": -8,
@@ -291,16 +291,16 @@ const alphabet = {
    "wid": 40,
    "hei": 85,
 
-   "b2offsetx": -15,
+   "b2offsetx": -22,
    "b2offsety": -105,
 
-   "b3offsetx": -70,
-   "b3offsety": -85,
+   "b3offsetx": -22,
+   "b3offsety": -105,
 
-   "b4offsetx": -5,
+   "b4offsetx": -10,
    "b4offsety": -5,
 
-   "b5offsetx": -5,
+   "b5offsetx": -10,
    "b5offsety": -5,
  },
  "S": {
@@ -352,29 +352,29 @@ const alphabet = {
    "b5offsety": -135,
  },
  "V": {
-   "wid": 60,
-   "hei": 100,
+   "wid": 40,
+   "hei": 95,
 
-   "b2offsetx": -30,
+   "b2offsetx": -20,
    "b2offsety": -80,
 
-   "b3offsetx": -35,
+   "b3offsetx": -25,
    "b3offsety": -135,
 
-   "b4offsetx": -25,
+   "b4offsetx": -15,
    "b4offsety": -135,
 
-   "b5offsetx": -25,
+   "b5offsetx": -15,
    "b5offsety": -135,
  },
  "W": {
    "wid": 20,
    "hei": 95,
 
-   "b2offsetx": -35,
+   "b2offsetx": -30,
    "b2offsety": -128,
 
-   "b3offsetx": 20,
+   "b3offsetx": 15,
    "b3offsety": -128,
 
    "b4offsetx": -10,
@@ -388,15 +388,15 @@ const alphabet = {
    "hei": 80,
 
    "b2offsetx": -15,
-   "b2offsety": -165,
+   "b2offsety": -155,
 
    "b3offsetx": -15,
-   "b3offsety": 5,
+   "b3offsety": 0,
 
-   "b4offsetx": -69,
+   "b4offsetx": -65,
    "b4offsety": -80,
 
-   "b5offsetx": 39,
+   "b5offsetx": 35,
    "b5offsety": -80,
  },
  "Y": {
@@ -409,26 +409,26 @@ const alphabet = {
    "b3offsetx": 15,
    "b3offsety": -20,
 
-   "b4offsetx": -22,
+   "b4offsetx": -25,
    "b4offsety": -130,
 
-   "b5offsetx": -22,
+   "b5offsetx": -25,
    "b5offsety": -130,
  },
  "Z": {
    "wid": 50,
-   "hei": 40,
+   "hei": 30,
 
-   "b2offsetx": 5,
+   "b2offsetx": 0,
    "b2offsety": -40,
 
-   "b3offsetx": 5,
-   "b3offsety": -40,
+   "b3offsetx": -25,
+   "b3offsety": -150,
 
-   "b4offsetx": -55,
-   "b4offsety": -90,
+   "b4offsetx": -25,
+   "b4offsety": 35,
 
-   "b5offsetx": -55,
+   "b5offsetx": -50,
    "b5offsety": -90,
  },
  "0": {
@@ -458,10 +458,10 @@ const alphabet = {
    "b3offsety": -85,
 
    "b4offsetx": 10,
-   "b4offsety": -120,
+   "b4offsety": -128,
 
    "b5offsetx": 10,
-   "b5offsety": -120,
+   "b5offsety": -128,
  },
  "2": {
    "wid": 60,
@@ -521,10 +521,10 @@ const alphabet = {
     "b3offsetx": 10,
     "b3offsety": -85,
 
-    "b4offsetx": -65,
+    "b4offsetx": -55,
     "b4offsety": -30,
 
-    "b5offsetx": -65,
+    "b5offsetx": -55,
     "b5offsety": -30,
   },
   "6": {

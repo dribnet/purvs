@@ -1,6 +1,6 @@
 const colorFront1  = "#F1A334";
-const colorFront2  = "#296EAD";
-const colorStroke  = "#296EAD";
+const colorFront2  = "#3c4c6c";
+const colorStroke  = "#3c4c6c";
 
 /*
  * Draw the letter given the letterData
@@ -45,7 +45,7 @@ function drawLetter(letterData) {
 
   //--- Draw Ellipse Base ---//
   fill(colorFront1);
-  ellipse(50, 110, 110, 180);
+  ellipse(50, 110, 100, 180);
   fill(colorFront2);
 
   //--- Draw Main Rectangles Inside Ellipse Base ---//
@@ -71,7 +71,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "MEDIEVAL",
+  "ILLUSION",
   "CREATIVE",
   "ETC12345"
 ]
