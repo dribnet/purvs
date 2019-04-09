@@ -100,6 +100,10 @@ const alphabet = {
   },
 
   "I": {
+  	"lineX1": -20,
+  	"lineY1": -20,
+  	"lineX2": -5,
+  	"lineY2": -10,
     "arcX": 30,
     "arcY": -5,
     "start": 120,
@@ -129,6 +133,10 @@ const alphabet = {
   },
 
   "L": {
+  	"lineX1": -40,
+  	"lineY1": -20,
+  	"lineX2": -25,
+  	"lineY2": -10,
     "arcX": 10,
     "arcY": 0,
     "start": 50,
@@ -158,14 +166,14 @@ const alphabet = {
   },
 
   "O": {
-    "lineX1": 0,
-    "lineY1": -50,
-    "lineX2": 0,
-    "lineY2": -20,
+    "lineX1": -5,
+    "lineY1": 0,
+    "lineX2": 5,
+    "lineY2": 0,
     "arcX": 0,
     "arcY": 0,
-    "start": 300,
-    "stop": 240
+    "start": 290,
+    "stop": 250
   },
 
   "P": {

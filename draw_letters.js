@@ -4,7 +4,7 @@ function drawLetter(letterData) {
 
   // draw a triangle
   noStroke();
-  fill(99, 142, 67, 140); //green
+  fill(99, 142, 75, 100); //green
   triangle(50, 60, 88, 120, 12, 120);
 
   // color/stroke setup
@@ -27,7 +27,7 @@ function drawLetter(letterData) {
   let arcStop = letterData["stop"];
 
   // draw main arc
-  fill(99, 142, 140, 80); //blue tint green
+  fill(109, 165, 180, 60); //blue tint green
   strokeWeight(5);
   arc(arcX, arcY, 90, 90, arcStart, arcStop);
 
@@ -56,7 +56,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "TRIANARC",
+  "MINTFONT",
   "STRAIGHT",
   "GREENERY",
   "RELAXING"

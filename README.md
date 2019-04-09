@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019 - Alphabet
 
-Made more adjustments to some of the letters including stroke weights and changed the background to a slightly different colour.
+Made more adjustments.
 
 Each of my letters is composed with one arc and one line that work around a triangle. The size of the arc is fixed, but the length of the line and location and angles of both arc and line is controlled by eight parameters.
 
