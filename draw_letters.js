@@ -1,5 +1,5 @@
 const colorFront1  = "#8886a1";
-const colorFront2  = "#f4b093";
+const colorFront2  = "#4b6fb9";
 const colorFront3 = "9fcedf";
 const colorStroke  = "#233f11";
 
@@ -11,13 +11,6 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
- 
-  let triangleX1 = letterData["triX1"];
-  let triangleY1 = letterData["triY1"];
-  let triangleX2 = letterData["triX2"];
-  let triangleY2 = letterData["triY2"];
-  let triangleX3 = letterData["triX3"];
-  let triangleY3 = letterData["triY3"];
   let rectangleX = letterData["rectX"];
   let rectangleY = letterData["rectY"];
   let rectangleWidth = letterData["rectW"];
@@ -28,15 +21,22 @@ function drawLetter(letterData) {
   let arcEnd = letterData["arcE"];
   let arcWidth = letterData["arcW"];
   let arcHeight = letterData["arcH"];
+  let triangleX1 = letterData["triX1"];
+  let triangleY1 = letterData["triY1"];
+  let triangleX2 = letterData["triX2"];
+  let triangleY2 = letterData["triY2"];
+  let triangleX3 = letterData["triX3"];
+  let triangleY3 = letterData["triY3"];
 
 
-  fill(130,130,130);
+
+  fill(217,103,4,250);
   noStroke();
-  triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
-  fill(100,230,130);
-  rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
-  fill(230,230,0);
   arc(arcposX,arcposY,arcWidth,arcHeight,arcStart,arcEnd);
+  fill(2,89,40,250);
+  rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
+  fill(48,48,48,250);
+  triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -52,3 +52,4 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
