@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-Working on number designs
+I have finished all the letters/numbers/default! I will still most likely tweak things, such as the 2 in the future but I am also happy with how it sits at this stage. Next I plan to experiment with colour choices and then move on to fine tuning the interpolisation/interaction. Everything in this commit conforms to the below parameters so in total my system requires 12 parameters.
 
 New parameters:
 

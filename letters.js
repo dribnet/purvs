@@ -612,43 +612,143 @@ const alphabet = {
 
   },
       "4": {
-  "sizeB1x": 60,
-    "sizeB1y":30,
+  "sizeB1x": 45,
+    "sizeB1y":45,
 
-    "sizeB2x": 60,
-    "sizeB2y":30,
+    "sizeB2x": 45,
+    "sizeB2y":45,
 
-    "posB1x": 0,
-    "posB1y": 15,
+    "posB1x": 75,
+    "posB1y": 75,
 
-    "posB2x": 0,
-    "posB2y": 15,
+    "posB2x": 15,
+    "posB2y": 0,
 
-    "posB3x": 0,
-    "posB3y": 75,
+    "posB3x": 75,
+    "posB3y": 0,
 
     "posB4x":0,
     "posB4y":75
 
   },
-      "3": {
-  "sizeB1x": 60,
+      "5": {
+  "sizeB1x": 90,
+    "sizeB1y":15,
+
+    "sizeB2x": 90,
+    "sizeB2y":40,
+
+    "posB1x": 30,
+    "posB1y": 20,
+
+    "posB2x": 30,
+    "posB2y": 20,
+
+    "posB3x": 0,
+    "posB3y": 60,
+
+    "posB4x":0,
+    "posB4y":60
+
+  },
+  "6": {
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 90,
+    "sizeB2y":40,
+
+    "posB1x": 45,
+    "posB1y": 70,
+
+    "posB2x": 45,
+    "posB2y": 70,
+
+    "posB3x": 30,
+    "posB3y": 0,
+
+    "posB4x":30,
+    "posB4y":0
+
+  },
+   "7": {
+  "sizeB1x": 90,
+    "sizeB1y":90,
+
+    "sizeB2x": 90,
+    "sizeB2y":90,
+
+    "posB1x": 0,
+    "posB1y": 30,
+
+    "posB2x": 0,
+    "posB2y": 30,
+
+    "posB3x": 0,
+    "posB3y": 30,
+
+    "posB4x":0,
+    "posB4y":30
+
+  },
+     "8": {
+  "sizeB1x": 30,
+    "sizeB1y":30,
+
+    "sizeB2x": 30,
+    "sizeB2y":30,
+
+    "posB1x": 45,
+    "posB1y": 20,
+
+    "posB2x": 45,
+    "posB2y": 20,
+
+    "posB3x": 45,
+    "posB3y": 75,
+
+    "posB4x":45,
+    "posB4y":75
+
+  },
+       "9": {
+  "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 60,
-    "sizeB2y":30,
+    "sizeB2y":50,
 
-    "posB1x": 0,
-    "posB1y": 15,
+    "posB1x": 45,
+    "posB1y": 20,
 
-    "posB2x": 0,
-    "posB2y": 15,
+    "posB2x": 45,
+    "posB2y": 20,
 
     "posB3x": 0,
-    "posB3y": 75,
+    "posB3y": 70,
 
     "posB4x":0,
-    "posB4y":75
+    "posB4y":70
+
+  },
+         "?": {
+  "sizeB1x": 45,
+    "sizeB1y":90,
+
+    "sizeB2x": 60,
+    "sizeB2y":35,
+
+    "posB1x": 0,
+    "posB1y": 30,
+
+    "posB2x": 0,
+    "posB2y": 30,
+
+    "posB3x": 60,
+    "posB3y": 85,
+
+    "posB4x":30,
+    "posB4y":30
 
   },
 }
