@@ -35,6 +35,13 @@ ellipse(letterData["lx13"],letterData["ly13"],letterData["size1"],letterData["si
 
 
 }
+// exhibition words
+var swapWords = [
+  "MDDNTTT?",
+  "CAB?CAB?",
+  "BAAAAAAA"
+]
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -71,9 +78,3 @@ function interpolate_letter(percent, oldObj, newObj) {
               new_letter["ly13"] = map(percent, 0, 100, oldObj["ly13"], newObj["ly13"]);
   return new_letter;
 }
-// exhibition words
-var swapWords = [
-  "MDDNTTT?",
-  "CAB?CAB?",
-  "BAAAAAAA"
-]

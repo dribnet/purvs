@@ -1,9 +1,5 @@
-(change colors)
-
-ellipse added
-
-4/8 a-e
-
-4/8 e-x
-
-4/9 Fixed letter "N" "R" "U" and update a preview picture.
+From Points to Lines
+There are 27 parameters in this code.
+"lx1-lx13": The x-axis coordinate.
+"ly1-ly13": The y-axis coordinate.
+"size": The size of each ellipse.
