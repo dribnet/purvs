@@ -38,22 +38,21 @@ function drawLetter(letterData) {
   let pos8y = posy+letterData["y7"];
  
 
-//debugging
-  //print(pos1x);
-  fill(255, 0, 0);
+  //color of the alphabet
   fill (255,255,0,50);
-noStroke();
-triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
-fill (250,0,0,50);
-triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
-fill (250,0,100,50);
- triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
-   stroke(255);
+  noStroke();
+  triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
+
+  fill (250,0,0,50);
+  triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
+
+  fill (250,0,100,50);
+  triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
+
+  //lines use to draw the alphabet
+  stroke(255);
   strokeWeight(1);
-
   noFill();
-
-
   line(pos1x, pos1y, pos2x, pos2y);
   line(pos2x, pos2y, pos3x, pos3y);
   line(pos1x, pos1y, pos4x, pos4y);
@@ -64,6 +63,7 @@ fill (250,0,100,50);
   line(pos2x, pos2y, pos8x, pos8y);
   line(pos8x, pos8y, pos3x, pos3y);
 
+//stars or ellipse
   fill(colorStroke);
   ellipse(pos1x, pos1y, 4, 4);
   ellipse(pos2x, pos2y, 4, 4);
@@ -72,12 +72,6 @@ fill (250,0,100,50);
   ellipse(pos5x, pos5y, 4, 4);
   ellipse(pos6x, pos6y, 4, 4);
 
-
-
-
-
-
-  // pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
