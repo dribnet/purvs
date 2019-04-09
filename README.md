@@ -1,7 +1,7 @@
-## PS2 MDDN 242 2019
+## Alphabets
 
-I started off with the idea of Las Vegas light bulb signs.
-Instead of circles I chose hexagonal grid for the frame.
+All the alphabets and numbers have been designed.
+I made them in 3 different colors, pink for consonants, blue for vowls and blueish grey for the rest.
 
 
 <!-- Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
