@@ -45,15 +45,6 @@ const polygons = [
       
       ];
 
-/* 
- * my three variable per letter are:
- *
-   polygons: binary signal for 46 hexagons to either color up or not to draw each letters
-   red: R value
-   green: G value
-   blue: B value
- *
- */
 // Referenced images and codes
 // https://image.shutterstock.com/display_pic_with_logo/2883424/276509240/stock-vector-colorful-connecting-hexagon-alphabet-letters-276509240.jpg
 // https://editor.p5js.org/Rito/sketches/BJ5D_KeTg
