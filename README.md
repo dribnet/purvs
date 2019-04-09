@@ -1,8 +1,8 @@
 ## PS2 MDDN 242 2019
 
-SKETCH:
+FINAL ALPHABET:
 
-Shown above are my early sketches for the first 3 letters of my alphabet. I wish to be doing something with ellipses as I really like the round and curvy look of them, and in order to have more of this "round look" I will mostly be focusing on lower case letters. I want to be using soft pastel colours therefore I've settled with the clay and white colour for now. My parameters control the changes in terms of x/y position for line, x/y position for arcs, x/y position for circles and the start angles of my arcs.
+After finishing my alphabet and letters, I then began focusing on the design aspects of my alphabet. Instead of having the colour to be a clay-ish colour to replicate the inside of old caves and a white stroke to replicate a chalk writing, I wanted to make my alphabet look more like hieroglyphs- so more like carvings on a cave rather than chalk drawings. In order to achieve this look, I made the background a bit darker and created a shadow-like effect on my letters by duplicating the default moonglyph from drawLetter function and then offsetting the parameters by -3.5 (except for cirlcle), increasing the strokeWeight to 9 and creating a transparency in the colour so it looks more like a shadow or crease. For the actual main letter, I set the colour to a dark brown to look more like carvings. I think the colours I've chosen give a really egyptian vibe which is exactly what I'm going for as they originated from the ancient egyptian writing system.
 
 Parameters:
 line_x1 = x position for starting point of line
