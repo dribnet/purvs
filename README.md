@@ -1,8 +1,8 @@
 ## PS2 MDDN 242 2019
 
-FINAL ALPHABET:
+INTERPOLATION:
 
-After finishing my alphabet and letters, I then began focusing on the design aspects of my alphabet. Instead of having the colour to be a clay-ish colour to replicate the inside of old caves and a white stroke to replicate a chalk writing, I wanted to make my alphabet look more like hieroglyphs- so more like carvings on a cave rather than chalk drawings. In order to achieve this look, I made the background a bit darker and created a shadow-like effect on my letters by duplicating the default moonglyph from drawLetter function and then offsetting the parameters by -3.5 (except for cirlcle), increasing the strokeWeight to 9 and creating a transparency in the colour so it looks more like a shadow or crease. For the actual main letter, I set the colour to a dark brown to look more like carvings. I think the colours I've chosen give a really egyptian vibe which is exactly what I'm going for as they originated from the ancient egyptian writing system.
+When thinking about the animation of my letters and how they change to the next, I decided I wanted each fo the elements to move one at a time. So the line moves first, then the arcs, then the dots last. The way I controlled this animation is through using an if statement. When percentage is 20, the line starts moving to new position, when percentage is 60, the arcs start moving to new position and when percentage is 90, the circles/dots start moving, else if its less than these values, they stay in their old positions.
 
 Parameters:
 line_x1 = x position for starting point of line
