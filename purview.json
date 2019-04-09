@@ -1,0 +1,40 @@
+{
+  "commits": [
+    {
+      "sha": "6162e3e44ff9019ac27a29d1dfad98c891788bd2",
+      "name": "FINAL"
+    },
+    {
+      "sha": "b598009b576685eafa90601871f4448e59fb149a",
+      "name": "Adjustments to stroke weights and colour"
+    },
+    {
+      "sha": "a1f2b4c8221a2d9d2980b94b7b9f7c8f42597cb6",
+      "name": "Adding more to font idea"
+    },
+    {
+      "sha": "c098eba11938db99c7bcbd34e67b1dcaccf15c74",
+      "name": "Interpolation"
+    },
+    {
+      "sha": "5f84b1ac632af78e23f5d6be02c5745ced11033d",
+      "name": "Added a triangle"
+    },
+    {
+      "sha": "6a41923e9e59b58e0ddd08553d6ecb3b9bd35a40",
+      "name": "Adjustments"
+    },
+    {
+      "sha": "da6b71eb0c0c2bc6155b0439f47681f57a23707d",
+      "name": "Added two more parameters"
+    },
+    {
+      "sha": "871dd785e6adf4c64da307cb9f4857eb7598897d",
+      "name": "Start on alphabet"
+    },
+    {
+      "sha": "4a69aba566bd9b01abc36171a63cd3636d82cf5b",
+      "name": "Initial sketch"
+    }
+  ]
+}
