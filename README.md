@@ -2,13 +2,11 @@
 
 I wanted to keep it simple and also give it a stylistic treatment.
 
-The letter is made with 6 different vertexes and linked together with lines. I also stuck to the traditional letters shapes to retain the legibility of the words to make things easy for the viewers.
+The letter is made with 6 different vertexes and linked together with lines. I also stuck to the traditional letters shapes to retain the legibility of the words to make things easy for the viewers. Using the vertexes allows for a very smooth "morphing" effect and made the letters as if they are dancing in the air.
 
- I wanted to make the letter look somewhat "sketchy" so I added a loop that duplicates additional lines to the strokes. The animation of the vibrating strokes made it feel like the letters are full of energy and cannot wait to "morph" to a different letter.
+I wanted to make the letter look somewhat "sketchy" so I added a loop that duplicates additional lines to the strokes. The animation of the vibrating strokes made it feel like the letters are gaining its energy and cannot wait to "morph" to a different letter. The letters will shake more vigorously as it changes as if it finally unleashed itself to "morph".
 
 I changed the background colour to black to get better contrast.
-
-The interpolation of letters also made the characters look like they are dancing in the space.
 
 The parameters are the X and Y positions of the vertexes.
 
