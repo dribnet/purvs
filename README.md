@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-Each of my letters is composed with two lines and 2 small rectangles. The position and length of the lines and the position of the rectangles are contolled by the 12 parameters below.
+current progress. Making the alphabet.
 
 The 12 parameters per letter:
 

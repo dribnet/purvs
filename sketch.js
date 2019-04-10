@@ -23,8 +23,8 @@ const letterA = {
   "lineXX2":70,
   "lineYY2":150,
 
-  "offsetx":-30, //small1
-  "offsety":80,
+  "offsetx1":-30, //small1
+  "offsety1":80,
 
   "offsetx2":6, //small2
   "offsety2":80
@@ -42,8 +42,8 @@ const letterB = {
   "lineYY2":150,
 
 
-  "offsetx":55, //small1
-  "offsety":0,
+  "offsetx1":55, //small1
+  "offsety1":0,
 
   "offsetx2":55, //small2
   "offsety2":125
@@ -61,8 +61,8 @@ const letterC = {
   "lineYY2":150,
 
 
-  "offsetx":20, //small1
-  "offsety":-7,
+  "offsetx1":20, //small1
+  "offsety1":-7,
 
   "offsetx2":80, //small2
   "offsety2":-7
@@ -101,8 +101,8 @@ function drawLetter(posx, posy, letterData) {
   let lin3yy = posy + letterData["lineYY2"];
 
   
-  let pos1x = posx + letterData["offsetx"];//small1
-  let pos1y = posy + letterData["offsety"];
+  let pos1x = posx + letterData["offsetx1"];//small1
+  let pos1y = posy + letterData["offsety1"];
   let pos2x = posx + letterData["offsetx2"];//small2
   let pos2y = posy + letterData["offsety2"];
 
