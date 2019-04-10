@@ -1,3 +1,9 @@
+
+// size is the size of the ellipse
+// t1-t6 and r1-r6 are the parameters for the two triangles.
+// if posx2 > posx or posy2 > posy,  the ellipse is on the left or top left
+// if posx2 < posx or posy2 < posy,  the ellipse is on the right or top right
+
 const alphabet = {
   "default": {
     "size": 60,

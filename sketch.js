@@ -43,7 +43,7 @@ const letterC = {
 }
 
 const colorFront1  = "#1b1b1b";
-const colorBack    = "#000000";
+const colorBack    = "#2d2d2d";
 const colorStroke  = "#f4dc42";
 
 function setup () {
@@ -53,7 +53,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(5);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
