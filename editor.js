@@ -22,7 +22,7 @@ function sliderToDataObject() {
   obj["rect_posx"] = map(param_sliders[12].value(), 0, 100, 15, 85);
   obj["rect_posy"] = map(param_sliders[13].value(), 0, 100, 15, 185);
   obj["rect_xscale"] = map(param_sliders[14].value(), 0, 100, 15, 100);
-    obj["rect_yscale"] = map(param_sliders[15].value(), 0, 100, 15, 100);
+  obj["rect_yscale"] = map(param_sliders[15].value(), 0, 100, 15, 200);
   return obj;
 
 }

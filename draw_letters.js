@@ -15,8 +15,9 @@ function drawLetter(letterData) {
   strokeWeight(8);
   rectMode(CENTER);
 
-  // determine parameters for second circle
-  let posy = letterData["rect_posy"];
+  // determine parameters dynamic elements
+  const posy = 100;
+  let pos2y = letterData["rect_posy"];
   let posx = letterData["rect_posx"];
   let rect_xs = letterData["rect_xscale"];
   let rect_ys = letterData["rect_yscale"];
@@ -32,9 +33,11 @@ function drawLetter(letterData) {
   let lCy1 = posy + letterData["lineC_y1"];
   let lCx2 = posx + letterData["lineC_x2"];
   let lCy2 = posy + letterData["lineC_y2"];
+
+
   // draw two circles
   noFill();
-  rect(posx, posy, rect_xs, rect_ys);
+  rect(posx, pos2y, rect_xs, rect_ys);
   fill(colorFront2);
   line(lAx1, lAy1, lAx2, lAy2);
   line(lBx1, lBy1, lBx2, lBy2);
