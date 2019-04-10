@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-Updated my code so that the interpolation interaction works and made that the index.
+Updated my code so that the exhibition displays my font and selected words. I decided to call the font stardust as the final product reminds me a bit of Bowie with the colour scheme and stars (also it was 8 letters...) Think I am almost ready for hand in but I'm going to go through it and touch up things before the hand in tomorrow.
 
 My concept for my font has changed a little from my original idea. After playing around with the parameters and different shape objects for the connecting dots I found that I really liked how the starts looked and instead of making a neon kind of font I thought it would be cool to incorporate the idea of constellations into my font as the lines connecting the star points remind me of constellations. I have changed some of my letters to make them more angular and interesting but still have some polishing to do for the appearance and interaction. 
 
