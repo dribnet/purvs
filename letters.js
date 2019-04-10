@@ -31,8 +31,8 @@ const alphabet = {
 
   "A": {
 
-    "p1x": 'null',
-    "p1y": 'null',
+    "p1x": onex,
+    "p1y": oney,
     "p2x": fourx,
     "p2y": foury,
     "p3x": twox,
@@ -49,16 +49,16 @@ const alphabet = {
     
     "p1x": fourx,
     "p1y": foury,
-    "p2x": 'null',
-    "p2y": 'null',
+    "p2x": twox,
+    "p2y": twoy,
     "p3x": fourx,
     "p3y": foury,
     "p4x": fivex,
     "p4y": fivey,
     "p5x": onex,
     "p5y": oney,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
 
  },
   "C": {
@@ -69,8 +69,8 @@ const alphabet = {
     "p2y": oney,
     "p3x": fivex,
     "p3y": fivey,
-    "p4x": 'null',
-    "p4y": 'null',
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": sixx,
     "p5y": sixy,
     "p6x": sixx,
@@ -81,8 +81,8 @@ const alphabet = {
     
     "p1x": fourx,
     "p1y": foury,
-    "p2x": 'null',
-    "p2y": 'null',
+    "p2x": twox,
+    "p2y": twoy,
     "p3x": onex,
     "p3y": oney,
     "p4x": sixx,
@@ -121,8 +121,8 @@ const alphabet = {
     "p4y": threey,
     "p5x": fivex,
     "p5y": fivey,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
 
   },
   "G": {
@@ -160,21 +160,21 @@ const alphabet = {
     
     "p1x": threex,
     "p1y": threey,
-    "p2x": 'null',
-    "p2y": 'null',
+    "p2x": twox,
+    "p2y": twoy,
     "p3x": fivex,
     "p3y": fivey,
-    "p4x": 'null',
-    "p4y": 'null',
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": fivex,
     "p5y": fivey,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
   },
   "J": {
     
-    "p1x": 'null',
-    "p1y": 'null',
+    "p1x": onex,
+    "p1y": oney,
     "p2x": fourx,
     "p2y": foury,
     "p3x": threex,
@@ -183,8 +183,8 @@ const alphabet = {
     "p4y": fivey,
     "p5x": threex,
     "p5y": threey,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
   },
   "K": {
     
@@ -194,8 +194,8 @@ const alphabet = {
     "p2y": fivey,
     "p3x": fivex,
     "p3y": fivey,
-    "p4x": 'null',
-    "p4y": 'null',
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": threex,
     "p5y": threey,
     "p6x": onex,
@@ -206,12 +206,12 @@ const alphabet = {
     
     "p1x": threex,
     "p1y": threey,
-    "p2x": 'null',
-    "p2y": 'null',
+    "p2x": twox,
+    "p2y": twoy,
     "p3x": fivex,
     "p3y": fivey,
-    "p4x": 'null',
-    "p4y": 'null',
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": sixx,
     "p5y": sixy,
     "p6x": sixx,
@@ -276,8 +276,8 @@ const alphabet = {
     "p4y": threey,
     "p5x": threex,
     "p5y": threey,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
   },
   "Q": {
 
@@ -316,10 +316,10 @@ const alphabet = {
     "p1y": sixy,
     "p2x": onex,
     "p2y": oney,
-    "p3x": 'null',
-    "p3y": 'null',
-    "p4x": 'null',
-    "p4y": 'null',
+    "p3x": threex,
+    "p3y": threey,
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": sixx,
     "p5y": sixy,
     "p6x": sixx,
@@ -327,12 +327,12 @@ const alphabet = {
   },
   "T": {
     
-    "p1x": 'null',
-    "p1y": 'null',
+    "p1x": onex,
+    "p1y": oney,
     "p2x": fivex,
     "p2y": fivey,
-    "p3x": 'null',
-    "p3y": 'null',
+    "p3x": threex,
+    "p3y": threey,
     "p4x": threex,
     "p4y": threey,
     "p5x": sixx,
@@ -364,12 +364,12 @@ const alphabet = {
     "p2y": twoy,
     "p3x": fivex,
     "p3y": fivey,
-    "p4x": 'null',
-    "p4y": 'null',
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": twox,
     "p5y": twoy,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
   },
   "W": {
     
@@ -393,10 +393,10 @@ const alphabet = {
     "p1y": sixy,
     "p2x": fivex,
     "p2y": fivey,
-    "p3x": 'null',
-    "p3y": 'null',
-    "p4x": 'null',
-    "p4y": 'null',
+    "p3x": threex,
+    "p3y": threey,
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": fivex,
     "p5y": fivey,
     "p6x": sixx,
@@ -409,14 +409,14 @@ const alphabet = {
     "p1y": foury,
     "p2x": fourx,
     "p2y": foury,
-    "p3x": 'null',
-    "p3y": 'null',
+    "p3x": threex,
+    "p3y": threey,
     "p4x": sixx,
     "p4y": sixy,
-    "p5x": 'null',
-    "p5y": 'null',
-    "p6x": 'null',
-    "p6y": 'null'
+    "p5x": fivex,
+    "p5y": fivey,
+    "p6x": sixx,
+    "p6y": sixy
     
   },
   "Z": {
@@ -425,10 +425,10 @@ const alphabet = {
     "p1y": twoy,
     "p2x": fivex,
     "p2y": fivey,
-    "p3x": 'null',
-    "p3y": 'null',
-    "p4x": 'null',
-    "p4y": 'null',
+    "p3x": threex,
+    "p3y": threey,
+    "p4x": fourx,
+    "p4y": foury,
     "p5x": sixx,
     "p5y": sixy,
     "p6x": sixx,
@@ -452,8 +452,8 @@ const alphabet = {
     "p6y": fivey
   },
   "1": {
-    "p1x": 'null',
-    "p1y": 'null',
+    "p1x": onex,
+    "p1y": oney,
     "p2x": fourx,
     "p2y": foury,
     "p3x": twox,
@@ -494,16 +494,16 @@ const alphabet = {
     "p6y": fivey
   },
   "4": {
-    "p1x": 'null',
-    "p1y": 'null',
+    "p1x": onex,
+    "p1y": oney,
     "p2x": fourx,
     "p2y": foury,
     "p3x": twox,
     "p3y": twoy,
     "p4x": threex,
     "p4y": threey,
-    "p5x": 'null',
-    "p5y": 'null',
+    "p5x": fivex,
+    "p5y": fivey,
     "p6x": fourx,
     "p6y": foury
   },
@@ -546,8 +546,8 @@ const alphabet = {
     "p4y": foury,
     "p5x": fivex,
     "p5y": fivey,
-    "p6x": 'null',
-    "p6y": 'null'
+    "p6x": sixx,
+    "p6y": sixy
   },
   "8": {
     "p1x": fivex,

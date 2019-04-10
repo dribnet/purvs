@@ -9,24 +9,12 @@ function drawLetter(letterData) {
   // color/stroke setup
   strokeWeight(4);
 
-  const lines  = "#ffffff";
+  const lines  = "#ff4800";
   const colorBack   = "#000000";
-  const glow = "#6bb2a9";
+  const glow = "#ffb187";
+  const star = "#fcfcfc";
 
 
-
-/**
-   //Create variables from letterData
-  p1p2 = letterData["p1p2"];
-  p3p4 = letterData["p3p4"];
-  p5p6 = letterData["p5p6"];
-  p1p3 = letterData["p1p3"];
-  p2p4 = letterData["p2p4"];
-  p3p5 = letterData["p3p5"];
-  p4p6 = letterData["p4p6"];
-  p1p6 = letterData["p1p6"];
-  p2p5 = letterData["p2p5"];
-*/
   let dotSize = 15;
 
 
@@ -54,7 +42,7 @@ p6y = letterData["p6y"];
 
 fill(glow); 
 stroke(glow); 
-strokeWeight(20); 
+strokeWeight(16); 
 
 //point one
 line(25, 20, p1x, p1y);
@@ -71,7 +59,7 @@ line(75, 180, p6x, p6y);
 
 fill(lines); 
 stroke(lines); 
-strokeWeight(10); 
+strokeWeight(9); 
 
 
 //point one
@@ -88,108 +76,137 @@ line(5, 180, p5x, p5y);
 line(75, 180, p6x, p6y);
 
 
-//*****DRAW DOTS******
-strokeWeight(5);
-fill('#e07e11'); 
-stroke('#e07e11'); 
+strokeWeight(1);
+fill(star); 
+stroke(star); 
 
-
-//POINT ONE
-//ellipse(25, 20, dotSize);//top left p1  
+if(p1x!=null && p1y!=null){
+//POINT ONE STAR
 push();
-translate(-1, -3); //needed to move stars and didnt want to move every point individally
+translate(p1x,p1y-2);
+scale(1.3, 1.3);
+
 beginShape();
-vertex(25,12);
-vertex(28,18);
-vertex(34,20);
-vertex(29,24);
-vertex(30,30);
-vertex(25,27);
-vertex(20,30);
-vertex(21,24);
-vertex(16,20);
-vertex(22,18);
-endShape(CLOSE);
-
-
-//POINT TWO
-//ellipse(95, 20, dotSize);//top right p2 
-beginShape();
-vertex(95,12);
-vertex(98,18);
-vertex(104,20);
-vertex(99,24);
-vertex(100,30);
-vertex(95,27);
-vertex(90,30);
-vertex(91,24);
-vertex(86,20);
-vertex(92,18);
-endShape(CLOSE);
-
-
-//POINT THREE
-//ellipse(15, 100, dotSize); //mid left p3 
-beginShape();
-vertex(15,92);
-vertex(18,98);
-vertex(24,100);
-vertex(19,104);
-vertex(20,110);
-vertex(15,107);
-vertex(10,110);
-vertex(11,104);
-vertex(6,100);
-vertex(12,98);
-endShape(CLOSE);
-
-
-//POINT FOUR
-//ellipse(85, 100, dotSize); //mid right p4 
-beginShape();
-vertex(85,92);
-vertex(88,98);
-vertex(94,100);
-vertex(89,104);
-vertex(90,110);
-vertex(85,107);
-vertex(80,110);
-vertex(81,104);
-vertex(76,100);
-vertex(82,98);
-endShape(CLOSE);
-
-//POINT FIVE
-//ellipse(5, 180, dotSize); //bottom left p5 
-beginShape();
-vertex(5,172);
-vertex(8,178);
-vertex(14,180);
-vertex(9,184);
-vertex(10,190);
-vertex(5,187);
-vertex(0,190);
-vertex(1,184);
-vertex(-4,180);
-vertex(2,178);
-endShape(CLOSE);
-
-
-//POINT SIX
-//ellipse(75, 180, dotSize); //bottom right p6 
-beginShape();
-vertex(75,172);
-vertex(78,178);
-vertex(84,180);
-vertex(79,184);
-vertex(80,190);
-vertex(75,187);
-vertex(70,190);
-vertex(71,184);
-vertex(66,180);
-vertex(72,178);
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
 endShape(CLOSE);
 pop();
+}
+
+
+if(p2x!=null && p2y!=null){
+//POINT TWO STAR
+push();
+translate(p2x,p2y-2);
+scale(1.3, 1.3);
+
+beginShape();
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
+endShape(CLOSE);
+pop();
+}
+
+if(p3x!=null && p3y!=null){
+//POINT THREE STAR
+push();
+translate(p3x,p3y-2);
+scale(1.3, 1.3);
+
+beginShape();
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
+endShape(CLOSE);
+pop();
+}
+
+if(p4x!=null && p4y!=null){
+//POINT FOUR STAR
+push();
+translate(p4x,p4y-2);
+scale(1.3, 1.3);
+
+beginShape();
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
+endShape(CLOSE);
+pop();
+}
+
+if(p5x!=null && p5y!=null){
+//POINT FIVE STAR
+push();
+translate(p5x,p5y-2);
+scale(1.3, 1.3);
+
+beginShape();
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
+endShape(CLOSE);
+pop();
+}
+
+if(p6x!=null && p6y!=null){
+//POINT SIX STAR
+push();
+translate(p6x,p6y-2);
+scale(1.3, 1.3);
+
+beginShape();
+vertex(0,-8);
+vertex(3,-2);
+vertex(9,0);
+vertex(4,4);
+vertex(5,10);
+vertex(0,5);
+vertex(-5,10);
+vertex(-4, 4);
+vertex(-9,0);
+vertex(-3,-2);
+endShape(CLOSE);
+pop();
+}
+
 
 }
 function interpolate_letter(percent, oldObj, newObj) {
@@ -215,7 +232,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "STARDUST",
+  "PROJECT2",
+  "MDDNFONT"
 ]
