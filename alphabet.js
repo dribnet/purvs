@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#8B658B";
 const colorLines   = "#000090";
 
 /* 
@@ -78,7 +78,7 @@ function draw () {
         }
 
         let letter = letters[cur_letter_index];
-        if (letter in alphabet) {
+        if (letter in alphabet) {  //get tom to tell you how to access the aplhabet in letter class
           drawLetter(alphabet[letter]);
         }
         else {

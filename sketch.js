@@ -27,43 +27,102 @@ const letterA = {
 }
 
 const letterB = {
-  "offset1x": -40,
-  "offset1y": -30,
-  "offset2x": 0,
-  "offset2y": 40,
-  "offset3x": -40,
-  "offset3y": 40,
+  "offset1x": -20,
+  "offset1y": 20,
+  "offset2x": -5,
+  "offset2y": 30,
+  "offset3x": -35,
+  "offset3y": 30,
 
-  "off1x": -40,
-  "off1y": -30,
-  "off2x": 0,
-  "off2y": -30,
-
+  
 
   "off3x": 0,
   "off3y": -30,
-  "off4x": -40,
-  "off4y": 0
+  "off4x": 0,
+  "off4y": 30,
+
+  "off5x": -40,
+  "off5y": -30,
+  "off6x": -40,
+  "off6y": 30
+
 }
 
 const letterC = {
-  "offset1x": -40,
-  "offset1y": 20,
-  "offset2x": 0,
-  "offset2y": 40,
-  "offset3x": -40,
-  "offset3y": 40,
+  "offset1x": 20,
+  "offset1y": -30,
+  "offset2x": -10,
+  "offset2y": 15,
+  "offset3x": -10,
+  "offset3y": 0,
 
-  "off1x": -40,
-  "off1y": -30,
-  "off2x": 0,
-  "off2y": -30,
+  "off3x": -10,
+  "off3y": 40,
+  "off4x": -10,
+  "off4y": 0,
 
-  "off3x": -40,
-  "off3y": -30,
-  "off4x": -40,
-  "off4y": 40
+  "off5x": -40,
+  "off5y": -30,
+  "off6x": -10,
+  "off6y": 5
+ 
+
 }
+
+// const letterA = {
+//   "offset1x": 0,
+//   "offset1y": 40,
+//   "offset2x": 30,
+//   "offset2y": -20,
+//   "offset3x": 38,
+//   "offset3y": 0,
+
+//   "off1x": 30,
+//   "off1y": -20,
+//   "off2x": 60,
+//   "off2y": 40
+// }
+
+// const letterB = {
+//   "offset1x": -40,
+//   "offset1y": -30,
+//   "offset2x": 0,
+//   "offset2y": 40,
+//   "offset3x": -40,
+//   "offset3y": 40,
+
+//   "off1x": -40,
+//   "off1y": -30,
+//   "off2x": 0,
+//   "off2y": -30,
+
+
+//   "off3x": 0,
+//   "off3y": -30,
+//   "off4x": -40,
+//   "off4y": 0
+// }
+
+// const letterC = {
+//   "offset1x": -40,
+//   "offset1y": 20,
+//   "offset2x": 0,
+//   "offset2y": 40,
+//   "offset3x": -40,
+//   "offset3y": 40,
+
+//   "off1x": -40,
+//   "off1y": -30,
+//   "off2x": 0,
+//   "off2y": -30,
+
+//   "off3x": -40,
+//   "off3y": -30,
+//   "off4x": -40,
+//   "off4y": 40
+// }
+
+
 const colorFront1  = "#99bfe6";
 const colorFront2  = "#59ccff";
 const colorBack    = "#8B658B";
@@ -100,19 +159,30 @@ function drawLetter(posx, posy, letterData) {
   let posl2x = posx + letterData["off2x"];
   let posl2y = posy + letterData["off2y"];
 
-   let posl3x = posx + letterData["off3x"];
+  let posl3x = posx + letterData["off3x"];
   let posl3y = posy + letterData["off3y"];
 
   let posl4x = posx + letterData["off4x"];
   let posl4y = posy + letterData["off4y"];
 
+  let posl5x = posx + letterData["off5x"];
+  let posl5y = posy + letterData["off5y"];
+
+  let posl6x = posx + letterData["off6x"];
+  let posl6y = posy + letterData["off6y"];
   // draw two circles
   fill(colorFront1);
   triangle(post1x, post1y, post2x, post2y, post3x ,post3y);
   fill(colorFront2);
   line(posl1x, posl1y, posl2x, posl2y);
   line(posl3x, posl3y, posl4x, posl4y);
+  line(posl5x, posl5y, posl6x, posl6y);
+ 
 }
+
+
+
+
 
 function draw () {
   // clear screen
@@ -126,6 +196,7 @@ function draw () {
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
+
 }
 
 function keyTyped() {
@@ -135,4 +206,9 @@ function keyTyped() {
   else if (key == '@') {
     saveBlocksImages(true);
   }
+
 }
+
+
+
+

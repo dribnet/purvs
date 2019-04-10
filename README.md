@@ -2,7 +2,7 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-a trial for upload
+I want to make one kind of letter that suitable for girls. My design have bright color and shape edge. I want girls' letter can cool and pretty at the sometime.
 
 The three parameters per letter:
   * `size` : radius of the second circle
