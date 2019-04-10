@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+      "sha": "0c00b4db6284c5bee122e117eb205d3820d240d7",
+      "name": "Final"
+    },
+    {
       "sha": "cdeb45e7e107471c9985ad5e9e49479f1fdbc138",
       "name": "Adjustments and Tweaks to code, added documentations"
     },
