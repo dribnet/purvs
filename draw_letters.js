@@ -9,10 +9,9 @@ function drawLetter(letterData) {
   // color/stroke setup
   strokeWeight(4);
 
-  const lines  = "#24ad96";
-  const dots = "#006aff";
+  const lines  = "#ffffff";
   const colorBack   = "#000000";
-  const glow = "#c4fff5";
+  const glow = "#6bb2a9";
 
 
 
@@ -55,7 +54,7 @@ p6y = letterData["p6y"];
 
 fill(glow); 
 stroke(glow); 
-strokeWeight(22); 
+strokeWeight(20); 
 
 //point one
 line(25, 20, p1x, p1y);
@@ -72,7 +71,7 @@ line(75, 180, p6x, p6y);
 
 fill(lines); 
 stroke(lines); 
-strokeWeight(12); 
+strokeWeight(10); 
 
 
 //point one
@@ -90,101 +89,107 @@ line(75, 180, p6x, p6y);
 
 
 //*****DRAW DOTS******
-strokeWeight(4);
-fill(dots); 
-stroke(dots); 
+strokeWeight(5);
+fill('#e07e11'); 
+stroke('#e07e11'); 
 
 
 //POINT ONE
 //ellipse(25, 20, dotSize);//top left p1  
+push();
+translate(-1, -3); //needed to move stars and didnt want to move every point individally
 beginShape();
 vertex(25,12);
-vertex(27,20);
-vertex(32,20);
-vertex(28,22);
+vertex(28,18);
+vertex(34,20);
+vertex(29,24);
 vertex(30,30);
-vertex(25,25);
+vertex(25,27);
 vertex(20,30);
-vertex(22,22);
-vertex(18,20);
-vertex(23,20);
+vertex(21,24);
+vertex(16,20);
+vertex(22,18);
 endShape(CLOSE);
+
 
 //POINT TWO
 //ellipse(95, 20, dotSize);//top right p2 
 beginShape();
 vertex(95,12);
-vertex(97,20);
-vertex(102,20);
-vertex(98,22);
+vertex(98,18);
+vertex(104,20);
+vertex(99,24);
 vertex(100,30);
-vertex(95,25);
+vertex(95,27);
 vertex(90,30);
-vertex(92,22);
-vertex(88,20);
-vertex(93,20);
+vertex(91,24);
+vertex(86,20);
+vertex(92,18);
 endShape(CLOSE);
+
 
 //POINT THREE
 //ellipse(15, 100, dotSize); //mid left p3 
 beginShape();
-vertex(15, 92);
-vertex(17,100);
-vertex(22, 100);
-vertex(18, 102);
-vertex(20, 110);
-vertex(15, 105);
-vertex(10, 110);
-vertex(12, 102);
-vertex(8, 100);
-vertex(13, 100);
+vertex(15,92);
+vertex(18,98);
+vertex(24,100);
+vertex(19,104);
+vertex(20,110);
+vertex(15,107);
+vertex(10,110);
+vertex(11,104);
+vertex(6,100);
+vertex(12,98);
 endShape(CLOSE);
+
 
 //POINT FOUR
 //ellipse(85, 100, dotSize); //mid right p4 
 beginShape();
-vertex(85, 92);
-vertex(87, 100);
-vertex(92, 100);
-vertex(88, 102);
-vertex(90, 110);
-vertex(85, 105);
-vertex(80, 110);
-vertex(82, 102);
-vertex(78, 100);
-vertex(83, 100);
+vertex(85,92);
+vertex(88,98);
+vertex(94,100);
+vertex(89,104);
+vertex(90,110);
+vertex(85,107);
+vertex(80,110);
+vertex(81,104);
+vertex(76,100);
+vertex(82,98);
 endShape(CLOSE);
 
 //POINT FIVE
 //ellipse(5, 180, dotSize); //bottom left p5 
 beginShape();
-vertex(6, 172);
-vertex(8, 180);
-vertex(13, 180);
-vertex(9, 182);
-vertex(11, 190);
-vertex(6, 185);
-vertex(1, 190);
-vertex(3, 182);
-vertex(0, 180);
-vertex(4, 180);
+vertex(5,172);
+vertex(8,178);
+vertex(14,180);
+vertex(9,184);
+vertex(10,190);
+vertex(5,187);
+vertex(0,190);
+vertex(1,184);
+vertex(-4,180);
+vertex(2,178);
 endShape(CLOSE);
+
 
 //POINT SIX
 //ellipse(75, 180, dotSize); //bottom right p6 
 beginShape();
-vertex(75, 172);
-vertex(77, 180);
-vertex(82, 180);
-vertex(78, 182);
-vertex(80, 190);
-vertex(75, 185);
-vertex(70, 190);
-vertex(72, 182);
-vertex(68, 180);
-vertex(73, 180);
+vertex(75,172);
+vertex(78,178);
+vertex(84,180);
+vertex(79,184);
+vertex(80,190);
+vertex(75,187);
+vertex(70,190);
+vertex(71,184);
+vertex(66,180);
+vertex(72,178);
 endShape(CLOSE);
-
+pop();
 
 }
 function interpolate_letter(percent, oldObj, newObj) {

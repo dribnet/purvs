@@ -1,5 +1,7 @@
 ## PS2 MDDN 242 2019
 
+My concept for my font has changed a little from my original idea. After playing around with the parameters and different shape objects for the connecting dots I found that I really liked how the starts looked and instead of making a neon kind of font I thought it would be cool to incorporate the idea of constellations into my font as the lines connecting the star points remind me of constellations. I have changed some of my letters to make them more angular and interesting but still have some polishing to do for the appearance and interaction. 
+
 UPDATE: Added numbers and null character, created constants for each of the points x and y values to make parameters easier to do, changed dots to stars.
 
 I changed my parameters from boolean to parameters that allow for the interpolation to work more effectively. The style still needs some work because it is very basic and I need to work out how to remove the unused dots. I currently have 12 parameters per letter which denote the x and y coordinates that each point will go to.
