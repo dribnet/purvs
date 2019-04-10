@@ -2,10 +2,14 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Each of my letters is composed of a constant rectangle and two lines that I move around to form each letter.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+  * `lineA_x1` : Position of the X1 parameter of line "A"
+  * `lineA_y1` : Position of the Y1 parameter of line "A"
+  * `lineA_x2` : Position of the X2 parameter of line "A"
+  * `lineA_y2` : Position of the Y2 parameter of line "A"
+  * `lineB_x1` : Position of the X1 parameter of line "B"
+  * `lineB_y1` : Position of the Y1 parameter of line "B"
+  * `lineB_x2` : Position of the X2 parameter of line "B"
+  * `lineB_y2` : Position of the Y2 parameter of line "B"

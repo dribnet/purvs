@@ -1,6 +1,6 @@
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorStroke  = "#d1d1d1";
 
 /*
  * Draw the letter given the letterData
@@ -12,25 +12,53 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(8);
+  rectMode(CENTER);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
+  let posy = letterData["rect_posy"];
+  let posx = letterData["rect_posx"];
+  let rect_xs = letterData["rect_xscale"];
+  let rect_ys = letterData["rect_yscale"];
+  let lAx1 = posx + letterData["lineA_x1"];
+  let lAy1 = posy + letterData["lineA_y1"];
+  let lAx2 = posx + letterData["lineA_x2"];
+  let lAy2 = posy + letterData["lineA_y2"];
+  let lBx1 = posx + letterData["lineB_x1"];
+  let lBy1 = posy + letterData["lineB_y1"];
+  let lBx2 = posx + letterData["lineB_x2"];
+  let lBy2 = posy + letterData["lineB_y2"];
+  let lCx1 = posx + letterData["lineC_x1"];
+  let lCy1 = posy + letterData["lineC_y1"];
+  let lCx2 = posx + letterData["lineC_x2"];
+  let lCy2 = posy + letterData["lineC_y2"];
   // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  noFill();
+  rect(posx, posy, rect_xs, rect_ys);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  line(lAx1, lAy1, lAx2, lAy2);
+  line(lBx1, lBy1, lBx2, lBy2);
+  line(lCx1, lCy1, lCx2, lCy2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["rect_posy"] = map(percent, 0, 100, oldObj["rect_posx"], newObj["rect_posx"]);
+  new_letter["rect_posx"] = map(percent, 0, 100, oldObj["rect_posx"], newObj["rect_posx"]);
+  new_letter["rect_xscale"] = map(percent, 0, 100, oldObj["rect_xscale"], newObj["rect_xscale"]);
+  new_letter["rect_yscale"] = map(percent, 0, 100, oldObj["rect_yscale"], newObj["rect_yscale"]);
+  new_letter["lineA_x1"] = map(percent, 0, 100, oldObj["lineA_x1"], newObj["lineA_x1"]);
+  new_letter["lineA_y1"] = map(percent, 0, 100, oldObj["lineA_y1"], newObj["lineA_y1"]);
+  new_letter["lineA_x2"] = map(percent, 0, 100, oldObj["lineA_x2"], newObj["lineA_x2"]);
+  new_letter["lineA_y2"] = map(percent, 0, 100, oldObj["lineA_y2"], newObj["lineA_y2"]);
+  new_letter["lineB_x1"] = map(percent, 0, 100, oldObj["lineB_x1"], newObj["lineB_x1"]);
+  new_letter["lineB_y1"] = map(percent, 0, 100, oldObj["lineB_y1"], newObj["lineB_y1"]);
+  new_letter["lineB_x2"] = map(percent, 0, 100, oldObj["lineB_x2"], newObj["lineB_x2"]);
+  new_letter["lineB_y2"] = map(percent, 0, 100, oldObj["lineB_y2"], newObj["lineB_y2"]);
+  new_letter["lineA_x1"] = map(percent, 0, 100, oldObj["lineA_x1"], newObj["lineA_x1"]);
+  new_letter["lineA_y1"] = map(percent, 0, 100, oldObj["lineA_y1"], newObj["lineA_y1"]);
+  new_letter["lineA_x2"] = map(percent, 0, 100, oldObj["lineA_x2"], newObj["lineA_x2"]);
+  new_letter["lineA_y2"] = map(percent, 0, 100, oldObj["lineA_y2"], newObj["lineA_y2"]);
   return new_letter;
 }
 
