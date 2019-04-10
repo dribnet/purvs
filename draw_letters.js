@@ -19,7 +19,7 @@ const colorStroke  = "#DEC300";
   // determine parameters
 
   //parameters of the grey areasa
-  let pos1x = letterData["pos1x"]; 
+  let pos1x = letterData["pos1x"];
   let pos2x = letterData["pos2x"];
   let pos3x = letterData["pos3x"];
   let pos4x = letterData["pos4x"];
@@ -65,7 +65,7 @@ const colorStroke  = "#DEC300";
 
 
   //let alphaamount =map(sin(second()),-1,1,0,100);
-  //fill(255, alphaamount); 
+  //fill(255, alphaamount);
   beginShape();
   vertex(cryspos1x, cryspos1y);
   vertex(cryspos2x, cryspos2y);
