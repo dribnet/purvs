@@ -36,14 +36,14 @@ function drawLetter(letterData) {
   push();
   translate(50,100)
   
-  if (millis() %  == 0){
+  if (second() % 2 == 0){
     p = 2;
   }
   else {
     p= - 2;
   }
 
-  if (millis() % 500 == 0){
+  if (second() % 2 == 0){
     q = - 3;
   }
   else {
