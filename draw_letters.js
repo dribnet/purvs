@@ -34,7 +34,7 @@ function drawLetter(letterData) {
   //ellipse(50, 150, 75, 75);
   //fill(colorFront2);
   //ellipse(pos2x, pos2y, size2, size2);
-  
+
   // fill(100);
   // rect(0, 0, 100, 200);
 
@@ -42,7 +42,7 @@ push()
 
   // draw 4 quads
   rectMode(CENTER);
-  noStroke();  
+  noStroke();
 
 push()
   fill(255, 0, 0, 80);
@@ -57,14 +57,14 @@ push()
 pop();
 
   noFill();
-  strokeWeight(3);
+  strokeWeight(4);
   stroke(0);
-  
+
   push()
     translate(posX3,posY3);
     quad(size3,0,size3*2,size3*2,size3,size3*4,0,size3*2);
   pop();
-  
+
   push()
   translate(posX4,posY4);
   quad(size4,0,size4*2,size4*2,size4,size4*4,0,size4*2);
