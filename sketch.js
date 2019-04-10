@@ -19,29 +19,62 @@ const canvasHeight = 500;
   * 1.5 == draw as half line
   * 2 == draw as arc
   */
-const letterA = {
-  lines: [2, 1.5, 1, 0, 1, 1.5, 1],
-  box1: true,
-  box2:false
 
+const one_unit = 30;
+const letterA = {
+  p1offsetX:0,
+  p1offsetY:0,
+  p2offsetX:0,
+  p2offsetY:one_unit,
+  p3offsetX:one_unit,
+  p3offsetY:one_unit,
+  p4offsetX:one_unit*2,
+  p4offsetY:one_unit,
+  p5offsetX:0,
+  p5offsetY:one_unit*2,
+  p6offsetX:one_unit,
+  p6offsetY:-one_unit,
+  p7offsetX:one_unit*2,
+  p7offsetY:0,
+  p8offsetX:one_unit*2,
+  p8offsetY:one_unit*2,
 }
 
 const letterB = {
-  lines: [0, 0, 2, 1.5, 1, 1, 1.5],
-  box1: false,
-  box2: true
+
+  p1offsetX:0,
+  p1offsetY:-one_unit,
+  p2offsetX:0,
+  p2offsetY:0,
+  p3offsetX:0,
+  p3offsetY:one_unit,
+  p4offsetX:0,
+  p4offsetY:one_unit*2,
+  p5offsetX:one_unit,
+  p5offsetY:one_unit,
+  p6offsetX:one_unit,
+  p6offsetY:one_unit*2
 
 }
 
 const letterC = {
-  lines: [2, 0, 0, 2, 1.5, 1.5, 0],
-  box1: false,
-  box2:false
 
-}
-
-const letterE = {
-  lines: [1, 1, 1, 1, 1, 1, 0]
+  p1offsetX:0,
+  p1offsetY:-one_unit,
+  p2offsetX:0,
+  p2offsetY:0,
+  p3offsetX:0,
+  p3offsetY:one_unit,
+  p4offsetX:0,
+  p4offsetY:one_unit*2,
+  p5offsetX:one_unit,
+  p5offsetY:one_unit*2,
+  p6offsetX:one_unit*2,
+  p6offsetY:one_unit*2,
+  p7offsetX:one_unit,
+  p7offsetY:-one_unit,
+  p8offsetX:one_unit*2,
+  p8offsetY:-one_unit,
 
 }
 const colorFront1 = "#199cff";
@@ -64,120 +97,32 @@ function setup() {
 
 function drawLetter(posx, posy, letterData) {
   angleMode(DEGREES); 
+  stroke("black");
+  strokeWeight(1);
+  fill(233,100,34)
   let w = 100;
   let h = 200;
   let startX = posx;
   let startY = posy;
-  let lineWidth = w;
-  let lineHeight = h / 2;
-  let currentLine = "top";
+  positionRect(posx,posy,letterData.p1offsetX,letterData.p1offsetY)
+  positionRect(posx,posy,letterData.p2offsetX,letterData.p2offsetY)
+  positionRect(posx,posy,letterData.p3offsetX,letterData.p3offsetY)
+  positionRect(posx,posy,letterData.p4offsetX,letterData.p4offsetY)
+  positionRect(posx,posy,letterData.p5offsetX,letterData.p5offsetY)
+  positionRect(posx,posy,letterData.p6offsetX,letterData.p6offsetY)
+  positionRect(posx,posy,letterData.p7offsetX,letterData.p7offsetY)
+  positionRect(posx,posy,letterData.p8offsetX,letterData.p8offsetY)
 
-  //handle filling rectboxes
-  if(letterData.box1) {
-    fill(color("#4bcce0"));
-    noStroke();
-    // rect(startX,startY,lineWidth,lineHeight);
-  }
-  if(letterData.box2) {
-    fill(color("#b6dd98"));
-    noStroke();
-    // rect(startX,startY+lineHeight,lineWidth,lineHeight);
-  }
-  stroke(5);
-  for (let i = 0; i < letterData.lines.length; i++) {
-    let thisLine = letterData.lines[i];
-    //then figure out what line this is.
-    switch (i) {
-      case 0:
-        // drawing top line
-        if (thisLine === 1) {  
-          line(startX, startY, startX+lineWidth, startY);
-        }
-        else if(thisLine === 2){
-          //draw as arc
-          arc(startX+lineWidth/2, startY+lineHeight/2,lineWidth,lineHeight,180,0);
+}
 
-        }
-        startX += lineWidth;
-        break;
-      case 1:
-        // top right line
-        if (thisLine === 1) {
-          // draw full line
-          line(startX, startY, startX, startY + lineHeight);
-        } else if (thisLine === 1.5) {
-          let adjustedY = startY + lineHeight/2;
-          line(startX, adjustedY, startX, adjustedY + lineHeight/2)
-        }
-        startY += lineHeight;
-        break;
-      case 2:
-        // bot right line
-        if (thisLine === 1) {
-          line(startX, startY, startX, startY + lineHeight);
-        } else if( thisLine === 2) {
-          //draw as arc
-          arc(startX-lineWidth/2, startY+ lineHeight/2,lineWidth,lineHeight,270,90);
-        }
-        startY += lineHeight;
-        break;
-      case 3:
-        //Bottom line.
-        if (thisLine === 1) {
-          line(startX, startY, startX - lineWidth, startY);
-        } else if (thisLine === 1.5) {
-          let adjustedX = startX-lineHeight/2;
-          line(adjustedX, startY, startX - lineWidth, startY)
-        } else if (thisLine === 2) {
-          arc(startX-lineWidth/2, startY - lineHeight/2,lineWidth,lineHeight,0,180);
-        }
-        startX -= lineWidth;
-        break;
-      case 4:
-        // bot left line
-        if (thisLine === 1) {
-          line(startX, startY, startX, startY - lineHeight)
-        } else if (thisLine === 1.5) {
-          let adjustedY = startY-lineHeight/2;
-          line(startX, adjustedY, startX, startY-lineHeight)
-        }
-        startY -= lineHeight;
-        break;
-      case 5:
-        // top left line
-        if (thisLine === 1){ 
-          line(startX, startY, startX, startY - lineHeight)
-        }
-        else if (thisLine === 1.5) {
-          let adjustedY = startY - lineHeight/2;
-          line(startX, startY, startX, adjustedY)
-        }
-        // startY -= lineHeight;
-        break;
-      case 6:
-        // mid line
-        if (thisLine === 1) {
-          line(startX, startY, startX + lineWidth, startY);
-        } else if (thisLine === 1.5) {
-          let adjustedX = startX + lineWidth/2;
-          line(startX, startY, adjustedX, startY)
-        }
-        break;
-      case 7:
-        // top mid dot
-        if (thisLine === 1) ellipse(startX+lineWidth/2, startY-lineHeight/2, 10,10);
-        // startY -= lineHeight;
-        break;
-      case 8:
-        // bot mid dot
-        if (thisLine === 1) line(startX, startY, startX + lineWidth, startY);
-        break;
-      default:
-      // code block
-    }
-  }
-
-
+function positionRect(startingX,startingY,offsetX,offsetY) {
+  push();
+  translate(offsetX,offsetY)
+  rect(startingX,startingY,30,30);
+  strokeWeight(0.2);
+  fill(200,70,20)
+  ellipse(startingX+15,startingY+15,10,10);
+  pop();
 }
 
 

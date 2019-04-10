@@ -11,130 +11,58 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   angleMode(DEGREES); 
+  stroke("black");
+  strokeWeight(1);
+  fill(233,100,34)
   let w = 100;
   let h = 200;
-  let startX = 0;
-  let startY = 0;
-  let lineWidth = w;
-  let lineHeight = h / 2;
-  let currentLine = "top";
-  strokeWeight(5);
-  //handle filling rectboxes
-  if(letterData.box1) {
-    fill(color("#4bcce0"));
-    noStroke();
-    // rect(startX,startY,lineWidth,lineHeight);
-  }
-  if(letterData.box2) {
-    fill(color("#b6dd98"));
-    noStroke();
-    // rect(startX,startY+lineHeight,lineWidth,lineHeight);
-  }
-  stroke(5);
-  for (let i = 0; i < letterData.lines.length; i++) {
-    let thisLine = letterData.lines[i];
-    //then figure out what line this is.
-    switch (i) {
-      case 0:
-        // drawing top line
-        if (thisLine > 0.1 && thisLine <= 1) {  
-          line(startX, startY, startX+lineWidth, startY);
-        }
-        else if(thisLine > 1 && thisLine <= 2){
-          //draw as arc
-          arc(startX+lineWidth/2, startY+lineHeight/2,lineWidth,lineHeight,180,0);
+  //just to position it nicely inside template 
+  let posx = 5;
+  let posy = 100;
+  positionRect(posx,posy,letterData.p1offsetX,letterData.p1offsetY)
+  positionRect(posx,posy,letterData.p2offsetX,letterData.p2offsetY)
+  positionRect(posx,posy,letterData.p3offsetX,letterData.p3offsetY)
+  positionRect(posx,posy,letterData.p4offsetX,letterData.p4offsetY)
+  positionRect(posx,posy,letterData.p5offsetX,letterData.p5offsetY)
+  positionRect(posx,posy,letterData.p6offsetX,letterData.p6offsetY)
+  positionRect(posx,posy,letterData.p7offsetX,letterData.p7offsetY)
+  positionRect(posx,posy,letterData.p8offsetX,letterData.p8offsetY)
+}
 
-        }
-        startX += lineWidth;
-        break;
-      case 1:
-        // top right line
-        if (thisLine === 1) {
-          // draw full line
-          line(startX, startY, startX, startY + lineHeight);
-        } else if (thisLine === 1.5) {
-          let adjustedY = startY + lineHeight/2;
-          line(startX, adjustedY, startX, adjustedY + lineHeight/2)
-        }
-        startY += lineHeight;
-        break;
-      case 2:
-        // bot right line
-        if (thisLine === 1) {
-          line(startX, startY, startX, startY + lineHeight);
-        } else if( thisLine === 2) {
-          //draw as arc
-          arc(startX-lineWidth/2, startY+ lineHeight/2,lineWidth,lineHeight,270,90);
-        } else if(thisLine === 1.5) {
-          let adjustedY = startX + lineHeight/2;
-          line(startX, startY, startX,adjustedY);
-        }
-        startY += lineHeight;
-        break;
-      case 3:
-        //Bottom line.
-        if (thisLine === 1) {
-          line(startX, startY, startX - lineWidth, startY);
-        } else if (thisLine === 1.5) {
-          let adjustedX = startX-lineHeight/2;
-          line(adjustedX, startY, startX - lineWidth, startY)
-        } else if (thisLine === 2) {
-          arc(startX-lineWidth/2, startY - lineHeight/2,lineWidth,lineHeight,0,180);
-        }
-        startX -= lineWidth;
-        break;
-      case 4:
-        // bot left line
-        if (thisLine === 1) {
-          line(startX, startY, startX, startY - lineHeight)
-        } else if (thisLine === 1.5) {
-          let adjustedY = startY-lineHeight/2;
-          line(startX, adjustedY, startX, startY-lineHeight)
-        }
-        startY -= lineHeight;
-        break;
-      case 5:
-        // top left line
-        if (thisLine === 1){ 
-          line(startX, startY, startX, startY - lineHeight)
-        }
-        else if (thisLine === 1.5) {
-          let adjustedY = startY - lineHeight/2;
-          line(startX, startY, startX, adjustedY)
-        }
-        // startY -= lineHeight;
-        break;
-      case 6:
-        // mid line
-        if (thisLine === 1) {
-          line(startX, startY, startX + lineWidth, startY);
-        } else if (thisLine === 1.5) {
-          let adjustedX = startX + lineWidth/2;
-          line(startX, startY, adjustedX, startY)
-        }
-        break;
-      default:
-      // code block
-    }
-  }
+/**
+ * Function draws a rectangle at a given offset position
+ */
+function positionRect(startingX,startingY,offsetX,offsetY) {
+  push();
+  translate(offsetX,offsetY)
+  rect(startingX,startingY,30,30);
+  strokeWeight(0.2);
+  fill(200,70,20)
+  ellipse(startingX+15,startingY+15,10,10);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["lines"] = []
   // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["lines"][0] = map(percent, 0, 100, oldObj["lines"][0], newObj["lines"][0]);
-  new_letter["lines"][1] = map(percent, 0, 100, oldObj["lines"][1], newObj["lines"][1]);
-  new_letter["lines"][2] = map(percent, 0, 100, oldObj["lines"][2], newObj["lines"][2]);
-  new_letter["lines"][3] = map(percent, 0, 100, oldObj["lines"][3], newObj["lines"][3]);
-  new_letter["lines"][4] = map(percent, 0, 100, oldObj["lines"][4], newObj["lines"][4]);
-  new_letter["lines"][5] = map(percent, 0, 100, oldObj["lines"][5], newObj["lines"][5]);
-  new_letter["lines"][6] = map(percent, 0, 100, oldObj["lines"][6], newObj["lines"][6]);
-  // new_letter["lines"][5] = map(percent, 0, 100, oldObj["lines"][5], newObj["lines"][5]);
-  new_letter["box1"] = map(percent, 0, 100, oldObj["box1"], newObj["box1"]);
-  new_letter["box2"] = map(percent, 0, 100, oldObj["box2"], newObj["box2"]);
+  new_letter["p1offsetX"] = map(percent, 0, 100, oldObj["p1offsetX"], newObj["p1offsetX"]);
+  new_letter["p1offsetY"] = map(percent, 0, 100, oldObj["p1offsetY"], newObj["p1offsetY"]);
+  new_letter["p2offsetX"] = map(percent, 0, 100, oldObj["p2offsetX"], newObj["p2offsetX"]);
+  new_letter["p2offsetY"] = map(percent, 0, 100, oldObj["p2offsetY"], newObj["p2offsetY"]);
+  new_letter["p3offsetX"] = map(percent, 0, 100, oldObj["p3offsetX"], newObj["p3offsetX"]);
+  new_letter["p3offsetY"] = map(percent, 0, 100, oldObj["p3offsetY"], newObj["p3offsetY"]);
+  new_letter["p4offsetX"] = map(percent, 0, 100, oldObj["p4offsetX"], newObj["p4offsetX"]);
+  new_letter["p4offsetY"] = map(percent, 0, 100, oldObj["p4offsetY"], newObj["p4offsetY"]);
+  new_letter["p5offsetX"] = map(percent, 0, 100, oldObj["p5offsetX"], newObj["p5offsetX"]);
+  new_letter["p5offsetY"] = map(percent, 0, 100, oldObj["p5offsetY"], newObj["p5offsetY"]);
+  new_letter["p6offsetX"] = map(percent, 0, 100, oldObj["p6offsetX"], newObj["p6offsetX"]);
+  new_letter["p6offsetY"] = map(percent, 0, 100, oldObj["p6offsetY"], newObj["p6offsetY"]);
+  new_letter["p7offsetX"] = map(percent, 0, 100, oldObj["p7offsetX"], newObj["p7offsetX"]);
+  new_letter["p7offsetY"] = map(percent, 0, 100, oldObj["p7offsetY"], newObj["p7offsetY"]);
+  new_letter["p8offsetX"] = map(percent, 0, 100, oldObj["p8offsetX"], newObj["p8offsetX"]);
+  new_letter["p8offsetY"] = map(percent, 0, 100, oldObj["p8offsetY"], newObj["p8offsetY"]);
   return new_letter;
 }
 

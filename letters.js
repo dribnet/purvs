@@ -1,57 +1,78 @@
+
+const one_unit = 30; // one square.
 const alphabet = {
   "default": {
-    lines: [2, 1.5, 1, 0, 1, 1.5, 1],
-    box1: true,
-    box2:false
+    p1offsetX: 0,
+    p1offsetY: 0,
+    p2offsetX: 0,
+    p2offsetY: one_unit,
+    p3offsetX: one_unit,
+    p3offsetY: one_unit,
+    p4offsetX: one_unit * 2,
+    p4offsetY: one_unit,
+    p5offsetX: 0,
+    p5offsetY: one_unit * 2,
+    p6offsetX: one_unit,
+    p6offsetY: -one_unit,
+    p7offsetX: one_unit * 2,
+    p7offsetY: 0,
+    p8offsetX: one_unit * 2,
+    p8offsetY: one_unit * 2,
   },
   "A": {
-    lines: [2, 1.5, 1, 0, 1, 1.5, 1],
-    box1: true,
-    box2:false
+    p1offsetX: 0,
+    p1offsetY: 0,
+    p2offsetX: 0,
+    p2offsetY: one_unit,
+    p3offsetX: one_unit,
+    p3offsetY: one_unit,
+    p4offsetX: one_unit * 2,
+    p4offsetY: one_unit,
+    p5offsetX: 0,
+    p5offsetY: one_unit * 2,
+    p6offsetX: one_unit,
+    p6offsetY: -one_unit,
+    p7offsetX: one_unit * 2,
+    p7offsetY: 0,
+    p8offsetX: one_unit * 2,
+    p8offsetY: one_unit * 2,
   },
   "B": {
-    lines: [0, 0, 2, 1.5, 1, 1, 1.5],
-    box1: false,
-    box2: true
+
+
+    p1offsetX: 0,
+    p1offsetY: -one_unit,
+    p2offsetX: 0,
+    p2offsetY: 0,
+    p3offsetX: 0,
+    p3offsetY: one_unit,
+    p4offsetX: 0,
+    p4offsetY: one_unit * 2,
+    p5offsetX: one_unit,
+    p5offsetY: one_unit,
+    p6offsetX: one_unit,
+    p6offsetY: one_unit * 2,
+    p7offsetX:0,
+    p7offsetY: 0,
+    p8offsetX: 0,
+    p8offsetY: 0,
   },
   "C": {
-    lines: [2, 0, 0, 2, 1.5, 1.5, 0],
-    box1: false,
-    box2:false
+    p1offsetX:0,
+    p1offsetY:-one_unit,
+    p2offsetX:0,
+    p2offsetY:0,
+    p3offsetX:0,
+    p3offsetY:one_unit,
+    p4offsetX:0,
+    p4offsetY:one_unit*2,
+    p5offsetX:one_unit,
+    p5offsetY:one_unit*2,
+    p6offsetX:one_unit*2,
+    p6offsetY:one_unit*2,
+    p7offsetX:one_unit,
+    p7offsetY:-one_unit,
+    p8offsetX:one_unit*2,
+    p8offsetY:-one_unit,
   },
-  "D": {
-    lines: [1, 1, 1, 1, 1, 1, 0],
-    box1: true,
-    box2: true
-  },
-  "E": {
-    lines: [1, 0, 0, 1, 1, 1, 1],
-    box1: false,
-    box2: false
-  },
-  "F": {
-    lines: [1, 0, 0, 0, 1, 1, 1],
-    box1: false,
-    box2: false
-  },
-  "G": {
-    lines: [2, 0, 1.5, 2, 1.5, 1.5, 1],
-    box1: false,
-    box2: true
-  },
-  "H": {
-    lines: [0, 1, 1, 0, 1, 1, 1],
-    box1: false,
-    box2: false
-    },
-  "I": {
-    lines: [1, 0, 0, 1, 0, 0, 0],
-    box1: true,
-    box2: true
-  },
-  "J": {
-    lines: [1, 1, 1.5, 2, 0, 0, 0],
-    box1: false,
-    box2: false
-  }
 }

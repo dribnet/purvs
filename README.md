@@ -1,11 +1,11 @@
 ## PS2 MDDN 242 2019
 
-Updated Idea again.. 
+Final Concept 
+I decided on using a system that has a bunch of x & y postions for each rectangle shown.This makes it easier to customize my letters and make sure they all look unique. The downside however is that it requires alot of parameters (16).
 
-Using fixed lines to represent the letters and arcs. After trying this idea out i found out that the interaction section of this assignment wouldnt work with how i coded these letters. So i am back to drawing board.
-
-The three parameters per letter:
-  * `lines` : array that represents what lines/arcs are shown. [top,topright,botright...]
-  * `box#` : just determines the colour effect.
+The 16 parameters per letter:
+  * `p1offsetX` : x offset of first rectangle.
+  * `p1offsetY` : y offset of first rectangle.
+  ... p8offsetY..
 
 
