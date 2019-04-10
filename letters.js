@@ -7,6 +7,7 @@ const alphabet = {
   "posx4":68.5,
   "posx5":88,
   "posx6":49,
+  "posx7":10,
   
 
   "triposx1":29.5,
@@ -19,6 +20,7 @@ const alphabet = {
   "posy4":49,
   "posy5":73.5,
   "posy6":147,
+  "posy":73.5,
 
   "triposy1":49,
   "triposy2":73.5,
@@ -32,7 +34,7 @@ const alphabet = {
   "posx4":105,
   "posx5":82.5,
   "posx6":49,
-  "posx7":49,
+  "posx7":15.5,
 
   "triposx1":15.5,
   "triposx2":82.5,
@@ -44,6 +46,7 @@ const alphabet = {
   "posy4":128.5,
   "posy5":147,
   "posy6":113,
+  "posy7":147,
 
   "triposy1":147,
   "triposy2":147,
@@ -108,6 +111,9 @@ const alphabet = {
   "posx5":88,
   "posx6":88,
   "posx7":56,
+   "triposx1":10,
+  "triposx2":10,
+  "triposx3":56,
 
 
   
@@ -119,6 +125,9 @@ const alphabet = {
   "posy6":122.5,
   "posy7":147,
 
+"triposy1":147,
+  "triposy2":49,
+  "triposy3":98,
   
         
   },
@@ -250,6 +259,8 @@ const alphabet = {
   "posx3": 50,
   "posx4": 65,
   "posx5": 65,
+  "posx6": 35,
+  "posx7": 35,
   
   "triposx1": 35,
   "triposx2": 50,
@@ -260,7 +271,8 @@ const alphabet = {
   "posy3": 74,
   "posy4": 49,
   "posy5": 147,
-  
+  "posy6": 147,
+  "posy7": 147,
   "triposy1": 49,
   "triposy2": 74,
   "triposy3": 49,
@@ -341,22 +353,25 @@ const alphabet = {
   },
   "L": {
     
- "posx1": 15,
+  "posx1": 15,
   "posx2": 15,
   "posx3": 35,
   "posx4": 35,
   "posx5": 83,
   "posx6": 83,
+  "posx7": 15,
   
   "triposx1": 35,
   "triposx2": 35,
   "triposx3": 83,
+
   "posy1": 147,
   "posy2": 49,
   "posy3": 49,
   "posy4": 127,
   "posy5": 127,
   "posy6": 147,
+  "posy7": 147,
   
   "triposy1": 49,
   "triposy2": 127,
@@ -407,6 +422,8 @@ const alphabet = {
   "posx3": 83,
   "posx4": 88,
   "posx5": 49,
+  "posx6": 10,
+  "posx7": 10,
     
   
   "triposx1": 10,
@@ -418,6 +435,8 @@ const alphabet = {
   "posy3": 49,
   "posy4": 147,
   "posy5": 98,
+  "posy6": 147,
+  "posy7": 147,
   
   
   "triposy1": 147,
@@ -439,6 +458,9 @@ const alphabet = {
   "posx5": 88,
   "posx6":88,
   "posx7":68.5,
+  "triposx1": 29.5,
+  "triposx2": 88,
+  "triposx3": 10,
     
   
  
@@ -452,7 +474,10 @@ const alphabet = {
   "posy7":147,
   
   
-  
+  "triposy1": 147,
+  "triposy2": 73.5,
+  "triposy3": 122.5,
+
 
 
 
@@ -576,6 +601,11 @@ const alphabet = {
   "posx4": 88,
   "posx5": 68.5,
   "posx6": 63.5,
+  "posx7": 10,
+
+   "triposx1": 10,
+  "triposx2": 29.5,
+  "triposx3": 34.5,
   
     
   
@@ -587,8 +617,11 @@ const alphabet = {
   "posy4": 49,
   "posy5": 73.5,
   "posy6": 142,
+  "posy7": 147,
   
-  
+    "triposy1": 147,
+  "triposy2": 122.5,
+  "triposy3": 54,
   
   
 
@@ -672,6 +705,7 @@ const alphabet = {
   "posx4": 88,
   "posx5": 88,
   "posx6": 49,
+  "posx7": 10,
   
   
   "triposx1": 10,
@@ -684,6 +718,7 @@ const alphabet = {
   "posy4": 49,
   "posy5": 98,
   "posy6": 147,
+   "posy7": 98,
   
   
   
@@ -802,6 +837,11 @@ const alphabet = {
   "posx4": 10,
   "posx5": 68.5,
   "posx6": 63.5,
+  "posx7": 88,
+
+  "triposx1": 10,
+  "triposx2": 68.5,
+  "triposx3": 63.5,
   
     
   
@@ -813,6 +853,12 @@ const alphabet = {
   "posy4": 49,
   "posy5": 54,
   "posy6": 122.5,
+   "posy7": 147,
+
+
+  "triposy1": 49,
+  "triposy2": 54,
+  "triposy3": 147,
 
 
 
@@ -833,6 +879,7 @@ const alphabet = {
   "posx4": 68.5,
   "posx5": 88,
   "posx6":68.5,
+  "posx7":29.5,
   
     
   
@@ -844,6 +891,7 @@ const alphabet = {
   "posy4": 49,
   "posy5": 98,
   "posy6":147,
+  "posy7":147,
   
 
 
@@ -864,6 +912,8 @@ const alphabet = {
   "posx3": 50,
   "posx4": 65,
   "posx5": 65,
+  "posx6": 35,
+  "posx7": 35,
   
   "triposx1": 65,
   "triposx2": 65,
@@ -874,6 +924,8 @@ const alphabet = {
   "posy3": 73.5,
   "posy4": 73.5,
   "posy5": 147,
+  "posy6": 147,
+  "posy7": 73.5,
   
   "triposy1": 49,
   "triposy2": 73.5,
@@ -933,8 +985,8 @@ const alphabet = {
   "posy3": 98,
   "posy4": 73.5,
   "posy5": 49,
-  "posy6": 61.25,
-  "posy7": 135,
+  "posy6": 49,
+  "posy7": 147,
 
   "triposy1": 147,
   "triposy2": 49,
@@ -948,6 +1000,7 @@ const alphabet = {
   "posx4": 49,
   "posx5": 68.5,
   "posx6": 68.5,
+  "posx7": 49,
 
 
     "triposx1": 10,
@@ -964,6 +1017,7 @@ const alphabet = {
   "posy4": 49,
   "posy5": 49,
   "posy6": 147,
+  "posy7": 147,
 
    "triposy1": 122.5,
   "triposy2": 49,
@@ -975,22 +1029,22 @@ const alphabet = {
   "posx2": 10,
   "posx3": 68.5,
   "posx4": 29.5,
-  "posx5": 68.5,
-  "posx6": 88,
-  "posx7": 68.5,
+  "posx5": 48.5,
+  "posx6": 68.5,
+  "posx7": 48.5,
   "triposx1": 68.5,
   "triposx2": 29.5,
-  "triposx3": 88,
+  "triposx3": 68.5,
   "posy1": 147,
   "posy2": 49,
   "posy3": 49,
   "posy4": 73.5,
-  "posy5": 98,
-  "posy6": 122.5,
+  "posy5": 88,
+  "posy6": 117.5,
   "posy7": 147,
   "triposy1": 49,
   "triposy2": 73.5,
-  "triposy3": 122.5,
+  "triposy3": 117.5,
      },
   "6": {
     
@@ -1023,6 +1077,7 @@ const alphabet = {
   "posx4": 88,
   "posx5":58.5,
   "posx6": 58.5,
+  "posx7": 10,
   
 
     "triposx1": 10,
@@ -1039,6 +1094,7 @@ const alphabet = {
   "posy4": 147,
   "posy5": 147,
   "posy6": 73.5,
+  "posy7": 73.5,
  
 
   "triposy1": 73.5,
@@ -1053,6 +1109,8 @@ const alphabet = {
   "posx3": 49,
   "posx4": 62.5,
   "posx5": 88,
+  "posx6": 10,
+  "posx7": 35.5,
 
 
   "triposx1": 10,
@@ -1069,6 +1127,8 @@ const alphabet = {
   "posy3": 73.5,
   "posy4": 98,
   "posy5": 49,
+  "posy6": 49,
+  "posy7": 98,
 
   "triposy1": 147,
   "triposy2": 73.5,
@@ -1084,6 +1144,7 @@ const alphabet = {
   "posx4": 88,
   "posx5": 61.25,
   "posx6": 61.25,
+  "posx7": 10,
   
 
     "triposx1": 10,
@@ -1100,6 +1161,7 @@ const alphabet = {
   "posy4": 147,
   "posy5": 147,
   "posy6": 98,
+  "posy7": 98,
  
 
   "triposy1": 98,
