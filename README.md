@@ -2,6 +2,8 @@
 
 Each of my letters is composed of three arcs and a possible line. The position of each arc is determined by the size of its radius and will offset it from a point depending on the size of the radius. The smaller the radius, the closer the ellipse is to the center. I have left a grey outline of each ellipse at the moment as guidelines.
 
+I want my font to have a unified design so many of the letters have similar parameters such as 'E' & 'F', 'U' & 'V' & 'W', '2' & '5' & '6' and many more.
+
 The twelve parameters per letter:
   * `size` : radius of the top arc
   * `size2` : radius of the middle arc
