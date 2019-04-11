@@ -1,7 +1,7 @@
 {
   "commits": [
     {
-      "sha": "f1a44d160c2b3b689abaf2d8aa7c7e0b3eef259d",
+      "sha": "b66b6d38db80463afb419a97491d692936a8ea43",
       "name": "Final"
     },
     {
@@ -11,10 +11,10 @@
     {
       "sha": "fc8c4bbf0e9831512a1d7bb1a80489c01a680c22",
       "name": "Letter Testing"
-    }
+    },
     {
       "sha": "e33f1dc800a4a94ab3d185e216fd30bd88bf4913",
       "name": "Color Choice"
-    }
+    },
   ]
 }
