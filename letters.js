@@ -141,7 +141,7 @@ const alphabet = {
     "arcStart2": 220,
     "arcEnd2": 280,
     "arcStart3": 50,
-    "arcEnd3": 150,
+    "arcEnd3": 140,
     "lineX": 48,
     "offsetX": 0
   },
@@ -165,7 +165,7 @@ const alphabet = {
     "arcStart1": 0,
     "arcEnd1": 0,
     "arcStart2": 30,
-    "arcEnd2": 140,
+    "arcEnd2": 134,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 10,
@@ -396,17 +396,17 @@ const alphabet = {
     "offsetX": 0
   },
   "3": {
-    "size": 90,
+    "size": 80,
     "size2": 100,
-    "size3": 90,
+    "size3": 80,
     "arcStart1": 200,
     "arcEnd1": 50 + 360,
     "arcStart2": 0,
     "arcEnd2": 0,
     "arcStart3": 240,
     "arcEnd3": 160 + 360,
-    "lineX": 75,
-    "offsetX": 18
+    "lineX": 65,
+    "offsetX": 15
   },
   "4": {
     "size": 100,
@@ -437,7 +437,7 @@ const alphabet = {
   "6": {
     "size": 80,
     "size2": 110,
-    "size3": 80,
+    "size3": 70,
     "arcStart1": 0,
     "arcEnd1": 0,
     "arcStart2": 205,
