@@ -200,9 +200,9 @@ const alphabet = {
     },
 
     "L": {
-  "lineX": 10, //rect1
+  "lineX": 7, //rect1
   "lineY": 10,
-  "lineXX":10,
+  "lineXX":7,
   "lineYY":188,
 
   "lineX2":30, //rect2
@@ -362,20 +362,20 @@ const alphabet = {
     },
 
     "U": {
-  "lineX": 102, //rect1
+  "lineX": 90, //rect1
   "lineY": 12,
-  "lineXX":102,
+  "lineXX":90,
   "lineYY":188,
 
-  "lineX2":12, //rect2
+  "lineX2":5, //rect2
   "lineY2":12,
-  "lineXX2":12,
+  "lineXX2":5,
   "lineYY2":188,
 
-  "offsetx1":60, //small1
+  "offsetx1":50, //small1
   "offsety1":164,
 
-  "offsetx2":24, //small2
+  "offsetx2":16, //small2
   "offsety2":164
     },
 

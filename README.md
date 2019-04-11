@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-Have cleaned up some of the positions of the rectangles. Also have gotten the interpolation working for the interaction and exibition.
+Added my three words to the exibition with the name of my font being EZY WARM.
 
 The 12 parameters per letter:
 

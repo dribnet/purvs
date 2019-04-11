@@ -70,7 +70,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+  "EZY WARM",
   "KEEGAN D",
-  "KEEGAN D",
-  "KEEGAN D"
+  "CODING ?"
 ]
