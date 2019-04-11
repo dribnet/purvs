@@ -1,4 +1,4 @@
-const colorFront1  = "#199cff";
+const colorFront1  = "#dbcbbb";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
 
@@ -16,7 +16,13 @@ function drawLetter(letterData) {
   let curY=0;
   stroke(0);
   if(!letterData.structure)return;
-  fill(219,203,187);
+  fill(colorFront1);
+
+  let r=0;
+  let c=0;
+  if(letterData.structure[r][c] === 2){
+    fill(colorFront2);
+  }
 
   for (let r = 0; r < letterData.structure.length; r++) {
     let curX=0;
@@ -27,27 +33,46 @@ function drawLetter(letterData) {
      }
      curY+=7;
 
-
   }
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  let cur_structure = [
+    [0, 0, 1, 1,1,1,1,1,1,1,1,1,0,0],
+    [0, 1, 1, 1,1,1,1,1,1,1,1,1,1,0],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [1, 1, 1, 1,0,0,1,1,1,1,1,1,1,1],
+    [1, 1, 1, 1,0,0,1,1,1,1,1,1,1,1],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [1, 1, 1, 1,1,1,1,1,0,0,1,1,1,1],
+    [1, 1, 1, 1,1,1,1,1,0,0,1,1,1,1],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [1, 1, 0, 0,1,1,0,0,1,1,0,0,1,1],
+    [0, 1, 1, 1,1,1,1,1,1,1,1,1,1,0],
+    [0, 0, 1, 1,1,1,1,1,1,1,1,1,0,0]];
+  let old_structure = oldObj["structure"];
+  let new_structure = newObj["structure"];
 
-  if(percent < 20) {
-    new_letter["offsety"] = oldObj["offsety"];
-  }
-  else if(percent > 50) {
-    new_letter["offsety"] = newObj["offsety"];
-  }
-  else {
-    new_letter["offsety"] = map(percent, 40, 60, oldObj["offsety"], newObj["offsety"]);
-  }
+    for(let i=0; i<cur_structure.length; i++) {
+      let cur_row = cur_structure[i];
+      let old_row = old_structure[i];
+      let new_row = new_structure[i];
+      for(let j=0; j<cur_row.length; j++) {
+        cur_row[j] = map(percent, 0, 100, old_row[j], new_row[j]);
+      }
+    }
+    new_letter["structure"] = cur_structure;
 
+  // new_letter["structure"]    = map(percent, 0, 100, oldObj["structure"], newObj["structure"]);
+  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   return new_letter;
 }
+
 
 var swapWords = [
   "CHILDREN",
