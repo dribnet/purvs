@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-I have now finished the letters. I changed the default to the three triangles used to make each letter and number. I decided to get rid of the background and having no fill in two of the triangles. I tried to keep a rule of having one filled triangle in each letter and if possible use it in the middle of the letter. I also made it so that the letters now transition better.
+I have now finished all letters, numbers and made a symbol. I changed it so now that the triangles all have no fill. I also made new rules. One being that if two triangles are symmetrical, they must overlap. Another rule is if a side of a triangle touches another side of a triangle, then the triangle that is not the base of the shape, must cross over to the next side of the base shape. The only time it can’t cross is if a point is touching a side of a triangle. I plan on renaming my parameters so they are easier to decipher.
 
 Parameters per letter:
 
