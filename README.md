@@ -11,36 +11,24 @@ After finishing up my interaction, I was pretty satisfied with the animation and
 
 20 parameters per letter, 4 for each ellipse of one alphabet:
 
-	* 'ballposx': x position of first ellipse
-    * 'ballposy': y position of first ellipse
-    * 'ballsizew': width of first ellipse
-    * 'ballsizeh': height of first ellipse
-    * 'ball2posx': x position of second ellipse
-    * 'ball2posy': y position of second ellipse
-    * 'ball2sizew': width of second ellipse
-    * 'ball2sizeh': height of second ellipse
-    * 'ball3posx': x position of third ellipse
-    * 'ball3posy': y position of third ellipse
-    * 'ball3sizew': width of third ellipse
-    * 'ball3sizeh': height of third ellipse
-    * 'ball4posx': x position of fourth ellipse
-    * 'ball4posy': y position of fourth ellipse
-    * 'ball4sizew': width of fourth ellipse
-    * 'ball4sizeh': height of fourth ellipse
-    * 'ball5posx': x position of fifth ellipse
-    * 'ball5posy': y position of fifth ellipse 
-    * 'ball5sizew': width of fifth ellipse
-    * 'ball5sizeh': height of fifth ellipse
+  * `ballposx`: x position of first ellipse
+  * `ballposy`: y position of first ellipse
+  * `ballsizew`: width of first ellipse
+  * `ballsizeh`: height of first ellipse
+  * `ball2posx`: x position of second ellipse
+  * `ball2posy`: y position of second ellipse
+  * `ball2sizew`: width of second ellipse
+  * `ball2sizeh`: height of second ellipse
+  * `ball3posx`: x position of third ellipse
+  * `ball3posy`: y position of third ellipse
+  * `ball3sizew`: width of third ellipse
+  * `ball3sizeh`: height of third ellipse
+  * `ball4posx`: x position of fourth ellipse
+  * `ball4posy`: y position of fourth ellipse
+  * `ball4sizew`: width of fourth ellipse
+  * `ball4sizeh`: height of fourth ellipse
+  * `ball5posx`: x position of fifth ellipse
+  * `ball5posy`: y position of fifth ellipse 
+  * `ball5sizew`: width of fifth ellipse
+  * `ball5sizeh`: height of fifth ellipse
 
-  * `ballposx` : x position of first ellipse
-  * `ballposy` : y position of first ellipse
-  * 'ballsizew': width of first ellipse
-  * 'ballsizeh': height of first ellipse
-  * `point3x` : X position of the 3rd point
-  * `point3y` : Y position of the 3rd point
-  * `point4x` : X position of the 4th point
-  * `point4y` : Y position of the 4th point
-  * `point5x` : X position of the 5th point
-  * `point5y` : Y position of the 5th point
-  * `point6x` : X position of the 6th point
-  * `point6y` : Y position of the 6th point
