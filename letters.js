@@ -16,16 +16,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": -40,
+    "lineA_x1": 30,
     "lineA_y1": -100,
-    "lineA_x2": 70,
-    "lineA_y2": -100,
+    "lineA_x2": 30,
+    "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": -40,
-    "lineB_y1": 100,
-    "lineB_x2": 70,
+    "lineB_x1": -30,
+    "lineB_y1": -100,
+    "lineB_x2": -30,
+    "lineB_y2": 100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineB_x1": 0,
+    "lineB_y1": -100,
+    "lineB_x2": 0,
     "lineB_y2": 100,
     //-----------------
   },
