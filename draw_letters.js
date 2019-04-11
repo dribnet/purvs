@@ -13,9 +13,7 @@ function drawLetter(letterData) {
   angleMode(DEGREES); 
   stroke("black");
   strokeWeight(1);
-  fill(233,100,34)
-  let w = 100;
-  let h = 200;
+  fill(233,100,34);
   //just to position it nicely inside template 
   let posx = 5;
   let posy = 100;
@@ -44,9 +42,6 @@ function positionRect(startingX,startingY,offsetX,offsetY) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["p1offsetX"] = map(percent, 0, 100, oldObj["p1offsetX"], newObj["p1offsetX"]);
   new_letter["p1offsetY"] = map(percent, 0, 100, oldObj["p1offsetY"], newObj["p1offsetY"]);
   new_letter["p2offsetX"] = map(percent, 0, 100, oldObj["p2offsetX"], newObj["p2offsetX"]);

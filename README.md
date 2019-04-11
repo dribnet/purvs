@@ -1,7 +1,8 @@
 ## PS2 MDDN 242 2019
 
-Final Concept 
-I decided on using a system that has a bunch of x & y postions for each rectangle shown.This makes it easier to customize my letters and make sure they all look unique. The downside however is that it requires alot of parameters (16).
+Jeremy Southon
+
+I have finished all the letters/numbers/default. And have finished the interpolation. should no be ready to do the purview.json file and then submit! Planning to do some experiments with the colours.
 
 The 16 parameters per letter:
   * `p1offsetX` : x offset of first rectangle.
