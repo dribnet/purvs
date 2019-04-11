@@ -1,5 +1,6 @@
 ## PS2 MDDN 242 2019
 Each of my letters is composed of 4 symmetrical quadrangles. And there are 3 parameters to control each of them. So there are 12 parameters in my every letter.
+
 The 12 parameters per letter:
 
   * `size1` : the size of the red quadrangles
@@ -17,3 +18,6 @@ The 12 parameters per letter:
   * `size4` : the size of the 2nd quadrangle with edges
   * `posX4` : the X position of the 2nd quadrangle with edges
   * `posY4` : the Y position of the 2nd quadrangle with edges
+
+Changed the transparency of the color and fixed the appearance of "C" and "D".
+Finished the part of numbers

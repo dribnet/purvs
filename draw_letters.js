@@ -45,20 +45,20 @@ push()
   noStroke();
 
 push()
-  fill(255, 0, 0, 80);
+  fill(255, 0, 0, 120);
   translate(posX1,posY1);
   quad(size1,0,size1*2,size1*2,size1,size1*4,0,size1*2);
 pop() ;
 
 push()
-  fill(0, 102, 255, 80);
+  fill(0, 92, 230, 120);
   translate(posX2,posY2);
    quad(size2,0,size2*2,size2*2,size2,size2*4,0,size2*2);
 pop();
 
   noFill();
-  strokeWeight(4);
-  stroke(0);
+  strokeWeight(5);
+  stroke(60);
 
   push()
     translate(posX3,posY3);
@@ -95,7 +95,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ZERLINDA",
+  "TRAINING",
+  "PROGRAMS"
 ]
