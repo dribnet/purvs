@@ -18,12 +18,9 @@ const colorStroke  = (255);
 
    beginShape();
    for(var i = 0; i < 18; i++) {
-
-
      var x = cos(radians(i * 26)) * radius;
      var y = sin(radians(i * 26)) * radius;
      vertex(x, y);
-
 
      if(radius == 5) {
        radius = 2;
@@ -61,7 +58,6 @@ function drawLetter(letterData) {
   fill (255,0,0,60);
   noStroke();
   triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
-//  fill (250,0,0,50);
   triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
   fill (134,191,210,50);
   triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
@@ -102,27 +98,19 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
+  //The animation function
   let new_percent = 0;
   let amount_of_anticipation = 40;
 
   if(percent <= amount_of_anticipation) {
     new_percent = map (percent, 0, 40, 0, -30);
-
-
   }
   else{
     new_percent = map(percent, 40, 100, -30, 100);
   }
 
-  //   let new_percent = 0;
-  // //let amount_of_anticipation = 20;
-  // if(percent < amount_of_anticipation) {
-  //   new_percent = map (percent, 0, amount_of_anticipation, 0, -10);
-  // }
-  // else{
-  //   new_percent = map(percent, amount_of_anticipation, 100, -10, 100);
-  // }
-  new_letter["size"]    = map(new_percent, 0, 100, oldObj["size"], newObj["size"]);
+ //variable
   new_letter["x"] = map(new_percent, 0, 100, oldObj["x"], newObj["x"]);
   new_letter["y"] = map(new_percent, 0, 100, oldObj["y"], newObj["y"]);
   new_letter["x1"] = map(new_percent, 0, 100, oldObj["x1"], newObj["x1"]);
@@ -138,22 +126,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   new_letter["x5"] = oldObj["x5"];
   new_letter["y5"] = oldObj["y5"];
-  // new_letter["x6"] = map(new_percent, -50, 100, oldObj["x6"], newObj["x6"]);
-  // new_letter["y6"] = map(new_percent, -50, 100, oldObj["y6"], newObj["y6"]);
-  // new_letter["x7"] = map(new_percent, -50, 100, oldObj["x7"], newObj["x7"]);
-  // new_letter["y7"] = map(new_percent, -50, 100, oldObj["y7"], newObj["y7"]);
-  // if(percent <10) {
-
-  //     new_letter["y"] = oldObj["newObj"];
-  // }
-  // else if (percent > 90){
-  //    new_letter["y"] = oldObj["y"];
-  //   //new_letter["y"] = oldObj["newObj"];
-  //   // new_letter["y"] = map(percent, 50, 100, oldObj["y"], newObj["y"]);
-  // }
-  // else{
-  //   new_letter["y"] = map(percent, 10, 90, oldObj["y"]);
-  // }
 
 
   return new_letter;
@@ -162,5 +134,5 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "STARMAPS",
   "WENLINNN",
-  "BEAUTIFUL"
+  "MDDN242W"
 ]
