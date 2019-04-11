@@ -22,3 +22,5 @@ The three parameters I plan to have per letter:
 The colours I chose were to make the circle bold, and to hide the box covers, yet still have the viewer able to see them. Some of the letters use the negative space that the boxes create and so they need to be visible.
 
 Potential improvements would be creating a slightly more complex shape to get the letterforms more true to form, yet this is minor and I am very happy with what I have created.
+
+There unfortunately was not much of an itterative process that I underwent. Going into this project, I knew what my shape was going to resemble and because it took alot of planning, the first time was the only time due to time constraints.
