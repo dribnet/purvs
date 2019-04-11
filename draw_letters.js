@@ -33,10 +33,13 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
- 
- if (percent > 10 && percent < 90){ //LOOP TO ANIMATE AND CREATE STROKES
-  rotate(random(-0.05,0.05));
-};
+
+  if (typeof exhibition_mode !== 'undefined') {
+      // the variable is defined
+     if (percent > 10 && percent < 90){ //LOOP TO ANIMATE AND CREATE STROKES
+      rotate(random(-0.05,0.05));
+    };
+  }
 
 
   new_letter["point1x"] = map(percent, 0, 100, oldObj["point1x"], newObj["point1x"]);
