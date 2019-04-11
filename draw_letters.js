@@ -11,21 +11,7 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // // 0,0 by 100,200
-  // // color/stroke setup
-  // stroke(colorStroke);
-  // strokeWeight(4);
-
-  // // determine parameters for second circle
-  // let size2 = letterData["size"];
-  // let pos2x = 50  + letterData["offsetx"];
-  // let pos2y = 150 + letterData["offsety"];
-
-  // // draw two circles
-  // fill(colorFront1);
-  // ellipse(50, 150, 75, 75);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
-  strokeWeight(2);
+  strokeWeight(5);
 
   fill(255,200);
   noStroke();
@@ -56,24 +42,46 @@ function drawLetter(letterData) {
   // if(letterData["arcStart3"] != 0 && letterData["arcEnd3"] != 0){
   //   arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"]-20, letterData["arcEnd3"]+20);
   // }
+  stroke(colorOutline);
+  line(letterData["lineX"],50,letterData["lineX"],150);
+  line(letterData["lineX"]+8,50,letterData["lineX"]+8,150);
+  stroke(colorFront);
+  strokeWeight(2);
+  line(letterData["lineX"],50,letterData["lineX"],150);
+  line(letterData["lineX"]+8,50,letterData["lineX"]+8,150);
 
-
-  stroke(50);
-  // fill(255,50);
+  stroke(colorOutline);
+  strokeWeight(5);
   arc(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"], letterData["arcEnd1"]);
   arc(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"], letterData["arcEnd2"]);
   arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
-  line(letterData["lineX"],50,letterData["lineX"],150);
-  line(letterData["lineX"]+4,50,letterData["lineX"]+4,150);
+
+
+  stroke(colorFront);
+  strokeWeight(2);
+  arc(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"], letterData["arcEnd1"]);
+  arc(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"], letterData["arcEnd2"]);
+  arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
 }
 
-// function interpolate_letter(percent, oldObj, newObj) {
-//   let new_letter = {};
-//   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-//   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-//   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-//   return new_letter;
-// }
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
+  new_letter["size3"]    = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
+  if(oldObj["arcStart1"] - oldObj["arcEnd1"] > 0){
+
+  }
+  new_letter["arcStart1"] = map(percent, 0, 100, oldObj["arcStart1"], newObj["arcStart1"]);
+  new_letter["arcEnd1"] = map(percent, 0, 100, oldObj["arcEnd1"], newObj["arcEnd1"]);
+  new_letter["arcStart2"] = map(percent, 0, 100, oldObj["arcStart2"], newObj["arcStart2"]);
+  new_letter["arcEnd2"] = map(percent, 0, 100, oldObj["arcEnd2"], newObj["arcEnd2"]);
+  new_letter["arcStart3"] = map(percent, 0, 100, oldObj["arcStart3"], newObj["arcStart3"]);
+  new_letter["arcEnd3"] = map(percent, 0, 100, oldObj["arcEnd3"], newObj["arcEnd3"]);
+  new_letter["lineX"] = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
+  new_letter["offsetX"] = map(percent, 0, 100, oldObj["offsetX"], newObj["offsetX"]);
+  return new_letter;
+}
 
 var swapWords = [
   "ABBAABBA",

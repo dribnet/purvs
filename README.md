@@ -4,7 +4,9 @@ Each of my letters is composed of three arcs and a possible line. The position o
 
 I want my font to have a unified design so many of the letters have similar parameters such as 'E' & 'F', 'U' & 'V' & 'W', '2' & '5' & '6' and many more.
 
-The twelve parameters per letter:
+Added interpolation but the animation isn't going how I planned due to the arc values.
+
+The eleven parameters per letter:
   * `size` : radius of the top arc
   * `size2` : radius of the middle arc
   * `size3` : radius of the bottom arc
@@ -15,5 +17,4 @@ The twelve parameters per letter:
   * `arcStart3` : the start angle of the third arc
   * `arcEnd3` : the end angle of the third arc
   * `lineX` : the x co-ord of the line
-  * `isLine` : boolean whether the letter has the line
   * `offsetX` : offset all arcs by amount in x direction
