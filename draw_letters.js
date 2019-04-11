@@ -88,33 +88,123 @@ function drawLetter(letterData) {
       break;
     case 1:
       accentG =1.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 2:
       accentH =1.0;
+      accentG = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 3:
       accentK =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 4:
       accentO =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 5:
       accentV =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 6:
       accentX =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 7:
       accentZ =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 8:
       accent0 =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent2 = 0.0;
+      accent3 = 0.0;
       break;
     case 9:
       accent2 =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent3 = 0.0;
       break;
     case 10:
       accent3 =1.0;
+      accentG = 0.0;
+      accentH = 0.0;
+      accentK = 0.0;
+      accentO = 0.0;
+      accentV = 0.0;
+      accentX = 0.0;
+      accentZ = 0.0;
+      accent0 = 0.0;
+      accent2 = 0.0;
       break;
   }
 
