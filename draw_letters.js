@@ -24,18 +24,36 @@ function drawLetter(letterData) {
   ellipse(50, 150, 75, 75);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
+  push();
+  noStroke();
+  fill(colorFront2);
+    circle(50, 100, 40);
+ pop();
+
+ //LINE
+ push();
+  noStroke();
+  fill(colorFront1);
+   rect( 22, 70, 100, 1);
+   rect( 0, 80,100, 1);
+   rect( 0, 90, 100, 1);
+   rect( 0, 100, 100, 1);
+   rect( 0, 110, 100, 1);
+
+ pop();
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
-}
+    new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+    new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+    new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+    return new_letter;
 
-var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
-]
+  var swapWords = [
+    "ABBAABBA",
+    "CAB?CAB?",
+    "BAAAAAAA"
+  ]
+}
