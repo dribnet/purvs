@@ -1,20 +1,31 @@
 const alphabet = {
   "default": {
-    "size": 80,
-  //  "c1x": 50,
-  //  "c1y":80,
+    //hidden circle
+    "size": 0,
+    "c1x": 60,
+    "c1y":114,
+    //line down
     "lx":60,
     "ly":35,
-    "lw1": 60,
-    "lh1": 100,
+    "lx_1": 60,
+    "ly_1": 100,
+    //diagonal line one
     "lx2":40,
     "ly2":90,
-    "lw2":60,
-    "lh2":115,
+    "lx2_1":60,
+    "ly2_1":115,
+    //diagonal line two
     "lx3":60,
     "ly3":115,
     "lx3_1":80,
     "ly3_1":90,
+    //hidden line four
+    "lx4":60,
+    "ly4":63,
+    "lx4_1":60,
+    "ly4_1":100,
+
+
 
   },
   "A": {
@@ -25,23 +36,23 @@ const alphabet = {
     //line one
     "lx":60,
     "ly":63,
-    "lw1": 60,
-    "lh1": 100,
+    "lx_1": 60,
+    "ly_1": 105,
     //line two
     "lx2":60,
     "ly2":63,
-    "lw2":60,
-    "lh2":100,
+    "lx2_1":60,
+    "ly2_1":105,
     //line three
     "lx3":60,
     "ly3":63,
     "lx3_1":60,
-    "ly3_1":100,
+    "ly3_1":105,
     //line four
     "lx4":60,
     "ly4":63,
     "lx4_1":60,
-    "ly4_1":100,
+    "ly4_1":105,
 
 
 
@@ -53,22 +64,22 @@ const alphabet = {
     "c1y":80,
     //line one
     "lx":40,
-    "ly":16,
-    "lw1": 40,
-    "lh1": 96,
+    "ly":25,
+    "lx_1": 40,
+    "ly_1": 96,
     //line two
     "lx2":40,
-    "ly2":16,
-    "lw2":40,
-    "lh2":96,
+    "ly2":25,
+    "lx2_1":40,
+    "ly2_1":96,
     //line three
     "lx3":40,
-    "ly3":16,
+    "ly3":25,
     "lx3_1":40,
     "ly3_1":96,
     //line four
     "lx4":40,
-    "ly4":16,
+    "ly4":25,
     "lx4_1":40,
     "ly4_1":96,
 
@@ -82,13 +93,13 @@ const alphabet = {
     //line one
     "lx":50,
     "ly":80,
-    "lw1": 70,
-    "lh1": 80,
+    "lx_1": 70,
+    "ly_1": 80,
     //line two
     "lx2":50,
     "ly2":80,
-    "lw2":70,
-    "lh2":80,
+    "lx2_1":70,
+    "ly2_1":80,
     //line three
     "lx3":50,
     "ly3":80,
@@ -109,22 +120,22 @@ const alphabet = {
     "c1y":80,
     //line one
     "lx":60,
-    "ly":16,
-    "lw1": 60,
-    "lh1": 96,
+    "ly":25,
+    "lx_1": 60,
+    "ly_1": 96,
     //line two
     "lx2":60,
-    "ly2":16,
-    "lw2":60,
-    "lh2":96,
+    "ly2":25,
+    "lx2_1":60,
+    "ly2_1":96,
     //line three
     "lx3":60,
-    "ly3":16,
+    "ly3":25,
     "lx3_1":60,
     "ly3_1":96,
     //line four
     "lx4":60,
-    "ly4":16,
+    "ly4":25,
     "lx4_1":60,
     "ly4_1":96,
 },
@@ -136,13 +147,13 @@ const alphabet = {
   //line one
   "lx":30,
   "ly":80,
-  "lw1": 69,
-  "lh1": 80,
+  "lx_1": 69,
+  "ly_1": 80,
   //line two
   "lx2":30,
   "ly2":80,
-  "lw2":69,
-  "lh2":80,
+  "lx2_1":69,
+  "ly2_1":80,
   //line three
   "lx3":30,
   "ly3":80,
@@ -162,13 +173,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":40,
-  "lw1": 50,
-  "lh1": 125,
+  "lx_1": 50,
+  "ly_1": 125,
   //line two
   "lx2":40,
   "ly2":80,
-  "lw2":60,
-  "lh2":80,
+  "lx2_1":60,
+  "ly2_1":80,
   //line three
   "lx3":50,
   "ly3":40,
@@ -188,13 +199,13 @@ const alphabet = {
   //line one
   "lx":60,
   "ly":63,
-  "lw1": 60,
-  "lh1": 135,
+  "lx_1": 60,
+  "ly_1": 135,
   //line two
   "lx2":37,
   "ly2":135,
-  "lw2":60,
-  "lh2":135,
+  "lx2_1":60,
+  "ly2_1":135,
   //line three
   "lx3":37,
   "ly3":135,
@@ -215,13 +226,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":44,
-  "lw1": 40,
-  "lh1": 114,
+  "lx_1": 40,
+  "ly_1": 114,
   //line two
   "lx2":60,
   "ly2":134,
-  "lw2":60,
-  "lh2":80,
+  "lx2_1":60,
+  "ly2_1":80,
   //line three
   "lx3":40,
   "ly3":80,
@@ -242,13 +253,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":125,
-  "lw1": 50,
-  "lh1": 60,
+  "lx_1": 50,
+  "ly_1": 60,
   //line two
   "lx2":50,
   "ly2":125,
-  "lw2":50,
-  "lh2":60,
+  "lx2_1":50,
+  "ly2_1":60,
   //line three
   "lx3":50,
   "ly3":125,
@@ -269,13 +280,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":60,
-  "lw1": 50,
-  "lh1":125,
+  "lx_1": 50,
+  "ly_1":125,
   //line two
   "lx2":50,
   "ly2":125,
-  "lw2":30,
-  "lh2":125,
+  "lx2_1":30,
+  "ly2_1":125,
   //line three
   "lx3":50,
   "ly3":125,
@@ -296,23 +307,23 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":44,
-  "lw1": 40,
-  "lh1": 115,
+  "lx_1": 40,
+  "ly_1": 115,
   //line two
   "lx2":35,
   "ly2":65,
-  "lw2":60,
-  "lh2":55,
+  "lx2_1":60,
+  "ly2_1":55,
   //line three
   "lx3":35,
   "ly3":65,
-  "lx3_1":80,
-  "ly3_1":135,
+  "lx3_1":70,
+  "ly3_1":115,
   //line four
   "lx4":35,
   "ly4":65,
-  "lx4_1":80,
-  "ly4_1":135,
+  "lx4_1":70,
+  "ly4_1":115,
 },
 
 "L": {
@@ -323,13 +334,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":25,
-  "lw1": 40,
-  "lh1": 97,
+  "lx_1": 40,
+  "ly_1": 97,
   //line two
   "lx2":40,
   "ly2":97,
-  "lw2":80,
-  "lh2":97,
+  "lx2_1":80,
+  "ly2_1":97,
   //line three
   "lx3":40,
   "ly3":97,
@@ -350,13 +361,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":97,
-  "lw1": 50,
-  "lh1": 65,
+  "lx_1": 50,
+  "ly_1": 65,
   //line two
   "lx2":40,
   "ly2":65,
-  "lw2":40,
-  "lh2":115,
+  "lx2_1":40,
+  "ly2_1":115,
   //line three
   "lx3":40,
   "ly3":65,
@@ -377,13 +388,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":95,
-  "lw1": 40,
-  "lh1": 57,
+  "lx_1": 40,
+  "ly_1": 57,
   //line two
   "lx2":60,
   "ly2":95,
-  "lw2":60,
-  "lh2":63,
+  "lx2_1":60,
+  "ly2_1":63,
   //line three
   "lx3":60,
   "ly3":95,
@@ -404,13 +415,13 @@ const alphabet = {
   //line one
   "lx":63,
   "ly":65,
-  "lw1": 63,
-  "lh1": 65,
+  "lx_1": 63,
+  "ly_1": 65,
   //line two
   "lx2":63,
   "ly2":65,
-  "lw2":63,
-  "lh2":65,
+  "lx2_1":63,
+  "ly2_1":65,
   //line three
   "lx3":63,
   "ly3":65,
@@ -430,13 +441,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":64,
-  "lw1": 40,
-  "lh1": 143,
+  "lx_1": 40,
+  "ly_1": 143,
   //line two
   "lx2":40,
   "ly2":64,
-  "lw2":40,
-  "lh2":143,
+  "lx2_1":40,
+  "ly2_1":143,
   //line three
   "lx3":40,
   "ly3":64,
@@ -456,13 +467,13 @@ const alphabet = {
   //line one
   "lx":60,
   "ly":63,
-  "lw1": 60,
-  "lh1": 143,
+  "lx_1": 60,
+  "ly_1": 143,
   //line two
   "lx2":60,
   "ly2":63,
-  "lw2":60,
-  "lh2":143,
+  "lx2_1":60,
+  "ly2_1":143,
   //line three
   "lx3":60,
   "ly3":63,
@@ -483,13 +494,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":63,
-  "lw1": 40,
-  "lh1": 114,
+  "lx_1": 40,
+  "ly_1": 105,
   //line two
   "lx2":40,
   "ly2":70,
-  "lw2":63,
-  "lh2":65,
+  "lx2_1":63,
+  "ly2_1":65,
   //line three
   "lx3":40,
   "ly3":70,
@@ -508,15 +519,15 @@ const alphabet = {
   "c1x": 50,
   "c1y":80,
   //line one
-  "lx":79,
+  "lx":68,
   "ly":70,
-  "lw1": 32,
-  "lh1": 70,
+  "lx_1": 32,
+  "ly_1": 70,
   //line two
   "lx2":66,
   "ly2":90,
-  "lw2":33,
-  "lh2":70,
+  "lx2_1":33,
+  "ly2_1":70,
   //line three
   "lx3":34,
   "ly3":90,
@@ -537,13 +548,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":30,
-  "lw1": 50,
-  "lh1": 124,
+  "lx_1": 50,
+  "ly_1": 124,
   //line two
   "lx2":30,
   "ly2":50,
-  "lw2":68,
-  "lh2":50,
+  "lx2_1":68,
+  "ly2_1":50,
   //line three
   "lx3":30,
   "ly3":50,
@@ -563,14 +574,14 @@ const alphabet = {
   "c1y":80,
   //line one
   "lx":60,
-  "ly":100,
-  "lw1": 60,
-  "lh1": 64,
+  "ly":105,
+  "lx_1": 60,
+  "ly_1": 64,
   //line two
   "lx2":40,
   "ly2":96,
-  "lw2":40,
-  "lh2":63,
+  "lx2_1":40,
+  "ly2_1":63,
   //line three
   "lx3":40,
   "ly3":96,
@@ -591,13 +602,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":98,
-  "lw1": 40,
-  "lh1": 65,
+  "lx_1": 40,
+  "ly_1": 65,
   //line two
   "lx2":60,
   "ly2":65,
-  "lw2":50,
-  "lh2":98,
+  "lx2_1":50,
+  "ly2_1":98,
   //line three
   "lx3":60,
   "ly3":65,
@@ -618,13 +629,13 @@ const alphabet = {
   //line one
   "lx":50,
   "ly":98,
-  "lw1": 40,
-  "lh1": 65,
+  "lx_1": 40,
+  "ly_1": 65,
   //line two
   "lx2":60,
   "ly2":65,
-  "lw2":50,
-  "lh2":98,
+  "lx2_1":50,
+  "ly2_1":98,
   //line three
   "lx3":60,
   "ly3":65,
@@ -645,13 +656,13 @@ const alphabet = {
   //line one
   "lx":62,
   "ly":95,
-  "lw1": 37,
-  "lh1": 65,
+  "lx_1": 37,
+  "ly_1": 65,
   //line two
   "lx2":40,
   "ly2":95,
-  "lw2":60,
-  "lh2":65,
+  "lx2_1":60,
+  "ly2_1":65,
   //line three
   "lx3":40,
   "ly3":95,
@@ -672,13 +683,13 @@ const alphabet = {
   //line one
   "lx":40,
   "ly":95,
-  "lw1": 40,
-  "lh1": 63,
+  "lx_1": 40,
+  "ly_1": 63,
   //line two
   "lx2":60,
   "ly2":63,
-  "lw2":60,
-  "lh2":144,
+  "lx2_1":60,
+  "ly2_1":144,
   //line three
   "lx3":60,
   "ly3":63,
@@ -698,13 +709,13 @@ const alphabet = {
   //line one
   "lx":67,
   "ly":70,
-  "lw1": 33,
-  "lh1": 70,
+  "lx_1": 33,
+  "ly_1": 70,
   //line two
   "lx2":33,
   "ly2":90,
-  "lw2":79,
-  "lh2":90,
+  "lx2_1":68,
+  "ly2_1":90,
   //line three
   "lx3":67,
   "ly3":70,
@@ -717,112 +728,118 @@ const alphabet = {
   "ly4_1":90,
 },
 "0": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
-  "c3x":50,
-  "c3y":80,
+  //line
+  "lx":50,
+  "ly":80,
+  "lx_1": 50,
+  "ly_1": 79,
 
 },
 "1": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 55,
-  "lh1": 70,
+  "lx_1": 54,
+  "ly_1": 71,
 },
 "2": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 59,
-  "lh1": 74,
+  "lx_1": 58,
+  "ly_1": 75,
 },
 "3": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 60,
-  "lh1": 80,
+  "lx_1": 60,
+  "ly_1": 80,
 
 },
 "4": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 60,
-  "lh1": 83,
+  "lx_1": 60,
+  "ly_1": 83,
 },
 "5": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 58,
-  "lh1": 86,
+  "lx_1": 58,
+  "ly_1": 86,
 },
 "6": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 50,
-  "lh1": 90,
+  "lx_1": 50,
+  "ly_1": 90,
 },
 "7": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 47,
-  "lh1": 90,
+  "lx_1": 48,
+  "ly_1": 89,
 },
 "8": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 43,
-  "lh1": 88,
+  "lx_1": 44,
+  "ly_1": 88,
 },
 "9": {
+  //circle
   "size": 40,
   "c1x": 50,
   "c1y":80,
+  //line
   "lx":50,
   "ly":80,
-  "lw1": 40,
-  "lh1": 80,
+  "lx_1": 41,
+  "ly_1": 80,
 },
-"9": {
-  "size": 40,
-  "c1x": 50,
-  "c1y":80,
-  "lx":50,
-  "ly":80,
-  "lw1": 40,
-  "lh1": 80,
-},
-"9": {
-  "size": 40,
-  "c1x": 50,
-  "c1y":80,
-  "lx":50,
-  "ly":80,
-  "lw1": 40,
-  "lh1": 80,
-},
+
+
 
 }

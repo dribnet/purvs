@@ -3,9 +3,11 @@ const colorFront1  = "#e8600b";
 //RED
 const colorFront2  = "#f24324";
 //WHITE
-const colorFront3  = "#ffffff";
+const colorFront3  = "#ffcb8c";
 //LIGTH ORANGE
 const colorStroke  = "#ffae00";
+//BLUE
+const colorFront4 = "#84b3ff";
 
 /*
  * Draw the letter given the letterData
@@ -23,51 +25,54 @@ function drawLetter(letterData) {
   // determine parameters for second circle
   let pos2x = -10  + letterData["c1x"];
   let pos2y = -20 + letterData["c1y"];
-  let widthx = letterData["lx"];
-  let heighty = letterData["ly"];
 
   // draw two circles
 
+//background lines
+strokeWeight(1);
 
-  //straight line
-
-strokeWeight(3);
+//red lines
 stroke(colorFront2);
 fill(colorFront2);
-//ellipse(20, 30,15,10);
+ellipse(50, 89,1,86);
+ellipse(30, 46,40,1);
+ellipse(72, 131,45,1);
 
-ellipse(50, 80,1,70);
-
+//orange lines
 stroke(colorFront1);
-ellipse(60, 80,1,90);
+ellipse(60, 70,1,80);
+ellipse(31, 35,58,1);
+ellipse(45, 117,50,1);
 
+//yellow lines
 stroke(colorStroke);
+ellipse(70, 84,1,120);
+ellipse(60, 24,50,1);
 
-ellipse(70, 80,1,110);
+//blue dots
+noStroke();
+fill(colorFront4);
+ellipse(20, 30,5,5);
+ellipse(37, 46,10,10);
+ellipse(65, 110,5,5);
+ellipse(74, 17,5,5);
+ellipse(25, 140,5,5);
 
-stroke(colorFront3);
-
-fill(colorStroke);
+//letter ellipses
 strokeWeight(3);
+stroke(colorFront3);
 noFill();
-  //ellipse(20, 30,15,15);
+ellipse(letterData["c1x"], letterData["c1y"], letterData["size", "size"]);
 
-  //letter ellipses
-  ellipse(letterData["c2x"], letterData["c2y"],letterData["size", "size"]);
+// side ellipse
+strokeWeight(1);
+noFill();
+ellipse(92, 80,10,10);
 
-
-  ellipse(letterData["c1x"], letterData["c1y"], letterData["size", "size"]);
-  ellipse(letterData["c3x"], letterData["c3y"],2,2);
-
-//first long ellipse
-  //noStroke();
-// fill(colorFront2);
-
-
-
-//fill(colorFront2);
-line(widthx,heighty,letterData["lw1"],letterData["lh1"]);
-line(letterData["lx2"],letterData["ly2"],letterData["lw2"],letterData["lh2"]);
+//letter lines
+strokeWeight(1.5);
+line(letterData["lx"],letterData["ly"],letterData["lx_1"],letterData["ly_1"]);
+line(letterData["lx2"],letterData["ly2"],letterData["lx2_1"],letterData["ly2_1"]);
 line(letterData["lx3"],letterData["ly3"],letterData["lx3_1"],letterData["ly3_1"]);
 line(letterData["lx4"],letterData["ly4"],letterData["lx4_1"],letterData["ly4_1"]);
 
@@ -78,16 +83,12 @@ line(letterData["lx4"],letterData["ly4"],letterData["lx4_1"],letterData["ly4_1"]
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["lw1"]    = map(percent, 0, 100, oldObj["lw1"], newObj["lw1"]);
-  new_letter["lw2"]    = map(percent, 0, 100, oldObj["lw2"], newObj["lw2"]);
-  new_letter["lh1"]    = map(percent, 0, 100, oldObj["lh1"], newObj["lh1"]);
-  new_letter["lh2"]    = map(percent, 0, 100, oldObj["lh2"], newObj["lh2"]);
+  new_letter["lx_1"]    = map(percent, 0, 100, oldObj["lx_1"], newObj["lx_1"]);
+  new_letter["lx2_1"]    = map(percent, 0, 100, oldObj["lx2_1"], newObj["lx2_1"]);
+  new_letter["ly_1"]    = map(percent, 0, 100, oldObj["ly_1"], newObj["ly_1"]);
+  new_letter["ly2_1"]    = map(percent, 0, 100, oldObj["ly2_1"], newObj["ly2_1"]);
   new_letter["c1x"]    = map(percent, 0, 100, oldObj["c1x"], newObj["c1x"]);
   new_letter["c1y"]    = map(percent, 0, 100, oldObj["c1y"], newObj["c1y"]);
-  new_letter["c2y"]    = map(percent, 0, 100, oldObj["c2y"], newObj["c2y"]);
-  new_letter["c3x"]    = map(percent, 0, 100, oldObj["c3x"], newObj["c3x"]);
-  new_letter["c2x"]    = map(percent, 0, 100, oldObj["c2x"], newObj["c2x"]);
-  new_letter["c3y"]    = map(percent, 0, 100, oldObj["c3x"], newObj["c3x"]);
   new_letter["lx"]    = map(percent, 0, 100, oldObj["lx"], newObj["lx"]);
   new_letter["ly"]    = map(percent, 0, 100, oldObj["ly"], newObj["ly"]);
   new_letter["lx2"]    = map(percent, 0, 100, oldObj["lx2"], newObj["lx2"]);
@@ -105,7 +106,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "SUNSHINE",
+  "SUNLIGHT",
   "LATEEFAH",
   "12345678"
 ]
