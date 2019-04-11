@@ -1,3 +1,7 @@
+const colorFront1  = "#ffe6b3";
+const colorFront2  = "#ff8000";
+const colorStroke  = "#233f11";
+
 /*
  * Draw the letter given the letterData
  *
@@ -7,38 +11,26 @@
  */
 function drawLetter(letterData) {
   // determine parameters
-  let l1x = letterData["l1x"];
-  let l1y = letterData["l1y"];
-  let l2x = letterData["l2x"];
-  let l2y = letterData["l2y"];
+   let size2 = letterData["size"];
+  //the positions for the rectangles
+  let pos2x = 50  + letterData["offsetx"];
+  let pos2y = 150 + letterData["offsety"];
 
-  let a1x = 50 + letterData["a1x"];
-  let a1y = 90 + letterData["a1y"];
-  let a1Start = letterData["a1Start"];
-  let aw = letterData["aw"];
-  let ah = letterData["ah"];
+  let size3 = letterData["size2"];
+  let pos3x = 50  + letterData["arcx"];
+  let pos3y = 150 + letterData["arcy"];
 
-  let a2x = 50 + letterData["a2x"];
-  let a2y = 90 + letterData["a2y"];
-  let a2Start = letterData["a2Start"];
-  let a2w = letterData["a2w"];
-  let a2h = letterData["a2h"];
-
-  //line
-  stroke(255);
-  strokeWeight(5);
-  line(l1x, l1y, l2x, l2y);
-
-  //yellow Arc 
+  // DRAW
+  stroke(colorFront1);
   noFill();
-  stroke(255, 171, 0);
-  strokeWeight(4);
-  arc(a1x, a1y, aw, ah, radians(a1Start), radians(a1Start+180));
+  //line(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, size2, size2);
 
-  //red Arc
-  stroke(255,69,0);
-  strokeWeight(4);
-  arc(a2x, a2y, a2w, a2h, radians(a2Start), radians(a2Start+180));
+  push();
+  noStroke();
+  fill(colorFront2)
+  arc(pos3x, pos3y, size3, size3, PI, TWO_PI);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
