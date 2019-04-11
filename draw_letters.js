@@ -62,9 +62,26 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["r1y"] = map(percent, 0, 100, oldObj["r1y"], newObj["r1y"]);
   new_letter["r1l"] = map(percent, 0, 100, oldObj["r1l"], newObj["r1l"]);
 
-  var swapWords = [
-    "ABBAABBA",
-    "CAB?CAB?",
-    "BAAAAAAA"
-  ]
+  new_letter["r2x"] = map(percent, 0, 100, oldObj["r2x"], newObj["r2x"]);
+  new_letter["r2y"] = map(percent, 0, 100, oldObj["r2y"], newObj["r2y"]);
+  new_letter["r2l"] = map(percent, 0, 100, oldObj["r2l"], newObj["r2l"]);
+
+  new_letter["r3x"] = map(percent, 0, 100, oldObj["r3x"], newObj["r3x"]);
+  new_letter["r3y"] = map(percent, 0, 100, oldObj["r3y"], newObj["r3y"]);
+  new_letter["r3l"] = map(percent, 0, 100, oldObj["r3l"], newObj["r3l"]);
+
+  new_letter["r4x"] = map(percent, 0, 100, oldObj["r4x"], newObj["r4x"]);
+  new_letter["r4y"] = map(percent, 0, 100, oldObj["r4y"], newObj["r4y"]);
+  new_letter["r4l"] = map(percent, 0, 100, oldObj["r4l"], newObj["r4l"]);
+
+  new_letter["r5x"] = map(percent, 0, 100, oldObj["r5x"], newObj["r5x"]);
+  new_letter["r5y"] = map(percent, 0, 100, oldObj["r5y"], newObj["r5y"]);
+  new_letter["r5l"] = map(percent, 0, 100, oldObj["r5l"], newObj["r5l"]);
+  return new_letter;
 }
+
+var swapWords = [
+  "LINSFONT",
+  "SAPPHIRE",
+  "ASTEROID"
+]
