@@ -17,6 +17,7 @@ function drawLetter(letterData) {
   //just to position it nicely inside template 
   let posx = 5;
   let posy = 100;
+  //Draw all the pieces that make up the letter.
   positionRect(posx,posy,letterData.p1offsetX,letterData.p1offsetY)
   positionRect(posx,posy,letterData.p2offsetX,letterData.p2offsetY)
   positionRect(posx,posy,letterData.p3offsetX,letterData.p3offsetY)
@@ -29,6 +30,8 @@ function drawLetter(letterData) {
 
 /**
  * Function draws a rectangle at a given offset position
+ * @param {number} offsetX how much to move this rect to the left and right.
+ * @param {number} offsetY how much to move this rect up/down.
  */
 function positionRect(startingX,startingY,offsetX,offsetY) {
   push();
@@ -62,7 +65,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "LEG0FONT",
+  "ADELINE?",
+  "0NEPIECE"
 ]
