@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
+const colorFront1  = "#ff6600";
 const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorStroke  = "#000000";
 
 
 /*
@@ -52,7 +52,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "FIVEPOINTPOLY",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "5PTPOLY",
+  "PENTAGON",
+  "DANSCOOL"
 ]
