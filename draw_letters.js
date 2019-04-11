@@ -85,7 +85,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "NEWLERRWE",
-  "WHEREAREYOU",
-  "STOPEATING"
+  "NEWWORLD",
+  "WHERE123",
+  "STOPLAZY"
 ]
