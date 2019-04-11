@@ -43,22 +43,22 @@ function drawLetter(letterData) {
 
 // drawing of two triangles, two rectangles, two arcs
   for(var i = 3; i >= 0; i--) {
-  noFill();
-  stroke(0);
+  noStroke();
+  fill(0);
   arc(posx4,posy4,100,100,ArcStart,ArcEnd);
   
-  stroke(50);
+  fill(50);
   rect(posx2+10, posy2, recA, recB);
-  stroke(66,66,66,255);
+  fill(66,66,66,255);
   rect(posx2+10, posy2, recA-10, recB);
   
-  stroke(66);
+  fill(100);
   triangle(posx5+triX2,posy5+triY2,posx5+triX2A,posy5+triY2A, posx5+triX2B, posy5+triY2B);
   push();
-  stroke(0);
+  fill(30);
   triangle(posx3+triX2+10,posy3+triY2+40,posx3+triX2A+40,posy3+triY2A, posx3+triX2B-20, posy3+triY2B);
   pop();
-  stroke(80);
+  fill(80);
   arc(posx4,posy4-20,60,60,Arc2Start,Arc2End);
   }
 }
@@ -103,5 +103,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "DEPP",
   "GAG",
-  "DEAF"
+  "DEAF",
+  "QUORPIE"
 ]

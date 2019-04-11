@@ -26,4 +26,4 @@ The three parameters per letter:
   * "triY2B" : third Y-coordinate of each triangle
   *	"triX2B" : third X-coordinate of each triangle
 
-  So far my main goal is to retain a sense of visual uniformity through the shapes I create. I want to make sure that each shape does not appear off. Thus I need to make sure that my primitives do not bend or stretch in a manner, which appear unbalanced. Still figuring out a color scheme. However, I like to go with something more saturated and retroesque. Pastel colours, Memphis Group and VHS recorders come in mind. This is very much in tune, with my usual output, which tends to be somewhat kitsch and heavily inspired by early film.
+  I've finished the alphabet itself. Now its just down to the numbers
