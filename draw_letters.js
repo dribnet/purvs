@@ -48,7 +48,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
   new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
   new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
-  new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
   new_letter["arcW"] = map(percent, 0, 100, oldObj["arcW"], newObj["arcW"]);
   new_letter["arcH"] = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
   new_letter["triX1"] = map(percent, 0, 100, oldObj["triX1"], newObj["triX1"]);
@@ -57,6 +56,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["triY2"] = map(percent, 0, 100, oldObj["triY2"], newObj["triY2"]);
   new_letter["triX3"] = map(percent, 0, 100, oldObj["triX3"], newObj["triX3"]);
   new_letter["triY3"] = map(percent, 0, 100, oldObj["triY3"], newObj["triY3"]);
+
+  let old_arc_diff = oldObj["arcE"] - oldObj["arcS"]
+  if(old_arc_diff < 0) {
+    old_arc_diff = old_arc_diff + 2 * PI;
+  }
+  let new_arc_diff = newObj["arcE"] - newObj["arcS"]
+  if(new_arc_diff < 0) {
+    new_arc_diff = new_arc_diff + 2 * PI;
+  }
+  let cur_arc_diff = map(percent, 0, 100, old_arc_diff, new_arc_diff);
+  print(old_arc_diff, new_arc_diff, cur_arc_diff);  
+  new_letter["arcE"] = new_letter["arcS"]  + cur_arc_diff;
 
   let new_percent = {};
   if(percent < 30) {
@@ -70,8 +81,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "FACEBOOK",
-  "CALENDAR",
-  "THURSDAY"
+  "TOYFONT.",
+  "FACEBOOK.",
+  "ALPHABET"
 ]
 
