@@ -40,8 +40,8 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "WARRIORS",
-  "1234567?",
-  "EXPECTED",
+  "KAMISAMA",
+  "KAWAII<3",
   "PROPERTY",
   "ADDITION",
   "FOLLOWED",
