@@ -4,10 +4,10 @@ const canvasHeight = 500;
 /* 
  * my three variable per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
+   size: diameter of the second rect (in pixels)
+   offsetx: x offset (in pixels) of the second rect
             relative to the first one
-   offsety: y offset (in pixels) of the second circle
+   offsety: y offset (in pixels) of the second rect
             relative to the first one
  *
  */
@@ -30,10 +30,6 @@ const letterC = {
   "offsety": 30
 }
 
-// const colorFront1  = "#199cff";
-// const colorFront2  = "#59ccff";
-// const colorBack    = "#e3eded";
-// const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,7 +37,6 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  // stroke(colorStroke);
   strokeWeight(4);
   noFill();
 

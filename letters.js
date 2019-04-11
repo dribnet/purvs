@@ -1,3 +1,19 @@
+/*the 10 variables that define each letter are:
+*
+  primary_size : diameter of the primary and fourth rectangles
+  secondary_size : diameter of the second and third rectangles
+  prim_offsetx : x offset of the primary rectangle relative to the first one
+  prim_offsety : y offset of the primary rectangle relative to the first one
+  sec_offsetx : x offset of the secondary rectangle relative to the first one
+  sec_offsety : y offset of the secondary rectangle relative to the first one
+  third_offsetx : x offset of the third rectangle relative to the first one
+  third_offsety : y offset of the third rectangle relative to the first one
+  fourth_offsetx : x offset of the fourth rectangle relative to the first one
+  fourth_offsety : y offset of the fourth rectangle relative to the first one
+*
+*/
+
+
 const alphabet = {
   "default": {
     "primary_size": 15,
