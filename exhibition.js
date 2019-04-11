@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = (30);
+const colorBack    = (7,10,41);
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
@@ -215,7 +215,7 @@ function draw () {
     }
   }
 
-  background(colorBack);
+  background(7,10,41);
   fill(colorFront);
   stroke(95, 52, 8);
 

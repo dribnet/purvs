@@ -1,10 +1,5 @@
-/*
- * Here are some things you can edit
- */
-const colorBack    = (30);
-const colorLines   = (200);
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -34,10 +29,10 @@ function mouseClicked() {
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(7,10,41);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
@@ -60,7 +55,7 @@ function draw () {
     translate(0, j);
 
     // draw lines
-    stroke(colorLines);
+    stroke(83.1, 68.6, 21.6);
     line(left_margin, 0, right_margin, 0);
     for (let i=left_margin; i<right_margin-8; i+=30) {
       line(i, 100, i+12, 100);
@@ -75,6 +70,8 @@ function draw () {
           strokeWeight(4);
           stroke(0, 200, 0);
           rect(0, 0, 100, 200);
+
+
         }
 
         let letter = letters[cur_letter_index];
@@ -82,7 +79,7 @@ function draw () {
           drawLetter(alphabet[letter]);
         }
         else {
-          drawLetter(alphabet["default"]);    
+          drawLetter(alphabet["default"]);
         }
         translate(x_step, 0);
         cur_letter_index = (cur_letter_index + 1);

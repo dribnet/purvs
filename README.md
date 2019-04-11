@@ -1,9 +1,15 @@
 ## Alphabet in Stars.
 
-Basically, everything is finished by now. Before the handin I'm going to tidy up my code and develope the animation of alphabet.
+For the final submission, I made a few changes to make my design more approches to my topic which is starmap. Firstly,  when I research some starmap image in internet, I found every constellation has
+its own ruler. Therefore, I pretend each of the alphabet is a constellation and give a ruler for them. Based on the theme, the main color I used is blue (light blue or dark blue). The animation I used making the 
+alphabet looks more interesting when interacting. 
 
-Parameter explanation 
 
+
+
+
+
+Parameter explanation:
 I used 16 vertexs in total. 
 
  let pos1x = posx+letterData["x"];

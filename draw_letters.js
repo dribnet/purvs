@@ -9,18 +9,37 @@ const colorStroke  = (255);
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+// Draw the main star for each alphabet.
+ function star(posx, posy){
+   var radius = 5;
+   fill(139, 161, 198);
+   stroke(177, 190, 211);
+
+   beginShape();
+   for(var i = 0; i < 18; i++) {
+
+
+     var x = cos(radians(i * 26)) * radius;
+     var y = sin(radians(i * 26)) * radius;
+     vertex(x, y);
+
+
+     if(radius == 5) {
+       radius = 2;
+     } else {
+       radius = 5;
+     }
+   }
+   endShape();
+ }
+
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(100);
-  strokeWeight(4);
 
-
-  // determine parameters for second circle
-  //let size2 = letterData["size"];
-
-   let posx = 0;
+  //16 vertexs in total
+  let posx = 0;
   let posy = 0;
- let pos1x = posx+letterData["x"];
+  let pos1x = posx+letterData["x"];
   let pos1y = posy+letterData["y"];
   let pos2x = posx+letterData["x1"];
   let pos2y = posy+letterData["y1"];
@@ -36,17 +55,15 @@ function drawLetter(letterData) {
   let pos7y = posy+letterData["y6"];
   let pos8x = posx+letterData["x7"];
   let pos8y = posy+letterData["y7"];
- 
+
 
   //color of the alphabet
-  fill (255,255,0,50);
+  fill (255,0,0,60);
   noStroke();
   triangle(pos1x, pos1y, pos2x, pos2y, pos4x, pos4y);
-
-  fill (250,0,0,50);
+//  fill (250,0,0,50);
   triangle(pos3x, pos3y, pos1x, pos1y, pos2x, pos2y);
-
-  fill (250,0,100,50);
+  fill (134,191,210,50);
   triangle(pos2x, pos2y, pos8x, pos8y, pos3x, pos3y);
 
   //lines use to draw the alphabet
@@ -64,13 +81,22 @@ function drawLetter(letterData) {
   line(pos8x, pos8y, pos3x, pos3y);
 
 //stars or ellipse
-  fill(colorStroke);
-  ellipse(pos1x, pos1y, 4, 4);
-  ellipse(pos2x, pos2y, 4, 4);
-  ellipse(pos3x, pos3y, 4, 4);
-  ellipse(pos4x, pos4y, 4, 4);
-  ellipse(pos5x, pos5y, 4, 4);
-  ellipse(pos6x, pos6y, 4, 4);
+  fill(39, 63, 102);
+  stroke(39, 63, 102);
+  ellipse(pos1x, pos1y, 5);
+  ellipse(pos2x, pos2y, 5);
+  ellipse(pos3x, pos3y, 5);
+  ellipse(pos4x, pos4y, 5);
+  ellipse(pos5x, pos5y, 5);
+  ellipse(pos6x, pos6y, 5);
+  //the Main star
+  push();
+    translate(pos4x,pos4y);
+    star();
+  pop();
+
+
+
 
 }
 
@@ -117,7 +143,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter["x7"] = map(new_percent, -50, 100, oldObj["x7"], newObj["x7"]);
   // new_letter["y7"] = map(new_percent, -50, 100, oldObj["y7"], newObj["y7"]);
   // if(percent <10) {
-   
+
   //     new_letter["y"] = oldObj["newObj"];
   // }
   // else if (percent > 90){
@@ -134,7 +160,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "STAR MAP",
-  "CAB?CAB?",
+  "STARMAPS",
+  "WENLINNN",
   "BEAUTIFUL"
 ]

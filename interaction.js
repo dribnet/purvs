@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = (60);
+const colorBack    = (7,10,41);
 const colorLines   = (0);
 
 /* 
@@ -91,7 +91,8 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(colorBack);
+  background(7,10,41);
+  //background(30);
 
   // draw the interpolation on the guidelines
   push();
@@ -109,7 +110,7 @@ function draw () {
   translate(0, top_margin);
 
   // draw lines
-  stroke(colorLines);
+  stroke(83.1, 68.6, 21.6);
   line(left_margin, 0, right_margin, 0);
   for(let i=left_margin; i<right_margin-8; i+=30) {
     line(i, 100, i+12, 100);
@@ -131,8 +132,8 @@ function draw () {
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
-    fill(colorLines);
+    stroke(83.1, 68.6, 21.6);
+    fill(83.1, 68.6, 21.6);
     textSize(50);
     textAlign(CENTER)
     if (i == 0) {
