@@ -1,4 +1,4 @@
-## PS2 MDDN 242 2019
+##глупость
 
 For the alphabet, from the get go I wanted to use triangles as the foundation for building the letters. I began by playing around with the sketch function to see how much I could build with only two triangles. After building a few letters in the sketch and the alphabet with relative ease I decided to try making the **cyrillic** (russian specifically) alphabet instead just to up the challenge level a bit. 
 
@@ -23,4 +23,12 @@ While playing with this Idea and thinking about parameters I realised that becau
 
 As far as color schemes go, once I had mapped out the alphabet I realised that the letters had a very soviet propaganda poster feel to them so I decided to use a soviet approved color scheme.
 
-The next step was to remove the if statement hellscape i had created, I did this by adding 1 more parameter (*sorry*) but it got rid of about 200 lines of redundant code
+As far as interpolation goes that is where ended up breaking the code a lot and having to try different solutions. Because I ended up having to create exceptions to draw the characters with accents or strange shapes(Ё,Ж,Й,Н,Ф,Ц,Ш,Щ,Ы,Ъ) it made the interpolation section much more difficult. 
+
+When I removed the if statments and replaced it with another parameter and a switch statement the interpolation became jerky and the transitions broke. I couldn't add any more parameters becasue 18 is already a lot and editing the opacity lends itself to the same problem as adding a variable and changing the scale. 
+
+In the end the best solution was also the simplest. In the interpolation section I just added two if statments for 10 and 80 percent.
+
+#### Typeface Name:
+
+I named my alphabet глупость because it translates to foolishness and quite frankly using the cyrillic alphabet instead of the latin one was an act of foolishness that I ended up having to follow through on. I added russian.png to my files for comparison purposes. 
