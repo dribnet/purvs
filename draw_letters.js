@@ -1,6 +1,6 @@
-const colorFront1  = "#fffd99git ";
-const colorFront2  = "#99eeff";
-const colorStroke  = "#99eeff";
+const colorFront1  = "#FE6625";
+const colorFront2  = "#013C5A";
+const colorStroke  = "#013C5A";
 
 
 /*
@@ -71,7 +71,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "CUBEFONT",
+  "SQOTFONT",
   "MUSHROOM",
   "ABSOLUTE"
 ]

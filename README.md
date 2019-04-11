@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-Colour experimentation
+Trying out a total new much higher contrast colour scheme. I like the contrast but I do not like it as much as my previous blue/pink because I feel those softer colours are much better at catching the sort of playful aesthetic I am going for so I will go back to them.
 
 Parameters:
 
