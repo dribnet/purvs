@@ -40,7 +40,7 @@ let curSwapWord = 0;
 
 var defaultSwapWords = [
   "ACTUALLY",
-  "12345678",
+  "23456789",
   "EXPECTED",
   "PROPERTY",
   "ADDITION",

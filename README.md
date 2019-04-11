@@ -1,15 +1,33 @@
 ## PS2 MDDN 242 2019
 
-Part 3 - Interpolation and Final Alphabet Design
+Part 4 - Exhibition and Final Alphabets Design
 
-These are all my alphabets that I used the idea of morse code and triangle to design them. The circles and rectangles showed the morse code. I was thinking of using their own actual morse code to design them, but I have tried my best to use all of them to design it. For example, the letter 'A' is 1 circle with 1 rectangle and I have tried to joined one circle, one rectangle and traingle together to form an 'A'. However, some of the letters were hard to join all circles and rectangles together to make them look exactly like the letters. For instant, the morse code for letter 'E' has only one circle, I can't join a circle and triangle to form the letter 'E'. In this case, I just added some circles and rectangles to form the letter 'E'. I have used two different colors for different shapes. Grey color is used for circles and rectangles which represented the morse code, while pale red color is used for triangles. Lastly, I have added all of the function interpolate_letter in my file.
+
+This is my final design of my alphabets. I was trying to think of another name which has the combination of the morse code and the triangles. However, the final name of my font is called "Morse Co", it's actually the short version of the name "Morse Code".
 
 The parameters per letter:
-  * `size1` : length of the rectangle
-  * `c1x` : x axis of the circle
-  * `c1y` : y axis of the circle
-  * `r1x` : x axis of the rectangle
-  * `r1y` : y axis of the rectangle
-  * `t1x` : x axis of the triangle
-  * `t1y` : y axis of the triangle
-  ....
+  * `size` : length of the rectangle
+  * `t1x` : x axis of the first corner of the first triangle
+  * `t1y` : y axis of the first corner of the first triangle
+  * `t2x` : x axis of the second corner of the first triangle
+  * `t2y` : y axis of the second corner of the first triangle
+  * `t3x` : x axis of the third corner of the first triangle
+  * `t3y` : y axis of the third corner of the first triangle
+  * `t4x` : x axis of the first corner of the second triangle
+  * `t4y` : y axis of the first corner of the second triangle
+  * `t5x` : x axis of the second corner of the second triangle
+  * `t5y` : y axis of the second corner of the second triangle
+  * `t6x` : x axis of the third corner of the second triangle
+  * `t6y` : y axis of the third corner of the second triangle
+  * `e1x` : x axis of the first circle
+  * `e1y` : y axis of the first circle
+  * `e2x` : x axis of the second circle
+  * `e2y` : y axis of the second circle
+  * `e3x` : x axis of the third circle
+  * `e3y` : y axis of the third circle
+  * `e4x` : x axis of the fourth circle
+  * `e4y` : y axis of the fourth circle
+  * `r1x` : x axis of the first rectangle
+  * `r1y` : y axis of the first rectangle
+  * `r2x` : x axis of the second rectangle
+  * `r2y` : y axis of the second rectangle
