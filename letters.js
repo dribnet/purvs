@@ -44,8 +44,8 @@ const alphabet = {
 
     "heightY1": 50,
     "widthX1": 0.6,
-    "length1": 0,
-    "Blength1": 0,
+    "length1": 160,
+    "Blength1": 160,
     "offsetX1": 0,
     "offsetY1": 50,
     "rotation_angle1": 90,

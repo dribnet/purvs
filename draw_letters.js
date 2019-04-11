@@ -83,8 +83,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   let amount_of_anticipation = 40;
   if (percent < amount_of_anticipation){
     new_percent = map(percent, 0, amount_of_anticipation, 0, -10);
-    new_letter["rotation_angle"] = map(new_percent, 0, 80, oldObj["rotation_angle"], newObj["rotation_angle"]);
-    new_letter["rotation_angle1"] = map(new_percent, 0, 80, oldObj["rotation_angle1"], newObj["rotation_angle1"]);
   }
   else {
     new_percent = map(percent, amount_of_anticipation, 100, -10, 100);
@@ -97,6 +95,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "LENNART ",
-  "CAB?CAB?",
-  "1234567"
+  "SINUS123",
+  "CURVES02"
 ]
