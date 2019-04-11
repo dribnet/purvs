@@ -100,8 +100,6 @@ function drawLetter(posx, posy, letterData) {
   rect(posBX,posBY, size3x, size3y);
 
 
-
-
 }
 
 function draw () {

@@ -1,13 +1,25 @@
 const alphabet = {
   "default": {
-    "sizex": 30,
-  "sizey":30,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeB1x": 45,
+    "sizeB1y":90,
+
+    "sizeB2x": 60,
+    "sizeB2y":35,
+
+    "posB1x": 0,
+    "posB1y": 30,
+
+    "posB2x": 0,
+    "posB2y": 30,
+
+    "posB3x": 60,
+    "posB3y": 85,
+
+    "posB4x":30,
+    "posB4y":30
   },
 
   "A": {
-
     "sizeB1x": 30,
     "sizeB1y":30,
 
@@ -30,7 +42,7 @@ const alphabet = {
   },
 
   "B": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -50,7 +62,7 @@ const alphabet = {
 
   },
   "C": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -70,7 +82,7 @@ const alphabet = {
 
   },
   "D": {
-  "sizeB1x": 50,
+    "sizeB1x": 50,
     "sizeB1y":80,
 
     "sizeB2x": 50,
@@ -90,7 +102,7 @@ const alphabet = {
 
   },
   "E": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -110,7 +122,7 @@ const alphabet = {
 
   },
   "F": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -130,7 +142,7 @@ const alphabet = {
 
   },
   "G": {
-  "sizeB1x": 60,
+    "sizeB1x": 60,
     "sizeB1y":20,
 
     "sizeB2x": 20,
@@ -150,7 +162,7 @@ const alphabet = {
 
   },
   "H": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -170,7 +182,7 @@ const alphabet = {
 
   },
   "I": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -191,7 +203,7 @@ const alphabet = {
   },
 
   "J": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":45,
 
     "sizeB2x": 30,
@@ -211,8 +223,8 @@ const alphabet = {
 
   },
 
-    "K": {
-  "sizeB1x": 30,
+ "K": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 45,
@@ -231,8 +243,8 @@ const alphabet = {
     "posB4y":45
 
   },
-    "L": {
-  "sizeB1x": 30,
+ "L": {
+    "sizeB1x": 30,
     "sizeB1y":90,
 
     "sizeB2x": 30,
@@ -251,8 +263,8 @@ const alphabet = {
     "posB4y":0
 
   },
-    "M": {
-  "sizeB1x": 20,
+ "M": {
+    "sizeB1x": 20,
     "sizeB1y":75,
 
     "sizeB2x": 20,
@@ -271,8 +283,8 @@ const alphabet = {
     "posB4y":45
 
   },
-    "N": {
-  "sizeB1x": 20,
+ "N": {
+    "sizeB1x": 20,
     "sizeB1y":75,
 
     "sizeB2x": 20,
@@ -291,8 +303,8 @@ const alphabet = {
     "posB4y":0
 
   },
-    "O": {
-  "sizeB1x": 30,
+ "O": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -311,8 +323,8 @@ const alphabet = {
     "posB4y":45
 
   },
-    "P": {
-  "sizeB1x": 30,
+ "P": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 50,
@@ -331,8 +343,8 @@ const alphabet = {
     "posB4y":90
 
   },
-      "Q": {
-  "sizeB1x": 30,
+ "Q": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 80,
@@ -351,7 +363,7 @@ const alphabet = {
     "posB4y":90
 
   },
-      "R": {
+ "R": {
     "sizeB1x": 30,
     "sizeB1y":30,
 
@@ -371,8 +383,8 @@ const alphabet = {
     "posB4y":60
 
   },
-      "S": {
-  "sizeB1x": 60,
+ "S": {
+    "sizeB1x": 60,
     "sizeB1y":20,
 
     "sizeB2x": 60,
@@ -391,8 +403,8 @@ const alphabet = {
     "posB4y":80
 
   },
-      "T": {
-  "sizeB1x": 30,
+ "T": {
+    "sizeB1x": 30,
     "sizeB1y":90,
 
     "sizeB2x": 30,
@@ -411,8 +423,8 @@ const alphabet = {
     "posB4y":30
 
   },
-      "U": {
-  "sizeB1x": 30,
+ "U": {
+    "sizeB1x": 30,
     "sizeB1y":90,
 
     "sizeB2x": 10,
@@ -431,7 +443,7 @@ const alphabet = {
     "posB4y":100
 
   },
-      "V": {
+ "V": {
     "sizeB1x": 30,
     "sizeB1y":90,
 
@@ -451,8 +463,8 @@ const alphabet = {
     "posB4y":0
 
   },
-      "W": {
-  "sizeB1x": 20,
+ "W": {
+    "sizeB1x": 20,
     "sizeB1y":75,
 
     "sizeB2x": 20,
@@ -471,8 +483,8 @@ const alphabet = {
     "posB4y":0
 
   },
-      "X": {
-  "sizeB1x": 30,
+ "X": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -491,8 +503,8 @@ const alphabet = {
     "posB4y":45
 
   },
-      "Y": {
-  "sizeB1x": 30,
+"Y": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -511,8 +523,8 @@ const alphabet = {
     "posB4y":60
 
   },
-      "Z": {
-  "sizeB1x": 60,
+ "Z": {
+    "sizeB1x": 60,
     "sizeB1y":20,
 
     "sizeB2x": 60,
@@ -531,8 +543,8 @@ const alphabet = {
     "posB4y":80
 
   },
-   "0": {
-  "sizeB1x": 30,
+ "0": {
+    "sizeB1x": 30,
     "sizeB1y":60,
 
     "sizeB2x": 30,
@@ -551,8 +563,8 @@ const alphabet = {
     "posB4y":30
 
   },
-        "1": {
-  "sizeB1x": 30,
+ "1": {
+    "sizeB1x": 30,
     "sizeB1y":90,
 
     "sizeB2x": 30,
@@ -571,8 +583,8 @@ const alphabet = {
     "posB4y":0
 
   },
-        "2": {
-  "sizeB1x": 60,
+ "2": {
+    "sizeB1x": 60,
     "sizeB1y":60,
 
     "sizeB2x": 30,
@@ -591,8 +603,8 @@ const alphabet = {
     "posB4y":0
 
   },
-        "3": {
-  "sizeB1x": 60,
+ "3": {
+    "sizeB1x": 60,
     "sizeB1y":30,
 
     "sizeB2x": 60,
@@ -611,8 +623,8 @@ const alphabet = {
     "posB4y":75
 
   },
-      "4": {
-  "sizeB1x": 45,
+  "4": {
+    "sizeB1x": 45,
     "sizeB1y":45,
 
     "sizeB2x": 45,
@@ -631,8 +643,8 @@ const alphabet = {
     "posB4y":75
 
   },
-      "5": {
-  "sizeB1x": 90,
+ "5": {
+    "sizeB1x": 90,
     "sizeB1y":15,
 
     "sizeB2x": 90,
@@ -652,7 +664,7 @@ const alphabet = {
 
   },
   "6": {
-  "sizeB1x": 30,
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 90,
@@ -671,8 +683,8 @@ const alphabet = {
     "posB4y":0
 
   },
-   "7": {
-  "sizeB1x": 90,
+  "7": {
+    "sizeB1x": 90,
     "sizeB1y":90,
 
     "sizeB2x": 90,
@@ -691,8 +703,8 @@ const alphabet = {
     "posB4y":30
 
   },
-     "8": {
-  "sizeB1x": 30,
+ "8": {
+     "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 30,
@@ -711,8 +723,8 @@ const alphabet = {
     "posB4y":75
 
   },
-       "9": {
-  "sizeB1x": 30,
+ "9": {
+    "sizeB1x": 30,
     "sizeB1y":30,
 
     "sizeB2x": 60,
@@ -730,25 +742,5 @@ const alphabet = {
     "posB4x":0,
     "posB4y":70
 
-  },
-         "?": {
-  "sizeB1x": 45,
-    "sizeB1y":90,
-
-    "sizeB2x": 60,
-    "sizeB2y":35,
-
-    "posB1x": 0,
-    "posB1y": 30,
-
-    "posB2x": 0,
-    "posB2y": 30,
-
-    "posB3x": 60,
-    "posB3y": 85,
-
-    "posB4x":30,
-    "posB4y":30
-
-  },
+  }
 }

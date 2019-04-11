@@ -38,17 +38,20 @@ function drawLetter(letterData) {
   let pos4y = posy + letterData["posB4y"];
 
 
-  // draw two circles
+  //Drawing a letter
+
+  //Background base rectangle
   fill(colorFront1);
 
   rect(posx, posy, 120, 120);
 
+  //Front smaller rectangles
   fill(colorFront2);
 
   rect(pos1x, pos1y, size1x, size1y);
-   rect(pos2x,pos2y, size1x, size1y);
+  rect(pos2x,pos2y, size1x, size1y);
   rect(pos3x, pos3y, size2x,size2y);
-    rect(pos4x, pos4y, size2x, size2y);
+  rect(pos4x, pos4y, size2x, size2y);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
