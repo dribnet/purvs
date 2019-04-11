@@ -10,16 +10,16 @@ const alphabet = {
     "triY2" : 125,
     "triX3" : 41,
     "triY3" : 126,
-    "rectX" : 40,
-    "rectY" : 125,
-    "rectW" : 20,
-    "rectH" : 20,
-    "arcX" : 45,
-    "arcY" : 83,
-    "arcS" : PI+HALF_PI - HALF_PI/2, 
-    "arcE": PI - HALF_PI,
-    "arcW" : 60,
-    "arcH" : 60
+    "rectX" : 30,
+    "rectY" : 55,
+    "rectW" : 25,
+    "rectH" : 70,
+    "arcX" : 43,
+    "arcY" : 142,
+    "arcS" : 0,
+    "arcE" : TWO_PI,
+    "arcW" : 20,
+    "arcH" : 20
     },
 
   "A": {
@@ -471,11 +471,11 @@ const alphabet = {
     "rectW" : 1,
     "rectH" : 1,
     "arcX" : 50,
-    "arcY" : 52,
+    "arcY" : 55,
     "arcS" : TWO_PI,
     "arcE" : PI,
     "arcW" : 75,
-    "arcH" : 90
+    "arcH" : 80
   },
 
   "Y": {
@@ -704,6 +704,25 @@ const alphabet = {
     "arcE" : TWO_PI,
     "arcW" : 65,
     "arcH" : 65
+   },
+
+   "?": {
+    "triX1" : 40,
+    "triY1" : 125,
+    "triX2" : 40,
+    "triY2" : 125,
+    "triX3" : 41,
+    "triY3" : 126,
+    "rectX" : 40,
+    "rectY" : 125,
+    "rectW" : 20,
+    "rectH" : 20,
+    "arcX" : 45,
+    "arcY" : 83,
+    "arcS" : PI+HALF_PI - HALF_PI/2, 
+    "arcE": PI - HALF_PI,
+    "arcW" : 60,
+    "arcH" : 60
    }
 
 }

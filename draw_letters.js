@@ -71,7 +71,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "FACEBOOK",
-  "12345678?",
+  "CALENDAR",
   "THURSDAY"
 ]
 
