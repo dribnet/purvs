@@ -26,4 +26,4 @@ The three parameters per letter:
   * "triY2B" : third Y-coordinate of each triangle
   *	"triX2B" : third X-coordinate of each triangle
 
-  A Retro/Tricolore type color scheme, inspired by the 1970's olympic logo/colour palette.
+  A more somber blueish background, inspired by the Memphis Group
