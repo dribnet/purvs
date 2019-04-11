@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#7ea3dd";
+const colorFront1 = "#1677bc";
+const colorFront2 = "#32c9b7";
+
 
 /*
  * Draw the letter given the letterData
@@ -10,51 +10,46 @@ const colorStroke  = "#7ea3dd";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-stroke(colorFront2);
-strokeWeight(5);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = letterData["offsetx"];
-  let pos2y = letterData["offsety"];
-
-noFill();
-  triangle(letterData["v1x"],letterData["v1y"],letterData["v2x"],letterData["v2y"],letterData["v3x"],letterData["v3y"]);
-  triangle(letterData["v4x"],letterData["v4y"],letterData["v5x"],letterData["v5y"],letterData["v6x"],letterData["v6y"]);
-  noFill();
-stroke(colorFront1);
-  triangle(letterData["v7x"],letterData["v7y"],letterData["v8x"],letterData["v8y"],letterData["v9x"],letterData["v9y"]);
+    // color/stroke setup
+    stroke(colorFront2);
+    strokeWeight(5);
+    noFill();
+    // A and B triangles
+    triangle(letterData["Av1x"], letterData["Av1y"], letterData["Av2x"], letterData["Av2y"], letterData["Av3x"], letterData["Av3y"]);
+    triangle(letterData["Bv1x"], letterData["Bv1y"], letterData["Bv2x"], letterData["Bv2y"], letterData["Bv3x"], letterData["Bv3y"]);
+    // C triangle
+    stroke(colorFront1);
+    triangle(letterData["Cv1x"], letterData["Cv1y"], letterData["Cv2x"], letterData["Cv2y"], letterData["Cv3x"], letterData["Cv3y"]);
 
 
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["v1x"] = map(percent, 0, 100, oldObj["v1x"], newObj["v1x"]);
-  new_letter["v1y"] = map(percent, 0, 100, oldObj["v1y"], newObj["v1y"]);
-    new_letter["v2x"] = map(percent, 0, 100, oldObj["v2x"], newObj["v2x"]);
-  new_letter["v2y"] = map(percent, 0, 100, oldObj["v2y"], newObj["v2y"]);
-    new_letter["v3x"] = map(percent, 0, 100, oldObj["v3x"], newObj["v3x"]);
-  new_letter["v3y"] = map(percent, 0, 100, oldObj["v3y"], newObj["v3y"]);
-    new_letter["v4x"] = map(percent, 0, 100, oldObj["v4x"], newObj["v4x"]);
-  new_letter["v4y"] = map(percent, 0, 100, oldObj["v4y"], newObj["v4y"]);
-    new_letter["v5x"] = map(percent, 0, 100, oldObj["v5x"], newObj["v5x"]);
-  new_letter["v5y"] = map(percent, 0, 100, oldObj["v5y"], newObj["v5y"]);
-    new_letter["v6x"] = map(percent, 0, 100, oldObj["v6x"], newObj["v6x"]);
-  new_letter["v6y"] = map(percent, 0, 100, oldObj["v6y"], newObj["v6y"]);
-    new_letter["v7x"] = map(percent, 0, 100, oldObj["v7x"], newObj["v7x"]);
-  new_letter["v7y"] = map(percent, 0, 100, oldObj["v7y"], newObj["v7y"]);
-    new_letter["v8x"] = map(percent, 0, 100, oldObj["v8x"], newObj["v8x"]);
-  new_letter["v8y"] = map(percent, 0, 100, oldObj["v8y"], newObj["v8y"]);
-    new_letter["v9x"] = map(percent, 0, 100, oldObj["v9x"], newObj["v9x"]);
-  new_letter["v9y"] = map(percent, 0, 100, oldObj["v9y"], newObj["v9y"]);
-  return new_letter;
+    let new_letter = {};
+    new_letter["Av1x"] = map(percent, 0, 100, oldObj["Av1x"], newObj["Av1x"]);
+    new_letter["Av1y"] = map(percent, 0, 100, oldObj["Av1y"], newObj["Av1y"]);
+    new_letter["Av2x"] = map(percent, 0, 100, oldObj["Av2x"], newObj["Av2x"]);
+    new_letter["Av2y"] = map(percent, 0, 100, oldObj["Av2y"], newObj["Av2y"]);
+    new_letter["Av3x"] = map(percent, 0, 100, oldObj["Av3x"], newObj["Av3x"]);
+    new_letter["Av3y"] = map(percent, 0, 100, oldObj["Av3y"], newObj["Av3y"]);
+    new_letter["Bv1x"] = map(percent, 0, 100, oldObj["Bv1x"], newObj["Bv1x"]);
+    new_letter["Bv1y"] = map(percent, 0, 100, oldObj["Bv1y"], newObj["Bv1y"]);
+    new_letter["Bv2x"] = map(percent, 0, 100, oldObj["Bv2x"], newObj["Bv2x"]);
+    new_letter["Bv2y"] = map(percent, 0, 100, oldObj["Bv2y"], newObj["Bv2y"]);
+    new_letter["Bv3x"] = map(percent, 0, 100, oldObj["Bv3x"], newObj["Bv3x"]);
+    new_letter["Bv3y"] = map(percent, 0, 100, oldObj["Bv3y"], newObj["Bv3y"]);
+    new_letter["Cv1x"] = map(percent, 0, 100, oldObj["Cv1x"], newObj["Cv1x"]);
+    new_letter["Cv1y"] = map(percent, 0, 100, oldObj["Cv1y"], newObj["Cv1y"]);
+    new_letter["Cv2x"] = map(percent, 0, 100, oldObj["Cv2x"], newObj["Cv2x"]);
+    new_letter["Cv2y"] = map(percent, 0, 100, oldObj["Cv2y"], newObj["Cv2y"]);
+    new_letter["Cv3x"] = map(percent, 0, 100, oldObj["Cv3x"], newObj["Cv3x"]);
+    new_letter["Cv3y"] = map(percent, 0, 100, oldObj["Cv3y"], newObj["Cv3y"]);
+    return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+    "TRIANGLE",
+    "THEOBALD",
+    "12345678"
 ]
