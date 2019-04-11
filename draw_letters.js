@@ -10,7 +10,7 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // determine parameters for second circle
+  // load data for first wave
   let heightY = letterData["heightY"];
   let widthX = letterData["widthX"];
   let rotation_angle = letterData["rotation_angle"];
@@ -18,11 +18,10 @@ function drawLetter(letterData) {
   let Blength = letterData["Blength"];
   let offsetY = letterData["offsetY"];
   let offsetX = letterData["offsetX"];
-
   // convert rotation
   var rotation = (rotation_angle/180)*Math.PI
 
-
+  // load data for second wave
   let heightY1 = letterData["heightY1"];
   let widthX1 = letterData["widthX1"];
   let rotation_angle1 = letterData["rotation_angle1"];
@@ -30,38 +29,35 @@ function drawLetter(letterData) {
   let Blength1 = letterData["Blength1"];
   let offsetY1 = letterData["offsetY1"];
   let offsetX1 = letterData["offsetX1"];
-
   // convert rotation
   var rotation1 = (rotation_angle1/180)*Math.PI
 
-
+  // first wave only passing fill attributes to second wave over as well
   fill(0,0,0,0);
   stroke(colorFront1);
   strokeWeight(8);
   beginShape();
   for(var i = -Blength; i < length; i++) { // defines the length and how many points there are
-    var x1 = (i * widthX);
-    var y1 = (cos(i * radians(2)) * heightY);
+    var x1 = (i * widthX); // width of cosinus wave
+    var y1 = (cos(i * radians(2)) * heightY); //height of cosinus wave
     var x = x1 * cos(rotation) - y1 * sin(rotation) + offsetX +50;
     var y = (y1 * cos(rotation) + x1 * sin(rotation)) +heightY + offsetY;
     vertex(x, y);
   }
-
   endShape();
+
+  // second wave
   stroke(colorFront2);
   beginShape();
-
   for(var i = -Blength1; i < length1; i++) { // defines the length and how many points there are
-    var x3 = (i * widthX1);
-    var y3 = (cos(i * radians(2)) * heightY1);
+    var x3 = (i * widthX1); // width of cosinus wave
+    var y3 = (cos(i * radians(2)) * heightY1); //height of cosinus wave
     var x2 = x3 * cos(rotation1) - y3 * sin(rotation1) + offsetX1+50;
     var y2 = (y3 * cos(rotation1) + x3 * sin(rotation1)) + heightY1 + offsetY1;
     vertex(x2, y2);
   }
   endShape();
-
 }
-
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -93,8 +89,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
+
 var swapWords = [
   "LENNART ",
-  "SINUS123",
+  "COSINUS ",
   "CURVES02"
 ]

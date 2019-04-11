@@ -1,5 +1,4 @@
-
-
+          
 # PS2 MDDN 242 2019
 ## Concept
 My concept is to have two cosinus curves wich can be manipulated in the height, width, length, offset and the rotationangle. I mainly chose to work with cosinus curves as I wanted to have an technical challange while designing the letters. 
