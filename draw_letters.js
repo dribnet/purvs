@@ -1,3 +1,7 @@
+const colorFront1  = "#FFBFDC";
+const colorFront2  = "#E60066";
+const colorStroke  = "#E60066";
+
 /*
  * Draw the letter given the letterData
  *
@@ -5,55 +9,37 @@
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+const parameters = {
+  //"size": 50,
+  "width": 50,
+  "height": 100,
+  "c2offsetx": 130,
+  "c2offsety": 210,
+  "c3offsetx": 130,
+  "c3offsety": 195
+}
+
 function drawLetter(letterData) {
-let w =100;
-let h = 200;
+  // color/stroke setup
+  stroke(colorStroke);
+  strokeWeight(3.5);
 
-let r1x = letterData["r1x"];
-let r1y = letterData["r1y"];
-let r2x = letterData["r2x"];
-let r2y = letterData["r2y"];
-let r3x = letterData["r3x"];
-let r3y = letterData["r3y"];
-let r4x = letterData["r4x"];
-let r4y = letterData["r4y"];
+  // determine parameters for second circle
+  //let size2 = letterData["size"];
+  let w = letterData["width"];
+  let h = letterData["height"];
+  let c2posx = 50 + letterData["c2offsetx"];
+  let c2posy = 150 + letterData["c2offsety"];
+  let c3posx = 50 + letterData["c3offsetx"];
+  let c3posy = 150 + letterData["c3offsety"];
 
-let t1x = letterData["t1x"];
-let t1y = letterData["t1y"];
-let t2x = letterData["t2x"];
-let t2y = letterData["t2y"];
-let t3x = letterData["t3x"];
-let t3y = letterData["t3y"];
-
-fill(30, 30, 30, 200);
-noStroke();
-beginShape();
-  curveVertex(r1x, r1y);
-  curveVertex(r2x, r2y);
-  curveVertex(r3x, r3y);
-  curveVertex(r4x, r4y);
-  curveVertex(r1x, r1y);
-  curveVertex(r2x, r2y);
-  curveVertex(r3x, r3y);
-  curveVertex(r4x, r4y);  
-
-endShape(CLOSE);
-
-
-
-fill(30, 30, 30, 200);
-noStroke();
-beginShape();
-  curveVertex(t1x, t1y);
-  curveVertex(t2x, t2y);
-  curveVertex(t3x, t3y);
-  curveVertex(t1x, t1y);
-  curveVertex(t2x, t2y);
-  curveVertex(t3x, t3y);
-
-
-endShape(CLOSE);
-
+  // draw two circles
+  fill(colorFront1);
+  ellipse(50, 150, 75, 75);
+  fill(colorFront2);
+  ellipse(c2posx, c2posy, letterData["width"], letterData["height"]);
+  ellipse(c3posx, c3posy, letterData["width"], letterData["height"]);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
