@@ -38,13 +38,13 @@ const letterB = {
   "arc2Start": 270,
   "arc2Stop": 90,
   "arc2Size": 50,
-  "offsetX1": -25,
+  "offsetX1": -0,
   "offsetY1": -25,
-  "offsetX2": -25,
+  "offsetX2": -0,
   "offsetY2": 25,
-  "lineX1": -30,
+  "lineX1": -20,
   "lineY1": 50,
-  "lineX2": -30,
+  "lineX2": -20,
   "lineY2": -50
 }
 

@@ -12,31 +12,32 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  stroke(199, 208, 221);
+  strokeWeight(3);
+  noFill();
 
-  // determine parameters for second circle
-  let size1 = letterData["size"] + 70;
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-  let start = letterData["arcStart"];
-  let stop = letterData["arcStop"];
-  
-  let bigArc = letterData["bigArc"];
-  if(bigArc) size1 = 100;
-  
-  let arcMode = letterData["arcMode"];
+  //determine parameters
+  let arc1Start = letterData["arc1Start"];
+  let arc1Stop = letterData["arc1Stop"];
+  let arc1Size = letterData["arc1Size"];
+  let arc2Start = letterData["arc2Start"];
+  let arc2Stop = letterData["arc2Stop"];
+  let arc2Size = letterData["arc2Size"];
+  let lineX1 = letterData["lineX1"];
+  let lineY1 = letterData["lineY1"];
+  let lineX2 = letterData["lineX2"];
+  let lineY2 = letterData["lineY2"];
+  let offsetX1 = letterData["offsetX1"];
+  let offsetY1 = letterData["offsetY1"];
+  let offsetX2 = letterData["offsetX2"];
+  let offsetY2 = letterData["offsetY2"];
   
 
   // draw two arcs
-  fill(colorFront1[0], colorFront1[1], colorFront1[2], 255);
-  if(arcMode == "PIE") arc(50, 100, size1, size1, radians(start), radians(stop), PIE);
-  else arc(50, 100, size1, size1, radians(start), radians(stop), CHORD);
+  arc(50 + offsetX1, 100 + offsetY1, arc1Size, arc1Size, radians(arc1Start), radians(arc1Stop));
+  arc(50 + offsetX2, 100 + offsetY2, arc2Size, arc2Size, radians(arc2Start), radians(arc2Stop));
+  line(50 + lineX1, 100 + lineY1, 50 + lineX2, 100 + lineY2);
 
-  fill(colorFront2[0], colorFront2[1], colorFront2[2], 160);
-  if(arcMode == "PIE") arc(pos2x, pos2y, size2, size2, radians(start), radians(stop), PIE);
-  else arc(pos2x, pos2y, size2, size2, radians(start), radians(stop), CHORD);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -45,12 +46,13 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsetx"]  = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"]  = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["arcStart"] = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
-  new_letter["arcStart"] = map(percent, 0, 100, oldObj["arcStop"], newObj["arcStop"]);
+  new_letter["arcStop"] = map(percent, 0, 100, oldObj["arcStop"], newObj["arcStop"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MIDNIGHT",
+  "EPICNICE",
+  "THANKS34"
 ]
