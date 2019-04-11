@@ -2,8 +2,10 @@
  * Here are some things you can edit
  */
 const colorBack    = "#e3eded";
-const colorFront   = "#199cff";
+  const colorFront2  = "#900C3F";
+  const colorFront1  = "#581845";
 const colorLines   = "#000090";
+
 
 /* 
  * do not edit this rest of this file, instead edit the letter
