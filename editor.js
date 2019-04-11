@@ -10,10 +10,8 @@ function sliderToDataObject() {
   obj["sizeB1y"] = map(param_sliders[1].value(), 0, 100, 0, 90);
   obj["sizeB2x"] = map(param_sliders[2].value(), 0, 100, 0, 90);
   obj["sizeB2y"] = map(param_sliders[3].value(), 0, 100, 0, 90);
- 
   obj["posB1x"] = map(param_sliders[4].value(), 0, 100, 0, 90);
   obj["posB1y"] = map(param_sliders[5].value(), 0, 100, 0, 90);
-
   obj["posB2x"] = map(param_sliders[6].value(), 0, 100, 0, 90);
   obj["posB2y"] = map(param_sliders[7].value(), 0, 100, 0, 90);
   obj["posB3x"] = map(param_sliders[8].value(), 0, 100, 0, 90);

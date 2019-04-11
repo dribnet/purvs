@@ -1,4 +1,4 @@
-const colorFront1  = "#ff99f3";
+const colorFront1  = "#FFA45B";
 const colorFront2  = "#99eeff";
 const colorStroke  = "#99eeff";
 
@@ -66,11 +66,12 @@ function interpolate_letter(percent, oldObj, newObj) {
      new_letter["posB4x"]    = map(percent, 0, 100, oldObj["posB4x"], newObj["posB4x"]);
   new_letter["posB4y"]    = map(percent, 0, 100, oldObj["posB4y"], newObj["posB4y"]);
   
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "CUBEFONT",
+  "MUSHROOM",
+  "ABSOLUTE"
 ]
