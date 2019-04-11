@@ -25,6 +25,7 @@ function sliderToDataObject() {
   obj["point3_y"] = points[2].y;
   obj["point4_x"] = points[3].x;
   obj["point4_y"] = points[3].y;
+  obj["offset"] = 0;
   return obj;
 }
 
@@ -62,7 +63,7 @@ function setup () {
   }
 
   for (let i = 0; i < 4; i++) {
-    points.push({x : 0, y : 0});
+    points.push({x : random(25, 75), y : random(75, 125)});
   }
 
   button = createButton('show data');

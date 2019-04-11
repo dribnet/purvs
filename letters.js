@@ -7,7 +7,8 @@ const alphabet = {
     "point3_x": 19,
     "point3_y": 150,
     "point4_x": 75,
-    "point4_y": 151
+    "point4_y": 151,
+    "offset": 0
   },
   "A": {
     "point1_x": 87,
@@ -17,7 +18,8 @@ const alphabet = {
     "point3_x": 37.5,
     "point3_y": 115,
     "point4_x": 68.5,
-    "point4_y": 116
+    "point4_y": 116,
+    "offset": 0
   },
   "B": {
     "point1_x": 27,
@@ -27,7 +29,8 @@ const alphabet = {
     "point3_x": 25.5,
     "point3_y": 185.5,
     "point4_x": 73,
-    "point4_y": 157
+    "point4_y": 157,
+    "offset": 0
   },
   "C": {
     "point1_x": 84.5,
@@ -37,7 +40,8 @@ const alphabet = {
     "point3_x": 15,
     "point3_y": 126.5,
     "point4_x": 20,
-    "point4_y": 179.5
+    "point4_y": 179.5,
+    "offset": 0
   },
   "D": {
     "point1_x": 73,
@@ -47,7 +51,8 @@ const alphabet = {
     "point3_x": 21,
     "point3_y": 164,
     "point4_x": 66.5,
-    "point4_y": 186
+    "point4_y": 186,
+    "offset": 0
   },
 
 };
