@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-current progress. Making the alphabet.
+Have cleaned up some of the positions of the rectangles. Also have gotten the interpolation working for the interaction and exibition.
 
 The 12 parameters per letter:
 

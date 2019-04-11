@@ -26,26 +26,51 @@ function drawLetter(letterData) {
 
   push();
   strokeWeight(18);
+  stroke(255, 214, 130);
   line(lin2x, lin2y, lin2xx, lin2yy);
   line(lin3x , lin3y, lin3xx, lin3yy);
   pop();
 
+  push();
+  strokeWeight(25);
+  stroke(255, 214, 100,80);
+  line(lin2x, lin2y, lin2xx, lin2yy);
+  line(lin3x , lin3y, lin3xx, lin3yy);
+  pop();
 
-  rect(pos1x, pos1y, 30, 30,5);
-  rect(pos2x, pos2y, 30, 30,5);
+  strokeWeight(2);
+  stroke(255, 214, 130);
+  fill(255, 238, 204);
+  rect(pos1x, pos1y, 22, 22,5);
+  rect(pos2x, pos2y, 22, 22,5);
+
+  strokeWeight(3);
+  stroke(255, 214, 130);
+  fill(255, 231, 183,99);
+  rect(pos1x, pos1y, 27, 27,5);
+  rect(pos2x, pos2y, 27, 27,5);
  
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["lineX"]    = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
+  new_letter["lineY"] = map(percent, 0, 100, oldObj["lineY"], newObj["lineY"]);
+  new_letter["lineXX"] = map(percent, 0, 100, oldObj["lineXX"], newObj["lineXX"]);
+  new_letter["lineYY"] = map(percent, 0, 100, oldObj["lineYY"], newObj["lineYY"]);
+  new_letter["lineX2"] = map(percent, 0, 100, oldObj["lineX2"], newObj["lineX2"]);
+  new_letter["lineY2"] = map(percent, 0, 100, oldObj["lineY2"], newObj["lineY2"]);
+  new_letter["lineXX2"] = map(percent, 0, 100, oldObj["lineXX2"], newObj["lineXX2"]);
+  new_letter["lineYY2"] = map(percent, 0, 100, oldObj["lineYY2"], newObj["lineYY2"]);
+  new_letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "KEEGAN D",
+  "KEEGAN D",
+  "KEEGAN D"
 ]
