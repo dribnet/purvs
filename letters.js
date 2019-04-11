@@ -15,9 +15,18 @@ const sixy = 180;
 
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "p1x": twox,
+    "p1y": twoy,
+    "p2x": sixx,
+    "p2y": sixy,
+    "p3x": twox,
+    "p3y": twoy,
+    "p4x": onex,
+    "p4y": oney,
+    "p5x": onex,
+    "p5y": oney,
+    "p6x": fivex,
+    "p6y": fivey
   },
 
 //P1 = 25, 20
@@ -577,21 +586,7 @@ const alphabet = {
     "p6x": twox,
     "p6y": twoy
   },
-  //null character
-  "?": {
-    "p1x": twox,
-    "p1y": twoy,
-    "p2x": sixx,
-    "p2y": sixy,
-    "p3x": twox,
-    "p3y": twoy,
-    "p4x": onex,
-    "p4y": oney,
-    "p5x": onex,
-    "p5y": oney,
-    "p6x": fivex,
-    "p6y": fivey
-  }
+  
 
 
 }

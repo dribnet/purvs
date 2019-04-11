@@ -1,14 +1,29 @@
-## PS2 MDDN 242 2019
+## PS2 MDDN 242 FINAL PROJECT 2 2019
 
-Updated my code so that the exhibition displays my font and selected words. I decided to call the font stardust as the final product reminds me a bit of Bowie with the colour scheme and stars (also it was 8 letters...) Think I am almost ready for hand in but I'm going to go through it and touch up things before the hand in tomorrow.
+My original concept for my font was inspired by the Project One clocks we had just completed. I was inspired by the idea of creating a for that looked like a digital clock. I liked the idea of the letters being very angular and being created by joining lines from six constant points.  Originally, I achieved this by using six fixed points and seven parameters (each representing a line between two of the points) which acted as Booleans which I assigned either 1 - true (i.e. there is a line between these points) or 0 – false (i.e. there is no line between these two points.) I then used if statements to draws depending on whether the parameter in letterData was true or false. 
 
-My concept for my font has changed a little from my original idea. After playing around with the parameters and different shape objects for the connecting dots I found that I really liked how the starts looked and instead of making a neon kind of font I thought it would be cool to incorporate the idea of constellations into my font as the lines connecting the star points remind me of constellations. I have changed some of my letters to make them more angular and interesting but still have some polishing to do for the appearance and interaction. 
+I managed to create each letter in this way, but my original design was very simple and unoriginal. I decided I wanted my fonts aesthetic to be inspired by neon signs as that is what the shapes reminded me of. I worked on this through the colour and slant of the font as well as drawing a thinner, darker line on top of a thicker one to create a ‘glow’ effect.  I struggled a little bit on some letters, such as M and W to make clear shapes out of the six points, but these ended up being some of my favourite letter designs. When I added the interpolation I realised that the parameters I was using were not effective to show the changes between the characters and show the interaction. I changed my parameters to 12 parameters that are the x and y points that each fixed point should draw a line to. This allows for a smoother interpolation which showed the changes between each letter. 
 
+I then realised that the movement and shapes of my letters reminded me of constellations and shooting stars so I made the fixed points into star shapes. I tried to do them individually but I found it easier in the end to draw one star and use transformation matrices rather than changing each vertex of the shape individually. I then changed the stars to move with the lines rather than remain fixed points as I thought this looked cooler in the interpolation and played into the shooting star idea a bit more. My final touches were finding a colour palette that reflected the neon idea and looked striking and then I re shaped a couple of the letters to have a more obvious style among the letters. I decided to call my font stardust as the aesthetic and colour of my final font reminded me of band logos and of David Bowie’s iconography.
 
-I changed my parameters from boolean to parameters that allow for the interpolation to work more effectively. The style still needs some work because it is very basic and I need to work out how to remove the unused dots. I currently have 12 parameters per letter which denote the x and y coordinates that each point will go to.
+Points:
+Point 1 - top left
+Point 2 - top right
+Point 3 - middle left
+Point 4 - middle right
+Point 5 - bottom left
+Point 6 - bottom right
 
-In the drawing function I have line(start Point x, start Poing y, end point x parameter, end point y parameter) for each of the six points. I took inspiration from the example we were shown of the machine created in real life where the bars that connected the points changed angles to create the different lectures. I still need to do the numbers and the null character. 
-
-My parameters are 
-
-p1x, p1y, p2x, p2y, p3x, pxy, p4x, p4y, p5x, p5y, p6x, p6y
+My final 8 parameters are:
+	"p1x": end of line x value from point 1,
+    "p1y": end of line y value from point 1,
+    "p2x": end of line x value from point 2,
+    "p2y": end of line y value from point 2,
+    "p3x": end of line x value from point 3,
+    "p3y": end of line y value from point 3,
+    "p4x": end of line x value from point 4,
+    "p4y": end of line y value from point 4,
+    "p5x": end of line x value from point 5,
+    "p5y": end of line y value from point 5,
+    "p6x": end of line x value from point 6,
+    "p6y": end of line y value from point 6,
