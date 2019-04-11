@@ -1,12 +1,26 @@
 ## PS2 MDDN 242 2019
 
-Part 2: Alphabet
+Matchstick Alphabet
 
-I have almost finished all the work, but the animation is still not very smooth. You can see that the first match is always hanging in the air, but I also want to show that it is a jumping feeling.
-Like a flame jumps to its place and forms a new letter.
+Rain Ba
+
+When I first learned this project, I wanted to make some different shapes of boxes to represent letters, but I thought it was too abstract.
+
+I always hope that the final effect will be interesting and will not be confusing. When I was a child, my friends with me would be taken a
+matchstick to make all kinds of plane figures or three-dimensional figures, which was the source of my idea, so I choose the matchstick element. 
+I used the color of the matchstick itself to express the theme more visually.
+
+Before started coding, I made some sketches on the paper because the number of strokes of each letter was different. So I finally chose the quantity of four matches, 
+because it could satisfy the most complex letters. The initial sketches went quite well until they were edited and there were some problems such as misaligned angles, 
+insufficient length, and misaligned positions. In the later stage, I tried to adjust the position as much as possible to fit the feeling or change the original idea to make new letters.
+
+
+As far as animation is concerned, I think these matchsticks are endowed with life, and they transform into another letter in the continuous jump. 
+It was written at the very beginning that when I was a child, I often used matches to make patterns, so the last words I spelled included "fireworks", "children" and "hometown". 
+Here can also express a childlike mood.
+
+
   
-
-
 The twelve parameters per letter:
 
   let posX1 = letterData["X1"];

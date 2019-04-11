@@ -13,25 +13,25 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 50,
-  "offsetx": 65,
-  "offsety": 45
+  "size": 30,
+  "offsetx": 0,
+  "offsety": 120
 }
 
 const letterB = {
-  "size": 150,
+  "size":40 ,
   "offsetx": 0,
-  "offsety": 100
+  "offsety": 110,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 50,
+  "offsetx": 0,
+  "offsety": 100,
 }
 
 const colorFront1  = "#212F3D";
-const colorFront2  = "#AEB6BF";
+const colorFront2  = "#ffffff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
