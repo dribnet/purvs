@@ -2,7 +2,7 @@
 
 Helen Perkins
 
-Trying out a total new much higher contrast colour scheme. I like the contrast but I do not like it as much as my previous blue/pink because I feel those softer colours are much better at catching the sort of playful aesthetic I am going for so I will go back to them.
+I have named my font! "Cubefont". I feel this define the style, as the entire alphabet is composed of cubes and this is still visable in the final version of the alphabet as each letter conforms to similar cubes. 
 
 Parameters:
 

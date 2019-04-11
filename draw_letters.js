@@ -72,6 +72,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "CUBEFONT",
-  "MUSHROOM",
-  "ABSOLUTE"
+  "NEGATIVE",
+  "POSITIVE"
 ]
