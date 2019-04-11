@@ -1,8 +1,7 @@
 ## PS2 MDDN 242 2019
 
 ## Morse Code Alphabets
-
-I've tested out some colours for my code and decided to keep the contrast between the orange and blue. I also tried to add some annimation to my letters like for them to look more fluid, but I haven't figured that out and will be looking deeper into that.
+With Tom's help, I managed to make the animations I want to make fore my code. I'm trying to think of a name for the font. 
 
 20 parameters per letter, 4 for each ellipse of one alphabet:
 	"ballposx"
