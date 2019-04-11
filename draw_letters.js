@@ -503,7 +503,7 @@ function interpolate_letter(percent, oldObj, newObj) {
    colorMid = color(map(percent, 0, 100, 0, 340, true), 100, 67);
    colorLight = color(map(percent, 0, 100, 0, 340, true), 100, 82.35);
   */ 
-  /*
+  
   if(percent < 50){
    colorDark = lerpColor(color(321, 62, 53), color(map(percent, 0, 100, 0, 540, true), 62, 53), (percent/100)*2);
    colorMid = lerpColor(color(321, 100, 67.45), color(map(percent, 0, 100, 0, 540, true), 100, 67.45), (percent/100)*2);
@@ -514,7 +514,7 @@ function interpolate_letter(percent, oldObj, newObj) {
    colorMid = lerpColor(color(map(percent, 0, 100, 0, 540, true), 100, 67.45), color(321, 100, 67.45),  (percent/100));
    colorLight = lerpColor(color(map(percent, 0, 100, 0, 540, true), 100, 82.35), color(321, 100, 82.35),  (percent/100));
   }
-  */
+  
   
   
   //colorDark = "#d13e9d"; -> #653ed1
