@@ -1,19 +1,12 @@
 ## PS2 MDDN 242 2019
 
-Interpolation
+Exhibition
 
 
-I integrated my alphabet in to the interpolation code, adding the 10 parameters to the interpolate_letter function. As the pale blue square is fixed, it is just the smaller, darker blue squares that are animating. I am reasonably happy with how the animations look so I don't think I'll be changing anything.
-
-The ten parameters are:
-  * `primary_size` : diameter of the primary and fourth rectangles
-  * `secondary_size` : diameter of the second and third rectangles
-  * `prim_offsetx` : x offset of the primary rectangle relative to the first one
-  * `prim_offsety` : y offset of the primary rectangle relative to the first one
-  * `sec_offsetx` : x offset of the secondary rectangle relative to the first one
-  * `sec_offsety` : y offset of the secondary rectangle relative to the first one
-  * `third_offsetx` : x offset of the third rectangle relative to the first one
-  * `third_offsety` : y offset of the third rectangle relative to the first one
-  * `fourth_offsetx` : x offset of the fourth rectangle relative to the first one
-  * `fourth_offsety` : y offset of the fourth rectangle relative to the first one
-
+I edited the exhibition code to fit my alphabet. 
+The words I entered into the swapWords variable are:
+  OLDFOGEY -The name of the font. Old Fogey is an old nickname for someone who is a bit conservative or 'square', and I thought it would be a fun thing to name my square font.
+   SQUARE  -'Square Font',
+    FONT   -Describes the font.
+  MAIAHILL -My name.
+  LETS GO? -A prompt to start typing. Also shows off the '?'.
