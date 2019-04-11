@@ -10,6 +10,8 @@ const alphabet = {
     "height": 50,
     "c2offsetx": 3,
     "c2offsety": 10,
+    "c4offsetx": 3,
+    "c4offsety": 10,
   },
   "B": {
     "width": 30,
@@ -18,6 +20,8 @@ const alphabet = {
     "c2offsety": 8,
     "c3offsetx": 10,
     "c3offsety": -18,
+    "c4offsetx": 10,
+    "c4offsety": -18,
   },
   "C": {
     "width": 50,

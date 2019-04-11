@@ -23,10 +23,9 @@ const parameters = {
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(3.5);
+  strokeWeight(4);
 
-  // determine parameters for second circle
-  //let size2 = letterData["size"];
+
   let w = letterData["width"];
   let h = letterData["height"];
   let c2posx = 50 + letterData["c2offsetx"];
@@ -44,14 +43,24 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["width"]  = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  new_letter["height"] = map(percent, 0, 100, oldObj["height"], newObj["height"]);
+  new_letter["c2offsetx"] = map(percent, 0, 100, oldObj["c2offsetx"], newObj["c2offsetx"]);
+  new_letter["c2offsety"] = map(percent, 0, 100, oldObj["c2offsety"], newObj["c2offsety"]);
+  new_letter["c3offsetx"] = map(percent, 0, 100, oldObj["c3offsetx"], newObj["c3offsetx"]);
+  new_letter["c3offsety"] = map(percent, 0, 100, oldObj["c3offsety"], newObj["c3offsety"]);
+    
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "YAAAAAAS",
+  "BLIZZARD",
+  "SIZZLING",
+  "BIRTHDAY",
+  "COLORFUL",
+  "CONSTANT",
+  "CROSSING",
+  "DESIGNER",
+  "MOVEMENT",
 ]
