@@ -2,7 +2,7 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Startng to adapt code into my own design. I have decided to use ellipses and explore different ways I can change the width and height to execute each letter. I ran into quite a few problems with this sketch up, but managed to solve them by trailling many different solutions and even extracting code from my peers and online sources.
 
 The three parameters per letter:
   * `size` : radius of the second circle
