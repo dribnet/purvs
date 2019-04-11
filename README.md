@@ -2,9 +2,9 @@
 
 Helen Perkins
 
-I have finished all the letters/numbers/default! I will still most likely tweak things, such as the 2 in the future but I am also happy with how it sits at this stage. Next I plan to experiment with colour choices and then move on to fine tuning the interpolisation/interaction. Everything in this commit conforms to the below parameters so in total my system requires 12 parameters.
+Now that I was happy with the forms of my alphabet/numbers I have experimented with some colour palettes and changed it up quite a bit. I have made the stroke and fill colour of the smaller boxes the same colour as the background, because this gives the illusion of there being no small boxes overlapping the large boxes at all, and instead looks like holes cut out of squares which was a look I was going for all along. I think this change has made my alphabet significantly more legible. I have also removed the yellow and at the moment I am using a pink/blue colour scheme though I plan to experiment with this a bit more. I want my colour scheme to be playful and fun rather then the standard black text on a white background.
 
-New parameters:
+Parameters:
 
   * `sizeB1x` : size of x length of two of the smaller boxes
   * `sizeB1y` : size of y length of two of the smaller boxes
