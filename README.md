@@ -23,4 +23,4 @@ The parameters are the X and Y positions of the vertexes.
   * `point6x` : X position of the 6th point
   * `point6y` : Y position of the 6th point
 
-  Thanks to Tom White for the help with the minor modification to the exhibition.html.
+Thanks to Tom White for the help with the minor modification to the exhibition.html.
