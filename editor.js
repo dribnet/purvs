@@ -1,12 +1,11 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#EEEAF4";
 const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["size"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
   obj["offsetx"] = map(param_sliders[1].value(), 0, 100, -50, 50);
   obj["offsety"] = map(param_sliders[2].value(), 0, 100, -150, 50);
   return obj;

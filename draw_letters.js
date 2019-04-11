@@ -21,6 +21,16 @@ function drawLetter(letterData) {
   let linex4 = letterData["linex4"];
   let liney4 = letterData["liney4"];
 
+  let linex5 = letterData["linex5"];
+  let liney5 = letterData["liney5"];
+  let linex6 = letterData["linex6"];
+  let liney6 = letterData["liney6"];
+
+  let linex7 = letterData["linex7"];
+  let liney7 = letterData["liney7"];
+  let linex8 = letterData["linex8"];
+  let liney8 = letterData["liney8"];
+
   // line
   stroke(116,108,192);
   strokeWeight(5);
@@ -29,6 +39,14 @@ function drawLetter(letterData) {
   stroke(116,108,192);
   strokeWeight(5);
   line(linex3, liney3, linex4, liney4);
+
+  stroke(116,108,192);
+  strokeWeight(5);
+  line(linex5, liney5, linex6, liney6);
+
+  stroke(116,108,192);
+  strokeWeight(5);
+  line(linex7, liney7, linex8, liney8);
 
 
 }
@@ -39,6 +57,22 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["liney1"] = map(percent, 0, 100, oldObj["liney1"], newObj["liney1"]);
   new_letter["linex2"] = map(percent, 0, 100, oldObj["linex2"], newObj["linex2"]);
   new_letter["liney2"] = map(percent, 0, 100, oldObj["liney2"], newObj["liney2"]);
+
+  new_letter["linex3"] = map(percent, 0, 100, oldObj["linex3"], newObj["linex3"]);
+  new_letter["liney3"] = map(percent, 0, 100, oldObj["liney3"], newObj["liney3"]);
+  new_letter["linex4"] = map(percent, 0, 100, oldObj["linex4"], newObj["linex4"]);
+  new_letter["liney4"] = map(percent, 0, 100, oldObj["liney4"], newObj["liney4"]);
+
+  new_letter["linex5"] = map(percent, 0, 100, oldObj["linex5"], newObj["linex5"]);
+  new_letter["liney5"] = map(percent, 0, 100, oldObj["liney5"], newObj["liney5"]);
+  new_letter["linex6"] = map(percent, 0, 100, oldObj["linex6"], newObj["linex6"]);
+  new_letter["liney6"] = map(percent, 0, 100, oldObj["liney6"], newObj["liney6"]);
+
+  new_letter["linex7"] = map(percent, 0, 100, oldObj["linex7"], newObj["linex7"]);
+  new_letter["liney7"] = map(percent, 0, 100, oldObj["liney7"], newObj["liney7"]);
+  new_letter["linex8"] = map(percent, 0, 100, oldObj["linex8"], newObj["linex8"]);
+  new_letter["liney8"] = map(percent, 0, 100, oldObj["liney8"], newObj["liney8"]);
+
   return new_letter;
 }
 
