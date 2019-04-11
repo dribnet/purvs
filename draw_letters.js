@@ -38,7 +38,7 @@ function drawLetter(letterData) {
 
   noFill();
   stroke(150,100);
-  if(true){
+  if(false){
   ellipse(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"]);
   ellipse(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"]);
   ellipse(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"]);
@@ -46,15 +46,25 @@ function drawLetter(letterData) {
   }
 
   angleMode(DEGREES);
+
+  // if(letterData["arcStart1"] != 0 && letterData["arcEnd1"] != 0){
+  //   arc(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"]-20, letterData["arcEnd1"] + 20);
+  // }
+  // if(letterData["arcStart2"] != 0 && letterData["arcEnd2"] != 0){
+  //   arc(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"]-20, letterData["arcEnd2"] + 20);
+  // }
+  // if(letterData["arcStart3"] != 0 && letterData["arcEnd3"] != 0){
+  //   arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"]-20, letterData["arcEnd3"]+20);
+  // }
+
+
   stroke(50);
-  fill(255,50);
+  // fill(255,50);
   arc(100/2 - letterData["size"]/5 + letterData["offsetX"],200/2 - letterData["size"]/5,letterData["size"],letterData["size"], letterData["arcStart1"], letterData["arcEnd1"]);
   arc(100/2 + letterData["size2"]/5 + letterData["offsetX"], 200/2,letterData["size2"],letterData["size2"], letterData["arcStart2"], letterData["arcEnd2"]);
   arc(100/2 - letterData["size3"]/5 + letterData["offsetX"], 200/2 + letterData["size3"]/5,letterData["size3"],letterData["size3"], letterData["arcStart3"], letterData["arcEnd3"]);
-  if(letterData["isLine"]){
-    line(letterData["lineX"],50,letterData["lineX"],150);
-    line(letterData["lineX"]+4,50,letterData["lineX"]+4,150);
-  }
+  line(letterData["lineX"],50,letterData["lineX"],150);
+  line(letterData["lineX"]+4,50,letterData["lineX"]+4,150);
 }
 
 // function interpolate_letter(percent, oldObj, newObj) {

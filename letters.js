@@ -10,21 +10,19 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 359,
     "lineX": 0,
-    "isLine": true,
     "offsetX": 0
   },
   "A": {
     "size": 80,
     "size2": 120,
     "size3": 140,
-    "arcStart1": 10,
-    "arcEnd1": 100,
+    "arcStart1": 0,
+    "arcEnd1": 110,
     "arcStart2": 0,
     "arcEnd2": 0,
     "arcStart3": -95,
     "arcEnd3": 20,
     "lineX": 15,
-    "isLine": true,
     "offsetX": 0
 
   },
@@ -33,13 +31,12 @@ const alphabet = {
     "size2": 120,
     "size3": 90,
     "arcStart1": -160,
-    "arcEnd1": 100,
+    "arcEnd1": 115,
     "arcStart2": 0,
     "arcEnd2": 0,
-    "arcStart3": -20,
-    "arcEnd3": 100,
+    "arcStart3": -30,
+    "arcEnd3": 130,
     "lineX": 25,
-    "isLine": true,
     "offsetX": 10
 
   },
@@ -54,7 +51,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 33,
-    "isLine": true,
     "offsetX": -15
 
   },
@@ -69,7 +65,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 20,
-    "isLine": true,
     "offsetX": -30
   },
   "E": {
@@ -77,13 +72,12 @@ const alphabet = {
     "size2": 120,
     "size3": 70,
     "arcStart1": 20,
-    "arcEnd1": 80,
+    "arcEnd1": 75,
     "arcStart2": 60,
     "arcEnd2": -100,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 30,
-    "isLine": true,
     "offsetX": -10
   },
   "F": {
@@ -94,38 +88,35 @@ const alphabet = {
     "arcEnd1": 0,
     "arcStart2": 100,
     "arcEnd2": -60,
-    "arcStart3": -80,
+    "arcStart3": -75,
     "arcEnd3": -20,
     "lineX": 30,
-    "isLine": true,
     "offsetX": -10
   },
   "G": {
     "size": 100,
     "size2": 120,
     "size3": 150,
-    "arcStart1": 10,
+    "arcStart1": 5,
     "arcEnd1": 60,
     "arcStart2": 75,
     "arcEnd2": -65,
     "arcStart3": -37,
-    "arcEnd3": 20,
+    "arcEnd3": 22,
     "lineX": 30,
-    "isLine": true,
     "offsetX": -10
   },
   "H": {
     "size": 120,
     "size2": 105,
     "size3": 120,
-    "arcStart1": -25,
-    "arcEnd1": 61,
+    "arcStart1": -28,
+    "arcEnd1": 72,
     "arcStart2": -80,
     "arcEnd2": 60,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -30
   },
   "I": {
@@ -139,7 +130,6 @@ const alphabet = {
     "arcStart3": 50,
     "arcEnd3": 80,
     "lineX": 48,
-    "isLine": true,
     "offsetX": 0
   },
   "J": {
@@ -153,22 +143,9 @@ const alphabet = {
     "arcStart3": 50,
     "arcEnd3": 150,
     "lineX": 48,
-    "isLine": true,
     "offsetX": 0
   },
   "K": {
-    // "size": 120,
-    // "size2": 120,
-    // "size3": 120,
-    // "arcStart1": -30,
-    // "arcEnd1": 20,
-    // "arcStart2": 0,
-    // "arcEnd2": 0,
-    // "arcStart3": -75,
-    // "arcEnd3": 30,
-    // "lineX": 20,
-    // "isLine": true,
-    // "offsetX": -20
     "size": 120,
     "size2": 110,
     "size3": 120,
@@ -179,7 +156,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 8,
-    "isLine": true,
     "offsetX": -5
   },
   "L": {
@@ -193,21 +169,19 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -30
   },
   "M": {
     "size": 120,
     "size2": 105,
     "size3": 105,
-    "arcStart1": -30,
+    "arcStart1": -27,
     "arcEnd1": 28,
     "arcStart2": -80,
     "arcEnd2": 60,
-    "arcStart3": -78,
-    "arcEnd3": -22,
+    "arcStart3": -74,
+    "arcEnd3": -20,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -30
   },
   "N": {
@@ -218,10 +192,9 @@ const alphabet = {
     "arcEnd1": 0,
     "arcStart2": -60,
     "arcEnd2": 80,
-    "arcStart3": -61,
-    "arcEnd3": 25,
+    "arcStart3": -72,
+    "arcEnd3": 28,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -30
   },
   "O": {
@@ -235,7 +208,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 40,
-    "isLine": true,
     "offsetX": -20
   },
   "P": {
@@ -243,13 +215,12 @@ const alphabet = {
     "size2": 100,
     "size3": 100,
     "arcStart1": -150,
-    "arcEnd1": 110,
+    "arcEnd1": 112,
     "arcStart2": 0,
     "arcEnd2": 0,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 20,
-    "isLine": true,
     "offsetX": 6
   },
   "Q": {
@@ -263,7 +234,6 @@ const alphabet = {
     "arcStart3": -20,
     "arcEnd3": 10,
     "lineX": 40,
-    "isLine": true,
     "offsetX": -20
   },
   "R": {
@@ -277,7 +247,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 20,
-    "isLine": true,
     "offsetX": 6
   },
   "S": {
@@ -291,7 +260,6 @@ const alphabet = {
     "arcStart3": -30,
     "arcEnd3": 180,
     "lineX": 32,
-    "isLine": true,
     "offsetX": 20
   },
   "T": {
@@ -305,7 +273,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 35,
-    "isLine": true,
     "offsetX": -25
   },
   "U": {
@@ -313,13 +280,12 @@ const alphabet = {
     "size2": 85,
     "size3": 120,
     "arcStart1": 3,
-    "arcEnd1": 86,
+    "arcEnd1": 85,
     "arcStart2": -40,
     "arcEnd2": 68,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -10
   },
   "V": {
@@ -327,13 +293,12 @@ const alphabet = {
     "size2": 85,
     "size3": 120,
     "arcStart1": -10,
-    "arcEnd1": 86,
+    "arcEnd1": 85,
     "arcStart2": 0,
     "arcEnd2": 0,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -10
   },
   "W": {
@@ -341,27 +306,25 @@ const alphabet = {
     "size2": 85,
     "size3": 120,
     "arcStart1": 35,
-    "arcEnd1": 86,
+    "arcEnd1": 85,
     "arcStart2": -40,
     "arcEnd2": 68,
     "arcStart3": -10,
-    "arcEnd3": 12,
+    "arcEnd3": 15,
     "lineX": 10,
-    "isLine": true,
     "offsetX": -10
   },
   "X": {
     "size": 80,
     "size2": 80,
     "size3": 80,
-    "arcStart1": -70,
-    "arcEnd1": -110,
+    "arcStart1": -68,
+    "arcEnd1": -118,
     "arcStart2": 0,
     "arcEnd2": 0,
-    "arcStart3": -250,
-    "arcEnd3": 75,
+    "arcStart3": -244,
+    "arcEnd3": 68,
     "lineX": 65,
-    "isLine": true,
     "offsetX": 15
   },
   "Y": {
@@ -372,10 +335,9 @@ const alphabet = {
     "arcEnd1": 220,
     "arcStart2": 0,
     "arcEnd2": 0,
-    "arcStart3": 50,
+    "arcStart3": 52,
     "arcEnd3": 140,
     "lineX": 85,
-    "isLine": true,
     "offsetX": 30
   },
   "Z": {
@@ -389,7 +351,6 @@ const alphabet = {
     "arcStart3": -80,
     "arcEnd3": -48,
     "lineX": 50,
-    "isLine": true,
     "offsetX": 0
   },
 
@@ -406,7 +367,6 @@ const alphabet = {
     "arcStart3": -73,
     "arcEnd3": 10,
     "lineX": 40,
-    "isLine": true,
     "offsetX": -20
   },
   "1": {
@@ -420,21 +380,19 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 48,
-    "isLine": true,
     "offsetX": 0
   },
   "2": {
     "size": 80,
     "size2": 110,
     "size3": 80,
-    "arcStart1": 200,
+    "arcStart1": 220,
     "arcEnd1": 60,
     "arcStart2": 60,
     "arcEnd2": 155,
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 50,
-    "isLine": true,
     "offsetX": 0
   },
   "3": {
@@ -445,10 +403,9 @@ const alphabet = {
     "arcEnd1": 50,
     "arcStart2": 0,
     "arcEnd2": 0,
-    "arcStart3": -160,
+    "arcStart3": -120,
     "arcEnd3": 160,
     "lineX": 75,
-    "isLine": true,
     "offsetX": 18
   },
   "4": {
@@ -462,7 +419,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 80,
-    "isLine": true,
     "offsetX": 25
   },
   "5": {
@@ -474,9 +430,8 @@ const alphabet = {
     "arcStart2": 205,
     "arcEnd2": 300,
     "arcStart3": -60,
-    "arcEnd3": 180,
+    "arcEnd3": 140,
     "lineX": 50,
-    "isLine": true,
     "offsetX": 0
   },
   "6": {
@@ -490,8 +445,7 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 359,
     "lineX": 50,
-    "isLine": true,
-    "offsetX": 0
+        "offsetX": 0
   },
   "7": {
     "size": 100,
@@ -504,7 +458,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 65,
-    "isLine": true,
     "offsetX": -18
   },
   "8": {
@@ -518,7 +471,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 359,
     "lineX": 65,
-    "isLine": true,
     "offsetX": 15
   },
   "9": {
@@ -532,7 +484,6 @@ const alphabet = {
     "arcStart3": 0,
     "arcEnd3": 0,
     "lineX": 74,
-    "isLine": true,
     "offsetX": 20
   }
 }
