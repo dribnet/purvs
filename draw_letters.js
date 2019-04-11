@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorFront1  = "#f8b62d";
+const colorFront2  = "#ea5514";
+
 
 /*
  * Draw the letter given the letterData
@@ -10,46 +10,57 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  let r1x = letterData["r1x"];
+  let r1y = letterData["r1y"];
+  let r1l = letterData["r1l"];
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let r2x = letterData["r2x"];
+  let r2y = letterData["r2y"];
+  let r2l = letterData["r2l"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
-  push();
-  noStroke();
-  fill(colorFront2);
-    circle(50, 100, 40);
- pop();
+  let r3x = letterData["r3x"];
+  let r3y = letterData["r3y"];
+  let r3l = letterData["r3l"];
 
- //LINE
+  let r4x = letterData["r4x"];
+  let r4y = letterData["r4y"];
+  let r4l = letterData["r4l"];
+
+  let r5x = letterData["r5x"];
+  let r5y = letterData["r5y"];
+  let r5l = letterData["r5l"];
+
+
+
+ //BACKCRICL
  push();
-  noStroke();
-  fill(colorFront1);
-   rect( 22, 70, 100, 1);
-   rect( 0, 80,100, 1);
-   rect( 0, 90, 100, 1);
-   rect( 0, 100, 100, 1);
-   rect( 0, 110, 100, 1);
+ noStroke();
+ fill(colorFront2);
+   circle(50, 100, 40);
+pop();
 
- pop();
+//LINE
+push();
+ noStroke();
+ fill(colorFront1);
+  rect( r1x, 70, r1l, r1y);
+  rect( r2x, 80, r2l, r2y);
+  rect( r3x, 90, r3l, r3y);
+  rect( r4x, 100, r4l, r4y);
+  rect( r5x, 110, r5l, r5y);
+
+
+
+
+pop();
 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-    new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-    new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-    new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-    return new_letter;
+  new_letter["r1x"] = map(percent, 0, 100, oldObj["r1x"], newObj["r1x"]);
+  new_letter["r1y"] = map(percent, 0, 100, oldObj["r1y"], newObj["r1y"]);
+  new_letter["r1l"] = map(percent, 0, 100, oldObj["r1l"], newObj["r1l"]);
 
   var swapWords = [
     "ABBAABBA",
