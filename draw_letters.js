@@ -45,22 +45,16 @@ function positionRect(startingX,startingY,offsetX,offsetY) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["p1offsetX"] = map(percent, 0, 100, oldObj["p1offsetX"], newObj["p1offsetX"]);
-  new_letter["p1offsetY"] = map(percent, 0, 100, oldObj["p1offsetY"], newObj["p1offsetY"]);
-  new_letter["p2offsetX"] = map(percent, 0, 100, oldObj["p2offsetX"], newObj["p2offsetX"]);
-  new_letter["p2offsetY"] = map(percent, 0, 100, oldObj["p2offsetY"], newObj["p2offsetY"]);
-  new_letter["p3offsetX"] = map(percent, 0, 100, oldObj["p3offsetX"], newObj["p3offsetX"]);
-  new_letter["p3offsetY"] = map(percent, 0, 100, oldObj["p3offsetY"], newObj["p3offsetY"]);
-  new_letter["p4offsetX"] = map(percent, 0, 100, oldObj["p4offsetX"], newObj["p4offsetX"]);
-  new_letter["p4offsetY"] = map(percent, 0, 100, oldObj["p4offsetY"], newObj["p4offsetY"]);
-  new_letter["p5offsetX"] = map(percent, 0, 100, oldObj["p5offsetX"], newObj["p5offsetX"]);
-  new_letter["p5offsetY"] = map(percent, 0, 100, oldObj["p5offsetY"], newObj["p5offsetY"]);
-  new_letter["p6offsetX"] = map(percent, 0, 100, oldObj["p6offsetX"], newObj["p6offsetX"]);
-  new_letter["p6offsetY"] = map(percent, 0, 100, oldObj["p6offsetY"], newObj["p6offsetY"]);
-  new_letter["p7offsetX"] = map(percent, 0, 100, oldObj["p7offsetX"], newObj["p7offsetX"]);
-  new_letter["p7offsetY"] = map(percent, 0, 100, oldObj["p7offsetY"], newObj["p7offsetY"]);
-  new_letter["p8offsetX"] = map(percent, 0, 100, oldObj["p8offsetX"], newObj["p8offsetX"]);
-  new_letter["p8offsetY"] = map(percent, 0, 100, oldObj["p8offsetY"], newObj["p8offsetY"]);
+
+  /** for all 1 - 8 squares and there x & y position */
+  const numberOfsquares = 8;
+  let curSquare = 1;
+  for(let i = 1 ;i<= numberOfsquares;i++){
+    let ioffSetX = "p"+i+"offsetX";
+    let ioffSetY = "p"+i+"offsetY";
+    new_letter[ioffSetX] = map(percent, 0, 100, oldObj[ioffSetX], newObj[ioffSetX]);
+    new_letter[ioffSetY] = map(percent, 0, 100, oldObj[ioffSetY], newObj[ioffSetY]);
+  }
   return new_letter;
 }
 
