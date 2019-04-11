@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-I decided to change my design from my original sketch and use triangles instead of ellipses. I think It will be more interesting and easier to make the whole alphabet and 0-9 out of triangles. At the moment the design consist of 3 triangles and a rect in the background as the default. I managed  to only get my parameters down to 18.
+I have now finished the letters. I changed the default to the three triangles used to make each letter and number. I decided to get rid of the background and having no fill in two of the triangles. I tried to keep a rule of having one filled triangle in each letter and if possible use it in the middle of the letter. I also made it so that the letters now transition better.
 
 Parameters per letter:
 
