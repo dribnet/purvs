@@ -36,21 +36,18 @@ function drawLetter(letterData) {
   push();
   translate(50,100)
   
-  if (second() % 2 == 0){
-    p = 2;
+  let m = millis() % 2000;
+
+  if (m < 1000){
+    p = map(m, 0, 1000, 2, -2);
+    q = map(m, 0, 1000, -3, 3);
+
   }
   else {
-    p= - 2;
-  }
+    p = map(m, 1000, 2000, -2, 2);
+    q = map(m, 1000, 2000, 3, -3);
 
-  if (second() % 2 == 0){
-    q = - 3;
   }
-  else {
-    q =  3;
-  }
-  
-
 
   noStroke();
   fill("#2D728F");
