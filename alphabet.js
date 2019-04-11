@@ -78,7 +78,7 @@ function draw () {
         }
 
         let letter = letters[cur_letter_index];
-        if (letter in alphabet) {
+         if (letter in alphabet) {
           drawLetter(alphabet[letter]);
         }
         else {
