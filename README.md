@@ -1,4 +1,14 @@
 ## PS2 MDDN 242 2019
+// April 10, 2019
+
+This is the final of my alphabet
+
+In this part I add a shadow for my background circle make it look more prominent.
+Do some change of my letter “L” “3” “4” “7” “8”, the shadow make that letter looks terrible.
+
+The name of this font I call it “linsfont” I base of my name “lin”,
+The main design concept of my alphabet is “The Mars” Because the color of my alphabet I use are muddy yellow and orange, the background pattern is a circle. I make me associate Mars. So the two words I pick are “THE MARS” “SAPPHIRE" and "ASTEROID”. The unique point of my font is some of the letters look abstract because I did not use they coordinate parameter to design my font.
+
 // April 8, 2019
 
 Current progress. Making the alphabet.

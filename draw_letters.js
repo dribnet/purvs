@@ -31,7 +31,12 @@ function drawLetter(letterData) {
   let r5l = letterData["r5l"];
 
 
-
+// SHADOW
+push();
+noStroke();
+fill(0);
+  circle(50+10, 100+10, 40);
+pop();
  //BACKCRICL
  push();
  noStroke();
@@ -82,6 +87,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "LINSFONT",
-  "SAPPHIRE",
+  "THE MARS",
   "ASTEROID"
 ]
