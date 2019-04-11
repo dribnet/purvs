@@ -2,10 +2,22 @@
 
 GRAND GAIA RUNE FOUNDARY
 
-The Mega-Nation of Grand Gaia employs a foundary of runic crystals to power their capital city and any surrounding sub-nation. These runes are managed by the Koroud "Crystallizer" Lupine's faction of Crystalists. With the addition of the earthborn into the city, notably Selraph, Calvaris and Lana Xian, Koroud had to create an alternative set of runes that replicated their language, for their understanding.
+The letters were made using a total of 16 parameters, 8 for each polygon.
 
-The letters are split into steel and crystal as shown here. Anything of that green-shade is crystal, anything of gray is considered steel and everything will have a gold trim around it.
+The GaiaRune takes me back to the day of what my handwriting used to be. A lot of sharp edges and void of the use of curves. The design of the font is meant to look similar to a kind of medieval rune but still close to the resemblance of the English alphabet.
 
-"The earthborn language is rather curious. Perhaps there is some merit, for us Ezlytes, in learning the language of those from the linked world...In time...we'll see."
+The colors are based on the Grand Gaia Standard (Color scheme I came up with) where anything grey is considered steel, yellow considered gold and anything green-blue is a crystal of some kind.
 
+Overall, I am quite satisfied with the way everything turned out. The beginning was a struggle to figure out, but I managed to pull through and figure out a style that I could work with.
+
+Unfortunately, I couldn't get the green-blue areas to pulse like I wanted to, due to time constraints...
+
+Parameters = 16
+
+pos(1, 2, 3, 4)x = x value of the vertices for the grey polygons
+pos(1, 2, 3, 4)y = y value of the vertices for the grey polygons
+cryspos(1, 2, 3, 4)x = x value of the vertices for the green-blue polygons
+cryspos(1, 2, 3, 4)y = y value of the vertices for the green-blue polygons
+
+"The earthborn gave me quite the job. We've managed to make this work. Hopefully they can put them to some good use...perhaps we should also spend time to learn more of their people...if only it were that easy..."
 - Koroud "Crystallizer" Lupine
