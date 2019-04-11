@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "42f2a49389ffe4fe021f1ae9e6ce352b1f07fe24",
+      "name": "Final"
+    },
+    {
+      "sha": "9502d9f4fc2ea5da8cd9f2a585ad6948fcef499b",
+      "name": "Progress Five: Letter Shape Changes"
+    },
+     {
+      "sha": "ed93d5c527d2455d9f64c761562e994d7e605a5c",
+      "name": "Progress Four: Star Dots"
+    },
+     {
+      "sha": "db7abb56142d01f670dd2fb3f883158a50f5f926",
+      "name": "Progress Three: Parameter Changes"
+    },
+    {
+      "sha": "fb92abb9adf6b16153a9deaa14a2bcfb8bd28faa",
+      "name": "Progress Two: Colour Scheme Idea"
+    },
+    {
+      "sha": "5661ff3f6b6f534744ca161ba8f840896d6cf70e",
+      "name": "Progress One: Full Alphabet First Idea"
+    },
+    {
+      "sha": "1d3363e6c2632540fbe44c5bbe2abcf57c751ada",
+      "name": "First Idea Trial"
+    }
+  ]
+}
