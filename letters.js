@@ -89,20 +89,20 @@ const alphabet = {
     //-----------------
     "lineA_x1": 0,
     "lineA_y1": 0,
-    "lineA_x2": -42,
-    "lineA_y2": -24,
+    "lineA_x2": 42,
+    "lineA_y2": 24,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 45,
+    "lineB_x1": -45,
     "lineB_y1": 0,
     "lineB_x2": 0,
     "lineB_y2": 0,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": -42,
-    "lineC_y1": 24,
+    "lineC_x1": 42,
+    "lineC_y1": -24,
     "lineC_x2": 0,
     "lineC_y2": 0,
     //-----------------
@@ -125,23 +125,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 10,
+    "lineA_x1": -10,
     "lineA_y1": -100,
-    "lineA_x2": 60,
+    "lineA_x2": 50,
     "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 75,
+    "lineB_x1": 50,
     "lineB_y1": 85,
-    "lineB_x2": 53,
+    "lineB_x2": 40,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 53,
+    "lineC_x1": 40,
     "lineC_y1": 100,
-    "lineC_x2": 0,
+    "lineC_x2": -10,
     "lineC_y2": 100,
     //-----------------
   },
@@ -155,30 +155,30 @@ const alphabet = {
     "rect_posy": 100,
 
     //Rectangle Horizontal Scale
-    "rect_xscale": 35,
+    "rect_xscale": 30,
 
     //Rectangle Y Scale
     "rect_yscale": 200,
 
     //Line One
     //-----------------
-    "lineA_x1": 21,
+    "lineA_x1": 0,
     "lineA_y1": -100,
-    "lineA_x2": 75,
+    "lineA_x2": 45,
     "lineA_y2": -66,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 75,
+    "lineB_x1": 45,
     "lineB_y1": -66,
-    "lineB_x2": 75,
+    "lineB_x2": 45,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
     "lineC_x1": -30,
     "lineC_y1": 100,
-    "lineC_x2": 75,
+    "lineC_x2": 45,
     "lineC_y2": 100,
     //-----------------
   },
@@ -186,7 +186,7 @@ const alphabet = {
   "E": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 50,
+    "rect_posx": 35,
 
     //Rectangle Y Position
     "rect_posy": 100,
@@ -199,23 +199,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 46,
+    "lineA_x1": 40,
     "lineA_y1": 0,
-    "lineA_x2": 16,
+    "lineA_x2": 0,
     "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 14,
+    "lineB_x1": -10,
     "lineB_y1": 100,
-    "lineB_x2": 50,
+    "lineB_x2": 45,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 50,
+    "lineC_x1": 45,
     "lineC_y1": -100,
-    "lineC_x2": 0,
+    "lineC_x2": -10,
     "lineC_y2": -100,
     //-----------------
   },
@@ -238,15 +238,22 @@ const alphabet = {
     //-----------------
     "lineA_x1": 0,
     "lineA_y1": -100,
-    "lineA_x2": 65,
+    "lineA_x2": 50,
     "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
     "lineB_x1": -15,
     "lineB_y1": 0,
-    "lineB_x2": 50,
+    "lineB_x2": 40,
     "lineB_y2": 0,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -20,
+    "lineC_y1": -100,
+    "lineC_x2": -20,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -266,23 +273,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 36,
+    "lineA_x1": 30,
     "lineA_y1": 0,
-    "lineA_x2": 75,
+    "lineA_x2": 50,
     "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 57,
+    "lineB_x1": 40,
     "lineB_y1": 0,
-    "lineB_x2": 57,
+    "lineB_x2": 40,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 57,
+    "lineC_x1": 40,
     "lineC_y1": 100,
-    "lineC_x2": 15,
+    "lineC_x2": -15,
     "lineC_y2": 100,
     //-----------------
 
@@ -304,17 +311,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 15,
-    "lineA_y1": 0,
-    "lineA_x2": 75,
+    "lineA_x1": -12.5,
+    "lineA_y1": 20,
+    "lineA_x2": 50,
     "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 75,
+    "lineB_x1": 50,
     "lineB_y1": -100,
-    "lineB_x2": 75,
+    "lineB_x2": 50,
     "lineB_y2": 100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -12.5,
+    "lineC_y1": 0,
+    "lineC_x2": 50,
+    "lineC_y2": 20,
     //-----------------
   },
 
@@ -341,10 +355,17 @@ const alphabet = {
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 50,
+    "lineB_x1": 46,
     "lineB_y1": 100,
-    "lineB_x2": -50,
+    "lineB_x2": -46,
     "lineB_y2": 100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": 0,
+    "lineC_y1": -100,
+    "lineC_x2": 0,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -371,17 +392,17 @@ const alphabet = {
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 0,
+    "lineB_x1": 20,
     "lineB_y1": 100,
-    "lineB_x2": -40,
+    "lineB_x2": -20,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": -40,
+    "lineC_x1": -20,
     "lineC_y1": 100,
-    "lineC_x2": -60,
-    "lineC_y2": 30,
+    "lineC_x2": -50,
+    "lineC_y2": 60,
     //-----------------
   },
 
@@ -401,17 +422,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 68,
+    "lineA_x1": 50,
     "lineA_y1": -100,
-    "lineA_x2": 18,
+    "lineA_x2": -8,
     "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 68,
+    "lineB_x1": 50,
     "lineB_y1": 100,
-    "lineB_x2": 18,
+    "lineB_x2": -8,
     "lineB_y2": 0,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -8,
+    "lineC_y1": 0,
+    "lineC_x2": 25,
+    "lineC_y2": 0,
     //-----------------
   },
 
@@ -431,10 +459,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 65,
+    "lineA_x1": 50,
     "lineA_y1": 100,
-    "lineA_x2": 0,
+    "lineA_x2": -10,
     "lineA_y2": 100,
+    //-----------------
+    //Line Two
+    //-----------------
+    "lineB_x1": 50,
+    "lineB_y1": 85,
+    "lineB_x2": -15.5,
+    "lineB_y2": 85,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -20,
+    "lineC_y1": -100,
+    "lineC_x2": -20,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -456,14 +498,14 @@ const alphabet = {
     //-----------------
     "lineA_x1": -36,
     "lineA_y1": -100,
-    "lineA_x2": -55,
+    "lineA_x2": -50,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
     "lineB_x1": 36,
     "lineB_y1": -100,
-    "lineB_x2": 55,
+    "lineB_x2": 50,
     "lineB_y2": 100,
     //-----------------
     //Line Three
@@ -491,17 +533,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 16.5,
+    "lineA_x1": -12.5,
     "lineA_y1": -100,
-    "lineA_x2": 70,
+    "lineA_x2": 45,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 70,
+    "lineB_x1": 45,
     "lineB_y1": 100,
-    "lineB_x2": 70,
+    "lineB_x2": 45,
     "lineB_y2": -100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -12.5,
+    "lineC_y1": -50,
+    "lineC_x2": 45,
+    "lineC_y2": 100,
     //-----------------
 
   },
@@ -522,23 +571,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 0,
+    "lineA_x1": -20,
     "lineA_y1": 100,
-    "lineA_x2": 75,
+    "lineA_x2": 50,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 75,
+    "lineB_x1": 50,
     "lineB_y1": 100,
-    "lineB_x2": 75,
+    "lineB_x2": 50,
     "lineB_y2": -100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 75,
+    "lineC_x1": 50,
     "lineC_y1": -100,
-    "lineC_x2": 0,
+    "lineC_x2": -20,
     "lineC_y2": -100,
     //-----------------
   },
@@ -546,7 +595,7 @@ const alphabet = {
   "P": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 15,
+    "rect_posx": 25,
 
     //Rectangle Y Position
     "rect_posy": 100,
@@ -559,23 +608,23 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": -20,
+    "lineA_x1": -38,
     "lineA_y1": 36,
-    "lineA_x2": 75,
+    "lineA_x2": 45,
     "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 75,
+    "lineB_x1": 45,
     "lineB_y1": 0,
-    "lineB_x2": 75,
+    "lineB_x2": 45,
     "lineB_y2": -100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 75,
+    "lineC_x1": 45,
     "lineC_y1": -100,
-    "lineC_x2": 0,
+    "lineC_x2": -15,
     "lineC_y2": -100,
     //-----------------
   },
@@ -601,40 +650,54 @@ const alphabet = {
     "lineA_x2": 20,
     "lineA_y2": 50,
     //-----------------
+    //Line Two
+    //-----------------
+    "lineB_x1": 22,
+    "lineB_y1": 100,
+    "lineB_x2": 10,
+    "lineB_y2": 50,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -25,
+    "lineC_y1": -100,
+    "lineC_x2": -25,
+    "lineC_y2": 100,
+    //-----------------
   },
 
   "R": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 20,
+    "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 50,
 
     //Rectangle Horizontal Scale
-    "rect_xscale": 25,
+    "rect_xscale": 90,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 100,
 
     //Line One
     //-----------------
-    "lineA_x1": 75,
-    "lineA_y1": -100,
-    "lineA_x2": -20,
-    "lineA_y2": -100,
+    "lineA_x1": -45,
+    "lineA_y1": 0,
+    "lineA_x2": -45,
+    "lineA_y2": 100,
     //Line Two
     //-----------------
-    "lineB_x1": 12,
+    "lineB_x1": -22.5,
     "lineB_y1": 0,
-    "lineB_x2": 75,
-    "lineB_y2": 0,
+    "lineB_x2": -22.5,
+    "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 75,
+    "lineC_x1": 50,
     "lineC_y1": 100,
-    "lineC_x2": 10.5,
+    "lineC_x2": -20,
     "lineC_y2": 0,
     //-----------------
   },
@@ -662,7 +725,7 @@ const alphabet = {
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 58.5,
+    "lineB_x1": 50,
     "lineB_y1": -100,
     "lineB_x2": 4.5,
     "lineB_y2": -100,
@@ -693,9 +756,9 @@ const alphabet = {
     //Line One
     //-----------------
     "lineA_x1": 39,
-    "lineA_y1": -72,
+    "lineA_y1": -80,
     "lineA_x2": -39,
-    "lineA_y2": -72,
+    "lineA_y2": -80,
     //-----------------
     //Line Two
     //-----------------
@@ -703,6 +766,13 @@ const alphabet = {
     "lineB_y1": -100,
     "lineB_x2": 50,
     "lineB_y2": -100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -30,
+    "lineC_y1": -60,
+    "lineC_x2": 30,
+    "lineC_y2": -60,
     //-----------------
   },
 
@@ -722,17 +792,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 55.5,
+    "lineA_x1": 45,
     "lineA_y1": 100,
-    "lineA_x2": 55.5,
+    "lineA_x2": 45,
     "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 55.5,
+    "lineB_x1": 45,
     "lineB_y1": 100,
-    "lineB_x2": 12,
+    "lineB_x2": -22,
     "lineB_y2": 100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": 45,
+    "lineC_y1": 100,
+    "lineC_x2": -22,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -752,17 +829,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": 10,
+    "lineA_x1": 30,
     "lineA_y1": 100,
-    "lineA_x2": -40,
+    "lineA_x2": -20,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": -40,
+    "lineB_x1": -20,
     "lineB_y1": 100,
-    "lineB_x2": -75,
+    "lineB_x2": -50,
     "lineB_y2": -100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -20,
+    "lineC_y1": 100,
+    "lineC_x2": -50,
+    "lineC_y2": -100,
     //-----------------
   },
 
@@ -782,24 +866,24 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": -57,
+    "lineA_x1": -50,
     "lineA_y1": -100,
     "lineA_x2": -32,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 57,
+    "lineB_x1": 50,
     "lineB_y1": -100,
     "lineB_x2": 32,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": -32,
-    "lineC_y1": 100,
-    "lineC_x2": 32,
-    "lineC_y2": 100,
+    "lineC_x1": -30,
+    "lineC_y1": 90,
+    "lineC_x2": 30,
+    "lineC_y2": 90,
     //-----------------
   },
 
@@ -831,6 +915,13 @@ const alphabet = {
     "lineB_x2": 50,
     "lineB_y2": -100,
     //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -50,
+    "lineC_y1": 100,
+    "lineC_x2": 50,
+    "lineC_y2": -100,
+    //-----------------
   },
 
   "Y": {
@@ -849,14 +940,14 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": -60,
+    "lineA_x1": -50,
     "lineA_y1": -100,
     "lineA_x2": -35,
     "lineA_y2": -6,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 60,
+    "lineB_x1": 50,
     "lineB_y1": -100,
     "lineB_x2": 35,
     "lineB_y2": -6,
@@ -876,7 +967,7 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 175,
+    "rect_posy": 185,
 
     //Rectangle X Scale
     "rect_xscale": 100,
@@ -887,7 +978,7 @@ const alphabet = {
     //Line One
     //-----------------
     "lineA_x1": -50,
-    "lineA_y1": 60,
+    "lineA_y1": 65,
     "lineA_x2": 50,
     "lineA_y2": -100,
     //-----------------
@@ -897,6 +988,13 @@ const alphabet = {
     "lineB_y1": -100,
     "lineB_x2": -50,
     "lineB_y2": -100,
+    //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": 50,
+    "lineC_y1": -100,
+    "lineC_x2": -50,
+    "lineC_y2": -100,
     //-----------------
   },
 
@@ -928,6 +1026,13 @@ const alphabet = {
     "lineB_x2": 35,
     "lineB_y2": 100,
     //-----------------
+    //Line Three
+    //-----------------
+    "lineC_x1": -48,
+    "lineC_y1": -78,
+    "lineC_x2": 35,
+    "lineC_y2": 100,
+    //-----------------
 
   },
 
@@ -947,16 +1052,16 @@ const alphabet = {
 
     //Line One
     //-----------------
-    "lineA_x1": -51,
+    "lineA_x1": -45,
     "lineA_y1": 100,
-    "lineA_x2": 51,
+    "lineA_x2": 45,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": -51,
+    "lineB_x1": -45,
     "lineB_y1": 82,
-    "lineB_x2": 51,
+    "lineB_x2": 45,
     "lineB_y2": 82,
     //-----------------
     //Line Three
@@ -964,7 +1069,7 @@ const alphabet = {
     "lineC_x1": -15,
     "lineC_y1": -100,
     "lineC_x2": -45,
-    "lineC_y2": -54,
+    "lineC_y2": -45,
     //-----------------
   },
 
@@ -974,18 +1079,18 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 185,
+    "rect_posy": 190,
 
     //Rectangle X Scale
     "rect_xscale": 100,
 
     //Rectangle Y Scale
-    "rect_yscale": 30,
+    "rect_yscale": 20,
 
     //Line One
     //-----------------
-    "lineA_x1": -49.5,
-    "lineA_y1": 66,
+    "lineA_x1": -50,
+    "lineA_y1": 80,
     "lineA_x2": 45,
     "lineA_y2": -34,
     //-----------------
@@ -1008,81 +1113,76 @@ const alphabet = {
   "3": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 50,
+    "rect_posx": 70,
 
     //Rectangle Y Position
     "rect_posy": 100,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 25,
 
     //Rectangle Y Scale
     "rect_yscale": 200,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
+    "lineA_x1": 20,
     "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x2": -50,
+    "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x1": 12.5,
+    "lineB_y1": 0,
+    "lineB_x2": -50,
+    "lineB_y2": 0,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
-    "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
+    "lineC_x1": 22,
+    "lineC_y1": 100,
+    "lineC_x2": -50,
+    "lineC_y2": 100,
     //-----------------
   },
 
   "4": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 50,
+    "rect_posx": 75,
 
     //Rectangle Y Position
     "rect_posy": 100,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 25,
 
     //Rectangle Y Scale
     "rect_yscale": 200,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
-    "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x1": 13,
+    "lineA_y1": 10,
+    "lineA_x2": -50,
+    "lineA_y2": 10,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x1": -50,
+    "lineB_y1": 10,
+    "lineB_x2": 13,
+    "lineB_y2": -98,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
-    "lineC_y1": -100,
+    "lineC_x1": -50,
+    "lineC_y1": 10,
+    "lineC_x2": 13,
+    "lineC_y2": -98,
     //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
-    //-----------------
+
   },
 
   "5": {
@@ -1091,37 +1191,34 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 20,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 100,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 35,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
-    "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
+    "lineA_x1": 50,
+    "lineA_y1": 100,
+    "lineA_x2": -50,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x1": -50,
+    "lineB_y1": -64,
+    "lineB_x2": 50,
+    "lineB_y2": 0,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
-    "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
+    "lineC_x1": 50,
+    "lineC_y1": 0,
+    "lineC_x2": 48,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -1131,37 +1228,34 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 150,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 100,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 100,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
+    "lineA_x1": -50,
     "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x2": -50,
+    "lineA_y2": 90,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
+    "lineB_x1": 50,
     "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x2": -50,
+    "lineB_y2": -100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
-    "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
+    "lineC_x1": -20,
+    "lineC_y1": 0,
+    "lineC_x2": -20,
+    "lineC_y2": 100,
     //-----------------
   },
 
@@ -1171,38 +1265,36 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 15,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 100,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 30,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
-    "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
+    "lineA_x1": 49.5,
+    "lineA_y1": -65,
+    "lineA_x2": -24,
     "lineA_y2": 100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
+    "lineB_x1": 49.5,
+    "lineB_y1": -65,
+    "lineB_x2": -24,
     "lineB_y2": 100,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
-    "lineC_y1": -100,
+    "lineC_x1": 49.5,
+    "lineC_y1": -65,
+    "lineC_x2": -24,
+    "lineC_y2": 100,
     //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
-    //-----------------
+
   },
 
   "8": {
@@ -1211,36 +1303,33 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 150,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 100,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 100,
 
     //Line One
     //-----------------
     "lineA_x1": -36,
     "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x2": -36,
+    "lineA_y2": 0,
     //-----------------
     //Line Two
     //-----------------
     "lineB_x1": 36,
     "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x2": 36,
+    "lineB_y2": 0,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
+    "lineC_x1": -36,
     "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
+    "lineC_x2": 36,
     "lineC_y2": -100,
     //-----------------
   },
@@ -1248,40 +1337,37 @@ const alphabet = {
   "9": {
 
     //Rectangle Horizontal Position
-    "rect_posx": 50,
+    "rect_posx": 78,
 
     //Rectangle Y Position
     "rect_posy": 100,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 30,
 
     //Rectangle Y Scale
     "rect_yscale": 200,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
+    "lineA_x1": 20,
     "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x2": -50,
+    "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x1": -50,
+    "lineB_y1": -20,
+    "lineB_x2": 32,
+    "lineB_y2": 15,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
+    "lineC_x1": -50,
     "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
+    "lineC_x2": -50,
+    "lineC_y2": -20,
     //-----------------
   },
 
@@ -1291,37 +1377,34 @@ const alphabet = {
     "rect_posx": 50,
 
     //Rectangle Y Position
-    "rect_posy": 100,
+    "rect_posy": 185,
 
     //Rectangle X Scale
-    "rect_xscale": 20,
+    "rect_xscale": 30,
 
     //Rectangle Y Scale
-    "rect_yscale": 200,
+    "rect_yscale": 30,
 
     //Line One
     //-----------------
-    "lineA_x1": -36,
+    "lineA_x1": -48,
     "lineA_y1": -100,
-    //-----------------
-    "lineA_x2": -55,
-    "lineA_y2": 100,
+    "lineA_x2": 50,
+    "lineA_y2": -100,
     //-----------------
     //Line Two
     //-----------------
-    "lineB_x1": 36,
-    "lineB_y1": -100,
-    //-----------------
-    "lineB_x2": 55,
-    "lineB_y2": 100,
+    "lineB_x1": -15,
+    "lineB_y1": -78,
+    "lineB_x2": 41,
+    "lineB_y2": -78,
     //-----------------
     //Line Three
     //-----------------
-    "lineC_x1": 36,
+    "lineC_x1": 50,
     "lineC_y1": -100,
-    //-----------------
-    "lineC_x2": -36,
-    "lineC_y2": -100,
+    "lineC_x2": 0,
+    "lineC_y2": 24,
     //-----------------
   }
 }

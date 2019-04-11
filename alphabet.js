@@ -3,7 +3,6 @@
  */
 const colorBack    = "#282828";
 const colorLines   = "#ffffff";
-
 /*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
@@ -33,6 +32,7 @@ function mouseClicked() {
 }
 
 function draw () {
+  rectMode(CENTER);
   // clear screen
   background(colorBack);
 
@@ -74,7 +74,7 @@ function draw () {
           noFill()
           strokeWeight(4);
           stroke(0, 200, 0);
-          rect(0, 0, 100, 200);
+          rect(50, 100, 100, 200);
         }
 
         let letter = letters[cur_letter_index];

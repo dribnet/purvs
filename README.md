@@ -1,14 +1,7 @@
 ## PS2 MDDN 242 2019
 
 
-My alphabet is based on Runic styling (shown in image below).
-
-![Image of Runic lettering](/blog_images/runic.jpg)
-
-My main focus in this project was to focus on the geometry of my letters and to not use curves at all. With this in mind I began designing my alphabet. I briefly did this manually but quickly realised the editor was perfect for the system I was making. My editor progressed over multiple updates as I encountered more complex letters, starting with the original 8 parameters(params) for two lines. Next came 10 params with 8 for two lines and 2 for the rectangle's X axis position and scale. Finally the current version with 16 params with 12 for 3 lines, 4 for the rectangles X and Y position and scale. I found changing the mapping of certain elements for individual letters helpful in speeding up the design process.
-
-As my editor became more suited for the task I have gone back and updated styling.
-
+During the process of creating the interpolation function I encountered a major issue. From the beginning of the design process, without thinking about the implications I Had most of my elements transformed off the rectangle's origin point which I had set to "CENTER" mode at (50,100). I went ahead and created the majority of my alphabet like this, not realising how this would affect the other components of the project. A main issue I found was that the "oldObj" and "newObj" displays on the interaction.js canvas were no where close to the letter they were supposed to display. After a lot of trial and error I fixed this by having manual return of the old and new objects at less than 10 and greater than 90 percent.
 
 
 

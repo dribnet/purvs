@@ -6,17 +6,17 @@ const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["lineA_x1"] = map(param_sliders[0].value(), 0, 100, -75, 75);
+  obj["lineA_x1"] = map(param_sliders[0].value(), 0, 100, -50, 50);
   obj["lineA_y1"] = map(param_sliders[1].value(), 0, 100, -100, 100);
-  obj["lineA_x2"] = map(param_sliders[2].value(), 0, 100, -75, 75);
+  obj["lineA_x2"] = map(param_sliders[2].value(), 0, 100, -50, 50);
   obj["lineA_y2"] = map(param_sliders[3].value(), 0, 100, -100, 100);
-  obj["lineB_x1"] = map(param_sliders[4].value(), 0, 100, -75, 75);
+  obj["lineB_x1"] = map(param_sliders[4].value(), 0, 100, -50, 50);
   obj["lineB_y1"] = map(param_sliders[5].value(), 0, 100, -100, 100);
-  obj["lineB_x2"] = map(param_sliders[6].value(), 0, 100, -75, 75);
+  obj["lineB_x2"] = map(param_sliders[6].value(), 0, 100, -50, 50);
   obj["lineB_y2"] = map(param_sliders[7].value(), 0, 100, -100, 100);
-  obj["lineC_x1"] = map(param_sliders[8].value(), 0, 100, -75, 75);
+  obj["lineC_x1"] = map(param_sliders[8].value(), 0, 100, -50, 50);
   obj["lineC_y1"] = map(param_sliders[9].value(), 0, 100, -100, 100);
-  obj["lineC_x2"] = map(param_sliders[10].value(), 0, 100, -75, 75);
+  obj["lineC_x2"] = map(param_sliders[10].value(), 0, 100, -50, 50);
   obj["lineC_y2"] = map(param_sliders[11].value(), 0, 100, -100, 100);
 
   obj["rect_posx"] = map(param_sliders[12].value(), 0, 100, 15, 85);

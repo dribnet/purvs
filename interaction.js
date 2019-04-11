@@ -1,10 +1,10 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#282828";
+const colorLines   = "#ffffff";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -29,7 +29,7 @@ function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
+  rectMode(CENTER);
   // with no animation, redrawing the screen is not necessary
   // noLoop();
 }
@@ -64,7 +64,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -125,7 +125,7 @@ function draw () {
       noFill()
       strokeWeight(4);
       stroke(0, 200, 0);
-      rect(0, 0, 100, 200);
+      rect(50, 100, 100, 200);
     }
 
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
@@ -155,7 +155,7 @@ function draw () {
   // now draw the letter full size below
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // see if animation should be turned off
