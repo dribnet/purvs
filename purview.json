@@ -1,16 +1,20 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "sha": "f1a44d160c2b3b689abaf2d8aa7c7e0b3eef259d",
+      "name": "Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+      "sha": "2aa41bdb3b9daeee2ee8f6ab1c3861a82ff74e29",
+      "name": "Alphabet First Iteration"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "experiment2"
+      "sha": "fc8c4bbf0e9831512a1d7bb1a80489c01a680c22",
+      "name": "Letter Testing"
+    }
+    {
+      "sha": "e33f1dc800a4a94ab3d185e216fd30bd88bf4913",
+      "name": "Color Choice"
     }
   ]
 }
