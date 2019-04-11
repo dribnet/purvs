@@ -44,22 +44,20 @@ function drawLetter(letterData) {
 // drawing of two triangles, two rectangles, two arcs
   for(var i = 3; i >= 0; i--) {
   noStroke();
-  fill(0);
+  fill(32,28,27,255);
   arc(posx4,posy4,100,100,ArcStart,ArcEnd);
   
-  fill(50);
+  fill(237,28,34,255);
   rect(posx2+10, posy2, recA, recB);
-  fill(66,66,66,255);
+  fill(37,108,160,255);
   rect(posx2+10, posy2, recA-10, recB);
   
-  fill(100);
+  fill(248,136,28,255);
   triangle(posx5+triX2,posy5+triY2,posx5+triX2A,posy5+triY2A, posx5+triX2B, posy5+triY2B);
-  push();
-  fill(30);
-  triangle(posx3+triX2+10,posy3+triY2+40,posx3+triX2A+40,posy3+triY2A, posx3+triX2B-20, posy3+triY2B);
-  pop();
-  fill(80);
+  fill(97,202,223,255);
   arc(posx4,posy4-20,60,60,Arc2Start,Arc2End);
+   fill(255,203,1,255);
+  triangle(posx3+triX2+10,posy3+triY2+40,posx3+triX2A+40,posy3+triY2A, posx3+triX2B-20, posy3+triY2B);
   }
 }
 
@@ -101,13 +99,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "LABELLED",
-  "LAMELLAR",
-  "UMBRELLA",
-  "UNIVERSE",
-  "AARDVARK",
-  "ABERRANT",
-  "ZEALOUS",
-  "01234567",
-  "98765432"
+  "DEPP",
+  "GAG",
+  "DEAF",
+  "QUORPIE"
 ]

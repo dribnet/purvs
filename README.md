@@ -26,4 +26,4 @@ The three parameters per letter:
   * "triY2B" : third Y-coordinate of each triangle
   *	"triX2B" : third X-coordinate of each triangle
 
-  Both the alphabet and the numbers are done at this point. I wish I would have used the parameters more efficiently, in order for me to add more shapes and texture to my current primitives. My initial plans included hatchings, dots, iines etc. embedded inside the current primitives. But I think for now I'll focus on creating a harmonic color scheme/palette.
+  A Retro/Tricolore type color scheme, inspired by the 1970's olympic logo/colour palette.
