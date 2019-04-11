@@ -38,6 +38,8 @@ function drawLetter(letterData) {
   // fill(100);
   // rect(0, 0, 100, 200);
 
+  let c = color('#ffffff');
+
 push()
 
   // draw 4 quads
@@ -45,20 +47,20 @@ push()
   noStroke();
 
 push()
-  fill(255, 0, 0, 120);
+  fill(63, 114, 175, 200);
   translate(posX1,posY1);
   quad(size1,0,size1*2,size1*2,size1,size1*4,0,size1*2);
 pop() ;
 
 push()
-  fill(0, 92, 230, 120);
+  fill(17, 45, 78, 150);
   translate(posX2,posY2);
    quad(size2,0,size2*2,size2*2,size2,size2*4,0,size2*2);
 pop();
 
   noFill();
-  strokeWeight(5);
-  stroke(60);
+  strokeWeight(8);
+  stroke(c);
 
   push()
     translate(posX3,posY3);
@@ -95,7 +97,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ZERLINDA",
+  "ICEFIELD",
   "TRAINING",
   "PROGRAMS"
 ]

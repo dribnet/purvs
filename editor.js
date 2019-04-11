@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#fcfcfc";
+const colorBack    = "#c9d6df";
 const colorLines   = "#000090";
 
 function sliderToDataObject() {
