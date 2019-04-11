@@ -101,8 +101,13 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "DEPP",
-  "GAG",
-  "DEAF",
-  "QUORPIE"
+  "LABELLED",
+  "LAMELLAR",
+  "UMBRELLA",
+  "UNIVERSE",
+  "AARDVARK",
+  "ABERRANT",
+  "ZEALOUS",
+  "01234567",
+  "98765432"
 ]

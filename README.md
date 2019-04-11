@@ -17,8 +17,8 @@ The three parameters per letter:
   * "arcE": End of the smaller arc in radians
   * "arc2S" : Start of the larger arc in radians
   * "arc2E" : Start of the larger arc in radians
-  *	"recA" : Y-coordinate of both rectangles
-  *	"recB" : X-coordinate of both rectangles
+  *	"recA" : X-coordinate/size of both rectangles
+  *	"recB" : Y-coordinate/size of both rectangles
   *	"triX2": first X-coordinate of each triangle
   *	"triY2": first Y-coordinate of each triangle
   *	"triY2A" : second Y-coordinate of each triangle
@@ -26,4 +26,4 @@ The three parameters per letter:
   * "triY2B" : third Y-coordinate of each triangle
   *	"triX2B" : third X-coordinate of each triangle
 
-  I've finished the alphabet itself. Now its just down to the numbers
+  Both the alphabet and the numbers are done at this point. I wish I would have used the parameters more efficiently, in order for me to add more shapes and texture to my current primitives. My initial plans included hatchings, dots, iines etc. embedded inside the current primitives. But I think for now I'll focus on creating a harmonic color scheme/palette.
