@@ -18,8 +18,7 @@ const alphabet = {
     "t1sy":35,
     "t2s":0,
     "t2sx":50,
-    "t2sy":185,
-    "exception":0
+    "t2sy":185
     
   },
   "A": {
@@ -41,8 +40,7 @@ const alphabet = {
     "t1sy":200,
     "t2s":.5,
     "t2sx":50,
-    "t2sy":200,
-    "exception":0
+    "t2sy":200
   },
   "B": {
     //Б
@@ -63,8 +61,7 @@ const alphabet = {
     "t1sy":25,
     "t2s":.5,
     "t2sx":35,
-    "t2sy":150,
-    "exception":0
+    "t2sy":150
   },
   "C": {
     //В
@@ -85,8 +82,7 @@ const alphabet = {
     "t1sy":60,
     "t2s":.5,
     "t2sx":35,
-    "t2sy":145,
-    "exception":0
+    "t2sy":145
   },
   "D":{
     //Г
@@ -107,8 +103,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":1,
     "t2sx":26,
-    "t2sy":20,
-    "exception":0
+    "t2sy":20
   },
   "E":{
     //Д
@@ -129,8 +124,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":0.5,
     "t2sx":50,
-    "t2sy":75,
-    "exception":0
+    "t2sy":75
   },
   "F":{
     //Е
@@ -147,12 +141,11 @@ const alphabet = {
     "x6":50,
     "y6":75,
     "t1s":.75,
-    "t1sx":40,
+    "t1sx":35,
     "t1sy":30,
     "t2s":.75,
-    "t2sx":40,
-    "t2sy":40,
-    "exception":0
+    "t2sx":35,
+    "t2sy":40
   },
   "G":{
     //Ё
@@ -173,8 +166,7 @@ const alphabet = {
     "t1sy":30,
     "t2s":.75,
     "t2sx":35,
-    "t2sy":40,
-    "exception":1
+    "t2sy":40
   },
   "H":{
     //Ж
@@ -195,8 +187,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":30,
-    "t2sy":200,
-    "exception":2
+    "t2sy":200
   },
   "I":{
     //З
@@ -204,21 +195,20 @@ const alphabet = {
     "y1":0,
     "x2":100,
     "y2":50,
-    "x3":50,
-    "y3":125,
+    "x3":25,
+    "y3":110,
     "x4":100,
     "y4":150,
     "x5":0,
     "y5":200,
-    "x6":50,
-    "y6":75,
+    "x6":15,
+    "y6":90,
     "t1s":.75,
-    "t1sx":-5,
-    "t1sy":30,
+    "t1sx":-10,
+    "t1sy":20,
     "t2s":.75,
     "t2sx":-5,
-    "t2sy":40,
-    "exception":0
+    "t2sy":50
   },
   "J":{
     //И
@@ -239,8 +229,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.75,
     "t2sx":10,
-    "t2sy":100,
-    "exception":0
+    "t2sy":100
   },
   "K":{
     //Й
@@ -262,7 +251,7 @@ const alphabet = {
     "t2s":.75,
     "t2sx":10,
     "t2sy":100,
-    "exception":3
+    "accent": 1.0
   },
   "L":{
     //К
@@ -283,8 +272,7 @@ const alphabet = {
     "t1sy":-25,
     "t2s":.75,
     "t2sx":23,
-    "t2sy":100,
-    "exception":0
+    "t2sy":100
   },
   "M":{
     //Л
@@ -305,8 +293,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.75,
     "t2sx":10,
-    "t2sy":100,
-    "exception":0
+    "t2sy":100
   },
   "N":{
     //М
@@ -327,8 +314,7 @@ const alphabet = {
     "t1sy":125,
     "t2s":.75,
     "t2sx":15,
-    "t2sy":125,
-    "exception":0
+    "t2sy":125
   },
   "O":{
     //Н
@@ -349,8 +335,7 @@ const alphabet = {
     "t1sy":10,
     "t2s":.75,
     "t2sx":20,
-    "t2sy":50,
-    "exception":4
+    "t2sy":50
   },
   "P":{
     //О
@@ -371,8 +356,7 @@ const alphabet = {
     "t1sy":100,
     "t2s":.5,
     "t2sx":50,
-    "t2sy":100,
-    "exception":0
+    "t2sy":100
   },
   "Q":{
     //П
@@ -393,8 +377,7 @@ const alphabet = {
     "t1sy":30,
     "t2s":.75,
     "t2sx":5,
-    "t2sy":30,
-    "exception":0
+    "t2sy":30
   },
   "R":{
     //Р
@@ -415,8 +398,7 @@ const alphabet = {
     "t1sy":100,
     "t2s":.5,
     "t2sx":35,
-    "t2sy":50,
-    "exception":0
+    "t2sy":50
   },
   "S":{
     //С
@@ -437,8 +419,7 @@ const alphabet = {
     "t1sy":30,
     "t2s":.75,
     "t2sx":31,
-    "t2sy":40,
-    "exception":0
+    "t2sy":40
   },
   "T":{
     //Т
@@ -459,8 +440,7 @@ const alphabet = {
     "t1sy":30,
     "t2s":.75,
     "t2sx":35,
-    "t2sy":30,
-    "exception":0
+    "t2sy":30
   },
   "U": {
     //У
@@ -481,8 +461,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.75,
     "t2sx":36,
-    "t2sy":70 ,
-    "exception":0
+    "t2sy":70 
   },
   "V": {
     //Ф
@@ -503,8 +482,7 @@ const alphabet = {
     "t1sy":100,
     "t2s":.5,
     "t2sx":25,
-    "t2sy":100,
-    "exception":5 
+    "t2sy":100 
   },
   "W": {
     //Х
@@ -525,8 +503,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":50,
-    "t2sy":200,
-    "exception":0
+    "t2sy":200
   },
   "X": {
     //Ц
@@ -547,8 +524,7 @@ const alphabet = {
     "t1sy":35,
     "t2s":.65,
     "t2sx":25,
-    "t2sy":35,
-    "exception":6
+    "t2sy":35
   },
   "Y": {
     //Ч
@@ -569,8 +545,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":51,
-    "t2sy":48,
-    "exception":0
+    "t2sy":48
   },
   "Z": {
     //Ш
@@ -591,8 +566,7 @@ const alphabet = {
     "t1sy":120,
     "t2s":.5,
     "t2sx":25,
-    "t2sy":120,
-    "exception":7
+    "t2sy":120
   },
   "0": {
     //Щ
@@ -613,8 +587,7 @@ const alphabet = {
     "t1sy":105,
     "t2s":.5,
     "t2sx":25,
-    "t2sy":105,
-    "exception":8
+    "t2sy":105
   },
   "1": {
     //Ь
@@ -635,8 +608,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":35,
-    "t2sy":150,
-    "exception":0
+    "t2sy":150
   },
   "2": {
     //Ы
@@ -657,8 +629,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":35,
-    "t2sy":150,
-    "exception":9
+    "t2sy":150
   },
   "3": {
     //Ъ
@@ -679,8 +650,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":60,
-    "t2sy":150,
-    "exception":10
+    "t2sy":150
   },
   "4": {
     //Э
@@ -701,8 +671,7 @@ const alphabet = {
     "t1sy":60,
     "t2s":.5,
     "t2sx":0,
-    "t2sy":140,
-    "exception":0
+    "t2sy":140
   },
   "5": {
     //Ю
@@ -723,8 +692,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":.5,
     "t2sx":65,
-    "t2sy":100,
-    "exception":0
+    "t2sy":100
   },
   "6": {
     //Я
@@ -745,8 +713,7 @@ const alphabet = {
     "t1sy":80,
     "t2s":.5,
     "t2sx":55,
-    "t2sy":200,
-    "exception":0
+    "t2sy":200
   },
   "7": {
     //0
@@ -767,8 +734,7 @@ const alphabet = {
     "t1sy":50,
     "t2s":.5,
     "t2sx":50,
-    "t2sy":150,
-    "exception":0
+    "t2sy":150
   },
   "8": {
     //1
@@ -789,8 +755,7 @@ const alphabet = {
     "t1sy":0,
     "t2s":0,
     "t2sx":0,
-    "t2sy":0,
-    "exception":0
+    "t2sy":0
   },
   "9": {
     //2
@@ -811,7 +776,6 @@ const alphabet = {
     "t1sy":77,
     "t2s":0.5,
     "t2sx":100,
-    "t2sy":150,
-    "exception":0
+    "t2sy":150
   }
 }
