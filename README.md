@@ -2,7 +2,8 @@
 ## Concept
 My concept is to have two cosinus curves wich can be manipulated in the height, width, length, offset and the rotationangle. I mainly chose to work with cosinus curves as I wanted to have an technical challange while designing the letters. 
 
-###thats how my cosinus curve is made.
+### thats how my cosinus curve is made.
+
 ```
 for(var i = -Blength; i < length; i++) {
     var x1 = (i * widthX);
