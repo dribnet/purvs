@@ -311,6 +311,7 @@ function calcPoints(percent, oldObj, newObj){
 }
 
 var swapWords = [
+    "BUGWORLD",
     "BUGSBUGS",
     "SKITTERS",
     "TOGETHER"
