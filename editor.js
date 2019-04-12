@@ -1,18 +1,34 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#8B658B";
 const colorLines   = "#000090";
 
 function sliderToDataObject() {
   let obj = {};
-  obj["size"]    = map(param_sliders[0].value(), 0, 100, 5, 100);
-  obj["offsetx"] = map(param_sliders[1].value(), 0, 100, -50, 50);
-  obj["offsety"] = map(param_sliders[2].value(), 0, 100, -150, 50);
+  obj["offset1x"] = map(param_sliders[0].value(), 0, 100, 0, 200);
+  obj["offset1y"] = map(param_sliders[1].value(), 0, 100, 0, 200);
+  obj["offset2x"] = map(param_sliders[2].value(), 0, 100, 0, 200);
+  obj["offset2y"] = map(param_sliders[3].value(), 0, 100, 0, 200);
+  obj["offset3x"] = map(param_sliders[4].value(), 0, 100, 0, 200);
+  obj["offset3y"] = map(param_sliders[5].value(), 0, 100, 0, 200);
+  obj["off1x"] = map(param_sliders[6].value(), 0, 100, 0, 200);
+  obj["off1y"] = map(param_sliders[7].value(), 0, 100, 0, 200);
+  obj["off2x"] = map(param_sliders[8].value(), 0, 100, 0, 200);
+  obj["off2y"] = map(param_sliders[9].value(), 0, 100, 0, 200);
+  obj["off3x"] = map(param_sliders[10].value(), 0, 100, 0, 200);
+  obj["off3y"] = map(param_sliders[11].value(), 0, 100, 0, 200);
+  obj["off4x"] = map(param_sliders[12].value(), 0, 100, 0, 200);
+  obj["off4y"] = map(param_sliders[13].value(), 0, 100, 0, 200);
+  obj["off5x"] = map(param_sliders[14].value(), 0, 100, 0, 200);
+  obj["off5y"] = map(param_sliders[15].value(), 0, 100, 0, 200);
+  obj["off6x"] = map(param_sliders[16].value(), 0, 100, 0, 200);
+  obj["off6y"] = map(param_sliders[17].value(), 0, 100, 0, 200);
+
   return obj;
 }
 
-let numSliders = 3;
+let numSliders = 18;
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 

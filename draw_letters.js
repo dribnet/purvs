@@ -49,7 +49,7 @@ function drawLetter(letterData) {
   fill(colorFront2);
   line(posl1x, posl1y, posl2x, posl2y);
   line(posl3x, posl3y, posl4x, posl4y);
-
+  line(posl5x, posl5y, posl6x, posl6y);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -71,7 +71,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "HICALLME",
+  "021ZYUF9",
+  "DONTPLES"
 ]

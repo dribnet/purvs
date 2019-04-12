@@ -12,6 +12,8 @@ const canvasHeight = 500;
  *
  */
 
+
+
 const letterA = {
   "offset1x": 0,
   "offset1y": 40,
@@ -27,100 +29,43 @@ const letterA = {
 }
 
 const letterB = {
-  "offset1x": -20,
-  "offset1y": 20,
-  "offset2x": -5,
-  "offset2y": 30,
-  "offset3x": -35,
-  "offset3y": 30,
+  "offset1x": -40,
+  "offset1y": -30,
+  "offset2x": 0,
+  "offset2y": 40,
+  "offset3x": -40,
+  "offset3y": 40,
 
-  
+  "off1x": -40,
+  "off1y": -30,
+  "off2x": 0,
+  "off2y": -30,
+
 
   "off3x": 0,
   "off3y": -30,
-  "off4x": 0,
-  "off4y": 30,
-
-  "off5x": -40,
-  "off5y": -30,
-  "off6x": -40,
-  "off6y": 30
-
+  "off4x": -40,
+  "off4y": 0
 }
 
 const letterC = {
-  "offset1x": 20,
-  "offset1y": -30,
-  "offset2x": -10,
-  "offset2y": 15,
-  "offset3x": -10,
-  "offset3y": 0,
+  "offset1x": -40,
+  "offset1y": 20,
+  "offset2x": 0,
+  "offset2y": 40,
+  "offset3x": -40,
+  "offset3y": 40,
 
-  "off3x": -10,
-  "off3y": 40,
-  "off4x": -10,
-  "off4y": 0,
+  "off1x": -40,
+  "off1y": -30,
+  "off2x": 0,
+  "off2y": -30,
 
-  "off5x": -40,
-  "off5y": -30,
-  "off6x": -10,
-  "off6y": 5
- 
-
+  "off3x": -40,
+  "off3y": -30,
+  "off4x": -40,
+  "off4y": 40
 }
-
-// const letterA = {
-//   "offset1x": 0,
-//   "offset1y": 40,
-//   "offset2x": 30,
-//   "offset2y": -20,
-//   "offset3x": 38,
-//   "offset3y": 0,
-
-//   "off1x": 30,
-//   "off1y": -20,
-//   "off2x": 60,
-//   "off2y": 40
-// }
-
-// const letterB = {
-//   "offset1x": -40,
-//   "offset1y": -30,
-//   "offset2x": 0,
-//   "offset2y": 40,
-//   "offset3x": -40,
-//   "offset3y": 40,
-
-//   "off1x": -40,
-//   "off1y": -30,
-//   "off2x": 0,
-//   "off2y": -30,
-
-
-//   "off3x": 0,
-//   "off3y": -30,
-//   "off4x": -40,
-//   "off4y": 0
-// }
-
-// const letterC = {
-//   "offset1x": -40,
-//   "offset1y": 20,
-//   "offset2x": 0,
-//   "offset2y": 40,
-//   "offset3x": -40,
-//   "offset3y": 40,
-
-//   "off1x": -40,
-//   "off1y": -30,
-//   "off2x": 0,
-//   "off2y": -30,
-
-//   "off3x": -40,
-//   "off3y": -30,
-//   "off4x": -40,
-//   "off4y": 40
-// }
 
 
 const colorFront1  = "#99bfe6";

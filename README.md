@@ -2,7 +2,9 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-I want to make one kind of letter that suitable for girls. My design have bright color and shape edge. I want girls' letter can cool and pretty at the sometime.
+I fixed the size of the letters, alphabet is done. 
+I always have question about upload, every time I hit git command -a it will create a new ps2.
+I don't know how to fix it, so I can only upload my staff in class.
 
 The three parameters per letter:
   * `size` : radius of the second circle
