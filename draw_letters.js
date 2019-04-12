@@ -30,6 +30,12 @@ function drawLetter(letterData) {
   let liney7 = letterData["liney7"];
   let linex8 = letterData["linex8"];
   let liney8 = letterData["liney8"];
+  
+  let linex9 = letterData["linex9"];
+  let liney9 = letterData["liney9"];
+  let linex10 = letterData["linex10"];
+  let liney10 = letterData["liney10"];
+  
 
   // line
   stroke(116,108,192);
@@ -47,6 +53,10 @@ function drawLetter(letterData) {
   stroke(116,108,192);
   strokeWeight(5);
   line(linex7, liney7, linex8, liney8);
+  
+  stroke(116,108,192);
+  strokeWeight(5);
+  line(linex9, liney9, linex10, liney10);
 
 
 }
@@ -72,6 +82,11 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["liney7"] = map(percent, 0, 100, oldObj["liney7"], newObj["liney7"]);
   new_letter["linex8"] = map(percent, 0, 100, oldObj["linex8"], newObj["linex8"]);
   new_letter["liney8"] = map(percent, 0, 100, oldObj["liney8"], newObj["liney8"]);
+  
+  new_letter["linex9"] = map(percent, 0, 100, oldObj["linex9"], newObj["linex9"]);
+  new_letter["liney9"] = map(percent, 0, 100, oldObj["liney9"], newObj["liney9"]);
+  new_letter["linex10"] = map(percent, 0, 100, oldObj["linex10"], newObj["linex10"]);
+  new_letter["liney10"] = map(percent, 0, 100, oldObj["liney10"], newObj["liney10"]);
 
   return new_letter;
 }
