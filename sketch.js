@@ -12,38 +12,28 @@ const canvasHeight = 500;
  *
  */
 
-const letterV = {
-  "sq1x": -100,
-  "sq1y": 55,
-  "sq2x": 60,
-  "sq2y": 55,
+const letterY = {
+  "sq1x": 30,
+  "sq1y": 0,
+  "sq2x": 30,
+  "sq2y": 50,
   "rect1x": -45,
   "rect1y": -100,
-  "rect2x": -20,
-  "rect2y": -50
+  "rect2x": -70,
+  "rect2y": 0
 }
 
-const letterW = {
-  "sq1x": 15,
-  "sq1y": -50,
-  "sq2x": 15,
+const letterZ = {
+  "sq1x": -20,
+  "sq1y": 0,
+  "sq2x": 30,
   "sq2y": 0,
-  "rect1x": -45,
-  "rect1y": -100,
-  "rect2x": -55,
-  "rect2y": -50
+  "rect1x": -90,
+  "rect1y": -75,
+  "rect2x": 40,
+  "rect2y": -100
 }
 
-const letterX = {
-  "sq1x": -75,
-  "sq1y": -25,
-  "sq2x": 40,
-  "sq2y": -25,
-  "rect1x": -45,
-  "rect1y": -105,
-  "rect2x": -20,
-  "rect2y": 50
-}
 
 const colorFront1  = "#efab4b";
 const colorFront2  = "#d9ef4b";
@@ -94,10 +84,9 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters V, W, X from saved data
-  drawLetter(center_x - 250, center_y, letterV);
-  drawLetter(center_x      , center_y, letterW);
-  drawLetter(center_x + 250, center_y, letterX);
+  // draw the letters Y, Z from saved data
+  drawLetter(center_x - 250, center_y, letterY);
+  drawLetter(center_x      , center_y, letterZ);
 }
 
 function keyTyped() {
