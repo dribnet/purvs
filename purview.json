@@ -1,0 +1,32 @@
+{
+  "commits": [
+    {
+      "sha": "51ca4144bf259c0ed2b29b57f8021a9e99df8c48",
+      "name": "Initial idea"
+    },
+    {
+      "sha": "0509471455cdad855438ba6fb3746283691ff33c",
+      "name": "Sketching and ideas"
+    },
+    {
+      "sha": "6d9879747bfa25c3efa14cec03e4c3550f8daea5",
+      "name": "Alphabets design idea"
+    },
+    {
+      "sha": "e47f5642e99522c16d50230a6b0f6aa04ca48254",
+      "name": "Final alphabets design and interpolation"
+    },
+    {
+      "sha": "5f4f86bccef5d9e507f05b3bd84f6af1c20ed063",
+      "name": "Final exhibition"
+    },
+    {
+      "sha": "d3def560789319d4b16b88cad5ff11e961347e06",
+      "name": "Final Final alphabets"
+    },
+    {
+      "sha": "80556a266fdeb6501805e616ee786790e20ee6f3",
+      "name": "Final interaction"
+    }
+  ]
+}
