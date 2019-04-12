@@ -19,13 +19,6 @@ const colorFront4 = "#84b3ff";
 function drawLetter(letterData) {
   // color/stroke setup
 
-  //stroke(colorStroke);
-
-
-  // determine parameters for second circle
-  let pos2x = -10  + letterData["c1x"];
-  let pos2y = -20 + letterData["c1y"];
-
   // draw two circles
 
 //background lines
@@ -36,11 +29,11 @@ stroke(colorFront2);
 fill(colorFront2);
 ellipse(50, 89,1,86);
 ellipse(30, 46,40,1);
-ellipse(72, 131,45,1);
+ellipse(73, 132,45,1);
 
 //orange lines
 stroke(colorFront1);
-ellipse(60, 70,1,80);
+ellipse(60, 67,1,75);
 ellipse(31, 35,58,1);
 ellipse(45, 117,50,1);
 

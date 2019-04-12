@@ -2,9 +2,17 @@
 
 Development
 
-I had decided to name my font “sunlight” because of the colours I had chosen to use.When I was going through my parameters I realised I had more than 20 so I had take out an extra parameter for a circle I was gonna rim each letter and number with. I then extended out the lines making them over lap and stretch out horizontality. I stretched them out horizontality in order to fill the empty space between the letters so they look more connected and related across the canvas. I reduced the stroke weight of the lines so the letters and numbers were more visible. I decided to add dots to the background because when I think about sunshine I think of how the sunlight shines through dust in rooms, so I wanted to incorporate this idea of floating specks into my font. I chose to make the dots blue to contrast against the overall warm orange palet of the font.
+Overall design process:
 
-The colour of the letters and numbers were changed to a light yellow so the layers were more soft against the background lines than white. The lines of my letters were designed to follow in the same lines as the background lines in order to keep the background lines connected to the overall shape of the letters, so I reduced the stroke weight of the lines to flow against the lines better. I like the look of the lines being a different thickness to the to the circles because it makes some of the letters more visible against the circle. In early stages the lengths of the letters were determined by thicker background lines. I am thinking whether I should keep the overhang look of some of the letters or whether to restrict the lengths to the lines; heights and widths.
+Throughout my design process I had intended on keeping the rules of having each letter compromise of lines using a circle to create their form. Also for the lines to be a different thickness from the circle. 
+
+While developing my alphabet I was inspired by the idea of sunlight. I was inspired when I started playing around with colour and ended up choosing a warm colour palette. I had expanded on this idea beyond colour by adding in blue specks to create the impersonation of dust in the sunlight and had lines running through the alphabet like light streaks.
+
+One of my problems I had while developing my alphabet was keeping to the parameter limit. I had this problem because of the multiple coordinates for my lines. If I was to do this project again I should make the aligning co-ordinates new “let” variables instead of another parameter. 
+A problem I overcome was to make each individual letter flow better as a whole in exhibition. I wanted my letters to still be contained with their green boxes at the same time as well. I solved this problem by making horizontal lines on the already vertical lines in the background and made them flow both left and right, so that whatever side a letter is on it flows on from the one before or after it. I also added as ellipse between each letter to acknowledge the gap and make it visually smaller.
+
+Overall I am happy with my alphabet, I like the warm yet bubbly mood it gives off and I think the letters have a successful continuous style throughout.
+
 
 
 
