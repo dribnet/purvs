@@ -64,9 +64,9 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   //starts drawing this one
-  new_letter["offsetx"]= map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["offsetx2"]    = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
   new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
 
   //at 25% start the next line
@@ -83,9 +83,11 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["offsetx6"]    = map(percent, 50, 100, oldObj["offsetx6"], newObj["offsetx6"]);
     new_letter["offsety6"] = map(percent, 50, 100, oldObj["offsety6"], newObj["offsety6"]);
   }
+
+
   //at 75% start the next line
   if(percent > 75){
-    new_letter["offsetx7"]    = map(percent, 75, 100, oldObj["offsetx7"], newObj["offsetx7"]);
+    new_letter["offsetx7"]    = map(percent, 75, 100,  oldObj["offsetx7"], newObj["offsetx7"]);
     new_letter["offsety7"] = map(percent, 75, 100, oldObj["offsety7"], newObj["offsety7"]);
     new_letter["offsetx8"]    = map(percent, 75, 100, oldObj["offsetx8"], newObj["offsetx8"]);
     new_letter["offsety8"] = map(percent, 75, 100, oldObj["offsety8"], newObj["offsety8"]);
