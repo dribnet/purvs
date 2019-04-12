@@ -2,9 +2,13 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-I fixed the size of the letters, alphabet is done. 
-I always have question about upload, every time I hit git command -a it will create a new ps2.
-I don't know how to fix it, so I can only upload my staff in class.
+This is the final version of the letter I design. 
+Those letters are design for girls. I use pink and blue as the base color, and hard edge to make the letters look simple and clear.
+ I keep the base shape of the letters. Use tilted line to replace the curve. The blue look like a piece of glass setting on the pink frames.
+
+Parameter explanation:
+I used 18 vertexs in total.
+
 
 The three parameters per letter:
   * `size` : radius of the second circle
