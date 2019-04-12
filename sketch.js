@@ -38,8 +38,8 @@ const letterC = {
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorBack    = "ffffff";
-const colorStroke  = "#233f11";
+const colorBack    = "#f3f3e7";
+const colorStroke  = "#231f1C";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -63,18 +63,16 @@ function drawLetter(posx, posy, letterData) {
   let pos3y = posy + letterData["T1y"];
 
   // draw two circles
-  fill(colorFront1);
+  fill(32,28,27,255);
   noStroke();
   rect(posx, posy-100, 50, 150);
   
   push();
-  fill(255);
-  stroke(0);
-  strokeWeight(2);
+  fill(37,108,160,255);
   triangle(100+posx, 50+posy, pos2x, pos2y, 86+pos3x, 75+pos3y);
   pop();
 
-  fill(colorFront2);
+  fill(248,136,28,255);
   rect(pos2x, pos2y, size2, size2); 
 }
 
