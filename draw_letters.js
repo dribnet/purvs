@@ -25,7 +25,8 @@ const colorFront3  = "#efab4b";
   let pos5x = letterData["rect3x"]
   let pos5y = letterData["rect3y"]
 push();
-scale(0.5);
+translate(50,100);
+scale(0.6);
   stroke(colorStroke);
   strokeWeight(2);
 
@@ -58,7 +59,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ALL DONE",
+  "ALEX B",
+  "YAYAYAY"
 ]

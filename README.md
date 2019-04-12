@@ -1,6 +1,3 @@
-## PS2 MDDN 242 2019 - Adding Rectangle back
+## PS2 MDDN 242 2019 - Edit Position
 
-I then re added the rectangle, switched colours for the existing 2 rectangle & 2 squares.
-
-Two further parameters were added to each letter also for this rectangle making it, 10 parameters per letter.
-
+I finally added translate(50,100); into my draw_letters.js code to bring the letters and digits centred within the green lines of the alphabet.html & interaction.html
