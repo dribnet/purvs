@@ -12,36 +12,36 @@ const canvasHeight = 500;
  *
  */
 
-const number0 = {
-  "sq1x": -20,
-  "sq1y": -75,
-  "sq2x": -20,
-  "sq2y": 30,
-  "rect1x": -45,
-  "rect1y": -25,
-  "rect2x": -20,
-  "rect2y": -50
-}
-
-const number1 = {
-  "sq1x": 30,
-  "sq1y": 0,
-  "sq2x": 30,
-  "sq2y": -50,
-  "rect1x": 30,
-  "rect1y": -100,
+const number3 = {
+  "sq1x": 40,
+  "sq1y": -25,
+  "sq2x": -30,
+  "sq2y": 15,
+  "rect1x": -80,
+  "rect1y": -65,
   "rect2x": -70,
-  "rect2y": -50
+  "rect2y": -35
 }
 
-const number2 = {
-  "sq1x": -20,
-  "sq1y": 0,
+const number4 = {
+  "sq1x": -45,
+  "sq1y": -50,
   "sq2x": 30,
+  "sq2y": 50,
+  "rect1x": -95,
+  "rect1y": 50,
+  "rect2x": 30,
+  "rect2y": -100
+}
+
+const number5 = {
+  "sq1x": -70,
+  "sq1y": 0,
+  "sq2x": -20,
   "sq2y": 0,
-  "rect1x": -90,
+  "rect1x": -20,
   "rect1y": -75,
-  "rect2x": -80,
+  "rect2x": 40,
   "rect2y": -130
 }
 
@@ -58,6 +58,7 @@ function setup () {
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(2);
+
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -94,10 +95,10 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters 0, 1, 2 from saved data
-  drawLetter(center_x - 250, center_y, number0);
-  drawLetter(center_x      , center_y, number1);
-  drawLetter(center_x + 250, center_y, number2);
+  // draw the letters 3, 4, 5 from saved data
+  drawLetter(center_x - 250, center_y, number3);
+  drawLetter(center_x      , center_y, number4);
+  drawLetter(center_x + 250, center_y, number5);
 }
 
 function keyTyped() {
