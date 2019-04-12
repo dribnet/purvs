@@ -25,14 +25,6 @@ const alphabet = {
   "arcEnd1": 20,
   "arcStart2": 40,
   "arcEnd2": 290,
-  "lineX1": 20,
-  "lineY1": 60,
-  "lineX2": 100,
-  "lineY2": 100,
-  "lineX3": 100,
-  "lineY3": 100,
-  "lineX4": 20,
-  "lineY4": 140,
   "point1x": 64,
   "point1y": 55,
   "point2x": 20,
@@ -82,8 +74,6 @@ const alphabet = {
   "lineY2": 120,
   "point1x": 64,
   "point1y": 55,
-  "point2x": 50,
-  "point2y": 100
 },
   "E":
   {
@@ -141,7 +131,7 @@ const alphabet = {
 },
   "I":
   {
-  "arcStart1": 230,
+  "arcStart1": 300,
   "arcEnd1": 10,
   "arcStart2": 50,
   "arcEnd2": 130,
@@ -159,12 +149,12 @@ const alphabet = {
   "arcEnd1": 63,
   "lineX1": 60,
   "lineY1": 100,
-  "lineX2": 100,
-  "lineY2": 100,
-  "lineX3": 60,
+  "lineX2": 30,
+  "lineY2": 145,
+  "lineX3": 30,
   "lineX4": 70,
-  "lineY3": 100,
-  "lineY4": 140,
+  "lineY3": 145,
+  "lineY4": 145,
   "point1x": 20,
   "point1y": 60
 
@@ -383,14 +373,14 @@ const alphabet = {
   "arcEnd2": 180,
   "lineX1": 85,
   "lineY1": 65,
-  "lineX2": 20,
-  "lineY2": 140,
+  "lineX2": 10,
+  "lineY2": 100,
   "lineX3": 100,
   "lineY3": 100,
-  "lineX4": 20,
-  "lineY4": 140,
-  "point2x": 20,
-  "point2y": 140
+  "lineX4": 10,
+  "lineY4": 100,
+  "point2x": 8,
+  "point2y": 100
 },
 "0":
   {
@@ -466,7 +456,7 @@ const alphabet = {
   "6":
   {
   "arcStart1": 300,
-  "arcEnd1": 180,
+  "arcEnd1": 140,
   "lineX1": 10,
   "lineX2": 10,
   "lineY1": 30,
