@@ -26,6 +26,8 @@ The twenty parameters per letter:
   * `BcolorG` : green color value of the other small ellipse
   * `BcolorB` : blue color value of the other small ellipse
 
-  * `backColor` : color of the big background ellipse
+  * `backColorR` : red color value of the big background ellipse
+  * `backColorG` : green color value of the big background ellipse
+  * `backColorB` : blue color value of the big background ellipse
   * `semiRotate` : Turns the background ellipse into a semicircle and rotates it. If the value is null it will keep the ellipse as a circle
 
