@@ -13,27 +13,42 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "sq1x": 35,
+  "sq1y": -120,
+  "sq2x": -20,
+  "sq2y": -60,
+  "rect1x": -125,
+  "rect1y": -120,
+  "rect2x": -20,
+  "rect2y": 5
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "sq1x": -20,
+  "sq1y": -60,
+  "sq2x": -20,
+  "sq2y": 5,
+  "rect1x": 35,
+  "rect1y": -120,
+  "rect2x": 35,
+  "rect2y": 65
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "sq1x": -70,
+  "sq1y": -120,
+  "sq2x": -70,
+  "sq2y": 70,
+  "rect1x": -20,
+  "rect1y": -25,
+  "rect2x": 35,
+  "rect2y": -50
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#efab4b";
+const colorFront2  = "#d9ef4b";
+const colorBack    = "#d9ef4b";
+const colorStroke  = "#d9ef4b";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +57,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,15 +65,25 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
+  let pos1x = posx + letterData["sq1x"];
+  let pos1y = posy + letterData["sq1y"];
+  let pos2x= posx + letterData["sq2x"];
+  let pos2y = posy + letterData["sq2y"];
+  let pos3x= posx + letterData["rect1x"];
+  let pos3y = posy + letterData["rect1y"];
+  let pos4x= posx + letterData["rect2x"];
+  let pos4y = posy + letterData["rect2y"];
+
+  // draw one rect
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  rect(posx -70, posy -100, 150, 200);
+  //draw two squares, two rectangles
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos1x, pos1y, 50, 50);
+  rect(pos2x, pos2y, 50, 50);
+  rect(pos3x, pos3y, 100, 50);
+  rect(pos4x, pos4y, 50, 100);
 }
 
 function draw () {
