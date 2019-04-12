@@ -31,7 +31,8 @@ const letterC = {
 }
 
 const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront2  = "#CCFF99";
+const colorFront3  = "#99FFFF";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -48,7 +49,7 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
+function drawLetter(posx, posy, letterData) { //only draw here.
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
@@ -56,9 +57,11 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  rect(posx, posy, 150, 150);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
+  fill(colorFront3);
+  rect(posx, posy, 50, 50);
 }
 
 function draw () {
