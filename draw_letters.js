@@ -106,7 +106,7 @@ new_letter["offsetx8"]  = map(percent, 50, 100, oldObj["offsetx8"], newObj["offs
 }
 
 var swapWords = [
-  "SHARPEN",
+  "SERRATED",
   "WILLRIDD",
   "VICTORIA"
 ]
