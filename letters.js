@@ -9,7 +9,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 0,
+    "pos2k": 0,
+    "pos1h": 1
   },
   "A": {
     "pos1x": 65,
@@ -21,7 +25,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 50,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 50,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "B": {
     "pos1x": 85,
@@ -33,7 +41,11 @@ const alphabet = {
     "pos1j": 25,
 
     "pos1q": 20,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 50,
+    "pos2k": 25,
+    "pos1h": 1
   },
   "C": {
     "pos1x": 25,
@@ -45,7 +57,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 15,
-    "pos1w": 15
+    "pos1w": 15,
+
+    "pos1k": 25,
+    "pos2k": 25,
+    "pos1h": 1
   },
   "D": {
     "pos1x": 35,
@@ -57,7 +73,11 @@ const alphabet = {
     "pos1j": 50,
 
     "pos1q": 15,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 35,
+    "pos2k": 25,
+    "pos1h": 1
   },
   "E": {
     "pos1x": 10,
@@ -69,7 +89,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 10,
-    "pos1w": 20
+    "pos1w": 20,
+
+    "pos1k": 20,
+    "pos2k": 25,
+    "pos1h": 1
   },
   "F": {
     "pos1x": 0,
@@ -81,7 +105,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 10,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "G": {
     "pos1x": 55,
@@ -93,7 +121,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 10,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 60,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "H": {
     "pos1x": 85,
@@ -105,7 +137,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 20,
-    "pos1w": 5
+    "pos1w": 5,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "I": {
     "pos1x": 35,
@@ -117,7 +153,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 35,
-    "pos1w": 5
+    "pos1w": 5,
+
+    "pos1k": 60,
+    "pos2k": 40,
+    "pos1h": 1
   },
   "J": {
     "pos1x": 85,
@@ -129,7 +169,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 40,
-    "pos1w": 5
+    "pos1w": 5,
+
+    "pos1k": 80,
+    "pos2k": 45,
+    "pos1h": 1
   },
   "K": {
     "pos1x": 60,
@@ -141,7 +185,11 @@ const alphabet = {
     "pos1j": 30,
 
     "pos1q": 10,
-    "pos1w": 20
+    "pos1w": 20,
+
+    "pos1k": 25,
+    "pos2k": 30,
+    "pos1h": 1
   },
   "L": {
     "pos1x": 10,
@@ -153,7 +201,11 @@ const alphabet = {
     "pos1j": 50,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 20,
+    "pos2k": 25,
+    "pos1h": 1
   },
   "M": {
     "pos1x": 30,
@@ -165,7 +217,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 30,
-    "pos1w": 20
+    "pos1w": 20,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "N": {
     "pos1x": 20,
@@ -177,7 +233,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 40,
-    "pos1w": 10
+    "pos1w": 10,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "O": {
     "pos1x": 60,
@@ -189,7 +249,11 @@ const alphabet = {
     "pos1j": 20,
 
     "pos1q": 10,
-    "pos1w": 10
+    "pos1w": 10,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "P": {
     "pos1x": 60,
@@ -201,7 +265,11 @@ const alphabet = {
     "pos1j": 10,
 
     "pos1q": 10,
-    "pos1w": 10
+    "pos1w": 10,
+
+    "pos1k": 20,
+    "pos2k": 10,
+    "pos1h": 1
   },
   "Q": {
     "pos1x": 10,
@@ -213,7 +281,11 @@ const alphabet = {
     "pos1j": 45,
 
     "pos1q": 40,
-    "pos1w": 5
+    "pos1w": 5,
+
+    "pos1k": 50,
+    "pos2k": 15,
+    "pos1h": 1
   },
   "R": {
     "pos1x": 30,
@@ -225,7 +297,11 @@ const alphabet = {
     "pos1j": 10,
 
     "pos1q": 10,
-    "pos1w": 10
+    "pos1w": 10,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "S": {
     "pos1x": 20,
@@ -237,7 +313,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 20,
+    "pos2k": 0,
+    "pos1h": 1
   },
   "T": {
     "pos1x": 20,
@@ -249,7 +329,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 25,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 25,
+    "pos2k": 20,
+    "pos1h": 1
   },
   "U": {
     "pos1x": 85,
@@ -261,19 +345,27 @@ const alphabet = {
     "pos1j": 50,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 70,
+    "pos2k": 50,
+    "pos1h": 1
   },
   "V": {
     "pos1x": 70,
-    "pos2x": 90,
+    "pos2x": 100,
     "pos1y": 50,
-    "pos2y": 20,
+    "pos2y": 10,
 
     "pos1i": 0,
     "pos1j": 10,
 
     "pos1q": 20,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 30,
+    "pos2k": 10,
+    "pos1h": 1
   },
   "W": {
     "pos1x": 70,
@@ -285,7 +377,11 @@ const alphabet = {
     "pos1j": 30,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 55,
+    "pos2k": 30,
+    "pos1h": 1
   },
   "X": {
     "pos1x": 10,
@@ -297,7 +393,11 @@ const alphabet = {
     "pos1j": 10,
 
     "pos1q": 10,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 45,
+    "pos2k": 30,
+    "pos1h": 1
   },
   "Y": {
     "pos1x": 20,
@@ -309,7 +409,11 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 0,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 40,
+    "pos2k": 40,
+    "pos1h": 1
   },
   "Z": {
     "pos1x": 0,
@@ -321,7 +425,11 @@ const alphabet = {
     "pos1j": 30,
 
     "pos1q": 0,
-    "pos1w": 30
+    "pos1w": 30,
+
+    "pos1k": 10,
+    "pos2k": 30,
+    "pos1h": 1
   },
   "0": {
     "pos1x": 50,
@@ -369,14 +477,14 @@ const alphabet = {
     "pos2y": 5,
 
     "pos1i": 35,
-    "pos1j": 20,
+    "pos1j": 35,
 
     "pos1k": 10,
     "pos2k": 40,
     "pos1h": 5,
 
-    "pos1z": 70,
-    "pos2z": 35,
+    "pos1z": 75,
+    "pos2z": 20,
     "pos1v": 35
   },
   "4": {
@@ -479,6 +587,10 @@ const alphabet = {
     "pos1j": 0,
 
     "pos1q": 70,
-    "pos1w": 0
+    "pos1w": 0,
+
+    "pos1k": 10,
+    "pos2k": 40,
+    "pos1h": 5
   }
 }

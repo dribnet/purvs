@@ -10,12 +10,12 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  
+
   // color/stroke setup
   stroke("#ff5185");
   strokeWeight(4);
 
-  //grabbing contants from letters js
+  //grabbing contants from letters js and placing them into variables so that I can use the numbers on lines and ellipses
 
   //first line
   let l1x = letterData["pos1x"];
@@ -50,11 +50,9 @@ function drawLetter(letterData) {
   let v1g =  letterData["pos1g"]
 
   //lines for alphabet
+  //placing the variables into line and ellipse primitives to create the characters
   noFill(0);
   strokeWeight(12);
-
-  var x = 0;
-  var y = 0;
 
   line(l1x, l1y, l2x, l2y);
 
@@ -64,7 +62,7 @@ function drawLetter(letterData) {
 
   ellipse(e1k, e2k, e1h, e1h);
 
-  line(e1z, e2z, e1v, e1v);
+  line(e1z, e2z, e1v, 20);
 
   beginShape();
     vertex(0, 0)
@@ -78,24 +76,56 @@ function drawLetter(letterData) {
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["pos1x"] = map(percent, 0, 100, oldObj["pos1x"], newObj["pos1x"]);
-  new_letter["pos2x"] = map(percent, 0, 100, oldObj["pos2x"], newObj["pos2x"]);
-  new_letter["pos1y"] = map(percent, 0, 100, oldObj["pos1y"], newObj["pos1y"]);
-  new_letter["pos2y"] = map(percent, 0, 100, oldObj["pos2y"], newObj["pos2y"]);
+  let new_letter = { };
 
-  new_letter["pos1i"] = map(percent, 0, 100, oldObj["pos1i"], newObj["pos1i"]);
-  new_letter["pos2i"] = map(percent, 0, 100, oldObj["pos2i"], newObj["pos2i"]);
-  new_letter["pos1j"] = map(percent, 0, 100, oldObj["pos1j"], newObj["pos1j"]);
-  new_letter["pos2j"] = map(percent, 0, 100, oldObj["pos2j"], newObj["pos2j"]);
+  //added an if and else statement to delay the transitions a bit, making the interpolation look 'snappy'
+  if(percent <60){
+    new_letter["pos1x"] = oldObj["pos1x"]
+    new_letter["pos2x"] = oldObj["pos2x"]
+    new_letter["pos1y"] = oldObj["pos1y"]
+    new_letter["pos2y"] = oldObj["pos2y"]
+  }else{
+    new_letter["pos1x"] = map(percent, 60, 100, oldObj["pos1x"], newObj["pos1x"]);
+    new_letter["pos2x"] = map(percent, 60, 100, oldObj["pos2x"], newObj["pos2x"]);
+    new_letter["pos1y"] = map(percent, 60, 100, oldObj["pos1y"], newObj["pos1y"]);
+    new_letter["pos2y"] = map(percent, 60, 100, oldObj["pos2y"], newObj["pos2y"]);
+  }
 
-  new_letter["pos1q"] = map(percent, 0, 100, oldObj["pos1q"], newObj["pos1q"]);
-  new_letter["pos2q"] = map(percent, 0, 100, oldObj["pos2q"], newObj["pos2q"]);
-  new_letter["pos1w"] = map(percent, 0, 100, oldObj["pos1w"], newObj["pos1w"]);
-  new_letter["pos2w"] = map(percent, 0, 100, oldObj["pos2w"], newObj["pos2w"]);
+  if(percent <40){
+    new_letter["pos1i"] = oldObj["pos1i"]
+    new_letter["pos2i"] = oldObj["pos2i"]
+    new_letter["pos1j"] = oldObj["pos1j"]
+    new_letter["pos2j"] = oldObj["pos2j"]
+  }else{
+    new_letter["pos1i"] = map(percent, 40, 100, oldObj["pos1i"], newObj["pos1i"]);
+    new_letter["pos2i"] = map(percent, 40, 100, oldObj["pos2i"], newObj["pos2i"]);
+    new_letter["pos1j"] = map(percent, 40, 100, oldObj["pos1j"], newObj["pos1j"]);
+    new_letter["pos2j"] = map(percent, 40, 100, oldObj["pos2j"], newObj["pos2j"]);
+  }
+  if(percent <20){
+    new_letter["pos1q"] = oldObj["pos1q"]
+    new_letter["pos2q"] = oldObj["pos2q"]
+    new_letter["pos1w"] = oldObj["pos1w"]
+    new_letter["pos2w"] = oldObj["pos2w"]
+  }else{
+    new_letter["pos1q"] = map(percent, 20, 100, oldObj["pos1q"], newObj["pos1q"]);
+    new_letter["pos2q"] = map(percent, 20, 100, oldObj["pos2q"], newObj["pos2q"]);
+    new_letter["pos1w"] = map(percent, 20, 100, oldObj["pos1w"], newObj["pos1w"]);
+    new_letter["pos2w"] = map(percent, 20, 100, oldObj["pos2w"], newObj["pos2w"]);
+  }
+  if(percent <0){
+    new_letter["pos1q"] = oldObj["pos1q"]
+    new_letter["pos2q"] = oldObj["pos2q"]
+    new_letter["pos1w"] = oldObj["pos1w"]
+  }else{
+    new_letter["pos1k"] = map(percent, 0, 100, oldObj["pos1k"], newObj["pos1k"]);
+    new_letter["pos2k"] = map(percent, 0, 100, oldObj["pos2k"], newObj["pos2k"]);
+    new_letter["pos1h"] = map(percent, 0, 100, oldObj["pos1h"], newObj["pos1h"]);
+  }
   return new_letter;
 }
 
+//changed the words the pop up in the exhibition.html
 var swapWords = [
   "PROBABLY",
   "DAUGHTER",
