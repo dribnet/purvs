@@ -1,6 +1,3 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -10,27 +7,43 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
+  
+const colorFront1  = "#efab4b";
+const colorFront2  = "#d9ef4b";
+const colorStroke  = "#d9ef4b";
+
+
+
+  let pos1x = letterData["sq1x"];
+  let pos1y = letterData["sq1y"];
+  let pos2x= letterData["sq2x"];
+  let pos2y = letterData["sq2y"];
+  let pos3x= letterData["rect1x"];
+  let pos3y = letterData["rect1y"];
+  let pos4x= letterData["rect2x"];
+  let pos4y = letterData["rect2y"];
+
   stroke(colorStroke);
-  strokeWeight(4);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  strokeWeight(2);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  rect(pos1x, pos1y, 50, 50);
+  rect(pos2x, pos2y, 50, 50);
+  rect(pos3x, pos3y, 100, 50);
+  rect(pos4x, pos4y, 50, 100);
+ 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["sq1x"]    = map(percent, 0, 100, oldObj["sq1x"], newObj["sq1x"]);
+  new_letter["sq1y"] = map(percent, 0, 100, oldObj["sq1y"], newObj["sq1y"]);
+  new_letter["sq2x"] = map(percent, 0, 100, oldObj["sq2x"], newObj["sq2x"]);
+  new_letter["sq2y"] = map(percent, 0, 100, oldObj["sq2y"], newObj["sq2y"]);
+  new_letter["rect1x"] = map(percent, 0, 100, oldObj["rect1x"], newObj["rect1y"]);
+  new_letter["rect1y"] = map(percent, 0, 100, oldObj["rect1y"], newObj["rect1y"]);
+  new_letter["rect2x"] = map(percent, 0, 100, oldObj["rect2x"], newObj["rect2x"]);
+  new_letter["rect2y"] = map(percent, 0, 100, oldObj["rect2y"], newObj["rect2y"]);
   return new_letter;
 }
 

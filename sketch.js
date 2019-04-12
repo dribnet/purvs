@@ -12,26 +12,37 @@ const canvasHeight = 500;
  *
  */
 
-const number9 = {
-  "sq1x": 55,
-  "sq1y": 65,
-  "sq2x": -30,
-  "sq2y": -75,
-  "rect1x": -80,
-  "rect1y": 0,
-  "rect2x": -100,
-  "rect2y": 0
+const letterA = {
+  "sq1x": 35,
+  "sq1y": -120,
+  "sq2x": -20,
+  "sq2y": -60,
+  "rect1x": -125,
+  "rect1y": -120,
+  "rect2x": -20,
+  "rect2y": 5
 }
 
-const questionmark = {
-  "sq1x": -70,
-  "sq1y": 20,
+const letterB = {
+  "sq1x": -20,
+  "sq1y": -60,
   "sq2x": -20,
-  "sq2y": 20,
-  "rect1x": -80,
-  "rect1y": -65,
-  "rect2x": 30,
-  "rect2y": 20
+  "sq2y": 5,
+  "rect1x": 35,
+  "rect1y": -120,
+  "rect2x": 35,
+  "rect2y": 65
+}
+
+const letterC = {
+  "sq1x": -70,
+  "sq1y": -120,
+  "sq2x": -70,
+  "sq2y": 70,
+  "rect1x": -20,
+  "rect1y": -25,
+  "rect2x": 35,
+  "rect2y": -50
 }
 
 const colorFront1  = "#efab4b";
@@ -47,7 +58,6 @@ function setup () {
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(2);
-
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -84,9 +94,10 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters 9, questionmark from saved data
-  drawLetter(center_x - 250, center_y, number9);
-  drawLetter(center_x      , center_y, questionmark);
+  // draw the letters A, B, C from saved data
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
