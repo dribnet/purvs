@@ -15,7 +15,7 @@ const mainOffsetY = 150;
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(0);
 
   angleMode(DEGREES);
   // determine parameters for second circle
@@ -34,14 +34,22 @@ function drawLetter(letterData) {
 
   let semiRotate2 = letterData["semiRotate"];
 
-  let backColor2 = letterData["backColor"];
-  let frontAColor2 = letterData["Acolor"];
-  let frontBColor2 = letterData["Bcolor"];
+  let backColorR2 = letterData["backColorR"];
+  let backColorG2 = letterData["backColorG"];
+  let backColorB2 = letterData["backColorB"];
+
+  let frontAColorR2 = letterData["AcolorR"];
+  let frontAColorG2 = letterData["AcolorG"];
+  let frontAColorB2 = letterData["AcolorB"];
+
+  let frontBColorR2 = letterData["BcolorR"];
+  let frontBColorG2 = letterData["BcolorG"];
+  let frontBColorB2 = letterData["BcolorB"];
 
   // draw two circles
 
   //back circle
-  fill(backColor2);
+  fill(backColorR2, backColorG2, backColorB2);
   push();
   if(semiRotate2 != null){
     translate(0,0);
@@ -53,7 +61,7 @@ function drawLetter(letterData) {
   pop();
 
   //1st front circle
-  fill(frontAColor2);
+  fill(frontAColorR2,frontAColorG2,frontAColorB2);
   push();
   if(smallAngle2 != 0){
     translate(0,0);
@@ -63,7 +71,7 @@ function drawLetter(letterData) {
   pop();
 
   //2nd front circle
-  fill(frontBColor2);
+  fill(frontBColorR2,frontBColorG2,frontBColorB2);
   push();
   if(BsmallAngle2 != 0){
     translate(0,0);
@@ -77,14 +85,37 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["smallWidth"]    = map(percent, 0, 100, oldObj["smallWidth"], newObj["smallWidth"]);
+  new_letter["smallHeight"]    = map(percent, 0, 100, oldObj["smallHeight"], newObj["smallHeight"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["smallAngle"]    = map(percent, 0, 100, oldObj["smallAngle"], newObj["smallAngle"]);
+  new_letter["BsmallWidth"]    = map(percent, 0, 100, oldObj["BsmallWidth"], newObj["BsmallWidth"]);
+  new_letter["BsmallHeight"]    = map(percent, 0, 100, oldObj["BsmallHeight"], newObj["BsmallHeight"]);
+  new_letter["Boffsetx"] = map(percent, 0, 100, oldObj["Boffsetx"], newObj["Boffsetx"]);
+  new_letter["Boffsety"] = map(percent, 0, 100, oldObj["Boffsety"], newObj["Boffsety"]);
+  new_letter["BsmallAngle"]    = map(percent, 0, 100, oldObj["BsmallAngle"], newObj["BsmallAngle"]);
+  //new_letter["semiRotate"] = map(percent, 0, 100, oldObj["semiRotate"], newObj["semiRotate"]);
+
+  new_letter["backColorR"] = map(percent, 0, 100, oldObj["backColorR"], newObj["backColorR"]);
+  new_letter["backColorG"] = map(percent, 0, 100, oldObj["backColorG"], newObj["backColorG"]);
+  new_letter["backColorB"] = map(percent, 0, 100, oldObj["backColorB"], newObj["backColorB"]);
+
+  new_letter["AcolorR"]    = map(percent, 0, 100, oldObj["AcolorR"], newObj["AcolorR"]);
+  new_letter["AcolorG"]    = map(percent, 0, 100, oldObj["AcolorG"], newObj["AcolorG"]);
+  new_letter["AcolorB"]    = map(percent, 0, 100, oldObj["AcolorB"], newObj["AcolorB"]);
+
+  new_letter["BcolorR"] = map(percent, 0, 100, oldObj["BcolorR"], newObj["BcolorR"]);
+  new_letter["BcolorG"] = map(percent, 0, 100, oldObj["BcolorG"], newObj["BcolorG"]);
+  new_letter["BcolorB"] = map(percent, 0, 100, oldObj["BcolorB"], newObj["BcolorB"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "BUBBLOCK",
+  "NEGATIVE",
+  "BEGINNER",
+  "PLAYFUL?",
+  "DYLANE19"
 ]
