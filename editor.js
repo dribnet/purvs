@@ -25,15 +25,37 @@ function sliderToDataObject() {
   obj["point3_y"] = points[2].y;
   obj["point4_x"] = points[3].x;
   obj["point4_y"] = points[3].y;
-  obj["offset"] = 0;
+  obj["point5_x"] = points[4].x;
+  obj["point5_y"] = points[4].y;
+  obj["point6_x"] = points[5].x;
+  obj["point6_y"] = points[5].y;
+  obj["numLineBugs"] = round(map(param_sliders[0].value(), 0, 100, 2, 8));
+  displayPoints = param_sliders[1].value() > 40;
   return obj;
 }
 
 let points = [];
 let pointSize = 10;
 let currentPointIndex = -1;
+let displayPoints = true;
 
-let numSliders = 8;
+let numSliders = 2;
+
+letterData = {
+  "point1_x": 39.5,
+  "point1_y": 181.5,
+  "point2_x": 33,
+  "point2_y": 108,
+  "point3_x": 82,
+  "point3_y": 123.5,
+  "point4_x": 87.5,
+  "point4_y": 174,
+  "point5_x": 15,
+  "point5_y": 188,
+  "point6_x": 15.5,
+  "point6_y": 97.5,
+  "numLineBugs": 5
+};
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 
@@ -44,7 +66,7 @@ let main_canvas = null;
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-let debugBox = false;
+let debugBox = true;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -62,9 +84,15 @@ function setup () {
     param_sliders.push(cur_slider);
   }
 
-  for (let i = 0; i < 4; i++) {
-    points.push({x : random(25, 75), y : random(75, 125)});
-  }
+  points.push({x: letterData["point1_x"], y: letterData["point1_y"]});
+  points.push({x: letterData["point2_x"], y: letterData["point2_y"]});
+  points.push({x: letterData["point3_x"], y: letterData["point3_y"]});
+  points.push({x: letterData["point4_x"], y: letterData["point4_y"]});
+
+  // line points
+  points.push({x: letterData["point5_x"], y: letterData["point5_y"]});
+  points.push({x: letterData["point6_x"], y: letterData["point6_y"]});
+
 
   button = createButton('show data');
   button.mousePressed(buttonPressedEvent);
@@ -82,28 +110,33 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   push();
   scale(2);
-  translate(width/4 - 50, 25);
+  translate(width / 4 - 50, 25);
 
   if (debugBox) {
     noFill();
-    strokeWeight(4);
+    strokeWeight(3);
     stroke(0, 200, 0);
     rect(0, 0, 100, 200);
+    strokeWeight(1);
+    line(0, 100, 100, 100);
   }
 
   let obj = sliderToDataObject();
   drawLetter(obj);
 
-  fill(255);
-  stroke(0);
-  for (let p of points) {
-    ellipse(p.x, p.y, pointSize ,pointSize);
-  }
+  // draw points
+  if (displayPoints) {
+    fill(255);
+    stroke(0);
+    for (let p of points) {
+      ellipse(p.x, p.y, pointSize, pointSize);
+    }
+}
   pop();
 }
 
@@ -129,12 +162,10 @@ function keyTyped() {
 function mousePressed() {
   let mous_x = mouseX /2 - width/4 + 50;
   let mous_y = mouseY /2 - 25;
-  print("mouse_x: " + mous_x);
-  print("mouse_y: " + mous_y);
 
   let found = false;
-  for (let i = 0; i <4; i++) {
-    if (abs(points[i].x- mous_x) < pointSize*2 && abs(points[i].y - mous_y) < pointSize*2){
+  for (let i = 0; i <6; i++) {
+    if (abs(points[i].x- mous_x) < pointSize*1.5 && abs(points[i].y - mous_y) < pointSize*1.5){
       currentPointIndex = i;
       found = true;
     }
