@@ -1,20 +1,20 @@
 {
   "commits": [
     {
-      "sha": "fc2f79b74d58d3c0c2efa0e18b969e5a8057ffc4",
+      "sha": "0d7f262691bd525e94147e517d6906eaaf692c83",
       "name": "final"
     },
     {
-      "sha": "1c29a194570df873490aea89e60a6b8289e1870f",
-      "name": "started with the buildings"
+      "sha": "f94cabf621fa910a1f861e2e03cb4ea9273d9a55",
+      "name": "finished the numbers"
     },
     {
-      "sha": "f4ec0ebc9ea7634a472aee684652cc5e687fba80",
-      "name": "working clock with a mapping on x"
+      "sha": "a1a8f810dceaca802f90d94154b06f5a9cbda383",
+      "name": "made new design and finshed the letters"
     },
     {
-      "sha": "53528afb09d739f677b0ff21732130dab91cfb05",
-      "name": "started with the Grid idea"
+      "sha": "e343693e9034d65155930c564721f514c5751ab8",
+      "name": "first idea with triangles"
     }
   ]
 }
