@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-###Bug World
+### Bug World
 
 
 My idea for the project was to have a army of little bugs skitter around and form the letters out of their bodies. What seemed like a somewhat simple project at face value rapidly became more and more complicated. 
