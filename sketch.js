@@ -12,37 +12,37 @@ const canvasHeight = 500;
  *
  */
 
-const letterS = {
-  "sq1x": -90,
-  "sq1y": 0,
-  "sq2x": -40,
-  "sq2y": 0,
-  "rect1x": 0,
-  "rect1y": -75,
-  "rect2x": -70,
-  "rect2y": -100
+const letterV = {
+  "sq1x": -100,
+  "sq1y": 55,
+  "sq2x": 60,
+  "sq2y": 55,
+  "rect1x": -45,
+  "rect1y": -100,
+  "rect2x": -20,
+  "rect2y": -50
 }
 
-const letterT = {
-  "sq1x": 30,
-  "sq1y": 50,
-  "sq2x": 30,
-  "sq2y": 0,
-  "rect1x": -120,
-  "rect1y": 50,
-  "rect2x": -70,
-  "rect2y": 0
-}
-
-const letterU = {
-  "sq1x": 5,
+const letterW = {
+  "sq1x": 15,
   "sq1y": -50,
-  "sq2x": 5,
+  "sq2x": 15,
   "sq2y": 0,
   "rect1x": -45,
   "rect1y": -100,
-  "rect2x": -45,
+  "rect2x": -55,
   "rect2y": -50
+}
+
+const letterX = {
+  "sq1x": -75,
+  "sq1y": -25,
+  "sq2x": 40,
+  "sq2y": -25,
+  "rect1x": -45,
+  "rect1y": -105,
+  "rect2x": -20,
+  "rect2y": 50
 }
 
 const colorFront1  = "#efab4b";
@@ -94,10 +94,10 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters S, T, U from saved data
-  drawLetter(center_x - 250, center_y, letterS);
-  drawLetter(center_x      , center_y, letterT);
-  drawLetter(center_x + 250, center_y, letterU);
+  // draw the letters V, W, X from saved data
+  drawLetter(center_x - 250, center_y, letterV);
+  drawLetter(center_x      , center_y, letterW);
+  drawLetter(center_x + 250, center_y, letterX);
 }
 
 function keyTyped() {
