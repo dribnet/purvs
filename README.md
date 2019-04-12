@@ -1,6 +1,6 @@
 ## PS2 MDDN 242 2019
 
-###Bug World
+### Bug World
 
 
 My idea for the project was to have a army of little bugs skitter around and form the letters out of their bodies. What seemed like a somewhat simple project at face value rapidly became more and more complicated. 
@@ -22,7 +22,7 @@ I eventually added another two points which define a separate section of spline 
 In terms of the design of the alphabet, I went with this kind of bubbly, loopy font to go with cute nature of the bug graphic and the concept. 
 
 
-The current 8 parameters per letter:
+The current 13 parameters per letter:
   * `point1_x`: The x-position of the first point in the spline
   * `point1_y`: The y-position of the first point in the spline
   * `point2_x`: The x-position of the second point in the spline
