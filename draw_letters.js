@@ -22,7 +22,8 @@ const colorStroke  = "#d9ef4b";
   let pos3y = letterData["rect1y"];
   let pos4x= letterData["rect2x"];
   let pos4y = letterData["rect2y"];
-
+push();
+scale(0.5);
   stroke(colorStroke);
   strokeWeight(2);
   fill(colorFront2);
@@ -31,7 +32,7 @@ const colorStroke  = "#d9ef4b";
   rect(pos2x, pos2y, 50, 50);
   rect(pos3x, pos3y, 100, 50);
   rect(pos4x, pos4y, 50, 100);
- 
+pop(); 
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
