@@ -1,33 +1,51 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 100,
+
+  "offsetx":  50,
+  "offsety": -11,
+  "offsetx1": 20,
+  "offsety1": 45,
+  "offsetx2": 80,
+  "offsety2": 45,
+
+  "rotate":  180,
+  "rotate2": 180,
+  "rotate3": 180,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 100,
+
+   "offsetx":  20,
+   "offsety": -20,
+   "offsetx1": 20,
+   "offsety1": 20,
+   "offsetx2": 0,
+   "offsety2": 0,
+
+   "rotate":  270,
+   "rotate2": 270,
+   "rotate3": 270,
+
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+
+    "offsetx":  13,
+    "offsety": -40,
+    "offsetx1": 50,
+    "offsety1": -20,
+    "offsetx2": 13,
+    "offsety2": 40,
+
+    "rotate":  270,
+    "rotate2": 90,
+    "rotate3": 270,
 }
 
 const colorFront1  = "#199cff";
@@ -49,16 +67,53 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos1x = posx + letterData["offsetx"];
+  let pos1y = posy + letterData["offsety"];
+  let rotate = letterData["rotate"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  let pos2x = posx + letterData["offsetx1"];
+  let pos2y = posy + letterData["offsety1"];
+  let rotate2 = letterData["rotate2"];
+
+  let pos3x = posx + letterData["offsetx2"];
+  let pos3y = posy + letterData["offsety2"];
+  let rotate3 = letterData["rotate3"];
+
+  let size = letterData["size"];
+
+
+ drawSqr(pos1x,pos1y,size,rotate);
+ drawSqr(pos2x,pos2y,size,rotate2);
+  drawSqr(pos3x,pos3y,size,rotate3);
+
+}
+function drawSqr(x,y,size,rotation,color,sc) {
+
+//noStroke();
+stroke(2);
+  let a = pow(size,2);
+  let b = pow(size/2, 2);
+  let sqrHeight = sqrt(a-b);
+  let centreY = cos(floor(30))* size/2;
+
+  x1 = - size/3;
+  y1 = - centreY/2;
+  x2 =  size/2;
+  y2 = - centreY;
+  x3 = 0;
+  y3 =  sqrHeight - centreY;
+
+translate(x,y);
+rotate(radians(rotation));
+  fill(255);
+  triangle(x1,y1,x2,y2, x3, y3);
+  fill(255);
+    ellipse(0,0,10,10)
+
+     rotate(radians(-rotation));
+    translate(0-x,0-y);
+
+
 }
 
 function draw () {
@@ -66,12 +121,12 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x, center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
 
