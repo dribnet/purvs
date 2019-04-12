@@ -38,3 +38,6 @@ I tried that the numbers are drawn incomplet but that you still could recognize 
 - **offsetX1** is there to move the second curve along the X-Axis
 - **offsetY1** offstetY is there to move the second curve along the Y-Axis
 - **otation_angle1** rotates the second curve
+
+## Problems
+My problem during the process was that I couldn't get the editor.html working probably beause I use an for loop to creat the wave wich I think caused the problem because I only got one straigth line.
