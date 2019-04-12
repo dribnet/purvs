@@ -61,8 +61,6 @@ function drawLetter(letterData) {
 
     for (let i = numSplineBugs + maxLineBugs; i >= 0; i--) {
         /** offset calculation */
-        let sadfdsa = offset+offset*((i-2)*-6);
-        let asdf = sin(offset+offset*((i-2)*-6));
         let xOffset = map(sin(offset+offset*((i-2)*-6)), -1, 1, -25, 25);
         let yOffset = map(sin(offset+offset*((i+4)*4)), -1, 1, -25, 25);
 
@@ -207,7 +205,7 @@ function drawBug(posX, posY, orient, color) {
             currentY += bugSize * 0.17;
             push();
             translate(currentX, currentY);
-            rotate(map(sin(offset*(i+2) + 1.66 * (i+1)), -1, 1, -40, 40));
+            rotate(map(sin(offset*(i+2) + 1.66 * (i+1)), -1, 1, -90, 90));
             beginShape();
             vertex(0,0);
             vertex( j * bugSize * 0.06, -bugSize * 0.02);
@@ -264,15 +262,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 
     // offset for scattering
     offset = conjoinedInterp(percent, 0, 0, PI);
-    // obj["offset"] = conjoinedInterp(percent, 0, 0, 0);
-
-    /** uncomment to see original sin version talked about in READEME */
-    // let offset = oldObj["point4_y"] * newObj["point3_x"] + oldObj["point1_y"] * newObj["point2_x"];
-    // obj["offset"] = conjoinedInterp(percent, 0, 0, offset);
 
     // interpolating
     if (percent > 1 && percent < 100){
-        nextPoints = calcPoints(percent + 1, oldObj, newObj);
+        nextPoints = calcPoints(percent + 5, oldObj, newObj);
     } else {
         nextPoints = [];
     }
@@ -306,7 +299,7 @@ function calcPoints(percent, oldObj, newObj){
     points[5] = createVector(conjoinedInterp( percent, oldObj["point6_x"], newObj["point6_x"], scatterPoints[3].x),
         conjoinedInterp( percent, oldObj["point6_y"], newObj["point6_y"], scatterPoints[3].y));
     
-    points[6] = conjoinedInterp(percent, 0, 0, TWO_PI*2);
+    points[6] = conjoinedInterp(percent, 0, 0, PI);
     return points;
 }
 
