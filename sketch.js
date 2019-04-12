@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -13,37 +13,83 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-    "arcsize1": 70,
-    "arcsize2": 40,
-    "x_arc1": 10,
-    "y_arc1": 10,
-    "x_arc2": 10,
-    "y_arc2": 10,
-    "deg_arc1": 110,
-    "deg_arc2": 70,
-    "deg_arc3": 100,
-    "deg_arc4": 200,
-    "linex1": 100,
-    "linex2": 100,
-    "linex3": 100,
-    "linex4": 200,
-    "liney1": 100,
-    "liney2": 100,
-    "liney3": 100,
-    "liney4": 200
+  "arcsize1": 70,
+   "arcsize2": 70,
+   "x_arc1": 50,
+   "y_arc1": 75,
+   "x_arc2": 50,
+   "y_arc2": 125,
+   "deg_arc1": 110,
+   "deg_arc2": 70,
+   "deg_arc3": 125,
+   "deg_arc4": 55,
+
+   "linex1": 95,
+   "liney1": 125,
+   "linex2": 70,
+   "liney2": 125,
+
+
+   "linex3": 5,
+   "liney3": 125,
+
+   "linex4": 30,
+   "liney4": 125
 }
 
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+
+  const letterB = {
+ "arcsize1": 70,
+  "arcsize2": 70,
+  "x_arc1": 50,
+  "y_arc1": 75,
+  "x_arc2": 50,
+  "y_arc2": 125,
+  "deg_arc1": 180,
+  "deg_arc2": 110,
+  "deg_arc3": 250,
+  "deg_arc4": 180,
+
+  "linex1": 50,
+  "liney1": 157,
+  "linex2": 50,
+  "liney2": 135,
+
+
+  "linex3": 50,
+  "liney3": 40,
+
+  "linex4": 50,
+  "liney4": 65
+
+}
+    const letterC = {
+ "arcsize1": 70,
+  "arcsize2": 70,
+  "x_arc1": 50,
+  "y_arc1": 75,
+  "x_arc2": 50,
+  "y_arc2": 125,
+  "deg_arc1": 70,
+  "deg_arc2": 320,
+  "deg_arc3": 40,
+  "deg_arc4": 290,
+
+  "linex1": 50,
+  "liney1": 160,
+
+  "linex2": 50,
+  "liney2": 135,
+
+
+  "linex3": 50,
+  "liney3": 107,
+
+  "linex4": 50,
+  "liney4": 65
+
 }
 
-const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
-}
 
 const colorFront1  = "#ffffff";
 const colorFront2  = "#ffffff";
@@ -91,7 +137,7 @@ let liney4 = posy + letterData["liney4"];
   noFill();
   strokeWeight(10)
   arc(x_arc1,y_arc1,arcsize1,arcsize1,deg_arc1,deg_arc2);
-  arc(x_arc2,y_arc2,arcsize2,arcsize2,deg_arc3,deg_arc4);    
+  arc(x_arc2,y_arc2,arcsize2,arcsize2,deg_arc3,deg_arc4);
 //ellipse(100,100,100,100)
   line(linex1,liney1,linex2,liney2)
   line(linex3,liney3,linex4,liney4)
@@ -102,7 +148,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
