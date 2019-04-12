@@ -20,7 +20,9 @@ const letterA = {
   "rect1x": -125,
   "rect1y": -120,
   "rect2x": -20,
-  "rect2y": 5
+  "rect2y": 5,
+  "rect3x": 5,
+  "rect3y": 5
 }
 
 const letterB = {
