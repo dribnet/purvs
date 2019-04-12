@@ -6,6 +6,12 @@ Each of my letters is composed of three ellipses. The size and position of the f
 
 This design focuses on negative space created by the overlapping ellipses. Each character is made out of what's left of the darker sections after getting partially covered by the lighter ellipses.
 
+I couldn't quite get the transition of the semi-circles to work because to make it fit within 20 parameters I put the semicircle and rotation options all in one parameter. (Checks if the field is null, if not it rotates it by the number in the field).
+
+I decided to follow this design because I wanted to see if I could follow my initial idea of only using ellipses and negative space to create characters. I'm happy with the result, which is a very non-serious/playful typeface. Some of the letters such as the 'E' look pretty abstract but I think if the user knows to focus on the negative space, it's a decently legible font.
+
+I think I need to learn more in the field of shape manipulation with using translate, rotate, etc.
+
 
 The twenty parameters per letter:
   * `smallWidth` : width of the small ellipse
