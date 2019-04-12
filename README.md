@@ -1,9 +1,8 @@
 ## PS2 MDDN 242 2019
 
-Part 4 - Exhibition and Final Alphabets Design
+Final Interaction 
 
-
-This is my final design of my alphabets. I was trying to think of another name which has the combination of the morse code and the triangles. However, the final name of my font is called "Morse Co", it's actually the short version of the name "Morse Code".
+This is my final design of my alphabets. The final interaction showed the animation of the alphabets.
 
 The parameters per letter:
   * `size` : length of the rectangle
