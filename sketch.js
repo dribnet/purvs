@@ -1,27 +1,17 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
 
 const letterA = {
-  "size": 90,
+  "size": 10,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 0
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 70,
+  "offsetx": -30,
+  "offsety": -100
 }
 
 const letterC = {
@@ -30,8 +20,8 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#ccffe5";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#FFD500";
+const colorFront2  = "#C47C62";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -54,27 +44,21 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
 
-  // translate(580, 200);
-  // noStroke();
-  // for (let i = 0; i < 20; i ++){
-  //   ellipse(pos2y, size2, 20, posx);
-  //   ellipse(pos2y, posx, 200, 100);
-  //   rotate(PI/5);
-  // }
+
   fill(colorFront1);
   noStroke();
-  ellipse(posx, posy, 200, 300);
+  ellipse(posx, posy, 200, 200);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, 300, 20);
+  ellipse(pos2x, pos2y, 300, 10);
   fill(colorFront2);
-  ellipse(pos2x, pos2x, 300, 20);
+  ellipse(pos2x, pos2x, 300, 10);
+
 }
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(102,93,30);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;

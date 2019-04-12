@@ -3,17 +3,10 @@ const colorFront2  = "#b266ff";
 const colorStroke  = "#3333ff";
 
 
-
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
   angleMode(DEGREES);
 
+//yellow arcs/petals
   let arcR_x = 80 + letterData["arcR_x_offset"];
   let arcR_y = 70 + letterData["arcR_y_offset"];
   let arcL_x = 20 + letterData["arcL_x_offset"];
@@ -23,11 +16,13 @@ function drawLetter(letterData) {
   let arcD_x = 50 + letterData["arcD_x_offset"];
   let arcD_y = 100 + letterData["arcD_y_offset"];
 
+// degrees
   let arcR_start = letterData["arcR_start"];
   let arcL_start = letterData["arcL_start"];
   let arcU_start = letterData["arcU_start"];
   let arcD_start = letterData["arcD_start"];
 
+// brown/red dot_middle of flower
   let circ_X = 50 + letterData["circ_x_offset"];
   let circ_Y = 70 + letterData["circ_y_offset"];
 
@@ -71,14 +66,34 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcR_x_offset"]    = map(percent, 0, 100, oldObj["arcR_x_offset"], newObj["arcR_x_offset"]);
+  new_letter["arcR_y_offset"] = map(percent, 0, 100, oldObj["arcR_y_offset"], newObj["arcR_y_offset"]);
+  new_letter["arcL_x_offset"] = map(percent, 0, 100, oldObj["arcL_x_offset"], newObj["arcL_x_offset"]);
+  new_letter["arcL_y_offset"] = map(percent, 0, 100, oldObj["arcL_y_offset"], newObj["arcL_y_offset"]);
+  new_letter["arcU_x_offset"] = map(percent, 0, 100, oldObj["arcU_x_offset"], newObj["arcU_x_offset"]);
+  new_letter["arcU_y_offset"] = map(percent, 0, 100, oldObj["arcU_y_offset"], newObj["arcU_y_offset"]);
+  new_letter["arcD_x_offset"] = map(percent, 0, 100, oldObj["arcD_x_offset"], newObj["arcD_x_offset"]);
+  new_letter["arcD_y_offset"] = map(percent, 0, 100, oldObj["arcD_y_offset"], newObj["arcD_y_offset"]);
+  new_letter["circ_x_offset"] = map(percent, 0, 100, oldObj["circ_x_offset"], newObj["circ_x_offset"]);
+  new_letter["circ_y_offset"] = map(percent, 0, 100, oldObj["circ_y_offset"], newObj["circ_y_offset"]);
+  new_letter["lineStart_x_offset"] = map(percent, 0, 100, oldObj["lineStart_x_offset"], newObj["lineStart_x_offset"]);
+  new_letter["lineStart_y_offset"] = map(percent, 0, 100, oldObj["lineStart_y_offset"], newObj["lineStart_y_offset"]);
+  new_letter["lineEnd_x_offset"] = map(percent, 0, 100, oldObj["lineEnd_x_offset"], newObj["lineEnd_x_offset"]);
+  new_letter["lineEnd_y_offset"] = map(percent, 0, 100, oldObj["lineEnd_y_offset"], newObj["lineEnd_y_offset"]);
+  new_letter["arcR_start"] = map(percent, 0, 100, oldObj["arcR_start"], newObj["arcR_start"]);
+  new_letter["arcL_start"] = map(percent, 0, 100, oldObj["arcL_start"], newObj["arcL_start"]);
+  new_letter["arcU_start"] = map(percent, 0, 100, oldObj["arcU_start"], newObj["arcU_start"]);
+  new_letter["arcD_start"] = map(percent, 0, 100, oldObj["arcD_start"], newObj["arcD_start"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FLOWER??",
+  "PETALS??",
+  "YELLOW??",
+  "?VANIZA?",
+  "DESIGN"
+
+
 ]
