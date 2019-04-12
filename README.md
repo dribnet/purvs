@@ -16,4 +16,4 @@ april 10 - Changed the interpolation just a tiny bit. Just delayed when it inter
 
 april 12 - This is probably the last few tweaks I am going to do with the actual code. I added the ellipses behind the letters so that they don't just appear out of thin air. I thought about doing the same thing for 1, 2, 3 and 8 but it would be a little too difficult to do that without changing the characters them themselves and using the lines and ellipses I have available. I will just comment on the code before hand in and I should be ok.
 
-Final Notes- Did the comments quickly. I tried to put as much information that I understood from the past week or so that I played around with it. Hopefully it is informative enough/is accurate to how it actually works.
+Final Notes- Did the comments quickly. I tried to put as much information that I understood from the past week or so that I played around with it. Hopefully it is informative enough/is accurate to how it actually works. Circles behind letters were poking out so I just changed the sie from 1 to 0 since it was annoying to look at.

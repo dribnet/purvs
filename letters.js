@@ -13,7 +13,7 @@ const alphabet = {
 
     "pos1k": 0,
     "pos2k": 0,
-    "pos1h": 1
+    "pos1h": 0
   },
   "A": {
     "pos1x": 65,
@@ -29,7 +29,7 @@ const alphabet = {
 
     "pos1k": 50,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "B": {
     "pos1x": 85,
@@ -45,7 +45,7 @@ const alphabet = {
 
     "pos1k": 50,
     "pos2k": 25,
-    "pos1h": 1
+    "pos1h": 0
   },
   "C": {
     "pos1x": 25,
@@ -61,7 +61,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 25,
-    "pos1h": 1
+    "pos1h": 0
   },
   "D": {
     "pos1x": 35,
@@ -77,7 +77,7 @@ const alphabet = {
 
     "pos1k": 35,
     "pos2k": 25,
-    "pos1h": 1
+    "pos1h": 0
   },
   "E": {
     "pos1x": 10,
@@ -93,7 +93,7 @@ const alphabet = {
 
     "pos1k": 20,
     "pos2k": 25,
-    "pos1h": 1
+    "pos1h": 0
   },
   "F": {
     "pos1x": 0,
@@ -109,7 +109,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "G": {
     "pos1x": 55,
@@ -125,7 +125,7 @@ const alphabet = {
 
     "pos1k": 60,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "H": {
     "pos1x": 85,
@@ -141,7 +141,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "I": {
     "pos1x": 35,
@@ -157,7 +157,7 @@ const alphabet = {
 
     "pos1k": 60,
     "pos2k": 40,
-    "pos1h": 1
+    "pos1h": 0
   },
   "J": {
     "pos1x": 85,
@@ -173,7 +173,7 @@ const alphabet = {
 
     "pos1k": 80,
     "pos2k": 45,
-    "pos1h": 1
+    "pos1h": 0
   },
   "K": {
     "pos1x": 60,
@@ -189,7 +189,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 30,
-    "pos1h": 1
+    "pos1h": 0
   },
   "L": {
     "pos1x": 10,
@@ -205,7 +205,7 @@ const alphabet = {
 
     "pos1k": 20,
     "pos2k": 25,
-    "pos1h": 1
+    "pos1h": 0
   },
   "M": {
     "pos1x": 30,
@@ -221,7 +221,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "N": {
     "pos1x": 20,
@@ -237,7 +237,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "O": {
     "pos1x": 60,
@@ -253,7 +253,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "P": {
     "pos1x": 60,
@@ -269,7 +269,7 @@ const alphabet = {
 
     "pos1k": 20,
     "pos2k": 10,
-    "pos1h": 1
+    "pos1h": 0
   },
   "Q": {
     "pos1x": 10,
@@ -285,7 +285,7 @@ const alphabet = {
 
     "pos1k": 50,
     "pos2k": 15,
-    "pos1h": 1
+    "pos1h": 0
   },
   "R": {
     "pos1x": 30,
@@ -301,7 +301,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "S": {
     "pos1x": 20,
@@ -317,7 +317,7 @@ const alphabet = {
 
     "pos1k": 20,
     "pos2k": 0,
-    "pos1h": 1
+    "pos1h": 0
   },
   "T": {
     "pos1x": 20,
@@ -333,7 +333,7 @@ const alphabet = {
 
     "pos1k": 25,
     "pos2k": 20,
-    "pos1h": 1
+    "pos1h": 0
   },
   "U": {
     "pos1x": 85,
@@ -349,7 +349,7 @@ const alphabet = {
 
     "pos1k": 70,
     "pos2k": 50,
-    "pos1h": 1
+    "pos1h": 0
   },
   "V": {
     "pos1x": 70,
@@ -365,7 +365,7 @@ const alphabet = {
 
     "pos1k": 30,
     "pos2k": 10,
-    "pos1h": 1
+    "pos1h": 0
   },
   "W": {
     "pos1x": 70,
@@ -381,7 +381,7 @@ const alphabet = {
 
     "pos1k": 55,
     "pos2k": 30,
-    "pos1h": 1
+    "pos1h": 0
   },
   "X": {
     "pos1x": 10,
@@ -397,7 +397,7 @@ const alphabet = {
 
     "pos1k": 45,
     "pos2k": 30,
-    "pos1h": 1
+    "pos1h": 0
   },
   "Y": {
     "pos1x": 20,
@@ -413,7 +413,7 @@ const alphabet = {
 
     "pos1k": 40,
     "pos2k": 40,
-    "pos1h": 1
+    "pos1h": 0
   },
   "Z": {
     "pos1x": 0,
@@ -429,7 +429,7 @@ const alphabet = {
 
     "pos1k": 10,
     "pos2k": 30,
-    "pos1h": 1
+    "pos1h": 0
   },
   "0": {
     "pos1x": 50,
