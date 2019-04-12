@@ -443,7 +443,7 @@ const alphabet = {
   "rect3x": -70,
   "rect3y": -100 
     },
-    "questionmark": {
+    "?": {
   "sq1x": -70,
   "sq1y": 20,
   "sq2x": -20,
