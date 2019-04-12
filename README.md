@@ -1,50 +1,35 @@
-## PS2 MDDN 242 2019 - 678
+## PS2 MDDN 242 2019 - 9?
 
 My letters are built up of a fixed rectangle, in addition to two further rectangles and two squares the location of these four being controlled by 8 parameters. 
 
 The 8 parameters per letter:
 
-6:
+9:
 
 Square One: (bottom right)
   "sq1x": Position of the square on the X axis 
   "sq1y": Position of the square on the Y axis
-Square Two: (bottom centre)
+Square Two: (top centre)
   "sq2x": Position of the square on the X axis 
   "sq2y": Position of the square on the Y axis 
-Rect Three: (top centre)
+Rect Three: (centre bottom)
   "rect1x": Position of the rectangle on the X axis
   "rect1y": Position of the rectangle on the Y axis
-Rect Four: (top right)
+Rect Four: (left bottom)
   "rect2x": Position of the rectangle on the X axis
   "rect2y": Position of the rectangle on the Y axis
 
-7:
+?:
 
-Square One: (centre right)
+Square One: left bottom)
   "sq1x": Position of the square on the X axis 
   "sq1y": Position of the square on the Y axis
-Square Two: (top left)
+Square Two: (centre bottom)
   "sq2x": Position of the square on the X axis 
   "sq2y": Position of the square on the Y axis 
-Rect Three: (bottom centre)
+Rect Three: (left top)
   "rect1x": Position of the rectangle on the X axis
   "rect1y": Position of the rectangle on the Y axis
-Rect Four: (bottom right)
-  "rect2x": Position of the rectangle on the X axis
-  "rect2y": Position of the rectangle on the Y axis
-
-8:
-
-Square One: (centre right)
-  "sq1x": Position of the square on the X axis 
-  "sq1y": Position of the square on the Y axis
-Square Two: (centre top)
-  "sq2x": Position of the square on the X axis 
-  "sq2y": Position of the square on the Y axis 
-Rect Three: (bottom centre)
-  "rect1x": Position of the rectangle on the X axis
-  "rect1y": Position of the rectangle on the Y axis
-Rect Four: (centre left)
+Rect Four: (right bottom)
   "rect2x": Position of the rectangle on the X axis
   "rect2y": Position of the rectangle on the Y axis
