@@ -35,10 +35,11 @@ function drawLetter(letterData) {
 
   // draw two arcs and a rectangle
   noStroke();
-  fill(180,200);
+  fill(200,200);
   rect(PosX1, PosY1, PosX2, PosY2);
-  fill(30,100);
+  fill(255,30,30,90);
   arc(CenterPointX1, CenterPointY1, Radius1, Radius1, StartAngle1, EndAngle1);
+  fill(30,144,255,90);
   arc(CenterPointX2, CenterPointY2, Radius2, Radius2, StartAngle2, EndAngle2);
 }
 

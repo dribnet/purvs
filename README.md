@@ -23,4 +23,9 @@ The fourteen parameters per letter:
   * `X2`: ending XPos of rectangle,
   * `Y2`: ending XPos of rectangle
 
-i have made all of the letters upto Y and made the interpolation happen smoothly
+my font is named swizzles becasue my font kinda swizzles around to form the next letter.
+i progresssed my initial sketch idea by adding colour to the 2 arcs so define how each individual letter interpolates to the next one.
+i also made all of it have alpha as i didnt stay inside the box for all of my letters.
+the reason some of then dont fit is becasue every arc i used is a perfect circle or a part of one so letters like D, O and Q which are very round cant fit into a rectangle
+the reasons i chose such vibrant contrasting colours is so that you can keep track of how each arc moves and transitions around the letters
+the rectangle in the letters is very minimal becasue not every letter needs it and another colour makes it very overwhelming.
