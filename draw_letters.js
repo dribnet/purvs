@@ -43,8 +43,6 @@ function drawLetter(letterData) {
     t3y = letterData["t3y"];
   }
 
-  print(t1x);
-
   fill(0) //fill(30, 30, 30, 200);
   noStroke();
   beginShape();
@@ -55,18 +53,7 @@ function drawLetter(letterData) {
     curveVertex(r1x, r1y);
     curveVertex(r2x, r2y);
     curveVertex(r3x, r3y);
-  endShape(CLOSE);
-
-  fill(200, 200, 200, 200); //fill(200, 200, 200, 200);
-  noStroke();
-  beginShape();
-    curveVertex(t1x, t1y);
-    curveVertex(t2x, t2y);
-    curveVertex(t3x, t3y);
-    curveVertex(t1x, t1y);
-    curveVertex(t2x, t2y);
-    curveVertex(t3x, t3y);
-  endShape(CLOSE);
+  endShape(CLOSE); 
 
 
 }
