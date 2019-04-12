@@ -12,35 +12,35 @@ const canvasHeight = 500;
  *
  */
 
-const letterJ = {
-  "sq1x": 30,
-  "sq1y": 0,
-  "sq2x": 30,
-  "sq2y": -50,
-  "rect1x": 30,
+const letterM = {
+  "sq1x": 15,
+  "sq1y": -50,
+  "sq2x": 15,
+  "sq2y": 0,
+  "rect1x": -45,
   "rect1y": 50,
-  "rect2x": -70,
+  "rect2x": -55,
   "rect2y": -50
 }
 
-const letterK = {
-  "sq1x": -20,
-  "sq1y": -100,
-  "sq2x": -20,
-  "sq2y": 50,
-  "rect1x": -20,
-  "rect1y": -25,
-  "rect2x": 50,
-  "rect2y": -50
+const letterN = {
+  "sq1x": -45,
+  "sq1y": -120,
+  "sq2x": 5,
+  "sq2y": -100,
+  "rect1x": -45,
+  "rect1y": 50,
+  "rect2x": -45,
+  "rect2y": 0
 }
 
-const letterL = {
-  "sq1x": 30,
+const letterO = {
+  "sq1x": -45,
   "sq1y": 0,
-  "sq2x": 30,
-  "sq2y": -50,
-  "rect1x": -20,
-  "rect1y": -100,
+  "sq2x": 5,
+  "sq2y": 0,
+  "rect1x": -45,
+  "rect1y": -50,
   "rect2x": -20,
   "rect2y": -50
 }
@@ -94,10 +94,10 @@ function draw () {
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
 
-  // draw the letters J, K, L from saved data
-  drawLetter(center_x - 250, center_y, letterJ);
-  drawLetter(center_x      , center_y, letterK);
-  drawLetter(center_x + 250, center_y, letterL);
+  // draw the letters M, N, O from saved data
+  drawLetter(center_x - 250, center_y, letterM);
+  drawLetter(center_x      , center_y, letterN);
+  drawLetter(center_x + 250, center_y, letterO);
 }
 
 function keyTyped() {
