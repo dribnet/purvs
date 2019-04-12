@@ -187,7 +187,7 @@ function drawBug(posX, posY, orient, color) {
     rotate(-13);
     ellipse(0, -bugSize / 1.8, bugSize / 4.7, bugSize / 4.7);
     pop();
-
+    
     // draw the body
     fill(colorBody);
     rect(0, 0, bugSize * 0.9, bugSize, bugSize / 3);
@@ -205,11 +205,15 @@ function drawBug(posX, posY, orient, color) {
         let currentY = -bugSize / 2.2;
         for (let i = 0; i < 4; i++) {
             currentY += bugSize * 0.17;
+            push();
+            translate(currentX, currentY);
+            rotate(map(sin(offset*(i+2) + 1.66 * (i+1)), -1, 1, -40, 40));
             beginShape();
-            vertex(currentX, currentY);
-            vertex(currentX + j * bugSize * 0.06, currentY + -bugSize * 0.02);
-            vertex(currentX + j * bugSize * 0.13, currentY + bugSize * 0.03);
+            vertex(0,0);
+            vertex( j * bugSize * 0.06, -bugSize * 0.02);
+            vertex( j * bugSize * 0.13,  bugSize * 0.03);
             endShape();
+            pop();
         }
     }
 
@@ -307,9 +311,9 @@ function calcPoints(percent, oldObj, newObj){
 }
 
 var swapWords = [
-    "ABBAABBA",
-    "CAB?CAB?",
-    "BAAAAAAA"
+    "BUGSBUGS",
+    "SKITTERS",
+    "TOGETHER"
 ]
 
 // Smooth animation functions borrowed from Michaelangel007's excellent writeup
