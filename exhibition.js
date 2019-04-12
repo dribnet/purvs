@@ -217,7 +217,7 @@ function draw () {
 
   background(colorBack);
   fill(colorFront);
-  stroke(95, 52, 8);
+  stroke(colorLines);
 
   // shorthand variables to allow margin
   var o = 20
