@@ -9,3 +9,4 @@ tried two different pictures each with only one mask so far - now im going to ch
 
 Changing shapes and stroke, now im going to work on multiple masks
 everything unmasked is foreground
+multiple layers achieved
