@@ -6,3 +6,6 @@ The images above are photos of Wellington CBD algorithmically processed with a l
 So because im in austria right now i thought i would try using photos i have taken while here
 
 tried two different pictures each with only one mask so far - now im going to change the effects before i experiment with multiple masks
+
+Changing shapes and stroke, now im going to work on multiple masks
+everything unmasked is foreground
