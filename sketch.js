@@ -49,7 +49,7 @@ function draw () {
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
-    // uncomment this to save the result
+    //uncomment this to save the result
     saveArtworkImage(outputFile);
   }
 }
