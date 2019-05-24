@@ -23,19 +23,25 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  // x and y are position of pixels
+
+  for(let i=0;i<20000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
+    let pointSize = 7;
     let halfSize = 50;
     fill(pix);
+    stroke(pix)
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      //line(x, y, x+pix[2]/100, pix[1]/100);
+      //print(pix);
+      triangle(x, y, x+pointSize, y+(pointSize*(2/3)), x+pointSize, y-(pointSize*(2/3)));   
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+
+      ellipse(x, y, pointSize, pointSize);    
     }
   }
   renderCounter = renderCounter + 1;
@@ -43,7 +49,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
