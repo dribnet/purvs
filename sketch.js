@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-  const numberOfPoints = 2000;
+  const numberOfPoints = 1000;
   for (let i = 0; i < numberOfPoints; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -35,29 +35,27 @@ function draw() {
 
     //if the mask is more white that black -> draw ellipse o.w rectangle
     //TODO: change this logic bellow to our custom logic.
-    if (mask[0] > 128) {
-      for (let xd = x; xd < x + pointSize; xd++) {
-        for (let yd = y; yd < y + pointSize; yd++) {
-          fill(sourceImg.get(xd, yd));
-          let randomOffSetX = random(0, pointSize);
-          let randomOffSetY = random(0, pointSize);
-          rect(xd - randomOffSetX, yd - randomOffSetY, 3, 3);
-        }
-      }
-    } else {
-      for (let xd = x; xd < x + pointSize; xd++) {
-        for (let yd = y; yd < y + pointSize; yd++) {
-          fill(sourceImg.get(xd, yd));
-          rect(xd, yd, 3, 3);
-        }
-      }
-    }
-    // if(mask[0] > 128) {
-    //   ellipse(x, y, pointSize, pointSize);
+    // if (mask[0] > 128) {
+      let randomOffSetX = random(0, pointSize);
+      let randomOffSetY = random(0, pointSize);
+      // for(let i =0; i< pointSize;i++){
+      fill(sourceImg.get(x+randomOffSetX, y+randomOffSetY));
+      stroke(sourceImg.get(x+randomOffSetX, y+randomOffSetY))
+      strokeWeight(1)
+      line(x, y, x+randomOffSetX, y+ randomOffSetY);
+       randomOffSetX = random(0, pointSize);
+       randomOffSetY = random(0, pointSize);
+      line(x, y, x+randomOffSetX, y+ randomOffSetY);
+      
+      randomOffSetX = random(0, pointSize);
+      randomOffSetY = random(0, pointSize);
+      line(x, y, x+randomOffSetX, y+ randomOffSetY);
+      
+      randomOffSetX = random(0, pointSize);
+      randomOffSetY = random(0, pointSize);
+      line(x, y, x+randomOffSetX, y+ randomOffSetY);
     // }
-    // else {
-    //   rect(x, y, pointSize, pointSize);    
-    // }
+    // } 
   }
 
   renderCounter = renderCounter + 1;
