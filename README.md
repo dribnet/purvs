@@ -2,4 +2,4 @@
 
 Photographic Sketch Update - Part 1.
 
-Using this image. I played around with the code and added some transparent clour for the background. The image is originally black and white but you can still see the actual focal point as I have highlighted the baackground. Also made a mask for the image.
+I used a second image and put it as input2 just to see what the 2 images look like next to eachother. I think I want to try and incorporate lines like in the example code. 
