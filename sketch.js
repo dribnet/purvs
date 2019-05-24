@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
+let sourceFile = "grave_1.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "artwork_1.png";
 
@@ -23,7 +23,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<10000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
