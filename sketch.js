@@ -23,7 +23,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -35,7 +35,10 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+      let pointSize = 2;
+      let x2 = floor(random(sourceImg.width));
+      let y2 = floor(random(sourceImg.height));
+      line(x, y, x2, y2);    
     }
   }
   renderCounter = renderCounter + 1;
