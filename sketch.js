@@ -23,7 +23,34 @@ function setup () {
 }
 
 function draw () {
+
+  for(let i=0;i<30;i++) {
+
+    for(let j=0; j< 60; j++){
+
+    let x = i*(sourceImg.width/30);
+    let y = j*(sourceImg.height/60);
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    let pointSize = 20;
+    let halfSize = 50;
+    fill(pix);
+    if(mask[0] > 128) {
+      push();
+      translate(pointSize/2, pointSize/2);
+      ellipse(x, y, pointSize, pointSize);
+      pop();
+    }
+    else {
+      rect(x, y, pointSize, pointSize);    
+    }
+  }
+  }
+
+  /*
   for(let i=0;i<2000;i++) {
+
+
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -35,15 +62,16 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize/2, pointSize/2);    
     }
   }
+  */
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
