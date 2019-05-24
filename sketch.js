@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -31,10 +31,12 @@ function draw () {
     let pointSize = 20;
     let halfSize = 50;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0]< 128) {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
+      
+      
       rect(x, y, pointSize, pointSize);    
     }
   }
