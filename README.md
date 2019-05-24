@@ -1,3 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+
+The left image is my first pass at this assignment. It's just a placeholder image at the moment, but it depicts my very precious and dear late pet, so it still has personal significance.  I'm considering it somewhat of a failed experiment. My vision for this image was where ever there is mask, a series of petals unfold toward and frame the subject. However, it either needs a ton of iteration or it's not a very good idea.
+
+How it works is a modified version of the base pointillism example except where the mask is above 50, draw a big petal graphic that's been tinted a certain colour. The colour fades based on the alpha value between the colour of the pixel and cyan. The actual petal graphic is an image that's randomly chosen from a range of white images with a transparent backgrounds. This has some cool potential applications, where now I can choose an arbitrary series of graphics and use them to build my image, but the current iteration is a bit lack luster.  
