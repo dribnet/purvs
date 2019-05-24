@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+This class example shows how to take a photo, create a mask, and update the code to generate a new filter effect. The three artwork outputs have been updated to show the filter effect of drawing exploding lines and circles.
