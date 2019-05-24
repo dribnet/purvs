@@ -32,10 +32,14 @@ function draw () {
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
+      rect(x, y, pointSize, pointSize);
+      //fill(200, 90, 55, 20);
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+      ellipse(x, y, pointSize, pointSize);
+      fill(0, 65, 100, 40);
+      rect(x, y, pointSize, pointSize); 
     }
   }
   renderCounter = renderCounter + 1;
@@ -43,7 +47,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
