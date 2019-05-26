@@ -23,27 +23,75 @@ function setup () {
 }
 
 function draw () {
-
+  //35 by 62
   for(let i=0;i<30;i++) {
-
     for(let j=0; j< 60; j++){
-
     let x = i*(sourceImg.width/30);
-    let y = j*(sourceImg.height/60);
-    let pix = sourceImg.get(x, y);
+    let y = j*(sourceImg.height/60);    
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
+    let pointSize = 11;
     let halfSize = 50;
-    fill(pix);
+   // fill(pix);    
+    if(j % 2 == 0){ //if even X line
+      let pix = sourceImg.get(x+pointSize, y+pointSize);
+      fill(pix);
+      triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+    } else {
+      let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
+      fill(pix);
+      triangle(x+(2*pointSize), y, x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
+    }
+    
+
+   //triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+    
+    /*
     if(mask[0] > 128) {
       push();
-      translate(pointSize/2, pointSize/2);
+      translate(pointSize/3, pointSize/3);
       ellipse(x, y, pointSize, pointSize);
       pop();
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize/2, pointSize/2);    
     }
+    */
+  }
+  }
+  for(let i=0;i<30;i++) {
+    for(let j=0; j< 60; j++){
+      let x = i*(sourceImg.width/30);
+      let y = j*(sourceImg.height/60);    
+      let mask = maskImg.get(x, y);
+      let pointSize =11;
+      let halfSize = 50;
+     // fill(pix);    
+      if(j % 2 == 0){ //if even X line
+
+        let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
+        fill(pix);
+        triangle(x+(2*pointSize), y+(2*pointSize), x+(pointSize), y, x+(3*pointSize), y);
+      } else {   
+
+        let pix = sourceImg.get(x+pointSize, y+pointSize);
+        fill(pix);
+        triangle(x+pointSize, y+(2*pointSize), x, y, x+(2*pointSize), y);
+      }
+      
+
+     //triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+      
+      /*
+      if(mask[0] > 128) {
+        push();
+        translate(pointSize/3, pointSize/3);
+        ellipse(x, y, pointSize, pointSize);
+        pop();
+      }
+      else {
+        rect(x, y, pointSize/2, pointSize/2);    
+      }
+      */
   }
   }
 
@@ -71,7 +119,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+   // saveArtworkImage(outputFile);
   }
 }
 
