@@ -31,9 +31,11 @@ function draw () {
     let pointSize = 20;
     let halfSize = 50;
     fill(pix);
+    // ---------WHITE MASK---------
     if(mask[0] > 128) {
       ellipse(x, y, pointSize, pointSize);
     }
+    // ---------BLACK MASK---------
     else {
       rect(x, y, pointSize, pointSize);    
     }
