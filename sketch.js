@@ -24,6 +24,7 @@ function setup () {
 
 function draw () {
   //35 by 62
+  stroke(0);
   for(let i=0;i<30;i++) {
     for(let j=0; j< 60; j++){
     let x = i*(sourceImg.width/30);
