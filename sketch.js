@@ -38,13 +38,15 @@ angleMode(DEGREES);
         for(let i = 0; i < numSlice; i++){ //ring slices
           fill(j*20);
 
-          let testX = width/2 + (((((1400/numRings)*j)/2)-1400/numRings/4) * cos(((360/numSlice)/2)+(i*(360/numSlice)))); 
-          let testY =  height/2 + (((((1400/numRings)*j)/2)-1400/numRings/4) * sin(((360/numSlice)/2)+(i*(360/numSlice))));
+          let H = random(1400/numRings*j,1400/numRings*j+50);
+          let testX = width/2 + ( (((H)/2)-1400/numRings/4) * cos((360/numSlice/2)+(i*360/numSlice))); 
+          let testY =  height/2 + ((((H)/2)-1400/numRings/4) * sin((360/numSlice/2)+(i*360/numSlice)));
 
           fill(sourceImg.get(testX, testY));
-
-
-         arc(width/2, height/2, (1400/numRings)*j, (1400/numRings)*j, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
+         let mask = maskImg.get(testX, testY);
+         if(mask[0]< 200){
+           arc(width/2, height/2, H, H, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
+        }
 
 
           //ellipse(testX, testY, 10, 10);
@@ -64,33 +66,25 @@ for(let i=0;i<30;i++) {
     noStroke();
     print(mask[0]);
 
-    if(mask[0] < 200){
+    if(mask[0] > 200){
 
-
-
-
-
-    } else {
-
-
-  
-    if(j % 2 == 0){ //if even X line
+   if(j % 2 == 0){ //if even X line
       let pix = sourceImg.get(x+pointSize, y+pointSize);
       fill(pix);
-      //triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+      triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
 
       pix = sourceImg.get(x+pointSize, y+(3*pointSize));
       fill(pix);
-     // triangle(x+pointSize, y+(4*pointSize), x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+      triangle(x+pointSize, y+(4*pointSize), x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
 
     } else {
       let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
       fill(pix);
-      //triangle(x+(2*pointSize), y, x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
+      triangle(x+(2*pointSize), y, x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
 
       pix = sourceImg.get(x+(2*pointSize), y+(3*pointSize));
       fill(pix);
-      //triangle(x+(2*pointSize), y+(4*pointSize), x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
+      triangle(x+(2*pointSize), y+(4*pointSize), x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
 
 
     }
