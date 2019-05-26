@@ -26,14 +26,87 @@ function setup () {
 
 function draw () {
 //35 by 62
+
+angleMode(DEGREES);
+      noFill();
+      stroke(0);
+
+      let numSlice = 50;
+      let numRings = 50;
+      
+      for(let j = numRings; j >= 1; j--){ //rings
+        for(let i = 0; i < numSlice; i++){ //ring slices
+          fill(j*20);
+
+          let testX = width/2 + (((((1400/numRings)*j)/2)-1400/numRings/4) * cos(((360/numSlice)/2)+(i*(360/numSlice)))); 
+          let testY =  height/2 + (((((1400/numRings)*j)/2)-1400/numRings/4) * sin(((360/numSlice)/2)+(i*(360/numSlice))));
+
+          fill(sourceImg.get(testX, testY));
+
+
+         arc(width/2, height/2, (1400/numRings)*j, (1400/numRings)*j, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
+
+
+          //ellipse(testX, testY, 10, 10);
+
+        }
+    }
+
+
+
+for(let i=0;i<30;i++) {
+    for(let j=0; j< 60; j++){
+    let x = i*(sourceImg.width/30);
+    let y = j*(sourceImg.height/60);    
+    
+    let pointSize = 11;
+  let mask = maskImg.get(x+pointSize, y+pointSize);
+    noStroke();
+    print(mask[0]);
+
+    if(mask[0] < 200){
+
+
+
+
+
+    } else {
+
+
+  
+    if(j % 2 == 0){ //if even X line
+      let pix = sourceImg.get(x+pointSize, y+pointSize);
+      fill(pix);
+      //triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+
+      pix = sourceImg.get(x+pointSize, y+(3*pointSize));
+      fill(pix);
+     // triangle(x+pointSize, y+(4*pointSize), x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
+
+    } else {
+      let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
+      fill(pix);
+      //triangle(x+(2*pointSize), y, x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
+
+      pix = sourceImg.get(x+(2*pointSize), y+(3*pointSize));
+      fill(pix);
+      //triangle(x+(2*pointSize), y+(4*pointSize), x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
+
+
+    }
+    
+  }
+  }
+}
+
+/*
 for(let i=0;i<30;i++) {
     for(let j=0; j< 60; j++){
     let x = i*(sourceImg.width/30);
     let y = j*(sourceImg.height/60);    
     let mask = maskImg.get(x, y);
     let pointSize = 11;
-    let halfSize = 50;
-   // fill(pix);    
+  
 
   
     if(j % 2 == 0){ //if even X line
@@ -58,71 +131,8 @@ for(let i=0;i<30;i++) {
     }
   }
   }
-
-/*
-  for(let i=0;i<30;i++) {
-    for(let j=0; j< 60; j++){
-    let x = i*(sourceImg.width/30);
-    let y = j*(sourceImg.height/60);    
-    let mask = maskImg.get(x, y);
-    let pointSize = 11;
-    let halfSize = 50;
-   // fill(pix);    
-
-  
-    if(j % 2 == 0){ //if even X line
-      let pix = sourceImg.get(x+pointSize, y+pointSize);
-      fill(pix);
-      triangle(x+pointSize, y, x, y+(2*pointSize), x+(2*pointSize), y+(2*pointSize));
-    } else {
-      let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
-      fill(pix);
-      triangle(x+(2*pointSize), y, x+(pointSize), y+(2*pointSize), x+(3*pointSize), y+(2*pointSize));
-    }
-  }
-  }
-  for(let i=0;i<30;i++) {
-    for(let j=0; j< 60; j++){
-      let x = i*(sourceImg.width/30);
-      let y = j*(sourceImg.height/60);    
-      let mask = maskImg.get(x, y);
-      let pointSize =11;
-      let halfSize = 50;
-
-      let savedPix = color(0, 0, 0);
-     // fill(pix);    
-      if(j % 2 == 0){      
-        let pix = sourceImg.get(x+(2*pointSize), y+pointSize);
-        fill(pix);
-        triangle(x+(2*pointSize), y+(2*pointSize), x+(pointSize), y, x+(3*pointSize), y);
-      } else {   
-        noStroke();
-        let pix = sourceImg.get(x+pointSize, y+pointSize);
-        fill(pix);
-        triangle(x+pointSize, y+(2*pointSize), x, y, x+(2*pointSize), y);
-      }
-  }
-  }
 */
-  /*
-  for(let i=0;i<2000;i++) {
 
-
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      rect(x, y, pointSize/2, pointSize/2);    
-    }
-  }
-  */
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
