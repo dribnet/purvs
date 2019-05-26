@@ -23,21 +23,28 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<1500;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
+
     let halfSize = 50;
-    fill(pix);
-    // ---------WHITE MASK---------
+    
+    // ---------BACKGROUND---------
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      let size=50;
+      let rand=random(1,2);
+      fill(pix,rand); 
+      rect(x, y, size, (size*1.3));
     }
-    // ---------BLACK MASK---------
+    // ---------CONTENT---------
     else {
-      rect(x, y, pointSize, pointSize);    
+      let size=10;
+      ellipse(x, y, size, (size *1.2));
+      fill(color(85,95,30,170));
+      ellipse(x, y, size, (size *2.5));
+
     }
   }
   renderCounter = renderCounter + 1;
