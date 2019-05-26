@@ -39,12 +39,12 @@ angleMode(DEGREES);
           fill(j*20);
 
           let H = random(1400/numRings*j,1400/numRings*j+50);
-          let testX = width/2 + ( (((H)/2)-1400/numRings/4) * cos((360/numSlice/2)+(i*360/numSlice))); 
-          let testY =  height/2 + ((((H)/2)-1400/numRings/4) * sin((360/numSlice/2)+(i*360/numSlice)));
+          let testX = width/2 + ( (((H)/2)-1400/numRings/2) * cos((360/numSlice/2)+(i*360/numSlice))); 
+          let testY =  height/2 + ((((H)/2)-1400/numRings/2) * sin((360/numSlice/2)+(i*360/numSlice)));
 
           fill(sourceImg.get(testX, testY));
          let mask = maskImg.get(testX, testY);
-         if(mask[0]< 200){
+         if(mask[0] > 240){
            arc(width/2, height/2, H, H, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
         }
 
@@ -54,8 +54,22 @@ angleMode(DEGREES);
         }
     }
 
+for(let i=0;i<30;i++) {
+    for(let j=0; j< 60; j++){
 
+      let x = i*(sourceImg.width/30);
+      let y = j*(sourceImg.height/60); 
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      if(mask[0] > 200){
+      rect(x, y, 50, 50);
+    }
 
+    }
+  }
+
+/* Diamonds
 for(let i=0;i<30;i++) {
     for(let j=0; j< 60; j++){
     let x = i*(sourceImg.width/30);
@@ -92,6 +106,7 @@ for(let i=0;i<30;i++) {
   }
   }
 }
+/*
 
 /*
 for(let i=0;i<30;i++) {
