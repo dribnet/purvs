@@ -144,7 +144,7 @@ for(let i=0;i<30;i++) {
   }
 */
 
-   saveArtworkImage(outputFile);
+   
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -156,11 +156,27 @@ for(let i=0;i<30;i++) {
 }
 
 function Mosaic(alphaLow, alphaHigh, xCount, yCount, rQuad, qSize){
+let ranQuad = rQuad;
+let quadSize = qSize;
+let prevX2;
+let prevY2;
+let prevX3;
+let prevY3;
+let prevX4;
+let prevy4;
 
 for(let i=0;i<xCount;i++) { //Medium Chunks
     for(let j=0; j< yCount; j++){
-      let ranQuad = rQuad;
-      let quadSize = qSize;
+      if(i == 0 && j == 0){
+        /*
+        prevX2 =
+        prevY2;
+        prevX3;
+        prevY3;
+        prevX4;
+        prevy4;
+        */
+      }
 
       let x = i*(sourceImg.width/xCount);
       let y = j*(sourceImg.height/yCount); 
