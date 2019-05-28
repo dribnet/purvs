@@ -30,14 +30,14 @@ function setup () {
 
   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
   stroke(0);
-  background(200);
+  background(20);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 4;
-const tile_height = 6;
-const tile_step_x = 6;
+const tile_width = 12;
+const tile_height = 14;
+const tile_step_x = 8;
 const tile_step_y = 10;
 
 function draw () {
@@ -49,8 +49,8 @@ function draw () {
       fill(pix);
       if(mask[0] > 128) {
         stroke(0);
-        strokeWeight(0.4);
-        rect(x, y, pointSize2, pointSize2);
+        //strokeWeight(0.4);
+        //rect(x, y, tile_width, tile_height);
         triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
         triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
 
@@ -58,11 +58,11 @@ function draw () {
 
       else {
         //blur(2);
-        //rect(x, y, tile_width, tile_height);
+        rect(x, y, tile_width, tile_height);
         //rect(x, y, tile_step_x*.8, tile_step_y*.8,8);
-        stroke(0);
-        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
-        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
+        stroke(50);
+        // triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
+        // triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
         //rect(x, y, pointSize2, pointSize2);
 
       }
