@@ -28,8 +28,8 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
+    let pointSize = 10;
+    let halfSize = 100;
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x, y, pointSize, pointSize);
@@ -37,8 +37,7 @@ function draw () {
     else {
       let pointSize = 2;
       let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));
-      line(x, y, x2, y2);    
+      let y2 = floor(random(sourceImg.height));   
     }
   }
   renderCounter = renderCounter + 1;
