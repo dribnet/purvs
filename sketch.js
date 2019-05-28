@@ -6,7 +6,7 @@ let pointSize = 40;
 //
 // /* Override some variables with high-resolution final version */
 if (finalVersion) {
-  pointSize = 10;
+  pointSize = 20;
  }
 
 let sourceImg=null;
@@ -30,7 +30,7 @@ function setup () {
 
   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
   stroke(0);
-  background(255);
+  background(200);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -45,44 +45,31 @@ function draw () {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
+      let pointSize2 = 10;
       fill(pix);
       if(mask[0] > 128) {
-        rect(x, y, tile_step_x, tile_step_y);
+        stroke(0);
+        strokeWeight(0.4);
+        rect(x, y, pointSize2, pointSize2);
+        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
+        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
 
       }
+
       else {
-        blur(2);
-        rect(x, y, tile_width, tile_height);
-        rect(x, y, pointSize*.8, pointSize*.8,8);
+        //blur(2);
+        //rect(x, y, tile_width, tile_height);
+        //rect(x, y, tile_step_x*.8, tile_step_y*.8,8);
+        stroke(0);
+        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
+        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
+        //rect(x, y, pointSize2, pointSize2);
+
       }
     }
   }
 
-  //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
-//   for(let i=0;i<1000/pointSize;i++) {
-//     let x = int(i * pointSize);
-//     let y = int(renderCounter * pointSize);
-//     let pix = sourceImg.get(x, y);
-//     let mask = maskImg.get(x, y);
-
-// //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
-//     let halfSize = pointSize/2;
-
-//     fill(pix);
-//     //stroke(pix);
-    
-//     if(mask[0] > 128) {
-// //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
-//       rect(x, y, pointSize*1.5, pointSize*1.5);
-
-//     }
-//     else {
-// //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
-//       blur(3);
-//       rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8,8);
-
-//     }
-//   }
+    }
   renderCounter = renderCounter + 1;
 
   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
@@ -92,7 +79,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 
 function keyTyped() {
@@ -100,4 +87,48 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
-}
+
+  //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
+//   for(let i=0;i<1000/pointSize;i++) {
+//     let x = int(i * pointSize);
+//     let y = int(renderCounter * pointSize);
+//     let pix = sourceImg.get(x, y);
+//     let mask = maskImg.get(x, y);
+
+// // //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
+//     let halfSize = pointSize/2;
+
+//     fill(pix);
+//     //stroke(pix);
+    
+//     if(mask[0] > 128) {
+// // //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
+//       rect(x, y, pointSize*1.5, pointSize*1.5);
+
+//     }
+//     else {
+// // //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
+//       blur(3);
+//       rect(x-halfSize, y-halfSize, pointSize*.8, pointSize*.8,8);
+//       triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
+//       triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
+
+//     }
+//   }
+//   renderCounter = renderCounter + 1;
+
+//   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
+//    if(renderCounter > 1920/pointSize) {
+
+//    //if(renderCounter > 10) {
+//     console.log("Done!")
+//     noLoop();
+//     // uncomment this to save the result
+//      //saveArtworkImage(outputFile);
+//   }
+
+// function keyTyped() {
+//   if (key == '!') {
+//     saveBlocksImages();
+//   }
+// }
