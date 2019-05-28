@@ -2,9 +2,13 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+
+
 let sourceFile = "input_2.jpg";
 let maskFile   = "mask_2.png";
-let outputFile = "artwork_1.png";
+let outputFile = "artwork_2.png";
+
+
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -28,14 +32,16 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 5;
+    let pointSize = 8;
     let halfSize = 180;
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] > 180) {
       rect(x, y, pointSize, pointSize);
     }
     else {
-      triangle(x, y, pointSize, pointSize,pointSize+0.1, pointSize+0.1);    
+      stroke(10);
+
+      triangle(x, y, x+pointSize, y+pointSize,x+pointSize+10, y+pointSize+10);    
     }
   }
   renderCounter = renderCounter + 1;
@@ -43,7 +49,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
