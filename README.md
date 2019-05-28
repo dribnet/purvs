@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Second grid example: adjust tile spacing and add mask logic.
+Third grid example: draw owls on some of the tiles in the mask.
