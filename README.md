@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-The first photo I replaced is the night view of Auckland city. I spent one year studied there and I quite like this city.
+Theme - Nostalgia
 
-I will continue to look at the codes.
+My theme is now confirmed and I will start to look at the different place of masks and also codes.
+
+Will keep updating my ideas and what I have changed.
