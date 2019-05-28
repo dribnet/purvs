@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -36,7 +36,7 @@ function draw () {
       let size=50;
       let rand=random(1,2);
       fill(pix,rand); 
-      rect(x, y, size, (size*1.3));
+      rect(x, y, size, (size*1.3)); 
     }
     // ---------CONTENT---------
     else {
