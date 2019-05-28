@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,7 +22,21 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 8;
+const tile_height = 8;
+
 function draw () {
+
+  // version 1: just draw all the tiles
+  for(let y=0; y<height; y = y + tile_height) {
+    for(let x=0; x<width; x = x + tile_width) {
+      let pix = sourceImg.get(x, y);
+      fill(pix);
+      rect(x, y, tile_width, tile_height);
+    }
+  }
+
+/*
   for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -42,12 +56,13 @@ function draw () {
       line(x, y, x2, y2);    
     }
   }
+*/
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
