@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -35,9 +35,10 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 2;
-      let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));   
+     // let pointSize = 2;
+      //let x2 = floor(random(sourceImg.width));
+     // let y2 = floor(random(sourceImg.height));   
+       ellipse(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -45,7 +46,9 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    
+
+    //saveArtworkImage(outputFile);
   }
 }
 
