@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+The first picture was taken on Fangsipan, the tallest mountain in Vietnam. It was the first time I had a chance to be there and the scenery as well as of all the constructions they did at over 3000m above the sea level.
+The second picture is Silver Fall, located in Sapa, North of Vietnam. Magnificient view of the fall, where it seems like water is pouring down from clouds above.
+The last picture was taken in Angko Wat,Cambodia. I'm really facinated in acient architecture and construction.
