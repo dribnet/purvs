@@ -53,7 +53,7 @@ function draw () {
   //   }
   // }
 
-  for(let i=0;i<5000;i++) {
+  for(let i=0;i<4000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -63,20 +63,22 @@ function draw () {
     let halfSize = 6;
     let halfrectSize = 6;
     if(mask[0] > 128) {
-      fill(0);
+      // fill(0);
+      // stroke(pix);   
+      // ellipse(x, y, pointSize, halfSize); 
+      // ellipse(x, y, pointSize/2, halfSize/2); 
+      // ellipse(x, y, pointSize/4, halfSize/4); 
+      fill(pix);
       stroke(pix);
-      rect(x, y, rectSize, halfrectSize);   
-      ellipse(x, y, pointSize, halfSize); 
+      ellipse(x, y, halfSize, pointSize);
+      ellipse(x, y, pointSize, halfSize);
     }
     else {
-      fill(253, 196, 62);
-      stroke(253, 196, 62);
-      ellipse(x, y, halfSize, pointSize);
-      fill(255, 204, 51);
-      stroke(255, 204, 51);
-      ellipse(x, y, pointSize, halfSize); 
+      fill(0);
+      fill(0);
+      rect(x, y, rectSize, halfrectSize);
     }
-}
+  }
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
