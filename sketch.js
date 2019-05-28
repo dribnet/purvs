@@ -23,7 +23,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<3000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -32,14 +32,16 @@ function draw () {
     let halfSize = 50;
     fill(pix);
     if(mask[0]< 128) {
-      rect(x, y, pointSize, pointSize);  
+      
+ellipse(x, y, pointSize, pointSize);
       
     }
     else {
       
       
-      
-      ellipse(x, y, pointSize, pointSize);  
+      rect(x, y, pointSize, pointSize);  
+      ellipse(x, y, pointSize, pointSize);
+        
     }
   }
   renderCounter = renderCounter + 1;
