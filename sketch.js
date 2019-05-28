@@ -30,11 +30,16 @@ function draw () {
     let mask = maskImg.get(x, y);
     let pointSize = 20;
     let halfSize = 50;
-    fill(pix);
+   
     if(mask[0] > 128) {
+      noFill();
+      stroke(pix);
+      strokeWeight(4);
       ellipse(x, y, pointSize, pointSize);
     }
     else {
+      fill(pix);
+      noStroke();
       rect(x, y, pointSize, pointSize);    
     }
   }
