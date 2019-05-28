@@ -23,7 +23,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<5000;i++) {
+  for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -31,7 +31,7 @@ function draw () {
     fill(pix);
     stroke(pix);
     if(mask[0] > 128) {
-      let pointSize = 20;
+      let pointSize = 10;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
@@ -47,7 +47,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
