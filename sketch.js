@@ -4,8 +4,8 @@ let renderCounter=0;
 let graphicElements=[];
 
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_5.png";
-let outputFile = "artwork_3.png";
+let maskFile   = "mask_4.png";
+let outputFile = "artwork_2.png";
 
 let graphicFile1 = "graphic.png";
 // let graphicFile2 = "graphic_3.png";
@@ -33,14 +33,14 @@ function setup () {
 function draw () {
   let petalColour = color(194, 30, 86, 100);
   angleMode(DEGREES);
-  for(let i=0;i<3000;i++) {
+  for(let i=0;i<9000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = color(sourceImg.get(x, y));
     let mask = maskImg.get(x, y);
     let pointSize = 10;
     let halfSize = 50;
-    if(mask[0] > 50) {
+    if(mask[0] > 200) {
       if (random(0,1) > 0.01) continue;
       let petalCol = lerpColor(pix, petalColour, mask[0]/500.0);
       petalCol = color(petalCol.levels[0], petalCol.levels[1], petalCol.levels[2]);
@@ -53,7 +53,8 @@ function draw () {
       pop();
     }
     else {
-      fill(pix);
+      let petalCol = lerpColor(pix, color(194/2, 30/2, 86/2, 100), mask[0]/255.0);
+      fill(petalCol);
       let randSize = random(0.3, 1.2);
       ellipse(x, y, pointSize*randSize, pointSize*randSize);
 
