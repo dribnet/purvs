@@ -63,7 +63,7 @@ function draw () {
     let halfSize = 6;
     let halfrectSize = 6;
     if(mask[0] > 128) {
-      fill(pix);
+      fill(0);
       stroke(pix);
       rect(x, y, rectSize, halfrectSize);   
       ellipse(x, y, pointSize, halfSize); 
@@ -71,10 +71,10 @@ function draw () {
     else {
       fill(253, 196, 62);
       stroke(253, 196, 62);
-      rect(x, y, halfSize, pointSize);
+      ellipse(x, y, halfSize, pointSize);
       fill(255, 204, 51);
       stroke(255, 204, 51);
-      rect(x, y, pointSize, halfSize); 
+      ellipse(x, y, pointSize, halfSize); 
     }
 }
 
