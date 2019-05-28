@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -28,19 +28,23 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let halfSize = 50;
-    fill(pix);
-    stroke(0);
+    let pointSize = 30;
+    let rectSize = 2;
+    let halfSize = 6;
+    let halfrectSize = 10;
     if(mask[0] > 128) {
-      let pointSize = 15;
-      ellipse(x, y, pointSize, pointSize);
+      fill(pix);
+      stroke(pix);
+      rect(x, y, rectSize, halfrectSize);   
+      ellipse(x, y, pointSize, halfSize); 
     }
     else {
-      stroke(0);
-      let pointSize = 2;
-      let x2 = sourceImg.width;
-      let y2 = sourceImg.height;
-      line(0, sourceImg.height, sourceImg.width, sourceImg.height);    
+      fill(9, 135, 198);
+      stroke(9, 135, 198);
+      ellipse(x, y, halfSize, pointSize);
+      fill(28, 140, 226);
+      stroke(28, 140, 226);
+      ellipse(x, y, pointSize, halfSize); 
     }
   }
   renderCounter = renderCounter + 1;
