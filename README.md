@@ -1,9 +1,5 @@
-## Creative Coding 2: Custom Pixel
+## Creative Coding 2: Custom Pixel - Grid Techniques
 
-I chose 3 images I took last year in some holiday destinations my family and I hold very close to our hearts.
-The left image was taken in Hong Kong, the middle was taken in Pattaya, Thailand and the third in Bangkok, Thailand.
-I chose these images because they give me a lot of options when choosing how to draw my pixelated image.
-
-I started updated my sketch.js by changing the number of points and point size.
-For my masks, I blacked out peoples faces, signs and paths.
-Where the mask is black the points draw square instead of circle.
+I started experimenting using rectangles in a grid to create a pixelated-looking image.
+I incorporated my mask by drawing some thin white lines where the mask was; on top of people's faces.
+I plan to add more masked areas in my image since it's currently very subtle.

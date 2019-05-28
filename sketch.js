@@ -22,7 +22,25 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 10;
+const tile_height = 9;
+const tile_step_x = 10;
+const tile_step_y = 10;
+
 function draw () {
+  // Draws tiles
+  for (let y = 0; y < height; y = y + tile_step_x) {
+    for (let x = 0; x < width; x = x + tile_step_y) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      if (mask[0] > 128) {
+        rect(x, y, tile_step_x, tile_step_y);
+      }
+      rect(x, y, tile_width, tile_height);
+    }
+  }
+  /*
     for(let i=0;i<10000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -38,6 +56,7 @@ function draw () {
       rect(x, y, pointSize, pointSize);    
     }
   } 
+  */
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
