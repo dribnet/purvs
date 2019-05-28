@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-For this exercise, I randomly chose 3 pictures for my experiments. For the masking past, I have tried to mask three of the pictures with white, black and grey. The first picture is only white and black. The second picture is white and grey. I have used all three colours for the third picture. For the algorithm, I haven't changed anything yet. I will continue experimenting the algorithm.
+Class assignment and idea.
+
+Practicing on how to to do a screenshot of my main index.html page for my preview.jpg and thumbnail.png. For this project, my idea was to take pictures of the people performs in the street. The people performs their artistic talent in the street. I got this idea when I was walking around the waterfront last Sunday. They were performing in the street. People around there was attracted by their music and I saw a lot of people enjoying their music. That's how I got this idea.
