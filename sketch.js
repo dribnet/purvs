@@ -4,9 +4,9 @@ let renderCounter=0;
 
 
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 
 
