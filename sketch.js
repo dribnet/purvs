@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_4.jpg";
-let maskFile   = "mask_4.png";
-let outputFile = "artwork_4.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,27 +22,34 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 4;
+const tile_height = 4;
+const tile_step_x = 8;
+const tile_step_y = 8;
+
 function draw () {
-  for(let i=0;i<4000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-          let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-    if(mask[0] > 128) {
-      let pointSize = 20;
-      ellipse(x, y, pointSize, pointSize);
-      line(x, y, x2, y2);
-    }
-    else {
-      let pointSize = 5;
-      let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));
-      rect(x, y, pointSize, pointSize);
-      //line(x, y, x2, y2);    
+  background(50);
+
+  // version 1: just draw all the tiles
+  for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      if(mask[0] > 128) {
+        rect(x, y, tile_width, tile_height);
+        var die = int(random(0, 4));
+        if (die == 0) {
+          var gray = int(random(0, 102));
+          var scalar = random(0.2, 0.45);
+             
+        }
+      }
+      else {
+        let tile_width = 6;
+        let tile_height = 6;
+        ellipse(x, y, tile_width, tile_height);
+      }
     }
   }
   renderCounter = renderCounter + 1;
