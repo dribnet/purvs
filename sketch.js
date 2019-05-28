@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "grave_1.jpg";
+let sourceFile = "Photo2sized.png";
 let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let outputFile = "Photo2sized.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
