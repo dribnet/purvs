@@ -63,8 +63,8 @@ function setup () {
   // maskImg3.loadPixels();
 
   //naturschutzgebiet sign
-  sourceImg.loadPixels();
-  maskImg.loadPixels();
+  // sourceImg.loadPixels();
+  // maskImg.loadPixels();
 
   //radlweg
   sourceImg.loadPixels();
@@ -77,54 +77,61 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<5000;i++) {
+  for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let mask2 = maskImg2.get(x,y);
     let mask3 = maskImg3.get(x,y);
-    let mask4 = maskImg2.get(x,y);
-    let mask5 = maskImg3.get(x,y);
+    let mask4 = maskImg4.get(x,y);
+    let mask5 = maskImg5.get(x,y);
     let pointSize = 20;
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
-      //ellipse(x, y, pointSize, pointSize);
       noStroke();
-      rect(x,y,pointSize,pointSize);
+      rect(x,y,20,20);
     } 
     else if(mask2[0] > 128){
-      //stroke(255);
       //ellipse(x, y, pointSize, pointSize);
-      noStroke();
-      triangle(x,y,x+pointSize,y+pointSize,x+pointSize,y);
-      triangle(x+pointSize,y,x+pointSize,y+pointSize,x+pointSize+pointSize,y); 
+      stroke(200);
+      //triangle(x,y,x+pointSize,y+pointSize,x+pointSize,y);
+      triangle(x,y,x-pointSize,y+pointSize,x+pointSize,y+pointSize); 
     } 
     else if(mask3[0] > 128){
       //stroke(100,100,0);
-      noStroke();
+      stroke(0);
       triangle(x, y, x, y+pointSize,x+pointSize,y+pointSize);
-      triangle(x,y+pointSize,x+pointSize,y,x+pointSize,y+pointSize);
+      triangle(x+6, y+3, x+6, y+pointSize,x+pointSize,y+pointSize);
+
     } 
     else if(mask4[0] > 128){
-      //stroke(255);
+      stroke(0);
       //ellipse(x, y, pointSize, pointSize);
-      noStroke();
+      //noStroke();
       triangle(x,y,x+pointSize,y+pointSize,x+pointSize,y);
       triangle(x+pointSize,y,x+pointSize,y+pointSize,x+pointSize+pointSize,y); 
     } 
     else if(mask5[0] > 128){
       //stroke(100,100,0);
-      noStroke();
-      triangle(x, y, x, y+pointSize,x+pointSize,y+pointSize);
-      triangle(x,y+pointSize,x+pointSize,y,x+pointSize,y+pointSize);
+      stroke(200);
+      //triangle(x, y, x, y+pointSize,x+pointSize,y+pointSize);
+      //triangle(x,y+pointSize,x+pointSize,y,x+pointSize,y+pointSize);
+      beginShape();
+      vertex(x,y);
+      vertex(x+15,y-15);
+      vertex(x+30,y);
+      vertex(x+15,y+15);
+      vertex(x,y);
+      endShape();
     }
     else {
       noStroke();
       //rect(x, y, pointSize, pointSize);  
-      triangle(x,y,x+pointSize,y-pointSize,x+pointSize,y);
-      triangle(x+pointSize,y,x+pointSize,y-pointSize,x+pointSize+pointSize,y); 
+      // triangle(x,y,x+pointSize,y-pointSize,x+pointSize,y);
+      // triangle(x+pointSize,y,x+pointSize,y-pointSize,x+pointSize+pointSize,y); 
+      ellipse(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
