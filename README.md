@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-After some thought in this lesson, I have decided to go with a study focused piece, as it is relatable a large group of people. It will consist of a student doing soe sort of study, where everything around is blurry except for their focus. This blurryness could also be around their head to have some symbolism of tiredness or stress. I will look more into potentiall photos and have some ready for next lesson.
+I have started to use my own imagery to further push my ideas. The theme of my works is stress. As there is a chance for my art to be displayed near the University, I wanted to really push a feeling that everyone has felt before. The late night cramming or projects. The first image has more feeling, as it comes across as someone who is tired or sick of what they are doing. They seem stressed. 
 
-So far I have just expeerimented with how much of the screen i can cover whilst still retaining the central focus of the image, as this will help me when I need to blur a background yet keep a face or a laptop in focus.
+The line shapes i have used make the face seem to be consumed by the light of the computer, and the lines from the screen seem to be consuming the subject.
+
+I think I will look further into having a visible background, whilst still keeping dark colours. I like the Black background, but I do want to experiment with seeing something there, or playing with light in the back to further a stressed feeling.

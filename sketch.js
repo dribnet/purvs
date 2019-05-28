@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,19 +23,20 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<6000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 150;
-    let halfSize = 12;
+    let pointSize = 400;
+    let halfSize = 20;
+    let smallSize = 2
     fill(pix);
     if(mask[0] > 128) {
       rect(x, y, halfSize, halfSize);
     }
     else {
-      rect(x, y, halfSize, pointSize);    
+      rect(x-10, y, pointSize, smallSize);    
     }
   }
   renderCounter = renderCounter + 1;
@@ -43,7 +44,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
