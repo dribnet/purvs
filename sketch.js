@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,34 +22,41 @@ function setup () {
   maskImg.loadPixels();
 }
 
+//TILE CONSTANTS ----------------------------------------------------
+const tile_width = 20;
+const tile_height = 8;
+
+const tile_step_x = 9;
+const tile_step_y = 9;
+
+//DRAW FUNCTION -----------------------------------------------------
+
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
-    fill(pix);
-    stroke(pix)
+  //TILE FUNCTION 
+  for (let y=0; y<height; y= y + tile_step_y) {
+    for (let x=0; x<width; x = x + tile_step_x) {
+      let pix = sourceImg.get(x,y);
+      let mask = maskImg.get(x,y);
+      fill(pix)
 
-
-//WHITE MASK --------------------------------------------------------
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-
-//BLACK MASK --------------------------------------------------------
-    else {
-      line(x, y, pointSize, pointSize);
+      //WHITE MASK
+      if(mask[0] > 128){
+      rect(x, y, tile_width, tile_height);
+     } 
+     //BLACK MASK
+     else {
+      ellipse (x, y, 20, 50);
+     }
     }
   }
+
+//DRAWS IMAGE 10 TIMES
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
