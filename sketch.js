@@ -29,8 +29,8 @@ function setup () {
 
 function draw () {
 //35 by 62
-
  edgeSet();
+
 
 
 angleMode(DEGREES);
@@ -64,9 +64,9 @@ angleMode(DEGREES);
 
 Mosaic(40, 70, 10, 20, 30, 100);
 
-Mosaic(140, 170, 15, 30, 20, 60);
+//Mosaic(140, 170, 15, 30, 20, 60);
 
-Mosaic(200, 260, 20, 40, 10, 40);
+//Mosaic(200, 260, 20, 40, 10, 40);
   
   
   
@@ -143,7 +143,8 @@ for(let i=0;i<30;i++) {
   }
   }
 */
-
+  
+   edgeSet();
    
 
   renderCounter = renderCounter + 1;
@@ -185,8 +186,11 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
       fill(pix);
       if(mask[0] > alphaLow && mask[0] < alphaHigh){
 
-        let x1 = constrain(x-quadSize/2+random(0, ranQuad), 0, width);
-        let y1 = constrain(y-quadSize/2+random(0, ranQuad), 0, height);
+        //let x1 = constrain(x-quadSize/2+random(0, ranQuad), 0, width);
+        //let y1 = constrain(y-quadSize/2+random(0, ranQuad), 0, height);
+
+        let x1 = constrain(x-quadSize/2, 0, width);
+        let y1 = constrain(y-quadSize/2, 0, height);
 
         if(maskImg.get(x1, y1)[0] < alphaLow || maskImg.get(x1, y1)[0] > alphaHigh){
           closestEdgePoint(x1, y1);
@@ -194,31 +198,41 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
           y1 = chords[1];
         }
 
-        let x2 = constrain(x+quadSize/2+random(0, ranQuad), 0, width);
-        let y2 = constrain(y-quadSize/2+random(0, ranQuad), 0, height);
+        //let x2 = constrain(x+quadSize/2+random(0, ranQuad), 0, width);
+        //let y2 = constrain(y-quadSize/2+random(0, ranQuad), 0, height);
+
+        let x2 = constrain(x+quadSize/2, 0, width);
+        let y2 = constrain(y-quadSize/2, 0, height);
 
         if(maskImg.get(x2, y2)[0]  < alphaLow || maskImg.get(x2, y2)[0]  > alphaHigh){
-          closestEdgePoint(x2, y2);
-          x2 = chords[0];
-          y2 = chords[1];
+         // closestEdgePoint(x2, y2);
+        //  x2 = chords[0];
+         // y2 = chords[1];
         }
 
-        let x3 = constrain(x+quadSize/2+random(0, ranQuad), 0, width);
-        let y3 = constrain(y+quadSize/2+random(0, ranQuad), 0, height);
+        //let x3 = constrain(x+quadSize/2+random(0, ranQuad), 0, width);
+        //let y3 = constrain(y+quadSize/2+random(0, ranQuad), 0, height);
+
+        let x3 = constrain(x+quadSize/2, 0, width);
+        let y3 = constrain(y+quadSize/2, 0, height);
 
         if(maskImg.get(x3, y3)[0]  < alphaLow || maskImg.get(x3, y3)[0]  > alphaHigh){
-          closestEdgePoint(x3, y3);
-          x3 = chords[0];
-          y3 = chords[1];
+         // closestEdgePoint(x3, y3);
+         // x3 = chords[0];
+         // y3 = chords[1];
         }
 
-        let x4 = constrain(x-quadSize/2+random(0, ranQuad), 0, width);
-        let y4 = constrain(y+quadSize/2+random(0, ranQuad), 0, height);
+        //let x4 = constrain(x-quadSize/2+random(0, ranQuad), 0, width);
+        //let y4 = constrain(y+quadSize/2+random(0, ranQuad), 0, height);
+
+
+        let x4 = constrain(x-quadSize/2, 0, width);
+        let y4 = constrain(y+quadSize/2, 0, height);
 
        if(maskImg.get(x4, y4)[0] < alphaLow || maskImg.get(x4, y4)[0] > alphaHigh){
-          closestEdgePoint(x4, y4);
-          x4 = chords[0];
-          y4 = chords[1];
+         // closestEdgePoint(x4, y4);
+         // x4 = chords[0];
+         // y4 = chords[1];
         }
 
 
@@ -233,7 +247,6 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
 
 }
 function edgeSet(){
-  let maskSave = maskImg.get(0*(sourceImg.width/60), 0*(sourceImg.height/120));
     //lets try something probably very stupid
    
     for(let i = 0; i < 60; i++){
@@ -243,17 +256,20 @@ function edgeSet(){
       let y = j*(sourceImg.height/120); 
       let mask = maskImg.get(x, y);
 
+      
+      if((maskImg.get(i*(sourceImg.width/60), (j-1)*(sourceImg.height/120)))[0] != mask[0]
+        || (maskImg.get((i-1)*(sourceImg.width/60), j*(sourceImg.height/120)))[0] != mask[0]
+        || j == 0 || i == 0 || j == 119 || i == 59 ){
 
-      if(mask[0] != maskSave || j == 0 || i == 0 || j == 119 || i == 59 ){
+
       edges[i][j] = true;
-      //fill(0);
-      //rect(x, y, 10, 10);
+      fill(150);
+      ellipse(x, y, 10, 10);
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       } else {
         edges[i][j] = false;
       }
 
-      maskSave = mask[0];
 
       }
     }
@@ -267,14 +283,17 @@ function closestEdgePoint(x , y){
  let x1;
  let y1;
  print(x);
+
 for(let i = 0; i < 60; i++){
   for(let j = 0; j < 120; j++){
     print(dist(0, 0, width, height));
-    if(dist(x, y, i*(sourceImg.width/60), j*(sourceImg.height/120)) < distance && edges[i][j] == true){
+    if(edges[i][j] == true){
+    if(dist(x, y, i*(sourceImg.width/60), j*(sourceImg.height/120)) < distance ){
       distance = dist(x, y, i*(sourceImg.width/60), j*(sourceImg.height/120));
       x1 = i*(sourceImg.width/60);
       y1 = j*(sourceImg.height/120);
     }
+  }
     /*
     if(int(dist(x, y, edgeSet()[i][j])) < distance){
       distance = int(dist(x, y, edgeSet()[i][j]));
