@@ -2,11 +2,11 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_9.jpg";
-let maskFile   = "masq_1.png";
-let maskFile2  = "masq_2.png";
-let maskFile3  = "masq_3.png";
-let outputFile = "artwork_9.png";
+let sourceFile = "Raps.jpg";
+let maskFile   = "RapsMask1.png";
+let maskFile2  = "RapsMask2.png";
+let maskFile3  = "RapsMask3.png";
+let outputFile = "Raps_artwork1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -42,7 +42,7 @@ function draw () {
     if(mask[0] > 128) {
       //ellipse(x, y, pointSize, pointSize);
       noStroke();
-      ellipse(x,y,pointSize,pointSize);
+      rect(x,y,pointSize,pointSize);
     } else if(mask2[0] > 128){
       //stroke(255);
       //ellipse(x, y, pointSize, pointSize);
