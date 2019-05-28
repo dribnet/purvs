@@ -2,44 +2,65 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
+
+let variation = 15;
+let ellipsesize = 30;
+let rectsize= 50;
+let size = 10;
 
 function preload() {
-  sourceImg = loadImage(sourceFile);
-  maskImg = loadImage(maskFile);
+  sourceImg = loadImage("input_2.jpg");
+  maskImg = loadImage("mask_2.png");
 }
 
 function setup () {
-  let main_canvas = createCanvas(704, 1252);
+  let main_canvas = createCanvas(1080, 1920);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(255);
+  background('white');
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  for(let i=0;i<200;i++) {
+    let x = floor(random(renderCounter * variation/2));
+    let y = floor(random(renderCounter * variation/2));
+    let x2 = size *i * variation;
+    let y2 = size *renderCounter * variation;
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
+    let halfsize = rectsize/2;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+push ();
+
+    stroke(pix);
+    strokeWeight(5);
+    noFill();
+      ellipse(x2, y2, ellipsesize/2, ellipsesize/2);
+    stroke(pix);
+    strokeWeight(5);
+    noFill();
+      ellipse(x, y, ellipsesize, ellipsesize);
     }
+
     else {
-      rect(x, y, pointSize, pointSize);    
+
+      push();
+      x2 = x + x2;
+      y2 = y + y2;
+      noStroke();
+
+      rect(x2 -halfsize, y-halfsize, rectsize, rectsize);    
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1920) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
@@ -49,6 +70,6 @@ function draw () {
 
 function keyTyped() {
   if (key == '!') {
-    saveBlocksImages();
+    //saveBlocksImages();
   }
 }

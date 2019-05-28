@@ -1,9 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-This is my first experimentation with the image i took this morning.
+IN CLASS ASSIGNMENT
 
-The image of the logo and picture on the wellington recycling rubbish trucks.
+- i am experimenting further with the ellipses and rectangles to see how i can form the mask shape with colour and depict the importance of the image.
 
-There is a mask on the image creating rectangular pixels.
+- I need to work out the mask differences as there is extra space outside the mask at the moment.
 
-I will play around with different shapes and colours to see what depicts best in the image.
+- I like the squares and ellipse contrast at the moment so will keep developing from this concept.
