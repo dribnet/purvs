@@ -16,15 +16,15 @@ function setup () {
   main_canvas.parent('canvasContainer');
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(10, 130, 82);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 5;
-const tile_height = 10;
-const tile_step_x = 6;
-const tile_step_y = 10;
+const tile_width = 10;
+const tile_height = 3;
+const tile_step_x = 10;
+const tile_step_y = 20;
 
 function draw () {
 
@@ -38,28 +38,23 @@ function draw () {
        let halfSize = 5;
        let halfrectSize = 50;
       fill(pix);
-      if(mask[0] > 128) {
-
-      }
-      else {
+      if(mask[0] < 128) {
         noStroke();
         fill(0, 153, 76);
         rect(x, y, tile_width, tile_height);
-        fill(0, 153, 255);
-        rect(x+3, y, tile_width, tile_height);
+      }
+      else {
       }
     }
   }
 
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<6000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let rectSize = 2;
-    let halfSize = 6;
-    let halfrectSize = 6;
+    let pointSize = 15;
+    let halfSize = 4;
     if(mask[0] > 128) {
       // fill(0);
       // stroke(pix);   
