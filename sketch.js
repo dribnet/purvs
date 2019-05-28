@@ -2,17 +2,50 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "Raps.jpg";
-let maskFile   = "RapsMask1.png";
-let maskFile2  = "RapsMask2.png";
-let maskFile3  = "RapsMask3.png";
-let outputFile = "Raps_artwork1.png";
+//Rapeseed Field
+
+// let sourceFile = "Raps.jpg";
+// let maskFile   = "RapsMask1.png";
+// let maskFile2  = "RapsMask2.png";
+// let maskFile3  = "RapsMask3.png";
+// let outputFile = "Raps_artwork1.png";
+
+//Naturschutzgebiet sign
+
+// let sourceFile = "Burgenland.jpg";
+// let maskFile   = "BurgenlandMask.png";
+// let outputFile = "artwork_2.png";
+
+//RadlWeg
+
+let sourceFile = "RadlWeg.jpg";
+let maskFile   = "RadlWegMask1.png";
+let maskFile2  = "RadlWegMask2.png";
+let maskFile3  = "RadlWegMask3.png";
+let maskFile4  = "RadlWegMask4.png";
+let maskFile5  = "RadlWegMask5.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
+
+  //Rapeseed Field 
+  // sourceImg = loadImage(sourceFile);
+  // maskImg = loadImage(maskFile);
+  // maskImg2 = loadImage(maskFile2);
+  // maskImg3 = loadImage(maskFile3);
+
+  //naturschutzgebiet sign
+  // sourceImg = loadImage(sourceFile);
+  // maskImg = loadImage(maskFile);
+
+  //RadlWeg
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
   maskImg2 = loadImage(maskFile2);
   maskImg3 = loadImage(maskFile3);
+  maskImg4 = loadImage(maskFile4);
+  maskImg5 = loadImage(maskFile5);
+
 }
 
 function setup () {
@@ -22,10 +55,25 @@ function setup () {
   imageMode(CENTER);
   noStroke();
   background(255);
+
+  //rapeseed field
+  // sourceImg.loadPixels();
+  // maskImg.loadPixels();
+  // maskImg2.loadPixels();
+  // maskImg3.loadPixels();
+
+  //naturschutzgebiet sign
+  sourceImg.loadPixels();
+  maskImg.loadPixels();
+
+  //radlweg
   sourceImg.loadPixels();
   maskImg.loadPixels();
   maskImg2.loadPixels();
   maskImg3.loadPixels();
+  maskImg4.loadPixels();
+  maskImg5.loadPixels();
+
 }
 
 function draw () {
@@ -36,6 +84,8 @@ function draw () {
     let mask = maskImg.get(x, y);
     let mask2 = maskImg2.get(x,y);
     let mask3 = maskImg3.get(x,y);
+    let mask4 = maskImg2.get(x,y);
+    let mask5 = maskImg3.get(x,y);
     let pointSize = 20;
     let halfSize = 50;
     fill(pix);
@@ -43,18 +93,34 @@ function draw () {
       //ellipse(x, y, pointSize, pointSize);
       noStroke();
       rect(x,y,pointSize,pointSize);
-    } else if(mask2[0] > 128){
+    } 
+    else if(mask2[0] > 128){
       //stroke(255);
       //ellipse(x, y, pointSize, pointSize);
       noStroke();
       triangle(x,y,x+pointSize,y+pointSize,x+pointSize,y);
       triangle(x+pointSize,y,x+pointSize,y+pointSize,x+pointSize+pointSize,y); 
-    } else if(mask3[0] > 128){
+    } 
+    else if(mask3[0] > 128){
       //stroke(100,100,0);
       noStroke();
       triangle(x, y, x, y+pointSize,x+pointSize,y+pointSize);
       triangle(x,y+pointSize,x+pointSize,y,x+pointSize,y+pointSize);
-    } else {
+    } 
+    else if(mask4[0] > 128){
+      //stroke(255);
+      //ellipse(x, y, pointSize, pointSize);
+      noStroke();
+      triangle(x,y,x+pointSize,y+pointSize,x+pointSize,y);
+      triangle(x+pointSize,y,x+pointSize,y+pointSize,x+pointSize+pointSize,y); 
+    } 
+    else if(mask5[0] > 128){
+      //stroke(100,100,0);
+      noStroke();
+      triangle(x, y, x, y+pointSize,x+pointSize,y+pointSize);
+      triangle(x,y+pointSize,x+pointSize,y,x+pointSize,y+pointSize);
+    }
+    else {
       noStroke();
       //rect(x, y, pointSize, pointSize);  
       triangle(x,y,x+pointSize,y-pointSize,x+pointSize,y);
