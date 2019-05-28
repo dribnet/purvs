@@ -22,22 +22,32 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 6;
+const tile_height = 6;
+
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      rect(x, y, pointSize, pointSize);    
+  // version 1: just draw all the tiles
+  for(let y=0; y<height; y = y + tile_height +2) {
+    for(let x=0; x<width; x = x + tile_width +2) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      console.log(pix[1]);
+      fill(pix);
+      //rect(x, y, tile_width, tile_height);
+      if(mask[0] > 128) {
+        fill(pix);
+        rect(x, y, tile_width, tile_height);
+      }
+      else {
+        let shade = pix[1];
+        fill(shade);
+        rect(x, y, tile_width, tile_height);
+      }
     }
   }
+
+
+  
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
