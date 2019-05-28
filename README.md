@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-Updated the code and changed it - it now looks way different than how it originally did. I used another image I have of an uncle playing basketball. In relation to my theme, Pasifika Identity in Aotearoa New Zealand, I look at it like Pasifika persons aren't limited to their cultural performances. For instance, in my family, we are culturally and physically diverse in the fact that a lot of them play sports (mainly basketball) and I guess it just highlights a sense of diversity within the Pasifika culture. However, trying not to get too preachy, it is a different portrayal of a pasifika male participating in an activity that is not cultural.
+Tuesday 28 May.
 
-In terms of code, I wanted to use white strokes of the patterns in the background to emphasise and really highlight my subject as the focal point. Creates a contrast too. Maybe in my masking I will go back and blur the faces in all my images out more. 
+With the images that I have been using, I added the code to them to see what they look like. I am still indecisive on which images to choose as my final ones, I may go and take some more. 
+
+I remasked the first image to define it more. 
