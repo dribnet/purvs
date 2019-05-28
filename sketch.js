@@ -2,10 +2,10 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
 let outputFile = "artwork_3.png";
-
+let customPixel;
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
@@ -14,14 +14,14 @@ let drawer;
 function setup() {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
-
+  img = loadImage('dansHead.png');
   imageMode(CENTER);
   noStroke();
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
   drawers = []
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 100; i++) {
     drawers.push(new Drawer());
   }
 }
@@ -37,8 +37,8 @@ class Drawer {
    * Responsible for moving our Drawer
    */
   update() {
-    this.x += random(-10, 10);
-    this.y += random(-10, 10);
+    this.x += random(-30, 30);
+    this.y += random(-30, 30);
 
     this.x = constrain(this.x, 0, width);
     this.y = constrain(this.y, 0, height);
@@ -49,7 +49,7 @@ class Drawer {
    * @param sourceImg used to get pixel value in image
    * @param maskImg 
    */
-  show(sourceImg,maskImg) {
+  show(sourceImg, maskImg) {
     noStroke();
     var px = floor(this.x);
     var py = floor(this.y);
@@ -57,10 +57,13 @@ class Drawer {
     let mask = maskImg.get(px, py); // corresponding x&y in the mask
     fill(col[0], col[1], col[2]);
     if (mask[0] > 128) {
-      ellipse(this.x, this.y, this.r, this.r);
+      // ellipse(this.x, this.y, this.r, this.r);
+
+      tint(col[0], col[1], col[2]); // Tint blue
+      image(img, px, py,this.r, this.r);
     }
     else {
-      ellipse(this.x, this.y, 5, 5);
+      ellipse(this.x, this.y, this.r, this.r);
     }
   }
 
@@ -70,7 +73,7 @@ function draw() {
 
   drawers.forEach(drawer => {
     drawer.update();
-    drawer.show(sourceImg,maskImg);
+    drawer.show(sourceImg, maskImg);
   })
   // for (let i = 0; i < numberOfPoints; i++) {
   //   let x = floor(random(sourceImg.width));
@@ -110,11 +113,11 @@ function draw() {
 
   renderCounter = renderCounter + 1;
   if (renderCounter > 10) {
-    console.log("Done!")
+    // console.log("Done!")
     // noLoop();
     // uncomment this to save the result
-  // }
-}
+    // }
+  }
 }
 
 function keyTyped() {
