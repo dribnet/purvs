@@ -1,3 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+Theme - Light and Shadow
+
+Light and shadow are two very opposite existences, what I want to express is also this theme. Below the light, a description of the outline of a shadow.
+
