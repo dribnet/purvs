@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-First grid example: draw the image in a nested loop.
+Second grid example: adjust tile spacing and add mask logic.
