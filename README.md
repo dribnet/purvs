@@ -2,5 +2,7 @@
 
 My theme is the wellington wall painting art.
 
+Here is a test of the pixle image. I plan to change all the original picture to one painting style to make them into a pixle gamea style work.
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+
+
