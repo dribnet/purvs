@@ -40,8 +40,8 @@ function draw () {
     else {
       noFill();
       stroke(pix);
-     strokeWeight(1);
-      rect(x, y, pointSize*2, pointSize*2);    
+      strokeWeight(1);
+      rect(x, y, halfSize, halfSize);    
     }
   }
   renderCounter = renderCounter + 1;
