@@ -1,12 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I experimented using the grid technique that Tom showed us in class. I replaced the main mask with repeating ellipses and the background mask is long rectangles with a separation above them. 
+Yesterday I took photos of billboards/ advertising around town. I looked for ones that were advertising products rather than a bank or insurance company.
 
-I am liking how the ellipses look on the main mask so I am thinking I might go with this in my future iterations.
+Today I chose some photos that I think had a nicer composition and good billboard/ advertisement placement and resized them then put them into my project folder. 
 
-I am still thinking about what my theme could be. After the lecture I have been considering some global themes. I thought since that we are presenting our work on a billboard I could do something with consumerism and try get the viewer to think about how media can try to manipulate the viewer.
+I chose an eye for the mask because Phoebe showed me some of the Great Gatsby posters. I thought the eye could represent how advertisements are targeted towards certain consumers and how they try to manipulate you into buying their products.
 
-The guest lecturer also talked about human impacts like extinction of species, pollution, global warming etc.
+The output images didn't work as well as I had planned. I think the eye mask needs to be a lot bigger in the second and third photo as it is getting lost with the background mask. I also want to experiment with adding a third mask that outlines the billboard and make the fill of this mask look quite different to the fill of the eye mask.
 
-
-I just talked to Phoebe about my ideas and I think I will go ahead with the consumerism idea. I plan on taking images of billboards and utilising the mask to portray a message. I am still thinking about what my specific message will be but it could be along the lines of the work that goes into creating that product (sweatshops) or how the products we buy often go to waste or they are purchased for their 'status'. 
+I am also planning on experimenting with what the masks mean - I could make the fill of the billboard black and have the eye show the billboard to exaggerate that the billboard is all we see.
