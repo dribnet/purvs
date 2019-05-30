@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I don't have set theme in mind yet with my images but my three images I selected are scenery images that I took down south and I tried to get a variety of images from the some place but in different settings. So I have a water setting, a mountain setting and a nature and tree setting. So I played around with the sizes of the dots and squares to see if will show the fine details of the images like the mountain.
+Process
+
+For my first commit I picked images of scenery and landscapes so I wanted to explore images of people and to se if the same code used for the scenery images could be applied but I found out that the facial features had a lot of fine detail so I had to adjust the shapes and play around with the code to get a clear image of a face. I also changed the width and the height of the ellipses and I decided the image looked best when the ellipses were going horizontal because when I had the rectangle it look blurry and it was a hard image to distinguish. 

@@ -23,19 +23,25 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<3000;i++) {
+  for(let i=0;i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    let halfSize = 50;
+    let pointSize = 20;
+    //let pointSize2 = 20;
+    let halfSize = 3;
+    //let halfSize2 = 2;
+    
     fill(pix);
-    if(mask[0] > 128) {
+    stroke(pix);
+
+    if(mask[0] > 6000) {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+      //rect(x, y, pointSize2, halfSize2);   
+      ellipse(x, y, pointSize, halfSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -43,7 +49,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
