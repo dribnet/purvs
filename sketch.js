@@ -30,8 +30,8 @@ function setup () {
 
 }
 
-const chunkHeight =20;
-const chunkWidth =20;
+const chunkHeight =15;
+const chunkWidth =15;
 
 function draw () {
   for(let y=0; y<height; y=y+chunkHeight){
