@@ -28,19 +28,20 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
+    let pointSize = 10;
     let halfSize = 50;
    
     if(mask[0] > 128) {
-      noFill();
-      stroke(pix);
-      strokeWeight(4);
+      fill(pix);
+      noStroke();
+      
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      fill(pix);
-      noStroke();
-      rect(x, y, pointSize, pointSize);    
+      noFill();
+      stroke(pix);
+     strokeWeight(1);
+      rect(x, y, pointSize*2, pointSize*2);    
     }
   }
   renderCounter = renderCounter + 1;
