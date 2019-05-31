@@ -18,10 +18,25 @@ function setup () {
   imageMode(CENTER);
   noStroke();
   background(255);
+  angleMode(DEGREES);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
+function flake (x, y){
+	push()
+	translate(x, y)
+    for(i=0; i<10; i++){
+    rotate(45);
+    beginShape()
+      vertex(0, 0);
+      vertex(-3, 5);
+      vertex(-40, 0);
+      vertex(-3, -5);
+      vertex(0, 0);
+    endShape(CLOSE)
+    }
+    pop()
+}
 function draw () {
   for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
@@ -32,10 +47,21 @@ function draw () {
     let halfSize = 50;
     fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
+    	push()
+    	flake(x, y)
+    	pop()
+   }
     else {
-      rect(x, y, pointSize, pointSize);    
+    beginShape()	
+      vertex(x, y);
+      vertex(x+5, y-15);
+      vertex(x+20, y-20);
+      vertex(x+5, y-25);
+      vertex(x, y-40);
+      vertex(x-5, y-25);
+      vertex(x-20, y-20);
+      vertex(x-5, y-15);
+    endShape()    
     }
   }
   renderCounter = renderCounter + 1;
