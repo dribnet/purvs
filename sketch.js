@@ -25,31 +25,86 @@ function setup () {
 function draw () {
   // x and y are position of pixels
 
-  for(let i=0;i<20000;i++) {
+  for(let i=0;i<13000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 7;
+    let pointSize = random(1,15);
     let halfSize = 50;
-    fill(pix);
-    stroke(pix)
+    
+    let grayscale = (pix[0]+pix[1]+pix[2])/3
+    fill(grayscale);
+    stroke(grayscale)
     if(mask[0] > 128) {
       //line(x, y, x+pix[2]/100, pix[1]/100);
       //print(pix);
-      triangle(x, y, x+pointSize, y+(pointSize*(2/3)), x+pointSize, y-(pointSize*(2/3)));   
+      //triangle(x, y, x+pointSize, y+(pointSize*(2/3)), x+pointSize, y-(pointSize*(2/3)));
+      //ellipse(x, y, pointSize, pointSize);  
+      let pointSizeTri = random(3,15); 
+      push();
+      translate(x,y);
+      rotate(random(1,360))
+      triangle(0, 0, x+pointSizeTri, y+(pointSizeTri*(2/3)), x+pointSizeTri, y-(pointSizeTri*(2/3)));    
+      pop();  
     }
     else {
 
-      ellipse(x, y, pointSize, pointSize);    
+      fill(pix)
+      stroke(pix)
+      let pointSizeTri = random(3,15);
+      push();
+      translate(x,y);
+      rotate(random(1,360))
+      triangle(0, 0, 0+pointSizeTri, 0+(pointSizeTri*(2/3)), 0+pointSizeTri, 0-(pointSizeTri*(2/3)));    
+      pop();  
     }
   }
+if(renderCounter >= 9){
+    for(let i=0;i<130000;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    let pointSize = random(1,15);
+    let halfSize = 50;
+    
+    let grayscale = (pix[0]+pix[1]+pix[2])/3
+    fill(grayscale);
+    stroke(grayscale)
+    if(mask[0] > 128) {
+      //line(x, y, x+pix[2]/100, pix[1]/100);
+      //print(pix);
+      //triangle(x, y, x+pointSize, y+(pointSize*(2/3)), x+pointSize, y-(pointSize*(2/3)));
+      //ellipse(x, y, pointSize, pointSize);  
+      let pointSizeTri = random(3,15); 
+      push();
+      translate(x,y);
+      rotate(random(1,360))
+      //triangle(0, 0, x+pointSizeTri, y+(pointSizeTri*(2/3)), x+pointSizeTri, y-(pointSizeTri*(2/3)));    
+      pop();  
+    }
+    else {
+
+      fill(pix)
+      stroke(pix)
+      let pointSizeTri = random(3,15);
+      push();
+      translate(x,y);
+      rotate(random(1,360))
+      triangle(0, 0, 0+pointSizeTri, 0+(pointSizeTri*(2/3)), 0+pointSizeTri, 0-(pointSizeTri*(2/3)));    
+      pop();  
+    }
+  }
+}
+
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+   saveArtworkImage(outputFile);
   }
 }
 
