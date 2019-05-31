@@ -40,7 +40,7 @@ function draw () {
       let y2 = y+floor(random(30));
       let x3 = x-floor(random(30));
       let y3 = y-floor(random(30));
-      if (mask[0] > 128) {
+      if (mask[0] > 128 && mask[0]<250) {
         // stroke(155);
         // let cwx = chunkWidth/2;
         // let chx = chunkHeight/2;
@@ -48,13 +48,19 @@ function draw () {
         // rect(x+cwx,y,cwx,chx);
         // rect(x,y+chx,cwx,chx);
         // rect(x+cwx,y+chx,cwx,chx);
+        noStroke();
+        fill(pixl)
+        rect(x,y,chunkWidth,chunkHeight);
+      } 
+      else if (mask[0]>250) {
         stroke(pixl);
         strokeWeight(2);
         line(x,y,x+chunkWidth,y+chunkHeight);
         line(x,y,x2,y2);
         line(x,y,x3,y3);
-      } else{
-        stroke(240);
+      }
+      else{
+        stroke(pixl);
         //rect(x,y,chunkWidth,chunkHeight);
         triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
       }
