@@ -109,10 +109,25 @@ function draw () {
         draw_some_lines(x, y);
       }
       if(mask[0] == 255) {
-        draw_some_lines2(x, y);
+        // draw_some_lines2(x, y);
       }
       else {
         // rect(x, y, tile_width, tile_height);
+      }
+    }
+    // pass 2: draw the lines where the mask is white or black
+    for(let y=0; y<height; y = y + 1) {
+      for(let x=0; x<width; x = x + 1) {
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        if(mask[0] == 255) {          
+          // let r = 255 - pix[0];
+          // let g = 255 - pix[1];
+          // let b = 255 - pix[2];
+          let g = pix[1];
+          stroke(g/2, g/2, g);
+          point(x, y);
+        }
       }
     }
   }
