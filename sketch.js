@@ -1,74 +1,74 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let renderCounter = 0;
 
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
+let maskFile = "mask_3.png";
 let outputFile = "artwork_3.png";
 
 function preload() {
-  sourceImg = loadImage(sourceFile);
-  maskImg = loadImage(maskFile);
+    sourceImg = loadImage(sourceFile);
+    maskImg = loadImage(maskFile);
 }
 
-function setup () {
-  let main_canvas = createCanvas(704, 1252);
-  main_canvas.parent('canvasContainer');
+function setup() {
+    let main_canvas = createCanvas(704, 1252);
+    main_canvas.parent('canvasContainer');
 
-  imageMode(CENTER);
-  noStroke();
-  background(255);
-  sourceImg.loadPixels();
-  maskImg.loadPixels();
+    imageMode(CENTER);
+    noStroke();
+    background(150);
+    sourceImg.loadPixels();
+    maskImg.loadPixels();
 }
 
-const tile_width = 10;
-const tile_height = 9;
-const tile_step_x = 10;
-const tile_step_y = 10;
+let elementSpacing = 50;
+let squareSize = 20;
+let pointSize = 15;
 
-function draw () {
-  // Draws tiles
-  for (let y = 0; y < height; y = y + tile_step_x) {
-    for (let x = 0; x < width; x = x + tile_step_y) {
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix);
-      if (mask[0] > 128) {
-        rect(x, y, tile_step_x, tile_step_y);
-      }
-      rect(x, y, tile_width, tile_height);
-    }
-  }
-  /*
-    for(let i=0;i<10000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      rect(x, y, pointSize, pointSize);    
-    }
-  } 
-  */
 
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
-    console.log("Done!")
-    noLoop();
-    // uncomment this to save the result
-    //saveArtworkImage(outputFile);
-  }
+function draw() {
+    // Draws tiles
+    for (let i = 0; i < 15000; i++) {
+        let x = int(i * pointSize);
+        let y = int(renderCounter * pointSize)
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        let halfSize = pointSize / 2;
+        fill(pix);
+
+        if (mask[0] > 128) { // Draws hollow squares in unmasked areas
+            // let x = random(sourceImg.width);
+            // let y = random(sourceImg.height);
+            let pix = sourceImg.get(x, y);
+            noFill();
+            stroke(pix);
+            strokeWeight(2);
+            squareBase = 1;//map(y, 0, 1080, 35, 2);
+            squareSize = squareBase + random(5, 10);
+            let jitter_x = random(-2, 2);
+            let jitter_y = random(-2, 2);
+            rect(x , y , squareSize, squareSize);
+        } 
+        else { // Draws rounded squares in grid in masked areas
+            noStroke();
+            let jitter_x = random(-2, 2);
+            let jitter_y = random(-2, 2);
+            rect(x + jitter_x, y + jitter_y, pointSize * .85, pointSize * .85, 3); 
+        }
+    }
+
+    renderCounter = renderCounter + 1;
+    if (renderCounter > 150) {
+        console.log("Done!")
+        noLoop();
+        // uncomment this to save the result
+        //saveArtworkImage(outputFile);
+    }
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
+    if (key == '!') {
+        saveBlocksImages();
+    }
 }
