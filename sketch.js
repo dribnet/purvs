@@ -1,13 +1,13 @@
-// // /* Set to true to make final high-resolution version */
-// const finalVersion = true;
-// //
-// // /* Default versions of variables */
-// let pointSize = 40;
-// //
-// // /* Override some variables with high-resolution final version */
-// if (finalVersion) {
-//   pointSize = 40;
-//  }
+// /* Set to true to make final high-resolution version */
+const finalVersion = true;
+//
+// /* Default versions of variables */
+let pointSize = 40;
+//
+// /* Override some variables with high-resolution final version */
+if (finalVersion) {
+  pointSize = 10;
+ }
 
 let sourceImg=null;
 let maskImg=null;
@@ -30,14 +30,14 @@ function setup () {
 
   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
   stroke(0);
-  background(0);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 18;
-const tile_height = 20;
-const tile_step_x = 12;
+const tile_width = 6;
+const tile_height = 8;
+const tile_step_x = 6;
 const tile_step_y = 10;
 
 function draw () {
@@ -45,36 +45,22 @@ function draw () {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-
-      //let pointSize = 30;
-      //let halfSize = pointSize/4;
-
       fill(pix);
-
       if(mask[0] > 128) {
-        //stroke(255, 98, 0, 220);
-        stroke(255); 
-        strokeWeight(0.5);
-        // triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
-        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
-        //rect(x, y, pointSize*1.5, pointSize*1.5);
+        rect(x, y, tile_step_x, tile_step_y);
 
       }
-
       else {
-        stroke(0);
-        strokeWeight(0.2);
-        //fill(255, 0, 0, 10);
-        //rect(x, y, pointSize, pointSize);
+        blur(2);
         triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
-        //stroke(0);
-        //triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5), y);
+        //fill(255, 45, 90, 8);
+        triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5),y);
+        //rect(x, y, tile_width, tile_height);
+        //rect(x, y, pointSize*.8, pointSize*.8,8);
 
       }
     }
   }
-
-    }
   renderCounter = renderCounter + 1;
 
   //NEW CODE FOR AFTER COMMIT OF OLDER CODE//
@@ -91,4 +77,5 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
 }
