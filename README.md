@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Played around with the idea of making the rose sit upon a background that is seperate or contrasting to the subject. I did this through stretching and rotating to make an interesting background.
+Made the rose contrast the background by making it out of triangles whose sharp corners contrast with the soft background made up of ellipses. I then added further texture to the background by creating a random element the speckles the background with 2 variations of ellipses giving it a unique effect. My goal with this is to create a more painted feel to the image.
