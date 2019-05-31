@@ -2,8 +2,8 @@
 
 Theme: Pasifika Identity in Aotearoa New Zealand. 
 
-Changed 3rd image and went back to some older code. Still using triangles in the background.
+I re-masked all the images with a Samoan flower in the back. This flower of which is on my tattoo. I creates a nice contrast between the subject and the background but I will look in to maybe adding colour, changing the greyscale a bit.
 
-Thinking about adding colour, still experimenting with the code and trying to choose my final 3rd image.
+I think this third image will be my final third image because I wanted to create a compare and contrast between the "old school" and the "new school".
 
-Also might go back and re-mask to mask out the faces. 
+What I will do next: Look at adding colour and transparency. Adjusting the colour tones and balancing them out. 
