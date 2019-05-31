@@ -1,3 +1,9 @@
-## Creative Coding 2: Custom Pixel
+## Title: Random Tom
 
-Third grid example: draw owls on some of the tiles in the mask.
+Example showing:
+
+ * A mask with multiple values: 0, 255 and in between (gray)
+ * how to draw multiple passes by repeating the loop
+ * how to add randomly placed details
+
+ 

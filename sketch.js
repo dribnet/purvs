@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,61 +22,107 @@ function setup () {
   maskImg.loadPixels();
 }
 
-// draw owl at x,y with darkness g and scaling s
-function owl(x, y, g, s) {
-  push();
-  translate(x, y);
-  scale(s);  // Set the createCanvas
-  stroke(g); // Set the gray value
-  strokeWeight(70);
-  line(0, -35, 0, -65); // Body
-  noStroke();
-  fill(255-g);
-  ellipse(-17.5, -65, 35, 35); // Left eye dome
-  ellipse(17.5, -65, 35, 35);  // Right eye dome
-  arc(0, -65, 70, 70, 0, PI);  // Chin
-  fill(g);
-  ellipse(-14, -65, 8, 8);  // Left eye
-  ellipse(14, -65, 8, 8);   // Right eye
-  quad(0, -58, 4, -51, 0, -44, -4, -51); // Beak
-  pop();
+const tile_width = 20;
+const tile_height = 20;
+const tile_step_x = 20;
+const tile_step_y = 20;
+
+function draw_some_lines(x, y) {
+  for(let i=0; i<100; i=i+1) {
+    let dx1 = random(-100, 100);
+    let dy1 = random(-100, 100);
+    let dx2 = random(-100, 100);
+    let dy2 = random(-100, 100);
+    let coin_flip = random([0, 1]);
+    if(coin_flip == 0) {
+      // dark red line
+      stroke(100, 0, 0);
+    }
+    else {
+      // white line
+      stroke(255);
+    }
+    line(x+dx1, y+dy1, x+dx2, y+dy2);
+  }
 }
 
-const tile_width = 12;
-const tile_height = 18;
-const tile_step_x = 20;
-const tile_step_y = 30;
+function draw_some_lines2(x, y) {
+  for(let i=0; i<100; i=i+1) {
+    let dx1 = random(-10, 10);
+    let dy1 = random(-10, 10);
+    let dx2 = random(-100, 100);
+    let dy2 = random(-100, 100);
+    line(x+dx1, y+dy1, x+dx2, y+dy2);
+  }
+}
+
+function draw_special_rect(x, y, width, height) {
+  rect(x, y, width, height);
+  let die_roll = random([0, 1, 2, 3]);
+  if(die_roll == 0) {
+    fill(0, 0, 0, 50);
+    ellipse(x, y, width/2, height/2);
+  }
+  else if (die_roll == 1) {
+    fill(255, 255, 255, 50);
+    ellipse(x, y, width/2, height/2);
+  }
+  else if (die_roll == 2) {
+    fill(255, 255, 255, 50);
+    ellipse(x, y, width/2, height/2);
+    fill(0, 0, 0, 50);
+    ellipse(x, y, width/4, height/4);
+  }
+
+}
 
 function draw () {
   background(50);
 
-  // version 1: just draw all the tiles
+  // pass 1: draw the rectangles where mask is gray
   for(let y=0; y<height; y = y + tile_step_y) {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       fill(pix);
-      if(mask[0] > 128) {
-        rect(x, y, tile_step_x, tile_step_y);
-        var die = int(random(0, 4));
-        if (die == 0) {
-          var gray = int(random(0, 102));
-          var scalar = random(0.2, 0.45);
-          owl(x, y, gray, scalar);          
-        }
+      stroke(pix);
+      if(mask[0] == 0) {
+        // draw_some_lines(x, y);
+      }
+      if(mask[0] == 255) {
+        // draw_some_lines2(x, y);
       }
       else {
-        rect(x, y, tile_width, tile_height);
+        draw_special_rect(x, y, tile_width, tile_height);
+      }
+    }
+  }
+
+  // pass 2: draw the lines where the mask is white or black
+  for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      stroke(pix);
+      if(mask[0] == 0) {
+        draw_some_lines(x, y);
+      }
+      if(mask[0] == 255) {
+        draw_some_lines2(x, y);
+      }
+      else {
+        // rect(x, y, tile_width, tile_height);
       }
     }
   }
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 3) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
