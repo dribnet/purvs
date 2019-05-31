@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I have taken a few images of places around Wellington which show both natural environments and the man made parts of the city. I haven't updated the pixel code but I used the masks to differentiate between the natural and non natural parts of each photo. 
+I've been experimenting with the grid techniques we've covered in class. At the moment I am not using the masks really as I'm trying to work out how I want my images to look overall. I have changed my photos to ones I've taken of natural environments as I really like how the colours complement each other. Ideally I would like to communicate a message to do with being aware of the impact we have on our environment/ sustainability and not to take these things for granted. 
