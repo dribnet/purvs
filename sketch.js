@@ -54,7 +54,7 @@ function draw () {
         line(x,y,x2,y2);
         line(x,y,x3,y3);
       } else{
-        noStroke();
+        stroke(240);
         //rect(x,y,chunkWidth,chunkHeight);
         triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
       }
