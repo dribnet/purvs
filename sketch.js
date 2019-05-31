@@ -17,15 +17,18 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(30);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
+const tile_width = 5;
+const tile_height = 5;
 
-const tile_width = 10;
-const tile_height = 10;
-const tile_step_x = 15;
-const tile_step_y = 15;
+const triangle_width = 6;
+const triangle_height = 6;
+
+const tile_step_x = 10;
+const tile_step_y = 10;
 
 function draw () {
 
@@ -34,23 +37,24 @@ function draw () {
       let pix = sourceImg.get(x,y);
       let mask = maskImg.get(x, y);
       fill(pix);
-      
+    
       //if white on mask
       if(mask[0] > 128){
-        triangle(x, y-(tile_height/2), x+(tile_width/2), y+(tile_height/2), x-(tile_width/2), y+(tile_height/2));
-      }
+      fill(30);
+      rect(x,y,tile_width, tile_height);
+      fill(pix);   
+        triangle(x, y-(tile_height/2), x+(tile_width/2), y+(tile_height/2), x-(tile_width/2), y+(tile_height/2)); 
+          }
+
       //if black on mask
       else{
-         triangle(x, y-(tile_height/2), x+(tile_width/2), y+(tile_height/2), x-(tile_width/2), y+(tile_height/2));
+        fill(0);
+        rect(x, y, tile_width, tile_height);
       }
     }
   }
 
-  
-
-
-
-  /*
+ /*
   for(let i=0;i<2000;i++) {
     //pick x and y
     let x = floor(random(sourceImg.width));
@@ -80,7 +84,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+   saveArtworkImage(outputFile);
   }
 }
 
