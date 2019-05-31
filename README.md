@@ -1,7 +1,5 @@
-## Creative Coding 2: Custom Pixel - 30/05/19
+## Creative Coding 2: Custom Pixel - 31/05/19
 
-Experimenting and Ideation
+Progress Update
 
-I have updated the input images to some photos I took in/on the way to Hong Kong. I haven't made many changes to the code yet at the moment, I'm just trying out the grid code from the class example, and am fiddling with using lines.
-I'm still thinking about the theme I want to explore. Currently I'm thinking about either sustainability, or the importance of spending time with your loved ones
-I might go to the botanic gardens or have a look at photos I already have. 
+I'm still experimenting with and trying to get my head around using grids, and I came up with this. I like it because I could use it to completely obscure things in an image like they've gone missing or disappeared. If I use sustainability as a theme, I could use this to take trees/natural elements out of the picture. 

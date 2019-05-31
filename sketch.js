@@ -21,12 +21,15 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
+//coool stuff
+//const tile_width = 2;
+//const tile_height = 20;
+//const tile_step_x = 10;
+//const tile_step_y = 20;
 
-
-
-const tile_width = 20;
+const tile_width = 2;
 const tile_height = 20;
-const tile_step_x = 2;
+const tile_step_x = 10;
 const tile_step_y = 20;
 
 //image1 const tile_width = 8;
@@ -48,10 +51,12 @@ for(let y=0; y<height; y = y + tile_step_y) {
       let mask = maskImg.get(x, y);
       fill(pix);
       if(mask[0] > 128) {
-        rect(x, y, tile_step_x, tile_step_y);
+                ellipse(x, y, tile_width, tile_height);
+
+        
       }
       else {
-        ellipse(x, y, tile_width, tile_height);
+        rect(x, y, tile_step_x, tile_step_y);
       }
     }
 
@@ -75,7 +80,7 @@ for(let y=0; y<height; y = y + tile_step_y) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-  //saveArtworkImage(outputFile);
+    //ssaveArtworkImage(outputFile);
   }
 
 
