@@ -16,60 +16,60 @@ function setup () {
   main_canvas.parent('canvasContainer');
   imageMode(CENTER);
   noStroke();
-  background(219, 182, 0);
+  background(125, 83, 53);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 const tile_width = 10;
-const tile_height = 3;
+const tile_height = 13;
 const tile_step_x = 10;
 const tile_step_y = 20;
 
 function draw () {
 
-  //draws ellipses
-  for(let i=0;i<10000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    let halfSize = 7;
-    if(mask[0] > 128) {
-      fill(0);
-      stroke(pix);   
-      ellipse(x, y, pointSize, halfSize); 
-      ellipse(x, y, pointSize/2, halfSize/2); 
-      // fill(pix);
-      // stroke(pix);
-      // ellipse(x, y, halfSize, pointSize);
-      // ellipse(x, y, pointSize, halfSize);
-    }
-    else {
-
-    }
-  }
-
-
-  // draws tiled lines
+  // // version 1: just draw all the tiles
   for(let y=0; y<height; y = y + tile_step_y) {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       let pointSize = 20;
+       let rectSize = 40;
        let halfSize = 5;
+       let halfrectSize = 50;
       fill(pix);
       if(mask[0] < 128) {
         noStroke();
-        fill(50);
-        rect(x-5, y, tile_width, tile_height);
+        fill(pix);
+        rect(x, y, tile_width, tile_height);
       }
       else {
       }
     }
   }
 
+  for(let i=0;i<6000;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    let pointSize = 15;
+    let halfSize = 4;
+    if(mask[0] > 128) {
+      // fill(0);
+      // stroke(pix);   
+      // ellipse(x, y, pointSize, halfSize); 
+      // ellipse(x, y, pointSize/2, halfSize/2); 
+      // ellipse(x, y, pointSize/4, halfSize/4); 
+      fill(pix);
+      stroke(pix);
+      ellipse(x, y, halfSize, pointSize);
+      ellipse(x, y, pointSize, halfSize);
+    }
+    else {
+
+    }
+  }
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {

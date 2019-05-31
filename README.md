@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-After watching the tutorials in the lecture I played around with creating tiles. I quite liked the randomness of the ellipses making up the figure so I thought maybe I could try putting the background on a tile loop istead to create the lines I was wanting. I did this using two different for loops which is a bit messy at the moment so I will work on cleaning the code up after I've gotten the desired effect. I do like the direction this is heading but it's not quite there yet.
+I decided to change my last image as, though I liked the texture of the cat's fur, I think the composition and colour of this image fits better to the theme and the other images. The colour grade combined with the dog looking over her shoulder creates quite a nostalgic feel. Considering the image is of a pet who has now passed away, this nostalgic lookis exactly what I'm going for. I decided that unlike the other images, I wanted to have the lines of the image match the background as I think it fits better and furthers the sentimental feel. 
 
-The image of the cat I played more with having the ellipses filled with black and the stroke representing the image colour.
+My theme is about people and their pets. My three images are of my partner and our cat, my mum and her dog, and my childhood pet. To me, pets are a big part of my family so I wanted to focus on them as I feel they often aren't represented as much. 
