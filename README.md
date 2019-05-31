@@ -1,9 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-IN CLASS ASSIGNMENT
+Today I have worked a more precise way to get the image shoing with the ellipses and rects.
 
-- i am experimenting further with the ellipses and rectangles to see how i can form the mask shape with colour and depict the importance of the image.
+I have recreated the mask for img 1 and 2 to develop the picture better for what i want to be foreshown.
 
-- I need to work out the mask differences as there is extra space outside the mask at the moment.
-
-- I like the squares and ellipse contrast at the moment so will keep developing from this concept.
+I have developed the outline of the Wellington 'Yellow' that we see on the new recycling bins to enhance the theme and remidner i want to put out to the public to recycle in wellington
