@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Just used 3 images to test it out. Nothing changed.
+First actual change to the code. I wanted to see how this would affect the images especially since I have 2 monsters and one human test picture. The human picture and mask seems to work quite well with this change I made, but the other 2 look extremely blocky in comparison because of the either the background or the actual figure of the image. So I am just guessing that anything that is not humanoid will not look too well with these changes, however, I do like the image that it produced on the image of the person. The person looks like she is fading away with the rect blocks overlapping the mask a bit. It might be worth looking into but I don't know exactly what I want to do for the main theme of my 3 images yet so I am just going to explore a bit more during the weekends + monday since we have a break. So far I like the ellipse idea but I want to see if I can expand on it more.
