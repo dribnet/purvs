@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -38,7 +38,7 @@ function draw () {
     if(mask[0] > 128) {
       fill(pix,10);
       //noStroke();
-      stroke(50,200,255, 100);
+      stroke(0,255,0, 60);
       strokeWeight(1);
       rect(x, y, pointSize, pointSize);
     }
