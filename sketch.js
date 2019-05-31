@@ -144,7 +144,7 @@ for(let i=0;i<30;i++) {
   }
   }
 */
-  
+ 
    edgeSet();
   //drawOutline();
 
@@ -153,7 +153,7 @@ for(let i=0;i<30;i++) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
@@ -281,7 +281,7 @@ function drawOutline() {
         || (maskImg.get((i-1)*(sourceImg.width/edgeSmooth), j*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         || j == 0 || i == 0 || j == 2*edgeSmooth-1|| i == edgeSmooth -1 ){
           fill(0);
-          //ellipse(x, y, 10, 10);
+          ellipse(x, y, 10, 10);
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       }
     }
@@ -301,11 +301,11 @@ function edgeSet(){
       
       if((maskImg.get(i*(sourceImg.width/(edgeSmooth)), (j-1)*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         || (maskImg.get((i-1)*(sourceImg.width/(edgeSmooth)), j*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
-        || j == 0 || i == 0 || j == 2*edgeSmooth - 1 || i == edgeSmooth -1){
+        ){
 
       edges[i][j] = true;
       fill(150);
-      //ellipse(x, y, 5, 5);
+      ellipse(x, y, 5, 5);
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       } else {
         edges[i][j] = false;
