@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -24,7 +24,10 @@ function setup () {
 
 //TILE CONSTANTS ----------------------------------------------------
 const tile_width = 20;
+const tile_width2 = 8;
+
 const tile_height = 8;
+const tile_height2 = 20;
 
 const tile_step_x = 9;
 const tile_step_y = 9;
@@ -39,16 +42,21 @@ function draw () {
       let mask = maskImg.get(x,y);
       fill(pix)
 
-      //WHITE MASK
-      if(mask[0] > 128){
-        //ellipse (x, y, 20, 20);
+      //WHITE MASK 255 background
+      if(mask[0] > 200){       
         rect(x, y, tile_width, tile_height);
      } 
-     //BLACK MASK
-     else {
+
+    //GREY MASK billboard
+    if(mask[0] > 100 && mask[0] < 255){
       ellipse (x, y, 20, 20);
-      //rect(x, y, tile_width, tile_height);
      }
+
+    //BLACK MASK 0 eye
+    if(mask[0] < 10) {
+      ellipse(x, y, 6, 6);
+     }
+
     }
   }
 
@@ -58,7 +66,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+       saveArtworkImage(outputFile);
   }
 }
 
