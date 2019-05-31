@@ -1,7 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-
-For this exercise, I decided to make the theme about siblings. I wanted to show the similarity in a set of sibling's facial features. However, I could only find this set of photos in my camera and  I realized that by pixelizing the photo, the details weren't so clear, so the features weren't that obvious. 
-
-On the submitted work page, the first photo is my older brother, the second is my younger brother and the last is myself. 
-
-Updated my thumbnail and preview image. 
+Today, I tested out a new theme. I wanted to use double exposure to show a person's homeland and how much they miss it. I've only managed to change one of the images and it does look quite nice but I think there's a lot more details I can alter. However, I think I should stick to the siblings theme because I may not have enough time to take oter images of other people and their homelands, whereas I could take photos of me and my brother anytime. I'll be working through the portraits during the weekend and focus on the code after that. 
