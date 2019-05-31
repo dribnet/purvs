@@ -16,34 +16,53 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(255);
+  //noStroke();
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+const step_y = 10;
+const step_x = 10;
+
+
+
 function draw () {
-  for(let i=0;i<10000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 15;
-    let halfSize = 2;
-    fill(pix);
+    for (let y=0; y<height; y= y + step_y) {
+    for (let x=0; x<width; x = x + step_x) {
+      let pix = sourceImg.get(x,y);
+      let mask = maskImg.get(x,y);
+      
+    let pointSize = 7;
+    let halfSize = 5;
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+      fill(pix,10);
+      //noStroke();
+      stroke(50,200,255, 100);
+      strokeWeight(1);
+      rect(x, y, pointSize, pointSize);
     }
     else {
-      rect(x, y, halfSize, halfSize);    
+      fill(pix);
+      noStroke();
+      rect(x, y, halfSize, halfSize);
+      fill(random(0,255), 150);
+      diamond(x, y, halfSize);
     }
+  }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
+}
+
+function diamond(x,y,size) {
+  stroke(255);
+  strokeWeight(1);
+  quad(x-size/2, y, x, y-size/2, x+size/2, y, x, y+size/2);
 }
 
 function keyTyped() {
