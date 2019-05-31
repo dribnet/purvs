@@ -163,6 +163,7 @@ function draw() {
     noLoop();
     // uncomment this to save the result
     saveArtworkImage(outputFile);
+    console.log("Still Done!")
   }
 }
 
