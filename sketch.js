@@ -2,12 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-
 let sourceFile = "Burgenland.jpg";
 let maskFile   = "BurgenlandMask.png";
 let outputFile = "artwork_2.png";
-
-
 
 function preload() {
 
@@ -39,17 +36,26 @@ function draw () {
       let pixl = sourceImg.get(x,y);
       let mask = maskImg.get(x,y);
       fill(pixl);
+      let x2 = x+floor(random(30));
+      let y2 = y+floor(random(30));
+      let x3 = x-floor(random(30));
+      let y3 = y-floor(random(30));
       if (mask[0] > 128) {
-        stroke(155);
-        let cwx = chunkWidth/2;
-        let chx = chunkHeight/2;
-        rect(x,y,cwx,chx);
-        rect(x+cwx,y,cwx,chx);
-        rect(x,y+chx,cwx,chx);
-        rect(x+cwx,y+chx,cwx,chx);
+        // stroke(155);
+        // let cwx = chunkWidth/2;
+        // let chx = chunkHeight/2;
+        // rect(x,y,cwx,chx);
+        // rect(x+cwx,y,cwx,chx);
+        // rect(x,y+chx,cwx,chx);
+        // rect(x+cwx,y+chx,cwx,chx);
+        stroke(pixl);
+        strokeWeight(2);
+        line(x,y,x+chunkWidth,y+chunkHeight);
+        line(x,y,x2,y2);
+        line(x,y,x3,y3);
       } else{
         noStroke();
-        rect(x,y,chunkWidth,chunkHeight);
+        //rect(x,y,chunkWidth,chunkHeight);
         triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
       }
     }
