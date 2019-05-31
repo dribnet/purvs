@@ -2,13 +2,13 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
-  sourceImg = loadImage("input_1.jpg");
-  maskImg = loadImage("mask_1.png");
+  sourceImg = loadImage("sourceFile");
+  maskImg = loadImage("maskFile");
 }
 
 function setup () {
@@ -60,7 +60,7 @@ function draw () {
     console.log("Done!")
     noLoop();
       // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 
    

@@ -1,7 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I have worked a more precise way to get the image shoing with the ellipses and rects.
+I have now decided on my third image and creating a mask for it.
 
-I have recreated the mask for img 1 and 2 to develop the picture better for what i want to be foreshown.
+I have masked the bin titles to enhance the need for people to understand what each bin is used for and to automatically be able to know what goes in what bin.
 
-I have developed the outline of the Wellington 'Yellow' that we see on the new recycling bins to enhance the theme and remidner i want to put out to the public to recycle in wellington
+A lot of people still dont know what should go in recycling and normal bins and i think it is important to understand and always use the correct bin.
+
+I wanted the people in the background of the bins to portray the way that us as human beings are the ones that are able to make 'the change' and in our every lives we can make a difference.
+
+I have added in the wellington yellow mask again as i think it is important to continue the theme and portray the 'Wellington' recycing culture again.
