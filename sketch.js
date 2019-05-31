@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_4.jpg";
+let maskFile   = "mask_4.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -35,12 +35,12 @@ function draw () {
       fill(pix);
       //rect(x, y, tile_width, tile_height);
       if(mask[0] > 128) {
-        fill(pix);
+        let shade = pix[1];
+        fill(shade);
         rect(x, y, tile_width, tile_height);
       }
       else {
-        let shade = pix[1];
-        fill(shade);
+        fill(pix);
         rect(x, y, tile_width, tile_height);
       }
     }
