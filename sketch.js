@@ -66,7 +66,7 @@ function draw () {
      let mask = maskImg.get(x, y);
 
      if(mask[0] > 128) {
-       fill(240);
+       fill(33, 70, 300);
        rect(x, y, tileHeight, tileHeight);
      }
   }
