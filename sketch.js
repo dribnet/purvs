@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,33 +22,39 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tile_width = 4;
-const tile_height = 4;
-const tile_step_x = 8;
-const tile_step_y = 8;
+const tile_width = 8;
+const tile_height = 8;
+const tile_step_x = 6;
+const tile_step_y = 6;
+
+
 
 function draw () {
-  background(50);
+  background(255,96,96);
 
-  // version 1: just draw all the tiles
+
   for(let y=0; y<height; y = y + tile_step_y) {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
+       let pointSize = 8;
       fill(pix);
       if(mask[0] > 128) {
-        rect(x, y, tile_width, tile_height);
+        ellipse(x, y, tile_width, tile_height);
         var die = int(random(0, 4));
         if (die == 0) {
           var gray = int(random(0, 102));
           var scalar = random(0.2, 0.45);
-             
+             stroke(10);
         }
       }
       else {
-        let tile_width = 6;
-        let tile_height = 6;
-        ellipse(x, y, tile_width, tile_height);
+      let tile_width = 3;
+      let tile_height = 3;
+      const tile_step_x = 9;
+      const tile_step_y = 9; 
+      triangle(x, y-(tile_height/2), x+(tile_width/2), y+(tile_height/2), x-(tile_width/2), y+(tile_height/2));
+      triangle(x, y, x+pointSize, y+pointSize,x+pointSize+10, y+pointSize+10);  
       }
     }
   }
