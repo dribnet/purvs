@@ -35,10 +35,10 @@ function draw () {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-     // let pointSize = 2;
-      //let x2 = floor(random(sourceImg.width));
-     // let y2 = floor(random(sourceImg.height));   
-       ellipse(x, y, pointSize, pointSize);
+
+    rect(x, y, pointSize, pointSize);
+     fill(2,72,122,90);
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;

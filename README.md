@@ -1,3 +1,2 @@
-## Creative Coding 2: Custom Pixel
-
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+Will Ridd 
+My theme for my final code is boundless, i want to show different images of areas with large mountians or areas that have one large feture within the image for example mountains seas or rocks. For the second input i have chosen a image of my dog, the reason for this is in an interesting enviroment and he stands out as the outlier in the image. 
