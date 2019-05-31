@@ -2,9 +2,9 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "input_2.jpg";
-let maskFile = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -28,7 +28,6 @@ function brush1(x, y) {
     let pointSize = 5;
     let a = random(-5, 5)
     let b = random(-5, 5)
-    noStroke();
     ellipse(x - a, y - b, pointSize);
   }
 }
@@ -44,8 +43,6 @@ function brush2(x,y){
 
 function brush3(x,y){
   push()
-    
-    noStroke()
     rectMode(CENTER)
     translate(x,y)
     rotate(random(30, 60))
@@ -59,24 +56,23 @@ function brush3(x,y){
 }
 
 function brush4(x,y){
-  noStroke()
+
  beginShape()
- vertex(x+2,y+8)
- vertex(x+4,y+9)
- vertex(x-7,y+6)
- vertex(x-3,y+6)
- vertex(x-5,y+9)
- vertex(x+9,y-5)
+ vertex(x+4,y+12)
+ vertex(x+6,y+11)
+ vertex(x-9,y+8)
+ vertex(x-5,y+8)
+ vertex(x-7,y+11)
+ vertex(x+11,y-7)
  endShape(CLOSE)
 }
 
 function brush5(x,y){
   push()
     translate(x,y)
-    noStroke()
-    let pointSize=7
-    let a = random(0,3)
-    let b = random(0,3)
+    let pointSize=9
+    let a = random(0,6)
+    let b = random(0,6)
     for (i=0; i < 9; i++){
       rotate(random(30,60))
       ellipse(0+a,0+b,pointSize,pointSize/3)
@@ -86,28 +82,19 @@ function brush5(x,y){
 
 function brush6(x,y){
   strokeCap(ROUND);
-  strokeWeight(4.0);
   line(x,y,x+7,y+7)
   line(x,y,x-7,y+7)
 }
 
 function brush7(x,y){
-  let size = random(4, 10)
+  let size = random(6, 15)
   ellipse(x,y,size)
 }
 
 function brush8(x,y){
   strokeCap(ROUND);
   push()
-  push()
-  stroke(200)
-  strokeWeight(3.0);
-  line(x,y,x-3,y+3)
-  line(x,y,x+3,y+3)
-  line(x,y,x-3,y-3)
-  line(x,y,x+3,y-3)
-  pop()
-  strokeWeight(2.0);
+  
   line(x,y,x-3,y+3)
   line(x,y,x+3,y+3)
   line(x,y,x-3,y-3)
@@ -116,37 +103,81 @@ function brush8(x,y){
 }
 
 function draw() {
-  for (let i = 0; i < 3100; i++) {
+
+  if(renderCounter == 0) {
+    background(200);
+  }
+  for (let i = 0; i < 2500; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    fill(pix);
+    let from = color(pix);
+    let to = color(0, 0, 0);
+    let r = random(0, 0.4);
+    let random_color = lerpColor(from, to, r);
 
+    fill(pix);
+    
 
     if (mask[0] >= 0 && mask[0] < 36) {
+        push()
+          stroke(random_color)
+          brush1(x,y)
+        pop()
       brush1(x, y)
     } else if (mask[0] >= 36 && mask[0] < 72) {
         push()
+        push()
+          stroke(random_color)
+          brush2(x,y)
+        pop()
           stroke(pix)
           brush2(x,y)
         pop()
     } else if (mask[0] >= 72 && mask[0] < 108) {
+        push()
+          stroke(random_color)
+          brush3(x,y)
+        pop()
         brush3(x,y)
     } else if (mask[0] >= 108 && mask[0] < 144) {
+        push()
+          stroke(random_color)
+          brush4(x,y)
+        pop()
         brush4(x,y)
     } else if (mask[0] >= 144 && mask[0] < 180) {
+        push()
+          stroke(random_color)
+          brush5(x,y)
+        pop()
         brush5(x,y)
     } else if (mask[0] >= 180 && mask[0] < 216) {
          push()
+        push()
+          strokeWeight(6)
+          stroke(random_color)
+          brush6(x,y)
+        pop()
+          strokeWeight(4)
           stroke(pix)
           brush6(x,y)
         pop()
     } else if (mask[0] >= 216 && mask[0] < 255) {
+        push()
+          stroke(random_color)
+          brush7(x,y)
+        pop()
       brush7(x,y)
     } else {
          push()
+          push()
+            strokeWeight(4)
+            stroke(random_color)
+            brush8(x,y)
+          pop()
+          strokeWeight(2.0);
           stroke(pix)
           brush8(x,y)
         pop()
