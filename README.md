@@ -1,3 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-First actual change to the code. I wanted to see how this would affect the images especially since I have 2 monsters and one human test picture. The human picture and mask seems to work quite well with this change I made, but the other 2 look extremely blocky in comparison because of the either the background or the actual figure of the image. So I am just guessing that anything that is not humanoid will not look too well with these changes, however, I do like the image that it produced on the image of the person. The person looks like she is fading away with the rect blocks overlapping the mask a bit. It might be worth looking into but I don't know exactly what I want to do for the main theme of my 3 images yet so I am just going to explore a bit more during the weekends + monday since we have a break. So far I like the ellipse idea but I want to see if I can expand on it more.
+Image 1: Texted out how making the shapes thinner would change the overall aesthetic of the image. From the image that came out it seems to have a lot of white patches which I do not like all too much. I feel like it is quite off putting and just does not look right.
+
+Image 2: Changed the size of ellipses back to what they were originally since I was not fond of the white patches that showed up in the back. I also made the rect just a bit thicker width wise (/4) and cut down the length of it by /2 to make short thick lines to see how that would work on the background. It looks alright for the most part but I think it just looks boring. Nothing is really happening so I feel like I need to do just slightly more drastic changes.
+
+Image 3: Just changed the background cause I wanted to try out how it will look like. Increased the height by 6 and divided the width by 4 to make it. Looks quite interesting but I don't know if I want to add it to the final.
+
+These tests are just to help me find some idea for what type of theme I want. I feel like I want to make a glitchy type of pixel art so Im going to play with the masking and redo the tiles.
