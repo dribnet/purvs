@@ -21,7 +21,6 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
 function draw () {
   for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
@@ -36,10 +35,10 @@ function draw () {
       ellipse(x, y, pointSize/2, pointSize);
     }
     else {
-      rect(x, y, pointSize/4, pointSize*6);
+      rect(x, y, pointSize, pointSize*2);
     }
   }
-
+  
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
