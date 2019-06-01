@@ -2,6 +2,4 @@
 
 Theme - Nostalgia
 
-My theme is now confirmed and I will start to look at the different place of masks and also codes.
-
-Will keep updating my ideas and what I have changed.
+I changed the first photo instead of the first landscape one. So I am not focusing on looking back but about escape from reality. I think nostalgia is about you can't persuade yourself you have to live in the moment. Thus, this series photo is talking about escape from reality.
