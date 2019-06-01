@@ -21,6 +21,12 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
+
+const tile_w = 10
+const tile_h = 10
+
+function draw
+/*
 function draw () {
   for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
@@ -38,7 +44,7 @@ function draw () {
       rect(x, y, pointSize, pointSize*2);
     }
   }
-  
+*/
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
