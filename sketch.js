@@ -17,11 +17,11 @@ function setup() {
   angleMode(DEGREES)
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(255); // Default background colour
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
+//Codes for individual brushes
 
 function brush1(x, y) {
   for (i = 0; i < 20; i++) {
@@ -102,6 +102,7 @@ function brush8(x,y){
   pop()
 }
 
+
 function draw() {
 
   if(renderCounter == 0) {
@@ -113,12 +114,13 @@ function draw() {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let from = color(pix);
-    let to = color(0, 0, 0);
+    let to = color(0, 0, 0);  //Additional outline colours for each brush
     let r = random(0, 0.4);
     let random_color = lerpColor(from, to, r);
 
     fill(pix);
     
+    // 8 different greyscale value
 
     if (mask[0] >= 0 && mask[0] < 36) {
         push()
@@ -194,7 +196,7 @@ function draw() {
     noLoop();
     // uncomment this to save the result
     saveArtworkImage(outputFile);
-    console.log("Still Done!")
+
   }
 }
 
