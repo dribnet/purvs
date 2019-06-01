@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,26 +22,45 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 8;
+const tile_height = 8;
+const tile_step_x = 8;
+const tile_step_y = 8;
+
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    let halfSize = 50;
-   
-    if(mask[0] > 128) {
-      fill(pix);
-      noStroke();
+  //background(255,96,96);
+
+
+  for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) {
+      let pix = sourceImg.get(x, y);
       
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      noFill();
+      let mask = maskImg.get(x, y);
+        let x2 = floor(random(sourceImg.width));
+        let y2 = floor(random(sourceImg.height));
+       let pointSize = 8;
+      fill(pix);
+      if(mask[0] > 128) {
+        rect(x, y, tile_width, tile_height);
+        var die = int(random(0, 4));
+        if (die == 0) {
+          var gray = int(random(0, 102));
+          var scalar = random(0.2, 0.45);
+             stroke(1);
+        }
+      }
+      else {
+       
+        noFill();
       stroke(pix);
       strokeWeight(1);
-      rect(x, y, halfSize, halfSize);    
+      //ellipse(x+x2, y+y2, pointSize, pointSize);
+      squareBase = map(y, 0, 1080, 35, 2);
+      squareSize = squareBase + floor(random(3, 15));
+      ellipse(x+x2, y+y2, squareSize, squareSize);    
+      //fill(255, 255, 0, 40);
+      //ellipse(x-x2, y-y2, pointSize, pointSize);
+      }
     }
   }
   renderCounter = renderCounter + 1;
@@ -52,6 +71,9 @@ function draw () {
     saveArtworkImage(outputFile);
   }
 }
+
+
+
 
 function keyTyped() {
   if (key == '!') {
