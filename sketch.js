@@ -4,7 +4,7 @@ let renderCounter=0;
 
 let sourceFile = "input_3.jpg";
 let maskFile   = "mask_3.png";
-let outputFile = "artwork_1.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,7 +17,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(190,190,191);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -35,12 +35,20 @@ for(let y = 0; y<height; y =y + y1) {
 
 noStroke();
       ellipse(x, y, x1, y1);
+    ellipse(x, y, y1, x1);
 
 
     }
     else {
-  strokeWeight(1);
-            stroke(49,149,211);
+//input1
+// strokeWeight(1)
+//   stroke(0,120,215);
+// input2  strokeWeight(1.5);
+  // input2 stroke(250,0,45);
+            // input3
+             strokeWeight(1.3);
+            //input3
+            stroke(246,183,62);
       rect(x,y,rect_width,rect_height);
     }
 }
