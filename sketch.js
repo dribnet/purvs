@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -23,13 +23,13 @@ function setup () {
 }
 
 function draw () {
+
   for(let i=0;i<5500;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 10;
-
     fill(pix);
     noStroke();
 
@@ -45,11 +45,12 @@ function draw () {
     else {
       push();
       rect(x, y, pointSize*10, pointSize/25);
-      //triangle(x, y, pointSize/2, pointSize/2, pointSize, pointSize*2);
+      triangle(x, y, pointSize/2, pointSize/2, pointSize, pointSize*2);
       pop();
       
     }
   }
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
