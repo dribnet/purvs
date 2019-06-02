@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -29,9 +29,9 @@ function flake (x, y){
     rotate(45);
     beginShape()
       vertex(0, 0);
-      vertex(-3, 5);
-      vertex(-40, 0);
-      vertex(-3, -5);
+      vertex(-3, 3);
+      vertex(-20, 0);
+      vertex(-3, -3);
       vertex(0, 0);
     endShape(CLOSE)
     }
@@ -52,7 +52,7 @@ function draw () {
     	pop()
    }
     else {
-    beginShape()	
+    beginShape()
       vertex(x, y);
       vertex(x+5, y-15);
       vertex(x+20, y-20);
@@ -61,7 +61,7 @@ function draw () {
       vertex(x-5, y-25);
       vertex(x-20, y-20);
       vertex(x-5, y-15);
-    endShape()    
+    endShape()
     }
   }
   renderCounter = renderCounter + 1;
@@ -69,7 +69,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
