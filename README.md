@@ -1,15 +1,16 @@
 ## Creative Coding 2: Custom Pixel
 
-For this project my inital idea was to look at the beauty we miss in our life. What is beauty though, isn't it subjective? Well to me what I find beautiful and gains my attention is the beauty in nature that is all around us. 
+### Dithering
 
 
+At this point I was looking at the technique of dither.So dither is an intentionally applied form of noise to randomize error,preventing large scale patterns such as color banding in images.I really like this style it since its audio linked in a way.This was one way I achieved a sense of blur to really pull focus away from the flower.
 
-Looking at technology  in today's society we have things such as  phones, laptops, tablets and even portable gaming consoles. The fact is that we spend majority of our day in our screens we come across the chanc to miss the world every day.
 
-I am  specifically looking at flowers as my subject matter which in my opnion is aesthetically pleasing in so many areas. Forms, colours and symmetry pull me to this beauty.
+Giving the veiwer a sense of form but not so much detai.What this does is link to the idea that all the things we consider beautiful in todays society can be veiwed online through our screens.From a design point of view I am always seeing beautiful images created through photoshop and such.
 
-The saying “to stop and smell the roses” is an excellent example of what I wanted to highlight in regards to taking a step out of our day to look at the world outside of our phones .
+What I wanted to show with the background images was a pixelized version of layered flowers.This emphasises the screen aspect seeing images is just made up of pixels.
 
-The way I wanted to portray this is to have a flower on the screen of a phone but have a bunch of flowers in the back to emphasise that beautiful things we see come from aspects that aren't seen on a screen but rather with our eyes.
+The background of my phone is to really create a black and white contrast drawing your eye to the color of the flower.By drawing the interesting lines this does create a sense of movement by each peice being random.
 
-I want to look at texturing differing parts and using filters to draw attention and detail to what is on the phone in the shot, encouraging the viewer to not be able to fully see their surroundings but what is on the screen in hand.
+
+All together I think im acheiving my intentions of highlighting the effect technology has had on us especially in how we miss the beauty of nature everyday relying on the internet to provide us something we can achieve just by stoping for a sec to smell the flowers.
