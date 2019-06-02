@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
+p4:for my photo i use code "rotate" to draw some white space mke it looks more protruding. the line of the sky make it looks like a pencil drawing.
+
 
 p3: in this part i change my code to draw my photo, i change cut position of the runset image, it can my mask more easy to draw and it have more space for the sky. changing the code make sure it looks good for my final.
 

@@ -23,30 +23,29 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<6000;i++) {
+  for(let i=0;i<5500;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 10;
+
     fill(pix);
     noStroke();
-    if(mask[0] > 128) {
 
-
-      
+    //white
+    if(mask[0] > 128) { 
       push();
       rotate(PI/400);
       rect(x, y, pointSize, pointSize);
       pop();
-      
-
-      
+           
     }
+    //black
     else {
       push();
-     
       rect(x, y, pointSize*10, pointSize/25);
+      //triangle(x, y, pointSize/2, pointSize/2, pointSize, pointSize*2);
       pop();
       
     }
