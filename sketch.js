@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -21,8 +21,8 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-const rect_width = 12;
-const rect_height = 4;
+const rect_width = 22;
+const rect_height = 3;
 const x1 = 4;
 const y1 = 6;
 function draw () {
