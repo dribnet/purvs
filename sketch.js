@@ -21,10 +21,10 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-const rect_width = 10;
+const rect_width = 12;
 const rect_height = 4;
-const x1 = 2;
-const y1 = 4;
+const x1 = 4;
+const y1 = 6;
 function draw () {
 for(let y = 0; y<height; y =y + y1) {
   for(let x = 0; x<width; x = x + x1) {
