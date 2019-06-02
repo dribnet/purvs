@@ -108,13 +108,13 @@ function draw() {
   if(renderCounter == 0) {
     background(200);
   }
-  for (let i = 0; i < 2500; i++) {
+  for (let i = 0; i < 2300; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let from = color(pix);
-    let to = color(0, 0, 0);  //Additional outline colours for each brush
+    let to = color(0, 0, 200);  //Additional outline colours for each brush
     let r = random(0, 0.4);
     let random_color = lerpColor(from, to, r);
 
