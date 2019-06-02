@@ -1,9 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I spoke to Hazel about my project and how I can use the glyphs and masks to show my message. Hazel said it would help to bring out the billboards and my message by blurring the background. 
+I edited the background code that I used last time and added more ellipses and some rectangles to make the background seem blurrier.
 
-I used Tom's code from today and applied it to the background, then decreased the opacity of the background to mask to help bring out the foreground masks. 
+I also added a small ellipse to the center of each ellipse that is drawn in the eye to make it look almost like an iris in the eye. I have been trying to use curves to create small eyes that fill the eye mask which would make my final image more interesting to look at and give it more detail. I am still trying to figure this out. 
 
-I then incorporated the layering that Tom showed in class. I drew the eyeball on the second layer, on top of the first so that it stands out more. 
-
-I am happy with this progress so far but still want to further improve and detail the glyphs that draw on the masks.
+Not sure what else I could do with my image. I want to try and come up with more meaningful glyphs to fill the masks that relate to my theme but I am not sure what else I could do apart from the eye glyph.
