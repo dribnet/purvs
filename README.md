@@ -1,9 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-Image 1: Texted out how making the shapes thinner would change the overall aesthetic of the image. From the image that came out it seems to have a lot of white patches which I do not like all too much. I feel like it is quite off putting and just does not look right.
+Image 1:Played around with the spacing of the pixels and size of the ellipses a bit. Thought it would look a bit nice but it is quite hard to see. Could use the spacing on the background though. I think it would work well in some instances. Just made the spacing 15 by 15 and multiplied ellipse1 t_w by 2 and ellipse2 t_h by 2.
 
-Image 2: Changed the size of ellipses back to what they were originally since I was not fond of the white patches that showed up in the back. I also made the rect just a bit thicker width wise (/4) and cut down the length of it by /2 to make short thick lines to see how that would work on the background. It looks alright for the most part but I think it just looks boring. Nothing is really happening so I feel like I need to do just slightly more drastic changes.
+Image 2: Sketched on the mask a bit to see what would happen. Difference is not too noticeable unfortunately but I feel like I just need to adjust it a bit to make the background (black mask) and main focus (white mask) much clearer. Might either place with the sizes more or with the actual shapes themselves. Added the mask function and such.
 
-Image 3: Just changed the background cause I wanted to try out how it will look like. Increased the height by 6 and divided the width by 4 to make it. Looks quite interesting but I don't know if I want to add it to the final.
-
-These tests are just to help me find some idea for what type of theme I want. I feel like I want to make a glitchy type of pixel art so Im going to play with the masking and redo the tiles.
+Image 3:This seems to be a lot closer to what I had in mind. I should use the directions of the shapes to my advantage to show the difference clearly. I also changed the mask a Tiny bit on this one as well. Should think about how big the blobs of white and black should be since they overlap each other a lot. Will add actual pictures in the next update.
