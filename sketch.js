@@ -3,7 +3,7 @@ let maskImg=null;
 let renderCounter=0;
 
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_1.png";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
