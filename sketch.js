@@ -2,10 +2,11 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
+let sourceFile = "my_input1.jpg";
+let maskFile = "my_mask1.png";
 let outputFile = "artwork_3.png";
 let customPixel;
+
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
@@ -21,27 +22,61 @@ function setup() {
   sourceImg.loadPixels();
   maskImg.loadPixels();
   drawers = []
-  for (var i = 0; i < 100; i++) {
-    drawers.push(new Drawer());
+  for (var i = 0; i < 200; i++) {
+    drawers.push(new Painter(sourceImg));
   }
+  painter = new Painter(sourceImg);
+  console.log(sourceImg.get(0, 0));
+  fill(255, 0, 0)
+  ellipse(0, 0, 5, 5)
+  console.log(get(0, 0))
 }
 
-class Drawer {
-  constructor() {
-    this.x = sourceImg.width / 2;
-    this.y = sourceImg.height / 2;
-    this.r = random(4, 32);
+class Painter {
+
+  constructor(sourceImg) {
+    this.r = 8;
+    this.sourceImg = sourceImg;
+    this.velocity = p5.Vector.random2D();
+    this.accel = createVector(0, 0);
+    this.position = this.initStartingPosition();
+    // this.initColour = sourceImg.get(sourceImg.width / 2, sourceImg.height / 2);
+    this.isPainting = true;
+
+  }
+
+  initStartingPosition() {
+    let foundStartingPosition = false;
+    let possiblePosition;
+    while (!foundStartingPosition) {
+      possiblePosition = createVector(random(0, sourceImg.width), random(0, sourceImg.height));
+      //check if this area has already been coloured.
+      let colourAtPos = get(possiblePosition.x, possiblePosition.y);
+      if (colourAtPos[0] === 255 && colourAtPos[1] === 255 && colourAtPos[2] === 255) {
+        //found a valid starting point.
+        foundStartingPosition = true;
+        break;
+      }
+    }
+    return possiblePosition;
   }
 
   /**
    * Responsible for moving our Drawer
    */
   update() {
-    this.x += random(-30, 30);
-    this.y += random(-30, 30);
+    if (this.isPainting) {
+      this.accel = p5.Vector.random2D();
+      this.velocity.add(this.accel);
+      this.position.add(this.velocity);
+    }
 
-    this.x = constrain(this.x, 0, width);
-    this.y = constrain(this.y, 0, height);
+    this.velocity.limit(5);
+
+
+    //TODO: when the painter leave the canvas stop him from drawing
+    this.position.x = constrain(this.position.x, 0, width);
+    this.position.y = constrain(this.position.y, 0, height);
   }
 
   /**
@@ -51,70 +86,35 @@ class Drawer {
    */
   show(sourceImg, maskImg) {
     noStroke();
-    var px = floor(this.x);
-    var py = floor(this.y);
+    var px = floor(this.position.x);
+    var py = floor(this.position.y);
     var col = sourceImg.get(px, py);
     let mask = maskImg.get(px, py); // corresponding x&y in the mask
     fill(col[0], col[1], col[2]);
-    if (mask[0] > 128) {
-      // ellipse(this.x, this.y, this.r, this.r);
+    // if (mask[0] > 128) {
+    ellipse(this.position.x, this.position.y, this.r, this.r);
 
-      tint(col[0], col[1], col[2]); // Tint blue
-      image(img, px, py,this.r, this.r);
-    }
-    else {
-      ellipse(this.x, this.y, this.r, this.r);
-    }
+    // }
+    // else {
+    // }
   }
 
 }
+
+let painter;
+
 function draw() {
-  const numberOfPoints = 1000;
 
   drawers.forEach(drawer => {
     drawer.update();
     drawer.show(sourceImg, maskImg);
   })
-  // for (let i = 0; i < numberOfPoints; i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y); //gets the colour at the x & y of the images
-  //   let mask = maskImg.get(x, y); // corresponding x&y in the mask
-  //   let pointSize = 20;
-  //   let halfSize = 50;
-  //   fill(pix);
 
-  //   //if the mask is more white that black -> draw ellipse o.w rectangle
-  //   //TODO: change this logic bellow to our custom logic.
-  //   if (mask[0] > 128) {
-  //     for (let xd = x; xd < x + pointSize; xd++) {
-  //       for (let yd = y; yd < y + pointSize; yd++) {
-  //         fill(sourceImg.get(xd, yd));
-  //         let randomOffSetX = random(0, pointSize);
-  //         let randomOffSetY = random(0, pointSize);
-  //         rect(xd - randomOffSetX, yd - randomOffSetY, 3, 3);
-  //       }
-  //     }
-  //   } else {
-  //     for (let xd = x; xd < x + pointSize; xd++) {
-  //       for (let yd = y; yd < y + pointSize; yd++) {
-  //         fill(sourceImg.get(xd, yd));
-  //         rect(xd, yd, 3, 3);
-  //       }
-  //     }
-  //   }
-  //   // if(mask[0] > 128) {
-  //   //   ellipse(x, y, pointSize, pointSize);
-  //   // }
-  //   // else {
-  //   //   rect(x, y, pointSize, pointSize);    
-  //   // }
-  // }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
-    // console.log("Done!")
-    // noLoop();
+  if (renderCounter > 500) {
+    console.log("Done!")
+    noLoop();
     // uncomment this to save the result
     // }
   }
