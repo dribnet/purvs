@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Class assignment and idea.
+Process 1:
 
-Practicing on how to to do a screenshot of my main index.html page for my preview.jpg and thumbnail.png. For this project, my idea was to take pictures of the people performs in the street. The people performs their artistic talent in the street. I got this idea when I was walking around the waterfront last Sunday. They were performing in the street. People around there was attracted by their music and I saw a lot of people enjoying their music. That's how I got this idea.
+The first picture is the photo of a person playing piano. For my pixels, I have used triangles for the background of my photo. But this make the background doesn't show clearly compared to the original photo. Besides that, I have filled the piano, the chair, and the person with square shapes. The different between the piano and the person is the square shapes for the piano part are stick together, while the square shapes for the person has gap between each other. Lastly, I am still working on the pixels for other two photos.
