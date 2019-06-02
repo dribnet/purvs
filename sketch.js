@@ -21,23 +21,46 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
+const rect_width = 10;
+const rect_height = 4;
+const x1 = 2;
+const y1 = 4;
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
+for(let y = 0; y<height; y =y + y1) {
+  for(let x = 0; x<width; x = x + x1) {
+    let pix = sourceImg.get(x,y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
-    fill(pix);
+  fill(pix);
     if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
+
+noStroke();
+      ellipse(x, y, x1, y1);
+
+
     }
     else {
-      rect(x, y, pointSize, pointSize);    
+  strokeWeight(1);
+            stroke(49,149,211);
+      rect(x,y,rect_width,rect_height);
     }
-  }
+}
+}
+
+  // for(let i=0;i<2000;i++) {
+  //   let x = floor(random(sourceImg.width));
+  //   let y = floor(random(sourceImg.height));
+  //   let pix = sourceImg.get(x, y);
+  //   let mask = maskImg.get(x, y);
+  //   let pointSize = 20;
+  //   let halfSize = 50;
+  //   fill(pix);
+  //   if(mask[0] > 128) {
+  //     ellipse(x, y, pointSize/1.1, pointSize/1.1);
+  //   }
+  //   else {
+  //     rect(x, y, pointSize, pointSize);
+  //   }
+  // }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
