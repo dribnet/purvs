@@ -24,7 +24,7 @@ function preload() {
 function setup () {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
-
+angleMode(DEGREES)
   imageMode(CENTER);
   noStroke();
   background(255);
@@ -56,13 +56,45 @@ function setup () {
 //   }
 
 
-const tile_width = 12;
-const tile_height = 18;
-const tile_step_x = 5;
-const tile_step_y = 30;
+// const tile_width = 12;
+// const tile_height = 18;
+// const tile_step_x = 5;
+// const tile_step_y = 30;
+
+// function draw () {
+//   for(let i2=0;i2<52000;i2++) {
+//     let x = floor(random(sourceImg.width));
+//     let y = floor(random(sourceImg.height));
+//     let pix = sourceImg.get(x, y);
+//     let mask = maskImg.get(x, y);
+//     let pointSize = 4;
+//     let halfSize = 180;
+//     fill(pix);
+//     if(mask[0] < 254) {
+//       stroke(pix);
+//       noFill();
+//       // rect(x, y, pointSize, pointSize);
+//         // ellipse(x, y, pointSize, pointSize);
+//         rect(x, y, tile_step_x, tile_step_y);
+//         var die = int(random(0, 4));
+//         if (die == 0) {
+//           var gray = int(random(0, 102));
+//           var scalar = random(0.2, 0.45);
+//           // owl(x, y, gray, scalar);          
+//         }
+//       }
+//     // }
+//     else {  
+//         console.log(pix);
+//         stroke(pix[0]+50);  
+//       noFill();
+//    ellipse(x, y, pointSize, pointSize);
+//     }
+//   }
+
 
 function draw () {
-  for(let i2=0;i2<52000;i2++) {
+  for(let i2=0;i2<4000;i2++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -75,17 +107,19 @@ function draw () {
       noFill();
       // rect(x, y, pointSize, pointSize);
         // ellipse(x, y, pointSize, pointSize);
-        rect(x, y, tile_step_x, tile_step_y);
-        var die = int(random(0, 4));
-        if (die == 0) {
-          var gray = int(random(0, 102));
-          var scalar = random(0.2, 0.45);
-          // owl(x, y, gray, scalar);          
+        push()
+        translate(x,y)
+        rotate(random(80 , 270)); 
+        rect(0, 0, 5, 100);
+        pop()
+          // triangle(x-40, y-40, x+20, y+20,x+30, y+30);  
+          // triangle(x+40, y+40, x-20, y-20,x-30, y-30);  
+ 
+               
         }
-      }
-    // }
+      
     else {  
-        console.log(pix);
+        // console.log(pix);
         stroke(pix[0]+50);  
       noFill();
    ellipse(x, y, pointSize, pointSize);
