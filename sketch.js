@@ -2,11 +2,13 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 var edgeList = [];
+var lineWidth = 10;
+var lineLimit = 20;
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -34,7 +36,7 @@ function draw () {
   let halfSize = 40;
   var opacity = 0;
   noStroke();
-  for(let i=0;i<20000;i++) {
+  for(let i=0;i<40000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -52,7 +54,7 @@ function draw () {
     else {
       // col = color(pix[0],pix[1],pix[2],150);
       // fill(col);
-      // rect(x, y, pointSize/2, pointSize/4);
+      rect(x, y, pointSize, pointSize/4);
     }
   }
 
@@ -60,7 +62,7 @@ function draw () {
 
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 2) {
+  if(renderCounter > 1) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
@@ -80,17 +82,31 @@ function drawLines(){
   for(var i = 0; i < 1252; i++){
     let index = 0;
     start = 0;
-    while(index < 704){
-      if(edgeList[i][index] == -1){
-        start = index;
+    for (var j = 0; j < 704; j++){
+      if(edgeList[i][j] == -1){
+        start = j;
       }
-      else if(edgeList[i][index] == 1){
-        let pix = sourceImg.get(index, i);
-        let col = color(pix[0],pix[1],pix[2],150);
-        stroke(col);
-        line( start, i, index, i);
+      else if(edgeList[i][j] == 1){
+        for(var k = 0; k < j - start; k += lineWidth){
+          let rand = random(8);
+          let lineStart = start + k - lineLimit+rand;
+          let lineEnd = start + k + lineWidth + lineLimit+rand;
+          if(lineStart < 0){
+            lineStart = 0;
+          }
+          if(lineEnd > 704){
+            lineEnd = 702;
+          }
+          let pix = sourceImg.get(lineStart + (lineEnd - lineStart)/2, i);
+          let col = color(pix[0],pix[1],pix[2],50);
+          stroke(col);
+          line(lineStart, i , lineEnd, i);
+        }
+        // let pix = sourceImg.get(index, i);
+        // let col = color(pix[0],pix[1],pix[2],150);
+        // stroke(col);
+        // line( start, i, index, i);
       }
-      index++;
     }
   }
 }
