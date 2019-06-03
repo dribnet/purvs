@@ -1,8 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
 Theme2:
+I change images to create a continuous story.
 
-I try with the three layouts to render the images.One for background, one for the portait and one for the inverted image. However, there something wrong with the coding.I can't let the pixels on each layout show with different size and style. And the second image can't be dowload.
+
+//I try with the three layouts to render the images.One for background, one for the portait and one for the inverted image. However, there something wrong with the coding.I can't let the pixels on each layout show with different size and style. And the second image can't be dowload.
 
 
 //I adjust the input images to make them have more contrast. 

@@ -35,25 +35,7 @@ const back_height = 55;
 
 
 
-function draw_special_rect(x, y, width, height) {
-  rect(x, y, width, height);
-  let die_roll = random([0, 1, 2, 3]);
-  if(die_roll == 0) {
-    //fill(0, 0, 0, 50);
-    ellipse(x, y, width, height);
-  }
-  else if (die_roll == 1) {
-    //fill(255, 255, 255, 50);
-    ellipse(x, y, width, height);
-  }
-  else if (die_roll == 2) {
-    //fill(255, 255, 255, 50);
-    ellipse(x, y, width, height);
-    //fill(0, 0, 0, 50);
-    ellipse(x, y, width, height);
-  }
 
-}
 
 function draw () {
   //background(50);
@@ -67,10 +49,10 @@ function draw () {
       stroke(pix);
       if(mask[0] == 0) {
         // draw_some_lines(x, y);
-        stroke(1);
-         rect(x, y, tile_width, tile_height);
+        noStroke();
+        ellipse(x, y, tile_width*1.2, tile_height*2.4);
   
-             stroke(1);
+             
       }
       if(mask[0] == 255) {
         // draw_some_lines2(x, y);
@@ -83,7 +65,8 @@ function draw () {
       rect(x, y, squareSize, squareSize);  
       }
       else {
-        draw_special_rect(x, y, tile_width, tile_height);
+        stroke(255, 204, 0);
+        rect(x, y, tile_width*2, tile_height);
       }
     }
   }
