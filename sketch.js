@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -41,8 +41,11 @@ function draw () {
 
     fill(pix);
     stroke(pix); 
+    //ellipse(x, y, 80,30);
+//
     }
   }
+
 
 function draw () {
   background(50);
@@ -55,16 +58,19 @@ function draw () {
       fill(pix);
       stroke(pix);
       if(mask[0] == 0) {
-       ellipse(x, y, width, 3);
-        ellipse(x, y, 3,100);
+        ellipse(x, y, 5,20);
 
       }
+     
       if(mask[0] == 255) {
-        ellipse(x, y, tile_width,tile_height);
+       ellipse(x, y, 5,5);
+   
+
       }
-      if(mask[0] ==131) {
+       if(mask[0] ==131) {
        
-        rect(x,y,10,10);
+       ellipse(x,y,3,200);
+       ellipse(x,y,60,3);
 
       }
       else{
@@ -84,7 +90,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-   saveArtworkImage(outputFile);
+   //saveArtworkImage(outputFile);
   }
 
 
