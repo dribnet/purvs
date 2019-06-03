@@ -56,12 +56,30 @@ function draw () {
         line(x+20, y, x, y+20);  
       }
 
-      else if (mask[0] >= 128 && mask[0] < 216) {
+      else if (mask[0] >= 128 && mask[0] < 203) {
         let tile_width = 5;
         let tile_height = 50;
         stroke(80);
         strokeWeight(0.1);
         rect(x, y, tile_width, tile_height);
+        line(x + 2.5, y, x + 2.5, y+50); 
+      }
+
+      else if (mask[0] >= 203 && mask[0] < 212) {
+        let tile_width = 5;
+        let tile_height = 50;
+        stroke(80);
+        strokeWeight(0.1);
+        rect(x, y, tile_width, tile_height);
+        line(x + 2.5, y, x + 2.5, y+50); 
+      }
+
+      else if (mask[0] >= 212 && mask[0] < 255) {
+        let tile_width = 5.5;
+        let tile_height = 5.5;
+        stroke(80);
+        strokeWeight(0.1);
+        ellipse(x, y, tile_width, tile_height);
         line(x + 2.5, y, x + 2.5, y+50); 
       }
 
@@ -73,12 +91,12 @@ function draw () {
     }
   }
 
-  for(let i=0;i<5000; i++) {
+  for(let i=0;i<2000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    if(mask[0] >= 128 && mask[0] < 216) {
+    if(mask[0] >= 128 && mask[0] < 203) {
       fill(50, 100);
       ellipse(x, y, 10, 10);
     }
