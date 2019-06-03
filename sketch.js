@@ -108,6 +108,11 @@ fill(255, 232, 134, 30);
 //   random(sourceImg.width), random(sourceImg.height),
 //   random(sourceImg.width), random(sourceImg.height));
 
+ellipse(random(sourceImg.width), random(sourceImg.height), 500, 500);
+ellipse(random(sourceImg.width), random(sourceImg.height), 400, 400);
+ellipse(random(sourceImg.width), random(sourceImg.height), 300, 300);
+ellipse(random(sourceImg.width), random(sourceImg.height), 200, 200);
+ellipse(random(sourceImg.width), random(sourceImg.height), 100, 100);
 
 frame();
 drawOutline();
