@@ -23,14 +23,18 @@ function setup () {
 }
 
 //replacing pointsize
-const tile_w = 100
-const tile_h = 10
+const tile_w = 20
+const tile_h = 5
 //tile ellipse
 const tile_w_e = 20
 const tile_h_e = 30
 //space between the tiles
-const step_x = 20
-const step_y = 20
+const step_x = 15
+const step_y = 15
+//triangle tiles
+const tri_1 = 5;
+const tri_2 = 0;
+const tri_3 = 10;
 
 
 function draw() {
@@ -42,10 +46,16 @@ function draw() {
       let pix = sourceImg.get(x, y);
       fill(pix);
       if(mask[0] > 128) {
-        ellipse(x, y, tile_w_e, tile_h_e);
-        ellipse(x, y, tile_w_e, tile_h_e);
+        //just making a triangle using vertices since I thought it would be easier
+        beginShape();
+        vertex(x + (tri_1 * 2), y + (tri_1 * 4));
+        vertex(x + (tri_2 * 2), y + (tri_2 * 4));
+        vertex(x + (tri_3 * 4), y + (tri_3 * 2));
+        vertex(x + (tri_1 * 2), y + (tri_1* 4));
+        endShape();
       }else{
-        rect(x, y, tile_w, tile_h);
+        ellipse(x, y, tile_w*2, tile_h/2);
+        ellipse(x, y, tile_w/2, tile_h*2);
     }
     }
   }
