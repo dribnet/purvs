@@ -28,7 +28,7 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
   maskImg2.loadPixels();
-  noLoop();
+  //noLoop();
 }
 
 function draw () {
@@ -38,7 +38,7 @@ function draw () {
       noFill();
       stroke(0);
 
-
+strokeWeight(1);
 angleMode(DEGREES);
 
 
@@ -74,21 +74,7 @@ angleMode(DEGREES);
 
  edgeSet();
 
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);    
-   
-    let pointSize = map(i, 0, 8000, 50, 10);
-    let mask = maskImg.get(x, y);
 
-    fill(pix);
-    if(mask[0] > 40 && mask[0] < 70) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
 //
 strokeWeight(2);
 Mosaic(40, 120, 15, 30, 30, 42);
@@ -123,7 +109,7 @@ fill(255, 232, 134, 30);
 //   random(sourceImg.width), random(sourceImg.height));
 
 
-
+frame();
 drawOutline();
 
 // trace();
@@ -132,7 +118,7 @@ drawOutline();
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
@@ -333,7 +319,157 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
     }
      
   }
+function frame(){
 
+noFill();
+stroke(0);
+rectMode(CORNERS);
+
+
+strokeWeight(10);
+//first row 
+fill(255, 213, 94, 150);
+rect(70, 0, 190, 75);
+//rect(190, 0, 310, 75); //fix
+
+
+beginShape();
+vertex(190, 0);
+vertex(310, 0);
+vertex(310, 50);
+vertex(260, 75);
+vertex(190, 75);
+endShape();
+
+quad(310, 0, width-352.5, 0, 
+width-352.5, 10, 310, 50);
+
+
+quad(width-352.5, 0, width-310, 0,
+width-310, 50, width-352.5, 10);
+
+beginShape();
+vertex(width-190, 0);
+vertex(width-310, 0);
+vertex(width-310, 50);
+vertex(width-260, 75);
+vertex(width-190, 75);
+endShape();
+
+rect(width-70, 0, width-190, 75); 
+
+//second row 
+rect(70, 75, 190, 150);
+
+quad(190, 75, 245, 75, 220, 150, 190, 150);
+quad(width-190, 75, width-245, 75, width-220, 150, width-190, 150);
+
+
+rect(width-70, 75, width-190, 150); 
+
+//third row 
+beginShape();
+vertex(70, 150);
+vertex(190, 150);
+vertex(190, 175);
+vertex(150, 225);
+vertex(70, 225);
+endShape();
+
+
+triangle(190, 150, 230, 150, 190, 190);
+triangle(width-190, 150, width-230, 150, width-190, 190); 
+
+beginShape();
+vertex(width-70, 150);
+vertex(width-190, 150);
+vertex(width-190, 175);
+vertex(width-150, 225);
+vertex(width-70, 225);
+endShape();
+
+//fourth row 
+
+quad(70, 225, 140, 225, 100, 300, 70, 300);
+
+quad(width-70, 225, width-140, 225, width-100, 300, width-70, 300);
+
+strokeWeight(20);
+fill(255, 126, 94, 150);
+rect(5, 5, 70, 150);
+
+fill(94, 164, 255, 150);
+rect(5, 150, 70, 300);
+
+fill(255, 126, 94, 150);
+rect(5, 300, 70, 450);
+
+fill(94, 164, 255, 150);
+rect(5, 450, 70, 600);
+
+fill(255, 126, 94, 150);
+rect(5, 600, 70, 750);
+
+fill(94, 164, 255, 150);
+rect(5, 750, 70, 900);
+
+fill(255, 126, 94, 150);
+rect(5, 900, 70, 1050);
+
+fill(94, 164, 255, 150);
+rect(5, 1050, 70, sourceImg.height-5);
+
+// fill(94, 164, 255, 150);
+// rect(5, 5, 70, sourceImg.height-5);
+
+
+fill(255, 126, 94, 150);
+rect(sourceImg.width-5, 5, sourceImg.width-70, 150);
+
+fill(94, 164, 255, 150);
+rect(sourceImg.width-5, 150, sourceImg.width-70, 300);
+
+fill(255, 126, 94, 150);
+rect(sourceImg.width-5, 300, sourceImg.width-70, 450);
+
+fill(94, 164, 255, 150);
+rect(sourceImg.width-5, 450, sourceImg.width-70, 600);
+
+fill(255, 126, 94, 150);
+rect(sourceImg.width-5, 600, sourceImg.width-70, 750);
+
+fill(94, 164, 255, 150);
+rect(sourceImg.width-5, 750, sourceImg.width-70, 900);
+
+fill(255, 126, 94, 150);
+rect(sourceImg.width-5, 900, sourceImg.width-70, 1050);
+
+fill(94, 164, 255, 150);
+rect(sourceImg.width-5, 1050, sourceImg.width-70, sourceImg.height-5);
+
+
+ fill(255, 213, 94, 150);
+ rect(5, sourceImg.height-70, sourceImg.width-5, sourceImg.height-5)
+
+
+noFill();
+arc(width/2, height/18, 60, 100, 210, 340);
+
+arc(width/2, height/10, 250, 150, 287.5, 380);
+arc(width/2, height/10, 250, 150, 165, 250);
+
+arc(width/2, height/3, 565, 565, 293, 360);
+arc(width/2, height/3, 565, 565, 180, 245);
+
+
+ 
+
+strokeWeight(10);
+let centerX = width/2;
+let centerY = height/2;
+
+
+}
 function trace(){
 
    for(let i = 0; i < (edgeSmooth*4); i++){
