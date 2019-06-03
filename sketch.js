@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,7 +17,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(17, 58, 124);
   angleMode(DEGREES);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -27,7 +27,7 @@ function flake (x, y){
 	translate(x, y)
     for(i=0; i<10; i++){
     rotate(45);
-    beginShape()
+    beginShape();
       vertex(0, 0);
       vertex(-3, 3);
       vertex(-20, 0);
@@ -37,22 +37,17 @@ function flake (x, y){
     }
     pop()
 }
-function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    let halfSize = 50;
-    fill(pix);
-    if(mask[0] > 128) {
-    	push()
-    	flake(x, y)
-    	pop()
-   }
-    else {
-    beginShape()
+function flare (x, y){
+	beginShape();
+	  vertex(x-10, y-5);
+	  vertex(x+10, y-5);
+	  vertex(x, y+5);
+      vertex(x-20, y+5);
+     // vertex(x-30, y+20);
+	endShape(CLOSE);
+}
+function star (x, y){
+	beginShape()
       vertex(x, y);
       vertex(x+5, y-15);
       vertex(x+20, y-20);
@@ -61,7 +56,46 @@ function draw () {
       vertex(x-5, y-25);
       vertex(x-20, y-20);
       vertex(x-5, y-15);
-    endShape()
+    endShape(CLOSE);
+}
+function blade(x, y){
+	beginShape()
+	  vertex(x-20, y-20);
+	  vertex(x, y-10);
+	  vertex(x+20, y-20);
+	  vertex(x+5, y);
+	  vertex(x, y+20);
+	  vertex(x-5, y);
+	endShape(CLOSE);
+}
+function draw () {
+  for(let i=0;i<4000;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    let pointSize = 20;
+    let halfSize = 50;
+    fill(pix);
+    if(mask[0] >= 0 && mask [0] < 36) {
+    	push()
+    	blade(x, y)
+    	pop()
+   }
+    else if (mask [0] >= 36 && mask [0] < 116){
+    	push()
+    	star(x, y)
+    	pop()
+    }
+    else if (mask [0] >= 116 && mask [0] < 255){
+    	push()
+    	flake(x, y)
+    	pop()
+    }
+    else {
+    	push()
+    	flare(x, y)
+    	pop()
     }
   }
   renderCounter = renderCounter + 1;
@@ -69,7 +103,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
