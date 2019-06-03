@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,33 +23,39 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<5000;i++) {
+
+  for(let i=0; i<10000; i++) {
+    
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    //let pointSize2 = 20;
-    let halfSize = 3;
-    //let halfSize2 = 2;
-    
-    fill(pix);
-    stroke(pix);
+    let pos1 = map(5, 0, width, 0, height);
+    let pos2 = map(3, 0, width, 0, height);
+ 
+    if(mask[0] == 255) {
 
-    if(mask[0] > 6000) {
-      ellipse(x, y, pointSize, pointSize);
+      noFill();
+      stroke(pix);
+      strokeWeight(1);
+      rect (x, y, 25, 25); 
     }
-    else {
-      //rect(x, y, pointSize2, halfSize2);   
-      ellipse(x, y, pointSize, halfSize);
+
+    else if(mask[0] == 0) {
+
+      fill(pix);
+      noStroke();
+      strokeWeight(1);
+      rect(x, y, pos1, pos2);
     }
   }
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
@@ -58,3 +64,4 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+

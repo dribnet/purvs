@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Process
+Process and Development
 
-For my first commit I picked images of scenery and landscapes so I wanted to explore images of people and to se if the same code used for the scenery images could be applied but I found out that the facial features had a lot of fine detail so I had to adjust the shapes and play around with the code to get a clear image of a face. I also changed the width and the height of the ellipses and I decided the image looked best when the ellipses were going horizontal because when I had the rectangle it look blurry and it was a hard image to distinguish. I used close up portriat images of people that I care about in my life that I took myself.
+I decided to keep my portrait images and work further with thoes images. I really like the fine details of the facial features, emotions and experssions, so I decided to base my theme around that from my images. So I played around with the code and made a distinct difference from the background to the main subject. I masked each photo so that there will be a contrast between the faces and body to the background.
