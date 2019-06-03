@@ -58,8 +58,14 @@ angleMode(DEGREES);
           let Rg = green(Rc);
           let Rb = blue(Rc);
 
+          if(j > 30){
+          let LightScale = map(j, 50, 1, 20, -30);
+          LightScale = LightScale*10;
           fill(sourceImg.get(testX, testY));
-          fill(color(Rr+60, Rg+80, Rb+60));
+          fill(color(Rr+60+LightScale, Rg+80+LightScale, Rb+60+LightScale));
+          } else {
+            fill(color(Rr+60, Rg+80, Rb+60));
+          }
          let mask = maskImg.get(testX, testY);
          if(mask[0] < 40){
            arc(width/2, height/2, H, H, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
