@@ -22,7 +22,11 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_step_y = 10;
+const tile_step_x = 10;
+
 function draw () {
+<<<<<<< HEAD
 
   for(let i=0; i<10000; i++) {
     
@@ -49,6 +53,29 @@ function draw () {
       rect(x, y, pos1, pos2);
     }
   }
+=======
+    
+    for (let y = 0; y < height; y = y + tile_step_y) {
+    for (let x = 0; x < width; x = x + tile_step_x) {
+      
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+
+    if(mask[0] > 128) {
+
+      fill(pix);
+      noStroke();
+      rect (x, y, 10, 10);
+    }
+    else {
+      fill(pix);
+      stroke(0);
+      strokeWeight(1);
+      rect(x, y, 9, 9);
+    }
+  }
+}
+>>>>>>> 1dfd5e698a29db3180a558ffb1402b235a03ff9d
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
