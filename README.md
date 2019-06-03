@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I choose three shots to show Courtenay place at night. Hope to show the busiest part of the Wellington. 
+I tred to make a picture using a pattern. Use the combination of
+squares and triangles to present Wellington's nightlife in pixels. I
+will try another method and see how it works.
