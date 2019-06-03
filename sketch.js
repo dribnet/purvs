@@ -2,8 +2,8 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "my_input1.jpg";
-let maskFile = "my_mask1.png";
+let sourceFile = "my_input2.jpg";
+let maskFile = "my_mask2.png";
 let outputFile = "artwork_3.png";
 let customPixel;
 
@@ -11,7 +11,9 @@ function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
 }
-let drawer;
+var drops = [];
+var particles = [];
+
 function setup() {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
@@ -21,95 +23,30 @@ function setup() {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  drawers = []
-  for (var i = 0; i < 200; i++) {
-    drawers.push(new Painter(sourceImg));
-  }
-  painter = new Painter(sourceImg);
-  console.log(sourceImg.get(0, 0));
-  fill(255, 0, 0)
-  ellipse(0, 0, 5, 5)
-  console.log(get(0, 0))
-}
 
-class Painter {
-
-  constructor(sourceImg) {
-    this.r = 8;
-    this.sourceImg = sourceImg;
-    this.velocity = p5.Vector.random2D();
-    this.accel = createVector(0, 0);
-    this.position = this.initStartingPosition();
-    // this.initColour = sourceImg.get(sourceImg.width / 2, sourceImg.height / 2);
-    this.isPainting = true;
-
+  for (var i = 0; i < sourceImg.width; i += 1) {
+    drops.push(new Drop(i));
   }
 
-  initStartingPosition() {
-    let foundStartingPosition = false;
-    let possiblePosition;
-    while (!foundStartingPosition) {
-      possiblePosition = createVector(random(0, sourceImg.width), random(0, sourceImg.height));
-      //check if this area has already been coloured.
-      let colourAtPos = get(possiblePosition.x, possiblePosition.y);
-      if (colourAtPos[0] === 255 && colourAtPos[1] === 255 && colourAtPos[2] === 255) {
-        //found a valid starting point.
-        foundStartingPosition = true;
-        break;
-      }
-    }
-    return possiblePosition;
-  }
-
-  /**
-   * Responsible for moving our Drawer
-   */
-  update() {
-    if (this.isPainting) {
-      this.accel = p5.Vector.random2D();
-      this.velocity.add(this.accel);
-      this.position.add(this.velocity);
-    }
-
-    this.velocity.limit(5);
-
-
-    //TODO: when the painter leave the canvas stop him from drawing
-    this.position.x = constrain(this.position.x, 0, width);
-    this.position.y = constrain(this.position.y, 0, height);
-  }
-
-  /**
-   * Method is responsible for displaying Drawers pixel!
-   * @param sourceImg used to get pixel value in image
-   * @param maskImg 
-   */
-  show(sourceImg, maskImg) {
-    noStroke();
-    var px = floor(this.position.x);
-    var py = floor(this.position.y);
-    var col = sourceImg.get(px, py);
-    let mask = maskImg.get(px, py); // corresponding x&y in the mask
-    fill(col[0], col[1], col[2]);
-    // if (mask[0] > 128) {
-    ellipse(this.position.x, this.position.y, this.r, this.r);
-
-    // }
-    // else {
-    // }
-  }
 
 }
 
-let painter;
 
 function draw() {
 
-  drawers.forEach(drawer => {
-    drawer.update();
-    drawer.show(sourceImg, maskImg);
-  })
+  // background(230, 230, 250);
+  drops.forEach(drop => {
+    drop.fall();
+    drop.show();
+  });
 
+  for (let i = this.particles.length - 1; i >= 0; i--) {
+    let p = this.particles[i];
+    p.run();
+    if (p.isDead()) {
+      this.particles.splice(i, 1);
+    }
+  }
 
   renderCounter = renderCounter + 1;
   if (renderCounter > 500) {
@@ -123,6 +60,88 @@ function draw() {
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
+
+
+class Drop {
+
+  constructor(x) {
+    this.x = x;
+    this.y = random(-500, -50);
+    this.z = random(0, 20);
+    this.len = map(this.z, 0, 20, 10, 20);
+    this.yspeed = map(this.z, 0, 20, 1, 20);
+    this.hitMask = false;
+  }
+  fall() {
+    this.y = this.y + this.yspeed;
+    var grav = map(this.z, 0, 20, 0, 0.2);
+    this.yspeed = this.yspeed + grav;
+
+    if (this.y > height) {
+      this.y = random(-200, -100);
+      this.yspeed = map(this.z, 0, 20, 4, 10);
+    }
+
+    var col = sourceImg.get(this.x, this.y);
+    let mask = maskImg.get(this.x, this.y); // corresponding x&y in the mask
+    //check if rain has hit mask
+    if (mask[0] > 128) {
+      noStroke();
+      fill(col[0], col[1], col[2]);
+      // ellipse(this.x, this.y, 5, 5);
+      // rect(this.x, this.y + this.len, 5, 5);
+      if (!this.hitMask) particles.push(new Particle(this.x, this.y));
+      this.hitMask = true;
+    }
+  }
+
+  show() {
+    var thick = map(this.z, 0, 20, 1, 3);
+    var col = sourceImg.get(this.x, this.y);
+    let mask = maskImg.get(this.x, this.y); // corresponding x&y in the mask
+
+    if (mask[0] < 128) {
+      //display logic for background layer.  
+      strokeWeight(thick);
+      stroke(col[0], col[1], col[2]);
+      line(this.x, this.y, this.x, this.y + this.len);
+    }
+  }
+}
+
+class Particle {
+
+  constructor(x, y) {
+    this.acceleration = createVector(0, 0.05);
+    this.velocity = createVector(random(-1, 1), random(-1, 0));
+    this.position = createVector(x, y);
+    this.lifespan = 455;
+  }
+
+  run() {
+    this.update();
+    this.display();
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 2;
+  }
+
+  display() {
+    var col = sourceImg.get(this.position.x, this.position.y);
+    noStroke();
+    // fill(127, this.lifespan);
+    fill(col[0], col[1], col[2]);
+    ellipse(this.position.x, this.position.y, random(5,6), random(4,6));
+  }
+
+  isDead() {
+    return this.lifespan < 0;
+  }
+}
+
