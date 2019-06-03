@@ -1,7 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-Update 3
+Update 4
 
-Before moving forward with editing the code, I wanted to quickly explore whether adding a human painting, growing and showing action to give works a clearer narrative. 
+I thought that this addition was successful as long as I can successfully input these silhouttes without them taking focus over the photographs own narrative. To test this better Ī resized and repositioned the sillhouttes to act as if they are currently working on the paintings, this can be seen most successfully in artwork_2. However once I input the grey colour code, it will recognise the silhoutte as a different tone and won't simply draw as black which it is currently doing. 
 
-To do so I created 3 new masks made up of 3 silhouttes, the first a child painting reaching up with a brush, the second a teenager with spray cas, the final an adult on top of a ladder sitting and tightly using a brush. These forms didn't appear as the ellipse and rectangle were indistinguishable from each other so I simply halved the rectange input just to get an idea of them as an addition.  
+The code was also edited to be cleaner, using the rectangle grid code.
+
