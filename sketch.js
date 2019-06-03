@@ -30,8 +30,6 @@ function setup () {
 
 function draw () {
 //35 by 62
- edgeSet();
-edgeFill();
 
 //background
       noFill();
@@ -64,15 +62,17 @@ angleMode(DEGREES);
     }
 
 */
+ edgeSet();
 
-Mosaic(40, 270, 15, 30, 30, 42);
+//
+Mosaic(40, 70, 15, 30, 30, 42);
 
-Mosaic(140, 270, 30, 60, 20, 22);
+Mosaic(140, 170, 30, 60, 20, 22);
 
 Mosaic(200, 260, 50, 100, 10, 12);
   
   
-  
+
 
 /* Diamonds
 for(let i=0;i<30;i++) {
@@ -146,8 +146,7 @@ for(let i=0;i<30;i++) {
   }
   }
 */
- 
-   edgeSet();
+
   drawOutline();
 
   renderCounter = renderCounter + 1;
@@ -174,7 +173,6 @@ let prevEmptyY = 0;
 
 for(let i=0;i<xCount;i++) { //Medium Chunks
     for(let j=0; j< yCount; j++){
-      print("X count = " + xCount + " current i = " + i);
       if(i == 0 && j == 0){
         /*
         prevX2 =
@@ -287,7 +285,7 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
             }
           }
 */
-/*
+
           fill(pix);
 
           let x1 = constrain(x-quadSize/odd , 0, width);
@@ -329,7 +327,7 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
             y4 = chords[1];
           }
 
-          */
+          
           /*
           beginShape(TRIANGLE_FAN);
           vertex(x1, y1);
@@ -338,14 +336,14 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
           vertex(x4, y4);
           endShape();
           */
-         // quad(x1, y1, x2, y2, x3, y3, x4, y4);
+          quad(x1, y1, x2, y2, x3, y3, x4, y4);
 
           push();
           scale(0.5, 0.5);
           translate(x, y);
           noStroke();
           fill(255, 255, 255, 30);
-         // quad(x1, y1, x2, y2, x3, y3, x4, y4);
+          quad(x1, y1, x2, y2, x3, y3, x4, y4);
 
           pop();
 
@@ -362,8 +360,10 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
       //rect(x, y, 25, 25);
     }
     }
-     edgeFill();
+     
   }
+
+
 
 function drawOutline() {
   let a = 0;
@@ -430,6 +430,7 @@ let medA = 0;
 let bigA = 0;
 
 let alphaSave = 0;
+
      for(let i = 0; i < (edgeSmooth); i++){
       for(let j = 0; j < 2*(edgeSmooth); j++){
       let x = i*(sourceImg.width/(edgeSmooth));
@@ -439,35 +440,58 @@ let alphaSave = 0;
       if(edges[i][j] == true){
         
       
-      spaces++;
-       if(spaces == 10){
-        alphaSave = maskImg.get(x, y);
+      spaces ++;
+       if(spaces == 3){
+        alphaSave = maskImg.get(x, y)[0];
+           
+ 
 
-        if(alphaSave[0] > 40 && alphaSave[0] < 70){
-        smallA++;
+        let x1a = x - 15;
+        let y1a = y - 15;
 
-
-        fill(color(250, 55, 100));
-
-
-        rect(x-15, y-15, 30, 30);
-        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
-
+        if(maskImg.get(x1a, y1a)[0] != alphaSave){
+          closestEdgePoint(x1a, y1a, 15);
+          x1a = chords[0];
+          y1a = chords[1];
         }
-        else if(alphaSave[0] > 140 && alphaSave[0] < 170){
-          medA++;
-          fill(medA);
-          fill(color(150, 55, 100));
-                  rect(x-15, y-15, 30, 30);
-        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
-        } 
-        else if(alphaSave[0] > 200 && alphaSave[0] < 260){
-          bigA++;
-          fill(bigA);
-          fill(color(50, 55, 100));
-                  rect(x-15, y-15, 30, 30);
-        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
+
+        let x2a = x + 15;
+        let y2a = y - 15;
+
+       if(maskImg.get(x2a, y2a)[0] != alphaSave){
+          closestEdgePoint(x2a, y2a, 15);
+          x2a = chords[0];
+          y2a = chords[1];
         }
+        let x3a = x + 15;
+
+        let y3a = y + 15;
+
+        if(maskImg.get(x3a, y3a)[0] != alphaSave){
+          closestEdgePoint(x3a, y3a, 15);
+          x3a = chords[0];
+          y3a = chords[1];
+        }
+        let x4a = x - 15;
+        let y4a = y + 15;
+
+        if(maskImg.get(x4a, y4a)[0] != alphaSave){
+          closestEdgePoint(x4a, y4a, 15);
+          x4a = chords[0];
+          y4a = chords[1];
+        }
+        stroke(0);
+        fill(sourceImg.get(x, y));
+
+       // quad(x1,y1, x2, y2, x3, y3, x4, y4);
+        
+        triangle(x1a, y1a, x2a, y2a, x, y);
+        triangle(x2a, y2a, x3a, y3a, x, y);
+        triangle(x3a, y3a, x4a, y4a, x, y);
+        triangle(x4a, y4a, x1a, y1a, x, y);
+
+        
+
 
         spaces = 0;
 
@@ -483,8 +507,8 @@ let alphaSave = 0;
 function closestEdgePoint(x , y, size){
  let distance = 999;
 
- let x1;
- let y1;
+ let x1b;
+ let y1b;
 
 
 let sizeScale = (size*2)/sourceImg.width * edgeSmooth;
@@ -507,8 +531,8 @@ for(let i = testI1; i < testI2; i++){
     if(edges[i][j] == true){
     if(dist(x, y, i*(sourceImg.width/edgeSmooth), j*(sourceImg.height/(2*edgeSmooth))) < distance ){
       distance = dist(x, y, i*(sourceImg.width/edgeSmooth), j*(sourceImg.height/(2*edgeSmooth)));
-      x1 = i*(sourceImg.width/edgeSmooth);
-      y1 = j*(sourceImg.height/(2*edgeSmooth));
+      x1b = i*(sourceImg.width/edgeSmooth);
+      y1b = j*(sourceImg.height/(2*edgeSmooth));
     }
   }
     /*
@@ -520,8 +544,8 @@ for(let i = testI1; i < testI2; i++){
     */
   }
 }
-chords[0] = x1;
-chords[1] = y1;
+chords[0] = x1b;
+chords[1] = y1b;
 
 
 }
