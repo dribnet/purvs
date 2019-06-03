@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -23,7 +23,7 @@ function setup () {
 }
 
 const tileHeight = 1;
-const tileWidth = 2;
+const tileWidth = 1;
 
 
 

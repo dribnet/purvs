@@ -1,3 +1,6 @@
+## Progress 2
+Ive finished taking my images and refind all the masks to best fit the image. Iv tried to best portray my idea of Forever Evolving, Trying to show how technology is ever evolving and becomign obselete either by plannec choice or by the passage of time. Its hard to show things so the viewer will see them and recognise that its new technology but becoming old. 
+
 ## Progress 
 My theme is forever evolving.
 
