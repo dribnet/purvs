@@ -74,8 +74,6 @@ angleMode(DEGREES);
 
  edgeSet();
 
-
-//
 for(let i=0;i<8000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -91,54 +89,43 @@ for(let i=0;i<8000;i++) {
     }
 
 }
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);    
-    let pointSize = map(i, 0, 8000, 40, 10);
-    let mask = maskImg.get(x, y);
+//
+strokeWeight(2);
+Mosaic(40, 120, 15, 30, 30, 42);
 
-    fill(pix);
-    if(mask[0] > 140 && mask[0] < 170) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
+strokeWeight(1.5);
+Mosaic(80, 220, 25, 50, 25, 27);
 
 
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width*0.25, sourceImg.width*0.75));
-    let y = floor(random(sourceImg.height*0.25, sourceImg.height*0.75));
-    let pix = sourceImg.get(x, y);    
-    let pointSize = map(i, 0, 8000, 20, 5);
-    let mask = maskImg.get(x, y);
-
-    fill(pix);
-    if(mask[0] > 200 && mask[0] < 260) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
+strokeWeight(1.5);
+Mosaic(140, 260, 30, 60, 20, 22);
 
 strokeWeight(1);
-Mosaic(40, 70, 15, 30, 30, 42);
-
-
-
-strokeWeight(0.75);
-Mosaic(140, 170, 30, 60, 20, 22);
-
-
-
-strokeWeight(0.5);
 Mosaic(200, 260, 50, 100, 10, 12);
   
-  
+noStroke();
+fill(255, 232, 134, 30);
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
 
 
-  drawOutline();
+
+drawOutline();
+
 // trace();
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -185,12 +172,12 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
 
 
       if((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0)){
-        print("odd");
+        //print("odd");
         odd = 3;
         even = 1.25;
    
       } else {
-        print("even");
+        //print("even");
         odd = 1.25;
         even = 3;
      
@@ -240,35 +227,30 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
             x4 = chords[0];
             y4 = chords[1];
           }
-          stroke(0);
-          //noFill();
-          beginShape();
-          vertex(x1, y1);
-          vertex(x2, y2);
-          vertex(x3, y3);
-          vertex(x4, y4);
-          //endShape(CLOSE);
-          //quad(x1, y1, x2, y2, x3, y3, x4, y4);
-          //fill(sourceImg.get(x1+(quadSize/3), y1+(quadSize/3)));
+          quad(x1, y1, x2, y2, x3, y3, x4, y4);
+         //  fill(sourceImg.get(x1+(quadSize/3), y1+(quadSize/3)));
          // ellipse(x1+(quadSize/3), y1+(quadSize/3), 10, 10);
 
+          for(let i = 0; i < 5; i++){
+            let xi = floor(random(x-quadSize/3, x+quadSize/3));
+            let yi = floor(random(y-quadSize/2, y+quadSize/2));
+            noStroke();
+            fill(sourceImg.get(xi, yi));
+            //ellipse(xi, yi, quadSize/3, quadSize/3);
+            stroke(0);
+          }
 
           push();
           scale(0.5, 0.5);
           translate(x, y);
           noStroke();
           fill(255, 255, 255, 30);
-          beginContour();
+  
           //quad(x1, y1, x2, y2, x3, y3, x4, y4);
-          vertex(x4, y4);
-          vertex(x3, y3);
-          vertex(x2, y2);
-          vertex(x1, y1);
-          endContour();
-          
+
+
 
           pop();
-          endShape(CLOSE);
 
         } else { //if corner piece
 
@@ -324,10 +306,15 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
             }
 
             fill(sourceImg.get((x1+x2+x3+x4)/4, (y1+y2+y3+y4)/4));
-            noFill();
-            quad(x1, y1, x2, y2, x3, y3, x4, y4);
-
-
+            //fill(0);
+            
+            
+           
+             if(quadSize == 42 || quadSize == 12){
+              print("please");
+               quad(x1, y1, x2, y2, x3, y3, x4, y4);
+             }
+            print("Quad size : " + quadSize);
           }
 
 
@@ -404,7 +391,7 @@ function edgeSet(){
 
       edges[i][j] = true;
       fill(0);
-      ellipse(x, y, 15, 15);
+     // ellipse(x, y, 15, 15);
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       } else {
         edges[i][j] = false;
