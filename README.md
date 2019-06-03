@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I was just experimenting with how the code works. I started with two images both took at the botanical gardens. In the first image, I made a mask that uses the squares in the areas of water. The ellipses are in the areas of rock and trees. For the second one I had the same rules applied but instead of water it's the path. I stretch out the rectangles further to make a better contrast. I'm unsure of my topic at the moment I'm just trying to experiment with the code and get my head around it.
+After we had the guest lecture in class I decided on my theme. I was inspired by his work, and I decided to do my own work on the negatives of ocean pollution. I think it's an important message to spread. The first photo above I took at peka peka beach and the other two I took on the interislander. I'm going to uses these photos, I might photoshop them a bit as I'm planing to draw silhouette as the masks over the images. 
