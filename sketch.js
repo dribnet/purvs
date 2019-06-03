@@ -2,8 +2,8 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "my_input2.jpg";
-let maskFile = "my_mask2.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
 let outputFile = "artwork_3.png";
 let customPixel;
 
@@ -72,7 +72,7 @@ class Drop {
     this.y = random(-500, -50);
     this.z = random(0, 20);
     this.len = map(this.z, 0, 20, 10, 20);
-    this.yspeed = map(this.z, 0, 20, 1, 20);
+    this.yspeed = map(this.z, 0, 20, 1, 5);
     this.hitMask = false;
   }
   fall() {
@@ -93,7 +93,11 @@ class Drop {
       fill(col[0], col[1], col[2]);
       // ellipse(this.x, this.y, 5, 5);
       // rect(this.x, this.y + this.len, 5, 5);
-      if (!this.hitMask) particles.push(new Particle(this.x, this.y));
+      if (!this.hitMask) {
+        for(let i = 0;i <3 ;i++) {
+          particles.push(new Particle(this.x, this.y));
+        }
+      }
       this.hitMask = true;
     }
   }
@@ -116,9 +120,10 @@ class Particle {
 
   constructor(x, y) {
     this.acceleration = createVector(0, 0.05);
-    this.velocity = createVector(random(-1, 1), random(-1, 0));
+    this.velocity = createVector(random(-0.5, 0.5), random(-1, 0));
     this.position = createVector(x, y);
     this.lifespan = 455;
+    this.size = 3;
   }
 
   run() {
@@ -130,6 +135,7 @@ class Particle {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     this.lifespan -= 2;
+    this.size+=0.01
   }
 
   display() {
@@ -137,7 +143,7 @@ class Particle {
     noStroke();
     // fill(127, this.lifespan);
     fill(col[0], col[1], col[2]);
-    ellipse(this.position.x, this.position.y, random(5,6), random(4,6));
+    ellipse(this.position.x, this.position.y, this.size,this.size);
   }
 
   isDead() {
