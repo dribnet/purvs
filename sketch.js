@@ -2,7 +2,7 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
+let sourceFile = "input_3.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "artwork_1.png";
 
