@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_3.png";
 
 function preload() {
@@ -22,33 +22,37 @@ function setup () {
   maskImg.loadPixels();
 }
 
-function draw () {
-  for(let i=0;i<5000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 10;
-    let halfSize = 100;
-    fill(pix);
-    if(mask[0] > 128) {
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
+const tile_width = 20;
+const tile_height = 20;
 
-    rect(x, y, pointSize, pointSize);
-     fill(2,72,122,90);
-      rect(x, y, pointSize, pointSize);
+function draw () {
+  for(let y=0; y<height; y = y + tile_height +4) {
+    for(let x=0; x<width; x = x + tile_width +4) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      console.log(pix[1]);
+      fill(pix);
+      //rect(x, y, tile_width, tile_height);
+      if(mask[0] > 128) {
+        let shade = pix[1];
+        fill(160, 196, 255);
+        square(x, y, tile_width, tile_height);
+      }
+      else {
+        fill(pix);
+        square(x, y, tile_width, tile_height);
+      }
     }
   }
+
+
+  
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    
-
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
