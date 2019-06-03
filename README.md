@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-Process
+Process 
 
-For my first commit I picked images of scenery and landscapes so I wanted to explore images of people and to se if the same code used for the scenery images could be applied but I found out that the facial features had a lot of fine detail so I had to adjust the shapes and play around with the code to get a clear image of a face. I also changed the width and the height of the ellipses and I decided the image looked best when the ellipses were going horizontal because when I had the rectangle it look blurry and it was a hard image to distinguish. I used close up portriat images of people that I care about in my life that I took myself.
+I wanted to experiment and compare. I knew that I wanted rectangles and squares so I wanted to see what the images would look like in slightly different style of uniform tiles. To show the difference between the background to the person in the images I playing with the stroke, so having the background the with a black stroke and then having my person have a white gap when the image was drawn. I really want the face itself to be highly visible and the tile look really shows that. 
+
+For my theme I decided to stick with the same people in my inital images. I really like the idea of faces, emotion and expressions so I want to focus my theme around that for my final. 

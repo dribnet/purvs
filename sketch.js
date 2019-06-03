@@ -22,34 +22,38 @@ function setup () {
   maskImg.loadPixels();
 }
 
-function draw () {
-  for(let i=0;i<5000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    let pointSize = 20;
-    //let pointSize2 = 20;
-    let halfSize = 3;
-    //let halfSize2 = 2;
-    
-    fill(pix);
-    stroke(pix);
+const tile_step_y = 10;
+const tile_step_x = 10;
 
-    if(mask[0] > 6000) {
-      ellipse(x, y, pointSize, pointSize);
+function draw () {
+    
+    for (let y = 0; y < height; y = y + tile_step_y) {
+    for (let x = 0; x < width; x = x + tile_step_x) {
+      
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+
+    if(mask[0] > 128) {
+
+      fill(pix);
+      noStroke();
+      rect (x, y, 10, 10);
     }
     else {
-      //rect(x, y, pointSize2, halfSize2);   
-      ellipse(x, y, pointSize, halfSize);
+      fill(pix);
+      stroke(0);
+      strokeWeight(1);
+      rect(x, y, 9, 9);
     }
   }
+}
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
