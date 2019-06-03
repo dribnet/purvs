@@ -1,13 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-- - - Forgot to change the preview and thumbnail images for previous commit - - -
+Tuesday 04 June.
 
-(Below is the same description as previous commit)
+This is not the final as of yet. I added some fill colour to the background triangles just to see what it looks like. It does bring out the greyscale images well but not sure about it meshing together with the final image. I still like, however, I might go back and experiment more with the code to get a final look that I am entirely happy with. 
 
-Theme: Pasifika Identity in Aotearoa New Zealand. 
+In terms of experimenting with the code I will look at the colour, stroke and tiles to see what else I can implement. 
 
-I re-masked all the images with a Samoan flower in the back. This flower of which is on my tattoo. I creates a nice contrast between the subject and the background but I will look in to maybe adding colour, changing the greyscale a bit.
-
-I think this third image will be my final third image because I wanted to create a compare and contrast between the "old school" and the "new school".
-
-What I will do next: Look at adding colour and transparency. Adjusting the colour tones and balancing them out. 
