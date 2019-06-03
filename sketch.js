@@ -9,7 +9,7 @@ let outputFile = "artwork_1.png";
 let colourThresh = 50;
  let edges = [];
 
-let edgeSmooth = 100;
+let edgeSmooth = 200;
 let chords = [];
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -25,18 +25,20 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  
+  noLoop();
 }
 
 function draw () {
 //35 by 62
  edgeSet();
+edgeFill();
 
-
-
-angleMode(DEGREES);
+//background
       noFill();
       stroke(0);
+/*
+angleMode(DEGREES);
+
 
       let numSlice = 50;
       let numRings = 50;
@@ -61,7 +63,7 @@ angleMode(DEGREES);
         }
     }
 
-
+*/
 
 Mosaic(40, 270, 15, 30, 30, 42);
 
@@ -146,7 +148,7 @@ for(let i=0;i<30;i++) {
 */
  
    edgeSet();
-  //drawOutline();
+  drawOutline();
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -167,8 +169,12 @@ let prevY3;
 let prevX4;
 let prevy4;
 
+let prevEmptyX = 0;
+let prevEmptyY = 0;
+
 for(let i=0;i<xCount;i++) { //Medium Chunks
     for(let j=0; j< yCount; j++){
+      print("X count = " + xCount + " current i = " + i);
       if(i == 0 && j == 0){
         /*
         prevX2 =
@@ -187,6 +193,8 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
       fill(pix);
       let odd = 20;
       let even = 40;
+
+
       if((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0)){
         print("odd");
         odd = 3;
@@ -198,7 +206,87 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
         even = 3;
      
       }
-        if(mask[0] > alphaLow && mask[0] < alphaHigh){
+
+
+
+        if(mask[0] > alphaLow && mask[0] < alphaHigh){ // if we draw pixel 
+
+          let blankRight = 0;
+          let blankDown = 0;
+
+          if(maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] < alphaLow || maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] > alphaHigh){ // if pixel to left is outside
+            blankRight = -1;
+          }
+         if(maskImg.get((i+1)*(sourceImg.width/xCount), y)[0] < alphaLow || maskImg.get((i+1)*(sourceImg.width/xCount), y)[0] > alphaHigh){ // if pixel to right is outside
+            blankRight = 1;
+          }
+         if(maskImg.get(x, (j-1)*(sourceImg.height/yCount))[0] < alphaLow || maskImg.get(x, (j-1)*(sourceImg.height/yCount))[0] > alphaHigh){ // if pixel up is outside
+            blankDown = -1; 
+          }
+         if(maskImg.get(x, (j+1)*(sourceImg.height/yCount))[0] < alphaLow || maskImg.get(x, (j+1)*(sourceImg.height/yCount))[0] > alphaHigh){ // if pixel down is outside
+            blankDown = 1;
+          }
+
+
+
+          if(blankDown != 0 || blankRight != 0){
+
+            if(i+blankRight >= xCount){
+              blankRight = 0;
+            } 
+            else if(i+blankRight < 0){
+              blankRight = 0;
+            } 
+
+
+            if(j+blankDown >= yCount){
+              blankDown = 0;
+            } 
+            else if(j+blankDown < 0){
+              blankDown = 0;
+            } 
+
+
+
+            closestEdgePoint((i+blankRight)*(sourceImg.width/xCount)+(blankDown*10), (j+blankDown)*(sourceImg.height/yCount)+(blankRight*10), 30);
+
+            prevEmptyX = chords[0];
+            prevEmptyY = chords[1];
+
+            closestEdgePoint((i+blankRight)*(sourceImg.width/xCount)-(blankDown*10), (j+blankDown)*(sourceImg.height/yCount)-(blankRight*10), 30);
+            fill(155);
+            quad(prevEmptyX, prevEmptyY, chords[0], chords[1], chords[0]-(blankRight*20), chords[1]-(blankDown*20), prevEmptyX-(blankRight*20), prevEmptyY-(blankDown*20));
+
+          }
+/*
+           if(maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] < alphaLow || maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] > alphaHigh){ // if blank to the left
+
+
+            closestEdgePoint((i-1)*(sourceImg.width/xCount), y, qSize);
+            prevEmptyX = chords[0];
+            prevEmptyY = chords[1];
+            closestEdgePoint((i-1)*(sourceImg.width/xCount), y+20, qSize);
+
+            fill(0);
+            //triangle(prevEmptyX, prevEmptyY, chords[0], chords[1], prevEmptyX+5, 5);
+
+            fill(pix);
+
+            if(prevEmptyY == 0){
+              prevEmptyX = chords[0];
+              prevEmptyY = chords[1];
+            } else {
+              //fill(255);
+              //triangle(prevEmptyX, prevEmptyY, chords[0], chords[1], width/2, height/2);
+
+              prevEmptyX = chords[0];
+              prevEmptyY = chords[1];
+            }
+          }
+*/
+
+          fill(pix);
+/*
           let x1 = constrain(x-quadSize/odd , 0, width);
           let y1 = constrain(y-quadSize/2, 0, height);
 
@@ -237,6 +325,8 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
             x4 = chords[0];
             y4 = chords[1];
           }
+
+          */
           /*
           beginShape(TRIANGLE_FAN);
           vertex(x1, y1);
@@ -245,16 +335,18 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
           vertex(x4, y4);
           endShape();
           */
-          quad(x1, y1, x2, y2, x3, y3, x4, y4);
+         // quad(x1, y1, x2, y2, x3, y3, x4, y4);
 
           push();
           scale(0.5, 0.5);
           translate(x, y);
           noStroke();
           fill(255, 255, 255, 30);
-          quad(x1, y1, x2, y2, x3, y3, x4, y4);
+         // quad(x1, y1, x2, y2, x3, y3, x4, y4);
 
           pop();
+
+
         } 
 
        
@@ -270,18 +362,26 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
   }
 
 function drawOutline() {
+  let a = 0;
    for(let i = 0; i < edgeSmooth; i++){
       for(let j = 0; j < 2*edgeSmooth; j++){
       let x = i*(sourceImg.width/(edgeSmooth));
       let y = j*(sourceImg.height/(2*edgeSmooth)); 
-
+      a = a + 1;
+      if(a > 50){
+        a = 0;
+      }
       let mask = maskImg.get(x, y);  
 
       if((maskImg.get(i*(sourceImg.width/(edgeSmooth)), (j-1)*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         || (maskImg.get((i-1)*(sourceImg.width/edgeSmooth), j*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         || j == 0 || i == 0 || j == 2*edgeSmooth-1|| i == edgeSmooth -1 ){
+        fill(255);
+        if(a == 0){
           fill(0);
-          ellipse(x, y, 10, 10);
+        }
+          ellipse(x, y, 3, 3);
+        
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       }
     }
@@ -305,7 +405,7 @@ function edgeSet(){
 
       edges[i][j] = true;
       fill(150);
-      ellipse(x, y, 5, 5);
+      //ellipse(x, y, 5, 5);
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       } else {
         edges[i][j] = false;
@@ -318,12 +418,16 @@ function edgeSet(){
    endShape();
 }
 
+function edgeFill(){
+
+}
+
 function closestEdgePoint(x , y, size){
  let distance = 999;
 
  let x1;
  let y1;
- print(x);
+
 
 let sizeScale = (size*2)/sourceImg.width * edgeSmooth;
 let posXscale = x/sourceImg.width * edgeSmooth;
