@@ -4,7 +4,7 @@ let renderCounter=0;
 
 let sourceFile = "GraveOne.png";
 let maskFile   = "GraveOneMask1.png";
-let outputFile = "GraveOne.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -42,7 +42,7 @@ function draw () {
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
-    // uncomment this to save the result
+     //uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
 }
