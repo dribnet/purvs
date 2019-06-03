@@ -2,71 +2,59 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let spacing = 5; 
-let squareSize = 6; 
-let triangleSize = 6; 
-let halfSize = squareSize / 2; 
-let halfSize2 = triangleSize / 2; 
-
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
-sourceImg = loadImage(sourceFile);
-maskImg = loadImage(maskFile);
-
+  sourceImg = loadImage(sourceFile);
+  maskImg = loadImage(maskFile);
 }
+
 function setup () {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
-  noStroke();
+
   imageMode(CENTER);
+  noStroke();
   background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-function convertRgbToHsluv(c) {
-    return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
-}
+
+const tile_width = 5;
+const tile_height = 5;
+const tile_step_x = 3;
+const tile_step_y = 3;
+
 function draw () {
-    for(let i=0;i<1000/spacing;i++) {
-      let x = int(i*spacing);
-      let y = int(renderCounter*spacing);
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      if(mask[0] > 150) {
-        //highlighted areas (light areas), colored
-        fill(pix);
-        //odd line draw triangle poingting down, even line draw the other direction
-        if(i%2==0){
-          triangle(x,y-halfSize2,x-halfSize2,y+halfSize2,x+halfSize2,y+halfSize2);
-        }else{
-          triangle(x,y+halfSize2,x-halfSize2,y-halfSize2,x+halfSize2,y-halfSize2);
-        }
-      }
-      else {
-        //set ramdom x and y for rectangles
-        let dx = floor(random(spacing/5));
-        let dy = floor(random(spacing/5));
-        x = x+dx; y = y+dy;
-        //fill in black and white with lightness info
-        let hsluvColor = convertRgbToHsluv(pix);
-        fillHsluv(0,0, hsluvColor[2]);
-        rect(x-halfSize, y-halfSize, squareSize, squareSize);
-      }
+ for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x){
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    
+
+    fill(pix);
+    if(mask[0] > 125) {
+      rect(x, y, tile_step_x, tile_step_y)    }
+    else {
+      ellipse(x, y, tile_width, tile_height);  
     }
-    renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/spacing) {
-    console.log("Done!")
-    noLoop();
   }
 }
   
+
+  renderCounter = renderCounter + 1;
+  if(renderCounter > 10) {
+    console.log("Done!")
+    noLoop();
+    // uncomment this to save the result
+    // saveArtworkImage(outputFile);
+  }
+}
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
 }
-

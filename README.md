@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-I tred to make a picture using a pattern. Use the combination of
-squares and triangles to present Wellington's nightlife in pixels. I
-will try another method and see how it works.
+I tred again with a combination of rectangles and ellipses, and the
+results feel like real photos. When you look at it from a distance,
+you don't see any traces of modification, and there is no pixel
+effect. This is an attempt to realistically present the original
+picture.
