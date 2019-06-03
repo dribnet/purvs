@@ -2,8 +2,8 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
+let sourceFile = "my_input2.jpg";
+let maskFile = "my_mask2.png";
 let outputFile = "artwork_3.png";
 let customPixel;
 
@@ -34,12 +34,14 @@ function setup() {
 
 function draw() {
 
-  // background(230, 230, 250);
+  // Draw and update the rain.
   drops.forEach(drop => {
-    drop.fall();
     drop.show();
+    drop.fall();
   });
 
+
+  // update & remove timed out particles if any
   for (let i = this.particles.length - 1; i >= 0; i--) {
     let p = this.particles[i];
     p.run();
@@ -59,12 +61,16 @@ function draw() {
 
 function keyTyped() {
   if (key == '!') {
-    saveBlocksImages();
-    // saveArtworkImage(outputFile);
+    // saveBlocksImages();
+    saveArtworkImage(outputFile);
   }
 }
 
 
+/**
+ * Class that represents a rain drop.
+ * Handles its movement, and displaying.
+ */
 class Drop {
 
   constructor(x) {
@@ -75,6 +81,7 @@ class Drop {
     this.yspeed = map(this.z, 0, 20, 1, 5);
     this.hitMask = false;
   }
+  
   fall() {
     this.y = this.y + this.yspeed;
     var grav = map(this.z, 0, 20, 0, 0.2);
@@ -91,15 +98,15 @@ class Drop {
     if (mask[0] > 128) {
       noStroke();
       fill(col[0], col[1], col[2]);
-      // ellipse(this.x, this.y, 5, 5);
-      // rect(this.x, this.y + this.len, 5, 5);
       if (!this.hitMask) {
-        for(let i = 0;i <3 ;i++) {
-          particles.push(new Particle(this.x, this.y));
+        for (let i = 0; i < 12; i++) {
+          particles.push(new Particle(this.x+random(-10,10), this.y));
         }
       }
       this.hitMask = true;
     }
+
+    
   }
 
   show() {
@@ -116,13 +123,18 @@ class Drop {
   }
 }
 
+
+/**
+ * Particle class used to simulate the splash water effect once the rain its the mask layer.
+ * 
+ */
 class Particle {
 
   constructor(x, y) {
-    this.acceleration = createVector(0, 0.05);
-    this.velocity = createVector(random(-0.5, 0.5), random(-1, 0));
+    this.acceleration = createVector(0, 0.1);
+    this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.position = createVector(x, y);
-    this.lifespan = 455;
+    this.lifespan = 500;
     this.size = 3;
   }
 
@@ -135,15 +147,19 @@ class Particle {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     this.lifespan -= 2;
-    this.size+=0.01
+    this.size += 0.02
   }
 
   display() {
-    var col = sourceImg.get(this.position.x, this.position.y);
-    noStroke();
-    // fill(127, this.lifespan);
-    fill(col[0], col[1], col[2]);
-    ellipse(this.position.x, this.position.y, this.size,this.size);
+
+    let mask = maskImg.get(this.position.x, this.position.y); // corresponding x&y in the mask
+      var col = sourceImg.get(this.position.x, this.position.y);
+      noStroke();
+      fill(col[0], col[1], col[2],this.lifespan);
+      ellipse(this.position.x, this.position.y, random(1,4), random(1,4));
+      stroke(col)
+      // point(this.position.x,this.position.y)
+    // }
   }
 
   isDead() {
