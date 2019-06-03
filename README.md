@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-So I think I will stick to these shapes since I like how the rounded shape of the ellipse works well with the edgy and sharp triangle shapes. All thats left is to play around with the mask I think. Will probably do some minor changes if I feel like something would make it looks better.
+I have decided to change the theme last second since I didn't like it a lot so I thought about something a little bit more relevant to me which is why I decided to do some consoles/games, mainly the ds. I chose this theme since its been a big factor in my life. I loved to play games with others, which is generally how I started conversations and found friends in primary and in high school. I decided to do something to try and show the connection between all 3 of the images just using the code to some extent. It is nothing amazing but I just added a white mask in between the 3 images so they all connected when they are shown all together.
 
-Added some vertices to make triangles since I couldn't be bothered trying to make the triangle function work. Played around with the ellipses, putting them into the background since I did not like the blocky shape the rect function was making.
+Changes are just the background. Instead of 2 ellipses, I changed one of them in to a rect function since I think it looks better with the dark background. Played around with the sizes a bit, but nothing too drastic of a change. Added a few comments and such.
