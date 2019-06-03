@@ -211,6 +211,7 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
 
         if(mask[0] > alphaLow && mask[0] < alphaHigh){ // if we draw pixel 
 
+          /*
           let blankRight = 0;
           let blankDown = 0;
 
@@ -258,6 +259,8 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
             quad(prevEmptyX, prevEmptyY, chords[0], chords[1], chords[0]-(blankRight*20), chords[1]-(blankDown*20), prevEmptyX-(blankRight*20), prevEmptyY-(blankDown*20));
 
           }
+          */
+
 /*
            if(maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] < alphaLow || maskImg.get((i-1)*(sourceImg.width/xCount), y)[0] > alphaHigh){ // if blank to the left
 
@@ -284,9 +287,9 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
             }
           }
 */
-
-          fill(pix);
 /*
+          fill(pix);
+
           let x1 = constrain(x-quadSize/odd , 0, width);
           let y1 = constrain(y-quadSize/2, 0, height);
 
@@ -351,7 +354,7 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
 
        
 
-      
+     
 
 
 
@@ -359,6 +362,7 @@ for(let i=0;i<xCount;i++) { //Medium Chunks
       //rect(x, y, 25, 25);
     }
     }
+     edgeFill();
   }
 
 function drawOutline() {
@@ -367,8 +371,8 @@ function drawOutline() {
       for(let j = 0; j < 2*edgeSmooth; j++){
       let x = i*(sourceImg.width/(edgeSmooth));
       let y = j*(sourceImg.height/(2*edgeSmooth)); 
-      a = a + 1;
-      if(a > 50){
+      a = a + 0.5;
+      if(a > 1){
         a = 0;
       }
       let mask = maskImg.get(x, y);  
@@ -378,9 +382,9 @@ function drawOutline() {
         || j == 0 || i == 0 || j == 2*edgeSmooth-1|| i == edgeSmooth -1 ){
         fill(255);
         if(a == 0){
-          fill(0);
+           
         }
-          ellipse(x, y, 3, 3);
+         ellipse(x, y, 3, 3);
         
      // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
       }
@@ -419,7 +423,61 @@ function edgeSet(){
 }
 
 function edgeFill(){
+let spaces = 0;
 
+let smallA = 0;
+let medA = 0;
+let bigA = 0;
+
+let alphaSave = 0;
+     for(let i = 0; i < (edgeSmooth); i++){
+      for(let j = 0; j < 2*(edgeSmooth); j++){
+      let x = i*(sourceImg.width/(edgeSmooth));
+      let y = j*(sourceImg.height/(2*edgeSmooth)); 
+
+
+      if(edges[i][j] == true){
+        
+      
+      spaces++;
+       if(spaces == 10){
+        alphaSave = maskImg.get(x, y);
+
+        if(alphaSave[0] > 40 && alphaSave[0] < 70){
+        smallA++;
+
+
+        fill(color(250, 55, 100));
+
+
+        rect(x-15, y-15, 30, 30);
+        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
+
+        }
+        else if(alphaSave[0] > 140 && alphaSave[0] < 170){
+          medA++;
+          fill(medA);
+          fill(color(150, 55, 100));
+                  rect(x-15, y-15, 30, 30);
+        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
+        } 
+        else if(alphaSave[0] > 200 && alphaSave[0] < 260){
+          bigA++;
+          fill(bigA);
+          fill(color(50, 55, 100));
+                  rect(x-15, y-15, 30, 30);
+        quad(x-15, y-15, x+15, y-15, x+15, y+15, x-15, y+15);
+        }
+
+        spaces = 0;
+
+       }
+      } 
+      //let mask = maskImg.get(x, y);  
+
+
+    }
+  }
 }
 
 function closestEdgePoint(x , y, size){
