@@ -41,6 +41,7 @@ function draw_special_ellipse (x, y, width, height) {
   let die_roll = random([0, 1, 2, 3]);
 
   if(die_roll == 0) {
+    //randomly fills background with ellipses/ rects
     //changes the opacity of pix
     fill(pix[0], pix[1], pix[2], 40);
     ellipse(x, y, tile_width, tile_width);
@@ -72,10 +73,12 @@ function draw_special_ellipse (x, y, width, height) {
 function draw_note (x, y, pix) {
   push();
     translate(x,y);
+    //inverses stroke colours
     colorMode(HSB);
     stroke(pix);
     strokeWeight(0.8);
 
+    //draws wavey note lines 
     beginShape();
       curveVertex(-4,-3);
       curveVertex(-4,-3);
@@ -99,6 +102,7 @@ function draw_note (x, y, pix) {
       curveVertex(4,3);
     endShape();
 
+    //end lines of bank note
     line(-4,-3, -4,3);
     line(4,-3, 4,3);
   pop();
@@ -109,10 +113,12 @@ function draw_note (x, y, pix) {
 function draw_dollar_sign (x, y, pix){
   push();
     translate (x,y);
+    //inverses stroke colours
     colorMode(HSB);
     stroke(pix);
     strokeWeight(0.8);
 
+    //draws 'S' in dollar sign
     beginShape();
       curveVertex(2,-2);
       curveVertex(2,-2);
@@ -127,6 +133,7 @@ function draw_dollar_sign (x, y, pix){
       curveVertex(-2,2);
     endShape();
 
+    //line through 'S' in dollar sign
     line(0,-5, 0, 5);
   pop();
   colorMode(RGB);
@@ -152,7 +159,7 @@ function draw_eye (x, y) {
       curveVertex(x+4, y-18);
     endShape();
 
-    //eye iris
+    //eye iris (blue)
     fill(0,0,200);
     ellipse(x, y-6, 2.5, 2.5);
 
@@ -175,17 +182,20 @@ function draw () {
 
       //WHITE MASK 255 ~ background
       if(mask[0] == 255){
+        //draws 'blurry' background
         draw_special_ellipse (x, y, tile_width, tile_width);
      } 
 
       //GREY MASK ~ billboard
       if(mask[0] > 100 && mask[0] <= 200){
+        //tiled ellipses in billboard
         fill(pix)
         ellipse (x, y, 20, 20);
      }
 
       //BLACK MASK 0 ~ eye
      if(mask[0] == 0) {
+        //tiled ellipses that fill in back of eye
         fill(pix)
         ellipse (x, y, 20, 20);     
       }
@@ -199,8 +209,6 @@ function draw () {
       let pix = sourceImg.get(x,y);
       let mask = maskImg.get(x,y);
 
-      angleMode(DEGREES);
-
       //WHITE MASK 255 ~ background
       if(mask[0] == 255){
         //draw nothing
@@ -208,23 +216,24 @@ function draw () {
 
       //GREY MASK ~ billboard
       if(mask[0] > 100 && mask[0] <= 200){
+
+        //draw dollar sign randomly
         var die = int(random(0, 70));
         if (die == 0) {
           draw_dollar_sign (x, y, pix);    
         }     
-     }
 
-      if(mask[0] > 100 && mask[0] <= 200){
+        //draw note randomly
         var die = int(random(0, 70));
         if (die == 0) {
           draw_note (x, y, pix);      
-        }     
+        } 
      }
 
       //BLACK MASK 0 ~ eye
      if(mask[0] == 0) {
+      //draws eye glyph
       draw_eye(x,y);
-       
       }
     }
   }
@@ -235,7 +244,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
