@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -71,9 +71,9 @@ function draw_special_ellipse (x, y, width, height) {
 //billboard ~ note
 function draw_note (x, y, opacity, scaling) {
   push();
-    scale(scaling);
+    //scale(scaling);
     translate (x,y);
-
+    rectMode(CENTER);
     //dark green stroke
     stroke(117, 127, 63, opacity);
     strokeWeight(10);
@@ -81,7 +81,7 @@ function draw_note (x, y, opacity, scaling) {
     //light green fill
     fill(189, 207, 70, opacity);
 
-    rect (20,20,20,20);
+    rect (0,0,20*scaling,20*scaling);
 
     // curve(_, _, _, _, _, _, _, _);
     // curve(_, _, _, _, _, _, _, _);
@@ -90,6 +90,33 @@ function draw_note (x, y, opacity, scaling) {
   pop();
 }
 
+//eye glyph
+function draw_eye (x, y) {
+  push();
+    stroke(1);
+    strokeWeight(0.2);
+    fill(255);
+
+    beginShape();
+      curveVertex(x-10*0.6, y+15 *0.6);
+      curveVertex(x-10 *0.6, y-15 *0.6);
+      curveVertex(x+10 *0.6, y-15 *0.6);
+      curveVertex(x+10 *0.6, y+15 *0.6);
+    endShape();
+
+    beginShape();
+      curveVertex(x-10*0.6, y-45*0.6);
+      curveVertex(x-10*0.6, y-15*0.6);
+      curveVertex(x+10*0.6, y-15*0.6);
+      curveVertex(x+10*0.6, y-45*0.6);
+    endShape();
+
+    //eye iris
+    fill(0);
+    ellipse(x, y-15*0.6, 2, 2);
+  pop();
+}
+     
 //DRAW FUNCTION -----------------------------------------------------
 
 function draw () {
@@ -147,28 +174,8 @@ function draw () {
 
       //BLACK MASK 0 ~ eye
      if(mask[0] == 0) {
-        // fill(255);
-        // ellipse(x, y, 6, 6);
-
-        // fill(0);
-        // ellipse(x, y, 1, 1);
-
-        //---------------------------
-
-        //eye glyph
-        push();
-          stroke(1);
-          strokeWeight(0.2);
-          
-          fill(255);
-
-          curve(x-5, y, x-5, y-10, x+5, y-10, x+5, y);
-          curve(x-5, y, x-5, y+10, x+5, y+10, x+5, y);
-        pop();
-
-        //eye iris
-        fill(0);
-        ellipse(x, y, 2, 2);
+      draw_eye(x,y);
+       
       }
     }
   }

@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-I have thought more about how the curve function works and how I could draw an eye using curves and ellipses. It wasn't working before and was drawing in a diagonal line across the canvas. I ended up making the x and y coordinates based off the x and y position of the pixels that Tom gave us. This seems to be working better but they are drawing a bit weird and some of the halves aren't drawing at all, which I need to fix.
+I got some help from Phoebe and now have the eye glyph working. I might edit it a bit but overall I am happy with how it turned out.
 
-I was talking to the tutors earlier about other aspects I could add to my project to better show the theme and give it more visual details, since it is at such a large scale. I was thinking of adding some little bank notes scattered throughout the billboard, as well as possibly a dollar sign and more eye glyphs. I set this up by using the code Tom gave us where he randomly places the owl glyph throughout his code. I incorporated it into my code and replaced the owl glyph with rects (to represent basic bank notes) and it works except for the fact that it is all drawing in one corner and not drawing inside the billboard mask - but I will fix this later.
+We also fixed the spread of the randomised rects in the billboard mask, which I will change to bank notes and dollar signs. Before hand in I just need to create the bank note and dollar sign glyph and place these into the code.
+
+I am also going to experiment with having the eye made out of bank notes and the billboard filled with a random mix of the eyes and dollar signs.
