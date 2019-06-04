@@ -6,12 +6,14 @@ let sourceFile = "GraveOne.png";
 let maskFile   = "GraveOneMask1.png";
 let outputFile = "artwork_1.png";
 
+
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
 }
 
 function setup () {
+
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
 
@@ -21,13 +23,19 @@ function setup () {
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
+
 }
+
+//function box(x,y,g){
+ // fill(gray);
+ // rect(0,0,50,50);
+//}
 
 const tile_width = 10;
 const tile_height = 10;
 
-const tile_widthL = 5;
-const tile_heightL = 100;
+const tile_widthL = 100;
+const tile_heightL = 50;
 
 function draw () {
 
@@ -39,14 +47,14 @@ function draw () {
       fill(pix);
        
       if(mask[0] > 128){
-         let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
        ellipse(x, y, tile_width, tile_height);
       }
       
       else{
+var gray = int(random(0,182));
 
-        rect(x,y, tile_widthL, tile_heightL);
+       fill(gray);
+       rect(x,y,tile_width,tile_height);
       }
     }
   }
@@ -73,7 +81,7 @@ function draw () {
     console.log("Done!")
     noLoop();
      //uncomment this to save the result
-     saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
