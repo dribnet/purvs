@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,9 +23,23 @@ function setup () {
 }
 
 const tile_width =4;
-const tile_height = 10;
+const tile_height = 8;
 const tile_step_x = 5;
-const tile_step_y = 5;
+const tile_step_y = 8;
+
+function cross(x,y,s){
+  push();
+  translate(x,y);
+  scale(s);
+  let pix = sourceImg.get(x, y);
+  stroke(pix);
+  strokeWeight(10);
+  line(-10, 10, 10, -10);
+  line(10, 10, -10, -10);
+  pop();
+}
+
+
 
 function draw () {
   for(let y = 0; y < height; y = y + tile_step_y){
@@ -33,10 +47,21 @@ function draw () {
        let pix = sourceImg.get(x, y);
        let mask = maskImg.get(x, y);
        fill(pix);
+       // stroke(pix);
+
        if (mask[0] > 128){
          rect (x,y, tile_width, tile_height);
+
        }else{
          rect(x, y, tile_step_x, tile_step_y);
+         var die = int(random(0,6));
+         if (die == 3){
+           var scale = random(0.5, 0.8);
+           cross(x,y,scale);
+         }
+
+
+         // draw_line(x,y);
        }
 
     }
@@ -63,7 +88,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-   // saveArtworkImage(outputFile);
+   saveArtworkImage(outputFile);
   }
 }
 
