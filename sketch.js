@@ -17,25 +17,19 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(30);
+  background(9, 109, 64);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-const tile_width = 5;
-const tile_height = 5;
-
-const triangle_width = 4;
-const triangle_height = 4;
-
-const tile_step_x = 10;
-const tile_step_y = 10;
+const tile_width = 4;
+const tile_height = 4;
 
 function draw () {
   strokeWeight(1);
 
 //pass 1
-  for(let y = 0; y<height; y = y+tile_height){
-    for (let x = 0; x<width; x = x+tile_width){
+  for(let y = 0; y<height; y = y+tile_height-0.75){
+    for (let x = 0; x<width; x = x+tile_width-0.75){
       let pix = sourceImg.get(x,y);
       let mask = maskImg.get(x, y);
       fill(pix);
@@ -48,10 +42,10 @@ function draw () {
        fill(88, 153, 135);
        stroke(88, 153, 135);
        rectMode(CENTER);
-       rect(x, y, tile_width, tile_height/2);
+       rect(x, y, tile_width, tile_height/3);
       }
      
-      //if black on mask
+      //if grey on mask
       else{
         fill(30);
         stroke(30);
@@ -59,28 +53,26 @@ function draw () {
         fill(pix); 
         stroke(pix); 
         triangle(x, y-(tile_height/2), x+(tile_width/2), y+(tile_height/2), x-(tile_width/2), y+(tile_height/2)); 
-      }
+        }
     }
   }
 
-
-
   //pass 2
-   for(let y = 0; y<height; y = y+tile_height){
-    for (let x = 0; x<width; x = x+tile_width){
+   for(let y = 0; y<height; y = y+tile_height-0.75){
+    for (let x = 0; x<width; x = x+tile_width-0,75){
       let pix = sourceImg.get(x,y);
       let mask = maskImg.get(x, y);
-      fill(pix);
-      stroke(pix); 
-    
-      //if white on mask
-      if(mask[0] < 100){
+      
+      //if black on mask
+      if(mask[0] < 20){
         fill(0);
         stroke(0); 
         rect(x, y, tile_width, tile_height);
       }
     }
   }
+  
+
 
 
 
