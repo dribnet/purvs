@@ -3,19 +3,21 @@ let maskImg=null;
 let renderCounter=0;
 
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_1.png";
-let maskFile2 = "mask_2.png";
+let maskFile   = "mask_3.png";
+
 let outputFile = "artwork_3.png";
 
 let colourThresh = 50;
  let edges = [];
+
+ let frameDark = 0;
+ let frameLight = 75;
 
 let edgeSmooth = 200;
 let chords = [];
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
-  maskImg2 = loadImage(maskFile2);
 }
 
 function setup () {
@@ -27,18 +29,16 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  maskImg2.loadPixels();
-  //noLoop();
+
 }
 
 function draw () {
 //35 by 62
 
-//background
-      noFill();
-      stroke(0);
+noFill();
+stroke(0);
 
-
+strokeWeight(1);
 angleMode(DEGREES);
 
 
@@ -58,8 +58,14 @@ angleMode(DEGREES);
           let Rg = green(Rc);
           let Rb = blue(Rc);
 
+          if(j > 30){
+          let LightScale = map(j, 50, 1, 20, -30);
+          LightScale = LightScale*10;
           fill(sourceImg.get(testX, testY));
-          fill(color(Rr+60, Rg+80, Rb+60));
+          fill(color(Rr+60+LightScale, Rg+80+LightScale, Rb+60+LightScale));
+          } else {
+            fill(color(Rr+60, Rg+80, Rb+60));
+          }
          let mask = maskImg.get(testX, testY);
          if(mask[0] < 40){
            arc(width/2, height/2, H, H, i*(360/numSlice), (360/numSlice)+(i*(360/numSlice)), PIE);
@@ -76,72 +82,53 @@ angleMode(DEGREES);
 
 
 //
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);    
-   
-    let pointSize = map(i, 0, 8000, 50, 10);
-    let mask = maskImg.get(x, y);
+strokeWeight(2);
+Mosaic(40, 120, 15, 30, 30, 42);
 
-    fill(pix);
-    if(mask[0] > 40 && mask[0] < 70) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);    
-    let pointSize = map(i, 0, 8000, 40, 10);
-    let mask = maskImg.get(x, y);
-
-    fill(pix);
-    if(mask[0] > 140 && mask[0] < 170) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
+strokeWeight(1.5);
+Mosaic(80, 220, 25, 50, 25, 27);
 
 
-for(let i=0;i<8000;i++) {
-    let x = floor(random(sourceImg.width*0.25, sourceImg.width*0.75));
-    let y = floor(random(sourceImg.height*0.25, sourceImg.height*0.75));
-    let pix = sourceImg.get(x, y);    
-    let pointSize = map(i, 0, 8000, 20, 5);
-    let mask = maskImg.get(x, y);
-
-    fill(pix);
-    if(mask[0] > 200 && mask[0] < 260) {
-      noStroke();
-      ellipse(x, y, pointSize, pointSize);    
-    }
-
-}
+strokeWeight(1.5);
+Mosaic(140, 260, 30, 60, 20, 22);
 
 strokeWeight(1);
-Mosaic(40, 70, 15, 30, 30, 42);
-
-
-
-strokeWeight(0.75);
-Mosaic(140, 170, 30, 60, 20, 22);
-
-
-
-strokeWeight(0.5);
 Mosaic(200, 260, 50, 100, 10, 12);
   
-  
 
 
-  drawOutline();
-// trace();
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+// triangle(random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height),
+//   random(sourceImg.width), random(sourceImg.height));
+
+frame();
+
+
+
+noStroke();
+fill(255, 232, 134, 40);
+ellipse(random(sourceImg.width), random(sourceImg.height), 500, 500);
+ellipse(random(sourceImg.width), random(sourceImg.height), 400, 400);
+ellipse(random(sourceImg.width), random(sourceImg.height), 300, 300);
+ellipse(random(sourceImg.width), random(sourceImg.height), 200, 200);
+ellipse(random(sourceImg.width), random(sourceImg.height), 100, 100);
+
+
+
+ renderCounter = renderCounter + 1;
+if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
@@ -185,12 +172,12 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
 
 
       if((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0)){
-        print("odd");
+        //print("odd");
         odd = 3;
         even = 1.25;
    
       } else {
-        print("even");
+        //print("even");
         odd = 1.25;
         even = 3;
      
@@ -240,35 +227,30 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
             x4 = chords[0];
             y4 = chords[1];
           }
-          stroke(0);
-          //noFill();
-          beginShape();
-          vertex(x1, y1);
-          vertex(x2, y2);
-          vertex(x3, y3);
-          vertex(x4, y4);
-          //endShape(CLOSE);
-          //quad(x1, y1, x2, y2, x3, y3, x4, y4);
-          //fill(sourceImg.get(x1+(quadSize/3), y1+(quadSize/3)));
+          quad(x1, y1, x2, y2, x3, y3, x4, y4);
+         //  fill(sourceImg.get(x1+(quadSize/3), y1+(quadSize/3)));
          // ellipse(x1+(quadSize/3), y1+(quadSize/3), 10, 10);
 
+          for(let i = 0; i < 5; i++){
+            let xi = floor(random(x-quadSize/3, x+quadSize/3));
+            let yi = floor(random(y-quadSize/2, y+quadSize/2));
+            noStroke();
+            fill(sourceImg.get(xi, yi));
+            //ellipse(xi, yi, quadSize/3, quadSize/3);
+            stroke(0);
+          }
 
           push();
           scale(0.5, 0.5);
           translate(x, y);
           noStroke();
           fill(255, 255, 255, 30);
-          beginContour();
-          //quad(x1, y1, x2, y2, x3, y3, x4, y4);
-          vertex(x4, y4);
-          vertex(x3, y3);
-          vertex(x2, y2);
-          vertex(x1, y1);
-          endContour();
-          
+  
+          quad(x1, y1, x2, y2, x3, y3, x4, y4);
+
+
 
           pop();
-          endShape(CLOSE);
 
         } else { //if corner piece
 
@@ -324,68 +306,351 @@ for(let i=0;i<=xCount;i++) { //Medium Chunks
             }
 
             fill(sourceImg.get((x1+x2+x3+x4)/4, (y1+y2+y3+y4)/4));
-            noFill();
-            quad(x1, y1, x2, y2, x3, y3, x4, y4);
-
-
+            //fill(0);
+            
+            
+           
+             if(quadSize == 42 || quadSize == 12){
+             // print("please");
+               quad(x1, y1, x2, y2, x3, y3, x4, y4);
+             }
+            //print("Quad size : " + quadSize);
           }
 
 
 
         }
-
-       
-
-     
-
-
-
- 
-      //rect(x, y, 25, 25);
     }
     }
      
   }
+function frame(){
 
-function trace(){
+  let c1;
+  let c2;
+  let c3;
 
-   for(let i = 0; i < (edgeSmooth*4); i++){
-      for(let j = 0; j < 2*(edgeSmooth*4); j++){
-        if(maskImg2.get(i*(sourceImg.width/(edgeSmooth*4)), j*(sourceImg.height/(2*(edgeSmooth*4))))[0] < 20){
-          fill(0);
-          ellipse(i*(sourceImg.width/(edgeSmooth*4)), j*(sourceImg.height/(2*(4*edgeSmooth))), 1, 1);
-        }
-      }
-    }
+
+if(sourceFile == "input_1.jpg") {
+
+  c1 = color(255, 213, 94, 150);
+  c2 = color(255, 126, 94, 150);
+  c3 = color(94, 164, 255, 150);
+
+} else if(sourceFile == "input_2.jpg"){
+
+  c2 = color(255, 213, 94, 150);
+  c3 = color(255, 126, 94, 150);
+  c1 = color(94, 164, 255, 150);
+
+} else if(sourceFile == "input_3.jpg"){
+
+  c3 = color(255, 213, 94, 150);
+  c1 = color(255, 126, 94, 150);
+  c2 = color(94, 164, 255, 150);
 
 }
 
-function drawOutline() {
-  let a = 0;
-   for(let i = 0; i < edgeSmooth; i++){
-      for(let j = 0; j < 2*edgeSmooth; j++){
-      let x = i*(sourceImg.width/(edgeSmooth));
-      let y = j*(sourceImg.height/(2*edgeSmooth)); 
-      a = a + 0.5;
-      if(a > 1){
-        a = 0;
-      }
-      let mask = maskImg.get(x, y);  
+rectMode(CORNERS);
 
-      if((maskImg.get(i*(sourceImg.width/(edgeSmooth)), (j-1)*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
-        || (maskImg.get((i-1)*(sourceImg.width/edgeSmooth), j*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
-        || j == 0 || i == 0 || j == 2*edgeSmooth-1|| i == edgeSmooth -1 ){
-        fill(255);
-        if(a == 0){
-           
-        }
-       //  ellipse(x, y, 3, 3);
-        
-     // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
-      }
-    }
-  }
+
+
+//first row 
+strokeWeight(10);
+fill(c1);
+stroke(frameDark);
+
+rect(70, 0, 190, 75);
+
+beginShape();
+vertex(195, 0);
+vertex(310, 0);
+vertex(310, 50);
+vertex(260, 75);
+vertex(195, 75);
+endShape();
+
+quad(310, 0, width-352.5, 0, 
+width-352.5, 10, 310, 50);
+
+quad(width-352.5, 0, width-310, 0,
+width-310, 50, width-352.5, 10);
+
+beginShape();
+vertex(width-190, 0);
+vertex(width-310, 0);
+vertex(width-310, 50);
+vertex(width-260, 75);
+vertex(width-190, 75);
+endShape();
+
+rect(width-70, 0, width-190, 75);
+
+//light outline
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+
+
+rect(70, 0, 190, 75);
+
+beginShape();
+vertex(195, 0);
+vertex(310, 0);
+vertex(310, 50);
+vertex(260, 75);
+vertex(195, 75);
+endShape();
+
+quad(310, 0, width-352.5, 0, 
+width-352.5, 10, 310, 50);
+
+quad(width-352.5, 0, width-310, 0,
+width-310, 50, width-352.5, 10);
+
+beginShape();
+vertex(width-190, 0);
+vertex(width-310, 0);
+vertex(width-310, 50);
+vertex(width-260, 75);
+vertex(width-190, 75);
+endShape();
+
+rect(width-70, 0, width-190, 75);
+
+
+//second ro w 
+strokeWeight(10);
+fill(c1);
+stroke(frameDark);
+
+
+rect(70, 75, 190, 150);
+quad(190, 75, 245, 75, 220, 150, 190, 150);
+quad(width-190, 75, width-245, 75, width-220, 150, width-190, 150);
+rect(width-70, 75, width-190, 150); 
+
+//light outline
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+
+rect(70, 75, 190, 150);
+quad(190, 75, 245, 75, 220, 150, 190, 150);
+quad(width-190, 75, width-245, 75, width-220, 150, width-190, 150);
+rect(width-70, 75, width-190, 150); 
+
+//third row 
+strokeWeight(10);
+fill(c1);
+stroke(frameDark);
+
+
+beginShape();
+vertex(70, 150);
+vertex(190, 150);
+vertex(190, 175);
+vertex(150, 225);
+vertex(70, 225);
+endShape();
+
+
+triangle(190, 150, 230, 150, 190, 190);
+triangle(width-190, 150, width-230, 150, width-190, 190); 
+
+
+beginShape();
+vertex(width-70, 150);
+vertex(width-190, 150);
+print("draw once ");
+vertex(width-190, 175);
+vertex(width-150, 225);
+vertex(width-70, 225);
+endShape(CLOSE);
+
+//light outline
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+
+beginShape();
+vertex(70, 150);
+vertex(190, 150);
+vertex(190, 175);
+vertex(150, 225);
+vertex(70, 225);
+endShape();
+
+
+triangle(190, 150, 230, 150, 190, 190);
+triangle(width-190, 150, width-230, 150, width-190, 190); 
+
+
+beginShape();
+vertex(width-70, 150);
+vertex(width-190, 150);
+print("draw once ");
+vertex(width-190, 175);
+vertex(width-150, 225);
+vertex(width-70, 225);
+endShape(CLOSE);
+
+//fourth row 
+strokeWeight(10);
+fill(c1);
+stroke(frameDark);
+
+
+quad(70, 225, 140, 225, 100, 300, 70, 300);
+quad(width-70, 225, width-140, 225, width-100, 300, width-70, 300);
+
+//light outline
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+
+quad(70, 225, 140, 225, 100, 300, 70, 300);
+quad(width-70, 225, width-140, 225, width-100, 300, width-70, 300);
+
+
+//left rect
+strokeWeight(10);
+stroke(0);
+fill(c2);
+rect(5, 5, 70, 150);
+
+fill(c3);
+rect(5, 150, 70, 300);
+
+fill(c2);
+rect(5, 300, 70, 450);
+
+fill(c3);
+rect(5, 450, 70, 600);
+
+fill(c2);
+rect(5, 600, 70, 750);
+
+fill(c3);
+rect(5, 750, 70, 900);
+
+fill(c2);
+rect(5, 900, 70, 1050);
+
+fill(c3);
+rect(5, 1050, 70, sourceImg.height-5);
+
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+
+rect(5, 5, 70, 150);
+rect(5, 150, 70, 300);
+rect(5, 300, 70, 450);
+rect(5, 450, 70, 600);
+rect(5, 600, 70, 750);
+rect(5, 750, 70, 900);
+rect(5, 900, 70, 1050);
+rect(5, 1050, 70, sourceImg.height-5);
+
+// fill(c3);
+// rect(5, 5, 70, sourceImg.height-5);
+
+//right rect
+strokeWeight(10);
+stroke(frameDark);
+fill(c2);
+rect(sourceImg.width-5, 5, sourceImg.width-70, 150);
+
+fill(c3);
+rect(sourceImg.width-5, 150, sourceImg.width-70, 300);
+
+fill(c2);
+rect(sourceImg.width-5, 300, sourceImg.width-70, 450);
+
+fill(c3);
+rect(sourceImg.width-5, 450, sourceImg.width-70, 600);
+
+fill(c2);
+rect(sourceImg.width-5, 600, sourceImg.width-70, 750);
+
+fill(c3);
+rect(sourceImg.width-5, 750, sourceImg.width-70, 900);
+
+fill(c2);
+rect(sourceImg.width-5, 900, sourceImg.width-70, 1050);
+
+fill(c3);
+rect(sourceImg.width-5, 1050, sourceImg.width-70, sourceImg.height-5);
+
+
+strokeWeight(3);
+noFill();
+stroke(frameLight);
+rect(sourceImg.width-5, 5, sourceImg.width-70, 150);
+rect(sourceImg.width-5, 150, sourceImg.width-70, 300);
+rect(sourceImg.width-5, 300, sourceImg.width-70, 450);
+rect(sourceImg.width-5, 450, sourceImg.width-70, 600);
+rect(sourceImg.width-5, 600, sourceImg.width-70, 750);
+rect(sourceImg.width-5, 750, sourceImg.width-70, 900);
+rect(sourceImg.width-5, 900, sourceImg.width-70, 1050);
+rect(sourceImg.width-5, 1050, sourceImg.width-70, sourceImg.height-5);
+
+
+//bottom bar
+strokeWeight(20);
+stroke(frameDark);
+fill(c1);
+rect(5, sourceImg.height-70, sourceImg.width-5, sourceImg.height-5)
+
+strokeWeight(5);
+noFill();
+stroke(frameLight);
+rect(5, sourceImg.height-70, sourceImg.width-5, sourceImg.height-5)
+
+//side rects overlay
+strokeWeight(20);
+stroke(frameDark);
+noFill();
+rect(sourceImg.width-5, 5, sourceImg.width-70, sourceImg.height-5);
+rect(5, 5, 70, sourceImg.height-5);
+
+strokeWeight(4);
+noFill();
+stroke(frameLight);
+rect(sourceImg.width-5, 5, sourceImg.width-70, sourceImg.height-5);
+rect(5, 5, 70, sourceImg.height-5);
+
+strokeWeight(20);
+stroke(frameDark);
+noFill();
+arc(width/2, height/18, 60, 100, 210, 340);
+
+arc(width/2, height/10, 250, 150, 287.5, 380);
+arc(width/2, height/10, 250, 150, 165, 250);
+
+arc(width/2, height/3, 565, 565, 293, 360);
+arc(width/2, height/3, 565, 565, 185, 245);
+
+//light Outline
+strokeWeight(5);
+
+stroke(frameLight);
+
+arc(width/2, height/18, 60, 100, 210, 340);
+
+arc(width/2, height/10, 250, 150, 282.5, 385);
+arc(width/2, height/10, 250, 150, 165, 250);
+
+arc(width/2, height/3, 565, 565, 294, 362);
+arc(width/2, height/3, 565, 565, 182, 246);
+
+
+
 }
+
+
+
 
 function edgeSet(){
     //lets try something probably very stupid
@@ -396,107 +661,17 @@ function edgeSet(){
       let x = i*(sourceImg.width/(edgeSmooth));
       let y = j*(sourceImg.height/(2*edgeSmooth)); 
       let mask = maskImg.get(x, y);
-
       
       if((maskImg.get(i*(sourceImg.width/(edgeSmooth)), (j-1)*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         || (maskImg.get((i-1)*(sourceImg.width/(edgeSmooth)), j*(sourceImg.height/(2*edgeSmooth))))[0] != mask[0]
         ){
-
-      edges[i][j] = true;
-      fill(0);
-      ellipse(x, y, 15, 15);
-     // print("x :" + i + " y : " + j + " , mask: " + mask[0] + " maskPrev : " + maskSave);
-      } else {
-        edges[i][j] = false;
-      }
-
-
+            edges[i][j] = true;
+          } else {
+            edges[i][j] = false;
+          }
       }
     }
 
-   endShape();
-}
-
-function edgeFill(){
-let spaces = 0;
-
-let smallA = 0;
-let medA = 0;
-let bigA = 0;
-
-let alphaSave = 0;
-
-     for(let i = 0; i < (edgeSmooth); i++){
-      for(let j = 0; j < 2*(edgeSmooth); j++){
-      let x = i*(sourceImg.width/(edgeSmooth));
-      let y = j*(sourceImg.height/(2*edgeSmooth)); 
-
-
-      if(edges[i][j] == true){
-        
-      
-      spaces ++;
-       if(spaces == 3){
-        alphaSave = maskImg.get(x, y)[0];
-           
- 
-
-        let x1a = x - 15;
-        let y1a = y - 15;
-
-        if(maskImg.get(x1a, y1a)[0] != alphaSave){
-          closestEdgePoint(x1a, y1a, 15);
-          x1a = chords[0];
-          y1a = chords[1];
-        }
-
-        let x2a = x + 15;
-        let y2a = y - 15;
-
-       if(maskImg.get(x2a, y2a)[0] != alphaSave){
-          closestEdgePoint(x2a, y2a, 15);
-          x2a = chords[0];
-          y2a = chords[1];
-        }
-        let x3a = x + 15;
-
-        let y3a = y + 15;
-
-        if(maskImg.get(x3a, y3a)[0] != alphaSave){
-          closestEdgePoint(x3a, y3a, 15);
-          x3a = chords[0];
-          y3a = chords[1];
-        }
-        let x4a = x - 15;
-        let y4a = y + 15;
-
-        if(maskImg.get(x4a, y4a)[0] != alphaSave){
-          closestEdgePoint(x4a, y4a, 15);
-          x4a = chords[0];
-          y4a = chords[1];
-        }
-        stroke(0);
-        fill(sourceImg.get(x, y));
-
-       // quad(x1,y1, x2, y2, x3, y3, x4, y4);
-        
-        triangle(x1a, y1a, x2a, y2a, x, y);
-        triangle(x2a, y2a, x3a, y3a, x, y);
-        triangle(x3a, y3a, x4a, y4a, x, y);
-        triangle(x4a, y4a, x1a, y1a, x, y);
-
-        
-
-
-        spaces = 0;
-
-       }
-      } 
-      //let mask = maskImg.get(x, y);  
-
-
-    }
-  }
 }
 
 function closestEdgePoint(xz , yz, size){
@@ -542,13 +717,6 @@ for(let i = testI1; i < testI2; i++){
 
     }
   }
-    /*
-    if(int(dist(x, y, edgeSet()[i][j])) < distance){
-      distance = int(dist(x, y, edgeSet()[i][j]));
-      x1 = i*(sourceImg.width/60);
-      y1 = j*(sourceImg.height/120);
-    }
-    */
   }
 }
 chords[0] = x1b;
