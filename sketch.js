@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -29,7 +29,6 @@ function draw () {
     
     for (let y = 0; y < height; y = y + tile_step_y) {
     for (let x = 0; x < width; x = x + tile_step_x) {
-      
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
 
@@ -41,10 +40,10 @@ function draw () {
       rect (x, y, 10, 10);
     }
     else {
-      fill(pix);
-      noStroke();
-      strokeWeight(1);
-      rect(x, y, 7, 7);
+      noFill();
+      stroke(pix);
+      strokeWeight(2);
+      rect (x, y, 7, 7);
     }
   }
 }
@@ -54,7 +53,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
