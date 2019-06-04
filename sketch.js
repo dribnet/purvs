@@ -22,7 +22,19 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tile_width = 2;
+const tile_height = 200;
+
 function draw () {
+  for(let y=0; y<height; y = y +tile_height){
+    for(let x=0; x<width; x = x+ tile_width){
+      let pix = sourceImg.get(x, y);
+       fill(pix);
+       rect(x, y, tile_width, tile_height);
+    }
+  }
+
+/*
   for(let i=0;i<10000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -38,12 +50,13 @@ function draw () {
       rect(x, y, pointSize, pointSize);    
     }
   }
+  */
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
      //uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
