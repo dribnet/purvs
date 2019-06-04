@@ -1,7 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
 ### Concept
-I am currently thinking of changing my photo series to a different style.
-I was thinking of taking people with different hand gestures and show everything under the head only.
-This will get mor attention to the gestures then and could show that it could be everyone.
-As Input 4 I have currently a image where I try to show in what direction my message should go.
+In all images the persons is shown in gray scale and the whole sketch is in a 6x6 grid with a 2x2 padding.
+
+My first image is showing a person who is holding his phone and doesn't realize what is going on in his surrounding.
+I cutted the head off from the person so that the attention goes to the phone he is holding the hand has also a yellow boarder to show that it is dangerous.
+
+In the second image the person has run against a pole and falls over.
+
+The third image is an experiment where the head is still shown but stronger pixeld.
