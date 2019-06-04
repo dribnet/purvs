@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Iteration 2 - So I played around with the code and all for the 3rd image (paper and sketch on desk) and it turned out great. The idea behind this is to create a sketch pencil effect onto the white paper and pencil case since those two objects are the objects to symbolize my theme of passionate. I reduced the density of the lines to make it less scribble to make it more appealing. 
+Iteration 3 - Worked on the 2nd image. Since the second image is based on my wooden block toy project, I thought it would be great to implement the tile/pixel art code effect. Looks great but seems a bit blurry-ish? can't confirm..

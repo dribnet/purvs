@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,38 +17,42 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(153);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+const tile_width = 5; //this does not have to be the same as the tile height 
+const tile_height = 10; //this does not have to be the same as the tile width
+const tile_step_x = 9; // tile = how far apart to fill in the space 
+const tile_step_y = 12; // the more increase = the more blocky it gets
+
 function draw () {
-  for(let i=0;i<5000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-    if(mask[0] > 128) {
-      let pointSize = 90; //higher the less density lines. I'm wanting it to slightly less to create a sketch effect.
-      ellipse(x, y, pointSize, pointSize); //outside of the syrroundings, draws circle shapes
-    }
-    else {
-      let pointSize = 9; //white space leaving
-      let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));
-     //rect(x, y, pointSize, pointSize);
-    //ellipse(x, y, pointSize, pointSize);
-      line(x, y, x2, y2);    
+  background(50);
+
+  // version 1: just draw all the tiles
+  for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      if(mask[0] > 100) {
+        rect(x, y, tile_step_x, tile_step_y);
+      }
+      else {
+        ellipse(x, y, tile_width, tile_height);
+        rect(x, y, tile_width, tile_height);
+        
+      }
     }
   }
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile); //ensures it does not have the save dialog
+    saveArtworkImage(outputFile);
   }
 }
 
