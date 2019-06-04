@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "denkmal.jpg";
-let maskFile   = "denkmalMask.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "maibaum.jpg";
+let maskFile   = "maibaum.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
 
@@ -52,26 +52,34 @@ function draw () {
         triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight);
         triangle(x,y,x,y+chunkHeight,x+(chunkWidth/2),y+chunkHeight);
       }
-      else if (mask[0] > 101 && mask[0]<151) {
-        // stroke(155);
-        // let cwx = chunkWidth/2;
-        // let chx = chunkHeight/2;
-        // rect(x,y,cwx,chx);
-        // rect(x+cwx,y,cwx,chx);
-        // rect(x,y+chx,cwx,chx);
-        // rect(x+cwx,y+chx,cwx,chx);
-        noStroke();
+      else if (mask[0] > 149 && mask[0]<151) {
+        stroke(0);
         fill(pixl)
-        rect(x,y,chunkWidth,chunkHeight);
+        rect(x,y,chunkWidth/2,chunkHeight/2);
+        rect(x+chunkWidth/2,y,chunkWidth/2,chunkHeight/2);
+        rect(x-chunkWidth/2,y,chunkWidth/2,chunkHeight/2);
+        rect(x-chunkWidth,y,chunkWidth/2,chunkHeight/2);
+        rect(x,y+chunkHeight/2,chunkWidth/2,chunkHeight/2);
+        rect(x+chunkWidth/2,y+chunkHeight/2,chunkWidth/2,chunkHeight/2);
+        rect(x-chunkWidth/2,y+chunkHeight/2,chunkWidth/2,chunkHeight/2);
+        rect(x-chunkWidth,y+chunkHeight/2,chunkWidth/2,chunkHeight/2);
       } 
       else if (mask[0]>199 && mask[0]<201) {
         stroke(255);
         strokeWeight(1);
-        ellipse(x,y,15,15);
+        ellipse(x-chunkWidth/2,y-chunkWidth/2,15,15);
+        ellipse(x-chunkWidth/2,y,15,15);
+        // ellipse(x,y-chunkWidth/2,15,15);
+        // ellipse(x,y,15,15);
+        // ellipse(x+chunkWidth/2,y-chunkWidth/2,15,15);
+        // ellipse(x+chunkWidth/2,y,15,15);
+        ellipse(x-chunkWidth/2,y+chunkWidth/2,15,15);
+        // ellipse(x,y+chunkWidth/2,15,15);
+        // ellipse(x+chunkWidth/2,y+chunkWidth/2,15,15);
       }
-      else if (mask[0]>250) {
+      else if (mask[0]>254) {
         stroke(pixl);
-        strokeWeight(2);
+        // strokeWeight(2);
         line(x,y,x+chunkWidth,y+chunkHeight);
         line(x,y,x2,y2);
         line(x,y,x3,y3);
@@ -82,22 +90,6 @@ function draw () {
       else{
         stroke(pixl);
         strokeWeight(0.5);
-        //rect(x,y,chunkWidth,chunkHeight);
-        // let cpx= x+(chunkWidth/2);
-        // let cpy= y+(chunkHeight/2);
-         let hc = chunkHeight/2;
-        // let xmax= x+chunkHeight;
-        // let ymax= y+chunkWidth;
-        
-        // line(x,y+hc,cpx,cpy);
-        // line(x,y,cpx,cpy);
-        // line(x,ymax,cpx,cpy);
-        // line(cpx,y,cpx,cpy);
-        // line(cpx,ymax,cpx,cpy);
-        // line(cpx,cpy,xmax,ymax);
-        // line(cpx,cpy,xmax,y+hc);
-        // line(cpx,cpy,xmax,y);
-
         for (let i =0; i < 4; i++) {
           let x1 = x-floor(random(chunkWidth));
           let x2 = x-floor(random(chunkWidth));
