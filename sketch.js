@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "RadlWeg.jpg";
-let maskFile   = "RadlWegMask.png";
+let sourceFile = "denkmal.jpg";
+let maskFile   = "denkmalMask.png";
 let outputFile = "artwork_3.png";
 
 function preload() {
@@ -53,7 +53,7 @@ function draw () {
         triangle(x,y,x,y+chunkHeight,x+(chunkWidth/2),y+chunkHeight);
       }
       else if (mask[0] > 149 && mask[0]<151) {
-        stroke(0);
+        stroke(75);
         fill(pixl)
         rect(x,y,chunkWidth/2,chunkHeight/2);
         rect(x+chunkWidth/2,y,chunkWidth/2,chunkHeight/2);
@@ -65,22 +65,20 @@ function draw () {
         rect(x-chunkWidth,y+chunkHeight/2,chunkWidth/2,chunkHeight/2);
       } 
       else if (mask[0]>199 && mask[0]<201) {
-        stroke(255);
+        stroke(200);
         strokeWeight(1);
         ellipse(x-chunkWidth/2,y-chunkWidth/2,15,15);
         ellipse(x-chunkWidth/2,y,15,15);
-        // ellipse(x,y-chunkWidth/2,15,15);
-        // ellipse(x,y,15,15);
-        // ellipse(x+chunkWidth/2,y-chunkWidth/2,15,15);
-        // ellipse(x+chunkWidth/2,y,15,15);
         ellipse(x-chunkWidth/2,y+chunkWidth/2,15,15);
-        // ellipse(x,y+chunkWidth/2,15,15);
-        // ellipse(x+chunkWidth/2,y+chunkWidth/2,15,15);
+        ellipse(x-chunkWidth/2,y+chunkWidth,15,15);
+        ellipse(x-chunkWidth/4,y-chunkWidth/2,15,15);
+        ellipse(x-chunkWidth/4,y,15,15);
+        ellipse(x-chunkWidth/4,y+chunkWidth/2,15,15);
+        ellipse(x-chunkWidth/4,y+chunkWidth,15,15);
       }
       else if (mask[0]>254) {
         stroke(pixl);
         strokeWeight(2);
-        // strokeWeight(2);
         line(x,y,x+chunkWidth,y+chunkHeight);
         line(x,y,x2,y2);
         line(x,y,x3,y3);
@@ -110,7 +108,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
