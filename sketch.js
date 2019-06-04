@@ -47,7 +47,8 @@ function draw () {
     //if(mask[0]>250){
     //ellipse(x,y,tile_width*1,tile_height*1);
   //}
- //black
+  
+ //background (black)
     //else {
     //stroke(pix);
     //strokeWeight(2);
@@ -60,51 +61,52 @@ function draw () {
 
 //input_2
     
-    const tile_width4 = 4;
-    const tile_height4 = 4;
+   //smoke 
+    const tile_width = 6;
+    const tile_height = 2;
 
-    for(let y = 0; y<height; y = y+tile_height4){
-    for(let x = 0; x<width; x = x+tile_width4){
-    let pix = sourceImg.get (x, y);
-    let mask = maskImg.get (x, y);
+    for(let y = 0; y<height; y = y+tile_height){
+    for(let x = 0; x<width; x = x+tile_width){
+    let pix = sourceImg.get(x,y);
+    let mask = maskImg.get(x,y);
     stroke(pix);
-    noFill();
+    fill(pix);
     strokeWeight(2);
-    if(mask[0]<120){
-    rect(x,y,tile_width4*2,tile_height4*2);
+    if(mask[0]>240){
+    rect(x-5,y-10,tile_width*4,tile_height*10);
 }
 }
 }
+   //face
+    const tile_width2 = 3.5;
+    const tile_height2 = 3.5;
 
-    const tile_width1 = 4;
-    const tile_height1 = 4;
-
-    for(let y = 0; y<height; y = y+tile_height1){
-    for(let x = 0; x<width; x = x+tile_width1){
+    for(let y = 0; y<height; y = y+tile_height2){
+    for(let x = 0; x<width; x = x+tile_width2){
     let pix = sourceImg.get(x,y);
     let mask = maskImg.get(x,y);
     stroke(pix);
     strokeWeight(2);
     fill(pix);
     if(mask[0]>=100 && mask[0]<130){
-    ellipse(x,y,tile_width1*1.5,tile_height1*1.5);
+    ellipse(x,y,tile_width2*1.5,tile_height2*1.5);
   }
   }
   }
-//background
+   //background
     const tile_width3 = 4;
-    const tile_height3 = 4;
+    const tile_height3 = 5;
 
     for(let y = 0; y<height; y = y+tile_height3){
     for(let x = 0; x<width; x = x+tile_width3){
-   let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
+    let pix = sourceImg.get(x,y);
+    let mask = maskImg.get(x,y);
     stroke(pix);
     noFill();
     strokeWeight(1.5);
-    if(mask[0]>240){
+    if(mask[0]<120){
     noFill();
-    triangle(x,y-(tile_height3*2),x+(tile_width3*3),y+(tile_height3*2),x-(tile_width3*3),y+(tile_height3*2)); 
+    triangle(x,y,x+(tile_width3*3),y+(tile_height3*2),x-(tile_width3*3),y+(tile_height3*2)); 
     
 }
 }
