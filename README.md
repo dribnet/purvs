@@ -1,6 +1,6 @@
-## Creative Coding 2: Custom Pixel - Grid Techniques
+## Creative Coding 2: Custom Pixel - Pre-final
 
-I've drawn all my images using filled in squares with no stroke with slightly rounded edges to create a mosiac tile pattern which I think I'll use for my masked areas.
+I've reached the look I want to achieve in my final.
+The unordered, hollow squares contrast against the ordered mosiac-tile grid.
 
-For my unmasked areas I want to do something that will contrast with this.
-I'm thinking about drawing numerous small, overlapping squares with no fill to give an empty 'pixel particle' effect.
+I'm thinking for my final commit I'll erase the masked areas on people's faces and just leave the sky. I think this will create a 'different dimension' look compared to everything on the ground.
