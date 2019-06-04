@@ -63,7 +63,7 @@ function draw() {
     }
     }
   }
-  
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
