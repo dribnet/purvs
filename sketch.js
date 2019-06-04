@@ -4,9 +4,9 @@ let renderCounter=0;
 
 
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 const t1 = 10;
 
@@ -29,7 +29,7 @@ function setup () {
 
 function star(x, y, radius1, radius2, npoints) {
   let angle = TWO_PI / npoints;
-  let halfAngle = angle / 3.0;
+  let halfAngle = angle / 2.0;
   beginShape();
   for (let a = 0; a < TWO_PI; a += angle) {
     let sx = x + cos(a) * radius2;
@@ -43,32 +43,87 @@ function star(x, y, radius1, radius2, npoints) {
 }
 
 
-// function my_star(x, y) {
+function my_fire(x, y) {
+  rect(x+7,y+3,7,8.5);
+  rect(x+4,y+2,5,4);
+  rect(x+4,y+5.5,5,4);
+  rect(x+10,y+2,5,4);
+  rect(x+10,y+5.5,5,4);
 
-// }
+
+}
 
 function draw () {
+    if(renderCounter == 0) {
+    background(0);
+  }
+  // let tile_width = 15;
+  // let tile_height = 15;
+
+  // for(let y = 0; y < height; y = y + tile_height){
+  //   for(let x = 0; x < width; x = x + tile_width){
+  //     let pix = sourceImg.get(x,y);
+  //     let mask = maskImg.get(x,y);
+  //     fill(pix);
+  //     stroke(pix);
+
+  //     if(mask[0] >= 0 && mask[0] < 180) {           
+  //       //line(x, y, x+20, y+20);
+  //       //line(x+20, y, x, y+20);  
+  //     }
+
+  //     else if (mask[0] >= 180 && mask[0] < 255) {
+  //       stroke(80);
+  //       strokeWeight(0.1);
+  //       rect(x, y, tile_width, tile_height);
+  //       //line(x + 2.5, y, x + 2.5, y+50); 
+  //     }
+
+  //     else {                                                        
+  //       push();
+  //       rectMode(CENTER);
+  //       //rect(x, y, tile_width, tile_height);
+  //       pop();
+  //     }
+  //   }
+  // }
+
+
+
+
+
   for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 8;
+    let pointSize = 6;
     let halfSize = 180;
+   
     fill(pix);
-    if(mask[0] > 180) {
+
+    if(mask[0] == 0) {
       // rect(x, y, pointSize+6, pointSize);
       // line(x , y, x+pointSize+6, y+pointSize);
 
-      star(x, y, pointSize/4, pointSize, 6);
+      star(x, y, pointSize/1.5, pointSize*1.5, 16);
 
       //my_star(x, y);
     }
-    else {
-      stroke(1);
-
-      triangle(x, y, x+10, y+10,x+20, y+10);    
+    else if (mask[0] = 180) {
+      // stroke(1);
+      fill(pix);
+      my_fire(x-5, y-5);
+      // triangle(x, y, x+10, y+10,x+20, y+10);    
     }
+    // else if (mask[0] = 255) {
+    //   fill(pix);
+    //   star(x, y, pointSize/1.5, pointSize*1.5, 3);
+    //   //rect(x, y, pointSize/2, pointSize/2);
+    //   //ellipse(x, y, pointSize+3, pointSize+3);
+    
+
+  
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 30) {
