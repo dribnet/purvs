@@ -1,3 +1,10 @@
+## FOREVER EVOLVING
+
+---------------------------------
+
+## Final Update
+So my final idea was "Forever Evolving". A statement on how we treat and use technology in society as it constantly becomes obselete due to plan obsolescence or the passage of time. The ArtWork 1 is there to show how technology has grown. The image contains 3 different hand held Nintendo Devicees. Each one gets bigger as time passes and you can see the new features they added. Such as a second screen or in the newest case they even removed the folding aspect. Even then though with the Nintendo Switch teres a new one planned for 2020 making the switch slowly become more devalued. With Artwork 2 its a stack of phones old and new. I stacked the phones with the oldest phones on the bottom and getting newer up until a iphone 8 on the top. This is just a show of how many phones my family has gone through that we even held on to. We go through phones so quickly as a society. The final picture is VR. Something that was ment to be the next big thing but hasnt taken off yet if ever. So I made the look to show how what was ment to be the next thing is already becoming a thing of the past.
+
 ## Progress 2
 Ive finished taking my images and refind all the masks to best fit the image. Iv tried to best portray my idea of Forever Evolving, Trying to show how technology is ever evolving and becomign obselete either by plannec choice or by the passage of time. Its hard to show things so the viewer will see them and recognise that its new technology but becoming old. 
 
