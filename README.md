@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Theme and Development
+Process and Development
 
-I decided to change my second image so the theme of my images were all related and are consistent. My theme that I wanted to communicate is the facial expression and emotion of contentment, so through the setting and body language of each images they protray contentment as they are free from anxiety and responsibility. I also made slight changes in my code, refining my images and playing around with the shapes and fill that make up my images. I really like using squares and rectangles and want to incorporate that into my final. I really like the unorganised look when the squares are drawing an image, especially when there's a variety of colours in one area of a picture. I really wanted the face and body to be the only thing that is visiable so that the eye draws towards that.
+So I just wanted to explore a differece version of using squares and rectangles for my images and I will compare and contrast the difference between this one and the other one to see what works will in a larger scale and also from a distance. I tired with ellipses aswell with this code but the uniformed ellipses along with the squares didn't work will togther and left an obvious lined gap between the person and the background. By keeping it one shape but altered differently so it makes the images look more seamless.
