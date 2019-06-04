@@ -1,4 +1,4 @@
-let sourceImg=null;
+ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
