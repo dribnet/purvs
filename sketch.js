@@ -26,16 +26,13 @@ const tile_width = 6;
 const tile_height = 6;
 
 function draw () {
-  // version 1: just draw all the tiles
   for(let y=0; y<height; y = y + tile_height +2) {
     for(let x=0; x<width; x = x + tile_width +2) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      console.log(pix[1]);
       fill(pix);
-      //rect(x, y, tile_width, tile_height);
       if(mask[0] > 128) {
-        let shade = pix[1];
+        let shade = pix[2];
         fill(shade);
         rect(x, y, tile_width, tile_height);
       }
@@ -53,7 +50,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
