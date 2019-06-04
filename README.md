@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Iteration 4 - Working on the 1st image - I decided to make a orange background rather than something similar to the other images. Reason - want the audience to know that this image shows my pototype making. Even though the image is of a prototpye, audience will see how creative I was being able to make this. Orange is just temporary. Kinda reminds me of a online green screen meme..:D 
+Final iteration - Revisiting the 1st image - so the orange I used did not go well so I decided to go with fully black to make sure the prototype object is the main/spotlight image. 

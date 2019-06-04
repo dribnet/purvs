@@ -22,13 +22,13 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tile_width = 5; //this does not have to be the same as the tile height 
-const tile_height = 10; //this does not have to be the same as the tile width
+const tile_width = 2; //this does not have to be the same as the tile height 
+const tile_height = 5; //this does not have to be the same as the tile width
 const tile_step_x = 9; // tile = how far apart to fill in the space 
 const tile_step_y = 15; // the more increase = the more blocky it gets
 
 function draw () {
-  background(255,128,0);
+  background(0,0,0);
 
   // version 1: just draw all the tiles
   for(let y=0; y<height; y = y + tile_step_y) {
