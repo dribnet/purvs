@@ -2,56 +2,69 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
+let spacing = 3; 
+let squareSize = 6; 
+let triangleSize = 6; 
+let halfSize = squareSize / 2; 
+let halfSize2 = triangleSize / 2; 
+
 let sourceFile = "input_3.jpg";
 let maskFile   = "mask_3.png";
 let outputFile = "artwork_3.png";
 
 function preload() {
-  sourceImg = loadImage(sourceFile);
-  maskImg = loadImage(maskFile);
-}
+sourceImg = loadImage(sourceFile);
+maskImg = loadImage(maskFile);
 
+}
 function setup () {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
-
-  imageMode(CENTER);
   noStroke();
+  imageMode(CENTER);
   background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
-
-const tile_width = 5;
-const tile_height = 5;
-const tile_step_x = 3;
-const tile_step_y = 3;
-
+function convertRgbToHsluv(c) {
+    return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+}
 function draw () {
- for(let y=0; y<height; y = y + tile_step_y) {
-    for(let x=0; x<width; x = x + tile_step_x){
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    
-
-    fill(pix);
-    if(mask[0] > 125) {
-      rect(x, y, tile_step_x, tile_step_y)    }
-    else {
-      ellipse(x, y, tile_width, tile_height);  
+    for(let i=0;i<2000/spacing;i++) {
+      let x = int(i*spacing);
+      let y = int(renderCounter*spacing);
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      if(mask[0] > 100) {
+       
+        fill(pix);
+        
+        if(i%2==0){
+          triangle(x,y-halfSize2,x-halfSize2,y+halfSize2,x+halfSize2,y+halfSize2);
+        }else{
+          triangle(x,y+halfSize2,x-halfSize2,y-halfSize2,x+halfSize2,y-halfSize2);
+        }
+      }
+      else {
+        
+        let dx = floor(random(spacing/5));
+        let dy = floor(random(spacing/5));
+        x = x+dx; y = y+dy;
+        
+        let hsluvColor = convertRgbToHsluv(pix);
+        fillHsluv(0,125, hsluvColor[2]);
+        rect(x-halfSize, y-halfSize, squareSize, squareSize);
+      }
     }
+    renderCounter = renderCounter + 1;
+  if(renderCounter > 1252/spacing) {
+    console.log("Done!")
+    noLoop();
+     // uncomment this to save the result
+    saveArtworkImage(outputFile);
   }
 }
   
-
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
-    console.log("Done!")
-    noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
-  }
-}
 
 function keyTyped() {
   if (key == '!') {
