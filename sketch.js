@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -36,14 +36,15 @@ function draw () {
       let mask = maskImg.get(x, y);
       fill(pix);
       if(mask[0] > 128) {
-        stroke(0);
+        stroke(200);
         rect(x, y, tile_step_x, tile_step_y);
 
       }
       else {
-        stroke(255);
+        stroke(0);
         triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x, y + tile_height);
-        //fill(233, 45, 79, 200);
+        //fill(232, 114, 39, 100);
+        fill(54, 181, 27, 71);
         triangle(x+(tile_width/2), y, x + tile_width, y + tile_height, x + (tile_width*1.5),y);
 
       }
