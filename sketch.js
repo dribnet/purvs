@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "GraveOne.png";
-let maskFile   = "GraveOneMask1.png";
+let sourceFile = "GraveThree.png";
+let maskFile   = "GraveThreeMask1.png";
 let outputFile = "artwork_1.png";
 
 
@@ -26,16 +26,10 @@ function setup () {
 
 }
 
-//function box(x,y,g){
- // fill(gray);
- // rect(0,0,50,50);
-//}
-
 const tile_width = 10;
 const tile_height = 10;
 
-const tile_widthL = 100;
-const tile_heightL = 50;
+
 
 function draw () {
 
@@ -51,6 +45,7 @@ function draw () {
       }
       
       else{
+
 var gray = int(random(0,182));
 
        fill(gray);
@@ -81,7 +76,7 @@ var gray = int(random(0,182));
     console.log("Done!")
     noLoop();
      //uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 

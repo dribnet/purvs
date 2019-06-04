@@ -1,4 +1,4 @@
 ## Creative Coding 2: Custom Pixel
-Initial #6
+Initial #7
 
-Here I have used overlapping ellipses that get their colour from the original pic in a grid method to create the nature and leaves around the gravestone that represent 'life'. I used ellipses for their curved shape and overlapped them to help create a smoother and more unified aesthetic then that I will use for death. For the gravestone which represents death I have used sharp lined squares to contrast with the ellipses.These squares are greyscaled and appear colourless varying from black-white. The overall effect is almost of static like when the TV visuals die or a representation of the static noise you hear over the radio. I think this is an interesting way to symbolise death as it is the 'abscence of life' so its the opposite of how I have represented life (which is curved,coloured,overlapping) and is instead (sharp,straight,colourless).
+Here I have applied the exact same code to my third photo.
