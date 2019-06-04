@@ -1,9 +1,15 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are of random pedestrians around the Wellington CBD and outskirts. I've decided to base my theme around "Urban Isolation" - the idea that despite us being constantly surrounded by people at all times in cities, many are made to feel alone nonethless. It is as if the constant influx of people depersonalizes us and make us feel that much less in touch with everybody around us.
+My final iteration explores the theme of Inner city isolation, through careful observation and contrast. Cities have become the capitals of isolation and as population will only continue to rise, this issue will only become more severe. The mental burden that comes with being isolated carries huge social and medical problems with them. 
 
-I added more complexity to the code in form of rounded squares. These are each represented by the "Innertangle" and "Outertangle" function. Red and blue are contrast to each other.
+Having moved across various large cities across the globe, it has always been difficult for me to adapt to the crushing loneliness that comes, with knowing nobody amongst many. I would often attempt to form new bonds across networks but more often than not realise, that the more people were around me, the more I would feel alienated by them. I soon realise, that the cure is not to form relationships with as many people as possible, but to carve out small sections of good - and hold on to them.
 
-Furthermore I've added a grey mask to my first artwork, although I'm yet to make use of it.
+My Custom Pixels are supposed to illustrate just that, single individuals, drowning or feeling lonely amidst the city rumble. 
 
-At this point it is a very subtle effect. Further iterations are needed.
+I've utilised three masks (grey, black, white). Each is assigned to different values and functions:
+
+White portions are shaded in a transparent yellow. It creates a clear and distinct image, wherefore I've primarily used white masks for my foreground subjects.
+
+Grey aligns ellipses in a grid, which are each filled with the background colour.
+
+Black aligns rectangles in a grid, which are each coloured in two different colours. I've chosen red, as the red pointilism created is very much reminiscient of sunday comic pulp fiction, which in itself was a product of city magazines and newspapers. 

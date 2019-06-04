@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -61,11 +61,19 @@ function draw () {
     let pointSize = 20;
     let halfSize = 20;
     if(mask[0] > 128) {
-      fill(pix,63,20);
+      fill(pix,198,182);
       //noStroke();
       stroke(0, 128, 128, 60);
       //strokeWeight(1);
       innertangle(x, y, pointSize, pointSize);
+    }
+
+    if(mask[0] == 128) {
+      fill(pix);
+      //noStroke();
+      stroke(pix, 189, 135);
+      strokeWeight(1);
+      ellipse(x, y, pointSize/2);
     }
     else {
       fill(pix);
@@ -75,7 +83,25 @@ function draw () {
       outertangle(x, y, halfSize);
     }
   }
+  // pass 2: draw the lines where the mask is white or black
+    
   }
+
+  for(let y=0; y<height; y = y + 1) {
+      for(let x=0; x<width; x = x + 1) {
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        let pointSize = 6;
+        if(mask[0] == 255) {          
+          // let r = 255 - pix[0];
+          // let g = 255 - pix[1];
+          // let b = 255 - pix[2];
+          let g = pix[1];
+          stroke(g/1.75, g/2, g/4);
+          point(x, y);
+        }
+      }
+    }
    renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
