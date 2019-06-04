@@ -3,8 +3,8 @@
 The 3 images I have used are:
 1 - A photo I have taken of my little brother at lorenzen bay, Raglan.
 2 - Sunset at Ngarunui beach, Raglan.
-3 - Power lines in central park, Brooklyn.
+3 - Top of my house.
 
-For my images I will focus on using patterns/shapes created in the masking process to add an interesting element to picture.
+For my images I have focused on abstracting the image by duplicating the silhouette of the subjuct in the photo (done in the masking process) to create a cool and interesting effect which creates a constant flow and brings all the images together when looked at on the whole.
 
-Have started working on my first image now. after playing around with some patterns/shapes I think I will use the silhouette of the subject in the photo instead of just a pattern or shape.
+Have slightly changed my idea from random shapes to duplicating the subjact. Have also changed my 3d photograph because the one before it was simply not working with my code.
