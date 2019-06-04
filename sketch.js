@@ -3,8 +3,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mas_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_3.png";
 
 function preload() {
@@ -57,32 +57,23 @@ for(let y=0; y<height; y = y + tile_step_y) {
         strokeWeight(3);
         rect(x, y, tile_width-3, tile_height-3);
 
-     console.log('grey1 is true');
+ //    console.log('grey1 is true');
 
       }
 //light grey mask
       else if(mask[0] == 180){
         fill(pix);
-      //  stroke(221, 255, 0);
       stroke(203,0,255);
-    //  stroke(255,0,242);
-  //  stroke(255,0,59);
-    //stroke(170,0,255);
+  
 
         strokeWeight(5);
         line(x, y, x+10, y+10);
 
        //console.log('180 is true');
       }
-//dark grey mask
-   else if(mask[0] == 56){
-     stroke(228, 127, 255);
-     strokeWeight(5);
-     line(x, y, x+10, y+10);
-   }
 
 
-      //black mask
+//black mask
       else {
       stroke(0);
       fill(pix);
@@ -99,7 +90,7 @@ for(let y=0; y<height; y = y + tile_step_y) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-// saveArtworkImage(outputFile);
+//saveArtworkImage(outputFile);
   }
 
 
