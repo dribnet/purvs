@@ -1,4 +1,4 @@
 ## Creative Coding 2: Custom Pixel
-Initial #2
+Initial #3
 
-Here I am starting to experiment with applying a grid and diferent shapes to my tiles rather then just using random. So far I have followed along with the changes Tom made by adding for loops into my code and I am now trialing different shapes within these loops to work on getting a effect I like. I am now going to add the mask in and use the else function to seperate the 'life' and 'death' parts of my images.
+Here I have added in an if and else statement so that the black gravestone part of my image and mask which represents death is effected differently to the leaf and white part of my image and mask that represents life. At the moment I have just made it so that there is no seperation between tiles for death, but then 5px seperation between the tiles that represent life. I plan on altering these a lot and experimenting with different ways to differentiate between thelife and death segments but I am glad to have got the code working in a way that seperates them nicely with the mask.

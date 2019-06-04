@@ -22,15 +22,23 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tile_width = 2;
-const tile_height = 200;
+const tile_width = 8;
+const tile_height = 12;
+const tile_width_x = 5;
+const tile_height_y =5;
 
 function draw () {
   for(let y=0; y<height; y = y +tile_height){
     for(let x=0; x<width; x = x+ tile_width){
       let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
        fill(pix);
-       rect(x, y, tile_width, tile_height);
+       if(mask[0] > 128){
+       rect(x, y, tile_width_x, tile_height_y);
+       }
+       else{
+        rect(x,y, tile_width, tile_height);
+       }
     }
   }
 
