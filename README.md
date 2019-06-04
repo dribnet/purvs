@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Using the same technique of stretching the ellipses to amplify the colour as I used in the other images I wanted the stretch to mimic the curves of the clouds to look like waves in the sky. Going further I want to update the mask so the mountains and buildings have a different texture to the sky and clouds. 
+I went and added another colour layer to the map so thay the clouds and the sky and the mountains where seperate textures. For this stage of development I went and made the clouds have a fluffier texture by adding ellipses though the lines. I also made the buildings shift sideways giving them noise to emulate Wellington wind.  
