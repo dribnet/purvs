@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -22,10 +22,10 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tile_width = 8;
-const tile_height = 8;
-const tile_step_x = 10;
-const tile_step_y = 10;
+const tile_width = 6;
+const tile_height = 6;
+const tile_step_x = 7;
+const tile_step_y = 7;
 
 function draw () {
  background(50);
@@ -38,7 +38,7 @@ function draw () {
       rect(x,y,tile_step_x,tile_step_y);
     }
     else{
-      rect(x,y,tile_width,tile_height);
+      ellipse(x,y,tile_width,tile_height);
     }
 
     }
