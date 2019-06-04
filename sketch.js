@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "Denkmal.jpg";
-let maskFile   = "denkmalMask.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "maibaum.jpg";
+let maskFile   = "maibaum.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
 
