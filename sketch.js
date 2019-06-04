@@ -29,17 +29,18 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    stroke(pix);
     if(mask[0] > 128) {
-      let pointSize = 20;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize = 90; //higher the less density lines. I'm wanting it to slightly less to create a sketch effect.
+      ellipse(x, y, pointSize, pointSize); //outside of the syrroundings, draws circle shapes
     }
     else {
-      let pointSize = 5; //if we're drawing rect, it would be really small. More white space. FYI: less filled. The lower the number = less filled.
+      let pointSize = 9; //white space leaving
       let x2 = floor(random(sourceImg.width));
       let y2 = floor(random(sourceImg.height));
-      rect(x, y, pointSize, pointSize);
-      //line(x, y, 10, 10);
-
+     //rect(x, y, pointSize, pointSize);
+    //ellipse(x, y, pointSize, pointSize);
+      line(x, y, x2, y2);    
     }
   }
   renderCounter = renderCounter + 1;
@@ -47,7 +48,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile); //ensures it does not have the save dialog
   }
 }
 
