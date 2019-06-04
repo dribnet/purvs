@@ -8,9 +8,9 @@ let triangleSize = 6;
 let halfSize = squareSize / 2; 
 let halfSize2 = triangleSize / 2; 
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
 sourceImg = loadImage(sourceFile);
@@ -52,7 +52,7 @@ function draw () {
         x = x+dx; y = y+dy;
         
         let hsluvColor = convertRgbToHsluv(pix);
-        fillHsluv(0,125, hsluvColor[2]);
+        fillHsluv(20,125, hsluvColor[2]);
         rect(x-halfSize, y-halfSize, squareSize, squareSize);
       }
     }
