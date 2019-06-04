@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -30,33 +30,90 @@ function draw () {
     let mask = maskImg.get(x,y);
 }
 
+
  //input_1
 
-    const tile_width = 5;
-    const tile_height = 5;
+    //const tile_width = 5;
+    //const tile_height = 5;
 
  //smoke (white)
-    for(let y = 0; y<height; y = y+tile_height){
-    for(let x = 0; x<width; x = x+tile_width){
+    //for(let y = 0; y<height; y = y+tile_height){
+    //for(let x = 0; x<width; x = x+tile_width){
+    //let pix = sourceImg.get(x,y);
+    //let mask = maskImg.get(x,y);
+    //stroke(pix);
+    //noFill();
+    //strokeWeight(1.5);
+    //if(mask[0]>250){
+    //ellipse(x,y,tile_width*1,tile_height*1);
+  //}
+ //black
+    //else {
+    //stroke(pix);
+    //strokeWeight(2);
+    //noFill();
+    //rect(x,y,tile_width*0.7,tile_height*0.7);
+
+  //}
+  //}
+  //}
+
+//input_2
+    
+    const tile_width4 = 4;
+    const tile_height4 = 4;
+
+    for(let y = 0; y<height; y = y+tile_height4){
+    for(let x = 0; x<width; x = x+tile_width4){
+    let pix = sourceImg.get (x, y);
+    let mask = maskImg.get (x, y);
+    stroke(pix);
+    noFill();
+    strokeWeight(2);
+    if(mask[0]<120){
+    rect(x,y,tile_width4*2,tile_height4*2);
+}
+}
+}
+
+    const tile_width1 = 4;
+    const tile_height1 = 4;
+
+    for(let y = 0; y<height; y = y+tile_height1){
+    for(let x = 0; x<width; x = x+tile_width1){
     let pix = sourceImg.get(x,y);
     let mask = maskImg.get(x,y);
     stroke(pix);
+    strokeWeight(2);
+    fill(pix);
+    if(mask[0]>=100 && mask[0]<130){
+    ellipse(x,y,tile_width1*1.5,tile_height1*1.5);
+  }
+  }
+  }
+//background
+    const tile_width3 = 4;
+    const tile_height3 = 4;
+
+    for(let y = 0; y<height; y = y+tile_height3){
+    for(let x = 0; x<width; x = x+tile_width3){
+   let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    stroke(pix);
     noFill();
     strokeWeight(1.5);
-    if(mask[0]>250){
-    ellipse(x,y,tile_width*1,tile_height*1);
-  }
- //black
-    else {
-    stroke(pix);
-    strokeWeight(2);
+    if(mask[0]>240){
     noFill();
-    rect(x,y,tile_width*0.7,tile_height*0.7);
+    triangle(x,y-(tile_height3*2),x+(tile_width3*3),y+(tile_height3*2),x-(tile_width3*3),y+(tile_height3*2)); 
+    
+}
+}
+}
 
-  }
-  }
-  }
-  // input_3
+
+
+
+  //input_3
 
     // smoke
     //const tile_width1 = 12;
