@@ -1,33 +1,29 @@
 /* Set to true to make final high-resolution version */
-const finalVersion = false;
+let finalVersion = true;
 
 /* Default versions of variables */
-let elementSpacing = 20;
-let squareSize = 30;
-let pointSize = 30;
+let elementSpacing = 40;
+let squareSize = 40;
+let colorSquareSize = 40;
 
-/* Override some variables with high-resolution final version */
-if (finalVersion) {
-  elementSpacing = 20;
-  squareSize = 30;
-  pointSize = 30;
+/* Override some variables with high-resolution final version*/
+if (finalVersion){
+  elementSpacing = 5;
+  squareSize = 5;
+  colorSquareSize = 5;
 }
 
-let sourceImg=null;
-
-// Mask for model
-let maskImg=null;
-
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let maskImg2 = null;
+let renderCounter = 0;
 
 let putputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
-
-  //Clothes image
-  cl = loadImage("3.png");
+  maskImg2 = loadImage("mask_3.1.png");
 }
 
 function setup () {
@@ -35,80 +31,67 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();  
-  background(255);
+  noStroke();
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImg2.loadPixels();
 }
-
-const tile_width = 5.5;
-const tile_height = 5.5;
 
 
 function draw () {
-  for(let i=0;i<1080/elementSpacing;i++) {
+  for(let i=0;i<(2000/elementSpacing);i++) {
     let x = int(i * elementSpacing);
     let y = int(renderCounter * elementSpacing);
     let dx = floor(random(elementSpacing/2));
     let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let mask2 = maskImg2.get(x,y);
+    let patternSize = colorSquareSize/100.0;
     let halfSize = squareSize/2;
 
-    strokeWeight(0.3);
-    for(let y = 0; y < height; y = y + tile_height){
-    for(let x = 0; x < width; x = x + tile_width){}
-    }
 
+    // Black (background)
+    if (mask[0] >= 0 && mask[0] < 150) {
+    fill(255);
+    rect(x-halfSize, y-halfSize, squareSize/2, squareSize*2);
 
-    if(mask[0] > 128) {
+    // Gray
+    } else if (mask[0] >= 150 && mask[0] < 255) {
       push();
-      rect(x, y, tile_width, tile_height);
-      pop();
-    }
-
-    else {
-      push();
-      // Add random offsets
-      x = x + dx;
+      x = x + dx; // Random order
       y = y + dy;
-      stroke(pix);
-      // Outline of squares
-      strokeWeight(2);
+      stroke(255, 223, 0);
+      strokeWeight(2); // Outline of square
       noFill();
+   
       rect(x-halfSize, y-halfSize, squareSize, squareSize);   
       pop();
-    }
-  }
 
+    // White (model)
+    } else {
+      fill(pix);
+      let halfSize = squareSize/2;
+      rect(x-halfSize, y-halfSize, colorSquareSize, colorSquareSize);
+      }
+
+  } 
 
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 1920/pointSize) {
+  
+  if(renderCounter > 1920) {
     console.log("Done!")
     noLoop();
 
-    //clothes
-    image(cl,350,630);
+    // saveBlocksImages();
   }
 }
-
-function star(x,y) {
-  push();
-  noStroke();
-  scale(0.2);
-
-  push();
-  fill(255);
-  stroke(255);
-  strokeWeight();
-  ellipse(100, 100, 30, 30);
-}
-
-
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
 }
+
