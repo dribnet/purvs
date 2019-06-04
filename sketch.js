@@ -26,9 +26,11 @@ const tile_width = 8;
 const tile_height = 8;
 const tile_step_x = 8;
 const tile_step_y = 8;
+const tile_step_x2 = 6;
+const tile_step_y2 = 6;
 
-const back_width = 55;
-const back_height = 55;
+
+
 
 
 
@@ -41,6 +43,7 @@ function draw () {
   //background(50);
 
 
+  // first pass
   for(let y=0; y<height; y = y + tile_step_y) {
     for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
@@ -50,7 +53,8 @@ function draw () {
       if(mask[0] == 0) {
         // draw_some_lines(x, y);
         noStroke();
-        ellipse(x, y, tile_width*1.2, tile_height*2.4);
+        let offset = random(-3,3);
+        ellipse(x+offset, y+offset, tile_width*1.5, tile_height*1.5);
   
              
       }
@@ -62,11 +66,29 @@ function draw () {
       //ellipse(x+x2, y+y2, pointSize, pointSize);
       squareBase = map(y, 0, 500, 35, 2);
       squareSize = squareBase + floor(random(3, 15));
+      let offset = random(-3,3);
       rect(x, y, squareSize, squareSize);  
-      }
-      else {
+      } 
+      else if (mask[0] > 80 && mask[0] < 200){
         stroke(255, 204, 0);
-        rect(x, y, tile_width*2, tile_height);
+        fill(255, 204, 0);
+        let offset = random(-3,3);
+        let pointSize = 5
+        rect(x+offset, y+offset, tile_width, tile_height);
+      }
+    }
+  }
+
+  for(let y=0; y<height; y = y + tile_step_y2) {
+    for(let x=0; x<width; x = x + tile_step_x2) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      if (mask[0] > 80 && mask[0] < 200){
+        fill(pix);
+        noStroke();
+        let offset = random(-8,8);
+        let pointSize = 2;
+        ellipse(x+offset, y+offset, tile_width, tile_height);
       }
     }
   }
