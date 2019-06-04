@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Iteration 3 - Worked on the 2nd image. Since the second image is based on my wooden block toy project, I thought it would be great to implement the tile/pixel art code effect. Looks great but seems a bit blurry-ish? can't confirm..
+Iteration 4 - Working on the 1st image - I decided to make a orange background rather than something similar to the other images. Reason - want the audience to know that this image shows my pototype making. Even though the image is of a prototpye, audience will see how creative I was being able to make this. Orange is just temporary. Kinda reminds me of a online green screen meme..:D 
