@@ -16,32 +16,13 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  background(175);
+  background(100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-  // const tile_width = 5.5;
-  // const tile_height = 5.5;
-
 function draw () {
 
-  // for(let i=0;i<5000; i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   let pointSize = 10;
-  //   let halfSize = 10;
-  //   fill(pix);
-  //   if(mask[0] > 128) {
-  //     ellipse(x, y, 10, 10);
-  //     // rect(x-5, y, 10, 5);
-  //   }
-  //   else {
-  //     rect(x, y, 5, 30);    
-  //   }
-  // }
   let tile_width = 5.5;
   let tile_height = 5.5;
   strokeWeight(0.3);
@@ -51,42 +32,55 @@ function draw () {
       let mask = maskImg.get(x,y);
       fill(pix);
       stroke(pix);
-      if(mask[0] >= 0 && mask[0] < 128) {
+        let from = color(pix);
+        let to = color(67, 114, 168); 
+        let r = random(0, 1);
+        let random_color = lerpColor(from, to, r);
+
+      if(mask[0] >= 0 && mask[0] < 128) {           /// this is the background
         line(x, y, x+20, y+20);
         line(x+20, y, x, y+20);  
       }
 
-      else if (mask[0] >= 128 && mask[0] < 203) {
-        let tile_width = 5;
-        let tile_height = 50;
-        stroke(80);
-        strokeWeight(0.1);
-        rect(x, y, tile_width, tile_height);
-        line(x + 2.5, y, x + 2.5, y+50); 
-      }
-
-      else if (mask[0] >= 203 && mask[0] < 212) {
-        let tile_width = 5;
-        let tile_height = 50;
-        stroke(80);
-        strokeWeight(0.1);
-        rect(x, y, tile_width, tile_height);
-        line(x + 2.5, y, x + 2.5, y+50); 
-      }
-
+      // else if (mask[0] >= 128 && mask[0] < 203) {
+      //   tile_width = 5.5;
+      //   tile_height = 5.5;
+      //   stroke(80);
+      //   strokeWeight(0.1);
+      //   rect(x, y, tile_width, tile_height);
+      //   line(x + 2.5, y, x + 2.5, y+50); 
+      // }
+  
       else if (mask[0] >= 212 && mask[0] < 255) {
-        let tile_width = 5.5;
-        let tile_height = 5.5;
+        // tile_width = 5.5;
+        // tile_height = 5.5;
         stroke(80);
         strokeWeight(0.1);
         ellipse(x, y, tile_width, tile_height);
         line(x + 2.5, y, x + 2.5, y+50); 
       }
 
+      else if (mask[0] >= 203 && mask[0] < 212) {   ////// this is the frames
+        // tile_width = 5.5;
+        // tile_height = 5.5;
+        stroke(random_color);
+        strokeWeight(0.1);
+        push()
+        ellipseMode(CENTER);
+        fill(random_color)
+        ellipse(x, y, tile_width+3, tile_height+3);
+        pop()
+        //rect(x, y, tile_width, tile_height);
+        line(x + 2.5, y, x + 2.5, y+50); 
+      }
+
       else {
-        let tile_width = 5.5;
-        let tile_height = 5.5;
+        // tile_width = 5.5;                           /// rects inside the frame
+        // tile_height = 5.5;
+        push();
+        rectMode(CENTER);
         rect(x, y, tile_width, tile_height);
+        pop();
       }
     }
   }
@@ -97,7 +91,7 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     if(mask[0] >= 128 && mask[0] < 203) {
-      fill(50, 100);
+      fill(pix);
       ellipse(x, y, 10, 10);
     }
   }
