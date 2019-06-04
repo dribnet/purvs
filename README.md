@@ -1,5 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
+Pressed
+
+
+
 Touch-ups:
 I decided to clean up my masks and also added an outline for all foreground objects. This makes them stand out from the background even more. The background has a tranparent layer over-top of it that chooses a random color between black and white and creates this "TV-static" effect. This obscures the background and dilutes it's colour, making it seem non-important and exendable whilst leaving the forground image(s) with all the importance.
 
