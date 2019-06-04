@@ -4,9 +4,9 @@ let renderCounter=0;
 
 
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 const t1 = 10;
 
@@ -70,12 +70,21 @@ function draw () {
       
       
 
-      if (mask[0] >= 180 && mask[0] < 255) {
+      if (mask[0] >=180 && mask[0] <=255) {
         stroke(80);
         strokeWeight(0.1);
-        my_fire(x, y, tile_width, tile_height);
-        //line(x + 2.5, y, x + 2.5, y+50); 
+        ellipse(x, y, tile_width, tile_height);
+        line(x + 25, y, x + 25, y+50); 
       }
+      else if(mask[0] == 0) {
+      stroke(10);
+      rect(x-2, y-2, tile_width+10, tile_height+10);
+      // line(x , y, x+pointSize+6, y+pointSize);
+
+      //star(x, y, pointSize/1.5, pointSize*1.5, 3);
+
+      //my_star(x, y);
+    }
 
       
       
@@ -93,27 +102,23 @@ function draw () {
    
     fill(pix);
 
-    if(mask[0] == 0) {
-      // rect(x, y, pointSize+6, pointSize);
-      // line(x , y, x+pointSize+6, y+pointSize);
-
-      star(x, y, pointSize/1.5, pointSize*1.5, 6);
-
-      //my_star(x, y);
-    }
-    else if (mask[0] = 180) {
+    
+    if (mask[0] == 255) {
       // stroke(1);
       fill(pix);
       my_fire(x-5, y-5);
       // triangle(x, y, x+10, y+10,x+20, y+10);    
     }
-    // else if (mask[0] = 255) {
-    //   fill(pix);
-    //   star(x, y, pointSize/1.5, pointSize*1.5, 3);
-    //   //rect(x, y, pointSize/2, pointSize/2);
-    //   //ellipse(x, y, pointSize+3, pointSize+3);
-    
+    else if (mask[0] == 180) {
+      push();
+      fill(pix);
+      //fill(0);
+       //stroke(50);
 
+      triangle(x, y, x+pointSize, y+pointSize,x+pointSize+50, y+pointSize+14);  
+      pop();
+    
+}
   
   }
 
