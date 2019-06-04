@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "RadlWeg.jpg";
-let maskFile   = "RadlWegMask.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "denkmal.jpg";
+let maskFile   = "denkmalMask.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
 
@@ -67,7 +67,7 @@ function draw () {
       else if (mask[0]>199 && mask[0]<201) {
         stroke(255);
         strokeWeight(1);
-        ellipse(x,y,30,30);
+        ellipse(x,y,15,15);
       }
       else if (mask[0]>250) {
         stroke(pixl);
@@ -81,16 +81,34 @@ function draw () {
       }
       else{
         stroke(pixl);
-        rect(x,y,chunkWidth,chunkHeight);
-        // triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
-        // for (let i = 0; i <15; i++) {
-        //   let startX = x;
-        //   let startY = y+i;
-        //   let finX = x+i;
-        //   let finY = y;
-        //   line(x,startY,finX,y);
-        //   let i =i+1;
-        // }
+        strokeWeight(0.5);
+        //rect(x,y,chunkWidth,chunkHeight);
+        // let cpx= x+(chunkWidth/2);
+        // let cpy= y+(chunkHeight/2);
+         let hc = chunkHeight/2;
+        // let xmax= x+chunkHeight;
+        // let ymax= y+chunkWidth;
+        
+        // line(x,y+hc,cpx,cpy);
+        // line(x,y,cpx,cpy);
+        // line(x,ymax,cpx,cpy);
+        // line(cpx,y,cpx,cpy);
+        // line(cpx,ymax,cpx,cpy);
+        // line(cpx,cpy,xmax,ymax);
+        // line(cpx,cpy,xmax,y+hc);
+        // line(cpx,cpy,xmax,y);
+
+        for (let i =0; i < 4; i++) {
+          let x1 = x-floor(random(hc));
+          let x2 = x-floor(random(hc));
+          let y1 = y+floor(random(hc));
+          let y2 = y-floor(random(hc));
+          line(x1,y2,x,y);
+          line(x1,y1,x,y);
+          line(x,y,x2,y2);
+          line(x,y,x2,y1);
+        }
+
       }
     }
   }
