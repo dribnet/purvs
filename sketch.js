@@ -16,7 +16,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
+
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -28,10 +28,11 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 30;
+     let pointSize = 30;
     let pointSize2 = 2;
     let pointSize3 = 5;
     let halfSize = 50;
+    noStroke();
     fill(pix);
     if(mask[0] > 128) {
       ellipse(x, y, pointSize3, pointSize3);
@@ -45,7 +46,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
