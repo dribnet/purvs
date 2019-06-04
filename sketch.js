@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "maibaum.jpg";
-let maskFile   = "maibaum.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "Denkmal.jpg";
+let maskFile   = "denkmalMask.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
 
@@ -79,6 +79,7 @@ function draw () {
       }
       else if (mask[0]>254) {
         stroke(pixl);
+        strokeWeight(2);
         // strokeWeight(2);
         line(x,y,x+chunkWidth,y+chunkHeight);
         line(x,y,x2,y2);
