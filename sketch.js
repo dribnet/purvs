@@ -26,6 +26,8 @@ function setup () {
 const tile_width = 10;
 const tile_height = 10;
 
+const tile_widthL = 5;
+const tile_heightL = 100;
 
 function draw () {
 
@@ -37,11 +39,14 @@ function draw () {
       fill(pix);
        
       if(mask[0] > 128){
+         let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
        ellipse(x, y, tile_width, tile_height);
       }
       
       else{
-        ellipse(x,y, tile_width, tile_height);
+
+        rect(x,y, tile_widthL, tile_heightL);
       }
     }
   }
@@ -68,7 +73,7 @@ function draw () {
     console.log("Done!")
     noLoop();
      //uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 

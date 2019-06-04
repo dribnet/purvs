@@ -1,4 +1,4 @@
 ## Creative Coding 2: Custom Pixel
-Initial #4
+Initial #5
 
-Experimenting with adding an overlap on my pixels rather then even spacing or even empty space between.
+Here I was playing with using both a grid and tile method to determine one segment of the mask(gravestone) and then using the original random method to determie the other segment of the image (death). I quite lie the ffect of this because using the random to represent the life rather then a grid gives a nice sort of organic chaos to the leaves, whereas the more structured grid technique creates that cleaner hard edged look I wanted for death.
