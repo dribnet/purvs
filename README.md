@@ -1,8 +1,13 @@
 ## Creative Coding 2: Custom Pixel - Adoration
 
-After a lot of thought I have decided that the theme of my project will be Adoration. The focus of my three images are my dog, Abu. The purpose of images in terms of being displayed would be to remind people of the things that matter most to them, whether that be a loved one or family pet.
 
-For the background (Black mask) I decided to go for a red background that symbolises love with a triangular pattern over the top with diagonal lines striking through them.
+Final
 
-The middle image that I currently have will not be used as I have a better image. 
+I have updated my middle image with one that I am far more happy with.
+
+The main theme of my project is Adoration. It is based around my dog Abu and the main purpose of these images are to invoke feelings of love and happiness. It is to remind people of the things that truly matter most to them, these are typically loved ones and pets.
+
+For the focal points I have overlapping ellipses that make a clear image. outside of the image of my dog I have also placed hearts around the background to drive home the feeling of love and comfort.
+
+The background itsef consists of a small triangular pattern with diagonal lines striking through them on a light red background that also represents love.
 
