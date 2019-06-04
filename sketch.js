@@ -29,7 +29,7 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 300;
-    let halfSize = 15;
+    let halfSize = 8;
     let smallSize = 1
     fill(pix);
     if(mask[0] > 128) {
