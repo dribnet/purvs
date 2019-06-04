@@ -99,10 +99,10 @@ function draw () {
         // line(cpx,cpy,xmax,y);
 
         for (let i =0; i < 4; i++) {
-          let x1 = x-floor(random(hc));
-          let x2 = x-floor(random(hc));
-          let y1 = y+floor(random(hc));
-          let y2 = y-floor(random(hc));
+          let x1 = x-floor(random(chunkWidth));
+          let x2 = x-floor(random(chunkWidth));
+          let y1 = y+floor(random(chunkHeight));
+          let y2 = y-floor(random(chunkHeight));
           line(x1,y2,x,y);
           line(x1,y1,x,y);
           line(x,y,x2,y2);
