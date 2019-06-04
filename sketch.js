@@ -2,15 +2,15 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 var edgeList = [];
-var lineWidth = 100;
+var lineWidth = 80;
 var lineLimit = 20;
 var lineVar = 40;
-var border = 20;
+var border = 40;
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -43,50 +43,33 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let col = color(pix[0],pix[1],pix[2],150 - opacity);
     fill(col);
-    if(x < border/2 || x > width - border/2 || y < border/2 || y > height - border/2){ // make faint border
-      if(random() > 0.5){
-        fill(255,10);
-      }
-    }
-    else if(x < border || x > width - border || y < border || y > height - border){
-      if(random() > 0.5){
-        fill(255,5);
-      }
-    }
-    else if(x < border*2 || x > width - border*2 || y < border*2 || y > height - border*2){
-      if(random() > 0.5){
-        fill(255,3);
+    if(x < border || x > width - border || y < border || y > height - border){ // make faint border
+      if(random() > 0.001){
+        fill(255,50);
       }
     }
     pointSize -= 0.00025;
     opacity += 0.00175;
-
     let mask = maskImg.get(x, y);
-
-
     if(mask[0] > 128) {
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      // col = color(pix[0],pix[1],pix[2],150);
-      // fill(col);
-      rect(x, y, pointSize, pointSize/4);
+      rect(x-pointSize/2, y-pointSize/2, pointSize, pointSize/4);
     }
   }
 
   drawLines();
 
   noStroke();
-  fill(255,50);
+  fill(255,40);
   rect(0,0,width,height);
 
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 1) {
-    console.log("Done!")
-    noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
-  }
+
+  console.log("Done!")
+  noLoop();
+  // uncomment this to save the result
+  // saveArtworkImage(outputFile);
 }
 
 function keyTyped() {
@@ -101,12 +84,12 @@ function drawLines(){
   for(var i = 0; i < 1252; i ++){
     let index = 0;
     start = 0;
-    for (var j = 0; j < 704; j++){
+    for (var j = 0; j < 704; j++){ // if found start of edge
       if(edgeList[i][j] == -1){
         start = j;
       }
-      else if(edgeList[i][j] == 1){
-        for(var k = lineWidth; k < j - start-lineWidth; k += lineWidth){
+      else if(edgeList[i][j] == 1){ // if found end of edge
+        for(var k = lineWidth ; k < j - start-lineWidth*2; k += lineWidth){
           let rand = random(lineVar);
           let lineStart = start + k - lineLimit - rand;
           let lineEnd = start + k + lineWidth + lineLimit + rand;
@@ -131,9 +114,8 @@ function drawLines(){
           rect(lineStart,i-2,lineEnd - lineStart, 4);
           let r = random();
           let count = 0;
-          while(r < 0.6){
+          while(r < 0.6){ // creates a paint stroke with random height
             rect(lineStart, i-2 + count*4, lineEnd-lineStart+random(lineWidth/3),4);
-
             count++;
             r = random();
           }
