@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Process 4:
+Final:
 
-For my first picture, I think that the background is too empty and blank. The original background of this picture has stairs behind the piano, but the triangles made the details of the background dissapeared. Therefore, I have the idea of showing the details of the background by drawing it. After I experiment this, I found that the hand drawing part doesn't seem really nice with the pixels. When three pictures are stick together, the drawing doesn't match with the other two pictures. So I decided not to add the hand drawing background to my final pictures.
+These are my three final pixel pictures. The theme is Street Music. This idea was inspired by street artist. I got this idea when I was walking around the waterfront and I saw a lot of the street artist playing different instruments. Another inspiration was from the public piano in waterfront. I saw the people passing by and starting to play the piano. Everyone can show their talents and also have their own music stage anywhere and anytime. This is how I got this idea. As for the design of my pixels, I have tried to use different shapes and different ways to present my pictures. Overall, I am satisfied with my final output.

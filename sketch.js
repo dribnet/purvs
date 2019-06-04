@@ -9,7 +9,6 @@ let outputFile = "artwork_1.png";
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
-  draw1 = loadImage('drawing_1.png');
 }
 
 function setup () {
@@ -37,7 +36,6 @@ function draw () {
       triangle (x, y, pointSize, pointSize, x+4, y+5);
     }
 
-    image(draw1, pointSize, pointSize*1.45);
   // // input_2
   // //   person
     // if(mask[0] >= 255) {
@@ -281,7 +279,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
