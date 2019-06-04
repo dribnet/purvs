@@ -1,4 +1,5 @@
 ## Creative Coding 2: Custom Pixel
+## "Offshore"
 
 The images I chose are some pictures I've taken of different beaches over time. I chose the beach because I liked the idea that each photo would be of the same sea, no matter where I took it in New Zealand. All the photos are of places I've personally been and I wanted to explore the theme of memories through them. The rendered images are all washed out and white around the edges to represent how I remember these pictures, even though the original images capture these places perfectly. My two different rendering types are oil painting-esque, soft colouring and another style that is supposed to show through like line paint strokes.
 
