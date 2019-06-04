@@ -4,7 +4,7 @@ let renderCounter = 0;
 
 let sourceFile = "input_3.jpg";
 let maskFile = "mask_3.png";
-let outputFile = "artwork_2.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,7 +17,7 @@ function setup() {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
@@ -54,18 +54,21 @@ function draw_some_lines(x, y) {
 
 function draw() {
   randomSeed(99);
-  background(50);
+  background(220);
   //phonebackground
   for (let y = 0; y < height; y = y + tile_step_y) {
     for (let x = 0; x < width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
+    
 
-      fill(pix);
+
+     // console.log(pix);
+
       stroke(pix);
-
+      fill(pix);
       if (mask[0] > 85 && mask[0] < 170) {
-        draw_some_lines(x, y);
+         draw_some_lines(x, y);
       }
 
     }
@@ -77,10 +80,15 @@ function draw() {
     for (let x = 0; x < width; x = x + tile_step_x / 14) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
+ 
 
       if (mask[0] > 170) {
-        fill(pix);
-                rect(x + random(-10, 10), y + random(-10, 10), 2, 2);
+        noStroke(pix[1]);
+        fill(pix[1]);
+          // stroke(pix);
+        // fill(pix);
+      
+        rect(x + random(-10, 10), y + random(-10, 10), 2, 2);
       }
 
     }
@@ -95,9 +103,10 @@ function draw() {
 
 
       if (mask[0] < 85) {
+        stroke(pix);
         fill(pix);
 
-        rect(x, y, tile_width1, tile_height1);;
+         rect(x, y, tile_width1, tile_height1);;
       }
 
     }
@@ -106,7 +115,7 @@ function draw() {
 }
 
 renderCounter = renderCounter + 1;
-if (renderCounter > 3) {
+if (renderCounter > 5) {
   console.log("Done!")
   noLoop();
   //uncomment this to save the result
