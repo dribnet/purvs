@@ -22,40 +22,42 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tile_width = 10;
+const tile_width = 5;
 const tile_height = 5;
-const tile_step_x = 5;
+const tile_step_x = 10;
 const tile_step_y = 10;
 
 function draw_some_lines(x, y) {
   for(let i=0; i < 10; i=i+1) {
-    let dx = random (-10, 10);
-    let dy = random (-10, 10);
+    let dx = random (-100, 100);
+    let dy = random (-100, 100);
+    let dx1 = random (-100, 100);
+    let dy1 = random (-100, 100);
     let coin_flip = random([0, 1]);
     if (coin_flip == 0) {
       stroke(0);
     }
     else {
-      stroke(0);
+      stroke(255);
     }
-    draw_some_line(x, y, x+dx, y+dy);
+    line(x+dx1, y+dy1, x+dx, y+dy);
   }
 }
 
 function draw () {
  for(let y=0; y<height; y = y + tile_step_y) {
- 	for(let x=0; x<width; x = x + tile_step_x){
+  for(let x=0; x<width; x = x + tile_step_x){
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     
 
     fill(pix);
     stroke(pix);
-    if(mask[0] > 100) {
-      draw_some_lines(x, y, tile_width, tile_height);    
+    if(mask[0] = 0) {
+      ellispe(x, y);    
     }
     else {
-      draw_some_line(x, y, tile_width, tile_height);  
+     line(x, y, tile_width, tile_height);  
     }
   }
 }
@@ -67,7 +69,7 @@ function draw () {
     noLoop();
     // uncomment this to save the result
     
-     // saveArtworkImage(outputFile);
+      saveArtworkImage(outputFile);
   }
 }
 
