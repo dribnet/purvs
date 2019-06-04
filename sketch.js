@@ -58,7 +58,7 @@ for(let x =0; x<height; x = x + tile_step_x){
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
