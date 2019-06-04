@@ -81,8 +81,16 @@ function draw () {
       }
       else{
         stroke(pixl);
-        //rect(x,y,chunkWidth,chunkHeight);
-        triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
+        rect(x,y,chunkWidth,chunkHeight);
+        // triangle(x-chunkWidth,y+chunkHeight,x,y,x+chunkWidth,y+chunkHeight); 
+        // for (let i = 0; i <15; i++) {
+        //   let startX = x;
+        //   let startY = y+i;
+        //   let finX = x+i;
+        //   let finY = y;
+        //   line(x,startY,finX,y);
+        //   let i =i+1;
+        // }
       }
     }
   }
