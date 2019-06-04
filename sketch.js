@@ -57,48 +57,39 @@ function draw () {
     if(renderCounter == 0) {
     background(0);
   }
-  // let tile_width = 15;
-  // let tile_height = 15;
+  let tile_width = 5;
+  let tile_height = 5;
 
-  // for(let y = 0; y < height; y = y + tile_height){
-  //   for(let x = 0; x < width; x = x + tile_width){
-  //     let pix = sourceImg.get(x,y);
-  //     let mask = maskImg.get(x,y);
-  //     fill(pix);
-  //     stroke(pix);
+  for(let y = 0; y < height; y = y + tile_height){
+    for(let x = 0; x < width; x = x + tile_width){
+      let pix = sourceImg.get(x,y);
+      let mask = maskImg.get(x,y);
+      fill(pix);
+      stroke(pix);
 
-  //     if(mask[0] >= 0 && mask[0] < 180) {           
-  //       //line(x, y, x+20, y+20);
-  //       //line(x+20, y, x, y+20);  
-  //     }
+      
+      
 
-  //     else if (mask[0] >= 180 && mask[0] < 255) {
-  //       stroke(80);
-  //       strokeWeight(0.1);
-  //       rect(x, y, tile_width, tile_height);
-  //       //line(x + 2.5, y, x + 2.5, y+50); 
-  //     }
+      if (mask[0] >= 180 && mask[0] < 255) {
+        stroke(80);
+        strokeWeight(0.1);
+        my_fire(x, y, tile_width, tile_height);
+        //line(x + 2.5, y, x + 2.5, y+50); 
+      }
 
-  //     else {                                                        
-  //       push();
-  //       rectMode(CENTER);
-  //       //rect(x, y, tile_width, tile_height);
-  //       pop();
-  //     }
-  //   }
-  // }
+      
+      
+    }
+  }
 
 
-
-
-
-  for(let i=0;i<2000;i++) {
+ for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 6;
-    let halfSize = 180;
+    let pointSize = 5;
+    let halfSize = 10;
    
     fill(pix);
 
@@ -106,7 +97,7 @@ function draw () {
       // rect(x, y, pointSize+6, pointSize);
       // line(x , y, x+pointSize+6, y+pointSize);
 
-      star(x, y, pointSize/1.5, pointSize*1.5, 16);
+      star(x, y, pointSize/1.5, pointSize*1.5, 6);
 
       //my_star(x, y);
     }
@@ -125,12 +116,15 @@ function draw () {
 
   
   }
+
+
+ 
   renderCounter = renderCounter + 1;
   if(renderCounter > 30) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
