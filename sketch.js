@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -74,7 +74,7 @@ function draw_note (x, y, pix) {
     translate(x,y);
     colorMode(HSB);
     stroke(pix);
-    strokeWeight(0.5);
+    strokeWeight(0.8);
 
     beginShape();
       curveVertex(-4,-3);
@@ -111,7 +111,7 @@ function draw_dollar_sign (x, y, pix){
     translate (x,y);
     colorMode(HSB);
     stroke(pix);
-    strokeWeight(0.5);
+    strokeWeight(0.8);
 
     beginShape();
       curveVertex(2,-2);
@@ -208,19 +208,15 @@ function draw () {
 
       //GREY MASK ~ billboard
       if(mask[0] > 100 && mask[0] <= 200){
-        var die = int(random(0, 60));
+        var die = int(random(0, 70));
         if (die == 0) {
-          var opacity = int(random(0, 102));
-          var scaling = random(0.2, 0.45);
           draw_dollar_sign (x, y, pix);    
         }     
      }
 
       if(mask[0] > 100 && mask[0] <= 200){
-        var die = int(random(0, 60));
+        var die = int(random(0, 70));
         if (die == 0) {
-          var opacity = int(random(0, 102));
-          var scaling = random(0.2, 0.45);
           draw_note (x, y, pix);      
         }     
      }
