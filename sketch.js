@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,11 +23,11 @@ function setup () {
 
 
 }
-  const tile_width5 = 2.8;
-  const tile_height5 =2.8;
+  const tile_width5 = 3;
+  const tile_height5 =3;
 
-  const tile_width4 = 3;
-  const tile_height4 = 3;
+  const tile_width4 = 2.9;
+  const tile_height4 = 2.9;
 
   const tile_width3 = 3.5;
   const tile_height3 =3.5;
@@ -35,8 +35,8 @@ function setup () {
   const tile_width2 = 3.6;
   const tile_height2 = 3.6;
 
-  const tile_width1 = 3.7;
-  const tile_height1 =3.7;
+  const tile_width1 = 2.52;
+  const tile_height1 =2.52;
 
   const tile_step_x = 3.5;
   const tile_step_y = 3.5;
@@ -50,22 +50,22 @@ function setup () {
     let mask = maskImg.get(x, y);
 
     fill(pix);
-    if(mask[0] >= 0 && mask[0] < 36) {
-     ellipse(x, y, tile_width1, tile_height1);
+    if(mask[0] >= 0 && mask[0] < 51) {
+     rect(x, y, tile_width1, tile_height1);
     }
-    else if (mask[0] >= 36 && mask[0] < 72) {
+    else if (mask[0] >= 51 && mask[0] < 102) {
      ellipse(x, y, tile_width2, tile_height2);
     }
 
-    else if (mask[0] >= 72 && mask[0] < 108)  {
+    else if (mask[0] >= 102 && mask[0] < 153)  {
      ellipse(x, y, tile_width3, tile_height3);
     }
 
-    else if (mask[0] >= 108 && mask[0] < 144) {
+    else if (mask[0] >= 153 && mask[0] < 204) {
      ellipse(x, y, tile_width4, tile_height4);
     }
 
-    else if (mask[0] >= 144 && mask[0] < 255) {
+    else if (mask[0] >= 204 && mask[0] < 255) {
      ellipse(x, y, tile_width5, tile_height5);
     }
     }
