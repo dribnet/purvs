@@ -64,7 +64,7 @@ function draw () {
         fill(pixl)
         rect(x,y,chunkWidth,chunkHeight);
       } 
-      else if (mask[0]>151 && mask[0]<201) {
+      else if (mask[0]>199 && mask[0]<201) {
         stroke(255);
         strokeWeight(1);
         ellipse(x,y,30,30);
@@ -86,23 +86,6 @@ function draw () {
       }
     }
   }
-  //RANDOMCODEFORBURGENLAND
-  // for(let i=0;i<2000;i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   let pointSize = 20;
-  //   let halfSize = 50;
-  //   fill(pix);
-  //   if(mask[0] > 128) {
-  //     noStroke();
-  //     rect(x,y,20,20);
-  //   } else {
-  //     noStroke();
-  //     ellipse(x, y, pointSize, pointSize);
-  //   }
-  // }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
