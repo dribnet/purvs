@@ -15,29 +15,24 @@ if (finalVersion){
 
 let sourceImg = null;
 let maskImg = null;
-let maskImg2 = null;
 let renderCounter = 0;
 
-let putputFile = "artwork_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage("input_3.jpg");
   maskImg = loadImage("mask_3.png");
-  maskImg2 = loadImage("mask_3.1.png");
 }
 
 function setup () {
   let main_canvas = createCanvas(704, 1252);
   main_canvas.parent('canvasContainer');
-
   imageMode(CENTER);
   noStroke();
   background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  maskImg2.loadPixels();
 }
-
 
 function draw () {
   for(let i=0;i<(2000/elementSpacing);i++) {
@@ -47,15 +42,14 @@ function draw () {
     let dy = floor(random(elementSpacing/2));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let mask2 = maskImg2.get(x,y);
     let patternSize = colorSquareSize/100.0;
     let halfSize = squareSize/2;
 
-
     // Black (background)
-    if (mask[0] >= 0 && mask[0] < 150) {
+    if (mask[0] >= 0 && mask[0] < 64) {
     fill(255);
     rect(x-halfSize, y-halfSize, squareSize/2, squareSize*2);
+
 
     // Gray
     } else if (mask[0] >= 150 && mask[0] < 255) {
@@ -63,11 +57,12 @@ function draw () {
       x = x + dx; // Random order
       y = y + dy;
       stroke(255, 223, 0);
-      strokeWeight(2); // Outline of square
-      noFill();
+      strokeWeight(3); // Outline of square
+      fill(255);
    
       rect(x-halfSize, y-halfSize, squareSize, squareSize);   
       pop();
+
 
     // White (model)
     } else {
