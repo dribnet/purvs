@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "GraveOne.png";
-let maskFile   = "GraveOneMask1.png";
+let sourceFile = "GraveThree.png";
+let maskFile   = "GraveThreeMask1.png";
 let outputFile = "artwork_3.png";
 
 
@@ -57,7 +57,7 @@ var gray = int(random(0,182));
     console.log("Done!")
     noLoop();
      //uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
