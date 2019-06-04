@@ -16,62 +16,72 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(255);
+  //noStroke();
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 4;
-const tile_height = 6;
-const tile_step_x = 6;
-const tile_step_y = 10;
+const step_y = 10;
+const step_x = 10;
+
+function outertangle(x,y,size) {
+  push();
+  stroke(0, 255, 255);
+  strokeWeight(1);
+  rect(5+x,5+y,size/10, size/20,20);
+  pop();
+  
+  stroke(178,34,34);
+  strokeWeight(1);
+  rect(x,y,size/x, size/y,20);
+  rect(5+x,5+y,size/5, size/10,20);
+  
+}
+
+function innertangle(x,y,size) {
+  rect(5+x,5+y,size/10, size/20,20);
+  
+  push();
+  rect(x,y,size/x, size/y,20);
+  rect(5+x,5+y,size/5, size/10,20);
+  rect(5+x,5+y,size/2, size/5,20);
+  pop();
+  
+}
+
+
 
 function draw () {
-  background(50);
-
-  // version 1: just draw all the tiles
-  for(let y=0; y<height; y = y + tile_step_y) {
-    for(let x=0; x<width; x = x + tile_step_x) {
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix);
-      if(mask[0] > 128) {
-        rect(x, y, tile_step_x, tile_step_y);
-      }
-      else {
-        rect(x, y, tile_width, tile_height);
-      }
-    }
-  }
-
-/*
-  for(let i=0;i<1000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
+    for (let y=0; y<height; y= y + step_y) {
+    for (let x=0; x<width; x = x + step_x) {
+      let pix = sourceImg.get(x,y);
+      let mask = maskImg.get(x,y);
+      
+    let pointSize = 20;
+    let halfSize = 20;
     if(mask[0] > 128) {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+      fill(pix,63,20);
+      //noStroke();
+      stroke(0, 128, 128, 60);
+      //strokeWeight(1);
+      innertangle(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 2;
-      let x2 = floor(random(sourceImg.width));
-      let y2 = floor(random(sourceImg.height));
-      // rect(x, y, pointSize, pointSize);
-      line(x, y, x2, y2);    
+      fill(pix);
+      noStroke();
+      rect(x, y, halfSize, halfSize);
+      fill(random(0,255), 150);
+      outertangle(x, y, halfSize);
     }
   }
-*/
-  renderCounter = renderCounter + 1;
+  }
+   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
@@ -80,3 +90,8 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+
+
+
+
+

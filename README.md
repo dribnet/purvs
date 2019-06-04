@@ -2,6 +2,8 @@
 
 The images above are of random pedestrians around the Wellington CBD and outskirts. I've decided to base my theme around "Urban Isolation" - the idea that despite us being constantly surrounded by people at all times in cities, many are made to feel alone nonethless. It is as if the constant influx of people depersonalizes us and make us feel that much less in touch with everybody around us.
 
-Thus when picking my subjects I wanted to focus on concepts of distances, through rack focus, as well as portraying them in contrast to something. This could be other groups of people or large empty spaces - anything that further emphasizes my theme.
+I added more complexity to the code in form of rounded squares. These are each represented by the "Innertangle" and "Outertangle" function. Red and blue are contrast to each other.
 
-The code utilizes a simple background grid so far, and simply blurs out the foreground. Although I'm working on making the code more complex, as well as making the foreground stand out more from the background
+Furthermore I've added a grey mask to my first artwork, although I'm yet to make use of it.
+
+At this point it is a very subtle effect. Further iterations are needed.
