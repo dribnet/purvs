@@ -2,8 +2,8 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
 let outputFile = "artwork_1.png";
 
 function preload() {
@@ -37,7 +37,7 @@ function draw () {
       noFill();
       stroke(pix);
       strokeWeight(1);
-      ellipse (x, y, 25, 75);
+      rect (x, y, 100, 75);
     }
 
     else if(mask[0] == 0) {
@@ -53,7 +53,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
