@@ -33,159 +33,209 @@ angleMode(DEGREES)
  
 }
 
+  //triangle long
+  function wild (x,y){
     
 
-// function draw () {
-//   for(let i=0;i<5000;i++) {
-//     let x = floor(random(sourceImg.width));
-//     let y = floor(random(sourceImg.height));
-//     let pix = sourceImg.get(x, y);
-//     let mask = maskImg.get(x, y);
-//     let pointSize = 10;
-//     let halfSize = 50;
-//     fill(pix);
-//     if(mask[0] > 128) {
-//       ellipse(x, y, pointSize, pointSize);
-//     }
-//     //    else if(mask[0] > 255) {
-//     //   ellipse(x, y, pointSize, pointSize);
-//     // }
-//     else {
-//       rect(x, y, pointSize, pointSize);    
-//     }
-//   }
+
+    push();
+    translate(x,y);
+     
+        rotate(random(1 , 360));
+        beginShape()
+        vertex(0,-10);
+        vertex(-50,0);
+        vertex(0,10);
+        vertex(5,0);
+
+        endShape(CLOSE);
+
+pop();
 
 
-// const tile_width = 12;
-// const tile_height = 18;
-// const tile_step_x = 5;
-// const tile_step_y = 30;
 
-// function draw () {
-//   for(let i2=0;i2<52000;i2++) {
-//     let x = floor(random(sourceImg.width));
-//     let y = floor(random(sourceImg.height));
-//     let pix = sourceImg.get(x, y);
-//     let mask = maskImg.get(x, y);
-//     let pointSize = 4;
-//     let halfSize = 180;
-//     fill(pix);
-//     if(mask[0] < 254) {
-//       stroke(pix);
-//       noFill();
-//       // rect(x, y, pointSize, pointSize);
-//         // ellipse(x, y, pointSize, pointSize);
-//         rect(x, y, tile_step_x, tile_step_y);
-//         var die = int(random(0, 4));
-//         if (die == 0) {
-//           var gray = int(random(0, 102));
-//           var scalar = random(0.2, 0.45);
-//           // owl(x, y, gray, scalar);          
-//         }
-//       }
-//     // }
-//     else {  
-//         console.log(pix);
-//         stroke(pix[0]+50);  
-//       noFill();
-//    ellipse(x, y, pointSize, pointSize);
-//     }
-//   }
+  }
 
+    function wild2 (x,y){
+    
+
+
+    push();
+    translate(x,y);
+       
+        rotate(random(1 , 360));
+        beginShape()
+        vertex(0,-5);
+        vertex(-1000,0);
+        vertex(0,5);
+        vertex(10,0);
+
+        endShape(CLOSE);
+
+pop();
+
+
+
+  }
+
+  // const tile_width1 = 3.7;
+  // const tile_height1 =3.7;
+
+  // const tile_step_x = 5;
+  // const tile_step_y = 5;
+
+  const tile_width1 = 15;
+  const tile_height1 =15;
+
+  const tile_step_x = 15;
+  const tile_step_y = 15;
 
 function draw () {
-  for(let i2=0;i2<4000;i2++) {
+
+    // background
+    for(let y=0; y<height; y = y + 30) {
+      for(let x=0; x<width; x = x + 30) { 
+
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        // fill(pix);
+         // fill(pix[0]+50); 
+        // rect(x, y, 30, 30);
+      }
+    }
+
+    for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) { 
+
+  // for(let i2=0;i2<2000;i2++) {
+    // let x = floor(random(sourceImg.width));
+    // let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    // let pointSize = 4;
+    // let halfSize = 180;
+    // fill(pix);
+    fill(pix[0]+50);
+   
+    // if(mask[0] < 255) {
+    //   stroke(pix);
+    //   noFill();
+    //   // rect(x, y, pointSize, pointSize);
+    //     // ellipse(x, y, pointSize, pointSize);
+    //     push();
+        
+        
+    //     // rect(0, 0, 5, 100);
+    //     wild(x,y);
+    //     pop();
+    //       // triangle(x-40, y-40, x+20, y+20,x+30, y+30);  
+    //       // triangle(x+40, y+40, x-20, y-20,x-30, y-30);  
+ 
+               
+    //     }
+
+    //body black
+    if(mask[0] >= 0 && mask [0] < 100) { 
+     //  stroke(pix);
+     //  noFill();
+     //  push()
+     // wild(x, y)
+     //  pop()
+   }
+   //gray highlights
+    else if (mask [0] >= 100 && mask [0] < 101){ 
+    //   stroke(pix);
+    //   noFill();
+    //   push()
+    //   wild2(x, y)
+    //   pop()
+    }
+      
+  //   else {  
+  //       // console.log(pix);
+  //       // stroke(pix[0]+50);
+  //       // push();
+  //       noStroke();  
+  //          fill(pix[0]+50); 
+  //     // noFill();
+  //  // ellipse(x, y, pointSize, pointSize);
+  //  ellipse(x,y,tile_width,tile_height);
+  //  // pop();
+  //   // }
+  // }
+
+
+   // fill(pix);
+    else if (mask[0] >250) {
+    rect(x, y, tile_width1, tile_height1);
+    }
+
+}
+}
+
+
+    // for(let y=0; y<height; y = y + tile_step_y) {
+    // for(let x=0; x<width; x = x + tile_step_x) { 
+
+  for(let i2=0;i2<2000;i2++) {
+  // for(let i2=0;i2<10;i2++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let pointSize = 4;
-    let halfSize = 180;
+    // let pointSize = 4;
+    // let halfSize = 180;
     fill(pix);
-    if(mask[0] < 254) {
-      stroke(pix);
-      noFill();
-      // rect(x, y, pointSize, pointSize);
-        // ellipse(x, y, pointSize, pointSize);
-        push()
-        translate(x,y)
-        rotate(random(80 , 270)); 
-        rect(0, 0, 5, 100);
-        pop()
-          // triangle(x-40, y-40, x+20, y+20,x+30, y+30);  
-          // triangle(x+40, y+40, x-20, y-20,x-30, y-30);  
+   
+    // if(mask[0] < 255) {
+    //   stroke(pix);
+    //   noFill();
+    //   // rect(x, y, pointSize, pointSize);
+    //     // ellipse(x, y, pointSize, pointSize);
+    //     push();
+        
+        
+    //     // rect(0, 0, 5, 100);
+    //     wild(x,y);
+    //     pop();
+    //       // triangle(x-40, y-40, x+20, y+20,x+30, y+30);  
+    //       // triangle(x+40, y+40, x-20, y-20,x-30, y-30);  
  
                
-        }
+    //     }
+
+    //body black
+    if(mask[0] >= 0 && mask [0] < 100) { 
+      stroke(pix);
+      noFill();
+      push()
+     wild(x, y)
+      pop()
+   }
+   //gray highlights
+    else if (mask [0] >= 100 && mask [0] < 101){ 
+      stroke(pix);
+      noFill();
+      push()
+      wild2(x, y)
+      pop()
+    }
       
     else {  
         // console.log(pix);
-        stroke(pix[0]+50);  
-      noFill();
-   ellipse(x, y, pointSize, pointSize);
-    }
-  }
+        // stroke(pix[0]+50);
+   //      push();
+   //      noStroke();  
+   //         fill(pix[0]+50); 
+   //    // noFill();
+   // // ellipse(x, y, pointSize, pointSize);
+   // rect(x,y,tile_width,tile_height);
+   // pop();
+  //   }
+  // }
 
-
-// const tile_width = 12;
-// const tile_height = 18;
-// const tile_step_x = 20;
-// const tile_step_y = 30;
-
-// function draw () {
-//   background(50);
-
-//   // version 1: just draw all the tiles
-//   for(let y=0; y<height; y = y + tile_step_y) {
-//     for(let x=0; x<width; x = x + tile_step_x) {
-//       let pix = sourceImg.get(x, y);
-//       let mask = maskImg.get(x, y);
-//       fill(pix);
-//       if(mask[0] > 128) {
-//         rect(x, y, tile_step_x, tile_step_y);
-//         var die = int(random(0, 4));
-//         if (die == 0) {
-//           var gray = int(random(0, 102));
-//           var scalar = random(0.2, 0.45);
-//           // owl(x, y, gray, scalar);          
-//         }
-//       }
-//       else {
-//         rect(x, y, tile_width, tile_height);
-//       }
-//     }
-//   }
-
-
-// const tile_width = 12;
-// const tile_height = 18;
-// const tile_step_x = 20;
-// const tile_step_y = 30;
-
-// function draw () {
-//   background(50);
-
-//   // version 1: just draw all the tiles
-//   for(let y=0; y<height; y = y + tile_step_y) {
-//     for(let x=0; x<width; x = x + tile_step_x) {
-//       let pix = sourceImg.get(x, y);
-//       let mask = maskImg.get(x, y);
-//       fill(pix);
-//       if(mask[0] < 254) {
-//         rect(x, y, tile_step_x, tile_step_y);
-//         var die = int(random(0, 4));
-//         if (die == 0) {
-//           var gray = int(random(0, 102));
-//           var scalar = random(0.2, 0.45);
-//           // owl(x, y, gray, scalar);          
-//         }
-//       }
-//       else {
-//         rect(x, y, tile_width, tile_height);
-//       }
-//     }
-//   }
-
+}
+}
 
 
   renderCounter = renderCounter + 1;
