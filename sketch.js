@@ -1,127 +1,126 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let renderCounter = 0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
-  sourceImg = loadImage(sourceFile);
-  maskImg = loadImage(maskFile);
+    sourceImg = loadImage(sourceFile);
+    maskImg = loadImage(maskFile);
 }
 
-function setup () {
-  let main_canvas = createCanvas(704, 1252);
-  main_canvas.parent('canvasContainer');
+function setup() {
+    let main_canvas = createCanvas(704, 1252);
+    main_canvas.parent('canvasContainer');
 
-  imageMode(CENTER);
-  noStroke();
-  background(255);
-  sourceImg.loadPixels();
-  maskImg.loadPixels();
+    imageMode(CENTER);
+    noStroke();
+    background(255);
+    sourceImg.loadPixels();
+    maskImg.loadPixels();
 }
 
-//Draw Heart Emoji
-function heart(x, y,s){
-  push();
-  translate(x,y);
-  scale(s);
-  fill(255,0,0);
-  noStroke();
-  ellipse(-25.5, -72, 52, 40); //top of heart
-  ellipse(25.5, -72, 52, 40); //top of heart
-  triangle(-52.5, -65, 4.5, -10, 52.5, -65); //bottom of heart
-  pop();
+//Draw Star
+function star(x, y, s) {
+    push();
+    translate(x, y);
+    scale(s);
+    let pix = sourceImg.get(x, y);
+    strokeWeight(2);
+    stroke(pix);
+    line(-10, 10, 10, -10);
+    line(10, 10, -10, -10);
+    line(0, 10, 0, -10);
+    line(-10, 0, 10, 0);
+    pop();
 }
 
-//Draw Like Emoji
-function thumb(x,y,s){
-  push();
-  translate(x,y);
-  scale(s);
-  noStroke();
-  fill(255);
-  ellipse(-100.5, -72, 80, 50); //hand
-  ellipse(-105, -95, 25, 35); //thumb
-  fill(0,0,255);
-  rect(-150, -100, 20, 60); //wrist
-  pop();
-}
-
-const tile_width = 4;
+const tile_width = 10;
 const tile_height = 10;
 const tile_step_x = 4;
-const tile_step_y = 14;
+const tile_step_y = 20;
 
-function draw () {
-  //Background set to dark grey so tile steps are more visible
-  background(20);
+function draw() {
+    //Background set to dark grey so details are more visible
+    background(10);
 
-  for(let y = 0; y < height; y = y + tile_step_y){
-    for(let x = 0; x < width; x = x + tile_step_x){
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix);
-      //WHITE PART OF MASK
-      if(mask[0] > 128){
-        rect(x, y, tile_width, tile_height);
-        //Roll random number between 0 and 20
-        var roll = int(random(0,20));
-        //Every time 3 is rolled, draw heart emoji
-        if (roll == 3){
-          var scalar = random (0.2, 0.025);
-          heart(x, y, scalar);
-        }//Otherwise if 12 is rolled, draw thumb emoji
-        else if (roll == 12){
-          var scalar = random (0.3, 0.05);
-          thumb(x,y, scalar);
+    //Pass 1: Draws star/lines where mask is gray
+    for (let y = 0; y < height; y = y + tile_step_y) {
+        for (let x = 0; x < width; x = x + tile_step_x) {
+            let pix = sourceImg.get(x, y);
+            let mask = maskImg.get(x, y);
+            //When mask is black, nothing happens here.
+            if (mask[0] == 0) {
+                // rect(x, y, tile_width, tile_height);
+            }
+            //When mask is white, nothing happens here.
+            if (mask[0] == 255) {
+                //rect(x, y, tile_width, tile_height);
+            }
+            //Anything that isn't black or white --> (gray) draws star
+            else {
+                var roll = int(random(0, 3));
+                //Everytime 3 is chosen by random, a star draws in different sizes
+                if (roll == 0) {
+                    var scale = random(1.0, 0.8);
+                    star(x, y, scale)
+                }
+            }
         }
-      }
-      else{ //BLACK PART OF MASK
-        rect(x, y, tile_step_x, tile_step_y);
-      }
     }
-  }
 
 
-  //STARTER CODE:
-  // for(let i=0;i<6000;i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let x2 = floor(random(sourceImg.width));
-  //   let y2 = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix);
-  //   noStroke();
-  //   if(mask[0] > 128) {
-  //     let pointSize = 5;
-  //     ellipse(x, y, pointSize, pointSize);
-  //     fill(255, 255, 0, 40);
-  //     ellipse(x, y, pointSize, pointSize);
-  //   }
-  //   else {
-  //     let pointSize = 12;
-  //     let halfSize = 30;
-  //     rect(x, y, halfSize, pointSize);
-  //   }
-  // }
+    //Pass 2: Draws lines where mask is black or white
+    for (let y = 0; y < height; y = y + tile_step_y) {
+        for (let x = 0; x < width; x = x + tile_step_x) {
+            let pix = sourceImg.get(x, y);
+            let mask = maskImg.get(x, y);
+            //Anywhere where there is black, draws lines with a transparent white colour
+            if (mask[0] == 0) {
+                fill(255, 255, 255, 120);
+                rect(x, y, tile_width, tile_height);
+            }
+            if (mask[0] == 255) {
+                // rect(x, y, tile_width, tile_height);
+            }
+            //Commented out so that it doesn't draw on top of what's already drawn.
+            else {
+                // var roll = int(random(0,5));
+                // if (roll == 3){
+                //   var scale = random(1.0, 0.5);
+                //   asterix(x,y,scale)
+                // }
+            }
+        }
+    }
 
 
+    //Pass 2: Where mask is white, a high resolution image is shown
+    for (let y = 0; y < height; y = y + 1) {
+        for (let x = 0; x < width; x = x + 1) {
+            let pix = sourceImg.get(x, y);
+            let mask = maskImg.get(x, y);
+            if (mask[0] == 255) {
+                stroke(pix);
+                point(x, y);
+            }
+        }
+    }
 
 
-  renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
-    console.log("Done!")
-    noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
-  }
+    renderCounter = renderCounter + 1;
+    if (renderCounter > 10) {
+        console.log("Done!")
+        noLoop();
+        // uncomment this to save the result
+        // saveArtworkImage(outputFile);
+    }
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
+    if (key == '!') {
+        saveBlocksImages();
+    }
 }
