@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -42,18 +42,7 @@ function draw () {
         line(x+20, y, x, y+20);  
       }
 
-      // else if (mask[0] >= 128 && mask[0] < 203) {
-      //   tile_width = 5.5;
-      //   tile_height = 5.5;
-      //   stroke(80);
-      //   strokeWeight(0.1);
-      //   rect(x, y, tile_width, tile_height);
-      //   line(x + 2.5, y, x + 2.5, y+50); 
-      // }
-  
       else if (mask[0] >= 212 && mask[0] < 255) {
-        // tile_width = 5.5;
-        // tile_height = 5.5;
         stroke(80);
         strokeWeight(0.1);
         ellipse(x, y, tile_width, tile_height);
@@ -61,8 +50,6 @@ function draw () {
       }
 
       else if (mask[0] >= 203 && mask[0] < 212) {   ////// this is the frames
-        // tile_width = 5.5;
-        // tile_height = 5.5;
         stroke(random_color);
         strokeWeight(0.1);
         push()
@@ -70,13 +57,10 @@ function draw () {
         fill(random_color)
         ellipse(x, y, tile_width+3, tile_height+3);
         pop()
-        //rect(x, y, tile_width, tile_height);
         line(x + 2.5, y, x + 2.5, y+50); 
       }
 
-      else {
-        // tile_width = 5.5;                           /// rects inside the frame
-        // tile_height = 5.5;
+      else {                                        /// rects inside the frame                        
         push();
         rectMode(CENTER);
         rect(x, y, tile_width, tile_height);
@@ -101,7 +85,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
