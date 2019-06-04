@@ -29,20 +29,20 @@ function draw () {
     let mask = maskImg.get(x, y);
     let greyA = 30;
     let blackA = 4;
-    let round = random(2,3);
+    let round = random(2, 3);
     let round2 = random(10, 20);
     let position = map(round, 0, width, 0, height);
-    let position2 = map(round2,0,width,0,height);
+    let position2 = map(round2, 0, width,0 ,height);
     fill(pix);
     stroke(pix);
 
     if(mask[0] == 255) {
       fill(pix);
       strokeWeight(1);
-      let ff = random(0,200);
-      stroke(ff,20);
-      rect(x,y,position2,position/position2);
-      rect(x+random(20,30),y-random(20,30),position,position2);
+      let ff = random(0, 200);
+      stroke(ff, 20);
+      rect(x, y, position2, position/position2);
+      rect(x+random(20,30), y-random(20,30), position, position2);
           }
     else if(mask[0] == 0) {
       rect(x, y, blackA ,blackA);
@@ -52,7 +52,7 @@ function draw () {
       noFill();
       stroke(pix);
       strokeWeight(1);
-      rect(x,y,greyA,greyA); 
+      rect(x, y, greyA, greyA); 
     }
   }
 
