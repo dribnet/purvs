@@ -17,34 +17,54 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(40);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 20;
-const tile_height = 20;
+const tile_width = 3;
+const tile_height = 3;
+const tile_step_x = 3;
+const tile_step_y = 3;
 
 function draw () {
-  for(let y=0; y<height; y = y + tile_height +4) {
-    for(let x=0; x<width; x = x + tile_width +4) {
+
+
+  for(let y=0; y<height; y = y + tile_step_y) {
+    for(let x=0; x<width; x = x + tile_step_x) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      console.log(pix[1]);
+     // console.log(pix[1]);
       fill(pix);
       //rect(x, y, tile_width, tile_height);
       if(mask[0] > 128) {
         let shade = pix[1];
-        fill(160, 196, 255);
-        square(x, y, tile_width, tile_height);
+        fill(shade);
+        ellipse(x, y, tile_width, tile_height);
       }
-      else {
-        fill(pix);
-        square(x, y, tile_width, tile_height);
-      }
+     
     }
   }
 
+
+// make the mask pixeled
+for(let y=0; y<height; y = y + tile_step_y+4) {
+    for(let x=0; x<width; x = x + tile_step_x+4) {
+ let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+        if(mask[0] <= 128){
+        let tile_width = 6;
+        let tile_height = 6;
+        const tile_step_x = 3;
+        const tile_step_y = 3;
+        fill(pix);
+        rectMode(CENTER);
+        ellipse(x, y, 6, 6);
+     }
+
+
+}
+}
 
   
   renderCounter = renderCounter + 1;
@@ -52,7 +72,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
