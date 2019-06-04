@@ -1,10 +1,10 @@
- let sourceImg=null;
+let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -38,28 +38,10 @@ function draw () {
     }
 
   }
+//input 1
 
-//input 2
-    const tile_width3 = 8;
-    const tile_height3 = 8;
-
-    for (let y = 0; y < height; y = y + tile_height3){
-      for (let x = 0; x < width; x = x + tile_width3){
-        let pix = sourceImg.get (x, y);
-        let mask = maskImg.get (y, x);
-        noFill();
-        stroke(pix);
-        if (mask[0] >= 50 && mask[0] < 150){
-          push();
-          stroke(pix);
-          strokeWeight(2);
-          line (x+10, y-10, x-10, y-10);
-          pop();
-        }
-      }
-    }
-
-    // background
+    const tile_width6 = 8;
+    const tile_height6 = 7;
 
     for (let y = 0; y < height; y = y + tile_height6){
       for (let x = 0; x < width; x = x + tile_width6){
@@ -68,13 +50,66 @@ function draw () {
         noFill();
         stroke(pix);
         strokeWeight(2);
-        if (mask[0] <= 0){
-          ellipse (x, y, tile_width6/2.5, tile_height6/2.5);
+      if (mask[0] <= 0){
+          ellipse (x, y, tile_width6/1.5, tile_height6/1.5);
         }
       }
     }
 
+//input 2
+    //const tile_width3 = 8;
+    //const tile_height3 = 8;
 
+    //for (let y = 0; y < height; y = y + tile_height3){
+      //for (let x = 0; x < width; x = x + tile_width3){
+        //let pix = sourceImg.get (x, y);
+        //let mask = maskImg.get (y, x);
+        //noFill();
+        //stroke(pix);
+        //if (mask[0] >= 50 && mask[0] < 150){
+          //push();
+          //stroke(pix);
+          //strokeWeight(2);
+          //line (x+10, y-10, x-10, y-10);
+          //pop();
+        //}
+      //}
+    //}
+
+    // background
+
+    //for (let y = 0; y < height; y = y + tile_height6){
+      //for (let x = 0; x < width; x = x + tile_width6){
+        //let pix = sourceImg.get (x, y);
+        //let mask = maskImg.get (x, y);
+        //noFill();
+        //stroke(pix);
+        //strokeWeight(2);
+        //if (mask[0] <= 0){
+          //ellipse (x, y, tile_width6/2.5, tile_height6/2.5);
+        //}
+      //}
+    //}
+
+
+//input 3
+    
+    // background
+    //const tile_width6 = 10;
+    //const tile_height6 = 10;
+
+    //for (let y = 0; y < height; y = y + tile_height6){
+      //for (let x = 0; x < width; x = x + tile_width6){
+        //let pix = sourceImg.get (x, y);
+        //let mask = maskImg.get (x, y);
+        //noFill();
+        //stroke(pix);
+        //strokeWeight(10);
+        //if (mask[0] <= 0){
+          //ellipse (x, y, tile_width6/4.5, tile_height6/4.5);
+        //}
+      //}
+    //}
 
 
   renderCounter = renderCounter + 1;
@@ -82,7 +117,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
@@ -91,6 +126,4 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
-  
-
   
