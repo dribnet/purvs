@@ -16,14 +16,22 @@ function setup() {
     main_canvas.parent('canvasContainer');
     imageMode(CENTER);
     noStroke();
-    background(0);
     sourceImg.loadPixels();
     maskImg.loadPixels();
+    if (sourceFile == "input_1.jpg") { // if the source file is image 1 make background dark blue
+        background(40, 0, 40);
+    }
+    if (sourceFile == "input_2.jpg") { // if the source file is image 2 make background dark pink
+        background(40, 0, 40);
+    }
+    else {  // otherwise make background dark orange
+        background(0, 40, 60);
+    }
 }
 
 function draw() {
-    let tileSize = 15; // Sets mosiac tile size
-    for (let y = 0; y < height; y = y + tileSize) {
+    let tileSize = 15; // Sets mosaic tile size
+    for (let y = 0; y < height; y = y + tileSize) { // Determines placement of tiles on x and y axis
         for (let x = 0; x < width; x = x + tileSize) {
             let pix = sourceImg.get(x, y);
             let mask = maskImg.get(x, y);
