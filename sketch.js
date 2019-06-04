@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,19 +17,19 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(158, 195, 247);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tile_width = 5;
-const tile_height = 5;
-const tile_step_x = 5;
-const tile_step_y = 5;
+const tile_width = 4;
+const tile_height = 4;
+const tile_step_x = 4;
+const tile_step_y = 4;
 
-function convertRgbToHsluv(c) {
-    return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
-}
+// function convertRgbToHsluv(c) {
+//     return hsluv.rgbToHsluv([c[0]/255.0, c[1]/255.0, c[2]/255.0]);
+// }
 
 function draw () {
  for(let y=0; y<height; y = y + tile_step_y) {
@@ -40,15 +40,17 @@ function draw () {
 
     
     if(mask[0] > 128) {
-    	fill(pix);
 
-    	let hsluvColor = convertRgbToHsluv(pix);
-        fillHsluv(0,70, hsluvColor[2]);
+
+    	fill(44, 48, 91);
+    	// let hsluvColor = convertRgbToHsluv(pix);
+        // fillHsluv(0,70, hsluvColor[2]);
 
          rect(x, y, tile_step_x, tile_step_y) 
 
          }
     else {
+    	fill(pix);
     	
         ellipse(x, y, tile_width, tile_height);  
     }
