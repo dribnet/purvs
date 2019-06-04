@@ -4,9 +4,9 @@ let renderCounter=0;
 
 
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "artwork_2.png";
 
 const t1 = 10;
 
@@ -113,7 +113,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
