@@ -6,7 +6,6 @@ let sourceFile = "GraveThree.png";
 let maskFile   = "GraveThreeMask1.png";
 let outputFile = "artwork_3.png";
 
-
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
