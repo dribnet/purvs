@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "artwork_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "artwork_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -40,7 +40,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(30);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -71,15 +71,15 @@ function draw () {
        star(x, y, 1, 3, 5);
 
        noFill();
-       stroke(0);
+       stroke(100);
        rectMode(CENTER);
        rect(x, y, bg_width, bg_height);
       }
 
       //Grey on mask
       else{
-       fill(0); 
-       stroke(160, 50, 150);
+       fill(200, 180, 160); 
+       stroke(220, 0, 0);
        heart(x, y, bg_height3);
       }
     }
@@ -96,7 +96,7 @@ function draw () {
       //Black on mask
       if(mask[0] <50 ){
        fill(pix);
-       stroke(0);
+       noStroke();
        ellipse(x, y, bg_height3, bg_height3);
        }
     }
