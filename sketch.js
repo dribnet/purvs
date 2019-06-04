@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -35,14 +35,16 @@ function draw () {
       let mask = maskImg.get(x,y);
       fill(pix);
       if(mask[0]>128){
-      rect(x,y,tile_step_x,tile_step_y);
+        let pointSize = 15;
+      rect(x,y,pointSize,pointSize);
     }
     else{
-      ellipse(x,y,tile_width,tile_height);
+      let pointSize = 10;
+      ellipse(x,y,pointSize,pointSize);
     }
-
     }
   }
+}
   
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -51,7 +53,6 @@ function draw () {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
-}
 
 function keyTyped() {
   if (key == '!') {
