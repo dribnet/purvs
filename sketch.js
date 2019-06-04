@@ -69,58 +69,102 @@ function draw_special_ellipse (x, y, width, height) {
 }
 
 //billboard ~ note
-function draw_note (x, y, opacity, scaling) {
+function draw_note (x, y, pix) {
   push();
-    //scale(scaling);
-    translate (x,y);
-    rectMode(CENTER);
-    //dark green stroke
-    stroke(117, 127, 63, opacity);
-    strokeWeight(10);
+    translate(x,y);
+    colorMode(HSB);
+    stroke(pix);
+    strokeWeight(0.5);
 
-    //light green fill
-    fill(189, 207, 70, opacity);
+    beginShape();
+      curveVertex(-4,-3);
+      curveVertex(-4,-3);
 
-    rect (0,0,20*scaling,20*scaling);
+      curveVertex(-2,-2);
+      curveVertex(1,-4);
 
-    // curve(_, _, _, _, _, _, _, _);
-    // curve(_, _, _, _, _, _, _, _);
-    // curve(_, _, _, _, _, _, _, _);
-    // curve(_, _, _, _, _, _, _, _);
+      curveVertex(4,-3);
+      curveVertex(4,-3);
+
+    endShape();
+
+    beginShape();
+      curveVertex(-4,3);
+      curveVertex(-4,3);
+
+      curveVertex(-2,4);
+      curveVertex(1,2);
+
+      curveVertex(4,3);
+      curveVertex(4,3);
+    endShape();
+
+    line(-4,-3, -4,3);
+    line(4,-3, 4,3);
   pop();
+  colorMode(RGB);
+}
+
+//billboard ~ dollar sign
+function draw_dollar_sign (x, y, pix){
+  push();
+    translate (x,y);
+    colorMode(HSB);
+    stroke(pix);
+    strokeWeight(0.5);
+
+    beginShape();
+      curveVertex(2,-2);
+      curveVertex(2,-2);
+
+      curveVertex(0,-4);
+      curveVertex(-2,-2);
+      curveVertex(0,0)
+      curveVertex(2,2);
+      curveVertex(0,4);
+
+      curveVertex(-2,2);
+      curveVertex(-2,2);
+    endShape();
+
+    line(0,-5, 0, 5);
+  pop();
+  colorMode(RGB);
 }
 
 //eye glyph
 function draw_eye (x, y) {
   push();
-    stroke(1);
-    strokeWeight(0.2);
     fill(255);
 
+    //eye outline
     beginShape();
-      curveVertex(x-10*0.6, y+15 *0.6);
-      curveVertex(x-10 *0.6, y-15 *0.6);
-      curveVertex(x+10 *0.6, y-15 *0.6);
-      curveVertex(x+10 *0.6, y+15 *0.6);
+      curveVertex(x-4, y+6);
+      curveVertex(x-4, y-6);
+      curveVertex(x+4, y-6);
+      curveVertex(x+4, y+6);
     endShape();
 
     beginShape();
-      curveVertex(x-10*0.6, y-45*0.6);
-      curveVertex(x-10*0.6, y-15*0.6);
-      curveVertex(x+10*0.6, y-15*0.6);
-      curveVertex(x+10*0.6, y-45*0.6);
+      curveVertex(x-4, y-18);
+      curveVertex(x-4, y-6);
+      curveVertex(x+4, y-6);
+      curveVertex(x+4, y-18);
     endShape();
 
     //eye iris
-    fill(0);
-    ellipse(x, y-15*0.6, 2, 2);
+    fill(0,0,200);
+    ellipse(x, y-6, 2.5, 2.5);
+
+    //eye pupil
+    fill(255);
+    ellipse(x, y-6, 0.5, 0.5);
   pop();
 }
      
 //DRAW FUNCTION -----------------------------------------------------
 
 function draw () {
-
   //FIRST LOOP ------------------------------------------------------
 
   //tile loop
@@ -164,11 +208,20 @@ function draw () {
 
       //GREY MASK ~ billboard
       if(mask[0] > 100 && mask[0] <= 200){
-        var die = int(random(0, 4));
+        var die = int(random(0, 60));
         if (die == 0) {
           var opacity = int(random(0, 102));
           var scaling = random(0.2, 0.45);
-          draw_note (x, y, opacity, scaling);          
+          draw_dollar_sign (x, y, pix);    
+        }     
+     }
+
+      if(mask[0] > 100 && mask[0] <= 200){
+        var die = int(random(0, 60));
+        if (die == 0) {
+          var opacity = int(random(0, 102));
+          var scaling = random(0.2, 0.45);
+          draw_note (x, y, pix);      
         }     
      }
 
@@ -186,7 +239,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
