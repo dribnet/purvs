@@ -2,9 +2,9 @@ let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
 
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "artwork_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -40,7 +40,7 @@ for(let x =0; x<height; x = x + tile_step_x){
   fill(pix);
   if(mask[0]>128){
     ellipse(x, y, tile_step_x, tile_step_y);
-    fill(255, 219, 104,5);
+    fill(66, 134, 244,5);
       rect(x, y, pointSize, pointSize);   
       pop();
   }

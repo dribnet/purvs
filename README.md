@@ -7,5 +7,4 @@ The 3 images I have used are:
 
 For my images I will focus on using patterns/shapes created in the masking process to add an interesting element to picture.
 
-For example image no.2
-- Haven't completed it yet but that is the direction I will be heading in.
+Have started working on my first image now. after playing around with some patterns/shapes I think I will use the silhouette of the subject in the photo instead of just a pattern or shape.
