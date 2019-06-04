@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
+Touch-ups:
+I decided to clean up my masks and also added an outline for all foreground objects. This makes them stand out from the background even more. The background has a tranparent layer over-top of it that chooses a random color between black and white and creates this "TV-static" effect. This obscures the background and dilutes it's colour, making it seem non-important and exendable whilst leaving the forground image(s) with all the importance.
+
 Development:
 When playing around with grids, I found that putting a small diamond off-centered on top of a rectangle, it makes all the pixels look like buttons. In the masked area, there is no diamonds and there are rectangles with a stroke of a specific colour, this makes the "buttons" look pressed in. This takes my initial foreground-focussed theme and makes the foreground component look like it's made out of activated/pressed buttons.
 

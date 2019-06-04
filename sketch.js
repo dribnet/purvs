@@ -34,13 +34,20 @@ function draw () {
       let mask = maskImg.get(x,y);
       
     let pointSize = 7;
+    let outlineSize = 5;
     let halfSize = 5;
-    if(mask[0] > 128) {
+    if(mask[0] >= 255) {
       fill(pix,10);
       //noStroke();
       stroke(0,255,0, 60);
       strokeWeight(1);
       rect(x, y, pointSize, pointSize);
+    }
+    else if(mask[0] > 1) {
+      fill(255);
+      stroke(0);
+      strokeWeight(1);
+      rect(x, y, outlineSize, outlineSize);
     }
     else {
       fill(pix);
