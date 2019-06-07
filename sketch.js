@@ -8,7 +8,7 @@ let renderCounter=0;
 let graphicElements=[];
 
 let sourceFile = "input_3.png";
-let maskFile   = "mask_1.png";
+let maskFile   = "mask_3.png";
 let outputFile = "artwork_3.png";
 
 let graphicFile1 = "graphic.png";
@@ -34,12 +34,53 @@ function setup () {
 }
 
 function draw () {
-  let outerPointSpacing = 60;
-  let outerPoints = getPoints(outerPointSpacing);
+  let outerPointSpacing = 200;
+  let outerPoints = getPoints(outerPointSpacing, outerPointSpacing/5, outerPointSpacing/2);
 
   // Inner Points
   let innerPointSpacing = 15;
-  let innerPoints = getPoints(innerPointSpacing);
+  let innerPoints = getPoints(innerPointSpacing, innerPointSpacing/5, innerPointSpacing/3);
+
+  fill(0);
+  rect(0, 0, sourceImg.width, sourceImg.height);
+
+  // Draw Outer Points
+  strokeWeight(0.7);
+  let colors = [color(0, 184, 255), color(189, 0, 255), color(0, 200, 124)]; //
+  for (let i = 0; i < outerPoints.length-1; i++) {
+    for (let j = 0; j < outerPoints[i].length-1; j++) {
+      let p1 = outerPoints[i][j];
+      let p2 = outerPoints[i+1][j];
+      let p3 = outerPoints[i][j+1];
+      let p4 = outerPoints[i+1][j+1];
+
+      let randCol = colors[round(random(0, colors.length-1))];
+
+      // upper left triangle
+      let x = (p1.x + p2.x + p3.x) / 3.0;
+      let y = (p1.y + p2.y + p3.y) / 3.0;
+
+      let randVal = random(0.4, 0.7);
+      // stroke(0);
+      stroke(color(lerpColor(color(0), randCol, randVal-0.5)));
+
+      fill(color(lerpColor(color(0), randCol, randVal-0.6)));
+      triangle(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+
+      // lower right triangle
+      x = (p2.x + p3.x + p4.x) / 3.0;
+      y = (p2.y + p3.y + p4.y) / 3.0;
+
+      // randCol = colors[round(random(0, colors.length-1))];
+      fill(color(lerpColor(color(0), randCol, (randVal/4)-0.03)));
+      triangle(p2.x, p2.y, p4.x, p4.y, p3.x, p3.y);
+
+      // fill(lerpColor(color(0), randCol, 0.4));
+      // ellipse(p1.x, p1.y, outerPointSpacing/10,outerPointSpacing/10);
+
+    }
+  }
+
 
   // Draw inner points
   strokeWeight(0.7);
@@ -54,10 +95,9 @@ function draw () {
       let x = (p1.x + p2.x + p3.x) / 3.0;
       let y = (p1.y + p2.y + p3.y) / 3.0;
 
-      // if (maskImg.get(x,y)[0] < 50) continue;
+      if (maskImg.get(x,y)[0] < 50) continue;
 
       let pix = color(sourceImg.get(x,y));
-      // stroke(lerpColor(pix, color(255), 0.2));
       stroke(pix);
       fill(pix);
       triangle(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
@@ -67,13 +107,14 @@ function draw () {
       y = (p2.y + p3.y + p4.y) / 3.0;
       pix = color(sourceImg.get(x,y));
       fill(pix);
+      stroke(pix);
       triangle(p2.x, p2.y, p4.x, p4.y, p3.x, p3.y);
 
-      // fill(lerpColor(pix, color(255), 0.6));
-      // ellipse(p1.x, p1.y, 3,3);
 
     }
   }
+
+
 
 
   renderCounter = renderCounter + 1;
@@ -86,14 +127,15 @@ function draw () {
 }
 
 
-function getPoints(pointSpacing) {
+function getPoints(pointSpacing, minRand, maxRand) {
   let points = [];
   for (let y = 0; y < sourceImg.height; y+=pointSpacing) {
     points.push([]);
-    for (let x = 0; x < sourceImg.width; x+=pointSpacing) {
+    points[points.length-1].push(createVector(0, y+random(-pointSpacing/4, pointSpacing/4)));
+    for (let x = pointSpacing; x < sourceImg.width; x+=pointSpacing) {
 
       let randVec = p5.Vector.random2D();
-      randVec.setMag(pointSpacing/5, pointSpacing/3);
+      randVec.setMag(random(minRand, maxRand));
       let yindex = round(y/pointSpacing);
       if (yindex % 2 == 0){
         points[points.length - 1].push(createVector(x + randVec.x, y + randVec.y));
@@ -102,6 +144,7 @@ function getPoints(pointSpacing) {
 
       }
     }
+    points[points.length-1].push(createVector(sourceImg.width, y));
 
   }
   return points;
