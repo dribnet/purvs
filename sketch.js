@@ -7,9 +7,9 @@ let maskImg=null;
 let renderCounter=0;
 let graphicElements=[];
 
-let sourceFile = "input_3.png";
-let maskFile   = "mask_3.png";
-let outputFile = "artwork_3.png";
+let sourceFile = "input_1.png";
+let maskFile   = "mask_1.png";
+let outputFile = "artwork_1.png";
 
 let graphicFile1 = "graphic.png";
 // let graphicFile2 = "graphic_3.png";
@@ -30,7 +30,7 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
-  // sourceImg.filter(BLUR, 50)
+  sourceImg.filter(BLUR, 50)
 }
 
 function draw () {
@@ -38,7 +38,7 @@ function draw () {
   let outerPoints = getPoints(outerPointSpacing, outerPointSpacing/5, outerPointSpacing/2);
 
   // Inner Points
-  let innerPointSpacing = 15;
+  let innerPointSpacing = 18;
   let innerPoints = getPoints(innerPointSpacing, innerPointSpacing/5, innerPointSpacing/3);
 
   fill(0);
@@ -60,7 +60,7 @@ function draw () {
       let x = (p1.x + p2.x + p3.x) / 3.0;
       let y = (p1.y + p2.y + p3.y) / 3.0;
 
-      let randVal = random(0.4, 0.7);
+      let randVal = random(0.5, 0.7);
       // stroke(0);
       stroke(color(lerpColor(color(0), randCol, randVal-0.5)));
 
