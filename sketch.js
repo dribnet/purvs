@@ -67,13 +67,15 @@ function draw () {
       fill(pix);
       stroke(pix);
 
-      if(mask[0] == 0) {
+      if(mask[0] < 180) {
 
-      star(x, y, tile_width/1.5, tile_height*1.5, 6);
-    }
+        star(x, y, tile_width/1.5, tile_height*1.5, 6);
+      }
       
 
-      else if (mask[0] >= 180 && mask[0] < 255) {
+      // else if (mask[0] >= 180 && mask[0] < 255) {
+      else {
+
         stroke(80);
         strokeWeight(0.1);
         ellipse(x, y, tile_width, tile_height);
