@@ -88,7 +88,7 @@ function draw () {
   }
 
 
- for(let i=0;i<2000;i++) {
+ for(let i=0;i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -98,9 +98,9 @@ function draw () {
    
     fill(pix);
 
-    if(mask[0] == 255) {
+    if(mask[0] >180) {
       fill(pix);
-      triangle(x, y, x+pointSize, y+pointSize,x+pointSize+10, y+pointSize+40); 
+      triangle(x, y, x+pointSize, y+pointSize,x+pointSize+5, y+pointSize+10); 
     }
     
     
@@ -115,7 +115,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
