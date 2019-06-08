@@ -6,8 +6,7 @@ The second photo is a superposition of photos of a moving body that a person is 
 The third photo is the two reactions of the same person when she see the human skeleton model.
 
 I used three unused codes, the focused part is represented by a star pattern, the background part is represented by the pixels of the dot, and the slash is used to indicate the dynamic concept.
-
-
+In the first photo, I added a pattern of slender triangles to the flame to create a sense of friction and movement. In the second photo, I used this triangular pattern on the part of the girl's body, emphasizing a feeling of movement.
 
 
 
