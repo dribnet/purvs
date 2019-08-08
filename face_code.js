@@ -9,14 +9,35 @@
 
 
 function drawFace1() {
-  fill(60);
-  noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(200);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
+  
+  // noStroke();
+  // // head
+  // ellipse(0, 0, 20);
+  // // eyes
+  // fill(200);
+  // ellipse(-3, -3, 3);
+  // ellipse( 3, -3, 3);
+
+noFill();
+strokeWeight(0.25);
+stroke(2);
+beginShape();
+//leftSide
+curveVertex(0, 9);
+curveVertex(0, 9);
+curveVertex(-3, 9);
+curveVertex(-5, 5);
+curveVertex(-8, 0);
+curveVertex(-7, -6);
+curveVertex(0,-9);
+//rightSide
+curveVertex(7, -6);
+curveVertex(8, 0);
+curveVertex(5, 5);
+curveVertex(3, 9);
+curveVertex(0, 9);
+curveVertex(0,9)
+endShape();
 }
 
 /*
