@@ -8,15 +8,37 @@
  */
 
 
-function drawFace1() {
+function drawFace1(tightness) {
   fill(60);
-  noStroke();
+  //noStroke();
   // head
   ellipse(0, 0, 20);
   // eyes
   fill(200);
   ellipse(-3, -3, 3);
   ellipse( 3, -3, 3);
+  stroke(60);
+  noFill();
+  beginShape();
+  //vertex(0, -10);
+  //vertex(2, -11);
+  //vertex(6, -10);
+  curveTightness(0);
+
+  endShape();
+
+  beginShape();
+  curveVertex(0, -10);
+
+  curveVertex(0, -10);
+  curveVertex(2, -11);
+  curveVertex(6, -10);
+  curveVertex(12, -4);
+  curveVertex(12, 12);
+
+  curveVertex(10, -6);
+  endShape();
+
 }
 
 /*
