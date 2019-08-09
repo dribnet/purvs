@@ -26,6 +26,43 @@ function drawFace1(length, curly) {
   noFill();
   if(L < 139){
     arc(3, -5.5, 8, 8, 220, 221+L);
+    let HairLength = -5.5+map(L, 0, 139, -90, 0);
+
+    //starting at 90, -curlscaleY, 0x
+    //finishing at 180, 0y, +curlscaleX
+
+    let X = 3 + (4 * cos(221+L));
+    let Y = -5.5 + (4 * sin(221+L));
+
+   // X = Cx + (r * cos(angle))  //cx = chords
+   // Y = Cy + (r * sin(angle))
+
+   let cX = X - (4 * cos(HairLength)); 
+   let cY = Y - (4 * sin(HairLength));
+   // solve for Cx
+   //X - (r * cos(angle)) = Cx
+
+    push();
+    
+    translate(cX/2, cY/2);
+    print("Cx : " + cX + " cY : " + cY);
+    rotate(HairLength);
+    X = 0;
+    Y = 0;
+    beginShape();
+    for(let i = 0; i <15; i++){
+      //vertex(cX+
+      //  curlScale*cos(map(curl, 180, -90, HairLength, HairLength-(15*i))), 
+      //  cY+
+      //  curlScale*sin(map(curl, 180, -90, HairLength, HairLength-(15 *i))));
+
+       vertex(X+
+        curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
+        Y+
+        curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
+    }
+    endShape();
+    pop();
 
   } else {
     arc(3, -5.5, 8, 8, 220, 360);
@@ -40,17 +77,12 @@ function drawFace1(length, curly) {
 
     beginShape();
 
-    let startingCurl = 180;
-    vertex(7-map(HairLength, -5.5, 9, 0, curlScale), HairLength);
 
-    
-    for(let i = 0; i <10; i++){
-
-      vertex(8+map(HairLength, -5.5, 9, 0, curlScale)+
+    for(let i = 0; i <15; i++){
+      vertex(7-map(HairLength, -5.5, 9, 0, curlScale)+curlScale+
         curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
      HairLength+
         curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
-
     }
     
     
