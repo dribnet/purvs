@@ -67,7 +67,7 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    drawFace1(s1, s2);
   }
 
   if (mode == '2') {

@@ -8,36 +8,57 @@
  */
 
 
-function drawFace1(tightness) {
-  fill(60);
-  //noStroke();
+function drawFace1(length, curly) {
+  let curl = map(curly, 0, 100, 180, -90);
+  angleMode(DEGREES);
+  let L = map(length, 0, 100, 0, 360);
+  let curlScale = map(curly, 0, 100, 0, 3);
+
+  fill(200, 150, 150);
+  noStroke();
   // head
-  ellipse(0, 0, 20);
+  ellipse(0, -2, 12);
   // eyes
-  fill(200);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
+  fill(255);
+  ellipse(-3, -3, 2);
+  ellipse( 3, -3, 2);
   stroke(60);
   noFill();
-  beginShape();
-  //vertex(0, -10);
-  //vertex(2, -11);
-  //vertex(6, -10);
-  curveTightness(0);
+  if(L < 139){
+    arc(3, -5.5, 8, 8, 220, 221+L);
 
-  endShape();
+  } else {
+    arc(3, -5.5, 8, 8, 220, 360);
 
-  beginShape();
-  curveVertex(0, -10);
 
-  curveVertex(0, -10);
-  curveVertex(2, -11);
-  curveVertex(6, -10);
-  curveVertex(12, -4);
-  curveVertex(12, 12);
+    let HairLength = -5.5+map(L, 139, 360, 0, 14.5);
+    print(HairLength);
+    line(7, -5.5, 
+    7-map(HairLength, -5.5, 9, 0, curlScale), 
+    -5.5+map(L, 139, 360, 0, 14.5));
 
-  curveVertex(10, -6);
-  endShape();
+
+    beginShape();
+
+    let startingCurl = 180;
+    vertex(7-map(HairLength, -5.5, 9, 0, curlScale), HairLength);
+
+    
+    for(let i = 0; i <10; i++){
+
+      vertex(8+map(HairLength, -5.5, 9, 0, curlScale)+
+        curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
+     HairLength+
+        curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
+
+    }
+    
+    
+    //vertex(8+cos(curl), HairLength+sin(curl));
+
+    endShape();
+
+  }
 
 }
 
