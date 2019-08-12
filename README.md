@@ -1,7 +1,5 @@
 ## PS2 MDDN 342 2019
 
-REPLACE ALL TEXT IN THIS FILE
+My character is based off a charactera friend of mien drew for me years ago. I wanted to see how I could take something close to me and explore it in new ways.
 
-This README should explain the different paramaterised faces.
-
-!
+I think it has a lot of ways to control and show emotions.
