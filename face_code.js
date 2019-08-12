@@ -31,6 +31,7 @@ function drawFace1(length, curly) {
   ellipse(-3, -3, 2);
   ellipse( 3, -3, 2);
   stroke(60);
+  strokeWeight(2);
   noFill();
   if(L < 139){
     arc(3, -5, 6, 6, 220, 221+L);
@@ -93,8 +94,16 @@ function drawFace1(length, curly) {
         curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
         HairLength+
         curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
+    }
+    
+    
+    //vertex(8+cos(curl), HairLength+sin(curl));
 
-        vertex(6-map(HairLength, -5, 9, 0, curlScale)+curlScale+
+    endShape();
+
+    beginShape();
+    for(let i = 0; i <15; i++){
+        vertex(-6+map(HairLength, -5, 9, 0, curlScale)-curlScale+
         curlScale*cos(map(curl, 180, -90, 0, (15*i))), 
         HairLength+
         curlScale*sin(map(curl, 180, -90, 0, (15 *i))));
