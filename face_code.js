@@ -9,14 +9,6 @@
 
 
 function drawFace1() {
-  
-  // noStroke();
-  // // head
-  // ellipse(0, 0, 20);
-  // // eyes
-  // fill(200);
-  // ellipse(-3, -3, 3);
-  // ellipse( 3, -3, 3);
 
 noFill();
 strokeWeight(0.25);
@@ -37,6 +29,46 @@ curveVertex(5, 5);
 curveVertex(3, 9);
 curveVertex(0, 9);
 curveVertex(0,9)
+endShape();
+
+//nose
+beginShape();
+curveVertex(0,0);
+curveVertex(0,0);
+curveVertex(-1,0);
+curveVertex(-1,0);
+curveVertex(-2,5);
+curveVertex(-0.5,5);
+curveVertex(0,4.7);
+curveVertex(0,4.7);
+curveVertex(0.5,5);
+curveVertex(2,5);
+curveVertex(1,0);
+curveVertex(1,0);
+curveVertex(0,0);
+curveVertex(0,0);
+endShape();
+//leftEye
+beginShape();
+curveVertex(-2,0);
+curveVertex(-2,0);
+curveVertex(-3,1);
+curveVertex(-5,2);
+curveVertex(-6,-2);
+curveVertex(-3,-5);
+curveVertex(-2,0);
+curveVertex(-2,0);
+endShape();
+//rightEye
+beginShape();
+curveVertex(2,0);
+curveVertex(2,0);
+curveVertex(3,1);
+curveVertex(5,2);
+curveVertex(6,-2);
+curveVertex(3,-5);
+curveVertex(2,0);
+curveVertex(2,0);
 endShape();
 }
 
