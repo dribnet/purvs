@@ -9,31 +9,70 @@
 
 
 function drawFace1() {
-  fill(60);
-  noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(200);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
+  rectMode(CENTER);
+  angleMode(RADIANS);
+    noStroke();
+
+  fill(240,200,10);
+
+  rect(0,-7.5,7,3,0.5,0.5,0,0);
+  rect(0,1,17,14,2.5);
+  rect(0,9,10,2);
+
+    fill(240,240,40,100);
+  rect(0,-7.5,4.5,3,0.5,0.5,0,0);
+  rect(0,1,13,14,2.5);
+  rect(0,9,7,2);
+
+      fill(165,42,42,30);
+  rect(0,8.5,10,1);
+
+  fill(0);
+  ellipse(-3,-0.5,2,2);
+  ellipse(3,-0.5,2,2);
+
+  stroke(0);
+  noFill();
+  strokeWeight(0.4);
+  arc(0,3.5,4,2,0,PI);
+  strokeWeight(1);
+  stroke(255,70);
+  arc(-4,-3.5,2,2,PI,PI+HALF_PI);
 }
 
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
 function drawFace2(thinness_value) {
-  // head
-  noStroke();
-  fill(200, 150, 150);
-  let head_width = map(thinness_value, 0, 100, 8, 20);
-  rect(-head_width/2, -9, head_width, 18);
-  // rect(-5, -10, 10, 20);
+  rectMode(CENTER);
+  angleMode(RADIANS);
+    noStroke();
 
-  // eyes
-  fill(240);
-  ellipse(-2, -4, 1);
-  ellipse( 2, -4, 1);
+  fill(240,200,10);
+
+  rect(0,-7.5,7,3,0.5,0.5,0,0);
+  rect(0,1,17,14,2.5);
+  rect(0,9,10,2);
+
+    fill(240,240,40,100);
+  rect(0,-7.5,4.5,3,0.5,0.5,0,0);
+  rect(0,1,13,14,2.5);
+  rect(0,9,7,2);
+
+      fill(165,42,42,30);
+  rect(0,8.5,10,1);
+
+  fill(0);
+  ellipse(-3,-0.5,2,2);
+  ellipse(3,-0.5,2,2);
+
+  stroke(0);
+  noFill();
+  strokeWeight(0.4);
+  arc(0,3.5,4,2,0,PI);
+  strokeWeight(1);
+  stroke(255,70);
+  arc(-4,-3.5,2,2,PI,PI+HALF_PI);
 }
 
 /*
@@ -42,36 +81,33 @@ function drawFace2(thinness_value) {
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 function drawFace3(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [225, 206, 187];
-  const fg_color3 = [151, 102, 52];
+  rectMode(CENTER);
+  angleMode(RADIANS);
+    noStroke();
 
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value);
+  fill(240,200,10);
 
-  noStroke();
-  fill(fg_color3);
-  ellipse(0, 0, 30/2, 40/2);
+  rect(0,-7.5,7,3,0.5,0.5,0,0);
+  rect(0,1,17,14,2.5);
+  rect(0,9,10,2);
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse( 0, -8/2, 5/2, 3/2);
-    fill(fg_color3);
-    ellipse(-1/2, -8/2, 2/2, 2/2);
-  }
+    fill(240,240,40,100);
+  rect(0,-7.5,4.5,3,0.5,0.5,0,0);
+  rect(0,1,13,14,2.5);
+  rect(0,9,7,2);
 
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(-5/2, -8/2, 5/2, 3/2);
-    ellipse( 5/2, -8/2, 5/2, 3/2);
+      fill(165,42,42,30);
+  rect(0,8.5,10,1);
 
-    fill(fg_color3);
-    ellipse(-6/2, -8/2, 2/2, 2/2);
-    ellipse( 4/2, -8/2, 2/2, 2/2);
-  }
+  fill(0);
+  ellipse(-3,-0.5,2,2);
+  ellipse(3,-0.5,2,2);
 
-  // mouth
-  fill(bg_color3);
-  ellipse(0/2, 7/2, 15/2, mouth_value);
+  stroke(0);
+  noFill();
+  strokeWeight(0.4);
+  arc(0,3.5,4,2,0,PI);
+  strokeWeight(1);
+  stroke(255,70);
+  arc(-4,-3.5,2,2,PI,PI+HALF_PI);
 }
