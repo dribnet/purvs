@@ -67,7 +67,9 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1(s1, s2);
+    let hair_Length = s1;
+    let curly = s2;
+    drawFace1(hair_Length, curly);
   }
 
   if (mode == '2') {
