@@ -17,7 +17,7 @@ function drawFace1(length, curly) {
   stroke(230, 188, 73);
  
   push();
-  drawHair(L, curl, curly, 0.5, 2, 0.8);
+  //drawHair(L, curl, curly, 0.5, 1, 0.8);
   pop();
   push();
   drawHair(L, curl, curly, 1, 0, 1);
@@ -25,7 +25,7 @@ function drawFace1(length, curly) {
   fill(200, 150, 150);
   noStroke();
   // head
-  ellipse(0, -2, 10);
+ // ellipse(0, -2, 10);
   // eyes
   fill(255);
   ellipse(-3, -3, 2);
@@ -88,64 +88,90 @@ function drawHair(Len, cur, curlyy, dist, wid, size){
 
 
   } else { //longer hair
-      fill(255, 218, 115);
-    arc(3+wid, -5, 6, 6, 220, 360, CHORD);
+    fill(255, 218, 115);
+    noFill();
+    arc(3+wid, -5, 6, 6, 220, 360, CHORD); //top hair
     arc(-3-wid, -5, 6, 6, 180, 320, CHORD);
 
     let HairLength = -5+map(L, 139, 360, 0, 14*dist);
 
     beginShape();
-      vertex(6+wid, -5);
-      vertex((6+wid)-map(HairLength, -5, 9, 0, curlScale), 
+       curveVertex(6+wid, -5);
+
+       curveVertex(7+map(L, 139,  360, 0, 1)+wid-map(HairLength, -5, 9, 0, curlScale), 
+      (-5+map(L, 139, 360, 0, 14*dist)/2));
+
+
+       curveVertex(5.5+map(L, 139,  360,0, 1)+wid-map(HairLength, -5, 9, 0, curlScale), 
       -5+map(L, 139, 360, 0, 14*dist));    
-      vertex(2+wid, -6.5);
-      vertex(6+wid, -5);
+        curveVertex(6+wid, -5);
     endShape();
 
-    beginShape();
+    ellipse(5.5+map(L, 139,  360,0, 1)+wid-map(HairLength, -5, 9, 0, curlScale), 
+      (-5+map(L, 139, 360, 0, 14*dist)/2)
+
+      ,1, 1);
+
+
+    beginShape(); //long strands
+      vertex(6+wid, -5);
+      vertex(5.5+map(L, 139,  360,0, 1)+wid-map(HairLength, -5, 9, 0, curlScale), 
+      -5+map(L, 139, 360, 0, 14*dist));    
+      vertex((5.5+wid)-map(HairLength, -5, 9, 0, curlScale), 
+      -5+map(L, 139, 360, 0, 14*dist));
+      vertex(2+wid, -6.5);
+    endShape();
+
+    beginShape(); //long strands mirror
       vertex(-6-wid, -5);
-      vertex((-6-wid)+map(HairLength, -5, 9, 0, curlScale), 
+      vertex(-5.5-map(L, 139,  360,0, 1)-wid+map(HairLength, -5, 9, 0, curlScale), 
+      -5+map(L, 139, 360, 0, 14*dist));
+
+      vertex(-5.5-wid+map(HairLength, -5, 9, 0, curlScale), 
       -5+map(L, 139, 360, 0, 14*dist));
       vertex(-2-wid, -6.5);
-      vertex(-6-wid, -5);
+      
     endShape();
 
 
     beginShape();
-    for(let i = 0; i <15; i++){
-      vertex((6+wid)-map(HairLength, -5, 9+wid, 0, curlScale)+curlScale+
+    for(let i = 0; i <15; i++){ //outer curl
+      vertex((5.5+wid)-map(HairLength, -5, 9+wid, 0, curlScale)+curlScale+
         curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
         HairLength+
         curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
     } 
 
-    for(let i = 15; i > 0; i--){
+    for(let i = 15; i > 0; i--){ //inner curl
       let shrink = 1;
-      shrink = map(i, 15, 0, 1, 2);
-      vertex((6+wid)-map(HairLength, -5, 9+wid, 0, curlScale)+curlScale/shrink+
-        curlScale/shrink*cos(map(curl, 180, -90, 170, 180-(15*i))), 
-        HairLength+
-        curlScale/shrink*sin(map(curl, 180, -90, 170, 180-(15 *i))));
+      shrink = map(i, 15, 0, 1, 4);
+      vertex(
+        (5.5+map(L, 139,  360,0, 1)+wid)-map(HairLength, -5, 9+wid, 0, curlScale)+curlScale/shrink+
+        curlScale/shrink*cos(map(curl, 180, -90, 170, 180-(17*i))), 
+
+        HairLength+curlScale/shrink*sin(map(curl, 180, -90, 170, 180-(15 *i)))
+        );
     }    
 
     endShape();
 
     beginShape();
-    for(let i = 0; i <15; i++){
-        vertex((-6-wid)+map(HairLength, -5, 9+wid, 0, curlScale)-curlScale+
+    for(let i = 0; i <15; i++){ //outer curl mirror
+        vertex((-5.5-wid)+map(HairLength, -5, 9+wid, 0, curlScale)-curlScale+
         curlScale*cos(map(curl, 180, -90, 0, (15*i))), 
         HairLength+
         curlScale*sin(map(curl, 180, -90, 0, (15 *i))));
     }
 
-    for(let i = 15; i > 0; i--){
+    for(let i = 15; i > 0; i--){ //inner curl mirror
       let shrink = 1;
-      shrink = map(i, 15, 0, 1, 2);
+      shrink = map(i, 15, 0, 1, 4);
+      vertex(
+        (-5.5-map(L, 139,  360,0, 1)-wid)+map(HairLength, -5, 9+wid, 0, curlScale)-curlScale/shrink+
+        curlScale/shrink*cos(map(curl, 180, -90, -10, (17*i))), 
 
-      vertex((-6-wid)+map(HairLength, -5, 9+wid, 0, curlScale)-curlScale/shrink+
-        curlScale/shrink*cos(map(curl, 180, -90, -10, (15*i))), 
-        HairLength+
-        curlScale/shrink*sin(map(curl, 180, -90, -10, (15 *i))));
+        HairLength+curlScale/shrink*sin(map(curl, 180, -90, -10, (15 *i)))
+        );
     }    
 
     endShape();
