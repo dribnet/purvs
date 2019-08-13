@@ -9,14 +9,45 @@
 
 
 function drawFace1() {
-  fill(60);
+  //yata brown (186,138,90)
+  //yata light brown (229,192,154)
+  //yata blush (255,204,255);
+  scale(1.4);
   noStroke();
-  // head
-  ellipse(0, 0, 20);
-  // eyes
-  fill(200);
-  ellipse(-3, -3, 3);
-  ellipse( 3, -3, 3);
+  //head
+  fill(186,138,90);
+  ellipse(0,0,12,10);
+
+  //brown patch
+  fill(229,192,154);
+  arc(0, 1, 11, 8.5, 0.4, HALF_PI*1.75);
+  ellipse(0,1.1,2,1)
+
+  //nose
+  fill(0);
+  arc(0, 1.55, 1, 1, -2.5, -0.5);
+  strokeWeight(0.1);
+  stroke(0);
+  line(0,1.55,0,2.05);
+
+  //eyes
+  noStroke();
+  fill(0);
+  ellipse(2,0.5,2,2);
+  ellipse(-2,0.5,2,2);
+
+  fill(255);
+  ellipse(1.5,0.2,0.5,0.5);
+  ellipse(2.3,0,0.3,0.3);
+  ellipse(-2.5,0.2,0.5,0.5);
+  ellipse(-1.7,0,0.3,0.3);
+
+
+  //outside of head stroke
+  strokeWeight(0.35);
+  stroke(0);
+  noFill();
+  ellipse(0,0,12,10);
 }
 
 /*
