@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-let slider1, slider2, slider3, slider4, slider5;
+let eyeXpos_slider, eyeYpos_slider, eyeSize_slider, slider4, slider5;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -14,15 +14,15 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // create sliders
-  slider1 = createSlider(0, 100, 50);
-  slider2 = createSlider(0, 100, 50);
-  slider3 = createSlider(0, 100, 50);
+  eyeXpos_slider = createSlider(0, 100, 50);
+  eyeYpos_slider = createSlider(0, 100, 50);
+  eyeSize_slider = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
 
-  slider1.parent('slider1Container');
-  slider2.parent('slider2Container');
-  slider3.parent('slider3Container');
+  eyeXpos_slider.parent('slider1Container');
+  eyeYpos_slider.parent('slider2Container');
+  eyeSize_slider.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
 
@@ -46,9 +46,9 @@ function draw () {
 
   background(bg_color);
 
-  let s1 = slider1.value();
-  let s2 = slider2.value();
-  let s3 = slider3.value();
+  let eyeXpos = eyeXpos_slider.value();
+  let eyeYpos = eyeYpos_slider.value();
+  let eyeSize = eyeSize_slider.value();
   let s4 = slider4.value();
   let s5 = slider5.value();
 
@@ -67,7 +67,10 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    let xpos = map(eyeXpos, 0, 100, 2, 5);
+    let ypos = map(eyeYpos, 0, 100, -0.5, 0.5);
+    let size = map(eyeSize, 0, 100, 1, 4);
+    drawFace1(xpos, ypos, size);
   }
 
   if (mode == '2') {
