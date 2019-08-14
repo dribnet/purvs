@@ -11,7 +11,7 @@
 function drawFace1() {
   //yata brown (186,138,90)
   //yata light brown (229,192,154)
-  //yata blush (255,204,255);
+  //yata blush (255,204,255)
   scale(1.4);
   noStroke();
   //head
@@ -20,31 +20,37 @@ function drawFace1() {
 
   //brown patch
   fill(229,192,154);
-  arc(0, 1, 11, 8.5, 0.4, HALF_PI*1.75);
-  ellipse(0,1.1,2,1)
+  arc(0, 0.5, 12, 9, 0.35, HALF_PI*1.772);
+  ellipse(0,0.6,2,1)
 
   //nose
   fill(0);
-  arc(0, 1.55, 1, 1, -2.5, -0.5);
+  arc(0, 1.05, 1, 1, -2.5, -0.5);
   strokeWeight(0.1);
   stroke(0);
-  line(0,1.55,0,2.05);
+  line(0,1.05,0,1.55);
+
+  //blush
+  noStroke();
+  fill(255,204,255);
+  ellipse(3.2,1.5,2.5,1);
+  ellipse(-3.2,1.5,2.5,1);
 
   //eyes
   noStroke();
   fill(0);
-  ellipse(2,0.5,2,2);
-  ellipse(-2,0.5,2,2);
+  ellipse(2,0,2,2);
+  ellipse(-2,0,2,2);
 
   fill(255);
-  ellipse(1.5,0.2,0.5,0.5);
-  ellipse(2.3,0,0.3,0.3);
-  ellipse(-2.5,0.2,0.5,0.5);
-  ellipse(-1.7,0,0.3,0.3);
+  ellipse(1.5,-0.3,0.5,0.5);
+  ellipse(2.3,-0.5,0.3,0.3);
+  ellipse(-2.5,-0.3,0.5,0.5);
+  ellipse(-1.7,-0.5,0.3,0.3);
 
 
   //outside of head stroke
-  strokeWeight(0.35);
+  strokeWeight(0.3);
   stroke(0);
   noFill();
   ellipse(0,0,12,10);
