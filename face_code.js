@@ -13,12 +13,36 @@ function drawFace1() {
   //yata light brown (229,192,154)
   //yata blush (255,204,255)
   scale(1.4);
+
+  //ears right
+  fill(186,138,90);
+  strokeWeight(0.3);
+  stroke(0);
+  bezier(10,-6.2,6.67,-7.63,6,-7.2,2.8,-3.2);
+  fill(229,192,154);
+  bezier(10,-6.2,6.67,-7,6,-6.2,3,-2.2);
+  bezier(10,-6.2,9.03,-4.27,6.69,-3.05,3.5,-1.5);
   noStroke();
+  triangle(9.8,-6.1,4,-3,4.5,-2);
+
+  //ears left
+  fill(186,138,90);
+  strokeWeight(0.3);
+  stroke(0);
+  bezier(-10,-6.2,-6.67,-7.63,-6,-7.2,-2.8,-3.2);
+  fill(229,192,154);
+  bezier(-10,-6.2,-6.67,-7,-6,-6.2,-3,-2.2);
+  bezier(-10,-6.2,-9.03,-4.27,-6.69,-3.05,-3.5,-1.5);
+  noStroke();
+  triangle(-9.8,-6.1,-4,-3,-4.5,-2);
+
   //head
+  noStroke();
   fill(186,138,90);
   ellipse(0,0,12,10);
 
   //brown patch
+  noStroke();
   fill(229,192,154);
   arc(0, 0.5, 12, 9, 0.35, HALF_PI*1.772);
   ellipse(0,0.6,2,1)
