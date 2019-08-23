@@ -7,9 +7,12 @@
  * These functions are used by your final arrangement of faces as well as the face editor.
  */
 
+
+
 const face_core_width = 17;
 const face_core_height = 14;
 const face_rounding = 2;
+let percentage = 0.8;
 
 const face_top_width = 7;
 const face_top_height = 3;
@@ -17,85 +20,149 @@ const face_top_height = 3;
 const face_bottom_width = 10;
 const face_bottom_height = 2;
 
-let percentage = 0.8;
+let core_colour;
+let light_colour;
+let shadow_colour;
+let highlight_colour;
 
-function drawFace1(xpos,ypos,eyesize) {
-  rectMode(CENTER);
-  angleMode(RADIANS);
-  translate(0,0.5);
+function drawFace(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, mouth_width, mouth_height, mouth_emotion) {
+    rectMode(CENTER);
+    angleMode(DEGREES);
+    core_colour = color(240, 200, 10);
+    light_colour = color(240, 215, 24);
+    shadow_colour = color(165, 42, 42, 15);
+    highlight_colour = color(255, 70);
+    translate(0, 0.5);
 
-  face_core();
-                                                                                                                                                                                                                                                               
-    fill(0);
-  ellipse(-xpos,-0.5 * ypos,eyesize);
-  ellipse(xpos,-0.5 * ypos,eyesize);
-      fill(255);
-  ellipse(-xpos,-0.5 * ypos*0.1,eyesize/2);
-  ellipse(xpos,-0.5 * ypos*0.1,eyesize/2);
+    face_core();
+    eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eyedetail_angle);
+    mouth_core(mouth_width, mouth_height, mouth_emotion);
 
-
-  line(-3,3,3,3);
+    //light reflection
+    push();
+    noFill();
+    strokeWeight(1);
+    stroke(highlight_colour);
+    arc(-4, -4.5, 2, 2, 180, 270);
+    pop();
 }
 
-/*
- * thinness_value ranges from 0-100 and indicates how thin the face is
- */
-function drawFace2(thinness_value) {
-  rectMode(CENTER);
-  angleMode(RADIANS);
-  translate(0,0.5);
-
-  face_core();
-
-    fill(0);
-  ellipse(-3,-0.5,2,2);
-  ellipse(3,-0.5,2,2);
-}
-
-/*
- * tilt_value is in degrees
- * eye_value is an integer number of eyes: either 0, 1, 2, or 3
- * mouth_value is how open the mouth is and should generally range from 0.5 to 10
- */
-function drawFace3(tilt_value, eye_value, mouth_value) {
-  rectMode(CENTER);
-  angleMode(RADIANS);
-  translate(0,0.5);
-
-  face_core();
-
-    fill(0);
-  ellipse(-3,-0.5,2,2);
-  ellipse(3,-0.5,2,2);
-}
-
-function face_core(){
+function face_core() {
     push();
     noStroke();
-    
-    //fill core colour
-    fill(240,200,10);
 
-    rect(0,0,face_core_width,face_core_height,2.5); //core
-    rect(0,8,face_bottom_width,face_bottom_height); // bottom
-    rect(0,-8.5,face_top_width,face_top_height, 0.25 * face_rounding, 0.25 * face_rounding, 0, 0); // top
+    //fill core colour
+    fill(core_colour);
+
+    rect(0, 0, face_core_width, face_core_height, 2.5); //core
+    rect(0, 8, face_bottom_width, face_bottom_height); // bottom
+    rect(0, -8.5, face_top_width, face_top_height, 0.25 * face_rounding, 0.25 * face_rounding, 0, 0); // top
 
     //fill highlight
-    fill(240,240,40,100);
-    rect(0,0,face_core_width * percentage,face_core_height,2.5); //core
-    rect(0,8,face_bottom_width * percentage,face_bottom_height); // bottom
-    rect(0,-8.5,face_top_width * percentage * 0.8,face_top_height, 0.25 * face_rounding, 0.25 * face_rounding, 0, 0); // top
+    fill(light_colour);
+    rect(0, 0, face_core_width * percentage, face_core_height, 2.5); //core
+    rect(0, 8, face_bottom_width * percentage, face_bottom_height); // bottom
+    rect(0, -8.5, face_top_width * percentage * 0.8, face_top_height, 0.25 * face_rounding, 0.25 * face_rounding, 0, 0); // top
 
     //fill shadow
-    fill(165,42,42,15);
-    rect(0,7.5,face_bottom_width,face_bottom_height/2);
+    fill(shadow_colour);
+    rect(0, 7.5, face_bottom_width, face_bottom_height / 2);
 
+    pop();
+}
+
+function eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eyedetail_angle) {
     push();
-      noFill();
-      strokeWeight(1);
-      stroke(255,70);
-      arc(-4,-4.5,2,2,PI,PI+HALF_PI);
+    noStroke();
+    //sets eye level
+    translate(0, -eye_height);
+    fill(0);
+
+    //right eye
+    push();
+    translate(eye_spacing / 2, 0);
+    //ellipse(0, 0, eye_size, eye_size * eye_squint);
+    ellipse(0, 0, eye_size, eye_size);
+    fill(255);
+    ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
+    rotate(-eye_angle);
+    eyes_detail(eye_size, eye_squint, eyedetail_angle);
     pop();
 
-  pop();
+    //left eye
+    push();
+    translate(-eye_spacing / 2, 0);
+    //ellipse(0, 0, eye_size, eye_size * eye_squint);
+    ellipse(0, 0, eye_size, eye_size);
+    fill(255);
+    ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
+    rotate(eye_angle);
+    eyes_detail(eye_size, eye_squint, -eyedetail_angle);
+    pop();
+
+    pop();
+}
+
+function eyes_detail(y, s, a) {
+    push();
+    noStroke();
+    fill(light_colour);
+
+    //bottom
+    push();
+    translate(0, y * s / 2);
+    rotate(a);
+    //rect(0, 0, y, y / 3);
+    scale(1.5);
+    arc(0, 0, y, y / 2, 180, 0, CHORD);
+    pop();
+
+    //top
+    push();
+    translate(0, -y * s / 2);
+    rotate(-a);
+    //rect(0, 0, y, y / 3);
+    scale(1.5);
+    arc(0, 0, y, y / 2, 0, 180, CHORD);
+    pop();
+
+    //eyebrow
+    push()
+    fill(0)
+    translate(0, -y * s / 2);
+    rotate(-a);
+    rect(0, 0, y, y / 4);
+    pop();
+
+    pop();
+}
+
+function mouth_core(mouth_width, mouth_height, mouth_emotion) {
+    push();
+    noFill();
+    strokeWeight(0.5);
+    translate(0, mouth_height);
+    stroke(0);
+    //arc(0, 0, mouth_width, 1, 0, 180);
+
+    //top lip
+    beginShape();
+    curveVertex(-mouth_width / 2, 0);
+    curveVertex(-mouth_width / 2, 0);
+    curveVertex(-mouth_width / 4, mouth_emotion);
+    curveVertex(mouth_width / 4, mouth_emotion);
+    curveVertex(mouth_width / 2, 0);
+    curveVertex(mouth_width / 2, 0);
+    endShape();
+
+    //top lip
+    beginShape();
+    curveVertex(-mouth_width / 2, 0);
+    curveVertex(-mouth_width / 2, 0);
+    curveVertex(-mouth_width / 4, mouth_emotion / 3);
+    curveVertex(mouth_width / 4, mouth_emotion / 3);
+    curveVertex(mouth_width / 2, 0);
+    curveVertex(mouth_width / 2, 0);
+    endShape();
+    pop();
 }

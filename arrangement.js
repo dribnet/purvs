@@ -6,91 +6,91 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
+let num_across = 7;
+let num_down = 4;
+
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
 
-function setup () {
-  // create the drawing canvas, save the canvas element
-  let main_canvas = createCanvas(canvasWidth, canvasHeight);
-  main_canvas.parent('canvasContainer');
+function setup() {
+    // create the drawing canvas, save the canvas element
+    let main_canvas = createCanvas(canvasWidth, canvasHeight);
+    main_canvas.parent('canvasContainer');
 
-  curRandomSeed = int(focusedRandom(0, 1000));
+    curRandomSeed = int(focusedRandom(0, 1000));
 
-  // rotation in degrees
-  angleMode(DEGREES);
+    // rotation in degrees
+    angleMode(DEGREES);
 }
 
 function changeRandomSeed() {
-  curRandomSeed = curRandomSeed + 1;
-  lastSwapTime = millis();
+    curRandomSeed = curRandomSeed + 1;
+    lastSwapTime = millis();
 }
 
 // global variables for colors
 const bg_color1 = [225, 206, 187];
 
 function mouseClicked() {
-  changeRandomSeed();
+    changeRandomSeed();
 }
 
-function draw () {
-  if(millis() > lastSwapTime + millisPerSwap) {
-    changeRandomSeed();
-  }
-
-  // reset the random number generator each time draw is called
-  resetFocusedRandom(curRandomSeed);
-
-  // clear screen
-  background(bg_color1);
-  noStroke();
-
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
-        pop();
-      }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          drawFace1();
-        }
-        else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
-        }
-        pop();
-      }
+function draw() {
+    if (millis() > lastSwapTime + millisPerSwap) {
+        changeRandomSeed();
     }
-  }
+
+    // reset the random number generator each time draw is called
+    resetFocusedRandom(curRandomSeed);
+
+    // clear screen
+    background(bg_color1);
+    noStroke();
+
+    // draw a 7x4 grid of faces
+    let w = canvasWidth / num_across;
+    let h = canvasHeight / num_down;
+    for (let i = 0; i < num_down; i++) {
+        for (let j = 0; j < num_across; j++) {
+            let y = (h) * i + h / 2;
+            let x = (w) * j + w / 2;
+            // center face
+            let eye_spacing = focusedRandom(4.5, 8);
+            let eye_height = focusedRandom(0, 3);
+            let eye_size = focusedRandom(1, 3);
+            let eye_angle = focusedRandom(-45, 45);
+            let eye_squint = focusedRandom(1.3, 1.9);
+            let eyedetail_angle = focusedRandom(-30, 30);
+
+            let mouth_width = focusedRandom(1, 3);
+            let mouth_height = focusedRandom(1, 3);
+            let mouth_emotion = focusedRandom(-2, 2);
+
+            push();
+            translate(x, y);
+            scale(w / 30, h / 30);
+            //scale(1, 1);
+            drawFace(
+                eye_spacing,
+                eye_height,
+                eye_size,
+                eye_angle,
+                eye_squint,
+                eyedetail_angle,
+                mouth_width,
+                mouth_height,
+                mouth_emotion
+            );
+            translate(-x, -y);
+            pop();
+        }
+    }
 }
 
 function keyTyped() {
-  if (key == '!') {
-    saveBlocksImages();
-  }
-  else if (key == '@') {
-    saveBlocksImages(true);
-  }
+    if (key == '!') {
+        saveBlocksImages();
+    } else if (key == '@') {
+        saveBlocksImages(true);
+    }
 }
