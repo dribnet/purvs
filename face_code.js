@@ -15,7 +15,7 @@ function drawFace1() {
   //mouth dark (105,1,1)
   //tounge (239,157,139)
   scale(1.4);
-
+  angleMode(RADIANS);
   //ears right
   beginShape();
     fill(186,138,90);
