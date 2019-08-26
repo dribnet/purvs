@@ -57,10 +57,12 @@ function draw() {
             // center face
             let eye_spacing = focusedRandom(4.5, 8);
             let eye_height = focusedRandom(0, 3);
-            let eye_size = focusedRandom(1, 3);
-            let eye_angle = focusedRandom(-45, 45);
+            let eye_size = focusedRandom(1.5, 3);
+            let eye_angle = focusedRandom(-25, 25);
             let eye_squint = focusedRandom(1.3, 1.9);
-            let eyedetail_angle = focusedRandom(-30, 30);
+            let eyedetail_angle = focusedRandom(-15, 15);
+            let eye_wink = focusedRandom(-1, 1);
+            let eye_seed = focusedRandom(0, 100);
 
             let mouth_width = focusedRandom(1, 3);
             let mouth_height = focusedRandom(1, 3);
@@ -77,6 +79,8 @@ function draw() {
                 eye_angle,
                 eye_squint,
                 eyedetail_angle,
+                eye_wink,
+                eye_seed,
                 mouth_width,
                 mouth_height,
                 mouth_emotion

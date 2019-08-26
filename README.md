@@ -2,10 +2,6 @@
 
 Lego Faces
 
-I have begun to add to the face drawing code, adding additional sliders to allow for more variation, whether all these direct controls stay in the final design is unclear, but for now it allows me to explore different values directly rather than randomly. 
+I have taken away the other features to primarilty work on the eyes, getting them to a good state and adding some new features such as the ability to wink and changing the emotion through only showing certain eyelids.
 
-The eyes are in a good state, with a large level of variation and control. Showing a broad range of emotions, however aesthetics may change as well as value range refinement. 
-
-The mouth has a primitive version working at the moment, with the basic range of emotions being available, I will look into different methods of integrating more unique shapes.
-
-So far so good.
+I plan to work on the eyebrows next, and try get them as emotive as the eyes and go from there.
