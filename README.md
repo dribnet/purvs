@@ -1,4 +1,15 @@
 ## PS2 MDDN 342 2019
+update 
+Redone the draw face to be more complete and better scale/looking nicer.
+I used a sketch and photoshop to map the correct scale still need to do alot of polishing up on the human skull outline. will need to draw teeth to make the skull look right.
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+plan
 
 Human and Ram skulls
 
