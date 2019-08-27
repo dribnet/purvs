@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 7;
-let num_down = 4;
+let num_across = 5;
+let num_down = 3;
 
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
@@ -21,6 +21,9 @@ function setup() {
 
     // rotation in degrees
     angleMode(DEGREES);
+
+    set_colours();
+    generate_random();
 }
 
 function changeRandomSeed() {
@@ -56,22 +59,25 @@ function draw() {
             let x = (w) * j + w / 2;
             // center face
             let eye_spacing = focusedRandom(4.5, 8);
-            let eye_height = focusedRandom(0, 3);
+            let eye_height = focusedRandom(0, 2.2);
             let eye_size = focusedRandom(1.5, 3);
             let eye_angle = focusedRandom(-25, 25);
             let eye_squint = focusedRandom(1.3, 1.9);
             let eyedetail_angle = focusedRandom(-15, 15);
             let eye_wink = focusedRandom(-1, 1);
-            let eye_seed = focusedRandom(0, 100);
+            let left_eye_seed = focusedRandom(0, 100);
+            let right_eye_seed = focusedRandom(0, 100);
 
-            let mouth_width = focusedRandom(1, 3);
+            let mouth_width = focusedRandom(1, 4);
             let mouth_height = focusedRandom(1, 3);
             let mouth_emotion = focusedRandom(-2, 2);
 
+            generate_random();
+
             push();
             translate(x, y);
-            scale(w / 30, h / 30);
-            //scale(1, 1);
+            scale(h / 30, h / 30);
+            rectMode(CENTER);
             drawFace(
                 eye_spacing,
                 eye_height,
@@ -80,12 +86,12 @@ function draw() {
                 eye_squint,
                 eyedetail_angle,
                 eye_wink,
-                eye_seed,
+                left_eye_seed,
+                right_eye_seed,
                 mouth_width,
                 mouth_height,
                 mouth_emotion
             );
-            translate(-x, -y);
             pop();
         }
     }

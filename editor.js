@@ -11,7 +11,8 @@ let eye_spacing_slider,
     eye_squint_slider,
     eyedetail_angle_slider,
     eye_wink_slider,
-    eye_seed_slider;
+    left_eye_seed_slider,
+    right_eye_seed_slider;
 
 let mouth_width_slider,
     mouth_height_slider;
@@ -32,7 +33,8 @@ function setup() {
     eye_squint_slider = createSlider(0, 100, 50);
     eyedetail_angle_slider = createSlider(0, 100, 50);
     eye_wink_slider = createSlider(0, 100, 50);
-    eye_seed_slider = createSlider(0, 100, 50, 25);
+    left_eye_seed_slider = createSlider(0, 100, 50, 25);
+    right_eye_seed_slider = createSlider(0, 100, 50, 25);
 
 
     // create mouth sliders
@@ -47,7 +49,8 @@ function setup() {
     eye_squint_slider.parent('slider5Container');
     eyedetail_angle_slider.parent('slider6Container');
     eye_wink_slider.parent('slider10Container');
-    eye_seed_slider.parent('slider11Container');
+    left_eye_seed_slider.parent('slider11Container');
+    right_eye_seed_slider.parent('slider12Container');
 
     mouth_width_slider.parent('slider7Container');
     mouth_height_slider.parent('slider8Container');
@@ -62,6 +65,9 @@ function setup() {
     faceSelector.option('3');
     faceSelector.value('1');
     faceSelector.parent('selector1Container');
+
+    set_colours();
+    generate_random();
 }
 
 const bg_color = [225, 206, 187];
@@ -80,7 +86,8 @@ function draw() {
     let eye_squint_value = eye_squint_slider.value();
     let eyedetail_angle_value = eyedetail_angle_slider.value();
     let eye_wink_value = eye_wink_slider.value();
-    let eye_seed_value = eye_seed_slider.value();
+    let left_eye_seed_value = left_eye_seed_slider.value();
+    let right_eye_seed_value = right_eye_seed_slider.value();
 
     let mouth_width_value = mouth_width_slider.value();
     let mouth_height_value = mouth_height_slider.value();
@@ -104,11 +111,12 @@ function draw() {
         let eye_spacing = map(eye_spacing_value, 0, 100, 4.5, 8);
         let eye_height = map(eye_height_value, 0, 100, 0, 3);
         let eye_size = map(eye_size_value, 0, 100, 1.5, 3);
-        let eye_angle = map(eye_angle_value, 0, 100, -25, 25);
+        let eye_angle = map(eye_angle_value, 0, 100, -15, 15);
         let eye_squint = map(eye_squint_value, 0, 100, 1.3, 1.9);
         let eyedetail_angle = map(eyedetail_angle_value, 0, 100, -15, 15);
         let eye_wink = map(eye_wink_value, 0, 100, -1, 1);
-        let eye_seed = map(eye_seed_value, 0, 100, 0, 100);
+        let left_eye_seed = map(left_eye_seed_value, 0, 100, 0, 100);
+        let right_eye_seed = map(right_eye_seed_value, 0, 100, 0, 100);
 
         let mouth_width = map(mouth_width_value, 0, 100, 1, 4);
         let mouth_height = map(mouth_height_value, 0, 100, 1, 3);
@@ -122,7 +130,8 @@ function draw() {
             eye_squint,
             eyedetail_angle,
             eye_wink,
-            eye_seed,
+            left_eye_seed,
+            right_eye_seed,
             mouth_width,
             mouth_height,
             mouth_emotion
