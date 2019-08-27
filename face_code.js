@@ -228,11 +228,11 @@ function drawHair(Len, cur){
 
 
     beginShape();
-    for(let i = 0; i <15; i++){ //outer curl
+    for(let i = 0; i < 50; i++){ //outer curl
       vertex((6+0)-map(HairLength, -5, 9+0, 0, curlScale)+curlScale+
-        curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))), 
+        curlScale*cos(map(curl, 180, -90, 180, 180-(4.5*i))), 
         HairLength-map(L, 139, 340, 0, 0.75)+
-        curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
+        curlScale*sin(map(curl, 180, -90, 180, 180-(4.5*i))));
     } 
 
     for(let i = 15; i > 0; i--){ //inner curl
@@ -249,11 +249,11 @@ function drawHair(Len, cur){
     endShape();
 
     beginShape();
-    for(let i = 0; i <15; i++){ //outer curl mirror
+    for(let i = 0; i < 50; i++){ //outer curl mirror
         vertex((-6-0)+map(HairLength, -5, 9+0, 0, curlScale)-curlScale+
-        curlScale*cos(map(curl, 180, -90, 0, (15*i))), 
+        curlScale*cos(map(curl, 180, -90, 0, (4.5*i))), 
         HairLength-map(L, 139, 340, 0, 0.75)+
-        curlScale*sin(map(curl, 180, -90, 0, (15 *i))));
+        curlScale*sin(map(curl, 180, -90, 0, (4.5 *i))));
     }
 
     for(let i = 15; i > 0; i--){ //inner curl mirror
