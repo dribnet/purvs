@@ -35,38 +35,114 @@ function drawFace1(length, curly) {
 
   fill(255, 218, 115);
   stroke(230, 188, 73);
-  if(L > 139){
+
   Fringe(L, curly);
-  }
+  
 
 }
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
   for(let i = 0; i <5; i++){
-    let cent = map(i, 0, 4, -0.75, 0.75);
-    if(cent < 0){
-      cent = cent*-1;
-    }
-    rect(-5+(i*2) + (100-cur)*0.005,
-     -7.75+cent,
-      -3+(i*2) -(100-cur)*0.005,
-      -4.25+cent + -map(Len, 139, 340, 3.5, 0),
-       cur*0.01);
-  }
+    let cent = map(i, 0, 4, -1.5, 1.5);
+       
 
-  for(let i = 0; i <4; i++){
-    cent = map(i, 0, 3, -0.75, 0.75);
+    if(cent < 0){
+
+      cent = cent*-1;
+
+    }
+    if(Len < 139){
+      
+      if((1.5-cent)/1.5 > Len/139 - 0.2 ){
+        if(i < 3){
+            if((1.5-cent)/1.5+0.5 - (Len/139)*2 > 0 && (1.5-cent)/1.5+0.5 - (Len/139)*2 < 0.5){
+            print(" xxxxx  I : " + i + " XXXXXX");
+            print("LEn: " + Len + " , /139: " + Len/139);
+            print("cent: " + cent + " , 1.5-cent: " + (1.5-cent) + " 1.5-cent/1.5: " + (1.5-cent)/1.5);
+            print(((1.5-cent)/1.5+0.5 - (Len/139)));
+
+            rect(-6+(i*2.25) + (100-cur)*0.005 ,
+           -7.75+cent,
+           -3+(i*2.25) -(100-cur)*0.005,
+           -4.5+cent,
+            cur*0.01);
+            } else if((1.5-cent)/1.5+0.5 - (Len/139)*2 < 0.5) {
+       
+            rect(-6+(i*2.25) + (100-cur)*0.005 ,
+             -7.75+cent,
+             -3+(i*2.25) -(100-cur)*0.005,
+             -4.5+cent,
+             cur*0.01);
+                   ellipse(-6+(i*2.25) + (100-cur)*0.005 ,
+             -7.75+cent, 1, 1);
+            }
+          
+        } else if (i > 3){
+
+        }
+
+      } else {
+                    rect(-6+(i*2.25) + (100-cur)*0.005 ,
+             -7.75+cent,
+             -3+(i*2.25) -(100-cur)*0.005,
+             -4.5+cent,
+             cur*0.01);
+      }
+
+      
+    }
+    /*
+    else {
+      rect(-6+(i*2.25) + (100-cur)*0.005,
+       -7.75+cent,
+        -3+(i*2.25) -(100-cur)*0.005,
+        -5+cent +0.5,
+         cur*0.01);
+    }
+    */
+    /*
     if(cent < 0){
       cent = cent*-1;
     }
-    rect(-4+(i*2) + (100-cur)*0.005,
-     -7.5+cent, 
-     -2+(i*2) -(100-cur)*0.005, 
-     -5+cent-map(Len, 139, 340, 2.5, 0),
+    if(Len < 139){
+      
+      if(-4.5+cent - (0.06+(1.5-cent)/15)*(139-Len) > -7.75+cent){
+        rect(-6+(i*2.25) + (100-cur)*0.005,
+       -7.75+cent ,
+        -3+(i*2.25) -(100-cur)*0.005,
+        -4.5+cent - (0.06+(1.5-cent)/15)*(139-Len),
+         cur*0.01);
+      }
+
+      
+    }
+    else {
+      rect(-6+(i*2.25) + (100-cur)*0.005,
+       -7.75+cent,
+        -3+(i*2.25) -(100-cur)*0.005,
+        -5+cent +0.5,
+         cur*0.01);
+    }
+    */
+  }
+  
+  /*
+  for(let i = 0; i <4; i++){
+    cent = map(i, 0, 3, -1.5, 1.5);
+    if(cent < 0){
+      cent = cent*-1;
+    }
+    rect(-4.5+(i*2.25) + (100-cur)*0.005,
+     -8.25+cent, 
+     -2.5+(i*2.25) -(100-cur)*0.005, 
+     -4.75+cent,
       cur*0.01);
   }
+  */
 }
+
+
 
 function drawHair(Len, cur){
 
@@ -105,7 +181,7 @@ function drawHair(Len, cur){
 
   if(L < 139){ //shorter hair
     
-    translate(0, map(L, 0, 139, 1, 0));
+    translate(0, map(L, 0, 139, 7, 0));
     scale(map(L, 0, 139, 0.2, 1), map(L, 0, 139, 0.5, 1));
 
     arc(3+0, -5, 6, 6, 220, 221+L, CHORD);
