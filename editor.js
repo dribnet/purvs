@@ -74,12 +74,18 @@ function draw () {
     let eyelid_rotate = map(s2, 0, 100, 0, 8);
     let blush = map(s3, 0, 100, 0, 1);
     let mouth = map(s4, 0, 100, 0, 1);
-    drawFace1(eyelid_height,eyelid_rotate,blush,mouth);
+    let ear_rotate = map(s5, 0, 100, -5, 20);
+    drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
   }
 
   if (mode == '2') {
-    // draw 2nd face - let slider value 1 indicate thinness
-    drawFace2(s1);
+     // draw 1st face
+    let eyelid_height = map(s1, 0, 100, 0, 1);
+    let eyelid_rotate = map(s2, 0, 100, 0, 8);
+    let blush = map(s3, 0, 100, 0, 1);
+    let mouth = map(s4, 0, 100, 0, 1);
+    let ear_rotate = map(s5, 0, 100, 0, 20);
+    drawFace2(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
   }
 
   if (mode == '3') {

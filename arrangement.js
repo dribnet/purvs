@@ -78,11 +78,16 @@ function draw () {
           let eyelid_rotate = focusedRandom(0, 8);
           let blush = focusedRandom(0, 1);
           let mouth = focusedRandom(0, 1);
-          drawFace1(eyelid_height,eyelid_rotate,blush,mouth);
+          let ear_rotate = focusedRandom(-5, 20);
+          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
         }
         else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
+          let eyelid_height = focusedRandom(0, 1);
+          let eyelid_rotate = focusedRandom(0, 8);
+          let blush = focusedRandom(0, 1);
+          let mouth = focusedRandom(0, 1);
+          let ear_rotate = focusedRandom(-5, 20);
+          drawFace2(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
         }
         pop();
       }
