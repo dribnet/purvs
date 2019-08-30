@@ -7,8 +7,12 @@
  * These functions are used by your final arrangement of faces as well as the face editor.
  */
 
-
-function drawFace1() {
+/*
+ * eyelid_height ranges from 0-1 and indicates how far down the eyelid is
+   eyelid_rotate ranges from 0-8 and indicates how squinty the eyes are
+   blush ranges from 0-1 and indicates whether the yata is blushing or not
+ */
+function drawFace1(eyelid_height,eyelid_rotate,blush,mouth) {
   //yata brown (186,138,90)
   //yata light brown (229,192,154)
   //yata blush (255,204,255)
@@ -81,6 +85,7 @@ function drawFace1() {
   line(0,1.05,0,1.55);
 
   //mouth
+  if(mouth <= 0.5){
     //inside of mouth
     fill(105,1,1);
     noStroke();
@@ -98,6 +103,7 @@ function drawFace1() {
       stroke(0);
       bezier(0,3.5,0.78,3.45,1.1,3.01,1,1.9);
       bezier(-0,3.5,-0.78,3.45,-1.1,3.01,-1,1.9);
+  }
     //top of mouth
     stroke(0);
     fill(229,192,154);
@@ -106,9 +112,11 @@ function drawFace1() {
 
   //blush
   noStroke();
-  fill(255,204,255);
-  ellipse(3.2,1.5,2.5,1);
-  ellipse(-3.2,1.5,2.5,1);
+  if(blush <= 0.5){
+    fill(255,204,255);
+    ellipse(3.2,1.5,2.5,1);
+    ellipse(-3.2,1.5,2.5,1);
+  }
 
   //eyes
   noStroke();
@@ -117,11 +125,31 @@ function drawFace1() {
   ellipse(-2,0,2,2);
 
   fill(255);
-  ellipse(1.5,-0.3,0.5,0.5);
-  ellipse(2.3,-0.5,0.3,0.3);
-  ellipse(-2.5,-0.3,0.5,0.5);
-  ellipse(-1.7,-0.5,0.3,0.3);
+  ellipse(1.5,-0.3 + (eyelid_height/1.7),0.5,0.5);
+  ellipse(2.3,-0.5 + (eyelid_height/1.7),0.3,0.3);
+  ellipse(-2.5,-0.3 + (eyelid_height/1.7),0.5,0.5);
+  ellipse(-1.7,-0.5 + (eyelid_height/1.7),0.3,0.3);
 
+    //---[Eyelid - Parameter]
+    fill(186,138,90);
+
+    if(eyelid_height >= 0.8){
+      //This stops it from looking really weird when the eyes are almost shut
+      eyelid_rotate = eyelid_rotate/1.5;
+    }
+    push();
+      angleMode(DEGREES);
+      rotate(eyelid_rotate);
+      rect(0.8,(-3.1) + eyelid_height,2.5,1);
+      rect(0.8,(-2.2) + eyelid_height,2.5,1);
+    pop();
+
+    push();
+      angleMode(DEGREES);
+      rotate(-eyelid_rotate);
+      rect(-3,(-3.1) + eyelid_height,2.5,1);
+      rect(-3,(-2.2) + eyelid_height,2.5,1);
+    pop();
 
   //outside of head stroke
   strokeWeight(0.3);

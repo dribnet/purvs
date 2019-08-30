@@ -74,7 +74,11 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          drawFace1();
+          let eyelid_height = focusedRandom(0, 1);
+          let eyelid_rotate = focusedRandom(0, 8);
+          let blush = focusedRandom(0, 1);
+          let mouth = focusedRandom(0, 1);
+          drawFace1(eyelid_height,eyelid_rotate,blush,mouth);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);
