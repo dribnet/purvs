@@ -57,6 +57,7 @@ curveVertex(-5.5,1);
 curveVertex(-4.8,5);
 curveVertex(-4.5,6);
 curveVertex(-3.7,6.5);
+curveVertex(0,6.8);
 curveVertex(3.7,6.5);
 curveVertex(4.5,6);
 curveVertex(4.8,5);
@@ -89,22 +90,6 @@ curveVertex(3.7,6);
 curveVertex(-3.7,6);
 curveVertex(-3.7,6);
 endShape();
-
-
-//teethBotJaw
-// beginShape();
-// curveVertex(-5,1.8);
-// curveVertex(-4,1.8);
-// curveVertex(-3.7,4);
-// curveVertex(-3,5.5);
-// curveVertex(-2.5,6);
-// curveVertex(0,6.5);
-// curveVertex(2.6,6);
-// curveVertex(3,5.5);
-// curveVertex(3.7,4);
-// curveVertex(4,1.8);
-// curveVertex(5,1.8);
-// endShape();
 
 
 //DETAILING DRAWN ONTOP OF BASE SKULL
