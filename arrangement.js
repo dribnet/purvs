@@ -60,7 +60,7 @@ function draw() {
             // center face
             let eye_spacing = focusedRandom(4.5, 8);
             let eye_height = focusedRandom(0, 2.2);
-            let eye_size = focusedRandom(1.5, 3);
+            let eye_size = focusedRandom(1.8, 3);
             let eye_angle = focusedRandom(-25, 25);
             let eye_squint = focusedRandom(1.3, 1.9);
             let eyedetail_angle = focusedRandom(-15, 15);

@@ -117,16 +117,16 @@ function eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eye
     //draws eyebrows
     eyebrows(eye_size, eye_squint, eyedetail_angle, wink, 1);
 
-    translate(eye_size / 2, eye_size);
-    for (let i = 0; i < freckle_num; i++) {
-        let pos = freckle_pos[i];
-        let angle = freckle_angles[i];
-        fill(160, 95, 52);
-        push();
-        rotate(-angle);
-        ellipse(0, pos, 0.25, 0.25);
-        pop();
-    }
+    // translate(eye_size / 2, eye_size * 1.2);
+    // for (let i = 0; i < freckle_num; i++) {
+    //     let pos = freckle_pos[i];
+    //     let angle = freckle_angles[i];
+    //     fill(160, 95, 52);
+    //     push();
+    //     rotate(-angle);
+    //     ellipse(0, pos, 0.25, 0.25);
+    //     pop();
+    // }
 
     pop();
 
@@ -158,16 +158,16 @@ function eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eye
 
     eyebrows(eye_size, eye_squint, -eyedetail_angle, wink, -1);
 
-    translate(-eye_size / 2, eye_size);
-    for (let i = 0; i < freckle_num; i++) {
-        let pos = freckle_pos[i];
-        let angle = freckle_angles[i];
-        fill(160, 95, 52);
-        push();
-        rotate(angle);
-        ellipse(0, pos, 0.25, 0.25);
-        pop();
-    }
+    // translate(-eye_size / 2, eye_size * 1.2);
+    // for (let i = 0; i < freckle_num; i++) {
+    //     let pos = freckle_pos[i];
+    //     let angle = freckle_angles[i];
+    //     fill(160, 95, 52);
+    //     push();
+    //     rotate(angle);
+    //     ellipse(0, pos, 0.25, 0.25);
+    //     pop();
+    // }
     pop();
 
     pop();
@@ -302,7 +302,7 @@ function generate_random() {
     for (let i = 0; i < freckle_num; i++) {
         let pos = random(0.5, freckle_radius);
         freckle_pos.push(pos);
-        let angle = random(0, 360);
+        let angle = random((i - 1) * 360 / freckle_num, i * 360 / freckle_num);
         freckle_angles.push(angle);
     }
 
