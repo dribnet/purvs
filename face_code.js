@@ -43,102 +43,72 @@ function drawFace1(length, curly) {
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
-  for(let i = 0; i <5; i++){
-    let cent = map(i, 0, 4, -1.5, 1.5);
-       
+  translate(0, 5);
+  let c = map(cur, 0, 100, 1.25, 0);
+  let sc = 1.25; 
 
-    if(cent < 0){
+  translate(-6, -8.25);
 
-      cent = cent*-1;
+   for(let i = 0; i <5; i++){
 
-    }
-    if(Len < 139){
-      
-      if((1.5-cent)/1.5 > Len/139 - 0.2 ){
-        if(i < 3){
-            if((1.5-cent)/1.5+0.5 - (Len/139)*2 > 0 && (1.5-cent)/1.5+0.5 - (Len/139)*2 < 0.5){
-            print(" xxxxx  I : " + i + " XXXXXX");
-            print("LEn: " + Len + " , /139: " + Len/139);
-            print("cent: " + cent + " , 1.5-cent: " + (1.5-cent) + " 1.5-cent/1.5: " + (1.5-cent)/1.5);
-            print(((1.5-cent)/1.5+0.5 - (Len/139)));
+    translate(2, (map(i, 0, 5, -1.5 , 1.5)));
 
-            rect(-6+(i*2.25) + (100-cur)*0.005 ,
-           -7.75+cent,
-           -3+(i*2.25) -(100-cur)*0.005,
-           -4.5+cent,
-            cur*0.01);
-            } else if((1.5-cent)/1.5+0.5 - (Len/139)*2 < 0.5) {
-       
-            rect(-6+(i*2.25) + (100-cur)*0.005 ,
-             -7.75+cent,
-             -3+(i*2.25) -(100-cur)*0.005,
-             -4.5+cent,
-             cur*0.01);
-                   ellipse(-6+(i*2.25) + (100-cur)*0.005 ,
-             -7.75+cent, 1, 1);
-            }
-          
-        } else if (i > 3){
 
-        }
+    beginShape();
+   
+    let x2 = -1*sc; //first control point
+    let y2 = -1*sc; //first control point
 
-      } else {
-                    rect(-6+(i*2.25) + (100-cur)*0.005 ,
-             -7.75+cent,
-             -3+(i*2.25) -(100-cur)*0.005,
-             -4.5+cent,
-             cur*0.01);
-      }
+    let x3 = 0; //2 control point
+    let y3 = -2*sc+c; //2 control point //change height
 
-      
-    }
-    /*
-    else {
-      rect(-6+(i*2.25) + (100-cur)*0.005,
-       -7.75+cent,
-        -3+(i*2.25) -(100-cur)*0.005,
-        -5+cent +0.5,
-         cur*0.01);
-    }
-    */
-    /*
-    if(cent < 0){
-      cent = cent*-1;
-    }
-    if(Len < 139){
-      
-      if(-4.5+cent - (0.06+(1.5-cent)/15)*(139-Len) > -7.75+cent){
-        rect(-6+(i*2.25) + (100-cur)*0.005,
-       -7.75+cent ,
-        -3+(i*2.25) -(100-cur)*0.005,
-        -4.5+cent - (0.06+(1.5-cent)/15)*(139-Len),
-         cur*0.01);
-      }
+    let x4 = 1*sc;  //anchor point
+    let y4 = -1*sc; //anchor point
 
-      
-    }
-    else {
-      rect(-6+(i*2.25) + (100-cur)*0.005,
-       -7.75+cent,
-        -3+(i*2.25) -(100-cur)*0.005,
-        -5+cent +0.5,
-         cur*0.01);
-    }
-    */
-  }
-  
+    vertex(-1*sc, -1*sc);
+    bezierVertex(-1*sc, -1*sc, 0, -2*sc+c, 1*sc, -1*sc);
+
+    vertex(1*sc, -1*sc);
+    bezierVertex(1*sc, -1*sc, 2*sc-c, 0, 1*sc, 1*sc);
+
+    vertex(1*sc, 1*sc);
+    bezierVertex(1*sc, 1*sc, 0, 2*sc-c, -1*sc, 1*sc);
+
+    vertex(-1*sc, 1*sc);
+    bezierVertex(-1*sc, 1*sc, -2*sc+c, 0, -1*sc, -1*sc);
+
+
+    endShape(CLOSE);
+
+
+
+  } 
+
+
   /*
-  for(let i = 0; i <4; i++){
-    cent = map(i, 0, 3, -1.5, 1.5);
-    if(cent < 0){
-      cent = cent*-1;
-    }
-    rect(-4.5+(i*2.25) + (100-cur)*0.005,
-     -8.25+cent, 
-     -2.5+(i*2.25) -(100-cur)*0.005, 
-     -4.75+cent,
-      cur*0.01);
-  }
+  for(let i = 0; i <5; i++){
+    //curveTightness(map(mouseX, 0, width, 0, 20));
+    curveTightness(map(cur, 0, 100, 0, 1));
+    beginShape();
+
+
+    curveVertex(-5, -5);
+
+    curveVertex(0, -5-c);
+
+    curveVertex(5, -5);    
+    curveVertex(5+c, 0);
+    curveVertex(5, 5);
+    curveVertex(0, 5+c);
+    curveVertex(-5, 5);
+    curveVertex(-5-c, 0);
+
+    curveVertex(-5, -5);
+    curveVertex(0, -5-c);
+
+    endShape(CLOSE);
+
+  } 
   */
 }
 
