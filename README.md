@@ -1,6 +1,5 @@
 ## PS2 MDDN 342 2019
 
-My character is based off a character a friend of mine drew for me years ago. I wanted to see how I could take something familiar to me and explore it in new ways.
+Im going to use to only use drawface1 so that I can use discrete variables to control everything. As all the faces use the same parameters.
 
-I think it has a lot of ways to control and show emotions.
-
+Im going to try use discrete variable mainly for colour but I have already used it for blushing on/off and mouth open/closed.

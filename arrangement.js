@@ -51,44 +51,17 @@ function draw () {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
-        pop();
-      }
-      else if (i > 0) {
+      if (i >=   0) {
         // all other faces
         push();
-        translate(x, y);
+        translate(x  , y);
         scale(w/25, h/25);
-        if((i+j)%2 == 0) {
           let eyelid_height = focusedRandom(0, 1);
           let eyelid_rotate = focusedRandom(0, 8);
           let blush = focusedRandom(0, 1);
           let mouth = focusedRandom(0, 1);
           let ear_rotate = focusedRandom(-5, 20);
           drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
-        }
-        else {
-          let eyelid_height = focusedRandom(0, 1);
-          let eyelid_rotate = focusedRandom(0, 8);
-          let blush = focusedRandom(0, 1);
-          let mouth = focusedRandom(0, 1);
-          let ear_rotate = focusedRandom(-5, 20);
-          drawFace2(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
-        }
         pop();
       }
     }
