@@ -76,7 +76,7 @@ function draw () {
     let blush = map(s3, 0, 100, 0, 1);
     let mouth = map(s4, 0, 100, 0, 1);
     let ear_rotate = map(s5, 0, 100, -5, 20);
-    let colour_number = map(s7, 0, 100, 0, 1.5);
+    let colour_number = map(s7, 0, 100, 0, 3);
     drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number);
   }
   pop();

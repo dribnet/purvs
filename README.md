@@ -1,7 +1,9 @@
 ## PS2 MDDN 342 2019
 
-Im going to use to only use drawface1 so that I can use discrete variables to control everything. As all the faces use the same parameters.
+Now that I have my Colours in. I have set it to randomly choose between them. I have however made the dfeualt colour slightly more likely. 
 
-Im going to try use discrete variable mainly for colour but I have already used it for blushing on/off and mouth open/closed.
+My last parameter is the bezier curve which ims till working out how im going to do without the inside of the mouth clipping all weird.
 
-For the weighted one I worked on the colour. I put in a 2:1 chance of it being light brown althoguh I plan to add more colors once I test combos.
+With the colours Im still a little unsure on some but they are a easy change.
+
+I also made is 5x4 on the faces as I feel like lots of small ones next to eachother start to blend in so by amking them beigger and less of them they stand out more. Maybe thats a sign of me needing to do more variantion but im not sure yet.

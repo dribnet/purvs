@@ -26,18 +26,6 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
   var blb;
 
   //colour sets
-    //--0 > 1--
-      //yata brown (186,138,90)
-      //yata light brown (229,192,154)
-
-    //--1 > 1.5--
-      //yata brown (143,105,68)
-      //yata light brown (255,241,228)
-
-    //--1.5 > 2--
-      //yata brown 
-      //yata light brown 
-
         if(colour_number <= 1){
         rb = 186;
         gb = 138;
@@ -46,7 +34,7 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
         rlb = 229;
         glb = 192;
         blb = 154;
-      }else if(colour_number > 1){
+      }else if(colour_number > 1 && colour_number <= 1.5){
         rb = 143;
         gb = 105;
         bb = 68;
@@ -54,10 +42,35 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
         rlb = 255;
         glb = 241;
         blb = 228;
+      }else if(colour_number > 1.5 && colour_number <= 2){
+        rb = 89;
+        gb = 59;
+        bb = 31;
+
+        rlb = 247;
+        glb = 239;
+        blb = 223;
+      }else if(colour_number > 2 && colour_number <= 2.5){
+        rb = 59;
+        gb = 58;
+        bb = 57;
+
+        rlb = 247;
+        glb = 247;
+        blb = 245;
+      }else if(colour_number > 2.5 && colour_number <= 3){
+        rb = 97;
+        gb = 97;
+        bb = 97;
+
+        rlb = 247;
+        glb = 247;
+        blb = 245;
       }
 
 
-  scale(1.3);
+
+  scale(1.6);
   push();
     angleMode(DEGREES);
     rotate(ear_rotate);
