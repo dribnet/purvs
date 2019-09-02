@@ -12,24 +12,63 @@
    eyelid_rotate ranges from 0-8 and indicates how squinty the eyes are
    blush ranges from 0-1 and indicates whether the yata is blushing or not
  */
-function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
-  //yata brown (186,138,90)
-  //yata light brown (229,192,154)
+function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number) {
   //yata blush (255,204,255)
   //mouth dark (105,1,1)
   //tounge (239,157,139)
-  scale(1.1);
+
+  var rb;
+  var gb;
+  var bb;
+
+  var rlb;
+  var glb;
+  var blb;
+
+  //colour sets
+    //--0 > 1--
+      //yata brown (186,138,90)
+      //yata light brown (229,192,154)
+
+    //--1 > 1.5--
+      //yata brown (143,105,68)
+      //yata light brown (255,241,228)
+
+    //--1.5 > 2--
+      //yata brown 
+      //yata light brown 
+
+        if(colour_number <= 1){
+        rb = 186;
+        gb = 138;
+        bb = 90;
+
+        rlb = 229;
+        glb = 192;
+        blb = 154;
+      }else if(colour_number > 1){
+        rb = 143;
+        gb = 105;
+        bb = 68;
+
+        rlb = 255;
+        glb = 241;
+        blb = 228;
+      }
+
+
+  scale(1.3);
   push();
     angleMode(DEGREES);
     rotate(ear_rotate);
     translate(0,-ear_rotate/30);
     //ears right
     beginShape();
-      fill(186,138,90);
+      fill(rb,gb,bb);
       strokeWeight(0.3);
       stroke(0);
       bezier(10,-6.2,6.67,-7.63,6,-7.2,2.8,-3.2);
-      fill(229,192,154);
+      fill(rlb,glb,blb)
       bezier(10,-6.2,6.67,-7,6,-6.2,3,-2.2);
       bezier(10,-6.2,9.03,-4.27,6.69,-3.05,3.5,-1.5);
       noStroke();
@@ -37,9 +76,9 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
         //small ear
         strokeWeight(0.3);
         stroke(0);
-        fill(186,138,90);
+        fill(rb,gb,bb);
         bezier(4.2,-2.36,5.1,-3.33,6.33,-3.8,7,-3);
-        fill(229,192,154);
+        fill(rlb,glb,blb)
         bezier(5,-1.25,6.18,-1.54,7.11,-2.46,7,-3);
         bezier(5,-2,5.1,-2.8,6.33,-3.5,7,-3);
         noStroke();
@@ -53,11 +92,11 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
     translate(0,-ear_rotate/30);
     //ears left
     beginShape();
-      fill(186,138,90);
+      fill(rb,gb,bb);
       strokeWeight(0.3);
       stroke(0);
       bezier(-10,-6.2,-6.67,-7.63,-6,-7.2,-2.8,-3.2);
-      fill(229,192,154);
+      fill(rlb,glb,blb)
       bezier(-10,-6.2,-6.67,-7,-6,-6.2,-3,-2.2);
       bezier(-10,-6.2,-9.03,-4.27,-6.69,-3.05,-3.5,-1.5);
       noStroke();
@@ -65,9 +104,9 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
         //small ear
         strokeWeight(0.3);
         stroke(0);
-        fill(186,138,90);
+        fill(rb,gb,bb);
         bezier(-4.2,-2.36,-5.1,-3.33,-6.33,-3.8,-7,-3);
-        fill(229,192,154);
+        fill(rlb,glb,blb)
         bezier(-5,-1.25,-6.18,-1.54,-7.11,-2.46,-7,-3);
         bezier(-5,-2,-5.1,-2.8,-6.33,-3.5,-7,-3);
         noStroke();
@@ -79,12 +118,12 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
 
   //head
   noStroke();
-  fill(186,138,90);
+  fill(rb,gb,bb);
   ellipse(0,0,12,10);
 
   //brown patch
   noStroke();
-  fill(229,192,154);
+  fill(rlb,glb,blb)
   arc(0, 0.5, 12, 9, 0.35, HALF_PI*1.772);
   ellipse(0,0.6,2,1)
 
@@ -117,7 +156,7 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
   }
     //top of mouth
     stroke(0);
-    fill(229,192,154);
+    fill(rlb,glb,blb)
     bezier(0,1.55,0.48,2.16,1.41,1.84,1.4,1.3);
     bezier(-0,1.55,-0.48,2.16,-1.41,1.84,-1.4,1.3);
 
@@ -142,7 +181,7 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate) {
   ellipse(-1.7,-0.5 + (eyelid_height/1.7),0.3,0.3);
 
     //---[Eyelid - Parameter]
-    fill(186,138,90);
+    fill(rb,gb,bb);
 
     if(eyelid_height >= 0.8){
       //This stops it from looking really weird when the eyes are almost shut

@@ -44,8 +44,8 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
+  // draw a 6x4 grid of faces
+  let w = canvasWidth / 6;
   let h = canvasHeight / 4;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
@@ -55,13 +55,14 @@ function draw () {
         // all other faces
         push();
         translate(x  , y);
-        scale(w/25, h/25);
+        scale(w/30, h/25);
           let eyelid_height = focusedRandom(0, 1);
           let eyelid_rotate = focusedRandom(0, 8);
           let blush = focusedRandom(0, 1);
           let mouth = focusedRandom(0, 1);
           let ear_rotate = focusedRandom(-5, 20);
-          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
+          let colour_number = focusedRandom(0, 1.5);
+          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number);
         pop();
       }
     }

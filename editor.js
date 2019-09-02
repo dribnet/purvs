@@ -20,6 +20,7 @@ function setup () {
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
   slider6 = createSlider(0, 100, 50);
+  slider7 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -27,6 +28,7 @@ function setup () {
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
   slider6.parent('slider6Container');
+  slider7.parent('slider7Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -52,6 +54,7 @@ function draw () {
   let s4 = slider4.value();
   let s5 = slider5.value();
   let s6 = slider6.value();
+  let s7 = slider7.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -73,7 +76,8 @@ function draw () {
     let blush = map(s3, 0, 100, 0, 1);
     let mouth = map(s4, 0, 100, 0, 1);
     let ear_rotate = map(s5, 0, 100, -5, 20);
-    drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate);
+    let colour_number = map(s7, 0, 100, 0, 1.5);
+    drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number);
   }
   pop();
 
