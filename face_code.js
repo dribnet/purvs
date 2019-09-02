@@ -43,45 +43,69 @@ function drawFace1(length, curly) {
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
-  translate(0, 5);
-  let c = map(cur, 0, 100, 1.25, 0);
-  let sc = 1.25; 
+  translate(0, 5);  
 
-  translate(-6, -8.25);
+  let xSc = map(Len, 0, 340, 1.25-(cur/80), 1.25); 
+  let ySc = map(Len, 0, 340, 0, 1.25); 
+  let c = map(cur, 0, 100, ySc, 0); 
+  let c2 = cur/100;
 
-   for(let i = 0; i <5; i++){
+  translate(0, -8.25);
 
-    translate(2, (map(i, 0, 5, -1.5 , 1.5)));
+  for(let i = 0; i <5; i++){
+
+  push();
+   // translate(2, (map(i, 0, 5, -2.2+( ySc/1.8), 2.2-( ySc/1.8)))); 
+   if(i % 2 == 0){
+     translate((map(i, 0, 4, 0, 4)), -0.25*i); //1.5    
+   } else {
+    translate((map(i, 0, 4, -4, 0)), -0.25*i);
+    }
 
 
     beginShape();
-   
-    let x2 = -1*sc; //first control point
-    let y2 = -1*sc; //first control point
+   let test = 1;
+    //let x2 = -1*sc; //first control point
+   // let y2 = -1*sc; //first control point
 
-    let x3 = 0; //2 control point
-    let y3 = -2*sc+c; //2 control point //change height
+    //let x3 = 0; //2 control point
+    //let y3 = -2*sc+c; //2 control point //change height
 
-    let x4 = 1*sc;  //anchor point
-    let y4 = -1*sc; //anchor point
+    //let x4 = 1*sc;  //anchor point
+    
+   // let y4 = -1*sc; //anchor point
+    vertex(-xSc, -(test)*ySc);
+    bezierVertex(-xSc, -(test)*ySc, 0, -2*(ySc)+c, xSc, -(test)*ySc); //top curve
 
-    vertex(-1*sc, -1*sc);
-    bezierVertex(-1*sc, -1*sc, 0, -2*sc+c, 1*sc, -1*sc);
+    vertex(xSc, -(test)*ySc);
+    bezierVertex(xSc, -ySc, 2*xSc-c, 0, xSc, (test)*ySc); //east curve
 
-    vertex(1*sc, -1*sc);
-    bezierVertex(1*sc, -1*sc, 2*sc-c, 0, 1*sc, 1*sc);
+    vertex(xSc, (test)*ySc);
+    bezierVertex(xSc, (test)*ySc, 0, 2*(ySc)-c, -xSc, (test)*ySc); //bottom curve
 
-    vertex(1*sc, 1*sc);
-    bezierVertex(1*sc, 1*sc, 0, 2*sc-c, -1*sc, 1*sc);
+    vertex(-xSc, (test)*ySc);
+    bezierVertex(-xSc, (test)*ySc, -2*xSc+c, 0, -xSc, -(test)*ySc); //west curve
+   /*
+    vertex(-sc, -sc);
+    bezierVertex(-sc, -sc, 0, -2*sc+c+(yScale*0.5), sc, -sc); //top curve
 
-    vertex(-1*sc, 1*sc);
-    bezierVertex(-1*sc, 1*sc, -2*sc+c, 0, -1*sc, -1*sc);
+    vertex(sc, -sc);
+    bezierVertex(sc, -sc, 2*sc-c, -yScale*0.5, sc, sc - yScale); //east curve
 
+    vertex(sc, sc-yScale);
+    bezierVertex(sc, sc-yScale, 0, 2*sc-c-(yScale*2), -sc, sc-yScale); //bottom curve
+
+    vertex(-sc, sc-yScale);
+    bezierVertex(-sc, sc-yScale, -2*sc+c, 0-yScale*0.5, -sc, -sc); //west curve
+  */
 
     endShape(CLOSE);
 
-
-
+    textSize(1);
+    stroke(0);
+    fill(0);
+    text(i, 0, 0);
+    pop();
   } 
 
 
