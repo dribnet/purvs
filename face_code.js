@@ -32,34 +32,44 @@ function drawFace1(length, curly) {
   fill(255);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
-
+  
   fill(255, 218, 115);
   stroke(230, 188, 73);
 
-  Fringe(L, curly);
-  
 
+  Fringe(L, curly);
 }
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
-  translate(0, 5);  
 
-  let xSc = map(Len, 0, 340, 1.25-(cur/80), 1.25); 
-  let ySc = map(Len, 0, 340, 0, 1.25); 
+  let L;
+  if(Len > 140){
+    L = 340;
+  } else if(Len > 105){
+    L = map(Len, 105, 140, 0, 340);
+  } else {
+    L = 0;
+  }
+
+  if(L > 0){
+  let xSc = map(L, 0, 340, 0.4-(cur/250), 1.25); 
+  let ySc = map(L, 0, 340, 0, 1.25); 
   let c = map(cur, 0, 100, ySc, 0); 
   let c2 = cur/100;
 
-  translate(0, -8.25);
+  translate(0, map(L, 0, 340, -6, -5.5+cur/66));
 
+  print(Len);
+  
   for(let i = 0; i <5; i++){
 
   push();
    // translate(2, (map(i, 0, 5, -2.2+( ySc/1.8), 2.2-( ySc/1.8)))); 
-   if(i % 2 == 0){
-     translate((map(i, 0, 4, 0, 4)), -0.25*i); //1.5    
-   } else {
-    translate((map(i, 0, 4, -4, 0)), -0.25*i);
+   if((i+1) % 2 == 0){ //even
+     translate((map(i-1, 0, 4, 4, 0)), ((-0.55-cur/400)+(i-1)*0.09)*(i-1)); //2, 4   
+   } else { //odd
+    translate((map(i, 0, 4, -4, 0)), ((-0.55-cur/400)+i*0.09)*i); //1, 3, 5
     }
 
 
@@ -100,13 +110,9 @@ function Fringe(Len, cur){
   */
 
     endShape(CLOSE);
-
-    textSize(1);
-    stroke(0);
-    fill(0);
-    text(i, 0, 0);
     pop();
   } 
+  }
 
 
   /*
