@@ -8,12 +8,12 @@
  */
 
 
-function drawFace1(length, curly) {
+function drawFace1(length, curly, e) {
 
   let curl = map(curly, 0, 100, 180, -90);
   angleMode(DEGREES);
   let L = map(length, 0, 100, 0, 340);
-
+  let eyeSize = e;
   fill(255, 218, 115);
   stroke(230, 188, 73);
  //stroke(255, 218, 115);
@@ -30,6 +30,8 @@ function drawFace1(length, curly) {
   ellipse(0, -2, 10);
   // eyes
   fill(255);
+  //eye(-3.25, eyeSize);
+  //eye(3.25, eyeSize);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
   
@@ -39,6 +41,72 @@ function drawFace1(length, curly) {
 
   Fringe(L, curly);
 }
+
+function eye(pos, size){
+
+
+  push();
+
+  scale(0.75, 0.75);
+  translate(pos, -3);
+
+  scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
+
+  fill(23, 26, 120);
+  ellipse(0.1, 0, 5.2, 5);
+  fill(34, 108, 201);
+  ellipse(0, 0, 5, 5);
+  fill(75, 146, 235);
+  ellipse(-0.1, 0, 4, 5);
+
+
+  fill(255);
+  beginShape();
+
+  vertex(-2, 1);
+
+  let x1 = -0.5;
+  let y1 = 2.75;
+  bezierVertex(-2, 1, x1, y1, 1.25, 1.75); //1
+
+  vertex(1.25, 1.75);
+
+  let x2 = 1.75;
+  let y2 = 1.5;
+  bezierVertex(1.25, 1.75, x2, y2, 1.25, 1.25); //2
+
+  vertex(1.25, 1.25);
+
+  let x3 = 0;
+  let y3 = 1.75;
+  bezierVertex(1.25, 1.25, x3, y3, -2, 1); //3
+
+
+  endShape(CLOSE);
+
+  fill(153, 199, 255, 200);
+  ellipse(-1, -1, 2, 1.5);
+
+  ellipse(-0.25, -0.25, 2, 2);
+
+  ellipse(-1, 0.5, 1.25, 1);
+
+  fill(255);
+  push();
+  rotate(-30);
+  ellipse(1.5, -0.75, 1, 1.5);
+  pop();
+
+  ellipse(1.5, -0.2, 0.75, 0.75);
+
+  fill(67, 134, 217);
+  ellipse(1, 0.4, 0.6, 0.6);
+
+  fill(0, 0, 0, map(size, 0, 100, 255, 0));
+  ellipse(0.1, 0, 5.2, 5);
+  pop();
+}
+
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
@@ -65,7 +133,6 @@ function Fringe(Len, cur){
   for(let i = 0; i <5; i++){
 
   push();
-   // translate(2, (map(i, 0, 5, -2.2+( ySc/1.8), 2.2-( ySc/1.8)))); 
    if((i+1) % 2 == 0){ //even
      translate((map(i-1, 0, 4, 4, 0)), ((-0.55-cur/400)+(i-1)*0.09)*(i-1)); //2, 4   
    } else { //odd
@@ -74,72 +141,23 @@ function Fringe(Len, cur){
 
 
     beginShape();
-   let test = 1;
-    //let x2 = -1*sc; //first control point
-   // let y2 = -1*sc; //first control point
+    let test = 1;
+    vertex(-xSc, -ySc);
+    bezierVertex(-xSc, -ySc, 0, -2*(ySc)+c, xSc, -ySc); //top curve
 
-    //let x3 = 0; //2 control point
-    //let y3 = -2*sc+c; //2 control point //change height
+    vertex(xSc, -ySc);
+    bezierVertex(xSc, -ySc, 2*xSc-c, 0, xSc, ySc); //east curve
 
-    //let x4 = 1*sc;  //anchor point
-    
-   // let y4 = -1*sc; //anchor point
-    vertex(-xSc, -(test)*ySc);
-    bezierVertex(-xSc, -(test)*ySc, 0, -2*(ySc)+c, xSc, -(test)*ySc); //top curve
+    vertex(xSc, ySc);
+    bezierVertex(xSc, ySc, 0, 2*(ySc)-c, -xSc, ySc); //bottom curve
 
-    vertex(xSc, -(test)*ySc);
-    bezierVertex(xSc, -ySc, 2*xSc-c, 0, xSc, (test)*ySc); //east curve
-
-    vertex(xSc, (test)*ySc);
-    bezierVertex(xSc, (test)*ySc, 0, 2*(ySc)-c, -xSc, (test)*ySc); //bottom curve
-
-    vertex(-xSc, (test)*ySc);
-    bezierVertex(-xSc, (test)*ySc, -2*xSc+c, 0, -xSc, -(test)*ySc); //west curve
-   /*
-    vertex(-sc, -sc);
-    bezierVertex(-sc, -sc, 0, -2*sc+c+(yScale*0.5), sc, -sc); //top curve
-
-    vertex(sc, -sc);
-    bezierVertex(sc, -sc, 2*sc-c, -yScale*0.5, sc, sc - yScale); //east curve
-
-    vertex(sc, sc-yScale);
-    bezierVertex(sc, sc-yScale, 0, 2*sc-c-(yScale*2), -sc, sc-yScale); //bottom curve
-
-    vertex(-sc, sc-yScale);
-    bezierVertex(-sc, sc-yScale, -2*sc+c, 0-yScale*0.5, -sc, -sc); //west curve
-  */
+    vertex(-xSc, ySc);
+    bezierVertex(-xSc, ySc, -2*xSc+c, 0, -xSc, -ySc); //west curve
 
     endShape(CLOSE);
     pop();
   } 
   }
-
-
-  /*
-  for(let i = 0; i <5; i++){
-    //curveTightness(map(mouseX, 0, width, 0, 20));
-    curveTightness(map(cur, 0, 100, 0, 1));
-    beginShape();
-
-
-    curveVertex(-5, -5);
-
-    curveVertex(0, -5-c);
-
-    curveVertex(5, -5);    
-    curveVertex(5+c, 0);
-    curveVertex(5, 5);
-    curveVertex(0, 5+c);
-    curveVertex(-5, 5);
-    curveVertex(-5-c, 0);
-
-    curveVertex(-5, -5);
-    curveVertex(0, -5-c);
-
-    endShape(CLOSE);
-
-  } 
-  */
 }
 
 
