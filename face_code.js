@@ -9,7 +9,7 @@
 
 
 function drawFace1() {
-background(36,45,50);
+// background(36,45,50);
 fill(255);
 // strokeWeight(0.1);
 noStroke();
@@ -404,17 +404,228 @@ endShape();
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
 function drawFace2(thinness_value) {
-  // head
+  // background(36,45,50)
+  strokeWeight(0.25);
+  stroke(255);
+  // noStroke();
+  fill(255);
   noStroke();
-  fill(200, 150, 150);
-  let head_width = map(thinness_value, 0, 100, 8, 20);
-  rect(-head_width/2, -9, head_width, 18);
-  // rect(-5, -10, 10, 20);
+//skullbase
+beginShape();
+  curveVertex(0,-2.5);
+  curveVertex(0,-2.5);
+  //hornspot
+  curveVertex(-1,-2.4);
+  curveVertex(-0.9,-2.2);
+  curveVertex(-0.9,-1.4)
+  //eyeSocket
+  curveVertex(-2.5,-0.2);
+  curveVertex(-2.8,-0.1);
+  curveVertex(-2.65,1);
+  curveVertex(-2.7,2);
 
-  // eyes
-  fill(240);
-  ellipse(-2, -4, 1);
-  ellipse( 2, -4, 1);
+  curveVertex(-2,2.6);
+  curveVertex(-1.9,3);
+  curveVertex(-1.7,4);
+
+  curveVertex(-1.8,5);
+  curveVertex(-1.5,5.5);
+  curveVertex(-1.2,6);
+  curveVertex(-0.6,6.5);
+  //botMax
+  curveVertex(0,7.6);
+  //rightSide
+  curveVertex(0.6,6.5);
+  curveVertex(1.2,6);
+  curveVertex(1.5,5.5);
+  curveVertex(1.8,5);
+  curveVertex(1.7,4);
+  curveVertex(1.9,3);
+  curveVertex(2,2.6);
+  
+  curveVertex(2.7,2);
+  curveVertex(2.65,1);
+  curveVertex(2.8,-0.1);
+  curveVertex(2.5,-0.2);
+
+  curveVertex(0.9,-1.4);
+  curveVertex(0.9,-2.2);
+  curveVertex(1,-2.4);
+  curveVertex(0,-2.5);
+  curveVertex(0,-2.5);
+endShape();
+  stroke(0);
+  strokeWeight(0.1);
+//NoseBot
+
+fill(255);
+  beginShape();
+    curveVertex(0,3);
+    curveVertex(0,3);
+    curveVertex(-0.3,3.5);
+    curveVertex(-0.6,4);
+    curveVertex(-1.3,6);
+    curveVertex(-1,7);
+
+    curveVertex(-0.3,8);   
+    curveVertex(0,7.7); 
+    curveVertex(0.3,8);
+
+    curveVertex(1,7);
+    curveVertex(1.3,6);
+    curveVertex(0.6,4);
+    curveVertex(0.3,3.5);
+    curveVertex(0,3);
+    curveVertex(0,3);
+  endShape();
+
+
+//noseDetail
+fill(36,45,50);
+stroke(36,45,50);
+//Left
+  beginShape();
+    curveVertex(0,7.5);
+    curveVertex(0,7.5);
+    curveVertex(-0.1,7.6);
+    curveVertex(-0.2,7.5);
+    curveVertex(-0.6,7);
+    curveVertex(-0.7,6.5);
+    curveVertex(-0.2,5);
+    curveVertex(-0.2,5.5);
+    curveVertex(-0.1,7.2);
+    curveVertex(0,7.5);
+    curveVertex(0,7.5);
+  endShape();
+  //Right
+  beginShape();
+    curveVertex(0,7.5);
+    curveVertex(0,7.5);
+    curveVertex(0.1,7.6);
+    curveVertex(0.2,7.5);
+    curveVertex(0.6,7);
+    curveVertex(0.7,6.5);
+    curveVertex(0.2,5);
+    curveVertex(0.2,5.5);
+    curveVertex(0.1,7.2);
+    curveVertex(0,7.5);
+    curveVertex(0,7.5);
+  endShape();
+//NoseTop
+strokeWeight(0.05);
+fill(255);
+  beginShape();
+    curveVertex(0,2);
+    curveVertex(0,2);
+    curveVertex(-0.7,2.6);
+    curveVertex(-0.6,3.5);
+    curveVertex(-0.7,5);
+    curveVertex(0,6);
+    curveVertex(0.7,5);
+    curveVertex(0.6,3.5);
+    curveVertex(0.7,2.6);
+    curveVertex(0,2);
+    curveVertex(0,2);
+  endShape();
+
+//EyeLeft
+fill(0);
+  beginShape();
+    curveVertex(-2.7,0);
+    curveVertex(-2.7,0);
+    curveVertex(-2.2,0.3);
+    curveVertex(-2,0.6);
+    curveVertex(-1.5,1.5);
+    curveVertex(-1.3,2);
+    curveVertex(-1.9,2.5);
+    curveVertex(-2.5,2);
+    curveVertex(-2.6,1.6);
+    curveVertex(-2.7,0.2);
+    curveVertex(-2.7,0);
+    curveVertex(-2.7,0);
+    endShape();
+  //EyeRight
+  beginShape();  
+    curveVertex(2.6,0);
+    curveVertex(2.6,0);
+    curveVertex(2.2,0.3);
+    curveVertex(2,0.6);
+    curveVertex(1.5,1.5);
+    curveVertex(1.3,2);
+    curveVertex(1.9,2.5);
+    curveVertex(2.5,2);
+    curveVertex(2.6,1.6);
+    curveVertex(2.7,0.2);
+    curveVertex(2.6,0);
+    curveVertex(2.6,0);
+  endShape();
+
+  //DETAILING
+  noFill();
+  strokeWeight(0.05);
+  stroke(0);
+  beginShape();
+    curveVertex(0,-2.6);
+    curveVertex(0,-2.6);
+    curveVertex(0.05,-2);
+    curveVertex(-0.05,-1.5);
+    curveVertex(0.05,-0.2);
+    curveVertex(-0.05,1);
+    curveVertex(0.05,2);
+    curveVertex(0,2.5);
+    curveVertex(-0.05,4);
+    curveVertex(0.05,5);
+    curveVertex(0,6);
+    curveVertex(0,6);
+  endShape();
+  //forhead
+  beginShape();
+    curveVertex(-2.6,0);
+    curveVertex(-2.6,0);
+    curveVertex(-2.2,-0.1);     
+    curveVertex(-1,-1);
+    curveVertex(1,-1);    
+    curveVertex(2.2,-0.1);
+    curveVertex(2.6,0);
+    curveVertex(2.6,0);
+  endShape();
+  //eyes
+  //L
+  beginShape();
+    curveVertex(-2,0);
+    curveVertex(-2,0);
+    curveVertex(-1.5,0.5);
+    curveVertex(-1,1.5);
+    curveVertex(-1,1.5);    
+  endShape();
+
+  beginShape();
+    curveVertex(-1.9,2.5);
+    curveVertex(-1.9,2.5);
+    curveVertex(-1.6,2.4);
+    curveVertex(-1.2,2);
+    curveVertex(-0.7,2.6);
+    curveVertex(-0.7,2.6);
+  endShape();
+  //R
+  beginShape();
+    curveVertex(1.9,2.5);
+    curveVertex(1.9,2.5);
+    curveVertex(1.6,2.4);
+    curveVertex(1.2,2);
+    curveVertex(0.7,2.6);
+    curveVertex(0.7,2.6);
+  endShape();
+  beginShape();
+    curveVertex(2,0);
+    curveVertex(2,0);
+    curveVertex(1.5,0.5);
+    curveVertex(1,1.5);
+    curveVertex(1,1.5);    
+  endShape();
+
+
+
 }
 
 /*
