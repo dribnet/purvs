@@ -28,10 +28,21 @@ function drawFace1(length, curly, e) {
   fill(200, 150, 150);
   noStroke();
   // head
+  beginShape();
+  vertex(-5, -2);
+  bezierVertex(-5, -2, -5, 3 , 0, 4);
+
+  vertex(0, 4);
+
+  bezierVertex(0, 4, 5, 3, 5, -2);
+
+  vertex(5, -2);
+  endShape();
+
   ellipse(0, -2, 10);
   // eyes
   fill(255);
-  //eye(-3.25, eyeSize);
+  eye(-3.25, eyeSize);
   eye(3.25, eyeSize);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
@@ -49,17 +60,32 @@ function eye(pos, size){
   push();
 
   scale(0.75, 0.75);
-  translate(pos, -3);
+  translate(pos, -2.5);
 
   //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
   scale(1, 1);
 
-  let sc = 0.75;
+  let sc = 0.57;
+
   stroke(0);
   strokeWeight(0.2*sc);
   strokeCap(SQUARE);
 
-  //outter eye
+  push();
+  if(pos < 0){
+    scale(-1, 1);
+    translate(-0.15, 0);
+  }
+
+  //outter white eye //3
+  if(size > 50 && size < 75){
+    sc = map(size, 50, 75, 0, 0.57);
+  } else if(size >= 75){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+  
   beginShape();
 
   vertex(-3.5*sc, -0.5*sc);
@@ -70,27 +96,35 @@ function eye(pos, size){
   
   endShape();
 
+  pop();
   strokeWeight(0.3*sc);
 
-  //pupil
+  //bulk blue //2
+  if(size > 25 && size < 50){
+    sc = map(size, 25, 50, 0, 0.57);
+  } else if(size >= 50){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+
   stroke(0);
   fill(23, 26, 120);
   ellipse(0.1*sc, 0, 5*sc, 5*sc);
   noStroke();
 
+  //blue shading //2
   fill(34, 108, 201);
   ellipse(0, 0.5*sc, 4.5*sc, 3*sc);
   fill(75, 146, 235);
   ellipse(0, 1*sc, 4*sc, 2.5*sc);
 
-
-/*
-  for (let x=0; x < width; x++) {
-    let noiseVal = noise((mouseX+x)*0.2, mouseY*0.2);
-    fill(noiseVal*255);
-    line(x, mouseY+noiseVal*80, x, height);
+  //noisey dots //4
+  if(size > 75){
+    sc = map(size, 75, 100, 0, 0.57);
+  } else {
+    sc = 0;
   }
-*/
   push();
   fill(255,  random(50, 125));
   noStroke();
@@ -100,13 +134,21 @@ function eye(pos, size){
   pop();
 
 
-  //black center
+  //black center //1
+  sc = 0.57;
   fill(0);
 
   push();  
   translate(0, -0.25);
   ellipse(0, 0, 1.5*sc, 2.25*sc);
 
+  if(size > 75){
+    sc = map(size, 75, 100, 0, 0.57);
+  } else {
+    sc = 0;
+  }
+
+  //lines from center //4
   stroke(0);  
   strokeWeight(0.1*sc);
   rotate(30);
@@ -124,6 +166,7 @@ function eye(pos, size){
     rotate(-10);
   }
 
+  //lower white cirles //4
   fill(255, 150);
   noStroke();
   rotate(-160);
@@ -133,6 +176,17 @@ function eye(pos, size){
   }
 
   pop();
+
+
+  //white circles highlight //2
+    if(size > 25 && size < 50){
+    sc = map(size, 25, 50, 0, 0.57);
+  } else if(size >= 50){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+
   fill(255);
   ellipse(0.75*sc, -0.75*sc, 0.75*sc, 0.75*sc);
 
