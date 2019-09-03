@@ -1,7 +1,11 @@
 ## PS2 MDDN 342 2019
 
-Fixed up some of the proportions on the basic skull, tidied up some code
+
 ----------------------------------------------------------------------------------
+#3rd sept- I have drawn the base of the ram skull, i need to make the horns. I will make 3 different types of horns that will fit the ram skull and the uman skulls. all rams will have horns but only some human skulls will. I also need to make some eyes for the human skulls. I would like some of the skulls to have eyes and some not to. Just like the horns. Im thinking of adding in some shading/colouring effects and maybe some more detailing lines to create a more complex image based around my theme.  
+
+Fixed up some of the proportions on the basic skull, tidied up some code
+
 #update 
 Redone the draw face to be more complete and better scale/looking nicer.
 I used a sketch and photoshop to map the correct scale still need to do alot of polishing up on the human skull outline. will need to draw teeth to make the skull look right.
