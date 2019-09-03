@@ -18,6 +18,7 @@ function drawFace1(length, curly, e) {
   stroke(230, 188, 73);
  //stroke(255, 218, 115);
  strokeWeight(width/960/10);
+ randomSeed(23);
  print(width);
 
   push();
@@ -31,7 +32,7 @@ function drawFace1(length, curly, e) {
   // eyes
   fill(255);
   //eye(-3.25, eyeSize);
-  //eye(3.25, eyeSize);
+  eye(3.25, eyeSize);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
   
@@ -50,16 +51,95 @@ function eye(pos, size){
   scale(0.75, 0.75);
   translate(pos, -3);
 
-  scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
+  //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
+  scale(1, 1);
 
+  let sc = 0.75;
+  stroke(0);
+  strokeWeight(0.2*sc);
+  strokeCap(SQUARE);
+
+  //outter eye
+  beginShape();
+
+  vertex(-3.5*sc, -0.5*sc);
+  bezierVertex(-3.5*sc, -1*sc, 1.5*sc, -5.5*sc , 4.5*sc , 0);
+
+  vertex(4.5*sc, 0);
+  bezierVertex(5*sc, 0, 1.5*sc, 5*sc, -2.5*sc, 2*sc);
+  
+  endShape();
+
+  strokeWeight(0.3*sc);
+
+  //pupil
+  stroke(0);
   fill(23, 26, 120);
-  ellipse(0.1, 0, 5.2, 5);
+  ellipse(0.1*sc, 0, 5*sc, 5*sc);
+  noStroke();
+
   fill(34, 108, 201);
-  ellipse(0, 0, 5, 5);
+  ellipse(0, 0.5*sc, 4.5*sc, 3*sc);
   fill(75, 146, 235);
-  ellipse(-0.1, 0, 4, 5);
+  ellipse(0, 1*sc, 4*sc, 2.5*sc);
 
 
+/*
+  for (let x=0; x < width; x++) {
+    let noiseVal = noise((mouseX+x)*0.2, mouseY*0.2);
+    fill(noiseVal*255);
+    line(x, mouseY+noiseVal*80, x, height);
+  }
+*/
+  push();
+  fill(255,  random(50, 125));
+  noStroke();
+    for(let x =0; x < 40; x++){
+      ellipse(random(0.5*sc, 2.5*sc) * cos(x*20), random(1.12*sc, 2*sc) * sin(x*20), random(0.1, 0.5),  random(0.1, 0.5));
+    }
+  pop();
+
+
+  //black center
+  fill(0);
+
+  push();  
+  translate(0, -0.25);
+  ellipse(0, 0, 1.5*sc, 2.25*sc);
+
+  stroke(0);  
+  strokeWeight(0.1*sc);
+  rotate(30);
+  let cent;
+  for(let i = 0; i < 16; i++){ 
+    cent = map(i, 0, 15, -1, 1);
+    if(cent < 0){cent = cent*-1;}
+    if(i % 2 == 0){
+      stroke(0); 
+      line(-1*sc, 1*sc, (-1.75+cent/3)*sc, (1.75-cent/3)*sc);
+    } else {
+      stroke(100); 
+      line(-1.4*sc, 1.4*sc, (-1.25+cent/3)*sc, (1.25-cent/3)*sc);
+    }
+    rotate(-10);
+  }
+
+  fill(255, 150);
+  noStroke();
+  rotate(-160);
+  for(let j = 0; j < 6; j++){
+    ellipse(1.25*sc, 1.5*sc, 0.6*sc, 0.6*sc);
+    rotate(-12);
+  }
+
+  pop();
+  fill(255);
+  ellipse(0.75*sc, -0.75*sc, 0.75*sc, 0.75*sc);
+
+  ellipse(1.75*sc, -1.5*sc, 1.25*sc, 1*sc);
+  ellipse(-2*sc, 1*sc, 1*sc, 1*sc);  
+
+  /*
   fill(255);
   beginShape();
 
@@ -84,6 +164,7 @@ function eye(pos, size){
 
   endShape(CLOSE);
 
+
   fill(153, 199, 255, 200);
   ellipse(-1, -1, 2, 1.5);
 
@@ -101,9 +182,7 @@ function eye(pos, size){
 
   fill(67, 134, 217);
   ellipse(1, 0.4, 0.6, 0.6);
-
-  fill(0, 0, 0, map(size, 0, 100, 255, 0));
-  ellipse(0.1, 0, 5.2, 5);
+  */
   pop();
 }
 
