@@ -12,7 +12,7 @@
    eyelid_rotate ranges from 0-8 and indicates how squinty the eyes are
    blush ranges from 0-1 and indicates whether the yata is blushing or not
  */
-function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number) {
+function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number,mouth_curve) {
   //yata blush (255,204,255)
   //mouth dark (105,1,1)
   //tounge (239,157,139)
@@ -103,6 +103,7 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
     angleMode(DEGREES);
     rotate(-ear_rotate);
     translate(0,-ear_rotate/30);
+    
     //ears left
     beginShape();
       fill(rb,gb,bb);
@@ -152,12 +153,29 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
     //inside of mouth
     fill(105,1,1);
     noStroke();
-    rect(-0.95,1.6,1.9,1.4);
+
+    //makes sure the inside of the motuh doesnt clip out the top of the mouth as it bends
+    let mouth_handle4 = map(mouth_curve,1.3, 1.9,0.8,0.75);
+    if(mouth_curve >= 1.65){
+      rect(0,1.65,mouth_handle4-0.1,0.16);
+      rect(0.65,1.7,0.1,0.1);
+
+      rect(0,1.65,-mouth_handle4+0.05,0.16);
+      rect(-0.65,1.7,-0.1,0.1);
+    }else{
+      rect(0,1.65,mouth_handle4,0.2);
+      rect(0,1.65,-mouth_handle4,0.2);
+    }
+
+    //rest of inside of mouth
+    rect(0,1.6,0.35,0.06);
+    rect(0,1.6,-0.35,0.06);
+    rect(-0.95,1.8,1.9,1.2);
     rect(-0.32,2.95,0.65,0.5);
     fill(105,1,1);
     stroke(0);
-    bezier(0,3.5,0.78,3.45,1.1,3.01,1,1.9);
-    bezier(-0,3.5,-0.78,3.45,-1.1,3.01,-1,1.9);
+    bezier(0,3.5,0.78,3.45,1.1,3.01,1,1.85);
+    bezier(-0,3.5,-0.78,3.45,-1.1,3.01,-1,1.85);
       //tounge
       noStroke();
       fill(239,157,139);
@@ -169,9 +187,22 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
   }
     //top of mouth
     stroke(0);
-    fill(rlb,glb,blb)
-    bezier(0,1.55,0.48,2.16,1.41,1.84,1.4,1.3);
-    bezier(-0,1.55,-0.48,2.16,-1.41,1.84,-1.4,1.3);
+    
+    if(mouth_curve >= 1.85){
+      if(mouth > 0.5){
+        fill(rlb,glb,blb);
+      }else{
+        fill(105,1,1);
+      }
+    }else{
+      fill(rlb,glb,blb);
+    }
+    let mouth_move = map(mouth_curve,1.3, 1.9,1.4,0.97);
+    let mouth_handle1 = map(mouth_curve,1.3, 1.9,2.16,1.5);
+    let mouth_handle2 = map(mouth_curve,1.3, 1.9,1.41,1.2);
+    let mouth_handle3 = map(mouth_curve,1.3, 1.9,0.48,0.1);
+    bezier(0,1.55,mouth_handle3,mouth_handle1,mouth_handle2,1.84,mouth_move,mouth_curve);
+    bezier(-0,1.55,-mouth_handle3,mouth_handle1,-mouth_handle2,1.84,-mouth_move,mouth_curve);
 
   //blush
   noStroke();

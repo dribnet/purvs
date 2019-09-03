@@ -61,8 +61,9 @@ function draw () {
           let blush = focusedRandom(0, 1);
           let mouth = focusedRandom(0, 1);
           let ear_rotate = focusedRandom(-5, 20);
+          let mouth_curve = focusedRandom(1.3, 1.9);
           let colour_number = focusedRandom(0, 3);
-          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number);
+          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number,mouth_curve);
         pop();
       }
     }
