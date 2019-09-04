@@ -410,6 +410,7 @@ function drawFace2(thinness_value) {
   // noStroke();
   fill(255);
   noStroke();
+
 //skullbase
 beginShape();
   curveVertex(0,-2.5);
@@ -528,6 +529,8 @@ fill(255);
     curveVertex(0,2);
   endShape();
 
+
+
 //EyeLeft
 fill(0);
   beginShape();
@@ -578,6 +581,7 @@ fill(0);
     curveVertex(0,6);
     curveVertex(0,6);
   endShape();
+
   //forhead
   beginShape();
     curveVertex(-2.6,0);
@@ -628,42 +632,131 @@ fill(0);
 
 }
 
+// function horn1(){
+//   beginShape(){}
+// }
 /*
  * tilt_value is in degrees
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function drawFace3(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [225, 206, 187];
-  const fg_color3 = [151, 102, 52];
+function drawFace3() {
+  stroke(255);
+  strokeWeight(0.1);
+  noFill();
+        //Bottom
+  beginShape();
+    curveVertex(-7,-2);
+    // curveVertex(-5,0);
+    curveVertex(-7,-2);
 
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value);
+    curveVertex(-7,-2);
+    curveVertex(-6.5,-1);
+    curveVertex(-6,-0);
+    curveVertex(-5.5,2);
+   
+    curveVertex(-5.2,4.5);
+    curveVertex(-7.5,5);
+    curveVertex(-9,4);
+       curveVertex(-8,5);
 
-  noStroke();
-  fill(fg_color3);
-  ellipse(0, 0, 30/2, 40/2);
+    curveVertex(-7.5,5.3);
+    curveVertex(-6.75,5.5);
+    curveVertex(-6,5.5);
+    curveVertex(-5,5.5);
+    curveVertex(-4,4.5);
+   
+    curveVertex(-4,2.5);
+    curveVertex(-4.5,0);
+    curveVertex(-4.6,-2.2);
+    curveVertex(-3.5,-3);
+    curveVertex(-3.5,-3);
+    curveVertex(-5,-4);
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse( 0, -8/2, 5/2, 3/2);
-    fill(fg_color3);
-    ellipse(-1/2, -8/2, 2/2, 2/2);
-  }
 
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(-5/2, -8/2, 5/2, 3/2);
-    ellipse( 5/2, -8/2, 5/2, 3/2);
+    curveVertex(-7,-2);
+    curveVertex(-7,-2);
 
-    fill(fg_color3);
-    ellipse(-6/2, -8/2, 2/2, 2/2);
-    ellipse( 4/2, -8/2, 2/2, 2/2);
-  }
+  endShape();
 
-  // mouth
-  fill(bg_color3);
-  ellipse(0/2, 7/2, 15/2, mouth_value);
+    //topPart
+  beginShape();
+    curveVertex(-0.6,-1.4);
+    curveVertex(-0.6,-1.4);
+
+    curveVertex(-1.4,-3);
+    curveVertex(-2.5,-4);
+    curveVertex(-5.5,-5);
+    curveVertex(-7.2,-3.5);
+    curveVertex(-7,-2);
+    curveVertex(-7,-2);
+
+    curveVertex(-6.5,-2.5);
+    curveVertex(-5,-2.5);
+    curveVertex(-4,-2);
+    curveVertex(-3,-0.5);
+    curveVertex(-2.8,0);
+    // curveVertex(-2.5,-1.2);
+
+    curveVertex(-2.5,-0.3);
+    curveVertex(-2.5,-0.3);
+  endShape();
+
+        //Bottom
+  beginShape();
+    curveVertex(7,-2);
+    // curveVertex(-5,0);
+    curveVertex(7,-2);
+
+    curveVertex(7,-2);
+    curveVertex(6.5,-1);
+    curveVertex(6,-0);
+    curveVertex(5.5,2);
+   
+    curveVertex(5.2,4.5);
+    curveVertex(7.5,5);
+    curveVertex(9,4);
+    // curveVertex(-9,4.5);
+    curveVertex(8,5);
+
+    curveVertex(7.5,5.3);
+    curveVertex(6.75,5.5);
+    curveVertex(6,5.5);
+    curveVertex(5,5.5);
+    curveVertex(4,4.5);
+    // curveVertex(-)
+    curveVertex(4,2.5);
+    curveVertex(4.5,0);
+    curveVertex(4.6,-2.2);
+    curveVertex(3.5,-3);
+    curveVertex(3.5,-3);
+    curveVertex(5,-4);
+
+
+    curveVertex(7,-2);
+    curveVertex(7,-2);
+
+  endShape();
+
+    //topPart
+  beginShape();
+    curveVertex(0.6,-1.4);
+    curveVertex(0.6,-1.4);
+    curveVertex(1.4,-3);
+    curveVertex(2.5,-4);
+    curveVertex(5.5,-5);
+    curveVertex(7.2,-3.5);
+    curveVertex(7,-2);
+    curveVertex(7,-2);
+
+    curveVertex(6.5,-2.5);
+    curveVertex(5,-2.5);
+    curveVertex(4,-2);
+    curveVertex(3,-0.5);
+    curveVertex(2.8,0);
+    // curveVertex(-2.5,-1.2);
+
+    curveVertex(2.5,-0.3);
+    curveVertex(2.5,-0.3);
+  endShape();
 }
