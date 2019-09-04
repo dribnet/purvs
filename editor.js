@@ -33,11 +33,11 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('1');
+  faceSelector.value('3');
   faceSelector.parent('selector1Container');
 }
 
-const bg_color = [225, 206, 187];
+const bg_color = [193, 214, 227];
 
 function draw () {
   strokeWeight(0.2);
@@ -67,7 +67,7 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    drawFace1(s1);
   }
 
   if (mode == '2') {
