@@ -28,25 +28,74 @@ function drawFace1(length, curly, e) {
   fill(200, 150, 150);
   noStroke();
   // head
+
   beginShape();
+
   vertex(-5, -2);
-  bezierVertex(-5, -2, -5, 3 , 0, 4);
+  bezierVertex(-5, -2, -5, 1 ,-3, 3);
+  //bezierVertex(-5, -2, -5, 4 , 0, 5);
 
-  vertex(0, 4);
+  vertex(-3, 3);
+  bezierVertex(-3, 3, -1.5, 4.5 ,0, 5);
 
-  bezierVertex(0, 4, 5, 3, 5, -2);
+  vertex(0, 5);
+  bezierVertex(0, 5, 1.5, 4.5 ,3, 3);
+  vertex(3, 3);
+
+  bezierVertex(3, 3, 5, 1 ,5, -2);
 
   vertex(5, -2);
+
   endShape();
+
 
   ellipse(0, -2, 10);
   // eyes
   fill(255);
-  eye(-3.25, eyeSize);
-  eye(3.25, eyeSize);
+  eye(-3.75, eyeSize);
+  eye(3.75, eyeSize);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
-  
+  //nose
+  noFill();
+  strokeWeight(0.07);
+  stroke(75);
+  //line(0, -1, 0, 1);
+
+  beginShape();
+
+  //line(0.3, 0.6, 0.7, 0.5);
+  bezier(0.25, 0.8, 0.55, 0.65 , 0.55, 0.65 , 0.7, 0.7);
+
+  //line(-0.3, 0.6, -0.7, 0.5);
+  bezier(-0.25, 0.8, -0.55, 0.65 , -0.55, 0.65 , -0.7, 0.7);
+
+  noStroke();
+  fill(0, 20);
+  beginShape(); //nose
+
+  vertex(0.5, 0.4);
+  bezierVertex(0.5, 0.4, 1.75, 0.75 ,0, 1.4); //bottomright
+
+  vertex(0, 1.4); 
+
+  bezierVertex(0, 1.4, -1.75, 0.75 , -0.5, 0.4); //bottomleft
+
+  vertex(-0.5, 0.4); 
+  bezierVertex(-0.5, 0.4, -0.4, 0.35,0,  0.5); //top left
+
+  vertex(0, 0.5);
+  bezierVertex(0, 0.5, 0.4, 0.35 ,0.5, 0.4); //top right
+
+  endShape(CLOSE);
+  fill(158, 84, 82);
+  ellipse(0, 2.4, 1.5, 0.5);
+  stroke(0);
+  line(-0.25, 2.3, 0.25, 2.3);
+  noStroke();
+  fill(255, 50);
+  ellipse(-0.2, -1, 0.15, 2.5);
+
   fill(255, 218, 115);
   stroke(230, 188, 73);
 
@@ -58,9 +107,21 @@ function eye(pos, size){
 
 
   push();
+  scale(0.65, 0.65);
+  translate(pos, -3);
 
-  scale(0.75, 0.75);
-  translate(pos, -2.5);
+  //eyebrows
+  push();
+  if(pos <0){
+    scale(-1, 1);
+  }
+  strokeWeight(0.3);
+  stroke(107, 87, 66);
+  noFill();
+  translate(-1.25, -2);
+  bezier(-0.75, -0.25, 0.75, -1.25, 2, -0.75,3.5, -0.25);
+
+  pop();
 
   //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
   scale(1, 1);
