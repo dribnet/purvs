@@ -398,6 +398,7 @@ curveVertex(0,-1);
 curveVertex(0,-1);
 endShape();
 
+
 }
 
 /*
@@ -628,8 +629,6 @@ fill(0);
     curveVertex(1,1.5);    
   endShape();
 
-
-
 }
 
 // function horn1(){
@@ -644,6 +643,126 @@ function drawFace3() {
   stroke(255);
   strokeWeight(0.1);
   noFill();
+
+     //HornSet3
+     //left
+  beginShape();
+    curveVertex(-0.6,-8);
+    curveVertex(-0.6,-8);
+    curveVertex(-1.2,-7.2);
+    curveVertex(-2.9,-4.5);
+    curveVertex(-0.9,-2.4);
+    curveVertex(-0.9,-2.4);
+  endShape();
+  beginShape();
+    curveVertex(-1,-2.4);
+    curveVertex(-1,-2.4);
+    curveVertex(-3.5,-5.2);    
+    curveVertex(-0.6,-8);
+    curveVertex(-0.8,-8);
+    curveVertex(-5.2,-5);
+    curveVertex(-2.7,-0.3);
+    curveVertex(-2.7,-0.3);
+  endShape();
+  //right
+   beginShape();
+    curveVertex(0.6,-8);
+    curveVertex(0.6,-8);
+    curveVertex(1.2,-7.2);
+    curveVertex(2.9,-4.5);
+    curveVertex(0.9,-2.4);
+    curveVertex(0.9,-2.4);
+  endShape();
+  beginShape();
+    curveVertex(1,-2.4);
+    curveVertex(1,-2.4);
+    curveVertex(3.5,-5.2);    
+    curveVertex(0.6,-8);
+    curveVertex(0.8,-8);
+    curveVertex(5.2,-5);
+    curveVertex(2.7,-0.3);
+    curveVertex(2.7,-0.3);
+  endShape();
+  
+  //HornSet2
+  //left
+   beginShape();
+
+    curveVertex(-0.7,-1.5);
+    curveVertex(-0.7,-1.5);
+
+    curveVertex(-1,-2.4);
+    curveVertex(-2.5,-5);
+    curveVertex(-5,-6.5);
+    curveVertex(-7,-7);
+
+    curveVertex(-8.5,-9);
+    curveVertex(-9,-9.6);
+    curveVertex(-9,-10);
+
+    curveVertex(-9,-9);
+    
+    curveVertex(-7,-6);
+    curveVertex(-4.5,-5);
+
+    curveVertex(-2.5,-2);
+    
+    curveVertex(-1.9,-0.5);
+    curveVertex(-1.9,-0.5);
+
+  endShape();
+
+  beginShape();
+    curveVertex(-2.7,-0.3);
+    curveVertex(-2.7,-0.3);
+    curveVertex(-4.5,-4);
+    // curveVertex(-5,-5);
+    curveVertex(-7.2,-6);
+    curveVertex(-9,-9);
+
+    curveVertex(-9,-10);
+    curveVertex(-9,-10);
+  endShape();
+//Right
+   beginShape();
+
+    curveVertex(0.7,-1.5);
+    curveVertex(0.7,-1.5);
+
+    curveVertex(1,-2.4);
+    curveVertex(2.5,-5);
+    curveVertex(5,-6.5);
+    curveVertex(7,-7);
+
+    curveVertex(8.5,-9);
+    curveVertex(9,-9.6);
+    curveVertex(9,-10);
+
+    curveVertex(9,-9);
+    
+    curveVertex(7,-6);
+    curveVertex(4.5,-5);
+
+    curveVertex(2.5,-2);
+    
+    curveVertex(1.9,-0.5);
+    curveVertex(1.9,-0.5);
+
+  endShape();
+
+  beginShape();
+    curveVertex(2.7,-0.3);
+    curveVertex(2.7,-0.3);
+    curveVertex(4.5,-4);
+    // curveVertex(-5,-5);
+    curveVertex(7.2,-6);
+    curveVertex(9,-9);
+
+    curveVertex(9,-10);
+    curveVertex(9,-10);
+  endShape();
+
+  //HornSet1
         //Bottom
   beginShape();
     curveVertex(-7,-2);
