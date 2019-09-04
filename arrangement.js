@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 5;
-let num_down = 3;
+let num_across = 10;
+let num_down = 5;
 
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
@@ -57,6 +57,7 @@ function draw() {
         for (let j = 0; j < num_across; j++) {
             let y = (h) * i + h / 2;
             let x = (w) * j + w / 2;
+
             // center face
             let eye_spacing = focusedRandom(4.5, 8);
             let eye_height = focusedRandom(0, 2.2);
@@ -76,9 +77,23 @@ function draw() {
 
             push();
             translate(x, y);
-            scale(h / 30, h / 30);
+            scale(h / 25, h / 25);
             rectMode(CENTER);
-            drawFace(
+            // drawFace(
+            //     eye_spacing,
+            //     eye_height,
+            //     eye_size,
+            //     eye_angle,
+            //     eye_squint,
+            //     eyedetail_angle,
+            //     eye_wink,
+            //     left_eye_seed,
+            //     right_eye_seed,
+            //     mouth_width,
+            //     mouth_height,
+            //     mouth_emotion
+            // );
+            let face = new Face(
                 eye_spacing,
                 eye_height,
                 eye_size,
@@ -92,6 +107,7 @@ function draw() {
                 mouth_height,
                 mouth_emotion
             );
+            face.show();
             pop();
         }
     }
