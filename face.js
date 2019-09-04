@@ -74,6 +74,7 @@ class Face {
     eyes() {
         push();
         noStroke();
+        let wink = 0;
         //sets eye level
         translate(0, -this.eye_height);
         if (this.eye_type > 90 && this.eye_type < 95) {
@@ -83,8 +84,18 @@ class Face {
             closed_eye(this.eye_spacing, this.eye_size, 1);
             closed_eye(this.eye_spacing, this.eye_size, -1);
         } else {
-            open_eye(this.eye_spacing, this.eye_size, 1);
-            open_eye(this.eye_spacing, this.eye_size, -1);
+            if (this.eye_wink < 0) {
+                wink = 0;
+            } else {
+                wink = this.eye_wink;
+            }
+            open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye);
+            if (this.eye_wink < 0) {
+                wink = 0;
+            } else {
+                wink = this.eye_wink;
+            }
+            open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye);
             if (this.glasses > 0.97) {
                 glasses(this.eye_spacing, this.eye_size, 1);
                 glasses(this.eye_spacing, this.eye_size, -1);

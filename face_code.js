@@ -172,53 +172,6 @@ function eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eye
     pop();
 }
 
-function eyes_detail_top(size, squint, angle, wink) {
-    push();
-
-    noStroke();
-    fill(light_colour);
-    let wink_amt = map(squint, 1.3, 1.9, 6, 3);
-
-    //top
-    push();
-    translate(0, -size * squint / 2);
-    //translate(0, size * (abs(wink) / wink_amt));
-    rotate(-angle);
-    scale(1.5);
-    ellipse(0, 0, size, size / 2);
-    pop();
-
-    highlight_colour.setAlpha(70);
-    pop();
-}
-
-function eyes_detail_bottom(size, squint, angle, wink) {
-    push();
-
-    noStroke();
-    fill(light_colour);
-    let wink_amt = map(squint, 1.3, 1.9, 6, 3);
-
-    //bottom
-    push();
-    translate(0, size * squint / 2);
-    //translate(0, -size * (abs(wink) / wink_amt));
-    rotate(angle);
-    scale(1.5);
-    ellipse(0, 0, size, size / 2);
-    highlight_colour.setAlpha(map(squint, 1.3, 1.9, 70, 0));
-    stroke(highlight_colour);
-    strokeWeight(0.1);
-    noFill();
-    let offset = map(angle, -15, 15, -10, 10);
-    arc(0, 0, size / 1, size / 2.5, 215 - offset, 325 - offset);
-    pop();
-
-    highlight_colour.setAlpha(70);
-    pop();
-}
-
-
 function eyebrows(size, squint, angle, wink, dir) {
     //eyebrow
     push();
@@ -308,7 +261,7 @@ function generate_random() {
     hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
 }
 
-function open_eye(eye_spacing, eye_size, dir) {
+function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_angle, wink, eye_type) {
     push();
     translate(dir * eye_spacing / 2, 0);
     //eye background/tiredness - could be randomised
@@ -320,6 +273,17 @@ function open_eye(eye_spacing, eye_size, dir) {
     //white eye detail
     fill(255);
     ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
+
+    rotate(dir * eye_angle);
+
+    if (eye_type <= 25) {
+        eyes_detail_top(eye_size, eye_squint, dir * eyedetail_angle, wink);
+        eyes_detail_bottom(eye_size, eye_squint, dir * eyedetail_angle, wink);
+    } else if (eye_type <= 50) {
+        eyes_detail_bottom(eye_size, eye_squint, dir * eyedetail_angle, wink);
+    } else if (eye_type <= 75) {
+        eyes_detail_top(eye_size, eye_squint, dir * eyedetail_angle, wink);
+    }
     pop();
 }
 
@@ -366,8 +330,50 @@ function heart_eyes(eye_spacing, eye_size, dir) {
     pop();
 }
 
-function eyelids() {
+function eyes_detail_top(size, squint, angle, wink) {
+    push();
 
+    noStroke();
+    fill(light_colour);
+    let wink_amt = map(squint, 1.3, 1.9, 6, 3);
+
+    //top
+    push();
+    translate(0, -size * squint / 2);
+    //translate(0, size * (abs(wink) / wink_amt));
+    rotate(-angle);
+    scale(1.5);
+    ellipse(0, 0, size, size / 2);
+    pop();
+
+    highlight_colour.setAlpha(70);
+    pop();
+}
+
+function eyes_detail_bottom(size, squint, angle, wink) {
+    push();
+
+    noStroke();
+    fill(light_colour);
+    let wink_amt = map(squint, 1.3, 1.9, 6, 3);
+
+    //bottom
+    push();
+    translate(0, size * squint / 2);
+    //translate(0, -size * (abs(wink) / wink_amt));
+    rotate(angle);
+    scale(1.5);
+    ellipse(0, 0, size, size / 2);
+    highlight_colour.setAlpha(map(squint, 1.3, 1.9, 70, 0));
+    stroke(highlight_colour);
+    strokeWeight(0.1);
+    noFill();
+    let offset = map(angle, -15, 15, -10, 10);
+    arc(0, 0, size / 1, size / 2.5, 215 - offset, 325 - offset);
+    pop();
+
+    highlight_colour.setAlpha(70);
+    pop();
 }
 
 function glasses(eye_spacing, eye_size, dir) {
