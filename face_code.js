@@ -9,26 +9,26 @@
 
  var Xcenter = 0;
  var Ycenter = 0;
-
+//X axis 10 & -10
  var X1 = 2.5;
  var X2 = 5;
  var X3 = 7.5;
  var X4 = 10;
 
+ var X1B = X1*-1;
+ var X2B = X2*-1;
+ var X3B = X3*-1;
+ var X4B = X4*-1;
+//Y axis 10 & -10
  var Y1 = 2.5;
  var Y2 = 5;
  var Y3 = 7.5;
  var Y4 = 10;
 
- var X1B = -2.5;
- var X2B = -5;
- var X3B = -7.5;
- var X4B = -10;
-
- var Y1B = -2.5;
- var Y2B = -5;
- var Y3B = -7.5;
- var Y4B = -10;
+ var Y1B = Y1*-1;
+ var Y2B = Y2*-1;
+ var Y3B = Y3*-1;
+ var Y4B = Y4*-1;
 
 
 function drawFace1() {
@@ -37,6 +37,7 @@ fill(255);
 // strokeWeight(0.1);
 noStroke();
 //top of head
+
 beginShape();
 curveVertex(-6.5,-1.9);
 curveVertex(-6.5,-1.9);
@@ -565,8 +566,6 @@ fill(255);
     curveVertex(0,2);
     curveVertex(0,2);
   endShape();
-
-
 
 //EyeLeft
 fill(0);
