@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 10;
-let num_down = 5;
+let num_across = 8;
+let num_down = 4;
 
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
