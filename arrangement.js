@@ -65,7 +65,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
+
         pop();
       }
       else if (i > 0) {

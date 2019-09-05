@@ -2,6 +2,8 @@
 
 
 ----------------------------------------------------------------------------------
+#5th sept - Turned Horn outlines into their own functions and create number generation to choose which horns to draw for each face
+-------------------------------------------------------------------------------------
 
 #4th sept- I have made 3 types of horns that are able to be fitted to the ram skull and human skull, although it is only the outline. I need to fill them and try to create a pattern/texture that will be able to show the direction the horns point. I also need to convert the horns from drawface3 to their own functions which can be called when numbers are assigned. 
 -------------------------------------------------------------------------------------
