@@ -8,7 +8,15 @@
  */
 
 
-function drawFace1(length, curly, e) {
+function drawFace1(length, curly, e, hair) {
+
+ 
+  let whiteHair = color(232, 237, 237);
+  let blondeHair = color(255, 218, 115);
+  let gingerHair = color(230, 150, 90);
+  let brownHair = color(181, 91, 58);
+  let blackHair = color(0, 0, 0);
+  let hairColour;
 
   let curl = map(curly, 0, 100, 180, -90);
   angleMode(DEGREES);
@@ -16,13 +24,27 @@ function drawFace1(length, curly, e) {
   let eyeSize = e;
   fill(255, 218, 115);
   stroke(230, 188, 73);
+
+  //hair colour temp
+  if(hair < 25){
+    hairColour = lerpColor(whiteHair, blondeHair, hair/25);
+  } else if(hair < 50){
+    hairColour = lerpColor(blondeHair, gingerHair, (hair-25)/25);
+  } else if(hair < 75){
+   hairColour = lerpColor(gingerHair, brownHair, (hair-50)/25);
+  } else{
+    hairColour = lerpColor(brownHair, blackHair, (hair-75)/25);
+  } 
+  
+  fill(hairColour);
+
  //stroke(255, 218, 115);
  strokeWeight(width/960/10);
  randomSeed(23);
  print(width);
 
   push();
-  drawHair(L, curly);
+  drawHair(L, curly, hairColour);
   pop();
 
   fill(200, 150, 150);
@@ -171,6 +193,7 @@ function eye(pos, size){
 
   stroke(0);
   fill(23, 26, 120);
+
   ellipse(0.1*sc, 0, 5*sc, 5*sc);
   noStroke();
 
@@ -356,7 +379,8 @@ function Fringe(Len, cur){
 
 
 
-function drawHair(Len, cur){
+function drawHair(Len, cur, col){
+  let hairColour = col;
 
   let L = Len
   let curl = map(cur, 0, 100, 180, -90);
@@ -425,6 +449,8 @@ function drawHair(Len, cur){
 
     endShape();
     fill(225, 206, 187);
+
+  fill(hairColour);
     arc(map(HairLength, -135, -5, -0.2, -0.9), map(HairLength, -135, -5, -0.0, -0.8), map(HairLength, -135, -5, 0.1, curlScale*1.4), map(HairLength, -135, -5, 0.1, curlScale*1.4 ), -20, 155); //350, 200
 
     pop();
@@ -457,6 +483,8 @@ function drawHair(Len, cur){
 
     endShape();
     fill(225, 206, 187);
+
+  fill(hairColour);
     arc(map(HairLength, 155, 25, 0.2, 0.4), map(HairLength, 155, 25, -0.0, -1.1 ), map(HairLength, 155, 25, 0.1, curlScale*1.4), map(HairLength, 155, 25, 0.1, curlScale*1.4), -5, 170); //-20, 190
     pop();
 
@@ -464,6 +492,8 @@ function drawHair(Len, cur){
 
 
     fill(255, 218, 115);
+
+  fill(hairColour);
     //noFill();
     arc(3+0, -5, 6, 6, 220, 360, CHORD); //top hair
     arc(-3-0, -5, 6, 6, 180, 320, CHORD);

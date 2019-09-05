@@ -70,7 +70,8 @@ function draw () {
     let hair_Length = s1;
     let curly = s2;
     let eye = s3;
-    drawFace1(hair_Length, curly, eye);
+    let hairColour = s4;
+    drawFace1(hair_Length, curly, eye, hairColour);
   }
 
   if (mode == '2') {
@@ -83,7 +84,8 @@ function draw () {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
     let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
+    let hairColour = s4;
+    drawFace3(tilt_value, eye_value, mouth_value, hairColour);
   }
   pop();
 
