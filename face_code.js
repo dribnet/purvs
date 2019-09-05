@@ -7,91 +7,74 @@
  * These functions are used by your final arrangement of faces as well as the face editor.
  */
 
-function roughRect(x,y,width,length){
-strokeWeight(random(0.1,0.4));
-rect(x,y,width,length);
-stroke(0);
-line(x+random(-3,3),y,x+width,y);
-strokeWeight(random(0.1,0.4));
-line(x+width,y,x+width+random(-3,3),y+length);
-strokeWeight(random(0.1,0.4));
-line(x+width,y+length+random(-3,3),x,y+length);
-strokeWeight(random(0.1,0.4));
-line(x,y+length,x,y+random(-3,3));
-}
-function roughEllipse(x,y,width,length){
-  ellipse(x,y,width,length);
-  noFill();
+
+/*
+ * earSize can vary from 0 to 10
+ * earDist is the distance between ears and varies from 0 to 10
+ * faceColor is 1,2,3,4 for yellow,blue,red, or violet respectively
+ */
+function drawMickeyMouse(faceWidth, faceLength) {
+  const yellow = color(255, 255, 255);
+  const blue = color(0, 0, 200);
+  const red = color(200, 0, 0);
+  const violet = color(150, 0, 150);
+  const error_green = color(0, 255, 0);
+
+  noStroke();
+
+  // if(faceColor == 1) {
+  //   fill(yellow);
+  // }
+  // else if (faceColor==2) {
+  //   fill(blue);
+  // }
+  // else if (faceColor==3) {
+  //   fill(red);
+  // }
+  // else if (faceColor == 4) {
+  //   fill(violet);
+  // }
+  // else {
+  //   fill(error_green);
+  // }
+
+  // head
+  strokeWeight(0.3);
   stroke(0);
-  strokeWeight(random(0.1,0.3));
-  ellipse(x+random(-1,1),y+random(-1,1),width,length);
+  noFill();
+  for(var i =0; i<17; i++){
+    var ran = random(-0.1,0.1);
+    var ran2 = random(-0.1,0.1);
+    push();
+    scale(0.7);
+  drawBlob(faceWidth+random(-0.3,0.3),faceLength+random(-0.3,0.3),0+i*ran,0+i*ran2);
+  pop();
 
 }
-function drawFace1() {
-  fill(160,70,80);
-  noStroke();
-  // head
-  roughEllipse(0, 0, 20,thinness_value/5);
-  // eyes
-  fill(10,110,180);
-  roughEllipse(-3, -3, 3);
-  fill(10,110,110);
-  roughEllipse( 3, -3, 3);
+  //let earRadius = map(earSize, 0, 10, 4, 7);
+  //let earXPos = map(earDist, 0, 10, 3, 7);
+  //ellipse(-earXPos, -5, earRadius);
+  //ellipse( earXPos, -5, earRadius);
+  //stroke(0);
+  //strokeWeight(1);
+  //point(-7,-7);
 }
+function drawBlob(faceWidth,faceLength,x,y){
 
-/*
- * thinness_value ranges from 0-100 and indicates how thin the face is
- */
-function drawFace2(thinness_value) {
-  // head
-  noStroke();
-  fill(100, 150, 150);
-  let head_width = map(thinness_value/4, 0, 100, 8, 20);
-  roughRect(-head_width/2, -9, head_width, 18);
-  // rect(-5, -10, 10, 20);
-
-  // eyes
-  fill(240);
-  ellipse(-2, -4, 1);
-  ellipse( 2, -4, 1);
-}
-
-/*
- * tilt_value is in degrees
- * eye_value is an integer number of eyes: either 0, 1, 2, or 3
- * mouth_value is how open the mouth is and should generally range from 0.5 to 10
- */
-function drawFace3(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [125, 206, 187];
-  const fg_color3 = [151, 102, 152];
-
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value*10);
-
-  noStroke();
-  fill(fg_color3);
-  roughEllipse(0, 0, 30/2*tilt_value/100, 40/2);
-
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse( 0, -8/2, 5/2, 3/2);
-    fill(fg_color3);
-    ellipse(-1/2, -8/2, 2/2, 2/2);
-  }
-
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(-5/2, -8/2, 5/2, 3/2);
-    ellipse( 5/2, -8/2, 5/2, 3/2);
-
-    fill(fg_color3);
-    ellipse(-6/2, -8/2, 2/2, 2/2);
-    ellipse( 4/2, -8/2, 2/2, 2/2);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0/2, 7/2, 15/2, tilt_value/3);
+push();
+translate(x,y);
+//pop some colour here
+  beginShape();
+curveVertex(-7, -7+faceLength);
+curveVertex(-2+faceWidth, -9);
+curveVertex(2, -9);
+curveVertex(7, -7);
+curveVertex(7, 5+faceLength);
+curveVertex(0+faceWidth, 7+faceLength);
+curveVertex(-5+faceWidth, 5+faceLength);
+curveVertex(-5+faceWidth, -2);
+curveVertex(-2+faceWidth, -9);
+curveVertex(7, -7);
+endShape();
+pop();
 }

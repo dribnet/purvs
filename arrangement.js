@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [225, 206, 217];
+const bg_color1 = [225, 206, 187];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -44,44 +44,41 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
+  let faceWidth;
+  let earSize, earDist;
+  let faceColor;
+
+  let gridWidth = 6;
+  let gridHeight = 4;
+
+  // draw a 5x3 grid of faces
+  let w = canvasWidth / gridWidth;
+  let h = canvasHeight / gridHeight;
+  for(let i=0; i<gridHeight; i++) {
+    for(let j=0; j<gridWidth; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
-        pop();
+      // center face
+      push();
+      translate(x, y);
+      scale(w/25, h/25);
+      faceWidth = focusedRandom(-3, 2,1);
+      faceLength = focusedRandom(-3, 2,1);
+      let faceColorSpinner = int(focusedRandom(2, 2));
+      if(faceColorSpinner >= 2 && faceColorSpinner <= 3) {
+        faceColor = 1;
       }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          drawFace1();
-        }
-        else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
-        }
-        pop();
+      else if(faceColorSpinner >= 4 && faceColorSpinner <= 6) {
+        faceColor = 2;
       }
+      else if(faceColorSpinner == 7) {
+        faceColor = 3;
+      }
+      else {
+        faceColor = 4;
+      }
+      drawMickeyMouse(faceWidth, faceLength);
+      pop();
     }
   }
 }

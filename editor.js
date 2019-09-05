@@ -67,21 +67,15 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    //let earSize = map(s1, 0, 100, 0, 10);
+    //let earDist = map(s2, 0, 100, 0, 10);
+    // let faceColor = int(map(s3, 0, 100, 1, 4));
+    //let faceColor = int(map(s3, 0, 100, 1, 5));
+    let faceLength = map(s1,0,100,-3,2);
+    let faceWidth = map(s2,0,100,-3,2);
+    drawMickeyMouse(faceWidth, faceLength);
   }
 
-  if (mode == '2') {
-    // draw 2nd face - let slider value 1 indicate thinness
-    drawFace2(s1);
-  }
-
-  if (mode == '3') {
-    // draw 3rd face using values mapped from 3 sliders
-    let tilt_value = map(s1, 0, 100, -90, 90);
-    let mouth_value = map(s2, 0, 100, 0.5, 10);
-    let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
-  }
   pop();
 
   if(show_face_guide) {
