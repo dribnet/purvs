@@ -442,7 +442,21 @@ function drawFace2(thinness_value) {
   if(Horn == 3){
     drawHorn3();
   }
-
+  if(Horn ==0){
+    alternate = Math.floor(Math.random()*3);
+      if(alternate == 0){
+        drawHorn1();
+        drawHorn2();
+      }
+      if(alternate == 1){
+        drawHorn1();
+        drawHorn3();
+      }
+      if(alternate == 2){
+        drawHorn2();
+        drawHorn3();
+      }
+  }
 
   stroke(255);
   // noStroke();
