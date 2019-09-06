@@ -36,7 +36,7 @@ class Face {
 
         this.head();
         this.eyes();
-        //mouth();
+        this.mouth();
 
         //light reflection
         push();
@@ -78,29 +78,36 @@ class Face {
         //sets eye level
         translate(0, -this.eye_height);
         if (this.eye_type > 90 && this.eye_type < 95) {
-            heart_eyes(this.eye_spacing, this.eye_size, 1);
-            heart_eyes(this.eye_spacing, this.eye_size, -1);
+            classic_eye(this.eye_spacing, this.eye_size, 1);
+            classic_eye(this.eye_spacing, this.eye_size, -1);
         } else if (this.eye_type >= 95) {
-            closed_eye(this.eye_spacing, this.eye_size, 1);
-            closed_eye(this.eye_spacing, this.eye_size, -1);
+            classic_eye(this.eye_spacing, this.eye_size, 1);
+            classic_eye(this.eye_spacing, this.eye_size, -1);
         } else {
+
             if (this.eye_wink < 0) {
                 wink = 0;
             } else {
                 wink = this.eye_wink;
             }
             open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye);
+
             if (this.eye_wink < 0) {
                 wink = 0;
             } else {
                 wink = this.eye_wink;
             }
             open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye);
+
             if (this.glasses > 0.97) {
                 glasses(this.eye_spacing, this.eye_size, 1);
                 glasses(this.eye_spacing, this.eye_size, -1);
             }
         }
         pop();
+    }
+
+    mouth() {
+        mouth_core(this.mouth_width, this.mouth_height, this.mouth_emotion);
     }
 }

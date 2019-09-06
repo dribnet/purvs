@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 8;
-let num_down = 4;
+let num_across = 10;
+let num_down = 7;
 
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
@@ -32,7 +32,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [225, 206, 187];
+const bg_color1 = [255, 255, 255];
 
 function mouseClicked() {
     changeRandomSeed();
@@ -77,7 +77,7 @@ function draw() {
 
             push();
             translate(x, y);
-            scale(h / 25, h / 25);
+            scale(h / 30, h / 30);
             rectMode(CENTER);
             // drawFace(
             //     eye_spacing,
