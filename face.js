@@ -19,6 +19,8 @@ class Face {
         this.left_eye = left_eye;
         this.right_eye = right_eye;
 
+        this.winking = random();
+
         //mouth variables
         this.mouth_width = mouth_width;
         this.mouth_height = mouth_height;
@@ -27,6 +29,7 @@ class Face {
         //extra variables
         this.eye_type = random(0, 100);
         this.glasses = random();
+        this.coloured_eyes = random();
     }
 
     show() {
@@ -75,39 +78,74 @@ class Face {
         push();
         noStroke();
         let wink = 0;
+        let colour;
         //sets eye level
         translate(0, -this.eye_height);
-        if (this.eye_type > 90 && this.eye_type < 95) {
-            classic_eye(this.eye_spacing, this.eye_size, 1);
-            classic_eye(this.eye_spacing, this.eye_size, -1);
+        if (this.eye_type > 80 && this.eye_type < 85) {
+            heart_eyes(this.eye_spacing, this.eye_size, 1);
+            heart_eyes(this.eye_spacing, this.eye_size, -1);
+        } else if (this.eye_type > 85 && this.eye_type < 90) {
+            closed_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle);
+            closed_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle);
+        } else if (this.eye_type > 90 && this.eye_type < 95) {
+            cross_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle);
+            cross_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle);
         } else if (this.eye_type >= 95) {
             classic_eye(this.eye_spacing, this.eye_size, 1);
             classic_eye(this.eye_spacing, this.eye_size, -1);
         } else {
+        	if(this.coloured_eyes > 0.97){
+	        	colour = color(random(0,180),random(0,180),random(0,180));
+	        } else{
+	        	colour = 0;
+	        }
+
+	        if(this.winking > 0.98){
+	        	let rand = random();
+	        	if(rand > 0.5){
+					closed_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle);
+
+		            if (this.eye_wink < 0) {
+		                wink = 0;
+		            } else {
+		                wink = this.eye_wink;
+		            }
+		            open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye, colour);
+	        	} else {
+	        		closed_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle);
+
+		            if (this.eye_wink < 0) {
+		                wink = 0;
+		            } else {
+		                wink = this.eye_wink;
+		            }
+		            open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye, colour);
+	        	}
+	        } else {
+            if (this.eye_wink > 0) {
+                wink = 0;
+            } else {
+                wink = this.eye_wink;
+            }
+            open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye, colour);
 
             if (this.eye_wink < 0) {
                 wink = 0;
             } else {
                 wink = this.eye_wink;
             }
-            open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye);
+            open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye, colour);
 
-            if (this.eye_wink < 0) {
-                wink = 0;
-            } else {
-                wink = this.eye_wink;
-            }
-            open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye);
-
-            if (this.glasses > 0.97) {
-                glasses(this.eye_spacing, this.eye_size, 1);
-                glasses(this.eye_spacing, this.eye_size, -1);
-            }
+            // if (this.glasses > 0.97) {
+            //     glasses(this.eye_spacing, this.eye_size, 1);
+            //     glasses(this.eye_spacing, this.eye_size, -1);
+            // }
+        }
         }
         pop();
     }
 
     mouth() {
-        mouth_core(this.mouth_width, this.mouth_height, this.mouth_emotion);
+        classic_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
     }
 }

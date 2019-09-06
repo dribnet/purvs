@@ -202,35 +202,3 @@ function generate_random() {
 
     hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
 }
-
-function mouth_core(mouth_width, mouth_height, mouth_emotion) {
-    push();
-    noFill();
-    strokeWeight(0.5);
-    translate(0, mouth_height);
-    stroke(0);
-    // arc(0, 0, mouth_width, 1, 0, 180);
-
-
-    //top lip
-    beginShape();
-    curveVertex(-mouth_width / 2, 0);
-    curveVertex(-mouth_width / 2, 0);
-    curveVertex(-mouth_width / 4, mouth_emotion);
-    curveVertex(mouth_width / 4, mouth_emotion);
-    curveVertex(mouth_width / 2, 0);
-    curveVertex(mouth_width / 2, 0);
-    endShape();
-
-    //top lip
-    beginShape();
-    curveVertex(-mouth_width / 2, 0);
-    curveVertex(-mouth_width / 2, 0);
-    curveVertex(-mouth_width / 4, mouth_emotion / 3);
-    curveVertex(mouth_width / 4, mouth_emotion / 3);
-    curveVertex(mouth_width / 2, 0);
-    curveVertex(mouth_width / 2, 0);
-    endShape();
-
-    pop();
-}

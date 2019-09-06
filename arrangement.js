@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 10;
-let num_down = 7;
+let num_across = 7;
+let num_down = 4;
 
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
@@ -69,7 +69,7 @@ function draw() {
             let left_eye_seed = focusedRandom(0, 100);
             let right_eye_seed = focusedRandom(0, 100);
 
-            let mouth_width = focusedRandom(1, 4);
+            let mouth_width = focusedRandom(2, 4);
             let mouth_height = focusedRandom(1, 3);
             let mouth_emotion = focusedRandom(-2, 2);
 

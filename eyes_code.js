@@ -1,12 +1,14 @@
-function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_angle, wink, eye_type) {
+function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_angle, wink, eye_type, color) {
     push();
     translate(dir * eye_spacing / 2, 0);
     //eye background/tiredness - could be randomised
     fill(core_colour);
     ellipse(0, 0, eye_size * 1.2, eye_size * 1.2);
     //eye fill - solid black
-    fill(0);
+        fill(0);
     ellipse(0, 0, eye_size, eye_size);
+    fill(color);
+    ellipse(0, 0, eye_size*0.7, eye_size*0.7);
     //white eye detail
     fill(255);
     ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
@@ -26,9 +28,10 @@ function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_a
     pop();
 }
 
-function closed_eye(eye_spacing, eye_size, dir) {
+function closed_eye(eye_spacing, eye_size, dir, eye_angle) {
     push();
     translate(dir * eye_spacing / 2, 0);
+        rotate(dir * eye_angle);
     //eye background/tiredness - could be randomised
     stroke(0);
     strokeWeight(0.5);
@@ -37,9 +40,10 @@ function closed_eye(eye_spacing, eye_size, dir) {
     pop();
 }
 
-function cross_eye(eye_spacing, eye_size, dir) {
+function cross_eye(eye_spacing, eye_size, dir, eye_angle) {
     push();
     translate(dir * eye_spacing / 2, 0);
+    rotate(dir * eye_angle);
     //eye background/tiredness - could be randomised
     stroke(0);
     strokeWeight(0.5);
