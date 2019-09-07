@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [225, 206, 187];
+const bg_color1 = [240, 240, 206];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -62,8 +62,8 @@ function draw () {
       push();
       translate(x, y);
       scale(w/25, h/25);
-      faceWidth = focusedRandom(-3, 2,1);
-      faceLength = focusedRandom(-3, 2,1);
+      faceWidth = focusedRandom(-7, 2,1);
+      faceLength = focusedRandom(-7, 2,1);
       let faceColorSpinner = int(focusedRandom(2, 2));
       if(faceColorSpinner >= 2 && faceColorSpinner <= 3) {
         faceColor = 1;

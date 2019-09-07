@@ -71,9 +71,10 @@ function draw () {
     //let earDist = map(s2, 0, 100, 0, 10);
     // let faceColor = int(map(s3, 0, 100, 1, 4));
     //let faceColor = int(map(s3, 0, 100, 1, 5));
-    let faceLength = map(s1,0,100,-3,2);
-    let faceWidth = map(s2,0,100,-3,2);
-    drawMickeyMouse(faceWidth, faceLength);
+    let faceLength = map(s1,0,100,-7,2);
+    let faceWidth = map(s2,0,100,-7,2);
+    let browLength = map(s3,0,100,1,3);
+    drawMickeyMouse(faceWidth, faceLength, browLength);
   }
 
   pop();
