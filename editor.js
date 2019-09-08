@@ -1,6 +1,6 @@
 /*
- * This editor shows the possible faces that can be created
- */
+* This editor shows the possible faces that can be created
+*/
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -81,7 +81,7 @@ function draw () {
 
   if(show_face_guide) {
     strokeWeight(0.1);
-    rectMode(CORNER); 
+    rectMode(CORNER);
     noFill()
     stroke(0, 0, 255);
     // ellipse(0, 0, 20, 20);

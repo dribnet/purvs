@@ -1,6 +1,6 @@
 /*
- * This program draws your arrangement of faces on the canvas.
- */
+* This program draws your arrangement of faces on the canvas.
+*/
 
 const canvasWidth = 960;
 const canvasHeight = 500;
@@ -62,8 +62,9 @@ function draw () {
       push();
       translate(x, y);
       scale(w/25, h/25);
-      faceWidth = focusedRandom(-7, 2,1);
-      faceLength = focusedRandom(-7, 2,1);
+      faceWidth = focusedRandom(-7, 2,5);
+      faceLength = focusedRandom(-7, 2,3);
+      let browLength = focusedRandom(1,3,1);
       let faceColorSpinner = int(focusedRandom(2, 2));
       if(faceColorSpinner >= 2 && faceColorSpinner <= 3) {
         faceColor = 1;
@@ -77,7 +78,7 @@ function draw () {
       else {
         faceColor = 4;
       }
-      drawMickeyMouse(faceWidth, faceLength);
+      drawMickeyMouse(faceWidth, faceLength, browLength);
       pop();
     }
   }

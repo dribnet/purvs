@@ -1,19 +1,19 @@
 /*
- * This file should contain code that draws your faces.
- *
- * Each function takes parameters and draws a face that is within
- * the bounding box (-10, -10) to (10, 10).
- *
- * These functions are used by your final arrangement of faces as well as the face editor.
- */
+* This file should contain code that draws your faces.
+*
+* Each function takes parameters and draws a face that is within
+* the bounding box (-10, -10) to (10, 10).
+*
+* These functions are used by your final arrangement of faces as well as the face editor.
+*/
 
 
 /*
- * earSize can vary from 0 to 10
- * earDist is the distance between ears and varies from 0 to 10
- * faceColor is 1,2,3,4 for yellow,blue,red, or violet respectively
- */
- let rando = [];
+* earSize can vary from 0 to 10
+* earDist is the distance between ears and varies from 0 to 10
+* faceColor is 1,2,3,4 for yellow,blue,red, or violet respectively
+*/
+let rando = [];
 let outlines = 7;
 function drawMickeyMouse(faceWidth, faceLength, browLength) {
   for(var i =0;i<outlines;i++){
@@ -45,9 +45,9 @@ function drawMickeyMouse(faceWidth, faceLength, browLength) {
   noFill();
   noStroke();
   scale(0.9);
-    push();
+  push();
   fill(0,0,0,0); //behind the zig zag colour
-    fillBlob(faceWidth,faceLength,2,0);
+  fillBlob(faceWidth,faceLength,2,0);
   pop();
   stroke(3, 211, 252);//zig zag colour
   push();
@@ -63,7 +63,10 @@ function drawMickeyMouse(faceWidth, faceLength, browLength) {
   strokeWeight(0.3);
   stroke(33);//blob outline colour
   drawBlob(faceWidth,faceLength,2,0);
-  features(faceWidth,faceLength,browLength);
+  strokeWeight(0.1);
+  brows(faceWidth,faceLength,browLength,7);
+  eyes(faceWidth,faceLength,browLength,7);
+  nose(faceWidth,faceLength,browLength,1,1);
   pop();
 }
 
@@ -74,48 +77,114 @@ function fillBlob(faceWidth,faceLength,x,y){
 }
 function drawBlob(faceWidth,faceLength,x,y){
   for(var i =0; i<outlines; i++){
-push();
-translate(x+random(-0.5,0.5),y+random(-0.5,0.5));
+    push();
+    translate(x+random(-0.5,0.5),y+random(-0.5,0.5));
+    beginShape();
+    curveVertex(-7, -7+faceLength+random(-0.5,0.5));
+    curveVertex(-2+faceWidth+random(-0.5,0.5), -9);
+    curveVertex(2, -9);
+    curveVertex(7, -7);
+    curveVertex(7, 5+faceLength+random(-0.5,0.5));
+    curveVertex(0+faceWidth+random(-0.5,0.5), 7+faceLength+random(-0.5,0.5));
+    curveVertex(-5+faceWidth+random(-0.5,0.5), 5+faceLength+random(-0.5,0.5));
+    curveVertex(-5+faceWidth+random(-0.5,0.5), -2);
+    curveVertex(-2+faceWidth+random(-0.5,0.5), -9);
+    curveVertex(7, -7);
+    endShape();
+    pop();
+  }
+}
+function nose(faceWidth,faceLength,browLength,noseLength,numOf){
+  var fw = map(faceWidth,-7,2,2,0.5);
+    var fl = map(faceLength,-5,2,-1.7,3);
+    for(var i =0;i<numOf;i++){
+      push();
+      translate(random(-0.3,0.3),random(-0.3,0.3));
   beginShape();
-curveVertex(-7, -7+faceLength+random(-0.5,0.5));
-curveVertex(-2+faceWidth+random(-0.5,0.5), -9);
-curveVertex(2, -9);
-curveVertex(7, -7);
-curveVertex(7, 5+faceLength+random(-0.5,0.5));
-curveVertex(0+faceWidth+random(-0.5,0.5), 7+faceLength+random(-0.5,0.5));
-curveVertex(-5+faceWidth+random(-0.5,0.5), 5+faceLength+random(-0.5,0.5));
-curveVertex(-5+faceWidth+random(-0.5,0.5), -2);
-curveVertex(-2+faceWidth+random(-0.5,0.5), -9);
-curveVertex(7, -7);
+  vertex(2+(faceWidth+browLength*fw),-7);
+  vertex(1.5+(faceWidth+browLength*fw),fl);
+  endShape();
+  pop();
+}
+}
+function eyes(faceWidth,faceLength,browLength,numOf){
+  var fw = map(faceWidth,-7,2,2,0.5);
+    var fl = map(faceLength,-5,2,0,5);
+  for(var i =0;i<numOf;i++){
+    push();
+    translate(random(-0.3,0.3),random(-0.3,0.3));
+beginShape();
+curveVertex(faceWidth-1,fl+random(-1,1));
+curveVertex(faceWidth+0.1,-4);
+curveVertex(1+(faceWidth+browLength*fw),-4);
+curveVertex(faceWidth+2,fl+random(-1,1));
+endShape();
+beginShape();
+curveVertex(faceWidth-1,-fl+-7+random(-1,1));
+curveVertex(faceWidth+0.1,-4);
+curveVertex(1+(faceWidth+browLength*fw),-4);
+curveVertex(faceWidth+2,-fl+-7+random(-1,1));
+endShape();
+pop();
+push();
+
+translate(random(-0.3,0.3),random(-0.3,0.3));
+beginShape();
+curveVertex(faceWidth+1,fl+random(-1,1));
+curveVertex((faceWidth+3+browLength*fw),-4);
+curveVertex(8,-4);
+curveVertex(faceWidth+7,fl+random(-1,1));
+endShape();
+beginShape();
+curveVertex(faceWidth+1,-fl+-7+random(-1,1));
+curveVertex((faceWidth+3+browLength*fw),-4);
+curveVertex(8,-4);
+curveVertex(faceWidth+7,-fl+-7+random(-1,1));
 endShape();
 pop();
 }
 }
-function features(faceWidth,faceLength,browLength){
-beginShape();
-curveVertex(faceWidth-3,random(-3,3));
-curveVertex(faceWidth+0.1,-7);
-curveVertex(faceWidth+1+browLength,-7);
-curveVertex(faceWidth+10,random(-3,3));
-endShape();
+
+function brows(faceWidth,faceLength,browLength,numOf){
+  var fw = map(faceWidth,-7,2,2,0.5);
+  for(var i=0;i<numOf;i++){
+  push();
+  translate(random(-0.3,0.3),random(-0.3,0.3));
+  beginShape();
+  curveVertex(faceWidth-1,random(-3,3));
+  curveVertex(faceWidth+0.1,1+-7);
+  curveVertex((faceWidth+browLength*fw)+1,1+-7);
+  curveVertex(faceWidth+2,random(-3,3));
+  endShape();
+  pop();
+  push();
+  translate(random(-0.3,0.3),random(-0.3,0.3));
+  beginShape();
+  curveVertex(faceWidth+3,random(-3,3));
+  curveVertex(faceWidth+4+browLength*fw,1+-7);
+  curveVertex(7,1+-7);
+  curveVertex(faceWidth+5,random(-3,3));
+  endShape();
+  pop();
+}
 }
 
 function zig(faceWidth,faceLength,x,y,numOf){
   for(var i = 0;i<numOf;i++){
-  beginShape();
-for(var x =-10;x<8+faceLength;x++){
-  vertex(random(faceWidth-1,7),x);
-}
-  endShape();
-}
+    beginShape();
+    for(var x =-10;x<8+faceLength;x++){
+      vertex(random(faceWidth-1,7),x);
+    }
+    endShape();
+  }
 }
 
 function zag(faceWidth,faceLength,x,y,numOf){
   for(var i = 0;i<numOf;i++){
-beginShape();
-for(var y =faceWidth-4;y<11;y++){
-  vertex(y,random(faceLength+6,-8));
-}
-endShape();
-}
+    beginShape();
+    for(var y =faceWidth-4;y<11;y++){
+      vertex(y,random(faceLength+6,-8));
+    }
+    endShape();
+  }
 }
