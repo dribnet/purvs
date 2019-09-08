@@ -1,3 +1,3 @@
-## abexp f a c e s squiggly
+## expressionist faces
 
-got some colour in and a fun squiggly texture using the shape builder, next step is to add facial feautures with generatable parameters.
+have added eyes and brows and fixed some little bugs. will need to create a couple different types of faces and introduce variations in colour etc.
