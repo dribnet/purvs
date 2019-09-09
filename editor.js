@@ -37,7 +37,7 @@ function setup () {
   faceSelector.parent('selector1Container');
 }
 
-const bg_color = [225, 206, 187];
+const bg_color = [240, 240, 206];
 
 function draw () {
   strokeWeight(0.2);
@@ -75,7 +75,8 @@ function draw () {
     let faceWidth = map(s2,0,100,-7,2);
     let browLength = map(s3,0,100,1,3);
     let noseWidth = map(s4,0,100,-0.7,0);
-    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth);
+    let mouthWidth = map(s5,0,100,0,7);
+    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth);
   }
 
   pop();
