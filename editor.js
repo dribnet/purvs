@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-let slider1, slider2, slider3, slider4, slider5;
+let slider1, slider2, slider3, slider4, slider5, slider6, slider7;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -19,20 +19,25 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
+  slider6 = createSlider(0, 100, 50);
+  slider7 = createSlider(1, 5, 3);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
+  slider6.parent('slider6Container');
+  slider7.parent('slider7Container');
+
+  pupilsCheckbox = createCheckbox('', true);
+  pupilsCheckbox.parent('checkbox2Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
   faceSelector.option('1');
-  faceSelector.option('2');
-  faceSelector.option('3');
   faceSelector.value('1');
   faceSelector.parent('selector1Container');
 }
@@ -51,6 +56,8 @@ function draw () {
   let s3 = slider3.value();
   let s4 = slider4.value();
   let s5 = slider5.value();
+  let s6 = slider6.value();
+  let s7 = slider7.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -66,17 +73,15 @@ function draw () {
 
   push();
   if (mode == '1') {
-    // draw 1st face
-    //let earSize = map(s1, 0, 100, 0, 10);
-    //let earDist = map(s2, 0, 100, 0, 10);
-    // let faceColor = int(map(s3, 0, 100, 1, 4));
-    //let faceColor = int(map(s3, 0, 100, 1, 5));
     let faceLength = map(s1,0,100,-5,2);
     let faceWidth = map(s2,0,100,-7,2);
     let browLength = map(s3,0,100,1,3);
     let noseWidth = map(s4,0,100,-0.7,0);
     let mouthWidth = map(s5,0,100,0,7);
-    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth);
+    let teeth = map(s6,0,100,0,1);
+  let pupils = pupilsCheckbox.checked();
+  let faceColor = s7;
+    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils);
   }
 
   pop();

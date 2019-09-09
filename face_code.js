@@ -15,7 +15,7 @@
 */
 let rando = [];
 let outlines = 7;
-function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,faceColor) {
+function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
   }
@@ -38,7 +38,6 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   else {
     zig_zag_colour = color(125, 96, 80);//brown
   }
-
   // head
   noFill();
   noStroke();
@@ -68,7 +67,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   drawBlob(faceWidth,faceLength,2,0);
   strokeWeight(0.1);
   brows(faceWidth,faceLength,browLength,7);
-  eyes(faceWidth,faceLength,browLength,7);
+  eyes(faceWidth,faceLength,browLength,pupils,7);
   nose(faceWidth,faceLength,browLength,noseWidth,7);
   mouth(faceWidth,faceLength,browLength,mouthWidth,0,7);
   pop();
@@ -135,10 +134,41 @@ function nose(faceWidth,faceLength,browLength,noseWidth,numOf){
   pop();
 }
 }
-function eyes(faceWidth,faceLength,browLength,numOf){
+function eyes(faceWidth,faceLength,browLength,pupils,numOf){
   var fw = map(faceWidth,-7,2,2,0.5);
+  var fw2 = map(faceWidth,-7,2,2,0.5);
     var fl = map(faceLength,-5,2,0,5);
   for(var i =0;i<numOf;i++){
+    push();
+    translate(random(-0.3,0.3),random(-0.3,0.3));
+    if(pupils){
+beginShape();
+curveVertex(faceWidth-1+random(-1,1),fl/2+random(-1,1));
+curveVertex(faceWidth+1.1,-4);
+curveVertex(0+(faceWidth+browLength*fw),-4);
+curveVertex(faceWidth+2+random(-1,1),fl+random(-1,1));
+endShape();
+beginShape();
+curveVertex(faceWidth-1+random(-1,1),-fl+-7+random(-1,1));
+curveVertex(faceWidth+0.1,-4);
+curveVertex(1+(faceWidth+browLength*fw),-4);
+curveVertex(faceWidth+2+random(-1,1),-fl+-7+random(-1,1));
+endShape();
+
+beginShape();
+curveVertex(faceWidth+1+random(-1,1),fl+random(-1,1));
+curveVertex((faceWidth+3+browLength*fw),-4);
+curveVertex(8,-4);
+curveVertex(faceWidth+7+random(-1,1),fl+random(-1,1));
+endShape();
+beginShape();
+curveVertex(faceWidth+1+random(-1,1),-fl+-7+random(-1,1));
+curveVertex((faceWidth+3+browLength*fw),-4);
+curveVertex(8,-4);
+curveVertex(faceWidth+7+random(-1,1),-fl+-7+random(-1,1));
+endShape();
+    }
+    pop();
     push();
     translate(random(-0.3,0.3),random(-0.3,0.3));
 beginShape();
