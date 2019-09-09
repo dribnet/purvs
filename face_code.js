@@ -15,7 +15,7 @@
 */
 let rando = [];
 let outlines = 7;
-function drawMickeyMouse(faceWidth, faceLength, browLength) {
+function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
   }
@@ -24,6 +24,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength) {
   const red = color(200, 0, 0);
   const violet = color(150, 0, 150);
   const error_green = color(0, 255, 0);
+
 
   // if(faceColor == 1) {
   //   fill(yellow);
@@ -66,7 +67,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength) {
   strokeWeight(0.1);
   brows(faceWidth,faceLength,browLength,7);
   eyes(faceWidth,faceLength,browLength,7);
-  nose(faceWidth,faceLength,browLength,1,1);
+  nose(faceWidth,faceLength,browLength,noseWidth,7);
   pop();
 }
 
@@ -94,15 +95,28 @@ function drawBlob(faceWidth,faceLength,x,y){
     pop();
   }
 }
-function nose(faceWidth,faceLength,browLength,noseLength,numOf){
+function mouth(faceWidth,faceLength,browLength,noseWidth,numOf){
+  
+}
+function nose(faceWidth,faceLength,browLength,noseWidth,numOf){
   var fw = map(faceWidth,-7,2,2,0.5);
-    var fl = map(faceLength,-5,2,-1.7,3);
+    var fl = map(faceLength,-5,2,-2.1,3);
+    var widthFactor = (faceWidth+browLength*fw)
     for(var i =0;i<numOf;i++){
       push();
       translate(random(-0.3,0.3),random(-0.3,0.3));
   beginShape();
-  vertex(2+(faceWidth+browLength*fw),-7);
-  vertex(1.5+(faceWidth+browLength*fw),fl);
+  vertex(1+(faceWidth+browLength*fw),-3);
+  vertex(0+(faceWidth+browLength*fw)-noseWidth,fl-0.7);
+  endShape();
+
+  beginShape();
+  vertex(-1+widthFactor-noseWidth,fl-0.7);
+  quadraticVertex(0+widthFactor+noseWidth,fl+1,1+widthFactor+noseWidth,fl);
+  vertex(1+widthFactor+noseWidth,fl);
+  quadraticVertex(2+widthFactor-noseWidth,fl+1,3+widthFactor-noseWidth,fl);
+  vertex(3+widthFactor-noseWidth,fl);
+  quadraticVertex(4+widthFactor-noseWidth,fl+1,5+widthFactor+noseWidth,fl-1);
   endShape();
   pop();
 }
@@ -188,3 +202,12 @@ function zag(faceWidth,faceLength,x,y,numOf){
     endShape();
   }
 }
+
+// function _curveVertex(x,y){ // degbug func
+//   curveVertex(x,y)
+//   push()
+//   stroke(255,0,0)
+//   strokeWeight(0.3)
+//   ellipse(x,y,0.1,0.1)
+//   pop()
+// }
