@@ -33,7 +33,7 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('3');
+  faceSelector.value('2');
   faceSelector.parent('selector1Container');
 }
 
@@ -72,7 +72,9 @@ function draw () {
 
   if (mode == '2') {
     // draw 2nd face - let slider value 1 indicate thinness
-    drawFace2(s1);
+    let ear_value = int(map(s2, 0, 100, 1, 2));
+    let eye_value = int(map(s3, 0, 100, 1, 3));
+    drawFace2(s1, ear_value, eye_value);
   }
 
   if (mode == '3') {

@@ -84,8 +84,12 @@ function draw () {
           drawFace1(tallness_value1);
         }
         else {
-          tallness_value2 = focusedRandom(0, 100, 3);
-          drawFace2(tallness_value2);
+          let tallness_value2 = focusedRandom(0, 100, 3);
+          let ear_values = [1,2];
+          let ear_value2 = random(ear_values);
+          let eye_values = [1, 2, 3];
+          let eye_value = random(eye_values);
+          drawFace2(tallness_value2, ear_value2, eye_value);
         }
         pop();
       }

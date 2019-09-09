@@ -81,19 +81,59 @@ function drawFace1(tallness1) {
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function drawFace2(tallness2) {
+function drawFace2(tallness2, ear_type2, eye_type) {
   fill(mid_brown);
   noStroke();
-  let head_height2 = map(tallness2, 0, 100, 14, 18);
+  let head_height2 = map(tallness2, 0, 100, 15, 18);
 
 
   //EARS
   //MAP TO HEAD HEIGHT !!!
+
+  //EAR TYPE ONE
+  if(ear_type2 == 1){
+    ellipse(-5, -6, 8);
+    ellipse(5, -6, 8);
+    fill(light_pink);
+    ellipse(-5, -6, 6);
+    ellipse(5, -6, 6);
+  }
+
+  //EAR TYPE TW0
+  else if(ear_type2 == 2){
+    ellipse(-5, -6, 8);
+    ellipse(-8.3, -5.75, 2.4);
+    ellipse(-8, -7.6, 2.4);
+    ellipse(-6.75, -9, 2.4);
+    ellipse(-5, -9.5, 2.4);
+    ellipse(-3.5, -9, 2.4);
+    ellipse(-2.5, -7.9, 2.4);
+
+    ellipse(5, -6, 8);
+    ellipse(8.3, -5.75, 2.4);
+    ellipse(8, -7.6, 2.4);
+    ellipse(6.75, -9, 2.4);
+    ellipse(5, -9.5, 2.4);
+    ellipse(3.5, -9, 2.4);
+    ellipse(2.5, -7.9, 2.4);
+
+    fill(light_brown);
+    ellipse(-5, -6, 6);
+    ellipse(5, -6, 6);
+}
+  
+
+  //EAR TYPE THREE
+  /*
   ellipse(-5, -6, 8);
+  fill(light_brown);
   ellipse(5, -6, 8);
   fill(light_pink);
   ellipse(-5, -6, 6);
   ellipse(5, -6, 6);
+  */
+
+
 
   //HEAD
   fill(mid_brown);
@@ -102,13 +142,43 @@ function drawFace2(tallness2) {
   //EYES
   fill(light_brown);
 
-  //Left Eye Patch
-  push();
-  translate(-3, -2.5);
-  rotate(-PI/10);
-  ellipse(0, 0, 5.5, 4);
-  pop();
- 
+  //EYE TYPE 1
+  if(eye_type == 1){
+    //Left Eye Patch
+    push();
+    translate(-3, -2.5);
+    rotate(-PI/10);
+    ellipse(0, 0, 5.5, 4);
+    pop();
+  }
+
+  //EYE TYPE 2
+  else if(eye_type == 2){
+  //Right Eye Patch
+    push();
+    translate(3, -2.5);
+    rotate(PI/10);
+    ellipse(0, 0, 5.5, 4);
+    pop();
+ }
+
+
+  //EYE TYPE 3
+  else if(eye_type == 3){
+  //Both Eye Patches
+    push();
+    translate(-3, -2.5);
+    rotate(-PI/10);
+    ellipse(0, 0, 5.5, 4);
+    pop();
+    fill(beige);
+    push();
+    translate(3, -2.5);
+    rotate(PI/10);
+    ellipse(0, 0, 5.5, 4);
+    pop();
+  }
+
 
   //Eyeballs
   fill(0);
