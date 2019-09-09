@@ -67,22 +67,21 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1(s1);
+    let ear_value1 = int(map(s2, 0, 100, 1, 2));
+    drawFace1(s1, ear_value1);
   }
 
   if (mode == '2') {
-    // draw 2nd face - let slider value 1 indicate thinness
-    let ear_value = int(map(s2, 0, 100, 1, 2));
-    let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace2(s1, ear_value, eye_value);
+    // draw 2nd face 
+    let ear_value2 = int(map(s2, 0, 100, 1, 2));
+    let eye_value2 = int(map(s3, 0, 100, 1, 3));
+    drawFace2(s1, ear_value2, eye_value2, s4);
   }
 
   if (mode == '3') {
-    // draw 3rd face using values mapped from 3 sliders
-    let tilt_value = map(s1, 0, 100, -90, 90);
-    let mouth_value = map(s2, 0, 100, 0.5, 10);
-    let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
+    // draw 3rd face 
+    let ear_value3 = int(map(s2, 0, 100, 1, 2));
+    drawFace3(tilt_value, ear_value3);
   }
   pop();
 
