@@ -2,6 +2,9 @@
 
 
 ----------------------------------------------------------------------------------
+#9th sept - I have made a pattern to fill the horn outlines out of curves and curvevertexs
+this makes the horns look like they have more shape instead of just 2D
+----------------------------------------------------------------------------------
 #5th sept - Turned Horn outlines into their own functions and create number generation to choose which horns to draw for each face
 -------------------------------------------------------------------------------------
 
