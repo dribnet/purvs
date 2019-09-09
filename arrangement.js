@@ -52,16 +52,7 @@ function draw () {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
       if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
+
         push();
         translate(x, y);
         scale(w/25, h/25);
@@ -74,11 +65,16 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          drawFace1();
+          let horns = int(focusedRandom(0, 5));
+          let width = focusedRandom(0, 1);
+          let cheekbones = focusedRandom(0.5,1);
+          drawFace1(horns, width,cheekbones);
         }
         else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
+          let horns = int(focusedRandom(0, 5));
+          let width = focusedRandom(0, 1);
+          let cheekbones = focusedRandom(-0.5,0.3);
+          drawFace2(horns, width, cheekbones);
         }
         pop();
       }

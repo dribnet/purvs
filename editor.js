@@ -67,12 +67,17 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    let horns = int(map(s1, 0, 100, 0, 5));
+    let width = map(s2, 0, 100, 0, 1);
+    let cheekbones = map(s3,0,100,0,1);
+    drawFace1(horns, width, cheekbones);
   }
 
   if (mode == '2') {
-    // draw 2nd face - let slider value 1 indicate thinness
-    drawFace2(s1);
+    let horns = int(map(s1, 0, 100, 0, 5));
+    let width = map(s2, 0, 100, 0, 1);
+    let cheekbones = map(s3,0,100,-0.5,0.5);
+    drawFace2(horns, width, cheekbones);
   }
 
   if (mode == '3') {
