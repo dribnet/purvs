@@ -13,32 +13,75 @@ let dark_brown = "#5e4f3a";
 let mid_brown = "#826558";
 let light_brown = "#bd8d6c";
 let light_pink = "#f7e6ee";
-let beige = "#dbc6b4";
+let beige = "#e3d0c5";
 
 
 //********FACE ONE*******// (PANDA)
 
-function drawFace1(tallness1, ear_type1) {
+function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
   fill(50);
   noStroke();
   let head_height1 = map(tallness1, 0, 100, 16, 18);
+  let mouth_curve1 = map(mouth1, 0, 100, -5, 5);
 
-  //EARS 
+  //*****EARS****/
 
-  //EARS 1
+  //EAR TYPE 1
   if(ear_type1 == 1){
     ellipse(-4, -6.5, 8);
     ellipse(4, -6.5, 8);
   }
 
-  //EARS 2
+  //EAR TYPE 2
   else if(ear_type1 == 2){
+    ellipse(-7, -5.5, 8);
+    ellipse(7, -5.5, 8);
+
+    push();
+    translate(-9.48, -9.48);
+    beginShape();
+    vertex(0,0);
+    vertex(2,2);
+    vertex(2,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(-1.25, 0.5);
+    beginShape();
+    vertex(0,0);
+    vertex(2,2);
+    vertex(2,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop();
+
+    push();
+    translate(9.48, -9.48);
+    beginShape();
+    vertex(0,0);
+    vertex(-2,2);
+    vertex(-2,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(1.25, 0.5);
+    beginShape();
+    vertex(0,0);
+    vertex(-2,2);
+    vertex(-2,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop();
+   
+    
+  } 
+
+  //EAR TYPE 3
+  else if(ear_type1 == 3){
     ellipse(-6, -6, 8);
     ellipse(6, -6, 8);
     fill(light_pink);
     ellipse(-6, -6, 5);
     ellipse(6, -6, 5);
-  } 
+  }
   
   //HEAD
   fill(230);
@@ -74,17 +117,46 @@ function drawFace1(tallness1, ear_type1) {
   ellipse(0, 3, 10, 7);
   fill(0);
   rect(0, 2, 0.5, 2.75, 5);
-  rect(0, 3.25, 2.5, 0.5, 5);
+  stroke(0);
+  strokeWeight(0.5);
+  curve(0, mouth_curve1, -2, 3.3, 2, 3.3, 0, mouth_curve1);
+  noStroke();
 
-  //noFill();
-  //stroke(0);
-  //strokeWeight(0.5);
-  //arc(0, 1.5, 4, 4, PI/4, PI/4+PI/2);
-  //noStroke();
+
+  //********CHEEKS*****/
+
+  //CHEEK TYPE 1
+  if(cheek_type1 == 1){
+    fill(255, 48, 93, 100);
+    ellipse(4.5, 1.75, 3.75);
+    ellipse(-4.5, 1.75, 3.75);
+  }
+
+  //CHEEKS TYPE 2
+  else if(cheek_type1 == 2){
+    fill(242, 199, 223, 100);
+    push();
+    translate(7, 0.5);
+    rotate(-10);
+    ellipse(0, 0, 5, 3.75);
+    pop();
+    push();
+    translate(-7, 0.5);
+    rotate(10);
+    ellipse(0, 0, 5, 3.75);
+    pop();
+  }
+
+  //CHEEK TYPE 3
+  else if(cheek_type1 == 3){
+
+  }
 
   //NOSE
   fill(0);
   ellipse(0, 1, 3.5, 1.75);
+
+
 }
 
 
@@ -136,6 +208,12 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size) {
     ellipse(-5, -6, 6);
     ellipse(5, -6, 6);
 }
+
+//EAR TYPE 3 
+  else if(ear_type2 == 3){
+    ellipse(-5, -7, 6);
+    ellipse(5, -7, 6);
+  }
   
 
   //EAR TYPE THREE
@@ -144,7 +222,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size) {
   fill(mid_brown);
   ellipse(0, 0, 19, head_height2);
 
-  //EYES
+  //*******EYES**********/
   fill(light_brown);
 
   //EYE TYPE 1
@@ -176,7 +254,6 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size) {
     rotate(-10);
     ellipse(0, 0, 5.5, 4);
     pop();
-    fill(beige);
     push();
     translate(3, -2.5);
     rotate(10);
@@ -226,7 +303,7 @@ function drawFace3(tallness3, ear_type3) {
   rectMode(CENTER);
   let head_height3 = map(tallness3, 0, 100, 17, 20);
 
-  //EARS
+  //*********EARS******/
 
   //EARS 1
   if(ear_type3 == 1){
@@ -257,21 +334,23 @@ function drawFace3(tallness3, ear_type3) {
     ellipse(5, -7.75, 6);
   }
   
-
-  
   //HEAD
   fill(beige);
   ellipse(0, 0, 20, head_height3);
 
-  //EYES
+  //******EYES******/
 
   fill(dark_brown)
+
+  //EYES 1
   //Right Eye Patch
   push();
   translate(3, -2.5);
   rotate(10);
   ellipse(0, 0, 5.5, 4);
   pop();
+
+  //EYES 2
 
   //Eyeballs
   fill(0);

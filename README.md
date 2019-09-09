@@ -1,5 +1,5 @@
 ## PS2 MDDN 342 2019
 
-EDITOR & ARRANGEMENT CHANGE
+FACES ONE AND TWO
 
-Today I have been working on the variation between faces. I have changed the arrangement of my faces in order to see the changes more clearly but I don't think this will be my final arrangement. I am thinking of hard coding 3 bear bodies/ or maybe torsos and just having the faces change but I'm not sure yet. I have added nearly all the paramenters on face 2 (the brown bear) i only need to add the mouth curve values and then really refine how it's going to look. I have played around with changing ears on the other two bears (face1- panda and face3- polar bear/lighter bear) and I need to refine how they are going to look as well. 
+So far I have put my parameters for face 1 (Panda) which are : face height, mouth curve, ear type and cheek type/blush and for face 2 (Brown Bear) which are : face height, mouth width, ear type, and eye patches type. I am going to have three ear types for each bear and am aiming to have three options for all of the discrete variables. I still need to finish adding my parameters for face three and then refine the overall look and function of my faces and the arrangement. I would like to create more differences between the faces so I will continue to work on that. 

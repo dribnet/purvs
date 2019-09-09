@@ -61,19 +61,22 @@ function draw () {
         if((i+j)%3 == 0) {
           /*********FACE ONE********/
           let tallness_value1 = focusedRandom(0,100,3);
-          let ear_values1 = [1,2];
+          let ear_values1 = [1,2,3];
           let ear_value1 = random(ear_values1);
-          drawFace1(tallness_value1, ear_value1);
+          let cheek_values1 = [1,2,3];
+          let cheek_value1 = random(cheek_values1);
+          let mouth_value1 = focusedRandom(0,100);
+          drawFace1(tallness_value1, ear_value1, cheek_value1, mouth_value1);
         }
 
         else if((i+j)%3 == 1){
           /********FACE TWO**********/
           let tallness_value2 = focusedRandom(0, 100, 3);
-          let ear_values2 = [1,2];
+          let ear_values2 = [1,2,3];
           let ear_value2 = random(ear_values2);
           let eye_values2 = [1, 2, 3];
           let eye_value2 = random(eye_values2);
-          let mouth_value2 = focusedRandom(0, 100);
+          let mouth_value2 = focusedRandom(0, 100, 2);
           drawFace2(tallness_value2, ear_value2, eye_value2, mouth_value2);
         }
         else {
