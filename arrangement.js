@@ -53,6 +53,8 @@ function draw () {
       let x = w/2 + w*j;
       if (i == 0) {
         // center face
+        
+        /*
         let eye_value = 2;
         let tilt_value = focusedRandom(-15, 45);
         let mouth_value = focusedRandom(1, 3);
@@ -62,10 +64,14 @@ function draw () {
           tilt_value = focusedRandom(-5, 5);
           mouth_value = focusedRandom(5, 10);
         }
+        */
         push();
+
         translate(x, y);
         scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
+
+        let tallness_value3 = focusedRandom(0,100,3);
+        drawFace3(tallness_value3);
         pop();
       }
       else if (i > 0) {
@@ -74,11 +80,12 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          drawFace1();
+          let tallness_value1 = focusedRandom(0,100,3);
+          drawFace1(tallness_value1);
         }
         else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
+          tallness_value2 = focusedRandom(0, 100, 3);
+          drawFace2(tallness_value2);
         }
         pop();
       }

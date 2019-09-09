@@ -18,9 +18,10 @@ let beige = "#dbc6b4";
 
 //********FACE ONE*******//
 
-function drawFace1(tallness) {
+function drawFace1(tallness1) {
   fill(50);
   noStroke();
+  let head_height1 = map(tallness1, 0, 100, 14, 18);
 
   //EARS
   //MAP TO HEAD HEIGHT !!!
@@ -30,7 +31,7 @@ function drawFace1(tallness) {
   //HEAD
   fill(230);
   rectMode(CENTER);
-  rect(0, 0, 20, 16, 10);
+  rect(0, 0, 20, head_height1, 10);
 
   //EYES
   fill(50);
@@ -80,10 +81,10 @@ function drawFace1(tallness) {
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function drawFace2(tallness) {
+function drawFace2(tallness2) {
   fill(mid_brown);
   noStroke();
-  let head_height = map(tallness, 0, 100, 14, 18);
+  let head_height2 = map(tallness2, 0, 100, 14, 18);
 
 
   //EARS
@@ -96,7 +97,7 @@ function drawFace2(tallness) {
 
   //HEAD
   fill(mid_brown);
-  ellipse(0, 0, 20, head_height);
+  ellipse(0, 0, 20, head_height2);
 
   //EYES
   fill(light_brown);
@@ -142,10 +143,11 @@ function drawFace2(tallness) {
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function drawFace3(tilt_value, eye_value, mouth_value) {
+function drawFace3(tallness3) {
   fill(beige);
   noStroke();
   rectMode(CENTER);
+  let head_height3 = map(tallness3, 0, 100, 17, 20);
 
   //EARS
   ellipse(-5, -6, 8);
@@ -170,7 +172,7 @@ function drawFace3(tilt_value, eye_value, mouth_value) {
   
   //HEAD
   fill(beige);
-  ellipse(0, 0, 20, 17);
+  ellipse(0, 0, 20, head_height3);
 
   //EYES
 
