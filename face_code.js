@@ -24,7 +24,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   let zig_zag_colour = color(3, 211, 252);
 
   if(faceColor == 1) {
-    zig_zag_colour = color(0, 110, 46);//green
+    zig_zag_colour = color(238, 164, 245);//pink
   }
   else if (faceColor==2) {
     zig_zag_colour = color(0,0,0);//black
@@ -36,7 +36,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
     zig_zag_colour = color(3, 211, 252);//blue
   }
   else {
-    zig_zag_colour = color(125, 96, 80);//brown
+    zig_zag_colour = color(125, 196, 80);//green
   }
   // head
   noFill();

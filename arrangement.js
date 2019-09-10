@@ -67,23 +67,25 @@ function draw () {
       let browLength = focusedRandom(1,3,1);
       let noseWidth = focusedRandom(-1,0,1);
       let mouthWidth = focusedRandom(0,7,1);
-      let faceColorSpinner = int(focusedRandom(1, 6,7));
-      if(faceColorSpinner == 1) {
+      let faceColorSpinner = int(focusedRandom(1, 100));
+      let teeth =0;
+      let pupils = false;
+      if(faceColorSpinner >=1 && faceColorSpinner <=18) {
         faceColor = 1;
       }
-      else if(faceColorSpinner == 2) {
+      else if(faceColorSpinner >= 19 && faceColorSpinner <=20) {
         faceColor = 2;
       }
-      else if(faceColorSpinner == 3) {
+      else if(faceColorSpinner >= 21 && faceColorSpinner <= 30) {
         faceColor = 3;
       }
-      else if(faceColorSpinner == 4){
+      else if(faceColorSpinner >= 31 && faceColorSpinner <= 40){
         faceColor = 4;
       }
       else{
         faceColor = 5;
       }
-      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,faceColor);
+      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils);
       pop();
     }
   }
