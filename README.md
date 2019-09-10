@@ -2,6 +2,8 @@
 
 
 ----------------------------------------------------------------------------------
+#sept 10 - Horn detailings are finished, need to complete arrangement and move horn positioning for the human skull.
+----------------------------------------------------------------------------------
 #9th sept - I have made a pattern to fill the horn outlines out of curves and curvevertexs
 this makes the horns look like they have more shape instead of just 2D
 ----------------------------------------------------------------------------------
