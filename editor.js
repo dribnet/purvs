@@ -33,6 +33,9 @@ function setup () {
   pupilsCheckbox = createCheckbox('', true);
   pupilsCheckbox.parent('checkbox2Container');
 
+  flipCheckbox = createCheckbox('', false);
+  flipCheckbox.parent('checkbox3Container');
+
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
 
@@ -80,8 +83,9 @@ function draw () {
     let mouthWidth = map(s5,0,100,0,7);
     let teeth = map(s6,0,100,0,1);
   let pupils = pupilsCheckbox.checked();
+  let flip = flipCheckbox.checked();
   let faceColor = s7;
-    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils);
+    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip);
   }
 
   pop();

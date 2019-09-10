@@ -15,7 +15,7 @@
 */
 let rando = [];
 let outlines = 7;
-function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils) {
+function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
   }
@@ -42,6 +42,11 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   noFill();
   noStroke();
   scale(0.9);
+
+  if(flip){
+  scale(-1,1);
+}
+
   push();
   fill(0,0,0,0); //behind the zig zag colour
   fillBlob(faceWidth,faceLength,2,0);

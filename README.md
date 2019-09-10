@@ -1,11 +1,4 @@
-## expressionist faces - weighted selection
-
-using weighted selection to influence the colour of faces.
-
-pink: 20% chance
-yellow: 10% chance
-blue: 10% chance
-black: 1% chance
-green: 59% chance
-
-looks quite nice, might be using this method of selection for colour variation in my final design.
+## expressionist faces - background and flip
+added some nice background textures and a flip parameter to the faces.
+flip has a 30% chance of happening. the background elements are hard coded but with randomness added to the values.
+need to finish the pupils and add some refined distributions.
