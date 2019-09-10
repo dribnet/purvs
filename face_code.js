@@ -76,97 +76,23 @@ function face_core() {
     pop();
 }
 
-function eyes_core(eye_height, eye_spacing, eye_angle, eye_size, eye_squint, eyedetail_angle, eye_wink, left_eye_seed, right_eye_seed) {
+function freckles(eye_height, eye_spacing, eye_size, freckle_angles, freckle_pos, freckle_num, dir) {
     push();
     noStroke();
-    //sets eye level
     translate(0, -eye_height);
-    let wink = 0;
 
-    //right eye
     push();
-    translate(eye_spacing / 2, 0);
-    //eye background/tiredness - could be randomised
-    fill(core_colour);
-    ellipse(0, 0, eye_size * 1.2, eye_size * 1.2);
-    //eye fill - solid black
-    fill(0);
-    ellipse(0, 0, eye_size, eye_size);
-    //white eye detail
-    fill(255);
-    ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
-    //rotates eye
-    rotate(-eye_angle);
-    if (eye_wink > 0) {
-        wink = 0;
-    } else {
-        wink = eye_wink;
+    translate(dir * eye_spacing / 2, 0);
+    translate(dir * eye_size / 2, eye_size * 1.2);
+    for (let i = 0; i < freckle_num; i++) {
+        let pos = freckle_pos[i];
+        let angle = freckle_angles[i];
+        fill(160, 95, 52);
+        push();
+        rotate(dir * angle);
+        ellipse(0, pos, 0.25, 0.25);
+        pop();
     }
-
-    //draws details based on random value
-    if (right_eye_seed <= 25) {
-        eyes_detail_top(eye_size, eye_squint, eyedetail_angle, wink);
-        eyes_detail_bottom(eye_size, eye_squint, eyedetail_angle, wink);
-    } else if (right_eye_seed <= 50) {
-        eyes_detail_bottom(eye_size, eye_squint, eyedetail_angle, wink);
-    } else if (right_eye_seed <= 75) {
-        eyes_detail_top(eye_size, eye_squint, eyedetail_angle, wink);
-    }
-
-    //draws eyebrows
-    eyebrows(eye_size, eye_squint, eyedetail_angle, wink, 1);
-
-    // translate(eye_size / 2, eye_size * 1.2);
-    // for (let i = 0; i < freckle_num; i++) {
-    //     let pos = freckle_pos[i];
-    //     let angle = freckle_angles[i];
-    //     fill(160, 95, 52);
-    //     push();
-    //     rotate(-angle);
-    //     ellipse(0, pos, 0.25, 0.25);
-    //     pop();
-    // }
-
-    pop();
-
-    //left eye
-    push();
-    translate(-eye_spacing / 2, 0);
-    fill(core_colour);
-    ellipse(0, 0, eye_size * 1.2, eye_size * 1.2);
-    //ellipse(0, 0, eye_size, eye_size * eye_squint);
-    fill(0);
-    ellipse(0, 0, eye_size, eye_size);
-    fill(255);
-    ellipse(-eye_size / 7, -eye_size / 7, eye_size / 2.5, eye_size / 2.5);
-    rotate(eye_angle);
-    if (eye_wink < 0) {
-        wink = 0;
-    } else {
-        wink = eye_wink;
-    }
-
-    if (left_eye_seed <= 25) {
-        eyes_detail_top(eye_size, eye_squint, -eyedetail_angle, wink);
-        eyes_detail_bottom(eye_size, eye_squint, -eyedetail_angle, wink);
-    } else if (left_eye_seed <= 50) {
-        eyes_detail_bottom(eye_size, eye_squint, -eyedetail_angle, wink);
-    } else if (left_eye_seed <= 75) {
-        eyes_detail_top(eye_size, eye_squint, -eyedetail_angle, wink);
-    }
-
-    eyebrows(eye_size, eye_squint, -eyedetail_angle, wink, -1);
-
-    // translate(-eye_size / 2, eye_size * 1.2);
-    // for (let i = 0; i < freckle_num; i++) {
-    //     let pos = freckle_pos[i];
-    //     let angle = freckle_angles[i];
-    //     fill(160, 95, 52);
-    //     push();
-    //     rotate(angle);
-    //     ellipse(0, pos, 0.25, 0.25);
-    //     pop();
-    // }
     pop();
 
     pop();
@@ -201,4 +127,21 @@ function generate_random() {
     }
 
     hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
+}
+
+function dirt() {
+    push();
+    for (let y = -10; y <= 10; y += 0.1) {
+        for (let x = -10; x <= 10; x += 0.1) {
+            //noiseSeed(random());
+            noiseval = noise(x, y);
+            if (noiseval > 0.8) {
+                core_colour.setAlpha(noiseval * 100);
+                fill(core_colour);
+                ellipse(x, y, 1 * noiseval, 1 * noiseval);
+            }
+        }
+    }
+    core_colour.setAlpha(255);
+    pop();
 }

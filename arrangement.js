@@ -107,6 +107,7 @@ function draw() {
                 mouth_height,
                 mouth_emotion
             );
+            face.get_new_random();
             face.show();
             pop();
         }

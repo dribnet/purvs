@@ -4,6 +4,9 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
+
+let face;
+
 let eye_spacing_slider,
     eye_height_slider,
     eye_size_slider,
@@ -25,6 +28,8 @@ function setup() {
     let main_canvas = createCanvas(canvasWidth, canvasHeight);
     main_canvas.parent('canvasContainer');
 
+    face = new Face();
+
     // create eye sliders
     eye_spacing_slider = createSlider(0, 100, 50);
     eye_height_slider = createSlider(0, 100, 50);
@@ -40,7 +45,7 @@ function setup() {
     // create mouth sliders
     mouth_width_slider = createSlider(0, 100, 50);
     mouth_height_slider = createSlider(0, 100, 50);
-    mouth_emotion_slider = createSlider(0, 100, 50);
+    mouth_emotion_slider = createSlider(0, 100, 0);
 
     eye_spacing_slider.parent('slider1Container');
     eye_height_slider.parent('slider2Container');
@@ -122,7 +127,7 @@ function draw() {
         let mouth_height = map(mouth_height_value, 0, 100, 1, 3);
         let mouth_emotion = map(mouth_emotion_value, 0, 100, -2, 2);
 
-        drawFace(
+        face.update_values(
             eye_spacing,
             eye_height,
             eye_size,
@@ -136,6 +141,7 @@ function draw() {
             mouth_height,
             mouth_emotion
         );
+        face.show();
     }
 
     if (mode == '2') {
@@ -180,5 +186,9 @@ function keyTyped() {
         saveBlocksImages();
     } else if (key == '@') {
         saveBlocksImages(true);
+    }
+
+    if (key == 'z') {
+        face.get_new_random();
     }
 }
