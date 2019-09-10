@@ -66,7 +66,8 @@ function draw () {
           let cheek_values1 = [1,2,3];
           let cheek_value1 = random(cheek_values1);
           let mouth_value1 = focusedRandom(0,100);
-          drawFace1(tallness_value1, ear_value1, cheek_value1, mouth_value1);
+          let eye_value1 = focusedRandom(0,100);
+          drawFace1(tallness_value1, ear_value1, cheek_value1, mouth_value1, eye_value1);
         }
 
         else if((i+j)%3 == 1){
@@ -86,7 +87,10 @@ function draw () {
           let ear_values3 = [1,2,3];
           let ear_value3 = random(ear_values3);
           let mouth_value3 = focusedRandom(0,100);
-          drawFace3(tallness_value3, ear_value3, mouth_value3);
+          let mouth_width3 = focusedRandom(0,100);
+          let eye_values3 = [1, 2, 3];
+          let eye_value3 = random(eye_values3);
+          drawFace3(tallness_value3, ear_value3, mouth_value3, mouth_width3, eye_value3);
         }
         pop();
     }

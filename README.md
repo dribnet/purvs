@@ -1,7 +1,16 @@
 ## PS2 MDDN 342 2019
 
-FACES ONE AND TWO
+PARAMETERS FOR FACES;
 
-So far I have put my parameters for face 1 (Panda) which are : face height, mouth curve, ear type and cheek type/blush and for face 2 (Brown Bear) which are : face height, mouth width, ear type, and eye patches type. I am going to have three ear types for each bear and am aiming to have three options for all of the discrete variables. I still need to finish adding my parameters for face three and then refine the overall look and function of my faces and the arrangement. I would like to create more differences between the faces so I will continue to work on that. 
+Today I have finished working on my parameters for the different faces. I will probably tweak them and refine the overall look of the faces tomorrow but basically these will be my final parameters.
+For Face 1 (Panda): 
+Continuous: size/scale of face, mouth curve, eye patch size
+Discrete: ear type, cheek/blush type
+For Face 2 (Brown Bear):
+Continuous: size/scale of face, mouth curve, mouth size
+Discrete: ear type, eye patch type
+For Face 3:
+Continious: size/scale of face, mouth curve, mouth size
+Discrete: ear type, eye type
 
-UPDATE: I have updated some of face 3 (ears and colours) and added mouth curve to face 1.
+So far I think the faces are developing well from what my original idea was but I want to refine how they look more and think of an interesting arrangement as well as just overall adjustments before handin and presentations.

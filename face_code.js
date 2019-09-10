@@ -12,17 +12,22 @@
 let dark_brown = "#9c908a";
 let mid_brown = "#826558";
 let light_brown = "#bd8d6c";
-let light_pink = "#f7e6ee";
+let light_pink = "#e3d5d9";
 let beige = "#cfc2ba";
 
 
 //********FACE ONE*******// (PANDA)
 
-function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
+function drawFace1(tallness1, ear_type1, cheek_type1, mouth1, eye1) {
   fill(50);
   noStroke();
-  let head_height1 = map(tallness1, 0, 100, 16, 18);
+  let head_size1 = map(tallness1, 0, 100, 0.8, 1);
   let mouth_curve1 = map(mouth1, 0, 100, -5, 5);
+  let eye_size1 = map(eye1, 0, 100, 4.5, 6.5);
+
+  push();
+  translate(0, 0.5); //TO KEEP WITHIN BOUNDING BOX.
+  scale(head_size1, head_size1);
 
   //*****EARS****/
 
@@ -34,11 +39,11 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
 
   //EAR TYPE 2
   else if(ear_type1 == 2){
-    ellipse(-7, -5.5, 8);
-    ellipse(7, -5.5, 8);
+    ellipse(-6, -5.5, 8);
+    ellipse(6, -5.5, 8);
 
     push();
-    translate(-9.48, -9.48);
+    translate(-8.48, -9.48);
     beginShape();
     vertex(0,0);
     vertex(2,2);
@@ -55,7 +60,7 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
     pop();
 
     push();
-    translate(9.48, -9.48);
+    translate(8.48, -9.48);
     beginShape();
     vertex(0,0);
     vertex(-2,2);
@@ -71,7 +76,6 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
     endShape(CLOSE);
     pop();
    
-    
   } 
 
   //EAR TYPE 3
@@ -86,22 +90,22 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
   //HEAD
   fill(230);
   rectMode(CENTER);
-  rect(0, 0, 20, head_height1, 10);
+  rect(0, 0, 19, 17.5, 10);
 
   //********EYES*****/
   fill(50);
 
   //Left Eye Patch
   push();
-  translate(-3, -2.5);
-  rotate(-10);
-  ellipse(0, 0, 5.5, 4);
+  translate(-3.5, -2.75);
+  rotate(-9.8);
+  ellipse(0, 0, eye_size1, 4.5);
   pop();
   //Right Eye Patch
   push();
-  translate(3, -2.5);
-  rotate(10);
-  ellipse(0, 0, 5.5, 4);
+  translate(3.5, -2.75);
+  rotate(9.8);
+  ellipse(0, 0, eye_size1, 4.5);
   pop();
 
   //Eyeballs
@@ -154,9 +158,9 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
 
   //********NOSE*******/
   fill(0);
-  rectMode(CENTER);
-  rect(0,0, 3.25, 1.75, 5);
+  ellipse(0, 0, 3, 2);
 
+pop();
 
 }
 
@@ -169,12 +173,13 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1) {
 function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
   fill(mid_brown);
   noStroke();
-  let head_height2 = map(tallness2, 0, 100, 15, 18);
+  let head_size2 = map(tallness2, 0, 100, 0.75, 1);
   let mouth_width = map(mouth_size, 0, 100, 6, 10);
   let mouth_curve2 = map(mouth2, 0, 100, -5, 5);
 
   push();
   translate(0, 1); //TO KEEP WITHIN BOUNDING BOX.
+  scale(head_size2);
 
   //********EARS*****/
   //MAP TO HEAD HEIGHT !!!
@@ -213,15 +218,61 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
 
   //EAR TYPE THREE
   else if(ear_type2 == 3){
-    ellipse(-5, -7, 6);
-    ellipse(5, -7, 6);
+    ellipse(-5, -7, 7, 6);
+    ellipse(5, -7, 7, 6);
+
+    push();
+    translate(-2.2, -7.8);
+    beginShape();
+    vertex(0,0);
+    vertex(-2,-3);
+    vertex(-3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(-0.75, -0.25);
+    beginShape();
+    vertex(0,0);
+    vertex(-2.5,-3);
+    vertex(-3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(-1, 0.5);
+    beginShape();
+    vertex(0,0);
+    vertex(-2,-3);
+    vertex(-3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+  pop();
+  push();
+  translate(2.2, -7.8);
+    beginShape();
+    vertex(0,0);
+    vertex(2,-3);
+    vertex(3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(0.75, -0.25);
+    beginShape();
+    vertex(0,0);
+    vertex(2.5,-3);
+    vertex(3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    translate(1, 0.5);
+    beginShape();
+    vertex(0,0);
+    vertex(2,-3);
+    vertex(3,0);
+    vertex(0, 0);
+    endShape(CLOSE);
+    pop();
   }
   
 
-
   //********HEAD*****/
   fill(mid_brown);
-  ellipse(0, 0, 19, head_height2);
+  ellipse(0, 0, 19, 16.5);
 
   //*******EYES**********/
   fill(light_brown);
@@ -284,7 +335,8 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
 
   //*******NOSE**********/
   fill(0);
-  ellipse(0, 0, 2);
+  ellipse(0, 0, 3, 2);
+
 
   pop();
 }
@@ -297,21 +349,26 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function drawFace3(tallness3, ear_type3, mouth3) {
+function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   fill(beige);
   noStroke();
   rectMode(CENTER);
-  let head_height3 = map(tallness3, 0, 100, 17, 20);
+  let head_size3 = map(tallness3, 0, 100, 0.8, 1);
   let mouth_curve3 = map(mouth3, 0, 100, -5, 5);
+  let mouth_width3 = map(m_width3, 0, 100, 6.5, 11.5);
+
+  push();
+  translate(0, 0.7); //TO KEEP WITHIN BOUNDING BOX.
+  scale(head_size3, head_size3);
 
   //*********EARS******/
 
   //EAR TYPE 1
   if(ear_type3 == 1){
-    ellipse(-7, -5.5, 8);
-    ellipse(7, -5.5, 8);
+    ellipse(-6, -5.5, 8);
+    ellipse(6, -5.5, 8);
     push();
-    translate(-9.48, -9.48);
+    translate(-8.48, -9.48);
     beginShape();
     vertex(0,0);
     vertex(2,2);
@@ -328,7 +385,7 @@ function drawFace3(tallness3, ear_type3, mouth3) {
     pop();
 
     push();
-    translate(9.48, -9.48);
+    translate(8.48, -9.48);
     beginShape();
     vertex(0,0);
     vertex(-2,2);
@@ -343,30 +400,42 @@ function drawFace3(tallness3, ear_type3, mouth3) {
     vertex(0, 0);
     endShape(CLOSE);
     pop();
+
+    fill(dark_brown);
+    ellipse(-6, -5.5, 5.5);
+    ellipse(6, -5.5, 5.5);
+
     
   }
     
   //EAR TYPE 2
   else if(ear_type3 == 2){
     ellipse(-5, -6, 8);
-    ellipse(-8.3, -5.75, 2.4);
-    ellipse(-8, -7.6, 2.4);
-    ellipse(-6.75, -9, 2.4);
-    ellipse(-5, -9.5, 2.4);
-    ellipse(-3.5, -9, 2.4);
-    ellipse(-2.5, -7.9, 2.4);
-
     ellipse(5, -6, 8);
-    ellipse(8.3, -5.75, 2.4);
-    ellipse(8, -7.6, 2.4);
-    ellipse(6.75, -9, 2.4);
-    ellipse(5, -9.5, 2.4);
-    ellipse(3.5, -9, 2.4);
-    ellipse(2.5, -7.9, 2.4);
+    push();
+    translate(0, -8.5);
+    beginShape();
+    vertex(0,-0);
+    vertex(2,-2);
+    vertex(1, 1);
+    vertex(0,0);
+    endShape(CLOSE);
+    translate(0, 0.5);
+    beginShape();
+    vertex(-1,-0);
+    vertex(1,-3);
+    vertex(1, 0);
+    vertex(0,0);
+    endShape(CLOSE);
+    translate(0,0.3);
+    beginShape();
+    vertex(-0.5,1);
+    vertex(-1,-3);
+    vertex(1.5, 0);
+    endShape(CLOSE);
+    pop();
 
-    fill(dark_brown);
-    ellipse(-5, -6, 6);
-    ellipse(5, -6, 6);
+    
   }
 
   //EAR TYPE 3
@@ -374,35 +443,58 @@ function drawFace3(tallness3, ear_type3, mouth3) {
     ellipse(-5, -7.75, 6);
     ellipse(5, -7.75, 6);
 
+    strokeWeight(1);
     stroke(dark_brown);
-    strokeWeight(0.45);
     ellipse(-5, -7.75, 3);
     ellipse(5, -7.75, 3);
-    stroke(235);
-    noFill();
-    ellipse(-5, -7.75, 5.75);
-    ellipse(5, -7.75, 5.75);
     noStroke();
+    fill(166, 154, 146);
+    ellipse(-5, -7.75, 3);
+    ellipse(5, -7.75, 3);
   }
     
 
   //******HEAD******/
   fill(beige);
-  ellipse(0, 0, 20, head_height3);
+  ellipse(0, 0, 19, 18);
 
   //******EYES******/
 
   fill(dark_brown)
 
-  //EYES 1
-  //Right Eye Patch
-  push();
-  translate(3, -2.5);
-  rotate(10);
-  ellipse(0, 0, 5.5, 4);
-  pop();
+  //EYE TYPE 1
+  if(eye_type3 == 1){
+    //Right Eye Patch
+    push();
+    translate(3, -2.5);
+    rotate(9.8);
+    ellipse(0, 0, 5.8, 4.8);
+    pop();
+  }
 
-  //EYES 2
+  //EYE TYPE 2
+  else if(eye_type3 == 2){
+  //Both Eye Patches
+    push();
+    fill(dark_brown);
+    translate(-3, -2.5);
+    rotate(-9.8);
+    ellipse(0, 0, 5.8, 4.8);
+    pop();
+    push();
+    fill(186, 177, 171);
+    translate(3, -2.5);
+    rotate(9.8);
+    ellipse(0, 0, 5.8, 4.8);
+    pop();
+  }
+
+  //EYE TYPE 3
+  else if(eye_type3 == 3){
+   //NO PATCH
+   fill(beige);   
+  }
+
 
   //Eyeballs
   fill(0);
@@ -416,7 +508,7 @@ function drawFace3(tallness3, ear_type3, mouth3) {
   
   fill(dark_brown);
   rectMode(CENTER);
-  rect(0, 3, 10, 7, 10);
+  rect(0, 3.5, mouth_width3, 7, 10);
   fill(0);
   rect(0, 2, 0.5, 2.75, 5);
   stroke(0);
@@ -429,13 +521,7 @@ function drawFace3(tallness3, ear_type3, mouth3) {
 
   fill(0);
   ellipse(0, 0, 3, 2);
-
-
   
-
-
-
-
-
+  pop();
 
 }

@@ -69,7 +69,7 @@ function draw () {
     // draw 1st face
     let ear_value1 = int(map(s2, 0, 100, 1, 3));
     let cheek_value1 = int(map(s3, 0, 100, 1, 3));
-    drawFace1(s1, ear_value1, cheek_value1, s4);
+    drawFace1(s1, ear_value1, cheek_value1, s4, s5);
   }
 
   if (mode == '2') {
@@ -82,7 +82,8 @@ function draw () {
   if (mode == '3') {
     // draw 3rd face 
     let ear_value3 = int(map(s2, 0, 100, 1, 3));
-    drawFace3(s1, ear_value3, s3);
+    let eye_value3 = int(map(s5, 0, 100, 1, 3));
+    drawFace3(s1, ear_value3, s3, s4, eye_value3);
   }
   pop();
 
