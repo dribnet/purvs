@@ -251,3 +251,34 @@ function drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_num
   noFill();
   ellipse(0,0,12,10);
 }
+
+function drawCrown() {
+  noStroke();
+  //shadow
+  fill(237, 200, 3);
+  ellipse(0, -4.3,7.2,1);
+  //crown base
+  fill(252, 211, 3);
+  rect(-3.6, -5.2,7.2,1);
+  ellipse(0, -4.6,7.2,1);
+
+  //crown left end spike
+  triangle(-3.6, -5.2, -3.6, -6.7, -3, -5.2);
+  fill(237, 200, 3);
+  triangle(-3.2, -5.2, -3.6, -6.7, -3, -5.2);
+
+  //crown right end spike
+  fill(252, 211, 3);
+  triangle(3.6, -5.2, 3.6, -6.7, 3, -5.2);
+  fill(237, 200, 3);
+  triangle(3.6, -4.2, 3.6, -6.7, 3.45, -4.2);
+
+  //middle spikes
+  for(let i=0; i<6; i = i + 1) {
+    fill(252, 211, 3);
+    triangle(-3 + i, -5.2, -2.6 + i, -6.7, -2.2 + i, -5.2);
+    //shadow
+    fill(237, 200, 3);
+    triangle(-2.4 + i, -5.2, -2.6 + i, -6.7, -2.2 + i, -5.2);
+  }
+}

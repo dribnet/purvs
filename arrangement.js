@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [245, 233, 242];
+const bg_color1 = [250, 220, 172];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -51,11 +51,25 @@ function draw () {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-      if (i >=   0) {
+      if(i<1 || i > 2){
         // all other faces
         push();
-        translate(x  , y);
-        scale(w/37.5, h/25);
+          translate(x  , y);
+          scale(w/37.5, h/25);
+          let eyelid_height = focusedRandom(0, 1);
+          let eyelid_rotate = focusedRandom(0, 8);
+          let blush = focusedRandom(0, 1);
+          let mouth = focusedRandom(0, 1);
+          let ear_rotate = focusedRandom(-5, 20);
+          let mouth_curve = focusedRandom(1.3, 1.9);
+          let colour_number = focusedRandom(0, 3);
+          drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number,mouth_curve);
+        pop();
+      }else if(j<1 || j > 3){
+        // all other faces
+        push();
+          translate(x  , y);
+          scale(w/37.5, h/25);
           let eyelid_height = focusedRandom(0, 1);
           let eyelid_rotate = focusedRandom(0, 8);
           let blush = focusedRandom(0, 1);
@@ -68,6 +82,20 @@ function draw () {
       }
     }
   }
+  // all other faces
+  push();
+    translate(w*2.5 , h*2.1);
+    scale(w/15, h/10);
+    let eyelid_height = focusedRandom(0, 1);
+    let eyelid_rotate = focusedRandom(0, 8);
+    let blush = focusedRandom(0, 1);
+    let mouth = focusedRandom(0, 1);
+    let ear_rotate = focusedRandom(-5, 20);
+    let mouth_curve = focusedRandom(1.3, 1.9);
+    let colour_number = focusedRandom(0, 3);
+    drawFace1(eyelid_height,eyelid_rotate,blush,mouth,ear_rotate,colour_number,mouth_curve);
+    drawCrown();
+  pop();
 }
 
 function keyTyped() {
