@@ -33,7 +33,7 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('1');
+  faceSelector.value('3');
   faceSelector.parent('selector1Container');
 }
 
@@ -76,13 +76,13 @@ function draw () {
     // draw 2nd face 
     let ear_value2 = int(map(s2, 0, 100, 1, 3));
     let eye_value2 = int(map(s3, 0, 100, 1, 3));
-    drawFace2(s1, ear_value2, eye_value2, s4);
+    drawFace2(s1, ear_value2, eye_value2, s4, s5);
   }
 
   if (mode == '3') {
     // draw 3rd face 
-    let ear_value3 = int(map(s2, 0, 100, 1, 2));
-    drawFace3(s1, ear_value3);
+    let ear_value3 = int(map(s2, 0, 100, 1, 3));
+    drawFace3(s1, ear_value3, s3);
   }
   pop();
 

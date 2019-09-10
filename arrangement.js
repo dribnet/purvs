@@ -77,14 +77,16 @@ function draw () {
           let eye_values2 = [1, 2, 3];
           let eye_value2 = random(eye_values2);
           let mouth_value2 = focusedRandom(0, 100, 2);
-          drawFace2(tallness_value2, ear_value2, eye_value2, mouth_value2);
+          let mouth_curve2 = focusedRandom(0, 100);
+          drawFace2(tallness_value2, ear_value2, eye_value2, mouth_value2, mouth_curve2);
         }
         else {
           /********FACE THREE********/
           let tallness_value3 = focusedRandom(0,100,3);
-          let ear_values3 = [1,2];
+          let ear_values3 = [1,2,3];
           let ear_value3 = random(ear_values3);
-          drawFace3(tallness_value3, ear_value3);
+          let mouth_value3 = focusedRandom(0,100);
+          drawFace3(tallness_value3, ear_value3, mouth_value3);
         }
         pop();
     }
