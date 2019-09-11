@@ -20,6 +20,8 @@ let eye_spacing_slider,
 let mouth_width_slider,
     mouth_height_slider;
 
+let face_pos_slider;
+
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -47,6 +49,8 @@ function setup() {
     mouth_height_slider = createSlider(0, 100, 50);
     mouth_emotion_slider = createSlider(0, 100, 0);
 
+    face_pos_slider = createSlider(0, 100, 0);
+
     eye_spacing_slider.parent('slider1Container');
     eye_height_slider.parent('slider2Container');
     eye_size_slider.parent('slider3Container');
@@ -60,6 +64,8 @@ function setup() {
     mouth_width_slider.parent('slider7Container');
     mouth_height_slider.parent('slider8Container');
     mouth_emotion_slider.parent('slider9Container');
+
+    face_pos_slider.parent('slider13Container');
 
     faceGuideCheckbox = createCheckbox('', false);
     faceGuideCheckbox.parent('checkbox1Container');
@@ -75,7 +81,7 @@ function setup() {
     generate_random();
 }
 
-const bg_color = [225, 206, 187];
+const bg_color = [255, 255, 255];
 
 function draw() {
     strokeWeight(0.2);
@@ -97,6 +103,11 @@ function draw() {
     let mouth_width_value = mouth_width_slider.value();
     let mouth_height_value = mouth_height_slider.value();
     let mouth_emotion_value = mouth_emotion_slider.value();
+
+    if (face_pos_slider.value() == 100) {
+        face_pos_slider.value(0);
+    }
+    let face_pos_value = face_pos_slider.value();
 
     let show_face_guide = faceGuideCheckbox.checked();
 
@@ -127,6 +138,8 @@ function draw() {
         let mouth_height = map(mouth_height_value, 0, 100, 1, 3);
         let mouth_emotion = map(mouth_emotion_value, 0, 100, -2, 2);
 
+        let face_pos = map(face_pos_value, 0, 100, -14, 14);
+
         face.update_values(
             eye_spacing,
             eye_height,
@@ -139,8 +152,10 @@ function draw() {
             right_eye_seed,
             mouth_width,
             mouth_height,
-            mouth_emotion
+            mouth_emotion,
+            face_pos
         );
+        face.animate();
         face.show();
     }
 

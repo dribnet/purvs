@@ -1,7 +1,7 @@
 class Face {
-    constructor(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, eye_wink, left_eye, right_eye, mouth_width, mouth_height, mouth_emotion) {
+    constructor(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, eye_wink, left_eye, right_eye, mouth_width, mouth_height, mouth_emotion, face_pos) {
         //position variables
-        this.x;
+        this.x = 0;
         this.y;
 
         //size variables
@@ -44,19 +44,22 @@ class Face {
         rectMode(CENTER);
         angleMode(DEGREES);
         translate(0, 0.5);
-
+        push();
         this.head();
+        translate(this.x, 0);
+        scale(map(abs(this.x), 1, 14, 1, 0.2), 1);
         this.eyes();
         this.mouth();
-
-        //dirt();
-
-        this.outline();
 
         if (this.has_freckles > 0.95) {
             freckles(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, 1);
             freckles(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, -1);
         }
+        pop();
+
+        //dirt();
+
+        this.outline();
 
         //light reflection
         push();
@@ -198,16 +201,14 @@ class Face {
 
     outline() {
         translate(0, -0.5);
-        let depth = 5;
+        let depth = 11;
         fill(255);
         noStroke();
-        rect(0, 10 + depth / 2, 20, depth);
-        rect(0, -10 - depth / 2, 20, depth);
-        rect(10 + depth / 2, 0, depth, 20);
-        rect(-10 - depth / 2, 0, depth, 20);
+        rect(17 / 2 + depth / 2, 0, depth, 20);
+        rect(-17 / 2 - depth / 2, 0, depth, 20);
     }
 
-    update_values(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, eye_wink, left_eye, right_eye, mouth_width, mouth_height, mouth_emotion) {
+    update_values(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, eye_wink, left_eye, right_eye, mouth_width, mouth_height, mouth_emotion, face_pos) {
 
         //eye variables
         this.eye_spacing = eye_spacing;
@@ -224,5 +225,33 @@ class Face {
         this.mouth_width = mouth_width;
         this.mouth_height = mouth_height;
         this.mouth_emotion = mouth_emotion;
+
+        //this.x = face_pos;
+    }
+
+    new_face() {
+        this.eye_spacing = focusedRandom(4.5, 8);
+        this.eye_height = focusedRandom(0, 2.2);
+        this.eye_size = focusedRandom(1.8, 3);
+        this.eye_angle = focusedRandom(-25, 25);
+        this.eye_squint = focusedRandom(1.3, 1.9);
+        this.eyedetail_angle = focusedRandom(-15, 15);
+        this.eye_wink = focusedRandom(-1, 1);
+        this.left_eye_seed = focusedRandom(0, 100);
+        this.right_eye_seed = focusedRandom(0, 100);
+
+        this.mouth_width = focusedRandom(2, 4);
+        this.mouth_height = focusedRandom(1, 3);
+        this.mouth_emotion = focusedRandom(-2, 2);
+
+        this.get_new_random();
+    }
+
+    animate() {
+        this.x = this.x + 0.1;
+        if (this.x >= 14) {
+            this.new_face();
+            this.x = -14;
+        }
     }
 }

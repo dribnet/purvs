@@ -29,11 +29,11 @@ function open_mouth(mouth_width, mouth_height, mouth_emotion) {
     push();
     fill(255, 0, 0);
     stroke(255, 0, 0);
-    ellipse(0, -mouth_emotion / 2.5 * -mouth_emotion / 2.5, mouth_width / 1.32, 0.5);
+    ellipse(0, -mouth_emotion / 2.5 * -mouth_emotion / 2.5, mouth_width / 1.32, 0.5 * abs(mouth_emotion) / 2);
 
     fill(255);
     stroke(255);
-    rect(0, mouth_emotion / 3 * -mouth_emotion / 2, mouth_width, 0.3, 0.2);
+    rect(0, mouth_emotion / 3 * -mouth_emotion / 2, mouth_width, 0.3 * abs(mouth_emotion) / 2, 0.05, 0.05, 0.2, 0.2);
     pop();
     noFill();
     strokeWeight(0.1);
