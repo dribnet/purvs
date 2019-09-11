@@ -1,4 +1,4 @@
-function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_angle, wink, eye_type, color) {
+function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_angle, wink, eye_type, color, brow_colour) {
     push();
     translate(dir * eye_spacing / 2, 0);
     //eye background/tiredness - could be randomised
@@ -24,7 +24,7 @@ function open_eye(eye_spacing, eye_size, dir, eye_angle, eye_squint, eyedetail_a
         eyes_detail_top(eye_size, eye_squint, dir * eyedetail_angle, wink);
     }
 
-    eyebrows(eye_size, eye_squint, dir * eyedetail_angle, wink);
+    eyebrows(eye_size, eye_squint, dir * eyedetail_angle, wink, brow_colour);
     pop();
 }
 
@@ -144,7 +144,7 @@ function eyes_detail_bottom(size, squint, angle, wink) {
     pop();
 }
 
-function eyebrows(size, squint, angle, wink) {
+function eyebrows(size, squint, angle, wink, colour) {
     //eyebrow
     push();
     curveTightness(0);
@@ -162,7 +162,7 @@ function eyebrows(size, squint, angle, wink) {
     pop();
 
     push()
-    stroke(hair_colour);
+    stroke(0);
     strokeWeight(0.4);
     arc(0, 0, size, size / 4, 180, 0);
     pop();

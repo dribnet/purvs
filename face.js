@@ -4,6 +4,10 @@ class Face {
         this.x = 0;
         this.y;
 
+        this.lastSwapTime = 0;
+        this.nextSwapTime = random(2000, 10000);
+        this.is_animating = false;
+
         //size variables
         this.x_percentage = 1;
         this.y_percentage = 1;
@@ -31,6 +35,7 @@ class Face {
         this.glasses = random();
         this.coloured_eyes = random();
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
+        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length - 1))];
 
         //freckles
         this.has_freckles = random();
@@ -48,6 +53,7 @@ class Face {
         this.head();
         translate(this.x, 0);
         scale(map(abs(this.x), 1, 14, 1, 0.2), 1);
+
         this.eyes();
         this.mouth();
 
@@ -56,8 +62,6 @@ class Face {
             freckles(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, -1);
         }
         pop();
-
-        //dirt();
 
         this.outline();
 
@@ -68,6 +72,12 @@ class Face {
         stroke(highlight_colour);
         arc(-4, -4.5, 2 * this.x_percentage, 2 * this.y_percentage, 180, 270);
         pop();
+
+        if (millis() > this.lastSwapTime + this.nextSwapTime) {
+            this.is_animating = true;
+            this.lastSwapTime = millis();
+            this.nextSwapTime = random(2000, 10000);
+        }
     }
 
     head() {
@@ -76,7 +86,6 @@ class Face {
 
         //fill core colour
         fill(core_colour);
-
         rect(0, 0, 17 * this.x_percentage, 14 * this.y_percentage, 2.5); //core
         rect(0, 8, 10 * this.x_percentage, 2 * this.y_percentage); // bottom
         rect(0, -8.5, 7 * this.x_percentage, 3 * this.y_percentage, 0.5, 0.5, 0, 0); // top
@@ -145,14 +154,14 @@ class Face {
                 } else {
                     wink = this.eye_wink;
                 }
-                open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye, colour);
+                open_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.right_eye, colour, this.hair_colour);
 
                 if (this.eye_wink < 0) {
                     wink = 0;
                 } else {
                     wink = this.eye_wink;
                 }
-                open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye, colour);
+                open_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle, this.eye_squint, this.eyedetail_angle, wink, this.left_eye, colour, this.hair_colour);
 
                 if (this.glasses > 0.97) {
                     glasses(this.eye_spacing, this.eye_size, 1);
@@ -196,7 +205,7 @@ class Face {
         this.glasses = random();
         this.coloured_eyes = random();
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
-        //hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
+        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
     }
 
     outline() {
@@ -209,7 +218,6 @@ class Face {
     }
 
     update_values(eye_spacing, eye_height, eye_size, eye_angle, eye_squint, eyedetail_angle, eye_wink, left_eye, right_eye, mouth_width, mouth_height, mouth_emotion, face_pos) {
-
         //eye variables
         this.eye_spacing = eye_spacing;
         this.eye_height = eye_height;
@@ -226,7 +234,7 @@ class Face {
         this.mouth_height = mouth_height;
         this.mouth_emotion = mouth_emotion;
 
-        //this.x = face_pos;
+        this.x = face_pos;
     }
 
     new_face() {
@@ -248,11 +256,17 @@ class Face {
     }
 
     animate() {
-        this.x = this.x + 0.5;
-        if (this.x >= 14) {
-            changeRandomSeed();
-            this.new_face();
-            this.x = -14;
+        if (this.is_animating == true) {
+            this.x = this.x + 0.5;
+            if (this.x >= 14) {
+                curRandomSeed = curRandomSeed + 1;
+                this.new_face();
+                this.x = -14;
+            }
+
+            if (this.x == 0) {
+                this.is_animating = false;
+            }
         }
     }
 }

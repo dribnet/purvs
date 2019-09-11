@@ -23,6 +23,8 @@ function setup() {
 
     // rotation in degrees
     angleMode(DEGREES);
+    set_colours();
+    generate_random();
 
     // draw a 7x4 grid of faces
     let w = canvasWidth / num_across;
@@ -50,11 +52,6 @@ function setup() {
 
             generate_random();
 
-            push();
-            translate(x, y);
-            scale(h / 30, h / 30);
-            rectMode(CENTER);
-
             let face = new Face(
                 eye_spacing,
                 eye_height,
@@ -71,13 +68,8 @@ function setup() {
             );
             face.get_new_random();
             faces[i][j] = face;
-            pop();
         }
     }
-
-    set_colours();
-    generate_random();
-    console.log(faces);
 }
 
 function changeRandomSeed() {
@@ -120,9 +112,9 @@ function draw() {
             generate_random();
 
             push();
+            rectMode(CENTER);
             translate(x, y);
             scale(h / 30, h / 30);
-            rectMode(CENTER);
 
             faces[i][j].animate();
             faces[i][j].show();
