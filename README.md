@@ -1,23 +1,31 @@
 ## PS2 MDDN 342 2019
 
-FINAL PANDA AND BROWN BEAR FACES (FACE 1 & 2)
+FINAL PARAMETER FACES BEFORE FOCUS/REFINED DISTRIBUTION
 
-I have completed the final touches for my face 1 (the panda face). I changed the shape of the eye patches from just an ellipse to a more organic shape. I also added some details to the eyes, nose and mouth. I have also completed face 2, I changed the ears and eye patches as well as overall tweaks.
+I have finished my designs and the parameters for each of my faces. I am happy with the cartoon look of the bears as that is what I was aiming for originally. I think the three face//bear types still remain cohesive as they share this simplistic design whilst having differences between face types and between face to face. I'm happy that I managed to code a bunch of different ears as I think they, and the eyes / blush detail, make a big difference in changing the overall look of the face and then the smaller details are clearer as you look closer. I'm also happy I managed to get the mouth curve parameter working.
+
+The parameters for each face are:
+
+Face One(Panda):
+- Size / Scale of the face (Continuous)
+- Ear style (Discrete)
+- Cheeks/blush (Discrete)
+- Mouth/ Smile curve (Continuous)
+- Eye patch size (Continous)
 
 
+Face Two(Brown Bear):
+- Size/ Scale of the face(Continous)
+- Ear Style (Discrete)
+- Eye Patch Style (Discrete)
+- Mouth Outer size (Continous)
+- Mouth/ Smile curve (Continous)
 
 
-PARAMETERS FOR FACES;
+Face Three(Polar Bear):
+- Size / Scale of the face (Continuous)
+- Ear style (Discrete)
+- Mouth/ Smile curve (Continuous)
+- Mouth Outer size (Continous)
+- Eye Patch Style (Discrete)
 
-Today I have finished working on my parameters for the different faces. I will probably tweak them and refine the overall look of the faces tomorrow but basically these will be my final parameters.
-For Face 1 (Panda): 
-Continuous: size/scale of face, mouth curve, eye patch size
-Discrete: ear type, cheek/blush type
-For Face 2 (Brown Bear):
-Continuous: size/scale of face, mouth curve, mouth size
-Discrete: ear type, eye patch type
-For Face 3:
-Continious: size/scale of face, mouth curve, mouth size
-Discrete: ear type, eye type
-
-So far I think the faces are developing well from what my original idea was but I want to refine how they look more and think of an interesting arrangement as well as just overall adjustments before handin and presentations.

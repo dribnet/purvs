@@ -585,7 +585,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
 // ****************** VARIABLES ***************
   let head_size3 = map(tallness3, 0, 100, 0.75, 1);
   let mouth_curve3 = map(mouth3, 0, 100, -5, 3.5);
-  let mouth_width3 = map(m_width3, 0, 100, 6.5, 11.5);
+  let mouth_width3 = map(m_width3, 0, 100, 6.5, 10.5);
 
   fill(beige);
   noStroke();
@@ -698,28 +698,63 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   //EYE TYPE 1
   if(eye_type3 == 1){
     //Right Eye Patch
+    fill(dark_brown);
     push();
-    translate(3, -2.5);
-    rotate(9.8);
-    ellipse(0, 0, 5.8, 4.8);
+    translate(-0.8, -2.75);
+    scale(1.2);
+    beginShape();
+    curveVertex(1.3, 0.499999999);
+    curveVertex(1.31,0.5);
+    curveVertex(1.5, -2);
+    curveVertex(4.5, -2);
+    curveVertex(6, 1);
+    curveVertex(4, 2.5);
+    curveVertex(2.5, 1.75);
+    curveVertex(1.5, 1);
+    curveVertex(1.31, 0.500000001);
+    endShape(CLOSE);
     pop();
   }
 
   //EYE TYPE 2
   else if(eye_type3 == 2){
   //Both Eye Patches
-    push();
-    fill(dark_brown);
-    translate(-3, -2.5);
-    rotate(-9.8);
-    ellipse(0, 0, 5.8, 4.8);
-    pop();
-    push();
+
     fill(186, 177, 171);
-    translate(3, -2.5);
-    rotate(9.8);
-    ellipse(0, 0, 5.8, 4.8);
+    push();
+    translate(-0.8, -2.75);
+    scale(1.2);
+    beginShape();
+    curveVertex(1.3, 0.499999999);
+    curveVertex(1.31,0.5);
+    curveVertex(1.5, -2);
+    curveVertex(4.5, -2);
+    curveVertex(6, 1);
+    curveVertex(4, 2.5);
+    curveVertex(2.5, 1.75);
+    curveVertex(1.5, 1);
+    curveVertex(1.31, 0.500000001);
+    endShape(CLOSE);
     pop();
+
+    
+    push();
+    translate(0.8, -2.75);
+    scale(1.2);
+    beginShape();
+    curveVertex(-1.3, 0.499999999);
+    curveVertex(-1.31,0.5);
+    curveVertex(-1.5, -2);
+    curveVertex(-4.5, -2);
+    curveVertex(-6, 1);
+    curveVertex(-4, 2.5);
+    curveVertex(-2.5, 1.75);
+    curveVertex(-1.5, 1);
+    curveVertex(-1.31, 0.500000001);
+    endShape(CLOSE);
+    pop();
+
+
   }
 
   //EYE TYPE 3
@@ -729,26 +764,41 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   }
 
   //Eyeballs
+  fill(dark_brown);
+  ellipse(-3.1, -3, 2.6, 2.5);
+  ellipse( 3.1, -3, 2.6, 2.5);
+
   fill(0);
-  ellipse(-3, -3, 2);
-  ellipse( 3, -3, 2);
-  fill(220);
-  ellipse(-2.75, -3.4, 0.35, 0.4);
-  ellipse(3.25, -3.4, 0.35, 0.4);
+  ellipse(-3.05, -3, 2.1);
+  ellipse( 3.05, -3, 2.1);
+
+  fill(175);
+  push();
+  translate(-2.75, -3.6);
+  rotate(0.5);
+  ellipse(0, 0, 0.6, 0.25);
+  pop();
+  push();
+  translate(3.35, -3.6);
+  rotate(0.5);
+  ellipse(0, 0, 0.6, 0.25);
+  pop();
 
 // ****************** MOUTH ***************
   
   fill(dark_brown);
   rectMode(CENTER);
   rect(0, 3.5, mouth_width3, 7, 10);
+
   fill(0);
-  rect(0, 2, 0.5, 2.75, 5);
+  rect(0, 2, 0.35, 2.75, 5);
+
   stroke(0);
   strokeWeight(0.5);
   fill(light_pink);
-  curve(0, mouth_curve3, -2, 3.3, 2, 3.3, 0, mouth_curve3);
+  curve(0, mouth_curve3, -1.75, 3.3, 1.75, 3.3, 0, mouth_curve3);
   fill(0);
-  curve(0, 3.5, -2, 3.3, 2, 3.3, 0, 3.5);
+  curve(0, 3.5, -1.75, 3.3, 1.75, 3.3, 0, 3.5);
   noStroke();
 
 
@@ -756,7 +806,16 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
 
   fill(0);
   ellipse(0, 0, 3, 2);
-  
+
+  fill(30);
+  ellipse(0, 0.1, 1.25, 0.75);
+
+  fill(150);
+  push();
+  translate(0.6, -0.5);
+  rotate(0.4);
+  ellipse(0, 0, 0.5, 0.17);
+  pop();
   pop();
 
 }
