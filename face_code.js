@@ -33,13 +33,13 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1, eye_scale1) {
 // ****************** EARS ***************
 
   //EAR TYPE 1
-  if(ear_type1 == 1){
+  if(ear_type1 <1){
     ellipse(-4, -6.5, 8);
     ellipse(4, -6.5, 8);
   }
 
   //EAR TYPE 2
-  else if(ear_type1 == 2){
+  else if(ear_type1 <2){
     ellipse(-6, -5.5, 8);
     ellipse(6, -5.5, 8);
 
@@ -80,7 +80,7 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1, eye_scale1) {
   } 
 
   //EAR TYPE 3
-  else if(ear_type1 == 3){
+  else if(ear_type1 <3){
     ellipse(-6, -6, 8);
     ellipse(6, -6, 8);
     fill(dark_brown);
@@ -173,14 +173,14 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1, eye_scale1) {
   // ****************** CHEEKS ***************
 
   //CHEEK TYPE 1
-    if(cheek_type1 == 1){
+    if(cheek_type1 < 1){
       fill(255, 48, 93, 75);
       ellipse(4.5, 2.4, 3.75);
       ellipse(-4.5, 2.4, 3.75);
     }
 
   //CHEEKS TYPE 2
-    else if(cheek_type1 == 2){
+    else if(cheek_type1 < 2){
       fill(242, 199, 223, 100);
       push();
       translate(7, 1.25);
@@ -195,7 +195,7 @@ function drawFace1(tallness1, ear_type1, cheek_type1, mouth1, eye_scale1) {
     }
 
   //CHEEK TYPE 3
-    else if(cheek_type1 == 3){
+    else if(cheek_type1 < 3){
 
     }
 
@@ -238,7 +238,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
 
 // ****************** EARS ***************
   //EAR TYPE ONE
-  if(ear_type2 == 1){
+  if(ear_type2 < 1){
     ellipse(-5, -6, 8);
     ellipse(5, -6, 8);
     fill(dark_brown);
@@ -270,7 +270,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
   }
 
   //EAR TYPE TW0
-  else if(ear_type2 == 2){
+  else if(ear_type2 < 2){
     fill(dark_brown);
     ellipse(-5, -6, 7.75);
     ellipse(-8.1, -5.75, 2.4);
@@ -311,7 +311,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
 }
 
   //EAR TYPE THREE
-  else if(ear_type2 == 3){
+  else if(ear_type2 < 3){
     ellipse(-5, -7, 7, 6);
     ellipse(5, -7, 7, 6);
 
@@ -372,7 +372,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
   fill(173, 143, 123);
 
   //EYE TYPE 1
-  if(eye_type == 1){
+  if(eye_type < 1){
     //Left Eye Patch
     push();
     translate(0.5, -2.75);
@@ -409,7 +409,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
   }
 
   //EYE TYPE 2
-  else if(eye_type == 2){
+  else if(eye_type < 2){
   //Right Eye Patch
     push();
     translate(-0.5, -2.75);
@@ -446,7 +446,7 @@ function drawFace2(tallness2, ear_type2, eye_type, mouth_size, mouth2) {
 
 
   //EYE TYPE 3
-  else if(eye_type == 3){
+  else if(eye_type < 3){
   //Both Eye Patches
     push();
     translate(-0.5, -2.75);
@@ -597,7 +597,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
 // ****************** EARS ***************
 
   //EAR TYPE 1
-  if(ear_type3 == 1){
+  if(ear_type3 < 1){
     ellipse(-6, -5.5, 8);
     ellipse(6, -5.5, 8);
     push();
@@ -642,7 +642,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   }
     
   //EAR TYPE 2
-  else if(ear_type3 == 2){
+  else if(ear_type3 < 2){
     ellipse(-5, -6, 8);
     ellipse(5, -6, 8);
     push();
@@ -672,7 +672,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   }
 
   //EAR TYPE 3
-  else if(ear_type3 == 3){
+  else if(ear_type3 < 3){
     ellipse(-5, -7.75, 6);
     ellipse(5, -7.75, 6);
 
@@ -696,7 +696,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   fill(dark_brown)
 
   //EYE TYPE 1
-  if(eye_type3 == 1){
+  if(eye_type3 < 1){
     //Right Eye Patch
     fill(dark_brown);
     push();
@@ -717,7 +717,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   }
 
   //EYE TYPE 2
-  else if(eye_type3 == 2){
+  else if(eye_type3 < 2){
   //Both Eye Patches
 
     fill(186, 177, 171);
@@ -758,7 +758,7 @@ function drawFace3(tallness3, ear_type3, mouth3, m_width3, eye_type3) {
   }
 
   //EYE TYPE 3
-  else if(eye_type3 == 3){
+  else if(eye_type3 < 3){
    //NO PATCH
    fill(beige);   
   }

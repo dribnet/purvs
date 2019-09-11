@@ -67,22 +67,22 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    let ear_value1 = int(map(s2, 0, 100, 1, 3));
-    let cheek_value1 = int(map(s3, 0, 100, 1, 3));
+    let ear_value1 = int(map(s2, 0, 100, 0, 2));
+    let cheek_value1 = int(map(s3, 0, 100, 0, 2));
     drawFace1(s1, ear_value1, cheek_value1, s4, s5);
   }
 
   if (mode == '2') {
     // draw 2nd face 
-    let ear_value2 = int(map(s2, 0, 100, 1, 3));
-    let eye_value2 = int(map(s3, 0, 100, 1, 3));
+    let ear_value2 = int(map(s2, 0, 100, 0, 2));
+    let eye_value2 = int(map(s3, 0, 100, 0, 2));
     drawFace2(s1, ear_value2, eye_value2, s4, s5);
   }
 
   if (mode == '3') {
     // draw 3rd face 
-    let ear_value3 = int(map(s2, 0, 100, 1, 3));
-    let eye_value3 = int(map(s5, 0, 100, 1, 3));
+    let ear_value3 = int(map(s2, 0, 100, 0, 2));
+    let eye_value3 = int(map(s5, 0, 100, 0, 2));
     drawFace3(s1, ear_value3, s3, s4, eye_value3);
   }
   pop();

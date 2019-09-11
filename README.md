@@ -1,31 +1,7 @@
 ## PS2 MDDN 342 2019
 
-FINAL PARAMETER FACES BEFORE FOCUS/REFINED DISTRIBUTION
+FOCUSEDRANDOM / WEIGHTED SELECTION 
 
-I have finished my designs and the parameters for each of my faces. I am happy with the cartoon look of the bears as that is what I was aiming for originally. I think the three face//bear types still remain cohesive as they share this simplistic design whilst having differences between face types and between face to face. I'm happy that I managed to code a bunch of different ears as I think they, and the eyes / blush detail, make a big difference in changing the overall look of the face and then the smaller details are clearer as you look closer. I'm also happy I managed to get the mouth curve parameter working.
+I changed all my parameters to use focusedRandom() as I was using an array and the random() function to select a value for my discrete variables. I changed them to the focusedRandom() and just needed to tweak my code particularly the if statements to use '<' instead of '==' as focusedRandom seems to provide a decimal number between the min and max. I have played around a bit with the  'fous' and weighted selection and so far I have made my variables so that the faces are most likely to be at the largest scale with the biggest smile curvature.  At the moment I have left my ears and other variables as random as possible but I will refine them further once I have worked out how I want the distribution to work and gotten a little more used to the focusedRandom() method.
 
-The parameters for each face are:
-
-Face One(Panda):
-- Size / Scale of the face (Continuous)
-- Ear style (Discrete)
-- Cheeks/blush (Discrete)
-- Mouth/ Smile curve (Continuous)
-- Eye patch size (Continous)
-
-
-Face Two(Brown Bear):
-- Size/ Scale of the face(Continous)
-- Ear Style (Discrete)
-- Eye Patch Style (Discrete)
-- Mouth Outer size (Continous)
-- Mouth/ Smile curve (Continous)
-
-
-Face Three(Polar Bear):
-- Size / Scale of the face (Continuous)
-- Ear style (Discrete)
-- Mouth/ Smile curve (Continuous)
-- Mouth Outer size (Continous)
-- Eye Patch Style (Discrete)
 
