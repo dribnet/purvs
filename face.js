@@ -248,8 +248,9 @@ class Face {
     }
 
     animate() {
-        this.x = this.x + 0.1;
+        this.x = this.x + 0.5;
         if (this.x >= 14) {
+            changeRandomSeed();
             this.new_face();
             this.x = -14;
         }

@@ -2,6 +2,8 @@
 
 Lego Faces
 
-I went through and added some more variation to the types of eyes that can be drawn, with these being a discreet property and relatively rare, allowing for some unique faces amongst the more generic ones.
+Added some animation to the heads so they appear to be rotating and changing to a new face as they rotate. This will need to be optimized and I plan on only rotating faces at certain intervals and having the code do the rotation rather quickly.
 
-This is just using a distrubtion of 0 - 1 and if the value is above a certain value say 0.96 it then will draw the eyes a certain way, or even add glasses and even freckles.
+The mouths have also been updated a fair bit with some work still needing to be done to get them to a place I would like.
+
+I also need to go through and explore the focus of focusRandom, to give the faces a distribution that is more realistic. As well as continuing to add extra details to futher explore this distribution.

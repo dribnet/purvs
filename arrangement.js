@@ -98,9 +98,9 @@ function mouseClicked() {
 }
 
 function draw() {
-    if (millis() > lastSwapTime + millisPerSwap) {
-        changeRandomSeed();
-    }
+    // if (millis() > lastSwapTime + millisPerSwap) {
+    //     changeRandomSeed();
+    // }
 
     // reset the random number generator each time draw is called
     resetFocusedRandom(curRandomSeed);
