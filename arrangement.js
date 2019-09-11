@@ -9,6 +9,8 @@ let curRandomSeed = 0;
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
 
+
+
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -33,6 +35,9 @@ function mouseClicked() {
 }
 
 function draw () {
+  //COLOURS
+
+
   if(millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
   }
@@ -45,10 +50,25 @@ function draw () {
   noStroke();
 
 
+
+  //Background
+
+  push();
+  drawPandaBody();
+  translate(162, 0);
+  drawBrownBearBody();
+  translate(162, 0);
+  drawPolarBearBody();
+  pop();
+
+
+
+
+
   // draw a 7x4 grid of faces
   let w = canvasWidth / 6;
   let h = canvasHeight / 3;
-  for(let i=0; i<3; i++) {
+  for(let i=0; i<2; i++) {
     for(let j=0; j<6; j++) {
 
       let y = h/2 + h*i;
@@ -88,8 +108,178 @@ function draw () {
         }
         pop();
     }
+
+      
   }
 }
+
+function drawPandaBody(){
+  fill(225);
+  rectMode(CENTER);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/4.5, canvasWidth/7.5, canvasHeight/2.5, 80);
+  fill(40);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/7, canvasWidth/8, canvasHeight/7);
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/6.8, canvasHeight/2+ canvasHeight/6);
+  rotate(20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/45, canvasHeight/2+ canvasHeight/6);
+  rotate(-20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  fill(50);
+  push();
+  translate(canvasWidth/2 - canvasWidth/7.5, canvasHeight/2+ canvasHeight/2.65);
+  rotate(40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/25, canvasHeight/2+ canvasHeight/2.65);
+  rotate(-40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  fill(40);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+
+  fill(70);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+
+  push();
+  translate(0, -22);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(-18, +6);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(36, 0);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  pop();
+}
+
+function drawBrownBearBody(){
+  let mid_brown = "#826558";
+  let light_brown = "#9e806a";
+
+  fill(mid_brown);
+  rectMode(CENTER);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/4.5, canvasWidth/7.5, canvasHeight/2.5, 80);
+  fill(light_brown);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/7, canvasWidth/8, canvasHeight/7);
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/6.8, canvasHeight/2+ canvasHeight/6);
+  rotate(20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/45, canvasHeight/2+ canvasHeight/6);
+  rotate(-20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  fill(light_brown);
+  push();
+  translate(canvasWidth/2 - canvasWidth/7.5, canvasHeight/2+ canvasHeight/2.65);
+  rotate(40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/25, canvasHeight/2+ canvasHeight/2.65);
+  rotate(-40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  fill(mid_brown);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+
+  fill(light_brown);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+
+  push();
+  translate(0, -22);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(-18, +6);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(36, 0);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  pop();
+
+}
+
+function drawPolarBearBody(){
+  let dark_brown = "#9c908a";
+  let beige = "#cfc2ba";
+
+  fill(beige);
+  rectMode(CENTER);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/4.5, canvasWidth/7.5, canvasHeight/2.5, 80);
+  fill(dark_brown);
+  rect(canvasWidth/2 - canvasWidth/12, canvasHeight/2 + canvasHeight/7, canvasWidth/8, canvasHeight/7);
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/6.8, canvasHeight/2+ canvasHeight/6);
+  rotate(20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/45, canvasHeight/2+ canvasHeight/6);
+  rotate(-20);
+  rect(0, 0, canvasWidth/22, canvasHeight/4.6, 75);
+  pop();
+
+  fill(dark_brown);
+  push();
+  translate(canvasWidth/2 - canvasWidth/7.5, canvasHeight/2+ canvasHeight/2.65);
+  rotate(40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  push();
+  translate(canvasWidth/2 - canvasWidth/25, canvasHeight/2+ canvasHeight/2.65);
+  rotate(-40);
+  rect(0, 0, 65, 80, 75);
+  pop();
+
+  fill(beige);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 70, 70);
+
+  fill(dark_brown);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 35, 30);
+
+  push();
+  translate(0, -22);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(-18, +6);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  translate(36, 0);
+  ellipse(canvasWidth/2 - canvasWidth/7.2, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  ellipse(canvasWidth/2 - canvasWidth/28, canvasHeight/2+ canvasHeight/2.6, 15, 10);
+  pop();
+}
+
+
 
 function keyTyped() {
   if (key == '!') {
