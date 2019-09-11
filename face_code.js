@@ -16,7 +16,7 @@
 let rando = [];
 let outlines = 7;
 let pupilCol = 33;
-function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip,opa) {
+function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip,opa,browsYN) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
   }
@@ -79,7 +79,9 @@ else{
   }
   drawBlob(faceWidth,faceLength,2,0);
   strokeWeight(0.1);
+  if(browsYN){
   brows(faceWidth,faceLength,browLength,7);
+}
   eyes(faceWidth,faceLength,browLength,pupils,7);
   nose(faceWidth,faceLength,browLength,noseWidth,7);
   mouth(faceWidth,faceLength,browLength,mouthWidth,0,7);

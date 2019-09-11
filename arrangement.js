@@ -96,9 +96,11 @@ drawZag(500,350,700,700,17,BGcol5,7);
       let faceColorSpinner = int(focusedRandom(1, 100));
       let flipSpinner = int(focusedRandom(1, 100));
       let pupilsSpinner = int(focusedRandom(1, 100));
+      let browsSpinner = int(focusedRandom(1, 100));
       let teeth = int(focusedRandom(-45,45,7));
       let pupils = false;
       let flip = false;
+      let browsYN = true;
       if(faceColorSpinner >=1 && faceColorSpinner <=18) {
         faceColor = 5;
       }
@@ -126,12 +128,18 @@ drawZag(500,350,700,700,17,BGcol5,7);
       else{
         pupils = false;
       }
+      if(browsSpinner <70){
+        browsYN = true;
+      }
+      else{
+        browsYN = false;
+      }
       if(i==gridHeight-1 && j==gridWidth-1){
-        drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,0, faceColor,pupils,flip,255);
+        drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,0, faceColor,pupils,flip,255,browsYN);
 
       }
       else{
-      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils,flip,opa);
+      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils,flip,opa,browsYN);
 }
       pop();
     }
