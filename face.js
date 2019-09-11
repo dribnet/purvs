@@ -221,6 +221,7 @@ class Face {
             let angle = random((i - 1) * 360 / this.freckle_num, i * 360 / this.freckle_num);
             this.freckle_angles.push(angle);
         }
+        this.winking = random();
         this.mouth_type = random();
         this.eye_type = random(0, 100);
         this.glasses = random();

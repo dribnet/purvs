@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 7;
-let num_down = 4;
+let num_across = 10;
+let num_down = 6;
 
 let faces = [];
 
@@ -123,15 +123,25 @@ function draw() {
 
             push();
             translate(x, y);
-            translate(-40, -40);
+            translate(-w / 3, -h / 3);
             fill(0, 150);
             textSize(7);
+            stroke(0, 150);
+            strokeWeight(0.3);
             textAlign(CENTER, CENTER);
             text(num, 0, 0);
             num++;
             pop();
         }
     }
+
+    for (let j = 0; j < num_across - 1; j++) {
+        let x = (w) * j + w + canvasWidth * 0.025;
+        stroke(0, 20);
+        strokeWeight(0.25);
+        line(x, 0 + height * 0.1, x, height - +height * 0.1);
+    }
+
     push();
     rectMode(CENTER);
     noFill();
@@ -140,6 +150,8 @@ function draw() {
     strokeWeight(20);
     rect(0, 0, width, height);
     pop();
+
+
 }
 
 function keyTyped() {
