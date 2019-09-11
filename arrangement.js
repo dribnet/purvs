@@ -60,29 +60,29 @@ function draw () {
       
         if((i+j)%3 == 0) {
           /*********FACE ONE********/
-          let tallness_value1 = focusedRandom(0,100,100);
+          let tallness_value1 = focusedRandom(0,100, 4, 75);
           let ear_value1 = focusedRandom(0,3 );
-          let cheek_value1 = focusedRandom(0,3);
-          let mouth_value1 = focusedRandom(0,100, 0);
-          let eye_value1 = focusedRandom(0,100);
+          let cheek_value1 = focusedRandom(0,3, 2.5, 0);
+          let mouth_value1 = focusedRandom(0,100, 5, 5);
+          let eye_value1 = focusedRandom(0,100,5, 80);
           drawFace1(tallness_value1, ear_value1, cheek_value1, mouth_value1, eye_value1);
         }
 
         else if((i+j)%3 == 1){
           /********FACE TWO**********/
-          let tallness_value2 = focusedRandom(0, 100);
-          let ear_value2 = focusedRandom(0,3);
+          let tallness_value2 = focusedRandom(0, 100, 3, 65);
+          let ear_value2 = focusedRandom(0,3, 3, 0);
           let eye_value2 = focusedRandom(0,3);
-          let mouth_value2 = focusedRandom(0, 100);
-          let mouth_curve2 = focusedRandom(0, 100, 0);
+          let mouth_value2 = focusedRandom(0, 100, 2.5, 50);
+          let mouth_curve2 = focusedRandom(0, 100, 0, 5, 5);
           drawFace2(tallness_value2, ear_value2, eye_value2, mouth_value2, mouth_curve2);
         }
         else {
           /********FACE THREE********/
-          let tallness_value3 = focusedRandom(0,100);
-          let ear_value3 = focusedRandom(0,3);
+          let tallness_value3 = focusedRandom(0,100, 3, 60);
+          let ear_value3 = focusedRandom(0,3, 2, 1);
           let mouth_value3 = focusedRandom(0,100, 0);
-          let mouth_width3 = focusedRandom(0,100);
+          let mouth_width3 = focusedRandom(0,100, 3, 50);
           let eye_value3 = focusedRandom(0,3);
           drawFace3(tallness_value3, ear_value3, mouth_value3, mouth_width3, eye_value3);
         }
