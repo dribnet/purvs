@@ -2,6 +2,9 @@
 
 
 ----------------------------------------------------------------------------------
+#sept 11 - Horns are completed filled to blend to the background and show shape from the detailing lines that i drew, i changed the colours slightly so the faces look nicer. Arranged the majority of the arrangement just a couple of details to deal with like rotating so they all face the center skull and somehow need to stop them drawing all variations at once. 
+----------------------------------------------------------------------------------
+
 #sept 10 - Horn detailings are finished, need to complete arrangement and move horn positioning for the human skull.
 ----------------------------------------------------------------------------------
 #9th sept - I have made a pattern to fill the horn outlines out of curves and curvevertexs

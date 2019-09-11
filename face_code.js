@@ -396,7 +396,7 @@ curveVertex(Xcenter+6.2,Y1B+0.5);
 curveVertex(Xcenter+6,Y2B+1);
 curveVertex(Xcenter+6,Y2B+1);
 endShape();
-fill(0);
+fill(36,45,50);
 //eyeLeft
 beginShape();
 curveVertex(Xcenter-4,-4);
@@ -453,6 +453,7 @@ endShape();
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
 function drawFace2(horn, width, cheekbones) { 
+ 
   var WidthChanger = width;
   var cheekboneWidth = cheekbones;
   // noLoop();
@@ -603,7 +604,7 @@ fill(255, 255, 247);
   endShape();
 
 //EyeLeft
-fill(0);
+fill(36,45,50);
   beginShape();
     curveVertex(-2.7,0);
     curveVertex(-2.7,0);
@@ -710,13 +711,27 @@ fill(0);
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
 function drawFace3() {
+  noFill();
+strokeWeight(0.05);
+stroke(255,0,0);
+ellipse(0,0,7.5);
+  beginShape();
+    vertex(-2.5,-2.5);
+    vertex(-2.5,-2.5);
+    vertex(0,3.5);
+    vertex(2.5,-2.5);
+    vertex(-3.5,1);
+    vertex(3.5,1);
+    vertex(-2.5,-2.5);
+    vertex(-2.5,-2.5);
+  endShape();
 
 }
 
 function drawHorn1()  {
   stroke(156, 156, 156);
   strokeWeight(0.1);
-  noFill();
+  fill(36,45,50);
   
 
   //HornSet1
@@ -727,7 +742,11 @@ function drawHorn1()  {
     curveVertex(-6.5,4.7);
     curveVertex(-5.2,4)
     curveVertex(-5.3,3);
-    curveVertex(-5.3,3);
+    curveVertex(-4,4.5)
+    curveVertex(-5,5.5);
+    curveVertex(-6.5,5.3);
+    curveVertex(-7,4);
+    curveVertex(-7,4);
   endShape();
 
    //Bottom
@@ -743,6 +762,8 @@ function drawHorn1()  {
    
     curveVertex(-5.2,4.5);
     curveVertex(-6.5,5);
+
+
     curveVertex(-7,4);
     curveVertex(-7,4);
 
@@ -750,11 +771,15 @@ function drawHorn1()  {
      curveVertex(-6.5,5.3);
     curveVertex(-5,5.5);
     curveVertex(-4,4.5);
+
    
     curveVertex(-4,2.5);
     curveVertex(-4.5,0);
     curveVertex(-4.6,-2.2);
     curveVertex(-3.5,-3);
+    curveVertex(-5,-3.5);
+    curveVertex(-7,-2);
+    curveVertex(-7,-2);
   endShape();
 
 
@@ -787,7 +812,11 @@ function drawHorn1()  {
     curveVertex(6.5,4.7);
     curveVertex(5.2,4)
     curveVertex(5.3,3);
-    curveVertex(5.3,3);
+    curveVertex(4,4.5)
+    curveVertex(5,5.5);
+    curveVertex(6.5,5.3);
+    curveVertex(7,4);
+    curveVertex(7,4);
   endShape();
   
    //Bottom
@@ -815,6 +844,9 @@ function drawHorn1()  {
     curveVertex(4.5,0);
     curveVertex(4.6,-2.2);
     curveVertex(3.5,-3);
+    curveVertex(5,-3.5);
+    curveVertex(7,-2);
+    curveVertex(7,-2);
   endShape();
   
 
@@ -991,8 +1023,7 @@ function drawHorn1()  {
   function drawHorn2(){
   stroke(156, 156, 156);
   strokeWeight(0.1);
-  noFill();
-  // fill(255, 255, 255);
+  fill(36,45,50);
 
       //HornSet2
   //left
@@ -1015,23 +1046,29 @@ function drawHorn1()  {
     curveVertex(-2.5,-2);
     
     curveVertex(-1.9,-0.5);
-    curveVertex(-1.9,-0.5);
+    curveVertex(-0.5,0);
+    curveVertex(-0.7,-1.5);
+    curveVertex(-0.7,-1.5);
 
-  endShape();
-
-  beginShape();
+    endShape();
+   beginShape();
     curveVertex(-2.75,-0.15);
     curveVertex(-2.75,-0.15);
     curveVertex(-4.5,-4);
-    // curveVertex(-5,-5);
+ 
     curveVertex(-7.2,-6);
     curveVertex(-9,-9);
-    curveVertex(-9,-9);
+    curveVertex(-7,-6);
+    curveVertex(-4.5,-5);
+    curveVertex(-2.5,-2);
+    curveVertex(-1.9,-0.5);
+    curveVertex(-2.75,-0.15);
+    curveVertex(-2.75,-0.15);
   endShape();
 
 
 //Right
-   beginShape();
+    beginShape();
 
     curveVertex(0.7,-1.5);
     curveVertex(0.7,-1.5);
@@ -1050,21 +1087,28 @@ function drawHorn1()  {
     curveVertex(2.5,-2);
     
     curveVertex(1.9,-0.5);
-    curveVertex(1.9,-0.5);
+    curveVertex(0.5,0);
+    curveVertex(0.7,-1.5);
+    curveVertex(0.7,-1.5);
 
-  endShape();
-
-  beginShape();
+    endShape();
+   beginShape();
     curveVertex(2.75,-0.15);
     curveVertex(2.75,-0.15);
     curveVertex(4.5,-4);
-    // curveVertex(-5,-5);
+ 
     curveVertex(7.2,-6);
     curveVertex(9,-9);
-    curveVertex(9,-9);
+    curveVertex(7,-6);
+    curveVertex(4.5,-5);
+    curveVertex(2.5,-2);
+    curveVertex(1.9,-0.5);
+    curveVertex(2.75,-0.15);
+    curveVertex(2.75,-0.15);
   endShape();
 
   //detail
+  noFill();
   strokeWeight(0.05);
   stroke(170, 170, 170);
 
@@ -1214,7 +1258,9 @@ function drawHorn1()  {
 function drawHorn3 (){
   stroke(156, 156, 156);
   strokeWeight(0.1);
-  noFill();
+
+  // noFill();
+  fill(36,45,50);
 
   // HornSet3
   // left
@@ -1224,19 +1270,47 @@ function drawHorn3 (){
     curveVertex(-1.2,-7.2);
     curveVertex(-2.9,-4.5);
     curveVertex(-0.9,-2.4);
-    curveVertex(-0.9,-2.4);
+    curveVertex(-1,-2.4);
+    curveVertex(-3.5,-5.2);
+    curveVertex(-0.6,-8);
+    curveVertex(-0.6,-8);
   endShape();
   beginShape();
+    curveVertex(-0.6,-8);
+    curveVertex(-0.6,-8);
+    curveVertex(-1.2,-7.2);
+    curveVertex(-2.9,-4.5);
+    curveVertex(-0.9,-2.4);
+    curveVertex(-0.9,-2.4);
+
     curveVertex(-1,-2.4);
     curveVertex(-1,-2.4);
     curveVertex(-3.5,-5.2);    
     curveVertex(-0.6,-8);
+
     curveVertex(-0.8,-8);
     curveVertex(-5.2,-5);
     curveVertex(-2.7,-0.15);
-    curveVertex(-2.7,-0.15);
+    curveVertex(-0.7,-1.8);
+    curveVertex(-0.9,-2.4);
+    
+    curveVertex(-2.9,-4.5);
+    curveVertex(-1.2,-7.2);
+    curveVertex(-0.6,-8);
+    curveVertex(-0.6,-8);
   endShape();
   //right
+    beginShape();
+    curveVertex(0.6,-8);
+    curveVertex(0.6,-8);
+    curveVertex(1.2,-7.2);
+    curveVertex(2.9,-4.5);
+    curveVertex(0.9,-2.4);
+    curveVertex(1,-2.4);
+    curveVertex(3.5,-5.2);
+    curveVertex(0.6,-8);
+    curveVertex(0.6,-8);
+    endShape();
    beginShape();
     curveVertex(0.6,-8);
     curveVertex(0.6,-8);
@@ -1244,8 +1318,7 @@ function drawHorn3 (){
     curveVertex(2.9,-4.5);
     curveVertex(0.9,-2.4);
     curveVertex(0.9,-2.4);
-  endShape();
-  beginShape();
+
     curveVertex(1,-2.4);
     curveVertex(1,-2.4);
     curveVertex(3.5,-5.2);    
@@ -1253,13 +1326,20 @@ function drawHorn3 (){
     curveVertex(0.8,-8);
     curveVertex(5.2,-5);
     curveVertex(2.7,-0.15);
-    curveVertex(2.7,-0.15);
+    curveVertex(0.7,-1.8);
+    curveVertex(0.9,-2.4);
+    
+    curveVertex(2.9,-4.5);
+    curveVertex(1.2,-7.2);
+    curveVertex(0.6,-8);
+    curveVertex(0.6,-8);
   endShape();
 
   //details
   //left
   stroke(170, 170, 170);
   strokeWeight(0.05);
+  noFill();
 
     beginShape();
     curveVertex(-0.6,-8);

@@ -9,7 +9,7 @@ let curRandomSeed = 0;
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
 let angle = 0;
-let angle2 =  2;
+let angle2 =  0;
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -48,6 +48,7 @@ function draw () {
 
   // clear screen
   background(bg_color1);
+ 
   noStroke();
 
   // draw a 7x4 grid of faces
@@ -57,16 +58,24 @@ function draw () {
   let total2 = 16;  
   for(let i=0; i<8; i++) {
     for(let j=0; j<16; j++) {
-  
+   
   let x=175*cos(degrees(angle)) + width/2;
   let y=175*sin(degrees(angle)) + height/2;
-
+  
   let x1=275*cos(degrees(angle2)) + width/2;
   let y1=275*sin(degrees(angle2)) + height/2;
     angle = Math.PI*2/total*i;
     angle2 = Math.PI*2/total2*j;
-      noLoop();
-      if (i == 1) {         
+   
+      if (i == 0) {
+        push();
+        translate(canvasWidth/2,canvasHeight/2);
+        scale(30.0);
+        drawFace3();
+        pop();
+      }
+
+      if (i == 0) { 
         push();
           translate(canvasWidth/2,canvasHeight/2);
           scale(10.0);
@@ -88,10 +97,10 @@ function draw () {
           pop();
         }
         
-      if (i > 0 || i <= 8) {
-        // all other faces*      
+      if (i >= 1 || i <= 8) {
+            
         push();
-        translate(x, y);        
+        translate(x, y); 
         scale(w/25, h/25);                      
         if((i+j)%2 == 0) {                 
           let horns = int(focusedRandom(0, 6));
