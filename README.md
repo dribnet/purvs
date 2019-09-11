@@ -1,5 +1,10 @@
 ## PS2 MDDN 342 2019
 
+FINAL PANDA(FACE 1)
+
+I have completed the final touches for my face 1 (the panda face). I changed the shape of the eye patches from just an ellipse to a more organic shape. I also added some details to the eyes, nose and mouth. 
+
+
 PARAMETERS FOR FACES;
 
 Today I have finished working on my parameters for the different faces. I will probably tweak them and refine the overall look of the faces tomorrow but basically these will be my final parameters.
