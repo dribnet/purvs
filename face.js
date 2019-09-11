@@ -32,16 +32,16 @@ class Face {
         this.mouth_direction = (int(random(0, 2)) * 2) - 1;
 
         //extra variables
-        this.is_crying = random();
-        this.eye_type = random(0, 100);
-        this.mouth_type = random();
-        this.glasses = random();
-        this.coloured_eyes = random();
+        this.is_crying = focusedRandom(0, 1, 1, 0.5);
+        this.eye_type = focusedRandom(0, 100, 2, 75);
+        this.mouth_type = focusedRandom(0, 1, 2, 50);
+        this.glasses = focusedRandom(0, 1, 3);
+        this.coloured_eyes = focusedRandom(0, 1);
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
-        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length - 1))];
+        this.hair_colour = lego_hair_colours[int(focusedRandom(0, lego_hair_colours.length - 1, 4))];
 
         //freckles
-        this.has_freckles = random();
+        this.has_freckles = focusedRandom(0, 1, 2);
         this.freckle_radius;
         this.freckle_angles = [];
         this.freckle_pos = [];
@@ -56,7 +56,7 @@ class Face {
         this.shadow();
         this.head();
         translate(this.x, 0);
-        scale(map(abs(this.x), 1, 14, 1, 0.2), 1);
+        //scale(map(abs(this.x), 1, 14, 1, 0.2), 1);
 
         this.eyes();
         this.mouth();
@@ -211,7 +211,7 @@ class Face {
     }
 
     get_new_random() {
-        this.has_freckles = random();
+        this.has_freckles = focusedRandom(0, 1, 2);
         this.freckle_radius = random(1, 1.5);
         this.freckle_angles = [];
         this.freckle_pos = [];
@@ -222,13 +222,13 @@ class Face {
             this.freckle_angles.push(angle);
         }
         this.winking = random();
-        this.mouth_type = random();
-        this.eye_type = random(0, 100);
-        this.glasses = random();
-        this.coloured_eyes = random();
+        this.is_crying = focusedRandom(0, 1, 1, 0.5);
+        this.eye_type = focusedRandom(0, 100, 2, 75);
+        this.mouth_type = focusedRandom(0, 1, 2, 50);
+        this.glasses = focusedRandom(0, 1, 3);
+        this.coloured_eyes = focusedRandom(0, 1);
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
-        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length - 1))];
-        this.is_crying = random();
+        this.hair_colour = lego_hair_colours[int(focusedRandom(0, lego_hair_colours.length - 1, 4))];
     }
 
     outline() {
@@ -261,20 +261,19 @@ class Face {
     }
 
     new_face() {
-        this.eye_spacing = focusedRandom(4.5, 8);
-        this.eye_height = focusedRandom(0, 2.2);
-        this.eye_size = focusedRandom(1.8, 3);
-        this.eye_angle = focusedRandom(-25, 25);
-        this.eye_squint = focusedRandom(1.3, 1.9);
-        this.eyedetail_angle = focusedRandom(-15, 15);
-        this.eye_wink = focusedRandom(-1, 1);
-        this.left_eye_seed = focusedRandom(0, 100);
-        this.right_eye_seed = focusedRandom(0, 100);
+        this.eye_spacing = focusedRandom(4.5, 8, 2);
+        this.eye_height = focusedRandom(0, 2.2, 2);
+        this.eye_size = focusedRandom(1.8, 3, 1);
+        this.eye_angle = focusedRandom(-25, 25, 1);
+        this.eye_squint = focusedRandom(1.3, 1.9, 1);
+        this.eyedetail_angle = focusedRandom(-15, 15, 1);
+        this.eye_wink = focusedRandom(-1, 1, 1);
+        this.left_eye_seed = focusedRandom(0, 100, 3, 75);
+        this.right_eye_seed = focusedRandom(0, 100, 3, 75);
 
-        this.mouth_width = focusedRandom(2, 4);
-        this.mouth_height = focusedRandom(1, 3);
-        this.mouth_emotion = focusedRandom(-2, 2);
-
+        this.mouth_width = focusedRandom(2, 4, 1);
+        this.mouth_height = focusedRandom(1, 3, 3);
+        this.mouth_emotion = focusedRandom(-2, 2, 2);
         this.get_new_random();
     }
 

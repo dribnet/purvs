@@ -6,8 +6,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
 
-let num_across = 10;
-let num_down = 6;
+let num_across = 8;
+let num_down = 5;
 
 let faces = [];
 
@@ -36,19 +36,19 @@ function setup() {
             let x = (w) * j + w / 2;
 
             // center face
-            let eye_spacing = focusedRandom(4.5, 8);
-            let eye_height = focusedRandom(0, 2.2);
-            let eye_size = focusedRandom(1.8, 3);
-            let eye_angle = focusedRandom(-25, 25);
-            let eye_squint = focusedRandom(1.3, 1.9);
-            let eyedetail_angle = focusedRandom(-15, 15);
-            let eye_wink = focusedRandom(-1, 1);
-            let left_eye_seed = focusedRandom(0, 100);
-            let right_eye_seed = focusedRandom(0, 100);
+            let eye_spacing = focusedRandom(4.5, 8, 2);
+            let eye_height = focusedRandom(0, 2.2, 2);
+            let eye_size = focusedRandom(1.8, 3, 1);
+            let eye_angle = focusedRandom(-25, 25, 1);
+            let eye_squint = focusedRandom(1.3, 1.9, 1);
+            let eyedetail_angle = focusedRandom(-15, 15, 1);
+            let eye_wink = focusedRandom(-1, 1, 1);
+            let left_eye_seed = focusedRandom(0, 100, 3, 75);
+            let right_eye_seed = focusedRandom(0, 100, 3, 75);
 
-            let mouth_width = focusedRandom(2, 4);
-            let mouth_height = focusedRandom(1, 3);
-            let mouth_emotion = focusedRandom(-2, 2);
+            let mouth_width = focusedRandom(2, 4, 1);
+            let mouth_height = focusedRandom(1, 3, 3);
+            let mouth_emotion = focusedRandom(-2, 2, 2);
 
             generate_random();
 

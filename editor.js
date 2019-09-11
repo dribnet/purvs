@@ -88,7 +88,7 @@ function draw() {
 
     let mode = faceSelector.value();
 
-    background(bg_color);
+    background('#D8F0F0');
 
     let eye_spacing_value = eye_spacing_slider.value();
     let eye_height_value = eye_height_slider.value();
