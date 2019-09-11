@@ -37,6 +37,8 @@ function closed_eye(eye_spacing, eye_size, dir, eye_angle) {
     strokeWeight(0.5);
     line(-eye_size / 2, 0, eye_size / 2, 0);
 
+    //ellipse(dir * -eye_size / 2, eye_size / 3, 1, 1);
+
     pop();
 }
 

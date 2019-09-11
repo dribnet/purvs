@@ -98,6 +98,30 @@ function freckles(eye_height, eye_spacing, eye_size, freckle_angles, freckle_pos
     pop();
 }
 
+function tears(eye_height, eye_spacing, eye_size, freckle_angles, freckle_pos, freckle_num, dir) {
+    push();
+    noStroke();
+    translate(0, -eye_height);
+    fill(0, 200, 255);
+    push();
+    translate(dir * eye_spacing / 2, 0);
+    translate(dir * eye_size, eye_size);
+    rotate(dir * -15);
+
+    scale(0.9);
+    triangle(-1, -0.3, 1, -0.3, 0, -2)
+    ellipse(0, 0, 2, 2);
+    scale(0.7);
+    fill(0, 210, 255);
+    triangle(-1, -0.3, 1, -0.3, 0, -2)
+    ellipse(0, 0, 2, 2);
+    stroke(255, 100);
+    strokeWeight(0.3);
+    line(dir * 1, -0.3, 0, -2);
+    pop();
+    pop();
+}
+
 function eyebrow_shape(size, dir) {
     beginShape();
     curveVertex(0, 0);

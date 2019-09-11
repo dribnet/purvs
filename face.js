@@ -5,7 +5,7 @@ class Face {
         this.y;
 
         this.lastSwapTime = 0;
-        this.nextSwapTime = random(2000, 10000);
+        this.nextSwapTime = random(5000, 15000);
         this.is_animating = false;
 
         //size variables
@@ -29,9 +29,12 @@ class Face {
         this.mouth_width = mouth_width;
         this.mouth_height = mouth_height;
         this.mouth_emotion = mouth_emotion;
+        this.mouth_direction = (int(random(0, 2)) * 2) - 1;
 
         //extra variables
+        this.is_crying = random();
         this.eye_type = random(0, 100);
+        this.mouth_type = random();
         this.glasses = random();
         this.coloured_eyes = random();
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
@@ -58,9 +61,14 @@ class Face {
         this.eyes();
         this.mouth();
 
-        if (this.has_freckles > 0.95) {
+        if (this.has_freckles > 0.75) {
             freckles(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, 1);
             freckles(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, -1);
+        }
+
+        if (this.is_crying > 0.95) {
+            tears(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, 1);
+            tears(this.eye_height, this.eye_spacing, this.eye_size, this.freckle_angles, this.freckle_pos, this.freckle_num, -1);
         }
         pop();
 
@@ -71,7 +79,7 @@ class Face {
         noFill();
         strokeWeight(1);
         stroke(highlight_colour);
-        arc(-4, -4.5, 2 * this.x_percentage, 2 * this.y_percentage, 180, 270);
+        arc(-4, -3.5, 2 * this.x_percentage, 2 * this.y_percentage, 180, 270);
         pop();
 
         if (millis() > this.lastSwapTime + this.nextSwapTime) {
@@ -119,8 +127,8 @@ class Face {
             cross_eye(this.eye_spacing, this.eye_size, 1, this.eye_angle);
             cross_eye(this.eye_spacing, this.eye_size, -1, this.eye_angle);
         } else if (this.eye_type >= 95) {
-            classic_eye(this.eye_spacing, this.eye_size, 1);
-            classic_eye(this.eye_spacing, this.eye_size, -1);
+            classic_eye(this.eye_spacing, 1.2 * (this.eye_size / 2), 1);
+            classic_eye(this.eye_spacing, 1.2 * (this.eye_size / 2), -1);
         } else {
             if (this.coloured_eyes <= 0.97) {
                 colour = color(0, 0, 0);
@@ -174,10 +182,18 @@ class Face {
     mouth() {
         if (this.eye_type > 80 && this.eye_type < 85) {
             //heart eyes
-            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            if (this.mouth_type >= 0.65) {
+                open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            } else {
+                line_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion, this.mouth_direction);
+            }
         } else if (this.eye_type > 85 && this.eye_type < 90) {
             //closed eyes
-            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            if (this.mouth_type >= 0.65) {
+                open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            } else {
+                line_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion, this.mouth_direction);
+            }
         } else if (this.eye_type > 90 && this.eye_type < 95) {
             //cross eyes
             open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
@@ -186,7 +202,11 @@ class Face {
             classic_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
         } else {
             //open eyes
-            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            if (this.mouth_type >= 0.65) {
+                open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            } else {
+                line_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion, this.mouth_direction);
+            }
         }
     }
 
@@ -201,18 +221,19 @@ class Face {
             let angle = random((i - 1) * 360 / this.freckle_num, i * 360 / this.freckle_num);
             this.freckle_angles.push(angle);
         }
-
+        this.mouth_type = random();
         this.eye_type = random(0, 100);
         this.glasses = random();
         this.coloured_eyes = random();
         this.eye_colour = color(random(0, 180), random(0, 180), random(0, 180));
-        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length))];
+        this.hair_colour = lego_hair_colours[int(random(0, lego_hair_colours.length - 1))];
+        this.is_crying = random();
     }
 
     outline() {
         translate(0, -0.5);
         let depth = 11;
-        fill(bg_color1);
+        fill('#D8F0F0');
         noStroke();
         rect(17 / 2 + depth / 2, 0, depth, 20);
         rect(-17 / 2 - depth / 2, 0, depth, 20);
@@ -258,7 +279,7 @@ class Face {
 
     animate() {
         if (this.is_animating == true) {
-            this.x = this.x + 0.5;
+            this.x = this.x + 1;
             if (this.x >= 14) {
                 curRandomSeed = curRandomSeed + 1;
                 this.new_face();
@@ -268,7 +289,7 @@ class Face {
             if (this.x == 0) {
                 this.is_animating = false;
                 this.lastSwapTime = millis();
-                this.nextSwapTime = random(2000, 10000);
+                this.nextSwapTime = random(5000, 15000);
             }
         }
     }
