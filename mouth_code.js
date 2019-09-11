@@ -50,11 +50,3 @@ function open_mouth(mouth_width, mouth_height, mouth_emotion) {
     endShape();
     pop();
 }
-
-function love_mouth(mouth_width, mouth_height, mouth_emotion) {
-    push();
-    translate(0, mouth_height);
-    fill(0);
-    arc(0, 0, mouth_width, 2 * mouth_emotion, 0, 180);
-    pop();
-}

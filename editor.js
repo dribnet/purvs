@@ -49,7 +49,7 @@ function setup() {
     mouth_height_slider = createSlider(0, 100, 50);
     mouth_emotion_slider = createSlider(0, 100, 0);
 
-    face_pos_slider = createSlider(0, 100, 0);
+    face_pos_slider = createSlider(0, 100, 50);
 
     eye_spacing_slider.parent('slider1Container');
     eye_height_slider.parent('slider2Container');

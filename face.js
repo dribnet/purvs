@@ -50,6 +50,7 @@ class Face {
         angleMode(DEGREES);
         translate(0, 0.5);
         push();
+        this.shadow();
         this.head();
         translate(this.x, 0);
         scale(map(abs(this.x), 1, 14, 1, 0.2), 1);
@@ -75,8 +76,6 @@ class Face {
 
         if (millis() > this.lastSwapTime + this.nextSwapTime) {
             this.is_animating = true;
-            this.lastSwapTime = millis();
-            this.nextSwapTime = random(2000, 10000);
         }
     }
 
@@ -175,11 +174,13 @@ class Face {
     mouth() {
         if (this.eye_type > 80 && this.eye_type < 85) {
             //heart eyes
-            love_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
+            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
         } else if (this.eye_type > 85 && this.eye_type < 90) {
             //closed eyes
+            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
         } else if (this.eye_type > 90 && this.eye_type < 95) {
             //cross eyes
+            open_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
         } else if (this.eye_type >= 95) {
             //classic eyes
             classic_mouth(this.mouth_width, this.mouth_height, this.mouth_emotion);
@@ -211,7 +212,7 @@ class Face {
     outline() {
         translate(0, -0.5);
         let depth = 11;
-        fill(255);
+        fill(bg_color1);
         noStroke();
         rect(17 / 2 + depth / 2, 0, depth, 20);
         rect(-17 / 2 - depth / 2, 0, depth, 20);
@@ -266,7 +267,20 @@ class Face {
 
             if (this.x == 0) {
                 this.is_animating = false;
+                this.lastSwapTime = millis();
+                this.nextSwapTime = random(2000, 10000);
             }
         }
+    }
+
+    shadow() {
+        push();
+        noStroke();
+        translate(0, 1);
+        fill(0, 100);
+        rect(0, 0, 17 * this.x_percentage, 14 * this.y_percentage, 2.5); //core
+        rect(0, 8, 10 * this.x_percentage, 2 * this.y_percentage); // bottom
+        rect(0, -8.5, 7 * this.x_percentage, 3 * this.y_percentage, 0.5, 0.5, 0, 0); // top
+        pop();
     }
 }

@@ -78,7 +78,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [255, 255, 255];
+const bg_color1 = '#D8F0F0';
 
 function mouseClicked() {
     changeRandomSeed();
@@ -99,15 +99,16 @@ function draw() {
 
     // clear screen
     background(bg_color1);
-    noStroke();
 
     // draw a 7x4 grid of faces
-    let w = canvasWidth / num_across;
-    let h = canvasHeight / num_down;
+
+    let num = 1;
+    let w = canvasWidth * 0.95 / num_across;
+    let h = canvasHeight * 0.9 / num_down;
     for (let i = 0; i < num_down; i++) {
         for (let j = 0; j < num_across; j++) {
-            let y = (h) * i + h / 2;
-            let x = (w) * j + w / 2;
+            let y = (h) * i + h / 2 + canvasHeight * 0.05;
+            let x = (w) * j + w / 2 + canvasWidth * 0.025;
 
             generate_random();
 
@@ -119,8 +120,26 @@ function draw() {
             faces[i][j].animate();
             faces[i][j].show();
             pop();
+
+            push();
+            translate(x, y);
+            translate(-40, -40);
+            fill(0, 150);
+            textSize(7);
+            textAlign(CENTER, CENTER);
+            text(num, 0, 0);
+            num++;
+            pop();
         }
     }
+    push();
+    rectMode(CENTER);
+    noFill();
+    translate(width / 2, height / 2);
+    stroke(core_colour);
+    strokeWeight(20);
+    rect(0, 0, width, height);
+    pop();
 }
 
 function keyTyped() {
