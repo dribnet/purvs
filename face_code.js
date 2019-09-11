@@ -15,6 +15,7 @@
 */
 let rando = [];
 let outlines = 7;
+let pupilCol = 33;
 function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
@@ -24,7 +25,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   let zig_zag_colour = color(3, 211, 252);
 
   if(faceColor == 1) {
-    zig_zag_colour = color(238, 164, 245);//pink
+    zig_zag_colour = color(213, 135, 255);//purp
   }
   else if (faceColor==2) {
     zig_zag_colour = color(0,0,0);//black
@@ -36,7 +37,7 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
     zig_zag_colour = color(3, 211, 252);//blue
   }
   else {
-    zig_zag_colour = color(125, 196, 80);//green
+    zig_zag_colour = color(255, 177, 61);//orange
   }
   // head
   noFill();
@@ -59,15 +60,23 @@ function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth
   drawBlob(faceWidth,faceLength,2,0);
   pop();
   strokeWeight(0.7);
+  if(faceColor==2){
+  zig(faceWidth,faceLength,2,0,20);
+  zag(faceWidth,faceLength,2,0,20);
+}
+else{
   zig(faceWidth,faceLength,2,0,3);
   zag(faceWidth,faceLength,2,0,7);
+}
   push();
   strokeWeight(0.3);
   if(faceColor==2){
     stroke(255);
+      pupilCol=255;
   }
   else{
   stroke(33);//blob outline colour
+  pupilCol = 33;
   }
   drawBlob(faceWidth,faceLength,2,0);
   strokeWeight(0.1);
@@ -142,34 +151,39 @@ function nose(faceWidth,faceLength,browLength,noseWidth,numOf){
 function eyes(faceWidth,faceLength,browLength,pupils,numOf){
   var fw = map(faceWidth,-7,2,2,0.5);
   var fw2 = map(faceWidth,-7,2,2,0.5);
+  var fw3 = map(faceWidth,-7,2,6,4);
     var fl = map(faceLength,-5,2,0,5);
+      var bl = map(browLength,1,3,0,1);
+        var bl2 = map(browLength,1,3,1,3);
   for(var i =0;i<numOf;i++){
     push();
     translate(random(-0.3,0.3),random(-0.3,0.3));
     if(pupils){
+      fill(pupilCol);
+        stroke(pupilCol);
 beginShape();
 curveVertex(faceWidth-1+random(-1,1),fl/2+random(-1,1));
-curveVertex(faceWidth+1.1,-4);
-curveVertex(0+(faceWidth+browLength*fw),-4);
+curveVertex((faceWidth+fw2),-4);
+curveVertex(-bl+(faceWidth+browLength*fw),-4);
 curveVertex(faceWidth+2+random(-1,1),fl+random(-1,1));
 endShape();
 beginShape();
 curveVertex(faceWidth-1+random(-1,1),-fl+-7+random(-1,1));
-curveVertex(faceWidth+0.1,-4);
-curveVertex(1+(faceWidth+browLength*fw),-4);
+curveVertex(faceWidth+fw2,-4);
+curveVertex(-bl+(faceWidth+browLength*fw),-4);
 curveVertex(faceWidth+2+random(-1,1),-fl+-7+random(-1,1));
 endShape();
 
 beginShape();
-curveVertex(faceWidth+1+random(-1,1),fl+random(-1,1));
-curveVertex((faceWidth+3+browLength*fw),-4);
-curveVertex(8,-4);
+curveVertex(faceWidth+5+random(-1,1),fl+random(-1,1));
+curveVertex((faceWidth+fw3+browLength*(fw)),-4);
+curveVertex(7.7,-4);
 curveVertex(faceWidth+7+random(-1,1),fl+random(-1,1));
 endShape();
 beginShape();
-curveVertex(faceWidth+1+random(-1,1),-fl+-7+random(-1,1));
-curveVertex((faceWidth+3+browLength*fw),-4);
-curveVertex(8,-4);
+curveVertex(faceWidth+5+random(-1,1),-fl+-7+random(-1,1));
+curveVertex((faceWidth+fw3+browLength*fw),-4);
+curveVertex(7.7,-4);
 curveVertex(faceWidth+7+random(-1,1),-fl+-7+random(-1,1));
 endShape();
     }

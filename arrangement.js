@@ -43,15 +43,20 @@ function draw () {
   // clear screen
   background(bg_color1);
   noStroke();
-  let BGcol = [245, 151, 144];
-  let BGcol2 = [255, 251, 219];
-  let BGcol3 = [255, 224, 235];
+  let BGcol = [50, 217, 100];//green
+  let BGcol2 = [255, 251, 219];//paper
+  let BGcol3 = [255, 224, 235];//pink
+  let BGcol4 = [251, 255, 8];//yellow
+  let BGcol5 = [255, 181, 197];//paper2
+  drawZig(100,-50,1000,200,7,BGcol4,10);
 drawZig(-100,-50,300,300,7,BGcol,10);
-drawZig(100,50,700,700,7,BGcol2,10);
+drawZig(50,-50,800,700,7,BGcol2,10);
 drawZag(700,700,1000,-100,7,BGcol3,10);
 drawZig(250,150,900,300,7,BGcol2,10);
 drawZig(-250,350,1200,700,7,BGcol2,10);
 drawZag(-100,700,100,-100,7,BGcol3,10);
+drawZig(560,300,1700,700,7,BGcol5,7);
+drawZag(500,350,700,700,17,BGcol5,7);
   let faceWidth;
   let earSize, earDist;
   let faceColor;
@@ -68,38 +73,46 @@ drawZag(-100,700,100,-100,7,BGcol3,10);
       let x = w/2 + w*j;
       // center face
       push();
-      translate(x, y);
-      scale(w/25, h/25);
+      translate(random(100,x), random(100,y));
+      let scaleFactor = focusedRandom(10,50,3);
+      scale(w/scaleFactor, h/scaleFactor);
       faceWidth = focusedRandom(-7, 2,1);
-      faceLength = focusedRandom(-5, 2,1);
+      faceLength = focusedRandom(-5, 2,7);
       let browLength = focusedRandom(1,3,1);
       let noseWidth = focusedRandom(-1,0,1);
       let mouthWidth = focusedRandom(0,7,1);
       let faceColorSpinner = int(focusedRandom(1, 100));
       let flipSpinner = int(focusedRandom(1, 100));
+      let pupilsSpinner = int(focusedRandom(1, 100));
       let teeth =0;
       let pupils = false;
       let flip = false;
       if(faceColorSpinner >=1 && faceColorSpinner <=18) {
-        faceColor = 1;
+        faceColor = 5;
       }
       else if(faceColorSpinner >= 19 && faceColorSpinner <=20) {
         faceColor = 2;
       }
-      else if(faceColorSpinner >= 21 && faceColorSpinner <= 30) {
+      else if(faceColorSpinner >= 21 && faceColorSpinner <= 40) {
+        faceColor = 1;
+      }
+      else if(faceColorSpinner >= 31 && faceColorSpinner <= 70){
         faceColor = 3;
       }
-      else if(faceColorSpinner >= 31 && faceColorSpinner <= 40){
-        faceColor = 4;
-      }
       else{
-        faceColor = 5;
+        faceColor = 4;
       }
       if(flipSpinner <30){
         flip = true;
       }
       else{
         flip = false;
+      }
+      if(pupilsSpinner <70){
+        pupils = true;
+      }
+      else{
+        pupils = false;
       }
       drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils,flip);
       pop();
