@@ -5,7 +5,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 let curRandomSeed = 0;
-
+let slider1;
 let lastSwapTime = 0;
 const millisPerSwap = 5000;
 
@@ -16,6 +16,9 @@ function setup () {
 
   curRandomSeed = int(focusedRandom(0, 1000));
 
+  slider1 = createSlider(100, 1000, 1000);
+
+    slider1.parent('slider1Container');
   // rotation in degrees
   angleMode(DEGREES);
 }
@@ -37,6 +40,7 @@ function draw () {
     changeRandomSeed();
   }
 
+    let s1 = slider1.value();
   // reset the random number generator each time draw is called
   resetFocusedRandom(curRandomSeed);
 
@@ -73,10 +77,17 @@ drawZag(500,350,700,700,17,BGcol5,7);
       let x = w/2 + w*j;
       // center face
       push();
-      translate(x+random(-100,100), y+random(-100,100));
-      rotate(focusedRandom(-45,45,7));
       let scaleFactor = focusedRandom(10,20,3);
+      let opa = focusedRandom(7,177,7);
+      if(i==gridHeight-1 && j==gridWidth-1){
+        translate(canvasWidth/2,canvasHeight/2+30);
+        scale(33);
+        opa = 100;
+      }
+      else{
+      translate(x+random(-s1,s1), y+random(-s1,s1));
       scale(w/scaleFactor, h/scaleFactor);
+    }
       faceWidth = focusedRandom(-7, 2,1);
       faceLength = focusedRandom(-5, 2,1);
       let browLength = focusedRandom(1,3,1);
@@ -85,7 +96,7 @@ drawZag(500,350,700,700,17,BGcol5,7);
       let faceColorSpinner = int(focusedRandom(1, 100));
       let flipSpinner = int(focusedRandom(1, 100));
       let pupilsSpinner = int(focusedRandom(1, 100));
-      let teeth =0;
+      let teeth = int(focusedRandom(-45,45,7));
       let pupils = false;
       let flip = false;
       if(faceColorSpinner >=1 && faceColorSpinner <=18) {
@@ -115,7 +126,13 @@ drawZag(500,350,700,700,17,BGcol5,7);
       else{
         pupils = false;
       }
-      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils,flip);
+      if(i==gridHeight-1 && j==gridWidth-1){
+        drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,0, faceColor,pupils,flip,255);
+
+      }
+      else{
+      drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth, mouthWidth,teeth, faceColor,pupils,flip,opa);
+}
       pop();
     }
   }

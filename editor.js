@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-let slider1, slider2, slider3, slider4, slider5, slider6, slider7;
+let slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -13,6 +13,7 @@ function setup () {
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
+  angleMode(DEGREES);
   // create sliders
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(0, 100, 50);
@@ -21,6 +22,7 @@ function setup () {
   slider5 = createSlider(0, 100, 50);
   slider6 = createSlider(0, 100, 50);
   slider7 = createSlider(1, 5, 3);
+  slider8 = createSlider(0, 100, 100);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -29,6 +31,7 @@ function setup () {
   slider5.parent('slider5Container');
   slider6.parent('slider6Container');
   slider7.parent('slider7Container');
+  slider8.parent('slider8Container');
 
   pupilsCheckbox = createCheckbox('', true);
   pupilsCheckbox.parent('checkbox2Container');
@@ -61,6 +64,7 @@ function draw () {
   let s5 = slider5.value();
   let s6 = slider6.value();
   let s7 = slider7.value();
+  let s8 = slider8.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -81,11 +85,12 @@ function draw () {
     let browLength = map(s3,0,100,1,3);
     let noseWidth = map(s4,0,100,-0.7,0);
     let mouthWidth = map(s5,0,100,0,7);
-    let teeth = map(s6,0,100,0,1);
+    let teeth = map(s6,0,100,-45,45);
+    let opa = map(s8,0,100,10,255);
   let pupils = pupilsCheckbox.checked();
   let flip = flipCheckbox.checked();
   let faceColor = s7;
-    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip);
+    drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip,opa);
   }
 
   pop();

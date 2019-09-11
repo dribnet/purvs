@@ -16,38 +16,37 @@
 let rando = [];
 let outlines = 7;
 let pupilCol = 33;
-function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip) {
+function drawMickeyMouse(faceWidth, faceLength, browLength, noseWidth,mouthWidth,teeth,faceColor,pupils,flip,opa) {
   for(var i =0;i<outlines;i++){
     rando[i]=random(-0.3,0.3);
   }
 
 
-  let zig_zag_colour = color(3, 211, 252);
+  let zig_zag_colour = color(3, 211, 252,opa);
 
   if(faceColor == 1) {
-    zig_zag_colour = color(213, 135, 255);//purp
+    zig_zag_colour = color(213, 135, 255,opa);//purp
   }
   else if (faceColor==2) {
-    zig_zag_colour = color(0,0,0);//black
+    zig_zag_colour = color(0,0,0,opa);//black
   }
   else if (faceColor==3) {
-    zig_zag_colour = color(231, 235, 14);//yellow
+    zig_zag_colour = color(231, 235, 14,opa);//yellow
   }
   else if (faceColor == 4) {
-    zig_zag_colour = color(3, 211, 252);//blue
+    zig_zag_colour = color(3, 211, 252,opa);//blue
   }
   else {
-    zig_zag_colour = color(255, 177, 61);//orange
+    zig_zag_colour = color(255, 177, 61,opa);//orange
   }
   // head
   noFill();
   noStroke();
-  scale(0.9);
-
+  scale(0.7);
   if(flip){
   scale(-1,1);
 }
-
+rotate(teeth);
   push();
   fill(0,0,0,0); //behind the zig zag colour
   fillBlob(faceWidth,faceLength,2,0);
