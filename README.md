@@ -1,8 +1,10 @@
 ## PS2 MDDN 342 2019
 
-FINAL PANDA(FACE 1)
+FINAL PANDA AND BROWN BEAR FACES (FACE 1 & 2)
 
-I have completed the final touches for my face 1 (the panda face). I changed the shape of the eye patches from just an ellipse to a more organic shape. I also added some details to the eyes, nose and mouth. 
+I have completed the final touches for my face 1 (the panda face). I changed the shape of the eye patches from just an ellipse to a more organic shape. I also added some details to the eyes, nose and mouth. I have also completed face 2, I changed the ears and eye patches as well as overall tweaks.
+
+
 
 
 PARAMETERS FOR FACES;
