@@ -73,11 +73,12 @@ drawZag(500,350,700,700,17,BGcol5,7);
       let x = w/2 + w*j;
       // center face
       push();
-      translate(random(100,x), random(100,y));
-      let scaleFactor = focusedRandom(10,50,3);
+      translate(x+random(-100,100), y+random(-100,100));
+      rotate(focusedRandom(-45,45,7));
+      let scaleFactor = focusedRandom(10,20,3);
       scale(w/scaleFactor, h/scaleFactor);
       faceWidth = focusedRandom(-7, 2,1);
-      faceLength = focusedRandom(-5, 2,7);
+      faceLength = focusedRandom(-5, 2,1);
       let browLength = focusedRandom(1,3,1);
       let noseWidth = focusedRandom(-1,0,1);
       let mouthWidth = focusedRandom(0,7,1);
