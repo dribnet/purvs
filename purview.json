@@ -1,0 +1,23 @@
+{
+    "commits": [{
+            "sha": "2448754525f5b5cd91bcb566b4b8e7899337f113",
+            "name": "final_version"
+        },
+        {
+            "sha": "91d8e3c62adc21a811a741a4cf91d26890db67ac",
+            "name": "transition_exploration"
+        },
+        {
+            "sha": "c59603ee547ee690baca5fc4e24b813ac44778b7",
+            "name": "refined_variables"
+        },
+        {
+            "sha": "3a096f3664f4f3e28f3f24a0a79e5ad2dbcf3e3a",
+            "name": "initial_variables"
+        },
+        {
+            "sha": "583f894067dbb12f4d14c71bfeb746b6bf6b6490",
+            "name": "base_design"
+        }
+    ]
+}
