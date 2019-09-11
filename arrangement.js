@@ -81,10 +81,10 @@ function draw () {
   drawBamboo();
   pop();
 
-  fill(255, 75);
+  fill(255, 150);
   rectMode(CENTER);
-  rect(canvasWidth/6, canvasHeight/2, 10, canvasHeight);
-  rect(canvasWidth - canvasWidth/6, canvasHeight/2, 10, canvasHeight);
+  rect(canvasWidth/6.25, canvasHeight/2, 10, canvasHeight);
+  rect(canvasWidth - canvasWidth/6.25, canvasHeight/2, 10, canvasHeight);
 
 
   //BODIES
@@ -97,11 +97,7 @@ function draw () {
   drawPandaBody();
   pop();
 
-  //FACES
-
   
-
-
 
   //DRAW MAIN FACES
   push();
@@ -141,11 +137,10 @@ function draw () {
   pop();
 
 
-
-  // draw a 7x4 grid of faces
+  // SIDE FACES
   let w = canvasWidth / 6;
-  let h = canvasHeight / 3;
-  for(let i=0; i<3; i++) {
+  let h = canvasHeight / 5;
+  for(let i=0; i<5; i++) {
     for(let j=0; j<1; j++) {
 
       let y = h/2 + h*i;
@@ -153,7 +148,7 @@ function draw () {
       // center face
       push();
       translate(x, y);
-      scale(w/25, h/25);
+      scale(w/30, h/20);
       
         if((i+j)%3 == 0) {
           //*********FACE ONE********
@@ -188,7 +183,7 @@ function draw () {
 
   }
 
-  for(let i=0; i<3; i++) {
+  for(let i=0; i<5; i++) {
     for(let j=5; j<6; j++) {
 
       let y = h/2 + h*i;
@@ -196,7 +191,7 @@ function draw () {
       // center face
       push();
       translate(x, y);
-      scale(w/25, h/25);
+      scale(w/30, h/20);
       
         if((i+j)%3 == 0) {
           //*********FACE ONE********
