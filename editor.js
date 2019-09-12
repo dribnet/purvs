@@ -17,14 +17,13 @@ function setup () {
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(0, 100, 50);
   slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0, 100, 50);
-  slider5 = createSlider(0, 100, 50);
+  slider4 = createSlider(0,100,50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
-  slider5.parent('slider5Container');
+
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -50,7 +49,7 @@ function draw () {
   let s2 = slider2.value();
   let s3 = slider3.value();
   let s4 = slider4.value();
-  let s5 = slider5.value();
+ 
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -70,7 +69,8 @@ function draw () {
     let horns = int(map(s1, 0, 100, 0, 5));
     let width = map(s2, 0, 100, 0, 1);
     let cheekbones = map(s3,0,100,0,1);
-    drawFace1(horns, width, cheekbones);
+    let Jaw = map(s4,0,100,0,0.3);
+    drawFace1(horns, width, cheekbones,jaw);
   }
 
   if (mode == '2') {

@@ -87,18 +87,18 @@ function draw () {
         pop();
       }      
         
-      if (i >= 1 || i <= 8) {
+      if (i >= 0 || i <= 8) {
             
         push();
         translate(x, y); 
         scale(w/25, h/25);
         rotate(int(map(i,0,7,45,360)));;                    
-        if((i)%2 == 0) {                 
+        // if(i == 0) {                 
           let horns = int(focusedRandom(0, 6));
           let width = focusedRandom(0, 1);
           let cheekbones = focusedRandom(-0.5,0.3);         
           drawFace2(horns, width, cheekbones);       
-        }
+        // }
         pop();
     }
   }
@@ -117,7 +117,8 @@ function draw () {
               let horns = int(focusedRandom(0, 5));
               let width = focusedRandom(0, 1);
               let cheekbones = focusedRandom(0.5,1);
-              drawFace1(horns, width,cheekbones);              
+              let Jaw = focusedRandom(0,0.3);
+              drawFace1(horns, width, cheekbones, Jaw);              
         }
         pop();      
       }

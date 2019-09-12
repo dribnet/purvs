@@ -98,6 +98,7 @@ curveVertex(Xcenter+6,Y2B+1);
 endShape();
 
 //jaw
+
 //shapeOfJaw
 beginShape();
 curveVertex(Xcenter-5.5,Y1-1.5);
@@ -195,6 +196,7 @@ curveVertex(Xcenter+3.7,Y2+1);
 curveVertex(Xcenter+3.7,Y2+1);
 
 endShape();
+
 //eyebrowL
 beginShape();
 curveVertex(Xcenter-4,Y2B-0.5);
@@ -216,6 +218,7 @@ curveVertex(Xcenter+0.5,Y2B+1);
 curveVertex(Xcenter+0.5,Y2B+1);
 endShape();
 //teeth
+
 fill(255);
 strokeWeight(0.1);
 beginShape();
@@ -297,6 +300,8 @@ curveVertex(Xcenter+2,4.3);
 curveVertex(Xcenter+2,4.3);
 endShape();
 //botTeeth
+
+
 //L1
 beginShape();
 curveVertex(Xcenter,6.5);
@@ -369,6 +374,7 @@ curveVertex(Xcenter-2.6,5.2);
 curveVertex(Xcenter-2.6,6);
 curveVertex(Xcenter-2.6,6);
 endShape();
+
 //facefrontdetail
 strokeWeight(0.1);
 stroke(0);
