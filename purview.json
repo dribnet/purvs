@@ -1,6 +1,7 @@
- "commits": [
+{
+  "commits": [
     {
-      "sha": "7ba3ad3659688d7b6d71530de347e5763815159e",
+      "sha": "6f091c35e81950b8a383bbd92f96d515bb3539b5",
       "name": "final_version"
     },
     {
@@ -24,3 +25,4 @@
       "name": "sketch"
     }
   ]
+}
