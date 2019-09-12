@@ -92,7 +92,7 @@ function draw () {
         push();
         translate(x, y); 
         scale(w/25, h/25);
-        // rotate(map(i,0,7,90,315));                      
+        rotate(int(map(i,0,7,45,360)));;                    
         if((i)%2 == 0) {                 
           let horns = int(focusedRandom(0, 6));
           let width = focusedRandom(0, 1);
@@ -104,22 +104,22 @@ function draw () {
   }
  
   for(let j=0; j<16; j++) {
-  let x1=275*cos(degrees(angle2)) + width/2;
-  let y1=275*sin(degrees(angle2)) + height/2;
+  let x1=240*cos(degrees(angle2)) + width/2;
+  let y1=240*sin(degrees(angle2)) + height/2;
 
     angle2 = Math.PI*2/total2*j;
 
-        if(j > 0 || j <= 16) {
+        if(j > 0 || j < 16) {
               push();
               translate(x1,y1);
               scale(w/35,h/35);
+              rotate(map(j,0,15,67.5,400));
               let horns = int(focusedRandom(0, 5));
               let width = focusedRandom(0, 1);
               let cheekbones = focusedRandom(0.5,1);
-              drawFace1(horns, width,cheekbones);
-              pop();
+              drawFace1(horns, width,cheekbones);              
         }
-               
+        pop();      
       }
     
   
