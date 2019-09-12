@@ -10,6 +10,7 @@ let lastSwapTime = 0;
 const millisPerSwap = 5000;
 let angle = 0;
 let angle2 =  0;
+
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -39,6 +40,8 @@ function mouseClicked() {
 
 function draw () {
 
+
+
   if(millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
   }
@@ -47,7 +50,7 @@ function draw () {
   resetFocusedRandom(curRandomSeed);
 
   // clear screen
-  background(bg_color1);
+  
  
   noStroke();
 
@@ -56,21 +59,19 @@ function draw () {
   let h = canvasHeight / 4;
   let total = 8;
   let total2 = 16;  
-  for(let i=0; i<8; i++) {
-    for(let j=0; j<16; j++) {
+  for(let i=0; i<8; i++) {    
    
   let x=175*cos(degrees(angle)) + width/2;
-  let y=175*sin(degrees(angle)) + height/2;
+  let y=175*sin(degrees(angle)) + height/2;  
   
-  let x1=275*cos(degrees(angle2)) + width/2;
-  let y1=275*sin(degrees(angle2)) + height/2;
     angle = Math.PI*2/total*i;
-    angle2 = Math.PI*2/total2*j;
+    
    
       if (i == 0) {
         push();
         translate(canvasWidth/2,canvasHeight/2);
         scale(30.0);
+        background(bg_color1);
         drawFace3();
         pop();
       }
@@ -84,35 +85,44 @@ function draw () {
           let cheekbones = focusedRandom(-0.5,0.3);
           drawFace2(horns, width, cheekbones);
         pop();
-      }
-
-      if(j > 0 || j <= 16) {
-          push();
-          translate(x1,y1);
-          scale(w/35,h/35);
-          let horns = int(focusedRandom(0, 5));
-          let width = focusedRandom(0, 1);
-          let cheekbones = focusedRandom(0.5,1);
-          drawFace1(horns, width,cheekbones);
-          pop();
-        }
+      }      
         
       if (i >= 1 || i <= 8) {
             
         push();
         translate(x, y); 
-        scale(w/25, h/25);                      
-        if((i+j)%2 == 0) {                 
+        scale(w/25, h/25);
+        // rotate(map(i,0,7,90,315));                      
+        if((i)%2 == 0) {                 
           let horns = int(focusedRandom(0, 6));
           let width = focusedRandom(0, 1);
           let cheekbones = focusedRandom(-0.5,0.3);         
           drawFace2(horns, width, cheekbones);       
         }
-
-        pop();        
-      }
+        pop();
     }
   }
+ 
+  for(let j=0; j<16; j++) {
+  let x1=275*cos(degrees(angle2)) + width/2;
+  let y1=275*sin(degrees(angle2)) + height/2;
+
+    angle2 = Math.PI*2/total2*j;
+
+        if(j > 0 || j <= 16) {
+              push();
+              translate(x1,y1);
+              scale(w/35,h/35);
+              let horns = int(focusedRandom(0, 5));
+              let width = focusedRandom(0, 1);
+              let cheekbones = focusedRandom(0.5,1);
+              drawFace1(horns, width,cheekbones);
+              pop();
+        }
+               
+      }
+    
+  
 }
 
 function keyTyped() {
