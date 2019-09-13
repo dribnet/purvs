@@ -35,10 +35,13 @@ var HornStartY = -1.4;
 
 var HornEndX = -2.5;
 var HornEndY = -0.3;
-function drawFace1(horn, width, cheekbones) {
+function drawFace1(horn, width, cheekbones, jaw, symbol, eyecol) {
 // background(36,45,50);
  var WidthChanger = width;
  var cheekboneWidth = cheekbones;
+ var jaw = jaw;
+ var symbol = symbol;
+ var eyecol = eyecol;
  // noLoop();
   // Horn = Math.floor(Math.random()*5);
   // Horn = 3;
@@ -98,7 +101,8 @@ curveVertex(Xcenter+6,Y2B+1);
 endShape();
 
 //jaw
-
+push();
+translate(0,jaw);
 //shapeOfJaw
 beginShape();
 curveVertex(Xcenter-5.5,Y1-1.5);
@@ -196,7 +200,7 @@ curveVertex(Xcenter+3.7,Y2+1);
 curveVertex(Xcenter+3.7,Y2+1);
 
 endShape();
-
+pop();
 //eyebrowL
 beginShape();
 curveVertex(Xcenter-4,Y2B-0.5);
@@ -301,7 +305,8 @@ curveVertex(Xcenter+2,4.3);
 endShape();
 //botTeeth
 
-
+push();
+translate(0,jaw);
 //L1
 beginShape();
 curveVertex(Xcenter,6.5);
@@ -374,6 +379,7 @@ curveVertex(Xcenter-2.6,5.2);
 curveVertex(Xcenter-2.6,6);
 curveVertex(Xcenter-2.6,6);
 endShape();
+pop();
 
 //facefrontdetail
 strokeWeight(0.1);
@@ -402,7 +408,14 @@ curveVertex(Xcenter+6.2,Y1B+0.5);
 curveVertex(Xcenter+6,Y2B+1);
 curveVertex(Xcenter+6,Y2B+1);
 endShape();
-fill(36,45,50);
+
+
+if(eyecol == 1){
+  fill(60, 0, 13);
+}
+else{
+  fill(36,45,50);
+}
 //eyeLeft
 beginShape();
 curveVertex(Xcenter-4,-4);
@@ -435,6 +448,12 @@ curveVertex(Xcenter+4.4,-3.2);
 curveVertex(Xcenter+4,-4);
 curveVertex(Xcenter+3.9,-4);
 endShape();
+if(eyecol == 1){
+  fill(60, 0, 13);
+}
+else{
+  fill(36,45,50);
+}
 strokeWeight(0.25);
 //nose
 beginShape();
@@ -451,17 +470,28 @@ curveVertex(Xcenter-0.5,-0.9);
 curveVertex(Xcenter,-1);
 curveVertex(Xcenter,-1);
 endShape();
-
+push();
+translate(0,-6);
+scale(1.5);
+  if(symbol == 1){
+  drawThelema();
+  }
+  if(symbol == 2){
+  drawBabalon();
+  }
+pop();
 
 }
 
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function drawFace2(horn, width, cheekbones) { 
+function drawFace2(horn, width, cheekbones, symbol,eyecol) { 
  
   var WidthChanger = width;
   var cheekboneWidth = cheekbones;
+  var symbol = symbol;
+  var eyecol = eyecol;
   // noLoop();
    if(horn == 0){
     drawHorn1();
@@ -610,7 +640,12 @@ fill(255, 255, 247);
   endShape();
 
 //EyeLeft
-fill(36,45,50);
+if(eyecol == 1){
+  fill(60, 0, 13);
+}
+else{
+  fill(36,45,50);
+}
   beginShape();
     curveVertex(-2.7,0);
     curveVertex(-2.7,0);
@@ -705,6 +740,13 @@ fill(36,45,50);
     curveVertex(1,1.5);
     curveVertex(1,1.5);    
   endShape();
+
+  if(symbol == 1){
+  drawThelema();
+  }
+  if(symbol == 2){
+  drawBabalon();
+  }
 
 }
 
@@ -1435,5 +1477,39 @@ function drawHorn3 (){
   curve(4, -1,  3.5,   -5.3,   5.1,   -5.3,  6, 0);
   curve(4, -1,  3.4,   -5.5,   5,    -5.5,   7, 0);
 
+
+}
+function drawThelema(){
+  noFill();
+  stroke(255,0,0);
+  strokeWeight(0.04);
+  beginShape();
+  vertex(0,-1.75);
+  vertex(0,-1.75);
+  vertex(-1.25,0.75);
+  vertex(1.25,-0.75);
+  vertex(0,1.75);
+  vertex(-1.25,-0.75);
+  vertex(1.25,0.75);
+  vertex(0,-1.75);
+  vertex(0,-1.75);
+  endShape()
+}
+function drawBabalon(){
+  noFill();
+  stroke(255,0,0);
+  strokeWeight(0.04);
+  beginShape();
+  vertex(0,1.25);
+  vertex(0,1.25);
+  vertex(1.5,-0.58);
+  vertex(-0.58,-1.75);
+  vertex(-1.25,0.58);
+  vertex(1.25,0.58);
+  vertex(0.58,-1.75);
+  vertex(-1.5,-0.58);
+  vertex(0,1.25);
+  vertex(0,1.25);
+  endShape();
 
 }

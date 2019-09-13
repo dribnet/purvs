@@ -4,7 +4,7 @@
 
 const canvasWidth = 960;
 const canvasHeight = 500;
-let slider1, slider2, slider3, slider4, slider5;
+let slider1, slider2, slider3, slider4, slider5, slider6;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -17,13 +17,16 @@ function setup () {
   slider1 = createSlider(0, 100, 50);
   slider2 = createSlider(0, 100, 50);
   slider3 = createSlider(0, 100, 50);
-  slider4 = createSlider(0,100,50);
+  slider4 = createSlider(0, 100, 50);
+  slider5 = createSlider(0, 100, 50);
+  slider6 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
-
+  slider5.parent('slider5Container');
+  slider6.parent('slider6Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -49,6 +52,8 @@ function draw () {
   let s2 = slider2.value();
   let s3 = slider3.value();
   let s4 = slider4.value();
+  let s5 = slider5.value();
+  let s6 = slider6.value();
  
 
   let show_face_guide = faceGuideCheckbox.checked();
@@ -69,23 +74,24 @@ function draw () {
     let horns = int(map(s1, 0, 100, 0, 5));
     let width = map(s2, 0, 100, 0, 1);
     let cheekbones = map(s3,0,100,0,1);
-    let Jaw = map(s4,0,100,0,0.3);
-    drawFace1(horns, width, cheekbones,jaw);
+    let jaw = map(s4,0,100,0,0.3);
+    let symbol  = int(map(s5,0,100,0,3));
+    let eyecol = int(map(s6,0,100,0,2));
+    drawFace1(horns, width, cheekbones,jaw,symbol, eyecol);
   }
 
   if (mode == '2') {
     let horns = int(map(s1, 0, 100, 0, 5));
     let width = map(s2, 0, 100, 0, 1);
     let cheekbones = map(s3,0,100,-0.5,0.5);
-    drawFace2(horns, width, cheekbones);
+    let symbol  = int(map(s5,0,100,0,3));
+    let eyecol = int(map(s6,0,100,0,2));
+    drawFace2(horns, width, cheekbones, symbol, eyecol);
   }
 
   if (mode == '3') {
-    // draw 3rd face using values mapped from 3 sliders
-    let tilt_value = map(s1, 0, 100, -90, 90);
-    let mouth_value = map(s2, 0, 100, 0.5, 10);
-    let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
+    
+    drawFace3();
   }
   pop();
 

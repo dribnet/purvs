@@ -3,7 +3,7 @@
 
 ----------------------------------------------------------------------------------
 FINAL READ ME 
-- For this project I drew two types of skulls Human and Ram, and different types of horns to add more variety. I went with a darker/occultist theme. I got my inspiration by looking through my old sketch books I have at home.
+- For this project I drew two types of skulls Human and Ram, different types of horns, changing eye colour, drawing the symbols of Babalon and Thelma aswell as some width changingparamters to add more variety to the skulls. I went with a darker/occultist theme using symbolism of the Thelema. I got my inspiration by looking through my old sketch books I have at home.
 
 To create the shapes i used Curve vertexes to make all of the shapes custom  so there would be alot more detail and a better overall look as default shapes were far too restricting for what I wanted. This turned out to be very time consuming,
 Because of how time consuming this method became there were alot of variables that I had thought of using that I no longer had time to implement. 
@@ -17,6 +17,9 @@ My variables
 - The width of the cheekbones applys to the cheekbones of the human skull and the nose of the Ram.
 - The width applies to the human skull width. 
 - The human skull has a chance to not generate horns.
+- Eye colour changes between a dark grey and dark red.
+- Jaw on Human skull opens and closes 
+- There are 2 symbols with a chance of no symbol, symbol 1 or symbol 2 being drawn on the dorehead of the skull
 
 ----------------------------------------------------------------------------------
 
