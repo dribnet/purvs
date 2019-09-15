@@ -77,7 +77,8 @@ function draw () {
           let curly = focusedRandom(0, 100);
           let hair_length = focusedRandom(0, 100);
           let  eye = focusedRandom(0, 100);
-          drawFace1(curly, hair_length, eye);
+          let hairColour = focusedRandom(0, 100);
+          drawFace1(curly, hair_length, eye, hairColour);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);

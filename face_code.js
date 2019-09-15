@@ -15,7 +15,7 @@ function drawFace1(length, curly, e, hair) {
   let blondeHair = color(255, 218, 115);
   let gingerHair = color(230, 150, 90);
   let brownHair = color(181, 91, 58);
-  let blackHair = color(0, 0, 0);
+  let blackHair = color(100, 100, 100);
   let hairColour;
 
   let curl = map(curly, 0, 100, 180, -90);
@@ -23,7 +23,7 @@ function drawFace1(length, curly, e, hair) {
   let L = map(length, 0, 100, 0, 340);
   let eyeSize = e;
   fill(255, 218, 115);
-  stroke(230, 188, 73);
+  //stroke(230, 188, 73);
 
   //hair colour temp
   if(hair < 25){
@@ -37,6 +37,7 @@ function drawFace1(length, curly, e, hair) {
   } 
   
   fill(hairColour);
+  stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
  //stroke(255, 218, 115);
  strokeWeight(width/960/10);
@@ -74,8 +75,8 @@ function drawFace1(length, curly, e, hair) {
   ellipse(0, -2, 10);
   // eyes
   fill(255);
-  eye(-3.75, eyeSize);
-  eye(3.75, eyeSize);
+  eye(-3.75, eyeSize, hairColour);
+  eye(3.75, eyeSize, hairColour);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
   //nose
@@ -120,14 +121,15 @@ function drawFace1(length, curly, e, hair) {
 
   fill(255, 218, 115);
   stroke(230, 188, 73);
-
+   fill(hairColour);
+  stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
   Fringe(L, curly);
 }
 
-function eye(pos, size){
-
-
+function eye(pos, size, col){
+  let hairColour = col;
+  
   push();
   scale(0.65, 0.65);
   translate(pos, -3);
@@ -163,8 +165,8 @@ function eye(pos, size){
   }
   //eyebrow
   strokeWeight(0.2*sc);  
-  fill(255, 218, 115);
-  stroke(194, 159, 64);
+  fill(hairColour);
+  stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
   let eyebrowSize = map(size, 0, 100, 1, 0);
 
@@ -308,50 +310,6 @@ function eye(pos, size){
   ellipse(1.75*sc, -1.5*sc, 1.25*sc, 1*sc);
   ellipse(-2*sc, 1*sc, 1*sc, 1*sc);  
 
-  /*
-  fill(255);
-  beginShape();
-
-  vertex(-2, 1);
-
-  let x1 = -0.5;
-  let y1 = 2.75;
-  bezierVertex(-2, 1, x1, y1, 1.25, 1.75); //1
-
-  vertex(1.25, 1.75);
-
-  let x2 = 1.75;
-  let y2 = 1.5;
-  bezierVertex(1.25, 1.75, x2, y2, 1.25, 1.25); //2
-
-  vertex(1.25, 1.25);
-
-  let x3 = 0;
-  let y3 = 1.75;
-  bezierVertex(1.25, 1.25, x3, y3, -2, 1); //3
-
-
-  endShape(CLOSE);
-
-
-  fill(153, 199, 255, 200);
-  ellipse(-1, -1, 2, 1.5);
-
-  ellipse(-0.25, -0.25, 2, 2);
-
-  ellipse(-1, 0.5, 1.25, 1);
-
-  fill(255);
-  push();
-  rotate(-30);
-  ellipse(1.5, -0.75, 1, 1.5);
-  pop();
-
-  ellipse(1.5, -0.2, 0.75, 0.75);
-
-  fill(67, 134, 217);
-  ellipse(1, 0.4, 0.6, 0.6);
-  */
   pop();
 }
 
