@@ -47,7 +47,7 @@ function drawFace1(length, curly, e, hair) {
   drawHair(L, curly, hairColour);
   pop();
 
-  fill(200, 150, 150);
+  fill(227, 190, 161);
   noStroke();
   // head
 
@@ -132,6 +132,7 @@ function eye(pos, size){
   scale(0.65, 0.65);
   translate(pos, -3);
 
+/*
   //eyebrows
   push();
   if(pos <0){
@@ -144,6 +145,7 @@ function eye(pos, size){
   bezier(-0.75, -0.25, 0.75, -1.25, 2, -0.75,3.5, -0.25);
 
   pop();
+  */
 
   //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
   scale(1, 1);
@@ -159,6 +161,22 @@ function eye(pos, size){
     scale(-1, 1);
     translate(-0.15, 0);
   }
+  //eyebrow
+  strokeWeight(0.2*sc);  
+  fill(255, 218, 115);
+  stroke(194, 159, 64);
+
+  let eyebrowSize = map(size, 0, 100, 1, 0);
+
+  beginShape();
+
+  vertex(2.75-eyebrowSize, -2);
+  bezierVertex(2.75-eyebrowSize, -2, 0.5-eyebrowSize/2, -3.5 ,-2+eyebrowSize, -2);
+
+  vertex(-2+eyebrowSize, -2);
+  bezierVertex(-2+eyebrowSize, -2, 2-eyebrowSize/2, -2.5 ,2.75-eyebrowSize, -2);
+
+  endShape(CLOSE);
 
   //outter white eye //3
   if(size > 50 && size < 75){
@@ -168,8 +186,9 @@ function eye(pos, size){
   } else {
     sc = 0;
   }
-  
+  noStroke();
   beginShape();
+  fill(255);
 
   vertex(-3.5*sc, -0.5*sc);
   bezierVertex(-3.5*sc, -1*sc, 1.5*sc, -5.5*sc , 4.5*sc , 0);
@@ -179,6 +198,18 @@ function eye(pos, size){
   
   endShape();
 
+  //outline
+  stroke(0);
+  noFill();
+  beginShape();
+
+  vertex(-3.5*sc, -0.5*sc);
+  bezierVertex(-3.5*sc, -1*sc, 1.5*sc, -5.5*sc , 4.5*sc , 0);
+
+  vertex(4.5*sc, 0);
+  //bezierVertex(5*sc, 0, 1.5*sc, 5*sc, -2.5*sc, 2*sc);
+  
+  endShape();
   pop();
   strokeWeight(0.3*sc);
 
@@ -191,8 +222,8 @@ function eye(pos, size){
     sc = 0;
   }
 
-  stroke(0);
-  fill(23, 26, 120);
+  stroke(72, 75, 150);
+  fill(72, 75, 150);
 
   ellipse(0.1*sc, 0, 5*sc, 5*sc);
   noStroke();
@@ -213,7 +244,7 @@ function eye(pos, size){
   fill(255,  random(50, 125));
   noStroke();
     for(let x =0; x < 40; x++){
-      ellipse(random(0.5*sc, 2.5*sc) * cos(x*20), random(1.12*sc, 2*sc) * sin(x*20), random(0.1, 0.5),  random(0.1, 0.5));
+      //ellipse(random(0.5*sc, 2.5*sc) * cos(x*20), random(1.12*sc, 2*sc) * sin(x*20), random(0.1, 0.5),  random(0.1, 0.5));
     }
   pop();
 
