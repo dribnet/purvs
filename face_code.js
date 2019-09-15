@@ -8,7 +8,7 @@
  */
 
 
-function drawFace1(length, curly, e, hair) {
+function drawFace1(length, curly, e, hair, acc) {
 
  
   let whiteHair = color(232, 237, 237);
@@ -50,23 +50,19 @@ function drawFace1(length, curly, e, hair) {
 
   fill(227, 190, 161);
   noStroke();
+
   // head
 
   beginShape();
 
   vertex(-5, -2);
   bezierVertex(-5, -2, -5, 1 ,-3, 3);
-  //bezierVertex(-5, -2, -5, 4 , 0, 5);
-
   vertex(-3, 3);
   bezierVertex(-3, 3, -1.5, 4.5 ,0, 5);
-
   vertex(0, 5);
   bezierVertex(0, 5, 1.5, 4.5 ,3, 3);
   vertex(3, 3);
-
   bezierVertex(3, 3, 5, 1 ,5, -2);
-
   vertex(5, -2);
 
   endShape();
@@ -77,21 +73,16 @@ function drawFace1(length, curly, e, hair) {
   fill(255);
   eye(-3.75, eyeSize, hairColour);
   eye(3.75, eyeSize, hairColour);
-  //ellipse(-3, -3, 2);
-  //ellipse( 3, -3, 2);
+
   //nose
   noFill();
   strokeWeight(0.07);
   stroke(75);
-  //line(0, -1, 0, 1);
 
   beginShape();
-
-  //line(0.3, 0.6, 0.7, 0.5);
   bezier(0.25, 0.8, 0.55, 0.65 , 0.55, 0.65 , 0.7, 0.7);
-
-  //line(-0.3, 0.6, -0.7, 0.5);
   bezier(-0.25, 0.8, -0.55, 0.65 , -0.55, 0.65 , -0.7, 0.7);
+  endShape();
 
   noStroke();
   fill(0, 20);
@@ -124,12 +115,126 @@ function drawFace1(length, curly, e, hair) {
    fill(hairColour);
   stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
+  push();
   Fringe(L, curly);
+  pop();
+
+  if(acc > 0){
+    push();
+    bow(L, curly, 1);
+    pop();
+  }
+  if(acc > 1){
+    push();
+    bow(L, curly, -1);
+    pop();
+  }
 }
+
+function bow(len,curl, pos){
+  c = curl/100;
+
+  scale(pos, 1);
+  scale(0.8, 0.8);
+
+  
+ if(len > 190){
+  translate(7.25+map(len, 190, 340, 0, c), 
+    -4+map(len, 190, 340, 0, c)); 
+} else {
+  translate(7.25-map(len, 0, 190, 2, 0), -4-map(len, 0, 190, 3, 0)); //short
+
+  scale(map(len, 0, 190, 0.75, 1), map(len, 0, 190, 0.75, 1));
+
+}
+
+  rotate(0);
+
+  fill(255, 204, 225);
+  stroke(171, 65, 108);
+  strokeWeight(0.05);
+
+  beginShape();
+  vertex(0, 1);
+  bezierVertex(0, 1, 0.25, 3, 1.5, 5);
+  vertex(3, 5);
+  bezierVertex(3, 5, 1, 3.5, 0.5, 1);
+  endShape();
+
+  beginShape();
+  vertex(0.25, 1);
+  bezierVertex(0.25, 1, 0.75, 3, 4, 5);
+
+  vertex(5, 4);
+  bezierVertex(5, 4, 1.5, 3.5, 0.75, 1);
+  endShape();
+ 
+
+  //big left
+  beginShape();
+
+  vertex(0, 0);
+  bezierVertex(0, 0,-3, -3, -3, -2);
+  vertex(-2, 0);
+  bezierVertex(-2, 0, -3, 1, -2, 1.5);
+  vertex(0, 1);
+
+  endShape();
+
+  //big right
+  beginShape();
+
+  vertex(1, 0);
+  bezierVertex(1, 0,3, -3, 3, -2);
+  vertex(3, -2);
+  vertex(2.25, 0);
+  bezierVertex(2, 0, 3, 1, 2, 1.5);
+  vertex(2, 1.5);
+  vertex(1, 1);
+
+  endShape();
+  //outline
+  fill(255, 150, 193);
+  noStroke();
+  bezier(2, 1.5, 2.5, 0.75, 1, 0.5 ,1, 1);
+
+  //outline2
+  bezier(-2, 1.5, -2, 0.5, 0, 0.3 ,0, 1);
+
+  //upper outline
+  beginShape();
+
+  vertex(1, 0);
+  bezierVertex(1, 0 ,3, -3, 3, -2);
+  vertex(1, 0.25);
+  endShape();
+
+  beginShape();
+  vertex(0, 0);
+  bezierVertex(0, 0,-3, -3, -3, -2);
+  vertex(0, 0.25);
+  endShape();
+
+  //shadow
+  fill(171, 65, 108);
+  stroke(171, 65, 108);
+  bezier(2, 1.5, 2, 1, 1.5, 1 ,1, 1);
+  line(2, 1.5, 1, 1);
+
+  //shadow2
+  bezier(-2, 1.5, -1.5, 0.75, -0.5, 0.75 ,0, 1);
+  line(-2, 1.5, 0, 1);
+
+  fill(255, 204, 225);
+  rect(-0.1, -0.1, 1.1,1.1, 0.3);
+
+
+}
+
 
 function eye(pos, size, col){
   let hairColour = col;
-  
+
   push();
   scale(0.65, 0.65);
   translate(pos, -3);

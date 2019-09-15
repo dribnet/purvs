@@ -71,7 +71,8 @@ function draw () {
     let curly = s2;
     let eye = s3;
     let hairColour = s4;
-    drawFace1(hair_Length, curly, eye, hairColour);
+    let acc = int(map(s5, 0, 100, 0, 8));
+    drawFace1(hair_Length, curly, eye, hairColour, acc);
   }
 
   if (mode == '2') {
