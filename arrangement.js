@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [225, 206, 187];
+const bg_color1 = [232, 232, 232];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -44,7 +44,33 @@ function draw () {
   background(bg_color1);
   noStroke();
 
+
   // draw a 7x4 grid of faces
+  let w = canvasWidth / 4;
+  let h = canvasHeight / 2;
+  for(let i=0; i<2; i++) {
+    for(let j=0; j<4; j++) {
+      let y = h/2 + h*i;
+      let x = w/2 + w*j;     
+     
+      // all other faces
+      push();
+      translate(x, y);
+      scale(h/20, h/20);
+
+      let curly = focusedRandom(0, 100);
+      let hair_length = focusedRandom(0, 100);
+      let  eye = focusedRandom(0, 100);
+      let hairColour = focusedRandom(0, 100);
+      let acc = focusedRandom(0, 8);
+      drawFace1(curly, hair_length, eye, hairColour, acc);
+
+      pop();
+      
+    }
+  }
+  /*
+    // draw a 7x4 grid of faces
   let w = canvasWidth / 7;
   let h = canvasHeight / 4;
   for(let i=0; i<4; i++) {
@@ -89,6 +115,7 @@ function draw () {
       }
     }
   }
+  */
 }
 
 function keyTyped() {

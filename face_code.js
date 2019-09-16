@@ -45,47 +45,71 @@ function drawFace1(length, curly, e, hair, acc) {
  print(width);
 
   push();
-  drawHair(L, curly, hairColour);
+ drawHair(L, curly, hairColour);
   pop();
 
   fill(227, 190, 161);
-  noStroke();
+  stroke(227, 190, 161);
+  //noStroke();
 
-  // head
+    // head
 
   beginShape();
 
-  vertex(-5, -2);
-  bezierVertex(-5, -2, -5, 1 ,-3, 3);
+  vertex(-4.75, -2);
+
+  bezierVertex(-4.75, -2, -3.5, 3,-3, 3);
+
   vertex(-3, 3);
-  bezierVertex(-3, 3, -1.5, 4.5 ,0, 5);
+  
+  bezierVertex(-3, 3, -2.75, 3.5,0, 5);
+
   vertex(0, 5);
-  bezierVertex(0, 5, 1.5, 4.5 ,3, 3);
+
+  bezierVertex(0, 5, 2.75, 3.5, 3, 3);
+
   vertex(3, 3);
-  bezierVertex(3, 3, 5, 1 ,5, -2);
-  vertex(5, -2);
+
+  bezierVertex(3, 3, 3.5, 3, 4.75, -2);
+
+  vertex(4.75, -2);
 
   endShape();
 
-
-  ellipse(0, -2, 10);
+  //ellipse(0, -2, 10);
+  ellipse(0, -2.5, 9.5, 9.5);
   // eyes
   fill(255);
-  eye(-3.75, eyeSize, hairColour);
-  eye(3.75, eyeSize, hairColour);
+  push();
+  translate(0, 0.75);
+  let eyeColour = 0;
+  eye(-3.9, eyeSize, hairColour, eyeColour);
+  eye(3.9, eyeSize, hairColour, eyeColour);
+  pop();
 
   //nose
   noFill();
   strokeWeight(0.07);
   stroke(75);
 
+  /*
   beginShape();
   bezier(0.25, 0.8, 0.55, 0.65 , 0.55, 0.65 , 0.7, 0.7);
   bezier(-0.25, 0.8, -0.55, 0.65 , -0.55, 0.65 , -0.7, 0.7);
   endShape();
+  */
+
+
+
+  line(-0.25, 1, 0, 1.25);
 
   noStroke();
   fill(0, 20);
+
+  push();
+  translate(0, 0.5);
+  scale(0.8, 0.8);
+
   beginShape(); //nose
 
   vertex(0.5, 0.4);
@@ -102,37 +126,141 @@ function drawFace1(length, curly, e, hair, acc) {
   bezierVertex(0, 0.5, 0.4, 0.35 ,0.5, 0.4); //top right
 
   endShape(CLOSE);
-  fill(158, 84, 82);
-  ellipse(0, 2.4, 1.5, 0.5);
+
+  pop();
+
+
   stroke(0);
-  line(-0.25, 2.3, 0.25, 2.3);
+  bezier(-0.8, 2.8, -0.5, 3, 0.5, 3, 0.8, 2.8);
+
   noStroke();
   fill(255, 50);
-  ellipse(-0.2, -1, 0.15, 2.5);
+  //ellipse(-0.2, -1, 0.15, 2.5);
 
   fill(255, 218, 115);
   stroke(230, 188, 73);
-   fill(hairColour);
+  fill(hairColour);
   stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
-
+  
   push();
   Fringe(L, curly);
   pop();
-
-  if(acc > 0){
+  
+   if(acc > 2){ //2 flower
+    push();
+    flower1(L, 1);
+    pop();
+  }
+  if(acc > 3){ //3 flower
+    push();
+    flower1(L, 0.8);
+    pop();
+  }
+    if(acc > 4){ //4 flower
+    push();
+    flower2(L, curly);
+    pop();
+  }
+  if(acc > 0){ //0 bow
     push();
     bow(L, curly, 1);
     pop();
   }
-  if(acc > 1){
+  if(acc > 1){ //1 bow
     push();
     bow(L, curly, -1);
     pop();
   }
+
+}
+function flower2(len, curl){
+  if(len > 190){
+    translate(map(len, 190, 340, -5.5,-6.5+curl/200), map(len, 190, 340, -1, 5+curl/50));
+  }else {
+
+    translate(map(len, 0, 190, -5, -5.5),
+    map(len, 0, 190, -3.5, -1));
+    //translate(-5, -3.5);
+  }
+  
+  stroke(163, 120, 57);
+  for(let i = 0; i < 5; i++){
+   
+    rotate(72);
+    push();
+    translate(0, -1);
+    fill(250, 236, 192);
+    bezier(-0.25, 0.5, -1.5, -1.25, 1.5, -1.25 ,0.25, 0.5);
+
+    fill(237, 196, 135);
+    noStroke();
+    bezier(-0.15, 0.5, -1, -0.75, 1, -0.75 ,0.15, 0.5);
+
+    pop();
+  }
+  fill(222, 178, 113);
+
+  ellipse(0, 0, 1, 1);
+}
+
+function flower1(len, sc){
+  scale(sc, sc);
+  //textSize(1);
+  //text(len, -15, 5);
+
+  if(sc < 1){
+    translate(2, -1);
+  }
+  if(len > 190){
+    translate(6, map(len, 190, 340, -2, 3));
+  } else {
+    translate(map(len, 0, 190, 4, 6), 
+      map(len, 0, 190, -6.5, -2));
+  }
+
+  //translate(6, -2); long
+  //translate(4, -6.5); short
+  if(sc < 1){
+  stroke(131, 87, 173);
+  } else {
+    stroke(78, 127, 207);
+  }
+
+
+
+  for(let i = 0; i < 5; i++){
+    rotate(72);
+    if(sc < 1){
+     fill(180-i*10, 140-i*10, 219);
+    } else {
+     fill(166-i*10, 200-i*10, 255);
+   }
+    push();
+    translate(0, -0.75);
+
+    ellipse(0, 0, 1.5, 1.5);
+    pop();
+  }
+
+  if(sc < 1){
+    fill(230, 172, 110);
+  } else {
+    fill(245, 208, 115);
+  } 
+
+  ellipse(0, 0, 1, 1);
 }
 
 function bow(len,curl, pos){
   c = curl/100;
+
+  let scale1 = map(len, 0, 340, 0.7, 1);
+  if(pos < 0){
+  translate(-6*(1-scale1), -3*(1-scale1));
+  } else {
+   translate(6*(1-scale1), -3*(1-scale1));
+ }
+  scale(scale1, scale1);
 
   scale(pos, 1);
   scale(0.8, 0.8);
@@ -232,11 +360,25 @@ function bow(len,curl, pos){
 }
 
 
-function eye(pos, size, col){
+function eye(pos, size, col, eyeCol){
+  colorMode(HSB, 360, 100, 100);
+  //let Med = color(34, 108, 201); blue
+  //let Med = color(33, 143, 84); green
+  let Med = color(213, 83, 79); 
+  let Dark = color(213, 53, 52);
+  //let Dark = color(red(Med)+40, green(Med)-30, blue(Med)-20);
+  //let Light = color(red(Med)+41, green(Med)+38, blue(Med)+34);
+  let Light = color(213, 68, 92);
+
+  //let Dark = color(74, 78, 181); 213, 59, 71
+  //let dark = 74, 78, 181
+  
+  //let Light = color(75, 146, 235);   213, 68, 92
+
   let hairColour = col;
 
   push();
-  scale(0.65, 0.65);
+  scale(0.6, 0.6);
   translate(pos, -3);
 
 /*
@@ -329,16 +471,18 @@ function eye(pos, size, col){
     sc = 0;
   }
 
-  stroke(72, 75, 150);
-  fill(72, 75, 150);
+  stroke(Dark);
+  fill(Dark);
 
   ellipse(0.1*sc, 0, 5*sc, 5*sc);
   noStroke();
 
   //blue shading //2
-  fill(34, 108, 201);
+  
+  fill(Med);
   ellipse(0, 0.5*sc, 4.5*sc, 3*sc);
-  fill(75, 146, 235);
+
+  fill(Light);
   ellipse(0, 1*sc, 4*sc, 2.5*sc);
 
   //noisey dots //4
@@ -416,6 +560,8 @@ function eye(pos, size, col){
   ellipse(-2*sc, 1*sc, 1*sc, 1*sc);  
 
   pop();
+
+  colorMode(RGB, 255);
 }
 
 
@@ -432,12 +578,15 @@ function Fringe(Len, cur){
   }
 
   if(L > 0){
-  let xSc = map(L, 0, 340, 0.4-(cur/250), 1.25); 
-  let ySc = map(L, 0, 340, 0, 1.25); 
-  let c = map(cur, 0, 100, ySc, 0); 
+
+
+  let xSc = map(L, 0, 340, 0.4-(cur/250), map(cur, 0, 100, 1.5, 1.25)); 
+  let ySc = map(L, 0, 340, 0, map(cur, 0, 100, 2, 1.4)); 
+  let c = map(cur, 0, 100, 0.8*ySc, 0); 
   let c2 = cur/100;
 
-  translate(0, map(L, 0, 340, -6, -5.5+cur/66));
+  //translate(0, map(L, 0, 340, -6, -3.5+cur/66)); //5.5
+  translate(0, map(L, 0, 340, -6.5, map(cur, 0, 100, -4.5, -4))); 
 
   print(Len);
   
