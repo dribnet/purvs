@@ -59,11 +59,18 @@ function draw () {
       scale(h/20, h/20);
 
       let curly = focusedRandom(0, 100);
-      let hair_length = focusedRandom(0, 100);
-      let  eye = focusedRandom(0, 100);
+      //let hair_length = focusedRandom(0, 100);
+      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 1, 2)))*100);
+
+      //let  eye = focusedRandom(0, 100); 
+      print("random : " + (int(focusedRandom(0, 2)))*100);
+      let  eye = focusedRandom(0, 100, 5, int(focusedRandom(0, 5))*25);
       let hairColour = focusedRandom(0, 100);
-      let acc = focusedRandom(0, 8);
-      drawFace1(curly, hair_length, eye, hairColour, acc);
+      let eyeColour = focusedRandom(0, 360);
+      //let result = focusedRandom(min, max, focus, mean);
+      let acc = focusedRandom(0, 5);
+      let makeup = focusedRandom(0, 100);
+      drawFace1(hair_length, curly ,eye, eyeColour,acc, hairColour, makeup);
 
       pop();
       

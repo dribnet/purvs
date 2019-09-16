@@ -8,9 +8,9 @@
  */
 
 
-function drawFace1(length, curly, e, hair, acc) {
+function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
 
- 
+
   let whiteHair = color(232, 237, 237);
   let blondeHair = color(255, 218, 115);
   let gingerHair = color(230, 150, 90);
@@ -42,17 +42,27 @@ function drawFace1(length, curly, e, hair, acc) {
  //stroke(255, 218, 115);
  strokeWeight(width/960/10);
  randomSeed(23);
- print(width);
 
   push();
  drawHair(L, curly, hairColour);
   pop();
+  //ears
+  push();
+  fill(227, 191, 161);
+  stroke(227, 191, 161);
+  rotate(-15);
+  ellipse(-3.5, -1.5, 2,3 );
 
-  fill(227, 190, 161);
-  stroke(227, 190, 161);
+  rotate(30);
+  ellipse(3.5, -1.5, 2,3 );
+  pop();
+
+  fill(237, 203, 175);
+  stroke(237, 203, 175);
   //noStroke();
 
-    // head
+
+  // head
 
   beginShape();
 
@@ -81,8 +91,10 @@ function drawFace1(length, curly, e, hair, acc) {
   // eyes
   fill(255);
   push();
+
+  makeup(makeupStrength, eyeSize);
+
   translate(0, 0.75);
-  let eyeColour = 0;
   eye(-3.9, eyeSize, hairColour, eyeColour);
   eye(3.9, eyeSize, hairColour, eyeColour);
   pop();
@@ -91,15 +103,6 @@ function drawFace1(length, curly, e, hair, acc) {
   noFill();
   strokeWeight(0.07);
   stroke(75);
-
-  /*
-  beginShape();
-  bezier(0.25, 0.8, 0.55, 0.65 , 0.55, 0.65 , 0.7, 0.7);
-  bezier(-0.25, 0.8, -0.55, 0.65 , -0.55, 0.65 , -0.7, 0.7);
-  endShape();
-  */
-
-
 
   line(-0.25, 1, 0, 1.25);
 
@@ -173,6 +176,29 @@ function drawFace1(length, curly, e, hair, acc) {
   }
 
 }
+
+function makeup(strength, eyeSize){
+  for(let i = 0; i < 10; i++){
+    noStroke();
+    fill(255, 64, 118, 0.05*strength);
+    ellipse(-2.75, 0, i*0.3, i*0.3);
+   ellipse(2.75, 0, i*0.3, i*0.3);
+  }
+  strokeWeight(0.05);
+  stroke(199, 143, 107, strength*2.55);
+
+  line(-3, 0, -3.2, 0.5);
+  line(-2.75, 0.05, -2.95, 0.55);
+  line(-2.5, 0.1, -2.7, 0.6);
+  line(-2.25, 0.15, -2.45, 0.65);
+
+  line(3.2, 0, 3, 0.5);
+  line(2.95, 0.05, 2.75, 0.55);
+  line(2.7, 0.1, 2.5, 0.6);
+  line(2.45, 0.15, 2.25, 0.65);
+}
+
+
 function flower2(len, curl){
   if(len > 190){
     translate(map(len, 190, 340, -5.5,-6.5+curl/200), map(len, 190, 340, -1, 5+curl/50));
@@ -362,18 +388,19 @@ function bow(len,curl, pos){
 
 function eye(pos, size, col, eyeCol){
   colorMode(HSB, 360, 100, 100);
-  //let Med = color(34, 108, 201); blue
-  //let Med = color(33, 143, 84); green
-  let Med = color(213, 83, 79); 
-  let Dark = color(213, 53, 52);
-  //let Dark = color(red(Med)+40, green(Med)-30, blue(Med)-20);
-  //let Light = color(red(Med)+41, green(Med)+38, blue(Med)+34);
-  let Light = color(213, 68, 92);
+  //213 blue
+  let coll = eyeCol;
+  let bright;
+  if(size > 25){
+   bright =  map(size, 25, 100, 1, 0);
+  } else {
+    bright = 1;
+  }
 
-  //let Dark = color(74, 78, 181); 213, 59, 71
-  //let dark = 74, 78, 181
-  
-  //let Light = color(75, 146, 235);   213, 68, 92
+  let Med = color(coll, 83 - (59*bright), 79 - (30*bright)); //59
+  let Dark = color(coll, 53- (29*bright), 52 - (30*bright)); //29
+
+  let Light = color(coll, 68 - (44*bright), 92 - (30*bright)); //44
 
   let hairColour = col;
 
@@ -381,22 +408,7 @@ function eye(pos, size, col, eyeCol){
   scale(0.6, 0.6);
   translate(pos, -3);
 
-/*
-  //eyebrows
-  push();
-  if(pos <0){
-    scale(-1, 1);
-  }
-  strokeWeight(0.3);
-  stroke(107, 87, 66);
-  noFill();
-  translate(-1.25, -2);
-  bezier(-0.75, -0.25, 0.75, -1.25, 2, -0.75,3.5, -0.25);
 
-  pop();
-  */
-
-  //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
   scale(1, 1);
 
   let sc = 0.57;
@@ -413,7 +425,8 @@ function eye(pos, size, col, eyeCol){
   //eyebrow
   strokeWeight(0.2*sc);  
   fill(hairColour);
-  stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
+  //stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
+  stroke(hue(hairColour), saturation(hairColour), brightness(hairColour)-20);
 
   let eyebrowSize = map(size, 0, 100, 1, 0);
 
@@ -500,19 +513,6 @@ function eye(pos, size, col, eyeCol){
   pop();
 
 
-  //black center //1
-  sc = 0.57;
-  fill(0);
-
-  push();  
-  translate(0, -0.25);
-  ellipse(0, 0, 1.5*sc, 2.25*sc);
-
-  if(size > 75){
-    sc = map(size, 75, 100, 0, 0.57);
-  } else {
-    sc = 0;
-  }
 
   //lines from center //4
   stroke(0);  
@@ -533,13 +533,27 @@ function eye(pos, size, col, eyeCol){
   }
 
   //lower white cirles //4
-  fill(255, 150);
+  fill(255, 50);
   noStroke();
   rotate(-160);
   for(let j = 0; j < 6; j++){
     ellipse(1.25*sc, 1.5*sc, 0.6*sc, 0.6*sc);
     rotate(-12);
   }
+    //black center //1
+  sc = 0.57;
+  fill(0);
+
+  push();  
+  translate(0, -0.25);
+  ellipse(0, 0, 1.5*sc, 2.25*sc);
+
+  if(size > 75){
+    sc = map(size, 75, 100, 0, 0.57);
+  } else {
+    sc = 0;
+  }
+
 
   pop();
 
@@ -588,7 +602,6 @@ function Fringe(Len, cur){
   //translate(0, map(L, 0, 340, -6, -3.5+cur/66)); //5.5
   translate(0, map(L, 0, 340, -6.5, map(cur, 0, 100, -4.5, -4))); 
 
-  print(Len);
   
   for(let i = 0; i <5; i++){
 
