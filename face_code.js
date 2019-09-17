@@ -8,16 +8,17 @@
  */
 
 
-function drawFace1(length, curly) {
+function drawFace1(length, curly, e) {
 
   let curl = map(curly, 0, 100, 180, -90);
   angleMode(DEGREES);
   let L = map(length, 0, 100, 0, 340);
-
+  let eyeSize = e;
   fill(255, 218, 115);
   stroke(230, 188, 73);
  //stroke(255, 218, 115);
  strokeWeight(width/960/10);
+ randomSeed(23);
  print(width);
 
   push();
@@ -27,46 +28,272 @@ function drawFace1(length, curly) {
   fill(200, 150, 150);
   noStroke();
   // head
+  beginShape();
+  vertex(-5, -2);
+  bezierVertex(-5, -2, -5, 3 , 0, 4);
+
+  vertex(0, 4);
+
+  bezierVertex(0, 4, 5, 3, 5, -2);
+
+  vertex(5, -2);
+  endShape();
+
   ellipse(0, -2, 10);
   // eyes
   fill(255);
+  eye(-3.25, eyeSize);
+  eye(3.25, eyeSize);
   //ellipse(-3, -3, 2);
   //ellipse( 3, -3, 2);
-
+  
   fill(255, 218, 115);
   stroke(230, 188, 73);
-  if(L > 139){
+
+
   Fringe(L, curly);
+}
+
+function eye(pos, size){
+
+
+  push();
+
+  scale(0.75, 0.75);
+  translate(pos, -2.5);
+
+  //scale(map(size, 0, 100, 0.3, 1), map(size, 0, 100, 0.5, 1) );
+  scale(1, 1);
+
+  let sc = 0.57;
+
+  stroke(0);
+  strokeWeight(0.2*sc);
+  strokeCap(SQUARE);
+
+  push();
+  if(pos < 0){
+    scale(-1, 1);
+    translate(-0.15, 0);
   }
 
+  //outter white eye //3
+  if(size > 50 && size < 75){
+    sc = map(size, 50, 75, 0, 0.57);
+  } else if(size >= 75){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+  
+  beginShape();
+
+  vertex(-3.5*sc, -0.5*sc);
+  bezierVertex(-3.5*sc, -1*sc, 1.5*sc, -5.5*sc , 4.5*sc , 0);
+
+  vertex(4.5*sc, 0);
+  bezierVertex(5*sc, 0, 1.5*sc, 5*sc, -2.5*sc, 2*sc);
+  
+  endShape();
+
+  pop();
+  strokeWeight(0.3*sc);
+
+  //bulk blue //2
+  if(size > 25 && size < 50){
+    sc = map(size, 25, 50, 0, 0.57);
+  } else if(size >= 50){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+
+  stroke(0);
+  fill(23, 26, 120);
+  ellipse(0.1*sc, 0, 5*sc, 5*sc);
+  noStroke();
+
+  //blue shading //2
+  fill(34, 108, 201);
+  ellipse(0, 0.5*sc, 4.5*sc, 3*sc);
+  fill(75, 146, 235);
+  ellipse(0, 1*sc, 4*sc, 2.5*sc);
+
+  //noisey dots //4
+  if(size > 75){
+    sc = map(size, 75, 100, 0, 0.57);
+  } else {
+    sc = 0;
+  }
+  push();
+  fill(255,  random(50, 125));
+  noStroke();
+    for(let x =0; x < 40; x++){
+      ellipse(random(0.5*sc, 2.5*sc) * cos(x*20), random(1.12*sc, 2*sc) * sin(x*20), random(0.1, 0.5),  random(0.1, 0.5));
+    }
+  pop();
+
+
+  //black center //1
+  sc = 0.57;
+  fill(0);
+
+  push();  
+  translate(0, -0.25);
+  ellipse(0, 0, 1.5*sc, 2.25*sc);
+
+  if(size > 75){
+    sc = map(size, 75, 100, 0, 0.57);
+  } else {
+    sc = 0;
+  }
+
+  //lines from center //4
+  stroke(0);  
+  strokeWeight(0.1*sc);
+  rotate(30);
+  let cent;
+  for(let i = 0; i < 16; i++){ 
+    cent = map(i, 0, 15, -1, 1);
+    if(cent < 0){cent = cent*-1;}
+    if(i % 2 == 0){
+      stroke(0); 
+      line(-1*sc, 1*sc, (-1.75+cent/3)*sc, (1.75-cent/3)*sc);
+    } else {
+      stroke(100); 
+      line(-1.4*sc, 1.4*sc, (-1.25+cent/3)*sc, (1.25-cent/3)*sc);
+    }
+    rotate(-10);
+  }
+
+  //lower white cirles //4
+  fill(255, 150);
+  noStroke();
+  rotate(-160);
+  for(let j = 0; j < 6; j++){
+    ellipse(1.25*sc, 1.5*sc, 0.6*sc, 0.6*sc);
+    rotate(-12);
+  }
+
+  pop();
+
+
+  //white circles highlight //2
+    if(size > 25 && size < 50){
+    sc = map(size, 25, 50, 0, 0.57);
+  } else if(size >= 50){
+    sc = 0.57;
+  } else {
+    sc = 0;
+  }
+
+  fill(255);
+  ellipse(0.75*sc, -0.75*sc, 0.75*sc, 0.75*sc);
+
+  ellipse(1.75*sc, -1.5*sc, 1.25*sc, 1*sc);
+  ellipse(-2*sc, 1*sc, 1*sc, 1*sc);  
+
+  /*
+  fill(255);
+  beginShape();
+
+  vertex(-2, 1);
+
+  let x1 = -0.5;
+  let y1 = 2.75;
+  bezierVertex(-2, 1, x1, y1, 1.25, 1.75); //1
+
+  vertex(1.25, 1.75);
+
+  let x2 = 1.75;
+  let y2 = 1.5;
+  bezierVertex(1.25, 1.75, x2, y2, 1.25, 1.25); //2
+
+  vertex(1.25, 1.25);
+
+  let x3 = 0;
+  let y3 = 1.75;
+  bezierVertex(1.25, 1.25, x3, y3, -2, 1); //3
+
+
+  endShape(CLOSE);
+
+
+  fill(153, 199, 255, 200);
+  ellipse(-1, -1, 2, 1.5);
+
+  ellipse(-0.25, -0.25, 2, 2);
+
+  ellipse(-1, 0.5, 1.25, 1);
+
+  fill(255);
+  push();
+  rotate(-30);
+  ellipse(1.5, -0.75, 1, 1.5);
+  pop();
+
+  ellipse(1.5, -0.2, 0.75, 0.75);
+
+  fill(67, 134, 217);
+  ellipse(1, 0.4, 0.6, 0.6);
+  */
+  pop();
 }
+
 
 function Fringe(Len, cur){
   rectMode(CORNERS);  
-  for(let i = 0; i <5; i++){
-    let cent = map(i, 0, 4, -0.75, 0.75);
-    if(cent < 0){
-      cent = cent*-1;
-    }
-    rect(-5+(i*2) + (100-cur)*0.005,
-     -7.75+cent,
-      -3+(i*2) -(100-cur)*0.005,
-      -4.25+cent + -map(Len, 139, 340, 3.5, 0),
-       cur*0.01);
+
+  let L;
+  if(Len > 140){
+    L = 340;
+  } else if(Len > 105){
+    L = map(Len, 105, 140, 0, 340);
+  } else {
+    L = 0;
   }
 
-  for(let i = 0; i <4; i++){
-    cent = map(i, 0, 3, -0.75, 0.75);
-    if(cent < 0){
-      cent = cent*-1;
+  if(L > 0){
+  let xSc = map(L, 0, 340, 0.4-(cur/250), 1.25); 
+  let ySc = map(L, 0, 340, 0, 1.25); 
+  let c = map(cur, 0, 100, ySc, 0); 
+  let c2 = cur/100;
+
+  translate(0, map(L, 0, 340, -6, -5.5+cur/66));
+
+  print(Len);
+  
+  for(let i = 0; i <5; i++){
+
+  push();
+   if((i+1) % 2 == 0){ //even
+     translate((map(i-1, 0, 4, 4, 0)), ((-0.55-cur/400)+(i-1)*0.09)*(i-1)); //2, 4   
+   } else { //odd
+    translate((map(i, 0, 4, -4, 0)), ((-0.55-cur/400)+i*0.09)*i); //1, 3, 5
     }
-    rect(-4+(i*2) + (100-cur)*0.005,
-     -7.5+cent, 
-     -2+(i*2) -(100-cur)*0.005, 
-     -5+cent-map(Len, 139, 340, 2.5, 0),
-      cur*0.01);
+
+
+    beginShape();
+    let test = 1;
+    vertex(-xSc, -ySc);
+    bezierVertex(-xSc, -ySc, 0, -2*(ySc)+c, xSc, -ySc); //top curve
+
+    vertex(xSc, -ySc);
+    bezierVertex(xSc, -ySc, 2*xSc-c, 0, xSc, ySc); //east curve
+
+    vertex(xSc, ySc);
+    bezierVertex(xSc, ySc, 0, 2*(ySc)-c, -xSc, ySc); //bottom curve
+
+    vertex(-xSc, ySc);
+    bezierVertex(-xSc, ySc, -2*xSc+c, 0, -xSc, -ySc); //west curve
+
+    endShape(CLOSE);
+    pop();
+  } 
   }
 }
+
+
 
 function drawHair(Len, cur){
 
@@ -105,7 +332,7 @@ function drawHair(Len, cur){
 
   if(L < 139){ //shorter hair
     
-    translate(0, map(L, 0, 139, 1, 0));
+    translate(0, map(L, 0, 139, 7, 0));
     scale(map(L, 0, 139, 0.2, 1), map(L, 0, 139, 0.5, 1));
 
     arc(3+0, -5, 6, 6, 220, 221+L, CHORD);
