@@ -1,13 +1,15 @@
 ## PS2 MDDN 342 2019
 
-### Scripting Hair
+### Refining the hair
 
-So far i've begun work on the parameterized hair. The hair is the most complicated part of my idea to script, as i want to have sliders for both how curly it is and how long it is. This means i need the two to be dependent on each other, as the style of the curls will need to change according to the length. 
+Ive refined the overall hair quite a bit, as well as added in a new fringe. I started by modifying the triangles that form the long strands of hair, as they are now shaped as quads instead. This means the end is pointed, and the bottom curls dont have a flat closed end. 
 
-So far ive used a combination of arcs, lines and vertexes to create the hair. An arc is used for the top of the hair, and the part that sits on top of the scalp. When the hair length is increased lines extend from the base of this arc to form a triangle. At the base of this triangle a circle is drawn, this was done by drawing a shape with verticies drawn in a circle. As the slider for how curly the hair is increases, the circle grows from the bottom of the hair strands. 
+Ive modified the top of the hair as well. Rather than rely on just the arc that sits at the top of the long strands, theres several circles placed behind the hair altogether. These remain static when the hair is longer, and when the hair is shorter they shrink until completely short. To shift between curls and straight hair the circles shrink in width, as the curl decreases they end up as straight strands of hair. 
 
-Ive been having some difficulty with designing the shortest versions of the hair, as the long triangle lines and curved ends dont work for when the hair comes right up to the scalp. 
+As i implimented this new design, i also modified how the long strands transition out. Previously i had them curling over the top of the head, however this looked quite strange as there were these big curls sticking out the top of the head. Now that i have the new top put in however, ive changed this part of the script so that it rapidly shrinks into the head (behind the head) when transitioning to the shorter hair. 
 
-For now ive scripted in a curl that follows the arc, while the arc slowly closes up as the hair gets shorter. 
+I also removed the duplicate hair, as this idea wasnt really working for me. Instead ive added in some ellipses that sit behind the long strands, as the curliness increases so does their width. This creates a far large shape when the hair is curly, and also a wavy style when the hair is only part curly. 
 
-I also added in some parameters to the hair function i wrote, so i could duplicate the hair overall and add a second layer of it behind the first. This gives it slightly more depth and a more solid shape.
+As the current design for the hair only works when it sits behind the face itself, i've worked to include a fringe to the hair. The fringe is done with rectangles, and the curliness is controlled by how rounded the corners of the rectangle are. When the hair gets completely shorter they shrink upwards untill they are completely removed from the face. 
+
+I'm still unsure about the current design of the fringe, as well as how to transition it out. I dont know if having them at alternating heights looks the best. 
