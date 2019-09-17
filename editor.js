@@ -19,16 +19,12 @@ function setup () {
   slider3 = createSlider(0, 100, 50);
   slider4 = createSlider(0, 100, 50);
   slider5 = createSlider(0, 100, 50);
-  slider6 = createSlider(0, 100, 50);
-  slider7 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
   slider3.parent('slider3Container');
   slider4.parent('slider4Container');
   slider5.parent('slider5Container');
-  slider6.parent('slider6Container');
-  slider7.parent('slider7Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -41,7 +37,7 @@ function setup () {
   faceSelector.parent('selector1Container');
 }
 
-const bg_color = [219, 245, 255];
+const bg_color = [225, 206, 187];
 
 function draw () {
   strokeWeight(0.2);
@@ -55,8 +51,6 @@ function draw () {
   let s3 = slider3.value();
   let s4 = slider4.value();
   let s5 = slider5.value();
-  let s6 = slider6.value();
-  let s7 = slider7.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -73,14 +67,7 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    let hair_Length = map(s1, 0, 100, 0, 340);
-    let curly = s2;
-    let eye = s3;
-    let eyeColour = map(s4, 0, 100, 0, 360);    
-    let acc = int(map(s5, 0, 100, 0, 8));
-    let hairColour = s6;
-    let makeup = s7;
-    drawFace1(hair_Length, curly, eye, eyeColour, acc, hairColour, makeup);
+    drawFace1();
   }
 
   if (mode == '2') {
@@ -93,8 +80,7 @@ function draw () {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
     let eye_value = int(map(s3, 0, 100, 1, 3));
-    let hairColour = s4;
-    drawFace3(tilt_value, eye_value, mouth_value, hairColour);
+    drawFace3(tilt_value, eye_value, mouth_value);
   }
   pop();
 
