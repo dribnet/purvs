@@ -59,70 +59,21 @@ function draw () {
       scale(h/20, h/20);
 
       let curly = focusedRandom(0, 100);
-      //let hair_length = focusedRandom(0, 100);
-      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 1, 2)))*100);
+      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 2, 2)))*100);
+      hair_length = map(hair_length, 0, 100, 0, 340);
 
-      //let  eye = focusedRandom(0, 100); 
-      print("random : " + (int(focusedRandom(0, 2)))*100);
-      let  eye = focusedRandom(0, 100, 5, int(focusedRandom(0, 5))*25);
+      let  eye = focusedRandom(0, 100, 3, int(focusedRandom(0, 5))*25);
       let hairColour = focusedRandom(0, 100);
       let eyeColour = focusedRandom(0, 360);
-      //let result = focusedRandom(min, max, focus, mean);
+
       let acc = focusedRandom(0, 5);
-      let makeup = focusedRandom(0, 100);
+      let makeup = focusedRandom(0, 100, 10, (int(focusedRandom(0, 2)))*100);
       drawFace1(hair_length, curly ,eye, eyeColour,acc, hairColour, makeup);
 
       pop();
       
     }
   }
-  /*
-    // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
-  for(let i=0; i<4; i++) {
-    for(let j=0; j<7; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
-        pop();
-      }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          let curly = focusedRandom(0, 100);
-          let hair_length = focusedRandom(0, 100);
-          let  eye = focusedRandom(0, 100);
-          let hairColour = focusedRandom(0, 100);
-          let acc = focusedRandom(0, 8);
-          drawFace1(curly, hair_length, eye, hairColour, acc);
-        }
-        else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
-        }
-        pop();
-      }
-    }
-  }
-  */
 }
 
 function keyTyped() {

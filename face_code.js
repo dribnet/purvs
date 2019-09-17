@@ -8,8 +8,11 @@
  */
 
 
-function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
-
+ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
+  stroke(0);
+  strokeWeight(0.1);
+  rectMode(CORNERS);
+  rect(-10, -10, 10, 10);
 
   let whiteHair = color(232, 237, 237);
   let blondeHair = color(255, 218, 115);
@@ -18,12 +21,10 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   let blackHair = color(100, 100, 100);
   let hairColour;
 
-  let curl = map(curly, 0, 100, 180, -90);
   angleMode(DEGREES);
-  let L = map(length, 0, 100, 0, 340);
+  let L = length;
   let eyeSize = e;
   fill(255, 218, 115);
-  //stroke(230, 188, 73);
 
   //hair colour temp
   if(hair < 25){
@@ -32,20 +33,21 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
     hairColour = lerpColor(blondeHair, gingerHair, (hair-25)/25);
   } else if(hair < 75){
    hairColour = lerpColor(gingerHair, brownHair, (hair-50)/25);
-  } else{
-    hairColour = lerpColor(brownHair, blackHair, (hair-75)/25);
-  } 
-  
-  fill(hairColour);
-  stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
+ } else{
+  hairColour = lerpColor(brownHair, blackHair, (hair-75)/25);
+} 
+
+fill(hairColour);
+stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
 
- strokeWeight(width/960/10);
- randomSeed(23);
+strokeWeight(width/960/10);
+randomSeed(23);
 
-  push();
-  drawHair(L, curly, hairColour);
-  pop();
+push();
+drawHair(L, curly, hairColour);
+pop();
+
   //ears
   push();
   fill(227, 191, 161);
@@ -67,26 +69,21 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
 
   vertex(-4.75, -2);
   bezierVertex(-4.75, -2, -3.5, 3,-3, 3);
-
   vertex(-3, 3);  
   bezierVertex(-3, 3, -2.75, 3.5,0, 5);
-
   vertex(0, 5);
   bezierVertex(0, 5, 2.75, 3.5, 3, 3);
-
   vertex(3, 3);
   bezierVertex(3, 3, 3.5, 3, 4.75, -2);
   vertex(4.75, -2);
 
   endShape();
 
-  
   // eyes
   fill(255);
+
   push();
-
   makeup(makeupStrength, eyeSize);
-
   translate(0, 0.75);
   eye(-3.9, eyeSize, hairColour, eyeColour);
   eye(3.9, eyeSize, hairColour, eyeColour);
@@ -99,7 +96,6 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
 
   bezier(-0.45, 1.05, -0.4, 1, -0.35, 1 ,-0.2, 1.15);
   bezier(0.45, 1.05, 0.4, 1, 0.35, 1 ,0.2, 1.15);
-  //line(-0.25, 1, 0, 1.25);
 
   noStroke();
   fill(204, 60, 35, 40);
@@ -108,7 +104,7 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   translate(0, 0.5);
   scale(0.6, 0.8);
 
-  beginShape(); //nose
+  beginShape(); //nose shadow
 
   vertex(0.5, 0.4);
   bezierVertex(0.5, 0.4, 1.75, 0.75 ,0, 1.4); //bottomright
@@ -145,6 +141,7 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
 
   endShape(CLOSE);
 
+  //hair
   noStroke();
   fill(255, 50);
 
@@ -157,7 +154,8 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   Fringe(L, curly);
   pop();
   
-   if(acc > 2){ //2 flower
+  //accessories
+  if(acc > 2){ //2 flower
     push();
     flower1(L, 1);
     pop();
@@ -168,10 +166,10 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
     pop();
   }
     if(acc > 4){ //4 flower
-    push();
-    flower2(L, curly);
-    pop();
-  }
+      push();
+      flower2(L, curly);
+      pop();
+    }
   if(acc > 0){ //0 bow
     push();
     bow(L, curly, 1);
@@ -182,18 +180,18 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
     bow(L, curly, -1);
     pop();
   }
-
-
-
 }
 
 function makeup(strength, eyeSize){
+  //blush
   for(let i = 0; i < 10; i++){
     noStroke();
     fill(255, 64, 118, 0.05*strength);
     ellipse(-2.75, 0, i*0.3, i*0.3);
-   ellipse(2.75, 0, i*0.3, i*0.3);
+    ellipse(2.75, 0, i*0.3, i*0.3);
   }
+
+  //cheek lines
   strokeWeight(0.05);
   stroke(199, 143, 107, strength*2.55);
 
@@ -237,13 +235,13 @@ function flower2(len, curl){
   }else {
 
     translate(map(len, 0, 190, -5, -5.5),
-    map(len, 0, 190, -3.5, -1));
+      map(len, 0, 190, -3.5, -1));
     //translate(-5, -3.5);
   }
   
   stroke(163, 120, 57);
   for(let i = 0; i < 5; i++){
-   
+
     rotate(72);
     push();
     translate(0, -1);
@@ -263,8 +261,6 @@ function flower2(len, curl){
 
 function flower1(len, sc){
   scale(sc, sc);
-  //textSize(1);
-  //text(len, -15, 5);
 
   if(sc < 1){
     translate(2, -1);
@@ -276,37 +272,33 @@ function flower1(len, sc){
       map(len, 0, 190, -6.5, -2));
   }
 
-  //translate(6, -2); long
-  //translate(4, -6.5); short
   if(sc < 1){
-  stroke(131, 87, 173);
+    stroke(131, 87, 173);
   } else {
     stroke(78, 127, 207);
   }
-
-
 
   for(let i = 0; i < 5; i++){
     rotate(72);
     if(sc < 1){
      fill(180-i*10, 140-i*10, 219);
-    } else {
+   } else {
      fill(166-i*10, 200-i*10, 255);
    }
-    push();
-    translate(0, -0.75);
+   push();
+   translate(0, -0.75);
 
-    ellipse(0, 0, 1.5, 1.5);
-    pop();
-  }
+   ellipse(0, 0, 1.5, 1.5);
+   pop();
+ }
 
-  if(sc < 1){
-    fill(230, 172, 110);
-  } else {
-    fill(245, 208, 115);
-  } 
+ if(sc < 1){
+  fill(230, 172, 110);
+} else {
+  fill(245, 208, 115);
+} 
 
-  ellipse(0, 0, 1, 1);
+ellipse(0, 0, 1, 1);
 }
 
 function bow(len,curl, pos){
@@ -314,16 +306,16 @@ function bow(len,curl, pos){
 
   let scale1 = map(len, 0, 340, 0.7, 1);
   if(pos < 0){
-  translate(-6*(1-scale1), -3*(1-scale1));
+    translate(-6*(1-scale1), -3*(1-scale1));
   } else {
    translate(6*(1-scale1), -3*(1-scale1));
  }
-  scale(scale1, scale1);
+ scale(scale1, scale1);
 
-  scale(pos, 1);
-  scale(0.8, 0.8);
+ scale(pos, 1);
+ scale(0.8, 0.8);
 
-  
+
  if(len > 190){
   translate(7.25+map(len, 190, 340, 0, c), 
     -4+map(len, 190, 340, 0, c)); 
@@ -334,27 +326,26 @@ function bow(len,curl, pos){
 
 }
 
-  rotate(0);
+rotate(0);
 
-  fill(255, 204, 225);
-  stroke(171, 65, 108);
-  strokeWeight(0.05);
+fill(255, 204, 225);
+stroke(171, 65, 108);
+strokeWeight(0.05);
 
-  beginShape();
-  vertex(0, 1);
-  bezierVertex(0, 1, 0.25, 3, 1.5, 5);
-  vertex(3, 5);
-  bezierVertex(3, 5, 1, 3.5, 0.5, 1);
-  endShape();
+beginShape();
+vertex(0, 1);
+bezierVertex(0, 1, 0.25, 3, 1.5, 5);
+vertex(3, 5);
+bezierVertex(3, 5, 1, 3.5, 0.5, 1);
+endShape();
 
-  beginShape();
-  vertex(0.25, 1);
-  bezierVertex(0.25, 1, 0.75, 3, 4, 5);
+beginShape();
+vertex(0.25, 1);
+bezierVertex(0.25, 1, 0.75, 3, 4, 5);
 
-  vertex(5, 4);
-  bezierVertex(5, 4, 1.5, 3.5, 0.75, 1);
-  endShape();
- 
+vertex(5, 4);
+bezierVertex(5, 4, 1.5, 3.5, 0.75, 1);
+endShape();
 
   //big left
   beginShape();
@@ -414,20 +405,18 @@ function bow(len,curl, pos){
   fill(255, 204, 225);
   rect(-0.1, -0.1, 1.1,1.1, 0.3);
 
-
 }
 
 
 function eye(pos, size, col, eyeCol){
   colorMode(HSB, 360, 100, 100, 100);
-  //213 blue
   let coll = eyeCol;
   let bright;
   if(size > 25){
    bright =  map(size, 25, 100, 1, 0);
-  } else {
-    bright = 1;
-  }
+ } else {
+  bright = 1;
+}
 
   let Med = color(coll, 83 - (59*bright), 79 - (30*bright)); //59
   let Dark = color(coll, 53- (29*bright), 52 - (30*bright)); //29
@@ -439,7 +428,6 @@ function eye(pos, size, col, eyeCol){
   push();
   scale(0.6, 0.6);
   translate(pos, -3);
-
 
   scale(1, 1);
 
@@ -457,7 +445,6 @@ function eye(pos, size, col, eyeCol){
   //eyebrow
   strokeWeight(0.2*sc);  
   fill(hairColour);
-  //stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
   stroke(hue(hairColour), saturation(hairColour), brightness(hairColour)-20);
 
   let eyebrowSize = map(size, 0, 100, 1, 0);
@@ -501,7 +488,6 @@ function eye(pos, size, col, eyeCol){
   bezierVertex(-3.5*sc, -1*sc, 1.5*sc, -5.5*sc , 4.5*sc , 0);
 
   vertex(4.5*sc, 0);
-  //bezierVertex(5*sc, 0, 1.5*sc, 5*sc, -2.5*sc, 2*sc);
   
   endShape();
   pop();
@@ -522,8 +508,7 @@ function eye(pos, size, col, eyeCol){
   ellipse(0.1*sc, 0, 5*sc, 5*sc);
   noStroke();
 
-  //blue shading //2
-  
+  //blue shading //2  
   fill(Med);
   ellipse(0, 0.5*sc, 4.5*sc, 3*sc);
 
@@ -536,15 +521,6 @@ function eye(pos, size, col, eyeCol){
   } else {
     sc = 0;
   }
-  push();
-  fill(255,  random(50, 125));
-  noStroke();
-    for(let x =0; x < 40; x++){
-      //ellipse(random(0.5*sc, 2.5*sc) * cos(x*20), random(1.12*sc, 2*sc) * sin(x*20), random(0.1, 0.5),  random(0.1, 0.5));
-    }
-  pop();
-
-
 
   //lines from center //4
   stroke(0);  
@@ -572,26 +548,24 @@ function eye(pos, size, col, eyeCol){
     ellipse(1.25*sc, 1.5*sc, 0.6*sc, 0.6*sc);
     rotate(-12);
   }
-    //black center //1
-  sc = 0.57;
-  fill(0);
+   //black center //1
+   sc = 0.57;
+   fill(0);
 
-  push();  
-  translate(0, -0.25);
-  ellipse(0, 0, 1.5*sc, 2.25*sc);
+   push();  
+   translate(0, -0.25);
+   ellipse(0, 0, 1.5*sc, 2.25*sc);
 
-  if(size > 75){
+   if(size > 75){
     sc = map(size, 75, 100, 0, 0.57);
   } else {
     sc = 0;
   }
 
-
   pop();
 
-
   //white circles highlight //2
-    if(size > 25 && size < 50){
+  if(size > 25 && size < 50){
     sc = map(size, 25, 50, 0, 0.57);
   } else if(size >= 50){
     sc = 0.57;
@@ -617,7 +591,7 @@ function Fringe(Len, cur){
   let L;
   if(Len > 140){
     L = 340;
-  } else if(Len > 105){
+  } else if(Len > 106){
     L = map(Len, 105, 140, 0, 340);
   } else {
     L = 0;
@@ -626,28 +600,26 @@ function Fringe(Len, cur){
   if(L > 0){
 
 
-  let xSc = map(L, 0, 340, 0.4-(cur/250), map(cur, 0, 100, 1.5, 1.25)); 
-  let ySc = map(L, 0, 340, 0, map(cur, 0, 100, 2, 1.4)); 
-  let c = map(cur, 0, 100, 0.8*ySc, 0); 
-  let c2 = cur/100;
+    let xSc = map(L, 0, 340, 0.4-(cur/250), map(cur, 0, 100, 1.5, 1.25)); 
+    let ySc = map(L, 0, 340, 0, map(cur, 0, 100, 2, 1.4)); 
+    let c = map(cur, 0, 100, 0.8*ySc, 0); 
+    let c2 = cur/100;
 
-  //translate(0, map(L, 0, 340, -6, -3.5+cur/66)); //5.5
-  translate(0, map(L, 0, 340, -6.5, map(cur, 0, 100, -4.5, -4))); 
+    translate(0, map(L, 0, 340, -6.5, map(cur, 0, 100, -4.5, -4))); 
 
-  
-  for(let i = 0; i <5; i++){
 
-  push();
+    for(let i = 0; i <5; i++){
+
+      push();
    if((i+1) % 2 == 0){ //even
      translate((map(i-1, 0, 4, 4, 0)), ((-0.55-cur/400)+(i-1)*0.09)*(i-1)); //2, 4   
    } else { //odd
     translate((map(i, 0, 4, -4, 0)), ((-0.55-cur/400)+i*0.09)*i); //1, 3, 5
-    }
+  }
 
-
-    beginShape();
-    let test = 1;
-    vertex(-xSc, -ySc);
+  beginShape();
+  let test = 1;
+  vertex(-xSc, -ySc);
     bezierVertex(-xSc, -ySc, 0, -2*(ySc)+c, xSc, -ySc); //top curve
 
     vertex(xSc, -ySc);
@@ -662,7 +634,7 @@ function Fringe(Len, cur){
     endShape(CLOSE);
     pop();
   } 
-  }
+}
 }
 
 
@@ -692,19 +664,19 @@ function drawHair(Len, cur, col){
     rotate(28);
     if(L < 139){
       if(L > 90){
-      ellipse(-4, 0, 4, map(curly, 0, 100, map(L, 90, 139, 0.01, 8), map(L, 90, 139,  2.5, 4)));
+        ellipse(-4, 0, 4, map(curly, 0, 100, map(L, 90, 139, 0.01, 8), map(L, 90, 139,  2.5, 4)));
       } else {
         ellipse(map(L, 0, 90, -2.9, -4), 0, 4, map(curly, 0, 100, 0.01, 2.5));
       }
     }
     else {
      ellipse(-4, 0, 4, map(curly, 0, 100, 8, 4));   
-    }    
-  }
-  pop();
+   }    
+ }
+ pop();
 
   if(L < 139){ //shorter hair
-    
+
     translate(0, map(L, 0, 139, 7, 0));
     scale(map(L, 0, 139, 0.2, 1), map(L, 0, 139, 0.5, 1));
 
@@ -712,33 +684,29 @@ function drawHair(Len, cur, col){
     arc(-3-0, -5, 6, 6, 320-L, 321, CHORD); //mirror
 
     let HairLength = -5+map(L, 0, 139, -130, 0);
-    //noFill();
 
     push();  //right curl
     translate(3 + ((3+curlScale) * cos(221+L)) +0 , -5 + ((3+curlScale) * sin(221+L)));
     rotate(HairLength);
-
     
     beginShape();
-    
-
 
     for(let i = 0; i <15; i++){
-       vertex(
-        curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))),         
-        curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
-    }
+     vertex(
+      curlScale*cos(map(curl, 180, -90, 180, 180-(15*i))),         
+      curlScale*sin(map(curl, 180, -90, 180, 180-(15 *i))));
+   }
 
-    let cX = map(HairLength, -135, -5, -0.2, -0.9);
-    let cY = map(HairLength, -135, -5, -0.0, -0.8);
-    let radiuss = map(HairLength, -135, -5, 0.1, curlScale*1.5)/2;
-    let anglee = -20;
-    vertex(cX + (radiuss * cos(anglee)), cY + (radiuss * sin(anglee)));
+   let cX = map(HairLength, -135, -5, -0.2, -0.9);
+   let cY = map(HairLength, -135, -5, -0.0, -0.8);
+   let radiuss = map(HairLength, -135, -5, 0.1, curlScale*1.5)/2;
+   let anglee = -20;
+   vertex(cX + (radiuss * cos(anglee)), cY + (radiuss * sin(anglee)));
 
-    endShape();
-    fill(225, 206, 187);
+   endShape();
+   fill(225, 206, 187);
 
-  fill(hairColour);
+   fill(hairColour);
     arc(map(HairLength, -135, -5, -0.2, -0.9), map(HairLength, -135, -5, -0.0, -0.8), map(HairLength, -135, -5, 0.1, curlScale*1.4), map(HairLength, -135, -5, 0.1, curlScale*1.4 ), -20, 155); //350, 200
 
     pop();
@@ -749,30 +717,25 @@ function drawHair(Len, cur, col){
     translate(-3 - ((3+curlScale) * cos(221+L)) -0 , -5 + ((3+curlScale) * sin(221+L)));
     rotate(HairLength);
 
-
-   
     beginShape();
 
-  cX = map(HairLength, 155, 25, 0.2, 0.4);
-  cY =  map(HairLength, 155, 25, -0.0, -1.1 );
-  radiuss = map(HairLength, 155, 25, 0.1, curlScale*1.4)/2;
-  anglee = 170;
-  vertex(cX + (radiuss * cos(anglee)), cY + (radiuss * sin(anglee)));
+    cX = map(HairLength, 155, 25, 0.2, 0.4);
+    cY =  map(HairLength, 155, 25, -0.0, -1.1 );
+    radiuss = map(HairLength, 155, 25, 0.1, curlScale*1.4)/2;
+    anglee = 170;
+    vertex(cX + (radiuss * cos(anglee)), cY + (radiuss * sin(anglee)));
 
 
     for(let i = 0; i <15; i++){ 
-       vertex(
-        curlScale*cos(map(curl, 180, -90, 0, 180-(15*i))),         
-        curlScale*sin(map(curl, 180, -90, 0, 180-(15 *i))));
-      }
+     vertex(
+      curlScale*cos(map(curl, 180, -90, 0, 180-(15*i))),         
+      curlScale*sin(map(curl, 180, -90, 0, 180-(15 *i))));
+   }
 
-    //translate(1, 0);
+   endShape();
+   fill(225, 206, 187);
 
-
-    endShape();
-    fill(225, 206, 187);
-
-  fill(hairColour);
+   fill(hairColour);
     arc(map(HairLength, 155, 25, 0.2, 0.4), map(HairLength, 155, 25, -0.0, -1.1 ), map(HairLength, 155, 25, 0.1, curlScale*1.4), map(HairLength, 155, 25, 0.1, curlScale*1.4), -5, 170); //-20, 190
     pop();
 
@@ -781,8 +744,7 @@ function drawHair(Len, cur, col){
 
     fill(255, 218, 115);
 
-  fill(hairColour);
-    //noFill();
+    fill(hairColour);
     arc(3+0, -5, 6, 6, 220, 360, CHORD); //top hair
     arc(-3-0, -5, 6, 6, 180, 320, CHORD);
 
@@ -802,12 +764,11 @@ function drawHair(Len, cur, col){
     beginShape(); //long strands
       vertex(6+0, -5); //1
       vertex(6+map(L, 139,  360,0, 1)+0-map(HairLength, -5, 9, 0, curlScale), //2
-      -5+map(L, 139, 360, 0, 14*1));    
+        -5+map(L, 139, 360, 0, 14*1));    
       vertex((6+0)-map(HairLength, -5, 9, 0, curlScale), //3
-      -5+map(L, 139, 360, 0, 14*1));
+        -5+map(L, 139, 360, 0, 14*1));
       vertex(2+0, -6.5); //4
-    endShape();
-
+      endShape();
 
     //big curls Mirror
     x1 = (-6-0 + -2-0)/2;
@@ -822,20 +783,19 @@ function drawHair(Len, cur, col){
     }
 
     beginShape(); //long strands mirror
-      vertex(-6-0, -5);
-      vertex(-6-map(L, 139,  360,0, 1)-0+map(HairLength, -5, 9, 0, curlScale), 
+    vertex(-6-0, -5);
+    vertex(-6-map(L, 139,  360,0, 1)-0+map(HairLength, -5, 9, 0, curlScale), 
       -5+map(L, 139, 360, 0, 14*1));
 
-      vertex(-6-0+map(HairLength, -5, 9, 0, curlScale), 
+    vertex(-6-0+map(HairLength, -5, 9, 0, curlScale), 
       -5+map(L, 139, 360, 0, 14*1));
-      vertex(-2-0, -6.5);
-      
+    vertex(-2-0, -6.5);
+
     endShape();
-
 
     beginShape();
     for(let i = 0; i < 50; i++){ //outer curl
-      vertex((6+0)-map(HairLength, -5, 9+0, 0, curlScale)+curlScale+
+      vertex((5.95+0)-map(HairLength, -5, 9+0, 0, curlScale)+curlScale+
         curlScale*cos(map(curl, 180, -90, 180, 180-(4.5*i))), 
         HairLength-map(L, 139, 340, 0, 0.75)+
         curlScale*sin(map(curl, 180, -90, 180, 180-(4.5*i))));
@@ -843,12 +803,12 @@ function drawHair(Len, cur, col){
 
     for(let i = 15; i > 0; i--){ //inner curl
       let shrink = 1;
-      shrink = map(i, 15, 0, 1, 4);
-      vertex(
+      shrink = map(i, 15, 0, 1.2, 5);
+        vertex(
         (6+map(L, 139,  360,0, 1)+0)-map(HairLength, -5, 9+0, 0, curlScale)+curlScale/shrink+
-        curlScale/shrink*cos(map(curl, 180, -90, 170, 180-(17*i))), 
-
-        HairLength-map(L, 139, 340, 0, 0.75)+curlScale/shrink*sin(map(curl, 180, -90, 170, 180-(15 *i)))
+        curlScale/shrink*cos(map(curl, 180, -90, 180, 180-(17*i))), 
+        HairLength-map(L, 139, 340, 0, 0.75)+
+        curlScale/shrink*sin(map(curl, 180, -90, 180, 180-(15 *i)))
         );
     }    
 
@@ -856,7 +816,7 @@ function drawHair(Len, cur, col){
 
     beginShape();
     for(let i = 0; i < 50; i++){ //outer curl mirror
-        vertex((-6-0)+map(HairLength, -5, 9+0, 0, curlScale)-curlScale+
+      vertex((-5.95-0)+map(HairLength, -5, 9+0, 0, curlScale)-curlScale+
         curlScale*cos(map(curl, 180, -90, 0, (4.5*i))), 
         HairLength-map(L, 139, 340, 0, 0.75)+
         curlScale*sin(map(curl, 180, -90, 0, (4.5 *i))));
@@ -864,7 +824,7 @@ function drawHair(Len, cur, col){
 
     for(let i = 15; i > 0; i--){ //inner curl mirror
       let shrink = 1;
-      shrink = map(i, 15, 0, 1, 4);
+      shrink = map(i, 15, 0, 1.2, 5);
       vertex(
         (-6-map(L, 139,  360,0, 1)-0)+map(HairLength, -5, 9+0, 0, curlScale)-curlScale/shrink+
         curlScale/shrink*cos(map(curl, 180, -90, -10, (17*i))), 
@@ -883,7 +843,7 @@ function drawHair(Len, cur, col){
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function drawFace2(thinness_value) {
+ function drawFace2(thinness_value) {
   // head
   noStroke();
   fill(200, 150, 150);
@@ -902,7 +862,7 @@ function drawFace2(thinness_value) {
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function drawFace3(tilt_value, eye_value, mouth_value) {
+ function drawFace3(tilt_value, eye_value, mouth_value) {
   const bg_color3 = [225, 206, 187];
   const fg_color3 = [151, 102, 52];
 
