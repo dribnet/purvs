@@ -74,7 +74,9 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          drawFace1();
+          let curly = focusedRandom(0, 100);
+          let hair_length = focusedRandom(0, 100);
+          drawFace1(curly, hair_length);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);
