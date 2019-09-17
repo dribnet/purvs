@@ -1,15 +1,12 @@
 ## PS2 MDDN 342 2019
 
-### Refined distribution, fringe fix, face redo and eye colour
+### Final arrangement
 
-Ive modified the code for the fringe again. I wasnt happy with how the straight fringe sat, as i felt it was too short on the forehead. I played around with some of the variables, so the overall shape is much larger when the hair is flat. This was also necessary because i rearranged the face slightly, so that the eyes, nose and mouth were sitting in more realistic positions. 
+I wasn't sure on how to arrange my faces. I wanted to show a lot of them to convey the variation, but i also wanted to show them quite large to show the detail in each one. I decided to organize them in columns, with two columns showing larger versions and the other 5 showing smaller ones. Im quite happy with this arrangement as it achieves what i wanted. 
 
-I redesigned the face as well, changing some minor things such as the mouth and nose. With this ive also added a new slider in for make up. This is quite a subtle change, but it adds blush to the cheeks which i quite like. 
+I made some final tweaks, adjusting the mouth slightly and adding lipstick to the make up slider. I also tweaked the the nose a bit, and also added an outline to the face itself. 
 
-Ive also added a slider for the eye colour, to give more variation between random faces. To do this i had to modify the colour style for the eyes, as the eye has multiple tones in it. Using hsb was much easier as i could just lighten or darken the colour. 
+Ive added a blue background, however i felt that this was a bit simple so i also drew a white circle behind each face. 
 
-Ive also added in more accessories, this time flowers. They are relatively simple and adjusting the code so that they moved alongside the curliness/length of the hair wasnt too hard as i had already done it for the bows. 
+Overall im very happy with my final design, I had a clear goal right from my initial sketch and i focused heavily on achieving this design. I would possibly have liked to add more variation to the face itself, but im satisfied with what ive managed to create.
 
-Ive also now implimented some weighted distribution to the arrangement code. I did struggle a little bit however, as i wanted the mean to be in multiple places for several parameters. I wanted the code to focus on certain parts, not one single part. Such as with the eyes, i wanted to the code to focus more towards each quarter of the number, 0, 25, 50 and 100. To do this i nested the forced random function in itself and multiplied the result. This gave me exactly what i wanted, and the distribution drifted towards the specific values. 
-
-I did the same thing with the hair, drifting the values towards the highest and lowest possible. Im quite happy with it as it is, however i might tweak some of the values of each focus until im happy. 
