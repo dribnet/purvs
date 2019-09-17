@@ -43,7 +43,31 @@ function draw () {
   // clear screen
   background(bg_color1);
   noStroke();
+  // draw a 7x4 grid of faces
+  let w = canvasWidth / 7;
+  let h = canvasHeight / 4;
+  for(let i=0; i<4; i++) {
+    for(let j=0; j<7; j++) {
+      let y = h/2 + h*i;
+      let x = w/2 + w*j;
 
+        push();
+        translate(x, y);
+        scale(w/25, h/25);
+    
+          let curly = focusedRandom(0, 100);
+          let hair_length = focusedRandom(0, 100);
+          let  eye = focusedRandom(0, 100);
+          let hairColour = focusedRandom(0, 100);
+          let acc = focusedRandom(0, 8);
+          drawFace1(curly, hair_length, eye, hairColour, acc);
+
+        pop();
+      
+    }
+  }
+}
+/*
   // draw a 7x4 grid of faces
   let w = canvasWidth / 7;
   let h = canvasHeight / 4;
@@ -77,7 +101,9 @@ function draw () {
           let curly = focusedRandom(0, 100);
           let hair_length = focusedRandom(0, 100);
           let  eye = focusedRandom(0, 100);
-          drawFace1(curly, hair_length, eye);
+          let hairColour = focusedRandom(0, 100);
+          let acc = focusedRandom(0, 8);
+          drawFace1(curly, hair_length, eye, hairColour, acc);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);
@@ -88,6 +114,7 @@ function draw () {
     }
   }
 }
+*/
 
 function keyTyped() {
   if (key == '!') {

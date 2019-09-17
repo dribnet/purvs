@@ -37,7 +37,7 @@ function setup () {
   faceSelector.parent('selector1Container');
 }
 
-const bg_color = [225, 206, 187];
+const bg_color = [232, 232, 232];
 
 function draw () {
   strokeWeight(0.2);
@@ -70,7 +70,9 @@ function draw () {
     let hair_Length = s1;
     let curly = s2;
     let eye = s3;
-    drawFace1(hair_Length, curly, eye);
+    let hairColour = s4;
+    let acc = int(map(s5, 0, 100, 0, 8));
+    drawFace1(hair_Length, curly, eye, hairColour, acc);
   }
 
   if (mode == '2') {
@@ -83,7 +85,8 @@ function draw () {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
     let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
+    let hairColour = s4;
+    drawFace3(tilt_value, eye_value, mouth_value, hairColour);
   }
   pop();
 
