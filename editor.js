@@ -41,7 +41,7 @@ function setup () {
   faceSelector.parent('selector1Container');
 }
 
-const bg_color = [232, 232, 232];
+const bg_color = [219, 245, 255];
 
 function draw () {
   strokeWeight(0.2);

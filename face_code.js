@@ -9,11 +9,9 @@
 
 
  function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
-  stroke(0);
-  strokeWeight(0.1);
-  rectMode(CORNERS);
-  rect(-10, -10, 10, 10);
-
+  fill(255);
+  noStroke();
+  ellipse(0, -2, 15, 15);
   let whiteHair = color(232, 237, 237);
   let blondeHair = color(255, 218, 115);
   let gingerHair = color(230, 150, 90);
@@ -42,6 +40,7 @@ stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
 
 strokeWeight(width/960/10);
+strokeWeight(0.075);
 randomSeed(23);
 
 push();

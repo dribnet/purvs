@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [232, 232, 232];
+const bg_color1 = [219, 245, 255];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -44,22 +44,50 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 4;
-  let h = canvasHeight / 2;
-  for(let i=0; i<2; i++) {
-    for(let j=0; j<4; j++) {
-      let y = h/2 + h*i;
-      let x = w/2 + w*j;     
-     
-      // all other faces
-      push();
-      translate(x, y);
-      scale(h/20, h/20);
+  let w;
+  let h;
+  for(let i=0; i<7; i++) {
+    let k;
+    if(i == 2|| i == 4){
+      k = 2;
+    } else {
+      k = 6;
+    }
+      w = canvasWidth / 7;
+      h = canvasHeight / k;
+     for(let j=0; j<k; j++) {
+
+      let y = h/2 + h*j;
+      let x = w/2 + w*i; 
+
+      push(); 
+
+      if(i == 2){
+        translate(x/1.125, y);        
+  
+      } else if(i == 4){
+        translate(x/0.94, y);
+      } 
+      else if(i ==3){
+        translate(x/1, y);
+
+      } else if(i == 5 || i ==6){
+        translate(x/1.6, y);
+        translate(360, 0);
+      }
+      else {
+        translate(x/1.6, y);
+      }
+
+      if(i == 2 || i == 4){        
+        scale(13, 13);
+      } else {
+        scale(4, 4);
+      }
 
       let curly = focusedRandom(0, 100);
-      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 2, 2)))*100);
+      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 10, 2)))*100);
       hair_length = map(hair_length, 0, 100, 0, 340);
 
       let  eye = focusedRandom(0, 100, 3, int(focusedRandom(0, 5))*25);
