@@ -39,17 +39,17 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   fill(hairColour);
   stroke(red(hairColour) -50, green(hairColour) - 50, blue(hairColour) - 50);
 
- //stroke(255, 218, 115);
+
  strokeWeight(width/960/10);
  randomSeed(23);
 
   push();
- drawHair(L, curly, hairColour);
+  drawHair(L, curly, hairColour);
   pop();
   //ears
   push();
   fill(227, 191, 161);
-  stroke(227, 191, 161);
+  stroke(209, 167, 132);
   rotate(-15);
   ellipse(-3.5, -1.5, 2,3 );
 
@@ -57,37 +57,30 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   ellipse(3.5, -1.5, 2,3 );
   pop();
 
+  //head
   fill(237, 203, 175);
-  stroke(237, 203, 175);
-  //noStroke();
+  stroke(217, 161, 117);
 
-
-  // head
+  ellipse(0, -2.5, 9.5, 9.5);
 
   beginShape();
 
   vertex(-4.75, -2);
-
   bezierVertex(-4.75, -2, -3.5, 3,-3, 3);
 
-  vertex(-3, 3);
-  
+  vertex(-3, 3);  
   bezierVertex(-3, 3, -2.75, 3.5,0, 5);
 
   vertex(0, 5);
-
   bezierVertex(0, 5, 2.75, 3.5, 3, 3);
 
   vertex(3, 3);
-
   bezierVertex(3, 3, 3.5, 3, 4.75, -2);
-
   vertex(4.75, -2);
 
   endShape();
 
-  //ellipse(0, -2, 10);
-  ellipse(0, -2.5, 9.5, 9.5);
+  
   // eyes
   fill(255);
   push();
@@ -101,30 +94,28 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
 
   //nose
   noFill();
-  strokeWeight(0.07);
+  strokeWeight(0.05);
   stroke(75);
 
-  line(-0.25, 1, 0, 1.25);
+  bezier(-0.45, 1.05, -0.4, 1, -0.35, 1 ,-0.2, 1.15);
+  bezier(0.45, 1.05, 0.4, 1, 0.35, 1 ,0.2, 1.15);
+  //line(-0.25, 1, 0, 1.25);
 
   noStroke();
-  fill(0, 20);
+  fill(204, 60, 35, 40);
 
   push();
   translate(0, 0.5);
-  scale(0.8, 0.8);
+  scale(0.6, 0.8);
 
   beginShape(); //nose
 
   vertex(0.5, 0.4);
   bezierVertex(0.5, 0.4, 1.75, 0.75 ,0, 1.4); //bottomright
-
   vertex(0, 1.4); 
-
   bezierVertex(0, 1.4, -1.75, 0.75 , -0.5, 0.4); //bottomleft
-
   vertex(-0.5, 0.4); 
   bezierVertex(-0.5, 0.4, -0.4, 0.35,0,  0.5); //top left
-
   vertex(0, 0.5);
   bezierVertex(0, 0.5, 0.4, 0.35 ,0.5, 0.4); //top right
 
@@ -133,12 +124,29 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
   pop();
 
 
+  //mouth
   stroke(0);
-  bezier(-0.8, 2.8, -0.5, 3, 0.5, 3, 0.8, 2.8);
+  push();
+  translate(0, -0.25);
+  bezier(-1, 2.8, -0.75, 3, 0.75, 3, 1, 2.8);
+  pop();
+
+  //mouth shadow
+  fill(204, 60, 35, 30);
+  noStroke();
+
+  beginShape();
+  vertex(0, 3.25);
+  bezierVertex(0, 3.25, 0.6, 3.25, 0.3, 3.5);
+  vertex(0.3, 3.5);
+  bezierVertex(0.3, 3.5, 0, 3.75, -0.3, 3.5);
+  vertex(-0.3, 3.5);
+  bezierVertex(-0.3, 3.5, -0.6, 3.25, 0, 3.25);
+
+  endShape(CLOSE);
 
   noStroke();
   fill(255, 50);
-  //ellipse(-0.2, -1, 0.15, 2.5);
 
   fill(255, 218, 115);
   stroke(230, 188, 73);
@@ -175,6 +183,8 @@ function drawFace1(length, curly, e, eyeColour, acc, hair, makeupStrength) {
     pop();
   }
 
+
+
 }
 
 function makeup(strength, eyeSize){
@@ -196,6 +206,28 @@ function makeup(strength, eyeSize){
   line(2.95, 0.05, 2.75, 0.55);
   line(2.7, 0.1, 2.5, 0.6);
   line(2.45, 0.15, 2.25, 0.65);
+
+
+  //lipstick
+  push();   
+  translate(0, -0.25);
+  fill(255, 64, 118, 0.75*strength);
+  noStroke();
+  beginShape();
+
+  vertex(-1,2.8);
+  bezierVertex(-1, 3, 0, 4, 1, 2.8);  
+  vertex(1, 2.8);
+  bezierVertex(1, 2.8, 0.25, 2.5, 0, 2.8);
+  bezierVertex(0, 2.8, -0.25, 2.5, -1, 2.8);
+  endShape();
+
+  fill(255, 0.8 * strength);
+  noStroke();
+  ellipse(0, 3.15, 0.75, 0.25);
+  pop();
+
+
 }
 
 
@@ -387,7 +419,7 @@ function bow(len,curl, pos){
 
 
 function eye(pos, size, col, eyeCol){
-  colorMode(HSB, 360, 100, 100);
+  colorMode(HSB, 360, 100, 100, 100);
   //213 blue
   let coll = eyeCol;
   let bright;
