@@ -26,7 +26,7 @@ function changeRandomSeed() {
 }
 
 // global variables for colors
-const bg_color1 = [232, 232, 232];
+const bg_color1 = [225, 206, 187];
 
 function mouseClicked() {
   changeRandomSeed();
@@ -43,41 +43,32 @@ function draw () {
   // clear screen
   background(bg_color1);
   noStroke();
-
-
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 4;
-  let h = canvasHeight / 2;
-  for(let i=0; i<2; i++) {
-    for(let j=0; j<4; j++) {
+  let w = canvasWidth / 7;
+  let h = canvasHeight / 4;
+  for(let i=0; i<4; i++) {
+    for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
-      let x = w/2 + w*j;     
-     
-      // all other faces
-      push();
-      translate(x, y);
-      scale(h/20, h/20);
+      let x = w/2 + w*j;
 
-      let curly = focusedRandom(0, 100);
-      //let hair_length = focusedRandom(0, 100);
-      let hair_length = focusedRandom(0, 100, 2, (int(focusedRandom(0, 2, 1, 2)))*100);
+        push();
+        translate(x, y);
+        scale(w/25, h/25);
+    
+          let curly = focusedRandom(0, 100);
+          let hair_length = focusedRandom(0, 100);
+          let  eye = focusedRandom(0, 100);
+          let hairColour = focusedRandom(0, 100);
+          let acc = focusedRandom(0, 8);
+          drawFace1(curly, hair_length, eye, hairColour, acc);
 
-      //let  eye = focusedRandom(0, 100); 
-      print("random : " + (int(focusedRandom(0, 2)))*100);
-      let  eye = focusedRandom(0, 100, 5, int(focusedRandom(0, 5))*25);
-      let hairColour = focusedRandom(0, 100);
-      let eyeColour = focusedRandom(0, 360);
-      //let result = focusedRandom(min, max, focus, mean);
-      let acc = focusedRandom(0, 5);
-      let makeup = focusedRandom(0, 100);
-      drawFace1(hair_length, curly ,eye, eyeColour,acc, hairColour, makeup);
-
-      pop();
+        pop();
       
     }
   }
-  /*
-    // draw a 7x4 grid of faces
+}
+/*
+  // draw a 7x4 grid of faces
   let w = canvasWidth / 7;
   let h = canvasHeight / 4;
   for(let i=0; i<4; i++) {
@@ -122,8 +113,8 @@ function draw () {
       }
     }
   }
-  */
 }
+*/
 
 function keyTyped() {
   if (key == '!') {
