@@ -9,3 +9,5 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
+ Monday 04/05/20: Opening github desktop for the first time. Sketching some ideas on how I want to approach this problem set. Changing colours to make sure that commits are working fine.
+

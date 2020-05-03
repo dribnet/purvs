@@ -30,8 +30,10 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+// test
+
+const colorFront1  = "#129cff";
+const colorFront2  = "#159ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
