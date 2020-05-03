@@ -30,9 +30,15 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const letterD = {
+  "size": 50,
+  "offsetx": 30,
+  "offsety": -30
+}
+
+const colorFront1  = "#e7f79e";
+const colorFront2  = "#5d8c3e";
+const colorBack    = "#d4f2ff";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -58,7 +64,7 @@ function drawLetter(posx, posy, letterData) {
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
@@ -70,9 +76,10 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 350, center_y, letterA);
+  drawLetter(center_x - 150     , center_y, letterB);
+  drawLetter(center_x + 125, center_y, letterC);
+  drawLetter(center_x + 350, center_y, letterD);
 }
 
 function keyTyped() {
