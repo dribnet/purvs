@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -13,7 +13,7 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 50,
   "offsetx": 0,
   "offsety": 35
 }
@@ -25,14 +25,14 @@ const letterB = {
 }
 
 const letterC = {
-  "size": 100,
+  "size": 50,
   "offsetx": 30,
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#C6DDFE";
+const colorFront2  = "#6A6298";
+const colorBack    = "#C4B5CC";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -66,7 +66,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
