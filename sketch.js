@@ -25,7 +25,7 @@ const letterB = {
 }
 
 const letterC = {
-  "size": 100,
+  "size": 50,
   "offsetx": 30,
   "offsety": 0
 }
