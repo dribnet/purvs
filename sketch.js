@@ -1,6 +1,5 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
-
 /* 
  * my three variable per letter are:
  *
@@ -11,9 +10,8 @@ const canvasHeight = 500;
             relative to the first one
  *
  */
-
 const letterA = {
-  "size": 80,
+  "size": 20,
   "offsetx": 0,
   "offsety": 35
 }
@@ -31,8 +29,8 @@ const letterC = {
 }
 
 const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront2  = "#fcba03";
+const colorBack    = "#0a193d";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -42,11 +40,13 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
+
+
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
@@ -57,9 +57,13 @@ function drawLetter(posx, posy, letterData) {
   // draw two circles
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
+
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
 }
+
+
+
 
 function draw () {
   // clear screen
@@ -67,7 +71,7 @@ function draw () {
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+  let center_y  = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
