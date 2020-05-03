@@ -2,10 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+I changed the inner circles to arcs and using some extra parameters. I added some more parameters to control: Size X and Y, the arc angles for ArcX and ArcY. With the size parameters I am able to size and stretch the arcs how I please. With the arc angle parameters I am able to changle where the arc starts and begins in degrees, this means I able to sort of rotate the arcs like I did with my letter "C".
 
