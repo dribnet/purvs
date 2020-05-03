@@ -9,3 +9,6 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
+  04/05 
+  First tutorial for PS2. Getting used to using github desktop and changing files. Made a simple design using arcs as a basis for my design. Also uploaded a variety of different sketch ideas.
+
