@@ -1,11 +1,4 @@
-## MDDN 242 2020 Assignment 2
+## MDDN 242 2020 Assignment
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+A concept I think will go well is a morse code alphabet. It is clean and simple and at the same time, maybe I will be able to learn it during the process of coding.
 
