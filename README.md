@@ -2,15 +2,16 @@
 
 MDDN242 README
 
-Sketch Ideas - 04/05/20
+Sketch Ideas (sketch.js) - 04/05/20
 
-I did some research on different ways the alphabet can be presented. I found quite a few interesting way to show the alphabet but I picked 
-a few to inspire my own alphabet. You can take a look at my sketches here: https://i.postimg.cc/j5WzFc29/mddn242-ideas.jpg
+Hopping onto the sketch.js file I started experiementing with the paramentres(adding/removing). I changed the shapes to a rectangle because to display my alphabet in
+a more cubic form. I have created this rough starting point by making the inner sqaures the same colour and the stroke so when they connect, it looks like negative space.
 
-To make my alphabet a bit more unique I may combine a few of these concepts together. 
+It looks pretty simple now, but I will add more squares to the letters later on so that bits look cut out.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `size` : height of the rect
+  * `offsetx` : x offset of the second rect relative to the first one
+  * `offsety` : y offset of the second rect relative to the first one
 
+I currently only have three parametres, but I will probably be adding more when I have refined my idea for the type of font style I want to produce for my alphabet.
