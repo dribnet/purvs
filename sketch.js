@@ -1,17 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "size": 80,
   "offsetx": 0,
@@ -30,8 +19,8 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#38ad1f";
+const colorFront2  = "#66cf51";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
