@@ -13,26 +13,36 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "width": 80,
+  "height": 140,
+  "offsetx": 50,
+  "offsety": 14,
+  "angleStart": 270,
+  "angleStop": 90,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "width": 80,
+  "height": 200,
+  "offsetx": -39,
+  "offsety": -35,
+  "angleStart": 90,
+  "angleStop": 270,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "width": 150,
+  "height": 150,
+  "offsetx": 0,
+  "offsety": 0,
+  "angleStart": 335,
+  "angleStop": 75,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#3A606E";
+const colorFront2  = "#E5C2BC";
+// const colorBack    = "#e3eded";
+const colorBack    = "#D4F5F5";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -41,24 +51,30 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  //stroke(colorStroke);
+  noStroke()
+  //strokeWeight(1);
+
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
+  // determine parameters for the circle and arc
+  let size2 = letterData["height"];
+  let size1 = letterData["width"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let start =letterData["angleStart"];
+  let finish =letterData["angleStop"];
 
-  // draw two circles
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size1, size2, start, finish);
 }
 
 function draw () {
@@ -71,8 +87,8 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+ drawLetter(center_x      , center_y, letterB);
+ drawLetter(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
