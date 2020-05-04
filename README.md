@@ -1,8 +1,13 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+MDDN242 README
 
-this is a test git. I am checking to see that my github desktop app successfully commits changes to the live server.
+Sketch Ideas - 04/05/20
+
+I did some research on different ways the alphabet can be presented. I found quite a few interesting way to show the alphabet but I picked 
+a few to inspire my own alphabet. You can take a look at my sketches here: https://i.postimg.cc/j5WzFc29/mddn242-ideas.jpg
+
+To make my alphabet a bit more unique I may combine a few of these concepts together. 
 
 The three parameters per letter:
   * `size` : radius of the second circle
