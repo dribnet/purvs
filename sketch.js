@@ -18,7 +18,7 @@ const letterA = {
   "offsetx": 50,
   "offsety": 14,
   "angleStart": 270,
-  "angleStop": 90,
+  "angleStop": 90
 }
 
 const letterB = {
@@ -27,7 +27,7 @@ const letterB = {
   "offsetx": -39,
   "offsety": -35,
   "angleStart": 90,
-  "angleStop": 270,
+  "angleStop": 270
 }
 
 const letterC = {
@@ -36,7 +36,7 @@ const letterC = {
   "offsetx": 0,
   "offsety": 0,
   "angleStart": 335,
-  "angleStop": 75,
+  "angleStop": 75
 }
 
 const colorFront1  = "#3A606E";
