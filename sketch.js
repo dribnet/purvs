@@ -2,23 +2,21 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "shape": 110,
-  "inverse": 111,
-  "measure": 1009100911,
-  "x":191095,
-  "y":191989
+  "x": [0,100,50,0],
+  "y": [0,0,25,0],
+  "shp": [1,1,3,0],
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "x": [0,50,50,0],
+  "y": [0,25,75,0],
+  "shp": [1,3,3,0],
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x": [50,75,0,0],
+  "y": [50,50,0,0],
+  "shp": [2,6,0,0],
 }
 
 const colorFront1  = "#199cff";
@@ -36,6 +34,7 @@ function setup () {
   strokeWeight(4);
 
   rectMode(CORNERS);
+  ellipseMode(CENTER);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -43,29 +42,34 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let shape  = str(letterData["shape"]);
-  let inverse = str(letterData["inverse"]);
-  let measure = str(letterData["measure"]);
-  let x = str(letterData["x"]);
-  let y = str(letterData["y"]);
-  let splitShapes = split(shape,"");
-  let splitInverse = split(inverse,"");
-  let splitMeasure = split(measure,"9");
-  let splitX = split(x,"9");
-  let splitY = split(y,"9");
-  
-  for (i=0;i<splitShapes.length;i++) {
-    if ((splitInverse[i]) == 0) {
-       fill(0)
-      } else {
-        fill(255)
-      }
-    if ((splitShapes[i]) == 0) {
-      ellipse(posx+splitX[i],posy+splitY[i],splitMeasure[i],splitMeasure[i]);
-    } else {
-      rect(posx+splitX[i],posy+splitY[i],posx+splitX[i]+10,posy+splitY[i]-splitMeasure[i]);
-      }
+  let x = letterData["x"];
+  let y = letterData["y"];
+  let shp = letterData["shp"];
+
+  for (i=0;i<4;i++) {
+    if (shp[i] == 0) {
+
+    } else if (shp[i] == 1) {
+      fill(0);
+      rect(posx+x[i],posy+y[i],posx+x[i]+5,posy+y[i]+100);
+    } else if (shp[i] == 2) {
+      fill(0);
+      ellipse(posx+x[i],posy+y[i],100,100);
+    } else if (shp[i] == 3) {
+      fill(0);
+      ellipse(posx+x[i],posy+y[i],50,50);
+    } else if (shp[i] == 4) {
+      fill(255);
+      rect(posx+x[i],posy+y[i],posx+x[i]+5,posy+y[i]+100);
+    } else if (shp[i] == 5) {
+      fill(255);
+      ellipse(posx+x[i],posy+y[i],100,100);
+    } else if (shp[i] == 6) {
+      fill(255);
+      ellipse(posx+x[i],posy+y[i],50,50);
+    }
   }
+  // ellipse(posx,posy,50,50);
 }
 
 function draw () {
@@ -78,8 +82,8 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  // drawLetter(center_x      , center_y, letterB);
-  // drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 
 }
 

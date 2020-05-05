@@ -11,19 +11,33 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  let x = letterData["x"];
+  let y = letterData["y"];
+  let shp = letterData["shp"];
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  for (i=0;i<4;i++) {
+    if (shp[i] == 0) {                        //-----------------------No Shape
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+    } else if (shp[i] == 1) {                 //-----------------------Line
+      fill(0);
+      rect(x[i],y[i],x[i]+5,y[i]+100);
+    } else if (shp[i] == 2) {                 //-----------------------Circle
+      fill(0);
+      ellipse(x[i],y[i],100,100);
+    } else if (shp[i] == 3) {                 //-----------------------Small Circle
+      fill(0);
+      ellipse(x[i],y[i],50,50);
+    } else if (shp[i] == 4) {                 //-----------------------Line Inverted
+      fill(255);
+      rect(x[i],y[i],x[i]+5,y[i]+100);
+    } else if (shp[i] == 5) {                 //-----------------------Circle Inverted
+      fill(255);
+      ellipse(x[i],y[i],100,100);
+    } else if (shp[i] == 6) {                 //-----------------------Small Circle Inverted
+      fill(255);
+      ellipse(x[i],y[i],50,50);
+    }
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
