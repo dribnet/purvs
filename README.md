@@ -1,11 +1,20 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+Each of the letters in my alphabet are represented by 3 arcs. The set of letters is inspired greatly by art deco. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+The fourteen parameters per letter:
+  "mainArcSize": Size of the blue arc
+  "mainArcX": X position of the blue arc
+  "mainArcY": Y position of the blue arc
+  "mainArcStart": start point of the blue arc
+  "mainArcEnd": end point of the blue arc
+  "subArcSize1": size of the first orange arc
+  "subArcSize2": size of the second orange arc
+  "subArc1X": X position of the first orange arc
+  "subArc1Y": Y position of the first orange arc
+  "subArc1Start": start point of the first orange arc
+  "subArc1End": end point of the first orange arc
+  "subArc2X": X position of the second orange arc
+  "subArc2Y": Y position of the second orange arc
+  "subArc2Start": start point of the second orange arc
+  "subArc2End": end point of the second orange arc
