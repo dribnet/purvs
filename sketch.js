@@ -13,36 +13,36 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "pointoneX": 25,
+  "pointoneX": 50,
   "pointoneY": 0,
-  "pointtwoX": 50,
-  "pointtwoY": 100,
-  "pointthreeX":0,
-  "pointthreeY":0
+  "pointtwoX": 100,
+  "pointtwoY": 200,
+  "pointthreeX":36,
+  "pointthreeY":60
 }
 
 const letterB = {
-  "pointoneX": 50,
-  "pointoneY": 100,
-  "pointtwoX":25,
-  "pointtwoY": 50,
-  "pointthreeX":50,
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":50,
+  "pointtwoY": 100,
+  "pointthreeX":100,
   "pointthreeY":0
 }
 
 const letterC = {
-  "pointoneX": 50,
+  "pointoneX": 100,
   "pointoneY": 0,
-  "pointtwoX":50,
+  "pointtwoX":100,
   "pointtwoY": 0,
-  "pointthreeX":50,
+  "pointthreeX":100,
   "pointthreeY":0
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorBack    = "#2B2118";
+const colorStroke  = "#A8763E";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -51,7 +51,9 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(1);
+  strokeWeight(10);
+  strokeCap(ROUND);
+  strokeJoin(ROUND);
   noFill();
 
   // with no animation, redrawing the screen is not necessary
@@ -67,7 +69,7 @@ function drawLetter(posx, posy, letterData) {
   let pointthreeX = posx+letterData["pointthreeX"];
   let pointthreeY = posy+letterData["pointthreeY"];
 
-  const baselineY = posy +100;
+  const baselineY = posy +200;
 
   // draw two circles
   beginShape();
@@ -90,7 +92,7 @@ function draw () {
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2 -50;
+  let center_y = canvasHeight / 2 -100;
 
 
   // draw the letters A, B, C from saved data
