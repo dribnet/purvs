@@ -5,18 +5,27 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
+    "sizex": 50,
+    "sizey": 120,
+    "arcx": 180,
+    "arcy": 0,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 55
   },
   "B": {
-    "size": 75,
+    "sizex": 100,
+    "sizey": 100,
+    "arcx": 180,
+    "arcy": 0,
     "offsetx": 0,
-    "offsety": -70
+    "offsety": 0
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
+    "sizex": 120,
+    "sizey": 50,
+    "arcx": 270,
+    "arcy": 90,
+    "offsetx": -10,
     "offsety": 0
   },
   "D": {
