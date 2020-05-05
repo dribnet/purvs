@@ -13,21 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "pointoneX": 25,
+  "pointoneY": 0,
+  "pointtwoX": 50,
+  "pointtwoY": 100,
+  "pointthreeX":0,
+  "pointthreeY":0
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "pointoneX": 50,
+  "pointoneY": 100,
+  "pointtwoX":25,
+  "pointtwoY": 50,
+  "pointthreeX":50,
+  "pointthreeY":0
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "pointoneX": 50,
+  "pointoneY": 0,
+  "pointtwoX":50,
+  "pointtwoY": 0,
+  "pointthreeX":50,
+  "pointthreeY":0
 }
 
 const colorFront1  = "#199cff";
@@ -42,7 +51,8 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1);
+  noFill();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,15 +60,28 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pointoneX = posx+letterData["pointoneX"];
+  let pointoneY = posy+letterData["pointoneY"];
+  let pointtwoX = posx+letterData["pointtwoX"];
+  let pointtwoY = posy+letterData["pointtwoY"];
+  let pointthreeX = posx+letterData["pointthreeX"];
+  let pointthreeY = posy+letterData["pointthreeY"];
+
+  const baselineY = posy +100;
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  beginShape();
+  vertex (posx, posy);
+  vertex (posx, baselineY);
+  vertex (pointoneX, pointoneY);
+  vertex (pointtwoX, pointtwoY);
+  vertex (pointthreeX,pointthreeY);
+  endShape();
+
+  // fill(colorFront1);
+  // ellipse(posx, posy, 150, 150);
+  // fill(colorFront2);
+  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
@@ -67,7 +90,8 @@ function draw () {
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+  let center_y = canvasHeight / 2 -50;
+
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
