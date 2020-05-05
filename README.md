@@ -1,8 +1,9 @@
 ## MDDN 242 2020 Assignment 2
 
-I've just created the bass for my letters, my idea is that in each letter there is a still rainbow, with rays shooting out from it of different colours from within the rainbow. However, the rays form different shapes/symbols to represent each letter. That is what makes each letter unique. 
+I've started to create the rays that are streaming out from the rainbow. It's taken me a while to create the lines as I am drawing them individually. I attempted using a for loop as a way to make this easier for myself but I couldn't figure out how to get them repeating in the correct way around the rainbow as it's a funny shape; made from arcs. I also want each line to be a different colour from the rainbow, so I was not sure how I could make this happen inside the for loop. 
 
-Inside the preview.jpg image for this commit will be my sketch and inspiration for this idea. I'm really excited to play with this idea and see how it looks. 
+I'm going to ask one of the tutors these questions to help distinguish the best way to do the rays.
 
+A tricky part I'm also coming across is balancing the size of the lines, I'm happy with the first four on the left side of the rainbow, but after them I'm finding it hard to get the right size and proportion. They aren't as even as I would like. 
 
 

@@ -36,6 +36,8 @@ const colorFont3   = "#BDFF9B";
 const colorFont4   = "#FFE19B";
 const colorFont5   = "#F7347D";
 const colorBack    = "#e3eded";
+let y;
+
 //const colorStroke  = "#233f11";
 
 function setup () {
@@ -75,12 +77,50 @@ function drawLetter(posx, posy, letterData) { //where the action happens
   arc(posx, posy,50, 50, 170, PI + QUARTER_PI, TWO_PI);
 
 
+// //drawrays 
+// push();
+//     for (let i = 18; i < 12; i++) {  //12 ++
+//          strokeWeight(5);
+//              stroke(colorFont5);
+
+//         rotate(12 / 7);
+//         line(120,215,166,243); //120,215,166,243
+//       }
+//       pop();
+
+
 //actualletter
-//strokeWeight(5);
-//stroke(colorFont5);
-//line(120, 210, 170, 250); //120, 210, 170, 260; 150,180,180,216
-//stroke(colorFont4);
-//line(120, 180, 165, 245);
+strokeWeight(5);
+stroke(colorFont5);
+line(120, 215, 166, 243);
+stroke(colorFont4);
+line(126, 199, 172, 229);
+stroke(colorFont3);
+line(130, 180, 177, 215);
+stroke(colorFront2);
+line(143, 163, 185, 203); 
+stroke(colorFront1);
+line(155, 145, 196, 194); 
+stroke(colorFont5);
+line(172, 131, 208, 187); 
+stroke(colorFont4);
+line(191, 120, 222, 185);
+stroke(colorFont3);
+line(226, 110, 234, 183); 
+stroke(colorFront2);
+line(261, 117, 246, 186); 
+stroke(colorFront1);
+line(290, 123, 260, 189); 
+stroke(colorFont5);
+line(310, 134, 273, 195); 
+stroke(colorFont4);
+line(333, 150, 283, 208); 
+stroke(colorFont3);
+line(342, 185, 290, 222); 
+stroke(colorFront2);
+line(350, 210, 295, 236); 
+stroke(colorFront1);
+line(360, 232, 298, 250); 
 }
 
 function draw () {
