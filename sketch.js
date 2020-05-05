@@ -30,8 +30,8 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#e38f07";
+const colorFront2  = "#103fc9";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -42,7 +42,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(8);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
