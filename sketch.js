@@ -12,23 +12,35 @@ const canvasHeight = 500;
  *
  */
 
+const height_difference = "2.7027";
+
 const letterA = {
-  "size": 80,
+
+  "DivideHeight": height_difference*37,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 100,
+  //"Divide": -95
 }
 
 const letterB = {
-  "size": 150,
+
+  "DivideHeight": height_difference*36,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": 100,
+  //"Divide":-20
 }
 
 const letterC = {
-  "size": 100,
+
+  "DivideHeight": height_difference*35,
   "offsetx": 30,
-  "offsety": 0
+  "offsety": 100,
+  //"Divide":-50
 }
+
+
+const colour_BlackSquare = "#dbdbdb";
+const colour_WhiteSquare = "#a3a3a3";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
@@ -42,7 +54,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(0);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,15 +62,24 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let Divide = letterData["DivideHeight"];
+  let arcX = posx+50
+  let arcY= posy+50
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+//black square
+  fill (colour_BlackSquare);
+  rect (posx, posy, 200, 100);
+//white square
+  fill (colour_WhiteSquare);
+  rect (posx, pos2y, 200, -Divide);
+
+// noFill ();
+// stroke(255);
+// strokeWeight (5);
+// arc(arcX, arcY, 80, 80, PI , PI-500);
+
 }
 
 function draw () {
