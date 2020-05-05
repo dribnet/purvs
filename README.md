@@ -1,14 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
   04/05 
   First tutorial for PS2. Getting used to using github desktop and changing files. Made a simple design using arcs as a basis for my design. Also uploaded a variety of different sketch ideas.
+
+  06/05 
+  My idea is inspired by bauhaus typography. I looked at the shapes used which include arcs, triangles, and squares. Each letter is made up of 2 arc's, each arc can be altered by position, size and degrees for the amount of rotation of them. So far i have 8 parameters. I could try make the first yellow arc at a fixed position in order to get less parameters. At some point I will try and change the 2nd arc into a triangle. I updated my draw_letters.js and letters.js from sketch.js
 
