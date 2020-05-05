@@ -38,9 +38,11 @@ const alphabet = {
     "offsety": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 70,
+  "offsetx": 7.799999999999997,
+  "offsety": 104,
+  "start": 324,
+  "stop": 68.4
   },
   "G": {
     "size": 50,
