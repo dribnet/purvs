@@ -2,6 +2,7 @@
 
 06/05/20
 
+
 Update 2: I have uploaded this git commit to get some help with stroke Weight varaibles
 
 Today, I have played around more with my design, I really want to challenge myself using code variables that I don't normally use, I've started off with arch and triangle as I don't have a clear direction on what I want to do with my design, I think I want to play around with morse code or braile and the idea that variations of patterns create different letters
