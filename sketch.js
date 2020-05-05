@@ -30,10 +30,13 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#9BEDFF"; 
+const colorFront2  = "#DD9BFF"; 
+const colorFont3   = "#BDFF9B";
+const colorFont4   = "#FFE19B";
+const colorFont5   = "#F7347D";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+//const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,24 +44,43 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
+  //stroke(colorStroke);
+ // strokeWeight(7);
+angleMode(DEGREES);
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
+
+
+function drawLetter(posx, posy, letterData) { //where the action happens
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+//draw rainbow
+  noFill();
+  strokeWeight(8);
+  stroke(colorFont5);
+  arc(posx, posy,98, 98, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFont4);
+  arc(posx, posy,87, 87, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFont3);
+  arc(posx, posy,76, 76, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFront1);
+  arc(posx, posy,65, 65, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFront2);
+  arc(posx, posy,50, 50, 170, PI + QUARTER_PI, TWO_PI);
+
+
+//actualletter
+//strokeWeight(5);
+//stroke(colorFont5);
+//line(120, 210, 170, 250); //120, 210, 170, 260; 150,180,180,216
+//stroke(colorFont4);
+//line(120, 180, 165, 245);
 }
 
 function draw () {

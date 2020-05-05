@@ -1,11 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+I've just created the bass for my letters, my idea is that in each letter there is a still rainbow, with rays shooting out from it of different colours from within the rainbow. However, the rays form different shapes/symbols to represent each letter. That is what makes each letter unique. 
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Inside the preview.jpg image for this commit will be my sketch and inspiration for this idea. I'm really excited to play with this idea and see how it looks. 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+
 
