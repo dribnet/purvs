@@ -19,6 +19,8 @@ const letterA = {
   "DivideHeight": height_difference*37,
   "offsetx": 0,
   "offsety": 100,
+  "arcStart": 40,
+  "arcFinish": 100,
   //"Divide": -95
 }
 
@@ -27,6 +29,8 @@ const letterB = {
   "DivideHeight": height_difference*36,
   "offsetx": 0,
   "offsety": 100,
+  "arcStart": 20,
+  "arcFinish": 200,
   //"Divide":-20
 }
 
@@ -35,16 +39,18 @@ const letterC = {
   "DivideHeight": height_difference*35,
   "offsetx": 30,
   "offsety": 100,
+  "arcStart": 0,
+  "arcFinish": 800,
   //"Divide":-50
 }
 
 
-const colour_BlackSquare = "#dbdbdb";
-const colour_WhiteSquare = "#a3a3a3";
+const colour_DarkSquare = "#c9c9c9";
+const colour_LightSquare = "#ededed";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorBack    = "#1c1c1c";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -65,20 +71,23 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let Divide = letterData["DivideHeight"];
+  let arcStart = letterData["arcStart"];
+  let arcFinish = letterData["arcFinish"];
   let arcX = posx+50
   let arcY= posy+50
 
 //black square
-  fill (colour_BlackSquare);
+  fill (colour_DarkSquare);
   rect (posx, posy, 200, 100);
 //white square
-  fill (colour_WhiteSquare);
+  fill (colour_LightSquare);
   rect (posx, pos2y, 200, -Divide);
 
-// noFill ();
-// stroke(255);
-// strokeWeight (5);
-// arc(arcX, arcY, 80, 80, PI , PI-500);
+noFill ();
+stroke(5);
+strokeWeight (5);
+arc(arcX, arcY, 50, 50, arcStart , arcFinish);
+noStroke ();
 
 }
 
