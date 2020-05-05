@@ -14,7 +14,13 @@ Thus far the plan is to make an alphabet out of overlapping arcs, in which the o
 
 Currently, there's an A, a B, and a C. Wow.
 
-6/05/20
+6/05/20a
 Move out of sketch.js.
 
 Transferred sketch data into draw_letters.js and letters.js. Rescaled and positioned existing letters appropriately.
+
+
+6/5/20b
+More letters.
+
+D, E, F, G, H, I, and J have been made. I'm not sure how far I'll be able to take just two arcs, but I'm gonna run as far as it'll go. Not so sure about G or F, but they exist.
