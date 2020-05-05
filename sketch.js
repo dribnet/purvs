@@ -12,28 +12,41 @@ const canvasHeight = 500;
  *
  */
 
+//PARAMETERS
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 120,
+  "offsetx": 3,
+  "offsety": 100,
+  "linex": -120,
+  "liney": -70,
+  "linex2": 0,
+  "liney2": 95
 }
 
 const letterB = {
-  "size": 150,
+  "size": 180,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -20,
+  "linex": -80,
+  "liney": -20,
+  "linex2": -80,
+  "liney2": -20
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 140,
+  "offsetx": 20,
+  "offsety": 100,
+  "linex": -20,
+  "liney": 130,
+  "linex2": -70,
+  "liney2": 20
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#199cff"; //dark blue
+const colorFront2  = "#8ac2bf"; //light blue
+const colorBack    = "#d5e3e3"; //background col
+const colorStroke  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -53,12 +66,18 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let linePosx = posx + letterData["linex"];
+  let linePosy = posy + letterData["liney"];
+  let linePosx2 = posx + letterData["linex2"];
+  let linePosy2 = posy + letterData["liney2"];
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
+  fill(colorFront1);
+  line(linePosx, pos2y, linePosx + size2, linePosy);
+  line(linePosx2, linePosy, linePosx2 + size2, linePosy2);
+  
 }
 
 function draw () {
