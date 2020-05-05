@@ -13,26 +13,27 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": -1,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 0
+
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 1,
+  "offsetx": -100,
+  "offsety": 2
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": -1,
+  "offsetx": -100,
+  "offsety": 1
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#454342";
+const colorFront2  = "#36d6ac";
+const colorBack    = "#f2edeb";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -51,14 +52,31 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
 
-  // draw two circles
+  angleMode(DEGREES)
+  noStroke()
+  let yamm = 100 * -size2 * tan(30)
+
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+
+beginShape()
+vertex(posx-50,posy)
+vertex(posx + 50, posy - yamm)
+vertex(posx + 50, posy + yamm)
+vertex(posx - 50, posy + 2 * yamm)
+endShape(CLOSE)
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  beginShape()
+vertex(posx + 50 + pos2x, posy + yamm + pos2y * yamm)
+vertex(posx + 100 + pos2x, (posy + yamm + pos2y * yamm) + .5*yamm)
+vertex(posx + 100 + pos2x, (posy + yamm + pos2y * yamm) - .5*yamm)
+vertex(posx + 50 + pos2x, (posy + yamm + pos2y * yamm) - yamm)
+endShape(CLOSE)
+
 }
 
 function draw () {

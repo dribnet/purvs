@@ -1,11 +1,3 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+I've done a lot of illustrator work trying to figure out what I want to do. One thing that I'm really interested in doing is creating depth in each letter, from this I had the idea to have the letters be made from faces within a 3d isometric cube. I made a complete alphabet in illustrator based on this, however when I got about to trying to create it in code, I realised it was way too complex, I then went back and simplified it further and its pretty similar to the a b c that I've done in this commit. I really like this simple style however I can see it being tricky for letters that require a lot of 'faces' as a b c don't which made them easy to create. I also managed to create these shapes using only the original variables as I'm not too sure how to add new ones yet
