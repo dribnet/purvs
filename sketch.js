@@ -72,8 +72,8 @@ function drawLetter(posx, posy, letterData) {
   let pL2 = letterData["lp2"];
   let pL3 = letterData["lp3"];
 rect(posx,posy,200,200);
-for(let i = 0; i< width; i+= a){
-  line(pL1,pL2,i+135,pL3);
+for(let i = posx-100; i< posx+100; i+= a){
+  line(pL1,pL2,i,pL3);
 
 }
 rect(posx,posy,50,50);
