@@ -9,3 +9,5 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
+  My design idea is to use three simple triangles in different arrangements - I have yet to code this. Have just played around with lines and colour at the moment.
+
