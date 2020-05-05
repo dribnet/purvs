@@ -1,5 +1,5 @@
 const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront2  = "#fcba03";
 const colorStroke  = "#233f11";
 
 /*
@@ -9,21 +9,23 @@ const colorStroke  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
 
-  // determine parameters for second circle
+function drawLetter(letterData) {
+  angleMode(DEGREES);
+ // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pos2x = 50+ letterData["offsetx"];
+  let pos2y =  letterData["offsety"];
+  let startA = letterData["start"];
+  let endA = letterData["stop"];
+
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  ellipse(50, 150, 100, 100);
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size2, size2, startA,endA);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

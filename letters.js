@@ -4,25 +4,33 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 0
   },
-  "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "A": { 
+  "size": 70,
+  "offsetx": 0,
+  "offsety": 170,
+  "start": 180,
+  "stop":0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+     "size": 100,
+  "offsetx": 0,
+  "offsety": 50,
+  "start": 270,
+  "stop":90
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 150,
+  "start": 90,
+  "stop":270
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 100,
+  "offsetx": 0,
+  "offsety": 150,
+  "start": 270,
+  "stop":90
   },
   "E": {
     "size": 50,
