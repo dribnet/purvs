@@ -1,7 +1,15 @@
 ## MDDN 242 2020 Assignment 2
 
-Part 1: Initial Ideas - Rough sketch ideas
+Part 1: Initial Ideas - testing in code
 
-So far I have sketched up my albhabet using lines. I want to use the style of using lines to make up the letters for my final alphabet. I'm planning to experiment with the use of lines, rectangles or possibly vertex. It'll help me decide which one is better to use as I don't want to reach the max limit of the number of parameters that can be used. 
+Each of my letters is composed with a circle and two lines. The circle almost acts as the base of the letter, meaning that the lines are the sub element to make up the letter. The values for the lines are changeed the most so that it creates the form of the letter. I have realised that if I plan to use lines for my alphabet, I have to limit the amount of lines or else most of the parameters will make up of x and y positions. 
 
-I plan to use transparency because it could add more interesting results. I could use the colours of the rainbow as my colour palette because I think that could look very beautiful with the use of transparency. Im also going to play around with stroke widths and using different transparency levels with it, which could add more unexpected results that could work well.
+The three parameters per letter:
+
+  "size" : radius of circle
+  "offsetx" : x offset of the second circle relative to the first one
+  "offsety": y offset of the second circle relative to the first one
+  "linex" : first line x axis
+  "liney" : first line y axis
+  "linex2" : second line x axis
+  "liney2" : second line y axis
