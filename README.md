@@ -1,5 +1,8 @@
 ## MDDN 242 2020 Assignment 2
+
 6/4/20
+I'm trying to change my sketch to get that working before I start on my alphabet but it's confusing!
+
 I've realized that I was thinking about this totally wrong and my initial design will not work! for this design to actually work I would need to use way to many parameters so now I need to rethink my design. I could try to figur out a variation on the same theam with fewer parameters but I think that might be kind of boring. I liked the idea of using for loops and that might give me a lot of controll while still no having too many parameters. I'll probably have to do some tests on my own as to how I'm going to make that work.
 
 5/4/20
