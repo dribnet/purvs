@@ -18,7 +18,8 @@ const letterA = {
   "offsety": 35,
   "archH": 30,
   "archW": 90,
-  "strokeW": 4,
+  "strokeW": 0,
+
 }
 
 const letterB = {
@@ -36,7 +37,7 @@ const letterC = {
   "offsety": 0,
   "archH": 80,
   "archW": 70,
-  "strokeW": 0,
+  "strokeW": 1,
 }
 
 const letterD = {
@@ -51,7 +52,6 @@ const colorFront2  = "#B68CB8";
 const colorFront3 = "#EFBDEB";
 const colorBack    = "#FCECC9";
 const colorStroke  = "#314CB6";
-const strokeWeight = "strokeW";
 
 const red1 = 54
 const green1 = 82
@@ -70,7 +70,6 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(strokeW);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -81,9 +80,7 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-
-  let length1x = posx + letterData["offsetx"];
-  let length1y = posy + letterData["offsety"];
+  let stroke2W = letterData["strokeW"];
 
   let archHeight = letterData["archH"];
   let archWidth = letterData["archW"];
@@ -91,14 +88,16 @@ function drawLetter(posx, posy, letterData) {
   //nofill()
 
   // draw two circles
+  strokeWeight(stroke2W);
 
-  strokeWeight(strokeW);
   fill(colorFront3);
   triangle(posx+20, posy+20,posx +60, posy+100, posx-30, posy+50);
   fill(colorFront2);
   triangle(posx+10, posy+10,posx +50, posy+90, posx-40, posy+40);
   fill(colorFront1);
   triangle(posx, posy,posx +40, posy+80, posx-50, posy+30);
+
+  ellipse(pos2x, pos2y, size2);
 
   //fill(red2,green2, blue2, 30);
   //arc (x position, y position, width, height, start, stop, type of arch)
