@@ -114,9 +114,12 @@ const alphabet = {
     "offsety": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":0,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":200
   },
   "S": {
     "size": 50,
@@ -124,9 +127,12 @@ const alphabet = {
     "offsety": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 0,
+  "pointoneY": 0,
+  "pointtwoX":100,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "U": {
   "pointoneX": 100,
@@ -145,14 +151,20 @@ const alphabet = {
   "pointthreeY":0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 50,
+  "pointoneY": 0,
+  "pointtwoX":50,
+  "pointtwoY": 200,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":100,
+  "pointtwoY": 200,
+  "pointthreeX":0,
+  "pointthreeY":0
   },
   "Y": {
     "size": 50,

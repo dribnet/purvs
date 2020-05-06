@@ -23,5 +23,5 @@ My letter parameters so far are simply the x,y coordinates of each point.
 
  Designing alphabet - 06/05/20
 
- Today I moved all of my code so that it fits into the other js files. I have started using the editor to create the rest of the letters,  and it has been much easier than sketching on paper. I think at this point I can stick with just the three points, which leaves me a lot of room for adding details later.  
+ Today I moved all of my code so that it fits into the other js files. I have started using the editor to create the rest of the letters,  and it has been much easier than sketching on paper. I think at this point I can stick with just the three points, which leaves me a lot of room for adding details later. I want the letters to look like they are from an ancient tomb, I am not necessarily going for legibility with my language. A good visual example for me is the language from Zelda Breath of the Wild (https://i.pinimg.com/originals/5b/8a/cf/5b8acfe2f1b1ebfef198778b7d8ad0a2.jpg), or Greek inscriptions like this (https://i.pinimg.com/originals/65/fc/a5/65fca596a021dbd1b9e0df6f26efc52c.jpg).
 
