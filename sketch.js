@@ -14,28 +14,37 @@ const canvasHeight = 500;
 
 const letterA = {
   //"size": 80,
-  "offsetx": 0,
-  "offsety": 0,
+  //"offsetx": 0,
+ // "offsety": 0,
   "space": 10,
   "lp1": 0,
   "lp2":150,
   "lp3":350,
+  "lilY": 50,
 
 
 }
 
 const letterB = {
   //"size": 150,
-  "offsetx": 0,
-  "offsety": 0,
-  "space": 10,
-  "lp1": 100,
-  "lp2":200,
-  "lp3":350,
+  //"offsetx": 0,
+  //"offsety": 0,
+  "space": 5,
+  //"lp1": 100,
+  //"lp2":200,
+  //"lp3":350,
+  "Blp1": 100,
+  "Blp2":200,
+  "Blp3":-100,
+  "lilY":50,
   
 }
 
 const letterC = {
+  "space": 10,
+  "Blp1": 100,
+  "Blp2":200,
+  "Blp3":-100,
 
  // "size": 100,
  // "offsetx": 30,
@@ -54,7 +63,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorFront2);
+  
   strokeWeight(1);
 rectMode(CENTER);
 
@@ -71,12 +80,22 @@ function drawLetter(posx, posy, letterData) {
   let pL1 = posx +letterData["lp1"];
   let pL2 = letterData["lp2"];
   let pL3 = letterData["lp3"];
+  let BpL1 = posx +letterData["Blp1"];
+  let BpL2 = letterData["Blp2"];
+  let BpL3 = posx+letterData["Blp3"];
+  let scl = letterData["lilY"];
+  stroke(colorBack);
+  fill(colorFront1);
 rect(posx,posy,200,200);
 for(let i = posx-100; i< posx+100; i+= a){
   line(pL1,pL2,i,pL3);
-
 }
-rect(posx,posy,50,50);
+for(let i = posy-100;i< posy+100; i += a){
+  line(BpL1,i,BpL3,i);
+}
+noStroke();
+fill(colorBack);
+rect(posx,posy,scl,scl);
   
 }
 
