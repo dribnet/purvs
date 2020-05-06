@@ -18,8 +18,8 @@ const letterA = {
   "offsety": 35,
   "archH": 30,
   "archW": 90,
-  "strokeW": 0,
-
+  "strokeW": 1,
+  "opacity": 255,
 }
 
 const letterB = {
@@ -28,7 +28,8 @@ const letterB = {
   "offsety": -145,
   "archH": -60,
   "archW": 20,
-  "strokeW": 4,
+  "strokeW": 2,
+  "opacity": 140,
 }
 
 const letterC = {
@@ -38,29 +39,43 @@ const letterC = {
   "archH": 80,
   "archW": 70,
   "strokeW": 1,
+  "opacity": 40,
 }
 
 const letterD = {
   "size": 50,
   "offsetx": 30,
   "offsety": -30,
+  "opacity": 240
 
 }
 
-const colorFront1  = "#6461A0";
+const colorFront1  = "#EFBDEB";
 const colorFront2  = "#B68CB8";
-const colorFront3 = "#EFBDEB";
+const colorFront3  = "#6461A0";
 const colorBack    = "#FCECC9";
-const colorStroke  = "#314CB6";
+const colorStroke  = "#114B5F";
 
-const red1 = 54
-const green1 = 82
-const blue1 = 36
+//Dark Purple
+const red1 = 239
+const green1 = 189
+const blue1 = 235
 
-const red2 = 100
-const green2 = 200
-const blue2 = 0
+//Middle Purple
+const red2 = 182
+const green2 = 140
+const blue2 = 184
 
+//light pink
+const red3 = 100
+const green3 = 97
+const blue3 = 160
+
+//Dark Turquisoe 
+
+const red4 = 17
+const green4 = 75
+const blue4 = 95
 
 
 function setup () {
@@ -81,6 +96,7 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let stroke2W = letterData["strokeW"];
+  let opacity2 = letterData["opacity"];
 
   let archHeight = letterData["archH"];
   let archWidth = letterData["archW"];
@@ -90,16 +106,15 @@ function drawLetter(posx, posy, letterData) {
   // draw two circles
   strokeWeight(stroke2W);
 
-  fill(colorFront3);
+  fill(red1,green1,blue1);
   triangle(posx+20, posy+20,posx +60, posy+100, posx-30, posy+50);
-  fill(colorFront2);
+  fill(red2,green2,blue2);
   triangle(posx+10, posy+10,posx +50, posy+90, posx-40, posy+40);
-  fill(colorFront1);
+  fill(red3,green3,blue3);
   triangle(posx, posy,posx +40, posy+80, posx-50, posy+30);
+  fill(red4,green4,blue4,opacity2);
+  triangle(posx-10, posy-10,posx +30, posy+70, posx-60, posy+20);
 
-  ellipse(pos2x, pos2y, size2);
-
-  //fill(red2,green2, blue2, 30);
   //arc (x position, y position, width, height, start, stop, type of arch)
   //arc(posx, posy, archWidth, archHeight, 0, 180, PIE);
 }
