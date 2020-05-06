@@ -42,7 +42,7 @@ function setup () {
 
   // color/stroke setup
   noFill();
-  strokeWeight(3.5s);
+  strokeWeight(3.5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
