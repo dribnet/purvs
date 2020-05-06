@@ -13,25 +13,25 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 80, //80
   "offsetx": 0,
   "offsety": 35
 }
 
 const letterB = {
-  "size": 150,
+  "size": 150, //150
   "offsetx": 0,
   "offsety": -145
 }
 
 const letterC = {
-  "size": 100,
+  "size": 100, //100
   "offsetx": 30,
   "offsety": 0
 }
 
-const colorFront1  = "#9BEDFF"; 
-const colorFront2  = "#DD9BFF"; 
+const colorFont1  = "#9BEDFF"; 
+const colorFont2  = "#DD9BFF"; 
 const colorFont3   = "#BDFF9B";
 const colorFont4   = "#FFE19B";
 const colorFont5   = "#F7347D";
@@ -61,66 +61,39 @@ function drawLetter(posx, posy, letterData) { //where the action happens
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+translate(posx, posy);
 
 //draw rainbow
   noFill();
   strokeWeight(8);
   stroke(colorFont5);
-  arc(posx, posy,98, 98, 170, PI + QUARTER_PI, TWO_PI);
+  arc(0, 0,98, 98, 170, PI + QUARTER_PI, TWO_PI); //posx posy
   stroke(colorFont4);
-  arc(posx, posy,87, 87, 170, PI + QUARTER_PI, TWO_PI);
+  arc(0, 0,87, 87, 170, PI + QUARTER_PI, TWO_PI);
   stroke(colorFont3);
-  arc(posx, posy,76, 76, 170, PI + QUARTER_PI, TWO_PI);
-  stroke(colorFront1);
-  arc(posx, posy,65, 65, 170, PI + QUARTER_PI, TWO_PI);
-  stroke(colorFront2);
-  arc(posx, posy,50, 50, 170, PI + QUARTER_PI, TWO_PI);
+  arc(0, 0,76, 76, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFont1);
+  arc(0, 0,65, 65, 170, PI + QUARTER_PI, TWO_PI);
+  stroke(colorFont2);
+  arc(0, 0,50, 50, 170, PI + QUARTER_PI, TWO_PI);
 
+//find centre point for translate, stead of posx & posy draw at 0,0, always mojello 1 over the length
 
-// //drawrays 
-// push();
-//     for (let i = 18; i < 12; i++) {  //12 ++
-//          strokeWeight(5);
-//              stroke(colorFont5);
+//drawrays 
+var colorArray = [colorFont1, colorFont2, colorFont3,colorFont4,colorFont5];
+push();
+let range = 140;
+let numRays = 10;
+rotate(-(range/2));
 
-//         rotate(12 / 7);
-//         line(120,215,166,243); //120,215,166,243
-//       }
-//       pop();
+for (i = 0; i < 10; i ++){
+  strokeWeight(5);
+  stroke(colorArray[i % colorArray.length]);
+ line(0, -100, 0, -200) 
+ rotate(140 / numRays - 1);
+}
 
-
-//actualletter
-strokeWeight(5);
-stroke(colorFont5);
-line(120, 215, 166, 243);
-stroke(colorFont4);
-line(126, 199, 172, 229);
-stroke(colorFont3);
-line(130, 180, 177, 215);
-stroke(colorFront2);
-line(143, 163, 185, 203); 
-stroke(colorFront1);
-line(155, 145, 196, 194); 
-stroke(colorFont5);
-line(172, 131, 208, 187); 
-stroke(colorFont4);
-line(191, 120, 222, 185);
-stroke(colorFont3);
-line(226, 110, 234, 183); 
-stroke(colorFront2);
-line(261, 117, 246, 186); 
-stroke(colorFront1);
-line(290, 123, 260, 189); 
-stroke(colorFont5);
-line(310, 134, 273, 195); 
-stroke(colorFont4);
-line(333, 150, 283, 208); 
-stroke(colorFont3);
-line(342, 185, 290, 222); 
-stroke(colorFront2);
-line(350, 210, 295, 236); 
-stroke(colorFront1);
-line(360, 232, 298, 250); 
+pop();
 }
 
 function draw () {
