@@ -5,9 +5,18 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpH1":50,
+    "lpH2":100,
+    "lpH3":200,
+    "lpV1":0,
+    "lpV2":0,
+    "lpV3":0,
+    "lpH1ang":0,
+    "lpH2ang":0,
+    "lpV1ang":0,
+    "lpV2ang":0,
+    "mid":20,
+    "space":10
   },
   "B": {
     "size": 75,
