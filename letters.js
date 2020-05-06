@@ -5,19 +5,28 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 50,
+  "pointoneY": 0,
+  "pointtwoX": 100,
+  "pointtwoY": 200,
+  "pointthreeX":36,
+  "pointthreeY":60
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "pointoneX": 100,
+  "pointoneY": 150,
+  "pointtwoX":50,
+  "pointtwoY": 100,
+  "pointthreeX":100,
+  "pointthreeY":50
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 25,
+  "pointoneY": 100,
+  "pointtwoX":100,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "D": {
     "size": 50,
@@ -25,14 +34,20 @@ const alphabet = {
     "offsety": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":100,
+  "pointtwoY": 100,
+  "pointthreeX":0,
+  "pointthreeY":100
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":25,
+  "pointtwoY": 100,
+  "pointthreeX":0,
+  "pointthreeY":100
   },
   "G": {
     "size": 50,
@@ -40,9 +55,12 @@ const alphabet = {
     "offsety": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":100,
+  "pointtwoY": 0,
+  "pointthreeX":0,
+  "pointthreeY":100
   },
   "I": {
     "size": 50,
@@ -50,14 +68,20 @@ const alphabet = {
     "offsety": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 50,
+  "pointoneY": 0,
+  "pointtwoX":50,
+  "pointtwoY": 100,
+  "pointthreeX":0,
+  "pointthreeY":200
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":0,
+  "pointtwoY": 100,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "L": {
     "size": 50,
@@ -105,14 +129,20 @@ const alphabet = {
     "offsety": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":100,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 0,
+  "pointoneY": 200,
+  "pointtwoX":100,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "W": {
     "size": 50,
@@ -130,9 +160,12 @@ const alphabet = {
     "offsety": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":0,
+  "pointtwoY": 0,
+  "pointthreeX":100,
+  "pointthreeY":0
   },
   "0": {
     "size": 40,

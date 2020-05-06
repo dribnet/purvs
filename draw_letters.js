@@ -1,6 +1,7 @@
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorBackg    = "#2B2118";
+const colorStroke  = "#A8763E";
 
 /*
  * Draw the letter given the letterData
@@ -10,20 +11,34 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(10);
+  strokeCap(ROUND);
+  strokeJoin(ROUND);
+  noFill();
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pointoneX = 0+letterData["pointoneX"];
+  let pointoneY = 0+letterData["pointoneY"];
+  let pointtwoX = 0+letterData["pointtwoX"];
+  let pointtwoY = 0+letterData["pointtwoY"];
+  let pointthreeX = 0+letterData["pointthreeX"];
+  let pointthreeY = 0+letterData["pointthreeY"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  const baselineY = 0 +200;
+
+  // beginShape();
+  // vertex (0, 0);
+  // vertex (0, baselineY);
+  // vertex (pointoneX, pointoneY);
+  // vertex (pointtwoX, pointtwoY);
+  // vertex (pointthreeX,pointthreeY);
+  // endShape();
+
+  line (0,0,0,baselineY);
+  line (0,baselineY,pointoneX,pointoneY);
+  line (pointoneX,pointoneY,pointtwoX,pointtwoY);
+  line (pointtwoX,pointtwoY,pointthreeX,pointthreeY);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

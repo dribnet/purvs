@@ -19,3 +19,9 @@ My letter parameters so far are simply the x,y coordinates of each point.
   "pointthreeX": - third vertex X
   "pointthreeY": - third vertex Y
 
+ Part 2 
+
+ Designing alphabet - 06/05/20
+
+ Today I moved all of my code so that it fits into the other js files. I have started using the editor to create the rest of the letters,  and it has been much easier than sketching on paper. I think at this point I can stick with just the three points, which leaves me a lot of room for adding details later.  
+
