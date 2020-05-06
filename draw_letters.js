@@ -1,7 +1,8 @@
 const colorFront1  = "#3A606E"; //navy
 const colorFront2  = "#E5C2BC"; // pink
- //const colorStroke  = "##ffffff";
-const colorStroke  = "#E5C2BC";
+const colorFront3 = "#8ACEB4"; //green
+ //const colorStroke  = "#ffffff";
+const colorStroke  = "#8ACEB4";
 
 
 /*
@@ -15,13 +16,18 @@ function drawLetter(letterData) {
   angleMode(DEGREES);
   
     // determine parameters for the circle and arc
-  let size2 = letterData["height"];
-  let size1 = letterData["width"];
-  let pos2x = 50 + letterData["offsetx"];
-  let pos2y = 110 + letterData["offsety"];
+  let arcHeight = letterData["height"];
+  let arcWidth = letterData["width"];
+  let posx = 50 + letterData["offsetx"];
+  let posy = 110 + letterData["offsety"];
   let start =letterData["angleStart"];
   let finish =letterData["angleStop"];
   let ellipseYpos = letterData["ellipseY"];
+  let rectX = letterData["rectX"];
+  let rectY = letterData["rectY"];
+  let rectWidth = letterData["rectW"];
+  let rectHeight = letterData["rectH"];
+
 
     // draw circle
   stroke(colorStroke);
@@ -29,10 +35,14 @@ function drawLetter(letterData) {
   fill(colorFront1);
   ellipse(50,ellipseYpos, 90, 90);
 
+  //draw rect
+    noStroke();
+    fill(colorFront3);
+    rect(rectX, rectY, rectWidth, rectHeight)
+
   // draw arc
-  noStroke();
   fill(colorFront2);
-  arc(pos2x, pos2y, size1, size2, start, finish);
+  arc(posx, posy, arcWidth, arcHeight, start, finish);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
