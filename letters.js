@@ -5,34 +5,52 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 100,
+  "offsetx": 75,
+  "offsety": 80,
+  "rectL": 75,
+  "rectW": 25,
+  "radi": 2
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "size": 100,
+  "offsetx": 0,
+  "offsety": 0,
+  "rectL": 140,
+  "rectW": 25,
+  "radi": 3
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "offsetx": 50,
+  "offsety": 50,
+  "rectL": 100,
+  "rectW": 60,
+  "radi": 10
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "offsetx": 75,
+  "offsety": 0,
+  "rectL": 140,
+  "rectW": 25,
+  "radi": 3
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "offsetx": 35,
+  "offsety": 90,
+  "rectL": 20,
+  "rectW": 70,
+  "radi": 6
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "offsetx": 35,
+  "offsety": 90,
+  "rectL": 20,
+  "rectW": 70,
+  "radi": 6
   },
   "G": {
     "size": 50,
