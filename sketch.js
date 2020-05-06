@@ -2,52 +2,84 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "leaf2Posx": 50,
+  "leaf2Posy": 0,
+  "rotate1": 30,
+  "rotate2": -30,
+  "rotate3": -90,
+  "stickPosx": -35,
+  "stickPosy": 30
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "leaf2Posx": 0,
+  "leaf2Posy": -90,
+  "rotate1": 90,
+  "rotate2": 90,
+  "rotate3": 0,
+  "stickPosx": -60,
+  "stickPosy": -100
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "leaf2Posx": 0,
+  "leaf2Posy": -75,
+  "rotate1": -45,
+  "rotate2": 45,
+  "rotate3": 45,
+  "stickPosx": 40,
+  "stickPosy": -120
 }
 
 const colorFront1  = "#38ad1f";
-const colorFront2  = "#66cf51";
+const colorLeaf  = "#66cf51";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorStick = "#a15f45";
+const colorStroke  = "#38ad1f";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
+function drawLetter(leaf1Posx, leaf1Posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let leaf2Posx = leaf1Posx + letterData["leaf2Posx"];
+  let leaf2Posy = leaf1Posy + letterData["leaf2Posy"];
+  let angle1 = letterData["rotate1"];
+  let angle2 = letterData["rotate2"];
+  let angle3 = letterData["rotate3"];
+  let stickPosx = leaf1Posx + letterData["stickPosx"];
+  let stickPosy = leaf1Posy + letterData["stickPosy"];
+  
+  fill(colorLeaf);
+  stroke(colorStroke);
+  strokeWeight(4);
+  push();
+  translate(leaf1Posx,leaf1Posy);
+  rotate(angle1);
+  ellipse(0, 0, 90, 150);
+  pop();
+  
+  push();
+  translate(leaf2Posx,leaf2Posy);
+  rotate(angle2);
+  ellipse(0, 0, 90, 150);
+  pop();
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(colorStick);
+  noStroke();
+  push();
+  translate(stickPosx,stickPosy);
+  rotate(angle3);
+  rect(0, 0, 10, 120);
+  pop();
 }
 
 function draw () {
@@ -59,9 +91,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x - 250, center_y-20, letterA);
   drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x + 250, center_y-20, letterC);
 }
 
 function keyTyped() {
