@@ -1,7 +1,7 @@
-const colorArc  = "#F070A1";
-const colorTri = "#16FFBD";
-const colorStroke  = "#000000";
-//#B39BC8 #F172A1
+const colorArc  = "#61DDC9";
+const colorTri = "#FF6F80";
+const colorStroke  = "#FF797";
+//#F070A1 #16FFBD
 
 /*
  * Draw the letter given the letterData
@@ -28,7 +28,8 @@ function drawLetter(letterData) {
 
   // draw two circles
   stroke(colorStroke);
-  strokeWeight(8);
+  strokeWeight(15);
+  
   push();
   scale(0.65);
 

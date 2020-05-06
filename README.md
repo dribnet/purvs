@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-I've started my alphabet, I'm keeping the same concept as my sketch, I like the idea of a slight abstract element (somewhat readable with a mix of upper and lower) and I think it will be further implemented with more complex letters. I've also started experimenting with colour palettes. I think a vivid colour palette should reflect the quirky fun nature of my alphabet. 
+I've continued working on my alphabet. Some letters are harder than others so I will most likely come back and rework them. Decided on a colour palette.
 
 The parameters per letter:
   offsetx - the x offset of the letter components
