@@ -1,6 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-I've continued working on my alphabet. Some letters are harder than others so I will most likely come back and rework them. Decided on a colour palette.
+I've completed my alphabet but I am going to make some adjustments to make things more readable. I've veered more towards readability with a funky look. I'm happy with the colour palette.
+
+Next will be the numbers and a symbol
 
 The parameters per letter:
   offsetx - the x offset of the letter components
