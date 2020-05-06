@@ -13,42 +13,56 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
+  "offsetx": 20,
   "offsety": 35,
-  "archH": 30,
-  "archW": 90,
+  "offset2x": 20,
+  "offset2y": 100,
+  "offset3x": 20,
+  "offset3y": 30,
   "strokeW": 1,
   "opacity": 255,
+  "offsetx2": 30,
+  "offsety2": -30,
+  "offset2x2": 100,
+  "offset2y2": 40,
+  "offset3x2": 30,
+  "offset3y2": 0,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145,
-  "archH": -60,
-  "archW": 20,
+  "offsetx": 20,
+  "offsety": 50,
+  "offset2x": 50,
+  "offset2y": 0,
+  "offset3x": 40,
+  "offset3y": 30,
   "strokeW": 2,
   "opacity": 140,
+  "offsetx2": 30,
+  "offsety2": 30,
+  "offset2x2": 100,
+  "offset2y2": 160,
+  "offset3x2": 30,
+  "offset3y2": 0,
 }
 
 const letterC = {
-  "size": 100,
   "offsetx": 30,
   "offsety": 0,
-  "archH": 80,
-  "archW": 70,
+  "offset2x": 2,
+  "offset2y": 80,
+  "offset3x": -100,
+  "offset3y": 30,
   "strokeW": 1,
-  "opacity": 40,
+  "opacity": 0,
+  "offsetx2": 30,
+  "offsety2": 20,
+  "offset2x2": 100,
+  "offset2y2": 40,
+  "offset3x2": 30,
+  "offset3y2": 0,
 }
 
-const letterD = {
-  "size": 50,
-  "offsetx": 30,
-  "offsety": -30,
-  "opacity": 240
-
-}
 
 const colorFront1  = "#EFBDEB";
 const colorFront2  = "#B68CB8";
@@ -72,7 +86,6 @@ const green3 = 97
 const blue3 = 160
 
 //Dark Turquisoe 
-
 const red4 = 17
 const green4 = 75
 const blue4 = 95
@@ -92,31 +105,38 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let pos3x = posx + letterData["offset2x"];
+  let pos3y = posy + letterData["offset2y"];
+  let pos4x = posx + letterData["offset3x"];
+  let pos4y = posy + letterData["offset3y"];
+
+  let pos2x2 = posx + letterData["offsetx2"];
+  let pos2y2 = posy + letterData["offsety2"];
+  let pos3x2 = posx + letterData["offset2x2"];
+  let pos3y2 = posy + letterData["offset2y2"];
+  let pos4x2 = posx + letterData["offset3x2"];
+  let pos4y2 = posy + letterData["offset3y2"];
+
+
+
   let stroke2W = letterData["strokeW"];
   let opacity2 = letterData["opacity"];
 
   let archHeight = letterData["archH"];
   let archWidth = letterData["archW"];
 
-  //nofill()
-
-  // draw two circles
   strokeWeight(stroke2W);
 
   fill(red1,green1,blue1);
-  triangle(posx+20, posy+20,posx +60, posy+100, posx-30, posy+50);
-  fill(red2,green2,blue2);
-  triangle(posx+10, posy+10,posx +50, posy+90, posx-40, posy+40);
-  fill(red3,green3,blue3);
-  triangle(posx, posy,posx +40, posy+80, posx-50, posy+30);
-  fill(red4,green4,blue4,opacity2);
-  triangle(posx-10, posy-10,posx +30, posy+70, posx-60, posy+20);
+  triangle(posx, posy,pos2x+50, pos2y+80, pos3x-50, pos3y+20);
 
-  //arc (x position, y position, width, height, start, stop, type of arch)
-  //arc(posx, posy, archWidth, archHeight, 0, 180, PIE);
+  fill(red4,green4,blue4,opacity2);
+  triangle(pos2x2, pos2y2,pos3x2, pos3y2, pos4x2, pos4y2);
+
+ 
+
 }
 
 function draw () {
