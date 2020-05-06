@@ -1,10 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-I am making my alphabet out of an arc and a triangle. I like the slightly abstracted look that it gives and I think I'll continue with this concept. 
-
-I had already planned potential concepts in advance, so the only challenge I had was figuring out the code. 
+I've started my alphabet, I'm keeping the same concept as my sketch, I like the idea of a slight abstract element (somewhat readable with a mix of upper and lower) and I think it will be further implemented with more complex letters. I've also started experimenting with colour palettes. I think a vivid colour palette should reflect the quirky fun nature of my alphabet. 
 
 The parameters per letter:
   offsetx - the x offset of the letter components
