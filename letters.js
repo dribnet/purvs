@@ -1,188 +1,817 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size1": 50,
+  "size1cont": 25,
+  "offsetx1": 0,
+  "offsetx1cont": 0,
+  "offsety1": 0,
+  "offsety1cont": 0,
+
+  "size2": 50,
+  "size2cont": 25,
+  "offsetx2": 0,
+  "offsetx2cont": 0,
+  "offsety2": 0,
+  "offsety2cont": 0,
+
+  "size3": 50,
+  "size3cont": 25,
+  "offsetx3": 0,
+  "offsetx3cont": 0,
+  "offsety3": 0,
+  "offsety3cont": 0
   }
 
 }
