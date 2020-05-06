@@ -1,12 +1,14 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+6/5/2020
+Each of my letters is composed of 2 squares. My alphabet is based on the Semaphore alphabet, regarding the placement of the squares
+
+Colour-wise I decided to try a simple kind of 'neon' aesthetic
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `size` : the height and width of the squares
+  * `offsetx` : x offset of the second square relative to the first one
+  * `offsety` : y offset of the second square relative to the first one
 
-test push
