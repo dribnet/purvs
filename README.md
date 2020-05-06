@@ -1,9 +1,15 @@
 ## MDDN 242 2020 Assignment 2
 
+-05/05/20-
 Due to spilling coffee all over my keyboard during Monday's lecture, I had a fair bit of catching up to do on a few classes. I am in the process of generating ideas for my alaphabet. I changed around colours and stroke weight as a test commit, using Github Desktop.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+-06/05/20-
+I was messing around with Bezier curves initally, trying to get them to form into letters, I was sucessful in creating an uppercase A, but realised at that point it was going to be too complicated to use these for the whole project. I've since moved to a much simpler style, using an ellipse and a rect to create minimal letter forms. I'll use these two shapes, overlapping and in various sizes, to create my alphabet.
 
+So far my parameters include:
+  "size"    = size of ellipse (will change to with and height)
+  "offsetx" = x position offset from origin
+  "offsety" = y position offset from origin
+  "rectL"   = length of rectangle
+  "rectW"   = height of rectangle
+  "radi"    = radius of rectangle corners.
