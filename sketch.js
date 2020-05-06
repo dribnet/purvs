@@ -40,10 +40,10 @@ const letterC = {
   "radi": 10
 }
 
-const colorFront1  = "#e38f07";
-const colorFront2  = "#103fc9";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#F15025";
+const colorFront2  = "#FFFFFF";
+const colorBack    = "#2176AE";
+const colorStroke  = "#000000";
 
 function setup () {
   // create the drawing canvas, save the canvas element
