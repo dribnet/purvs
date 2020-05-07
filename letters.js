@@ -357,8 +357,8 @@ const alphabet = {
     "space":10//in use
   },
   "9": {
-     "lpH1st":0,//in use
-    "lpH2st":20,
+     "lpH1st":80,//in use
+    "lpH2st":100,
 
     "lpV1st":100,//in use
     "lpV2st":150,
