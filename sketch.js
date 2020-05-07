@@ -32,12 +32,13 @@ const letterC = {
 
 // test
 
-const colorFront1  = "#129cff";
+const colorFront1  = "#ff9900";
 const colorFront2  = "#159ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
 function setup () {
+
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -56,14 +57,18 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+
   // draw two circles
+  // fill(colorFront1);
+  // ellipse(posx, posy, 150, 150);
+  // fill(colorFront2);
+  // ellipse(pos2x, pos2y, size2, size2);
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(posx,100,200,50,300,200)
 }
 
 function draw () {
+
   // clear screen
   background(colorBack);
 
@@ -75,6 +80,7 @@ function draw () {
   drawLetter(center_x - 250, center_y, letterA);
   drawLetter(center_x      , center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
+
 }
 
 function keyTyped() {

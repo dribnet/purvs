@@ -33,6 +33,7 @@ function mouseClicked() {
 }
 
 function draw () {
+
   // clear screen
   background(colorBack);
 
