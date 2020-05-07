@@ -1,18 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
 Concept Work:
-Thus far the plan is to make an alphabet out of overlapping arcs, in which the overlapping part is the shape of the letter. Currently I'm working with two, but I feel a third may have to be added for other letters (E feels like it will be annoying, as does X). I may lean out into using both the arcs and the overlapping space, but ideally I want it just to be the overlap.
-
-Currently, there's an A, a B, and a C. Wow.
+This alphabet is made out of twotransparent arcs, which create the approximate form of english letters where they overlap. The bluish arc sits to the left and top, and the red to the right and bottom, in that order of priority. As it stands, this totals 10 parameters per letter.
 
 6/05/20a
 Move out of sketch.js.
@@ -24,3 +13,9 @@ Transferred sketch data into draw_letters.js and letters.js. Rescaled and positi
 More letters.
 
 D, E, F, G, H, I, and J have been made. I'm not sure how far I'll be able to take just two arcs, but I'm gonna run as far as it'll go. Not so sure about G or F, but they exist.
+
+
+1/05/20
+More letters, default changed. README fixed.
+
+K, X, and Y have been added. Not super sure about K or Y, but at least I have them. Default is now two semicircular arcs which do not overlap. Tweaked F to fit newly added rule that red should have more weight to the right and bottom. Cut out and replaced default readme.
