@@ -1,8 +1,13 @@
 ## MDDN 242 2020 Assignment 2
 
-I've got the first letter of my alphabet done after a nice long painful debug process. I'm sure there will be more hardship to come but for now I'm feeling sucsessful.
+7/4/20
+
+I bashed out my initial sketches for the alphabet today. There a little rough but I like the look. I'm gonna go for some design feedback and maybe see if I want to try some different color sceams
 
 6/4/20
+
+I've got the first letter of my alphabet done after a nice long painful debug process. I'm sure there will be more hardship to come but for now I'm feeling sucsessful.
+
 Ok, I've got my new concept. I think I understand the wy everything is drawin now so I should be good to go on the full alphabet. The parameters I'm using are 
   "space": 10, the space between the lines
   "lp1": width point of horizontal lines

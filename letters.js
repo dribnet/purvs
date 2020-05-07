@@ -5,193 +5,366 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "lpH1":50,
-    "lpH2":100,
-    "lpH3":200,
-    "lpV1":0,
-    "lpV2":0,
-    "lpV3":0,
-    "lpH1ang":0,
-    "lpH2ang":0,
-    "lpV1ang":0,
-    "lpV2ang":0,
-    "mid":20,
+    "lpV1":50,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "mid":20,//in use
     "space":10
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+   
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "mid":20,//in use
+    "space":5
+    
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "space":10//in use
+    
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   
+    "lpV1st":100,//in use
+    "lpV2st":200,
+
+    "mid":20,//in use
+    "space":5
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":140,//in use
+    "lpV2st":160,
+
+    "space":5//in use
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":100,//in use
+    "lpV2st":150,
+
+    "space":10//in use
+    
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpV1st":150,//in use
+    "lpV2st":200,
+
+    "space":5//in use
+   
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    
+    "lpV1st":140,//in use
+    "lpV2st":160,
+
+    "space":5//in use
+    
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    
+    "lpH1st":40,//in use
+    "lpH2st":60,
+
+    "space":10//in use
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":100,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpV1st":180,//in use
+    "lpV2st":200,
+    
+    "space":5//in use
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":200,
+    "lpV3":100,
+
+    "lpH1":100,//in use
+    "lpH2":200,
+    "lpH3":0,
+    
+    "space":10//in use
+    
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpH1st":0,//in use
+    "lpH2st":20,
+
+    "lpV1st":180,//in use
+    "lpV2st":200,
+
+    "space":5//in use
+    
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "lpV1":100,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpH1":50,//in use
+    "lpH2":150,
+    "lpH3":0,
+    
+    "space":10
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":100,
+    "lpV3":200,
+    "space":5//in use
+    
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":100,//in use
+    "lpV2st":200,
+
+    "mid":20,
+    "space":10//in use
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":100,//in use
+    "lpV2st":150,
+
+    "mid":20,
+    "space":5//in use
+    
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpH1":100,//in use
+    "lpH2":200,
+    "lpH3":0,
+
+     "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":100,//in use
+    "lpV2st":200,
+
+    "mid":20,
+    "space":10//in use
+    
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpH1st":0,//in use
+    "lpH2st":100,
+
+    "lpV1st":100,//in use
+    "lpV2st":150,
+
+    "mid":20,
+    "space":5//in use
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":200,
+    "lpV3":100,
+    "lpV1st":140,//in use
+    "lpV2st":160,
+    "lpH1":0,//in use
+    "lpH2":200,
+    "lpH3":100,
+    "space":10//in use
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1st":100,//in use
+    "lpV2st":120,
+     "lpH1st":40,//in use
+    "lpH2st":60,
+
+    "space":5//in use
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":100,//in use
+    "lpV2":150,
+    "lpV3":200,
+
+    "lpH1":50,//in use
+    "lpH2":200,
+    "lpH3":0,
+    "lpH1st":80,//in use
+    "lpH2st":100,
+    
+    "space":5//in use
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":50,//in use
+    "lpV2":200,
+    "lpV3":100,
+
+    "space":10
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "lpV1":50,//in use
+    "lpV2":150,
+    "lpV3":200,
+    
+    "space":10
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+
+     "lpV1":100,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpH1":100,//in use
+    "lpH2":200,
+    "lpH3":0,
+    
+    "space":5//in use
+    
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":50,//in use
+    "lpV2":150,
+    "lpV3":100,
+     "lpH1st":40,//in use
+    "lpH2st":60,
+
+    "space":5
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "lpV1":0,//in use
+    "lpV2":100,
+    "lpV3":180,
+
+    "lpH1":0,//in use
+    "lpH2":100,
+    "lpH3":100,
+    "lpV1st":180,//in use
+    "lpV2st":200,
+    
+    "space":10//in use
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+     "mid":20,
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpH1":50,//in use
+    "lpH2":100,
+    "lpH3":0,
+    
+    "lpH1st":40,//in use
+    "lpH2st":60,
+
+    "space":10//in use
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpV1":0,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpV1st":100,//in use
+    "lpV2st":150,
+
+    "space":5//in use
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpH1":50,//in use
+    "lpH2":150,
+    "lpH3":100,
+    
+    "space":10
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpV1":50,//in use
+    "lpV2":100,
+    "lpV3":150,
+    "lpV1st":140,//in use
+    "lpV2st":160,
+     "lpH1st":40,//in use
+    "lpH2st":60,
+
+    "mid":20,
+
+    "space":10//in use
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpH1st":0,//in use
+    "lpH2st":20,
+
+    "lpV1st":100,//in use
+    "lpV2st":120,
+
+    "lpH1":100,//in use
+    "lpH2":200,
+    "lpH3":0,
+
+    "space":5//in use
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    
+    "lpH1st":0,//in use
+    "lpH2st":20,
+
+    "lpV1st":150,//in use
+    "lpV2st":200,
+
+    "mid":20,
+    "space":5//in use
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+    "lpV1st":100,//in use
+    "lpV2st":120,
+
+    "lpH1":0,//in use
+    "lpH2":200,
+    "lpH3":100,
+
+    "space":5//in use
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "lpV1":100,//in use
+    "lpV2":100,
+    "lpV3":200,
+
+    "lpH1":100,//in use
+    "lpH2":200,
+    "lpH3":0,
+    "mid":20,
+    "space":10//in use
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+     "lpH1st":0,//in use
+    "lpH2st":20,
+
+    "lpV1st":100,//in use
+    "lpV2st":150,
+
+    "mid":20,
+    "space":5//in use
   }
 
 }
