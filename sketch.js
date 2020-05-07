@@ -13,37 +13,37 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "offsetx": 20,
-  "offsety": 35,
-  "offset2x": 20,
-  "offset2y": 100,
-  "offset3x": 20,
-  "offset3y": 30,
+  "offsetx": -50,
+  "offsety": 40,
+  "offset2x": 0, 
+  "offset2y": -100, 
+  "offset3x": 50, 
+  "offset3y": 40, 
   "strokeW": 1,
-  "opacity": 255,
-  "offsetx2": 30,
-  "offsety2": -30,
-  "offset2x2": 100,
-  "offset2y2": 40,
-  "offset3x2": 30,
-  "offset3y2": 0,
+  "opacity": 130,
+  "offsetx2": -80,
+  "offsety2": 90,
+  "offset2x2": 0,
+  "offset2y2": -50,
+  "offset3x2": 80,
+  "offset3y2": 90,
 }
 
 const letterB = {
-  "offsetx": 20,
-  "offsety": 50,
-  "offset2x": 50,
-  "offset2y": 0,
-  "offset3x": 40,
-  "offset3y": 30,
+  "offsetx": 40,
+  "offsety": -40,
+  "offset2x": -20, 
+  "offset2y": 80, 
+  "offset3x": -20, 
+  "offset3y": -80, 
   "strokeW": 2,
   "opacity": 140,
-  "offsetx2": 30,
-  "offsety2": 30,
-  "offset2x2": 100,
-  "offset2y2": 160,
-  "offset3x2": 30,
-  "offset3y2": 0,
+  "offsetx2": 40,
+  "offsety2": 40,
+  "offset2x2": -20,
+  "offset2y2": 80,
+  "offset3x2": -20,
+  "offset3y2": -70,
 }
 
 const letterC = {
@@ -130,7 +130,7 @@ function drawLetter(posx, posy, letterData) {
   strokeWeight(stroke2W);
 
   fill(red1,green1,blue1);
-  triangle(posx, posy,pos2x+50, pos2y+80, pos3x-50, pos3y+20);
+  triangle(pos2x, pos2y,pos3x, pos3y, pos4x, pos4y);
 
   fill(red4,green4,blue4,opacity2);
   triangle(pos2x2, pos2y2,pos3x2, pos3y2, pos4x2, pos4y2);
