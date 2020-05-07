@@ -369,54 +369,143 @@ const alphabet = {
     "arcEnd": 50
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 25,
+    "offsety": 50,
+    "triangleX1": 100,
+    "triangleY1": 170,
+    "triangleX2": 50,
+    "triangleY2": 170,
+    "triangleX3": 75,
+    "triangleY3": 125,
+    "arcSizeX": 130,
+    "arcSizeY": 180,
+    "arcStart": 0,
+    "arcEnd": 360
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 30,
+    "offsety": 60,
+    "triangleX1": 35,
+    "triangleY1": 120,
+    "triangleX2": 125,
+    "triangleY2": 120,
+    "triangleX3": 125,
+    "triangleY3": 50,
+    "arcSizeX": 100,
+    "arcSizeY": 150,
+    "arcStart": 270,
+    "arcEnd": 80
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 10,
+    "offsety": 20,
+    "triangleX1": 35,
+    "triangleY1": 230,
+    "triangleX2": 135,
+    "triangleY2": 230,
+    "triangleX3": 135,
+    "triangleY3": 170,
+    "arcSizeX": 150,
+    "arcSizeY": 130,
+    "arcStart": 240,
+    "arcEnd": 120
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": -15,
+    "offsety": 50,
+    "triangleX1": 120,
+    "triangleY1": 150,
+    "triangleX2": 30,
+    "triangleY2": 175,
+    "triangleX3": 30,
+    "triangleY3": 125,
+    "arcSizeX": 200,
+    "arcSizeY": 180,
+    "arcStart": 280,
+    "arcEnd": 80
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 45,
+    "offsety": -25,
+    "triangleX1": 55,
+    "triangleY1": 230,
+    "triangleX2": 75,
+    "triangleY2": 120,
+    "triangleX3": 100,
+    "triangleY3": 230,
+    "arcSizeX": 130,
+    "arcSizeY": 190,
+    "arcStart": 60,
+    "arcEnd": 190
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": -15,
+    "offsety": 80,
+    "triangleX1": 35,
+    "triangleY1": 100,
+    "triangleX2": 135,
+    "triangleY2": 120,
+    "triangleX3": 135,
+    "triangleY3": 60,
+    "arcSizeX": 200,
+    "arcSizeY": 100,
+    "arcStart": 270,
+    "arcEnd": 90
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 25,
+    "offsety": 80,
+    "triangleX1": 30,
+    "triangleY1": 130,
+    "triangleX2": 60,
+    "triangleY2": 50,
+    "triangleX3": 100,
+    "triangleY3": 80,
+    "arcSizeX": 120,
+    "arcSizeY": 120,
+    "arcStart": 0,
+    "arcEnd": 360
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": -10,
+    "offsety": -20,
+    "triangleX1": 15,
+    "triangleY1": 140,
+    "triangleX2": 135,
+    "triangleY2": 70,
+    "triangleX3": 15,
+    "triangleY3": 70,
+    "arcSizeX": 200,
+    "arcSizeY": 350,
+    "arcStart": 360,
+    "arcEnd": 70
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 30,
+    "offsety": 70,
+    "triangleX1": 130,
+    "triangleY1": 60,
+    "triangleX2": 30,
+    "triangleY2": 60,
+    "triangleX3": 75,
+    "triangleY3": 125,
+    "arcSizeX": 120,
+    "arcSizeY": 130,
+    "arcStart": 0,
+    "arcEnd": 360
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 25,
+    "offsety": 10,
+    "triangleX1": 100,
+    "triangleY1": 240,
+    "triangleX2": 120,
+    "triangleY2": 150,
+    "triangleX3": 50,
+    "triangleY3": 220,
+    "arcSizeX": 120,
+    "arcSizeY": 120,
+    "arcStart": 0,
+    "arcEnd": 360
   }
-
 }

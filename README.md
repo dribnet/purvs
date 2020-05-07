@@ -1,8 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-I've completed my alphabet but I am going to make some adjustments to make things more readable. I've veered more towards readability with a funky look. I'm happy with the colour palette.
+Today I worked on my numbers. I had a bit of trouble with the numbers 2 and 5 so I will have to come back and revisit. I'm really happy with how things are looking. I think that the alphabet is definitely intelligible whilst also being fun to look at. 
 
-Next will be the numbers and a symbol
+Next will be to look at refining the shapes and also making a symbol
 
 The parameters per letter:
   offsetx - the x offset of the letter components
