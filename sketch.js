@@ -1,6 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
+
 /* 
  * my three variable per letter are:
  *
@@ -19,8 +20,10 @@ const letterA = {
   "DivideHeight": height_difference*37,
   "offsetx": 0,
   "offsety": 100,
-  "arcStart": 40,
-  "arcFinish": 100,
+  "arcStart": -200,
+  "arcFinish": 20,
+  "arc2Start": 0,
+  "arc2Finish":180,
   //"Divide": -95
 }
 
@@ -31,6 +34,8 @@ const letterB = {
   "offsety": 100,
   "arcStart": 20,
   "arcFinish": 200,
+  "arc2Start": 0,
+  "arc2Finish":180,
   //"Divide":-20
 }
 
@@ -41,6 +46,8 @@ const letterC = {
   "offsety": 100,
   "arcStart": 0,
   "arcFinish": 800,
+  "arc2Start": 0,
+  "arc2Finish":180,
   //"Divide":-50
 }
 
@@ -62,19 +69,26 @@ function setup () {
   stroke(colorStroke);
   strokeWeight(0);
 
+  angleMode (DEGREES);
+
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let pos2x = posx + letterData["offsetx"];
+  //let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let Divide = letterData["DivideHeight"];
   let arcStart = letterData["arcStart"];
   let arcFinish = letterData["arcFinish"];
+
+  let arc2Start = letterData["arc2Start"];
+  let arc2Finish = letterData["arc2Finish"];
+
   let arcX = posx+50
   let arcY= posy+50
+  let arc2X= posx+150
 
 //black square
   fill (colour_DarkSquare);
@@ -87,6 +101,9 @@ noFill ();
 stroke(5);
 strokeWeight (5);
 arc(arcX, arcY, 50, 50, arcStart , arcFinish);
+
+arc(arc2X, arcY, 50, 50, arc2Start , arc2Finish);
+
 noStroke ();
 
 }
