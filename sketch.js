@@ -12,22 +12,63 @@ const canvasHeight = 500;
  *
  */
 
+
+
 const letterA = {
+
+  "topRectWidth": 130,
+  "middleRectWidth": 130,
+  "bottomRectWidth": 0,
+  "topRectHeight": 30,
+  "middleRectHeight": 30,
+  "bottomRectHeight": 0,
+  "leftRectWidth": 30,
+  "leftRectHeight": 180,
+  "rightRectWidth": 30,
+  "rightRectHeight": 180,
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35,
+  "rotateValue": 90
+
 }
 
 const letterB = {
+
+  "topRectWidth": 130,
+  "middleRectWidth": 130,
+  "bottomRectWidth": 130,
+  "topRectHeight": 30,
+  "middleRectHeight": 30,
+  "bottomRectHeight": 30,
+  "leftRectWidth": 30,
+  "leftRectHeight": 180,
+  "rightRectWidth": 30,
+  "rightRectHeight": 180,
   "size": 150,
   "offsetx": 0,
   "offsety": -145
+
+
+
 }
 
 const letterC = {
+
+  "topRectWidth": 130,
+  "middleRectWidth": 0,
+  "bottomRectWidth": 130,
+  "topRectHeight": 30,
+  "middleRectHeight": 0,
+  "bottomRectHeight": 30,
+  "leftRectWidth": 30,
+  "leftRectHeight": 180,
+  "rightRectWidth": 0,
+  "rightRectHeight": 0,
   "size": 100,
   "offsetx": 30,
   "offsety": 0
+
 }
 
 // test
@@ -45,7 +86,9 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
+  angleMode(DEGREES);
   strokeWeight(4);
+
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -53,18 +96,27 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  // let i = letterData["shapeType"];
+  // let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let topRectW = letterData["topRectWidth"];
+  let middleRectW = letterData["middleRectWidth"];
+  let botRectW = letterData["bottomRectWidth"];
+  let topRectH = letterData["topRectHeight"];
+  let middleRectH = letterData["middleRectHeight"];
+  let botRectH = letterData["bottomRectHeight"];
+  let leftRectW = letterData["leftRectWidth"];
+  let leftRectH = letterData["leftRectHeight"];
+  let rightRectW = letterData["rightRectWidth"];
+  let rightRectH = letterData["rightRectHeight"];
 
-
-  // draw two circles
-  // fill(colorFront1);
-  // ellipse(posx, posy, 150, 150);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
   fill(colorFront1);
-  triangle(posx,100,200,50,300,200)
+    rect(posx,posy - 80,leftRectW,leftRectH); //left vertical strip (A,B,C)
+    rect(posx + 100, posy - 80, rightRectW, rightRectH); //right vertical strip (A,B)
+    rect(posx,posy,middleRectW, middleRectH); //middle horizontal strip (A,B)
+    rect(posx,posy - 80,topRectW,topRectH); //top horizontal strip (A,B,C)
+    rect(posx,posy + 70, botRectW, botRectH); //bottom horizontal strip (B,C)
 }
 
 function draw () {
