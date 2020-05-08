@@ -14,26 +14,38 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offset1x": 0,
+  "offset1y": 0,
+  "offset2x": 0,
+  "offset2y": 0,
+  "arcStart": 120,
+  "arcEnd" : 60
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 80,
+  "offset1x": 0,
+  "offset1y": 0,
+  "offset2x": 0,
+  "offset2y": -90,
+  "arcStart": 270,
+  "arcEnd": 90
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 80,
+  "offset1x": 0,
+  "offset1y": 0,
+  "offset2x": 0,
+  "offset2y": 0,
+  "arcStart": 30,
+  "arcEnd": 330
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#e71d36";
+const colorFront2  = "#ef626c";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorStroke  = "#2e282a";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -51,14 +63,21 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let pos2x = posx + letterData["offset1x"];
+  let pos2y = posy + letterData["offset1y"];
+  let pos3x = posx + letterData["offset2x"];
+  let pos3y = posy + letterData["offset2y"];
+  let arcStart = letterData["arcStart"];
+  let arcEnd = letterData["arcEnd"];
+
+  angleMode(DEGREES);
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  arc(posx, posy, 150, 150, arcStart, arcEnd);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos3x, pos3y, size2, size2);
 }
 
 function draw () {
