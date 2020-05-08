@@ -5,46 +5,77 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "offsetx": 20,
-    "offsety": 35,
-    "offset2x": 20,
-    "offset2y": 100,
-    "offset3x": 20,
-    "offset3y": 30,
+    "offsetx": -52,
+    "offsety": 0,
+    "offset2x": 0, 
+    "offset2y": -100, 
+    "offset3x": 55, 
+    "offset3y": 0, 
+
     "strokeW": 1,
-    "opacity": 255,
-    "offsetx2": 30,
-    "offsety2": -30,
-    "offset2x2": 100,
-    "offset2y2": 40,
-    "offset3x2": 30,
-    "offset3y2": 0,
+    "opacity": 130,
+
+    "offsetx2": 0,
+    "offsety2": -70,
+    "offset2x2": -65,
+    "offset2y2": 30,
+    "offset3x2": 70,
+    "offset3y2": 30,
   },
   "B": {
-    "offsetx": 20,
+    "offsetx": 0,
     "offsety": 50,
-    "offset2x": 50,
-    "offset2y": 0,
-    "offset3x": 40,
-    "offset3y": 30,
+    "offset2x": 0,
+    "offset2y": -100,
+    "offset3x": 50,
+    "offset3y": 0,
+
     "strokeW": 2,
-    "opacity": 140,
-    "offsetx2": 30,
-    "offsety2": 30,
-    "offset2x2": 100,
-    "offset2y2": 160,
-    "offset3x2": 30,
-    "offset3y2": 0,
+    "opacity": 255,
+
+    "offsetx2": 0,
+    "offsety2": 0,
+    "offset2x2": 0,
+    "offset2y2": -100,
+    "offset3x2": 50,
+    "offset3y2": -50,
+
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": -50,
+    "offsety": 50,
+    "offset2x": 50,
+    "offset2y": -30,
+    "offset3x": 50,
+    "offset3y": 0,
+
+    "strokeW": 2,
+    "opacity": 255,
+
+    "offsetx2": 50,
+    "offsety2": -50,
+    "offset2x2": -50,
+    "offset2y2": 30,
+    "offset3x2": -50,
+    "offset3y2": 0,
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 0,
+    "offsety": 50,
+    "offset2x": 0,
+    "offset2y": -100,
+    "offset3x": 50,
+    "offset3y": 0,
+
+    "strokeW": 1,
+    "opacity": 40,
+
+    "offsetx2": 0,
+    "offsety2": 50,
+    "offset2x2": 0,
+    "offset2y2": -100,
+    "offset3x2": -50,
+    "offset3y2": 0,
   },
   "E": {
     "size": 50,
@@ -92,9 +123,22 @@ const alphabet = {
     "offsety": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": -50,  //-40
+    "offsety": 30,  //30
+    "offset2x": -50, //20
+    "offset2y": -100, //-100
+    "offset3x": 10, //20
+    "offset3y": 30, //30
+
+    "strokeW": 2,
+    "opacity": 255,
+
+    "offsetx2": -40,
+    "offsety2": -100,
+    "offset2x2": 20,
+    "offset2y2": -100,
+    "offset3x2": 20,
+    "offset3y2": 30,
   },
   "O": {
     "size": 50,

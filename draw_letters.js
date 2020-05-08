@@ -33,36 +33,34 @@ const blue4 = 95
  */
 function drawLetter(letterData) {
 
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pinktriAx = 50 + letterData["offsetx"];
+  let pinktriAy = 150 + letterData["offsety"];
+  let pinktriA2x = 50 + letterData["offset2x"];
+  let pinktriA2y = 150 + letterData["offset2y"];
+  let pinktriA3x = 50 + letterData["offset3x"];
+  let pinktriA3y = 150 + letterData["offset3y"];
 
-  let pos3x = letterData["offset2x"];
-  let pos3y = letterData["offset2y"];
-  let pos4x = letterData["offset3x"];
-  let pos4y = letterData["offset3y"];
-
-  let pos2x2 = letterData["offsetx2"];
-  let pos2y2 = letterData["offsety2"];
-  let pos3x2 = letterData["offset2x2"];
-  let pos3y2 = letterData["offset2y2"];
-  let pos4x2 = letterData["offset3x2"];
-  let pos4y2 = letterData["offset3y2"];
+  let greentrix = 50 + letterData["offsetx2"];
+  let greentriy = 150 + letterData["offsety2"];
+  let greentri2x = 50 + letterData["offset2x2"];
+  let greentri2y = 150 +letterData["offset2y2"];
+  let greentri3x = 50 + letterData["offset3x2"];
+  let greentri3y = 150 + letterData["offset3y2"];
 
 
 
   let stroke2W = letterData["strokeW"];
   let opacity2 = letterData["opacity"];
 
-  let archHeight = letterData["archH"];
-  let archWidth = letterData["archW"];
 
   strokeWeight(stroke2W);
 
   fill(red1,green1,blue1);
-  triangle(pos2x, pos2y,pos3x, pos3y, pos4x, pos4y);
+  triangle(pinktriAx, pinktriAy,pinktriA2x, pinktriA2y, pinktriA3x, pinktriA3y);
 
   fill(red4,green4,blue4,opacity2);
-  triangle(pos2x2, pos2y2,pos3x2, pos3y2, pos4x2, pos4y2);
+  triangle(greentrix, greentriy,greentri2x, greentri2y, greentri3x, greentri3y);
+
 
 }
 

@@ -2,6 +2,8 @@
 
 06/05/20
 
+Update 7: Working through the alphabet. I really want to change the labels to my parameters so it isn't as confusing for my brain but its not working. I also think I might get rid of the stroke parameter cause I am hardly using it.
+
 Update 6: I am starting to be able to transfer my code over into draw letters and letters, I think I will need to re name some parameter names and my brain is getting confused. I also have hand drawn all my letters out to help make the conversion into code easier
 
 Update 5: I was able to create varibles and I think to achieve a better look I need to use less shapes and sticking with the triangles does make me have a lot of varibles for each point so it will be important for me to strip this idea back
