@@ -20,8 +20,8 @@ const sliderInfo = [
   ["angleStop", 0, 360],
   ["rectX",  0, 88],
   ["rectY",  0, 180],
-  ["rectW",  0, 15],
-  ["rectH",  50, 200]
+  ["rectW",  15, 100],
+  ["rectH",  15, 200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

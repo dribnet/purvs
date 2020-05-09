@@ -22,3 +22,6 @@ The eleven parameters per letter:
 
 6/05/2020 Editor and developed design
 	I have set up the editor and changed the parameter names ready to be used. After thinking about my design further I decided to sketch out a new idea that was the same as my first idea but included a rectangle. I found that this allowed me to form the shapes easier and added another element to the design that made the letters more readible and have a cleaner look. I also relaised that without the added rect I would not be able to draw the numbers very easy at all and did not like how they looked when I tried to sketch them. To incorporate this change I have added 4 new parameters for the x and y position and the width and height of the rect, bringing my total to eleven. I am really happy with how this turned out and I also changed the background colour slightly to look better with the green of the rect.
+
+9/05/2020 - Finished drawing alphabet 
+  I have finished drawing my alphabet but I will continue to refine it. I found that some letters were quite hard to do and don't look as good as other letters. For example, the j and f 
