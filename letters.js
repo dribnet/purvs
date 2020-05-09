@@ -5,19 +5,37 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "offsetx": 35,
+    "offsety": 150,
+    "leaf2Posx": 30,
+    "leaf2Posy": 0,
+    "rotate1": 25,
+    "rotate2": -25, 
+    "rotate3": -90,
+    "stickPosx": -25,
+    "stickPosy": 30
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "offsetx": 50,
+    "offsety": 170,
+    "leaf2Posx": 0,
+    "leaf2Posy": -60,
+    "rotate1": 90,
+    "rotate2": 90,
+    "rotate3": 0,
+    "stickPosx": -40,
+    "stickPosy": -70
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 160,
+    "leaf2Posx": 0,
+    "leaf2Posy": -40,
+    "rotate1": -55,
+    "rotate2": 55,
+    "rotate3": 55,
+    "stickPosx": 30,
+    "stickPosy": -70
   },
   "D": {
     "size": 50,

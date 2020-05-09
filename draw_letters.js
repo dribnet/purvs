@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorLeaf  = "#66cf51";
+const colorStroke  = "#38ad1f";
+const colorStick = "#a15f45";
 
 /*
  * Draw the letter given the letterData
@@ -10,20 +10,41 @@ const colorStroke  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
+  
+  angleMode(DEGREES);
+
+  let leaf1Posx = letterData["offsetx"];
+  let leaf1Posy = letterData["offsety"];
+  let leaf2Posx = leaf1Posx + letterData["leaf2Posx"];
+  let leaf2Posy = leaf1Posy + letterData["leaf2Posy"];
+  let angle1 = letterData["rotate1"];
+  let angle2 = letterData["rotate2"];
+  let angle3 = letterData["rotate3"];
+  let stickPosx = leaf1Posx + letterData["stickPosx"];
+  let stickPosy = leaf1Posy + letterData["stickPosy"];
+  
+  fill(colorLeaf);
   stroke(colorStroke);
   strokeWeight(4);
+  push();
+  translate(leaf1Posx,leaf1Posy);
+  rotate(angle1);
+  ellipse(0, 0, 60, 100);
+  pop();
+  
+  push();
+  translate(leaf2Posx,leaf2Posy);
+  rotate(angle2);
+  ellipse(0, 0, 60, 100);
+  pop();
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 75, 75);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(colorStick);
+  noStroke();
+  push();
+  translate(stickPosx,stickPosy);
+  rotate(angle3);
+  rect(0, 0, 10, 80);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

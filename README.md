@@ -1,3 +1,3 @@
-## Leafy ABC
+## Setting up alphabet and editor
 
-I made ABC out of two ellipses and a rectangle as placeholders for leaves and a stick. I think it will be easy to make most letters with these shapes so this could be a good idea to continue with. The parameters I used to make these were: leaf2Pos, leaf2Posy, rotate1, rotate2, rotate3, stickPosx, stickPosy
+Today I set up the alphabet view so I can work on the rest of the letters in draw_letters.js and letters.js. I had to adjust the sizes of my ABC letters because they were too big and too wide for the guide lines. My letters are rather square compared to the guide lines so most of them will probably only fill the bottom half of the guide. I also set up the editor with my parameters so far (I have 9), but this will probably have to be adjusted once I have my final shapes drawn. My next step will be to draw a nice looking leaf and stick to replace the primitives.
