@@ -12,6 +12,7 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   angleMode(DEGREES)
   ellipseMode(CENTER)
+  rectMode(CENTER)
   // determine parameters for second circle
   let size1 = letterData["sizex"];
   let size2 = letterData["sizey"]
@@ -22,7 +23,7 @@ function drawLetter(letterData) {
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 100, 100, 100);
+  rect(50, 100, 100, 100);
   fill(colorFront2);
   arc(pos2x, pos2y, size1, size2, arc1, arc2)
   //ellipse(pos2x, pos2y, size2, size2);

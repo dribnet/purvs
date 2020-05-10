@@ -13,34 +13,46 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "sizex": 80,
-  "sizey": 200,
-  "arcx": 180,
-  "arcy": 0,
+  "sizex": 50,
+  "sizey": 40,
   "offsetx": 0,
-  "offsety": 77
+  "offsety": 55,
+  "cirsize1": 40,
+  "cirsize2": 40,
+  "ciroffsetx": 0,
+  "ciroffsety": 0,
+  "cir2offsetx": 0,
+  "cir2offsety": 0
 }
 
 const letterB = {
-  "sizex": 150,
-  "sizey": 150,
-  "arcx": 180,
-  "arcy": 0,
-  "offsetx": 0,
-  "offsety": 0
+  "sizex": 90,
+  "sizey": 5,
+  "offsetx": 30,
+  "offsety": 0,
+  "cirsize1": 30,
+  "cirsize2": 30,
+  "ciroffsetx": 30,
+  "ciroffsety": -40,
+  "cir2offsetx": 30,
+  "cir2offsety": 40
 }
 
 const letterC = {
-  "sizex": 200,
-  "sizey": 80,
-  "arcx": 270,
-  "arcy": 90,
-  "offsetx": -25,
-  "offsety": 0
+  "sizex": 80,
+  "sizey": 60,
+  "offsetx": 35,
+  "offsety": 0,
+  "cirsize1": 60,
+  "cirsize2": 60,
+  "ciroffsetx": -10,
+  "ciroffsety": 0,
+  "cir2offsetx": -10,
+  "cir2offsety": 0
 }
 
-const colorFront1  = "#000000";
-const colorFront2  = "#32a852";
+const colorFront1  = "#292929";
+const colorFront2  = "#138701";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -54,6 +66,7 @@ function setup () {
   strokeWeight(4);
   angleMode(DEGREES)
   ellipseMode(CENTER)
+  rectMode(CENTER)
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
@@ -64,17 +77,22 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["sizey"]
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let arc1 = letterData["arcx"]
-  let arc2 = letterData["arcy"]
+  let cirpos2x = posx + letterData["ciroffsetx"]
+  let cirpos2y = posy + letterData["ciroffsety"]
+  let cirs1 = letterData["cirsize1"]
+  let cirs2 = letterData["cirsize2"]
+  let cir2pos2x = posx + letterData["cir2offsetx"]
+  let cir2pos2y = posy + letterData["cir2offsety"]
+
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  rect(posx, posy, 150, 150);
   fill(colorFront2);
-  arc(pos2x, pos2y, size1, size2, arc1, arc2)
-  //ellipse(pos2x, pos2y, size2, size2);
-
-}
+  ellipse(cirpos2x, cirpos2y, cirs1, cirs2)
+  ellipse(cir2pos2x, cir2pos2y, cirs1, cirs2)
+  rect(pos2x, pos2y, size1, size2)
+} 
 
 function draw () {
   // clear screen
