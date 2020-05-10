@@ -5,19 +5,55 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rectX" : 0,
+    "rectY" : 100 ,
+    "rectW" : 100,
+    "rectH" : 100,
+    // ARC 
+    "arcW"  : 100,
+    "arcH"  : 100,
+    // ARC ONE
+    "arcX"  : 50,
+    "arcY"  : 98,
+    "arcS"  : 90,
+    "arcE"  : 270,
+    //ARC TWO
+    "arcX2" : 50,
+    "arcY2" : 98,
+    "arcS2" : 270,
+    "arcE2" : 90,
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+   "rectX": 0,
+   "rectY": 50,
+   "rectW": 50,
+   "rectH": 150,
+   "arcW": 75,
+   "arcH": 75,
+   "arcX": 61,
+   "arcY": 88,
+   "arcS": 180,
+   "arcE": 180,
+   "arcX2": 62,
+   "arcY2": 162,
+   "arcS2": 180,
+   "arcE2": 180
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "rectX": 0,
+  "rectY": 100,
+  "rectW": 50,
+  "rectH": 50,
+  "arcW": 100,
+  "arcH": 100,
+  "arcX": 50,
+  "arcY": 150,
+  "arcS": 360,
+  "arcE": 270,
+  "arcX2": 50,
+  "arcY2": 100,
+  "arcS2": 90,
+  "arcE2": 360
   },
   "D": {
     "size": 50,

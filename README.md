@@ -1,11 +1,11 @@
 ## MDDN 242 2020 Assignment 2
-MY FIRST ITERATIONS
+STARTING MY ALPHABET & SETTING UP EDITOR
 
-Before starting my code I used gird paper to draw some designs to figure out what kind of style I wanted to go for. I decided that it would be cool to work with different kinds of shapes to build this letter form. Lots of the designs that I crafted were going to use too many parameters if I decided to go with them. I initially wanted to keep the proportions of the shapes all the same and just adjust the size and rotation but after playing around with the sketch code I noticed that it was going to work for every letter and would use too many parameters. 
+Before creating the rest of my letters for my alphabet I wanted to get the editor set up and running so that I could easily experiment with forming my letters. I managed to get it working to how I wanted and started to adjust my letters. I have changed the opacity of my letters to see if I can get some cool designs, I might have to experiment with different colours and the opacity of the shapes overall but so far I'm liking it. I will decide and play around with the this again once all my letterforms are completed. 
 
-I have used 20 parameters which consist of one rectangle, two arcs and also a tringle but I'm currently not using the triangle so I may remove this completely. I want this style of my letter to be clean and minimal, designs that give off enough shape to recognise the letter. I'm going for a playful blocky look.  For the colour palette, I have gone with a soothing light blues to a dark navy blue. One thing I wpouldnt mind trying is playing with the opacity of the letters, i think this will create some cool designs especially when the shapes overlap.
+I have used 14 parameters which consist of one rectangle and two arcs. I'm still sticking with this style of my letter to be clean and minimal, designs that give off enough shape to recognise the letter. 
 
-The twenty parameters per letter:
+The fourteen parameters per letter:
   * `rectX` : x location of the rectangle
   * `rectY` : y location of the rectangle
   * `rectW` : width of the rectangle
@@ -20,9 +20,3 @@ The twenty parameters per letter:
   * `arcY` : y location of the second arc
   * `arcS` : angle to start the second arc
   * `arcE` : angle to end the second arc
-  * `triX1` : x location of the first point of the triangle
-  * `triY1` : Y location of the first point of the triangle
-  * `triX2` : x location of the second point of the triangle
-  * `triY2` : Y location of the second point of the triangle
-  * `triX3` : x location of the third point of the triangle
-  * `triY3` : Y location of the thrid point of the triangle
