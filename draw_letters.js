@@ -33,8 +33,8 @@ const blue4 = 95
  */
 function drawLetter(letterData) {
 
-  let pinktriAx = 50 + letterData["offsetx"];
-  let pinktriAy = 150 + letterData["offsety"];
+  let pinktriAx = 50 + letterData["pinkoffsetx"];
+  let pinktriAy = 150 + letterData["pinkoffsety"];
   let pinktriA2x = 50 + letterData["offset2x"];
   let pinktriA2y = 150 + letterData["offset2y"];
   let pinktriA3x = 50 + letterData["offset3x"];
@@ -69,6 +69,27 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  new_letter["pinkoffsetx"] = map(percent, 0, 100, oldObj["pinkoffsetx"], newObj["pinkoffsetx"]);
+  new_letter["pinkoffsety"] = map(percent, 0, 100, oldObj["pinkoffsety"], newObj["pinkoffsety"]);
+  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
+  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
+  new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
+  new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
+
+
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["offset2x2"] = map(percent, 0, 100, oldObj["offset2x2"], newObj["offset2x2"]);
+  new_letter["offset2y2"] = map(percent, 0, 100, oldObj["offset2y2"], newObj["offset2y2"]);
+  new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
+  new_letter["offset3y2"] = map(percent, 0, 100, oldObj["offset3y2"], newObj["offset3y2"]);
+
+
+  new_letter["strokeW"] = map(percent, 0, 100, oldObj["strokeW"], newObj["strokeW"]);
+
+  new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
+
   return new_letter;
 }
 

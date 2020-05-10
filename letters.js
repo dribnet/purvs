@@ -1,7 +1,7 @@
 const alphabet = {
   "default": {
-    "offsetx": -60, 
-    "offsety": 10,  
+    "pinkoffsetx": -60, 
+    "pinkoffsety": 10,  
     "offset2x": 0, 
     "offset2y": -120, 
     "offset3x": 60, 
@@ -18,8 +18,8 @@ const alphabet = {
     "offset3y2": 0, //10
   },
   "A": {
-    "offsetx": -50,
-    "offsety": 0,
+    "pinkoffsetx": -50,
+    "pinkoffsety": 0,
     "offset2x": 0, 
     "offset2y": -100, 
     "offset3x": 50, 
@@ -36,8 +36,8 @@ const alphabet = {
     "offset3y2": 30,
   },
   "B": {
-    "offsetx": -20,
-    "offsety": 30,
+    "pinkoffsetx": -20,
+    "pinkoffsety": 30,
     "offset2x": -20,
     "offset2y": -100,
     "offset3x": 30,
@@ -55,8 +55,8 @@ const alphabet = {
 
   },
   "C": {
-    "offsetx": -40,
-    "offsety": -50,
+    "pinkoffsetx": -40,
+    "pinkoffsety": -50,
     "offset2x": -40,
     "offset2y": 20,
     "offset3x": 40,
@@ -73,8 +73,8 @@ const alphabet = {
     "offset3y2": -100,
   },
   "D": {
-    "offsetx": 0,
-    "offsety": 30,
+    "pinkoffsetx": 0,
+    "pinkoffsety": 30,
     "offset2x": 0,
     "offset2y": -120,
     "offset3x": 50,
@@ -111,8 +111,8 @@ const alphabet = {
     "offsety": 0
   },
   "I": {
-    "offsetx": -50,
-    "offsety": 30,
+    "pinkoffsetx": -50,
+    "pinkoffsety": 30,
     "offset2x": 0,
     "offset2y": -60,
     "offset3x": 50,
@@ -134,8 +134,8 @@ const alphabet = {
     "offsety": 0
   },
   "K": {
-    "offsetx": -50,
-    "offsety": 0,
+    "pinkoffsetx": -50,
+    "pinkoffsety": 0,
     "offset2x": 40,
     "offset2y": -90,
     "offset3x": 40,
@@ -162,8 +162,8 @@ const alphabet = {
     "offsety": 0
   },
   "N": {
-    "offsetx": -30, 
-    "offsety": 30,  
+    "pinkoffsetx": -30, 
+    "pinkoffsety": 30,  
     "offset2x": -30, 
     "offset2y": -100, 
     "offset3x": 20, 
@@ -180,8 +180,8 @@ const alphabet = {
     "offset3y2": 30,
   },
   "O": {
-    "offsetx": -40, 
-    "offsety": 0,  
+    "pinkoffsetx": -40, 
+    "pinkoffsety": 0,  
     "offset2x": 0, 
     "offset2y": -100, 
     "offset3x": 40, 
@@ -238,8 +238,8 @@ const alphabet = {
     "offsety": 0
   },
   "X": {
-    "offsetx": 50,
-    "offsety": -90,
+    "pinkoffsetx": 50,
+    "pinkoffsety": -90,
     "offset2x": 0,
     "offset2y": -50,
     "offset3x": 50,
@@ -261,8 +261,8 @@ const alphabet = {
     "offsety": 0
   },
   "Z": {
-    "offsetx": 30, 
-    "offsety": 30,  
+    "pinkoffsetx": 30, 
+    "pinkoffsety": 30,  
     "offset2x": -30, 
     "offset2y": 30, 
     "offset3x": 30, 
