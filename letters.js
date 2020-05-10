@@ -5,28 +5,40 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "sizex": 50,
-    "sizey": 120,
-    "arcx": 180,
-    "arcy": 0,
+    "sizex": 30,
+    "sizey": 20,
     "offsetx": 0,
-    "offsety": 55
+    "offsety": 40,
+    "cirsize1": 25,
+    "cirsize2": 25,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "B": {
-    "sizex": 100,
-    "sizey": 100,
-    "arcx": 180,
-    "arcy": 0,
-    "offsetx": 0,
-    "offsety": 0
+    "sizex": 60,
+    "sizey": 5,
+    "offsetx": 20,
+    "offsety": 0,
+    "cirsize1": 20,
+    "cirsize2": 20,
+    "ciroffsetx": 20,
+    "ciroffsety": -25,
+    "cir2offsetx": 20,
+    "cir2offsety": 25
   },
   "C": {
-    "sizex": 120,
-    "sizey": 50,
-    "arcx": 270,
-    "arcy": 90,
-    "offsetx": -10,
-    "offsety": 0
+    "sizex": 60,
+    "sizey": 40,
+    "offsetx": 20,
+    "offsety": 0,
+    "cirsize1": 40,
+    "cirsize2": 40,
+    "ciroffsetx": -10,
+    "ciroffsety": 0,
+    "cir2offsetx": -10,
+    "cir2offsety": 0
   },
   "D": {
     "size": 50,

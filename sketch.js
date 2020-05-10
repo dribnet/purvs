@@ -54,7 +54,7 @@ const letterC = {
 const colorFront1  = "#292929";
 const colorFront2  = "#138701";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorStroke  = "#138701"; //#233f11
 
 function setup () {
   // create the drawing canvas, save the canvas element

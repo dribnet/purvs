@@ -1,4 +1,3 @@
 ## MDDN 242 2020 Assignment 2
 
-I remade my sketches with a different design. My previous design was just a test and was going to be kind of hard to work with. I still need to update my alphabet with these new sketches so that will be the next step.
-
+I have slightly changed the design by switching the stroke color to the same as the inside shapes. I think this makes a cool effect around the outside of the entire letter, this also removes unwanted lines inside the letter itself. Overall, so far I have 10 parameters to use and I dont plan on having too many more than that. I think im in the position where I can use my current setup of parameters and shapes to continue making the rest of my letters.
