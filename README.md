@@ -5,7 +5,7 @@
 Each of my letters is made up of a combination of 3 shapes, each can be a triangle, rectangle or circle. Each shape is represented in a different colour
 (first is green, second is yellow, third is orange)
 
-There are 12 parameters for the letters, which basically summarize to:
+There are 15 parameters for the letters, which basically summarize to:
 For each shape (so * 3)
 	Shape type (eg tri, circ or rect)
 	Shape pos1X
