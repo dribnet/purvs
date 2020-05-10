@@ -1,6 +1,6 @@
 const colorFront1  = "#F15025";
 const colorFront2  = "#FFFFFF";
-const colorStroke  = "#233f11";
+const colorStroke  = "#000000";
 
 /*
  * Draw the letter given the letterData
@@ -11,16 +11,21 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
+  let size3 = letterData["sizeW"];
   let size2 = letterData["size"];
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
   let rectLen = letterData["rectL"];
   let rectWid = letterData["rectW"];
   let rectRad = letterData["radi"];
+  let posEllx = letterData["ellPosx"];
+  let posElly = letterData["ellPosy"];
 
   // draw two circles
+  strokeWeight(5);
+  stroke(colorStroke);
   fill(colorFront1);
-  ellipse(50, 100, size2, size2);
+  ellipse(posEllx, posElly, size2, size3);
   fill(colorFront2);
   rect(pos2x, pos2y, rectWid, rectLen, rectRad);
 }

@@ -9,10 +9,16 @@ I was messing around with Bezier curves initally, trying to get them to form int
 -06/05/20-
 I've transferred my code into draw_letters.js and am now working on configuring each letter in letters.js
 
+-11/05/20-
+I've been working on my alphabet, it's coming together I'm currently up to "P". There are a few letters I think I'm going to struggle with, I'll have to get creative. My inspiration is Bauhuas/minimal look, which is why I'm limiting myself to two shapes only.
+
 So far my parameters include:
-  "size"    = size of ellipse (will change to with and height)
+  "size"    = hieght of ellipse
+  "sizeW"   = width of ellipse 
   "offsetx" = x position offset from origin
   "offsety" = y position offset from origin
   "rectL"   = length of rectangle
   "rectW"   = height of rectangle
-  "radi"    = radius of rectangle corners.
+  "radi"    = radius of rectangle corners
+  "ellPosx" = x position of the ellipse
+  "ellPosy" = y position of the ellipse

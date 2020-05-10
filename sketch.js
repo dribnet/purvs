@@ -1,43 +1,44 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
+
 
 const letterA = {
   "size": 150,
+  "sizeW": 150,
   "offsetx": 50,
   "offsety": -25,
   "rectL": 110,
   "rectW": 40,
-  "radi": 3
+  "radi": 3,
+  "ellPosx":240,
+  "ellPosy":250
 }
 
 const letterB = {
   "size": 150,
+  "sizeW": 150,
   "offsetx": -100,
   "offsety": -105,
   "rectL": 190,
   "rectW": 40,
-  "radi": 3
+  "radi": 3,
+  "ellPosx":470,
+  "ellPosy":250
 
 }
 
 const letterC = {
   "size": 180,
-  "offsetx": 10,
-  "offsety": -90,
-  "rectL": 180,
-  "rectW": 90,
-  "radi": 10
+  "sizeW": 180,
+  "offsetx": 0,
+  "offsety": -45,
+  "rectL": 95,
+  "rectW": 80,
+  "radi": 24,
+  "ellPosx":720,
+  "ellPosy":250
+
 }
 
 const colorFront1  = "#F15025";
@@ -61,15 +62,18 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
+  let size3 = letterData["sizeW"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let rectLen = letterData["rectL"];
   let rectWid = letterData["rectW"];
   let rectRad = letterData["radi"];
+  let posEllx = letterData["ellPosx"];
+  let posElly = letterData["ellPosy"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, size2, size2);
+  ellipse(posEllx, posElly, size2, size3);
   fill(colorFront2);
   rect(pos2x, pos2y, rectWid, rectLen, rectRad);
 }
