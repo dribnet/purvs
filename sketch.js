@@ -13,27 +13,58 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 100,
+  "height": 500,
+  "width": 150,
+  "line 1 x1": 0,
+  "line 1 y1": 200,
+  "line 1 x2": 0,
+  "line 1 y2": 150,
+  "line 2 x1": 0,
+  "line 2 y1": 250,
+  "line 2 x2": 0,
+  "line 2 y2": 348,
+  "angleStart": 180,
+  "angleEnd": 0
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx": -50,
+  "offsety": -25,
+  "height": 250,
+  "width": 250,
+  "line 1 x1": 0,
+  "line 1 y1": 200,
+  "line 1 x2": 0,
+  "line 1 y2": 150,
+  "line 2 x1": 0,
+  "line 2 y1": 250,
+  "line 2 x2": 0,
+  "line 2 y2": 300,
+  "angleStart": 270,
+  "angleEnd": 90
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": -25,
+  "height": 250,
+  "width": 250,
+  "line 1 x1": -20,
+  "line 1 y1": 220,
+  "line 1 x2": 48,
+  "line 1 y2": 150,
+  "line 2 x1": -20,
+  "line 2 y1": 220,
+  "line 2 x2": 48,
+  "line 2 y2": 300,
+  "angleStart": 90,
+  "angleEnd": 270
 }
-
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+ 
+const arcColour    = "#ff245e";
+const colourBack    = "#303e4f";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,29 +72,54 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  noStroke();
+  fill(arcColour);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // determine parameters for circle
+  let x = posx + letterData["offsetx"];
+  let y = posy + letterData["offsety"];
+  
+  //arc params
+  let h = letterData["height"];
+  let w = letterData["width"];
+  let angleStart = letterData["angleStart"];
+  let angleEnd = letterData["angleEnd"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  //line 1
+  let x1 = posx + letterData["line 1 x1"];
+  let x2 = posx + letterData["line 1 x2"];
+  let y3 = letterData["line 2 y1"];
+  let y4 = letterData["line 2 y2"];
+  
+  //line 2
+  let x3 = posx + letterData["line 2 x1"];
+  let x4 = posx + letterData["line 2 x2"];
+  let y1 = letterData["line 1 y1"];
+  let y2 = letterData["line 1 y2"];
+
+  //drawing the line
+  angleMode(DEGREES);
+  //draw arch
+  arc(x, y, w, h, angleStart, angleEnd);
+
+  strokeWeight(4);
+  stroke(255);
+
+  line(x1, y1, x2, y2);
+  line(x3, y3, x4, y4);
+
+  noStroke();
 }
+
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(colourBack);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
