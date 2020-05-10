@@ -13,36 +13,39 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size" : 100,
-  "size2": 80,
+  "size2": 40,
   "X2": 10,
   "Y2": 0,
-  "start": 120,
-  "end" : -60,
-  "start2": 240,
-  "end2": 60
+  "start2": 0,
+  "end2": 360,
+  "rectX": 10,
+  "rectY": -40,
+  "rectH": 80,
+  "rectW": 30
 }
 
 const letterB = {
-  "size" : 100,
-  "size2": 70,
-  "X2": -20,
-  "Y2": +30,
-  "start": 90,
-  "end" : -90,
-  "start2": 240,
-  "end2": 60
+  "size2": 40,
+  "X2": 0,
+  "Y2": -20,
+  "start2": 0,
+  "end2": 360,
+  "rectX": -30,
+  "rectY": 0,
+  "rectH":40,
+  "rectW":60
 }
 
 const letterC = {
-  "size" : 100,
-  "size2": 70,
-  "X2": 10,
+  "size2": 0,
+  "X2": -20,
   "Y2": 10,
-  "start": 90,
-  "end" : -90,
-  "start2" : 90,
-  "end2": 270
+  "start2" : 0,
+  "end2": 360,
+  "rectX": -40,
+  "rectY": 10,
+  "rectH": 30,
+  "rectW": 70
 }
 
 const colorFront1  = "#f55a42";
@@ -50,12 +53,15 @@ const colorFront2  = "#42b6f5";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
-const red1 = 250;
-const green1 = 255;
+const red1 = 255;
+const green1 = 234;
 const blue1 = 0;
-const red2 = 250;
-const green2 = 0;
-const blue2 = 175;
+const red2 = 0;
+const green2 = 34;
+const blue2 = 255;
+const red3 = 255;
+const green3 = 0;
+const blue3 = 0;
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -72,22 +78,25 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size = letterData["size"];
   let size2 = letterData["size2"];
   let pos2x = posx + letterData["X2"];
   let pos2y = posy + letterData["Y2"];
   let start2 = letterData["start2"];
   let end2 = letterData["end2"];
-  let start = letterData["start"];
-  let end = letterData["end"];
-
+  let rectX = posx + letterData["rectX"];
+  let rectY = posy + letterData["rectY"];
+  let rectH = letterData["rectH"];
+  let rectW = letterData["rectW"];
+  
 
   // draw two arcs
   fill(red1, green1, blue1, 150);
-  angleMode(DEGREES);
-  arc(posx, posy, size, size, start, end);
+  angleMode(DEGREES); 
+  arc(posx, posy, 100, 100, 110, -70);
   fill(red2, green2, blue2, 150);
   arc(pos2x, pos2y, size2, size2, start2, end2);
+  fill(red3, green3, blue3, 150);
+  rect(rectX, rectY, rectW, rectH);
   
 }
 
