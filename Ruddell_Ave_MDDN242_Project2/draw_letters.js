@@ -14,14 +14,18 @@ function drawLetter(letterData) {
   noFill();
   strokeWeight(4);
 
-  // determine parameters for second circle
+  // determine parameters for squares
+  let size1 = letterData["size1"];
+  let pos1x = 50 + letterData["offsetx1"];
+  let pos1y = 150 + letterData["offsety1"];
+
   let size2 = letterData["size"];
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
+  // draw two squares
   stroke(colorFront1);
-  rect(50, 170, 30, 30);
+  rect(pos1x, pos1y, size1, size1);
   stroke(colorFront2);
   rect(pos2x, pos2y, size2, size2);
 }
