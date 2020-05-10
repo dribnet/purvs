@@ -2,6 +2,8 @@
 
 06/05/20
 
+Update 8: Still working through the alphabet. I think I am going to draw out more letters by hand so I can see what I could possible do before trying to put all of the code into it.
+
 Update 7: Working through the alphabet. I really want to change the labels to my parameters so it isn't as confusing for my brain but its not working. I also think I might get rid of the stroke parameter cause I am hardly using it.
 
 Update 6: I am starting to be able to transfer my code over into draw letters and letters, I think I will need to re name some parameter names and my brain is getting confused. I also have hand drawn all my letters out to help make the conversion into code easier
