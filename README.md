@@ -6,6 +6,9 @@
 Going off of this idea, I created a grey rectangle that (like my original b+w idea) has a white fill that decreases height the further along the alphabet a character is. Over this rectangle, I have two black arcs that, when combined, will show the letter. This means drawing letters that consist of two arcs. I'm using two arcs, as there are two heptapods drawing symbols in the movie, and because it's easier to draw a letter with 2 arcs rather than 1. 
 From here, I want to make the ends of the arcs less rounded (I really dont like the rounded ends). I also want to develop on the thin/thick line weights shown in the heptapods symbols. My plan with this is to create a full circle with a thin line weight, and then use a thick line weight to draw the arc. When the two thick lineweight arcs are combined, they will form the letter.
 
+10/5 - I've jsut tried copying over my code from sketch to draw letters and I'm having some issues, it seems like draw letters isn't getting any data from letters? I don't really know, I'm gonna post on the slack to see if anyone can help.
+
+
 The three parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one

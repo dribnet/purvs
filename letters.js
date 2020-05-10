@@ -1,3 +1,4 @@
+const height_difference = "2.7027";
 const alphabet = {
   "default": {
     "size": 40,
@@ -5,19 +6,34 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "DivideHeight": height_difference*37,
+  "offsetx": 0,
+  "offsety": 100,
+  "arcStart": -200,
+  "arcFinish": 20,
+  "arc2Start": 0,
+  "arc2Finish":180,
+  //"Divide": -95
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "DivideHeight": height_difference*36,
+  "offsetx": 0,
+  "offsety": 100,
+  "arcStart": 20,
+  "arcFinish": 200,
+  "arc2Start": 0,
+  "arc2Finish":180,
+  //"Divide":-20
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "DivideHeight": height_difference*35,
+  "offsetx": 30,
+  "offsety": 100,
+  "arcStart": 0,
+  "arcFinish": 800,
+  "arc2Start": 0,
+  "arc2Finish":180,
+  //"Divide":-50
   },
   "D": {
     "size": 50,
