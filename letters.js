@@ -9,21 +9,24 @@ const alphabet = {
   "offsetx": 0,
   "offsety": 170,
   "start": 180,
-  "stop":0
+  "stop":0,
+  "strokeW":4
   },
   "B": {
      "size": 100,
   "offsetx": 0,
   "offsety": 50,
   "start": 270,
-  "stop":90
+  "stop":90,
+  "strokeW":10
   },
   "C": {
     "size": 100,
   "offsetx": 50,
   "offsety": 150,
   "start": 90,
-  "stop":270
+  "stop":270,
+  "strokeW":6
   },
   "D": {
      "size": 100,
