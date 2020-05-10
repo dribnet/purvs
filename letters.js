@@ -98,14 +98,20 @@ const alphabet = {
    "triY3": 145
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triX1": 25,
+   "triY1": 150,
+   "triX2": 100,
+   "triY2": 150,
+   "triX3": 60,
+   "triY3": 50
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "triX1": 50,
+   "triY1": 50,
+   "triX2": 100,
+   "triY2": 150,
+   "triX3": 100,
+   "triY3": 50
   },
   "O": {
     "size": 50,
