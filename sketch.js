@@ -13,27 +13,45 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "cx1": -30,
+  "cy1": 0,
+  "cx2": -30,
+  "cy2": 0,	
+
+  "x1": -40,
+  "y1": -70,
+  "x2": 40,
+  "y2": 60
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "cx1": 10,
+  "cy1": 30,
+  "cx2": 10,
+  "cy2": -40,	
+  
+  "x1": -40,
+  "y1": -70,
+  "x2": -40,
+  "y2": 61
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "cx1": 5,
+  "cy1": -70,
+  "cx2": 5,
+  "cy2": 60,	
+  
+  "x1": -40,
+  "y1": -70,
+  "x2": -40,
+  "y2": 60
 }
 
-const colorFront1  = "#199cff";
+const colorFront1  = "#ff9d36";
 const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorStroke  = "#167ff7";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +60,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(20);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,15 +68,32 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let cPosx1 = posx + letterData["cx1"];
+  let cPosy1 = posy + letterData["cy1"];
+  let cPosx2 = posx + letterData["cx2"];
+  let cPosy2 = posy + letterData["cy2"];
+
+  let pos1x = posx + letterData["x1"];
+  let pos1y = posy + letterData["y1"];
+  let pos2x = posx + letterData["x2"];
+  let pos2y = posy + letterData["y2"];
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  //fill(colorFront1);
+  //ellipse(posx, posy, 150, 150);
+  //fill(colorFront2);
+  //ellipse(pos2x, pos2y, size2, size2);
+
+  fill(colorFront1)
+  strokeWeight(0)
+  rect(posx - 50, posy - 80, 100, 150, 10 )
+
+  strokeWeight(20)
+  line(pos1x, pos1y, pos2x, pos2y)
+  ellipse(cPosx1, cPosy1, 0, 0)
+  ellipse(cPosx2, cPosy2, 0, 0)
+
+
 }
 
 function draw () {
