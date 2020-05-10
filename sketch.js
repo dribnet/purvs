@@ -13,15 +13,20 @@ const canvasHeight = 500;//do not change
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": -45,
-  "offsety": 0
+  "triX1": 50,
+  "triY1": 95,
+  "triX2": 78,
+  "triY2": 40,
+  "triX3": 106,
+  "triY3": 95
+
 }
 
 const letterB = {
   "size": 75,
   "offsetx": -5,
   "offsety": -90
+
  
 }
 
@@ -54,13 +59,24 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let triangleX1 = letterData["triX1"];
+  let triangleY1 = letterData["triY1"];
+  let triangleX2 = letterData["triX2"];
+  let triangleY2 = letterData["triY2"];
+  let triangleX3 = letterData["triX3"];
+  let triangleY3 = letterData["triY3"];
+
+
+
+
+
 
   // draw two circles
   fill(colorFront1);
-  triangle(posx+30, posy+75, posx+58, posy+20, posx+86, posy+75);
+  triangle(30, 75, 58, 20, 86, 75);
   
   fill(colorFront2);
-  triangle(pos2x+30, pos2y+75,pos2x+58, pos2y+20, pos2x+86, pos2y+75);
+  triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
 }
 
 function draw () {

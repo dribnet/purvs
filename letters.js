@@ -5,24 +5,36 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 25,
+   "triY1": 150,
+   "triX2": 50,
+   "triY2": 100,
+   "triX3": 75,
+   "triY3": 150
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+   "triX1": 80,
+   "triY1": 110,
+   "triX2": 50,
+   "triY2": 50,
+   "triX3": 100,
+   "triY3": 50
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 100,
+   "triY1": 150,
+   "triX2": 16,
+   "triY2": 120,
+   "triX3": 50,
+   "triY3": 50
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 50,
+   "triY1": 150,
+   "triX2": 100,
+   "triY2": 100,
+   "triX3": 50,
+   "triY3": 50
   },
   "E": {
     "size": 50,
@@ -30,39 +42,60 @@ const alphabet = {
     "offsety": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triX1": 100,
+   "triY1": 70,
+   "triX2": 50,
+   "triY2": 30,
+   "triX3": 50,
+   "triY3": 100
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 100,
+   "triY1": 150,
+   "triX2": 70,
+   "triY2": 150,
+   "triX3": 75,
+   "triY3": 185
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 25,
+   "triY1": 0,
+   "triX2": 0,
+   "triY2": 148,
+   "triX3": 50,
+   "triY3": 50
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 50,
+   "triY1": 5,
+   "triX2": 75,
+   "triY2": 45,
+   "triX3": 25,
+   "triY3": 45
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triX1": 55,
+   "triY1": 150,
+   "triX2": 100,
+   "triY2": 150,
+   "triX3": 100,
+   "triY3": 115
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triX1": 50,
+   "triY1": 50,
+   "triX2": 80,
+   "triY2": 105,
+   "triX3": 100,
+   "triY3": 30
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "triX1": 0,
+   "triY1": 50,
+   "triX2": 50,
+   "triY2": 55,
+   "triX3": 0,
+   "triY3": 145
   },
   "M": {
     "size": 50,
