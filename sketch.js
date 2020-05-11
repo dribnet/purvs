@@ -43,7 +43,7 @@ const letterB = {
   "line 2 x2": 0,
   "line 2 y2": 300,
   "angleStart": 270,
-  "angleEnd": 90
+//  "angleEnd": 90
 }
 
 const letterC = {
@@ -60,10 +60,10 @@ const letterC = {
   "line 2 x2": 48,
   "line 2 y2": 300,
   "angleStart": 90,
-  "angleEnd": 270
+  //"angleEnd": 270
 }
  
-const arcColour    = "#ff245e";
+const arcColour     = "#ff245e";
 const colourBack    = "#303e4f";
 
 function setup () {
@@ -105,6 +105,7 @@ function drawLetter(posx, posy, letterData) {
   //drawing the line
   angleMode(DEGREES);
   //draw arch
+  
   arc(x, y, w, h, angleStart, angleEnd);
 
   strokeWeight(4);
