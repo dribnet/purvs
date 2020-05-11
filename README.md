@@ -2,16 +2,32 @@
 
 MDDN242 README
 
-Sketch Ideas (sketch.js) - 04/05/20
+Sketch Ideas Experiment Two - 10/05/20
 
-Hopping onto the sketch.js file I started experiementing with the paramentres(adding/removing). I changed the shapes to a rectangle because to display my alphabet in
-a more cubic form. I have created this rough starting point by making the inner sqaures the same colour and the stroke so when they connect, it looks like negative space.
+This is my second experiment with the abc sketch. I wanted to develop my idea more and add more parameters so more of
+my shapes are flexible in movement.I wanted to keep my rectangular shapes in my design because I find the look of 
+straight and parallel lines very neat when it comes to designing a style for letters. You will also notice that
+I have chosen not to continue with the pixel font idea because I would have needed multiple parameters (probably exceeding limit).
 
-It looks pretty simple now, but I will add more squares to the letters later on so that bits look cut out.
+I experimented with triangles instead because it's sharp but at the same time they have straight lines. I lowered the opacity
+of my triangle which created this nice transparent effect over my rectangles.
 
-The three parameters per letter:
-  * `size` : height of the rect
-  * `offsetx` : x offset of the second rect relative to the first one
-  * `offsety` : y offset of the second rect relative to the first one
+I found my colour palette from colourlovers: https://www.colourlovers.com/palette/740/sprained_minds
+This palette reminds me of vampires so I will base my lettering off of blood (red) and fangs (triangle).
 
-I currently only have three parametres, but I will probably be adding more when I have refined my idea for the type of font style I want to produce for my alphabet.
+The 14 parameters per letter:
+ • "offsetx": 17, | x position for first rect (filled)
+ • "offsety": 0, | y position for first rect (filled)
+ • "rectlength": 28, | first rect length
+ • "rectheight": 90, | first rect height
+ • "nofill_length": 20, | second rect length (no fill)
+ • "nofill_height": 82, | second rect height (no fill)
+ • "rect_twoposx": 55,  | x position for second rect
+ • "rect_twoposy": 4, | y position for second rect
+ • "triangleleftx": 188, | tri first point x
+ • "trianglelefty": 270, | tri first point y
+ • "triangletopx": 228, | tri secong point x
+ • "triangletopy": 198, | tri second point y
+ • "trianglerightx": 266, | tri third point x
+ • "trianglerighty": 270, | tri third point y
+

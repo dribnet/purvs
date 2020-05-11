@@ -13,27 +13,61 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 36,
-  "offsetx": 32,
-  "offsety": 23,
+  "offsetx": 17,
+  "offsety": 0,
+  "rectlength": 28,
+  "rectheight": 90,
+  "nofill_length": 20,
+  "nofill_height": 82,
+  "rect_twoposx": 55,
+  "rect_twoposy": 4,
+  "triangleleftx": 188,
+  "trianglelefty": 270,
+  "triangletopx": 228,
+  "triangletopy": 198,
+  "trianglerightx": 266,
+  "trianglerighty": 270,
 }
 
 const letterB = {
-  "size": 20,
   "offsetx": 32,
-  "offsety": 22,
+  "offsety": 45,
+  "rectlength": 70,
+  "rectheight": 35,
+  "nofill_length": 62,
+  "nofill_height": 32,
+  "rect_twoposx": 27,
+  "rect_twoposy": 4,
+  "triangleleftx": 465,
+  "trianglelefty": 270,
+  "triangletopx": 465,
+  "triangletopy": 198,
+  "trianglerightx": 525,
+  "trianglerighty": 235,
+
 }
 
 const letterC = {
-  "size": -20,
   "offsetx": 56,
-  "offsety": 30,
+  "offsety": 0,
+  "rectlength": 70,
+  "rectheight": 40,
+  "nofill_length": 64,
+  "nofill_height": 70,
+  "rect_twoposx": 58,
+  "rect_twoposy": 15,
+  "triangleleftx": 803,
+  "trianglelefty": 275,
+  "triangletopx": 803,
+  "triangletopy": 198,
+  "trianglerightx": 742,
+  "trianglerighty": 235,
 }
 
-const colorFront1  = "#ffba52"; //big square colour = light orange 
-const colorFront2  = "#fc6203"; //small square colour = orange
-const colorBack    = "#e3eded"; //bg colour
-const colorStroke  = "#fc6203"; // stroke colour = orange
+const colorFront1  = "#ffba52"; //orange 
+const colorFront2  = "#C3B3A6"; //beige
+const colorBack    = "#242424"; //bg colour (dark gray)
+const colorStroke  = "#fc6203"; // stroke colour
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,7 +76,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(8);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -50,16 +84,33 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let rectwidth = letterData["rectlength"]
+  let recthigh = letterData["rectheight"]
+  let rectwidth_two = letterData["nofill_length"]
+  let recthigh_two = letterData["nofill_height"]
+  let rect_twox = posx + letterData["rect_twoposx"]
+  let rect_twoy = posy + letterData["rect_twoposy"]
+  let tri_onex = letterData["triangleleftx"]
+  let tri_twox = letterData["triangletopx"]
+  let tri_threex = letterData["trianglerightx"]
+  let tri_oney = letterData["trianglelefty"]
+  let tri_twoy = letterData["triangletopy"]
+  let tri_threey = letterData["trianglerighty"]
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+
   // draw three rects
-  fill(colorFront1);
-  rect(posx, posy, 100, 100);
-  fill(colorFront2);
-  rect(pos2x, pos2y, 40, 30);
-  rect(pos2x, pos2y+38, 40, size2);
+  noStroke();
+  fill(204,20,28, 150);
+  rect(pos2x, pos2y, rectwidth, recthigh);
+  stroke(colorFront2);
+  strokeWeight(8);
+  noFill();
+  rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two);
+  stroke(15, 100);
+  fill(36, 36, 36);
+  triangle(tri_onex, tri_oney, tri_twox, tri_twoy, tri_threex, tri_threey);
 }
 
 function draw () {
@@ -67,8 +118,8 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
-  let center_y = canvasHeight / 2;
+  let center_x = canvasWidth / 2 - 50;  
+  let center_y = canvasHeight / 2 - 60;
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
