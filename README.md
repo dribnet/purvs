@@ -28,3 +28,5 @@ The sixteen parameters per letter:
 08052020 i have started to play around with how i would do the alphbet, what i liked using was triangles. with playing around with ideas, i couldn't figure out the best way to do some of the letters such as an E. so i found to be able to do this was by ading a line.
 
 11052020  now that having found my idea, i couldnt figure out how to do the triagles, so after asking for help, i was able to make the triangle. after  was able to get one done it was easier to get the second on done.
+
+11052020 having now figured out how to do the triangles, i started to move on an do the draw letter code. at first it took a while to figure out what to do, but got there in the end. For my alphabet i have 3 shapes - 2 triangles and 1 rectangle, with these three shapes i was able to do all the letter and the numbers

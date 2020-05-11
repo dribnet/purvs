@@ -122,14 +122,16 @@ function drawLetter(posx, posy, letterData) {
   let rectY = letterData["rectY"];
  
   // draw two circles
-  fill(colorFront1);
-  rect(rectX, rectY, rectWid, rectLen);
+  
 
   fill(colorFront3);
   triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
   
   fill(colorFront2);
   triangle(pointX1, pointY1, pointX2, pointY2, pointX3, pointY3);
+
+  fill(colorFront1);
+  rect(rectX, rectY, rectWid, rectLen);
 
 }
 
