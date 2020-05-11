@@ -1,31 +1,23 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "size2": 40,
   "X2": 10,
   "Y2": 0,
   "start2": 0,
   "end2": 360,
-  "rectX": 10,
-  "rectY": -40,
+  "rectX": -30,
+  "rectY": 0,
   "rectH": 80,
-  "rectW": 30
+  "rectW": 30,
+  "rotate": -10.0,
+  "flipX": 110,
+  "flipY": -70
 }
 
 const letterB = {
-  "size2": 40,
+  "size2": 50,
   "X2": 0,
   "Y2": -20,
   "start2": 0,
@@ -33,7 +25,10 @@ const letterB = {
   "rectX": -30,
   "rectY": 0,
   "rectH":40,
-  "rectW":60
+  "rectW":60,
+  "rotate": 0,
+  "flipX" : 110,
+  "flipY": -70
 }
 
 const letterC = {
@@ -42,15 +37,18 @@ const letterC = {
   "Y2": 10,
   "start2" : 0,
   "end2": 360,
-  "rectX": -40,
-  "rectY": 10,
+  "rectX": 0,
+  "rectY": -120,
   "rectH": 30,
-  "rectW": 70
+  "rectW": 60,
+  "rotate": 10.0,
+  "flipX": 110,
+  "flipY": -70
 }
 
 const colorFront1  = "#f55a42";
 const colorFront2  = "#42b6f5";
-const colorBack    = "#e3eded";
+const colorBack    = "#ffffff";
 const colorStroke  = "#233f11";
 
 const red1 = 255;
@@ -87,17 +85,24 @@ function drawLetter(posx, posy, letterData) {
   let rectY = posy + letterData["rectY"];
   let rectH = letterData["rectH"];
   let rectW = letterData["rectW"];
+  let rotateR = letterData["rotate"];
+  let flipX = letterData["flipX"];
+  let flipY = letterData["flipY"];
   
 
   // draw two arcs
   fill(red1, green1, blue1, 150);
   angleMode(DEGREES); 
-  arc(posx, posy, 100, 100, 110, -70);
+  arc(posx, posy, 100, 100, flipX, flipY);
   fill(red2, green2, blue2, 150);
   arc(pos2x, pos2y, size2, size2, start2, end2);
   fill(red3, green3, blue3, 150);
+
+  push();
+  rotate(rotateR);
   rect(rectX, rectY, rectW, rectH);
-  
+  pop();
+
 }
 
 function draw () {
