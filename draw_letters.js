@@ -1,7 +1,6 @@
 const colorFront1  = "#3A606E"; //navy
 const colorFront2  = "#E5C2BC"; // pink
 const colorFront3 = "#8ACEB4"; //green
- //const colorStroke  = "#ffffff";
 const colorStroke  = "#8ACEB4";
 
 

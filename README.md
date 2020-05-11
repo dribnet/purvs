@@ -15,4 +15,4 @@ The eleven parameters per letter:
   * `rectW` : width of the rect
   * `rectH` : height positon of the rect
 
-I have put my own variables into the interpolate letter function and played around with changing between each letter. As I don't use the rect in every letter I noticed that when I go between a letter with the rect and a letter without, the rect goes off the screen through the animation. I don't like how this looks and with feedback from class today, I will change the position the rect is being drawn when I am not using it to solve this issue. 
+After receving design feedback in class today I have taken on board the feedback I recieved and have made changes to the v, q, y, i, w and 3. I was able to change the angle of the arc slightly to make the y and q reference the letters more accurately. I also changed the size of the arc in the v to give it more variety over other letters and look more like a v. I have changed the background colour to an off white and I think it works a lot better with the green. 
