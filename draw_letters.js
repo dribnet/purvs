@@ -28,10 +28,11 @@ function drawLetter(letterData) {
 
   // draw two circles
   stroke(colorStroke);
-  strokeWeight(15);
+  strokeWeight(5);
   
   push();
   scale(0.65);
+  strokeWeight(15);
 
   fill(colorArc);
   arc(pos2x, pos2y, arcsx, arcsy, arcs, arce);
@@ -42,9 +43,18 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["triangleX1"] = map(percent, 0, 100, oldObj["triangleX1"], newObj["triangleX1"]);
+  new_letter["triangleX2"] = map(percent, 0, 100, oldObj["triangleX2"], newObj["triangleX2"]);
+  new_letter["triangleX3"] = map(percent, 0, 100, oldObj["triangleX3"], newObj["triangleX3"]);
+  new_letter["triangleY1"] = map(percent, 0, 100, oldObj["triangleY1"], newObj["triangleY1"]);
+  new_letter["triangleY2"] = map(percent, 0, 100, oldObj["triangleY2"], newObj["triangleY2"]);
+  new_letter["triangleY3"] = map(percent, 0, 100, oldObj["triangleY3"], newObj["triangleY3"]);
+  new_letter["arcStart"] = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
+  new_letter["arcEnd"] = map(percent, 0, 100, oldObj["arcEnd"], newObj["arcEnd"]);
+  new_letter["arcSizeX"] = map(percent, 0, 100, oldObj["arcSizeX"], newObj["arcSizeX"]);
+  new_letter["arcSizeY"] = map(percent, 0, 100, oldObj["arcSizeY"], newObj["arcSizeY"]);
   return new_letter;
 }
 

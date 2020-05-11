@@ -1,8 +1,9 @@
 ## MDDN 242 2020 Assignment 2
 
-Today I worked on my numbers. I had a bit of trouble with the numbers 2 and 5 so I will have to come back and revisit. I'm really happy with how things are looking. I think that the alphabet is definitely intelligible whilst also being fun to look at. 
+I've added in the interpolation feature to my code, and tested how some of the letters transitioned. Some of them worked great, and others didn't work that well. I tried to fix as many I could, but some funny transtions were solely due to the arc start and stop points. Which I couldn't really reverse or change as it would completely mess up my letters. 
+The way around this was a bit of acceptance but also changing some of the arc sizes so it's not changing too dramatically. But I am quite happy with my transitions, they have an element of unpredictability which I am a fan of, since my alphabet has a similar vibe.
 
-Next will be to look at refining the shapes and also making a symbol
+I also produced a symbol, I decided to make it small to really seperate it from the rest of the letters/numbers and so it couldn't be accidentally mistaken for either.
 
 The parameters per letter:
   offsetx - the x offset of the letter components
