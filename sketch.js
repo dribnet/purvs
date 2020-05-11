@@ -79,7 +79,7 @@ translate(posx, posy);
 
 //find centre point for translate, stead of posx & posy draw at 0,0, always mojello 1 over the length
 
-//drawrays 
+//draw rays 
 var colorArray = [colorFont1, colorFont2, colorFont3,colorFont4,colorFont5];
 push();
 let range = 140;
