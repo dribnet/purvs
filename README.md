@@ -4,9 +4,27 @@
 
 Each of my letters is composed with two ovals. The size and position of the first circle is fixed, but the location and size of the second ovals is controlled by three parameters.
 
-The three parameters per letter:
-  * `size` : radius of the second oval
-  * `offsetx` : x offset of the second oval relative to the first one
-  * `offsety` : y offset of the second oval relative to the first one
+The sixteen parameters per letter:
+  * triX1: first x point for purple triangle
+  * triY1: first y point for purple triangle
+  * triX2: second x point for purple triangle
+  * triY2: second y point for purple triangle
+  * triX3: third x point for purple triangle
+  * triY3: third y point for purple triangle
+  * ptX1: first x point for blue triangle
+  * ptY1: first y point for blue triangle
+  * ptX2: second x point for blue triangle
+  * ptY2: second y point for blue triangle
+  * ptX3: third x point for blue triangle
+  * ptY3: third y point for blue triangle
+  * rectL: length of rectangle
+  * rectW: width of rectangle
+  * rectX: x point of rectangle
+  * rectY: y point of rectangle
+
 
 04052020 for this  i changed the colours, having a play around with the two ovals and the background. I then changed the shapes from using ircle to oval by changing some of the primative used. 
+
+08052020 i have started to play around with how i would do the alphbet, what i liked using was triangles. with playing around with ideas, i couldn't figure out the best way to do some of the letters such as an E. so i found to be able to do this was by ading a line.
+
+11052020  now that having found my idea, i couldnt figure out how to do the triagles, so after asking for help, i was able to make the triangle. after  was able to get one done it was easier to get the second on done.

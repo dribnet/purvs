@@ -13,25 +13,75 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": 25
+  "triX1": 50,
+  "triY1": 100,
+  "triX2": 80,
+  "triY2": 40,
+  "triX3": 110,
+  "triY3": 100,
+
+  "ptX1": 50,
+  "ptY1": 100,
+  "ptX2": 80,
+  "ptY2": 60,
+  "ptX3": 110,
+  "ptY3": 100,
+  
+  "rectX": 50,
+  "rectY": 110,
+  "rectL": 10,
+  "rectW": 60,
+  
 }
 
 const letterB = {
-  "size": 200,
-  "offsetx": 0,
-  "offsety": -60
+  "triX1": 200,
+  "triY1": 100,
+  "triX2": 200,
+  "triY2": 40,
+  "triX3": 240,
+  "triY3": 60,
+
+  "ptX1": 200,
+  "ptY1": 123,
+  "ptX2": 200,
+  "ptY2": 70,
+  "ptX3": 240,
+  "ptY3": 100,
+  
+  "rectX": 180,
+  "rectY": 40,
+  "rectL": 85,
+  "rectW": 10,
+
 }
 
-const letterC = {
-  "size": 150,
-  "offsetx": 35,
-  "offsety": 0
+const letterC = { 
+  "triX1": 325,
+  "triY1": 100,
+  "triX2": 325,
+  "triY2": 40,
+  "triX3": 370,
+  "triY3": 40,
+
+  "ptX1": 325,
+  "ptY1": 123,
+  "ptX2": 325,
+  "ptY2": 70,
+  "ptX3": 370,
+  "ptY3": 123,
+  
+  "rectX": 305,
+  "rectY": 40,
+  "rectL": 85,
+  "rectW": 10,
+  
+ 
 }
 
 const colorFront1  = "#67f08c";
 const colorFront2  = "#a4edde";
+const colorFront3  = "#ab93fa";
 const colorBack    = "#09094f";
 const colorStroke  = "#ffffff";
 
@@ -50,18 +100,37 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let pos3y = posy + letterData["offsety"];
-  let pos3x = posy + letterData["offsety"];
 
+  
+  let triangleX1 = letterData["triX1"];
+  let triangleY1 = letterData["triY1"];
+  let triangleX2 = letterData["triX2"];
+  let triangleY2 = letterData["triY2"];
+  let triangleX3 = letterData["triX3"];
+  let triangleY3 = letterData["triY3"];
+
+  let pointX1 = letterData["ptX1"];
+  let pointY1 = letterData["ptY1"];
+  let pointX2 = letterData["ptX2"];
+  let pointY2 = letterData["ptY2"];
+  let pointX3 = letterData["ptX3"];
+  let pointY3 = letterData["ptY3"]
+
+  let rectLen = letterData["rectL"];
+  let rectWid = letterData["rectW"];
+  let rectX = letterData["rectX"];
+  let rectY = letterData["rectY"];
+ 
   // draw two circles
   fill(colorFront1);
-  ellipse(posx, posy, 220, 100);
+  rect(rectX, rectY, rectWid, rectLen);
+
+  fill(colorFront3);
+  triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
+  
   fill(colorFront2);
- 
-  ellipse(pos2x,pos2y, size2, 50);
+  triangle(pointX1, pointY1, pointX2, pointY2, pointX3, pointY3);
+
 }
 
 function draw () {
