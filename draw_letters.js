@@ -1,6 +1,6 @@
 const colorLeaf  = "#66cf51";
 const colorStroke  = "#38ad1f";
-const colorStick = "#a15f45";
+const colorStick = "#9e7351";
 
 /*
  * Draw the letter given the letterData
@@ -29,21 +29,23 @@ function drawLetter(letterData) {
   push();
   translate(leaf1Posx,leaf1Posy);
   rotate(angle1);
-  ellipse(0, 0, 60, 100);
+  drawLeaf(0,0);
   pop();
-  
+ 
+
   push();
   translate(leaf2Posx,leaf2Posy);
   rotate(angle2);
-  ellipse(0, 0, 60, 100);
+  drawLeaf(0,0);
   pop();
 
   fill(colorStick);
-  noStroke();
+  stroke(colorStick);
+  strokeWeight(3);
   push();
   translate(stickPosx,stickPosy);
   rotate(angle3);
-  rect(0, 0, 10, 80);
+  drawStick(0,0);
   pop();
 }
 
@@ -60,3 +62,73 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
+function drawLeaf(x,y){
+
+beginShape();  //leaf shape
+vertex(x,y-50);
+bezierVertex(x+40,y-45,x+30,y+25,x,y+50);
+bezierVertex(x-30,y+25,x-40,y-45,x,y-50);
+endShape(CLOSE);
+
+beginShape();  //center vein
+curveVertex(x,y);
+curveVertex(x,y-50);
+curveVertex(x-2,y-10);
+curveVertex(x+2,y+30);
+curveVertex(x,y);
+endShape();
+
+beginShape(); //first small vein
+curveVertex(x,y-40);
+curveVertex(x,y-40);
+curveVertex(x+8,y-35);
+curveVertex(x+16,y-25);
+curveVertex(x+16,y-25);
+endShape();
+
+beginShape(); //second small vein
+curveVertex(x-2,y-23);
+curveVertex(x-2,y-23);
+curveVertex(x-11,y-15);
+curveVertex(x-18,y-5);
+curveVertex(x-18,y-5);
+endShape();
+
+beginShape(); //third small vein
+curveVertex(x-1,y-5);
+curveVertex(x-1,y-5);
+curveVertex(x+8,y+3);
+curveVertex(x+15,y+13);
+curveVertex(x+15,y+13);
+endShape();
+
+beginShape(); //fourth small vein
+curveVertex(x-2,y+15);
+curveVertex(x-2,y+15);
+curveVertex(x-6,y+18);
+curveVertex(x-10,y+25);
+curveVertex(x-10,y+25);
+endShape();
+
+}
+
+function drawStick(x,y){
+  beginShape();
+  curveVertex(x-1,y+80);
+  curveVertex(x-1,y+85);
+  curveVertex(x+2,y+80);
+  curveVertex(x+3,y+34);
+  curveVertex(x+5,y+19);
+  curveVertex(x+6,y);
+  curveVertex(x+1,y+29);
+  curveVertex(x-1,y+20);
+  curveVertex(x-4,y+12);
+  curveVertex(x-2,y+22);
+  curveVertex(x-1,y+49);
+  curveVertex(x-8,y+36);
+  curveVertex(x-5,y+46);
+  curveVertex(x-1,y+55);
+  curveVertex(x-1,y+85);
+  endShape(CLOSE);
+}

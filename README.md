@@ -1,3 +1,3 @@
-## Setting up alphabet and editor
+## Adding detail
 
-Today I set up the alphabet view so I can work on the rest of the letters in draw_letters.js and letters.js. I had to adjust the sizes of my ABC letters because they were too big and too wide for the guide lines. My letters are rather square compared to the guide lines so most of them will probably only fill the bottom half of the guide. I also set up the editor with my parameters so far (I have 9), but this will probably have to be adjusted once I have my final shapes drawn. My next step will be to draw a nice looking leaf and stick to replace the primitives.
+Today I redrew the leaf and stick in functions using beginShape with bezier and curve vertexes. I also adjusted the colour of the stick to fit with the green better, but I might still change around the colours another time. Now that I am happy with the shapes, I can start to work on creating the rest of the letters.

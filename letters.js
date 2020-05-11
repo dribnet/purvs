@@ -5,42 +5,48 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "offsetx": 35,
+    "offsetx": 33,
     "offsety": 150,
-    "leaf2Posx": 30,
+    "leaf2Posx": 35,
     "leaf2Posy": 0,
-    "rotate1": 25,
-    "rotate2": -25, 
+    "rotate1": 200,
+    "rotate2": -200, 
     "rotate3": -90,
     "stickPosx": -25,
-    "stickPosy": 30
+    "stickPosy": 25
   },
   "B": {
     "offsetx": 50,
     "offsety": 170,
     "leaf2Posx": 0,
-    "leaf2Posy": -60,
-    "rotate1": 90,
-    "rotate2": 90,
+    "leaf2Posy": -50,
+    "rotate1": -90,
+    "rotate2": -90,
     "rotate3": 0,
-    "stickPosx": -40,
-    "stickPosy": -70
+    "stickPosx": -35,
+    "stickPosy": -68
   },
   "C": {
     "offsetx": 50,
     "offsety": 160,
     "leaf2Posx": 0,
-    "leaf2Posy": -40,
-    "rotate1": -55,
-    "rotate2": 55,
-    "rotate3": 55,
-    "stickPosx": 30,
-    "stickPosy": -70
+    "leaf2Posy": -35,
+    "rotate1": -50,
+    "rotate2": 230,
+    "rotate3": 45,
+    "stickPosx": 27,
+    "stickPosy": -67
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 160,
+    "leaf2Posx": 0,
+    "leaf2Posy": -100,
+    "rotate1": 0,
+    "rotate2": 55,
+    "rotate3": 0,
+    "stickPosx": 0,
+    "stickPosy": -100
   },
   "E": {
     "size": 50,
