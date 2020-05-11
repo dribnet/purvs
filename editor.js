@@ -16,7 +16,7 @@ const sliderInfo = [
   ["rectW", 0, 100],
   ["rectH", 30,  150],
   ["arcW",  30,  100],
-  ["arcH",  30,  100],
+  ["arcH",  30,  150],
   ["arcX",  0,  100],
   ["arcY",  0,  200],
   ["arcS",  0,  360],

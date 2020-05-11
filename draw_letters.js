@@ -35,17 +35,17 @@ function drawLetter(letterData) {
   
   // DARWING THE SHAPES
   let colourArc1 = color("#5488A3");
-  colourArc1.setAlpha(200);
+  colourArc1.setAlpha(250);
   fill(colourArc1);
   noStroke();
   arc(arcX,arcY,arcWidth,arcHeight,arcStart,arcEnd);
   let colourArc2 = color("#98CCD3");
-  colourArc2.setAlpha(200);
+  colourArc2.setAlpha(250);
   fill(colourArc2);
   noStroke();
   arc(arcX2,arcY2,arcWidth,arcHeight,arcStart2,arcEnd2);
   let colourRect = color("#364E68");
-  colourRect.setAlpha(200);
+  colourRect.setAlpha(250);
   fill(colourRect);
   rect(rectangleX,rectangleY,rectangleWidth,rectangleHeight);
 
@@ -57,9 +57,21 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcX"]     = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+  new_letter["arcY"]     = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
+  
+  new_letter["arcS"]     = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+  new_letter["arcE"]     = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+  new_letter["arcX2"]    = map(percent, 0, 100, oldObj["arcX2"], newObj["arcX2"]);
+  new_letter["arcY2"]    = map(percent, 0, 100, oldObj["arcY2"], newObj["arcY2"]);
+  new_letter["arcS2"]    = map(percent, 0, 100, oldObj["arcS2"], newObj["arcS2"]);
+  new_letter["arcE2"]    = map(percent, 0, 100, oldObj["arcE2"], newObj["arcE2"]);
+  new_letter["arcH"]     = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
+  new_letter["arcW"]     = map(percent, 0, 100, oldObj["arcW"], newObj["arcW"]);
+  new_letter["rectX"]    = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"]    = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+  new_letter["rectW"]    = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
+  new_letter["rectH"]    = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
   return new_letter;
 }
 
