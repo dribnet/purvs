@@ -5,6 +5,8 @@ The way around this was a bit of acceptance but also changing some of the arc si
 
 I also produced a symbol, I decided to make it small to really seperate it from the rest of the letters/numbers and so it couldn't be accidentally mistaken for either.
 
+I just played around with the stroke on the arc, decided on PIE at the moment, it gives a fuller look. I also played with stroke weight to try dampen the contrast. I am a fan of the smaller stroke but I still feel that I like the stroke too much to get rid of it completely.
+
 The parameters per letter:
   offsetx - the x offset of the letter components
   offsety - the y offset of the letter components
@@ -18,4 +20,3 @@ The parameters per letter:
   arcSizeY - arc length on the y axis
   arcStart - beginning of the arc in degrees
   arcEnd - end of the arc in degrees
-

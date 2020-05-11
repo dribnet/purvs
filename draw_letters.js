@@ -32,10 +32,10 @@ function drawLetter(letterData) {
   
   push();
   scale(0.65);
-  strokeWeight(15);
+  strokeWeight(8);
 
   fill(colorArc);
-  arc(pos2x, pos2y, arcsx, arcsy, arcs, arce);
+  arc(pos2x, pos2y, arcsx, arcsy, arcs, arce, PIE);
   fill(colorTri);
   triangle(trix1, triy1, trix2 , triy2, trix3, triy3);
   pop();
