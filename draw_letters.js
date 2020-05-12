@@ -1,5 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#619eff";
+const colorFront2  = "#ffa229";
+// const colorBack    = "#ede5ce";
 const colorStroke  = "#233f11";
 
 /*
@@ -11,19 +12,40 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
-  // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pos2x = 50 + letterData["offsetx"];
+  let pos2y = 100 + letterData["offsety"];
+  //main arc
+  let MArcS = letterData["mainArcStart"]
+  let MArcE = letterData["mainArcEnd"]
+  let MArcX = 50 + letterData["mainArcX"]
+  let MArcY = 100 + letterData["mainArcY"]
+  let MArcSize = letterData["mainArcSize"]
 
-  // draw two circles
+  let SArcSize1 = letterData["subArcSize1"]
+  let SArcSize2 = letterData["subArcSize2"]
+
+  //sub arc 1
+  let SArcS1 = letterData["subArc1Start"]
+  let SArcE1 = letterData["subArc1End"]
+  let SArcX1 = 50 + letterData["subArc1X"]
+  let SArcY1 = 100 + letterData["subArc1Y"]
+
+  //sub arc 2
+  let SArcS2 = letterData["subArc2Start"]
+  let SArcE2 = letterData["subArc2End"]
+  let SArcX2 = 50 + letterData["subArc2X"]
+  let SArcY2 = 100 + letterData["subArc2Y"]
+
+  // draw arcs
+  noStroke();
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  ellipseMode(CENTER);
+  arc(MArcX, MArcY, MArcSize, MArcSize, MArcS, MArcE)
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(SArcX1, SArcY1, SArcSize1, SArcSize1, SArcS1, SArcE1)
+
+  arc(SArcX2, SArcY2, SArcSize2, SArcSize2, SArcS2, SArcE2)
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
