@@ -1,6 +1,19 @@
 ## MDDN 242 2020 Assignment 2
-6.05.20.09.39 /n
-attempt to create idea, struggling to create designs with limited parameters.
+
+
+
+
+
+///////////////////////////////////////////
+CURRNETLY EVERYTHING IS BROKEN WHILE I TRANSITION OUT OF USEING ARRAYS
+///////////////////////////////////////////
+
+
+
+
+
+
+
 
 (Replace this README with information about your alphabet. This is an example.)
 
