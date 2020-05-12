@@ -4,15 +4,15 @@ const colorFront3  = "#6461A0";
 const colorBackground    = "#000000";
 const colorStroke  = "#114B5F";
 
-//Blue
-const red1 = 0
-const green1 = 234
-const blue1 = 255
+//Red
+const red1 = 255
+const green1 = 0
+const blue1 = 0
 
-//Green
-const red2 = 0
-const green2 = 255
-const blue2 = 140
+//Blue
+const red2 = 74
+const green2 = 107
+const blue2 = 255
 
 /*
  * Draw the letter given the letterData
@@ -25,6 +25,7 @@ function drawLetter(letterData) {
   // color/stroke setup
   noStroke();
   strokeWeight(4);
+  
 
 
   // determine parameters for second circle
@@ -42,12 +43,12 @@ function drawLetter(letterData) {
   let pos4x2 =  50+ letterData["section3x2"];
   let pos4y2 =  100+ letterData["section3y2"];
 
-  let opacity = letterData["opacity"];
+  let opacitytriangle = letterData["opacity"];
 
-  fill(red1,green1,blue1, opacity);
+  fill(red1,green1,blue1);
   triangle(pos2x, pos2y,pos3x, pos3y, pos4x, pos4y);
 
-  fill(red2,green2,blue2);
+  fill(red2,green2,blue2, opacitytriangle);
   triangle(pos2x2,pos2y2,pos3x2, pos3y2, pos4x2, pos4y2);
 
 }

@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-So I've gone for an abstract aproach, I have done letter A-D and am going to try and finish my alphabet tonight. I have been reall busy with animation and have fallen behind abit. I want to add opacity onto one of the triangles so there is a cool colour change inbetween the two.
+Here is a progress pic of my alphabet so far, I also changed the green and blue to a red and blue. I really like the colour balance with the form of the letter, it really unifies the whole thing. The shadow in between the two shapes is also a really cool feature.
 
 
 My letter parameters
