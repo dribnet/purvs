@@ -2,6 +2,8 @@
 
 11/05/20
 
+Update 4: Serious help now they look very similar. I'm wondering if adding in a thrid shape could help to break this up and get more varibles however I do want to remind abstract in my approach and moose code has some links to the movement of the letters.
+
 Update 3: I'm finding it hard to show a difference between S,Z,2,5. They all exqually could look them same so I defenity think it will take a lot of refinement for these letters
 
 Update 2: I have since changed the colours. I like how the red and the yellow create the third colour orange and I haven't used it in every single letter either. I am still working my way through the alphabet and I like it without the stroke so I think I will remove that going forward
