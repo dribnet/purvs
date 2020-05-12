@@ -15,6 +15,11 @@ function drawLetter(letterData) {
   let y = letterData["y"];
   let shp = letterData["shp"];
 
+  // drawShape(x1,y1,shp1);
+  // drawShape(x2,y2,shp2);
+  // drawShape(x3,y3,shp3);
+  // drawShape(x4,y4,shp4);
+
   for (i=0;i<4;i++) {
     if (shp[i] == 0) {                        //-----------------------No Shape
 

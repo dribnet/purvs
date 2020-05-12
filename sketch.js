@@ -16,7 +16,7 @@ const letterB = {
 const letterC = {
   "x": [50,75,0,0],
   "y": [50,50,0,0],
-  "shp": [2,6,0,0],
+  "shp": [2,6,0,0]
 }
 
 const colorFront1  = "#199cff";
