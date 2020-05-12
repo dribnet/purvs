@@ -26,6 +26,7 @@ const letterA = {
   "section2y2": -50, 
   "section3x2": 50, 
   "section3y2": 40,
+  
 
 }
 

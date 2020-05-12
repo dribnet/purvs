@@ -1,11 +1,31 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+So I've gone for an abstract aproach, I have done letter A-D and am going to try and finish my alphabet tonight. I have been reall busy with animation and have fallen behind abit. I want to add opacity onto one of the triangles so there is a cool colour change inbetween the two.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+My letter parameters
 
+
+section x - x offset of the first triangle relative to the first one.
+
+
+section y - y offset of the first triangle relative to the first one.
+
+
+section 2x - x offset of the first triangle relative to the first one.
+
+
+section 2x - y offset of the first triangle relative to the first one.
+
+
+section 3x - x offset of the first triangle relative to the first one.
+
+
+section 3y - y offset of the first triangle relative to the first one.
+
+
+section x - x offset of the first triangle relative to the first one.
+
+opacity - colour opacity
+
+strokeWeight - weight of the shape stroke
