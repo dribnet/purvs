@@ -1,3 +1,3 @@
 ## MDDN 242 2020 Assignment 2
 
-I have slightly changed the design by switching the stroke color to the same as the inside shapes. I think this makes a cool effect around the outside of the entire letter, this also removes unwanted lines inside the letter itself. Overall, so far I have 10 parameters to use and I dont plan on having too many more than that. I think im in the position where I can use my current setup of parameters and shapes to continue making the rest of my letters.
+Progressed and made some more letters for my alphabet. Some of the letters I am finding it a little bit trick to get the right shape that I want with only using the parameters that I have but I think with a few more touchups I can get them looking right.
