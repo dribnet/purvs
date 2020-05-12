@@ -55,15 +55,15 @@ function drawLetter(letterData) {
 
 
 function drawMoon(size){
- // fill("#fff194");
- fill(0,255,0,30);
+ fill("#fff194");
+ //fill(0,255,0,30);
 
   ellipse(50, 100, 100, 100);
 }
 
 
 function drawBgCresent(Ax,Ay,size,startA,endA,Ex,Ey){
-  stroke(1);
+  //stroke(1);
   //fill(255,0,0);
   arc(Ax, Ay, size, size, startA,endA);
 
@@ -102,7 +102,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["start1"] = map(percent, 0, 100, oldObj["start1"], newObj["start1"]);
   new_letter["stop1"] = map(percent, 0, 100, oldObj["stop1"], newObj["stop1"]);
-  
+
   new_letter["bgCutOutx"] = map(percent, 0, 100, oldObj["bgCutOutx"], newObj["bgCutOutx"]);
   new_letter["bgCutOuty"] = map(percent, 0, 100, oldObj["bgCutOuty"], newObj["bgCutOuty"]);
   
