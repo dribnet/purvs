@@ -2,6 +2,8 @@
 
 11/05/20
 
+Update 2: I have since changed the colours. I like how the red and the yellow create the third colour orange and I haven't used it in every single letter either. I am still working my way through the alphabet and I like it without the stroke so I think I will remove that going forward
+
 Today, I worked on creating my animation between the letters. I now need to create the rest of my alphabet but I'm finding the animation helpful as it is showing me what transition between letters looks better.
 
 The parameters per letter:

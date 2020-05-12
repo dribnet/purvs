@@ -5,24 +5,14 @@ const colorFront3  = "#6461A0";
 const colorStroke  = "#114B5F";
 
 //Dark Purple
-const red1 = 239
-const green1 = 189
-const blue1 = 235
-
-//Middle Purple
-const red2 = 182
-const green2 = 140
-const blue2 = 184
-
-//light pink
-const red3 = 100
-const green3 = 97
-const blue3 = 160
+const red1 = 255
+const green1 = 0
+const blue1 = 0
 
 //Dark Turquisoe 
-const red4 = 17
-const green4 = 75
-const blue4 = 95
+const red4 = 255
+const green4 = 229
+const blue4 = 0
 
 /*
  * Draw the letter given the letterData

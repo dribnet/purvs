@@ -7,7 +7,7 @@ const alphabet = {
     "offset3x": 60, 
     "offset3y": 10, 
 
-    "strokeW": 6,
+    "strokeW": 0,
     "opacity": 255,
 
     "offsetx2": -40, //-60
@@ -25,7 +25,7 @@ const alphabet = {
     "offset3x": 50, 
     "offset3y": 0, 
 
-    "strokeW": 1,
+    "strokeW": 0,
     "opacity": 130,
 
     "offsetx2": 0,
@@ -43,7 +43,7 @@ const alphabet = {
     "offset3x": 30,
     "offset3y": -20,
 
-    "strokeW": 2,
+    "strokeW": 0,
     "opacity": 255,
 
     "offsetx2": -20,
@@ -62,7 +62,7 @@ const alphabet = {
     "offset3x": 40,
     "offset3y": 20,
 
-    "strokeW": 2,
+    "strokeW": 0,
     "opacity": 100,
 
     "offsetx2": -40,
@@ -80,7 +80,7 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": -20,
 
-    "strokeW": 1,
+    "strokeW": 0,
     "opacity": 40,
 
     "offsetx2": 0,
@@ -152,14 +152,40 @@ const alphabet = {
     "offset3y2": 20,
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": -50,
+    "pinkoffsety": 0,
+    "offset2x": -50,
+    "offset2y": 30,
+    "offset3x": 50,
+    "offset3y": 30,
+
+    "strokeW": 2,
+    "opacity": 150,
+
+    "offsetx2": -50,  
+    "offsety2": 30,
+    "offset2x2": -50,
+    "offset2y2": -100,
+    "offset3x2": 0,
+    "offset3y2": 30,
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": -50,
+    "pinkoffsety": 30,
+    "offset2x": -20,
+    "offset2y": -100,
+    "offset3x": 20,
+    "offset3y": 30,
+
+    "strokeW": 2,
+    "opacity": 150,
+
+    "offsetx2": -10,  
+    "offsety2": 30,
+    "offset2x2": 20,
+    "offset2y2": -100,
+    "offset3x2": 50,
+    "offset3y2": 30,
   },
   "N": {
     "pinkoffsetx": -30, 
@@ -273,7 +299,7 @@ const alphabet = {
 
     "offsetx2": 30,
     "offsety2": -100,
-    "offset2x2": -30,
+    "offset2x2": -40,
     "offset2y2": -100,
     "offset3x2": -30,
     "offset3y2": 20,
@@ -284,9 +310,22 @@ const alphabet = {
     "offsety": 17
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "pinkoffsetx": -50,
+    "pinkoffsety": -70,
+    "offset2x": 50,
+    "offset2y": -100,
+    "offset3x": -40,
+    "offset3y": -100,
+
+    "strokeW": 2,
+    "opacity": 150,
+
+    "offsetx2": -40,  
+    "offsety2": 30,
+    "offset2x2": -20,
+    "offset2y2": -100,
+    "offset3x2": -40,
+    "offset3y2": -100,
   },
   "2": {
     "size": 40,
@@ -314,9 +353,22 @@ const alphabet = {
     "offsety": 17
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "pinkoffsetx": 50,
+    "pinkoffsety": -70,
+    "offset2x": 50,
+    "offset2y": -100,
+    "offset3x": -50,
+    "offset3y": -100,
+
+    "strokeW": 2,
+    "opacity": 150,
+
+    "offsetx2": 50,  
+    "offsety2": 30,
+    "offset2x2": 50,
+    "offset2y2": -100,
+    "offset3x2": -50,
+    "offset3y2": 30,
   },
   "8": {
     "size": 40,
