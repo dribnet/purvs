@@ -54,13 +54,13 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // // draw two circles
-  // fill(colorFront1);
-  // ellipse(posx, posy, 150, 150);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
-  line(posx, posy, posx+50, posy+50);
-  line(pos2x, pos2y, pos2x-50, pos2y-50);
+  // draw two circles
+  fill(colorFront1);
+  ellipse(posx, posy, 150, 150);
+  fill(colorFront2);
+  ellipse(pos2x, pos2y, size2, size2);
+  // line(posx, posy, posx+50, posy+50);
+  // line(pos2x, pos2y, pos2x-50, pos2y-50);
 
 }
 

@@ -1,4 +1,19 @@
 ## MDDN 242 2020 Assignment 2
+Initial trials just involved changing the size of the ellipses and their colour. The colour choices are currently not great...
+
+the parameters per letter are (currently original parameters with edited values):
+  size
+  offsetx
+  offsety
+
+
+
+
+
+
+--------------------------------------------------------
+
+Old commits:
 
 My design idea is to create all the letters using just three simple triangles in different arrangements as shown ion the sketch. The letters will atempt to look like the traditional alphabet in order to be recognizeable by anyone who knows the english alphabet.
 
