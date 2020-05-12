@@ -30,10 +30,10 @@ const letterC = {
   "offsety": 0
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+const colorFront1  = "#DB7F8E";
+const colorFront2  = "#FFDBDA";
+const colorBack    = "#604D53";
+const colorStroke  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -61,6 +61,20 @@ function drawLetter(posx, posy, letterData) {
   ellipse(pos2x, pos2y, size2, size2);
 }
 
+function drawLetter1(posx, posy, letterData) {
+  // determine parameters for second circle
+  let size2 = letterData["size"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+
+  // draw two circles
+  fill(colorFront1);
+  ellipse(posx, posy, 150, 150);
+  fill(colorFront2);
+  ellipse(pos2x, pos2y, size2, size2);
+
+}
+
 function draw () {
   // clear screen
   background(colorBack);
@@ -70,9 +84,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter1(center_x - 250, center_y, letterA);
+  drawLetter1(center_x      , center_y, letterB);
+  drawLetter1(center_x + 250, center_y, letterC);
 }
 
 function keyTyped() {
