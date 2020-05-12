@@ -1,16 +1,19 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+   "triX1": 50,
+   "triY1": 86,
+   "triX2": 50,
+   "triY2": 198,
+   "triX3": 50,
+   "triY3": 48
   },
   "A": {
-   "triX1": 25,
+   "triX1": 100,
    "triY1": 150,
-   "triX2": 50,
-   "triY2": 100,
-   "triX3": 75,
-   "triY3": 150
+   "triX2": 0,
+   "triY2": 150,
+   "triX3": 50,
+   "triY3": 125
 
   },
   "B": {
@@ -172,12 +175,12 @@ const alphabet = {
    "triY3": 55
   },
   "V": {
-    "triX1": 100,
-   "triY1": 55,
-   "triX2": 50,
-   "triY2": 150,
-   "triX3": 0,
-   "triY3": 55
+    "triX1": 50,
+   "triY1": 152,
+   "triX2": 70,
+   "triY2": 100,
+   "triX3": 30,
+   "triY3": 100
   },
   "W": {
     "size": 50,
@@ -209,54 +212,84 @@ const alphabet = {
    "triY3": 50
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triX1": 65,
+   "triY1": 105,
+   "triX2": 50,
+   "triY2": 135,
+   "triX3": 35,
+   "triY3": 105
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 0,
+   "triY1": 55,
+   "triX2": 50,
+   "triY2": 155,
+   "triX3": 50,
+   "triY3": 55
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 100,
+   "triY1": 150,
+   "triX2": 75,
+   "triY2": 100,
+   "triX3": 50,
+   "triY3": 150
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triX1": 16,
+   "triY1": 118,
+   "triX2": 34,
+   "triY2": 82,
+   "triX3": 100,
+   "triY3": 150
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 80,
+   "triY1": 138,
+   "triX2": 20,
+   "triY2": 138,
+   "triX3": 50,
+   "triY3": 75
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 25,
+   "triY1": 100,
+   "triX2": 0,
+   "triY2": 150,
+   "triX3": 50,
+   "triY3": 150
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 54,
+   "triY1": 62,
+   "triX2": 36,
+   "triY2": 100,
+   "triX3": 74,
+   "triY3": 100
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 50,
+   "triY1": 50,
+   "triX2": 100,
+   "triY2": 48,
+   "triX3": 2,
+   "triY3": 148
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "triX1": 50,
+   "triY1": 68,
+   "triX2": 36,
+   "triY2": 98,
+   "triX3": 64,
+   "triY3": 98
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triX1": 2,
+   "triY1": 150,
+   "triX2": 16,
+   "triY2": 118,
+   "triX3": 80,
+   "triY3": 138
   }
 
 }
