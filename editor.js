@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#242424";
 const colorLines   = "#000090";
 
 /*******
@@ -11,9 +11,20 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["offsetx",  0,  200],
+  ["offsety", 0, 200],
+  ["rectlength", 0, 200],
+  ["rectheight", 0, 200],
+  ["nofill_length", 0, 200],
+  ["nofill_height", 0, 200],
+  ["rect_twoposx", 0, 200],
+  ["rect_twoposy", 0, 200],
+  ["triangleleftx", -100, 200],
+  ["trianglelefty", -100, 200],
+  ["triangletopx", -100, 200],
+  ["triangletopy", -100, 200],
+  ["trianglerightx", -100, 200],
+  ["trianglerighty", -100, 200],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

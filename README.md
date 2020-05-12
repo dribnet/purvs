@@ -2,13 +2,18 @@
 
 MDDN242 README
 
-Sketch Ideas Experiment Two - 11/05/20
+Designing Alphabet Progress - 12/05/2020
 
-I made some minor changes to the style of my letters. I changed the colour to green and I figured out the way to change the colour opacity in hex format.
-This allowed me to make my code more efficient by inserting the veriables rather than using 'fill' and inserting the numbers.
-It was also very easy to trasnfer my colour palette over to the draw_letters.js file!! :)
+This is just a progress update and where I am up to in terms of designing my letters. I have linked my parameters to the editor.js which has been helping me alot
+in terms of design and generating the code (so I don't have to input and guess random numbers).   
 
-I also made some small parameter changes to my letter B and C. I did this just to refine my lettering style a bit more.  
+I am currently up to the letter V, you can have a look at my preview image or thumbnail to see an example of the style I am going for.
+My letters are best viewed in the editor as well because I was able to change the background colour to a dark grey which suits my lettering the most.
+The opacity and negative space especially shows up when the background is this colour. If you have a look at my alphabet.js
+you will see that my letters look a bit different to my ABC or editor and that's because the background light and my letters have opacity applied to them so
+they became lighter instead of darker.
+
+I will continue the alphabet and finish with the numbers too!
 
 The 14 parameters per letter:
  • "offsetx": 17, | x position for first rect (filled)
