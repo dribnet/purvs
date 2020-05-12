@@ -31,13 +31,13 @@ const letterA = {
 
 const letterB = {
   "offsetx": 32,
-  "offsety": 45,
+  "offsety": 52,
   "rectlength": 70,
-  "rectheight": 35,
+  "rectheight": 37,
   "nofill_length": 62,
-  "nofill_height": 32,
+  "nofill_height": 36,
   "rect_twoposx": 27,
-  "rect_twoposy": 4,
+  "rect_twoposy": 2,
   "triangleleftx": 465,
   "trianglelefty": 270,
   "triangletopx": 465,
@@ -49,13 +49,13 @@ const letterB = {
 
 const letterC = {
   "offsetx": 56,
-  "offsety": 0,
-  "rectlength": 70,
-  "rectheight": 40,
+  "offsety": 1,
+  "rectlength": 60,
+  "rectheight": 90,
   "nofill_length": 64,
-  "nofill_height": 70,
+  "nofill_height": 50,
   "rect_twoposx": 58,
-  "rect_twoposy": 15,
+  "rect_twoposy": 22,
   "triangleleftx": 803,
   "trianglelefty": 275,
   "triangletopx": 803,
@@ -64,10 +64,10 @@ const letterC = {
   "trianglerighty": 235,
 }
 
-const colorFront1  = "#ffba52"; //orange 
-const colorFront2  = "#C3B3A6"; //beige
+const colorFront1  = "#75cc0a50"; //green
+const colorFront2  = "#ccd9deFA"; //white
 const colorBack    = "#242424"; //bg colour (dark gray)
-const colorStroke  = "#fc6203"; // stroke colour
+const colorStroke  = "#0f0f0f80"; //stroke colour
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -102,14 +102,14 @@ function drawLetter(posx, posy, letterData) {
 
   // draw three rects
   noStroke();
-  fill(204,20,28, 150);
+  fill(colorFront1);
   rect(pos2x, pos2y, rectwidth, recthigh);
   stroke(colorFront2);
   strokeWeight(8);
   noFill();
   rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two);
-  stroke(15, 100);
-  fill(36, 36, 36);
+  stroke(colorStroke);
+  fill(colorBack);
   triangle(tri_onex, tri_oney, tri_twox, tri_twoy, tri_threex, tri_threey);
 }
 
