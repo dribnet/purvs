@@ -1,6 +1,13 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
+const colorFront1  = "#199cff";
+const colorFront2  = "#59ccff";
+const colorBack    = "#e3eded";
+const colorStroke  = "#233f11";
+
+const weight = 5;
+
 /* 
  * my three variable per letter are:
  *
@@ -13,32 +20,45 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "initX": 0,
+  "initY": -40,
+  "width": 80,
+  "offsetX": -5,
+  "offsetY": 10,
+  "modWidth": -10,
+  "lineChange": 4,
+  "lineSkip": 4
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "initX": 0,
+  "initY": -40,
+  "width": 80,
+  "offsetX": 0,
+  "offsetY": 10,
+  "modWidth": -10,
+  "lineChange": 2,
+  "lineSkip": null
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "initX": 0,
+  "initY": -40,
+  "width": 40,
+  "offsetX": 0,
+  "offsetY": 10,
+  "modWidth": 10,
+  "lineChange": 2,
+  "lineSkip": null,
+  "repeat": 3
 }
-
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
+
+  rectMode(CENTER);
 
   // color/stroke setup
   stroke(colorStroke);
@@ -46,19 +66,6 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
-}
-
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
@@ -70,9 +77,38 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 250, center_y, letterA, letterA["lineSkip"]);
+  drawLetter(center_x      , center_y, letterB, letterB["lineSkip"]);
+  drawLetter(center_x + 250, center_y, letterC, letterC["lineSkip"]);
+}
+
+function drawLetter(posx, posy, letterData, drawn, skip) {
+  var posX = posx + letterData["initX"];
+  var posY = posy + letterData["initY"];
+  var width = letterData["width"];
+  var change = letterData["lineChange"];
+  var repeat = letterData["repeat"];
+  var drawn = 0;
+
+  while(drawn < 9){
+    rect(posX, posY, width, weight);
+    if((drawn < change) && (skip != drawn) && (drawn != repeat)){
+      posX += letterData["offsetX"];
+      posY += letterData["offsetY"];
+      width += letterData["modWidth"];
+    }else if(drawn == repeat){
+      posX;
+      posY;
+      width;
+    }else if(drawn == skip){
+      break;
+    }else{
+      posX -= letterData["offsetX"];
+      posY += letterData["offsetY"];
+      width -= letterData["modWidth"];
+    }
+    drawn++;
+  }
 }
 
 function keyTyped() {
