@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-Here is a progress pic of my alphabet so far, I also changed the green and blue to a red and blue. I really like the colour balance with the form of the letter, it really unifies the whole thing. The shadow in between the two shapes is also a really cool feature.
+I've now added the black background and have progressed with my letters, the whole alphabet is very cohesive and stays the same which is important. I dont want to go on a tangent and accidentally change the style. It will be interesting doing the numbers and not confusing them with the letters. But will be a cool challenge at the least.
 
 
 My letter parameters
