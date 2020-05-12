@@ -17,9 +17,6 @@ function drawLetter(letterData) {
   rectMode(CENTER);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
   let a = letterData["space"];
   let pLV1 = letterData["lpV1"];
   let pLV2 = letterData["lpV2"];
@@ -54,9 +51,18 @@ line(pLH1,pLH2,pLH3,i);
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["space"] = map(percent, 0, 100, oldObj["space"], newObj["space"]);
+  new_letter["lpV1"] = map(percent, 0, 100, oldObj["lpV1"], newObj["lpV1"]);
+  new_letter["lpV2"] = map(percent, 0, 100, oldObj["lpV2"], newObj["lpV2"]);
+  new_letter["lpV3"] = map(percent, 0, 100, oldObj["lpV3"], newObj["lpV3"]);
+  new_letter["lpH1"] = map(percent, 0, 100, oldObj["lpH1"], newObj["lpH1"]);
+  new_letter["lpH2"] = map(percent, 0, 100, oldObj["lpH2"], newObj["lpH2"]);
+  new_letter["lpH3"] = map(percent, 0, 100, oldObj["lpH3"], newObj["lpH3"]);
+  new_letter["lpH1st"] = map(percent, 0, 100, oldObj["lpH1st"], newObj["lpH1st"]);
+  new_letter["lpH2st"] = map(percent, 0, 100, oldObj["lpH2st"], newObj["lpH2st"]);
+  new_letter["lpV1st"] = map(percent, 0, 100, oldObj["lpV1st"], newObj["lpV1st"]);
+  new_letter["lpV2st"] = map(percent, 0, 100, oldObj["lpV2st"], newObj["lpV2st"]);
+  new_letter["mid"] = map(percent, 0, 100, oldObj["mid"], newObj["mid"]);
   return new_letter;
 }
 

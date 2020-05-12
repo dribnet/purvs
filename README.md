@@ -1,30 +1,5 @@
 ## MDDN 242 2020 Assignment 2
 
-7/4/20
-
-I bashed out my initial sketches for the alphabet today. There a little rough but I like the look. I'm gonna go for some design feedback and maybe see if I want to try some different color sceams
-
-6/4/20
-
-I've got the first letter of my alphabet done after a nice long painful debug process. I'm sure there will be more hardship to come but for now I'm feeling sucsessful.
-
-Ok, I've got my new concept. I think I understand the wy everything is drawin now so I should be good to go on the full alphabet. The parameters I'm using are 
-  "space": 10, the space between the lines
-  "lp1": width point of horizontal lines
-  "lp2": height point for horizontal lines
-  "lp3": 2nd width point of horizontal line
-  "lilY": weather or not there's the square in the middle
-  "Blp1": points for verticle lines
-  "Blp2":
-  "Blp3":
-  I can see there still being some tecnical problems I need to sort out but I think I've got my basic idea down and I still have room to add some more variables as the need arises.
-
-I'm trying to change my sketch to get that working before I start on my alphabet but it's confusing!
-
-I've realized that I was thinking about this totally wrong and my initial design will not work! for this design to actually work I would need to use way to many parameters so now I need to rethink my design. I could try to figur out a variation on the same theam with fewer parameters but I think that might be kind of boring. I liked the idea of using for loops and that might give me a lot of controll while still no having too many parameters. I'll probably have to do some tests on my own as to how I'm going to make that work.
-
-5/4/20
-A fun preview of my alphabet! the code is super messy and definetly not the most clean and reasonable way of doing it because I got really confused at how everything was working at first and then by the time I figured it out everything was already all messy but I get it now so I should be all good for the real deal. The idea is tht I'm drawing my letters using the base lines with a square as a base. Lines can connect between the four corners and the centers of each of the squares lines to create the letters. Everytime there is a closed off shape in a letter there is a blue square in the center. I'm not sure on the color theam yet, I usually just use really basic colors at first and then refine a theam later. Also I know the A looks like a tecno elder wand. That was unintentional.
-
+I had thought my Interaction was broken but what had actually happened was I accidentally deleted one of the values in my A when I was trying to clean up my code so I changed that and everything is working fine. One issue with the look of my letter transitions is that I'm not using all my variables in my letters so parts of the letters transition and other parts just appear. I think with the black boxes in some letters I could make it so the boxes are drawn in every letter but in some they are completly transparent which would allow them to appear. I can't think of a way of doing that with unused lines though, I would need an opacity parameter for all 4 lines. I already have 12 parameters so that would bring me up to 16. I'm not sure if it's worth it. Maybe I'll give it a shot and if it looks really cool I'll keep it and if it's still weird I won't. I'm still not totally sure how to go about it anyway.
 
 
