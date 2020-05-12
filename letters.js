@@ -126,17 +126,17 @@ const alphabet = {
     "rectH": 89
   },
   "J": {
-    "ellipseY": 110,
-    "width": 40,
-    "height": 40,
-    "offsetx": 0,
-    "offsety": -85,
+    "ellipseY": 140,
+    "width": 20,
+    "height": 20,
+    "offsetx": 37,
+    "offsety": -81,
     "angleStart": 0,
     "angleStop": 0,
-    "rectX": 82,
-    "rectY": 75,
+    "rectX": 80,
+    "rectY": 49,
     "rectW": 15,
-    "rectH": 120
+    "rectH": 90
   },
   "K": {
     "ellipseY": 90,
@@ -147,9 +147,9 @@ const alphabet = {
     "angleStart": 235,
     "angleStop": 55,
     "rectX": 3,
-    "rectY": 45,
+    "rectY": 17,
     "rectW": 15,
-    "rectH": 135
+    "rectH": 163
   },
   "L": {
     "ellipseY": 130,
@@ -387,16 +387,16 @@ const alphabet = {
   },
   "3": {
     "ellipseY": 130,  
-    "width": 100,
-    "height": 100,
-    "offsetx": -3,
-    "offsety": 20,
-    "angleStart": 310,
-    "angleStop": 40,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "width": 53,
+    "height": 61,
+    "offsetx": 18.5,
+    "offsety": -52,
+    "angleStart": 292,
+    "angleStop": 118,
+    "rectX": 20,
+    "rectY": 30,
+    "rectW": 62,
+    "rectH": 15
   },
   "4": {
     "ellipseY": 130, 

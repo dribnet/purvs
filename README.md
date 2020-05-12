@@ -15,4 +15,4 @@ The eleven parameters per letter:
   * `rectW` : width of the rect
   * `rectH` : height positon of the rect
 
-After receving design feedback in class today I have taken on board the feedback I recieved and have made changes to the v, q, y, i, w and 3. I was able to change the angle of the arc slightly to make the y and q reference the letters more accurately. I also changed the size of the arc in the v to give it more variety over other letters and look more like a v. I have changed the background colour to an off white and I think it works a lot better with the green. 
+I have made further refinements to my design, including the 3, k and the j. I had quite a lot of trouble gettign the j to work in my initial designs but after thinking about how the shapes could be arranged dfferently I was able to make a better looking j. 
