@@ -1,39 +1,49 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
-  },
-  "A": { 
-  "size": 70,
+    "size": 70,
   "offsetx": 0,
   "offsety": 170,
-  "start": 180,
-  "stop":0,
-  "strokeW":4
+  "start1": 180,
+  "stop1":0,
+  "bgCutOutx":0,
+  "bgCutOuty":50,
+  },
+  "A": { 
+  "size": 100,
+  "offsetx": 0,
+  "offsety": 170,
+  "start1": 180,
+  "stop1":0,
+  "bgCutOutx":0,
+  "bgCutOuty":170,
+  
   },
   "B": {
      "size": 100,
   "offsetx": 0,
   "offsety": 50,
-  "start": 270,
-  "stop":90,
-  "strokeW":10
+  "start1": 270,
+  "stop1":90,
+  "bgCutOutx":0,
+  "bgCutOuty":50,
+  
   },
   "C": {
     "size": 100,
   "offsetx": 50,
   "offsety": 150,
-  "start": 90,
-  "stop":270,
-  "strokeW":6
+  "start1": 90,
+  "stop1":270,
+  "bgCutOutx":0,
+  "bgCutOuty":50,
+  
   },
   "D": {
      "size": 100,
   "offsetx": 0,
   "offsety": 150,
-  "start": 270,
-  "stop":90
+  "start1": 270,
+  "stop1":90
   },
   "E": {
     "size": 50,
@@ -44,8 +54,8 @@ const alphabet = {
     "size": 70,
   "offsetx": 7.799999999999997,
   "offsety": 104,
-  "start": 324,
-  "stop": 68.4
+  "start1": 324,
+  "stop1": 68.4
   },
   "G": {
     "size": 50,

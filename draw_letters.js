@@ -1,6 +1,8 @@
 const colorFront1  = "#199cff";
 const colorFront2  = "#fcba03";
-const colorStroke  = "#f5dd42";
+const colorStroke  = "#fff194";
+let lightGrey =  "#c9d1d6";
+
 //const colorBack    = "#0a193d";
 //const backgroundColour = "#0a193d";
 /*
@@ -14,37 +16,54 @@ const colorStroke  = "#f5dd42";
 
 function drawLetter(letterData) {
   angleMode(DEGREES);
-  strokeWeight(4);
+  strokeWeight(2);
   stroke(colorStroke);
-  
+  noStroke();
+  ellipseMode(CENTER);
  // background(backgroundColour);
  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50+ letterData["offsetx"];
-  let pos2y =  letterData["offsety"];
-  let startA = letterData["start"];
-  let endA = letterData["stop"];
+  let size = letterData["size"];
+  let bgCx = letterData["offsetx"];
+  let bgCy =  letterData["offsety"];
+  let startA = letterData["start1"];
+  let endA = letterData["stop1"];
+  let bgEx = letterData["bgCutOutx"];
+  let bgEy = letterData["bgCutOuty"];
 
-  let strokeWei = letterData["strokeW"];
+
+  //let strokeWei = letterData["strokeW"];
 
   //noFill();
   // draw two circles
-    drawMoon();
-  strokeWeight(strokeWei);
+   
+  //strokeWeight(strokeWei);
 
   let lightBlue = color("#199cff");
   lightBlue.setAlpha(125);
-  fill(lightBlue);
+  fill(lightGrey);
 
-  //fill(colorFront2);
-  arc(pos2x, pos2y, size2, size2, startA,endA);
+  drawBgCresent(bgCx,bgCy,size,startA,endA,bgEx,bgEy);
+  
+ drawMoon(size);
 }
 
 
-function drawMoon(){
-  fill("#f5dd42");
-  ellipse(50, 150, 100, 100);
+
+function drawMoon(size){
+  fill("#fff194");
+
+  ellipse(50, 100, 100, 100);
 }
+
+function drawBgCresent(Ax,Ay,size,startA,endA,Ex,Ey){
+  stroke(2);
+  arc(Ax, Ay, size, size, startA,endA);
+  fill(colorBack);
+
+  ellipse(Ex,Ey,80,95);
+
+}
+
 
 
 function interpolate_letter(percent, oldObj, newObj) {

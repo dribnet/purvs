@@ -16,6 +16,9 @@ const sliderInfo = [
   ["offsety", 0, 200],
   ["start", 0, 360],
   ["stop", 0, 360],
+  ["stop", 0, 360],
+  ["bgCutOutx", 0, 100],
+  ["bgCutOuty", 0, 200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
