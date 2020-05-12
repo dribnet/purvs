@@ -35,6 +35,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+// change these to be more appropriate for my design - font name - other relevant words
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
