@@ -13,17 +13,25 @@ const alphabet = {
    "triX2": 0,
    "triY2": 150,
    "triX3": 50,
-   "triY3": 125
+   "triY3": 125,
+   "2triX1": 50,
+   "2triY1": 70,
+   "2triX2": 35,
+   "2triY2": 100,
+   "2triX3": 65,
+   "2triY3": 100
 
   },
   "B": {
-   "triX1": 80,
-   "triY1": 110,
+   "triX1": 18,
+   "triY1": 115,
    "triX2": 50,
    "triY2": 50,
    "triX3": 100,
-   "triY3": 50
+   "triY3": 90
+   
   },
+  
   "C": {
    "triX1": 100,
    "triY1": 150,
@@ -41,17 +49,32 @@ const alphabet = {
    "triY3": 80
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "triX1": 4,
+   "triY1": 146,
+   "triX2": 50,
+   "triY2": 54,
+   "triX3": 66,
+   "triY3": 86,
+   "2triX1": 84,
+   "2triY1": 122,
+   "2triX2": 98,
+   "2triY2": 150,
+   "2triX3": 0,
+   "2triY3": 150
   },
   "F": {
-    "triX1": 100,
-   "triY1": 70,
-   "triX2": 50,
-   "triY2": 30,
-   "triX3": 50,
-   "triY3": 100
+    "triX1": 24,
+   "triY1": 106,
+   "triX2": 122,
+   "triY2": 100,
+   "triX3": 30,
+   "triY3": 94,
+   "2triX1": 48,
+   "2triY1": 52,
+   "2triX2": 96,
+   "2triY2": 50,
+   "2triX3": 40,
+   "2triY3": 70
   },
   "G": {
    "triX1": 100,
@@ -59,15 +82,27 @@ const alphabet = {
    "triX2": 70,
    "triY2": 150,
    "triX3": 75,
-   "triY3": 185
+   "triY3": 185,
+   "2triX1": 58,
+   "2triY1": 70,
+   "2triX2": 30,
+   "2triY2": 130,
+   "2triX3": 88,
+   "2triY3": 130
   },
   "H": {
-   "triX1": 25,
-   "triY1": 0,
-   "triX2": 0,
-   "triY2": 148,
-   "triX3": 50,
-   "triY3": 50
+   "triX1": 70,
+   "triY1": 88,
+   "triX2": 100,
+   "triY2": 0,
+   "triX3": 100,
+   "triY3": 150,
+   "2triX1": 30,
+   "2triY1": 88,
+   "2triX2": 0,
+   "2triY2": 0,
+   "2triX3": 0,
+   "2triY3": 150
   },
   "I": {
    "triX1": 50,

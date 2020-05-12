@@ -16,7 +16,13 @@ const sliderInfo = [
   ["triX2",  0, 200],
   ["triY2",  0,  200],
   ["triX3", 0, 200],
-  ["triY3", 0, 200]
+  ["triY3", 0, 200],
+  ["2triX1",       0, 200],
+  ["2triY1",  0,  200],
+  ["2triX2",  0, 200],
+  ["2triY2",  0,  200],
+  ["2triX3", 0, 200],
+  ["2triY3", 0, 200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
