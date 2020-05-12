@@ -13,21 +13,25 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 50,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 30,
+  "sectionx": 0,
+  "sectiony": 0,
+  "sectionx1": 0,
+  "sectiony1": 80,
+  "sectionx2": 0,
+  "sectiony2": 80,
 }
 
 const letterB = {
   "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "section3x": 0,
+  "section3y": -145
 }
 
 const letterC = {
   "size": 50,
-  "offsetx": 30,
-  "offsety": 0
+  "section3x1": 30,
+  "section3y1": 0
 }
 
 const colorFront1  = "#C6DDFE";
@@ -50,15 +54,29 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
+
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+
+  let pos2x = posx + letterData["sectionx"];
+  let pos2y = posy + letterData["sectiony"];
+  let posx1 = posx + letterData["sectionx1"];
+  let posy1 = posy + letterData["sectiony1"];
+  let pos2x1 = posx + letterData["sectionx2"];
+  let pos2y1 = posy + letterData["sectiony2"];
+
+  let pos3x = posx + letterData["section3x"];
+  let pos3y = posy + letterData["section3y"];
+  let pos3x1 = posx + letterData["section3x1"];
+  let pos3y1 = posy + letterData["section3y1"];
 
   // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  line(pos2x, pos2y, posx1, posy1);
+  fill(colorFront1);
+
+  //arc(pos2x1 , pos2y1, 150, 150，PI + QUARTER_PI);
+  arc(pos2x, pos2y, 150, 150, PI, PI + QUARTER_PI, PIE);
+  arc(pos2x1, pos2y1, 100, 100, PI, PI + QUARTER_PI, PIE);
 }
 
 function draw () {
