@@ -7,7 +7,6 @@ const alphabet = {
     "offset3x": 60, 
     "offset3y": 10, 
 
-    "strokeW": 0,
     "opacity": 255,
 
     "offsetx2": -40, //-60
@@ -25,7 +24,6 @@ const alphabet = {
     "offset3x": 50, 
     "offset3y": 0, 
 
-    "strokeW": 0,
     "opacity": 130,
 
     "offsetx2": 0,
@@ -43,7 +41,6 @@ const alphabet = {
     "offset3x": 30,
     "offset3y": -20,
 
-    "strokeW": 0,
     "opacity": 255,
 
     "offsetx2": -20,
@@ -62,7 +59,6 @@ const alphabet = {
     "offset3x": 40,
     "offset3y": 20,
 
-    "strokeW": 0,
     "opacity": 100,
 
     "offsetx2": -40,
@@ -80,7 +76,6 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": -20,
 
-    "strokeW": 0,
     "opacity": 40,
 
     "offsetx2": 0,
@@ -96,9 +91,21 @@ const alphabet = {
     "offsety": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": -40,
+    "pinkoffsety": -60,
+    "offset2x": -40,
+    "offset2y": -30,
+    "offset3x": 0,
+    "offset3y": -50,
+
+    "opacity": 255,
+
+    "offsetx2": -40,
+    "offsety2": -60,
+    "offset2x2": -40,
+    "offset2y2": -120,
+    "offset3x2": 40,
+    "offset3y2": -90,
   },
   "G": {
     "size": 50,
@@ -118,8 +125,7 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": 30,
 
-    "strokeW": 2,
-    "opacity": 20,
+    "opacity": 60,
 
     "offsetx2": 50,
     "offsety2": -100,
@@ -141,7 +147,6 @@ const alphabet = {
     "offset3x": 40,
     "offset3y": 0,
 
-    "strokeW": 0,
     "opacity": 100,
 
     "offsetx2": 40,
@@ -159,7 +164,6 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": 30,
 
-    "strokeW": 2,
     "opacity": 150,
 
     "offsetx2": -50,  
@@ -177,7 +181,6 @@ const alphabet = {
     "offset3x": 20,
     "offset3y": 30,
 
-    "strokeW": 2,
     "opacity": 150,
 
     "offsetx2": -10,  
@@ -195,7 +198,6 @@ const alphabet = {
     "offset3x": 20, 
     "offset3y": 30, 
 
-    "strokeW": 2,
     "opacity": 255,
 
     "offsetx2": -5,
@@ -213,7 +215,6 @@ const alphabet = {
     "offset3x": 40, 
     "offset3y": 0, 
 
-    "strokeW": 2,
     "opacity": 100,
 
     "offsetx2": -60,
@@ -239,9 +240,21 @@ const alphabet = {
     "offsety": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": 50,
+    "pinkoffsety": -90,
+    "offset2x": 0,
+    "offset2y": -50,
+    "offset3x": 50,
+    "offset3y": 0,
+
+    "opacity": 255,
+
+    "offsetx2": -50,
+    "offsety2": -60,
+    "offset2x2": 0,
+    "offset2y2": -20,
+    "offset3x2": -50,
+    "offset3y2": 30,
   },
   "T": {
     "size": 50,
@@ -254,14 +267,38 @@ const alphabet = {
     "offsety": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": 50,
+    "pinkoffsety": -100,
+    "offset2x": -50,
+    "offset2y": -100,
+    "offset3x": 0,
+    "offset3y": 30,
+
+    "opacity": 150,
+
+    "offsetx2": 50,
+    "offsety2": -100,
+    "offset2x2": -50,
+    "offset2y2": -100,
+    "offset3x2": 0,
+    "offset3y2": -10,
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": -50,
+    "pinkoffsety": -100,
+    "offset2x": -20,
+    "offset2y": 30,
+    "offset3x": 20,
+    "offset3y": -100,
+
+    "opacity": 150,
+
+    "offsetx2": -10,  
+    "offsety2": -100,
+    "offset2x2": 20,
+    "offset2y2": 30,
+    "offset3x2": 50,
+    "offset3y2": -100,
   },
   "X": {
     "pinkoffsetx": 50,
@@ -271,7 +308,6 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": 0,
 
-    "strokeW": 2,
     "opacity": 255,
 
     "offsetx2": -50,
@@ -282,9 +318,21 @@ const alphabet = {
     "offset3y2": 0,
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "pinkoffsetx": 20, 
+    "pinkoffsety": 30,  
+    "offset2x": -30, 
+    "offset2y": 30, 
+    "offset3x": 20, 
+    "offset3y": -30, 
+
+    "opacity": 170,
+
+    "offsetx2": 30,
+    "offsety2": -100,
+    "offset2x2": -40,
+    "offset2y2": -100,
+    "offset3x2": 20,
+    "offset3y2": 0,
   },
   "Z": {
     "pinkoffsetx": 30, 
@@ -294,8 +342,7 @@ const alphabet = {
     "offset3x": 30, 
     "offset3y": -50, 
 
-    "strokeW": 2,
-    "opacity": 10,
+    "opacity": 255,
 
     "offsetx2": 30,
     "offsety2": -100,
@@ -317,7 +364,6 @@ const alphabet = {
     "offset3x": -40,
     "offset3y": -100,
 
-    "strokeW": 2,
     "opacity": 150,
 
     "offsetx2": -40,  
@@ -360,7 +406,6 @@ const alphabet = {
     "offset3x": -50,
     "offset3y": -100,
 
-    "strokeW": 2,
     "opacity": 150,
 
     "offsetx2": 50,  

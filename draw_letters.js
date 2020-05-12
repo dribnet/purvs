@@ -37,13 +37,10 @@ function drawLetter(letterData) {
   let greentri3x = 50 + letterData["offset3x2"];
   let greentri3y = 150 + letterData["offset3y2"];
 
-
-
-  let stroke2W = letterData["strokeW"];
   let opacity2 = letterData["opacity"];
 
 
-  strokeWeight(stroke2W);
+  strokeWeight(0);
 
   fill(red1,green1,blue1);
   triangle(pinktriAx, pinktriAy,pinktriA2x, pinktriA2y, pinktriA3x, pinktriA3y);
@@ -74,9 +71,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offset2y2"] = map(percent, 0, 100, oldObj["offset2y2"], newObj["offset2y2"]);
   new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
   new_letter["offset3y2"] = map(percent, 0, 100, oldObj["offset3y2"], newObj["offset3y2"]);
-
-
-  new_letter["strokeW"] = map(percent, 0, 100, oldObj["strokeW"], newObj["strokeW"]);
 
   new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
 
