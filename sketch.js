@@ -14,7 +14,7 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 30,
-  "sectionx": 0,
+  "sectionx": 50,
   "sectiony": 0,
   "sectionx1": 0,
   "sectiony1": 80,
@@ -74,9 +74,8 @@ function drawLetter(posx, posy, letterData) {
   line(pos2x, pos2y, posx1, posy1);
   fill(colorFront1);
 
-  //arc(pos2x1 , pos2y1, 150, 150，PI + QUARTER_PI);
-  arc(pos2x, pos2y, 150, 150, PI, PI + QUARTER_PI, PIE);
-  arc(pos2x1, pos2y1, 100, 100, PI, PI + QUARTER_PI, PIE);
+  triangle(pos2x, pos2y, pos2x + 10, pos2y +35, pos2x - 9, pos2y + 35,);
+  triangle(pos2y +35, pos2x - 9, pos2x + 30, posy1, pos2x - 9, posy1,);
 }
 
 function draw () {
