@@ -1,9 +1,8 @@
-const colour_DarkSquare = "#c9c9c9";
 const colour_LightSquare = "#ededed";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-//const colorBack    = "#1c1c1c";
+//const colorBack    = "#333333";
 const colorStroke  = "#233f11";
 /*
  * Draw the letter given the letterData
@@ -12,34 +11,36 @@ const colorStroke  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
-function drawLetter(posx,posy, letterData) {
-  // determine parameters for second circle
-  //let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let Divide = letterData["DivideHeight"];
+function drawLetter(letterData) {
+
+  var posx = 0
+  var posy = 75
   let arcStart = letterData["arcStart"];
   let arcFinish = letterData["arcFinish"];
 
   let arc2Start = letterData["arc2Start"];
   let arc2Finish = letterData["arc2Finish"];
 
-  let arcX = posx+50
-  let arcY= posy+50
-  let arc2X= posx+150
+  let arcX = posx+25
+  let arcY= posy+25
+  let arc2X= posx+75
 
-//black square
-  fill (colour_DarkSquare);
-  rect (posx, posy, 200, 100);
+
+  angleMode (DEGREES);
+
 //white square
   fill (colour_LightSquare);
-  rect (posx, pos2y, 200, -Divide);
+  rect (posx, posy, 100, 50);
 
 noFill ();
-stroke(5);
-strokeWeight (5);
-arc(arcX, arcY, 50, 50, arcStart , arcFinish);
+stroke(1);
+strokeWeight (1);
+ellipse (arcX, arcY, 35,35);
+ellipse (arc2X, arcY, 35,35);
 
-arc(arc2X, arcY, 50, 50, arc2Start , arc2Finish);
+strokeWeight(5);
+arc(arcX, arcY, 35, 35, arcStart , arcFinish);
+arc(arc2X, arcY, 35, 35, arc2Start , arc2Finish);
 
 noStroke ();
 }

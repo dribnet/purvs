@@ -57,7 +57,7 @@ const colour_LightSquare = "#ededed";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorBack    = "#1c1c1c";
+//const colorBack    = "#333333";
 const colorStroke  = "#233f11";
 
 function setup () {
