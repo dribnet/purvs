@@ -1,7 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-I've now added the black background and have progressed with my letters, the whole alphabet is very cohesive and stays the same which is important. I dont want to go on a tangent and accidentally change the style. It will be interesting doing the numbers and not confusing them with the letters. But will be a cool challenge at the least.
-
+I've now completed my main letters, now to move onto the numbers. I want to keep the same style but continue to use 2 triangles rather than adding an extra one, I want to push the boundaries by just using two. 
 
 My letter parameters
 
