@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-Moving the design over to draw letters.js from sketch.js wass a success with only a few minor issues that were worked through. Still need to figure out exactly where the top half of the 'B' has gone... Now to work on getting all the letters in the alphabet drawn.
+Furthering setup I have gotten the editor setup so I am all ready to roll with making the letters. I think first I will add in 1 or two more triangles as I currently don't have many parameters and doing this could make for some more interesting and uunique letter make ups.
 
 the parameters per letter are:
   offsetx
