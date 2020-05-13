@@ -10,7 +10,7 @@ Try the code. Meet a problem: Want to rotate the arc, but it is failed.
 Change arc into triangle. It is easier to code it. Complete "A" sketch.
 
 13/05 Complete the digital sketch.
-
+Change colors, preview image and thumbnail picture.
 
 
 The three parameters per letter:

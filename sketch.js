@@ -39,9 +39,9 @@ const letterC = {
   "section4y2": 0
 }
 
-const colorFront1  = "#C6DDFE";
-const colorFront2  = "#6A6298";
-const colorBack    = "#C4B5CC";
+const colorFront1  = "#9FD2F9";
+const colorFront2  = "#4BAFFB";
+const colorBack    = "#A390B5";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -87,16 +87,19 @@ function drawLetter(posx, posy, letterData) {
   line(pos2x, pos2y, posx1, posy1);
   fill(colorFront1);
   triangle(pos2x, pos2y, pos2x + 10, pos2y +35, pos2x - 9, pos2y + 35,);
+  fill(colorFront2);
   triangle(pos2y +35, pos2x - 9, pos2x + 30, posy1, pos2x - 9, posy1,);
 
   line(pos3x, pos3y, pos3x1, pos3y1);
   fill(colorFront1);
   triangle(pos3x2, pos3y2, pos3x2 + 10, pos3y2 +20, pos3x2 - 10, pos3y2 + 20,);
+  fill(colorFront2);
   triangle(pos3x2, pos3y2 + 40, pos3x2 + 10, pos3y2 +60, pos3x2 - 10, pos3y2 + 60,);
 
   line(pos4x, pos4y, pos4x1, pos4y1);
   fill(colorFront1);
   triangle(pos4x2, pos4y2, pos4x2, pos4y2 - 20, pos4x2 + 20, pos4y2,);
+  fill(colorFront2);
   triangle(pos4x2, pos4y2 + 80, pos4x2, pos4y2 + 100, pos4x2 + 20, pos4y2 + 80,);
 }
 
