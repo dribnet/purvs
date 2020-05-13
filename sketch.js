@@ -1,56 +1,50 @@
-const canvasWidth = 960;
+const canvasWidth  = 960;
 const canvasHeight = 500;
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const color        = "#F1FAF1";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
-const weight = 5;
-
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
+const width  = 120;
+const height = 120;
 
 const letterA = {
-  "initX": 0,
-  "initY": -40,
-  "width": 80,
-  "offsetX": -5,
-  "offsetY": 10,
-  "modWidth": -10,
-  "lineChange": 4,
-  "lineSkip": 4
+  "offsetX1": 0,
+  "offsetY1": -60,
+  "start1": 0,
+  "end1": 180,
+  "offsetX2": 0,
+  "offsetY2": 60,
+  "start2": 180,
+  "end2": 360,
+  "lineWidth": 0,
+  "lineHeight": 0,
 }
 
 const letterB = {
-  "initX": 0,
-  "initY": -40,
-  "width": 80,
-  "offsetX": 0,
-  "offsetY": 10,
-  "modWidth": -10,
-  "lineChange": 2,
-  "lineSkip": null
+  "offsetX1": 0,
+  "offsetY1": -15,
+  "start1": 180,
+  "end1": 360,
+  "offsetX2": 0,
+  "offsetY2": 15,
+  "start2": 0,
+  "end2": 180,
+  "lineWidth": 60,
+  "lineHeight": 0,
 }
 
 const letterC = {
-  "initX": 0,
-  "initY": -40,
-  "width": 40,
-  "offsetX": 0,
-  "offsetY": 10,
-  "modWidth": 10,
-  "lineChange": 2,
-  "lineSkip": null,
-  "repeat": 3
+  "offsetX1": 0,
+  "offsetY1": -40,
+  "start1": 90,
+  "end1": 270,
+  "offsetX2": 0,
+  "offsetY2": 40,
+  "start2": 270,
+  "end2": 90,
+  "lineWidth": 20,
+  "lineHeight": 40,
 }
 
 function setup () {
@@ -58,11 +52,13 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  rectMode(CENTER);
+  ellipseMode(CENTER);
+  angleMode(DEGREES);
+
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  noFill();
+  strokeWeight(2.5);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -77,38 +73,39 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA, letterA["lineSkip"]);
-  drawLetter(center_x      , center_y, letterB, letterB["lineSkip"]);
-  drawLetter(center_x + 250, center_y, letterC, letterC["lineSkip"]);
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 }
 
-function drawLetter(posx, posy, letterData, drawn, skip) {
-  var posX = posx + letterData["initX"];
-  var posY = posy + letterData["initY"];
-  var width = letterData["width"];
-  var change = letterData["lineChange"];
-  var repeat = letterData["repeat"];
-  var drawn = 0;
+function drawLetter(posx, posy, letterData) {
+  var posX1 = posx + letterData["offsetX1"];
+  var posY1 = posy + letterData["offsetY1"];
+  var start1 = letterData["start1"];
+  var end1 = letterData["end1"];
 
-  while(drawn < 9){
-    rect(posX, posY, width, weight);
-    if((drawn < change) && (skip != drawn) && (drawn != repeat)){
-      posX += letterData["offsetX"];
-      posY += letterData["offsetY"];
-      width += letterData["modWidth"];
-    }else if(drawn == repeat){
-      posX;
-      posY;
-      width;
-    }else if(drawn == skip){
-      break;
-    }else{
-      posX -= letterData["offsetX"];
-      posY += letterData["offsetY"];
-      width -= letterData["modWidth"];
-    }
-    drawn++;
-  }
+  var posX2 = posx + letterData["offsetX2"];
+  var posY2 = posy + letterData["offsetY2"];
+  var start2 = letterData["start2"];
+  var end2 = letterData["end2"];
+
+  var rectWidth = letterData["lineWidth"];
+  var rectHeight = letterData["lineHeight"];
+
+  noStroke();
+  fill(color);
+  ellipse(posX1,posY1, width);
+  ellipse(posX2,posY2, width);
+  
+  noFill();
+  stroke(colorStroke);
+  push();
+    arc(posX1, posY1, width, height, start1, end1, OPEN);
+  pop();
+  rect(posx-(rectWidth/2), posy-(rectHeight/2), rectWidth, rectHeight, 20);
+  push();
+    arc(posX2, posY2, width, height, start2, end2, OPEN);
+  pop();
 }
 
 function keyTyped() {
