@@ -2,10 +2,13 @@
 
 MDDN242 README
 
-Alphabet Fix - 13/05/2020
+Alphabet Refined - 13/05/2020
 
-I changed my alphabet to index which removed the alphabet index.
-I am putting it back in again so there isn't a broken link when you click on "alphabet".
+In this update I have made the changes to letters A - D. You can have a look above. They are now smaller, less bold and fit with the rest of the other letters.
+
+My font isn't neccessarily designed to be readable but is inspired by the forms and strokes of the english alphabet.
+I didn't have a hard time coding my letters thanks to the editor :)!! but for some letters with more diangonal strokes such as X were harder to replicate
+but I am happy with the outcome of every letter! you can still see hints of the original alphabet form.
 
 
 The 14 parameters per letter:
