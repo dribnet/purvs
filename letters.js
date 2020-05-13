@@ -1,188 +1,345 @@
 const alphabet = {
-  "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
-  },
+
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 98,
+    "lineY": 150,
+    "linex2": 98,
+    "liney2": 200
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "circ": 90,
+    "lineX": 2,
+    "lineY": 100,
+    "linex2": 2,
+    "liney2": 150
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 150,
+    "linex2": 98,
+    "liney2": 150
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 98,
+    "lineY": 100,
+    "linex2": 98,
+    "liney2": 150
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 135,
+    "linex2": 90,
+    "liney2": 135,
+    "lineX1":50,
+    "lineY1":165,
+    "lineX2":90,
+    "lineY2":165
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 135,
+    "linex2": 90,
+    "liney2": 135,
+    "lineX1":50,
+    "lineY1":165,
+    "lineX2":90,
+    "lineY2":165,
+
+    "lineX3":3,
+    "lineY3":150,
+    "lineX4":3,
+    "lineY4":200
+
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 155,
+    "linex2": 98,
+    "liney2": 145
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 35,
+    "lineY": 105,
+    "linex2": 35,
+    "liney2": 150,
+    "lineX1":65,
+    "lineY1":150,
+    "lineX2":65,
+    "lineY2":190,
+
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 150,
+    "linex2": 50,
+    "liney2": 190
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 65,
+    "lineY": 105,
+    "linex2": 65,
+    "liney2": 150,
+    "lineX1":5,
+    "lineY1":165,
+    "lineX2":50,
+    "lineY2":165,
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 85,
+    "lineY": 120,
+    "linex2": 50,
+    "liney2": 150,
+    "lineX1":50,
+    "lineY1":150,
+    "lineX2":85,
+    "lineY2":180,
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 165,
+    "linex2": 95,
+    "liney2": 165
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 20,
+    "lineY": 115,
+    "linex2": 50,
+    "liney2": 150,
+    "lineX1":80,
+    "lineY1":115,
+    "lineX2":50,
+    "lineY2":150,
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 35,
+    "lineY": 150,
+    "linex2": 35,
+    "liney2": 190,
+    "lineX1":65,
+    "lineY1":105,
+    "lineX2":65,
+    "lineY2":150,
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 150,
+    "linex2": 50,
+    "liney2": 150
+    
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 2,
+    "lineY": 150,
+    "linex2": 2,
+    "liney2": 200
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 150,
+    "linex2":  85,
+    "liney2": 180
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 150,
+    "linex2": 90,
+    "liney2": 150,
+    "lineX1":50,
+    "lineY1":150,
+    "lineX2":85,
+    "lineY2":180,
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 135,
+    "linex2": 90,
+    "liney2": 135,
+    "lineX1":5,
+    "lineY1":165,
+    "lineX2":50,
+    "lineY2":165,
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ":90,
+    "lineX": 35,
+    "lineY": 150,
+    "linex2": 35,
+    "liney2": 190,
+    "lineX1":65,
+    "lineY1":150,
+    "lineX2":65,
+    "lineY2":190,
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 35,
+    "lineY": 105,
+    "linex2": 35,
+    "liney2": 150,
+    "lineX1":65,
+    "lineY1":105,
+    "lineX2":65,
+    "lineY2":150,
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 10,
+    "lineY": 125,
+    "linex2": 50,
+    "liney2": 195,
+    "lineX1":50,
+    "lineY1":195,
+    "lineX2":90,
+    "lineY2":125,
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 20,
+    "lineY": 120,
+    "linex2": 50,
+    "liney2": 150,
+    "lineX1":30,
+    "lineY1":109,
+    "lineX2":65,
+    "lineY2":145,
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 20,
+    "lineY": 115,
+    "linex2": 80,
+    "liney2": 185,
+    "lineX1":80,
+    "lineY1":115,
+    "lineX2":20,
+    "lineY2":185,
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 30,
+    "lineY": 110,
+    "linex2": 50,
+    "liney2": 150,
+    "lineX1":70,
+    "lineY1":110,
+    "lineX2":50,
+    "lineY2":150,
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "circ": 90,
+    "lineX": 5,
+    "lineY": 135,
+    "linex2": 50,
+    "liney2": 135,
+    "lineX1":50,
+    "lineY1":165,
+    "lineX2":90,
+    "lineY2":165,
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 105,
+    "linex2": 50,
+    "liney2": 105
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 105,
+    "linex2": 50,
+    "liney2": 190
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 0,
+    "lineY": 105,
+    "linex2": 50,
+    "liney2": 105,
+    "lineX1":50,
+    "lineY1":195,
+    "lineX2":100,
+    "lineY2":195,
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 0,
+    "lineY": 105,
+    "linex2": 50,
+    "liney2": 105,
+    "lineX1":3,
+    "lineY1":150,
+    "lineX2":50,
+    "lineY2":150,
+
+    "lineX3":0,
+    "lineY3":195,
+    "lineX4":50,
+    "lineY4":195
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 65,
+    "lineY": 105,
+    "linex2": 10,
+    "liney2": 175,
+    "lineX1": 98,
+    "lineY1": 150,
+    "lineX2": 98,
+    "lineY2": 200
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 105,
+    "linex2": 100,
+    "liney2": 105
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 105,
+    "linex2": 80,
+    "liney2": 80
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 70,
+    "lineY": 110,
+    "linex2": 30,
+    "liney2": 185
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 2,
+    "lineY": 150,
+    "linex2": 95,
+    "liney2": 150
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "circ": 90,
+    "lineX": 50,
+    "lineY": 195,
+    "linex2": 20,
+    "liney2": 220
   }
 
 }

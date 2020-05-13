@@ -109,7 +109,7 @@ function drawLetter(posx, posy, letterData) {
   ellipse(posx+10, posy, circPosX1, circPosY1);
   ellipse(posx+10, posy+95, circPosX2, circPosY2);
   ellipse(posx-114, posy-17, circPosX3, circPosY3);
-  ellipse(posx+20, posy+95, circPosX4, circPosY4);
+  ellipse(posx+17, posy+95, circPosX4, circPosY4);
  
 }
 
