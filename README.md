@@ -18,3 +18,6 @@ The fourteen parameters per letter:
   "subArc2Y": Y position of the second orange arc
   "subArc2Start": start point of the second orange arc
   "subArc2End": end point of the second orange arc
+
+  I have redone my colour scheme. I didn't want mine to resemble the example so I steered away from blue and orange. Characters A, 2, and 5 subject to change.
+  Finished off all the characters. Next step is getting the animation up and running
