@@ -83,24 +83,23 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let rectwidth = letterData["rectlength"]
-  let recthigh = letterData["rectheight"]
-  let rectwidth_two = letterData["nofill_length"]
-  let recthigh_two = letterData["nofill_height"]
-  let rect_twox = posx + letterData["rect_twoposx"]
-  let rect_twoy = posy + letterData["rect_twoposy"]
-  let tri_onex = letterData["triangleleftx"]
-  let tri_twox = letterData["triangletopx"]
-  let tri_threex = letterData["trianglerightx"]
-  let tri_oney = letterData["trianglelefty"]
-  let tri_twoy = letterData["triangletopy"]
-  let tri_threey = letterData["trianglerighty"]
+  let rectwidth = letterData["rectlength"];
+  let recthigh = letterData["rectheight"];
+  let rectwidth_two = letterData["nofill_length"];
+  let recthigh_two = letterData["nofill_height"];
+  let rect_twox = posx + letterData["rect_twoposx"];
+  let rect_twoy = posy + letterData["rect_twoposy"];
+  let tri_onex = letterData["triangleleftx"];
+  let tri_twox = letterData["triangletopx"];
+  let tri_threex = letterData["trianglerightx"];
+  let tri_oney = letterData["trianglelefty"];
+  let tri_twoy = letterData["triangletopy"];
+  let tri_threey = letterData["trianglerighty"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
 
-  // draw three rects
+  //draws the shapes for my letters
   noStroke();
   fill(colorFront1);
   rect(pos2x, pos2y, rectwidth, recthigh);

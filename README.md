@@ -2,13 +2,17 @@
 
 MDDN242 README
 
-Alphabet Refined - 13/05/2020
+Interpolation - 13/05/2020
 
-In this update I have made the changes to letters A - D. You can have a look above. They are now smaller, less bold and fit with the rest of the other letters.
+I put my parameteters into the interpolate letter function and had a look at how my shades look when it's in the progress of forming the next letter.
+It was awesome to look at all the transitions, in my opinion (based on the large sample I tested) there weren't any problems with the transition between
+letters. There were some triangle points that stretched and touched the boundary box but it was fine. I believe my triangle made the transitions more
+interesting because of its opacity stroke and colour fill that's the same as the background. There were just a lot of combinations that looked great!
+you can have a look at the transition between these letters, I liked these ones the most:
 
-My font isn't neccessarily designed to be readable but is inspired by the forms and strokes of the english alphabet.
-I didn't have a hard time coding my letters thanks to the editor :)!! but for some letters with more diangonal strokes such as X were harder to replicate
-but I am happy with the outcome of every letter! you can still see hints of the original alphabet form.
+M to R
+4 to D
+Y to X
 
 
 The 14 parameters per letter:

@@ -2,6 +2,7 @@ const colorFront1  = "#75cc0a50"; //green
 const colorFront2  = "#ccd9deFA"; //white
 const colorStroke  = "#0f0f0f80"; //stroke colour
 
+
 /*
  * Draw the letter given the letterData
  *
@@ -13,19 +14,18 @@ function drawLetter(letterData) {
   // color/stroke setup
   // stroke(colorStroke);
   // strokeWeight(4);
-
-  let rectwidth = letterData["rectlength"]
-  let recthigh = letterData["rectheight"]
-  let rectwidth_two = letterData["nofill_length"]
-  let recthigh_two = letterData["nofill_height"]
-  let rect_twox = letterData["rect_twoposx"]
-  let rect_twoy = letterData["rect_twoposy"]
-  let tri_onex = letterData["triangleleftx"]
-  let tri_twox = letterData["triangletopx"]
-  let tri_threex = letterData["trianglerightx"]
-  let tri_oney = letterData["trianglelefty"]
-  let tri_twoy = letterData["triangletopy"]
-  let tri_threey = letterData["trianglerighty"]
+  let rectwidth = letterData["rectlength"];
+  let recthigh = letterData["rectheight"];
+  let rectwidth_two = letterData["nofill_length"];
+  let recthigh_two = letterData["nofill_height"];
+  let rect_twox = letterData["rect_twoposx"];
+  let rect_twoy = letterData["rect_twoposy"];
+  let tri_onex = letterData["triangleleftx"];
+  let tri_twox = letterData["triangletopx"];
+  let tri_threex = letterData["trianglerightx"];
+  let tri_oney = letterData["trianglelefty"];
+  let tri_twoy = letterData["triangletopy"];
+  let tri_threey = letterData["trianglerighty"];
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
 
@@ -44,9 +44,23 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  //mapping filled in square
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["rectlength"] = map(percent, 0, 100, oldObj["rectlength"], newObj["rectlength"]);
+  new_letter["rectheight"] = map(percent, 0, 100, oldObj["rectheight"], newObj["rectheight"]);
+  //mapping stroke only rect
+  new_letter["nofill_length"] = map(percent, 0, 100, oldObj["nofill_length"], newObj["nofill_length"]);
+  new_letter["nofill_height"] = map(percent, 0, 100, oldObj["nofill_height"], newObj["nofill_height"]);
+  new_letter["rect_twoposx"] = map(percent, 0, 100, oldObj["rect_twoposx"], newObj["rect_twoposx"]);
+  new_letter["rect_twoposy"] = map(percent, 0, 100, oldObj["rect_twoposy"], newObj["rect_twoposy"]);
+  //mapping triangles
+  new_letter["triangleleftx"] = map(percent, 0, 100, oldObj["triangleleftx"], newObj["triangleleftx"]);
+  new_letter["trianglelefty"] = map(percent, 0, 100, oldObj["trianglelefty"], newObj["trianglelefty"]);
+  new_letter["triangletopx"] = map(percent, 0, 100, oldObj["triangletopx"], newObj["triangletopx"]);
+  new_letter["triangletopy"] = map(percent, 0, 100, oldObj["triangletopy"], newObj["triangletopy"]);
+  new_letter["trianglerightx"] = map(percent, 0, 100, oldObj["trianglerightx"], newObj["trianglerightx"]);
+  new_letter["trianglerighty"] = map(percent, 0, 100, oldObj["trianglerighty"], newObj["trianglerighty"]);
   return new_letter;
 }
 
