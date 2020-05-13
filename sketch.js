@@ -13,7 +13,6 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 30,
   "sectionx": 50,
   "sectiony": 0,
   "sectionx1": 0,
@@ -23,15 +22,21 @@ const letterA = {
 }
 
 const letterB = {
-  "size": 150,
   "section3x": 0,
-  "section3y": -145
+  "section3y": -10,
+  "section3x1": 0,
+  "section3y1": 80,
+  "section3x2": 30,
+  "section3y2": 0,
 }
 
 const letterC = {
-  "size": 50,
-  "section3x1": 30,
-  "section3y1": 0
+  "section4x": 0,
+  "section4y":-10,
+  "section4x1": 0,
+  "section4y1": 80,
+  "section4x2": 10,
+  "section4y2": 0
 }
 
 const colorFront1  = "#C6DDFE";
@@ -68,14 +73,31 @@ function drawLetter(posx, posy, letterData) {
   let pos3y = posy + letterData["section3y"];
   let pos3x1 = posx + letterData["section3x1"];
   let pos3y1 = posy + letterData["section3y1"];
+  let pos3x2 = posx + letterData["section3x2"];
+  let pos3y2 = posy + letterData["section3y2"];
+
+  let pos4x = posx + letterData["section4x"];
+  let pos4y = posy + letterData["section4y"];
+  let pos4x1 = posx + letterData["section4x1"];
+  let pos4y1 = posy + letterData["section4y1"];
+  let pos4x2 = posx + letterData["section4x2"];
+  let pos4y2 = posy + letterData["section4y2"];
 
   // draw two circles
-  fill(colorFront2);
   line(pos2x, pos2y, posx1, posy1);
   fill(colorFront1);
-
   triangle(pos2x, pos2y, pos2x + 10, pos2y +35, pos2x - 9, pos2y + 35,);
   triangle(pos2y +35, pos2x - 9, pos2x + 30, posy1, pos2x - 9, posy1,);
+
+  line(pos3x, pos3y, pos3x1, pos3y1);
+  fill(colorFront1);
+  triangle(pos3x2, pos3y2, pos3x2 + 10, pos3y2 +20, pos3x2 - 10, pos3y2 + 20,);
+  triangle(pos3x2, pos3y2 + 40, pos3x2 + 10, pos3y2 +60, pos3x2 - 10, pos3y2 + 60,);
+
+  line(pos4x, pos4y, pos4x1, pos4y1);
+  fill(colorFront1);
+  triangle(pos4x2, pos4y2, pos4x2, pos4y2 - 20, pos4x2 + 20, pos4y2,);
+  triangle(pos4x2, pos4y2 + 80, pos4x2, pos4y2 + 100, pos4x2 + 20, pos4y2 + 80,);
 }
 
 function draw () {
