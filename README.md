@@ -1,3 +1,3 @@
 ## MDDN 242 2020 Assignment 2
 
-Progressed and made some more letters for my alphabet. Some of the letters I am finding it a little bit trick to get the right shape that I want with only using the parameters that I have but I think with a few more touchups I can get them looking right.
+After recently handing in a different project I can now put more focus on chipping away at making this alphabet. I have added a few more letters and continue on making more and more. Before making a letter I have to really plan on how I am going to do it, with only the limited shapes of two circles and a rectangle it can be quite difficult for some letters. So far im really pleased with how they are turning out and how readable they are. Now to continue making more letters.

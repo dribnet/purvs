@@ -78,30 +78,51 @@ const alphabet = {
   },
   "G": {
     "sizex": 24,
-    "sizey": 52,
+    "sizey": 43,
     "offsetx": -18,
     "offsety": -5,
     "cirsize1": 70,
-    "cirsize2": 20,
-    "ciroffsetx": 15,
-    "ciroffsety": -22,
+    "cirsize2": 15,
+    "ciroffsetx": 12,
+    "ciroffsety": -20,
     "cir2offsetx": 5,
     "cir2offsety": 20
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 0,
+    "offsety": 30,
+    "cirsize1": 60,
+    "cirsize2": 40,
+    "ciroffsetx": 0,
+    "ciroffsety": 30,
+    "cir2offsetx": 0,
+    "cir2offsety": -30
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 20,
+    "offsety": 0,
+    "cirsize1": 40,
+    "cirsize2": 70,
+    "ciroffsetx": 30,
+    "ciroffsety": 0,
+    "cir2offsetx": -30,
+    "cir2offsety": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 70,
+    "sizey": 35,
+    "offsetx": -15,
+    "offsety": 0,
+    "cirsize1": 70,
+    "cirsize2": 15,
+    "ciroffsetx": -15,
+    "ciroffsety": -20,
+    "cir2offsetx": -15,
+    "cir2offsety": 20
   },
   "K": {
     "size": 50,
