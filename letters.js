@@ -5,24 +5,32 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "offsetx": 0,
+  "offsety": 35,
+  "stroke1": 1,
+  "stroke2": 5,
+  "scale2": 1
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "offsetx": 0,
+  "offsety": -145,
+  "stroke1": 3,
+  "stroke2": 5,
+  "scale2": 2
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "offsetx": 30,
+  "offsety": 0,
+  "stroke1": 2,
+  "stroke2": 5,
+  "scale2": 1
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "offsetx": 0,
+  "offsety": 10,
+  "stroke1": 2,
+  "stroke2": 5,
+  "scale2": 1
   },
   "E": {
     "size": 50,
