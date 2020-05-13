@@ -10,15 +10,15 @@ const height = 120;
 
 const letterA = {
   "offsetX1": 0,
-  "offsetY1": -60,
+  "offsetY1": -65,
   "start1": 0,
   "end1": 180,
   "offsetX2": 0,
-  "offsetY2": 60,
+  "offsetY2": 65,
   "start2": 180,
   "end2": 360,
   "lineWidth": 0,
-  "lineHeight": 0,
+  "lineHeight": 0
 }
 
 const letterB = {
@@ -31,7 +31,7 @@ const letterB = {
   "start2": 0,
   "end2": 180,
   "lineWidth": 60,
-  "lineHeight": 0,
+  "lineHeight": 0
 }
 
 const letterC = {
@@ -44,7 +44,7 @@ const letterC = {
   "start2": 270,
   "end2": 90,
   "lineWidth": 20,
-  "lineHeight": 40,
+  "lineHeight": 40
 }
 
 function setup () {

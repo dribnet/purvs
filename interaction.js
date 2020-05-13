@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#C1D6D0";
 const colorLines   = "#000090";
 
 /* 
