@@ -11,7 +11,7 @@ Change arc into triangle. It is easier to code it. Complete "A" sketch.
 
 13/05 Complete the digital sketch.
 Change colors, preview image and thumbnail picture.
-
+Start to do Alphabet. Use tutor's ways of code to do Alphabet. Change the thumbnail picture. Tomorrow start to do other letters.
 
 The three parameters per letter:
   * `size` : radius of the second circle
