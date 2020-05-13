@@ -13,26 +13,32 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35,
+  "stroke1": 1,
+  "stroke2": 5,
+  "scale2": 1
 }
 
 const letterB = {
-  "size": 60,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -145,
+  "stroke1": 3,
+  "stroke2": 5,
+  "scale2": 2
 }
 
 const letterC = {
-  "size": 50,
   "offsetx": 30,
-  "offsety": 0
+  "offsety": 0,
+  "stroke1": 2,
+  "stroke2": 5,
+  "scale2": 1
 }
 
-const colorFront1  = "#a89932";
-const colorFront2  = "#59ccff";
-const colorBack    = "#a31f9a";
+const colorFront1  = "#2bad8f";
+const colorFront2  = "#2b8aad";
+const colorBack    = "#2bad4e";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -48,16 +54,29 @@ function setup () {
   noLoop();
 }
 
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
+function drawLetter(posx, posy, letterData, rotate) {
+  // determine parameters for triangles
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let stroke1 = letterData["stroke1"];
+  let stroke2 = letterData["stroke2"];
+  let sizer2 = letterData["scale2"];
 
   // draw some lines:
-  line(posx, posy, posx+50, posy+50);
-  line(pos2x, pos2y, pos2x-50, pos2y-50);
-
+  // line(posx, posy, posx+50, posy+50);
+  // line(pos2x, pos2y, pos2x-50, pos2y-50);
+  // draw some triangles:
+  strokeWeight(stroke2);
+  fill(colorFront2);
+  triangle(posx, posy-25, posx+50, posy+50, posx-50, posy+50);
+  strokeWeight(stroke1);
+  fill(colorFront1);
+  push();
+  scale(sizer2);
+  translate(-(sizer2-1)*240, -(sizer2-1)*30);
+  triangle(pos2x, pos2y-12.5, pos2x+25, pos2y+25, pos2x-25, pos2y+25);
+  pop();
 }
 
 function draw () {
@@ -67,6 +86,7 @@ function draw () {
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
+
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
