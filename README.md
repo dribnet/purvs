@@ -1,7 +1,7 @@
 ## MDDN 242 2020 Assignment 2
-SETTING UP INERPOLATION & REFINEMENT OF IDEA
+CONTINUING WITH MY ALPHABET
 
-I continued with making my alphabet. I found that the kind of styles I am going for isn't really working, this is because I'm working above the X-height. When I sketched out my letters (pictures below) before I started coding I was working in a square grid (100,100) and now that I'm making them in code I have been using a rectangle grid (100,150) this was because it thought we had to be over X-height but this isn't the case so I am going to go back and change the proportions so they fit in a square grid. I also set up the interpolation between the letters so I could get an idea on how this works. 
+Today I changed what I currently had in the last commit to square proportions rather than a rectangle. Then I continued along with my alphabet and go up to letter W. So far I'm ding really well and am happy with how the letterforms are turning out. now that I have changed to square proportions I have noticed that in a lot of my letters I keep the width of the rectangle the same (50). So I could potentially take this out as a parameter since I'm not really changing it much. then I would just have to work around changing the letters that use less than 50. This also applies for the arc width and height I seem to keep them the same throughout the letters so I might also look into taking this out and changing my parameter to "size" that way I can still play around with the size of the arcs. This means I could potentially remove two parameters, then later down the line i can choose to add more parameters if need be for something else. 
 
 The fourteen parameters per letter:
   * `rectX` : x location of the rectangle
@@ -21,7 +21,13 @@ The fourteen parameters per letter:
 
 
 Sketch Links: 
+Last time I tried to commit the links of my sketches came up as broken. I have tried again and hope that they show up.
 These also relate to my sketch designs from my first sketch.js i did, I did these before I started coding. 
-![Sketch A-G](HTTPS://ibb.co/VHf5ZwT)
-![Sketch Lowercase](HTTPS://ibb.co/MVps3Tz)
-![Sketch H-L](HTTPS://ibb.co/gMGxGhL)
+
+[Sketch A-G](https://ibb.co/VHf5ZwT)
+[Sketch Lowercase](https://ibb.co/VHf5ZwT)
+[Sketch H-L](https://ibb.co/gMGxGhL)
+If that doesnt work then heres them typed out. 
+https://ibb.co/VHf5ZwT
+https://ibb.co/VHf5ZwT
+https://ibb.co/gMGxGhL
