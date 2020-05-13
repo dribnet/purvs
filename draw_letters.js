@@ -50,10 +50,17 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["width"]   = map(percent, 0, 100, oldObj["width"], newObj["width"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
-  new_letter["angleStop"] = map(percent, 0, 100, oldObj["angleStop"], newObj["angleStop"]);
+  new_letter["angleStart"] = map(percent/2, 0, 50, oldObj["angleStart"], newObj["angleStart"]);
+  new_letter["angleStop"] = map(percent/2, 0, 50, oldObj["angleStop"], newObj["angleStop"]);
   new_letter["ellipseY"] = map(percent, 0, 100, oldObj["ellipseY"], newObj["ellipseY"]);
+
+if(percent <30){
+  new_letter["rectX"] = oldObj["rectX"];
+}
+else{
   new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+}
+
   new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
   new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
   new_letter["rectH"] = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
@@ -61,7 +68,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "CONSTANT",
+  "MADISYN/",
+  "A1B2C3D4"
 ]

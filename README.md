@@ -15,4 +15,4 @@ The eleven parameters per letter:
   * `rectW` : width of the rect
   * `rectH` : height positon of the rect
 
-I have made further refinements to my design, including the 3, k and the j. I had quite a lot of trouble gettign the j to work in my initial designs but after thinking about how the shapes could be arranged dfferently I was able to make a better looking j. 
+I have started trying to develop my animation for the interpolate to see what I can change about it. So far I have not changed much but I will continue to develop this to see what else I can do. I also put my name into the swapwords to have it display in the exhibition. I have put constant as the name of my alphabet at the moment as I wanted it to have a connection to the ellipse that has a fixed x position and size. In the the word constant, the ellipse's y pos also does not change for those letters so I took that into consideration when thinking about a name. 
