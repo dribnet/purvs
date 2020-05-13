@@ -2,15 +2,10 @@
 
 MDDN242 README
 
-Designing Alphabet (draft) Completed - 13/05/2020
+Alphabet Fix - 13/05/2020
 
-I have completed all the letters in my alphabet including a the letter that will replace unrecognised symbols.
-My parameters have been positioned to replicate capital letters more than lower case.
-
-I will probably go back and refine some of th letters that I may not like as much such as letters A - D because I designed
-those letters without the editor so they aren't proportioned the same; the triangles are bigger and seem larger which don't go with the rest of my letters.
-
-I will also do some minor resizing for some of the letters because they don't perfectly line up. Some letters are taller / shorter.
+I changed my alphabet to index which removed the alphabet index.
+I am putting it back in again so there isn't a broken link when you click on "alphabet".
 
 
 The 14 parameters per letter:
