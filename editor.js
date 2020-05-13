@@ -13,10 +13,10 @@ const colorLines   = "#000090";
 const sliderInfo = [
   ["offsetx", 0,  100],
   ["offsety", 0, 200],
-  ["leaf2Posx", 0, 100],
+  ["leaf2Posx", -50, 100],
   ["leaf2Posy", -100, 0],
-  ["rotate1", -90, 90],
-  ["rotate2", -90, 90], 
+  ["rotate1", 0, 360],
+  ["rotate2", 0, 360], 
   ["rotate3", -90, 90],
   ["stickPosx", -50, 100],
   ["stickPosy", -150, 50]
