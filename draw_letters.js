@@ -47,30 +47,122 @@ function drawLetter(letterData) {
   let yamm2cont = size2cont * tan(30)
   let yamm3 = size3 * tan(30)
   let yamm3cont = size3cont * tan(30)
+
   let xcentre = 50
   let ycentre = 100
 
 
-// Front-Right Face
+
+  let face1topleftx = xcentre + xpos1
+  let face1toplefty =  ycentre + ypos1
+
+  let face1toprightx = xcentre + xpos1 + size1
+  let face1toprighty = ycentre + ypos1 - yamm1
+
+  let face1botrightx = xcentre + xpos1 + size1
+  let face1botrighty = ycentre + ypos1 + yamm1
+
+  let face1botleftx = xcentre + xpos1
+  let face1botlefty = ycentre + ypos1 + 2 * yamm1
+
+
+  let cont1topleftx = xcentre + xpos1cont
+  let cont1toplefty =  ycentre + ypos1cont
+
+  let cont1toprightx = xcentre + xpos1cont + size1cont
+  let cont1toprighty = ycentre + ypos1cont - yamm1cont
+
+  let cont1botrightx = xcentre + xpos1cont + size1cont
+  let cont1botrighty = ycentre + ypos1cont + yamm1cont
+
+  let cont1botleftx = xcentre + xpos1cont
+  let cont1botlefty = ycentre + ypos1cont + 2 * yamm1cont
+
+
+//Front-Right Face Top 3d
+
+fill(colorFront3)
+
+  beginShape()
+
+  vertex(face1topleftx, face1toplefty)
+  vertex(face1topleftx - 50/3, face1toplefty - 50/3 * tan(30))
+  vertex(face1toprightx - 50/3, face1toprighty - 50/3 * tan(30))
+  vertex(face1toprightx, face1toprighty)
+
+    beginContour()
+
+    vertex(cont1topleftx, cont1toplefty)
+    vertex(cont1toprightx, cont1toprighty)
+    vertex(cont1toprightx - 50/3, cont1toprighty - 50/3 * tan(30))
+    vertex(cont1topleftx - 50/3, cont1toplefty - 50/3 * tan(30))
+
+    endContour(CLOSE)
+
+  endShape(CLOSE)
+
+ beginShape()
+
+ vertex(cont1botrightx, cont1botrighty)
+ vertex(cont1botrightx - 50/3, cont1botrighty - 50/3 * tan(30))
+ vertex(cont1botleftx - 50/3, cont1botlefty - 50/3 * tan(30))
+ vertex(cont1botleftx, cont1botlefty)
+
+ endShape(CLOSE)
+
+//Front-Right Face left 3d
+
+fill(colorFront2)
+
+beginShape()
+
+  vertex(face1topleftx, face1toplefty)
+  vertex(face1topleftx - 50/3, face1toplefty - 50/3 * tan(30))
+  vertex(face1botleftx - 50/3, face1botlefty - 50/3 * tan(30))
+  vertex(face1botleftx, face1botlefty)
+
+    beginContour()
+
+    vertex(cont1topleftx, cont1toplefty)
+    vertex(cont1botleftx, cont1botlefty)
+    vertex(cont1botleftx - 50/3, cont1botlefty - 50/3 * tan(30))
+    vertex(cont1topleftx - 50/3, cont1toplefty - 50/3 * tan(30))
+
+    endContour(CLOSE)
+
+endShape(CLOSE)
+
+ beginShape()
+
+ vertex(cont1botrightx, cont1botrighty)
+ vertex(cont1botrightx - 50/3, cont1botrighty - 50/3 * tan(30))
+ vertex(cont1toprightx - 50/3, cont1toprighty - 50/3 * tan(30))
+ vertex(cont1toprightx, cont1toprighty)
+
+ endShape(CLOSE)
+
+//Front-Right Face
+
   fill(colorFront1);
 
   beginShape()
 
-  vertex(xcentre + xpos1, ycentre + ypos1)
-  vertex(xcentre + xpos1 + size1, ycentre + ypos1 - yamm1)
-  vertex(xcentre + xpos1 + size1, ycentre + ypos1 + yamm1)
-  vertex(xcentre + xpos1, ycentre + ypos1 + 2 * yamm1)
+  vertex(face1topleftx, face1toplefty)
+  vertex(face1toprightx, face1toprighty)
+  vertex(face1botrightx, face1botrighty)
+  vertex(face1botleftx, face1botlefty)
 
     beginContour()
 
-    vertex(xcentre + xpos1cont, ycentre + ypos1cont)
-    vertex(xcentre + xpos1cont, ycentre + ypos1cont + 2 * yamm1cont)
-    vertex(xcentre + xpos1cont + size1cont, ycentre + ypos1cont + yamm1cont)
-    vertex(xcentre + xpos1cont + size1cont, ycentre + ypos1cont - yamm1cont)
+    vertex(cont1topleftx, cont1toplefty)
+    vertex(cont1botleftx, cont1botlefty)
+    vertex(cont1botrightx, cont1botrighty)
+    vertex(cont1toprightx, cont1toprighty)
 
     endContour(CLOSE)
   
   endShape(CLOSE)
+
 
 
 // Front-Left Face
