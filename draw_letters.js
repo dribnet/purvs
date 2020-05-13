@@ -41,17 +41,26 @@ function drawLetter(letterData) {
   push();
     arc(posX1, posY1, width, height, start1, end1, OPEN);
   pop();
-  rect(50-(rectWidth/2), 100-(rectHeight/2), rectWidth, rectHeight, 20);
   push();
     arc(posX2, posY2, width, height, start2, end2, OPEN);
   pop();
+  fill(color);
+    rect(50-(rectWidth/2), 100-(rectHeight/2), rectWidth, rectHeight, 20);
+  noFill();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetX1"]    = map(percent, 0, 100, oldObj["offsetX1"], newObj["offsetX1"]);
+  new_letter["offsetY1"]    = map(percent, 0, 100, oldObj["offsetY1"], newObj["offsetY1"]);
+  new_letter["start1"]      = map(percent, 0, 100, oldObj["start1"], newObj["start1"]);
+  new_letter["end1"]        = map(percent, 0, 100, oldObj["end1"], newObj["end1"]);
+  new_letter["offsetX2"]    = map(percent, 0, 100, oldObj["offsetX2"], newObj["offsetX2"]);
+  new_letter["offsetY2"]    = map(percent, 0, 100, oldObj["offsetY2"], newObj["offsetY2"]);
+  new_letter["start2"]      = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
+  new_letter["end2"]        = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
+  new_letter["lineWidth"]   = map(percent, 0, 100, oldObj["lineWidth"], newObj["lineWidth"]);
+  new_letter["lineHeight"]  = map(percent, 0, 100, oldObj["lineHeight"], newObj["lineHeight"]);
   return new_letter;
 }
 
