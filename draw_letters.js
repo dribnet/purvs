@@ -18,16 +18,21 @@ function drawLetter(letterData, posx, posy) {
   angleMode(DEGREES);
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
-  posx = 0 + letterData["offsetx"]; //0
-  posy = 0 + letterData["offsety"]; //0
-  linex1 = 0 + letterData["linex1"]; //0
-  linex2 = 0 + letterData["linex2"]; //0
-  liney1 = 0 + letterData["liney1"]; //0
-  liney2 = 0 + letterData["liney2"]; //0
+  posx =letterData["offsetx"]; 
+  posy = 0 + letterData["offsety"]; 
+  linex1 = 0 + letterData["linex1"]; 
+  linex2 = 0 + letterData["linex2"]; 
+  liney1 = 0 + letterData["liney1"]; 
+  liney2 = 0 + letterData["liney2"]; 
+  numRaysVal = 0 + letterData["numRaysVal"];
+  numRaysVal2 = 0 + letterData["numRaysVal2"];
+  rotateVal = 0 + letterData["rotateVal"];
+  rangeVal = 0 + letterData["rangeVal"];
+  rayAmount = 0 + letterData["rayAmount"];
+  strokeVal = 0 + letterData["strokeVal"];
 
 
 //draw rainbow
@@ -50,15 +55,15 @@ rotate(7);
 //rays
 var colorArray = [colorFont1, colorFont2, colorFont3, colorFont4, colorFont5];
 push();
-let range = 140;
-let numRays = 10;
-rotate(-(range/2));
+let range = rangeVal;
+let numRays = numRaysVal;
+rotate(-(range/2)); //2
 
-for (i = 0; i < 10; i ++){ 
-   rotate(130 / numRays - 1); //120
-  strokeWeight(5);
+for (i = 0; i < rayAmount; i ++){ 
+   rotate(rotateVal / numRays - numRaysVal2); 
+  strokeWeight(strokeVal);
   stroke(colorArray[i % colorArray.length]);
- line(0, -45, 0, -75) //0, -100, 0, -200
+ line(linex1, linex2, liney1, liney2) //0, -100, 0, -200
 
 }
 

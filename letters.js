@@ -1,336 +1,521 @@
 const alphabet = {
-  "default": {
-  "size": 40, 
+  "default": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+  "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "A": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "B": {
-  "size": 40, 
+  "B": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
-  "liney1": 0,
-  "liney2": -200
+  "linex2": -45,
+  "liney1": 25, //0
+  "liney2": -75,
+  "numRaysVal": 16, //10
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "C": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
-  "liney1": 0,
-  "liney2": -200
+  "linex2": -45,
+  "liney1": 40, //0 
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1, 
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "D": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": 45, //-45
   "liney1": 0,
-  "liney2": -200
+  "liney2": 15, //-75
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "E": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -25, //-45
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75, //-75
+  "numRaysVal": 10, 
+  "numRaysVal2": 1,
+  "rotateVal": 30, //130
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "F": {
-  "size": 40, 
+  "F": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140, //140
+   "rayAmount": 130, //10,
+  "strokeVal":5
   },
-  "G": {
-  "size": 40, 
+  "G": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10, 
+  "strokeVal":11 //5
   },
   "H": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
-  "linex1": 0,
-  "linex2": -100,
-  "liney1": 0,
-  "liney2": -200
+  "linex1": 10, //0
+  "linex2": -95, //-25
+  "liney1": 0, 
+  "liney2": -35, //-75
+  "numRaysVal": 10, //10
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+    "strokeVal":1 //5
   },
   "I": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
-  "linex1": 0,
-  "linex2": -100,
-  "liney1": 0,
-  "liney2": -200
+  "linex1": 30, //0
+  "linex2": -45,
+  "liney1": -3, //0
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+    "strokeVal":5
   },
-  "J": {
-  "size": 40, 
+  "J": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": 95, //-45
   "liney1": 0,
-  "liney2": -200
+  "liney2": -125,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140, //140
+   "rayAmount": 10, //10
+    "strokeVal":5 //5
   },
   "K": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
-  "liney1": 0,
-  "liney2": -200
+  "linex2": -45,
+  "liney1": 40, //0 
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": -20, //1
+  "rotateVal": 130, //130
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "L": {
-  "size": 40, 
+  "L": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -65,
+  "numRaysVal": 120, //10
+  "numRaysVal2": -3, //1
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 25,
+  "strokeVal":3 //5
   },
   "M": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
-  },
-  "N": {
-  "size": 40, 
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": -210, //140
+   "rayAmount": 10,
+    "strokeVal":5
+},
+  "N": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+    "strokeVal":5
   },
   "O": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+    "strokeVal":5
   },
-  "P": {
-  "size": 40, 
+  "P": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "Q": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "R": {
-  "size": 40, 
+  "R": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "S": {
-  "size": 40, 
+  "S": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "T": {
-  "size": 40, 
+  "T": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "U": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+   "strokeVal":5
   },
-  "V": {
-  "size": 40, 
+  "V": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+   "numRaysVal2": 1,
+   "rotateVal": 130,
+    "rangeVal": 140,
+    "rayAmount": 10,
+     "strokeVal":5
   },
-  "W": {
-  "size": 40, 
+  "W": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "X": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "Y": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "Z": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "0": {
-  "size": 40, 
+  "0": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+    "strokeVal":5
   },
-  "1": {
-  "size": 40, 
+  "1": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "2": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
-  },
-  "3": {
-  "size": 40, 
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
+ },
+  "3": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "4": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "5": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "6": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-  "7": {
-  "size": 40, 
+  "7": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
   "8": {
-  "size": 40, 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   },
-   "9": {
-  "size": 40, 
+   "9": { 
   "offsetx": 50, 
   "offsety": 190, 
   "linex1": 0,
-  "linex2": -100,
+  "linex2": -45,
   "liney1": 0,
-  "liney2": -200
+  "liney2": -75,
+  "numRaysVal": 10,
+  "numRaysVal2": 1,
+  "rotateVal": 130,
+   "rangeVal": 140,
+   "rayAmount": 10,
+  "strokeVal":5
   }
 }
 
