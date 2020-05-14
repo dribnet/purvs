@@ -49,14 +49,29 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["mainArcStart"]    = map(percent, 0, 100, oldObj["mainArcStart"], newObj["mainArcStart"]);
+  new_letter["mainArcEnd"] = map(percent, 0, 100, oldObj["mainArcEnd"], newObj["mainArcEnd"]);
+  new_letter["mainArcY"] = map(percent, 0, 100, oldObj["mainArcY"], newObj["mainArcY"]);
+  new_letter["mainArcX"] = map(percent, 0, 100, oldObj["mainArcX"], newObj["mainArcX"]);
+  new_letter["mainArcSize"]    = map(percent, 50, 100, oldObj["mainArcSize"], newObj["mainArcSize"]);
+
+  new_letter["subArcSize1"] = map(percent, 0, 100, oldObj["subArcSize1"], newObj["subArcSize1"]);
+  new_letter["subArcSize2"] = map(percent, 0, 100, oldObj["subArcSize2"], newObj["subArcSize2"]);
+
+  new_letter["subArc1Start"]    = map(percent, 0, 100, oldObj["subArc1Start"], newObj["subArc1Start"]);
+  new_letter["subArc1End"] = map(percent, 0, 100, oldObj["subArc1End"], newObj["subArc1End"]);
+  new_letter["subArc1X"] = map(percent, 0, 100, oldObj["subArc1X"], newObj["subArc1X"]);
+  new_letter["subArc1Y"]    = map(percent, 0, 100, oldObj["subArc1Y"], newObj["subArc1Y"]);
+
+  new_letter["subArc2Start"] = map(percent, 0, 100, oldObj["subArc2Start"], newObj["subArc2Start"]);
+  new_letter["subArc2End"] = map(percent, 0, 100, oldObj["subArc2End"], newObj["subArc2End"]);
+  new_letter["subArc2X"]    = map(percent, 0, 100, oldObj["subArc2X"], newObj["subArc2X"]);
+  new_letter["subArc2Y"] = map(percent, 0, 100, oldObj["subArc2Y"], newObj["subArc2Y"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "GOINGNOW",
+  "CYA BYE",
+  "LATERS "
 ]
