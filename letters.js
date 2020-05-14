@@ -1,174 +1,151 @@
 const alphabet = {
   "default": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "A": {
-  "size1": 50,
-  "offsetx1": -50,
-  "offsety1": 25,
+  "size1": 0,
+
 
   "size1cont": 0,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
-  "size2": 25,
-  "offsetx2": 25,
-  "offsety2": 12.5,
+  "size2": 50,
 
-  "size2cont": 0,
+  "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
-  "size3": 0,
-  "offsetx3": 0,
-  "offsety3": 0,
+  "size3": 50,
 
-  "size3cont": 25,
+
+  "size3cont": 50/3,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "B": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 50/3,
-  "offsetx1cont": 0,
-  "offsety1cont": -50/3,
+  "offsetx1cont": 50/3,
+  "offsety1cont": -9.62250448649,
 
   "size2": 0,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 0,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 0,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 0,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "C": {
-  "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+  "size1": 0,
 
-  "size1cont": 25,
+
+  "size1cont": 0,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
-  "size2cont": 25,
+
+  "size2cont": 100/3,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
-  "size3cont": 25,
+
+  "size3cont": 100/3,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "D": {
-  "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+  "size1": 0,
 
-  "size1cont": 25,
+
+  "size1cont": 0,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
-  "size2cont": 25,
+
+  "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
-  "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+  "size3": 0,
 
-  "size3cont": 25,
+
+  "size3cont": 0,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "E": {
-  "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+  "size1": 0,
 
-  "size1cont": 25,
+
+  "size1cont": 0,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
-  "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+  "size2": 0,
 
-  "size2cont": 25,
+
+  "size2cont": 0,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
-  "size3cont": 25,
+
+  "size3cont": 50/3,
   "offsety3cont": 0,
   "offsetx3cont": 0
   },
   "F": {
   "size1": 0,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
-  "offsety2cont": -25,
+  "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -176,24 +153,20 @@ const alphabet = {
   },
   "G": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -201,24 +174,21 @@ const alphabet = {
   },
   "H": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -226,24 +196,20 @@ const alphabet = {
   },
   "I": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -251,24 +217,21 @@ const alphabet = {
   },
   "J": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -276,24 +239,20 @@ const alphabet = {
   },
   "K": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -301,24 +260,21 @@ const alphabet = {
   },
   "L": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -326,24 +282,21 @@ const alphabet = {
   },
   "M": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -351,24 +304,20 @@ const alphabet = {
   },
   "N": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -376,24 +325,21 @@ const alphabet = {
   },
   "O": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -401,24 +347,21 @@ const alphabet = {
   },
   "P": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -426,24 +369,21 @@ const alphabet = {
   },
   "Q": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -451,24 +391,21 @@ const alphabet = {
   },
   "R": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -476,24 +413,21 @@ const alphabet = {
   },
   "S": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -501,24 +435,21 @@ const alphabet = {
   },
   "T": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -526,24 +457,21 @@ const alphabet = {
   },
   "U": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -551,24 +479,21 @@ const alphabet = {
   },
   "V": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -576,24 +501,20 @@ const alphabet = {
   },
   "W": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -601,24 +522,21 @@ const alphabet = {
   },
   "X": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -626,24 +544,21 @@ const alphabet = {
   },
   "Y": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -651,24 +566,20 @@ const alphabet = {
   },
   "Z": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -676,24 +587,21 @@ const alphabet = {
   },
   "0": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -701,24 +609,21 @@ const alphabet = {
   },
   "1": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -726,24 +631,21 @@ const alphabet = {
   },
   "2": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -751,24 +653,21 @@ const alphabet = {
   },
   "3": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -776,24 +675,21 @@ const alphabet = {
   },
   "4": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -801,24 +697,19 @@ const alphabet = {
   },
   "5": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -826,24 +717,20 @@ const alphabet = {
   },
   "6": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -851,24 +738,20 @@ const alphabet = {
   },
   "7": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -876,24 +759,21 @@ const alphabet = {
   },
   "8": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
+
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
+
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
@@ -901,24 +781,19 @@ const alphabet = {
   },
   "9": {
   "size1": 50,
-  "offsetx1": 0,
-  "offsety1": 0,
 
   "size1cont": 25,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
-  "offsetx2": 0,
-  "offsety2": 0,
 
   "size2cont": 25,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
-  "offsetx3": 0,
-  "offsety3": 0,
+
 
   "size3cont": 25,
   "offsety3cont": 0,
