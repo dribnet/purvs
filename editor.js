@@ -13,7 +13,18 @@ const colorLines   = "#000090";
 const sliderInfo = [
   ["size",       0, 100],
   ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["offsety", -100, 100],
+  ["linex1", -0, 400],
+  ["linex2", -0, 400],
+  ["liney1", -0, 400],
+  ["liney2", -0, 400],
+  ["numRaysVal", 0, 25],
+  ["numRaysVal2", 0, 25],
+  ["rotateVal", 0, 360],
+  ["rangeVal", 0, 200],
+  ["rayAmount", 0, 20],
+  ["strokeVal", 1, 30],
+  ["arcStroke", 1, 30],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

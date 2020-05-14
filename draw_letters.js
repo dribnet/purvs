@@ -33,6 +33,8 @@ function drawLetter(letterData, posx, posy) {
   rangeVal = 0 + letterData["rangeVal"];
   rayAmount = 0 + letterData["rayAmount"];
   strokeVal = 0 + letterData["strokeVal"];
+  arcStroke = 0 + letterData["arcStroke"];
+
 
 
 //draw rainbow
@@ -40,9 +42,9 @@ push();
 translate(posx, posy);
 rotate(7);
   noFill();
-  strokeWeight(8);
+  strokeWeight(arcStroke);
   stroke(colorFont5);
-  arc(0, 0, 60, 60, 160, PI + QUARTER_PI, TWO_PI); //0,0,98,98,180
+  arc(0, 0, 60, 60, 160, PI + QUARTER_PI, TWO_PI); //0,0,60,60,160
   stroke(colorFont4);
   arc(0, 0, 49, 49, 160, PI + QUARTER_PI, TWO_PI);//87,87,
   stroke(colorFont3);
