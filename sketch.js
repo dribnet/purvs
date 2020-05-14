@@ -165,9 +165,9 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 300, center_y, letterA);
+  drawLetter(center_x -50     , center_y, letterB);
+  drawLetter(center_x + 200, center_y, letterC);
 }
 
 function keyTyped() {
