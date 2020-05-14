@@ -12,6 +12,8 @@ Tuesday 12/05/20: After thinking about my original design, I thought it was quit
 
 Wednesday 13/05/20: I've finished creating the alphabet and two of the numbers, my next steps are to finish the numbers and work on the interaction and interpolation code. I definetly struggled with creating the U as I couldn't really think of any creative design for it. The 0 also could use some thought as it looks like quite similar with the o. Other than this, I'm quite happy with my work. My next steps are to finish the numbers and start on the interaction aspect of this problem set. 
 
+Thursday 14/05/20: Finished making basic alphabet. Next steps are to modify the letters which look a bit odd (G,N,Z,3,9). Quite happy with where I'm at right now. Once i've adjusted the alphabet, my next steps is to create the interlopation function with my paramaters.     
+
 Currently using 16 parameters:
   * `triangleX1` : first x point of 1st triangle
   * `triangleY1` : first y point of 1st triangle

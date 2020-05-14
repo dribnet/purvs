@@ -1,4 +1,24 @@
 const alphabet = {
+  "default": {
+    "triangleXPos1": 0,
+    "triangleYPos1": 140,
+    "triangleXPos2": 50,
+    "triangleYPos2": 200,
+    "triangleXPos3": 100,
+    "triangleYPos3": 140,
+
+    "triangleXPos4": 0,
+    "triangleYPos4": 0,
+    "triangleXPos5": 0,
+    "triangleYPos5": 0,
+    "triangleXPos6": 0,
+    "triangleYPos6": 0,
+
+    "rectXPos": 40,
+    "rectYPos": 0,
+    "rectWPos": 20,
+    "rectHPos": 130,  
+  },
 
   "A": {
     "triangleXPos1": 0,
@@ -217,22 +237,22 @@ const alphabet = {
   "K": {
     "triangleXPos1": 100,
     "triangleYPos1": 0,
-    "triangleXPos2": 0,
-    "triangleYPos2": 75,
+    "triangleXPos2": 20,
+    "triangleYPos2": 100,
     "triangleXPos3": 100,
-    "triangleYPos3": 125,
+    "triangleYPos3": 200,
 
-    "triangleXPos4": 100,
-    "triangleYPos4": 75,
+    "triangleXPos4": 0,
+    "triangleYPos4": 0,
     "triangleXPos5": 0,
-    "triangleYPos5": 125,
-    "triangleXPos6": 100,
-    "triangleYPos6": 200,
+    "triangleYPos5": 0,
+    "triangleXPos6": 0,
+    "triangleYPos6": 0,
 
     "rectXPos": 0,
     "rectYPos": 0,
-    "rectWPos": 0,
-    "rectHPos": 0,  
+    "rectWPos": 20,
+    "rectHPos": 200,  
   },
   
   "L": {
@@ -557,13 +577,74 @@ const alphabet = {
     "rectWPos": 100,
     "rectHPos": 20, 
   },
+
   "1": {
+    "triangleXPos1": 80,
+    "triangleYPos1": 0,
+    "triangleXPos2": 30,
+    "triangleYPos2": 30,
+    "triangleXPos3": 80,
+    "triangleYPos3": 30,
+
+    "triangleXPos4": 30,
+    "triangleYPos4": 30,
+    "triangleXPos5": 30,
+    "triangleYPos5": 60,
+    "triangleXPos6": 80,
+    "triangleYPos6": 30,
+
+    "rectXPos": 80,
+    "rectYPos": 0,
+    "rectWPos": 20,
+    "rectHPos": 200, 
+  },
+  "2": {
     "triangleXPos1": 100,
     "triangleYPos1": 0,
     "triangleXPos2": 0,
-    "triangleYPos2": 50,
+    "triangleYPos2": 0,
     "triangleXPos3": 100,
-    "triangleYPos3": 50,
+    "triangleYPos3": 100,
+
+    "triangleXPos4": 0,
+    "triangleYPos4": 100,
+    "triangleXPos5": 0,
+    "triangleYPos5": 200,
+    "triangleXPos6": 100,
+    "triangleYPos6": 200,
+
+    "rectXPos": 0,
+    "rectYPos": 80,
+    "rectWPos": 100,
+    "rectHPos": 20, 
+  },
+  "3": {
+    "triangleXPos1": 0,
+    "triangleYPos1": 0,
+    "triangleXPos2": 100,
+    "triangleYPos2": 0,
+    "triangleXPos3": 50,
+    "triangleYPos3": 100,
+
+    "triangleXPos4": 60,
+    "triangleYPos4": 80,
+    "triangleXPos5": 100,
+    "triangleYPos5": 175,
+    "triangleXPos6": 0,
+    "triangleYPos6": 200,
+
+    "rectXPos": 0,
+    "rectYPos": 0,
+    "rectWPos": 0,
+    "rectHPos": 0, 
+  },
+  "4": {
+    "triangleXPos1": 0,
+    "triangleYPos1": 0,
+    "triangleXPos2": 0,
+    "triangleYPos2": 100,
+    "triangleXPos3": 100,
+    "triangleYPos3": 100,
 
     "triangleXPos4": 0,
     "triangleYPos4": 0,
@@ -577,45 +658,126 @@ const alphabet = {
     "rectWPos": 20,
     "rectHPos": 200, 
   },
-  "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
-  "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
-  },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triangleXPos1": 0,
+    "triangleYPos1": 0,
+    "triangleXPos2": 100,
+    "triangleYPos2": 0,
+    "triangleXPos3": 0,
+    "triangleYPos3": 100,
+
+    "triangleXPos4": 100,
+    "triangleYPos4": 100,
+    "triangleXPos5": 100,
+    "triangleYPos5": 200,
+    "triangleXPos6": 0,
+    "triangleYPos6": 200,
+
+    "rectXPos": 0,
+    "rectYPos": 85,
+    "rectWPos": 100,
+    "rectHPos": 20, 
   },
+
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triangleXPos1": 0,
+    "triangleYPos1": 0,
+    "triangleXPos2": 0,
+    "triangleYPos2": 200,
+    "triangleXPos3": 100,
+    "triangleYPos3": 200,
+
+    "triangleXPos4": 100,
+    "triangleYPos4": 200,
+    "triangleXPos5": 100,
+    "triangleYPos5": 100,
+    "triangleXPos6": 50,
+    "triangleYPos6": 100,
+
+    "rectXPos": 0,
+    "rectYPos": 0,
+    "rectWPos": 100,
+    "rectHPos": 20, 
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triangleXPos1": 100,
+    "triangleYPos1": 0,
+    "triangleXPos2": 0,
+    "triangleYPos2": 200,
+    "triangleXPos3": 100,
+    "triangleYPos3": 200,
+
+    "triangleXPos4": 0,
+    "triangleYPos4": 0,
+    "triangleXPos5": 0,
+    "triangleYPos5": 0,
+    "triangleXPos6": 0,
+    "triangleYPos6": 0,
+
+    "rectXPos": 0,
+    "rectYPos": 0,
+    "rectWPos": 100,
+    "rectHPos": 20, 
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triangleXPos1": 50,
+    "triangleYPos1": 105,
+    "triangleXPos2": 0,
+    "triangleYPos2": 200,
+    "triangleXPos3": 100,
+    "triangleYPos3": 200,
+
+    "triangleXPos4": 50,
+    "triangleYPos4": 95,
+    "triangleXPos5": 0,
+    "triangleYPos5": 0,
+    "triangleXPos6": 100,
+    "triangleYPos6": 0,
+
+    "rectXPos": 0,
+    "rectYPos": 0,
+    "rectWPos": 0,
+    "rectHPos": 0,  
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "triangleXPos1": 100,
+    "triangleYPos1": 0,
+    "triangleXPos2": 0,
+    "triangleYPos2": 0,
+    "triangleXPos3": 50,
+    "triangleYPos3": 100,
+
+    "triangleXPos4": 0,
+    "triangleYPos4": 0,
+    "triangleXPos5": 0,
+    "triangleYPos5": 0,
+    "triangleXPos6": 0,
+    "triangleYPos6": 0,
+
+    "rectXPos": 80,
+    "rectYPos": 0,
+    "rectWPos": 20,
+    "rectHPos": 200,  
+  },
+  "!": {
+    "triangleXPos1": 100,
+    "triangleYPos1": 0,
+    "triangleXPos2": 0,
+    "triangleYPos2": 0,
+    "triangleXPos3": 50,
+    "triangleYPos3": 100,
+
+    "triangleXPos4": 0,
+    "triangleYPos4": 0,
+    "triangleXPos5": 0,
+    "triangleYPos5": 0,
+    "triangleXPos6": 0,
+    "triangleYPos6": 0,
+
+    "rectXPos": 80,
+    "rectYPos": 0,
+    "rectWPos": 20,
+    "rectHPos": 200,  
   }
 
 }
