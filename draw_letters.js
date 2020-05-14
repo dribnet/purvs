@@ -15,15 +15,26 @@ function drawLetter(letterData) {
 
   var posx = 0
   var posy = 75
+  let xpos1 = letterData["xpos1"];
+  let ypos1 = letterData["ypos1"];
+  let xpos2 = letterData["xpos2"];
+  let ypos2 = letterData["ypos2"];
+  let Size1 = letterData["size1"];
+  let Size2 = letterData["Size2"];
   let arcStart = letterData["arcStart"];
   let arcFinish = letterData["arcFinish"];
 
   let arc2Start = letterData["arc2Start"];
   let arc2Finish = letterData["arc2Finish"];
 
-  let arcX = posx+25
-  let arcY= posy+25
-  let arc2X= posx+75
+  // let arcX = posx+25
+  // let arcY= posy+25
+  // let arc2X= posx+75
+
+  // let ahhxpos1 = xpos1+75;
+  // let ahhypos1 = ypos1+25;
+  // let ahhxpos2 = xpos2+75;
+  // let ahhypos2 = ypos2+25;
 
 
   angleMode (DEGREES);
@@ -32,15 +43,21 @@ function drawLetter(letterData) {
   fill (colour_LightSquare);
   rect (posx, posy, 100, 50);
 
+
+// fill(50)
+// strokeWeight(5);
+// ellipse (55,100,20,20);
+
+
 noFill ();
 stroke(1);
-strokeWeight (1);
-ellipse (arcX, arcY, 35,35);
-ellipse (arc2X, arcY, 35,35);
+strokeWeight (0.5);
+ellipse (xpos1, ypos1, Size1, Size1);
+ellipse (xpos2, ypos2, Size2,Size2);
 
-strokeWeight(5);
-arc(arcX, arcY, 35, 35, arcStart , arcFinish);
-arc(arc2X, arcY, 35, 35, arc2Start , arc2Finish);
+strokeWeight(4);
+arc(xpos1, ypos1, Size1, Size1, arcStart , arcFinish);
+arc(xpos2, ypos2, Size2, Size2, arc2Start , arc2Finish);
 
 noStroke ();
 }

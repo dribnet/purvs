@@ -57,7 +57,7 @@ const colour_LightSquare = "#ededed";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-//const colorBack    = "#333333";
+const colorBack    = "#333333";
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -77,35 +77,54 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  //let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let Divide = letterData["DivideHeight"];
+ 
+  var posx = 0
+  var posy = 75
+  let xpos1 = letterData["xpos1"];
+  let ypos1 = letterData["ypos1"];
+  let xpos2 = letterData["xpos2"];
+  let ypos2 = letterData["ypos2"];
+  let Size1 = letterData["size1"];
+  let Size2 = letterData["Size2"];
   let arcStart = letterData["arcStart"];
   let arcFinish = letterData["arcFinish"];
 
   let arc2Start = letterData["arc2Start"];
   let arc2Finish = letterData["arc2Finish"];
 
-  let arcX = posx+50
-  let arcY= posy+50
-  let arc2X= posx+150
+  // let arcX = posx+25
+  // let arcY= posy+25
+  // let arc2X= posx+75
 
-//black square
-  fill (colour_DarkSquare);
-  rect (posx, posy, 200, 100);
+  // let ahhxpos1 = xpos1+75;
+  // let ahhypos1 = ypos1+25;
+  // let ahhxpos2 = xpos2+75;
+  // let ahhypos2 = ypos2+25;
+
+
+  angleMode (DEGREES);
+
 //white square
   fill (colour_LightSquare);
-  rect (posx, pos2y, 200, -Divide);
+  rect (posx, posy, 100, 50);
+
+
+// fill(50)
+// strokeWeight(5);
+// ellipse (55,100,20,20);
+
 
 noFill ();
-stroke(5);
-strokeWeight (5);
-arc(arcX, arcY, 50, 50, arcStart , arcFinish);
+stroke(1);
+strokeWeight (0.5);
+ellipse (xpos1, ypos1, Size1, Size1);
+ellipse (xpos2, ypos2, Size2,Size2);
 
-arc(arc2X, arcY, 50, 50, arc2Start , arc2Finish);
+strokeWeight(4);
+arc(xpos1, ypos1, Size1, Size1, arcStart , arcFinish);
+arc(xpos2, ypos2, Size2, Size2, arc2Start , arc2Finish);
 
 noStroke ();
-
 }
 
 function draw () {
