@@ -21,7 +21,7 @@ function drawLetter(letterData) {
 
   let xpos1cont = letterData["offsetx1cont"];
 
-  let ypos1cont = letterData["offsety1cont"]/(size1/2) * -size1 * tan(30);
+  let ypos1cont = letterData["offsety1cont"]*50/3 * tan(30);
 
 
   let size2 = letterData["size2"];
@@ -29,7 +29,7 @@ function drawLetter(letterData) {
 
   let xpos2cont = letterData["offsetx2cont"];
 
-  let ypos2cont = letterData["offsety2cont"]/(size2/2) * -size2 * tan(30);
+  let ypos2cont = letterData["offsety2cont"]*50/3 * tan(30);
 
 
   let size3 = letterData["size3"];
@@ -37,7 +37,7 @@ function drawLetter(letterData) {
 
   let xpos3cont = letterData["offsetx3cont"];
 
-  let ypos3cont = letterData["offsety3cont"]/(size3/2) * -size3 * tan(30);
+  let ypos3cont = letterData["offsety3cont"]*50/3 * tan(30);
 
 
   noStroke()
@@ -127,8 +127,8 @@ function drawLetter(letterData) {
   let cont3topx = xcentre + xpos3cont
   let cont3topy = ycentre + ypos3cont - 2 * yamm3cont
 
-  let cont3leftx = xcentre - xpos3cont - size3cont
-  let cont3lefty = ycentre - ypos3cont - yamm3cont
+  let cont3leftx = xcentre + xpos3cont - size3cont
+  let cont3lefty = ycentre + ypos3cont - yamm3cont
 
 
   //Front-left Face Top 3d

@@ -28,5 +28,4 @@ there are 12 parameters as of now
 
 ReadMe
 
-Culled 6 parameters which determined the position of the overall face as I chose to keep that stationery.
-I worked on making all of the faces have the 3d effect which is great, I started to create some of the letters that I could, really this was just the c. The issue im having at the moment is that because the height of a face is a multiple of tan30 due to its isometric shape, its difficult to work out the x and y positions to draw the contours in. I think I will right a few if statements, where depending on the x position of the contour, raise the y level by a certain ammount. this is because I cant use tan in letters.js as It breaks when I try and change the anglemode. Another thing I want to do is find a way to simplify down my code, im not sure if this can be done but atm there is a big wall of scary code
+Started making a few of the letters, I had to go for a slightly 'chunkier' style that what I had designed earlier for some letters, however I do have spare parameters and I plan on basically having duplicate contours with the same parameters that I can place to create more detail. This will also help for quite sparse letters like L and J, where I cant make them with these current parameters
