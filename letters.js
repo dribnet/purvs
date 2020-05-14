@@ -56,7 +56,7 @@ const alphabet = {
     "arcEnd": 280 
   },
   "D": {
-    "offsetx": -10,
+    "offsetx": 0,
     "offsety": 50,
     "triangleX1": 15,
     "triangleY1": 70,
@@ -64,10 +64,10 @@ const alphabet = {
     "triangleY2": 215,
     "triangleX3": 80,
     "triangleY3": 70,
-    "arcSizeX": 200,
+    "arcSizeX": 170,
     "arcSizeY": 150,
     "arcStart": 270,
-    "arcEnd": 80 
+    "arcEnd": 90 
   },
   "E": {
     "offsetx": 65,
@@ -120,27 +120,27 @@ const alphabet = {
     "triangleY2": 70,
     "triangleX3": 60,
     "triangleY3": 200,
-    "arcSizeX": 130,
-    "arcSizeY": 220,
+    "arcSizeX": 120,
+    "arcSizeY": 170,
     "arcStart": 180,
     "arcEnd": 0
   },
   "I": {
     "offsetx": 50,
-    "offsety": 60,
+    "offsety": 50,
     "triangleX1": 15,
     "triangleY1": 80,
     "triangleX2": 30,
     "triangleY2": 40,
     "triangleX3": 90,
     "triangleY3": 70,
-    "arcSizeX": 150,
+    "arcSizeX": 130,
     "arcSizeY": 140,
     "arcStart": 90,
     "arcEnd": 270 
   },
   "J": {
-    "offsetx": 10,
+    "offsetx": 25,
     "offsety": 50,
     "triangleX1": 15,
     "triangleY1": 140,
@@ -148,7 +148,7 @@ const alphabet = {
     "triangleY2": 80,
     "triangleX3": 15,
     "triangleY3": 70,
-    "arcSizeX": 150,
+    "arcSizeX": 120,
     "arcSizeY": 150,
     "arcStart": 270,
     "arcEnd": 120
@@ -168,7 +168,7 @@ const alphabet = {
     "arcEnd": 290
   },
   "L": {
-    "offsetx": 25,
+    "offsetx": -15,
     "offsety": 50,
     "triangleX1": 35,
     "triangleY1": 230,
@@ -177,13 +177,13 @@ const alphabet = {
     "triangleX3": 140,
     "triangleY3": 230,
     "arcSizeX": 120,
-    "arcSizeY": 160,
-    "arcStart": 20,
-    "arcEnd": 250
+    "arcSizeY": 150,
+    "arcStart": 270,
+    "arcEnd": 90
   },
   "M": {
     "offsetx": 25,
-    "offsety": 120,
+    "offsety": 110,
     "triangleX1": 55,
     "triangleY1": 200,
     "triangleX2": 75,
@@ -191,13 +191,13 @@ const alphabet = {
     "triangleX3": 100,
     "triangleY3": 200,
     "arcSizeX": 140,
-    "arcSizeY": 270,
+    "arcSizeY": 250,
     "arcStart": 180,
     "arcEnd": 0
   },
   "N": {
     "offsetx": 25,
-    "offsety": 120,
+    "offsety": 100,
     "triangleX1": 15,
     "triangleY1": 90,
     "triangleX2": 60,
@@ -205,7 +205,7 @@ const alphabet = {
     "triangleX3": 60,
     "triangleY3": 150,
     "arcSizeX": 120,
-    "arcSizeY": 250,
+    "arcSizeY": 200,
     "arcStart": 180,
     "arcEnd": 0
   },
@@ -224,7 +224,7 @@ const alphabet = {
     "arcEnd": 360
   },
   "P": {
-    "offsetx": -10,
+    "offsetx": 20,
     "offsety": 30,
     "triangleX1": 15,
     "triangleY1": 70,
@@ -232,10 +232,10 @@ const alphabet = {
     "triangleY2": 230,
     "triangleX3": 80,
     "triangleY3": 70,
-    "arcSizeX": 200,
-    "arcSizeY": 130,
-    "arcStart": 270,
-    "arcEnd": 80
+    "arcSizeX": 130,
+    "arcSizeY": 120,
+    "arcStart": 240,
+    "arcEnd": 100
   },
   "Q": {
     "offsetx": 25,
@@ -252,7 +252,7 @@ const alphabet = {
     "arcEnd": 360
   },
   "R": {
-    "offsetx": 25,
+    "offsetx": 15,
     "offsety": 35,
     "triangleX1": 125,
     "triangleY1": 220,
@@ -260,10 +260,10 @@ const alphabet = {
     "triangleY2": 220,
     "triangleX3": 25,
     "triangleY3": 110,
-    "arcSizeX": 100,
+    "arcSizeX": 120,
     "arcSizeY": 120,
-    "arcStart": 120,
-    "arcEnd": 90
+    "arcStart": 220,
+    "arcEnd": 50
   },
   "S": {
     "offsetx": 55,
@@ -288,14 +288,14 @@ const alphabet = {
     "triangleY2": 100,
     "triangleX3": 100,
     "triangleY3": 220,
-    "arcSizeX": 130,
-    "arcSizeY": 150,
+    "arcSizeX": 120,
+    "arcSizeY": 120,
     "arcStart": 180,
     "arcEnd": 0
   },
   "U": {
     "offsetx": 25,
-    "offsety": -10,
+    "offsety": 0,
     "triangleX1": 100,
     "triangleY1": 110,
     "triangleX2": 50,
@@ -303,7 +303,7 @@ const alphabet = {
     "triangleX3": 100,
     "triangleY3": 170,
     "arcSizeX": 130,
-    "arcSizeY": 270,
+    "arcSizeY": 220,
     "arcStart": 0,
     "arcEnd": 180
   },
@@ -317,7 +317,7 @@ const alphabet = {
     "triangleX3": 80,
     "triangleY3": 90,
     "arcSizeX": 130,
-    "arcSizeY": 250,
+    "arcSizeY": 180,
     "arcStart": 0,
     "arcEnd": 90
   },
@@ -336,7 +336,7 @@ const alphabet = {
     "arcEnd": 180
   },
   "X": {
-    "offsetx": 10,
+    "offsetx": 15,
     "offsety": 70,
     "triangleX1": 45,
     "triangleY1": 240,
@@ -345,7 +345,7 @@ const alphabet = {
     "triangleX3": 115,
     "triangleY3": 100,
     "arcSizeX": 130,
-    "arcSizeY": 150,
+    "arcSizeY": 130,
     "arcStart": 230,
     "arcEnd": 50
   },
@@ -358,13 +358,13 @@ const alphabet = {
     "triangleY2": 130,
     "triangleX3": 100,
     "triangleY3": 250,
-    "arcSizeX": 130,
-    "arcSizeY": 150,
+    "arcSizeX": 120,
+    "arcSizeY": 140,
     "arcStart": 0,
     "arcEnd": 180
   },
   "Z": {
-    "offsetx": 0,
+    "offsetx": 15,
     "offsety": 50,
     "triangleX1": 35,
     "triangleY1": 240,
@@ -406,7 +406,7 @@ const alphabet = {
     "arcEnd": 80
   },
   "2": {
-    "offsetx": 10,
+    "offsetx": 25,
     "offsety": 30,
     "triangleX1": 35,
     "triangleY1": 230,
@@ -414,13 +414,13 @@ const alphabet = {
     "triangleY2": 230,
     "triangleX3": 135,
     "triangleY3": 170,
-    "arcSizeX": 150,
+    "arcSizeX": 120,
     "arcSizeY": 150,
-    "arcStart": 240,
-    "arcEnd": 120
+    "arcStart": 180,
+    "arcEnd": 90
   },
   "3": {
-    "offsetx": -15,
+    "offsetx": 10,
     "offsety": 50,
     "triangleX1": 120,
     "triangleY1": 150,
@@ -428,10 +428,10 @@ const alphabet = {
     "triangleY2": 175,
     "triangleX3": 30,
     "triangleY3": 125,
-    "arcSizeX": 200,
-    "arcSizeY": 180,
-    "arcStart": 280,
-    "arcEnd": 80
+    "arcSizeX": 130,
+    "arcSizeY": 160,
+    "arcStart": 250,
+    "arcEnd": 110
   },
   "4": {
     "offsetx": 45,
@@ -443,23 +443,23 @@ const alphabet = {
     "triangleX3": 100,
     "triangleY3": 230,
     "arcSizeX": 150,
-    "arcSizeY": 190,
+    "arcSizeY": 160,
     "arcStart": 60,
     "arcEnd": 190
   },
   "5": {
-    "offsetx": -15,
+    "offsetx": 15,
     "offsety": 80,
-    "triangleX1": 35,
+    "triangleX1": 25,
     "triangleY1": 100,
     "triangleX2": 135,
     "triangleY2": 120,
     "triangleX3": 135,
     "triangleY3": 60,
-    "arcSizeX": 190,
-    "arcSizeY": 100,
-    "arcStart": 270,
-    "arcEnd": 90
+    "arcSizeX": 130,
+    "arcSizeY": 120,
+    "arcStart": 240,
+    "arcEnd": 120
   },
   "6": {
     "offsetx": 25,
@@ -472,22 +472,22 @@ const alphabet = {
     "triangleY3": 80,
     "arcSizeX": 120,
     "arcSizeY": 120,
-    "arcStart": 360,
-    "arcEnd": 0
+    "arcStart": 0,
+    "arcEnd": 360
   },
   "7": {
-    "offsetx": 0,
-    "offsety": 0,
+    "offsetx": 20,
+    "offsety": 60,
     "triangleX1": 15,
     "triangleY1": 140,
     "triangleX2": 135,
     "triangleY2": 70,
     "triangleX3": 15,
     "triangleY3": 70,
-    "arcSizeX": 150,
-    "arcSizeY": 300,
-    "arcStart": 360,
-    "arcEnd": 70
+    "arcSizeX": 120,
+    "arcSizeY": 160,
+    "arcStart": 270,
+    "arcEnd": 90
   },
   "8": {
     "offsetx": 30,
@@ -500,8 +500,8 @@ const alphabet = {
     "triangleY3": 125,
     "arcSizeX": 120,
     "arcSizeY": 130,
-    "arcStart": 360,
-    "arcEnd": 0
+    "arcStart": 0,
+    "arcEnd": 360
   },
   "9": {
     "offsetx": 25,
