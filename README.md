@@ -2,17 +2,18 @@
 
 MDDN242 README
 
-Numbers Change Log - 15/05/2020
+Updated Interpolation - 15/05/2020
+This is the upodated interpolation meaning it is up to date with the latest colours and parameter numbers.
 
-Numbers change log.
-Here's the changes I made to each number and why. *adjusted means the letter was sized because it was either too big or small and minor changes to the triangle points.
+I put my parameteters into the interpolate letter function and had a look at how my shades look when it's in the progress of forming the next letter.
+It was awesome to look at all the transitions, in my opinion (based on the large sample I tested) there weren't any problems with the transition between
+letters. There were some triangle points that stretched and touched the boundary box but it was fine. I believe my triangle made the transitions more
+interesting because of its opacity stroke and colour fill that's the same as the background. There were just a lot of combinations that looked great!
+you can have a look at the transition between these letters, I liked these ones the most:
 
-*ADJUSTED: 9, 3, 5
-*NO_CHANGES: 6, 7
-0: redesigned, it was too gray.
-1: redesigned, no triangle - added one.
-2: reduced the gray rect height because it was displaying too much gray
-4: made rect length longer, this number seemed to skinny 
+M to R
+4 to D
+Y to X
 
 The 14 parameters per letter:
  • "offsetx": 17, | x position for first rect (filled)
