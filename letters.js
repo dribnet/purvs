@@ -1,10 +1,10 @@
 const alphabet = {
   "default": {
-  "shape1type" : "null",
+  "shape1type" : "circ",
   "shape1pos1x" : 0,
-  "shape1pos1y" : 0,
-  "shape1pos2x" : 0,
-  "shape1pos2y" : 0,
+  "shape1pos1y" : 25,
+  "shape1pos2x" : 100,
+  "shape1pos2y" : 125,
   "shape2type" : "null",
   "shape2pos1x" : 0,
   "shape2pos1y" : 0,

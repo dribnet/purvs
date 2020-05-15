@@ -54,9 +54,168 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  //shape 1
+  if (newObj["shape1type"].valueOf() === oldObj["shape1type"].valueOf()) {
+    new_letter["shape1type"] = newObj["shape1type"];
+    new_letter["shape1pos1x"]   = map(percent, 0, 100, oldObj["shape1pos1x"], newObj["shape1pos1x"]);
+    new_letter["shape1pos1y"]   = map(percent, 0, 100, oldObj["shape1pos1y"], newObj["shape1pos1y"]);
+    new_letter["shape1pos2x"]    = map(percent, 0, 100, oldObj["shape1pos2x"], newObj["shape1pos2x"]);
+    new_letter["shape1pos2y"]    = map(percent, 0, 100, oldObj["shape1pos2y"], newObj["shape1pos2y"]);
+  }
+  else {
+    if (percent < 50) { 
+      new_letter["shape1type"] = oldObj["shape1type"]; 
+      let middleX = oldObj["shape1pos2x"] - oldObj["shape1pos1x"];
+      let middleY = oldObj["shape1pos2y"] - oldObj["shape1pos1y"];
+      new_letter["shape1pos1x"]   = map(percent, 0, 50, oldObj["shape1pos1x"], middleX);
+      new_letter["shape1pos1y"]   = map(percent, 0, 50, oldObj["shape1pos1y"], middleY);
+      new_letter["shape1pos2x"]    = map(percent, 50, 0, oldObj["shape1pos2x"], middleX);
+      new_letter["shape1pos2y"]    = map(percent, 50, 0, oldObj["shape1pos2y"], middleY);
+    }
+    else {
+      new_letter["shape1type"] = newObj["shape1type"];
+      let middleX = newObj["shape1pos2x"] - newObj["shape1pos1x"];
+      let middleY = newObj["shape1pos2y"] - newObj["shape1pos1y"];
+      new_letter["shape1pos1x"]   = map(percent, 50, 100, newObj["shape1pos1x"], middleX);
+      new_letter["shape1pos1y"]   = map(percent, 50, 100, newObj["shape1pos1y"], middleY);
+      new_letter["shape1pos2x"]    = map(percent, 100, 50, newObj["shape1pos2x"], middleX);
+      new_letter["shape1pos2y"]    = map(percent, 100, 50, newObj["shape1pos2y"], middleY);
+    }
+  }
+
+  //shape 2
+  if (newObj["shape2type"].valueOf() === oldObj["shape2type"].valueOf() && newObj["shape2type"].valueOf() !== "null") {
+    new_letter["shape2type"] = newObj["shape2type"];
+    new_letter["shape2pos1x"]   = map(percent, 0, 100, oldObj["shape2pos1x"], newObj["shape2pos1x"]);
+    new_letter["shape2pos1y"]   = map(percent, 0, 100, oldObj["shape2pos1y"], newObj["shape2pos1y"]);
+    new_letter["shape2pos2x"]    = map(percent, 0, 100, oldObj["shape2pos2x"], newObj["shape2pos2x"]);
+    new_letter["shape2pos2y"]    = map(percent, 0, 100, oldObj["shape2pos2y"], newObj["shape2pos2y"]);
+  }
+  else if (newObj["shape2type"].valueOf() !== "null" && oldObj["shape2type"].valueOf() === "null") {
+      if (percent >= 50) { 
+      new_letter["shape2type"] = newObj["shape2type"]; 
+      let middleX = newObj["shape2pos2x"] - newObj["shape2pos1x"];
+      let middleY = newObj["shape2pos2y"] - newObj["shape2pos1y"];
+      new_letter["shape2pos1x"]   = map(percent, 50, 100,middleX, newObj["shape2pos1x"], );
+      new_letter["shape2pos1y"]   = map(percent, 50, 100, middleY, newObj["shape2pos1y"] );
+      new_letter["shape2pos2x"]    = map(percent, 100, 50, middleX, newObj["shape2pos2x"]);
+      new_letter["shape2pos2y"]    = map(percent, 100, 50, middleY, newObj["shape2pos2y"]);
+    }
+    else {
+      new_letter["shape2type"] = oldObj["shape2type"]; 
+      new_letter["shape2pos1x"]   = oldObj["shape2pos1x"];
+      new_letter["shape2pos1y"]   = oldObj["shape2pos1y"];
+      new_letter["shape2pos2x"]    = oldObj["shape2pos2x"];
+      new_letter["shape2pos2y"]    =  oldObj["shape2pos2y"];
+    }
+
+  }
+  else if (newObj["shape2type"].valueOf() === "null" && oldObj["shape2type"].valueOf() !== "null") {
+      if (percent < 50) { 
+      new_letter["shape2type"] = oldObj["shape2type"]; 
+      let middleX = oldObj["shape2pos2x"] - oldObj["shape2pos1x"];
+      let middleY = oldObj["shape2pos2y"] - oldObj["shape2pos1y"];
+      new_letter["shape2pos1x"]   = map(percent, 0, 50, oldObj["shape2pos1x"], middleX);
+      new_letter["shape2pos1y"]   = map(percent, 0, 50, oldObj["shape2pos1y"], middleY);
+      new_letter["shape2pos2x"]    = map(percent, 50, 0, oldObj["shape2pos2x"], middleX);
+      new_letter["shape2pos2y"]    = map(percent, 50, 0, oldObj["shape2pos2y"], middleY);
+    }
+    else {
+      new_letter["shape2type"] = newObj["shape2type"]; 
+      new_letter["shape2pos1x"]   = newObj["shape2pos1x"];
+      new_letter["shape2pos1y"]   = newObj["shape2pos1y"];
+      new_letter["shape2pos2x"]    = newObj["shape2pos2x"];
+      new_letter["shape2pos2y"]    = newObj["shape2pos2y"];
+    }
+  }
+  else {
+    if (percent < 50) { 
+      new_letter["shape2type"] = oldObj["shape2type"]; 
+      let middleX = oldObj["shape2pos2x"] - oldObj["shape2pos1x"];
+      let middleY = oldObj["shape2pos2y"] - oldObj["shape2pos1y"];
+      new_letter["shape2pos1x"]   = map(percent, 0, 50, middleX, oldObj["shape2pos1x"]);
+      new_letter["shape2pos1y"]   = map(percent, 0, 50,  middleY, oldObj["shape2pos1y"]);
+      new_letter["shape2pos2x"]    = map(percent, 50, 0, middleX, oldObj["shape2pos2x"]);
+      new_letter["shape2pos2y"]    = map(percent, 50, 0,  middleY, oldObj["shape2pos2y"]);
+    }
+    else {
+      new_letter["shape2type"] = newObj["shape2type"];
+      let middleX = newObj["shape2pos2x"] - newObj["shape2pos1x"];
+      let middleY = newObj["shape2pos2y"] - newObj["shape2pos1y"];
+      new_letter["shape2pos1x"]   = map(percent, 50, 100, newObj["shape2pos1x"], middleX);
+      new_letter["shape2pos1y"]   = map(percent, 50, 100, newObj["shape2pos1y"], middleY);
+      new_letter["shape2pos2x"]    = map(percent, 100, 50, newObj["shape2pos2x"], middleX);
+      new_letter["shape2pos2y"]    = map(percent, 100, 50, newObj["shape2pos2y"], middleY);
+    }
+  }
+
+
+  //shape 3
+
+  if (newObj["shape3type"].valueOf() === oldObj["shape3type"].valueOf() && newObj["shape3type"].valueOf() !== "null") {
+    new_letter["shape3type"] = newObj["shape3type"];
+    new_letter["shape3pos1x"]   = map(percent, 0, 100, oldObj["shape3pos1x"], newObj["shape3pos1x"]);
+    new_letter["shape3pos1y"]   = map(percent, 0, 100, oldObj["shape3pos1y"], newObj["shape3pos1y"]);
+    new_letter["shape3pos2x"]    = map(percent, 0, 100, oldObj["shape3pos2x"], newObj["shape3pos2x"]);
+    new_letter["shape3pos2y"]    = map(percent, 0, 100, oldObj["shape3pos2y"], newObj["shape3pos2y"]);
+  }
+  else if (newObj["shape3type"].valueOf() !== "null" && oldObj["shape3type"].valueOf() === "null") {
+      if (percent >= 50) { 
+      new_letter["shape3type"] = newObj["shape3type"]; 
+      let middleX = newObj["shape3pos2x"] - newObj["shape3pos1x"];
+      let middleY = newObj["shape3pos2y"] - newObj["shape3pos1y"];
+      new_letter["shape3pos1x"]   = map(percent, 50, 100, middleX, newObj["shape3pos1x"]);
+      new_letter["shape3pos1y"]   = map(percent,  middleY, 50, 100, newObj["shape3pos1y"]);
+      new_letter["shape3pos2x"]    = map(percent, middleX, 100, 50, newObj["shape3pos2x"]);
+      new_letter["shape3pos2y"]    = map(percent,  middleY, 100, 50, newObj["shape3pos2y"]);
+    }
+    else {
+      new_letter["shape3type"] = oldObj["shape3type"]; 
+      new_letter["shape3pos1x"]   = oldObj["shape3pos1x"];
+      new_letter["shape3pos1y"]   = oldObj["shape3pos1y"];
+      new_letter["shape3pos2x"]    = oldObj["shape3pos2x"];
+      new_letter["shape3pos2y"]    = oldObj["shape3pos2y"];
+    }
+
+  }
+  else if (newObj["shape3type"].valueOf() === "null" && oldObj["shape3type"].valueOf() !== "null") {
+      if (percent < 50) { 
+      new_letter["shape3type"] = oldObj["shape3type"]; 
+      let middleX = oldObj["shape3pos2x"] - oldObj["shape3pos1x"];
+      let middleY = oldObj["shape3pos2y"] - oldObj["shape3pos1y"];
+      new_letter["shape3pos1x"]   = map(percent, 0, 50, oldObj["shape3pos1x"], middleX);
+      new_letter["shape3pos1y"]   = map(percent, 0, 50, oldObj["shape3pos1y"], middleY);
+      new_letter["shape3pos2x"]    = map(percent, 50, 0, oldObj["shape3pos2x"], middleX);
+      new_letter["shape3pos2y"]    = map(percent, 50, 0, oldObj["shape3pos2y"], middleY);
+    }
+    else {
+      new_letter["shape3type"] = newObj["shape3type"]; 
+      new_letter["shape3pos1x"]   =newObj["shape3pos1x"];
+      new_letter["shape3pos1y"]   = newObj["shape3pos1y"];
+      new_letter["shape3pos2x"]    = newObj["shape3pos2x"];
+      new_letter["shape3pos2y"]    = newObj["shape3pos2y"];
+    }
+  }
+  else {
+    if (percent < 50) { 
+      new_letter["shape3type"] = oldObj["shape3type"]; 
+      let middleX = oldObj["shape3pos2x"] - oldObj["shape3pos1x"];
+      let middleY = oldObj["shape3pos2y"] - oldObj["shape3pos1y"];
+      new_letter["shape3pos1x"]   = map(percent, 0, 50, oldObj["shape3pos1x"], middleX);
+      new_letter["shape3pos1y"]   = map(percent, 0, 50, oldObj["shape3pos1y"], middleY);
+      new_letter["shape3pos2x"]    = map(percent, 50, 0, oldObj["shape3pos2x"], middleX);
+      new_letter["shape3pos2y"]    = map(percent, 50, 0, oldObj["shape3pos2y"], middleY);
+    }
+    else {
+      new_letter["shape3type"] = newObj["shape3type"]; 
+      let middleX = newObj["shape3pos2x"] - newObj["shape3pos1x"];
+      let middleY = newObj["shape3pos2y"] - newObj["shape3pos1y"];
+      new_letter["shape3pos1x"]   = map(percent, 50, 100, newObj["shape3pos1x"], middleX);
+      new_letter["shape3pos1y"]   = map(percent, 50, 100, newObj["shape3pos1y"], middleY);
+      new_letter["shape3pos2x"]    = map(percent, 100, 50, newObj["shape3pos2x"], middleX);
+      new_letter["shape3pos2y"]    = map(percent, 100, 50, newObj["shape3pos2y"], middleY);
+    }
+  }
   return new_letter;
 }
 
