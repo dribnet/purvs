@@ -2,18 +2,17 @@
 
 MDDN242 README
 
-Alphabet Change Log - 15/05/2020
+Numbers Change Log - 15/05/2020
 
-Alphabet Letters change log.
-Here's the changes I made to each letter and why. *adjusted means the letter was sized because it was either too big or small and minor changes to the triangle points.
+Numbers change log.
+Here's the changes I made to each number and why. *adjusted means the letter was sized because it was either too big or small and minor changes to the triangle points.
 
-*ADJUSTED: B, D, E, F, G, H, I, J, K, L, M, N, P, S, V, W, X
-*NO_CHANGES: Q, U, Y,
-A: redesigned because it looked too empty, couldn't really see the triangle.
-C: redesigned because I used the gray box as the main shape to make the letter C, but it didn't blend well with the other created letters
-O: redesigned, same issue as C. There was too much gray.
-R: slight redesign, it looked flat and not as sharp as my other letters, so I made the triangle slope.
-W: filled in the gap connecting the letter
+*ADJUSTED: 9, 3, 5
+*NO_CHANGES: 6, 7
+0: redesigned, it was too gray.
+1: redesigned, no triangle - added one.
+2: reduced the gray rect height because it was displaying too much gray
+4: made rect length longer, this number seemed to skinny 
 
 The 14 parameters per letter:
  • "offsetx": 17, | x position for first rect (filled)
