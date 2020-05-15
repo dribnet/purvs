@@ -1,14 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-11/05/20
+13/05/20
 
-Update 4: Serious help now they look very similar. I'm wondering if adding in a thrid shape could help to break this up and get more varibles however I do want to remind abstract in my approach and moose code has some links to the movement of the letters.
-
-Update 3: I'm finding it hard to show a difference between S,Z,2,5. They all exqually could look them same so I defenity think it will take a lot of refinement for these letters
-
-Update 2: I have since changed the colours. I like how the red and the yellow create the third colour orange and I haven't used it in every single letter either. I am still working my way through the alphabet and I like it without the stroke so I think I will remove that going forward
-
-Today, I worked on creating my animation between the letters. I now need to create the rest of my alphabet but I'm finding the animation helpful as it is showing me what transition between letters looks better.
+Today, I am concerned that my design looks too simliar too others. I think I will start to play around with making the letters more abstract, I think it will help with making my design different and not always having to have things visual in order but my code is in order. I also couldn't manage to get my editor working but I have asked for help in 'hail a tutor' as I believe the sliders will help me a lot
 
 The parameters per letter:
 
