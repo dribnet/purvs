@@ -2,18 +2,17 @@
 
 MDDN242 README
 
-Updated Interpolation - 15/05/2020
-This is the upodated interpolation meaning it is up to date with the latest colours and parameter numbers.
+Alphabet Final - 15/05/2020
 
-I put my parameteters into the interpolate letter function and had a look at how my shades look when it's in the progress of forming the next letter.
-It was awesome to look at all the transitions, in my opinion (based on the large sample I tested) there weren't any problems with the transition between
-letters. There were some triangle points that stretched and touched the boundary box but it was fine. I believe my triangle made the transitions more
-interesting because of its opacity stroke and colour fill that's the same as the background. There were just a lot of combinations that looked great!
-you can have a look at the transition between these letters, I liked these ones the most:
+This is the final outcome for each letter of the alphabet including numbers 0-9.
 
-M to R
-4 to D
-Y to X
+My final forms include 2 rectangles; one is fill only and the other is stroke only and are are controlled by 4 parameters each. I also have a single triangle with a lowered opacity stroke
+so when it overlaps with the other two rectangles it creates a shadow. I have given my triangle the same colour fill as the background so it creates negative space in the letters which I 
+think is a cool effect. The goal for this style was to create a sharp and bold font with a more gothic style - hence the idea of the fangs + blood. I wanted my letters to contrast against
+a dark background showing more dominance however it still works well on ligth backgrounds as shown here: https://postimg.cc/5jC1t7bT
+
+The colour scheme of red, black and white is selected from my inspired theme of fangs.
+
 
 The 14 parameters per letter:
  • "offsetx": 17, | x position for first rect (filled)
