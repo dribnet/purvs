@@ -27,17 +27,29 @@ function drawLetter(letterData) {
   let size2 = letterData["size2"];
   let size2cont = letterData["size2cont"];
 
+  let size2cont2 = letterData["size2cont2"];
+
   let xpos2cont = letterData["offsetx2cont"];
 
   let ypos2cont = letterData["offsety2cont"]*50/3 * tan(30);
+
+  let xpos2cont2 = letterData["offsetx2cont2"];
+
+  let ypos2cont2 = letterData["offsety2cont2"]*50/3 * tan(30);
 
 
   let size3 = letterData["size3"];
   let size3cont = letterData["size3cont"];
 
+  let size3cont2 = letterData["size3cont2"];
+
   let xpos3cont = letterData["offsetx3cont"];
 
   let ypos3cont = letterData["offsety3cont"]*50/3 * tan(30);
+
+  let xpos3cont2 = letterData["offsetx3cont2"];
+
+  let ypos3cont2 = letterData["offsety3cont2"]*50/3 * tan(30);
 
 
   noStroke()
@@ -45,8 +57,10 @@ function drawLetter(letterData) {
   let yamm1cont = size1cont * tan(30)
   let yamm2 = size2 * tan(30)
   let yamm2cont = size2cont * tan(30)
+  let yamm2cont2 = size2cont2 * tan(30)
   let yamm3 = size3 * tan(30)
   let yamm3cont = size3cont * tan(30)
+  let yamm3cont2 = size3cont2 * tan(30)
 
   let xcentre = 50
   let ycentre = 100
@@ -69,14 +83,26 @@ function drawLetter(letterData) {
   let cont2topleftx = xcentre - xpos2cont
   let cont2toplefty =  ycentre - ypos2cont
 
+  let cont2topleft2x = xcentre - xpos2cont2
+  let cont2topleft2y =  ycentre - ypos2cont2
+
   let cont2toprightx = xcentre - xpos2cont - size2cont
   let cont2toprighty = ycentre - ypos2cont - yamm2cont
+
+  let cont2topright2x = xcentre - xpos2cont2 - size2cont2
+  let cont2topright2y = ycentre - ypos2cont2 - yamm2cont2
 
   let cont2botrightx = xcentre - xpos2cont - size2cont
   let cont2botrighty = ycentre - ypos2cont + yamm2cont
 
+  let cont2botright2x = xcentre - xpos2cont2 - size2cont2
+  let cont2botright2y = ycentre - ypos2cont2 + yamm2cont2
+
   let cont2botleftx = xcentre - xpos2cont
   let cont2botlefty = ycentre - ypos2cont + 2 * yamm2cont
+
+  let cont2botleft2x = xcentre - xpos2cont2
+  let cont2botleft2y = ycentre - ypos2cont2 + 2 * yamm2cont2
 
 
 // Variables for Front-Right Face
@@ -121,17 +147,28 @@ function drawLetter(letterData) {
   let cont3botx = xcentre + xpos3cont
   let cont3boty = ycentre + ypos3cont
 
+  let cont3bot2x = xcentre + xpos3cont2
+  let cont3bot2y = ycentre + ypos3cont2
+
   let cont3rightx = xcentre + xpos3cont + size3cont
   let cont3righty = ycentre + ypos3cont - yamm3cont
+
+  let cont3right2x = xcentre + xpos3cont2 + size3cont2
+  let cont3right2y = ycentre + ypos3cont2 - yamm3cont2
 
   let cont3topx = xcentre + xpos3cont
   let cont3topy = ycentre + ypos3cont - 2 * yamm3cont
 
+  let cont3top2x = xcentre + xpos3cont2
+  let cont3top2y = ycentre + ypos3cont2 - 2 * yamm3cont2
+
   let cont3leftx = xcentre + xpos3cont - size3cont
   let cont3lefty = ycentre + ypos3cont - yamm3cont
 
+  let cont3left2x = xcentre + xpos3cont2 - size3cont2
+  let cont3left2y = ycentre + ypos3cont2 - yamm3cont2
 
-  //Front-left Face Top 3d
+//Front-left Face Top 3d
 fill(colorFront3)
 
   beginShape()
@@ -141,6 +178,7 @@ fill(colorFront3)
   vertex(face2toprightx + 50/3, face2toprighty - 50/3 * tan(30))
   vertex(face2toprightx, face2toprighty)
 
+// First Contour for Top of Face
     beginContour()
 
     vertex(cont2topleftx, cont2toplefty)
@@ -150,16 +188,17 @@ fill(colorFront3)
 
     endContour(CLOSE)
 
+// Second Contour for Top of Face
+      beginContour()
+
+    vertex(cont2topleft2x, cont2topleft2y)
+    vertex(cont2topright2x, cont2topright2y)
+    vertex(cont2topright2x + 50/3, cont2topright2y - 50/3 * tan(30))
+    vertex(cont2topleft2x + 50/3, cont2topleft2y - 50/3 * tan(30))
+
+    endContour(CLOSE)
+
   endShape(CLOSE)
-
- beginShape()
-
- vertex(cont2botrightx, cont2botrighty)
- vertex(cont2botrightx + 50/3, cont2botrighty - 50/3 * tan(30))
- vertex(cont2botleftx + 50/3, cont2botlefty - 50/3 * tan(30))
- vertex(cont2botleftx, cont2botlefty)
-
- endShape(CLOSE)
 
 
 //Front-Left Face Right 3d
@@ -181,17 +220,16 @@ beginShape()
 
     endContour(CLOSE)
 
+      beginContour()
+
+    vertex(cont2topleft2x, cont2topleft2y)
+    vertex(cont2botleft2x, cont2botleft2y)
+    vertex(cont2botleft2x + 50/3, cont2botleft2y - 50/3 * tan(30))
+    vertex(cont2topleft2x + 50/3, cont2topleft2y - 50/3 * tan(30))
+
+    endContour(CLOSE)
+
 endShape(CLOSE)
-
- beginShape()
-
- vertex(cont2botrightx, cont2botrighty)
- vertex(cont2botrightx + 50/3, cont2botrighty - 50/3 * tan(30))
- vertex(cont2toprightx + 50/3, cont2toprighty - 50/3 * tan(30))
- vertex(cont2toprightx, cont2toprighty)
-
- endShape(CLOSE)
-
 
 
 //Front-Right Face Top 3d
@@ -273,19 +311,18 @@ beginShape()
     vertex(cont3rightx, cont3righty + 100/3 * tan(30))
     vertex(cont3botx, cont3boty + 100/3 * tan(30))
     
+    endContour(CLOSE)
 
+     beginContour()
+
+    vertex(cont3bot2x, cont3bot2y)
+    vertex(cont3right2x, cont3right2y)
+    vertex(cont3right2x, cont3right2y + 100/3 * tan(30))
+    vertex(cont3bot2x, cont3bot2y + 100/3 * tan(30))
+    
     endContour(CLOSE)
 
 endShape(CLOSE)
-
- beginShape()
-
- vertex(cont3topx, cont3topy)
- vertex(cont3leftx, cont3lefty)
- vertex(cont3leftx, cont3lefty + 100/3 * tan(30))
- vertex(cont3topx, cont3topy + 100/3 * tan(30))
-
- endShape(CLOSE)
 
 //Top Face Left 3d
 fill(colorFront2)
@@ -304,11 +341,64 @@ beginShape()
     vertex(cont3leftx, cont3lefty + 100/3 * tan(30))
     vertex(cont3botx, cont3boty + 100/3 * tan(30))
     
+    endContour(CLOSE)
 
+   beginContour()
+
+    vertex(cont3bot2x, cont3bot2y)
+    vertex(cont3left2x, cont3left2y)
+    vertex(cont3left2x, cont3left2y + 100/3 * tan(30))
+    vertex(cont3bot2x, cont3bot2y + 100/3 * tan(30))
+    
     endContour(CLOSE)
 
 endShape(CLOSE)
 
+
+ //Front-left Face Top 3d Caps
+
+ //Front-Left Face Right 3d Caps
+fill(colorFront1)
+ beginShape()
+
+ vertex(cont2botrightx, cont2botrighty)
+ vertex(cont2botrightx + 50/3, cont2botrighty - 50/3 * tan(30))
+ vertex(cont2toprightx + 50/3, cont2toprighty - 50/3 * tan(30))
+ vertex(cont2toprightx, cont2toprighty)
+
+ endShape(CLOSE)
+
+ beginShape()
+
+ vertex(cont2botright2x, cont2botright2y)
+ vertex(cont2botright2x + 50/3, cont2botright2y - 50/3 * tan(30))
+ vertex(cont2topright2x + 50/3, cont2topright2y - 50/3 * tan(30))
+ vertex(cont2topright2x, cont2topright2y)
+
+ endShape(CLOSE)
+
+ fill(colorFront3)
+ beginShape()
+
+ vertex(cont2botrightx, cont2botrighty)
+ vertex(cont2botrightx + 50/3, cont2botrighty - 50/3 * tan(30))
+ vertex(cont2botleftx + 50/3, cont2botlefty - 50/3 * tan(30))
+ vertex(cont2botleftx, cont2botlefty)
+
+ endShape(CLOSE)
+
+  beginShape()
+
+ vertex(cont2botright2x, cont2botright2y)
+ vertex(cont2botright2x + 50/3, cont2botright2y - 50/3 * tan(30))
+ vertex(cont2botleft2x + 50/3, cont2botleft2y - 50/3 * tan(30))
+ vertex(cont2botleft2x, cont2botleft2y)
+
+ endShape(CLOSE)
+
+
+ //Top Face Left 3d Caps
+fill(colorFront2)
  beginShape()
 
  vertex(cont3topx, cont3topy)
@@ -317,6 +407,37 @@ endShape(CLOSE)
  vertex(cont3topx, cont3topy + 100/3 * tan(30))
 
  endShape(CLOSE)
+
+ beginShape()
+
+ vertex(cont3top2x, cont3top2y)
+ vertex(cont3right2x, cont3right2y)
+ vertex(cont3right2x, cont3right2y + 100/3 * tan(30))
+ vertex(cont3top2x, cont3top2y + 100/3 * tan(30))
+
+ endShape(CLOSE)
+
+ //Top Face Right 3d Caps
+fill(colorFront1)
+ beginShape()
+
+ vertex(cont3topx, cont3topy)
+ vertex(cont3leftx, cont3lefty)
+ vertex(cont3leftx, cont3lefty + 100/3 * tan(30))
+ vertex(cont3topx, cont3topy + 100/3 * tan(30))
+
+ endShape(CLOSE)
+
+ beginShape()
+
+ vertex(cont3top2x, cont3top2y)
+ vertex(cont3left2x, cont3left2y)
+ vertex(cont3left2x, cont3left2y + 100/3 * tan(30))
+ vertex(cont3top2x, cont3top2y + 100/3 * tan(30))
+
+ endShape(CLOSE)
+
+
 
 
 //Front-Right Face
@@ -337,6 +458,8 @@ endShape(CLOSE)
     vertex(cont1toprightx, cont1toprighty)
 
     endContour(CLOSE)
+
+
   
   endShape(CLOSE)
 
@@ -357,6 +480,15 @@ endShape(CLOSE)
     vertex(cont2botleftx, cont2botlefty)
     vertex(cont2botrightx, cont2botrighty)
     vertex(cont2toprightx, cont2toprighty)
+
+    endContour(CLOSE)
+
+      beginContour()
+
+    vertex(cont2topleft2x, cont2topleft2y)
+    vertex(cont2botleft2x, cont2botleft2y)
+    vertex(cont2botright2x, cont2botright2y)
+    vertex(cont2topright2x, cont2topright2y)
 
     endContour(CLOSE)
   
@@ -400,6 +532,15 @@ endShape(CLOSE)
 
     endContour(CLOSE)
 
+      beginContour()
+
+    vertex(cont3bot2x, cont3bot2y)
+    vertex(cont3right2x, cont3right2y)
+    vertex(cont3top2x, cont3top2y)
+    vertex(cont3left2x, cont3left2y)
+
+    endContour(CLOSE)
+
   endShape(CLOSE)
 
 //  beginShape()
@@ -428,14 +569,23 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size1cont"]    = map(percent, 0, 100, oldObj["size1cont"], newObj["size1cont"]);
   new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
   new_letter["size2cont"]    = map(percent, 0, 100, oldObj["size2cont"], newObj["size2cont"]);
+  new_letter["size2cont2"]    = map(percent, 0, 100, oldObj["size2cont2"], newObj["size2cont2"]);
   new_letter["size3"]    = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
   new_letter["size3cont"]    = map(percent, 0, 100, oldObj["size3cont"], newObj["size3cont"]);
+  new_letter["size3cont2"]    = map(percent, 0, 100, oldObj["size3cont2"], newObj["size3cont2"]);
+
   new_letter["offsetx1cont"] = map(percent, 0, 100, oldObj["offsetx1cont"], newObj["offsetx1cont"]);
   new_letter["offsety1cont"] = map(percent, 0, 100, oldObj["offsety1cont"], newObj["offsety1cont"]);
+
   new_letter["offsetx2cont"] = map(percent, 0, 100, oldObj["offsetx2cont"], newObj["offsetx2cont"]);
   new_letter["offsety2cont"] = map(percent, 0, 100, oldObj["offsety2cont"], newObj["offsety2cont"]);
+  new_letter["offsetx2cont2"] = map(percent, 0, 100, oldObj["offsetx2cont2"], newObj["offsetx2cont2"]);
+  new_letter["offsety2cont2"] = map(percent, 0, 100, oldObj["offsety2cont2"], newObj["offsety2cont2"]);
+
   new_letter["offsetx3cont"] = map(percent, 0, 100, oldObj["offsetx3cont"], newObj["offsetx3cont"]);
   new_letter["offsety3cont"] = map(percent, 0, 100, oldObj["offsety3cont"], newObj["offsety3cont"]);
+  new_letter["offsetx3cont2"] = map(percent, 0, 100, oldObj["offsetx3cont2"], newObj["offsetx3cont2"]);
+  new_letter["offsety3cont2"] = map(percent, 0, 100, oldObj["offsety3cont2"], newObj["offsety3cont2"]);
   return new_letter;
   return new_letter;
   return new_letter;
