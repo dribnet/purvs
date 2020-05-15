@@ -1,6 +1,6 @@
 const colorFront1  = "#C9D1D3FA"; //white
 const colorFront2  = "#ff402bD9"; //red
-const colorStroke  = "#1c1c1c80"; //stroke colour
+const colorStroke  = "#1c1c1c90"; //stroke colour
 
 
 /*
@@ -65,7 +65,12 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "VAMPIRES",
+  "IMMORTAL",
+  "BLOODCUP",
+  "INFECTED",
+  " CREEPY ",
+  " REAPER ",
+  "SCARY123",
+  "SINISTER"
 ]
