@@ -1,6 +1,6 @@
-const colorFront1  = "#75cc0a50"; //green
-const colorFront2  = "#ccd9deFA"; //white
-const colorStroke  = "#0f0f0f80"; //stroke colour
+const colorFront1  = "#C9D1D3FA"; //green
+const colorFront2  = "#ff402bD9"; //white
+const colorStroke  = "#1c1c1c80"; //stroke colour
 
 
 /*
@@ -34,7 +34,7 @@ function drawLetter(letterData) {
   fill(colorFront1);
   rect(pos2x, pos2y, rectwidth, recthigh);
   stroke(colorFront2);
-  strokeWeight(8);
+  strokeWeight(10);
   noFill();
   rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two);
   stroke(colorStroke);

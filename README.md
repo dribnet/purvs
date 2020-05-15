@@ -2,18 +2,15 @@
 
 MDDN242 README
 
-Interpolation - 13/05/2020
+Alphabet Colour Change - 15/05/2020
 
-I put my parameteters into the interpolate letter function and had a look at how my shades look when it's in the progress of forming the next letter.
-It was awesome to look at all the transitions, in my opinion (based on the large sample I tested) there weren't any problems with the transition between
-letters. There were some triangle points that stretched and touched the boundary box but it was fine. I believe my triangle made the transitions more
-interesting because of its opacity stroke and colour fill that's the same as the background. There were just a lot of combinations that looked great!
-you can have a look at the transition between these letters, I liked these ones the most:
+After the completion of my alphabet I noticed that my letter's didn't look good at all when it became smaller in the alphabet.html preview compared to the exhibition.html view.
+So I decided to make some changes so my letters look good no matter the size. The changes I made were the colours - I went back to my initial colour scheme of black and red to
+capture the vampire fang look to my font (initial idea). I couldn't decide on a white or black background for a while but in the end I picked black because it suited my theme more
+and the black stroke on my triangle is a striking feature to my design so I will go with a darker BG.
 
-M to R
-4 to D
-Y to X
-
+I will also rework some of the letters now that I have changed the colours. The letters c, e, h, im o and 0 look very strange and while I was testing words in the exhibition, some
+combinations looked very strange so I will rework these letters.
 
 The 14 parameters per letter:
  • "offsetx": 17, | x position for first rect (filled)
