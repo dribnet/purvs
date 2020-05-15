@@ -36,6 +36,7 @@ const colorFont3   = "#BDFF9B";
 const colorFont4   = "#FFE19B";
 const colorFont5   = "#F7347D";
 const colorBack    = "#e3eded";
+
 let y;
 
 //const colorStroke  = "#233f11";
@@ -60,6 +61,17 @@ function drawLetter(posx, posy, letterData) { //where the action happens
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+    linex1 = 0 + letterData["linex1"]; 
+  linex2 = 0 + letterData["linex2"]; 
+  liney1 = 0 + letterData["liney1"]; 
+  liney2 = 0 + letterData["liney2"]; 
+  numRaysVal = 0 + letterData["numRaysVal"];
+  numRaysVal2 = 0 + letterData["numRaysVal2"];
+  rotateVal = 0 + letterData["rotateVal"];
+  rangeVal = 0 + letterData["rangeVal"];
+  rayAmount = 0 + letterData["rayAmount"];
+  strokeVal = 0 + letterData["strokeVal"];
+  arcStroke = 0 + letterData["arcStroke"];
 
 translate(posx, posy);
 

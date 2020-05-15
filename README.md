@@ -1,8 +1,15 @@
 ## MDDN 242 2020 Assignment 2
 
-Today I fiddled around to make another parameter and had a little sketch of some interesting letter ideas I could create with my rainbow.I then edited my editor.js code to include all my parameters, and then used the editor.html as a tool to create a few of them. The editor.html was sooo helpful to create the letter looks I wanted without changing bits of code, saving it and refreshing my alphabet.html in my browser. The editor also helped to give me some new more abstract ideas! I'm have 14 parameters, but am not using the size one. I tried to delete it but my code would not run without it. I still have a couple to edit and want to have another look over.
+I finished off and re adjusted a few of my letters for my alphabet and I'm really happy with how they're looking. Each letter is unique and interesting, capitvating to the eye while still being connected to the letter's around it. I think I will make a couple more changes as I come closer to handing in. 
 
-Something else I did today was reduce the size of my overall rainbow and rays as you would have seen from yesterday's commit that they were too large, going outside the boundary - a few of the rays are touching the green boundary box so I just have to make sure this is okay. 
+Today I've also edited the interaction.js to add my new parameters, I love clicking through the different letters to see the actual motion from letter to letter. This has really brought my inital idea to life, of the rays 'rearranging' their position to form each new letter. My idea has changed a touch but I'm definitely much happier with how it's turned out now than my first plan. I initally was only going to have the lines change their position to move closer together, further apart, point outwards, or point inwards, but I was never planning on their thickness, rotation, or overall size to become much smaller, etc etc, all these little things I didn't originally even think about are now the reason my alphabet is so fun and exciting to look at. My original classic rainbow has now become swirly, interestingly rotated, thick, thin, tiny, curvy, windy, twisted, all the things. 
+
+![Initial Idea](/MDDN242/IMG_4407.jpg)
+Format: ![Alt Text](url)
+
+
+With the exhibition.js, I've got two words so far RAINBOW & KIERAMCK, I'm going to have a think of some more interesting words to use. But the words look so epic so far. I've also gone through and beautified my draw_letters.js and letters.js. 
+
 
 
 

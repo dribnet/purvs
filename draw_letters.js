@@ -44,28 +44,28 @@ rotate(7);
   noFill();
   strokeWeight(arcStroke);
   stroke(colorFont5);
-  arc(0, 0, 60, 60, 160, PI + QUARTER_PI, TWO_PI); //0,0,60,60,160
+  arc(0, 0, 60, 60, 160, PI + QUARTER_PI, TWO_PI); 
   stroke(colorFont4);
-  arc(0, 0, 49, 49, 160, PI + QUARTER_PI, TWO_PI);//87,87,
+  arc(0, 0, 49, 49, 160, PI + QUARTER_PI, TWO_PI);
   stroke(colorFont3);
-  arc(0, 0, 38, 38, 160, PI + QUARTER_PI, TWO_PI);//76,76
+  arc(0, 0, 38, 38, 160, PI + QUARTER_PI, TWO_PI);
   stroke(colorFont1);
-  arc(0, 0, 28, 28, 160, PI + QUARTER_PI, TWO_PI);//65,65
+  arc(0, 0, 28, 28, 160, PI + QUARTER_PI, TWO_PI);
   stroke(colorFont2);
-  arc(0, 0, 12, 12, 160, PI + QUARTER_PI, TWO_PI);//50,50
+  arc(0, 0, 12, 12, 160, PI + QUARTER_PI, TWO_PI);
 
 //rays
 var colorArray = [colorFont1, colorFont2, colorFont3, colorFont4, colorFont5];
 push();
 let range = rangeVal;
 let numRays = numRaysVal;
-rotate(-(range/2)); //2
+rotate(-(range/2)); 
 
 for (i = 0; i < rayAmount; i ++){ 
    rotate(rotateVal / numRays - numRaysVal2); 
   strokeWeight(strokeVal);
   stroke(colorArray[i % colorArray.length]);
- line(linex1, linex2, liney1, liney2) //0, -100, 0, -200
+ line(linex1, linex2, liney1, liney2) 
 
 }
 
@@ -83,11 +83,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["linex2"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["liney1"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["liney2"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["numRaysVal"] = map(percent, 0, 100, oldObj["numRaysVal"], newObj["numRaysVal"]);
+  new_letter["numRaysVal2"] = map(percent, 0, 100, oldObj["numRaysVal2"], newObj["numRaysVal2"]);
+  new_letter["rotateVal"] = map(percent, 0, 100, oldObj["rotateVal"], newObj["rotateVal"]);
+  new_letter["rangeVal"] = map(percent, 0, 100, oldObj["rangeVal"], newObj["rangeVal"]);
+  new_letter["rayAmount"] = map(percent, 0, 100, oldObj["rayAmount"], newObj["rayAmount"]);
+  new_letter["strokeVal"] = map(percent, 0, 100, oldObj["strokeVal"], newObj["strokeVal"]);
+  new_letter["arcStroke"] = map(percent, 0, 100, oldObj["arcStroke"], newObj["arcStroke"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "RAINBOWS",
+  "KIERAMCK",
+  "ABCD1234"
 ]

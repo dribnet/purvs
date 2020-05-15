@@ -12,9 +12,9 @@ const colorLines   = "#000090";
  */
 const sliderInfo = [
   ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100],
-  ["linex1", -0, 400],
+  ["offsetx",  0,  40],
+  ["offsety", 0, 50],
+  ["linex1", 0, 400],
   ["linex2", -0, 400],
   ["liney1", -0, 400],
   ["liney2", -0, 400],
