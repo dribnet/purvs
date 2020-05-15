@@ -5,7 +5,7 @@ const canvasHeight = 500;
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
-   offsetrectx: x offset (in pixels) of the second circle
+   offsetx: x offset (in pixels) of the second circle
             relative to the first one
    offsety: y offset (in pixels) of the second circle
             relative to the first one
@@ -15,6 +15,7 @@ const canvasHeight = 500;
 const letterA = {
   "sizex": 20,
   "sizey": 90,
+<<<<<<< HEAD
   "offsetrectx": 37,
   "offsetrecty": 10,
   // "trianglePoint1ax": 68, //small
@@ -68,11 +69,23 @@ const letterB = {
   "triangleTranslatey":-500,
   "rotateTriangle":0,
   "scaleTriangle":1
+=======
+  "offsetx": 40,
+  "offsety": 10
+}
+
+const letterB = {
+  "sizex": 25,
+   "sizey": 200,
+  "offsetx": 0,
+  "offsety": -100,
+>>>>>>> parent of cec0c30... Finished sketch & updated preview
 }
 
 const letterC = {
-  "sizex": 20,
+  "sizex": 50,
    "sizey": 100,
+<<<<<<< HEAD
   "offsetrectx":0,
   "offsetrecty": 0,
   //   "trianglePoint1ax": 80,
@@ -97,26 +110,16 @@ const letterC = {
   "triangleTranslatey":-212,
   "rotateTriangle":3,
   "scaleTriangle":1
+=======
+  "offsetx": 0,
+  "offsety": 0
+>>>>>>> parent of cec0c30... Finished sketch & updated preview
 }
 
-// const letterC = {
-//   "sizex": 50,
-//    "sizey": 100,
-//   "offsetrectx": 0,
-//   "offsetrecty": 0
-// }
-
-// const letterC = {
-//   "sizex": 50,
-//    "sizey": 100,
-//   "offsetrectx": 0,
-//   "offsetrecty": 0
-// }
-
 const colorFront1  = "#a83232";
-const colorFront2  = "#000000";
+const colorFront2  = "#1f0b02";
 const colorBack    = "#ff8000";
-const colorStroke  = "#ff007b";
+const colorStroke  = "#e4f7f5";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -134,6 +137,7 @@ function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2x = letterData["sizex"];
   let size2y = letterData["sizey"];
+<<<<<<< HEAD
   let pos2x = posx + letterData["offsetrectx"];
   let pos2y = posy + letterData["offsetrecty"];
   // let postri1ax = posx + letterData["trianglePoint1ax"];
@@ -158,9 +162,15 @@ function drawLetter(posx, posy, letterData) {
   let translatey = posy + letterData["triangleTranslatey"]
   let rotateTri = letterData["rotateTriangle"]
   let scaleTri = letterData["scaleTriangle"]
+=======
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+
+>>>>>>> parent of cec0c30... Finished sketch & updated preview
   // draw two circles
   angleMode(DEGREES)
   fill(colorFront1);
+<<<<<<< HEAD
   push()
   translate(translatex,translatey)
   scale(scaleTri)
@@ -183,8 +193,13 @@ function drawLetter(posx, posy, letterData) {
   push();
   strokeWeight(0.1)
   stroke(colorStroke)
+=======
+  triangle(posx, posy, posx+50,posy-50,posx+100,posy);
+  triangle(posx, posy+50, posx+50,posy,posx+100,posy+50);
+  triangle(posx, posy+100, posx+50,posy+50,posx+100,posy+100);
+  fill(colorFront2);
+>>>>>>> parent of cec0c30... Finished sketch & updated preview
   rect(pos2x, pos2y, size2x, size2y);
-  pop();
 }
 
 function draw () {
