@@ -1,15 +1,27 @@
 ## MDDN 242 2020 Assignment 2
 
-Part 1: Initial Ideas - testing in code
+Part 2: Designing the Alphabet - Start of creation and initial ideas
 
-Each of my letters is composed with a circle and two lines. The circle almost acts as the base of the letter, meaning that the lines are the sub element to make up the letter. The values for the lines are changeed the most so that it creates the form of the letter. I have realised that if I plan to use lines for my alphabet, I have to limit the amount of lines or else most of the parameters will make up of x and y positions. 
+I've started making making actual alphabet design which is created using line. I've added a stroke cap so that it is sharp around the corners instead of the default curved ends. So far I am happy with how it looks, but I'll decide for sure if I want to add more aspects in the design after completing all the letters and numbers. I used adobe colours to get ideas for colour palettes. So far I think I want to stick with the bright colours as shown in my alphabet html. I am slightly thrown off by the dark blue which I might later change, although it works well as one of the contrasting colours. I'll later test other colour options to see if they may work better. For my default key I'm choosing between & or #. 
 
-The three parameters per letter:
+The Parameters per letter:
 
-  "size" : radius of circle
-  "offsetx" : x offset of the second circle relative to the first one
-  "offsety": y offset of the second circle relative to the first one
-  "linex" : first line x axis
-  "liney" : first line y axis
-  "linex2" : second line x axis
-  "liney2" : second line y axis
+    "lineX1": X axis for line 1
+    "lineY1": Y axis for line 1
+    "lineX2": X axis for line 2
+    "lineY2": Y axis for line 2
+    "lineX3": X axis for line 3
+    "lineY3": Y axis for line 3
+    "lineX4": X axis for line 4
+    "lineY4": Y axis for line 4
+    "lineX5": X axis for line 5
+    "lineY5": Y axis for line 5
+    "lineX6": X axis for line 6
+    "lineY6": Y axis for line 6
+    "lineX7": X axis for line 7
+    "lineY7": Y axis for line 7
+    "lineX8": X axis for line 8
+    "lineY8": Y axis for line 8
+    "sWeight1": Stroke weight for line
+
+Total of 17 parameters
