@@ -257,25 +257,25 @@ const alphabet = {
   "offsetx3cont": 0
   },
   "L": {
-  "size1": 50,
+  "size1": 0,
 
 
-  "size1cont": 25,
+  "size1cont": 0,
   "offsetx1cont": 0,
   "offsety1cont": 0,
 
   "size2": 50,
 
 
-  "size2cont": 25,
+  "size2cont": 0,
   "offsetx2cont": 0,
   "offsety2cont": 0,
 
   "size3": 50,
 
 
-  "size3cont": 25,
-  "offsety3cont": 0,
+  "size3cont": 100/3,
+  "offsety3cont": -2,
   "offsetx3cont": 0
   },
   "M": {
