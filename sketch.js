@@ -130,6 +130,8 @@ let posy3 = posy + letterData["offsety3"];
 let posx4 = posx + letterData["offsetx4"];
 let posy4 = posy + letterData["offsety4"];
 
+
+
   // draw two circles
 
 
