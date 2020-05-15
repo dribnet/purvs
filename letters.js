@@ -8,6 +8,19 @@ const alphabet = {
     "size": 40,
     "offsetx": 0,
     "offsety": 17
+
+    "offset2x": 85,
+    "offset2y": 200,
+
+    "offset3x": 30,
+    "offset3y": 200,
+
+    "offsetx2": 60,
+    "offsety2": 300,
+
+
+
+
   },
   "B": {
     "size": 75,

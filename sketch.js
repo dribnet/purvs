@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -13,25 +13,80 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+//  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety":0,
+
+  "offset2x": 30, //right
+  "offset2y": 70,
+
+  "offset3x": -70, //top
+  "offset3y": -100,
+
+  "offset4x": -160,
+  "offset4y": 70,
+
+//triangle 2
+  "offsetx2": -70, //top
+  "offsety2":-40,
+
+  "offsetx3":30,
+  "offsety3":70,
+
+  "offsetx4":-160,
+  "offsety4":70, //left
+
+
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  // "offsetx": 0,
+  // "offsety":0,
+
+  "offset2x": -160, //left
+  "offset2y": 70,
+
+  "offset3x": -30,
+  "offset3y": 70,
+
+  "offset4x": -160,//top
+  "offset4y": -100,
+
+//triangle 2
+  "offsetx2": -160, //top
+  "offsety2":-100,
+
+  "offsetx3":-40,
+  "offsety3":-100,
+
+  "offsetx4":-160,
+  "offsety4":70, //left
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offset2x": 0, //right
+  "offset2y": 70,
+
+  "offset3x": -160, //top
+  "offset3y": -15,
+
+  "offset4x": -160,
+  "offset4y": 70,
+
+//triangle 2
+  "offsetx2": -160, //top
+  "offsety2":-100,
+
+  "offsetx3":0,
+  "offsety3":-100,
+
+  "offsetx4":-160,
+  "offsety4":-15, //left
+
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#269482"; //dark
+const colorFront2  = "#40d6cc"; // light
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -42,7 +97,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -51,14 +106,39 @@ function setup () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+
+//  let posx = posx + letterData["offsetx"];
+//  let posy = posy + letterData["offsety"];
+
+//triangle 1
+  let pos2x = posx + letterData["offset2x"];
+  let pos2y = posy + letterData["offset2y"];
+
+  let pos3x = posx + letterData["offset3x"];
+  let pos3y = posy + letterData["offset3y"];
+
+  let pos4x = posx + letterData["offset4x"];
+  let pos4y = posy + letterData["offset4y"];
+
+//triangle 2
+let posx2 = posx + letterData["offsetx2"];
+let posy2 = posy + letterData["offsety2"];
+
+let posx3 = posx + letterData["offsetx3"];
+let posy3 = posy + letterData["offsety3"];
+
+let posx4 = posx + letterData["offsetx4"];
+let posy4 = posy + letterData["offsety4"];
 
   // draw two circles
+
+
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  triangle(pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(posx2, posy2, posx3, posy3, posx4, posy4);
+
 }
 
 function draw () {
@@ -66,7 +146,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
