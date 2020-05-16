@@ -13,7 +13,7 @@ const colorStroke  = "#ffffff";
  */
 function drawLetter(letterData) {
   // color/stroke setup
- let triangleX1 = letterData["triX1"];
+  let triangleX1 = letterData["triX1"];
   let triangleY1 = letterData["triY1"];
   let triangleX2 = letterData["triX2"];
   let triangleY2 = letterData["triY2"];
@@ -48,10 +48,23 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  new_letter["triX1"] = map(percent, 0, 100, oldObj["triX1"], newObj["triX1"]);
+  new_letter["triY1"] = map(percent, 0, 100, oldObj["triY1"], newObj["triY1"]);
+  new_letter["triX2"] = map(percent, 0, 100, oldObj["triX2"], newObj["triX2"]);
+  new_letter["triY2"] = map(percent, 0, 100, oldObj["triY2"], newObj["triY2"]);
+  new_letter["triX3"] = map(percent, 0, 100, oldObj["triX3"], newObj["triX3"]);
+  new_letter["triY3"] = map(percent, 0, 100, oldObj["triY3"], newObj["triY3"]);
+  new_letter["ptX1"] = map(percent, 0, 100, oldObj["ptX1"], newObj["ptX1"]);
+  new_letter["ptY1"] = map(percent, 0, 100, oldObj["ptY1"], newObj["ptY1"]);
+  new_letter["ptX2"] = map(percent, 0, 100, oldObj["ptX2"], newObj["ptX2"]);
+  new_letter["ptY2"] = map(percent, 0, 100, oldObj["ptY2"], newObj["ptY2"]);
+  new_letter["ptX3"] = map(percent, 0, 100, oldObj["ptX3"], newObj["ptX3"]);
+  new_letter["ptY3"] = map(percent, 0, 100, oldObj["ptY3"], newObj["ptY3"]);
+  new_letter["rectL"] = map(percent, 0, 100, oldObj["rectL"], newObj["rectL"]);
+  new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
+  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+    return new_letter;
 }
 
 var swapWords = [

@@ -11,9 +11,22 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["triX1", 0, 100],
+  ["triY1", 0, 200],
+  ["triX2", 0, 100],
+  ["triY2", 0, 200],
+  ["triX3", 0, 100],
+  ["triY3", 0, 200],
+  ["ptX1", 0, 100],
+  ["ptY1", 0, 200],
+  ["ptX2", 0, 100],
+  ["ptY2", 0, 200],
+  ["ptX3", 0, 100],
+  ["ptY3", 0, 200],
+  ["rectL", 0, 200],
+  ["rectW", 0, 100],
+  ["rectX", 0, 100],
+  ["rectY", 0, 200],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

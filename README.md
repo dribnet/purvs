@@ -30,3 +30,7 @@ The sixteen parameters per letter:
 11052020  now that having found my idea, i couldnt figure out how to do the triagles, so after asking for help, i was able to make the triangle. after  was able to get one done it was easier to get the second on done.
 
 11052020 having now figured out how to do the triangles, i started to move on an do the draw letter code. at first it took a while to figure out what to do, but got there in the end. For my alphabet i have 3 shapes - 2 triangles and 1 rectangle, with these three shapes i was able to do all the letter and the numbers
+
+13052020 today i was able to finish to off the alphabet, and strated to play around with the colours, though I'm thinking i might change the colours again 
+
+16052020 Today I did interpolation, and now when the letters change it is done soomthly 
