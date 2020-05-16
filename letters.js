@@ -47,10 +47,10 @@ const alphabet = {
     "lineWidth": 20,
     "lineHeight": 40
   },
-  "D": { // Needs to have straight top
+  "D": {
     "offsetX1": 10,
     "offsetY1": -40,
-    "start1": 230, 
+    "start1": 270, 
     "end1": 90,
     "offsetX2": -10,
     "offsetY2": 40,
@@ -72,14 +72,14 @@ const alphabet = {
     "lineHeight": 80
   },
   "F": {
-    "offsetX1": 30,
+    "offsetX1": 15,
     "offsetY1": -40,
-    "start1": 340,
-    "end1": 125,
-    "offsetX2": -30,
+    "start1": 350,
+    "end1": 95,
+    "offsetX2": -15,
     "offsetY2": 40,
-    "start2": 350,
-    "end2": 295,
+    "start2": 315,
+    "end2": 275,
     "lineWidth": 20,
     "lineHeight": 80
   },
@@ -108,28 +108,28 @@ const alphabet = {
     "lineHeight": 0
   },
   "I": {
-    "offsetX1": -20,
-    "offsetY1": -25,
-    "start1": 180,
-    "end1": 0,
+    "offsetX1": 0,
+    "offsetY1": 0,
+    "start1": 215,
+    "end1": 270,
     "offsetX2": 0,
     "offsetY2": 0,
-    "start2": 0,
-    "end2": 360,
+    "start2": 215,
+    "end2": 270,
     "lineWidth": 20,
     "lineHeight": 80
   },
   "J": {
-    "offsetX1": 15,
-    "offsetY1": -55,
-    "start1": 355,
+    "offsetX1": 10,
+    "offsetY1": -30,
+    "start1": 340,
     "end1": 150,
-    "offsetX2": 0,
-    "offsetY2": 0,
-    "start2": 330,
-    "end2": 130,
+    "offsetX2": -10,
+    "offsetY2": 30,
+    "start2": 320,
+    "end2": 135,
     "lineWidth": 0,
-    "lineHeight": 35
+    "lineHeight": 0
   },
   "K": {
     "offsetX1": 0,
@@ -146,12 +146,12 @@ const alphabet = {
   "L": {
     "offsetX1": 0,
     "offsetY1": 0,
-    "start1": 180,
+    "start1": 90,
     "end1": 180,
-    "offsetX2": -20,
-    "offsetY2": 25,
-    "start2": 360,
-    "end2": 145,
+    "offsetX2": 0,
+    "offsetY2": 0,
+    "start2": 90,
+    "end2": 180,
     "lineWidth": 20,
     "lineHeight": 80
   },
@@ -215,10 +215,10 @@ const alphabet = {
     "lineWidth": 20,
     "lineHeight": 80
   },
-  "R": { // Needs to have straight top
+  "R": {
     "offsetX1": 10,
     "offsetY1": -40,
-    "start1": 230,
+    "start1": 270,
     "end1": 95,
     "offsetX2": -10,
     "offsetY2": 40,
