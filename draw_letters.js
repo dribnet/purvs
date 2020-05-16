@@ -45,6 +45,9 @@ function drawLetter(letterData) {
     arc(posX2, posY2, width, height, start2, end2, OPEN);
   pop();
   fill(color);
+    if(rectWidth == 0 && rectHeight == 0){
+      noStroke();
+    }
     rect(50-(rectWidth/2), 100-(rectHeight/2), rectWidth, rectHeight, 20);
   noFill();
 }
@@ -65,7 +68,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  " IAMONE ",
+  "WITH THE",
+  " FORCE! "
 ]

@@ -11,11 +11,11 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["offsetX1", -80, 80],
+  ["offsetX1", -15, 15],
   ["offsetY1", -80, 80],
   ["start1",    0, 360],
   ["end1",      0, 360],
-  ["offsetX2", -80, 80],
+  ["offsetX2", -15, 15],
   ["offsetY2", -80, 80],
   ["start2",    0, 360],
   ["end2",      0, 360],
