@@ -23,6 +23,8 @@ const alphabet = {
 
   "size3cont2": 0,
 
+  "CutCentre": 0,
+
 
   "size3cont": 0,
   "offsetx3cont": 0,
@@ -54,6 +56,8 @@ const alphabet = {
 
   "size3cont2": 0,
 
+  "CutCentre": 0,
+
 
   "size3cont": 50/3,
   "offsetx3cont": 0,
@@ -82,6 +86,8 @@ const alphabet = {
   "size3": 50,
 
   "size3cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size3cont": 50/3,
@@ -113,6 +119,8 @@ const alphabet = {
 
   "size3cont2": 0,
 
+  "CutCentre": 0,
+
 
   "size3cont": 100/3,
   "offsety3cont": 0,
@@ -131,6 +139,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -162,6 +172,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -191,6 +203,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 100/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -219,6 +233,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -250,6 +266,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -3,
@@ -278,6 +296,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 50/3,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -309,6 +329,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
 
   "size2cont": 0,
   "offsetx2cont": 0,
@@ -339,6 +361,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -3,
@@ -367,6 +391,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 0,
@@ -398,6 +424,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
 
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
@@ -428,6 +456,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -3,
@@ -456,6 +486,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 50/3,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -487,6 +519,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 100/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -515,6 +549,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 50/3,
+
+  "CutCentre": 0,
 
 
   "size2cont": 100/3,
@@ -546,6 +582,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -3,
@@ -575,6 +613,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 100/3,
   "offsety2cont": 0,
@@ -603,6 +643,8 @@ const alphabet = {
   "size2": 0,
 
   "size2cont2": 50/3,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -634,6 +676,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 0,
   "offsetx2cont": 0,
   "offsety2cont": 0,
@@ -663,6 +707,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": -4,
@@ -691,6 +737,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 50/3,
@@ -722,22 +770,29 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
+  "offsetx2cont2": 100/3,
+  "offsety2cont2": 2,
 
   "size3": 50,
 
   "size3cont2": 50/3,
+  
+
+  "CutCentre": 1,
 
 
   "size3cont": 50/3,
   "offsetx3cont": 50/3,
   "offsety3cont": -3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+  "offsetx3cont2": -100/3,
+  "offsety3cont2": -2
+
+
   },
   "Y": {
   "size1": 0,
@@ -750,6 +805,8 @@ const alphabet = {
   "size2": 0,
 
   "size2cont2": 50/3,
+
+  "CutCentre": 0,
 
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
@@ -780,6 +837,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -808,6 +867,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 100/3,
@@ -839,6 +900,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
 
   "size2cont": 50/3,
   "offsetx2cont": 0,
@@ -869,6 +932,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -898,6 +963,8 @@ const alphabet = {
 
   "size2cont2": 0,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 100/3,
   "offsety2cont": 0,
@@ -926,6 +993,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
 
   "size2cont": 100/3,
@@ -957,6 +1026,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 100/3,
   "offsety2cont": 0,
@@ -985,6 +1056,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
@@ -1015,6 +1088,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 0,
   "offsety2cont": -2,
@@ -1044,6 +1119,8 @@ const alphabet = {
 
   "size2cont2": 50/3,
 
+  "CutCentre": 0,
+
   "size2cont": 50/3,
   "offsetx2cont": 50/3,
   "offsety2cont": -1,
@@ -1072,6 +1149,8 @@ const alphabet = {
   "size2": 50,
 
   "size2cont2": 0,
+
+  "CutCentre": 0,
 
   "size2cont": 100/3,
   "offsetx2cont": 50/3,
