@@ -46,11 +46,31 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  new_letter["triangleXPos1"] = map(percent, 0, 100, oldObj["triangleXPos1"], newObj["triangleXPos1"]);
+  new_letter["triangleYPos1"] = map(percent, 0, 100, oldObj["triangleYPos1"], newObj["triangleYPos1"]);
+  new_letter["triangleXPos2"] = map(percent, 0, 100, oldObj["triangleXPos2"], newObj["triangleXPos2"]);
+  new_letter["triangleYPos2"] = map(percent, 0, 100, oldObj["triangleYPos2"], newObj["triangleYPos2"]);  
+  new_letter["triangleXPos3"] = map(percent, 0, 100, oldObj["triangleXPos3"], newObj["triangleXPos3"]);
+  new_letter["triangleYPos3"] = map(percent, 0, 100, oldObj["triangleYPos3"], newObj["triangleYPos3"]);
+  new_letter["triangleXPos4"] = map(percent, 0, 100, oldObj["triangleXPos4"], newObj["triangleXPos4"]);
+  new_letter["triangleYPos4"] = map(percent, 0, 100, oldObj["triangleYPos4"], newObj["triangleYPos4"]);
+  new_letter["triangleXPos5"] = map(percent, 0, 100, oldObj["triangleXPos5"], newObj["triangleXPos5"]);
+  new_letter["triangleYPos5"] = map(percent, 0, 100, oldObj["triangleYPos5"], newObj["triangleYPos5"]); 
+  new_letter["triangleXPos6"] = map(percent, 0, 100, oldObj["triangleXPos6"], newObj["triangleXPos6"]);
+  new_letter["triangleYPos6"] = map(percent, 0, 100, oldObj["triangleYPos6"], newObj["triangleYPos6"]); 
+  new_letter["rectXPos"] = map(percent, 0, 100, oldObj["rectXPos"], newObj["rectXPos"]);  
+  new_letter["rectYPos"] = map(percent, 0, 100, oldObj["rectYPos"], newObj["rectYPos"]);
+  new_letter["rectWPos"] = map(percent, 0, 100, oldObj["rectWPos"], newObj["rectWPos"]);  
+  new_letter["rectHPos"] = map(percent, 0, 100, oldObj["rectHPos"], newObj["rectHPos"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "POGGERS?",
+  "OMEGALUL",
+  "POGCHAMP",
+  "CMONBRUH",
+  "TRIHARD7"
 ]
