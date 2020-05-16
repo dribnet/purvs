@@ -904,17 +904,17 @@ const alphabet = {
 
 
   "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 100/3,
-  "offsety2cont2": 2,
+  "offsetx2cont": 100/3,
+  "offsety2cont": 2,
+  "offsetx2cont2": 0,
+  "offsety2cont2": 0,
 
   "size3": 0,
 
-  "size3cont2": 50/3,
+  "size3cont2": 0,
 
 
-  "size3cont": 50/3,
+  "size3cont": 0,
   "offsetx3cont": 0,
   "offsety3cont": -2,
   "offsetx3cont2": 50/3,
@@ -1098,7 +1098,7 @@ const alphabet = {
 
   "size3": 50,
 
-  "size3cont2": 50/3,
+  "size3cont2": 0,
 
 
   "size3cont": 100/3,

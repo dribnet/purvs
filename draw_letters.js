@@ -390,9 +390,11 @@ function drawLetter(letterData) {
 
   endShape(CLOSE)
 
-
   //Front-Left Face Right 3d Caps
   fill(colorFront1)
+
+if (size2 >= 50) {
+
   beginShape()
 
   vertex(cont2botrightx, cont2botrighty)
@@ -420,8 +422,13 @@ function drawLetter(letterData) {
 
   endShape(CLOSE)
 
+}
+
   //Front-left Face Top 3d Caps
   fill(colorFront3)
+
+if (size2 >= 50) {
+
   beginShape()
 
   vertex(cont2botrightx, cont2botrighty)
@@ -448,10 +455,13 @@ function drawLetter(letterData) {
   vertex(CutCentre * (xcentre - 50 / 3), CutCentre * (ycentre + 50 / 3 * tan(30)))
 
   endShape(CLOSE)
-
+}
 
   //Top Face Left 3d Caps
   fill(colorFront2)
+
+if (size3 >= 50) {
+
   beginShape()
 
   vertex(cont3topx, cont3topy)
@@ -479,8 +489,13 @@ function drawLetter(letterData) {
 
   endShape(CLOSE)
 
+}
+
   //Top Face Right 3d Caps
   fill(colorFront1)
+
+if (size3 >= 50) {
+
   beginShape()
 
   vertex(cont3topx, cont3topy)
@@ -508,6 +523,7 @@ function drawLetter(letterData) {
 
   endShape(CLOSE)
 
+}
 
   //Front-Right Face
   fill(colorFront1);
@@ -571,24 +587,6 @@ function drawLetter(letterData) {
   endShape(CLOSE)
 
 
-  //  beginShape()
-
-  //  vertex(xcentre, ycentre)
-  //  vertex(xcentre - size2, ycentre - yamm2)
-  //  vertex(xcentre - size2, ycentre + yamm2)
-  //  vertex(xcentre, ycentre + 2 * yamm2)
-
-  //  beginContour()
-
-  //    vertex(xcentre + xpos2cont, ycentre + ypos2cont)
-  //    vertex(xcentre + xpos2cont, ycentre + ypos2cont + 2 * yamm2cont)
-  //    vertex(xcentre + xpos2cont - size2cont, ycentre + ypos2cont + yamm2cont)
-  //    vertex(xcentre + xpos2cont - size2cont, ycentre + ypos2cont - yamm2cont)
-
-  //    endContour(CLOSE)
-
-  //  endShape(CLOSE)
-
   // Top Face
   fill(colorFront3);
 
@@ -627,24 +625,6 @@ function drawLetter(letterData) {
   endContour(CLOSE)
 
   endShape(CLOSE)
-
-  //  beginShape()
-
-  //  vertex(xcentre, ycentre)
-  //  vertex(xcentre + size3, ycentre - yamm3)
-  //  vertex(xcentre, ycentre - 2 * yamm3)
-  //  vertex(xcentre - size3, ycentre - yamm3)
-
-  //    beginContour()
-
-  //    vertex(xcentre + xpos3cont, ycentre + ypos3cont)
-  //    vertex(xcentre + xpos3cont - size3cont, ycentre + ypos3cont - yamm3cont)
-  //    vertex(xcentre + xpos3cont, ycentre + ypos3cont - 2 * yamm3cont)
-  //    vertex(xcentre + xpos3cont + size3cont, ycentre + ypos3cont - yamm3cont)
-
-  //    endContour(CLOSE)
-
-  //  endShape(CLOSE)
 
 }
 
