@@ -12,7 +12,6 @@ const canvasHeight = 500;
  *
  */
 
-//   "offsety": 0
    const letterA = {
     "sizeLine": 80,
     "sizeCirc": 30,
