@@ -1,9 +1,5 @@
-const colorFront1  = "#CA3433";
-const colorFront2  = "#57595D";
-const colorStroke  = "#233f11";
-const col1 = 180;
-const col2 = 181;
-const col3 = 178;
+const colorFront1  = "#6A0DAD";
+const colwhite = 251;
 const trans = 200;
 
 /*
@@ -35,7 +31,7 @@ function drawLetter(letterData) {
 
     fill(colorFront1);
     triangle(triangleX1,triangleY1,triangleX2,triangleY2,triangleX3,triangleY3);
-    fill(col1,col2,col3,trans);
+    fill(colwhite,colwhite,colwhite-3,colwhite-50);
     triangle(triangleX4,triangleY4,triangleX5,triangleY5,triangleX6,triangleY6);
     rect(rectX,rectY,rectW,rectH)
 
@@ -72,5 +68,8 @@ var swapWords = [
   "OMEGALUL",
   "POGCHAMP",
   "CMONBRUH",
-  "TRIHARD7"
+  "TRIHARD7",
+  "BABYRAGE",
+  "BLESSRNG",
+  "DANSGAME"
 ]
