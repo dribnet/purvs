@@ -46,24 +46,26 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["height"]  = map(percent, 0, 100, oldObj["height"], newObj["height"]);
-  new_letter["width"]   = map(percent, 0, 100, oldObj["width"], newObj["width"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["height"] = map(percent, 0, 100, oldObj["height"], newObj["height"]);
+  new_letter["width"] = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  new_letter["offsetx"] = map(percent/2, 0, 50, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent/2, 0, 50, oldObj["offsety"], newObj["offsety"]);
   new_letter["angleStart"] = map(percent/2, 0, 50, oldObj["angleStart"], newObj["angleStart"]);
   new_letter["angleStop"] = map(percent/2, 0, 50, oldObj["angleStop"], newObj["angleStop"]);
   new_letter["ellipseY"] = map(percent, 0, 100, oldObj["ellipseY"], newObj["ellipseY"]);
 
-if(percent <30){
-  new_letter["rectX"] = oldObj["rectX"];
+if(percent <40){
+  new_letter["rectW"] = oldObj["rectW"];
+  new_letter["rectH"] = oldObj["rectH"];
 }
 else{
-  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
-}
-
-  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
   new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
   new_letter["rectH"] = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
+}
+
+  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+
   return new_letter;
 }
 
