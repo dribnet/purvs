@@ -253,14 +253,14 @@ const alphabet = {
     "lineY2": 200,
     "lineX3": 38, //purple
     "lineY3": 94,
-    "lineX4": 87,
-    "lineY4": 6,
+    "lineX4": 86,
+    "lineY4": 8,
     "lineX5": 87, //light blue
     "lineY5": 0,
     "lineX6": 87,
     "lineY6": 200,
-    "lineX7": 16, //dark blue
-    "lineY7": 6,
+    "lineX7": 17, //dark blue
+    "lineY7": 8,
     "lineX8": 65,
     "lineY8": 94,
     "sWeight1": 30
