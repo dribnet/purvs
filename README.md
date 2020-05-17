@@ -2,21 +2,21 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two ovals. The size and position of the first circle is fixed, but the location and size of the second ovals is controlled by three parameters.
+Each of my letters is composed with two triangles and one rectangle The size of the 3 shapes is controlled by sixteen parameters.
 
 The sixteen parameters per letter:
-  * triX1: first x point for purple triangle
-  * triY1: first y point for purple triangle
-  * triX2: second x point for purple triangle
-  * triY2: second y point for purple triangle
-  * triX3: third x point for purple triangle
+  * triX1: first x point for peach triangle
+  * triY1: first y point for peach triangle
+  * triX2: second x point for peach triangle
+  * triY2: second y point for peach triangle
+  * triX3: third x point for peach triangle
   * triY3: third y point for purple triangle
-  * ptX1: first x point for blue triangle
-  * ptY1: first y point for blue triangle
-  * ptX2: second x point for blue triangle
-  * ptY2: second y point for blue triangle
-  * ptX3: third x point for blue triangle
-  * ptY3: third y point for blue triangle
+  * ptX1: first x point for pink triangle
+  * ptY1: first y point for pink triangle
+  * ptX2: second x point for pink triangle
+  * ptY2: second y point for pink triangle
+  * ptX3: third x point for pink triangle
+  * ptY3: third y point for pink triangle
   * rectL: length of rectangle
   * rectW: width of rectangle
   * rectX: x point of rectangle
@@ -34,3 +34,5 @@ The sixteen parameters per letter:
 13052020 today i was able to finish to off the alphabet, and strated to play around with the colours, though I'm thinking i might change the colours again 
 
 16052020 Today I did interpolation, and now when the letters change it is done soomthly 
+
+17052020 AFter having done the code side of it all, i started to play around with the colours. I found the clours i had chosen didn't really work the way i wanted them to. So now i have gone for more watermelon colours. I also made it that there was no stroke as i found the stoke runied the letters.

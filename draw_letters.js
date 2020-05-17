@@ -1,7 +1,6 @@
-const colorFront1  = "#B8E1FF";
-const colorFront2  = "#F7AEA5";
-const colorFront3  = "#F2D1C9";
-
+const colorFront1  = "#4fb3a2";
+const colorFront2  = "#ff9aa2";
+const colorFront3  = "#ffb7b2";
 const colorStroke  = "#ffffff";
 
 /*
@@ -35,6 +34,7 @@ function drawLetter(letterData) {
   // draw two circles
   
   fill(colorFront3);
+  strokeWeight();
   triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
   
   fill(colorFront2);
@@ -68,7 +68,23 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "TRI2LINE",
+  "GEORGIAW",
+  "DIRECTLY",
+  "TRAINING",
+  "01234567",
+  "89ANGLES",
+  "RUNNING1",
+  "SQUARELI",
+  "QUESTION",
+  "ZIGZAGZI",
+  "EVIDENCE",
+  "PROBLEMS",
+  "BUSINESS",
+  "FLOWERSS",
+  "  XRAY  ",
+  "  HERO  ",
+  "JOGGING1",
+  "  KITE  ",
+  "TRIANGLE"
 ]
