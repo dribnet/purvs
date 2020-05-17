@@ -281,9 +281,16 @@ const alphabet = {
     "cir2offsety": -20
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 15,
+    "offsetx": 0,
+    "offsety": -40,
+    "cirsize1": 40,
+    "cirsize2": 70,
+    "ciroffsetx": 30,
+    "ciroffsety": 0,
+    "cir2offsetx": -30,
+    "cir2offsety": 0
   },
   "Y": {
     "sizex": 25,
