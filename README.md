@@ -1,10 +1,14 @@
 ## MDDN 242 2020 Assignment 2
 
-Part 3: Interpolation
+Testing Different Colour Palettes
+    
+  It was interesting trying different colours for the lines and what worked wwell. My inspiration for my alphabet is the television static - its colours and the effect it has when layered when transparent. My inspiration is not really noticable when the colour palette strays away from the static colours. But I really like the look of the other colour palettes, because they have a tropical vibe. Since I have experimented with other colour palettes I am favouring the tropical colours more. It looks more refreshing and they tend to work better together more than the normal static colour palette I have originally used. If I do end up using the tropical themed colour palette, I'd say my final alphabet's concept is a tropical television static.
 
- During the creation of my alphabet I continuosly considered how each line would move so that this interpolation stage was pretty much finished for me. I think the idea of using all 4 lines and colours helped make the letter changes more seemless if compared to some lines not used. I'm happy with how the characters moved from another. I especially liked how the characters X, K, J, S, and U changed from different characters. I'm glad that I thought about the values for X and Y axis during the process of creating the characters, giving me a rough idea in how they can change to a different character - which also helped finish this interpolation part of the project at the same time.
-
- I have also changed the background colour to a pale baby blue as it helped add a tint to the background. I tried other colours such as black and mid blue for the background but they muted the colours of the characters, thats why I decided to choose a light background colour.
+![](images/let1.png) 
+![](images/let2.png) 
+![](images/let3.png) 
+![](images/let4.png) 
+![](images/let5.png) 
 
 
 The Parameters per letter:

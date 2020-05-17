@@ -18,7 +18,12 @@ const B3 = 255;
 //ALPHA COLOUR OPACITY LEVELS 
 const A1 = 190; //Bright Colour
 
+/*#Red - #ff1212
+const R3 = 255;
+const G3 = 18;
+const B3 = 18;
 
+*/
 /*
  * Draw the letter given the letterData
  *
