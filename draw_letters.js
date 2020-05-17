@@ -1,9 +1,5 @@
-const colorFront1  = "#f55a42";
-const colorFront2  = "#42b6f5";
-const colorStroke  = "#233f11";
 
-
-
+//Colours 
 const red1 = 255;
 const green1 = 234;
 const blue1 = 0;
@@ -15,8 +11,6 @@ const green3 = 0;
 const blue3 = 0;
 
 
-
-
 /*
  * Draw the letter given the letterData
  *
@@ -25,7 +19,6 @@ const blue3 = 0;
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-
 
   noStroke();
 
@@ -41,22 +34,21 @@ let rectH = letterData["rectH"];
 let rectW = letterData["rectW"];
 let rotateR = letterData["rotate"];
 let flipX = letterData["flipX"];
-  let flipY = letterData["flipY"];
+let flipY = letterData["flipY"];
 
 
 //draws arcs
-fill(red1, green1, blue1, 150);
+fill(red1, green1, blue1, 250);
 angleMode(DEGREES); 
 arc(50, 100, 100, 100, flipX, flipY);
-fill(red2, green2, blue2, 150);
+fill(red2, green2, blue2, 250);
 arc(pos2x, pos2y, size2, size2, start2, end2);
-fill(red3, green3, blue3, 150);
+fill(red3, green3, blue3, 250 );
 
   push();
   rotate(rotateR);
   rect(rectX, rectY, rectW, rectH);
   pop();
-
 
 
 }
@@ -72,11 +64,14 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
   new_letter["rectH"] = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
   new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
+  new_letter["rotate"] = map(percent, 0, 100, oldObj["rotate"], newObj["rotate"]);
+  new_letter["flipX"] = map(percent, 0, 100, oldObj["flipX"], newObj["flipX"]);
+  new_letter["flipY"] = map(percent, 0, 100, oldObj["flipY"], newObj["flipY"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "CAITLINP",
   "CAB?CAB?",
   "BAAAAAAA"
 ]

@@ -1,5 +1,10 @@
 ## MDDN 242 2020 Assignment 2
 
+Concept:
+
+Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a semi-circle arc, a rectangle and a full circle. Each shape has a different colour similar to the Bauhaus type.
+
+
 The nine parameters per letter:
 
 - size2: the size of the circle
@@ -11,6 +16,9 @@ The nine parameters per letter:
 - rectY: y position of the rectangle 
 - rectH: height of the rectangle 
 - rectW: width of the rectangle 
+- rotate: rotates the rectangle
+- flipX: Arc x to swap numerical value with y
+- flipY: Arc y to swap numerical value with x 
 
   First tutorial for PS2. Getting used to using github desktop and changing files. Made a simple design using arcs as a basis for my design. Also uploaded a variety of different sketch ideas.
 
