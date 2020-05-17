@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#c1eef5";
 const colorLines   = "#000090";
 
 /*******
@@ -11,19 +11,9 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["pinkoffsetx",0, 100],
-  ["pinkoffsety",0,  30],
-  ["offset2y",0, 100],
-  ["offset2y", 0, 100],
-  ["offset3x", 0, 100],
-  ["offset3y", 0, 100],
-  ["offsetx2", 0, 100],
-  ["offsety2", 0, 100],
-  ["offset2x2", 0, 100],
-  ["offset2y2", 0, 100],
-  ["offset3x2", 0, 100],
-  ["offset3y2", 0, 100],
-  ["opacity", 0, 255],
+  ["redoffsetx", -50, 50],
+  ["pinkoffsety", -100, 100],
+
  
 ];
 

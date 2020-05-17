@@ -1,15 +1,10 @@
-const colorFront1  = "#EFBDEB";
-const colorFront2  = "#B68CB8";
-const colorFront3  = "#6461A0";
 
-const colorStroke  = "#114B5F";
-
-//Dark Purple
+//Red
 const red1 = 255
 const green1 = 0
 const blue1 = 0
 
-//Dark Turquisoe 
+//Yellow
 const red4 = 255
 const green4 = 229
 const blue4 = 0
@@ -23,19 +18,19 @@ const blue4 = 0
  */
 function drawLetter(letterData) {
 
-  let pinktriAx = 50 + letterData["pinkoffsetx"];
-  let pinktriAy = 100 + letterData["pinkoffsety"];
-  let pinktriA2x = 50 + letterData["offset2x"];
-  let pinktriA2y = 100 + letterData["offset2y"];
-  let pinktriA3x = 50 + letterData["offset3x"];
-  let pinktriA3y = 100 + letterData["offset3y"];
+  let redtriAx = 50 + letterData["redoffsetx"];
+  let redtriAy = 100 + letterData["pinkoffsety"];
+  let redtriA2x = 50 + letterData["offset2x"];
+  let redtriA2y = 100 + letterData["offset2y"];
+  let redtriA3x = 50 + letterData["offset3x"];
+  let redtriA3y = 100 + letterData["offset3y"];
 
-  let greentrix = 50 + letterData["offsetx2"];
-  let greentriy = 100 + letterData["offsety2"];
-  let greentri2x = 50 + letterData["offset2x2"];
-  let greentri2y = 100 +letterData["offset2y2"];
-  let greentri3x = 50 + letterData["offset3x2"];
-  let greentri3y = 100 + letterData["offset3y2"];
+  let yellowtrix = 50 + letterData["offsetx2"];
+  let yellowtriy = 100 + letterData["offsety2"];
+  let yellowtri2x = 50 + letterData["offset2x2"];
+  let yellowtri2y = 100 +letterData["offset2y2"];
+  let yellowtri3x = 50 + letterData["offset3x2"];
+  let yellowtri3y = 100 + letterData["offset3y2"];
 
   let opacity2 = letterData["opacity"];
 
@@ -43,10 +38,10 @@ function drawLetter(letterData) {
   strokeWeight(0);
 
   fill(red1,green1,blue1);
-  triangle(pinktriAx, pinktriAy,pinktriA2x, pinktriA2y, pinktriA3x, pinktriA3y);
+  triangle(redtriAx, redtriAy,redtriA2x, redtriA2y, redtriA3x, redtriA3y);
 
   fill(red4,green4,blue4,opacity2);
-  triangle(greentrix, greentriy,greentri2x, greentri2y, greentri3x, greentri3y);
+  triangle(yellowtrix, yellowtriy, yellowtri2x, yellowtri2y, yellowtri3x, yellowtri3y);
 
 
 }
@@ -54,7 +49,7 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
-  new_letter["pinkoffsetx"] = map(percent, 0, 100, oldObj["pinkoffsetx"], newObj["pinkoffsetx"]);
+  new_letter["redoffsetx"] = map(percent, 0, 100, oldObj["redoffsetx"], newObj["redoffsetx"]);
   new_letter["pinkoffsety"] = map(percent, 0, 100, oldObj["pinkoffsety"], newObj["pinkoffsety"]);
   new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
   new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
