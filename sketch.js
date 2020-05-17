@@ -2,70 +2,76 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /*
- * my three variable per letter are:
+ * my fourteen variables per letter are:
  *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+ "arcW" : width of all arcs
+ "arcH" : height of all arcs
+ "arcX" : x position of arc 1
+ "arcY" : y position of arc 1
+ "arcS" : starting point of arc 1
+ "arcE" : ending point of arc 1
+ "arcX2" : x position of arc 2
+ "arcY2" : y position of arc 2
+ "arcS2" : starting point of arc 2
+ "arcE2" : ending point of arc 2
+ "arcX3" : x position of arc 3
+ "arcY3" : y position of arc 3
+ "arcS3" : starting point of arc 3
+ "arcE3" : ending point of arc 3
  *
  */
 
 const letterA = {
-  //rectangle
-  "rectX" : 0,
-  "rectY" : 0,
-  "rectW" : 33,
-  "rectH" : 82,
-  //arc
+  //constant arc parameters
   "arcW" : 80,
   "arcH" : 80,
 
   //arc 1
-  "arcX" : -20,
+  "arcX" : 8,
   "arcY" : 40,
-  "arcS" : 45,
-  "arcE" : 225,
+  "arcS" : 270,
+  "arcE" : 90,
 
   //arc 2
   "arcX2" : -20,
   "arcY2" : 40,
-  "arcS2" : 135,
-  "arcE2" : 315,
+  "arcS2" : 45,
+  "arcE2" : 225,
+
+  //arc 3
+  "arcX3" : -20,
+  "arcY3" : 40,
+  "arcS3" : 135,
+  "arcE3" : 315,
 
 }
 
 const letterB = {
-  //rectangle
-  "rectX" : -30,
-  "rectY" : -30,
-  "rectW" : 35,
-  "rectH" : 112,
   //arc
   "arcW" : 80,
   "arcH" : 80,
 
   //arc 1
-  "arcX" : 25,
-  "arcY" : 40,
-  "arcS" : 225,
-  "arcE" : 45,
+  "arcX" : -2,
+  "arcY" : -28,
+  "arcS" : 90,
+  "arcE" : 270,
 
   //arc 2
   "arcX2" : 25,
   "arcY2" : 40,
-  "arcS2" : 315,
-  "arcE2" : 135,
+  "arcS2" : 225,
+  "arcE2" : 45,
+
+  //arc 3
+  "arcX3" : 25,
+  "arcY3" : 40,
+  "arcS3" : 315,
+  "arcE3" : 135,
 
 }
 
 const letterC = {
-  //rectangle
-  "rectX" : 10,
-  "rectY" : 12,
-  "rectW" : 28,
-  "rectH" : 55,
   //arc
   "arcW" : 80,
   "arcH" : 80,
@@ -73,14 +79,20 @@ const letterC = {
   //arc 1
   "arcX" : 10,
   "arcY" : 40,
-  "arcS" : 45,
-  "arcE" : 225,
+  "arcS" : 135,
+  "arcE" : 315,
 
   //arc 2
   "arcX2" : 10,
   "arcY2" : 40,
-  "arcS2" : 135,
-  "arcE2" : 315,
+  "arcS2" : 45,
+  "arcE2" : 225,
+
+  //arc 3
+  "arcX3" : 10,
+  "arcY3" : 40,
+  "arcS3" : 135,
+  "arcE3" : 315,
 
 }
 
@@ -103,12 +115,6 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   //letter parameters
-  //rectangle
-  let rectangleX = posx + letterData ["rectX"];
-  let rectangleY = posy + letterData ["rectY"];
-  let rectangleWid = letterData ["rectW"];
-  let rectangleHei = letterData ["rectH"];
-
   //arc 1
   let arcX = posx + letterData ["arcX"];
   let arcY = posy + letterData ["arcY"];
@@ -121,21 +127,27 @@ function drawLetter(posx, posy, letterData) {
   let arcS2 = letterData ["arcS2"];
   let arcE2 = letterData ["arcE2"];
 
-  //Shared arc parameters
+  //arc 3
+  let arcX3 = posx + letterData ["arcX3"];
+  let arcY3 = posy + letterData ["arcY3"];
+  let arcS3 = letterData ["arcS3"];
+  let arcE3 = letterData ["arcE3"];
+
+
   let arcWid = letterData ["arcW"];
   let arcHei = letterData ["arcH"];
 
-  //rectangle
-  fill(colorFront1);
-  rect(rectangleX, rectangleY, rectangleWid, rectangleHei)
-
   //arc 1
-  fill(colorFront2);
+  fill(colorFront1);
   arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
 
   //arc 2
-  fill(colorFront3);
+  fill(colorFront2);
   arc(arcX2, arcY2, arcWid, arcHei, arcS2, arcE2);
+
+  //arc 3
+  fill(colorFront3);
+  arc(arcX3, arcY3, arcWid, arcHei, arcS3, arcE3);
 
 }
 

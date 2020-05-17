@@ -1,6 +1,6 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorFront1  = "#6dc9c9"; //tiffany blue
+const colorFront2  = "#ffb2b2"; //coral pink
+const colorFront3  = "#ffd0b5"; //salmon pink
 
 /*
  * Draw the letter given the letterData
@@ -11,19 +11,42 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  noStroke();
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  //letter parameters
+  //rectangle
+  let rectangleX = letterData ["rectX"];
+  let rectangleY = letterData ["rectY"];
+  let rectangleWid = letterData ["rectW"];
+  let rectangleHei = letterData ["rectH"];
 
-  // draw two circles
+  //arc 1
+  let arcX = letterData ["arcX"];
+  let arcY = letterData ["arcY"];
+  let arcS = letterData ["arcS"];
+  let arcE = letterData ["arcE"];
+
+  //arc 2
+  let arcX2 = letterData ["arcX2"];
+  let arcY2 = letterData ["arcY2"];
+  let arcS2 = letterData ["arcS2"];
+  let arcE2 = letterData ["arcE2"];
+
+  //Shared arc parameters
+  let arcWid = letterData ["arcW"];
+  let arcHei = letterData ["arcH"];
+
+  //rectangle
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  rect(rectangleX, rectangleY, rectangleWid, rectangleHei);
+
+  //arc 1
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
+
+  //arc 2
+  fill(colorFront3);
+  arc(arcX2, arcY2, arcWid, arcHei, arcS2, arcE2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
