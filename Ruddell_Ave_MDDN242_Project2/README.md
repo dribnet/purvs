@@ -5,7 +5,7 @@
 6/5/2020
 Each of my letters is composed of 2 squares. My alphabet is based on the Semaphore alphabet, regarding the placement of the squares
 
-Colour-wise I decided to try a simple kind of 'neon' aesthetic
+Colour-wise I decided to try a simple kind of 'neon' aesthetic, taken from this photo: https://flic.kr/p/2j2strf
 
 The three parameters per letter:
   * `size` : the height and width of the squares
@@ -22,4 +22,12 @@ The three parameters per letter:
 
   Parameters for square 2:
   Same as in 6/5/2020 update.
+
+  16/5/2020
+  Finished mapping out the letters, some tweaks needed for placement. 
+
+  Have yet to work out separate numbers, as the alphabet system I am using doesn't have separate numbers, instead using the first 10 letters of the alphabet as the numbers 0-9. 
+  
+  I have mapped out some possible combos for numbers, as I want to try to keep all of my letter- and number-forms using the same 2 shapes as I feel like suddenly adding a shape to my numbers would be inconsistent and rather jarring.
+  https://flic.kr/p/2j2uVat
 
