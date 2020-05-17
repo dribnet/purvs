@@ -32,7 +32,7 @@ function drawLetter(letterData) {
   
   push();
   scale(0.65);
-  strokeWeight(8);
+  strokeWeight(10);
 
   fill(colorArc);
   arc(pos2x, pos2y, arcsx, arcsy, arcs, arce, PIE);
@@ -59,7 +59,15 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+  "CANDYPIE",
+  "LOLLIPOP",
   "PLAYFUL!",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "ABSTRACT",
+  "SOFTPINK",
+  "BABYBLUE",
+  "CONTRAST",
+  "POPPING!",
+  "CHEERFUL",
+  "STYLIZED"
+  
 ]

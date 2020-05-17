@@ -1,6 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-I've played around with my animations and have smoothed them out. This has resulted in some of the letters changing shape for more fluidity. I like the idea of an eccentric aesthetic so even the more abrupt transitions add to the playfulness of the lettering.
+I fixed up a few of the letters as I noticed they weren't all the same size, which gave a messier look than I was intending. I picked out some words, I wanted them to reflect the fun, bright idea that I was aiming for. I did experiment with a lemonade colour scheme but I wasn't a fan
+
+I named my font 'Candypie', it's a gentle name that is bursting with colour and flavour. This reflects my font very well.
 
 The parameters per letter:
   offsetx - the x offset of the letter components
