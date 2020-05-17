@@ -19,12 +19,6 @@ const B3 = 255;
 const A1 = 190; //Bright Colour
 
 /*
-//Lime Green - #79ff12
-const R2 = 121;
-const G2 = 255;
-const B2 = 18;
-*/
-/*
  * Draw the letter given the letterData
  *
  * Letters should always be drawn with the
@@ -102,7 +96,12 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "TROPICAL",
+  "!STATIC!",
+  "TELEVIZE",
+  "JUNKFOOD",
+  "CHROMIZE",
+  "JOKINGLY",
+  "EXHIBITS"
+
 ]

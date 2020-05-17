@@ -494,9 +494,9 @@ const alphabet = {
     "sWeight1": 30
   },
   "Z": {
-    "lineX1": 52, //yellow
+    "lineX1": 50, //yellow
     "lineY1": 0,
-    "lineX2": 48,
+    "lineX2": 50,
     "lineY2": 200,
     "lineX3": 70, //purple
     "lineY3": 15,
@@ -510,7 +510,7 @@ const alphabet = {
     "lineY7": 185,
     "lineX8": 30,
     "lineY8": 185,
-    "sWeight1": 37
+    "sWeight1": 40
   },
   "0": {
     "lineX1": 89, //yellow
