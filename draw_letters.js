@@ -29,8 +29,11 @@ function drawLetter(letterData) {
   // draw arcs
   angleMode(DEGREES);
   noStroke();
+
   fill(red1, green1, blue1, 150);
   arc(arcX1, arcY1, arcSize1, arcSize1, arcStart1, arcStop1);
+
+
   fill(red2, green2, blue2, 150);
   arc(arcX2, arcY2, arcSize2, arcSize2, arcStart2, arcStop2);
 
@@ -53,6 +56,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "JAMIELUM",
-  "?WEMMEW?",
+  "3wem3wem",
   "BAAAAAAA"
 ]

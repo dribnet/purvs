@@ -5,8 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-More new letters, animation added.
+Various refinements
 
-L, M, N, O, P, S, U, V, and W now all exist. B and J, and I have ben modified. Interpolation between letters have been added. Unfortunately, I've made my arcs swap sides a lot, making for some odd movements. I'll have to see if I can fix that at some point.
-
-Exhibition now also says my name. Yay.
+Made small refinements to a few letters. Tried adding an extra arc which drew at the same position and size as one of the others, but with a different start and end point (Which I should have probably bushed before binning..oops), in order to make leters like Q and R easier. It looked awful though, so I axed it pretty quickly.
