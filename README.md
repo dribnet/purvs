@@ -1,3 +1,15 @@
 ## MDDN 242 2020 Assignment 2
 
-After recently handing in a different project I can now put more focus on chipping away at making this alphabet. I have added a few more letters and continue on making more and more. Before making a letter I have to really plan on how I am going to do it, with only the limited shapes of two circles and a rectangle it can be quite difficult for some letters. So far im really pleased with how they are turning out and how readable they are. Now to continue making more letters.
+Added more letters and started making numbers. there are still a few letters that are going to be hard to make and will take a lot of figuring out to create. The letters that I am stuck on are: K, R, T, X, Y. The reason these letters are hard is because of my limited shapes too use to make them.
+
+Currently I am sitting on a nice 10 parameters:
+sizex
+sizey
+offsetx
+offsety
+cirsize1
+cirsize2
+ciroffsetx
+ciroffsety
+cir2offsetx
+cir2offsety

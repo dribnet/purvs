@@ -130,34 +130,76 @@ const alphabet = {
     "offsety": 0
   },
   "L": {
-    "size": 50,
+    "sizex": 70,
+    "sizey": 70,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": -15,
+    "cirsize1": 5,
+    "cirsize2": 5,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 15,
+    "offsetx": 0,
+    "offsety": -40,
+    "cirsize1": 20,
+    "cirsize2": 60,
+    "ciroffsetx": 20,
+    "ciroffsety": 20,
+    "cir2offsetx": -20,
+    "cir2offsety": 20
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 20,
+    "offsety": 0,
+    "cirsize1": 20,
+    "cirsize2": 70,
+    "ciroffsetx": 20,
+    "ciroffsety": -15,
+    "cir2offsetx": -20,
+    "cir2offsety": 15
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 0,
+    "offsety": 0,
+    "cirsize1": 40,
+    "cirsize2": 60,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 60,
+    "sizey": 40,
+    "offsetx": 20,
+    "offsety": 30,
+    "cirsize1": 40,
+    "cirsize2": 20,
+    "ciroffsetx": 15,
+    "ciroffsety": -20,
+    "cir2offsetx": 15,
+    "cir2offsety": -20
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 20,
+    "offsetx": 10,
+    "offsety": 20,
+    "cirsize1": 40,
+    "cirsize2": 60,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "R": {
     "size": 50,
@@ -165,9 +207,16 @@ const alphabet = {
     "offsety": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": -20,
+    "offsety": 20,
+    "cirsize1": 50,
+    "cirsize2": 20,
+    "ciroffsetx": -25,
+    "ciroffsety": 20,
+    "cir2offsetx": 25,
+    "cir2offsety": -20
   },
   "T": {
     "size": 50,
@@ -175,19 +224,40 @@ const alphabet = {
     "offsety": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 40,
+    "sizey": 60,
+    "offsetx": 0,
+    "offsety": -20,
+    "cirsize1": 40,
+    "cirsize2": 40,
+    "ciroffsetx": 0,
+    "ciroffsety": 10,
+    "cir2offsetx": 0,
+    "cir2offsety": 10
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 30,
+    "offsetx": 0,
+    "offsety": -35,
+    "cirsize1": 20,
+    "cirsize2": 80,
+    "ciroffsetx": 0,
+    "ciroffsety": -5,
+    "cir2offsetx": 0,
+    "cir2offsety": -5
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 15,
+    "offsetx": 0,
+    "offsety": 40,
+    "cirsize1": 20,
+    "cirsize2": 60,
+    "ciroffsetx": 20,
+    "ciroffsety": -20,
+    "cir2offsetx": -20,
+    "cir2offsety": -20
   },
   "X": {
     "size": 50,
@@ -200,14 +270,28 @@ const alphabet = {
     "offsety": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 20,
+    "offsety": 20,
+    "cirsize1": 70,
+    "cirsize2": 10,
+    "ciroffsetx": 15,
+    "ciroffsety": 20,
+    "cir2offsetx": -15,
+    "cir2offsety": -20
   },
   "0": {
-    "size": 40,
+    "sizex": 60,
+    "sizey": 10,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "cirsize1": 40,
+    "cirsize2": 60,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "1": {
     "size": 40,
