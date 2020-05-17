@@ -13,8 +13,7 @@ By using CORNERS, it removes the need for me to define the size of the shape exp
 The triangles are drawn with a tiny bit of math. Pos1 is always the point when it's the only point on that particular y coordinate, and pos2 is always the point with another point on the same y coordinate. Point 3 on the triangle is found by find the difference between pos1x and pos2x, * by 2 to get width, and the y is the as pos2. My triangles are always isoceles triangles, with symmetry across the y axis.
 
 
-In trying to implement interpolation, I have run into my first set of problems. Due to the way I use my parameters, each shape can be one of 4 things:
-"tri", "circ", "rect", or "null" (in the case where it won't be drawn). 
-Due to this difference between shapes, my interpolation between letters that do not share the same make up (eg E and F are both made up of 3 rectangles) isn't great. I've tried to put measures in place at current date, but things just get wild. 
-I think my current approach, having if statements with multiple cases for each shape, is good but my implementation with the maps and variables for unusual interpolation needs some refining.
-This will definitely be the most challenging part of the project for me, and I hope I can overcome it!
+I surprised myself with the implementation of my interpolation. The fix from last times issues was fairly simple, just some rearranging of map statements.
+At this point, I'm incredibly happy with the state of my animations, I think they look great and work well with the set up for my letterforms.
+After playing around with the colours of it, I decided on a name, Peachy Popsicle, or PeachPop to fit that 8 character limit. I think this is really cute and does a good job to sum up the feeling of my letterform.
+After doing this, there's not much left to do regarding the problem set. I think I will revisit a couple letters, such as N, A, and Q, to see if i can make them look more interesting/less sharp (especially in the case of N).
