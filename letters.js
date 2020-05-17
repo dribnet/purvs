@@ -125,9 +125,16 @@ const alphabet = {
     "cir2offsety": 20
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 20,
+    "sizey": 15,
+    "offsetx": 40,
+    "offsety": 0,
+    "cirsize1": 30,
+    "cirsize2": 40,
+    "ciroffsetx": 0,
+    "ciroffsety": -30,
+    "cir2offsetx": 0,
+    "cir2offsety": 30
   },
   "L": {
     "sizex": 70,
@@ -202,9 +209,16 @@ const alphabet = {
     "cir2offsety": 0
   },
   "R": {
-    "size": 50,
+    "sizex": 30,
+    "sizey": 20,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": -25,
+    "cirsize1": 30,
+    "cirsize2": 50,
+    "ciroffsetx": 0,
+    "ciroffsety": 25,
+    "cir2offsetx": 0,
+    "cir2offsety": 25
   },
   "S": {
     "sizex": 0,
@@ -212,16 +226,23 @@ const alphabet = {
     "offsetx": -20,
     "offsety": 20,
     "cirsize1": 50,
-    "cirsize2": 20,
+    "cirsize2": 10,
     "ciroffsetx": -25,
     "ciroffsety": 20,
     "cir2offsetx": 25,
     "cir2offsety": -20
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 100,
+    "sizey": 10,
+    "offsetx": 0,
+    "offsety": 42,
+    "cirsize1": 40,
+    "cirsize2": 70,
+    "ciroffsetx": 30,
+    "ciroffsety": 15,
+    "cir2offsetx": -30,
+    "cir2offsety": 15
   },
   "U": {
     "sizex": 40,
@@ -265,9 +286,16 @@ const alphabet = {
     "offsety": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "sizex": 25,
+    "sizey": 20,
+    "offsetx": 0,
+    "offsety": -40,
+    "cirsize1": 40,
+    "cirsize2": 70,
+    "ciroffsetx": 30,
+    "ciroffsety": 15,
+    "cir2offsetx": -30,
+    "cir2offsety": 15
   },
   "Z": {
     "sizex": 0,
@@ -294,49 +322,112 @@ const alphabet = {
     "cir2offsety": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 37,
+    "sizey": 45,
+    "offsetx": 28,
+    "offsety": -28,
+    "cirsize1": 40,
+    "cirsize2": 70,
+    "ciroffsetx": 30,
+    "ciroffsety": 0,
+    "cir2offsetx": -30,
+    "cir2offsety": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": 20,
+    "offsety": 20,
+    "cirsize1": 70,
+    "cirsize2": 20,
+    "ciroffsetx": 15,
+    "ciroffsety": 20,
+    "cir2offsetx": -15,
+    "cir2offsety": -20
   },
   "3": {
-    "size": 40,
+    "sizex": 0,
+    "sizey": 0,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 20,
+    "cirsize1": 60,
+    "cirsize2": 20,
+    "ciroffsetx": -20,
+    "ciroffsety": 20,
+    "cir2offsetx": -20,
+    "cir2offsety": -20
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 70,
+    "sizey": 20,
+    "offsetx": -15,
+    "offsety": 40,
+    "cirsize1": 25,
+    "cirsize2": 50,
+    "ciroffsetx": 0,
+    "ciroffsety": -25,
+    "cir2offsetx": 0,
+    "cir2offsety": -25
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 0,
+    "sizey": 0,
+    "offsetx": -20,
+    "offsety": 20,
+    "cirsize1": 50,
+    "cirsize2": 20,
+    "ciroffsetx": -25,
+    "ciroffsety": 20,
+    "cir2offsetx": 25,
+    "cir2offsety": -20
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 60,
+    "sizey": 15,
+    "offsetx": 20,
+    "offsety": -15,
+    "cirsize1": 40,
+    "cirsize2": 20,
+    "ciroffsetx": 0,
+    "ciroffsety": 20,
+    "cir2offsetx": 0,
+    "cir2offsety": 20
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 70,
+    "sizey": 70,
+    "offsetx": -15,
+    "offsety": 15,
+    "cirsize1": 5,
+    "cirsize2": 5,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": 0
   },
   "8": {
-    "size": 40,
+    "sizex": 0,
+    "sizey": 0,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 30,
+    "cirsize1": 40,
+    "cirsize2": 20,
+    "ciroffsetx": 0,
+    "ciroffsety": 25,
+    "cir2offsetx": 0,
+    "cir2offsety": -25
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "sizex": 60,
+    "sizey": 15,
+    "offsetx": -20,
+    "offsety": 15,
+    "cirsize1": 40,
+    "cirsize2": 20,
+    "ciroffsetx": 0,
+    "ciroffsety": -20,
+    "cir2offsetx": 0,
+    "cir2offsety": -20
   }
 
 }
