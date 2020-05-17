@@ -1,7 +1,22 @@
+const colorFront1  = "#f71735";//big, main
+const colorFront2  = "#5aa9e6";//small
+const colorFront3  = "#fdfffc";//small
+const colorFront4  = "#273043";//small
+
+
+const colorStroke  = "#233f11";
+
+/*
+ * Draw the letter given the letterData
+ *
+ * Letters should always be drawn with the
+ * following bounding box guideline:
+ * from (0,0) to (100, 200)
+ */
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(2);
 
   // determine parameters for second circle
   let posx1 = 50+letterData["x1"];
