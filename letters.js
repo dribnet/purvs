@@ -148,69 +148,147 @@ const alphabet = {
     "stickPosy": -40
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 28,
+    "offsety": 150,
+    "leaf2Posx": 45,
+    "leaf2Posy": 0,
+    "rotate1": 180,
+    "rotate2": 0,
+    "rotate3": -35,
+    "stickPosx": 0,
+    "stickPosy": -34
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 45,
+    "offsety": 150,
+    "leaf2Posx": 13,
+    "leaf2Posy": 0,
+    "rotate1": 190,
+    "rotate2": 10,
+    "rotate3": 10,
+    "stickPosx": 15,
+    "stickPosy": -40
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 135,
+    "leaf2Posx": 0,
+    "leaf2Posy": -30,
+    "rotate1": 250,
+    "rotate2": 290,
+    "rotate3": 0,
+    "stickPosx": -42,
+    "stickPosy": -22
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 40,
+    "offsety": 150,
+    "leaf2Posx": 13,
+    "leaf2Posy": 0,
+    "rotate1": 190,
+    "rotate2": 10,
+    "rotate3": -35,
+    "stickPosx": 0,
+    "stickPosy": -20
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 27,
+    "offsety": 150,
+    "leaf2Posx": 23,
+    "leaf2Posy": -30,
+    "rotate1": 0,
+    "rotate2": 290,
+    "rotate3": -35,
+    "stickPosx": 0,
+    "stickPosy": -23
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 170,
+    "leaf2Posx": 0,
+    "leaf2Posy": -63,
+    "rotate1": 90,
+    "rotate2": 270,
+    "rotate3": -50,
+    "stickPosx": -33,
+    "stickPosy": -58
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 150,
+    "leaf2Posx": 0,
+    "leaf2Posy": -40,
+    "rotate1": 0,
+    "rotate2": 270,
+    "rotate3": 0,
+    "stickPosx": 0,
+    "stickPosy": -52
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 65,
+    "offsety": 150,
+    "leaf2Posx": -33,
+    "leaf2Posy": 0,
+    "rotate1": 20,
+    "rotate2": 340,
+    "rotate3": 0,
+    "stickPosx": 20,
+    "stickPosy": -38
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 65,
+    "offsety": 150,
+    "leaf2Posx": -33,
+    "leaf2Posy": 0,
+    "rotate1": 20,
+    "rotate2": 340,
+    "rotate3": 15,
+    "stickPosx": 7,
+    "stickPosy": -42
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 65,
+    "offsety": 150,
+    "leaf2Posx": -30,
+    "leaf2Posy": 0,
+    "rotate1": 210,
+    "rotate2": 150,
+    "rotate3": 0,
+    "stickPosx": -11,
+    "stickPosy": -42
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 150,
+    "leaf2Posx": 0,
+    "leaf2Posy": 0,
+    "rotate1": 220,
+    "rotate2": 140,
+    "rotate3": 30,
+    "stickPosx": 17,
+    "stickPosy": -38
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 68,
+    "offsety": 128,
+    "leaf2Posx": -35,
+    "leaf2Posy": 0,
+    "rotate1": 215,
+    "rotate2": 145,
+    "rotate3": 0,
+    "stickPosx": -15,
+    "stickPosy": -15
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "offsetx": 50,
+    "offsety": 170,
+    "leaf2Posx": 0,
+    "leaf2Posy": -63,
+    "rotate1": 270,
+    "rotate2": 90,
+    "rotate3": 50,
+    "stickPosx": 30,
+    "stickPosy": -58
   },
   "0": {
     "size": 40,

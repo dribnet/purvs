@@ -1,6 +1,6 @@
-## Making more letters
+## A-Z
 
-Now that I am happy with my shapes, I have started to make more letters from D to M. I have been using the editor to make it faster to move around the parameters to get them looking nice, I just had to slightly adjust the slider values from when I first put them in so I could make all the shapes I wanted. The letters G and K look a bit strange with the length of the stick and would look better if the length could be changed, but it works fine with all the other letters so far so I will try to not make it into another parameter if it works for the rest of the letters as well.
+I have been continuing with making my letters and have now finished A-Z and just have the numbers left. I'm pretty happy with the shapes at this stage, they are nicely readable and none of them look too similar to each other. I'm starting to think that the design is rather simple as all my parameters are just changing the x and y and rotating the drawn shapes, so I might think of something extra to add to make it a bit more interesting.
 
 I currently have 9 parameters;
 	"offsetx": X position of the first leaf
