@@ -1,36 +1,40 @@
 const alphabet = {
   "default": {
     "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "offset1Smallx": 0,
+    "offset1Smally": 0
   },
   "A": {
-  "offsetx": 0,
-  "offsety": 35,
-  "stroke1": 1,
-  "stroke2": 5,
-  "scale2": 1
+  "offset1Smallx": 0,
+  "offset1Smally": 35,
+  "stroke1Small": 1,
+  "stroke1Big": 5,
+  "scale2": 1,
+  "rotate1S": 1
   },
   "B": {
-  "offsetx": 0,
-  "offsety": -145,
-  "stroke1": 3,
-  "stroke2": 5,
-  "scale2": 2
+  "offset1Smallx": 0,
+  "offset1Smally": -145,
+  "stroke1Small": 3,
+  "stroke1Big": 5,
+  "scale2": 2,
+  "rotate1S": 1
   },
   "C": {
-  "offsetx": 30,
-  "offsety": 0,
-  "stroke1": 2,
-  "stroke2": 5,
-  "scale2": 1
+  "offset1Smallx": 30,
+  "offset1Smally": 0,
+  "stroke1Small": 2,
+  "stroke1Big": 5,
+  "scale2": 1,
+  "rotate1S": 1
   },
   "D": {
-  "offsetx": 0,
-  "offsety": 10,
-  "stroke1": 2,
-  "stroke2": 5,
-  "scale2": 1
+  "offset1Smallx": 0,
+  "offset1Smally": 10,
+  "stroke1Small": 2,
+  "stroke1Big": 5,
+  "scale2": 1,
+  "rotate1S": 1
   },
   "E": {
     "size": 50,

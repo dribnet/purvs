@@ -13,27 +13,34 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   angleMode(DEGREES)
   // determine parameters for triangles
-  let size2 = letterData["size"];
-  let pos2x = 50 + letterData["offsetx"];
-  let pos2y = 100 + letterData["offsety"];
-  let stroke1 = letterData["stroke1"];
-  let stroke2 = letterData["stroke2"];
-  let sizer2 = letterData["scale2"];
+  let pos1SmallX = 50 + letterData["offset1Smallx"];
+  let pos1SmallY = 100 + letterData["offset1Smally"];
+  let stroke1Small = letterData["stroke1Small"];
+  let stroke1Big = letterData["stroke1Big"];
+  let rotate1Big = letterData["rotate1S"];
+  let rotate2Big = letterData["rotate1S"];
+  let rotate1Small = letterData["rotate1S"];
+  let rotate2Small = letterData["rotate1S"];
 
   // draw some lines:
   // line(posx, posy, posx+50, posy+50);
   // line(pos2x, pos2y, pos2x-50, pos2y-50);
   // draw some triangles:
-  strokeWeight(stroke2);
+  strokeWeight(stroke1Big);
   fill(colorFront2);
-  triangle(50, 100-25, 50+50, 100+50, 50-50, 100+50);
-  strokeWeight(stroke1);
-  fill(colorFront1);
+  //triangle(50, 100-25, 50+50, 100+50, 50-50, 100+50);   // first big triangle
+
   push();
-  scale(sizer2);
-  translate(-(sizer2-1)*240, -(sizer2-1)*30);
-  triangle(pos2x, pos2y-12.5, pos2x+25, pos2y+25, pos2x-25, pos2y+25);
+  translate(50, 100);
+  rotate(rotate1Small);
+  strokeWeight(stroke1Big);
+  fill(colorFront2);
+  triangle(0, -25, 50, 50, -50, 50);   // second big triangle
   pop();
+
+  strokeWeight(stroke1Small);
+  fill(colorFront1);
+  triangle(pos1SmallX, pos1SmallY-12.5, pos1SmallX+25, pos1SmallY+25, pos1SmallX-25, pos1SmallY+25);   // first small triangle
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
