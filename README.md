@@ -14,3 +14,5 @@ Changed the variables that allowed my characters to animate the transition betwe
 Im very happy with the results. I also experimented with the colours, changing them into a pink / purple
 monochome theme. The round edges and colours remind me of candy, I think ill likely name my type after
 some sort of candy. 
+
+Added a default character.
