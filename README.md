@@ -2,6 +2,8 @@
 
 13/05/20
 
+Update 4: Updating for Hazel to help me with the editor
+
 Update 3: I finally have a full alphabet, I still haven't got the editor working but in the meantime, I am playing around with the size and y positioning within the editor. This will help to work with my idea of using my hand writing
 
 Update 2: I have decided as part of a design feature to incorporate my own handwritting into this problem set. I am dyslexic and as part of this, letter sizing and spacing and readability is never the same to each letter. I thought it would be cool to play on the idea of this just to give my design a little bit of an edge. 

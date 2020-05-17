@@ -75,5 +75,6 @@ var swapWords = [
   "ASSEMBLY",
   "EMPLOYEE",
   "DESCRIBE",
-  "BAAAAAAA",
+  "CALENDAR",
+  ""
 ]

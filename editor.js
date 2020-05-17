@@ -14,6 +14,8 @@ const sliderInfo = [
   ["redoffsetx", -50, 50],
   ["pinkoffsety", -100, 100],
 
+  ["opacity", 0, 255],
+
  
 ];
 
