@@ -11,30 +11,34 @@ const canvasHeight = 500;
  *
  */
 const letterA = {
-  "arcW": 150,
-   "arcH": 100,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 130,
+  "offsetx": 10,
+  "offsety": -65,
+  "start": 180,
+  "stop":35
 }
 
 const letterB = {
-  "arcW": 300,
-  "arcH": 85,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 145,
+  "offsetx": 10,
+  "offsety": -55,
+  "start": 270,
+  "stop":110
 }
 
 const letterC = {
-  "arcW": 90,
-  "arcH": 200,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 150,
+  "offsetx": 74,
+  "offsety": 0,
+  "start": 90,
+  "stop":300
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#fcba03";
 const colorBack    = "#000000";
 const colorStroke  = "#233f11";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -44,7 +48,7 @@ function setup () {
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(1);
-  
+
   angleMode(DEGREES);
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -54,16 +58,20 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size1 = letterData["arcH"];
-  let size2 = letterData["arcW"];
+  let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+
+  let startA = letterData["start"];
+  let endA = letterData["stop"];
+
 
   // draw two circles
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
+
   fill(colorFront2);
-  arc(posx, posy, size1, size2, 100,70, 200,70);
+  arc(pos2x, pos2y, size2, size2, startA,endA);
 }
 
 
