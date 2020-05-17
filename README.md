@@ -2,13 +2,13 @@
 
 Testing Different Colour Palettes
     
-  It was interesting trying different colours for the lines and what worked wwell. My inspiration for my alphabet is the television static - its colours and the effect it has when layered when transparent. My inspiration is not really noticable when the colour palette strays away from the static colours. But I really like the look of the other colour palettes, because they have a tropical vibe. Since I have experimented with other colour palettes I am favouring the tropical colours more. It looks more refreshing and they tend to work better together more than the normal static colour palette I have originally used. If I do end up using the tropical themed colour palette, I'd say my final alphabet's concept is a tropical television static.
+  It was interesting trying different colours for the lines and what worked well. My inspiration for my alphabet is the television static - its colours and the effect it has when layered when transparent. My inspiration is not really noticable when the colour palette uses the brighter colours in the television static. But I really like the look of the other colour palettes, because they have a tropical vibe. Since I have experimented with other colour palettes I am favouring the tropical colours more. It looks more refreshing and they tend to work better together more than the normal static colour palette I have originally used. If I do end up using the tropical colour palette, I'd say my final alphabet's concept is a tropical television static.
 
-![Colour Palette 1](cc2/ps2/let1.png) 
-![Colour Palette 2](cc2/ps2/let2.png) 
-![Colour Palette 3](cc2/ps2/let3.png) 
-![Colour Palette 4](cc2/ps2/let4.png) 
-![Colour Palette 5](cc2/ps2/let5.png) 
+![Colour Palette 1](let1.png) 
+![Colour Palette 2](let2.png) 
+![Colour Palette 3](let3.png) 
+![Colour Palette 4](let4.png) 
+![Colour Palette 5](let5.png) 
 
 
 The Parameters per letter:

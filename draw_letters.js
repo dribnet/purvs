@@ -3,10 +3,10 @@
 const R4 = 255;
 const G4 = 0;
 const B4 = 255;
-//Dark Blue - #001eff
-const R2 = 0;
-const G2 = 30;
-const B2 = 255;
+//Red - #ff3737
+const R2 = 255;
+const G2 = 55;
+const B2 = 55;
 //Bright Yellow - #fff200
 const R1 = 255;
 const G1 = 242;
@@ -18,11 +18,11 @@ const B3 = 255;
 //ALPHA COLOUR OPACITY LEVELS 
 const A1 = 190; //Bright Colour
 
-/*#Red - #ff1212
-const R3 = 255;
-const G3 = 18;
-const B3 = 18;
-
+/*
+//Lime Green - #79ff12
+const R2 = 121;
+const G2 = 255;
+const B2 = 18;
 */
 /*
  * Draw the letter given the letterData
