@@ -19,7 +19,7 @@ function drawLetter(letterData) {
   let ypos1 = letterData["ypos1"];
   let xpos2 = letterData["xpos2"];
   let ypos2 = letterData["ypos2"];
-  let Size1 = letterData["size1"];
+  let Size1 = letterData["Size1"];
   let Size2 = letterData["Size2"];
   let arcStart = letterData["arcStart"];
   let arcFinish = letterData["arcFinish"];
@@ -27,6 +27,10 @@ function drawLetter(letterData) {
   let arc2Start = letterData["arc2Start"];
   let arc2Finish = letterData["arc2Finish"];
 
+  let arc3Start = letterData["arc3Start"];
+  let arc3Finish = letterData["arc3Finish"];
+
+  let arc3opacity = letterData["arc3opacity"]
   // let arcX = posx+25
   // let arcY= posy+25
   // let arc2X= posx+75
@@ -41,7 +45,7 @@ function drawLetter(letterData) {
 
 //white square
   fill (colour_LightSquare);
-  rect (posx, posy, 100, 50);
+  rect (posx, posy, 100, 50, 5);
 
 
 // fill(50)
@@ -50,6 +54,7 @@ function drawLetter(letterData) {
 
 
 noFill ();
+strokeCap (SQUARE);
 stroke(1);
 strokeWeight (0.5);
 ellipse (xpos1, ypos1, Size1, Size1);
@@ -58,6 +63,8 @@ ellipse (xpos2, ypos2, Size2,Size2);
 strokeWeight(4);
 arc(xpos1, ypos1, Size1, Size1, arcStart , arcFinish);
 arc(xpos2, ypos2, Size2, Size2, arc2Start , arc2Finish);
+strokeWeight(arc3opacity);
+arc(xpos1, ypos1, Size1, Size1, arc3Start , arc3Finish);
 
 noStroke ();
 }
