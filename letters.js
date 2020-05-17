@@ -1,8 +1,11 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX": 20,
+  "pointtwoY": 175,
+  "pointthreeX":100,
+  "pointthreeY":175
   },
   "A": {
   "pointoneX": 50,
@@ -201,54 +204,80 @@ const alphabet = {
   "pointthreeY":0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":0,
+  "pointtwoY": 0,
+  "pointthreeX":50,
+  "pointthreeY":100
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 0,
+  "pointoneY": 0,
+  "pointtwoX":25,
+  "pointtwoY": 40
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 100,
+  "pointoneY": 0,
+  "pointtwoX":35,
+  "pointtwoY": 200,
+  "pointthreeX":100,
+  "pointthreeY":200
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 25,
+  "pointoneY": 125,
+  "pointtwoX":75,
+  "pointtwoY": 100,
+  "pointthreeX":25,
+  "pointthreeY":50
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX": 100,
+  "pointoneY": 200,
+  "pointtwoX":50,
+  "pointtwoY": 100,
+  "pointthreeX":50,
+  "pointthreeY":200
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX":50,
+  "pointoneY": 200,
+  "pointtwoX":100,
+  "pointtwoY": 125,
+  "pointthreeX":100,
+  "pointthreeY":75
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX":40,
+  "pointoneY": 115,
+  "pointtwoX":100,
+  "pointtwoY": 155,
+  "pointthreeX":0,
+  "pointthreeY":35
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX":0,
+  "pointoneY": 140,
+  "pointtwoX":100,
+  "pointtwoY": 75,
+  "pointthreeX":30,
+  "pointthreeY":75
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX":50,
+  "pointoneY": 200,
+  "pointtwoX":0,
+  "pointtwoY": 75,
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "pointoneX":0,
+  "pointoneY": 130,
+  "pointtwoX":50,
+  "pointtwoY": 0,
+  "pointthreeX":0,
+  "pointthreeY":0
   }
 
 }

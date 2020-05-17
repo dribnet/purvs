@@ -71,7 +71,6 @@ function drawLetter(posx, posy, letterData) {
 
   const baselineY = posy +200;
 
-  // draw two circles
   beginShape();
   vertex (posx, posy);
   vertex (posx, baselineY);
@@ -80,10 +79,6 @@ function drawLetter(posx, posy, letterData) {
   vertex (pointthreeX,pointthreeY);
   endShape();
 
-  // fill(colorFront1);
-  // ellipse(posx, posy, 150, 150);
-  // fill(colorFront2);
-  // ellipse(pos2x, pos2y, size2, size2);
 }
 
 function draw () {
