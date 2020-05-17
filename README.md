@@ -1,10 +1,10 @@
 ## MDDN 242 2020 Assignment 2
 
-Part 2: Designing the Alphabet - Finished creating characters
+Part 3: Interpolation
 
- I have completed creating my alphabet but I may make a few changes in the future. My alphabet is inspired by the old television static. I think it represents the inspiration pretty well. I wanted to challenge myself to stick with lines and its sharp corners, because I know some lines will need to exceed the line it overlaps - not the normal neat outlined characters. I think its exceeding lines make my alphabet more interesting, and made me think more in how I can connect the lines in different angles. As mentioned in my last update I am still unsure if this colour palette works. I have mainly focused on creating the shape of my alphabet first but with the colours in mind. Since there are more colours that I can try from the television static colours, I'll be testing them in the next updates to figure out what works best. 
+ During the creation of my alphabet I continuosly considered how each line would move so that this interpolation stage was pretty much finished for me. I think the idea of using all 4 lines and colours helped make the letter changes more seemless if compared to some lines not used. I'm happy with how the characters moved from another. I especially liked how the characters X, K, J, S, and U changed from different characters. I'm glad that I thought about the values for X and Y axis during the process of creating the characters, giving me a rough idea in how they can change to a different character - which also helped finish this interpolation part of the project at the same time.
 
- Some characters may exceed the given boundary rectangle due to my design decision, as some letters need more width distance to look the way I wanted it to. This can be seen more with the number 8 as the angle of the line affects how the other lines can seemlesly connect to it. Most of my characters have a stroke weight of 30, but I have changed the stroke weight of the characters S and Z to make the yellow line suit the design. 
+ I have also changed the background colour to a pale baby blue as it helped add a tint to the background. I tried other colours such as black and mid blue for the background but they muted the colours of the characters, thats why I decided to choose a light background colour.
 
 
 The Parameters per letter:

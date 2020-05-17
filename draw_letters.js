@@ -16,7 +16,7 @@ const R3 = 0;
 const G3 = 255;
 const B3 = 255;
 //ALPHA COLOUR OPACITY LEVELS 
-const A1 = 170; //Bright Yellow
+const A1 = 190; //Bright Colour
 
 
 /*
@@ -76,9 +76,23 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["lineX1"] = map(percent, 0, 100, oldObj["lineX1"], newObj["lineX1"]);
+  new_letter["lineX2"] = map(percent, 0, 100, oldObj["lineX2"], newObj["lineX2"]);
+  new_letter["lineX3"] = map(percent, 0, 100, oldObj["lineX3"], newObj["lineX3"]);
+  new_letter["lineX4"] = map(percent, 0, 100, oldObj["lineX4"], newObj["lineX4"]);
+  new_letter["lineX5"] = map(percent, 0, 100, oldObj["lineX5"], newObj["lineX5"]);
+  new_letter["lineX6"] = map(percent, 0, 100, oldObj["lineX6"], newObj["lineX6"]);
+  new_letter["lineX7"] = map(percent, 0, 100, oldObj["lineX7"], newObj["lineX7"]);
+  new_letter["lineX8"] = map(percent, 0, 100, oldObj["lineX8"], newObj["lineX8"]);
+  new_letter["lineY1"] = map(percent, 0, 100, oldObj["lineY1"], newObj["lineY1"]);
+  new_letter["lineY2"] = map(percent, 0, 100, oldObj["lineY2"], newObj["lineY2"]);
+  new_letter["lineY3"] = map(percent, 0, 100, oldObj["lineY3"], newObj["lineY3"]);
+  new_letter["lineY4"] = map(percent, 0, 100, oldObj["lineY4"], newObj["lineY4"]);
+  new_letter["lineY5"] = map(percent, 0, 100, oldObj["lineY5"], newObj["lineY5"]);
+  new_letter["lineY6"] = map(percent, 0, 100, oldObj["lineY6"], newObj["lineY6"]);
+  new_letter["lineY7"] = map(percent, 0, 100, oldObj["lineY7"], newObj["lineY7"]);
+  new_letter["lineY8"] = map(percent, 0, 100, oldObj["lineY8"], newObj["lineY8"]);
+  new_letter["sWeight1"] = map(percent, 0, 100, oldObj["sWeight1"], newObj["sWeight1"]);
   return new_letter;
 }
 
