@@ -15,14 +15,9 @@ const B1 = 0;
 const R3 = 0;
 const G3 = 255;
 const B3 = 255;
-
-
 //ALPHA COLOUR OPACITY LEVELS 
 const A1 = 170; //Bright Yellow
-/*const A2 = 170; //Purple
-const A3 = 170; //Bright Light Blue
-const A4 = 170; //Dark Blue
-*1
+
 
 /*
  * Draw the letter given the letterData
@@ -54,17 +49,18 @@ function drawLetter(letterData) {
   let lY7 = letterData["lineY7"];
   let lX8 = letterData["lineX8"];
   let lY8 = letterData["lineY8"];
-  //Stroke Weight
+  //Stroke Weight 
   let strokeW1 = letterData["sWeight1"];
 
 //DRAW LINES
   //Line 1
-  strokeWeight(strokeW1);
+  push(); //added as it changed interaction html texts stroke weight
+  strokeWeight(30);
   strokeCap(SQUARE)
   stroke(R4, G4, B4, A1); //Purple
   line(lX3, lY3, lX4, lY4);
   //Line 2
-  strokeWeight(strokeW1);
+  strokeWeight(30);
   stroke(R2, G2, B2, A1); //Dark Blue
   line(lX7, lY7, lX8, lY8);
   //Line 3
@@ -72,10 +68,10 @@ function drawLetter(letterData) {
   stroke(R1, G1, B1, A1); //Yellow
   line(lX1, lY1, lX2, lY2);
   //Line 4
-  strokeWeight(strokeW1);
+  strokeWeight(30);
   stroke(R3, G3, B3, A1); //Light Blue
   line(lX5, lY5, lX6, lY6);
- 
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
