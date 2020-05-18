@@ -54,16 +54,32 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
   new_letter["offsetX1"]    = map(percent, 0, 100, oldObj["offsetX1"], newObj["offsetX1"]);
   new_letter["offsetY1"]    = map(percent, 0, 100, oldObj["offsetY1"], newObj["offsetY1"]);
   new_letter["start1"]      = map(percent, 0, 100, oldObj["start1"], newObj["start1"]);
   new_letter["end1"]        = map(percent, 0, 100, oldObj["end1"], newObj["end1"]);
-  new_letter["offsetX2"]    = map(percent, 0, 100, oldObj["offsetX2"], newObj["offsetX2"]);
-  new_letter["offsetY2"]    = map(percent, 0, 100, oldObj["offsetY2"], newObj["offsetY2"]);
-  new_letter["start2"]      = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
-  new_letter["end2"]        = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
-  new_letter["lineWidth"]   = map(percent, 0, 100, oldObj["lineWidth"], newObj["lineWidth"]);
-  new_letter["lineHeight"]  = map(percent, 0, 100, oldObj["lineHeight"], newObj["lineHeight"]);
+
+  if(percent < 20){
+    new_letter["offsetX2"] = oldObj["offsetX2"];
+    new_letter["offsetY2"] = oldObj["offsetY2"];
+    new_letter["start2"] = oldObj["start2"];
+    new_letter["end2"] = oldObj["end2"];
+  }else{
+    new_letter["offsetX2"]    = map(percent, 20, 100, oldObj["offsetX2"], newObj["offsetX2"]);
+    new_letter["offsetY2"]    = map(percent, 20, 100, oldObj["offsetY2"], newObj["offsetY2"]);
+    new_letter["start2"]      = map(percent, 20, 100, oldObj["start2"], newObj["start2"]);
+    new_letter["end2"]        = map(percent, 20, 100, oldObj["end2"], newObj["end2"]);
+  }
+
+  if(percent < 50){
+    new_letter["lineWidth"] = oldObj["lineWidth"];
+    new_letter["lineHeight"] = oldObj["lineHeight"];
+  }else{
+    new_letter["lineWidth"]   = map(percent, 50, 100, oldObj["lineWidth"], newObj["lineWidth"]);
+    new_letter["lineHeight"]  = map(percent, 50, 100, oldObj["lineHeight"], newObj["lineHeight"]);
+  }
+
   return new_letter;
 }
 

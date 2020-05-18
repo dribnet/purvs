@@ -38,11 +38,11 @@ const alphabet = {
   "C": {
     "offsetX1": 0,
     "offsetY1": -40,
-    "start1": 110,
+    "start1": 90,
     "end1": 270,
     "offsetX2": 0,
     "offsetY2": 40,
-    "start2": 290,
+    "start2": 270,
     "end2": 90,
     "lineWidth": 20,
     "lineHeight": 40
@@ -54,10 +54,10 @@ const alphabet = {
     "end1": 90,
     "offsetX2": -10,
     "offsetY2": 40,
-    "start2": 260,
+    "start2": 270,
     "end2": 120,
     "lineWidth": 30,
-    "lineHeight": 10
+    "lineHeight": 15
   },
   "E": {
     "offsetX1": 10,
@@ -78,7 +78,7 @@ const alphabet = {
     "end1": 95,
     "offsetX2": -15,
     "offsetY2": 40,
-    "start2": 315,
+    "start2": 310,
     "end2": 275,
     "lineWidth": 20,
     "lineHeight": 80
@@ -86,12 +86,12 @@ const alphabet = {
   "G": {
     "offsetX1": 10,
     "offsetY1": 0,
-    "start1": 230,
-    "end1": 110,
+    "start1": 255,
+    "end1": 105,
     "offsetX2": -10,
     "offsetY2": 0,
-    "start2": 70,
-    "end2": 220,
+    "start2": 75,
+    "end2": 285,
     "lineWidth": 20,
     "lineHeight": 40
   },
@@ -126,7 +126,7 @@ const alphabet = {
     "end1": 150,
     "offsetX2": -10,
     "offsetY2": 30,
-    "start2": 320,
+    "start2": 325,
     "end2": 135,
     "lineWidth": 0,
     "lineHeight": 0
@@ -175,7 +175,7 @@ const alphabet = {
     "offsetX2": 10,
     "offsetY2": 0,
     "start2": 135,
-    "end2": 30,
+    "end2": 45,
     "lineWidth": 0,
     "lineHeight": 0
   },
@@ -194,7 +194,7 @@ const alphabet = {
   "P": {
     "offsetX1": 0,
     "offsetY1": -10,
-    "start1": 160,
+    "start1": 165,
     "end1": 270,
     "offsetX2": 0,
     "offsetY2": 10,
@@ -206,12 +206,12 @@ const alphabet = {
   "Q": {
     "offsetX1": 0,
     "offsetY1": -10,
-    "start1": 160,
+    "start1": 165,
     "end1": 340,
     "offsetX2": 0,
     "offsetY2": 10,
     "start2": 90,
-    "end2": 200,
+    "end2": 195,
     "lineWidth": 20,
     "lineHeight": 80
   },
@@ -219,10 +219,10 @@ const alphabet = {
     "offsetX1": 10,
     "offsetY1": -40,
     "start1": 270,
-    "end1": 95,
+    "end1": 90,
     "offsetX2": -10,
     "offsetY2": 40,
-    "start2": 260,
+    "start2": 270,
     "end2": 120,
     "lineWidth": 20,
     "lineHeight": 0
@@ -278,12 +278,12 @@ const alphabet = {
   "W": {
     "offsetX1": 0,
     "offsetY1": -5,
-    "start1": 160,
-    "end1": 20,
+    "start1": 170,
+    "end1": 10,
     "offsetX2": 0,
     "offsetY2": 5,
-    "start2": 340,
-    "end2": 200,
+    "start2": 350,
+    "end2": 190,
     "lineWidth": 20,
     "lineHeight": 80
   },

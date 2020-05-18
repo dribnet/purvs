@@ -58,7 +58,7 @@ function setup () {
   for(let i=0; i<numSliders; i++) {
     let cur_row = select("#row" + (i+1))
     cur_row.show();
-    let cur_slider = createSlider(0, 100, 50)
+    let cur_slider = createSlider(0, 100, 50);
     let containerString = "slider" + (i+1) + "Container"
     cur_slider.parent(containerString);
     param_sliders.push(cur_slider);
@@ -97,6 +97,7 @@ function draw () {
 
   let obj = sliderToDataObject();
   drawLetter(obj);
+  console.log(obj);
   pop();
 }
 
