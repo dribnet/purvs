@@ -36,4 +36,6 @@ The nine parameters per letter:
 
   Changed the values of the circler to either be at size 50, or at size 70 for further refinement. The rectangles are also either at at  size 30 x 60 or they are at 90 x 20. This gives a more set look. I still have a few letters to fix up though that don't fit into either of these numbers. I want to try and refine the alphabet to be somewhat linked to the sound that each letter makes, but this has been made very difficult to do as each letter sounds very different. 
 
+  I have experimented with changing the yellow arc into a triangle. I thought this shape made more sense for my bauhaus design as previously I had used 2 arc's, with one a semi-circle, and the other a full circle. I also added in stroke weight and opacity to give a more a defined shape outline. 
+
 

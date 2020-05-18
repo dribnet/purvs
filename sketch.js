@@ -44,6 +44,7 @@ const letterC = {
   "rotate": 10.0,
   "flipX": 110,
   "flipY": -70
+
 }
 
 const colorFront1  = "#f55a42";
@@ -68,7 +69,6 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -91,11 +91,24 @@ function drawLetter(posx, posy, letterData) {
   
 
   // draw two arcs
+  strokeWeight(2);
+  stroke(red1, green1, blue1);
   fill(red1, green1, blue1, 150);
   angleMode(DEGREES); 
-  arc(posx, posy, 100, 100, flipX, flipY);
+
+// beginShape();
+// vertex(161, 101);
+// quadraticVertex(273, 53, 316, 33);
+// bezierVertex(198, 272, 206, 277, 170, 342);
+// endShape();
+
+triangle(250, 200, 100, 200, 200, 290);
+
+  // arc(posx, posy, 100, 100, flipX, flipY);
+  stroke(red2, green2, blue2);
   fill(red2, green2, blue2, 150);
   arc(pos2x, pos2y, size2, size2, start2, end2);
+  stroke(red3, green3, blue3);
   fill(red3, green3, blue3, 150);
 
   push();
