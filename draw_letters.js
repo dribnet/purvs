@@ -5,9 +5,9 @@ const green1 = 0
 const blue1 = 0
 
 //Yellow
-const red4 = 255
-const green4 = 229
-const blue4 = 0
+const red2 = 255
+const green2 = 229
+const blue2 = 0
 
 /*
  * Draw the letter given the letterData
@@ -20,29 +20,27 @@ function drawLetter(letterData) {
 
   let redtriAx = 50 + letterData["redoffsetx"];
   let redtriAy = 100 + letterData["redoffsety"];
-  let redtriA2x = 50 + letterData["offset2x"];
-  let redtriA2y = 100 + letterData["offset2y"];
-  let redtriA3x = 50 + letterData["offset3x"];
-  let redtriA3y = 100 + letterData["offset3y"];
+  let redtriA2x = 50 + letterData["redoffset2x"];
+  let redtriA2y = 100 + letterData["redoffset2y"];
+  let redtriA3x = 50 + letterData["redoffset3x"];
+  let redtriA3y = 100 + letterData["redoffset3y"];
 
-  let yellowtrix = 50 + letterData["offsetx2"];
-  let yellowtriy = 100 + letterData["offsety2"];
-  let yellowtri2x = 50 + letterData["offset2x2"];
-  let yellowtri2y = 100 +letterData["offset2y2"];
-  let yellowtri3x = 50 + letterData["offset3x2"];
-  let yellowtri3y = 100 + letterData["offset3y2"];
+  let yellowtrix = 50 + letterData["yellowoffsetx"];
+  let yellowtriy = 100 + letterData["yellowoffsety"];
+  let yellowtri2x = 50 + letterData["yellowoffset2x"];
+  let yellowtri2y = 100 +letterData["yellowoffset2y"];
+  let yellowtri3x = 50 + letterData["yellowoffset3x"];
+  let yellowtri3y = 100 + letterData["yellowoffset3y"];
 
   let opacity2 = letterData["opacity"];
-
 
   strokeWeight(0);
 
   fill(red1,green1,blue1);
   triangle(redtriAx, redtriAy,redtriA2x, redtriA2y, redtriA3x, redtriA3y);
 
-  fill(red4,green4,blue4,opacity2);
+  fill(red2,green2,blue2,opacity2);
   triangle(yellowtrix, yellowtriy, yellowtri2x, yellowtri2y, yellowtri3x, yellowtri3y);
-
 
 }
 
@@ -51,18 +49,18 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   new_letter["redoffsetx"] = map(percent, 0, 100, oldObj["redoffsetx"], newObj["redoffsetx"]);
   new_letter["redoffsety"] = map(percent, 0, 100, oldObj["redoffsety"], newObj["redoffsety"]);
-  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
-  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
-  new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
-  new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
+  new_letter["redoffset2x"] = map(percent, 0, 100, oldObj["redoffset2x"], newObj["redoffset2x"]);
+  new_letter["redoffset2y"] = map(percent, 0, 100, oldObj["redoffset2y"], newObj["redoffset2y"]);
+  new_letter["redoffset3x"] = map(percent, 0, 100, oldObj["redoffset3x"], newObj["redoffset3x"]);
+  new_letter["redoffset3y"] = map(percent, 0, 100, oldObj["redoffset3y"], newObj["redoffset3y"]);
 
 
-  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
-  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
-  new_letter["offset2x2"] = map(percent, 0, 100, oldObj["offset2x2"], newObj["offset2x2"]);
-  new_letter["offset2y2"] = map(percent, 0, 100, oldObj["offset2y2"], newObj["offset2y2"]);
-  new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
-  new_letter["offset3y2"] = map(percent, 0, 100, oldObj["offset3y2"], newObj["offset3y2"]);
+  new_letter["yellowoffsetx"] = map(percent, 0, 100, oldObj["yellowoffsetx"], newObj["yellowoffsetx"]);
+  new_letter["yellowoffsety"] = map(percent, 0, 100, oldObj["yellowoffsety"], newObj["yellowoffsety"]);
+  new_letter["yellowoffset2x"] = map(percent, 0, 100, oldObj["yellowoffset2x"], newObj["yellowoffset2x"]);
+  new_letter["yellowoffset2y"] = map(percent, 0, 100, oldObj["yellowoffset2y"], newObj["yellowoffset2y"]);
+  new_letter["yellowoffset3x"] = map(percent, 0, 100, oldObj["yellowoffset3x"], newObj["yellowoffset3x"]);
+  new_letter["yellowoffset3y"] = map(percent, 0, 100, oldObj["yellowoffset3y"], newObj["yellowoffset3y"]);
 
  // new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
 

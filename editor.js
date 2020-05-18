@@ -12,20 +12,20 @@ const colorLines   = "#000090";
  */
 const sliderInfo = [
   ["redoffsetx", -50, 50],
-  ["pinkoffsety", -100, 100],
-  ["offset2x", -50, 50],
-  ["offset2y", -100, 100],
-  ["offset3x", -50, 50],
-  ["offset3y", -100, 100],
+  ["redoffsety", -100, 100],
+  ["redoffset2x", -50, 50],
+  ["redoffset2y", -100, 100],
+  ["redoffset3x", -50, 50],
+  ["redoffset3y", -100, 100],
 
   ["opacity", 0, 255],
 
-  ["offsetx2", -50, 50],
-  ["offsety2", -100, 100],
-  ["offset2x2", -50, 50],
-  ["offset2y2", -100, 100],
-  ["offset3x2", -50, 50],
-  ["offset3y2", -100, 100],
+  ["yellowoffsetx", -50, 50],
+  ["yellowoffsety", -100, 100],
+  ["yellowoffset2x", -50, 50],
+  ["yellowoffset2y", -100, 100],
+  ["yellowoffset3x", -50, 50],
+  ["yellowoffset3y", -100, 100],
 
 
 
