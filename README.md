@@ -1,11 +1,11 @@
 ## MDDN 242 2020 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+The first play around has happened rather late, but prioritizing due dates will often do that *shrugs* Better late than never.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+My letters are composed of a red rectangle that is fixed in size and place, with only one other rectangle changing size and position. The background is a very dark, obtrusive colour with the intention of bringing all attention to the letters.
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * `size` : Literally the width and height
+  * `offsetx` : x offset of the second rectangle relative to the first one
+  * `offsety` : y offset of the second rectangle relative to the first one
 

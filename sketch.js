@@ -14,25 +14,31 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "offsetx": 60,
+  "offsety": 100,
+  "rectL": 100,
+  "rectW": 20
 }
 
 const letterB = {
   "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx": 100,
+  "offsety": 80,
+  "rectL": 20,
+  "rectW": 50
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": 80,
+  "rectL": 50,
+  "rectW": 100
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#199cff"; //light blue
+const colorFront2  = "#59ccff"; //Dark blue
+const colorBack    = "#050403"; //Background
 const colorStroke  = "#233f11";
 
 function setup () {
@@ -42,7 +48,7 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -53,12 +59,14 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let rectLen = letterData["rectL"];
+  let rectWid = letterData["rectW"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
-  fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw two rectangles
+  fill(161, 42, 42); //Red Rectangle
+  rect(posx, posy, 150, 200);
+  fill(212, 86, 34); //Orange rectangle
+  rect(pos2x, pos2y, rectWid, rectLen);
 }
 
 function draw () {
