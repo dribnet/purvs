@@ -60,12 +60,12 @@ const alphabet = {
   "ellPosy":100
   },
   "F": {
-  "size": 100,
-  "sizeW": 100,
-  "offsetx": 35,
-  "offsety": 90,
+  "size": 30,
+  "sizeW": 120,
+  "offsetx": 38,
+  "offsety": 65,
   "rectL": 20,
-  "rectW": 70,
+  "rectW": 60,
   "radi": 3,
   "ellPosx":50,
   "ellPosy":100
@@ -75,7 +75,7 @@ const alphabet = {
   "sizeW": 80,
   "offsetx": 65,
   "offsety": 90,
-  "rectL": 90,
+  "rectL": 105,
   "rectW": 25,
   "radi": 3,
   "ellPosx":50,
@@ -137,26 +137,26 @@ const alphabet = {
   "ellPosy":130
   },
   "M": {
-  "size": 30,
-  "sizeW": 80,
+  "size": 40,
+  "sizeW": 100,
   "offsetx": 10,
   "offsety": 20,
   "rectL": 120,
   "rectW": 25,
   "radi": 6,
   "ellPosx":50,
-  "ellPosy":50
+  "ellPosy":70
   },
   "N": {
   "size": 70,
-  "sizeW": 110,
+  "sizeW": 90,
   "offsetx": 10,
   "offsety": 20,
   "rectL": 120,
-  "rectW": 35,
+  "rectW": 30,
   "radi": 6,
-  "ellPosx":70,
-  "ellPosy":80
+  "ellPosx":50,
+  "ellPosy":90
   },
   "O": {
   "size": 100,
@@ -181,54 +181,114 @@ const alphabet = {
   "ellPosy":100
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 80,
+  "sizeW": 80,
+  "offsetx": 60,
+  "offsety": 90,
+  "rectL": 80,
+  "rectW": 25,
+  "radi": 3,
+  "ellPosx":50,
+  "ellPosy":100
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 90,
+  "sizeW": 35,
+  "offsetx": 10,
+  "offsety": 20,
+  "rectL": 120,
+  "rectW": 25,
+  "radi": 6,
+  "ellPosx":55,
+  "ellPosy":50
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 80,
+  "sizeW": 40,
+  "offsetx": 0,
+  "offsety": 100,
+  "rectL": 40,
+  "rectW":90,
+  "radi": 40,
+  "ellPosx":60,
+  "ellPosy":80
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 90,
+  "sizeW": 20,
+  "offsetx": 40,
+  "offsety": 60,
+  "rectL": 100,
+  "rectW":25,
+  "radi": 6,
+  "ellPosx":50,
+  "ellPosy":50
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "sizeW": 120,
+  "offsetx": 30,
+  "offsety": 40,
+  "rectL": 80,
+  "rectW": 40,
+  "radi": 20,
+  "ellPosx":50,
+  "ellPosy":100
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 100,
+  "sizeW": 120,
+  "offsetx": 30,
+  "offsety": 45,
+  "rectL": 80,
+  "rectW": 40,
+  "radi": 5,
+  "ellPosx":50,
+  "ellPosy":100
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 60,
+  "sizeW": 100,
+  "offsetx": 5,
+  "offsety": 50,
+  "rectL": 110,
+  "rectW": 30,
+  "radi": 20,
+  "ellPosx":65,
+  "ellPosy":110
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 50,
+  "sizeW": 100,
+  "offsetx": 15,
+  "offsety": 50,
+  "rectL": 110,
+  "rectW": 30,
+  "radi": 1,
+  "ellPosx":65,
+  "ellPosy":110
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 70,
+  "sizeW": 100,
+  "offsetx": 38,
+  "offsety": 90,
+  "rectL": 80,
+  "rectW": 25,
+  "radi": 10,
+  "ellPosx":50,
+  "ellPosy":80
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 80,
+  "sizeW": 40,
+  "offsetx": 30,
+  "offsety": 100,
+  "rectL": 40,
+  "rectW":90,
+  "radi": 40,
+  "ellPosx":30,
+  "ellPosy":80
   },
   "0": {
     "size": 40,

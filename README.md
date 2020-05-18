@@ -12,6 +12,11 @@ I've transferred my code into draw_letters.js and am now working on configuring 
 -11/05/20-
 I've been working on my alphabet, it's coming together I'm currently up to "P". There are a few letters I think I'm going to struggle with, I'll have to get creative. My inspiration is Bauhuas/minimal look, which is why I'm limiting myself to two shapes only.
 
+
+-18/05/20-
+I have finished my alphabet for now. I'm pretty happy overall, there are only a few that I don't think work very well with my parameters. Namely: K, M, N, W, X. 
+These letters are very difficult to make with my limitation of two shapes per letter, so I've tried to give a sort of "outline" minimal feel to these characters that I hope convey the feel the letter.
+
 So far my parameters include:
   "size"    = hieght of ellipse
   "sizeW"   = width of ellipse 
