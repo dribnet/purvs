@@ -15,4 +15,4 @@ The eleven parameters per letter:
   * `rectW` : width of the rect
   * `rectH` : height positon of the rect
 
-I have changed the interpolate function to make the size of the rectangle change when the percent is above 40 becuase only a couple of the letters have the width of the rect change and I liked the effect it had for those letters. I also sped up the transitions between the angle of the arc and the x and y offsets of the rect. I wanted the transition to the letters that do not use the rect to be smoother and have the rect disappear quicker. 
+To refine my design, I have rounded the edges of the rectangles to make them match the curves of the ellipse and arcs. I really like how it turned out and I think it makes my design more cohesive as I said I wanted to have a soft design. Doing this also allowed me to go through each letter and make sure all the little details were how I wanted them to be. For example, some of the rects had a slightly wrong x position that did not line up so I was able to fix this. I am pretty happy with the current state of my design. 

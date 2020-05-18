@@ -1,8 +1,8 @@
 const colorFront1  = "#3A606E"; //navy
 const colorFront2  = "#E5C2BC"; // pink
 const colorFront3 = "#8ACEB4"; //green
-const colorStroke  = "#8ACEB4";
-
+const colorStroke  = "#8ACEB4"; //green
+const colorStroke2  = "#3A606E"; //green
 
 /*
  * Draw the letter given the letterData
@@ -34,12 +34,12 @@ function drawLetter(letterData) {
   fill(colorFront1);
   ellipse(50,ellipseYpos, 90, 90);
 
-  //draw rect
-    noStroke();
-    fill(colorFront3);
-    rect(rectX, rectY, rectWidth, rectHeight)
+    //draw rect    
+  noStroke();
+  fill(colorFront3);
+  rect(rectX, rectY, rectWidth, rectHeight, 10);
 
-  // draw arc
+    // draw arc
   fill(colorFront2);
   arc(posx, posy, arcWidth, arcHeight, start, finish);
 }
@@ -72,5 +72,5 @@ else{
 var swapWords = [
   "CONSTANT",
   "MADISYN/",
-  "A1B2C3D4"
+  "0A1B2C3"
 ]

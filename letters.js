@@ -7,10 +7,10 @@ const alphabet = {
     "offsety": 60,
     "angleStart": 0,
     "angleStop": 0,
-    "rectX": 43,
-    "rectY": 47,
-    "rectW": 15,
-    "rectH": 86
+    "rectX": 41,
+    "rectY": 44,
+    "rectW": 17,
+    "rectH": 92
   },
   "A": {
     "ellipseY": 130, 
@@ -21,13 +21,13 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 80,
-    "rectY": 130,
-    "rectW": 15,
-    "rectH": 50
+    "rectY": 126,
+    "rectW": 17,
+    "rectH": 54
   },
   "B": {
     "ellipseY": 130,
-    "width": 85,
+    "width": 87,
     "height": 85,
     "offsetx": 0,
     "offsety": 20,
@@ -35,7 +35,7 @@ const alphabet = {
     "angleStop": 90,
     "rectX": 3,
     "rectY": 26,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 153
   },
   "C": {
@@ -45,7 +45,11 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 20,
     "angleStart": 335,
-    "angleStop": 75
+    "angleStop": 75,
+    "rectX": 50,
+    "rectY": 100,
+    "rectW": 0,
+    "rectH": 0
   },
   "D": {
     "ellipseY": 130,
@@ -55,9 +59,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 90,
     "angleStop": 270,
-    "rectX": 82,
+    "rectX": 81,
     "rectY": 26,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 153
   },
   "E": {
@@ -82,9 +86,9 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 3,
-    "rectY": 45,
-    "rectW": 15,
-    "rectH": 135
+    "rectY": 38,
+    "rectW": 17,
+    "rectH": 143
   },
   "G": {
     "ellipseY": 90,
@@ -94,10 +98,10 @@ const alphabet = {
     "offsety": 65,
     "angleStart": 0,
     "angleStop": 180,
-    "rectX": 82,
-    "rectY": 55,
-    "rectW": 15,
-    "rectH": 120
+    "rectX": 80,
+    "rectY": 58,
+    "rectW": 17,
+    "rectH": 123
   },
   "H": {
     "ellipseY": 130,
@@ -109,7 +113,7 @@ const alphabet = {
     "angleStop": 118,
     "rectX": 3,
     "rectY": 26,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 153
   },
   "I": {
@@ -120,10 +124,10 @@ const alphabet = {
     "offsety": -75,
     "angleStart": 0,
     "angleStop": 0,
-    "rectX": 43,
-    "rectY": 84,
-    "rectW": 15,
-    "rectH": 89
+    "rectX": 42,
+    "rectY": 83,
+    "rectW": 17,
+    "rectH": 94
   },
   "J": {
     "ellipseY": 140,
@@ -133,9 +137,9 @@ const alphabet = {
     "offsety": -81,
     "angleStart": 0,
     "angleStop": 0,
-    "rectX": 80,
+    "rectX": 78,
     "rectY": 49,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 90
   },
   "K": {
@@ -148,7 +152,7 @@ const alphabet = {
     "angleStop": 55,
     "rectX": 3,
     "rectY": 17,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 163
   },
   "L": {
@@ -161,7 +165,7 @@ const alphabet = {
     "angleStop": 180,
     "rectX": 3,
     "rectY": 17,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 126
   },
   "M": {
@@ -172,9 +176,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 234,
     "angleStop": 315,
-    "rectX": 3,
+    "rectX": 2,
     "rectY": 80,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 100
   },
   "N": {
@@ -185,9 +189,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 50,
     "angleStop": 118,
-    "rectX": 3,
+    "rectX": 2,
     "rectY": 80,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 100
   },
   "O": {
@@ -212,9 +216,9 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 3,
-    "rectY": 86,
-    "rectW": 15,
-    "rectH": 100
+    "rectY": 84,
+    "rectW": 17,
+    "rectH": 102
   },
   "Q": {
     "ellipseY": 90,
@@ -224,9 +228,9 @@ const alphabet = {
     "offsety": -20,
     "angleStart": 180,
     "angleStop": 43,
-    "rectX": 82,
+    "rectX": 80,
     "rectY": 86,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 100
   },
   "R": {
@@ -237,9 +241,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 180,
     "angleStop": 0,
-    "rectX": 3,
+    "rectX": 2,
     "rectY": 80,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 100
   },
   "S": {
@@ -251,9 +255,9 @@ const alphabet = {
     "angleStart": 234,
     "angleStop": 54,
     "rectX": 19,
-    "rectY": 158,
+    "rectY": 156,
     "rectW": 56,
-    "rectH": 15
+    "rectH": 17
   },
   "T": {
     "ellipseY": 130,
@@ -263,10 +267,10 @@ const alphabet = {
     "offsety": -28,
     "angleStart": 0,
     "angleStop": 180,
-    "rectX": 43,
+    "rectX": 41,
     "rectY": 26,
-    "rectW": 15,
-    "rectH": 153
+    "rectW": 17,
+    "rectH": 151
   },
   "U": {
     "ellipseY": 130,
@@ -276,9 +280,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 234,
     "angleStop": 315,
-    "rectX": 82,
+    "rectX": 80,
     "rectY": 80,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 100
   },
   "V": {
@@ -328,9 +332,9 @@ const alphabet = {
     "offsety": -20,
     "angleStart": 216,
     "angleStop": 326,
-    "rectX": 82,
+    "rectX": 80,
     "rectY": 60,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 133
   },
   "Z": {
@@ -341,10 +345,10 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 322,
     "angleStop": 142,
-    "rectX": 20,
-    "rectY": 87,
-    "rectW": 62,
-    "rectH": 15
+    "rectX": 18,
+    "rectY": 86,
+    "rectW": 64,
+    "rectH": 17
   },
   "0": {
     "ellipseY": 130,  
@@ -381,9 +385,9 @@ const alphabet = {
     "angleStart": 125,
     "angleStop": 306,
     "rectX": 24,
-    "rectY": 162,
+    "rectY": 160,
     "rectW": 72,
-    "rectH": 15
+    "rectH": 17
   },
   "3": {
     "ellipseY": 130,  
@@ -394,21 +398,21 @@ const alphabet = {
     "angleStart": 292,
     "angleStop": 118,
     "rectX": 20,
-    "rectY": 30,
+    "rectY": 28,
     "rectW": 62,
-    "rectH": 15
+    "rectH": 17
   },
   "4": {
     "ellipseY": 130, 
-    "width": 97.5,
-    "height": 96,
-    "offsetx": 5,
+    "width": 98.5,
+    "height": 96.5,
+    "offsetx": 5.5,
     "offsety": 24,
     "angleStart": 180,
     "angleStop": 270,
-    "rectX": 41,
+    "rectX": 39,
     "rectY": 84,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 108
   },
   "5": {
@@ -420,9 +424,9 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 3,
-    "rectY": 45,
-    "rectW": 15,
-    "rectH": 76
+    "rectY": 43,
+    "rectW": 17,
+    "rectH": 82
   },
   "6": {
     "ellipseY": 130,
@@ -446,9 +450,9 @@ const alphabet = {
     "angleStart": 288,
     "angleStop": 108,
     "rectX": 0,
-    "rectY": 86,
+    "rectY": 84,
     "rectW": 67,
-    "rectH": 15
+    "rectH": 17
   },
   "8": {
     "ellipseY": 130,
@@ -471,9 +475,9 @@ const alphabet = {
     "offsety": -20,
     "angleStart": 0,
     "angleStop": 0,
-    "rectX": 82,
+    "rectX": 80,
     "rectY": 55,
-    "rectW": 15,
+    "rectW": 17,
     "rectH": 120
   }
 
