@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#2B2118";
+const colorLines   = "#F7F3E3";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -131,7 +131,7 @@ function draw () {
     if (interpolation_is_on || (i==0 || i==numSteps-1)) {
       drawLetter(curLetterObj);
     }
-    stroke(colorLines);
+    noStroke();
     fill(colorLines);
     textSize(50);
     textAlign(CENTER)
