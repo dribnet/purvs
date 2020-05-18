@@ -1,8 +1,11 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "Size1":40,
+  "Size2":40,
+  "xpos1":25,
+  "ypos1":100,
+  "xpos2":75,
+  "ypos2":100,
   },
   "A": {
   "arcStart": 140,
