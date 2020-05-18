@@ -12,7 +12,7 @@ const colorLines   = "#000090";
  */
 const sliderInfo = [
   ["size",       40, 100],
-  ["offsetx",  0,100],
+  ["offsetx",  48,52],
   ["offsety", 0, 200],
   ["start1", 0, 360],
   ["stop1", 0, 360],
@@ -73,6 +73,7 @@ function buttonPressedEvent() {
 }
 
 function draw () {
+
   // clear screen
   background(colorBack);
 
@@ -94,6 +95,8 @@ function draw () {
 
   let obj = sliderToDataObject();
   drawLetter(obj);
+  console.log(obj.start1);
+   // text(300,100,obj.start1);
   pop();
 }
 

@@ -57,7 +57,6 @@ function drawLetter(letterData) {
 function drawMoon(size){
  fill("#fff194");
  //fill(0,255,0,30);
-
   ellipse(50, 100, 100, 100);
 }
 
@@ -97,20 +96,32 @@ function drawFgCresent(){
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  //console.log(percent);
+   let FASTP = percent;
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetx"] = map(percent, 0, 100 , oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0,100, oldObj["offsety"], newObj["offsety"]);
+
+
+ if(percent <70){
+ new_letter["start1"] =  oldObj["start1"];
+ new_letter["stop1"] =  oldObj["stop1"];
+  }
+  else{
   new_letter["start1"] = map(percent, 0, 100, oldObj["start1"], newObj["start1"]);
   new_letter["stop1"] = map(percent, 0, 100, oldObj["stop1"], newObj["stop1"]);
+  
+  }
 
   new_letter["bgCutOutx"] = map(percent, 0, 100, oldObj["bgCutOutx"], newObj["bgCutOutx"]);
   new_letter["bgCutOuty"] = map(percent, 0, 100, oldObj["bgCutOuty"], newObj["bgCutOuty"]);
-  
+ 
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MOONFONT",
+  "PHOEBE??",
+  "STRENGTH",
+  "A1B2C3D4",
 ]
