@@ -4,8 +4,12 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 0
   },
-  "A": {
 
+// Triangle 1 = Darkest shade of blue
+// Triangle 2 = Middle shade of blue
+//Triangle 3 = Lightest shade of blue
+
+  "A": {
     //triangle 1
     "offset2x": 50,
     "offset2y": 100,
@@ -18,7 +22,7 @@ const alphabet = {
 
     //triangle 2
     "offsetx2": 0,
-    "offsety2": -10,
+    "offsety2": -30,
 
     "offsetx3": 50,
     "offsety3": 100,
@@ -34,7 +38,7 @@ const alphabet = {
     "offset3y3": 100,
 
     "offset3x4": 0,
-    "offset3y4": 40,
+    "offset3y4": 20,
   },
 
   //////////////////////////////
@@ -71,7 +75,6 @@ const alphabet = {
     "offset3x4": 30,
     "offset3y4": -90,
 
-
   },
 
   //////////////////////////////
@@ -106,8 +109,6 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 0,
-
-
 
   },
 
@@ -145,8 +146,10 @@ const alphabet = {
     "offset3x4": -50,
     "offset3y4": 60,
 
-    //////////////////////////////
   },
+
+  //////////////////////////////
+
   "E": {
     //triangle 1
     "offset2x": -50, //
@@ -214,10 +217,10 @@ const alphabet = {
     "offset3x4": 0,
     "offset3y4": 0,
 
-
   },
 
   //////////////////////////////
+
   "G": {
     //triangle 1
     "offset2x": 0,
@@ -248,13 +251,11 @@ const alphabet = {
 
     "offset3x4": 10,
     "offset3y4": -10,
+
   },
 
-
-
-
-
   //////////////////////////////
+
   "H": {
     //triangle 1
     "offset2x": -50,
@@ -281,13 +282,15 @@ const alphabet = {
     "offset3y2": 0,
 
     "offset3x3": 0,
-    "offset3y3": -20,
+    "offset3y3": -17,
 
     "offset3x4": 0,
-    "offset3y4": 20,
+    "offset3y4": 17,
 
   },
+
   //////////////////////////////
+
   "I": {
     //triangle 1
     "offset2x": -20,
@@ -320,7 +323,9 @@ const alphabet = {
     "offset3y4": 100,
 
   },
+
   //////////////////////////////
+
   "J": {
     //triangle 1
     "offset2x": -30,
@@ -351,6 +356,7 @@ const alphabet = {
 
     "offset3x4": -15,
     "offset3y4": 90,
+
   },
 
   //////////////////////////////
@@ -387,7 +393,9 @@ const alphabet = {
     "offset3y4": 100,
 
   },
+
   //////////////////////////////
+
   "L": {
     //triangle 1
     "offset2x": -50,
@@ -488,6 +496,7 @@ const alphabet = {
     "offset3y4": -95,
 
   },
+
   //////////////////////////////
 
   "O": {
@@ -520,6 +529,7 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 100,
+
   },
 
   //////////////////////////////
@@ -555,6 +565,7 @@ const alphabet = {
 
     "offset3x4": -20,
     "offset3y4": 100,
+
   },
 
   //////////////////////////////
@@ -589,7 +600,8 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 100,
-      },
+
+  },
 
   //////////////////////////////
 
@@ -618,12 +630,14 @@ const alphabet = {
     "offset3x2": 0,
     "offset3y2": -100,
 
-    "offset3x3": -50,
-    "offset3y3": 0,
+    "offset3x3": -30,
+    "offset3y3": -10,
 
     "offset3x4": 0,
     "offset3y4": 100,
+
   },
+
   //////////////////////////////
 
   "S": {
@@ -634,7 +648,7 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": 100,
 
-    "offset4x": 30,
+    "offset4x": 31,
     "offset4y": 70,
 
     //triangle 2
@@ -656,7 +670,9 @@ const alphabet = {
 
     "offset3x4": 50,
     "offset3y4": 100,
+
   },
+
   //////////////////////////////
 
   "T": {
@@ -689,9 +705,11 @@ const alphabet = {
 
     "offset3x4": 20,
     "offset3y4": 100,
+
   },
 
   //////////////////////////////
+
   "U": {
     //triangle 1
     "offset2x": 50,
@@ -722,8 +740,11 @@ const alphabet = {
 
     "offset3x4": 25,
     "offset3y4": 0,
+
   },
+
   //////////////////////////////
+
   "V": {
     //triangle 1
     "offset2x": -50,
@@ -754,8 +775,11 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": -10,
+
   },
+
   //////////////////////////////
+
   "W": {
     //triangle 1
     "offset2x": -20,
@@ -786,8 +810,11 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 0,
+
   },
+
   //////////////////////////////
+
   "X": {
     //triangle 1
     "offset2x": 50,
@@ -818,8 +845,11 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 0,
+
   },
+
   //////////////////////////////
+
   "Y": {
     //triangle 1
     "offset2x": 50,
@@ -850,9 +880,11 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": -30,
+
   },
 
   //////////////////////////////
+
   "Z": {
     //triangle 1
     "offset2x": -50,
@@ -883,8 +915,11 @@ const alphabet = {
 
     "offset3x4": 10,
     "offset3y4": 70,
+
   },
+
   //////////////////////////////
+
   "0": {
     //triangle 1
     "offset2x": 0,
@@ -915,8 +950,11 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 0,
+
   },
+
   //////////////////////////////
+
   "1": {
     //triangle 1
     "offset2x": 50,
@@ -947,8 +985,11 @@ const alphabet = {
 
     "offset3x4":20,
     "offset3y4":100,
+
   },
+
   //////////////////////////////
+
   "2": {
     //triangle 1
     "offset2x": -50,
@@ -979,8 +1020,11 @@ const alphabet = {
 
     "offset3x4": -50,
     "offset3y4": 100,
+
   },
+
   //////////////////////////////
+
   "3": {
     //triangle 1
     "offset2x": 50,
@@ -1011,8 +1055,11 @@ const alphabet = {
 
     "offset3x4":0,
     "offset3y4":0,
+
   },
+
   //////////////////////////////
+
   "4": {
     //triangle 1
     "offset2x": 0,
@@ -1043,8 +1090,11 @@ const alphabet = {
 
     "offset3x4":-10,
     "offset3y4":-60,
+
   },
+
   //////////////////////////////
+
   "5": {
     //triangle 1
     "offset2x": 50,
@@ -1054,13 +1104,13 @@ const alphabet = {
     "offset3y": 100,
 
     "offset4x":-50,
-    "offset4y":80 ,
+    "offset4y":60 ,
 
     //triangle 2
     "offsetx2":-50,
-    "offsety2":0 ,
+    "offsety2":-50,
 
-    "offsetx3":50 ,
+    "offsetx3":50,
     "offsety3": 0,
 
     "offsetx4":50,
@@ -1068,15 +1118,18 @@ const alphabet = {
 
     //triangle 3
     "offset3x2":-50,
-    "offset3y2":-100 ,
+    "offset3y2":-100,
 
     "offset3x3":-50,
-    "offset3y3":0,
+    "offset3y3":-50,
 
     "offset3x4":50,
     "offset3y4":-100,
+
   },
+
   //////////////////////////////
+
   "6": {
     //triangle 1
     "offset2x": 50,
@@ -1107,8 +1160,11 @@ const alphabet = {
 
     "offset3x4":-20,
     "offset3y4":100,
+
   },
+
   //////////////////////////////
+
   "7": {
     //triangle 1
     "offset2x": 50,
@@ -1139,8 +1195,11 @@ const alphabet = {
 
     "offset3x4":0,
     "offset3y4":0,
+
   },
+
   //////////////////////////////
+
   "8": {
     //triangle 1
     "offset2x": 0,
@@ -1171,8 +1230,11 @@ const alphabet = {
 
     "offset3x4":0,
     "offset3y4":0,
+
   },
+
   //////////////////////////////
+
   "9": {
     //triangle 1
     "offset2x": 50,
@@ -1191,7 +1253,7 @@ const alphabet = {
     "offsetx3":50 ,
     "offsety3": 100,
 
-    "offsetx4":-50,
+    "offsetx4":-10,
     "offsety4":100 ,
 
     //triangle 3
@@ -1203,8 +1265,11 @@ const alphabet = {
 
     "offset3x4":50,
     "offset3y4":0,
+
   },
 
+  //////////////////////////////
+  //?
   "default": {
     //triangle 1
     "offset2x": 50,
@@ -1236,6 +1301,5 @@ const alphabet = {
     "offset3x4":20,
     "offset3y4":100,
   }
-
 
 }
