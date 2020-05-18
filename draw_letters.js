@@ -19,7 +19,7 @@ const blue4 = 0
 function drawLetter(letterData) {
 
   let redtriAx = 50 + letterData["redoffsetx"];
-  let redtriAy = 100 + letterData["pinkoffsety"];
+  let redtriAy = 100 + letterData["redoffsety"];
   let redtriA2x = 50 + letterData["offset2x"];
   let redtriA2y = 100 + letterData["offset2y"];
   let redtriA3x = 50 + letterData["offset3x"];
@@ -50,7 +50,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
   new_letter["redoffsetx"] = map(percent, 0, 100, oldObj["redoffsetx"], newObj["redoffsetx"]);
-  new_letter["pinkoffsety"] = map(percent, 0, 100, oldObj["pinkoffsety"], newObj["pinkoffsety"]);
+  new_letter["redoffsety"] = map(percent, 0, 100, oldObj["redoffsety"], newObj["redoffsety"]);
   new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
   new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
   new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
@@ -64,7 +64,17 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
   new_letter["offset3y2"] = map(percent, 0, 100, oldObj["offset3y2"], newObj["offset3y2"]);
 
+ // new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
+
+  if(percent < 99){
+     new_letter["opacity"] = oldObj["opacity"];
+    new_letter["opacity"] = oldObj["opacity"];
+
+  }
+  else{
   new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
+  new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
+  }
 
   return new_letter;
 }

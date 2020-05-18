@@ -2,6 +2,8 @@
 
 18/05/20
 
+Update 2: I am fixing up some of my letters, adding the final flare to them. I have also done a few swapping of colours as I have down this for variation between I and J and N and Z but they look too simiular to the ones next to it. I also find it very satisfing watching the animation to figure out what works well and what doesn't
+
 Today, The editor has since been fixed is very helpful in making my design a little more quirky, I have also added some letters into my exbition. I defenity want to fix my G,2,5 as they work but look similar N,S,Z but that makes sense as they outline the shape of the movement more. I will also play around with my animation cause I think I could have some sharp movements for my red as it doesn't use a opacity which softens it up
 
 The parameters per letter:
