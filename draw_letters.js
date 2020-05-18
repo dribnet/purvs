@@ -51,15 +51,21 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["leaf2Posx"]    = map(percent, 0, 100, oldObj["leaf2Posx"], newObj["leaf2Posx"]);
+  new_letter["leaf2Posy"]    = map(percent, 0, 100, oldObj["leaf2Posy"], newObj["leaf2Posy"]);
+  new_letter["rotate1"]    = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
+  new_letter["rotate2"]    = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
+  new_letter["rotate3"]    = map(percent, 0, 100, oldObj["rotate3"], newObj["rotate3"]);
+  new_letter["stickPosx"]    = map(percent, 0, 100, oldObj["stickPosx"], newObj["stickPosx"]);
+  new_letter["stickPosy"]    = map(percent, 0, 100, oldObj["stickPosy"], newObj["stickPosy"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
+  "AUTUMNAL",
+  "GAPPYGAY",
   "BAAAAAAA"
 ]
 
