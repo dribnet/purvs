@@ -15,6 +15,5 @@ fist test to see if git working
 at work doing some and just had to save.
 >>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
 =======
-9/5
 at work doing some and just had to save.
 >>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
