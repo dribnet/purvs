@@ -1,7 +1,9 @@
+
 const colorFront1  = "#2bad8f";
 const colorFront2  = "#2b8aad";
-//const colorBack    = "#2bad4e";   BACKGROUND COLOUR
+//const colorBack    = "#2bad4e";
 const colorStroke  = "#233f11";
+
 
 /*
  * Draw the letter given the letterData
@@ -28,7 +30,7 @@ function drawLetter(letterData) {
   translate(50, 100);
   rotate(rotate1Big);
   strokeWeight(stroke1Big);
-  //noStroke();
+  noStroke();
   fill(colorFront2);
   triangle(0, -25, 50, 50, -50, 50);   // first big triangle
   pop();
@@ -38,7 +40,7 @@ function drawLetter(letterData) {
   translate(pos1SmallX, pos1SmallY);
   rotate(rotate1Small);
   strokeWeight(stroke1Small);
-  //noStroke();
+  noStroke();
   fill(colorFront1);
   triangle(0, -12.5, 25, 25, -25, 25);   // first small triangle
   pop();
@@ -48,7 +50,7 @@ function drawLetter(letterData) {
   translate(pos2SmallX, pos2SmallY);
   rotate(rotate2Small);
   strokeWeight(stroke1Small);
-  //noStroke();
+  noStroke();
   fill(colorFront1);
   triangle(0, -12.5, 25, 25, -25, 25);   // second small triangle
   pop();
@@ -57,15 +59,22 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offset1Smallx"]    = map(percent, 0, 100, oldObj["offset1Smallx"], newObj["offset1Smallx"]);
+  new_letter["offset1Smally"] = map(percent, 0, 100, oldObj["offset1Smally"], newObj["offset1Smally"]);
+  new_letter["offset2Smallx"] = map(percent, 0, 100, oldObj["offset2Smallx"], newObj["offset2Smallx"]);
+  new_letter["offset2Smally"] = map(percent, 0, 100, oldObj["offset2Smally"], newObj["offset2Smally"]);
+  new_letter["rotate1S"] = map(percent, 0, 100, oldObj["rotate1S"], newObj["rotate1S"]);
+  new_letter["rotate2S"] = map(percent, 0, 100, oldObj["rotate2S"], newObj["rotate2S"]);
+  new_letter["rotate1B"] = map(percent, 0, 100, oldObj["rotate1B"], newObj["rotate1B"]);
+  new_letter["stroke1Small"] = map(percent, 0, 100, oldObj["stroke1Small"], newObj["stroke1Small"]);
+  new_letter["stroke1Big"] = map(percent, 0, 100, oldObj["stroke1Big"], newObj["stroke1Big"]);
   return new_letter;
 }
 
 var swapWords = [
-// change these to be more appropriate for my design - font name - other relevant words
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "TRIIFONT",
+  "TRIIIMAX",
+  "MAXCHICK",
+  "TRIANGLE",
+  "12345678"
 ]

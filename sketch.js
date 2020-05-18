@@ -63,10 +63,6 @@ function drawLetter(posx, posy, letterData, rotate) {
   let stroke2 = letterData["stroke2"];
   let sizer2 = letterData["scale2"];
 
-  // draw some lines:
-  // line(posx, posy, posx+50, posy+50);
-  // line(pos2x, pos2y, pos2x-50, pos2y-50);
-  // draw some triangles:
   strokeWeight(stroke2);
   fill(colorFront2);
   triangle(posx, posy-25, posx+50, posy+50, posx-50, posy+50);

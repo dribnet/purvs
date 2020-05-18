@@ -1,6 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-I have now made a solid set of nine different parameters that can be set for each letter, incorporated them into the editor, and created my first complete alphabet based on my original sketch. I will ask for some design feedback on this one in slack as I work out where to take the design next. The editor was very helpful in working out the values for wach letter but even with the editor it takes a lot longer than I expected to create an entire alphabet!
+This update focuses on getting the interaction page up and running. Using my design system in the editor I perfected oa few of my letters but some could still do with some more work. For the interaction page, after putting in all of the paramaters I created the basic animation it does between each letter and number works quite well. I think it's currently fairly successful as the shapes don't change much so the movements in the animation are restricted to rotations and translations only. I especially like the T (looks kinda like the Tesla logo) and M at the moment and the animation between letters that involve a greater deal of rotation. Further work could increase this. 
+
+The colour scheme makes use of the soothing / natural appearance of analogous colors. I have also trialed in this iteration having no stroke on the shapes. This helps the smaller triangles blend in more with the background which is good as they are generally the piece that is being 'cut' from the larger blue triangle.
 
 the parameters per letter are:
 Main triangle
