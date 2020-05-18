@@ -11,19 +11,26 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["scale2",   0, 10],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100],
-  ["stroke1", 0, 10],
-  ["stroke2", 0, 10],
-  ["rotate1S", 0, 360]
+  ["offset1Smallx",   25, 75],
+  ["offset1Smally",  12.5,  187.5],
+  ["offset2Smallx", 25, 75],
+  ["offset2Smally", 12.5,  187.5],
+  ["rotate1S", 0, 360],
+  ["rotate2S", 0, 360],
+  ["rotate1B", 0, 360],
+  ["stroke1Small", 0, 10],
+  ["stroke1Big", 0, 10]
 ];
 
-  // "offsetx": 0,
-  // "offsety": 35,
-  // "stroke1": 1,
-  // "stroke2": 5,
-  // "scale2": 1
+  // "offset1Smallx": 0,    // Range 0 - 100
+  // "offset1Smally": 35,    // Range 0 - 200
+  // "offset2Smallx": 0,    // Range 0 - 100
+  // "offset2Smally": 35,    // Range 0 - 200
+  // "rotate1S": 1,    // Range 0 - 360
+  // "rotate2S": 1,    // Range 0 - 360
+  // "rotate1B": 1,    // Range 0 - 360
+  // "stroke1Small": 1,    // Range 0 - 10
+  // "stroke1Big": 5    // Range  0 - 10
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;

@@ -1,10 +1,17 @@
 ## MDDN 242 2020 Assignment 2
 
-Furthering setup I have gotten the editor setup so I am all ready to roll with making the letters. I think first I will add in 1 or two more triangles as I currently don't have many parameters and doing this could make for some more interesting and uunique letter make ups.
+I have now made a solid set of nine different parameters that can be set for each letter, incorporated them into the editor, and created my first complete alphabet based on my original sketch. I will ask for some design feedback on this one in slack as I work out where to take the design next. The editor was very helpful in working out the values for wach letter but even with the editor it takes a lot longer than I expected to create an entire alphabet!
 
 the parameters per letter are:
-  offsetx
-  offsety
-  stroke1
-  stroke2
-  scale2
+Main triangle
+  - rotate1B
+  - stroke1Big
+first small triangle
+  - offset1Smallx
+  - offset1Smally
+  - rotate1S
+  - stroke1Small
+second small triangle
+  - offset2Smallx
+  - offset2Smally
+  - rotate2S
