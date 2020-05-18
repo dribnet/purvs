@@ -1,8 +1,10 @@
 ## MDDN 242 2020 Assignment 2
 
-The first play around has happened rather late, but prioritizing due dates will often do that *shrugs* Better late than never.
+1:48 pm
 
-My letters are composed of a red rectangle that is fixed in size and place, with only one other rectangle changing size and position. The background is a very dark, obtrusive colour with the intention of bringing all attention to the letters.
+I managed to get my colour choice and background going the way I want, but figuring out how to fit everything into these parametres without getting bugs is proving annoying.
+
+I like the idea of a very bold, serif style font so i'll be experimenting with hard lines and minimalist shapes. Hopefully there wil be a decent update within the next few hours.
 
 The three parameters per letter:
   * `size` : Literally the width and height

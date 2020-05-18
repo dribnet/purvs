@@ -15,7 +15,7 @@ const canvasHeight = 500;
 const letterA = {
   "size": 80,
   "offsetx": 60,
-  "offsety": 100,
+  "offsety": 200,
   "rectL": 100,
   "rectW": 20
 }
