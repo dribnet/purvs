@@ -5,11 +5,11 @@ Testing Different Colour Palettes
     
   It was interesting trying different colours for the lines and what worked well. My inspiration for my alphabet is the television static - its colours and the effect it has when layered when transparent. My inspiration is not really noticeable when the colour palette uses the brighter colours in the television static. But I really like the look of the other colour palettes, because they have a tropical vibe. Since I have experimented with other colour palettes I am favouring the tropical colours more. It looks more refreshing and they tend to work better together more than the normal static colour palette I have originally used. If I do end up using the tropical colour palette, I'd say my final alphabet's concept is a tropical television static.
 
-![Colour Palette 1](https://imgur.com/lZsllcS) 
-![Colour Palette 2](https://imgur.com/vcGldiU) 
-![Colour Palette 3](https://imgur.com/KekTPHd) 
-![Colour Palette 4](https://imgur.com/Fim0gu6) 
-![Colour Palette 5](https://imgur.com/93OBlzG) 
+![Colour Palette 1](https://i.ibb.co/dfZPmpN/let1.png) 
+![Colour Palette 2](https://i.ibb.co/SmGsjN2/let2.png) 
+![Colour Palette 3](https://i.ibb.co/HrFFf5t/let3.png) 
+![Colour Palette 4](https://i.ibb.co/rsHcGrn/let4.png) 
+![Colour Palette 5](https://i.ibb.co/7GyZmLy/let5.png) 
 
 
 The Parameters per letter:
