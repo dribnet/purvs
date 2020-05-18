@@ -39,9 +39,17 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["sizex"]    = map(percent, 0, 100, oldObj["sizex"], newObj["sizex"]);
+  new_letter["sizey"]    = map(percent, 0, 100, oldObj["sizey"], newObj["sizey"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+new_letter["ciroffsetx"]    = map(percent, 0, 100, oldObj["ciroffsetx"], newObj["ciroffsetx"]);
+new_letter["ciroffsety"]    = map(percent, 0, 100, oldObj["ciroffsety"], newObj["ciroffsety"]);
+new_letter["cirsize1"]    = map(percent, 0, 100, oldObj["cirsize1"], newObj["cirsize1"]);
+new_letter["cirsize2"]    = map(percent, 0, 100, oldObj["cirsize2"], newObj["cirsize2"]);
+new_letter["cir2offsetx"]    = map(percent, 0, 100, oldObj["cir2offsetx"], newObj["cir2offsetx"]);
+new_letter["cir2offsety"]    = map(percent, 0, 100, oldObj["cir2offsety"], newObj["cir2offsety"]);
   return new_letter;
 }
 

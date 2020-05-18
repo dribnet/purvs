@@ -1,8 +1,15 @@
 const alphabet = {
   "default": {
-    "size": 40,
+    "sizex": 30,
+    "sizey": 20,
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 25,
+    "cirsize1": 30,
+    "cirsize2": 25,
+    "ciroffsetx": 0,
+    "ciroffsety": 0,
+    "cir2offsetx": 0,
+    "cir2offsety": -25
   },
   "A": {
     "sizex": 30,
