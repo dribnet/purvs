@@ -1,43 +1,163 @@
 const alphabet = {
   "default": {
-    "size": 40,
+  "size": 0,
     "offsetx": 0,
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 62,
+    "arcY" : 165,
+    "arcS" : 23.55,
+    "arcE" : 7.85,
+
+    //arc 2
+    "arcX2" : 37,
+    "arcY2" : 165,
+    "arcS2" : 19.6,
+    "arcE2" : 3.9,
+
+    //arc 3
+    "arcX3" : 37,
+    "arcY3" : 165,
+    "arcS3" : 27.47,
+    "arcE3" : 43.17,
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 37,
+    "arcY" : 100,
+    "arcS" : 7.85,
+    "arcE" : 23.55,
+
+    //arc 2
+    "arcX2" : 62,
+    "arcY2" : 165,
+    "arcS2" : 3.9,
+    "arcE2" : 19.6,
+
+    //arc 3
+    "arcX3" : 62,
+    "arcY3" : 165,
+    "arcS3" : 43.17,
+    "arcE3" : 27.47,
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 55,
+    "arcY" : 165,
+    "arcS" : 19.6,
+    "arcE" : 3.9,
+
+    //arc 2
+    "arcX2" : 55,
+    "arcY2" : 165,
+    "arcS2" : 19.6,
+    "arcE2" : 3.9,
+
+    //arc 3
+    "arcX3" : 55,
+    "arcY3" : 165,
+    "arcS3" : 27.47,
+    "arcE3" : 43.17,
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 63,
+    "arcY" : 100,
+    "arcS" : 23.55,
+    "arcE" : 7.85,
+
+    //arc 2
+    "arcX2" : 37,
+    "arcY2" : 165,
+    "arcS2" : 19.6,
+    "arcE2" : 3.9,
+
+    //arc 3
+    "arcX3" : 37,
+    "arcY3" : 165,
+    "arcS3" : 27.47,
+    "arcE3" : 43.17,
+
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 55,
+    "arcY" : 165,
+    "arcS" : 19.6,
+    "arcE" : 3.9,
+
+    //arc 2
+    "arcX2" : 55,
+    "arcY2" : 165,
+    "arcS2" : 19.6,
+    "arcE2" : 3.9,
+
+    //arc 3
+    "arcX3" : 55,
+    "arcY3" : 165,
+    "arcS3" : 15.7,
+    "arcE3" : 0,
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 42,
+    "arcY" : 162,
+    "arcS" : 7.85,
+    "arcE" : 23.55,
+
+    //arc 2
+    "arcX2" : 78,
+    "arcY2" : 100,
+    "arcS2" : 27.47,
+    "arcE2" : 43.17,
+
+    //arc 3
+    "arcX3" : 78,
+    "arcY3" : 135,
+    "arcS3" : 27.47,
+    "arcE3" : 43.17,
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcW" : 75,
+    "arcH" : 75,
+
+    //arc 1
+    "arcX" : 55,
+    "arcY" : 217,
+    "arcS" : 43.17,
+    "arcE" : 27.47,
+
+    //arc 2
+    "arcX2" : 55,
+    "arcY2" : 165,
+    "arcS2" : 19.6,
+    "arcE2" : 3.9,
+
+    //arc 3
+    "arcX3" : 55,
+    "arcY3" : 165,
+    "arcS3" : 27.47,
+    "arcE3" : 43.17,
   },
   "H": {
     "size": 50,

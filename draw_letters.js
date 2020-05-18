@@ -12,14 +12,7 @@ const colorFront3  = "#ffd0b5"; //salmon pink
 function drawLetter(letterData) {
   // color/stroke setup
   noStroke();
-
   //letter parameters
-  //rectangle
-  let rectangleX = letterData ["rectX"];
-  let rectangleY = letterData ["rectY"];
-  let rectangleWid = letterData ["rectW"];
-  let rectangleHei = letterData ["rectH"];
-
   //arc 1
   let arcX = letterData ["arcX"];
   let arcY = letterData ["arcY"];
@@ -32,21 +25,27 @@ function drawLetter(letterData) {
   let arcS2 = letterData ["arcS2"];
   let arcE2 = letterData ["arcE2"];
 
-  //Shared arc parameters
+  //arc 3
+  let arcX3 = letterData ["arcX3"];
+  let arcY3 = letterData ["arcY3"];
+  let arcS3 = letterData ["arcS3"];
+  let arcE3 = letterData ["arcE3"];
+
+
   let arcWid = letterData ["arcW"];
   let arcHei = letterData ["arcH"];
 
-  //rectangle
-  fill(colorFront1);
-  rect(rectangleX, rectangleY, rectangleWid, rectangleHei);
-
   //arc 1
-  fill(colorFront2);
+  fill(colorFront1);
   arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
 
   //arc 2
-  fill(colorFront3);
+  fill(colorFront2);
   arc(arcX2, arcY2, arcWid, arcHei, arcS2, arcE2);
+
+  //arc 3
+  fill(colorFront3);
+  arc(arcX3, arcY3, arcWid, arcHei, arcS3, arcE3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

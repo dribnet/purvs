@@ -1,8 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 18/05/2020
-After some initial sketches for the rest of my alphabet, I decided to change the rectangle in my letters to another arc, as I thought that having all my shapes as arcs would look more interesting, especially as I started looking at letters like g, w and m. In order to help myself visualize that approach, I began to start adding new code to the letters and draw_letters files. However, I then decided to update my sketch so that I could have a preview of my new idea before I tried to design the whole alphabet in the same manner. In order to minimize the number of parameters that I have, I am planning to keep the width and height of all my arcs at 80, as I do not want to increase the number of my parameters. I realized that by replacing the rectangle with an arc, that the distinction between the stem of the letter and the rest of the form could be a little more difficult to differrentiate. However I am very ineterested to continue with this idea, as this would translate better design-wise, when I start experimenting with opacity.
+Here are the forst seven letters of the alphabet, using the arcs. So far, I am happy with how these letters have turned out. I am not 100% satisfied with the design of the f, however, I wish to continue with my alphabet, just so I have a better idea of how my alphabet will look together as a whole. Once my alphabet is complete, I will consider whether I need to make changes based on preference and design cohesion. I do lke the idea of having the darkest colour represent either the stem of the letter form, or the portion of the letter form that goes beneath the base, so I plan to continue with that approach. I would like to try to and prevent the dark colour from overlapping, however that may not be possible. 
 
-The fourteen updated parameters per letter:
+The fourteen parameters per letter:
 "arcW" : width of all arcs
 "arcH" : height of all arcs
 "arcX" : x position of arc 1
