@@ -13,6 +13,47 @@ const canvasHeight = 500;
  */
 
 const letterA = {
+<<<<<<< HEAD
+  "archw": 100,
+  "archh": 80,
+  "ell": 80,
+     "point1": -30,
+   "point2": 50,
+   "point3": 30,
+   "point4": 50,
+   "bx": 0,
+  "by": 5,
+     "bx1": 0,
+  "by1": - 20
+}
+
+const letterB = {
+  "archw": 150,
+  "archh": 80,
+  "ell": 80,
+     "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "bx": 10,
+  "by": 23,
+     "bx1": 10,
+  "by1": -23
+}
+
+const letterC = {
+  "archw": 100,
+  "archh": 100,
+  "ell": 80,
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+  "bx": 15,
+  "by": 12,
+   "bx1": 15,
+  "by1": -12
+=======
   "arch": 100,
   "arcw": 80,
   "ell": 80,
@@ -35,12 +76,14 @@ const letterC = {
   "ell": 80,
   "offsetx": 0,
   "offsety": 0
+>>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
+const colorball  = "#FF9270";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -58,24 +101,53 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
+<<<<<<< HEAD
+  let size1 = letterData["archh"];
+  let size2 = letterData["archw"];
+  let size3 = letterData["ell"];
+  let c1 = letterData["point1"];
+  let c2 = letterData["point2"];
+  let c3 = letterData["point3"];
+  let c4 = letterData["point4"];
+  let posbx = posx + letterData["bx"];
+  let posby = posy + letterData["by"];
+   let posb1x = posx + letterData["bx1"];
+  let posb1y = posy + letterData["by1"];
+=======
   let size1 = letterData["arch"];
   let size2 = letterData["arcw"];
   let size3 = letterData["ell"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+>>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
 
   // draw two circles
+  noStroke();
   fill(colorFront1);
   ellipse(posx, posy, size3);
+<<<<<<< HEAD
+  fill(colorball)
+ ;
+  ellipse(posbx, posby, 20);
+  ellipse(posb1x, posb1y, 20);
+
+
+  //arc(posx, posy, size2, 100, 100, 0);
+  fill(colorball);
+  //ellipse(pos2x, pos2y, size2, size2);
+  //arc(posx, posy, size2, size1, 180, 0);
+  triangle(posx, posy, posx + c1, posy + c2, posx + c3, posy + c4);
+=======
   fill(colorFront2);
   //ellipse(pos2x, pos2y, size2, size2);
  //arc(pos2x, pos2y, size1, size2, 180,0);
  triangle(posx, posy, posx + 30, posy + 50, posx + 60, posy);
+>>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
 }
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(colorball);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  

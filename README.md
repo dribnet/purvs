@@ -17,3 +17,5 @@ at work doing some and just had to save.
 =======
 at work doing some and just had to save.
 >>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
+
+changed colors and finished sketch using a triangle and three ellipses. pretty simple only uses 11 parameters.
