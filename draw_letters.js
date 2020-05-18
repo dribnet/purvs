@@ -1,7 +1,6 @@
-const colorFront1  = "#269482";
+const colorFront1  = "#268494";
 const colorFront2  = "#40d6cc";
 const colorFront3  = "#bafff5";
-
 const colorStroke  = "#233f11";
 
 
@@ -16,6 +15,7 @@ function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(4);
+
 
   // determine parameters for second circle
    let size2 = letterData["size"];
@@ -49,19 +49,8 @@ function drawLetter(letterData) {
   let pos3x4 = 50 + letterData["offset3x4"];
   let pos3y4 = 100 + letterData["offset3y4"];
 
-
-  // let posxEllipse = 50+ letterData["offsetEx"];
-  // let posyEllipse = 100+ letterData["offsetEy"];
-  // let wEllipse = letterData["wEllipse"];
-  // let hEllipse = letterData["hEllipse"];
-  // ellipse(posxEllipse, posyEllipse, wEllipse, hEllipse);
-
-
   // draw shapes here
-
   noStroke();
-
-
 
   fill(colorFront1);
   triangle(pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
@@ -115,7 +104,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FREEZING",
+  "GLACIERS",
+  "DIAMONDS"
 ]

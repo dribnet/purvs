@@ -9,4 +9,11 @@ I started off working on sketch.js to get the used to the way this Assignment wo
  I finished the alphabet and added some shapes to letters that only had 2 triangles. My next step is to do the numbers. Once that is done I will play around with stroke and opacity.
 
 Update 3.
-I really like the way the animation turned out. Especially A to V as they are the same, but opposite directions. I also really like X and W. 
+I really like the way the animation turned out. Especially A to V as they are the same, but opposite directions. I also really like X and W.
+
+Update 4.
+I finalised my exhibition page and chose the words freezing, glaciers and diamonds. I thought the colours gave the font a cold theme. The triangles reminded me of ice and crystals which is why I chose glacier and diamond. Those words also use the letters I like the most (such as NDS) and show a good range of letters.
+
+I changed the background colour a few times and settled for a dark blue. I also liked black because of the contrast, but I thought a dark blue would link back to the "cold" theme while still contrasting the colours.
+
+I polished some letters and luckily realised my letter S was backwards. I ended up using the backwards S as the number 2 and flipped the S the right way.

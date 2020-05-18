@@ -35,9 +35,6 @@ const alphabet = {
 
     "offset3x4": 0,
     "offset3y4": 40,
-
-
-
   },
 
   //////////////////////////////
@@ -346,14 +343,14 @@ const alphabet = {
     "offsety4": 100,
 
     //triangle 3
-    "offset3x2": 0,
-    "offset3y2": 0,
+    "offset3x2": 40,
+    "offset3y2": -40,
 
-    "offset3x3": 0,
-    "offset3y3": 0,
+    "offset3x3": 40,
+    "offset3y3":90,
 
-    "offset3x4": 0,
-    "offset3y4": 0,
+    "offset3x4": -15,
+    "offset3y4": 90,
   },
 
   //////////////////////////////
@@ -637,14 +634,14 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": 100,
 
-    "offset4x": -30,
+    "offset4x": 30,
     "offset4y": 70,
 
     //triangle 2
     "offsetx2": 0,
     "offsety2": -100,
 
-    "offsetx3": -50,
+    "offsetx3": 50,
     "offsety3": -80,
 
     "offsetx4": 0,
@@ -654,10 +651,10 @@ const alphabet = {
     "offset3x2": 0,
     "offset3y2": -100,
 
-    "offset3x3": 50,
+    "offset3x3": -50,
     "offset3y3": -60,
 
-    "offset3x4": -50,
+    "offset3x4": 50,
     "offset3y4": 100,
   },
   //////////////////////////////
@@ -954,34 +951,34 @@ const alphabet = {
   //////////////////////////////
   "2": {
     //triangle 1
-    "offset2x": 50,
-    "offset2y":100,
+    "offset2x": -50,
+    "offset2y": 100,
 
-    "offset3x": -50,
+    "offset3x": 50,
     "offset3y": 100,
 
-    "offset4x":-50,
-    "offset4y":60 ,
+    "offset4x": -30,
+    "offset4y": 70,
 
     //triangle 2
-    "offsetx2":0,
-    "offsety2":-100 ,
+    "offsetx2": 0,
+    "offsety2": -100,
 
-    "offsetx3":50 ,
-    "offsety3": -20,
+    "offsetx3": -50,
+    "offsety3": -80,
 
-    "offsetx4":-50,
-    "offsety4":40,
+    "offsetx4": 0,
+    "offsety4": -60,
 
     //triangle 3
-    "offset3x2":-50,
-    "offset3y2":100 ,
+    "offset3x2": 0,
+    "offset3y2": -100,
 
-    "offset3x3":-50,
-    "offset3y3":40,
+    "offset3x3": 50,
+    "offset3y3": -60,
 
-    "offset3x4":50,
-    "offset3y4":-20,
+    "offset3x4": -50,
+    "offset3y4": 100,
   },
   //////////////////////////////
   "3": {
@@ -1206,6 +1203,39 @@ const alphabet = {
 
     "offset3x4":50,
     "offset3y4":0,
+  },
+
+  "default": {
+    //triangle 1
+    "offset2x": 50,
+    "offset2y":-100,
+
+    "offset3x": 0,
+    "offset3y": 40,
+
+    "offset4x":0,
+    "offset4y":-50 ,
+
+    //triangle 2
+    "offsetx2":-50,
+    "offsety2":-40,
+
+    "offsetx3":50,
+    "offsety3": -100,
+
+    "offsetx4":-50,
+    "offsety4":0,
+
+    //triangle 3
+    "offset3x2":0,
+    "offset3y2":60 ,
+
+    "offset3x3":-20,
+    "offset3y3":100,
+
+    "offset3x4":20,
+    "offset3y4":100,
   }
+
 
 }
