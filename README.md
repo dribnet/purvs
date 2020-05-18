@@ -32,6 +32,8 @@ The nine parameters per letter:
 
   I have kept the yellow arc as the standard shape for all my letters, but as I have gone along in creating my letters, i have found this too be really difficult so I thought i could add in a parameter that flips the arc to face the other direction to help create more shapes for letters such as D. Therefore i have made my own sort of paramters, where I can only flip the shape and not adjust the angles. 
 
-  Finished my first draft of my alphabet. So far i like what it looks like, but some letters like M, N and W need more refining. 
+  Finished my first draft of my alphabet. So far i like what it looks like, but some letters like M, N and W need more refining.
+
+  Changed the values of the circler to either be at size 50, or at size 70 for further refinement. The rectangles are also either at at  size 30 x 60 or they are at 90 x 20. This gives a more set look. I still have a few letters to fix up though that don't fit into either of these numbers. I want to try and refine the alphabet to be somewhat linked to the sound that each letter makes, but this has been made very difficult to do as each letter sounds very different. 
 
 
