@@ -15,10 +15,12 @@ function drawLetter(letterData) {
   strokeWeight(4);
 
   // determine parameters for squares
+  //purple square
   let size1 = letterData["size1"];
   let pos1x = 50 + letterData["offsetx1"];
   let pos1y = 150 + letterData["offsety1"];
 
+  //pink square
   let size2 = letterData["size"];
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
@@ -32,6 +34,12 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  //purple square
+  new_letter["size1"] = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+  new_letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);
+  new_letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+ 
+  //pink square
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
@@ -39,7 +47,8 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FLY-HIGH",
+  "FLAGFONT",
+  "CONDORDE",
+  "12345678"
 ]

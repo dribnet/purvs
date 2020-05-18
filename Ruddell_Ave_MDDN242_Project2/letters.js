@@ -244,53 +244,53 @@ const alphabet = {
   },
   "0": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 10,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -10,
+    "offsety": 17
   },
   "1": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
+    "offsetx": -15,
     "offsety": 0
   },
   "2": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -30,
+    "offsety": 5
   },
   "3": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
+    "offsetx": -30,
     "offsety": 0
   },
   "4": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -15,
+    "offsety": 5
   },
   "5": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
     "offsetx": 0,
@@ -298,39 +298,39 @@ const alphabet = {
   },
   "6": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx":-30,
+    "offsety": -10
   },
   "7": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -40,
+    "offsety": -10
   },
   "8": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -15,
+    "offsety": -10
   },
   "9": {
     "size1": 25,
-    "offsetx1": 0,
-    "offsety1": 0,
+    "offsetx1": -15,
+    "offsety1": 17,
     
     "size": 25,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx": -20,
+    "offsety": -10
   }
 
 }

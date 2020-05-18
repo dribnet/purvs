@@ -1,33 +1,23 @@
 ## MDDN 242 2020 Assignment 2
 
+ 6 parameters per letter
 
-
-6/5/2020
-Each of my letters is composed of 2 squares. My alphabet is based on the Semaphore alphabet, regarding the placement of the squares
-
-Colour-wise I decided to try a simple kind of 'neon' aesthetic, taken from this photo: https://flic.kr/p/2j2strf
-
-The three parameters per letter:
-  * `size` : the height and width of the squares
-  * `offsetx` : x offset of the second square relative to the first one
-  * `offsety` : y offset of the second square relative to the first one
-
-  9/5/2020
-  I began to work on my alphabet, adding some more parameters for the square that is at the bottom in the first few letters. This takes my parameters to a total of 6, 3 controlling each square.
-
-  Parameters for square 1:
   * size1 : the height and width of the first square
   * offsetx1 : the x position of the first square
-  * offsety1 : the y position of the first square.
+  * offsety1 : the y position of the first square
 
-  Parameters for square 2:
-  Same as in 6/5/2020 update.
+  * size : height and width of second square
+  * offsetx : the x position of the second square
+  * offsety : the y position of the second square
 
-  16/5/2020
-  Finished mapping out the letters, some tweaks needed for placement. 
+Semaphore Alphabet, for reference (https://cdn.britannica.com/41/133741-050-FA798221/Semaphore-flag-signals.jpg)
 
-  Have yet to work out separate numbers, as the alphabet system I am using doesn't have separate numbers, instead using the first 10 letters of the alphabet as the numbers 0-9. 
-  
-  I have mapped out some possible combos for numbers, as I want to try to keep all of my letter- and number-forms using the same 2 shapes as I feel like suddenly adding a shape to my numbers would be inconsistent and rather jarring.
-  https://flic.kr/p/2j2uVat
+Completed numbers, started interpolation, really liking the way it's animating between the letters A and E.
 
+I have named my font "Fly-High" as the alphabet I used is an alphabet commonly used to communicate long distances and with planes from the ground on the runway.
+
+I also chose words to do with aviation and the Semaphore alphabet, such as Concorde (a really cool looking plane https://thumbs-prod.si-cdn.com/SrdDf9J_kYA5v9xWHdcOFFelq4w=/fit-in/1600x0/https://public-media.si-cdn.com/filer/b1/93/b1937e31-7b38-4a60-86b3-ab1f95f18a3a/concorde-388-june14.jpg), and FLAGFONT.
+
+I have also added the numbers 1-8 as a 'word' in for my exhibition as I like the way that my numbers look similar to the letters and each other, but I feel like you can still tell which number they are.
+
+Personally I don't feel like any of my animations need tweaking, as the alphabet I have used is very compact and has very straight-forward movements (as it was designed to be used by a person, with flags, on a runway and thus needed to be rather straightforward) and I like the way that the alphabet has been animated.
