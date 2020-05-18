@@ -13,7 +13,7 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-<<<<<<< HEAD
+
   "archw": 100,
   "archh": 80,
   "ell": 80,
@@ -53,31 +53,11 @@ const letterC = {
   "by": 12,
    "bx1": 15,
   "by1": -12
-=======
-  "arch": 100,
-  "arcw": 80,
-  "ell": 80,
-  "offsetx": 0,
-  "offsety": 0
+
   
 }
 
-const letterB = {
-  "arch": 150,
-  "arcw": 80,
-  "ell": 80,
-  "offsetx": 0,
-  "offsety": 0
-}
 
-const letterC = {
-  "arch": 100,
-  "arcw": 100,
-  "ell": 80,
-  "offsetx": 0,
-  "offsety": 0
->>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
-}
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
@@ -101,7 +81,7 @@ function setup () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-<<<<<<< HEAD
+
   let size1 = letterData["archh"];
   let size2 = letterData["archw"];
   let size3 = letterData["ell"];
@@ -113,19 +93,13 @@ function drawLetter(posx, posy, letterData) {
   let posby = posy + letterData["by"];
    let posb1x = posx + letterData["bx1"];
   let posb1y = posy + letterData["by1"];
-=======
-  let size1 = letterData["arch"];
-  let size2 = letterData["arcw"];
-  let size3 = letterData["ell"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
->>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
+
 
   // draw two circles
   noStroke();
   fill(colorFront1);
   ellipse(posx, posy, size3);
-<<<<<<< HEAD
+
   fill(colorball)
  ;
   ellipse(posbx, posby, 20);
@@ -137,12 +111,7 @@ function drawLetter(posx, posy, letterData) {
   //ellipse(pos2x, pos2y, size2, size2);
   //arc(posx, posy, size2, size1, 180, 0);
   triangle(posx, posy, posx + c1, posy + c2, posx + c3, posy + c4);
-=======
-  fill(colorFront2);
-  //ellipse(pos2x, pos2y, size2, size2);
- //arc(pos2x, pos2y, size1, size2, 180,0);
- triangle(posx, posy, posx + 30, posy + 50, posx + 60, posy);
->>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
+
 }
 
 function draw () {
