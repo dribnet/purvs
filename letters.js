@@ -76,7 +76,7 @@ const alphabet = {
     "redoffset3x": 30,
     "redoffset3y": 20,
 
-    "opacity": 200,
+    "opacity": 150,
 
     "yellowoffsetx": -50,  
     "yellowoffsety": 100,
@@ -127,7 +127,7 @@ const alphabet = {
     "redoffset3x": -40,
     "redoffset3y": 100,
 
-    "opacity": 120,
+    "opacity": 130,
 
     "yellowoffsetx": 50,
     "yellowoffsety": 30,
@@ -161,7 +161,7 @@ const alphabet = {
     "redoffset3x": 20,
     "redoffset3y": 60,
 
-    "opacity": 160,
+    "opacity": 200,
 
     "yellowoffsetx": 50,
     "yellowoffsety": -80,
@@ -195,7 +195,7 @@ const alphabet = {
     "redoffset3x": 40,
     "redoffset3y": 100,
 
-    "opacity": 100,
+    "opacity": 150,
 
     "yellowoffsetx": -40,
     "yellowoffsety": -100,
@@ -263,7 +263,7 @@ const alphabet = {
     "redoffset3x": 30, 
     "redoffset3y": 40, 
 
-    "opacity": 120,
+    "opacity": 130,
 
     "yellowoffsetx": -50,
     "yellowoffsety": 50,

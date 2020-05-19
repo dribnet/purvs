@@ -19,8 +19,10 @@ const letterA = {
   "offset2y": -100, 
   "offset3x": 50, 
   "offset3y": 40, 
+
   "strokeW": 1,
   "opacity": 130,
+
   "offsetx2": -80,
   "offsety2": 90,
   "offset2x2": 0,
@@ -36,8 +38,10 @@ const letterB = {
   "offset2y": 80, 
   "offset3x": -20, 
   "offset3y": -80, 
+
   "strokeW": 2,
   "opacity": 140,
+
   "offsetx2": 40,
   "offsety2": 40,
   "offset2x2": -20,
@@ -47,20 +51,22 @@ const letterB = {
 }
 
 const letterC = {
-  "offsetx": 30,
-  "offsety": 0,
-  "offset2x": 2,
-  "offset2y": 80,
-  "offset3x": -100,
-  "offset3y": 30,
-  "strokeW": 1,
-  "opacity": 0,
-  "offsetx2": 30,
-  "offsety2": 20,
-  "offset2x2": 100,
-  "offset2y2": 40,
-  "offset3x2": 30,
-  "offset3y2": 0,
+  "offsetx": -40,
+  "offsety": -50,
+  "offset2x": -40,
+  "offset2y": 20,
+  "offset3x": 40,
+  "offset3y": 20,
+
+  "strokeW": 2,
+  "opacity": 100,
+
+  "offsetx2": -40,
+  "offsety2": -50,
+  "offset2x2": -40,
+  "offset2y2": -100,
+  "offset3x2": 40,
+  "offset3y2": -100,
 }
 
 

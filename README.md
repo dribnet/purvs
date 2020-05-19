@@ -2,6 +2,8 @@
 
 18/05/20
 
+Update 6: Testing Json File is working
+
 Update 5: I have decided to call my font Dyslexic. I think this is most suited to my design as you can determine what letters are in an abstract form. As well as creating an abstract form, the letter sizes are not uniform or have all the lines in order, this re iterates my design of being abstract and slightly unreadable like my own personal handwritting
 
 As part of my read me, I have included commonly misspelled works and words that help to reference dyslexia in my exibition part to keep a more coherate look.

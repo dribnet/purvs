@@ -66,10 +66,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["yellowoffset3x"] = map(percent, 0, 100, oldObj["yellowoffset3x"], newObj["yellowoffset3x"]);
   new_letter["yellowoffset3y"] = map(percent, 0, 100, oldObj["yellowoffset3y"], newObj["yellowoffset3y"]);
 
- // new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
-
   if(percent < 99){
-     new_letter["opacity"] = oldObj["opacity"];
+    new_letter["opacity"] = oldObj["opacity"];
     new_letter["opacity"] = oldObj["opacity"];
 
   }
