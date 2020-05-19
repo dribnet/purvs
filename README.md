@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 19/05/2020
-For this section, my main focus was plugging in my code from the letters.js file into the editor, and to see how I could interact with the parameters. This was an interesting experiment, especially after I started seeing interesting ways to use my arcs to create patterns and shapes.  
+I finally started looking at opacity, and I now realize that if I really wanted to play with opacity with my forms, I should have taken it into consideration in the early stages of the designing process. As shown in the sketch for this commit, opacity is truly effective if the colours and shapes created do not distract or take away from the rest of the form. While some of my forms do look interesting with their opacity lowered, the layering of the arcs in some of my forms do not look as good, especially with the letters i, l, r, s, t and x. With this revelation, I have decided to not alter the opacity of my letters, and instead focus on looking at different colour palettes as I am mostly happy with my letter forms. The designs for the letters f, i, j, r and s, as well as the number nine still need to be adjusted. 
 
 The fourteen parameters per letter:
 "arcW" : width of all arcs
