@@ -2,6 +2,10 @@
 
 18/05/20
 
+Update 5: I have decided to call my font Dyslexic. I think this is most suited to my design as you can determine what letters are in an abstract form. As well as creating an abstract form, the letter sizes are not uniform or have all the lines in order, this re iterates my design of being abstract and slightly unreadable like my own personal handwritting
+
+As part of my read me, I have included commonly misspelled works and words that help to reference dyslexia in my exibition part to keep a more coherate look.
+
 Update 4: Today I have been working on my animation between letters, I have found this really helpful is creating some variation between letters in my code, I also like how the opacity spits in at the end, I like it a lot as for some letters there is no variation and others there is a lot so will create a different experience between letters. I am now just working on making the letters appear more like they would in a regular font so switching the I and J height as the J curves under so should be placed lower
 
 Update 3: I needed to do some cleaning up of my code. All of my paremeters are now labelled correctly and making sure I'm commenting where I need to and that its too too confusing for me

@@ -9,6 +9,10 @@ const red2 = 255
 const green2 = 229
 const blue2 = 0
 
+const strokeWeight2 = 0
+
+//255, 239, 97
+
 /*
  * Draw the letter given the letterData
  *
@@ -34,7 +38,7 @@ function drawLetter(letterData) {
 
   let opacity2 = letterData["opacity"];
 
-  strokeWeight(0);
+  strokeWeight(strokeWeight2);
 
   fill(red1,green1,blue1);
   triangle(redtriAx, redtriAy,redtriA2x, redtriA2y, redtriA3x, redtriA3y);
@@ -84,5 +88,8 @@ var swapWords = [
   "EMPLOYEE",
   "DESCRIBE",
   "CALENDAR",
-  ""
+  "MISSPELL",
+  "ORIGINAL",
+  "TWELFTH",
+
 ]

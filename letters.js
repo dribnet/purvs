@@ -70,7 +70,7 @@ const alphabet = {
   },
   "D": {
     "redoffsetx": -20,
-    "redoffsety": 70,
+    "redoffsety": 90,
     "redoffset2x": -30,
     "redoffset2y": -60,
     "redoffset3x": 30,
