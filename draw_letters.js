@@ -24,11 +24,14 @@ function drawLetter(letterData) {
   let pos2x = 50 + letterData["x2"];
   let pos2y = 100 + letterData["y2"];
 
-  // draw two circles
+ 
   fill(colorFront1)
+
+  //Draw the bounding square with rounded corners 
   strokeWeight(0)
   rect(0,0, 100, 200, 10 )
 
+  //Draw the line and two circles 
   strokeWeight(20)
   line(pos1x, pos1y, pos2x, pos2y)
   ellipse(cPosx1, cPosy1, 0, 0)
@@ -38,7 +41,7 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   strokeWeight(1)
-  new_letter["cx1"]    = map(percent, 0, 100, oldObj["cx1"], newObj["cx1"]);
+  new_letter["cx1"]    = map(percent, 0, 100, oldObj["cx1"], newObj["cx1"]);  
   new_letter["cy1"] = map(percent, 0, 100, oldObj["cy1"], newObj["cy1"]);
   new_letter["cx2"] = map(percent, 0, 100, oldObj["cx2"], newObj["cx2"]);
   new_letter["cy2"] = map(percent, 0, 100, oldObj["cy2"], newObj["cy2"]);
@@ -52,6 +55,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "SKITTLES",
-  "11111111",
+  "CANDIES!",
   "22222222"
 ]

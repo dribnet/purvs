@@ -17,4 +17,6 @@ some sort of candy.
 
 Added a default character.
 
-I corrected and updated my sketch, and also did some general tidying up of code / adding comments. 
+I corrected and updated my sketch, and also did some general tidying up of code / adding comments.
+
+Updated sketch and preview thumbnails  
