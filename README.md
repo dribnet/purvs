@@ -16,6 +16,8 @@ Start to do Alphabet. Use tutor's ways of code to do Alphabet. Change the thumbn
 17/05 Complte Alphabet letter D to M.
 19/05 Complete Alphabet N to Q.
 Complete Alphabet. Change parameters.
+Start to do the interaction. Complte A to B, and I will figure out how to do change letters autoly tomorrow. Change the periew picture.
+
 
 The parameters per letter:
   * `size` : radius of the second circle
