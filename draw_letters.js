@@ -1,7 +1,5 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
 const colorBackg    = "#2B2118";
-const colorStroke  = "#A8763E";
+const colorStroke  = "#e6eef4";
 
 /*
  * Draw the letter given the letterData
@@ -12,33 +10,43 @@ const colorStroke  = "#A8763E";
  */
 function drawLetter(letterData) {
   stroke(colorStroke);
-  strokeWeight(10);
+  strokeWeight(17);
   strokeCap(ROUND);
   strokeJoin(ROUND);
   noFill();
 
-  // determine parameters for second circle
-  let pointoneX = 0+letterData["pointoneX"];
-  let pointoneY = 0+letterData["pointoneY"];
-  let pointtwoX = 0+letterData["pointtwoX"];
-  let pointtwoY = 0+letterData["pointtwoY"];
-  let pointthreeX = 0+letterData["pointthreeX"];
-  let pointthreeY = 0+letterData["pointthreeY"];
+  // determine parameters for each x,y coordinate
+  let pointoneX = letterData["pointoneX"]*.8;
+  let pointoneY = letterData["pointoneY"]*.8;
+  let pointtwoX = letterData["pointtwoX"]*.8;
+  let pointtwoY = letterData["pointtwoY"]*.8;
+  let pointthreeX =letterData["pointthreeX"]*.8;
+  let pointthreeY = letterData["pointthreeY"]*.8;
 
-  const baselineY = 0 +200;
+  const baselineY = 0 +185; //straight line from 0 to 200
 
-  // beginShape();
-  // vertex (0, 0);
-  // vertex (0, baselineY);
-  // vertex (pointoneX, pointoneY);
-  // vertex (pointtwoX, pointtwoY);
-  // vertex (pointthreeX,pointthreeY);
-  // endShape();
+  beginShape();
+  curveVertex (15, 15);
+  curveVertex (15, 15);
+  curveVertex (15, baselineY);
+  curveVertex (pointoneX, pointoneY);
+  curveVertex (pointtwoX, pointtwoY);
+  curveVertex (pointthreeX,pointthreeY);
+  curveVertex (pointthreeX,pointthreeY);
+  endShape();
 
-  line (0,0,0,baselineY);
-  line (0,baselineY,pointoneX,pointoneY);
-  line (pointoneX,pointoneY,pointtwoX,pointtwoY);
-  line (pointtwoX,pointtwoY,pointthreeX,pointthreeY);
+  for (let i = 10; i < 200; i += 10) { //ridges through the letters
+    if (i % 20 === 0) {
+      stroke("#03a0a5");
+      strokeWeight (3);
+      bezier(0, i, 50, -500+i, 50, 100+i, 100, i);
+    }
+  }
+
+  // line (0,0,0,baselineY);
+  // line (0,baselineY,pointoneX,pointoneY);
+  // line (pointoneX,pointoneY,pointtwoX,pointtwoY);
+  // line (pointtwoX,pointtwoY,pointthreeX,pointthreeY);
   
 }
 
@@ -54,7 +62,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
+  "DIRTWORM",
   "CAB?CAB?",
   "BAAAAAAA"
 ]

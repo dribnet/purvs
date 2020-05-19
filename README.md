@@ -1,11 +1,13 @@
 19/05/20
-Animation
+Experiment: curves. 
 
-I added the animation maps to my alphabet today. Because all of my variables are just x and y coordinates, the stright maps work really well in my opinion. Some changes look really cool, for example D to G and O to P. I will have to play around with it but I don't think there is much improvement to be made. My only issue would be with the ones that have to move 200px go  quite fast, whereas ones like O to P go quite slow because they dont move quite as far. 
+TEXTURE - committing this one because the texture I accidentally made with bezier curves in a for loop looks cool and fits with the abstract vibe, but deffinately not what I was going for!!
 
-An issue that I had was that I had no given some of my characters all of the parameters. The ones that only had one point, I only gave pointoneX and pointoneY to save time, but this resulted in janky animation. I went back and added the rest of the parameters but had them the same values as the first two. This way there is no extra lines, but the animation works smoothly.
+For this experiment I used the curveVertex function on my pre-existing parameters. At first everything was missing the last line, so I added another parameter. All of the letters also went outside of their 100x200 boxes, so this needed a lot of tweeking. 
 
-I really like the way the default letter 'unfolds' into all the other letters. it is  compressed with no overlapping lines, like folded paper. The way it unfolds looks neat. 
+In my mind when creating this, I was drawing inspration from very abstrtact works like this inked artwork (https://www.flickr.com/photos/swahiligonzili/8316978053/in/contacts/) and the work of a.creature on Instagram, who uses a lot of wiggly line imagery (https://www.instagram.com/a.creature/). The colour scheme for this version is also inspired by their work.
+
+This  version of the font looks more like earthworms and less like the tomb engravings that my first version of the font was going for.  It is a lot more chance, most of the curves and forms are accidental. 
 
 Parameters:
   "pointoneX" - first vertex X
