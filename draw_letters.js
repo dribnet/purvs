@@ -1,6 +1,6 @@
-//const colorFront1  = "#6dc9c9"; //tiffany blue
-//const colorFront2  = "#ffb2b2"; //coral pink
-//const colorFront3  = "#ffd0b5"; //salmon pink
+const colorFront1  = "#6dc9c9"; //tiffany blue
+const colorFront2  = "#ffb2b2"; //coral pink
+const colorFront3  = "#ffd0b5"; //salmon pink
 
 /*
  * Draw the letter given the letterData
@@ -12,14 +12,6 @@
 function drawLetter(letterData) {
   // color/stroke setup
   noStroke();
-
-  //Colour setup
-  let tiffanyblue = color("#6dc9c9");
-  tiffanyblue.setAlpha(200);
-  let coralpink = color("#ffb2b2");
-  coralpink.setAlpha(200);
-  let salmonpink = color("#ffd0b5");
-  salmonpink.setAlpha(200);
 
   //letter parameters
   //arc 1
@@ -44,15 +36,15 @@ function drawLetter(letterData) {
   let arcHei = letterData ["arcH"];
 
   //arc 1
-  fill(tiffanyblue);
+  fill(colorFront1);
   arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
 
   //arc 2
-  fill(coralpink);
+  fill(colorFront2);
   arc(arcX2, arcY2, arcWid, arcHei, arcS2, arcE2);
 
   //arc 3
-  fill(salmonpink);
+  fill(colorFront3);
   arc(arcX3, arcY3, arcWid, arcHei, arcS3, arcE3);
 }
 

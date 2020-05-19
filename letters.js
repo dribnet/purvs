@@ -202,8 +202,8 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 40,
-    "arcY" : 130,
+    "arcX" : 37,
+    "arcY" : 140,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
@@ -225,7 +225,7 @@ const alphabet = {
 
     //arc 1
     "arcX" : 36,
-    "arcY" : 135,
+    "arcY" : 140,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
@@ -414,7 +414,7 @@ const alphabet = {
 
     //arc 3
     "arcX3" : 72,
-    "arcY3" : 138,
+    "arcY3" : 140,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -797,22 +797,22 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 52,
-    "arcY" : 165,
-    "arcS" : 43.17,
-    "arcE" : 27.47,
+    "arcX" : 47,
+    "arcY" : 120,
+    "arcS" : 27.47,
+    "arcE" : 43.17,
 
     //arc 2
-    "arcX2" : 57,
+    "arcX2" : 47,
     "arcY2" : 120,
-    "arcS2" : 19.6,
-    "arcE2" : 3.9,
+    "arcS2" : 0,
+    "arcE2" : 15.7,
 
     //arc 3
-    "arcX3" : 57,
-    "arcY3" : 120,
-    "arcS3" : 27.47,
-    "arcE3" : 43.17,
+    "arcX3" : 55,
+    "arcY3" : 165,
+    "arcS3" : 43.17,
+    "arcE3" : 27.47,
   }
 
 }
