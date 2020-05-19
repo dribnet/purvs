@@ -69,7 +69,7 @@ const colorFront1  = "#EFBDEB";
 const colorFront2  = "#B68CB8";
 const colorFront3  = "#6461A0";
 const colorBackground    = "#000000";
-const colorStroke  = "#114B5F";
+const colorStroke  = "#000000";
 
 //Blue
 const red1 = 0

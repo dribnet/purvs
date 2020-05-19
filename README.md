@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-I've now changed my default letter to a star, I think its quite a dynamic shape which encorporates the opacity well. Im going to continue experimenting with different letters tomorrow, but besides that I think Im almost ready for hand in. 
+After experimenting alittle bit more I thought that I would make it more original by adding a thicker stroke weight and adding a white stroke colour. This was a complementary decision as the letters look more like stained class edges, I thought that the already blue and red (no stroke) triangles looked harsh up against the black background canvas. Another complementary idea was how the white stroke blends in with the background on the exhibition, it then makes it look as though I have implemented 3 triangles on a letter rather than just 2. The stroke is almost a tool for deviding up the triangles even more which I am pleased about. I have adjusted a fue more letter within my alphabet but besides that I am happy with the current results, Im going to look into maybe switching up the animation of some letters and start working on the name of my font. I currently have it as fragment to represent the glass style. Could use some tweaking though but Im going to use it as a place holder.
 
 My letter parameters
 
