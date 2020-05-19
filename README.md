@@ -1,9 +1,9 @@
 ## MDDN 242 2020 Assignment 2
 
 
-I am designing a 'font' to be used in a graphic design way, it is made from triangles and is not 100% totally readable as the mainstream and typical forms of the letter. I do not want the letters to be instantly recognisable but I do want them to have some resemblance and readability that they could be used in abstract graphic design. I want my letters to made from the most minimal amount of parameters possible. Doing this through triangles. I wanted to use a limited almost monochromatic colour scheme. I have set myself the challenge of trying to be good at using triangles since I have not really used them in my other designs in creative coding. 
+Introducing three triangles and refining the letters to be cohesive. So far I am happy with my A, E, F, G, L, O, U, 2, 5, 3, 6, 8, 9. I now need to get the other letters to match the aesthetics of these. 
 
-Cleaning up my code and making sure there are not any small differences. I wanted to make sure my letters use similar shaped elements to create a cohesiveness so I edited some of the positions of my parameters to make it look much cleaner. I only did this to some letters that I found super noticeable and also the ones I am happy with the design of so far but will continue to do this as I refine designs of letters further. 
+
 
 Here are my parameters for each letter so far
    "triX1": first x point of first triangle
@@ -12,6 +12,8 @@ Here are my parameters for each letter so far
    "triY2": second y point of first triangle
    "triX3": third x point of first triangle
    "triY3": third y point of first triangle
+
+
    "2triX1": first x point of second triangle
    "2triY1": first y point of second triangle
    "2triX2": second x point of second triangle
@@ -19,3 +21,9 @@ Here are my parameters for each letter so far
    "2triX3": third x point of second triangle
    "2triY3": third y point of second triangle
 
+   "3triX1": first x point of third triangle
+   "3triY1": first y point of third triangle
+   "3triX2": second x point of third triangle
+   "3triY2": second y point of third triangle
+   "3triX3": third x point of third triangle
+   "3triY3": third y point of third triangle

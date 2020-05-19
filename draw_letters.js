@@ -29,7 +29,14 @@ function drawLetter(letterData) {
   let triangle2X3 = letterData["2triX3"];
   let triangle2Y3 = letterData["2triY3"];
 
-  // draw two circles
+  let triangle3X1 = letterData["3triX1"];
+  let triangle3Y1 = letterData["3triY1"];
+  let triangle3X2 = letterData["3triX2"];
+  let triangle3Y2 = letterData["3triY2"];
+  let triangle3X3 = letterData["3triX3"];
+  let triangle3Y3 = letterData["3triY3"];
+
+  // draw triangles
   stroke(colorStroke);
   strokeWeight(2.5);
     fill(colorFront1);
@@ -41,6 +48,9 @@ function drawLetter(letterData) {
 
   fill(colorFront2);
   triangle(triangle2X1, triangle2Y1, triangle2X2, triangle2Y2, triangle2X3, triangle2Y3);
+
+  fill(colorFront1);
+  triangle(triangle3X1, triangle3Y1, triangle3X2, triangle3Y2, triangle3X3, triangle3Y3);
 }
 
 function draw () {
