@@ -2,142 +2,345 @@ const alphabet = {
   "default": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 0,
+       "bx": 0,
+  "by": 5,
+     "bx1": 0,
+  "by1": - 20
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  
+   
+   "point1": -30,
+   "point2": 50,
+   "point3": 30,
+   "point4": 50,
+   "point5": 50,
+   "point6": 100,
+   "bx": 0,
+   "by": 5,
+   "bx1": 0,
+   "by1": - 20
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  
+  
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 100,
+   "bx": 10,
+   "by": 23,
+    "bx1": 10,
+   "by1": -23
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  
+  
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 100,
+   "bx": 15,
+   "by": 12,
+   "bx1": 15,
+   "by1": -12
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   
+   "point1":-10,
+   "point2": -45,
+   "point3": -10,
+  "point4": 45,
+   "point5": -5,
+   "point6": 100,
+   "bx": 10,
+   "by": 8,
+   "bx1": 10,
+   "by1": -8
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":-10,
+   "point2": -45,
+   "point3": -10,
+  "point4": 45,
+   "point5": -5,
+   "point6": 100,
+   "bx": 25,
+   "by": 20,
+   "bx1": 25,
+   "by1": -20
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":55,
+   "point2": 0,
+   "point3": 0,
+  "point4": 55,
+   "point5": 50,
+   "point6": 100,
+   "bx": 25,
+   "by": -20,
+   "bx1": 15,
+   "by1": -20
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 100,
+   "bx": 10,
+   "by": 15,
+   "bx1": 0,
+   "by1": 5
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -30,
+   "point2": 50,
+   "point3": 30,
+   "point4": 50,
+   "point5": 50,
+   "point6": 100,
+   "bx": 0,
+   "by": -30,
+   "bx1": 0,
+   "by1": -20
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":-10,
+   "point2": -30,
+   "point3": -10,
+  "point4": 30,
+   "point5": -5,
+   "point6": 100,
+      "bx": 28,
+   "by": 5,
+   "bx1": 28,
+   "by1": -5
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":-40,
+   "point2": -30,
+   "point3": -40,
+  "point4": 30,
+   "point5": 50,
+   "point6": 100,
+   "bx": -5,
+   "by": 10,
+   "bx1": 28,
+   "by1": -5
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 100,
+      "bx": 0,
+   "by": -30,
+   "bx1": 0,
+   "by1": 30
+ 
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": 0,
+   "point2": -55,
+   "point3": 55,
+   "point4": 0,
+   "point5": 50,
+   "point6": 100,
+    "bx": 0,
+   "by": -35,
+   "bx1": 35,
+   "by1": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -40,
+   "point2": -55,
+   "point3": 40,
+   "point4": -55,
+   "point5": 50,
+   "point6": 100,
+       "bx": -25,
+   "by": 22,
+   "bx1": 25,
+   "by1": 22
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -40,
+   "point2": -55,
+   "point3": 0,
+   "point4": -55,
+   "point5": 50,
+   "point6": 100,
+    "bx": -15,
+   "by": 25,
+   "bx1": -15,
+   "by1": 15
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": 10,
+   "point2": -20,
+   "point3": 10,
+   "point4": 20,
+   "point5": 30,
+   "point6": 100,
+       "bx": 0,
+   "by": 0,
+   "bx1": 0,
+   "by1": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":55,
+   "point2": 0,
+   "point3": 0,
+  "point4": 55,
+   "point5": 50,
+   "point6": 100,
+      "bx": 15,
+   "by": -15,
+   "bx1": 15,
+   "by1": -15
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": 25,
+   "point2": -10,
+   "point3": -10,
+  "point4": 25,
+   "point5": 30,
+   "point6": 80,
+         "bx": 20,
+   "by": 1,
+   "bx1": -5,
+   "by1": 15
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":55,
+   "point2": 40,
+   "point3": 0,
+  "point4": 55,
+   "point5": 50,
+   "point6": 100,
+      "bx": 38,
+   "by": 0,
+      "bx1": 15,
+   "by1": -15
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 80,
+       "bx": -15,
+   "by": 15,
+   "bx1": -30,
+   "by1": 15
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":55,
+   "point2": 0,
+   "point3": 0,
+  "point4": 55,
+   "point5": 50,
+   "point6": 100,
+       "bx": -25,
+   "by": 25,
+   "bx1": -25,
+   "by1": 10
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -40,
+   "point2": -55,
+   "point3": 40,
+   "point4": -55,
+   "point5": 50,
+   "point6": 120,
+          "bx": -25,
+   "by": -22,
+   "bx1": 25,
+   "by1": -22
+
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -40,
+   "point2": -55,
+   "point3": 40,
+   "point4": -55,
+   "point5": 50,
+   "point6": 120,
+      "bx": 0,
+   "by": -30,
+   "bx1": 0,
+   "by1": -20
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -30,
+   "point2": 50,
+   "point3": 30,
+   "point4": 50,
+   "point5": 50,
+   "point6": 100,
+    "bx": -25,
+   "by": -22,
+   "bx1": 25,
+   "by1": -22
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":50,
+   "point2": 15,
+   "point3": 0,
+  "point4": 50,
+   "point5": 15,
+   "point6": 50,
+          "bx": -25,
+   "by": 22,
+   "bx1": 25,
+   "by1": -22
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1": -40,
+   "point2": -55,
+   "point3": 40,
+   "point4": -55,
+   "point5": 50,
+   "point6": 80,
+       "bx": -25,
+   "by": 22,
+   "bx1": 25,
+   "by1": 22
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "point1":-40,
+   "point2": -20,
+   "point3": -40,
+  "point4": 40,
+   "point5": 50,
+   "point6": 100,
+       "bx": 15,
+   "by": -15,
+   "bx1": 30,
+   "by1": -15
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 0,
+   "point2": -20,
+   "point3": 0,
+   "point4": 20,
+   "point5": 30,
+   "point6": 100,
+      "bx": 20,
+   "by": 0,
+   "bx1": 20,
+   "by1": 0
   },
   "1": {
     "size": 40,
