@@ -11,22 +11,22 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["triangleXPos1", 0, 100],
-  ["triangleYPos1", 0,  200],
-  ["triangleXPos2", 0, 100],
-  ["triangleYPos2", 0,  200],
-  ["triangleXPos3", 0, 100],
-  ["triangleYPos3", 0,  200],
-  ["triangleXPos4", 0, 100],
-  ["triangleYPos4", 0,  200],
-  ["triangleXPos5", 0, 100],
-  ["triangleYPos5", 0,  200],
-  ["triangleXPos6", 0, 100],
-  ["triangleYPos6", 0,  200],
-  ["rectXPos", 0, 100],
-  ["rectYPos", 0, 200],
-  ["rectWPos", 0, 100],
-  ["rectHPos", 0, 200]    
+  ["triangleXPos1", 0, 100], //trianglexpos1 slider
+  ["triangleYPos1", 0,  200], //triangleypos1 slider
+  ["triangleXPos2", 0, 100], //trianglexpos2 slider
+  ["triangleYPos2", 0,  200], //triangleypos2 slider
+  ["triangleXPos3", 0, 100], //trianglexpos3 slider
+  ["triangleYPos3", 0,  200], //triangleypos3 slider
+  ["triangleXPos4", 0, 100], //trianglexpos4 slider
+  ["triangleYPos4", 0,  200], //triangleypos4 slider
+  ["triangleXPos5", 0, 100], //trianglexpos5 slider
+  ["triangleYPos5", 0,  200], //triangleypos5 slider
+  ["triangleXPos6", 0, 100], //trianglexpos6 slider
+  ["triangleYPos6", 0,  200], //triangleypos6 slider
+  ["rectXPos", 0, 100], //rectxpos slider
+  ["rectYPos", 0, 200], //rectypos slider
+  ["rectWPos", 0, 100], //rectwpos slider
+  ["rectHPos", 0, 200]  //recthpos slider  
 
 
   // ["offsety", -100, 100]
