@@ -1,16 +1,9 @@
 const alphabet = {
   "default": {
-    "ellipseY": 90,
-    "width": 45,
-    "height": 45,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": 60,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 41,
-    "rectY": 44,
-    "rectW": 17,
-    "rectH": 92
+    "offsety": 0
   },
   "A": {
     "ellipseY": 130, 
@@ -21,13 +14,13 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 80,
-    "rectY": 126,
-    "rectW": 17,
-    "rectH": 54
+    "rectY": 130,
+    "rectW": 15,
+    "rectH": 50
   },
   "B": {
     "ellipseY": 130,
-    "width": 87,
+    "width": 85,
     "height": 85,
     "offsetx": 0,
     "offsety": 20,
@@ -35,7 +28,7 @@ const alphabet = {
     "angleStop": 90,
     "rectX": 3,
     "rectY": 26,
-    "rectW": 17,
+    "rectW": 15,
     "rectH": 153
   },
   "C": {
@@ -45,11 +38,7 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 20,
     "angleStart": 335,
-    "angleStop": 75,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "angleStop": 75
   },
   "D": {
     "ellipseY": 130,
@@ -59,9 +48,9 @@ const alphabet = {
     "offsety": 20,
     "angleStart": 90,
     "angleStop": 270,
-    "rectX": 81,
+    "rectX": 82,
     "rectY": 26,
-    "rectW": 17,
+    "rectW": 15,
     "rectH": 153
   },
   "E": {
@@ -71,11 +60,7 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 20,
     "angleStart": 180,
-    "angleStop": 0,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "angleStop": 0
   },
   "F": {
     "ellipseY": 130,
@@ -86,113 +71,57 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 3,
-    "rectY": 38,
-    "rectW": 17,
-    "rectH": 143
+    "rectY": 26,
+    "rectW": 15,
+    "rectH": 153
   },
   "G": {
-    "ellipseY": 90,
-    "width": 67,
-    "height": 38,
-    "offsetx": 14,
-    "offsety": 65,
-    "angleStart": 0,
-    "angleStop": 180,
-    "rectX": 80,
-    "rectY": 58,
-    "rectW": 17,
-    "rectH": 123
+    "ellipseY": 130,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "H": {
     "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 50,
-    "angleStop": 118,
-    "rectX": 3,
-    "rectY": 26,
-    "rectW": 17,
-    "rectH": 153
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "I": {
-    "ellipseY": 130, 
-    "width": 40,
-    "height": 40,
-    "offsetx": 0,
-    "offsety": -75,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 42,
-    "rectY": 83,
-    "rectW": 17,
-    "rectH": 94
+    "ellipseY": 130,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "J": {
-    "ellipseY": 140,
-    "width": 20,
-    "height": 20,
-    "offsetx": 37,
-    "offsety": -81,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 78,
-    "rectY": 49,
-    "rectW": 17,
-    "rectH": 90
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "K": {
-    "ellipseY": 90,
-    "width": 65,
-    "height": 65,
-    "offsetx": -14,
-    "offsety": 44,
-    "angleStart": 235,
-    "angleStop": 55,
-    "rectX": 3,
-    "rectY": 17,
-    "rectW": 17,
-    "rectH": 163
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "L": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 0,
-    "angleStop": 180,
-    "rectX": 3,
-    "rectY": 17,
-    "rectW": 17,
-    "rectH": 126
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "M": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 234,
-    "angleStop": 315,
-    "rectX": 2,
-    "rectY": 80,
-    "rectW": 17,
-    "rectH": 100
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "N": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 50,
-    "angleStop": 118,
-    "rectX": 2,
-    "rectY": 80,
-    "rectW": 17,
-    "rectH": 100
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "O": {
     "ellipseY": 130,  
@@ -201,11 +130,7 @@ const alphabet = {
     "offsetx": 0,
     "offsety": 20,
     "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "angleStop": 0
   },
   "P": {
     "ellipseY": 90,
@@ -216,9 +141,9 @@ const alphabet = {
     "angleStart": 180,
     "angleStop": 0,
     "rectX": 3,
-    "rectY": 84,
-    "rectW": 17,
-    "rectH": 102
+    "rectY": 86,
+    "rectW": 15,
+    "rectH": 100
   },
   "Q": {
     "ellipseY": 90,
@@ -227,10 +152,10 @@ const alphabet = {
     "offsetx": 0,
     "offsety": -20,
     "angleStart": 180,
-    "angleStop": 43,
-    "rectX": 80,
+    "angleStop": 0,
+    "rectX": 82,
     "rectY": 86,
-    "rectW": 17,
+    "rectW": 15,
     "rectH": 100
   },
   "R": {
@@ -239,246 +164,116 @@ const alphabet = {
     "height": 85,
     "offsetx": 0,
     "offsety": 20,
-    "angleStart": 180,
-    "angleStop": 0,
-    "rectX": 2,
-    "rectY": 80,
-    "rectW": 17,
-    "rectH": 100
+    "angleStart": 0,
+    "angleStop": 90
   },
   "S": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 234,
-    "angleStop": 54,
-    "rectX": 19,
-    "rectY": 156,
-    "rectW": 56,
-    "rectH": 17
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "T": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": -28,
-    "angleStart": 0,
-    "angleStop": 180,
-    "rectX": 41,
-    "rectY": 26,
-    "rectW": 17,
-    "rectH": 151
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "U": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 234,
-    "angleStop": 315,
-    "rectX": 80,
-    "rectY": 80,
-    "rectW": 17,
-    "rectH": 100
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "V": {
-    "ellipseY": 130,
-    "width": 110,
-    "height": 130,
-    "offsetx": 0,
-    "offsety": 25,
-    "angleStart": 234,
-    "angleStop": 315,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "W": {
-    "ellipseY": 130,
-    "width": 95,
-    "height": 95,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 50,
-    "angleStop": 118,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "X": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 162,
-    "angleStop": 342,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "Y": {
-    "ellipseY": 90,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": -20,
-    "angleStart": 216,
-    "angleStop": 326,
-    "rectX": 80,
-    "rectY": 60,
-    "rectW": 17,
-    "rectH": 133
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "Z": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
-    "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 322,
-    "angleStop": 142,
-    "rectX": 18,
-    "rectY": 86,
-    "rectW": 64,
-    "rectH": 17
+    "ellipseY": 110,
+    "size": 50,
+    "offsetx": 15,
+    "offsety": 0
   },
   "0": {
-    "ellipseY": 130,  
-    "width": 45,
-    "height": 60,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "offsety": 17
   },
   "1": {
-    "ellipseY": 130,  
-    "width": 85,
-    "height": 85,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 180,
-    "angleStop": 90,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "offsety": 17
   },
   "2": {
-    "ellipseY": 130,  
-    "width": 85,
-    "height": 85,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 125,
-    "angleStop": 306,
-    "rectX": 24,
-    "rectY": 160,
-    "rectW": 72,
-    "rectH": 17
+    "offsety": 17
   },
   "3": {
-    "ellipseY": 130,  
-    "width": 53,
-    "height": 61,
-    "offsetx": 18.5,
-    "offsety": -52,
-    "angleStart": 292,
-    "angleStop": 118,
-    "rectX": 20,
-    "rectY": 28,
-    "rectW": 62,
-    "rectH": 17
+    "ellipseY": 110,
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 17
   },
   "4": {
-    "ellipseY": 130, 
-    "width": 98.5,
-    "height": 96.5,
-    "offsetx": 5.5,
-    "offsety": 24,
-    "angleStart": 180,
-    "angleStop": 270,
-    "rectX": 39,
-    "rectY": 84,
-    "rectW": 17,
-    "rectH": 108
+    "ellipseY": 110,
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 17
   },
   "5": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 65,
-    "offsetx": -5,
-    "offsety": -55,
-    "angleStart": 180,
-    "angleStop": 0,
-    "rectX": 3,
-    "rectY": 43,
-    "rectW": 17,
-    "rectH": 82
+    "ellipseY": 110,
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 17
   },
   "6": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 78,
-    "offsetx": -3,
-    "offsety": -38,
-    "angleStart": 140,
-    "angleStop": 324,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "ellipseY": 110,
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 17
   },
   "7": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": 20,
-    "angleStart": 288,
-    "angleStop": 108,
-    "rectX": 0,
-    "rectY": 84,
-    "rectW": 67,
-    "rectH": 17
+    "offsety": 17
   },
   "8": {
-    "ellipseY": 130,
-    "width": 85,
-    "height": 85,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": -65,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 50,
-    "rectY": 100,
-    "rectW": 0,
-    "rectH": 0
+    "offsety": 17
   },
   "9": {
-    "ellipseY": 90,
-    "width": 45,
-    "height": 45,
+    "ellipseY": 110,
+    "size": 40,
     "offsetx": 0,
-    "offsety": -20,
-    "angleStart": 0,
-    "angleStop": 0,
-    "rectX": 80,
-    "rectY": 55,
-    "rectW": 17,
-    "rectH": 120
+    "offsety": 17
   }
 
 }
