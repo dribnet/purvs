@@ -1,5 +1,5 @@
-const color        = "#F1FAF1";
-const colorStroke  = "#233f11";
+const color        = "#1c2541";
+const colorStroke  = "#8d99ae";
 
 /*
  * Draw the letter given the letterData
@@ -84,6 +84,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
+  "GALAXSIC",
   " IAMONE ",
   "WITH THE",
   " FORCE! "

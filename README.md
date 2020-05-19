@@ -6,6 +6,7 @@ Craig Springett | 300441513
 
 The concept for my alphabet is to base it on the [Aurebesh Alphabet](https://omniglot.com/images/writing/aurekbesh.gif) from the Star Wars universe.
 
+### Galaxsic
 | Variables List |															  |
 |:--------------:|------------------------------------------------------------|
 |	 `offsetX1`	 | _x_ Position of first arc/circle (limited to ±15)		  |
@@ -23,6 +24,7 @@ The design of my typeface is based on a sketch I made that used two arcs and a s
 
 | Date		 | Update Information											  |
 |:----------:|----------------------------------------------------------------|
+| 20/05/2020 | Added purview.json. Changed colours to better represent the space/galatic origins of the alphabet.										 |
 | 18/05/2020 | Finished refinement of characters, pretty happy with interpolation timing where the 2nd arc is slightly delayed to the first and the bar makes the fastest motion from halfway through. This is to emulate the idea that it is being drawn/written so therefore one must be ending before the next could be starting, but I also want to keep the character smoothly interpolating, hence why it isn't one by one. Updated README to include variables list and outline of design parameters.							  |
 | 17/05/2020 | Continued refinement of character shapes. I am limiting the x-axis to ±15 in order to keep my shapes within the bounds. I also have key design elements, such as forms that have vertical or horizontal lines in them will include a horizontal or vertical straight line in them too, proportionally (aside from 0). Also most angular shapes will have the two circles offset to represent this.											  |
 | 16/05/2020 | Finished base character shapes, will revise and clean them up as required (as some don't fit within the bounds, and others have tails due to rounding errors on my part). Fixed width = 0 && height = 0 leaving a dot in the centre and instead that now makes it invisible.							  |

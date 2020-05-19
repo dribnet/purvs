@@ -72,13 +72,13 @@ const alphabet = {
     "lineHeight": 80
   },
   "F": {
-    "offsetX1": 15,
+    "offsetX1": 12,
     "offsetY1": -40,
     "start1": 350,
-    "end1": 95,
-    "offsetX2": -15,
+    "end1": 90,
+    "offsetX2": -12,
     "offsetY2": 40,
-    "start2": 310,
+    "start2": 305,
     "end2": 275,
     "lineWidth": 20,
     "lineHeight": 80
@@ -168,7 +168,7 @@ const alphabet = {
     "lineHeight": 0
   },
   "N": {
-    "offsetX1": -15,
+    "offsetX1": -12,
     "offsetY1": -10,
     "start1": 95,
     "end1": 210,
@@ -252,7 +252,7 @@ const alphabet = {
     "lineHeight": 80
   },
   "U": {
-    "offsetX1": 15,
+    "offsetX1": 12,
     "offsetY1": 0,
     "start1": 190,
     "end1": 100,
