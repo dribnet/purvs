@@ -82,15 +82,17 @@ const alphabet = {
     "offsety": 0
   },
   "G": {
-    // "sizeLine": 80,
-    // "sizeCirc": 160,
-    // "circx1": 0,
-    // "circy1": 0,
-    // "linex1": 20, //left
-    // "liney1": 0, //top
-    // "linex2": 50,
-    // "liney2": 0,
-    // "liney3": 0
+    "sizeLine": 34,
+    "sizeCirc": 90,
+    "circx1": 49,
+    "circy1": 96,
+    "circx2": 50,
+    "circy2": 96,
+    "linex1": 83, //left
+    "liney1": 100, //height
+    "linex2": 68,
+    "liney2": 100, // length R
+    "liney3": 100, //length L
   },
   "H": {
     "sizeLine": 0,
