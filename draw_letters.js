@@ -35,6 +35,7 @@ function drawLetter(letterData) {
   ellipse(cir2pos2x, cir2pos2y, cirs1, cirs2)
   rect(pos2x, pos2y, size1, size2)
 
+  rectMode(CORNER) //Center boundary boxes
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

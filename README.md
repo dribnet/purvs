@@ -1,8 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-Updated Default Letter. The interaction has been made, because my shapes are just a rectangle and two ellipses, the interaction worked really well withthe default mapping and still looks really effective. I really do like how the interaction turned out. Next I have to create my exhibition part of this code, then after maybe a few more tweaks it'll be near on ready for submission. I have also changed the background colour to match that of my letter base squares.
+Thanks to the feedback from Phoebe, the boundary boxes around my letters are fixed and in their proper position. I have also changed the background measurement line colors in each of the files. Before they were a dark blue that was way to hard to see, now they are a light gray that is visible but doesnt take away from the overall letter design infront. I am still yet to complete the exhibition and maybe touch up some letters.
 
-Currently I am sitting on a nice 10 parameters:
+Currently I am sitting on 10 parameters:
 sizex
 sizey
 offsetx
