@@ -1,4 +1,4 @@
-const colorFront1  = "#199cff";
+const colorFront1  = "#fcba03";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
 
@@ -18,12 +18,17 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
+  let startA = letterData["start"];
+  let endA = letterData["stop"];
+  
+
 
   // draw two circles
   fill(colorFront1);
   ellipse(50, 150, 75, 75);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  
+  arc(pos2x, pos2y, size2, size2,startA,endA);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

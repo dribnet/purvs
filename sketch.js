@@ -42,8 +42,8 @@ function setup () {
 
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
-
+  strokeWeight(1);
+  angleMode(DEGREES);
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
@@ -53,12 +53,14 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let startA = letterData["start"];
+  let endA = letterData["stop"];
 
   // draw two circles
   fill(colorFront1);
   ellipse(posx, posy, 150, 150);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size2, size2,statA,endA);
 }
 
 function draw () {
