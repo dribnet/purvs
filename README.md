@@ -15,7 +15,27 @@ Start to do Alphabet. Use tutor's ways of code to do Alphabet. Change the thumbn
 
 17/05 Complte Alphabet letter D to M.
 19/05 Complete Alphabet N to Q.
-The three parameters per letter:
+Complete Alphabet. Change parameters.
+
+The parameters per letter:
   * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  * sectionx: x of the first point of the left line
+  * sectiony: y of the first point of the left line
+  * sectionx1: x of the second point of the left line
+  * sectiony1: y of the second point of the left line
+  * sectionx2: x of the first point of the top triangle
+  * sectiony2: y of the first point of the top triangle
+  * sectionx3: x of the second point of the top triangle
+  * sectiony3: x of the second point of the top triangle
+  * sectionx4: x of the third point of the top triangle
+  * sectiony4: y of the third point of the top triangle
+  * sectionx5: x of the first point of the botton triangle
+  * sectiony5: y of the first point of the botton triangle
+  * sectionx6: x of the second point of the botton triangle
+  * sectiony6: y of the second point of the botton triangle
+  * sectionx7: x of the third point of the botton triangle
+  * sectiony7: y of the third point of the botton triangle
+  * section2x: x of the first point of the right line
+  * section2y: y of the first point of the right line
+  * section2x1: x of the second point of the right line
+  * section2y1: y of the second point of the right line
