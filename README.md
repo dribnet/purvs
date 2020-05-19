@@ -1,10 +1,20 @@
 ## MDDN 242 2020 Assignment 2
 
-19/5 - Sorry for the big readme's in my previous commits, I will make sure that there is only the relevant readme update for my commits going forwards. I've added interaction to my code. It looks really nice- the arc travels around the circle, getting shorter or longer, and the movement/resizing of the circle is really nice too. The only problem is that currently, it's only animating the first circle. So the second circle dissapears, the first circle runs through its animation, and then the new second circle appears. All of the interaction maps look right, so I don't know whats happened there. Other than that, I'm really happy with how its looking, and I'm getting really close to being finished!
+20/5 - The reason my interaction wasn't working was a small typo, which Hazel spotted. Now it's all working good, and looks pretty nice. I'm not the biggest fan of how some of the arcs shrink in size, then appear really big before shifting to their new position, but I have had a look at stopping that and I can't see any way to. from arcstart to arcfinish it runs clockwise, so I think its just a bit of a weird way that the animation decides to shift things/is the shortest way for it to animate. Other than that, I've tidied up my code a bit, the alphabets looking good, just need to sort out a small issue with my sketch.
 
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The thirteen parameters per letter:
+  arcStart - start position of the first arc
+  arcFinish - end position of the first arc
+  arc2Start - start position of the second arc
+  arc2Finish - end position of the second arc
+  arc3Start - start position of the third arc
+  arc3Finish - end position of the third arc
+  arc3opacity - visibility of the third arc
+  Size1 - diameter of the first circle
+  Size2 - diameter of the second circle
+  xpos1 - X position of the first circle, used to position the arcs
+  ypos1 - Y position of the first circle, used to position the arcs
+  xpos2 - X position of the second circle, used to position the arcs
+  ypos2 - Y position of the second circle, used to position the arcs
 

@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#333333";
-const colorLines   = "#000090";
+const colorBack    = "#1f1f1f";
+
 
 /*******
  * define this "sliderInfo" variable
