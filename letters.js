@@ -1,7 +1,10 @@
 const alphabet = {
 
   "A": {
-    "circ": 90,
+    "circ": 90, // size of letter font
+    "circ2": 95, // size of background circle (darkblue)
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 98,
     "lineY": 150,
     "linex2": 98,
@@ -9,6 +12,9 @@ const alphabet = {
   },
   "B": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 2,
     "lineY": 100,
     "linex2": 2,
@@ -16,6 +22,9 @@ const alphabet = {
   },
   "C": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 150,
     "linex2": 98,
@@ -23,6 +32,9 @@ const alphabet = {
   },
   "D": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 98,
     "lineY": 100,
     "linex2": 98,
@@ -30,6 +42,9 @@ const alphabet = {
   },
   "E": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 135,
     "linex2": 90,
@@ -41,6 +56,9 @@ const alphabet = {
   },
   "F": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 135,
     "linex2": 90,
@@ -58,6 +76,9 @@ const alphabet = {
   },
   "G": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 155,
     "linex2": 98,
@@ -65,6 +86,9 @@ const alphabet = {
   },
   "H": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 35,
     "lineY": 105,
     "linex2": 35,
@@ -77,6 +101,9 @@ const alphabet = {
   },
   "I": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 150,
     "linex2": 50,
@@ -84,6 +111,9 @@ const alphabet = {
   },
   "J": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 65,
     "lineY": 105,
     "linex2": 65,
@@ -95,6 +125,9 @@ const alphabet = {
   },
   "K": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 85,
     "lineY": 120,
     "linex2": 50,
@@ -106,6 +139,9 @@ const alphabet = {
   },
   "L": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 165,
     "linex2": 95,
@@ -113,6 +149,9 @@ const alphabet = {
   },
   "M": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 20,
     "lineY": 115,
     "linex2": 50,
@@ -124,6 +163,9 @@ const alphabet = {
   },
   "N": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 35,
     "lineY": 150,
     "linex2": 35,
@@ -135,6 +177,9 @@ const alphabet = {
   },
   "O": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 150,
     "linex2": 50,
@@ -143,6 +188,9 @@ const alphabet = {
   },
   "P": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 2,
     "lineY": 150,
     "linex2": 2,
@@ -150,6 +198,9 @@ const alphabet = {
   },
   "Q": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 150,
     "linex2":  85,
@@ -157,6 +208,9 @@ const alphabet = {
   },
   "R": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 150,
     "linex2": 90,
@@ -168,6 +222,9 @@ const alphabet = {
   },
   "S": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 135,
     "linex2": 90,
@@ -179,6 +236,9 @@ const alphabet = {
   },
   "T": {
     "circ":90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 35,
     "lineY": 150,
     "linex2": 35,
@@ -190,6 +250,9 @@ const alphabet = {
   },
   "U": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 35,
     "lineY": 105,
     "linex2": 35,
@@ -201,6 +264,9 @@ const alphabet = {
   },
   "V": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 10,
     "lineY": 125,
     "linex2": 50,
@@ -212,6 +278,9 @@ const alphabet = {
   },
   "W": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 20,
     "lineY": 120,
     "linex2": 50,
@@ -223,6 +292,9 @@ const alphabet = {
   },
   "X": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 20,
     "lineY": 115,
     "linex2": 80,
@@ -234,6 +306,9 @@ const alphabet = {
   },
   "Y": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 30,
     "lineY": 110,
     "linex2": 50,
@@ -245,6 +320,9 @@ const alphabet = {
   },
   "Z": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 5,
     "lineY": 135,
     "linex2": 50,
@@ -256,6 +334,9 @@ const alphabet = {
   },
   "0": {
     "circ": 90,
+    "circ2": 110, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 105,
     "linex2": 50,
