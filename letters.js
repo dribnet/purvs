@@ -1,10 +1,26 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  //Triangle 1   
+   "opacity": 150,
+  "sectionx2": 50,
+  "sectiony2": 70,
+  "section2x2": -20, 
+  "section2y2": 0, 
+  "section3x2": 50, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": -50,
+  "sectiony": -70,
+  "section2x": 20, 
+  "section2y": 0, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "A": {
+
+  //Triangle 1   
   "opacity": 150,
   "sectionx": -50,
   "sectiony": 70,
@@ -12,6 +28,8 @@ const alphabet = {
   "section2y": -70, 
   "section3x": 0, 
   "section3y": 70, 
+
+  //Triangle 2
   "strokeW": 0,
   "sectionx2": -35,
   "sectiony2": 70,
@@ -21,6 +39,8 @@ const alphabet = {
   "section3y2": 70
   },
   "B": {
+
+  //Triangle 1   
   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": -70,
@@ -28,6 +48,8 @@ const alphabet = {
   "section2y2": 70, 
   "section3x2": 50, 
   "section3y2": -40,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": 70,
   "section2x": 50, 
@@ -37,7 +59,9 @@ const alphabet = {
   "strokeW": 0
   },
   "C": {
-  "opacity": 150,  
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx": -50,
   "sectiony": 70,
   "section2x": -50, 
@@ -46,6 +70,8 @@ const alphabet = {
   "section3y": 70, 
   "strokeW": 0,
   "sectionx2": -50,
+
+  //Triangle 2
   "sectiony2": 20,
   "section2x2": -50, 
   "section2y2": -70, 
@@ -53,13 +79,17 @@ const alphabet = {
   "section3y2": -70
   },
   "D": {
-  "opacity": 150,  
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx": -50,
   "sectiony": 70,
   "section2x": -50, 
   "section2y": -70, 
   "section3x": 0, 
   "section3y": 0, 
+
+  //Triangle 2
   "strokeW": 0,
   "sectionx2": -30,
   "sectiony2": 70,
@@ -68,14 +98,18 @@ const alphabet = {
   "section3x2": 50, 
   "section3y2": 0,
   },
-  "E": {
-  "opacity": 150,  
+  "E": { 
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx": -50,
   "sectiony": 70,
   "section2x": -50, 
   "section2y": -70, 
   "section3x": 50, 
   "section3y": 0, 
+
+  //Triangle 2
   "strokeW": 0,
   "sectionx2": -50,
   "sectiony2": 70,
@@ -84,14 +118,18 @@ const alphabet = {
   "section3x2": 50, 
   "section3y2": 70,
   },
-  "F": {
-  "opacity": 150,  
+  "F": {  
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx": -50,
   "sectiony": 70,
   "section2x": -50, 
   "section2y": -70, 
   "section3x": 50, 
   "section3y": -70, 
+
+  //Triangle 2
   "strokeW": 0,
   "sectionx2": -50,
   "sectiony2": 30,
@@ -101,13 +139,17 @@ const alphabet = {
   "section3y2": 0,
   },
   "G": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": -70,
   "section2x2": -50, 
   "section2y2": 70, 
   "section3x2": 20, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -40,
   "sectiony": 70,
   "section2x": 50, 
@@ -117,13 +159,17 @@ const alphabet = {
   "strokeW": 0
   },
   "H": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": -70,
   "section2x2": -50, 
   "section2y2": 70, 
   "section3x2": 20, 
   "section3y2": -70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": 0,
   "section2x": 50, 
@@ -133,13 +179,17 @@ const alphabet = {
   "strokeW": 0
   },
   "I": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 0,
   "sectiony2": -70,
   "section2x2": -30, 
   "section2y2": 70, 
   "section3x2": 30, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -30,
   "sectiony": -70,
   "section2x": 0, 
@@ -149,13 +199,17 @@ const alphabet = {
   "strokeW": 0
   },
   "J": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": -70,
   "section2x2": -50, 
   "section2y2": 70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -30,
   "sectiony": -70,
   "section2x": 50, 
@@ -165,13 +219,17 @@ const alphabet = {
   "strokeW": 0
   },
   "K": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": -70,
   "section2x2": -50, 
   "section2y2": 0, 
   "section3x2": -50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -181,13 +239,17 @@ const alphabet = {
   "strokeW": 0
   },
   "L": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 20,
   "sectiony2": 70,
   "section2x2": -50, 
   "section2y2": -20, 
   "section3x2": -50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -197,13 +259,17 @@ const alphabet = {
   "strokeW": 0
   },
   "M": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": -20,
   "sectiony2": 70,
   "section2x2": 50, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -213,13 +279,17 @@ const alphabet = {
   "strokeW": 0
   },
   "N": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": -20,
   "sectiony2": -70,
   "section2x2": 50, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -229,29 +299,37 @@ const alphabet = {
   "strokeW": 0
   },
   "O": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": -50,
-  "sectiony2": -70,
+  "sectiony2": -50,
   "section2x2": 50, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
   "section2y": 70, 
   "section3x": 50, 
-  "section3y": 70, 
+  "section3y": 50, 
   "strokeW": 0
   },
   "P": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": -70,
   "section2x2": 0, 
   "section2y2": 70, 
   "section3x2": -50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -261,13 +339,17 @@ const alphabet = {
   "strokeW": 0
   },
   "Q": {
-  "opacity": 150,
+  
+  //Triangle 1
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": -70,
-  "section2x2": 0, 
-  "section2y2": 70, 
+  "section2x2": -30, 
+  "section2y2": 50, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": 0, 
@@ -277,13 +359,17 @@ const alphabet = {
   "strokeW": 0
   },
   "R": {
-  "opacity": 150,
+
+  //Triangle 1 
+   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": -70,
   "section2x2": -50, 
   "section2y2": 70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
@@ -293,29 +379,37 @@ const alphabet = {
   "strokeW": 0
   },
   "S": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": -50,
-  "sectiony2": 0,
+  "sectiony2": -10,
   "section2x2": -50, 
   "section2y2": 70, 
   "section3x2": 50, 
   "section3y2": 0,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": 0,
   "section2x": 50, 
-  "section2y": 0, 
+  "section2y": 10, 
   "section3x": 50, 
   "section3y": -70, 
   "strokeW": 0
   },
   "T": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": -50,
   "sectiony2": 70,
   "section2x2": 0, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": 70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": 0, 
@@ -325,45 +419,57 @@ const alphabet = {
   "strokeW": 0
   },
   "U": {
-  "opacity": 150,
-  "sectionx2": 0,
+
+  //Triangle 1   
+   "opacity": 150,
+  "sectionx2": -20,
   "sectiony2": 70,
   "section2x2": 50, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": 0,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": -50, 
   "section2y": 0, 
-  "section3x": 0, 
+  "section3x": 20, 
   "section3y": 70, 
   "strokeW": 0
   },
   "V": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": 0,
   "sectiony2": 70,
-  "section2x2": 0, 
+  "section2x2": -20, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": -70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
-  "section2x": 0, 
+  "section2x": 20, 
   "section2y": -70, 
   "section3x": 0, 
   "section3y": 70, 
   "strokeW": 0
   },
   "W": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": 20,
   "sectiony2": 70,
   "section2x2": -30, 
   "section2y2": -70, 
   "section3x2": 50, 
   "section3y2": -70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": 30, 
@@ -373,113 +479,265 @@ const alphabet = {
   "strokeW": 0
   },
   "X": {
-  "opacity": 150,
+
+  //Triangle 1   
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": 70,
-  "section2x2": 0, 
+  "section2x2": -20, 
   "section2y2": 0, 
   "section3x2": 50, 
   "section3y2": -70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
-  "section2x": 0, 
+  "section2x": 20, 
   "section2y": 0, 
   "section3x": -50, 
   "section3y": 70, 
   "strokeW": 0
   },
   "Y": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 0,
   "sectiony2": 70,
-  "section2x2": 0, 
+  "section2x2": -10, 
   "section2y2": 0, 
   "section3x2": 50, 
   "section3y2": -70,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
-  "section2x": 0, 
+  "section2x": 10, 
   "section2y": 0, 
   "section3x": 0, 
   "section3y": 70, 
   "strokeW": 0
   },
   "Z": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": 70,
   "section2x2": -50, 
   "section2y2": 0, 
   "section3x2": 50, 
-  "section3y2": 0,
+  "section3y2": -10,
+
+  //Triangle 2
   "sectionx": -50,
   "sectiony": -70,
   "section2x": 50, 
   "section2y": 0, 
   "section3x": -50, 
-  "section3y": 0, 
+  "section3y": 10, 
   "strokeW": 0
   },
   "0": {
-  "opacity": 150,
+
+  //Triangle 1  
+   "opacity": 150,
   "sectionx2": 50,
   "sectiony2": 70,
   "section2x2": -50, 
-  "section2y2": 0, 
+  "section2y2": -70, 
   "section3x2": 50, 
-  "section3y2": 0,
-  "sectionx": -30,
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": -50,
   "sectiony": -70,
-  "section2x": 30, 
+  "section2x": 50, 
   "section2y": 70, 
-  "section3x": -30, 
+  "section3x": -50, 
   "section3y": 70, 
   "strokeW": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1    
+   "opacity": 150,
+  "sectionx2": -15,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 0, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": 0,
+  "sectiony": -70,
+  "section2x": -30, 
+  "section2y": 70, 
+  "section3x": 50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1 
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": 50,
+  "sectiony": -70,
+  "section2x": -50, 
+  "section2y": 70, 
+  "section3x": 50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1  
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": -40,
+
+  //Triangle 2
+  "sectionx": -50,
+  "sectiony": 0,
+  "section2x": 50, 
+  "section2y": 45, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1 
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 20,
+  "section2x2": 0, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": 20,
+
+  //Triangle 2
+  "sectionx": 0,
+  "sectiony": 20,
+  "section2x": 50, 
+  "section2y": 20, 
+  "section3x": 0, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": -50,
+  "sectiony": 0,
+  "section2x": 50, 
+  "section2y": 0, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 20,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 0, 
+  "section3y2": 20,
+
+  //Triangle 2
+  "sectionx": -50,
+  "sectiony": 20,
+  "section2x": 50, 
+  "section2y": 20, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1
+  "opacity": 150,
+  "sectionx2": -50,
+  "sectiony2": 35,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": -70,
+  
+  //Triangle 2
+  "sectionx": -50,
+  "sectiony": 30,
+  "section2x": 50, 
+  "section2y": -70, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  
+ //Triangle 1
+  "opacity": 150,
+  "sectionx2": 0,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -70, 
+  "section3x2": 50, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": 0,
+  "sectiony": 0,
+  "section2x": 50, 
+  "section2y": 70, 
+  "section3x": -50, 
+  "section3y": 70, 
+  "strokeW": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+  //Triangle 1
+  "opacity": 150,
+  "sectionx2": 50,
+  "sectiony2": 0,
+  "section2x2": -50, 
+  "section2y2": -40, 
+  "section3x2": 50, 
+  "section3y2": -70,
+
+  //Triangle 2
+  "sectionx": 50,
+  "sectiony": 0,
+  "section2x": 50, 
+  "section2y": 70, 
+  "section3x": 0, 
+  "section3y": 70, 
+  "strokeW": 0
   }
+
 
 }

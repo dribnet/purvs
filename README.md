@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-I've now completed my main letters, now to move onto the numbers. I want to keep the same style but continue to use 2 triangles rather than adding an extra one, I want to push the boundaries by just using two. 
+Update on my progress! I have now completed all my number and letters, I feel like I have solidified my idea of creating the stained glass look. I wanted to fiddle around with my letters abit more and make sure that they are readible. I've been having problems with the letters though, I've deliberatley removed the opacity on them so that you can identify the letters against the numbers. Overall I like the cohesive look but I want to experiment alot more (Epecially with the numbers).  
 
 My letter parameters
 
