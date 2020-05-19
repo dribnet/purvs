@@ -1,7 +1,7 @@
 const colorFront1  = "#7A14A6";
 const colorFront2  = "#BF0F90";
-const colorStroke  = "#233f11";
-
+const colorFill1 = "#9339B7";
+const colorFill2 = "#CB32A5";
 /*
  * Draw the letter given the letterData
  *
@@ -11,7 +11,7 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  noFill();
+  //noFill();
   strokeWeight(4);
 
   // determine parameters for squares
@@ -26,9 +26,13 @@ function drawLetter(letterData) {
   let pos2y = 150 + letterData["offsety"];
 
   // draw two squares
+  //purple square
   stroke(colorFront1);
+  fill(colorFill1);
   rect(pos1x, pos1y, size1, size1);
+  //pink square
   stroke(colorFront2);
+  fill(colorFill2)
   rect(pos2x, pos2y, size2, size2);
 }
 
