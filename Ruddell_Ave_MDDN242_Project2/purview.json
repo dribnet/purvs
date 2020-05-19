@@ -2,15 +2,15 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
+      "name": "Final"
     },
     {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+      "sha": "2825f07b8e7a41d6946bd942eaa929178e5c4074",
+      "name": "Fill Colour Experiment"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "experiment2"
+      "sha": "9fc53f160d1f8771a9fa2f332494a0641b8f8bc0",
+      "name": "Initial Style"
     }
   ]
 }
