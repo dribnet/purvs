@@ -1,7 +1,7 @@
 const colorFront1  = "#4fb3a2";
 const colorFront2  = "#ff9aa2";
 const colorFront3  = "#ffb7b2";
-const colorStroke  = "#ffffff";
+const colorStroke  = "#e3eded";
 
 /*
  * Draw the letter given the letterData
@@ -40,6 +40,8 @@ function drawLetter(letterData) {
   fill(colorFront2);
   triangle(pointX1, pointY1, pointX2, pointY2, pointX3, pointY3);
   fill(colorFront1);
+  strokeWeight(4);
+  stroke(colorStroke);
   rect(rectX, rectY, rectWid, rectLen);
 
 

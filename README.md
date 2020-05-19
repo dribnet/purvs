@@ -35,4 +35,6 @@ The sixteen parameters per letter:
 
 16052020 Today I did interpolation, and now when the letters change it is done soomthly 
 
-17052020 AFter having done the code side of it all, i started to play around with the colours. I found the clours i had chosen didn't really work the way i wanted them to. So now i have gone for more watermelon colours. I also made it that there was no stroke as i found the stoke runied the letters.
+17052020 After having done the code side of it all, i started to play around with the colours. I found the clours i had chosen didn't really work the way i wanted them to. So now i have gone for more watermelon colours. I also made it that there was no stroke as i found the stoke runied the letters.
+
+20052020 With having finished most of my code, I asked for some feedback regrading my design. the feedback i was given was to make that thee was a space around the rectangle so it would constant for each of my letters and my numbers. How I did this was by making the changing the stoke weight and colour for the rectangle. I increased the stroke weight to 4, and made the stoke colour the same as the background.
