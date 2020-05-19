@@ -1,1174 +1,707 @@
 const alphabet = {
   "default": {
-  "size1": 50,
+    "invface1": 0,
 
+    "cut1face1": 1,
+    "cut2face1": 0,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 0,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
+    "invface3": 0,
 
-  "size2cont": 0,
-
-  "size2cont2": 0,
-
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-  "CutCentre": 0,
-
-
-  "size3cont": 0,
-  "offsetx3cont": 0,
-  "offsety3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
-
-
+    "cut1face3": 0,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "A": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 8,
+    "cut2face1": 5,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
 
-  "size3": 50,
-
-  "size3cont2": 0,
-
-  "CutCentre": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
   },
   "B": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 0,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-  "CutCentre": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "C": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 6,
+    "cut3face1": 2,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 1,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-
-  "size2cont": 100/3,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-  "CutCentre": 0,
-
-
-  "size3cont": 100/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 2,
+    "cut3face3": 4
   },
   "D": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 9,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": 1,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": -50/3,
-  "offsety3cont2": -1
+    "cut1face3": 5,
+    "cut2face3": 7,
+    "cut3face3": 0
   },
   "E": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 6,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "F": {
-  "size1": 50/3,
+    "invface1": 1,
 
+    "cut1face1": 4,
+    "cut2face1": 7,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 100/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "G": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 1,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": 1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 100/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "H": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 8,
+    "cut3face3": 0
   },
   "I": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 3,
+    "cut2face1": 6,
+    "cut3face1": 4,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 1,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 100/3,
-  "offsety2cont2": 2,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": -100/3,
-  "offsety3cont2": -2
+    "cut1face3": 6,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "J": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 3,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 7,
+    "cut2face2": 4,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 1,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 0,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": 1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 100/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": -50/3,
-  "offsety3cont2": -1
+    "cut1face3": 7,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "K": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 1,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 8,
+    "cut3face3": 0
   },
   "L": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 1,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 1,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 0,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 100/3,
-  "offsety3cont": -1,
-  "offsetx3cont": 50/3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 9,
+    "cut2face3": 6,
+    "cut3face3": 0
   },
   "M": {
-  "size1": 50,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 0,
 
-  "size1cont": 50/3,
-  "offsetx1cont": 50/3,
-  "offsety1cont": 3,
+    "invface2": 0,
 
-  "size2": 50,
+    "cut1face2": 2,
+    "cut2face2": 5,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 1,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 0,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 0,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 0,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "N": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 2,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 0,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "O": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 0,
+    "cut3face1": 2,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": 1,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": -50/3,
-  "offsety3cont2": -1
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "P": {
-  "size1": 50/3,
+    "invface1": 1,
 
+    "cut1face1": 4,
+    "cut2face1": 7,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 100/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "Q": {
-  "size1": 50,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 0,
 
-  "size1cont": 100/3,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 0,
 
-  "size2": 50,
+    "cut1face2": 2,
+    "cut2face2": 1,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 100/3,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": -2,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 100/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "R": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 1,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "S": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 4,
+    "cut2face1": 5,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 100/3,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "T": {
-  "size1": 0,
+    "invface1": 1,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 0,
+    "cut1face2": 1,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -3,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": -100/3,
-  "offsety3cont2": -2
+    "cut1face3": 3,
+    "cut2face3": 6,
+    "cut3face3": 4
   },
   "U": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 0,
+    "cut3face1": 2,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 0,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont": 50/3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": -2
+    "cut1face3": 5,
+    "cut2face3": 8,
+    "cut3face3": 0
   },
   "V": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 9,
+    "cut2face1": 7,
+    "cut3face1": 5,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -4,
-  "offsetx2cont2": 100/3,
-  "offsety2cont2": -2,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont": 50/3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": -2
+    "cut1face3": 5,
+    "cut2face3": 8,
+    "cut3face3": 2
   },
   "W": {
-  "size1": 50,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 2,
+    "cut3face1": 0,
 
-  "size1cont": 50/3,
-  "offsetx1cont": 50/3,
-  "offsety1cont": -1,
+    "invface2": 0,
 
-  "size2": 50,
+    "cut1face2": 2,
+    "cut2face2": 4,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 1,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": 1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50/3,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 0,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 0,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "X": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 1,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 100/3,
-  "offsety2cont2": 2,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-  
-
-  "CutCentre": 1,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": -100/3,
-  "offsety3cont2": -2
-
-
+    "cut1face3": 5,
+    "cut2face3": 8,
+    "cut3face3": 3
   },
   "Y": {
-  "size1": 0,
+    "invface1": 1,
 
+    "cut1face1": 5,
+    "cut2face1": 8,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 0,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -3,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont": 50/3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": -2
+    "cut1face3": 8,
+    "cut2face3": 5,
+    "cut3face3": 0
   },
   "Z": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 6,
+    "cut2face1": 5,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": -50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": -2
+    "cut1face3": 5,
+    "cut2face3": 6,
+    "cut3face3": 0
   },
   "0": {
-  "size1": 50,
+    "invface1": 0,
 
+    "cut1face1": 2,
+    "cut2face1": 5,
+    "cut3face1": 6,
 
-  "size1cont": 100/3,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 0,
 
-  "size2": 50,
+    "cut1face2": 2,
+    "cut2face2": 1,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 100/3,
-  "offsetx2cont": 0,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": -2,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 100/3,
-  "offsety3cont": 0,
-  "offsetx3cont": 0,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "1": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 3,
+    "cut2face1": 6,
+    "cut3face1": 4,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 1,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 1,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 50/3,
-  "offsetx2cont": 100/3,
-  "offsety2cont": 2,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 0,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 0,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 50/3,
-  "offsety3cont2": -3
+    "cut1face3": 8,
+    "cut2face3": 5,
+    "cut3face3": 6
   },
   "2": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 6,
+    "cut2face1": 5,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 50/3,
-  "offsety2cont2": -1,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": -50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": 100/3,
-  "offsety3cont2": -2
+    "cut1face3": 5,
+    "cut2face3": 6,
+    "cut3face3": 7
   },
   "3": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 4,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 100/3,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": -50/3,
-  "offsety3cont": -3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 6,
+    "cut3face3": 0
   },
   "4": {
-  "size1": 0,
+    "invface1": 1,
 
+    "cut1face1": 6,
+    "cut2face1": 9,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-
-  "size2cont": 100/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsety3cont": -3,
-  "offsetx3cont": 50/3,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 8,
+    "cut2face3": 5,
+    "cut3face3": 0
   },
   "5": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 4,
+    "cut2face1": 5,
+    "cut3face1": 9,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 100/3,
-  "offsety2cont": 0,
-  "offsetx2cont2": 0,
-  "offsety2cont2": -4,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": -2
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "6": {
-  "size1": 50/3,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 0,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 100/3,
-  "offsetx3cont": 50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 4,
+    "cut3face3": 0
   },
   "7": {
-  "size1": 50/3,
+    "invface1": 1,
 
+    "cut1face1": 4,
+    "cut2face1": 7,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 0,
+    "cut1face2": 1,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 0,
-  "offsety2cont": -2,
-  "offsetx2cont2": 0,
-  "offsety2cont2": -4,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 100/3,
-  "offsetx3cont": -50/3,
-  "offsety3cont": -1,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 2
+    "cut1face3": 3,
+    "cut2face3": 6,
+    "cut3face3": 5
   },
   "8": {
-  "size1": 0,
+    "invface1": 0,
 
+    "cut1face1": 5,
+    "cut2face1": 1,
+    "cut3face1": 3,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 50/3,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 50/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 50/3,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   },
   "9": {
-  "size1": 50/3,
+    "invface1": 1,
 
+    "cut1face1": 6,
+    "cut2face1": 9,
+    "cut3face1": 0,
 
-  "size1cont": 0,
-  "offsetx1cont": 0,
-  "offsety1cont": 0,
+    "invface2": 1,
 
-  "size2": 50,
+    "cut1face2": 0,
+    "cut2face2": 0,
+    "cut3face2": 0,
 
-  "size2cont2": 0,
+    "invface3": 0,
 
-  "CutCentre": 0,
-
-  "size2cont": 100/3,
-  "offsetx2cont": 50/3,
-  "offsety2cont": -1,
-  "offsetx2cont2": 0,
-  "offsety2cont2": 0,
-
-  "size3": 50,
-
-  "size3cont2": 0,
-
-
-  "size3cont": 50/3,
-  "offsetx3cont": 0,
-  "offsety3cont": -2,
-  "offsetx3cont2": 0,
-  "offsety3cont2": 0
-
+    "cut1face3": 5,
+    "cut2face3": 0,
+    "cut3face3": 0
   }
 
 }
