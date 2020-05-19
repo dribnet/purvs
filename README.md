@@ -5,6 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-Various refinements
+Rescaling.
 
-Made small refinements to a few letters. Tried adding an extra arc which drew at the same position and size as one of the others, but with a different start and end point (Which I should have probably bushed before binning..oops), in order to make leters like Q and R easier. It looked awful though, so I axed it pretty quickly.
+Letters have been re-scaled across the board to be more similar sizes. Currently M and W are technically too big, but they'd have to be really small to fit entirely properly.
