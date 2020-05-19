@@ -1,9 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
-I tried add arc parameters and change the color of circle 
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
+I tried to add a new parameters. It is a rectangle. I find it is not hard to add new parameters.
+nest step I will think about color and transparency.
+(all of that I change in the sketch.)
 The three parameters per letter:
   * `size` : radius of the second circle
   * `offsetx` : x offset of the second circle relative to the first one
