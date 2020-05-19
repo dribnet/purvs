@@ -14,35 +14,51 @@ const colorStroke2  = "#3A606E"; //green
 function drawLetter(letterData) {
   angleMode(DEGREES);
   
-    // determine parameters for the circle and arc
+    // determine parameters for the circle
+  let ellipseYpos = letterData["ellipseY"];
+
+    // determine parameters for the rect
+  let rectX = letterData["rectX"];
+  let rectY = letterData["rectY"];
+  let rectWidth = letterData["rectW"];
+  let rectHeight = letterData["rectH"];
+
+    // determine parameters for the arc
   let arcHeight = letterData["height"];
   let arcWidth = letterData["width"];
   let posx = 50 + letterData["offsetx"];
   let posy = 110 + letterData["offsety"];
   let start =letterData["angleStart"];
   let finish =letterData["angleStop"];
-  let ellipseYpos = letterData["ellipseY"];
-  let rectX = letterData["rectX"];
-  let rectY = letterData["rectY"];
-  let rectWidth = letterData["rectW"];
-  let rectHeight = letterData["rectH"];
 
+    // draw ellipse
+  drawCircle(ellipseYpos);
 
-    // draw circle
+    //draw rect    
+  drawRect(rectX, rectY, rectWidth, rectHeight);
+
+    // draw arc
+  drawArc(posx, posy, arcWidth, arcHeight, start, finish);
+}
+
+function drawCircle(yPos){
   stroke(colorStroke);
   strokeWeight(5);
   fill(colorFront1);
-  ellipse(50,ellipseYpos, 90, 90);
+  ellipse(50,yPos, 90, 90);
+}
 
-    //draw rect    
+function drawRect(rectX, rectY, width, height){
   noStroke();
   fill(colorFront3);
-  rect(rectX, rectY, rectWidth, rectHeight, 10);
-
-    // draw arc
-  fill(colorFront2);
-  arc(posx, posy, arcWidth, arcHeight, start, finish);
+  rect(rectX, rectY, width, height, 10);
 }
+
+function drawArc(posx, posy, width, height, start, finish){
+  fill(colorFront2);
+  arc(posx, posy, width, height, start, finish);
+}
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
