@@ -13,6 +13,10 @@ function drawLetter(letterData) {
   // color/stroke setup
   noStroke();
 
+  //Arc size setup
+  let arcWid = letterData ["arcW"];
+  let arcHei = letterData ["arcH"];
+
   //letter parameters
   //arc 1
   let arcX = letterData ["arcX"];
@@ -32,9 +36,6 @@ function drawLetter(letterData) {
   let arcS3 = letterData ["arcS3"];
   let arcE3 = letterData ["arcE3"];
 
-  let arcWid = letterData ["arcW"];
-  let arcHei = letterData ["arcH"];
-
   //arc 1
   fill(colorFront1);
   arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
@@ -50,9 +51,20 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcW"] = map(percent, 0, 100, oldObj["arcW"], newObj["arcW"]);
+  new_letter["arcH"] = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
+  new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+  new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
+  new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+  new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+  new_letter["arcX2"] = map(percent, 0, 100, oldObj["arcX2"], newObj["arcX2"]);
+  new_letter["arcY2"] = map(percent, 0, 100, oldObj["arcY2"], newObj["arcY2"]);
+  new_letter["arcS2"] = map(percent, 0, 100, oldObj["arcS2"], newObj["arcS2"]);
+  new_letter["arcE2"] = map(percent, 0, 100, oldObj["arcE2"], newObj["arcE2"]);
+  new_letter["arcX3"] = map(percent, 0, 100, oldObj["arcX3"], newObj["arcX3"]);
+  new_letter["arcY3"] = map(percent, 0, 100, oldObj["arcY3"], newObj["arcY3"]);
+  new_letter["arcS3"] = map(percent, 0, 100, oldObj["arcS3"], newObj["arcS3"]);
+  new_letter["arcE3"] = map(percent, 0, 100, oldObj["arcE3"], newObj["arcE3"]);
   return new_letter;
 }
 

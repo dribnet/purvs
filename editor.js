@@ -11,20 +11,20 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["arcW",      -100, 100],
-  ["arcH",      -100, 100],
-  ["arcX",      -100, 100],
-  ["arcY",      -100, 100],
-  ["arcS",         0, 360],
-  ["arcE",         0, 360],
-  ["arcX2",     -100, 100],
-  ["arcY2",     -100, 100],
-  ["arcS2",        0, 360],
-  ["arcE2",        0, 360],
-  ["arcX3",     -100, 100],
-  ["arcY3",     -100, 100],
-  ["arcS3",        0, 360],
-  ["arcE3",        0, 360],
+  ["arcW",      0, 100],
+  ["arcH",      0, 100],
+  ["arcX",      0, 100],
+  ["arcY",      0, 100],
+  ["arcS",      0, 360],
+  ["arcE",      0, 360],
+  ["arcX2",     0, 100],
+  ["arcY2",     0, 100],
+  ["arcS2",     0, 360],
+  ["arcE2",     0, 360],
+  ["arcX3",     0, 100],
+  ["arcY3",     0, 100],
+  ["arcS3",     0, 360],
+  ["arcE3",     0, 360],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
