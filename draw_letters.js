@@ -16,7 +16,7 @@ const green3 = 0;
 const blue3 = 0;
 
 //opacity
-const opa = 150;
+const opa = 140;
 
 
 /*
@@ -28,7 +28,6 @@ const opa = 150;
  */
 function drawLetter(letterData) {
 
-  strokeWeight(2);
 
 //variables 
 let size2 = letterData["size2"];
@@ -48,7 +47,7 @@ let flipY = letterData["flipY"];
 
 
 //draws arcs
-strokeWeight(2);
+strokeWeight(0);
 stroke(red1, green1, blue1);
 fill(red1, green1, blue1, opa);
 angleMode(DEGREES); 
@@ -90,7 +89,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "CHILDREN",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "GRATEFUL",
+  "YOURSELF",
+  "GRAPHICS",
+  "REPEATED",
+  "QUESTION"
 ]
