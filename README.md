@@ -16,3 +16,5 @@ monochome theme. The round edges and colours remind me of candy, I think ill lik
 some sort of candy. 
 
 Added a default character.
+
+I corrected and updated my sketch, and also did some general tidying up of code / adding comments. 

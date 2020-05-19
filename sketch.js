@@ -15,8 +15,8 @@ const canvasHeight = 500;
 const letterA = {
   "cx1": -30,
   "cy1": 0,
-  "cx2": -30,
-  "cy2": 0,	
+  "cx2": -40,
+  "cy2": 60,	
 
   "x1": -40,
   "y1": -70,
@@ -48,10 +48,10 @@ const letterC = {
   "y2": 60
 }
 
-const colorFront1  = "#ff9d36";
+const colorFront1  = "#B10D4C";
 const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
-const colorStroke  = "#167ff7";
+const colorBack    = "#EA526F";
+const colorStroke  = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element

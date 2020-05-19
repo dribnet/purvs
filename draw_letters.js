@@ -1,7 +1,4 @@
 const colorFront1  = "#B10D4C";
-//const colorFront1  = "#f5e611";
-
-//const colorStroke  = "#4a03ff";
 const colorStroke  = "#ffffff";
 
 /*
