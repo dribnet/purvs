@@ -123,7 +123,7 @@ const alphabet = {
     "triangleYPos6": 200,
 
     "rectXPos": 0,
-    "rectYPos": 80,
+    "rectYPos": 85,
     "rectWPos": 100,
     "rectHPos": 30,
 
@@ -165,7 +165,7 @@ const alphabet = {
     "triangleYPos6": 100,
 
     "rectXPos": 50,
-    "rectYPos": 98,
+    "rectYPos": 100,
     "rectWPos": 50,
     "rectHPos": 100, 
 
@@ -231,7 +231,7 @@ const alphabet = {
 
     "rectXPos": 60,
     "rectYPos": 0,
-    "rectWPos": 40,
+    "rectWPos": 20,
     "rectHPos": 200,  
   },
   "K": {
@@ -270,9 +270,9 @@ const alphabet = {
     "triangleXPos6": 0,
     "triangleYPos6": 0,
 
-    "rectXPos": 0,
+    "rectXPos": 20,
     "rectYPos": 0,
-    "rectWPos": 40,
+    "rectWPos": 20,
     "rectHPos": 200,  
   },
   "M": {
@@ -312,7 +312,7 @@ const alphabet = {
 
     "rectXPos": 0,
     "rectYPos": 0,
-    "rectWPos": 30,
+    "rectWPos": 20,
     "rectHPos": 200, 
   },
   "O": {
@@ -385,7 +385,7 @@ const alphabet = {
     "triangleYPos3": 50,
 
     "triangleXPos4": 0,
-    "triangleYPos4": 80,
+    "triangleYPos4": 100,
     "triangleXPos5": 100,
     "triangleYPos5": 200,
     "triangleXPos6": 100,
@@ -400,7 +400,7 @@ const alphabet = {
     "triangleXPos1": 75,
     "triangleYPos1": 200,
     "triangleXPos2": 75,
-    "triangleYPos2": 10,
+    "triangleYPos2": 12,
     "triangleXPos3": 0,
     "triangleYPos3": 50,
 
@@ -411,9 +411,9 @@ const alphabet = {
     "triangleXPos6": 0,
     "triangleYPos6": 50,
 
-    "rectXPos":0,
+    "rectXPos": 0,
     "rectYPos": 180,
-    "rectWPos": 80,
+    "rectWPos": 75,
     "rectHPos": 20, 
   },
 
@@ -555,7 +555,7 @@ const alphabet = {
     "rectXPos": 0,
     "rectYPos": 0,
     "rectWPos": 100,
-    "rectHPos": 30, 
+    "rectHPos": 20, 
   },
   "0": {
     "triangleXPos1": 50,
