@@ -2,19 +2,19 @@ const alphabet = {
   "default": {
   //Triangle 1   
    "opacity": 150,
-  "sectionx2": 50,
+  "sectionx2": 30,
   "sectiony2": 70,
-  "section2x2": -20, 
+  "section2x2": -50, 
   "section2y2": 0, 
-  "section3x2": 50, 
+  "section3x2": 30, 
   "section3y2": -70,
 
   //Triangle 2
-  "sectionx": -50,
+  "sectionx": -30,
   "sectiony": -70,
-  "section2x": 20, 
+  "section2x": 50, 
   "section2y": 0, 
-  "section3x": -50, 
+  "section3x": -30, 
   "section3y": 70, 
   "strokeW": 0
   },

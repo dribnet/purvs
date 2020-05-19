@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-Update on my progress! I have now completed all my number and letters, I feel like I have solidified my idea of creating the stained glass look. I wanted to fiddle around with my letters abit more and make sure that they are readible. I've been having problems with the letters though, I've deliberatley removed the opacity on them so that you can identify the letters against the numbers. Overall I like the cohesive look but I want to experiment alot more (Epecially with the numbers).  
+I've now changed my default letter to a star, I think its quite a dynamic shape which encorporates the opacity well. Im going to continue experimenting with different letters tomorrow, but besides that I think Im almost ready for hand in. 
 
 My letter parameters
 
