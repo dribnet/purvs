@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#fffacc"; //pastel yellow
 const colorLines   = "#000090";
 
 /*******
@@ -11,9 +11,20 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["arcW",      -100, 100],
+  ["arcH",      -100, 100],
+  ["arcX",      -100, 100],
+  ["arcY",      -100, 100],
+  ["arcS",         0, 360],
+  ["arcE",         0, 360],
+  ["arcX2",     -100, 100],
+  ["arcY2",     -100, 100],
+  ["arcS2",        0, 360],
+  ["arcE2",        0, 360],
+  ["arcX3",     -100, 100],
+  ["arcY3",     -100, 100],
+  ["arcS3",        0, 360],
+  ["arcE3",        0, 360],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -73,7 +84,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data

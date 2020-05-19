@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 19/05/2020
-Here is the rest of the alphabet, with the numbers included too. As I started to get towards the few letters, I did struggle to figure out a way to use my arcs, and them positioning in a way that would still make the letter form recognizeable. For my numbers, I wanted the darkest colour to be the main stroke of the form. This worked until I got to the number nine, as I wanted it to look cohesive to the six, which meant rotating the form to resemble nine. While this enabled me to be able to create a nine, it does bother me that nine is the only number that does not have the dark color at the top. As I start looking at different colour palette options, I will decide whether to keep the nine as is, or change it so that it is more cohesively considered and match the other numbers. As well as finding new colour palette ideas, I also plan to start experimenting with opacity, so that the layers will add more texture to my forms.
+For this section, my main focus was plugging in my code from the letters.js file into the editor, and to see how I could interact with the parameters. This was an interesting experiment, especially after I started seeing interesting ways to use my arcs to create patterns and shapes.  
 
 The fourteen parameters per letter:
 "arcW" : width of all arcs

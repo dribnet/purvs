@@ -1,8 +1,25 @@
 const alphabet = {
   "default": {
-  "size": 0,
-    "offsetx": 0,
-    "offsety": 0
+    "arcW" : 0,
+    "arcH" : 0,
+
+    //arc 1
+    "arcX" : 0,
+    "arcY" : 0,
+    "arcS" : 0,
+    "arcE" : 0,
+
+    //arc 2
+    "arcX2" : 0,
+    "arcY2" : 0,
+    "arcS2" : 0,
+    "arcE2" : 0,
+
+    //arc 3
+    "arcX3" : 0,
+    "arcY3" : 0,
+    "arcS3" : 0,
+    "arcE3" : 0,
   },
   "A": {
     "arcW" : 75,
@@ -91,7 +108,6 @@ const alphabet = {
     "arcY3" : 165,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
-
   },
   "E": {
     "arcW" : 75,
@@ -202,7 +218,6 @@ const alphabet = {
     "arcY3" : 157,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
-
   },
   "J": {
     "arcW" : 75,
@@ -226,7 +241,6 @@ const alphabet = {
     "arcY3" : 165,
     "arcS3" : 7.85,
     "arcE3" : 23.55,
-
   },
   "K": {
     "arcW" : 75,
@@ -293,7 +307,6 @@ const alphabet = {
     "arcY3" : 160,
     "arcS3" : 23.55,
     "arcE3" : 7.85,
-
   },
   "N": {
     "arcW" : 75,
@@ -316,7 +329,6 @@ const alphabet = {
     "arcY3" : 172,
     "arcS3" : 27.4,
     "arcE3" : 11.7,
-
   },
   "O": {
     "arcW" : 75,
@@ -361,7 +373,6 @@ const alphabet = {
     "arcY3" : 165,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
-
   },
   "Q": {
     "arcW" : 75,
@@ -406,7 +417,6 @@ const alphabet = {
     "arcY3" : 138,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
-
   },
   "S": {
     "arcW" : 75,
@@ -671,7 +681,6 @@ const alphabet = {
     "arcY3" : 165,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
-
   },
   "4": {
     "arcW" : 75,
@@ -716,8 +725,6 @@ const alphabet = {
     "arcY3" : 165,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
-
-
   },
   "6": {
     "arcW" : 75,
