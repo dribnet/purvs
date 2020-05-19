@@ -2,6 +2,7 @@ const colorFront1  = "#EFBDEB";
 const colorFront2  = "#B68CB8";
 const colorFront3  = "#6461A0";
 const colorBackground    = "#000000";
+const colorStroke = "#ffffff"
 
 //Red
 const red1 = 255
@@ -22,10 +23,10 @@ const blue2 = 255
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(255);
-  strokeWeight(5);
+  stroke(colorStroke);
+  strokeWeight(4);
   
-  
+
   // determine parameters for second circle
   let pos2x =  50+ letterData["sectionx"];
   let pos2y =  100+ letterData["sectiony"];
@@ -54,6 +55,8 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
+  //Offsets for triangle 1 and 2
+
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["sectionx"] = map(percent, 0, 100, oldObj["sectionx"], newObj["sectionx"]);
   new_letter["sectiony"] = map(percent, 0, 100, oldObj["sectiony"], newObj["sectiony"]);
@@ -69,6 +72,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["section2y"] = map(percent, 0, 100, oldObj["section2y"], newObj["section2y"]);
   new_letter["section3x"] = map(percent, 0, 100, oldObj["section3x"], newObj["section3x"]);
   new_letter["section3y"] = map(percent, 0, 100, oldObj["section3y"], newObj["section3y"]);
+ 
+  //Opacity
+
   new_letter["opacitytriangle"] = map(percent, 0, 100, oldObj["opacitytriangle"], newObj["opacitytriangle"]);
   new_letter["opacity"] = map(percent, 0, 100, oldObj["opacity"], newObj["opacity"]);
 
@@ -78,5 +84,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "FRAGMENT",
   "FRACTURE",
-  "ANGUS???"
+  "ANGUS???",
+  "TAPERING",
+  "SERRATED",
+  "LUMINOUS"
+
 ]
