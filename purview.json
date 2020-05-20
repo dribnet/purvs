@@ -1,7 +1,7 @@
 {
   "commits": [
     {
-      "sha": "0000000000000000000000000000000000000003",
+      "sha": "13759a3676fe8ab0531ea28f041fe9381aaff8ac",
       "name": "final"
     },
     {
@@ -15,6 +15,10 @@
     {
       "sha": "66ed49441d3e058a5040b241c0bd1edf66b51e96",
       "name": "Change of design"
-    }
+    },
+    {
+      "sha": "17ff7dd3a9cd235479d257eaccadb91a51d190ce",
+      "name": "Initial idea"
+    }    
   ]
 }
