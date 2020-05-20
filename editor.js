@@ -10,20 +10,20 @@ const colorLines   = "#000090";
  * and each row should be:
  * ["object_field", minimum_bound, maximum_bound]
  */
-const sliderInfo = [
-  ["triX1", 0, 100],
+const sliderInfo = [ 
+  ["triX1", 0, 100], //peach
   ["triY1", 0, 200],
   ["triX2", 0, 100],
   ["triY2", 0, 200],
   ["triX3", 0, 100],
   ["triY3", 0, 200],
-  ["ptX1", 0, 100],
+  ["ptX1", 0, 100], //pink
   ["ptY1", 0, 200],
   ["ptX2", 0, 100],
   ["ptY2", 0, 200],
   ["ptX3", 0, 100],
   ["ptY3", 0, 200],
-  ["rectL", 0, 200],
+  ["rectL", 0, 200], //turquoise
   ["rectW", 0, 100],
   ["rectX", 0, 100],
   ["rectY", 0, 200],

@@ -2,13 +2,24 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 /* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
+ The sixteen parameters per letter:
+  * triX1: first x point triangle
+  * triY1: first y point triangle
+  * triX2: second x point triangle
+  * triY2: second y point triangle
+  * triX3: third x point triangle
+  * triY3: third y point triangle
+  * ptX1: first x point triangle
+  * ptY1: first y point triangle
+  * ptX2: second x point triangle
+  * ptY2: second y point triangle
+  * ptX3: third x point triangle
+  * ptY3: third y point triangle
+  * rectL: length of rectangle
+  * rectW: width of rectangle
+  * rectX: x point of rectangle
+  * rectY: y point of rectangle
+
  *
  */
 
@@ -121,15 +132,14 @@ function drawLetter(posx, posy, letterData) {
   let rectX = letterData["rectX"];
   let rectY = letterData["rectY"];
  
-  // draw two circles
-  
-
+  // draw two triangles
   fill(colorFront3);
   triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
   
   fill(colorFront2);
   triangle(pointX1, pointY1, pointX2, pointY2, pointX3, pointY3);
 
+  // draw rectangle
   fill(colorFront1);
   rect(rectX, rectY, rectWid, rectLen);
 
