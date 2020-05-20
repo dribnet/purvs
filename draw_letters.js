@@ -30,6 +30,10 @@ function drawLetter(letterData) {
   let yval = -50 / 3 * tan(30)
   let xval = 50 / 3
 
+  let cuts1 = [cut1face1, cut2face1, cut3face1]
+  let cuts2 = [cut1face2, cut2face2, cut3face2]
+  let cuts3 = [cut1face2, cut2face2, cut3face2]
+
   if (invface1 == 1) {
 
     if (cut1face1 == 7 || cut2face1 == 7 || cut3face1 == 7) {
@@ -261,25 +265,11 @@ function drawLetter(letterData) {
       }
     }
 
-    if (cut1face1 < 1 || cut1face1 > 1) {
-      if (cut2face1 < 1 || cut2face1 > 1) {
-        if (cut3face1 < 1 || cut3face1 > 1) {
-          if (cut1face2 < 1 || cut1face2 > 1) {
-            if (cut2face2 < 1 || cut2face2 > 1) {
-              if (cut3face2 < 1 || cut3face2 > 1) {
-                if (cut1face3 < 1 || cut1face3 > 1) {
-                  if (cut2face3 < 1 || cut2face3 > 1) {
-                    if (cut3face3 < 1 || cut3face3 > 1) {
-                      Draw_Face(x, y)
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+for (var i = 0; i < cuts1.length; i++) {
+if (cuts1[i] === !1 || cuts2[i] === !1 || cuts3[i] === !1) {
+  Draw_Face(x, y)
+}
+}
 
   }
 
@@ -374,25 +364,11 @@ function drawLetter(letterData) {
     }
 
 
-    if (cut1face1 < 1 || cut1face1 > 1) {
-      if (cut2face1 < 1 || cut2face1 > 1) {
-        if (cut3face1 < 1 || cut3face1 > 1) {
-          if (cut1face2 < 1 || cut1face2 > 1) {
-            if (cut2face2 < 1 || cut2face2 > 1) {
-              if (cut3face2 < 1 || cut3face2 > 1) {
-                if (cut1face3 < 1 || cut1face3 > 1) {
-                  if (cut2face3 < 1 || cut2face3 > 1) {
-                    if (cut3face3 < 1 || cut3face3 > 1) {
+for (var i = 0; i < cuts1.length; i++) {
+if (cuts1[i] === !1 || cuts2[i] === !1 || cuts3[i] === !1) {
                       Draw_Face(x, y)
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 
   }
 
@@ -486,25 +462,11 @@ function drawLetter(letterData) {
       }
     }
 
-    if (cut1face1 < 1 || cut1face1 > 1) {
-      if (cut2face1 < 1 || cut2face1 > 1) {
-        if (cut3face1 < 1 || cut3face1 > 1) {
-          if (cut1face2 < 1 || cut1face2 > 1) {
-            if (cut2face2 < 1 || cut2face2 > 1) {
-              if (cut3face2 < 1 || cut3face2 > 1) {
-                if (cut1face3 < 1 || cut1face3 > 1) {
-                  if (cut2face3 < 1 || cut2face3 > 1) {
-                    if (cut3face3 < 1 || cut3face3 > 1) {
+for (var i = 0; i < cuts1.length; i++) {
+if (cuts1[i] === !1 || cuts2[i] === !1 || cuts3[i] === !1) {
                       Draw_Face(x, y)
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 
   }
 
@@ -540,7 +502,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["invface2"] = map(percent, 0, 100, oldObj["invface2"], newObj["invface2"]);
 
   new_letter["cut1face2"] = map(percent, 0, 100, oldObj["cut1face2"], newObj["cut1face2"]);
-  new_letter["cut2face2"] = map(percent, 0, 100, oldObj["cut2face2"], newObj["cut2face2"]);
+  new_letter["cut2face2"] = map(percent, 0, 100, oldObj["cut2face2"], newObj["cut2face2"]); 
   new_letter["cut3face2"] = map(percent, 0, 100, oldObj["cut3face2"], newObj["cut3face2"]);
 
   new_letter["invface3"] = map(percent, 0, 100, oldObj["invface3"], newObj["invface3"]);
