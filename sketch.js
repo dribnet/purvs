@@ -13,11 +13,11 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+"size": 210,
   "offsetx": 60,
-  "offsety": 200,
+  "offsety": 100,
   "rectL": 100,
-  "rectW": 20
+  "rectW": 20,
 }
 
 const letterB = {
@@ -65,7 +65,8 @@ function drawLetter(posx, posy, letterData) {
   // draw two rectangles
   fill(161, 42, 42); //Red Rectangle
   rect(posx, posy, 150, 200);
-  fill(212, 86, 34); //Orange rectangle
+
+  fill(62, 0, 0); //Orange rectangle
   rect(pos2x, pos2y, rectWid, rectLen);
 }
 

@@ -1,13 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
-1:48 pm
+20/5/2020 2:06 pm
 
-I managed to get my colour choice and background going the way I want, but figuring out how to fit everything into these parametres without getting bugs is proving annoying.
+I figured out why a lot of the changes I was trying to make didn't work by looking through others code. I am now trying to actually form the numbers and letters into the shapes I intended. This is proving to be much more time consuming that I expected. 
 
-I like the idea of a very bold, serif style font so i'll be experimenting with hard lines and minimalist shapes. Hopefully there wil be a decent update within the next few hours.
-
-The three parameters per letter:
-  * `size` : Literally the width and height
-  * `offsetx` : x offset of the second rectangle relative to the first one
-  * `offsety` : y offset of the second rectangle relative to the first one
-
+I am trying to restrict myself into using 4 different forms, with two shapes being adapted. Hopefully this stage will go by a little faster.
