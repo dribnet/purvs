@@ -23,6 +23,8 @@ Complete exhibition. Make the enhibition show all of letters and numbers. Start 
 Do the editor part. Change the name and numbers. But my editor shows nothing.
 Nearly complete the whole project.
 
+21/05 Check the whole file to see if it follows the brief. Add purview.json. Replace index.html with exhibition.html.
+
 The parameters per letter:
   * `size` : radius of the second circle
   * sectionx: x of the first point of the left line
