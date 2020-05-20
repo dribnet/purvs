@@ -364,7 +364,7 @@ const alphabet = {
     "offset2x": -50, //
     "offset2y": 100,
 
-    "offset3x": -50,
+    "offset3x": 0,
     "offset3y": 0,
 
     "offset4x": 40,
@@ -372,24 +372,27 @@ const alphabet = {
 
     //triangle 2
     "offset2x2": 50,
-    "offset2y2": 100,
+    "offset2y2": -100,
 
-    "offset2x3": 50,
+    "offset2x3": 0,
     "offset2y3": 0,
 
-    "offset2x4": -40,
+    "offset2x4": -50,
     "offset2y4": -100,
 
-    //triangle 3 (blue)
 
-    "offset3x2": -20,
-    "offset3y2": 0,
+    //quad
+    "offsetx1": -5,
+    "offsety1": -10,
 
-    "offset3x3": 20,
-    "offset3y3": 20,
+    "offsetx2": 5,
+    "offsety2": -10,
 
-    "offset3x4": 20,
-    "offset3y4": -20,
+    "offsetx3": 5,
+    "offsety3": 10,
+
+    "offsetx4": -5,
+    "offsety4": 10,
 
 
   },
@@ -405,11 +408,11 @@ const alphabet = {
     "offset4y": 100,
 
     //triangle 2
-    "offset2x2": 50,
+    "offset2x2": 30,
     "offset2y2": 100,
 
     "offset2x3": 50,
-    "offset2y3": 0,
+    "offset2y3": -100,
 
     "offset2x4": -40,
     "offset2y4": -100,
@@ -417,13 +420,26 @@ const alphabet = {
     //triangle 3 (blue)
 
     "offset3x2": -20,
-    "offset3y2": 0,
+    "offset3y2": 100,
 
-    "offset3x3": 20,
+    "offset3x3": 50,
     "offset3y3": 20,
 
-    "offset3x4": 20,
-    "offset3y4": -20,
+    "offset3x4": 50,
+    "offset3y4": 100,
+
+    //quad
+    "offsetx1": -50,
+    "offsety1": -100,
+
+    "offsetx2": 50,
+    "offsety2": -100,
+
+    "offsetx3": 50,
+    "offsety3": -50,
+
+    "offsetx4": -50,
+    "offsety4": -50,
 
   },
 
@@ -431,14 +447,14 @@ const alphabet = {
 
   "K": {
     //triangle 1
-    "offset2x": 0,
-    "offset2y": 0,
+    "offset2x": -5,
+    "offset2y": -0,
 
-    "offset3x": 0,
-    "offset3y": 0,
+    "offset3x": 40,
+    "offset3y": 100,
 
-    "offset4x": 0,
-    "offset4y": 0,
+    "offset4x": -50,
+    "offset4y": 100,
 
     //triangle 2
     "offset2x2": -50,
@@ -448,17 +464,31 @@ const alphabet = {
     "offset2y3": -100,
 
     "offset2x4": -50,
-    "offset2y4": -0,
+    "offset2y4": 100,
 
     //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": -20,
+    "offset3y2": 100,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offset3x3": 0,
+    "offset3y3": 100,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
+    "offset3x4": -20,
+    "offset3y4": 40,
+
+    //quad
+    "offsetx1": -20,
+    "offsety1": -40,
+
+    "offsetx2": -20,
+    "offsety2": -100,
+
+    "offsetx3": 0,
+    "offsety3": -100,
+
+    "offsetx4": 0,
+    "offsety4": -70,
+
 
   },
   //////////////////////////////
@@ -483,29 +513,32 @@ const alphabet = {
     "offset2x4": 50,
     "offset2y4": 100,
 
-   //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    //quad
+    "offsetx1": -50,
+    "offsety1": 60,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offsetx2": -50,
+    "offsety2": 100,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
+    "offsetx3": 50,
+    "offsety3": 100,
+
+    "offsetx4": 50,
+    "offsety4": 60,
   },
 
   //////////////////////////////
 
   "M": {
     //triangle 1
-    "offset2x": -20,
+    "offset2x":  20,
     "offset2y": -100,
 
     "offset3x": 20,
-    "offset3y": -100,
+    "offset3y": 100,
 
-    "offset4x": 0,
-    "offset4y": 0,
+    "offset4x": 50,
+    "offset4y": 100,
 
     //triangle 2
     "offset2x2": -20,
@@ -518,14 +551,27 @@ const alphabet = {
     "offset2y4": 100,
 
    //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": 20,
+    "offset3y2": -100,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offset3x3": -20,
+    "offset3y3": -100,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
+    "offset3x4": 0,
+    "offset3y4": 10,
+
+     //quad
+    "offsetx1": -50,
+    "offsety1": -100,
+
+    "offsetx2": 50,
+    "offsety2": -100,
+
+    "offsetx3": 50,
+    "offsety3": -50,
+
+    "offsetx4": -50,
+    "offsety4": -50,
   },
 
   //////////////////////////////
@@ -535,91 +581,71 @@ const alphabet = {
     "offset2x": 50,
     "offset2y": 100,
 
-    "offset3x": 0,
+    "offset3x": -50,
     "offset3y": -95,
 
     "offset4x": -50,
     "offset4y": 100,
 
     //triangle 2
-    "offset2x2": 0,
-    "offset2y2": -10,
+    "offset2x2": 50,
+    "offset2y2": -100,
 
     "offset2x3": 50,
     "offset2y3": 100,
 
-    "offset2x4": -50,
+    "offset2x4": -30,
     "offset2y4": 100,
 
    //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": -30,
+    "offset3y2": 20,
 
     "offset3x3": 40,
-    "offset3y3":90,
+    "offset3y3":100,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
+    "offset3x4": -30,
+    "offset3y4": 100,
 
-    //quad
-    "offsetx1": 10,
-    "offsety1": 100,
-
-    "offsetx2": 10,
-    "offsety2": 50,
-
-    "offsetx3": -20,
-    "offsety3": 50,
-
-    "offsetx4": -20,
-    "offsety4": 100,
+    
 
   },
   //////////////////////////////
 
   "O": {
-   //triangle 1
-    "offset2x": 50,
-    "offset2y": 100,
+  //triangle 1
+    "offset2x": 0,
+    "offset2y": -100,
 
-    "offset3x": 0,
-    "offset3y": -95,
+    "offset3x": 50,
+    "offset3y": 0,
 
     "offset4x": -50,
-    "offset4y": 100,
+    "offset4y": 0,
 
-    //triangle 2
+    //  triangle 2
     "offset2x2": 0,
-    "offset2y2": -10,
+    "offset2y2": 100,
 
     "offset2x3": 50,
-    "offset2y3": 100,
+    "offset2y3": 0,
 
     "offset2x4": -50,
-    "offset2y4": 100,
+    "offset2y4": 0,
 
-   //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
-
-    "offset3x3": 40,
-    "offset3y3":90,
-
-    "offset3x4": -15,
-    "offset3y4": 90,
 
     //quad
     "offsetx1": 10,
-    "offsety1": 100,
+    "offsety1": 20,
 
     "offsetx2": 10,
-    "offsety2": 50,
+    "offsety2": -20,
 
-    "offsetx3": -20,
-    "offsety3": 50,
+    "offsetx3": -10,
+    "offsety3": -20,
 
-    "offsetx4": -20,
-    "offsety4": 100,
+    "offsetx4": -10,
+    "offsety4": 20,
   },
 
   //////////////////////////////
@@ -627,126 +653,94 @@ const alphabet = {
   "P": {
      //triangle 1
     "offset2x": 50,
-    "offset2y": 100,
+    "offset2y": -100,
 
-    "offset3x": 0,
-    "offset3y": -95,
+    "offset3x": -50,
+    "offset3y": -100,
 
     "offset4x": -50,
     "offset4y": 100,
 
-    //triangle 2
-    "offset2x2": 0,
-    "offset2y2": -10,
 
-    "offset2x3": 50,
-    "offset2y3": 100,
-
-    "offset2x4": -50,
-    "offset2y4": 100,
-
-   //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
-
-    "offset3x3": 40,
-    "offset3y3":90,
-
-    "offset3x4": -15,
-    "offset3y4": 90,
 
     //quad
-    "offsetx1": 10,
+    "offsetx1": -20,
     "offsety1": 100,
 
-    "offsetx2": 10,
-    "offsety2": 50,
+    "offsetx2": -20,
+    "offsety2": -100,
 
-    "offsetx3": -20,
-    "offsety3": 50,
+    "offsetx3": -50,
+    "offsety3": -100,
 
-    "offsetx4": -20,
+    "offsetx4": -50,
     "offsety4": 100,
   },
 
   //////////////////////////////
 
   "Q": {
-    //triangle 1
-    "offset2x": 50,
-    "offset2y": 100,
+    "offset2x": 30,
+    "offset2y": -90,
 
-    "offset3x": 0,
-    "offset3y": -95,
+    "offset3x": 50,
+    "offset3y": 0,
 
     "offset4x": -50,
-    "offset4y": 100,
+    "offset4y": 0,
 
-    //triangle 2
+    //  triangle 2
     "offset2x2": 0,
-    "offset2y2": -10,
+    "offset2y2": 90,
 
     "offset2x3": 50,
-    "offset2y3": 100,
+    "offset2y3": 0,
 
     "offset2x4": -50,
-    "offset2y4": 100,
-
+    "offset2y4": 0,
    //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": -10,
+    "offset3y2": 0,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offset3x3": 50,
+    "offset3y3":80,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
-
-    //quad
-    "offsetx1": 10,
-    "offsety1": 100,
-
-    "offsetx2": 10,
-    "offsety2": 50,
-
-    "offsetx3": -20,
-    "offsety3": 50,
-
-    "offsetx4": -20,
-    "offsety4": 100,      },
+    "offset3x4": 0,
+    "offset3y4": 30,
+   },
 
   //////////////////////////////
 
   "R": {
     //triangle 1
-    "offset2x": 0,
+    "offset2x": -50,
     "offset2y": -100,
 
     "offset3x": 50,
-    "offset3y": 0,
+    "offset3y": 10,
 
-    "offset4x": 0,
-    "offset4y": 0,
+    "offset4x": -50,
+    "offset4y": 30,
 
     //triangle 2
-    "offsetx2": 0,
-    "offsety2": 0,
+    "offset2x2": 20,
+    "offset2y2": 50,
 
-    "offsetx3": 50,
-    "offsety3": 100,
+    "offset2x3": 50,
+    "offset2y3": 100,
 
-    "offsetx4": 0,
-    "offsety4": 100,
+    "offset2x4": 30,
+    "offset2y4": 100,
 
   //triangle 3
-    "offsetx2": 40,
-    "offsety2": -40,
+    "offset3x2": -50,
+    "offset3y2": -40,
 
-    "offsetx3": 40,
-    "offsety3":90,
+    "offset3x3": -50,
+    "offset3y3": 100,
 
-    "offsetx4": -15,
-    "offsety4": 90,
+    "offset3x4": 20,
+    "offset3y4": 100,
   },
   //////////////////////////////
 
@@ -762,24 +756,24 @@ const alphabet = {
     "offset4y": 70,
 
     //triangle 2
-    "offsetx2": 0,
-    "offsety2": -100,
+    "offset2x2": 50,
+    "offset2y2": -100,
 
-    "offsetx3": 50,
-    "offsety3": -80,
+    "offset2x3": -40,
+    "offset2y3": -90,
 
-    "offsetx4": 0,
-    "offsety4": -60,
+    "offset2x4": -50,
+    "offset2y4": -60,
 
    //triangle 3
-    "offsetx2": 40,
-    "offsety2": -40,
+    "offset3x2": -50,
+    "offset3y2": -90,
 
-    "offsetx3": 40,
-    "offsety3":90,
+    "offset3x3": 50,
+    "offset3y3":90,
 
-    "offsetx4": -15,
-    "offsety4": 90,
+    "offset3x4": -15,
+    "offset3y4": 30,
   },
   //////////////////////////////
 
@@ -791,8 +785,8 @@ const alphabet = {
     "offset3x": 50,
     "offset3y": -100,
 
-    "offset4x": 50,
-    "offset4y": -80,
+    "offset4x": 0,
+    "offset4y": -60,
 
     //triangle 2
     "offsetx2": -50,
@@ -805,10 +799,10 @@ const alphabet = {
     "offsety4": -80,
 
   //triangle 3
-    "offsetx2": 40,
+    "offsetx2": 0,
     "offsety2": -40,
 
-    "offsetx3": 40,
+    "offsetx3": 15,
     "offsety3":90,
 
     "offsetx4": -15,
@@ -828,14 +822,14 @@ const alphabet = {
     "offset4y": 20,
 
     //triangle 2
-    "offsetx2": -50,
-    "offsety2": 20,
+    "offset2x2": -50,
+    "offset2y2": 20,
 
-    "offsetx3": 0,
-    "offsety3": 100,
+    "offset2x3": 0,
+    "offset2y3": 100,
 
-    "offsetx4": -50,
-    "offsety4": -100,
+    "offset2x4": -50,
+    "offset2y4": -100,
 
   //triangle 3
     "offsetx2": 40,
@@ -846,6 +840,19 @@ const alphabet = {
 
     "offsetx4": -15,
     "offsety4": 90,
+
+    //quad
+    "offsetx1": -50,
+    "offsety1": 70,
+
+    "offsetx2": -50,
+    "offsety2": 100,
+
+    "offsetx3": 50,
+    "offsety3": 100,
+
+    "offsetx4": 50,
+    "offsety4": 70,
   },
   //////////////////////////////
   "V": {
@@ -870,14 +877,14 @@ const alphabet = {
     "offsety4": 40,
 
   //triangle 3
-    "offsetx2": 40,
+    "offsetx2": 0,
     "offsety2": -40,
 
-    "offsetx3": 40,
-    "offsety3":90,
+    "offsetx3": 15,
+    "offsety3": -100,
 
     "offsetx4": -15,
-    "offsety4": 90,
+    "offsety4": -100,
   },
   //////////////////////////////
   "W": {
@@ -902,13 +909,13 @@ const alphabet = {
     "offset2y4": -100,
 
    //triangle 3
-    "offset3x2": 40,
+    "offset3x2": 0,
     "offset3y2": -40,
 
     "offset3x3": 40,
     "offset3y3":90,
 
-    "offset3x4": -15,
+    "offset3x4": -40,
     "offset3y4": 90,
   },
   //////////////////////////////
@@ -933,15 +940,7 @@ const alphabet = {
     "offset2x4": 30,
     "offset2y4": 100,
 
-  //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
-
-    "offset3x3": 40,
-    "offset3y3":90,
-
-    "offset3x4": -15,
-    "offset3y4": 90,
+ 
   },
   //////////////////////////////
   "Y": {
@@ -955,25 +954,17 @@ const alphabet = {
     "offset4x": 0,
     "offset4y": 100,
 
-    //  triangle 2
-    "offset2x2": 0,
-    "offset2y2": 0,
 
-    "offset2x3": -50,
-    "offset2y3": -100,
-
-    "offset2x4": 50,
-    "offset2y4": -100,
 
    //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": -50,
+    "offset3y2": -100,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offset3x3": -20,
+    "offset3y3": -60,
 
     "offset3x4": -15,
-    "offset3y4": 90,
+    "offset3y4": 20,
   },
 
   //////////////////////////////
@@ -999,14 +990,14 @@ const alphabet = {
     "offset2y4": 50,
 
    //triangle 3
-    "offset3x2": 40,
-    "offset3y2": -40,
+    "offset3x2": 50,
+    "offset3y2": -100,
 
-    "offset3x3": 40,
-    "offset3y3":90,
+    "offset3x3": 0,
+    "offset3y3": 50,
 
-    "offset3x4": -15,
-    "offset3y4": 90,
+    "offset3x4": -50,
+    "offset3y4": 100,
   },
   //////////////////////////////
   "0": {
