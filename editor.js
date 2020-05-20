@@ -13,10 +13,8 @@ const colorLines   = "#3a3a3a";
 const sliderInfo = [
   ["rectX", 0, 100],
   ["rectY", 0,  200],
-  ["rectW", 0, 100],
-  ["rectH", 0,  100],
-  ["arcW",  30,  100],
-  ["arcH",  30,  100],
+  ["rectX2", 0, 100],
+  ["rectY2", 0,  200],
   ["arcX",  0,  100],
   ["arcY",  0,  200],
   ["arcS",  0,  360],
@@ -24,7 +22,8 @@ const sliderInfo = [
   ["arcX2", 0,  100],
   ["arcY2", 0,  200],
   ["arcS2", 0,  360],
-  ["arcE2", 0,  360]
+  ["arcE2", 0,  360],
+  ["arcSize",  0,  100],
 ];
 
 
