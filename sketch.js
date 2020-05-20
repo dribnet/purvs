@@ -83,7 +83,7 @@ const colorFront2  = "#5aa9e6";//small
 const colorFront3  = "#fdfffc";//small
 const colorFront4  = "#273043";//small
 
-const colorBack    = "#e3edef";//background
+const colorBack    = "#FEFFE9";//background
 const colorStroke  = "#233f11";//stroke
 
 function setup () {
