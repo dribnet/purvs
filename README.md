@@ -1,9 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
-20/5/2020 4:11 pm
+20/5/2020 6:35 pm
 
-I have now completed all the letters that will be part of my hand in, and now I will do the numbers.
+Getting these coordinates right took far too much time, but now everything is done in that sense. Later tonight and/or tomorrow I will complete the rest of the work, leaving friday as my check over day.
 
-My plan to have a maximum of 4 forms per letter has been maintained, and many letter only have 2/4 of the quota.
-
-Hopefull more work will follow soon.
+The maximum number of forms continues to be applied and often, is not needed. 
