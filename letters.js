@@ -10,10 +10,30 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
     "mid":20,
     "space":10
   },
   "B": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
    
     "lpH1st":0,
     "lpH2st":100,
@@ -23,6 +43,16 @@ const alphabet = {
     
   },
   "C": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
     
     "lpH1st":0,
     "lpH2st":100,
@@ -30,6 +60,16 @@ const alphabet = {
     "space":10
   },
   "D": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpH1st":0,
+    "lpH2st":0,
    
     "lpV1st":100,
     "lpV2st":200,
@@ -38,6 +78,13 @@ const alphabet = {
     "space":5
   },
   "E": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
   
     "lpH1st":0,
     "lpH2st":100,
@@ -48,6 +95,13 @@ const alphabet = {
     "space":5
   },
   "F": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
    
     "lpH1st":0,
     "lpH2st":100,
@@ -63,21 +117,48 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpV1st":150,
     "lpV2st":200,
+
+    "lpH1st":0,
+    "lpH2st":0,
 
     "space":5
    
   },
   "H": {
+    "lpV1":100,
+    "lpV2":100,
+    "lpV3":0,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
     
     "lpV1st":140,
     "lpV2st":160,
+
+    "lpH1st":0,
+    "lpH2st":0,
 
     "space":5
     
   },
   "I": {
+    "lpV1":100,
+    "lpV2":100,
+    "lpV3":0,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
     
     "lpH1st":40,
     "lpH2st":60,
@@ -89,8 +170,15 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpV1st":180,
     "lpV2st":200,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":5
   },
@@ -102,27 +190,48 @@ const alphabet = {
     "lpH1":100,
     "lpH2":200,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
     
+    "lpH1st":0,
+    "lpH2st":0,
+
     "space":10
     
   },
   "L": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpH1st":0,
     "lpH2st":20,
 
+    "lpV2st":200,
     "lpV1st":180,
 
     "space":5
     
   },
   "M": {
-     "lpV1":100,
+    "lpV1":100,
     "lpV2":100,
     "lpV3":200,
 
     "lpH1":50,
     "lpH2":150,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":10
   },
@@ -130,10 +239,28 @@ const alphabet = {
     "lpV1":0,
     "lpV2":100,
     "lpV3":200,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
     "space":5
     
   },
   "O": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
 
     "lpH1st":0,
     "lpH2st":100,
@@ -145,6 +272,13 @@ const alphabet = {
     "space":10
   },
   "P": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
 
     "lpH1st":0,
     "lpH2st":100,
@@ -157,11 +291,15 @@ const alphabet = {
     
   },
   "Q": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
     "lpH1":100,
     "lpH2":200,
     "lpH3":0,
 
-     "lpH1st":0,
+    "lpH1st":0,
     "lpH2st":100,
 
     "lpV1st":100,
@@ -176,6 +314,10 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpH1st":0,
     "lpH2st":100,
 
@@ -189,17 +331,32 @@ const alphabet = {
     "lpV1":0,
     "lpV2":200,
     "lpV3":100,
+
     "lpV1st":140,
     "lpV2st":160,
+
     "lpH1":0,
     "lpH2":200,
     "lpH3":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
     "space":10
   },
   "T": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpV1st":100,
     "lpV2st":120,
-     "lpH1st":40,
+
+    "lpH1st":40,
     "lpH2st":60,
 
     "space":5
@@ -212,6 +369,10 @@ const alphabet = {
     "lpH1":50,
     "lpH2":200,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
     "lpH1st":80,
     "lpH2st":100,
     
@@ -222,24 +383,49 @@ const alphabet = {
     "lpV2":200,
     "lpV3":100,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
     "space":10
   },
   "W": {
-     "lpV1":50,
+    "lpV1":50,
     "lpV2":150,
     "lpV3":200,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":10
   },
   "X": {
-
-     "lpV1":100,
+    "lpV1":100,
     "lpV2":100,
     "lpV3":200,
 
     "lpH1":100,
     "lpH2":200,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":5
     
@@ -248,7 +434,15 @@ const alphabet = {
     "lpV1":50,
     "lpV2":150,
     "lpV3":100,
-     "lpH1st":40,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":40,
     "lpH2st":60,
 
     "space":5
@@ -261,18 +455,43 @@ const alphabet = {
     "lpH1":0,
     "lpH2":100,
     "lpH3":100,
+
     "lpV1st":180,
     "lpV2st":200,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":10
   },
   "0": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
      "mid":20,
   },
   "1": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
     "lpH1":50,
     "lpH2":100,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
     
     "lpH1st":40,
     "lpH2st":60,
@@ -284,15 +503,32 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpV1st":100,
     "lpV2st":150,
+
+    "lpH1st":0,
+    "lpH2st":0,
 
     "space":5
   },
   "3": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
     "lpH1":50,
     "lpH2":150,
     "lpH3":100,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
     
     "space":10
   },
@@ -300,9 +536,15 @@ const alphabet = {
     "lpV1":50,
     "lpV2":100,
     "lpV3":150,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
     "lpV1st":140,
     "lpV2st":160,
-     "lpH1st":40,
+
+    "lpH1st":40,
     "lpH2st":60,
 
     "mid":20,
@@ -310,6 +552,10 @@ const alphabet = {
     "space":10
   },
   "5": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
     "lpH1st":0,
     "lpH2st":20,
 
@@ -323,6 +569,13 @@ const alphabet = {
     "space":5
   },
   "6": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
     
     "lpH1st":0,
     "lpH2st":20,
@@ -334,6 +587,9 @@ const alphabet = {
     "space":5
   },
   "7": {
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
 
     "lpV1st":100,
     "lpV2st":120,
@@ -341,6 +597,9 @@ const alphabet = {
     "lpH1":0,
     "lpH2":200,
     "lpH3":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
 
     "space":5
   },
@@ -352,11 +611,26 @@ const alphabet = {
     "lpH1":100,
     "lpH2":200,
     "lpH3":0,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+
     "mid":20,
     "space":10
   },
   "9": {
-     "lpH1st":80,
+    "lpV1":0,
+    "lpV2":100,
+    "lpV3":100,
+
+    "lpH1":0,
+    "lpH2":100,
+    "lpH3":0,
+
+    "lpH1st":80,
     "lpH2st":100,
 
     "lpV1st":100,

@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#000000";
+const colorLines   = "#ffffff";
 
 /* 
  * do not edit this rest of this file, instead edit the letter
@@ -13,8 +13,8 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 // these variables are used for animation
-let soloCurLetter = "B";
-let soloLastLetter = "C"
+let soloCurLetter = "X";
+let soloLastLetter = "T"
 let soloPrevObj = alphabet["default"];
 let soloIsAnimating = false;
 let soloNumAnimationFrames = 30;
