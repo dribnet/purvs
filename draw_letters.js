@@ -47,9 +47,10 @@ let flipY = letterData["flipY"];
 
 
 //draws arcs
-strokeWeight(0);
+strokeWeight(6);
 stroke(red1, green1, blue1);
-fill(red1, green1, blue1, opa);
+noFill();
+// fill(red1, green1, blue1, opa);
 angleMode(DEGREES); 
 
 
@@ -58,10 +59,12 @@ triangle(60, 50, flipX, flipY, 30, 170);
 
 // arc(50, 100, 100, 100, flipX, flipY);
 stroke(red2, green2, blue2);
-fill(red2, green2, blue2, opa);
+noFill();
+// fill(red2, green2, blue2, opa);
 arc(pos2x, pos2y, size2, size2, start2, end2);
 stroke(red3, green3, blue3);
-fill(red3, green3, blue3, opa );
+noFill();
+// fill(red3, green3, blue3, opa );
 
   push();
   rotate(rotateR);

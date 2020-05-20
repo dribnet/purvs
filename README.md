@@ -2,7 +2,7 @@
 
 Concept:
 
-Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a semi-circle arc, a rectangle and a full circle. Each shape has a different colour similar to the Bauhaus type.
+Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a triangle, a rectangle and a full circle. Each shape has a different colour similar to the Bauhaus type.
 
 
 The nine parameters per letter:
@@ -38,6 +38,8 @@ The nine parameters per letter:
 
   I have experimented with changing the yellow arc into a triangle. I thought this shape made more sense for my bauhaus design as previously I had used 2 arc's, with one a semi-circle, and the other a full circle. I also added in stroke weight and opacity to give a more a defined shape outline. 
 
-  Tested changing the exhibition to some words that look best in my font. For example my favourite letters are A, G, Q, R, Y and D. With the least strong letters being E, M, W and N. Good words are: GRAPHICS, YOURSELF, REPEATED, QUESTION, DURATION. 
+  Tested changing the exhibition to some words that look best in my font. For example my favourite letters are A, G, Q, R, Y and D. With the least strong letters being E, M, W and N. Good words are: GRAPHICS, YOURSELF, REPEATED, QUESTION, DURATION. I have really being struggling with getting the "S" letter to look good. 
+
+  Tested changing the colour stroke and fill with the background colour as experimentation to try new ideas. 
 
 
