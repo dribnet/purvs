@@ -1,7 +1,7 @@
 const colorFront1  = "#7A14A6";
 const colorFront2  = "#BF0F90";
-const colorFill1 = "#9339B7";
-const colorFill2 = "#CB32A5";
+const colorFill1 = "#7A14A6";
+const colorFill2 = "#BF0F90";
 /*
  * Draw the letter given the letterData
  *
