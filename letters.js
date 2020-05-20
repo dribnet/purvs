@@ -15,21 +15,22 @@ const alphabet = {
   "trianglerightx": 78,
   "trianglerighty": 110,
   },
+  //my parameters are consistent in every letter, number and symbol so i am only commenting for the letter A.
   "A": {
-  "offsetx": 21,
-  "offsety": 110,
-  "rectlength": 60,
-  "rectheight": 12,
-  "nofill_length": 54,
-  "nofill_height": 50,
-  "rect_twoposx": 24,
-  "rect_twoposy": 62,
-  "triangleleftx": 29,
-  "trianglelefty": 138,
-  "triangletopx": 50,
-  "triangletopy": 72,
-  "trianglerightx": 71,
-  "trianglerighty": 138,
+  "offsetx": 21, //x position for first rect (white fill)
+  "offsety": 110, //y position for first rect (white fill)
+  "rectlength": 60, //first rect length (white fill)
+  "rectheight": 12, //first rect height (white fill)
+  "nofill_length": 54, //second rect length (red stroke)
+  "nofill_height": 50, //second rect height (red stroke)
+  "rect_twoposx": 24, //x position for second rect (red stroke)
+  "rect_twoposy": 62, //y position for second rect (red stroke)
+  "triangleleftx": 29, //triangle first point for x
+  "trianglelefty": 138, //triangle first point for y
+  "triangletopx": 50, //triangle second point for x
+  "triangletopy": 72, //triangle second point for y
+  "trianglerightx": 71, //triangle third point for x
+  "trianglerighty": 138, //triangle third point for y
   },
   "B": {
   "offsetx": 24,

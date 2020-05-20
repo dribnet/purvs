@@ -1,71 +1,63 @@
-const canvasWidth = 960;
-const canvasHeight = 500;
+const canvasWidth = 960; //setting up canvas width to equal 960
+const canvasHeight = 500; //setting up canvas height to equal 500
 
-/* 
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
+//my 14 paramters per letter
+//letter  A
 const letterA = {
-  "offsetx": 17,
-  "offsety": 0,
-  "rectlength": 28,
-  "rectheight": 90,
-  "nofill_length": 20,
-  "nofill_height": 82,
-  "rect_twoposx": 55,
-  "rect_twoposy": 4,
-  "triangleleftx": 188,
-  "trianglelefty": 270,
-  "triangletopx": 228,
-  "triangletopy": 198,
-  "trianglerightx": 266,
-  "trianglerighty": 270,
+  "offsetx": 17, //x position for first rect (white fill)
+  "offsety": 0, //y position for first rect (white fill)
+  "rectlength": 28, //first rect length (white fill)
+  "rectheight": 90, //first rect height (white fill)
+  "nofill_length": 20, //second rect length (red stroke)
+  "nofill_height": 82, //second rect height (red stroke)
+  "rect_twoposx": 55, //x position for second rect (red stroke)
+  "rect_twoposy": 4, //y position for second rect (red stroke)
+  "triangleleftx": 188, //triangle first point for x
+  "trianglelefty": 270, //triangle first point for y
+  "triangletopx": 228, //triangle second point for x
+  "triangletopy": 198, //triangle second point for y
+  "trianglerightx": 266, //triangle third point for x
+  "trianglerighty": 270, //triangle third point for y
 }
 
+//letter B
 const letterB = {
-  "offsetx": 32,
-  "offsety": 52,
-  "rectlength": 70,
-  "rectheight": 37,
-  "nofill_length": 62,
-  "nofill_height": 36,
-  "rect_twoposx": 27,
-  "rect_twoposy": 2,
-  "triangleleftx": 465,
-  "trianglelefty": 270,
-  "triangletopx": 465,
-  "triangletopy": 198,
-  "trianglerightx": 525,
-  "trianglerighty": 235,
-
+  "offsetx": 32, //x position for first rect (white fill)
+  "offsety": 52, //y position for first rect (white fill)
+  "rectlength": 70, //first rect length (white fill)
+  "rectheight": 37, //first rect height (white fill)
+  "nofill_length": 62, //second rect length (red stroke)
+  "nofill_height": 36, //second rect height (red stroke)
+  "rect_twoposx": 27, //x position for second rect (red stroke)
+  "rect_twoposy": 2, //y position for second rect (red stroke)
+  "triangleleftx": 465, //triangle first point for x
+  "trianglelefty": 270, //triangle first point for y
+  "triangletopx": 465, //triangle second point for x
+  "triangletopy": 198, //triangle second point for y
+  "trianglerightx": 525, //triangle third point for x
+  "trianglerighty": 235, //triangle third point for y
 }
 
+//letter C 
 const letterC = {
-  "offsetx": 56,
-  "offsety": 1,
-  "rectlength": 60,
-  "rectheight": 90,
-  "nofill_length": 64,
-  "nofill_height": 50,
-  "rect_twoposx": 58,
-  "rect_twoposy": 22,
-  "triangleleftx": 803,
-  "trianglelefty": 275,
-  "triangletopx": 803,
-  "triangletopy": 198,
-  "trianglerightx": 742,
-  "trianglerighty": 235,
+  "offsetx": 56, //x position for first rect (white fill)
+  "offsety": 1, //y position for first rect (white fill)
+  "rectlength": 60, //first rect length (white fill)
+  "rectheight": 90, //first rect height (white fill)
+  "nofill_length": 64, //second rect length (red stroke)
+  "nofill_height": 50, //second rect height (red stroke)
+  "rect_twoposx": 58, //x position for second rect (red stroke)
+  "rect_twoposy": 22, //y position for second rect (red stroke)
+  "triangleleftx": 803, //triangle first point for x
+  "trianglelefty": 275, //triangle first point for y
+  "triangletopx": 803, //triangle second point for x
+  "triangletopy": 198, //triangle second point for y
+  "trianglerightx": 742, //triangle third point for x
+  "trianglerighty": 235, //triangle third point for y
 }
 
-const colorFront1  = "#75cc0a50"; //green
-const colorFront2  = "#ccd9deFA"; //white
+const colorFront1  = "#75cc0a50"; //green  colour with opacity
+const colorFront2  = "#ccd9deFA"; //white with opacity
 const colorBack    = "#242424"; //bg colour (dark gray)
 const colorStroke  = "#0f0f0f80"; //stroke colour
 
@@ -74,7 +66,7 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
-  // color/stroke setup
+  // color and stroke setup
   stroke(colorStroke);
   strokeWeight(8);
 
@@ -83,6 +75,7 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
+  //setting up my 14 parameters
   let rectwidth = letterData["rectlength"];
   let recthigh = letterData["rectheight"];
   let rectwidth_two = letterData["nofill_length"];
@@ -98,18 +91,17 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-
   //draws the shapes for my letters
-  noStroke();
-  fill(colorFront1);
-  rect(pos2x, pos2y, rectwidth, recthigh);
-  stroke(colorFront2);
+  noStroke(); //remvoing stroke from first rect
+  fill(colorFront1); //filling with green
+  rect(pos2x, pos2y, rectwidth, recthigh); //calling variables
+  stroke(colorFront2); //setting up stroke again from the second rect
   strokeWeight(8);
-  noFill();
-  rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two);
+  noFill(); //no fill for this rect
+  rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two); //calling variables
   stroke(colorStroke);
   fill(colorBack);
-  triangle(tri_onex, tri_oney, tri_twox, tri_twoy, tri_threex, tri_threey);
+  triangle(tri_onex, tri_oney, tri_twox, tri_twoy, tri_threex, tri_threey); //drawing triangle
 }
 
 function draw () {

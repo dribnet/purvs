@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#262626";
+const colorBack    = "#262626"; //dark gray background
 const colorLines   = "#000090";
 
 /*******
@@ -11,6 +11,7 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
+  //added the parameters from my sketch into the editor
   ["offsetx",  0,  200],
   ["offsety", 0, 200],
   ["rectlength", 0, 200],

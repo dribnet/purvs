@@ -1,5 +1,5 @@
-const colorFront1  = "#C9D1D3FA"; //white
-const colorFront2  = "#ff402bD9"; //red
+const colorFront1  = "#C9D1D3FA"; //white colour
+const colorFront2  = "#ff402bD9"; //red colour
 const colorStroke  = "#1c1c1c90"; //stroke colour
 
 
@@ -11,9 +11,7 @@ const colorStroke  = "#1c1c1c90"; //stroke colour
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  // stroke(colorStroke);
-  // strokeWeight(4);
+  //setting up my parameters to change depending on the letter in letters.js
   let rectwidth = letterData["rectlength"];
   let recthigh = letterData["rectheight"];
   let rectwidth_two = letterData["nofill_length"];
@@ -29,27 +27,30 @@ function drawLetter(letterData) {
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
 
-  // draw two circles
+  //draws my first rect in white with no stroke
   noStroke();
   fill(colorFront1);
   rect(pos2x, pos2y, rectwidth, recthigh);
   stroke(colorFront2);
+  //draws my second rect in a red stroke with no fill
   strokeWeight(10);
   noFill();
   rect(rect_twox, rect_twoy, rectwidth_two, recthigh_two);
+  //draws my triangle with a black stroke that has opacity applied
   stroke(colorStroke);
   fill(colorBack);
   triangle(tri_onex, tri_oney, tri_twox, tri_twoy, tri_threex, tri_threey);
 }
 
+//the transition function between two letters
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  //mapping filled in square
+  //mapping the white rectangle
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["rectlength"] = map(percent, 0, 100, oldObj["rectlength"], newObj["rectlength"]);
   new_letter["rectheight"] = map(percent, 0, 100, oldObj["rectheight"], newObj["rectheight"]);
-  //mapping stroke only rect
+  //mapping the red stroke rectangle
   new_letter["nofill_length"] = map(percent, 0, 100, oldObj["nofill_length"], newObj["nofill_length"]);
   new_letter["nofill_height"] = map(percent, 0, 100, oldObj["nofill_height"], newObj["nofill_height"]);
   new_letter["rect_twoposx"] = map(percent, 0, 100, oldObj["rect_twoposx"], newObj["rect_twoposx"]);
@@ -64,7 +65,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   // new_letter["trianglerightx"] = oldObj["trianglerightx"];
   // new_letter["trianglerighty"] = oldObj["trianglerighty"];  	
   // } else {
-  //mapping triangles
+  //mapping my black stroke triangle
   new_letter["triangleleftx"] = map(percent, 0, 100, oldObj["triangleleftx"], newObj["triangleleftx"]);
   new_letter["trianglelefty"] = map(percent, 0, 100, oldObj["trianglelefty"], newObj["trianglelefty"]);
   new_letter["triangletopx"] = map(percent, 0, 100, oldObj["triangletopx"], newObj["triangletopx"]);
@@ -76,13 +77,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 }
 
+//exhibition words
 var swapWords = [
-  "VAMPIRES",
+  "VAMPIRES", //the title of my font follow by relevant words
   "IMMORTAL",
   "BLOODCUP",
   "INFECTED",
+  "WARNINGS",
   " CREEPY ",
+  " SLAYER ",
   " REAPER ",
+  "THIRSTY1",
+  "MONSTERS",
   "SCARY123",
   "SINISTER"
 ]
