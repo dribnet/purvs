@@ -70,3 +70,5 @@ I have also decided on my final colours! I went with a pink theme and used diffe
 I've completed my numbers! Surprisingly, I found these easier to create than the letters but I'm happy with the outcome. 0 was the last number I did and it made me realise how difficult it will be to create another version of it for the letter O. However, I think I sort of have an idea on how it'll come out.
 
 I have completed all my letters! I did some changed to a few letters as well so that each letter looks more consistent, but I still have a few more letters to tweak and fix. 
+
+After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.thu
