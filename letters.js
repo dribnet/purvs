@@ -147,18 +147,18 @@ const alphabet = {
     "liney3": 150, //length L
   },
   "K": {
-    "sizeLine": 0,
+    "sizeLine": 90,
     "sizeCirc": 20,
     "sizeCirc2": 20,
-    "circx1": 85,
+    "circx1": 15,
     "circy1": 180,
-    "circx2": 85,
-    "circy2": 20,
-    "linex1": 15, //left
+    "circx2": 15,
+    "circy2": 180,
+    "linex1": 5, //left
     "liney1": 10, //height
     "linex2": 5,
     "liney2": 190, // length R
-    "liney3": 190, //length L
+    "liney3": 80, //length L
   },
   "L": {
     "sizeLine": 0,
