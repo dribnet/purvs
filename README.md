@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-I fixed up a few of the letters as I noticed they weren't all the same size, which gave a messier look than I was intending. I picked out some words, I wanted them to reflect the fun, bright idea that I was aiming for. I did experiment with a lemonade colour scheme but I wasn't a fan
+Today, I fixed up some of the outlines of my letters and also softened the edges of my stroke. This connected the two elements much more and added a softer tone to my alphabet.
 
 I named my font 'Candypie', it's a gentle name that is bursting with colour and flavour. This reflects my font very well.
 

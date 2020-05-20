@@ -1,6 +1,6 @@
 const colorArc  = "#61DDC9";
 const colorTri = "#FF6F80";
-const colorStroke  = "#FF797";
+const colorStroke  = "#FFFFFF";
 //#F070A1 #16FFBD
 
 /*
@@ -12,39 +12,44 @@ const colorStroke  = "#FF797";
  */
 function drawLetter(letterData) {
   angleMode(DEGREES);
-  // determine parameters for second circle
-  let pos2x =  50 + letterData["offsetx"];
-  let pos2y = 100 + letterData["offsety"];
-  let trix1 = letterData["triangleX1"];
-  let trix2 = letterData["triangleX2"];
-  let trix3 = letterData["triangleX3"];
-  let triy1 = letterData["triangleY1"];
-  let triy2 = letterData["triangleY2"];
-  let triy3 = letterData["triangleY3"];
-  let arcs = letterData["arcStart"];
-  let arce = letterData["arcEnd"];
-  let arcsx = letterData["arcSizeX"];
-  let arcsy = letterData["arcSizeY"];
+  // set up parameters
+  let posX =  50 + letterData["offsetX"];
+  let posY = 100 + letterData["offsetY"];
+  let triX1 = letterData["triangleX1"];
+  let triX2 = letterData["triangleX2"];
+  let triX3 = letterData["triangleX3"];
+  let triY1 = letterData["triangleY1"];
+  let triY2 = letterData["triangleY2"];
+  let triY3 = letterData["triangleY3"];
+  let arcS = letterData["arcStart"];
+  let arcE = letterData["arcEnd"];
+  let arcSX = letterData["arcSizeX"];
+  let arcSY = letterData["arcSizeY"];
 
-  // draw two circles
+  //set up strokecolour and default weight
   stroke(colorStroke);
   strokeWeight(5);
   
+  //set up actual alphabet stroke weight
+  //scaled letters down to make easier to work with
+  //soften stroke corners
   push();
   scale(0.65);
   strokeWeight(10);
+  strokeJoin(ROUND);
 
+  //draw arc and triangle
   fill(colorArc);
-  arc(pos2x, pos2y, arcsx, arcsy, arcs, arce, PIE);
+  arc(posX, posY, arcSX, arcSY, arcS, arcE, PIE);
   fill(colorTri);
-  triangle(trix1, triy1, trix2 , triy2, trix3, triy3);
+  triangle(triX1, triY1, triX2 , triY2, triX3, triY3);
   pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetX"] = map(percent, 0, 100, oldObj["offsetX"], newObj["offsetX"]);
+  new_letter["offsetY"] = map(percent, 0, 100, oldObj["offsetY"], newObj["offsetY"]);
   new_letter["triangleX1"] = map(percent, 0, 100, oldObj["triangleX1"], newObj["triangleX1"]);
   new_letter["triangleX2"] = map(percent, 0, 100, oldObj["triangleX2"], newObj["triangleX2"]);
   new_letter["triangleX3"] = map(percent, 0, 100, oldObj["triangleX3"], newObj["triangleX3"]);
@@ -63,8 +68,6 @@ var swapWords = [
   "LOLLIPOP",
   "PLAYFUL!",
   "ABSTRACT",
-  "SOFTPINK",
-  "BABYBLUE",
   "CONTRAST",
   "POPPING!",
   "CHEERFUL",
