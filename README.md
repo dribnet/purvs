@@ -66,3 +66,5 @@ I started to give myself a break with the letters and moved on to numbers! I cre
 Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different. 
 
 I have also decided on my final colours! I went with a pink theme and used different shades of the colour for a simplistic style as my alphabet is quite modern.
+
+I've completed my numbers! Surprisingly, I found these easier to create than the letters but I'm happy with the outcome. 0 was the last number I did and it made me realise how difficult it will be to create another version of it for the letter O. However, I think I sort of have an idea on how it'll come out.

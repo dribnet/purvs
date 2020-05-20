@@ -291,19 +291,6 @@ const alphabet = {
     "liney3": 100, //length L
   },
   "Z": {
-    // "sizeLine": 90,
-    // "sizeCirc": 20,
-    // "sizeCirc2": 20,
-    // "circx1": 85,
-    // "circy1": 180,
-    // "circx2": 15,
-    // "circy2": 20,
-    // "linex1": 5, //left
-    // "liney1": 100, //height
-    // "linex2": 5, // STAYS 0
-    // "liney2": 60, // length R
-    // "liney3": 142, //length L
-
     "sizeLine": 90,
     "sizeCirc": 20,
     "sizeCirc2": 20,
@@ -318,9 +305,18 @@ const alphabet = {
     "liney3": 185, //length L
   },
   "0": {
-   "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 90,
+    "sizeCirc2": 90, 
+    "circx1": 50,
+    "circy1": 100,
+    "circx2": 50,
+    "circy2": 100,
+    "linex1": 45, //left
+    "liney1": 189, //height
+    "linex2": 55,
+    "liney2": 11, // length R
+    "liney3": 11, //
   },
   "1": {
     "sizeLine": 0,
@@ -337,19 +333,6 @@ const alphabet = {
     "liney3": 10, //length L
   },
   "2": {
-    // "sizeLine": 75,
-    // "sizeCirc": 85,
-    // "sizeCirc2": 20,
-    // "circx1": 45,
-    // "circy1": 50,
-    // "circx2": 87,
-    // "circy2": 180,
-    // "linex1": 2, //left
-    // "liney1": 180, //height
-    // "linex2": 2, // STAYS 0
-    // "liney2": 90, // length R
-    // "liney3": 180, //length L
-
     "sizeLine": 70,
     "sizeCirc": 85,
     "sizeCirc2": 20,
@@ -434,23 +417,32 @@ const alphabet = {
     "liney3": 185, //length L
   },
   "8": {
-   "sizeLine": 85,
+   "sizeLine": 0,
     "sizeCirc": 90,
     "sizeCirc2": 90, 
     "circx1": 50,
     "circy1": 145,
     "circx2": 50,
     "circy2": 55,
-    "linex1": 10, //left
-    "liney1": 100, //height
-    "linex2": 5,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "linex1": 45, //left
+    "liney1": 189, //height
+    "linex2": 55,
+    "liney2": 11, // length R
+    "liney3": 11, //
   },
   "9": {
-   "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 80,
+    "sizeCirc2": 80,
+    "circx1": 45,
+    "circy1": 50,
+    "circx2": 45,
+    "circy2": 50,
+    "linex1": 85, //left
+    "liney1": 190, //height
+    "linex2": 95,
+    "liney2": 10, // length R
+    "liney3": 10, //length L
   }
 
 }
