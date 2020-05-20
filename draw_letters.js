@@ -1,7 +1,7 @@
-const colorFront1  = "#3A606E"; //navy
-const colorFront2  = "#E5C2BC"; // pink
-const colorFront3 = "#8ACEB4"; //green
-const colorStroke  = "#8ACEB4"; //green
+const navyColour  = "#3A606E"; //navy
+const pinkColour  = "#E5C2BC"; // pink
+const greenColour = "#8ACEB4"; //green
+const greenStroke  = "#8ACEB4"; //green
 
 /*
  * Draw the letter given the letterData
@@ -41,20 +41,20 @@ function drawLetter(letterData) {
 }
 
 function drawCircle(yPos){
-  stroke(colorStroke);
+  stroke(greenStroke);
   strokeWeight(5);
-  fill(colorFront1);
+  fill(navyColour);
   ellipse(50,yPos, 90, 90);
 }
 
 function drawRect(rectX, rectY, width, height){
   noStroke();
-  fill(colorFront3);
+  fill(greenColour);
   rect(rectX, rectY, width, height, 10);
 }
 
 function drawArc(posx, posy, width, height, start, finish){
-  fill(colorFront2);
+  fill(pinkColour);
   arc(posx, posy, width, height, start, finish);
 }
 
