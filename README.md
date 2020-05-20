@@ -8,9 +8,7 @@ I drew my inspiration from mathematic symbols, mainly derived from the division 
 
 My basic shapes will be lines and ellipses. I found it a bit difficult to work under 12 variables but that is what I love about this challenge!
 
-Here is my sketch:
-
-![Sketch](https://prnt.sc/shrcc5)
+Here is my sketch: https://prnt.sc/shrcc5
 
 However, the letters may change over time.
 
@@ -44,7 +42,7 @@ I'm thinking of doing a stroke on top of a stroke to create more colour elements
 
 I decided to add another parameter, however this must be the last one as this is my 12th and I do not want to make any more, not only for the brief but also to limit myself for more of a challenge. This parameter is the size of my second circle.
 
-Therefore, my FINAl parameters are:
+Therefore, my FINAL parameters are:
 
 **sizeLine1** = 	determines the size of BOTH lines, this 					is used to create a symmetric effect.
 **sizeCirc1** = 	determines size of circle 1
@@ -62,3 +60,7 @@ Therefore, my FINAl parameters are:
 After this I was able to create a letter with two different types of circle sizes, which is "R" in this case. 
 
 I have also changed the following letters: C, D, J, I, G, as well as creating E, F and R.
+
+I started to give myself a break with the letters and moved on to numbers! I created number 1-7 and decided to follow a method that was quite different to how I approached the letters. I would have my main lines as two side by side, and I'd have my circles joined with the two lines. This is how I want viewers to be able to tell the variation in numbers and letters. 
+
+Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different. 
