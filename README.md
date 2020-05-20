@@ -18,6 +18,7 @@ Start to do Alphabet. Use tutor's ways of code to do Alphabet. Change the thumbn
 Complete Alphabet. Change parameters.
 Start to do the interaction. Complte A to B, and I will figure out how to do change letters autoly tomorrow. Change the periew picture.
 
+20/05 Change letters and background colors.
 
 The parameters per letter:
   * `size` : radius of the second circle

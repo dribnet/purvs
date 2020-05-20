@@ -39,10 +39,10 @@ const letterC = {
   "section4y2": 0
 }
 
-const colorFront1  = "#9FD2F9";
-const colorFront2  = "#4BAFFB";
-const colorBack    = "#9987AB";
-const colorStroke  = "#233f11";
+const colorFront1  = "#8B8B8B";
+const colorFront2  = "#CAA088";
+const colorBack    = "#A1B3A4";
+const colorStroke  = "#4E5634";
 
 function setup () {
   // create the drawing canvas, save the canvas element

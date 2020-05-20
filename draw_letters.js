@@ -1,7 +1,3 @@
-const colorFront1  = "#9FD2F9";
-const colorFront2  = "#4BAFFB";
-const colorStroke  = "#233f11";
-
 
 function drawLetter(letterData) {
   let size2 = letterData["size"];
@@ -29,11 +25,13 @@ function drawLetter(letterData) {
   let tria2x3 = 5 + letterData["sectionx7"];
   let tria2y3 = 60 + letterData["sectiony7"];
   // draw two circles
-  fill(colorFront1);
+  stroke("#4E5634");
+  strokeWeight(4);
   line(linex, liney, linex1, liney1);
   line(line2x, line2y, line2x1, line2y1);
+  fill( "#8B8B8B");
   triangle(triax1, triay1, triax2, triay2, triax3, triay3,);
-  fill(colorFront2);
+  fill("#CAA088");
   triangle(tria2x1, tria2y1, tria2x2, tria2y2, tria2x3, tria2y3,);
 
 }
