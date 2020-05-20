@@ -33,8 +33,11 @@ function drawLetter(letterData) {
   // draw two circles
   fill(colorFront1);
   rect(50, 150, 100, 100);
+  noStroke();
   fill(colorFront2);
-  rect(50,150,lilR,lilR);
+ rect(50,150,lilR,lilR);
+ stroke(colorStroke);
+  
   for(let i = 0; i< 105; i+= a){
     line(pLV1,pLV2,i,pLV3);
     line(i,pLV1st,i,pLV2st);
@@ -44,7 +47,7 @@ function drawLetter(letterData) {
 line(pLH1,pLH2,pLH3,i);
   line(pLH1st,i,pLH2st,i);
 }
-  
+
   //ellipse(pos2x, pos2y, size2, size2);
   pop();
 }

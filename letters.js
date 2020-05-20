@@ -57,7 +57,8 @@ const alphabet = {
     "lpH1st":0,
     "lpH2st":100,
 
-    "space":10
+    "space":10,
+    "mid":0
   },
   "D": {
     "lpV1":0,
@@ -91,6 +92,7 @@ const alphabet = {
 
     "lpV1st":140,
     "lpV2st":160,
+    "mid":0,
 
     "space":5
   },
@@ -108,6 +110,7 @@ const alphabet = {
 
     "lpV1st":100,
     "lpV2st":150,
+    "mid":0,
 
     "space":10
     
@@ -126,6 +129,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":5
    
@@ -144,6 +148,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":5
     
@@ -162,6 +167,7 @@ const alphabet = {
     
     "lpH1st":40,
     "lpH2st":60,
+    "mid":0,
 
     "space":10
   },
@@ -179,6 +185,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":5
   },
@@ -196,6 +203,7 @@ const alphabet = {
     
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":10
     
@@ -214,6 +222,7 @@ const alphabet = {
 
     "lpV2st":200,
     "lpV1st":180,
+    "mid":0,
 
     "space":5
     
@@ -232,6 +241,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":10
   },
@@ -249,6 +259,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":5
     
@@ -341,6 +352,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":10
   },
@@ -358,6 +370,7 @@ const alphabet = {
 
     "lpH1st":40,
     "lpH2st":60,
+    "mid":0,
 
     "space":5
   },
@@ -375,6 +388,7 @@ const alphabet = {
 
     "lpH1st":80,
     "lpH2st":100,
+    "mid":0,
     
     "space":5
   },
@@ -392,6 +406,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":10
   },
@@ -409,6 +424,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":10
   },
@@ -426,6 +442,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":5
     
@@ -444,6 +461,7 @@ const alphabet = {
 
     "lpH1st":40,
     "lpH2st":60,
+    "mid":0,
 
     "space":5
   },
@@ -461,6 +479,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":10
   },
@@ -495,6 +514,7 @@ const alphabet = {
     
     "lpH1st":40,
     "lpH2st":60,
+    "mid":0,
 
     "space":10
   },
@@ -512,6 +532,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":5
   },
@@ -529,6 +550,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
     
     "space":10
   },
@@ -565,6 +587,7 @@ const alphabet = {
     "lpH1":100,
     "lpH2":200,
     "lpH3":0,
+    "mid":0,
 
     "space":5
   },
@@ -600,6 +623,7 @@ const alphabet = {
 
     "lpH1st":0,
     "lpH2st":0,
+    "mid":0,
 
     "space":5
   },
