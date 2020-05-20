@@ -64,3 +64,5 @@ I have also changed the following letters: C, D, J, I, G, as well as creating E,
 I started to give myself a break with the letters and moved on to numbers! I created number 1-7 and decided to follow a method that was quite different to how I approached the letters. I would have my main lines as two side by side, and I'd have my circles joined with the two lines. This is how I want viewers to be able to tell the variation in numbers and letters. 
 
 Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different. 
+
+I have also decided on my final colours! I went with a pink theme and used different shades of the colour for a simplistic style as my alphabet is quite modern.
