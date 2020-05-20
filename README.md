@@ -19,6 +19,9 @@ Complete Alphabet. Change parameters.
 Start to do the interaction. Complte A to B, and I will figure out how to do change letters autoly tomorrow. Change the periew picture.
 
 20/05 Change letters and background colors.
+Complete exhibition. Make the enhibition show all of letters and numbers. Start to do the editor and figure out why my interaction part only shows A to B.
+
+
 
 The parameters per letter:
   * `size` : radius of the second circle
