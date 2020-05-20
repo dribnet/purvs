@@ -55,7 +55,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["circ"] = map(percent, 0, 100, oldObj["circ"], newObj["circ"]);
  
-  if(percent<20){
+  if(percent<40){
     new_letter["lineX"] = oldObj["lineX"]; 
     new_letter["lineY"] = oldObj["lineY"];
     new_letter["linex2"] = oldObj["linex2"];
@@ -69,6 +69,8 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lineX4"] = oldObj["lineX4"];
     new_letter["lineY4"] = oldObj["lineY4"];
     new_letter["circ2"] = oldObj["circ2"];
+    new_letter["circ2X"] = oldObj["circ2X"];
+    new_letter["circ2Y"] = oldObj["circ2Y"];
   }
   else{
     new_letter["lineX"] = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
@@ -84,6 +86,8 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lineX4"] = map(percent, 0, 100, oldObj["lineX4"], newObj["lineX4"]);
     new_letter["lineY4"] = map(percent, 0, 100, oldObj["lineY4"], newObj["lineY4"]);
     new_letter["circ2"] = map(percent, 0, 100, oldObj["circ2"], newObj["circ2"]);
+    new_letter["circ2X"] = map(percent, 0, 100, oldObj["circ2X"], newObj["circ2X"]);
+    new_letter["circ2Y"] = map(percent, 0, 100, oldObj["circ2Y"], newObj["circ2Y"]);
   }
   
   
@@ -95,7 +99,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "EYECANDY", //name of font since it has the colours pof bright cotton candy
+  "EYECANDY", //name of font since it has the colours of bright cotton candy
   "DOUGHNUT",
   "HONEYBUN",
   "LEMONICE",

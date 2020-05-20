@@ -334,8 +334,8 @@ const alphabet = {
   },
   "0": {
     "circ": 90,
-    "circ2": 110, 
-    "circ2X": 40,
+    "circ2": 95, 
+    "circ2X": 50,
     "circ2Y": 140,
     "lineX": 50,
     "lineY": 105,
@@ -344,6 +344,9 @@ const alphabet = {
   },
   "1": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 105,
     "linex2": 50,
@@ -351,6 +354,9 @@ const alphabet = {
   },
   "2": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 0,
     "lineY": 105,
     "linex2": 50,
@@ -362,6 +368,9 @@ const alphabet = {
   },
   "3": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 0,
     "lineY": 105,
     "linex2": 50,
@@ -378,6 +387,9 @@ const alphabet = {
   },
   "4": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 65,
     "lineY": 105,
     "linex2": 10,
@@ -389,6 +401,9 @@ const alphabet = {
   },
   "5": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 105,
     "linex2": 100,
@@ -396,6 +411,9 @@ const alphabet = {
   },
   "6": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 40,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 105,
     "linex2": 80,
@@ -403,6 +421,9 @@ const alphabet = {
   },
   "7": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 70,
     "lineY": 110,
     "linex2": 30,
@@ -410,6 +431,9 @@ const alphabet = {
   },
   "8": {
     "circ": 90,
+    "circ2": 95, 
+    "circ2X": 50,
+    "circ2Y": 140,
     "lineX": 2,
     "lineY": 150,
     "linex2": 95,
@@ -417,6 +441,9 @@ const alphabet = {
   },
   "9": {
     "circ": 90,
+    "circ2":95, 
+    "circ2X": 60,
+    "circ2Y": 140,
     "lineX": 50,
     "lineY": 195,
     "linex2": 20,
