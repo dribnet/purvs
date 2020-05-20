@@ -42,11 +42,11 @@ const alphabet = {
     "circy1": 180,
     "circx2": 85,
     "circy2": 20,
-    "linex1": 5, //left
+    "linex1": 15, //left
     "liney1": 10, //height
     "linex2": 5,
     "liney2": 190, // length R
-    "liney3": 20, //length L
+    "liney3": 190, //length L
   },
   "D": {
     "sizeLine": 0,
@@ -91,18 +91,18 @@ const alphabet = {
     "liney3": 10, //length L
   },
   "G": {
-    "sizeLine": 20,
-    "sizeCirc": 85,
+    "sizeLine": 80,
+    "sizeCirc": 20,
     "sizeCirc2": 85,
-    "circx1": 45,
-    "circy1": 100,
-    "circx2": 45,
-    "circy2": 100,
-    "linex1": 77, //left
-    "liney1": 100, //height
-    "linex2": 65,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "circx1": 15,
+    "circy1": 50,
+    "circx2": 52,
+    "circy2": 150,
+    "linex1": 15, //left
+    "liney1": 5, //height
+    "linex2": 15,
+    "liney2": 5, // length R
+    "liney3": 5, //length L
   },
   "H": {
     "sizeLine": 0,
@@ -135,7 +135,7 @@ const alphabet = {
   "J": {
     "sizeLine": 0,
     "sizeCirc": 80,
-    "sizeCirc2": 80,
+    "sizeCirc2": 40,
     "circx1": 50,
     "circy1": 150,
     "circx2": 50,
@@ -143,8 +143,8 @@ const alphabet = {
     "linex1": 70, //left
     "liney1": 10, //height
     "linex2": 80,
-    "liney2": 155, // length R
-    "liney3": 155, //length L
+    "liney2": 150, // length R
+    "liney3": 150, //length L
   },
   "K": {
     "sizeLine": 0,
@@ -154,102 +154,159 @@ const alphabet = {
     "circy1": 180,
     "circx2": 85,
     "circy2": 20,
-    "linex1": 5, //left
+    "linex1": 15, //left
     "liney1": 10, //height
     "linex2": 5,
     "liney2": 190, // length R
-    "liney3": 20, //length L
+    "liney3": 190, //length L
   },
   "L": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 35,
+    "sizeCirc2": 20,
+    "circx1": 20,
+    "circy1": 100,
+    "circx2": 85,
+    "circy2": 180,
+    "linex1": 20, //left
+    "liney1": 10, //height
+    "linex2": 20,
+    "liney2": 190, // length R
+    "liney3": 20, //length L
   },
   "M": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 40,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 85,
+    "circy1": 180,
+    "circx2": 15,
+    "circy2": 180,
+    "linex1": 10, //left
+    "liney1": 190, //height
+    "linex2": 50,
+    "liney2": 10, // length R
+    "liney3": 10, //length L
   },
   "N": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 15,
+    "circy1": 20,
+    "circx2": 85,
+    "circy2": 180,
+    "linex1": 5, //left
+    "liney1": 190, //height
+    "linex2": 95,
+    "liney2": 10, // length R
+    "liney3": 10, //length L
   },
   "O": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
-  },
-  "P": {
     "sizeLine": 0,
-    "sizeCirc": 85,
-    "sizeCirc2": 85,
+    "sizeCirc": 90,
+    "sizeCirc2": 45, 
     "circx1": 50,
     "circy1": 100,
     "circx2": 50,
     "circy2": 100,
-    "linex1": 0, //left
-    "liney1": 150, //height
-    "linex2": 20,
-    "liney2": 50, // length R
-    "liney3": 200, //length L
+    "linex1": 45, //left
+    "liney1": 189, //height
+    "linex2": 55,
+    "liney2": 10, // length R
+    "liney3": 10, //
   },
-  "Q": {
-    // "sizeLine": 80,
-    // "sizeCirc": 160,
-    // "circx1": 40,
-    // "circy1": 0,
-    // "linex1": 0, //left
-    // "liney1": -100, //top
-    // //"linex2": 100,
-    // "liney2": 100,
-    // "liney3": 40 
-  },
-  "R": {
+  "P": {
     "sizeLine": 0,
-    "sizeCirc": 85,
-    "sizeCirc2": 20,
+    "sizeCirc": 80,
+    "sizeCirc2": 40,
     "circx1": 55,
-    "circy1": 50,
-    "circx2": 87,
-    "circy2": 180,
-    "linex1": 5, //left
+    "circy1": 48,
+    "circx2": 55,
+    "circy2": 48,
+    "linex1": 15, //left
     "liney1": 10, //height
     "linex2": 5,
     "liney2": 190, // length R
-    "liney3": 10, //length L
+    "liney3": 190, //length L
+  },
+  "Q": {
+    "sizeLine": 0,
+    "sizeCirc": 90,
+    "sizeCirc2": 50,
+    "circx1": 50,
+    "circy1": 50,
+    "circx2": 50,
+    "circy2": 50,
+    "linex1": 75, //left
+    "liney1": 55, //height
+    "linex2": 85,
+    "liney2": 190, // length R
+    "liney3": 190, //length L
+  },
+  "R": {
+    "sizeLine": 0,
+    "sizeCirc": 80,
+    "sizeCirc2": 20,
+    "circx1": 55,
+    "circy1": 48,
+    "circx2": 85,
+    "circy2": 180,
+    "linex1": 15, //left
+    "liney1": 10, //height
+    "linex2": 5,
+    "liney2": 190, // length R
+    "liney3": 190, //length L
   },
   "S": {
-    "sizeLine": 100,
-    "sizeCirc": 40,
-    "sizeCirc2": 40,
+    "sizeLine": 90,
+    "sizeCirc": 85,
+    "sizeCirc2": 85,
     "circx1": 50,
-    "circy1": 120,
+    "circy1": 150,
     "circx2": 50,
-    "circy2": 80,
-    "linex1": 0, //left
-    "liney1": 100, //height
-    "linex2": 0,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "circy2": 50,
+    "linex1": 5, //left
+    "liney1": 90, //height
+    "linex2": 5,
+    "liney2": 110, // length R
+    "liney3": 110, //length L
   },
   "T": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 20,
+    "sizeCirc2": 20, 
+    "circx1": 15,
+    "circy1": 20,
+    "circx2": 85,
+    "circy2": 20,
+    "linex1": 45, //left
+    "liney1": 190, //height
+    "linex2": 55,
+    "liney2": 35, // length R
+    "liney3": 35, //
   },
   "U": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 15,
+    "circy1": 180,
+    "circx2": 85,
+    "circy2": 180,
+    "linex1": 15, //left
+    "liney1": 170, //height
+    "linex2": 85,
+    "liney2": 10, // length R
+    "liney3": 10, //length L
   },
   "V": {
     "sizeLine": 45,
     "sizeCirc": 20,
     "sizeCirc2": 20,
-    "circx1": 50,
+    "circx1": 27,
     "circy1": 100,
-    "circx2": 50,
+    "circx2": 72,
     "circy2": 100,
     "linex1": 5, //left
     "liney1": 190, //height
@@ -258,9 +315,18 @@ const alphabet = {
     "liney3": 10, //length L
   },
   "W": {
-   "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 40,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 15,
+    "circy1": 20,
+    "circx2": 85,
+    "circy2": 20,
+    "linex1": 10, //left
+    "liney1": 10, //height
+    "linex2": 50,
+    "liney2": 190, // length R
+    "liney3": 190, //length L
   },
   "X": {
     "sizeLine": 90,
@@ -281,7 +347,7 @@ const alphabet = {
     "sizeCirc": 20,
     "sizeCirc2": 20,
     "circx1": 50,
-    "circy1": 180,
+    "circy1": 110,
     "circx2": 50,
     "circy2": 180,
     "linex1": 50, //left
@@ -361,11 +427,11 @@ const alphabet = {
     "liney3": 10, //length L
   },
   "4": {
-    "sizeLine": 70,
+    "sizeLine": 74,
     "sizeCirc": 20,
     "sizeCirc2": 20,
     "circx1": 85,
-    "circy1": 130,
+    "circy1": 20,
     "circx2": 85,
     "circy2": 180,
     "linex1": 5, //left
