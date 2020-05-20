@@ -16,7 +16,8 @@ const sliderInfo = [
   ["pointtwoX", 0, 100],
   ["pointtwoY", 0, 200],
   ["pointthreeX", 0, 100],
-  ["pointthreeY", 0, 200]
+  ["pointthreeY", 0, 200],
+  ["letterornumber", 0, 1]
 
 
 
