@@ -15,4 +15,4 @@ The eleven parameters per letter:
   * `rectW` : width of the rect
   * `rectH` : height positon of the rect
 
-After thinking about my design further I decided to sketch out a new idea that was the same as my first idea but included a rectangle. I found that this allowed me to form the shapes easier and added another element to the design that made the letters more readable and have a cleaner look. I also realised that without the added rect I would not be able to draw the numbers very easy at all and did not like how they looked when I tried to sketch them. To incorporate this change, I have added 4 new parameters for the x and y position and the width and height of the rect, bringing my total to eleven. I am happy with how this turned out and I also changed the background colour slightly to look better with the green of the rect. 
+I have been updating the purview.json file to display all of my notable commits and formating everything to get ready to hand in my assignment. 

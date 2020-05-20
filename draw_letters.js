@@ -1,9 +1,7 @@
 const colorFront1  = "#3A606E"; //navy
 const colorFront2  = "#E5C2BC"; // pink
 const colorFront3 = "#8ACEB4"; //green
- //const colorStroke  = "#ffffff";
-const colorStroke  = "#8ACEB4";
-
+const colorStroke  = "#8ACEB4"; //green
 
 /*
  * Draw the letter given the letterData
@@ -15,46 +13,79 @@ const colorStroke  = "#8ACEB4";
 function drawLetter(letterData) {
   angleMode(DEGREES);
   
-    // determine parameters for the circle and arc
+    // determine parameters for the circle
+  let ellipseYpos = letterData["ellipseY"];
+
+    // determine parameters for the rect
+  let rectX = letterData["rectX"];
+  let rectY = letterData["rectY"];
+  let rectWidth = letterData["rectW"];
+  let rectHeight = letterData["rectH"];
+
+    // determine parameters for the arc
   let arcHeight = letterData["height"];
   let arcWidth = letterData["width"];
   let posx = 50 + letterData["offsetx"];
   let posy = 110 + letterData["offsety"];
   let start =letterData["angleStart"];
   let finish =letterData["angleStop"];
-  let ellipseYpos = letterData["ellipseY"];
-  let rectX = letterData["rectX"];
-  let rectY = letterData["rectY"];
-  let rectWidth = letterData["rectW"];
-  let rectHeight = letterData["rectH"];
 
+    // draw ellipse
+  drawCircle(ellipseYpos);
 
-    // draw circle
+    //draw rect    
+  drawRect(rectX, rectY, rectWidth, rectHeight);
+
+    // draw arc
+  drawArc(posx, posy, arcWidth, arcHeight, start, finish);
+}
+
+function drawCircle(yPos){
   stroke(colorStroke);
   strokeWeight(5);
   fill(colorFront1);
-  ellipse(50,ellipseYpos, 90, 90);
-
-  //draw rect
-    noStroke();
-    fill(colorFront3);
-    rect(rectX, rectY, rectWidth, rectHeight)
-
-  // draw arc
-  fill(colorFront2);
-  arc(posx, posy, arcWidth, arcHeight, start, finish);
+  ellipse(50,yPos, 90, 90);
 }
+
+function drawRect(rectX, rectY, width, height){
+  noStroke();
+  fill(colorFront3);
+  rect(rectX, rectY, width, height, 10);
+}
+
+function drawArc(posx, posy, width, height, start, finish){
+  fill(colorFront2);
+  arc(posx, posy, width, height, start, finish);
+}
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["height"] = map(percent, 0, 100, oldObj["height"], newObj["height"]);
+  new_letter["width"] = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  new_letter["offsetx"] = map(percent/2, 0, 50, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent/2, 0, 50, oldObj["offsety"], newObj["offsety"]);
+  new_letter["angleStart"] = map(percent/2, 0, 50, oldObj["angleStart"], newObj["angleStart"]);
+  new_letter["angleStop"] = map(percent/2, 0, 50, oldObj["angleStop"], newObj["angleStop"]);
+  new_letter["ellipseY"] = map(percent, 0, 100, oldObj["ellipseY"], newObj["ellipseY"]);
+
+if(percent <40){
+  new_letter["rectW"] = oldObj["rectW"];
+  new_letter["rectH"] = oldObj["rectH"];
+}
+else{
+  new_letter["rectW"] = map(percent, 0, 100, oldObj["rectW"], newObj["rectW"]);
+  new_letter["rectH"] = map(percent, 0, 100, oldObj["rectH"], newObj["rectH"]);
+}
+
+  new_letter["rectX"] = map(percent, 0, 100, oldObj["rectX"], newObj["rectX"]);
+  new_letter["rectY"] = map(percent, 0, 100, oldObj["rectY"], newObj["rectY"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "CONSTANT",
+  "MADISYN/",
+  "0A1B2C3"
 ]
