@@ -1104,7 +1104,7 @@ const alphabet = {
     "offset3y": 100,
 
     "offset4x":-50,
-    "offset4y":60 ,
+    "offset4y":50 ,
 
     //triangle 2
     "offsetx2":-50,
