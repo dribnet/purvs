@@ -23,4 +23,4 @@ The sixteen parameters per letter:
 
 
 Final
-Overall, I am very happy with how my code has turned out. I am happy with how the colour I have used for my alapbhet have turned out, it took me awhile to figure out which coours I wanted but in the end I got there. My favourtie Letters are A and H, and my favoirite number is eight. What I like is how well they eorked together. 
+Overall, I am very happy with how my code has turned out. I am happy with how the colour I have used for my alapbhet have turned out, it took me awhile to figure out which coours I wanted but in the end I got there. My favourtie Letters are A and H, and my favoirite number is eight. What I like is how well they worked together. 
