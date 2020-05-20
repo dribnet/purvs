@@ -1,25 +1,25 @@
 const alphabet = {
-  "default": {
-    "arcW" : 0,
-    "arcH" : 0,
+  "default": { //default character represents a question mark ?
+    "arcW" : 75,
+    "arcH" : 75,
 
     //arc 1
-    "arcX" : 0,
-    "arcY" : 0,
-    "arcS" : 0,
+    "arcX" : 50,
+    "arcY" : 120,
+    "arcS" : 15.7,
     "arcE" : 0,
 
     //arc 2
-    "arcX2" : 0,
-    "arcY2" : 0,
-    "arcS2" : 0,
-    "arcE2" : 0,
+    "arcX2" : 49.75,
+    "arcY2" : 120,
+    "arcS2" : 43.17,
+    "arcE2" : 27.47,
 
     //arc 3
-    "arcX3" : 0,
-    "arcY3" : 0,
+    "arcX3" : 50,
+    "arcY3" : 162,
     "arcS3" : 0,
-    "arcE3" : 0,
+    "arcE3" : 15.7,
   },
   "A": {
     "arcW" : 75,

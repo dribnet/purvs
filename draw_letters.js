@@ -1,6 +1,6 @@
-const colorFront1  = "#01a99a"; // turquoise  //"#6dc9c9"; //tiffany blue
-const colorFront2  = "#eef0bf"; //yellow     //"#ffb2b2"; //coral pink
-const colorFront3  = "#ed1b24"; //red       //"#ffd0b5"; //salmon pink
+const colorFront1  = "#01a99a"; // turquoise
+const colorFront2  = "#eef0bf"; //yellow
+const colorFront3  = "#ed1b24"; //red
 
 /*
  * Draw the letter given the letterData
@@ -51,25 +51,61 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+
+  //Arc width and height map setup
   new_letter["arcW"] = map(percent, 0, 100, oldObj["arcW"], newObj["arcW"]);
   new_letter["arcH"] = map(percent, 0, 100, oldObj["arcH"], newObj["arcH"]);
+
+  //Arc 1
   new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
   new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
-  new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
-  new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+
+  if (percent < 85) {
+    new_letter["arcS"] = oldObj["arcS"];
+    new_letter["arcE"] = oldObj["arcE"];
+  }
+
+  else {
+    new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+    new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+  }
+
+  //Arc 2
   new_letter["arcX2"] = map(percent, 0, 100, oldObj["arcX2"], newObj["arcX2"]);
   new_letter["arcY2"] = map(percent, 0, 100, oldObj["arcY2"], newObj["arcY2"]);
-  new_letter["arcS2"] = map(percent, 0, 100, oldObj["arcS2"], newObj["arcS2"]);
-  new_letter["arcE2"] = map(percent, 0, 100, oldObj["arcE2"], newObj["arcE2"]);
+
+  if (percent < 85) {
+    new_letter["arcS2"] = oldObj["arcS2"];
+    new_letter["arcE2"] = oldObj["arcE2"];
+  }
+
+  else {
+    new_letter["arcS2"] = map(percent, 0, 100, oldObj["arcS2"], newObj["arcS2"]);
+    new_letter["arcE2"] = map(percent, 0, 100, oldObj["arcE2"], newObj["arcE2"]);
+  }
+
+  //Arc 3
   new_letter["arcX3"] = map(percent, 0, 100, oldObj["arcX3"], newObj["arcX3"]);
   new_letter["arcY3"] = map(percent, 0, 100, oldObj["arcY3"], newObj["arcY3"]);
-  new_letter["arcS3"] = map(percent, 0, 100, oldObj["arcS3"], newObj["arcS3"]);
-  new_letter["arcE3"] = map(percent, 0, 100, oldObj["arcE3"], newObj["arcE3"]);
+
+  if (percent < 85) {
+    new_letter["arcS3"] = oldObj["arcS3"];
+    new_letter["arcE3"] = oldObj["arcE3"];
+  }
+
+  else {
+    new_letter["arcS3"] = map(percent, 0, 100, oldObj["arcS3"], newObj["arcS3"]);
+    new_letter["arcE3"] = map(percent, 0, 100, oldObj["arcE3"], newObj["arcE3"]);
+  }
+
   return new_letter;
+
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FUTURAMA",
+  "ROBOTICS",
+  "MECHANIC",
+  "ODYSSEYS",
+  "EXPLORER",
 ]

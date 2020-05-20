@@ -1,12 +1,19 @@
 ## MDDN 242 2020 Assignment 2
-20/05/2020
+21/05/2020
 
-After receiving feedback, I altered the design of my x, so that the form was more symmetrical. As I made alterations, I also did a sweep of the whole set to fix placement of arcs, where some parts were poking through, when they were supposed to be hidden, or needed to be positioned so that all the shapes fitted together nicely. I also decided to play with the colouring, and became inspired by retro space posters, as I have an affinity for celestial themed design, in one form or another. My colouring used for this experiment is much more bold, I would even say a little harsh for the eye, compared to my inspiration images, however I do plan to soften the colours, so that they are more pleasant to look at. While this colouring was a little too bold for my liking, I did like that the stark contrast brought to my attention further tweaking that needs to be addressed to my set.
+I finally designed my last form, my default character. Since my forms are rounded, I decided to make my default character a question mark. I also noticed that when my set code was plugged into the interpolation maps, that the animation made my arcs spin very fast between letter/number transitions. This made the transitions very messy, especially since some letters transitioned more smoothly than others. Instead of my arcs spinning really fast, I wanted them to smoothly transition between forms. I personally liked the spinning, as it looked neat at the very end of the transition, when the arcs would look like they were locking into place. To incorporate a smooth transition and have my arcs click/lock into place, I placed the following if and else statements for all my start and end parameters for my arcs. By controlling the start and stop points of my arcs, I would be able to control the spinning.
 
-Links for colour references:
-[flickr] (https://www.flickr.com/photos/187311571@N04/49914012038/in/album-72157714372580721/)
-[flickr] (https://www.flickr.com/photos/187311571@N04/49914012088/in/album-72157714372580721/)
-[flickr] (https://www.flickr.com/photos/187311571@N04/49914012108/in/album-72157714372580721/)
+if (percent < 85) {
+  new_letter["arcS"] = oldObj["arcS"];
+  new_letter["arcE"] = oldObj["arcE"];
+}
+
+else {
+  new_letter["arcS"] = map(percent, 0, 100, oldObj["arcS"], newObj["arcS"]);
+  new_letter["arcE"] = map(percent, 0, 100, oldObj["arcE"], newObj["arcE"]);
+}
+
+By controlling the animation through percent, this allowed the forms to transition smoothly without the fast, chaotic spinning. By ensuring a smoother transition, it made the fast spin and lock at the end of the transition more effective. I intend to receive feedback, to see if the smooth portion of the transition is long enough before the lock, or if I should extend it to make the lock even more effective in contrast. I also started looking at words that associated with my font. Being inspired by retro space posters, I started looking into themes of space exploration, fantasy space themes such as robots and terms to do with technology, as I felt that the fast lock at the end of transitions resembled machinery and gears in stop and go motion. I have not finalized my font name, but this exercise helped me see what direction to take.
 
 The fourteen parameters per letter:
 "arcW" : width of all arcs
