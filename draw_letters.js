@@ -1,7 +1,6 @@
-const colorFront1  = "#DB7F8E";
-const colorFront2  = "#FFDBDA";
-//const colorBack    = "#604D53";
-const colorStroke  = "#ffffff";
+const colorFront1  = "#F4A8C8";
+const colorFront2  = "#A4D7EC";
+const colorStroke  = "#FFFFFF";
 
 /*
  * Draw the letter given the letterData
@@ -33,6 +32,7 @@ function drawLetter(letterData) {
   let linePosY3 = letterData["liney3"];
 
   // draw two circles
+
   fill(colorFront1);
   ellipse(circ2x, circ2y, sizeCirc1, sizeCirc1);
 
