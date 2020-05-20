@@ -16,6 +16,7 @@ const sliderInfo = [
   // ["offsety", -100, 100]
   ["sizeLine",      0, 100],
   ["sizeCirc",      0, 100],
+  ["sizeCirc2",     0, 100],
   ["circx1",        0, 100],
   ["circy1",        0, 200],
   ["circx2",        0, 100],

@@ -10,6 +10,7 @@ const alphabet = {
   "A": {
     "sizeLine": 50,
     "sizeCirc": 20,
+    "sizeCirc2": 20,
     "circx1": 15,
     "circy1": 100,
     "circx2": 85,
@@ -23,6 +24,7 @@ const alphabet = {
   "B": {
     "sizeLine": 100,
     "sizeCirc": 90,
+    "sizeCirc2": 90, 
     "circx1": 50,
     "circy1": 145,
     "circx2": 50,
@@ -34,69 +36,92 @@ const alphabet = {
     "liney3": 100, //length L
   },
   "C": {
-    "sizeLine": 100,
+    "sizeLine": 0,
     "sizeCirc": 20,
-    "circx1": 80,
+    "sizeCirc2": 20,
+    "circx1": 90,
     "circy1": 180,
-    "circx2": 80,
+    "circx2": 90,
     "circy2": 20,
     "linex1": 0, //left
-    "liney1": 100, //height
+    "liney1": 10, //height
     "linex2": 0,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "liney2": 190, // length R
+    "liney3": 20, //length L
   },
-  "D": { // COME BACK !!!!!!!!!!!!!
-    "sizeLine": 100,
-    "sizeCirc": 85,
+  "D": {
+    "sizeLine": 0,
+    "sizeCirc": 90,
+    "sizeCirc2": 90,
     "circx1": 50,
     "circy1": 100,
     "circx2": 50,
     "circy2": 100,
-    "linex1": 0, //left
-    "liney1": 100, //height
-    "linex2": 0,
-    "liney2": 130, // length R
-    "liney3": 70, //length L
+    "linex1": 15, //left
+    "liney1": 190, //height
+    "linex2": 25,
+    "liney2": 10, // length R
+    "liney3": 10, //length L
 
     // "sizeLine": 0,
-    // "sizeCirc": 85,
+    // "sizeCirc": 90,
+    // "sizeCirc2": 90,
     // "circx1": 50,
     // "circy1": 100,
-    // //"circx2": 85,
-    // //"circy2": 100,
-    // "linex1": 0, //left
+    // "circx2": 50,
+    // "circy2": 100,
+    // "linex1": 15, //left
     // "liney1": 150, //height
-    // "linex2": 0,
-    // "liney2": 100, // length R
+    // "linex2": 25,
+    // "liney2": 50, // length R
     // "liney3": 50, //length L
   },
-  "E": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+  "E": { // COME BACK!!!
+    "sizeLine": 95,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 10,
+    "circy1": 20,
+    "circx2": 10,
+    "circy2": 180,
+    "linex1": 5, //left
+    "liney1": 100, //height
+    "linex2": 1,
+    "liney2": 100, // length R
+    "liney3": 100, //length L
   },
   "F": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 20,
+    "sizeCirc2": 20,
+    "circx1": 90,
+    "circy1": 20,
+    "circx2": 50,
+    "circy2": 100,
+    "linex1": 0, //left
+    "liney1": 10, //height
+    "linex2": 0,
+    "liney2": 190, // length R
+    "liney3": 10, //length L
   },
   "G": {
-    "sizeLine": 34,
-    "sizeCirc": 90,
-    "circx1": 49,
-    "circy1": 96,
-    "circx2": 50,
-    "circy2": 96,
+    "sizeLine": 15,
+    "sizeCirc": 85,
+    "sizeCirc2": 85,
+    "circx1": 45,
+    "circy1": 100,
+    "circx2": 45,
+    "circy2": 100,
     "linex1": 83, //left
     "liney1": 100, //height
-    "linex2": 68,
+    "linex2": 65,
     "liney2": 100, // length R
     "liney3": 100, //length L
   },
   "H": {
     "sizeLine": 0,
     "sizeCirc": 20,
+    "sizeCirc2": 20,
     "circx1": 50,
     "circy1": 100,
     "circx2": 50,
@@ -109,7 +134,8 @@ const alphabet = {
   },
   "I": {
     "sizeLine": 0,
-    "sizeCirc": 20,
+    "sizeCirc": 25,
+    "sizeCirc2": 25,
     "circx1": 50,
     "circy1": 100,
     "circx2": 50,
@@ -122,20 +148,35 @@ const alphabet = {
   },
   "J": {
     "sizeLine": 0,
-    "sizeCirc": 70,
+    "sizeCirc": 80,
+    "sizeCirc2": 80,
     "circx1": 50,
-    "circy1": 155,
+    "circy1": 150,
     "circx2": 50,
-    "circy2": 155,
-    "linex1": 65, //left
+    "circy2": 150,
+    "linex1": 70, //left
     "liney1": 10, //height
-    "linex2": 74,
+    "linex2": 80,
     "liney2": 155, // length R
     "liney3": 155, //length L
+
+    // "sizeLine": 0,
+    // "sizeCirc": 70,
+    // "sizeCirc2": 70,
+    // "circx1": 50,
+    // "circy1": 155,
+    // "circx2": 50,
+    // "circy2": 155,
+    // "linex1": 65, //left
+    // "liney1": 10, //height
+    // "linex2": 75,
+    // "liney2": 155, // length R
+    // "liney3": 155, //length L
   },
   "K": {
     "sizeLine": 0,
     "sizeCirc": 20,
+    "sizeCirc2": 20,
     "circx1": 90,
     "circy1": 180,
     "circx2": 90,
@@ -169,10 +210,11 @@ const alphabet = {
   "P": {
     "sizeLine": 0,
     "sizeCirc": 85,
+    "sizeCirc2": 85,
     "circx1": 50,
     "circy1": 100,
-    //"circx2": 85,
-    //"circy2": 100,
+    "circx2": 50,
+    "circy2": 100,
     "linex1": 0, //left
     "liney1": 150, //height
     "linex2": 20,
@@ -191,13 +233,23 @@ const alphabet = {
     // "liney3": 40 
   },
   "R": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "sizeLine": 0,
+    "sizeCirc": 85,
+    "sizeCirc2": 20,
+    "circx1": 50,
+    "circy1": 50,
+    "circx2": 90,
+    "circy2": 180,
+    "linex1": 0, //left
+    "liney1": 10, //height
+    "linex2": 0,
+    "liney2": 190, // length R
+    "liney3": 10, //length L
   },
   "S": {
     "sizeLine": 100,
     "sizeCirc": 40,
+    "sizeCirc2": 40,
     "circx1": 50,
     "circy1": 120,
     "circx2": 50,
@@ -221,6 +273,7 @@ const alphabet = {
   "V": {
     "sizeLine": 50,
     "sizeCirc": 20,
+    "sizeCirc2": 20,
     "circx1": 50,
     "circy1": 100,
     // "circx2": 0,
@@ -239,6 +292,7 @@ const alphabet = {
   "X": {
    "sizeLine": 100,
     "sizeCirc": 50,
+    "sizeCirc2": 50,
     "circx1": 50,
     "circy1": 100,
     // "circx2": 0,
@@ -252,6 +306,7 @@ const alphabet = {
   "Y": {
     "sizeLine": 50,
     "sizeCirc": 20,
+    "sizeCirc2": 20,
     "circx1": 50,
     "circy1": 150,
     // "circx2": 0,
@@ -265,6 +320,7 @@ const alphabet = {
   "Z": {
     "sizeLine": 100,
     "sizeCirc": 25,
+    "sizeCirc2": 25,
     "circx1": 50,
     "circy1": 100,
     // "circx2": 0,

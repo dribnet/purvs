@@ -21,6 +21,7 @@ function drawLetter(letterData) {
 
   let sizeLine1 = letterData["sizeLine"];
   let sizeCirc1 = letterData["sizeCirc"];
+  let sizeCirc2 = letterData["sizeCirc2"];
   let circ2x = letterData["circx1"];
   let circ2y = letterData["circy1"];
   let circ3x = letterData["circx2"];
@@ -37,8 +38,9 @@ function drawLetter(letterData) {
   ellipse(circ2x, circ2y, sizeCirc1, sizeCirc1);
 
   fill(colorFront1);
-  ellipse(circ3x, circ3y, sizeCirc1, sizeCirc1);
+  ellipse(circ3x, circ3y, sizeCirc2, sizeCirc2);
 
+  // draw lines
   fill(colorFront2);
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
@@ -48,6 +50,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["sizeLine"] = map(percent, 0, 100, oldObj["sizeLine"], newObj["sizeLine"]);
   new_letter["sizeCirc"] = map(percent, 0, 100, oldObj["sizeCirc"], newObj["sizeCirc"]);
+  new_letter["sizeCirc2"] = map(percent, 0, 100, oldObj["sizeCirc2"], newObj["sizeCirc2"]);
   new_letter["circx1"] = map(percent, 0, 100, oldObj["circx1"], newObj["circx1"]);
   new_letter["circy1"] = map(percent, 0, 100, oldObj["circy1"], newObj["circy1"]);
   new_letter["circx2"] = map(percent, 0, 100, oldObj["circx2"], newObj["circx2"]);
