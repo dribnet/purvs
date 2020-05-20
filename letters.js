@@ -1,18 +1,18 @@
 const alphabet = {
     "default": {
         "offsetx": 50,
-        "offsety": 45,
-        "linex1": 44,
-        "linex2": 0,
-        "liney1": 0, 
-        "liney2": 57, 
-        "numRaysVal": 12.5,
-        "numRaysVal2": 5,
-        "rotateVal": 180,
-        "rangeVal": 100,
+        "offsety": 170,
+        "linex1": 0,
+        "linex2": -40,
+        "liney1": 0,
+        "liney2": -63,
+        "numRaysVal": 10,
+        "numRaysVal2": 1,
+        "rotateVal": 130,
+        "rangeVal": 140,
         "rayAmount": 10,
-        "strokeVal": 15.5,
-        "arcStroke": 8
+        "strokeVal": 1, 
+        "arcStroke": 1 
     },
     "A": {
         "offsetx": 50,
@@ -45,27 +45,27 @@ const alphabet = {
         "arcStroke": 8
     },
     "C": {
-        "offsetx": 50,
-        "offsety": 170,
-        "linex1": 0,
-        "linex2": 6,
-        "liney1": -5, 
-        "liney2": -60,
-        "numRaysVal": 10, 
-        "numRaysVal2": 1,
-        "rotateVal": 130, 
-        "rangeVal": 140, 
-        "rayAmount": 10,
+        "offsetx": 62,
+        "offsety": 145,
+        "linex1": 36,
+        "linex2": 0,
+        "liney1": 56,
+        "liney2": 0,
+        "numRaysVal": 8,
+        "numRaysVal2": 12.5,
+        "rotateVal": 32.4,
+        "rangeVal": 152,
+        "rayAmount": 20,
         "strokeVal": 5,
-        "arcStroke": 8
+        "arcStroke": 8 
     },
     "D": {
         "offsetx": 50,
-        "offsety": 150,
-        "linex1": 0,
-        "linex2": 45, 
-        "liney1": 0,
-        "liney2": 15, 
+        "offsety": 60,
+        "linex1": 0, //0
+        "linex2": 55, //45
+        "liney1": 0, //0
+        "liney2": 15, //15 
         "numRaysVal": 10,
         "numRaysVal2": 1,
         "rotateVal": 130,
@@ -75,12 +75,27 @@ const alphabet = {
         "arcStroke": 8
     },
     "E": {
-        "offsetx": 55,
+        "offsetx": 50,
+        "offsety": 170,
+        "linex1": 36,
+        "linex2": 0,
+        "liney1": 76,
+        "liney2": 0,
+        "numRaysVal": 11,
+        "numRaysVal2": 11,
+        "rotateVal": 86,
+        "rangeVal": 152,
+        "rayAmount": 10,
+        "strokeVal": 5,
+        "arcStroke": 8 
+    },
+    "F": {
+        "offsetx": 62,
         "offsety": 150,
-        "linex1": 0,
-        "linex2": -25,
+        "linex1": 0, //0
+        "linex2": -25, //-25
         "liney1": 0,
-        "liney2": -60, 
+        "liney2": -70,  //-60
         "numRaysVal": 10,
         "numRaysVal2": 1,
         "rotateVal": 30,
@@ -89,13 +104,13 @@ const alphabet = {
         "strokeVal": 5,
         "arcStroke": 8
     },
-    "F": {
+    "G": {
         "offsetx": 50,
         "offsety": 125,
         "linex1": 0,
-        "linex2": -45,
+        "linex2": -45, //-45
         "liney1": 0,
-        "liney2": -50,
+        "liney2": -48, //-50
         "numRaysVal": 10,
         "numRaysVal2": 1,
         "rotateVal": 130,
@@ -104,59 +119,13 @@ const alphabet = {
         "strokeVal": 5,
         "arcStroke": 8
     },
-    "G": {
-        "offsetx": 47,
-        "offsety": 170,
-        "linex1": 0,
-        "linex2": -45,
-        "liney1": 0,
-        "liney2": -55,
-        "numRaysVal": 10,
-        "numRaysVal2": 1,
-        "rotateVal": 130,
-        "rangeVal": 140,
-        "rayAmount": 10,
-        "strokeVal": 11, 
-        "arcStroke": 8
-    },
     "H": {
-        "offsetx": 55,
-        "offsety": 100,
-        "linex1": 35, 
-        "linex2": 10, 
-        "liney1": 0,
-        "liney2": 44, 
-        "numRaysVal": 12.5, 
-        "numRaysVal2": 5,
-        "rotateVal": 200,
-        "rangeVal": 10,
-        "rayAmount": 8,
-        "strokeVal": 15, 
-        "arcStroke": 8
-
-    },
-    "I": {
-        "offsetx": 50,
-        "offsety": 170,
-        "linex1": 30, 
-        "linex2": -27,
-        "liney1": -3, 
-        "liney2": -60,
-        "numRaysVal": 10,
-        "numRaysVal2": 1,
-        "rotateVal": 130,
-        "rangeVal": 140,
-        "rayAmount": 10,
-        "strokeVal": 5,
-        "arcStroke": 8
-    },
-    "J": {
         "offsetx": 50,
         "offsety": 130,
         "linex1": 0,
         "linex2": 53, 
         "liney1": 0,
-        "liney2": -55, 
+        "liney2": -50, 
         "numRaysVal": 10,
         "numRaysVal2": 1,
         "rotateVal": 130,
@@ -165,7 +134,7 @@ const alphabet = {
         "strokeVal": 5, 
         "arcStroke": 8
     },
-    "K": {
+    "I": {
         "offsetx": 50,
         "offsety": 130,
         "linex1": 0,
@@ -179,6 +148,36 @@ const alphabet = {
         "rayAmount": 10,
         "strokeVal": 5,
         "arcStroke": 8
+    },
+    "J": {
+        "offsetx": 55,
+        "offsety": 100,
+        "linex1": 35, 
+        "linex2": 10, 
+        "liney1": 0,
+        "liney2": 44, 
+        "numRaysVal": 12.5, 
+        "numRaysVal2": 5,
+        "rotateVal": 200,
+        "rangeVal": 10,
+        "rayAmount": 8,
+        "strokeVal": 15, 
+        "arcStroke": 8
+    },
+    "K": {
+        "offsetx": 50,
+        "offsety": 170,
+        "linex1": 0,
+        "linex2": -35,
+        "liney1": 0,
+        "liney2": -60,
+        "numRaysVal": 10,
+        "numRaysVal2": 1,
+        "rotateVal": 130,
+        "rangeVal": 140,
+        "rayAmount": 10,
+        "strokeVal": 10,
+        "arcStroke": 20
     },
     "L": {
         "offsetx": 50,
@@ -212,48 +211,48 @@ const alphabet = {
     },
     "N": {
         "offsetx": 50,
-        "offsety": 150,
-        "linex1": 5, 
-        "linex2": 40, 
-        "liney1": 0,
+        "offsety": 120,
+        "linex1": 40,
+        "linex2": 0, 
+        "liney1": 47,
         "liney2": 0, 
         "numRaysVal": 10,
-        "numRaysVal2": 1,
-        "rotateVal": 130, 
-        "rangeVal": 140, 
-        "rayAmount": 30, 
-        "strokeVal": 7,
-        "arcStroke": 20
+        "numRaysVal2": 5,
+        "rotateVal": 298,
+        "rangeVal": 114,
+        "rayAmount": 10,
+        "strokeVal": 5,
+        "arcStroke": 5 
     },
     "O": {
         "offsetx": 50,
-        "offsety": 170,
-        "linex1": 0,
-        "linex2": -40,
-        "liney1": 0,
-        "liney2": -63,
-        "numRaysVal": 10,
-        "numRaysVal2": 1,
-        "rotateVal": 130,
-        "rangeVal": 140,
+        "offsety": 45,
+        "linex1": 44,
+        "linex2": 0,
+        "liney1": 0, 
+        "liney2": 57, 
+        "numRaysVal": 12.5,
+        "numRaysVal2": 5,
+        "rotateVal": 180,
+        "rangeVal": 100,
         "rayAmount": 10,
-        "strokeVal": 1, 
-        "arcStroke": 1 
+        "strokeVal": 15.5,
+        "arcStroke": 8
     },
     "P": {
         "offsetx": 50,
         "offsety": 170,
-        "linex1": 0,
-        "linex2": -35,
-        "liney1": 0,
+        "linex1": 30, 
+        "linex2": -27,
+        "liney1": -3, 
         "liney2": -60,
         "numRaysVal": 10,
         "numRaysVal2": 1,
         "rotateVal": 130,
         "rangeVal": 140,
         "rayAmount": 10,
-        "strokeVal": 10,
-        "arcStroke": 20
+        "strokeVal": 5,
+        "arcStroke": 8
     },
     "Q": {
         "offsetx": 50,
@@ -286,36 +285,22 @@ const alphabet = {
         "arcStroke": 8
     },
     "S": {
-        "offsetx": 62,
-        "offsety": 120,
-        "linex1": 36,
-        "linex2": 0,
-        "liney1": 56,
-        "liney2": 0,
-        "numRaysVal": 8,
-        "numRaysVal2": 12.5,
-        "rotateVal": 32.4,
-        "rangeVal": 152,
-        "rayAmount": 20,
-        "strokeVal": 5,
-        "arcStroke": 8 
-    },
-    "T": {
         "offsetx": 50,
         "offsety": 170,
-        "linex1": 36,
-        "linex2": 0,
-        "liney1": 76,
-        "liney2": 0,
-        "numRaysVal": 11,
-        "numRaysVal2": 11,
-        "rotateVal": 86,
-        "rangeVal": 152,
+        "linex1": 0,
+        "linex2": 6,
+        "liney1": -5, 
+        "liney2": -60,
+        "numRaysVal": 10, 
+        "numRaysVal2": 1,
+        "rotateVal": 130, 
+        "rangeVal": 140, 
         "rayAmount": 10,
         "strokeVal": 5,
-        "arcStroke": 8 
+        "arcStroke": 8
+
     },
-    "U": {
+    "T": {
         "offsetx": 40,
         "offsety": 160,
         "linex1": 88,
@@ -330,7 +315,7 @@ const alphabet = {
         "strokeVal": 5,
         "arcStroke": 8 
     },
-    "V": {
+    "U": {
         "offsetx": 50,
         "offsety": 80,
         "linex1": 10, 
@@ -344,6 +329,21 @@ const alphabet = {
         "rayAmount": 10,
         "strokeVal": 20,
         "arcStroke": 5 
+    },
+    "V": {
+        "offsetx": 47,
+        "offsety": 170,
+        "linex1": 0,
+        "linex2": -45,
+        "liney1": 0,
+        "liney2": -55,
+        "numRaysVal": 10,
+        "numRaysVal2": 1,
+        "rotateVal": 130,
+        "rangeVal": 140,
+        "rayAmount": 10,
+        "strokeVal": 11, 
+        "arcStroke": 8
     },
     "W": {
         "offsetx": 50,
@@ -362,18 +362,18 @@ const alphabet = {
     },
     "X": {
         "offsetx": 50,
-        "offsety": 120,
-        "linex1": 40,
-        "linex2": 0, 
-        "liney1": 47,
+        "offsety": 150,
+        "linex1": 5, 
+        "linex2": 40, 
+        "liney1": 0,
         "liney2": 0, 
         "numRaysVal": 10,
-        "numRaysVal2": 5,
-        "rotateVal": 298,
-        "rangeVal": 114,
-        "rayAmount": 10,
-        "strokeVal": 5,
-        "arcStroke": 5 
+        "numRaysVal2": 1,
+        "rotateVal": 130, 
+        "rangeVal": 140, 
+        "rayAmount": 30, 
+        "strokeVal": 7,
+        "arcStroke": 20
     },
     "Y": {
         "offsetx": 50,
@@ -511,19 +511,19 @@ const alphabet = {
         "arcStroke": 5 //
     },
     "7": {
-        "offsetx": 40,
-        "offsety": 50,
-        "linex1": 23, 
-        "linex2": 50, 
-        "liney1": 0, 
-        "liney2": 0, 
+        "offsetx": 65,
+        "offsety": 170,
+        "linex1": 60,
+        "linex2": 0,
+        "liney1": 52,
+        "liney2": 0,
         "numRaysVal": 13.25,
-        "numRaysVal2": 11.25,
-        "rotateVal": 190.8,
-        "rangeVal": 70,
-        "rayAmount": 17.6,
-        "strokeVal": 30,
-        "arcStroke": 8 
+        "numRaysVal2": 4.75,
+        "rotateVal": 0,
+        "rangeVal": 140,
+        "rayAmount": 25,
+        "strokeVal": 4,
+        "arcStroke": 8
     },
     "8": {
         "offsetx": 40,
@@ -541,19 +541,19 @@ const alphabet = {
         "arcStroke": 3 
     },
     "9": {
-        "offsetx": 65,
-        "offsety": 170,
-        "linex1": 60,
-        "linex2": 0,
-        "liney1": 52,
-        "liney2": 0,
+        "offsetx": 40,
+        "offsety": 50,
+        "linex1": 23, 
+        "linex2": 50, 
+        "liney1": 0, 
+        "liney2": 0, 
         "numRaysVal": 13.25,
-        "numRaysVal2": 4.75,
-        "rotateVal": 0,
-        "rangeVal": 140,
-        "rayAmount": 25,
-        "strokeVal": 4,
-        "arcStroke": 8
+        "numRaysVal2": 11.25,
+        "rotateVal": 190.8,
+        "rangeVal": 70,
+        "rayAmount": 17.6,
+        "strokeVal": 30,
+        "arcStroke": 8 
     }
 }
 

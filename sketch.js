@@ -35,7 +35,7 @@ const colorFont2  = "#DD9BFF";
 const colorFont3   = "#BDFF9B";
 const colorFont4   = "#FFE19B";
 const colorFont5   = "#F7347D";
-const colorBack    = "#e3eded";
+const colorBack    = "#FFFFFF";
 
 let y;
 
