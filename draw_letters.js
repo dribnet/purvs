@@ -54,6 +54,16 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["nofill_height"] = map(percent, 0, 100, oldObj["nofill_height"], newObj["nofill_height"]);
   new_letter["rect_twoposx"] = map(percent, 0, 100, oldObj["rect_twoposx"], newObj["rect_twoposx"]);
   new_letter["rect_twoposy"] = map(percent, 0, 100, oldObj["rect_twoposy"], newObj["rect_twoposy"]);
+
+  //!YOU CAN TEST THIS!! This is my if statement. This starts the animation later (after 20%)
+  // if(percent<20) { 
+  // new_letter["triangleleftx"] = oldObj["triangleleftx"];
+  // new_letter["trianglelefty"] = oldObj["trianglelefty"];
+  // new_letter["triangletopx"] = oldObj["triangletopx"];
+  // new_letter["triangletopy"] = oldObj["triangletopy"];
+  // new_letter["trianglerightx"] = oldObj["trianglerightx"];
+  // new_letter["trianglerighty"] = oldObj["trianglerighty"];  	
+  // } else {
   //mapping triangles
   new_letter["triangleleftx"] = map(percent, 0, 100, oldObj["triangleleftx"], newObj["triangleleftx"]);
   new_letter["trianglelefty"] = map(percent, 0, 100, oldObj["trianglelefty"], newObj["trianglelefty"]);
@@ -61,6 +71,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["triangletopy"] = map(percent, 0, 100, oldObj["triangletopy"], newObj["triangletopy"]);
   new_letter["trianglerightx"] = map(percent, 0, 100, oldObj["trianglerightx"], newObj["trianglerightx"]);
   new_letter["trianglerighty"] = map(percent, 0, 100, oldObj["trianglerighty"], newObj["trianglerighty"]);
+  // } the end of the if statement
+
   return new_letter;
 }
 
