@@ -18,13 +18,13 @@ function drawLetter(letterData) {
   //determines if the symbol is a letter or a number (sort of a true or false)
   let letterornumber = letterData["letterornumber"];
 
-
+  //setup variables
   strokeWeight(17);
   strokeCap(ROUND);
   strokeJoin(ROUND);
   noFill();
-  //letter shape
- stroke(colorShadow);
+  //'shadow' shape
+  stroke(colorShadow);
   beginShape(); 
   curveVertex (toplineX+10, toplineY+10);
   curveVertex (toplineX+10, toplineY+10);
@@ -34,12 +34,17 @@ function drawLetter(letterData) {
   curveVertex (pointthreeX+10,pointthreeY+10);
   curveVertex (pointthreeX+10,pointthreeY+10);
   endShape();
+  letterImperfections(pointtwoX+10,pointtwoY+10,-1);
+  letterImperfections(toplineX+10,toplineY+10,-1);
+  letterImperfections(toplineX+10,baselineY+10,-1);
   
+  //colour depending on if it is letter or number
   if (letterData["letterornumber"] > 0){
     stroke(colorLetters);
   } else {
     stroke(colorNumbers);
   }
+  //letter shape
   beginShape(); 
   curveVertex (toplineX, toplineY);
   curveVertex (toplineX, toplineY);
@@ -49,7 +54,12 @@ function drawLetter(letterData) {
   curveVertex (pointthreeX,pointthreeY);
   curveVertex (pointthreeX,pointthreeY);
   endShape();
-
+  letterImperfections(toplineX,toplineY,letterornumber);
+  letterImperfections(toplineX,baselineY,letterornumber);
+  letterImperfections(pointtwoX,pointtwoY,letterornumber);
+  letterImperfections(pointthreeX,pointthreeY,letterornumber);
+  //ridges over the letters
+  noFill();
   ridges(0,105,-20); 
   
 }
@@ -64,52 +74,39 @@ function ridges(xStart,xEnd,yStart){ //ridges through the letters
   }
 }
 
-function letterShape (){
-beginShape();
-curveVertex (xOne,yOne);
-curveVertex (xOne,yOne);
-curveVertex (xOne,yTwo);
+function letterImperfections (xValue,yValue,color){
+ push();
+  //letter or number colour
+  if (color > 0){ 
+    fill(colorLetters);
+  } else if (color == -1){
+  fill(colorShadow);
+  } else {
+    fill(colorNumbers);
+  }
+strokeWeight(0);
+ellipse(xValue+3,yValue-8,10);
+ellipse(xValue+4,yValue,17);
+ellipse(xValue,yValue-7,15);
+ellipse(xValue-6,yValue-8,13);
+ellipse(15,115,20);
+pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["letterornumber"] =map(percent, 0, 100, oldObj["letterornumber"], newObj["letterornumber"]);
-if(percent < 33){
-  new_letter["pointoneX"] = map(percent, 0, 33, oldObj["pointoneX"], newObj["pointoneX"]);
-  new_letter["pointoneY"] = map(percent, 0, 33, oldObj["pointoneY"], newObj["pointoneY"]);
-  new_letter["pointtwoX"] =  oldObj["pointtwoX"];
-  new_letter["pointtwoY"] =  oldObj["pointtwoY"];
-  new_letter["pointthreeX"] =  oldObj["pointthreeX"];
-  new_letter["pointthreeY"] =  oldObj["pointthreeY"];
-}  else if (percent < 66){
-  new_letter["pointoneX"] = newObj["pointoneX"];
-  new_letter["pointoneY"] = newObj["pointoneY"];
-  new_letter["pointtwoX"] =  map(percent, 33, 66, oldObj["pointtwoX"], newObj["pointtwoX"]);
-  new_letter["pointtwoY"] =  map(percent, 33, 66, oldObj["pointtwoY"], newObj["pointtwoY"]);
-  new_letter["pointthreeX"] =  oldObj["pointthreeX"];
-  new_letter["pointthreeY"] =  oldObj["pointthreeY"];
-} else if (percent > 66){
-  new_letter["pointoneX"] = newObj["pointoneX"];
-  new_letter["pointoneY"] = newObj["pointoneY"];
-  new_letter["pointtwoX"] = newObj["pointtwoX"];
-  new_letter["pointtwoY"] = newObj["pointtwoY"];
-  new_letter["pointthreeX"] =  map(percent, 66, 100, oldObj["pointthreeX"], newObj["pointthreeX"]);
-  new_letter["pointthreeY"] =  map(percent, 66, 100, oldObj["pointthreeY"], newObj["pointthreeY"]);
-
-}
-
-  // new_letter["pointoneX"]    = map(percent, 0, 100, oldObj["pointoneX"], newObj["pointoneX"]);
-  // new_letter["pointoneY"] = map(percent, 0, 100, oldObj["pointoneY"], newObj["pointoneY"]);
-  // new_letter["pointtwoX"] = map(percent, 0, 100, oldObj["pointtwoX"], newObj["pointtwoX"]);
-  // new_letter["pointtwoY"] = map(percent, 0, 100, oldObj["pointtwoY"], newObj["pointtwoY"]);
-  // new_letter["pointthreeX"] = map(percent, 0, 100, oldObj["pointthreeX"], newObj["pointthreeX"]);
-  // new_letter["pointthreeY"] = map(percent, 0, 100, oldObj["pointthreeY"], newObj["pointthreeY"]);
-  // new_letter["letterornumber"] = map(percent, 0, 100, oldObj["letterornumber"], newObj["letterornumber"]);
+  new_letter["pointoneX"] = map(percent, 0, 100, oldObj["pointoneX"], newObj["pointoneX"]);
+  new_letter["pointoneY"] = map(percent, 0, 100, oldObj["pointoneY"], newObj["pointoneY"]);
+  new_letter["pointtwoX"] = map(percent, 0, 100, oldObj["pointtwoX"], newObj["pointtwoX"]);
+  new_letter["pointtwoY"] = map(percent, 0, 100, oldObj["pointtwoY"], newObj["pointtwoY"]);
+  new_letter["pointthreeX"] = map(percent, 0, 100, oldObj["pointthreeX"], newObj["pointthreeX"]);
+  new_letter["pointthreeY"] = map(percent, 0, 100, oldObj["pointthreeY"], newObj["pointthreeY"]);
+  new_letter["letterornumber"] = map(percent, 0, 100, oldObj["letterornumber"], newObj["letterornumber"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABSTRACT",
-  "SLIPPERY",
-  "BLUEWORM"
+  "DIRTWORM",
+  "OHWORM??",
+  "DEEPDOWN"
 ]
