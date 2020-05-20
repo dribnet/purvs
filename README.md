@@ -1,22 +1,30 @@
 ## MDDN 242 2020 Assignment 2
 
-10/05/20
-Missed all of last weeks classes. Im catching up on what i've missed on.
-Downloaded the files from Git, Played around with making A B and C 
+8 parameters per letter
+cx1: X position of circle 1
+cy1: Y position of circle 1
+cx2: X position of circle 2
+cy2: y position of circle 2
 
-Added some characters and changed the colours to a yellow and black. That was a mistake, now I just have beady eyes staring back at me. 
+x1: x position of point 1 of the line
+y1: y position of point 1 of the line
+x2: x position of point 2 of the line
+y2: y position of point 2 of the line
 
-Added the rest of the alphabet. Still to look at animating the transitions and polishing afterwards. 
-Changed the colours of the stroke and orange block to directly opposite to each other on the colour wheel
-Still need to see what colour to make the background
 
-Changed the variables that allowed my characters to animate the transition between them. 
-Im very happy with the results. I also experimented with the colours, changing them into a pink / purple
-monochome theme. The round edges and colours remind me of candy, I think ill likely name my type after
-some sort of candy. 
+Cleaned up more of the odds and ends in the code, added some more comments to improve readability
+Flipped the values of y1 and y2 on the letter L which was a bit funky when it interpolates
 
-Added a default character.
+Updated ReadMe to suit standards 
+ 
+After some thought a name that relates to candy or lollies seems most suitable for the colour
+pallet and style of the character set. These are the final options
 
-I corrected and updated my sketch, and also did some general tidying up of code / adding comments.
+Skittles
+Partymix
+Lollypop
+Candies 
 
-Updated sketch and preview thumbnails  
+I chose lollypop because it looked the nicest with the styling of the character set. 
+
+ 

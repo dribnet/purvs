@@ -34,6 +34,7 @@ function drawLetter(letterData) {
   //Draw the line and two circles 
   strokeWeight(20)
   line(pos1x, pos1y, pos2x, pos2y)
+  //Not really a circle more of a point with an outline
   ellipse(cPosx1, cPosy1, 0, 0)
   ellipse(cPosx2, cPosy2, 0, 0)
 }
@@ -54,7 +55,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "SKITTLES",
+  "LOLLYPOP",
   "CANDIES!",
-  "22222222"
+  "SKITTLES",
+  "PARTYMIX",
+  "12345678"
 ]
