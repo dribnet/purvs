@@ -1,6 +1,6 @@
-## A-Z
+## New colour scheme
 
-I have been continuing with making my letters and have now finished A-Z and just have the numbers left. I'm pretty happy with the shapes at this stage, they are nicely readable and none of them look too similar to each other. I'm starting to think that the design is rather simple as all my parameters are just changing the x and y and rotating the drawn shapes, so I might think of something extra to add to make it a bit more interesting.
+I decided to try changing my colour scheme as I was thinking about how to make my exhibition have a visually appealing theme. I went for an autumnal colour scheme to match with the leaves but with a more considered colour palette than just green and brown. I like how this looks and I think it gives a more peaceful and natural mood than the previous colour scheme.
 
 I currently have 9 parameters;
 	"offsetx": X position of the first leaf

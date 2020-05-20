@@ -1,6 +1,6 @@
-const colorLeaf  = "#66cf51";
-const colorStroke  = "#38ad1f";
-const colorStick = "#9e7351";
+const colorLeaf  = "#b75129";
+const colorStroke  = "#a42a21";
+const colorStick = "#753922";
 
 /*
  * Draw the letter given the letterData
