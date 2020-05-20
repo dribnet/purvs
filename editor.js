@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#A1B3A4";
 const colorLines   = "#000090";
 
 /*******
@@ -11,9 +11,27 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["size",       40, 100],
+  ["sectionx",  0,  100],
+  ["sectiony", 0, 100]
+  ["sectionx1",  0,  100],
+  ["sectiony1", 0, 100]
+  ["sectionx2",  0,  100],
+  ["sectiony2", 0, 100]
+  ["sectionx3",  0,  100],
+  ["sectiony3", 0, 100]
+  ["sectionx4",  0,  100],
+  ["sectiony4", 0, 100]
+  ["sectionx5",  0,  100],
+  ["sectiony5", 0, 100]
+  ["sectionx6",  0,  100],
+  ["sectiony6", 0, 100]
+  ["sectionx7",  0,  100],
+  ["sectiony7", 0, 100]
+  ["section2x",  0,  100],
+  ["section2y", 0, 100]
+  ["section2x1",  0,  100],
+  ["section2y1", 0, 100]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -69,11 +87,12 @@ function buttonPressedEvent() {
 }
 
 function draw () {
+
   // clear screen
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
@@ -90,6 +109,8 @@ function draw () {
 
   let obj = sliderToDataObject();
   drawLetter(obj);
+  console.log(obj.start1);
+   // text(300,100,obj.start1);
   pop();
 }
 
