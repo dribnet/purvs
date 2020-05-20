@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#fffacc"; //pastel yellow
+const colorBack    = "#010028"; //"#fffacc"; //pastel yellow
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 

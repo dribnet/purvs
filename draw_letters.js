@@ -1,6 +1,6 @@
-const colorFront1  = "#6dc9c9"; //tiffany blue
-const colorFront2  = "#ffb2b2"; //coral pink
-const colorFront3  = "#ffd0b5"; //salmon pink
+const colorFront1  = "#01a99a"; // turquoise  //"#6dc9c9"; //tiffany blue
+const colorFront2  = "#eef0bf"; //yellow     //"#ffb2b2"; //coral pink
+const colorFront3  = "#ed1b24"; //red       //"#ffd0b5"; //salmon pink
 
 /*
  * Draw the letter given the letterData

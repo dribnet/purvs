@@ -1,6 +1,12 @@
 ## MDDN 242 2020 Assignment 2
-19/05/2020
-I started looking at how my alphabet and numbers would appear using interpolation, then seeing how they would appear in exhibition. PLugging my letters and numbers in was a good way to see if all my individual arcs lined up correctly and if any adjustments needed to be made my letters. I most certainly need to adjust my set further as some arcs did not line up right, and the spacing between letter forms altered, which interrupted the flow of the word that my letters were spelling out.
+20/05/2020
+
+After receiving feedback, I altered the design of my x, so that the form was more symmetrical. As I made alterations, I also did a sweep of the whole set to fix placement of arcs, where some parts were poking through, when they were supposed to be hidden, or needed to be positioned so that all the shapes fitted together nicely. I also decided to play with the colouring, and became inspired by retro space posters, as I have an affinity for celestial themed design, in one form or another. My colouring used for this experiment is much more bold, I would even say a little harsh for the eye, compared to my inspiration images, however I do plan to soften the colours, so that they are more pleasant to look at. While this colouring was a little too bold for my liking, I did like that the stark contrast brought to my attention further tweaking that needs to be addressed to my set.
+
+Links for colour references:
+[flickr] (https://www.flickr.com/photos/187311571@N04/49914012038/in/album-72157714372580721/)
+[flickr] (https://www.flickr.com/photos/187311571@N04/49914012088/in/album-72157714372580721/)
+[flickr] (https://www.flickr.com/photos/187311571@N04/49914012108/in/album-72157714372580721/)
 
 The fourteen parameters per letter:
 "arcW" : width of all arcs

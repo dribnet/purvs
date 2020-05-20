@@ -27,19 +27,19 @@ const alphabet = {
 
     //arc 1
     "arcX" : 62,
-    "arcY" : 165,
+    "arcY" : 162,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 37,
-    "arcY2" : 165,
+    "arcX2" : 38,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
-    "arcX3" : 37,
-    "arcY3" : 165,
+    "arcX3" : 38,
+    "arcY3" : 162,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -48,20 +48,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 37,
+    "arcX" : 38,
     "arcY" : 100,
     "arcS" : 7.85,
     "arcE" : 23.55,
 
     //arc 2
     "arcX2" : 62,
-    "arcY2" : 165,
+    "arcY2" : 162,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
     "arcX3" : 62,
-    "arcY3" : 165,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -92,20 +92,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 63,
+    "arcX" : 62,
     "arcY" : 100,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 37,
-    "arcY2" : 165,
+    "arcX2" : 38,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
-    "arcX3" : 37,
-    "arcY3" : 165,
+    "arcX3" : 38,
+    "arcY3" : 162,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -115,19 +115,19 @@ const alphabet = {
 
     //arc 1
     "arcX" : 55,
-    "arcY" : 165,
+    "arcY" : 162,
     "arcS" : 19.6,
     "arcE" : 3.9,
 
     //arc 2
     "arcX2" : 55,
-    "arcY2" : 165,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
     "arcX3" : 55,
-    "arcY3" : 165,
+    "arcY3" : 162,
     "arcS3" : 15.7,
     "arcE3" : 0,
   },
@@ -136,19 +136,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 42,
+    "arcX" : 43,
     "arcY" : 162,
     "arcS" : 7.85,
     "arcE" : 23.55,
 
     //arc 2
-    "arcX2" : 78,
+    "arcX2" : 68.5,
     "arcY2" : 100,
     "arcS2" : 27.47,
     "arcE2" : 43.17,
 
     //arc 3
-    "arcX3" : 78,
+    "arcX3" : 68.5,
     "arcY3" : 135,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
@@ -159,19 +159,19 @@ const alphabet = {
 
     //arc 1
     "arcX" : 55,
-    "arcY" : 217,
+    "arcY" : 162,
     "arcS" : 43.17,
     "arcE" : 27.47,
 
     //arc 2
-    "arcX2" : 55,
-    "arcY2" : 165,
+    "arcX2" : 46,
+    "arcY2" : 125,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
-    "arcX3" : 55,
-    "arcY3" : 165,
+    "arcX3" : 46,
+    "arcY3" : 125,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -180,7 +180,7 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 37,
+    "arcX" : 38,
     "arcY" : 100,
     "arcS" : 7.85,
     "arcE" : 23.55,
@@ -192,9 +192,9 @@ const alphabet = {
     "arcE2" : 19.6,
 
     //arc 3
-    "arcX3" : 52,
-    "arcY3" : 172,
-    "arcS3" : 27.4,
+    "arcX3" : 49,
+    "arcY3" : 171,
+    "arcS3" : 27.47,
     "arcE3" : 11.7,
   },
   "I": {
@@ -202,19 +202,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 37,
-    "arcY" : 140,
+    "arcX" : 30,
+    "arcY" : 125,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 72,
+    "arcX2" : 65,
     "arcY2" : 162,
     "arcS2" : 7.85,
     "arcE2" : 23.55,
 
     //arc 3
-    "arcX3" : 67,
+    "arcX3" : 59,
     "arcY3" : 157,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
@@ -224,23 +224,22 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 36,
-    "arcY" : 140,
+    "arcX" : 33,
+    "arcY" : 125,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 38,
-    "arcY2" : 217,
-    "arcS2" : 43.17,
-    "arcE2" : 27.47,
-
+    "arcX2" : 63,
+    "arcY2" : 152,
+    "arcS2" : 27.47,
+    "arcE2" : 43.17,
 
     //arc 3
-    "arcX3" : 73,
-    "arcY3" : 165,
-    "arcS3" : 7.85,
-    "arcE3" : 23.55,
+    "arcX3" : 43,
+    "arcY3" : 162,
+    "arcS3" : 43.17,
+    "arcE3" : 27.47,
   },
   "K": {
     "arcW" : 75,
@@ -254,13 +253,13 @@ const alphabet = {
 
     //arc 2
     "arcX2" : 65,
-    "arcY2" : 165,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
     "arcX3" : 65,
-    "arcY3" : 165,
+    "arcY3" : 162,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -269,19 +268,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 40,
+    "arcX" : 32,
     "arcY" : 100,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 72,
+    "arcX2" : 67,
     "arcY2" : 162,
     "arcS2" : 7.85,
     "arcE2" : 23.55,
 
     //arc 3
-    "arcX3" : 63,
+    "arcX3" : 57,
     "arcY3" : 147,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
@@ -291,20 +290,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 0,
-    "arcY" : 160,
+    "arcX" : 2,
+    "arcY" : 162,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 35,
-    "arcY2" : 160,
+    "arcX2" : 30,
+    "arcY2" : 162,
     "arcS2" : 23.55,
     "arcE2" : 7.85,
 
     //arc 3
-    "arcX3" : 65,
-    "arcY3" : 160,
+    "arcX3" : 62,
+    "arcY3" : 162,
     "arcS3" : 23.55,
     "arcE3" : 7.85,
   },
@@ -314,20 +313,20 @@ const alphabet = {
 
     //arc 1
     "arcX" : 38,
-    "arcY" : 165,
+    "arcY" : 162,
     "arcS" : 7.85,
     "arcE" : 23.55,
 
     //arc 2
-    "arcX2" : 60,
-    "arcY2" : 173,
+    "arcX2" : 62,
+    "arcY2" : 174,
     "arcS2" : 35.3,
     "arcE2" : 19.6,
 
     //arc 3
-    "arcX3" : 60,
-    "arcY3" : 172,
-    "arcS3" : 27.4,
+    "arcX3" : 62,
+    "arcY3" : 173.75,
+    "arcS3" : 27.47,
     "arcE3" : 11.7,
   },
   "O": {
@@ -335,20 +334,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 52,
-    "arcY" : 165,
+    "arcX" : 50,
+    "arcY" : 162,
     "arcS" : 7.85,
     "arcE" : 23.55,
 
     //arc 2
-    "arcX2" : 52,
-    "arcY2" : 165,
+    "arcX2" : 50,
+    "arcY2" : 162,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
-    "arcX3" : 52,
-    "arcY3" : 165,
+    "arcX3" : 50,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -357,20 +356,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 37,
-    "arcY" : 230,
+    "arcX" : 38,
+    "arcY" : 162,
     "arcS" : 7.85,
     "arcE" : 23.55,
 
     //arc 2
     "arcX2" : 62,
-    "arcY2" : 165,
+    "arcY2" : 125,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
     "arcX3" : 62,
-    "arcY3" : 165,
+    "arcY3" : 125,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -380,19 +379,19 @@ const alphabet = {
 
     //arc 1
     "arcX" : 62,
-    "arcY" : 230,
+    "arcY" : 162,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 37,
-    "arcY2" : 165,
+    "arcX2" : 38,
+    "arcY2" : 125,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
-    "arcX3" : 37,
-    "arcY3" : 165,
+    "arcX3" : 38,
+    "arcY3" : 125,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
   },
@@ -401,19 +400,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 15,
+    "arcX" : 12,
     "arcY" : 140,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 47,
+    "arcX2" : 44,
     "arcY2" : 162,
     "arcS2" : 7.85,
     "arcE2" : 23.55,
 
     //arc 3
-    "arcX3" : 72,
+    "arcX3" : 69,
     "arcY3" : 140,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
@@ -423,20 +422,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 60,
+    "arcX" : 56,
     "arcY" : 140,
     "arcS" : 27.47,
     "arcE" : 43.17,
 
     //arc 2
-    "arcX2" : 60,
+    "arcX2" : 54,
     "arcY2" : 142,
     "arcS2" : 19.6,
     "arcE2" : 3.9,
 
     //arc 3
-    "arcX3" : 49,
-    "arcY3" : 167,
+    "arcX3" : 45,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -445,19 +444,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 40,
+    "arcX" : 34,
     "arcY" : 100,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 72,
+    "arcX2" : 66,
     "arcY2" : 162,
     "arcS2" : 7.85,
     "arcE2" : 23.55,
 
     //arc 3
-    "arcX3" : 55,
+    "arcX3" : 49,
     "arcY3" : 105,
     "arcS3" : 0,
     "arcE3" : 15.7,
@@ -467,19 +466,19 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 52,
-    "arcY" : 161,
+    "arcX" : 50,
+    "arcY" : 162,
     "arcS" : 19.6,
     "arcE" : 35.3,
 
     //arc 2
-    "arcX2" : 52,
-    "arcY2" : 161,
+    "arcX2" : 50,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 35.3,
 
     //arc 3
-    "arcX3" : 52,
+    "arcX3" : 50,
     "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
@@ -489,14 +488,14 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 22,
-    "arcY" : 173,
+    "arcX" : 24,
+    "arcY" : 174,
     "arcS" : 3.9,
     "arcE" : 19.6,
 
     //arc 2
-    "arcX2" : 22,
-    "arcY2" : 173,
+    "arcX2" : 24,
+    "arcY2" : 174,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
@@ -511,20 +510,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 0,
-    "arcY" : 165,
+    "arcX" : 2,
+    "arcY" : 162,
     "arcS" : 23.55,
     "arcE" : 7.85,
 
     //arc 2
-    "arcX2" : 65,
-    "arcY2" : 165,
+    "arcX2" : 64,
+    "arcY2" : 162,
     "arcS2" : 7.85,
     "arcE2" : 23.55,
 
     //arc 3
-    "arcX3" : 100,
-    "arcY3" : 165,
+    "arcX3" : 98,
+    "arcY3" : 162,
     "arcS3" : 7.85,
     "arcE3" : 23.55,
   },
@@ -533,20 +532,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 58,
-    "arcY" : 128,
-    "arcS" : 0,
-    "arcE" : 15.7,
+    "arcX" : 74,
+    "arcY" : 158,
+    "arcS" : 27.47,
+    "arcE" : 43.17,
 
     //arc 2
-    "arcX2" : 30,
-    "arcY2" : 153,
+    "arcX2" : 28,
+    "arcY2" : 158,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
     "arcX3" : 50,
-    "arcY3" : 200,
+    "arcY3" : 199,
     "arcS3" : 15.7,
     "arcE3" : 0,
   },
@@ -555,20 +554,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 47,
-    "arcY" : 217,
+    "arcX" : 44,
+    "arcY" : 162,
     "arcS" : 43.17,
     "arcE" : 27.47,
 
     //arc 2
-    "arcX2" : 52,
-    "arcY2" : 161,
+    "arcX2" : 49,
+    "arcY2" : 125,
     "arcS2" : 19.6,
     "arcE2" : 35.3,
 
     //arc 3
-    "arcX3" : 52,
-    "arcY3" : 162,
+    "arcX3" : 49,
+    "arcY3" : 125,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -577,20 +576,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 45,
-    "arcY" : 112,
+    "arcX" : 44,
+    "arcY" : 111.5,
     "arcS" : 0,
     "arcE" : 15.7,
 
     //arc 2
-    "arcX2" : 55,
+    "arcX2" : 56,
     "arcY2" : 139,
     "arcS2" : 43.17,
     "arcE2" : 27.47,
 
     //arc 3
-    "arcX3" : 50,
-    "arcY3" : 200,
+    "arcX3" : 47,
+    "arcY3" : 199,
     "arcS3" : 15.7,
     "arcE3" : 0,
   },
@@ -606,7 +605,7 @@ const alphabet = {
 
     //arc 2
     "arcX2" : 52,
-    "arcY2" : 161,
+    "arcY2" : 162,
     "arcS2" : 19.6,
     "arcE2" : 35.3,
 
@@ -634,7 +633,7 @@ const alphabet = {
 
     //arc 3
     "arcX3" : 50,
-    "arcY3" : 200,
+    "arcY3" : 199,
     "arcS3" : 15.7,
     "arcE3" : 0,
   },
@@ -649,14 +648,14 @@ const alphabet = {
     "arcE" : 0,
 
     //arc 2
-    "arcX2" : 60,
-    "arcY2" : 149,
+    "arcX2" : 61.5,
+    "arcY2" : 147,
     "arcS2" : 27.47,
     "arcE2" : 43.17,
 
     //arc 3
     "arcX3" : 50,
-    "arcY3" : 200,
+    "arcY3" : 199,
     "arcS3" : 15.7,
     "arcE3" : 0,
   },
@@ -665,20 +664,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 50,
+    "arcX" : 47,
     "arcY" : 120,
     "arcS" : 15.7,
     "arcE" : 0,
 
     //arc 2
-    "arcX2" : 50,
-    "arcY2" : 155,
+    "arcX2" : 52,
+    "arcY2" : 161,
     "arcS2" : 15.7,
     "arcE2" : 0,
 
     //arc 3
-    "arcX3" : 55,
-    "arcY3" : 165,
+    "arcX3" : 53,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -700,7 +699,7 @@ const alphabet = {
 
     //arc 3
     "arcX3" : 59,
-    "arcY3" : 167,
+    "arcY3" : 162,
     "arcS3" : 23.55,
     "arcE3" : 7.85,
   },
@@ -716,13 +715,13 @@ const alphabet = {
 
     //arc 2
     "arcX2" : 47,
-    "arcY2" : 165,
+    "arcY2" : 162,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
     "arcX3" : 47,
-    "arcY3" : 165,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -731,20 +730,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 56,
+    "arcX" : 59,
     "arcY" : 120,
     "arcS" : 27.47,
     "arcE" : 43.17,
 
     //arc 2
-    "arcX2" : 50,
-    "arcY2" : 165,
+    "arcX2" : 47,
+    "arcY2" : 162,
     "arcS2" : 3.9,
     "arcE2" : 19.6,
 
     //arc 3
-    "arcX3" : 50,
-    "arcY3" : 165,
+    "arcX3" : 47,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   },
@@ -760,13 +759,13 @@ const alphabet = {
 
       //arc 2
       "arcX2" : 62,
-      "arcY2" : 145,
+      "arcY2" : 148,
       "arcS2" : 27.47,
       "arcE2" : 43.17,
 
       //arc 3
       "arcX3" : 40,
-      "arcY3" : 165,
+      "arcY3" : 162,
       "arcS3" : 43.17,
       "arcE3" : 27.47,
   },
@@ -781,15 +780,15 @@ const alphabet = {
     "arcE" : 0,
 
     //arc 2
-    "arcX2" : 50,
-    "arcY2" : 173,
+    "arcX2" : 49,
+    "arcY2" : 174,
     "arcS2" : 35.3,
     "arcE2" : 19.6,
 
     //arc 3
-    "arcX3" : 50,
-    "arcY3" : 172,
-    "arcS3" : 27.4,
+    "arcX3" : 49,
+    "arcY3" : 173.75,
+    "arcS3" : 27.47,
     "arcE3" : 11.7,
   },
   "9": {
@@ -797,20 +796,20 @@ const alphabet = {
     "arcH" : 75,
 
     //arc 1
-    "arcX" : 47,
+    "arcX" : 45,
     "arcY" : 120,
     "arcS" : 27.47,
     "arcE" : 43.17,
 
     //arc 2
-    "arcX2" : 47,
+    "arcX2" : 45,
     "arcY2" : 120,
     "arcS2" : 0,
     "arcE2" : 15.7,
 
     //arc 3
-    "arcX3" : 55,
-    "arcY3" : 165,
+    "arcX3" : 54,
+    "arcY3" : 162,
     "arcS3" : 43.17,
     "arcE3" : 27.47,
   }
