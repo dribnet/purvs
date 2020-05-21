@@ -129,9 +129,9 @@ var swapWords = [
   "BLUSHING",
   "FLAWLESS",
   "LEMONADE",
+  "STUNNING",
   "BEAUTIFY",
   "FETCHING",
-  "STUNNING",
   "FLOURISH",
   "PRECIOUS",
   "12345678"
