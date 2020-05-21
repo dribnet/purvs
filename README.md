@@ -5,6 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-Rescaling.
+Animation fix, more tweaks.
 
-Letters have been re-scaled across the board to be more similar sizes. Currently M and W are technically too big, but they'd have to be really small to fit entirely properly.
+Restructured code to fix buggy animation that causes arcs to pop in and out when their start and end angles crossed over. Code now draws the arc from 0 and then rotates it afterwards, circumventing the issue. As such, the start1 and start2 values are now redundant (all are equal to 0), which I may clean up later given time.
