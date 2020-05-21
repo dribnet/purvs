@@ -2,7 +2,7 @@
 
 Concept:
 
-Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a triangle, a rectangle and a full circle. Each shape has a different colour similar to the Bauhaus type.
+Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a semi-circle, a line and a full circle. Each shape has a different colour similar to the Bauhaus type.
 
 
 The nine parameters per letter:
@@ -14,11 +14,11 @@ The nine parameters per letter:
 - end2: angle to end the circle 
 - rectX: x position of the rectangle 
 - rectY: y position of the rectangle 
-- rectH: height of the rectangle 
-- rectW: width of the rectangle 
-- rotate: rotates the rectangle
+- rectX2: height of the rectangle 
+- rectY2: width of the rectangle 
 - flipX: Arc x to swap numerical value with y
 - flipY: Arc y to swap numerical value with x 
+- StrokeW: Changes the thickness of the line 
 
   First tutorial for PS2. Getting used to using github desktop and changing files. Made a simple design using arcs as a basis for my design. Also uploaded a variety of different sketch ideas.
 
@@ -42,4 +42,5 @@ The nine parameters per letter:
 
   Tested changing the colour stroke and fill with the background colour as experimentation to try new ideas. 
 
+  After experimenting for a few hours, I decided to change my triangle shape back to the original semi circle shape as I much prefered the smooth edges of the semi circle, and felt it fitted better with my "Bauhaus" design. I also chnaged the background colour to be a beige, as this was a commen colour used for posters in the Bauhaus period. I swapped some of the colours around to give it a more professional look. This was becuase my previous design ideas were too childish and very hard to read with all the bright colours. 
 

@@ -1,22 +1,22 @@
 
 //Colours 
-//red 
-const red1 = 255;
-const green1 = 234;
-const blue1 = 0;
+//Yellow - Circle
+const red1 = 252;
+const green1 = 199;
+const blue1 = 53;
 
-//blue
-const red2 = 0;
-const green2 = 34;
-const blue2 = 255;
+//Black - Semi-circle
+const red2 = 48;
+const green2 = 48;
+const blue2 = 46;
 
-//red
-const red3 = 255;
+//Red - Line
+const red3 = 219;
 const green3 = 0;
 const blue3 = 0;
 
 //opacity
-const opa = 140;
+const opa = 150;
 
 
 /*
@@ -37,39 +37,42 @@ let start2 = letterData["start2"];
 let end2 = letterData["end2"];
 let rectX = 50 + letterData["rectX"];
 let rectY = 100 + letterData["rectY"];
-let rectH = letterData["rectH"];
-let rectW = letterData["rectW"];
+let rectX2 = letterData["rectX2"];
+let rectY2 = letterData["rectY2"];
 let rotateR = letterData["rotate"];
 let flipX = letterData["flipX"];
 let flipY = letterData["flipY"];
+let triangleX1 = letterData["triangleX1"];
+let triangleX2 = letterData["triangleX2"];
+let strokeW = letterData["strokeW"];
 
 
-
-
-//draws arcs
-strokeWeight(6);
-stroke(red1, green1, blue1);
-noFill();
-// fill(red1, green1, blue1, opa);
-angleMode(DEGREES); 
-
-
-triangle(60, 50, flipX, flipY, 30, 170);
-
-
-// arc(50, 100, 100, 100, flipX, flipY);
-stroke(red2, green2, blue2);
-noFill();
-// fill(red2, green2, blue2, opa);
+//DRAW CIRCLE
+push();
+noStroke();
+fill(red1, green1, blue1);
 arc(pos2x, pos2y, size2, size2, start2, end2);
-stroke(red3, green3, blue3);
-noFill();
-// fill(red3, green3, blue3, opa );
+pop();
 
-  push();
-  rotate(rotateR);
-  rect(rectX, rectY, rectW, rectH);
-  pop();
+//DRAW SEMI-CIRCLE
+push();
+strokeWeight(0);
+strokeJoin(ROUND);
+strokeCap(ROUND);
+fill(red2, green2, blue2);
+angleMode(DEGREES); 
+arc(50, 100, 100, 100, flipX, flipY);
+pop();
+
+
+//DRAW LINE
+strokeWeight(strokeW);
+strokeCap(ROUND);
+stroke(red3, green3, blue3);
+fill(red3, green3, blue3);
+push();
+line(rectX, rectY, rectX2, rectY2);
+pop();
 
 
 }
@@ -92,7 +95,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "GRATEFUL",
+  "ABCDEFGH",
   "YOURSELF",
   "GRAPHICS",
   "REPEATED",
