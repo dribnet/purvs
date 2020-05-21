@@ -4,6 +4,8 @@
 
 I decided to call my alphabet “Pinkness”, simply because the colour consists of pink, except for white. My alphabet was inspired by mathematical symbols and incorporates elements that have the viewer use their eyes to “connect the dots” in a letter. In this case, the circles are meant to be connected and to the lines for the letters, but this solely depends on the letter. Approaching this method was simple for letters such as, “A”, “W”, “M”, “L”, “H”, “F”, etc. - Letters that generally consist of straight lines. However, I had some difficulty with more curved letters such as “S”, “O”, “Q”, etc. Due to the limited parameters and shapes, I approached the curved letters differently. I used bigger circles to represent the curved edges and tried to work my around variation through the lines.
 
+Initially, my design was only meant to consist of white and pink, with the background being possible brown (as in my sketch) or another colour, but after experimenting with strokes and doubling it up, I decided to just settle for different shades of pink.
+
 In this alphabet, the following represent:
 
 **Two lines side by side** represents that these do not need to be connected and are generally meant to represent the straight line it conveys. This also goes for lines going through a circle and circles in a line.
