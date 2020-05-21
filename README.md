@@ -36,5 +36,5 @@ Other than code structure, I’m very happy with the final output of my alphabet
 
 
 https://i.imgur.com/bbycwfj.png
-![Initial Illustrator plan](https://i.imgur.com/bbycwfj.png)
+![Initial Illustrator plan](https://i.imgur.com/DSisx1r.png)
 ![Reference Cube](https://i.imgur.com/jBsV5cI.jpg)
