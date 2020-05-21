@@ -2,88 +2,37 @@
 
 **FONT NAME: PINKNESS**
 
-**May 16 2020**
+I decided to call my alphabet “Pinkness”, simply because the colour consists of pink, except for white. My alphabet was inspired by mathematical symbols and incorporates elements that have the viewer use their eyes to “connect the dots” in a letter. In this case, the circles are meant to be connected and to the lines for the letters, but this solely depends on the letter. Approaching this method was simple for letters such as, “A”, “W”, “M”, “L”, “H”, “F”, etc. - Letters that generally consist of straight lines. However, I had some difficulty with more curved letters such as “S”, “O”, “Q”, etc. Due to the limited parameters and shapes, I approached the curved letters differently. I used bigger circles to represent the curved edges and tried to work my around variation through the lines.
 
-I did a sketch with an idea of what I want to go for my letters. 
+In this alphabet, the following represent:
 
-I drew my inspiration from mathematic symbols, mainly derived from the division symbol.
+**Two lines side by side** represents that these do not need to be connected and are generally meant to represent the straight line it conveys. This also goes for lines going through a circle and circles in a line.
 
-My basic shapes will be lines and ellipses. I found it a bit difficult to work under 12 variables but that is what I love about this challenge!
+**One smaller circle** represents that this must be imagined to connect to the line.
 
-Here is my sketch: https://prnt.sc/shrcc5
+**Two smaller circles** represents that these two circles must be connected, so a line can be imagined to connect the two.
 
-However, the letters may change over time.
+**Smaller inner circles** represent differentiation from other similar looking letters, hence why there are very few.
 
- I finally opened up the intimidating draw_letters.js and letter.js, and I found it quite difficult trying to get things to show up on alphabet and encountered a few errors! 
+I wanted to approach the numbers differently, so I had the shapes properly connected, to highlight that they’re not letters. This is why circles are connected, such as “2” and “7”, while numbers such as “4” and “5” include original elements where the smaller circles must be joined. “O” and “0” have two lines going through it to represent that there is no need to connect the dots and lines. The difference with these characters is that “O” has a smaller inner circle, to highlight the fact that this is a letter and not a number. ”J” and “Q” have two lines touching its inner circles to represent curviness and missing elements. On a side note, I also tried to keep consistent numbers for my parameters, with the exception for some numbers for a proper look.
 
- After a few tries I managed to get stuff to show up. 
+“Pinkness” is not necessarily meant to be completely readable, but once understood, it can be clear why the letters look the way they do.
 
- I did A and B which were quite easy since I completed it in the sketch, however C was very difficult.
+In conclusion, I think I did very well in communicating my concept and worked efficiently given my restricted parameters. I am quite satisfied with my outcome and am very fond of the colour scheme too, as I managed to convey an aesthetic look with the two strokes. This assignment was very enjoyable and probably one of my favourites so far.
 
- I managed to get an idea done for C and from experimenting I managed to get a few parameters for other letters that I had planned to do. 
+My Parameters are:
 
-I will be doing things such as the colours later, but I just wanted something done in my code for the weekend.
+    "sizeLine": 	size of both lines
+    "sizeCirc": 	size of circle 1
+    "sizeCirc2": 	size of circle 2
+    "circX1": 	X position of circle 1
+    "circY1": 	Y position of circle 1
+    "circX2": 	X position of circle 2
+    "circY2": 	Y position of circle 2
+    "lineX1": 	X position of line 1
+    "lineY1": 	Y position of line 1
+    "lineX2": 	X position of line 2
+    "lineY2": 	Y position of line 2
+    "lineY3": 	Y position of side 1 of line 1
 
-
-**May 17 2020**
-
-I worked on a few letters and managed to get the editor working! This helped me out a lot and made things a lot easier, so i'm grateful we were able to take advantage of this for this project. 
-
-Due to some limitations with my parameters, I don't think I am 100% able to go with the designs initially planned from my sketch. However, I will work around this and try to find more of a consistent pattern.
-
-
-**May 20 2020**
-
-I plan to finish all my letters today. I don't have an idea on what my numbers will look like yet, but I'm sure i'll come up with it soon.
-
-I have some sort of an idea on what to call my alphabet, I'm thinking of something to do with mathematic symbols maybe. 
-
-I updated the colour scheme! Initially I tried to go for three colours of pink, orange and blue, but I found that these colours didn't suit well together. After playing around I found that pink would be a suitable colour for all elements, since I wanted the colour of the circles to be pink. 
-
-I'm thinking of doing a stroke on top of a stroke to create more colour elements to my letters, but for now I will just focus on my letters to get it done!
-
-I decided to add another parameter, however this must be the last one as this is my 12th and I do not want to make any more, not only for the brief but also to limit myself for more of a challenge. This parameter is the size of my second circle.
-
-Therefore, my FINAL parameters are:
-
-**sizeLine1** = 	determines the size of BOTH lines, this 					is used to create a symmetric effect.
-**sizeCirc1** = 	determines size of circle 1
-**sizeCirc2** = 	determines size of circle 2
-**circ2x** = 		X position of circle 1
-**circ2y** = 		Y position of circle 1
-**circ3x** = 		X position of circle 2
-**circ3y** = 		Y position of circle 2
-**linePosX1** = 	X position of line 1
-**linePosY1** = 	Y position of line 1
-**linePosX2** = 	X position of line 2
-**linePosY2** = 	Y position of line 2
-**linePosY3** = 	Y position of side 1 of line 1
-
-After this I was able to create a letter with two different types of circle sizes, which is "R" in this case. 
-
-I have also changed the following letters: C, D, J, I, G, as well as creating E, F and R.
-
-I started to give myself a break with the letters and moved on to numbers! I created number 1-7 and decided to follow a method that was quite different to how I approached the letters. I would have my main lines as two side by side, and I'd have my circles joined with the two lines. This is how I want viewers to be able to tell the variation in numbers and letters. 
-
-Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different. 
-
-I have also decided on my final colours! I went with a pink theme and used different shades of the colour for a simplistic style as my alphabet is quite modern.
-
-I've completed my numbers! Surprisingly, I found these easier to create than the letters but I'm happy with the outcome. 0 was the last number I did and it made me realise how difficult it will be to create another version of it for the letter O. However, I think I sort of have an idea on how it'll come out.
-
-I have completed all my letters! I did some changed to a few letters as well so that each letter looks more consistent, but I still have a few more letters to tweak and fix. 
-
-After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.
-
-
-**May 20 2020**
-
-I fixed up letter G for more variation and to make look a tad more realistic. The only problem for G is that it's hard to incorporate lines as it's mainly a circular letter, such as C, O and Q. I also changed up E and created my special character.
-
-My special character is meant to be a "%" character with a twist on it. My aim for this was to make it sort of reversed, so that instead of two circles, there was just one. Also I had two lines instead of one and spaced this out so it wasn't dead set in the middle. Connecting the two shapes also reconstructs the character in an opposite way, as the normal "%" symbol is not connected.
-
-I also fixed up my Z as I noticed it wasn't aligned properly, as well as changing my 5's line to look more connected. I fixed up 2 as well to make the bigger circle connect to the lines, following my consistent method with the other numbers.
-
-I tidied up my code a bit! I fixed up the variables so they look better and just spaced things out better.
-
-I settled on a name for my alphabet, and decided to go for "Pinkness" as my font itself is pink. I also updated the "swapWords" and chose words that related to pink and sort of girly words. I firstly came up with the names, then chose which one looked best with my font. I liked how "pinkness" appeared as it showed off my favourite letters. 
+Total of 12 Parameters.
