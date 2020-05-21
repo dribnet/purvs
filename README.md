@@ -19,3 +19,6 @@ at work doing some and just had to save.
 >>>>>>> 1e6e837eaebf813b9ad0f421dddd396d269b55a0
 
 changed colors and finished sketch using a triangle and three ellipses. pretty simple only uses 11 parameters.
+
+finished alphabet may change main ellipse colour as the contrast bettween the blue and the orange of the background is hard on your
+eyes. i used the original backgrond when working on the alphabet ans exiabiton pages.

@@ -326,9 +326,9 @@ const alphabet = {
    "point5": 50,
    "point6": 100,
        "bx": 15,
-   "by": -15,
+   "by": 15,
    "bx1": 30,
-   "by1": -15
+   "by1": 15
   },
   "0": {
    "point1": 0,
@@ -343,49 +343,114 @@ const alphabet = {
    "by1": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+     "point1":-50,
+   "point2": -10,
+   "point3": 0,
+  "point4": 50,
+   "point5": 50,
+   "point6": 80,
+          "bx": -20,
+   "by": 30,
+   "bx1": -30,
+   "by1": 15
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 50,
+   "point2": -30,
+   "point3": 50,
+   "point4": 30,
+   "point5": 50,
+   "point6": 120,
+       "bx": -15,
+   "by": -10,
+   "bx1": -30,
+   "by1": -5
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1":10,
+   "point2": 45,
+   "point3": 10,
+  "point4": -45,
+   "point5": 100,
+   "point6": 100,
+   "bx": -25,
+   "by": 20,
+   "bx1": -25,
+   "by1": -20
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 10,
+   "point2": -30,
+   "point3": 10,
+   "point4": 10,
+   "point5": 30,
+   "point6": 110,
+       "bx": 25,
+   "by": 0,
+   "bx1": 0,
+   "by1": 25
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1":-10,
+   "point2": 0,
+   "point3": -10,
+  "point4": 30,
+   "point5": -5,
+   "point6": 100,
+          "bx": 15,
+   "by": -15,
+   "bx1": 30,
+   "by1": -15
+
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 10,
+   "point2": 0,
+   "point3": 10,
+   "point4": 25,
+   "point5": 20,
+   "point6": 100,
+             "bx": 15,
+   "by": -18,
+   "bx1": 30,
+   "by1": -18
+
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+     "point1":-50,
+   "point2": -20,
+   "point3": -20,
+  "point4": 50,
+   "point5": 50,
+   "point6": 80,
+          "bx": 30,
+   "by": 15,
+   "bx1": 30,
+   "by1": 15
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 10,
+   "point2": 0,
+   "point3": 10,
+   "point4": 25,
+   "point5": 20,
+   "point6": 100,
+                "bx": 0,
+   "by": -18,
+   "bx1": 0,
+   "by1": -18
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "point1": 10,
+   "point2": -25,
+   "point3": 10,
+   "point4": 0,
+   "point5": 30,
+   "point6": 100,
+             "bx": -15,
+   "by": 18,
+   "bx1": -30,
+   "by1": 18
   }
 
 }

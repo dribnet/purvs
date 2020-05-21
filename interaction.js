@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+
 const colorLines   = "#000090";
 
 /* 
@@ -91,7 +91,7 @@ function computeCurrentSoloChar() {
 let hot_key_press = false;
 function draw () {
   // clear screen
-  background(colorBack);
+  background(colorball);
 
   // draw the interpolation on the guidelines
   push();
