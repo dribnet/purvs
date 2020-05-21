@@ -2,7 +2,9 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-I have completed my alphabet and added animation functionality. When I had mapped the letters together, I originally found the snap of the arc, when it changes from a positive to a negative difference, to be quite jarring. I began to work on adding in an exception where if the difference between the start and end of the old arc was inversed to that of the new arc, the arc would first rotate 180 degrees before completing the map to its new position. However I found that this caused more issues than it solved, speeding up the animation greatly, and appearing to be more out of place that the snapping animation I originally had. So in the end I decided to keep it.
+
+
+I have completed this project. After experimenting with titles, I found that the colour pallette and the overall shape reminded me of a berry smoothie, and so I came to name it "Redberry". I also chose two more words that I believe show off the nicer letters in this alphabet, which were "Piercing" and "Critical".
 
 Each of my letters contains circles and arcs. The arc size and position is fixed, but the angle is affected by parameters. The circles can change their position.
 
