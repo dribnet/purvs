@@ -42,18 +42,17 @@ const letterC = {
      "recty":50
 }
 
-const colorFront1  = "#fcba03";
-const colorFront2  = "#59ccff";
+const colorFront2  = "#58b4ae";
+const colorFront1  = "#f5a7a7";
 const colorFront3  = "#94acd4";
-const colorBack    = "#e3eded";
+const colorBack    = "#ffe9c5";
 const colorStroke  = "#233f11";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-  stroke(colorStroke);
-  strokeWeight(5);
+ noStroke();
   angleMode(DEGREES);
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -70,12 +69,10 @@ function drawLetter(posx, posy, letterData) {
   let pos3y = letterData["recty"];
 
   // draw two circles
-  noFill();
-  
-  arc(pos2x, pos2y, size2, size2,startA,endA);
-  // draw rectangle
-  noFill();
+   fill(colorFront2);
   rect(pos3x, pos3y, 100, 100);
+   fill(250, 164, 157);
+  arc(pos2x, pos2y, size2, size2,startA,endA);
   
 }
 
