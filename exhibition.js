@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#FFC4CD";
-const colorFront   = "#199cff";
+const colorBack    = "#FFBAC3";
+const colorFront   = "#FFFFFF";
 const colorLines   = "#DD2D4A";
 //aeb0f6
 /* 

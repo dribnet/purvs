@@ -56,10 +56,12 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["triangleY1"] = map(percent, 0, 100, oldObj["triangleY1"], newObj["triangleY1"]);
   new_letter["triangleY2"] = map(percent, 0, 100, oldObj["triangleY2"], newObj["triangleY2"]);
   new_letter["triangleY3"] = map(percent, 0, 100, oldObj["triangleY3"], newObj["triangleY3"]);
-  new_letter["arcStart"] = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
-  new_letter["arcEnd"] = map(percent, 0, 100, oldObj["arcEnd"], newObj["arcEnd"]);
-  new_letter["arcSizeX"] = map(percent, 0, 100, oldObj["arcSizeX"], newObj["arcSizeX"]);
-  new_letter["arcSizeY"] = map(percent, 0, 100, oldObj["arcSizeY"], newObj["arcSizeY"]);
+  //speed up the placement of arc start and end
+  //speed up arc size transition
+  new_letter["arcStart"] = map(percent*2, 0, 200, oldObj["arcStart"], newObj["arcStart"]);
+  new_letter["arcEnd"] = map(percent*2, 0, 200, oldObj["arcEnd"], newObj["arcEnd"]);
+  new_letter["arcSizeX"] = map(percent*2, 0, 200, oldObj["arcSizeX"], newObj["arcSizeX"]);
+  new_letter["arcSizeY"] = map(percent*2, 0, 200, oldObj["arcSizeY"], newObj["arcSizeY"]);
   return new_letter;
 }
 
