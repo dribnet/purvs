@@ -1,7 +1,6 @@
-const colorFront1  = "#269482";
-const colorFront2  = "#40d6cc";
-const colorFront3  = "#bafff5";
-
+const colorFront1  = "#268494";  //Darkest shade of blue
+const colorFront2  = "#40d6cc";  //Middle shade of blue
+const colorFront3  = "#bafff5";  //Lightest shade of blue
 const colorStroke  = "#233f11";
 
 
@@ -14,12 +13,14 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  // stroke(colorStroke);
+  // strokeWeight(4);
 
-  // determine parameters for second circle
-   let size2 = letterData["size"];
 
+  //parameters
+  // let size2 = letterData["size"];
+
+//triangle 1
   let pos2x = 50 + letterData["offset2x"];
   let pos2y = 100 + letterData["offset2y"];
 
@@ -49,19 +50,9 @@ function drawLetter(letterData) {
   let pos3x4 = 50 + letterData["offset3x4"];
   let pos3y4 = 100 + letterData["offset3y4"];
 
-
-  // let posxEllipse = 50+ letterData["offsetEx"];
-  // let posyEllipse = 100+ letterData["offsetEy"];
-  // let wEllipse = letterData["wEllipse"];
-  // let hEllipse = letterData["hEllipse"];
-  // ellipse(posxEllipse, posyEllipse, wEllipse, hEllipse);
-
-
   // draw shapes here
 
   noStroke();
-
-
 
   fill(colorFront1);
   triangle(pos2x, pos2y, pos3x, pos3y, pos4x, pos4y);
@@ -77,14 +68,47 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  // new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  // new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  // new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+  //Triangle 1
+  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
+  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
+
+  new_letter["offset3x"] = map(percent, 0, 100, oldObj["offset3x"], newObj["offset3x"]);
+  new_letter["offset3y"] = map(percent, 0, 100, oldObj["offset3y"], newObj["offset3y"]);
+
+  new_letter["offset4x"] = map(percent, 0, 100, oldObj["offset4x"], newObj["offset4x"]);
+  new_letter["offset4y"] = map(percent, 0, 100, oldObj["offset4y"], newObj["offset4y"]);
+
+  //Triangle 2
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+
+  new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+
+  new_letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
+  new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
+
+  //Triangle 3
+  new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
+  new_letter["offset3y2"] = map(percent, 0, 100, oldObj["offset3y2"], newObj["offset3y2"]);
+
+  new_letter["offset3x3"] = map(percent, 0, 100, oldObj["offset3x3"], newObj["offset3x3"]);
+  new_letter["offset3y3"] = map(percent, 0, 100, oldObj["offset3y3"], newObj["offset3y3"]);
+
+  new_letter["offset3x4"] = map(percent, 0, 100, oldObj["offset3x4"], newObj["offset3x4"]);
+  new_letter["offset3y4"] = map(percent, 0, 100, oldObj["offset3y4"], newObj["offset3y4"]);
+
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "FREEZING",
+  "GLACIERS",
+  "DIAMONDS",
+  "COLD1234",
+  "FROSTED?"
 ]

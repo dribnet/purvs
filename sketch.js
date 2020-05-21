@@ -17,33 +17,31 @@ const letterA = {
   "offsetx": 0,
   "offsety":0,
 
-  "offset2x": 30, //right
+  "offset2x": 30,
   "offset2y": 70,
 
-  "offset3x": -70, //top
+  "offset3x": -70,
   "offset3y": -100,
 
   "offset4x": -160,
   "offset4y": 70,
 
 //triangle 2
-  "offsetx2": -70, //top
+  "offsetx2": -70,
   "offsety2":-40,
 
   "offsetx3":30,
   "offsety3":70,
 
   "offsetx4":-160,
-  "offsety4":70, //left
+  "offsety4":70,
 
 
 }
 
 const letterB = {
-  // "offsetx": 0,
-  // "offsety":0,
 
-  "offset2x": -160, //left
+  "offset2x": -160,
   "offset2y": 70,
 
   "offset3x": -30,
@@ -53,35 +51,35 @@ const letterB = {
   "offset4y": -100,
 
 //triangle 2
-  "offsetx2": -160, //top
+  "offsetx2": -160,
   "offsety2":-100,
 
   "offsetx3":-40,
   "offsety3":-100,
 
   "offsetx4":-160,
-  "offsety4":70, //left
+  "offsety4":70,
 }
 
 const letterC = {
-  "offset2x": 0, //right
+  "offset2x": 0,
   "offset2y": 70,
 
-  "offset3x": -160, //top
+  "offset3x": -160,
   "offset3y": -15,
 
   "offset4x": -160,
   "offset4y": 70,
 
 //triangle 2
-  "offsetx2": -160, //top
+  "offsetx2": -160,
   "offsety2":-100,
 
   "offsetx3":0,
   "offsety3":-100,
 
   "offsetx4":-160,
-  "offsety4":-15, //left
+  "offsety4":-15,
 
 }
 
@@ -131,8 +129,6 @@ let posx4 = posx + letterData["offsetx4"];
 let posy4 = posy + letterData["offsety4"];
 
 
-
-  // draw two circles
 
 
   fill(colorFront1);
