@@ -1,10 +1,14 @@
 ## MDDN 242 2020 Assignment 2
 
-I have made my exhibition words that I will keep for the final submission tomorrow. I have also made 2 new  parameters named: "rect2x" and "rect2y". The reason I made these we because I wasnt happy with a few of my letters and how they looked, namely T, X and Y. I tried making these letters look as good as possible with the last parameters but they still didnt look how I wanted them to. So I created these 2 new parameters in order to have a second rectangle shape in my letters. Using this new rectangle I made those three letters look a ton better than they did before. After adding a new parameter I also had to create it in the "Interaction.js" file so the ne wshape would smoothly transition around the screen. I am now doing some final touchups before submission, really there is not much left to do apart from update with the final readme and statement.
+"Neoblock" by Hayden Watson
 
-Also I named my font "Neoblock", I wanted to have the word Neon but couldnt fit all of the words in the exhibition so Neoblock it was.
+Starting out in this project, my intial ideas for how I was going to make my letters was simple, use shapes to make the shapes of the alphabet. While we were testing out how to use these files and making our planning in sketch.js, I decided to play with the idea of using those shapes to instead make a letter using negative space. So instead of the shapes and parameters making a letter; they do the opposite, they go around the outside of a different color background (The base rectangle/square) in order to make a letter. So I continued to play around with the idea of using Negative space to my advantage while also using a minimal amount of shapes and parameters. I managed to make nearly all of my letters out of only 2 ellipses and 1 rectangle, however there were a few letter that I was not satisfied with and really wanted to change.
 
-I am now on 12 parameters:
+I ended up making another rectangle and 2 more parameters in order to make those shapes better and it worked pretty well. Because I used basic but effective shapes, my interaction and interpolation was very very easy to make and the default values worked a charm. 
+
+Overall I am happy with my design and the techniques of negative space that I used to create it worked really well.
+
+I finished with a total of 12 parameters:
 sizex
 sizey
 offsetx
