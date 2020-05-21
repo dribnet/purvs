@@ -1,15 +1,15 @@
 {
   "commits": [
     {
-      "gengzihan123": "64a9f15729dafe028805bb0a227729982623e0d7",
+      "sha": "64a9f15729dafe028805bb0a227729982623e0d7",
       "name": "final"
     },
     {
-      "gengzihan123": "03ca49abbcd7299e90d25295f27a233b517223e9",
+      "sha": "03ca49abbcd7299e90d25295f27a233b517223e9",
       "name": "experiment2"
     },
     {
-      "gengzihan123": "d8ad0fa49508c333988f4bfe72a131f2b4469f7f",
+      "sha": "d8ad0fa49508c333988f4bfe72a131f2b4469f7f",
       "name": "experiment1"
     }
   ]
