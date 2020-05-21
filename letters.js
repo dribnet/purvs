@@ -5,11 +5,9 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size2": 40,
-    "X2": 5,
-    "Y2": 10,
-    "start2": 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 5,
+    "CircleY": 10,
     "rectX": 10,
     "rectY": -40,
     "rectX2": 90,
@@ -19,11 +17,9 @@ const alphabet = {
     "strokeW": 20
   },
   "B": {
-    "size2": 50,
-    "X2": 5,
-    "Y2": 20,
-    "start2": 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 5,
+    "CircleY": 20,
     "rectX": 10,
     "rectY": -20,
     "rectX2": 50,
@@ -33,11 +29,9 @@ const alphabet = {
     "strokeW": 40
     },
   "C": {
-    "size2": 0,
-    "X2": -10,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": -10,
+    "CircleY": 10,
     "rectX": -40,
     "rectY": 0,
     "rectX2": 70,
@@ -48,11 +42,9 @@ const alphabet = {
 
   },
   "D": {
-    "size2": 40,
-    "X2": 0,
-    "Y2": -40,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 0,
+    "CircleY": -40,
     "rectX": -20,
     "rectY": -50,
     "rectX2": 30,
@@ -62,11 +54,9 @@ const alphabet = {
     "strokeW": 20
   },
   "E": {
-    "size2": 90,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 90,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 25,
     "rectY": 0,
     "rectX2": 65,
@@ -76,11 +66,9 @@ const alphabet = {
     "strokeW": 30
   },
   "F": {
-    "size2": 40,
-    "X2": 10,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 10,
+    "CircleY": 0,
     "rectX": 10,
     "rectY": -40,
     "rectX2": 90,
@@ -90,11 +78,9 @@ const alphabet = {
     "strokeW": 20
   },
   "G": {
-    "size2": 40,
-    "X2": 15,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 15,
+    "CircleY": 0,
     "rectX": 15,
     "rectY": 20,
     "rectX2": 65,
@@ -104,11 +90,9 @@ const alphabet = {
     "strokeW":20
   },
   "H": {
-    "size2": 40,
-    "X2": 15,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 15,
+    "CircleY": 0,
     "rectX": 40,
     "rectY": -40,
     "rectX2": 90,
@@ -118,11 +102,9 @@ const alphabet = {
     "strokeW": 20
   },
   "I": {
-    "size2": 50,
-    "X2": 0,
-    "Y2": 40,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 0,
+    "CircleY": 40,
     "rectX": 40,
     "rectY": -40,
     "rectX2": 30,
@@ -132,11 +114,9 @@ const alphabet = {
     "strokeW":20
   },
   "J": {
-    "size2": 50,
-    "X2": -20,
-    "Y2": 25,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": -20,
+    "CircleY": 25,
     "rectX": 30,
     "rectY": -40,
     "rectX2": 30,
@@ -146,11 +126,9 @@ const alphabet = {
     "strokeW": 20
   },
   "K": {
-    "size2": 50,
-    "X2": 10,
-    "Y2": 20,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 10,
+    "CircleY": 20,
     "rectX": 0,
     "rectY": 0,
     "rectX2": 90,
@@ -160,11 +138,9 @@ const alphabet = {
     "strokeW": 20
   },
   "L": {
-    "size2": 0,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 30,
     "rectY": 40,
     "rectX2": 20,
@@ -174,11 +150,9 @@ const alphabet = {
     "strokeW":20
   },
   "M": {
-   "size2": 40,
-    "X2": 10,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+   "circDiam": 40,
+    "CircleX": 10,
+    "CircleY": 10,
     "rectX": 30,
     "rectY": -20,
     "rectX2": 90,
@@ -188,11 +162,9 @@ const alphabet = {
     "strokeW":20
   },
   "N": {
-    "size2": 40,
-    "X2": 10,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 10,
+    "CircleY": 10,
     "rectX": 40,
     "rectY": -40,
     "rectX2": 90,
@@ -202,11 +174,9 @@ const alphabet = {
     "strokeW":20
   },
   "O": {
-    "size2": 100,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 100,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 30,
     "rectY": -50,
     "rectX2": 0,
@@ -216,11 +186,9 @@ const alphabet = {
     "strokeW":0
   },
   "P": {
-    "size2": 60,
-    "X2": 15,
-    "Y2": -20,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 60,
+    "CircleX": 15,
+    "CircleY": -20,
     "rectX": -30,
     "rectY": -30,
     "rectX2": 100,
@@ -230,11 +198,9 @@ const alphabet = {
     "strokeW":0
   },
   "Q": {
-    "size2": 70,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 70,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 30,
     "rectY": 40,
     "rectX2": 50,
@@ -244,11 +210,9 @@ const alphabet = {
     "strokeW":20
   },
   "R": {
-    "size2": 50,
-    "X2": 20,
-    "Y2": -30,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 20,
+    "CircleY": -30,
     "rectX": 30,
     "rectY": 40,
     "rectX2": 60,
@@ -258,11 +222,9 @@ const alphabet = {
     "strokeW":20
   },
   "S": {
-    "size2": 50,
-    "X2": 20,
-    "Y2": -40,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 20,
+    "CircleY": -40,
     "rectX": -10,
     "rectY": -30,
     "rectX2": 70,
@@ -272,11 +234,9 @@ const alphabet = {
     "strokeW":20
   },
   "T": {
-    "size2": 0,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 40,
     "rectY": -40,
     "rectX2": 30,
@@ -286,11 +246,9 @@ const alphabet = {
     "strokeW":20
   },
   "U": {
-    "size2": 60,
-    "X2": 10,
-    "Y2": 20,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 60,
+    "CircleX": 10,
+    "CircleY": 20,
     "rectX": 40,
     "rectY": -40,
     "rectX2": 90,
@@ -300,11 +258,9 @@ const alphabet = {
     "strokeW":20
   },
   "V": {
-    "size2": 0,
-    "X2": 10,
-    "Y2": 30,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 10,
+    "CircleY": 30,
     "rectX": -30,
     "rectY": -40,
     "rectX2": 40,
@@ -314,11 +270,9 @@ const alphabet = {
     "strokeW":20
   },
   "W": {
-    "size2": 40,
-    "X2": -10,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": -10,
+    "CircleY": 10,
     "rectX": -40,
     "rectY": -40,
     "rectX2": 20,
@@ -328,11 +282,9 @@ const alphabet = {
     "strokeW": 20
   },
   "X": {
-    "size2": 0,
-    "X2": 0,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 0,
+    "CircleY": 10,
     "rectX": -20,
     "rectY": -35,
     "rectX2": 80,
@@ -342,11 +294,9 @@ const alphabet = {
     "strokeW":20
   },
   "Y": {
-    "size2": 0,
-    "X2": 0,
-    "Y2": -5,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 0,
+    "CircleY": -5,
     "rectX": -20,
     "rectY": -35,
     "rectX2": 50,
@@ -356,11 +306,9 @@ const alphabet = {
     "strokeW":20
   },
   "Z": {
-    "size2": 50,
-    "X2": 10,
-    "Y2": 20,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 10,
+    "CircleY": 20,
     "rectX": -40,
     "rectY": -50,
     "rectX2": 60,
@@ -370,11 +318,9 @@ const alphabet = {
     "strokeW":20
   },
   "0": {
-    "size2": 100,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 100,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 0,
     "rectY": 0,
     "rectX2": 50,
@@ -384,11 +330,9 @@ const alphabet = {
     "strokeW":60
   },
   "1": {
-    "size2": 0,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 0,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": -40,
     "rectY": -50,
     "rectX2": 60,
@@ -398,11 +342,9 @@ const alphabet = {
     "strokeW":20
   },
   "2": {
-    "size2": 50,
-    "X2": 0,
-    "Y2": -30,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 0,
+    "CircleY": -30,
     "rectX": -20,
     "rectY": 50,
     "rectX2": 90,
@@ -412,9 +354,9 @@ const alphabet = {
     "strokeW":20
   },
   "3": {
-    "size2": 40,
-    "X2": 0,
-    "Y2": -20,
+    "circDiam": 40,
+    "CircleX": 0,
+    "CircleY": -20,
     "start2" : 0,
     "end2": 360,
     "rectX": -30,
@@ -426,11 +368,9 @@ const alphabet = {
     "strokeW":20
   },
   "4": {
-    "size2": 50,
-    "X2": 10,
-    "Y2": 10,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 10,
+    "CircleY": 10,
     "rectX": 40,
     "rectY": -20,
     "rectX2": 90,
@@ -440,11 +380,9 @@ const alphabet = {
     "strokeW":20
   },
   "5": {
-    "size2": 50,
-    "X2": -5,
-    "Y2": -20,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": -5,
+    "CircleY": -20,
     "rectX": -20,
     "rectY": -50,
     "rectX2": 90,
@@ -454,11 +392,9 @@ const alphabet = {
     "strokeW":20
   },
   "6": {
-    "size2": 100,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 100,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": -40,
     "rectY": -70,
     "rectX2": 10,
@@ -468,11 +404,9 @@ const alphabet = {
     "strokeW":20
   },
   "7": {
-    "size2": 40,
-    "X2": 0,
-    "Y2": 0,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 40,
+    "CircleX": 0,
+    "CircleY": 0,
     "rectX": 20,
     "rectY": -50,
     "rectX2": 20,
@@ -482,11 +416,9 @@ const alphabet = {
     "strokeW": 20
   },
   "8": {
-    "size2": 70,
-    "X2": 0,
-    "Y2": -30,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 70,
+    "CircleX": 0,
+    "CircleY": -30,
     "rectX": -30,
     "rectY": -70,
     "rectX2": 0,
@@ -496,11 +428,9 @@ const alphabet = {
     "strokeW":0
   },
   "9": {
-    "size2": 50,
-    "X2": 0,
-    "Y2": -30,
-    "start2" : 0,
-    "end2": 360,
+    "circDiam": 50,
+    "CircleX": 0,
+    "CircleY": -30,
     "rectX": 20,
     "rectY": -60,
     "rectX2": 40,

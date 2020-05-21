@@ -5,13 +5,11 @@ Concept:
 Create an alphabet inspired by the Bauhaus typography from the 1920's. This type style foucsed on geometric shapes, vibrant colours, balanced layouts with harmony and sans-serif letters in upper case. In my type I am wanting to create this style through using 3 simple shapes, a semi-circle, a line and a full circle. Each shape has a different colour similar to the Bauhaus type.
 
 
-The nine parameters per letter:
+The ten parameters per letter:
 
-- size2: the size of the circle
-- X2: the x position of the circle
-- Y2: the y position of the circle 
-- start2 : angle to start the circle
-- end2: angle to end the circle 
+- circDiam: the size of the circle
+- CircleX: the x position of the circle
+- CircleY: the y position of the circle 
 - rectX: x position of the rectangle 
 - rectY: y position of the rectangle 
 - rectX2: height of the rectangle 
@@ -20,27 +18,5 @@ The nine parameters per letter:
 - flipY: Arc y to swap numerical value with x 
 - StrokeW: Changes the thickness of the line 
 
-  First tutorial for PS2. Getting used to using github desktop and changing files. Made a simple design using arcs as a basis for my design. Also uploaded a variety of different sketch ideas.
 
-
-  My idea is inspired by bauhaus typography. I looked at the shapes used which include arcs, triangles, and squares. Each letter is made up of 2 arc's, each arc can be altered by position, size and degrees for the amount of rotation of them. So far i have 8 parameters. I could try make the first yellow arc at a fixed position in order to get less parameters. At some point I will try and change the 2nd arc into a triangle. I updated my draw_letters.js and letters.js from sketch.js.
-
-  Further workings on my type include adjusting the colours back to the original idea based on the primary colours from the Bauhaus period. I have made up to the letter L during class today. I am trying to make the font readable but also fun with the colours. Some of the letter such as E and J have been super hard to draw in capital letters. I want to further my designs I think by making them slightly more abstract just due to the Bauhaus style. I also made the yellow arc the basis of all my letters. 
-
-  Here is the link to my pintrest board where I have a few inspiration photos on Bauhaus typography. 
-  LINK: https://pin.it/6KbjrEw 
-
-  I have kept the yellow arc as the standard shape for all my letters, but as I have gone along in creating my letters, i have found this too be really difficult so I thought i could add in a parameter that flips the arc to face the other direction to help create more shapes for letters such as D. Therefore i have made my own sort of paramters, where I can only flip the shape and not adjust the angles. 
-
-  Finished my first draft of my alphabet. So far i like what it looks like, but some letters like M, N and W need more refining.
-
-  Changed the values of the circler to either be at size 50, or at size 70 for further refinement. The rectangles are also either at at  size 30 x 60 or they are at 90 x 20. This gives a more set look. I still have a few letters to fix up though that don't fit into either of these numbers. I want to try and refine the alphabet to be somewhat linked to the sound that each letter makes, but this has been made very difficult to do as each letter sounds very different. 
-
-  I have experimented with changing the yellow arc into a triangle. I thought this shape made more sense for my bauhaus design as previously I had used 2 arc's, with one a semi-circle, and the other a full circle. I also added in stroke weight and opacity to give a more a defined shape outline. 
-
-  Tested changing the exhibition to some words that look best in my font. For example my favourite letters are A, G, Q, R, Y and D. With the least strong letters being E, M, W and N. Good words are: GRAPHICS, YOURSELF, REPEATED, QUESTION, DURATION. I have really being struggling with getting the "S" letter to look good. 
-
-  Tested changing the colour stroke and fill with the background colour as experimentation to try new ideas. 
-
-  After experimenting for a few hours, I decided to change my triangle shape back to the original semi circle shape as I much prefered the smooth edges of the semi circle, and felt it fitted better with my "Bauhaus" design. I also chnaged the background colour to be a beige, as this was a commen colour used for posters in the Bauhaus period. I swapped some of the colours around to give it a more professional look. This was becuase my previous design ideas were too childish and very hard to read with all the bright colours. 
-
+Worked on looking at the interaction between the letters. Updated variable names to make them more clear. For the interpolate letters, all my maps were set at 0, 100. This map made the animation run really smooth, however, i changed a few of the maps to be slightly more jarring and make the animation look more visually interesting. Although this means the animation isnt as effortless with the maps as they were, I like the new effect more.
