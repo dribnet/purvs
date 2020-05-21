@@ -1,7 +1,7 @@
 ## MDDN 242 2020 Assignment 2
-POLSIHING UP
+PURVIEW
 
-Before finishing up I went through and cleaned up my code, polished some of my letters like the E and S. I'm now ready to edit the purview.json
+Testing purview.json is working properly.
 
 The thirteen parameters per letter:
   * `rectX` : x location of the rectangle
