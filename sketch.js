@@ -13,31 +13,37 @@ const canvasHeight = 500;//do not change
  */
 
 const letterA = {
-  "triX1": 50,
-  "triY1": 95,
-  "triX2": 78,
-  "triY2": 40,
-  "triX3": 106,
-  "triY3": 95
+  "triX1": 28,
+  "triY1": 150,
+  "triX2": 50,
+  "triY2": 82,
+  "triX3": 70,
+  "triY3": 150
 
 }
 
 const letterB = {
-  "size": 75,
-  "offsetx": -5,
-  "offsety": -90
+  "triX1": 106,
+  "triY1": 94,
+  "triX2": 48,
+  "triY2": 52,
+  "triX3": 26,
+  "triY3": 102
 
  
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": -20,
-  "offsety": -70
+  "triX1": 30,
+  "triY1": 130,
+  "triX2": 54,
+  "triY2": 62,
+  "triX3": 88,
+  "triY3": 130
 }
  
-const colorFront1  = "#9C2B21";// dark red
-const colorFront2  = "#F8B6AA";// light pink
+const darkRed  = "#9C2B21";// dark red
+const lightPink = "#F8B6AA";// light pink
 const colorBack    = "#f8ded2";// background colour
 const colorStroke  = "#F8DED2";// stroke colour
 
@@ -59,12 +65,12 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let triangleX1 = letterData["triX1"];
-  let triangleY1 = letterData["triY1"];
-  let triangleX2 = letterData["triX2"];
-  let triangleY2 = letterData["triY2"];
-  let triangleX3 = letterData["triX3"];
-  let triangleY3 = letterData["triY3"];
+  let triangleX1 = posx + letterData["triX1"];
+  let triangleY1 = posy + letterData["triY1"];
+  let triangleX2 = posx + letterData["triX2"];
+  let triangleY2 = posy +letterData["triY2"];
+  let triangleX3 = posx + letterData["triX3"];
+  let triangleY3 = posy + letterData["triY3"];
 
 
 
@@ -72,10 +78,10 @@ function drawLetter(posx, posy, letterData) {
 
 
   // draw two circles
-  fill(colorFront1);
-  triangle(30, 75, 58, 20, 86, 75);
+  fill(darkRed);
+  triangle(posx+0, posy+150, posx+50, posy+50, posx+100, posy+150);
   
-  fill(colorFront2);
+  fill(lightPink);
   triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
 }
 
