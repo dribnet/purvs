@@ -411,13 +411,13 @@ const alphabet = {
     "sizeCirc": 85,     // size of circle 1
     "sizeCirc2": 20,    // size of circle 2
     "circX1": 50,       // X position of circle 1
-    "circY1": 50,       // Y position of circle 1
+    "circY1": 55,       // Y position of circle 1
     "circX2": 85,       // X position of circle 2
     "circY2": 180,      // Y position of circle 2
     "lineX1": 5,        // X position of line 1
     "lineY1": 180,      // Y position of line 1
     "lineX2": 5,        // X position of line 2
-    "lineY2": 100,      // Y position of line 2
+    "lineY2": 89,      // Y position of line 2
     "lineY3": 180,      // Y position of side 1 of line 1
   },
   "3": {

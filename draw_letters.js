@@ -42,7 +42,7 @@ function drawLetter(letterData) {
 
   // ------- DRAWS TWO CIRCLES WITH OUTER WHITE STROKE ------- //
 
-  push();
+  beginShape();
 
   stroke(colorStrokeWhite);
   strokeWeight(outerStroke);
@@ -53,21 +53,25 @@ function drawLetter(letterData) {
   fill(colorPink);
   ellipse(circPosX2, circPosY2, sizeCirc2, sizeCirc2);
 
+  endShape();
+
   // ------- DRAWS TWO LINES WITH OUTER WHITE STROKE ------- //
+  
+  beginShape();
 
   stroke(colorStrokeWhite);
   strokeWeight(outerStroke);
 
   fill(colorPink);
+
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
 
-  pop();
-
+  endShape();
 
   // ------- DRAWS TWO CIRCLES WITH INNER DARK PINK STROKE ------- //
 
-  push();
+  beginShape();
 
   stroke(colorStrokeDarkPink);
   strokeWeight(innerStroke);
@@ -78,8 +82,12 @@ function drawLetter(letterData) {
   fill(colorPink);
   ellipse(circPosX2, circPosY2, sizeCirc2, sizeCirc2);
 
+  endShape();
+
   // ------- DRAWS TWO LINES WITH INNER DARK PINK STROKE ------- //
 
+  beginShape();
+  
   stroke(colorStrokeDarkPink);
   strokeWeight(innerStroke);
 
@@ -87,7 +95,7 @@ function drawLetter(letterData) {
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
 
-  pop();
+  endShape();
 }
 
 
@@ -110,14 +118,14 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 
 var swapWords = [
-  "BLUSHING",
-  "ADORABLE",
-  "FLAMINGO",
   "PINKNESS",
+  "ADORABLE",
   "BLOOMING",
+  "FLAMINGO",
+  "ROSINESS",
+  "BLUSHING",
   "FLAWLESS",
   "LEMONADE",
-  "ROSINESS",
   "BEAUTIFY",
   "FETCHING",
   "STUNNING",

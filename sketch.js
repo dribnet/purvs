@@ -41,10 +41,10 @@ const letterB = {
 const letterC = {
     "sizeLine": 100,
     "sizeCirc": 30,
-    // "circx1": 35,
-    // "circy1": -30,
-    // "circx2": -50,
-    // "circy2": -10,
+    "circX1": 35,
+    "circY1": -30,
+    "circX2": -50,
+    "circY2": -10,
     "lineX1": -20, // -20
     "lineY1": -150, // 130
     "lineX2": -70, // ! -70 !
@@ -92,10 +92,11 @@ function drawLetter(posx, posy, letterData) {
   fill(colorFront1);
   ellipse(circPosX2, circPosY2, sizeCirc1, sizeCirc1);
 
+  beginShape();
   fill(colorFront2);
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
-
+  endShape();
 }
 
 function draw () {
