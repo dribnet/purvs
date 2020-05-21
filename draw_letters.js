@@ -3,15 +3,8 @@ const colour_LightSquare = "#ededed";
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-//const colorBack    = "#1f1f1f";
 const colorStroke  = "#233f11";
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
   angleMode (DEGREES);
 
@@ -68,6 +61,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "HEPTFONT",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "TOGETHER",
+  "ISBETTER"
 ]
