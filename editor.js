@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
-const colorLines   = "#000090";
+const colorBack    = "#000000";
+const colorLines   = "#FFFFFF";
 
 /*******
  * define this "sliderInfo" variable
@@ -11,10 +11,16 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["x1",  -40,  40],
-  ["y1", -70, 70],
-  ["w1", 15, 60],
-  ["h1", 15, 150],
+  ["pos2x", 0,  40],
+  ["pos2y", 0, 70],
+  ["pos3x", 15, 60],
+  ["pos3y", 15, 100],
+  ["pos4x", 0, 60],
+  ["pos4y", 0, 100],
+
+ 
+
+  
 ];
 
  
