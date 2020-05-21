@@ -4,13 +4,17 @@
       "sha": "0000000000000000000000000000000000000003",
       "name": "final"
     },
-    {
-      "sha": "0000000000000000000000000000000000000002",
-      "name": "experiment2"
+     {
+      "sha": "5b8a0bf1c5e849566ac70bf71a30d571e36b2b8e",
+      "name": "Circles overlapped"
     },
     {
-      "sha": "0000000000000000000000000000000000000001",
-      "name": "experiment1"
+      "sha": "174aad70b7330d9543ab927eae9abc527255690f",
+      "name": "Start of arcs idea"
+    },
+    {
+      "sha": "f51f86de987c9e8f60330a6abac7856b09319264",
+      "name": "Initial Idea (no readme)"
     }
   ]
 }
