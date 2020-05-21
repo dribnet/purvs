@@ -2,15 +2,19 @@
   "commits": [
     {
       "sha": "0000000000000000000000000000000000000003",
-      "name": "final"
-    },
-    {
-      "sha": "6de3ea3c516f91e8ab1a08bef834e0b4f8ff936d",
-      "name": "experiment2"
+      "name": "Final"
     },
     {
       "sha": "6fdae3613c76a951e43763df35fb59770a06ffb1",
-      "name": "experiment1"
+      "name": "Small Tweaks"
+    },
+    {
+      "sha": "6de3ea3c516f91e8ab1a08bef834e0b4f8ff936d",
+      "name": "Changed Idea"
+    },
+    {
+      "sha": "6fdae3613c76a951e43763df35fb59770a06ffb1",
+      "name": "Initial Idea"
     }
   ]
 }
