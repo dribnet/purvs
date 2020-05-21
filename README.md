@@ -18,7 +18,7 @@ In this alphabet, the following represent:
 
 I wanted to approach the numbers differently, so I had the shapes properly connected, to highlight that they’re not letters. This is why circles are connected, such as “2” and “7”, while numbers such as “4” and “5” include original elements where the smaller circles must be joined. “O” and “0” have two lines going through it to represent that there is no need to connect the dots and lines. The difference with these characters is that “O” has a smaller inner circle, to highlight the fact that this is a letter and not a number. ”J” and “Q” have two lines touching its inner circles to represent curviness and missing elements. On a side note, I also tried to keep consistent numbers for my parameters, with the exception for some numbers for a proper look.
 
-“Pinkness” is not necessarily meant to be completely readable, but once understood, it can be clear why the letters look the way they do.
+My alphabet is not necessarily meant to be completely readable, but once understood, it can be clear why the letters look the way they do. I definitely encountered some bugs and errors as well, such as when I tried to create a new function, nothing would show. This is why I drew all my shapes under the drewLetter function.
 
 In conclusion, I think I did very well in communicating my concept and worked efficiently given my restricted parameters. I am quite satisfied with my outcome and am very fond of the colour scheme too, as I managed to convey an aesthetic look with the two strokes. This assignment was very enjoyable and probably one of my favourites so far.
 
