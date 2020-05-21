@@ -1,6 +1,10 @@
 {
   "commits": [
     {
+      "sha": "a0ece568c5e173c442f6b3635bb9ad32a1bf926d",
+      "name": "Final"
+    },
+    {
       "sha": "859867018738d7731cc78ce361aa33124ab51300",
       "name": "Exhibition"
     },
