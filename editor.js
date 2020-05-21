@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#e3eded";
-const colorLines   = "#FFFFFF";
+const colorLines   = "#000090";
 
 /*******
  * define this "sliderInfo" variable
@@ -11,10 +11,13 @@ const colorLines   = "#FFFFFF";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["x1",  -40,  40],
+  ["y1", -70, 70],
+  ["w1", 15, 60],
+  ["h1", 15, 150],
 ];
+
+ 
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;

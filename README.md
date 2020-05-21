@@ -1,7 +1,9 @@
 ## MDDN 242 2020 Assignment 2
 
-21/5/2020 12:51 pm
+21/5/2020 4:17 pm
 
-I managed to figure out why my interactions between letters weren't showing up, so now my next step is to get the editor running smoothly. 
+My editor perimetres are still uncertain and I am struggling to get that bit done.
 
-Because all of my forms are solid, saturated shapes, the transformation between leters is very metric and organized (which I like). Not sure what else to include in this update, it is merely to show more of the process that is happening.
+
+My sketch.js file is now running again, and every other link is working according to plan, aside from the editor. I will be saving a lot until I figure out what is wrong, but there will likely be some issues before hand in happens.
+
