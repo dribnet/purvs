@@ -18,5 +18,6 @@ The ten parameters per letter:
 - flipY: Arc y to swap numerical value with x
 - StrokeW: Changes the thickness of the line
 
+Tested changing the exhibition to some words that look best in my font. For example my favourite letters are A, G, Q, R, Y and D. With the least strong letters being E, M, W and N. Good words are: GRAPHICS, YOURSELF, REPEATED, QUESTION, DURATION. I have really being struggling with getting the "S" letter to look good.
 
-I have experimented with changing the yellow arc into a triangle. I thought this shape made more sense for my bauhaus design as previously I had used 2 arc's, with one a semi-circle, and the other a full circle. I also added in stroke weight and opacity to give a more a defined shape outline.
+Tested changing the colour stroke and fill with the background colour as experimentation to try new ideas.
