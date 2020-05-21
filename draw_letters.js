@@ -1,6 +1,7 @@
 
-const colorLine  = "#D3F2FE"; // bgd colour
-const colorStroke  =  "#FCD9E8"; // candy stroke
+const colorFill  = "#FCD9E8"; // font fill colour
+const colorStroke  =  "#F0B8DD"; // candy pink stroke
+const colorShadow = "BDDBBE";
 /*
  * Draw the letter given the letterData
  *
@@ -32,15 +33,15 @@ function drawLetter(letterData) {
   let circXpos = letterData["circ2X"];
   let circYpos = letterData["circ2Y"];
 
-  // draw background circle
+  // draw background circle shadow
   noStroke();
-  fill(190,218,230,145);
+  fill(189,219,190,145); // darker blue with opacity
   ellipse(circXpos,circYpos,circSize2,circSize2);
 
   // draw foreground circle
   strokeWeight(10)
   stroke(colorStroke)
-  fill(colorLine);
+  fill(colorFill);
   ellipse(50,150,circSize,circSize);
   
   // draw line stroke
@@ -91,10 +92,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   }
   
   
-  
-  
-  
-  
   return new_letter;
 }
 
@@ -119,8 +116,6 @@ var swapWords = [
   "PASTRIES",
   "LICORICE",
   "GUMDROPS",
-  "SOURBALL"
-
-
-
+  "SOURBALL",
+  "12345678"
 ]

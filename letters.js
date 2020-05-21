@@ -3,9 +3,9 @@ const alphabet = {
   "A": {
     "circ": 90, // size of letter font
     "circ2": 95, // size of background circle (darkblue)
-    "circ2X": 40,
-    "circ2Y": 140,
-    "lineX": 98,
+    "circ2X": 40, // X pos of circle shadow
+    "circ2Y": 140, // Y pos of circle shadow
+    "lineX": 98, 
     "lineY": 150,
     "linex2": 98,
     "liney2": 200,
@@ -429,19 +429,19 @@ const alphabet = {
     "circ2": 95, 
     "circ2X": 40,
     "circ2Y": 140,
-    "lineX": 20,
-    "lineY": 120,
-    "linex2": 50,
+    "lineX": 30,
+    "lineY": 110,
+    "linex2": 30,
     "liney2": 150,
-    "lineX1":30,
-    "lineY1":109,
-    "lineX2":65,
-    "lineY2":145,
+    "lineX1":50,
+    "lineY1":105,
+    "lineX2":50,
+    "lineY2":150,
 
-    "lineX3":30,
-    "lineY3":109,
-    "lineX4":65,
-    "lineY4":145
+    "lineX3":70,
+    "lineY3":110,
+    "lineX4":70,
+    "lineY4":150
   },
   "X": {
     "circ": 90,
@@ -459,7 +459,7 @@ const alphabet = {
 
     "lineX3":80,
     "lineY3":115,
-    "lineX4":30,
+    "lineX4":20,
     "lineY4":185
   },
   "Y": {
@@ -498,7 +498,7 @@ const alphabet = {
     "lineX3":50,
     "lineY3":165,
     "lineX4":90,
-    "lineY4":180
+    "lineY4":165
 
   },
   "0": {
@@ -509,7 +509,16 @@ const alphabet = {
     "lineX": 50,
     "lineY": 105,
     "linex2": 50,
-    "liney2": 105
+    "liney2": 105,
+    "lineX1":50,
+    "lineY1":105,
+    "lineX2":50,
+    "lineY2":105,
+
+    "lineX3":50,
+    "lineY3":105,
+    "lineX4":50,
+    "lineY4":105
   },
   "1": {
     "circ": 90,
@@ -519,7 +528,16 @@ const alphabet = {
     "lineX": 50,
     "lineY": 105,
     "linex2": 50,
-    "liney2": 190
+    "liney2": 190,
+    "lineX1":50,
+    "lineY1":105,
+    "lineX2":50,
+    "lineY2":190,
+
+    "lineX3":50,
+    "lineY3":105,
+    "lineX4":50,
+    "lineY4":190
   },
   "2": {
     "circ": 90,
@@ -534,6 +552,12 @@ const alphabet = {
     "lineY1":195,
     "lineX2":100,
     "lineY2":195,
+
+    
+    "lineX3":50,
+    "lineY3":195,
+    "lineX4":100,
+    "lineY4":195
   },
   "3": {
     "circ": 90,
@@ -566,7 +590,13 @@ const alphabet = {
     "lineX1": 98,
     "lineY1": 150,
     "lineX2": 98,
-    "lineY2": 200
+    "lineY2": 200,
+
+    
+    "lineX3":98,
+    "lineY3":150,
+    "lineX4":98,
+    "lineY4":200
   },
   "5": {
     "circ": 90,
@@ -576,7 +606,16 @@ const alphabet = {
     "lineX": 50,
     "lineY": 105,
     "linex2": 100,
-    "liney2": 105
+    "liney2": 105,
+    "lineX1":50,
+    "lineY1":105,
+    "lineX2":100,
+    "lineY2":105,
+
+    "lineX3":50,
+    "lineY3":105,
+    "lineX4":100,
+    "lineY4":105
   },
   "6": {
     "circ": 90,
@@ -586,7 +625,16 @@ const alphabet = {
     "lineX": 50,
     "lineY": 105,
     "linex2": 80,
-    "liney2": 80
+    "liney2": 80,
+    "lineX1":50,
+    "lineY1":105,
+    "lineX2":80,
+    "lineY2":80,
+
+    "lineX3":50,
+    "lineY3":105,
+    "lineX4":80,
+    "lineY4":80
   },
   "7": {
     "circ": 90,
@@ -596,7 +644,16 @@ const alphabet = {
     "lineX": 70,
     "lineY": 110,
     "linex2": 30,
-    "liney2": 185
+    "liney2": 185,
+    "lineX1":70,
+    "lineY1":110,
+    "lineX2":30,
+    "lineY2":185,
+
+    "lineX3":70,
+    "lineY3":110,
+    "lineX4":30,
+    "lineY4":185
   },
   "8": {
     "circ": 90,
@@ -606,7 +663,16 @@ const alphabet = {
     "lineX": 2,
     "lineY": 150,
     "linex2": 95,
-    "liney2": 150
+    "liney2": 150,
+    "lineX1":2,
+    "lineY1":150,
+    "lineX2":95,
+    "lineY2":150,
+
+    "lineX3":2,
+    "lineY3":150,
+    "lineX4":95,
+    "lineY4":150
   },
   "9": {
     "circ": 90,
@@ -616,7 +682,16 @@ const alphabet = {
     "lineX": 50,
     "lineY": 195,
     "linex2": 20,
-    "liney2": 220
+    "liney2": 220,
+    "lineX1":50,
+    "lineY1":195,
+    "lineX2":20,
+    "lineY2":220,
+
+    "lineX3":50,
+    "lineY3":195,
+    "lineX4":20,
+    "lineY4":220
   }
 
 }

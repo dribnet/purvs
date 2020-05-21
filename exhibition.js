@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#C7FFF0";
+const colorBack   = "#D9FCDA"; // mint green background colour
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
