@@ -1,8 +1,8 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#010028";
-const colorLines   = "#000090";
+const colorBack    = "#193248"; //Prussian blue
+const colorLines   = "#4e97b7"; //Cerulean blue
 
 /*******
  * define this "sliderInfo" variable
@@ -11,16 +11,23 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
+  //Arc width and heigh parameters
   ["arcW",      0, 100],
   ["arcH",      0, 100],
+
+  //Arc 1
   ["arcX",      0, 100],
   ["arcY",      0, 100],
   ["arcS",      0, 360],
   ["arcE",      0, 360],
+
+  //Arc 2
   ["arcX2",     0, 100],
   ["arcY2",     0, 100],
   ["arcS2",     0, 360],
   ["arcE2",     0, 360],
+
+  //Arc 3
   ["arcX3",     0, 100],
   ["arcY3",     0, 100],
   ["arcS3",     0, 360],

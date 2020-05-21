@@ -1,6 +1,6 @@
-const colorFront1  = "#01a99a"; // turquoise
-const colorFront2  = "#eef0bf"; //yellow
-const colorFront3  = "#ed1b24"; //red
+const colorFront1  = "#50b58d"; //Jungle green
+const colorFront2  = "#f4ddb4"; //Peach yellow
+const colorFront3  = "#d04b38"; //Fire-brick red
 
 /*
  * Draw the letter given the letterData
@@ -10,7 +10,6 @@ const colorFront3  = "#ed1b24"; //red
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
   noStroke();
 
   //Arc size setup
@@ -18,33 +17,33 @@ function drawLetter(letterData) {
   let arcHei = letterData ["arcH"];
 
   //letter parameters
-  //arc 1
+  //Arc 1
   let arcX = letterData ["arcX"];
   let arcY = letterData ["arcY"];
   let arcS = letterData ["arcS"];
   let arcE = letterData ["arcE"];
 
-  //arc 2
+  //Arc 2
   let arcX2 = letterData ["arcX2"];
   let arcY2 = letterData ["arcY2"];
   let arcS2 = letterData ["arcS2"];
   let arcE2 = letterData ["arcE2"];
 
-  //arc 3
+  //Arc 3
   let arcX3 = letterData ["arcX3"];
   let arcY3 = letterData ["arcY3"];
   let arcS3 = letterData ["arcS3"];
   let arcE3 = letterData ["arcE3"];
 
-  //arc 1
+  //Arc 1
   fill(colorFront1);
   arc(arcX, arcY, arcWid, arcHei, arcS, arcE);
 
-  //arc 2
+  //Arc 2
   fill(colorFront2);
   arc(arcX2, arcY2, arcWid, arcHei, arcS2, arcE2);
 
-  //arc 3
+  //Arc 3
   fill(colorFront3);
   arc(arcX3, arcY3, arcWid, arcHei, arcS3, arcE3);
 }
@@ -60,7 +59,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
   new_letter["arcY"] = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
 
-  if (percent < 85) {
+  //Percent transition control setup
+  if (percent < 80) { //Controls the transition of the letter switching from its previous form, from a smooth movement, until it finally clicks/locks into place in its new form
     new_letter["arcS"] = oldObj["arcS"];
     new_letter["arcE"] = oldObj["arcE"];
   }
@@ -74,7 +74,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["arcX2"] = map(percent, 0, 100, oldObj["arcX2"], newObj["arcX2"]);
   new_letter["arcY2"] = map(percent, 0, 100, oldObj["arcY2"], newObj["arcY2"]);
 
-  if (percent < 85) {
+  //Percent transition control setup
+  if (percent < 80) { //Controls the transition of the letter switching from its previous form, from a smooth movement, until it finally clicks/locks into place in its new form
     new_letter["arcS2"] = oldObj["arcS2"];
     new_letter["arcE2"] = oldObj["arcE2"];
   }
@@ -88,7 +89,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["arcX3"] = map(percent, 0, 100, oldObj["arcX3"], newObj["arcX3"]);
   new_letter["arcY3"] = map(percent, 0, 100, oldObj["arcY3"], newObj["arcY3"]);
 
-  if (percent < 85) {
+  //Percent transition control setup
+  if (percent < 80) { //Controls the transition of the letter switching from its previous form, from a smooth movement, until it finally clicks/locks into place in its new form
     new_letter["arcS3"] = oldObj["arcS3"];
     new_letter["arcE3"] = oldObj["arcE3"];
   }
@@ -103,9 +105,12 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "FUTURAMA",
+  "ASTROMEC", //The name of my font (pronounced as astro-mech)
   "ROBOTICS",
-  "MECHANIC",
-  "ODYSSEYS",
+  "COUPLING",
+  "INFRARED",
+  "DROID123",
+  "VOYAGER?",
+  "ODYSSEY?",
   "EXPLORER",
 ]
