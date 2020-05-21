@@ -1,514 +1,522 @@
-
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
-
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 100,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "A": {
-    "sizeLine": 45,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 17,
-    "circy1": 100,
-    "circx2": 83,
-    "circy2": 100,
-    "linex1": 5, //left
-    "liney1": 10, //height
-    "linex2": 50,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 45,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 17,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 83,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 50,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "B": {
-    "sizeLine": 85,
-    "sizeCirc": 90,
-    "sizeCirc2": 90, 
-    "circx1": 50,
-    "circy1": 145,
-    "circx2": 50,
-    "circy2": 55,
-    "linex1": 10, //left
-    "liney1": 100, //height
-    "linex2": 5,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "sizeLine": 85,     // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2 
+    "circX1": 50,       // X position of circle 1
+    "circY1": 145,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 55,       // Y position of circle 2
+    "lineX1": 10,       // X position of line 1
+    "lineY1": 100,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 100,      // Y position of line 2
+    "lineY3": 100,      // Y position of side 1 of line 1
   },
   "C": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 85,
-    "circy1": 180,
-    "circx2": 85,
-    "circy2": 20,
-    "linex1": 15, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 85,       // X position of circle 1
+    "circY1": 180,      // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 20,       // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "D": {
-    "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 90,
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 15, //left
-    "liney1": 190, //height
-    "linex2": 25,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 25,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "E": { 
-    "sizeLine": 85,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 15,
-    "circy1": 20,
-    "circx2": 15,
-    "circy2": 180,
-    "linex1": 10, //left
-    "liney1": 100, //height
-    "linex2": 5,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 15,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 100,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 85,       // Y position of line 2
+    "lineY3": 115,      // Y position of side 1 of line 1
   },
   "F": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 85,
-    "circy1": 20,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 5, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 85,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "G": {
-    "sizeLine": 80,
-    "sizeCirc": 20,
-    "sizeCirc2": 85,
-    "circx1": 15,
-    "circy1": 50,
-    "circx2": 52,
-    "circy2": 150,
-    "linex1": 15, //left
-    "liney1": 5, //height
-    "linex2": 15,
-    "liney2": 5, // length R
-    "liney3": 5, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 85,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 150,      // Y position of circle 2
+    "lineX1": 85,       // X position of line 1
+    "lineY1": 110,      // Y position of line 1
+    "lineX2": 75,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
+
   },
   "H": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 95, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 95,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "I": {
-    "sizeLine": 0,
-    "sizeCirc": 50,
-    "sizeCirc2": 50,
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 50, //left
-    "liney1": 10, //height
-    "linex2": 50,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 50,     // size of circle 1
+    "sizeCirc2": 50,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 50,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 50,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "J": {
-    "sizeLine": 0,
-    "sizeCirc": 80,
-    "sizeCirc2": 40,
-    "circx1": 50,
-    "circy1": 150,
-    "circx2": 50,
-    "circy2": 150,
-    "linex1": 70, //left
-    "liney1": 10, //height
-    "linex2": 80,
-    "liney2": 150, // length R
-    "liney3": 150, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 85,     // size of circle 1
+    "sizeCirc2": 40,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 150,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 150,      // Y position of circle 2
+    "lineX1": 70,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 80,       // X position of line 2
+    "lineY2": 150,      // Y position of line 2
+    "lineY3": 150,      // Y position of side 1 of line 1
   },
   "K": {
-    "sizeLine": 90,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 15,
-    "circy1": 180,
-    "circx2": 15,
-    "circy2": 180,
-    "linex1": 5, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 80, //length L
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 180,      // Y position of circle 1
+    "circX2": 15,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 80,       // Y position of side 1 of line 1
   },
   "L": {
-    "sizeLine": 0,
-    "sizeCirc": 35,
-    "sizeCirc2": 20,
-    "circx1": 20,
-    "circy1": 100,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 20, //left
-    "liney1": 10, //height
-    "linex2": 20,
-    "liney2": 190, // length R
-    "liney3": 20, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 35,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 20,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 20,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 20,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 20,       // Y position of side 1 of line 1
   },
   "M": {
-    "sizeLine": 40,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 85,
-    "circy1": 180,
-    "circx2": 15,
-    "circy2": 180,
-    "linex1": 10, //left
-    "liney1": 190, //height
-    "linex2": 50,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 40,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 85,       // X position of circle 1
+    "circY1": 180,      // Y position of circle 1
+    "circX2": 15,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 10,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 50,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "N": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 15,
-    "circy1": 20,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 5, //left
-    "liney1": 190, //height
-    "linex2": 95,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 95,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "O": {
-    "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 45, 
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 45, //left
-    "liney1": 189, //height
-    "linex2": 55,
-    "liney2": 10, // length R
-    "liney3": 10, //
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 45,    // size of circle 2 
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 45,       // X position of line 1
+    "lineY1": 189,      // Y position of line 1
+    "lineX2": 55,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "P": {
-    "sizeLine": 0,
-    "sizeCirc": 80,
-    "sizeCirc2": 40,
-    "circx1": 55,
-    "circy1": 48,
-    "circx2": 55,
-    "circy2": 48,
-    "linex1": 15, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 80,     // size of circle 1
+    "sizeCirc2": 40,    // size of circle 2
+    "circX1": 55,       // X position of circle 1
+    "circY1": 48,       // Y position of circle 1
+    "circX2": 55,       // X position of circle 2
+    "circY2": 48,       // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "Q": {
-    "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 50,
-    "circx1": 50,
-    "circy1": 50,
-    "circx2": 50,
-    "circy2": 50,
-    "linex1": 75, //left
-    "liney1": 55, //height
-    "linex2": 85,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 50,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 50,       // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 50,       // Y position of circle 2
+    "lineX1": 75,       // X position of line 1
+    "lineY1": 55,       // Y position of line 1
+    "lineX2": 85,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "R": {
-    "sizeLine": 0,
-    "sizeCirc": 80,
-    "sizeCirc2": 20,
-    "circx1": 55,
-    "circy1": 48,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 15, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 80,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 55,       // X position of circle 1
+    "circY1": 48,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "S": {
-    "sizeLine": 90,
-    "sizeCirc": 85,
-    "sizeCirc2": 85,
-    "circx1": 50,
-    "circy1": 150,
-    "circx2": 50,
-    "circy2": 50,
-    "linex1": 5, //left
-    "liney1": 90, //height
-    "linex2": 5,
-    "liney2": 110, // length R
-    "liney3": 110, //length L
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 85,     // size of circle 1
+    "sizeCirc2": 85,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 150,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 50,       // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 90,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 110,      // Y position of line 2
+    "lineY3": 110,      // Y position of side 1 of line 1
   },
   "T": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20, 
-    "circx1": 15,
-    "circy1": 20,
-    "circx2": 85,
-    "circy2": 20,
-    "linex1": 45, //left
-    "liney1": 190, //height
-    "linex2": 55,
-    "liney2": 35, // length R
-    "liney3": 35, //
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2 
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 20,       // Y position of circle 2
+    "lineX1": 45,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 55,       // X position of line 2
+    "lineY2": 35,       // Y position of line 2
+    "lineY3": 35,       // Y position of side 1 of line 1
   },
   "U": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 15,
-    "circy1": 180,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 15, //left
-    "liney1": 170, //height
-    "linex2": 85,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 180,      // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 170,      // Y position of line 1
+    "lineX2": 85,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "V": {
-    "sizeLine": 45,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 27,
-    "circy1": 100,
-    "circx2": 72,
-    "circy2": 100,
-    "linex1": 5, //left
-    "liney1": 190, //height
-    "linex2": 50,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 45,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 27,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 72,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 50,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "W": {
-    "sizeLine": 40,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 15,
-    "circy1": 20,
-    "circx2": 85,
-    "circy2": 20,
-    "linex1": 10, //left
-    "liney1": 10, //height
-    "linex2": 50,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 40,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 20,       // Y position of circle 2
+    "lineX1": 10,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 50,       // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "X": {
-    "sizeLine": 90,
-    "sizeCirc": 50,
-    "sizeCirc2": 50,
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 5, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 190, // length R
-    "liney3": 190, //length L
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 50,     // size of circle 1
+    "sizeCirc2": 50,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 190,      // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "Y": {
-    "sizeLine": 45,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 50,
-    "circy1": 110,
-    "circx2": 50,
-    "circy2": 180,
-    "linex1": 50, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 100, // length R
-    "liney3": 100, //length L
+    "sizeLine": 45,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 110,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 50,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 100,      // Y position of line 2
+    "lineY3": 100,      // Y position of side 1 of line 1
   },
   "Z": {
-    "sizeLine": 90,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 5, //left
-    "liney1": 100, //height
-    "linex2": 5, // STAYS 0
-    "liney2": 5, // length R
-    "liney3": 185, //length L
+    "sizeLine": 90,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 100,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 190,      // Y position of side 1 of line 1
   },
   "0": {
-    "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 90, 
-    "circx1": 50,
-    "circy1": 100,
-    "circx2": 50,
-    "circy2": 100,
-    "linex1": 45, //left
-    "liney1": 189, //height
-    "linex2": 55,
-    "liney2": 11, // length R
-    "liney3": 11, //
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2 
+    "circX1": 50,       // X position of circle 1
+    "circY1": 100,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 45,       // X position of line 1
+    "lineY1": 189,      // Y position of line 1
+    "lineX2": 55,       // X position of line 2
+    "lineY2": 11,       // Y position of line 2
+    "lineY3": 11,       // Y position of side 1 of line 1
   },
   "1": {
-    "sizeLine": 0,
-    "sizeCirc": 50,
-    "sizeCirc2": 50,
-    "circx1": 40,
-    "circy1": 35,
-    "circx2": 40,
-    "circy2": 35,
-    "linex1": 65, //left
-    "liney1": 190, //height
-    "linex2": 75,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 50,     // size of circle 1
+    "sizeCirc2": 50,    // size of circle 2
+    "circX1": 40,       // X position of circle 1
+    "circY1": 35,       // Y position of circle 1
+    "circX2": 40,       // X position of circle 2
+    "circY2": 35,       // Y position of circle 2
+    "lineX1": 65,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 75,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "2": {
-    "sizeLine": 70,
-    "sizeCirc": 85,
-    "sizeCirc2": 20,
-    "circx1": 50,
-    "circy1": 50,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 5, //left
-    "liney1": 180, //height
-    "linex2": 5, // STAYS 0
-    "liney2": 100, // length R
-    "liney3": 180, //length L
+    "sizeLine": 70,     // size of both lines
+    "sizeCirc": 85,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 50,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 180,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 100,      // Y position of line 2
+    "lineY3": 180,      // Y position of side 1 of line 1
   },
   "3": {
-    "sizeLine": 0,
-    "sizeCirc": 80,
-    "sizeCirc2": 80,
-    "circx1": 45,
-    "circy1": 50,
-    "circx2": 45,
-    "circy2": 150,
-    "linex1": 85, //left
-    "liney1": 190, //height
-    "linex2": 95,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 80,     // size of circle 1
+    "sizeCirc2": 80,    // size of circle 2
+    "circX1": 45,       // X position of circle 1
+    "circY1": 50,       // Y position of circle 1
+    "circX2": 45,       // X position of circle 2
+    "circY2": 150,      // Y position of circle 2
+    "lineX1": 85,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 95,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   },
   "4": {
-    "sizeLine": 74,
-    "sizeCirc": 20,
-    "sizeCirc2": 20,
-    "circx1": 85,
-    "circy1": 20,
-    "circx2": 85,
-    "circy2": 180,
-    "linex1": 5, //left
-    "liney1": 130, //height
-    "linex2": 5,
-    "liney2": 12, // length R
-    "liney3": 130, //length L
+    "sizeLine": 74,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 20,    // size of circle 2
+    "circX1": 85,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 85,       // X position of circle 2
+    "circY2": 180,      // Y position of circle 2
+    "lineX1": 5,        // X position of line 1
+    "lineY1": 130,      // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 12,       // Y position of line 2
+    "lineY3": 130,      // Y position of side 1 of line 1
   },
   "5": {
-    "sizeLine": 0,
-    "sizeCirc": 20,
-    "sizeCirc2": 90,
-    "circx1": 85,
-    "circy1": 20,
-    "circx2": 50,
-    "circy2": 145,
-    "linex1": 15, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 185, // length R
-    "liney3": 60, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2
+    "circX1": 85,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 145,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 145,      // Y position of line 2
+    "lineY3": 60,       // Y position of side 1 of line 1
   },
   "6": {
-    "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 90,
-    "circx1": 50,
-    "circy1": 145,
-    "circx2": 50,
-    "circy2": 145,
-    "linex1": 15, //left
-    "liney1": 10, //height
-    "linex2": 5,
-    "liney2": 145, // length R
-    "liney3": 115, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2
+    "circX1": 50,       // X position of circle 1
+    "circY1": 145,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 145,      // Y position of circle 2
+    "lineX1": 15,       // X position of line 1
+    "lineY1": 10,       // Y position of line 1
+    "lineX2": 5,        // X position of line 2
+    "lineY2": 145,      // Y position of line 2
+    "lineY3": 115,      // Y position of side 1 of line 1
   },
   "7": {
-    "sizeLine": 70,
-    "sizeCirc": 20,
-    "sizeCirc2": 50,
-    "circx1": 15,
-    "circy1": 20,
-    "circx2": 60,
-    "circy2": 100,
-    "linex1": 25, //left
-    "liney1": 20, //height
-    "linex2": 25,
-    "liney2": 20, // length R
-    "liney3": 185, //length L
+    "sizeLine": 70,     // size of both lines
+    "sizeCirc": 20,     // size of circle 1
+    "sizeCirc2": 50,    // size of circle 2
+    "circX1": 15,       // X position of circle 1
+    "circY1": 20,       // Y position of circle 1
+    "circX2": 60,       // X position of circle 2
+    "circY2": 100,      // Y position of circle 2
+    "lineX1": 25,       // X position of line 1
+    "lineY1": 20,       // Y position of line 1
+    "lineX2": 25,       // X position of line 2
+    "lineY2": 20,       // Y position of line 2
+    "lineY3": 185,      // Y position of side 1 of line 1
   },
   "8": {
-   "sizeLine": 0,
-    "sizeCirc": 90,
-    "sizeCirc2": 90, 
-    "circx1": 50,
-    "circy1": 145,
-    "circx2": 50,
-    "circy2": 55,
-    "linex1": 45, //left
-    "liney1": 189, //height
-    "linex2": 55,
-    "liney2": 11, // length R
-    "liney3": 11, //
+   "sizeLine": 0,       // size of both lines
+    "sizeCirc": 90,     // size of circle 1
+    "sizeCirc2": 90,    // size of circle 2 
+    "circX1": 50,       // X position of circle 1
+    "circY1": 145,      // Y position of circle 1
+    "circX2": 50,       // X position of circle 2
+    "circY2": 55,       // Y position of circle 2
+    "lineX1": 45,       // X position of line 1
+    "lineY1": 189,      // Y position of line 1
+    "lineX2": 55,       // X position of line 2
+    "lineY2": 11,       // Y position of line 2
+    "lineY3": 11,       // Y position of side 1 of line 1
   },
   "9": {
-    "sizeLine": 0,
-    "sizeCirc": 80,
-    "sizeCirc2": 80,
-    "circx1": 45,
-    "circy1": 50,
-    "circx2": 45,
-    "circy2": 50,
-    "linex1": 85, //left
-    "liney1": 190, //height
-    "linex2": 95,
-    "liney2": 10, // length R
-    "liney3": 10, //length L
+    "sizeLine": 0,      // size of both lines
+    "sizeCirc": 80,     // size of circle 1
+    "sizeCirc2": 80,    // size of circle 2
+    "circX1": 45,       // X position of circle 1
+    "circY1": 50,       // Y position of circle 1
+    "circX2": 45,       // X position of circle 2
+    "circY2": 50,       // Y position of circle 2
+    "lineX1": 85,       // X position of line 1
+    "lineY1": 190,      // Y position of line 1
+    "lineX2": 95,       // X position of line 2
+    "lineY2": 10,       // Y position of line 2
+    "lineY3": 10,       // Y position of side 1 of line 1
   }
 
 }

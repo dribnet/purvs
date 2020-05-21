@@ -1,5 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
+"BLUSHING" 
+
 **May 16 2020**
 
 I did a sketch with an idea of what I want to go for my letters. 
@@ -71,4 +73,15 @@ I've completed my numbers! Surprisingly, I found these easier to create than the
 
 I have completed all my letters! I did some changed to a few letters as well so that each letter looks more consistent, but I still have a few more letters to tweak and fix. 
 
-After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.thu
+After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.
+
+
+**May 20 2020**
+
+I fixed up letter G for more variation and to make look a tad more realistic. The only problem for G is that it's hard to incorporate lines as it's mainly a circular letter, such as C, O and Q. I also changed up E and created my special character.
+
+My special character is meant to be a "%" character with a twist on it. My aim for this was to make it sort of reversed, so that instead of two circles, there was just one. Also I had two lines instead of one and spaced this out so it wasn't dead set in the middle. Connecting the two shapes also reconstructs the character in an opposite way, as the normal "%" symbol is not connected.
+
+I also fixed up my Z as I noticed it wasn't aligned properly, as well as changing my 5's line to look more connected. 
+
+I tidied up my code a bit! I fixed up the variables so they look better and just spaced things out better.
