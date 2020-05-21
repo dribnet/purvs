@@ -1,3 +1,5 @@
+
+// These are the different colours in the rainbow and rays 
 const colorFont1   = "#9BEDFF"; 
 const colorFont2   = "#DD9BFF"; 
 const colorFont3   = "#BDFF9B";
@@ -5,39 +7,30 @@ const colorFont4   = "#FFE19B";
 const colorFont5   = "#F7347D";
 const colorStroke  = "#233f11";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
-
 function drawLetter(letterData, posx, posy) {
 
   angleMode(DEGREES);
-  // color/stroke setup
   stroke(colorStroke);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  posx =letterData["offsetx"]; 
-  posy = 0 + letterData["offsety"]; 
-  linex1 = 0 + letterData["linex1"]; 
-  linex2 = 0 + letterData["linex2"]; 
-  liney1 = 0 + letterData["liney1"]; 
-  liney2 = 0 + letterData["liney2"]; 
-  numRaysVal = 0 + letterData["numRaysVal"];
-  numRaysVal2 = 0 + letterData["numRaysVal2"];
-  rotateVal = 0 + letterData["rotateVal"];
-  rangeVal = 0 + letterData["rangeVal"];
-  rayAmount = 0 + letterData["rayAmount"];
-  strokeVal = 0 + letterData["strokeVal"];
-  arcStroke = 0 + letterData["arcStroke"];
+  // Parameters that determine characteristics for ray shape
+  let size2 = letterData["size"]; // Did not use this parameter
+  posx =letterData["offsetx"];// X position of each letter
+  posy = 0 + letterData["offsety"]; // Y position of each letter
+  linex1 = 0 + letterData["linex1"]; // X-Coordinate of the first point
+  linex2 = 0 + letterData["linex2"]; // Y-Coordinate of the first point
+  liney1 = 0 + letterData["liney1"]; // X-Coordinate of the second point
+  liney2 = 0 + letterData["liney2"]; // Y-Coordinate of the second point
+  numRaysVal = 0 + letterData["numRaysVal"]; // Pushes the rays all together or moves them further apart
+  numRaysVal2 = 0 + letterData["numRaysVal2"]; // Moves rays around, rotates them differently 
+  rotateVal = 0 + letterData["rotateVal"]; // Determines how far apart rays are from one another, rotates them further 
+  rangeVal = 0 + letterData["rangeVal"]; // Determines the range that the rays are rotating; around the rainbow
+  rayAmount = 0 + letterData["rayAmount"]; // Determines the amount of lines drawn that make up the rays
+  strokeVal = 0 + letterData["strokeVal"]; // Determines the stroke of each line that make up the rays 
+  arcStroke = 0 + letterData["arcStroke"]; // Determines the stroke of the arcs that make up the rainbow
 
 
 
-//draw rainbow
+// Code for drawing the rainbow
 push();
 translate(posx, posy);
 rotate(7);
@@ -54,18 +47,20 @@ rotate(7);
   stroke(colorFont2);
   arc(0, 0, 12, 12, 160, PI + QUARTER_PI, TWO_PI);
 
-//rays
-var colorArray = [colorFont1, colorFont2, colorFont3, colorFont4, colorFont5];
+// Code for drawing the rays
+var colorArray = [colorFont1, colorFont2, colorFont3, colorFont4, colorFont5]; //Using an array to store the different colours
 push();
 let range = rangeVal;
 let numRays = numRaysVal;
 rotate(-(range/2)); 
 
+// For-loop allows each ray to be drawn precisely and evenly
 for (i = 0; i < rayAmount; i ++){ 
-   rotate(rotateVal / numRays - numRaysVal2); 
+// This rotates the lines to be spread in the 'ray' shape
+  rotate(rotateVal / numRays - numRaysVal2); 
   strokeWeight(strokeVal);
-  stroke(colorArray[i % colorArray.length]);
- line(linex1, linex2, liney1, liney2) 
+  stroke(colorArray[i % colorArray.length]); // This allows the code to cycle through the different colours, so each ray is a different colour of the rainbow
+  line(linex1, linex2, liney1, liney2) 
 
 }
 
@@ -94,7 +89,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "RAINBOWS",
-  "KIERAMCK",
-  "ABCD1234"
+  "RAINBOWZ",
+  "KI3R4M6K",
+  "COLOURAY",
+  "DAZZLING"
+
+
 ]

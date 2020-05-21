@@ -23,7 +23,7 @@ const alphabet = {
         "liney2": -60,
         "numRaysVal": 10,
         "numRaysVal2": 1,
-        "rotateVal": 130,
+        "rotateVal": 130, 
         "rangeVal": 140,
         "rayAmount": 10,
         "strokeVal": 5,
