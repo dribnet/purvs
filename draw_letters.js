@@ -20,10 +20,8 @@ function drawLetter(letterData) {
 
   let pos2x = 50 + letterData["offset2x"];
   let pos2y = 100 + letterData["offset2y"];
-
   let pos3x = 50 + letterData["offset3x"];
   let pos3y = 100 + letterData["offset3y"];
-
   let pos4x = 50 + letterData["offset4x"];
   let pos4y = 100 + letterData["offset4y"];
 
@@ -87,8 +85,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
   new_letter["start"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["stop"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  return new_letter;
-
+  //return new_letter;
+  
+  //let new_letter = {};
   //Triangle 1
    new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
@@ -98,7 +97,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offset4y"] = map(percent, 0, 100, oldObj["offset4y"], newObj["offset4y"]);
   new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
   new_letter["stop"]    = map(percent, 0, 100, oldObj["stop"], newObj["stop"]);
-  return new_letter;
+ // return new_letter;
 
   //Triangle 2
   new_letter["offset2x2"] = map(percent, 0, 100, oldObj["offset2x2"], newObj["offset2x2"]);
@@ -109,7 +108,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offset2y4"] = map(percent, 0, 100, oldObj["offset2y4"], newObj["offset2y4"]);
   new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
   new_letter["stop"]    = map(percent, 0, 100, oldObj["stop"], newObj["stop"]);
-  return new_letter;
+  //return new_letter;
 
   //Triangle 3
   new_letter["offset3x2"] = map(percent, 0, 100, oldObj["offset3x2"], newObj["offset3x2"]);
@@ -120,7 +119,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offset3y4"] = map(percent, 0, 100, oldObj["offset3y4"], newObj["offset3y4"]);
   new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
   new_letter["stop"]    = map(percent, 0, 100, oldObj["stop"], newObj["stop"]);
-  return new_letter;
+  //return new_letter;
 
 //quad
   new_letter["offsetx1"] = map(percent, 0, 100, oldObj["offsetx1"], newObj["offsetx1"]);

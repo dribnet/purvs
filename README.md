@@ -1,7 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
-20/5/2020 6:35 pm
+21/5/2020 12:51 pm
 
-Getting these coordinates right took far too much time, but now everything is done in that sense. Later tonight and/or tomorrow I will complete the rest of the work, leaving friday as my check over day.
+I managed to figure out why my interactions between letters weren't showing up, so now my next step is to get the editor running smoothly. 
 
-The maximum number of forms continues to be applied and often, is not needed. 
+Because all of my forms are solid, saturated shapes, the transformation between leters is very metric and organized (which I like). Not sure what else to include in this update, it is merely to show more of the process that is happening.
