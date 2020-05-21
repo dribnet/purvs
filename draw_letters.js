@@ -1,5 +1,5 @@
-const colorLeaf  = "#b75129";
-const colorStroke  = "#a42a21";
+const colorLeaf  = "#753922"; //b75129
+const colorStroke  = "#753922"; //a42a21
 const colorStick = "#753922";
 
 /*
@@ -22,6 +22,10 @@ function drawLetter(letterData) {
   let angle3 = letterData["rotate3"];
   let stickPosx = leaf1Posx + letterData["stickPosx"];
   let stickPosy = leaf1Posy + letterData["stickPosy"];
+  let circlex = leaf1Posx + letterData["circlex"];
+  let circley = leaf1Posy + letterData["circley"];
+  let circlew = letterData["circlew"];
+  let circleh = letterData["circleh"];
   
   fill(colorLeaf);
   stroke(colorStroke);
@@ -32,12 +36,15 @@ function drawLetter(letterData) {
   drawLeaf(0,0);
   pop();
  
-
   push();
   translate(leaf2Posx,leaf2Posy);
   rotate(angle2);
   drawLeaf(0,0);
   pop();
+
+  fill("#d9b07e");
+  noStroke();
+  ellipse(circlex,circley,circlew,circleh);
 
   fill(colorStick);
   stroke(colorStick);

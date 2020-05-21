@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#d9b07e";
 const colorLines   = "#000090";
 
 /*******
@@ -19,7 +19,11 @@ const sliderInfo = [
   ["rotate2", 0, 360], 
   ["rotate3", -90, 90],
   ["stickPosx", -50, 100],
-  ["stickPosy", -150, 50]
+  ["stickPosy", -150, 50],
+  ["circlex", -50, 50],
+  ["circley", -50, 50],
+  ["circlew", 0, 50],
+  ["circleh", 0, 50]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

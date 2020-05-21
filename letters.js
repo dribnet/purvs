@@ -19,7 +19,11 @@ const alphabet = {
     "rotate2": 160, 
     "rotate3": 90,
     "stickPosx": 60,
-    "stickPosy": 25
+    "stickPosy": 25,
+    "circlex": 17,
+    "circley": -8,
+    "circlew": 23,
+    "circleh": 30
   },
   "B": {
     "offsetx": 50,
@@ -30,7 +34,11 @@ const alphabet = {
     "rotate2": 270,
     "rotate3": 0,
     "stickPosx": -35,
-    "stickPosy": -68
+    "stickPosy": -68,
+    "circlex": -9,
+    "circley": -50,
+    "circlew": 30,
+    "circleh": 25
   },
   "C": {
     "offsetx": 50,
@@ -41,7 +49,11 @@ const alphabet = {
     "rotate2": 230,
     "rotate3": 45,
     "stickPosx": 27,
-    "stickPosy": -67
+    "stickPosy": -67,
+    "circlex": 14,
+    "circley": -20,
+    "circlew": 35,
+    "circleh": 25
   },
   "D": {
     "offsetx": 50,
@@ -52,7 +64,11 @@ const alphabet = {
     "rotate2": 290,
     "rotate3": 0,
     "stickPosx": -38,
-    "stickPosy": -62
+    "stickPosy": -62,
+    "circlex": -25,
+    "circley": -20,
+    "circlew": 35,
+    "circleh": 25
   },
   "E": {
     "offsetx": 50,
@@ -63,29 +79,41 @@ const alphabet = {
     "rotate2": 270,
     "rotate3": 90,
     "stickPosx": 40,
-    "stickPosy": -26
+    "stickPosy": -26,
+    "circlex": 15,
+    "circley": -25,
+    "circlew": 45,
+    "circleh": 25
   },
   "F": {
     "offsetx": 26,
     "offsety": 148,
     "leaf2Posx": 25,
-    "leaf2Posy": -45,
+    "leaf2Posy": -35,
     "rotate1": 0,
     "rotate2": 270,
     "rotate3": 90,
     "stickPosx": 70,
-    "stickPosy": 0
+    "stickPosy": 10,
+    "circlex": 25,
+    "circley": -8,
+    "circlew": 30,
+    "circleh": 20
   },
   "G": {
     "offsetx": 50,
-    "offsety": 140,
+    "offsety": 150,
     "leaf2Posx": 0,
     "leaf2Posy": -35,
     "rotate1": -50,
     "rotate2": 230,
-    "rotate3": -15,
-    "stickPosx": 22,
-    "stickPosy": -26
+    "rotate3": -25,
+    "stickPosx": 11,
+    "stickPosy": -32,
+    "circlex": 14,
+    "circley": -18,
+    "circlew": 35,
+    "circleh": 25
   },
   "H": {
     "offsetx": 27,
@@ -96,51 +124,71 @@ const alphabet = {
     "rotate2": 180,
     "rotate3": 90,
     "stickPosx": 65,
-    "stickPosy": 10
+    "stickPosy": 10,
+    "circlex": 22,
+    "circley": 32,
+    "circlew": 15,
+    "circleh": 38
   },
   "I": {
     "offsetx": 50,
     "offsety": 170,
     "leaf2Posx": 0,
-    "leaf2Posy": -65,
-    "rotate1": -90,
+    "leaf2Posy": -60,
+    "rotate1": 90,
     "rotate2": 90,
     "rotate3": 0,
     "stickPosx": 0,
-    "stickPosy": -75
+    "stickPosy": -75,
+    "circlex": 0,
+    "circley": -30,
+    "circlew": 60,
+    "circleh": 30
   },
   "J": {
     "offsetx": 45,
     "offsety": 165,
-    "leaf2Posx": 20,
-    "leaf2Posy": -45,
+    "leaf2Posx": 18,
+    "leaf2Posy": -37,
     "rotate1": 55,
     "rotate2": 175,
     "rotate3": 90,
     "stickPosx": 55,
-    "stickPosy": -90
+    "stickPosy": -80,
+    "circlex": -5,
+    "circley": -25,
+    "circlew": 30,
+    "circleh": 30
   },
   "K": {
-    "offsetx": 50,
+    "offsetx": 55,
     "offsety": 165,
     "leaf2Posx": 0,
     "leaf2Posy": -50,
     "rotate1": -50,
     "rotate2": 230,
     "rotate3": 0,
-    "stickPosx": -45,
-    "stickPosy": -68
+    "stickPosx": -48,
+    "stickPosy": -68,
+    "circlex": 20,
+    "circley": -25,
+    "circlew": 40,
+    "circleh": 30
   },
   "L": {
     "offsetx": 50,
     "offsety": 170,
     "leaf2Posx": -25,
-    "leaf2Posy": -35,
+    "leaf2Posy": -25,
     "rotate1": -90,
     "rotate2": 180,
     "rotate3": 0,
     "stickPosx": -28,
-    "stickPosy": -75
+    "stickPosy": -75,
+    "circlex": 0,
+    "circley": -25,
+    "circlew": 30,
+    "circleh": 25
   },
   "M": {
     "offsetx": 65,
@@ -150,52 +198,72 @@ const alphabet = {
     "rotate1": -20,
     "rotate2": 20,
     "rotate3": 0,
-    "stickPosx": -20,
-    "stickPosy": -40
+    "stickPosx": -16,
+    "stickPosy": -40,
+    "circlex": -15,
+    "circley": 25,
+    "circlew": 25,
+    "circleh": 40
   },
   "N": {
-    "offsetx": 28,
+    "offsetx": 70,
     "offsety": 150,
-    "leaf2Posx": 45,
+    "leaf2Posx": -40,
     "leaf2Posy": 0,
     "rotate1": -180,
     "rotate2": 0,
     "rotate3": -35,
-    "stickPosx": 0,
-    "stickPosy": -34
+    "stickPosx": -50,
+    "stickPosy": -38,
+    "circlex": -18,
+    "circley": -32,
+    "circlew": 20,
+    "circleh": 35
   },
   "O": {
-    "offsetx": 45,
+    "offsetx": 55,
     "offsety": 150,
-    "leaf2Posx": 13,
-    "leaf2Posy": 0,
-    "rotate1": -170,
-    "rotate2": 10,
+    "leaf2Posx": -12,
+    "leaf2Posy": -10,
+    "rotate1": 198,
+    "rotate2": 18,
     "rotate3": 10,
     "stickPosx": 15,
-    "stickPosy": -40
+    "stickPosy": -40,
+    "circlex": -6,
+    "circley": -8,
+    "circlew": 20,
+    "circleh": 30
   },
   "P": {
     "offsetx": 50,
-    "offsety": 135,
+    "offsety": 150,
     "leaf2Posx": 0,
     "leaf2Posy": -35,
     "rotate1": -110,
     "rotate2": 290,
     "rotate3": 0,
-    "stickPosx": -42,
-    "stickPosy": -22
+    "stickPosx": -45,
+    "stickPosy": -35,
+    "circlex": -30,
+    "circley": -15,
+    "circlew": 40,
+    "circleh": 25
   },
   "Q": {
-    "offsetx": 40,
+    "offsetx": 50,
     "offsety": 150,
-    "leaf2Posx": 13,
-    "leaf2Posy": 0,
-    "rotate1": -170,
-    "rotate2": 10,
+    "leaf2Posx": -12,
+    "leaf2Posy": -10,
+    "rotate1": 198,
+    "rotate2": 18,
     "rotate3": -35,
-    "stickPosx": 0,
-    "stickPosy": -20
+    "stickPosx": -10,
+    "stickPosy": -20,
+    "circlex": -6,
+    "circley": -8,
+    "circlew": 20,
+    "circleh": 30
   },
   "R": {
     "offsetx": 27,
@@ -206,29 +274,41 @@ const alphabet = {
     "rotate2": 290,
     "rotate3": -35,
     "stickPosx": 0,
-    "stickPosy": -23
+    "stickPosy": -23,
+    "circlex": 16,
+    "circley": -30,
+    "circlew": 25,
+    "circleh": 20
   },
   "S": {
     "offsetx": 50,
-    "offsety": 105,
+    "offsety": 115,
     "leaf2Posx": 0,
-    "leaf2Posy": 63,
+    "leaf2Posy": 55,
     "rotate1": -90,
     "rotate2": 90,
     "rotate3": -50,
     "stickPosx": -33,
-    "stickPosy": 0
+    "stickPosy": 0,
+    "circlex": 0,
+    "circley": 28,
+    "circlew": 40,
+    "circleh": 35
   },
   "T": {
     "offsetx": 50,
-    "offsety": 105,
+    "offsety": 150,
     "leaf2Posx": 0,
-    "leaf2Posy": 40,
-    "rotate1": -90,
-    "rotate2": 0,
+    "leaf2Posy": -25,
+    "rotate1": 0,
+    "rotate2": -90,
     "rotate3": 0,
     "stickPosx": 0,
-    "stickPosy": -12
+    "stickPosy": -35,
+    "circlex": -35,
+    "circley": -8,
+    "circlew": 25,
+    "circleh": 20
   },
   "U": {
     "offsetx": 35,
@@ -239,7 +319,11 @@ const alphabet = {
     "rotate2": 20,
     "rotate3": 0,
     "stickPosx": 55,
-    "stickPosy": -38
+    "stickPosy": -38,
+    "circlex": 16,
+    "circley": -30,
+    "circlew": 20,
+    "circleh": 30
   },
   "V": {
     "offsetx": 35,
@@ -250,18 +334,26 @@ const alphabet = {
     "rotate2": 20,
     "rotate3": 15,
     "stickPosx": 40,
-    "stickPosy": -42
+    "stickPosy": -42,
+    "circlex": 16,
+    "circley": -30,
+    "circlew": 20,
+    "circleh": 30
   },
   "W": {
-    "offsetx": 65,
+    "offsetx": 35,
     "offsety": 150,
-    "leaf2Posx": -30,
+    "leaf2Posx": 30,
     "leaf2Posy": 0,
-    "rotate1": -150,
-    "rotate2": 150,
+    "rotate1": 150,
+    "rotate2": -150,
     "rotate3": 0,
-    "stickPosx": -11,
-    "stickPosy": -42
+    "stickPosx": 12,
+    "stickPosy": -42,
+    "circlex": 14,
+    "circley": -25,
+    "circlew": 25,
+    "circleh": 40
   },
   "X": {
     "offsetx": 50,
@@ -272,7 +364,11 @@ const alphabet = {
     "rotate2": 140,
     "rotate3": 30,
     "stickPosx": 17,
-    "stickPosy": -38
+    "stickPosy": -38,
+    "circlex": 0,
+    "circley": 38,
+    "circlew": 20,
+    "circleh": 25
   },
   "Y": {
     "offsetx": 68,
@@ -283,29 +379,41 @@ const alphabet = {
     "rotate2": 145,
     "rotate3": 0,
     "stickPosx": -15,
-    "stickPosy": -15
+    "stickPosy": -15,
+    "circlex": -18,
+    "circley": -18,
+    "circlew": 25,
+    "circleh": 35
   },
   "Z": {
     "offsetx": 50,
     "offsety": 170,
     "leaf2Posx": 0,
-    "leaf2Posy": -63,
+    "leaf2Posy": -55,
     "rotate1": -90,
     "rotate2": 90,
     "rotate3": 50,
     "stickPosx": 30,
-    "stickPosy": -58
+    "stickPosy": -58,
+    "circlex": 0,
+    "circley": -28,
+    "circlew": 40,
+    "circleh": 35
   },
   "0": {
-    "offsetx": 40,
+    "offsetx": 55,
     "offsety": 150,
-    "leaf2Posx": 13,
-    "leaf2Posy": 0,
-    "rotate1": -170,
-    "rotate2": 10,
+    "leaf2Posx": -12,
+    "leaf2Posy": -10,
+    "rotate1": 198,
+    "rotate2": 18,
     "rotate3": -15,
-    "stickPosx": -5,
-    "stickPosy": -40
+    "stickPosx": -10,
+    "stickPosy": -40,
+    "circlex": -6,
+    "circley": -8,
+    "circlew": 0,
+    "circleh": 0
   },
   "1": {
     "offsetx": 50,
@@ -316,7 +424,11 @@ const alphabet = {
     "rotate2": 180,
     "rotate3": 0,
     "stickPosx": -3,
-    "stickPosy": -42
+    "stickPosy": -42,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "2": {
     "offsetx": 50,
@@ -327,7 +439,11 @@ const alphabet = {
     "rotate2": 65,
     "rotate3": 45,
     "stickPosx": 32,
-    "stickPosy": -68
+    "stickPosy": -68,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "3": {
     "offsetx": 50,
@@ -338,18 +454,26 @@ const alphabet = {
     "rotate2": 120,
     "rotate3": 90,
     "stickPosx": 40,
-    "stickPosy": -38
+    "stickPosy": -38,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "4": {
     "offsetx": 70,
-    "offsety": 150,
-    "leaf2Posx": -40,
-    "leaf2Posy": -30,
-    "rotate1": 180,
-    "rotate2": 180,
-    "rotate3": 90,
-    "stickPosx": 20,
-    "stickPosy": 4
+    "offsety": 140,
+    "leaf2Posx": -10,
+    "leaf2Posy": -20,
+    "rotate1": -90,
+    "rotate2": 220,
+    "rotate3": 0,
+    "stickPosx": 13,
+    "stickPosy": -28,
+    "circlex": -10,
+    "circley": -13,
+    "circlew": 0,
+    "circleh": 0
   },
   "5": {
     "offsetx": 50,
@@ -360,7 +484,11 @@ const alphabet = {
     "rotate2": -90,
     "rotate3": -60,
     "stickPosx": -48,
-    "stickPosy": -48
+    "stickPosy": -48,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "6": {
     "offsetx": 50,
@@ -371,7 +499,11 @@ const alphabet = {
     "rotate2": -134,
     "rotate3": 63,
     "stickPosx": 38,
-    "stickPosy": -85
+    "stickPosy": -85,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "7": {
     "offsetx": 65,
@@ -382,7 +514,11 @@ const alphabet = {
     "rotate2": 90,
     "rotate3": 10,
     "stickPosx": 7,
-    "stickPosy": -50
+    "stickPosy": -50,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "8": {
     "offsetx": 55,
@@ -393,7 +529,11 @@ const alphabet = {
     "rotate2": 60,
     "rotate3": -45,
     "stickPosx": -33,
-    "stickPosy": -58
+    "stickPosy": -58,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   },
   "9": {
     "offsetx": 50,
@@ -404,7 +544,11 @@ const alphabet = {
     "rotate2": 70,
     "rotate3": 0,
     "stickPosx": 38,
-    "stickPosy": -28
+    "stickPosy": -28,
+    "circlex": 17,
+    "circley": 20,
+    "circlew": 0,
+    "circleh": 0
   }
 
 }
