@@ -16,6 +16,8 @@ const sliderInfo = [
   ["offsety", -100, 100],
   ["start",  0,360],
   ["stop",  0,360],
+  ["rectx",  -30,  30],
+  ["recty", -100, 100]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
