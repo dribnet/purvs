@@ -11,16 +11,16 @@ const colorLines   = "#FFFFFF";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["pos2x", 0,  40],
-  ["pos2y", 0, 70],
-  ["pos3x", 15, 60],
-  ["pos3y", 15, 100],
-  ["pos4x", 0, 60],
-  ["pos4y", 0, 100],
 
- 
 
-  
+  ["offsetx1", -50, 100],
+  ["offsety1", -50, 100],
+  ["offsetx2", -50, 100],
+  ["offsety2", -50, 100],
+  ["offsetx3", -50, 200],
+  ["offsety3", -50, 200],
+  ["offsetx4", -50, 200],
+  ["offsety4", -50, 100],
 ];
 
  
