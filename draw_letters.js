@@ -87,6 +87,8 @@ var swapWords = [
   "ANGUS???",
   "TAPERING",
   "SERRATED",
-  "LUMINOUS"
+  "LUMINOUS",
+  "ABSTRACT",
+  "POWERFUL"
 
 ]

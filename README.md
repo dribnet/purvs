@@ -1,6 +1,21 @@
 ## MDDN 242 2020 Assignment 2
 
-I had afew problems with my last commits where my exhibtion html wouldnt show, all solved now though as I had renamed my exhibition.html index.html instead of actually changing the code manually. So try to ignore the last few commits I did by accident. Anyways.. Afew last minute changes with colours! I though I would go and changed the hard black background to a all white background for the exhibition and the alphabet. I did this because I thought that the black washed the colour out too much and you could see how the stroke points on the triangles would'nt meet nicely with one another. I decided to match the background colour to the stroke so that the edges look really clean and that the white line passing through the triangles would look as though it breaked the two triangles up so they look as though they are seperated. This was a good design decision because the white emphasises the form and shape of the letters without the background becoming distracting.
+My final project was based of my interest in large stained glass windows. I've always been fascinated by the transparency through
+the colours of the glass, this is a concept that I wanted to itterate with my letters. I decided to use the triangle shape and 
+play around with the opacity of the fill to reveal a third colour between the 2 shapes. This created more volume and made 
+my design more dynamic as it emulated the stained glass window effect with the light peering through the glass. Early when
+designing my shapes I had the intention of making my design abstract with the overlay of the shapes and the hard edges of 
+the triangle. Playing around with the positioning was fun and going through trial and error of different colours of the background and
+fill of the shapes was a complementary learning experience. One thing that stays consistant in stained glass windows is that they have 
+white edges to break up the different shapes. This was a design decision that I made later in the project that I think really brought my design 
+to life. With the complementary addition of the white dividing up the triangles and it blending into the background canvas.  
+After countless re designs and adjusting the points of the triangles I finally believe I found a alphabet that best complements my 
+concept and idea. Changing the background to white solidified my decision of my design because it really emphasises the letter 
+characters and fill of the triangles as the black and previous light blue washed out the characters making the characters look dull. 
+With my numbers I decided to not add any oerlay or opacity simply due to confusion and readability. It was important that you can identify
+the letters from the numbers; I made sure that I kept the same colours so that it all looked cohesive. Overall the style is tidy, readible, 
+colourful and exciting! 
+ 
 
 My letter parameters
 
