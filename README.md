@@ -1,20 +1,12 @@
 ## MDDN 242 2020 Assignment 2
 
-18/05/20
+Final Design
 
-Update 6: Testing Json File is working
+For my initial process, I was aiming at creating a more abstract font using shapes and arcs that I hard use as I have been to scared too. I liked the look the triangles gave and the possibility of only using 2 shapes to convey my alphabet. I really wanted to give this a go because I could always add more if I didn't like it. I then found my design looked really similar to others and needed to give it a quirk. I considered my own personal handwriting as letter eligibility is difficult with my dyslexia. I could use this in my abstract alphabet by playing around with the scale, the position of the letter and if they were pointing in different directions as to what they would have been
 
-Update 5: I have decided to call my font Dyslexic. I think this is most suited to my design as you can determine what letters are in an abstract form. As well as creating an abstract form, the letter sizes are not uniform or have all the lines in order, this re iterates my design of being abstract and slightly unreadable like my own personal handwritting
+I also like in my design how I have used the opacity to its full advantage. I initially had it used on pink and purple which created a muddy colour when opacity is used. So using the colour wheel, and using solid primary colours that could create a strong secondary colour. I think this enhanced my design because the colour mix doesn't look off and using the third primary colour as my background allows the 3 other colours to stand out. As part of this as well in my interaction animation, I have made the opacity snap at the end to give more interest as some letters might have little to no adjustments in opacity, It will still snap.
 
-As part of my read me, I have included commonly misspelled works and words that help to reference dyslexia in my exibition part to keep a more coherate look.
-
-Update 4: Today I have been working on my animation between letters, I have found this really helpful is creating some variation between letters in my code, I also like how the opacity spits in at the end, I like it a lot as for some letters there is no variation and others there is a lot so will create a different experience between letters. I am now just working on making the letters appear more like they would in a regular font so switching the I and J height as the J curves under so should be placed lower
-
-Update 3: I needed to do some cleaning up of my code. All of my paremeters are now labelled correctly and making sure I'm commenting where I need to and that its too too confusing for me
-
-Update 2: I am fixing up some of my letters, adding the final flare to them. I have also done a few swapping of colours as I have down this for variation between I and J and N and Z but they look too simiular to the ones next to it. I also find it very satisfing watching the animation to figure out what works well and what doesn't
-
-Today, The editor has since been fixed is very helpful in making my design a little more quirky, I have also added some letters into my exbition. I defenity want to fix my G,2,5 as they work but look similar N,S,Z but that makes sense as they outline the shape of the movement more. I will also play around with my animation cause I think I could have some sharp movements for my red as it doesn't use a opacity which softens it up
+Overall I am very happy with my outcome. I think I have been able to use my own handwriting flare and transfer this into my code. I prefer the design of my final to my design before adding scale, position and different directions as it has given my design a unique personal flare. I have also shown this through the selcted words in my exibition displaying every single letter of my alphabet.
 
 The parameters per letter:
 

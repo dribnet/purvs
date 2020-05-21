@@ -80,14 +80,28 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "DYSLEXIC",
+  "DYSTYPES",
   "LANGUAGE",
   "ASSEMBLY",
-  "EMPLOYEE",
+  "O0!O0!O0",
+  "QUADPLEX",
+  "FIZZING!",
+  "TAXATION",
+  "RACECAR9",
   "DESCRIBE",
   "CALENDAR",
+  "12345678",
+  "VAPORIZE",
+  "HANDWRIT",
   "MISSPELL",
   "ORIGINAL",
-  "TWELFTH",
+  "LITERARY",
+  "JACKPOTS",
+  "KNITWEAR",
+
+
+
+
+
 
 ]
