@@ -61,7 +61,7 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
+  // determine parameters for circles
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offset1x"];
   let pos2y = posy + letterData["offset1y"];
