@@ -3,6 +3,7 @@
  */
 const colorBack    = "#000000";
 const colorLines   = "#FFFFFF";
+const colorFront   = "#FFFFFF";
 
 /*******
  * define this "sliderInfo" variable

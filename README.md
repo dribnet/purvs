@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-21/5/2020 7:20 pm
+22/5/2020 10:45 pm
 
 My parameters are as follows:
 
@@ -28,3 +28,7 @@ I decided to stick with my challenge of having a maximum of 4 shapes. I am think
  After lots of fiddling around, a shape can finally be seen and adjusted with the sliders. This took several hours to figure out, but it now works well enough and my focus will go into finalising the presentation aspects.
 
  I am quite happy with the geometric aesthetic that my alphabet has become, and I find it satisfying watching the words change bit by bit. I may yet tweak some of the designs, but for now I am content with this progress.
+
+ __________________________________________________________
+
+ *Quick check to see if my purview updates work*
