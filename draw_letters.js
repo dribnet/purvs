@@ -5,6 +5,7 @@ const colorShadow = "#D2CBA5";
 const toplineX = 15; //start of each letter (x and y)
 const toplineY = 15;
 const baselineY = 185; //base of the first  stroke of each letter
+const shadowOffset = 10; //offset ofthe shadow fromthe base shapes
 
 
 function drawLetter(letterData) {
@@ -26,18 +27,18 @@ function drawLetter(letterData) {
   //'shadow' shape
   stroke(colorShadow);
   beginShape(); 
-  curveVertex (toplineX+10, toplineY+10);
-  curveVertex (toplineX+10, toplineY+10);
-  curveVertex (toplineX+10, baselineY+10);
-  curveVertex (pointoneX+10, pointoneY+10);
-  curveVertex (pointtwoX+10, pointtwoY+10);
-  curveVertex (pointthreeX+10,pointthreeY+10);
-  curveVertex (pointthreeX+10,pointthreeY+10);
+  curveVertex (toplineX+shadowOffset, toplineY+shadowOffset);
+  curveVertex (toplineX+shadowOffset, toplineY+shadowOffset);
+  curveVertex (toplineX+shadowOffset, baselineY+shadowOffset);
+  curveVertex (pointoneX+shadowOffset, pointoneY+shadowOffset);
+  curveVertex (pointtwoX+shadowOffset, pointtwoY+shadowOffset);
+  curveVertex (pointthreeX+shadowOffset,pointthreeY+shadowOffset);
+  curveVertex (pointthreeX+shadowOffset,pointthreeY+shadowOffset);
   endShape();
-  letterImperfections(pointtwoX+10,pointtwoY+10,-1);
-  letterImperfections(toplineX+10,toplineY+10,-1);
-  letterImperfections(toplineX+10,baselineY+10,-1);
-  
+  //shadow imperfections.
+  letterImperfections(pointtwoX+shadowOffset,pointtwoY+shadowOffset,pointthreeX+shadowOffset,pointthreeY+shadowOffset,-1);
+  letterImperfections(toplineX+shadowOffset,toplineY+shadowOffset,toplineX+shadowOffset,baselineY+shadowOffset,-1);
+
   //colour depending on if it is letter or number
   if (letterData["letterornumber"] > 0){
     stroke(colorLetters);
@@ -54,42 +55,25 @@ function drawLetter(letterData) {
   curveVertex (pointthreeX,pointthreeY);
   curveVertex (pointthreeX,pointthreeY);
   endShape();
-  letterImperfections(toplineX,toplineY,letterornumber);
-  letterImperfections(toplineX,baselineY,letterornumber);
-  letterImperfections(pointtwoX,pointtwoY,letterornumber);
-  letterImperfections(pointthreeX,pointthreeY,letterornumber);
-  //ridges over the letters
-  noFill();
-  ridges(0,105,-20); 
-  
+  //imprefections
+  letterImperfections(toplineX,toplineY,toplineX,baselineY,letterornumber);
+  letterImperfections(pointtwoX,pointtwoY,pointthreeX,pointthreeY,letterornumber)
 }
 
-function ridges(xStart,xEnd,yStart){ //ridges through the letters
-  for (let i = 10; i < 230; i += 10) { //for loop to fill the 100x200 rectangle
-    if (i % 20 === 0) {
-      stroke(colorBackg); //same col as background
-      strokeWeight (3);
-      bezier(xStart, i+yStart, 50, -50+i+yStart, 50, 40+i+yStart, xEnd, i+yStart);
-    }
-  }
-}
-
-function letterImperfections (xValue,yValue,color){
+function letterImperfections (x1Value,y1Value,x2Value,y2Value,color){
  push();
-  //letter or number colour
+  //letter or number or shadow colour
   if (color > 0){ 
-    fill(colorLetters);
+    stroke(colorLetters);
   } else if (color == -1){
-  fill(colorShadow);
+  stroke(colorShadow);
   } else {
-    fill(colorNumbers);
+    stroke(colorNumbers);
   }
-strokeWeight(0);
-ellipse(xValue+3,yValue-8,10);
-ellipse(xValue+4,yValue,17);
-ellipse(xValue,yValue-7,15);
-ellipse(xValue-6,yValue-8,13);
-ellipse(15,115,20);
+strokeWeight(6);
+//lines offset from existing lines
+line(x1Value,y1Value,(x1Value+x2Value)/2-8,(y1Value+y2Value)/2+8);
+line(x1Value,y1Value,(x1Value+x2Value)/2+7,(y1Value+y2Value)/2);
 pop();
 }
 
@@ -107,6 +91,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "DIRTWORM",
-  "OHWORM??",
+  "TOMBTEXT",
   "DEEPDOWN"
 ]

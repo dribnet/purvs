@@ -40,8 +40,8 @@ const alphabet = {
   "pointoneY": 100,
   "pointtwoX": 15,
   "pointtwoY": 15,
-  "pointthreeX": 15,
-  "pointthreeY": 15,
+  "pointthreeX": 100,
+  "pointthreeY": 100,
   "letterornumber":1
 
   },
@@ -68,13 +68,13 @@ const alphabet = {
   "pointoneY": 100,
   "pointtwoX":50,
   "pointtwoY": 100,
-  "pointthreeX":50,
-  "pointthreeY":100,
+  "pointthreeX":75,
+  "pointthreeY":110,
    "letterornumber":1
   },
   "H": {
   "pointoneX": 100,
-  "pointoneY": 200,
+  "pointoneY": 170,
   "pointtwoX":100,
   "pointtwoY": 15,
   "pointthreeX":45,
@@ -87,7 +87,7 @@ const alphabet = {
   "pointtwoX":25,
   "pointtwoY": 20,
   "pointthreeX":25,
-  "pointthreeY": 20,
+  "pointthreeY": 200,
   "letterornumber":1
   },
   "J": {
@@ -186,8 +186,8 @@ const alphabet = {
   "pointoneY": 25,
   "pointtwoX":100,
   "pointtwoY": 20,
-  "pointthreeX":100,
-  "pointthreeY": 20,
+  "pointthreeX":15,
+  "pointthreeY": 25,
   "letterornumber":1
   },
   "U": {
@@ -196,7 +196,7 @@ const alphabet = {
   "pointtwoX":100,
   "pointtwoY": 15,
   "pointthreeX":100,
-  "pointthreeY": 15,
+  "pointthreeY": 200,
   "letterornumber":1
   },
   "V": {
@@ -258,8 +258,8 @@ const alphabet = {
   "pointoneY": 15,
   "pointtwoX":45,
   "pointtwoY": 40,
-  "pointthreeX":45,
-  "pointthreeY":40,
+  "pointthreeX":15,
+  "pointthreeY":15,
   "letterornumber":0
   },
   "2": {
@@ -321,8 +321,8 @@ const alphabet = {
   "pointoneY": 200,
   "pointtwoX": 15,
   "pointtwoY": 75,
-  "pointthreeX":15,
-  "pointthreeY":75,
+  "pointthreeX":50,
+  "pointthreeY":200,
   "letterornumber":0
   },
   "9": {
