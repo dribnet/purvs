@@ -1,5 +1,7 @@
-const colorLine  = "#D3F2FE"; // peach
-const colorStroke  =  "#FCD9E8"; // candy stroke
+
+const colorFill  = "#FCD9E8"; // font fill colour
+const colorStroke  =  "#F0B8DD"; // candy pink stroke
+const colorShadow = "BDDBBE"; // font shadow
 /*
  * Draw the letter given the letterData
  *
@@ -27,15 +29,20 @@ function drawLetter(letterData) {
   let circSize = letterData["circ"];
   let circSize2 = letterData["circ2"];
 
-  // draw circles
+  // determine circ2 x,y positions
+  let circXpos = letterData["circ2X"];
+  let circYpos = letterData["circ2Y"];
+
+  // draw background circle shadow
+  noStroke();
+  fill(189,219,190,145); // darker blue with opacity
+  ellipse(circXpos,circYpos,circSize2,circSize2);
+
+  // draw foreground circle
   strokeWeight(10)
   stroke(colorStroke)
-  fill(colorLine);
+  fill(colorFill);
   ellipse(50,150,circSize,circSize);
-  
-  noStroke();
-  fill(255,255,255,20);
-  ellipse(50, 140, circSize2, circSize2);
   
   // draw line stroke
   strokeWeight(5);
@@ -49,7 +56,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["circ"] = map(percent, 0, 100, oldObj["circ"], newObj["circ"]);
  
-  if(percent<70){
+  if(percent<40){
     new_letter["lineX"] = oldObj["lineX"]; 
     new_letter["lineY"] = oldObj["lineY"];
     new_letter["linex2"] = oldObj["linex2"];
@@ -58,6 +65,13 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lineY1"] =  oldObj["lineY1"];
     new_letter["lineX2"] = oldObj["lineX2"];
     new_letter["lineY2"] =  oldObj["lineY2"];
+    new_letter["lineX3"] = oldObj["lineX3"];
+    new_letter["lineY3"] = oldObj["lineY3"];
+    new_letter["lineX4"] = oldObj["lineX4"];
+    new_letter["lineY4"] = oldObj["lineY4"];
+    new_letter["circ2"] = oldObj["circ2"];
+    new_letter["circ2X"] = oldObj["circ2X"];
+    new_letter["circ2Y"] = oldObj["circ2Y"];
   }
   else{
     new_letter["lineX"] = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
@@ -68,21 +82,21 @@ function interpolate_letter(percent, oldObj, newObj) {
     new_letter["lineY1"] = map(percent, 0, 100, oldObj["lineY1"], newObj["lineY1"]);
     new_letter["lineX2"] = map(percent, 0, 100, oldObj["lineX2"], newObj["lineX2"]);
     new_letter["lineY2"] = map(percent, 0, 100, oldObj["lineY2"], newObj["lineY2"]);
+    new_letter["lineX3"] = map(percent, 0, 100, oldObj["lineX3"], newObj["lineX3"]);
+    new_letter["lineY3"] = map(percent, 0, 100, oldObj["lineY3"], newObj["lineY3"]);
+    new_letter["lineX4"] = map(percent, 0, 100, oldObj["lineX4"], newObj["lineX4"]);
+    new_letter["lineY4"] = map(percent, 0, 100, oldObj["lineY4"], newObj["lineY4"]);
+    new_letter["circ2"] = map(percent, 0, 100, oldObj["circ2"], newObj["circ2"]);
+    new_letter["circ2X"] = map(percent, 0, 100, oldObj["circ2X"], newObj["circ2X"]);
+    new_letter["circ2Y"] = map(percent, 0, 100, oldObj["circ2Y"], newObj["circ2Y"]);
   }
   
-  
-  
-  
-  new_letter["lineX3"] = map(percent, 0, 100, oldObj["lineX3"], newObj["lineX3"]);
-  new_letter["lineY3"] = map(percent, 0, 100, oldObj["lineY3"], newObj["lineY3"]);
-  new_letter["lineX4"] = map(percent, 0, 100, oldObj["lineX4"], newObj["lineX4"]);
-  new_letter["lineY4"] = map(percent, 0, 100, oldObj["lineY4"], newObj["lineY4"]);
   
   return new_letter;
 }
 
 var swapWords = [
-  "EYECANDY", //name of font since it has the colours pof bright cotton candy
+  "EYECANDY", //name of font since it has the colours of bright cotton candy
   "DOUGHNUT",
   "HONEYBUN",
   "LEMONICE",
@@ -102,8 +116,6 @@ var swapWords = [
   "PASTRIES",
   "LICORICE",
   "GUMDROPS",
-  "SOURBALL"
-
-
-
+  "SOURBALL",
+  "12345678"
 ]
