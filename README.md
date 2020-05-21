@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-22/5/2020 11am
+22/5/2020 11:05 am
 
 My parameters are as follows:
 
