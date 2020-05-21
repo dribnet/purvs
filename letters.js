@@ -5,10 +5,10 @@ const alphabet = {
     "circ2": 95, // size of background circle (darkblue)
     "circ2X": 40, // X pos of circle shadow
     "circ2Y": 140, // Y pos of circle shadow
-    "lineX": 98, 
-    "lineY": 150,
-    "linex2": 98,
-    "liney2": 200,
+    "lineX": 98, // x1 pos of line
+    "lineY": 150, // y1 pos of line
+    "linex2": 98, // x2 pos of line
+    "liney2": 200, // y2 pos of line
     "lineX1":98,
     "lineY1":150,
     "lineX2":98,
