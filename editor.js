@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#ffffff";
+const colorBack    = "#ebe7d8";
 const colorLines   = "#000090";
 
 /*******
@@ -11,18 +11,16 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size2",       0, 100],
-  ["X2",  -30,  30],
-  ["Y2", -100, 100],
-  ["start2", -100, 100],
-  ["end2", -100, 100],
-  ["rectX", -10, 0],
-  ["rectY", -60, 0],
-  ["rectH", 160, 0],
-  ["rectW", 60, 0],
-  ["rotate", -20, 0],
+  ["circDiam", 0, 100],
+  ["CircleX",  -30,  30],
+  ["CircleY", -100, 100],
+  ["lineX", -100, 100],
+  ["lineY", -100, 100],
+  ["lineX2", -100, 100],
+  ["lineY2", -100, 100],
   ["flipX" , 220, 0],
-  ["flipY", -140, 0]
+  ["flipY", -140, 0],
+  ["strokeW", 0, 50]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
