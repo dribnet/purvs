@@ -488,19 +488,8 @@ if (percent > 80) {
 size = size - .5
   } else if (percent < 100 && percent > 80) {
     size = size + .5
-
   }
   }
-
-  if ((percent <99) && (colorFront1 = col1)) {
-    colorFront1 = col2
-    colorFront2 = col1
-}
-
-if ((percent > 99) && (colorFront2 = col1)) {
-    colorFront1 = col1
-    colorFront2 = col2
-}
 
   return new_letter;
 }
