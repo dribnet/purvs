@@ -2,7 +2,7 @@ const alphabet = {
   "default": {
     "invface1": 0,
 
-    "cut1face1": 1,
+    "cut1face1": 0,
     "cut2face1": 0,
     "cut3face1": 0,
 
@@ -81,7 +81,7 @@ const alphabet = {
 
     "cut1face1": 2,
     "cut2face1": 5,
-    "cut3face1": 9,
+    "cut3face1": 0,
 
     "invface2": 1,
 
@@ -233,7 +233,7 @@ const alphabet = {
 
     "cut1face1": 2,
     "cut2face1": 5,
-    "cut3face1": 1,
+    "cut3face1": 6,
 
     "invface2": 1,
 
@@ -245,7 +245,7 @@ const alphabet = {
 
     "cut1face3": 9,
     "cut2face3": 6,
-    "cut3face3": 0
+    "cut3face3": 1
   },
   "M": {
     "invface1": 0,
@@ -328,7 +328,7 @@ const alphabet = {
 
     "cut1face1": 2,
     "cut2face1": 5,
-    "cut3face1": 0,
+    "cut3face1": 1,
 
     "invface2": 0,
 
@@ -366,7 +366,7 @@ const alphabet = {
 
     "cut1face1": 4,
     "cut2face1": 5,
-    "cut3face1": 0,
+    "cut3face1": 9,
 
     "invface2": 1,
 
@@ -378,18 +378,18 @@ const alphabet = {
 
     "cut1face3": 5,
     "cut2face3": 4,
-    "cut3face3": 0
+    "cut3face3": 9
   },
   "T": {
     "invface1": 1,
 
     "cut1face1": 5,
     "cut2face1": 8,
-    "cut3face1": 0,
+    "cut3face1": 1,
 
     "invface2": 1,
 
-    "cut1face2": 1,
+    "cut1face2": 0,
     "cut2face2": 0,
     "cut3face2": 0,
 
@@ -499,7 +499,7 @@ const alphabet = {
 
     "cut1face1": 6,
     "cut2face1": 5,
-    "cut3face1": 0,
+    "cut3face1": 3,
 
     "invface2": 1,
 
@@ -511,7 +511,7 @@ const alphabet = {
 
     "cut1face3": 5,
     "cut2face3": 6,
-    "cut3face3": 0
+    "cut3face3": 1
   },
   "0": {
     "invface1": 0,
@@ -556,7 +556,7 @@ const alphabet = {
 
     "cut1face1": 6,
     "cut2face1": 5,
-    "cut3face1": 0,
+    "cut3face1": 3,
 
     "invface2": 1,
 
@@ -575,7 +575,7 @@ const alphabet = {
 
     "cut1face1": 5,
     "cut2face1": 4,
-    "cut3face1": 0,
+    "cut3face1": 3,
 
     "invface2": 1,
 
@@ -587,7 +587,7 @@ const alphabet = {
 
     "cut1face3": 5,
     "cut2face3": 6,
-    "cut3face3": 0
+    "cut3face3": 7
   },
   "4": {
     "invface1": 1,
