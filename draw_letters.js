@@ -6,6 +6,10 @@ let col3 = "#F39B1F"
 let col2 = "#123239"
 let col1 = "#D35627"
 
+let colorFront1 = col1;
+let colorFront2 = col2;
+let colorFront3 = col3;
+
 let size = "50"
 
 function drawLetter(letterData) {
@@ -37,10 +41,6 @@ function drawLetter(letterData) {
   let ysize = -size / 3 * tan(30)
   let yval = -50 / 3 * tan(30)
   let xval = 50 / 3
-  
-  let colorFront1 = col1;
-  let colorFront2 = col2;
-  let colorFront3 = col3;
 
   let check = false;
 
@@ -428,93 +428,90 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
 
-console.log(percent)
 
 
+    
+  
+  
 
   let new_letter = {};
-
-
 if (percent < 20) {
-
   new_letter["invface1"] = oldObj["invface1"]
-
   new_letter["cut1face1"] = oldObj["cut1face1"]
   new_letter["cut2face1"] = oldObj["cut2face1"]
   new_letter["cut3face1"] = oldObj["cut3face1"]
-
   new_letter["invface2"] = oldObj["invface2"]
-
   new_letter["cut1face2"] = oldObj["cut1face2"]
   new_letter["cut2face2"] = oldObj["cut2face2"]
   new_letter["cut3face2"] = oldObj["cut3face2"]
-
   new_letter["invface3"] = oldObj["invface3"]
-
   new_letter["cut1face3"] = oldObj["cut1face3"]
   new_letter["cut2face3"] = oldObj["cut2face3"]
   new_letter["cut3face3"] = oldObj["cut3face3"]
-
 } else {
-
-  new_letter["invface1"] = map(percent, 0, 100, oldObj["invface1"], newObj["invface1"]);
+  new_letter["invface1"] = newObj["invface1"];
 
   new_letter["cut1face1"] = map(percent, 0, 100, oldObj["cut1face1"], newObj["cut1face1"]);
   new_letter["cut2face1"] = map(percent, 0, 100, oldObj["cut2face1"], newObj["cut2face1"]);
   new_letter["cut3face1"] = map(percent, 0, 100, oldObj["cut3face1"], newObj["cut3face1"]);
 
-  new_letter["invface2"] = map(percent, 0, 100, oldObj["invface2"], newObj["invface2"]);
+  new_letter["invface2"] = newObj["invface2"];
 
   new_letter["cut1face2"] = map(percent, 0, 100, oldObj["cut1face2"], newObj["cut1face2"]);
   new_letter["cut2face2"] = map(percent, 0, 100, oldObj["cut2face2"], newObj["cut2face2"]);
   new_letter["cut3face2"] = map(percent, 0, 100, oldObj["cut3face2"], newObj["cut3face2"]);
 
-  new_letter["invface3"] = map(percent, 0, 100, oldObj["invface3"], newObj["invface3"]);
+  new_letter["invface3"] = newObj["invface3"];
 
   new_letter["cut1face3"] = map(percent, 0, 100, oldObj["cut1face3"], newObj["cut1face3"]);
   new_letter["cut2face3"] = map(percent, 0, 100, oldObj["cut2face3"], newObj["cut2face3"]);
   new_letter["cut3face3"] = map(percent, 0, 100, oldObj["cut3face3"], newObj["cut3face3"]);
-
 }
-
 if (percent > 80) {
-
   new_letter["invface1"] = newObj["invface1"]
 
   new_letter["cut1face1"] = newObj["cut1face1"]
   new_letter["cut2face1"] = newObj["cut2face1"]
   new_letter["cut3face1"] = newObj["cut3face1"]
-
   new_letter["invface2"] = newObj["invface2"]
-
   new_letter["cut1face2"] = newObj["cut1face2"]
   new_letter["cut2face2"] = newObj["cut2face2"]
   new_letter["cut3face2"] = newObj["cut3face2"]
-
   new_letter["invface3"] = newObj["invface3"]
-
   new_letter["cut1face3"] = newObj["cut1face3"]
   new_letter["cut2face3"] = newObj["cut2face3"]
   new_letter["cut3face3"] = newObj["cut3face3"]
-
 }
-
   if (percent == 100) {
-
   } else {
   if (percent < 20 && percent > 0) {
 size = size - .5
   } else if (percent < 100 && percent > 80) {
     size = size + .5
+
   }
-  
   }
+
+  if ((percent <99) && (colorFront1 = col1)) {
+    colorFront1 = col2
+    colorFront2 = col1
+}
+
+if ((percent > 99) && (colorFront2 = col1)) {
+    colorFront1 = col1
+    colorFront2 = col2
+}
 
   return new_letter;
 }
 
 var swapWords = [
+  "CAMPFIRE",
   "TORTOISE",
-  "YEET",
-  "BAAAAAAA"
+  "CAFFIENE",
+  "JUNCTION",
+  "NEGATIVE",
+  "DIVISION",
+
+
 ]
