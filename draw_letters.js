@@ -1,5 +1,5 @@
-const colorLeaf  = "#753922"; //b75129
-const colorStroke  = "#753922"; //a42a21
+const colorLeaf  = "#b75129";
+const colorStroke  = "#a42a21";
 const colorStick = "#753922";
 
 /*
@@ -42,7 +42,7 @@ function drawLetter(letterData) {
   drawLeaf(0,0);
   pop();
 
-  fill("#d9b07e");
+  fill("#d9b07e"); //same colour as background
   noStroke();
   ellipse(circlex,circley,circlew,circleh);
 
@@ -60,20 +60,26 @@ function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["leaf2Posx"]    = map(percent, 0, 100, oldObj["leaf2Posx"], newObj["leaf2Posx"]);
-  new_letter["leaf2Posy"]    = map(percent, 0, 100, oldObj["leaf2Posy"], newObj["leaf2Posy"]);
-  new_letter["rotate1"]    = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
-  new_letter["rotate2"]    = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
-  new_letter["rotate3"]    = map(percent, 0, 100, oldObj["rotate3"], newObj["rotate3"]);
-  new_letter["stickPosx"]    = map(percent, 0, 100, oldObj["stickPosx"], newObj["stickPosx"]);
-  new_letter["stickPosy"]    = map(percent, 0, 100, oldObj["stickPosy"], newObj["stickPosy"]);
+  new_letter["leaf2Posx"] = map(percent, 0, 100, oldObj["leaf2Posx"], newObj["leaf2Posx"]);
+  new_letter["leaf2Posy"] = map(percent, 0, 100, oldObj["leaf2Posy"], newObj["leaf2Posy"]);
+  new_letter["rotate1"] = map(percent, 0, 100, oldObj["rotate1"], newObj["rotate1"]);
+  new_letter["rotate2"] = map(percent, 0, 100, oldObj["rotate2"], newObj["rotate2"]);
+  new_letter["rotate3"] = map(percent, 0, 100, oldObj["rotate3"], newObj["rotate3"]);
+  new_letter["stickPosx"] = map(percent, 0, 100, oldObj["stickPosx"], newObj["stickPosx"]);
+  new_letter["stickPosy"] = map(percent, 0, 100, oldObj["stickPosy"], newObj["stickPosy"]);
+  new_letter["circlex"] = map(percent, 0, 100, oldObj["circlex"], newObj["circlex"]);
+  new_letter["circley"] = map(percent, 0, 100, oldObj["circley"], newObj["circley"]);
+  new_letter["circlew"] = map(percent, 0, 100, oldObj["circlew"], newObj["circlew"]);
+  new_letter["circleh"] = map(percent, 0, 100, oldObj["circleh"], newObj["circleh"]);
   return new_letter;
 }
 
 var swapWords = [
   "AUTUMNAL",
-  "GAPPYGAY",
-  "BAAAAAAA"
+  "SEASONAL",
+  "?NATURE?",
+  "OUTDOORS",
+  "?CRISPY?"
 ]
 
 function drawLeaf(x,y){
