@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-22/5/2020 10:54 pm
+22/5/2020 11am
 
 My parameters are as follows:
 
@@ -22,13 +22,10 @@ pos2x2, pos2y2, pos2x3, pos2y3, pos2x4, pos2y4);
 I decided to stick with my challenge of having a maximum of 4 shapes. I am thinking of dropping one of the triangles to fit the brief, but I am simply glad I have something to show at this point.
 
 
+______________________________________________________
 
- --THE EDITOR IS WORKING!--
+I decided that it's better I have something to show as opposed to nothing, so I am now choosing to stop and submit whilst I have code working. 
 
- After lots of fiddling around, a shape can finally be seen and adjusted with the sliders. This took several hours to figure out, but it now works well enough and my focus will go into finalising the presentation aspects.
+This too far too much time to get working, so I am satisfied enough with how everything turned out in current situations. I would've liked to go with something more complex and aesthetically pleasing, but there simply wasn't enough time to create something incredible and working, fitting the brief completely, and that I would be satisfied with.
 
- I am quite happy with the geometric aesthetic that my alphabet has become, and I find it satisfying watching the words change bit by bit. I may yet tweak some of the designs, but for now I am content with this progress.
-
- __________________________________________________________
-
- *Quick check to see if my purview updates work*
+I am hoping that what I have here is enough to get me to pass this assignment, but time will obviously tell. At the very least, I think my choice of colour is clear and consise. The letters are readible enough, and they flow nicely between eachother.
