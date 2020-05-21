@@ -1,15 +1,7 @@
 ## MDDN 242 2020 Assignment 2
-EXHIBITION WORDS
+POLSIHING UP
 
-I have chosen the words that I want to display in the exhibition. I am liking how it's looking so far. Before I finish up I might go back and change a few letters just to polish them up. The words I have chosen are:
-
-NEOTERIC - Name of my font which means modern in Latin.
-ABSTRACT - Since the font doesn't fully resemble the letters clearly it has an abstract twist on it. 
-CHEERFUL - Since I wanted this font to be playful, makes you happy when you look at it.
-ARTISTIC - Creative letterforms
-POWERFUL - Bold letters that are powerful and stand out.
-POSITIVE - Bight happy font.
-THIRTEEN - The number of parameters in my font.
+Before finishing up I went through and cleaned up my code, polished some of my letters like the E and S. I'm now ready to edit the purview.json
 
 The thirteen parameters per letter:
   * `rectX` : x location of the rectangle
