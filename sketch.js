@@ -2,6 +2,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 const colour_LightSquare = "#ededed";
 const colorBack    = "#1f1f1f";
+const colorLines   = "#000090";
 
 const letterA = {
 
@@ -15,9 +16,9 @@ const letterA = {
   "Size1":40,
   "Size2":30,
   "xpos1":25,
-  "ypos1":100,
+  "ypos1":25,
   "xpos2":75,
-  "ypos2":107,
+  "ypos2":32,
 }
 
 const letterB = {
@@ -32,9 +33,9 @@ const letterB = {
   "Size1":20,
   "Size2":20,
   "xpos1":25,
-  "ypos1":90,
+  "ypos1":15,
   "xpos2":75,
-  "ypos2":110,
+  "ypos2":35,
 }
 
 const letterC = {
@@ -49,9 +50,9 @@ const letterC = {
   "Size1":40,
   "Size2":40,
   "xpos1":25,
-  "ypos1":100,
+  "ypos1":25,
   "xpos2":75,
-  "ypos2":100,
+  "ypos2":25,
 }
 
 function setup () {
@@ -78,9 +79,14 @@ function drawLetter(posx, posy, letterData) {
   let arc3Start = letterData["arc3Start"];
   let arc3Finish = letterData["arc3Finish"];
   let arc3opacity = letterData["arc3opacity"]
+
+
+  push ();
+  translate (posx-50, posy-50);
+
  //white square
   fill (colour_LightSquare);
-  rect (0, 75, 100, 50, 10);
+  rect (0, 0, 100, 50, 10);
 // circles
   noFill ();
   strokeCap (SQUARE);
@@ -95,6 +101,7 @@ function drawLetter(posx, posy, letterData) {
   strokeWeight(arc3opacity);
   arc(xpos1, ypos1, Size1, Size1, arc3Start , arc3Finish);
 
+pop();
 }
 
 function draw () {

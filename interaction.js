@@ -1,4 +1,5 @@
 const colorBack    = "#1f1f1f";
+const colorLines   = "#000090";
 
 const canvasWidth = 960;
 const canvasHeight = 500;

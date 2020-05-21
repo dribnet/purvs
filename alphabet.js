@@ -2,7 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#1f1f1f";
-
+const colorLines   = "#000090";
 /* 
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js

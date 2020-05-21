@@ -2,6 +2,7 @@
  * Here are some things you can edit
  */
 const colorBack    = "#1f1f1f";
+const colorLines   = "#000090";
 
 
 /*******
