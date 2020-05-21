@@ -22,11 +22,11 @@ function drawLetter(letterData) {
 
 //variables 
 let circDiam = letterData["circDiam"];
-let CircleX = 50 + letterData["CircleX"];
-let CircleY = 100 + letterData["CircleY"];
+let CircleX = letterData["CircleX"];
+let CircleY = letterData["CircleY"];
 
-let lineX = 50 + letterData["lineX"];
-let lineY = 100 + letterData["lineY"];
+let lineX = letterData["lineX"];
+let lineY = letterData["lineY"];
 let lineX2 = letterData["lineX2"];
 let lineY2 = letterData["lineY2"];
 
