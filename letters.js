@@ -1,8 +1,21 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "lpV1":0,
+    "lpV2":200,
+    "lpV3":100,
+
+    "lpV1st":100,
+    "lpV2st":100,
+
+    "lpH1":0,
+    "lpH2":200,
+    "lpH3":100,
+
+    "lpH1st":0,
+    "lpH2st":0,
+    "mid":20,
+
+    "space":10
   },
   "A": {
 
@@ -44,10 +57,10 @@ const alphabet = {
   },
   "C": {
     "lpV1":0,
-    "lpV2":100,
-    "lpV3":100,
+    "lpV2":150,
+    "lpV3":200,
 
-    "lpH1":0,
+    "lpH1":100,
     "lpH2":100,
     "lpH3":0,
 
@@ -120,7 +133,7 @@ const alphabet = {
     "lpV2":100,
     "lpV3":200,
 
-    "lpH1":0,
+    "lpH1":100,
     "lpH2":100,
     "lpH3":0,
 
@@ -135,9 +148,9 @@ const alphabet = {
    
   },
   "H": {
-    "lpV1":100,
+    "lpV1":0,
     "lpV2":100,
-    "lpV3":0,
+    "lpV3":100,
 
     "lpH1":0,
     "lpH2":100,
@@ -154,9 +167,9 @@ const alphabet = {
     
   },
   "I": {
-    "lpV1":100,
+    "lpV1":0,
     "lpV2":100,
-    "lpV3":0,
+    "lpV3":100,
 
     "lpH1":0,
     "lpH2":100,
@@ -172,16 +185,16 @@ const alphabet = {
     "space":10
   },
   "J": {
-    "lpV1":100,
-    "lpV2":100,
+    "lpV1":0,
+    "lpV2":150,
     "lpV3":200,
 
-    "lpH1":0,
-    "lpH2":100,
-    "lpH3":0,
+    "lpH1":50,
+    "lpH2":200,
+    "lpH3":100,
 
-    "lpV1st":180,
-    "lpV2st":200,
+    "lpV1st":100,
+    "lpV2st":100,
 
     "lpH1st":0,
     "lpH2st":0,
@@ -498,7 +511,8 @@ const alphabet = {
     "lpH1st":0,
     "lpH2st":0,
 
-     "mid":20,
+     "space":10,
+     "mid":20
   },
   "1": {
     "lpV1":0,
@@ -519,7 +533,7 @@ const alphabet = {
     "space":10
   },
   "2": {
-    "lpV1":0,
+    "lpV1":100,
     "lpV2":100,
     "lpV3":200,
 
@@ -628,21 +642,21 @@ const alphabet = {
     "space":5
   },
   "8": {
-    "lpV1":100,
+    "lpV1":0,
     "lpV2":100,
-    "lpV3":200,
+    "lpV3":100,
 
-    "lpH1":100,
-    "lpH2":200,
+    "lpH1":0,
+    "lpH2":100,
     "lpH3":0,
-
-    "lpV1st":100,
-    "lpV2st":100,
-
+  
     "lpH1st":0,
-    "lpH2st":0,
+    "lpH2st":100,
 
+    "lpV1st":140,
+    "lpV2st":160,
     "mid":20,
+
     "space":10
   },
   "9": {
