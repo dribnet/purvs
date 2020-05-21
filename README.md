@@ -20,4 +20,4 @@ The ten parameters per letter:
 
 
 FINAL:
-Overall I am quite happy with how my alphabet turned out. It was really hard to create a design that looked polished while still using not many paramaters. I think my design took awhile to straighten out in that sense. I love the way the interpolate letters works, and think my favourite letters are B, Q and 4. I think some letters could have used some more parameters, but i wanted to limit myself as much as possible. 
+Overall I am quite happy with how my alphabet turned out. It was really hard to create a design that looked polished while still using not many paramaters. I think my design took awhile to straighten out in that sense. I love the way the interpolate letters works, and think my favourite letters are B, Q and 4. I think some letters could have used some more parameters, but i wanted to limit myself as much as possible.
