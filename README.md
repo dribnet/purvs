@@ -5,6 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-Tweaks and cleaning
+Final colour change
 
-Various size tweaks and refinements (most notably avoiding M and W overlapping, and shrinking E, F, and 3 to match). Patched the arc start variables out entirely.
+Wanted it to pop a little more, without being too harsh on the eyes..

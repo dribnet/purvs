@@ -1,9 +1,9 @@
-const red1 = 230;
-const green1 = 30;
-const blue1 = 20;
-const red2 = 20;
-const green2 = 90;
-const blue2 = 110;
+const red1 = 239;
+const green1 = 12;
+const blue1 = 0;
+const red2 = 0;
+const green2 = 53;
+const blue2 = 95;
 
 /*
  * Draw the letter given the letterData
@@ -32,7 +32,7 @@ function drawLetter(letterData) {
   noStroke();
 
  push();
-  fill(red1, green1, blue1, 150);
+  fill(red1, green1, blue1, 160);
   translate(50 + arcX1, 100 + arcY1);
   rotate(rot1);
   arc(0, 0, arcSize1, arcSize1, 0, arcStop1);
