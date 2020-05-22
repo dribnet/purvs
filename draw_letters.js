@@ -14,28 +14,39 @@ const blue2 = 110;
  */
 function drawLetter(letterData) {
   // determine parameters
-  let arcX1 = 50 + letterData["x1"];
-  let arcY1 = 100 + letterData["y1"];
+  let arcX1 = letterData["x1"];
+  let arcY1 = letterData["y1"];
   let arcSize1 = letterData["s1"];
   let arcStart1 = letterData["start1"];
   let arcStop1 = letterData["stop1"];
+  let rot1 = letterData["rot1"];
 
-  let arcX2 = 50 + letterData["x2"];
-  let arcY2 = 100 + letterData["y2"];
+  let arcX2 = letterData["x2"];
+  let arcY2 = letterData["y2"];
   let arcSize2 = letterData["s2"];
   let arcStart2 = letterData["start2"];
   let arcStop2 = letterData["stop2"];
+  let rot2 = letterData["rot2"];
 
   // draw arcs
+  push();
   angleMode(DEGREES);
   noStroke();
 
+ push();
   fill(red1, green1, blue1, 150);
-  arc(arcX1, arcY1, arcSize1, arcSize1, arcStart1, arcStop1);
+  translate(50 + arcX1, 100 + arcY1);
+  rotate(rot1);
+  arc(0, 0, arcSize1, arcSize1, arcStart1, arcStop1);
+pop();
 
-
+push();
   fill(red2, green2, blue2, 150);
-  arc(arcX2, arcY2, arcSize2, arcSize2, arcStart2, arcStop2);
+  translate(50 + arcX2, 100 + arcY2);
+  rotate(rot2);
+  arc(0, 0, arcSize2, arcSize2, arcStart2, arcStop2);
+pop();
+pop();
 
 }
 
@@ -46,16 +57,18 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["s1"] = map(percent, 0, 100, oldObj["s1"], newObj["s1"]);
   new_letter["start1"]    = map(percent, 0, 100, oldObj["start1"], newObj["start1"]);
   new_letter["stop1"]    = map(percent, 0, 100, oldObj["stop1"], newObj["stop1"]);
+  new_letter["rot1"]    = map(percent, 0, 100, oldObj["rot1"], newObj["rot1"]);
   new_letter["x2"]    = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
   new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
   new_letter["s2"]    = map(percent, 0, 100, oldObj["s2"], newObj["s2"]);
   new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
   new_letter["stop2"]    = map(percent, 0, 100, oldObj["stop2"], newObj["stop2"]);
+  new_letter["rot2"]    = map(percent, 0, 100, oldObj["rot2"], newObj["rot2"]);
   return new_letter;
 }
 
 var swapWords = [
-  "JAMIELUM",
-  "3wem3wem",
-  "BAAAAAAA"
+  "OVERLAYS",
+  "3WEM3WEM",
+  "ROUNDEST"
 ]

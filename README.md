@@ -5,8 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-Various refinements
+Colour tweak
 
-Made small refinements to a few letters. Tried adding an extra arc which drew at the same position and size as one of the others, but with a different start and end point (Which I should have probably bushed before binning..oops), in order to make leters like Q and R easier. It looked awful though, so I axed it pretty quickly.
-
-note: This is a re-push of this commit with correct images.
+Backgrounds of marked sections now match.
