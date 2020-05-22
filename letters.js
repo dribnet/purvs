@@ -10,15 +10,6 @@ const alphabet = {
   "stroke1Small": 1.5,    // Range 0 - 10
   "stroke1Big": 1.3    // Range  0 - 10
   },
-  // "offset1Smallx": ,
-  // "offset1Smally": ,
-  // "offset2Smallx": ,
-  // "offset2Smally": ,
-  // "rotate1S": ,
-  // "rotate2S": ,
-  // "rotate1B": ,
-  // "stroke1Small": ,
-  // "stroke1Big": 
   "A": {
   "offset1Smallx": 50,    // Range 0 - 100
   "offset1Smally": 124.5,    // Range 0 - 200
@@ -64,34 +55,34 @@ const alphabet = {
   "stroke1Big": 1.3
   },
   "E": {
-  "offset1Smallx": 30,
-  "offset1Smally": 85,
-  "offset2Smallx": 30,
-  "offset2Smally": 118,
-  "rotate1S": 238,
-  "rotate2S": 302,
+  "offset1Smallx": 38,
+  "offset1Smally": 133,
+  "offset2Smallx": 38,
+  "offset2Smally": 67,
+  "rotate1S": 180,
+  "rotate2S": 0,
   "rotate1B": 90,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3
   },
   "F": {
-  "offset1Smallx": 35,
-  "offset1Smally": 53,
-  "offset2Smallx": 26,
-  "offset2Smally": 112,
-  "rotate1S": 360,
-  "rotate2S": 310,
+  "offset1Smallx": 25,
+  "offset1Smally": 116,
+  "offset2Smallx": 38,
+  "offset2Smally": 62,
+  "rotate1S": 328,
+  "rotate2S": 0,
   "rotate1B": 90,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3
   },
   "G": {
-  "offset1Smallx": 56,
-  "offset1Smally": 114,
-  "offset2Smallx": 70,
-  "offset2Smally": 130,
+  "offset1Smallx": 47,
+  "offset1Smally": 113,
+  "offset2Smallx": 71,
+  "offset2Smally": 105,
   "rotate1S": 0,
-  "rotate2S": 180,
+  "rotate2S": 0,
   "rotate1B": 0,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3
@@ -108,12 +99,12 @@ const alphabet = {
   "stroke1Big": 1.3
   },
   "I": {
-  "offset1Smallx": 20,
-  "offset1Smally": 84,
-  "offset2Smallx": 80,
-  "offset2Smally": 84,
-  "rotate1S": 270,
-  "rotate2S": 90,
+  "offset1Smallx": 40,
+  "offset1Smally": 69,
+  "offset2Smallx": 60,
+  "offset2Smally": 69,
+  "rotate1S": 32,
+  "rotate2S": 330,
   "rotate1B": 180,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3
@@ -174,13 +165,13 @@ const alphabet = {
   "stroke1Big": 1.3
   },
   "O": {
-  "offset1Smallx": 38,
-  "offset1Smally": 102,
-  "offset2Smallx": 38,
-  "offset2Smally": 102,
-  "rotate1S": 76,
-  "rotate2S": 76,
-  "rotate1B": 76,
+  "offset1Smallx": 50,
+  "offset1Smally": 88,
+  "offset2Smallx": 50,
+  "offset2Smally": 88,
+  "rotate1S": 180,
+  "rotate2S": 180,
+  "rotate1B": 180,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3
   },
@@ -295,12 +286,12 @@ const alphabet = {
   "stroke1Big": 1.3
   },
   "Z": {
-  "offset1Smallx": 75,
-  "offset1Smally": 90,
-  "offset2Smallx": 32,
-  "offset2Smally": 79,
-  "rotate1S": 180,
-  "rotate2S": 90,
+  "offset1Smallx": 27,
+  "offset1Smally": 67,
+  "offset2Smallx": 72,
+  "offset2Smally": 90,
+  "rotate1S": 360,
+  "rotate2S": 180,
   "rotate1B": 180,
   "stroke1Small": 1.5,
   "stroke1Big": 1.3

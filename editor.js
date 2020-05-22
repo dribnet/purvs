@@ -1,15 +1,10 @@
 /*
- * Here are some things you can edit
+ * things you can edit
  */
-const colorBack    = "#2bad4e";
+const colorBack    = "#72cab1";
 const colorLines   = "#000090";
 
-/*******
- * define this "sliderInfo" variable
- * have an entry for each slider you want
- * and each row should be:
- * ["object_field", minimum_bound, maximum_bound]
- */
+// ["object_field", minimum_bound, maximum_bound]
 const sliderInfo = [
   ["offset1Smallx",   25, 75],
   ["offset1Smally",  12.5,  187.5],
@@ -21,16 +16,6 @@ const sliderInfo = [
   ["stroke1Small", 0, 10],
   ["stroke1Big", 0, 10]
 ];
-
-  // "offset1Smallx": 0,    // Range 0 - 100
-  // "offset1Smally": 35,    // Range 0 - 200
-  // "offset2Smallx": 0,    // Range 0 - 100
-  // "offset2Smally": 35,    // Range 0 - 200
-  // "rotate1S": 1,    // Range 0 - 360
-  // "rotate2S": 1,    // Range 0 - 360
-  // "rotate1B": 1,    // Range 0 - 360
-  // "stroke1Small": 1,    // Range 0 - 10
-  // "stroke1Big": 5    // Range  0 - 10
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;
