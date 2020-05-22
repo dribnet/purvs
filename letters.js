@@ -1,9 +1,6 @@
 const alphabet = {
   "default": {
-  "sizerectx": 20,
   "sizerecty": 200,
-
-  "offsetrectx": 40,
   "offsetrecty": 0,
   "trianglePoint1ax": 0, //small
   "trianglePoint1ay": 100,
@@ -25,10 +22,7 @@ const alphabet = {
   "trianglePoint3cy": 150
   },
   "A": {
-  "sizerectx": 20,
   "sizerecty": 100,
-
-  "offsetrectx": 37,
   "offsetrecty": 100,
   "trianglePoint1ax": 68, //small
   "trianglePoint1ay": 230,
@@ -51,9 +45,8 @@ const alphabet = {
   },
   "B": {
 
-    "sizerectx": 20,
+
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax": 100, //top
   "trianglePoint1ay": 250,
@@ -75,10 +68,8 @@ const alphabet = {
   "trianglePoint3cy": 150
   },
   "C": {
-   "sizerectx": 20,
-   "sizerecty": 100,
 
-  "offsetrectx":0,
+   "sizerecty": 100,
   "offsetrecty": 100,
     "trianglePoint1ax": 50,
   "trianglePoint1ay":250,
@@ -100,9 +91,8 @@ const alphabet = {
   "trianglePoint3cy": 150
   },
   "D": {
-    "sizerectx": 20,
+
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 0,
   "trianglePoint1ay": 150,
@@ -124,9 +114,8 @@ const alphabet = {
   "trianglePoint3cy": 150
   },
   "E": {
-     "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 0,
   "offsetrecty": 100,
     "trianglePoint1ax": 0,
   "trianglePoint1ay": 220,
@@ -148,9 +137,8 @@ const alphabet = {
   "trianglePoint3cy": 120
   },
   "F": {
-    "sizerectx": 20,
+
    "sizerecty": 200,
-  "offsetrectx": 25,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 100,
@@ -172,9 +160,8 @@ const alphabet = {
   "trianglePoint3cy": 0  
   },
   "G": {
-     "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //bottom
   "trianglePoint1ay": 200,
@@ -196,9 +183,8 @@ const alphabet = {
   "trianglePoint3cy": 30
   },
   "H": {
-         "sizerectx": 20,
+      
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax": 50, //bottom
   "trianglePoint1ay": 250,
@@ -220,9 +206,8 @@ const alphabet = {
   "trianglePoint3cy": 120 
   },
   "I": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 50,
   "offsetrecty":100,
     "trianglePoint1ax": 60, //top
   "trianglePoint1ay": 110,
@@ -244,9 +229,8 @@ const alphabet = {
   "trianglePoint3cy": 150
   },
   "J": {
-     "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //bottom
   "trianglePoint1ay": 200,
@@ -268,9 +252,8 @@ const alphabet = {
   "trianglePoint3cy": -50
   },
   "K": {
-    "sizerectx": 20,
+
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 150,
@@ -292,9 +275,8 @@ const alphabet = {
   "trianglePoint3cy": 150  
   },
   "L": {
-     "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //bottom
   "trianglePoint1ay": 200,
@@ -316,9 +298,8 @@ const alphabet = {
   "trianglePoint3cy": -50
   },
   "M": {
-         "sizerectx": 20,
+      
    "sizerecty": 100,
-  "offsetrectx": 0,
   "offsetrecty": 100,
     "trianglePoint1ax": 70, //bottom
   "trianglePoint1ay": 250,
@@ -340,9 +321,8 @@ const alphabet = {
   "trianglePoint3cy": 150 
   },
   "N": {
-    "sizerectx": 20,
+
    "sizerecty": 100,
-  "offsetrectx": 0,
   "offsetrecty": 100,
     "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 150,
@@ -364,9 +344,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "O": {
-    "sizerectx": 20,
+
    "sizerecty": 100,
-  "offsetrectx": 80,
   "offsetrecty": 100,
     "trianglePoint1ax": 10, //top
   "trianglePoint1ay": 150,
@@ -388,9 +367,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "P": {
-     "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //bottom
   "trianglePoint1ay": 100,
@@ -412,15 +390,14 @@ const alphabet = {
   "trianglePoint3cy": 0
   },
   "Q": {
-     "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 50,
   "offsetrecty": 0,
-    "trianglePoint1ax": 70, //bottom
+    "trianglePoint1ax": 50, //bottom
   "trianglePoint1ay": 200,
-    "trianglePoint2ax": 20,
+    "trianglePoint2ax": 0,
   "trianglePoint2ay": 300,
-    "trianglePoint3ax": 0,
+    "trianglePoint3ax": -20,
   "trianglePoint3ay": 200,
       "trianglePoint1bx": 0, //top
     "trianglePoint2bx": -50,
@@ -436,9 +413,8 @@ const alphabet = {
   "trianglePoint3cy": 30
   },
   "R": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 30,
   "offsetrecty": 100,
     "trianglePoint1ax": 30, //top
   "trianglePoint1ay": 150,
@@ -452,17 +428,16 @@ const alphabet = {
   "trianglePoint2by": 150,
     "trianglePoint3bx": -20,
   "trianglePoint3by": 100,
-     "trianglePoint1cx": 30, //mid
+     "trianglePoint1cx": 10, //mid
   "trianglePoint1cy": 150,
     "trianglePoint2cx": -45,
   "trianglePoint2cy": 170,
-    "trianglePoint3cx": -70,
+    "trianglePoint3cx": -60,
   "trianglePoint3cy": 120  
   },
   "S": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 30,
   "offsetrecty": 100,
     "trianglePoint1ax": 30, //top
   "trianglePoint1ay": 180,
@@ -470,23 +445,22 @@ const alphabet = {
   "trianglePoint2ay":200,
     "trianglePoint3ax": 0,
   "trianglePoint3ay": 150,
-      "trianglePoint1bx": 0, //bottom
-    "trianglePoint2bx": -40,
+      "trianglePoint1bx": 20, //bottom
+    "trianglePoint2bx": -20,
   "trianglePoint1by": 170,
   "trianglePoint2by": 200,
-    "trianglePoint3bx": -70,
+    "trianglePoint3bx": -50,
   "trianglePoint3by": 200,
-     "trianglePoint1cx": 30, //mid
+     "trianglePoint1cx": 50, //mid
   "trianglePoint1cy": 150,
-    "trianglePoint2cx": -50,
+    "trianglePoint2cx": -30,
   "trianglePoint2cy": 170,
-    "trianglePoint3cx": -70,
+    "trianglePoint3cx": -50,
   "trianglePoint3cy": 120  
   },
   "T": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 30,
   "offsetrecty": 100,
     "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 180,
@@ -508,9 +482,8 @@ const alphabet = {
   "trianglePoint3cy": 130  
   },
   "U": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 60,
   "offsetrecty": 100,
     "trianglePoint1ax": 90, //top
   "trianglePoint1ay": 230,
@@ -532,9 +505,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "V": {
-      "sizerectx": 20,
+  
    "sizerecty": 100,
-  "offsetrectx": 60,
   "offsetrecty": 100,
     "trianglePoint1ax": 10, //top
   "trianglePoint1ay": 150,
@@ -556,9 +528,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "W": {
-         "sizerectx": 20,
+      
    "sizerecty": 100,
-  "offsetrectx": 40,
   "offsetrecty": 100,
     "trianglePoint1ax": 40, //bottom
   "trianglePoint1ay": 150,
@@ -580,9 +551,8 @@ const alphabet = {
   "trianglePoint3cy": 150 
   },
   "X": {
-            "sizerectx": 20,
+        
    "sizerecty": 100,
-  "offsetrectx": 40,
   "offsetrecty": 100,
     "trianglePoint1ax": 80, //bottom
   "trianglePoint1ay": 250,
@@ -604,9 +574,8 @@ const alphabet = {
   "trianglePoint3cy": 150 
   },
   "Y": {
-        "sizerectx": 20,
+    
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 10, //top
   "trianglePoint1ay": 60,
@@ -628,9 +597,8 @@ const alphabet = {
   "trianglePoint3cy": 150  
   },
   "Z": {
-      "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 40,
   "offsetrecty": 0,
     "trianglePoint1ax":50, //top
   "trianglePoint1ay": 180,
@@ -652,9 +620,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "0": {
-       "sizerectx": 20,
+    
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 10, //top
   "trianglePoint1ay": 50,
@@ -676,9 +643,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "1": {
-         "sizerectx": 20,
+      
    "sizerecty": 200,
-  "offsetrectx": 40,
   "offsetrecty": 0,
     "trianglePoint1ax":50, //bottom
   "trianglePoint1ay": 210,
@@ -700,9 +666,8 @@ const alphabet = {
   "trianglePoint3cy": 120  
   },
   "2": {
-           "sizerectx": 20,
+        
    "sizerecty": 200,
-  "offsetrectx": 30,
   "offsetrecty": 0,
     "trianglePoint1ax":100, //bottom
   "trianglePoint1ay": 100,
@@ -724,9 +689,8 @@ const alphabet = {
   "trianglePoint3cy": 150  
   },
   "3": {
-            "sizerectx": 20,
+        
    "sizerecty": 200,
-  "offsetrectx": 30,
   "offsetrecty": 0,
     "trianglePoint1ax":0, //top
   "trianglePoint1ay": 100,
@@ -748,9 +712,8 @@ const alphabet = {
   "trianglePoint3cy": 125  
   },
   "4": {
-              "sizerectx": 20,
+          
    "sizerecty": 200,
-  "offsetrectx": 50,
   "offsetrecty": 0,
     "trianglePoint1ax":0, //top
   "trianglePoint1ay": 100,
@@ -772,9 +735,8 @@ const alphabet = {
   "trianglePoint3cy": 150  
   },
   "5": {
-      "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 30,
   "offsetrecty": 0,
     "trianglePoint1ax": 30, //top
   "trianglePoint1ay": 100,
@@ -796,9 +758,8 @@ const alphabet = {
   "trianglePoint3cy": 80  
   },
   "6": {
-            "sizerectx": 20,
+        
    "sizerecty": 200,
-  "offsetrectx": 0,
   "offsetrecty": 0,
     "trianglePoint1ax":0, //top
   "trianglePoint1ay": 100,
@@ -820,9 +781,8 @@ const alphabet = {
   "trianglePoint3cy": 80
   },
   "7": {
-              "sizerectx": 20,
+          
    "sizerecty": 200,
-  "offsetrectx": 50,
   "offsetrecty": 0,
     "trianglePoint1ax":0, //top
   "trianglePoint1ay": 100,
@@ -844,9 +804,8 @@ const alphabet = {
   "trianglePoint3cy": 150  
   },
   "8": {
-                 "sizerectx": 20,
+              
    "sizerecty": 200,
-  "offsetrectx": 40,
   "offsetrecty": 0,
     "trianglePoint1ax":0, //top
   "trianglePoint1ay": 150,
@@ -868,9 +827,8 @@ const alphabet = {
   "trianglePoint3cy": 50  
   },
   "9": {
-      "sizerectx": 20,
+  
    "sizerecty": 200,
-  "offsetrectx": 80,
   "offsetrecty": 0,
     "trianglePoint1ax": 0, //bottom
   "trianglePoint1ay": 100,

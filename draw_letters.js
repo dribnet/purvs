@@ -1,7 +1,9 @@
-const colorFront1  = "#a83232";
-const colorFront2  = "#1f0b02";
-const colorBack1    = "#ff8000";
-const colorStroke  = "#a83232";
+const colourFront1  = "#a83232";
+const colourFront2  ="#58375c";
+const colourFront3 ="#37465c";
+const colorFront4  = "#f8fae6";
+const colorBack1    = "#362319";
+const colorStroke  = "#362319";
 
 /*
  * Draw the letter given the letterData
@@ -12,7 +14,7 @@ const colorStroke  = "#a83232";
  */
 function drawLetter(letterData) {
   // determine parameters for second circle
-  let size2x = letterData["sizerectx"];
+  
   let size2y = letterData["sizerecty"];
 
   let pos2x = letterData["offsetrectx"];
@@ -37,20 +39,21 @@ function drawLetter(letterData) {
   let postri3cy = letterData["trianglePoint3cy"];
 
   angleMode(DEGREES)
-  fill(colorFront1);
+  fill(colourFront1);
 
   triangle(postri1ax, postri1ay-50, postri2ax+50,postri2ay-100,postri3ax+100,postri3ay-50);
 
+  fill(colourFront2)
   triangle(postri1bx, postri1by, postri2bx+50,postri2by-50,postri3bx+100,postri3by);
-
+  fill(colourFront3)
   triangle(postri1cx, postri1cy+50, postri2cx+50,postri2cy,postri3cx+100,postri3cy+50);
  
-  fill(colorFront2)
+  fill(colorFront4)
  
-  strokeWeight(2)
+  strokeWeight(0)
   stroke(colorStroke)
-  fill(0,220);
-  rect(pos2x, pos2y, size2x, size2y);
+  fill(220,190);
+  rect(40, pos2y, 20, size2y);
 }
 
 
@@ -58,12 +61,29 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+ 
+   new_letter["sizerecty"]    = map(percent, 0, 100, oldObj["sizerecty"], newObj["sizerecty"]);
+   new_letter["offsetrecty"] = map(percent, 0, 100, oldObj["offsetrecty"], newObj["offsetrecty"]);
+  new_letter["trianglePoint1ax"] = map(percent, 0, 100, oldObj["trianglePoint1ax"], newObj["trianglePoint1ax"]);
+  new_letter["trianglePoint1ay"] = map(percent, 0, 100, oldObj["trianglePoint1ay"], newObj["trianglePoint1ay"]);
+  new_letter["trianglePoint2ay"] = map(percent, 0, 100, oldObj["trianglePoint2ay"], newObj["trianglePoint2ay"]);
+  new_letter["trianglePoint2ax"] = map(percent, 0, 100, oldObj["trianglePoint2ax"], newObj["trianglePoint2ax"]);
+  new_letter["trianglePoint3ax"] = map(percent, 0, 100, oldObj["trianglePoint3ax"], newObj["trianglePoint3ax"]);
+  new_letter["trianglePoint3ay"] = map(percent, 0, 100, oldObj["trianglePoint3ay"], newObj["trianglePoint3ay"]);
+  new_letter["trianglePoint1by"] = map(percent, 0, 100, oldObj["trianglePoint1by"], newObj["trianglePoint1by"]);
+  new_letter["trianglePoint1bx"] = map(percent, 0, 100, oldObj["trianglePoint1bx"], newObj["trianglePoint1bx"]);
+  new_letter["trianglePoint2bx"] = map(percent, 0, 100, oldObj["trianglePoint2bx"], newObj["trianglePoint2bx"]);
+  new_letter["trianglePoint2by"] = map(percent, 0, 100, oldObj["trianglePoint2by"], newObj["trianglePoint2by"]);
+  new_letter["trianglePoint3by"] = map(percent, 0, 100, oldObj["trianglePoint3by"], newObj["trianglePoint3by"]);
+  new_letter["trianglePoint3bx"] = map(percent, 0, 100, oldObj["trianglePoint3bx"], newObj["trianglePoint3bx"]);
+  new_letter["trianglePoint1cx"] = map(percent, 0, 100, oldObj["trianglePoint1cx"], newObj["trianglePoint1cx"]);
+  new_letter["trianglePoint1cy"] = map(percent, 0, 100, oldObj["trianglePoint1cy"], newObj["trianglePoint1cy"]);
+  new_letter["trianglePoint2cy"] = map(percent, 0, 100, oldObj["trianglePoint2cy"], newObj["trianglePoint2cy"]);
+  new_letter["trianglePoint2cx"] = map(percent, 0, 100, oldObj["trianglePoint2cx"], newObj["trianglePoint2cx"]);
+  new_letter["trianglePoint3cx"] = map(percent, 0, 100, oldObj["trianglePoint3cx"], newObj["trianglePoint3cx"]);
+  new_letter["trianglePoint3cy"] = map(percent, 0, 100, oldObj["trianglePoint3cy"], newObj["trianglePoint3cy"]);
   return new_letter;
-}
-
+} 
 var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",

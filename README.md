@@ -7,7 +7,6 @@ The three parameters per letter:
 
 22/05/2020
 
-I have now finished my letter form I am now onto playing around the with the exhibitor.
-My favourite form that I have made is the two because I think it exhibits the rules that I have chosen for myself in a very aesthetically pleasing way.
-I had to abandon one of my rules that I set out for myself and that was the rule where all negative spaces has to form a triangle. In hindsight this was a very hard task to set, since it's hard enough to make some of the letter's and numbers with triangles. If I had more time I would definetely do it though.
-The letters which don't nessercarily need 3 triangles to be complete were the most difficult for me to make because then I had to come up with a place to put the third triangle. For some help with this task I looked up the particular letter/number on google and tried to find variations of it that would fit into my rules. 
+I had to switch somet things up once I realised that I had too many parameters. I had to remove two parameters because I had 22 parameters in total. I knew that I could remove rectsizex because it was 20 in everything single form. I then had to decide what parameter to remove next, and I decided that removing offsectrectx would cause the less amount of aesthetic damage. So I tried removing it and made the rectangle(tape) constantly in the middle. I aactually like how this looks better than how It did before because I think that it makes the forms alot more interesting. 
+Following this track of making my letters more interesting I wanted to make my black tape look more like real tape. So i decided to change the tape to be white and see through. This added even more interest to my letter forms I thought because you could see all the imperfections in how I placed my triangles.
+And finally to add even more interest too my letter forms I decided to make each of my triagnles a different colour so you could see how each individual triangle was placed.
