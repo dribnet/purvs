@@ -28,7 +28,7 @@ My Parameters are:
 
     "sizeLine":		size of both lines
     "sizeCirc":		size of circle 1
-    "sizeCirc2": 	size of circle 2
+    "sizeCirc2":	size of circle 2
     "circX1": 	X position of circle 1
     "circY1": 	Y position of circle 1
     "circX2": 	X position of circle 2
