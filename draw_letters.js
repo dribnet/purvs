@@ -16,7 +16,6 @@ function drawLetter(letterData) {
   // determine parameters for second circle
   
   let size2y = letterData["sizerecty"];
-
   let pos2y = letterData["offsetrecty"];
   let postri1ax = letterData["trianglePoint1ax"];
   let postri1ay = letterData["trianglePoint1ay"];
