@@ -76,10 +76,11 @@ function interpolate_letter(percent, oldObj, newObj) {
 
 var swapWords = [
   "AUTUMNAL",
-  "SEASONAL",
   "?NATURE?",
+  "SEASONAL",
   "OUTDOORS",
-  "?CRISPY?"
+  "?CRISPY?",
+  "PLAYFUL?"
 ]
 
 function drawLeaf(x,y){

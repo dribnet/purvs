@@ -21,8 +21,8 @@ const alphabet = {
     "stickPosx": 60,
     "stickPosy": 25,
     "circlex": 17,
-    "circley": -8,
-    "circlew": 23,
+    "circley": 0,
+    "circlew": 25,
     "circleh": 30
   },
   "B": {
@@ -35,9 +35,9 @@ const alphabet = {
     "rotate3": 0,
     "stickPosx": -35,
     "stickPosy": -68,
-    "circlex": -9,
+    "circlex": 40,
     "circley": -50,
-    "circlew": 30,
+    "circlew": 25,
     "circleh": 25
   },
   "C": {
@@ -140,10 +140,10 @@ const alphabet = {
     "rotate3": 0,
     "stickPosx": 0,
     "stickPosy": -75,
-    "circlex": 0,
+    "circlex": 5,
     "circley": -30,
-    "circlew": 60,
-    "circleh": 30
+    "circlew": 70,
+    "circleh": 25
   },
   "J": {
     "offsetx": 45,
@@ -173,7 +173,7 @@ const alphabet = {
     "circlex": 20,
     "circley": -25,
     "circlew": 40,
-    "circleh": 30
+    "circleh": 20
   },
   "L": {
     "offsetx": 50,
@@ -275,10 +275,10 @@ const alphabet = {
     "rotate3": -35,
     "stickPosx": 0,
     "stickPosy": -23,
-    "circlex": 16,
-    "circley": -30,
+    "circlex": 60,
+    "circley": -15,
     "circlew": 25,
-    "circleh": 20
+    "circleh": 25
   },
   "S": {
     "offsetx": 50,
@@ -311,17 +311,17 @@ const alphabet = {
     "circleh": 20
   },
   "U": {
-    "offsetx": 35,
+    "offsetx": 65,
     "offsety": 100,
-    "leaf2Posx": 33,
+    "leaf2Posx": -30,
     "leaf2Posy": 0,
-    "rotate1": -20,
-    "rotate2": 20,
+    "rotate1": -150,
+    "rotate2": 150,
     "rotate3": 0,
-    "stickPosx": 55,
+    "stickPosx": 25,
     "stickPosy": -38,
-    "circlex": 16,
-    "circley": -30,
+    "circlex": -15,
+    "circley": -25,
     "circlew": 20,
     "circleh": 30
   },
@@ -397,8 +397,8 @@ const alphabet = {
     "stickPosy": -58,
     "circlex": 0,
     "circley": -28,
-    "circlew": 40,
-    "circleh": 35
+    "circlew": 50,
+    "circleh": 25
   },
   "0": {
     "offsetx": 55,
@@ -408,12 +408,8 @@ const alphabet = {
     "rotate1": -162,
     "rotate2": 18,
     "rotate3": -15,
-    "stickPosx": -10,
-    "stickPosy": -40,
-    "circlex": -6,
-    "circley": -8,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosx": -20,
+    "stickPosy": -40
   },
   "1": {
     "offsetx": 50,
@@ -424,11 +420,7 @@ const alphabet = {
     "rotate2": 180,
     "rotate3": 0,
     "stickPosx": -3,
-    "stickPosy": -42,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -42
   },
   "2": {
     "offsetx": 50,
@@ -439,11 +431,7 @@ const alphabet = {
     "rotate2": 65,
     "rotate3": 45,
     "stickPosx": 32,
-    "stickPosy": -68,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -68
   },
   "3": {
     "offsetx": 50,
@@ -454,11 +442,7 @@ const alphabet = {
     "rotate2": 120,
     "rotate3": 90,
     "stickPosx": 40,
-    "stickPosy": -38,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -38
   },
   "4": {
     "offsetx": 70,
@@ -469,11 +453,7 @@ const alphabet = {
     "rotate2": 220,
     "rotate3": 0,
     "stickPosx": 13,
-    "stickPosy": -28,
-    "circlex": -10,
-    "circley": -13,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -28
   },
   "5": {
     "offsetx": 50,
@@ -484,11 +464,7 @@ const alphabet = {
     "rotate2": 270,
     "rotate3": -60,
     "stickPosx": -48,
-    "stickPosy": -48,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -48
   },
   "6": {
     "offsetx": 50,
@@ -499,11 +475,7 @@ const alphabet = {
     "rotate2": 226,
     "rotate3": 63,
     "stickPosx": 38,
-    "stickPosy": -85,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -85
   },
   "7": {
     "offsetx": 65,
@@ -514,11 +486,7 @@ const alphabet = {
     "rotate2": 90,
     "rotate3": 10,
     "stickPosx": 7,
-    "stickPosy": -50,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -50
   },
   "8": {
     "offsetx": 55,
@@ -529,11 +497,7 @@ const alphabet = {
     "rotate2": 60,
     "rotate3": -45,
     "stickPosx": -33,
-    "stickPosy": -58,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -58
   },
   "9": {
     "offsetx": 50,
@@ -544,11 +508,7 @@ const alphabet = {
     "rotate2": 70,
     "rotate3": 0,
     "stickPosx": 38,
-    "stickPosy": -28,
-    "circlex": 17,
-    "circley": 20,
-    "circlew": 0,
-    "circleh": 0
+    "stickPosy": -28
   }
 
 }
