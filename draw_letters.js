@@ -32,14 +32,14 @@ function drawLetter(letterData) {
   noStroke();
 
  push();
-  fill(red1, green1, blue1, 160);
+  fill(red1, green1, blue1, 150);
   translate(50 + arcX1, 100 + arcY1);
   rotate(rot1);
   arc(0, 0, arcSize1, arcSize1, 0, arcStop1);
 pop();
 
 push();
-  fill(red2, green2, blue2, 150);
+  fill(red2, green2, blue2, 140);
   translate(50 + arcX2, 100 + arcY2);
   rotate(rot2);
   arc(0, 0, arcSize2, arcSize2, 0, arcStop2);

@@ -7,4 +7,4 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 Final colour change
 
-Wanted it to pop a little more, without being too harsh on the eyes..
+Wanted it to pop a little more, without being too harsh on the eyes.
