@@ -5,7 +5,9 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
-18/05/2020
+22/05/2020
 
-I have started making my letter form in the alphabet.js. I have the max amount of parameters so it takes a while to create each letter. I like the rules I have set out for myself but because there is quite a bit of possibility in what I can create it also makes it hard to make all my letters aesthetically pleasing.
-I'm thinking about making my idea simpler but I'm also aware that I am running out of time.
+I have now finished my letter form I am now onto playing around the with the exhibitor.
+My favourite form that I have made is the two because I think it exhibits the rules that I have chosen for myself in a very aesthetically pleasing way.
+I had to abandon one of my rules that I set out for myself and that was the rule where all negative spaces has to form a triangle. In hindsight this was a very hard task to set, since it's hard enough to make some of the letter's and numbers with triangles. If I had more time I would definetely do it though.
+The letters which don't nessercarily need 3 triangles to be complete were the most difficult for me to make because then I had to come up with a place to put the third triangle. For some help with this task I looked up the particular letter/number on google and tried to find variations of it that would fit into my rules. 

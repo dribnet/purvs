@@ -169,7 +169,7 @@ function drawLetter(posx, posy, letterData) {
   fill(colorFront2)
   push();
   strokeWeight(0.1)
-  // stroke(colorStroke)
+  stroke(colorStroke)
 
   // triangle(posx, posy, posx+50,posy-50,posx+100,posy);
   // triangle(posx, posy+50, posx+50,posy,posx+100,posy+50);
