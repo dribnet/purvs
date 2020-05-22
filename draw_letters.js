@@ -592,21 +592,21 @@ function interpolate_letter(percent, oldObj, newObj) {
   } else {
     new_letter["invface1"] = newObj["invface1"];
 
-    new_letter["cut1face1"] = map(percent, 0, 100, oldObj["cut1face1"], newObj["cut1face1"]);
-    new_letter["cut2face1"] = map(percent, 0, 100, oldObj["cut2face1"], newObj["cut2face1"]);
-    new_letter["cut3face1"] = map(percent, 0, 100, oldObj["cut3face1"], newObj["cut3face1"]);
+    new_letter["cut1face1"] = map(percent*10, 0, 1, oldObj["cut1face1"], newObj["cut1face1"]);
+    new_letter["cut2face1"] = map(percent*10, 0, 1, oldObj["cut2face1"], newObj["cut2face1"]);
+    new_letter["cut3face1"] = map(percent*10, 0, 1, oldObj["cut3face1"], newObj["cut3face1"]);
 
     new_letter["invface2"] = newObj["invface2"];
 
-    new_letter["cut1face2"] = map(percent, 0, 100, oldObj["cut1face2"], newObj["cut1face2"]);
-    new_letter["cut2face2"] = map(percent, 0, 100, oldObj["cut2face2"], newObj["cut2face2"]);
-    new_letter["cut3face2"] = map(percent, 0, 100, oldObj["cut3face2"], newObj["cut3face2"]);
+    new_letter["cut1face2"] = map(percent*10, 0, 1, oldObj["cut1face2"], newObj["cut1face2"]);
+    new_letter["cut2face2"] = map(percent*10, 0, 1, oldObj["cut2face2"], newObj["cut2face2"]);
+    new_letter["cut3face2"] = map(percent*10, 0, 1, oldObj["cut3face2"], newObj["cut3face2"]);
 
     new_letter["invface3"] = newObj["invface3"];
 
-    new_letter["cut1face3"] = map(percent, 0, 100, oldObj["cut1face3"], newObj["cut1face3"]);
-    new_letter["cut2face3"] = map(percent, 0, 100, oldObj["cut2face3"], newObj["cut2face3"]);
-    new_letter["cut3face3"] = map(percent, 0, 100, oldObj["cut3face3"], newObj["cut3face3"]);
+    new_letter["cut1face3"] = map(percent*10, 0, 1, oldObj["cut1face3"], newObj["cut1face3"]);
+    new_letter["cut2face3"] = map(percent*10, 0, 1, oldObj["cut2face3"], newObj["cut2face3"]);
+    new_letter["cut3face3"] = map(percent*10, 0, 1, oldObj["cut3face3"], newObj["cut3face3"]);
   }
 
   // Once percent reaches 80 (just before each cube starts to increase in size), change each letter to their new state
