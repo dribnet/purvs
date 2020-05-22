@@ -26,4 +26,4 @@ There was one major issue with my code I had to work out, which was with the ani
 
 Outside of tinkering more with the details of how some letters are formed, I don't think I would do much more with extra time on this project. The letters I used are deliberately simple, using a minimal amount of imagery to create distinct letters. The most likely change I would make would be finding different ways to draw a small handful of letters, like Q and Y, that I'm not totally happy with. Playing more with the interpolate letters function is also something I'd try out - having the letters pop in and out during interpolation might be a fun addition, but I like that the current setup allows you to see them rotate and extend.
 
-All in all, I think this was a pretty successful project, and I am satisfied with the result.
+All in all, I think this was a successful project, and I am satisfied with the result.
