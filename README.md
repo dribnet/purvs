@@ -5,6 +5,6 @@ This alphabet is made out of two transparent arcs, which create the approximate 
 
 ====================================================================================
 
-Animation fix, more tweaks.
+Colour tweak
 
-Restructured code to fix buggy animation that causes arcs to pop in and out when their start and end angles crossed over. Code now draws the arc from 0 and then rotates it afterwards, circumventing the issue. As such, the start1 and start2 values are now redundant (all are equal to 0), which I may clean up later given time.
+Backgrounds of marked sections now match.
