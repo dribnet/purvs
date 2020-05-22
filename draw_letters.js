@@ -2,53 +2,44 @@ const colorFront1  = "#ffffff";
 const colorFront2  = "#000000";
 const colorStroke  = "#000000";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
+  stroke(colorStroke);//Colors all my lines black
   strokeWeight(1);
-  push();
+  push();//I had to add a push and pop because putting the rect mode on center messed up the canvas position
   rectMode(CENTER);
 
-  // determine parameters for second circle
-  let a = letterData["space"];
-  let pLV1 = letterData["lpV1"];
+  let a = letterData["space"];//the spacing between the lines in the loop
+  let pLV1 = letterData["lpV1"];//Controlls the angled verticle lines
   let pLV2 = letterData["lpV2"];
   let pLV3 = letterData["lpV3"];
-  let pLH1 = letterData["lpH1"];
+  let pLH1 = letterData["lpH1"];//Controlls the angled horizontal lines
   let pLH2 = letterData["lpH2"];
   let pLH3 = letterData["lpH3"];
-  let pLH1st = letterData["lpH1st"];
+  let pLH1st = letterData["lpH1st"];//Controlls the straight horizontal lines
   let pLH2st = letterData["lpH2st"];
-  let pLV1st = letterData["lpV1st"];
+  let pLV1st = letterData["lpV1st"];//Controlls the straight verticle lines
   let pLV2st = letterData["lpV2st"];
-  let lilR = letterData["mid"];
+  let lilR = letterData["mid"];//The size of the center black square
 
-  // draw two circles
   fill(colorFront1);
-  rect(50, 150, 100, 100);
+  rect(50, 150, 100, 100);//The white square all the letters are drawn in
   noStroke();
   fill(colorFront2);
- rect(50,150,lilR,lilR);
+ rect(50,150,lilR,lilR);//The black center square
  stroke(colorStroke);
   
-  for(let i = 0; i< 105; i+= a){
-    line(pLV1,pLV2,i,pLV3);
-    line(i,pLV1st,i,pLV2st);
+  for(let i = 0; i< 105; i+= a){//the loop for all verticle lines
+    line(pLV1,pLV2,i,pLV3);//angled line
+    line(i,pLV1st,i,pLV2st);//straight line
 
   }
-  for(let i = 100;i< 205; i += a){
-line(pLH1,pLH2,pLH3,i);
-  line(pLH1st,i,pLH2st,i);
+  for(let i = 100;i< 205; i += a){//the loop for all horizontal lines
+line(pLH1,pLH2,pLH3,i);//angled line 
+  line(pLH1st,i,pLH2st,i);//straight line
 }
 
-  //ellipse(pos2x, pos2y, size2, size2);
   pop();
 }
 
@@ -70,8 +61,9 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABIKAX??",
-  "MAVISLEE",
-  "MATHTIME",
-  "02141998"
+  "ABIKAX??",//Name of font
+  "MAVISLEE",//My name (my name is Mavis Leigh but Leigh doesn't fit)
+  "MATHTIME",//because my font looks mathmaticle
+  "SHARPENS",//because the font looks sharp
+  "02141998"// my birthday
 ]
