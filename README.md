@@ -1,7 +1,8 @@
 ## MDDN 242 2020 Assignment 2
 
 
-CAMPFIRE
+
+## CAMPFIRE
 _________________________________________________________________________________
 
 Each letter uses 12 parameters
@@ -23,6 +24,8 @@ invface3 // inverts Face 3
 cut1face2 // 1 of 3 cuts that can be made per face
 cut2face3 // 1 of 3 cuts that can be made per face
 cut3face3 // 1 of 3 cuts that can be made per face
+
+Note: Interaction tab works a little weird, seems like maybe percent changes faster than in exhibition? My animation doesn't shrink as much, and if you press keys in quick succession then the letters will continually shrink because they don't get a chance to return to the original state in the second half of the animation. So please press sparingly :)
 
 Design Process / Readme Summary
 
