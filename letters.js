@@ -71,19 +71,19 @@ const alphabet = {
 
    "sizerecty": 100,
   "offsetrecty": 100,
-    "trianglePoint1ax": 50,
+    "trianglePoint1ax": 50, //top
   "trianglePoint1ay":250,
     "trianglePoint2ax": 50,
   "trianglePoint2ay": 250,
     "trianglePoint3ax": 0,
   "trianglePoint3ay": 250,
-      "trianglePoint1bx": 15,
+      "trianglePoint1bx": 15, //mid
   "trianglePoint1by":100,
     "trianglePoint2bx": 0,
   "trianglePoint2by": 200,
     "trianglePoint3bx": 0,
   "trianglePoint3by": 110,
-     "trianglePoint1cx": 0,
+     "trianglePoint1cx": 0, //bottom
   "trianglePoint1cy": 150,
     "trianglePoint2cx": 0,
   "trianglePoint2cy": 150,
@@ -94,19 +94,19 @@ const alphabet = {
 
    "sizerecty": 200,
   "offsetrecty": 0,
-    "trianglePoint1ax": 0,
+    "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 150,
     "trianglePoint2ax": 10,
   "trianglePoint2ay": 250,
     "trianglePoint3ax": -100,
   "trianglePoint3ay": 250,
-      "trianglePoint1bx": 10,
+      "trianglePoint1bx": 10, //mid
     "trianglePoint2bx": 30,
   "trianglePoint1by": 90,
   "trianglePoint2by": 150,
     "trianglePoint3bx": 0,
   "trianglePoint3by": 200,
-     "trianglePoint1cx": 0,
+     "trianglePoint1cx": 0, //bottom
   "trianglePoint1cy": 150,
     "trianglePoint2cx": 0,
   "trianglePoint2cy": 140,
@@ -117,19 +117,19 @@ const alphabet = {
   
    "sizerecty": 100,
   "offsetrecty": 100,
-    "trianglePoint1ax": 0,
+    "trianglePoint1ax": 0, //top
   "trianglePoint1ay": 220,
     "trianglePoint2ax": 50,
   "trianglePoint2ay": 260,
     "trianglePoint3ax": 0,
   "trianglePoint3ay": 180,
-      "trianglePoint1bx": 0,
+      "trianglePoint1bx": 0, //mid
     "trianglePoint2bx": 10,
   "trianglePoint1by": 120,
   "trianglePoint2by": 140,
     "trianglePoint3bx": 0,
   "trianglePoint3by": 130,
-     "trianglePoint1cx": 0,
+     "trianglePoint1cx": 0, //bottom
   "trianglePoint1cy": 120,
     "trianglePoint2cx": 0,
   "trianglePoint2cy": 200,

@@ -17,7 +17,6 @@ function drawLetter(letterData) {
   
   let size2y = letterData["sizerecty"];
 
-  let pos2x = letterData["offsetrectx"];
   let pos2y = letterData["offsetrecty"];
   let postri1ax = letterData["trianglePoint1ax"];
   let postri1ay = letterData["trianglePoint1ay"];
@@ -38,11 +37,8 @@ function drawLetter(letterData) {
   let postri3cx = letterData["trianglePoint3cx"];
   let postri3cy = letterData["trianglePoint3cy"];
 
-  angleMode(DEGREES)
   fill(colourFront1);
-
   triangle(postri1ax, postri1ay-50, postri2ax+50,postri2ay-100,postri3ax+100,postri3ay-50);
-
   fill(colourFront2)
   triangle(postri1bx, postri1by, postri2bx+50,postri2by-50,postri3bx+100,postri3by);
   fill(colourFront3)
@@ -50,7 +46,7 @@ function drawLetter(letterData) {
  
   fill(colorFront4)
  
-  strokeWeight(0)
+  strokeWeight(1.5)
   stroke(colorStroke)
   fill(220,190);
   rect(40, pos2y, 20, size2y);
@@ -62,8 +58,8 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
  
-   new_letter["sizerecty"]    = map(percent, 0, 100, oldObj["sizerecty"], newObj["sizerecty"]);
-   new_letter["offsetrecty"] = map(percent, 0, 100, oldObj["offsetrecty"], newObj["offsetrecty"]);
+  new_letter["sizerecty"]    = map(percent, 0, 100, oldObj["sizerecty"], newObj["sizerecty"]);
+  new_letter["offsetrecty"] = map(percent, 0, 100, oldObj["offsetrecty"], newObj["offsetrecty"]);
   new_letter["trianglePoint1ax"] = map(percent, 0, 100, oldObj["trianglePoint1ax"], newObj["trianglePoint1ax"]);
   new_letter["trianglePoint1ay"] = map(percent, 0, 100, oldObj["trianglePoint1ay"], newObj["trianglePoint1ay"]);
   new_letter["trianglePoint2ay"] = map(percent, 0, 100, oldObj["trianglePoint2ay"], newObj["trianglePoint2ay"]);
@@ -85,7 +81,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   return new_letter;
 } 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "TAPEFONT",
+  "CARDTAPE",
+  "?A98YQP?",
 ]

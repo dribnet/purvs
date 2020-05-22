@@ -1,12 +1,32 @@
 ## MDDN 242 2020 Assignment 2
 
 The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+  *`sizerecty`: y size of the rectangle,
+  *`offsetrecty`: x offset of the triangle,
+  * `trianglePoint1ax`: xpoint of triangle,
+  *`trianglePoint1ay`:ypoint of triangle,
+  *  `trianglePoint2ax`: xpoint of triangle,
+  *`trianglePoint2ay`: ypoint of triangle,
+  *  `trianglePoint3ax`: xpoint of triangle,
+  *`trianglePoint3ay`: ypoint of triangle,
+  *    `trianglePoint1bx`: xpoint of triangle,
+  *`trianglePoint1by`:ypoint of triangle,
+  *  `trianglePoint2bx`: xpoint of triangle,
+  *`trianglePoint2by`: ypoint of triangle,
+  *  `trianglePoint3bx`: xpoint of triangle,
+  *`trianglePoint3by`: ypoint of triangle,
+  *   `trianglePoint1cx`: xpoint of triangle,
+  *`trianglePoint1cy`: ypoint of triangle,
+  *  `trianglePoint2cx`: xpoint of triangle,
+  *`trianglePoint2cy`: ypoint of triangle,
+  *  `trianglePoint3cx`: xpoint of triangle,
+  *`trianglePoint3cy`: ypoint of triangle,
 
 22/05/2020
 
-I had to switch somet things up once I realised that I had too many parameters. I had to remove two parameters because I had 22 parameters in total. I knew that I could remove rectsizex because it was 20 in everything single form. I then had to decide what parameter to remove next, and I decided that removing offsectrectx would cause the less amount of aesthetic damage. So I tried removing it and made the rectangle(tape) constantly in the middle. I aactually like how this looks better than how It did before because I think that it makes the forms alot more interesting. 
-Following this track of making my letters more interesting I wanted to make my black tape look more like real tape. So i decided to change the tape to be white and see through. This added even more interest to my letter forms I thought because you could see all the imperfections in how I placed my triangles.
-And finally to add even more interest too my letter forms I decided to make each of my triagnles a different colour so you could see how each individual triangle was placed.
+This is my final commit. I'm happy with how my code has turned out in the end, I think I have used colour quite well.
+My form's represent bits of card cut into triangles and stuck with tape in place to represent letters and numbers. I have applied the rule that no triangles can be hanging in space and that they have to be either on the ground or taped. The triangles can be sitting on top of each other.
+My idea changed from part commits a bit before my idea was called 'blacktape' and the concept was that triangles were being stuck in place by tape to form letters. It didn't make sense why my tape was black though apart from aesthetic reasons but I found switching to make my tape white actually made my letter forms look better and it was easier for the viewer to understand what my concept was.
+
+What tripped me up a bit in this project was the amount of time it took to make my whole alphabet.
+Next time I would try and keep my triangles's all the same area and see if I could make an alphabet from that.

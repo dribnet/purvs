@@ -9,7 +9,7 @@ const colorLines   = "#362319";
  * drawing code in draw_letters.js
  */
 
-const canvasWidth = 960;
+const canvasWidth = 690;
 const canvasHeight = 500;
 
 // Handy string of all letters available
