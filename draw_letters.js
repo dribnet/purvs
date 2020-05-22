@@ -35,28 +35,91 @@ function drawLetter(letterData) {
   noStroke();
   fill(curveColour);
 
-  //draw arch
-  arc(x, y, w, h, angleStart, angleEnd);
+  push();
+    //scale(0.85);
+    //translate(9, 20);
 
-  strokeWeight(8);
-  stroke(255);
+    //draw arch
+    arc(x, y, w, h, angleStart, angleEnd);
 
-  if (x1 != 'x') {
-    line(x1, y1, x2, y2);  
-  }
-  if (x3 != 'x') {
-    line(x3, y3, x4, y4);
-  }
+    strokeWeight(8);
+    stroke(255);
 
-  noStroke();
+    if (x1 != 'x') {
+      line(x1, y1, x2, y2);  
+    }
+    if (x3 != 'x') {
+      line(x3, y3, x4, y4);
+    }
+
+    noStroke();
+  pop();
 }
+
+function drawPatch(face, align, width){
+  let start, end; //start end end angle of arch
+  let w, h; //widht and height of arch
+  let x, y; //position of arch
+
+  //angle area
+  if (face == "NORTH") {
+    start = 180;
+    end = 0;
+    w = width;
+    h = 400;
+  }
+  else if (face == "SOUTH") {
+    start = 0; 
+    end = 180;
+    w = width;
+    h = 400;
+  }
+  else if (face == "WEST") {
+    start = 90; 
+    end = 270;
+    w = width*2;
+    h = 200;
+  }
+  else if (face == "EAST") {
+    start = 270;
+    end = 90;
+    w = width*2;
+    h = 200;
+  }
+
+  //arch placement
+  if (align == "LEFT") {
+  }
+
+}
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  
+  new_letter["height"] = map(percent, 0, 400, oldObj["height"], newObj["height"]);
+  new_letter["width"] = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  
+  new_letter["angleStart"] = map(percent, 0, 360, oldObj["angleStart"], newObj["angleStart"]);
+  new_letter["angleEnd"] = map(percent, 0, 360, oldObj["angleEnd"], newObj["angleEnd"]);
+
+  new_letter["line 1 x1"] = map(percent, 0, 100, oldObj["line 1 x1"], newObj["line 1 x1"]);
+  new_letter["line 1 y1"] = map(percent, 0, 200, oldObj["line 1 y1"], newObj["line 1 y1"]);
+  new_letter["line 1 x2"] = map(percent, 0, 100, oldObj["line 1 x2"], newObj["line 1 x2"]);
+  new_letter["line 1 y2"] = map(percent, 0, 200, oldObj["line 1 y2"], newObj["line 1 y2"]);
+
+  new_letter["line 2 x1"] = map(percent, 0, 100, oldObj["line 2 x1"], newObj["line 2 x1"]);
+  new_letter["line 2 y1"] = map(percent, 0, 200, oldObj["line 2 y1"], newObj["line 2 y1"]);
+  new_letter["line 2 x2"] = map(percent, 0, 100, oldObj["line 2 x2"], newObj["line 2 x2"]);
+  new_letter["line 2 y2"] = map(percent, 0, 200, oldObj["line 2 y2"], newObj["line 2 y2"]);
   return new_letter;
+}
+
+function drawBase(align, width, height, ){
+
 }
 
 var swapWords = [

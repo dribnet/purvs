@@ -11,22 +11,21 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsety", -100, 100]
   ["offsetx", 0, 100],
-  "offsety": 100,
-  "height": 500,
-  "width": 150,
-  "line 1 x1": 0,
-  "line 1 y1": 200,
-  "line 1 x2": 0,
-  "line 1 y2": 150,
-  "line 2 x1": 0,
-  "line 2 y1": 250,
-  "line 2 x2": 0,
-  "line 2 y2": 348,
-  "angleStart": 180,
-  "angleEnd": 0
+  ["offsety", 0, 100],
+  ["offsetx", 0, 100],
+  ["height", 0, 400],
+  ["width", 0, 100],
+  ["line 1 x1", 0, 100],
+  ["line 1 y1", 0, 200],
+  ["line 1 x2", 0, 100],
+  ["line 1 y2", 0, 200],
+  ["line 2 x1", 0, 100],
+  ["line 2 y1", 0, 200],
+  ["line 2 x2", 0, 100],
+  ["line 2 y2", 0, 200],
+  ["angleStart",0 , 360],
+  ["angleEnd", 0, 360]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.

@@ -1,13 +1,14 @@
 ## MDDN 242 2020 Assignment 2
 
-Doing further work on my alphabet file to creat the rest of the letters. 
-It's a bit fiddly to work with but I drew up the shapes of the ideas I'm working with so it's easier for me to tweak it to the way I want. (see idea.png and idea 2.png).
+Finished the alphabet and moving onto the letters. 
 
-They're not looking as round as cutsy as my drawings since the arc is a perfect circle while in my mock-up I've used more, a circle but with a line cut through it. kind of model. I'll probably end up trying to use a bezier curve to get the look right but for now I'm just going to work with the arc.
+I'm really cutting this down to the wire but I'm going to make sure everything looks nice with arcs first before moving to bezier curves. 
 
-The lines that define the letter the most are the most difficult to code for. It figured out that the origin of the box in which they're drawn is the top left corner which took me a while to get as I'm used to graphs where the y value is positive when going up instead of down. I hope I can get used to it soon. 
+I know that it might be more work not changing to bezier curves now but because I want it to at least have something before moving onto something more tricky. 
 
-it's a bit of a challenge to get the words to fit inside the boxes but once I figured out that it was 100x200 it made it a lot easier
+The characters are still slightly overflowing the boxes but I plan to just scale everything down and have a small margin of space around the edges. 
+
+In my drawn version I have the lines extending beyond the shape of the arc so I'm thinking if I have time I'll try and impliment that to give the letters a more interesting shape.
 
 I have 12 parameters per letter:
   * `height` : the height of the arc 
@@ -23,6 +24,6 @@ I have 12 parameters per letter:
   * `angleStart` : begining angle of arc
   * `angleEnd` : ending angle of arc
   * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
+  * `width` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 

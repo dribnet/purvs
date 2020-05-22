@@ -13,54 +13,54 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "offsetx": 0,
+  "offsetx": 50,
   "offsety": 100,
-  "height": 500,
-  "width": 150,
-  "line 1 x1": 0,
-  "line 1 y1": 200,
-  "line 1 x2": 0,
-  "line 1 y2": 150,
-  "line 2 x1": 0,
-  "line 2 y1": 250,
-  "line 2 x2": 0,
-  "line 2 y2": 348,
+  "height": 400,
+  "width": 100,
+  "line 1 x1": 50,
+  "line 1 y1": 210,
+  "line 1 x2": 50,
+  "line 1 y2": 250,
+  "line 2 x1": 50,
+  "line 2 y1": 300,
+  "line 2 x2": 50,
+  "line 2 y2": 347,
   "angleStart": 180,
   "angleEnd": 0
 }
 
 const letterB = {
-  "offsetx": -50,
-  "offsety": -25,
-  "height": 250,
-  "width": 250,
-  "line 1 x1": 0,
-  "line 1 y1": 200,
-  "line 1 x2": 0,
-  "line 1 y2": 150,
-  "line 2 x1": 0,
-  "line 2 y1": 250,
-  "line 2 x2": 0,
-  "line 2 y2": 300,
+  "offsetx": 0,
+  "offsety": 0,
+  "height": 200,
+  "width": 200,
+  "line 1 x1": 40,
+  "line 1 y1": 190,
+  "line 1 x2": 40,
+  "line 1 y2": 230,
+  "line 2 x1": 40,
+  "line 2 y1": 270,
+  "line 2 x2": 40,
+  "line 2 y2": 310,
   "angleStart": 270,
-//  "angleEnd": 90
+  "angleEnd": 90
 }
 
 const letterC = {
-  "offsetx": 50,
-  "offsety": -25,
-  "height": 250,
-  "width": 250,
-  "line 1 x1": -20,
-  "line 1 y1": 220,
-  "line 1 x2": 48,
-  "line 1 y2": 150,
-  "line 2 x1": -20,
-  "line 2 y1": 220,
-  "line 2 x2": 48,
-  "line 2 y2": 300,
+  "offsetx": 100,
+  "offsety": 0,
+  "height": 200,
+  "width": 200,
+  "line 1 x1": 50,
+  "line 1 y1": 250,
+  "line 1 x2": 97,
+  "line 1 y2": 250,
+  "line 2 x1": 'x',
+  "line 2 y1": 250,
+  "line 2 x2": 97,
+  "line 2 y2": 250,
   "angleStart": 90,
-  //"angleEnd": 270
+  "angleEnd": 270
 }
  
 const arcColour     = "#ff245e";
