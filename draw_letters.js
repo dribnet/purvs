@@ -1,9 +1,13 @@
 
-const colorFront1  = "#2bad8f";
-const colorFront2  = "#2b8aad";
+// const colorFront1  = "#2bad8f";
+// const colorFront2  = "#2b8aad";
+// //const colorBack    = "#2bad4e";
+// const colorStroke  = "#233f11";
+
+const colorFront2  = "#f6917b";
+const colorFront1 = "#f8cc8b";
 //const colorBack    = "#2bad4e";
 const colorStroke  = "#233f11";
-
 
 /*
  * Draw the letter given the letterData
@@ -25,36 +29,28 @@ function drawLetter(letterData) {
   let stroke1Small = letterData["stroke1Small"];
   let stroke1Big = letterData["stroke1Big"];
 
-  // draw some triangles:
-  push();
-  translate(50, 100);
-  rotate(rotate1Big);
-  strokeWeight(stroke1Big);
-  noStroke();
-  fill(colorFront2);
-  triangle(0, -25, 50, 50, -50, 50);   // first big triangle
-  pop();
+  triangleDraw(0, 0, rotate1Big, stroke1Big, colorFront2, 1);                         // first big triangle
+  triangleDraw(pos1SmallX, pos1SmallY, rotate1Small, stroke1Small, colorFront1, 2);   // first small triangle
+  triangleDraw(pos2SmallX, pos2SmallY, rotate2Small, stroke1Small, colorFront1, 2);   // second small triangle
 
-  push();
-  translate(-50,-100);
-  translate(pos1SmallX, pos1SmallY);
-  rotate(rotate1Small);
-  strokeWeight(stroke1Small);
-  noStroke();
-  fill(colorFront1);
-  triangle(0, -12.5, 25, 25, -25, 25);   // first small triangle
-  pop();
-
-  push();
-  translate(-50,-100);
-  translate(pos2SmallX, pos2SmallY);
-  rotate(rotate2Small);
-  strokeWeight(stroke1Small);
-  noStroke();
-  fill(colorFront1);
-  triangle(0, -12.5, 25, 25, -25, 25);   // second small triangle
-  pop();
-
+  function triangleDraw(X, Y, R, S, Col, scaleF){ // draws a triangle when called
+    let option = 1
+    if (scaleF == 2){ // checks type of triangle to move to correct spot
+      option = -1
+    }
+    push(); // save current movements
+    translate(50*option, 100*option); // initial positioning movement
+    translate(X, Y); // moves further along given x, y
+    rotate(R); // rotational variable
+    strokeWeight(S);
+    stroke(237, 222, 183); // complimentary stroke colour
+    if (option == -1){
+      noStroke();
+    }
+    fill(Col);  
+    triangle(0/scaleF, -25/scaleF, 50/scaleF, 50/scaleF, -50/scaleF, 50/scaleF); // draws triangle that is scaled with parameter
+    pop(); // back to origin
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
