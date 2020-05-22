@@ -1,14 +1,6 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#193248" //Prussian blue
 const colorFront   = "#4e97b7"; //Cerulean blue
 const colorLines   = "#4e97b7"; //Cerulean blue
-
-/*
- * do not edit this rest of this file, instead edit the letter
- * drawing code in draw_letters.js
- */
 
 const canvasWidth = 960;
 const canvasHeight = 500;

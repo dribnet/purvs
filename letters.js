@@ -1,7 +1,28 @@
 const alphabet = {
+
+  //Parameters breakdown
+  //arcW = The width of all arcs
+  //arcH = The height of all arcs
+
+  //arcX = The x position of arc 1
+  //arcY = The y position of arc 1
+  //arcS = The starting point for arc 1
+  //arcE = The ending point for arc 1
+
+  //arcX2 = The x position of arc 2
+  //arcY2 = The y position of arc 2
+  //arcS2 = The starting point for arc 2
+  //arcE2 = The ending point for arc 2
+
+  //arcX3 = The x position of arc 3
+  //arcY3 = The y position of arc 3
+  //arcS3 = The starting point for arc 3
+  //arcE3 = The ending point for arc 3
+
   "?": { //default character
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -22,8 +43,8 @@ const alphabet = {
     "arcE3" : 15.7,
   },
   "A": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 62,
@@ -44,8 +65,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "B": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 38,
@@ -66,8 +87,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "C": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -88,8 +109,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "D": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 62,
@@ -110,8 +131,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "E": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 55,
@@ -132,8 +153,8 @@ const alphabet = {
     "arcE3" : 0,
   },
   "F": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 43,
@@ -154,8 +175,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "G": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 55,
@@ -176,8 +197,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "H": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 38,
@@ -198,8 +219,8 @@ const alphabet = {
     "arcE3" : 11.7,
   },
   "I": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 30,
@@ -220,8 +241,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "J": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 33,
@@ -242,8 +263,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "K": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 45,
@@ -264,8 +285,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "L": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 32,
@@ -286,8 +307,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "M": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 2,
@@ -308,8 +329,8 @@ const alphabet = {
     "arcE3" : 7.85,
   },
   "N": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 37,
@@ -330,8 +351,8 @@ const alphabet = {
     "arcE3" : 11.7,
   },
   "O": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -352,8 +373,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "P": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 38,
@@ -374,8 +395,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "Q": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 62,
@@ -396,8 +417,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "R": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 12,
@@ -418,8 +439,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "S": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 56,
@@ -440,8 +461,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "T": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 34,
@@ -462,8 +483,8 @@ const alphabet = {
     "arcE3" : 15.7,
   },
   "U": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -484,8 +505,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "V": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 24,
@@ -506,8 +527,8 @@ const alphabet = {
     "arcE3" : 43.17,
   },
   "W": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 2,
@@ -528,8 +549,8 @@ const alphabet = {
     "arcE3" : 23.55,
   },
   "X": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 74,
@@ -550,8 +571,8 @@ const alphabet = {
     "arcE3" : 0,
   },
   "Y": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 44,
@@ -572,8 +593,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "Z": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 44,
@@ -594,8 +615,8 @@ const alphabet = {
     "arcE3" : 0,
   },
   "0": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -616,8 +637,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "1": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -638,8 +659,8 @@ const alphabet = {
     "arcE3" : 0,
   },
   "2": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -660,8 +681,8 @@ const alphabet = {
     "arcE3" : 0,
   },
   "3": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 47,
@@ -682,8 +703,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "4": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 43,
@@ -704,8 +725,8 @@ const alphabet = {
     "arcE3" : 7.85,
   },
   "5": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -726,8 +747,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "6": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 59,
@@ -748,8 +769,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "7": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -770,8 +791,8 @@ const alphabet = {
     "arcE3" : 27.47,
   },
   "8": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75,
 
     //Arc 1
     "arcX" : 50,
@@ -792,8 +813,8 @@ const alphabet = {
     "arcE3" : 11.7,
   },
   "9": {
-    "arcW" : 75, //Arc width
-    "arcH" : 75, //Arc height
+    "arcW" : 75,
+    "arcH" : 75, 
 
     //Arc 1
     "arcX" : 45,

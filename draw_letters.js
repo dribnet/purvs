@@ -2,13 +2,6 @@ const colorFront1  = "#50b58d"; //Jungle green
 const colorFront2  = "#f4ddb4"; //Peach yellow
 const colorFront3  = "#d04b38"; //Fire-brick red
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
   noStroke();
 
@@ -68,8 +61,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   }
 
   else {
-    new_letter["arcS"] = map(percent/5, 0, 100, oldObj["arcS"], newObj["arcS"]);
-    new_letter["arcE"] = map(percent/5, 0, 100, oldObj["arcE"], newObj["arcE"]);
+    new_letter["arcS"] = map(percent/5, 0, 100, oldObj["arcS"], newObj["arcS"]); //Controls the speed of the arcs transitioning into the new letter form
+    new_letter["arcE"] = map(percent/5, 0, 100, oldObj["arcE"], newObj["arcE"]); //Controls the speed of the arcs transitioning into the new letter form
   }
 
   //Arc 2
@@ -83,8 +76,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   }
 
   else {
-    new_letter["arcS2"] = map(percent/5, 0, 100, oldObj["arcS2"], newObj["arcS2"]);
-    new_letter["arcE2"] = map(percent/5, 0, 100, oldObj["arcE2"], newObj["arcE2"]);
+    new_letter["arcS2"] = map(percent/5, 0, 100, oldObj["arcS2"], newObj["arcS2"]); //Controls the speed of the arcs transitioning into the new letter form
+    new_letter["arcE2"] = map(percent/5, 0, 100, oldObj["arcE2"], newObj["arcE2"]); //Controls the speed of the arcs transitioning into the new letter form
   }
 
   //Arc 3
@@ -98,12 +91,11 @@ function interpolate_letter(percent, oldObj, newObj) {
   }
 
   else {
-    new_letter["arcS3"] = map(percent/5, 0, 100, oldObj["arcS3"], newObj["arcS3"]);
-    new_letter["arcE3"] = map(percent/5, 0, 100, oldObj["arcE3"], newObj["arcE3"]);
+    new_letter["arcS3"] = map(percent/5, 0, 100, oldObj["arcS3"], newObj["arcS3"]); //Controls the speed of the arcs transitioning into the new letter form
+    new_letter["arcE3"] = map(percent/5, 0, 100, oldObj["arcE3"], newObj["arcE3"]); //Controls the speed of the arcs transitioning into the new letter form
   }
 
   return new_letter;
-
 }
 
 var swapWords = [

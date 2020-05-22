@@ -1,15 +1,6 @@
-/*
- * Here are some things you can edit
- */
 const colorBack    = "#193248"; //Prussian blue
 const colorLines   = "#4e97b7"; //Cerulean blue
 
-/*******
- * define this "sliderInfo" variable
- * have an entry for each slider you want
- * and each row should be:
- * ["object_field", minimum_bound, maximum_bound]
- */
 const sliderInfo = [
   //Arc width and heigh parameters
   ["arcW",      0, 100],
