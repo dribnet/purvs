@@ -1,12 +1,35 @@
 ## MDDN 242 2020 Assignment 2
 
 **May 20 2020**
-Due to some limitations with my parameters, I don't think I am 100% able to go with the designs initially planned from my sketch. However, I will work around this and try to find more of a consistent pattern.
+I decided to add another parameter, however this must be the last one as this is my 12th and I do not want to make any more, not only for the brief but also to limit myself for more of a challenge. This parameter is the size of my second circle.
 
-I plan to finish all my letters today. I don't have an idea on what my numbers will look like yet, but I'm sure i'll come up with it soon.
+Therefore, my FINAL parameters are:
 
-I have some sort of an idea on what to call my alphabet, I'm thinking of something to do with mathematic symbols maybe.
+sizeLine1 = determines the size of BOTH lines, this is used to create a symmetric effect.
+sizeCirc1 = determines size of circle 1
+sizeCirc2 = determines size of circle 2
+circ2x = X position of circle 1
+circ2y = Y position of circle 1
+circ3x = X position of circle 2
+circ3y = Y position of circle 2
+linePosX1 = X position of line 1
+linePosY1 = Y position of line 1
+linePosX2 = X position of line 2
+linePosY2 = Y position of line 2
+linePosY3 = Y position of side 1 of line 1
 
-I updated the colour scheme! Initially I tried to go for three colours of pink, orange and blue, but I found that these colours didn't suit well together. After playing around I found that pink would be a suitable colour for all elements, since I wanted the colour of the circles to be pink.
+After this I was able to create a letter with two different types of circle sizes, which is "R" in this case.
 
-I'm thinking of doing a stroke on top of a stroke to create more colour elements to my letters, but for now I will just focus on my letters to get it done!
+I have also changed the following letters: C, D, J, I, G, as well as creating E, F and R.
+
+I started to give myself a break with the letters and moved on to numbers! I created number 1-7 and decided to follow a method that was quite different to how I approached the letters. I would have my main lines as two side by side, and I'd have my circles joined with the two lines. This is how I want viewers to be able to tell the variation in numbers and letters.
+
+Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different.
+
+I have also decided on my final colours! I went with a pink theme and used different shades of the colour for a simplistic style as my alphabet is quite modern.
+
+I've completed my numbers! Surprisingly, I found these easier to create than the letters but I'm happy with the outcome. 0 was the last number I did and it made me realise how difficult it will be to create another version of it for the letter O. However, I think I sort of have an idea on how it'll come out.
+
+I have completed all my letters! I did some changed to a few letters as well so that each letter looks more consistent, but I still have a few more letters to tweak and fix.
+
+After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.
