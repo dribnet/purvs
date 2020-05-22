@@ -630,14 +630,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   if (percent == 100) {} else {
     if (percent < 20 && percent > 0) {
       size = size - .5
-      colorFront1 = col2
-      colorFront2 = col3
-      colorFront3 = col1
     } else if (percent < 100 && percent > 80) {
       size = size + .5
-      colorFront1 = col1
-      colorFront2 = col2
-      colorFront3 = col3
     }
   }
   return new_letter;
