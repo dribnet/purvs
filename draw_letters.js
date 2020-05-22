@@ -1,3 +1,4 @@
+
 // ------- COLOURS ------- //
 
 const colorPink  = "#F4A8C8";
@@ -17,28 +18,28 @@ const outerStroke = 7;
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
 
-  // ------- PARAMETERS ------- //
+// ------- PARAMETERS ------- //
 
-  // SIZES //
-  let sizeLine1 = letterData["sizeLine"];
-  let sizeCirc1 = letterData["sizeCirc"];
-  let sizeCirc2 = letterData["sizeCirc2"];
+// SIZES //
+let sizeLine1 = letterData["sizeLine"];
+let sizeCirc1 = letterData["sizeCirc"];
+let sizeCirc2 = letterData["sizeCirc2"];
 
-  // CIRCLES //
-  let circPosX1 = letterData["circX1"];
-  let circPosY1 = letterData["circY1"];
-  let circPosX2 = letterData["circX2"];
-  let circPosY2 = letterData["circY2"];
+// CIRCLES //
+let circPosX1 = letterData["circX1"];
+let circPosY1 = letterData["circY1"];
+let circPosX2 = letterData["circX2"];
+let circPosY2 = letterData["circY2"];
 
-  // LINES //
-  let linePosX1 = letterData["lineX1"];
-  let linePosY1 = letterData["lineY1"];
-  let linePosX2 = letterData["lineX2"];
-  let linePosY2 = letterData["lineY2"];
-  let linePosY3 = letterData["lineY3"];
-
+// LINES //
+let linePosX1 = letterData["lineX1"];
+let linePosY1 = letterData["lineY1"];
+let linePosX2 = letterData["lineX2"];
+let linePosY2 = letterData["lineY2"];
+let linePosY3 = letterData["lineY3"];
 
   // ------- DRAWS TWO CIRCLES WITH OUTER WHITE STROKE ------- //
 
@@ -87,7 +88,7 @@ function drawLetter(letterData) {
   // ------- DRAWS TWO LINES WITH INNER DARK PINK STROKE ------- //
 
   beginShape();
-  
+
   stroke(colorStrokeDarkPink);
   strokeWeight(innerStroke);
 
@@ -120,15 +121,17 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "PINKNESS",
   "ADORABLE",
+  "9824517!",
+  "CUTESOME",
   "BLOOMING",
   "FLAMINGO",
   "ROSINESS",
   "BLUSHING",
   "FLAWLESS",
   "LEMONADE",
+  "STUNNING",
   "BEAUTIFY",
   "FETCHING",
-  "STUNNING",
   "FLOURISH",
   "PRECIOUS",
   "12345678"
