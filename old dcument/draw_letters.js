@@ -29,7 +29,7 @@ function drawLetter(letterData) {
   // draw two circles
    fill(colorFront2);
   rect(pos3x, pos3y, 100, 100);
-   fill(250, 164, 157);
+   fill(250, 164, 157,200);
   arc(pos2x, pos2y, size2, size2,startA,endA);
   
 }
@@ -47,7 +47,7 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "AB",
-  "AB",
-  "BA"
+  "CUTEANTIENT",
+  "LOVELY",
+  "ERROR233"
 ]
