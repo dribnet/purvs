@@ -42,11 +42,9 @@ function drawLetter(letterData) {
     translate(50*option, 100*option); // initial positioning movement
     translate(X, Y); // moves further along given x, y
     rotate(R); // rotational variable
-    strokeWeight(S);
-    stroke(237, 222, 183); // complimentary stroke colour
-    if (option == -1){
-      noStroke();
-    }
+    strokeWeight(S); // - unused currently
+    stroke(237, 222, 183); // complimentary stroke colour - unused currently
+    noStroke();
     fill(Col);  
     triangle(0/scaleF, -25/scaleF, 50/scaleF, 50/scaleF, -50/scaleF, 50/scaleF); // draws triangle that is scaled with parameter
     pop(); // back to origin

@@ -2,7 +2,11 @@
   "commits": [
     {
       "sha": "743615f140eafdc3f5e564faebfd1eeddabfe124",
-      "name": "Experiment 2. Exhibition"
+      "name": "final"
+    },
+    {
+      "sha": "743615f140eafdc3f5e564faebfd1eeddabfe124",
+      "name": "experiment 2 and exhibition"
     },
     {
       "sha": "c179a84c16a3299a085f20b71ea37f9675c5e324",
@@ -14,11 +18,11 @@
     },
     {
       "sha": "5da253fa127a764a8461362c095322f4c1b32abd",
-      "name": "First real experiment"
+      "name": "experiment 1"
     },
     {
       "sha": "e8f1b05630989fbf13be42950b436bbc00cfb6ff",
-      "name": "First play with code / experiment"
+      "name": "first play with code / experiment"
     },
     {
       "sha": "fed7c876ced63be5dc008c5d662b3c445a5d5740",

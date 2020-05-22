@@ -1,10 +1,17 @@
 ## MDDN 242 2020 Assignment 2
 
-This update focuses on the exhibition page and trialling different colour combinations. THe set I liked the most is the one shown here with a citrus kind of colour scheme to it. The letters are made of a toned down lemon and orange whilst the background is a minty lime. I'm still unsure about the line weights in this design. I've trialled a few different line weights but is seems having them consisntent across the letters is definitley best, and maybe not having them at all looks cleaner, but this is my favourite setting for now.
+The final design is one I am happy with. It is by no means the most readable font but is the most readable I could under the 3 triangle constraint that I have given myself. The final colour choice is a set of colours that work well together, including a toned down lemon and orange with a minty lime background. The editor was certainly a helpful tool, once I had it sorted, to set paramaters for each letter. A range of words that relate to my font have been selected for this final exhibition version including the font tilte: 'TriiFont'.
 
-The drawing of the triangles has now been put in a function! This saves on lines of code and makes it easy to adjust the amount of triangles should I need more or less as just the function needs to be called and passed a handfull of variables.
+The transitions were also imporoved through having more concrete rotation values on the triangles meaning they don't have huge unnecasary movements that some were exhibiting previuosly - doing a full 360 when I was aiming for more smooth comfortable animations.
 
-the parameters per letter are:
+Stroke and colour were considered with many trials to make a selection that I was satisfied with. The decision in the end to go with no stroke was made to make the letters appear less seperated from the background that they occupied.
+
+As well as colour and stroke selection this final design involves tweaks to almost all letter shapes in attempt to make them as readable as possible. A few of my favourite letter shapes are T, B, M, and W.
+
+Furthering this design could involve experimentation with different shapes other than the original circles, lines, and current triangles.
+
+
+the final parameters per letter are:
 Main triangle
   - rotate1B
   - stroke1Big
