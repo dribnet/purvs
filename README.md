@@ -22,3 +22,5 @@ changed colors and finished sketch using a triangle and three ellipses. pretty s
 
 finished alphabet may change main ellipse colour as the contrast bettween the blue and the orange of the background is hard on your
 eyes. i used the original backgrond when working on the alphabet ans exiabiton pages.
+
+added a little ellipse just as a design feture, it is the last thing to move in the animation sequence also.

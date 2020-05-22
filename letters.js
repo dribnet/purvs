@@ -6,7 +6,9 @@ const alphabet = {
        "bx": 0,
   "by": 5,
      "bx1": 0,
-  "by1": - 20
+  "by1": - 20,
+  "dotx": 0,
+  "doty": 5
   },
   "A": {
   
@@ -20,7 +22,9 @@ const alphabet = {
    "bx": 0,
    "by": 5,
    "bx1": 0,
-   "by1": - 20
+   "by1": - 20,
+     "dotx": 0,
+  "doty": 5
   },
   "B": {
   
@@ -34,7 +38,9 @@ const alphabet = {
    "bx": 10,
    "by": 23,
     "bx1": 10,
-   "by1": -23
+   "by1": -23,
+     "dotx": 10,
+  "doty": 23
   },
   "C": {
   
@@ -48,7 +54,9 @@ const alphabet = {
    "bx": 15,
    "by": 12,
    "bx1": 15,
-   "by1": -12
+   "by1": -12,
+     "dotx": 15,
+  "doty": 12
   },
   "D": {
    
@@ -61,7 +69,9 @@ const alphabet = {
    "bx": 10,
    "by": 8,
    "bx1": 10,
-   "by1": -8
+   "by1": -8,
+     "dotx": 10,
+  "doty": 8
   },
   "E": {
    "point1":-10,
@@ -73,7 +83,9 @@ const alphabet = {
    "bx": 25,
    "by": 20,
    "bx1": 25,
-   "by1": -20
+   "by1": -20,
+     "dotx": 25,
+  "doty": 20
   },
   "F": {
    "point1":55,
@@ -85,7 +97,9 @@ const alphabet = {
    "bx": 25,
    "by": -20,
    "bx1": 15,
-   "by1": -20
+   "by1": -20,
+     "dotx": 25,
+  "doty": -20
   },
   "G": {
    "point1": 50,
@@ -97,7 +111,9 @@ const alphabet = {
    "bx": 10,
    "by": 15,
    "bx1": 0,
-   "by1": 5
+   "by1": 5,
+     "dotx": 10,
+  "doty": 15
   },
   "H": {
    "point1": -30,
@@ -109,7 +125,9 @@ const alphabet = {
    "bx": 0,
    "by": -30,
    "bx1": 0,
-   "by1": -20
+   "by1": -20,
+     "dotx": 0,
+  "doty": -30
   },
   "I": {
    "point1":-10,
@@ -121,7 +139,9 @@ const alphabet = {
       "bx": 28,
    "by": 5,
    "bx1": 28,
-   "by1": -5
+   "by1": -5,
+  "dotx": 28,
+  "doty": 5
   },
   "J": {
    "point1":-40,
@@ -133,7 +153,9 @@ const alphabet = {
    "bx": -5,
    "by": 10,
    "bx1": 28,
-   "by1": -5
+   "by1": -5,
+     "dotx": -5,
+  "doty": 10
   },
   "K": {
 
@@ -146,7 +168,9 @@ const alphabet = {
       "bx": 0,
    "by": -30,
    "bx1": 0,
-   "by1": 30
+   "by1": 30,
+     "dotx": 0,
+  "doty": -30
  
   },
   "L": {
@@ -159,7 +183,9 @@ const alphabet = {
     "bx": 0,
    "by": -35,
    "bx1": 35,
-   "by1": 0
+   "by1": 0,
+     "dotx": 0,
+  "doty": -35
   },
   "M": {
    "point1": -40,
@@ -171,7 +197,9 @@ const alphabet = {
        "bx": -25,
    "by": 22,
    "bx1": 25,
-   "by1": 22
+   "by1": 22,
+     "dotx": -25,
+  "doty": 22
   },
   "N": {
    "point1": -40,
@@ -183,7 +211,9 @@ const alphabet = {
     "bx": -15,
    "by": 25,
    "bx1": -15,
-   "by1": 15
+   "by1": 15,
+     "dotx": -15,
+  "doty": 25
   },
   "O": {
    "point1": 10,
@@ -195,7 +225,9 @@ const alphabet = {
        "bx": 0,
    "by": 0,
    "bx1": 0,
-   "by1": 0
+   "by1": 0,
+     "dotx": 0,
+  "doty": 0
   },
   "P": {
    "point1":55,
@@ -207,7 +239,9 @@ const alphabet = {
       "bx": 15,
    "by": -15,
    "bx1": 15,
-   "by1": -15
+   "by1": -15,
+     "dotx": 15,
+  "doty": -15
   },
   "Q": {
    "point1": 25,
@@ -219,7 +253,9 @@ const alphabet = {
          "bx": 20,
    "by": 1,
    "bx1": -5,
-   "by1": 15
+   "by1": 15,
+     "dotx": 20,
+  "doty": 1
   },
   "R": {
    "point1":55,
@@ -231,7 +267,9 @@ const alphabet = {
       "bx": 38,
    "by": 0,
       "bx1": 15,
-   "by1": -15
+   "by1": -15,
+     "dotx": 38,
+  "doty": 0
   },
   "S": {
    "point1": 50,
@@ -243,7 +281,9 @@ const alphabet = {
        "bx": -15,
    "by": 15,
    "bx1": -30,
-   "by1": 15
+   "by1": 15,
+     "dotx": -15,
+  "doty": 15
   },
   "T": {
    "point1":55,
@@ -255,7 +295,9 @@ const alphabet = {
        "bx": -25,
    "by": 25,
    "bx1": -25,
-   "by1": 10
+   "by1": 10,
+     "dotx": -25,
+  "doty": 25
   },
   "U": {
    "point1": -40,
@@ -267,7 +309,9 @@ const alphabet = {
           "bx": -25,
    "by": -22,
    "bx1": 25,
-   "by1": -22
+   "by1": -22,
+     "dotx": -25,
+  "doty": -22
 
   },
   "V": {
@@ -280,7 +324,9 @@ const alphabet = {
       "bx": 0,
    "by": -30,
    "bx1": 0,
-   "by1": -20
+   "by1": -20,
+     "dotx": 0,
+  "doty": -30
   },
   "W": {
    "point1": -30,
@@ -292,7 +338,9 @@ const alphabet = {
     "bx": -25,
    "by": -22,
    "bx1": 25,
-   "by1": -22
+   "by1": -22,
+     "dotx": -25,
+  "doty": -22
   },
   "X": {
    "point1":50,
@@ -304,7 +352,9 @@ const alphabet = {
           "bx": -25,
    "by": 22,
    "bx1": 25,
-   "by1": -22
+   "by1": -22,
+     "dotx": -25,
+  "doty": 22
   },
   "Y": {
    "point1": -40,
@@ -316,7 +366,9 @@ const alphabet = {
        "bx": -25,
    "by": 22,
    "bx1": 25,
-   "by1": 22
+   "by1": 22,
+     "dotx": -25,
+  "doty": 22
   },
   "Z": {
    "point1":-40,
@@ -328,7 +380,9 @@ const alphabet = {
        "bx": 15,
    "by": 15,
    "bx1": 30,
-   "by1": 15
+   "by1": 15,
+     "dotx": 15,
+  "doty": 15
   },
   "0": {
    "point1": 0,
@@ -340,7 +394,9 @@ const alphabet = {
       "bx": 20,
    "by": 0,
    "bx1": 20,
-   "by1": 0
+   "by1": 0,
+     "dotx": 20,
+  "doty": 0
   },
   "1": {
      "point1":-50,
@@ -352,7 +408,9 @@ const alphabet = {
           "bx": -20,
    "by": 30,
    "bx1": -30,
-   "by1": 15
+   "by1": 15,
+     "dotx": -20,
+  "doty": 30
   },
   "2": {
    "point1": 50,
@@ -364,7 +422,9 @@ const alphabet = {
        "bx": -15,
    "by": -10,
    "bx1": -30,
-   "by1": -5
+   "by1": -5,
+     "dotx": -15,
+  "doty": -10
   },
   "3": {
    "point1":10,
@@ -376,7 +436,9 @@ const alphabet = {
    "bx": -25,
    "by": 20,
    "bx1": -25,
-   "by1": -20
+   "by1": -20,
+     "dotx": -25,
+  "doty": 20
   },
   "4": {
    "point1": 10,
@@ -388,7 +450,9 @@ const alphabet = {
        "bx": 25,
    "by": 0,
    "bx1": 0,
-   "by1": 25
+   "by1": 25,
+     "dotx": 25,
+  "doty": 0
   },
   "5": {
    "point1":-10,
@@ -400,7 +464,9 @@ const alphabet = {
           "bx": 15,
    "by": -15,
    "bx1": 30,
-   "by1": -15
+   "by1": -15,
+     "dotx": 15,
+  "doty": -15
 
   },
   "6": {
@@ -413,7 +479,9 @@ const alphabet = {
              "bx": 15,
    "by": -18,
    "bx1": 30,
-   "by1": -18
+   "by1": -18,
+     "dotx": 15,
+  "doty": -18
 
   },
   "7": {
@@ -426,7 +494,9 @@ const alphabet = {
           "bx": 30,
    "by": 15,
    "bx1": 30,
-   "by1": 15
+   "by1": 15,
+     "dotx": 30,
+  "doty": 15
   },
   "8": {
    "point1": 10,
@@ -438,7 +508,9 @@ const alphabet = {
                 "bx": 0,
    "by": -18,
    "bx1": 0,
-   "by1": -18
+   "by1": -18,
+     "dotx": 0,
+  "doty": -18
   },
   "9": {
    "point1": 10,
@@ -450,7 +522,9 @@ const alphabet = {
              "bx": -15,
    "by": 18,
    "bx1": -30,
-   "by1": 18
+   "by1": 18,
+     "dotx": -15,
+  "doty": 18
   }
 
 }
