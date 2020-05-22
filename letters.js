@@ -40,7 +40,7 @@ const alphabet = {
     "startArc": 360,
     "stopArc":180,
 
-    "size2": 100,  // Second Arc
+    "size2": 100,  
     "offsetx2": 60,
     "offsety2": -46,
     "startArc2": 180,
@@ -297,54 +297,126 @@ const alphabet = {
     "stopArc2":300
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size":80,
+    "offsetx": 100,
+    "offsety": -50,
+    "startArc":180,
+    "stopArc":180,
+
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 90,
+    "offsety": -35,
+    "startArc": 90,
+    "stopArc":280
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 90,
+    "offsetx": 60,
+    "offsety": -45,
+    "startArc":180,
+    "stopArc":0,
+
+    "size2": 100,
+    "offsetx2": 105,
+    "offsety2": -40,
+    "startArc2": 90,
+    "stopArc2":320
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 90,
+    "offsety": -50,
+    "startArc": 90,
+    "stopArc":330,
+
+    "size2": 60,
+    "offsetx2": 105,
+    "offsety2": -35,
+    "startArc2": 277.2,
+    "stopArc2":90,
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 80,
+    "offsety": -50,
+    "startArc":266.4,
+    "stopArc":180,
+
+    "size2": 60,
+    "offsetx2": 110,
+    "offsety2": -35,
+    "startArc2": 277.2,
+    "stopArc2":90,
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 55,
+    "offsety": -45,
+    "startArc":90,
+    "stopArc":325,
+
+    "size2": 100,
+    "offsetx2": 95,
+    "offsety2": -50,
+    "startArc2": 277.2,
+    "stopArc2":135
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 90,
+    "offsety": -50,
+    "startArc": 90,
+    "stopArc":330,
+
+    "size2":65,
+    "offsetx2": 110,
+    "offsety2": -30,
+    "startArc2":180,
+    "stopArc2":180,
+
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 100,
+  "offsetx": 100,
+  "offsety": -40,
+  "startArc": 90,
+  "stopArc":270,
+
+  "size2": 70,
+  "offsetx2": 70,
+  "offsety2": -30,
+  "startArc2": 180,
+  "stopArc2":30
+
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 100,
+  "offsetx": 95,
+  "offsety": -50,
+  "startArc": 331.2,
+  "stopArc":205.2,
+
+  "size2": 90,
+  "offsetx2": 70,
+  "offsety2": -50,
+  "startArc2":180,
+  "stopArc2":0,
+
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx": 87,
+    "offsety": -55,
+    "startArc": 270,
+    "stopArc":110,
+
+    "size2":60,
+    "offsetx2": 110,
+    "offsety2": -70,
+    "startArc2":180,
+    "stopArc2":180,
   }
 
 }
