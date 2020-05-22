@@ -1,42 +1,36 @@
 const colorFront1  = "#ff0000";
 const colorFront2  = "#0023a1";
-const colorStroke  = "#233f11";
+const colorStroke  = "#000000";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
+
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
   strokeWeight(4);
   angleMode(DEGREES);
 
-  // determine parameters for Arc 1
+  // Parameters for Arc 1
   let size2 = letterData["size"];
   let pos2x = 50 +  letterData["offsetx"];
   let pos2y =  100 +  letterData["offsety"];
   let startArc = letterData["startArc"];
   let stopArc = letterData["stopArc"];
  
- // Arc 2
+ // Parameters for Arc 2
   let size3 = letterData["size2"];
   let posx2 = 50 +  letterData["offsetx2"];
   let posy2 =  100 +  letterData["offsety2"];
   let startArc2 = letterData["startArc2"];
   let stopArc2 = letterData["stopArc2"];
 
-  // draw two circles
+  // Draws Ellpise, and the two Arcs
   fill(colorFront1);
   ellipse(50, 150, 80, 80);
   fill(colorFront2);
   arc(pos2y, pos2x, size2, size2, startArc,stopArc);
   arc(posy2, posx2, size3, size3, startArc2,stopArc2);
 }
-
+// Animates/Interpolates Leters/Numbers
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
