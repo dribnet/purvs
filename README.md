@@ -46,6 +46,5 @@ If given more time I think my plan would be to try and further condense down my 
 Other than code structure, I’m very happy with the final output of my alphabet, and its interpolation, and I don’t think there is anything else that I would change.
 
 
-https://i.imgur.com/bbycwfj.png
-![Initial Illustrator plan](https://i.imgur.com/DSisx1r.png)
 ![Reference Cube](https://i.imgur.com/jBsV5cI.jpg)
+![Initial Illustrator plan](https://i.imgur.com/LSVnueW.png)
