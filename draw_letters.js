@@ -39,7 +39,7 @@ function drawLetter(letterData) {
 pop();
 
 push();
-  fill(red2, green2, blue2, 140);
+  fill(red2, green2, blue2, 150);
   translate(50 + arcX2, 100 + arcY2);
   rotate(rot2);
   arc(0, 0, arcSize2, arcSize2, 0, arcStop2);
