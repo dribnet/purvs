@@ -1,18 +1,16 @@
 {
   "commits": [
     {
-      "sha": "88357cfad9c8af0cf46b40d139c12072007fee6f",
+      "sha": "0000000000000000000000000000000000000003",
       "name": "final"
     },
     {
-      "sha": "77473780f7f20c7db25b3ce29ed71e5a4ca9ac2c",
-      "name": "experiment2: 2x2 Grid"
+      "sha": "0000000000000000000000000000000000000002",
+      "name": "experiment2"
     },
     {
-      "sha": "f94bd4821e0a6164af8eeb644e66bd2a9dee48b4",
-      "name": "experiment1: Custom Shapes and Contours"
+      "sha": "0000000000000000000000000000000000000001",
+      "name": "experiment1"
     }
-  
   ]
 }
-
