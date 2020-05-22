@@ -1,14 +1,12 @@
 ## MDDN 242 2020 Assignment 2
 
-Finished the alphabet and moving onto the letters. 
+Completed number set. 
 
-I'm really cutting this down to the wire but I'm going to make sure everything looks nice with arcs first before moving to bezier curves. 
+Some of the numbers I feel cheat a bit, like with the number 7. 
+However I cannot think of a good way to create the numbers 8 with the space inside the arc and with the lines without it looking funny or hard to read. 
 
-I know that it might be more work not changing to bezier curves now but because I want it to at least have something before moving onto something more tricky. 
+now that I've completed all the numbers and with the time I have, I've decided I'm going to forgo using beziere curves. I'm going to fiddle with transformations so that I can make my letters fit within the green boxes and play around with the lines so that some of them purposfully overflow from the arc and for some, cross over each other to give it a more stiched feel. 
 
-The characters are still slightly overflowing the boxes but I plan to just scale everything down and have a small margin of space around the edges. 
-
-In my drawn version I have the lines extending beyond the shape of the arc so I'm thinking if I have time I'll try and impliment that to give the letters a more interesting shape.
 
 I have 12 parameters per letter:
   * `height` : the height of the arc 

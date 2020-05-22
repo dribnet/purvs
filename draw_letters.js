@@ -36,8 +36,8 @@ function drawLetter(letterData) {
   fill(curveColour);
 
   push();
-    //scale(0.85);
-    //translate(9, 20);
+    //scale(0.82);
+    //translate(12, 22);
 
     //draw arch
     arc(x, y, w, h, angleStart, angleEnd);
