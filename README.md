@@ -1,6 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-My alphabet is called Overlays, a name which should be fairly self-explanatory. The point was to make an alphabet purely using two, overlapping arcs, where the overlap defines the approximate shape of an English letter. For some letters, such as E, S, and N, this was wildly successful. For others, some more peculiar lettering was required. The resulting alphabet has worked out surprisingly readable, though that may just be because I've stared at it a lot.
+My alphabet is called Overlays, a name which should be fairly self-explanatory. The point was to make an alphabet purely using two, overlapping arcs, where the overlap defines the approximate shape of an English letter. The default character contains no overlap, as it does not signify any specific letter. For some letters, such as E, S, and N, this was wildly successful. For others, some more peculiar lettering was required. The resulting alphabet has worked out surprisingly readable, though that may just be because I've stared at it a lot.
 
 Each letter has ten parameters, which are split into a set of five for each arc:
 
@@ -24,6 +24,6 @@ Most of my experimentation with the font was scrapped before pushing it because 
 
 There was one major issue with my code I had to work out, which was with the animation. Originally the arcs were drawn more typically, based off a start and stop point. This however, caused a significant issue: When interpolating between some letters, the start and stop points would pass each other, causing them to pop in and out of existence in a rather alarming manner. The solution to this turned out to be surprisingly simple, though it required some significant reworking. I changed every arc to draw from 0 to a point, and then rotated it, rather than using arbitrary start and stop points for each character. This didn't cost any variables, as I was swapping the start point for a rotation, and fixed the issue, allowing the arcs to rotate and stretch in a satisfying manner in all the interpolations.
 
-Outside of tinkering more with the details of how some letters are formed, I don't think I would do much more with extra time on this project. The letters I used are deliberately simple, using a minimal amount of imagery to create distinct letters. The most likely change I would make would be finding different ways to draw a small handful of letters, like Q and Y, that I'm not totally happy with.
+Outside of tinkering more with the details of how some letters are formed, I don't think I would do much more with extra time on this project. The letters I used are deliberately simple, using a minimal amount of imagery to create distinct letters. The most likely change I would make would be finding different ways to draw a small handful of letters, like Q and Y, that I'm not totally happy with. Playing more with the interpolate letters function is also something I'd try out - having the letters pop in and out during interpolation might be a fun addition, but I like that the current setup allows you to see them rotate and extend.
 
 All in all, I think this was a pretty successful project, and I am satisfied with the result.

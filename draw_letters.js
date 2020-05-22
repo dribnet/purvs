@@ -69,7 +69,6 @@ var swapWords = [
   "ROUNDEST",
   "REPRISAL",
   "JLJLJLJL",
-  "CIRCLING",
   "ROTATION",
   "COVERUPS",
   "ICONISED"
