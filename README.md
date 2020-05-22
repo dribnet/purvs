@@ -1,31 +1,15 @@
 ## MDDN 242 2020 Assignment 2
 
-Made small adjustments to the letters to give it a more "sewn" feel to the characters. 
-As I posted before, I did this by extending the lines beyond the edge of the arch and crossing them over if two lines intersect. 
+Final Read me:
 
-I've shrunken all the characters so that they all fit inside the box. They float above the line bottom most line but are centred so that the character's middle is the same as the middle dotted line.
+I found this project a little easier to do as I decided to limit myself and keep my ideas as simple as possible.
 
-Before I had in my code a if statement that could eliminate a line as some of the letters only require 1 line. I've gotten rid of it so that the animation between letters looks nicer. 
+As seen in pervious commits I restricted myself to only 3 elements in my design, a semi-circle and two lines. 
+This idea arose from my avid love for knitting (and I was knitting at the time that the project started).
 
+I found working with the arcs rather simple although I found the starting angle and end angle, while not important with a static character, with the animation was particularly important as I was only thinking in positive numbers until the very end where I remembered negative numbers also work with the arch. 
 
-I've update the variables as looking at them I realised that previous parameters were not correctly labeled.
+I'm a little sad that I wasn't able to make it look as fancy as some other people's work as I find coming up with itterative ideas quite difficult and even tho keeping myself restrained made the design much easier to create, I felt that in comparison to some of my peers work it was still quite dull and some what empty. 
 
-I have 14 parameters per letter:
-  * `offsetx` : x offset of the arc's centre (the middle of the circle's x position)
-  * `offsety` : y offset of the arc's centre (the middle of the circle's y position)
-  * `height` : the height of the arc 
-  * `width` : the width of the arc
-
-  * `line 1 x1` : x coordinate of first point of first line
-  * `line 1 y1` : y coordinate of first point of first line
-  * `line 1 x2` : x coordinate of second point of first line
-  * `line 1 y2` : y coordinate of second point of first line
-  
-  * `line 2 x1` : x coordinate of first point of second line
-  * `line 2 y1` : y coordinate of first point of second line
-  * `line 2 x2` : x coordinate of second point of second line
-  * `line 2 y2` : y coordinate of second point of second line
-  
-  * `angleStart` : begining angle of arc
-  * `angleEnd` : ending angle of arc
+Coding the characters is the least of my problems as it merely takes time and I'm already readily equipt with the ability to create the shapes but it's the design that always gets me. I think next time I need more direction in how I'm going to design it. I always feel like I'm thrown over board with these design elements as I feel that I have no beginners knowledge on where to start or how to start and the process to get from point A to point B.
 
