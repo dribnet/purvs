@@ -1,26 +1,23 @@
 ## MDDN 242 2020 Assignment 2
 22/05/2020
 
-I softened the boldness of my previous so that they were still similar, but more pleasant to look at. I also adjusted my if statements in the draw_letters file, adjusting the percent from 85 down to 80, so that the transition could be smooth, and so that the rotating, lock motion had a longer length of time, as I felt that having a higher percent made the letters lock too fast, and became a little jarring to watch. I also took the time to clean up my code, as I feel that I am very close to being finished. I also wanted to expand on the idea of fantasy space technology and exploration. For this theme, I became inspired by Star Wars, especially the droids, as I felt that the rotating and locking motions of my letters reminded me of parts of a machine/robot. I also looked at Star Wars droid anatomy charts, to find words for my exhibition that were relevant to my theme.
+I received final feedback for my set, and was advised to make further changes to my interpolation animation, as the locking/clicking portion of the animation transition was still a little too fast. I lowered the percent of my if statements for the start and end points of the arcs, to allow more time for the letters to click in the place.
 
-Droid anatomy inspiration:
-[Flickr](https://flic.kr/p/2j4aw5G)
-[Flickr](https://flic.kr/p/2j47T8G)
+//Percent transition control setup
+if (percent < 70) { //Controls the transition of the letter switching from its previous form, from a smooth movement, until it finally clicks/locks into place in its new form
+  new_letter["arcS"] = oldObj["arcS"];
+  new_letter["arcE"] = oldObj["arcE"];
+}
 
-I decided to name my font Astromec (pronounced as astro-mech), as a reference to fantasy space exploration, adventure and technology. Based on this theme, I chose eight words that are associated with astromechanics, fantastical and real-life droids/robot technology and space exploration:
+I also divided the percent value in the new letter map for the start and end points of my arcs, so that the arcs would transition at a slower rate, so that the form change was easier to watch.
 
-"ASTROMEC" - The name of my font.
-"RECHARGE" - A necessary function for droids to operate.
-"COUPLING" - A device needed to connect a droid to other technology.
-"INFRARED" - This is a reference to receptors that some droids possess to sense infrared light.
-"DROID123" - This is a reference to the fantastical robots on Star Wars, as well as a chance to exhibit my numbers.
-"VOYAGER?" - This is a reference to the NASA space probes that are currently exploring interstellar space.
-"ODYSSEY?" - This is a robotic spacecraft launched by NASA, also used for space exploration, more specifically Mars.
-"EXPLORER" - A reference to both real and fantastical people who have explored space.
+else {
+  new_letter["arcS"] = map(percent/5, 0, 100, oldObj["arcS"], newObj["arcS"]);
+  new_letter["arcE"] = map(percent/5, 0, 100, oldObj["arcE"], newObj["arcE"]);
 
-Bibliography:
-NASA MARS Odyssey. (Unknown). Spacecraft. Retrieved from https://mars.nasa.gov/odyssey/mission/spacecraft/
-NASA Jet Propulsion Laboratory, California Institute of Technology | Voyager. (Unknown). Mission Overview. Retrieved from https://voyager.jpl.nasa.gov/mission/
+I also added a 1px stroke to my third arc, as the second arc was showing through on forms where the second and third arcs crossed over eachother. 
+
+These alterations polished my set and made my animation more appealing and satisfying to watch.  
 
 The fourteen parameters per letter:
 "arcW" : width of all arcs

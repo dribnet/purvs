@@ -312,7 +312,7 @@ const alphabet = {
     "arcH" : 75, //Arc height
 
     //Arc 1
-    "arcX" : 38,
+    "arcX" : 37,
     "arcY" : 162,
     "arcS" : 7.85,
     "arcE" : 23.55,
@@ -412,7 +412,7 @@ const alphabet = {
     "arcE2" : 23.55,
 
     //Arc 3
-    "arcX3" : 69,
+    "arcX3" : 70,
     "arcY3" : 140,
     "arcS3" : 27.47,
     "arcE3" : 43.17,
