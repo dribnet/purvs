@@ -12,7 +12,7 @@ const alphabet = {
     "line 2 y1": 100,
     "line 2 x2": 30,
     "line 2 y2": 170,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "A": {
@@ -28,7 +28,7 @@ const alphabet = {
     "line 2 y1": 150,
     "line 2 x2": 50,
     "line 2 y2": 197,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "B": {
@@ -44,7 +44,7 @@ const alphabet = {
     "line 2 y1": 120,
     "line 2 x2": 40,
     "line 2 y2": 160,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "C": {
@@ -76,7 +76,7 @@ const alphabet = {
     "line 2 y1": 70,
     "line 2 x2": 45,
     "line 2 y2": 130,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "E": {
@@ -92,7 +92,7 @@ const alphabet = {
     "line 2 y1": 130,
     "line 2 x2": 108,
     "line 2 y2": 130,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "F": {
@@ -108,7 +108,7 @@ const alphabet = {
     "line 2 y1": 75,
     "line 2 x2": 70,
     "line 2 y2": 75,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "G": {
@@ -140,7 +140,7 @@ const alphabet = {
     "line 2 y1": 120,
     "line 2 x2": 50,
     "line 2 y2": 215,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "I": {
@@ -156,7 +156,7 @@ const alphabet = {
     "line 2 y1": 185,
     "line 2 x2": 100,
     "line 2 y2": 185,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "J": {
@@ -188,7 +188,7 @@ const alphabet = {
     "line 2 y1": 130,
     "line 2 x2": 100,
     "line 2 y2": 200,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "L": {
@@ -204,7 +204,7 @@ const alphabet = {
     "line 2 y1": 185,
     "line 2 x2": 100,
     "line 2 y2": 185,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "M": {
@@ -220,7 +220,7 @@ const alphabet = {
     "line 2 y1": 100,
     "line 2 x2": 66,
     "line 2 y2": 210,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "N": {
@@ -236,7 +236,7 @@ const alphabet = {
     "line 2 y1": 130,
     "line 2 x2": 30,
     "line 2 y2": 215,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "O": {
@@ -252,7 +252,7 @@ const alphabet = {
     "line 2 y1": 100,
     "line 2 x2": 50,
     "line 2 y2": 150,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "P": {
@@ -268,7 +268,7 @@ const alphabet = {
     "line 2 y1": 75,
     "line 2 x2": 90,
     "line 2 y2": 40,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "Q": {
@@ -284,7 +284,7 @@ const alphabet = {
     "line 2 y1": 175,
     "line 2 x2": 108,
     "line 2 y2": 210,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "R": {
@@ -300,7 +300,7 @@ const alphabet = {
     "line 2 y1": 200,
     "line 2 x2": 45,
     "line 2 y2": 130,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "S": {
@@ -332,7 +332,7 @@ const alphabet = {
     "line 2 y1": 80,
     "line 2 x2": 50,
     "line 2 y2": 215,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "U": {
@@ -392,7 +392,7 @@ const alphabet = {
     "line 1 x2": 100, "line 1 y2": 200,
     "line 2 x1": 100, "line 2 y1": 0,
     "line 2 x2": 0, "line 2 y2": 200,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "Y": {
@@ -420,7 +420,7 @@ const alphabet = {
     "line 2 y1": 70,
     "line 2 x2": -8,
     "line 2 y2": 70,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "0": {
@@ -452,7 +452,7 @@ const alphabet = {
     "line 2 y1": 0,
     "line 2 x2": 20,
     "line 2 y2": 75,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "2": {
@@ -468,7 +468,7 @@ const alphabet = {
     "line 2 y1": 160,
     "line 2 x2": 108,
     "line 2 y2": 160,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0
   },
   "3": {
@@ -484,7 +484,7 @@ const alphabet = {
     "line 2 y1": 120,
     "line 2 x2": 50,
     "line 2 y2": 140,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "4": {
@@ -516,7 +516,7 @@ const alphabet = {
     "line 2 y1": 90,
     "line 2 x2": 50,
     "line 2 y2": 130,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90,
   },
   "6": {
@@ -564,7 +564,7 @@ const alphabet = {
     "line 2 y1": 130,
     "line 2 x2": 50,
     "line 2 y2": 170,
-    "angleStart": 180,
+    "angleStart": -180,
     "angleEnd": 0,  
   },
   "9": {
