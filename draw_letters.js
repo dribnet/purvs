@@ -1,7 +1,14 @@
+// ------- COLOURS ------- //
+
 const colorPink  = "#F4A8C8";
 const colorWhite = "#FFFFFF";
 const colorStrokeWhite  = "#FFFFFF";
-const colorStrokeDarkPink  = "#ed5896";
+const colorStrokeDarkPink  = "#ED5896";
+
+// ------- STROKE WEIGHT ------- //
+
+const innerStroke = 2;
+const outerStroke = 7;
 
 /*
  * Draw the letter given the letterData
@@ -14,83 +21,115 @@ function drawLetter(letterData) {
 
   // ------- PARAMETERS ------- //
 
-  // let size2 = letterData["size"];
-  // let pos2x = 50  + letterData["offsetx"];
-  // let pos2y = 150 + letterData["offsety"];
-
+  // SIZES //
   let sizeLine1 = letterData["sizeLine"];
   let sizeCirc1 = letterData["sizeCirc"];
   let sizeCirc2 = letterData["sizeCirc2"];
-  let circ2x = letterData["circx1"];
-  let circ2y = letterData["circy1"];
-  let circ3x = letterData["circx2"];
-  let circ3y = letterData["circy2"];
-  let linePosX1 = letterData["linex1"];
-  let linePosY1 = letterData["liney1"];
-  let linePosX2 = letterData["linex2"];
-  let linePosY2 = letterData["liney2"];
-  let linePosY3 = letterData["liney3"];
+
+  // CIRCLES //
+  let circPosX1 = letterData["circX1"];
+  let circPosY1 = letterData["circY1"];
+  let circPosX2 = letterData["circX2"];
+  let circPosY2 = letterData["circY2"];
+
+  // LINES //
+  let linePosX1 = letterData["lineX1"];
+  let linePosY1 = letterData["lineY1"];
+  let linePosX2 = letterData["lineX2"];
+  let linePosY2 = letterData["lineY2"];
+  let linePosY3 = letterData["lineY3"];
+
 
   // ------- DRAWS TWO CIRCLES WITH OUTER WHITE STROKE ------- //
 
-  push();
+  beginShape();
+
   stroke(colorStrokeWhite);
-  strokeWeight(6);
-  fill(colorPink);
-  ellipse(circ2x, circ2y, sizeCirc1, sizeCirc1);
+  strokeWeight(outerStroke);
 
   fill(colorPink);
-  ellipse(circ3x, circ3y, sizeCirc2, sizeCirc2);
+  ellipse(circPosX1, circPosY1, sizeCirc1, sizeCirc1);
+
+  fill(colorPink);
+  ellipse(circPosX2, circPosY2, sizeCirc2, sizeCirc2);
+
+  endShape();
 
   // ------- DRAWS TWO LINES WITH OUTER WHITE STROKE ------- //
+  
+  beginShape();
 
   stroke(colorStrokeWhite);
-  strokeWeight(6);
-  fill(colorWhite);
+  strokeWeight(outerStroke);
+
+  fill(colorPink);
+
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
-  pop();
+
+  endShape();
 
   // ------- DRAWS TWO CIRCLES WITH INNER DARK PINK STROKE ------- //
 
-  push();
+  beginShape();
+
   stroke(colorStrokeDarkPink);
-  strokeWeight(2);
-  fill(colorPink);
-  ellipse(circ2x, circ2y, sizeCirc1, sizeCirc1);
+  strokeWeight(innerStroke);
 
   fill(colorPink);
-  ellipse(circ3x, circ3y, sizeCirc2, sizeCirc2);
+  ellipse(circPosX1, circPosY1, sizeCirc1, sizeCirc1);
+
+  fill(colorPink);
+  ellipse(circPosX2, circPosY2, sizeCirc2, sizeCirc2);
+
+  endShape();
 
   // ------- DRAWS TWO LINES WITH INNER DARK PINK STROKE ------- //
 
+  beginShape();
+  
   stroke(colorStrokeDarkPink);
-  strokeWeight(2);
-  fill(colorWhite);
+  strokeWeight(innerStroke);
+
+  fill(colorPink);
   line(linePosX1, linePosY3, linePosX1 + sizeLine1, linePosY1);
   line(linePosX2, linePosY1, linePosX2 + sizeLine1, linePosY2);
-  pop();
+
+  endShape();
 }
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["sizeLine"] = map(percent, 0, 100, oldObj["sizeLine"], newObj["sizeLine"]);
   new_letter["sizeCirc"] = map(percent, 0, 100, oldObj["sizeCirc"], newObj["sizeCirc"]);
   new_letter["sizeCirc2"] = map(percent, 0, 100, oldObj["sizeCirc2"], newObj["sizeCirc2"]);
-  new_letter["circx1"] = map(percent, 0, 100, oldObj["circx1"], newObj["circx1"]);
-  new_letter["circy1"] = map(percent, 0, 100, oldObj["circy1"], newObj["circy1"]);
-  new_letter["circx2"] = map(percent, 0, 100, oldObj["circx2"], newObj["circx2"]);
-  new_letter["circy2"] = map(percent, 0, 100, oldObj["circy2"], newObj["circy2"]);
-  new_letter["linex1"] = map(percent, 0, 100, oldObj["linex1"], newObj["linex1"]);
-  new_letter["liney1"] = map(percent, 0, 100, oldObj["liney1"], newObj["liney1"]);
-  new_letter["linex2"] = map(percent, 0, 100, oldObj["linex2"], newObj["linex2"]);
-  new_letter["liney2"] = map(percent, 0, 100, oldObj["liney2"], newObj["liney2"]);
-  new_letter["liney3"] = map(percent, 0, 100, oldObj["liney3"], newObj["liney3"]);
+  new_letter["circX1"] = map(percent, 0, 100, oldObj["circX1"], newObj["circX1"]);
+  new_letter["circY1"] = map(percent, 0, 100, oldObj["circY1"], newObj["circY1"]);
+  new_letter["circX2"] = map(percent, 0, 100, oldObj["circX2"], newObj["circX2"]);
+  new_letter["circY2"] = map(percent, 0, 100, oldObj["circY2"], newObj["circY2"]);
+  new_letter["lineX1"] = map(percent, 0, 100, oldObj["lineX1"], newObj["lineX1"]);
+  new_letter["lineY1"] = map(percent, 0, 100, oldObj["lineY1"], newObj["lineY1"]);
+  new_letter["lineX2"] = map(percent, 0, 100, oldObj["lineX2"], newObj["lineX2"]);
+  new_letter["lineY2"] = map(percent, 0, 100, oldObj["lineY2"], newObj["lineY2"]);
+  new_letter["lineY3"] = map(percent, 0, 100, oldObj["lineY3"], newObj["lineY3"]);
   return new_letter;
 }
 
+
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "PINKNESS",
+  "ADORABLE",
+  "BLOOMING",
+  "FLAMINGO",
+  "ROSINESS",
+  "BLUSHING",
+  "FLAWLESS",
+  "LEMONADE",
+  "BEAUTIFY",
+  "FETCHING",
+  "STUNNING",
+  "FLOURISH",
+  "PRECIOUS",
+  "12345678"
 ]

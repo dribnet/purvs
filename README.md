@@ -1,35 +1,12 @@
 ## MDDN 242 2020 Assignment 2
-
 **May 20 2020**
-I decided to add another parameter, however this must be the last one as this is my 12th and I do not want to make any more, not only for the brief but also to limit myself for more of a challenge. This parameter is the size of my second circle.
 
-Therefore, my FINAL parameters are:
+I fixed up letter G for more variation and to make look a tad more realistic. The only problem for G is that it's hard to incorporate lines as it's mainly a circular letter, such as C, O and Q. I also changed up E and created my special character.
 
-sizeLine1 = determines the size of BOTH lines, this is used to create a symmetric effect.
-sizeCirc1 = determines size of circle 1
-sizeCirc2 = determines size of circle 2
-circ2x = X position of circle 1
-circ2y = Y position of circle 1
-circ3x = X position of circle 2
-circ3y = Y position of circle 2
-linePosX1 = X position of line 1
-linePosY1 = Y position of line 1
-linePosX2 = X position of line 2
-linePosY2 = Y position of line 2
-linePosY3 = Y position of side 1 of line 1
+My special character is meant to be a "%" character with a twist on it. My aim for this was to make it sort of reversed, so that instead of two circles, there was just one. Also I had two lines instead of one and spaced this out so it wasn't dead set in the middle. Connecting the two shapes also reconstructs the character in an opposite way, as the normal "%" symbol is not connected.
 
-After this I was able to create a letter with two different types of circle sizes, which is "R" in this case.
+I also fixed up my Z as I noticed it wasn't aligned properly, as well as changing my 5's line to look more connected. I fixed up 2 as well to make the bigger circle connect to the lines, following my consistent method with the other numbers.
 
-I have also changed the following letters: C, D, J, I, G, as well as creating E, F and R.
+I tidied up my code a bit! I fixed up the variables so they look better and just spaced things out better.
 
-I started to give myself a break with the letters and moved on to numbers! I created number 1-7 and decided to follow a method that was quite different to how I approached the letters. I would have my main lines as two side by side, and I'd have my circles joined with the two lines. This is how I want viewers to be able to tell the variation in numbers and letters.
-
-Approaching number 8, I'm thinking of just taking what I've done for B and changing the letter B into something different.
-
-I have also decided on my final colours! I went with a pink theme and used different shades of the colour for a simplistic style as my alphabet is quite modern.
-
-I've completed my numbers! Surprisingly, I found these easier to create than the letters but I'm happy with the outcome. 0 was the last number I did and it made me realise how difficult it will be to create another version of it for the letter O. However, I think I sort of have an idea on how it'll come out.
-
-I have completed all my letters! I did some changed to a few letters as well so that each letter looks more consistent, but I still have a few more letters to tweak and fix.
-
-After saving, I actually realised my C and K were the same, so I fixed up "K" and I'm actually really fond of it. I still have to fix up some elements but I'm happy to have finished most of my alphabet.
+I settled on a name for my alphabet, and decided to go for "Pinkness" as my font itself is pink. I also updated the "swapWords" and chose words that related to pink and sort of girly words. I firstly came up with the names, then chose which one looked best with my font. At first I chose "Blushing" as the name, but then I settled on "Pinkness" as I liked how "pinkness" appeared since it showed off my favourite letters.
