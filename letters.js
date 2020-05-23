@@ -291,54 +291,114 @@ const alphabet = {
   "ellPosy":80
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 100,
+  "sizeW": 100,
+  "offsetx": 25,
+  "offsety": 75,
+  "rectL": 50,
+  "rectW": 50,
+  "radi": 25,
+  "ellPosx":50,
+  "ellPosy":100
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 50,
+  "sizeW": 20, 
+  "offsetx": 40,
+  "offsety": 60,
+  "rectL": 100,
+  "rectW":25,
+  "radi": 6,
+  "ellPosx":45,
+  "ellPosy":50
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 80,
+  "sizeW": 100,
+  "offsetx": 10,
+  "offsety": 140,
+  "rectL": 30,
+  "rectW":90,
+  "radi": 20,
+  "ellPosx":55,
+  "ellPosy":90
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 60,
+  "sizeW": 60,
+  "offsetx": 25,
+  "offsety":90,
+  "rectL": 60,
+  "rectW":60,
+  "radi": 40,
+  "ellPosx":55,
+  "ellPosy":70
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 30,
+  "sizeW": 60,
+  "offsetx": 10,
+  "offsety": 40,
+  "rectL": 80,
+  "rectW": 80,
+  "radi": 20,
+  "ellPosx":70,
+  "ellPosy":130
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 60,
+  "sizeW": 60,
+  "offsetx": 20,
+  "offsety": 40,
+  "rectL": 60,
+  "rectW": 60,
+  "radi": 10,
+  "ellPosx":40,
+  "ellPosy":130
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 80,
+  "sizeW": 80,
+  "offsetx": 10,
+  "offsety": 30,
+  "rectL": 80,
+  "rectW": 25,
+  "radi": 3,
+  "ellPosx":50,
+  "ellPosy":120
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 65,
+  "sizeW": 20, 
+  "offsetx": 40,
+  "offsety": 60,
+  "rectL": 100,
+  "rectW":25,
+  "radi": 6,
+  "ellPosx":30,
+  "ellPosy":50
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 80,
+  "sizeW": 80,
+  "offsetx":15,
+  "offsety": 35,
+  "rectL": 70,
+  "rectW": 70,
+  "radi": 50,
+  "ellPosx":50,
+  "ellPosy":120
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 70,
+  "sizeW": 55, 
+  "offsetx": 55,
+  "offsety": 60,
+  "rectL": 100,
+  "rectW":25,
+  "radi": 6,
+  "ellPosx":40,
+  "ellPosy":60
   }
 
 }
