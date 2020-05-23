@@ -1,4 +1,4 @@
-Updated code so the letters animate! I've added my parameters into the interaction.js file and sucessfully animated my letters. Because my letters are quite simple, the standard animation works quite well for it. I need to create my numbers, then I will work on the exhibition section.
+Finished my letter set! Ovrerall I'm very happy with the look of most of my letters and numbers. I think the style carried over well into the whole alphabet, and the challenge of using a minimal amount of parameters was engaging and a lot of fun messing around with each letter or number until I felt it looked right.
 
 
 
