@@ -1,5 +1,11 @@
 ## MDDN 242 2020 Assignment 2
 
-This my frist blog of project 2. However, this is my draft of assignment 2, I just want to craete some thing will be unique and abstract.So I have done a quick draft design  26 letter fonts of simple inspration. 
+(Replace this README with information about your alphabet. This is an example.)
 
-When I go throght the project proces, I will chocie diffrent color to create nice match on the my fonts .
+Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+
+The three parameters per letter:
+  * `size` : radius of the second circle
+  * `offsetx` : x offset of the second circle relative to the first one
+  * `offsety` : y offset of the second circle relative to the first one
+
