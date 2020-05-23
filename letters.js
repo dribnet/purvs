@@ -281,13 +281,13 @@ const alphabet = {
   },
   "Z": {
   "size": 80,
-  "sizeW": 40,
-  "offsetx": 30,
+  "sizeW": 30,
+  "offsetx": 20,
   "offsety": 100,
-  "rectL": 40,
-  "rectW":90,
-  "radi": 40,
-  "ellPosx":30,
+  "rectL": 30,
+  "rectW":80,
+  "radi": 20,
+  "ellPosx":40,
   "ellPosy":80
   },
   "0": {
