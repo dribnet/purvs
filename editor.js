@@ -11,9 +11,26 @@ const colorLines   = "#000090";
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["x1",  -60, 60],
+  ["y1",  -60,  60],
+  ["x2",  -100, 100],
+  ["y2",  -100,  100],
+  ["x3",  -100, 100],
+  ["y3",  -100,  100],
+  ["x4",  -100, 100],
+  ["y4",  -100,  100],
+  ["x5",  -100, 100],
+  ["y5",  -100,  100],
+  ["x6",  -100, 100],
+  ["y6",  -100,  100],
+  ["x7",  -100, 100],
+  ["y7",  -100,  100],
+  ["x8",  -100, 100],
+  ["y8",  -100,  100],
+  ["x9",  -100, 100],
+  ["y9",  -100,  100],
+  ["x10",  -100, 100],
+  ["y10",  -100,  100],
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -73,7 +90,7 @@ function draw () {
   background(colorBack);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data

@@ -1,11 +1,11 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBack    = "#000000";
 const colorFront   = "#199cff";
 const colorLines   = "#000090";
 
-/* 
+/*
  * do not edit this rest of this file, instead edit the letter
  * drawing code in draw_letters.js
  */
@@ -137,7 +137,7 @@ function getObjFromChar(c) {
   }
   else {
     return alphabet["default"];
-  }  
+  }
 }
 
 function getCharacterInterpolation(percent, oldChar, newChar) {
@@ -235,6 +235,7 @@ function draw () {
     var obj = computeCurrentChosenChar(i);
     drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
   }
+  filter(BLUR, 1);
 }
 
 function swapExhibitLetter(n, c, frameDelay) {
@@ -258,6 +259,6 @@ function keyTyped() {
     }
     upper_key = key.toUpperCase();
     swapExhibitLetter(curChosenLetter, upper_key, 0);
-    curChosenLetter = (curChosenLetter + 1) % 8;  
+    curChosenLetter = (curChosenLetter + 1) % 8;
   }
 }
