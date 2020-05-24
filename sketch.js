@@ -3,16 +3,16 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "output_1.png";
 
-function preload() {
+function preload() { // what happens before we kick off
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
 }
 
-function setup () {
+function setup () { // do not change canvas! - can edit stroke, back colour etc
   let main_canvas = createCanvas(1920, 640);
   main_canvas.parent('canvasContainer');
 
@@ -36,7 +36,7 @@ function draw () {
     }
     else {
       let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
