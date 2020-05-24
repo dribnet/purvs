@@ -1,4 +1,8 @@
-Finished my letter set! Ovrerall I'm very happy with the look of most of my letters and numbers. I think the style carried over well into the whole alphabet, and the challenge of using a minimal amount of parameters was engaging and a lot of fun messing around with each letter or number until I felt it looked right.
+Make some minor tweaks to my letters: M, W, X, U, V and F. These were the letters I wasn't very happy with, but I feel quite a lot better about them now. Small tweaks here and there make it much more legible. I've also named my font! 
+
+"Spillage"
+
+Named for the unfortunate event where I spilled coffee all over my laptop keyboard at the start of this project.
 
 
 

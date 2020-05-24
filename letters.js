@@ -60,15 +60,15 @@ const alphabet = {
   "ellPosy":100
   },
   "F": {
-  "size": 30,
-  "sizeW": 120,
+  "size": 45,
+  "sizeW": 130,
   "offsetx": 38,
   "offsety": 65,
   "rectL": 20,
   "rectW": 60,
   "radi": 3,
-  "ellPosx":50,
-  "ellPosy":100
+  "ellPosx":40,
+  "ellPosy":90
   },
   "G": {
   "size": 80,
@@ -145,14 +145,14 @@ const alphabet = {
   "rectW": 25,
   "radi": 6,
   "ellPosx":50,
-  "ellPosy":70
+  "ellPosy":80
   },
   "N": {
   "size": 70,
   "sizeW": 90,
   "offsetx": 10,
-  "offsety": 20,
-  "rectL": 120,
+  "offsety": 30,
+  "rectL": 110,
   "rectW": 30,
   "radi": 6,
   "ellPosx":50,
@@ -228,10 +228,10 @@ const alphabet = {
   "size": 100,
   "sizeW": 120,
   "offsetx": 30,
-  "offsety": 40,
+  "offsety": 45,
   "rectL": 80,
   "rectW": 40,
-  "radi": 20,
+  "radi": 5,
   "ellPosx":50,
   "ellPosy":100
   },
@@ -239,10 +239,10 @@ const alphabet = {
   "size": 100,
   "sizeW": 120,
   "offsetx": 30,
-  "offsety": 45,
-  "rectL": 80,
+  "offsety": 40,
+  "rectL": 90,
   "rectW": 40,
-  "radi": 5,
+  "radi": 40,
   "ellPosx":50,
   "ellPosy":100
   },
@@ -252,19 +252,19 @@ const alphabet = {
   "offsetx": 5,
   "offsety": 50,
   "rectL": 110,
-  "rectW": 30,
+  "rectW": 45,
   "radi": 20,
   "ellPosx":65,
   "ellPosy":110
   },
   "X": {
-  "size": 50,
-  "sizeW": 100,
+  "size": 40,
+  "sizeW": 110,
   "offsetx": 15,
   "offsety": 50,
-  "rectL": 110,
+  "rectL": 115,
   "rectW": 30,
-  "radi": 1,
+  "radi": 10,
   "ellPosx":65,
   "ellPosy":110
   },
@@ -399,6 +399,17 @@ const alphabet = {
   "radi": 6,
   "ellPosx":40,
   "ellPosy":60
+  },
+    "?": {
+  "size": 30,
+  "sizeW": 30, 
+  "offsetx": 40,
+  "offsety": 30,
+  "rectL": 100,
+  "rectW":25,
+  "radi": 6,
+  "ellPosx":53,
+  "ellPosy":150
   }
 
 }
