@@ -1,6 +1,8 @@
 I've added my words into draw_letters.js
 These words are all coffee related to fit with the theme of the font. I've chosen words that I think look good in my font, and I'm surprised how legible they are, though I know it's going to be much different for someone who has never seen the font before.
 
+Forgot to replace thumbnail and preview so this a re commit to update those.
+
 
 
 
