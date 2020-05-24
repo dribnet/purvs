@@ -1,3 +1,23 @@
+const cavansWight = 960
+const cavnasHeight = 500
+
+const letterA= {
+
+  "size" : 80
+  "offsetx": 0
+  "offsety": 45
+}
+
+const letterB={
+  "size":80
+  "offsetx": 0
+  "offsety":45
+
+}
+
+
+
+
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
 const colorStroke  = "#233f11";
@@ -12,19 +32,26 @@ const colorStroke  = "#233f11";
 function drawLetter(letterData) {
   // color/stroke setup
   stroke(colorStroke);
-  strokeWeight(4);
+  strokeWeight(1);
 
-  // determine parameters for second circle
+  // determine parameters for second circle 
   let size2 = letterData["size"];
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  ellipse(50, 150, 45, 45);
   fill(colorFront2);
   ellipse(pos2x, pos2y, size2, size2);
 }
+
+
+
+
+
+
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
