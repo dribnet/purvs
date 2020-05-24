@@ -1,8 +1,5 @@
-Make some minor tweaks to my letters: M, W, X, U, V and F. These were the letters I wasn't very happy with, but I feel quite a lot better about them now. Small tweaks here and there make it much more legible. I've also named my font! 
-
-"Spillage"
-
-Named for the unfortunate event where I spilled coffee all over my laptop keyboard at the start of this project.
+I've added my words into draw_letters.js
+These words are all coffee related to fit with the theme of the font. I've chosen words that I think look good in my font, and I'm surprised how legible they are, though I know it's going to be much different for someone who has never seen the font before.
 
 
 

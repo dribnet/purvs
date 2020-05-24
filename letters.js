@@ -192,15 +192,15 @@ const alphabet = {
   "ellPosy":100
   },
   "R": {
-  "size": 90,
+  "size": 80,
   "sizeW": 35,
   "offsetx": 10,
-  "offsety": 20,
-  "rectL": 120,
+  "offsety": 50,
+  "rectL": 100,
   "rectW": 25,
   "radi": 6,
   "ellPosx":55,
-  "ellPosy":50
+  "ellPosy":70
   },
   "S": {
   "size": 80,
