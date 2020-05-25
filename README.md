@@ -1,3 +1,11 @@
-## Creative Coding 2: Custom Pixel
+Changed the default input images to one of a Chinese junk dock and a fishing boat sailing infront of a warship
+Also made and added their respective mattes
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+Changed ellipses to lines for drawing water and muddled around adding loops within the if statement to independantly
+change quantity of shapes drawn over each matte 
+
+My two main ideas at this stage is either water or space themed, water because the code allows for a water effect to be made.
+space would allow me to draw lines to make the subject look like its moving.
+
+So far with the water theme I want to maybe highlight the junk in the centre frame, maybe use another matte to highlight it
+with more detailed pixels
