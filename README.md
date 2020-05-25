@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+The first 2 images above are photos take during a kayaking trip on the Whanganui River, the last image was taken in Mangonui. These images have been algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks currently remain unchanged for the moment. I have gained consent from the people in the first photo, as they are members of my family and are okay with being in the photo at this stage of the project. I will re-confirm consent if I do choose to use this photo further into the project.
