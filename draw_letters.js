@@ -39,42 +39,42 @@ function drawLetter(letterData) {
 
   //blue
   fill(colorFront1);
-  rect(x1+5,y1,30,30);
-  rect(x2+5,y2,30,30);
-  rect(x3+5,y3,30,30);
-  rect(x4+5,y4,30,30);
-  rect(x5+5,y5,30,30);
-  rect(x6+5,y6,30,30);
-  rect(x7+5,y7,30,30);
-  rect(x8+5,y8,30,30);
-  rect(x9+5,y9,30,30);
-  rect(x10+5,y10,30,30);
+  rect(x1+5,y1,15);
+  rect(x2+5,y2,15);
+  rect(x3+5,y3,15);
+  rect(x4+5,y4,15);
+  rect(x5+5,y5,15);
+  rect(x6+5,y6,15);
+  rect(x7+5,y7,15);
+  rect(x8+5,y8,15);
+  rect(x9+5,y9,15);
+  rect(x10+5,y10,15);
 
   //red
   fill(colorFront2);
-  rect(x1-5,y1,30,30);
-  rect(x2-5,y2,30,30);
-  rect(x3-5,y3,30,30);
-  rect(x4-5,y4,30,30);
-  rect(x5-5,y5,30,30);
-  rect(x6-5,y6,30,30);
-  rect(x7-5,y7,30,30);
-  rect(x8-5,y8,30,30);
-  rect(x9-5,y9,30,30);
-  rect(x10-5,y10,30,30);
+  rect(x1-5,y1,15);
+  rect(x2-5,y2,15);
+  rect(x3-5,y3,15);
+  rect(x4-5,y4,15);
+  rect(x5-5,y5,15);
+  rect(x6-5,y6,15);
+  rect(x7-5,y7,15);
+  rect(x8-5,y8,15);
+  rect(x9-5,y9,15);
+  rect(x10-5,y10,15);
 
   //white
   fill(colorFront3);
-  rect(x1,y1,30,30);
-  rect(x2,y2,30,30);
-  rect(x3,y3,30,30);
-  rect(x4,y4,30,30);
-  rect(x5,y5,30,30);
-  rect(x6,y6,30,30);
-  rect(x7,y7,30,30);
-  rect(x8,y8,30,30);
-  rect(x9,y9,30,30);
-  rect(x10,y10,30,30);
+  rect(x1,y1,15);
+  rect(x2,y2,15);
+  rect(x3,y3,15);
+  rect(x4,y4,15);
+  rect(x5,y5,15);
+  rect(x6,y6,15);
+  rect(x7,y7,15);
+  rect(x8,y8,15);
+  rect(x9,y9,15);
+  rect(x10,y10,15);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
