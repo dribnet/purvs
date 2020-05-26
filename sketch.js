@@ -1,10 +1,10 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let renderCounter = 0;
 
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let maskFile = "mask_1.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -12,7 +12,7 @@ function preload() {
   maskImg = loadImage(maskFile);
 }
 
-function setup () {
+function setup() {
   let main_canvas = createCanvas(1920, 640);
   main_canvas.parent('canvasContainer');
 
@@ -23,10 +23,10 @@ function setup () {
   maskImg.loadPixels();
 }
 
-function draw () {
+function draw() {
 
   //2000 elements
-  for(let i=0;i<3000;i++) {
+  for (let i = 0; i < 3000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -34,10 +34,22 @@ function draw () {
     fill(pix);
     stroke(pix);
     console.log(mask);
-    let pointSize=20;
-    line(x,y, x, y+pointSize);
+    let pointSize = 20;
+    let dice = random(1, 6);
+
+    if (mask[0] > 128) {
+      line(x, y, x + pointSize, y);
+    }
 
 
+    else {
+
+    if (dice > 5) {
+      line(x, y, x + pointSize, y); //horizontal windy
+    } else {
+      line(x, y, x, y + pointSize); //vertical rain
+    }
+}
 
 
 
@@ -53,11 +65,11 @@ function draw () {
 
   //runs 10 different times
   renderCounter = renderCounter + 1;
-  if(renderCounter >10) {
+  if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
