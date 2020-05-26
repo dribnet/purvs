@@ -39,12 +39,12 @@ let secondsPerWord = 8;
 let curSwapWord = 0;
 
 var defaultSwapWords = [
-  "ACTUALLY",
-  "1234567?",
-  "EXPECTED",
-  "PROPERTY",
-  "ADDITION",
-  "FOLLOWED",
+  " PIXELS ",
+  " LEVELS ",
+  "CONSOLES",
+  "GIGABYTE",
+  "COMPUTER",
+  "GRAPHICS",
   "PROVIDED",
   "ALTHOUGH",
   "HAPPENED",
