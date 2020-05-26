@@ -24,18 +24,18 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<40000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 10;
+      let pointSize = 5;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 10;
+      let pointSize = 5;
       rect(x, y, pointSize, pointSize);
     }
   }
