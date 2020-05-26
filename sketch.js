@@ -17,30 +17,43 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
+  // noStroke();
   background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+
+  //2000 elements
+  for(let i=0;i<3000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 70;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 20;
-      rect(x, y, pointSize, pointSize);
-    }
+    stroke(pix);
+    console.log(mask);
+    let pointSize=20;
+    line(x,y, x, y+pointSize);
+
+
+
+
+
+    // if(mask[0] > 128) {
+    //   let pointSize = 70;
+    //   ellipse(x, y, pointSize, pointSize);
+    // }
+    // else {
+    //   let pointSize = 20;
+    //   rect(x, y, pointSize, pointSize);
+    // }
   }
+
+  //runs 10 different times
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter >10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
