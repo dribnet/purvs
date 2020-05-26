@@ -4,3 +4,5 @@ Added my own image for testing. There is currently problems with the images for 
 
 Edit:
 I have fixed the Thumbnail and Preview by manually changing the sizes in Photoshop, this is only temporary until the real Thumbnail and Preview downloader is fixed. I have also played around further with the pixel size and count as before it was hard to make out anything in the image.
+
+It still didnt load the thumbnail and preview so im trying one more time
