@@ -7,6 +7,8 @@ let sourceFile = "input_1.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
 
+angleMode(DEGREES)
+
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
@@ -24,7 +26,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i < 3000;i++) {
+  for(let i=0;i < 15000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -32,23 +34,23 @@ function draw () {
 
     fill(pix);
 
-    if(mask[0] < 128) {
-      let pointSize = 10;
-      for(let ii = 0; ii < 10; ii++) {
-        strokeWeight(0)
-        rect(x, y, pointSize, pointSize,0);
-      }
+    if(mask[0] < 5 && i < 3000 ){ //black
+      let pointSize = 8;
+      strokeWeight(0)
+      rect(x, y, pointSize, pointSize,1);
     }
-    else {
-      let pointSize = 6;
-      for(let a = 0; a < 50; a++) {
-        stroke(pix)
-        strokeWeight(pointSize)
-        line(x, y, x + 50, y)
 
-      //ellipse(x, y, pointSize, pointSize);
-      //ellipse(x + (a + 5), y, pointSize, pointSize);
+    else if(mask[0] > 5 && mask[0] < 200) { //grey
+      let pointSize = 4;
+      strokeWeight(0);
+      rect(x, y, pointSize, pointSize,2)
     }
+
+    else if(mask[0] > 200 && i < 1500){ //white
+      let pointSize = 6;
+      stroke(pix)
+      strokeWeight(pointSize)
+        line(x - 15, y, x + 15, y)
     }
   }
   renderCounter = renderCounter + 1;

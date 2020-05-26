@@ -1,11 +1,33 @@
-Changed the default input images to one of a Chinese junk dock and a fishing boat sailing infront of a warship
-Also made and added their respective mattes
+if(mask[0] < 5 && i < 3000 ){ //black
+  let pointSize = 8;
+  strokeWeight(0)
+  rect(x, y, pointSize, pointSize,1);
+}
 
-Changed ellipses to lines for drawing water and muddled around adding loops within the if statement to independantly
-change quantity of shapes drawn over each matte 
+else if(mask[0] > 5 && mask[0] < 200) { //grey
+  let pointSize = 4;
+  strokeWeight(0);
+  rect(x, y, pointSize, pointSize,2)
+}
 
-My two main ideas at this stage is either water or space themed, water because the code allows for a water effect to be made.
-space would allow me to draw lines to make the subject look like its moving.
+else if(mask[0] > 200 && i < 1500){ //white
+  let pointSize = 6;
+  stroke(pix)
+  strokeWeight(pointSize)
+    line(x - 15, y, x + 15, y)
+}
 
-So far with the water theme I want to maybe highlight the junk in the centre frame, maybe use another matte to highlight it
-with more detailed pixels
+Made new mask with grey where the junk is, my last plan to draw more pixels didn't work and ended up drawing multiple pixels over each other\
+
+New if statements allow
+  - ability to differentiate between grey, white and black portions of the mask_1
+  - control the amount of pixels drawn in each mask area
+
+My original photo meant that the image was hard to discern what it was. My new if statements along with the masks ability to control the number
+of pixels in each sections means I can control the 'resolution' of each section, highlighting the focus of the image.
+
+Fine tuned the drawing of water and background. original water looked like it was bleeding into the surrounding objects.
+
+Future updates
+Add randomness  to length of stroke for the water, to make it feel more fluid / dynamic
+desaturate certain parts of the image? 
