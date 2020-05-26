@@ -27,7 +27,7 @@ function saveBlocksImages(doZoom) {
   offscreenCanvas.width = 230;
   offscreenCanvas.height = 120;
 
-  // background is flat white  
+  // background is flat white
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
   context.fillRect(0, 0, 230, 120);
@@ -66,5 +66,5 @@ function saveBlocksImages(doZoom) {
   // call this function after 1 second
   setTimeout(function(){
     p5.prototype.downloadFile(imageData, 'thumbnail.png', 'png');
-  }, 1000);  
+  }, 1000);
 }
