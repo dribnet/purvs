@@ -1,14 +1,15 @@
 ## Creative Coding 2: Custom Pixel
 
-26/05/20 - Experimentation 1
-The images above are photos of flowers taken in garden processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html).
+26/05/20 - Experimentation 2
+The images above are photos of the new years festival in Wellington 2020 processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html).
 
-You can see I have done some experimenting throughout my images. 
-Image 1: I decided to reverse the sizing on the masked and non masked area. So I made the rectangles in the nonmasked area size 30 and the maked circles size 5. I just love the complimentary colours and contrast this image is producing and it is cool you can still see that it is a flower.
+Image 1: this is a duck floating on water. I kept ellipses for the duck but made them larger. For the masked area, I masked the bottom half of the image (where the water surface is) and increased the rect width and decreased the height so it gives that watery effect.
 
-Image 2: I kept this one simple and masked the centre of the flower so it creates a 3D look.
+Image 2: This was a floating fish. I did edit this image; it's only mirrored. I did this because there was a lot of empty space to the left because when I took this photo that's how I angled it. It looks great mirrored though.
 
-Image 3: I was most experimental with my last image making negative space. In photoshop I used a flower shape template and increased the white stroke. I then placed it ontop of the flower in my image and now it looks like there's two flowers. I also drew some lines to the left and right to make more negative space - now it looks like there's movement in the image due to the horizontal lines. For this image I made the unmasked area the cirlce and the masked area the rect.
+Image 3: These are lanterns. I focused on the yellow and lights for this render.
+
+I had an idea for this. If I decided to continue with this theme I sorta like the idea of a plain black background and then an object in the middle with a lot of contrast. I could make the background from the other images black through the power of photoshop. It would be cool seeing a consistent pixel pattern in my exhibition.
 
 
 
