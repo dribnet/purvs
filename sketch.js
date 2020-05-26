@@ -26,7 +26,7 @@ function setup() {
 function draw() {
 
   //2000 elements
-  for (let i = 0; i < 3000; i++) {
+  for (let i = 0; i < 4000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -37,40 +37,40 @@ function draw() {
     let pointSize = 20;
     let dice = random(1, 6);
 
-    if (mask[0] > 128) {
-      line(x, y, x + pointSize, y);
-    }
+    if (mask[0] > 120) {
+      //line(x, y, x + pointSize, y);
+      drawStar(x, y, 70);
 
-
-    else {
-
-    if (dice > 5) {
-      line(x, y, x + pointSize, y); //horizontal windy
     } else {
-      line(x, y, x, y + pointSize); //vertical rain
+
+      if (dice > 5) {
+        line(x, y, x + pointSize, y); //horizontal windy
+      } else {
+        line(x, y, x, y + pointSize); //vertical rain
+      }
     }
-}
-
-
-
-    // if(mask[0] > 128) {
-    //   let pointSize = 70;
-    //   ellipse(x, y, pointSize, pointSize);
-    // }
-    // else {
-    //   let pointSize = 20;
-    //   rect(x, y, pointSize, pointSize);
-    // }
   }
 
   //runs 10 different times
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
+  if (renderCounter > 5) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
+}
+
+function drawStar(x, y, size){
+
+push();
+strokeWeight(4);
+translate(x,y);
+  for(var i =0; i<10; i++){
+      line(size, 0, -size,0);
+      rotate(360/5);
+  }
+pop();
 }
 
 function keyTyped() {
