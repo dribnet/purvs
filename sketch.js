@@ -29,13 +29,17 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
+
     if(mask[0] > 128) {
-      let pointSize = 25;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize1 = 1;
+      stroke(pix);
+      strokeWeight(pointSize1)
+      line(x, y, x + 70, y);
     }
     else {
       let pointSize = 10;
+      noStroke();
+      fill(pix);
       rect(x, y, pointSize, pointSize);
     }
   }
@@ -44,7 +48,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
