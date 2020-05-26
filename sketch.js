@@ -23,15 +23,18 @@ function setup() {
   maskImg.loadPixels();
 }
 
-const tileWidth = 40;
-const tileHeight = 10;
+const tileWidth = 30;
+const tileHeight = 30;
+
+const xStep = 35;
+const yStep = 35;
 
 
 function draw() {
 
 
-for(var x = 0; x < sourceImg.width; x = x + tileWidth){
-  for(var y = 0; y < sourceImg.height; y = y + tileHeight){
+for(var x = 0; x < sourceImg.width; x = x + xStep){
+  for(var y = 0; y < sourceImg.height; y = y + yStep){
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
