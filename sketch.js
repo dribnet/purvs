@@ -23,30 +23,44 @@ function setup() {
   maskImg.loadPixels();
 }
 
+const tileHeight = 10;
+const tileWidth = 10;
+
 function draw() {
 
-  for (let i = 0; i < 1000; i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-
-    let pointSize = 20;
-    let dice = random(1, 6);
-    if (mask[0] > 128) {
-      //line(x, y, x + pointSize, y); // horizonal "windy
-      drawStar(x,y,15);
-    } else {
-      if (dice > 5) {
-        line(x, y, x + pointSize, y); // horizonal "windy"
-      } else {
-        line(x, y, x, y + pointSize); // vertical "rainy"
-
-      }
-    }
+  for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
+    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        fill(pix);
+        stroke(pix);
+        rect(x,y,tileWidth,tileHeight);
   }
+}
+
+  //
+  // for (let i = 0; i < 1000; i++) {
+  //   let x = floor(random(sourceImg.width));
+  //   let y = floor(random(sourceImg.height));
+  //   let pix = sourceImg.get(x, y);
+  //   let mask = maskImg.get(x, y);
+  //   fill(pix);
+  //   stroke(pix);
+  //
+  //   let pointSize = 20;
+  //   let dice = random(1, 6);
+  //   if (mask[0] > 128) {
+  //     //line(x, y, x + pointSize, y); // horizonal "windy
+  //     drawStar(x,y,15);
+  //   } else {
+  //     if (dice > 5) {
+  //       line(x, y, x + pointSize, y); // horizonal "windy"
+  //     } else {
+  //       line(x, y, x, y + pointSize); // vertical "rainy"
+  //
+  //     }
+  //   }
+  // }
 
 
 
@@ -56,7 +70,7 @@ function draw() {
     noLoop();
 
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
