@@ -23,33 +23,50 @@ function setup() {
   maskImg.loadPixels();
 }
 
+const tileWidth = 40;
+const tileHeight = 10;
+
+
 function draw() {
 
-  //2000 elements
-  for (let i = 0; i < 4000; i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+
+for(var x = 0; x < sourceImg.width; x = x + tileWidth){
+  for(var y = 0; y < sourceImg.height; y = y + tileHeight){
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
     stroke(pix);
-    console.log(mask);
-    let pointSize = 20;
-    let dice = random(1, 6);
-
-    if (mask[0] > 120) {
-      //line(x, y, x + pointSize, y);
-      drawStar(x, y, 70);
-
-    } else {
-
-      if (dice > 5) {
-        line(x, y, x + pointSize, y); //horizontal windy
-      } else {
-        line(x, y, x, y + pointSize); //vertical rain
-      }
-    }
+    rect(x, y, tileWidth, tileHeight);
   }
+}
+
+
+
+
+  // for (let i = 0; i < 4000; i++) {
+  //   let x = floor(random(sourceImg.width));
+  //   let y = floor(random(sourceImg.height));
+  //   let pix = sourceImg.get(x, y);
+  //   let mask = maskImg.get(x, y);
+  //   fill(pix);
+  //   stroke(pix);
+  //   console.log(mask);
+    // let pointSize = 20;
+    // let dice = random(1, 6);
+  //
+ //    if (mask[0] > 120) {
+ //      //line(x, y, x + pointSize, y);
+ //      drawStar(x, y, 10);
+ //
+ //    } else {
+ //
+ //      if (dice > 5) {
+ //        line(x, y, x + pointSize, y); //horizontal windy
+ //      } else {
+ //        line(x, y, x, y + pointSize); //vertical rain
+ //      }
+ //    }
+ // }
 
   //runs 10 different times
   renderCounter = renderCounter + 1;
@@ -61,16 +78,15 @@ function draw() {
   }
 }
 
-function drawStar(x, y, size){
-
-push();
-strokeWeight(4);
-translate(x,y);
-  for(var i =0; i<10; i++){
-      line(size, 0, -size,0);
-      rotate(360/5);
+function drawStar(x, y, size) {
+  push();
+  strokeWeight(4);
+  translate(x, y);
+  for (var i = 0; i < 10; i++) {
+    line(size, 0, -size, 0);
+    rotate(360 / 5);
   }
-pop();
+  pop();
 }
 
 function keyTyped() {
