@@ -2,4 +2,4 @@
 
 Project updates for Karen O'Brien
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+For this project I want to take inspiration from both my own and many of my family member's passion for embroidery by taking photos of places/ objects of significance to my family and making them look like pieces of embroidery or cross stitch. To do this I plan to block out each object in different colours then apply an overlay that makes the image look as if it has been embroidered.
