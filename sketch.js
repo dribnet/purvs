@@ -26,10 +26,13 @@ function setup() {
 const tileHeight = 10;
 const tileWidth = 10;
 
+const x_step = 10;
+const y_step = 20;
+
 function draw() {
 
-  for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
-    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
+  for(var x = 0; x < sourceImg.width; x = x+ x_step){
+    for(var y = 0; y < sourceImg.height; y = y+ y_step){
         let pix = sourceImg.get(x, y);
         let mask = maskImg.get(x, y);
         fill(pix);
@@ -68,9 +71,8 @@ function draw() {
   if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
-
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+  //  saveArtworkImage(outputFile);
   }
 }
 
