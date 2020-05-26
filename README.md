@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+For this problem set, I'm thinking of doing something based on tradition as I feel like it'll have more meaning compared to something that isn't. This relates back towards one of the universities main message on telling a story with heritage. So far, I've updated one of the photos, and will update the rest in the next session.
