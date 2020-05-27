@@ -16,7 +16,7 @@ const letterA = {
   "arch":90,
   "arcw": 270,
   "s1": 180,
-  "start":20,
+  "start":30,
   "stop": 90,
 
 //Rec
@@ -25,41 +25,54 @@ const letterA = {
   "offsetx1":30,
   "offsety1":0,
   "angel": 60,
+
+  //ellpise
+
+  "arch2":215,
+  "arcw2":340,
+  "s2":40,
+
 }
-
-
-
-
+  
+  
 const letterB = {
   "arch":270,
   "arcw":90,
   "s1": 180,
-  "start":20,
+  "start":10,
   "stop": 100,
 
 //Rec
   "arch1":80,
-  "arcw1":250,
+  "arcw1":190,
   "offsetx1":-70,
-  "offsety1":-60,
+  "offsety1":-1,
   "angel": 60,
+  "angel1":60,
+
+ "arch2":530,
+ "arcw2": 350,
+ "s2":40,
  
 }
 
 const letterC = {
   
- "arch":90,
-  "arcw": 270,
+  "arch":90,
+  "arcw":270,
   "s1": 180,
   "start":20,
   "stop": 90,
+
+ "arch2":710,
+ "arcw2":340,
+ "s2":40,
  
 }
 
-const colorFront1  = "#3e2080";  //purple
+const colorFront1  = "#480099";  //purple
 const colorFront2  = "#e8c70c";  //yellow
-const colorFront3  = "#00520c";  //green
-const colorFront4  = "#ba6900";  //
+const colorFront3  = "#ba6900";  //
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -90,6 +103,11 @@ function drawLetter(posx, posy,letterData) {
   let pos2x = posx + letterData["offsetx1"];
   let pos2y = posy + letterData["offsety1"];
   let angel1 = letterData["angel"]
+  let angel2 = letterData["angel1"]
+
+  let size3x = letterData["arch2"];
+  let size3y = letterData["arcw2"];
+  let arcSize2 = letterData["s2"];
   
   
   
@@ -97,15 +115,16 @@ function drawLetter(posx, posy,letterData) {
   arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
   
   fill(colorFront1)
-  rect(pos2x, pos2y, size2x, size2y,0,0,0,angel1);
-
-  
+  rect(pos2x, pos2y, size2x, size2y,0,angel2,0,angel1);
+ 
+ fill(colorFront3);
+ ellipse(size3x,size3y,arcSize2,arcSize2);
   
 }
 
 function draw () {
   // clear screen
-  background(colorFront4);
+  background(colorBack);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  

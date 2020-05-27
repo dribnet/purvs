@@ -1,26 +1,6 @@
-const cavansWight = 960
-const cavnasHeight = 500
-
-const letterA= {
-
-  "size" : 80
-  "offsetx": 0
-  "offsety": 45
-}
-
-const letterB={
-  "size":80
-  "offsetx": 0
-  "offsety":45
-
-}
-
-
-
-
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorStroke  = "#233f11";
+const colorFront1  = "#480099";  //purple
+const colorFront2  = "#e8c70c";  //yellow
+const colorFront3  = "#ba6900";  //
 
 /*
  * Draw the letter given the letterData
@@ -29,29 +9,48 @@ const colorStroke  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(1);
+noStroke();
+ angleMode(DEGREES);
 
-  // determine parameters for second circle 
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+ let size1x = letterData["arch"];
+  let size1y = letterData["arcw"];
+  let arcSize1 = letterData["s1"]
+  let pos1x = letterData["start"];
+  let pos1y = letterData["stop"];
 
-  // draw two circles
-  fill(colorFront1);
-  ellipse(50, 150, 45, 45);
+  let size2x = letterData["arch1"];
+  let size2y = letterData["arcw1"];
+  let pos2x =  letterData["offsetx1"];
+  let pos2y =  letterData["offsety1"];
+  let angel1 = letterData["angel"]
+  let angel2 = letterData["angel1"]
+
+
+  let size4x = 50 + letterData["arch2"];
+  let size4y = 100 + letterData["arcw2"];
+  let arcSize2 = letterData["s2"];
+
+
+ 
+
+
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
+  
+  fill(colorFront1)
+  rect(pos2x, pos2y, size2x, size2y,0,angel2,0,angel1);
+  
+ 
+ fill(colorFront3);
+ ellipse(size4x,size4y,arcSize2,arcSize2);
+  
+  
+
 }
-
-
-
-
-
-
-
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
