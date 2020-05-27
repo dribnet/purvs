@@ -13,27 +13,46 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "tri1x1": -10,
+  "tri1y1": 50,
+  "tri1x2": 25,
+  "tri1y2": -20,
+  "tri1x3": 60,
+  "tri1y3": 50,
+
+  "tri2x1": 15,
+  "tri2y1": 50,
+  "tri2x2": 35,
+  "tri2y2": 0,
+  "tri2x3": 60,
+  "tri2y3": 50
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "rect1x": 400,
+  "rect1y": 230,
+  "rect1w": 25,
+  "rect1h": 70,
+
+  "arc1posx":0,
+  "arc1posy":0,
+  "arc1size": 50,
+  "arcStart1": 0,
+  "arcEnd1": 180
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
+const colorFront3  = "#12e042";
+const colorFront4  = "#5eff84";
+const colorFront5  = "#facc00";
+const colorFront6  = "#ffed63";
 const colorBack    = "#e3eded";
-const colorStroke  = "#233f11";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -41,24 +60,67 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
+  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // determine parameters - triangles
+  let triangle1x1 = posx + letterData["tri1x1"];
+  let triangle1y1 = posy + letterData["tri1y1"];
+  let triangle1x2 = posx + letterData["tri1x2"];
+  let triangle1y2 = posy + letterData["tri1y2"];
+  let triangle1x3 = posx + letterData["tri1x3"];
+  let triangle1y3 = posy + letterData["tri1y3"];
 
-  // draw two circles
+  let triangle2x1 = posx + letterData["tri2x1"];
+  let triangle2y1 = posy + letterData["tri2y1"];
+  let triangle2x2 = posx + letterData["tri2x2"];
+  let triangle2y2 = posy + letterData["tri2y2"];
+  let triangle2x3 = posx + letterData["tri2x3"];
+  let triangle2y3 = posy + letterData["tri2y3"];
+
+  //rectangles
+  let rect1x = letterData["rect1x"];
+  let rect1y = letterData["rect1y"];
+  let rect1Width = letterData["rect1w"];
+  let rect1Height = letterData["rect1h"];
+
+  let rect2x = letterData["rect2x"];
+  let rect2y = letterData["rect2y"];
+  let rect2Width = letterData["rect2w"];
+  let rect2Height = letterData["rect2h"];
+
+  //arcs 
+  let arc1posx = posx + letterData["arc1x"];
+  let arc1posy = posy + letterData["arc1y"];
+  let arc1size = letterData["arc1size"];
+  let arcStart1 = letterData["start1"];
+  let arcEnd1 = letterData["end1"];
+
+  let arc2posx = posx + letterData["arc2x"];
+  let arc2posy = posy + letterData["arc2y"]; 
+  let arcStart2 = letterData["start2"];
+  let arcEnd2 = letterData["end2"];
+
+
+  // draw shapes
+  fill(colorFront5);
+  triangle(triangle1x1, triangle1y1, triangle1x2, triangle1y2, triangle1x3, triangle1y3);
+  fill(colorFront6);
+  triangle(triangle2x1, triangle2y1, triangle2x2, triangle2y2, triangle2x3, triangle2y3);
+
+  fill(colorFront3);
+  rect(rect1x, rect1y, rect1Width, rect1Height);
+  fill(colorFront4);
+  rect(rect2x, rect2y, rect2Width, rect2Height);
+
   fill(colorFront1);
-  ellipse(posx, posy, 150, 150);
+  arc(arc1posx, arc1posy, arc1size, arc1size, arcStart1, arcEnd1);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(arc2posx, arc2posy, 80, 80, arcStart2, arcEnd2);
 }
 
 function draw () {
