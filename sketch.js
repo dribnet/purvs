@@ -22,7 +22,7 @@ const letterA = {
 //Rec
   "arch1":80,
   "arcw1": 185,
-  "offsetx1":25,
+  "offsetx1":30,
   "offsety1":0,
   "angel": 60,
 }
@@ -57,9 +57,9 @@ const letterC = {
 }
 
 const colorFront1  = "#3e2080";  //purple
-const colorFront2  = "#ffda0a";  //yellow
-const colorFront3  = "#ffef42";
-const colorFront4  = "#ffd336";
+const colorFront2  = "#e8c70c";  //yellow
+const colorFront3  = "#00520c";  //green
+const colorFront4  = "#ba6900";  //
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -92,10 +92,11 @@ function drawLetter(posx, posy,letterData) {
   let angel1 = letterData["angel"]
   
   
-  fill(colorFront1);
-  arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
   
   fill(colorFront2);
+  arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
+  
+  fill(colorFront1)
   rect(pos2x, pos2y, size2x, size2y,0,0,0,angel1);
 
   
@@ -104,7 +105,7 @@ function drawLetter(posx, posy,letterData) {
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(colorFront4);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
