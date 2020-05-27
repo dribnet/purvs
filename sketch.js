@@ -51,7 +51,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
