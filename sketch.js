@@ -18,6 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   //noStroke();
+  smooth();
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -29,16 +30,17 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+
     fill(pix);
     stroke(pix);
     strokeWeight(5);
     if(mask[0] > 128) {
-      let pointSize = 20;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize = 10;
+      rect(x, y, pointSize, pointSize);
+      //ellipse(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 15;
-      line(x, y, x, y+pointSize);
+      drawHatch(x, y, 5)
     }
   }
   renderCounter = renderCounter + 1;
@@ -47,6 +49,16 @@ function draw () {
     noLoop();
     // uncomment this to save the result
    //saveArtworkImage(outputFile);
+  }
+}
+
+function drawHatch(x, y, size){
+  let pointSize = 15;
+  let dice = random(1, 6);
+  if (dice > 4) {
+    line(x, y, x + pointSize, y);
+  } else {
+    line(x, y, x, y + pointSize);
   }
 }
 
