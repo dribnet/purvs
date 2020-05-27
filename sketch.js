@@ -27,12 +27,12 @@ const letterB = {
 const letterC = {
   "squareSize": 50,
   "offsetx": -100,
-  "offsety": -150
+  "offsety": -150,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#FAFF81";
+const colorFront2  = "#FFC53A";
+const colorBack    = "#161032";
 const colorStroke  = "#233f11";
 
 function setup () {
