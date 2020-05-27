@@ -2,5 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Had to fiddle around with the spacing and positioning of the squares otp ensure there were enough variations for all characters, however I have found a solution. I'm not really that happy with the colour scheme anymore so will be testing new combinations in the next few commits. 
+Updated the editor to test different configurations of where the squares are positioned in realtion to each other. Capped the square size at 25 because otherwise it becomes too big and covers the pink square.  
 
