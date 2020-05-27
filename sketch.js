@@ -13,44 +13,65 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "tri1x1": -10,
-  "tri1y1": 50,
-  "tri1x2": 25,
-  "tri1y2": -20,
-  "tri1x3": 60,
-  "tri1y3": 50,
+  "rect1x": 100,
+  "rect1y": 100,
+  "rect1w": 35,
+  "rect1h": 150,
 
-  "tri2x1": 15,
-  "tri2y1": 50,
-  "tri2x2": 35,
-  "tri2y2": 0,
-  "tri2x3": 60,
-  "tri2y3": 50
+  "rect2x": 100,
+  "rect2y": 100,
+  "rect2w": 110,
+  "rect2h": 35,
+
+  "rect3x": 175,
+  "rect3y": 100,
+  "rect3w": 35,
+  "rect3h": 150,
+
+  "rect4x": 100,
+  "rect4y": 170,
+  "rect4w": 110,
+  "rect4h": 25 
 }
 
 const letterB = {
-  "rect1x": 400,
-  "rect1y": 230,
-  "rect1w": 25,
-  "rect1h": 70,
+  "rect1x": 350,
+  "rect1y": 100,
+  "rect1w": 35,
+  "rect1h": 150,
 
-  "arc1posx":0,
-  "arc1posy":0,
-  "arc1size": 50,
-  "arcStart1": 0,
-  "arcEnd1": 180
+  "rect2x": 350,
+  "rect2y": 100,
+  "rect2w": 100,
+  "rect2h": 75,
+
+  "rect3x": 350,
+  "rect3y": 150,
+  "rect3w": 110,
+  "rect3h": 100,
 }
 
 const letterC = {
+  "rect1x": 600,
+  "rect1y": 100,
+  "rect1w": 110,
+  "rect1h": 35,
 
+  "rect2x": 600,
+  "rect2y": 100,
+  "rect2w": 35,
+  "rect2h": 150,
+
+  "rect3x": 600,
+  "rect3y": 215,
+  "rect3w": 110,
+  "rect3h": 35,
 }
 
 const colorFront1  = "#199cff";
 const colorFront2  = "#59ccff";
-const colorFront3  = "#12e042";
-const colorFront4  = "#5eff84";
-const colorFront5  = "#facc00";
-const colorFront6  = "#ffed63";
+const colorFront3  = "#8adbff";
+const colorFront4  = "#b5e9ff";
 const colorBack    = "#e3eded";
 
 
@@ -67,22 +88,7 @@ function setup () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters - triangles
-  let triangle1x1 = posx + letterData["tri1x1"];
-  let triangle1y1 = posy + letterData["tri1y1"];
-  let triangle1x2 = posx + letterData["tri1x2"];
-  let triangle1y2 = posy + letterData["tri1y2"];
-  let triangle1x3 = posx + letterData["tri1x3"];
-  let triangle1y3 = posy + letterData["tri1y3"];
-
-  let triangle2x1 = posx + letterData["tri2x1"];
-  let triangle2y1 = posy + letterData["tri2y1"];
-  let triangle2x2 = posx + letterData["tri2x2"];
-  let triangle2y2 = posy + letterData["tri2y2"];
-  let triangle2x3 = posx + letterData["tri2x3"];
-  let triangle2y3 = posy + letterData["tri2y3"];
-
-  //rectangles
+  // determine parameters - rectangles
   let rect1x = letterData["rect1x"];
   let rect1y = letterData["rect1y"];
   let rect1Width = letterData["rect1w"];
@@ -93,34 +99,26 @@ function drawLetter(posx, posy, letterData) {
   let rect2Width = letterData["rect2w"];
   let rect2Height = letterData["rect2h"];
 
-  //arcs 
-  let arc1posx = posx + letterData["arc1x"];
-  let arc1posy = posy + letterData["arc1y"];
-  let arc1size = letterData["arc1size"];
-  let arcStart1 = letterData["start1"];
-  let arcEnd1 = letterData["end1"];
+  let rect3x = letterData["rect3x"];
+  let rect3y = letterData["rect3y"];
+  let rect3Width = letterData["rect3w"];
+  let rect3Height = letterData["rect3h"];
 
-  let arc2posx = posx + letterData["arc2x"];
-  let arc2posy = posy + letterData["arc2y"]; 
-  let arcStart2 = letterData["start2"];
-  let arcEnd2 = letterData["end2"];
+  let rect4x = letterData["rect4x"];
+  let rect4y = letterData["rect4y"];
+  let rect4Width = letterData["rect4w"];
+  let rect4Height = letterData["rect4h"];
 
 
   // draw shapes
-  fill(colorFront5);
-  triangle(triangle1x1, triangle1y1, triangle1x2, triangle1y2, triangle1x3, triangle1y3);
-  fill(colorFront6);
-  triangle(triangle2x1, triangle2y1, triangle2x2, triangle2y2, triangle2x3, triangle2y3);
-
-  fill(colorFront3);
-  rect(rect1x, rect1y, rect1Width, rect1Height);
   fill(colorFront4);
-  rect(rect2x, rect2y, rect2Width, rect2Height);
-
-  fill(colorFront1);
-  arc(arc1posx, arc1posy, arc1size, arc1size, arcStart1, arcEnd1);
+  rect(rect4x, rect4y, rect4Width, rect4Height, 20);
+  fill(colorFront3);
+  rect(rect3x, rect3y, rect3Width, rect3Height, 20);
   fill(colorFront2);
-  arc(arc2posx, arc2posy, 80, 80, arcStart2, arcEnd2);
+  rect(rect2x, rect2y, rect2Width, rect2Height, 20);
+  fill(colorFront1);
+  rect(rect1x, rect1y, rect1Width, rect1Height, 20);
 }
 
 function draw () {

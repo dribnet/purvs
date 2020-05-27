@@ -1,17 +1,14 @@
 ## MDDN 242 2020 Assignment 2
 
-my first attempt at making my favourite of my designs. unfortunately i was unsucessful. for some reason i couldn't get the arc to work for the letter B on my sketch and i also used too many parameters.
+my second attempt at my sketch and i definitley think it was more succesful!! I changed up my design to use only squares/rectangles and i think this will be more effective and simple?? 
 
-i drew quite a few designs on paper before i started coding: 
-https://imgur.com/a/KATVvgS
-https://imgur.com/z7KHvpr
-https://imgur.com/Kr9hETw
-and i was inspired a lot (especially in the last design by this: https://imgur.com/4NzFYbz design)
+I sketched everything out beforehand again 
+https://imgur.com/YGCH2Zvi 
+also had alternatives for some letters/numbers
+and i also played with how i wanted the shapes to layer over one another, and i decided that i wanted the "first" shape on top and the rest to come out from behind. 
 
-i will have to redesign and figure out how i want everything to work. I don't think i will be able to use as many shapes as i want to, which is kind of annoying but i don't have enough variables. 
+I also rounded the edges of the rectangles as an alternative to me not being able to use the arcs i wanted to use haha
 
-things to change/fix: varibles (need to cut down), get shapes working for other letters other than 'A'
+also another reason why i chose to stray away from arcs is to make this project look different from my last one. When i was playing with them before they looked quite similar to my last project and i want this one to look different. 
 
-things i like: colours - i really want to use lots of colours - in my drawing i used felts to colour in the shapes, and since i had 2 of each shape i gave them both a pairing of colours (the triangles were red and orange etc) i want to do something like that where it is quite bright and colourful.    
-
-(hopefully the imgur links work)
+I do want to make it colourful and have each different shape a different colour but i felt i should get the base code down first and play with colours later as i have a tendency to focus on that until i get it exactly right. so i just left it blue for now. 
