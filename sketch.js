@@ -24,19 +24,29 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i = 0; i < 960 i++) {
+    for (let j = 0; j < 320; j++) {
+
+    }
+  }
+
+  for(let i=0;i<200;i++) {
+    //sets position of pixel
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    stroke(pix);
+
+    //if mask is white, make pixel a circle
     if(mask[0] > 128) {
-      let pointSize = 50;
+      let pointSize = 20;
       ellipse(x, y, pointSize, pointSize);
     }
-    else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+    else { //if mask is anything else, make it a rectangle
+      let pointSize = 50;
+      cross(x, y,pointSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -46,6 +56,14 @@ function draw () {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
+}
+
+function cross(x, y, size){
+  let left = x - size/2;
+  let top = y - size/2;
+
+  line(left, top, left + x, top + y);
+  line(left + x, top, left, top + y);
 }
 
 function keyTyped() {

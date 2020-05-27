@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+For some odd reason my index file won't render what coded for my picture. It may be because I amped up the number of pixels it was going to render but it doesn't seem to want to do that either.
+
+I've decided I'm going to stick with my crafts theme and create a cross-stitch and embroidery like custom pixel. The main area being the crosses you see and then the smaller, highlighted areas would be where vertical "embroidery" stitches would be. 
