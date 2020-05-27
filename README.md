@@ -1,5 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I played around with the code so I could further understand it. I had a go at importing my own images and creating my own masks. I used some photo's I had taken at the Wellington Waterfront late last year, I experimented with how detail comes through with the different settings and what effects I could achieve with it.
+I experimented with using lines to get a sketchy effect and changed the i value from 2000 to 4500. I quite like how it looks, I'm trying to find a balance between detail and gentle abstract. I may need to bump up the warmness to make the colours really pop!
+I've taken an image from a recent visit to the Auckland Botanical Gardens, this is because I enjoy visiting this place and I love nature.
 
 I found the code quite easy to navigate and understand.
