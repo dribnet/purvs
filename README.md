@@ -2,5 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-I have decided to bring in the second green squar a lot closer to the central pink square. As the alphabet progresses, the green square will "rotate" around the pink square and spiral outwards. I am doing this because I am aiming for a more abstract alphabet with little resemblance to English characters. I will continue testing with spacing and see what looks best. 
+Had to fiddle around with the spacing and positioning of the squares otp ensure there were enough variations for all characters, however I have found a solution. I'm not really that happy with the colour scheme anymore so will be testing new combinations in the next few commits. 
 

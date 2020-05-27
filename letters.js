@@ -6,183 +6,183 @@ const alphabet = {
   },
   "A": {
     "squareSize": 25,
-    "offsetx": -37.5,
-    "offsety": -25
+    "offsetx": -25,
+    "offsety": -12.5
   },
   "B": {
     "squareSize": 25,
-    "offsetx": -37.5,
-    "offsety": -50
+    "offsetx": -25,
+    "offsety": -25
   },
   "C": {
     "squareSize": 25,
-    "offsetx": -37.5,
-    "offsety": -75
+    "offsetx": -12.5,
+    "offsety": -25
   },
   "D": {
     "squareSize": 25,
     "offsetx": 0,
-    "offsety": -100
+    "offsety": -25
   },
   "E": {
     "squareSize": 25,
-    "offsetx": 37.5,
-    "offsety": -75
+    "offsetx": 12.5,
+    "offsety": -25
   },
   "F": {
     "squareSize": 25,
-    "offsetx": 37.5,
-    "offsety": -50
+    "offsetx": 25,
+    "offsety": -25
   },
   "G": {
     "squareSize": 25,
-    "offsetx": 37.5,
-    "offsety": -25
+    "offsetx": 25,
+    "offsety": -12.5
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
+    "squareSize": 25,
+    "offsetx": 25,
     "offsety": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 25,
+    "offsety": 12.5
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 25,
+    "offsety": 25
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 12.5,
+    "offsety": 25
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 0,
+    "offsety": 25
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": -12.5,
+    "offsety": 25
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": -25,
+    "offsety": 25
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": -25,
+    "offsety": 12.5
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
+    "squareSize": 25,
+    "offsetx": -25,
     "offsety": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -12.5
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": -25,
+    "offsety": -37.5
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 0,
+    "offsety": -37.5
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 25,
+    "offsety": -37.5
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -12.5
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
+   "squareSize": 25,
+    "offsetx": 37.5,
     "offsety": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": 12.5
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 25,
+    "offsety": 37.5
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": 0,
+    "offsety": 37.5
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "squareSize": 25,
+    "offsetx": -25,
+    "offsety": 37.5
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": 12.5
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": 0
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -62.5
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -87.5
   },
   "4": {
-    "size": 40,
+   "squareSize": 25,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": -87.5
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -87.5
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -62.5
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": 62.5
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+   "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": 87.5
   },
   "9": {
-    "size": 40,
+   "squareSize": 25,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 87.5
   }
 
 }
