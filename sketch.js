@@ -14,20 +14,20 @@ const canvasHeight = 500;
 
 const letterA = {
   "squareSize": 50,
-  "offsetx": -100,
-  "offsety": -50
+  "offsetx": -50,
+  "offsety": -25
 }
 
 const letterB = {
   "squareSize": 50,
-  "offsetx": -100,
-  "offsety": -100
+  "offsetx": -50,
+  "offsety": -50
 }
 
 const letterC = {
   "squareSize": 50,
-  "offsetx": -100,
-  "offsety": -150,
+  "offsetx": -25,
+  "offsety": -50
 }
 
 const colorFront1  = "#F50078";

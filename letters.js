@@ -5,39 +5,39 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -25
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -50
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": -37.5,
+    "offsety": -75
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 0,
+    "offsety": -100
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -75
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -50
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "squareSize": 25,
+    "offsetx": 37.5,
+    "offsety": -25
   },
   "H": {
     "size": 50,

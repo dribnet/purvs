@@ -2,5 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Continued to experiment with colours. Happy with this colour scheme for the mean time, but will continue to try different themes and colour combinations. Also am leaning towards having no stroke weight on the squares, but will also continue to test different weights and colours of that too.
+I have decided to bring in the second green squar a lot closer to the central pink square. As the alphabet progresses, the green square will "rotate" around the pink square and spiral outwards. I am doing this because I am aiming for a more abstract alphabet with little resemblance to English characters. I will continue testing with spacing and see what looks best. 
 

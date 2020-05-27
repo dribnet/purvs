@@ -1,5 +1,5 @@
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
+const colorFront1  = "#F50078";
+const colorFront2  = "#32D177";
 const colorStroke  = "#233f11";
 
 /*
@@ -11,19 +11,15 @@ const colorStroke  = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(colorStroke);
-  strokeWeight(4);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size2 = letterData["squareSize"];
+  let pos2x = 37.5 + letterData["offsetx"];
+  let pos2y = 87.5 + letterData["offsety"];
 
   // draw two circles
   fill(colorFront1);
-  ellipse(50, 150, 75, 75);
+  rect(37.5, 87.5, 25, 25);
   fill(colorFront2);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -39,3 +35,5 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
+
