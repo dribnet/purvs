@@ -14,4 +14,4 @@ things to change/fix: varibles (need to cut down), get shapes working for other 
 
 things i like: colours - i really want to use lots of colours - in my drawing i used felts to colour in the shapes, and since i had 2 of each shape i gave them both a pairing of colours (the triangles were red and orange etc) i want to do something like that where it is quite bright and colourful.    
 
-(hopefully the imgur links work)
+(hopefully the imgur links work) 
