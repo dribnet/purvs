@@ -478,14 +478,29 @@ const alphabet = {
 
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arch1":50,
+  "arcw1": 100,
+  "offsetx1":50,
+  "offsety1":100,
+  "angel": 60,
+
+  "arch2":-20,
+  "arcw2":50,
+  "s2":30,
+
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arch1":50,
+  "arcw1":50,
+  "offsetx1":50,
+  "offsety1":150,
+  "angel": 60,
+  "angel1":60,
+
+
+ "arch2":20,
+ "arcw2":20,
+ "s2":30,
   },
   "3": {
     "size": 40,
