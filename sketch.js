@@ -92,11 +92,6 @@ function drawLetter(posx, posy,letterData) {
   let angel1 = letterData["angel"]
   
   
-
-  
-  
- 
-  
   fill(colorFront1);
   arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
   
