@@ -1,33 +1,27 @@
-if(mask[0] < 5 && i < 3000 ){ //black
-  let pointSize = 8;
+if(mask[0] < 5 && i < 3000 ){ //Black, background
+  let pointSize = 9;
   strokeWeight(0)
   rect(x, y, pointSize, pointSize,1);
 }
 
-else if(mask[0] > 5 && mask[0] < 200) { //grey
+else if(mask[0] > 5 && mask[0] < 200) { //Grey, Foreground
   let pointSize = 4;
   strokeWeight(0);
   rect(x, y, pointSize, pointSize,2)
 }
 
-else if(mask[0] > 200 && i < 1500){ //white
-  let pointSize = 6;
+else if(mask[0] > 200 && i < 2000){ //White, water
+  let pointSize = random(4, 10);
   stroke(pix)
   strokeWeight(pointSize)
-    line(x - 15, y, x + 15, y)
+    line(x - random(5,20), y, x + random(5,20), y)
 }
 
-Made new mask with grey where the junk is, my last plan to draw more pixels didn't work and ended up drawing multiple pixels over each other\
+Added and fine tuned the random variables drawing the water
+Updated mask to include rope in the foreground
 
-New if statements allow
-  - ability to differentiate between grey, white and black portions of the mask_1
-  - control the amount of pixels drawn in each mask area
+Issues:
+  - Water mask bleeds over other masks
+  - water looks flat, might add transparency to edges to soften edges make it look more fluid.
 
-My original photo meant that the image was hard to discern what it was. My new if statements along with the masks ability to control the number
-of pixels in each sections means I can control the 'resolution' of each section, highlighting the focus of the image.
-
-Fine tuned the drawing of water and background. original water looked like it was bleeding into the surrounding objects.
-
-Future updates
-Add randomness  to length of stroke for the water, to make it feel more fluid / dynamic
-desaturate certain parts of the image? 
+  - Might add a third mask for the sky to further differentiate it between the background
