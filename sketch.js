@@ -13,64 +13,53 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "arch": 80,
-  "arcw": 80,
-  "offsetx": 0,
-  "offsety": 35,
+  "arch":90,
+  "arcw": 270,
+  "s1": 180,
+  "start":20,
+  "stop": 90,
 
-  "arch1":100,
-  "arcw1": 10,
-  "offsetx1":10,
-  "offsety1":100,
-
-  "archx3": 50,
-  "archy3": 50,
-  "offsetx2":50,
-  "offsety2":50,
-
-
-  
+//Rec
+  "arch1":80,
+  "arcw1": 185,
+  "offsetx1":25,
+  "offsety1":0,
+  "angel": 60,
 }
 
+
+
+
 const letterB = {
-  "arch": 100,
-  "arcw": 80,
-  "offsetx": 0,
-  "offsety": -30,
+  "arch":270,
+  "arcw":90,
+  "s1": 180,
+  "start":20,
+  "stop": 100,
 
-  "arch1":100,
-  "arcw1": 50,
-  "offsetx1":50,
-  "offsety1":100,
-
-
-  "archx3": 50,
-  "archy3": 50,
-  "offsetx2":50,
-  "offsety2":50,
+//Rec
+  "arch1":80,
+  "arcw1":250,
+  "offsetx1":-70,
+  "offsety1":-60,
+  "angel": 60,
+ 
 }
 
 const letterC = {
-  "arch": 100,
-  "arcw": 80,
-  "offsetx": 20,
-  "offsety": 0,
-
-  "arch1":50,
-  "arcw1": 100,
-  "offsetx1":100,
-  "offsety1":50,
-
-
-  "archx3": 50,
-  "archy3": 50,
-  "offsetx2":50,
-  "offsety2":50,
+  
+ "arch":90,
+  "arcw": 270,
+  "s1": 180,
+  "start":20,
+  "stop": 90,
+ 
 }
 
-const colorFront1  = "#19cff";  //dark blue 
-const colorFront2  = "#59ccff";  //light blue
+const colorFront1  = "#3e2080";  //purple
+const colorFront2  = "#ffda0a";  //yellow
 const colorFront3  = "#ffef42";
+const colorFront4  = "#ffd336";
 const colorBack    = "#e3eded";
 const colorStroke  = "#233f11";
 
@@ -92,31 +81,29 @@ function drawLetter(posx, posy,letterData) {
   // determine parameters for second circle
   let size1x = letterData["arch"];
   let size1y = letterData["arcw"];
-  let pos1x = posx + letterData["offsetx"];
-  let pos1y = posy + letterData["offsety"];
+  let arcSize1 = letterData["s1"]
+  let pos1x = posx + letterData["start"];
+  let pos1y = posy + letterData["stop"];
 
   let size2x = letterData["arch1"];
   let size2y = letterData["arcw1"];
   let pos2x = posx + letterData["offsetx1"];
   let pos2y = posy + letterData["offsety1"];
+  let angel1 = letterData["angel"]
+  
+  
 
-  let size3x = letterData["archx3"];
-  let size3y = letterData["archy3"];
-  let pos3x = posx + letterData["offsetx2"];
-  let pos3y = posy + letterData["offsety2"];
-
-
-  // draw two circles
+  
+  
+ 
+  
   fill(colorFront1);
-  ellipse(pos3x , pos3y, 150, 150);
+  arc(pos1x,pos1y,arcSize1,arcSize1,size1x,size1y);
   
   fill(colorFront2);
-  arc(pos1x,pos1y,size1x,size1y,180,0);
-  
-  fill(colorFront3);
-  rect(pos2x, pos2y, 55, 55);
+  rect(pos2x, pos2y, size2x, size2y,0,0,0,angel1);
 
-  // fill(colorfront)
+  
   
 }
 
