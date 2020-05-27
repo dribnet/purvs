@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I have started putting in my own input images and changing the mask to work with the new images. I am finding the project pretty easy to understand at this point and am excited to get more into changing the code and seeing how that changes the render. I made my own thumbnail and preview that are the correct size to use for now. 
+I am working my way through the class tutorials and have started with adding a cross-hatching effect to the areas in the mask that are black. To make this effect stand out more, I went back and edited the mask to have more contrast and make more details stand out.   
 
-The images above are photos from around my farm and the area I live in algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. In this image, I have used the mask to highlight the bushes and background of the image which set aside the mountain in the background
+The images above are photos from around my farm and the area I live in algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects.
