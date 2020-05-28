@@ -73,7 +73,18 @@ function interpolate_letter(percent, oldObj, newObj) {
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "MYSUNSET",
+  "BY LAURA",
+  "12345678",
+  "BLACKOUT", //B
+  "MARIGOLD", //M
+  "SCULPTOR", //S
+  "WEAPONRY", //W
+  "HAZELNUT", //Z (in the list im looking at theres no words that star with z)
+  "SNOWBIRD", //#787 (one of my favourite numbers)
+  "DOMINATE", //#46 (my other favourite number)
+  "TDMNFITA",
+  "FLOURISH",
+  "MYSTIQUE",
+  "A1B2C3D4"
 ]
