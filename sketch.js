@@ -19,7 +19,7 @@ function setup () {
 
   imageMode(CENTER);
   //noStroke();
-  background(25);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -34,15 +34,15 @@ function draw () {
     stroke(pix);
 
 
-    if(mask[0] > 128) {
-      let pointSize = 15;
-      ellipse(x, y, pointSize, pointSize);
+    if(mask[0] > 130) {
+      let pointSize = 18;
+      drawStar(x,y,14.5);
 
 
     }
     else {
-      let pointSize = 10;
-      drawStar(x,y,40);
+      let pointSize = 19;
+      square(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -56,7 +56,7 @@ function draw () {
 
 function drawStar(x,y,size) {
 push();
-strokeWeight(5);
+strokeWeight(2);
 translate(x,y)
 for (var i = 0; i < 30; i++){ //10
 line(size, 0, -size, 0);
