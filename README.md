@@ -1,5 +1,7 @@
 ## MDDN 242 2020 Assignment 2
 
-finished all of my letters (still have to do the numbers)
+finished all letters and numbers 
+changed i to lowercase 
+instead of doing a since stroke for 1, made it have several strokes for a more interesting look.
 
-i think i will use the alternate i instead of the one i have done (will do lower case instead of uppercase that i have here)
+im not very happy with the "2", but there isnt really anything else i can do for it, so its going to have to do
