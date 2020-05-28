@@ -54,9 +54,27 @@ noStroke();
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+
+new_letter["arch"] = map(percent, 0, 100, oldObj["arch"], newObj["arch"]);
+ new_letter["arcw"] = map(percent, 0, 100, oldObj["arcw"], newObj["arcw"]);
+new_letter["s1"] = map(percent, 0, 100, oldObj["s1"], newObj["s1"]);
+ new_letter["start"] = map(percent, 0, 100, oldObj["start"], newObj["start"]);
+ new_letter["stop"] = map(percent, 0, 100, oldObj["stop"], newObj["stop"]);
+
+ new_letter["arcw1"] = map(percent, 0, 100, oldObj["arcw1"], newObj["arcw1"]);
+ new_letter["arch1"]    = map(percent, 0, 100, oldObj["arch1"], newObj["arch1"]);
+ new_letter["offsety1"] = map(percent, 0, 100, oldObj["offsety1"], newObj["offsety1"]);
+ new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+ new_letter["angel"] = map(percent, 0, 100, oldObj["anegl"], newObj["angel"]);
+ new_letter["angel1"] = map(percent, 0, 100, oldObj["angel1"], newObj["angel1"]);
+
+
+ new_letter["arch2"] = map(percent, 0, 100, oldObj["arch2"], newObj["arch2"]);
+ new_letter["arcw2"] = map(percent, 0, 100, oldObj["arcw2"], newObj["arcw2"]);
+ new_letter["s2"] = map(percent, 0, 100, oldObj["s2"], newObj["s2"]);
+ 
+
+
   return new_letter;
 }
 
