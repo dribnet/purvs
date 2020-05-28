@@ -68,11 +68,11 @@ const letterC = {
   "rect3h": 35,
 }
 
-const colorFront1  = "#199cff";
-const colorFront2  = "#59ccff";
-const colorFront3  = "#8adbff";
-const colorFront4  = "#b5e9ff";
-const colorBack    = "#e3eded";
+const colorFront1  = "#d0e6a5";
+const colorFront2  = "#ffdd94";
+const colorFront3  = "#fa897b";
+const colorFront4  = "#cca8d8";
+const colorBack    = "#86e3ce";
 
 
 function setup () {
