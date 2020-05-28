@@ -1,4 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images are from two different photography projects but both include floral images, I decided to use because I know they were high quality and some of my favourite images and my favourite subject to photography. The first one is from a project based on the process of relationships. The other two are from a project that I did that had flowers as symbols of the 7 stages of grief. 
-I experimented a little bit with the mask and the different sizes and background colour to familarise myself with the code. 
+Just playing around with the code Phoebe was using in the videos and seeing what different effects looked like with my masks and photographs. I altered and played around with the third one the most and started to really experiment with texture. It also made me realise I do not really want to use black and white photographs because I think it is quite boring and I want to do something a bit more bright, might just be the photo though. I am still trying to come up with a theme for my assignment and what type of photos I want to take. 
