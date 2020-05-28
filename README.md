@@ -1,5 +1,9 @@
 ## Creative Coding 2: Custom Pixel
+ 
+Again using another tutorial today I've been experimenting with the code. I think the effect the first photo has is really cool, it looks almost as if all the pixels are being shaken up and down, the pixels all have very iron wire, structured look to them. It's a really nice remix of the classic 'blurry' photo look. I find the little boxes being drawn around especially the windows when you zoom in are really satisfying to the eye.
 
-I used Phoebes's template code from the tutorial on blackboard and have just been playing around with the different pieces of code to get more comfortable with it. I think the photos look really cool so far even with just this sort of basic code. They're all photos I took of my younger brother on his skateboard. The colour wave is really autumy and warm so I really like how the colours are displaying through the pixels. I'm not 100% sure just yet if I want to keep using these photos, I love how vibrant the third one is, so I may take some more of him with a brighter range of colours but then I also do really like the green and beige colour wave in the first two so I'm a little conflicted.
+My second photo is interesting as well, very magnified but I really like the fact that the pixels all look different sizes, some are really short, some look much longer.  
 
-I'm going to keep playing and creating my own code now to try and establish a theme. 
+The third photo has a more elongated look, the other two photos definitely have that pixelated effect to them, while this one just kindof looks like the photo has been cut straight down into lines.
+
+I will continue to iterate different versions of the first photo to see what kind of effects I can get, but the others don't really attract me enough to continue using them. But I wll keep them as ideas in case. 
