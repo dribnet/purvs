@@ -2,5 +2,13 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-This is my fully completed alphabet. I wanted the characters and numbers ot be quite abstract in the sense that they don't really resemble English characters or Arabic numerals. I considered adding in an extra shape or colour for the number, but ultiamtely decided against it as it would have been quite jarring and I wanted all of the characters to flow on each from each other more seamlessly. 
+This is my exhibition. The font itself is named "ShipsEye". This is to reflect the fact that it is inspired by the Semaphore flag signalling system as well as the Braille language. the sample words are:
+
+  "SHIPSEYE",
+  'MARITIME'
+  "FLAGSHIP",
+  "SIGNALS!",
+  "MDDN 242"  
+
+ I am happy with how the characters and numebrs look beside each other when the are out fo sequential order, and I am happy with how they transition from one letter/number to the next. 
 
