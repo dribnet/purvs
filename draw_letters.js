@@ -76,6 +76,7 @@ var swapWords = [
   "MYSUNSET",
   "BY LAURA",
   "12345678",
+  "TYPEFACE",
   "BLACKOUT", //B
   "MARIGOLD", //M
   "SCULPTOR", //S

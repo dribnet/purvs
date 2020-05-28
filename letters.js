@@ -485,14 +485,14 @@ const alphabet = {
   "rect1w": 100,
   "rect1h": 45,
 
-  "rect2x": 50,
+  "rect2x": 30,
   "rect2y": 85,
-  "rect2w": 50,
+  "rect2w": 70,
   "rect2h": 50,
 
-  "rect3x": 30,
+  "rect3x": 50,
   "rect3y": 120,
-  "rect3w": 70,
+  "rect3w": 50,
   "rect3h": 50,
 
   "rect4x": 0,
