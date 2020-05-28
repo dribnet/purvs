@@ -2,5 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-This is my interaction, even through going systematically through the alphabet in order the characters look quite similar, when they are next to each other non-sequentially, they begin to look more different and more identificable. 
+This is my fully completed alphabet. I wanted the characters and numbers ot be quite abstract in the sense that they don't really resemble English characters or Arabic numerals. I considered adding in an extra shape or colour for the number, but ultiamtely decided against it as it would have been quite jarring and I wanted all of the characters to flow on each from each other more seamlessly. 
 
