@@ -1,6 +1,6 @@
-const colorFront1  = "#fd80a8";
-const colorFront2  = "#fd948e";
-const colorFront3  = "#fcba5b";
+const colorFront1  = "#ff598e";
+const colorFront2  = "#fe767b";
+const colorFront3  = "#fdb155";
 const colorFront4  = "#fcce42";
 
 /*

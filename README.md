@@ -1,5 +1,6 @@
 ## MDDN 242 2020 Assignment 2
 
-colour test #3
-palette insp: https://www.pinterest.com.au/pin/538461699200991357/?nic_v1=1ar%2BwDxj4UiEI%2FBtpuC73wa2QumGE9nLWOHeuuVWgAorqjFmUc2A6Ae94ubrOc52B3
-my third colour version is this pink to yellow gradient. i paired it with a navy blue background as it reminded me of a night sky. I really like this one, and if i can change the background significantly thats a win for me. 
+colour update:
+i thought the pink looked a bit washed out compared to the yellow and blue, so i upped the saturation a bit and adjusted the other values to match. 
+I think it stands out more and looks way more coherent. also the 2nd colour again also looked a bit close to the 1st for the previous, and now with the change i think it definitely looks different now. 
+Im very happy with these colours here and i don't think i'll change it again!!
