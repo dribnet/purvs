@@ -12,21 +12,21 @@ const colorLines   = "#000090";
  */
 const sliderInfo = [
   ["rect1x", 0, 100],
-  ["rect1y", 0, 100],
+  ["rect1y", 0, 200],
   ["rect1w", 0, 100],
-  ["rect1h", 0, 100],
+  ["rect1h", 0, 200],
   ["rect2x", 0, 100],
-  ["rect2y", 0, 100],
+  ["rect2y", 0, 200],
   ["rect2w", 0, 100],
-  ["rect2h", 0, 100],
+  ["rect2h", 0, 200],
   ["rect3x", 0, 100],
-  ["rect3y", 0, 100],
+  ["rect3y", 0, 200],
   ["rect3w", 0, 100],
-  ["rect3h", 0, 100],
+  ["rect3h", 0, 200],
   ["rect4x", 0, 100],
-  ["rect4y", 0, 100],
+  ["rect4y", 0, 200],
   ["rect4w", 0, 100],
-  ["rect4h", 0, 100],
+  ["rect4h", 0, 200],
 
 ];
 
