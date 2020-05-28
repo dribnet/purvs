@@ -1,8 +1,10 @@
 ## Creative Coding 2: Custom Pixel
 
-
-
-
+【May.28.2020】
+Practice.
+I use pictures of Japanese food, Moroccan food and Chinese food.
+These are the photos I took while traveling. Diet is an integral part of life. Although people in different countries have different lifestyles, people have the same passion and love for food.
+I am still thinking about the theme. One current idea is to express the commonality of things that look different / the uniqueness of things that look similar.
 
 
 
