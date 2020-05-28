@@ -1,7 +1,7 @@
 /*
  * Here are some things you can edit
  */
-const colorBack    = "#e3eded";
+const colorBackground    = "#040A32";
 const colorLines   = "#000090";
 
 /* 
@@ -34,7 +34,7 @@ function mouseClicked() {
 
 function draw () {
   // clear screen
-  background(colorBack);
+  background(colorBackground);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
