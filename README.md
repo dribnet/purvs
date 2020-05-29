@@ -1,13 +1,13 @@
 ## Creative Coding 2: Custom Pixel
 
-26/05/20 - Experimentation 3
-The images above are photos of paekakariki hill processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). My friends and I went to watch the sunset :D
+26/05/20 - Experimentation 4
+The images above are photos of my apartment view processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). 
 
-Image 1: I was exrpimenting with strokes. I gave the rect a large stroke weight and it made the hill look more like a painting. As the sky I kept them as an ellipse because I wanted them to still seem like clouds. I actually added smaller rectangles top top too.
+For this experiment I kept the style of pixels' the same throughtout the 3 photos. The only changes that were made are the images. The photos are taken from my bedroom by the window at different times of the day (evening, night and morning). I wanted to see how the images would look together with the same style but different colouration. 
 
-Image 2: Using a more stretched technique I used rects and ellipse with an extreme height integer.
+I did change the masks slightly to suit the angle of the image.
 
-Image 3: I tried to make this image look more like we were at a beach. Once again I used the same technique I did with the duck floating on the water. This effect makes it look like flowing water. As fr the unmasked area, I made the pointsize very small with a large stroke weight so it looks like sand.
+
 
 
 

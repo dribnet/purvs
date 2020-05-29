@@ -32,14 +32,16 @@ function draw () {
     fill(pix);
     if(mask[0] > 128) {
       let pointSize = 10;
-      noStroke();
+      stroke(0,5);
+      strokeWeight(10);
       rect(x-50, y, pointSize+100, pointSize);
     }
     else {
-      let pointSize = 5;
-      stroke(117, 102, 87,50);
-      strokeWeight(20);
-      rect(x, y, pointSize, pointSize);
+      let pointSize = 25;
+      noStroke();
+      stroke(0,10);
+      strokeWeight(10);
+      rect(x, y, pointSize, pointSize+65);
     }
   }
   renderCounter = renderCounter + 1;
