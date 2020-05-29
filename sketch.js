@@ -33,10 +33,10 @@ function draw () {
     stroke(pix);
        let pointSize = 50;
        let dice = random(1,6);
-       if(dice == 6){
-       line(x, y, pointSize+x, y);
+       if(dice > 5){
+       line(x, y, x+pointSize, y);
        }
-      else{
+       else{
        line(x, y, x, y+pointSize);
 }
   //    let pointSize = 50;
@@ -52,7 +52,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+   //saveArtworkImage(outputFile);
   }
 }
 
