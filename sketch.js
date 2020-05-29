@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -25,54 +25,37 @@ function setup() {
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth = 10;
+const tileHeight = 8;
+const tileWidth = 18;
 
 const x_step = 12;
 const y_step = 12;
 
 function draw() {
 
-  for(var x = 0; x < sourceImg.width; x = x+ x_step){
-    for(var y = 0; y < sourceImg.height; y = y+ y_step){
-        let pix = sourceImg.get(x, y);
-        let mask = maskImg.get(x, y);
-        fill(pix);
-        stroke(pix);
-        //rect(x,y,tileWidth,tileHeight);
-          if (mask[0] < 128) { //if mask is black
-            strokeWeight(7)
-            line(x, y, x + x_step, y + y_step); // horizonal "windy"
+  for (let i = 0; i < 4000; i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    stroke(pix);
+    strokeWeight(5);
 
-          } else {
-            let pointSize = 20;
-            ellipse(x, y, pointSize, pointSize);
-            // let pointSize = 10;
-            // rect(x, y, pointSize, pointSize);
-         }
+    let dice = random(1, 6);
+    if (mask[0] < 128) { //if mask is black
+      if (dice > 4) {
+
+        line(x, y, x, y + y_step); // horizonal "windy"
+      } else {
+        line(x, y, x + x_step, y); // horizonal "windy"
+      }
+
+    } else {
+      ellipse(x, y, tileWidth, tileHeight);
+      // rect(x, y, tileWidth, tileHeight);
+    }
   }
-}
-
-  // for (let i = 0; i < 3200; i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix);
-  //   stroke(pix);
-  //
-  //   let pointSize = 20;
-  //   if (mask[0] < 128) { //if mask is black
-  //     strokeWeight(4)
-  //     line(x, y, x + x_step, y + y_step); // horizonal "windy"
-  //
-  //   } else {
-  //     let pointSize = 20;
-  //     ellipse(x, y, pointSize, pointSize);
-  //     // let pointSize = 10;
-  //     // rect(x, y, pointSize, pointSize);
-  //   }
-  // }
 
   renderCounter = renderCounter + 1;
   if (renderCounter > 10) {
