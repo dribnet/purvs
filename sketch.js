@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER); //centering image
   noStroke(); //no stroke on the circles
-  background(62, 118, 201); //background colour
+  background(112, 109, 56); //background colour
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,11 +31,14 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 25;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize = 10;
+      noStroke();
+      rect(x-50, y, pointSize+100, pointSize);
     }
     else {
-      let pointSize = 9;
+      let pointSize = 5;
+      stroke(117, 102, 87,50);
+      strokeWeight(20);
       rect(x, y, pointSize, pointSize);
     }
   }

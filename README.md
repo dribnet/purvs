@@ -1,15 +1,14 @@
 ## Creative Coding 2: Custom Pixel
 
-26/05/20 - Experimentation 2
-The images above are photos of the new years festival in Wellington 2020 processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html).
+26/05/20 - Experimentation 3
+The images above are photos of paekakariki hill processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). My friends and I went to watch the sunset :D
 
-Image 1: this is a duck floating on water. I kept ellipses for the duck but made them larger. For the masked area, I masked the bottom half of the image (where the water surface is) and increased the rect width and decreased the height so it gives that watery effect.
+Image 1: I was exrpimenting with strokes. I gave the rect a large stroke weight and it made the hill look more like a painting. As the sky I kept them as an ellipse because I wanted them to still seem like clouds. I actually added smaller rectangles top top too.
 
-Image 2: This was a floating fish. I did edit this image; it's only mirrored. I did this because there was a lot of empty space to the left because when I took this photo that's how I angled it. It looks great mirrored though.
+Image 2: Using a more stretched technique I used rects and ellipse with an extreme height integer.
 
-Image 3: These are lanterns. I focused on the yellow and lights for this render.
+Image 3: I tried to make this image look more like we were at a beach. Once again I used the same technique I did with the duck floating on the water. This effect makes it look like flowing water. As fr the unmasked area, I made the pointsize very small with a large stroke weight so it looks like sand.
 
-I had an idea for this. If I decided to continue with this theme I sorta like the idea of a plain black background and then an object in the middle with a lot of contrast. I could make the background from the other images black through the power of photoshop. It would be cool seeing a consistent pixel pattern in my exhibition.
 
 
 
