@@ -1,5 +1,4 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
-
-Quick test image, havent changed mask yet but plan to
+Just added a quick test image so that I can experiment with code in a bit before I get my final images, this photo was one of my original ideas, its of my mum and sumner beach. However I felt that there isnt a lot of depth in the photo and detail is very small, so if I have quite an abstract pixel then it will be hard see what it is.
+My new idea for my theme is going to be boardgames, specifically the games that me and mum have been playing since I came back home to christchurch during the lockdown which have been this cool scrabble like game called Banagrams, then its been Yahtzee and then just card games like Gin Rummy and Sevens. So from these three games my photos would respectively be of Scrabble tiles, Dice, and then cards. For these photos I want to use extreme close ups so that I can use quite an abstract pixel shape, while still having the overall silhouette of the shape be recognizable.
