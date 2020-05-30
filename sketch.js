@@ -1,6 +1,6 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let renderCounter = 0;
 
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
@@ -36,7 +36,7 @@ function draw () {
     }
     else {
       let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
