@@ -3,13 +3,15 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
 let outputFile = "output_1.png";
+let wasteTextFile = "wasteText.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
+  wasteTextImg = loadImage(wasteTextFile);
 }
 
 function setup () {
@@ -21,10 +23,13 @@ function setup () {
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+
 }
 
 function draw () {
-   for(let i=0;i<1000;i++) {
+   for(let i=0;i<500;i++) {
+
+
      let x = floor(random(sourceImg.width));
      let y = floor(random(sourceImg.height));
      let pix = sourceImg.get(x, y);
@@ -32,13 +37,22 @@ function draw () {
      fill (pix);
      stroke(pix);
      fill(pix);
-     let pointSize = 10;
+
+     let pointSize = 2;
      if (mask[0]> 128) {
-       masked(x,y);
+       stroke (255);
+       strokeWeight(.75);
+       rect (x, y, pointSize*4, pointSize);
 
      } else
-     line (x-20, y, x+pointSize*5, y);
+     stroke (0);
+     noStroke ();
+     rect (x, y, pointSize*2, pointSize*5);
    }
+   //image(wasteTextImg, 1000, 250);
+   // textSize (30);
+   // fill (0, 0, 0);
+   // text ('WASTE EP - GAJUAR',50, 500);
 
    //console.log (mouseX)
   //   let x = floor(random(sourceImg.width));
@@ -63,13 +77,19 @@ function draw () {
     //saveArtworkImage(outputFile);
   }
 
-function masked (x,y) {
-    let pointSize = 10;
-  if (x<400, x>1100){
-    line (x-20, y, x+5, y)
-  }else
-      line (x-20, y, x+pointSize*1.5, y);
-}
+
+// function masked (x,y) {
+// select random word
+
+// let words = ['GAJUAR', 'WASTE', 'EP', 'OUT' 'NOW'];
+// let word = random(words);
+//     let pointSize = 10;
+//   if (x<596){
+//     text(word, 10, 50)
+//   }else
+//       rect (x, y, pointSize, pointSize*10);
+// }
+
 
 
 
