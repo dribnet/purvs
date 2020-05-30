@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -31,12 +31,12 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 15;
+      let pointSize = 10;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize+20);
+      let pointSize = 20;
+      ellipse(x, y, pointSize, pointSize+20);
     }
   }
   renderCounter = renderCounter + 1;
