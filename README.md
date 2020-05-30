@@ -1,9 +1,3 @@
 ## Creative Coding 2: Custom Pixel
  
-Again using another tutorial today I've been experimenting with the code. I think the effect the first photo has is really cool, it looks almost as if all the pixels are being shaken up and down, the pixels all have very iron wire, structured look to them. It's a really nice remix of the classic 'blurry' photo look. I find the little boxes being drawn around especially the windows when you zoom in are really satisfying to the eye.
-
-My second photo is interesting as well, very magnified but I really like the fact that the pixels all look different sizes, some are really short, some look much longer.  
-
-The third photo has a more elongated look, the other two photos definitely have that pixelated effect to them, while this one just kindof looks like the photo has been cut straight down into lines.
-
-I will continue to iterate different versions of the first photo to see what kind of effects I can get, but the others don't really attract me enough to continue using them. But I wll keep them as ideas in case. 
+I've got my three photos taken and theme decided. My theme is autumn, I took all three photos with my film camera of one of a friend surrounded by leaves, and autumn colours. With photos 2 & 3, I kept the same effect I had on my last commit, but just changed the masks in photoshop. However when I came to do the first photo last (random order I know), I had decided I wanted to have hearts as the pixel shape in the mask. The photos have a very 90's, cheesy, and wholesome feel to them, so I thought a heart shape would be fitting. I've created the heart in the sketch.js code and I love it's shape. However I have a little problem as you will see from output_1, the heart is taking over the whole image, I tried integrating it into the mask but it wasn't changing so I'm hopefully going to get some help from one of the tutors to get my mask functioning properly. Apart from that, I'm still trying to figure out what sort of masks I want to have on my photos, and am still getting my head around the code. 

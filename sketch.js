@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 //before code is up n running, process of showing the image
 function preload() {
@@ -24,92 +24,83 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth =40;
-const x_step = 15;
-const y_step =40;
+const tile_width = 10;
+const tile_height = 10;
+const tile_step_x = 20;
+const tile_step_y = 20;
+ const s = 200;
 
-function draw(){
-    for(var x = 0; x < sourceImg.width; x = x + x_step){
-      for(var y = 0; y < sourceImg.height; y = y + y_step){
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix[0], pix[1], pix[2], 30);
-      stroke(pix);
-      rect(x, y, tileHeight, tileWidth);
-    //triangle(x,y,38,10,pointSize,pointSize) //58, 20
-    //ellipse(x, y, pointSize, pointSize);
-    //rect(x, y, pointSize, pointSize);
-    //drawStar(x,y,40);
-
-  // else {
-  //   let pointSize = 35;
-  //   //rect(x, y, pointSize, pointSize);
-  //   //ellipse(x, y, pointSize, pointSize);
-  //   drawStar(x,y,16);
-  //}
-//}
-//  }
+function draw () {
+  for(let i=0;i<2000;i++) { //The 2000 is how much pixels(in this case rects) there are on the screen, higher the number the more densly packed the pixels are
+    let x = floor(random(sourceImg.width)); //Using a random X & random Y
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    stroke(pix);
 
 
+    if(mask[0] > 128) {
+      let pointSize = 10;
+      //triangle(x,y,38,10,pointSize,pointSize) //58, 20
+      //ellipse(x, y, pointSize, pointSize);
+      //rect(x, y, pointSize, pointSize);
+      drawStar(x,y,16);
 
-
-  // for(var x = 0; x < sourceImg.width; x = x + x_step){
-  //   for(var y = 0; y < sourceImg.height; y = y + y_step){
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix[0], pix[1], pix[2]);
-  //   stroke(pix);
-  //   rect(x, y, tileHeight, tileWidth);
-    //drawStar(x,y,10,pix);
+    }
+    else {
+      let pointSize = 25;
+      //rect(x, y, pointSize, pointSize);
+      //ellipse(x, y, pointSize, pointSize);
+      //drawStar(x,y,10);
+      //ellipse(x, y, pointSize, pointSize);
+      heart(x,y,10);
+    }
   }
-}
-}
-
-// function draw () {
-//   for(let i=0;i<2000;i++) { //The 2000 is how much pixels(in this case rects) there are on the screen, higher the number the more densly packed the pixels are
-//     let x = floor(random(sourceImg.width)); //Using a random X & random Y
-//     let y = floor(random(sourceImg.height));
-//     let pix = sourceImg.get(x, y);
-//     let mask = maskImg.get(x, y);
-//     fill(pix);
-//     stroke(pix);
-//
-//
-    // if(mask[0] > 128) {
-    //   let pointSize = 20;
-    //   //triangle(x,y,38,10,pointSize,pointSize) //58, 20
-    //   ellipse(x, y, pointSize, pointSize);
-    //   //rect(x, y, pointSize, pointSize);
-    //   //drawStar(x,y,40);
-    //
-    // }
-    // else {
-    //   let pointSize = 35;
-    //   //rect(x, y, pointSize, pointSize);
-    //   //ellipse(x, y, pointSize, pointSize);
-    //   drawStar(x,y,16);
-    // }
-//   }
-// function drawStar(x,y,size,c) {
-// push();
-// stroke(c);
-// //strokeWeight(7);
-// translate(x+25,y+25);
-// for (var i = 0; i < 10; i++){ //10
-// line(size, 0, -size, 0);
-// rotate(360 / i);
-// }
-// pop();
-// }
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
+}
+
+
+function drawStar(x,y,size) {
+push();
+strokeWeight(7);
+translate(x,y)
+for (var i = 0; i < 20; i++){ //10
+line(size, 0, -size, 0);
+rotate(360 % i);
+}
+pop();
+}
+
+function draw(x,y,size) {
+  push();
+  strokeWeight(3);
+  translate(x,y)
+  for (x = 0; x < tile_width; x += s){
+    for (y = 0; y < tile_height; y += s)
+  heart(x+s/3, y+s/3, s/3); //2,2,2
+}
+pop();
+
+function heart(x, y, size){
+  push();
+  beginShape();
+  vertex (x, y);
+  bezierVertex(x - size / 1, y - size / 1, x - size, y + size / 4, x, y + size); //2,2,3
+  bezierVertex(x + size, y + size / 4, x + size / 1, y - size / 1, x, y);//3,2,2
+  endShape(CLOSE);
+  pop();
+
+}
+
+}
 
 function keyTyped() {
   if (key == '!') {
