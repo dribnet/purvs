@@ -36,7 +36,7 @@ function draw () {
     }
     else {
       let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -44,7 +44,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
