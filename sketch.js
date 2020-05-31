@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,14 +18,12 @@ function setup() {
 
   imageMode(CENTER);
   noStroke();
-  // strokeWeight(0.2);
-  // stroke(0);
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileHeight = 8;
+const tileHeight = 10;
 const tileWidth = 18;
 
 const x_step = 12;
@@ -38,22 +36,16 @@ function draw() {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let r = random(10, 60);
     fill(pix);
     stroke(pix);
-    strokeWeight(5);
+    strokeWeight(4);
 
     let dice = random(1, 6);
     if (mask[0] < 128) { //if mask is black
-      if (dice > 4) {
-
-        line(x, y, x, y + y_step); // horizonal "windy"
-      } else {
-        line(x, y, x + x_step, y); // horizonal "windy"
-      }
-
+      drawStar(x,y,r);
     } else {
       ellipse(x, y, tileWidth, tileHeight);
-      // rect(x, y, tileWidth, tileHeight);
     }
   }
 
@@ -64,6 +56,20 @@ function draw() {
     // uncomment this to save the result
     //saveArtworkImage(outputFile);
   }
+}
+
+function drawStar(xPos, yPos, size) {
+  push();
+  translate(xPos, yPos);
+  strokeWeight(3);
+  let half = size / 2.5;
+  let diagHalf = half * 0.75;
+
+  line(-half, 0, half, 0); //horizontal
+  line(0, half, 0, -half); //vertical
+  line(-diagHalf, -diagHalf, diagHalf, diagHalf); //left diagonal
+  line(-diagHalf, diagHalf, diagHalf, -diagHalf); //right diagonal
+  pop();
 }
 
 function keyTyped() {
