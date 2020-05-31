@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -28,27 +28,36 @@ const y_steps = 15
 // const tilewidth = 20
 
 function draw() {
+for (let a = 0; a < 50000; a++) {
+  let x = floor(random(sourceImg.width));
+  let y = floor(random(sourceImg.width));
+  let mask = maskImg.get(x, y)
+  let pix = sourceImg.get(x, y);
+  fill(pix)
+  noStroke()
+  watercolour(x,y,5,5)
 
-  for (let i = 0; i < 2000; i++) {
+}
+  for (let i = 0; i < 10000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.width));
     let mask = maskImg.get(x, y)
     let pix = sourceImg.get(x, y);
+
   if (mask[0] > 120) {
-    strokeWeight(1)
+    noStroke()
+    fill(pix)
+    watercolour(x,y,10,10)
+    strokeWeight(2)
       stroke(pix);
       noFill()
-      let tilewidth=20
-      let tileheight=20
-      brushstroke2(x, y);
     } else {
-      strokeWeight(1)
-      stroke(pix,50);
-      noFill()
-      let tilewidth=5
-      let tileheight=5
-    brushstroke1(x,y);
-    brushstroke2(x,y);
+      stroke(pix);
+      fill(pix)
+      // let tilewidth=5
+      // let tileheight=5
+      brushstroke1(x,y,1 ,10,30,0.5);
+      brushstroke2(x,y,1,10,120,0.5);
       // for (var x = 0; x < sourceImg.width; x = x + x_steps) {
       //   for (var y = 0; y < sourceImg.height; y = y + y_steps);
       // let x = floor(random(sourceImg.width));
@@ -63,25 +72,33 @@ function draw() {
     // saveArtworkImage(outputFile);
   }
 }
-
-function brushstroke1(x,y){
-  push()
-  translate(x,y)
-  bezier(65, 0, 40, 40, 50, 50, 15, 40);
-  translate(0,20)
-  bezier(85, 0, 40, 40, 50, 50, 15, 60);
-  pop()
-
+function watercolour(x,y,w,h){ ///not really water colour et
+rect(x,y,w,h)
 }
-function brushstroke2(x,y){
+function brushstroke1(x,y,nstrokes,brushWidth,rotation,hairThickness){
+  for(let c=0; c<brushWidth*nstrokes; c=c+brushWidth){
   push()
-  translate(x,y)
-  rotate(50)
-  bezier(65, 0, 40, 40, 50, 50, 15, 40);
-  translate(0,20)
-  bezier(85, 0, 40, 40, 50, 50, 15, 60);
+  strokeWeight(hairThickness)
+  translate(x,y-20)
+  rotate(rotation)
+  scale(1)
+  translate(0,c)
+  bezier(85, 20, 40, 40, 50, 50, 15, 60);
   pop()
+}
+}
+function brushstroke2(x,y,nstrokes,brushWidth,rotation,hairThickness){
 
+  for(let c=0; c<brushWidth*nstrokes; c=c+brushWidth){
+  push()
+  strokeWeight(hairThickness)
+  translate(x,y-20)
+  rotate(rotation)
+  scale(1)
+  translate(0,c)
+  bezier(85, 20, 40, 40, 50, 50, 15, 60);
+  pop()
+}
 }
 
 function keyTyped() {
