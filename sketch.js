@@ -23,6 +23,7 @@ function setup () {
   maskImg.loadPixels();
 }
 
+
 function draw () {
 
     for(let i=0; i<2000;i++) {
@@ -30,17 +31,21 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let r = random(-200,-250);
     fill(pix);
     stroke(pix);
     strokeWeight(10);
-   if(mask[0] > 128) {
+
+   if(mask[0] > 1) {
            let pointSize = 40;
-     line(x, y, x+pointSize/5, y+pointSize/3);
+           line(x-10, y, x+pointSize/5, y+pointSize/3);
       }
+  else if(1 >= mask[0] && mask[0] > 200){
+          let pointSize = 50;
+          rect(x, y, pointSize,pointSize+5);
+  }
          else {
-      let pointSize = 10;
-     ellipse(x, y, x/r, y/i);
+        let pointSize = 3;
+        ellipse(x, y, pointSize,pointSize+5);
       }
   }
   renderCounter = renderCounter + 1;
