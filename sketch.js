@@ -1,10 +1,10 @@
-let sourceImg=null;
-let maskImg=null;
-let renderCounter=0;
+let sourceImg = null;
+let maskImg = null;
+let renderCounter = 0;
 
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
+let maskFile = "mask_3.png";
 let outputFile = "output_3.png";
 
 function preload() {
@@ -12,49 +12,65 @@ function preload() {
   maskImg = loadImage(maskFile);
 }
 
-function setup () {
+function setup() {
   let main_canvas = createCanvas(1920, 640);
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  //noStroke();
+  noStroke();
   background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-function draw () {
-  for(let i=0;i<10000;i++) {
+function draw() {
+
+  for (let i = 0; i < 12000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
     stroke(pix);
-       let pointSize = 50;
-       let dice = random(1,6);
-       if(dice > 5){
-       line(x, y, x+pointSize, y);
-       }
-       else{
-       line(x, y, x, y+pointSize);
-}
-  //    let pointSize = 50;
-  //    ellipse(x, y, pointSize, pointSize);
-  //  }
-  //  else {
-  //    let pointSize = 10;
-  //    rect(x, y, pointSize, pointSize);
-  //  }
+
+    let pointSize = 60;
+    let dice = random(1, 6);
+    if (mask[0] > 150) {
+      drawPaintBlob(x,y,20);
+    } else {
+      if (dice > 5) {
+        line(x, y, x, y + pointSize);
+      } else {
+        line(x, y, x + pointSize, y);
+
+      }
+    }
   }
+
+
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
+
     // uncomment this to save the result
-   //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
+
+function drawPaintBlob(x,y,size){
+  push();
+  strokeWeight(5);
+  translate(x,y);
+  for(var i = 0; i < 10; i++){
+    line(size,0,-size,0);
+      rotate(360/ i);
+    }
+  pop();
+}
+
+
 
 function keyTyped() {
   if (key == '!') {
