@@ -1,11 +1,21 @@
 ## Creative Coding 2: Custom Pixel
 
-26/05/20 - Experimentation 4
-The images above are photos of my apartment view processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). 
+01/06/20 - Theme: 2020 Wellington New Years Festival
+The images above are photos of the new years festival in Wellington 2020 processed with a lightly modified version of the p5.js Pointillism example.
 
-For this experiment I kept the style of pixels' the same throughtout the 3 photos. The only changes that were made are the images. The photos are taken from my bedroom by the window at different times of the day (evening, night and morning). I wanted to see how the images would look together with the same style but different colouration. 
+I thought it would be a good idea to continue using the theme of the new years festival that happened this year before quarantine. It highlights a time where the Wellington community came together and created this event for anyone to come celebrate. Now would be the perfect time to theoretically apply these images to a billbaord because they are a reflection of the highlights early this year.
+These images were just taken on my phone and I took them because they were the bright colourful objects that caught my attention.
 
-I did change the masks slightly to suit the angle of the image.
+Currently I am not too sure what I will end up with for the pixel design but these images have great poteintial to help create something cool! I have kept the pixel design in this version all the same and only changed the mask to prepare myself for this project.
+My pixel design consists of:
+
+Masked:
+let pointSize = 5;
+rect(x, y, pointSize+50, pointSize);
+
+Unmasked:
+let pointSize = 5;
+rect(x, y, pointSize, pointSize);
 
 
 

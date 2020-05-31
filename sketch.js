@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER); //centering image
   noStroke(); //no stroke on the circles
-  background(112, 109, 56); //background colour
+  background(10); //background colour
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,17 +31,12 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 10;
-      stroke(0,5);
-      strokeWeight(10);
-      rect(x-50, y, pointSize+100, pointSize);
+      let pointSize = 5;
+      rect(x, y, pointSize+50, pointSize);
     }
     else {
-      let pointSize = 25;
-      noStroke();
-      stroke(0,10);
-      strokeWeight(10);
-      rect(x, y, pointSize, pointSize+65);
+      let pointSize = 5;
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
@@ -49,7 +44,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
