@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -39,12 +39,19 @@ function draw() {
     let r = random(10, 60);
     fill(pix);
     stroke(pix);
-    strokeWeight(4);
 
     let dice = random(1, 6);
     if (mask[0] < 128) { //if mask is black
-      drawStar(x,y,r);
+      drawStar(x, y, r);
+    } else if (mask[0] > 128 && mask[0] < 190) { // if mask is grey
+      strokeWeight(5);
+      if (dice > 4) {
+        line(x, y, x, y + y_step); // horizonal "windy"
+      } else {
+        line(x, y, x + x_step, y); // horizonal "windy"
+      }
     } else {
+      strokeWeight(4);
       ellipse(x, y, tileWidth, tileHeight);
     }
   }
