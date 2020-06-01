@@ -1,7 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-CROSS-HATCHING EXPERIMENTING 2
+CHANGING TO A GRID STRUCTURE
 
-Just experimenting with adding in functions to the code, getting that star effect. I made it so it looked blurry and fluffy. Parts of the background become unclear and loses its detail.  
-
-Processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+I change to a grid format so it would be more structured, however whenever i wanted to add in my designs to the squares or even change the shape of the pixel when I wanted to save the output it would download like 300 files each one would add a new line to the grid, it seemed to be doing the whole process, not just the final output, I wasn't sure why it was doing that so I ended up deleting the code and re-watch the phoebes video on how to make the grid, once I remade it and add in my if and else statements its seemed to be working, I wasn't sure what I did wrong but I'm glad that I have it working now. 
