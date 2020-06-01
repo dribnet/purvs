@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 let wasteTextFile = "wasteText.png";
 
 function preload() {
@@ -20,14 +20,14 @@ function setup () {
 
   imageMode(CENTER);
   //noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
 }
 
 function draw () {
-   for(let i=0;i<500;i++) {
+   for(let i=0;i<20000;i++) {
 
 
      let x = floor(random(sourceImg.width));
@@ -40,14 +40,14 @@ function draw () {
 
      let pointSize = 2;
      if (mask[0]> 128) {
-       stroke (255);
-       strokeWeight(.75);
-       rect (x, y, pointSize*4, pointSize);
+       // stroke (255);
+       // strokeWeight(.75);
+       rect (x, y, pointSize*15, pointSize*7.5);
 
      } else
      stroke (0);
      noStroke ();
-     rect (x, y, pointSize*2, pointSize*5);
+     rect (x, y, pointSize*5, pointSize*12);
    }
    //image(wasteTextImg, 1000, 250);
    // textSize (30);
@@ -68,8 +68,8 @@ function draw () {
   //     let pointSize = 30;
   //   rect(x, y, pointSize+20, pointSize-10);
   //   }
-  }
-  renderCounter = renderCounter + 1;
+
+  renderCounter = renderCounter + 15;
   if(renderCounter > 1) {
     console.log("Done!")
     noLoop();
@@ -77,7 +77,7 @@ function draw () {
     //saveArtworkImage(outputFile);
   }
 
-
+}
 // function masked (x,y) {
 // select random word
 
