@@ -24,19 +24,21 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<7000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 20;
+      let pointSize = 5;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
+      stroke(pix);
       let pointSize = 10;
-      rect(x, y, pointSize, pointSize);
+      //rect(x, y, pointSize, pointSize);
+      line(x,y,x+5,y+5);
     }
   }
   renderCounter = renderCounter + 1;
