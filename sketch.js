@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -31,13 +31,13 @@ function draw () {
     let mask = maskImg.get(x, y);
 
     if(mask[0] > 128) {
-      let pointSize1 = 1;
+      let pointSize1 = 2.5;
       stroke(pix);
       strokeWeight(pointSize1)
       line(x, y, x + 70, y);
     }
     else {
-      let pointSize = 10;
+      let pointSize = 12;
       noStroke();
       fill(pix);
       ellipse(x, y, pointSize, pointSize);
@@ -48,7 +48,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
