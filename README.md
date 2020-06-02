@@ -1,12 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-01/06/20 - Grid Techniques
-The images above are photos of the new years festival in Wellington 2020 processed with a lightly modified version of the p5.js Pointillism example.
+03/06/20 - Grid & Colour
 
-In this experiment I try a uniform gridding technique using the same masks as my (previous) 'theme' readme. I followed along with pheobe's gridding tutorial and this was my result. I found the outputs quite satifying to look at because the squares and circles were all in line with each other. I especially like the duck output because there is two different shades of grey. The light gray in front creates the illusion of water and because I decided to draw my mask in a wave form it really works with the image. I will try to add this look into my other images. In order to do this I may have to incoporate so photo manipulation.
-
-
-In my next experiment I will try a more irregular grid layout. I will do this by inputting a crasshatch texture or maybe some stars.
+In this experiment I was trying a combination of the grid and colour technique and this was the result of the two. I couldn't get the colour stroke to work with my images, this may have been because I was forcing a grid layout rather than displaying different shapes. I was still able to create different stroke weights in my grid which created this 3D look to my pixel images.
 
 My pixel design consists of:
 Masked:
@@ -16,8 +12,12 @@ rect(x,y,tileWidth,tileHeight); //tile lines
 
 Unmasked:
 else{
-ellipse(x,y,x_step,y_step); //the circles
-
+line(x, y, x + pointSize, y); // horizonal lines
+if(pix[1] > pix[0]) {
+strokeWeight(8); //thicker stroke if pix is larger than pix0
+} else {
+stroke(pix);
+strokeWeight(1); //otherwise stroke weight is 1
 
 
 
