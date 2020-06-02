@@ -28,7 +28,11 @@ const tile_width = 10;
 const tile_height = 10;
 const tile_step_x = 20;
 const tile_step_y = 20;
- const s = 200;
+const s = 200;
+const tile_width1 = 5;
+const tile_height1 = 5;
+
+
 
 function draw () {
   for(let i=0;i<2000;i++) { //The 2000 is how much pixels(in this case rects) there are on the screen, higher the number the more densly packed the pixels are
@@ -42,10 +46,14 @@ function draw () {
 
     if(mask[0] > 128) {
       let pointSize = 10;
+      let pixMod = sourceImg.get(x, y);
+      pixMod[2] = 200;
+      fill(pixMod);
       //triangle(x,y,38,10,pointSize,pointSize) //58, 20
       //ellipse(x, y, pointSize, pointSize);
       //rect(x, y, pointSize, pointSize);
-      drawStar(x,y,16);
+      //drawStar(x,y,16);
+      ellipse(x, y, tile_width1, tile_height1);
 
     }
     else {
@@ -57,6 +65,29 @@ function draw () {
       heart(x,y,10);
     }
   }
+ //  if (mask[0] > 30) {
+ //     let pointSize = 20;
+ //     let pixMod = sourceImg.get(x, y);
+ //     pixMod[2] = 200;
+ //     //triangle(x,y,38,10,pointSize,pointSize) //58, 20
+ //     //rect(x, y, x/15, y/30);
+ //     //  rect(x, y, pointSize, pointSize);
+ //     fill(pixMod);
+ //     ellipse(x, y, pointSize, pointSize);
+ //     //triangle(x +10,y +10,pointSize,pointSize, x+2, y+3);
+ //
+ //   } else {
+ //     let pixMod = sourceImg.get(x, y);
+ //     pixMod[1] = 200;
+ //     //fill(255);
+ //     //ellipse(x, y, tile_width, tile_height);
+ //     //draw_some_lines(x,y);
+ //     //rect(x + random(-10, 5), y + random(-10, 10), 2, 2);
+ //     //fill(pixMod);
+ //     ellipse(x, y, tile_width1, tile_height1);
+ //   }
+ }
+
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -65,7 +96,7 @@ function draw () {
     // uncomment this to save the result
     //saveArtworkImage(outputFile);
   }
-}
+//}
 
 
 function drawStar(x,y,size) {
@@ -78,17 +109,18 @@ rotate(360 % i);
 }
 pop();
 }
-
-function draw(x,y,size) {
-  push();
-  strokeWeight(3);
-  translate(x,y)
-  for (x = 0; x < tile_width; x += s){
-    for (y = 0; y < tile_height; y += s)
-  heart(x+s/3, y+s/3, s/3); //2,2,2
-}
-pop();
-
+//
+// function draw(x,y,size) {
+//   push();
+//   strokeWeight(3);
+//   translate(x,y)
+//   for (x = 0; x < tile_width; x += s){
+//     for (y = 0; y < tile_height; y += s)
+//   heart(x+s/3, y+s/3, s/3); //2,2,2
+// }
+// pop();
+//
+// }
 function heart(x, y, size){
   push();
   beginShape();
@@ -97,8 +129,6 @@ function heart(x, y, size){
   bezierVertex(x + size, y + size / 4, x + size / 1, y - size / 1, x, y);//3,2,2
   endShape(CLOSE);
   pop();
-
-}
 
 }
 
