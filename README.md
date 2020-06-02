@@ -1,8 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-Added my own image for testing. There is currently problems with the images for Preview and Thumbnail not downloading properly, so we are waiting on a patch for that to be fixed. So far other than the downloads there seems to be no problems. I made my own mask and changed some of the pixel count and scale of those pixels.
+Theme:
+My overall theme for these images is space and astrophotography. I chose this because outside of Uni and Work, my hobby is to take images of space such as Nebulae and Galaxies. I think it would be cool to use my images because these objects in space all have wildly different shapes, sizes and most importantly colors.
+=========================================================================================================================
 
-Edit:
-I have fixed the Thumbnail and Preview by manually changing the sizes in Photoshop, this is only temporary until the real Thumbnail and Preview downloader is fixed. I have also played around further with the pixel size and count as before it was hard to make out anything in the image.
-
-It still didnt load the thumbnail and preview so im trying one more time
+Changelog:
+I have added all of my images, they maybe set to change in the future but for now they all fit my theme so they are good for testing. I still have unwanted white lines appearing due to my masks, I will work to find a way to get rid of those lines as they look out of place right now.
