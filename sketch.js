@@ -17,6 +17,8 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
+  angleMode(DEGREES);
+  rectMode(CENTER);
   noStroke();
   background(190);
   sourceImg.loadPixels();
@@ -24,23 +26,32 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<7000;i++) {
+  for(let i=0;i<14000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] < 128) {
       push();
       stroke(pix);
-      strokeWeight(random(3));
-      let pointSize = random(-40, 40);
-      line(x, y, x, y+pointSize);
+      fill(pix);
+      strokeWeight(7);
+      strokeJoin(ROUND);
+      let pointSize = random(8);
+      translate (x, y);
+      rotate(random(360));
+      rect(0, 0, pointSize, pointSize);
       pop();
     }
     else {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+      push();
+      stroke(pix);
+      strokeCap(SQUARE);
+      fill(pix);
+      strokeWeight(random(5));
+      let pointSize = random(-50, 50);
+      line(x, y, x, y+pointSize);
+      pop();
     }
   }
   renderCounter = renderCounter + 1;
