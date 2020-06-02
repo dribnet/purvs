@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
 
-    for(let i=0; i<1200;i++) {
+    for(let i=0; i<8000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -48,16 +48,16 @@ function draw () {
           let dice = random(1,6);
           if (dice < 5) {
         let pointSize3 = 3;
-      ellipse(x, y, pointSize3, pointSize3+5);
+      drawLeaf(x, y, pointSize3);
 
       } else {
-//if(mask[0] > 100 && mask[0] < 170){
+ if(mask[0] > 100 && mask[0] < 170){
       let pointSize3 = 10;
     //    rect(x, y, pointSize3+5, pointSize3+5);
-      drawLeaf(x,y,pointSize3);
+      ellipse(x,y,pointSize3,pointSize3+5);
 
         //Make it a begin shape vibe either leaf looking or flower looking
-
+      }
       }
       }
     }
@@ -65,11 +65,10 @@ function draw () {
 
   function drawLeaf(x,y,size){
     push();
-    for(var i = 0; i < 5; i++){
-      let pointSize4 = 3
-      //ellipse(x,y,pointSize4);
-    // ellipse(x, 0, 10, 20);
-      rotate(360/i);
+    translate (x,y);
+    for(var i = 0; i < 10; i++){
+      ellipse(size, -size, 10, 0);
+      rotate(PI/5);
     }
   pop();
   }
@@ -79,7 +78,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-  saveArtworkImage(outputFile);
+//  saveArtworkImage(outputFile);
   }
 
 
