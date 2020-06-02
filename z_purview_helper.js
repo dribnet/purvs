@@ -39,13 +39,13 @@ function saveBlocksImages() {
   // console.log("PD", pd)
 
   // generate 960x500 preview.jpg 1/3 of the way down
-  offscreenCanvas.width = pd*960;
-  offscreenCanvas.height = pd*500;
+  offscreenCanvas.width = 960;
+  offscreenCanvas.height = 500;
 
   // background is flat white  
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
-  context.fillRect(0, 0, pd*960, pd*500);
+  context.fillRect(0, 0, 960, 500);
 
   // now scaledown
   var crop_width = pd*1223;
@@ -62,13 +62,13 @@ function saveBlocksImages() {
   }, 1000);
 
   // generate 230x120 thumbnail.png  1/3 of the way down
-  offscreenCanvas.width = pd*230;
-  offscreenCanvas.height = pd*120;
+  offscreenCanvas.width = 230;
+  offscreenCanvas.height = 120;
 
   // background is flat white  
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
-  context.fillRect(0, 0, pd*230, pd*120);
+  context.fillRect(0, 0, 230, 120);
 
   // now scaledown
   var crop_width = pd*1223;
