@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
-The theme I have chosen is one that is personal to me. I have chosen to showcase an area where I essentially grew up in the Far North called Tauranga Bay. The photos I have chosen were taken by me over Queen's Birthday Weekend. Photo one is a spectacular sunset taken from the rocks to Butterfly Bay. Photo two is the waves over the same rocks with the sunset colours reflected in the sea.
+I have decided to 'scrap' my previous idea, as I appear to have accidentally created a slightly blurry look that I really like.
+As most of my photos deal with light I have decided that I'm going to embrace the softer more impressionistic look that I have stumbled upon.
+I am still working on separating the sky from the land and sea using the masks.
 
-In terms of the pixel appearance I have decided that because all of my photos feature the sea and some element of land I'm going to have a simple rect with a symbol that is representative of either the sea(wave symbol), sky(wind symbol), and the land(tree symbol). I am going to differentiate these using the masks, with the sea being black on the mask, the sky a specific gray, and the land being white. As I was working on this while we were at Tauranga Bay and thus I didn't have internet, some tweaking will definitely need to be made in terms of the size and appearance of the square pixels. The sky will have a cloud symbol.
+I have chosen my final photo, also taken over Queen's birthday weekend, looking out over the beach towards Stevenson Island on a rainy day. I chose this photo because I like the contrast of the golden sand, the teal sea and the black/grey sky and rocks/islands.
+I also like how different the photo is from the other two images, so I have placed it as my second input so that it shows in between the two warmer photos taken at sunset

@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -32,22 +32,19 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix[0], pix[1], pix[2], 60);
 
-//if the mask is close to black
+
+//if the mask is white
     if(mask[0]) {
+      fill(pix[0], pix[1], pix[2]);
       rect(x,y, squareWidth,squareHeight);
-      Sea();
+      //Earth();
     }
     //if the mask isn't black
-    if(mask[255]) {
-      rect(x, y, squareWidth,squareHeight);
-      Earth();
-    }
-    //if the mask isn't black
-    if(mask[97]) {
-      rect(x, y, squareWidth,squareHeight);
-      Sky();
+    else {
+      fill(pix[0], pix[1], pix[2], 80);
+      ellipse(x, y, squareWidth*2,squareHeight);
+      //Sea();
     }
   }
   renderCounter = renderCounter + 1;
@@ -55,30 +52,8 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-  //saveArtworkImage(outputFile);
+//  saveArtworkImage(outputFile);
   }
-}
-
-//draw on the black parts of the mask (the sea)
-function Sea(){
-  //noStroke();
-//  ellipse(x,y, 5,5);
-
-
-}
-
-//draw on the white parts of the mask (the earth)
-function Earth(){
-    noStroke();
-    ellipse(x,y, 5,5);
-    ellipse(x*2,y*2, 5,5);
-    ellipse(x*4,y*4, 5,5);
-    ellipse(x*6,y*6, 5,5);
-    ellipse(x*8,y*8, 5,5);
-    rect(x,y, 10,10);
-}
-function Sky(){
-
 }
 
 function keyTyped() {
