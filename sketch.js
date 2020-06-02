@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
 
-    for(let i=0; i<8000;i++) {
+    for(let i=0; i<1200;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -44,20 +44,20 @@ function draw () {
           let pointSize2 = 10;
           ellipse(x, y, pointSize2,pointSize2+5);
   }
-        else {
-          let dice = random(1,6);
-          if (dice < 5) {
-        let pointSize3 = 3;
-      drawLeaf(x, y, pointSize3);
+      else {
+      if(mask[0] > 50 && mask[0] < 170){
+           let pointSize3 = 0;
+            ellipse(x, y, pointSize3+5, pointSize3+5);
+
 
       } else {
- if(mask[0] > 100 && mask[0] < 170){
-      let pointSize3 = 10;
-    //    rect(x, y, pointSize3+5, pointSize3+5);
-      ellipse(x,y,pointSize3,pointSize3+5);
-
+      let dice = random(1,6);
+      if (dice < 5) {
+      let pointSize3 = 3;
+      drawLeaf(x, y, pointSize3);
+}
         //Make it a begin shape vibe either leaf looking or flower looking
-      }
+
       }
       }
     }
