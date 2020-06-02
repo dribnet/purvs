@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -35,17 +35,17 @@ function draw () {
     stroke(pix);
     strokeWeight(3);
 
-   if(mask[0] == 255) {
+   if(mask[0] == 255) { //White
            let pointSize1 = 60;
            line(x-10, y, x+pointSize1/5, y+pointSize1/3);
       }
   else
-   if(mask[0] > 170 && mask[0] < 200){
+   if(mask[0] > 120 && mask[0] < 180){
           let pointSize2 = 10;
           ellipse(x, y, pointSize2,pointSize2+5);
   }
       else {
-      if(mask[0] > 50 && mask[0] < 170){
+      if(mask[0] > 50 && mask[0] < 120){
            let pointSize3 = 0;
             ellipse(x, y, pointSize3+5, pointSize3+5);
 

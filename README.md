@@ -1,5 +1,5 @@
 
 ## Creative Coding 2: Custom Pixel
-Today Ive been able to fix my mask layers, I don't think I will use it in my final outcome just because there is a lot happening in the image otherwise. I am still yet to fix my code so it keeps wanting to 'grow'. I think for my 2nd output, I like the simplicity of using only two layers of the mask, It ultimatly comes down to less is more!
+Today after watching the tutorial on playing around with colour. I want to play around with this in the future to see what effects I can get out of it. I also noticed that for my input 1, I used an over edited image and the other two photos have not. To keep with my theme and tie in all of the images, I defenitely needed to change this. I also in the future might put this image in the middle just because the colours are different compared to input 1.
 
 The images above are photos of Keukenhof flower garden in Lisse, Netherlands, algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
