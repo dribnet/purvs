@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -38,6 +38,11 @@ function draw () {
         else {
         ellipse(x+random(-5,5), y+random(-5,5), 25, 25);
         }
+      }
+      else if(mask[0] > 40) {  //mask is grey
+        noStroke();
+        ellipse(x+random(-1,1), y+random(-1,1), 5, 5);
+        ellipse(x+random(-2,2), y+random(-2,2), 5, 5);
       }
       else {
         stroke(pix);
