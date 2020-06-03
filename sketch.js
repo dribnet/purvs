@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
 
-    for(let i=0; i<4000;i++) {
+    for(let i=0; i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -40,29 +40,32 @@ function draw () {
            line(x-10, y, x+pointSize1/5, y+pointSize1/3);
       }
         else{
-   if(mask[0] > 120 && mask[0] < 180){ //Light Grey
+   if(mask[0] > 50 && mask[0] < 180){ //Light Grey
           let pointSize2 = 10;
           ellipse(x, y, pointSize2, pointSize2+5);
         //  drawFlower(x,y,pointSize2);
   }
 
-      else {
-      if(mask[0] > 50 && mask[0] < 120){ //Dark Grey
-           let pointSize3 = 2;
-            drawLeaf(x,y,pointSize3);
+//      else {
+//      if(mask[0] > 50 && mask[0] < 120){ //Dark Grey
+//           let pointSize3 = 1;
+//           drawFlower(x,y,pointSize3);
 
 
-      } else { //Black
+      else { //Black
       let pointSize4 = 5;
       drawFlower(x,y,pointSize4);
 }
 
-      }
+      
       }
     }
 
 
+
   function drawFlower(x,y,size){
+
+let pix = sourceImg.get(x, y);
     push();
     translate (x,y);
     for(var i = 0; i < 10; i++){
@@ -70,13 +73,11 @@ function draw () {
       rotate(PI/5);
     }
   pop();
-  }
 
-  function drawLeaf(x,y,size){
-    push();
-    ellipse(x, y, 10, 25);
-    line(x, y, x, y + 25);
-    pop();
+  push();
+   fill(pix);
+   ellipse(x,y,1);
+  pop();
 
   }
 
@@ -94,5 +95,4 @@ function keyTyped() {
     saveBlocksImages();
   }
   }
-
 }

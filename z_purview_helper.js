@@ -79,4 +79,3 @@ function saveBlocksImages() {
     p5.prototype.downloadFile(imageDataThumbnail, 'thumbnail.png', 'png');
   }, 2000);
 }
-LICENSE
