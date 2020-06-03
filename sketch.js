@@ -18,13 +18,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(104, 115, 114);
+  background(34, 41, 64);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const squareHeight=20;
-const squareWidth=20;
+const size=20;
+
 
 function draw () {
   for(let i=0;i<2000;i++) {
@@ -34,21 +34,26 @@ function draw () {
     let mask = maskImg.get(x, y);
 
 
-//if the mask is white
-    if(mask[0]) {
+//this is the sea
+    if(mask[0] == 0) {
       fill(pix[0], pix[1], pix[2]);
-      rect(x,y, squareWidth,squareHeight);
-      //Earth();
+      ellipse(x,y, size*3,size/3);
+
     }
-    //if the mask isn't black
-    else {
+    //this is the earth
+    else if(mask[0] ==255 ) {
+      fill(pix[0], pix[1], pix[2], 60);
+      rect(x, y, size*4,size);
+
+    }
+    //this is the sky
+    else if(mask[0] ==97){
       fill(pix[0], pix[1], pix[2], 80);
-      ellipse(x, y, squareWidth*2,squareHeight);
-      //Sea();
+      ellipse(x,y, size, size);
     }
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 35) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result

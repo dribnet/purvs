@@ -1,8 +1,15 @@
 ## Creative Coding 2: Custom Pixel
 
-I have decided to 'scrap' my previous idea, as I appear to have accidentally created a slightly blurry look that I really like.
-As most of my photos deal with light I have decided that I'm going to embrace the softer more impressionistic look that I have stumbled upon.
-I am still working on separating the sky from the land and sea using the masks.
+I have decided to further embrace the impressionistic look of my pixels and have begun to draw inspiration from well known pieces from the impressionism art movement.
 
-I have chosen my final photo, also taken over Queen's birthday weekend, looking out over the beach towards Stevenson Island on a rainy day. I chose this photo because I like the contrast of the golden sand, the teal sea and the black/grey sky and rocks/islands.
-I also like how different the photo is from the other two images, so I have placed it as my second input so that it shows in between the two warmer photos taken at sunset
+I'm using Vincent Van Gogh's Seascape near Les Saintes-Maries-de-la-Mer (https://www.vangoghmuseum.nl/en/collection/s0117V1962?v=1) to partially inform the shape of my 'sea' pixels. I'm also drawing from various paintings by Claude Monet to further inform my 'sea' pixel shape, mostly focusing on Impression Sunrise (https://www.claude-monet.com/impression-sunrise.jsp) and San Giorgio Maggiore at Dusk (https://www.claude-monet.com/san-giorgio-maggiore-at-dusk.jsp).
+
+For my land pixels I'm looking more at Van Gogh's The Starry Night (https://www.vangoghgallery.com/painting/starry-night.html) and The Banks of the Seine (https://www.vangoghgallery.com/catalog/Painting/23/Banks-of-the-Seine,-The.html), also looking at Monet's By the Sea (https://www.claudemonetgallery.org/By-The-Sea.html) and Edgar Degas' Before the Race (https://www.edgar-degas.org/Before-The-Race-C.1893.html).
+
+For the sky I drew from Van Gogh's Seascape near Le Saintes-Maries-de-la-Mer and Coal Barges (https://www.vangoghgallery.com/catalog/Painting/66/Coal-Barges.html), along with Monet's Impression Sunrise.
+
+The shapes of each of these elements are currently just made from primitives to fit the general feel that I want to get.
+However I will work on refining the shapes so that they better fit the effect that i'm going for, and look more like brush strokes, as that is part of the point of impressionism,
+going for that kinda unrefined, 'painterly' look
+
+Personally I like the look of my second photo in this style as it is reminding me a lot of the various paintings by Monet of the sea
