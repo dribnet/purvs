@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -24,10 +24,10 @@ function setup() {
 }
 
 const tileHeight = 10;
-const tileWidth = 18;
+const tileWidth = 10;
 
-const x_step = 12;
-const y_step = 12;
+const x_step = 10;
+const y_step = 10;
 
 function draw() {
 
@@ -41,35 +41,43 @@ function draw() {
     stroke(pix);
 
     let dice = random(1, 6);
-    if (mask[0] < 100) { //if mask is black
+    if (mask[0] < 120) { //  if mask is black
       drawStar(x, y, r);
-    } else if (mask[0] > 100 && mask[0] < 190) { // if mask is grey
+    } else if (mask[0] > 120 && mask[0] < 190) { //   if mask is grey
 
-      if(pix[2] < pix[0]){
+      if (pix[2] < pix[0]) {
         let pixMod = sourceImg.get(x, y);
-          strokeWeight(6);
-          pixMod[2] = 50;
-
-          stroke(pixMod);
-          //stroke(pix);
-      }else{
-          strokeWeight(5);
-          stroke(pix);
-      }
-      //strokeWeight(5);
-      if (dice > 4) {
-        line(x, y, x, y + y_step); // horizonal "windy"
+        strokeWeight(6);
+        pixMod[2] = 50;
+        stroke(pixMod);
       } else {
-        line(x, y, x + x_step, y); // horizonal "windy"
+        strokeWeight(5);
+        stroke(pix);
       }
-    } else { //mask is white
-      strokeWeight(4);
-      ellipse(x, y, tileWidth, tileHeight);
+      
+      strokeWeight(6);
+      if (dice > 3.5) {
+        line(x, y, x, y + 12); // horizonal
+      } else {
+        line(x, y, x + 12, y); // vertical
+      }
+    }
+
+  }
+  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+    for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
+      let pix = sourceImg.get(x2, y2);
+      let mask = maskImg.get(x2, y2);
+      fill(pix[0], pix[1], pix[2]);
+      noStroke();
+      if (mask[0] > 190) { //mask is white
+        ellipse(x2, y2, tileWidth + 10, tileHeight + 5);
+      }
     }
   }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
+  if (renderCounter > 7) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
