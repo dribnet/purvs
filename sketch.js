@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,11 +23,15 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const gridlen = width/300
-const gridhi = height/100
+const tileHeight = 6;
+const tileWidth = 6;
+
+const x_step = 6;
+const y_step = 6;
 
 function draw () {
-  for(let i=0;i<5000;i++) {
+  pgrid();
+  for(let i=0;i<8000;i++) {
     let x = random(sourceImg.width);
     let y = random(sourceImg.height);
     let pix = sourceImg.get(x, y);
@@ -37,17 +41,13 @@ function draw () {
     fill(pix);
     stroke(pix);
     if(mask[0] > 50) {
-      strokeWeight(mask[0]/100);
+      strokeWeight(7.5);
       strokeCap(ROUND);
-      let pointSize = 10;
+      let pointSize = mask[0]/25;
       line(x,y,x,y+pointSize)
-    } else{
-      strokeWeight(5);
-      strokeCap(SQUARE);
-      let pointSize = 10;
-      line(x,y-pointSize,x,y+pointSize)
     }
-  }
+}
+
 
 
 
@@ -57,6 +57,20 @@ function draw () {
     noLoop();
     // uncomment this to save the result
     //saveArtworkImage(outputFile);
+  }
+}
+
+function pgrid (){
+  for (var x = 0; x < sourceImg.width; x = x + x_step) {
+    for (var y = 0; y < sourceImg.height; y = y + y_step) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix[0],pix[1],pix[2],50);
+      noStroke();
+      if(mask[0] < 50){
+        circle(x, y, tileWidth);
+      }
+    }
   }
 }
 
