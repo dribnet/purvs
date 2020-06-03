@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -64,8 +64,9 @@ function drawPaintBlob(x,y,size){
   push();
   strokeWeight(10);
   translate(x,y);
-  for(var i = 0; i < 10; i++){
-    line(size,0,-size,0);
+  for(var i = 0; i < 50; i++){
+    rect(size,0,-size,0);
+    rotate(360);
     }
   pop();
 }
