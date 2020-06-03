@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -19,6 +19,7 @@ function setup() {
   imageMode(CENTER);
   noStroke();
   background(255);
+  strokeWeight(5);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -33,9 +34,9 @@ function draw() {
     fill(pix);
     stroke(pix);
 
-    let pointSize = 60;
+    let pointSize = 20;
     let dice = random(1, 6);
-    if (mask[0] > 150) {
+    if (mask[0] < 150) {
       drawPaintBlob(x,y,20);
     } else {
       if (dice > 5) {
@@ -61,11 +62,10 @@ function draw() {
 
 function drawPaintBlob(x,y,size){
   push();
-  strokeWeight(5);
+  strokeWeight(10);
   translate(x,y);
   for(var i = 0; i < 10; i++){
     line(size,0,-size,0);
-      rotate(360/ i);
     }
   pop();
 }
