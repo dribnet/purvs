@@ -25,18 +25,31 @@ function setup () {
 
 function draw () {
 
-  let tilewidth  = 20;
-  let tileheight = 20;
+  let tilewidth  = 10;
+  let tileheight = 10;
   noStroke();
   for(var xtile = 0; xtile < sourceImg.width; xtile= xtile+tilewidth){
     for(var ytile = 0; ytile < sourceImg.height;  ytile= ytile+tileheight){
     let pix = sourceImg.get(xtile, ytile);
     let mask = maskImg.get(xtile, ytile);
-    fill (pix);
-    if (mask[0] <128){
-      rect(xtile,ytile,tilewidth,tileheight);
-    }
 
+    if (mask[0] <128){
+      fill (pix);
+      rect(xtile,ytile,tilewidth,tileheight);
+    } else{
+      var pixmod = sourceImg.get(xtile, ytile);
+      pixmod[0] = pixmod[0]*6;
+      pixmod[1] = pixmod[1]/3;
+      pixmod[2] = pixmod[1]/2;
+      fill(pixmod);
+      rect(xtile,ytile,tilewidth,tileheight);
+      var rand = random(1,6);
+      if(rand<3){
+        fill(255);
+        circle (xtile,ytile,5);
+      } else{
+    }
+    }
 
 
 }
@@ -61,7 +74,7 @@ function draw () {
 
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
