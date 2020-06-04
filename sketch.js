@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
 
-    for(let i=0; i<5000;i++) {
+    for(let i=0; i<4000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -36,30 +36,50 @@ function draw () {
     strokeWeight(3);
 
    if(mask[0] == 255) { //White
-           let pointSize1 = 60;
-           line(x-10, y, x+pointSize1/5, y+pointSize1/3);
+
+    push();
+           let pointSize1 = 100;
+           noFill();
+           strokeWeight(4);
+          // line(x-10, y, x+pointSize1/5, y+pointSize1/3);
+           arc(x, y, 70, 50, PI, PI + QUARTER_PI);
+           arc(-x, -y, -70, -50, PI, PI - QUARTER_PI);
       }
         else{
-   if(mask[0] > 50 && mask[0] < 180){ //Light Grey
+   if(mask[0] > 100 && mask[0] < 250){ //Light Grey
           let pointSize2 = 10;
-          ellipse(x, y, pointSize2, pointSize2+5);
-        //  drawFlower(x,y,pointSize2);
+          strokeWeight(0.5);
+          drawFlower(x,y,pointSize2);
   }
 
-//      else {
-//      if(mask[0] > 50 && mask[0] < 120){ //Dark Grey
-//           let pointSize3 = 1;
-//           drawFlower(x,y,pointSize3);
+  else {
+    if(mask[0] > 10 && mask[0] < 100){ //Dark Grey
+      noFill();
+      strokeWeight(2);
+      arc(x, y, 70, 50, PI, PI + QUARTER_PI);
 
 
-      else { //Black
-      let pointSize4 = 5;
-      drawFlower(x,y,pointSize4);
+}
+      else {
+
+        if (mask[0] == 0){ //Black
+        let dice = random(1,6);
+          if (dice < 4) {
+          let pointSize3 = 5;
+          strokeWeight(6);
+          drawFlower(x, y, pointSize3);
 }
 
-      
-      }
-    }
+  else {
+    let pointSize4 = 10;
+    drawFlower(x,y,pointSize4);
+}
+
+}
+}
+}
+}
+}
 
 
 
