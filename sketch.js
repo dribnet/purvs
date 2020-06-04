@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 //before code is up n running, process of showing the image
 function preload() {
@@ -37,7 +37,7 @@ const tile_height2 = 5;
 
 
 function draw() {
-  for (let i = 0; i < 2000; i++) { //The 2000 is how much pixels(in this case rects) there are on the screen, higher the number the more densly packed the pixels are
+  for (let i = 0; i < 4000; i++) {
     let x = floor(random(sourceImg.width)); //Using a random X & random Y
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -49,29 +49,39 @@ function draw() {
     if (mask[0] > 128) {
       let pointSize = 15;
       let pixMod = sourceImg.get(x, y);
-      pixMod[2] = 200;
+      //pixMod[2] = 200; INPUT 1
+      //pixMod[1] = 200; INPUT 2
+      pixMod[3] = 200;
       fill(pixMod);
       //triangle(x,y,38,10,pointSize,pointSize) //58, 20
       //ellipse(x, y, pointSize, pointSize);
       //rect(x, y, pointSize, pointSize);
       //drawStar(x,y,16);
       //rect(x, y, tile_width1, tile_height1);
-      heart(x, y, 8);
+      rect(x, y, x/30, y/15);
+      //heart(x, y, 10); FOR INPUT 1 & 2
 
     } else {
- if (pix[1] > pix[0]) {
+ if (pix[1] > pix[0]) { //add 10 for cool effect
       noStroke();
       fill(254, 255, 195);
-      let pointSize = 5;
+      //stroke(255);
+      //fill(255, 51, 204);
+      let pointSize = 2;
       //rect(x, y, pointSize, pointSize);
-      //ellipse(x, y, pointSize, pointSize);
-      //drawStar(x,y,10);
       ellipse(x, y, pointSize, pointSize);
+      //drawStar(x,y,10);
       //heart(x,y,15);
       // rect(x, y, tile_width1, tile_height1);
     } else {
       let pointSize = 25;
-      rect(x, y, tile_width1, tile_height1);
+      let pixMod = sourceImg.get(x, y);
+      pixMod[0] = 200;
+      fill(pixMod); //TAKE OUT FILL CODE FOR INPUT 1 & 2
+    //rect(x, y, tile_width1, tile_height1);
+      //rect(x, y, x/15, y/30); INPUT1 & 2
+      //rect(x, y, x/30, y/15);
+      heart(x, y, 10);
     }
   }
 }
