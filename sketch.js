@@ -17,28 +17,31 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(255);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+//  noStroke();
+  background(164,179,198);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 50;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize);
-    }
-  }
+  for (let i = 0; i < 1500; i++) {
+   let x = floor(random(sourceImg.width));
+   let y = floor(random(sourceImg.height));
+   let pix = sourceImg.get(x, y);
+   let mask = maskImg.get(x, y);
+   fill(pix);
+   stroke(pix);
+
+   if (mask[0] > 128) {
+     drawPaint(x,y,10);
+   }
+   else {
+     let pointSize = 15;
+     rect(x, y, pointSize, pointSize);
+   }
+ }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
@@ -46,6 +49,18 @@ function draw () {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
+}
+
+function drawPaint(x,y,size){
+  push();
+  strokeWeight(8);
+  translate(x,y);
+  for(var i = 0; i < 3; i++){
+    line(size,0,-size,0);
+      rotate(50);
+    }
+  pop();
+
 }
 
 function keyTyped() {
