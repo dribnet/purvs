@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -42,14 +42,14 @@ function draw () {
     }
     //this is the earth
     else if(mask[0] ==255 ) {
-      fill(pix[0], pix[1], pix[2], 60);
+      fill(pix[0], pix[1], pix[2]);
       rect(x, y, size*4,size);
 
     }
     //this is the sky
     else if(mask[0] ==97){
-      fill(pix[0], pix[1], pix[2], 80);
-      ellipse(x,y, size, size);
+      fill(pix[0], pix[1], pix[2]);
+      ellipse(x,y, size*2, size);
     }
   }
   renderCounter = renderCounter + 1;
@@ -57,7 +57,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-//  saveArtworkImage(outputFile);
+  saveArtworkImage(outputFile);
   }
 }
 
