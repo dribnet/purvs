@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -41,7 +41,7 @@ function draw () {
         rect(x,y,tileWidth,tileHeight);
       }
     }
-  for(let i=0;i<10000;i++) {
+  for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -52,10 +52,15 @@ function draw () {
     if(mask[0] > 128) {
       let pointSize = 10;
       ellipse(x, y, pointSize, pointSize);
+      // stroke(255);
+      // strokeWeight(0.05);
+      line(x,y,x + pointSize,y);
+      line(x,y,x,y + pointSize);
     }
     else {
       let pointSize = 10;
       rect(x, y, pointSize, pointSize);
+
     }
   }
 
