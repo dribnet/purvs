@@ -1,7 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Part 2: My Theme & Adding Images
+Part 3: Playing around with Grids
 
-My theme focuses on the beauty of house plants leaves. I wanted to highlight the detailed unique shapes and details of the leaves. The three plants I have photographed are called the 'Peacock Plant', 'Nerve Plant', and 'Ivy'. I really liked how different the three plants were and I especially loved the colour of the nerve plant.
-
-I created a mask for the Ivy plant image using circles. I wanted to test how that would appear with the image. But in my next experiments I want to create masks using greys and whites. I want to create masks outlining the leaves while also using solid shapes such as triangles. 
+I have used Phoebe's code in making the grid style image. It was interesting to play around with but I'm not sure if it suits my theme. Since my theme is about emphasising the unique appearance of each plants leaves I don't think it will highlight that aspect too much using grids. I've looked at the past years work and I was intrigued by the wavy appearance by Brock. I might experiment with the wavy style in the future. I am also planning on experimenting with using lines and triangles to form my image, as that may highlight the small details better.
