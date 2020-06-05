@@ -43,7 +43,7 @@ function draw() {
 
     if (mask[0] == 255) { //white
       let pointSize = 5;
-      smooth();
+      smooth()
       rect(x, y, pointSize, pointSize);
       //ellipse(x, y, pointSize, pointSize);
     } else if (mask[0] > 50 && mask[0] < 200) { //grey
@@ -51,11 +51,11 @@ function draw() {
       drawHatch(x, y, 2);
     } else { //black
       if (pix[1] > pix[2]) { //if the green value is greater than the blue
-        drawBlue(x, y);
+        drawBlue(x, y)
       } else {
         stroke(pix); //use the regular image rgb
       }
-      drawHatch(x, y, 5);
+      drawHatch(x, y, 2)
     }
 
   }
@@ -67,16 +67,14 @@ function draw() {
       let pix = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
       let pointSize = 5;
-      fill(pix[0], pix[1], pix[2]);
       noStroke();
       //if (mask[0] < 128){
-        stroke(pix[0], pix[1], pix[2], 30);
-      //   rect(x2, y2, tileWidth, tileHeight);
-      //   fill();
-      //   line(x2, y2, x2, y2 + pointSize);
+        stroke(pix[0], pix[1], pix[2], 30)
+      //   //fill();
+      //   line(x2, y2, x2, y2 + pointSize)
       // } else {
       //   fill(pix[0], pix[1], pix[2], 50);
-        line(x2, y2, x2, y2 + pointSize);
+        line(x2, y2, x2, y2 + pointSize)
       //}
 
     }
@@ -109,7 +107,7 @@ function drawBlue(x, y) {
   pixMod[1] = pixMod[1];
   pixMod[2] = pixMod[2] * 3;
   stroke(pixMod);
-  strokeWeight(5);
+  strokeWeight(5)
 
 }
 
