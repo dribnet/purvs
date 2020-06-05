@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+I chose three photos all taken in New Zealand. First one in Rotorua, second in Hamilton, third one is Napier. New Zealand is such a beautiful country which is why I want to show it through these pictures. Currently the circle & Rectangle point size are all different as I am still exploring designs. 
