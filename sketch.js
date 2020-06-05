@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -30,13 +30,22 @@ function draw () {
   let y = floor(random(sourceImg.height));
   let pix = sourceImg.get(x, y);
   let mask = maskImg.get(x, y);
-  fill(pix);
-  stroke(pix);
+  let pixMod = sourceImg.get(x, y);
 
   if (mask[0] < 128) {
+    if(pix[0]<100 && pix[1]<100 && pix[2]<100){
+    pixMod[0]=pix[0];
+    pixMod[1]=pix[1]*1.2;
+    pixMod[2]=pix[2]*1.4;
+    fill(pixMod[0],pixMod[1],pixMod[2],20);
+    }
+    else{
+       fill(pix[0],pix[1],pix[2],20);
+    }
+
      let pointSize = 45;
      noStroke();
-     fill(pix[0],pix[1],pix[2],20);
+     // fill(pix[0],pix[1],pix[2],20);
      ellipse(x, y, pointSize*2, pointSize);
    }
  }
@@ -45,11 +54,19 @@ function draw () {
   let y = floor(random(sourceImg.height));
   let pix = sourceImg.get(x, y);
   let mask = maskImg.get(x, y);
-  fill(pix);
-  stroke(pix);
+  let pixMod = sourceImg.get(x, y);
 
   if (mask[0] > 128) {
-    drawPaint(x,y,8);
+    if(pix[0]>pix[1] && pix[0]>pix[2]){
+      pixMod[0]=pix[0]*1.4;
+      pixMod[1]=pix[1]*1.2;
+      pixMod[2]=pix[2]*1.4;
+      stroke(pixMod);
+  }
+  else{
+    stroke(pix);
+  }
+  drawPaint(x,y,8);
   }
 }
 
@@ -64,19 +81,15 @@ function draw () {
 
 
 function drawPaint(x,y,size){
-  push();
   strokeWeight(6);
-  translate(x,y);
   for(var i = 0; i < 5; i++){
     if(i==1 || i==3 || i==5){
-      line(0+i*4,0,size+i*4,size);
+      line(x+i*4,y,x+size+i*4,y+size);
     }
     else{
-    line(0+i*3,7,size+i*3,size+7);
+    line(x+i*3,y+7,x+size+i*3,y+size+7);
   }
     }
-  pop();
-
 }
 
 function keyTyped() {
