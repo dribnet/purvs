@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // CHANGE FOR APPROPIATE IMAGE
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
+let outputFile = "output_1.png";
 
 // PROCESS SHOWING IMAGE
 function preload() {
@@ -24,11 +24,11 @@ function setup() {
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth = 10;
+const tileHeight = 5;
+const tileWidth = 5;
+const x_step = 5;
+const y_step = 5;
 
-const x_step = 12;
-const y_step = 12;
 // DARWING PATTERN AND DESIGN
 function draw() {
 
@@ -36,50 +36,50 @@ function draw() {
     for (var y = 0; y < sourceImg.height; y = y + y_step) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-
-      if (mask[0] > 128) {
-        fill(pix[0], pix[1], pix[2], 80);
-        noStroke();
-        rect(x, y, tileWidth + 5, tileHeight + 5);
-      } else {
-        drawStar(x, y, 2, pix);
-        strokeWeight(3)
+      // BLACK MASK (BACKGROUND)
+      if (mask[0] == 0) {
+        //fill(pix) //(pix[0], pix[1], pix[2], 80);
+        noFill()
+        strokeWeight(2)
+        stroke(pix[0], pix[1], pix[2], 80)
+        triangle(x, y, x + tileWidth * 4, y + tileHeight * 4, x - tileWidth * 5, y + tileHeight * 3);
+        //rect(x, y, tileWidth, tileHeight); // THIS COVERS UP ANY WHITE LINES FROM MASK
+      // WHITE MASK (GIRL) ACTS AS BACKGROUND COLOUR
+    } else {
+        noStroke()
+        fill(pix[0], pix[1], pix[2], 50);
         rect(x, y, tileWidth, tileHeight);
       }
-
     }
   }
 
-  //PAINT LOOK
-  // for (let i = 0; i < 3000; i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix);
-  //   if (mask[0] > 128) {
-  //     let pointSize = 3;
-  //     fill(pix);
-  //     noStroke();
-  //     rect (x, y, pointSize*2, pointSize*5);
-  //
-  //   } else {
-  //     let pointSize = 10;
-  //     stroke(pix);
-  //     //strokeWeight(3)
-  //     drawStar(x,y,10);
-  //     //line(x, y, x + pointSize, y);
-  //     //line(x, y, x, y + pointSize);
-  //
-  //   }
-  // }
+// GREY AND WHITE MASK
+  for (let i = 0; i < 9000; i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    // WHITE MASK (DOTS)
+    if (mask[0] > 200) {
+      let pointSize = 4;
+      fill(pix);
+      noStroke();
+      ellipse(x, y, pointSize, pointSize);
+      // GREY MAKS (HAIR WAVES)
+    } else if (mask[0] >= 180 && mask[0] < 200) {
+      let pointSize2 = 20;
+      drawWaves(x, y, 20, 20, pix);
+    }
+
+  }
 
   renderCounter = renderCounter + 1;
   if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
@@ -92,6 +92,20 @@ function drawStar(x, y, size, c) {
     line(size, 0, -size, 0);
     rotate(360 / i);
   }
+  pop();
+}
+
+function drawWaves(x, y, sizeW, sizeH, c) {
+  push();
+  angleMode(DEGREES);
+  stroke(c)
+  strokeWeight(3)
+  noFill()
+  arc(x, y, sizeW, sizeH, 0, 90);
+  arc(x + 30, y - 20, sizeW, sizeH, 0, 90);
+  arc(x + 30, y - 15, sizeW, sizeH, 180, 270);
+  arc(x - 10, y - 10, sizeW, sizeH, 330, 70);
+
   pop();
 }
 
