@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,14 +26,14 @@ function setup() {
 
 function draw() {
 
-  for (let i = 0; i < 12000; i++) {
+  for (let i = 0; i < 9000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
+    let blur = random(10,80)
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
-    stroke(pix);
-
+    stroke(pix[0],pix[1],pix[2],blur);
     let pointSize = 20;
     let dice = random(1, 6);
     if (mask[0] < 150) {
@@ -56,13 +56,13 @@ function draw() {
     noLoop();
 
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
 function drawPaintBlob(x,y,size){
   push();
-  strokeWeight(10);
+  strokeWeight(9);
   translate(x,y);
   for(var i = 0; i < 50; i++){
     rect(size,0,-size,0);
