@@ -3,7 +3,7 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
+let sourceFile = "input_3.jpg";
 let maskFile = "mask_1.png";
 let outputFile = "output_1.png";
 
@@ -29,32 +29,18 @@ let tileheight = 10
 
 function draw() {
 
-  for (var x = 0; x < sourceImg.width; x = x + tilewidth) {
-    beginShape()
     for (var y = 0; y < sourceImg.height; y = y + tileheight) {
-
-let pix = sourceImg.get(x, y)
-console.log(pix)
-strokeWeight(2)
-stroke(255, 50)
-fill(pix)
-      vertex(x + (960-x)/(pix[0]/10), y + (320-y)/(pix[0]/10))
-    }
-    endShape()
-  }
-    for (var y = 0; y < sourceImg.height; y = y + tileheight) {
-
-    beginShape()
   for (var x = 0; x < sourceImg.width; x = x + tilewidth) {
 
 let pix = sourceImg.get(x, y)
-console.log(pix)
-strokeWeight(2)
-stroke(255,50)
+strokeWeight(.1)
+stroke(pix)
 noFill()
-      vertex(x + (960-x)/(pix[0]/10), y + (320-y)/(pix[0]/10))
+      line(x + (960-x)/(pix[1]/10), y + (320-y)/(pix[1]/10), x, y)
+      fill(pix)
+      noStroke()
+      ellipse(x + (960-x)/(pix[1]/10), y + (320-y)/(pix[1]/10), 1, 1)
     }
-    endShape()
   }
 
   renderCounter = renderCounter + 1;
