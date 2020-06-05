@@ -24,7 +24,7 @@ function setup () {
 }
 
 const tileHeight = 6;
-const tileWidth = 6;
+const tileWidth = 10;
 
 const x_step = 6;
 const y_step = 6;
@@ -34,15 +34,16 @@ function draw () {
   for(let i=0;i<8000;i++) {
     let x = random(sourceImg.width);
     let y = random(sourceImg.height);
+    let al = random(50,150)
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let pointSize = 50;
     let len = 255-mask
     fill(pix);
-    stroke(pix);
+    stroke(pix[0],pix[1],pix[2],al);
     if(mask[0] > 50) {
       strokeWeight(7.5);
-      strokeCap(ROUND);
+      strokeCap(PROJECT);
       let pointSize = mask[0]/25;
       line(x,y,x,y+pointSize)
     }
@@ -65,7 +66,7 @@ function pgrid (){
     for (var y = 0; y < sourceImg.height; y = y + y_step) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      fill(pix[0],pix[1],pix[2],50);
+      fill(pix[0],pix[1],pix[2],20);
       noStroke();
       if(mask[0] < 50){
         circle(x, y, tileWidth);
