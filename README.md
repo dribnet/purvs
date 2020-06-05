@@ -1,7 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-Part 1: Testing if I can access and run ps3 code properly
+Part 2: My Theme & Adding Images
 
-The first image shown is my first attempt at working with the code. I tried experimenting how my mask will work with my image as I have used different brushes to create the mask. The code seems fairly straight forward and I can see that I have a lot of opportunities to experiment.
+My theme focuses on the beauty of house plants leaves. I wanted to highlight the detailed unique shapes and details of the leaves. The three plants I have photographed are called the 'Peacock Plant', 'Nerve Plant', and 'Ivy'. I really liked how different the three plants were and I especially loved the colour of the nerve plant.
 
-This first image is the side exterior wall of the National Aquarium of NZ that I have taken. I really like looking at murals and piece of art scattered around the places I've visited in NZ, all though I am not sure if this will be the theme I will be focusing on. In the next updates I will be experimenting with other photos I have taken.
+I created a mask for the Ivy plant image using circles. I wanted to test how that would appear with the image. But in my next experiments I want to create masks using greys and whites. I want to create masks outlining the leaves while also using solid shapes such as triangles. 
