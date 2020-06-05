@@ -34,7 +34,7 @@ function draw() {
     let mask = maskImg.get(x, y);
     fill(pix);
     stroke(pix[0],pix[1],pix[2],blur);
-    let pointSize = 20;
+    let pointSize = 60;
     let dice = random(1, 6);
     if (mask[0] < 150) {
       drawPaintBlob(x,y,20);
@@ -56,7 +56,7 @@ function draw() {
     noLoop();
 
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
