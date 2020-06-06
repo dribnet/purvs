@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,22 +31,53 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 25;
-      rect(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 25;
-      ellipse(x, y, pointSize, pointSize);
+    // let pointSize = 15;
+    // rect(x, y, pointSize, pointSize);
+    stroke(pix);
+    drawStar(x,y,20);
+
+    }  else {
+      let pointSize = 30;
+      // noStroke();
+      // rect(x, y, pointSize, pointSize);
+      stroke(pix);
+      drawStar2(x,y,20);
     }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+  //  uncomment this to save the result
+   saveArtworkImage(outputFile);
   }
 }
+
+
+function drawStar(x,y,size) {
+push();
+translate(x,y);
+for(var i = 0; i < 25; i++){
+
+line(size,0, -size,0);
+rotate(360 / i);
+}
+pop();
+}
+
+
+
+function drawStar2(x,y,size) {
+push();
+translate(x,y);
+for(var i = 0; i < 5; i++){
+
+line(size,0, -size,0);
+rotate(360 / i);
+}
+pop();
+}
+
 
 function keyTyped() {
   if (key == '!') {
