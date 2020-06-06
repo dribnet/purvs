@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-FACES
+PLAYING WITH COLOUR
 
-I went back to my original face concept, I decided to break away from the idea of having the border around the girl and having the faces scattered around her environment. Throughout the three photos, each face represents something different and shows her emotions. The first one is a sad face that surrounding her, then transitioning to upset/meh face from feeling blank from being stuck behind the glass pane. Then with the last picture of her breaking through that wall/mask to be free and screaming out happy faces. I think next I want to experiment with the colours of the background. 
+I thought it would be cool to desaturate my background so that it highlights the girl more since she is the main focus and with some of the images the background sometimes got it the way, now that I have adjusted the background it has good contrast and makes the girl more clear. I feel like I would like it to still have some colour but wasn't sure how to bring back some colour so that is something.

@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // CHANGE FOR APPROPIATE IMAGE
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
+let outputFile = "output_1.png";
 
 // PROCESS SHOWING IMAGE
 function preload() {
@@ -38,18 +38,40 @@ function draw() {
       let mask = maskImg.get(x, y);
       // BLACK MASK (BACKGROUND)
       if (mask[0] == 0) {
-        //fill(pix) //(pix[0], pix[1], pix[2], 80);
+        strokeWeight(2);
+        let pixMod = sourceImg.get(x, y);
+        pixMod[0] = pixMod[0];
+        pixMod[1] = pixMod[0];
+        pixMod[2] = pixMod[0];
+
+        stroke(pixMod);
         noFill()
-        strokeWeight(2)
-        //stroke(pix)
-        stroke(pix[0], pix[1], pix[2], 80)
         triangle(x, y, x + tileWidth * 4, y + tileHeight * 4, x - tileWidth * 5, y + tileHeight * 3);
+      }
       // (GIRL) THIS IS THE COLOUR OF THE GIRL TO HIDE ANY WHITE LINES FROM THE MASKS
-    }else {
+      else {
         noStroke()
         fill(pix[0], pix[1], pix[2], 50);
         rect(x, y, tileWidth, tileHeight);
       }
+
+      // OG CODE BEFORE CHANGING COLOURS
+      //   if (mask[0] == 0) {
+      //     //fill(pix) //(pix[0], pix[1], pix[2], 80);
+      //     noFill()
+      //     strokeWeight(2)
+      //     //stroke(pix)
+      //     stroke(pix[0], pix[1], pix[2], 80)
+      //     triangle(x, y, x + tileWidth * 4, y + tileHeight * 4, x - tileWidth * 5, y + tileHeight * 3);
+      //
+      //   // (GIRL) THIS IS THE COLOUR OF THE GIRL TO HIDE ANY WHITE LINES FROM THE MASKS
+      // }
+      //
+      // else {
+      //     noStroke()
+      //     fill(pix[0], pix[1], pix[2], 50);
+      //     rect(x, y, tileWidth, tileHeight);
+      //   }
     }
   }
   // HAIR
@@ -73,14 +95,14 @@ function draw() {
         stroke(pix);
         fill(pix);
         strokeWeight(1);
-        ellipse(x, y, tileWidth-0.5, tileHeight-0.5);
-        ellipse(x + 3, y + 3, tileWidth-0.5, tileHeight-0.5);
+        ellipse(x, y, tileWidth - 0.5, tileHeight - 0.5);
+        ellipse(x + 3, y + 3, tileWidth - 0.5, tileHeight - 0.5);
       }
     }
   }
   // OUTLINE OF GIRL
-  for (var x = 0; x < sourceImg.width; x = x + x_step+14) {
-    for (var y = 0; y < sourceImg.height; y = y + y_step+14) {
+  for (var x = 0; x < sourceImg.width; x = x + x_step + 14) {
+    for (var y = 0; y < sourceImg.height; y = y + y_step + 14) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       // WHITE MASK (SKIN)
@@ -89,11 +111,11 @@ function draw() {
         fill(pix);
         strokeWeight(1);
         //rect(x, y, tileWidth+5, tileHeight+5);
-        drawSadFace(x,y,3,240)
-      }else if (mask[0] == 60) {
-          drawUpsetFace(x,y,3,240)
-      }else if (mask[0] == 70) {
-          drawHappyFace(x,y,3,240)
+        drawSadFace(x, y, 3, 240)
+      } else if (mask[0] == 60) {
+        drawUpsetFace(x, y, 3, 240)
+      } else if (mask[0] == 70) {
+        drawHappyFace(x, y, 3, 240)
       }
 
     }
@@ -110,46 +132,47 @@ function draw() {
 
 function drawSadFace(x, y, size, c) {
 
-    push()
-    fill(c);
-    noStroke()
-    ellipse(x+4,y+5,size,size) // LEFT EYE
-    ellipse(x+11,y+5,size,size) // RIGHT EYE
-    stroke(c);
-    strokeWeight(1)
-    noFill()
-    arc(x+8, y+10, size+2, size, 180, 0); // FROWN
-    ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
-    pop()
-  }
-  function drawUpsetFace(x, y, size, c) {
+  push()
+  fill(c);
+  noStroke()
+  ellipse(x + 4, y + 5, size, size) // LEFT EYE
+  ellipse(x + 11, y + 5, size, size) // RIGHT EYE
+  stroke(c);
+  strokeWeight(1)
+  noFill()
+  arc(x + 8, y + 10, size + 2, size, 180, 0); // FROWN
+  ellipse(x + 7.5, y + 7, size + 12, size + 12) // FACE OULTINE
+  pop()
+}
 
-      push()
-      fill(c);
-      noStroke()
-      ellipse(x+4,y+5,size,size) // LEFT EYE
-      ellipse(x+11,y+5,size,size) // RIGHT EYE
-      stroke(c);
-      strokeWeight(1)
-      noFill()
-      line(x+4,y+9,x+11,y+9)
-      ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
-      pop()
-    }
+function drawUpsetFace(x, y, size, c) {
 
-    function drawHappyFace(x, y, size, c) {
-        push()
-        fill(c);
-        noStroke()
-        ellipse(x+4,y+5,size,size) // LEFT EYE
-        ellipse(x+11,y+5,size,size) // RIGHT EYE
-        stroke(c);
-        strokeWeight(1)
-        noFill()
-        arc(x+8, y+10, size+2, size, 0, 180); // FROWN
-        ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
-        pop()
-      }
+  push()
+  fill(c);
+  noStroke()
+  ellipse(x + 4, y + 5, size, size) // LEFT EYE
+  ellipse(x + 11, y + 5, size, size) // RIGHT EYE
+  stroke(c);
+  strokeWeight(1)
+  noFill()
+  line(x + 4, y + 9, x + 11, y + 9)
+  ellipse(x + 7.5, y + 7, size + 12, size + 12) // FACE OULTINE
+  pop()
+}
+
+function drawHappyFace(x, y, size, c) {
+  push()
+  fill(c);
+  noStroke()
+  ellipse(x + 4, y + 5, size, size) // LEFT EYE
+  ellipse(x + 11, y + 5, size, size) // RIGHT EYE
+  stroke(c);
+  strokeWeight(1)
+  noFill()
+  arc(x + 8, y + 10, size + 2, size, 0, 180); // FROWN
+  ellipse(x + 7.5, y + 7, size + 12, size + 12) // FACE OULTINE
+  pop()
+}
 
 function drawWaves(x, y, sizeW, sizeH, c) {
   push();
@@ -163,8 +186,6 @@ function drawWaves(x, y, sizeW, sizeH, c) {
   arc(x - 10, y - 10, sizeW, sizeH, 330, 70);
   pop();
 }
-
-
 
 function keyTyped() {
   if (key == '!') {
