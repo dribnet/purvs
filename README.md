@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-I changed input 2, AGAIN, because I still wasn't happy with the outcome. I like that the sky looks like a painting but I don't really like the edges of the building. I will try to change the draw stars function to horizontal lines, it may blend better with the sky. However, I really don't want to lose the current effect of the palm tree.
+I changed the numbers of lines being drawn to a lower number. This made it look less like a star, and more like horinzontal hatching. I think it blends in more nicely on all three images. Now that I am happy with both functions, I am going to try again with the photo of the lake and flower. It wasn't working before, but it may work now with the hatching effect. 
