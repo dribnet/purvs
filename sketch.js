@@ -5,9 +5,9 @@ let i = 0;
 
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -35,10 +35,14 @@ background(i,0,0);
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       fill(pix);
-      if(mask[0] > 128) {
+      if(mask[0] > 100) {
         i=0;
         let pointSize = 5;
         ellipse(x, y, tileWidth, tileHeight);
+      }
+      if(mask[0]>0 && mask[0]<110){
+        i=100;
+
       }
       else {
         i = 200;
