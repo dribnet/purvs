@@ -42,14 +42,19 @@ function draw() {
 
 
     if (mask[0] == 255) { //white
-      let pointSize = 5;
+      let pointSize = 10;
       smooth()
-      rect(x, y, pointSize, pointSize);
-      //ellipse(x, y, pointSize, pointSize);
-    } else if (mask[0] > 50 && mask[0] < 200) { //grey
+      //rect(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize, pointSize);
+    } else if (mask[0] > 50 && mask[0] < 150) { //dark grey
       stroke(pix);
       drawHatch(x, y, 2);
-    } else { //black
+    } else if (mask[0] > 150 && mask[0] < 180) { //light grey
+      let pointSize = 5;
+      stroke(204,204,255);
+      fill(204,204,255);
+      ellipse(x, y, pointSize, pointSize);
+    }else { //black
       if (pix[1] > pix[2]) { //if the green value is greater than the blue
         drawBlue(x, y)
       } else {
@@ -62,19 +67,25 @@ function draw() {
 
 
 
-  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step + 10) {
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
       let pix = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
       let pointSize = 5;
-      noStroke();
-      //if (mask[0] < 128){
-        stroke(pix[0], pix[1], pix[2], 30)
+      if (mask[0] < 100){
+      stroke(204,204,255,50);
+      point(x2, y2);
+    } else {
+      stroke(pix);
+      point(x2 * 2, y2);
+
+    }
+      //  stroke(pix[0], pix[1], pix[2], 30)
       //   //fill();
       //   line(x2, y2, x2, y2 + pointSize)
       // } else {
       //   fill(pix[0], pix[1], pix[2], 50);
-        line(x2, y2, x2, y2 + pointSize)
+      //  line(x2, y2, x2, y2 + pointSize)
       //}
 
     }
@@ -107,7 +118,7 @@ function drawBlue(x, y) {
   pixMod[1] = pixMod[1];
   pixMod[2] = pixMod[2] * 3;
   stroke(pixMod);
-  strokeWeight(5)
+
 
 }
 

@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I cleaned up one of the masks to see how it looked. I think it looks a lot nicer and the transitions being a lot more accurate creates a lot more detail. 
+Today I cleaned up all of the masks. I also experimented with abstracting my works further. I liked my gentle, detailed, piece but I felt it lacked a wow-factor. What I have now is close to a glitch effect, which I think looks really unique. I added in some blue coloured segments to obscure the view and further distort the image. It borders on being a bit too much, but I feel like changes the meaning of the pictures. It's overwhelming, and perhaps represents how we've lost the ability to see things without technology. Read below for a new motive for my work!
 
-I've taken images from a recent visit to the Auckland Botanical Gardens, this place is very special to me. I absolutely love nature and landscapes. I feel that after the long amount of time we all spent indoors, it's nice to remember just how peaceful and beautiful our planet really is.
+I've taken images from a recent visit to the Auckland Botanical Gardens, this place is very special to me. I absolutely love nature and landscapes. After experimenting with a more abstract approach, I want my works to represent how we've lost our ability to be at one with nature. We live in a fast-paced world viewing screen after screen, it alters how we view what was once so normal to us. Now, when we look at images through a screen, they're always altered, we don't know what is real. This is a dramatisation of the concept.
