@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -15,7 +15,6 @@ function preload() {
 function setup () {
   let main_canvas = createCanvas(1920, 640);
   main_canvas.parent('canvasContainer');
-
   imageMode(CENTER);
   noStroke();
   background(0);
@@ -30,26 +29,28 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
-    if(mask[0] > 128) {
+    if(mask[0] > 128) { //white
     // let pointSize = 15;
     // rect(x, y, pointSize, pointSize);
     stroke(pix);
-    drawStar(x,y,20);
-
-    }  else {
-      let pointSize = 30;
-      // noStroke();
-      // rect(x, y, pointSize, pointSize);
+    strokeWeight(4);
+    drawStar(x,y,12);
+  }  else { //black
+    //  let pointSize = 30;
+    // rect(x, y, pointSize, pointSize);
       stroke(pix);
-      drawStar2(x,y,20);
+      strokeWeight(1);
+      drawStar2(x,y,25);
     }
   }
+
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
   //  uncomment this to save the result
-   saveArtworkImage(outputFile);
+  // saveArtworkImage(outputFile);
   }
 }
 
@@ -57,7 +58,7 @@ function draw () {
 function drawStar(x,y,size) {
 push();
 translate(x,y);
-for(var i = 0; i < 25; i++){
+for(var i = 0; i < 10; i++){
 
 line(size,0, -size,0);
 rotate(360 / i);
@@ -70,7 +71,7 @@ pop();
 function drawStar2(x,y,size) {
 push();
 translate(x,y);
-for(var i = 0; i < 5; i++){
+for(var i = 0; i < 15; i++){
 
 line(size,0, -size,0);
 rotate(360 / i);
