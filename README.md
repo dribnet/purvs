@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Stress themed experiment.
+Stress continuum.
 
-The image of my computer came out looking much more aggressive than I intended (likely due to it being a screen rather than a window), so that means we get an experiment on a stress based theme because I kinda liked how it looked. Current potential stress sources: Work, the outside world, the online world, people. Maybe do one where the outside of the image is the stressful thing and a book or something is the calmer bit? The area that isn't the stressed bit is meant to be fairly soft, and the bit that is stressed is meant to sort of spill out into the background - I might have to figure out how to do layers to really make that work. Image 2 will also have to be changed to something else stressful.
+Just some tweaking to the design. I've chosen rotated rounded squares for the background to give it a soft but out of focus feeling, like you can't quite level your eyes on it, and have made use of the render counter to get the stress section to really spill out of it's bounds. I'm not totally sold on this, to be honest. The stress bit needs to be sharper, somehow, and I feel like there should be more to it. Currently it just feels a bit...bland.

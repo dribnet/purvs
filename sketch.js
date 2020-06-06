@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,31 +26,32 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<14000;i++) {
+  for(let i=0;i<8000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    if(mask[0] < 128) {
+    if(mask[0] < 128 &&renderCounter < 7) {
       push();
       stroke(pix);
       fill(pix);
-      strokeWeight(7);
+      strokeWeight(8);
       strokeJoin(ROUND);
-      let pointSize = random(8);
+      let pointSize = random(12);
       translate (x, y);
       rotate(random(360));
       rect(0, 0, pointSize, pointSize);
       pop();
     }
-    else {
+    else if (mask[0] > 128){
       push();
       stroke(pix);
       strokeCap(SQUARE);
       fill(pix);
-      strokeWeight(random(5));
-      let pointSize = random(-50, 50);
-      line(x, y, x, y+pointSize);
+      strokeWeight(random(6));
+      let pointSize = random(-10, 10);
+      let pointDrift = random(-60, 60);
+      line(x, y + pointDrift, x, y + 40 + pointSize);
       pop();
     }
   }
