@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // CHANGE FOR APPROPIATE IMAGE
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 // PROCESS SHOWING IMAGE
 function preload() {
@@ -89,62 +89,67 @@ function draw() {
         fill(pix);
         strokeWeight(1);
         //rect(x, y, tileWidth+5, tileHeight+5);
-        drawFace(x,y,3,240)
+        drawSadFace(x,y,3,240)
+      }else if (mask[0] == 60) {
+          drawUpsetFace(x,y,3,240)
+      }else if (mask[0] == 70) {
+          drawHappyFace(x,y,3,240)
       }
+
     }
   }
 
-  //
-  // // GREY AND WHITE MASK
-  //   for (let i = 0; i < 9000; i++) {
-  //     let x = floor(random(sourceImg.width));
-  //     let y = floor(random(sourceImg.height));
-  //     let pix = sourceImg.get(x, y);
-  //     let mask = maskImg.get(x, y);
-  //     fill(pix);
-  //     // WHITE MASK (DOTS)
-  //     if (mask[0] > 200) {
-  //       let pointSize = 4;
-  //       fill(pix);
-  //       noStroke();
-  //       ellipse(x, y, pointSize, pointSize);
-  //       // GREY MAKS (HAIR WAVES)
-  //     } else if (mask[0] >= 180 && mask[0] < 200) {
-  //       let pointSize2 = 20;
-  //       drawWaves(x, y, 20, 20, pix);
-  //     }
-  //
-  //   }
-
   renderCounter = renderCounter + 1;
-  if (renderCounter > 1) {
+  if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
-function drawFace(x, y, size, c) {
+function drawSadFace(x, y, size, c) {
 
-  push()
-  let pix = sourceImg.get(x, y);
-  fill(c);
+    push()
+    fill(c);
+    noStroke()
+    ellipse(x+4,y+5,size,size) // LEFT EYE
+    ellipse(x+11,y+5,size,size) // RIGHT EYE
+    stroke(c);
+    strokeWeight(1)
+    noFill()
+    arc(x+8, y+10, size+2, size, 180, 0); // FROWN
+    ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
+    pop()
+  }
+  function drawUpsetFace(x, y, size, c) {
 
-  ellipse(x+7.5,y+7,size+12,size+12)
-  stroke(c);
-  strokeWeight(1)
-  //noFill()
+      push()
+      fill(c);
+      noStroke()
+      ellipse(x+4,y+5,size,size) // LEFT EYE
+      ellipse(x+11,y+5,size,size) // RIGHT EYE
+      stroke(c);
+      strokeWeight(1)
+      noFill()
+      line(x+4,y+9,x+11,y+9)
+      ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
+      pop()
+    }
 
-  fill(pix)
-  ellipse(x+4,y+5,size,size)
-  ellipse(x+11,y+5,size,size)
-  noFill()
-  stroke(pix)
-  arc(x+8, y+10, size+2, size, 180, 0);
-  pop()
-
-}
+    function drawHappyFace(x, y, size, c) {
+        push()
+        fill(c);
+        noStroke()
+        ellipse(x+4,y+5,size,size) // LEFT EYE
+        ellipse(x+11,y+5,size,size) // RIGHT EYE
+        stroke(c);
+        strokeWeight(1)
+        noFill()
+        arc(x+8, y+10, size+2, size, 0, 180); // FROWN
+        ellipse(x+7.5,y+7,size+12,size+12) // FACE OULTINE
+        pop()
+      }
 
 function drawWaves(x, y, sizeW, sizeH, c) {
   push();
@@ -156,9 +161,9 @@ function drawWaves(x, y, sizeW, sizeH, c) {
   arc(x + 30, y - 20, sizeW, sizeH, 0, 90);
   arc(x + 30, y - 15, sizeW, sizeH, 180, 270);
   arc(x - 10, y - 10, sizeW, sizeH, 330, 70);
-
   pop();
 }
+
 
 
 function keyTyped() {
