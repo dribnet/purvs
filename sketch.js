@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.png";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_1.png";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -24,7 +24,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -33,13 +33,13 @@ function draw () {
     stroke(pix);
     console.log(mask);
 
-    let pointSize = (20);
-    let dice = random(1, 6);
-     if (dice > 5){
-       line(x, y, x*pointSize, y);
+    let pointSize = (10);
+    let dice = random(3, 6);
+     if (dice > 4){
+       line(x, y, x*pointSize - 10, y); //Wind
      }
      else{
-       line(x, y, x, y*pointSize);
+       line(x, y, x, y*pointSize); //Rain
     }
     //if(mask[0] > 128) {
     //  let pointSize = 50;
