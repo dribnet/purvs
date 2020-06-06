@@ -18,25 +18,41 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255 );
+  background(171, 187, 209);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
 
-  let tilewidth  = 10;
-  let tileheight = 10;
-  noStroke();
+  let tilewidth  =6;
+  let tileheight = 6;
+  let squarew =5;
+  let squareh = 5;
+  strokeWeight(1.5);
   for(var xtile = 0; xtile < sourceImg.width; xtile= xtile+tilewidth){
     for(var ytile = 0; ytile < sourceImg.height;  ytile= ytile+tileheight){
     let pix = sourceImg.get(xtile, ytile);
     let mask = maskImg.get(xtile, ytile);
+    let strokepix = sourceImg.get(xtile, ytile);
+    strokepix[0] = strokepix[0]/2;
+    //stroke (strokepix);
 
     if (mask[0] <128){
+      if(pix[0]<100 &&pix[1]<90&&pix[2]<90){
+        pix[0] = pix[0]*9;
+        pix[1] = pix[1]*7;
+        pix[2] = pix[2]*10;
+        if (pix [0]>=255&&pix[1]>=255&&pix[2]>=255){
+          pix[0]= 207;
+          pix [1]=  171;
+          pix[2]= 209;
+        }
+      }
       fill (pix);
-      rect(xtile,ytile,tilewidth,tileheight);
+      rect(xtile,ytile,squarew,squareh);
     } else{
+      noStroke();
       var pixmod = sourceImg.get(xtile, ytile);
       pixmod[0] = pixmod[0]*6;
       pixmod[1] = pixmod[1]/3;
@@ -44,7 +60,7 @@ function draw () {
       fill(pixmod);
       rect(xtile,ytile,tilewidth,tileheight);
       var rand = random(1,6);
-      if(rand<3){
+      if(rand<2){
         fill(255);
         circle (xtile,ytile,5);
       } else{
@@ -55,21 +71,6 @@ function draw () {
 }
 }
 
-  //
-  //   if(mask[0] < 128) {
-  //
-  //   }
-  //   else {
-  //     for(let i=0;i<2000;i++) {
-  //       let x = floor(random(sourceImg.width));
-  //       let y = floor(random(sourceImg.height));
-  //       let pix = sourceImg.get(x, y);
-  //       let mask = maskImg.get(x, y);
-  //     stroke(pix);
-  //     strokeWeight(5);
-  //     line(x,y,x+50,y);
-  //   }
-  // }
 
 
 
@@ -77,7 +78,7 @@ function draw () {
   if(renderCounter > 1) {
     console.log("Done!")
     noLoop();
-    // uncomment this to save the result
+    //uncomment this to save the result
     //saveArtworkImage(outputFile);
   }
 }
