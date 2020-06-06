@@ -41,28 +41,39 @@ function draw () {
         rect(x,y,tileWidth,tileHeight);
       }
     }
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
 
-    fill(pix);
+    for(let i=0;i<2000;i++) {
+      let x = floor(random(sourceImg.width));
+      let y = floor(random(sourceImg.height));
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
 
-    if(mask[0] > 128) {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
-      // stroke(255);
-      // strokeWeight(0.05);
-      line(x,y,x + pointSize,y);
-      line(x,y,x,y + pointSize);
+      fill(pix);
+
+      if(mask[0] > 128) {
+        let pointSize = 10;
+        ellipse(x, y, pointSize, pointSize);
+        // stroke(255);
+        // strokeWeight(0.05);
+        line(x,y,x + pointSize,y);
+        line(x,y,x,y + pointSize);
+      }
+      else if(pix[1] < pix[2]) {
+        strokeWeight(2);
+        let pixNew = sourceImg.get(x, y);
+        pixNew[1] = 50;
+      }
+
+      else {
+        let pointSize = 10;
+        rect(x, y, pointSize, pointSize);
+        // stroke(pix);
+        strokeWeight(1);
+        stroke(pix);
+
+      }
+
     }
-    else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize);
-
-    }
-  }
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
