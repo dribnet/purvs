@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -48,8 +48,8 @@ function draw () {
     }
     //this is the sky
     else if(mask[0] ==97){
-      fill(pix[0], pix[1], pix[2], 60);
-      ellipse(x,y, size*2, size);
+      fill(pix[0], pix[1], pix[2], 65);
+      ellipse(x,y, size*2.5, size-5);
     }
   }
   renderCounter = renderCounter + 1;
