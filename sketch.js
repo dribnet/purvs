@@ -32,9 +32,15 @@ function draw () {
     fill(pix);
     stroke(pix);
     console.log(mask);
-    let pointSize = (20);
-    line(x, y, x, y*pointSize);
 
+    let pointSize = (20);
+    let dice = random(1, 6);
+     if (dice > 5){
+       line(x, y, x*pointSize, y);
+     }
+     else{
+       line(x, y, x, y*pointSize);
+    }
     //if(mask[0] > 128) {
     //  let pointSize = 50;
       //ellipse(x, y, pointSize, pointSize);
@@ -49,7 +55,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
