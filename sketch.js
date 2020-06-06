@@ -117,25 +117,31 @@ function draw() {
   //   }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
+  if (renderCounter > 1) {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
 function drawFace(x, y, size, c) {
 
   push()
+  let pix = sourceImg.get(x, y);
   fill(c);
-  ellipse(x+4,y+5,size,size)
-  ellipse(x+11,y+5,size,size)
+
+  ellipse(x+7.5,y+7,size+12,size+12)
   stroke(c);
   strokeWeight(1)
+  //noFill()
+
+  fill(pix)
+  ellipse(x+4,y+5,size,size)
+  ellipse(x+11,y+5,size,size)
   noFill()
+  stroke(pix)
   arc(x+8, y+10, size+2, size, 180, 0);
-  ellipse(x+7.5,y+7,size+12,size+12)
   pop()
 
 }

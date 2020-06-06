@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-ADDING FACES TO MY FILTER
+FACE INVERTED
 
-Here I am just creating an upset face to incorporate into my design. I currently have it around my outlines of the girl. I like the concept and idea of it but I'm not sure if it's working the way that I wanted it to. maybe I will try scattering them around her, or even change the way that that face looks by inverting it.
+Here I am just creating an upset face to incorporate into my design. I inverted the faces so they are more bold however I don't like this so I will go back to what I had before.
