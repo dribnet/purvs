@@ -78,6 +78,21 @@ function draw() {
       }
     }
   }
+  // OUTLINE OF GIRL
+  for (var x = 0; x < sourceImg.width; x = x + x_step+14) {
+    for (var y = 0; y < sourceImg.height; y = y + y_step+14) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      // WHITE MASK (SKIN)
+      if (mask[0] == 55) {
+        stroke(pix);
+        fill(pix);
+        strokeWeight(1);
+        //rect(x, y, tileWidth+5, tileHeight+5);
+        drawFace(x,y,3,240)
+      }
+    }
+  }
 
   //
   // // GREY AND WHITE MASK
@@ -106,20 +121,23 @@ function draw() {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
-function drawStar(x, y, size, c) {
+function drawFace(x, y, size, c) {
+
+  push()
+  fill(c);
+  ellipse(x+4,y+5,size,size)
+  ellipse(x+11,y+5,size,size)
   stroke(c);
-  push();
-  //strokeWeight(4);
-  translate(x + 5, y + 5);
-  for (var i = 0; i < 10; i++) {
-    line(size, 0, -size, 0);
-    rotate(360 / i);
-  }
-  pop();
+  strokeWeight(1)
+  noFill()
+  arc(x+8, y+10, size+2, size, 180, 0);
+  ellipse(x+7.5,y+7,size+12,size+12)
+  pop()
+
 }
 
 function drawWaves(x, y, sizeW, sizeH, c) {

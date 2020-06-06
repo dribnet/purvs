@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-STRUCTURING AND LAYERING MY FILTER
+ADDING FACES TO MY FILTER
 
-Today I further developed the masks for all my photos. I ended up layering my code so that I could cover up any parts that bleed out of there masks. In my last commit, I was using the pixels in a grid and the pointillism code however in order to have my filters to looked more structured I decided to just use the pixels in a grid formation. This overall looks a lot cleaner and works with all 3 photos. Next, I want to add in some more detail that relates to my model feeling upset and angry maybe coding an upset face, this is something I will experiment with next.
+Here I am just creating an upset face to incorporate into my design. I currently have it around my outlines of the girl. I like the concept and idea of it but I'm not sure if it's working the way that I wanted it to. maybe I will try scattering them around her, or even change the way that that face looks by inverting it.
