@@ -32,21 +32,11 @@ function draw () {
   let mask = maskImg.get(x, y);
   let pixMod = sourceImg.get(x, y);
 
-  if (mask[0] < 128) {
-    if(pix[0]<100 && pix[1]<100 && pix[2]<100){
-    pixMod[0]=pix[0];
-    pixMod[1]=pix[1]*1.2;
-    pixMod[2]=pix[2]*1.4;
-    fill(pixMod[0],pixMod[1],pixMod[2],20);
-    }
-    else{
-       fill(pix[0],pix[1],pix[2],20);
-    }
-
+  if (mask[0] < 50) { //black area of mask
      let pointSize = 45;
      noStroke();
-     // fill(pix[0],pix[1],pix[2],20);
-     ellipse(x, y, pointSize*2, pointSize);
+      fill(pix[0],pix[1],pix[2],20);
+     ellipse(x, y, pointSize*2, pointSize); //background blended effect
    }
  }
  for (let i = 0; i < 3000; i++) {
@@ -56,8 +46,8 @@ function draw () {
   let mask = maskImg.get(x, y);
   let pixMod = sourceImg.get(x, y);
 
-  if (mask[0] > 128) {
-    if(pix[0]>pix[1] && pix[0]>pix[2]){
+  if (mask[0] > 200) { //white area of mask
+    if(pix[0]>pix[1] && pix[0]>pix[2]){ //making the red tones brighter
       pixMod[0]=pix[0]*1.4;
       pixMod[1]=pix[1]*1.2;
       pixMod[2]=pix[2]*1.4;
@@ -66,8 +56,21 @@ function draw () {
   else{
     stroke(pix);
   }
-  drawPaint(x,y,8);
+  drawPaint(x,y,8); //foreground paint effect
   }
+
+}
+for (let i = 0; i < 30000; i++) {
+ let x = floor(random(sourceImg.width));
+ let y = floor(random(sourceImg.height));
+ let mask = maskImg.get(x, y);
+ let sizeVary = random(-2,3);
+
+if (mask[0] < 150 && mask[0] > 100){ //grey area of mask
+  noStroke();
+  fill(164,179,198);
+  ellipse(x,y,4+sizeVary);
+}
 }
 
   renderCounter = renderCounter + 1;
