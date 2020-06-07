@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,8 +23,8 @@ function setup () {
   maskImg.loadPixels();
 
 }
-const tileHeight = 10;
-const tileWidth = 10;
+const tileHeight = 10; //height of each pixel
+const tileWidth = 10; //width of each pixel
 
 const x_step = 15; //space between this varable and tile width (5)
 const y_step = 15; //space between this variable and tile height (5)
@@ -32,44 +32,43 @@ const y_step = 15; //space between this variable and tile height (5)
 
 function draw () {
 
+      /* nested for loop which gathers pixels from sourceImg and returns its x & y values*/
     for(var x = 0; x < sourceImg.width; x = x + x_step){
       for(var y = 0; y < sourceImg.height; y = y + y_step){
         let pix = sourceImg.get(x, y);
         let mask = maskImg.get(x, y);
-        fill(pix);
-        stroke(pix);
-        rect(x,y,tileWidth,tileHeight);
+        fill(pix); //fill using the pix colour
+        stroke(pix); //stroke using pix
+        rect(x,y,tileWidth,tileHeight); //rect which uses tilewidth & tileheight variables
       }
     }
 
+      /* for loop which uses 2000 pixels from the sourceImg */
     for(let i=0;i<2000;i++) {
-      let x = floor(random(sourceImg.width));
-      let y = floor(random(sourceImg.height));
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
+      let x = floor(random(sourceImg.width)); //random x value for width
+      let y = floor(random(sourceImg.height)); //random y value for height
+      let pix = sourceImg.get(x, y); //set pix value to x & y
+      let mask = maskImg.get(x, y); // get mask from MaskImg
 
-      fill(pix);
+      fill(pix); //fill using pix value
 
-      if(mask[0] > 128) {
-        let pointSize = 10;
-        ellipse(x, y, pointSize, pointSize);
-        // stroke(255);
-        // strokeWeight(0.05);
-        line(x,y,x + pointSize,y);
-        line(x,y,x,y + pointSize);
+      if(mask[0] > 128) { //if mask has white area
+        let pointSize = 10; //change pointSize to 10
+        ellipse(x, y, pointSize, pointSize); //ellipse with 10 width and height
+        line(x,y,x + pointSize,y); //horizontal line
+        line(x,y,x,y + pointSize); //vertical line
       }
-      else if(pix[1] < pix[2]) {
-        strokeWeight(2);
-        let pixNew = sourceImg.get(x, y);
-        pixNew[1] = 50;
+      else if(pix[1] < pix[2]) { //else if green < blue
+        strokeWeight(2); //set stroke weight to 2
+        let pixNew = sourceImg.get(x, y); //new pix which gets pixels from sourceImg
+        pixNew[1] = 50; //set pixNew to 50. ranges from 0-255
       }
 
-      else {
+      else { //else
         let pointSize = 10;
-        rect(x, y, pointSize, pointSize);
-        // stroke(pix);
-        strokeWeight(1);
-        stroke(pix);
+        rect(x, y, pointSize, pointSize); //create a rect using pointSize
+        strokeWeight(1); //set strokeWeight to 0
+        stroke(pix); //stroke using pix
 
       }
 
