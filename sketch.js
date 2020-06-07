@@ -18,7 +18,7 @@ function setup() {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(247, 249, 250);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -40,11 +40,14 @@ function draw () {
     stroke(pix);
 
     if(mask[0] < 120) {
-      let pointSize = 30;
-          line(x, y, x + pointSize, y+40);//black
+      let pointSize = 2;
+      //fill(225, 242, 229);
+      // stroke(225, 242, 229);
+        rect(x, y, pointSize+10, pointSize);
+
     }
     else if(mask[0] >= 120 && mask[0] < 250) { //Grey
-      let pointSize =20;
+      let pointSize =15;
           ellipse(x, y, pointSize, pointSize);
    }
     else {
@@ -64,7 +67,7 @@ function draw () {
 function drawStar(xPos, yPos, size) {
   push();
   translate(xPos, yPos);
-  strokeWeight(1);
+  strokeWeight(2);
   let half = size / 2.5;
   let diagHalf = half * 0.75;
 
