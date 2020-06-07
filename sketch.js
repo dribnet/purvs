@@ -4,8 +4,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -19,50 +19,57 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(196, 60, 230); //purple
+  background(232, 189, 242); //purple
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<6000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
+
 
 
     if(mask[0] >= 0 && mask[0] < 150) { //Black mask - background
-      let pointSize = 10;
+      let pointSize = 15;
       push();
-      strokeWeight(6);
-      line(x, y, x + pointSize-30, y+10);
+      strokeWeight(12);
+      stroke(pix[0] +50, pix[1] + 25,pix[2] + 20, 50);
+      line(x, y, x + pointSize-10, y+10);
       pop();
     }
     else if(mask[0] >= 201 && mask[0] < 250) { //Grey - outline of leaves
-      let pointSize = 18;
+      let pointSize = 10;
+      push();
       noFill();
-      stroke(pix);
+      stroke(pix[0] + 70, pix[1] + 70,pix[2] + 70);
       strokeWeight(3);
       arc(x, y, pointSize, pointSize, HALF_PI, PI);
-      arc(x, y, pointSize, pointSize, PI + QUARTER_PI, TWO_PI);
+      line(x, y, x + pointSize-10, y+10);
+      pop();
     }
     else { //white - details inside leaves
-      let pointSize = 15;
+      let pointSize = 8;
+      push();
       noFill();
-      stroke(pix);
+      stroke(pix[0]+90, pix[1] + 30, pix[2] + 60);
       strokeWeight(5);
       arc(x, y, pointSize, pointSize, HALF_PI, PI);
+      pop();
+      push();
+      //arc(x, y, pointSize, pointSize, PI + QUARTER_PI, TWO_PI);
       line(x, y, x + pointSize-10, y+10);
-    }
+      pop();
+      }
   }
 
 
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 30) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
