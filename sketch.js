@@ -1,3 +1,4 @@
+//Code for my mask layers referenced from Hansol Gal's work
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
@@ -17,32 +18,38 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  //noStroke();
-  background(170, 200, 20);
+  noStroke();
+  background(196, 60, 230); //purple
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileHeight = 13;
-const tileWidth = 19;
-
-const x_step = 20;
-const y_step = 10;
-
-//grid like style
 function draw () {
+  for(let i=0;i<4000;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    stroke(pix);
 
-    for (var x = 0; x < sourceImg.width; x = x + x_step) {
-      for (var y = 0; y < sourceImg.height; y = y + y_step) {
-        let pix = sourceImg.get(x, y);
-        let mask = maskImg.get(x, y);
 
-        fill(pix);
-        noStroke(pix);
-        rect(x, y, tileWidth, tileHeight);
-
-      }
+    if(mask[0] >= 0 && mask[0] < 150) { //Black mask
+      let pointSize = 12;
+      push();
+      strokeWeight(6);
+      line(x, y, x + pointSize-30, y+10);
+      pop();
     }
+    else if(mask[0] >= 201 && mask[0] < 250) { //Grey
+      let pointSize = 50;
+      line(x, y, x + pointSize, y+20);
+    }
+    else { //white
+      let pointSize = 10;
+      ellipse(x, y, pointSize, pointSize);
+    }
+  }
 
 
 

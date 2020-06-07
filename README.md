@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Part 3: Playing around with Grids
+Experimenting with lines
 
-I have used Phoebe's code in making the grid style image. It was interesting to play around with but I'm not sure if it suits my theme. Since my theme is about emphasising the unique appearance of each plants leaves I don't think it will highlight that aspect too much using grids. I've looked at the past years work and I was intrigued by the wavy appearance by Brock. I might experiment with the wavy style in the future. I am also planning on experimenting with using lines and triangles to form my image, as that may highlight the small details better.
+So far I like the look of using lines for my images. The only thing I'm struggling with right now is making sure the code makes ALL three images look good and work accordingly to my plan. I feel like its easier to make the first image of the peacock plant look good due to its larger details. I still need to experiment to find the best shapes to accentuate the details of the leaves. For sure I want to use lines. I may also experiment using arcs, which might make the images more interesting. I will be focusing more on finding the best texture/shapes to create my image before moving on to changing the image colours.
