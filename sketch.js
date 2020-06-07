@@ -5,7 +5,7 @@ let renderCounter=0;
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
 let maskFile   = "mask_3.png";
-let outputFile = "output_1.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -30,7 +30,7 @@ function draw () {
       let mask = maskImg.get(x, y);
       fill(pix);
       //if mask is white
-      if(mask[0] > 128) {
+      if(mask[0] > 240) {
         noStroke();
         if (pix[0] > 175 && pix[1] > 175 && pix[2] > 175) {
           rect(x+random(-5,5), y+random(-5,5), 15, 15);
@@ -39,10 +39,15 @@ function draw () {
         ellipse(x+random(-5,5), y+random(-5,5), 25, 25);
         }
       }
-      else if(mask[0] > 40) {  //mask is grey
+      else if(mask[0] > 180) {  //mask is light grey
         noStroke();
-        ellipse(x+random(-1,1), y+random(-1,1), 5, 5);
-        ellipse(x+random(-2,2), y+random(-2,2), 5, 5);
+        rect(x,y, 5, 5);
+        rect(x+random(-1,1), y+random(-1,1),3,3);
+      }
+      else if(mask[0] > 120) {  //mask is dark grey
+        noStroke();
+        ellipse(x+random(-1,1), y+random(-1,1), random(5,10), random(5,10));
+        ellipse(x+random(-2,2), y+random(-2,2), random(5,10), random(5,10));
       }
       else {
         stroke(pix);
@@ -56,7 +61,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 
 
