@@ -126,7 +126,7 @@ function draw() {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
