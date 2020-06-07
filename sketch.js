@@ -30,20 +30,24 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) { //white
-    // let pointSize = 15;
-    // ellipse(x, y, pointSize, pointSize);
+
+    if(pix[1] > pix[0]){
+      strokeWeight(1);
+    } else {
+      strokeWeight(0.25);
+    }
+
     stroke(pix);
-    strokeWeight(1);
     drawLines(x,y,50);
+
 
     //drawStar(x,y,12);
   }  else { //black
-
-     // let pointSize = 10;
-     //  ellipse(x, y, pointSize, pointSize);
+     strokeWeight(1);
       stroke(pix);
-      strokeWeight(1);
+
       drawStar2(x,y,25);
+
     }
   }
 
