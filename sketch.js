@@ -8,7 +8,7 @@ let renderCounter = 0;
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
 let maskFile = "mask_3.png";
-let outputFile = "output_1.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -53,10 +53,10 @@ function draw() {
       line(x, y, x + pointSize - 10, y + 10);
       pop();
     } else { //white - details inside leaves
-      let pointSize = 8;
+      let pointSize = 10;
       push();
       noFill();
-      stroke(pix[0] + 90, pix[1] + 50, pix[2] + 60);
+      stroke(pix[0] + 90, pix[1] + 70, pix[2] + 60);
       strokeWeight(5);
       arc(x, y, pointSize, pointSize, HALF_PI, PI);
       pop();
@@ -75,8 +75,8 @@ function draw() {
       var tileHeight = 5;
       var tileWidth = 5;
 
-      var x_step = 20;
-      var y_step = 10;
+      var x_step = 10;
+      var y_step = 8;
       noStroke();
 
       if (mask[0] >= 0 && mask[0] < 150) { //Black mask - background
@@ -84,8 +84,9 @@ function draw() {
         ellipse(x2, y2, tileWidth, tileHeight); //circle detail
       } else if (mask[0] >= 201 && mask[0] < 250) { //Grey - outline of leaves
         push();
-        var tileWidth = 20;
-        var x_step = 20;
+        var tileHeight = 4;
+        var tileWidth = 16;
+        var x_step = 10;
         var y_step = 10;
         fill(pix[0] + 100, pix[1] + 100, pix[2] + 250, 190);
         ellipse(x2, y2, tileWidth, tileHeight); //line detail
