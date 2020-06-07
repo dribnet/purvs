@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 //before code is up n running, process of showing the image
 function preload() {
@@ -24,45 +24,50 @@ function setup () {
   maskImg.loadPixels();
 }
 
+
+function setup () {
+  let main_canvas = createCanvas(1920, 640);
+  main_canvas.parent('canvasContainer');
+
+  imageMode(CENTER);
+  noStroke();
+  background(192, 203, 209);
+  sourceImg.loadPixels();
+  maskImg.loadPixels();
+}
+//size for pixels
+const size = 20;
+
+
 function draw () {
-  for(let i=0;i<2000;i++) { //The 2000 is how much pixels(in this case rects) there are on the screen, higher the number the more densly packed the pixels are
-    let x = floor(random(sourceImg.width)); //Using a random X & random Y
+  for(let i=0;i<2000;i++) {
+    let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
 
 
-    if(mask[0] > 130) {
-      let pointSize = 18;
-      drawStar(x,y,14.5);
-
+//this is the the people
+    if(mask[0] == 255) {
+      fill(pix[0], pix[1], pix[2]);
+      ellipse(x,y, size/3, size/1);
 
     }
-    else {
-      let pointSize = 19;
-      square(x, y, pointSize, pointSize);
+    //this is the background
+    else if(mask[0] ==0 ) {
+      fill(pix[0], pix[1], pix[2], 60);
+      rect(x, y, size,size);
+
     }
+
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 35) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+   saveArtworkImage(outputFile);
   }
-}
-
-function drawStar(x,y,size) {
-push();
-strokeWeight(2);
-translate(x,y)
-for (var i = 0; i < 30; i++){ //10
-line(size, 0, -size, 0);
-rotate(360 % i);
-}
-pop();
 }
 
 function keyTyped() {
