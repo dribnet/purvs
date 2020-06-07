@@ -6,8 +6,8 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -28,7 +28,7 @@ function setup() {
 
 
 function draw() {
-  for (let i = 0; i < 6000; i++) {
+  for (let i = 0; i < 5000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -56,7 +56,7 @@ function draw() {
       let pointSize = 8;
       push();
       noFill();
-      stroke(pix[0] + 90, pix[1] + 30, pix[2] + 60);
+      stroke(pix[0] + 90, pix[1] + 50, pix[2] + 60);
       strokeWeight(5);
       arc(x, y, pointSize, pointSize, HALF_PI, PI);
       pop();
@@ -66,32 +66,34 @@ function draw() {
     }
   }
 
-//Starting code of background mask & sub detail(grey mask) mask details
-    for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
-      for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
-        let pix = sourceImg.get(x2, y2);
-        let mask = maskImg.get(x2, y2);
+  //Code of background mask & sub detail(grey mask) mask details
+  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+    for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
+      let pix = sourceImg.get(x2, y2);
+      let mask = maskImg.get(x2, y2);
 
-        var tileHeight = 5;
-        var tileWidth = 5;
+      var tileHeight = 5;
+      var tileWidth = 5;
 
+      var x_step = 20;
+      var y_step = 10;
+      noStroke();
+
+      if (mask[0] >= 0 && mask[0] < 150) { //Black mask - background
+        fill(pix[0] + 190, pix[1] + 100, pix[2] + 50);
+        ellipse(x2, y2, tileWidth, tileHeight); //circle detail
+      } else if (mask[0] >= 201 && mask[0] < 250) { //Grey - outline of leaves
+        push();
+        var tileWidth = 20;
         var x_step = 20;
         var y_step = 10;
-        fill(pix[0] + 100, pix[1]+100, pix[2] + 50);
-        noStroke();
-
-        if (mask[0] >= 0 && mask[0] < 150) { //Black mask - background
-          ellipse(x2, y2, tileWidth, tileHeight); //circle detail
-        }
-        else if (mask[0] >= 201 && mask[0] < 250) { //Grey - outline of leaves
-          var tileWidth = 20;
-            var x_step = 2;
-            var y_step = 10;
-          ellipse(x2, y2, tileWidth, tileHeight); //circle detail
-        }
-
+        fill(pix[0] + 100, pix[1] + 100, pix[2] + 250, 190);
+        ellipse(x2, y2, tileWidth, tileHeight); //line detail
+        pop();
       }
+
     }
+  }
 
 
 
@@ -109,4 +111,3 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
- 
