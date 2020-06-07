@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -39,12 +39,16 @@ function draw () {
     fill(pix);
     stroke(pix);
 
-    if(mask[0] > 120) {
-    drawStar(x, y, r);
+    if(mask[0] < 120) {
+      let pointSize = 30;
+          line(x, y, x + pointSize, y+40);//black
     }
+    else if(mask[0] >= 120 && mask[0] < 250) { //Grey
+      let pointSize =20;
+          ellipse(x, y, pointSize, pointSize);
+   }
     else {
-  let pointSize = 60;
-      line(x, y, x + pointSize, y+40);
+      drawStar(x, y, r); //white
     }
   }
 
@@ -60,7 +64,7 @@ function draw () {
 function drawStar(xPos, yPos, size) {
   push();
   translate(xPos, yPos);
-  strokeWeight(4);
+  strokeWeight(1);
   let half = size / 2.5;
   let diagHalf = half * 0.75;
 
