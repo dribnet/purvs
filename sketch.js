@@ -47,39 +47,37 @@ function draw() {
       //rect(x, y, pointSize, pointSize);
       ellipse(x, y, pointSize, pointSize);
     } else if (mask[0] > 50 && mask[0] < 150) { //dark grey
-      stroke(pix);
-      drawHatch(x, y, 2);
+      drawDiagHatch(x, y, 2);
     } else if (mask[0] > 150 && mask[0] < 180) { //light grey
-      let pointSize = 5;
-      stroke(204,204,255);
-      fill(204,204,255);
-      ellipse(x, y, pointSize, pointSize);
-    }else { //black
+      drawHorizHatch(x,y,5);
+    } else { //black
       if (pix[1] > pix[2]) { //if the green value is greater than the blue
-        drawBlue(x, y)
+        drawBlue(x, y); //bring forward the blue hues
       } else {
         stroke(pix); //use the regular image rgb
       }
-      drawHatch(x, y, 2)
+      drawDiagHatch(x, y, 2)
     }
 
   }
 
 
-
+  //layering
   for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step + 10) {
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
       let pix = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
-      let pointSize = 5;
-      if (mask[0] < 100){
-      stroke(204,204,255,50);
-      point(x2, y2);
-    } else {
-      stroke(pix);
-      point(x2 * 2, y2);
+      let pointSize = 2;
+      if (mask[0] < 100) { //draw purple points
+        stroke(204, 204, 255, 50);
+        point(x2, y2);
+      } else { //draw white points
+        stroke(255, 20);
+        point(x2 * 2, y2*2);
+        //rect(x2, y2, pointSize, pointSize);
 
-    }
+
+      }
       //  stroke(pix[0], pix[1], pix[2], 30)
       //   //fill();
       //   line(x2, y2, x2, y2 + pointSize)
@@ -92,7 +90,7 @@ function draw() {
   }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10 ) {
+  if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
@@ -101,13 +99,26 @@ function draw() {
 }
 
 //draw diagonal crosshatch effect
-function drawHatch(x, y, size) {
+function drawDiagHatch(x, y, size) {
   let pointSize = 15;
   let dice = random(1, 6);
-  if (dice > 10) {
+  if (dice > 5) {
+    pointSize = 10
+  } else {
+    pointSize = 15
+  }
+  line(x + (pointSize / 2), y, x, y + pointSize);
+}
+
+function drawHorizHatch(x, y, size) {
+  stroke(224, 224, 255); //draw purple circles
+  fill(224, 224, 255);
+  let pointSize = 15;
+  let dice = random(1, 6);
+  if (dice > 5) {
     line(x, y, x + pointSize, y);
   } else {
-    line(x + (pointSize / 2), y, x, y + pointSize);
+    line(x, y, x, y + pointSize);
   }
 }
 
