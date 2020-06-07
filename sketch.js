@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,11 +23,11 @@ function setup () {
   maskImg.loadPixels();
 
 }
-const tileHeight = 10; //height of each pixel
-const tileWidth = 10; //width of each pixel
+  const tileHeight = 10; //height of each pixel
+  const tileWidth = 10; //width of each pixel
 
-const x_step = 15; //space between this varable and tile width (5)
-const y_step = 15; //space between this variable and tile height (5)
+  const x_step = 15; //space between this varable and tile width (5)
+  const y_step = 15; //space between this variable and tile height (5)
 
 
 function draw () {
@@ -65,11 +65,16 @@ function draw () {
       }
 
       else { //else
-        let pointSize = 10;
+        let pointSize = 15; //change pointSize to 15
         rect(x, y, pointSize, pointSize); //create a rect using pointSize
         strokeWeight(1); //set strokeWeight to 0
         stroke(pix); //stroke using pix
 
+      }
+
+      if(pix[2] > pix[1] && pix[2] > pix[0]){
+        let blueEllipse = 15;
+        ellipse(x,y,blueEllipse,blueEllipse);
       }
 
     }
