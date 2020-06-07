@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -30,13 +30,18 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    stroke(pix)
+
     if(mask[0] > 128) {
-      let pointSize = 5;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize = 2;
+      ellipse(x, y, pointSize-4, pointSize+5);
     }
     else {
       let pointSize = 5;
-      rect(x, y, pointSize, pointSize);
+      //rect(x, y, pointSize, pointSize);
+      drawStars(x,y,4)
+
+
     }
   }
   renderCounter = renderCounter + 1;
@@ -46,6 +51,16 @@ function draw () {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
+}
+
+function drawStars(x,y,size){
+  push()
+  translate(x,y)
+  for(var i = 0; i < 3; i++){
+    line(size, 0, -size, 0)
+    rotate(360/i)
+  }
+  pop()
 }
 
 function keyTyped() {

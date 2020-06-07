@@ -5,4 +5,4 @@ My overall theme for these images is space and astrophotography. I chose this be
 =========================================================================================================================
 
 Changelog:
-I have added all of my images, they maybe set to change in the future but for now they all fit my theme so they are good for testing. I still have unwanted white lines appearing due to my masks, I will work to find a way to get rid of those lines as they look out of place right now.
+I am now experimenting with the code, trying to make some cool effects by using different shapes and sizes for the render program. One of the shapes I chose to use was a star shape for anything outside of the mask, the shape fits with the overall theme aswell as making a cool effect in the output images. The real stars that are in my original images are rendered out to look like a plus/cartoony looking star shape the makes for a cool effect. I still want to further play around with whats in my mask and how that is rendered out, right now it is still Ellipses but the sizing has been changed.
