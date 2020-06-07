@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Experimenting with lines
+Experimenting with arcs with lines
 
-So far I like the look of using lines for my images. The only thing I'm struggling with right now is making sure the code makes ALL three images look good and work accordingly to my plan. I feel like its easier to make the first image of the peacock plant look good due to its larger details. I still need to experiment to find the best shapes to accentuate the details of the leaves. For sure I want to use lines. I may also experiment using arcs, which might make the images more interesting. I will be focusing more on finding the best texture/shapes to create my image before moving on to changing the image colours.
+Using the combination of arcs and lines creates a nice paint like texture of my images. I think using arcs helped make the image look more whole compared to my last experiment. I still need to refine the arc code to further support the smaller details of the leaves, especially for the second and third image. So far the mask hasn't been very apparent, and I'm hoping in the future changing the colour values will help with that. I think I may need to work on the masks for the last two images though. Maybe making the masks for the last two images simpler will work out better.

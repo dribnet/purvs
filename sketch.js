@@ -34,20 +34,28 @@ function draw () {
     stroke(pix);
 
 
-    if(mask[0] >= 0 && mask[0] < 150) { //Black mask
-      let pointSize = 12;
+    if(mask[0] >= 0 && mask[0] < 150) { //Black mask - background
+      let pointSize = 10;
       push();
       strokeWeight(6);
       line(x, y, x + pointSize-30, y+10);
       pop();
     }
-    else if(mask[0] >= 201 && mask[0] < 250) { //Grey
-      let pointSize = 50;
-      line(x, y, x + pointSize, y+20);
+    else if(mask[0] >= 201 && mask[0] < 250) { //Grey - outline of leaves
+      let pointSize = 18;
+      noFill();
+      stroke(pix);
+      strokeWeight(3);
+      arc(x, y, pointSize, pointSize, HALF_PI, PI);
+      arc(x, y, pointSize, pointSize, PI + QUARTER_PI, TWO_PI);
     }
-    else { //white
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+    else { //white - details inside leaves
+      let pointSize = 15;
+      noFill();
+      stroke(pix);
+      strokeWeight(5);
+      arc(x, y, pointSize, pointSize, HALF_PI, PI);
+      line(x, y, x + pointSize-10, y+10);
     }
   }
 
