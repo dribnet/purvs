@@ -2,4 +2,4 @@
 
 The images above are photos of books I have read. The masks for each photo highlight various objects.
 
-keeping with the theme of Books, I have changed the images. I retook my images, so they were more colourful and would help show the theme in a better light.
+I have started to experiment with the code adding in different effects, to see what looks best for my code. For this I have changed the background so there are lines, and  made the stroke f the stars thicker. I think next I will try adding to the mask a grey shade, to help with the theme more.

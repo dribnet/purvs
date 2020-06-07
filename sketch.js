@@ -4,15 +4,15 @@ let renderCounter = 0;
 
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_1.png";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
 }
 
-function setup () {
+function setup() {
   let main_canvas = createCanvas(1920, 640);
   main_canvas.parent('canvasContainer');
 
@@ -23,29 +23,53 @@ function setup () {
   maskImg.loadPixels();
 }
 
+//const tileHeight = 10;
+//const tileWidth = 10;
+
+//const x_step = 20;
+//const y_step = 5;
+
 function draw () {
   for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+    let r = random(10, 60);
     fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize=20);
+    stroke(pix);
+
+    if(mask[0] > 120) {
+    drawStar(x, y, r);
     }
     else {
-      let pointSize = 20;
-      ellipse(x, y, pointSize, pointSize+20);
+  let pointSize = 60;
+      line(x, y, x + pointSize, y+40);
     }
   }
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if (renderCounter > 7) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
+}
+
+function drawStar(xPos, yPos, size) {
+  push();
+  translate(xPos, yPos);
+  strokeWeight(4);
+  let half = size / 2.5;
+  let diagHalf = half * 0.75;
+
+
+  line(-half, 0, half, 0); //horizontal
+  line(0, half, 0, -half); //vertical
+  line(-diagHalf, -diagHalf, diagHalf, diagHalf); //left diagonal
+  line(-diagHalf, diagHalf, diagHalf, -diagHalf); //right diagonal
+  pop();
 }
 
 function keyTyped() {
