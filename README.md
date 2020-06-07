@@ -1,7 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-6/6/2020, 17:30
+6/8/2020, 11am
 
-Grid.
+Trouble.
 
-I quite like where this is going, I think it has potential to be something pretty deep and charismatic. For now, I am merely going to commit this as more progression reference.
+I managed to work through videos yesterday, but I ran into an issue where saving my full-scale image meant a million downloads would happen (that were black screens). I am committing this just as a precaution, but I will continue working.

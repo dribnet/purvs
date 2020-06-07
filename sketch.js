@@ -26,48 +26,59 @@ function setup () {
 const tileHeight = 10;
 const tileWidth = 10;
 
-const x_step = 15;
-const y_step = 25;
+const x_step = 30;
+const y_step = 30;
 
 function draw () {
 
-  for(var x = 0; x < sourceImg.width; x = x+ x_step){
-    for(var y = 0; y < sourceImg.height; y = y+ y_step){
-        let pix = sourceImg.get(x, y);
-        let mask = maskImg.get(x, y);
-        fill(pix);
-        stroke(pix);
-         if (mask[0] > 128) {
-        rect(x,y,tileWidth,tileHeight);
-  }
-  else{
-    rect(x,y,x_step,y_step);
+//  for(var x = 0; x < sourceImg.width; x = x+ x_step){
+  //  for(var y = 0; y < sourceImg.height; y = y+ y_step){
+    //    let pix = sourceImg.get(x, y);
+    //    let mask = maskImg.get(x, y);
+    //    fill(pix);
+    //    stroke(pix);
+    //     if (mask[0] > 128) {
+    //    rect(x,y,tileWidth,tileHeight);
+//  }
+//  else{
+  //  rect(x,y,x_step,y_step);
+//  }
+//}
+
+
+  for(let i = 0; i < 9000; i++) {
+   let x = floor(random(sourceImg.width));
+   let y = floor(random(sourceImg.height));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    stroke(pix);
+
+    let pointSize = 10;
+    let dice = random(1, 6);
+
+    if (mask[0] > 128) {
+      if (dice > 2){
+      line(x, y, x + pointSize - 20, y); //Wind
+    } else {
+          if(pix[1] > pix[0]){
+            strokeWeight(1);
+            let pixMod = sourceImg.get(x, y);
+            pixMod[2] = pixMod[2]*3;
+            pixMod[1] = pixMod[1]*3;
+            pixMod[2] = pixMod[2]*8;
+
+            stroke(pixMod);
+            //stroke(pix);
+
+    } else {
+    if (dice > 5){
+       line(x, y, x + pointSize, y); //Wind
+     } else {
+      line(x, y, x, y + pointSize - 20); //Rain
+   }
   }
 }
-
-
-  //for(let i = 0; i < 3000; i++) {
-  //  let x = floor(random(sourceImg.width));
-  //  let y = floor(random(sourceImg.height));
-  //  let pix = sourceImg.get(x, y);
-  //  let mask = maskImg.get(x, y);
-  //  fill(pix);
-  //  stroke(pix);
-
-  //  let pointSize = (10);
-    //let dice = random(1, 6);
-  //  if (mask[0] > 128) {
-     //if (dice > 4){
-    // line(x, y, x + pointSize - 20, y); //Wind
-
-  // } else {
-  //   if (dice > 5){
-    //   line(x, y, x + pointSize - 20, y); //Wind
-  //   } else {
-  //     line(x, y, x, y + pointSize); //Rain
-  //  }
-//  }
-
     //if(mask[0] > 128) {
     //  let pointSize = 50;
       //ellipse(x, y, pointSize, pointSize);
@@ -82,7 +93,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
@@ -101,4 +112,5 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
+}
 }
