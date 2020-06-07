@@ -31,12 +31,12 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(192, 203, 209);
+  background(199, 207, 212);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 //size for pixels
-const size = 20;
+const size = 25;
 
 
 function draw () {
@@ -50,19 +50,25 @@ function draw () {
 //this is the the people
     if(mask[0] == 255) {
       fill(pix[0], pix[1], pix[2]);
-      ellipse(x,y, size/3, size/1);
+      ellipse(x, y, size-5, size-5);
+
+    }
+    else if(mask[0] == 0) {
+      fill(pix[0], pix[1], pix[2], 30);
+      rect(x, y, size, size);
 
     }
     //this is the background
-    else if(mask[0] ==0 ) {
-      fill(pix[0], pix[1], pix[2], 60);
-      rect(x, y, size,size);
+    else if(mask[0] == 70 ) {
+      fill(pix[0] + 10, pix[1] +10, pix[2] + 10, 60);
+      rect(x, y, size, size);
 
     }
 
+
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 35) {
+  if(renderCounter > 40) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
