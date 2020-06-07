@@ -1,6 +1,22 @@
 {
   "commits": [
     {
+      "sha": "8b07319b3c795c3c874e09d591757eb8fea98649",
+      "name": "Final"
+    },
+     {
+      "sha": "ff83cc1dc32be13ae5d725598c4f1caa4fcfbe29",
+      "name": "Experiment 5: Grids & Colour 2"
+    },
+     {
+      "sha": "4f89a0f3170dd8730854eec021011c3761eafde6",
+      "name": "Experiment 4: Colour 1"
+    },
+     {
+      "sha": "7380e784ac94242555b181510f0b68086b013c8b",
+      "name": "Experiment 3: Arcs"
+    },
+     {
       "sha": "87633a99be1e54610d5d2148c2f475e875af1e84",
       "name": "Experiment 2: Lines"
     },
