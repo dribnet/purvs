@@ -2,4 +2,4 @@
 
 The images above are photos of books I have read. The masks for each photo highlight various objects.
 
-I have added a grey mask into my code, so I can make the objects which are on top of each other a bit different, so they will stand out more. I have made the grey mask an ellipse and the white mask a star. I then played around with the background. what I found worked best was the use of rectangles. I then played out with the sizing of the rectangles to get the best look for my theme.
+I have changed the coloured of the of the rectangles used for the background-black mask. As all of my three images had a different background colour, though I wanted to them to be the same, as it helped show the theme more. So I added a fill and a stroke, so it would change the colour of the rectangles used. I played around with different colours, but I had to make sure the colour used worked for all three images. the colour I went with is a bluegrey, as I found it went with all three images.

@@ -40,18 +40,18 @@ function draw () {
     stroke(pix);
 
     if(mask[0] < 120) {
-      let pointSize = 2;
-      //fill(225, 242, 229);
-      // stroke(225, 242, 229);
+      let pointSize = 2;//black mask - background
+      fill(143, 185, 201); //blue/grey
+      stroke(143, 185, 201); //blue/grey
         rect(x, y, pointSize+10, pointSize);
 
     }
-    else if(mask[0] >= 120 && mask[0] < 250) { //Grey
-      let pointSize =15;
+    else if(mask[0] >= 120 && mask[0] < 250) {
+      let pointSize =15; //grey mask
           ellipse(x, y, pointSize, pointSize);
    }
     else {
-      drawStar(x, y, r); //white
+      drawStar(x, y, r); //white mask
     }
   }
 
@@ -64,7 +64,7 @@ function draw () {
   }
 }
 
-function drawStar(xPos, yPos, size) {
+function drawStar(xPos, yPos, size) { //white mask
   push();
   translate(xPos, yPos);
   strokeWeight(2);
