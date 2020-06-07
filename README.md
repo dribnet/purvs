@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Stress continuum.
+Stress final
 
-Just some tweaking to the design. I've chosen rotated rounded squares for the background to give it a soft but out of focus feeling, like you can't quite level your eyes on it, and have made use of the render counter to get the stress section to really spill out of it's bounds. I'm not totally sold on this, to be honest. The stress bit needs to be sharper, somehow, and I feel like there should be more to it. Currently it just feels a bit...bland.
+I'm kinda over this whole stress thing. It really just seems empty. I'm either going to go back to my comfort based one, as I think it has more of a message (Showing you can find comfort in many different places), or maybe look at how just a handful of seemingly random objects can accurately portray a person's character, if I can get the kind of images I want. Yes I realise there are only two days of this left. No, I'm not sure I'll enjoy them.

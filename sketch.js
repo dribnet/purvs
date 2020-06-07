@@ -20,7 +20,7 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(190);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -31,28 +31,36 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    if(mask[0] < 128 &&renderCounter < 7) {
+    if(mask[0] < 200 && renderCounter < 7) {
       push();
       stroke(pix);
       fill(pix);
       strokeWeight(8);
       strokeJoin(ROUND);
       let pointSize = random(12);
+      let pointLength = random(12);
       translate (x, y);
       rotate(random(360));
-      rect(0, 0, pointSize, pointSize);
+      rect(0, 0, pointSize, pointLength);
       pop();
     }
-    else if (mask[0] > 128){
+    else if (mask[0] > 200&& renderCounter > 8){
       push();
       stroke(pix);
       strokeCap(SQUARE);
       fill(pix);
-      strokeWeight(random(6));
+      strokeWeight(random(5));
+      let pointSize = random(-10, 10);
+      let pointDrift = random(-60, 60);
+      line(x, y + pointDrift, x, y + 50 + pointSize);
+
+    }
+    else if (mask[0] > 100 && mask[0] < 200){
       let pointSize = random(-10, 10);
       let pointDrift = random(-60, 60);
       line(x, y + pointDrift, x, y + 40 + pointSize);
       pop();
+
     }
   }
   renderCounter = renderCounter + 1;
