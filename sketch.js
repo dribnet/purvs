@@ -23,11 +23,11 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 60; //tile hieght
-const tileWidth = 10; //tile width
+const tileHeight = 100; //tile hieght
+const tileWidth = 100; //tile width
 
-const x_step = 20; //circle width
-const y_step = 20; //circle height
+const x_step = 40; //circle width
+const y_step = 40; //circle height
 
 function draw() {
   for(var x = 0; x < sourceImg.width; x = x+ x_step){
@@ -37,25 +37,16 @@ function draw() {
         fill(pix);
         stroke(pix);
 
-        let pointSize = 15;
+        let pointSize = 5;
 
         if (mask[0] > 128) {
-           rect(x,y,tileWidth,tileHeight); //tile lines
+          // stroke(20, 50)
+          // strokeWeight(10);
+          //  ellipse(x,y,tileWidth,tileHeight); //tile lines
         }
         else{
-          line(x, y, x + pointSize, y); // horizonal lines
-          if(pix[1] > pix[0]) {
-            strokeWeight(8); //thicker stroke if pix is larger than pix0
-            // let pixMod = sourceImg.get(x, y);
-            // pixMod[0] = pixMod[0]/2;
-            // pixMod[1] = pixMod[1];
-            // pixMod[2] = pixMod[2]/2;
-            // stroke(pixMod);
-          } else {
-            stroke(pix);
-            strokeWeight(1); //otherwise stroke weight is 1
+          ellipse(x, y, x + pointSize, y-350); // horizonal lines
           }
-}
 }
 }
   renderCounter = renderCounter + 1;

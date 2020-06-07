@@ -1,24 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-03/06/20 - Grid & Colour
+07/06/20 - Random Experiment
 
-In this experiment I was trying a combination of the grid and colour technique and this was the result of the two. I couldn't get the colour stroke to work with my images, this may have been because I was forcing a grid layout rather than displaying different shapes. I was still able to create different stroke weights in my grid which created this 3D look to my pixel images.
+The purpose of this commit was supposed to be changing the first image's background to black to match the photos under it (it waspreviously blue) but when I when I was changing the input images and removing the colour code I experimented with this was the result that came up.
+I thought it was worth making a commit because it the result was unexpected. It actually looks really cool because it looks like there's movement in my images, you can't really tell what the original image was supposed to be but that's all right because the same theme of 'fun, excitment and energy' is still there. The last image reminds me of the tie dye.
 
-My pixel design consists of:
-Masked:
-let pointSize = 5;
-if (mask[0] > 128) {
-rect(x,y,tileWidth,tileHeight); //tile lines
-
-Unmasked:
-else{
-line(x, y, x + pointSize, y); // horizonal lines
-if(pix[1] > pix[0]) {
-strokeWeight(8); //thicker stroke if pix is larger than pix0
-} else {
-stroke(pix);
-strokeWeight(1); //otherwise stroke weight is 1
-
+I will most likely keep the first image with a darker background because it matches with the other two images and there is more contrast. I believe a dark background and bright imagery will look really good on a billboard as it will stand out and give that neon glow and Wellington city gives.
 
 
 
