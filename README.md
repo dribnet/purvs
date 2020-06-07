@@ -1,5 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
+(Renders take around 20-25 seconds on my laptop)
+
 To draw my custom pixels, my program takes a grid approach to drawing, going left to right, top to bottom, 5 pixels at a time.
 In the areas of the mask which are white, the 'pixel' is draw as either an ellipse or a rect depending on colour value, with the x and y having slight variation (random change between -5 and 5). The shape is a rect when all 3 rgb values are greater than 175, meaning they're closer to white. All other values are drawn as an ellipse, which is slightly bigger than a rect.
 In the areas of the mask which are black, the pixel is a small line with varying position and weight. This part relies heavily on random numbers, as the strokeweight, and all 4 of the position values are affected by random numbers in some way.

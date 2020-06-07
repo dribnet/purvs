@@ -32,9 +32,11 @@ function draw () {
       //if mask is white
       if(mask[0] > 240) {
         noStroke();
+        //draws the whiter pixels as rects
         if (pix[0] > 175 && pix[1] > 175 && pix[2] > 175) {
           rect(x+random(-5,5), y+random(-5,5), 15, 15);
         }
+        //and the darker pixels as ellipses
         else {
         ellipse(x+random(-5,5), y+random(-5,5), 25, 25);
         }
@@ -61,7 +63,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 
 
