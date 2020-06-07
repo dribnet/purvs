@@ -1,5 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-Following the layering example given in class today, I have incoporated it into my code to have the ellipse's draw on top from when the mask is white. This did create some harsh edges between shapes that did not look good. To fix this, I changed the mask to have a more steady gradient between whatever colour was next to the white in the mask. I found that by extending, for example the black part of the mask, to be slightly over the white area it allowed the shape drawn to pick up some of the colour from the ellipses and have a nicer edge. 
+Theme:
+I have chosen farming as my theme for this project as it is something personal to me that I care about. Farming gets a lot of bad media that does not express what farming is really about. Therefore, I took into consideration the location of where the work would be displayed as most people who may view it will have a limited experience with farming. I want to express the beauty of farming and contrast the bad pictures that are presented in the media. 
 
 The images above are photos from around my farm and the area I live in algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects.
