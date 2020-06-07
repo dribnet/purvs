@@ -32,21 +32,20 @@ function draw () {
     if(mask[0] > 128) { //white
 
     if(pix[1] > pix[0]){
-      strokeWeight(1);
-    } else {
-      strokeWeight(0.25);
-    }
+        strokeWeight(1);
+  } else {
+    strokeWeight(0.5);
+  }
 
     stroke(pix);
-    drawLines(x,y,50);
+    drawLines(x,y,30);
 
 
     //drawStar(x,y,12);
   }  else { //black
-     strokeWeight(1);
-      stroke(pix);
-
-      drawStar2(x,y,25);
+    strokeWeight(1);
+    stroke(pix);
+    drawStar2(x,y,25);
 
     }
   }
@@ -79,23 +78,23 @@ pop();
 
 
 
-
-function drawStar(x,y,size) {
-push();
-translate(x,y);
-for(var i = 0; i < 10; i++){
-line(size,0, -size,0);
-rotate(360 / i);
-}
-pop();
-}
+//
+// function drawStar(x,y,size) {
+// push();
+// translate(x,y);
+// for(var i = 0; i < 4; i++){
+// line(size,0, -size,0);
+// rotate(360 / i);
+// }
+// pop();
+// }
 
 
 
 function drawStar2(x,y,size) {
 push();
 translate(x,y);
-for(var i = 0; i < 15; i++){
+for(var i = 0; i < 6; i++){
 line(size,0, -size,0);
 rotate(360 / i);
 }

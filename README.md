@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-I decided to change the second image again because I added a new statement which highlights the green areas. The green ares of the image (in the white mask) have a bigger stroke than the brown areas. After looking at all three images together, I think I will need to change the palm tree image as well. Although, I do  like how the trunk of the tree looks like a similar texture to a real palm tree.
 
-The first two photos were taken at Kerosine creek, a natural hot-spring in Rotorua. It is one of my favourite places. I love that everything there is so green as it is surrounded by trees.
+
+I changed the 3rd image to another image of Kerosine creek to keep the green theme going across all three images. I will work on polishing the masks to emphasise certain areas. I like the white area of the third photo as the stars create a water splashing effect. I'm not sure if this is too abstract or not but I would like to make it look more realistic. I tried changing the numbers and size of lines but this was the best result.
