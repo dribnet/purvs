@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 let wasteTextFile = "wasteText.png";
 let wasteTextImage1File = "wasteText_image_1.PNG";
 let wasteTextImage3File = "wasteText_image_3.PNG";
@@ -42,12 +42,10 @@ function draw() {
     fill(pix);
     let pointSize = 10;
     if (mask[0] > 128) {
-      line(x - 20, y, x+pointSize+5, y)
-      } else
-      line(x - 20, y, x + pointSize * 5, y);
-        }
-    tint(255, 25);
-    image(wasteText1Img, 1000, 350);
+      gajuarText(x, y);
+    } else
+      line(x, y, x + pointSize * 5, y);
+  }
 
 
   // IMAGE_2 CODE
@@ -93,34 +91,27 @@ function draw() {
     noLoop();
 
     //uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
 
 
-function image2_unmasked_opacity(x, y) {
-  let pointSize = 2;
-  if (x > 590) {
-    rect(x, y, pointSize * 3, pointSize * 7);
-  } else {
-    tint(255, 10);
-    rect(x, y, pointSize * 3, pointSize * 7);
-  }
-}
 
-function image2_maskedtext(x, y) {
-  let pointSize = 2;
+
+
+function gajuarText(x, y) {
+  let pointSize = 17;
   if (x > 590) {
-    stroke(255);
-    strokeWeight(.25);
-    rect(x, y, pointSize * 4, pointSize);
+    line(x, y, x + pointSize, y)
   } else {
     noStroke();
-    rect(x, y, pointSize * 2, pointSize * 2);
-
+    fill(59, 120, 154);
+    rect(x, y, 4, 4);
   }
 }
+
+
 
 
 function keyTyped() {
