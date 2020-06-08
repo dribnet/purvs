@@ -1,9 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-6/8/2020, 16:55
+6/9/2020, 10:45
 
-Maskerade.
+Final
 
-Pun intended. I am almost content with the masks I have and the code here. I will begin finalizing everything and preparing for the hand in.
+I tried to get things working last night, but it didn't fully go according to plan. This is now my final attempt at commiting changes so that I can get the purview files in submission order.
 
-I feel like the mixture of pixels and glitched lines really capture how fragmented and disassociated the world can be when one begins to fall into a mental health spiral. Even though there is colour, they are limited in palette. Even though there is sight, it is disfigured and cautious.
+Hopefully things will run smoothly
