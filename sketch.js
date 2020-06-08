@@ -18,38 +18,42 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(50);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+const tileWidth = 20;
+const tileHeight = 2;
+
+const x_step = 23;
+const y_step =5;
+
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(var x1 = 0; x1 < sourceImg.width; x1 = x1+ x_step){
+    for(var y1 = 0; y1 < sourceImg.height; y1 = y1+ y_step){
+        let pix = sourceImg.get(x1, y1);
+        let mask = maskImg.get(x1, y1);
+        fill(pix);
+        stroke(pix);
+    if(mask[0] < 128) {
+      ellipse(x1, y1, tileWidth,tileHeight);
+  }
+  }
+  }
+
+  for(let i=0;i<800;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-    strokeWeight(1);
-    let pointsize = 20
-    let dice = random(1,10)
-    if(mask[0] > 128){
-      drawStar(x,y,8)
-    }else{
-      if(dice > 4){
-      line(x,y,x+pointsize,y+pointsize)
-    }else{
-      push();
-      translate(x,y)
-      angleMode(DEGREES);
-      rotate(135);
-      line(pointsize,0,-pointsize,0)
 
-      pop();
+    if(mask[0] > 128) {
+      drawcoin(x,y,20)
     }
   }
-}
+
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
@@ -59,14 +63,24 @@ function draw () {
   }
 }
 
-function drawStar(x,y,size){
-  push();
-  translate(x,y);
-  for(var i = 0; i < 10; i++){
-  line(size,0,-size,0);
-  rotate(360/i);
-}
-pop();
+function drawcoin(x,y,size){
+  let pix = sourceImg.get(x, y);
+  let mask = maskImg.get(x, y);
+  fill(pix);
+  noStroke();
+  stroke(255);
+  strokeWeight(1.5);
+  beginShape();
+vertex(x, y);
+bezierVertex(x+size,y, x+size,y+size*1.5, x, y+size*1.5);
+bezierVertex(x+size,y, x+size,y+size*1.5, x, y);
+endShape();
+
+  beginShape();
+vertex(x, y);
+bezierVertex(x-size,y, x-size,y+size*1.5, x, y+size*1.5);
+bezierVertex(x-size,y, x-size,y+size*1.5, x, y);
+endShape();
 }
 
 function keyTyped() {
