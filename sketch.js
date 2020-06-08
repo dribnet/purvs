@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -54,22 +54,28 @@ function draw () {
  }}
       else{
         if(mask[0] > 100 && mask[0] < 250){ //Light Grey
-          //  noFill();
-          //  stroke(255);
-          //  strokeWeight(1.5);
-          //  arc(x, y, 40, 40, PI, PI + QUARTER_PI);
-          noStroke();
-          fill(50, 135, 168);
-          drawHighlight(x,y,10,10);
-    //      ellipse(x,y,10,10);
-
+            noFill();
+            stroke(pix);
+            strokeWeight(1.5);
+            arc(x, y, 40, 40, PI, PI + QUARTER_PI);
   }
       else {
         if(mask[0] > 10 && mask[0] < 100){ //Dark Grey
-          let flowerSize1 = 20;
-          strokeWeight(0.5);
+
+          if(pix[0] > pix[2]){
+          strokeWeight(3);
+          let pixMod = sourceImg.get(x, y);
+          pixMod[0] = pixMod[0]*3;
+          pixMod[1] = pixMod[1];
+          pixMod[2] = pixMod[2];
+
+          push();
+          let flowerSize1 = 15;
+          fill(pixMod);
+          strokeWeight(3);
           drawFlower(x,y,flowerSize1);
-}
+          pop();
+}}
       else {
         if (mask[0] == 0){ //Black
             let dice = random(1,6);
@@ -97,24 +103,9 @@ let pix = sourceImg.get(x, y);
 
             push();
             fill(pix);
+          //  strokeWeight(5);
             ellipse(x,y,1);
             pop();
-
-  }
-
-  function drawHighlight(x, y) {
-
-    let highX = x;
-    let highY = y;
-
-  for (var j = 0; j < 5; j++){
-    ellipse (highX,highY, 10,10);
-
-    highX = highX + random (-10, 10);
-    highY = highY + random (-10,10);
-
-  }
-
 
   }
 
