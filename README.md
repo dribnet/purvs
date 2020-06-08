@@ -18,4 +18,3 @@ I decided that because my images are both of the sea (water), something that man
 Upon coming to this decision I did some research for art pieces and artist precedents that I could use to really inform my design.
 
 If I were to do this again I would probably spend some more time waiting for the right time to take my photos to get the mood I wanted, as for my second output what I really wanted was a stormy sea as I would have loved to show appreciation for both a calm sea and a stormy one, as I personally love watching the sea during a storm. Unfortunately I wasn't at Tauranga Bay when the weather began to get very stormy and thus couldn't get the image I wanted. I feel that this was also due to time constraints, as if I had waited for stormy weather I would not have had enough time to work on perfecting my code so it looked great on all outputs.
->>>>>>> Stashed changes
