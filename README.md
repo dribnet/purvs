@@ -1,7 +1,9 @@
 ## Creative Coding 2: Custom Pixel
 
-My theme is based around friendship and the values different people teach you. I have worked on my background imagery the most and I am pretty happy with the outcome. I am still trying to create much more depth in my masks but am getting the hang of it. I wanted the backgrounds to be quite out of focus to really make the people in the images the focus, as the are the subject of the photos and represent the theme. 
+Experimentation with symbols. I decided I wanted to use symbols to represent what different people in different stages (past present future) have and will teach me.
 
-I need to work on what shape to use for the people and how I will create more depth and clarity there, even though I am not too worried on their features being shown perfectly because I want to add symbols which represent the different values they have taught me, which is more the focus of the image.
+For the past photo (people running up hill) I used the symbol of a dragonfly which represents wisdom, change, transformation. All things in which those people led me to and taught me, which is of high value in my life even if it was not the most positive experience, and tends to be a common experience in most people so is an important stage to highlight in my opinion. For this one I wanted to have the symbol be quite large and make the viewer look across the image. 
 
-I am still to take the right third picture to use but it will likely be a collection of polaroids will nature themes involved behind them or around them. 
+For my present photo, taken at the zoo on a disposable camera after adventuring around Wellington to capture moments of the people who have taught me true friendship, love and care. I decided to use the heart symbol and cover the three friends who are the subject of the photo but subtly. 
+
+I am happy with how the symbols are coming along, especially the dragon fly ones, now I just need to make the imagery of the people far more clear and not have the mask be weird which is definitely something I am struggling with. 
