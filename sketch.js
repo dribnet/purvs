@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.png";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.png";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,11 +23,11 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth = 10;
+const tileHeight = 8;
+const tileWidth = 8;
 
-const x_step = 30;
-const y_step = 30;
+const x_step = 8;
+const y_step = 8;
 
 function draw () {
 
@@ -58,7 +58,7 @@ function draw () {
    for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
      let pix = sourceImg.get(x2, y2);
      let mask = maskImg.get(x2, y2);
-      fill(pix[0],pix[1],pix[2]);
+      fill(pix[0],pix[1],pix[2], 100);
       noStroke();
        if (mask[0] > 128) {
      rect(x2, y2, tileWidth, tileHeight);
