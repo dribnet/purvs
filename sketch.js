@@ -7,7 +7,7 @@ let sourceFile = "input_1.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
 
-console.log(pix[0])
+
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -45,25 +45,25 @@ function leaves (x, y, pointSize){
     pop()
 }
 function draw () {
+
     angleMode(DEGREES)
   for(let i=0;i<2000;i++) {
       let x = floor(random(sourceImg.width));
       let y = floor(random(sourceImg.height));
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-
       fill(pix);
       stroke(pix)
       noStroke()
     if(mask[0] > 200) {
       let pointSize = 10;
       push()
-      if(pix[0]<100){
+      if(pix[0]<90){
           fill(pix[0],pix[1],pix[2],100);
           leaves(x, y, pointSize)
       }
       else{
-          fill(pix[0],pix[1],pix[2],10)
+          fill(pix[0],pix[1],pix[2],80)
           ellipse(x,y,10, 10)
       }
       pop()
