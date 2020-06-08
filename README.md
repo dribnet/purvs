@@ -1,3 +1,6 @@
 ## Creative Coding 2: Custom Pixel
  
-At the moment I'm feeling a little stuck with my images, I have a few ideas but am just not really 100% sure how to actually do them. I'm going to post into the design_feedback channel and seek out some inspiration online too. I'm happy with the digitalised colours in each photos, they're still very rough and really need just more depth to them. I'm hoping to get some tutorials from Phoebe of how to incorperate grey into the mask.png files to bring more to the photos, I tried putting grey over some of the trees, etc but it didn't have any effect. 
+ I've had more of a play with my images to make them a bit more abstract, and really deliver more on the digital side. I loved the look of the fluoresent colours in my last commit, but thought I could use them a little more to bring more of the digital side through. I've also spent some time playing with rotating the rects that make up the bacgkround pxiels. It's been a whole lot of experimenting and currently they're looking very wacky but also interesting, however I feel I'm losing a little bit of the nature side. I'm having a little bit of difficulty with perfecting what sort of rotation look I'm after. I'm going to keep playing for now.
+
+With my third input I had finally mastered using grey masks in the background to bring a third element, I am now going to work on using this in input 1 & 2 to develop my images a bit more.
+
