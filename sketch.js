@@ -26,7 +26,7 @@ function setup () {
 
 function draw () {
 
-    for(let i=0; i<8000;i++) {
+    for(let i=0; i<10000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -34,6 +34,8 @@ function draw () {
     fill(pix);
     stroke(pix);
     strokeWeight(3);
+
+  //  console.log(mask[0]);
 
       if(mask[0] == 255) { //White
 
@@ -52,9 +54,15 @@ function draw () {
  }}
       else{
         if(mask[0] > 100 && mask[0] < 250){ //Light Grey
-            noFill();
-            strokeWeight(1.5);
-            arc(x, y, 40, 40, PI, PI + QUARTER_PI);
+          //  noFill();
+          //  stroke(255);
+          //  strokeWeight(1.5);
+          //  arc(x, y, 40, 40, PI, PI + QUARTER_PI);
+          noStroke();
+          fill(50, 135, 168);
+          drawHighlight(x,y,10,10);
+    //      ellipse(x,y,10,10);
+
   }
       else {
         if(mask[0] > 10 && mask[0] < 100){ //Dark Grey
@@ -91,6 +99,22 @@ let pix = sourceImg.get(x, y);
             fill(pix);
             ellipse(x,y,1);
             pop();
+
+  }
+
+  function drawHighlight(x, y) {
+
+    let highX = x;
+    let highY = y;
+
+  for (var j = 0; j < 5; j++){
+    ellipse (highX,highY, 10,10);
+
+    highX = highX + random (-10, 10);
+    highY = highY + random (-10,10);
+
+  }
+
 
   }
 
