@@ -17,7 +17,6 @@ function setup() {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  //noStroke();
   smooth();
   background(255);
   sourceImg.loadPixels();
@@ -44,12 +43,11 @@ function draw() {
     if (mask[0] == 255) { //white
       let pointSize = 10;
       smooth()
-      //rect(x, y, pointSize, pointSize);
       ellipse(x, y, pointSize, pointSize);
     } else if (mask[0] > 50 && mask[0] < 150) { //dark grey
       drawDiagHatch(x, y, 2);
     } else if (mask[0] > 150 && mask[0] < 180) { //light grey
-      drawHorizHatch(x,y,5);
+      drawHorizHatch(x, y, 5);
     } else { //black
       if (pix[1] > pix[2]) { //if the green value is greater than the blue
         drawBlue(x, y); //bring forward the blue hues
@@ -72,20 +70,9 @@ function draw() {
         stroke(204, 204, 255, 50);
         point(x2, y2);
       } else { //draw white points
-        stroke(255, 20);
-        point(x2 * 2, y2*2);
-        //rect(x2, y2, pointSize, pointSize);
-
-
+        stroke(pix[0], pix[1], pix[2], 15);
+        point(x2 * 2, y2 * 2);
       }
-      //  stroke(pix[0], pix[1], pix[2], 30)
-      //   //fill();
-      //   line(x2, y2, x2, y2 + pointSize)
-      // } else {
-      //   fill(pix[0], pix[1], pix[2], 50);
-      //  line(x2, y2, x2, y2 + pointSize)
-      //}
-
     }
   }
 
@@ -111,11 +98,11 @@ function drawDiagHatch(x, y, size) {
 }
 
 function drawHorizHatch(x, y, size) {
-  stroke(224, 224, 255); //draw purple circles
+  stroke(224, 224, 255); //draw light purple hatches
   fill(224, 224, 255);
   let pointSize = 15;
   let dice = random(1, 6);
-  if (dice > 5) {
+  if (dice > 5) { //create hatch effect
     line(x, y, x + pointSize, y);
   } else {
     line(x, y, x, y + pointSize);
@@ -127,7 +114,7 @@ function drawBlue(x, y) {
   let pixMod = sourceImg.get(x, y);
   pixMod[0] = pixMod[0];
   pixMod[1] = pixMod[1];
-  pixMod[2] = pixMod[2] * 3;
+  pixMod[2] = pixMod[2] * 3; //mulitply blue
   stroke(pixMod);
 
 
