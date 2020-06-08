@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -20,7 +20,7 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(0);
+  background(180);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -32,15 +32,17 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     if(mask[0] < 200 && renderCounter < 3) {
-      blur (pix, x, y);
+      blur (pix, x, y, pix[1]);
     }
     else if (mask[0] > 200){
       push();
       fill(pix);
       strokeWeight(0);
-      let pointSize = 6;
+      let pointSize = random(14);
+      let pointWidth = random(14);
       translate (x, y);
-      ellipse(0, 0, pointSize, pointSize);
+      rotate(random(360));
+      ellipse(0, 0, pointSize, pointWidth);
       pop();
     }
 
@@ -54,12 +56,17 @@ function draw () {
   }
 }
 
-function blur (col, posx, posy) {
+function blur (col, posx, posy, pixel) {
   for(let i=0;i<3;i++) {
   push();
-  stroke(col);
-  fill(col);
-  strokeWeight(7);
+  let monoDark = color(0);
+  let monoLight = color(255);
+  let brightness = map(pixel, 0, 200, 0, 1);
+  let monochrome = lerpColor(monoDark, monoLight, brightness);
+
+  fill(monochrome);
+  stroke(monochrome);
+  strokeWeight(9);
   strokeJoin(ROUND);
   let pointSize = random(10);
   let pointLength = random(10);
