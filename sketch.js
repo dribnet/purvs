@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -14,11 +14,12 @@ function preload() {
 
 function setup() {
   let main_canvas = createCanvas(1920, 640);
+  let go = true
   main_canvas.parent('canvasContainer');
   angleMode(DEGREES)
   imageMode(CENTER);
   noStroke();
-  background(10);
+  background(26,32,22);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -29,10 +30,27 @@ const y_steps = 10
 
 function draw() {
 
+
+
+  for (let b = 0; b < 100; b++) {
+    let x4 = floor(random(sourceImg.width));
+    let y4 = floor(random(sourceImg.width));
+    let pix4 = sourceImg.get(x4, y4);
+    let mask4 = maskImg.get(x4, y4);
+    stroke(pix4);
+    fill(pix4,0,0,90)
+    if(go=true){
+      // watercolour(x4,y4,100,55,pix4);
+      let go=false
+    }
+
+
+}
   for (var x1 = 0; x1 < sourceImg.width; x1 = x1 + x_steps) {
     for (var y1 = 0; y1 < sourceImg.height; y1 = y1 + y_steps){;
-    let mask = maskImg.get(x1, y1)
+    let mask = maskImg.get(x1, y1);
     let pix = sourceImg.get(x1, y1);
+
     if (mask[0] > 180) {
     if (pix[0] > 30 && pix[0] < 110 && pix[1] >0 && pix[1] < 100 && pix[2] > 0 && pix[2] < 100) {
       let pixMode = sourceImg.get(x1, y1)
@@ -41,7 +59,7 @@ function draw() {
       pixMode[2] = random(36,70)
 
       noFill()
-      watercolour(x1, y1, 10, 10)
+      detail(x1, y1, 10, 10)
       strokeWeight(2)
       stroke(pixMode);
       noFill()
@@ -56,10 +74,11 @@ function draw() {
       let mask2 = maskImg.get(x2, y2);
       stroke(pix2);
       fill(pix2)
-      if (mask2[0] > 0){
+      // watercolour(x2,y2,40,25,pix2);
+      if (mask2[0] > 98){
       }else{
-      brushstroke1(x2, y2, 1, random(9,12), 30, random(0.3,0.7));
-      brushstroke2(x2, y2, 1, random(9,12), 120, random(0.3,0.7));
+      brushstroke1(x2+20, y2-50, 1, random(9,12), 30, random(0.3,0.7));
+      brushstroke2(x2+50, y2-50, 1, random(9,12), 120, random(0.3,0.7));
     }
   }
 //
@@ -71,7 +90,7 @@ function draw() {
     fill(pix)
     noStroke()
     if(mask[0]>10){
-    watercolour(x, y, 5, 5)
+    detail(x, y, 5, 5)
   }
   }
 
@@ -82,10 +101,13 @@ function draw() {
     let pix1 = sourceImg.get(x3, y3);
     fill(pix1)
     noStroke()
+
     if(mask1[0] >90 && mask1[0]<100){
-    watercolour(x3, y3, 5, 5)
+    detail(x3, y3, 5, 5)
   }
 }
+
+
 
 
     // for(let b=0; b<10; b++){
@@ -100,12 +122,16 @@ function draw() {
     }
   }
 
-  function watercolour(x, y, w, h) { ///not really water colour et
+  function detail(x, y, w, h) { ///not really water colour et
 
     rect(x, y, w, h)
-
-
   }
+
+  function watercolour(x,y,w,h,_pix){
+  fill(_pix);
+  rect(x,y,w,h)
+
+}
 
   function brushstroke1(x, y, nstrokes, brushWidth, rotation, hairThickness) {
     for (let c = 0; c < brushWidth * nstrokes; c = c + brushWidth) {
@@ -126,10 +152,13 @@ function draw() {
       push()
       strokeWeight(hairThickness)
       translate(x, y - 20)
+      // rect(20,20,20,40)
       rotate(rotation)
       scale(1)
       translate(0, c)
-      bezier(85, 20, 40, 40, 50, 50, 15, 60);
+
+      bezier(85, 20, random(40,37), 40, random(10,50), 50, 15, 60);
+
       pop()
     }
   }
