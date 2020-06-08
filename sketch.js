@@ -31,8 +31,8 @@ const x_step = 5;
 const y_step = 5;
 
 function draw() {
-  let starcolour = color(200, 100, 100);
-  for (let i = 0; i < 3000; i++) {
+
+  for (let i = 0; i < 1000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -44,17 +44,15 @@ function draw() {
     let dice = random(1, 6);
     //console.log(mask[0]);
     if (mask[0] > 200) {
-
       fill(pix);
       //drawMover(x,y);
-      if (dice < 5) {
+      //if (dice < 5) {
         drawMover(x, y);
-      }
+    //  }
     } else if (mask[0] == 119) {
 
     }
   }
-
 
   renderCounter = renderCounter + 1;
   if (renderCounter > 1) {
@@ -68,16 +66,21 @@ function draw() {
 function drawMover(x, y) {
   let curX = x;
   let curY = y;
+
   stroke(0);
   strokeWeight(0.5);
 
-  for (var i = 0; i < 30; i++) {
-    ellipse(curX, curY, 10, 10);
+  for (var i = 0; i < 40; i++) {
 
-    curX = curX + random(-15, 10);
+    ellipse(curX, curY, 9, 9);
+
+    curX = curX + random(-10, 10);
     curY = curY + random(-10, 10);
+    fill(sourceImg.get(curX, curY));
   }
 }
+
+
 
 
 

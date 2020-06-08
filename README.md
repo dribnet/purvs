@@ -1,2 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-Layers example
+Example using a pixel that moves around the image after being called.
