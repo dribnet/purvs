@@ -37,10 +37,11 @@ function draw() {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     let r = random(10, 30);
+    let dice = random(1, 6);
     fill(pix);
     stroke(pix);
 
-    let dice = random(1, 6);
+
     if (mask[0] < 100) { //  if mask is black
       drawStar(x, y, r);
     } else if (mask[0] > 120 && mask[0] < 190) { //   if mask is light grey
@@ -71,7 +72,6 @@ function draw() {
     }
   }
 
-
   for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
       let pix = sourceImg.get(x2, y2);
@@ -82,7 +82,7 @@ function draw() {
         pix[2] = pix[2] * 2;
         fill(pix[0], pix[1], pix[2])
         stroke(pix[0], pix[1], pix[2])
-        rect(x2, y2, tileWidth / 2, tileHeight / 3);
+        ellipse(x2, y2, tileWidth / 3, tileHeight / 3);
       }
     }
   }
