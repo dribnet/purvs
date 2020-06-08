@@ -31,69 +31,61 @@ const y_step = 30;
 
 function draw () {
 
-//  for(var x = 0; x < sourceImg.width; x = x+ x_step){
-  //  for(var y = 0; y < sourceImg.height; y = y+ y_step){
-    //    let pix = sourceImg.get(x, y);
-    //    let mask = maskImg.get(x, y);
-    //    fill(pix);
-    //    stroke(pix);
-    //     if (mask[0] > 128) {
-    //    rect(x,y,tileWidth,tileHeight);
-//  }
-//  else{
-  //  rect(x,y,x_step,y_step);
-//  }
-//}
+  for (let i = 0; i < 3000; i++) {
+     let x = floor(random(sourceImg.width));
+     let y = floor(random(sourceImg.height));
+     let pix = sourceImg.get(x, y);
+     let mask = maskImg.get(x, y);
+     fill(pix);
+     stroke(pix);
 
+     let pointSize = 90;
+     let dice = random(1, 6);
 
-  for(let i = 0; i < 9000; i++) {
-   let x = floor(random(sourceImg.width));
-   let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-
-    let pointSize = 10;
-    let dice = random(1, 6);
-
-    if (mask[0] > 128) {
-      if (dice > 2){
-      line(x, y, x + pointSize - 20, y); //Wind
-    } else {
-          if(pix[1] > pix[0]){
-            strokeWeight(1);
-            let pixMod = sourceImg.get(x, y);
-            pixMod[2] = pixMod[2]*3;
-            pixMod[1] = pixMod[1]*3;
-            pixMod[2] = pixMod[2]*8;
-
-            stroke(pixMod);
-            //stroke(pix);
-
-    } else {
-    if (dice > 5){
-       line(x, y, x + pointSize, y); //Wind
+     if (mask[0] > 128) {
+       line(x, y, x + pointSize, y); // horizonal "windy
      } else {
-      line(x, y, x, y + pointSize - 20); //Rain
+       if (dice > 5) {
+         line(x, y, x + pointSize, y); // horizonal "windy"
+       } else {
+         line(x, y, x, y + pointSize); // vertical "rainy"
+
+       }
+     }
    }
-  }
-}
-    //if(mask[0] > 128) {
-    //  let pointSize = 50;
-      //ellipse(x, y, pointSize, pointSize);
-    //}
-    //else {
-    //  let pointSize = 10;
-    //  rect(x, y, pointSize, pointSize);
-    //}
-  }
+
+   for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+   for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
+     let pix = sourceImg.get(x2, y2);
+     let mask = maskImg.get(x2, y2);
+      fill(pix[0],pix[1],pix[2]);
+      noStroke();
+       if (mask[0] > 128) {
+     rect(x2, y2, tileWidth, tileHeight);
+   }
+     //drawStar(x,y,10,pix);
+   }
+ }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
      //saveArtworkImage(outputFile);
+  }
+}
+
+function drawMover(x, y) {
+  let curX = x;
+  let curY = y;
+  stroke(0);
+  strokeWeight(0.5);
+
+  for (var i = 0; i < 30; i++) {
+    ellipse(curX, curY, 10, 10);
+
+    curX = curX + random(-15, 10);
+    curY = curY + random(-10, 10);
   }
 }
 
@@ -112,5 +104,4 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
-}
 }
