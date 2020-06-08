@@ -29,18 +29,46 @@ let tileheight = 10
 
 function draw() {
 
+  for (var x = 0; x < sourceImg.width; x = x + tilewidth) {
+    beginShape()
     for (var y = 0; y < sourceImg.height; y = y + tileheight) {
+
+let pix = sourceImg.get(x, y)
+console.log(pix)
+strokeWeight(2)
+stroke(255, 50)
+noFill()
+      vertex(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5))
+    }
+    endShape()
+  }
+    for (var y = 0; y < sourceImg.height; y = y + tileheight) {
+
+    beginShape()
   for (var x = 0; x < sourceImg.width; x = x + tilewidth) {
 
 let pix = sourceImg.get(x, y)
-strokeWeight(.1)
-stroke(pix)
+console.log(pix)
+strokeWeight(2)
+stroke(255,50)
 noFill()
-      line(x + (960-x)/(pix[1]/10), y + (320-y)/(pix[1]/10), x, y)
-      fill(pix)
-      noStroke()
-      ellipse(x + (960-x)/(pix[1]/10), y + (320-y)/(pix[1]/10), 1, 1)
+vertex(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5))
+
+fill(pix)
+
+
+beginShape()
+pix = sourceImg.get(x, y)
+      vertex(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5))
+      pix = sourceImg.get(x + tileheight, y)
+      vertex(x + tileheight + (960-(x-tileheight))/(pix[0]/5), y + (320-y)/(pix[0]/5))
+      pix = sourceImg.get(x + tileheight, y + tileheight)
+      vertex(x + tileheight + (960-(x-tileheight))/(pix[0]/5), y + tileheight + (320-(y + tileheight))/(pix[0]/5))
+      pix = sourceImg.get(x, y + tileheight)
+      vertex(x + (960-x)/(pix[0]/5), y + tileheight + (320-(y+tileheight))/(pix[0]/5))
+      endShape(CLOSE)
     }
+    endShape()
   }
 
   renderCounter = renderCounter + 1;
@@ -57,3 +85,4 @@ function keyTyped() {
     saveBlocksImages();
   }
 }
+z_
