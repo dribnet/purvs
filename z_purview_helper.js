@@ -8,7 +8,7 @@ function saveArtworkImage(filename) {
   offscreenCanvas.height = 640;
   var context = offscreenCanvas.getContext('2d');
   // background is flat white
-  context.fillStyle="#FFFFFF";
+  context.fillStyle="#185428";
   context.fillRect(0, 0, 1920, 640);
   context.drawImage(this.canvas, 0, 0, 1920, 640);
   // save to browser
@@ -41,7 +41,7 @@ function saveBlocksImages() {
 
   // background is flat white
   context = offscreenCanvas.getContext('2d');
-  context.fillStyle="#FFFFFF";
+  context.fillStyle="#185428";
   context.fillRect(0, 0, 960, 500);
 
   // now scaledown
@@ -64,7 +64,7 @@ function saveBlocksImages() {
 
   // background is flat white
   context = offscreenCanvas.getContext('2d');
-  context.fillStyle="#FFFFFF";
+  context.fillStyle="#185428";
   context.fillRect(0, 0, 230, 120);
 
   // now scaledown
