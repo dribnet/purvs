@@ -3,9 +3,11 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
+
+console.log(pix[0])
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -17,30 +19,99 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(145, 196, 252);
+  // noStroke();
+  background(67, 73, 45);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+function leaves (x, y, pointSize){
+    push()
+    var w = 10
+    beginShape()
+    if(x<1000){
+        vertex(x-w, y-w)
+        quadraticVertex(x-w, y+w, x+w, y+w)
+        quadraticVertex(x+w, y-w, x-w, y-w)
+        endShape(CLOSE)
+    }
+    else{
+        vertex(x+w, y-w)
+        quadraticVertex(x-w, y-w, x-w, y+w)
+        quadraticVertex(x+w, y+w, x+w, y-w)
+        endShape(CLOSE)
+    }
+
+    pop()
+}
 function draw () {
+    angleMode(DEGREES)
   for(let i=0;i<2000;i++) {
+      let x = floor(random(sourceImg.width));
+      let y = floor(random(sourceImg.height));
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+
+      fill(pix);
+      stroke(pix)
+      noStroke()
+    if(mask[0] > 200) {
+      let pointSize = 10;
+      push()
+      if(pix[0]<100){
+          fill(pix[0],pix[1],pix[2],100);
+          leaves(x, y, pointSize)
+      }
+      else{
+          fill(pix[0],pix[1],pix[2],10)
+          ellipse(x,y,10, 10)
+      }
+      pop()
+
+    }
+
+}
+
+for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+
     fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 30;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 30;
-      rect(x, y, pointSize, pointSize);
-    }
+    stroke(pix)
+    strokeWeight(1)
+
+  if(mask[0] < 100){
+      let pointSize = 45;
+      noStroke();
+       fill(pix[0],pix[1],pix[2],20);
+      ellipse(x, y, pointSize*2, pointSize)
   }
+}
+    for(let i=0;i<4000;i++){
+        let pointSize = 10;
+        let x = floor(random(sourceImg.width));
+        let y = floor(random(sourceImg.height));
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        stroke(200)
+        strokeWeight(1)
+
+        if(mask[0]>100 && mask[0]< 200){
+            let star = 3
+            line(x+1.5*star, y, x-1.5*star, y)
+            line(x-star, y-star, x+star, y+star)
+            line(x+star, y-star, x-star, y+star)
+            line(x, y-1.5*star, x, y+1.5*star)
+
+
+        }
+    }
+
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 15) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
