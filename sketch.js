@@ -33,7 +33,7 @@ const tileHeight = 20;
 
 
 function draw() {
-  
+
   for(let i=0; i<1000; i++){
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -41,29 +41,37 @@ function draw() {
     let mask = maskImg.get(x, y);
     fill(pix);
 
-    if(mask[0] > 128){
-      let pointSize = 20;
-      let pixMod = sourceImg.get(x, y);
+    let pointSize = 20;
+    let pixMod = sourceImg.get(x, y);
+    console.log(mask[0]);
+
+    if(mask[0] > 200){
       pixMod[0] = pixMod[0]*2;
       pixMod[1] = pixMod[1]/3;
       pixMod[2] = pixMod[2]*3;
       noStroke();
       fill(pixMod);
       ellipse(x, y, pointSize, pointSize);
-    }
+
+    }  else if(mask[0]< 130 && mask[0] > 100){
+      fill(15, 214, 208);
+      ellipse(x, y, 20);
 
 
-    else{
-          let pointSize = 10;
-          let pixMod = sourceImg.get(x, y);
+
+    }else{
+          let pointSize = 5;
           pixMod[0] = pixMod[0]*2;
           pixMod[1] = pixMod[1];
           pixMod[2] = pixMod[2]/3;
           noStroke();
           fill(pixMod);
-          rect(x, y, tileWidth, tileHeight);
+          rect(x, y, tileWidth/2, tileHeight/2);
         }
       }
+
+
+
 
   //runs 10 different times
   renderCounter = renderCounter + 1;
@@ -78,7 +86,7 @@ function draw() {
 
 function drawStar(x, y, size) {
   push();
-  strokeWeight(1);
+  strokeWeight(3);
   translate(x, y);
   for (var i = 0; i < 10; i++) {
     line(size, 0, -size, 0);
