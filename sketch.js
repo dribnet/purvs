@@ -20,48 +20,30 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<8000;i++) {
+  for(let i=0;i<14000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    if(mask[0] < 200 && renderCounter < 7) {
+    if(mask[0] < 200 && renderCounter < 3) {
+      blur (pix, x, y);
+    }
+    else if (mask[0] > 200){
       push();
-      stroke(pix);
       fill(pix);
-      strokeWeight(8);
-      strokeJoin(ROUND);
-      let pointSize = random(12);
-      let pointLength = random(12);
+      strokeWeight(0);
+      let pointSize = 6;
       translate (x, y);
-      rotate(random(360));
-      rect(0, 0, pointSize, pointLength);
+      ellipse(0, 0, pointSize, pointSize);
       pop();
     }
-    else if (mask[0] > 200&& renderCounter > 8){
-      push();
-      stroke(pix);
-      strokeCap(SQUARE);
-      fill(pix);
-      strokeWeight(random(5));
-      let pointSize = random(-10, 10);
-      let pointDrift = random(-60, 60);
-      line(x, y + pointDrift, x, y + 50 + pointSize);
 
-    }
-    else if (mask[0] > 100 && mask[0] < 200){
-      let pointSize = random(-10, 10);
-      let pointDrift = random(-60, 60);
-      line(x, y + pointDrift, x, y + 40 + pointSize);
-      pop();
-
-    }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -70,6 +52,22 @@ function draw () {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
+}
+
+function blur (col, posx, posy) {
+  for(let i=0;i<3;i++) {
+  push();
+  stroke(col);
+  fill(col);
+  strokeWeight(7);
+  strokeJoin(ROUND);
+  let pointSize = random(10);
+  let pointLength = random(10);
+  translate (posx + random(20), posy + random(20));
+  rotate(random(360));
+  rect(0, 0, pointSize, pointLength);
+  pop();
+}
 }
 
 function keyTyped() {

@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Stress final
+Object focus test.
 
-I'm kinda over this whole stress thing. It really just seems empty. I'm either going to go back to my comfort based one, as I think it has more of a message (Showing you can find comfort in many different places), or maybe look at how just a handful of seemingly random objects can accurately portray a person's character, if I can get the kind of images I want. Yes I realise there are only two days of this left. No, I'm not sure I'll enjoy them.
+Change of change of plans: Now looking at how seemingly random objects can be the most important things to their owners. I took some pictures of my stuff around the house to use for this. I want to render whatever the object it in high detail, with everything else blurred out and out of focus. I've only messed with one image thus far, and I need to make the difference more significant, maybe add some sort of outline. I really want to play more with how the important object is rendered - I want it to be displayed in a more artful way, showing it how the owner sees it. 
