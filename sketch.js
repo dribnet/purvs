@@ -3,7 +3,7 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
+let sourceFile = "input_1.jpg";
 let maskFile = "mask_1.png";
 let outputFile = "output_1.png";
 
@@ -35,10 +35,11 @@ function draw() {
 
 let pix = sourceImg.get(x, y)
 console.log(pix)
-strokeWeight(2)
-stroke(255, 50)
-noFill()
-      vertex(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5))
+
+noStroke()
+fill(pix)
+
+ellipse(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5), 2, 2)
     }
     endShape()
   }
@@ -49,12 +50,13 @@ noFill()
 
 let pix = sourceImg.get(x, y)
 console.log(pix)
-strokeWeight(2)
-stroke(255,50)
+strokeWeight(.05)
+stroke(pix)
 noFill()
-vertex(x + (960-x)/(pix[0]/5), y + (320-y)/(pix[0]/5))
 
-fill(pix)
+
+
+
 
 
 beginShape()

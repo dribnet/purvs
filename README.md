@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-After some good feedback ive gone back to my previous idea using the grid. With this version I experimented with tidying up the look of it a bit more by drawing custom shapes in each of the squares of the grid and then applying fill to that as opposed to the entire lines. While techincally I think this is good I think I prefer the chaoticness of the other images. I think Ill explore putting the fill just back in in strips as opposed to the grid
+These are some small tweaks to the design that take elements from both of my recent ideas. this version is stroke based instead fill based as I felt the previous commit was too similar to the actual photos. With this one I removed the white grid, and added ellipse at the crossover poinst to highlight them. I like this look, could be a little more abstract and colourful, I think thats probably how I will use a mask.
