@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,39 +18,38 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(50);
+  background(255,165,190);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileWidth = 20;
-const tileHeight = 2;
+const tileWidth = 7;
+const tileHeight = 12;
 
-const x_step = 23;
-const y_step =5;
+const x_step = 7;
+const y_step = 12;
 
 function draw () {
-  for(var x1 = 0; x1 < sourceImg.width; x1 = x1+ x_step){
-    for(var y1 = 0; y1 < sourceImg.height; y1 = y1+ y_step){
-        let pix = sourceImg.get(x1, y1);
-        let mask = maskImg.get(x1, y1);
-        fill(pix);
-        stroke(pix);
-    if(mask[0] < 128) {
-      ellipse(x1, y1, tileWidth,tileHeight);
-  }
-  }
-  }
-
-  for(let i=0;i<800;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-
-    if(mask[0] > 128) {
-      drawcoin(x,y,20)
+  for(var x = 0;x< sourceImg.width; x = x+ x_step){
+    for(var y = 0 ; y < sourceImg.height; y = y+ y_step){
+      let pix = sourceImg.get(x,y);
+      let mask = maskImg.get(x,y);
+      if(mask[0]<30){
+      fill(pix[0],pix[1],pix[2],50);
+      noStroke();
+      ellipse(x,y,tileWidth,tileHeight);
+    }else{
+      if(mask[0]>200){
+        strokeWeight(10);
+        stroke(255,249,35);
+        line(x-20,y,x+20,y);
+      }else{
+        if(mask[0]==144){
+          drawcoin(x,y,10)
+        }
+      }
     }
+  }
   }
 
 
@@ -59,7 +58,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+  //  saveArtworkImage(outputFile);
   }
 }
 
