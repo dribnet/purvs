@@ -1,5 +1,8 @@
 ## Creative Coding 2: Custom Pixel
 
+This version of experimentation involves changing the circles to lines to see what different effects can be created. Still themed as below: preview and thumbnail not updated.
+
+
 My initial experiments involve a selection of images from 3 different possible themes I am considering.
 
 The first theme is moments with friends / family.

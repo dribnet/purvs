@@ -24,15 +24,23 @@ function setup () { // do not change canvas! - can edit stroke, back colour etc
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<4000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    stroke(pix);
     if(mask[0] > 128) {
       let pointSize = 50;
-      ellipse(x, y, pointSize, pointSize);
+      let dice = random(1,6);
+      if(dice > 3){
+        line(x, y, x+pointSize, y);
+      }else{
+        line(x, y, x, y+pointSize);
+      }
+      ellipse(x, y, pointSize/10, pointSize/10);
+
     }
     else {
       let pointSize = 10;
@@ -44,7 +52,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
