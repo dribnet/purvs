@@ -6,6 +6,7 @@ Craig Springett | 300441513
 
 | Date		 | Update Information											  |
 |:----------:|----------------------------------------------------------------|
+| 08/06/2020 | Today I started modifying the code to actually create my custom pixel. I have an idea to try using recursion to create it, but will need to set aside more time to investigate that. I have also attempted to create a more detailed mask of input3, and upped the vibrancy as I felt it was lacking some colour. Upadted purview_helper as well to hopefully fix that issue.	  |
 | 03/06/2020 | I had an idea to use my photos that are based off Vincent van Gogh paintings, especially if I'm able to create a painter-ly effect with my custom pixel. Spent today formatting the photos and creating the 3-tone masks for them each as each image has a fore/middle/background. Have yet to touch the code but will be doing that over the next few days.						  |
 | 27/05/2020 | First tests with Project 3. I knew that I just wanted to try working with a screenshot I took in Elite: Dangerous a few weeks ago of a sun. I also figured, I could just desaturate and slightly modify the levels to make it an appropriate mask, and the end result turns out pretty okay. At this time I haven't looked into anything else too much.								   |
 
