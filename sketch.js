@@ -5,7 +5,7 @@ let renderCounter=0;
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
 let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let outputFile = "output_3.png";
 
 angleMode(DEGREES)
 
@@ -80,7 +80,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //  saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
