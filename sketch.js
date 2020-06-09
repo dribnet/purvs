@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
 let outputFile = "output_3.png";
 
 angleMode(DEGREES)
@@ -27,7 +27,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i < 5000;i++) {
+  for(let i=0;i < 3500;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -57,7 +57,7 @@ function draw () {
     }
 
     else if(mask[0] > 5 && mask[0] < 100) { //Dark Grey mask, Foreground
-      let pointSize = 4;
+      let pointSize = 10;
       fill (pix)
       strokeWeight(0);
       ellipse(x,y, pointSize, pointSize);
@@ -80,7 +80,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     saveArtworkImage(outputFile);
   }
 }
 
