@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,13 +18,13 @@ function setup () {
 
   imageMode(CENTER); //centering image
   noStroke(); //no stroke on the circles
-  background(255); //background colour
+  background(10); //background colour
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileHeight = 10; //tile hieght
-const tileWidth = 10; //tile width
+const tileHeight = 12; //tile hieght
+const tileWidth = 25; //tile width
 
 const x_step = 30; //circle width
 const y_step = 30; //circle height
@@ -32,6 +32,20 @@ const y_step = 30; //circle height
 const pointSize = 3;
 
 function draw() {
+  for(let i=0;i<100;i++) {
+    let x = floor(random(sourceImg.width));
+    let y = floor(random(sourceImg.height/2 +50));
+    let pix = sourceImg.get(x, y);
+    let mask = maskImg.get(x, y);
+    fill(pix);
+    // if(mask[0] > 10 && mask[0] < 157) {
+      noStroke();
+      let lineSize = 40;
+      fill(0,70);
+      rect(x, y, lineSize, lineSize+80);
+      rect(x, y, lineSize+50, lineSize);
+    // }
+  }
 
   for(var x = 0; x < sourceImg.width; x = x+ x_step){
     for(var y = 0; y < sourceImg.height; y = y+ y_step){
@@ -40,19 +54,29 @@ function draw() {
         fill(pix);
         stroke(pix);
          if (mask[0] > 200) {
-           stroke(255);
-           rect(x,y,tileWidth,tileHeight); //tile lines
-  }
-  else{
+           fill(204, 255, 247, 20);
+        rect(x,y,tileWidth,tileHeight); //tile lines
+  } else{
     if(mask[0] > 128) {
+      noStroke();
       stroke(pix);
-      strokeWeight(2);
+      // strokeWeight(2);
       fill(255); //fills white
       ellipse(x+pointSize,y+pointSize,pointSize,pointSize); //the circles
     } else {
-      stroke(255);
-      strokeWeight(5);
-      ellipse(x,y,x_step,y_step); //the circles
+      if(mask[0] > 10 && mask[0] < 100) {
+        ellipse(x,y,x_step,y_step);
+        noStroke();
+        fill(0, 50);
+        ellipse(x+5,y+5,x_step,y_step);
+      } else {
+      ellipse(x,y,25,25); //the circles
+      fill(0);
+      stroke(204, 255, 247, 150);
+      ellipse(x,y,2,40); //the circles
+      stroke(50, 100);
+      ellipse(x,y,40,2); //the circles
+    }
 }
   }
 }
@@ -65,6 +89,11 @@ function draw() {
     // uncomment this to save the result
     // saveArtworkImage(outputFile);
   }
+}
+
+function drawDesign(x, y) {
+  let pix = sourceImg.get(x, y);
+  let mask = maskImg.get(x, y);
 }
 
   // for(let i=0;i<2000;i++) {
