@@ -4,7 +4,7 @@ let renderCounter=0;
 
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
+let maskFile   = "mask_2.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -18,35 +18,62 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  let x = floor(random(sourceImg.width));
-  let y = floor(random(sourceImg.height));
+  let segmentX = 10;
+  let segmentY = 10;
+  let x = floor(random(sourceImg.width/segmentX));
+  let y = floor(random(sourceImg.height/segmentY));
   let pix = sourceImg.get(x, y);
   let mask = maskImg.get(x, y);
 
-  for(let i=0;i<50;i++) {
+  for(let jx=1;jx<segmentX+1;jx++) {
+  for(let jy=1;jy<segmentY+1;jy++) {
+  for(let i=0;i<200/segmentX;i++) {
     let xPrev = x;
     let yPrev = y;
 
-    x = floor(random(sourceImg.width));
-    y = floor(random(sourceImg.height));
+    x = floor(random((jx-1)*sourceImg.width/segmentX,(jx)*sourceImg.width/segmentX));
+    y = floor(random((jy-1)*sourceImg.height/segmentY,(jy)*sourceImg.height/segmentY));
     pix = sourceImg.get(x, y);
     mask = maskImg.get(x, y);
+    m = map(red(mask),0,255,0,150);
 
-    fill(red(pix),green(pix),blue(pix),red(mask)+10);
+    fill(red(pix),green(pix),blue(pix),red(m));
     if (i>0) {
-      drawPointedTriangle(x,y,xPrev,yPrev,40,80)
+      drawPointedTriangle(x,y,xPrev,yPrev,20,40)
     } else {
 
     }
   }
+  }
+  }
+  for(let jx=1;jx<segmentX+1;jx++) {
+  for(let jy=1;jy<segmentY+1;jy++) {
+  for(let k=0;k<75/segmentX;k++) {
+    let xPrev = x;
+    let yPrev = y;
+
+    x = floor(random((jx-1)*sourceImg.width/segmentX,(jx)*sourceImg.width/segmentX));
+    y = floor(random((jy-1)*sourceImg.height/segmentY,(jy)*sourceImg.height/segmentY));
+    pix = sourceImg.get(x, y);
+    mask = maskImg.get(x, y);
+
+    fill(red(pix),green(pix),blue(pix),red(mask));
+    if (k>0) {
+      drawPointedTriangle(x,y,xPrev,yPrev,50,40)
+    } else {
+
+    }
+  }
+  }
+  }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 1) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
