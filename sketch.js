@@ -40,9 +40,9 @@ function draw() {
     if (mask[0] > 72 && mask[0] < 76) { //dark grey mask (red)
       let pixMod = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      pixMod[0] = pixMod[0] * 2;
-      pixMod[1] = pixMod[1] / 2;
-      pixMod[2] = pixMod[2];
+      pixMod[0] = pixMod[0] / 2;
+      pixMod[1] = pixMod[1] * 2;
+      pixMod[2] = pixMod[2] * 2;
       noStroke();
       fill(pixMod);
       ellipse(x, y, 20, 20);
@@ -54,9 +54,9 @@ function draw() {
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + tileHeight) {
       let pixMod = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
-      pixMod[0] = pixMod[2];
-      pixMod[1] = pixMod[0];
-      pixMod[2] = pixMod[1];
+      pixMod[0] = pixMod[0] / 2 ;
+      pixMod[1] = pixMod[1] / 3;
+      pixMod[2] = pixMod[2];
       noStroke();
       fill(pixMod);
 
@@ -69,13 +69,13 @@ function draw() {
         fill(245, 158, 66);
         strokeCap(ROUND);
         stroke(245, 158, 66);
-        rect(x2, y2, tileWidth*3, tileHeight*3);
+        line(x2, y2, x2 +10 , y2+10);
 
       } else if (mask[0] < 20) {  //black mask (purple background)
         let pixMod = sourceImg.get(x2, y2);
-        pixMod[0] = pixMod[0] / 2;
-        pixMod[1] = pixMod[1] / 3;
-        pixMod[2] = pixMod[2];
+        pixMod[0] = pixMod[2];
+        pixMod[1] = pixMod[0];
+        pixMod[2] = pixMod[1];
         fill(pixMod);
         stroke(pixMod);
         ellipse(x2, y2, tileWidth, tileHeight + 10);

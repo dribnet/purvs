@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Worked on second mask. This one was a bit more tricky as the shape of the watering can is really small and therefore really hard to mask. I ended up just covering that entire space instead. I wanted to see what the two first output's looked like next to each other in terms of making a series of images.
+I realised that the white and light grey masks were overlapping in some parts and originally i wanted to get rid of this but it actually gives a super cool effect of the orange and the stripes overlapping.
+
+I also experimented with a few different colour combinations on the second output image by swapping some colours around and adjusting the light grey mask. 
