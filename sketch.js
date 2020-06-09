@@ -17,26 +17,28 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
-  noStroke();
-  background(0);
+  //noStroke();
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<500;i++) {
+  for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    stroke(pix);
     if(mask[0] > 128) {
-      let pointSize = 10;
+      let pointSize = 50;
       rect(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 40;
-      rect(x, y, pointSize, pointSize);
+      let pointSize = 100;
+      strokeWeight(5);
+      line(x, y, x+pointSize, y);
     }
   }
   renderCounter = renderCounter + 1;
