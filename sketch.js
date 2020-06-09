@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3colour.jpg";
-let maskFile = "mask_3colour.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2inverted.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 let wasteTextFile = "wasteText.png";
 let wasteTextImage1File = "wasteText_image_1.PNG";
 let wasteTextImage3File = "wasteText_image_3.PNG";
@@ -31,8 +31,7 @@ function setup() {
 }
 
 function draw() {
-  //IMAGE_1 CODE
-  for (let i = 0; i < 15000; i++) {
+  for (let i = 0; i < 20000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -47,6 +46,8 @@ function draw() {
 
       gajuarText(x, y);
   }
+
+
 
 
   // IMAGE_2 CODE
@@ -105,9 +106,12 @@ function gajuarText(x, y) {
     noStroke();
     fill (255);
     //fill(100, 187, 245);
-    rect(x, y, 5, 5);
+     rect(x, y, 5, 5);
+
   }
 }
+
+
 
 
 

@@ -1,4 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-For this commit, I took on some feedback from Cathal on what he liked, I felt that this was important seeing as it is his image/brand that I am using. He said that he really liked the first one, the blended/hidden look of it is interesting. He wasn't really feeling the last image though, and said that having the text element wasn't important/didn't matter to him. So I've changed up a few things. I've gone back to the original input image for image 1, inverted the colours on image 2 (I really like the effect this has), and reverted image 3 back to colour. I've kept the text for images 2 and 3, but changed it to be white (the blue looked weird, like very obviously added over top rather than being a part of the image). I'm pretty happy with how they've turned out, but I really need to sort out my rendercounter issues and get some design feedback before hand-in.
-(there are alot of input images now, that's just a result of playing around with different variations)
+Just doing a commit with updated previews/thumbnails to get some help on how to draw the text rects over top of the lines.
