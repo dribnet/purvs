@@ -9,35 +9,38 @@ let outputFile = "output_1.png";
 
 
 function preload() {
-  sourceImg = loadImage(sourceFile);
-  maskImg= loadImage(maskFile);
+  sourceImg =loadImage(sourceFile);
+  maskImg=loadImage(maskFile);
 }
 
 function setup() {
   let main_canvas = createCanvas(1920, 640);
- main_canvas.parent('canvasContainer') ;
+ main_canvas.parent('canvasContainer');
 
   imageMode(CENTER);
   noStroke();
-  background(125);
+  background(158, 126, 70);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
 }
 
 function draw () {
-  for(let i=0;i<3000;i++) {
+  for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
+
     fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 30;
+
+
+    if(mask[0] > 50) {
+      let pointSize = 15;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 10;
+      let pointSize = 20;
       rect(x, y, pointSize, pointSize);
     }
   }
