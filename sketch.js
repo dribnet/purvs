@@ -38,12 +38,12 @@ function draw () {
         if (pix[0] > 175 && pix[1] > 175 && pix[2] > 175) {
           rect(x+random(-6,5), y+random(-6,5), 30, 30);
         }
-        //and the darker pixels as ellipses
+
         else {
         ellipse(x+random(-10,5), y+random(-10,5), 30, 30);
         }
       }
-      else if(mask[0] > 120) {  //mask is dark grey
+      else if(mask[0] > 120) {
         noStroke();
         ellipse(x+random(-10,2), y+random(-10,1), random(-10,10), random(-30,30));
 
