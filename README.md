@@ -1,6 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-Following more feedback, I have changed the rectangles for the eyes of the cows to be circles. This makes my design a lot more cohesive with the ovals that are drawing the cows face. My next steps will be to continue refining the code and I may try experimenting with the pixel function that was given in todays class to see if it will work in with my design. I have just implemented the purview.json file so I will also work on putting in the commits that I want to show. 
+I have gone through my code and cleaned it up a lot and added relevant comments to get it ready for submission. As I was going through, I decided to change the stroke weight of the ovals to 1 to make them slightly bigger and put the stroke weight of the circles that draw the cows eyes to 6. These changes were to refine the design but did not present big changes to the images. I decided to lower the render count to 7 as I found that the images were taking a little too long to render. 
 
 Theme:
 I have chosen farming as my theme for this project as it is something personal to me that I care about. Farming gets a lot of bad media that does not express what farming is really about. Therefore, I took into consideration the location of where the work would be displayed as most people who may view it will have a limited experience with farming. I want to express the beauty of farming and contrast the bad pictures that are presented in the media.
