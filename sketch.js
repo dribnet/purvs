@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 
 
@@ -59,7 +59,7 @@ function draw () {
       let pointSize = 10;
       push()
       if(pix[0]<90){
-          fill(pix[0],pix[1],pix[2],100);
+          fill(pix[0],pix[1],pix[2],200);
           leaves(x, y, pointSize)
       }
       else{
@@ -69,6 +69,21 @@ function draw () {
       pop()
 
     }
+    if(mask[0] > 150 &&mask[0]<200) {
+      let pointSize = 5;
+      push()
+      if(pix[0]<90){
+          fill(pix[0]*2.5,pix[1]*2.5,pix[2]*2.5,50);
+          leaves(x, y, pointSize)
+      }
+      else{
+          fill(pix[0],pix[1],pix[2],20)
+          ellipse(x,y,10, 10)
+      }
+      pop()
+
+    }
+
 
 }
 
@@ -98,8 +113,8 @@ for(let i=0;i<1000;i++) {
         stroke(200)
         strokeWeight(1)
 
-        if(mask[0]>100 && mask[0]< 200){
-            let star = 3
+        if(mask[0]>100 && mask[0]< 150){
+            let star = 5
             line(x+1.5*star, y, x-1.5*star, y)
             line(x-star, y-star, x+star, y+star)
             line(x+star, y-star, x-star, y+star)
