@@ -1,7 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-After thinking about my images and what they mean to me, I realised that although they make sense in remembering what lockdown level 4 was like, I also think they really touch on the importance of self-care and taking time for yourself.
+After looking at my three series images together, I realised that the 1st and 2nd images, the brightness is much lower than the 3rd one. This is probably due to the images being taken at different ties in the day. A possible solution would be to slightly edit the brightness in the 3rd image.
 
-Each image shows how you as an individual can spend your time in between our busy lives, whether that be from something such as reading a book, taking care our your plants or watching tv. It is important to do these things to help you grow.
+I also noticed that the stripey lines in the 1st image are much more harsh than the 2nd and 3rd. I am unsure why that could be and hoping that it is something I can easily resolve as I think it looks really distracting.
 
-For my final image, I am still not quite happy with how it looks and I feel as if it doesnt really fit in with the other images quite well. I have taken a screenshot of all three images together on my github to process this. I think a different effect for the orange lines might be needed to fix the issue. 
+However, as a full series I think the images look really good together. I will however, continue to adjust and play around with the final editing of the images and deal with the orange line issue. I think I would also like to add in a custom shape for certain parts of the image.
