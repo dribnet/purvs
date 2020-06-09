@@ -1,5 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
-I was able to get my mask and grid to work to make the pixels look more defined, I am happy with the outcome and look of how this looks. I am pretty happy with how my dragonfly and hearts are looking, after playing around with the colour through code. I need to work on the symbol in the second image because the moons did not look clean enough not matter what I did, same with the butterflies.
+My theme revolves around the values that friends teach you throughout your life. Each image displays those different sections: past, present and future. They have symbolic elements to them that represent the values in a more graphic way than just what the photo shows. It is a celebration of friendship and its importance to building our own personal character.
 
-I have experimented a lot with the size of the pixels to make sure I have gotten the right look, I also managed to get rid a lot of the black cast that I had previously. So far I am pretty happy with how it is looking, I just need to make some final refinements and work on my second image. 
+The first image displays the symbol of a dragonfly which means wisdom, change, transformation and the adaptability in life. These are all things that friends have taught me in the past, whether the friendships were positive or negative they are still of value and teach us all valuable things and shape us into the people we are today. This is personally my favourite image, I think the dragonflies are dominate but still subtle.
+
+The second image displays a few of my friends and focuses on them with a symbol of a heart, that represents the care and love they have taught me and it the image represents something wholesome with no toxicity which is what they represent to me.
+
+The third image is a collection of polaroid pictures together as a representation of memories that I want to build on and progress with, there are no additional symbols to this image because it did work in a visual way that I found strong enough, I think the subjects of the photos symbolise enough.
+
+All the images are set in a natural environment with plants to represent human nature and the environment we set our friendships in. 

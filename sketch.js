@@ -2,9 +2,9 @@ let sourceImg = null;
 let maskImg = null;
 let renderCounter = 0;
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 //before code is up n running, process of showing the image
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -78,11 +78,7 @@ function draw() {
       fill(pix[0], pix[1], pix[2]);
       ellipse(x, y, size-20, size-20);
     }
-    //the moons
-    else if (mask[0] == 130) {
-      fill(pix[0]+100, pix[1]+100, pix[2]+200);
-      ellipse(x, y, size-18, size-18);
-    }
+
     //the heart
     else if (mask[0] == 40) {
       fill(pix[0] + 90, pix[1] + 30, pix[2] + 30);
@@ -107,7 +103,7 @@ function draw() {
 }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 30) {
+  if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
