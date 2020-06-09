@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -33,13 +33,13 @@ function draw () {
     stroke(pix)
 
     if(mask[0] > 128) {
-      let pointSize = 2;
-      drawStars(x,y,4)
+      let pointSize = 1;
+      drawStars(x,y,2)
     }
     else {
       let pointSize = 5;
       //rect(x, y, pointSize, pointSize);
-      rect(x, y, pointSize+10, pointSize);
+      rect(x, y, pointSize+10, pointSize-5);
 
     }
   }
