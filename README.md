@@ -1,22 +1,10 @@
 ## Creative Coding 2: Custom Pixel
+GRID EXPERIMENT 2
 
-THEME: Awareness of Our Wildlife
+For my second experiment, I decided to make my grid formatting look more interesting. Firstly, I decreased the size of the grid squares, so that more details were visible, and began my experimentation with the addition of const x_step and const y_step. I started with my nested for loop drawing squares, with my x_step and y_step variables equally separating my squares across the grid. While it did look better, I wanted to play with the variables further, and had my x_step be equal to the squares so that my image had horizontal stripes. I really liked this effect, and decided to play with the shape further.
 
-For my theme, I decided to shift my theme from landscape to wildlife, as I wanted my pictures to have a central focus, rather than several focus points, differentiating between the different aspects that can be captured in landscape photos. I decided to focus on the Kaka, a native species of bird of New Zealand, that is considered endangered.  As someone who grew up only seeing native birds inside aviaries and other sectioned off enclosures in zoos, my personal interaction with them was limited. However, when I visited Zealandia for the first time, I was shocked and pleasantly surprised at how different an experience it is, and how visitors were able to have more closer interactions with the wildlife there. Due to the devastating effects of COVID-19, Zealandia has been kind enough to offer free entry for visitors. This kind gesture made me realize that this gave many more people the opportunity to not only enjoy the company of the wildlife there in a more intimate way, but to also remind them that these creatures can only enjoy this sanctuary so long as we do our part to protect them and their environment.
+For my second photo, I changed the squares to ellipses, and increased the x_step value, so that the horizontal stripes were more visible. I also really liked this effect, due to the background being more visible, thus breaking up the image without omitting any important details too much. With this discovery, I was excited to see how I could push this further.
 
-GRID EXPERIMENT 1
+For my third photo, I was interested to start playing with fill, as I was interested in possibly playing with fill to differentiate between masks. I set my fill to the background colour, and left the stroke as is. I also really enjoyed this effect, however, I was curious to see how the image would look if the shape was changed back to a square, since the squares captured more detail. Changing my ellipses back to squares was very effective, and I liked how much detail was still visible despite having a black fill.
 
-For my pictures, I solely focused on using a basic grid system for my pictures, so I could start getting a better understanding of how I could pixelate it. I noticed right away that larger pixel squares omitted some of the finer details of the Kaka. Since the Kaka will be the main focus of the photo, I will need to use smaller shapes, so that finer details of the Kaka are more apparent to the viewer. I am also considering whether or not I should add statistics to add to the informative aspect of my theme.
-
-const tileHeight = 10;
-const tileWidth = 10;
-
-for (var x = 0; x < sourceImg.width; x = x + tileWidth) {
-  for (var y = 0; y < sourceImg.height; y = y + tileHeight) {
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-    rect(x, y, tileWidth, tileHeight);
-  }
-}
+For further development, I am interested in looking at fills for my masks, as I feel that this will further help me in having the Kaka stand out/be accentuated more in my photo set.

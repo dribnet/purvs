@@ -3,7 +3,7 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
+let sourceFile = "input_3.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
 
@@ -23,16 +23,19 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth = 10;
+const tileHeight = 15;
+const tileWidth = 5;
+
+const x_step = 10;
+const y_step = 5;
 
 function draw () {
 
-  for (var x = 0; x < sourceImg.width; x = x + tileWidth) {
-    for (var y = 0; y < sourceImg.height; y = y + tileHeight) {
+  for (var x = 0; x < sourceImg.width; x = x + x_step) {
+    for (var y = 0; y < sourceImg.height; y = y + y_step) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      fill(pix);
+      fill(0);
       stroke(pix);
       rect(x, y, tileWidth, tileHeight);
     }
