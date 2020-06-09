@@ -1,3 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Today I am working on changing and adjusting the mask, as well as isolating the grey vs white/black mask values. I am playing around with vibrant colours that will add some flair to my design. I also added in my second photo with my mask not adjusted but just to check what it looked like. 
+I was not happy with my previous mask so i wanted to adjust this so that the model (me) was in focus and you could still see, with only the background slightly altered with the effects and colours.
+
+At the moment there is a bit too much going on in the photos, so I need to switch a few things around so that you can see more of the original image. 
