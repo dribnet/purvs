@@ -23,8 +23,8 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileWidth = 3;
-const tileHeight = 3;
+const tileWidth = 1;
+const tileHeight = 1;
 
 function draw () {
   colorMode(HSB,250);
