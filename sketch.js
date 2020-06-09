@@ -76,7 +76,7 @@ for(var x3 = 0;x3 < sourceImg.width; x3 = x3+ x_step1){
           // drawcoin(coinX,coinY,10)
           // coinX = coinX + random(-2,3);
           // coinY = coinY + random(3,-2);
-          drawHeart(x3,y3,26);
+          drawHeart(x3,y3,27);
 
         }
       }
@@ -102,7 +102,7 @@ function drawHeart(x,y,size){
   let mask = maskImg.get(x, y);
   fill(pix);
   stroke(255);
-  strokeWeight(3);
+  strokeWeight(3.5);
 //   beginShape();
 // vertex(x, y);
 // bezierVertex(x+size,y, x+size,y+size*1.5, x, y+size*1.5);
@@ -119,7 +119,7 @@ beginShape();
   bezierVertex(x - size / 2, y - size / 2, x - size, y + size / 3, x, y + size);
   bezierVertex(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
   endShape(CLOSE);
-  strokeWeight(2.3);
+  strokeWeight(3);
 fill(255,165,190);
 beginShape();
   vertex(x, y + size / 4.2);
