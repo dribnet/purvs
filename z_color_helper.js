@@ -13,5 +13,5 @@ function fillUniform(brightness) {
 }
 
 function strokeUniform(brightness) {
-    strokeHsluv(0, 0, brightness);    
+    strokeHsluv(0, 0, brightness);
 }

@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
 let outputFile = "output_3.png";
 
 function preload() { // what happens before we kick off
@@ -28,8 +28,8 @@ function draw () {
   // drawTwo(10, 10);
 
   drawTwo(30, 30, 0); // background
-  drawTwo(50, 50, 1); // midground
-  drawTwo(15, 15, 2); // foreground
+  drawTwo(10, 10, 1); // midground
+  drawTwo(10, 10, 2); // foreground
 
 
   // for(let i=0;i<20;i++) {
@@ -54,7 +54,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
 }
 
@@ -67,14 +67,12 @@ function drawTwo(tileWidth, tileHeight, type){
       if (mask[0] < 128 && type == 2){  // front layer for people
         //rect(x,y, tileWidth, tileHeight);
         noStroke();
-        for (var i = 0; i < 1; i++){
+        for (var i = 0; i < 10; i++){
           ellipse(x,y,tileWidth/1.5, tileHeight/1.5);
-          // x = x + random(-5, 5);
-          // y = y + random(-5, 5);
+          x = x + random(-5, 5);
+          y = y + random(-5, 5);
         }
 
-      }else if (mask[0] > 50 && mask[0] < 180 && type == 1) { //change over layer
-        //rect(x,y, tileWidth, tileHeight);
       }else if (mask[0] > 128 && type == 0){    // background layer for back
         fill(pix);
         stroke(pix);
@@ -83,6 +81,26 @@ function drawTwo(tileWidth, tileHeight, type){
         let xRandom = random(0,tileWidth)
         line(x-(xRandom), y+yRandom, (x + tileWidth*0.8)+(xRandom), y+yRandom);
         //ellipse(x,y,tileWidth, tileHeight);
+      }else if (mask[0] > 50 && mask[0] < 180 && type == 1) { //change over layer
+        //rect(x,y, tileWidth, tileHeight);
+        //
+        // fill(pix);
+        // stroke(pix);
+        // strokeWeight(1);
+        // let yRandom = random(0,tileHeight)
+        // let xRandom = random(0,tileWidth)
+        //
+        push();
+        translate(x,y);
+        for (var t = 0; t < 10; t++){
+          stroke(255);
+          strokeWeight(1);
+
+          line(0, 0, tileWidth+0, tileHeight+0);
+          rotate(360/t);
+        }
+        pop();
+
       }
     }
   }

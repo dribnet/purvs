@@ -39,7 +39,7 @@ function saveBlocksImages() {
   offscreenCanvas.width = 960;
   offscreenCanvas.height = 500;
 
-  // background is flat white  
+  // background is flat white
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
   context.fillRect(0, 0, 960, 500);
@@ -62,7 +62,7 @@ function saveBlocksImages() {
   offscreenCanvas.width = 230;
   offscreenCanvas.height = 120;
 
-  // background is flat white  
+  // background is flat white
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
   context.fillRect(0, 0, 230, 120);
