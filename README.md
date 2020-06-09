@@ -1,5 +1,7 @@
 Title : Junk
 
+* corrected preview images / output images
+
 The images used are a series of Chinese fishing boats called junks from the Qingdao region. I like these photos very much without modifications, so any altering I did via code was to accentuate on the focal point on each image.
 
 I tried the gridding techniques out but favored the original more random pattern because I felt that it fit my intended aesthetic.

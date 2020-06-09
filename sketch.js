@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
 
 angleMode(DEGREES)
@@ -33,43 +33,46 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
-    fill(pix);
-
-    if(mask[0] < 5 && i < 3500 ){ //Black, background
-      let pointSize = 10;
+    if(mask[0] < 5 && i < 3500 ){ //Black mask, background
+      let pointSize = 12;
       strokeWeight(0)
       stroke(0)
-      fill(pix[0], pix[1] , pix[2])
-      rect(x, y, pointSize, pointSize,1);
-    }
-    else if(mask[0] > 100 && mask[0] < 200 && i < 4000) { //light Grey, Sky
-      let pointSize = random(6 ,8);
-      strokeWeight(0.5);
-      stroke(255, 255, 255, 100)
-      //fill(pix[0], pix[1], pix[2], 255)
 
-      for(let ii = 0; ii < 10; ii++) {
-        fill(211, 233, 242, 255 - (ii * 1000))
-        ellipse(x, y, pointSize + (ii / 5), pointSize + (ii / 5))
-      }
+      let satMod = 0.5; //saturation modifier
+      let satval = 0.3 * pix[0] + 0.6 * pix[1] + 0.1 * pix[2];
 
+      let newR = pix[0] + satMod * (satval - pix[0]) //setting new RGB values
+      let newG = pix[1] + satMod * (satval - pix[1])
+      let newB = pix[2] + satMod * (satval - pix[2])
+
+      fill(newR, newG, newB)
+      rect(x, y, pointSize, pointSize,2);
     }
 
-    else if(mask[0] > 5 && mask[0] < 100) { //Dark Grey, Foreground
-      let pointSize = 5;
+    else if(mask[0] > 120 && mask[0] < 130 && i < 4000) { //light Grey mask, Sky
+      let pointSize = random(7 ,9);
       strokeWeight(0);
-      rect(x, y, pointSize, pointSize,2)
+      fill(pix)
+      ellipse(x, y, pointSize, pointSize)
     }
 
-    else if(mask[0] > 200 && i < 2000){ //White, water
-      let pointSize = random(2);
+    else if(mask[0] > 5 && mask[0] < 100) { //Dark Grey mask, Foreground
+      let pointSize = 4;
+      fill (pix)
+      strokeWeight(0);
+      ellipse(x,y, pointSize, pointSize);
+    }
 
-      for (let ii = 0; ii < 255; ii++) { //drawing transparent edges
-        stroke(pix[0] - 5 , pix[1] - 5, pix[2] - 5, 350 - ii);
+    else if(mask[0] > 200 && i < 3000){ //White mask, water
+      let pointSize = random(3,10);
+
+      for (let ii = 0; ii < 20; ii++) { //soft edges
+        stroke(pix[0] - 5 , pix[1] - 5, pix[2] - 5, 20 - ii);
         strokeWeight(pointSize + (ii / 20))
+        line(x - random(5,20), y, x + random(5,20), y)
       }
 
-        line(x - random(5,20), y, x + random(5,20), y)
+
     }
   }
   renderCounter = renderCounter + 1;
@@ -77,7 +80,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //  saveArtworkImage(outputFile);
   }
 }
 
