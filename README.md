@@ -8,7 +8,7 @@ Try to fix the render page. Done the mask pictures.
 
 09/06/2020
 Fix the render page. Try the first picture.
-
+Try to do the second picture.
 
 
 
