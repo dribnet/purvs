@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // CHANGE FOR APPROPIATE IMAGE
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 // PROCESS SHOWING IMAGE
 function preload() {
@@ -40,38 +40,24 @@ function draw() {
       if (mask[0] == 0) {
         strokeWeight(2);
         let pixMod = sourceImg.get(x, y);
-        pixMod[0] = pixMod[0];
-        pixMod[1] = pixMod[0];
-        pixMod[2] = pixMod[0];
-
-        stroke(pixMod);
-        noFill()
+        let satDivision = 1.8; // HOW MUCH ORIGINAL SATURATION TO BE DIVIDED BY
+        let myColour = color(pix[0], pix[1], pix[2]); // ORGINAL COLOUR FROM CANVAS
+        let HUE = hue(myColour);
+        let SAT = saturation(myColour) / satDivision; // EXTRACT SAT & DIVIDES BY A NUMBER TO MAKE IT SMALLER
+        let BRIGHT = brightness(myColour); // EXTRACTS BRIGHTNESS
+        colorMode(HSB);
+        let desatColour = color(HUE, SAT, BRIGHT); // CREATES NEW COLOUR WITH HSB
+        stroke(desatColour);
+        noFill();
         triangle(x, y, x + tileWidth * 4, y + tileHeight * 4, x - tileWidth * 5, y + tileHeight * 3);
+        colorMode(RGB, 255);
       }
       // (GIRL) THIS IS THE COLOUR OF THE GIRL TO HIDE ANY WHITE LINES FROM THE MASKS
       else {
-        noStroke()
+        noStroke();
         fill(pix[0], pix[1], pix[2], 50);
         rect(x, y, tileWidth, tileHeight);
       }
-
-      // OG CODE BEFORE CHANGING COLOURS
-      //   if (mask[0] == 0) {
-      //     //fill(pix) //(pix[0], pix[1], pix[2], 80);
-      //     noFill()
-      //     strokeWeight(2)
-      //     //stroke(pix)
-      //     stroke(pix[0], pix[1], pix[2], 80)
-      //     triangle(x, y, x + tileWidth * 4, y + tileHeight * 4, x - tileWidth * 5, y + tileHeight * 3);
-      //
-      //   // (GIRL) THIS IS THE COLOUR OF THE GIRL TO HIDE ANY WHITE LINES FROM THE MASKS
-      // }
-      //
-      // else {
-      //     noStroke()
-      //     fill(pix[0], pix[1], pix[2], 50);
-      //     rect(x, y, tileWidth, tileHeight);
-      //   }
     }
   }
   // HAIR
@@ -110,19 +96,17 @@ function draw() {
         stroke(pix);
         fill(pix);
         strokeWeight(1);
-        //rect(x, y, tileWidth+5, tileHeight+5);
-        drawSadFace(x, y, 3, 240)
+        drawSadFace(x, y, 3, 240);
       } else if (mask[0] == 60) {
-        drawUpsetFace(x, y, 3, 240)
+        drawUpsetFace(x, y, 3, 240);
       } else if (mask[0] == 70) {
-        drawHappyFace(x, y, 3, 240)
+        drawHappyFace(x, y, 3, 240);
       }
-
     }
   }
 
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
+  if (renderCounter > 5) {
     console.log("Done!")
     noLoop();
     // UNCOMMENT TO SAVE
@@ -131,10 +115,9 @@ function draw() {
 }
 
 function drawSadFace(x, y, size, c) {
-
   push()
   fill(c);
-  noStroke()
+  noStroke();
   ellipse(x + 4, y + 5, size, size) // LEFT EYE
   ellipse(x + 11, y + 5, size, size) // RIGHT EYE
   stroke(c);
@@ -146,32 +129,31 @@ function drawSadFace(x, y, size, c) {
 }
 
 function drawUpsetFace(x, y, size, c) {
-
-  push()
+  push();
   fill(c);
-  noStroke()
+  noStroke();
   ellipse(x + 4, y + 5, size, size) // LEFT EYE
   ellipse(x + 11, y + 5, size, size) // RIGHT EYE
   stroke(c);
-  strokeWeight(1)
-  noFill()
-  line(x + 4, y + 9, x + 11, y + 9)
-  ellipse(x + 7.5, y + 7, size + 12, size + 12) // FACE OULTINE
-  pop()
+  strokeWeight(1);
+  noFill();
+  line(x + 4, y + 9, x + 11, y + 9); // MOUTH
+  ellipse(x + 7.5, y + 7, size + 12, size + 12); // FACE OULTINE
+  pop();
 }
 
 function drawHappyFace(x, y, size, c) {
   push()
   fill(c);
-  noStroke()
+  noStroke();
   ellipse(x + 4, y + 5, size, size) // LEFT EYE
   ellipse(x + 11, y + 5, size, size) // RIGHT EYE
   stroke(c);
-  strokeWeight(1)
-  noFill()
-  arc(x + 8, y + 10, size + 2, size, 0, 180); // FROWN
+  strokeWeight(1);
+  noFill();
+  arc(x + 8, y + 10, size + 2, size, 0, 180); // SMILE
   ellipse(x + 7.5, y + 7, size + 12, size + 12) // FACE OULTINE
-  pop()
+  pop();
 }
 
 function drawWaves(x, y, sizeW, sizeH, c) {
@@ -179,7 +161,7 @@ function drawWaves(x, y, sizeW, sizeH, c) {
   angleMode(DEGREES);
   stroke(c)
   strokeWeight(2)
-  noFill()
+  noFill();
   arc(x, y, sizeW, sizeH, 0, 90);
   arc(x + 30, y - 20, sizeW, sizeH, 0, 90);
   arc(x + 30, y - 15, sizeW, sizeH, 180, 270);
