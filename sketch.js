@@ -37,7 +37,7 @@ function draw() {
     let pixMod = sourceImg.get(x, y);
     console.log(mask[0]);
 
-    if (mask[0] > 72 && mask[0] < 76) { //dark grey mask (red)
+    if (mask[0] == 73) { //dark grey mask (red)
       let pixMod = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       pixMod[0] = pixMod[0] * 2;
@@ -60,12 +60,12 @@ function draw() {
       noStroke();
       fill(pixMod);
 
-      if (mask[0] == 255) {   //white mask (model)
+      if (mask[0] > 230) {   //white mask (model)
         stroke(pixMod);
         line(x2, y2, x2, y2 + 200);
 
 
-      } else if (mask[0] < 146 && mask[0] > 120) { //light grey mask (orange)
+      } else if (mask[0] < 130 && mask[0] > 125) { //light grey mask (orange)
         fill(245, 158, 66);
         strokeWeight(5);
         strokeCap(ROUND);
@@ -90,7 +90,7 @@ function draw() {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
