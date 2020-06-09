@@ -5,11 +5,13 @@ let renderCounter=0;
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
 let maskFile   = "mask_2.png";
+let extraMask = "mask_3.png"
 let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
   maskImg = loadImage(maskFile);
+  maskImgE = loadImage(extraMask);
 }
 
 function setup () {
@@ -18,60 +20,72 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(10);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  let segmentX = 10;
-  let segmentY = 10;
+  let segmentX = 4;
+  let segmentY = 4;
   let x = floor(random(sourceImg.width/segmentX));
   let y = floor(random(sourceImg.height/segmentY));
-  let pix = sourceImg.get(x, y);
-  let mask = maskImg.get(x, y);
 
-  for(let jx=1;jx<segmentX+1;jx++) {
-  for(let jy=1;jy<segmentY+1;jy++) {
-  for(let i=0;i<200/segmentX;i++) {
+  for(let ix=1;ix<segmentX+1;ix++) {
+  for(let iy=1;iy<segmentY+1;iy++) {
+  for(let i=0;i<3000/segmentX;i++) {
     let xPrev = x;
     let yPrev = y;
-
-    x = floor(random((jx-1)*sourceImg.width/segmentX,(jx)*sourceImg.width/segmentX));
-    y = floor(random((jy-1)*sourceImg.height/segmentY,(jy)*sourceImg.height/segmentY));
+    x = floor(random((ix-1)*sourceImg.width/segmentX,(ix)*sourceImg.width/segmentX));
+    y = floor(random((iy-1)*sourceImg.height/segmentY,(iy)*sourceImg.height/segmentY));
     pix = sourceImg.get(x, y);
     mask = maskImg.get(x, y);
-    m = map(red(mask),0,255,0,150);
+    m = map(red(mask),0,255,30,150);
 
     fill(red(pix),green(pix),blue(pix),red(m));
     if (i>0) {
-      drawPointedTriangle(x,y,xPrev,yPrev,20,40)
+      drawPointedTriangle(x,y,xPrev,yPrev,10,40)
     } else {
 
     }
   }
   }
   }
-  for(let jx=1;jx<segmentX+1;jx++) {
-  for(let jy=1;jy<segmentY+1;jy++) {
-  for(let k=0;k<75/segmentX;k++) {
+
+  for(let j=0;j<100;j++) {
     let xPrev = x;
     let yPrev = y;
-
-    x = floor(random((jx-1)*sourceImg.width/segmentX,(jx)*sourceImg.width/segmentX));
-    y = floor(random((jy-1)*sourceImg.height/segmentY,(jy)*sourceImg.height/segmentY));
+    x = floor(random(sourceImg.width));
+    y = floor(random(sourceImg.height));
     pix = sourceImg.get(x, y);
     mask = maskImg.get(x, y);
 
-    fill(red(pix),green(pix),blue(pix),red(mask));
-    if (k>0) {
+    fill(red(pix),green(pix),blue(pix),red(mask)+10);
+    if (j>0) {
+      drawPointedTriangle(x,y,xPrev,yPrev,30,40)
+    } else {
+
+    }
+  }
+  for(let j=0;j<300;j++) {
+    let xPrev = x;
+    let yPrev = y;
+    x = floor(random(sourceImg.width));
+    y = floor(random(sourceImg.height));
+    pix = sourceImg.get(x, y);
+    mask = maskImgE.get(x, y);
+
+    fill(red(pix),green(pix),blue(pix),red(mask)*1.5);
+    if (j>0) {
       drawPointedTriangle(x,y,xPrev,yPrev,50,40)
     } else {
 
     }
   }
-  }
-  }
+
+
+
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 1) {
     console.log("Done!")
