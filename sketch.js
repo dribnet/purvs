@@ -23,19 +23,16 @@ function setup() {
   maskImg.loadPixels();
 }
 
-//const tileHeight = 10;
-//const tileWidth = 10;
 
-//const x_step = 20;
-//const y_step = 5;
 
 function draw () {
-  for(let i=0;i<2000;i++) {
+  for(let i=0;i<6000;i++) {
+
     let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
+  let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    let r = random(10, 60);
+    let r = random(10, 50);
     fill(pix);
     stroke(pix);
 
@@ -47,11 +44,14 @@ function draw () {
 
     }
     else if(mask[0] >= 120 && mask[0] < 250) {
-      let pointSize =15; //grey mask
-          ellipse(x, y, pointSize, pointSize);
+      drawStar(x, y, r); //white mask
+
    }
     else {
-      drawStar(x, y, r); //white mask
+
+      let pointSize =10; //grey
+      ellipse(x, y, pointSize, pointSize);
+
     }
   }
 
