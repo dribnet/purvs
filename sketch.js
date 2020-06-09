@@ -37,7 +37,7 @@ function draw() {
     let pixMod = sourceImg.get(x, y);
     console.log(mask[0]);
 
-    if (mask[0] == 73) { //dark grey mask (red)
+    if (mask[0] > 66 && mask[0] < 74) { //dark grey mask (red)
       let pixMod = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       pixMod[0] = pixMod[0] * 2;
