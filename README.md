@@ -6,4 +6,11 @@ Try to edit the sketch.js, but meet some problems. Index.html doesn't change whe
 08/06/2020
 Try to fix the render page. Done the mask pictures.
 
+09/06/2020
+Fix the render page. Try the first picture.
+
+
+
+
+
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
