@@ -1,6 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
-09/06/20 - Final Draft
+09/06/20 - Final Test Upload
 
-I have set up the primary componenet to my pixel code. I just need to do refinements on it so that each image looks equally good.
+This is my final. I am uploading to make sure everything works and looks okay before commenting on my code.
 

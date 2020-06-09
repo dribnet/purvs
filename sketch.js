@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -54,7 +54,7 @@ function draw() {
         fill(pix);
         stroke(pix);
          if (mask[0] > 200) {
-           fill(204, 255, 247, 20);
+           fill(149, 201, 200, 15);
         rect(x,y,tileWidth,tileHeight); //tile lines
   } else{
     if(mask[0] > 128) {
@@ -65,14 +65,13 @@ function draw() {
       ellipse(x+pointSize,y+pointSize,pointSize,pointSize); //the circles
     } else {
       if(mask[0] > 10 && mask[0] < 100) {
-        ellipse(x,y,x_step,y_step);
-        noStroke();
+        ellipse(x,y,18,18);
         fill(0, 50);
-        ellipse(x+5,y+5,x_step,y_step);
+        ellipse(x+2,y+2,x_step,y_step);
       } else {
       ellipse(x,y,25,25); //the circles
       fill(0);
-      stroke(204, 255, 247, 150);
+      stroke(240, 150);
       ellipse(x,y,2,40); //the circles
       stroke(50, 100);
       ellipse(x,y,40,2); //the circles
@@ -91,34 +90,6 @@ function draw() {
   }
 }
 
-function drawDesign(x, y) {
-  let pix = sourceImg.get(x, y);
-  let mask = maskImg.get(x, y);
-}
-
-  // for(let i=0;i<2000;i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix);
-  //   if(mask[0] > 128) {
-  //     let pointSize = 5;
-  //     rect(x, y, pointSize+50, pointSize);
-  //   }
-  //   else {
-  //     let pointSize = 5;
-  //     rect(x, y, pointSize, pointSize);
-  //   }
-  // }
-  // renderCounter = renderCounter + 1;
-  // if(renderCounter > 10) {
-  //   console.log("Done!")
-  //   noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
-//   }
-// }
 
 function keyTyped() {
   if (key == '!') {
