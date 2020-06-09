@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 //before code is up n running, process of showing the image
 function preload() {
@@ -21,13 +21,11 @@ function setup() {
   let x = floor(random(sourceImg.width));
   let y = floor(random(sourceImg.height));
   let pix = sourceImg.get(x, y);
-  //background(157, 145, 79); //natural green
-  background(175, 105, 95);
-  //background(11, 40, 251); //electric blue
+  background(157, 145, 79); //natural green
+  //background(175, 105, 95); //pinky red for INPUT 3
   //background(75, 89, 245); //blue for INPUT 1
-  //background(187, 122, 212); //purple
+  //background(187, 122, 212); //purple for INPUT3
   //background(253, 183, 237); // pink for INPUT 2
-  //background(241, 7, 52); //red for INPUT 3
   angleMode(DEGREES);
   //background(pix);
   sourceImg.loadPixels();
@@ -54,33 +52,30 @@ function draw() {
     console.log(mask[0]);
 
     //nicola in blue
-    if (mask[0] > 228) { //128
-      let pointSize = 15; //25 FOR INPUT 1 & 2
+    if (mask[0] > 228) { //228
+      let pointSize = 25; //25 FOR INPUT 1 & 2, 12 for INPUT 3
       let pixMod = sourceImg.get(x, y);
       //pixMod[2] = 200; //INPUT 1
-      //pixMod[1] = 200; //INPUT 2
-      pixMod[3] = 200; //INPUT 3
-      //noStroke(); //INPUT 1
+      pixMod[1] = 200; //INPUT 2
+      //pixMod[3] = 200; //INPUT 3
+      noStroke(); //INPUT 1
       //fill(pix);
-      fill(pixMod); //  INPUT 2
-      //ellipse(x, y, pointSize, pointSize);
-      //rect(x, y, pointSize, pointSize);
-      //rect(x, y, tile_width1, tile_height1);
+      fill(pixMod); //  INPUT 2 / 1
       push();
       //rotate(80);
       pop();
       //rect(x, y, x/60, y/15); //FOR INPUT 3
       //stroke(255);
       //noStroke();
-      heart(x, y, 15); //FOR INPUT 1 & 2
+      heart(x, y, 10); //FOR INPUT 1 & 2, 3
 
     } else {
       let pointSize = 2;
       let pixMod = sourceImg.get(x, y);
       if (pix[1] > pix[0]) { //add 10 for cool effect
-        noStroke();
-        fill(254, 255, 195);
-        ellipse(x, y, pointSize, pointSize);
+        noStroke(); //INPUT 1 & 3
+        fill(254, 255, 195); //INPUT 1 & 3
+        ellipse(x, y, pointSize, pointSize); //INPUT 1 & 3
 
       } else {
         //  let pixMod = sourceImg.get(x, y);
@@ -88,27 +83,51 @@ function draw() {
         //  fill(pixMod); //TAKE OUT FILL CODE FOR INPUT 1 & 2
         //rect(x, y, x/15, y/30); //INPUT1 & 2
         push();
-        //translate(x, y);
-        rotate(180); //5 INPUT 1 // -5 INPUT 2
+        rotate(6); //5 INPUT 1 // -5 INPUT 2 //180 INPUT 3
         //stroke(pix);
         //stroke(255);
-        //fill(pix);
-        //rect(x, y, x / 24, y / 77); // x/4 y/50 INPUT 1, x/24 y/77 INPUT 2
-        //dot(x,y,0.75); //0.25
+        noStroke();
+        fill(pix);
+        rect(x, y, x / 24, y / 77); // x/4 y/50 INPUT 1, x/24 y/77 INPUT 2
         pop();
-        //pixMod[1] = 200; //INPUT 2
+        pixMod[1] = 200; //INPUT 2
         //stroke(255);//INPUT 1 & 2
-        noStroke(); // INPUT 3
-        pixMod[0] = 200; //INPUT 3
-        fill(pixMod);
-        rect(x, y, x / 4, y / 67);
+        //noStroke(); // INPUT 3
+        //pixMod[0] = 200; //INPUT 3
+        //fill(pixMod);//INPUT3
+        //rect(x, y, x / 4, y / 67); //INPUT 3
         //heart(x, y, 20); //10 for inputs 1 & 2
       }
     }
-console.log(mask[0]);s
-    if (mask[0] == 103) {
-      fill(255, 153, 0);
-      heart(x, y, 10);
+    console.log(mask[0]);
+    if (mask[0] == 102) {
+      let pixMod = sourceImg.get(x, y); //INPUT 2
+      //fill(255, 153, 0);//INPUT 3
+      //fill(231, 169, 190);
+      //fill(pix);//INPUT 1 & 3
+      push();
+      pixMod[1] = 200;
+      //heart(x, y, 10); //INPUT 3
+      //strokeWeight(2);
+      //stroke(222, 178, 193);
+      //fill(pixMod);
+      fill(204, 204, 102);
+      rect(x, y, x / 54, y / 60);
+      //rect(x,y,x / 54,y / 54); //INPUT 1 35, 5
+      //rect(x,y,25,5);
+
+      pop();
+    } else {
+      if (mask[0] == 153) {
+        //fill(254, 255, 195, 127);
+        //fill(0, 204, 0, 63);
+        fill(204, 204, 102);
+        //fill(222, 178, 193, 127); //INPUT 1
+        heart(x, y, 26);
+        //rect(x, y, x / 20, y / 80);//INPUT 1 20, 5
+      }
+
+
     }
   }
 
