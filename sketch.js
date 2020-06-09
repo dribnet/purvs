@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -25,14 +25,13 @@ function setup() {
 }
 const x_steps = 10
 const y_steps = 10
-// const tileheight = 20
-// const tilewidth = 20
+
 
 function draw() {
 
 
 
-  for (let b = 0; b < 100; b++) {
+  for (let b = 0; b < 100; b++) { //
     let x4 = floor(random(sourceImg.width));
     let y4 = floor(random(sourceImg.width));
     let pix4 = sourceImg.get(x4, y4);
@@ -40,20 +39,20 @@ function draw() {
     stroke(pix4);
     fill(pix4,0,0,90)
     if(go=true){
-      // watercolour(x4,y4,100,55,pix4);
       let go=false
     }
 
 
 }
-  for (var x1 = 0; x1 < sourceImg.width; x1 = x1 + x_steps) {
+  for (var x1 = 0; x1 < sourceImg.width; x1 = x1 + x_steps) { // createsthe squares with no fill that are all one colour
     for (var y1 = 0; y1 < sourceImg.height; y1 = y1 + y_steps){;
     let mask = maskImg.get(x1, y1);
     let pix = sourceImg.get(x1, y1);
 
     if (mask[0] > 180) {
-    if (pix[0] > 30 && pix[0] < 110 && pix[1] >0 && pix[1] < 100 && pix[2] > 0 && pix[2] < 100) {
+    if (pix[0] > 30 && pix[0] < 110 && pix[1] >0 && pix[1] < 100 && pix[2] > 0 && pix[2] < 100) { // if colour is brown
       let pixMode = sourceImg.get(x1, y1)
+      //creates a certain brown colour
       pixMode[0] = random(56,80)
       pixMode[1] = random(45,90)
       pixMode[2] = random(36,70)
@@ -67,14 +66,13 @@ function draw() {
   }
 }
 }
-    for (let b = 0; b < 10000; b++) {
+    for (let b = 0; b < 10000; b++) { //creates the 'brush strokes' made from beziers, adds a painterly feel(only on white mask)
       let x2 = floor(random(sourceImg.width));
       let y2 = floor(random(sourceImg.width));
       let pix2 = sourceImg.get(x2, y2);
       let mask2 = maskImg.get(x2, y2);
       stroke(pix2);
       fill(pix2)
-      // watercolour(x2,y2,40,25,pix2);
       if (mask2[0] > 98){
       }else{
       brushstroke1(x2+20, y2-50, 1, random(9,12), 30, random(0.3,0.7));
@@ -82,7 +80,7 @@ function draw() {
     }
   }
 //
-  for (let c = 0; c < 50000; c++) {
+  for (let c = 0; c < 50000; c++) { // creates all the detail that couldn't be created with the 'brushstrokes'
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.width));
     let mask = maskImg.get(x, y)
@@ -94,7 +92,7 @@ function draw() {
   }
   }
 
-  for (let a = 0; a < 80000; a++) {
+  for (let a = 0; a < 80000; a++) { //creates more detail on top of only parts that are coloured grey in mask
     let x3 = floor(random(sourceImg.width));
     let y3 = floor(random(sourceImg.width));
     let mask1 = maskImg.get(x3, y3)
@@ -110,30 +108,22 @@ function draw() {
 
 
 
-    // for(let b=0; b<10; b++){
-
-// }
     renderCounter = renderCounter + 1;
     if (renderCounter > 10) {
       console.log("Done!")
       noLoop();
-      // uncomment this to save the result
+
       // saveArtworkImage(outputFile);
     }
   }
 
-  function detail(x, y, w, h) { ///not really water colour et
+  function detail(x, y, w, h) { // a pixel
 
     rect(x, y, w, h)
   }
 
-  function watercolour(x,y,w,h,_pix){
-  fill(_pix);
-  rect(x,y,w,h)
 
-}
-
-  function brushstroke1(x, y, nstrokes, brushWidth, rotation, hairThickness) {
+  function brushstroke1(x, y, nstrokes, brushWidth, rotation, hairThickness) { //a function that is meant to simulate a brush stroke or multiple from beziers
     for (let c = 0; c < brushWidth * nstrokes; c = c + brushWidth) {
       push()
       strokeWeight(hairThickness)
@@ -146,13 +136,12 @@ function draw() {
     }
   }
 
-  function brushstroke2(x, y, nstrokes, brushWidth, rotation, hairThickness) {
+  function brushstroke2(x, y, nstrokes, brushWidth, rotation, hairThickness) { //same as 1
 
     for (let c = 0; c < brushWidth * nstrokes; c = c + brushWidth) {
       push()
       strokeWeight(hairThickness)
       translate(x, y - 20)
-      // rect(20,20,20,40)
       rotate(rotation)
       scale(1)
       translate(0, c)
