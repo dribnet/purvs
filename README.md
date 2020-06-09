@@ -9,7 +9,7 @@ Try to fix the render page. Done the mask pictures.
 09/06/2020
 Fix the render page. Try the first picture.
 Try to do the second picture.
-
+Do some changes on the first picture. Done the first one. Change the preview.jpg and thumbnail.png.
 
 
 
