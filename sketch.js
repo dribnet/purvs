@@ -60,7 +60,7 @@ function draw() {
       noStroke();
       fill(pixMod);
 
-      if (mask[0] > 220) {   //white mask (model)
+      if (mask[0] == 255) {   //white mask (model)
         stroke(pixMod);
         line(x2, y2, x2, y2 + 200);
 
@@ -90,7 +90,7 @@ function draw() {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
