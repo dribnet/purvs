@@ -113,7 +113,7 @@ function draw() {
       console.log("Done!")
       noLoop();
 
-      // saveArtworkImage(outputFile);
+      saveArtworkImage(outputFile);
     }
   }
 
