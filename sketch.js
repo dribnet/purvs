@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -38,8 +38,8 @@ function draw () {
 
     if(mask[0] < 120) {
       let pointSize = 2;//black mask - background
-      fill(143, 185, 201); //blue/grey
-      stroke(143, 185, 201); //blue/grey
+      fill(197, 222, 227); //blue/grey
+      stroke(197, 222, 227); //blue/grey
         rect(x, y, pointSize+10, pointSize);
 
     }
@@ -60,7 +60,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
