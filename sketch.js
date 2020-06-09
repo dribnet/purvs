@@ -19,29 +19,40 @@ function setup() {
 
   imageMode(CENTER);
   noStroke();
-  background(158, 126, 70);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 
 }
 
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
+  for (let y = 0; y < 900; y+=20) {
+    for (let x = 0; x < 1920; x+=10) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix);
+      //if mask is white
+      if(mask[0] > 240) {
+        noStroke();
+        //draws the whiter pixels as rects
+        if (pix[0] > 175 && pix[1] > 175 && pix[2] > 175) {
+          rect(x+random(-5,5), y+random(-5,5), 15, 15);
+        }
+        //and the darker pixels as ellipses
+        else {
+        ellipse(x+random(-5,5), y+random(-5,5), 25, 25);
+        }
+      }
+      else if(mask[0] > 120) {  //mask is dark grey
+        noStroke();
+        ellipse(x+random(0,2), y+random(10,1), random(10,10), random(10,10));
 
-    fill(pix);
-
-
-    if(mask[0] > 50) {
-      let pointSize = 15;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 20;
-      rect(x, y, pointSize, pointSize);
+      }
+      else {
+        stroke(pix);
+        strokeWeight(random(1,5));
+        line(x - random(0, 10), y + random(-10,10), x + random(0, 10), y + random (-10,10));
+      }
     }
   }
   renderCounter = renderCounter + 1;
@@ -49,8 +60,9 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
   }
+
 }
 
 function keyTyped() {

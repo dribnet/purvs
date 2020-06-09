@@ -1,2 +1,2 @@
 ## Creative Coding 2: Custom Pixel
-So this is my basic pixel image look like. I just adding myself image where took from Queenstown and Wellington cable car. For next step I will try to put different shape on it to make more unique.
+So I have change the first one image.And I got a new idea to make pixel image, I find one my self photo and cut the shape put in the mask_1.png, so the image 1 is come out.
