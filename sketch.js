@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_2.jpg";
+let maskFile   = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,7 +18,8 @@ function setup () {
 
   imageMode(CENTER);
   //noStroke();
-  background(97, 73, 38);
+//  background(97, 73, 38);
+  background(214, 235, 253);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -41,11 +42,12 @@ function draw () {
      let pointSize = 10;
      push()
      if(pix[0]<90){
-        fill(pix[0],pix[1],pix[2],200);
+      //  fill(pix[0],pix[1],pix[2],200);
+        fill(pix[0],pix[1],pix[2],50);
         ellipse(x, y, pointSize, pointSize);
      }
      else{
-         fill(pix[0],pix[1],pix[2],80)
+         fill(pix[0],pix[1],pix[2],100)
          rect(x, y, pointSize, pointSize);
      }
      pop()
@@ -56,11 +58,11 @@ if(mask[0] > 150 &&mask[0]<200) {
   let pointSize = 10;
   push()
   if(pix[0]<90){
-      fill(pix[0]*2.5,pix[1]*2.5,pix[2]*2.5,50);
+      fill(pix[0],pix[1],pix[2],10);
       ellipse(x, y, pointSize, pointSize);
   }
   else{
-      fill(pix[0],pix[1],pix[2],20)
+      fill(pix[0],pix[1],pix[2],10)
       rect(x, y, pointSize, pointSize);
   }
   pop()
@@ -80,7 +82,7 @@ if(mask[0] > 150 &&mask[0]<200) {
   if(mask[0] < 100){
       let pointSize = 45;
       noStroke();
-       fill(pix[0],pix[1],pix[2],20);
+       fill(pix[0],pix[1],pix[2],40);
         rect(x, y, pointSize, pointSize);
   }
 }
@@ -93,11 +95,16 @@ if(mask[0] > 150 &&mask[0]<200) {
         stroke(200)
         strokeWeight(1)
 
-        if(mask[0]>50 && mask[0]< 250){
-           let cross = 6
-           fill(pix[0],pix[1],pix[2],40)
-           line(x+1.5*cross, y, x-1.5*cross, y)
-           line(x-cross, y-cross, x+cross, y+cross)
+      // (first picture) if(mask[0]>50 && mask[0]< 250){
+      //     let cross = 6
+      //     fill(pix[0],pix[1],pix[2],40)
+      //     line(x+1.5*cross, y, x-1.5*cross, y)
+      //     line(x-cross, y-cross, x+cross, y+cross)
+           if(mask[0]>50 && mask[0]< 400){
+             let cross =7;
+             //fill(pix[0],pix[1],pix[2],40)
+             line(x+1.5*cross, y, x-1.5*cross, y)
+             line(x-cross, y-cross, x+cross, y+cross)
 
         }
     }

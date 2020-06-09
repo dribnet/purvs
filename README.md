@@ -10,7 +10,7 @@ Try to fix the render page. Done the mask pictures.
 Fix the render page. Try the first picture.
 Try to do the second picture.
 Do some changes on the first picture. Done the first one. Change the preview.jpg and thumbnail.png.
-
+Done the second one.Change the preview.jpg and thumbnail.png.
 
 
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
