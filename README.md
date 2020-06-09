@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-First Photograph test sketch of a Mountain landscape image
+Completed first batch of Sketches will move onto deciding a theme in the next commit
