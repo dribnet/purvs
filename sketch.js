@@ -34,13 +34,12 @@ function draw () {
 
     if(mask[0] > 128) {
       let pointSize = 2;
-      ellipse(x, y, pointSize-4, pointSize+5);
+      drawStars(x,y,4)
     }
     else {
       let pointSize = 5;
       //rect(x, y, pointSize, pointSize);
-      drawStars(x,y,4)
-
+      rect(x, y, pointSize+10, pointSize);
 
     }
   }
