@@ -3,6 +3,7 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
+// using first image as main image
 let sourceFile = "input_1.jpg";
 let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
@@ -51,6 +52,7 @@ function draw () {
       let mask = maskImg.get(x, y); // get mask from MaskImg
 
       fill(pix); //fill using pix value
+      console.log(mask[0]);
 
       if(mask[0] > 128) { //if mask has white area
         let pointSize = 10; //change pointSize to 10
@@ -58,10 +60,19 @@ function draw () {
         line(x,y,x + pointSize,y); //horizontal line
         line(x,y,x,y + pointSize); //vertical line
       }
+      else if (mask[0] < 55 && mask[0] > 45) { //grey mark
+        let ellipseSize = 20; //set ellipseSize to 20
+        let pointSize = 12; //pointsize to 12
+        ellipse(x,y,ellipseSize,ellipseSize) //create ellipse
+        line(x,y,x + pointSize, y + pointSize); //adding with pointSize
+        line(x,y,x - pointSize, y - pointSize); //subtracting with pointSize
+      }
+
       else if(pix[1] < pix[2]) { //else if green < blue
         strokeWeight(2); //set stroke weight to 2
         let pixNew = sourceImg.get(x, y); //new pix which gets pixels from sourceImg
         pixNew[1] = 50; //set pixNew to 50. ranges from 0-255
+
       }
 
       else { //else
