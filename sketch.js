@@ -20,13 +20,13 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(180);
+  background(235);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<14000;i++) {
+  for(let i=0;i<7000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -38,8 +38,8 @@ function draw () {
       push();
       fill(pix);
       strokeWeight(0);
-      let pointSize = random(14);
-      let pointWidth = random(14);
+      let pointSize = random(5, 15);
+      let pointWidth = random(5, 15);
       translate (x, y);
       rotate(random(360));
       ellipse(0, 0, pointSize, pointWidth);
@@ -57,24 +57,46 @@ function draw () {
 }
 
 function blur (col, posx, posy, pixel) {
-  for(let i=0;i<3;i++) {
-  push();
-  let monoDark = color(0);
-  let monoLight = color(255);
-  let brightness = map(pixel, 0, 200, 0, 1);
-  let monochrome = lerpColor(monoDark, monoLight, brightness);
+//   for(let i=0;i<3;i++) {
+//   push();
+//   let monoDark = color(0);
+//   let monoLight = color(255);
+//   let brightness = map(pixel, 0, 200, 0, 1);
+//   let monochrome = lerpColor(monoDark, monoLight, brightness);
+//
+//   fill(monochrome);
+//   stroke(monochrome);
+//   strokeWeight(9);
+//   strokeJoin(ROUND);
+//   let pointSize = random(10);
+//   let pointLength = random(10);
+//   translate (posx + random(20), posy + random(20));
+//   rotate(random(360));
+//   rect(0, 0, pointSize, pointLength);
+//   pop();
+// }
 
-  fill(monochrome);
-  stroke(monochrome);
-  strokeWeight(9);
-  strokeJoin(ROUND);
-  let pointSize = random(10);
-  let pointLength = random(10);
-  translate (posx + random(20), posy + random(20));
-  rotate(random(360));
-  rect(0, 0, pointSize, pointLength);
-  pop();
+for(let i=0;i<1;i++) {
+  push();
+    let monoDark = color(0);
+    let monoLight = color(255);
+    let brightness = map(pixel, 0, 255, 0, 1);
+    let monochrome = lerpColor(monoDark, monoLight, brightness);
+
+    fill(monochrome);
+    stroke(monochrome);
+    strokeWeight(1);
+    strokeCap(ROUND);
+    let xStart = random (-5, 5);
+    let yStart = random (-5, 5);
+    let xDrift = random (-5, 5);
+    let yDrift = random (-5, 5);
+    line(posx - 20 + xStart, posy - 5 + yStart, posx + 20 + xDrift, posy + 5 + yDrift);
+    line(posx - 20 + xStart, posy + 5 + yStart, posx + 20 + xDrift, posy - 5 + yDrift);
+    pop();
+
 }
+
 }
 
 function keyTyped() {
