@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(19, 51, 28);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -53,8 +53,7 @@ function draw () {
       else{
         if(mask[0] > 100 && mask[0] < 250){ //Light Grey
             noFill();
-            stroke(pix);
-            strokeWeight(1.5);
+            strokeWeight(3);
             arc(x, y, 40, 40, PI, PI + QUARTER_PI);
   }
       else {
@@ -70,7 +69,7 @@ function draw () {
         if (mask[0] == 0){ //Black
             let dice = random(1,6);
             if (dice < 4) {
-              let flowerSize2 = 10;
+            let flowerSize2 = 10;
               strokeWeight(6);
               drawFlower(x, y, flowerSize2);
 }
@@ -78,7 +77,7 @@ function draw () {
         let flowerSize3 = 5;
             drawFlower(x,y,flowerSize3);
 
-}}}}}}
+}}}}}}}
 
   function drawFlower(x,y,size){
 
@@ -86,7 +85,7 @@ function draw () {
 
           if(pix[0] > pix[1]){
             strokeWeight(3);
-            let pixMod = sourceImg.get(x, y);
+          let pixMod = sourceImg.get(x, y);
             pixMod[0] = pixMod[0]+20;
             pixMod[1] = pixMod[1]+20;
             pixMod[2] = pixMod[2]+20;
@@ -96,7 +95,7 @@ function draw () {
 
             push();
             translate (x,y);
-            for(var i = 0; i < 10; i++){
+          for(var i = 0; i < 10; i++){
             ellipse(size, -size, 15, 6);
             rotate(PI/5); }
             pop();
@@ -121,4 +120,4 @@ function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
   }
-}}
+}
