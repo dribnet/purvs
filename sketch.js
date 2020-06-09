@@ -5,7 +5,7 @@ let renderCounter=0;
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
 let maskFile   = "mask_3.png";
-let outputFile = "output_1.png";
+let outputFile = "output_3.png";
 
 function preload() { // what happens before we kick off
   sourceImg = loadImage(sourceFile);
@@ -18,56 +18,18 @@ function setup () { // do not change canvas! - can edit stroke, back colour etc
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileHeight = 10;
-const tileWidth = 10;
-const tileHeight2 = 50;
-const tileWidth2 = 50;
-const tileHeight3 = 30;
-const tileWidth3 = 30;
-
 function draw () {
 
+  // drawTwo(10, 10);
 
-
-  for(var x2 = 0; x2 < sourceImg.width; x2 = x2+ tileWidth2){
-    for(var y2 = 0; y2 < sourceImg.height; y2 = y2+ tileHeight2){
-      let pix2 = sourceImg.get(x2, y2);
-      let mask2 = maskImg.get(x2, y2);
-      fill(pix2[0],pix2[1],pix2[2]);
-      if (mask2[0] > 128){
-        rect(x2,y2, tileWidth2, tileHeight2);
-      }
-    }
-  }
-
-  for(var x3 = 0; x3 < sourceImg.width; x3 = x3+ tileWidth3){
-    for(var y3 = 0; y3 < sourceImg.height; y3 = y3+ tileHeight3){
-      let pix3 = sourceImg.get(x3, y3);
-      let mask3 = maskImg.get(x3, y3);
-      fill(pix3[0],pix3[1],pix3[2]);
-      if (mask3[0] > 50 & mask3[0] < 180){
-        rect(x3,y3, tileWidth3, tileHeight3);
-
-      }
-    }
-  }
-
-  for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
-    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix[0],pix[1],pix[2]);
-      if (mask[0] < 128){
-        //rect(x,y, tileWidth, tileHeight);
-        ellipse(x,y,tileWidth, tileHeight);
-      }
-    }
-  }
+  drawTwo(30, 30, 0); // background
+  drawTwo(50, 50, 1); // midground
+  drawTwo(15, 15, 2); // foreground
 
 
   // for(let i=0;i<20;i++) {
@@ -88,11 +50,41 @@ function draw () {
 
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 5) {
+  if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
+  }
+}
+
+function drawTwo(tileWidth, tileHeight, type){
+  for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
+    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+      fill(pix[0],pix[1],pix[2]);
+      if (mask[0] < 128 && type == 2){  // front layer for people
+        //rect(x,y, tileWidth, tileHeight);
+        noStroke();
+        for (var i = 0; i < 1; i++){
+          ellipse(x,y,tileWidth/1.5, tileHeight/1.5);
+          // x = x + random(-5, 5);
+          // y = y + random(-5, 5);
+        }
+
+      }else if (mask[0] > 50 && mask[0] < 180 && type == 1) { //change over layer
+        //rect(x,y, tileWidth, tileHeight);
+      }else if (mask[0] > 128 && type == 0){    // background layer for back
+        fill(pix);
+        stroke(pix);
+        strokeWeight(1);
+        let yRandom = random(0,tileHeight)
+        let xRandom = random(0,tileWidth)
+        line(x-(xRandom), y+yRandom, (x + tileWidth*0.8)+(xRandom), y+yRandom);
+        //ellipse(x,y,tileWidth, tileHeight);
+      }
+    }
   }
 }
 
