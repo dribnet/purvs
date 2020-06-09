@@ -35,19 +35,22 @@ function saveBlocksImages() {
   p5.prototype.downloadFile(imageData, 'artwork.png', 'png');
 */
 
+  var pd = this._pixelDensity;
+  // console.log("PD", pd)
+
   // generate 960x500 preview.jpg 1/3 of the way down
-  offscreenCanvas.width = 960;
-  offscreenCanvas.height = 500;
+  offscreenCanvas.width = pd*960;
+  offscreenCanvas.height = pd*500;
 
   // background is flat white  
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
-  context.fillRect(0, 0, 960, 500);
+  context.fillRect(0, 0, pd*960, pd*500);
 
   // now scaledown
-  var crop_width = 1080;
-  var crop_height = 564;
-  context.drawImage(this.canvas, 0, 640, crop_width, crop_height, 0, 0, 960, 500);
+  var crop_width = pd*1223;
+  var crop_height = pd*640;
+  context.drawImage(this.canvas, pd*348, 0, crop_width, crop_height, 0, 0, 960, 500);
 
   // save to browser
   var downloadMime = 'image/octet-stream';
@@ -59,18 +62,18 @@ function saveBlocksImages() {
   }, 1000);
 
   // generate 230x120 thumbnail.png  1/3 of the way down
-  offscreenCanvas.width = 230;
-  offscreenCanvas.height = 120;
+  offscreenCanvas.width = pd*230;
+  offscreenCanvas.height = pd*120;
 
   // background is flat white  
   context = offscreenCanvas.getContext('2d');
   context.fillStyle="#FFFFFF";
-  context.fillRect(0, 0, 230, 120);
+  context.fillRect(0, 0, pd*230, pd*120);
 
   // now scaledown
-  var crop_width = 1080;
-  var crop_height = 564;
-  context.drawImage(this.canvas, 0, 640, crop_width, crop_height, 0, 0, 230, 120);
+  var crop_width = pd*1223;
+  var crop_height = pd*640;
+  context.drawImage(this.canvas, pd*348, 0, crop_width, crop_height, 0, 0, 230, 120);
 
   var imageDataThumbnail = offscreenCanvas.toDataURL('image/png');
   imageDataThumbnail = imageDataThumbnail.replace('image/png', downloadMime);

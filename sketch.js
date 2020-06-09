@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,33 +18,48 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  rectMode(CENTER);
 }
 
-function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 50;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize);
+let xstep = 5;
+let ystep = 5;
+function draw() {
+  //noLoop();
+  angleMode(DEGREES);
+  for (var x = 0; x < sourceImg.width; x = x + xstep) {
+    for (var y = 0; y < sourceImg.height; y = y + ystep) {
+      let pix = sourceImg.get(x, y);
+      let mask = maskImg.get(x, y);
+     if (mask[0] > 100) {
+        stroke(pix);
+
+        let randAngle = floor(random(360));
+        let rand = floor(random(-15, 15));
+        let randWeight = floor(random(3));
+        strokeWeight(randWeight);
+        let rand1 = floor(random(-25, 25));
+        let rand2 = floor(random(-25, 25));
+        push();
+        translate(x,y);
+        rotate(randAngle);
+        bezier(0, 0, rand1, rand1, rand2, rand2, rand,rand);
+        pop();
+      } else {
+        stroke(0);
+        line(x, y, x-10, y);
+      }
     }
   }
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 5) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 

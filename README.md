@@ -1,5 +1,11 @@
 ## Creative Coding 2: Custom Pixel
 
+I am trying to recreate specific pieces of the image, through messily drawn lines. I feel that the way to make this pop the most, is to have a black background, however I am currently experimenting with different options.
+
+I currently feel that the theme I am trying to convey is not obvious enough through my photos, so I may need to change those before hand in.
+
+-------------------------------------------
+
 The images I have uploaded are of, a building in Sydney, my bass, and one of my plants. These were all images that remind me of something important.
 Currently the masks used are the one's provided at the beginning of the project, however I have plans to use different types of noise, to create effects specific to image.
 The code is also the same as provided though my initial inspiration is driving me to look into light strings that are drawn along edges that occur within the images.
