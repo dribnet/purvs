@@ -24,27 +24,26 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<10;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
+  let x = floor(random(sourceImg.width));
+  let y = floor(random(sourceImg.height));
+  let pix = sourceImg.get(x, y);
+  let mask = maskImg.get(x, y);
+
+  for(let i=0;i<50;i++) {
+    let xPrev = x;
+    let yPrev = y;
+
+    x = floor(random(sourceImg.width));
+    y = floor(random(sourceImg.height));
+    pix = sourceImg.get(x, y);
+    mask = maskImg.get(x, y);
+
+    fill(red(pix),green(pix),blue(pix),red(mask)+10);
     if (i>0) {
-      drawPointedTriangle(x,y,xPrev,yPrev,100,180)
+      drawPointedTriangle(x,y,xPrev,yPrev,40,80)
     } else {
 
     }
-    var xPrev = x;
-    var yPrev = x;
-    // if(mask[0] > 128) {
-    //   let pointSize = 50;
-    //   ellipse(x, y, pointSize, pointSize);
-    // }
-    // else {
-    //   let pointSize = 10;
-    //   rect(x, y, pointSize, pointSize);
-    // }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -55,15 +54,22 @@ function draw () {
   }
 }
 function drawPointedTriangle(xPos,yPos,xTarget,yTarget,size,frontAngle) {
-  angleMode(DEGREES)
+  angleMode(DEGREES);
+  ellipseMode(CENTER);
+  frontAngle = 360-frontAngle;
   let rotationAngle = atan2(yTarget-yPos,xTarget-yTarget);
   let frontPointX = xPos+size*cos(rotationAngle);
   let frontPointY = yPos+size*sin(rotationAngle);
-  let backPoint1X = xPos-size*cos(rotationAngle+frontAngle/2);
-  let backPoint1Y = yPos-size*sin(rotationAngle+frontAngle/2);
-  let backPoint2X = xPos-size*cos(rotationAngle-frontAngle/2);
-  let backPoint2Y = yPos-size*sin(rotationAngle-frontAngle/2);
-  triangle(frontPointX, frontPointY, backPoint1X, backPoint1Y, backPoint2X, backPoint2Y);
+  let backPoint1X = frontPointX-size*cos(rotationAngle+frontAngle/2);
+  let backPoint1Y = frontPointY-size*sin(rotationAngle+frontAngle/2);
+  let backPoint2X = frontPointX-size*cos(rotationAngle-frontAngle/2);
+  let backPoint2Y = frontPointY-size*sin(rotationAngle-frontAngle/2);
+  beginShape();
+  vertex(frontPointX,frontPointY);
+  vertex(backPoint1X,backPoint1Y);
+  vertex(backPoint2X,backPoint2Y);
+  endShape();
+  // triangle(frontPointX, frontPointY, backPoint1X, backPoint1Y, backPoint2X, backPoint2Y);
   angleMode(RADIANS)
 }
 function keyTyped() {
