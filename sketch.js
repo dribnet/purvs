@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -70,11 +70,6 @@ function draw () {
                 ellipse(x, y, tileWidth + 1, tileHeight + 1);
               }
             }
-          }
-
-          if(mask[0] > 60) {
-          fill(pix);
-          stroke(pix);
           }
         }
 
