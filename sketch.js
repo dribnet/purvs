@@ -18,7 +18,6 @@ function setup () {
 
   imageMode(CENTER);
   angleMode(DEGREES);
-//  noStroke();
   background(164,179,198);
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -39,16 +38,34 @@ function draw () {
      ellipse(x, y, pointSize*2, pointSize); //background blended effect
    }
  }
- for (let i = 0; i < 3000; i++) {
-  let x = floor(random(sourceImg.width));
-  let y = floor(random(sourceImg.height));
-  let pix = sourceImg.get(x, y);
-  let mask = maskImg.get(x, y);
-  let pixMod = sourceImg.get(x, y);
+
+if (renderCounter>9){
+ let x_step=2;
+ let y_step=2;
+ for (let x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+   for (let y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step){
+  let mask = maskImg.get(x2, y2);
+  let sizeVary = random(-2,2);
+
+ if (mask[0] < 150 && mask[0] > 100){ //grey area of mask
+   noStroke();
+   fill(164,179,198);
+   ellipse(x2,y2,3+sizeVary); //grid of circles for graphic areas
+ }
+ }
+ }
+}
+
+ for (let i2 = 0; i2 < 2000; i2++) {
+  let x3 = floor(random(sourceImg.width));
+  let y3 = floor(random(sourceImg.height));
+  let pix = sourceImg.get(x3, y3);
+  let mask = maskImg.get(x3, y3);
+  let pixMod = sourceImg.get(x3, y3);
 
   if (mask[0] > 200) { //white area of mask
-    if(pix[0]>pix[1] && pix[0]>pix[2]){ //making the red tones brighter
-      pixMod[0]=pix[0]*1.4;
+    if(pix[0]>pix[1] && pix[0]>pix[2] && pix[0]<160){ //making the red tones brighter
+      pixMod[0]=pix[0]*1.6;
       pixMod[1]=pix[1]*1.2;
       pixMod[2]=pix[2]*1.4;
       stroke(pixMod);
@@ -56,21 +73,8 @@ function draw () {
   else{
     stroke(pix);
   }
-  drawPaint(x,y,8); //foreground paint effect
+  drawPaint(x3,y3,8); //foreground paint effect
   }
-
-}
-for (let i = 0; i < 30000; i++) {
- let x = floor(random(sourceImg.width));
- let y = floor(random(sourceImg.height));
- let mask = maskImg.get(x, y);
- let sizeVary = random(-2,3);
-
-if (mask[0] < 150 && mask[0] > 100){ //grey area of mask
-  noStroke();
-  fill(164,179,198);
-  ellipse(x,y,4+sizeVary);
-}
 }
 
   renderCounter = renderCounter + 1;
@@ -85,7 +89,7 @@ if (mask[0] < 150 && mask[0] > 100){ //grey area of mask
 
 function drawPaint(x,y,size){
   strokeWeight(6);
-  for(var i = 0; i < 5; i++){
+  for(let i = 0; i < 5; i++){
     if(i==1 || i==3 || i==5){
       line(x+i*4,y,x+size+i*4,y+size);
     }
