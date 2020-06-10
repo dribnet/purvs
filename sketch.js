@@ -24,13 +24,13 @@ function setup () {
 }
 
 const tileHeight = 10;
-const tileWidth = 100;
+const tileWidth = 250;
 
-const tileHeight2 = 30;
-const tileWidth2 = 30;
+const tileHeight2 = 20;
+const tileWidth2 = 20;
 
-const x_step = 30;
-const y_step = 30;
+const x_step = 20;
+const y_step = 20;
 
 function draw () {
   // for(let i=0;i<2000;i++) {
@@ -65,7 +65,7 @@ function draw () {
   for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
     let pix = sourceImg.get(x2, y2);
     let mask = maskImg.get(x2, y2);
-     fill(pix[0],pix[1],pix[2], 180);
+     fill(pix[0],pix[1],pix[2], 190);
      noStroke();
       if (mask[0] > 128) {
     rect(x2, y2, tileWidth2, tileHeight2);
@@ -78,7 +78,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    //saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
