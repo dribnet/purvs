@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -30,29 +30,29 @@ let x_step = 0;
 let y_step = 0;
 
 function draw () {
-  let x_step = 10;
-  let y_step = 5;
+x_step = x_step + 10
+y_step = y_step + 5;
 
   for (var x = 0; x < sourceImg.width; x = x + x_step) {
     for (var y = 0; y < sourceImg.height; y = y + y_step) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      rect(x, y, tileWidth, tileHeight);
 
     if(mask[0] > 128) {
       fill(pix);
       stroke(pix);
+      ellipse(x, y, tileWidth + 5, tileHeight + 5);
 
     }
       else {
-        let x_step = 5;
-        let y_step = 10
-        fill(0);
+        noFill();
         stroke(pix);
+        ellipse(x, y, tileWidth + 15, tileHeight + 15);
+        }
+      }
     }
   }
-}
-}
+
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
