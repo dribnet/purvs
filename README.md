@@ -14,4 +14,5 @@ Done the second one.Change the preview.jpg and thumbnail.png.
 
 10/06/2020
 Done the second picture. Start the third one.
+Done the third one.
 The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.

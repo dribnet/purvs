@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -19,7 +19,7 @@ function setup () {
   imageMode(CENTER);
   //noStroke();
 //  background(97, 73, 38);
-  background(214, 235, 253);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
@@ -34,12 +34,12 @@ function draw () {
 
       fill(pix);
       stroke(pix);
-      strokeWeight(4);
+      strokeWeight(1);
       //console.log(mask);
-      let pointSize = 10;
+      let pointSize = 6;
         rect(x, y, pointSize, pointSize);
      if(mask[0] > 400) {
-     let pointSize = 10;
+     let pointSize = 20;
      push()
      if(pix[0]<90){
       //  fill(pix[0],pix[1],pix[2],200);
@@ -80,9 +80,9 @@ if(mask[0] > 150 &&mask[0]<200) {
     strokeWeight(1)
 
   if(mask[0] < 100){
-      let pointSize = 35;
+      let pointSize = 20;
       noStroke();
-       fill(pix[0],pix[1],pix[2],40);
+       fill(pix[0],pix[1],pix[2],100);
         rect(x, y, pointSize, pointSize);
   }
 }
@@ -100,9 +100,9 @@ if(mask[0] > 150 &&mask[0]<200) {
       //     fill(pix[0],pix[1],pix[2],40)
       //     line(x+1.5*cross, y, x-1.5*cross, y)
       //     line(x-cross, y-cross, x+cross, y+cross)
-           if(mask[0]>50 && mask[0]< 250){
+           if(mask[0]>250 && mask[0]< 300){
              let cross =3;
-             //fill(pix[0],pix[1],pix[2],40)
+            // fill(pix[0],pix[1],pix[2],40)
              line(x+1.5*cross, y, x-1.5*cross, y)
              line(x-cross, y-cross, x+cross, y+cross)
 
