@@ -1,7 +1,7 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
-let i = 200;
+let i = 200;//I'm using this to draw the background red
 
 
 // change these three lines as appropiate
@@ -35,50 +35,27 @@ function draw () {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       fill(pix);
-      if(mask[0] > 140) {
-
-        let pointSize = 5;
-        ellipse(x, y, tileWidth, tileHeight);
+      if(mask[0] > 140) {// this is being drawn in the white area of my mask
+        //let pointSize = 5;
+        ellipse(x, y, tileWidth, tileHeight);//circles drawing hand, the stroke is being taken from the black mask
       }
-      if(mask[0]>10 && mask[0]<140){
+      if(mask[0]>10 && mask[0]<140){//this is being drawn in the grey area
         stroke(0);
-        point(x,y);
+        point(x,y);//black dots on red background
       }
-      if(mask[0]<20) {
+      if(mask[0]<20) {//this is being drawn in the black area
         i = 200;
         stroke(pix);
         strokeWeight(3);
-        let pointSize = 5;
+        //let pointSize = 5;
         //rect(x, y, pointSize, pointSize);
 
-      line(x,y,x+5,y+5);
+      line(x,y,x+5,y+5);//close lines drawing background
       line(x,y,x-5,y-5);
 
       }
     }
   }
-  /*for(let i=0;i<10000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-
-    if(mask[0] > 128) {
-      let pointSize = 5;
-      ellipse(x, y, pointSize, pointSize);
-    }
-    else {
-  stroke(pix);
-      let pointSize = 5;
-      //rect(x, y, pointSize, pointSize);
-
-      line(x,y,x+30,y);
-      //line(x,y,x-5,y-5);
-
-
-    }*/
-
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
