@@ -20,26 +20,28 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(255);
+  background(235);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<8000;i++) {
+  for(let i=0;i<7000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
-    if(mask[0] < 200 && renderCounter < 8) {
+    if(mask[0] < 200 && renderCounter < 7) {
       pencil (pix, x, y, pix[1]);
 
     }
-    else {
-      let pointSize = 15;
-      rect(x, y, pointSize, pointSize);
+
+    else if (mask[0] > 200){
+      paint (pix, x, y);
+
     }
+
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -62,12 +64,9 @@ for(let i=0;i<1;i++) {
 
     fill(monochrome);
     stroke(monochrome);
-    strokeWeight(1);
+    strokeWeight(random(2));
     strokeCap(ROUND);
     translate(posx, posy);
-
-    // rotate(random(0, 10));
-    // line(-10, 0, 10, 0)
 
     rotate(random(-20, 0));
     line(-10, 0, 10, 0)
@@ -84,10 +83,10 @@ function paint (col, posx, posy){
   push();
   fill(col, 0.1);
   strokeWeight(0);
-  let pointSize = random(4, 8);
-  let pointHeight = random(8, 12);
+  let pointSize = random(5, 10);
+  let pointHeight = random(10, 13);
   translate (posx, posy);
-  rotate(random(10, 30));
+  rotate(random(20, 45));
   ellipse(0, 0, pointSize, pointHeight);
   ellipse(0+4, 0+3, pointSize-4, pointHeight-2);
   ellipse(0+6, 0-6, pointSize * 0.7, pointHeight);
