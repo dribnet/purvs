@@ -32,7 +32,7 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
-    if(mask[0] < 200 && renderCounter < 8) {
+    if(mask[0] < 200 && renderCounter < 7) {
       pencil (pix, x, y, pix[1]);
 
     }
