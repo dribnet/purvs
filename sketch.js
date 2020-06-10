@@ -4,7 +4,7 @@ let renderCounter=0;
 
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_1.png";
+let maskFile   = "mask_3.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -23,42 +23,36 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 15;
-const tileWidth = 5;
+let tileHeight = 5;
+let tileWidth = 5;
 
-const x_step = 10;
-const y_step = 5;
+let x_step = 0;
+let y_step = 0;
 
 function draw () {
+  let x_step = 10;
+  let y_step = 5;
 
   for (var x = 0; x < sourceImg.width; x = x + x_step) {
     for (var y = 0; y < sourceImg.height; y = y + y_step) {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      fill(0);
-      stroke(pix);
       rect(x, y, tileWidth, tileHeight);
+
+    if(mask[0] > 128) {
+      fill(pix);
+      stroke(pix);
+
+    }
+      else {
+        let x_step = 5;
+        let y_step = 10
+        fill(0);
+        stroke(pix);
     }
   }
-  //for(let i=0;i<2000;i++) {
-    //let x = floor(random(sourceImg.width));
-    //let y = floor(random(sourceImg.height));
-    //let pix = sourceImg.get(x, y);
-    //let mask = maskImg.get(x, y);
-
-    //if(mask[0] > 128) {
-      //let pointSize1 = 2.5;
-      //stroke(pix);
-      //strokeWeight(pointSize1)
-      //line(x, y, x + 70, y);
-    //}
-    //else {
-      //let pointSize = 12;
-      //noStroke();
-      //fill(pix);
-      //ellipse(x, y, pointSize, pointSize);
-    //}
-  }
+}
+}
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
     console.log("Done!")
