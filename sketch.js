@@ -31,10 +31,10 @@ function draw () {
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-    fill(pix);
-    if(mask[0] > 128) {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+
+    if(mask[0] < 200 && renderCounter < 8) {
+      pencil (pix, x, y, pix[1]);
+
     }
     else {
       let pointSize = 15;
