@@ -1,4 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-More Testing with my images with using a Draw Line function and ellipses
-around the mask will continue to expand further in upcoming commits 
+First Grid test with rectangles with black lines this has helped me to understand
+my images more and help break it down pixel by pixel and shape the way
+i want to go into creating my final custom pixel with my images and theme 
