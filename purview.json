@@ -6,12 +6,16 @@
     },
 
     {
+      "sha": "3ffb0544d1db5739256c4abde7ed9b9accf9388c",
+      "name": "Experiment3"
+    },
+    {
       "sha": "9d0410d075e8319a34d4570e5e46ba10ba80e968",
       "name": "Experiment2"
     },
 
     {
-      "sha": "e9455506151b80980a3c51f1b55c40fd8cf9f040"
+      "sha": "e9455506151b80980a3c51f1b55c40fd8cf9f040",
       "name": "Theme Idea 3"
     },
 
