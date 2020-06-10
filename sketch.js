@@ -26,7 +26,7 @@ function setup() {
 const tileHeight = 10;
 const tileWidth = 10;
 
-const x_step = 12;
+const x_step = 20;
 const y_step = 15;
 
 function draw() {
