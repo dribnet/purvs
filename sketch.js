@@ -20,28 +20,26 @@ function setup () {
   angleMode(DEGREES);
   rectMode(CENTER);
   noStroke();
-  background(235);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<7000;i++) {
+  for(let i=0;i<8000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
-
-    if(mask[0] < 200 && renderCounter < 7) {
-      pencil (pix, x, y, pix[1]);
-
+    fill(pix);
+    if(mask[0] > 128) {
+      let pointSize = 10;
+      ellipse(x, y, pointSize, pointSize);
     }
-
-    else if (mask[0] > 200){
-      paint (pix, x, y);
-
+    else {
+      let pointSize = 15;
+      rect(x, y, pointSize, pointSize);
     }
-
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
