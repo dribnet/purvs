@@ -7,3 +7,5 @@ The theme I have chosen is friends and family as they are an important part of m
 Each image has a custom mask made by me, 3 tones (Black, white, grey), and is processed with a grid of ellipses for the subject, white crosshatches on the edges, and the horizontal lines for the background.
 
 The Code Is now tidied up, well commented, makes use of functions, efficient (hopefully), and takes about 10 seconds to run.
+
+My favourite outcome from the three is the first as it has the most contrast and is the most striking.
