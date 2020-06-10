@@ -4,9 +4,9 @@ let renderCounter = 0;
 
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,6 +26,9 @@ function setup() {
 
 const tileWidth = 5;
 const tileHeight = 5;
+
+const x_step = 15;
+const y_step = 15;
 
 
 function draw() {
@@ -60,17 +63,17 @@ function draw() {
       noStroke();
       fill(pixMod);
 
-      if (mask[0] > 230) {   //white mask (model)
-        stroke(pixMod);
-        line(x2, y2, x2, y2 + 200);
+      // if (mask[0] > 230) {   //white mask (model)
+      //   stroke(pixMod);
+      //   line(x2, y2, x2, y2 + 200);
 
 
-      } else if (mask[0] < 130 && mask[0] > 125) { //light grey mask (orange)
+       if (mask[0] < 130 && mask[0] > 125) { //light grey mask (orange)
         fill(245, 158, 66);
         strokeWeight(5);
         strokeCap(ROUND);
         stroke(245, 158, 66);
-        rect(x2, y2, tileWidth, tileHeight);
+        ellipse(x2, y2, 2, 2);
 
       } else if (mask[0] < 20) {  //black mask (purple background)
         let pixMod = sourceImg.get(x2, y2);
@@ -84,13 +87,32 @@ function draw() {
     }
   }
 
+  for (var x3 = 0; x3 < sourceImg.width; x3 = x3 + x_step) {
+    for (var y3 = 0; y3 < sourceImg.height; y3 = y3 + y_step) {
+      let pixMod = sourceImg.get(x3, y3);
+      let mask = maskImg.get(x3, y3);
+      pixMod[0] = pixMod[2];
+      pixMod[1] = pixMod[0];
+      pixMod[2] = pixMod[1];
+      noStroke();
+      fill(pixMod);
+
+      if (mask[0] > 230) {   //white mask (model)
+        stroke(pixMod);
+        rect(x3, y3, tileWidth, tileHeight);
+  }
+}
+}
+
+
+
   //runs 10 different times
   renderCounter = renderCounter + 1;
   if (renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+    saveArtworkImage(outputFile);
   }
 }
 
