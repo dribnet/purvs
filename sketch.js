@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -23,14 +23,14 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 5;
-const tileWidth = 5;
+const tileHeight = 50;
+const tileWidth = 50;
 
-const x_step = 5;
-const y_step = 5;
+const x_step = 50;
+const y_step = 50;
 
 function draw () {
-  for(let i=0;i<1000;i++) {
+  for(let i=0;i<2000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -38,8 +38,8 @@ function draw () {
     fill(pix);
     stroke(pix);
     if(mask[0] > 128) {
-      let pointSize = 50;
-      rect(x, y, pointSize, pointSize);
+      let pointSize = 100;
+      rect(x, y, pointSize*1.5, pointSize);
     }
     else {
       let pointSize = 100;
@@ -52,7 +52,7 @@ function draw () {
   for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
     let pix = sourceImg.get(x2, y2);
     let mask = maskImg.get(x2, y2);
-     fill(pix[0],pix[1],pix[2]);
+     fill(pix[0],pix[1],pix[2], 180);
      noStroke();
       if (mask[0] > 128) {
     rect(x2, y2, tileWidth, tileHeight);
