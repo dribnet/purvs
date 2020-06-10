@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -29,24 +29,28 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
     fill(pix);
+    //console.log(mask[0]);
     if(mask[0] > 128) { //white
 
-    if(pix[1] > pix[0]){
+    if(pix[1] > pix[0]){ //green
         strokeWeight(1);
   } else {
     strokeWeight(0.5);
   }
-
     stroke(pix);
-    drawLines(x,y,30);
+    drawStar1(x,y,30);
 
+  }else if (mask[0] == (128)) { //grey
+  stroke(pix, 10);
+  strokeWeight(3);
+  drawLine(x,y,35);
 
-    //drawStar(x,y,12);
-  }  else { //black
+  }
+
+  else { //black
     strokeWeight(1);
     stroke(pix);
     drawStar2(x,y,25);
-
     }
   }
 
@@ -65,7 +69,7 @@ function draw () {
 
 
 
-function drawLines(x,y,size) {
+function drawStar1(x,y,size) {
 push();
 translate(x,y);
 for(var i = 0; i < 4; i++){
@@ -78,23 +82,23 @@ pop();
 
 
 
-//
-// function drawStar(x,y,size) {
-// push();
-// translate(x,y);
-// for(var i = 0; i < 4; i++){
-// line(size,0, -size,0);
-// rotate(360 / i);
-// }
-// pop();
-// }
+
+function drawLine(x,y,size) {
+push();
+translate(x,y);
+for(var i = 0; i < 2; i++){
+line(size,0, -size,0);
+rotate(360 / i);
+}
+pop();
+}
 
 
 
 function drawStar2(x,y,size) {
 push();
 translate(x,y);
-for(var i = 0; i < 6; i++){
+for(var i = 0; i < 8; i++){
 line(size,0, -size,0);
 rotate(360 / i);
 }

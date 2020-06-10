@@ -2,4 +2,4 @@
 
 
 
-I changed the 3rd image to another image of Kerosine creek to keep the green theme going across all three images. I will work on polishing the masks to emphasise certain areas. I like the white area of the third photo as the stars create a water splashing effect. I'm not sure if this is too abstract or not but I would like to make it look more realistic. I tried changing the numbers and size of lines but this was the best result.
+I decided to add a grey mask as I wasn't happy with the look of the water on the third image. I will also be adding a grey mask to the other images, to areas such as water. The grey mask is linked to DrawLine which draws horizontal lines. I like how the water looks like it is flowing between the trees. It makes the white part of the water look glossy and reflective which I will try to replicate on the other 2 images. I think this was the effect I needed to finalise my assignment. I will add a grey mask to the other 2 images and polish the outputs.
