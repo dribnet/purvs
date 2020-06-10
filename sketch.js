@@ -23,30 +23,43 @@ function setup () {
   maskImg.loadPixels();
 }
 
-const tileHeight = 50;
-const tileWidth = 50;
+const tileHeight = 10;
+const tileWidth = 100;
 
-const x_step = 50;
-const y_step = 50;
+const tileHeight2 = 30;
+const tileWidth2 = 30;
+
+const x_step = 30;
+const y_step = 30;
 
 function draw () {
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-    if(mask[0] > 128) {
-      let pointSize = 100;
-      rect(x, y, pointSize*1.5, pointSize);
-    }
-    else {
-      let pointSize = 100;
-      strokeWeight(5);
-      line(x, y, x+pointSize, y);
-    }
+  // for(let i=0;i<2000;i++) {
+  //   let x = floor(random(sourceImg.width));
+  //   let y = floor(random(sourceImg.height));
+  //   let pix = sourceImg.get(x, y);
+  //   let mask = maskImg.get(x, y);
+  //   fill(pix);
+  //   stroke(pix);
+  //   if(mask[0] > 128) {
+  //     let pointSize = 100;
+  //     rect(x, y, pointSize*1.5, pointSize);
+  //   }
+  //   else {
+  //     let pointSize = 100;
+  //     strokeWeight(5);
+  //     line(x, y, x+pointSize, y);
+  //   }
+  // }
+
+  for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
+    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
+        let pix = sourceImg.get(x, y);
+        let mask = maskImg.get(x, y);
+        fill(pix);
+        stroke(pix);
+        rect(x,y,tileWidth,tileHeight);
   }
+}
 
   for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
   for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
@@ -55,7 +68,7 @@ function draw () {
      fill(pix[0],pix[1],pix[2], 180);
      noStroke();
       if (mask[0] > 128) {
-    rect(x2, y2, tileWidth, tileHeight);
+    rect(x2, y2, tileWidth2, tileHeight2);
     }
   }
 }
