@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
   rectMode(CENTER);
@@ -48,11 +48,11 @@ function draw() {
   }
 
   renderCounter = renderCounter + 1;
-  if(renderCounter > 5) {
+  if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
