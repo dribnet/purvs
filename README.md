@@ -8,4 +8,5 @@ Each image has a custom mask made by me, 3 tones (Black, white, grey), and is pr
 
 The Code Is now tidied up, well commented, makes use of functions, efficient (hopefully), and takes about 10 seconds to run.
 
-My favourite outcome from the three is the first as it has the most contrast and is the most striking.
+My favourite outcome from the three is the first as it has the most contrast and is the most striking. I mocked this up using a google maps screenshot:
+https://photos.app.goo.gl/incoL8e8he8bL6RCA
