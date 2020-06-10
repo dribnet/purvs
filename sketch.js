@@ -33,24 +33,6 @@ const x_step = 20;
 const y_step = 20;
 
 function draw () {
-  // for(let i=0;i<2000;i++) {
-  //   let x = floor(random(sourceImg.width));
-  //   let y = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x, y);
-  //   let mask = maskImg.get(x, y);
-  //   fill(pix);
-  //   stroke(pix);
-  //   if(mask[0] > 128) {
-  //     let pointSize = 100;
-  //     rect(x, y, pointSize*1.5, pointSize);
-  //   }
-  //   else {
-  //     let pointSize = 100;
-  //     strokeWeight(5);
-  //     line(x, y, x+pointSize, y);
-  //   }
-  // }
-
   for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
     for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
         let pix = sourceImg.get(x, y);
@@ -70,6 +52,25 @@ function draw () {
       if (mask[0] > 128) {
     rect(x2, y2, tileWidth2, tileHeight2);
     }
+  }
+}
+
+for(let i=0;i<200;i++) {
+  let x = floor(random(sourceImg.width));
+  let y = floor(random(sourceImg.height));
+  let pix = sourceImg.get(x, y);
+  let mask = maskImg.get(x, y);
+  fill(pix);
+  stroke(pix);
+  if(mask[0] > 128) {
+    let pointSize = 5;
+    noStroke();
+    rect(x, y, pointSize*1.5, pointSize);
+  }
+  else {
+    let pointSize = 10;
+    strokeWeight(1);
+    line(x, y, x+pointSize, y);
   }
 }
 
