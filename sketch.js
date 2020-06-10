@@ -23,6 +23,12 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tileHeight = 5;
+const tileWidth = 5;
+
+const x_step = 5;
+const y_step = 5;
+
 function draw () {
   for(let i=0;i<1000;i++) {
     let x = floor(random(sourceImg.width));
@@ -41,8 +47,21 @@ function draw () {
       line(x, y, x+pointSize, y);
     }
   }
+
+  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + x_step) {
+  for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + y_step) {
+    let pix = sourceImg.get(x2, y2);
+    let mask = maskImg.get(x2, y2);
+     fill(pix[0],pix[1],pix[2]);
+     noStroke();
+      if (mask[0] > 128) {
+    rect(x2, y2, tileWidth, tileHeight);
+    }
+  }
+}
+
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > 5) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
