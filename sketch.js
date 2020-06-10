@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,6 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   angleMode(DEGREES);
+  rectMode(CENTER);
   noStroke();
   background('#0C252E');
   sourceImg.loadPixels();
@@ -25,7 +26,7 @@ function setup () {
 }
 
 function draw () {
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -33,7 +34,7 @@ function draw () {
     noFill();
 
     var maskMap = map(mask[0], 0, 255, 0, 90);
-    brushStroke(x, y, pix, maskMap, 3);
+    brushStroke(x, y, pix, maskMap, mask, 3);
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -49,22 +50,48 @@ function keyTyped() {
   }
 }
 
-function brushStroke(x, y, c, mask, level){ //Recursive function
-  var size = map(mask, 0, 255, 8, 6);
-  var length = map(mask, 0, 255, 10, 25);
-
-  stroke(c);
-  strokeWeight(size);
+function brushStroke(x, y, c, maskMap, mask, level){ //Recursive function
+  var maskArr = mask[0]; // if/else couldn't read passed 'mask' value
+  var size = map(maskMap, 0, 255, 8, 6);
+  var length = map(maskMap, 0, 255, 10, 25);
   
-  push();
-    translate(x, y); //move origin to pixel
-    rotate(mask);
-    line(0, 0, 0, length);
-  pop();
+  if(maskArr < 90){
+    noStroke();
+    fill(c);
+    
+    push();
+      translate(x, y); //move origin to pixel
+      rotate(maskMap);
+      ellipse(0, 0, size, length*(size/2));
+    pop();
+  }else if(maskArr < 180){
+    noStroke();
+    fill(c);
 
-  if(level>1 && (random(0, 1)>0.4)){ //adds chance to fail
+    push();
+      translate(x, y); //move origin to pixel
+      rotate(maskMap);
+      rect(0, 0, length, size, size);
+    pop();
+  }else{
+    noFill();
+    stroke(c);
+    strokeWeight(size);
+    
+    push();
+      translate(x, y); //move origin to pixel
+      rotate(maskMap);
+      line(0, 0, 0, length+size);
+    pop();
+  }
+
+  if(level > 0 && (random(0, 1) > 0.4)){ //adds chance to fail
     level-=1;
-    brushStroke(x, y-(length/size), color(c[0], c[1], c[2]+length), mask, level);
-    brushStroke(x-(length/size), y, color(c[0], c[1], c[2]-length), mask, level);
+    brushStroke(x, y-(length/size), color(red(c), green(c), blue(c)+length), maskMap-size, mask, level);
+    brushStroke(x-(length/size), y, color(red(c), green(c), blue(c)-length), maskMap+size, mask, level);
+    brushStroke(x, y-(length/size), color(red(c), green(c)+length, blue(c)), maskMap-size, mask, level);
+    brushStroke(x-(length/size), y, color(red(c), green(c)-length, blue(c)-length), maskMap+size, mask, level);
+    brushStroke(x, y-(length/size), color(red(c)+length, green(c), blue(c)), maskMap-size, mask, level);
+    brushStroke(x-(length/size), y, color(red(c)-length, green(c), blue(c)), maskMap+size, mask, level);
   }
 }
