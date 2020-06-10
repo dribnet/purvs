@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_2.jpg";
+let maskFile = "mask_2.png";
+let outputFile = "output_2.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -29,7 +29,30 @@ const y_steps = 10
 
 function draw() {
 
+  for (var x1 = 0; x1 < sourceImg.width; x1 = x1 + x_steps) { // createsthe squares with no fill that are all one colour
+    for (var y1 = 0; y1 < sourceImg.height; y1 = y1 + y_steps){;
+    let mask = maskImg.get(x1, y1);
+    let pix = sourceImg.get(x1, y1);
 
+    if (mask[0] > 180) {
+    if (pix[0] > 90 && pix[0] < 100 && pix[1] >60 && pix[1] < 100 && pix[2] > 30 && pix[2] < 70) { // if colour is brown
+      let pixMode = sourceImg.get(x1, y1)
+      //creates a certain brown colour
+      pixMode[0] = random(30,45)
+      pixMode[1] = random(65,75)
+      pixMode[2] = random(115,130)
+
+      // noFill()
+      fill(pixMode)
+      brushstroke1(x1, y1, 1, random(9,12), 30, random(5.3,8.7))
+      brushstroke2(x1+50, y1-50, 1, random(9,12), 120, random(0.3,0.7));
+      strokeWeight(2)
+      stroke(pixMode);
+      // noFill()
+    }
+  }
+}
+}
 
   for (let b = 0; b < 100; b++) { //
     let x4 = floor(random(sourceImg.width));
@@ -44,28 +67,7 @@ function draw() {
 
 
 }
-  for (var x1 = 0; x1 < sourceImg.width; x1 = x1 + x_steps) { // createsthe squares with no fill that are all one colour
-    for (var y1 = 0; y1 < sourceImg.height; y1 = y1 + y_steps){;
-    let mask = maskImg.get(x1, y1);
-    let pix = sourceImg.get(x1, y1);
 
-    if (mask[0] > 180) {
-    if (pix[0] > 30 && pix[0] < 110 && pix[1] >0 && pix[1] < 100 && pix[2] > 0 && pix[2] < 100) { // if colour is brown
-      let pixMode = sourceImg.get(x1, y1)
-      //creates a certain brown colour
-      pixMode[0] = random(56,80)
-      pixMode[1] = random(45,90)
-      pixMode[2] = random(36,70)
-
-      noFill()
-      detail(x1, y1, 10, 10)
-      strokeWeight(2)
-      stroke(pixMode);
-      noFill()
-    }
-  }
-}
-}
     for (let b = 0; b < 10000; b++) { //creates the 'brush strokes' made from beziers, adds a painterly feel(only on white mask)
       let x2 = floor(random(sourceImg.width));
       let y2 = floor(random(sourceImg.width));
@@ -113,7 +115,7 @@ function draw() {
       console.log("Done!")
       noLoop();
 
-      saveArtworkImage(outputFile);
+      // saveArtworkImage(outputFile);
     }
   }
 
