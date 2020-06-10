@@ -3,10 +3,10 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_2.png";
-let extraMask = "mask_3.png"
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "maskMain.png";
+let extraMask = "maskExtra.png"
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -20,39 +20,40 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(10);
+  background(101,119,135);
+  background(0);
   sourceImg.loadPixels();
   maskImg.loadPixels();
+  maskImgE.loadPixels();
 }
 
 function draw () {
-  let segmentX = 4;
-  let segmentY = 4;
+  let segmentX = 30;
+  let segmentY = 1;
   let x = floor(random(sourceImg.width/segmentX));
   let y = floor(random(sourceImg.height/segmentY));
 
   for(let ix=1;ix<segmentX+1;ix++) {
-  for(let iy=1;iy<segmentY+1;iy++) {
-  for(let i=0;i<3000/segmentX;i++) {
-    let xPrev = x;
-    let yPrev = y;
-    x = floor(random((ix-1)*sourceImg.width/segmentX,(ix)*sourceImg.width/segmentX));
-    y = floor(random((iy-1)*sourceImg.height/segmentY,(iy)*sourceImg.height/segmentY));
-    pix = sourceImg.get(x, y);
-    mask = maskImg.get(x, y);
-    m = map(red(mask),0,255,30,150);
+    for(let iy=1;iy<segmentY+1;iy++) {
+      for(let i=0;i<10000/segmentX;i++) {
+        let xPrev = x;
+        let yPrev = y;
+        x = floor(random((ix-1)*sourceImg.width/segmentX,(ix)*sourceImg.width/segmentX));
+        y = floor(random((iy-1)*sourceImg.height/segmentY,(iy)*sourceImg.height/segmentY));
+        pix = sourceImg.get(x, y);
+        mask = maskImg.get(x, y);
+        m = map(red(mask),0,255,0,150);
 
-    fill(red(pix),green(pix),blue(pix),red(m));
-    if (i>0) {
-      drawPointedTriangle(x,y,xPrev,yPrev,10,40)
-    } else {
+        fill(red(pix),green(pix),blue(pix),red(m));
+        if (i>0) {
+          drawPointedTriangle(x,y,xPrev,yPrev,10,40)
+        } else {
 
+        }
+      }
     }
   }
-  }
-  }
-
-  for(let j=0;j<100;j++) {
+  for(let j=0;j<150;j++) {
     let xPrev = x;
     let yPrev = y;
     x = floor(random(sourceImg.width));
@@ -67,7 +68,7 @@ function draw () {
 
     }
   }
-  for(let j=0;j<300;j++) {
+  for(let j=0;j<150;j++) {
     let xPrev = x;
     let yPrev = y;
     x = floor(random(sourceImg.width));
@@ -82,10 +83,6 @@ function draw () {
 
     }
   }
-
-
-
-
   renderCounter = renderCounter + 1;
   if(renderCounter > 1) {
     console.log("Done!")
@@ -115,6 +112,6 @@ function drawPointedTriangle(xPos,yPos,xTarget,yTarget,size,frontAngle) {
 }
 function keyTyped() {
   if (key == '!') {
-    saveBlocksImages();
+    saveArtworkImage(outputFile);
   }
 }
