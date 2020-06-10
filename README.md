@@ -1,6 +1,14 @@
 ## Creative Coding 2: Custom Pixel
 
+### Vincent Van Digital
+
 Craig Springett | 300441513
+
+---
+
+Considering this project, I thought about our perception of the world, and this reminded me of photographics project I did where I used Vincent Van Gogh as inspiration, recreating to the best of my ability some of his recognisable paintings in photos at various locations around Wellington; creating a modern take on an old theme. I felt this project gave me a great opportunity to further this, by modernising the photos I took even more by having them being painted digitally too.
+Thus I selected three of my best photos, that were most similar to the paintings, and attempted to create a custom pixel and mask that in some way evoked his art style. I did this by creating a mask that would rotate the 'brush stroke' based on the brightness of the photo through a grayscale mask that had had an 'oil paint' filter applied to it to add extra texture, and a recursive function that created slightly lighter, darker, and discoloured edges to these strokes, much like how paint can change on the edge of a brush, especially with this particular style.
+If I was to start this project again, I would certainly look into driving the custom pixel with a bezier or curve instead as to better capture the actual brush strokes Van Gogh used.
 
 ---
 
@@ -13,5 +21,3 @@ Craig Springett | 300441513
 | 08/06/2020 | Today I started modifying the code to actually create my custom pixel. I have an idea to try using recursion to create it, but will need to set aside more time to investigate that. I have also attempted to create a more detailed mask of input3, and upped the vibrancy as I felt it was lacking some colour. Updated purview_helper as well to hopefully fix that issue.	  |
 | 03/06/2020 | I had an idea to use my photos that are based off Vincent van Gogh paintings, especially if I'm able to create a painter-ly effect with my custom pixel. Spent today formatting the photos and creating the 3-tone masks for them each as each image has a fore/middle/background. Have yet to touch the code but will be doing that over the next few days.						  |
 | 27/05/2020 | First tests with Project 3. I knew that I just wanted to try working with a screenshot I took in Elite: Dangerous a few weeks ago of a sun. I also figured, I could just desaturate and slightly modify the levels to make it an appropriate mask, and the end result turns out pretty okay. At this time I haven't looked into anything else too much.								   |
-
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
