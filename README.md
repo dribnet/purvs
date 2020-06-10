@@ -10,3 +10,6 @@ Initially, I was very interested in using variations of the grid, as the grid wa
 Finally the addition of the text, was to add to the impact of the photo set's message. I knew that due to the nature of my second and third photos, that I needed to add something so that they looked more complete, and that they were also able to have a cohesive narrative. Focusing on contrast between all my elements, the text was drawn with ellipses. I am very happy that I kept my first photo text free, as I feel that the full presence of the Kaka, and the composition of the photo, brings awareness to the viewer on its own.  
 
 My goal for my series, was for the photos to have a cohesive narrative and be pleasing to look at for the viewer. I achieved this by focusing alot of my attention on contrast between elements, so that all elements could be discernible to the viewer, and their eye could travel along the image with ease. If I had more time to improve this series, I would have focused on shooting some of the other beautiful, native birds in Zealandia, that way each photo could have its own character and personality, and further my problem set narrative.
+
+[Stuff Article] (https://www.stuff.co.nz/environment/78914083/zealandia-ends-its-monitoring-of-kaka-numbers-as-population-thrives)
+[Department of Conservation] (https://www.doc.govt.nz/kaka)
