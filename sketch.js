@@ -48,7 +48,7 @@ function draw () {
      }
      else{
          fill(pix[0],pix[1],pix[2],100)
-         rect(x, y, pointSize, pointSize);
+           ellipse(x, y, pointSize, pointSize);
      }
      pop()
 
@@ -63,7 +63,7 @@ if(mask[0] > 150 &&mask[0]<200) {
   }
   else{
       fill(pix[0],pix[1],pix[2],10)
-      rect(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize, pointSize);
   }
   pop()
       }
@@ -77,10 +77,10 @@ if(mask[0] > 150 &&mask[0]<200) {
 
     fill(pix);
     stroke(pix)
-    strokeWeight(5)
+    strokeWeight(1)
 
   if(mask[0] < 100){
-      let pointSize = 45;
+      let pointSize = 35;
       noStroke();
        fill(pix[0],pix[1],pix[2],40);
         rect(x, y, pointSize, pointSize);
@@ -100,8 +100,8 @@ if(mask[0] > 150 &&mask[0]<200) {
       //     fill(pix[0],pix[1],pix[2],40)
       //     line(x+1.5*cross, y, x-1.5*cross, y)
       //     line(x-cross, y-cross, x+cross, y+cross)
-           if(mask[0]>50 && mask[0]< 400){
-             let cross =7;
+           if(mask[0]>50 && mask[0]< 250){
+             let cross =3;
              //fill(pix[0],pix[1],pix[2],40)
              line(x+1.5*cross, y, x-1.5*cross, y)
              line(x-cross, y-cross, x+cross, y+cross)
