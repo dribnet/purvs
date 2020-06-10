@@ -2,4 +2,4 @@
 
 
 
-I decided to add a grey mask as I wasn't happy with the look of the water on the third image. I will also be adding a grey mask to the other images, to areas such as water. The grey mask is linked to DrawLine which draws horizontal lines. I like how the water looks like it is flowing between the trees. It makes the white part of the water look glossy and reflective which I will try to replicate on the other 2 images. I think this was the effect I needed to finalise my assignment. I will add a grey mask to the other 2 images and polish the outputs.
+I have added a grey mask to the remaining images. I chose to use the grey mask for water areas of each images. Before I added this effect, I thought the images were too abstract. I think the addition of this effect will help the viewer understand what these images are.

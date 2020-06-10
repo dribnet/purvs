@@ -42,7 +42,7 @@ function draw () {
 
   }else if (mask[0] == (128)) { //grey
   stroke(pix, 10);
-  strokeWeight(3);
+  strokeWeight(2);
   drawLine(x,y,35);
 
   }
