@@ -70,7 +70,7 @@ function pencil (col, posx, posy, pixel) {
     rotate(random(-20, -12));
     line(-10 + random(0, -3), 0, 10 + random(0, 3), 0)
 
-    rotate(random(60, 52));
+    rotate(random(70, 62));
     line(-10 + random(0, -3), 0, 10 + random(0, 3), 0)
 
      pop();
