@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -32,7 +32,7 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
-    if(mask[0] < 200 && renderCounter < 3) {
+    if(mask[0] < 200 && renderCounter < 7) {
       pencil (pix, x, y, pix[1]);
 
     }
@@ -48,7 +48,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
@@ -66,13 +66,15 @@ for(let i=0;i<1;i++) {
     stroke(monochrome);
     strokeWeight(1);
     strokeCap(ROUND);
-    let xStart = random (-10, 10);
-    let yStart = random (-15, 15);
-    let xDrift = random (-10, 10);
-    let yDrift = random (-15, 15);
-    line(posx - 20 + xStart, posy - 5 + yStart, posx + 20 + xDrift, posy + 5 + yDrift);
-    line(posx - 20 + xStart, posy + 5 + yStart, posx + 20 + xDrift, posy - 5 + yDrift);
-    pop();
+    translate(posx, posy);
+
+    // rotate(random(0, 10));
+    // line(-10, 0, 10, 0)
+
+    rotate(random(-20, 0));
+    line(-10, 0, 10, 0)
+
+     pop();
 
 }
 
@@ -82,16 +84,16 @@ for(let i=0;i<1;i++) {
 
 function paint (col, posx, posy){
   push();
-  fill(col);
+  fill(col, 0.1);
   strokeWeight(0);
-  let pointSize = random(4, 12);
-  let pointWidth = random(4, 12);
+  let pointSize = random(4, 8);
+  let pointHeight = random(8, 12);
   translate (posx, posy);
-  rotate(random(360));
-  ellipse(0, 0, pointSize, pointWidth);
-  ellipse(0+4, 0+3, pointSize-2, pointWidth-4);
-  ellipse(0+6, 0-6, pointSize * 0.7, pointWidth);
-  ellipse(0-3, 0-5, pointSize * 0.5, pointWidth * 0.7);
+  rotate(random(10, 30));
+  ellipse(0, 0, pointSize, pointHeight);
+  ellipse(0+4, 0+3, pointSize-4, pointHeight-2);
+  ellipse(0+6, 0-6, pointSize * 0.7, pointHeight);
+  ellipse(0-3, 0-5, pointSize * 0.5, pointHeight * 0.7);
   pop();
 
 }

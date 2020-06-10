@@ -1,5 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Painting function
+Some refinements
 
-This is a prototype of new function to draw the object in a more painted way. It's going to layer multiple pieces on top of each other top produce a more blotchy, painted look.
+Reworked sketch function entirely to be easier to work with. Paint function now draws from a more consistent angle, imitating a person with a brush.
