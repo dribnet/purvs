@@ -39,10 +39,10 @@ function draw() {
     let pixMod = sourceImg.get(x, y);
     console.log(mask[0]);
 
-    if (mask[0] > 66 && mask[0] < 74) { //dark grey mask (red)
+    if (mask[0] > 66 && mask[0] < 74) { //dark grey mask (red circles)
       let pixMod = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
-      pixMod[0] = pixMod[0] * 2;
+      pixMod[0] = pixMod[0] * 2;     //adjusts the saturation of isolated image and colours
       pixMod[1] = pixMod[1] / 2;
       noStroke();
       fill(pixMod);
@@ -50,7 +50,7 @@ function draw() {
   }
 }
 
-  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + tileWidth) {
+  for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + tileWidth) {     //creates 1st grid
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + tileHeight) {
       let pixMod = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
@@ -62,7 +62,7 @@ function draw() {
 
       } else if (mask[0] < 2) { //black mask (purple background)
         let pixMod = sourceImg.get(x2, y2);
-        pixMod[0] = pixMod[0] / 2;
+        pixMod[0] = pixMod[0] / 2;    //adjusts saturation of image
         pixMod[1] = pixMod[1] / 3;
         fill(pixMod);
         stroke(pixMod);
@@ -71,7 +71,7 @@ function draw() {
     }
   }
 
-  for (var x3 = 0; x3 < sourceImg.width; x3 = x3 + x_step) {
+  for (var x3 = 0; x3 < sourceImg.width; x3 = x3 + x_step) {       //creates 2nd grid
     for (var y3 = 0; y3 < sourceImg.height; y3 = y3 + y_step) {
       let pixMod = sourceImg.get(x3, y3);
       let mask = maskImg.get(x3, y3);
