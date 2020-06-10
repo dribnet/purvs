@@ -32,7 +32,6 @@ const y_step = 15;
 
 
 function draw() {
-
   for (let i = 0; i < 1000; i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -45,41 +44,26 @@ function draw() {
       let mask = maskImg.get(x, y);
       pixMod[0] = pixMod[0] * 2;
       pixMod[1] = pixMod[1] / 2;
-      pixMod[2] = pixMod[2];
       noStroke();
       fill(pixMod);
-      ellipse(x, y, 20, 20);
-    }
+      ellipse(x, y, tileWidth*4, tileHeight*4);
   }
-
+}
 
   for (var x2 = 0; x2 < sourceImg.width; x2 = x2 + tileWidth) {
     for (var y2 = 0; y2 < sourceImg.height; y2 = y2 + tileHeight) {
       let pixMod = sourceImg.get(x2, y2);
       let mask = maskImg.get(x2, y2);
-      pixMod[0] = pixMod[2];
-      pixMod[1] = pixMod[0];
-      pixMod[2] = pixMod[1];
-      noStroke();
-      fill(pixMod);
 
-      // if (mask[0] > 230) {   //white mask (model)
-      //   stroke(pixMod);
-      //   line(x2, y2, x2, y2 + 200);
-
-
-       if (mask[0] < 130 && mask[0] > 125) { //light grey mask (orange)
+      if (mask[0] < 130 && mask[0] > 125) { //light grey mask (orange)
         fill(245, 158, 66);
-        strokeWeight(5);
-        strokeCap(ROUND);
-        stroke(245, 158, 66);
-        ellipse(x2, y2, 2, 2);
+        noStroke();
+        rect(x2, y2, tileWidth*2, tileHeight*2);
 
-      } else if (mask[0] < 20) {  //black mask (purple background)
+      } else if (mask[0] < 20) { //black mask (purple background)
         let pixMod = sourceImg.get(x2, y2);
         pixMod[0] = pixMod[0] / 2;
         pixMod[1] = pixMod[1] / 3;
-        pixMod[2] = pixMod[2];
         fill(pixMod);
         stroke(pixMod);
         ellipse(x2, y2, tileWidth, tileHeight + 10);
@@ -94,25 +78,26 @@ function draw() {
       pixMod[0] = pixMod[2];
       pixMod[1] = pixMod[0];
       pixMod[2] = pixMod[1];
-      noStroke();
+      strokeWeight(5);
+      strokeCap(SQUARE);
       fill(pixMod);
 
-      if (mask[0] > 230) {   //white mask (model)
+      if (mask[0] == 255) { //white mask (model)
         stroke(pixMod);
         rect(x3, y3, tileWidth, tileHeight);
+      }
+    }
   }
-}
-}
 
 
 
   //runs 10 different times
   renderCounter = renderCounter + 1;
-  if (renderCounter > 10) {
+  if (renderCounter > 5) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    // saveArtworkImage(outputFile);
   }
 }
 
