@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -26,11 +26,11 @@ function setup () {
 let tileHeight = 5;
 let tileWidth = 5;
 
-let x_step = 10;
+let x_step = 5;
 let y_step = 5;
 
 function draw () {
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<8000;i++) {
      let x_line = floor(random(sourceImg.width));
      let y_line = floor(random(sourceImg.height));
      let pix = sourceImg.get(x_line, y_line);
@@ -38,8 +38,10 @@ function draw () {
      fill(pix[0], pix[1], pix[2]);
      stroke(pix);
 
-  let point_size = 45;
+  let point_size = 90;
   let dice = random (1,6);
+  //console.log(mask[0]);
+
     if(mask[0] > 200) {
     noStroke();
     fill(0);
@@ -48,7 +50,6 @@ function draw () {
     else {
       line(x_line + x_step, y_line, x_line + x_step + point_size, y_line);
       line(x_line, y_line + y_step, x_line, y_line + y_step + point_size);
-
       }
         }
 
@@ -60,16 +61,26 @@ function draw () {
               if(mask[0] > 128) {
                 fill(pix);
                 stroke(pix);
-                rect(x, y, tileWidth + 5, tileHeight + 5);
+                rect(x, y, tileWidth, tileHeight);
+              }
 
+              else if (mask[0] == 60) {
+                fill(255);
+                noStroke();
+                ellipse(x, y, tileWidth + 1, tileHeight + 1);
               }
             }
+          }
+
+          if(mask[0] > 60) {
+          fill(pix);
+          stroke(pix);
           }
         }
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
-    console.log("Done!")
+    //console.log("Done!")
     noLoop();
     // uncomment this to save the result
     //saveArtworkImage(outputFile);
