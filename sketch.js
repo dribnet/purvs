@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_3.jpg";
-let maskFile   = "mask_3.png";
-let outputFile = "output_3.png";
+let sourceFile = "input_1.jpg";
+let maskFile   = "mask_1.png";
+let outputFile = "output_1.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -32,7 +32,7 @@ function draw () {
     let pix = sourceImg.get(x, y);
     let mask = maskImg.get(x, y);
 
-    if(mask[0] < 200 && renderCounter < 12) {
+    if(mask[0] < 200 && renderCounter < 7) {
       pencil (pix, x, y, pix[1]);
 
     }
@@ -44,7 +44,7 @@ function draw () {
 
   }
   renderCounter = renderCounter + 1;
-  if(renderCounter > 15) {
+  if(renderCounter > 10) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
@@ -68,6 +68,9 @@ function pencil (col, posx, posy, pixel) {
     translate(posx, posy);
 
     rotate(random(-20, -12));
+    line(-10 + random(0, -3), 0, 10 + random(0, 3), 0)
+
+    rotate(random(60, 52));
     line(-10 + random(0, -3), 0, 10 + random(0, 3), 0)
 
      pop();
