@@ -64,9 +64,12 @@ for(let i=0;i<1;i++) {
 
     fill(monochrome);
     stroke(monochrome);
-    strokeWeight(random(2));
+    strokeWeight(1);
     strokeCap(ROUND);
     translate(posx, posy);
+
+    // rotate(random(0, 10));
+    // line(-10, 0, 10, 0)
 
     rotate(random(-20, 0));
     line(-10, 0, 10, 0)
@@ -83,10 +86,10 @@ function paint (col, posx, posy){
   push();
   fill(col, 0.1);
   strokeWeight(0);
-  let pointSize = random(5, 10);
-  let pointHeight = random(10, 13);
+  let pointSize = random(4, 8);
+  let pointHeight = random(8, 12);
   translate (posx, posy);
-  rotate(random(20, 45));
+  rotate(random(10, 30));
   ellipse(0, 0, pointSize, pointHeight);
   ellipse(0+4, 0+3, pointSize-4, pointHeight-2);
   ellipse(0+6, 0-6, pointSize * 0.7, pointHeight);
