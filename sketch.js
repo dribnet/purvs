@@ -5,7 +5,7 @@ let renderCounter=0;
 // change these three lines as appropiate
 let sourceFile = "input_1.jpg";
 let maskFile   = "mask_1.png";
-let outputFile = "output_3.png";
+let outputFile = "output_1.png";
 
 function preload() { // what happens before we kick off
   sourceImg = loadImage(sourceFile);
@@ -25,29 +25,10 @@ function setup () { // do not change canvas! - can edit stroke, back colour etc
 
 function draw () {
 
-  // drawTwo(10, 10);
-
+  // calls function to draw each layer. Takes arguments (width, height, and version)
   drawTwo(30, 30, 0); // background
   drawTwo(10, 10, 1); // midground
   drawTwo(10, 10, 2); // foreground
-
-
-  // for(let i=0;i<20;i++) {
-  //   let x2 = floor(random(sourceImg.width));
-  //   let y2 = floor(random(sourceImg.height));
-  //   let pix = sourceImg.get(x2, y2);
-  //   let mask = maskImg.get(x2, y2);
-  //   fill(pix);
-  //   stroke(pix);
-  //
-  //   let pointSize = 50;
-  //   let dice = random(1,6);
-  //   line(x, y, x+pointSize, y);
-  //   }
-
-    //drawThing(x, y, 10)
-
-
 
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
@@ -58,63 +39,41 @@ function draw () {
   }
 }
 
-function drawTwo(tileWidth, tileHeight, type){
+function drawTwo(tileWidth, tileHeight, type){      // faunction to draw each layer, called 3 times
   for(var x = 0; x < sourceImg.width; x = x+ tileWidth){
-    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix[0],pix[1],pix[2]);
-      if (mask[0] < 128 && type == 2){  // front layer for people
-        //rect(x,y, tileWidth, tileHeight);
-        noStroke();
-        for (var i = 0; i < 10; i++){
-          ellipse(x,y,tileWidth/1.5, tileHeight/1.5);
-          x = x + random(-5, 5);
-          y = y + random(-5, 5);
-        }
-
-      }else if (mask[0] > 128 && type == 0){    // background layer for back
-        fill(pix);
+    for(var y = 0; y < sourceImg.height; y = y+ tileHeight){  // double for loop sets up the grid on which everything is drawn, based on image width and height.
+      let pix = sourceImg.get(x, y); // sets 'pix' to specific x and y of image
+      let mask = maskImg.get(x, y);  // sets 'mask' to specific x and y of image mask
+      fill(pix[0],pix[1],pix[2]); // colour based on RGB value of pix location
+      if (mask[0] > 128 && type == 0){                     // BACKGROUND LAYER
+        stroke(pix); // sets stroke to pix colour
+        strokeWeight(1.2);
+        let yRandom = random(0,tileHeight); // a couple of random variables to add variation into liine position
+        let xRandom = random(0,tileWidth);
+        line(x-(xRandom), y+yRandom, (x + tileWidth*0.8)+(xRandom), y+yRandom); // drawing the line with random variable
+      }else if (mask[0] > 50 && mask[0] < 180 && type == 1) { // MID LAYER
         stroke(pix);
         strokeWeight(1);
-        let yRandom = random(0,tileHeight)
-        let xRandom = random(0,tileWidth)
-        line(x-(xRandom), y+yRandom, (x + tileWidth*0.8)+(xRandom), y+yRandom);
-        //ellipse(x,y,tileWidth, tileHeight);
-      }else if (mask[0] > 50 && mask[0] < 180 && type == 1) { //change over layer
-        //rect(x,y, tileWidth, tileHeight);
-        //
-        // fill(pix);
-        // stroke(pix);
-        // strokeWeight(1);
-        // let yRandom = random(0,tileHeight)
-        // let xRandom = random(0,tileWidth)
-        //
-        push();
+        let yRandom = random(0,tileHeight); // a couple of random variables to add variation into liine position
+        let xRandom = random(0,tileWidth);
+        push(); // saves current origin
         translate(x,y);
         for (var t = 0; t < 10; t++){
-          stroke(255);
+          stroke(255, 100);   // white semi-transparent lines
           strokeWeight(1);
-
-          line(0, 0, tileWidth+0, tileHeight+0);
-          rotate(360/t);
+          let randLine = random(1,20);
+          if (randLine > 18){              // limits the amount drawn randomly to 1/10.
+            line(0, 0, tileWidth+0, tileHeight+0);
+          }rotate(360/t); // makes the lines rotate to look 'sketchy'
+        }pop(); // back to old origin
+      }else if (mask[0] < 128 && type == 2){  // FRONT LAYER for people
+        noStroke();
+        for (var i = 0; i < 5; i++){
+          ellipse(x,y,tileWidth*1.5, tileHeight*1.5); // ellipses drawn overlapping half
         }
-        pop();
-
       }
     }
   }
-}
-
-function drawThing(x, y, size){
-  push();
-  translate(x,y);
-  line(size, 0, -size, 0);
-  // for(var i = 0; i < 10; i++){
-  //   line(size, 0, -size, 0);
-  //   rotate(360/i);
-  // }
-  pop();
 }
 
 function keyTyped() {
