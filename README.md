@@ -1,3 +1,3 @@
 ## Creative Coding 2: Custom Pixel
 
-Changed my first output to the new grid format for the model in the seperate for loop. Working on fixing up my 3rd mask to match the other first two images and themes. My images take quite a long time to load due to my multiple for loops but I kinda do not want to adjust this as I like the way it looks currently. 
+Changed my 3rd image mask and i think it looks much better now in a series of images. The 3rd image is a slightly different shade than the other 2 but I tried my best to make them as similar as possible but could not help that the photos were taken at different times in the day.

@@ -4,9 +4,9 @@ let renderCounter = 0;
 
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -60,7 +60,7 @@ function draw() {
         noStroke();
         rect(x2, y2, tileWidth*2, tileHeight*2);
 
-      } else if (mask[0] < 20) { //black mask (purple background)
+      } else if (mask[0] < 2) { //black mask (purple background)
         let pixMod = sourceImg.get(x2, y2);
         pixMod[0] = pixMod[0] / 2;
         pixMod[1] = pixMod[1] / 3;
