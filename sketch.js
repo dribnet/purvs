@@ -1,11 +1,12 @@
 let sourceImg=null;
 let maskImg=null;
 let renderCounter=0;
+let pointSize = 10;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "piano.jpg";
+let maskFile   = "mask_piano_black.png";
+let outputFile = "output_piano.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,66 +19,67 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255);
+  background(247,239,215);
+
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
+//1920 x 640
+
 function draw () {
-  for(let i = 0; i < 240 i++) {
-    let y = i * 8;
-    for (let j = 0; j < 80; j++) {
-      let x = j * 8;
+  for(let y = 0; y < 640; y += pointSize) {
+      for (let x = 0; x < 1920; x += pointSize) {
+      //sets position of pixel
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
       fill(pix);
       stroke(pix);
+
       if (mask[0] > 128) {
-        let pointsize = 8;
-        cross(x, y,pointSize);
+        cross(x,y,random(1,4)*5, pix);
+        //cross(x, y,pointSize);
       }
-      else { //if mask is anything else, make it a rectangle
-        let pointSize = 50;
-        embroirder(x, y,pointSize);
+      else {
+        embroider(x, y,pointSize);
       }
     }
   }
+  render(1);
+  drawgrid();
+}
 
-  /*for(let i=0;i<200;i++) {
-    //sets position of pixel
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-
-    //if mask is white, make pixel a circle
-    
-  }*/ 
+function render(num){
   renderCounter = renderCounter + 1;
-  if(renderCounter > 10) {
+  if(renderCounter > num) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    saveArtworkImage(outputFile);
+    //saveArtworkImage(outputFile);
+  }
+}
+
+function drawgrid(){
+  for(let i = 0; i < 1920; i+=pointSize) {
+    for (let j = 0; j < 640; j += pointSize) {
+      stroke('black');
+      strokeWeight(pointSize/8);
+
+      point(i,j);
+    }
   }
 }
 
 function cross(x, y, size){
-  let left = x - size/2;
-  let top = y - size/2;
 
-  line(left, top, left + x, top + y);
-  line(left + x, top, left, top + y);
+  strokeWeight(3);
+  line(x, y, x + size, y + size);
+  line(x + size, y, x, y + size);
 }
 
 function embroider(x, y, size){
-  let mid = x + size/2;
-  let top = y + (size*1.5);
-  let h = size * 3;
-
-  line (mid, top, mid, top + h);
+//random factor in here
+  line (x, y  - (size * random(1,3)), x, y + (size * random(1,3)));
 }
 
 
