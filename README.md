@@ -1,5 +1,6 @@
 ## Creative Coding 2: Custom Pixel
 
+Test
 Reflection:
 
 When I started this project, I took a great deal of inspiration from Ryan Alexander's Mycelium. As I ran into many errors along the way, I began leaning more towards scribble art. I do not regret this decision, however given more time I would have like to experiment more with Mycelium's concept, to see what I could come up with myself.
@@ -10,7 +11,7 @@ I am proud however, that I managed to get the scribble effect working. I experim
 
 For coloring, I chose to go with a grayscale result. This seemed to work best for the style I was going for. When I tried to use full color, it looked strange against the grey background, and when I added in the original image as a background, it not only reduced the pop of the focused object, it also made it look like an error.
 
-If I was to do this again, I would try and spend more time focused on a theme that could be more relatable to others, and I would flesh that out first. Only after that, would I begin to dive into the coding side of things, as I feel like having a vision to begin with is important. 
+If I was to do this again, I would try and spend more time focused on a theme that could be more relatable to others, and I would flesh that out first. Only after that, would I begin to dive into the coding side of things, as I feel like having a vision to begin with is important.
 
 Style:
 
