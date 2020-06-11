@@ -1,6 +1,5 @@
 ## Creative Coding 2: Custom Pixel
 
-Test
 Reflection:
 
 When I started this project, I took a great deal of inspiration from Ryan Alexander's Mycelium. As I ran into many errors along the way, I began leaning more towards scribble art. I do not regret this decision, however given more time I would have like to experiment more with Mycelium's concept, to see what I could come up with myself.
