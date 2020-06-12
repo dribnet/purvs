@@ -23,8 +23,6 @@ function setup () {
   noStroke();
 
   background(30);//grey
-  //background(255);//white
-  //background(245,240,230); //cream
 
   sourceImg.loadPixels();
   maskImg.loadPixels();
@@ -50,21 +48,6 @@ function render(num){
   }
 }
 
-function paintedCross(){
-  for(let i=0;i<2000;i++) {
-    let x = floor(random(sourceImg.width));
-    let y = floor(random(sourceImg.height));
-    let pix = sourceImg.get(x, y);
-    let mask = maskImg.get(x, y);
-    fill(pix);
-    stroke(pix);
-
-    let pointSize = 10;
-    cross(x, y, pointSize);
-  }
-  render(30,0);
-}
-
 function crossStitch() {
   for(let y = 0; y < sourceImg.height; y += pointSize) {
       for (let x = 0; x < sourceImg.width; x += pointSize) {
@@ -80,11 +63,15 @@ function crossStitch() {
       }
     }
   }
-}
+} //cross stitches black area in mask
 
+//draws the cross itself
 function cross(x, y, size, pix){
-  strokeWeight(4);
+  noStroke();
+  fill(30);
+  rect(x,y,pointSize);
 
+  strokeWeight(3);
   stroke(pix);
   line(x, y, x + size, y + size); // under most thread
 
@@ -93,13 +80,18 @@ function cross(x, y, size, pix){
   stroke(pix[0] - shadow, pix[1] - shadow, pix[2] - shadow, 50);//shadow
   line(x + inc, y + inc, x + (size-inc), y + (size-inc));
   shadow += 20;
+
+  //draws upper most thread
   stroke(pix[0] - shadow, pix[1] - shadow, pix[2] - shadow, 50);//shadow
   line(x + inc + 5, y + inc + 5, x + (size-inc), y + (size-inc));
 
   stroke(pix);
   line(x + size, y, x, y + size);
+
+
 }
 
+//draws fabric holes in crosses
 function drawHoles(){
   for(let x = 0; x < 1920; x+=pointSize) {
     for (let y = 0; y < 640; y += pointSize) {
@@ -114,6 +106,7 @@ function drawHoles(){
 }
 }
 
+//draws background embroidery
 function embroider(){
   for(let i=0;i<1500;i++) {
     let x = floor(random(sourceImg.width));
@@ -132,8 +125,7 @@ function embroider(){
       push();
       translate(x,y);
       let r = random(pointSize*4,pointSize*20);
-      line(0,0-pointSize*(random(3,5)),0,random(pointSize*4,pointSize*20));
-      //ellipse(0,0,pointSize/2,random(pointSize*4,pointSize*20));
+      ellipse(0,0,pointSize/50,random(pointSize*4,pointSize*20));
 
       pop();
     }
