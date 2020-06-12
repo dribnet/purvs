@@ -31,12 +31,12 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     if(mask[0] > 128) {
-      let pointSize = 50;
+      let pointSize = 8;
       ellipse(x, y, pointSize, pointSize);
     }
     else {
       let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
