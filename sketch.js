@@ -34,7 +34,7 @@ function setup () {
 
 function draw () {
   pointSize = 20;
-  //embroider();
+  embroider();
   pointSize = 10;
   crossStitch();
   drawHoles();
@@ -72,12 +72,12 @@ function crossStitch() {
       let pix = sourceImg.get(x, y);
       let mask = maskImg.get(x, y);
 
-      //if (mask[0] < 128) {
+      if (mask[0] < 128) {
         cross(x,y,pointSize,pix);
         stroke(0,0,0,80);
         strokeWeight(2);
         point(x,y);
-      //}
+      }
     }
   }
 }
@@ -128,7 +128,7 @@ function embroider(){
     fill(pix);
     stroke(pix[0], pix[1], pix[2], pix)
     strokeWeight(5);
-    //if (mask[0] > 128) {
+    if (mask[0] > 128) {
       push();
       translate(x,y);
       let r = random(pointSize*4,pointSize*20);
@@ -136,7 +136,7 @@ function embroider(){
       //ellipse(0,0,pointSize/2,random(pointSize*4,pointSize*20));
 
       pop();
-    //}
+    }
   }
 }
 
