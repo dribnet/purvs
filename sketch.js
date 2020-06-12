@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_1.jpg";
-let maskFile   = "mask_1.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -40,15 +40,17 @@ function draw () {
       push();
       strokeWeight(5);
       line(x, y, x + pointSize - 30, y + 10);
+      //lineBG(x, y, x + pointSize + 30, y - 10);
       pop();
     }
     else if(mask[0] >= 201 && mask[0] < 250) {
       let pointSize = 50;
-      line(x, y, x + pointSize, y + 20);
+      line(x, y, x + pointSize, y + 20);          // draws lines for background
     }
     else {
       let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+    //  lineBG(x, y, x + pointSize, y + 20);
+      ellipse(x, y, pointSize, pointSize);        // draws circles for jellyfish
     }
   }
 
@@ -58,7 +60,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-     //saveArtworkImage(outputFile);
+   // saveArtworkImage(outputFile);
   }
 }
 
