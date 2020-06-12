@@ -18,7 +18,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0);
+  background(237, 62, 231);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
