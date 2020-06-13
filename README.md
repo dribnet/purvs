@@ -1,3 +1,4 @@
 ## Creative Coding 2: Custom Pixel
 
-I’ve added grey masks for the rest of the images and have settled on final numbers that best suit all the images. It was a bit difficult to do this as the render time took way too long, but the final outcome was worth it! I really am fond of how these simple codes convey the image very well. I definitely think that adding more complex shapes and more effects would’ve dimmed down the abstractness of the image, as the image itself is already pretty abstract. 
+Grid Techniques:
+I explored the grid techniques and have made this as a background layer for my image. I'm not 100% sure if i'll integrate this into my assignment but if I do, it would be very little. I feel like there's too many pixels for the image but it was nice to be able to try out different techniques for the grids!
