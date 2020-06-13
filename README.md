@@ -1,3 +1,7 @@
 ## Creative Coding 2: Custom Pixel
 
-The images above are photos of Wellington CBD algorithmically processed with a lightly modified version of the [p5.js Pointillism example](https://p5js.org/examples/image-pointillism.html). The masks for each photo highlight various objects. Replace this text with your own which explains the source of your photos, masking, and applied algorithm.
+theme ideal: Ghost town
+for project 3 I want to use custom pixel to  make a ghost town. Because the world
+is change a lot in this half year, and it is kind of crazy. so I want to use ghost
+town to express the dark side of the world. specifically, I will use grey color to
+create a damaged atmosphere.
