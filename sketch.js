@@ -3,9 +3,9 @@ let maskImg = null;
 let renderCounter = 0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
-let outputFile = "output_2.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -18,13 +18,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(60, 0, 128);
+  background(174, 96, 230);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i = 0; i < 5000; i++) {
+  for(let i = 0; i < 6000; i++) {
 
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -34,7 +34,6 @@ function draw () {
     fill(pix);
     stroke(pix);
 
-
     if(mask[0] >= 0 && mask[0] < 150) {            // black mask
       let pointSize = 12;
       push();
@@ -43,14 +42,15 @@ function draw () {
       pop();
     }
     else if(mask[0] >= 201 && mask[0] < 250) {      // grey mask
-      let pointSize = 50;
+      let pointSize = 15;
       push();
-      strokeWeight(3);
-      line(x, y, x + pointSize, y + 20);
+      fill(pix[0],pix[1],pix[2]);
+      strokeWeight(2);
+      line(x, y, x + pointSize, y + 5);
       pop();
     }
     else {                                          // white mask
-      let pointSize = 10;
+      let pointSize = 11;
       ellipse(x, y, pointSize, pointSize);
     }
   }
