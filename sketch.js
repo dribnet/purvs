@@ -18,31 +18,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(138, 35, 235);                       // dark purple
+  background(60, 0, 128);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
-const tileHeight = 2;
-const tileWidth = 3;
-
 function draw () {
-
-  // -------- LAYER 1: GRID BACKGROUND -------- //
-
-  for(var x = 0; x < sourceImg.width; x = x + tileWidth){
-    for(var y = 0; y < sourceImg.height; y = y + tileHeight){
-      let pix = sourceImg.get(x, y);
-      let mask = maskImg.get(x, y);
-      fill(pix);
-      noStroke();
-    rect(x, y, tileHeight, tileWidth);
-  }
-}
-
-  // -------- LAYER 2: DRAWING MAIN IMAGE  -------- //
-
-  for(let i = 0; i < 6000; i++) {
+  for(let i = 0; i < 5000; i++) {
 
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -52,27 +34,26 @@ function draw () {
     fill(pix);
     stroke(pix);
 
+
     if(mask[0] >= 0 && mask[0] < 150) {            // black mask
-      let pointSize = 20;
+      let pointSize = 12;
       push();
       strokeWeight(5);
       line(x, y, x + pointSize - 30, y + 10);
       pop();
     }
     else if(mask[0] >= 201 && mask[0] < 250) {      // grey mask
-      let pointSize = 15;
+      let pointSize = 50;
       push();
-      fill(pix[0],pix[1],pix[2]);
       strokeWeight(3);
-      line(x, y, x + pointSize, y + 5);
+      line(x, y, x + pointSize, y + 20);
       pop();
     }
     else {                                          // white mask
-      let pointSize = 9;
+      let pointSize = 10;
       ellipse(x, y, pointSize, pointSize);
     }
   }
-
 
 
   renderCounter = renderCounter + 1;
