@@ -38,11 +38,16 @@ function draw () {
     let cd = lerpColor(dark, light, bright);
 
     if (mask[0] == 0) {
-      
-     fill(pix);
-     stroke(pix);
-     strokeWeight(1);
-     rect(x, y, pointSize, pointSize);
+
+      fill(cd);
+      stroke(cd);
+      strokeWeight(1);
+      rect(x, y, pointSize, pointSize);
+     // image23
+     // fill(pix);
+     // stroke(pix);
+     // strokeWeight(1);
+     // rect(x, y, pointSize, pointSize);
 
    }
 
