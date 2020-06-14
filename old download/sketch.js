@@ -38,16 +38,15 @@ function draw () {
     let cd = lerpColor(dark, light, bright);
 
     if (mask[0] == 0) {
-
-      fill(cd);
-      stroke(cd);
-      strokeWeight(1);
-      rect(x, y, pointSize, pointSize);
-     // image23
-     // fill(pix);
-     // stroke(pix);
-     // strokeWeight(1);
-     // rect(x, y, pointSize, pointSize);
+    fill(cd);
+    stroke(cd);
+    strokeWeight(1);
+    rect(x, y, pointSize, pointSize);
+    // image 23
+    //  fill(pix);
+    //  stroke(pix);
+    //  strokeWeight(1);
+    //  rect(x, y, pointSize, pointSize);
 
    }
 
@@ -57,30 +56,12 @@ function draw () {
      line(x, y, x+pointSize, y);
      strokeWeight(1);
   }
-  //   if (mask[0] > 128){
-  //
-  //
-  //         line(x, y, x+pointSize, y);
-  //         stroke(pix);
-  //         strokeWeight(5);
-  // } else {
-  //
-  //         strokeWeight(7);
-  //         let pixMod = sourceImg.get(x,y);
-  //         pixMod[0] = 255;
-  //         pixMod[1] = 25;
-  //         pixMod[2] = 30;
-  //         fill (pixMod[0],pixMod[1],pixMod[2]);
-  //   }
-
-    // if(mask[0] > 128) {
-    //   let pointSize = 50;
-    //   ellipse(x, y, pointSize, pointSize);
-    // }
-    // else {
-    //   let pointSize = 10;
-    //   rect(x, y, pointSize, pointSize);
-    // }
+  if (mask[0] == 129){
+    fill(pix);
+    stroke(pix);
+    line(x, y, x+pointSize, y);
+    strokeWeight(1);
+  }
 
   }
 
