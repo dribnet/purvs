@@ -33,19 +33,21 @@ function draw() {
     console.log(mask);
 
     if (mask[0] > 220) {
-      let pointSize = 3;
-      ellipse(x, y, pointSize, 10);
-    } else if (mask[0] < 140) {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
-    } else if (mask[0] < 210) {
+      let pointSize = 2;
+      ellipse(x, y, pointSize, 30);
+    } else if (mask[0] < 10) {
       let pointSize = 6;
-      ellipse(x, y, pointSize, 8);
+      ellipse(x, y, pointSize, pointSize);
+    } else if (mask[0] < 140) {
+      let pointSize = 3;
+      ellipse(x, y, 24, pointSize);
+    } else if (mask[0] < 210) {
+      let pointSize = 5;
+      ellipse(x, y, pointSize, 75);
     }
-
   }
   renderCounter = renderCounter + 1;
-  if (renderCounter > 60) {
+  if (renderCounter > 90) {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
