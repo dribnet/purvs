@@ -3,7 +3,7 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
+let sourceFile = "input_3.jpg";
 let maskFile   = "mask_2.png";
 let outputFile = "output_1.png";
 
@@ -32,24 +32,24 @@ function draw () {
     fill(pix);
     stroke(pix);
 
-    let pointSize = 50;
-    let dice = random(1,6);
-    if (dice > 5)(
-    line(x, y, x+pointSize, y)
-    )
-
-    else (
-    line(x,y,x,y+pointSize)
-    )
-    // noStroke();
-    // if(mask[0] > 128) {
-    //   let pointSize = 35;
-    //   rect(x, y, pointSize, pointSize);
-    // }
-    // else {
-    //   let pointSize = 15;
-    //   ellipse(x, y, pointSize, pointSize);
-    //}
+    // let pointSize = 50;
+    // let dice = random(1,6);
+    // if (dice > 5)(
+    // line(x, y, x+pointSize, y)
+    // )
+    //
+    // else (
+    // line(x,y,x,y+pointSize)
+    // )
+    noStroke();
+    if(mask[0] > 100) {
+      let pointSize = 20;
+      ellipse(x, y, pointSize, pointSize);
+    }
+    else {
+      let pointSize = 10;
+      ellipse(x, y, pointSize, pointSize);
+    }
   }
   renderCounter = renderCounter + 1;
   if(renderCounter > 10) {
