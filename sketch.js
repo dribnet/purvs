@@ -4,7 +4,7 @@ let renderCounter=0;
 
 // change these three lines as appropiate
 let sourceFile = "input_3.jpg";
-let maskFile   = "mask_2.png";
+let maskFile   = "mask_3.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -23,7 +23,20 @@ function setup () {
   maskImg.loadPixels();
 }
 
+const tileHeight = 200;
+const tileWidth = 200;
+
+
 function draw () {
+  // for(var x = 0; x = sourceImg.width; x = x+ tileWidth){
+  //   for(var y = 0; y = sourceImg.height; y = y+ tileHeight){
+  //     let pix = sourceImg.get(x, y);
+  //     let mask = maskImg.get(x, y);
+  //     fill(pix);
+  //     stroke(pix);
+  //     rect(x,y,tileWidth,tileHeight);
+  //   }
+  // }
   for(let i=0;i<3000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
@@ -31,6 +44,7 @@ function draw () {
     let mask = maskImg.get(x, y);
     fill(pix);
     stroke(pix);
+
 
     // let pointSize = 50;
     // let dice = random(1,6);
@@ -42,13 +56,13 @@ function draw () {
     // line(x,y,x,y+pointSize)
     // )
     noStroke();
-    if(mask[0] > 100) {
-      let pointSize = 20;
-      ellipse(x, y, pointSize, pointSize);
+    if(mask[0] > 30) {
+      let pointSize = 10;
+      rect(x, y, pointSize, pointSize);
     }
     else {
-      let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+      let pointSize = 20;
+      rect(x, y, pointSize, pointSize);
     }
   }
   renderCounter = renderCounter + 1;
