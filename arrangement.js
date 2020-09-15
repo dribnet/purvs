@@ -74,7 +74,17 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
-          drawFace1();
+          a1 = focusedRandom(1,100);
+          a2 = focusedRandom(1,100);
+          a3 = focusedRandom(1,100);
+          a4 = focusedRandom(1,100);
+          a5 = focusedRandom(1,100);
+          a6 = focusedRandom(1,100);
+          a7 = focusedRandom(1,100);
+          a8 = focusedRandom(1,100);
+          a9 = focusedRandom(1,100);
+
+          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);

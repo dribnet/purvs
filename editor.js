@@ -37,7 +37,7 @@ function setup () {
   slider9.parent('slider9Container');
   slider10.parent('slider10Container');
 
-  faceGuideCheckbox = createCheckbox('', false);
+  faceGuideCheckbox = createCheckbox('', true);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
@@ -83,7 +83,7 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1();
+    drawFace1(s1,s2,s3,s4,s5,s6,s7,s8,s9);
   }
 
   if (mode == '2') {
@@ -103,7 +103,7 @@ function draw () {
 
   if(show_face_guide) {
     strokeWeight(0.1);
-    rectMode(CORNER); 
+    rectMode(CORNER);
     noFill()
     stroke(0, 0, 255);
     // ellipse(0, 0, 20, 20);
