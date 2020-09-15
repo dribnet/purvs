@@ -15,20 +15,41 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   // e - eye
   // -10 to 10
   height = height/10;
-  b_thickness = b_thickness/10;
   h_thickness = h_thickness/10;
+  b_thickness = h_thickness/2 + b_thickness/15;
+
+  e_height = e_height/100 - 0.5;
+  blob = 1 - blob/100;
   var ver = [];
+  var bodver = [];
   noStroke();
 
+  ver.push(createVector(3 + h_thickness/4 - blob/4,0 - height*0.75)); // top right
+  ver.push(createVector(1.8 + h_thickness/5 - blob/4,-0.4 - height*0.8));
+  ver.push(createVector(1 + h_thickness/8 - blob/4,-0.3 - height*0.8));
 
-  ver.push(createVector(3 + h_thickness/4,0 - height*0.75)); // top right
-  ver.push(createVector(-3 - h_thickness/4,0 - height*0.75)); // top left
-  ver.push(createVector(-5 - b_thickness/3, 9 - height/10)); // bottom left
+  ver.push(createVector(0,0 - height*0.775));
 
-  ver.push(createVector(0,9.9));
+  ver.push(createVector(-1 - h_thickness/8 + blob/4,-0.8 - height*0.8));
+  ver.push(createVector(-1.8 - h_thickness/5 + blob/4,-0.8 - height*0.8));
 
-  ver.push(createVector(5 + b_thickness/3, 9 - height/10)); // bottom right
+  ver.push(createVector(-3 - h_thickness/4 + blob/4,0 - height*0.75)); // top left
 
+
+  ver.push(createVector(-4 - h_thickness/4 + blob/3-b_thickness/25,3 - height*0.75));
+
+  ver.push(createVector(-4.5 - h_thickness/4 + blob - b_thickness/20,4.5 - height*0.68));
+  ver.push(createVector(-5 - h_thickness/4 + blob/2 - b_thickness/15,6.5 - height*0.6));
+
+  ver.push(createVector(-5 - b_thickness/3, 9.5 - height/10)); // bottom left
+
+  ver.push(createVector(0,10));
+
+  ver.push(createVector(5 + b_thickness/3, 9.5 - height/10)); // bottom right
+
+  ver.push(createVector(5 + h_thickness/4 - blob/2 + b_thickness/15,6.5 - height*0.6));
+  ver.push(createVector(4.5 + h_thickness/4 - blob+b_thickness/20,4.5 - height*0.68));
+  ver.push(createVector(4 + h_thickness/4 - blob/3+b_thickness/25,3 - height*0.75));
 
   beginShape();
     fill(149,174,132);
@@ -40,15 +61,34 @@ function drawFace1(h_thickness, b_thickness, height, blob,
     curveVertex(ver[1].x,ver[1].y);
   endShape();
 
-  for(let i = 0;i < ver.length; i++){
-    fill(129,154,112);
-    ellipse(ver[i].x,ver[i].y, 0.5,0.5);
+  bodver.push(createVector( 0, 6.5 - height*0.8)); // top
+  bodver.push(createVector( 4 - blob/2 + b_thickness/15 + h_thickness/10,  7.5 - height*0.6));
+  bodver.push(createVector( 3.5 + b_thickness/5, 9.5 - height/10));
+  bodver.push(createVector( - 3.5 - b_thickness/5, 9.5 - height/10));
+  bodver.push(createVector( - 4 + blob/2 - b_thickness/15 - h_thickness/10, 7.5 - height*0.6));
+
+  beginShape();
+    fill(255,100);
+    curveVertex(bodver[bodver.length - 1].x,bodver[bodver.length-1].y);
+    for(let i = 0; i < bodver.length; i++){
+      curveVertex(bodver[i].x,bodver[i].y);
+    }
+    curveVertex(bodver[0].x,bodver[0].y);
+    curveVertex(bodver[1].x,bodver[1].y);
+  endShape();
+
+  // if(true){
+  if(false){
+    for(let i = 0;i < ver.length; i++){
+      fill(129,154,112);
+      ellipse(ver[i].x,ver[i].y, 0.3,0.3);
+    }
   }
   // head
   // eyes
-  fill(200);
-  ellipse(-3 - h_thickness/4, - height*0.75, 3);
-  ellipse(3 + h_thickness/4, - height*0.75, 3);
+  fill(50,200);
+  ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2);
+  ellipse(2 + h_thickness/4, - height*0.75 + e_height, 2);
 }
 
 /*
