@@ -9,21 +9,44 @@
 
 
 function drawFace1(h_thickness, b_thickness, height, blob,
-                  e_shape, e_height, e_size, e_shape, pupil) {
+                  e_shape, e_height, e_size, mouth, pupil,colour) {
   // h - head
   // b - body
   // e - eye
   // -10 to 10
+  colorMode(RGB);
   height = height/10;
   h_thickness = h_thickness/10;
   b_thickness = h_thickness/2 + b_thickness/15;
-
-  e_height = e_height/100 - 0.5;
+  mouth = 0.5 - mouth/50;
+  e_shape = e_shape/100;
+  e_size = 0.5 - e_size/100;
+  e_height = e_height/100 - 0.3;
   blob = 1 - blob/100;
+  pupil = int(pupil/20);
+  colour = map(colour, 0, 100, 0, 3);
   var ver = [];
   var bodver = [];
-  noStroke();
 
+  var col1  = color(143,147,85);
+  var col2 = color(149,174,132);
+  var col3  = color(81,153,76);
+  var col4  = color(75,123,80);
+  var curCol = col1;
+
+  if(colour < 1){
+    curCol = lerpColor(col1, col2, colour);
+  }
+  else if(colour < 2){
+    curCol = lerpColor(col2, col3, colour-1);
+  }
+  else if(colour <= 3){
+    curCol = lerpColor(col3, col4, colour-2);
+  }
+
+
+
+  noStroke();
   ver.push(createVector(3 + h_thickness/4 - blob/4,0 - height*0.75)); // top right
   ver.push(createVector(1.8 + h_thickness/5 - blob/4,-0.4 - height*0.8));
   ver.push(createVector(1 + h_thickness/8 - blob/4,-0.3 - height*0.8));
@@ -37,9 +60,10 @@ function drawFace1(h_thickness, b_thickness, height, blob,
 
 
   ver.push(createVector(-4 - h_thickness/4 + blob/3-b_thickness/25,3 - height*0.75));
-
   ver.push(createVector(-4.5 - h_thickness/4 + blob - b_thickness/20,4.5 - height*0.68));
   ver.push(createVector(-5 - h_thickness/4 + blob/2 - b_thickness/15,6.5 - height*0.6));
+
+  // ver.push(createVector(-5.5 - blob/2.5 - b_thickness/8 - h_thickness/5,8 - height*0.35));
 
   ver.push(createVector(-5 - b_thickness/3, 9.5 - height/10)); // bottom left
 
@@ -52,7 +76,8 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   ver.push(createVector(4 + h_thickness/4 - blob/3+b_thickness/25,3 - height*0.75));
 
   beginShape();
-    fill(149,174,132);
+    fill(curCol);
+    noStroke();
     curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
     for(let i = 0; i < ver.length; i++){
       curveVertex(ver[i].x,ver[i].y);
@@ -61,14 +86,21 @@ function drawFace1(h_thickness, b_thickness, height, blob,
     curveVertex(ver[1].x,ver[1].y);
   endShape();
 
-  bodver.push(createVector( 0, 6.5 - height*0.8)); // top
-  bodver.push(createVector( 4 - blob/2 + b_thickness/15 + h_thickness/10,  7.5 - height*0.6));
+
+
+
+
+  bodver.push(createVector( 0, 4 - height*0.8)); // top
+  bodver.push(createVector( 4 - blob/2 + b_thickness/15 + h_thickness/10,  6 - height*0.6));
   bodver.push(createVector( 3.5 + b_thickness/5, 9.5 - height/10));
   bodver.push(createVector( - 3.5 - b_thickness/5, 9.5 - height/10));
-  bodver.push(createVector( - 4 + blob/2 - b_thickness/15 - h_thickness/10, 7.5 - height*0.6));
+  bodver.push(createVector( - 4 + blob/2 - b_thickness/15 - h_thickness/10, 6 - height*0.6));
+
+
 
   beginShape();
     fill(255,100);
+    noStroke();
     curveVertex(bodver[bodver.length - 1].x,bodver[bodver.length-1].y);
     for(let i = 0; i < bodver.length; i++){
       curveVertex(bodver[i].x,bodver[i].y);
@@ -77,6 +109,13 @@ function drawFace1(h_thickness, b_thickness, height, blob,
     curveVertex(bodver[1].x,bodver[1].y);
   endShape();
 
+  strokeWeight(0.3);
+  stroke(red(curCol) - 15, green(curCol) - 25, blue(curCol) - 20);
+  noFill();
+  bezier(-3 - h_thickness/4 + blob/3-b_thickness/25,2 - height*0.8, 0,2.5 -height*0.8 +mouth, 0,2.5 -height*0.8+mouth,
+  3 + h_thickness/4 - blob/3+b_thickness/25,2 - height*0.7);
+
+  noStroke();
   // if(true){
   if(false){
     for(let i = 0;i < ver.length; i++){
@@ -86,9 +125,30 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   }
   // head
   // eyes
-  fill(50,200);
-  ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2);
-  ellipse(2 + h_thickness/4, - height*0.75 + e_height, 2);
+  fill(71,77,67);
+  ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size);
+  ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size);
+
+  if(pupil == 1){
+    fill(255);
+    ellipse(-2.2 - h_thickness/4,-0.2 - height*0.75 + e_height, (2 + e_size)/2);
+    ellipse(2.2 + h_thickness/4, 0.4 - height*0.75 + e_height, (2 + e_size)/2);
+
+  }
+  else if(pupil == 2){
+
+    ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size,1);
+    ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size,1);
+  }
+  else if(pupil == 0){
+    fill(255);
+    ellipse(-2.2 - h_thickness/4,-0.2 - height*0.75 + e_height, (2 + e_size)/2.5);
+    ellipse(-1.6 - h_thickness/4,0.1 - height*0.75 + e_height, (2 + e_size)/3.5);
+    ellipse(1.8 + h_thickness/4, 0.4 - height*0.75 + e_height, (2 + e_size)/2.5);
+    ellipse(2.4 + h_thickness/4,0.7 - height*0.75 + e_height, (2 + e_size)/3.5);
+
+  }
+
 }
 
 /*

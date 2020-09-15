@@ -83,8 +83,9 @@ function draw () {
           a7 = focusedRandom(1,100);
           a8 = focusedRandom(1,100);
           a9 = focusedRandom(1,100);
+          a10 = focusedRandom(0,100);
 
-          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9);
+          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
         }
         else {
           thinness_value = focusedRandom(0, 100, 3);
