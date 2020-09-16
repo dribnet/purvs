@@ -49,7 +49,7 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('2');
+  faceSelector.value('3');
   faceSelector.parent('selector1Container');
 }
 
@@ -106,7 +106,7 @@ function draw () {
     let tilt_value = map(s1, 0, 100, -90, 90);
     let mouth_value = map(s2, 0, 100, 0.5, 10);
     let eye_value = int(map(s3, 0, 100, 1, 3));
-    drawFace3(tilt_value, eye_value, mouth_value);
+    drawFace3(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,belly, m_open);
   }
 
   pop();

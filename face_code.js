@@ -186,6 +186,7 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
   colour = map(colour, 0, 100, 0, 3);
   var ver = [];
   var headver = [];
+  var bodver = [];
 
   var curCol = color(149,174,132);
 
@@ -224,66 +225,71 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
       ellipse(ver[i].x,ver[i].y, 0.3,0.3);
     }
   }
+  headver.push( createVector( -5 - h_thickness/10, 2 - h_height - height/3) );
 
-  headver.push( createVector( -4.5 - h_thickness/10, -0 - h_height - height/3) ); // top left
+  headver.push( createVector( -4.5 - h_thickness/12, -0 - h_height - height/3) ); // top left
   headver.push( createVector( -2, -1 - h_height - height/3) );
 
   headver.push( createVector( 0.5 + h_thickness/10, -0 - h_height - height/3) ); // top right
-  headver.push( createVector( 0.5 + h_thickness/10, 3.5 - h_height - height/3) ); // bottom right
 
+  headver.push( createVector( 0.5 + h_thickness/10, 2 - h_height - height/3) );
+
+  headver.push( createVector( 0.5 + h_thickness/10, 3.5 - h_height - height/3) ); // bottom right
   headver.push( createVector( -2, 5 - h_height - height/3) );
 
-  headver.push( createVector( -4.5 - h_thickness/10, 3.5 - h_height - height/3) ); // bottom left
-
+  headver.push( createVector( -4.5 - h_thickness/12, 3.5 - h_height - height/3) ); // bottom left
   push();
-    beginShape();
-    translate(0,3);
-      // fill(129,154,112);
-      curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
-      for(let i = 0; i < headver.length; i++){
-        curveVertex(headver[i].x,headver[i].y);
-      }
-      curveVertex(headver[0].x,headver[0].y);
-      curveVertex(headver[1].x,headver[1].y);
-    endShape();
-  pop();
-
-  angleMode(RADIANS);
-
-  for(var i = -1; i < 2; i+= 2){
+  scale(1);
+  translate(0,2);
     push();
-      translate(i * 1.8, 0);
-      translate(-2,4 -height/3 - h_height);
-      rotate(e_size* i + PI/18 * -i);
-
-
-      if(e_size < -0.1){
-        noFill();
-        strokeWeight(0.2);
-        stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
-        arc(0,-0.4,2,0.2 + e_shape,PI + 0.2,-0.2,OPEN);
-      }
-      fill(0);
-      noStroke();
-      arc(0,0,2,0.2 + e_shape,PI,0,CHORD);
-      arc(0,0,2,2,0,PI,CHORD);
+      beginShape();
+      translate(0,3);
+        // fill(129,154,112);
+        curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
+        for(let i = 0; i < headver.length; i++){
+          curveVertex(headver[i].x,headver[i].y);
+        }
+        curveVertex(headver[0].x,headver[0].y);
+        curveVertex(headver[1].x,headver[1].y);
+      endShape();
     pop();
-  }
 
-  if(m_open > 4){
-    fill(168,91,77);
-    noStroke();
-  }
-  else{
-    strokeWeight(0.3);
-    stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
-    noFill();
-  }
-  push();
-  translate(-2,-height/3 + 5 - h_height);
-    bezier(-1,0,0,mouth,0,mouth,1,0);
+    angleMode(RADIANS);
+
+    for(var i = -1; i < 2; i+= 2){
+      push();
+        translate(i * 1.8, 0);
+        translate(-2,4 -height/3 - h_height);
+        rotate(e_size* i + PI/18 * -i);
+
+
+        if(e_size < -0.1){
+          noFill();
+          strokeWeight(0.2);
+          stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+          arc(0,-0.4,2,0.2 + e_shape,PI + 0.2,-0.2,OPEN);
+        }
+        fill(0);
+        noStroke();
+        arc(0,0,2,0.2 + e_shape,PI,0,CHORD);
+        arc(0,0,2,2,0,PI,CHORD);
+      pop();
+    }
+
+    if(m_open > 4){
+      fill(168,91,77);
+      noStroke();
+    }
+    else{
+      strokeWeight(0.3);
+      stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+      noFill();
+    }
+    push();
+    translate(-2,-height/3 + 5 - h_height);
+      bezier(-1,0,0,mouth,0,mouth,1,0);
+    pop();
   pop();
-
 
   noStroke();
   fill(149,174,132);
@@ -300,37 +306,67 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function drawFace3(tilt_value, eye_value, mouth_value) {
-  const bg_color3 = [225, 206, 187];
-  const fg_color3 = [151, 102, 52];
+function drawFace3(h_thickness, s_length, height, s_height,
+                  e_shape, e_height, s_width, mouth, pupil,
+                  colour, belly, m_open) {
+  // s - snout
+  height = height/10;
+  h_thickness = h_thickness/10;
+  s_length = s_length/10;
+  mouth = 0.5 - mouth/50;
+  e_shape = e_shape/100;
+  // e_size = 0.5 - e_size/100;
+  s_width = 0.5 - s_width/100;
+  e_height = e_height/100 - 0.3;
+  s_height = s_height/10;
+  pupil = int(pupil/20);
+  colour = map(colour, 0, 100, 0, 3);
+  var ver = [];
+  var bodver = [];
+  var curCol = color(149,174,132);
 
-  // rotation in degrees
-  angleMode(DEGREES);
-  rotate(tilt_value);
+  ver.push(createVector( -0.5 - s_length/10 - h_thickness/8, -4 + s_height/10 + s_width - height/6)); // top left
+  ver.push(createVector( 3 +h_thickness/8, -3 - height/10)); // top right
+
+
+  ver.push(createVector( 5 + h_thickness/8, 3 + height/6)); // bottom right
+
+  ver.push(createVector( 3  + h_thickness/8, 5 + height/6));
+  ver.push(createVector( -1 - s_length/8 - h_thickness/8, 5 + height/6));
+
+
+  ver.push(createVector( -1 - s_length/8 - h_thickness/8, 3 + height/6)); // bottom left
+
+  ver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/12));
+
+
+  ver.push(createVector( -3 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10));
 
   noStroke();
-  fill(fg_color3);
-  ellipse(0, 0, 30/2, 40/2);
+  fill(255);
+  ellipse( -5 +h_thickness/8, -2 - height/10 - e_height, 2);
 
-  // eyes
-  if (eye_value === 1 || eye_value == 3) {
-    fill(bg_color3);
-    ellipse( 0, -8/2, 5/2, 3/2);
-    fill(fg_color3);
-    ellipse(-1/2, -8/2, 2/2, 2/2);
+  beginShape();
+    fill(curCol);
+    noStroke();
+    // curveTightness(map(mouseX, 0, width, 0, 1));
+
+    curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
+    for(let i = 0; i < ver.length; i++){
+      curveVertex(ver[i].x,ver[i].y);
+    }
+    curveVertex(ver[0].x,ver[0].y);
+    curveVertex(ver[1].x,ver[1].y);
+  endShape();
+
+  // if(true){
+  if(false){
+    for(let i = 0;i < ver.length; i++){
+      fill(129,154,112);
+      ellipse(ver[i].x,ver[i].y, 0.3,0.3);
+    }
   }
+  fill(255);  ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 2);
 
-  if (eye_value >= 2) {
-    fill(bg_color3);
-    ellipse(-5/2, -8/2, 5/2, 3/2);
-    ellipse( 5/2, -8/2, 5/2, 3/2);
 
-    fill(fg_color3);
-    ellipse(-6/2, -8/2, 2/2, 2/2);
-    ellipse( 4/2, -8/2, 2/2, 2/2);
-  }
-
-  // mouth
-  fill(bg_color3);
-  ellipse(0/2, 7/2, 15/2, mouth_value);
 }
