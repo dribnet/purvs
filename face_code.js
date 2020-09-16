@@ -177,27 +177,29 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
   height = height/10;
   h_thickness = h_thickness/10;
   b_thickness = h_thickness/2 + b_thickness/15;
-  mouth = 0.5 - mouth/50;
+  mouth = 0.5 - mouth/100;
   e_shape = e_shape/100;
   e_size = 0.5 - e_size/100;
   e_height = e_height/100 - 0.3;
-  h_height = h_height/50;
+  h_height = h_height/20;
   pupil = int(pupil/20);
   colour = map(colour, 0, 100, 0, 3);
   var ver = [];
   var headver = [];
 
-  ver.push(createVector( 2.5 + b_thickness/2.5,2 -height/2)); // top right
+  var curCol = color(149,174,132);
+
+  ver.push(createVector( 2.5 + b_thickness/3.4,2 -height/2)); // top right
 
   ver.push(createVector( 0, -height/2));
 
-  ver.push(createVector( -2.5 - b_thickness/2.5,2 -height/2)); // top left
-  ver.push(createVector( -4 - b_thickness/2, 6 - height/3));
+  ver.push(createVector( -2.5 - b_thickness/3.5,2 -height/2)); // top left
+  ver.push(createVector( -4 - b_thickness/3, 6 - height/3));
 
 
-  ver.push(createVector( -3 - b_thickness/2.5, 9.5 - height/10)); // bottom left
-  ver.push(createVector( 3 + b_thickness/2.5, 9.5 - height/10)); // bottom right
-  ver.push(createVector( 4 + b_thickness/2, 6 - height/3));
+  ver.push(createVector( -3 - b_thickness/3.5, 9.5 - height/10)); // bottom left
+  ver.push(createVector( 3 + b_thickness/3.5, 9.5 - height/10)); // bottom right
+  ver.push(createVector( 4 + b_thickness/3, 6 - height/3));
 
 
   fill(149,174,132);
@@ -215,29 +217,71 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
     endShape();
   pop();
   // head
-  if(true){
-  // if(false){
+  // if(true){
+  if(false){
     for(let i = 0;i < ver.length; i++){
       fill(129,154,112);
       ellipse(ver[i].x,ver[i].y, 0.3,0.3);
     }
   }
 
-  headver.push( createVector( -4, -1 - h_height - height/3) );
-  headver.push( createVector( 1, -1 - h_height - height/3) );
-  headver.push( createVector( 1, 3 - h_height - height/3) );
-  headver.push( createVector( -4, 3 - h_height - height/3) );
+  headver.push( createVector( -4.5 - h_thickness/10, -0 - h_height - height/3) ); // top left
+  headver.push( createVector( -2, -1 - h_height - height/3) );
+
+  headver.push( createVector( 0.5 + h_thickness/10, -0 - h_height - height/3) ); // top right
+  headver.push( createVector( 0.5 + h_thickness/10, 3.5 - h_height - height/3) ); // bottom right
+
+  headver.push( createVector( -2, 5 - h_height - height/3) );
+
+  headver.push( createVector( -4.5 - h_thickness/10, 3.5 - h_height - height/3) ); // bottom left
 
   push();
     beginShape();
-
-        curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
+    translate(0,3);
+      // fill(129,154,112);
+      curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
       for(let i = 0; i < headver.length; i++){
         curveVertex(headver[i].x,headver[i].y);
       }
       curveVertex(headver[0].x,headver[0].y);
       curveVertex(headver[1].x,headver[1].y);
     endShape();
+  pop();
+
+  angleMode(RADIANS);
+
+  for(var i = -1; i < 2; i+= 2){
+    push();
+      translate(i * 1.8, 0);
+      translate(-2,4 -height/3 - h_height);
+      rotate(e_size* i + PI/18 * -i);
+
+
+      if(e_size < -0.1){
+        noFill();
+        strokeWeight(0.2);
+        stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+        arc(0,-0.4,2,0.2 + e_shape,PI + 0.2,-0.2,OPEN);
+      }
+      fill(0);
+      noStroke();
+      arc(0,0,2,0.2 + e_shape,PI,0,CHORD);
+      arc(0,0,2,2,0,PI,CHORD);
+    pop();
+  }
+
+  if(m_open > 4){
+    fill(168,91,77);
+    noStroke();
+  }
+  else{
+    strokeWeight(0.3);
+    stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+    noFill();
+  }
+  push();
+  translate(-2,-height/3 + 5 - h_height);
+    bezier(-1,0,0,mouth,0,mouth,1,0);
   pop();
 
 
@@ -248,8 +292,7 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
 
   // eyes
   fill(240);
-  ellipse(-2, -4, 1);
-  ellipse( 2, -4, 1);
+
 }
 
 /*
