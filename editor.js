@@ -6,6 +6,7 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
+let slider11, slider12;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -25,6 +26,8 @@ function setup () {
   slider8 = createSlider(0, 100, 50);
   slider9 = createSlider(0, 100, 50);
   slider10 = createSlider(0, 100, 50);
+  slider11 = createSlider(0, 100, 50);
+  slider12 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -36,6 +39,8 @@ function setup () {
   slider8.parent('slider8Container');
   slider9.parent('slider9Container');
   slider10.parent('slider10Container');
+  slider11.parent('slider11Container');
+  slider12.parent('slider12Container');
 
   faceGuideCheckbox = createCheckbox('', true);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -44,7 +49,7 @@ function setup () {
   faceSelector.option('1');
   faceSelector.option('2');
   faceSelector.option('3');
-  faceSelector.value('1');
+  faceSelector.value('2');
   faceSelector.parent('selector1Container');
 }
 
@@ -67,6 +72,11 @@ function draw () {
   let s8 = slider8.value();
   let s9 = slider9.value();
   let s10 = slider10.value();
+  let belly = slider11.value();
+  belly = map(belly,0,100,0,5);
+  let m_open = slider12.value();
+  m_open = map(m_open,0,100,0,5);
+
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -83,12 +93,12 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
-    drawFace1(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10);
+    drawFace1(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,belly, m_open);
   }
 
   if (mode == '2') {
     // draw 2nd face - let slider value 1 indicate thinness
-    drawFace2(s1);
+    drawFace2(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,belly, m_open);
   }
 
   if (mode == '3') {

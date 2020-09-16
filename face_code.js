@@ -9,7 +9,8 @@
 
 
 function drawFace1(h_thickness, b_thickness, height, blob,
-                  e_shape, e_height, e_size, mouth, pupil,colour) {
+                  e_shape, e_height, e_size, mouth, pupil,
+                  colour, belly, m_open) {
   // h - head
   // b - body
   // e - eye
@@ -78,6 +79,8 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   beginShape();
     fill(curCol);
     noStroke();
+    // curveTightness(map(mouseX, 0, width, 0, 1));
+
     curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
     for(let i = 0; i < ver.length; i++){
       curveVertex(ver[i].x,ver[i].y);
@@ -97,21 +100,30 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   bodver.push(createVector( - 4 + blob/2 - b_thickness/15 - h_thickness/10, 6 - height*0.6));
 
 
+if(belly > 3){
+    beginShape();
+      fill(255,100);
+      noStroke();
+      curveVertex(bodver[bodver.length - 1].x,bodver[bodver.length-1].y);
+      for(let i = 0; i < bodver.length; i++){
+        curveVertex(bodver[i].x,bodver[i].y);
+      }
+      curveVertex(bodver[0].x,bodver[0].y);
+      curveVertex(bodver[1].x,bodver[1].y);
+    endShape();
 
-  beginShape();
-    fill(255,100);
+
+}
+  if(m_open > 4){
+    fill(168,91,77);
     noStroke();
-    curveVertex(bodver[bodver.length - 1].x,bodver[bodver.length-1].y);
-    for(let i = 0; i < bodver.length; i++){
-      curveVertex(bodver[i].x,bodver[i].y);
-    }
-    curveVertex(bodver[0].x,bodver[0].y);
-    curveVertex(bodver[1].x,bodver[1].y);
-  endShape();
+  }
+  else{
+    strokeWeight(0.3);
+    stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+    noFill();
+  }
 
-  strokeWeight(0.3);
-  stroke(red(curCol) - 15, green(curCol) - 25, blue(curCol) - 20);
-  noFill();
   bezier(-3 - h_thickness/4 + blob/3-b_thickness/25,2 - height*0.8, 0,2.5 -height*0.8 +mouth, 0,2.5 -height*0.8+mouth,
   3 + h_thickness/4 - blob/3+b_thickness/25,2 - height*0.7);
 
@@ -128,6 +140,9 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   fill(71,77,67);
   ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size);
   ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size);
+  fill(79,96,69);
+  ellipse(-2 - h_thickness/4, - height*0.75 + e_height, (2 + e_size)*0.8);
+  ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, (2 + e_size)*0.8);
 
   if(pupil == 1){
     fill(255);
@@ -135,7 +150,8 @@ function drawFace1(h_thickness, b_thickness, height, blob,
     ellipse(2.2 + h_thickness/4, 0.4 - height*0.75 + e_height, (2 + e_size)/2);
 
   }
-  else if(pupil == 2){
+  else if(pupil == 10){
+    fill(71,77,67);
 
     ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size,1);
     ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size,1);
@@ -154,12 +170,80 @@ function drawFace1(h_thickness, b_thickness, height, blob,
 /*
  * thinness_value ranges from 0-100 and indicates how thin the face is
  */
-function drawFace2(thinness_value) {
-  // head
+function drawFace2(h_thickness, b_thickness, height, h_height,
+                  e_shape, e_height, e_size, mouth, pupil,
+                  colour, belly, m_open) {
+
+  height = height/10;
+  h_thickness = h_thickness/10;
+  b_thickness = h_thickness/2 + b_thickness/15;
+  mouth = 0.5 - mouth/50;
+  e_shape = e_shape/100;
+  e_size = 0.5 - e_size/100;
+  e_height = e_height/100 - 0.3;
+  h_height = h_height/50;
+  pupil = int(pupil/20);
+  colour = map(colour, 0, 100, 0, 3);
+  var ver = [];
+  var headver = [];
+
+  ver.push(createVector( 2.5 + b_thickness/2.5,2 -height/2)); // top right
+
+  ver.push(createVector( 0, -height/2));
+
+  ver.push(createVector( -2.5 - b_thickness/2.5,2 -height/2)); // top left
+  ver.push(createVector( -4 - b_thickness/2, 6 - height/3));
+
+
+  ver.push(createVector( -3 - b_thickness/2.5, 9.5 - height/10)); // bottom left
+  ver.push(createVector( 3 + b_thickness/2.5, 9.5 - height/10)); // bottom right
+  ver.push(createVector( 4 + b_thickness/2, 6 - height/3));
+
+
+  fill(149,174,132);
   noStroke();
-  fill(200, 150, 150);
-  let head_width = map(thinness_value, 0, 100, 8, 20);
-  rect(-head_width/2, -9, head_width, 18);
+  push();
+  translate(1,0);
+    beginShape();
+
+        curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
+      for(let i = 0; i < ver.length; i++){
+        curveVertex(ver[i].x,ver[i].y);
+      }
+      curveVertex(ver[0].x,ver[0].y);
+      curveVertex(ver[1].x,ver[1].y);
+    endShape();
+  pop();
+  // head
+  if(true){
+  // if(false){
+    for(let i = 0;i < ver.length; i++){
+      fill(129,154,112);
+      ellipse(ver[i].x,ver[i].y, 0.3,0.3);
+    }
+  }
+
+  headver.push( createVector( -4, -1 - h_height - height/3) );
+  headver.push( createVector( 1, -1 - h_height - height/3) );
+  headver.push( createVector( 1, 3 - h_height - height/3) );
+  headver.push( createVector( -4, 3 - h_height - height/3) );
+
+  push();
+    beginShape();
+
+        curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
+      for(let i = 0; i < headver.length; i++){
+        curveVertex(headver[i].x,headver[i].y);
+      }
+      curveVertex(headver[0].x,headver[0].y);
+      curveVertex(headver[1].x,headver[1].y);
+    endShape();
+  pop();
+
+
+  noStroke();
+  fill(149,174,132);
+
   // rect(-5, -10, 10, 20);
 
   // eyes

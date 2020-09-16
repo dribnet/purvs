@@ -65,7 +65,7 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        drawFace3(tilt_value, eye_value, mouth_value);
+        //drawFace3(tilt_value, eye_value, mouth_value);
         pop();
       }
       else if (i > 0) {
@@ -84,12 +84,25 @@ function draw () {
           a8 = focusedRandom(1,100);
           a9 = focusedRandom(1,100);
           a10 = focusedRandom(0,100);
+          a11 = focusedRandom(0,5,4,5);
+          a12 = focusedRandom(0,5,2,2);
 
-          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
+          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
         }
         else {
-          thinness_value = focusedRandom(0, 100, 3);
-          drawFace2(thinness_value);
+          a1 = focusedRandom(1,100);
+          a2 = focusedRandom(1,100);
+          a3 = focusedRandom(1,100);
+          a4 = focusedRandom(1,100);
+          a5 = focusedRandom(1,100);
+          a6 = focusedRandom(1,100);
+          a7 = focusedRandom(1,100);
+          a8 = focusedRandom(1,100);
+          a9 = focusedRandom(1,100);
+          a10 = focusedRandom(0,100);
+          a11 = focusedRandom(0,5,4,5);
+          a12 = focusedRandom(0,5,2,2);
+          drawFace2(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
         }
         pop();
       }
