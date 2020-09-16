@@ -76,18 +76,9 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   ver.push(createVector(4.5 + h_thickness/4 - blob+b_thickness/20,4.5 - height*0.68));
   ver.push(createVector(4 + h_thickness/4 - blob/3+b_thickness/25,3 - height*0.75));
 
-  beginShape();
-    fill(curCol);
-    noStroke();
-    // curveTightness(map(mouseX, 0, width, 0, 1));
-
-    curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
-    for(let i = 0; i < ver.length; i++){
-      curveVertex(ver[i].x,ver[i].y);
-    }
-    curveVertex(ver[0].x,ver[0].y);
-    curveVertex(ver[1].x,ver[1].y);
-  endShape();
+  fill(curCol);
+  noStroke();
+  drawCurves(ver);
 
 
 
@@ -101,17 +92,9 @@ function drawFace1(h_thickness, b_thickness, height, blob,
 
 
 if(belly > 3){
-    beginShape();
-      fill(255,100);
-      noStroke();
-      curveVertex(bodver[bodver.length - 1].x,bodver[bodver.length-1].y);
-      for(let i = 0; i < bodver.length; i++){
-        curveVertex(bodver[i].x,bodver[i].y);
-      }
-      curveVertex(bodver[0].x,bodver[0].y);
-      curveVertex(bodver[1].x,bodver[1].y);
-    endShape();
-
+  fill(255,100);
+  noStroke();
+  drawCurves(bodver);
 
 }
   if(m_open > 4){
@@ -206,16 +189,8 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
   fill(149,174,132);
   noStroke();
   push();
-  translate(1,0);
-    beginShape();
-
-        curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
-      for(let i = 0; i < ver.length; i++){
-        curveVertex(ver[i].x,ver[i].y);
-      }
-      curveVertex(ver[0].x,ver[0].y);
-      curveVertex(ver[1].x,ver[1].y);
-    endShape();
+    translate(1,0);
+    drawCurves(ver);
   pop();
   // head
   // if(true){
@@ -242,16 +217,9 @@ function drawFace2(h_thickness, b_thickness, height, h_height,
   scale(1);
   translate(0,2);
     push();
-      beginShape();
       translate(0,3);
-        // fill(129,154,112);
-        curveVertex(headver[headver.length - 1].x,headver[headver.length-1].y);
-        for(let i = 0; i < headver.length; i++){
-          curveVertex(headver[i].x,headver[i].y);
-        }
-        curveVertex(headver[0].x,headver[0].y);
-        curveVertex(headver[1].x,headver[1].y);
-      endShape();
+
+      drawCurves(headver);
     pop();
 
     angleMode(RADIANS);
@@ -323,7 +291,24 @@ function drawFace3(h_thickness, s_length, height, s_height,
   colour = map(colour, 0, 100, 0, 3);
   var ver = [];
   var bodver = [];
-  var curCol = color(149,174,132);
+  var eyeverL = [];
+  var eyeverR = [];
+
+  var col1  = color(143,147,85);
+  var col2 = color(149,174,132);
+  var col3  = color(81,153,76);
+  var col4  = color(75,123,80);
+  var curCol = col1;
+
+  if(colour < 1){
+    curCol = lerpColor(col1, col2, colour);
+  }
+  else if(colour < 2){
+    curCol = lerpColor(col2, col3, colour-1);
+  }
+  else if(colour <= 3){
+    curCol = lerpColor(col3, col4, colour-2);
+  }
 
   ver.push(createVector( -0.5 - s_length/10 - h_thickness/8, -4 + s_height/10 + s_width - height/6)); // top left
   ver.push(createVector( 3 +h_thickness/8, -3 - height/10)); // top right
@@ -337,27 +322,55 @@ function drawFace3(h_thickness, s_length, height, s_height,
 
   ver.push(createVector( -1 - s_length/8 - h_thickness/8, 3 + height/6)); // bottom left
 
-  ver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/12));
+  ver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/10));
 
+  ver.push(createVector( -2.5 - s_length/5 - h_thickness/4 , 0 + s_height/5 - height/10 - s_width));
 
   ver.push(createVector( -3 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10));
 
-  noStroke();
-  fill(255);
-  ellipse( -5 +h_thickness/8, -2 - height/10 - e_height, 2);
-
-  beginShape();
-    fill(curCol);
+  if(e_shape < 0.75){
     noStroke();
-    // curveTightness(map(mouseX, 0, width, 0, 1));
+    fill(0);
+    ellipse( -2.5 -h_thickness/8 - s_length/6, -2 - height/10 - e_height, 2);
+  }
 
-    curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
-    for(let i = 0; i < ver.length; i++){
-      curveVertex(ver[i].x,ver[i].y);
-    }
-    curveVertex(ver[0].x,ver[0].y);
-    curveVertex(ver[1].x,ver[1].y);
-  endShape();
+
+  fill(curCol);
+  noStroke();
+  drawCurves(ver);
+
+  if(e_shape < 0.3 && (h_thickness > 0.15 || s_length > 0.15)){ // can see entire tri when snout is too small
+    eyeverL.push( createVector( -1.5-h_thickness/8- s_length/6,  -1 - height/10 - e_height) );
+    eyeverL.push( createVector( 1.5-h_thickness/8- s_length/6,  -1 - height/10 - e_height) );
+    eyeverL.push( createVector( 0-h_thickness/8- s_length/6, -4 - height/10 - e_height) );
+
+    eyeverR.push( createVector( -1.5+h_thickness/8,  -2 - height/10 - e_height) );
+    eyeverR.push( createVector( 1.5+h_thickness/8,  -1.5 - height/10 - e_height) );
+    eyeverR.push( createVector( 0+h_thickness/8, -4 - height/10 - e_height) );
+    push();
+      translate(1.9,0);
+      drawCurves(eyeverR);
+    pop();
+    push();
+
+      translate(-2.2 + s_width,0.5);
+      scale(0.8,1);
+
+      drawCurves(eyeverL);
+    pop();
+  }
+  else if(e_shape > 0.75){
+    eyeverR.push( createVector( -1.5+h_thickness/8,  -2 - height/10 - e_height) );
+    eyeverR.push( createVector( 1.5+h_thickness/8,  -1.5 - height/10 - e_height) );
+    eyeverR.push( createVector( 0+h_thickness/8, -4 - height/10 - e_height) );
+    push();
+      translate(0.5,-0.2);
+      drawCurves(eyeverR);
+    pop();
+
+  }
+
+
 
   // if(true){
   if(false){
@@ -366,7 +379,52 @@ function drawFace3(h_thickness, s_length, height, s_height,
       ellipse(ver[i].x,ver[i].y, 0.3,0.3);
     }
   }
-  fill(255);  ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 2);
 
 
+  if(e_shape > 0.875){
+    fill(0);
+    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,0.2,PI,0,CHORD);
+    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,2,0,PI,CHORD);
+    fill(65,80,60);
+    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,1.6,1.6,0,PI,CHORD);
+  }
+  else if(e_shape > 0.75){
+    fill(0);
+    ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height, 2);
+    fill(65,80,60);
+    ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height, 1.6);
+  }
+  else{
+    fill(0);
+    ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 2);
+    fill(65,80,60);
+    ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 1.6);
+  }
+
+
+  stroke(red(curCol) - 45, green(curCol) - 35, blue(curCol) - 40);
+  strokeWeight( 0.3);
+  noFill();
+  push();
+    bezier( -2.8 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10,
+          0.5,mouth/2,
+          1.5,mouth,
+          2 + h_thickness/5,0);
+  pop();
+
+
+
+}
+
+
+function drawCurves(ver){
+  beginShape();
+    // curveTightness(map(mouseX, 0, width, 0, 1));
+    curveVertex(ver[ver.length - 1].x,ver[ver.length-1].y);
+    for(let i = 0; i < ver.length; i++){
+      curveVertex(ver[i].x,ver[i].y);
+    }
+    curveVertex(ver[0].x,ver[0].y);
+    curveVertex(ver[1].x,ver[1].y);
+  endShape();
 }
