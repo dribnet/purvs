@@ -278,6 +278,8 @@ function drawFace3(h_thickness, s_length, height, s_height,
                   e_shape, e_height, s_width, mouth, pupil,
                   colour, belly, m_open) {
   // s - snout
+  scale(1.2,1);
+  translate(1,0);
   height = height/10;
   h_thickness = h_thickness/10;
   s_length = s_length/10;
@@ -293,6 +295,7 @@ function drawFace3(h_thickness, s_length, height, s_height,
   var bodver = [];
   var eyeverL = [];
   var eyeverR = [];
+  var tonver = [];
 
   var col1  = color(143,147,85);
   var col2 = color(149,174,132);
@@ -310,6 +313,10 @@ function drawFace3(h_thickness, s_length, height, s_height,
     curCol = lerpColor(col3, col4, colour-2);
   }
 
+  if(belly < 1){
+    scale(-1,1);
+  }
+
   ver.push(createVector( -0.5 - s_length/10 - h_thickness/8, -4 + s_height/10 + s_width - height/6)); // top left
   ver.push(createVector( 3 +h_thickness/8, -3 - height/10)); // top right
 
@@ -324,7 +331,7 @@ function drawFace3(h_thickness, s_length, height, s_height,
 
   ver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/10));
 
-  ver.push(createVector( -2.5 - s_length/5 - h_thickness/4 , 0 + s_height/5 - height/10 - s_width));
+  ver.push(createVector( -2.5 - s_length/6 - h_thickness/5 , 0 + s_height/7 - height/10 - s_width));
 
   ver.push(createVector( -3 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10));
 
@@ -339,9 +346,22 @@ function drawFace3(h_thickness, s_length, height, s_height,
   noStroke();
   drawCurves(ver);
 
+  tonver.push(createVector( -0 - s_length/10 - h_thickness/8, -1 + s_height/10 + s_width - height/6)); // top left
+  tonver.push(createVector( 3 +h_thickness/8, 0 - height/10)); // top right
+  tonver.push(createVector( 4 + h_thickness/8, 3 + height/6)); // bottom right
+  tonver.push(createVector( 3  + h_thickness/8, 5 + height/6));
+  tonver.push(createVector( -1 - s_length/8 - h_thickness/8, 5 + height/6));
+  tonver.push(createVector( -1 - s_length/8 - h_thickness/8, 3 + height/6)); // bottom left
+  tonver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/10));
+  tonver.push(createVector( -2.5 - s_length/6 - h_thickness/5 , 0 + s_height/7 - height/10 - s_width));
+  tonver.push(createVector( -2.4 - s_length/4 - h_thickness/3, -1 + s_height/5 - height/10));
+  tonver.push(createVector( -2.6 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10));
+
+
+
   if(e_shape < 0.3 && (h_thickness > 0.15 || s_length > 0.15)){ // can see entire tri when snout is too small
-    eyeverL.push( createVector( -1.5-h_thickness/8- s_length/6,  -1 - height/10 - e_height) );
-    eyeverL.push( createVector( 1.5-h_thickness/8- s_length/6,  -1 - height/10 - e_height) );
+    eyeverL.push( createVector( -1.5-h_thickness/8- s_length/6,  -2 - height/10 - e_height) );
+    eyeverL.push( createVector( 1.5-h_thickness/8- s_length/6,  -2 - height/10 - e_height) );
     eyeverL.push( createVector( 0-h_thickness/8- s_length/6, -4 - height/10 - e_height) );
 
     eyeverR.push( createVector( -1.5+h_thickness/8,  -2 - height/10 - e_height) );
@@ -351,11 +371,10 @@ function drawFace3(h_thickness, s_length, height, s_height,
       translate(1.9,0);
       drawCurves(eyeverR);
     pop();
-    push();
 
+    push();
       translate(-2.2 + s_width,0.5);
       scale(0.8,1);
-
       drawCurves(eyeverL);
     pop();
   }
@@ -371,6 +390,12 @@ function drawFace3(h_thickness, s_length, height, s_height,
   }
 
 
+  if(belly > 3){
+    push();
+      fill(200,180,200);
+      drawCurves(tonver);
+    pop();
+  }
 
   // if(true){
   if(false){
@@ -383,10 +408,10 @@ function drawFace3(h_thickness, s_length, height, s_height,
 
   if(e_shape > 0.875){
     fill(0);
-    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,0.2,PI,0,CHORD);
-    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,2,0,PI,CHORD);
+    // arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,0.2,PI,0,CHORD);
+    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,2,-0.2,PI- 0.2,CHORD);
     fill(65,80,60);
-    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,1.6,1.6,0,PI,CHORD);
+    arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,1.6,1.6,-0.2,PI-0.2,CHORD);
   }
   else if(e_shape > 0.75){
     fill(0);
@@ -407,14 +432,13 @@ function drawFace3(h_thickness, s_length, height, s_height,
   noFill();
   push();
     bezier( -2.8 - s_length/4 - h_thickness/3, -2 + s_height/5 - height/10,
-          0.5,mouth/2,
-          1.5,mouth,
-          2 + h_thickness/5,0);
+          0.5,mouth/2 - height/10,
+          1.5,0.5 + mouth - height/10,
+          2 + h_thickness/5,-height/10);
   pop();
-
-
-
 }
+
+
 
 
 function drawCurves(ver){
