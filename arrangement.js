@@ -65,19 +65,19 @@ function draw () {
         push();
         translate(x, y);
         scale(w/25, h/25);
-        a1 = focusedRandom(1,100);
-        a2 = focusedRandom(1,100);
-        a3 = focusedRandom(1,100);
-        a4 = focusedRandom(1,100);
-        a5 = focusedRandom(1,100);
-        a6 = focusedRandom(1,100);
-        a7 = focusedRandom(1,100);
-        a8 = focusedRandom(1,100);
-        a9 = focusedRandom(1,100);
-        a10 = focusedRandom(0,100);
-        a11 = focusedRandom(0,5,4,5);
-        a12 = focusedRandom(0,5,2,2);
-        drawFace3(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
+        b2 = focusedRandom(1,100);
+        b1 = focusedRandom(1,100);
+        b3 = focusedRandom(1,100);
+        b4 = focusedRandom(1,100);
+        b5 = focusedRandom(1,100);
+        b6 = focusedRandom(1,100);
+        b7 = focusedRandom(1,100);
+        b8 = focusedRandom(1,100);
+        b9 = focusedRandom(1,100);
+        b10 = focusedRandom(0,100);
+        b11 = focusedRandom(0,5,4,5);
+        b12 = focusedRandom(0,5,2,2);
+        drawFace3(b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12);
         pop();
       }
       else if (i > 0) {
@@ -86,6 +86,7 @@ function draw () {
         translate(x, y);
         scale(w/25, h/25);
         if((i+j)%2 == 0) {
+          // push();
           a1 = focusedRandom(1,100);
           a2 = focusedRandom(1,100);
           a3 = focusedRandom(1,100);
@@ -100,6 +101,7 @@ function draw () {
           a12 = focusedRandom(0,5,2,2);
 
           drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
+          // pop();
         }
         else {
           a1 = focusedRandom(1,100);
@@ -114,7 +116,7 @@ function draw () {
           a10 = focusedRandom(0,100);
           a11 = focusedRandom(0,5,4,5);
           a12 = focusedRandom(0,5,2,2);
-          drawFace2(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
+          drawFace3(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
         }
         pop();
       }

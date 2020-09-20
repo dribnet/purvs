@@ -29,10 +29,11 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   var ver = [];
   var bodver = [];
 
-  var col1  = color(143,147,85);
+  var col1  = color(167,195,126);
   var col2 = color(149,174,132);
-  var col3  = color(81,153,76);
-  var col4  = color(75,123,80);
+  var col3  = color(90,140,80);
+  var col4  = color(78,129,85);
+  var col5  = color(80,70,57);
   var curCol = col1;
 
   if(colour < 1){
@@ -41,8 +42,11 @@ function drawFace1(h_thickness, b_thickness, height, blob,
   else if(colour < 2){
     curCol = lerpColor(col2, col3, colour-1);
   }
-  else if(colour <= 3){
+  else if(colour <= 2.9){
     curCol = lerpColor(col3, col4, colour-2);
+  }
+  else{
+    curCol = col5;
   }
 
 
@@ -83,7 +87,6 @@ function drawFace1(h_thickness, b_thickness, height, blob,
 
 
 
-
   bodver.push(createVector( 0, 4 - height*0.8)); // top
   bodver.push(createVector( 4 - blob/2 + b_thickness/15 + h_thickness/10,  6 - height*0.6));
   bodver.push(createVector( 3.5 + b_thickness/5, 9.5 - height/10));
@@ -100,15 +103,21 @@ if(belly > 3){
   if(m_open > 4){
     fill(168,91,77);
     noStroke();
+
+    bezier(-3 - h_thickness/4 + blob/3-b_thickness/25,2 - height*0.8,
+          0, 2.5 -height*0.8 +mouth * 1.3,
+          0, 2.5 -height*0.8+mouth * 1.3,
+          3 + h_thickness/4 - blob/3 + b_thickness/25,2.3 - height*0.7);
   }
   else{
     strokeWeight(0.3);
-    stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
+    stroke(red(curCol) - 45, green(curCol) - 35, blue(curCol) - 40);
     noFill();
+    bezier(-3 - h_thickness/4 + blob/3-b_thickness/25,2 - height*0.8, 0,2.5 -height*0.8 +mouth, 0,2.5 -height*0.8+mouth,
+    3 + h_thickness/4 - blob/3+b_thickness/25,2 - height*0.7);
   }
 
-  bezier(-3 - h_thickness/4 + blob/3-b_thickness/25,2 - height*0.8, 0,2.5 -height*0.8 +mouth, 0,2.5 -height*0.8+mouth,
-  3 + h_thickness/4 - blob/3+b_thickness/25,2 - height*0.7);
+
 
   noStroke();
   // if(true){
@@ -120,10 +129,17 @@ if(belly > 3){
   }
   // head
   // eyes
-  fill(71,77,67);
+  eyeCol = lerpColor( color(50,55,45), curCol, 0.4);
+  eyeFillCol = lerpColor( color(71,77,67), curCol, 0.6);
+  if(colour > 2.8){
+    eyeCol = lerpColor( color(0), curCol, 0.4);
+    eyeFillCol = lerpColor( color(0), curCol, 0.6);
+  }
+
+  fill(eyeCol);
   ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size);
   ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size);
-  fill(79,96,69);
+  fill(eyeFillCol);
   ellipse(-2 - h_thickness/4, - height*0.75 + e_height, (2 + e_size)*0.8);
   ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, (2 + e_size)*0.8);
 
@@ -134,7 +150,7 @@ if(belly > 3){
 
   }
   else if(pupil == 10){
-    fill(71,77,67);
+    fill(eyeCol);
 
     ellipse(-2 - h_thickness/4, - height*0.75 + e_height, 2 + e_size,1);
     ellipse(2 + h_thickness/4,0.6 - height*0.75 + e_height, 2 + e_size,1);
@@ -148,134 +164,22 @@ if(belly > 3){
 
   }
 
-}
 
-/*
- * thinness_value ranges from 0-100 and indicates how thin the face is
- */
-function drawFace2(h_thickness, b_thickness, height, h_height,
-                  e_shape, e_height, e_size, mouth, pupil,
-                  colour, belly, m_open) {
+  if(e_shape >= 0.5){
+    col = lerpColor(color(red(curCol)-45,green(curCol)-35,blue(curCol)-40),color(71,77,67),0.5);
+    stroke(col);
+    strokeWeight(0.3);
+    noFill();
+    line(0.5 + h_thickness/4, 0 - height*0.75 + e_height - e_size/2,
+        0.5 + h_thickness/4 + 1.2, 0 - height*0.75 + e_height - 0.6 - e_size/2);
 
-  height = height/10;
-  h_thickness = h_thickness/10;
-  b_thickness = h_thickness/2 + b_thickness/15;
-  mouth = 0.5 - mouth/100;
-  e_shape = e_shape/100;
-  e_size = 0.5 - e_size/100;
-  e_height = e_height/100 - 0.3;
-  h_height = h_height/20;
-  pupil = int(pupil/20);
-  colour = map(colour, 0, 100, 0, 3);
-  var ver = [];
-  var headver = [];
-  var bodver = [];
-
-  var curCol = color(149,174,132);
-
-  ver.push(createVector( 2.5 + b_thickness/3.4,2 -height/2)); // top right
-
-  ver.push(createVector( 0, -height/2));
-
-  ver.push(createVector( -2.5 - b_thickness/3.5,2 -height/2)); // top left
-  ver.push(createVector( -4 - b_thickness/3, 6 - height/3));
+    line(-0.5 - h_thickness/4, -0.6 - height*0.75 + e_height - e_size/2,
+        -0.5 - h_thickness/4 - 1.2, -0.6 - height*0.75 + e_height - 0.6 - e_size/2);
 
 
-  ver.push(createVector( -3 - b_thickness/3.5, 9.5 - height/10)); // bottom left
-  ver.push(createVector( 3 + b_thickness/3.5, 9.5 - height/10)); // bottom right
-  ver.push(createVector( 4 + b_thickness/3, 6 - height/3));
-
-
-  fill(149,174,132);
-  noStroke();
-  push();
-    translate(1,0);
-    drawCurves(ver);
-  pop();
-  // head
-  // if(true){
-  if(false){
-    for(let i = 0;i < ver.length; i++){
-      fill(129,154,112);
-      ellipse(ver[i].x,ver[i].y, 0.3,0.3);
-    }
   }
-  headver.push( createVector( -5 - h_thickness/10, 2 - h_height - height/3) );
-
-  headver.push( createVector( -4.5 - h_thickness/12, -0 - h_height - height/3) ); // top left
-  headver.push( createVector( -2, -1 - h_height - height/3) );
-
-  headver.push( createVector( 0.5 + h_thickness/10, -0 - h_height - height/3) ); // top right
-
-  headver.push( createVector( 0.5 + h_thickness/10, 2 - h_height - height/3) );
-
-  headver.push( createVector( 0.5 + h_thickness/10, 3.5 - h_height - height/3) ); // bottom right
-  headver.push( createVector( -2, 5 - h_height - height/3) );
-
-  headver.push( createVector( -4.5 - h_thickness/12, 3.5 - h_height - height/3) ); // bottom left
-  push();
-  scale(1);
-  translate(0,2);
-    push();
-      translate(0,3);
-
-      drawCurves(headver);
-    pop();
-
-    angleMode(RADIANS);
-
-    for(var i = -1; i < 2; i+= 2){
-      push();
-        translate(i * 1.8, 0);
-        translate(-2,4 -height/3 - h_height);
-        rotate(e_size* i + PI/18 * -i);
-
-
-        if(e_size < -0.1){
-          noFill();
-          strokeWeight(0.2);
-          stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
-          arc(0,-0.4,2,0.2 + e_shape,PI + 0.2,-0.2,OPEN);
-        }
-        fill(0);
-        noStroke();
-        arc(0,0,2,0.2 + e_shape,PI,0,CHORD);
-        arc(0,0,2,2,0,PI,CHORD);
-      pop();
-    }
-
-    if(m_open > 4){
-      fill(168,91,77);
-      noStroke();
-    }
-    else{
-      strokeWeight(0.3);
-      stroke(red(curCol) - 18, green(curCol) - 25, blue(curCol) - 20);
-      noFill();
-    }
-    push();
-    translate(-2,-height/3 + 5 - h_height);
-      bezier(-1,0,0,mouth,0,mouth,1,0);
-    pop();
-  pop();
-
-  noStroke();
-  fill(149,174,132);
-
-  // rect(-5, -10, 10, 20);
-
-  // eyes
-  fill(240);
 
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -291,16 +195,23 @@ function drawFace3(h_thickness, s_length, height, s_height,
                   e_shape, e_height, s_width, mouth, pupil,
                   colour, belly, m_open) {
   // s - snout
+  // stroke(0);
+  // strokeWeight(0.1);
+  // noFill();
+  // rect(-10,-10,20,20);
+
+  angleMode(RADIANS);
+  fill(240);
   scale(1.2,1);
   translate(1,0);
   height = height/10;
-  h_thickness = h_thickness/10;
+  h_thickness = h_thickness/12;
   s_length = s_length/10;
   mouth = 0.5 - mouth/50;
   e_shape = e_shape/100;
   // e_size = 0.5 - e_size/100;
   s_width = 0.2 - s_width/100;
-  e_height = e_height/100 - 0.3;
+  e_height = e_height/100 - 0.4;
   s_height = s_height/10;
   pupil = int(pupil/20);
   colour = map(colour, 0, 100, 0, 3);
@@ -329,6 +240,9 @@ function drawFace3(h_thickness, s_length, height, s_height,
     curCol = color(220,150,70);
   }
 
+  eyeCol = lerpColor( color(71/2,77/2,67/2), curCol, 0.34);
+  eyeFillCol = lerpColor( color(71,77,67), curCol, 0.6);
+
   if(belly < 1){
     scale(-1,1);
   }
@@ -340,7 +254,7 @@ function drawFace3(h_thickness, s_length, height, s_height,
   ver.push(createVector( 5 + h_thickness/8, 3 + height/6)); // bottom right
 
   ver.push(createVector( 3  + h_thickness/8, 5 + height/6));
-  ver.push(createVector( -1 - s_length/8 - h_thickness/8, 5 + height/6));
+  ver.push(createVector( -1 - s_length/8 - h_thickness/8, 6 + height/6));
 
 
   ver.push(createVector( -1 - s_length/8 - h_thickness/8, 3 + height/6)); // bottom left
@@ -353,7 +267,7 @@ function drawFace3(h_thickness, s_length, height, s_height,
 
   if(e_shape < 0.75){
     noStroke();
-    fill(0);
+    fill(eyeCol);
     ellipse( -2.5 -h_thickness/8 - s_length/6, -2 - height/10 - e_height, 2);
   }
 
@@ -366,7 +280,7 @@ function drawFace3(h_thickness, s_length, height, s_height,
   tonver.push(createVector( 3 +h_thickness/8, 0 - height/10)); // top right
   tonver.push(createVector( 4 + h_thickness/8, 3 + height/6)); // bottom right
   tonver.push(createVector( 3  + h_thickness/8, 5 + height/6));
-  tonver.push(createVector( -1 - s_length/8 - h_thickness/8, 5 + height/6));
+  tonver.push(createVector( -1 - s_length/8 - h_thickness/8, 6 + height/6));
   tonver.push(createVector( -1 - s_length/8 - h_thickness/8, 3 + height/6)); // bottom left
   tonver.push(createVector( -2 - s_length/8 - h_thickness/8, 1 + s_height/10 - s_width * 0.8 + height/10));
   tonver.push(createVector( -2.5 - s_length/6 - h_thickness/5 , 0 + s_height/7 - height/10 - s_width*1.2));
@@ -376,34 +290,35 @@ function drawFace3(h_thickness, s_length, height, s_height,
 
 
   if(e_shape < 0.3 && (h_thickness > 0.15 || s_length > 0.15) && s_height < 8){ // can see entire tri when snout is too small
-    eyeverL.push( createVector( -1.5-h_thickness/8- s_length/6,  -2 - height/10 - e_height) );
+    eyeverL.push( createVector( -0.8-h_thickness/5- s_length/4.5,  -2 - height/10 - e_height) );
     eyeverL.push( createVector( 1.5-h_thickness/8- s_length/6,  -2 - height/10 - e_height) );
-    eyeverL.push( createVector( 0-h_thickness/8- s_length/6, -4 - height/10 - e_height) );
+    eyeverL.push( createVector( 0-h_thickness/8- s_length/6, -4 - height/8 - e_height) );
 
     eyeverR.push( createVector( -1.5+h_thickness/8,  -2 - height/10 - e_height) );
     eyeverR.push( createVector( 1.5+h_thickness/8,  -1.5 - height/10 - e_height) );
-    eyeverR.push( createVector( 0+h_thickness/8, -4 - height/10 - e_height) );
+    eyeverR.push( createVector( 0+h_thickness/8, -4 - height/7 - e_height) );
     push();
       translate(1.9,0);
       drawCurves(eyeverR);
     pop();
 
     push();
-      translate(-2.2 + s_width,0.5);
-      scale(0.8,1);
+      translate(-1.8,0.5);
+      // scale(0.8,1);
       drawCurves(eyeverL);
     pop();
   }
   else if(e_shape > 0.75){
-    eyeverR.push( createVector( -1.5+h_thickness/8 - s_length/6,  -2 - height/10 - e_height) );
-    eyeverR.push( createVector( 1.5+h_thickness/8 - s_length/6,  -1.5 - height/10 - e_height) );
-    eyeverR.push( createVector( 0+h_thickness/8 - s_length/6, -4 - height/10 - e_height) );
+    eyeverR.push( createVector( -1.5+h_thickness/8,  -2 - height/10 - e_height) );
+    eyeverR.push( createVector( 1.5+h_thickness/8 ,  -1.5 - height/10 - e_height) );
+    eyeverR.push( createVector( 0+h_thickness/8, -4 - height/7 - e_height) );
     push();
       translate(0.5,-0.2);
       drawCurves(eyeverR);
     pop();
 
   }
+
 
 
   if(belly > 3){
@@ -422,24 +337,26 @@ function drawFace3(h_thickness, s_length, height, s_height,
   }
 
 
-  if(e_shape > 0.875){
-    fill(0);
+
+  if(e_shape > 0.875){ // slanted 50%
+    fill(eyeCol);
     // arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,0.2,PI,0,CHORD);
     arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,2,2,-0.2,PI- 0.2,CHORD);
     fill(75,90,70);
     arc( 0.5 +h_thickness/8, -2 - height/10 - e_height,1.6,1.6,-0.2,PI-0.2,CHORD);
+
   }
   else if(e_shape > 0.75){
-    fill(0);
+    fill(eyeCol);
     ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height, 2);
-    fill(75,90,70);
+    fill(eyeFillCol);
     ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height, 1.6);
   }
   else{
-    fill(0);
+    fill(eyeCol);
     ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 2);
     if(pupil != 2){
-      fill(75,90,70);
+      fill(eyeFillCol);
       ellipse( 2 +h_thickness/8, -2 - height/10 - e_height, 1.6);
     }
   }
@@ -458,12 +375,12 @@ function drawFace3(h_thickness, s_length, height, s_height,
   }
   else if(pupil == 1){
     if(e_shape > 0.75 && e_shape < 0.875){
-      fill(0);
-      ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height,2, 1);
+      fill(eyeCol);
+      ellipse( 0.5 +h_thickness/8, -2 - height/10 - e_height,2, 0.8);
     }
     else if(e_shape < 0.75){
-      fill(0);
-      ellipse( 2 +h_thickness/8, -2 - height/10 - e_height,2, 1);
+      fill(eyeCol);
+      ellipse( 2 +h_thickness/8, -2 - height/10 - e_height,2, 0.8);
     }
   }
 
