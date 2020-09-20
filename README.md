@@ -2,12 +2,11 @@
 
 FINAL FONT:
 
- I use two sectors as module to build the letters and digits.One sector has stroke and anther doesn't. I think it is better for alphabets to transformation.Because the sectors can be changeful from o degree to 360 degree while the strokes can highlight the significant part. For the color palette, I use red, yellow, green to compose the alphabets so that they looks like red heart watermelon and yellow heart watermelon.The name of the fonts is "MELONLTR". I make effort to keep the fonts express clearly and easy to recognize. After modifying and adjusting , here is my final font.
- 
+ I use two sectors as a module to build the letters and digits.One sector has a stroke and another doesn't. I think it is better for the alphabet to transform.Because the sectors can be changeful from o degree to 360 degrees while the strokes can highlight the significant part. For the color palette, I use red, yellow, green to compose the alphabets so that they look like red heart watermelon and yellow heart watermelon.The name of the fonts is "MELONLTR". I make efforts to keep the fonts express clearly and easy to recognize. 
 
 
 
-In the 	draw_letters.js	file and exhibition.js file, I replace the SwapWords variable into : MELONLTR","CHERYNYN","12042019","JIANGXIN"
+
 
  The ten parameters per letter:
  size1 : radius of the first sector
