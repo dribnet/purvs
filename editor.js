@@ -92,10 +92,31 @@ function draw () {
   push();
   if (mode == '1') {
     // draw 1st face
+    s1 = map(s1,0,100,0,10);
+    s3 = map(s3,0,100,0,10);
+    s4 = map(s4,0,100,1,0);
+    s5 = map(s5,0,100,0,1);
+    s6 = map(s6,0,100,-0.3,0.7);
+    s7 = map(s7,0,100,-0.5,0.5);
+    s8 = map(s8,0,100,-1.5,0.5);
+    s9 = map(s9,0,100,0,5);
+    s10 = map(s10,0,100,0,3);
+
+
     drawFace1(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,belly, m_open);
   }
 
   if (mode == '2') {
+    s1 = map(s1,0,100,0,8);
+    s2 = map(s2,0,100,0,10);
+    s3 = map(s3,0,100,0,10);
+    s4 = map(s4,0,100,0,10);
+    s5 = map(s5,0,100,0,1);
+    s6 = map(s6,0,100,-0.4,0.6);
+    s7 = map(s7,0,100,-0.8,0.2);
+    s8 = map(s8,0,100,-1.5,0.5);
+    s9 = map(s9,0,100,0,5);
+    s10 = map(s10,0,100,0,3);
     // draw 2nd face - let slider value 1 indicate thinness
     drawFace3(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,belly, m_open);
   }

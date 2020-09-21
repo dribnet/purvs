@@ -32,6 +32,12 @@ function mouseClicked() {
   changeRandomSeed();
 }
 
+
+var book_w = 350;
+var book_h = 450;
+var book_x = 10;
+var book_y = 10;
+
 function draw () {
   if(millis() > lastSwapTime + millisPerSwap) {
     changeRandomSeed();
@@ -42,8 +48,9 @@ function draw () {
 
   // clear screen
   background(bg_color1);
-  noStroke();
-
+  // noStroke();
+  // rect(book_x,book_y,book_w,book_h);
+  // rect(book_x+5+book_w,book_y, book_w,book_h);
   // draw a 7x4 grid of faces
   let w = canvasWidth / 7;
   let h = canvasHeight / 4;
@@ -51,75 +58,42 @@ function draw () {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-      if (i == 0) {
-        // center face
-        let eye_value = 2;
-        let tilt_value = focusedRandom(-15, 45);
-        let mouth_value = focusedRandom(1, 3);
-        let is_cyclops = focusedRandom(0, 100);
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = focusedRandom(-5, 5);
-          mouth_value = focusedRandom(5, 10);
-        }
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        b2 = focusedRandom(1,100);
-        b1 = focusedRandom(1,100);
-        b3 = focusedRandom(1,100);
-        b4 = focusedRandom(1,100);
-        b5 = focusedRandom(1,100);
-        b6 = focusedRandom(1,100);
-        b7 = focusedRandom(1,100);
-        b8 = focusedRandom(1,100);
-        b9 = focusedRandom(1,100);
-        b10 = focusedRandom(0,100);
-        b11 = focusedRandom(0,5,4,5);
-        b12 = focusedRandom(0,5,2,2);
-        drawFace3(b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12);
-        pop();
+      push();
+      translate(x, y);
+      scale(w/25, h/25);
+      if((i+j)%2 == 0) {
+        // push();
+        a1 = focusedRandom(0,10,2,4);
+        a2 = focusedRandom(0,100,1,25);
+        a3 = focusedRandom(0,10,2,4);
+        a4 = 1 - focusedRandom(0,1);
+        a5 = focusedRandom(0,1);
+        a6 = focusedRandom(-0.3,0.7);
+        a7 = focusedRandom(-0.5,0.5);
+        a8 = focusedRandom(-1.5,0.5);
+        a9 = focusedRandom(0,5);
+        a10 = focusedRandom(0,3);
+        a11 = focusedRandom(0,5,4,5);
+        a12 = focusedRandom(0,5,2,2);
+        drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
+        // pop();
       }
-      else if (i > 0) {
-        // all other faces
-        push();
-        translate(x, y);
-        scale(w/25, h/25);
-        if((i+j)%2 == 0) {
-          // push();
-          a1 = focusedRandom(1,100);
-          a2 = focusedRandom(1,100);
-          a3 = focusedRandom(1,100);
-          a4 = focusedRandom(1,100);
-          a5 = focusedRandom(1,100);
-          a6 = focusedRandom(1,100);
-          a7 = focusedRandom(1,100);
-          a8 = focusedRandom(1,100);
-          a9 = focusedRandom(1,100);
-          a10 = focusedRandom(0,100);
-          a11 = focusedRandom(0,5,4,5);
-          a12 = focusedRandom(0,5,2,2);
-
-          drawFace1(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
-          // pop();
-        }
-        else {
-          a1 = focusedRandom(1,100);
-          a2 = focusedRandom(1,100);
-          a3 = focusedRandom(1,100);
-          a4 = focusedRandom(1,100);
-          a5 = focusedRandom(1,100);
-          a6 = focusedRandom(1,100);
-          a7 = focusedRandom(1,100);
-          a8 = focusedRandom(1,100);
-          a9 = focusedRandom(1,100);
-          a10 = focusedRandom(0,100);
-          a11 = focusedRandom(0,5,4,5);
-          a12 = focusedRandom(0,5,2,2);
-          drawFace3(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
-        }
-        pop();
+      else {
+        a1 = focusedRandom(0,8,2,2.5);
+        a2 = focusedRandom(0,10,1,4);
+        a3 = focusedRandom(0,10,1,3);
+        a4 = focusedRandom(0,10,2,4);
+        a5 = focusedRandom(0,1);
+        a6 = focusedRandom(-0.4,0.6);
+        a7 = focusedRandom(-0.8,0.2);
+        a8 = focusedRandom(-1.5,0.5);
+        a9 = focusedRandom(0,5);
+        a10 = focusedRandom(0,3);
+        a11 = focusedRandom(0,5,4,5);
+        a12 = focusedRandom(0,5,2,2);
+        drawFace3(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12);
       }
+      pop();
     }
   }
 }
