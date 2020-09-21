@@ -42,7 +42,7 @@ function setup () {
   slider11.parent('slider11Container');
   slider12.parent('slider12Container');
 
-  faceGuideCheckbox = createCheckbox('', true);
+  faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
 
   faceSelector = createSelect();
