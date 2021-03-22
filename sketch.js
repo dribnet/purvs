@@ -13,21 +13,42 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size1": 90,
+  "size2": 25,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 70,
+  "arcOffsetx": 50,
+  "arcOffsety": 130,
+  "RectAngle": 30,
+  "angleStart": 0,
+  "angleEnd": 360,
+  "opacity": 255
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size1": 25,
+  "size2": 100,
+  "offsetx": 50,
+  "offsety": 25,
+  "arcOffsetx": 75,
+  "arcOffsety": 100,
+  "RectAngle": 0,
+  "angleStart": 0,
+  "angleEnd": 360,
+  "opacity": 255
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size1": 90,
+  "size2": 150,
+  "offsetx": 60,
+  "offsety": 75,
+  "arcOffsetx": 30,
+  "arcOffsety": 75,
+  "RectAngle": 0,
+  "angleStart": 25,
+  "angleEnd": 0,
+  "opacity": 0
 }
 
 const backgroundColor  = "#e3eded";
@@ -35,6 +56,8 @@ const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
+
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -44,12 +67,15 @@ function setup () {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
-
+angleMode(DEGREES); //angle mode to degrees
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
+
+
 function draw () {
+  
   // clear screen
   background(backgroundColor);
 
@@ -63,17 +89,38 @@ function draw () {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
+
+
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  
+  let size1 = letterData["size1"]
+  let size2 = letterData["size2"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let pos3x = posx + letterData["arcOffsetx"];
+  let pos3y = posy + letterData["arcOffsety"];
+  let RectAngle = letterData["RectAngle"];
+  let angleStart = letterData["angleStart"];
+  let angleEnd = letterData["angleEnd"];
+  let opacity = letterData["opacity"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw a rectangle and rotate it
+  noStroke();
+  fill(219, 32, 122, opacity);
+
+  push();
+  translate(posx,posy);
+  rotate(RectAngle);
+  rect(0, 0, 15, 150);
+  pop();
+  
+  fill(144, 21, 135)
+  ellipse(pos2x, pos2y, size1, size1);
+
+  fill(169, 9, 69);
+  arc(pos3x, pos3y, size2, size2, angleStart, angleEnd)
+  
 }
 
 function keyTyped() {
