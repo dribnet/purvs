@@ -13,28 +13,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": -45,
+  "rotation":45
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 70,
+  "offsetx": 45,
+  "offsety": 3,
+  "rotation":45
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": 0,
+  "rotation":100
 }
 
 const backgroundColor  = "#e3eded";
 const strokeColor      = "#233f11";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const darkPurple  = "#582C70";
+const lightPurple  = "#BD5DF0";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -44,6 +47,8 @@ function setup () {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
+  angleMode(DEGREES);
+  rectMode(CENTER);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -70,10 +75,14 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  fill(darkBlue);
+  fill(darkPurple);
   ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(lightPurple);
+  push();
+  translate(pos2x, pos2y);
+  rotate(letterData["rotation"]);
+  rect(0, 0, size2, size2);
+  pop();
 }
 
 function keyTyped() {
