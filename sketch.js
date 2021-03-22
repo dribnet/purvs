@@ -31,10 +31,11 @@ const letterC = {
 }
 
 const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
 
-const darkBlue  = "#199cff";
+const lightPurple  = "#b29af5";
 const lightBlue  = "#59ccff";
+const DarkBlue = "345eeb";
+const Indigo = "3734eb";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -42,8 +43,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -69,11 +69,18 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+   //draw two circles
+   fill(lightPurple);
+   ellipse(posx, posy, 150, 150);
+   fill(lightBlue);
+   ellipse(pos2x, pos2y, size2, size2);
+
+   //arc
+   fill(DarkBlue)
+   arc(400, 300, 300, 300, 0, HALF_PI);
+   fill(Indigo)
+   arc(400, 300, 300, 300, 0, HALF_PI-50);
+
 }
 
 function keyTyped() {
