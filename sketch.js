@@ -15,13 +15,26 @@ const canvasHeight = 500;
 const letterA = {
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 20,
+  "point1A": 0,
+  "point2A": 80,
+  "point3A": -120,
+  "point1B": -120,
+  "point2B": 100,
+  "point3B": 100,
+  "point1C": 0,
+  "point2C": 40,
+  "point3C": -80,
+  "point1D": 40,
+  "point2D": 100,
+  "point3D": 100
 }
 
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": 0,
+  
 }
 
 const letterC = {
@@ -30,11 +43,11 @@ const letterC = {
   "offsety": 0
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#c9afaf";
+const strokeColor      = "#f2f2f2";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const colourRed  = "#a83636";
+const colourBlack  = "#1f1f1f";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -69,11 +82,24 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let A1 = posx + letterData["point1A"];
+  let A2 = posy + letterData["point2A"];
+  let A3 = posy + letterData["point3A"];
+  let B1 = posx + letterData["point1B"];
+  let B2 = posy + letterData["point2B"];
+  let B3 = posy + letterData["point3B"];
+  let C1 = posx + letterData["point1C"];
+  let C2 = posy + letterData["point2C"];
+  let C3 = posy + letterData["point3C"];
+  let D1 = posx + letterData["point1D"];
+  let D2 = posy + letterData["point2D"];
+  let D3 = posy + letterData["point3D"];
+
+  // draw
+  fill(colourRed);
+  triangle(A1, B1, A2, B2, A3, B3);
+  fill(colourBlack);
+  triangle(C1, D1, C2, D2, C3, D3);
 }
 
 function keyTyped() {
