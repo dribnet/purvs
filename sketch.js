@@ -13,28 +13,34 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 190,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 0,
+  "start": 30,
+  "end": 150,
+  "Tri": 180,
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 100,
+  "offsetx": 50,
+  "offsety": 10,
+  "start": 0,  
+  "end": 120,
+  "Tri": 470,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 180,
+  "offsetx": 0,
+  "offsety": 0, 
+  "start": 90, 
+  "end": 270,
+  "Tri": 630,
 }
 
 const backgroundColor  = "#e3eded";
 const strokeColor      = "#233f11";
-
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -52,7 +58,7 @@ function setup () {
 function draw () {
   // clear screen
   background(backgroundColor);
-
+angleMode(DEGREES);
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
   let center_y = canvasHeight / 2;
@@ -64,16 +70,21 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
+  noStroke();
   // determine parameters for second circle
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-
+  let angleS = letterData["start"];
+  let angleE = letterData["end"];
+  let TriX = letterData["Tri"];
   // draw two circles
-  fill(darkBlue);
+  fill("#9c4887");
   ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill("#ba7599");
+  arc(pos2x, pos2y, size2, size2, angleS, angleE);
+  fill("#fae1f6");
+  triangle(50+TriX, 290, 0+TriX, 250, 90+TriX, 250);
 }
 
 function keyTyped() {
