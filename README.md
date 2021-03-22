@@ -1,12 +1,16 @@
 ## MDDN 242 2021 Assignment 2
 
-TESTING
+I am currently taking Typography, where I've been researching how geometric shapes make up letter forms and today I felt inspired to create my letter forms from geometric shapes in p5.js
 
-(Replace this README with information about your alphabet. This is an example.)
+My colour scheme is inspired by pop art colours.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+Most of my parameters include:
+- The size of shape
+- Width of the shape
+- Height of the shape
+- Multiple x positions
+- Multiple y positions
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+23/03 - Took me a while to understand the different ways of declaring parameters, calling them and calling the functions.
+
+Homework: I am going to further brainstorm my idea and build on it + work on my sketch.

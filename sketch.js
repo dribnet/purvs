@@ -13,22 +13,34 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "posX": 30,
+  "posY": 75,
+  "posX1": 58,
+  "posY1": 20,
+  "posX2": 86,
+  "posY2": 75
 }
 
-// const letterB = {
-//   "size": 150,
-//   "offsetx": 0,
-//   "offsety": -145
-// }
+const letterB = {
+  "size": 35,
+  "width": 20,
+  "height": 55,
+  "posX": 0,
+  "posY": 38,
+  "posX1": 0,
+  "posY1": 58,
+  "posX2": -25,
+  "posY2": 20
+}
 //
-// const letterC = {
-//   "size": 100,
-//   "offsetx": 30,
-//   "offsety": 0
-// }
+const letterC = {
+  "posX": 0,
+  "posY": 50,
+  "width": 55,
+  "height": 55,
+  "openingStart": 120,
+  "closingStop": 50
+}
 
 const backgroundColor = "#e3eded";
 const strokeColor = "#233f11";
@@ -61,29 +73,59 @@ function draw() {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x, center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetterA(center_x - 200, center_y - 50, letterA);
+  drawLetterB(center_x, center_y - 50, letterB);
+  drawLetterC(center_x + 140, center_y - 50, letterC);
 }
 
-function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+function drawLetterA(posx, posy, letterData) {
+  //Parameters
+  let posX = posx + letterData["posX"];
+  let posY = posy + letterData["posY"];
+  let posX1 = posx + letterData["posX1"];
+  let posY1 = posy + letterData["posY1"];
+  let posX2 = posx + letterData["posX2"];
+  let posY2 = posy + letterData["posY2"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, 150, 150);
-
-// A
+  // The A
   fill(darkPink);
   noStroke();
-  triangle(30, 75, 58, 20, 86, 75);
-  // fill(backgroundColor);
-  // quad(50, 65, 65, 65, 72, 80, 45, 76);
+  triangle(posX, posY, posX1, posY1, posX2, posY2);
+}
+
+function drawLetterB(posx, posy, letterData) {
+  //Parameters
+  let size = letterData["size"];
+  let width = letterData["width"];
+  let height = letterData["height"];
+  let posX = posx + letterData["posX"];
+  let posY = posy + letterData["posY"];
+  let posX1 = posx + letterData["posX1"];
+  let posY1 = posy + letterData["posY1"];
+  let posX2 = posx + letterData["posX2"];
+  let posY2 = posy + letterData["posY2"];
+
+  // The B
+  fill(lightBlue);
+  ellipse(posX, posY, size, size);
+  fill(yellow);
+  ellipse(posX1, posY1, size, size);
+  fill(darkBlue);
+  rect(posX2, posY2, width, height);
+}
+
+function drawLetterC(posx, posy, letterData) {
+  //Parameters
+  let posX = posx + letterData["posX"];
+  let posY = posy + letterData["posY"];
+  let width = letterData["width"];
+  let height = letterData["height"];
+  let start = letterData["openingStart"];
+  let stop = letterData["closingStop"];
+
+  // The C
+  fill(lightPink);
+  arc(posX, posY, width, height, start, stop);
 }
 
 function keyTyped() {
