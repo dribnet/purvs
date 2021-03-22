@@ -2,10 +2,14 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+For my sketch. Each of my letters is composed an arc circle and a triangle. The size and position of the arcis fixed, but location of the arc start and end changes. the location and size of the triangle changes to complete the letterform
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+The 6 parameters per letter:
+  * `size` : used to change the width of the trianlge
+  * `offsetx` : x offset of the triangle relative to the circle
+  * `offsety` : y offset of the triangle relative to the circle
+   * `ArcStart` : starts the arc for the main circle
+   * `ArcEnd` : ends the arc for the main circle
+   * `TrianglePoint` : is used to change where the bottom right corner of the triangle is used to get around using a rotate function
 
+   For the final letterforms i am looking an english design studio Spin. They do a lot of interesting generative and interactive letterform and fonts

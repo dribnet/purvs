@@ -13,21 +13,31 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 0,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 100,
+  "ArcStart":120,
+  "ArcEnd":420,
+  "TrianglePoint":0
+
 }
 
 const letterB = {
-  "size": 150,
+  "size": 75,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -50,
+  "ArcStart":0,
+  "ArcEnd":270,
+  "TrianglePoint":40
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 75,
+  "offsetx": 0,
+  "offsety": -50,
+  "ArcStart":40,
+  "ArcEnd":320,
+  "TrianglePoint":-50
 }
 
 const backgroundColor  = "#e3eded";
@@ -42,11 +52,13 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  // stroke(strokeColor);
+  // strokeWeight(4);
+  noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES)
 }
 
 function draw () {
@@ -69,11 +81,14 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+  let startAngle = letterData["ArcStart"];
+  let stopAngle = letterData["ArcEnd"];
+  let sideTriangle = letterData["TrianglePoint"];
   // draw two circles
   fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
+  triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(posx, posy, 200, 200,startAngle,stopAngle);
 }
 
 function keyTyped() {
