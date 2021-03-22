@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -18,25 +18,28 @@ const letterA = {
   "offsety": 35
 }
 
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
-}
+// const letterB = {
+//   "size": 150,
+//   "offsetx": 0,
+//   "offsety": -145
+// }
+//
+// const letterC = {
+//   "size": 100,
+//   "offsetx": 30,
+//   "offsety": 0
+// }
 
-const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
-}
+const backgroundColor = "#e3eded";
+const strokeColor = "#233f11";
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const yellow = "#FDD70F";
+const darkPink = "#ED1C79";
+const lightPink = "#E08ABA";
+const darkBlue = "#27469D";
+const lightBlue = "#7EB6E3";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-
-function setup () {
+function setup() {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
@@ -49,17 +52,17 @@ function setup () {
   noLoop();
 }
 
-function draw () {
+function draw() {
   // clear screen
   background(backgroundColor);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
+  drawLetter(center_x, center_y, letterB);
   drawLetter(center_x + 250, center_y, letterC);
 }
 
@@ -73,14 +76,20 @@ function drawLetter(posx, posy, letterData) {
   fill(darkBlue);
   ellipse(posx, posy, 150, 150);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos2x, pos2y, 150, 150);
+
+// A
+  fill(darkPink);
+  noStroke();
+  triangle(30, 75, 58, 20, 86, 75);
+  // fill(backgroundColor);
+  // quad(50, 65, 65, 65, 72, 80, 45, 76);
 }
 
 function keyTyped() {
   if (key == '!') {
     saveBlocksImages();
-  }
-  else if (key == '@') {
+  } else if (key == '@') {
     saveBlocksImages(true);
   }
 }
