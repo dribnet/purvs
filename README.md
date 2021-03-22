@@ -2,12 +2,5 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
-  this is my first commit
+  idea 1: draw the design out of circles with varying opacities so it has a sorta ghost-like effect. I could use true/false features to make cloudy effects in the back. The design I did in class today is like a super basic verison of what I eventually want to do
 

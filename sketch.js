@@ -13,28 +13,49 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 100,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 55,
+  "opacity1": 145,
+  "size3": 30,
+  "offsetx3": 0,
+  "offsety3": -30,
+  "opacity2": 145,
+  //"circleNumber":
+  //"colour": 
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 50,
+  "offsetx": 20,
+  "offsety": -30,
+  "opacity1": 145,
+  "size3": 50,
+  "offsetx3": 20,
+  "offsety3": 30,
+  "opacity2": 145,
+  //"circleNumber":
+  //"colour": 
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": 0,
+  "opacity1": 145,
+  "size3": 80,
+  "offsetx3": 0,
+  "offsety3": 35,
+  "opacity2": 0,
+  //"circleNumber":
+  //"colour": 
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = (227, 237, 237);
+const strokeColor      = (255);
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+//const darkBlue  = "#199cff";
+//const lightBlue  = "#e3eded";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,7 +64,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
+  strokeWeight(0);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -68,12 +89,24 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let size3 = letterData["size3"];
+  let pos3x = posx + letterData["offsetx3"];
+  let pos3y = posy + letterData["offsety3"];
+
+  let cutoutOpacity1 = letterData["opacity1"]
+  let cutoutOpacity2 = letterData["opacity2"]
+  
+
 
   // draw two circles
-  fill(darkBlue);
+  fill(191, 227, 183);
   ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
+  fill(255, 255, 255, cutoutOpacity1);
   ellipse(pos2x, pos2y, size2, size2);
+  fill(255, 255, 255, cutoutOpacity2);
+  ellipse(pos3x, pos3y, size3, size3);
+
+
 }
 
 function keyTyped() {
