@@ -16,65 +16,96 @@ const letterA = {
   "size": 100,
   "offsetx": 0,
   "offsety": 55,
-  "opacity1": 145,
-  "size3": 30,
+  // "opacity1": 145,
+  "size2": 30,
   "offsetx3": 0,
   "offsety3": -30,
   "opacity2": 145,
+  "offsetx4": 0,
+  "offsety4": -70,
+  "angleStart": 0, //-210
+  "angleStop": 0,  //30
+  "size3": 100
 }
 
 const letterB = {
   "size": 50,
   "offsetx": 20,
   "offsety": -30,
-  "opacity1": 145,
-  "size3": 50,
+  // "opacity1": 145,
+  "size2": 50,
   "offsetx3": 20,
   "offsety3": 30,
   "opacity2": 145,
+  "offsetx4": 55,
+  "offsety4": 0,
+  "angleStart": -30,
+  "angleStop": 30,
+  "size3": 50
 }
 
 const letterC = {
   "size": 100,
   "offsetx": 50,
   "offsety": 0,
-  "opacity1": 145,
-  "size3": 80,
+  // "opacity1": 145,
+  "size2": 80,
   "offsetx3": 0,
   "offsety3": 35,
   "opacity2": 0,
+  "offsetx4": 55,
+  "offsety4": -20,
+  "angleStart": 0,
+  "angleStop": 0,
+  "size3": 50
 }
 
   const letterD = {
-  "size": 60,
-  "offsetx": 30,
-  "offsety": 0,
-  "opacity1": 145,
-  "size3": 80,
+  // "size": 60,
+  // "offsetx": 30,
+  // "offsety": 0,
+  // "opacity1": 145,
+  "size2": 80,
   "offsetx3": 0,
   "offsety3": 35,
   "opacity2": 0,
+  "offsetx4": 0,
+  "offsety4": 0,
+  "angleStart": -90,
+  "angleStop": 90,
+  "size3": 100
 }
 
   const letterE = {
   "size": 50,
   "offsetx": 0,
   "offsety": -20,
-  "opacity1": 145,
-  "size3": 40,
+  // "opacity1": 145,
+  "size2": 40,
   "offsetx3": 50,
   "offsety3": 35,
-  "opacity2": 145,
+  "opacity2": 0,
+  "offsetx4": 25,
+  "offsety4": 25,
+  "angleStart": 0,
+  "angleStop": 45,
+  "size3": 100
 }
   const letterF = {
-  "size": 40,
-  "offsetx": 55,
-  "offsety": -20,
-  "opacity1": 145,
-  "size3": 80,
-  "offsetx3": 30,
-  "offsety3": 45,
+  // "size": 40,
+  // "offsetx": 55,
+  // "offsety": -20,
+  //"opacity1": 145,
+  "size2": 40,
+  "offsetx3": 55,
+  "offsety3": -20,
   "opacity2": 145,
+  "offsetx4": 20,
+  "offsety4": 20,
+  "opacity1": 145,
+  "angleStart": 0,
+  "angleStop": 90,
+  "size3": 120
 }
 const backgroundColor  = (227, 237, 237);
 const strokeColor      = (255);
@@ -93,6 +124,7 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES);
 }
 
 function draw () {
@@ -105,7 +137,7 @@ function draw () {
 
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 400, center_y, letterA);
-  drawLetter(center_x  -240    , center_y, letterB);
+  drawLetter(center_x  -240, center_y, letterB);
   drawLetter(center_x - 80, center_y, letterC);
   drawLetter(center_x + 80, center_y, letterD);
   drawLetter(center_x + 240, center_y, letterE);
@@ -114,25 +146,33 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
+  let size = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-  let size3 = letterData["size3"];
+  let sizeTwo = letterData["size2"];
   let pos3x = posx + letterData["offsetx3"];
   let pos3y = posy + letterData["offsety3"];
+  let sizeThree = letterData["size3"];
+  let pos4x = posx + letterData["offsetx4"];
+  let pos4y = posy + letterData["offsety4"];
 
-  let cutoutOpacity1 = letterData["opacity1"]
+  // let cutoutOpacity1 = letterData["opacity1"]
   let cutoutOpacity2 = letterData["opacity2"]
+
+  let angleOne = letterData["angleStart"];
+  let angleTwo = letterData["angleStop"];
   
 
 
   // draw two circles
   fill(191, 227, 183);
   ellipse(posx, posy, 150, 150);
-  fill(255, 255, 255, cutoutOpacity1);
-  ellipse(pos2x, pos2y, size2, size2);
-  fill(255, 255, 255, cutoutOpacity2);
-  ellipse(pos3x, pos3y, size3, size3);
+  fill(220, 168, 237, 145);
+  ellipse(pos2x, pos2y, size, size);
+  fill(237, 203, 168, cutoutOpacity2);
+  ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
+  fill(255, 255, 168, 145)
+  arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
 
 
 }
