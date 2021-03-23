@@ -165,13 +165,17 @@ function drawLetter(posx, posy, letterData) {
 
 
   // draw two circles
-  fill(191, 227, 183);
+  //fill(191, 227, 183);  //green
+  fill(245, 179, 243);  //light pink
   ellipse(posx, posy, 150, 150);
-  fill(220, 168, 237, 145);
+  fill(0, 0, 255, 145)
+  //fill(220, 168, 237, 145);  //purple
   ellipse(pos2x, pos2y, size, size);
-  fill(237, 203, 168, cutoutOpacity2);
+  fill(0, 0, 255, cutoutOpacity2)
+  //fill(237, 203, 168, cutoutOpacity2);  //orange
   ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
-  fill(255, 255, 168, 145)
+  //fill(255, 255, 168, 145)  //yellow
+  fill(255, 255, 255, 145)
   arc(pos4x, pos4y, sizeThree, sizeThree, angleOne, angleTwo)
 
 
