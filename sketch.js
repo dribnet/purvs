@@ -21,8 +21,6 @@ const letterA = {
   "offsetx3": 0,
   "offsety3": -30,
   "opacity2": 145,
-  //"circleNumber":
-  //"colour": 
 }
 
 const letterB = {
@@ -34,8 +32,6 @@ const letterB = {
   "offsetx3": 20,
   "offsety3": 30,
   "opacity2": 145,
-  //"circleNumber":
-  //"colour": 
 }
 
 const letterC = {
@@ -47,10 +43,39 @@ const letterC = {
   "offsetx3": 0,
   "offsety3": 35,
   "opacity2": 0,
-  //"circleNumber":
-  //"colour": 
 }
 
+  const letterD = {
+  "size": 60,
+  "offsetx": 30,
+  "offsety": 0,
+  "opacity1": 145,
+  "size3": 80,
+  "offsetx3": 0,
+  "offsety3": 35,
+  "opacity2": 0,
+}
+
+  const letterE = {
+  "size": 50,
+  "offsetx": 0,
+  "offsety": -20,
+  "opacity1": 145,
+  "size3": 40,
+  "offsetx3": 50,
+  "offsety3": 35,
+  "opacity2": 145,
+}
+  const letterF = {
+  "size": 40,
+  "offsetx": 55,
+  "offsety": -20,
+  "opacity1": 145,
+  "size3": 80,
+  "offsetx3": 30,
+  "offsety3": 45,
+  "opacity2": 145,
+}
 const backgroundColor  = (227, 237, 237);
 const strokeColor      = (255);
 
@@ -79,9 +104,12 @@ function draw () {
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
-  drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  drawLetter(center_x - 400, center_y, letterA);
+  drawLetter(center_x  -240    , center_y, letterB);
+  drawLetter(center_x - 80, center_y, letterC);
+  drawLetter(center_x + 80, center_y, letterD);
+  drawLetter(center_x + 240, center_y, letterE);
+  drawLetter(center_x + 400, center_y, letterF);
 }
 
 function drawLetter(posx, posy, letterData) {
