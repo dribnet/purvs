@@ -1,11 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+I've started playing around with ideas for my alphabet, I am very interested in going down an art deco (retro?) or neo-futrisitc route.
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I'm interested in using rounded rectange instead of arcs or ellipses.  
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
+I now want to add more perimeters to improve my ideas, I also want to fix the placement of my letters on the page.
