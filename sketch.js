@@ -1,7 +1,7 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/* 
+/*
  * my three variable per letter are:
  *
    size: radius of the second circle (in pixels)
@@ -13,28 +13,37 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 75,
+  "linePoints": 4,
+  "point1": 3,
+  "point2": 6,
+  "point3": 1,
+  "point4": 4,
+  "point5": null
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size": 75,
+  "linePoints": 5,
+  "point1": 4,
+  "point2": 0,
+  "point3": 6,
+  "point4": 2,
+  "point5": 0
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "size": 75,
+  "linePoints": 3,
+  "point1": 2,
+  "point2": 4,
+  "point3": 6,
+  "point4": null,
+  "point5": null
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
-
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const backgroundColor  = "#000000";
+const strokeColor      = "#ffffff";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -43,7 +52,6 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(4);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -54,7 +62,7 @@ function draw () {
   background(backgroundColor);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data
@@ -65,15 +73,33 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let radius = letterData["size"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw a circle
+  strokeWeight(1);
+  noFill();
+  ellipse(posx, posy, radius * 2);
+
+  // draw points around the circle
+  strokeWeight(8);
+  for (let i = 0; i < 8; i++) {
+    point(radius * cos(i * PI/4) + posx, radius * sin(i * PI/4) + posy);
+  }
+
+  strokeWeight(2);
+  for (let i = 1; i <= letterData["linePoints"]; i++) {
+    let lineStartX = radius * cos(letterData["point"+i] * PI/4) + posx;
+    let lineStartY = radius * sin(letterData["point"+i] * PI/4) + posy;
+    let lineEndX, lineEndY;
+    if (letterData["linePoints"] < i + 1) {
+      lineEndX = lineStartX;
+      lineEndY = lineStartY;
+    } else {
+      lineEndX = radius * cos(letterData["point"+(i+1)] * PI/4) + posx;
+      lineEndY = radius * sin(letterData["point"+(i+1)] * PI/4) + posy;
+    }
+    line(lineStartX, lineStartY, lineEndX, lineEndY);
+  }
 }
 
 function keyTyped() {
