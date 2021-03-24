@@ -2,6 +2,12 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
+25/03
+Pulled my sketch code over to the main draw letter function. Both Phoebe and Bex helped me to do so. My primitives are still oversized, as I'm not sure where I need to adjust them right now, either in draw_letters.js or letters.js. I will review the lecture video at home again before I continue on.
+
+23/03
+Updated my sketch with some adjustments I added to the existing parameters, namely setting up a square. Bex helped me set up a new variable, rotation. I'm still not sure which approach I will take with this assignment, as my alphabet still represents the clasic alphabet, but it is important I get my ideas down fast.
+
 Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
 The three parameters per letter:
