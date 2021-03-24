@@ -13,22 +13,25 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "rotation": 30,
-  "rotation1": 70,
-  "offsetx": -10,
+  "rotation": 160,
+  "rotation1": 110,
+  "rotation2": 0,
+  "offsetx": 0,
   "offsety": 0
 }
 
 const letterB = {
   "rotation": 0,
   "rotation1": 30,
-  "offsetx": -30,
-  "offsety": 0
+  "rotation2": 250,
+  "offsetx": 50, //changes where the 2nd line is placed on the 1st line 
+  "offsety": 40
 }
 
 const letterC = {
   "rotation": -75,
   "rotation1": -15,
+  "rotation2": 0,
   "offsetx": 0,
   "offsety": 0
 }
@@ -53,6 +56,7 @@ function setup () {
   // with no animation, redrawing the screen is not necessary
   noLoop();
   angleMode(DEGREES);
+  rectMode(CENTER);
 }
 
 function draw () {
@@ -74,12 +78,14 @@ function drawLetter(posx, posy, letterData) {
   let size2 = 150;
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+  let pos3x = posx + letterData["offsetx"];
+  let pos3y = posy + letterData["offsety"];
 
   // draw two circles
   // fill(darkBlue);
   push();
   translate(posx, posy);
-  rotate(letterData["rotation"])
+  rotate(letterData["rotation"]);
   rect(0, 0, 10, 150);
   pop();
   // fill(lightBlue);
@@ -90,7 +96,12 @@ function drawLetter(posx, posy, letterData) {
   rotate(letterData["rotation1"]);
   rect(0,0,150,10,);
   pop();
-  // rect()
+  
+  push();
+  translate(pos3x,pos3y);
+  rotate(letterData["rotation2"]);
+  rect(0,0,10,150);
+  pop();
 
 }
 

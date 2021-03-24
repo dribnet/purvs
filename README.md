@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
+added the 3rd line to my letters and removed size as one of my parameters and replaced it with rotations. The size of my rects will stay the same so i can utilise more of my paras. my other paras will probably be colour so that the opacity can change the colours once they are overlapped.
 
 Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 
