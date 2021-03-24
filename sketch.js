@@ -70,10 +70,10 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(20, 200, 20);
+  rect(posx, posy, 150, 250);
+  fill(200, 20, 20);
+  rect(pos2x-80, pos2y, size2, size2);
 }
 
 function keyTyped() {
