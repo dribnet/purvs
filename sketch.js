@@ -12,6 +12,8 @@ const canvasHeight = 500;
  *
  */
 
+ //have how many skips would be needed as a parameter 0,1,2 and then have a seperate thing that will add x amount to the skipper and count through then draw 
+
 const letterA = {
   "squaresL": 10,
   "squaresR": 10,
@@ -27,8 +29,7 @@ const letterB = {
   "squaresL": 10,
   "squaresR": 10,
   "skipL":100,//placeholder
-  "skipR": 0,
-  "skipSet":5,
+  "skipR": [0,1],
   "sizex": 50,
   "sizey": 25,
   "offsetx": -60,
@@ -45,6 +46,9 @@ const letterC = {
   "offsetx": -60,
   "offsety": -100
 }
+const bigCats = ['lion', 'tiger', 'panther'];
+bigCats.push('leopard');
+console.log(bigCats);
 
 const backgroundColor  = (255);//"#e3eded";
 //const strokeColor      = "#233f11";
@@ -97,6 +101,7 @@ function drawLetter(posx, posy, letterData) {
       rect(posx, posy-100, letterData["sizex"], letterData["sizey"]);
       posy += letterData["sizey"];
       i++;
+      console.log(letterData["skipR"]);
     }
   }
   i=0;
