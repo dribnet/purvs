@@ -2,10 +2,27 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+I drew a 5 sided polygon in green (but can make it mirrored) hence it appears to have more sides.
+I added a black circle on top which is the same colour as the background to add some negative space. the colour scheme was inspired by the matrix which I saw the other day. The style of the letters i want to make are sharp sided. Please note my code efficiency is really bad and needs improvement.
+My parameters are:
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+"drawmode" which chooses the line of symmetry for the polygon horizontal or vertical (or none)
 
+
+the 5 x and y coords to draw the shape relative to pos x and y of the letter:
+"x1"
+"y1"
+"x2"
+"y2"
+"x3"
+"y3"
+"x4"
+"y4"
+"x5"
+"y5"
+//ellipse parameters:
+
+"ex" x pos of black ellipse
+"ey"  y pos of black ellipse
+"eheight"  height  of black ellipse
+"ewidth"  width of black ellipse
