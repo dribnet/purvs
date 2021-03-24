@@ -13,9 +13,6 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 20,
   "point1A": 0,
   "point2A": 80,
   "point3A": -120,
@@ -23,17 +20,26 @@ const letterA = {
   "point2B": 100,
   "point3B": 100,
   "point1C": 0,
-  "point2C": 40,
-  "point3C": -80,
-  "point1D": 40,
-  "point2D": 100,
-  "point3D": 100
+  "point2C": 20,
+  "point3C": -60,
+  "point1D": 115,
+  "point2D": 20,
+  "point3D": 20
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": 0,
+  "point1A": 80,
+  "point2A": 170,
+  "point3A": 170,
+  "point1B": -230,
+  "point2B": -140,
+  "point3B": 0,
+  "point1C": 80,
+  "point2C": 170,
+  "point3C": 170,
+  "point1D": -130,
+  "point2D": 100,
+  "point3D": -20
   
 }
 
@@ -78,9 +84,8 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // let pos2x = posx + letterData["offsetx"];
+  // let pos2y = posy + letterData["offsety"];
 
   let A1 = posx + letterData["point1A"];
   let A2 = posy + letterData["point2A"];
