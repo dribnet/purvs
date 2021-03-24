@@ -13,28 +13,28 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 100,
+  "offsetx": 5,
+  "offsety": --0
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "size":100,
+  "offsetx": -40,
+  "offsety": -90,
 }
 
 const letterC = {
-  "size": 100,
+  "size": 80,
   "offsetx": 30,
   "offsety": 0
 }
 
 const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const strokeColor      = "#FCDEBE";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const darkBlue  = "#221D23";
+const lightBlue  = "#DB162F";
 
 function setup () {
   // create the drawing canvas, save the canvas element
