@@ -1,188 +1,262 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 100,
+    "ColourPlanet": 4,
+    "ColourSun": 2
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+  "size": 25,
+  "offsetx": 50,
+  "offsety": 50,
+  "ColourPlanet": 0,
+  "ColourSun": 0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+  "size": 25,
+  "offsetx": 85,
+  "offsety": 65,
+  "ColourPlanet": 0,
+  "ColourSun": 0
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+  "size": 25,
+  "offsetx": 100,
+  "offsety": 100,
+  "ColourPlanet": 0,
+  "ColourSun": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 135,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 150,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 20,
+    "offsety": 140,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 0,
+    "offsety": 100,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 25,
+    "offsety": 55,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 100,
+    "ColourPlanet": 0,
+    "ColourSun": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 50,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 65,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 100,
+    "offsety": 100,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 135,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 150,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 20,
+    "offsety": 140,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 0,
+    "offsety": 100,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 25,
+    "offsety": 55,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 100,
+    "ColourPlanet": 1,
+    "ColourSun": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 50,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 65,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 100,
+    "offsety": 100,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 135,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 150,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 20,
+    "offsety": 140,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 0,
+    "offsety": 100,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 25,
+    "offsetx": 25,
+    "offsety": 55,
+    "ColourPlanet": 2,
+    "ColourSun": 0
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 100,
+    "ColourPlanet": 2,
+    "ColourSun": 1
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 50,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 65,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 100,
+    "offsety": 100,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 85,
+    "offsety": 135,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 150,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 20,
+    "offsety": 140,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "7": {
-    "size": 40,
+    "size": 25,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 100,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 25,
+    "offsety": 55,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 25,
+    "offsetx": 50,
+    "offsety": 100,
+    "ColourPlanet": 3,
+    "ColourSun": 1
   }
 
 }

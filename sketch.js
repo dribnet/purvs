@@ -16,22 +16,24 @@ const letterA = {
   "size": 30,
   "offsetx": 0,
   "offsety": -75,
-  "Colour": 0
+  "ColourPlanet": 0,
+  "ColourSun": 0
 }
 
 const letterB = {
   "size": 30,
   "offsetx": 50,
   "offsety": -50,
-  "Colour": 1
+  "ColourPlanet": 1,
+  "ColourSun": 1
 }
 
 const letterC = {
   "size": 30,
   "offsetx": 75,
   "offsety": 0,
-  "Colour": 2
-
+  "ColourPlanet": 2,
+  "ColourSun": 2
 }
 
 const backgroundColor  = "#e3eded";
@@ -77,12 +79,21 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   
-  let col1 = letterData["Colour"];
+  let col1 = letterData["ColourPlanet"];
+  let col2 = letterData["ColourSun"]
 
   // draw two circles                                                                            
   fill(darkBlue);
   ellipse(posx, posy, 150, 150);
-  fill(250,180,0);
+  if(col2 == 0){
+ fill(250,180,0);
+  }
+  else if (col2 == 1) {
+    fill(255,255,0);
+  }
+  else if (col2 == 2) {
+    fill(255,255,255);
+  }
   ellipse(posx, posy, 50, 50);
 
   if(col1 == 0){
