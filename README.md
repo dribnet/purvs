@@ -1,7 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 
 
-Today I started on the sketch file by changing the circles into rectanges, each a different colour
+Today I started on the sketch file by changing the circles into rectanges, each a different colour then changing on of the circles in a triangle 
 
 
 

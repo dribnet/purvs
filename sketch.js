@@ -13,21 +13,18 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
   "offsetx": 0,
-  "offsety": 35,
+  "offsety": 0,
   "boxColour": "#199cff"
 }
 
 const letterB = {
-  "size": 150,
   "offsetx": 0,
   "offsety": -145,
   "boxColour": "#59ccff"
 }
 
 const letterC = {
-  "size": 100,
   "offsetx": 30,
   "offsety": 0,
   "boxColour": "#53d2dc"
@@ -71,18 +68,22 @@ function draw () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
 
   let colour = letterData["boxColour"];
+  let triPosX = letterData["offsetx"];
+  let triPosY = letterData["offsety"];
 
   // big square
   fill(colour);
   rect(posx, posy, 150, 150);
 
-  //little square
+  // //little square
+  // fill(260);
+  // rect(pos2x, pos2y, size2, size2);
+
+  //triangle
   fill(260);
-  rect(pos2x, pos2y, size2, size2);
+  triangle(posx+triPosX, posy+triPosY, posx+75+triPosX, posy+75+triPosY, posx-75+triPosX, posy+75+triPosY);
 }
 
 
