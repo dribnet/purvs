@@ -13,24 +13,30 @@ const canvasHeight = 500;
  */
 
 const letterA = {
+  "backgroundShapeType": 3, //triangle
   "offsetx": 0,
   "offsety": 0,
   "boxColour": "#199cff",
-  "triangleRotate": 0
+  "triangleRotate": 0,
+  "triangleSize": 1,
 }
 
 const letterB = {
+  "backgroundShapeType": 1, //square
   "offsetx": 0,
-  "offsety": -145,
+  "offsety": 20,
   "boxColour": "#59ccff",
-  "triangleRotate": 90
+  "triangleRotate": 270,
+  "triangleSize": 0.8
 }
 
 const letterC = {
-  "offsetx": 30,
+  "backgroundShapeType": 2, //circle
+  "offsetx": 0,
   "offsety": 0,
   "boxColour": "#53d2dc",
-  "triangleRotate": 0
+  "triangleRotate": 270,
+  "triangleSize": 1
 }
 
 const backgroundColor  = "#e3eded";
@@ -71,26 +77,44 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
 
+  let shapeType = letterData["backgroundShapeType"];
   let colour = letterData["boxColour"];
   let triPosX = letterData["offsetx"];
   let triPosY = letterData["offsety"];
   let triRotate = letterData["triangleRotate"];
+  let triSize = letterData["triangleSize"];
 
-  // big square
+
+  // background shape
   fill(colour);
-  rect(posx, posy, 150, 150);
 
+  if (shapeType == 1){
+    rect(posx, posy, 150, 150);
+  } else if (shapeType == 2){
+    ellipse(posx, posy, 150, 150);
+  } else if (shapeType == 3){
+    triangle(posx, posy-75, posx+90, posy+75, posx-90, posy+75);
+  }
 
 
   //triangle
   push();
   translate(posx, posy);
   rotate(triRotate);
+  scale(triSize)
   fill(260);
-  triangle(triPosX, triPosY, 75+triPosX, 75+triPosY, -75+triPosX, 75+triPosY);
+  triangle(triPosX, triPosY, 50+triPosX, 75+triPosY, -50+triPosX, 75+triPosY);
   pop();
+
+  // //left lines
+  // push();
+  // stroke(100);
+  // strokeWeight(1.5);
+  // line(posx-70, posy-75, posx-70, posy+75);
+  // line(posx-65, posy-75, posx-65, posy+75);
+  // line(posx-60, posy-75, posx-60, posy+75);
+  // pop();
 }
 
 
