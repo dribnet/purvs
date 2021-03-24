@@ -13,25 +13,41 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "squaresL": 10,
+  "squaresR": 10,
+  "skipL":3,
+  "skipR": 100,//placeholder
+  "sizex": 50,
+  "sizey": 25,
+  "offsetx": -60,
+  "offsety": -100
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "squaresL": 10,
+  "squaresR": 10,
+  "skipL":100,//placeholder
+  "skipR": 0,
+  "skipSet":5,
+  "sizex": 50,
+  "sizey": 25,
+  "offsetx": -60,
+  "offsety": -100
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "squaresL": 10,
+  "squaresR": 10,
+  "skipL":100,//placeholder
+  "skipR": 5,
+  "sizex": 50,
+  "sizey": 25,
+  "offsetx": -60,
+  "offsety": -100
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = (255);//"#e3eded";
+//const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
@@ -42,7 +58,7 @@ function setup () {
   main_canvas.parent('canvasContainer');
 
   // color/stroke setup
-  stroke(strokeColor);
+  stroke(0);
   strokeWeight(4);
 
   // with no animation, redrawing the screen is not necessary
@@ -68,12 +84,34 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
-
+  let i = 0;
+  let n = 0;
   // draw two circles
-  fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  fill(0);
+  while (i <= letterData["squaresR"]){
+    if(i == letterData["skipR"]){
+      posy += letterData["sizey"];
+      i++
+    }
+    else{
+      rect(posx, posy-100, letterData["sizex"], letterData["sizey"]);
+      posy += letterData["sizey"];
+      i++;
+    }
+  }
+  i=0;
+  fill(0);
+  while (i<= letterData["squaresL"]){
+    if (i == letterData["skipL"]){
+    pos2y += letterData["sizey"];
+    i++;
+    }
+    else{
+    rect(pos2x, pos2y, letterData["sizex"],letterData["sizey"]);
+    pos2y += letterData["sizey"];
+    i++;
+  }
+  }
 }
 
 function keyTyped() {
