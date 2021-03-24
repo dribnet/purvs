@@ -10,3 +10,5 @@ The three parameters per letter:
   * `offsety` : y offset of the second circle relative to the first one
 
 Sketch updated with a design potential and also changed preview and thumbnail to match. Design idea is solar system. planet moves between 12 to 11 and then centre to make 9 moves. Sun colour indicated wheath number or letter or blank. Black is white sun with black planet in the center.
+
+Made and finished alphabet
