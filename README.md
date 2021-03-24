@@ -2,6 +2,8 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
+I have started porting my code into draw letters
+
 For my sketch. Each of my letters is composed an arc circle and a triangle. The size and position of the arcis fixed, but location of the arc start and end changes. the location and size of the triangle changes to complete the letterform
 
 The 6 parameters per letter:
@@ -13,3 +15,5 @@ The 6 parameters per letter:
    * `TrianglePoint` : is used to change where the bottom right corner of the triangle is used to get around using a rotate function
 
    For the final letterforms i am looking an english design studio Spin. They do a lot of interesting generative and interactive letterform and fonts
+
+

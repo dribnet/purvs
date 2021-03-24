@@ -16,21 +16,25 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
 
-  // determine parameters for second circle
+  //setup the sketch 
+  angleMode(DEGREES)
+  noStroke();
+  // determine parameters for letter
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
 
+  let startAngle = letterData["ArcStart"];
+  let stopAngle = letterData["ArcEnd"];
+  let sideTriangle = letterData["TrianglePoint"];
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
+  fill(lightBlue);
+  arc(50, 100, 100, 100,startAngle,stopAngle);
 }
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};

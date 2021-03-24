@@ -2,102 +2,162 @@ const alphabet = {
   "default": {
     "size": 40,
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 0,
+    "offsetx": 50,
+    "offsety": 175,
+    "ArcStart":120,
+    "ArcEnd":420,
+    "TrianglePoint":0
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "size": 20,
+    "offsetx": 50,
+    "offsety": 100,
+    "ArcStart":0,
+    "ArcEnd":270,
+    "TrianglePoint":-5
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 75,
+    "offsetx": 0,
+    "offsety": -50,
+    "ArcStart":40,
+    "ArcEnd":320,
+    "TrianglePoint":-50
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 10,
+    "offsetx": 33,
+    "offsety": 102,
+    "ArcStart":250,
+    "ArcEnd":90,
+    "TrianglePoint":48
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":30,
+    "ArcEnd":310,
+    "TrianglePoint":-50
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":90,
+    "ArcEnd":300,
+    "TrianglePoint":-50
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 40,
+    "offsetx": 0,
+    "offsety": 0,
+    "ArcStart":0,
+    "ArcEnd":0,
+    "TrianglePoint":-50
   },
   "T": {
     "size": 50,
