@@ -13,9 +13,9 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "size": 60,
+  "offsetx": 45,
+  "offsety": 90
 }
 
 const letterB = {
@@ -26,8 +26,8 @@ const letterB = {
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 50,
+  "offsety": 30
 }
 
 const backgroundColor  = "#ffffff";
