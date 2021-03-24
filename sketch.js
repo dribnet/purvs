@@ -107,6 +107,7 @@ const letterC = {
   "angleStop": 90,
   "size3": 120
 }
+
 const backgroundColor  = (227, 237, 237);
 const strokeColor      = (255);
 
