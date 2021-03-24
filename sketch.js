@@ -19,6 +19,7 @@ const letterA = {
   "boxColour": "#199cff",
   "triangleRotate": 0,
   "triangleSize": 1,
+  "length": 0
 }
 
 const letterB = {
@@ -27,7 +28,8 @@ const letterB = {
   "offsety": 20,
   "boxColour": "#59ccff",
   "triangleRotate": 270,
-  "triangleSize": 0.8
+  "triangleSize": 0.8,
+  "length": 150
 }
 
 const letterC = {
@@ -36,7 +38,8 @@ const letterC = {
   "offsety": 0,
   "boxColour": "#53d2dc",
   "triangleRotate": 270,
-  "triangleSize": 1
+  "triangleSize": 1,
+  "length": 0
 }
 
 const backgroundColor  = "#e3eded";
@@ -76,7 +79,6 @@ function draw () {
 
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
 
   let shapeType = letterData["backgroundShapeType"];
   let colour = letterData["boxColour"];
@@ -84,6 +86,7 @@ function drawLetter(posx, posy, letterData) {
   let triPosY = letterData["offsety"];
   let triRotate = letterData["triangleRotate"];
   let triSize = letterData["triangleSize"];
+  let leftLineLength = letterData["length"];
 
 
   // background shape
@@ -107,14 +110,21 @@ function drawLetter(posx, posy, letterData) {
   triangle(triPosX, triPosY, 50+triPosX, 75+triPosY, -50+triPosX, 75+triPosY);
   pop();
 
-  // //left lines
-  // push();
-  // stroke(100);
-  // strokeWeight(1.5);
-  // line(posx-70, posy-75, posx-70, posy+75);
-  // line(posx-65, posy-75, posx-65, posy+75);
-  // line(posx-60, posy-75, posx-60, posy+75);
-  // pop();
+
+  //left lines
+  push();
+  if (leftLineLength > 0){
+    stroke(260);
+    strokeWeight(1.5);
+    line(posx-70, posy-75, posx-70, posy-75+leftLineLength);
+    line(posx-65, posy-75, posx-65, posy-75+leftLineLength);
+    line(posx-60, posy-75, posx-60, posy-75+leftLineLength);
+    line(posx-55, posy-75, posx-55, posy-75+leftLineLength);
+    pop();
+  }
+
+
+
 }
 
 

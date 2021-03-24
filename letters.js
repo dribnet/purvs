@@ -1,188 +1,335 @@
 const alphabet = {
   "default": {
-    "size": 40,
+   "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 0
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "A": {
-    "size": 40,
+    "backgroundShapeType": 3, //triangle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#199cff",
+    "triangleRotate": 0,
+    "triangleSize": 1,
+    "length": 0
   },
   "B": {
-    "size": 75,
+    "backgroundShapeType": 1, //square
     "offsetx": 0,
-    "offsety": -70
+    "offsety": 13,
+    "boxColour": "#59ccff",
+    "triangleRotate": 270,
+    "triangleSize": 0.8,
+    "length": 100
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "backgroundShapeType": 2, //circle
+    "offsetx": 0,
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "0": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "1": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "2": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "3": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "4": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "5": {
-    "size": 40,
+   "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "6": {
-    "size": 40,
+   "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "7": {
-    "size": 40,
+   "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "8": {
-    "size": 40,
+    "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
+    "length": 0
   },
   "9": {
-    "size": 40,
+     "backgroundShapeType": 2, //circle
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 0,
+    "boxColour": "#53d2dc",
+    "triangleRotate": 270,
+    "triangleSize": 1,
   }
 
 }

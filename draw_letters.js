@@ -3,10 +3,9 @@ var systemBackgroundColor = "#e3eded";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-/* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+
+
+
 
 /*
  * Draw the letter given the letterData
@@ -16,21 +15,60 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  push()
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  noStroke();
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  let posx = 50;
+  let posy = 150;
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let shapeType = letterData["backgroundShapeType"];
+  let colour = letterData["boxColour"];
+  let triPosX = letterData["offsetx"];
+  let triPosY = letterData["offsety"];
+  let triRotate = letterData["triangleRotate"];
+  let triSize = letterData["triangleSize"];
+  let leftLineLength = letterData["length"];
+
+
+  // background shape
+  fill(colour);
+
+  if (shapeType == 1){
+    rect(posx, posy, 100, 100);
+  } else if (shapeType == 2){
+    ellipse(posx, posy, 100, 100);
+  } else if (shapeType == 3){
+    triangle(posx, posy-50, posx+50, posy+50, posx-50, posy+50);
+  }
+
+
+  //triangle
+  push();
+  translate(posx, posy);
+  rotate(triRotate);
+  scale(triSize)
+  fill(260);
+  triangle(triPosX, triPosY, 30+triPosX, 50+triPosY, -30+triPosX, 50+triPosY);
+  pop();
+
+  //left lines
+  push();
+  if (leftLineLength > 0){
+    stroke(260);
+    strokeWeight(1.5);
+    line(posx-45, posy-50, posx-45, posy-50+leftLineLength);
+    line(posx-40, posy-50, posx-40, posy-50+leftLineLength);
+    line(posx-35, posy-50, posx-35, posy-50+leftLineLength);
+    line(posx-30, posy-50, posx-30, posy-50+leftLineLength);
+  }
+pop();
+
+pop()
 }
+
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
