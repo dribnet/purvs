@@ -5,6 +5,8 @@
 24/3
 -inital commit came up with concept and implemented a very rough idea of what i want to do i want to be able to have an array withtin the constants that allows there to be more control over what rectangles are drawn.
 -added first preview and thumbnail.
+-notes of what i want to implement
+-added console log to try and get array working
 
 Each of my letters is composed with 20 Rectangles. The size(X and Y) of each rectangle, and their relation to each other is fixed, but the location of which rectangles are drawn in each coloumn is controlled by these parameters:
 
