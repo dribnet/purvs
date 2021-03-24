@@ -15,19 +15,22 @@ const canvasHeight = 500;
 const letterA = {
   "offsetx": 0,
   "offsety": 0,
-  "boxColour": "#199cff"
+  "boxColour": "#199cff",
+  "triangleRotate": 0
 }
 
 const letterB = {
   "offsetx": 0,
   "offsety": -145,
-  "boxColour": "#59ccff"
+  "boxColour": "#59ccff",
+  "triangleRotate": 90
 }
 
 const letterC = {
   "offsetx": 30,
   "offsety": 0,
-  "boxColour": "#53d2dc"
+  "boxColour": "#53d2dc",
+  "triangleRotate": 0
 }
 
 const backgroundColor  = "#e3eded";
@@ -42,6 +45,7 @@ function setup () {
   
   noStroke();
   rectMode(CENTER);
+  angleMode(DEGREES);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -72,18 +76,21 @@ function drawLetter(posx, posy, letterData) {
   let colour = letterData["boxColour"];
   let triPosX = letterData["offsetx"];
   let triPosY = letterData["offsety"];
+  let triRotate = letterData["triangleRotate"];
 
   // big square
   fill(colour);
   rect(posx, posy, 150, 150);
 
-  // //little square
-  // fill(260);
-  // rect(pos2x, pos2y, size2, size2);
+
 
   //triangle
+  push();
+  translate(posx, posy);
+  rotate(triRotate);
   fill(260);
-  triangle(posx+triPosX, posy+triPosY, posx+75+triPosX, posy+75+triPosY, posx-75+triPosX, posy+75+triPosY);
+  triangle(triPosX, triPosY, 75+triPosX, 75+triPosY, -75+triPosX, 75+triPosY);
+  pop();
 }
 
 
