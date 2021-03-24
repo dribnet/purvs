@@ -1,12 +1,9 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#FFA9A9";
+var systemLineColor = "#FFFFFF";
+var systemBoxColor = "#FFFFFF";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -15,21 +12,38 @@ const strokeColor  = "#233f11";
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
+const strokeColor = "#000000";
+const translatex = 50;
+const translatey = 100;
+
 function drawLetter(letterData) {
   // color/stroke setup
+  push();
+  translate(translatex,translatey);
   stroke(strokeColor);
   strokeWeight(4);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+  let size3 = letterData["size_3"];
+  let pos3x = letterData["offsetx3"];
+  let pos3y = letterData["offsety3"];
+
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
+  fill('#0');
+  ellipse(0, 0, 100, 100);
+
+  fill('#000000');
   ellipse(pos2x, pos2y, size2, size2);
+
+ fill('#000000');
+  ellipse(pos3x, pos3y, size3, size3);
+
+pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
