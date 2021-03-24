@@ -1,33 +1,72 @@
+//offset = pink square
+//offset2 = green/blue squares
+//smallPOS = dark blue square ONE
+//smallPOS2 = SECOND dark blue square
+
 const alphabet = {
   "default": {
     "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "offsetx" : 0,
+    "offsety" : 0,
+    "offsetx2": 0,
+    "offsety2": 0,
+    "smallXPos": 0,
+    "smallYPos" : 0,
+    "smallXPos2": 0,
+    "smallYPos2" : 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+    "offsetx" : 0,
+    "offsety" : 80,
+    "offsetx2": 0,
+    "offsety2": 100,
+    "smallXPos": 15,
+    "smallYPos" : 130,
+    "smallXPos2": 15,
+    "smallYPos2" : 130
   },
   "B": {
-    "size": 75,
+    "size": 100,
     "offsetx": 0,
-    "offsety": -70
+    "offsety": 0,
+    "offsetx2" : 0,
+    "offsety2" : 100,
+    "smallXPos": 15,
+    "smallYPos" : 20,
+    "smallXPos2": 15,
+    "smallYPos2" : 115
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 70,
+    "offsetx": 0,
+    "offsety" : 100,
+    "offsetx2" : 30,
+    "offsety2" : 115,
+    "smallXPos": 60,
+    "smallYPos" : 130,
+    "smallXPos2": 60,
+    "smallYPos2" : 130
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 70,
+    "offsetx": 0,
+    "offsety": 100,
+    "offsetx2" : 0,
+    "offsety2" : 115,
+    "smallXPos": 0,
+    "smallYPos" : 130,
+    "smallXPos2": 0,
+    "smallYPos2" : 130
   },
   "E": {
     "size": 50,
     "offsetx": 15,
-    "offsety": 0
+    "offsety": 0,
+    "smallXPos": 130,
+    "smallYPos" : 40,
+    "smallXPos2": 15,
+    "smallYPos2" : -160
   },
   "F": {
     "size": 50,

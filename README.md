@@ -8,8 +8,14 @@
 
   The three parameters per letter:
   * `size` : size of the second sqaure
-  * `offsetx` : x offset of the second square relative to the first one
-  * `offsety` : y offset of the second square relative to the first one
-  * 'smallXPos' : x position of the third square relative to the first one
-  * 'smallYPos' : y position of the third square relative to the first one
+  * `offsetx` : x offset of the pink squares
+  * `offsety` : y offset of the pink squares
+  * 'offsetx2' : x offset of the green/blue squares
+  * 'offsety2' : y offset of the green/blue squares
+  * 'smallXPos' : x position of the FIRST dark blue square
+  * 'smallYPos' : y position of the FIRST dark blue square
+  * 'smallXPos2' : x position of the SECOND dark blue squares
+  * 'smallYPos2' : y position of the SECOND dark blue squares
 
+  March 25
+  In class we moved our starting sketch to the draw letters js and the letters js, I spent most of the lesson organising my code and figuring out how to make each aspect move how I want, I also made the pink squares into a variable that I can move how I want rather than it being in the same place between each letter.

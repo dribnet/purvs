@@ -1,12 +1,15 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#102C46";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const backgroundColor  = "#102C46";
+const strokeColor      = "#233f11";
+
+const darkPink  = "#8C6C7F";
+const lightBlue  = "#6C8A8C";
+const lighterBlue = "#B5D6F5";
 
 /*
  * Draw the letter given the letterData
@@ -16,28 +19,40 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
 
-  // determine parameters for second circle
+  push()
+
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
+  let posx = letterData["offsetx"]
+  let posy = letterData["offsety"]
+
+  let posx2 = letterData["offsetx2"];
+  let posy2 = letterData["offsety2"];
+
+  let SmallerxPosition = letterData["smallXPos"]
+  let SmalleryPosition = letterData["smallYPos"]
+
+  let SmallerxPosition2 = letterData["smallXPos2"]
+  let SmalleryPosition2 = letterData["smallYPos2"]
+  
+  
+  noStroke();
+  fill(darkPink);
+  //pink squares
+  rect(posx, posy, 100, 100);
+
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
-}
+  //green/blue square
+  rect(posx2,posy2, size2, size2);
 
-function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  return new_letter;
+  fill(backgroundColor);
+ //dark blue square one
+  rect(SmallerxPosition, SmalleryPosition, size2-30,size2-30);
+ //dark blue square two
+  rect(SmallerxPosition2, SmalleryPosition2, size2-30,size2-30);
+  
+  pop()
 }
 
 var swapWords = [
