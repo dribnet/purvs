@@ -31,8 +31,9 @@ const letterC = {
 }
 
 const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
 
+
+const strokeColor      = "#233f11";
 const darkRed  = "#9e0d03";
 const lightRed  = "#eb4034";
 
@@ -70,11 +71,12 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
+  // draw three circles
   fill(darkRed);
   ellipse(posx, posy, 150, 150);
   fill(lightRed);
   ellipse(pos2x, pos2y, size2, size2);
+  
 }
 
 function keyTyped() {

@@ -1,5 +1,5 @@
 ## MDDN 242 2021 Assignment 2
 
-Sketch has been updated in a way that makes the alphabet lowercase and different shades of red.
+Sketch shapes have been brought over to the "Draw letters" file and the shapes now show up on the alphabet.html file
 
-Next step = changing the shapes to arcs
+The next step is to arrange the letters in a way that is somewhat legible + put a lil pazazz upon them to make the shapes stand out:)
