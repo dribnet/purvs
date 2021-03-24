@@ -39,7 +39,7 @@ const letterC = {
 const backgroundColor  = "#e3eded";
 const strokeColor      = "#233f11";
 
-const darkBlue  = "#199cff";
+const brightGreen  = "#59ff8b";
 const lightBlue  = "#59ccff";
 
 function setup () {
@@ -82,10 +82,11 @@ function drawLetter(posx, posy, letterData) {
   let stopAngle = letterData["end"];
 
   // draw two circles
-  fill(darkBlue);
+  
+   fill(lightBlue);
   ellipse(posx, posy, 150, 150);
 
-  fill(lightBlue);
+ fill(brightGreen);
   arc(pos2x, pos2y, size2, size2,startAngle, stopAngle,CHORD);
 }
 

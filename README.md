@@ -2,7 +2,7 @@
 
 
 one circle stays the same. Then draw an arc over the top.
-
+updated colour
 The three parameters per letter:
   * `size` : radius of the arc
   * `offsetx` : x offset of the arc relative to the circle
