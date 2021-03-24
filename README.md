@@ -8,4 +8,6 @@ I now want to add more perimeters to improve my ideas, I also want to fix the pl
 
 
 24/03
-Played with alphabet and added D
+Played with alphabet and added D, next I want to add another rect ti my design so I can more clearly distingush the letters from each other.
+
+Also setting up the code on my laptop.

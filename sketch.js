@@ -74,7 +74,8 @@ function drawLetter(posx, posy, letterData) {
   rect(posx, posy, 150, 150, 20);
   fill(lightBlue);
 rect(pos2x, pos2y, size2, size2, 20);
-
+fill(lightBlue);
+//rect(pos2x-50, pos2y-50, size2, size2, 20);
   
 }
 
