@@ -30,11 +30,11 @@ const letterC = {
   "offsety": 0
 }
 
-const backgroundColor  = "#e3eded";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#ffffff";
+const strokeColor      = "#000000";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
+const darkBlue  = "#eda8d2";
+const lightBlue  = "#cdb6fa";
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -71,9 +71,9 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   fill(darkBlue);
-  ellipse(posx, posy, 150, 150);
+  rect(posx, posy, 150, 150);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  rect(pos2x, pos2y, size2, size2);
 }
 
 function keyTyped() {
