@@ -20,7 +20,7 @@ const letterA = {
   "size2": 30,
   "offsetx3": 0,
   "offsety3": -30,
-  "opacity2": 145,
+  //"opacity2": 145,
   "offsetx4": 0,
   "offsety4": -70,
   "angleStart": 0, //-210
@@ -36,7 +36,7 @@ const letterB = {
   "size2": 50,
   "offsetx3": 20,
   "offsety3": 30,
-  "opacity2": 145,
+  //"opacity2": 145,
   "offsetx4": 55,
   "offsety4": 0,
   "angleStart": -30,
@@ -49,10 +49,10 @@ const letterC = {
   "offsetx": 50,
   "offsety": 0,
   // "opacity1": 145,
-  "size2": 80,
+  "size2": 0,
   "offsetx3": 0,
   "offsety3": 35,
-  "opacity2": 0,
+  //"opacity2": 0,
   "offsetx4": 55,
   "offsety4": -20,
   "angleStart": 0,
@@ -65,10 +65,10 @@ const letterC = {
   // "offsetx": 30,
   // "offsety": 0,
   // "opacity1": 145,
-  "size2": 80,
+  "size2": 0,
   "offsetx3": 0,
   "offsety3": 35,
-  "opacity2": 0,
+  //"opacity2": 0,
   "offsetx4": 0,
   "offsety4": 0,
   "angleStart": -90,
@@ -78,17 +78,17 @@ const letterC = {
 
   const letterE = {
   "size": 50,
-  "offsetx": 0,
-  "offsety": -20,
+  "offsetx": 55,
+  "offsety": -30,
   // "opacity1": 145,
-  "size2": 40,
-  "offsetx3": 50,
-  "offsety3": 35,
-  "opacity2": 0,
+  "size2": 50,
+  "offsetx3": 55,
+  "offsety3": 30,
+  //"opacity2": 145,
   "offsetx4": 25,
   "offsety4": 25,
   "angleStart": 0,
-  "angleStop": 45,
+  "angleStop": 0,
   "size3": 100
 }
   const letterF = {
@@ -99,7 +99,7 @@ const letterC = {
   "size2": 40,
   "offsetx3": 55,
   "offsety3": -20,
-  "opacity2": 145,
+  //"opacity2": 145,
   "offsetx4": 20,
   "offsety4": 20,
   "opacity1": 145,
@@ -165,13 +165,13 @@ function drawLetter(posx, posy, letterData) {
 
 
   // draw two circles
-  //fill(191, 227, 183);  //green
-  fill(245, 179, 243);  //light pink
+  fill(191, 227, 183);  //green
+  //fill(245, 179, 243);  //light pink
   ellipse(posx, posy, 150, 150);
-  fill(0, 0, 255, 145)
+  fill(255, 255, 255, 145)
   //fill(220, 168, 237, 145);  //purple
   ellipse(pos2x, pos2y, size, size);
-  fill(0, 0, 255, cutoutOpacity2)
+  fill(255, 255, 255, 145)
   //fill(237, 203, 168, cutoutOpacity2);  //orange
   ellipse(pos3x, pos3y, sizeTwo, sizeTwo);
   //fill(255, 255, 168, 145)  //yellow
