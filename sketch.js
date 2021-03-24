@@ -86,7 +86,7 @@ function drawLetter(posx, posy, letterData) {
    fill(lightBlue);
   ellipse(posx, posy, 150, 150);
 
- fill(brightGreen);
+  fill(brightGreen);
   arc(pos2x, pos2y, size2, size2,startAngle, stopAngle,CHORD);
 }
 
