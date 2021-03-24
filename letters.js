@@ -5,23 +5,23 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 50,
+  "offsetx": 25,
+  "offsety": 50,
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+   "size": 10,
+  "offsetx": 90,
+  "offsety": 50
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "size": 50,
+  "offsetx": 50,
+  "offsety": 25
   },
   "D": {
     "size": 50,
-    "offsetx": 15,
+    "offsetx": -1,
     "offsety": 0
   },
   "E": {

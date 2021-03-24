@@ -68,11 +68,12 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2y = posy + letterData["offsety"];
   let pos2x = posx + letterData["offsetx"];
-
+ let 
   // draw two circles
   fill(darkBlue);
-  rect(posx, posy, 150, 150);
+  rect(posx, posy, 100, 100);
   fill(backgroundColor);
+  rect(pos2x, pos2y, size2, size2);
   rect(pos2x, pos2y, size2, size2);
 }
 
