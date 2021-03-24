@@ -25,15 +25,17 @@ const letterB = {
   "offsetx": 0,
   "offsety": -175,
   "smallXPos": 15,
-  "smallYPos" : 50
+  "smallYPos" : 20,
+  "smallX2Pos": 15,
+  "smallY2Pos" : -160
 }
 
 const letterC = {
   "size": 100,
   "offsetx": 100,
   "offsety": 25,
-  "smallXPos": 125,
-  "smallYPos" : 50
+  "smallXPos": 130,
+  "smallYPos" : 40
 }
 
 const backgroundColor  = "#102C46";
@@ -79,6 +81,9 @@ function drawLetter(posx, posy, letterData) {
 
   let SmallerxPosition =posx + letterData["smallXPos"]
   let SmalleryPosition =posy + letterData["smallYPos"]
+
+  let Smallerx2Position =posx + letterData["smallX2Pos"]
+  let Smallery2Position =posy + letterData["smallY2Pos"]
   
   // draw two circles
   noStroke();
@@ -88,8 +93,10 @@ function drawLetter(posx, posy, letterData) {
   fill(lightBlue);
   rect(pos2x, pos2y, size2, size2);
 
-   fill(lighterBlue);
-   rect(SmallerxPosition, SmalleryPosition, size2-30,size2-30);
+  fill(backgroundColor);
+  rect(SmallerxPosition, SmalleryPosition, size2-30,size2-30);
+  rect(Smallerx2Position, Smallery2Position, size2-30,size2-30);
+
 }
 
 function keyTyped() {
