@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#c9afaf";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const colourRed  = "#a83636";
+const colourBlack  = "#1f1f1f";
+const strokeColor  = "#f2f2f2";
 
 /*
  * Draw the letter given the letterData
@@ -25,11 +25,24 @@ function drawLetter(letterData) {
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let A1 = letterData["point1A"];
+  let A2 = letterData["point2A"];
+  let A3 = letterData["point3A"];
+  let B1 = letterData["point1B"];
+  let B2 = letterData["point2B"];
+  let B3 = letterData["point3B"];
+  let C1 = letterData["point1C"];
+  let C2 = letterData["point2C"];
+  let C3 = letterData["point3C"];
+  let D1 = letterData["point1D"];
+  let D2 = letterData["point2D"];
+  let D3 = letterData["point3D"];
+
+  // draw two triangles
+  fill(colourRed);
+  triangle(A1, B1, A2, B2, A3, B3);
+  fill(colourBlack);
+  triangle(C1, D1, C2, D2, C3, D3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
