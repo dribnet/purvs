@@ -69,14 +69,13 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
+  // square insides
   fill(darkBlue);
   rect(posx, posy, 150, 150, 20);
   fill(lightBlue);
-  //ellipse(pos2x, pos2y, size2, size2 );
-  rect(pos2x, pos2y, size2, size2, 20);
-  //fill(lightBlue);
- // rect(posx+40, posy, 50, 50, 20);
+rect(pos2x, pos2y, size2, size2, 20);
+
+  
 }
 
 function keyTyped() {
