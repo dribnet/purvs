@@ -5,19 +5,25 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "rotation": 0,
+    "rotation1": 130,
+    "rotation2": 320,
+    "offsetx": 50,
+    "offsety": 125
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "rotation": 0,
+    "rotation1": 30,
+    "rotation2": 250,
+    "offsetx": 50, //changes where the 2nd line is placed on the 1st line 
+    "offsety":125
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "rotation": 0,
+    "rotation1": 200,
+    "rotation2": 50,
+    "offsetx": 50,
+    "offsety": 125
   },
   "D": {
     "size": 50,

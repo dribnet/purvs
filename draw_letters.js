@@ -6,7 +6,7 @@ var systemBoxColor = "#00c800";
 /* internal constants */
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+
 
 /*
  * Draw the letter given the letterData
@@ -16,20 +16,58 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+//set up the 
+push();
+  stroke(255, 0, 0,80);//put into the letter functions 
+  strokeWeight(3);
+  noFill();
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  // with no animation, redrawing the screen is not necessary
+  noLoop();
+  angleMode(DEGREES);
+  rectMode(CENTER);
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  let center_x = canvasWidth / 2;  
+  let center_y = canvasHeight / 2;
+
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+
+ 
+  // push();//turn into functions?//so then i can change which ones have 2 lines or 3 and the colour
+  // translate(pos2x, pos2y);
+  // rotate(letterData["rotation"]);
+  // rect(0, 0, 10, 150);
+  // pop();//once in functions chnage rects 2-3 to go down the page more
+
+  aLetter(letterData);
+
+  // push();
+  //  translate(pos2x, pos2y);
+  // rotate(letterData["rotation1"]);
+  // rect(0,0,100,10,);
+  // pop();
+  
+  // push();
+  //  translate(pos2x, pos2y);
+  // rotate(letterData["rotation2"]);
+  // rect(0,0,10,100);
+  // pop();
+pop();
+}
+//each letter function 
+function aLetter(letterData){//why are all the letters effected by this function?
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+ stroke(255, 0, 0,80);//put into the letter functions 
+  strokeWeight(3);
+  noFill();
+translate(pos2x, pos2y);
+  rotate(letterData["rotation"]);
+  //rotation vars need to be diferent for each leter 
+  rect(0, 0, 10, 150);
+  rect(0,0,100,10);//i dont really know what ive done here
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

@@ -15,7 +15,7 @@ const canvasHeight = 500;
 const letterA = {
   "rotation": 160,
   "rotation1": 110,
-  "rotation2": 0,
+  "rotation2": 270,
   "offsetx": 0,
   "offsety": 0
 }
@@ -83,7 +83,7 @@ function drawLetter(posx, posy, letterData) {
 
   // draw two circles
   // fill(darkBlue);
-  push();
+  push();//turn into functions?
   translate(posx, posy);
   rotate(letterData["rotation"]);
   rect(0, 0, 10, 150);
