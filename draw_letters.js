@@ -4,9 +4,10 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const strokeColor      = "#233f11";
+
+
+
 
 /*
  * Draw the letter given the letterData
@@ -16,20 +17,49 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
+  //set up the sketch
+  angleMode(DEGREES); //angle mode to degrees
+
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
 
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size = letterData["size"];
+  let size1 = letterData["size1"];
+  let size2 = letterData["size2"];
+  let posx = letterData["recOffsetx"];
+  let posy = letterData["recOffsety"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+  let pos3x = letterData["arcOffsetx"];
+  let pos3y = letterData["arcOffsety"];
+  let RectAngle = letterData["RectAngle"];
+  let angleStart = letterData["angleStart"];
+  let angleEnd = letterData["angleEnd"];
+  let opacity = letterData["opacity"];
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  // draw a rectangle and rotate it
+  noStroke();
+  fill(219, 32, 122);
+
+  push();
+  translate(posx,posy);
+  rotate(RectAngle);
+  rect(0, 0, 15, size);
+  pop();
+
+
+  //Draw an ellipse
+  fill(144, 21, 135);//Mauve
+  ellipseMode(CORNER);
+  ellipse(pos2x, pos2y, size1, size1);
+
+
+  //Draw an arc
+  fill(169, 9, 69);//Red
+  arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

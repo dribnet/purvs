@@ -54,9 +54,6 @@ const letterC = {
 const backgroundColor  = "#e3eded";
 const strokeColor      = "#233f11";
 
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-
 
 
 function setup () {
@@ -67,7 +64,7 @@ function setup () {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
-angleMode(DEGREES); //angle mode to degrees
+  angleMode(DEGREES); //angle mode to degrees
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
