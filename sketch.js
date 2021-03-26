@@ -13,7 +13,6 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 75,
   "linePoints": 4,
   "point1": 3,
   "point2": 6,
@@ -23,7 +22,6 @@ const letterA = {
 }
 
 const letterB = {
-  "size": 75,
   "linePoints": 5,
   "point1": 4,
   "point2": 0,
@@ -33,7 +31,6 @@ const letterB = {
 }
 
 const letterC = {
-  "size": 75,
   "linePoints": 3,
   "point1": 2,
   "point2": 4,
@@ -50,17 +47,23 @@ function setup () {
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
+  // clear screen
+  background(backgroundColor);
+
   // color/stroke setup
   stroke(strokeColor);
+
+  // draw background stars
+  for (let i = 0; i < 600; i++) {
+    strokeWeight(random(1, 4));
+    point(random(width), random(height));
+  }
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
 }
 
 function draw () {
-  // clear screen
-  background(backgroundColor);
-
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
@@ -72,18 +75,19 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let radius = letterData["size"];
 
-  // draw a circle
-  strokeWeight(1);
-  noFill();
-  ellipse(posx, posy, radius * 2);
+  let radius = 75;
 
   // draw points around the circle
-  strokeWeight(8);
   for (let i = 0; i < 8; i++) {
-    point(radius * cos(i * PI/4) + posx, radius * sin(i * PI/4) + posy);
+    for (let j = 1; j <= letterData["linePoints"]; j++) {
+      if (letterData["point"+j] == i) {
+        strokeWeight(8);
+      } else {
+        strokeWeight(random(1, 4));
+      }
+      point(radius * cos(i * PI/4) + posx, radius * sin(i * PI/4) + posy);
+    }
   }
 
   strokeWeight(2);
