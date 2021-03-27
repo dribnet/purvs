@@ -1,24 +1,13 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "linePoints": 4,
   "point1": 3,
   "point2": 6,
   "point3": 1,
   "point4": 4,
-  "point5": null
+  "point5": 4
 }
 
 const letterB = {
@@ -35,8 +24,8 @@ const letterC = {
   "point1": 2,
   "point2": 4,
   "point3": 6,
-  "point4": null,
-  "point5": null
+  "point4": 6,
+  "point5": 6
 }
 
 const backgroundColor  = "#000000";
@@ -75,8 +64,7 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-
-  let radius = 75;
+  let radius = 50;
 
   // draw points around the circle
   for (let i = 0; i < 8; i++) {

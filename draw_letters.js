@@ -1,12 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
+var systemBackgroundColor = "#000000";
+var systemLineColor = "#ffffff";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const strokeColor  = "#ffffff";
 
 /*
  * Draw the letter given the letterData
@@ -16,20 +14,36 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  let posx = 50;
+  let posy = 150;
+  let radius = 50;
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  // draw points around the circle
+  for (let i = 0; i < 8; i++) {
+    for (let j = 1; j <= letterData["linePoints"]; j++) {
+      if (letterData["point"+j] == i) {
+        strokeWeight(8);
+      } else {
+        strokeWeight(random(1, 4));
+      }
+      point(radius * cos(i * PI/4) + posx, radius * sin(i * PI/4) + posy);
+    }
+  }
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  strokeWeight(2);
+  for (let i = 1; i <= letterData["linePoints"]; i++) {
+    let lineStartX = radius * cos(letterData["point"+i] * PI/4) + posx;
+    let lineStartY = radius * sin(letterData["point"+i] * PI/4) + posy;
+    let lineEndX, lineEndY;
+    if (letterData["linePoints"] < i + 1) {
+      lineEndX = lineStartX;
+      lineEndY = lineStartY;
+    } else {
+      lineEndX = radius * cos(letterData["point"+(i+1)] * PI/4) + posx;
+      lineEndY = radius * sin(letterData["point"+(i+1)] * PI/4) + posy;
+    }
+    line(lineStartX, lineStartY, lineEndX, lineEndY);
+  }
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

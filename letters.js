@@ -1,188 +1,299 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": 4
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": 4
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "linePoints": 5,
+    "point1": 4,
+    "point2": 0,
+    "point3": 6,
+    "point4": 2,
+    "point5": 0
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 3,
+    "point1": 2,
+    "point2": 4,
+    "point3": 6,
+    "point4": 6,
+    "point5": 6
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 0,
+    "point2": 6,
+    "point3": 2,
+    "point4": 0,
+    "point5": 0
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 7,
+    "point2": 4,
+    "point3": 0,
+    "point4": 4,
+    "point5": 1
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 7,
+    "point2": 5,
+    "point3": 0,
+    "point4": 5,
+    "point5": 2
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 7,
+    "point2": 4,
+    "point3": 2,
+    "point4": 0,
+    "point5": 1
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 5,
+    "point2": 3,
+    "point3": 0,
+    "point4": 7,
+    "point5": 1
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 2,
+    "point1": 6,
+    "point2": 2,
+    "point3": 2,
+    "point4": 2,
+    "point5": 2
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 7,
+    "point2": 1,
+    "point3": 2,
+    "point4": 3,
+    "point5": 3
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 7,
+    "point2": 4,
+    "point3": 1,
+    "point4": 3,
+    "point5": 5
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 5,
+    "point2": 3,
+    "point3": 1,
+    "point4": 4,
+    "point5": 4
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 3,
+    "point2": 5,
+    "point3": 2,
+    "point4": 7,
+    "point5": 1
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 5,
+    "point3": 1,
+    "point4": 7,
+    "point5": 7
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 0,
+    "point2": 2,
+    "point3": 4,
+    "point4": 6,
+    "point5": 0
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 0,
+    "point4": 4,
+    "point5": 4
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 5,
+    "point2": 7,
+    "point3": 2,
+    "point4": 5,
+    "point5": 1
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 3,
+    "point2": 5,
+    "point3": 7,
+    "point4": 4,
+    "point5": 1
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 7,
+    "point2": 4,
+    "point3": 0,
+    "point4": 2,
+    "point5": 3
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 7,
+    "point2": 5,
+    "point3": 6,
+    "point4": 2,
+    "point5": 2
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 5,
+    "point2": 3,
+    "point3": 2,
+    "point4": 7,
+    "point5": 7
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 3,
+    "point1": 5,
+    "point2": 2,
+    "point3": 7,
+    "point4": 7,
+    "point5": 7
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 5,
+    "point1": 5,
+    "point2": 3,
+    "point3": 6,
+    "point4": 1,
+    "point5": 7
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 7,
+    "point2": 3,
+    "point3": 1,
+    "point4": 5,
+    "point5": 5
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 5,
+    "point2": 2,
+    "point3": 4,
+    "point4": 7,
+    "point5": 7
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "linePoints": 4,
+    "point1": 5,
+    "point2": 7,
+    "point3": 3,
+    "point4": 1,
+    "point5": 1
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "linePoints": 4,
+    "point1": 3,
+    "point2": 6,
+    "point3": 1,
+    "point4": 4,
+    "point5": null
   }
 
 }
