@@ -1,11 +1,4 @@
 ## MDDN 242 2021 Assignment 2
 
 
-one circle stays the same. Then draw an arc over the top.
-updated colour
-The three parameters per letter:
-  * `size` : radius of the arc
-  * `offsetx` : x offset of the arc relative to the circle
-  * `offsety` : y offset of the arc relative to the circle
-  * `start` : start angle of the arc
-  * `end` : end angle of the arc
+I have had a change of idea! Will do a real write up when I am futher into the idea. I want to use a face to represent the alphabet 
