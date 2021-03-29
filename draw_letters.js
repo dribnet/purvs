@@ -4,9 +4,9 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
+const babyBlue  = "#89cff0";
+const lightBlue  = "#cdebf9";
+const lBabyBlue = "#b6e2f6";
 
 /*
  * Draw the letter given the letterData
@@ -16,21 +16,68 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
-
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
-
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  drawA(letterData["A"]);
+  drawB(letterData["B"]);
+  drawC(letterData["C"]);
 }
+function drawA(letterData){
+
+  let start = letterData["start"];
+  let stop =  letterData["end"];
+  let start2 = letterData["start2"];
+  let stop2 =  letterData["end2"];
+  let start3 = letterData["start3"];
+  let stop3 =  letterData["end3"];
+  let start4 = letterData["start4"];
+  let stop4 =  letterData["end4"];
+
+  stroke(lBabyBlue);
+  strokeWeight(5);
+  line(start,stop,start2,stop2);
+  line(start3,stop3,start4,stop4);
+ 
+}
+function drawB(letterData){
+
+  let start = letterData["start"];
+  let stop =  letterData["end"];
+  let start2 = letterData["start2"];
+  let stop2 =  letterData["end2"];
+  let start3 = letterData["start3"];
+  let stop3 =  letterData["end3"];
+  let start4 = letterData["start4"];
+  let stop4 =  letterData["end4"];
+  let start5 = letterData["start5"];
+  let stop5 =  letterData["end5"];
+
+  stroke(lBabyBlue);
+  strokeWeight(5);
+  line(start,stop,start2,stop2);
+  line(start2,stop2,start3,stop3);
+  line(start3,stop3,start4,stop4);
+  line(start4,stop4,start5,stop5);
+
+  }
+
+function drawC(letterData){
+ 
+  let start = letterData["start"];
+  let stop =  letterData["end"];
+  let start2 = letterData["start2"];
+  let stop2 =  letterData["end2"];
+  let start3 = letterData["start3"];
+  let stop3 =  letterData["end3"];
+  let start4 = letterData["start4"];
+  let stop4 =  letterData["end4"];
+  let start5 = letterData["start5"];
+  let stop5 =  letterData["end5"];
+
+  stroke(lBabyBlue);
+  strokeWeight(5);
+  line(start,stop,start2,stop2);
+  line(start3,stop3,start4,stop4);
+}
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -45,3 +92,7 @@ var swapWords = [
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
+
+
+
