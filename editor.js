@@ -5,10 +5,19 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["size",       0, 200],
+  ["offsetx",  0,  100],
+  ["offsety", 50, 200],
+  ["size2", 0, 200],
+  ["offsetx3", 0, 100],
+  ["offsety3", 50, 200],
+  ["size3", 0, 200],
+  ["offsetx4", 0, 200],
+  ["offsety4", 50, 200],
+  ["angleStart", 0, 360],
+  ["angleStop", 0, 360]
 ];
+
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
 const numSliders = sliderInfo.length;

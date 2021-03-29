@@ -33,10 +33,10 @@ noStroke();
   let sizeThree = letterData["size3"];
   let pos4x = letterData["offsetx4"];
   let pos4y = letterData["offsety4"];
-  let width = 100
-  let height = 100
-  let posx = width/2
-  let posy = height + height/2
+  let width = 90
+  let height = 90
+  let posx = 50
+  let posy = 150
 
   // let cutoutOpacity1 = letterData["opacity1"]
   //let cutoutOpacity2 = letterData["opacity2"]
@@ -65,8 +65,28 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["size2"] = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
+  new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+  new_letter["size3"] = map(percent, 0, 100, oldObj["size3"], newObj["size3"]);
+  new_letter["offsetx4"] = map(percent, 0, 100, oldObj["offsetx4"], newObj["offsetx4"]);
+  new_letter["offsety4"] = map(percent, 0, 100, oldObj["offsety4"], newObj["offsety4"]);
+  new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
+  new_letter["angleStop"] = map(percent, 0, 100, oldObj["angleStop"], newObj["angleStop"]);
   return new_letter;
 }
+
+// "size": 60,
+//   "offsetx": 50,
+//   "offsety": 185,
+//   "size2": 30,
+//   "offsetx3": 50,
+//   "offsety3": 130,
+//   "size3": 100,
+//   "offsetx4": 0,
+//   "offsety4": -70,
+//   "angleStart": 0, //-210
+//   "angleStop": 0,  //30
 
 var swapWords = [
   "ABBAABBA",
