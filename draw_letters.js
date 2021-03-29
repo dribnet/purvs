@@ -7,8 +7,6 @@ var systemBoxColor = "#00c800";
 const strokeColor      = "#233f11";
 
 
-
-
 /*
  * Draw the letter given the letterData
  *
@@ -37,12 +35,10 @@ function drawLetter(letterData) {
   let RectAngle = letterData["RectAngle"];
   let angleStart = letterData["angleStart"];
   let angleEnd = letterData["angleEnd"];
-  let opacity = letterData["opacity"];
 
   // draw a rectangle and rotate it
   noStroke();
   fill(219, 32, 122);
-
   push();
   translate(posx,posy);
   rotate(RectAngle);
@@ -59,14 +55,24 @@ function drawLetter(letterData) {
   //Draw an arc
   fill(169, 9, 69);//Red
   arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
-
 }
+
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["recOffsetx"] = map(percent, 0, 100, oldObj["recOffsetx"], newObj["recOffsetx"]);
+  new_letter["recOffsety"] = map(percent, 0, 100, oldObj["recOffsety"], newObj["recOffsety"]);
+  new_letter["RectAngle"] = map(percent, 0, 100, oldObj["RectAngle"], newObj["RectAngle"]);
+  new_letter["size1"] = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["size2"] = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
+  new_letter["arcOffsetx"] = map(percent, 0, 100, oldObj["arcOffsetx"], newObj["arcOffsetx"]);
+  new_letter["arcOffsety"] = map(percent, 0, 100, oldObj["arcOffsety"], newObj["arcOffsety"]);
+  new_letter["angleStart"] = map(percent, 0, 100, oldObj["angleStart"], newObj["angleStart"]);
+  new_letter["angleEnd"] = map(percent, 0, 100, oldObj["angleEnd"], newObj["angleEnd"]);
   return new_letter;
 }
 

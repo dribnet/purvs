@@ -1,6 +1,10 @@
 ## MDDN 242 2021 Assignment 2
 
-The letters from the sketch got moved to the draw_letter.js and letter.js and tweaked to fit in the boxs
+The draw_letter.js has now more letters.
+I set up the editor and the letter interpolations!
+Will be working on adding more letters as soon as possible and then move into refining them.
+
+
 Each of my letters is composed with a circle, an arc and a rectangle. The size and position of each shape varies, the arc start and end as well as the rotation of the rectangle too.
 
 The ten parameters per letter:
