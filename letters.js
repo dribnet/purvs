@@ -5,22 +5,22 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
+    "stroke1": 9,
     "offsetx": 0,
     "offsety": 17
   },
   "B": {
-    "size": 75,
+    "stroke1": 4,
     "offsetx": 0,
     "offsety": -70
   },
   "C": {
-    "size": 50,
+    "stroke1": 1,
     "offsetx": 15,
     "offsety": 0
   },
   "D": {
-    "size": 50,
+    "stroke1": 9,
     "offsetx": 15,
     "offsety": 0
   },

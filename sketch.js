@@ -15,7 +15,7 @@ const canvasHeight = 500;
 const letterA = {
   "size": 100,
   "offsetx": 5,
-  "offsety": --0
+  "offsety": -0
 }
 
 const letterB = {
