@@ -2,7 +2,6 @@ const canvasWidth = 960;
 const canvasHeight = 500;
 
 const letterA = {
-  "linePoints": 4,
   "point1": 3,
   "point2": 6,
   "point3": 1,
@@ -11,7 +10,6 @@ const letterA = {
 }
 
 const letterB = {
-  "linePoints": 5,
   "point1": 4,
   "point2": 0,
   "point3": 6,
@@ -20,7 +18,6 @@ const letterB = {
 }
 
 const letterC = {
-  "linePoints": 3,
   "point1": 2,
   "point2": 4,
   "point3": 6,
@@ -68,7 +65,7 @@ function drawLetter(posx, posy, letterData) {
 
   // draw points around the circle
   for (let i = 0; i < 8; i++) {
-    for (let j = 1; j <= letterData["linePoints"]; j++) {
+    for (let j = 1; j <= 5; j++) {
       if (letterData["point"+j] == i) {
         strokeWeight(8);
       } else {
@@ -79,11 +76,11 @@ function drawLetter(posx, posy, letterData) {
   }
 
   strokeWeight(2);
-  for (let i = 1; i <= letterData["linePoints"]; i++) {
+  for (let i = 1; i <= 5; i++) {
     let lineStartX = radius * cos(letterData["point"+i] * PI/4) + posx;
     let lineStartY = radius * sin(letterData["point"+i] * PI/4) + posy;
     let lineEndX, lineEndY;
-    if (letterData["linePoints"] < i + 1) {
+    if (i == 5) {
       lineEndX = lineStartX;
       lineEndY = lineStartY;
     } else {

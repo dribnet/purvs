@@ -20,7 +20,7 @@ function drawLetter(letterData) {
 
   // draw points around the circle
   for (let i = 0; i < 8; i++) {
-    for (let j = 1; j <= letterData["linePoints"]; j++) {
+    for (let j = 1; j <= 5; j++) {
       if (letterData["point"+j] == i) {
         strokeWeight(8);
       } else {
@@ -31,11 +31,11 @@ function drawLetter(letterData) {
   }
 
   strokeWeight(2);
-  for (let i = 1; i <= letterData["linePoints"]; i++) {
+  for (let i = 1; i <= 5; i++) {
     let lineStartX = radius * cos(letterData["point"+i] * PI/4) + posx;
     let lineStartY = radius * sin(letterData["point"+i] * PI/4) + posy;
     let lineEndX, lineEndY;
-    if (letterData["linePoints"] < i + 1) {
+    if (i == 5) {
       lineEndX = lineStartX;
       lineEndY = lineStartY;
     } else {
