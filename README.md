@@ -2,6 +2,7 @@
 
 For my sketch I used 3 different shapes (a triangle, square and circle) as the background for my letters, each in a different colour. Then there is a smaller triangle that has been scaled and rotated to create negative space in the letter and some lines on the side. 
 
+I have now started working on my full alphabet 
 
 
 The parameters per letter:
