@@ -13,7 +13,7 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
+  "size": 170,
   "offsetx": 0,
   "offsety": 35
 }
@@ -31,7 +31,6 @@ const letterC = {
 }
 
 const backgroundColor  = "#e3eded";
-
 const lightPurple  = "#b29af5";
 const lightBlue  = "#59ccff";
 const DarkBlue = "345eeb";
@@ -68,6 +67,14 @@ function drawLetter(posx, posy, letterData) {
   let size2 = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
+
+  translate(width/2, height/2);
+  beginShape();
+  for(let i = 0; i < shapeLoop; i++) {
+  const x = random(-100, 100);
+  const y = random(-100, 100);
+  vertex(x, y);
+  }
 
    //draw two circles
    fill(lightPurple);
