@@ -11,8 +11,7 @@ const canvasHeight = 500;
             relative to the first one
  *
  */
-
-const letterA = {
+ const letterA = {
   
   "offsetx": 50,
   "offsety": 90,
@@ -93,7 +92,7 @@ function drawLetter(posx, posy, letterData) {
    
   // arc(pos2x, pos2y, size2, size2, angleS, angleE);
 
-  rect(pos2x, pos2y, RecX, Recy);
+
   ellipse(CircleX, CircleY-50, CircleS);
   ellipse(CircleX, CircleY, CircleS);
   fill("#ba7599");
@@ -102,7 +101,9 @@ function drawLetter(posx, posy, letterData) {
   vertex(35, 130);
   vertex(95, 130);
   endShape();
+  rect(pos2x, pos2y, RecX, Recy);
 }
+
 
 function keyTyped() {
   if (key == '!') {

@@ -1,23 +1,63 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+"offsetx": 10,
+  "offsety": 120,
+  "Rwidth": 75,
+  "Rheight": 20,
+  "size": 50,
+  "CircleX": 45,
+  "CircleY": 150,
+  "TriY": 90,
+   "TriY2": 140,
+   "Trix": 45,
+   "Trix2": 15,
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+
+ "offsetx": 10,
+  "offsety": 120,
+  "Rwidth": 75,
+  "Rheight": 20,
+  "size": 50,
+  "CircleX": 45,
+  "CircleY": 150,
+  "TriY": 90,
+   "TriY2": 140,
+   "Trix": 45,
+   "Trix2": 15,
+
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+
+ "offsetx": 10,
+  "offsety": 80,
+  "Rwidth": 40,
+  "Rheight": 70,
+  "size": 40,
+  "CircleX": 65,
+  "CircleY": 140,
+  "TriY": 0,
+   "TriY2": 0,
+   "Trix": 200,
+   "Trix2": 200,
+
+
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+
+ "offsetx": 57,
+  "offsety": 80,
+  "Rwidth": 40,
+  "Rheight": 80,
+  "size": 60,
+  "CircleX": 45,
+  "CircleY": 150,
+  "TriY": 0,
+   "TriY2": 0,
+   "Trix": 40,
+   "Trix2": 20,
+
+
   },
   "D": {
     "size": 50,

@@ -2,4 +2,8 @@
 :memo:  
 The lighter purple ellipse rotates around the centre based on the feauture of the letter. For example, A could be seen as a triangle / fan, so it has a fan shape in the middle. B has two little half circle on the side, and C is like a complete half circle.  *working on putting triangles* 
 
+*25 March*  :sunny: 
 Updating my sketch today, I chose to use rectangles, triangles and ellipses to create my letters.  
+
+*30 March*  :umbrella: :zap:  
+Working on getting things into draw letter js and looking at using the variables wisely to get the most out of it.  Starting to work in the editor, but nothing major has changed.  

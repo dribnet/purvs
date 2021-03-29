@@ -8,6 +8,7 @@ const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
 const strokeColor  = "#233f11";
 
+
 /*
  * Draw the letter given the letterData
  *
@@ -16,20 +17,35 @@ const strokeColor  = "#233f11";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
+  noStroke();
+  // // determine parameters for second circle
+  let RecX = letterData["Rwidth"];
+  let RecY = letterData["Rheight"];
+  let pos2x = letterData["offsetx"];
+  let pos2y = letterData["offsety"];
+  let CircleX =letterData["CircleX"];
+  let CircleY = letterData["CircleY"];
+  let CircleS = letterData["size"];
+  let TriP = letterData["Trix"];
+  let TriP2 = letterData["Trix2"];
+  let TriPy = letterData["TriY"];
+  let TriPy2 = letterData["TriY2"];
+  // // draw two circles
+   fill("#9c4887");
+  // ellipse(posx, posy, 150, 150);
+   
+  // arc(pos2x, pos2y, size2, size2, angleS, angleE);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  rect(pos2x, pos2y, RecX, RecY);
+  ellipse(CircleX, CircleY-50, CircleS);
+  ellipse(CircleX, CircleY, CircleS);
+  fill("#ba7599");
+  beginShape();
+  vertex(TriP, TriPy);
+  vertex(TriP2, TriPy2);
+  vertex(TriP2 + 60, TriPy2);  
+  endShape();  
 
-  // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
