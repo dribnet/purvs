@@ -26,8 +26,9 @@ function drawLetter(letterData) {
 
   // determine parameters for letter
   let HeadY = letterData["HeadY"];
-  let pos2x = letterData["offsetx"];
-  let pos2y = letterData["offsety"];
+  let mouthHight = letterData["mouthH"];
+  let mouthWidth = letterData["mouthW"];
+  
   let startAngle = letterData["start"];
   let stopAngle = letterData["end"];
 
@@ -39,16 +40,17 @@ function drawLetter(letterData) {
   // fill(brightGreen);
   // arc(pos2x, pos2y, size2, size2,startAngle, stopAngle,CHORD);
   let faceSize = 100;
-  let mouthHight = 30;
-  let mouthWidth = 60;
+  //let mouthHight = 30;
+  //let mouthWidth = 60;
 
   fill(lightYellow);
   rect(50-faceSize/2, HeadY, faceSize, faceSize, 20);
 
   // mouth
   ellipse(50,HeadY+2*(faceSize/3), mouthWidth,mouthHight);
+  
   // eyes
-
+  fill(0);
   ellipse(30,HeadY+faceSize/4,10);
   ellipse(70,HeadY+faceSize/4,10);
   

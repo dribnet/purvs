@@ -1,196 +1,189 @@
 const alphabet = {
   "default": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "mouthH": 30,
+    "mouthW": 30
   },
-  "A": {
-     "HeadY": 80,
-  "offsetx": 50,
-  "offsety": 180,
-  "start":180,
-  "end":0
+  "A":{
+  "HeadY": 17,
+  "mouthH": 21,
+  "mouthW": 32
+
   },
   "B": {
-    "HeadY": 100,
-  "offsetx": 50,
-  "offsety": 50,
-  "start":270,
-  "end":90
-  },
+  "HeadY": 67,
+  "mouthH": 0,
+  "mouthW": 22.400000000000002
+},
   "C": {
-    "HeadY": 80,
-  "offsetx": 70,
-  "offsety": 150,
-  "start":80,
-  "end":290
-  },
+  "HeadY": 30,
+  "mouthH": 20.299999999999997,
+  "mouthW": 33.6
+},
   "D": {
-    "HeadY": 100,
-  "offsetx": 50,
-  "offsety": 150,
-  "start":270,
-  "end":90
-  },
+  "HeadY": 100,
+  "mouthH": 9.8,
+  "mouthW": 52.800000000000004
+},
   "E": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 0,
+  "mouthH": 13.3,
+  "mouthW": 27.200000000000003
+},
   "F": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 43,
+  "mouthH": 0,
+  "mouthW": 16.8
+},
   "G": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 93,
+  "mouthH": 21,
+  "mouthW": 16.8
+},
   "H": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 71,
+  "mouthH": 4.9,
+  "mouthW": 40.8
+},
   "I": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 0,
+  "mouthH": 37.800000000000004,
+  "mouthW": 33.6
+},
   "J": {
-    "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
-  },
+  "HeadY": 100,
+  "mouthH": 9.1,
+  "mouthW": 16.8
+},
   "K": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "L": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "M": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "N": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "O": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "P": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "Q": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "R": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "S": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "T": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "U": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "V": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "W": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "X": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "Y": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "Z": {
     "HeadY": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "mouthH": 15,
+    "mouthW": 0
   },
   "0": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "1": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "2": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "3": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "4": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "5": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "6": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "7": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "8": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   },
   "9": {
     "HeadY": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "mouthH": 0,
+    "mouthW": 17
   }
 
 }
