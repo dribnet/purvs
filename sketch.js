@@ -31,22 +31,31 @@ const letterB = {
   "point1A": 80,
   "point2A": 170,
   "point3A": 170,
-  "point1B": -230,
+  "point1B": -370,
   "point2B": -140,
   "point3B": 0,
   "point1C": 80,
   "point2C": 170,
   "point3C": 170,
-  "point1D": -130,
+  "point1D": -250,
   "point2D": 100,
   "point3D": -20
   
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "point1A": 80,
+  "point2A": 420,
+  "point3A": 420,
+  "point1B": -620,
+  "point2B": -140,
+  "point3B": 60,
+  "point1C": 80,
+  "point2C": 420,
+  "point3C": 420,
+  "point1D": -380,
+  "point2D": 100,
+  "point3D": -20
 }
 
 const backgroundColor  = "#c9afaf";
@@ -83,10 +92,6 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  // let pos2x = posx + letterData["offsetx"];
-  // let pos2y = posy + letterData["offsety"];
-
   let A1 = posx + letterData["point1A"];
   let A2 = posy + letterData["point2A"];
   let A3 = posy + letterData["point3A"];
@@ -100,7 +105,7 @@ function drawLetter(posx, posy, letterData) {
   let D2 = posy + letterData["point2D"];
   let D3 = posy + letterData["point3D"];
 
-  // draw
+  // draw triangles
   fill(colourRed);
   triangle(A1, B1, A2, B2, A3, B3);
   fill(colourBlack);

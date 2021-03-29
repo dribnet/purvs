@@ -5,9 +5,21 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  // ["size",       0, 100],
+  // ["offsetx",  -30,  30],
+  // ["offsety", -100, 100],
+  ["point1A", 0, 100],
+  ["point2A", 0, 100],
+  ["point3A", 0, 100],
+  ["point1B", 0, 200],
+  ["point2B", 0, 200],
+  ["point3B", 0, 200],
+  ["point1C", 0, 100],
+  ["point2C", 0, 100],
+  ["point3C", 0, 100],
+  ["point1D", 0, 200],
+  ["point2D", 0, 200],
+  ["point3D", 0, 200]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
