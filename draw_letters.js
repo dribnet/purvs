@@ -45,13 +45,28 @@ function drawLetter(letterData) {
     fill(255, 34, 0);
   }
   else if (col1 == 2) {
-    fill(11, 207, 4);
+    fill(0, 166, 22);
   }
   else if (col1 == 3) {
     fill(180, 5, 255);
   }
-  else if (col1 == 4) {
+   else if (col1 == 5) {
+    fill(255, 0, 162);
+  }
+   else if (col1 == 6) {
+    fill(132, 255, 0);
+  }
+   else if (col1 == 7) {
+    fill(0, 217, 255);
+  }
+   else if (col1 == 8) {
+    fill(255, 140, 0);
+  }
+   else if (col1 == 9) {
     fill(0,0,0);
+  }
+   else if (col1 == 4) {
+    fill(242, 255, 0);
   }
 
   ellipse(pos2x, pos2y, size2, size2);
