@@ -7,7 +7,6 @@ var systemBoxColor = "#00c800";
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
 
-
 /*
  * Draw the letter given the letterData
  *
@@ -18,7 +17,7 @@ const lightBlue  = "#59ccff";
 function drawLetter(letterData) {
 //set up the 
 push();
-  stroke(255, 0, 0,80);//put into the letter functions 
+  stroke(255, 0, 0, 80);//can i make 255 into a var? 
   strokeWeight(3);
   noFill();
 
@@ -34,41 +33,33 @@ push();
   let pos2y = letterData["offsety"];
 
  
-  // push();//turn into functions?//so then i can change which ones have 2 lines or 3 and the colour
-  // translate(pos2x, pos2y);
-  // rotate(letterData["rotation"]);
-  // rect(0, 0, 10, 150);
-  // pop();//once in functions chnage rects 2-3 to go down the page more
 
-  aLetter(letterData);
-
-  // push();
-  //  translate(pos2x, pos2y);
-  // rotate(letterData["rotation1"]);
-  // rect(0,0,100,10,);
-  // pop();
+  push();//turn into functions?//so then i can change which ones have 2 lines or 3 and the colour
+  translate(pos2x, pos2y);
+  rotate(letterData["rotation"]);
+  rect(0, 0, 100, 10);//size is a constant
+  pop();//once in functions chnage rects 2-3 to go down the page more
+//offset for lines 2 and 3 need to change 
+  push();
+   translate(pos2x, pos2y);
+  rotate(letterData["rotation1"]);
+  rect(0,0,10,100);
+  pop();
   
-  // push();
-  //  translate(pos2x, pos2y);
-  // rotate(letterData["rotation2"]);
-  // rect(0,0,10,100);
-  // pop();
+  push();
+   translate(pos2x, pos2y);
+  rotate(letterData["rotation2"]);
+  rect(0,0,10,100);
+  pop();
 pop();
 }
-//each letter function 
-function aLetter(letterData){//why are all the letters effected by this function?
-  let pos2x = letterData["offsetx"];
-  let pos2y = letterData["offsety"];
- stroke(255, 0, 0,80);//put into the letter functions 
-  strokeWeight(3);
-  noFill();
-translate(pos2x, pos2y);
-  rotate(letterData["rotation"]);
-  //rotation vars need to be diferent for each leter 
-  rect(0, 0, 10, 150);
-  rect(0,0,100,10);//i dont really know what ive done here
 
-}
+//put rects into a map
+
+  //start again - each rect needs a rotation 
+  //for colour do an if statement 
+
+// }
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
