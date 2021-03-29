@@ -20,7 +20,7 @@ const letterA = {
 
 const letterB = {
   "size": 10,
-  "offsetx": 140,
+  "offsetx": 40,
   "offsety": 70
 }
 
@@ -47,6 +47,7 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES);
 }
 
 function draw () {
@@ -64,18 +65,38 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2y = posy + letterData["offsety"];
-  let pos2x = posx + letterData["offsetx"];
- let 
-  // draw two circles
-  fill(darkBlue);
-  rect(posx, posy, 100, 100);
-  fill(backgroundColor);
-  rect(pos2x, pos2y, size2, size2);
-  rect(pos2x, pos2y, size2, size2);
+  
+
+//potential parameters set by true/false statements or if statements. so maybe parametrs could include
+// "verticalline"
+// "horizontalline"
+// "arc1" etc. something like that 
+
+noFill();
+stroke(0, 50);
+  arc(posx, posy, 100, 100, 0, 45);
+  arc(posx, posy, 100, 100, 45, 90);
+  arc(posx, posy, 100, 100, 90, 135);
+  arc(posx, posy, 100, 100, 135, 180);
+  arc(posx, posy, 100, 100, 180, 225);
+  arc(posx, posy, 100, 100, 225, 270);
+  arc(posx, posy, 100, 100, 270, 315);
+  arc(posx, posy, 100, 100, 315, 360);
+
+  line(posx, posy, posx, posy-50)
+  line(posx, posy, posx, posy+50)
+  line(posx, posy, posx-50, posy)
+  line(posx, posy, posx+50, posy)
+  line(posx, posy, posx-35, posy-35)
+  line(posx, posy, posx+35, posy-35)
+  stroke(0);
+  line(posx, posy, posx+35, posy+35)
+  line(posx, posy, posx-35, posy+35)
+
 }
+
+
+
 
 function keyTyped() {
   if (key == '!') {

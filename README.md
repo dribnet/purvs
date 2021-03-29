@@ -1,6 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-Today i came up with an idea for what i want my alphabet to look like. I drew it up and added it to my file under sketch.jpg. The main idea is that it is a wheel and the letters all come from the lines. it is simple but i feel like it is actually going to be so dfficult to code. 
-
-I need to just play around with it and try get it down to 12 parameters. Hopefully by next class i can start coding it!
-
+I started my sketch on sketch.js. The idea is a wheel that shows the letters through a series of arcs and straight lines. I didn't get very far as I am super confused on how to add the parameters. Bex mentioned something about true/false statements last class but i didnt know how to do that. hopefully I can work it out by next class. I like my idea so far though. 
