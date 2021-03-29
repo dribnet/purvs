@@ -4,10 +4,13 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-//const strokeColor = "#7a0901";
+
 const darkRed = "#9e0d03";
 const midRed = "#eb4034";
 const lightRed = "#ff6257";
+const darkBlue = "#006fff";
+const midBlue = "#6babff";
+const lightBlue = "#b3d4ff";
 
 /*
  * Draw the letter given the letterData
@@ -19,10 +22,6 @@ const lightRed = "#ff6257";
 function drawLetter(letterData) {
   //setup the sketch
   angleMode(DEGREES);
-
-  // color/stroke setup
-  //stroke(strokeColor);
-  //strokeWeight(4);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
