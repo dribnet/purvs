@@ -2,4 +2,4 @@
 
 ### Mon 29 Mar
 
-I have refactored some of my code so that I don't require the "linePoints" variable.
+I have completed the numbers of my font, making the typeface complete.

@@ -1,10 +1,10 @@
 const alphabet = {
   "default": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 0,
+    "point2": 0,
+    "point3": 0,
+    "point4": 0,
+    "point5": 0
   },
   "A": {
     "point1": 3,
@@ -192,71 +192,71 @@ const alphabet = {
     "point1": 3,
     "point2": 6,
     "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point4": 3,
+    "point5": 3
   },
   "1": {
-    "point1": 3,
+    "point1": 5,
     "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point3": 2,
+    "point4": 2,
+    "point5": 2
   },
   "2": {
-    "point1": 3,
+    "point1": 5,
     "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point3": 7,
+    "point4": 3,
+    "point5": 1
   },
   "3": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 5,
+    "point2": 7,
+    "point3": 4,
+    "point4": 0,
+    "point5": 3
   },
   "4": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 0,
+    "point2": 4,
+    "point3": 6,
+    "point4": 2,
+    "point5": 2
   },
   "5": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 7,
+    "point2": 5,
+    "point3": 4,
+    "point4": 0,
+    "point5": 3
   },
   "6": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
+    "point1": 7,
+    "point2": 4,
+    "point3": 2,
+    "point4": 0,
     "point5": 4
   },
   "7": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 5,
+    "point2": 7,
+    "point3": 3,
+    "point4": 3,
+    "point5": 3
   },
   "8": {
-    "point1": 3,
-    "point2": 6,
+    "point1": 7,
+    "point2": 5,
     "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point4": 3,
+    "point5": 7
   },
   "9": {
-    "point1": 3,
-    "point2": 6,
-    "point3": 1,
-    "point4": 4,
-    "point5": 4
+    "point1": 0,
+    "point2": 4,
+    "point3": 7,
+    "point4": 0,
+    "point5": 2
   }
 
 }

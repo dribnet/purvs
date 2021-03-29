@@ -6,13 +6,6 @@ var systemBoxColor = "#00c800";
 /* internal constants */
 const strokeColor  = "#ffffff";
 
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 function drawLetter(letterData) {
   let posx = 50;
   let posy = 150;
@@ -48,9 +41,11 @@ function drawLetter(letterData) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["point1"] = map(percent, 0, 100, oldObj["point1"], newObj["point1"]);
+  new_letter["point2"] = map(percent, 0, 100, oldObj["point2"], newObj["point2"]);
+  new_letter["point3"] = map(percent, 0, 100, oldObj["point3"], newObj["point3"]);
+  new_letter["point4"] = map(percent, 0, 100, oldObj["point4"], newObj["point4"]);
+  new_letter["point5"] = map(percent, 0, 100, oldObj["point5"], newObj["point5"]);
   return new_letter;
 }
 
