@@ -19,3 +19,6 @@
 
   March 25
   In class we moved our starting sketch to the draw letters js and the letters js, I spent most of the lesson organising my code and figuring out how to make each aspect move how I want, I also made the pink squares into a variable that I can move how I want rather than it being in the same place between each letter.
+
+  March 30
+  In class I continued making each letter and learnt how to use the editor, it made making new letters so much easier. I started working on the interaction of the letters too. I changed the background colour just as a temporary thing so I could see the changes I was making easier. 

@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#102C46";
+var systemBackgroundColor = "#FEAFC5";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -55,8 +55,23 @@ function drawLetter(letterData) {
   pop()
 }
 
+function interpolate_letter(percent, oldObj, newObj) {
+  let new_letter = {};
+  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["smallXPos"] = map(percent, 0, 100, oldObj["smallXPos"], newObj["smallXPos"]);
+  new_letter["smallYPos"] = map(percent, 0, 100, oldObj["smallYPos"], newObj["smallYPos"]);
+  new_letter["smallXPos2"] = map(percent, 0, 100, oldObj["smallXPos2"], newObj["smallXPos2"]);
+  new_letter["smallYPos2"] = map(percent, 0, 100, oldObj["smallYPos2"], newObj["smallYPos2"]);
+  return new_letter;
+}
+
 var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
   "BAAAAAAA"
 ]
+
