@@ -5,9 +5,23 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+
+  [  "drawmode",'symmetry_vert','symmetry_hor'],
+  ["x1",-50,50],
+  ["y1",-100,100],
+  ["x2",-50,50],
+  ["y2",-100,100],
+  ["x3",-50,50],
+  ["y3",-100,100],
+  ["x4",-50,50],
+  ["y4",-100,100],
+  ["x5",-50,50],
+  ["y5",-100,100],
+  //ellipse parameters
+  ["ex",-50,50],
+  ["ey",-100,100],
+  ["eheight",0,200],
+  ["ewidth",0,100]
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
@@ -74,7 +88,7 @@ function draw () {
   background(systemBackgroundColor);
 
   // compute the center of the canvas
-  let center_x = canvasWidth / 2;  
+  let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 2;
 
   // draw the letters A, B, C from saved data

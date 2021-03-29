@@ -1,188 +1,697 @@
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":0,
+    "x2":0,
+    "y2":0,
+    "x3":0,
+    "y3":0,
+    "x4":0,
+    "y4":0,
+    "x5":0,
+    "y5":0,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":0,
+    "ewidth":0
+
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":50,
+    "y2":60,
+    "x3":25,
+    "y3":60,
+    "x4":10,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":25,
+    "ewidth":25
+
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "drawmode":'symmetry_hor',
+      "x1":-30,
+      "y1":0,
+      "x2":-30,
+      "y2":40,
+      "x3":0,
+      "y3":50,
+      "x4":30,
+      "y4":25,
+      "x5":30,
+      "y5":0,
+    //ellipse parameters
+    "ex":0,
+      "ey":20,
+      "eheight":25,
+      "ewidth":25
+
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
+
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_vert',
+    "x1":0,
+    "y1":-50,
+    "x2":70,
+    "y2":60,
+    "x3":35,
+    "y3":60,
+    "x4":15,
+    "y4":25,
+    "x5":0,
+    "y5":25,
+  //ellipse parameters
+
+  "ex":0,
+    "ey":0,
+    "eheight":30,
+    "ewidth":30
+
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "drawmode":'symmetry_hor',
+    "x1":-30,
+    "y1":0,
+    "x2":-30,
+    "y2":40,
+    "x3":30,
+    "y3":30,
+    "x4":30,
+    "y4":15,
+    "x5":0,
+    "y5":0,
+   //ellipse parameters
+   "ex":0,
+     "ey":0,
+     "eheight":10,
+     "ewidth":10
   }
 
 }
