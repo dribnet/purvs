@@ -29,8 +29,10 @@ function drawLetter(letterData) {
   let triPosY = letterData["offsety"];
   let triRotate = letterData["triangleRotate"];
   let triSize = letterData["triangleSize"];
-  let leftLineLength = letterData["length"];
+  let lines1Xpos = letterData["linesVerticalXpos"];
 
+
+  console.log(lines1Xpos);
 
   // background shape
   fill(colour);
@@ -53,17 +55,18 @@ function drawLetter(letterData) {
   triangle(triPosX, triPosY, 30+triPosX, 50+triPosY, -30+triPosX, 50+triPosY);
   pop();
 
-  //left lines
+  //vertical lines
   push();
-  if (leftLineLength > 0){
-    stroke(260);
-    strokeWeight(1.5);
-    line(posx-45, posy-50, posx-45, posy-50+leftLineLength);
-    line(posx-40, posy-50, posx-40, posy-50+leftLineLength);
-    line(posx-35, posy-50, posx-35, posy-50+leftLineLength);
-    line(posx-30, posy-50, posx-30, posy-50+leftLineLength);
-  }
-pop();
+    if (lines1Xpos > 0){
+      stroke(260);
+      strokeWeight(1.5);
+      line(posx-50+lines1Xpos, posy-50, posx-50+lines1Xpos, posy+50);
+      line(posx-45+lines1Xpos, posy-50, posx-45+lines1Xpos, posy+50);
+      line(posx-40+lines1Xpos, posy-50, posx-40+lines1Xpos, posy+50);
+      line(posx-35+lines1Xpos, posy-50, posx-35+lines1Xpos, posy+50);
+
+    }
+  pop();
 
 pop()
 }
