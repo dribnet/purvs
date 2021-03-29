@@ -21,3 +21,6 @@ finally decided on a fot style that i like, its simple, but i like it and i thin
 
 29th March:
 i have issues with commiting my work on to github it doesnt seem to be working properly
+
+30th March:
+we managed to fix the problems with the drawing of the alphabet and now i can carry on with the alphabet
