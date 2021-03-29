@@ -1,9 +1,9 @@
 const alphabet = {
   "default": {
-    "HeadY": 40,
-    "mouthH": 30,
-    "mouthW": 30
-  },
+  "HeadY": 0,
+  "mouthH": 70,
+  "mouthW": 80
+},
   "A":{
   "HeadY": 17,
   "mouthH": 21,
