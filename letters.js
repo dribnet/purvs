@@ -9,14 +9,14 @@ const alphabet = {
     "rotation1": 135,
     "rotation2": 225,
     "offsetx": 50,
-    "offsety": 150
+    "offsety": 145
   },
   "B": {
     "rotation": 90,
     "rotation1": 30,
     "rotation2": 250,
     "offsetx": 50, //changes where the 2nd line is placed on the 1st line 
-    "offsety":150
+    "offsety":125
   },
   "C": {
     "rotation": 0,

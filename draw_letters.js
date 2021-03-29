@@ -17,7 +17,7 @@ const lightBlue  = "#59ccff";
 function drawLetter(letterData) {
 //set up the 
 push();
-  stroke(255, 0, 0, 80);//can i make 255 into a var? 
+  stroke(255, 0, 0, 80);
   strokeWeight(3);
   noFill();
 
@@ -31,13 +31,14 @@ push();
 
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
-
+//separate offset for 2 lines by going 
+//let shifty = letterA["offsety"]?
  
 
   push();//turn into functions?//so then i can change which ones have 2 lines or 3 and the colour
   translate(pos2x, pos2y);
   rotate(letterData["rotation"]);
-  rect(0, 0, 100, 10);//size is a constant
+  rect(0, 0, 150, 10);//size is a constant
   pop();//once in functions chnage rects 2-3 to go down the page more
 //offset for lines 2 and 3 need to change 
   push();
@@ -53,6 +54,8 @@ push();
   pop();
 pop();
 }
+
+//if letterdata c then only 2 lines
 
 //put rects into a map
 
