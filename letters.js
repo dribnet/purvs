@@ -355,14 +355,32 @@ const alphabet = {
     "point3D": 100
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "point1A": 0,
+    "point2A": 100,
+    "point3A": 100,
+    "point1B": 0,
+    "point2B": 125,
+    "point3B": 0,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 200,
+    "point2D": 200,
+    "point3D": 100
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "point1A": 100,
+    "point2A": 0,
+    "point3A": 0,
+    "point1B": 0,
+    "point2B": 0,
+    "point3B": 192,
+    "point1C": 100,
+    "point2C": 0,
+    "point3C": 100,
+    "point1D": 6,
+    "point2D": 200,
+    "point3D": 200
   },
   "1": {
     "size": 40,
