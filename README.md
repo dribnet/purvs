@@ -24,3 +24,6 @@ i have issues with commiting my work on to github it doesnt seem to be working p
 
 30th March:
 we managed to fix the problems with the drawing of the alphabet and now i can carry on with the alphabet
+
+30th March:
+finished the basic alphabet
