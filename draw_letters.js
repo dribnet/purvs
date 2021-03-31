@@ -16,7 +16,36 @@ const lBabyBlue = "#b6e2f6";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  drawA(letterData);
+
+  let start = letterD["startS"];
+  let stop =  letterD["endS"];
+  let start2 = letterD["start2S"];
+  let stop2 =  letterD["end2S"];
+  let start3 = letterD["start3S"];
+  let stop3 =  letterD["end3S"];
+  let start4 = letterD["start4S"];
+  let stop4 =  letterD["end4S"];
+  let start5 = letterD["start5S"];
+  let stop5 =  letterD["end5S"];
+  let start6 = letterD["start6S"];
+  let stop6 =  letterD["end6S"];
+  stroke(lBabyBlue);
+  strokeWeight(13);
+  line(start,stop,start2,stop2);
+  line(start2,stop2,start3,stop3);
+  line(start4,stop4,start5,stop5);
+  line(start5,stop5,start6,stop6);
+  stroke(babyBlue);
+  strokeWeight(5);
+  line(start,stop,start2,stop2);
+  line(start2,stop2,start3,stop3);
+  line(start4,stop4,start5,stop5);
+  line(start5,stop5,start6,stop6);
+
+
+
+//code works but interpolation does not
+  /*drawA(letterData);
   drawB(letterData);
   drawC(letterData);
   drawD(letterData);
@@ -41,7 +70,7 @@ function drawLetter(letterData) {
   drawW(letterData);
   drawX(letterData);
   drawY(letterData);
-  drawZ(letterData);
+  drawZ(letterData);*/
   
 }
 function drawA(letterD){

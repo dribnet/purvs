@@ -27,3 +27,6 @@ we managed to fix the problems with the drawing of the alphabet and now i can ca
 
 30th March:
 finished the basic alphabet
+
+1st April:
+i have come to the realisation that i have to re do my font as the interpolation does not work so i have to change everything up :(
