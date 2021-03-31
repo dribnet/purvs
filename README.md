@@ -22,3 +22,7 @@
 
   March 30
   In class I continued making each letter and learnt how to use the editor, it made making new letters so much easier. I started working on the interaction of the letters too. I changed the background colour just as a temporary thing so I could see the changes I was making easier. 
+
+  April 1
+  Today I figured out how to make my letters move smoothly between each other, previously my letters had moved in a very clunky way as not every letter used every parameter. I fixed this by making sure each letter uses every parameter, if I didnt want a parameter shown I doubled it over with its pair parameter. Most of the parameters I had to deal with were the 'smallYPos2 and smallXPos2' parameters. Now my letters move smoothly. 
+  I also finished the first trial of all of my letters, currently I'm unsure if I will change much.

@@ -1,6 +1,6 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#FEAFC5";
-var systemLineColor = "#000090";
+var systemBackgroundColor = "#102C46";
+var systemLineColor = "#8C6C7F";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
