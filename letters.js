@@ -45,12 +45,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "E": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 3, //triangle
     "backgroundShapeRotate": 0,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -50,
+    "triangleRotate": 0,
+    "triangleSize": 1.3,
     "linesVerticalXpos": 0
   },
   "F": {
@@ -65,10 +65,10 @@ const alphabet = {
   "G": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
+    "offsetx": -15,
     "offsety": 0,
     "triangleRotate": 270,
-    "triangleSize": 0,
+    "triangleSize": 0.7,
     "linesVerticalXpos": 0
   },
   "H": {
@@ -81,12 +81,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "I": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //square
     "backgroundShapeRotate": 0,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -190,
+    "triangleRotate": 0,
+    "triangleSize": 0.4,
     "linesVerticalXpos": 0
   },
   "J": {
@@ -108,12 +108,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "L": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 3, //triangle
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsetx": 20,
+    "offsety": -60,
+    "triangleRotate": 90,
+    "triangleSize": 1,
     "linesVerticalXpos": 0
   },
   "M": {
@@ -234,12 +234,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "Z": {
-    "backgroundShapeType": 2, //circle
-    "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "backgroundShapeType": 3, //triangle
+    "backgroundShapeRotate": 210,
+    "offsetx": -5,
+    "offsety": -20,
+    "triangleRotate": 15,
+    "triangleSize": 1.3,
     "linesVerticalXpos": 0
   },
   "0": {
@@ -247,44 +247,44 @@ const alphabet = {
     "backgroundShapeRotate": 0,
     "offsetx": 0,
     "offsety": -30,
-    "triangleRotate": 240,
+    "triangleRotate": 290,
     "triangleSize": 0.5,
     "linesVerticalXpos": 0
   },
   "1": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //square
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
+    "offsetx": 95,
+    "offsety": -180,
     "triangleRotate": 270,
-    "triangleSize": 0,
+    "triangleSize": 0.4,
     "linesVerticalXpos": 0
   },
   "2": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsetx": 30,
+    "offsety": -30,
+    "triangleRotate": 15,
+    "triangleSize": 1.2,
     "linesVerticalXpos": 0
   },
   "3": {
-    "backgroundShapeType": 2, //circle
-    "backgroundShapeRotate": 0,
+    "backgroundShapeType": 3, //tringle
+    "backgroundShapeRotate": 180,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -50,
+    "triangleRotate": 180,
+    "triangleSize": 1.3,
     "linesVerticalXpos": 0
   },
   "4": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //square
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
+    "offsetx": 10,
+    "offsety": -40,
     "triangleRotate": 270,
-    "triangleSize": 0,
+    "triangleSize": 1,
     "linesVerticalXpos": 0
   },
   "5": {
@@ -292,7 +292,7 @@ const alphabet = {
     "backgroundShapeRotate": 0,
     "offsetx": 0,
     "offsety": 0,
-    "triangleRotate": 270,
+    "triangleRotate": 100,
     "triangleSize": 0,
     "linesVerticalXpos": 0
   },
@@ -306,21 +306,21 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "7": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //square
     "backgroundShapeRotate": 0,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -10,
+    "triangleRotate": 60,
+    "triangleSize": 1.45,
     "linesVerticalXpos": 0
   },
   "8": {
-    "backgroundShapeType": 2, //circle
-    "backgroundShapeRotate": 0,
+    "backgroundShapeType": 3, //triangle
+    "backgroundShapeRotate": 180,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -17,
+    "triangleRotate": 0,
+    "triangleSize": 1.5,
     "linesVerticalXpos": 0
   },
   "9": {
