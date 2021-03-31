@@ -44,7 +44,7 @@ const letterC = {
 
 }
 
-const backgroundColor  = "#e3eded";
+const backgroundColor  = "#dfd5e3";
 const strokeColor      = "#233f11";
 
 function setup () {
@@ -85,23 +85,49 @@ function drawLetter(posx, posy, letterData) {
   let CircleX =letterData["CircleX"];
   let CircleY = letterData["CircleY"];
   let CircleS = letterData["size"];
-  
-  // // draw two circles
-   fill("#9c4887");
+     fill("#ba7599");
   // ellipse(posx, posy, 150, 150);
    
   // arc(pos2x, pos2y, size2, size2, angleS, angleE);
 
+rect(80,90, 40, 20);
+   fill("#9c4887");
+arc(100, 80, 80, 80, 420, 120);
 
-  ellipse(CircleX, CircleY-50, CircleS);
-  ellipse(CircleX, CircleY, CircleS);
-  fill("#ba7599");
-  beginShape();
-  vertex(65, 95);
-  vertex(35, 130);
-  vertex(95, 130);
-  endShape();
-  rect(pos2x, pos2y, RecX, Recy);
+
+
+fill("#ba7599");
+
+// original code taken from Programming Design Systems chapter 5 Procedural Shapes
+var numVertices = 3; // or 4 or 30
+const spacing = 360 / numVertices;
+push();
+translate(100,100);
+rotate(30);
+beginShape();
+for(let i = 0; i <= numVertices; i++) {
+  const x = cos((i * spacing)) * 10;
+  const y = sin((i * spacing)) * 10;
+  vertex(x, y);
+}
+endShape();
+  pop()
+  // // draw two circles
+
+
+
+
+  // ellipse(CircleX, CircleY-50, CircleS);
+  // ellipse(CircleX, CircleY, CircleS);
+  // fill("#ba7599");
+  // beginShape();
+  // vertex(65, 95);
+  // vertex(35, 130);
+  // vertex(95, 130);
+  // endShape();
+
+
+  
 }
 
 

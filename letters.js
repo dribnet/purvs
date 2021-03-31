@@ -60,9 +60,17 @@ const alphabet = {
 
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+   "offsetx": 27,
+  "offsety": 80,
+  "Rwidth": 40,
+  "Rheight": 80,
+  "size": 20,
+  "CircleX": 70,
+  "CircleY": 100,
+  "TriY": 0,
+   "TriY2": 0,
+   "Trix": 40,
+   "Trix2": 20,
   },
   "E": {
     "size": 50,
