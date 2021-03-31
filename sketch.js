@@ -35,6 +35,8 @@ const strokeColor      = "#000000";
 
 const darkBlue  = "#eda8d2";
 const lightBlue  = "#cdb6fa";
+const red  = "#ff0000";
+
 
 function setup () {
   // create the drawing canvas, save the canvas element
@@ -70,10 +72,16 @@ function drawLetter(posx, posy, letterData) {
   let pos2y = posy + letterData["offsety"];
 
   // draw two circles
+  angleMode(DEGREES);
+  noStroke();
+  fill(red);
+  rect(posx, posy, 55, 200, 20);
   fill(darkBlue);
-  rect(posx, posy, 150, 150);
+  rect(posx, posy, 130, 55, 20);
+  rect(posx, posy+100, 130, 55, 20);
+  //rect(posx, posy, 150, 150);
   fill(lightBlue);
-  rect(pos2x, pos2y, size2, size2);
+  rect(posx+80, posy, 55, 200, 20);
 }
 
 function keyTyped() {
