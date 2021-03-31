@@ -13,21 +13,38 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 35,
-  "offsety": 70,
+  "arcStart": 0,
+  "arcStop": 0,
+  "VerticalLine": false,
+  "horizontalline": false,
+  "Diagonalline1": false,
+  "Diagonalline2": true,
+  "Diagonalline3": true,
+  "Diagonalline4": false,
+
+  
 }
 
 const letterB = {
-  "size": 10,
-  "offsetx": 40,
-  "offsety": 70
+  "arcStart": 0,
+  "arcStop": 90,
+  "VerticalLine": true,
+  "horizontalline": true,
+  "Diagonalline1": false,
+  "Diagonalline2": false, 
+  "Diagonalline3": false, 
+  "Diagonalline4": false, 
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 50,
-  "offsety": 25
+  "arcStart": 0,
+  "arcStop": 0,
+  "VerticalLine": false, 
+  "horizontalline": false, 
+  "Diagonalline1": true, 
+  "Diagonalline2": true,
+  "Diagonalline3": false, 
+  "Diagonalline4": false,
 }
 
 const backgroundColor  = "#e3eded";
@@ -64,8 +81,16 @@ function draw () {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
-function drawLetter(posx, posy, letterData) {
+function drawLetter(0, 0, letterData) {
   
+let arcStartAngle = letterData ["arcStart"];
+let arcStopAngle = letterData["arcStop"];
+let line1 = letterData["VerticalLine"];
+let line2 = letterData ["Diagonalline1"]
+let line3 = letterData ["horizontalline"]
+let line4 = letterData ["Diagonalline2"]
+let line5 = letterData ["Diagonalline3"]
+let line6 = letterData ["Diagonalline4"]
 
 //potential parameters set by true/false statements or if statements. so maybe parametrs could include
 // "verticalline"
@@ -73,30 +98,40 @@ function drawLetter(posx, posy, letterData) {
 // "arc1" etc. something like that 
 
 noFill();
-stroke(0, 50);
-  arc(posx, posy, 100, 100, 0, 45);
-  arc(posx, posy, 100, 100, 45, 90);
-  arc(posx, posy, 100, 100, 90, 135);
-  arc(posx, posy, 100, 100, 135, 180);
-  arc(posx, posy, 100, 100, 180, 225);
-  arc(posx, posy, 100, 100, 225, 270);
-  arc(posx, posy, 100, 100, 270, 315);
-  arc(posx, posy, 100, 100, 315, 360);
+stroke(153, 0, 89, 50);
+//main wheel
+  arc(0, 0, 100, 100, 0, 360);
+  line(0, 0+50, 0, 0-50)
+  line(0+50, 0, 0-50, 0)
+  line(0+35, 0-35, 0-35, 0+35)
+  line(0-35, 0-35, 0+35, 0+35)
 
-  line(posx, posy, posx, posy-50)
-  line(posx, posy, posx, posy+50)
-  line(posx, posy, posx-50, posy)
-  line(posx, posy, posx+50, posy)
-  line(posx, posy, posx-35, posy-35)
-  line(posx, posy, posx+35, posy-35)
-  stroke(0);
-  line(posx, posy, posx+35, posy+35)
-  line(posx, posy, posx-35, posy+35)
+  //parameters
+  stroke(153, 0, 89);
+  arc(0, 0, 100, 100, arcStartAngle, arcStopAngle);
+
+  if(line1 == true){
+   line(0, 0+50, 0, 0-50)
+  } 
+  if(line2 == true){
+   line(0, 0, 0+35, 0-35)
+  }
+  if(line3 == true){
+   line(0, 0, 0+50, 0)
+  }
+  if(line4 == true){
+   line(0, 0, 0+35, 0+35)
+  }
+  if(line5 == true){
+   line(0, 0, 0-35, 0+35)
+  }
+  if(line6 == true){
+   line(0, 0, 0-35, 0-35)
+  }
+
+
 
 }
-
-
-
 
 function keyTyped() {
   if (key == '!') {
