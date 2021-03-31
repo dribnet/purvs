@@ -28,10 +28,13 @@ function drawLetter(letterData) {
   let size2 = letterData["size"];
   let size3 = letterData["size2"];
   let size4 = letterData["size3"];
+
   let pos2x = letterData["offsetx"];
   let pos2y = letterData["offsety"];
+
   let pos3x = letterData["offsetx2"];
   let pos3y = letterData["offsety2"];
+
   let pos4x = letterData["offsetx3"];
   let pos4y = letterData["offsety3"];
 
@@ -68,5 +71,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "BAAAAAAA",
+  "DOTWORKS"
 ]
