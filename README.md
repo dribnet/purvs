@@ -9,3 +9,4 @@ The three parameters per letter:
   * `offsetx` : x offset of the second circle relative to the first one
   * `offsety` : y offset of the second circle relative to the first one
 
+I have started with my basic design i have started with creating my A B C and went with a runic alphabet theme
