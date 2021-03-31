@@ -23,7 +23,7 @@ const letterA = {
   "x4":15,
   "y4":25,
   "x5":0,
-  "y5":"y4",
+  "y5":25,
 //ellipse parameters
 
 "ex":0,

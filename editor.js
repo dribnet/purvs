@@ -6,7 +6,7 @@
  */
 const sliderInfo = [
 
-  [  "drawmode",'symmetry_vert','symmetry_hor'],
+  [  "symmode",0,2],
   ["x1",-50,50],
   ["y1",-100,100],
   ["x2",-50,50],

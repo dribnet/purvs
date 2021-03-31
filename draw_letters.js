@@ -37,22 +37,48 @@ function cir(letterData,x,y){
 }
 function drawLetter(letterData) {
   // color/stroke setup
-noStroke();
+ noStroke();
+//  let symmode = letterData["symmode"];
+//  let res = symmode.startsWith("sym");
 
 
-if (letterData["drawmode"]=='symmetry_vert'){
+if (letterData["symmode"]=='symmetry_vert'){//if vertical sym
   sym(letterData, -1,1);
   sym(letterData, 1,1);
   cir(letterData,1,1);
+  cir(letterData,-1,1);
 
 }
-else if (letterData["drawmode"]=='symmetry_hor') {
+else if (letterData["symmode"]=='symmetry_hor') {//if horizontal sym
 
   sym(letterData,1,-1);
   sym(letterData,1,1);
-  cir(letterData,1,-1);
-  cir(letterData,1,1);
+    cir(letterData,1,-1);
+    cir(letterData,1,1);
 
+
+
+
+}
+else if (letterData["symmode"]=='symmetry_cir_only'){//if no on poly on on circles
+  sym(letterData,1,1);
+  cir(letterData,1,1);
+  cir(letterData,1,-1);
+}
+else if (letterData["symmode"]=='symmetry_hor_no_cir'){//if sym on poly and not on circles
+  sym(letterData,1,-1);
+  sym(letterData,1,1);
+    cir(letterData,1,1);
+}
+else if (letterData["symmode"]=='symmetry_vert_offsetcir'){//if vertical sym and the
+  sym(letterData, -1,1);
+  sym(letterData, 1,1);
+  cir(letterData,1,-1);
+  cir(letterData,-1,1);
+}
+else{
+  sym(letterData,1,1);
+  cir(letterData,1,1);
 }
 
 

@@ -1,3 +1,3 @@
 ## MDDN 242 2021 Assignment 2
 
-I rewrote the code to make it way more efficient when generating the symmetry. I also made the black circle be 2 circles through symmetry as it makes the b look better.  
+I did a lot more of the numbers and letters I have no clue how to do r s and g so I skipped them and have worked on random characters. I also have found a way to make my code more effecient when calling functions for different sym modes but that needs further work to be implemented.  
