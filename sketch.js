@@ -21,7 +21,7 @@ const letterA = {
 const letterB = {
   "size": 150,
   "offsetx": 0,
-  "offsety": -145
+  "offsety": -150
 }
 
 const letterC = {
@@ -78,10 +78,12 @@ function drawLetter(posx, posy, letterData) {
   rect(posx, posy, 55, 200, 20);
   fill(darkBlue);
   rect(posx, posy, 130, 55, 20);
-  rect(posx, posy+100, 130, 55, 20);
+  rect(posx, posy+90, 130, 50, 20);
+  rect(posx, posy+170, 130, 50, 20);
   //rect(posx, posy, 150, 150);
   fill(lightBlue);
   rect(posx+80, posy, 55, 200, 20);
+
 }
 
 function keyTyped() {
