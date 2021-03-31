@@ -17,3 +17,6 @@ The 6 parameters per letter:
    For the final letterforms i am looking an english design studio Spin. They do a lot of interesting generative and interactive letterform and fonts
 
 
+   I have since started reconsidering my alphabet idea. What i am considering doing is constructing each letter as 
+
+

@@ -13,7 +13,7 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 0,
+  "size": 5,
   "offsetx": 0,
   "offsety": 100,
   "ArcStart":120,
@@ -23,8 +23,8 @@ const letterA = {
 }
 
 const letterB = {
-  "size": 75,
-  "offsetx": 0,
+  "size": 8,
+  "offsetx": 50,
   "offsety": -50,
   "ArcStart":0,
   "ArcEnd":270,
@@ -32,15 +32,15 @@ const letterB = {
 }
 
 const letterC = {
-  "size": 75,
-  "offsetx": 0,
+  "size": 10,
+  "offsetx": -50,
   "offsety": -50,
   "ArcStart":40,
   "ArcEnd":320,
   "TrianglePoint":-50
 }
 
-const backgroundColor  = "#e3eded";
+const backgroundColor  = "#000000";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
@@ -76,19 +76,35 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
+  // // determine parameters for second circle
+  let size = letterData["size"];
   let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // let pos2y = posy + letterData["offsety"];
 
-  let startAngle = letterData["ArcStart"];
-  let stopAngle = letterData["ArcEnd"];
-  let sideTriangle = letterData["TrianglePoint"];
-  // draw two circles
-  fill(darkBlue);
-  triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
-  fill(lightBlue);
-  arc(posx, posy, 200, 200,startAngle,stopAngle);
+  // let startAngle = letterData["ArcStart"];
+  // let stopAngle = letterData["ArcEnd"];
+  // let sideTriangle = letterData["TrianglePoint"];
+  // // draw two circles
+  // fill(darkBlue);
+  // triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
+  // fill(lightBlue);
+  // arc(posx, posy, 200, 200,startAngle,stopAngle
+
+  stroke(255);
+  strokeWeight(1);
+  strokeCap(PROJECT);
+  
+  line(posx,posy-150,posx-50,posy+150);
+  line(posx-50,posy-150,pos2x,posy+150);
+  line(posx-50,posy-150,posx-50,posy+150);
+  
+for (let i = 0; i < 9; i++) {
+  line(posx,posy-150,pos2x-50+(i*size),posy+150);
+  line(posx-50,posy-150,pos2x+(i*size),posy+150);
+  line(posx-50,posy-150,pos2x-50+(i*size),posy+150);
+}
+
+
 }
 
 function keyTyped() {
