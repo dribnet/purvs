@@ -30,11 +30,11 @@ function drawLetter(letterData) {
   let start6 = letterData["start6"];
   let stop6 =  letterData["end6"];
   stroke(lBabyBlue);
-  strokeWeight(13);
+  strokeWeight(5);
   line(start,stop,start2,stop2);
-  line(start2,stop2,start3,stop3);
-  line(start4,stop4,start5,stop5);
+  line(start3,stop3,start4,stop4);
   line(start5,stop5,start6,stop6);
+ 
   /*stroke(babyBlue);
   strokeWeight(5);
   line(start,stop,start2,stop2);
@@ -610,7 +610,7 @@ function drawZ(letterD){
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
-  new_letter["startA"]    = map(percent, 0, 100, oldObj["startA"], newObj["startA"]);
+  new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
   new_letter["end"]    = map(percent, 0, 100, oldObj["end"], newObj["end"]);
   new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
   new_letter["end2"]    = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
