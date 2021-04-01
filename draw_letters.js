@@ -17,30 +17,30 @@ const lBabyBlue = "#b6e2f6";
  */
 function drawLetter(letterData) {
 
-  let start = letterD["startS"];
-  let stop =  letterD["endS"];
-  let start2 = letterD["start2S"];
-  let stop2 =  letterD["end2S"];
-  let start3 = letterD["start3S"];
-  let stop3 =  letterD["end3S"];
-  let start4 = letterD["start4S"];
-  let stop4 =  letterD["end4S"];
-  let start5 = letterD["start5S"];
-  let stop5 =  letterD["end5S"];
-  let start6 = letterD["start6S"];
-  let stop6 =  letterD["end6S"];
+  let start = letterData["start"];
+  let stop =  letterData["end"];
+  let start2 = letterData["start2"];
+  let stop2 =  letterData["end2"];
+  let start3 = letterData["start3"];
+  let stop3 =  letterData["end3"];
+  let start4 = letterData["start4"];
+  let stop4 =  letterData["end4"];
+  let start5 = letterData["start5"];
+  let stop5 =  letterData["end5"];
+  let start6 = letterData["start6"];
+  let stop6 =  letterData["end6"];
   stroke(lBabyBlue);
   strokeWeight(13);
   line(start,stop,start2,stop2);
   line(start2,stop2,start3,stop3);
   line(start4,stop4,start5,stop5);
   line(start5,stop5,start6,stop6);
-  stroke(babyBlue);
+  /*stroke(babyBlue);
   strokeWeight(5);
   line(start,stop,start2,stop2);
   line(start2,stop2,start3,stop3);
   line(start4,stop4,start5,stop5);
-  line(start5,stop5,start6,stop6);
+  line(start5,stop5,start6,stop6);*/
 
 
 
@@ -73,7 +73,7 @@ function drawLetter(letterData) {
   drawZ(letterData);*/
   
 }
-function drawA(letterD){
+/*function drawA(letterD){
   let start = letterD["startA"];
   let stop =  letterD["endA"];
   let start2 = letterD["start2A"];
@@ -606,7 +606,7 @@ function drawZ(letterD){
   line(start,stop,start2,stop2);
   line(start2,stop2,start3,stop3);
   line(start4,stop4,start5,stop5);
-}
+}*/
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 

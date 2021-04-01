@@ -5,9 +5,19 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+  ["start",       0, 100],
+  ["end",  -30,  30],
+  ["start12", -100, 100],
+  ["end2", -100, 100],
+  ["start3", -100, 100],
+  ["end3", -100, 100],
+  ["start4", -100, 100],
+  ["end4", -100, 100],
+  ["start5", -100, 100],
+  ["end5", -100, 100],
+  ["start6", -100, 100],
+  ["end6", -100, 100]
+
 ];
 
 // PROBABLY DON't NEED TO EDIT ANYTHING ELSE.
