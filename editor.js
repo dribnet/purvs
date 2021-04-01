@@ -5,9 +5,9 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["start",       0, 100],
+  ["start", 0, 100],
   ["end",  0,  200],
-  ["start12", 0, 100],
+  ["start2", 0, 100],
   ["end2", 0, 200],
   ["start3", 0, 100],
   ["end3", 0, 200],
@@ -16,7 +16,11 @@ const sliderInfo = [
   ["start5", 0, 100],
   ["end5", 0, 200],
   ["start6", 0, 100],
-  ["end6", 0, 200]
+  ["end6", 0, 200],
+   ["start7", 0, 100],
+  ["end7", 0, 200],
+  ["start8", 0, 100],
+  ["end8", 0, 200]
 
 ];
 
