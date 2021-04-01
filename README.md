@@ -30,3 +30,5 @@ finished the basic alphabet
 
 1st April:
 i have come to the realisation that i have to re do my font as the interpolation does not work so i have to change everything up :(
+
+i managed to fix and re jig my alphabet but the interpolation is not acting right 
