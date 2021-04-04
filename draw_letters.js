@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#121921";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -32,29 +32,30 @@ function drawLetter(letterData) {
   let pos2y = letterData["offsety"];
   let pos3x = letterData["arcOffsetx"];
   let pos3y = letterData["arcOffsety"];
-  let RectAngle = letterData["RectAngle"];
+  let rectAngle = letterData["rectAngle"];
   let angleStart = letterData["angleStart"];
   let angleEnd = letterData["angleEnd"];
 
-  // draw a rectangle and rotate it
-  noStroke();
-  fill(219, 32, 122);
-  push();
-  translate(posx,posy);
-  rotate(RectAngle);
-  rect(0, 0, 15, size);
-  pop();
-
+   noStroke();
 
   //Draw an ellipse
-  fill(144, 21, 135);//Mauve
+  fill('#F085CA');
   ellipseMode(CORNER);
   ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-  fill(169, 9, 69);//Red
+  fill('#4C5BD8');//Red
   arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
+
+
+  // draw a rectangle with round corners and rotate it
+  fill("#FADF43");//set up the colour with an HEX
+  push();
+  translate(posx,posy);
+  rotate(rectAngle);
+  rect(0, 0, 15, size, 20);
+  pop();
 }
 
 
@@ -64,7 +65,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["recOffsetx"] = map(percent, 0, 100, oldObj["recOffsetx"], newObj["recOffsetx"]);
   new_letter["recOffsety"] = map(percent, 0, 100, oldObj["recOffsety"], newObj["recOffsety"]);
-  new_letter["RectAngle"] = map(percent, 0, 100, oldObj["RectAngle"], newObj["RectAngle"]);
+  new_letter["rectAngle"] = map(percent, 0, 100, oldObj["rectAngle"], newObj["rectAngle"]);
   new_letter["size1"] = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);

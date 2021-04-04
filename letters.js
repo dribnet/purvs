@@ -1,25 +1,25 @@
 const alphabet = {
   "default": {
-    "size": 200,
-    "recOffsetx": 45,
-    "recOffsety": 0,
-    "RectAngle": 0,
+    "size": 100,
+    "recOffsetx": 0,
+    "recOffsety": 200,
+    "rectAngle": -90,
 
-    "size1": 100,
-    "offsetx": 0,
-    "offsety": 0,
+    "size1": 50,
+    "offsetx": 25,
+    "offsety": 125,
 
     "size2": 100,
     "arcOffsetx": 0,
     "arcOffsety": 100,
-    "angleStart": 0,
+    "angleStart": 180,
     "angleEnd": 360
   },
   "A": {
     "size": 150,
     "recOffsetx": 60,
     "recOffsety": 55,
-    "RectAngle": 25,
+    "rectAngle": 25,
 
     "size1": 80,
     "offsetx": 15,
@@ -35,7 +35,7 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 25,
     "offsetx": 20,
@@ -50,24 +50,24 @@ const alphabet = {
   "C": {
     "size": 0,
     "recOffsetx": 0,
-    "recOffsety": 70,
-    "RectAngle": 0,
+    "recOffsety": 0,
+    "rectAngle": 0,
 
     "size1": 0,
     "offsetx": 0,
-    "offsety": 100,
+    "offsety": 0,
 
     "size2": 100,
     "arcOffsetx": 0,
     "arcOffsety": 100,
     "angleStart": 25,
-    "angleEnd": -25
+    "angleEnd": 335
   },
   "D": {
     "size": 150,
     "recOffsetx": 85,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 50,
     "offsetx": 25,
@@ -82,8 +82,8 @@ const alphabet = {
   "E": {
     "size": 0,
     "recOffsetx": 0,
-    "recOffsety": 70,
-    "RectAngle": 0,
+    "recOffsety": 0,
+    "rectAngle": 0,
 
     "size1": 25,
     "offsetx": 50,
@@ -93,15 +93,15 @@ const alphabet = {
     "arcOffsetx": 0,
     "arcOffsety": 100,
     "angleStart": 45,
-    "angleEnd": -45
+    "angleEnd": 315
   },
   "F": {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
-    "size1": 25,
+    "size1": 35,
     "offsetx": 25,
     "offsety": 100,
 
@@ -112,29 +112,29 @@ const alphabet = {
     "angleEnd": 25
   },
   "G": {
-    "size": 150,
+    "size": 50,
     "recOffsetx": 85,
-    "recOffsety": 50,
-    "RectAngle": 0,
+    "recOffsety": 150,
+    "rectAngle": 0,
 
-    "size1": 100,
+    "size1": 0,
     "offsetx": 0,
-    "offsety": 35,
+    "offsety": 0,
 
-    "size2": 50,
-    "arcOffsetx": 50,
-    "arcOffsety": 150,
+    "size2": 100,
+    "arcOffsetx": 0,
+    "arcOffsety": 100,
     "angleStart": 0,
-    "angleEnd": 360
+    "angleEnd": 310
   },
   "H": {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
-    "size1": 60,
-    "offsetx": 10,
+    "size1": 50,
+    "offsetx": 15,
     "offsety": 100,
 
     "size2": 180,
@@ -147,23 +147,23 @@ const alphabet = {
     "size": 100,
     "recOffsetx": 45,
     "recOffsety": 100,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 25,
     "offsetx": 40,
     "offsety": 50,
 
     "size2": 0,
-    "arcOffsetx": 50,
-    "arcOffsety": 100,
-    "angleStart": 64,
-    "angleEnd": 108
+    "arcOffsetx": 0,
+    "arcOffsety": 0,
+    "angleStart": 0,
+    "angleEnd": 0
   },
   "J": {
     "size": 100,
     "recOffsetx": 45,
     "recOffsety": 100,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 25,
     "offsetx": 40,
@@ -179,10 +179,10 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
-    "size1": 50,
-    "offsetx": 45,
+    "size1": 30,
+    "offsetx": 55,
     "offsety": 50,
 
     "size2": 150,
@@ -195,55 +195,55 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
-    "size1": 0,
-    "offsetx": 35,
-    "offsety": 140,
+    "size1": 35,
+    "offsetx": 50,
+    "offsety": 165,
 
-    "size2": 80,
-    "arcOffsetx": 15,
-    "arcOffsety": 160,
-    "angleStart": 180,
+    "size2": 0,
+    "arcOffsetx": 0,
+    "arcOffsety": 0,
+    "angleStart": 0,
     "angleEnd": 0
   },
   "M": {
-    "size": 90,
-    "recOffsetx": 30,
-    "recOffsety": 100,
-    "RectAngle": 20,
+    "size": 150,
+    "recOffsetx": 20,
+    "recOffsety": 50,
+    "rectAngle": 15,
 
-    "size1": 25,
-    "offsetx": 80,
+    "size1": 35,
+    "offsetx": 75,
     "offsety": 165,
 
     "size2": 115,
-    "arcOffsetx": 0,
-    "arcOffsety": 100,
+    "arcOffsetx": -5,
+    "arcOffsety": 50,
     "angleStart": 250,
     "angleEnd": 290
   },
   "N": {
     "size": 150,
-    "recOffsetx": 0,
-    "recOffsety": 75,
-    "RectAngle": -35,
+    "recOffsetx": 80,
+    "recOffsety": 50,
+    "rectAngle": 0,
 
-    "size1": 50,
+    "size1": 0,
     "offsetx": 65,
     "offsety": 60,
 
-    "size2": 250,
-    "arcOffsetx": -125,
-    "arcOffsety": -50,
-    "angleStart": 70,
+    "size2": 300,
+    "arcOffsetx": -150,
+    "arcOffsety": -100,
+    "angleStart": 55,
     "angleEnd": 90
   },
   "O": {
     "size": 0,
     "recOffsetx": 0,
-    "recOffsety": 50,
-    "RectAngle": 0,
+    "recOffsety": 0,
+    "rectAngle": 0,
 
     "size1": 50,
     "offsetx": 30,
@@ -259,7 +259,7 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 50,
     "offsetx": 25,
@@ -268,14 +268,14 @@ const alphabet = {
     "size2": 100,
     "arcOffsetx": 0,
     "arcOffsety": 35,
-    "angleStart": 270,
+    "angleStart": -90,
     "angleEnd": 90
   },
   "Q": {
     "size": 150,
     "recOffsetx": 85,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 50,
     "offsetx": 25,
@@ -291,25 +291,25 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 80,
-    "offsetx": 20,
+    "offsetx": 10,
     "offsety": 35,
 
     "size2": 160,
     "arcOffsetx": -50,
     "arcOffsety": 40,
     "angleStart": 40,
-    "angleEnd": 80
+    "angleEnd": 90
   },
   "S": {
     "size": 150,
     "recOffsetx": 0,
-    "recOffsety": 75,
-    "RectAngle": -35,
+    "recOffsety": 70,
+    "rectAngle": -30,
 
-    "size1": 50,
+    "size1": 35,
     "offsetx": 50,
     "offsety": 50,
 
@@ -323,9 +323,9 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 45,
     "recOffsety": 50,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
-    "size1": 25,
+    "size1": 35,
     "offsetx": 0,
     "offsety": 50,
 
@@ -336,49 +336,49 @@ const alphabet = {
     "angleEnd": 50
   },
   "U": {
-    "size": 65,
-    "recOffsetx": 75,
-    "recOffsety": 100,
-    "RectAngle": 0,
+    "size": 100,
+    "recOffsetx": 85,
+    "recOffsety": 50,
+    "rectAngle": 0,
 
-    "size1": 40,
-    "offsetx": 5,
-    "offsety": 100,
+    "size1": 35,
+    "offsetx": 0,
+    "offsety": 50,
 
-    "size2": 80,
-    "arcOffsetx": 10,
-    "arcOffsety": 120,
+    "size2": 100,
+    "arcOffsetx": 0,
+    "arcOffsety": 100,
     "angleStart": 0,
     "angleEnd": 180
   },
   "V": {
-    "size": 120,
+    "size": 150,
     "recOffsetx": 0,
-    "recOffsety": 90,
-    "RectAngle": -20,
+    "recOffsety": 60,
+    "rectAngle": -20,
 
-    "size1": 50,
-    "offsetx": 50,
-    "offsety": 80,
+    "size1": 35,
+    "offsetx": 65,
+    "offsety": 50,
 
     "size2": 0,
     "arcOffsetx": 0,
-    "arcOffsety": 125,
-    "angleStart": 180,
-    "angleEnd": 220
+    "arcOffsety": 0,
+    "angleStart": 0,
+    "angleEnd": 0
   },
   "W": {
-    "size": 90,
-    "recOffsetx": 0,
-    "recOffsety": 110,
-    "RectAngle": -20,
+    "size": 150,
+    "recOffsetx": -20,
+    "recOffsety": 60,
+    "rectAngle": -15,
 
-    "size1": 25,
-    "offsetx": 80,
-    "offsety": 100,
+    "size1": 35,
+    "offsetx": 75,
+    "offsety": 50,
 
     "size2": 115,
-    "arcOffsetx": 0,
+    "arcOffsetx": -5,
     "arcOffsety": 85,
     "angleStart": 70,
     "angleEnd": 110
@@ -387,11 +387,11 @@ const alphabet = {
     "size": 150,
     "recOffsetx": 0,
     "recOffsety": 75,
-    "RectAngle": -35,
+    "rectAngle": -35,
 
-    "size1": 40,
-    "offsetx": 60,
-    "offsety": 60,
+    "size1": 35,
+    "offsetx": 65,
+    "offsety": 50,
 
     "size2": 160,
     "arcOffsetx": -20,
@@ -402,26 +402,26 @@ const alphabet = {
   "Y": {
     "size": 90,
     "recOffsetx": 0,
-    "recOffsety": 75,
-    "RectAngle": -35,
+    "recOffsety": 60,
+    "rectAngle": -30,
 
-    "size1": 40,
-    "offsetx": 60,
-    "offsety": 60,
+    "size1": 35,
+    "offsetx": 65,
+    "offsety": 50,
 
     "size2": 150,
-    "arcOffsetx": -35,
+    "arcOffsetx": -25,
     "arcOffsety": 50,
-    "angleStart": 35,
-    "angleEnd": 70
+    "angleStart": 70,
+    "angleEnd": 110
   },
   "Z": {
     "size": 150,
     "recOffsetx": 80,
     "recOffsety": 65,
-    "RectAngle": 30,
+    "rectAngle": 30,
 
-    "size1": 50,
+    "size1": 35,
     "offsetx": 0,
     "offsety": 50,
 
@@ -432,114 +432,138 @@ const alphabet = {
     "angleEnd": 0
   },
   "0": {
-    "size": 0,
-    "recOffsetx": 0,
-    "recOffsety": 50,
-    "RectAngle": 0,
+    "size": 150,
+    "recOffsetx": 90,
+    "recOffsety": 70,
+    "rectAngle": 35,
 
-    "size1": 50,
-    "offsetx": 30,
-    "offsety": 125,
+    "size1": 100,
+    "offsetx": 0,
+    "offsety": 100,
 
     "size2": 100,
-    "arcOffsetx": 5,
-    "arcOffsety": 100,
-    "angleStart": 180,
+    "arcOffsetx": 0,
+    "arcOffsety": 50,
+    "angleStart": 0,
     "angleEnd": 360
   },
   "1": {
-    "size": 100,
+    "size": 150,
     "recOffsetx": 45,
-    "recOffsety": 100,
-    "RectAngle": 0,
+    "recOffsety": 50,
+    "rectAngle": 0,
 
     "size1": 0,
-    "offsetx": 40,
-    "offsety": 50,
+    "offsetx": 0,
+    "offsety": 0,
 
-    "size2": 0,
-    "arcOffsetx": 50,
-    "arcOffsety": 100,
-    "angleStart": 64,
-    "angleEnd": 108
+    "size2": 100,
+    "arcOffsetx": 0,
+    "arcOffsety": 0,
+    "angleStart": 90,
+    "angleEnd": 145
   },
   "2": {
-    "size1": 90,
-    "size2": 25,
-    "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
-    "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "size": 100,
+    "recOffsetx": 20,
+    "recOffsety": 200,
+    "rectAngle": 225,
+
+    "size1": 30,
+    "offsetx": 70,
+    "offsety": 170,
+
+    "size2": 100,
+    "arcOffsetx": 0,
+    "arcOffsety": 50,
+    "angleStart": 210,
+    "angleEnd": 390
   },
   "3": {
-    "size1": 90,
-    "size2": 25,
+    "size": 90,
+    "recOffsetx": 80,
+    "recOffsety": 50,
+    "rectAngle": 30,
+
+    "size1": 100,
     "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
-    "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "offsety": 100,
+
+    "size2": 150,
+    "arcOffsetx": 0,
+    "arcOffsety": -25,
+    "angleStart": 155,
+    "angleEnd": 180
   },
   "4": {
-    "size1": 90,
-    "size2": 25,
+    "size": 150,
+    "recOffsetx": 50,
+    "recOffsety": 50,
+    "rectAngle": 0,
+
+    "size1": 0,
     "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
-    "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "offsety": 0,
+
+    "size2": 200,
+    "arcOffsetx": -100,
+    "arcOffsety": 40,
+    "angleStart": -60,
+    "angleEnd": 0
   },
   "5": {
-    "size1": 90,
-    "size2": 25,
+    "size": 50,
+    "recOffsetx": 0,
+    "recOffsety": 50,
+    "rectAngle": 0,
+
+    "size1": 100,
     "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
+    "offsety": 100,
+
+    "size2": 150,
+    "arcOffsetx": -60,
+    "arcOffsety": -25,
     "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "angleEnd": 25
   },
   "6": {
-    "size1": 90,
-    "size2": 25,
-    "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
+    "size": 85,
+    "recOffsetx": 25,
+    "recOffsety": 50,
+    "rectAngle": 20,
+
+    "size1": 0,
+    "offsetx": 25,
+    "offsety": 125,
+
+    "size2": 100,
+    "arcOffsetx": 0,
+    "arcOffsety": 100,
     "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "angleEnd": 360
   },
   "7": {
-    "size1": 90,
-    "size2": 25,
+    "size": 150,
+    "recOffsetx": 80,
+    "recOffsety": 60,
+    "rectAngle": 30,
+
+    "size1": 0,
     "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
-    "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "offsety": 0,
+
+    "size2": 150,
+    "arcOffsetx": 0,
+    "arcOffsety": -25,
+    "angleStart": 150,
+    "angleEnd": 180
   },
   "8": {
     "size": 0,
-    "recOffsetx": 45,
+    "recOffsetx": 0,
     "recOffsety": 0,
-    "RectAngle": 0,
+    "rectAngle": 0,
 
     "size1": 50,
     "offsetx": 25,
@@ -552,16 +576,20 @@ const alphabet = {
     "angleEnd": 360
   },
   "9": {
-    "size1": 90,
-    "size2": 25,
+    "size": 85,
+    "recOffsetx": 80,
+    "recOffsety": 120,
+    "rectAngle": 20,
+
+    "size1": 100,
     "offsetx": 0,
-    "offsety": 70,
-    "arcOffsetx": 50,
-    "arcOffsety": 130,
-    "RectAngle": 30,
+    "offsety": 50,
+
+    "size2": 0,
+    "arcOffsetx": 0,
+    "arcOffsety": 100,
     "angleStart": 0,
-    "angleEnd": 360,
-    "opacity": 255
+    "angleEnd": 360
   }
 
 }
