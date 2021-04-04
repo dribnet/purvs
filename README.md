@@ -1,9 +1,10 @@
 
-I finished setting up my alphabet as well as the numbers. I will now be working on polishing the interactions and readbility and finding the right colour palette.
-
-Each of my letters is composed of a circle, an arc and a rectangle. The size and position of each shape varies, the arc start and end and the rotation of the rectangle too.
+I finished setting up my alphabet as well as the numbers. I will now be working on polishing the interactions and readability and finding the right colour palette.
 
 This alphabet takes inspiration from [**Wassily Kandinsky**](https://www.wassilykandinsky.net), a Russian painter and pioneer of abstract art (1866-1944).
+The [**Bauhaus art**](https://i.pinimg.com/originals/af/be/fb/afbefbd7da9a1aea6ddf6237a48f7b50.jpg) movement inspires the colour palette because Kandinsky took part in it.
+
+Each of my letters is composed of a circle, an arc and a rectangle. The size and position of each shape vary, the arc start and end, the rectangle rotation, and the rectangle rotation.
 
 There are twelve parameters per letter:
   * `size` : height of the rectangle

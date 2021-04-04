@@ -39,7 +39,7 @@ function drawLetter(letterData) {
    noStroke();
 
   //Draw an ellipse
-  fill('#F085CA');
+  fill('#db1c5f');
   ellipseMode(CORNER);
   ellipse(pos2x, pos2y, size1, size1);
 
