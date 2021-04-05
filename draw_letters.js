@@ -47,31 +47,26 @@ function drawLetter(letterData) {
   line(start3,stop3,start4,stop4);
   line(start5,stop5,start6,stop6);
   line(start7,stop7,start8,stop8);
+
+}
  
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
 
   new_letter["start"]    = map(percent, 0, 100, oldObj["start"], newObj["start"]);
     new_letter["end"]    = map(percent, 0, 100, oldObj["end"], newObj["end"]);
-
   new_letter["start2"]    = map(percent, 0, 100, oldObj["start2"], newObj["start2"]);
     new_letter["end2"]    = map(percent, 0, 100, oldObj["end2"], newObj["end2"]);
-
   new_letter["start3"]    = map(percent, 0, 100, oldObj["start3"], newObj["start3"]);
     new_letter["end3"]    = map(percent, 0, 100, oldObj["end3"], newObj["end3"]);
-
   new_letter["start4"]    = map(percent, 0, 100, oldObj["start4"], newObj["start4"]);
     new_letter["end4"]    = map(percent, 0, 100, oldObj["end4"], newObj["end4"]);
-
   new_letter["start5"]    = map(percent, 0, 100, oldObj["start5"], newObj["start5"]);
     new_letter["end5"]    = map(percent, 0, 100, oldObj["end5"], newObj["end5"]);
-
   new_letter["start6"]    = map(percent, 0, 100, oldObj["start6"], newObj["start6"]);
     new_letter["end6"]    = map(percent, 0, 100, oldObj["end6"], newObj["end6"]);
-
   new_letter["start7"]    = map(percent, 0, 100, oldObj["start7"], newObj["start7"]);
     new_letter["end7"]    = map(percent, 0, 100, oldObj["end7"], newObj["end7"]);
-
   new_letter["start8"]    = map(percent, 0, 100, oldObj["start8"], newObj["start8"]);
     new_letter["end8"]    = map(percent, 0, 100, oldObj["end8"], newObj["end8"]);
 
@@ -84,6 +79,6 @@ var swapWords = [
   "BAAAAAAA"
 ]
 
-}
+
 
 
