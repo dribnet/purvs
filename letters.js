@@ -54,12 +54,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "F": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 3, //triangle
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsetx": -20,
+    "offsety": -30,
+    "triangleRotate": 150,
+    "triangleSize": 1.3,
     "linesVerticalXpos": 0
   },
   "G": {
@@ -72,12 +72,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "H": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //square
     "backgroundShapeRotate": 0,
     "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 270,
-    "triangleSize": 0,
+    "offsety": -30,
+    "triangleRotate": 0,
+    "triangleSize": 0.6,
     "linesVerticalXpos": 0
   },
   "I": {
@@ -180,12 +180,12 @@ const alphabet = {
     "linesVerticalXpos": 0
   },
   "T": {
-    "backgroundShapeType": 2, //circle
+    "backgroundShapeType": 1, //sqaure
     "backgroundShapeRotate": 0,
     "offsetx": 0,
-    "offsety": 0,
+    "offsety": 40,
     "triangleRotate": 180,
-    "triangleSize": 0,
+    "triangleSize": 0.8,
     "linesVerticalXpos": 0
   },
   "U": {
@@ -290,10 +290,10 @@ const alphabet = {
   "5": {
     "backgroundShapeType": 2, //circle
     "backgroundShapeRotate": 0,
-    "offsetx": 0,
-    "offsety": 0,
-    "triangleRotate": 100,
-    "triangleSize": 0,
+    "offsetx": -35,
+    "offsety": -30,
+    "triangleRotate": 60,
+    "triangleSize": 1.1,
     "linesVerticalXpos": 0
   },
   "6": {
