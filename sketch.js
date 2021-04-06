@@ -93,15 +93,15 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   let A1 = posx + letterData["point1A"];
-  let A2 = posy + letterData["point2A"];
-  let A3 = posy + letterData["point3A"];
-  let B1 = posx + letterData["point1B"];
+  let A2 = posx + letterData["point2A"];
+  let A3 = posx + letterData["point3A"];
+  let B1 = posy + letterData["point1B"];
   let B2 = posy + letterData["point2B"];
   let B3 = posy + letterData["point3B"];
   let C1 = posx + letterData["point1C"];
-  let C2 = posy + letterData["point2C"];
-  let C3 = posy + letterData["point3C"];
-  let D1 = posx + letterData["point1D"];
+  let C2 = posx + letterData["point2C"];
+  let C3 = posx + letterData["point3C"];
+  let D1 = posy + letterData["point1D"];
   let D2 = posy + letterData["point2D"];
   let D3 = posy + letterData["point3D"];
 
