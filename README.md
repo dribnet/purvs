@@ -5,6 +5,8 @@ For my sketch I used 3 different shapes (a triangle, square and circle) as the b
 
 I have now completed my first version of the alphabet using only using circles, triangles and squares to start with. At this point the letters are very abstract and some look quite similar to each other. Therefore, for the next version of my alphabet I am going to start using both vertical and horizontal lines to make sure the letters are both readable and distinguishable.
 
+working on adding lines in
+
 
 The parameters per letter:
   * `backgroundShapeType` : the type of the background shape (triangle, circle, sqaure)

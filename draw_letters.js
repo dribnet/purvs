@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#ebebeb";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -30,6 +30,7 @@ function drawLetter(letterData) {
   let triRotate = letterData["triangleRotate"];
   let triSize = letterData["triangleSize"];
   let lines1Xpos = letterData["linesVerticalXpos"];
+  let lines2Ypos = letterData["linesHorizontalYpos"];
 
 
   
@@ -52,30 +53,48 @@ function drawLetter(letterData) {
       triangle(posx-50, posy-200, posx, posy-100, posx-100, posy-100);
     }
 
-  console.log(shapeRotate)
   pop()
 
 
   //triangle
   push();
     if (triSize > 0){
+      fill(260);
       translate(posx, posy);
       rotate(triRotate);
       scale(triSize)
-      fill(260);
       triangle(triPosX, triPosY, 30+triPosX, 50+triPosY, -30+triPosX, 50+triPosY);
     }
   pop();
+
+
 
   //vertical lines
   push();
     if (lines1Xpos > 0){
       stroke(260);
       strokeWeight(1.5);
-      line(posx-50+lines1Xpos, posy-50, posx-50+lines1Xpos, posy+50);
-      line(posx-45+lines1Xpos, posy-50, posx-45+lines1Xpos, posy+50);
-      line(posx-40+lines1Xpos, posy-50, posx-40+lines1Xpos, posy+50);
-      line(posx-35+lines1Xpos, posy-50, posx-35+lines1Xpos, posy+50);
+      translate(posx, posy)
+      line(posx-100+lines1Xpos, posy-200, posx-100+lines1Xpos, posy-100);
+      line(posx-95+lines1Xpos, posy-200, posx-95+lines1Xpos, posy-100);
+      line(posx-90+lines1Xpos, posy-200, posx-90+lines1Xpos, posy-100);
+      line(posx-85+lines1Xpos, posy-200, posx-85+lines1Xpos, posy-100);
+
+    }
+  pop();
+
+
+
+  //horizontal lines
+  push();
+    if (lines2Ypos > 0){
+      stroke(260);
+      strokeWeight(1.5);
+      translate(posx, posy)
+      line(posx-100, posy-200+lines2Ypos, posx, posy-200+lines2Ypos);
+      line(posx-100, posy-195+lines2Ypos, posx, posy-195+lines2Ypos);
+      line(posx-100, posy-190+lines2Ypos, posx, posy-190+lines2Ypos);
+      line(posx-100, posy-185+lines2Ypos, posx, posy-185+lines2Ypos);
 
     }
   pop();
