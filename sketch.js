@@ -68,7 +68,7 @@ const canvasHeight = 500;
 
   "BlackLineypos": -20,
 
-  "BlueCircleSize": 100,
+  "BlueCircleSize": 120,
 
   "BlueCirclexPos": 280,
 
