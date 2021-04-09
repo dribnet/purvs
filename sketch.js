@@ -13,9 +13,34 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+  "quadXLoki": 200,
+  "quadYLoki": 200,
+  "offsety": 35,
+
+  "quadrotation": 0,
+
+  "GreenDotxpos": 260,
+
+  "GreenDotypos": 100,
+
+  "GreenDotSize": 20,
+
+  "RedRotation": 0,
+
+  "BlackLinexpos": 300, 
+
+  "BlackLineypos": 100,
+
+  "BlueCircleSize": 100,
+
+  "BlueCirclexPos": 330,
+
+  "BlueCircleyPos": 305,
+
+
+
+
+
 }
 
 const letterB = {
@@ -65,15 +90,78 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  let quadx = letterData["quadXLoki"];
+  let quady = letterData["quadYLoki"];
+  let pos2y = letterData["offsety"];
 
+  let RotationAngle = letterData["quadrotation"];
+
+  let GreenDotx = letterData["GreenDotxpos"];
+
+  let GreenDoty = letterData["GreenDotypos"];
+
+  let RedObjectAngle = letterData["RedRotation"];
+
+  let GreenDot = letterData["GreenDotSize"];
+
+  let BlackLinex = letterData["BlackLinexpos"]
+
+  let BlackLiney = letterData["BlackLineypos"]
+
+  let CirlceSize = letterData["BlueCircleSize"]
+
+  let CirclexPos = letterData["BlueCirclexPos"]
+
+  let CircleyPos = letterData["BlueCircleyPos"]
+  angleMode(DEGREES)
   // draw two circles
-  fill(20, 200, 20);
-  rect(posx, posy, 150, 250);
+//   fill(20, 200, 20);
+//   rect(posx, posy, 150, 250);
+//   fill(200, 20, 20);
+//   rect(pos2x-80, pos2y, size2, size2);
+// }
+
+  //draw two circles
+
+//Yellow Quad
+noStroke()
+  fill(250, 250, 20)
+  //let quadx = 200
+  //let quady = 200;
+  push();
+  translate(quadx,quady);
+  rotate(RotationAngle)
+  quad(0, 0, -100, 100, -80, 120, -20, 130, 30, 30, 30, 30); // soft edges not working
+  pop()
+
+//3 green dots
+  stroke(20, 200, 20)
+  fill(20, 20, 20);
+  ellipse(GreenDotx, GreenDoty, GreenDot, GreenDot);
+  ellipse(GreenDotx-40, GreenDoty+65, GreenDot, GreenDot);
+  ellipse(GreenDotx-80, GreenDoty+130, GreenDot, GreenDot);
+
+//red lolliepop
+  noStroke()
+  rotate(RedObjectAngle)
   fill(200, 20, 20);
-  rect(pos2x-80, pos2y, size2, size2);
+  rect(170, 205, 150, 10)
+  ellipse(310, 210, 70, 70)
+
+//black lines
+  fill(10, 10, 10)
+  quad(BlackLinex+5, BlackLiney+30, BlackLinex+11, BlackLiney+28, BlackLinex+10, BlackLiney+60, BlackLinex+6, BlackLiney+61)
+  quad(BlackLinex+60, BlackLiney+110, BlackLinex+88, BlackLiney+109, BlackLinex+90, BlackLiney+115, BlackLinex+62, BlackLiney+114)
+  quad(BlackLinex+33, BlackLiney+66, BlackLinex+36, BlackLiney+69, BlackLinex+50, BlackLiney+41, BlackLinex+47, BlackLiney+39)
+  quad(BlackLinex+53, BlackLiney+86, BlackLinex+56, BlackLiney+89, BlackLinex+80, BlackLiney+71, BlackLinex+77, BlackLiney+64)
+
+//blue ellipse
+  stroke(20, 20, 20)
+  fill(20, 20, 200)
+  circle(CirclexPos, CircleyPos, CirlceSize)
+  circle(CirclexPos, CircleyPos, CirlceSize/2)
+
+
 }
 
 function keyTyped() {
@@ -84,3 +172,5 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
+
