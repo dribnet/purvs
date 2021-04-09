@@ -13,49 +13,49 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "point1A": 0,
-  "point2A": 80,
-  "point3A": -120,
-  "point1B": -120,
-  "point2B": 100,
-  "point3B": 100,
-  "point1C": 0,
-  "point2C": 20,
-  "point3C": -60,
-  "point1D": 115,
-  "point2D": 20,
-  "point3D": 20
+    "point1A": 50,
+    "point2A": 0,
+    "point3A": 100,
+    "point1B": 0,
+    "point2B": 200,
+    "point3B": 200,
+    "point1C": 25,
+    "point2C": 75,
+    "point3C": 50,
+    "point1D": 150,
+    "point2D": 150,
+    "point3D": 194
 }
 
 const letterB = {
-  "point1A": 80,
-  "point2A": 170,
-  "point3A": 170,
-  "point1B": -370,
-  "point2B": -140,
-  "point3B": 0,
-  "point1C": 80,
-  "point2C": 170,
-  "point3C": 170,
-  "point1D": -250,
-  "point2D": 100,
-  "point3D": -20
+    "point1A": 0,
+    "point2A": 0,
+    "point3A": 100,
+    "point1B": 0,
+    "point2B": 194,
+    "point3B": 0,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 100,
+    "point2D": 100,
+    "point3D": 200
   
 }
 
 const letterC = {
-  "point1A": 80,
-  "point2A": 420,
-  "point3A": 420,
-  "point1B": -620,
-  "point2B": -140,
-  "point3B": 60,
-  "point1C": 80,
-  "point2C": 420,
-  "point3C": 420,
-  "point1D": -380,
-  "point2D": 100,
-  "point3D": -20
+    "point1A": 0,
+    "point2A": 0,
+    "point3A": 100,
+    "point1B": 0,
+    "point2B": 150,
+    "point3B": 0,
+    "point1C": 0,
+    "point2C": 100,
+    "point3C": 0,
+    "point1D": 50,
+    "point2D": 200,
+    "point3D": 200
 }
 
 const backgroundColor  = "#c9afaf";
