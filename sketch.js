@@ -12,41 +12,73 @@ const canvasHeight = 500;
  *
  */
 
-const letterA = {
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 0,
+
+//   "GreenDotxpos": 260,
+
+//   "GreenDotypos": 100,
+
+//   "GreenDotSize": 20,
+
+//   "RedRotation": 0,
+
+//   "RedxPosition": 100,
+
+//   "RedyPosition": 200,
+
+//   "BlackLinexpos": 300, 
+
+//   "BlackLineypos": 100,
+
+//   "BlueCircleSize": 100,
+
+//   "BlueCirclexPos": 330,
+
+//   "BlueCircleyPos": 305,
+
+// }
+
+//Letter B
+
+  const letterA = {
   "quadXLoki": 200,
+
   "quadYLoki": 200,
-  "offsety": 35,
 
-  "quadrotation": 0,
+  "quadrotation": 315,
 
-  "GreenDotxpos": 260,
+  "GreenDotxpos": 320,
 
-  "GreenDotypos": 100,
+  "GreenDotypos": 80,
 
   "GreenDotSize": 20,
 
-  "RedRotation": 0,
+  "RedRotation": 270,
 
-  "BlackLinexpos": 300, 
+  "RedxPosition": 200,
 
-  "BlackLineypos": 100,
+  "RedyPosition": 300,
+
+  "BlackLinexpos": 200, 
+
+  "BlackLineypos": -20,
 
   "BlueCircleSize": 100,
 
-  "BlueCirclexPos": 330,
+  "BlueCirclexPos": 280,
 
-  "BlueCircleyPos": 305,
-
-
-
-
+  "BlueCircleyPos": 275,
 
 }
 
-const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+
+  const letterB = {
+
 }
 
 const letterC = {
@@ -91,8 +123,8 @@ function draw () {
 function drawLetter(posx, posy, letterData) {
   // determine parameters for second circle
   let quadx = letterData["quadXLoki"];
+
   let quady = letterData["quadYLoki"];
-  let pos2y = letterData["offsety"];
 
   let RotationAngle = letterData["quadrotation"];
 
@@ -113,6 +145,10 @@ function drawLetter(posx, posy, letterData) {
   let CirclexPos = letterData["BlueCirclexPos"]
 
   let CircleyPos = letterData["BlueCircleyPos"]
+
+  let RedxPos = letterData["RedxPosition"]
+
+  let RedyPos = letterData["RedyPosition"]
   angleMode(DEGREES)
   // draw two circles
 //   fill(20, 200, 20);
@@ -135,31 +171,41 @@ noStroke()
   pop()
 
 //3 green dots
+  push();
   stroke(20, 200, 20)
   fill(20, 20, 20);
   ellipse(GreenDotx, GreenDoty, GreenDot, GreenDot);
   ellipse(GreenDotx-40, GreenDoty+65, GreenDot, GreenDot);
   ellipse(GreenDotx-80, GreenDoty+130, GreenDot, GreenDot);
+  pop()
 
 //red lolliepop
+  push();
   noStroke()
+  translate(RedxPos, RedyPos)
   rotate(RedObjectAngle)
   fill(200, 20, 20);
-  rect(170, 205, 150, 10)
-  ellipse(310, 210, 70, 70)
+  rect(70, 5, 150, 10)
+  ellipse(210, 10, 70, 70)
+  pop()
 
 //black lines
+  push();
+  noStroke()
   fill(10, 10, 10)
   quad(BlackLinex+5, BlackLiney+30, BlackLinex+11, BlackLiney+28, BlackLinex+10, BlackLiney+60, BlackLinex+6, BlackLiney+61)
   quad(BlackLinex+60, BlackLiney+110, BlackLinex+88, BlackLiney+109, BlackLinex+90, BlackLiney+115, BlackLinex+62, BlackLiney+114)
   quad(BlackLinex+33, BlackLiney+66, BlackLinex+36, BlackLiney+69, BlackLinex+50, BlackLiney+41, BlackLinex+47, BlackLiney+39)
   quad(BlackLinex+53, BlackLiney+86, BlackLinex+56, BlackLiney+89, BlackLinex+80, BlackLiney+71, BlackLinex+77, BlackLiney+64)
+  pop()
 
 //blue ellipse
+  push();
   stroke(20, 20, 20)
   fill(20, 20, 200)
   circle(CirclexPos, CircleyPos, CirlceSize)
   circle(CirclexPos, CircleyPos, CirlceSize/2)
+  pop()
 
 
 }
