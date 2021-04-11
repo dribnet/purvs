@@ -1,12 +1,12 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-/* internal constants */
+const strokeColor      = "#233f11";
+
 const darkBlue  = "#199cff";
 const lightBlue  = "#59ccff";
-const strokeColor  = "#233f11";
 
 /*
  * Draw the letter given the letterData
@@ -17,22 +17,24 @@ const strokeColor  = "#233f11";
  */
 function drawLetter(letterData) {
 
-  //setup the sketch 
-  angleMode(DEGREES)
-  noStroke();
-  // determine parameters for letter
-  let size2 = letterData["size"];
-  let pos2x = letterData["offsetx"];
-  let pos2y = letterData["offsety"];
 
-  let startAngle = letterData["ArcStart"];
-  let stopAngle = letterData["ArcEnd"];
-  let sideTriangle = letterData["TrianglePoint"];
-  // draw two circles
-  fill(lightBlue);
-  triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
-  fill(lightBlue);
-  arc(50, 100, 100, 100,startAngle,stopAngle);
+const posx = 50
+const posy = 0
+let size = letterData["size"];
+let pos2x = posx + letterData["offsetx"];
+let pos2y = posy + letterData["offsety"];
+
+  stroke(255);
+  strokeWeight(1);
+  strokeCap(PROJECT);
+  
+
+for (let i = 0; i < 9; i++) {
+  line(posx,posy,pos2x-50+(i*size),200);
+  line(posx-50,posy,pos2x+(i*size),200);
+  line(posx-50,posy,pos2x-50+(i*size),200);
+  line(posx,200,pos2x-50+(i*size),pos2y);
+}
 }
 
 
