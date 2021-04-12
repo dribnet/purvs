@@ -53,40 +53,78 @@ const canvasHeight = 500;
 
 // Letter B
 
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 315,
+
+//   "GreenDot1xpos": 310,
+
+//   "GreenDot1ypos": 100,
+
+//   "greenDot2xpos":280,
+
+//   "GreenDot2ypos":150,
+
+//   "GreenDot3xpos":250,
+
+//   "GreenDot3ypos":200,
+
+//   "GreenDotSize": 20,
+
+//   "RedRotation": 270,
+
+//   "RedxPosition": 200,
+
+//   "RedyPosition": 300,
+
+//   "BlackLinexpos": 200, 
+
+//   "BlackLineypos": -20,
+
+//   "BlueCircleSize": 120,
+
+//   "BlueCirclexPos": 280,
+
+//   "BlueCircleyPos": 275,
+
+// }
+
+  //letter C
   const letterA = {
   "quadXLoki": 200,
 
   "quadYLoki": 200,
 
-  "quadrotation": 315,
+  "quadrotation": 295,
 
-  "GreenDot1xpos": 310,
+  "GreenDot1xpos": 270,
 
-  "GreenDot1ypos": 100,
+  "GreenDot1ypos": 90,
 
-  "greenDot2xpos":280,
+  "greenDot2xpos":234,
 
-  "GreenDot2ypos":150,
+  "GreenDot2ypos":120,
 
-  "GreenDot3xpos":250,
+  "GreenDot3xpos":206,
 
-  "GreenDot3ypos":200,
+  "GreenDot3ypos":170,
 
-  "GreenDotSize": 20,
+  "RedRotation": -20,
 
-  "RedRotation": 270,
+  "RedxPosition": 130,
 
-  "RedxPosition": 200,
+  "RedyPosition": 220,
 
-  "RedyPosition": 300,
+  "BlackLinexpos": 320, 
 
-  "BlackLinexpos": 200, 
+  "BlackLineypos": 45,
 
-  "BlackLineypos": -20,
+  "BlueCircleSize": 80,
 
-  "BlueCircleSize": 120,
-
-  "BlueCirclexPos": 280,
+  "BlueCirclexPos": 340,
 
   "BlueCircleyPos": 275,
 
@@ -156,11 +194,7 @@ function drawLetter(posx, posy, letterData) {
 
   let GreenDot3y = letterData["GreenDot3ypos"];
 
-
-
   let RedObjectAngle = letterData["RedRotation"];
-
-  let GreenDot = letterData["GreenDotSize"];
 
   let BlackLinex = letterData["BlackLinexpos"];
 
@@ -191,6 +225,7 @@ noStroke()
   //let quadx = 200
   //let quady = 200;
   push();
+
   translate(quadx,quady);
   rotate(RotationAngle)
   quad(0, 0, -100, 100, -80, 120, -20, 130, 30, 30, 30, 30); // soft edges not working
@@ -200,9 +235,9 @@ noStroke()
   push();
   stroke(20, 200, 20)
   fill(20, 20, 20);
-  circle(GreenDot1x, GreenDot1y, GreenDot);
-  circle(GreenDot2x, GreenDot2y, GreenDot);
-  circle(GreenDot3x, GreenDot3y, GreenDot);
+  circle(GreenDot1x, GreenDot1y, 20);
+  circle(GreenDot2x, GreenDot2y, 20);
+  circle(GreenDot3x, GreenDot3y, 20);
   pop()
 
 //red lolliepop
