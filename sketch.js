@@ -51,7 +51,7 @@ const canvasHeight = 500;
 
 // }
 
-Letter B
+// Letter B
 
   const letterA = {
   "quadXLoki": 200,
