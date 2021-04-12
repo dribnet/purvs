@@ -12,69 +12,85 @@ const canvasHeight = 500;
  *
  */
 
-//   const letterA = {
-//   "quadXLoki": 200,
-
-//   "quadYLoki": 200,
-
-//   "quadrotation": 0,
-
-//   "GreenDotxpos": 260,
-
-//   "GreenDotypos": 100,
-
-//   "GreenDotSize": 20,
-
-//   "RedRotation": 0,
-
-//   "RedxPosition": 100,
-
-//   "RedyPosition": 200,
-
-//   "BlackLinexpos": 300, 
-
-//   "BlackLineypos": 100,
-
-//   "BlueCircleSize": 100,
-
-//   "BlueCirclexPos": 330,
-
-//   "BlueCircleyPos": 305,
-
-// }
-
-//Letter B
-
   const letterA = {
   "quadXLoki": 200,
 
   "quadYLoki": 200,
 
-  "quadrotation": 315,
+  "quadrotation": 0,
 
-  "GreenDotxpos": 320,
+  "GreenDot1xpos": 270,
 
-  "GreenDotypos": 80,
+  "GreenDot1ypos": 110,
+
+  "greenDot2xpos":220,
+
+  "GreenDot2ypos":175,
+
+  "GreenDot3xpos":170,
+
+  "GreenDot3ypos":240,
 
   "GreenDotSize": 20,
 
-  "RedRotation": 270,
+  "RedRotation": 0,
 
-  "RedxPosition": 200,
+  "RedxPosition": 100,
 
-  "RedyPosition": 300,
+  "RedyPosition": 200,
 
-  "BlackLinexpos": 200, 
+  "BlackLinexpos": 300, 
 
-  "BlackLineypos": -20,
+  "BlackLineypos": 100,
 
-  "BlueCircleSize": 120,
+  "BlueCircleSize": 100,
 
-  "BlueCirclexPos": 280,
+  "BlueCirclexPos": 330,
 
-  "BlueCircleyPos": 275,
+  "BlueCircleyPos": 305,
 
 }
+
+//Letter B
+
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 315,
+
+//   "GreenDot1xpos": 310,
+
+//   "GreenDot1ypos": 100,
+
+//   "greenDot2xpos":280,
+
+//   "GreenDot2ypos":150,
+
+//   "GreenDot3xpos":250,
+
+//   "GreenDot3ypos":200,
+
+//   "GreenDotSize": 20,
+
+//   "RedRotation": 270,
+
+//   "RedxPosition": 200,
+
+//   "RedyPosition": 300,
+
+//   "BlackLinexpos": 200, 
+
+//   "BlackLineypos": -20,
+
+//   "BlueCircleSize": 120,
+
+//   "BlueCirclexPos": 280,
+
+//   "BlueCircleyPos": 275,
+
+// }
 
 
   const letterB = {
@@ -128,23 +144,33 @@ function drawLetter(posx, posy, letterData) {
 
   let RotationAngle = letterData["quadrotation"];
 
-  let GreenDotx = letterData["GreenDotxpos"];
+  let GreenDot1x = letterData["GreenDot1xpos"];
 
-  let GreenDoty = letterData["GreenDotypos"];
+  let GreenDot1y = letterData["GreenDot1ypos"];
+
+  let GreenDot2x = letterData["greenDot2xpos"]
+
+  let GreenDot2y = letterData["GreenDot2ypos"];
+
+  let GreenDot3x = letterData["GreenDot3xpos"];
+
+  let GreenDot3y = letterData["GreenDot3ypos"];
+
+
 
   let RedObjectAngle = letterData["RedRotation"];
 
   let GreenDot = letterData["GreenDotSize"];
 
-  let BlackLinex = letterData["BlackLinexpos"]
+  let BlackLinex = letterData["BlackLinexpos"];
 
-  let BlackLiney = letterData["BlackLineypos"]
+  let BlackLiney = letterData["BlackLineypos"];
 
-  let CirlceSize = letterData["BlueCircleSize"]
+  let CirlceSize = letterData["BlueCircleSize"];
 
-  let CirclexPos = letterData["BlueCirclexPos"]
+  let CirclexPos = letterData["BlueCirclexPos"];
 
-  let CircleyPos = letterData["BlueCircleyPos"]
+  let CircleyPos = letterData["BlueCircleyPos"];
 
   let RedxPos = letterData["RedxPosition"]
 
@@ -174,9 +200,9 @@ noStroke()
   push();
   stroke(20, 200, 20)
   fill(20, 20, 20);
-  ellipse(GreenDotx, GreenDoty, GreenDot, GreenDot);
-  ellipse(GreenDotx-40, GreenDoty+65, GreenDot, GreenDot);
-  ellipse(GreenDotx-80, GreenDoty+130, GreenDot, GreenDot);
+  circle(GreenDot1x, GreenDot1y, GreenDot);
+  circle(GreenDot2x, GreenDot2y, GreenDot);
+  circle(GreenDot3x, GreenDot3y, GreenDot);
   pop()
 
 //red lolliepop
