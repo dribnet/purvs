@@ -12,85 +12,85 @@ const canvasHeight = 500;
  *
  */
 
-  const letterA = {
-  "quadXLoki": 200,
-
-  "quadYLoki": 200,
-
-  "quadrotation": 0,
-
-  "GreenDot1xpos": 270,
-
-  "GreenDot1ypos": 110,
-
-  "greenDot2xpos":220,
-
-  "GreenDot2ypos":175,
-
-  "GreenDot3xpos":170,
-
-  "GreenDot3ypos":240,
-
-  "GreenDotSize": 20,
-
-  "RedRotation": 0,
-
-  "RedxPosition": 100,
-
-  "RedyPosition": 200,
-
-  "BlackLinexpos": 300, 
-
-  "BlackLineypos": 100,
-
-  "BlueCircleSize": 100,
-
-  "BlueCirclexPos": 330,
-
-  "BlueCircleyPos": 305,
-
-}
-
-//Letter B
-
 //   const letterA = {
 //   "quadXLoki": 200,
 
 //   "quadYLoki": 200,
 
-//   "quadrotation": 315,
+//   "quadrotation": 0,
 
-//   "GreenDot1xpos": 310,
+//   "GreenDot1xpos": 270,
 
-//   "GreenDot1ypos": 100,
+//   "GreenDot1ypos": 110,
 
-//   "greenDot2xpos":280,
+//   "greenDot2xpos":220,
 
-//   "GreenDot2ypos":150,
+//   "GreenDot2ypos":175,
 
-//   "GreenDot3xpos":250,
+//   "GreenDot3xpos":170,
 
-//   "GreenDot3ypos":200,
+//   "GreenDot3ypos":240,
 
 //   "GreenDotSize": 20,
 
-//   "RedRotation": 270,
+//   "RedRotation": 0,
 
-//   "RedxPosition": 200,
+//   "RedxPosition": 100,
 
-//   "RedyPosition": 300,
+//   "RedyPosition": 200,
 
-//   "BlackLinexpos": 200, 
+//   "BlackLinexpos": 300, 
 
-//   "BlackLineypos": -20,
+//   "BlackLineypos": 100,
 
-//   "BlueCircleSize": 120,
+//   "BlueCircleSize": 100,
 
-//   "BlueCirclexPos": 280,
+//   "BlueCirclexPos": 330,
 
-//   "BlueCircleyPos": 275,
+//   "BlueCircleyPos": 305,
 
 // }
+
+Letter B
+
+  const letterA = {
+  "quadXLoki": 200,
+
+  "quadYLoki": 200,
+
+  "quadrotation": 315,
+
+  "GreenDot1xpos": 310,
+
+  "GreenDot1ypos": 100,
+
+  "greenDot2xpos":280,
+
+  "GreenDot2ypos":150,
+
+  "GreenDot3xpos":250,
+
+  "GreenDot3ypos":200,
+
+  "GreenDotSize": 20,
+
+  "RedRotation": 270,
+
+  "RedxPosition": 200,
+
+  "RedyPosition": 300,
+
+  "BlackLinexpos": 200, 
+
+  "BlackLineypos": -20,
+
+  "BlueCircleSize": 120,
+
+  "BlueCirclexPos": 280,
+
+  "BlueCircleyPos": 275,
+
+}
 
 
   const letterB = {
