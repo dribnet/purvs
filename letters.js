@@ -302,54 +302,114 @@ const alphabet = {
     "smallYPos2": 158
   },
   "0": {
-    "size": 40,
+    "size": 92,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 50,
+    "offsetx2": 4,
+    "offsety2": 63,
+    "smallXPos": 7,
+    "smallYPos": 90,
+    "smallXPos2": 31,
+    "smallYPos2": 90
   },
   "1": {
-    "size": 40,
+    "size": 69.6,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 71,
+    "offsetx2": -12.5,
+    "offsety2": 63,
+    "smallXPos": -13,
+    "smallYPos": 94,
+    "smallXPos2": 19,
+    "smallYPos2": 94
   },
   "2": {
-    "size": 40,
+    "size": 65.6,
     "offsetx": 0,
-    "offsety": 17
+    "offsety": 71,
+    "offsetx2": -14,
+    "offsety2": 45,
+    "smallXPos": -9.5,
+    "smallYPos": 110,
+    "smallXPos2": 82,
+    "smallYPos2": 130
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 75.19999999999999,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 11.499999999999993,
+    "offsety2": 69,
+    "smallXPos": -3.5,
+    "smallYPos": 60,
+    "smallXPos2": -3.5,
+    "smallYPos2": 110.00000000000001
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 64.80000000000001,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 59.5,
+    "offsety2": 69,
+    "smallXPos": 13,
+    "smallYPos": 66,
+    "smallXPos2": 37,
+    "smallYPos2": 140
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 64.80000000000001,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 52.000000000000014,
+    "offsety2": 103.49999999999999,
+    "smallXPos": 68.5,
+    "smallYPos": 66,
+    "smallXPos2": -7.999999999999993,
+    "smallYPos2": 113.99999999999999
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 72,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 46,
+    "offsety2": 75,
+    "smallXPos": 68.5,
+    "smallYPos": 90,
+    "smallXPos2": 11.499999999999993,
+    "smallYPos2": 50
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 72,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 14.5,
+    "offsety2": 81,
+    "smallXPos": -3.5,
+    "smallYPos": 122,
+    "smallXPos2": -3.5,
+    "smallYPos2": 92
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 57.599999999999994,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 20.5,
+    "offsety2": 81,
+    "smallXPos": 35.499999999999986,
+    "smallYPos": 122,
+    "smallXPos2": 35.499999999999986,
+    "smallYPos2": 70
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 65.6,
+    "offsetx": -0.6000000000000014,
+    "offsety": 56.99999999999999,
+    "offsetx2": 41.5,
+    "offsety2": 97.5,
+    "smallXPos": 14.5,
+    "smallYPos": 98,
+    "smallXPos2": 14.5,
+    "smallYPos2": 70
   }
 
 }
