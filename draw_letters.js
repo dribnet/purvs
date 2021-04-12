@@ -18,31 +18,50 @@ const lightBlue  = "#59ccff";
 function drawLetter(letterData) {
 
 
-const posx = 50
-const posy = 0
-let size = letterData["size"];
-let pos2x = posx + letterData["offsetx"];
-let pos2y = posy + letterData["offsety"];
+  // // determine parameters for second circle
+ 
+// let TopAxis = 0
+// let RightAxis = 0
+// let BottomAxis = 200
+// let LeftAxis = 100
 
-  stroke(255);
-  strokeWeight(1);
-  strokeCap(PROJECT);
-  
+//Nodes
 
-for (let i = 0; i < 9; i++) {
-  line(posx,posy,pos2x-50+(i*size),200);
-  line(posx-50,posy,pos2x+(i*size),200);
-  line(posx-50,posy,pos2x-50+(i*size),200);
-  line(posx,200,pos2x-50+(i*size),pos2y);
-}
+let TopAxis = 25+letterData["offsetRightTop"]//change when porting to draw_letters
+let TopMidAxis = letterData["offsetMidTop"]
+let RightAxis = 0
+let BottomSideAxis = 175
+let BottomMidAxis = BottomSideAxis +25
+let LeftAxis = 100
+let leftMidAxisY = 100
+let leftMidAxisX =  100+ letterData["offsetMidRight"]
+
+stroke(255);
+strokeWeight(1);
+
+
+
+ line(RightAxis,TopAxis,RightAxis,BottomSideAxis); //right
+ line(RightAxis,TopAxis,RightAxis,BottomSideAxis);
+
+noFill();
+beginShape();
+vertex(RightAxis, TopAxis);
+vertex(LeftAxis-25,TopMidAxis)
+vertex(LeftAxis, TopAxis);
+vertex(leftMidAxisX,leftMidAxisY)
+vertex(LeftAxis,BottomSideAxis );
+vertex(LeftAxis-25, BottomMidAxis);
+vertex(RightAxis,BottomSideAxis);
+endShape(CLOSE);
 }
 
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offsetRightTop"]    = map(percent, 0, 100, oldObj["offsetRightTop"], newObj["offsetRightTop"]);
+  new_letter["offsetMidTop"] = map(percent, 0, 100, oldObj["offsetMidTop"], newObj["offsetMidTop"]);
+  new_letter["offsetMidRight"] = map(percent, 0, 100, oldObj["offsetMidRight"], newObj["offsetMidRight"]);
   return new_letter;
 }
 

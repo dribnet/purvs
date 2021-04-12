@@ -8,28 +8,19 @@ const alphabet = {
         "TrianglePoint": 0
     },
     "A": {
-        "size": 5,
-        "offsetx": 0,
-        "offsety": 100,
-        "ArcStart": 120,
-        "ArcEnd": 420,
-        "TrianglePoint": 0
+  "offsetRightTop": 80,
+  "offsetMidTop": -20,
+  "offsetMidRight":0
     },
     "B": {
-        "size": 8,
-        "offsetx": 50,
-        "offsety": -50,
-        "ArcStart": 0,
-        "ArcEnd": 270,
-        "TrianglePoint": 40
+  "offsetRightTop": 0,
+  "offsetMidTop": -20,
+ "offsetMidRight":-25
     },
     "C": {
-        "size": 10,
-        "offsetx": -50,
-        "offsety": -50,
-        "ArcStart": 40,
-        "ArcEnd": 320,
-        "TrianglePoint": -50
+  "offsetRightTop": -20,
+  "offsetMidTop": 0,
+ "offsetMidRight":-75
     },
     "D": {
         "size": 10,

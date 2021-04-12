@@ -14,30 +14,30 @@ const canvasHeight = 500;
 
 const letterA = {
   "size": 5,
-  "offsetx": 0,
-  "offsety": 100,
-  "ArcStart":120,
+  "offsetRightTop": 80,
+  "offsetMidTop": -20,
+  "offsetMidRight":0,
   "ArcEnd":420,
   "TrianglePoint":0
 
 }
 
 const letterB = {
-  "size": 8,
-  "offsetx": 50,
-  "offsety": -50,
-  "ArcStart":0,
-  "ArcEnd":270,
-  "TrianglePoint":40
+  "size": 5,
+  "offsetRightTop": 0,
+  "offsetMidTop": -20,
+ "offsetMidRight":-25,
+  "ArcEnd":420,
+  "TrianglePoint":0
 }
 
 const letterC = {
-  "size": 10,
-  "offsetx": -50,
-  "offsety": -50,
-  "ArcStart":40,
-  "ArcEnd":320,
-  "TrianglePoint":-50
+  "size": 5,
+  "offsetRightTop": -20,
+  "offsetMidTop": 0,
+ "offsetMidRight":-75,
+  "ArcEnd":420,
+  "TrianglePoint":0
 }
 
 const backgroundColor  = "#000000";
@@ -77,34 +77,41 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   // // determine parameters for second circle
-  let size = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  // let pos2y = posy + letterData["offsety"];
+ 
+// let TopAxis = 0
+// let RightAxis = 0
+// let BottomAxis = 200
+// let LeftAxis = 100
 
-  // let startAngle = letterData["ArcStart"];
-  // let stopAngle = letterData["ArcEnd"];
-  // let sideTriangle = letterData["TrianglePoint"];
-  // // draw two circles
-  // fill(darkBlue);
-  // triangle(pos2x-25-size2, pos2y+sideTriangle, pos2x, pos2y-50,pos2x+25+size2,pos2y+sideTriangle);
-  // fill(lightBlue);
-  // arc(posx, posy, 200, 200,startAngle,stopAngle
+//Nodes
 
-  stroke(255);
-  strokeWeight(1);
-  strokeCap(PROJECT);
-  
-  line(posx,posy-150,posx-50,posy+150);
-  line(posx-50,posy-150,pos2x,posy+150);
-  line(posx-50,posy-150,posx-50,posy+150);
-  
-for (let i = 0; i < 9; i++) {
-  line(posx,posy-150,pos2x-50+(i*size),posy+150);
-  line(posx-50,posy-150,pos2x+(i*size),posy+150);
-  line(posx-50,posy-150,pos2x-50+(i*size),posy+150);
-}
+let TopAxis = posy-100+letterData["offsetRightTop"]//change when porting to draw_letters
+let TopMidAxis = posy-125 +letterData["offsetMidTop"]
+let RightAxis = posx
+let BottomSideAxis = posy+ 75
+let BottomMidAxis = BottomSideAxis +25
+let LeftAxis = posx+100
+let leftMidAxisY = posy
+let leftMidAxisX = posx +100+ letterData["offsetMidRight"]
+
+stroke(255);
+strokeWeight(1);
 
 
+
+ line(RightAxis,TopAxis,RightAxis,BottomSideAxis); //right
+ line(RightAxis,TopAxis,RightAxis,BottomSideAxis);
+
+noFill();
+beginShape();
+vertex(RightAxis, TopAxis);
+vertex(LeftAxis-25,TopMidAxis)
+vertex(LeftAxis, TopAxis);
+vertex(leftMidAxisX,leftMidAxisY)
+vertex(LeftAxis,BottomSideAxis );
+vertex(LeftAxis-25, BottomMidAxis);
+vertex(RightAxis,BottomSideAxis);
+endShape(CLOSE);
 }
 
 function keyTyped() {
