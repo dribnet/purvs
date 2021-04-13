@@ -207,46 +207,83 @@ const canvasHeight = 500;
 // }
 
 
-//Letter F
+// //Letter F
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": -15,
+
+//   "GreenDot1xpos": 300,
+
+//   "GreenDot1ypos": 210,
+
+//   "greenDot2xpos":260,
+
+//   "GreenDot2ypos":210,
+
+//   "GreenDot3xpos":220,
+
+//   "GreenDot3ypos":210,
+
+//   "RedRotation": 270,
+
+//   "RedxPosition": 185,
+
+//   "RedyPosition": 300,
+
+//   "BlackLinexpos": 200, 
+
+//   "BlackLineypos": -20,
+
+//   "BlueCircleSize": 70,
+
+//   "BlueCirclexPos": 330,
+
+//   "BlueCircleyPos": 85,
+
+// }
+
+
+
+//Letter G
   const letterA = {
   "quadXLoki": 200,
 
   "quadYLoki": 200,
 
-  "quadrotation": -15,
+  "quadrotation": 125,
 
-  "GreenDot1xpos": 300,
+  "GreenDot1xpos": 350,
 
-  "GreenDot1ypos": 210,
+  "GreenDot1ypos": 300,
 
-  "greenDot2xpos":260,
+  "greenDot2xpos":360,
 
-  "GreenDot2ypos":210,
+  "GreenDot2ypos":240,
 
-  "GreenDot3xpos":220,
+  "GreenDot3xpos":310,
 
-  "GreenDot3ypos":210,
+  "GreenDot3ypos":240,
 
-  "RedRotation": 270,
+  "RedRotation": 325,
 
-  "RedxPosition": 185,
+  "RedxPosition": 135,
 
-  "RedyPosition": 300,
+  "RedyPosition": 240,
 
-  "BlackLinexpos": 200, 
+  "BlackLinexpos": 300, 
 
-  "BlackLineypos": -20,
+  "BlackLineypos": 20,
 
-  "BlueCircleSize": 70,
+  "BlueCircleSize": 160,
 
-  "BlueCirclexPos": 330,
+  "BlueCirclexPos": 190,
 
-  "BlueCircleyPos": 85,
+  "BlueCircleyPos": 270,
 
 }
-
-
-
 
   const letterB = {
 
