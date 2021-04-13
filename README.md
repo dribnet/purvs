@@ -2,19 +2,5 @@
 
 I am currently taking Typography, where I've been researching how geometric shapes make up letter forms and today I felt inspired to create my letter forms from geometric shapes in p5.js, I want them be abstract like but still resemble the letter.
 
-For now I want to keep things simple and potentially add detail towards the end when I'm feeling more confident.
-
-Originally I wanted to make use of pop art colours, but I'm thinking of sticking to black and white and maybe experimenting with negative space/contrast.
-
-Most of my parameters do/will include:
-- The size of shape
-- Width of the shape
-- Height of the shape
-- Multiple x positions
-- Multiple y positions
-
-23/03 - Took me a while to understand the different ways of declaring parameters, calling them and calling the functions.
-
-Homework: I am going to further brainstorm my idea and build on it + work on my sketch.
-
-25/03 - After moving all my code from sketch.js to draw_letters.js and letter.js I started brainstorming my idea further and researching potential ideas. I took a while to understand the draw_letters.js and letters.js
+Over mid tri break:
+Since taking a break from uni for a week, I've come back to work on my project with a clear mind and new outlook on the brief. I felt like before the break I had a creative block and was unsure where I was going with everything. Today I have just finished my letters and numbers. Obviously I will be refining and developing them further over time before the project is due. I completed everything with just outlines, now Ill be experimenting with black and white through negative space and contrast. For now I want to keep things simple and potentially add detail towards the end when I'm feeling more confident.

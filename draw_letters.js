@@ -20,24 +20,41 @@ function drawLetter(letterData) {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
+  angleMode(DEGREES);
 
-  // determine parameters for second circle
-  let size2 = letterData["size"];
+  //Parameters
+  let size = letterData["size"];
+  let size1 = letterData["size1"];
   let width = letterData["width"];
   let height = letterData["height"];
-  let pos2x = 50 + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let posx = 50 + letterData["offsetx"];
+  let posy = 150 + letterData["offsety"];
+  let arcStart = letterData["arcStart"];
+  let arcEnd = letterData["arcEnd"];
+  let pos2x = 50 + letterData["offsetx2"];
+  let pos2y = 150 + letterData["offsety2"];
   let pos3x = 40 + letterData["offsetx3"];
   let pos3y = 120 + letterData["offsety3"];
+  let angle = letterData["angle"];
 
-  // draw two circles
+  //Draws an arc
   noFill();
   stroke(0);
   strokeWeight(2.5);
-  ellipse(50, 150, 75, 75); //Main shape
+  arc(posx, posy, size, size, arcStart, arcEnd);
 
-  // ellipse(pos2x, pos2y, size2, size2);
-  rect(pos3x, pos3y, width, height);
+  //Draws an ellipse
+  noFill();
+  stroke(0);
+  strokeWeight(2.5);
+  ellipse(pos2x, pos2y, size1, size1);
+
+  //Draws a rect and rotates it
+  push();
+  translate(pos3x, pos3y);
+  rotate(angle);
+  rect(0, 0, width, height);
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
