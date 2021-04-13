@@ -6,4 +6,7 @@ I am looking at creating a systematic design concept that can help me create the
 
 I have completed a basic sketch, in the process of trying to create an isometric design i stumbled across this abstract version of what i was going for and thought it could have some interesting implications with the interpolation so i decided to bite the bullet and spend some time fleshing it out. It still needs a lot of work. but ultimately i feel there is a lot of potential for it to work out.
 
+I have pushed this concept further and added a pretty cool neon look for fun :)
+
+
 

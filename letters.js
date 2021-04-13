@@ -8,27 +8,33 @@ const alphabet = {
         "TrianglePoint": 0
     },
     "A": {
-  "offsetRightTop": 80,
-  "offsetMidTop": -20,
-  "offsetMidRight":0
+        "offsetRightTop": 80,
+        "offsetMidTop": -20,
+        "offsetMidRight": 0,
+        "offsetMidLeft": 0,
+        "Rotation":-10
+
     },
     "B": {
-  "offsetRightTop": 0,
-  "offsetMidTop": -20,
- "offsetMidRight":-25
+        "offsetRightTop": 0,
+        "offsetMidTop": -20,
+        "offsetMidRight": -25,
+        "offsetMidLeft": 0,
+        "Rotation":-5
     },
     "C": {
-  "offsetRightTop": -20,
-  "offsetMidTop": 0,
- "offsetMidRight":-75
+        "offsetRightTop": 10,
+        "offsetMidTop": 0,
+        "offsetMidRight": -75,
+        "offsetMidLeft": -25,
+        "Rotation":0
     },
     "D": {
-        "size": 10,
-        "offsetx": 33,
-        "offsety": 102,
-        "ArcStart": 250,
-        "ArcEnd": 90,
-        "TrianglePoint": 48
+        "offsetRightTop": 0,
+        "offsetMidTop": -20,
+        "offsetMidRight": 25,
+        "offsetMidLeft": 0,
+        "Rotation":0
     },
     "E": {
         "size": 40,

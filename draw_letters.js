@@ -3,11 +3,6 @@ var systemBackgroundColor = "#000000";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
-const strokeColor      = "#233f11";
-
-const darkBlue  = "#199cff";
-const lightBlue  = "#59ccff";
-
 /*
  * Draw the letter given the letterData
  *
@@ -27,33 +22,77 @@ function drawLetter(letterData) {
 
 //Nodes
 
-let TopAxis = 25+letterData["offsetRightTop"]//change when porting to draw_letters
-let TopMidAxis = letterData["offsetMidTop"]
-let RightAxis = 0
-let BottomSideAxis = 175
+let TopAxis = -75+letterData["offsetRightTop"]//change when porting to draw_letters
+let TopMidAxis = -100 +letterData["offsetMidTop"]
+let LeftAxis = -50
+let BottomSideAxis = 75
 let BottomMidAxis = BottomSideAxis +25
-let LeftAxis = 100
-let leftMidAxisY = 100
-let leftMidAxisX =  100+ letterData["offsetMidRight"]
+let RightAxis = 50
+let RightMidAxisY = 0
+let RightMidAxisX =  50+ letterData["offsetMidRight"]
+let leftMidNodeX = -50 +letterData["offsetMidLeft"]
+let leftMidNodeY = 0
+let ShapeRotation = letterData["Rotation"]
 
-stroke(255);
-strokeWeight(1);
+angleMode(DEGREES);
+
+c = color(215, 66, 245);
+c.setAlpha(10);
+let illumination = 2
+
+for (let i = 0; i < 10; i++){
+	illumination = illumination+i
+MainShape(c,illumination,20);
+}
+
+
+noFill();
+MainShape(255,3,100);
 
 
 
- line(RightAxis,TopAxis,RightAxis,BottomSideAxis); //right
- line(RightAxis,TopAxis,RightAxis,BottomSideAxis);
+function MainShape (StrokeColour,lineWeight){
+
+stroke(StrokeColour);
+strokeWeight(lineWeight);
+
+push();
+
+translate(50,100);
+rotate(ShapeRotation);
 
 noFill();
 beginShape();
-vertex(RightAxis, TopAxis);
-vertex(LeftAxis-25,TopMidAxis)
 vertex(LeftAxis, TopAxis);
-vertex(leftMidAxisX,leftMidAxisY)
-vertex(LeftAxis,BottomSideAxis );
-vertex(LeftAxis-25, BottomMidAxis);
-vertex(RightAxis,BottomSideAxis);
+vertex(RightAxis-25,TopMidAxis)
+vertex(RightAxis, TopAxis);
+vertex(RightMidAxisX,RightMidAxisY)
+vertex(RightAxis,BottomSideAxis );
+vertex(RightAxis-25, BottomMidAxis);
+vertex(LeftAxis,BottomSideAxis);
+vertex(leftMidNodeX,leftMidNodeY);
 endShape(CLOSE);
+
+NodePoints();
+
+pop();
+}
+
+function NodePoints (){
+
+stroke(255);
+strokeWeight(10);
+
+point(LeftAxis, TopAxis);
+point(RightAxis-25,TopMidAxis)
+point(RightAxis, TopAxis);
+point(RightMidAxisX,RightMidAxisY)
+point(RightAxis,BottomSideAxis );
+point(RightAxis-25, BottomMidAxis);
+point(LeftAxis,BottomSideAxis);
+point(leftMidNodeX,leftMidNodeY);
+
+}
 }
 
 
@@ -62,6 +101,9 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsetRightTop"]    = map(percent, 0, 100, oldObj["offsetRightTop"], newObj["offsetRightTop"]);
   new_letter["offsetMidTop"] = map(percent, 0, 100, oldObj["offsetMidTop"], newObj["offsetMidTop"]);
   new_letter["offsetMidRight"] = map(percent, 0, 100, oldObj["offsetMidRight"], newObj["offsetMidRight"]);
+  new_letter["offsetMidLeft"] = map(percent, 0, 100, oldObj["offsetMidLeft"], newObj["offsetMidLeft"]);
+  new_letter["Rotation"] = map(percent, 0, 100, oldObj["Rotation"], newObj["Rotation"]);
+
   return new_letter;
 }
 
