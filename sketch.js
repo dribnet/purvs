@@ -555,41 +555,80 @@ const canvasHeight = 500;
 
 // }
 
-//Letter 0
+// //Letter O
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": -10,
+
+//   "GreenDot1xpos": 370,
+
+//   "GreenDot1ypos": 180,
+
+//   "greenDot2xpos": 335,
+
+//   "GreenDot2ypos": 280,
+
+//   "GreenDot3xpos": 230,
+
+//   "GreenDot3ypos": 310,
+
+//   "RedRotation": -30,
+
+//   "RedxPosition": 130,
+
+//   "RedyPosition": 230,
+
+//   "BlackLinexpos": 305, 
+
+//   "BlackLineypos": 30,
+
+//   "BlueCircleSize": 230,
+
+//   "BlueCirclexPos": 230,
+
+//   "BlueCircleyPos": 175,
+
+// }
+
+
+//Letter P
   const letterA = {
   "quadXLoki": 200,
 
-  "quadYLoki": 200,
+  "quadYLoki": 220,
 
-  "quadrotation": -10,
+  "quadrotation": 170,
 
-  "GreenDot1xpos": 370,
+  "GreenDot1xpos": 200,
 
-  "GreenDot1ypos": 180,
+  "GreenDot1ypos": 240,
 
-  "greenDot2xpos": 335,
+  "greenDot2xpos": 200,
 
   "GreenDot2ypos": 280,
 
-  "GreenDot3xpos": 230,
+  "GreenDot3xpos": 200,
 
-  "GreenDot3ypos": 310,
+  "GreenDot3ypos": 320,
 
-  "RedRotation": -30,
+   "RedRotation": 270,
 
-  "RedxPosition": 130,
+  "RedxPosition": 190,
 
-  "RedyPosition": 230,
+  "RedyPosition": 290,
 
-  "BlackLinexpos": 305, 
+  "BlackLinexpos": 200, 
 
-  "BlackLineypos": 30,
+  "BlackLineypos": -20,
 
-  "BlueCircleSize": 230,
+  "BlueCircleSize": 70,
 
-  "BlueCirclexPos": 230,
+  "BlueCirclexPos": 250,
 
-  "BlueCircleyPos": 175,
+  "BlueCircleyPos": 150,
 
 }
 
@@ -676,23 +715,10 @@ function drawLetter(posx, posy, letterData) {
 
   let RedyPos = letterData["RedyPosition"]
   angleMode(DEGREES)
-  // draw two circles
-//   fill(20, 200, 20);
-//   rect(posx, posy, 150, 250);
-//   fill(200, 20, 20);
-//   rect(pos2x-80, pos2y, size2, size2);
-// }
-
-  //draw two circles
 
 
-//blue ellipse
-  push();
-  stroke(20, 20, 20)
-  fill(20, 20, 200)
-  circle(CirclexPos, CircleyPos, CirlceSize)
-  circle(CirclexPos, CircleyPos, CirlceSize/2)
-  pop()
+
+
 
 
 //Yellow Quad
@@ -704,6 +730,13 @@ noStroke()
   quad(0, 0, -100, 100, -80, 120, -20, 130, 30, 30, 30, 30); // soft edges not working
   pop()
 
+//blue ellipse
+  push();
+  stroke(20, 20, 20)
+  fill(20, 20, 200)
+  circle(CirclexPos, CircleyPos, CirlceSize)
+  circle(CirclexPos, CircleyPos, CirlceSize/2)
+  pop()
 
 
 //red lolliepop
