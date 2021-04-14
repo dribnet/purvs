@@ -12,12 +12,12 @@ const strokeColor = "#000000";
 const black = "#000000";
 
 /*
-* Draw the letter given the letterData
-*
-* Letters should always be drawn with the
-* following bounding box guideline:
-* from (0,0) to (100, 200)
-*/
+ * Draw the letter given the letterData
+ *
+ * Letters should always be drawn with the
+ * following bounding box guideline:
+ * from (0,0) to (100, 200)
+ */
 
 function drawLetter(letterData) {
   // color/stroke setup
@@ -65,11 +65,23 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"] = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["arcStart"] = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
+  new_letter["arcEnd"] = map(percent, 0, 100, oldObj["arcEnd"], newObj["arcEnd"]);
+  new_letter["size1"] = map(percent, 0, 100, oldObj["size1"], newObj["size1"]);
+  new_letter["offsetx2"] = map(percent, 0, 100, oldObj["offsetx2"], newObj["offsetx2"]);
+  new_letter["offsety2"] = map(percent, 0, 100, oldObj["offsety2"], newObj["offsety2"]);
+  new_letter["width"] = map(percent, 0, 100, oldObj["width"], newObj["width"]);
+  new_letter["height"] = map(percent, 0, 100, oldObj["height"], newObj["height"]);
+  new_letter["offsetx3"] = map(percent, 0, 100, oldObj["offsetx3"], newObj["offsetx3"]);
+  new_letter["offsety3"] = map(percent, 0, 100, oldObj["offsety3"], newObj["offsety3"]);
+  new_letter["angle"] = map(percent, 0, 100, oldObj["angle"], newObj["angle"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "POP",
+  "BANG",
+  "POW",
+  "BAZINGA",
+  "BY ROBYN"
 ]

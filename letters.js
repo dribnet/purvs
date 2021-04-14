@@ -187,7 +187,7 @@ const alphabet = {
   "J": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": -11,
+    "offsetx": -10,
     "offsety": 45,
     "arcStart": 0,
     "arcEnd": 180,
@@ -327,7 +327,7 @@ const alphabet = {
   "Q": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": 36,
+    "offsetx": 35,
     "offsety": 70,
     "arcStart": 0,
     "arcEnd": 180,
