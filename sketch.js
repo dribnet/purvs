@@ -517,43 +517,83 @@ const canvasHeight = 500;
 
 // }
 
-//Letter N
+// //Letter N
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 350,
+
+//   "GreenDot1xpos": 365,
+
+//   "GreenDot1ypos": 105,
+
+//   "greenDot2xpos": 365,
+
+//   "GreenDot2ypos": 158,
+
+//   "GreenDot3xpos": 365,
+
+//   "GreenDot3ypos": 211,
+
+//   "RedRotation": 40,
+
+//   "RedxPosition": 150,
+
+//   "RedyPosition": 150,
+
+//   "BlackLinexpos": 295, 
+
+//   "BlackLineypos": 182,
+
+//   "BlueCircleSize": 90,
+
+//   "BlueCirclexPos": 170,
+
+//   "BlueCircleyPos": 140,
+
+// }
+
+//Letter 0
   const letterA = {
   "quadXLoki": 200,
 
   "quadYLoki": 200,
 
-  "quadrotation": 350,
+  "quadrotation": -10,
 
-  "GreenDot1xpos": 365,
+  "GreenDot1xpos": 370,
 
-  "GreenDot1ypos": 105,
+  "GreenDot1ypos": 180,
 
-  "greenDot2xpos": 365,
+  "greenDot2xpos": 335,
 
-  "GreenDot2ypos": 158,
+  "GreenDot2ypos": 280,
 
-  "GreenDot3xpos": 365,
+  "GreenDot3xpos": 230,
 
-  "GreenDot3ypos": 211,
+  "GreenDot3ypos": 310,
 
-  "RedRotation": 40,
+  "RedRotation": -30,
 
-  "RedxPosition": 150,
+  "RedxPosition": 130,
 
-  "RedyPosition": 150,
+  "RedyPosition": 230,
 
-  "BlackLinexpos": 295, 
+  "BlackLinexpos": 305, 
 
-  "BlackLineypos": 182,
+  "BlackLineypos": 30,
 
-  "BlueCircleSize": 90,
+  "BlueCircleSize": 230,
 
-  "BlueCirclexPos": 170,
+  "BlueCirclexPos": 230,
 
-  "BlueCircleyPos": 140,
+  "BlueCircleyPos": 175,
 
 }
+
+
 
 
 
@@ -645,13 +685,20 @@ function drawLetter(posx, posy, letterData) {
 
   //draw two circles
 
+
+//blue ellipse
+  push();
+  stroke(20, 20, 20)
+  fill(20, 20, 200)
+  circle(CirclexPos, CircleyPos, CirlceSize)
+  circle(CirclexPos, CircleyPos, CirlceSize/2)
+  pop()
+
+
 //Yellow Quad
+  push();
 noStroke()
   fill(250, 250, 20)
-  //let quadx = 200
-  //let quady = 200;
-  push();
-
   translate(quadx,quady);
   rotate(RotationAngle)
   quad(0, 0, -100, 100, -80, 120, -20, 130, 30, 30, 30, 30); // soft edges not working
@@ -688,13 +735,6 @@ noStroke()
   circle(GreenDot3x, GreenDot3y, 20);
   pop()
 
-//blue ellipse
-  push();
-  stroke(20, 20, 20)
-  fill(20, 20, 200)
-  circle(CirclexPos, CircleyPos, CirlceSize)
-  circle(CirclexPos, CircleyPos, CirlceSize/2)
-  pop()
 
 
 }
