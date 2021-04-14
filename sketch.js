@@ -479,7 +479,45 @@ const canvasHeight = 500;
 // }
 
 
-//Letter M
+// //Letter M
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 350,
+
+//   "GreenDot1xpos": 210,
+
+//   "GreenDot1ypos": 105,
+
+//   "greenDot2xpos": 235,
+
+//   "GreenDot2ypos": 165,
+
+//   "GreenDot3xpos": 260,
+
+//   "GreenDot3ypos": 225,
+
+//   "RedRotation": -15,
+
+//   "RedxPosition": 125,
+
+//   "RedyPosition": 215,
+
+//   "BlackLinexpos": 320, 
+
+//   "BlackLineypos": 60,
+
+//   "BlueCircleSize": 110,
+
+//   "BlueCirclexPos": 365,
+
+//   "BlueCircleyPos": 275,
+
+// }
+
+//Letter N
   const letterA = {
   "quadXLoki": 200,
 
@@ -487,35 +525,36 @@ const canvasHeight = 500;
 
   "quadrotation": 350,
 
-  "GreenDot1xpos": 210,
+  "GreenDot1xpos": 365,
 
-  "GreenDot1ypos": 140,
+  "GreenDot1ypos": 105,
 
-  "greenDot2xpos": 235,
+  "greenDot2xpos": 365,
 
-  "GreenDot2ypos": 195,
+  "GreenDot2ypos": 158,
 
-  "GreenDot3xpos": 260,
+  "GreenDot3xpos": 365,
 
-  "GreenDot3ypos": 250,
+  "GreenDot3ypos": 211,
 
-  "RedRotation": 0,
+  "RedRotation": 40,
 
-  "RedxPosition": 125,
+  "RedxPosition": 150,
 
-  "RedyPosition": 200,
+  "RedyPosition": 150,
 
-  "BlackLinexpos": 325, 
+  "BlackLinexpos": 295, 
 
-  "BlackLineypos": 100,
+  "BlackLineypos": 182,
 
   "BlueCircleSize": 90,
 
-  "BlueCirclexPos": 360,
+  "BlueCirclexPos": 170,
 
-  "BlueCircleyPos": 295,
+  "BlueCircleyPos": 140,
 
 }
+
 
 
   const letterB = {
@@ -618,14 +657,7 @@ noStroke()
   quad(0, 0, -100, 100, -80, 120, -20, 130, 30, 30, 30, 30); // soft edges not working
   pop()
 
-//3 green dots
-  push();
-  stroke(20, 200, 20)
-  fill(20, 20, 20);
-  circle(GreenDot1x, GreenDot1y, 20);
-  circle(GreenDot2x, GreenDot2y, 20);
-  circle(GreenDot3x, GreenDot3y, 20);
-  pop()
+
 
 //red lolliepop
   push();
@@ -645,6 +677,15 @@ noStroke()
   quad(BlackLinex+60, BlackLiney+110, BlackLinex+88, BlackLiney+109, BlackLinex+90, BlackLiney+115, BlackLinex+62, BlackLiney+114)
   quad(BlackLinex+33, BlackLiney+66, BlackLinex+36, BlackLiney+69, BlackLinex+50, BlackLiney+41, BlackLinex+47, BlackLiney+39)
   quad(BlackLinex+53, BlackLiney+86, BlackLinex+56, BlackLiney+89, BlackLinex+80, BlackLiney+71, BlackLinex+77, BlackLiney+64)
+  pop()
+
+  //3 green dots
+  push();
+  stroke(20, 200, 20)
+  fill(20, 20, 20);
+  circle(GreenDot1x, GreenDot1y, 20);
+  circle(GreenDot2x, GreenDot2y, 20);
+  circle(GreenDot3x, GreenDot3y, 20);
   pop()
 
 //blue ellipse
