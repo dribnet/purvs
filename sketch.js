@@ -400,83 +400,83 @@ const canvasHeight = 500;
 // }
 
 
-//Letter K
-  const letterA = {
-  "quadXLoki": 200,
-
-  "quadYLoki": 200,
-
-  "quadrotation": 170,
-
-  "GreenDot1xpos": 300,
-
-  "GreenDot1ypos": 80,
-
-  "greenDot2xpos": 265,
-
-  "GreenDot2ypos": 135,
-
-  "GreenDot3xpos": 230,
-
-  "GreenDot3ypos": 190,
-
- "RedRotation": 90,
-
-  "RedxPosition": 215,
-
-  "RedyPosition": 130,
-
-  "BlackLinexpos": 192, 
-
-  "BlackLineypos": 230,
-
-  "BlueCircleSize": 30,
-
-  "BlueCirclexPos": 310,
-
-  "BlueCircleyPos": 350,
-
-}
-
-
-
-// //Letter L
+// //Letter K
 //   const letterA = {
 //   "quadXLoki": 200,
 
 //   "quadYLoki": 200,
 
-//   "quadrotation": 137,
+//   "quadrotation": 170,
 
-//   "GreenDot1xpos": 172,
+//   "GreenDot1xpos": 300,
 
-//   "GreenDot1ypos": 195,
+//   "GreenDot1ypos": 80,
 
-//   "greenDot2xpos": 172,
+//   "greenDot2xpos": 265,
 
-//   "GreenDot2ypos": 240,
+//   "GreenDot2ypos": 135,
 
-//   "GreenDot3xpos": 172,
+//   "GreenDot3xpos": 230,
 
-//   "GreenDot3ypos": 285,
+//   "GreenDot3ypos": 190,
 
-//   "RedRotation": 90,
+//  "RedRotation": 90,
 
-//   "RedxPosition": 210,
+//   "RedxPosition": 215,
 
-//   "RedyPosition": 127,
+//   "RedyPosition": 130,
 
 //   "BlackLinexpos": 192, 
 
-//   "BlackLineypos": 225,
+//   "BlackLineypos": 230,
 
-//   "BlueCircleSize": 60,
+//   "BlueCircleSize": 30,
 
-//   "BlueCirclexPos": 325,
+//   "BlueCirclexPos": 310,
 
-//   "BlueCircleyPos": 340,
+//   "BlueCircleyPos": 350,
 
 // }
+
+
+
+//Letter L
+  const letterA = {
+  "quadXLoki": 200,
+
+  "quadYLoki": 200,
+
+  "quadrotation": 137,
+
+  "GreenDot1xpos": 172,
+
+  "GreenDot1ypos": 195,
+
+  "greenDot2xpos": 172,
+
+  "GreenDot2ypos": 240,
+
+  "GreenDot3xpos": 172,
+
+  "GreenDot3ypos": 285,
+
+  "RedRotation": 90,
+
+  "RedxPosition": 210,
+
+  "RedyPosition": 127,
+
+  "BlackLinexpos": 192, 
+
+  "BlackLineypos": 225,
+
+  "BlueCircleSize": 60,
+
+  "BlueCirclexPos": 325,
+
+  "BlueCircleyPos": 340,
+
+}
 
 
 
