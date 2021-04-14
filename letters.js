@@ -387,7 +387,7 @@ const alphabet = {
   "T": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": 11,
+    "offsetx": 10,
     "offsety": 40,
     "arcStart": 0,
     "arcEnd": 180,
