@@ -15,19 +15,25 @@ const canvasHeight = 500;
 const letterA = {
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": 35, 
+  "start": 0,
+  "end": 360
 }
 
 const letterB = {
   "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+  "offsetx": -75,
+  "offsety": -75, 
+  "start": 270,
+  "end": 90
 }
 
 const letterC = {
   "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "offsetx": 25,
+  "offsety": 0, 
+  "start": 0,
+  "end": 360
 }
 
 const backgroundColor  = "#e3eded";
@@ -47,6 +53,7 @@ function setup () {
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
+  angleMode(DEGREES);
 }
 
 function draw () {
@@ -69,11 +76,14 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
+  let startAngle = letterData["start"];
+  let stopAngle = letterData["end"];
+
   // draw two circles
   fill(darkBlue);
   ellipse(posx, posy, 150, 150);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
 }
 
 function keyTyped() {

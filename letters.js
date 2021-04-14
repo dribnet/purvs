@@ -5,64 +5,88 @@ const alphabet = {
     "offsety": 0
   },
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 60,
+  "offsetx": 50,
+  "offsety": 170, 
+  "start": 0,
+  "end": 360
   },
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "size": 125,
+  "offsetx": 0,
+  "offsety": 90, 
+  "start": 270,
+  "end": 90
   },
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 70,
+  "offsetx": 65,
+  "offsety": 150, 
+  "start": 0,
+  "end": 360
   },
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 125,
+  "offsetx": 100,
+  "offsety": 90, 
+  "start": 90,
+  "end": 270
   },
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 64,
+  "offsetx": 64,
+  "offsety": 140, 
+  "start": 180,
+  "end": 360
   },
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 78,
+  "offsetx": 44,
+  "offsety": 70, 
+  "start": 115,
+  "end": 360
   },
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 72,
+  "offsetx": 68,
+  "offsety": 148, 
+  "start": 46,
+  "end": 306
   },
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 42,
+  "offsety": 76, 
+  "start": 125,
+  "end": 238
   },
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 86,
+  "offsety": 88, 
+  "start": 125,
+  "end": 234
   },
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 34,
+  "offsety": 166, 
+  "start": 32,
+  "end": 148
   },
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 98,
+  "offsety": 150, 
+  "start": 86,
+  "end": 274
   },
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 79,
+  "offsetx": 70,
+  "offsety": 160, 
+  "start": 47,
+  "end": 133
   },
   "M": {
     "size": 50,
