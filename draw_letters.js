@@ -9,7 +9,6 @@ const bubblegumPink = "#DC5889";
 const yellowBello = "#FADF4B";
 
 const strokeColor = "#000000";
-const black = "#000000";
 
 /*
  * Draw the letter given the letterData
