@@ -6,16 +6,16 @@ const alphabet = {
   },
   "A": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 0,
+    "size": 55,
+    "offsetx": -20,
+    "offsety": -5,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the circle
-    "size1": 25,
-    "offsetx2": -10,
-    "offsety2": -5,
+    "size1": 75,
+    "offsetx2": 0,
+    "offsety2": 0,
 
     //Shape3 the rectangle
     "width": 20,
@@ -34,8 +34,8 @@ const alphabet = {
 
     //Shape2 the second circle
     "size1": 25,
-    "offsetx2": 10,
-    "offsety2": 0,
+    "offsetx2": 30,
+    "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 20,
@@ -49,19 +49,19 @@ const alphabet = {
     "size": 75,
     "offsetx": 0,
     "offsety": 0,
-    "arcStart": 0,
-    "arcEnd": 360,
+    "arcStart": 90,
+    "arcEnd": 270,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 5,
+    "size1": 35,
+    "offsetx2": 0,
     "offsety2": 0,
 
     //Shape3 the rectangle
-    "width": 30,
-    "height": 20,
-    "offsetx3": 15,
-    "offsety3": 20,
+    "width": 15,
+    "height": 15,
+    "offsetx3": -10,
+    "offsety3": 35,
     "angle": 0
   },
   "D": {
@@ -73,9 +73,9 @@ const alphabet = {
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": -5,
-    "offsety2": 5,
+    "size1": 55,
+    "offsetx2": -20,
+    "offsety2": 10,
 
     //Shape3 the rectangle
     "width": 20,
@@ -86,11 +86,11 @@ const alphabet = {
   },
   "E": {
     //Shape1 the arc
-    "size": 20,
-    "offsetx": 10,
-    "offsety": -10,
-    "arcStart": 180,
-    "arcEnd": 0,
+    "size": 25,
+    "offsetx": 0,
+    "offsety": 0,
+    "arcStart": 0,
+    "arcEnd": 360,
 
     //Shape2 the second circle
     "size1": 75,
@@ -98,10 +98,10 @@ const alphabet = {
     "offsety2": -0,
 
     //Shape3 the rectangle
-    "width": 40,
-    "height": 10,
-    "offsetx3": 5,
-    "offsety3": 35,
+    "width": 57,
+    "height": 18,
+    "offsetx3": -2,
+    "offsety3": 30,
     "angle": 0
   },
   "F": {
@@ -109,8 +109,8 @@ const alphabet = {
     "size": 75,
     "offsetx": -2,
     "offsety": -10,
-    "arcStart": 190,
-    "arcEnd": 350,
+    "arcStart": 180,
+    "arcEnd": 0,
 
     //Shape2 the second circle
     "size1": 25,
@@ -127,7 +127,7 @@ const alphabet = {
   "G": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": 18,
+    "offsetx": 17,
     "offsety": 70,
     "arcStart": 0,
     "arcEnd": 180,
@@ -147,7 +147,7 @@ const alphabet = {
   "H": {
     //Shape1 the arc
     "size": 75,
-    "offsetx": 0,
+    "offsetx": 5,
     "offsety": 0,
     "arcStart": 180,
     "arcEnd": 0,
@@ -160,7 +160,7 @@ const alphabet = {
     //Shape3 the rectangle
     "width": 22,
     "height": 87,
-    "offsetx3": -26,
+    "offsetx3": -25,
     "offsety3": -20,
     "angle": 0
   },
@@ -187,8 +187,8 @@ const alphabet = {
   "J": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": -10,
-    "offsety": 48,
+    "offsetx": -11,
+    "offsety": 45,
     "arcStart": 0,
     "arcEnd": 180,
 
@@ -207,10 +207,10 @@ const alphabet = {
   "K": {
     //Shape1 the arc
     "size": 35,
-    "offsetx": -5,
+    "offsetx": 0,
     "offsety": -10,
     "arcStart": 330,
-    "arcEnd": 120,
+    "arcEnd": 145,
 
     //Shape2 the second circle
     "size1": 25,
@@ -247,7 +247,7 @@ const alphabet = {
   "M": {
     //Shape1 the arc
     "size": 65,
-    "offsetx": 35,
+    "offsetx": 33,
     "offsety": 5,
     "arcStart": 270,
     "arcEnd": 90,
@@ -286,22 +286,22 @@ const alphabet = {
   },
   "O": {
     //Shape1 the arc
-    "size": 65,
+    "size": 75,
     "offsetx": 0,
     "offsety": 5,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 28,
-    "offsetx2": 0,
-    "offsety2": 0,
+    "size1": 45,
+    "offsetx2": 25,
+    "offsety2": 20,
 
     //Shape3 the rectangle
-    "width": 13,
-    "height": 30,
-    "offsetx3": -3,
-    "offsety3": 20,
+    "width": 20,
+    "height": 20,
+    "offsetx3": 5,
+    "offsety3": 25,
     "angle": 0
   },
   "P": {
@@ -314,8 +314,8 @@ const alphabet = {
 
     //Shape2 the second circle
     "size1": 25,
-    "offsetx2": 7,
-    "offsety2": -2,
+    "offsetx2": 30,
+    "offsety2": -20,
 
     //Shape3 the rectangle
     "width": 22,
@@ -327,7 +327,7 @@ const alphabet = {
   "Q": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": 35,
+    "offsetx": 36,
     "offsety": 70,
     "arcStart": 0,
     "arcEnd": 180,
@@ -366,29 +366,29 @@ const alphabet = {
   },
   "S": {
     //Shape1 the arc
-    "size": 30,
-    "offsetx": 0,
-    "offsety": -20,
+    "size": 25,
+    "offsetx": 25,
+    "offsety": -25,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 30,
-    "offsetx2": -25,
-    "offsety2": 25,
+    "size1": 45,
+    "offsetx2": -10,
+    "offsety2": 20,
 
     //Shape3 the rectangle
-    "width": 55,
-    "height": 75,
-    "offsetx3": -30,
+    "width": 80,
+    "height": 20,
+    "offsetx3": -5,
     "offsety3": -5,
-    "angle": 0
+    "angle": 50
   },
   "T": {
     //Shape1 the arc
     "size": 40,
-    "offsetx": 10,
-    "offsety": 35,
+    "offsetx": 11,
+    "offsety": 40,
     "arcStart": 0,
     "arcEnd": 180,
 
@@ -405,21 +405,22 @@ const alphabet = {
     "angle": 0
   },
   "U": {
+    //Shape1 the arc
     "size": 75,
     "offsetx": 0,
-    "offsety": 5,
+    "offsety": -30,
     "arcStart": 0,
-    "arcEnd": 360,
+    "arcEnd": 180,
 
     //Shape2 the second circle
-    "size1": 28,
+    "size1": 75,
     "offsetx2": 0,
-    "offsety2": 10,
+    "offsety2": 5,
 
     //Shape3 the rectangle
     "width": 20,
-    "height": 50,
-    "offsetx3": 0,
+    "height": 75,
+    "offsetx3": 35,
     "offsety3": 0,
     "angle": 0
   },
@@ -427,13 +428,13 @@ const alphabet = {
     "size": 60,
     "offsetx": 10,
     "offsety": 8,
-    "arcStart": 350,
-    "arcEnd": 90,
+    "arcStart": 330,
+    "arcEnd": 145,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 28,
-    "offsety2": -20,
+    "size1": 20,
+    "offsetx2": 30,
+    "offsety2": -15,
 
     //Shape3 the rectangle
     "width": 20,
@@ -445,19 +446,19 @@ const alphabet = {
   "W": {
     //Shape1 the arc
     "size": 65,
-    "offsetx": 5,
-    "offsety": 5,
-    "arcStart": 80,
-    "arcEnd": 240,
+    "offsetx": 10,
+    "offsety": 10,
+    "arcStart": 70,
+    "arcEnd": 250,
 
     //Shape2 the second circle
     "size1": 65,
-    "offsetx2": 35,
-    "offsety2": 5,
+    "offsetx2": 33,
+    "offsety2": 10,
 
     //Shape3 the rectangle
     "width": 20,
-    "height": 65,
+    "height": 58,
     "offsetx3": 5,
     "offsety3": 65,
     "angle": 160
@@ -466,178 +467,178 @@ const alphabet = {
     //Shape1 the arc
     "size": 50,
     "offsetx": 0,
-    "offsety": -20,
+    "offsety": -30,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
     "size1": 50,
     "offsetx2": 0,
-    "offsety2": 30,
+    "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 54,
     "height": 30,
     "offsetx3": -17,
-    "offsety3": 55,
+    "offsety3": 45,
     "angle": 0
   },
   "Y": {
     //Shape1 the arc
-    "size": 55,
+    "size": 60,
     "offsetx": 5,
-    "offsety": -25,
+    "offsety": -30,
     "arcStart": 0,
     "arcEnd": 180,
 
     //Shape2 the second circle
     "size1": 20,
     "offsetx2": 5,
-    "offsety2": -25,
+    "offsety2": -30,
 
     //Shape3 the rectangle
-    "width": 80,
-    "height": 20,
-    "offsetx3": 45,
-    "offsety3": 5,
+    "width": 65,
+    "height": 18,
+    "offsetx3": 43,
+    "offsety3": 15,
     "angle": 110
   },
   "Z": {
     //Shape1 the arc
     "size": 25,
     "offsetx": -30,
-    "offsety": -24,
+    "offsety": -29,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
-    "offsetx2": 20,
-    "offsety2": 35,
+    "size1": 45,
+    "offsetx2": 5,
+    "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 80,
     "height": 20,
     "offsetx3": 35,
-    "offsety3": 10,
+    "offsety3": 5,
     "angle": 125
   },
   "0": {
     //Shape1 the arc
-    "size": 75,
-    "offsetx": 0,
-    "offsety": 0,
+    "size": 45,
+    "offsetx": 25,
+    "offsety": 20,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 25,
+    "size1": 75,
     "offsetx2": 0,
-    "offsety2": -10,
+    "offsety2": 5,
 
     //Shape3 the rectangle
-    "width": 25,
-    "height": 30,
-    "offsetx3": -2,
-    "offsety3": 20,
+    "width": 20,
+    "height": 20,
+    "offsetx3": 5,
+    "offsety3": 25,
     "angle": 0
   },
   "1": {
     //Shape1 the arc
     "size": 55,
     "offsetx": 0,
-    "offsety": 50,
-    "arcStart": 200,
-    "arcEnd": 340,
+    "offsety": 45,
+    "arcStart": 180,
+    "arcEnd": 360,
 
     //Shape2 the second circle
     "size1": 25,
     "offsetx2": -10,
-    "offsety2": -22,
+    "offsety2": -27,
 
     //Shape3 the rectangle
     "width": 18,
     "height": 75,
     "offsetx3": 0,
-    "offsety3":  -5,
+    "offsety3": -10,
     "angle": 0
   },
   "2": {
     //Shape1 the arc
     "size": 55,
-    "offsetx": 5,
+    "offsetx": 7,
     "offsety": -20,
-    "arcStart": 190,
-    "arcEnd": 350,
+    "arcStart": 180,
+    "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 20,
-    "offsetx2": 30,
-    "offsety2": 35,
+    "size1": 25,
+    "offsetx2": 23,
+    "offsety2": 33,
 
     //Shape3 the rectangle
     "width": 80,
     "height": 20,
     "offsetx3": 45,
-    "offsety3": 0,
-    "angle": 110
+    "offsety3": 5,
+    "angle": 120
   },
   "3": {
     //Shape1 the arc
     "size": 50,
     "offsetx": 0,
-    "offsety": -15,
+    "offsety": -20,
     "arcStart": 180,
     "arcEnd": 0,
 
     //Shape2 the second circle
-    "size1": 50,
+    "size1": 55,
     "offsetx2": 0,
-    "offsety2": 15,
+    "offsety2": 18,
 
     //Shape3 the rectangle
-    "width": 50,
-    "height": 30,
-    "offsetx3": -15,
-    "offsety3": 20,
-    "angle": 0
+    "width": 13,
+    "height": 50,
+    "offsetx3": 28,
+    "offsety3": 0,
+    "angle": 55
   },
   "4": {
     //Shape1 the arc
-    "size": 70,
+    "size": 60,
     "offsetx": 5,
     "offsety": -10,
-    "arcStart": 110,
-    "arcEnd": 250,
+    "arcStart": 90,
+    "arcEnd": 270,
 
     //Shape2 the second circle
-    "size1": 15,
+    "size1": 21,
     "offsetx2": -10,
     "offsety2": 35,
 
     //Shape3 the rectangle
-    "width": 65,
+    "width": 60,
     "height": 15,
-    "offsetx3": 0,
-    "offsety3": -10,
-    "angle": 110
+    "offsetx3": 5,
+    "offsety3": -6,
+    "angle": 112
   },
   "5": {
     //Shape1 the arc
     "size": 60,
     "offsetx": -5,
-    "offsety": 18,
+    "offsety": 15,
     "arcStart": 270,
     "arcEnd": 90,
 
     //Shape2 the second circle
     "size1": 25,
     "offsetx2": -30,
-    "offsety2": 35,
+    "offsety2": 32,
 
     //Shape3 the rectangle
     "width": 65,
-    "height": 20,
+    "height": 17,
     "offsetx3": -30,
     "offsety3": -10,
     "angle": 0
@@ -646,37 +647,37 @@ const alphabet = {
     //Shape1 the arc
     "size": 55,
     "offsetx": -20,
-    "offsety": 10,
+    "offsety": 15,
     "arcStart": 0,
     "arcEnd": 360,
 
     //Shape2 the second circle
-    "size1": 20,
+    "size1": 25,
     "offsetx2": 5,
     "offsety2": 20,
 
     //Shape3 the rectangle
     "width": 80,
-    "height": 20,
+    "height": 17,
     "offsetx3": 0,
     "offsety3": -10,
     "angle": 110
   },
   "7": {
     //Shape1 the arc
-    "size": 60,
+    "size": 55,
     "offsetx": 7,
-    "offsety": -12,
-    "arcStart": 200,
-    "arcEnd": 340,
+    "offsety": -20,
+    "arcStart": 180,
+    "arcEnd": 360,
 
     //Shape2 the second circle
     "size1": 20,
-    "offsetx2": 0,
+    "offsetx2": -2,
     "offsety2": 10,
 
     //Shape3 the rectangle
-    "width": 80,
+    "width": 75,
     "height": 20,
     "offsetx3": 45,
     "offsety3": 5,

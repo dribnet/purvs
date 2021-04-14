@@ -1,13 +1,13 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
+var systemBackgroundColor = "#FFFFFF";
+var systemLineColor = "#000000";
+var systemBoxColor = "#5479A3";
 
 
 /* internal constants */
-const darkBlue = "#199cff";
-const lightBlue = "#59ccff";
-const strokeColor = "#233f11";
+
+const strokeColor = "#000000";
+const white = "#FFFFFF";
 
 /*
  * Draw the letter given the letterData
@@ -18,9 +18,10 @@ const strokeColor = "#233f11";
  */
 function drawLetter(letterData) {
   // color/stroke setup
-  stroke(strokeColor);
+  // stroke(strokeColor);
   strokeWeight(4);
   angleMode(DEGREES);
+  blendMode(DIFFERENCE);
 
   //Parameters
   let size = letterData["size"];
@@ -39,17 +40,17 @@ function drawLetter(letterData) {
 
   //Draws an arc
   noFill();
-  stroke(0);
+  stroke(white);
   strokeWeight(2.5);
   arc(posx, posy, size, size, arcStart, arcEnd);
 
   //Draws an ellipse
-  noFill();
-  stroke(0);
-  strokeWeight(2.5);
+  noStroke();
+  fill(white);
   ellipse(pos2x, pos2y, size1, size1);
 
   //Draws a rect and rotates it
+  fill(white);
   push();
   translate(pos3x, pos3y);
   rotate(angle);
