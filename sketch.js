@@ -322,43 +322,163 @@ const canvasHeight = 500;
 
 // }
 
-//Letter I
+// //Letter I
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 170,
+
+//   "GreenDot1xpos": 220,
+
+//   "GreenDot1ypos": 80,
+
+//   "greenDot2xpos": 180,
+
+//   "GreenDot2ypos": 80,
+
+//   "GreenDot3xpos": 140,
+
+//   "GreenDot3ypos": 80,
+
+//   "RedRotation": 90,
+
+//   "RedxPosition": 215,
+
+//   "RedyPosition": 130,
+
+//   "BlackLinexpos": 188, 
+
+//   "BlackLineypos": 230,
+
+//   "BlueCircleSize": 40,
+
+//   "BlueCirclexPos": 130,
+
+//   "BlueCircleyPos": 340,
+
+// }
+
+
+//Letter J
   const letterA = {
   "quadXLoki": 200,
 
   "quadYLoki": 200,
 
-  "quadrotation": 170,
+  "quadrotation": 350,
 
-  "GreenDot1xpos": 220,
+  "GreenDot1xpos": 250,
 
   "GreenDot1ypos": 80,
 
-  "greenDot2xpos": 180,
+  "greenDot2xpos": 190,
 
   "GreenDot2ypos": 80,
 
-  "GreenDot3xpos": 140,
+  "GreenDot3xpos": 130,
 
   "GreenDot3ypos": 80,
 
-  "RedRotation": 90,
+  "RedRotation": 137,
 
-  "RedxPosition": 215,
+  "RedxPosition": 257,
 
-  "RedyPosition": 130,
+  "RedyPosition": 157,
 
-  "BlackLinexpos": 188, 
+  "BlackLinexpos": 85, 
 
-  "BlackLineypos": 230,
+  "BlackLineypos": 185,
 
-  "BlueCircleSize": 40,
+  "BlueCircleSize": 30,
 
-  "BlueCirclexPos": 130,
+  "BlueCirclexPos": 190,
 
-  "BlueCircleyPos": 340,
+  "BlueCircleyPos": 160,
 
 }
+
+
+// //Letter K
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 170,
+
+//   "GreenDot1xpos": 300,
+
+//   "GreenDot1ypos": 80,
+
+//   "greenDot2xpos": 265,
+
+//   "GreenDot2ypos": 135,
+
+//   "GreenDot3xpos": 230,
+
+//   "GreenDot3ypos": 190,
+
+//  "RedRotation": 90,
+
+//   "RedxPosition": 215,
+
+//   "RedyPosition": 130,
+
+//   "BlackLinexpos": 192, 
+
+//   "BlackLineypos": 230,
+
+//   "BlueCircleSize": 30,
+
+//   "BlueCirclexPos": 310,
+
+//   "BlueCircleyPos": 350,
+
+// }
+
+
+
+// //Letter L
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 137,
+
+//   "GreenDot1xpos": 172,
+
+//   "GreenDot1ypos": 195,
+
+//   "greenDot2xpos": 172,
+
+//   "GreenDot2ypos": 240,
+
+//   "GreenDot3xpos": 172,
+
+//   "GreenDot3ypos": 285,
+
+//   "RedRotation": 90,
+
+//   "RedxPosition": 210,
+
+//   "RedyPosition": 127,
+
+//   "BlackLinexpos": 192, 
+
+//   "BlackLineypos": 225,
+
+//   "BlueCircleSize": 60,
+
+//   "BlueCirclexPos": 325,
+
+//   "BlueCircleyPos": 340,
+
+// }
+
+
 
   const letterB = {
 
