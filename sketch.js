@@ -11,41 +11,39 @@ const canvasHeight = 500;
             relative to the first one
  *
  */
- const letterA = {
-  
-  "offsetx": 50,
-  "offsety": 90,
-  "Rwidth": 30,
-  "Rheight": 50,
-  "size": 30,
-  "CircleX": 65,
-  "CircleY": 140,
+ const letterA = { 
+  "arcX": 100,
+  "arcY": 80,
+  "arcS": 90,
+  "arcStart": 0,
+  "arcEnd": 360,
+  "triX": 100,
+  "triY": 120,
+  "triR": 270,
+  "triH": 35,
+  "triW": 20,
+   "lineX": 70,
+  "lineY": 120,
 }
 
-const letterB = {
-"offsetx": 200,
-  "offsety": 90,
-  "Rwidth": 30,
-  "Rheight": 50,
-  "size": 30,
-  "CircleX": 240,
-  "CircleY": 140,
-
+ const letterB = { 
+  "arcX": 400,
+  "arcY": 200,
+  "arcS": 90,
+  "arcStart": 0,
+  "arcEnd": 360,
+  "triX": 400,
+  "triY": 220,
+  "triR": 60,
+  "triH": 20,
+  "triW": 20,
+  "lineX": 200,
+  "lineY": 200,
 }
 
-const letterC = {
-"offsetx": 350,
-  "offsety": 90,
-  "Rwidth": 30,
-  "Rheight": 50,
-  "size": 50,
-  "CircleX": 345,
-  "CircleY": 140,
 
-}
-
-const backgroundColor  = "#dfd5e3";
-const strokeColor      = "#233f11";
+const backgroundColor  = "#000000";
+const strokeColor      = "#ffffff";
 
 function setup () {
   
@@ -62,6 +60,7 @@ function setup () {
 }
 
 function draw () {
+  noFill(); 
   // clear screen
   background(backgroundColor);
 angleMode(DEGREES);
@@ -71,63 +70,62 @@ angleMode(DEGREES);
 
   // draw the letters A, B, C from saved data
   drawLetter(0, 0, letterA);
-  drawLetter(0, 0, letterB);
-  drawLetter(0, 0, letterC);
+   drawLetter(0, 0, letterB);
+
 }
 
 function drawLetter(posx, posy, letterData) {
-   noStroke();
   // // determine parameters for second circle
-  let RecX = letterData["Rwidth"];
-  let Recy = letterData["Rheight"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-  let CircleX =letterData["CircleX"];
-  let CircleY = letterData["CircleY"];
-  let CircleS = letterData["size"];
-     fill("#ba7599");
-  // ellipse(posx, posy, 150, 150);
-   
-  // arc(pos2x, pos2y, size2, size2, angleS, angleE);
+  let arcX = letterData["arcX"];
+  let arcY = letterData["arcY"];
+  let arcS = posx + letterData["arcS"];
+  let arcStart = letterData["arcStart"];
+  let arcEnd =letterData["arcEnd"];
+  let triX = letterData["triX"];
+  let triY = letterData["triY"];
+  let triR = letterData["triR"];
+  let triH = letterData["triH"];
+  let triW = letterData["triW"];
+  let lineX = letterData["lineX"];
+  let lineY = letterData["lineY"];
+  push();
 
-rect(80,90, 40, 20);
-   fill("#9c4887");
-arc(100, 80, 80, 80, 420, 120);
-
-
-
-fill("#ba7599");
+stroke("#ff1178");
+arc(arcX, arcY, arcS, arcS, arcStart, arcEnd, PIE);
 
 // original code taken from Programming Design Systems chapter 5 Procedural Shapes
 var numVertices = 3; // or 4 or 30
 const spacing = 360 / numVertices;
+stroke("#01fff4");
 push();
-translate(100,100);
-rotate(30);
+translate(triX,triY); 
+rotate(triR);
 beginShape();
 for(let i = 0; i <= numVertices; i++) {
-  const x = cos((i * spacing)) * 10;
-  const y = sin((i * spacing)) * 10;
+  const x = cos((i * spacing)) * triH;
+  const y = sin((i * spacing)) * triW;
   vertex(x, y);
 }
 endShape();
-  pop()
-  // // draw two circles
+pop();
+
+push();
+stroke("#fff205");
+//strokeCap(SQUARE);
+translate(lineX, lineY);
 
 
+beginShape();
+let wave = lineX * 3 
+let lineS = lineX / 10;
+for(let i = 0; i < wave; i++) {
+  const x = i * 2;
+  const y = sin(i * 2) * 100;
+  vertex(x/lineS, y/lineS);
+}
+endShape();
+pop();
 
-
-  // ellipse(CircleX, CircleY-50, CircleS);
-  // ellipse(CircleX, CircleY, CircleS);
-  // fill("#ba7599");
-  // beginShape();
-  // vertex(65, 95);
-  // vertex(35, 130);
-  // vertex(95, 130);
-  // endShape();
-
-
-  
 }
 
 
