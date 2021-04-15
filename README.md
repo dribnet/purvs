@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-This is just followed by the lecturer and make some changes.
+Keep following with the lecturer, studying the alphabet js.file and editor js.file, it's easy to using the editor window to check the alphabet you wanted and show the data.
 
 Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
 

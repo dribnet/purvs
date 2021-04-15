@@ -19,17 +19,21 @@ function drawLetter(letterData) {
   // color/stroke setup
   stroke(strokeColor);
   strokeWeight(4);
+  angleMode(DEGREES);
 
   // determine parameters for second circle
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let pos2x = 0 + letterData["offsetx"];
+  let pos2y = 0 + letterData["offsety"];
+
+  let startAngle = letterData["start"];
+  let stopAngle = letterData["end"];
 
   // draw two circles
   fill(darkBlue);
-  ellipse(50, 150, 75, 75);
+  ellipse(50, 150, 80, 80);
   fill(lightBlue);
-  ellipse(pos2x, pos2y, size2, size2);
+  arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
