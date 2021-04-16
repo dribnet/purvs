@@ -12,35 +12,56 @@ const canvasHeight = 500;
  *
  */
  const letterA = { 
-  "arcX": 100,
-  "arcY": 80,
+  "arcX": 200,
+  "arcY": 200,
   "arcS": 90,
   "arcStart": 0,
   "arcEnd": 360,
-  "triX": 100,
-  "triY": 120,
+  "triX": 200,
+  "triY": 250,
   "triR": 270,
   "triH": 35,
   "triW": 20,
-   "lineX": 70,
-  "lineY": 120,
+   "lineX": 170,
+  "lineY": 240,
+   "lineR": 0,
+   "wave": 360,
+
 }
 
  const letterB = { 
   "arcX": 400,
   "arcY": 200,
-  "arcS": 90,
-  "arcStart": 0,
-  "arcEnd": 360,
-  "triX": 400,
-  "triY": 220,
+  "arcS": 60,
+  "arcStart": 320,
+  "arcEnd": 40,
+  "triX": 420,
+  "triY": 250,
   "triR": 60,
   "triH": 20,
   "triW": 20,
-  "lineX": 200,
-  "lineY": 200,
+  "lineX": 380,
+  "lineY": 170,
+  "lineR": 90,
+  "wave": 600,
 }
 
+ const letterC = { 
+  "arcX": 600,
+  "arcY": 200,
+  "arcS": 60,
+  "arcStart": 80,
+  "arcEnd": 320,
+  "triX": 620,
+  "triY": 250,
+  "triR": 100,
+  "triH": 0,
+  "triW": 30,
+  "lineX": 570,
+  "lineY": 210,
+  "lineR": 40,
+  "wave": 400,
+}
 
 const backgroundColor  = "#000000";
 const strokeColor      = "#ffffff";
@@ -71,7 +92,7 @@ angleMode(DEGREES);
   // draw the letters A, B, C from saved data
   drawLetter(0, 0, letterA);
    drawLetter(0, 0, letterB);
-
+drawLetter(0, 0, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
@@ -88,6 +109,8 @@ function drawLetter(posx, posy, letterData) {
   let triW = letterData["triW"];
   let lineX = letterData["lineX"];
   let lineY = letterData["lineY"];
+  let lineR = letterData["lineR"];
+  let wave = letterData["wave"];
   push();
 
 stroke("#ff1178");
@@ -113,15 +136,14 @@ push();
 stroke("#fff205");
 //strokeCap(SQUARE);
 translate(lineX, lineY);
-
+rotate(lineR);
 
 beginShape();
-let wave = lineX * 3 
-let lineS = lineX / 10;
+
 for(let i = 0; i < wave; i++) {
   const x = i * 2;
   const y = sin(i * 2) * 100;
-  vertex(x/lineS, y/lineS);
+  vertex(x/12, y/14);
 }
 endShape();
 pop();

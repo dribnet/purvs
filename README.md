@@ -11,3 +11,5 @@ Working on getting things into draw letter js and looking at using the variables
 *1 April* :umbrella: :cyclone:  
 I want to have more efficient parameters, so I changed the way that I draw the triangle and ellipse.  
 Code inspiration from the course reading, and using arc to draw ellipse so there more poetential in shapes. 
+
+*16 April* :sunny: 
