@@ -793,35 +793,35 @@ const canvasHeight = 500;
 
   "quadYLoki": 200,
 
-  "quadrotation": 115,
+  "quadrotation": 118,
 
-  "GreenDot1xpos": 345,
+  "GreenDot1xpos": 445,
 
-  "GreenDot1ypos": 150,
+  "GreenDot1ypos": 80,
 
-  "greenDot2xpos": 327,
+  "greenDot2xpos": 415,
 
-  "GreenDot2ypos": 190,
+  "GreenDot2ypos": 205,
 
-  "GreenDot3xpos": 310,
+  "GreenDot3xpos": 385,
 
-  "GreenDot3ypos": 230,
+  "GreenDot3ypos": 330,
 
-  "RedRotation": 65,
+  "RedRotation": 70,
 
-  "RedxPosition": 175,
+  "RedxPosition": 180,
 
-  "RedyPosition": 130,
+  "RedyPosition": 125,
 
-  "BlackLinexpos": 245, 
+  "BlackLinexpos": 235, 
 
-  "BlackLineypos": 210,
+  "BlackLineypos": 212,
 
-  "BlueCircleSize": 70,
+  "BlueCircleSize": 60,
 
-  "BlueCirclexPos": 370,
+  "BlueCirclexPos": 310,
 
-  "BlueCircleyPos": 95,
+  "BlueCircleyPos": 220,
 
 }
 
