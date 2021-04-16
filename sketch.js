@@ -25,6 +25,7 @@ const canvasHeight = 500;
   "lineY": 240,
    "lineR": 0,
    "wave": 360,
+   "waveH": 12,
 
 }
 
@@ -42,6 +43,7 @@ const canvasHeight = 500;
   "lineY": 170,
   "lineR": 90,
   "wave": 600,
+  "waveH": 12,
 }
 
  const letterC = { 
@@ -58,6 +60,7 @@ const canvasHeight = 500;
   "lineY": 210,
   "lineR": 40,
   "wave": 400,
+  "waveH": 12,
 }
 
 const backgroundColor  = "#000000";
@@ -108,6 +111,7 @@ function drawLetter(posx, posy, letterData) {
   let lineY = letterData["lineY"];
   let lineR = letterData["lineR"];
   let wave = letterData["wave"];
+  let waveH = letterData["waveH"];
   push();
 
 stroke("#ff1178");
@@ -140,7 +144,7 @@ beginShape();
 for(let i = 0; i < wave; i++) {
   const x = i * 2;
   const y = sin(i * 2) * 100;
-  vertex(x/12, y/14);
+  vertex(x/waveH, y/14);
 }
 endShape();
 pop();

@@ -15,7 +15,7 @@ function drawLetter(letterData) {
   noFill();
   strokeWeight(5);
   angleMode(DEGREES);
- let arc1 = letterData["arcX"];
+ //let arc1 = letterData["arcX"];
   //let acr2 = letterData["arcY"];
   //let arc3 =  letterData["arcS"];
   let arc4 = letterData["arcStart"];
@@ -29,11 +29,12 @@ function drawLetter(letterData) {
   let line2 = letterData["lineY"];
   let line3 = letterData["lineR"];
   let line4 = letterData["wave"];
+  let line5 = letterData["waveH"];
 
 
 stroke("#ff1178");
 
-arc(arc1, 100, 90, 90, arc4, arc5, PIE);
+arc(50, 100, 85, 85, arc4, arc5, PIE);
 
 
 
@@ -64,7 +65,7 @@ beginShape();
 for(let i = 0; i < line4; i++) {
   const x = i * 2;
   const y = sin(i * 2) * 100;
-  vertex(x/12, y/14);
+  vertex(x/line5, y/14);
 }
 endShape();
 pop();
@@ -78,13 +79,14 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["triY"]    = map(percent, 0, 100, oldObj["triY"], newObj["triY"]);
   new_letter["triR"] = map(percent, 0, 100, oldObj["triR"], newObj["triR"]);
   new_letter["triH"] = map(percent, 0, 100, oldObj["triH"], newObj["triH"]);
-    new_letter["triW"]    = map(percent, 0, 100, oldObj["triW"], newObj["triW"]);
+  new_letter["triW"]    = map(percent, 0, 100, oldObj["triW"], newObj["triW"]);
   new_letter["triR"] = map(percent, 0, 100, oldObj["triR"], newObj["triR"]);
   new_letter["lineX"] = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
   new_letter["lineY"] = map(percent, 0, 100, oldObj["lineY"], newObj["lineY"]);
   new_letter["lineR"] = map(percent, 0, 100, oldObj["lineR"], newObj["lineR"]);
   new_letter["wave"] = map(percent, 0, 100, oldObj["wave"], newObj["wave"]);
-  new_letter["arcX"] = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
+  new_letter["waveH"] = map(percent, 0, 100, oldObj["waveH"], newObj["waveH"]);
+
   return new_letter;
 }
 

@@ -16,7 +16,7 @@ const sliderInfo = [
   ["lineY", 0, 200],
   ["lineR", 0, 360],  
   ["wave", -100, 2000],
-  ["arcX", 0, 50],
+  ["waveH", 0, 100],
 
 ];
 

@@ -16,6 +16,6 @@ Code inspiration from the course reading, and using arc to draw ellipse so there
 Finalised my alphabet idea. 
 I'm trying to create an abstract neon type set, I found a neon colour theme from the internet.
 **colour theme taken from Lopznyko**
-![Image alt text](https://cdn.dribbble.com/users/944284/screenshots/2373617/neon_palette.png?compress=1&resize=800x600.png)
+![Image alt text](https://cdn.dribbble.com/users/944284/screenshots/2373617/neon_palette.png?compress=1&resize=800x600)
 
 I've started to crate letters in editor.html. I decid to let the arc size and Y position stay as a constant, so I can limit my parameters.
