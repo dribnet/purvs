@@ -12,4 +12,10 @@ Working on getting things into draw letter js and looking at using the variables
 I want to have more efficient parameters, so I changed the way that I draw the triangle and ellipse.  
 Code inspiration from the course reading, and using arc to draw ellipse so there more poetential in shapes. 
 
-*16 April* :sunny: 
+*16 April* :sunny: :sun_with_face:
+Finalised my alphabet idea. 
+I'm trying to create an abstract neon type set, I found a neon colour theme from the internet.
+**colour theme taken from Lopznyko**
+![Image alt text](https://dribbble.com/shots/2373617-Neon-Palette?utm_source=Pinterest_Shot&utm_campaign=nicolalops&utm_content=Neon+Palette&utm_medium=Social_Share)
+
+I've started to crate letters in editor.html. I decid to let the arc size and Y position stay as a constant, so I can limit my parameters.

@@ -14,7 +14,6 @@ const canvasHeight = 500;
  const letterA = { 
   "arcX": 200,
   "arcY": 200,
-  "arcS": 90,
   "arcStart": 0,
   "arcEnd": 360,
   "triX": 200,
@@ -32,7 +31,6 @@ const canvasHeight = 500;
  const letterB = { 
   "arcX": 400,
   "arcY": 200,
-  "arcS": 60,
   "arcStart": 320,
   "arcEnd": 40,
   "triX": 420,
@@ -49,7 +47,6 @@ const canvasHeight = 500;
  const letterC = { 
   "arcX": 600,
   "arcY": 200,
-  "arcS": 60,
   "arcStart": 80,
   "arcEnd": 320,
   "triX": 620,
@@ -99,7 +96,7 @@ function drawLetter(posx, posy, letterData) {
   // // determine parameters for second circle
   let arcX = letterData["arcX"];
   let arcY = letterData["arcY"];
-  let arcS = posx + letterData["arcS"];
+  //let arcS =  letterData["arcS"];
   let arcStart = letterData["arcStart"];
   let arcEnd =letterData["arcEnd"];
   let triX = letterData["triX"];
@@ -114,7 +111,7 @@ function drawLetter(posx, posy, letterData) {
   push();
 
 stroke("#ff1178");
-arc(arcX, arcY, arcS, arcS, arcStart, arcEnd, PIE);
+arc(arcX, arcY, 90, 90, arcStart, arcEnd, PIE);
 
 // original code taken from Programming Design Systems chapter 5 Procedural Shapes
 var numVertices = 3; // or 4 or 30

@@ -5,18 +5,18 @@
  * ["object_field", minimum_bound, maximum_bound]
  */
 const sliderInfo = [
-  ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100],
-  ["Rwidth",       0, 100],
-  ["Rheight",  -30,  30],
-  ["size", -100, 100],
-  ["CircleX", 0, 100],
-  ["CircleY",  0, 100],
-  ["TriY", -100, 100],
-  ["TriY2", -100, 100],  
-  ["Trix", -100, 100],
-  ["Trix2", -100, 100],
+  ["arcStart", 0, 360],
+  ["arcEnd", 0, 360],
+  ["triX", 0, 200],
+  ["triY", 0, 200],
+  ["triR", 0,  360],
+  ["triH", 0, 150],
+  ["triW", 0, 70],
+  ["lineX",  0, 100],
+  ["lineY", 0, 200],
+  ["lineR", 0, 360],  
+  ["wave", -100, 2000],
+  ["arcX", 0, 50],
 
 ];
 
