@@ -787,7 +787,130 @@ const canvasHeight = 500;
 // }
 
 
-//Letter U
+
+// //Letter U
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 135,
+
+//   "GreenDot1xpos": 305,
+
+//   "GreenDot1ypos": 300,
+
+//   "greenDot2xpos": 265,
+
+//   "GreenDot2ypos": 310,
+
+//   "GreenDot3xpos": 225,
+
+//   "GreenDot3ypos": 300,
+
+//   "RedRotation": 0,
+
+//   "RedxPosition": 130,
+
+//   "RedyPosition": 190,
+
+//   "BlackLinexpos": 330, 
+
+//   "BlackLineypos": 90,
+
+//   "BlueCircleSize": 60,
+
+//   "BlueCirclexPos": 365,
+
+//   "BlueCircleyPos": 85,
+
+// }
+
+
+
+// //Letter V
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 115,
+
+//   "GreenDot1xpos": 345,
+
+//   "GreenDot1ypos": 150,
+
+//   "greenDot2xpos": 327,
+
+//   "GreenDot2ypos": 190,
+
+//   "GreenDot3xpos": 310,
+
+//   "GreenDot3ypos": 230,
+
+//   "RedRotation": 65,
+
+//   "RedxPosition": 175,
+
+//   "RedyPosition": 130,
+
+//   "BlackLinexpos": 245, 
+
+//   "BlackLineypos": 210,
+
+//   "BlueCircleSize": 70,
+
+//   "BlueCirclexPos": 370,
+
+//   "BlueCircleyPos": 95,
+
+// }
+
+
+
+
+// //Letter W
+//   const letterA = {
+//   "quadXLoki": 200,
+
+//   "quadYLoki": 200,
+
+//   "quadrotation": 118,
+
+//   "GreenDot1xpos": 445,
+
+//   "GreenDot1ypos": 80,
+
+//   "greenDot2xpos": 415,
+
+//   "GreenDot2ypos": 205,
+
+//   "GreenDot3xpos": 385,
+
+//   "GreenDot3ypos": 330,
+
+//   "RedRotation": 70,
+
+//   "RedxPosition": 180,
+
+//   "RedyPosition": 125,
+
+//   "BlackLinexpos": 235, 
+
+//   "BlackLineypos": 212,
+
+//   "BlueCircleSize": 60,
+
+//   "BlueCirclexPos": 310,
+
+//   "BlueCircleyPos": 220,
+
+// }
+
+
+
+
+//Letter W
   const letterA = {
   "quadXLoki": 200,
 
@@ -795,15 +918,15 @@ const canvasHeight = 500;
 
   "quadrotation": 118,
 
-  "GreenDot1xpos": 445,
+  "GreenDot1xpos": 240,
 
-  "GreenDot1ypos": 80,
+  "GreenDot1ypos": 180,
 
-  "greenDot2xpos": 415,
+  "greenDot2xpos": 180,
 
-  "GreenDot2ypos": 205,
+  "GreenDot2ypos": 250,
 
-  "GreenDot3xpos": 385,
+  "GreenDot3xpos": 120,
 
   "GreenDot3ypos": 330,
 
@@ -817,14 +940,13 @@ const canvasHeight = 500;
 
   "BlackLineypos": 212,
 
-  "BlueCircleSize": 60,
+  "BlueCircleSize": 70,
 
-  "BlueCirclexPos": 310,
+  "BlueCirclexPos": 300,
 
-  "BlueCircleyPos": 220,
+  "BlueCircleyPos": 100,
 
 }
-
 
 
   const letterB = {
