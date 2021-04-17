@@ -19,3 +19,6 @@ I'm trying to create an abstract neon type set, I found a neon colour theme from
 ![Image alt text](https://cdn.dribbble.com/users/944284/screenshots/2373617/neon_palette.png?compress=1&resize=800x600)
 
 I've started to crate letters in editor.html. I decid to let the arc size and Y position stay as a constant, so I can limit my parameters.
+
+*17 April* :sunny: :umbrella:  
+Finished my basic letter form today, what I want to work on now is to refine them a bit more and see what else I could do to improve it.  
