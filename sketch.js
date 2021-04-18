@@ -13,24 +13,73 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 80,
-  "offsetx": 0,
-  "offsety": 35
+//position
+  "posx": -80, //square
+  "posy": -100, //square
+  "posx2": -30, //circle
+  "posy2": -50, //circle
+  "posx3": -115, //yellow line
+  "posy3": 110, //yellow line
+  "posx4": 20, //red line
+  "posy4": 0, //red line
+
+//sizes
+  "sizex": -130, //sqaure
+  "sizey": -150, //square
+  "sizex2": 50, //red line
+  "sizey2": 110, // red line
+  "sizex3": -160, //circle
+  "sizey3": -180, //circle
+  "sizex4": -60, //yellow line
+  "sizey4": -50, //yellow line
 }
 
 const letterB = {
-  "size": 150,
-  "offsetx": 0,
-  "offsety": -145
+//position
+  "posx": -80, //square
+  "posy": -100, //square
+  "posx2": -30, //circle
+  "posy2": 50, //circle
+  "posx3": 20, //yellow line
+  "posy3": 105, //yellow line
+  "posx4": -83, //red line
+  "posy4": -100, //red line
+
+//sizes
+  "sizex": -380, //sqaure
+  "sizey": -150, //square
+  "sizex2": -83,//red line
+  "sizey2": 105, // red line
+  "sizex3": -375, //circle
+  "sizey3": -150, //circle
+  "sizex4": -80, //yellow line
+  "sizey4": 105, //yellow line
 }
+
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+//position
+  "posx": -80, //square
+  "posy": -100, //square
+  "posx2": -28, //circle
+  "posy2": -50, //circle
+  "posx3": 20, //yellow line
+  "posy3": 105, //yellow line
+  "posx4": -83, //red line
+  "posy4": -100, //red line
+
+//sizes
+  "sizex": -625, //sqaure
+  "sizey": -150, //square
+  "sizex2": -83,//red line
+  "sizey2": 105, // red line
+  "sizex3": -680, //circle
+  "sizey3": -300, //circle
+  "sizex4": -80, //yellow line
+  "sizey4": 105, //yellow line
 }
 
-const backgroundColor  = "#edb4e7";
+const backgroundColor  = "#ed93e3";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
@@ -64,11 +113,23 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
-
+  // determine parameters
+  let sqx = posx + letterData["posx"];
+  let sqy = posy + letterData["posy"];
+  let crqx = posx + letterData["posx2"];
+  let crqy = posy + letterData["posy2"];
+  let li1x = posx + letterData["posx3"];
+  let li1y = posy + letterData["posy3"];
+  let li2x = posx + letterData["posx4"];
+  let li2y = posy + letterData["posy4"];
+  let sizex = posx + letterData["sizex"];
+  let sizey = posy + letterData["sizey"];
+  let sizex2 = posx + letterData["sizex2"];//red line
+  let sizey2 = posy + letterData["sizey2"];//red line
+  let sizex3 = posx + letterData["sizex3"];
+  let sizey3 = posy + letterData["sizey3"];
+  let sizex4 = posx + letterData["sizex4"];
+  let sizey4 = posy + letterData["sizey4"];
   // draw two circles
   //fill(darkBlue);
  // ellipse(posx, posy, 150, 150);
@@ -77,38 +138,38 @@ function drawLetter(posx, posy, letterData) {
 
   //A  
   stroke(255, 0, 25);
-  line(250,250,300,350);
+  line(li2x,li2y,sizex2,sizey2);//red
   stroke(255, 247, 0);
-  line(100,350,150,250);
+  line(li1x,li1y,sizex4,sizey4);//yellow
   stroke(0,0,0);//black
   fill(3, 252, 44);
-  rect(150,150,100,100);
+  rect(sqx,sqy,sizex,sizey);
   fill(0, 242, 255);
-  ellipse(200,200,50,50);
+  ellipse(crqx,crqy,sizex3,sizey3);
 
 
   //B
-  stroke(0,0,0);
-  fill(3, 252, 44);
-  rect(400,150,100,100);
-  fill(0, 242, 255);
-  ellipse(450,300,100,100);
-  stroke(255, 0, 25);//red
-  line(400,150,400,350);
-  stroke(255, 247, 0);
-  line(400,150,500,250)
+  //stroke(0,0,0);
+  //fill(3, 252, 44);
+  //rect(400,150,100,100);
+  //fill(0, 242, 255);
+ // ellipse(450,300,100,100);
+ // stroke(255, 0, 25);//red
+ // line(400,150,400,350);
+ // stroke(255, 247, 0);
+ // line(400,150,500,250)
 
 
   //C
-  stroke(0,0,0);
-  fill(3, 252, 44);
-  rect(600,150,100,100);
-  fill(0, 242, 255);
-  ellipse(650,200,50,50);
-  stroke(255, 0, 25);
-  line(600,250,600,350);
-  stroke(255, 247, 0);
-  line(600,350,700,350);
+  //stroke(0,0,0);
+ // fill(3, 252, 44);
+ // rect(600,150,100,100);
+ // fill(0, 242, 255);
+  //ellipse(pos2x,pos2y,50,50);
+ // stroke(255, 0, 25);
+ // line(600,250,600,350);
+ // stroke(255, 247, 0);
+ // line(600,350,700,350);
 
 
 
