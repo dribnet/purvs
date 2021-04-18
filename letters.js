@@ -89,59 +89,81 @@ const alphabet = {
   "end": 133
   },
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 70,
+  "offsetx": 50,
+  "offsety": 115, 
+  "start": 360,
+  "end": 180
   },
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 226,
+  "end": 40
   },
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 57,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 0,
+  "end": 360
   },
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 200, 
+  "start": 125,
+  "end": 234
   },
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 100,
+  "offsetx": 54,
+  "offsety": 200, 
+  "start": 300,
+  "end": 37
   },
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 100,
+  "offsetx": 50,
+  "offsety": 192, 
+  "start": 255,
+  "end": 7
   },
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 64,
+  "offsetx": 52,
+  "offsety": 168, 
+  "start": 288,
+  "end": 125
   },
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 100,
+  "offsetx": 50,
+  "offsety": 50, 
+  "start": 46,
+  "end": 133
   },
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 100,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 320,
+  "end": 220
   },
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 91,
+  "offsetx": 50,
+  "offsety": 122, 
+  "start": 342,
+  "end": 198
   },
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+     "size": 63,
+  "offsetx": 50,
+  "offsety": 200, 
+  "start": 200,
+  "end": 340
   },
   "X": {
     "size": 50,

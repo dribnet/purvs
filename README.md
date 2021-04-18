@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Today I knocked out the letters A through to L but may end up changing them  later on if I become happy with them, I added in the code required to use an arc in my writing and may eventully swap the ellipse to either a square or a triangle later on to add a different view
+Today and yesterday I was experimenting witrh swapping the main sphere with a square, however this didnt look right so i made a design choice to stick with the sphere. I also sompleted the letters M through to W. Some of the letters need improvement as they dont look right.
 
 
 
