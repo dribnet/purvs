@@ -27,10 +27,70 @@ fill(fillcol);
   vertex(CENTREX+x*letterData["x3"],CENTREY+y*letterData["y3"]);
   vertex(CENTREX+x*letterData["x4"],CENTREY+y*letterData["y4"]);
   vertex(CENTREX+x*letterData["x5"],CENTREY+y*letterData["y5"]);
+
+
   endShape();
 
 
 }
+function vertpolysym(letterData){
+fill(fillcol);
+  beginShape();
+  vertex(CENTREX+letterData["x1"],CENTREY+letterData["y1"]);
+  vertex(CENTREX+letterData["x2"],CENTREY+letterData["y2"]);
+  vertex(CENTREX+letterData["x3"],CENTREY+letterData["y3"]);
+  vertex(CENTREX+letterData["x4"],CENTREY+letterData["y4"]);
+  vertex(CENTREX+letterData["x5"],CENTREY+letterData["y5"]);
+
+  vertex(CENTREX-letterData["x5"],CENTREY+letterData["y5"]);
+
+  vertex(CENTREX-letterData["x4"],CENTREY+letterData["y4"]);
+
+  vertex(CENTREX-letterData["x3"],CENTREY+letterData["y3"]);
+
+  vertex(CENTREX-letterData["x2"],CENTREY+letterData["y2"]);
+  vertex(CENTREX-letterData["x1"],CENTREY+letterData["y1"]);
+  endShape();
+
+
+}
+function horpolysym(letterData){
+fill(fillcol);
+  beginShape();
+  vertex(CENTREX+letterData["x1"],CENTREY-letterData["y1"]);
+  vertex(CENTREX+letterData["x2"],CENTREY-letterData["y2"]);
+  vertex(CENTREX+letterData["x3"],CENTREY-letterData["y3"]);
+  vertex(CENTREX+letterData["x4"],CENTREY-letterData["y4"]);
+  vertex(CENTREX+letterData["x5"],CENTREY-letterData["y5"]);
+
+
+  vertex(CENTREX+letterData["x5"],CENTREY+letterData["y5"]);
+
+  vertex(CENTREX+letterData["x4"],CENTREY+letterData["y4"]);
+
+  vertex(CENTREX+letterData["x3"],CENTREY+letterData["y3"]);
+  vertex(CENTREX+letterData["x2"],CENTREY+letterData["y2"]);
+  vertex(CENTREX+letterData["x1"],CENTREY+letterData["y1"]);
+
+  endShape();
+
+
+}
+function nopolysym(letterData){
+fill(fillcol);
+  beginShape();
+  vertex(CENTREX+letterData["x1"],CENTREY+letterData["y1"]);
+  vertex(CENTREX+letterData["x2"],CENTREY+letterData["y2"]);
+  vertex(CENTREX+letterData["x3"],CENTREY+letterData["y3"]);
+  vertex(CENTREX+letterData["x4"],CENTREY+letterData["y4"]);
+  vertex(CENTREX+letterData["x5"],CENTREY+letterData["y5"]);
+
+
+  endShape();
+
+
+}
+
 function cir(letterData,x,y){
   fill(backgroundColor);
      ellipse(CENTREX+x*letterData["ex"], CENTREY+y*letterData["ey"], letterData["ewidth"], letterData["eheight"]);
@@ -38,48 +98,92 @@ function cir(letterData,x,y){
 function drawLetter(letterData) {
   // color/stroke setup
  noStroke();
-//  let symmode = letterData["symmode"];
-//  let res = symmode.startsWith("sym");
+let symmode = letterData["symmode"];
 
-
-if (letterData["symmode"]=='symmetry_vert'){//if vertical sym
-  sym(letterData, -1,1);
-  sym(letterData, 1,1);
-  cir(letterData,1,1);
-  cir(letterData,-1,1);
-
-}
-else if (letterData["symmode"]=='symmetry_hor') {//if horizontal sym
-
-  sym(letterData,1,-1);
-  sym(letterData,1,1);
+if (symmode.startsWith("symmetry_vert")){//if vertical sym
+  vertpolysym(letterData);
+  if (symmode.endsWith("offsetcir")){ //offseted sym circles
     cir(letterData,1,-1);
-    cir(letterData,1,1);
+    cir(letterData,-1,1);
+  }
+  else {
 
-
-
-
-}
-else if (letterData["symmode"]=='symmetry_cir_only'){//if no on poly on on circles
-  sym(letterData,1,1);
+//sym circles
   cir(letterData,1,1);
-  cir(letterData,1,-1);
-}
-else if (letterData["symmode"]=='symmetry_hor_no_cir'){//if sym on poly and not on circles
-  sym(letterData,1,-1);
-  sym(letterData,1,1);
-    cir(letterData,1,1);
-}
-else if (letterData["symmode"]=='symmetry_vert_offsetcir'){//if vertical sym and the
-  sym(letterData, -1,1);
-  sym(letterData, 1,1);
-  cir(letterData,1,-1);
   cir(letterData,-1,1);
+}
+}
+else if (symmode.startsWith("symmetry_hor")) {//if horizontal sym
+horpolysym(letterData);
+  //sym(letterData,1,-1);
+//  sym(letterData,1,1);
+if (symmode.endsWith("no_cir")){
+  cir(letterData,1,1);
 }
 else{
-  sym(letterData,1,1);
+  cir(letterData,1,-1);
   cir(letterData,1,1);
 }
+
+
+}
+else {
+  nopolysym(letterData);
+  if (symmode.endsWith("cir_only")){
+    cir(letterData,1,1);
+    cir(letterData,1,-1);
+  }
+  else {
+     cir(letterData,1,1);
+}
+}
+
+
+// if (letterData["symmode"]=='symmetry_vert'){//if vertical sym
+//   sym(letterData, -1,1);
+//   sym(letterData, 1,1);
+//   //sym(letterData, -1,1, 1,1);
+//
+//   cir(letterData,1,1);
+//   cir(letterData,-1,1);
+//
+// }
+// else if (letterData["symmode"]=='symmetry_hor') {//if horizontal sym
+// //sym(letterData, -1,1, 1,1);
+//   sym(letterData,1,-1);
+//   sym(letterData,1,1);
+//     cir(letterData,1,-1);
+//     cir(letterData,1,1);
+//
+//
+//
+//
+// }
+// else if (letterData["symmode"]=='symmetry_cir_only'){//if no on poly on on circles
+//   sym(letterData,1,1);
+//   cir(letterData,1,1);
+//   cir(letterData,1,-1);
+// }
+// else if (letterData["symmode"]=='symmetry_hor_no_cir'){//if sym on poly and not on circles
+//   sym(letterData,1,-1);
+//   sym(letterData,1,1);
+//   // sym(letterData,1,-1,1,1);
+//
+//     cir(letterData,1,1);
+// }
+// else if (letterData["symmode"]=='symmetry_vert_offsetcir'){//if vertical sym and the
+//   sym(letterData, -1,1);
+//   sym(letterData, 1,1);
+//
+// //  sym(letterData, -1,1,1,1);
+//
+//   cir(letterData,1,-1);
+//   cir(letterData,-1,1);
+// }
+// else{
+//   sym(letterData,1,1);
+//   cir(letterData,1,1);
+// }
 
 
 
@@ -87,9 +191,22 @@ else{
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["symmode"]    = map(percent, 0, 100, oldObj["symmode"], newObj["symmode"]);
+  new_letter["x1"]    = map(percent, 0, 100, oldObj["x1"], newObj["x1"]);
+  new_letter["x2"] = map(percent, 0, 100, oldObj["x2"], newObj["x2"]);
+  new_letter["x3"] = map(percent, 0, 100, oldObj["x3"], newObj["x3"]);
+  new_letter["x4"]    = map(percent, 0, 100, oldObj["x4"], newObj["x5"]);
+  new_letter["x5"] = map(percent, 0, 100, oldObj["x5"], newObj["x5"]);
+  new_letter["y1"] = map(percent, 0, 100, oldObj["y1"], newObj["y1"]);
+  new_letter["y2"]    = map(percent, 0, 100, oldObj["y2"], newObj["y2"]);
+  new_letter["y3"] = map(percent, 0, 100, oldObj["y3"], newObj["y3"]);
+  new_letter["y4"] = map(percent, 0, 100, oldObj["y4"], newObj["y4"]);
+  new_letter["y5"]    = map(percent, 0, 100, oldObj["y5"], newObj["y5"]);
+  new_letter["ex"] = map(percent, 0, 100, oldObj["ex"], newObj["ex"]);
+  new_letter["ey"] = map(percent, 0, 100, oldObj["ey"], newObj["ey"]);
+  new_letter["ewidth"]    = map(percent, 0, 100, oldObj["ewidth"], newObj["ewidth"]);
+  new_letter["eheight"] = map(percent, 0, 100, oldObj["eheight"], newObj["eheight"]);
+
   return new_letter;
 }
 
