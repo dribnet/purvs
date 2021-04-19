@@ -13,21 +13,45 @@ const canvasHeight = 500;
  */
 
 const letterA = {
-  "size": 100,
-  "offsetx": 0,
-  "offsety": 25
+  "x1": 200,
+  "x2": 0,
+  "x3": 0,
+  "x4": 0,
+  "x5": 100,
+
+  "y1": 200,
+  "y2": 0,
+  "y3": 200,
+  "y4": 100,
+  "y5": 100,
 }
 
 const letterB = {
-  "size": 100,
-  "offsetx": 0,
-  "offsety": 0
+  "x1": 0,
+  "x2": 200,
+  "x3": 0,
+  "x4": 0,
+  "x5": 0,
+
+  "y1": 200,
+  "y2": 150,
+  "y3": 100,
+  "y4": 0,
+  "y5": 200,
 }
 
 const letterC = {
-  "size": 100,
-  "offsetx": 30,
-  "offsety": 0
+  "x1": 200,
+  "x2": 0,
+  "x3": 200,
+  "x4": 200,
+  "x5": 200,
+
+  "y1": 0,
+  "y2": 100,
+  "y3": 200,
+  "y4": 200,
+  "y5": 200,
 }
 
 const backgroundColor  = "#e3eded";
@@ -65,23 +89,27 @@ function draw () {
 
 function drawLetter(posx, posy, letterData) {
   rectMode(CENTER);
-  // determine parameters for second circle
-  let size2 = letterData["size"];
-  let pos2x = posx + letterData["offsetx"];
-  let pos2y = posy + letterData["offsety"];
+  // determine parameters for lines
+  let pos1x = posx + letterData["x1"];
+  let pos2x = posx + letterData["x2"];
+  let pos3x = posx + letterData["x3"];
+  let pos4x = posx + letterData["x4"];
+  let pos5x = posx + letterData["x5"];
+  
 
-  // draw two circles
-  noFill();
-  line(width / 4, height / 5, width / 4, height / 1.4);
-  line(width / 4, height / 5, width / 3, height / 3);
-  line(width / 4, height / 2.5, width / 3, height / 1.8);
+  let pos1y = posy + letterData["y1"];
+  let pos2y = posy + letterData["y2"];
+  let pos3y = posy + letterData["y3"];
+  let pos4y = posy + letterData["y4"];
+  let pos5y = posy + letterData["y5"];
+  
 
 
-  triangle(width / 2, height / 5, width / 1.8, height / 3.2, width / 2, height / 2.3);
-  triangle(width / 2, height / 2.3, width / 1.8, height / 1.7, width / 2, height / 1.4);
-
-  line(width / 1.3, height / 5, width / 1.5, height / 2);
-  line(width / 1.5, height / 2, width / 1.3, height / 1.4);
+  // draws lines
+  line(pos1x, pos1y, pos2x, pos2y);
+  line(pos2x, pos2y, pos3x, pos3y);
+  line(pos3x, pos3y, pos4x, pos4y);
+  line(pos4x, pos4y, pos5x, pos5y);
 }
 
 function keyTyped() {

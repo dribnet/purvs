@@ -1,12 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
 I have started with my basic design i have started with creating my A B C and went with a runic alphabet theme
+
+I have completed and made what i want my full alphabet to look like and now implimenting it from sketch.js to draw_lettters.js and letters.js. I am running into a few problems as i did intianally hard code the alphabet and had to change it up a bit so that all the letters would be under the 12 varible mark that is set for this assignment. 
+
+I have completed implementing my whole alphabet into the letters.js and draw_letters.js. I just need to do a few tweaks to the design and I should have my project completed.
