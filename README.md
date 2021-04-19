@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Second experiment with colours, using forest green and light yellow
+Finally finished an dfinalised the colours, I went with a basic Black and White layout as it makes the smaller parts stand out easier against the constant white circle. I am very pleased with how I have done throughout this project.
 
 
 
