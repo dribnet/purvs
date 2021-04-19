@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#fffff9"
+var systemBackgroundColor = "#000000"
 var systemLineColor = "#4ecdc4";
 var systemBoxColor = "#ff8c42";
 
@@ -32,18 +32,18 @@ function drawLetter(letterData) {
    noStroke();
 
   //Draw an ellipse
-  fill('#000000'); //red #db1c5f
+  fill('#db1c5f'); //red
   ellipseMode(CORNER);
   ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-  fill('#000000');//blue #4c5bd8
+  fill('#4c5bd8');//blue
   arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
 
 
   // draw a rectangle with round corners and rotate it
-  fill("#000000");//yellow #fadf43
+  fill("#fadf43");//yellow
   push();
   translate(posx,posy);
   rotate(rectAngle);
@@ -55,14 +55,8 @@ function drawLetter(letterData) {
 
 function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
 
- stroke('#fadf43');
- strokeWeight(7);
- line(posx, posy, pos3x, pos3y);
-
- fill('#db1c5f');
- noStroke();
- rect(pos2x+20,pos2y+20, 20);
-
+ push();
+ ellipseMode(CENTER);
  noFill();
  strokeWeight(2);
  stroke('#fadf43');//yellow
@@ -71,6 +65,7 @@ function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
  ellipse(pos3x, pos3y, 10);
  stroke('#db1c5f');//red
  ellipse(posx, posy, 30);
+ pop();
 
 }
 

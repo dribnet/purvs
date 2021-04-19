@@ -358,14 +358,14 @@ const alphabet = {
     "rectAngle": -20,
 
     "size1": 35,
-    "offsetx": 65,
-    "offsety": 50,
+    "offsetx": 35,
+    "offsety": 125,
 
-    "size2": 0,
-    "arcOffsetx": 0,
-    "arcOffsety": 0,
-    "angleStart": 0,
-    "angleEnd": 0
+    "size2": 300,
+    "arcOffsetx": -100,
+    "arcOffsety": 50,
+    "angleStart": 280,
+    "angleEnd": 290
   },
   "W": {
     "size": 150,
