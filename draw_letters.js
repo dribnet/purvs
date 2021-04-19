@@ -37,6 +37,9 @@ let leftMidNodeY = 0
 
 let ShapeRotation = letterData["Rotation"]
 
+
+let lineColor = color(255,255,255,5);
+
 angleMode(DEGREES);
 
 c = color(215, 66, 245);
@@ -50,13 +53,13 @@ MainShape(c,illumination,1,1);
 
 
 noFill();
-MainShape(255,3,1);
+MainShape(lineColor,3,1,50,100);
 
-MainShape(255,3,1);
+MainShape(lineColor,3,1);
 
 
 
-function MainShape (StrokeColour,lineWeight,shapeSizeX){
+function MainShape (StrokeColour,lineWeight,shapeSizeX, posX, posY){
 
 
 
@@ -70,7 +73,7 @@ translate(50,100);
 scale(shapeSizeX);
 rotate(ShapeRotation);
 
-noFill();
+fill(215, 66, 245, 2);
 beginShape();
 vertex(LeftAxis, TopAxis);
 vertex(RightAxis-25,TopMidAxis)
@@ -90,7 +93,7 @@ pop();
 function NodePoints (){
 
 
-stroke(255);
+stroke(lineColor);
 strokeWeight(10);
 
 point(LeftAxis, TopAxis);

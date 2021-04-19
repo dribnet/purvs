@@ -263,9 +263,13 @@ const alphabet = {
         "offsety": 17
     },
     "8": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 17
+        "offsetRightTop": -32,
+        "offsetMidTop": -6,
+        "offsetBottom": -74,
+        "offsetBottomMid": 84,
+        "offsetMidRight": -94,
+        "offsetMidLeft": 10.000000000000014,
+        "Rotation": 0
     },
     "9": {
         "size": 40,
