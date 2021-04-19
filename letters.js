@@ -360,12 +360,12 @@ const alphabet = {
     "lines2HorizonalRotate": 0
   },
   "3": {
-    "backgroundShapeType": 2, //circle
-    "backgroundShapeRotate": 0,
+    "backgroundShapeType": 3, //triangle
+    "backgroundShapeRotate": 270,
     "offsetx": 5,
-    "offsety": -10,
+    "offsety": 21,
     "triangleRotate": 270,
-    "triangleSize": 0.7,
+    "triangleSize": 0.70,
     "linesVerticalXpos": 80,
     "lines1HorizontalYpos": 5,
     "lines2HorizontalYpos": 80,

@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#ebebeb";
+var systemBackgroundColor = "#e6e6e6";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -40,27 +40,31 @@ function drawLetter(letterData) {
   
 
   // background shape
-  fill('#59ccff');
+  // fill('#59ccff');
 
   push()
-    if (shapeType < 2){
+    if (shapeType < 2){ //square
       translate(posx, posy);
       rotate(shapeRotate);
+      fill('#59ccff');
       rect(posx-50, posy-150, 100, 100);
 
-    } else if (shapeType >1 && shapeType < 3){
+    } else if (shapeType >1 && shapeType < 3){ //circle
+      fill('#52b4ff');
       ellipse(posx, posy, 100, 100); //circle doesnt need rotate, as it would stay the same
+      
 
-    } else if (shapeType > 2){
+    } else if (shapeType > 2){ //triangle
       translate(posx, posy);
       rotate(shapeRotate);
+      fill('#53d2dc');
       triangle(posx-50, posy-200, posx, posy-100, posx-100, posy-100);
     }
 
   pop()
 
 
-  //triangle
+  //foreground triangle
   push();
     if (triSize > 0){
       fill(260);
@@ -74,7 +78,7 @@ function drawLetter(letterData) {
 
 
   //vertical lines
-  if (lines1Xpos <= 0){
+  if (lines1Xpos <= 0){ //if x postion of lines is < 0 then lines disappear
     lines1opacity = 0
   } else if (lines1Xpos >0){
     lines1opacity =255
@@ -84,16 +88,15 @@ function drawLetter(letterData) {
   stroke(255,lines1opacity);
   strokeWeight(1.5);
   translate(posx, posy)
-  line(posx-100+lines1Xpos, posy-200, posx-100+lines1Xpos, posy-100);
-  line(posx-95+lines1Xpos, posy-200, posx-95+lines1Xpos, posy-100);
-  line(posx-90+lines1Xpos, posy-200, posx-90+lines1Xpos, posy-100);
-  line(posx-85+lines1Xpos, posy-200, posx-85+lines1Xpos, posy-100);   
+  for (var i=1; i<5; i=i+1){
+    line(posx-105+(i*5)+lines1Xpos, posy-200, posx-105+(i*5)+lines1Xpos, posy-100);
+  } 
   pop(); 
 
 
 
   //horizontal lines 1
-  if (lines2Ypos <= 0){
+  if (lines2Ypos <= 0){ //if y postion of lines is < 0 then lines disappear
     lines2opacity = 0
   } else if (lines2Ypos >0){
     lines2opacity =255
@@ -104,15 +107,14 @@ function drawLetter(letterData) {
   strokeWeight(1.5);
   translate(posx, posy)
   rotate(linesrotate)
-  line(posx-100, posy-200+lines2Ypos, posx, posy-200+lines2Ypos);
-  line(posx-100, posy-195+lines2Ypos, posx, posy-195+lines2Ypos);
-  line(posx-100, posy-190+lines2Ypos, posx, posy-190+lines2Ypos);
-  line(posx-100, posy-185+lines2Ypos, posx, posy-185+lines2Ypos);  
+  for (var y=1; y<5; y=y+1){
+    line(posx-100, posy-205+(y*5)+lines2Ypos, posx, posy-205+(y*5)+lines2Ypos);
+  }
   pop();
 
 
   //horizontal lines 2
-  if (lines3Ypos <= 0){
+  if (lines3Ypos <= 0){ //if y postion of lines is < 0 then lines disappear
     lines3opacity = 0
   } else if (lines3Ypos >0){
     lines3opacity =255
@@ -123,10 +125,9 @@ function drawLetter(letterData) {
   strokeWeight(1.5);
   translate(posx, posy)
   rotate(linesrotate)
-  line(posx-100, posy-200+lines3Ypos, posx, posy-200+lines3Ypos);
-  line(posx-100, posy-195+lines3Ypos, posx, posy-195+lines3Ypos);
-  line(posx-100, posy-190+lines3Ypos, posx, posy-190+lines3Ypos);
-  line(posx-100, posy-185+lines3Ypos, posx, posy-185+lines3Ypos);  
+  for (var x=1; x<5; x=x+1){
+    line(posx-100, posy-205+(x*5)+lines3Ypos, posx, posy-205+(x*5)+lines3Ypos);
+  }
   pop();
 
 
