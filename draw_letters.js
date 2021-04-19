@@ -17,7 +17,7 @@ const lightYellow = "#fff385"
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-
+  randomSeed(42);
   push()
   strokeWeight(9);
   stroke(strokeColor);
@@ -30,7 +30,8 @@ function drawLetter(letterData) {
   let X2 = letterData["X2"];
   let Y2 = letterData["Y2"];
 
-  line(X1,Y1,X2,Y2);
+  //line(X1,Y1,X2,Y2);
+  customLine(X1,Y1,X2,Y2);
 
   
   
@@ -40,9 +41,31 @@ function drawLetter(letterData) {
 
 function customLine(X1,Y1,X2,Y2){
 
+  strokeWeight(7);
   line(X1,Y1,X2,Y2);
-  // line(X1,Y1+20,X2,Y2+20);
-  // line(X1-20,Y1,X2-20,Y2);
+
+  
+
+  //////////////////// adding extra lines to my lines 
+  //strokeWeight(4);
+  // let offset = 10;
+  // stroke(255, 110, 163);
+
+  // line(X1,Y1+offset,X2,Y2+offset);
+  // line(X1-offset,Y1,X2-offset,Y2);
+  /////////////////////////////////////////
+
+  stroke(0);
+  strokeWeight(5);
+
+  let xVal,yVal;
+
+  for(let i = 0; i < 7; i++){
+    xVal = map(i,0,6,X1, X2);
+    yVal = map(i,0,6,Y1, Y2);
+  point(xVal+(random(-5, 5)),yVal+(random(-5, 5)))
+  }
+
 
  //  fill(225);
  //  let Xval, Yval;
