@@ -1,3 +1,5 @@
 ## MDDN 242 2021 Assignment 2
 
-First 5 letters have been modeled with another circle added to the design
+Letters F, G, H, I, J, K, L, M, N, O, P, Q, S, U and W were added to the parametric alphabet
+
+Letters R, T, V, X , Y and Z yet to be added
