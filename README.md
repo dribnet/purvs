@@ -1,5 +1,4 @@
-
-I have been adding some bubbles around and different shapes and played with colours to see if I could get a more bauhaus feel.
+Got some feedback from Bex and Phoebe, will be updating my letters to make them more different from one another and cleaner so that it ressembles the bauhaus movement better.
 
 This alphabet takes inspiration from [**Wassily Kandinsky**](https://www.wassilykandinsky.net), a Russian painter and pioneer of abstract art (1866-1944).
 The [**Bauhaus art**](https://i.pinimg.com/originals/af/be/fb/afbefbd7da9a1aea6ddf6237a48f7b50.jpg) movement inspires the colour palette because Kandinsky took part in it.
