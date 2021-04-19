@@ -1,10 +1,10 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#e3eded";
+var systemBackgroundColor = "#ffd885";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const backgroundColor  = "#e3eded";
+const backgroundColor  = "#ffd885";
 const strokeColor      = "#233f11";
 
 const darkBlue  = "#199cff";
@@ -49,7 +49,7 @@ let line6 = letterData ["Diagonalline4"]
 
 
 noFill();
-stroke(153, 0, 89, 40);
+stroke(252, 3, 3, 40);
 //main wheel
   arc(50, 100, 100, 100, 0, 360);
   line(50, 100+50, 50, 100-50)
@@ -58,7 +58,8 @@ stroke(153, 0, 89, 40);
   line(50-35, 100-35, 50+35, 100+35)
 
   //parameters
-  stroke(153, 0, 89);
+  stroke(252, 3, 3);
+  strokeWeight(2);
   arc(50, 100, 100, 100, arcStartAngle, arcStopAngle);
   arc(50, 100, 100, 100, SecondarcStartAngle, SecondarcStopAngle);
 
