@@ -1,6 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-First Experiment with colours, using red and pink
+Second experiment with colours, using forest green and light yellow
 
 
 

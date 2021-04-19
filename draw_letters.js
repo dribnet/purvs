@@ -28,9 +28,9 @@ function drawLetter(letterData) {
   let stopAngle = letterData["end"];
   
   // draw two circles
-  fill(181, 0, 0);
+  fill(87, 152, 89);
   ellipse(50, 150, 100, 100);
-  fill(181, 0, 126);
+  fill(255, 253, 155);
   arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
   pop();
 }
