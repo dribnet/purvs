@@ -1,40 +1,49 @@
 const alphabet = {
     "default": {
-        "size": 2,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": 0
+        "offsetRightTop": 40,
+        "offsetMidTop": 0,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
+        "offsetMidRight": 0,
+        "offsetMidLeft": 0,
+        "Rotation": 0
     },
     "A": {
         "offsetRightTop": 80,
         "offsetMidTop": -20,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
         "offsetMidRight": 0,
         "offsetMidLeft": 0,
-        "Rotation":-10
+        "Rotation": -10
 
     },
     "B": {
         "offsetRightTop": 0,
         "offsetMidTop": -20,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
         "offsetMidRight": -25,
         "offsetMidLeft": 0,
-        "Rotation":-5
+        "Rotation": -5
     },
     "C": {
         "offsetRightTop": 10,
         "offsetMidTop": 0,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
         "offsetMidRight": -75,
         "offsetMidLeft": -25,
-        "Rotation":0
+        "Rotation": 0
     },
     "D": {
         "offsetRightTop": 0,
         "offsetMidTop": -20,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
         "offsetMidRight": 25,
         "offsetMidLeft": 0,
-        "Rotation":0
+        "Rotation": 0
     },
     "E": {
         "size": 40,
@@ -61,20 +70,22 @@ const alphabet = {
         "TrianglePoint": -50
     },
     "H": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": 41.6,
+        "offsetMidTop": -22.2,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
+        "offsetMidRight": 92,
+        "offsetMidLeft": -32,
+        "Rotation": -46
     },
     "I": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": 6,
+        "offsetMidTop": 28,
+        "offsetBottom": -8,
+        "offsetBottomMid": -26,
+        "offsetMidRight": -36,
+        "offsetMidLeft": 40,
+        "Rotation": 183.6
     },
     "J": {
         "size": 40,
@@ -85,12 +96,13 @@ const alphabet = {
         "TrianglePoint": -50
     },
     "K": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": -10,
+        "offsetMidTop": 58,
+        "offsetBottom": 22,
+        "offsetBottomMid": -64,
+        "offsetMidRight": 0,
+        "offsetMidLeft": 84,
+        "Rotation": 180
     },
     "L": {
         "size": 40,
@@ -109,20 +121,22 @@ const alphabet = {
         "TrianglePoint": -50
     },
     "N": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": -24,
+        "offsetMidTop": 0,
+        "offsetBottom": -32,
+        "offsetBottomMid": -18,
+        "offsetMidRight": -100,
+        "offsetMidLeft": -58,
+        "Rotation": 90
     },
     "O": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": 0,
+        "offsetMidTop": 12.000000000000014,
+        "offsetBottom": 40,
+        "offsetBottomMid": 0,
+        "offsetMidRight": 38,
+        "offsetMidLeft": -22,
+        "Rotation": 7.2
     },
     "P": {
         "size": 40,
@@ -141,12 +155,13 @@ const alphabet = {
         "TrianglePoint": -50
     },
     "R": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 0,
-        "ArcStart": 0,
-        "ArcEnd": 0,
-        "TrianglePoint": -50
+        "offsetRightTop": -24,
+        "offsetMidTop": 100,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
+        "offsetMidRight": -4,
+        "offsetMidLeft": 50,
+        "Rotation": 180
     },
     "S": {
         "size": 40,
@@ -167,9 +182,13 @@ const alphabet = {
         "offsety": 0
     },
     "V": {
-        "size": 50,
-        "offsetx": 15,
-        "offsety": 0
+        "offsetRightTop": 0,
+        "offsetMidTop": -4.199999999999999,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
+        "offsetMidRight": 66,
+        "offsetMidLeft": 100,
+        "Rotation": 90
     },
     "W": {
         "size": 50,
@@ -177,9 +196,13 @@ const alphabet = {
         "offsety": 0
     },
     "X": {
-        "size": 50,
-        "offsetx": 15,
-        "offsety": 0
+        "offsetRightTop": 6,
+        "offsetMidTop": 28,
+        "offsetBottom": 2,
+        "offsetBottomMid": -22,
+        "offsetMidRight": -52,
+        "offsetMidLeft": 48,
+        "Rotation": 270
     },
     "Y": {
         "size": 50,
@@ -197,14 +220,22 @@ const alphabet = {
         "offsety": 17
     },
     "1": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 17
+        "offsetRightTop": 72,
+        "offsetMidTop": 10.000000000000014,
+        "offsetBottom": 0,
+        "offsetBottomMid": 0,
+        "offsetMidRight": 0,
+        "offsetMidLeft": 68,
+        "Rotation": 0
     },
     "2": {
-        "size": 40,
-        "offsetx": 0,
-        "offsety": 17
+        "offsetRightTop": -72,
+        "offsetMidTop": -46,
+        "offsetBottom": -74,
+        "offsetBottomMid": -78,
+        "offsetMidRight": -100,
+        "offsetMidLeft": 0,
+        "Rotation": 176.4
     },
     "3": {
         "size": 40,

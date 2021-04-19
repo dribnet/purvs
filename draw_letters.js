@@ -25,13 +25,16 @@ function drawLetter(letterData) {
 let TopAxis = -75+letterData["offsetRightTop"]//change when porting to draw_letters
 let TopMidAxis = -100 +letterData["offsetMidTop"]
 let LeftAxis = -50
-let BottomSideAxis = 75
-let BottomMidAxis = BottomSideAxis +25
+let BottomSideAxis = 75 +letterData["offsetBottom"]
+let BottomMidAxis = BottomSideAxis +25 +letterData["offsetBottomMid"]
 let RightAxis = 50
 let RightMidAxisY = 0
 let RightMidAxisX =  50+ letterData["offsetMidRight"]
 let leftMidNodeX = -50 +letterData["offsetMidLeft"]
 let leftMidNodeY = 0
+
+
+
 let ShapeRotation = letterData["Rotation"]
 
 angleMode(DEGREES);
@@ -40,25 +43,31 @@ c = color(215, 66, 245);
 c.setAlpha(10);
 let illumination = 2
 
-for (let i = 0; i < 10; i++){
+for (let i = 0; i < 12; i++){
 	illumination = illumination+i
-MainShape(c,illumination,20);
+MainShape(c,illumination,1,1);
 }
 
 
 noFill();
-MainShape(255,3,100);
+MainShape(255,3,1);
+
+MainShape(255,3,1);
 
 
 
-function MainShape (StrokeColour,lineWeight){
+function MainShape (StrokeColour,lineWeight,shapeSizeX){
+
+
 
 stroke(StrokeColour);
 strokeWeight(lineWeight);
 
 push();
 
+
 translate(50,100);
+scale(shapeSizeX);
 rotate(ShapeRotation);
 
 noFill();
@@ -79,6 +88,7 @@ pop();
 }
 
 function NodePoints (){
+
 
 stroke(255);
 strokeWeight(10);
@@ -103,6 +113,8 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["offsetMidRight"] = map(percent, 0, 100, oldObj["offsetMidRight"], newObj["offsetMidRight"]);
   new_letter["offsetMidLeft"] = map(percent, 0, 100, oldObj["offsetMidLeft"], newObj["offsetMidLeft"]);
   new_letter["Rotation"] = map(percent, 0, 100, oldObj["Rotation"], newObj["Rotation"]);
+  new_letter["offsetBottom"]    = map(percent, 0, 100, oldObj["offsetBottom"], newObj["offsetBottom"]);
+  new_letter["offsetBottomMid"] = map(percent, 0, 100, oldObj["offsetBottomMid"], newObj["offsetBottomMid"]);
 
   return new_letter;
 }
