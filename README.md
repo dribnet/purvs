@@ -12,5 +12,5 @@ tounge ?
 some idea of lip position? 
 
 
-Still no idea of how I will do numbers. 
+Finshed the alphabet / first draft
 
