@@ -1,5 +1,5 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#FFB6C1";
+var systemBackgroundColor = "#a7c6d5";
 var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
@@ -41,12 +41,28 @@ function drawLetter(letterData) {
   let start8 = letterData["start8"];
     let stop8 =  letterData["end8"];
 
+     stroke(babyBlue);
+  strokeWeight(7);
+  line(start +3,stop +3,start2 +3,stop2 +3);
+  line(start3 +3,stop3 +3,start4 +3,stop4 +3);
+  line(start5 +3,stop5 +3,start6 +3,stop6 +3);
+  line(start7 +3,stop7 +3,start8 +3,stop8 +3);
+
   stroke(lBabyBlue);
-  strokeWeight(5);
+  strokeWeight(4);
   line(start,stop,start2,stop2);
   line(start3,stop3,start4,stop4);
   line(start5,stop5,start6,stop6);
   line(start7,stop7,start8,stop8);
+
+
+ /*stroke(babyBlue);
+  strokeWeight(5);
+  line(start -10,stop -10,start2 -10,stop2 -10);
+  line(start3 -10,stop3 -10,start4 -10,stop4 -10);
+  line(start5 -10,stop5 -10,start6 -10,stop6 -10);
+  line(start7 -10,stop7 -10,start8 -10,stop8 -10);*/
+
 
 }
  

@@ -32,3 +32,7 @@ finished the basic alphabet
 i have come to the realisation that i have to re do my font as the interpolation does not work so i have to change everything up :(
 
 i managed to fix and re jig my alphabet but the interpolation is not acting right 
+
+interpolation is working well now, now it is time to make the alphabet more exciting and intriguing to look at
+
+some level of fake 3d was added
