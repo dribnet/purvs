@@ -33,8 +33,8 @@ noStroke();
   let sizeThree = letterData["size3"];
   let pos4x = letterData["offsetx4"];
   let pos4y = letterData["offsety4"];
-  let width = 90
-  let height = 90
+  let width = 75
+  let height = 75
   let posx = 50
   let posy = 150
 
@@ -44,10 +44,10 @@ noStroke();
   let angleOne = letterData["angleStart"];
   let angleTwo = letterData["angleStop"];
   
-  // draw two circles
-  fill(125, 238, 255);  //green
+ 
+  fill(125, 238, 255);  //green 
   //fill(245, 179, 243);  //light pink
-  ellipse(posx, posy, width, height);
+  ellipse(posx, posy, width, height);  //the main circle
   stroke (29, 55, 207);
   strokeWeight(3);
   fill(226, 150, 255);
