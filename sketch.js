@@ -80,9 +80,9 @@ function drawLetter(posx, posy, letterData) {
   let stopAngle = letterData["end"];
 
   // draw two circles
-  fill(darkBlue);
+  fill(255);
   ellipse(posx, posy, 150, 150);
-  fill(lightBlue);
+  fill(0);
   arc(pos2x, pos2y, size2, size2, startAngle, stopAngle, CHORD);
 }
 
