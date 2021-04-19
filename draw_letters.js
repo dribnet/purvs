@@ -8,7 +8,7 @@ var systemBoxColor = "#00c800";
 //const lightBlue  = "#59ccff";
 //const strokeColor  = "#233f11";
 const backgroundColor  = (227, 237, 237);
-const strokeColor      = (255);
+const strokeColor      = (2, 30, 189);
 
 /*
  * Draw the letter given the letterData
@@ -45,10 +45,12 @@ noStroke();
   let angleTwo = letterData["angleStop"];
   
   // draw two circles
-  fill(191, 227, 183);  //green
+  fill(125, 238, 255);  //green
   //fill(245, 179, 243);  //light pink
   ellipse(posx, posy, width, height);
-  fill(255, 255, 255, 145)
+  stroke (29, 55, 207);
+  strokeWeight(3);
+  fill(226, 150, 255);
   //fill(220, 168, 237, 145);  //purple
   ellipse(pos2x, pos2y, size, size);
   fill(255, 255, 255, 145)
