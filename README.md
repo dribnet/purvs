@@ -1,7 +1,6 @@
 ## MDDN 242 2021 Assignment 2
 
-Just fully completed my code for the alphabet, and have completed the alphabet A-Z and 0-9
-ALso got my Exhibition working.
+First Experiment with colours, using red and pink
 
 
 
