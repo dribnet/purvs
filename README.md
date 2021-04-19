@@ -6,7 +6,7 @@ SKETCH: For my sketch I used 3 different shapes (a triangle, square and circle) 
 EXAMPLE 1: The first version of the alphabet uses only circles, triangles and squares. At this point the letters are very abstract and some look quite similar to each other. Therefore, for the next version of my alphabet I am going to start using both vertical and horizontal lines to make sure the letters are both readable and distinguishable.
 
 
-EXAMPLE 2: I have now completed the second version of my alphabet by adding vertical and horizontal lines to some of the letters. I only have two parameters left or my next development but i am thinking of adding either colour or another smaller cicrle for letters such as p, 6 and 9
+EXAMPLE 2: I have now completed the second version of my alphabet by adding vertical and horizontal lines to some of the letters. I only have two parameters left for my next development but i am thinking of adding either colour or another smaller cicrle for letters such as p, 6 and 9
 
 
 The parameters per letter:
