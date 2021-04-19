@@ -1,6 +1,18 @@
 const alphabet = {
   "default": {
-
+"arcX": 50,
+  "arcStart": 0,
+  "arcEnd": 360,
+  "triX": 50,
+  "triY": 145,
+  "triR": 270,
+  "triH": 55,
+  "triW": 25,
+   "lineX": 20,
+  "lineY": 140,
+   "lineR": 0,
+   "wave": 360,
+   "waveH": 12,
   },
   "A": {
   "arcX": 50,
@@ -325,17 +337,17 @@ const alphabet = {
   },
   "W": {
     "arcStart": 0,
-  "arcEnd": 61.2,
+  "arcEnd": 80,
   "triX": 26,
-  "triY": 110.00000000000001,
+  "triY": 116,
   "triR": 90,
-  "triH": 19.5,
-  "triW": 21,
-  "lineX": 46,
-  "lineY": 98,
-  "lineR": 50,
-  "wave": 320,
-  "waveH": 12
+  "triH": 30,
+  "triW": 23,
+  "lineX": 18,
+  "lineY": 120,
+  "lineR": 0,
+  "wave": 290,
+  "waveH": 9
   },
   "X": {
      "arcStart": 0,
@@ -352,19 +364,7 @@ const alphabet = {
   "waveH": 6
   },
   "Y": {
-  //     "arcStart": 324,
-  // "arcEnd": 226.8,
-  // "triX": 50,
-  // "triY": 130,
-  // "triR": 90,
-  // "triH": 73.5,
-  // "triW": 20.299999999999997,
-  // "lineX": 50,
-  // "lineY": 200,
-  // "lineR": 270,
-  // "wave": 803,
-  // "waveH": 16
-    "arcStart": 324,
+  "arcStart": 324,
   "arcEnd": 216,
   "triX": 50,
   "triY": 90,
@@ -531,6 +531,6 @@ const alphabet = {
   "lineR": 100,
   "wave": 1013,
   "waveH": 20
-  }
+  },
 
 }

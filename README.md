@@ -12,9 +12,9 @@ Working on getting things into draw letter js and looking at using the variables
 I want to have more efficient parameters, so I changed the way that I draw the triangle and ellipse.  
 Code inspiration from the course reading, and using arc to draw ellipse so there more poetential in shapes. 
 
-*16 April* :sunny: :sun_with_face:
-Finalised my alphabet idea. 
-I'm trying to create an abstract neon type set, I found a neon colour theme from the internet.
+*16 April* :sunny: :sun_with_face:  
+Finalised my alphabet idea.   
+I'm trying to create an abstract neon type set, I found a neon colour theme from the internet.  
 **colour theme taken from Lopznyko**
 ![Image alt text](https://cdn.dribbble.com/users/944284/screenshots/2373617/neon_palette.png?compress=1&resize=800x600)
 
@@ -22,3 +22,6 @@ I've started to crate letters in editor.html. I decid to let the arc size and Y 
 
 *17 April* :sunny: :umbrella:  
 Finished my basic letter form today, what I want to work on now is to refine them a bit more and see what else I could do to improve it.  
+
+*20 April* :cyclone:  
+Today I tried to use custom funcions to add colour effect to the alphabets, I added white colour stroke to create neon effect.  I want to try glowing effect or some other cool things (that I haven't thought of) with the current variables I have.    

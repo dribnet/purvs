@@ -1,7 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#000000";
-var systemLineColor = "#ffffff";
-var systemBoxColor = "#ffffff";
+var systemBackgroundColor = (0);
+var systemLineColor = (250);
+var systemBoxColor = (250);
 
 
 /*
@@ -15,6 +15,7 @@ function drawLetter(letterData) {
   noFill();
   strokeWeight(5);
   angleMode(DEGREES);
+  colorMode(HSB);
  //let arc1 = letterData["arcX"];
   //let acr2 = letterData["arcY"];
   //let arc3 =  letterData["arcS"];
@@ -32,17 +33,15 @@ function drawLetter(letterData) {
   let line5 = letterData["waveH"];
 
 
-stroke("#ff1178");
+stroke(334, 93, 100);
 
-arc(50, 100, 85, 85, arc4, arc5, PIE);
-
-
-
+//arc(50, 100, 85, 85, arc4, arc5, PIE);
+customarc(arc4, arc5)
 push();
 // original code taken from Programming Design Systems chapter 5 Procedural Shapes
 var numVertices = 3; // or 4 or 30
 const spacing = 360 / numVertices;
-stroke("#01fff4");
+stroke(177, 100, 100);
 translate(tri1,tri2); 
 rotate(tri3);
 beginShape();
@@ -55,7 +54,7 @@ endShape();
 pop();
 
 push();
-stroke("#fff205");
+stroke(57, 98, 100);
 //strokeCap(SQUARE);
 translate(line1, line2);
 rotate(line3);
@@ -69,6 +68,23 @@ for(let i = 0; i < line4; i++) {
 }
 endShape();
 pop();
+}
+
+function customarc(arc4, arc5){
+  push();
+  strokeWeight(12);
+  stroke(334, 70, 100, 0.3);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+
+  stroke(334, 93, 100);
+  strokeWeight(5);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+
+  strokeWeight(2);
+  stroke(250);
+  arc(50, 100, 85, 85, arc4, arc5, PIE);
+  
+  pop();
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
@@ -93,5 +109,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "ABBAABBA",
   "CAB?CAB?",
-  "BAAAAAAA"
+  "POPLIGHT",
+  "12345678"
 ]
