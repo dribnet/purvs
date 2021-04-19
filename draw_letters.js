@@ -25,24 +25,33 @@ function drawLetter(letterData) {
   let pos2x = 50  + letterData["offsetx"];
   let pos2y = 150 + letterData["offsety"];
 
-  let A1 = letterData["point1A"];
-  let A2 = letterData["point2A"];
-  let A3 = letterData["point3A"];
-  let B1 = letterData["point1B"];
-  let B2 = letterData["point2B"];
-  let B3 = letterData["point3B"];
-  let C1 = letterData["point1C"];
-  let C2 = letterData["point2C"];
-  let C3 = letterData["point3C"];
-  let D1 = letterData["point1D"];
-  let D2 = letterData["point2D"];
-  let D3 = letterData["point3D"];
+  let A1 = letterData["point1A"]; // first X-point start triangle1
+  let A2 = letterData["point2A"]; // second X-point start triangle1
+  let A3 = letterData["point3A"]; // third X-point start triangle1
+  let B1 = letterData["point1B"]; // first Y-point end triangle1
+  let B2 = letterData["point2B"]; // second Y-point end triangle1
+  let B3 = letterData["point3B"]; // third Y-point end triangle1
+  let C1 = letterData["point1C"]; // first X-point start triangle2
+  let C2 = letterData["point2C"]; // second X-point start triangle2
+  let C3 = letterData["point3C"]; // third X-point start triangle2
+  let D1 = letterData["point1D"]; // first Y-point end triangle2
+  let D2 = letterData["point2D"]; // second Y-point end triangle2
+  let D3 = letterData["point3D"]; // third Y-point end triangle2
 
   // draw two triangles
   fill(colourRed);
-  triangle(A1, B1, A2, B2, A3, B3);
+  customTriangle1(A1, B1, A2, B2, A3, B3);
   fill(colourBlack);
   triangle(C1, D1, C2, D2, C3, D3);
+}
+
+function customTriangle1(A1, B1, A2, B2, A3, B3){
+  triangle(A1, B1, A2, B2, A3, B3);
+  ellipse(A1, B1, 10);
+}
+
+function customTriangle2(C1, D1, C2, D2, C3, D3){
+
 }
 
 function interpolate_letter(percent, oldObj, newObj) {
