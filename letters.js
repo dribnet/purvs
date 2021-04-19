@@ -8,6 +8,7 @@ const alphabet = {
     "size": 40,
     "offsetx": 0,
     "offsety": 17
+    "colour": '#fae'
   },
   "B": {
     "size": 75,
