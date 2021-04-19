@@ -4,7 +4,7 @@ var systemLineColor = "#4d4ddb";
 var systemBoxColor = "#4d4ddb";
 
 /* internal constants */
-const strokeColor  = "#233f11";
+const strokeColor  = "#0db83a";
 const brightGreen  = "#59ff8b";
 const lightBlue  = "#59ccff";
 const lightYellow = "#fff385"
@@ -19,50 +19,49 @@ const lightYellow = "#fff385"
 function drawLetter(letterData) {
 
   push()
-  strokeWeight(1);
+  strokeWeight(9);
   stroke(strokeColor);
   //setup the sketch
   angleMode(DEGREES)
 
   // determine parameters for letter
-  let HeadY = letterData["HeadY"];
-  let mouthHight = letterData["mouthH"];
-  let mouthWidth = letterData["mouthW"];
+  let X1 = letterData["X1"];
+  let Y1 = letterData["Y1"];
+  let X2 = letterData["X2"];
+  let Y2 = letterData["Y2"];
+
+  line(X1,Y1,X2,Y2);
+
   
-  let startAngle = letterData["start"];
-  let stopAngle = letterData["end"];
-
-  // // draw two circles
-  
-   //fill(lightYellow);
-  // ellipse(50, 150, 100, 100);
-
-  // fill(brightGreen);
-  // arc(pos2x, pos2y, size2, size2,startAngle, stopAngle,CHORD);
-  let faceSize = 100;
-  //let mouthHight = 30;
-  //let mouthWidth = 60;
-
-  fill(lightYellow);
-  rect(50-faceSize/2, HeadY, faceSize, faceSize, 20);
-
-  // mouth
-  ellipse(50,HeadY+2*(faceSize/3), mouthWidth,mouthHight);
-  
-  // eyes
-  fill(0);
-  ellipse(30,HeadY+faceSize/4,10);
-  ellipse(70,HeadY+faceSize/4,10);
   
   pop()
 }
 
 
+function customLine(X1,Y1,X2,Y2){
+
+  line(X1,Y1,X2,Y2);
+  // line(X1,Y1+20,X2,Y2+20);
+  // line(X1-20,Y1,X2-20,Y2);
+
+ //  fill(225);
+ //  let Xval, Yval;
+ //    for (var i = 0; i <11; i++) {
+ //    Xval = map(i, 0, 10,X1,X2);
+ //    Yval = map(i, 0, 10,Y1,Y2);
+
+ //    ellipse(Xval,Yval,20);
+ // }
+}
+
+
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
-  new_letter["HeadY"]  = map(percent, 0, 100, oldObj["HeadY"], newObj["HeadY"]);
-  new_letter["mouthH"] = map(percent, 0, 100, oldObj["mouthH"], newObj["mouthH"]);
-  new_letter["mouthW"] = map(percent, 0, 100, oldObj["mouthW"], newObj["mouthW"]);
+  new_letter["X1"]  = map(percent, 0, 100, oldObj["X1"], newObj["X1"]);
+  new_letter["Y1"] = map(percent, 0, 100, oldObj["Y1"], newObj["Y1"]);
+  new_letter["X2"] = map(percent, 0, 100, oldObj["X2"], newObj["X2"]);
+  new_letter["Y2"] = map(percent, 0, 100, oldObj["Y2"], newObj["Y2"]);
+
   return new_letter;
 }
 
