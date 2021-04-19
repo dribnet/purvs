@@ -21,6 +21,8 @@ const letterA = {
   "Diagonalline2": true,
   "Diagonalline3": true,
   "Diagonalline4": false,
+  "SecondarcStop": 0,
+  "SecondarcStart": 0,
 
   
 }
@@ -34,6 +36,8 @@ const letterB = {
   "Diagonalline2": false, 
   "Diagonalline3": false, 
   "Diagonalline4": false, 
+  "SecondarcStop": 0,
+  "SecondarcStart": 0,
 }
 
 const letterC = {
@@ -45,6 +49,8 @@ const letterC = {
   "Diagonalline2": true,
   "Diagonalline3": false, 
   "Diagonalline4": false,
+  "SecondarcStop": 0,
+  "SecondarcStart": 0,
 }
 
 const backgroundColor  = "#e3eded";
@@ -81,10 +87,12 @@ function draw () {
   drawLetter(center_x + 250, center_y, letterC);
 }
 
-function drawLetter(0, 0, letterData) {
-  
+
+function drawLetter(x,y,letterData){
 let arcStartAngle = letterData ["arcStart"];
 let arcStopAngle = letterData["arcStop"];
+let SecondarcStartAngle = letterData ["SecondarcStart"];
+let SecondarcStopAngle = letterData["SecondarcStop"];
 let line1 = letterData["VerticalLine"];
 let line2 = letterData ["Diagonalline1"]
 let line3 = letterData ["horizontalline"]
@@ -100,36 +108,35 @@ let line6 = letterData ["Diagonalline4"]
 noFill();
 stroke(153, 0, 89, 50);
 //main wheel
-  arc(0, 0, 100, 100, 0, 360);
-  line(0, 0+50, 0, 0-50)
-  line(0+50, 0, 0-50, 0)
-  line(0+35, 0-35, 0-35, 0+35)
-  line(0-35, 0-35, 0+35, 0+35)
+  arc(x, y, 100, 100, 0, 360);
+  line(x, y+50, x, y-50)
+  line(x+50, y, x-50, y)
+  line(x+35, y-35, x-35, y+35)
+  line(x-35, y-35, x+35, y+35)
 
   //parameters
   stroke(153, 0, 89);
-  arc(0, 0, 100, 100, arcStartAngle, arcStopAngle);
+  arc(x, y, 100, 100, arcStartAngle, arcStopAngle);
+  arc(x, y, 100, 100, SecondarcStartAngle, SecondarcStopAngle);
 
   if(line1 == true){
-   line(0, 0+50, 0, 0-50)
+   line(x, y+50, x, y-50)
   } 
   if(line2 == true){
-   line(0, 0, 0+35, 0-35)
+   line(x, y, x+35, y-35)
   }
   if(line3 == true){
-   line(0, 0, 0+50, 0)
+   line(x, y, x+50, y)
   }
   if(line4 == true){
-   line(0, 0, 0+35, 0+35)
+   line(x, y, x+35, y+35)
   }
   if(line5 == true){
-   line(0, 0, 0-35, 0+35)
+   line(x, y, x-35, y+35)
   }
   if(line6 == true){
-   line(0, 0, 0-35, 0-35)
+   line(x, y, x-35, y-35)
   }
-
-
 
 }
 

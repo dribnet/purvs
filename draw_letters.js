@@ -22,6 +22,8 @@ function drawLetter(letterData) {
 
 let arcStartAngle = letterData ["arcStart"];
 let arcStopAngle = letterData["arcStop"];
+let SecondarcStartAngle = letterData ["SecondarcStart"];
+let SecondarcStopAngle = letterData["SecondarcStop"];
 let line1 = letterData["VerticalLine"];
 let line2 = letterData ["Diagonalline1"]
 let line3 = letterData ["horizontalline"]
@@ -33,6 +35,18 @@ let line6 = letterData ["Diagonalline4"]
 // "verticalline"
 // "horizontalline"
 // "arc1" etc. something like that 
+
+  if(arcStartAngle == null) {
+    print("Warning: missing arcStartAngle");
+    print(letterData);
+    arcStartAngle = 0;
+  }
+  if(arcStopAngle == null) {
+    print("Warning: missing arcStopAngle");
+    print(letterData);
+    arcStopAngle = 0;
+  }
+
 
 noFill();
 stroke(153, 0, 89, 40);
@@ -46,6 +60,7 @@ stroke(153, 0, 89, 40);
   //parameters
   stroke(153, 0, 89);
   arc(50, 100, 100, 100, arcStartAngle, arcStopAngle);
+  arc(50, 100, 100, 100, SecondarcStartAngle, SecondarcStopAngle);
 
   if(line1 == true){
    line(50, 100+50, 50, 100-50)
