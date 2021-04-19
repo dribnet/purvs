@@ -1,10 +1,7 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#121921";
-var systemLineColor = "#000090";
-var systemBoxColor = "#00c800";
-
-/* internal constants */
-const strokeColor      = "#233f11";
+var systemBackgroundColor = "#fffff9"
+var systemLineColor = "#4ecdc4";
+var systemBoxColor = "#ff8c42";
 
 
 /*
@@ -17,10 +14,6 @@ const strokeColor      = "#233f11";
 function drawLetter(letterData) {
   //set up the sketch
   angleMode(DEGREES); //angle mode to degrees
-
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
 
   // determine parameters for second circle
   let size = letterData["size"];
@@ -39,25 +32,47 @@ function drawLetter(letterData) {
    noStroke();
 
   //Draw an ellipse
-  fill('#db1c5f');
+  fill('#000000'); //red #db1c5f
   ellipseMode(CORNER);
   ellipse(pos2x, pos2y, size1, size1);
 
 
   //Draw an arc
-  fill('#4C5BD8');//Red
+  fill('#000000');//blue #4c5bd8
   arc(pos3x, pos3y, size2, size2, angleStart, angleEnd);
 
 
   // draw a rectangle with round corners and rotate it
-  fill("#FADF43");//set up the colour with an HEX
+  fill("#000000");//yellow #fadf43
   push();
   translate(posx,posy);
   rotate(rectAngle);
   rect(0, 0, 15, size, 20);
   pop();
+
+  bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y);
 }
 
+function bubbles(posx, posy, pos2x, pos2y, pos3x, pos3y){
+
+ stroke('#fadf43');
+ strokeWeight(7);
+ line(posx, posy, pos3x, pos3y);
+
+ fill('#db1c5f');
+ noStroke();
+ rect(pos2x+20,pos2y+20, 20);
+
+ noFill();
+ strokeWeight(2);
+ stroke('#fadf43');//yellow
+ ellipse(pos2x, pos2y, 20);
+ stroke('#4c5bd8');//blue
+ ellipse(pos3x, pos3y, 10);
+ stroke('#db1c5f');//red
+ ellipse(posx, posy, 30);
+
+}
 
 
 function interpolate_letter(percent, oldObj, newObj) {

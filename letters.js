@@ -434,7 +434,7 @@ const alphabet = {
   "0": {
     "size": 150,
     "recOffsetx": 90,
-    "recOffsety": 70,
+    "recOffsety": 60,
     "rectAngle": 35,
 
     "size1": 100,
