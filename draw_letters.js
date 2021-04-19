@@ -4,7 +4,7 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#00c800";
 
 /* internal constants */
-const babyBlue  = "#89cff0";
+const darkBlue  = "#7aa2b6";
 const lightBlue  = "#cdebf9";
 const lBabyBlue = "#b6e2f6";
 
@@ -41,7 +41,7 @@ function drawLetter(letterData) {
   let start8 = letterData["start8"];
     let stop8 =  letterData["end8"];
 
-     stroke(babyBlue);
+     stroke(darkBlue);
   strokeWeight(7);
   line(start +3,stop +3,start2 +3,stop2 +3);
   line(start3 +3,stop3 +3,start4 +3,stop4 +3);
@@ -54,15 +54,6 @@ function drawLetter(letterData) {
   line(start3,stop3,start4,stop4);
   line(start5,stop5,start6,stop6);
   line(start7,stop7,start8,stop8);
-
-
- /*stroke(babyBlue);
-  strokeWeight(5);
-  line(start -10,stop -10,start2 -10,stop2 -10);
-  line(start3 -10,stop3 -10,start4 -10,stop4 -10);
-  line(start5 -10,stop5 -10,start6 -10,stop6 -10);
-  line(start7 -10,stop7 -10,start8 -10,stop8 -10);*/
-
 
 }
  
