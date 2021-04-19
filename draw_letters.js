@@ -40,11 +40,13 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["start"] = map(percent, 0, 360, oldObj["start"], newObj["start"]);
+  new_letter["end"] = map(percent, 0, 360, oldObj["end"], newObj["end"]);
   return new_letter;
 }
 
 var swapWords = [
-  "ABBAABBA",
-  "CAB?CAB?",
-  "BAAAAAAA"
+  "SMOOTHAF",
+  "DEMONIC1",
+  "EL137GMR"
 ]

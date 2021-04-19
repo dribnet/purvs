@@ -1,6 +1,7 @@
 ## MDDN 242 2021 Assignment 2
 
-Today and yesterday I was experimenting witrh swapping the main sphere with a square, however this didnt look right so i made a design choice to stick with the sphere. I also sompleted the letters M through to W. Some of the letters need improvement as they dont look right.
+Just fully completed my code for the alphabet, and have completed the alphabet A-Z and 0-9
+ALso got my Exhibition working.
 
 
 

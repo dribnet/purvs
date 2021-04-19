@@ -121,7 +121,7 @@ const alphabet = {
   "offsetx": 54,
   "offsety": 200, 
   "start": 300,
-  "end": 37
+  "end": 60
   },
   "R": {
      "size": 100,
@@ -166,69 +166,95 @@ const alphabet = {
   "end": 340
   },
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 300,
+  "end": 133
   },
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 72, 
+  "start": 360,
+  "end": 180
   },
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 112, 
+  "start": 40,
+  "end": 140
   },
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 360,
+  "end": 0
   },
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+  "offsetx": 12,
+  "offsety": 150, 
+  "start": 316,
+  "end": 43
   },
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 64,
+  "offsetx": 50,
+  "offsety": 132, 
+  "start": 198,
+  "end": 43
   },
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 47,
+  "offsetx": 52,
+  "offsety": 124, 
+  "start": 230,
+  "end": 133
   },
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 63,
+  "offsetx": 38,
+  "offsety": 128, 
+  "start": 300,
+  "end": 133
   },
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 47,
+  "offsetx": 52,
+  "offsety": 176, 
+  "start": 248,
+  "end": 129
   },
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 47,
+  "offsetx": 26,
+  "offsety": 160, 
+  "start": 360,
+  "end": 0
   },
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 150, 
+  "start": 342,
+  "end": 80
   },
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 80,
+  "offsetx": 50,
+  "offsety": 94, 
+  "start": 360,
+  "end": 0
   },
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "size": 100,
+  "offsetx": 50,
+  "offsety": 192, 
+  "start": 334,
+  "end": 80
   }
 
 }
